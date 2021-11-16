@@ -253,6 +253,7 @@ class OverflowTable extends BaseTable {
 	_setupScroll() {
 		// Does not warn of a missing wrapper: assumes no overflow is desired.
 		if (this.container && this.overlayWrapper && !this.wrapper) {
+			// eslint-disable-next-line no-console
 			console.warn(
 				'Controls to scroll table left/right could not be added to "o-table" as it is missing markup. ' +
 				'Please add the container and wrapper elements according to the documentation https://registry.origami.ft.com/components/o-table.',

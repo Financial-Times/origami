@@ -18,6 +18,7 @@ class FlatTable extends BaseTable {
 		this._tableHeadersWithoutSort = this.tableHeaders.map(header => header.cloneNode(true));
 		// Flat table can only work given headers.
 		if (this.tableHeaders.length <= 0) {
+			// eslint-disable-next-line no-console
 			console.warn('Could not create a "flat" table as no headers were found. Ensure table headers are placed within "<thead>". Removing class "o-table--responsive-flat".', rootEl);
 			rootEl.classList.remove('o-table--responsive-flat');
 		} else {

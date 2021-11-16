@@ -104,12 +104,14 @@ class BaseTable {
 		}
 		// Do not setup filter if markup is missing.
 		if (!this.filterContainer) {
+			// eslint-disable-next-line no-console
 			console.warn(`Could not setup the filter for the table "${tableId}" as markup is missing. A filterable table must be within a div with class "o-table-container".`);
 			return;
 		}
 		// Warn if a misconfigured filter was found.
 		const filterColumn = parseInt(filter.getAttribute('data-o-table-filter-column'), 10);
 		if (isNaN(filterColumn)) {
+			// eslint-disable-next-line no-console
 			console.warn(`Could not setup the filter for the table "${tableId}" as no column index was given to filter on. Add a \`data-o-table-filter-column="{columnIndex}"\` attribute to the filter.`, filter);
 			return;
 		}
@@ -195,6 +197,7 @@ class BaseTable {
 	 */
 	_updateTableHeight() {
 		if (!this.filterContainer) {
+			// eslint-disable-next-line no-console
 			console.warn(`The table has missing markup. A responsive or filterable table must be within a div with class "o-table-container".`, this.rootEl);
 			return;
 		}
@@ -461,6 +464,7 @@ class BaseTable {
 				}
 				// Otherwise return text content.
 				if (node.nodeType === Node.ELEMENT_NODE) {
+					// eslint-disable-next-line no-console
 					console.warn(`o-table has removed the element "${node.nodeName}" from the table heading to add a sort button on the column. Please remove this element from your table heading, disable sort on this column, or contact the Origami team for help.`, th);
 				}
 				return html + node.textContent;
