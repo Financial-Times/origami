@@ -17,17 +17,8 @@ async function shouldPercyRun() {
 		let baseRef = context.payload.pull_request.base.ref;
 		let headRef = context.payload.pull_request.head.ref;
 		$.verbose = false
-		let commits = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef} --`;
-		let filesChanged = await $`git log --name-only --pretty=format: origin/${baseRef}...origin/${headRef} --`;
+		let commits = await $`git log ${process.env.WORKSPACE} --pretty=format:%s origin/${baseRef}...origin/${headRef} --`;
 		$.verbose = true
-		let files = filesChanged.stdout.split('\n');
-		let noFilesChangedInWorkspace = files.every(file => {
-			return file.startsWith(`${process.env.WORKSPACE}/`) == false
-		})
-		if (noFilesChangedInWorkspace) {
-			core.notice('None of the files changed in the pull-request are within this components folder. This means we do not need to run Percy.')
-			return false;
-		}
 		let messages = commits.stdout.split('\n');
 		for (const message of messages) {
 			if (message.startsWith('fix:') || message.startsWith('fix!:') || message.startsWith('feat:') || message.startsWith('feat!:')) {
