@@ -17,7 +17,7 @@ async function shouldPercyRun() {
 		let baseRef = context.payload.pull_request.base.ref;
 		let headRef = context.payload.pull_request.head.ref;
 		$.verbose = false
-		let commits = await $`git log ${process.env.WORKSPACE} --pretty=format:%s origin/${baseRef}...origin/${headRef} --`;
+		let commits = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef} -- ${process.env.WORKSPACE}`;
 		$.verbose = true
 		let messages = commits.stdout.split('\n');
 		for (const message of messages) {
