@@ -69,6 +69,7 @@ class TableSorter {
 		const tableHeaderElement = table.getTableHeader(columnIndex);
 
 		if (batch) {
+			// eslint-disable-next-line no-console
 			console.warn('o-table: The "batch" argument is deprecated and no longer used.');
 		}
 
