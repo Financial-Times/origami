@@ -105,7 +105,10 @@
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
 			"description": "Accessibility test will be run against this demo",
-			"hidden": true
+			"hidden": true,
+			"brands": [
+				"internal"
+			]
 		}
 	]
 }
