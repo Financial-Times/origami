@@ -41,7 +41,7 @@ class Forms {
 	 * declaratively, this method is used to extract the data attributes from the DOM.
 	 *
 	 * @param {HTMLElement} formElement - The message element in the DOM
-	 * @returns {object.<string, any>} - The options
+	 * @returns {Object.<string, any>} - The options
 	 */
 	static getDataAttributes(formElement) {
 		if (!(formElement instanceof HTMLElement)) {

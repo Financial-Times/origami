@@ -242,7 +242,7 @@ class Banner {
 	 * declaratively, this method is used to extract the data attributes from the DOM.
 	 *
 	 * @param {HTMLElement} bannerElement - The banner element in the DOM
-	 * @returns {object.<string, any>} - The options
+	 * @returns {Object.<string, any>} - The options
 	 */
 	static getOptionsFromDom (bannerElement) {
 		if (!(bannerElement instanceof HTMLElement)) {
