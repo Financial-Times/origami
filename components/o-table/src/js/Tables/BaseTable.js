@@ -6,7 +6,7 @@ import Delegate from 'ftdomdelegate';
  * @access private
  * @param {Element} tbody - The table body to append the row batch to.
  * @param {Array} rowBatch - An array of rows to append to the table body.
- * @returns {undefined}
+ * @returns {void}
  */
 function append(tbody, rowBatch) {
 	if (tbody.append) {
@@ -22,7 +22,7 @@ function append(tbody, rowBatch) {
  * @access private
  * @param {Element} tbody - The table body to prepend the row batch to.
  * @param {Array} rowBatch - An array of rows to prepend to the table body.
- * @returns {undefined}
+ * @returns {void}
  */
 function prepend(tbody, rowBatch) {
 	if (tbody.prepend) {
@@ -41,10 +41,10 @@ class BaseTable {
 	 *
 	 * @access public
 	 * @param {HTMLElement} rootEl - The `o-table` element.
-	 * @param {TableSorter} sorter
+	 * @param {import("../Sort/TableSorter")} sorter a TableSorter instance
 	 * @param {object} opts [{}]
-	 * @param {Bool} opts.sortable [true]
-	 * @returns {BaseTable}
+	 * @param {boolean} opts.sortable [true]
+	 * @returns {BaseTable} the new base table
 	 */
 	constructor(rootEl, sorter, opts = {}) {
 		this._listeners = [];
@@ -138,7 +138,7 @@ class BaseTable {
 	 * Update the o-table instance with rows added or removed dynamically from
 	 * the table. Applies any existing sort and filter to new rows.
 	 *
-	 * @returns {undefined}
+	 * @returns {void}
 	 */
 	updateRows() {
 		const rows = this._getLatestRowNodes();
@@ -161,7 +161,7 @@ class BaseTable {
 	/**
 	 * Get all the table body's current row nodes.
 	 *
-	 * @returns {Array<Node>}
+	 * @returns {Array<Node>} all the trs
 	 * @access private
 	 */
 	_getLatestRowNodes() {
@@ -178,7 +178,7 @@ class BaseTable {
 	 * and does not look for new rows added to the dom. See `updateRows`.
 	 *
 	 * @see updateRows
-	 * @returns {undefined}
+	 * @returns {void}
 	 */
 	renderRowUpdates() {
 		this._updateRowAriaHidden();
@@ -237,7 +237,7 @@ class BaseTable {
 	/**
 	 * Get the table height, accounting for "hidden" rows.
 	 *
-	 * @returns {number | null}
+	 * @returns {number} the height in pixels
 	 */
 	_getTableHeight() {
 		const tableHeight = this.rootEl.getBoundingClientRect().height;
@@ -362,7 +362,7 @@ class BaseTable {
 	 * @access private
 	 * @param {Element} cell - The table cell to test the filter function against.
 	 * @param {string | Function} filter - The filter, either a string or callback function.
-	 * @returns {boolean}
+	 * @returns {boolean} does the fliter match?
 	 */
 	static _filterMatch(cell, filter) {
 		// If the filter is a string create a filter function which:
@@ -397,7 +397,7 @@ class BaseTable {
 	 * @access public
 	 * @param {number} columnIndex - The index of the table column to get the header for.
 	 * @throws When no header is not found.
-	 * @returns {HTMLElement}
+	 * @returns {HTMLElement} the table header
 	 */
 	getTableHeader(columnIndex) {
 		const th = this.tableHeaders[columnIndex];
@@ -605,10 +605,9 @@ class BaseTable {
 	 * Helper function to dispatch namespaced events.
 	 *
 	 * @param {string} event - The event name within `oTable` e.g. "sorted".
-	 * @param {object} data={} - Event data. `instance` is added automatically.
-	 * @param {object} opts={} - [Event options]{@link https://developer.mozilla.org/en-US/docs/Web/API/Event/Event#Values} (o-table events bubble by default).
-	 * @param data
-	 * @param opts
+	 * @param {object} data - Event data. `instance` is added automatically.
+	 * @param {object} opts - [Event options]{@link https://developer.mozilla.org/en-US/docs/Web/API/Event/Event#Values} (o-table events bubble by default).
+	 * @returns {boolean} false is cancelable and canceled, otherwise true
 	 */
 	_dispatchEvent(event, data = {}, opts = {}) {
 		Object.assign(data , {

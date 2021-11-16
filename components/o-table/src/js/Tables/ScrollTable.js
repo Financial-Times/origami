@@ -6,10 +6,10 @@ class ScrollTable extends BaseTable {
 	 *
 	 * @access public
 	 * @param {HTMLElement} rootEl - The `o-table` element.
-	 * @param {TableSorter} sorter
+	 * @param {import("../Sort/TableSorter")} sorter the TableSorter instance
 	 * @param {object} opts [{}]
-	 * @param {Bool} opts.sortable [true]
-	 * @returns {ScrollTable}
+	 * @param {boolean} opts.sortable [true]
+	 * @returns {ScrollTable} - the new ScrollTable instance
 	 */
 	constructor(rootEl, sorter, opts = {}) {
 		super(rootEl, sorter, opts);
@@ -56,7 +56,7 @@ class ScrollTable extends BaseTable {
 	 * Get all the table body's current row nodes, without nodes duplicated for
 	 * the responsive "scroll" style
 	 *
-	 * @returns {Array<Node>}
+	 * @returns {Array<Node>} an array of the table's rows
 	 * @access private
 	 */
 	_getLatestRowNodes() {

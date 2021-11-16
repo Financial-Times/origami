@@ -6,13 +6,13 @@ class OverflowTable extends BaseTable {
 	 * Initialises an `o-table` component with "overflow" responsive behaviour.
 	 *
 	 * @param {HTMLElement} rootEl - The `o-table` element.
-	 * @param {TableSorter} sorter
+	 * @param {import("../Sort/TableSorter")} sorter a tablesorter instance
 	 * @param {object} opts [{}]
-	 * @param {Bool} opts.sortable [true]
-	 * @param {undefined | Bool} opts.expanded
-	 * @param {number} opts.minimumRowCount [20]
+	 * @param {boolean} opts.sortable [true] - is the table sortable
+	 * @param {undefined | boolean} opts.expanded - is the table expanded
+	 * @param {number} opts.minimumRowCount [20] - the fewest number of rows to show
 	 * @access public
-	 * @returns {OverflowTable}
+	 * @returns {OverflowTable} - Your new table
 	 */
 	constructor(rootEl, sorter, opts = {}) {
 		super(rootEl, sorter, opts);
@@ -47,7 +47,7 @@ class OverflowTable extends BaseTable {
 	 * Check if the table is expanded (true) or collapsed (false).
 	 *
 	 * @access public
-	 * @returns {Bool}
+	 * @returns {boolean} is the table expanded?
 	 */
 	isExpanded() {
 		const expand = this._expand === undefined ? Boolean(this._opts.expanded) : Boolean(this._expand);
@@ -58,7 +58,7 @@ class OverflowTable extends BaseTable {
 	 * Check if the table is collapsed (true) or expanded (false).
 	 *
 	 * @access public
-	 * @returns {Bool}
+	 * @returns {boolean} is the table contracted?
 	 */
 	isContracted() {
 		const expand = this._expand === undefined ? Boolean(this._opts.expanded) : Boolean(this._expand);
@@ -133,7 +133,7 @@ class OverflowTable extends BaseTable {
 	 * Hides table rows if the table can be expanded.
 	 *
 	 * @access public
-	 * @returns undefined
+	 * @returns {void}
 	 */
 	contractTable() {
 		if (!this.canExpand()) {
@@ -147,7 +147,7 @@ class OverflowTable extends BaseTable {
 	 * Expands the table, revealing hidden table rows, if it can be expanded and has been contracted.
 	 *
 	 * @access public
-	 * @returns undefined
+	 * @returns {void}
 	 */
 	expandTable() {
 		if (!this.canExpand()) {
@@ -160,7 +160,7 @@ class OverflowTable extends BaseTable {
 	/**
 	 * Get the table height, accounting for "hidden" rows.
 	 *
-	 * @returns {number | null}
+	 * @returns {number | null} the height
 	 */
 	_getTableHeight() {
 		if (this.isContracted()) {
@@ -470,7 +470,7 @@ class OverflowTable extends BaseTable {
 	/**
 	 * The number of rows to display if the table is collapsed.
 	 *
-	 * @returns {number}
+	 * @returns {number} the number of rows, or 20
 	 */
 	get _minimumRowCount() {
 		const minimumRowCount = this._opts.minimumRowCount;
@@ -500,7 +500,7 @@ class OverflowTable extends BaseTable {
 	/**
 	 * Check if the table can be scrolled.
 	 *
-	 * @returns {boolean}
+	 * @returns {boolean} can the table be scrolled?
 	 */
 	get _canScrollTable() {
 		return this._fromEnd > 0 || this._fromStart > 0;
@@ -509,7 +509,7 @@ class OverflowTable extends BaseTable {
 	/**
 	 * Check if the table can fit within the viewport vertically.
 	 *
-	 * @returns {boolean}
+	 * @returns {boolean} is the table too big for the viewport?
 	 */
 	get _tableTallerThanViewport() {
 		return this.container.getBoundingClientRect().height > document.documentElement.clientHeight;
@@ -519,7 +519,7 @@ class OverflowTable extends BaseTable {
 	 * Check if the document is long enough to scroll beyond the table enough for sticky arrows to dock at the bottom.
 	 * I.e. Scroll past the table by at least 50% of the viewport.
 	 *
-	 * @returns {boolean}
+	 * @returns {boolean} is the table so big that the viewport can scroll past it by over 50%?
 	 */
 	get _canScrollPastTable() {
 		return this.container.getBoundingClientRect().bottom + document.documentElement.clientHeight / 2 < document.documentElement.getBoundingClientRect().bottom;
@@ -529,7 +529,7 @@ class OverflowTable extends BaseTable {
 	 * Check if the "dock" at the bottom of the table should be shown.
 	 * After scrolling past the table, sticky arrows sit within the dock at the bottom of the table.
 	 *
-	 * @returns {boolean}
+	 * @returns {boolean} should the dock be shown?
 	 */
 	get _showArrowDock() {
 		return OverflowTable._supportsArrows() && this._canScrollTable && this._canScrollPastTable && this.canExpand();
@@ -538,7 +538,7 @@ class OverflowTable extends BaseTable {
 	/**
 	 * Check if left/right controls should be sticky.
 	 *
-	 * @returns {boolean}
+	 * @returns {boolean} does the browser support stickiness, and is the table big?
 	 */
 	get _stickyArrows() {
 		return OverflowTable._supportsArrows() && this._tableTallerThanViewport;
@@ -547,7 +547,7 @@ class OverflowTable extends BaseTable {
 	/**
 	 * Check if sticky buttons are supported.
 	 *
-	 * @returns {boolean}
+	 * @returns {boolean} is stickiness supported by the user's browser?
 	 */
 	static _supportsArrows() {
 		return typeof CSS !== 'undefined' && (CSS.supports("position", "sticky") || CSS.supports('position', '-webkit-sticky'));

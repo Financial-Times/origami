@@ -7,10 +7,10 @@ class FlatTable extends BaseTable {
 	 *
 	 * @access public
 	 * @param {HTMLElement} rootEl - The `o-table` element.
-	 * @param {TableSorter} sorter
+	 * @param {import("../Sort/TableSorter")} sorter the TableSorter instance
 	 * @param {object} opts [{}]
-	 * @param {Bool} opts.sortable [true]
-	 * @returns {FlatTable}
+	 * @param {boolean} opts.sortable [true]
+	 * @returns {FlatTable} The new flat table
 	 */
 	constructor(rootEl, sorter, opts = {}) {
 		super(rootEl, sorter, opts);
@@ -32,7 +32,7 @@ class FlatTable extends BaseTable {
 	/**
 	 * Update the o-table instance with rows added dynamically to the table.
 	 *
-	 * @returns {undefined}
+	 * @returns {void}
 	 */
 	updateRows() {
 		// Update new rows to support the flat structure.
@@ -46,7 +46,7 @@ class FlatTable extends BaseTable {
 	 * Get all the table body's current row nodes, without nodes duplicated for
 	 * the responsive "flat" style
 	 *
-	 * @returns {Array<Node>}
+	 * @returns {Array<Node>} all the trs
 	 * @access private
 	 */
 	_getLatestRowNodes() {
@@ -55,9 +55,9 @@ class FlatTable extends BaseTable {
 
 	/**
 	 * Duplicate table headers for each data item.
-	 * I.e. Each row is shown as a single item with its own headings.
+	 * i.e. Each row is shown as a single item with its own headings.
 	 *
-	 * @param rows
+	 * @param {Array<HTMLTableRowElement>} rows rows to duplicate
 	 * @access private
 	 */
 	_createFlatTableStructure(rows = this.tableRows) {
