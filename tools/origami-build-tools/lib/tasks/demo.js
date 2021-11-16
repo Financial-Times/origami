@@ -18,8 +18,8 @@ module.exports = function (cfg) {
 			if (config.brand) {
 				return buildDemo(config);
 			} else {
-				const brands = await getModuleBrands(config.cwd)
-				const demos = []
+				const brands = await getModuleBrands(config.cwd);
+				const demos = [];
 				for (const brand of brands) {
 					const brandedConfig = Object.assign({brand}, config);
 					demos.push(buildDemo(brandedConfig));
