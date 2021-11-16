@@ -317,7 +317,7 @@ describe("oToggle", () => {
 			const target = new OToggle.Target(testToggle);
 			testToggle.target = target;
 			sinon.stub(target, "isOpen").returns(true);
-			testToggle.callback = () => {};
+			testToggle.callback = Function.prototype;
 			const callbackSpy = sinon.spy(testToggle, "callback");
 
 			testToggle.toggle(event);
@@ -329,7 +329,7 @@ describe("oToggle", () => {
 		it("calls the callback with `this` bound to the correct context (the toggle not the event)", () => {
 			const target = new OToggle.Target(testToggle);
 			testToggle.target = target;
-			testToggle.callback = () => {};
+			testToggle.callback = Function.prototype;
 
 			sinon.stub(target, "isOpen").returns(true);
 
@@ -349,7 +349,7 @@ describe("oToggle", () => {
 			const target = new OToggle.Target(testToggle);
 			testToggle.target = target;
 			sinon.stub(target, "isOpen").returns(false);
-			testToggle.callback = () => {};
+			testToggle.callback = Function.prototype;
 			const callbackSpy = sinon.spy(testToggle, "callback");
 
 			testToggle.toggle(event);
