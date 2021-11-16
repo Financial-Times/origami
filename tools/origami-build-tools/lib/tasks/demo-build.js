@@ -138,7 +138,6 @@ function buildDemoHtml(buildConfig) {
 			data.oDemoTitle = moduleName + ': ' + buildConfig.demo.name + ' demo';
 			data.oDemoDocumentClasses = buildConfig.demo.documentClasses || buildConfig.demo.bodyClasses;
 
-			console.log(buildConfig.demo.sass, buildConfig.demo.sassDestination)
 			data.oDemoComponentStylePath = buildConfig.demo.sassDestination ?
 				path.basename(buildConfig.demo.sassDestination) :
 				'';
