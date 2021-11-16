@@ -61,7 +61,7 @@ describe("oToggle", () => {
 			let toggleEl;
 
 			beforeEach(() => {
-				window.myCallback = () => { };
+				window.myCallback = Function.prototype;
 				fixtures.declarativeMarkup('myCallback');
 				toggleEl = document.querySelector('[data-o-component="o-toggle"]');
 			});
