@@ -22,5 +22,6 @@
     "prepare": "npm run snyk-protect",
     "watch": "bundle exec jekyll build --watch --drafts --incremental -d ../../origami.ft.com"
   },
-  "snyk": true
+  "snyk": true,
+  "private": true
 }
