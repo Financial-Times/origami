@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {$, ProcessPromise, ProcessOutput} from "zx"
+import {$} from "zx"
 import {readPackage} from "read-pkg"
 import {request} from "undici"
 
