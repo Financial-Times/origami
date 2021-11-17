@@ -10,5 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "is-ci": "^3.0.1"
-  }
+  },
+  "private": true
 }

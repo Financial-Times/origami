@@ -20,5 +20,6 @@
     "sass-bin": "^1.42.3",
     "yargs-parser": "^20.2.9",
     "zx": "^4.2.0"
-  }
+  },
+  "private": true
 }
