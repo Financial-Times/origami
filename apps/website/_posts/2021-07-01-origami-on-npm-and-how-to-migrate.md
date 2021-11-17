@@ -343,7 +343,7 @@ Make sure your project has upgraded to the latest component released to Bower be
 			<tr>
 			<td>o-subs-card</td>
 			<td>6.0.0-bower</td>
-			<td><a href="https://github.com/Financial-Times/o-subs-card/blob/v6.0.0/MIGRATION.md">o-stepped-progress migration guide</a></td>
+			<td><a href="https://github.com/Financial-Times/o-subs-card/blob/v6.0.0/MIGRATION.md">o-subs-card progress migration guide</a></td>
 			</tr>
 			<tr>
 			<td>o-syntax-highlight</td>
