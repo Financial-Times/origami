@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" class="{{oDemoDocumentClasses}}">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>{{oDemoTitle}}</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+	{{#oDemoPolyfillUrl}}
+		<script src="{{{oDemoPolyfillUrl}}}"></script>
+	{{/oDemoPolyfillUrl}}
+
+	{{#oDemoDependenciesScriptPath}}
+		<script src="{{{ oDemoDependenciesScriptPath }}}" defer></script>
+	{{/oDemoDependenciesScriptPath}}
+
+	{{#oDemoComponentScriptPath}}
+		<script src="{{{ oDemoComponentScriptPath }}}" defer></script>
+	{{/oDemoComponentScriptPath}}
+
+	{{#oDemoDependenciesStylePath}}
+		<link rel="stylesheet" href="{{{.}}}" />
+	{{/oDemoDependenciesStylePath}}
+
+	{{#oDemoComponentStylePath}}
+		<link rel="stylesheet" href="{{{.}}}" />
+	{{/oDemoComponentStylePath}}
+</head>
+<body>
+	{{> oDemoTpl}}
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>
