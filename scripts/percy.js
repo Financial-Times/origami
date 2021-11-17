@@ -56,33 +56,13 @@ try {
 			process.exit(0)
 		}
 
-		if (componentConfig.brands) {
-			for (const brand of componentConfig.brands) {
-				await generateDemosFor(brand, demosConfig)
-			}
-		} else {
-			await generateDemosFor("core", demosConfig)
-		}
+		let npxPath = await io.which("npx", true)
+		await $`"${npxPath}" npm exec -w ${workspace} obt demo`
 
 		await generatePercySnapshots()
 	}
 } catch (error) {
 	core.setFailed(error.message)
-}
-
-async function generateDemosFor(brand, demosConfig) {
-	let npxPath = await io.which("npx", true)
-	let outputDir = `${workspace}/demos/percy/${brand}`
-	const brandSupportedDemos = demosConfig.filter(
-		d => !Array.isArray(d.brands) || d.brands.includes(brand)
-	)
-	const demoNames = brandSupportedDemos.map(d => d.name).join(",")
-
-	await $`"${npxPath}" npm exec -w ${workspace} obt demo --brand=${brand} --demo-filter="${demoNames}"`
-	if (fs.existsSync(`${workspace}/demos/local`)) {
-		await io.mkdirP(outputDir)
-		await io.mv(`${workspace}/demos/local`, outputDir)
-	}
 }
 
 async function generatePercySnapshots() {
