@@ -231,7 +231,7 @@ Make sure your project has upgraded to the latest component released to Bower be
 			</tr>
 			<tr>
 			<td>o-footer</td>
-			<td>7.x.x</td>
+			<td>9.0.1-bower</td>
 			<td><a href="https://github.com/Financial-Times/o-footer/blob/v7.0.0/MIGRATION.md">o-footer migration guide</a></td>
 			</tr>
 			<tr>
@@ -287,8 +287,9 @@ Make sure your project has upgraded to the latest component released to Bower be
 			<tr>
 			<td>o-layout</td>
 			<td>4.x.x</td>
-			<td><a href="https://github.com/Financial-Times/o-layout/blob/v4.0.0/MIGRATION.md">o-layout migration guide</a></td>
-.x.x            </tr>
+			<td>
+			<a href="https://github.com/Financial-Times/o-layout/blob/v4.0.0/MIGRATION.md">o-layout migration guide</a></td>
+			</tr>
 			<tr>
 			<td>o-lazy-load</td>
 			<td>2.x.x</td>
@@ -338,6 +339,11 @@ Make sure your project has upgraded to the latest component released to Bower be
 			<td>o-stepped-progress</td>
 			<td>2.x.x</td>
 			<td><a href="https://github.com/Financial-Times/o-stepped-progress/blob/v2.0.0/MIGRATION.md">o-stepped-progress migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-subs-card</td>
+			<td>6.0.0-bower</td>
+			<td><a href="https://github.com/Financial-Times/o-subs-card/blob/v6.0.0/MIGRATION.md">o-stepped-progress migration guide</a></td>
 			</tr>
 			<tr>
 			<td>o-syntax-highlight</td>
