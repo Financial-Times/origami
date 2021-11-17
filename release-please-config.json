@@ -54,6 +54,9 @@
 		"libraries/o-errors": {},
 		"libraries/o-tracking": {},
 		"libraries/o-utils": {},
-		"libraries/sass-mq": {}
+		"libraries/sass-mq": {},
+		"presets/eslint-config-origami-component": {},
+		"presets/remark-preset-lint-origami-component": {},
+		"presets/stylelint-config-origami-component": {}
 	}
 }
