@@ -41,6 +41,8 @@ for (let workspace of workspacePaths) {
 	await writeFile(`.github/workflows/test-${workspaceFilename}.yml`, testFile)
 
 	if (workspace.startsWith("components/")) {
+	let pkg = await readPackage({cwd: workspace})
+
 		let percyFile = Mustache.render(percyTemplate, {workspace, percyTokenName})
 		await writeFile(
 			`.github/workflows/percy-${workspaceFilename}.yml`,
@@ -50,6 +52,7 @@ for (let workspace of workspacePaths) {
 
 	if (workspace.match(/^(components|libraries)\//)) {
 		let pkg = await readPackage({cwd: workspace})
+	if (pkg.private !== true) {
 		dotReleasePleaseManifest[workspace] = pkg.version
 		releasePleaseConfig.packages[workspace] = {}
 	}
