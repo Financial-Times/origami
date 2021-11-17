@@ -4,5 +4,6 @@
   "description": "storybook addon for showing a panel with html",
   "main": "index.js",
   "author": "chee <chee@snoot.club>",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true
 }

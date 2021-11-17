@@ -8,5 +8,6 @@
   "dependencies": {
     "notion-client": "^4.10.0",
     "react-notion-x": "^4.11.0"
-  }
+  },
+  "private": true
 }

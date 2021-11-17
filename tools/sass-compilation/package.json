@@ -16,5 +16,6 @@
     "parse-json": "^6.0.0",
     "read-pkg": "^7.0.0",
     "sass-bin": "^1.43.2"
-  }
+  },
+  "private": true
 }
