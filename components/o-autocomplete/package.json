@@ -41,5 +41,6 @@
   },
   "dependencies": {
     "@financial-times/accessible-autocomplete": "^2.1.2"
-  }
+  },
+  "percy": true
 }
