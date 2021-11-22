@@ -37,7 +37,7 @@
     "@financial-times/o-visual-effects": "^4.0.1"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",

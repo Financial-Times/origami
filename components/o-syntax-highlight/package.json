@@ -27,7 +27,7 @@
     "@financial-times/o-colors": "^6.0.0"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",

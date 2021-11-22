@@ -62,5 +62,8 @@
     "node-sass": "^6.0.0",
     "sassdoc": "^2.7.0"
   },
-  "private": false
+  "private": false,
+  "engines": {
+    "npm": "^7 || ^8"
+  }
 }

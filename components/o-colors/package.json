@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "peerDependencies": {
     "@financial-times/o-brand": "^4.0.1",
