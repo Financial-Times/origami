@@ -9,7 +9,7 @@ let {log} = console
 let code = 0
 
 let message = `
-make sure private is true for packages that should be published, and false for
+make sure private is false for packages that should be published, and true for
 those that shouldn't.
 `
 
