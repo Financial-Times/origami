@@ -46,5 +46,6 @@
   "dependencies": {
     "ftdomdelegate": "^4.0.6"
   },
-  "percy": true
+  "percy": true,
+  "private": false
 }
