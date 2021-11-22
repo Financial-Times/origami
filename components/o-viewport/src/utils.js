@@ -4,9 +4,9 @@ let debug;
 
 /**
  *
- * @param {string} eventType
- * @param {object} data
- * @param {EventTarget} target
+ * @param {string} eventType the name of the event
+ * @param {object} data the payload of the event
+ * @param {EventTarget} target the target of the event
  */
 function broadcast(eventType, data, target) {
 	target = target || document.body;
@@ -16,50 +16,56 @@ function broadcast(eventType, data, target) {
 		console.log('o-viewport', eventType, data);
 	}
 
-	target.dispatchEvent(new CustomEvent('oViewport.' + eventType, {
-		detail: data,
-		bubbles: true
-	}));
+	target.dispatchEvent(
+		new CustomEvent('oViewport.' + eventType, {
+			detail: data,
+			bubbles: true,
+		})
+	);
 }
 
 /**
  * Get the viewport height.
  *
  * @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar height.
- * @returns {number}
+ * @returns {number} viewport height
  */
 function getHeight(ignoreScrollbars) {
-	return ignoreScrollbars ? document.documentElement.clientHeight : Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+	return ignoreScrollbars
+		? document.documentElement.clientHeight
+		: Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 }
 
 /**
  * Get the viewport width.
  *
  * @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar width
- * @returns {number}
+ * @returns {number} viewport width
  */
 function getWidth(ignoreScrollbars) {
-	return ignoreScrollbars ? document.documentElement.clientWidth : Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+	return ignoreScrollbars
+		? document.documentElement.clientWidth
+		: Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 }
 
 /**
  * Viewport size.
  *
  * @typedef {object} Size
- * @property {number} height
- * @property {number} width
+ * @property {number} height viewport height
+ * @property {number} width viewport width
  */
 
 /**
  * Get the viewport width and height.
  *
  * @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar width/height.
- * @returns {Size}
+ * @returns {Size} viewport width and height object
  */
 function getSize(ignoreScrollbars) {
 	return {
 		height: getHeight(ignoreScrollbars),
-		width: getWidth(ignoreScrollbars)
+		width: getWidth(ignoreScrollbars),
 	};
 }
 
@@ -74,14 +80,14 @@ function getSize(ignoreScrollbars) {
  */
 
 /**
- * @returns {ScrollPosition}
+ * @returns {ScrollPosition} current scroll info
  */
 function getScrollPosition() {
 	return {
 		height: document.body.scrollHeight,
 		width: document.body.scrollWidth,
 		left: window.pageXOffset || window.scrollX,
-		top: window.pageYOffset || window.scrollY
+		top: window.pageYOffset || window.scrollY,
 	};
 }
 
@@ -91,11 +97,13 @@ function getScrollPosition() {
 function getOrientation() {
 	const orientation = window.screen.orientation;
 	if (orientation) {
-		return typeof orientation === 'string' ?
-			orientation.split('-')[0] :
-			orientation.type.split('-')[0];
+		return typeof orientation === 'string'
+			? orientation.split('-')[0]
+			: orientation.type.split('-')[0];
 	} else if (window.matchMedia) {
-		return window.matchMedia('(orientation: portrait)').matches ? 'portrait' : 'landscape';
+		return window.matchMedia('(orientation: portrait)').matches
+			? 'portrait'
+			: 'landscape';
 	} else {
 		return getHeight() >= getWidth() ? 'portrait' : 'landscape';
 	}
@@ -109,7 +117,7 @@ function getVisibility() {
 }
 
 export default {
-	debug: function() {
+	debug: function () {
 		debug = true;
 	},
 	broadcast,
@@ -120,5 +128,5 @@ export default {
 	getVisibility,
 	getOrientation,
 	debounce: Utils.debounce,
-	throttle: Utils.throttle
+	throttle: Utils.throttle,
 };
