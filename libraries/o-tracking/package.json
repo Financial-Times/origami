@@ -23,5 +23,6 @@
   },
   "dependencies": {
     "ftdomdelegate": "^5"
-  }
+  },
+  "private": false
 }
