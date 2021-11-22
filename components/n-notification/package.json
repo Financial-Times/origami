@@ -1,7 +1,7 @@
 {
   "name": "@financial-times/n-notification",
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "type": "module",
   "description": "Component for showing notifications to users",

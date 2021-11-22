@@ -19,7 +19,7 @@
     "test": "test-sass"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",

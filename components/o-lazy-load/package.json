@@ -4,7 +4,7 @@
   "browser": "main.js",
   "type": "module",
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "keywords": [
     "lazy",

@@ -28,7 +28,7 @@
     "@financial-times/sass-mq": "^5.0.2"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",
