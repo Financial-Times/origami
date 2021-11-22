@@ -1,0 +1,22 @@
+{
+  "name": "@financial-times/origami-bower-safe-version-supervisor",
+  "version": "1.0.0",
+  "description": "Check projects dependencies are using versions of origami which are avialable on both npm and bower",
+  "main": "index.js",
+  "bin": {
+    "o-no": "index.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dedent-tabs": "^0.10.1",
+    "major-versions": "^2.2.1",
+    "read-pkg": "^6.0.0",
+    "semver": "^7.3.5",
+    "semver-bounded": "^2.0.3",
+    "semver-extra": "^3.0.0"
+  },
+  "private": false
+}

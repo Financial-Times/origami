@@ -132,6 +132,8 @@ stylelint-config-origami-component:
   - presets/stylelint-config-origami-component/**/*
 a11y:
   - tools/a11y/**/*
+origami-bower-safe-version-supervisor:
+  - tools/origami-bower-safe-version-supervisor/**/*
 origami-build-tools:
   - tools/origami-build-tools/**/*
 origami-tools-helpers:
