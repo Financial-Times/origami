@@ -27,5 +27,6 @@
     "test": "bash ../../scripts/component/test.bash",
     "lint": "bash ../../scripts/component/lint.bash"
   },
-  "percy": true
+  "percy": true,
+  "private": false
 }

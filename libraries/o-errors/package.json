@@ -22,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-errors,libraries",
     "email": "origami.support@ft.com"
-  }
+  },
+  "private": false
 }

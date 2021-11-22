@@ -1,4 +1,4 @@
-name: check if monorepo config needs regenerated (npm run regenerate)
+name: 'make sure every workspace has package.json#private set to `true` or `false`'
 on:
   pull_request:
     branches: [ main ]
@@ -18,5 +18,4 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
     - run: npm ci
-    - run: npm run regenerate
-    - run: ./scripts/check-for-changes.bash
+    - run: node ./scripts/check-privacy.js
