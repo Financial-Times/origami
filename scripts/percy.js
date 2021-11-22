@@ -67,6 +67,6 @@ try {
 
 async function generatePercySnapshots() {
 	let npxPath = await io.which("npx", true)
-	let outputDir = `${workspace}/demos/percy/`
+	let outputDir = `${workspace}/demos/local/`
 	await $`"${npxPath}" percy snapshot ${outputDir}`
 }
