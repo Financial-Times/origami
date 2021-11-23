@@ -19,7 +19,7 @@
     "semver-extra": "^3.0.0"
   },
   "private": false,
-	"publishConfig": {
+  "publishConfig": {
     "access": "public"
   }
 }
