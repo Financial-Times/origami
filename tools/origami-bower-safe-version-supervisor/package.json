@@ -18,5 +18,8 @@
     "semver-bounded": "^2.0.3",
     "semver-extra": "^3.0.0"
   },
-  "private": false
+  "private": false,
+	"publishConfig": {
+    "access": "public"
+  },
 }
