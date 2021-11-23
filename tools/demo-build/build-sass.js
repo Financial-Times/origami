@@ -87,7 +87,7 @@ function buildSass(config) {
 						const sassTempPath = './demos/src/temp-sass-compilation.scss';
 						await writeFile(sassTempPath, sassData, 'utf-8');
 						$.verbose = false;
-						result = await $`${sassBinary} ${sassTempPath} ${sassArguments.join(' ')} --load-path=../../node_modules --load-path=node_modules`; // #402-to-do : should these paths be included in getSassIncludePaths, not sure if it will affect other parts of the code
+						result = await $`${sassBinary} ${sassTempPath} ${sassArguments}`;
 						await unlink(sassTempPath);
 						// Output Sass debug logs and warnings
 						if (result.stderr) {

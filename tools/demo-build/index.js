@@ -1,68 +1,304 @@
 #!/usr/bin/env node
 
-import buildDemo from './demo-build.js'
-import { files } from 'origami-tools-helpers';
-import { readFile } from 'fs/promises';
+import mergeDeep from 'merge-deep';
+import { readFile, writeFile } from 'fs/promises';
 import * as path from 'node:path'
+import { files, constructPolyfillUrl } from 'origami-tools-helpers'
+import { buildSass } from './build-sass.js';
+import buildJs from './build-js.js';
+import mustache from 'mustache';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+async function readOrigamiConfig() {
+	const configPath = './origami.json';
+	try {
+		const file = await readFile(configPath, 'utf-8');
+		let demosConfig;
+		try {
+			demosConfig = JSON.parse(file);
+			return demosConfig;
+		} catch  {
+			console.error(`${configPath} is not valid JSON.`);
+			process.exit(1);
+		}
+	} catch  {
+		console.error(`No origami.json file found at ${configPath}`);
+		process.exit(1);
+	}
+}
+
+function hasDemos(origamiConfig) {
+	return Array.isArray(origamiConfig.demos) && origamiConfig.demos.length > 1
+}
+
+function getBrands(origamiConfig) {
+	const hasBrandsDefined = origamiConfig && origamiConfig.brands && Array.isArray(origamiConfig.brands) && origamiConfig.brands.length > 0;
+	if (hasBrandsDefined) {
+		return origamiConfig.brands;
+	}
+	console.error(`No brands defined in origami.json.brands - The component needs to explicitly state which brands it supports.`);
+	process.exit(1);
+}
+
+function getComponentDefaultDemoConfig(origamiConfig) {
+	if (origamiConfig && origamiConfig.demosDefaults && typeof origamiConfig.demosDefaults === 'object') {
+		return origamiConfig.demosDefaults;
+	}
+	return {};
+}
+
+function hasUniqueNames(demos) {
+	const names = new Set;
+	for (let i = 0; i < demos.length; i++) {
+		if (names.has(demos[i].name)) {
+			return false;
+		}
+		names.add(demos[i].name);
+	}
+	return true;
+}
+
+async function buildDemoSass(buildConfig) {
+	const src = path.join(buildConfig.cwd, '/' + buildConfig.demo.sass);
+	const dest = path.join(buildConfig.cwd, '/demos/local/');
+
+	const exists = await files.fileExists(src);
+	if (!exists) {
+		const e = new Error('Sass file not found: ' + src);
+		e.stack = '';
+		throw e;
+	}
+
+	const sassConfig = {
+		sass: src,
+		// For the Sass files to load correctly, they need to be in one of these two directories.
+		// Sass doesn't look in subdirectories and we can't use wildcards
+		sassIncludePaths: ['demos/src', 'demos/src/scss'],
+		sourcemaps: true,
+		buildCss: path.basename(buildConfig.demo.sass).replace('.scss', '.css'),
+		buildFolder: dest,
+		cwd: buildConfig.cwd,
+		brand: buildConfig.brand
+	};
+
+	const css = await buildSass(sassConfig);
+	return writeFile(path.join(dest, buildConfig.demo.sassDestination), css);
+}
+
+async function buildDemoJs(buildConfig) {
+	const src = path.join(buildConfig.cwd, '/' + buildConfig.demo.js);
+	const destFolder = path.join(buildConfig.cwd, '/demos/local/');
+	const dest = buildConfig.demo.jsDestination;
+	const exists = await files.fileExists(src);
+	if (!exists) {
+		const e = new Error('JavaScript file not found: ' + src);
+		e.stack = '';
+		throw e;
+	}
+
+	const jsConfig = {
+		js: src,
+		buildFolder: destFolder,
+		buildJs: dest
+	};
+
+	return buildJs(jsConfig);
+}
+
+async function loadLocalDemoData(dataPath) {
+	try {
+		const file = await readFile(dataPath, 'utf-8');
+			try {
+				const fileData = JSON.parse(file);
+				if (typeof fileData === 'object') {
+					return fileData;
+				} else {
+					return {};
+				}
+			} catch (error) {
+				const e = new Error(`${dataPath} is not valid JSON.`);
+				e.stack = '';
+				throw e;
+			}
+	} catch {
+		console.error(`Demo data not found: ${dataPath}`);
+		process.exit(1);
+	}
+}
+
+function loadDemoData(buildConfig) {
+	if (typeof buildConfig.demo.data === 'string') {
+		const dataPath = path.join(buildConfig.cwd, '/' + buildConfig.demo.data);
+		return loadLocalDemoData(dataPath);
+	} else if (typeof buildConfig.demo.data === 'object') {
+		return Promise.resolve(buildConfig.demo.data);
+	} else {
+		return Promise.resolve({});
+	}
+}
+
+async function buildDemoHtml(buildConfig) {
+	const src = path.join(buildConfig.cwd, '/' + buildConfig.demo.template);
+	const partialsDir = path.dirname(src);
+	const dest = path.join('demos', 'local');
+	const destName = buildConfig.brand + '-' + buildConfig.demo.name + '.html';
+	let data;
+	let partials;
+	const configuredPartials = {};
+
+	data = await loadDemoData(buildConfig)
+	const exists = await files.fileExists(src);
+	if (!exists) {
+		const e = new Error(`Demo template not found: ${src}`);
+		e.stack = '';
+		throw e;
+	}
+
+	const [
+		moduleName,
+		oDemoTpl
+	] = await Promise.all([
+		files.getComponentName(buildConfig.cwd),
+		readFile(src, {
+			encoding: 'utf8'
+		})
+	]);
+	const dependencies = buildConfig.demo.dependencies;
+	// core will replace master brand, this is temporary whilst origami build service is updated to support both.
+	// we're updating the o-brand component and build tools first as origami build service uses branded components
+	// for integration tests.
+	const brand = buildConfig.brand === 'core' ? 'master' : buildConfig.brand;
+	data.oDemoTitle = moduleName + ': ' + buildConfig.demo.name + ' demo';
+	data.oDemoDocumentClasses = buildConfig.demo.documentClasses || buildConfig.demo.bodyClasses;
+
+	data.oDemoComponentStylePath = buildConfig.demo.sassDestination ?
+		path.basename(buildConfig.demo.sassDestination) :
+		'';
+
+	data.oDemoComponentScriptPath = buildConfig.demo.jsDestination ? path.basename(buildConfig.demo.jsDestination) : '';
+
+	data.oDemoDependenciesStylePath = dependencies ?
+		`https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=${dependencies.toString()}${brand ? `&brand=${brand}` : ''}` :
+		'';
+
+	data.oDemoDependenciesScriptPath = dependencies ?
+		'https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=' + dependencies.toString() :
+		'';
+
+	configuredPartials.oDemoTpl = String(oDemoTpl);
+
+	const polyfillUrl  = await constructPolyfillUrl();
+	data.oDemoPolyfillUrl = polyfillUrl;
+	partials = await loadPartials(partialsDir);
+	const template = await readFile(path.join(__dirname, '/page.mustache'), 'utf-8');
+	const result = mustache.render(template, data, Object.assign(configuredPartials, partials));
+	return writeFile(path.join(buildConfig.cwd, dest, destName), result, 'utf-8');
+}
+
+async function loadPartials(partialsDir) {
+	const partials = {};
+
+	// Get a list of all mustache files in a directory
+	const filePaths = await files.getMustacheFilesList(partialsDir);
+	await Promise.all(filePaths.map(filePath => {
+		// Calculate the partial name, which is what is used
+		// to refer to it in a template. We remove the base directory,
+		// replace any preceeding slashes, and remove the extension.
+		const partialName = filePath.replace(partialsDir, '').replace(/^\//, '').replace(/\.mustache$/i, '');
+
+		// Add the name/content pair to the partials map
+		return readFile(filePath, {
+			encoding: 'utf8'
+		})
+			.then(file => {
+				partials[partialName] = file;
+			});
+	}));
+	return partials;
+}
 
 const config = {} // #402-to-do: what flags and arguments should it accept? is it just brand and cwd?
 config.cwd = process.cwd();
+const origamiConfig = await readOrigamiConfig();
 
-const configPath = path.join(config.cwd, 'origami.json');
-try {
-	const file = await readFile(configPath);
-	let demosConfig;
-	try {
-		demosConfig = JSON.parse(file);
-	} catch (error) {
-		console.log(`${configPath} is not valid JSON.`);
-		process.exit(1);
-	}
+if (!hasDemos(origamiConfig)) {
+	console.error(`No demos exist in the origami.json file. Reference https://origami.ft.com/docs/manifests/origami-json/ to configure demos in the component's origami.json manifest file.`);
+	process.exit(1);
+}
 
-	if (!Array.isArray(demosConfig.demos) || demosConfig.demos.length < 1) {
-		console.log('No demos exist in the origami.json file. Reference https://origami.ft.com/docs/manifests/origami-json/ to configure demos in the component\'s origami.json manifest file.');
-		process.exit(1);
+const demos = origamiConfig.demos;
 
-	}
-
-	let demoFilters;
-	if (config && typeof config.demoFilter === 'string') {
-		demoFilters = config.demoFilter.split(',');
-	} else if (config && Array.isArray(config.demoFilter)) {
-		demoFilters = config.demoFilter;
-	}
-
-	if (demoFilters) {
-		const demoNames = demosConfig.demos.map(demo => demo.name);
-		const noDemosMatchFilter = demoNames.every(name => !demoFilters.includes(name));
-		if (noDemosMatchFilter) {
-			if (demoFilters.length === 1) {
-				console.log('No demos matched the given filter. Filter given was ' + demoFilters[0]);
-			} else {
-				console.log('No demos matched the given filters. Filters given were ' + demoFilters.join(', '));
-			}
-			process.exit(0);
-		}
-	}
-
-} catch(e) {
-	console.log(`No origami.json file found at ${configPath}`);
+if (!hasUniqueNames(demos)) {
+	console.error('Demos with the same name were found. Give them unique names and try again.');
 	process.exit(1);
 }
 
 console.log('build-demo: Starting building demos');
-if (config.brand) {
-	await buildDemo(config)
-	// #402-to-do: is there anything needed to be done with any result from buildDemo?
-} else {
-	const brands = await files.getModuleBrands(config.cwd);
-	for (const brand of brands) {
-		const brandedConfig = Object.assign({brand}, config);
-		await buildDemo(brandedConfig);
-		// #402-to-do: is there anything needed to be done with any result from buildDemo?
+
+function demoSupportsBrand(demoConfig, brand) {
+	const isNotBrandSpecificDemo = !demoConfig.brands || demoConfig.brands.length === 0;
+	if (isNotBrandSpecificDemo) {
+		return true;
+	} else {
+		return demoConfig.brands.includes(brand);
 	}
 }
 
-console.log('build-demo: Building demos complete. No errors found.');
+const brands = await getBrands(origamiConfig);
+for (const brand of brands) {
+	const demoDefaultConfiguration = getComponentDefaultDemoConfig(origamiConfig);
+	const demoBuildConfig = [];
 
-// module.exports.watchable = true; // #402-to-do: make this watchable
+	for (const demoConfig of demos) {
+		if (demoSupportsBrand(demoConfig, config.brand)) {
+			demoBuildConfig.push(mergeDeep(
+				{
+					documentClasses: '',
+					description: ''
+				},
+				demoDefaultConfiguration,
+				demoConfig
+			));
+		}
+	}
+	// Create an array of configuration for each demo asset to build.
+	const htmlBuildsConfig = [];
+	const sassBuildsConfig = [];
+	const jsBuildsConfig = [];
+	// Create build configuration for each demo asset if it doesn't
+	// already exist. For example two demos may share the same Sass.
+	for (const demoBuild of demoBuildConfig) {
+		const buildConfig = {
+			demo: demoBuild || {},
+			brand: brand,
+			cwd: config.cwd
+		};
+		demoBuild.sassDestination = buildConfig.brand + '-' + path.basename(demoBuild.sass).replace('.scss', '.css')
+		demoBuild.jsDestination = buildConfig.brand + '-' + path.basename(demoBuild.js)
+		// Add demo html config.
+		htmlBuildsConfig.push(buildConfig);
+		const newSassBuild = !sassBuildsConfig.find(existingConfig =>
+			existingConfig.demo.sass === buildConfig.demo.sass
+		);
+		if (demoBuild.sass && newSassBuild) {
+			sassBuildsConfig.push(buildConfig);
+		}
+
+		const newJsBuild = !jsBuildsConfig.find(existingConfig =>
+			existingConfig.demo.js === buildConfig.demo.js
+		);
+		if (demoBuild.js && newJsBuild) {
+			jsBuildsConfig.push(buildConfig);
+		}
+	}
+	// Return build promises for all demo assets.
+	await Promise.all([
+		...htmlBuildsConfig.map(c => buildDemoHtml(c)),
+		...sassBuildsConfig.map(c => buildDemoSass(c)),
+		...jsBuildsConfig.map(c => buildDemoJs(c))
+	]);
+}
+
+console.log('build-demo: Building demos complete. No errors found.');

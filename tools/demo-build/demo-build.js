@@ -195,60 +195,10 @@ function loadPartials(partialsDir) {
 		});
 }
 
-function hasUniqueNames(demos) {
-	const names = {};
-	for (let i = 0; i < demos.length; i++) {
-		if (names[demos[i].name]) {
-			return false;
-		}
-		names[demos[i].name] = true;
-	}
-	return true;
-}
 
 export default async function (cfg) {
 	const config = cfg || {};
 	const cwd = config.cwd || process.cwd();
-
-	const demoDefaultConfiguration = await files.getComponentDefaultDemoConfig();
-	const demos = await files.getComponentDemos();
-
-	const demoBuildConfig = [];
-
-	if (demos.length === 0) {
-		const e = new Error('No demos exist in the origami.json file. Reference https://origami.ft.com/docs/manifests/origami-json/ to configure demos in the component\'s origami.json manifest file.');
-		e.stack = '';
-		throw e;
-	}
-
-	if (!hasUniqueNames(demos)) {
-		const e = new Error('Demos with the same name were found. Give them unique names and try again.');
-		e.stack = '';
-		throw e;
-	}
-
-	let demoFilters;
-	if (config && typeof config.demoFilter === 'string') {
-		demoFilters = config.demoFilter.split(',');
-	} else if (config && Array.isArray(config.demoFilter)) {
-		demoFilters = config.demoFilter;
-	}
-
-	for (const demoConfig of demos) {
-		if (!demoFilters || demoFilters && demoFilters.includes(demoConfig.name)) {
-			const demoSupportsAllBrands = !demoConfig.brands || demoConfig.brands.length === 0;
-			if (demoSupportsAllBrands || demoConfig.brands.includes(config.brand)) {
-				demoBuildConfig.push(mergeDeep(
-					{
-						documentClasses: '',
-						description: ''
-					},
-					demoDefaultConfiguration,
-					demoConfig
-				));
-			}
-		}
-	}
 
 	// Create an array of configuration for each demo asset to build.
 	const htmlBuildsConfig = [];
