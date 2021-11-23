@@ -12,14 +12,14 @@ The application will exit with a non-zero exit code if it detects that an npm-on
    npm install --save-dev "@financial-times/origami-bower-safe-version-supervisor"
    ```
 
-2. Then add it as a post-install script within your project's package.json file.
+2. Then add it as a postinstall script within your project's package.json file.
 
    ```json
    {
        "scripts": {
-           "post-install": "o-no"
+           "postinstall": "o-no"
        }
    }
    ```
 
-3. That's it! Any time `npm install` is ran within your project, `o-no` will run and check that no npm-only Origami depdencies were installed. Once your project has finished the migration to npm-only Origami, you can remove the post-install script and the development dependency @financial-times/origami-bower-helper.
+3. That's it! Any time `npm install` is ran within your project, `o-no` will run and check that no npm-only Origami depdencies were installed. Once your project has finished the migration to npm-only Origami, you can remove the postinstall script and the development dependency @financial-times/origami-bower-helper.
