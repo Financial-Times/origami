@@ -21,5 +21,12 @@
   "private": false,
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "get-bin-path": "^6.0.1",
+    "tap": "^15.1.2"
+  },
+  "scripts": {
+    "test": "tap"
   }
 }
