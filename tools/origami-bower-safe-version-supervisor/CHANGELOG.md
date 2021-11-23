@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.1](https://www.github.com/Financial-Times/origami/compare/origami-bower-safe-version-supervisor-v1.1.0...origami-bower-safe-version-supervisor-v1.1.1) (2021-11-23)
+
+
+### Bug Fixes
+
+* explicitly state package should be published publically  ([b3e31a3](https://www.github.com/Financial-Times/origami/commit/b3e31a36a94dd55729e32f6557920e79ab748d2d))
+
 ## [1.1.0](https://www.github.com/Financial-Times/origami/compare/origami-bower-safe-version-supervisor-v1.0.0...origami-bower-safe-version-supervisor-v1.1.0) (2021-11-22)
 
 
