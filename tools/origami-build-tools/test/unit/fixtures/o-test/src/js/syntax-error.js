@@ -1,1 +1,0 @@
-cons test = 'wrong syntax';

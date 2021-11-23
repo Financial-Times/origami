@@ -1,7 +1,0 @@
-.idea/
-node_modules
-npm-debug.log*
-.DS_Store
-.editorconfig
-test/integration/tmp/
-ws-*

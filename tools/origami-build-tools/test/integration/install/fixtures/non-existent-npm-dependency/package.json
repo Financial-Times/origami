@@ -1,7 +1,0 @@
-{
-	"type": "module",
-	"engines": {"npm": "^7"},
-	"dependencies": {
-		"asdfghjklpoinmutrdbtt": "^0.1.0"
-	}
-}

@@ -1,9 +1,0 @@
-// disallow element with class
-div.foo {
-	content: 'foo';
-}
-
-// disallow element with attribute
-input[type='email'] {
-	content: 'foo';
-}

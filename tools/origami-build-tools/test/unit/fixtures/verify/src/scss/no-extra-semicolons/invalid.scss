@@ -1,7 +1,0 @@
-@mixin foo-bar() {
-	.foo-bar {
-		content: '';
-	}
-};
-
-@include foo-bar();
