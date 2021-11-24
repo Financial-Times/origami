@@ -23,7 +23,7 @@ function checkDependencies(dependencies) {
 				if (isUnbounded) {
 					dependenciesToDowngrade.push([name, lastVersionAvailableOnBower, versionRange])
 				} else {
-					const isExactVersion = exactVersion(versionRange);
+					const isExactVersion = exactVersion(versionRange)
 					if (isExactVersion) {
 						if (semverExtra.gt(versionRange, lastVersionAvailableOnBower)) {
 							dependenciesToDowngrade.push([name, lastVersionAvailableOnBower, versionRange])
