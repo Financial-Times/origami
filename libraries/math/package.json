@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/math",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A temporary helper library to avoid newer dart-sass versions printing warnings when compiling Origami.",
   "keywords": [],
   "homepage": "https://registry.origami.ft.com/components/math",

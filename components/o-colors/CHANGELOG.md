@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.4.0](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.3.0...o-colors-v6.4.0) (2021-11-24)
+
+
+### Features
+
+* allow npm 8 in engines config ([eeb1cae](https://www.github.com/Financial-Times/origami/commit/eeb1cae6e7f0379e647f2b41240b1f294997d528))
+
 ## [6.3.0](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.2.1...o-colors-v6.3.0) (2021-11-08)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-toggle",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Utility that provides toggle (show/hide) behaviour to a <button> or <a> tag and a target.",
   "keywords": [
     "toggle",

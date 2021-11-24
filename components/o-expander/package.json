@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-expander",
-  "version": "6.1.0",
+  "version": "6.2.0",
   "description": "Content-aware helper for expanding and collapsing content or lists.",
   "keywords": [
     "accordion",

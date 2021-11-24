@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.2.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.1.0...o-icons-v7.2.0) (2021-11-24)
+
+
+### Features
+
+* allow npm 8 in engines config ([eeb1cae](https://www.github.com/Financial-Times/origami/commit/eeb1cae6e7f0379e647f2b41240b1f294997d528))
+
 ## [7.1.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.0.2...o-icons-v7.1.0) (2021-11-08)
 
 
