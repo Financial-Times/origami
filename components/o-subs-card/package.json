@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-subs-card",
-  "version": "6.1.1",
+  "version": "6.2.0",
   "description": "A card for showing different subscription packages offered by the Financial Times",
   "keywords": [
     "card",

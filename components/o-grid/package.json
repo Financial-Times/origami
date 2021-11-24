@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-grid",
-  "version": "6.0.2",
+  "version": "6.1.0",
   "description": "A 12 column responsive, flexbox-based grid system for laying out documents, templates and components.",
   "keywords": [
     "page",

@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.3.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v8.2.0...o-comments-v8.3.0) (2021-11-24)
+
+
+### Features
+
+* allow npm 8 in engines config ([eeb1cae](https://www.github.com/Financial-Times/origami/commit/eeb1cae6e7f0379e647f2b41240b1f294997d528))
+
 ## [8.2.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v8.1.2...o-comments-v8.2.0) (2021-11-08)
 
 

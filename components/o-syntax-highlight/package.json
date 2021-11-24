@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-syntax-highlight",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "A syntax highlighter for Origami-supported documentation that wraps PrismJs",
   "keywords": [
     "syntax",
