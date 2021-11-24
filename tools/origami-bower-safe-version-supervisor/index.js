@@ -1,32 +1,45 @@
 #!/usr/bin/env node
 
-import process from 'node:process'
+import process from "node:process"
 import {readPackageAsync} from "read-pkg"
 import semverExtra from "semver-extra"
 import origamiComponents from "./last-versions-available-on-bower.js"
 import majors from "major-versions"
 import isBounded from "semver-bounded"
+import exactVersion from "exact-version"
 import dedentTabs from "dedent-tabs"
 const dedent = dedentTabs.default
 
 function checkDependencies(dependencies) {
 	const dependenciesToDowngrade = []
 	if (dependencies) {
-		for (const [name, versionRange] of Object.entries(dependencies)) {
+		for (let [name, versionRange] of Object.entries(dependencies)) {
+			versionRange = versionRange.trim()
 			if (name in origamiComponents) {
 				// Versions which end with `-bower` are only on bower and the version on npm which 
 				// is compatible will be the same version number but without `-bower` on the end.
-				const lastVersionAvailableOnBower = origamiComponents[name].replace('-bower', '')
-				const isUnbounded = !isBounded.range(versionRange)
+				const lastVersionAvailableOnBower = origamiComponents[name].replace("-bower", "")
+				const isUnbounded = versionRange === '*' || !isBounded.range(versionRange)
 				if (isUnbounded) {
 					dependenciesToDowngrade.push([name, lastVersionAvailableOnBower])
-				
 				} else {
-					const versions = [lastVersionAvailableOnBower, ...majors(versionRange)]
-					const maxVersion = semverExtra.max(versions)
+					const isExactVersion = exactVersion(versionRange);
+					if (isExactVersion) {
+						if (semverExtra.gt(versionRange, lastVersionAvailableOnBower)) {
+							dependenciesToDowngrade.push([name, lastVersionAvailableOnBower])
+						}
+					} else {
+						const versions = [lastVersionAvailableOnBower, ...majors(versionRange)].map(version => {
+							return String(semverExtra.coerce(version, {
+								loose: true
+							}))
+						})
+						console.log({versions},majors(versionRange))
+						const maxVersion = semverExtra.max(versions)
 
-					if (maxVersion !== lastVersionAvailableOnBower) {
-						dependenciesToDowngrade.push([name, lastVersionAvailableOnBower])
+						if (maxVersion !== lastVersionAvailableOnBower) {
+							dependenciesToDowngrade.push([name, lastVersionAvailableOnBower])
+						}
 					}
 				}
 			}
@@ -47,8 +60,8 @@ async function main() {
 		This may cause build failures for this project or any projects which depend on "${projectName}" and have not yet upgraded to use the latest version of Origami.\n`)
 		
 		for (const [name, lastVersionAvailableOnBower] of [...dependenciesToDowngrade, ...devDependenciesToDowngrade, ...peerDependenciesToDowngrade]) {
-			console.error(dedent`The last version of "${name}" which is on both npm and bower is "${lastVersionAvailableOnBower}".	
-			Downgrade "${name}" to at least "${lastVersionAvailableOnBower}" in order to avoid build failures for your users.\n`)
+			console.error(dedent`The last version of "${name}" which is on both npm and bower is "${lastVersionAvailableOnBower}".
+			Downgrade "${name}" to "${lastVersionAvailableOnBower}" in order to avoid build failures for your users.\n`)
 		}
 		
 		console.error(`Run these commands to downgrade:`)
@@ -69,7 +82,7 @@ async function main() {
 
 main()
 
-process.on('unhandledRejection', error => {
+process.on("unhandledRejection", error => {
 	console.error(error)
 	process.exitCode = 1
 })
