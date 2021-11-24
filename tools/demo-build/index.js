@@ -3,7 +3,7 @@
 import mergeDeep from 'merge-deep';
 import { readFile, writeFile } from 'fs/promises';
 import * as path from 'node:path'
-import { files, constructPolyfillUrl } from 'origami-tools-helpers'
+import { files } from 'origami-tools-helpers'
 import { buildSass } from './build-sass.js';
 import buildJs from './build-js.js';
 import mustache from 'mustache';
@@ -66,9 +66,8 @@ async function buildDemoSass(buildConfig) {
 
 	const exists = await files.fileExists(src);
 	if (!exists) {
-		const e = new Error('Sass file not found: ' + src);
-		e.stack = '';
-		throw e;
+		console.error('Sass file not found: ' + src);
+		process.exit(1);
 	}
 
 	const sassConfig = {
@@ -93,9 +92,8 @@ async function buildDemoJs(buildConfig) {
 	const dest = buildConfig.demo.jsDestination;
 	const exists = await files.fileExists(src);
 	if (!exists) {
-		const e = new Error('JavaScript file not found: ' + src);
-		e.stack = '';
-		throw e;
+		console.error('JavaScript file not found: ' + src);
+		process.exit(1);
 	}
 
 	const jsConfig = {
@@ -110,32 +108,31 @@ async function buildDemoJs(buildConfig) {
 async function loadLocalDemoData(dataPath) {
 	try {
 		const file = await readFile(dataPath, 'utf-8');
-			try {
-				const fileData = JSON.parse(file);
-				if (typeof fileData === 'object') {
-					return fileData;
-				} else {
-					return {};
-				}
-			} catch (error) {
-				const e = new Error(`${dataPath} is not valid JSON.`);
-				e.stack = '';
-				throw e;
+		try {
+			const fileData = JSON.parse(file);
+			if (typeof fileData === 'object') {
+				return fileData;
+			} else {
+				return {};
 			}
+		} catch (error) {
+			console.error(`${dataPath} is not valid JSON.`);
+			process.exit(1);
+		}
 	} catch {
 		console.error(`Demo data not found: ${dataPath}`);
 		process.exit(1);
 	}
 }
 
-function loadDemoData(buildConfig) {
+async function loadDemoData(buildConfig) {
 	if (typeof buildConfig.demo.data === 'string') {
 		const dataPath = path.join(buildConfig.cwd, '/' + buildConfig.demo.data);
 		return loadLocalDemoData(dataPath);
 	} else if (typeof buildConfig.demo.data === 'object') {
-		return Promise.resolve(buildConfig.demo.data);
+		return buildConfig.demo.data;
 	} else {
-		return Promise.resolve({});
+		return {};
 	}
 }
 
@@ -151,9 +148,8 @@ async function buildDemoHtml(buildConfig) {
 	data = await loadDemoData(buildConfig)
 	const exists = await files.fileExists(src);
 	if (!exists) {
-		const e = new Error(`Demo template not found: ${src}`);
-		e.stack = '';
-		throw e;
+		console.error(`Demo template not found: ${src}`);
+		process.exit(1);
 	}
 
 	const [
@@ -209,12 +205,8 @@ async function loadPartials(partialsDir) {
 		const partialName = filePath.replace(partialsDir, '').replace(/^\//, '').replace(/\.mustache$/i, '');
 
 		// Add the name/content pair to the partials map
-		return readFile(filePath, {
-			encoding: 'utf8'
-		})
-			.then(file => {
-				partials[partialName] = file;
-			});
+		const file = await readFile(filePath, 'utf8')
+		partials[partialName] = file;
 	}));
 	return partials;
 }
@@ -235,7 +227,7 @@ if (!hasUniqueNames(demos)) {
 	process.exit(1);
 }
 
-console.log('build-demo: Starting building demos');
+console.log('demo-build: Starting building demos');
 
 function demoSupportsBrand(demoConfig, brand) {
 	const isNotBrandSpecificDemo = !demoConfig.brands || demoConfig.brands.length === 0;
@@ -272,25 +264,30 @@ for (const brand of brands) {
 	for (const demoBuild of demoBuildConfig) {
 		const buildConfig = {
 			demo: demoBuild || {},
-			brand: brand,
-			cwd: config.cwd
+			brand: config.brand,
+			cwd: cwd
 		};
-		demoBuild.sassDestination = buildConfig.brand + '-' + path.basename(demoBuild.sass).replace('.scss', '.css')
-		demoBuild.jsDestination = buildConfig.brand + '-' + path.basename(demoBuild.js)
+
 		// Add demo html config.
 		htmlBuildsConfig.push(buildConfig);
 		const newSassBuild = !sassBuildsConfig.find(existingConfig =>
 			existingConfig.demo.sass === buildConfig.demo.sass
 		);
-		if (demoBuild.sass && newSassBuild) {
-			sassBuildsConfig.push(buildConfig);
+		if (demoBuild.sass) {
+			demoBuild.sassDestination = buildConfig.brand + '-' + path.basename(demoBuild.sass).replace('.scss', '.css');
+			if (newSassBuild) {
+				sassBuildsConfig.push(buildConfig);
+			}
 		}
 
 		const newJsBuild = !jsBuildsConfig.find(existingConfig =>
 			existingConfig.demo.js === buildConfig.demo.js
 		);
-		if (demoBuild.js && newJsBuild) {
-			jsBuildsConfig.push(buildConfig);
+		if (demoBuild.js) {
+			demoBuild.jsDestination = buildConfig.brand + '-' + path.basename(demoBuild.js);
+			if (newJsBuild) {
+				jsBuildsConfig.push(buildConfig);
+			}
 		}
 	}
 	// Return build promises for all demo assets.
@@ -301,4 +298,4 @@ for (const brand of brands) {
 	]);
 }
 
-console.log('build-demo: Building demos complete. No errors found.');
+console.log('demo-build: Building demos complete. No errors found.');
