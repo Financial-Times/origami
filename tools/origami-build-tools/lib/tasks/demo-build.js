@@ -263,22 +263,27 @@ module.exports = async function (cfg) {
 			brand: config.brand,
 			cwd: cwd
 		};
-		demoBuild.sassDestination = buildConfig.brand + '-' + path.basename(demoBuild.sass).replace('.scss', '.css')
-		demoBuild.jsDestination = buildConfig.brand + '-' + path.basename(demoBuild.js)
+
 		// Add demo html config.
 		htmlBuildsConfig.push(buildConfig);
 		const newSassBuild = !sassBuildsConfig.find(existingConfig =>
 			existingConfig.demo.sass === buildConfig.demo.sass
 		);
-		if (demoBuild.sass && newSassBuild) {
-			sassBuildsConfig.push(buildConfig);
+		if (demoBuild.sass) {
+			demoBuild.sassDestination = buildConfig.brand + '-' + path.basename(demoBuild.sass).replace('.scss', '.css');
+			if (newSassBuild) {
+				sassBuildsConfig.push(buildConfig);
+			}
 		}
 
 		const newJsBuild = !jsBuildsConfig.find(existingConfig =>
 			existingConfig.demo.js === buildConfig.demo.js
 		);
-		if (demoBuild.js && newJsBuild) {
-			jsBuildsConfig.push(buildConfig);
+		if (demoBuild.js) {
+			demoBuild.jsDestination = buildConfig.brand + '-' + path.basename(demoBuild.js);
+			if (newJsBuild) {
+				jsBuildsConfig.push(buildConfig);
+			}
 		}
 	}
 
