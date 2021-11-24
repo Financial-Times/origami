@@ -38,7 +38,7 @@ export default {
     "@financial-times/o-loading":"4.0.4",
     "@financial-times/o-message":"4.2.6",
     "@financial-times/o-meter":"2.0.6",
-    "@financial-times/o-normalise":"3.0.1",
+    "@financial-times/o-normalise":"2.0.8",
     "@financial-times/o-overlay":"3.1.0",
     "@financial-times/o-quote":"4.1.6",
     "@financial-times/o-share":"7.6.0",
