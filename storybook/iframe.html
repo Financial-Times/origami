@@ -204,7 +204,6 @@
 
   .previewBlock_header {
     align-items: center;
-    background: #fff;
     box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 0 0 inset;
     display: flex;
     gap: 14px;
@@ -226,90 +225,106 @@
   .previewBlock_body {
     -webkit-animation: glow 1.5s ease-in-out infinite;
     animation: glow 1.5s ease-in-out infinite;
-    height: 110px;
+    height: 182px;
     position: relative;
   }
 
-  .argsTable {
-    margin: 0 auto;
+  .argstableBlock {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 13px;
+    line-height: 20px;
+    margin: 25px auto 40px;
     max-width: 600px;
+    text-align: left;
+    width: 100%;
   }
-
-  .argsTable_header {
-    align-content: stretch;
-    display: flex;
-    gap: 16px;
-    margin-top: 25px;
-    padding: 10px 20px;
+  .argstableBlock th:first-of-type,
+  .argstableBlock td:first-of-type {
+    padding-left: 20px;
   }
-  .argsTable_header div {
+  .argstableBlock th:nth-of-type(2),
+  .argstableBlock td:nth-of-type(2) {
+    width: 35%;
+  }
+  .argstableBlock th:nth-of-type(3),
+  .argstableBlock td:nth-of-type(3) {
+    width: 15%;
+  }
+  .argstableBlock th:laste-of-type,
+  .argstableBlock td:laste-of-type {
+    width: 25%;
+    padding-right: 20px;
+  }
+  .argstableBlock th span,
+  .argstableBlock td span {
     -webkit-animation: glow 1.5s ease-in-out infinite;
     animation: glow 1.5s ease-in-out infinite;
-    background: #e6e6e6;
-    flex-shrink: 0;
-    height: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    box-shadow: none;
+    color: transparent;
   }
-  .argsTable_header div:first-child,
-  .argsTable_header div:nth-child(4) {
-    width: 20%;
-  }
-  .argsTable_header div:nth-child(2) {
-    width: 30%;
-  }
-  .argsTable_header div:nth-child(3) {
-    flex-grow: 1;
-  }
-  .argsTable_header div:last-child {
-    width: 30px;
-  }
-  @media (max-width: 500px) {
-    .argsTable_header div:nth-child(n + 4) {
-      display: none;
-    }
+  .argstableBlock th {
+    padding: 10px 15px;
   }
 
-  .argsTable_body {
-    background: #ffffff;
+  .argstableBlock-body {
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 1px, rgba(0, 0, 0, 0.065) 0 0 0 1px;
   }
-
-  .argsTable_row {
-    align-content: stretch;
-    border-top-color: #e6e6e6;
-    border-top-style: solid;
-    border-top-width: 1px;
-    display: flex;
-    gap: 16px;
-    padding: 20px;
+  .argstableBlock-body tr {
+    background: transparent;
+    overflow: hidden;
   }
-  .argsTable_row:first-child {
-    border-top: 0;
+  .argstableBlock-body tr:not(:first-child) {
+    border-top: 1px solid #e6e6e6;
   }
-  .argsTable_row div {
+  .argstableBlock-body tr:first-child td:first-child {
+    border-top-left-radius: 4px;
+  }
+  .argstableBlock-body tr:first-child td:last-child {
+    border-top-right-radius: 4px;
+  }
+  .argstableBlock-body tr:last-child td:first-child {
+    border-bottom-left-radius: 4px;
+  }
+  .argstableBlock-body tr:last-child td:last-child {
+    border-bottom-right-radius: 4px;
+  }
+  .argstableBlock-body td {
+    background: #fff;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    vertical-align: top;
+  }
+  .argstableBlock-body td:not(:first-of-type) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .argstableBlock-body button {
     -webkit-animation: glow 1.5s ease-in-out infinite;
     animation: glow 1.5s ease-in-out infinite;
-    background: rgba(0, 0, 0, 0.1);
-    flex-shrink: 0;
-    height: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: transparent;
+    display: inline;
+    font-size: 12px;
+    line-height: 1;
+    padding: 10px 16px;
   }
-  .argsTable_row div:first-child {
-    width: 20%;
+
+  .argstableBlock-summary {
+    margin-top: 4px;
   }
-  .argsTable_row div:nth-child(2) {
-    width: 30%;
-  }
-  .argsTable_row div:nth-child(3) {
-    flex-grow: 1;
-  }
-  .argsTable_row div:last-child {
-    width: calc(20% + 47px);
-  }
-  @media (max-width: 500px) {
-    .argsTable_row div:last-child {
-      display: none;
-    }
-  }</style><div class="sb-preparing-story sb-wrapper"><div class="loader"></div></div><div class="sb-preparing-docs sb-wrapper"><div class="previewBlock"><div class="previewBlock_header"><div class="previewBlock_icon"></div><div class="previewBlock_icon"></div><div class="previewBlock_icon"></div><div class="previewBlock_icon"></div></div><div class="previewBlock_body"><div class="loader"></div></div></div><div class="argsTable"><div class="argsTable_header"><div></div><div></div><div></div><div></div><div></div></div><div class="argsTable_body"><div class="argsTable_row"><div></div><div></div><div></div><div></div></div><div class="argsTable_row"><div></div><div></div><div></div><div></div></div><div class="argsTable_row"><div></div><div></div><div></div><div></div></div></div></div></div><div class="sb-nopreview sb-wrapper"><div class="sb-nopreview_main"><h1 class="sb-nopreview_heading sb-heading">No Preview</h1><p>Sorry, but you either have no stories or none are selected somehow.</p><ul><li>Please check the Storybook config.</li><li>Try reloading the page.</li></ul><p>If the problem persists, check the browser console, or the terminal you've run Storybook from.</p></div></div><div class="sb-errordisplay sb-wrapper"><pre id="error-message" class="sb-heading"></pre><pre class="sb-errordisplay_code"><code id="error-stack"></code></pre></div><div id="root"></div><div id="docs-root"></div><script>window['CONFIG_TYPE'] = "PRODUCTION";
+
+  .argstableBlock-code {
+    margin-right: 4px;
+    margin-bottom: 4px;
+    padding: 2px 5px;
+  }</style><div class="sb-preparing-story sb-wrapper"><div class="loader"></div></div><div class="sb-preparing-docs sb-wrapper"><div class="previewBlock"><div class="previewBlock_header"><div class="previewBlock_icon"></div><div class="previewBlock_icon"></div><div class="previewBlock_icon"></div><div class="previewBlock_icon"></div></div><div class="previewBlock_body"><div class="loader"></div></div></div><table aria-hidden="true" class="argstableBlock"><thead class="argstableBlock-head"><tr><th><span>Name</span></th><th><span>Description</span></th><th><span>Default</span></th><th><span>Control</span></th></tr></thead><tbody class="argstableBlock-body"><tr><td><span>propertyName</span><span title="Required">*</span></td><td><div><span>This is a short description</span></div><div class="argstableBlock-summary"><div><span class="argstableBlock-code">summary</span></div></div></td><td><div><span class="argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr><tr><td><span>propertyName</span><span>*</span></td><td><div><span>This is a short description</span></div><div class="argstableBlock-summary"><div><span class="argstableBlock-code">summary</span></div></div></td><td><div><span class="argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr><tr><td><span>propertyName</span><span>*</span></td><td><div><span>This is a short description</span></div><div class="argstableBlock-summary"><div><span class="argstableBlock-code">summary</span></div></div></td><td><div><span class="argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr></tbody></table></div><div class="sb-nopreview sb-wrapper"><div class="sb-nopreview_main"><h1 class="sb-nopreview_heading sb-heading">No Preview</h1><p>Sorry, but you either have no stories or none are selected somehow.</p><ul><li>Please check the Storybook config.</li><li>Try reloading the page.</li></ul><p>If the problem persists, check the browser console, or the terminal you've run Storybook from.</p></div></div><div class="sb-errordisplay sb-wrapper"><pre id="error-message" class="sb-heading"></pre><pre class="sb-errordisplay_code"><code id="error-stack"></code></pre></div><div id="root"></div><div id="docs-root"></div><script>window['CONFIG_TYPE'] = "PRODUCTION";
           
       
           
@@ -327,4 +342,4 @@
           
       
           
-            window['STORIES'] = [{"titlePrefix":"","directory":"./stories","files":"**/*.stories.mdx","importPathMatcher":"^\\.[\\\\/](?:stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.mdx)$"},{"titlePrefix":"","directory":"./stories","files":"**/*.stories.@(js|jsx|ts|tsx)","importPathMatcher":"^\\.[\\\\/](?:stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(js|jsx|ts|tsx))$"},{"titlePrefix":"","directory":"../../components","files":"*/stories/**/*.stories.mdx","importPathMatcher":"^(?:\\.\\.\\/\\.\\.\\/components\\/(?!\\.)(?=.)[^/]*?\\/stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.mdx)$"},{"titlePrefix":"","directory":"../../components","files":"*/stories/**/*.stories.@(js|jsx|ts|tsx)","importPathMatcher":"^(?:\\.\\.\\/\\.\\.\\/components\\/(?!\\.)(?=.)[^/]*?\\/stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(js|jsx|ts|tsx))$"}];</script><script src="runtime~main.eebe0782.iframe.bundle.js"></script><script src="931.73e7633b.iframe.bundle.js"></script><script src="main.ce6a999a.iframe.bundle.js"></script></body></html>
+            window['STORIES'] = [{"titlePrefix":"","directory":"./stories","files":"**/*.stories.mdx","importPathMatcher":"^\\.[\\\\/](?:stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.mdx)$"},{"titlePrefix":"","directory":"./stories","files":"**/*.stories.@(js|jsx|ts|tsx)","importPathMatcher":"^\\.[\\\\/](?:stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(js|jsx|ts|tsx))$"},{"titlePrefix":"","directory":"../../components","files":"*/stories/**/*.stories.mdx","importPathMatcher":"^(?:\\.\\.\\/\\.\\.\\/components\\/(?!\\.)(?=.)[^/]*?\\/stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.mdx)$"},{"titlePrefix":"","directory":"../../components","files":"*/stories/**/*.stories.@(js|jsx|ts|tsx)","importPathMatcher":"^(?:\\.\\.\\/\\.\\.\\/components\\/(?!\\.)(?=.)[^/]*?\\/stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(js|jsx|ts|tsx))$"}];</script><script src="runtime~main.aed64ed1.iframe.bundle.js"></script><script src="432.e71d19a3.iframe.bundle.js"></script><script src="main.a8247857.iframe.bundle.js"></script></body></html>
