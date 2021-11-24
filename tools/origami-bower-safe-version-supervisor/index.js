@@ -21,12 +21,12 @@ function checkDependencies(dependencies) {
 				const lastVersionAvailableOnBower = origamiComponents[name].replace("-bower", "")
 				const isUnbounded = versionRange === '*' || !isBounded.range(versionRange)
 				if (isUnbounded) {
-					dependenciesToDowngrade.push([name, lastVersionAvailableOnBower])
+					dependenciesToDowngrade.push([name, lastVersionAvailableOnBower, versionRange])
 				} else {
 					const isExactVersion = exactVersion(versionRange);
 					if (isExactVersion) {
 						if (semverExtra.gt(versionRange, lastVersionAvailableOnBower)) {
-							dependenciesToDowngrade.push([name, lastVersionAvailableOnBower])
+							dependenciesToDowngrade.push([name, lastVersionAvailableOnBower, versionRange])
 						}
 					} else {
 						const versions = [lastVersionAvailableOnBower, ...majors(versionRange)].map(version => {
@@ -38,7 +38,7 @@ function checkDependencies(dependencies) {
 						const maxVersion = semverExtra.max(versions)
 
 						if (maxVersion !== lastVersionAvailableOnBower) {
-							dependenciesToDowngrade.push([name, lastVersionAvailableOnBower])
+							dependenciesToDowngrade.push([name, lastVersionAvailableOnBower, versionRange])
 						}
 					}
 				}
@@ -59,8 +59,9 @@ async function main() {
 		console.error(dedent`This project ("${projectName}") is installing versions of Origami dependencies which are not available on Bower.
 		This may cause build failures for this project or any projects which depend on "${projectName}" and have not yet upgraded to use the latest version of Origami.\n`)
 		
-		for (const [name, lastVersionAvailableOnBower] of [...dependenciesToDowngrade, ...devDependenciesToDowngrade, ...peerDependenciesToDowngrade]) {
-			console.error(dedent`The last version of "${name}" which is on both npm and bower is "${lastVersionAvailableOnBower}".
+		for (const [name, lastVersionAvailableOnBower, installedVersion] of [...dependenciesToDowngrade, ...devDependenciesToDowngrade, ...peerDependenciesToDowngrade]) {
+			console.error(dedent`This project is installing "${name}" at version "${installedVersion}".
+			The last version of "${name}" which is on both npm and bower is "${lastVersionAvailableOnBower}".
 			Downgrade "${name}" to "${lastVersionAvailableOnBower}" in order to avoid build failures for your users.\n`)
 		}
 		
