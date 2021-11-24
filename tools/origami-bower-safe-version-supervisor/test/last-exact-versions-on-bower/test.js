@@ -10,7 +10,8 @@ const oNoBinaryPath = join(__dirname, '../../index.js')
 
 tap.test('project which uses origami versions which are on both npm and bower', async t => {
     const { stdout, stderr, exitCode } = await execa(oNoBinaryPath, {
-        reject: false
+        reject: false,
+        cwd: __dirname,
     })
     t.equal(exitCode, 0)
     t.equal(stdout, '')
