@@ -7,10 +7,10 @@ class BasicTable extends BaseTable {
 	 *
 	 * @access public
 	 * @param {HTMLElement} rootEl - The `o-table` element.
-	 * @param {TableSorter} sorter
-	 * @param {Object} opts [{}]
-	 * @param {Bool} opts.sortable [true]
-	 * @returns {BasicTable}
+	 * @param {import("../Sort/TableSorter")} sorter A TableSorter instance
+	 * @param {object} opts [{}]
+	 * @param {boolean} opts.sortable [true]
+	 * @returns {BasicTable} A new table
 	 */
 	constructor(rootEl, sorter, opts = {}) {
 		super(rootEl, sorter, opts);

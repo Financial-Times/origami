@@ -88,7 +88,6 @@ module.exports = {
       "number-leading-zero": "always",
       "number-no-trailing-zeros": true,
       "selector-class-pattern": "^[a-z0-9_\\-]+$",
-      "selector-id-pattern": "^[a-z0-9_\\-]+$",
       "selector-list-comma-newline-after": "always",
       "selector-list-comma-space-after": "always-single-line",
       "selector-no-qualifying-type": true,

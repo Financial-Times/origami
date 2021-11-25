@@ -74,7 +74,7 @@ To release an Origami component create a git tag named after the semver version 
 <pre><code class="o-syntax-highlight--bash">git tag v1.0.0
 git push origin v1.0.0</code></pre>
 
-Within a couple of minutes at most, your component should be visible in the [Origami Registry](https://registry.origami.ft.com/components?module=true&imageset=true&active=true&maintained=true&experimental=true) and should be published to the npm registry](https://www.npmjs.com/~the-ft) 🎉. If not you may want to confirm that the `obt test` and `obt verify` commands pass without error, check the output of the Github Actions under the 'Actions" tab, or contact the Origami team for support in the `#{{site.data.contact.slack}}` Slack channel.
+Within a couple of minutes at most, your component should be visible in the [Origami Registry](https://registry.origami.ft.com/components?module=true&active=true&maintained=true&experimental=true) and should be published to the npm registry](https://www.npmjs.com/~the-ft) 🎉. If not you may want to confirm that the `obt test` and `obt verify` commands pass without error, check the output of the Github Actions under the 'Actions" tab, or contact the Origami team for support in the `#{{site.data.contact.slack}}` Slack channel.
 
 ## Subsequent Releases
 

@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-icons",
-  "version": "7.0.2",
+  "version": "7.2.0",
   "description": "Helper SCSS tool for using the FT's icons. For a full list of available icons please see the fticons image set",
   "keywords": [
     "icons",
@@ -23,10 +23,12 @@
     "@financial-times/fticons": "^1.23.1"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
-  }
+  },
+  "percy": true,
+  "private": false
 }

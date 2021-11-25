@@ -2,7 +2,7 @@
 	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"brands": [
-		"master",
+		"core",
 		"internal",
 		"whitelabel"
 	],
@@ -52,7 +52,7 @@
 			"template": "demos/src/buttontabs-inverse.mustache",
 			"documentClasses": "demo-inverse",
 			"brands": [
-				"master",
+				"core",
 				"internal"
 			],
 			"description": ""

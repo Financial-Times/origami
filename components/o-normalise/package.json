@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-normalise",
-  "version": "3.0.3",
+  "version": "3.2.0",
   "description": "Provides base styles and resets for stylesheets. Includes standardised utilities, such as visually hiding components or adding a consistent focus state.",
   "keywords": [
     "normalise",
@@ -27,10 +27,12 @@
     "@financial-times/sass-mq": "^5.0.2"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
-  }
+  },
+  "percy": true,
+  "private": false
 }

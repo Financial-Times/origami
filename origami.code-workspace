@@ -1,19 +1,26 @@
 {
+	"settings": {},
 	"folders": [
 		{
 			"path": "."
 		},
 		{
-			"path": "apps/storybook"
+			"path": "tools/a11y"
 		},
 		{
-			"path": "apps/website"
+			"path": "presets/eslint-config-origami-component"
 		},
 		{
 			"path": "apps/storybook/addons/guidelines"
 		},
 		{
 			"path": "apps/storybook/addons/html"
+		},
+		{
+			"path": "apps/storybook/addons/markdown-tabs"
+		},
+		{
+			"path": "libraries/math"
 		},
 		{
 			"path": "components/n-notification"
@@ -25,10 +32,16 @@
 			"path": "components/o-autocomplete"
 		},
 		{
+			"path": "libraries/o-autoinit"
+		},
+		{
 			"path": "components/o-banner"
 		},
 		{
 			"path": "components/o-big-number"
+		},
+		{
+			"path": "libraries/o-brand"
 		},
 		{
 			"path": "components/o-buttons"
@@ -50,6 +63,9 @@
 		},
 		{
 			"path": "components/o-editorial-typography"
+		},
+		{
+			"path": "libraries/o-errors"
 		},
 		{
 			"path": "components/o-expander"
@@ -145,7 +161,13 @@
 			"path": "components/o-topper"
 		},
 		{
+			"path": "libraries/o-tracking"
+		},
+		{
 			"path": "components/o-typography"
+		},
+		{
+			"path": "libraries/o-utils"
 		},
 		{
 			"path": "components/o-video"
@@ -157,32 +179,43 @@
 			"path": "components/o-visual-effects"
 		},
 		{
-			"path": "libraries/o-autoinit"
-		},
-		{
-			"path": "libraries/o-brand"
-		},
-		{
-			"path": "libraries/o-errors"
-		},
-		{
-			"path": "libraries/o-tracking"
-		},
-		{
-			"path": "libraries/o-utils"
-		},
-		{
 			"path": "tools/origami-build-tools"
 		},
 		{
-			"path": "presets/eslint-config-origami-component"
+			"path": "tools/origami-tools-helpers"
 		},
 		{
 			"path": "presets/remark-preset-lint-origami-component"
 		},
 		{
+			"path": "tools/sass-compilation"
+		},
+		{
+			"path": "libraries/sass-mq"
+		},
+		{
+			"path": "apps/storybook"
+		},
+		{
 			"path": "presets/stylelint-config-origami-component"
+		},
+		{
+			"path": "tools/test-javascript"
+		},
+		{
+			"path": "tools/test-sass"
+		},
+		{
+			"path": "tools/validate-component-demo-html"
+		},
+		{
+			"path": "tools/verify-origami-json"
+		},
+		{
+			"path": "tools/verify-package-json"
+		},
+		{
+			"path": "apps/website"
 		}
-	],
-	"settings": {}
+	]
 }

@@ -2,7 +2,7 @@
 	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"brands": [
-		"master"
+		"core"
 	],
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-footer,components",
 	"supportContact": {
@@ -33,14 +33,14 @@
 			"title": "Dark theme",
 			"template": "demos/src/footer.mustache",
 			"data": "demos/src/footer.json",
-			"description": "This is the standard masterbrand footer used on most pages. Use the Origami Navigation Service to populate o-footer with real navigation data. "
+			"description": "This is the standard core brand footer used on most pages. Use the Origami Navigation Service to populate o-footer with real navigation data. "
 		},
 		{
 			"name": "footer-light",
 			"title": "Light theme",
 			"template": "demos/src/footer.mustache",
 			"data": "demos/src/footer-light.json",
-			"description": "A light theme masterbrand footer. Use the Origami Navigation Service to populate o-footer with real navigation data. "
+			"description": "A light theme core brand footer. Use the Origami Navigation Service to populate o-footer with real navigation data. "
 		},
 		{
 			"name": "simple-footer",

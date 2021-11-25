@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-date",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "type": "module",
   "browser": "main.js",
   "description": "JavaScript utilities for formatting and updating dates in the FT style. Also useful for formatting dates relative to the current time.",
@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "scripts": {
     "start": "npx serve ./demos/local",
@@ -30,5 +30,7 @@
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
-  }
+  },
+  "percy": true,
+  "private": false
 }

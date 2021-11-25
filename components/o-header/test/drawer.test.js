@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 
 import Drawer from '../src/js/drawer.js';
 
@@ -21,7 +23,7 @@ describe('Drawer instance', () => {
 			window.innerWidth = 401;
 
 			const scope = { offsetWidth: 400 };
-			const callback = () => {};
+			const callback = Function.prototype;
 
 
 			Drawer.handleCloseEvents(scope, callback).handleMouseleave();
@@ -35,7 +37,7 @@ describe('Drawer instance', () => {
 			window.innerWidth = 400;
 
 			const scope = { offsetWidth: 401 };
-			const callback = () => {};
+			const callback = Function.prototype;
 
 
 			Drawer.handleCloseEvents(scope, callback).handleMouseleave();

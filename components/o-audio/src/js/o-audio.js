@@ -3,8 +3,9 @@ import Tracking from './tracking.js';
 class OAudio {
 	/**
 	 * Class constructor.
+	 *
 	 * @param {HTMLAudioElement} [oAudioEl] - The component element in the DOM
-	 * @param {Object} [opts={}] - An options object for configuring the component
+	 * @param {object} [opts={}] - An options object for configuring the component
 	 */
 	constructor (oAudioEl, opts) {
 
@@ -22,6 +23,7 @@ class OAudio {
 
 	/**
 	 * Destroy this component. Unbinds listeners and dispatches any final tracking events
+	 *
 	 * @returns {void}
 	 */
 	destroy() {
@@ -31,8 +33,9 @@ class OAudio {
 	/**
 	 * Get the data attributes from the OAudioElement. If the message is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 *
 	 * @param {HTMLElement} oAudioEl - The component element in the DOM
-	 * @returns {Object} - Data attributes as an object
+	 * @returns {object} - Data attributes as an object
 	 */
 	static getDataAttributes (oAudioEl) {
 		if (!(oAudioEl instanceof HTMLElement)) {
@@ -62,8 +65,9 @@ class OAudio {
 
 	/**
 	 * Initialise message component.
-	 * @param {(HTMLElement|String)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
-	 * @param {Object} [opts={}] - An options object for configuring the component
+	 *
+	 * @param {(HTMLElement | string)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
+	 * @param {object} [opts={}] - An options object for configuring the component
 	 * @returns {(OAudio|Array<OAudio>)} - OAudio instance(s)
 	 */
 	static init (rootEl, opts) {

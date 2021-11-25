@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-audio",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Financial Times audio player",
   "keywords": [
     "audio"
@@ -26,10 +26,12 @@
     "@financial-times/o-utils": "^2.0.0"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
-  }
+  },
+  "percy": true,
+  "private": false
 }

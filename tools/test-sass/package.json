@@ -11,5 +11,6 @@
     "sass": "^1.43.4",
     "sass-true": "^6.0.1"
   },
-  "type": "module"
+  "type": "module",
+  "private": true
 }

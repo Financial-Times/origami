@@ -40,7 +40,7 @@ class Comments {
 	 * declaratively, this method is used to extract the data attributes from the DOM.
 	 *
 	 * @param {HTMLElement} rootEl - The component element in the DOM
-	 * @returns {Object} - Data attributes as an object
+	 * @returns {object} - Data attributes as an object
 	 */
 	static getDataAttributes (rootEl) {
 		if (!(rootEl instanceof HTMLElement)) {
@@ -71,8 +71,8 @@ class Comments {
 	/**
 	 * Initialise the component.
 	 *
-	 * @param {(HTMLElement|String)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
-	 * @param {Object} [opts={}] - An options object for configuring the component
+	 * @param {(HTMLElement | string)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
+	 * @param {object} [opts={}] - An options object for configuring the component
 	 * @returns {(Comments|Array<Comments>)} - Comments instance(s)
 	 */
 	static init (rootEl, opts) {

@@ -186,7 +186,7 @@ Usecase | Property | Uses |
 `o-share/ft-icon` | background, border, text | Colours to highlight FT icon social buttons like email (e.g. on hover).
 `o-share/[social-icon-name]-icon` | background, border, text | Colours to highlight social buttons with a brand, like Twitter (e.g. `o-share/twitter-icon` on hover).
 
-Use the [oColorsByUsecase mixin from o-colors](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=master#function-ocolorsbyusecase) to retrieve custom colour usecases set by o-share.
+Use the [oColorsByUsecase mixin from o-colors](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=core#function-ocolorsbyusecase) to retrieve custom colour usecases set by o-share.
 
 ```scss
 .my-icon:hover {

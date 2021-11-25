@@ -9,5 +9,6 @@
     "github-slugger": "^1.4.0",
     "marksy": "^8.0.0",
     "react-syntax-highlighter": "^15.4.4"
-  }
+  },
+  "private": true
 }

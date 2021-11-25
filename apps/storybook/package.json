@@ -33,5 +33,6 @@
   "license": "MIT",
   "devDependencies": {
     "@types/react-dom": "^17.0.10"
-  }
+  },
+  "private": true
 }

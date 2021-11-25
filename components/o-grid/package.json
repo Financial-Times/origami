@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-grid",
-  "version": "6.0.1",
+  "version": "6.1.0",
   "description": "A 12 column responsive, flexbox-based grid system for laying out documents, templates and components.",
   "keywords": [
     "page",
@@ -28,10 +28,12 @@
     "@financial-times/sass-mq": "^5.0.2"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
-  }
+  },
+  "percy": true,
+  "private": false
 }

@@ -1,9 +1,10 @@
 export default {
 	/**
-	* Build a full message element. Used when there is no message element in the DOM.
-	* @param {MessageOptions} opts - An options object for configuring the message.
-	* @returns {HTMLElement} Returns the new message element
-	*/
+	 * Build a full message element. Used when there is no message element in the DOM.
+	 *
+	 * @param {import("./message").MessageOptions} opts - An options object for configuring the message.
+	 * @returns {HTMLElement} Returns the new message element
+	 */
 	message: (opts) => {
 		const messageElement = document.createElement('div');
 		if (!opts.type) {
@@ -74,9 +75,10 @@ export default {
 		return messageElement;
 	},
 	/**
-	* Build a close button
-	* @returns {HTMLElement} Returns a new element to close the message
-	*/
+	 * Build a close button
+	 *
+	 * @returns {HTMLElement} Returns a new element to close the message
+	 */
 	closeButton: () => {
 		const closeButton = document.createElement('button');
 		closeButton.classList.add(`o-message__close`);

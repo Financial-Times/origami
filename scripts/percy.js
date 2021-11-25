@@ -17,17 +17,8 @@ async function shouldPercyRun() {
 		let baseRef = context.payload.pull_request.base.ref;
 		let headRef = context.payload.pull_request.head.ref;
 		$.verbose = false
-		let commits = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef} --`;
-		let filesChanged = await $`git log --name-only --pretty=format: origin/${baseRef}...origin/${headRef} --`;
+		let commits = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef} -- ${process.env.WORKSPACE}`;
 		$.verbose = true
-		let files = filesChanged.stdout.split('\n');
-		let noFilesChangedInWorkspace = files.every(file => {
-			return file.startsWith(`${process.env.WORKSPACE}/`) == false
-		})
-		if (noFilesChangedInWorkspace) {
-			core.notice('None of the files changed in the pull-request are within this components folder. This means we do not need to run Percy.')
-			return false;
-		}
 		let messages = commits.stdout.split('\n');
 		for (const message of messages) {
 			if (message.startsWith('fix:') || message.startsWith('fix!:') || message.startsWith('feat:') || message.startsWith('feat!:')) {
@@ -65,13 +56,8 @@ try {
 			process.exit(0)
 		}
 
-		if (componentConfig.brands) {
-			for (const brand of componentConfig.brands) {
-				await generateDemosFor(brand, demosConfig)
-			}
-		} else {
-			await generateDemosFor("master", demosConfig)
-		}
+		let npxPath = await io.which("npx", true)
+		await $`"${npxPath}" npm exec -w ${workspace} obt demo`
 
 		await generatePercySnapshots()
 	}
@@ -79,23 +65,8 @@ try {
 	core.setFailed(error.message)
 }
 
-async function generateDemosFor(brand, demosConfig) {
-	let npxPath = await io.which("npx", true)
-	let outputDir = `${workspace}/demos/percy/${brand}`
-	const brandSupportedDemos = demosConfig.filter(
-		d => !Array.isArray(d.brands) || d.brands.includes(brand)
-	)
-	const demoNames = brandSupportedDemos.map(d => d.name).join(",")
-
-	await $`"${npxPath}" npm exec -w ${workspace} obt demo --brand=${brand} --demo-filter="${demoNames}"`
-	if (fs.existsSync(`${workspace}/demos/local`)) {
-		await io.mkdirP(outputDir)
-		await io.mv(`${workspace}/demos/local`, outputDir)
-	}
-}
-
 async function generatePercySnapshots() {
 	let npxPath = await io.which("npx", true)
-	let outputDir = `${workspace}/demos/percy/`
+	let outputDir = `${workspace}/demos/local/`
 	await $`"${npxPath}" percy snapshot ${outputDir}`
 }

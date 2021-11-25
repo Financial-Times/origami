@@ -42,6 +42,7 @@ function oColorsCopy(event) {
 			}, 2000);
 
 		} catch (err) {
+			// eslint-disable-next-line no-console
 			console.log('Can not copy text. ', err);
 		}
 	}

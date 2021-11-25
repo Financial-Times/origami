@@ -1,11 +1,10 @@
-
 import SteppedProgressStep from './stepped-progress-step.js';
 
 /**
  * Component class names.
  *
  * @access private
- * @type {Object}
+ * @type {object}
  */
 const classNames = {
 	step: 'o-stepped-progress__step'
@@ -21,7 +20,7 @@ class SteppedProgress {
 	 *
 	 * @access public
 	 * @param {HTMLElement} steppedProgressElement - The component element in the DOM.
-	 * @param {Object} [options={}] - An options object for configuring the component.
+	 * @param {object} [options={}] - An options object for configuring the component.
 	 */
 	constructor (steppedProgressElement, options) {
 		this.steppedProgressElement = steppedProgressElement;
@@ -55,8 +54,8 @@ class SteppedProgress {
 	 * Get whether a step exists at a given index (0-based).
 	 *
 	 * @access public
-	 * @param {Number} index - The index to check.
-	 * @returns {Boolean} Returns whether a step exists at a given index.
+	 * @param {number} index - The index to check.
+	 * @returns {boolean} Returns whether a step exists at a given index.
 	 */
 	hasStepAtIndex(index) {
 		return Boolean(this._steps[index]);
@@ -66,7 +65,7 @@ class SteppedProgress {
 	 * Get the step at a given index (0-based).
 	 *
 	 * @access public
-	 * @param {Number} index - The index of the step to get.
+	 * @param {number} index - The index of the step to get.
 	 * @returns {SteppedProgressStep} Returns the step at the given index.
 	 * @throws {Error} Will throw an error if there is no step at the given index. Use {@link SteppedProgress#hasStepAtIndex} to check.
 	 */
@@ -102,7 +101,7 @@ class SteppedProgress {
 	 * Get whether all steps have the "completed" state.
 	 *
 	 * @access public
-	 * @returns {Boolean} Returns whether all steps are completed.
+	 * @returns {boolean} Returns whether all steps are completed.
 	 */
 	isComplete() {
 		return this._steps.every(step => step.isComplete());
@@ -158,7 +157,7 @@ class SteppedProgress {
 	 *
 	 * @access public
 	 * @param {HTMLElement} steppedProgressElement - The component element in the DOM
-	 * @returns {Object} Returns an options object constructed from the DOM.
+	 * @returns {object} Returns an options object constructed from the DOM.
 	 */
 	static getDataAttributes(steppedProgressElement) {
 		if (!(steppedProgressElement instanceof HTMLElement)) {
@@ -190,21 +189,21 @@ class SteppedProgress {
 	 * Initialise stepped progress component.
 	 *
 	 * @access public
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring the component
+	 * @param {(HTMLElement | string)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
+	 * @param {object} [options={}] - An options object for configuring the component
 	 * @returns {(SteppedProgress|Array<SteppedProgress>)} Returns a stepped progress instance, or an array of instances.
 	 */
-	static init(rootEl, options) {
-		if (!rootEl) {
-			rootEl = document.body;
+	static init(rootElement, options) {
+		if (!rootElement) {
+			rootElement = document.body;
 		}
-		if (!(rootEl instanceof HTMLElement)) {
-			rootEl = document.querySelector(rootEl);
+		if (!(rootElement instanceof HTMLElement)) {
+			rootElement = document.querySelector(rootElement);
 		}
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-stepped-progress]')) {
-			return new SteppedProgress(rootEl, options);
+		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=o-stepped-progress]')) {
+			return new SteppedProgress(rootElement, options);
 		}
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-stepped-progress"]'), rootEl => new SteppedProgress(rootEl, options));
+		return Array.from(rootElement.querySelectorAll('[data-o-component="o-stepped-progress"]'), rootEl => new SteppedProgress(rootEl, options));
 	}
 }
 

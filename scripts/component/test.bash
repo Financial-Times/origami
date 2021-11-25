@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
-origami-build-tools test
+test-javascript
+sass-compilation
 a11y
 validate-component-demo-html
 test-sass

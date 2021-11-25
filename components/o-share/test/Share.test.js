@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
+
+import proclaim from 'proclaim';
 
 import * as fixtures from './helpers/fixtures.js';
 import Share from './../main.js';
@@ -146,7 +147,7 @@ function newWindowSpy() {
 			self.calledWith = arguments;
 
 			return {
-				focus: function() {}
+				focus: Function.prototype
 			};
 		}
 	};

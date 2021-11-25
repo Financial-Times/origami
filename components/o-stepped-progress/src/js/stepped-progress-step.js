@@ -1,4 +1,3 @@
-
 /**
  * Component class names.
  *
@@ -45,7 +44,7 @@ class SteppedProgressStep {
 	 *
 	 * @access public
 	 * @param {HTMLElement} stepElement - The step element in the DOM
-	 * @param {SteppedProgress} parent - The parent stepped progress instance
+	 * @param {import("./stepped-progress")} parent - The parent stepped progress instance
 	 */
 	constructor (stepElement, parent) {
 		this.stepElement = stepElement;
@@ -59,7 +58,7 @@ class SteppedProgressStep {
 	 * Get whether the step has the "complete" state.
 	 *
 	 * @access public
-	 * @returns {Boolean} Returns whether the step is complete.
+	 * @returns {boolean} Returns whether the step is complete.
 	 */
 	isComplete() {
 		return this.stepElement.classList.contains(classNames.complete);
@@ -69,7 +68,7 @@ class SteppedProgressStep {
 	 * Get whether the step has the "current" state.
 	 *
 	 * @access public
-	 * @returns {Boolean} Returns whether the step is current.
+	 * @returns {boolean} Returns whether the step is current.
 	 */
 	isCurrent() {
 		return this.stepElement.classList.contains(classNames.current);
@@ -79,7 +78,7 @@ class SteppedProgressStep {
 	 * Get whether the step has the "error" state.
 	 *
 	 * @access public
-	 * @returns {Boolean} Returns whether the step has an error.
+	 * @returns {boolean} Returns whether the step has an error.
 	 */
 	isError() {
 		return this.stepElement.classList.contains(classNames.error);
@@ -89,7 +88,7 @@ class SteppedProgressStep {
 	 * Get whether the step has no explicit state (and so is a future step).
 	 *
 	 * @access public
-	 * @returns {Boolean} Returns whether the step has no explicit state.
+	 * @returns {boolean} Returns whether the step has no explicit state.
 	 */
 	isFuture() {
 		return (
@@ -176,7 +175,7 @@ class SteppedProgressStep {
 	 * Set the text of the step status element.
 	 *
 	 * @access private
-	 * @param {String} [statusText=''] - The text to set.
+	 * @param {string} [statusText=''] - The text to set.
 	 * @returns {void}
 	 */
 	_setStatusText(statusText = '') {

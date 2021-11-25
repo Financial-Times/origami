@@ -85,7 +85,7 @@ Now we come to the second step in putting our page together, and a big part of w
 
 The Origami Build Service will perform a number of build steps to compile and bundle up the <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> that most Origami component styles are written in. Since it is all bundled for us to pick and choose from, let's begin by styling our grid. This means we'll have to add a `link` tag to our `<head>` tag.
 
-<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^{{site.data.components.o-grid.version}}&brand=master&system_code=$$$-no-bizops-system-code-$$$"/></code></pre>
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^{{site.data.components.o-grid.version}}&brand=core&system_code=$$$-no-bizops-system-code-$$$"/></code></pre>
 
 The `href` attribute references the Origami Build Service endpoint that serves a <abbr title="Cascading Style Sheets">CSS</abbr> bundle. The most important parts of this url are the `components`, `brand`, and `system_code` query parameters.
 
@@ -104,7 +104,7 @@ It is important to highlight that you only need **one** link tag per page, regar
 
 So in order to add the styling for all of our other components, we need to add a few components (and versions!) to the query parameter of our original url:
 
-<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^{{site.data.components.o-grid.version}},o-colors@^{{site.data.components.o-colors.version}},o-typography@^{{site.data.components.o-typography.version}},o-table@^{{site.data.components.o-table.version}}&brand=master&system_code=$$$-no-bizops-system-code-$$$"/></code></pre>
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^{{site.data.components.o-grid.version}},o-colors@^{{site.data.components.o-colors.version}},o-typography@^{{site.data.components.o-typography.version}},o-table@^{{site.data.components.o-table.version}}&brand=core&system_code=$$$-no-bizops-system-code-$$$"/></code></pre>
 <aside><a href="https://codepen.io/ft-origami/pen/LBJErq" rel="noreferrer noopener" target="_blank" class="o-typography-link o-typography-link--external">Show me the CodePen (opens a new tab)</a></aside>
 
 And now, when we look at our page, we should have a styled table, different typography and a type of grid in place.
@@ -112,7 +112,7 @@ And now, when we look at our page, we should have a styled table, different typo
 
 ### Selecting A Brand
 
-Public facing, ft.com product are known as "master brand" products, by setting the brand query parameter to "master" we are requesting that style of component. But Origami components offer tailored support for other contexts with component [branding](/docs/components/branding/).
+Public facing, ft.com product are known as "core brand" products, by setting the brand query parameter to "core" we are requesting that style of component. But Origami components offer tailored support for other contexts with component [branding](/docs/components/branding/).
 
 For example we could set the brand to `internal`.
 
@@ -121,7 +121,7 @@ For example we could set the brand to `internal`.
 
 As the colour palette for the "internal" brand does not include "paper" (FT pink), the background we set with `o-colors` classes has changed, as have the stripes of `o-table`. Our typography set with `o-typography` classes has also changed.
 
-Now undo that by setting `&brand=master` again.
+Now undo that by setting `&brand=core` again.
 
 For a list of supported brands and their purpose see the [component customisation page](/docs/components/customisation/).
 

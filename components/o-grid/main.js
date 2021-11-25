@@ -5,7 +5,8 @@ const missingDataMessage = 'Could not find layout information. ' +
 
 /**
  * Grab grid properties
- * @return {Object} layout names and gutter widths
+ *
+ * @returns {object} layout names and gutter widths
  */
 function getGridProperties() {
 	const properties = getGridFromDoc('after');
@@ -19,7 +20,8 @@ function getGridProperties() {
  * Get all layout sizes.
  * CSS must be included so JavaScript can retrieve layout information.
  * See the README for more information.
- * @return {Object} layout names and sizes
+ *
+ * @returns {object} layout names and sizes
  */
 function getGridBreakpoints() {
 	const breakpoints = getGridFromDoc('before');
@@ -31,8 +33,9 @@ function getGridBreakpoints() {
 
 /**
  * Grab grid properties surfaced in html:after and html:before's content
- * @param {String} position Whether to get all properties in :before, or current properties in :after
- * @return {Object} layout names and gutter widths
+ *
+ * @param {string} position Whether to get all properties in :before, or current properties in :after
+ * @returns {object} layout names and gutter widths
  */
 function getGridFromDoc(position) {
 	// Contained in a try/catch as it should not error if o-grid styles are not (deliberately or accidentally) loaded
@@ -52,7 +55,8 @@ function getGridFromDoc(position) {
  * Grab the current layout.
  * CSS must be included so JavaScript can retrieve layout information.
  * See the README for more information.
- * @return {String} Layout name
+ *
+ * @returns {string} Layout name
  */
 function getCurrentLayout() {
 	return getGridProperties().layout;
@@ -62,7 +66,8 @@ function getCurrentLayout() {
  * Grab the current space between columns.
  * CSS must be included so JavaScript can retrieve layout information.
  * See the README for more information.
- * @return {String} Gutter width in pixels
+ *
+ * @returns {string} Gutter width in pixels
  */
 function getCurrentGutter() {
 	return getGridProperties().gutter;
@@ -73,6 +78,7 @@ function getCurrentGutter() {
  * and fires a `o-grid.layoutChange` event on layout change.
  * CSS must be included so JavaScript can retrieve layout information.
  * See the README for more information.
+ *
  * @returns {void}
  */
 function enableLayoutChangeEvents() {

@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.0](https://www.github.com/Financial-Times/origami/compare/o-tracking-v4.1.3...o-tracking-v4.2.0) (2021-11-24)
+
+
+### Features
+
+* allow npm 8 in engines config ([eeb1cae](https://www.github.com/Financial-Times/origami/commit/eeb1cae6e7f0379e647f2b41240b1f294997d528))
+
 ### [4.1.3](https://www.github.com/Financial-Times/origami/compare/o-tracking-v4.1.2...o-tracking-v4.1.3) (2021-09-21)
 
 

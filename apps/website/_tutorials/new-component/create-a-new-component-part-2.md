@@ -86,7 +86,7 @@ Next within `main.scss` you should see a [Sass mixin](https://sass-lang.com/docu
 }
 </code></pre>
 
-We call the mixin which shares the component name (`oExample`) the ["primary mixin"](/spec/v1/components/sass/#primary-mixin). When called with no arguments the primary mixin includes all styles for the component. It will also accept an `$opts` argument so users may selectively specify which features of a component to include. For example a user of [o-forms](https://registry.origami.ft.com/components/o-forms) could pass an `$opts` argument to the [`oForms` mixin](https://registry.origami.ft.com/components/o-forms/sassdoc?brand=master#mixin-oforms) to only output styles for text inputs, if their project does not need other form input types. This helps keep the CSS bundle of the project small.
+We call the mixin which shares the component name (`oExample`) the ["primary mixin"](/spec/v1/components/sass/#primary-mixin). When called with no arguments the primary mixin includes all styles for the component. It will also accept an `$opts` argument so users may selectively specify which features of a component to include. For example a user of [o-forms](https://registry.origami.ft.com/components/o-forms) could pass an `$opts` argument to the [`oForms` mixin](https://registry.origami.ft.com/components/o-forms/sassdoc?brand=core#mixin-oforms) to only output styles for text inputs, if their project does not need other form input types. This helps keep the CSS bundle of the project small.
 
 ## Naming Conventions
 
@@ -154,9 +154,9 @@ As Origami component Sass does not output CSS by default these imports do nothin
 
 ### o-colors
 
-So lets change our red border to the standard slate colour from `o-colors` using the [oColorsByName](https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=master#default-palette-colours) Sass function.
+So lets change our red border to the standard slate colour from `o-colors` using the [oColorsByName](https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=core#default-palette-colours) Sass function.
 
-As well as include a colour by name, we can also get a colour for a [specific usecase](https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=master#usecases) such as a page background. To demonstrate, set the background colour of our component using the `box` colour usecase (the `box` colour is used to highlight an area of content such as an aside).
+As well as include a colour by name, we can also get a colour for a [specific usecase](https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=core#usecases) such as a page background. To demonstrate, set the background colour of our component using the `box` colour usecase (the `box` colour is used to highlight an area of content such as an aside).
 
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
@@ -174,7 +174,7 @@ As well as include a colour by name, we can also get a colour for a [specific us
 
 ### o-spacing
 
-Then we can use one of the recommended space values from `o-spacing` using its [oSpacingByName](https://registry.origami.ft.com/components/o-spacing@2.0.4/readme?brand=master#named-space) Sass function.
+Then we can use one of the recommended space values from `o-spacing` using its [oSpacingByName](https://registry.origami.ft.com/components/o-spacing@2.0.4/readme?brand=core#named-space) Sass function.
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
 @mixin oExample ($opts: ()) {
@@ -191,7 +191,7 @@ Then we can use one of the recommended space values from `o-spacing` using its [
 
 ### o-typography
 
-The next thing we wanted to do was style our component text using `o-typography`. We can do that a number of ways depending on how we want our typography to look. For now let's use the [`oTypographyBody`](https://registry.origami.ft.com/components/o-typography@6.4.1/readme?brand=master#otypographybody) mixin. Unlike a function which returns a value, a Sass mixin sets a number of CSS properties; in this case the font family, font size, etc.
+The next thing we wanted to do was style our component text using `o-typography`. We can do that a number of ways depending on how we want our typography to look. For now let's use the [`oTypographyBody`](https://registry.origami.ft.com/components/o-typography@6.4.1/readme?brand=core#otypographybody) mixin. Unlike a function which returns a value, a Sass mixin sets a number of CSS properties; in this case the font family, font size, etc.
 
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
@@ -219,9 +219,9 @@ Run `obt dev`, if not already, and preview the component demo as in [part one](/
 
 In this tutorial we're aiming to build a component that includes a button which will count the number of times it was clicked, so next we will add a button to our component.
 
-If we were adding buttons to a project we might include the primary Sass mixin [`oButtons`](https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=master#mixin-obuttons) to output CSS for the buttons we want to use. However the primary mixin will output button classes like `.o-buttons` and we learnt in a previous section that Origami components must prefix their CSS selectors with the component name. What we want is a class that starts with our component name such as `.o-example__button`.
+If we were adding buttons to a project we might include the primary Sass mixin [`oButtons`](https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=core#mixin-obuttons) to output CSS for the buttons we want to use. However the primary mixin will output button classes like `.o-buttons` and we learnt in a previous section that Origami components must prefix their CSS selectors with the component name. What we want is a class that starts with our component name such as `.o-example__button`.
 
-Fortunately, `o-buttons` allows us to output a button with a custom class name using the Sass mixin [`oButtonsContent`](https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=master#mixin-obuttonscontent). There are a number of options we could pass to `oButtonsContent` for different types of buttons. We'll choose a "primary" button type for this tutorial. In `main.scss` define a new CSS class `.o-example__button` and include the button CSS with `oButtonsContent`:
+Fortunately, `o-buttons` allows us to output a button with a custom class name using the Sass mixin [`oButtonsContent`](https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=core#mixin-obuttonscontent). There are a number of options we could pass to `oButtonsContent` for different types of buttons. We'll choose a "primary" button type for this tutorial. In `main.scss` define a new CSS class `.o-example__button` and include the button CSS with `oButtonsContent`:
 
 <pre><code class="o-syntax-highlight--scss">// main.scss
 .o-example {

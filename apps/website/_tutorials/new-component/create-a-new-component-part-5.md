@@ -68,7 +68,7 @@ The second `init` argument is `opts`, an `Object` of options for the user to con
 
 In `/src/js/example` setting component configuration is handled in the constructor. The `this.options` property is assigned to the given `opts` object, which is merged with any data attributes that have a namespace `data-o-example-[option]`.
 
-For instance the `o-table` component has a sort feature which may be disabled by either passing `{sortable: false}` to the [`o-table` `init` method](https://registry.origami.ft.com/components/o-table@8.0.11/jsdoc?brand=master) or by adding the [`data-o-table-sortable="false"`](https://registry.origami.ft.com/components/o-table@8.0.11/readme?brand=master#disable-sort) attribute to the `o-table` element.
+For instance the `o-table` component has a sort feature which may be disabled by either passing `{sortable: false}` to the [`o-table` `init` method](https://registry.origami.ft.com/components/o-table@8.0.11/jsdoc?brand=core) or by adding the [`data-o-table-sortable="false"`](https://registry.origami.ft.com/components/o-table@8.0.11/readme?brand=core#disable-sort) attribute to the `o-table` element.
 
 We'll add configuration options later to demonstrate. For full details see the [JavaScript configuration](/spec/v1/components/javascript/#configuration) section of the Origami specification.
 

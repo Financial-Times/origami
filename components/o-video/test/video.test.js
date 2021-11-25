@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 
 import Video from './../src/js/video.js';
 import {mediaApiResponse1} from './fixtures/media-api-1.js';
@@ -797,9 +799,10 @@ describe('Video', () => {
 			containerEl.setAttribute('data-o-video-show-captions', 'true');
 			const video = new Video(containerEl);
 
-			video.getData().then(() => {
+			return video.getData().then(() => {
 				video.addVideo();
-				video.getTrackMode().then(mode => proclaim.equal(mode, 'disabled'));
+				const mode = video.getTrackMode();
+				proclaim.equal(mode, 'disabled');
 			});
 		});
 
@@ -807,9 +810,10 @@ describe('Video', () => {
 			containerEl.setAttribute('data-o-video-show-captions', 'false');
 			const video = new Video(containerEl);
 
-			video.getData().then(() => {
+			return video.getData().then(() => {
 				video.addVideo();
-				video.getTrackMode().then(mode => proclaim.isUndefined(mode));
+				const mode = video.getTrackMode();
+				proclaim.isUndefined(mode);
 			});
 		});
 

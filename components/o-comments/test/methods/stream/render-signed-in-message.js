@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
+
+import proclaim from 'proclaim';
 import fixtures from '../../helpers/fixtures.js';
 import Stream from '../../../src/js/stream.js';
 

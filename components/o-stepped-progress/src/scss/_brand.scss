@@ -23,7 +23,7 @@ $_o-stepped-progress-shared-brand-config: (
 	error-color: oColorsMix('crimson', $percentage: 90)
 );
 
-// Define shared master/internal brand configurations
+// Define shared core/internal brand configurations
 @if oBrandIs('core')  or oBrandIs('internal') {
 	$_o-stepped-progress-shared-brand-config: map-merge($_o-stepped-progress-shared-brand-config, (interacted-color: oColorsByName('slate')));
 }

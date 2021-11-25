@@ -6,13 +6,14 @@
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
-		"lint": "echo skipping lint",
-		"test": "echo skipping tests"
+    "lint": "echo skipping lint",
+    "test": "echo skipping tests"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "html-validate": "^6.1.0"
-  }
+  },
+  "private": true
 }

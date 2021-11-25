@@ -62,8 +62,8 @@ Provides a reliable way of obtaining the current dimensions of the browser windo
 By default or if no parameters are passed the method will return the size of the viewport inclusive of the scrollbars. However in certain cases (e.g. adverts) you may want to get the size of the viewport without the scroll bars. In such case pass `true` to the method in order to ignore the scrollbars.
 
 ```js
-oViewport.getSize(); // {width: 100, height: 100} without scrollbars
-oViewport.getSize(true); // {width: 108, height: 100} including scrollbar width
+oViewport.getSize(); // {width: 108, height: 100} including scrollbar width
+oViewport.getSize(true); // {width: 100, height: 100} without scrollbars
 ```
 
 ### `o-viewport#getScrollPosition()`

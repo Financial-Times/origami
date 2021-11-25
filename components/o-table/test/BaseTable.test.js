@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim, sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 
 import * as sandbox from './helpers/sandbox.js';
 import * as fixtures from './helpers/fixtures.js';
@@ -441,15 +443,16 @@ describe("BaseTable", () => {
 			const columnIndex = 1;
 			const sortOrder = 'ascending';
 			// Expecting a sorted event.
-			document.addEventListener('oTable.sorted', (event) => {
+			document.addEventListener('oTable.sorted', function sorted(event) {
 				try {
 					proclaim.equal(event.detail.instance, table, 'Expected event detail to include the o-table instance which fired the event.');
 					proclaim.equal(event.detail.sortOrder, sortOrder, `Expected event detail to include the sort order.`);
 					proclaim.equal(event.detail.columnIndex, columnIndex, `Expected event detail to include the column index.`);
+					done();
+					document.removeEventListener('oTable.sorted', sorted);
 				} catch (error) {
 					done(error);
 				}
-				done();
 			});
 			try {
 				table.sorted({ columnIndex, sortOrder });

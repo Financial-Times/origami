@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 
 import * as fixtures from './helpers/fixtures.js';
 
@@ -8,7 +10,7 @@ import OToggle from './../main.js';
 export function dispatch (target, type, eventProperties) {
 	const event = new Event(type, { bubbles: true });
 	for (const property in eventProperties) {
-		if (eventProperties.hasOwnProperty(property)) {
+		if (Object.prototype.hasOwnProperty.call(eventProperties, property)) {
 			event[property] = eventProperties[property];
 		}
 	}
@@ -59,7 +61,7 @@ describe("oToggle", () => {
 			let toggleEl;
 
 			beforeEach(() => {
-				window.myCallback = () => { };
+				window.myCallback = Function.prototype;
 				fixtures.declarativeMarkup('myCallback');
 				toggleEl = document.querySelector('[data-o-component="o-toggle"]');
 			});
@@ -315,7 +317,7 @@ describe("oToggle", () => {
 			const target = new OToggle.Target(testToggle);
 			testToggle.target = target;
 			sinon.stub(target, "isOpen").returns(true);
-			testToggle.callback = () => {};
+			testToggle.callback = Function.prototype;
 			const callbackSpy = sinon.spy(testToggle, "callback");
 
 			testToggle.toggle(event);
@@ -327,7 +329,7 @@ describe("oToggle", () => {
 		it("calls the callback with `this` bound to the correct context (the toggle not the event)", () => {
 			const target = new OToggle.Target(testToggle);
 			testToggle.target = target;
-			testToggle.callback = () => {};
+			testToggle.callback = Function.prototype;
 
 			sinon.stub(target, "isOpen").returns(true);
 
@@ -347,7 +349,7 @@ describe("oToggle", () => {
 			const target = new OToggle.Target(testToggle);
 			testToggle.target = target;
 			sinon.stub(target, "isOpen").returns(false);
-			testToggle.callback = () => {};
+			testToggle.callback = Function.prototype;
 			const callbackSpy = sinon.spy(testToggle, "callback");
 
 			testToggle.toggle(event);

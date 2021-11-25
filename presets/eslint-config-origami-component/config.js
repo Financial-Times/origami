@@ -1,20 +1,26 @@
 'use strict';
 
 module.exports = {
+	settings: {
+		jsdoc: {
+			mode: "typescript"
+		}
+	},
 	parserOptions: {
-		ecmaVersion: 7,
 		sourceType: "module",
 		ecmaFeatures: {
 			jsx: true,
 		},
 	},
 	env: {
-		es6: true,
+		es2021: true,
 		browser: true,
 		node: true,
 	},
-	plugins: ["import"],
+	plugins: ["import", "@lwc/eslint-plugin-lwc", "jsdoc"],
+	extends: ["plugin:jsdoc/recommended"],
 	rules: {
+		"jsdoc/require-jsdoc": "off",
 		"import/extensions": ["warn", "ignorePackages"],
 		"no-unused-vars": "error",
 		"no-undef": "error",
@@ -28,7 +34,6 @@ module.exports = {
 		"dot-notation": "off",
 		semi: ["error", "always"],
 		strict: ["error", "global"],
-		"valid-jsdoc": "warn",
 		"no-irregular-whitespace": "warn",
 		"no-multi-spaces": "error",
 		"one-var": ["error", "never"],
@@ -121,6 +126,7 @@ module.exports = {
 		curly: "error",
 		radix: "error",
 		yoda: "error",
+		"@lwc/lwc/no-async-await": "error",
 	},
 	globals: {
 		require: false,
@@ -128,4 +134,12 @@ module.exports = {
 		exports: false,
 		requireText: false,
 	},
+	"overrides": [
+		{
+		  "files": ["test/**/*.js"],
+		  "rules": {
+			 "@lwc/lwc/no-async-await": "off"
+		  }
+		}
+	 ]
 }

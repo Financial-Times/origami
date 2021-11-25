@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-labels",
-  "version": "6.0.2",
+  "version": "6.2.0",
   "description": "Labels for content classification or to emphasise a value. Provides customisation options with the FT colour palette.",
   "keywords": [
     "label",
@@ -20,17 +20,19 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-brand": "^4.0.2",
+    "@financial-times/o-brand": "^4.1.0",
     "@financial-times/o-colors": "^6.0.1",
     "@financial-times/o-editorial-typography": "^2.0.1",
     "@financial-times/o-spacing": "^3.0.0",
     "@financial-times/o-typography": "^7.0.1"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
-  }
+  },
+  "percy": true,
+  "private": false
 }

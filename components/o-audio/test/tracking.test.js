@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 import Tracking from './../src/js/tracking.js';
 import OTrackingCollector from './helpers/o-tracking-collector.js';
 
@@ -55,9 +57,8 @@ describe('Tracking' , () => {
 					error: undefined,
 					contentId
 				});
-			} catch(err) {
+			} finally {
 				clock.restore();
-				throw err;
 			}
 		});
 

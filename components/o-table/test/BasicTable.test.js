@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim, sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 
 import * as sandbox from './helpers/sandbox.js';
 import * as fixtures from './helpers/fixtures.js';
@@ -18,8 +20,9 @@ describe("BasicTable", () => {
 	});
 
 	it('it fires an "oTable.ready" event when constructed', done => {
-		window.addEventListener('oTable.ready', function () {
+		window.addEventListener('oTable.ready', function ready() {
 			done();
+			window.removeEventListener('oTable.ready', ready);
 		});
 		new BasicTable(oTableEl, sorter);
 	});

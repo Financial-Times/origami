@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 
 import Banner from './../src/js/banner.js';
 import mainFixture from './fixture/main.js';

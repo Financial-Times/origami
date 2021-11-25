@@ -3,7 +3,7 @@
 	"type": "module",
 	"origamiVersion": "2.0",
 	"brands": [
-		"master",
+		"core",
 		"internal",
 		"whitelabel"
 	],
@@ -24,9 +24,9 @@
 	},
 	"demos": [
 		{
-			"name": "master-contrast-checker",
+			"name": "core-contrast-checker",
 			"title": "Contrast ratio checker",
-			"data": "demos/src/palettes/master-palette.json",
+			"data": "demos/src/palettes/core-palette.json",
 			"js": "demos/src/contrast-checker/contrast-checker.js",
 			"sass": "demos/src/contrast-checker/contrast-checker.scss",
 			"template": "demos/src/contrast-checker/index.mustache",
@@ -43,13 +43,13 @@
 				"o-autoinit@^3.0.0"
 			],
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
-			"name": "master-color-mixer",
+			"name": "core-color-mixer",
 			"title": "Color Mixer",
-			"data": "demos/src/palettes/master-palette.json",
+			"data": "demos/src/palettes/core-palette.json",
 			"js": "demos/src/color-mixer/color-mixer.js",
 			"sass": "demos/src/color-mixer/color-mixer.scss",
 			"template": "demos/src/color-mixer/index.mustache",
@@ -64,74 +64,74 @@
 				"o-autoinit@^3.0.0"
 			],
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
-			"name": "master-primary-palette",
+			"name": "core-primary-palette",
 			"title": "Primary Palette",
-			"data": "demos/src/palettes/master-palette.json",
+			"data": "demos/src/palettes/core-palette.json",
 			"template": "demos/src/primary-palette.mustache",
 			"description": "The primary FT brand colours are FT pink, FT grey, black, and white. These are the established colours that make up the FT corporate identity and FT brand. FT pink and FT grey are not used for digital UI, but may be helpful for use alongside FT branded static assets such as the FT logo. For example, FT Pink could be used to prevent a flash of the wrong colour as the logo loads",
 			"display_html": false,
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
-			"name": "master-secondary-palette",
+			"name": "core-secondary-palette",
 			"title": "Secondary Palette",
-			"data": "demos/src/palettes/master-palette.json",
+			"data": "demos/src/palettes/core-palette.json",
 			"template": "demos/src/secondary-palette.mustache",
 			"description": "Secondary colors provide visual hierarchy to differentiate content and are brand identifiers of the FT.",
 			"display_html": false,
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
-			"name": "master-tertiary-palette",
+			"name": "core-tertiary-palette",
 			"title": "Tertiary Palette",
-			"data": "demos/src/palettes/master-palette.json",
+			"data": "demos/src/palettes/core-palette.json",
 			"template": "demos/src/tertiary-palette.mustache",
 			"description": "Used sparingly, these colors provide contrast for highlighting and messaging.",
 			"display_html": false,
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
-			"name": "master-b2c-palette",
+			"name": "core-b2c-palette",
 			"title": "B2C Palette",
-			"data": "demos/src/palettes/master-palette.json",
+			"data": "demos/src/palettes/core-palette.json",
 			"template": "demos/src/b2c-palette.mustache",
 			"description": "A candidate for deprecation. These colors were specifically designed for use in B2C products.",
 			"display_html": false,
 			"brands": [
-				"master"
+				"core"
 			],
 			"hidden": true
 		},
 		{
-			"name": "master-partner-content-palette",
+			"name": "core-partner-content-palette",
 			"title": "Partner Content Palette",
-			"data": "demos/src/palettes/master-palette.json",
+			"data": "demos/src/palettes/core-palette.json",
 			"template": "demos/src/partner-content-palette.mustache",
 			"description": "",
 			"display_html": false,
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
-			"name": "master-tones",
+			"name": "core-tones",
 			"title": "Tones and Mixes",
-			"data": "demos/src/palettes/master-palette.json",
+			"data": "demos/src/palettes/core-palette.json",
 			"template": "demos/src/tones-mixes.mustache",
 			"description": "Tones (colours with modified brightness using the HSB colour space) can be used to produce a broad spectrum of lighter and darker variations of palette colours for creating scale and depth to your designs. To reduce our number of colour combinations not all colours may be toned, but mixes of black/white may be used instead.",
 			"display_html": false,
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
@@ -247,7 +247,7 @@
 		{
 			"name": "pa11y",
 			"title": "Pa11y",
-			"data": "demos/src/palettes/master-palette.json",
+			"data": "demos/src/palettes/core-palette.json",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,
 			"display_html": false,

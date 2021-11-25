@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://www.github.com/Financial-Times/origami/compare/o-audio-v2.0.1...o-audio-v2.1.0) (2021-11-24)
+
+
+### Features
+
+* allow npm 8 in engines config ([eeb1cae](https://www.github.com/Financial-Times/origami/commit/eeb1cae6e7f0379e647f2b41240b1f294997d528))
+
 ### [2.0.1](https://www.github.com/Financial-Times/origami/compare/o-audio-v2.0.0...o-audio-v2.0.1) (2021-09-21)
 
 

@@ -6,13 +6,13 @@ class OverflowTable extends BaseTable {
 	 * Initialises an `o-table` component with "overflow" responsive behaviour.
 	 *
 	 * @param {HTMLElement} rootEl - The `o-table` element.
-	 * @param {TableSorter} sorter
-	 * @param {Object} opts [{}]
-	 * @param {Bool} opts.sortable [true]
-	 * @param {Undefined | Bool} opts.expanded
-	 * @param {Number} opts.minimumRowCount [20]
+	 * @param {import("../Sort/TableSorter")} sorter a tablesorter instance
+	 * @param {object} opts [{}]
+	 * @param {boolean} opts.sortable [true] - is the table sortable
+	 * @param {undefined | boolean} opts.expanded - is the table expanded
+	 * @param {number} opts.minimumRowCount [20] - the fewest number of rows to show
 	 * @access public
-	 * @returns {OverflowTable}
+	 * @returns {OverflowTable} - Your new table
 	 */
 	constructor(rootEl, sorter, opts = {}) {
 		super(rootEl, sorter, opts);
@@ -34,8 +34,8 @@ class OverflowTable extends BaseTable {
 	 * Filter the table.
 	 *
 	 * @access public
-	 * @param {Number} headerIndex - The index of the table column to filter.
-	 * @param {String|Function} filter - How to filter the column (either a string to match or a callback function).
+	 * @param {number} headerIndex - The index of the table column to filter.
+	 * @param {string | Function} filter - How to filter the column (either a string to match or a callback function).
 	 * @returns {undefined}
 	 */
 	filter(headerIndex, filter) {
@@ -45,8 +45,9 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Check if the table is expanded (true) or collapsed (false).
+	 *
 	 * @access public
-	 * @returns {Bool}
+	 * @returns {boolean} is the table expanded?
 	 */
 	isExpanded() {
 		const expand = this._expand === undefined ? Boolean(this._opts.expanded) : Boolean(this._expand);
@@ -55,8 +56,9 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Check if the table is collapsed (true) or expanded (false).
+	 *
 	 * @access public
-	 * @returns {Bool}
+	 * @returns {boolean} is the table contracted?
 	 */
 	isContracted() {
 		const expand = this._expand === undefined ? Boolean(this._opts.expanded) : Boolean(this._expand);
@@ -65,8 +67,9 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Check if the table supports the expand/contract feature.
+	 *
 	 * @access public
-	 * @returns {Bool}
+	 * @returns {boolean} can the table expand and contract?
 	 */
 	canExpand() {
 		return typeof this._opts.expanded === 'boolean' && this._minimumRowCount < this.tableRows.length - this._filteredTableRows.length;
@@ -128,8 +131,9 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Hides table rows if the table can be expanded.
+	 *
 	 * @access public
-	 * @returns undefined
+	 * @returns {void}
 	 */
 	contractTable() {
 		if (!this.canExpand()) {
@@ -141,8 +145,9 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Expands the table, revealing hidden table rows, if it can be expanded and has been contracted.
+	 *
 	 * @access public
-	 * @returns undefined
+	 * @returns {void}
 	 */
 	expandTable() {
 		if (!this.canExpand()) {
@@ -154,7 +159,8 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Get the table height, accounting for "hidden" rows.
-	 * @return {Number|Null}
+	 *
+	 * @returns {number | null} the height
 	 */
 	_getTableHeight() {
 		if (this.isContracted()) {
@@ -179,6 +185,7 @@ class OverflowTable extends BaseTable {
 	/**
 	 * Add controls such as the back, forward, "show more" buttons to DOM,
 	 * plus wrappers needed for them to function.
+	 *
 	 * @returns {undefined}
 	 */
 	_addControlsToDom() {
@@ -240,11 +247,13 @@ class OverflowTable extends BaseTable {
 	/**
 	 * Add functionality to improve the experience when scrolling a table,
 	 * such as showing forward/back buttons to indicate that scroll is possible.
+	 *
 	 * @returns {undefined}
 	 */
 	_setupScroll() {
 		// Does not warn of a missing wrapper: assumes no overflow is desired.
 		if (this.container && this.overlayWrapper && !this.wrapper) {
+			// eslint-disable-next-line no-console
 			console.warn(
 				'Controls to scroll table left/right could not be added to "o-table" as it is missing markup. ' +
 				'Please add the container and wrapper elements according to the documentation https://registry.origami.ft.com/components/o-table.',
@@ -342,6 +351,7 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Add hide/show functionality for long tables.
+	 *
 	 * @returns {undefined}
 	 */
 	_setupExpander() {
@@ -385,6 +395,7 @@ class OverflowTable extends BaseTable {
 	/**
 	 * Update all controls and their overlays,
 	 * e.g. forward/back arrow visibility, visibility of arrow dock, overlay fade.
+	 *
 	 * @returns {undefined}
 	 */
 	_updateControls() {
@@ -419,6 +430,7 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Update the visibility of a scroll forward/back button.
+	 *
 	 * @param {HTMLElement} element - The button wrapper.
 	 * @returns {undefined}
 	 */
@@ -458,7 +470,8 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * The number of rows to display if the table is collapsed.
-	 * @returns {Number}
+	 *
+	 * @returns {number} the number of rows, or 20
 	 */
 	get _minimumRowCount() {
 		const minimumRowCount = this._opts.minimumRowCount;
@@ -467,7 +480,8 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Which rows are hidden, either by a filter or by the expander.
-	 * @returns {Array[Node]}
+	 *
+	 * @returns {Node[]} the hidden trs
 	 */
 	get _rowsToHide() {
 		return [...this._filteredTableRows, ...this._rowsHiddenByExpander];
@@ -475,7 +489,8 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * The rows which will be hidden if the table is collapsed.
-	 * @returns {Array[Node]}
+	 *
+	 * @returns {Node[]} the rows that will disappear when collapsing
 	 */
 	get _rowsHiddenByExpander() {
 		const visibleRowCount = Math.min(this.tableRows.length, this._minimumRowCount);
@@ -485,7 +500,8 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Check if the table can be scrolled.
-	 * @returns {Boolean}
+	 *
+	 * @returns {boolean} can the table be scrolled?
 	 */
 	get _canScrollTable() {
 		return this._fromEnd > 0 || this._fromStart > 0;
@@ -493,7 +509,8 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Check if the table can fit within the viewport vertically.
-	 * @returns {Boolean}
+	 *
+	 * @returns {boolean} is the table too big for the viewport?
 	 */
 	get _tableTallerThanViewport() {
 		return this.container.getBoundingClientRect().height > document.documentElement.clientHeight;
@@ -502,7 +519,8 @@ class OverflowTable extends BaseTable {
 	/**
 	 * Check if the document is long enough to scroll beyond the table enough for sticky arrows to dock at the bottom.
 	 * I.e. Scroll past the table by at least 50% of the viewport.
-	 * @returns {Boolean}
+	 *
+	 * @returns {boolean} is the table so big that the viewport can scroll past it by over 50%?
 	 */
 	get _canScrollPastTable() {
 		return this.container.getBoundingClientRect().bottom + document.documentElement.clientHeight / 2 < document.documentElement.getBoundingClientRect().bottom;
@@ -511,7 +529,8 @@ class OverflowTable extends BaseTable {
 	/**
 	 * Check if the "dock" at the bottom of the table should be shown.
 	 * After scrolling past the table, sticky arrows sit within the dock at the bottom of the table.
-	 * @returns {Boolean}
+	 *
+	 * @returns {boolean} should the dock be shown?
 	 */
 	get _showArrowDock() {
 		return OverflowTable._supportsArrows() && this._canScrollTable && this._canScrollPastTable && this.canExpand();
@@ -519,7 +538,8 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Check if left/right controls should be sticky.
-	 * @returns {Boolean}
+	 *
+	 * @returns {boolean} does the browser support stickiness, and is the table big?
 	 */
 	get _stickyArrows() {
 		return OverflowTable._supportsArrows() && this._tableTallerThanViewport;
@@ -527,7 +547,8 @@ class OverflowTable extends BaseTable {
 
 	/**
 	 * Check if sticky buttons are supported.
-	 * @returns {Boolean}
+	 *
+	 * @returns {boolean} is stickiness supported by the user's browser?
 	 */
 	static _supportsArrows() {
 		return typeof CSS !== 'undefined' && (CSS.supports("position", "sticky") || CSS.supports('position', '-webkit-sticky'));

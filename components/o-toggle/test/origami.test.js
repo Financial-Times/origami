@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 
 import * as fixtures from './helpers/fixtures.js';
 
@@ -33,7 +35,7 @@ describe("oToggle", () => {
 
 		beforeEach(() => {
 			// declarative callback
-			window.myCallback = () => { };
+			window.myCallback = Function.prototype;
 			fixtures.declarativeMarkup('myCallback');
 		});
 

@@ -1,11 +1,13 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
 
-import * as sandbox from './../helpers/sandbox.js';
-import * as fixtures from './../helpers/fixtures.js';
-import BaseTable from './../../src/js/Tables/BaseTable.js';
-import FlatTable from './../../src/js/Tables/FlatTable.js';
-import TableSorter from './../../src/js/Sort/TableSorter.js';
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
+
+import * as sandbox from '../helpers/sandbox.js';
+import * as fixtures from '../helpers/fixtures.js';
+import BaseTable from '../../src/js/Tables/BaseTable.js';
+import FlatTable from '../../src/js/Tables/FlatTable.js';
+import TableSorter from '../../src/js/Sort/TableSorter.js';
 const sorter = new TableSorter();
 
 describe("BaseTable", () => {

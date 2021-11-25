@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-loading",
-  "version": "5.0.2",
+  "version": "5.2.0",
   "description": "A visual loading indicator, available in two colours and four sizes",
   "keywords": [
     "loading",
@@ -22,15 +22,17 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-brand": "^4.0.2",
+    "@financial-times/o-brand": "^4.1.0",
     "@financial-times/o-colors": "^6.0.1",
     "@financial-times/sass-mq": "^5.0.2"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
-  }
+  },
+  "percy": true,
+  "private": false
 }

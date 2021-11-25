@@ -2,7 +2,7 @@
 	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"brands": [
-		"master",
+		"core",
 		"internal",
 		"whitelabel"
 	],
@@ -37,7 +37,7 @@
 			"template": "/demos/src/states.mustache",
 			"data": "demos/src/data/states-content.json",
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
@@ -47,7 +47,7 @@
 			"template": "/demos/src/states.mustache",
 			"data": "demos/src/data/states-lifecycle.json",
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
@@ -91,7 +91,7 @@
 			"title": "Indicators",
 			"description": "",
 			"brands": [
-				"master"
+				"core"
 			],
 			"template": "/demos/src/indicators.mustache"
 		},
@@ -106,7 +106,7 @@
 			},
 			"documentClasses": "demo-inverse",
 			"brands": [
-				"master"
+				"core"
 			],
 			"template": "/demos/src/indicators.mustache"
 		},
@@ -115,7 +115,7 @@
 			"title": "Indicator Sizes",
 			"description": "All indicator labels adapt to the set font size. This demo shows using custom CSS to set the font size of indicator labels.",
 			"brands": [
-				"master"
+				"core"
 			],
 			"template": "/demos/src/indicators-sizes.mustache"
 		},
@@ -124,7 +124,7 @@
 			"title": "Timestamp",
 			"description": "",
 			"brands": [
-				"master"
+				"core"
 			],
 			"template": "/demos/src/timestamp.mustache"
 		},
@@ -139,7 +139,7 @@
 			},
 			"documentClasses": "demo-inverse",
 			"brands": [
-				"master"
+				"core"
 			],
 			"template": "/demos/src/timestamp.mustache"
 		},
@@ -160,7 +160,7 @@
 				"indicator": true
 			},
 			"brands": [
-				"master"
+				"core"
 			],
 			"hidden": true
 		},

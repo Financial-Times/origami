@@ -40,40 +40,43 @@ const descriptiveLinkText = {
  */
 
 /**
-  * @class Share
-  *
-  * @param {(HTMLElement|string)} rootEl [el=document.body] - Element where to search for an o-share component. You can pass an HTMLElement or a selector string
-  * @param {Object} config - Optional
-  * @param {string} config.url - Optional, url to share
-  * @param {string} config.title - Optional, title to be used in social network sharing
-  * @param {string} config.titleExtra - Optional, extra bit to add to the title for some social networks
-  * @param {string} config.summary - Optional, summary of the page that's being shared
-  * @param {string} config.relatedTwitterAccounts - Optional, extra information for sharing on Twitter
-  * @param {Object[]} config.links - Optional, array of strings of supported social network names that you want rendered
-  */
+ * @class Share
+ * @param {(HTMLElement|string)} rootEl [el=document.body] - Element where to search for an o-share component. You can pass an HTMLElement or a selector string
+ * @param {object} config - Optional
+ * @param {string} config.url - Optional, url to share
+ * @param {string} config.title - Optional, title to be used in social network sharing
+ * @param {string} config.titleExtra - Optional, extra bit to add to the title for some social networks
+ * @param {string} config.summary - Optional, summary of the page that's being shared
+ * @param {string} config.relatedTwitterAccounts - Optional, extra information for sharing on Twitter
+ * @param {object[]} config.links - Optional, array of strings of supported social network names that you want rendered
+ */
 function Share(rootEl, config) {
 	const oShare = this;
 	const openWindows = {};
 
 	/**
-	  * Helper function to dispatch namespaced events, namespace defaults to oShare
-	  *
-	  * @private
-	  */
-	function dispatchCustomEvent(event, data = {}, namespace = 'oShare') {
-		oShare.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
+	 * Helper function to dispatch namespaced events, namespace defaults to oShare
+	 *
+	 * @param {string} eventName - event to dispatch
+	 * @param {object} data - the payload
+	 * @param {string} namespace - the namespace for the event
+	 * @returns {void}
+	 * @private
+	 */
+	function dispatchCustomEvent(eventName, data = {}, namespace = 'oShare') {
+		oShare.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + eventName, {
 			detail: data,
 			bubbles: true
 		}));
 	}
 
 	/**
-	  * Click event handler that checks the event target is an o-share action
-	  *
-	  * @param {Event} ev - The event to handle
-	  * @return {undefined}
-	  * @private
-	  */
+	 * Click event handler that checks the event target is an o-share action
+	 *
+	 * @param {Event} ev - The event to handle
+	 * @returns {undefined}
+	 * @private
+	 */
 	function handleClick(ev) {
 		const actionEl = ev.target.closest('li.o-share__action');
 
@@ -96,13 +99,13 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	  * Event handler for social network actions. Opens up a new window for that social network and dispatched the 'oShare.open' event
-	  *
-	  * @private
-	  * @param {string} url - URL to be loaded in the new window
-	  * @returns {undefined}
-	  * @fires "oShare.open"
-	  */
+	 * Event handler for social network actions. Opens up a new window for that social network and dispatched the 'oShare.open' event
+	 *
+	 * @private
+	 * @param {string} url - URL to be loaded in the new window
+	 * @returns {undefined}
+	 * @fires "oShare.open"
+	 */
 	function shareSocial(url) {
 		if (url) {
 			if (openWindows[url] && !openWindows[url].closed) {
@@ -121,12 +124,12 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	  * Transforms the default social urls
-	  *
-	  * @private
-	  * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
-	  * @returns {string}
-	  */
+	 * Transforms the default social urls
+	 *
+	 * @private
+	 * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
+	 * @returns {string} - the generated url
+	 */
 	function generateSocialUrl(socialNetwork) {
 		let templateUrl = socialUrls[socialNetwork];
 		templateUrl = templateUrl.replace('{{url}}', encodeURIComponent(config.url))
@@ -138,12 +141,12 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	  * Transforms the descriptive text for social links
-	  *
-	  * @private
-	  * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
-	  * @returns {string}
-	  */
+	 * Transforms the descriptive text for social links
+	 *
+	 * @private
+	 * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
+	 * @returns {string} - A lovely URL
+	 */
 	function generateDesriptiveLinkText (socialNetwork) {
 		let templateLinkText = descriptiveLinkText[socialNetwork];
 		templateLinkText = templateLinkText.replace('{{title}}', config.title);
@@ -151,11 +154,11 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	  * Renders the list of social networks in {@link config.links}
-	  *
-	  * @returns {undefined}
-	  * @private
-	  */
+	 * Renders the list of social networks in {@link config.links}
+	 *
+	 * @returns {void}
+	 * @private
+	 */
 	function render() {
 		normaliseConfig();
 
@@ -183,12 +186,12 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	  * Normalises any data in the configuration, converting relative URLs to ready-to-share
-	  * absolute versions
-	  *
-	  * @return {undefined}
-	  * @private
-	  */
+	 * Normalises any data in the configuration, converting relative URLs to ready-to-share
+	 * absolute versions
+	 *
+	 * @returns {undefined}
+	 * @private
+	 */
 	function normaliseConfig() {
 		const link = document.createElement('a');
 		link.href = config.url;
@@ -196,13 +199,13 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	  * Initialises the Share class, rendering the o-share element if it's empty with {@link config} options,
-	  * or from corresponding data attributes and sets up dom-delegates.
-	  * Dispatches 'oShare.ready' at the end
-	  *
-	  * @return {undefined}
-	  * @fires "oShare.ready"
-	  */
+	 * Initialises the Share class, rendering the o-share element if it's empty with {@link config} options,
+	 * or from corresponding data attributes and sets up dom-delegates.
+	 * Dispatches 'oShare.ready' at the end
+	 *
+	 * @returns {undefined}
+	 * @fires "oShare.ready"
+	 */
 	function init() {
 		if (!rootEl) {
 			rootEl = document.body;
@@ -240,10 +243,10 @@ function Share(rootEl, config) {
 }
 
 /**
-  * Destroys the Share instance, disables dom-delegates
-  *
-  * @return {undefined}
-  */
+ * Destroys the Share instance, disables dom-delegates
+ *
+ * @returns {undefined}
+ */
 Share.prototype.destroy = function () {
 	this.rootDomDelegate.destroy();
 	// Should destroy remove its children? Maybe setting .innerHTML to '' is faster
@@ -256,11 +259,11 @@ Share.prototype.destroy = function () {
 };
 
 /**
-  * Initialises all o-share components inside the element passed as the first parameter
-  *
-  * @param {(HTMLElement|string)} rootEl [el=document.body] - Element where to search for o-share components. You can pass an HTMLElement or a selector string
-  * @returns {Array} - An array of Share instances
-  */
+ * Initialises all o-share components inside the element passed as the first parameter
+ *
+ * @param {(HTMLElement|string)} rootEl [el=document.body] - Element where to search for o-share components. You can pass an HTMLElement or a selector string
+ * @returns {Share|Share[]} - A Share or an array of Shares
+ */
 Share.init = function (rootEl = document.body) {
 	if (!(rootEl instanceof HTMLElement)) {
 		rootEl = document.querySelector(rootEl);

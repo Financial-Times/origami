@@ -1,8 +1,9 @@
 class Input {
 	/**
-	* Class constructor.
-	* @param {HTMLElement} [inputElement] - An input element in the DOM
-	*/
+	 * Class constructor.
+	 *
+	 * @param {HTMLElement} [element] - An input element in the DOM
+	 */
 	constructor(element) {
 		this.input = element;
 		this.parent = element.closest('.o-forms-input');
@@ -17,19 +18,22 @@ class Input {
 	}
 
 	/**
-	* Event Handler
-	* @param {Object} event - The event emitted by element/window interactions
-	*/
-	handleEvent(e) {
-		if (e.type === 'blur' || e.type === 'input') {
-			this.validate(e.target);
+	 * Event Handler
+	 *
+	 * @param {object} event - The event emitted by element/window interactions
+	 */
+	handleEvent(event) {
+		if (event.type === 'blur' || event.type === 'input') {
+			this.validate(event.target);
 		}
 	}
 
 	/**
-	* Input validation
-	* Conditions for input validation
-	*/
+	 * Input validation
+	 * Conditions for input validation
+	 *
+	 * @returns {boolean} - is the input valid?
+	 */
 	validate() {
 		if (!this.parent) {
 			return;

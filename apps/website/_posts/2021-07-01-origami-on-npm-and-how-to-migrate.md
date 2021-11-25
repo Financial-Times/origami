@@ -150,261 +150,266 @@ Below is a breakdown of how many systems and repositories will need to be migrat
 Make sure your project has upgraded to the latest component released to Bower before attempting to migrate to the NPM-only releases. Here is a table of Bower component releases for reference:
 
 <div class="o-layout__main__single-span">
-    <table class="o-table o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
-        <thead>
-            <tr>
-            <th>Project</th>
-            <th>Last Major Bower Release</th>
-            <th>Migration Guide</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td>o-autoinit</td>
-            <td>2.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-autoinit/blob/master/MIGRATION.md">o-autoinit migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-banner</td>
-            <td>3.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-banner/blob/master/MIGRATION.md">o-banner migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-big-number</td>
-            <td>2.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-big-number/blob/master/MIGRATION.md">o-big-number migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-brand</td>
-            <td>3.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-brand/blob/master/MIGRATION.md">o-brand migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-buttons</td>
-            <td>6.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-buttons/blob/master/MIGRATION.md">o-buttons migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-colors</td>
-            <td>5.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-colors/blob/master/MIGRATION.md">o-colors migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-cookie-message</td>
-            <td>5.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-cookie-message/blob/master/MIGRATION.md">o-cookie-message migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-date</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-date/blob/master/MIGRATION.md">o-date migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-editorial-layout</td>
-            <td>1.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-editorial-layout/blob/master/MIGRATION.md">o-editorial-layout migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-editorial-typography</td>
-            <td>1.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-editorial-typography/blob/master/MIGRATION.md">o-editorial-typography migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-errors</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-errors/blob/master/MIGRATION.md">o-errors migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-expander</td>
-            <td>5.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-expander/blob/master/MIGRATION.md">o-expander migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-fonts</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-fonts/blob/master/MIGRATION.md">o-fonts migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-fonts-assets</td>
-            <td>1.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-fonts-assets/blob/master/MIGRATION.md">o-fonts-assets migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-footer</td>
-            <td>7.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-footer/blob/master/MIGRATION.md">o-footer migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-footer-services</td>
-            <td>3.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-footer-services/blob/master/MIGRATION.md">o-footer-services migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-forms</td>
-            <td>8.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-forms/blob/master/MIGRATION.md">o-forms migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-ft-affiliate-ribbon</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-ft-affiliate-ribbon/blob/master/MIGRATION.md">o-ft-affiliate-ribbon migration guide</a></td>
-            </tr>
-            <tr>
-            <td>ftdomdelegate</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/ftdomdelegate/blob/master/MIGRATION.md">ftdomdelegate migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-grid</td>
-            <td>5.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-grid/blob/master/MIGRATION.md">o-grid migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-header</td>
-            <td>8.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-header/blob/master/MIGRATION.md">o-header migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-header-services</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-header-services/blob/master/MIGRATION.md">o-header-services migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-icons</td>
-            <td>6.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-icons/blob/master/MIGRATION.md">o-icons migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-labels</td>
-            <td>5.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-labels/blob/master/MIGRATION.md">o-labels migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-layers</td>
-            <td>2.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-layers/blob/master/MIGRATION.md">o-layers migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-layout</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-layout/blob/master/MIGRATION.md">o-layout migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-lazy-load</td>
-            <td>2.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-lazy-load/blob/master/MIGRATION.md">o-lazy-load migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-loading</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-loading/blob/master/MIGRATION.md">o-loading migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-message</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-message/blob/master/MIGRATION.md">o-message migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-meter</td>
-            <td>2.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-meter/blob/master/MIGRATION.md">o-meter migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-normalise</td>
-            <td>2.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-normalise/blob/master/MIGRATION.md">o-normalise migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-overlay</td>
-            <td>3.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-overlay/blob/master/MIGRATION.md">o-overlay migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-quote</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-quote/blob/master/MIGRATION.md">o-quote migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-share</td>
-            <td>7.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-share/blob/master/MIGRATION.md">o-share migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-spacing</td>
-            <td>2.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-spacing/blob/master/MIGRATION.md">o-spacing migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-stepped-progress</td>
-            <td>2.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-stepped-progress/blob/master/MIGRATION.md">o-stepped-progress migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-syntax-highlight</td>
-            <td>3.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-syntax-highlight/blob/master/MIGRATION.md">o-syntax-highlight migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-table</td>
-            <td>8.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-table/blob/master/MIGRATION.md">o-table migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-tabs</td>
-            <td>5.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-tabs/blob/master/MIGRATION.md">o-tabs migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-teaser</td>
-            <td>5.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-teaser/blob/master/MIGRATION.md">o-teaser migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-teaser-collection</td>
-            <td>3.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-teaser-collection/blob/master/MIGRATION.md">o-teaser-collection migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-toggle</td>
-            <td>2.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-toggle/blob/master/MIGRATION.md">o-toggle migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-tooltip</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-tooltip/blob/master/MIGRATION.md">o-tooltip migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-topper</td>
-            <td>3.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-topper/blob/master/MIGRATION.md">o-topper migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-tracking</td>
-            <td>3.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-tracking/blob/master/MIGRATION.md">o-tracking migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-typography</td>
-            <td>6.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-typography/blob/master/MIGRATION.md">o-typography migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-utils</td>
-            <td>1.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-utils/blob/master/MIGRATION.md">o-utils migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-viewport</td>
-            <td>4.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-viewport/blob/master/MIGRATION.md">o-viewport migration guide</a></td>
-            </tr>
-            <tr>
-            <td>o-visual-effects</td>
-            <td>3.0.0</td>
-            <td><a href="https://github.com/Financial-Times/o-visual-effects/blob/master/MIGRATION.md">o-visual-effects migration guide</a></td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="o-table o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+		<thead>
+			<tr>
+			<th>Project</th>
+			<th>Last Major Bower Release</th>
+			<th>Migration Guide</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+			<td>o-autoinit</td>
+			<td>2.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-autoinit/blob/v2.0.0/MIGRATION.md">o-autoinit migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-banner</td>
+			<td>3.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-banner/blob/v3.0.0/MIGRATION.md">o-banner migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-big-number</td>
+			<td>2.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-big-number/blob/v2.0.0/MIGRATION.md">o-big-number migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-brand</td>
+			<td>3.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-brand/blob/v3.0.0/MIGRATION.md">o-brand migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-buttons</td>
+			<td>6.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-buttons/blob/v6.0.0/MIGRATION.md">o-buttons migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-colors</td>
+			<td>5.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-colors/blob/v5.0.0/MIGRATION.md">o-colors migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-cookie-message</td>
+			<td>5.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-cookie-message/blob/v5.0.0/MIGRATION.md">o-cookie-message migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-date</td>
+			<td>4.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-date/blob/v4.0.0/MIGRATION.md">o-date migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-editorial-layout</td>
+			<td>1.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-editorial-layout/blob/v1.0.0/MIGRATION.md">o-editorial-layout migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-editorial-typography</td>
+			<td>1.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-editorial-typography/blob/v1.0.0/MIGRATION.md">o-editorial-typography migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-errors</td>
+			<td>4.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-errors/blob/v4.0.0/MIGRATION.md">o-errors migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-expander</td>
+			<td>5.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-expander/blob/v5.0.0/MIGRATION.md">o-expander migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-fonts</td>
+			<td>4.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-fonts/blob/v4.0.0/MIGRATION.md">o-fonts migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-fonts-assets</td>
+			<td>1.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-fonts-assets/blob/v1.0.0/MIGRATION.md">o-fonts-assets migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-footer</td>
+			<td>9.0.1-bower</td>
+			<td><a href="https://github.com/Financial-Times/o-footer/blob/v7.0.0/MIGRATION.md">o-footer migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-footer-services</td>
+			<td>3.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-footer-services/blob/v3.0.0/MIGRATION.md">o-footer-services migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-forms</td>
+			<td>8.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-forms/blob/v8.0.0/MIGRATION.md">o-forms migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-ft-affiliate-ribbon</td>
+			<td>4.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-ft-affiliate-ribbon/blob/v4.0.0/MIGRATION.md">o-ft-affiliate-ribbon migration guide</a></td>
+			</tr>
+			<tr>
+			<td>ftdomdelegate</td>
+			<td>4.x.x</td>
+			<td><a href="https://github.com/Financial-Times/ftdomdelegate/blob/v4.0.0/MIGRATION.md">ftdomdelegate migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-grid</td>
+			<td>5.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-grid/blob/v5.0.0/MIGRATION.md">o-grid migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-header</td>
+			<td>8.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-header/blob/v8.0.0/MIGRATION.md">o-header migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-header-services</td>
+			<td>4.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-header-services/blob/v4.0.0/MIGRATION.md">o-header-services migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-icons</td>
+			<td>6.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-icons/blob/v6.0.0/MIGRATION.md">o-icons migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-labels</td>
+			<td>5.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-labels/blob/v5.0.0/MIGRATION.md">o-labels migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-layers</td>
+			<td>2.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-layers/blob/v2.0.0/MIGRATION.md">o-layers migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-layout</td>
+			<td>4.x.x</td>
+			<td>
+			<a href="https://github.com/Financial-Times/o-layout/blob/v4.0.0/MIGRATION.md">o-layout migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-lazy-load</td>
+			<td>2.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-lazy-load/blob/v2.0.0/MIGRATION.md">o-lazy-load migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-loading</td>
+			<td>4.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-loading/blob/v4.0.0/MIGRATION.md">o-loading migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-message</td>
+			<td>4.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-message/blob/v4.0.0/MIGRATION.md">o-message migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-meter</td>
+			<td>2.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-meter/blob/v2.0.0/MIGRATION.md">o-meter migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-normalise</td>
+			<td>2.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-normalise/blob/v2.0.0/MIGRATION.md">o-normalise migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-overlay</td>
+			<td>3.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-overlay/blob/v3.0.0/MIGRATION.md">o-overlay migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-quote</td>
+			<td>4.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-quote/blob/v4.0.0/MIGRATION.md">o-quote migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-share</td>
+			<td>7.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-share/blob/v7.0.0/MIGRATION.md">o-share migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-spacing</td>
+			<td>2.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-spacing/blob/v2.0.0/MIGRATION.md">o-spacing migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-stepped-progress</td>
+			<td>2.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-stepped-progress/blob/v2.0.0/MIGRATION.md">o-stepped-progress migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-subs-card</td>
+			<td>6.0.0-bower</td>
+			<td><a href="https://github.com/Financial-Times/o-subs-card/blob/v6.0.0/MIGRATION.md">o-subs-card progress migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-syntax-highlight</td>
+			<td>3.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-syntax-highlight/blob/v3.0.0/MIGRATION.md">o-syntax-highlight migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-table</td>
+			<td>8.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-table/blob/v8.0.0/MIGRATION.md">o-table migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-tabs</td>
+			<td>5.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-tabs/blob/v5.0.0/MIGRATION.md">o-tabs migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-teaser</td>
+			<td>5.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-teaser/blob/v5.0.0/MIGRATION.md">o-teaser migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-teaser-collection</td>
+			<td>3.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-teaser-collection/blob/v3.0.0/MIGRATION.md">o-teaser-collection migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-toggle</td>
+			<td>2.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-toggle/blob/v2.0.0/MIGRATION.md">o-toggle migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-tooltip</td>
+			<td>4.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-tooltip/blob/v4.0.0/MIGRATION.md">o-tooltip migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-topper</td>
+			<td>3.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-topper/blob/v3.0.0/MIGRATION.md">o-topper migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-tracking</td>
+			<td>3.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-tracking/blob/v3.0.0/MIGRATION.md">o-tracking migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-typography</td>
+			<td>6.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-typography/blob/v6.0.0/MIGRATION.md">o-typography migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-utils</td>
+			<td>1.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-utils/blob/v1.0.0/MIGRATION.md">o-utils migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-viewport</td>
+			<td>4.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-viewport/blob/v4.0.0/MIGRATION.md">o-viewport migration guide</a></td>
+			</tr>
+			<tr>
+			<td>o-visual-effects</td>
+			<td>3.x.x</td>
+			<td><a href="https://github.com/Financial-Times/o-visual-effects/blob/v3.0.0/MIGRATION.md">o-visual-effects migration guide</a></td>
+			</tr>
+		</tbody>
+	</table>
 </div>
-

@@ -436,10 +436,10 @@ Currently `oTypographyCustomize` can only update heading styles of whitelabel br
 
 - `weight`: The heading weight (e.g. `semibold`)
 - `scale`: The default heading scale, used when no other scales are set (e.g. 5)
-- `scale-s`: The heading scale for [small viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=master#layout-sizes) and above.
-- `scale-m`: The heading scale for [medium viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=master#layout-sizes) and above.
-- `scale-l`: The heading scale for [large viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=master#layout-sizes) and above.
-- `scale-xl`: The heading scale for [extra-large viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=master#layout-sizes) and above.
+- `scale-s`: The heading scale for [small viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=core#layout-sizes) and above.
+- `scale-m`: The heading scale for [medium viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=core#layout-sizes) and above.
+- `scale-l`: The heading scale for [large viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=core#layout-sizes) and above.
+- `scale-xl`: The heading scale for [extra-large viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=core#layout-sizes) and above.
 
 In the below example, we update the size and weight of h1 and h2 headings:
 

@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 
 import * as fixtures from './helpers/fixtures.js';
 
@@ -62,8 +64,6 @@ describe("SubsCard", () => {
 
 		it('will all have matching top height', () => {
 			const matchHeightsSpy = sinon.spy(SubsCard, 'matchHeights');
-
-			console.log(matchHeightsSpy);
 
 			SubsCard.init();
 

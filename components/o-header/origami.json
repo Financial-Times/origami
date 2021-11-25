@@ -2,7 +2,7 @@
 	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"brands": [
-		"master"
+		"core"
 	],
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-header,components",
 	"supportContact": {

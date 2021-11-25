@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
+
+import proclaim from 'proclaim';
 
 import * as sandbox from './helpers/sandbox.js';
 import * as fixtures from './helpers/fixtures.js';

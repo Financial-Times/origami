@@ -6,22 +6,22 @@ import BasicTable from './Tables/BasicTable.js';
 import TableSorter from './Sort/TableSorter.js';
 const sorter = new TableSorter();
 
+/**
+ * Table options.
+ *
+ * @typedef {object} OTableOptions - Table options.
+ * @property {boolean} sortable [true] - Disable the table's sort feature.
+ * @property {undefined | boolean} expanded [Undefined] - Allow the "OverflowTable" to hide results behind a "show more" button. The table is expanded by default when "true", contracted when "false", or not expandable if not set.
+ * @property {number} minimumRowCount [20] - When the `expanded` option is set, the number of rows to show when the table is not expanded.
+ */
 
 class OTable {
 
 	/**
-	 * Table options.
-	 * @typedef {Object} OTable~opts - Table options.
-	 * @property {Bool} sortable [true] - Disable the table's sort feature.
-	 * @property {Undefined | Bool} expanded [Undefined] - Allow the "OverflowTable" to hide results behind a "show more" button. The table is expanded by default when "true", contracted when "false", or not expandable if not set.
-	 * @property {Number} minimumRowCount [20] - When the `expanded` option is set, the number of rows to show when the table is not expanded.
-	 */
-
-	/**
 	 * Constructs an o-table component.
 	 *
-	 * @param {HTMLElement} - An o-table element.
-	 * @param {...OTable~opts} opts - A table options object.
+	 * @param {HTMLElement} rootEl - An o-table element.
+	 * @param {OTableOptions} opts - A table options object.
 	 * @returns {FlatTable | ScrollTable | OverflowTable | BasicTable} - A table instance.
 	 */
 	constructor(rootEl, opts = {}) {
@@ -49,7 +49,7 @@ class OTable {
 	 *
 	 * @access public
 	 * @param {(HTMLElement|string)} [el=document.body] - Element where to search for o-table components. You can pass an HTMLElement or a selector string.
-	 * @param {...OTable~opts} opts - A table options object.
+	 * @param {OTableOptions} opts - A table options object.
 	 * @returns {Array<FlatTable | ScrollTable | OverflowTable | BasicTable> | FlatTable | ScrollTable | OverflowTable | BasicTable} - A table instance or array of table instances.
 	 */
 	static init(el = document.body, opts = {}) {
@@ -92,9 +92,8 @@ class OTable {
 	 *		return 0;
 	 *	});
 	 *	OTable.init();
-	 *
-	 * @param {String} type - The data type to apply the filter function to.
-	 * @param {formatFunction} formatFunction
+	 * @param {string} type - The data type to apply the filter function to.
+	 * @param {formatFunction} formatFunction - The function used to format the cell
 	 * @access public
 	 */
 	static setSortFormatterForType(type, formatFunction) {

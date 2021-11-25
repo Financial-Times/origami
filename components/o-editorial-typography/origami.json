@@ -7,7 +7,7 @@
 		"slack": "financialtimes/ft-origami"
 	},
 	"brands": [
-		"master"
+		"core"
 	],
 	"supportStatus": "active",
 	"browserFeatures": {

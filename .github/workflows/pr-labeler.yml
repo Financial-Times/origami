@@ -1,6 +1,8 @@
 name: "Pull request labeler"
 on:
-- pull_request
+  pull_request:
+    branches:
+      - '!release-please/branches/**'
 
 jobs:
   triage:

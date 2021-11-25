@@ -132,12 +132,24 @@ stylelint-config-origami-component:
   - presets/stylelint-config-origami-component/**/*
 a11y:
   - tools/a11y/**/*
+origami-bower-safe-version-supervisor:
+  - tools/origami-bower-safe-version-supervisor/**/*
 origami-build-tools:
   - tools/origami-build-tools/**/*
+origami-tools-helpers:
+  - tools/origami-tools-helpers/**/*
+sass-compilation:
+  - tools/sass-compilation/**/*
+test-javascript:
+  - tools/test-javascript/**/*
 test-sass:
   - tools/test-sass/**/*
 validate-component-demo-html:
   - tools/validate-component-demo-html/**/*
+verify-origami-json:
+  - tools/verify-origami-json/**/*
+verify-package-json:
+  - tools/verify-package-json/**/*
 guidelines:
   - apps/storybook/addons/guidelines/**/*
 html:

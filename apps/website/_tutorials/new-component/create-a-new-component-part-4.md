@@ -22,7 +22,7 @@ In part four we will create new demos to showcase the themes we created in [part
 
 ## Add More Demos
 
-In [part three](/docs/tutorials/create-a-new-component-part-3) we added an `inverse` theme for each brand and a `b2c` theme for the master brand but no demos for these. That means there is no visual preview for potential users of our component, and no ability to copy the html for these themes from the [Origami component registry](https://registry.origami.ft.com/components/).
+In [part three](/docs/tutorials/create-a-new-component-part-3) we added an `inverse` theme for each brand and a `b2c` theme for the core brand but no demos for these. That means there is no visual preview for potential users of our component, and no ability to copy the html for these themes from the [Origami component registry](https://registry.origami.ft.com/components/).
 
 To add new demos we will update `origami.json`. This file contains lots of information about our components, including its name, description, demos, and more — see the [Origami Manifest specification](/spec/v1/manifest/) for full details.
 
@@ -81,7 +81,7 @@ Now the `obt dev` command will build our new demo and create `demo-inverse.html`
 </figure>
 
 
-We also need to create a demo for the `b2c` theme. However the `b2c` theme we created only supports the `master` brand. It should not be displayed in the [Origami registry](https://registry.origami.ft.com/components) for the `internal` or `whitelabel` brands. To avoid that, we will set the [`brands` demo property](/spec/v1/manifest/#demos).
+We also need to create a demo for the `b2c` theme. However the `b2c` theme we created only supports the `core` brand. It should not be displayed in the [Origami registry](https://registry.origami.ft.com/components) for the `internal` or `whitelabel` brands. To avoid that, we will set the [`brands` demo property](/spec/v1/manifest/#demos).
 
 <pre><code class="o-syntax-highlight--diff">// origami.json
 
@@ -104,7 +104,7 @@ We also need to create a demo for the `b2c` theme. However the `b2c` theme we cr
 +		"name": "demo-b2c",
 +		"template": "demos/src/demo.mustache",
 +		"data": { "theme": "b2c" },
-+		"brands": ["master"],
++		"brands": ["core"],
 +		"description": "This demo shows an o-example component with the b2c theme."
 +	},
 	{

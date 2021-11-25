@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 import fixtures from './helpers/fixtures.js';
 import fetchMock from 'fetch-mock';
 import Count from '../src/js/count.js';

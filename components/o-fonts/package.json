@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-fonts",
-  "version": "5.0.4",
+  "version": "5.2.0",
   "description": "Loads CSS declarations for FT web fonts. Does not include font assets.",
   "keywords": [
     "font",
@@ -21,13 +21,15 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-brand": "^4.0.2"
+    "@financial-times/o-brand": "^4.1.0"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
-  }
+  },
+  "percy": true,
+  "private": false
 }

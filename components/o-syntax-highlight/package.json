@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-syntax-highlight",
-  "version": "4.0.1",
+  "version": "4.2.0",
   "description": "A syntax highlighter for Origami-supported documentation that wraps PrismJs",
   "keywords": [
     "syntax",
@@ -27,10 +27,12 @@
     "@financial-times/o-colors": "^6.0.0"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
-  }
+  },
+  "percy": true,
+  "private": false
 }

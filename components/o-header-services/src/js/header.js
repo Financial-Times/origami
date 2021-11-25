@@ -5,6 +5,7 @@ import Scroll from './scroll.js';
 class HeaderServices {
 	/**
 	 * Class constructor
+	 *
 	 * @param {HTMLElement} [headerEl] - The component element in the DOM
 	 */
 	constructor (headerEl) {
@@ -16,9 +17,10 @@ class HeaderServices {
 
 	/**
 	 * Initialise header component
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring the component
-	 * @return {Array<HTMLElement>|HTMLElement} - The header(s) initalised.
+	 *
+	 * @param {(HTMLElement | string)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
+	 * @param {object} [options={}] - An options object for configuring the component
+	 * @returns {Array<HTMLElement>|HTMLElement} - The header(s) initalised.
 	 */
 	static init (rootElement, options) {
 		if (!rootElement) {

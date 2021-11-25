@@ -1,4 +1,3 @@
-
 import Message from './src/js/message.js';
 
 const constructAll = () => {

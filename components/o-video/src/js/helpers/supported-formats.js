@@ -24,7 +24,9 @@ function supportedFormats () {
 				supported.push(format);
 			}
 		});
-	} catch(e) { }
+	} catch(e) {
+		// it's okay
+	}
 
 	return supported;
 }

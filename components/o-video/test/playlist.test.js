@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 
 import Player from '../src/js/video.js';
 import Subject from '../src/js/playlist.js';
@@ -112,7 +114,7 @@ describe('Playlist', () => {
 
 			instance.goto(1);
 
-			proclaim.isTrue(instance.cache.hasOwnProperty('abc'));
+			proclaim.isTrue(Object.prototype.hasOwnProperty.call(instance.cache, 'abc'));
 		});
 
 		it('retrieves next video from cache when available', () => {

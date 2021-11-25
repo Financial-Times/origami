@@ -1,5 +1,26 @@
 # Changelog
 
+## [6.2.0](https://www.github.com/Financial-Times/origami/compare/o-subs-card-v6.1.1...o-subs-card-v6.2.0) (2021-11-24)
+
+
+### Features
+
+* allow npm 8 in engines config ([eeb1cae](https://www.github.com/Financial-Times/origami/commit/eeb1cae6e7f0379e647f2b41240b1f294997d528))
+
+### [6.1.1](https://www.github.com/Financial-Times/origami/compare/o-subs-card-v6.1.0...o-subs-card-v6.1.1) (2021-11-11)
+
+
+### Bug Fixes
+
+* add o-subs-card normalize trans dependency ([2e42179](https://www.github.com/Financial-Times/origami/commit/2e421799cfbb96cfb31a8aa4cfb478f8123f0ecf))
+
+## [6.1.0](https://www.github.com/Financial-Times/origami/compare/o-subs-card-v6.0.2...o-subs-card-v6.1.0) (2021-11-08)
+
+
+### Features
+
+* Rename master brand in component origami.json ([f642faf](https://www.github.com/Financial-Times/origami/commit/f642faf0574d84ea8185b56e6090c8015def27e6))
+
 ### [6.0.2](https://www.github.com/Financial-Times/origami/compare/o-subs-card-v6.0.1...o-subs-card-v6.0.2) (2021-11-02)
 
 

@@ -686,7 +686,7 @@ CSS must be included so JavaScript can retrieve layout information. If using [Sa
 
 1.  Create a new Bookmark with this URL:
     ```js
-    javascript:(function(){var s=document.createElement("script");s.src="https://rawgit.com/Financial-Times/o-grid/master/bookmarklet/bookmarklet.js";document.head.appendChild(s);}());
+    javascript:(function(){var s=document.createElement("script");s.src="https://unpkg.com/@financial-times/o-grid@^6.0.0/bookmarklet/bookmarklet.js";document.head.appendChild(s);}());
     ```
 
 2.  Load a website

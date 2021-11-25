@@ -3,7 +3,7 @@ class Count {
 	 * Class constructor.
 	 *
 	 * @param {HTMLElement} [countEl] - The component element in the DOM
-	 * @param {Object} [opts={}] - An options object for configuring the component
+	 * @param {object} [opts={}] - An options object for configuring the component
 	 */
 	constructor (countEl, opts = {}) {
 		this.countEl = countEl;
@@ -38,8 +38,8 @@ class Count {
 	/**
 	 * Get the aria-label for the count element.
 	 *
-	 * @param {Number} count - The comment count
-	 * @returns {String} The string that should be used as the aria-label
+	 * @param {number} count - The comment count
+	 * @returns {string} The string that should be used as the aria-label
 	 */
 	static getCountLabel (count) {
 		if (count === 1) {

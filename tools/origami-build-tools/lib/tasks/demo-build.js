@@ -37,14 +37,16 @@ function buildDemoSass(buildConfig) {
 				brand: buildConfig.brand
 			};
 
-			return buildSass(sassConfig);
+			return buildSass(sassConfig).then(css => {
+				return fs.writeFile(path.join(dest, buildConfig.demo.sassDestination), css);
+			});
 		});
 }
 
 function buildDemoJs(buildConfig) {
 	const src = path.join(buildConfig.cwd, '/' + buildConfig.demo.js);
 	const destFolder = path.join(buildConfig.cwd, '/demos/local/');
-	const dest = path.basename(buildConfig.demo.js);
+	const dest = buildConfig.demo.jsDestination;
 	return files.fileExists(src)
 		.then(exists => {
 			if (!exists) {
@@ -100,7 +102,7 @@ function buildDemoHtml(buildConfig) {
 	const src = path.join(buildConfig.cwd, '/' + buildConfig.demo.template);
 	const partialsDir = path.dirname(src);
 	const dest = path.join('demos', 'local');
-	const destName = buildConfig.demo.name + '.html';
+	const destName = buildConfig.brand + '-' + buildConfig.demo.name + '.html';
 	let data;
 	let partials;
 	const configuredPartials = {};
@@ -129,8 +131,6 @@ function buildDemoHtml(buildConfig) {
 			oDemoTpl
 		]) => {
 			const dependencies = buildConfig.demo.dependencies;
-			const sassPath = buildConfig.demo.sass;
-			const jsPath = buildConfig.demo.js;
 			// core will replace master brand, this is temporary whilst origami build service is updated to support both.
 			// we're updating the o-brand component and build tools first as origami build service uses branded components
 			// for integration tests.
@@ -138,11 +138,11 @@ function buildDemoHtml(buildConfig) {
 			data.oDemoTitle = moduleName + ': ' + buildConfig.demo.name + ' demo';
 			data.oDemoDocumentClasses = buildConfig.demo.documentClasses || buildConfig.demo.bodyClasses;
 
-			data.oDemoComponentStylePath = sassPath ?
-				path.basename(sassPath).replace('.scss', '.css') :
+			data.oDemoComponentStylePath = buildConfig.demo.sassDestination ?
+				path.basename(buildConfig.demo.sassDestination) :
 				'';
 
-			data.oDemoComponentScriptPath = jsPath ? path.basename(jsPath) : '';
+			data.oDemoComponentScriptPath = buildConfig.demo.jsDestination ? path.basename(buildConfig.demo.jsDestination) : '';
 
 			data.oDemoDependenciesStylePath = dependencies ?
 				`https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=${dependencies.toString()}${brand ? `&brand=${brand}` : ''}` :
@@ -237,14 +237,17 @@ module.exports = async function (cfg) {
 
 	for (const demoConfig of demos) {
 		if (!demoFilters || demoFilters && demoFilters.includes(demoConfig.name)) {
-			demoBuildConfig.push(mergeDeep(
-				{
-					documentClasses: '',
-					description: ''
-				},
-				demoDefaultConfiguration,
-				demoConfig
-			));
+			const demoSupportsAllBrands = !demoConfig.brands || demoConfig.brands.length === 0;
+			if (demoSupportsAllBrands || demoConfig.brands.includes(config.brand)) {
+				demoBuildConfig.push(mergeDeep(
+					{
+						documentClasses: '',
+						description: ''
+					},
+					demoDefaultConfiguration,
+					demoConfig
+				));
+			}
 		}
 	}
 
@@ -260,20 +263,27 @@ module.exports = async function (cfg) {
 			brand: config.brand,
 			cwd: cwd
 		};
+
 		// Add demo html config.
 		htmlBuildsConfig.push(buildConfig);
 		const newSassBuild = !sassBuildsConfig.find(existingConfig =>
 			existingConfig.demo.sass === buildConfig.demo.sass
 		);
-		if (demoBuild.sass && newSassBuild) {
-			sassBuildsConfig.push(buildConfig);
+		if (demoBuild.sass) {
+			demoBuild.sassDestination = buildConfig.brand + '-' + path.basename(demoBuild.sass).replace('.scss', '.css');
+			if (newSassBuild) {
+				sassBuildsConfig.push(buildConfig);
+			}
 		}
 
 		const newJsBuild = !jsBuildsConfig.find(existingConfig =>
 			existingConfig.demo.js === buildConfig.demo.js
 		);
-		if (demoBuild.js && newJsBuild) {
-			jsBuildsConfig.push(buildConfig);
+		if (demoBuild.js) {
+			demoBuild.jsDestination = buildConfig.brand + '-' + path.basename(demoBuild.js);
+			if (newJsBuild) {
+				jsBuildsConfig.push(buildConfig);
+			}
 		}
 	}
 

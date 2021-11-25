@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
+
+import proclaim from 'proclaim';
 
 import formFixture from './helpers/fixtures.js';
 import State from '../src/js/state.js';

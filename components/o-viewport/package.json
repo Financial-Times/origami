@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-viewport",
-  "version": "5.0.1",
+  "version": "5.1.0",
   "description": "Utility for attaching debounced listeners to resize, scroll, orientation and visibility events on window",
   "keywords": [
     "debounce",
@@ -25,10 +25,12 @@
     "@financial-times/o-utils": "^2.0.0"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
-  }
+  },
+  "percy": true,
+  "private": false
 }

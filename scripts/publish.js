@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {$, ProcessPromise, ProcessOutput} from "zx"
+import {$} from "zx"
 import {readPackage} from "read-pkg"
 import {request} from "undici"
 
@@ -13,7 +13,7 @@ for (let key in outputs) {
 	if (!match || !value) continue
 	let workspace = match[1]
 	await $`npm publish -w ${workspace}`
-	let pkgjson = await readPackage({cwd: `${workspace}`})
+	let pkgjson = await readPackage({cwd: workspace})
 	let {statusCode, body} = await request(
 		"https://origami-repo-data.ft.com/v1/queue",
 		{

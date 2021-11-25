@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-video",
-  "version": "7.0.3",
+  "version": "7.2.0",
   "description": "Creates a video player and attaches analytics. Also supports pre roll ads.",
   "keywords": [
     "videos",
@@ -30,10 +30,12 @@
     "@financial-times/o-viewport": "^5.0.0"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^7 || ^8"
   },
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
-  }
+  },
+  "percy": true,
+  "private": false
 }

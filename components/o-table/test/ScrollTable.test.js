@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
+
+import proclaim from 'proclaim';
 
 import * as sandbox from './helpers/sandbox.js';
 import * as fixtures from './helpers/fixtures.js';
@@ -19,8 +20,9 @@ describe("ScrollTable", () => {
 	});
 
 	it('it fires an "oTable.ready" event when constructed', done => {
-		window.addEventListener('oTable.ready', function () {
+		window.addEventListener('oTable.ready', function ready() {
 			done();
+			window.removeEventListener('oTable.ready', ready);
 		});
 		new ScrollTable(oTableEl, sorter);
 	});
