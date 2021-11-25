@@ -34,7 +34,6 @@ function checkDependencies(dependencies) {
 								loose: true
 							}))
 						})
-						console.log({versions},majors(versionRange))
 						const maxVersion = semverExtra.max(versions)
 
 						if (maxVersion !== lastVersionAvailableOnBower) {
