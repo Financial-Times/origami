@@ -4,10 +4,11 @@
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-normalise/main';
 
-@import './src/scss/brand';
 @import './src/scss/variables';
 @import './src/scss/functions';
 @import './src/scss/mixins';
+
+@import "@financial-times/style-dictionary-design-tokens/dist/web/tokens";
 
 /// Output o-buttons classes.
 ///
@@ -85,8 +86,8 @@
 					// IE11 renders the background image at a very small size if you do not
 					// double-up the background size here, declaring a width _and_ height.
 					// See https://thatemil.com/blog/2015/03/15/sizing-svg-background-images-in-internet-explorer/
-					background-size: _oButtonsGet('background-size', $size) _oButtonsGet('background-size', $size);
-					padding-left: _oButtonsGet('icon-padding', $size);
+                    background-size: map-get($_o-buttons-size, $size, 'background-size') map-get($_o-buttons-size, $size, 'background-size');
+                    padding-left: map-get($_o-buttons-size, $size, 'icon-padding');
 				}
 			}
 		}
@@ -102,16 +103,13 @@
 	}
 
 	// Type & theme modifiers.
-	@each $type in $types {
-		@if _oButtonsSupports($type) {
-			@include _oButtonsAdd($type: $type, $icons: $icons);
+    $o-buttons-tokens: map-get($_tokens,'color','background','button');
+    @each $type, $themes in $o-buttons-tokens {
+		@each $theme, $theme-tokens in $themes {
+            $theme: if($theme == 'base', null, $theme);
+            @include _oButtonsAdd($type, $theme, $icons);
 		}
-		@each $theme in $themes {
-			@if _oButtonsSupports('#{$type}-#{$theme}') {
-				@include _oButtonsAdd($type, $theme, $icons);
-			}
-		}
-	}
+    }
 
 	// Pagination wrapper.
 	@if $pagination-enabled {

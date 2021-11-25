@@ -1,0 +1,205 @@
+{
+    "image": {
+        "icon": {
+            "arrow-down": {
+                "value": "../../assets/svg/icons/arrow-down.svg"
+            },
+            "arrow-left": {
+                "value": "../../assets/svg/icons/arrow-left.svg"
+            },
+            "arrow-right": {
+                "value": "../../assets/svg/icons/arrow-right.svg"
+            },
+            "arrow-up": {
+                "value": "../../assets/svg/icons/arrow-up.svg"
+            },
+            "arrows-left-right": {
+                "value": "../../assets/svg/icons/arrows-left-right.svg"
+            },
+            "arrows-up-down": {
+                "value": "../../assets/svg/icons/arrows-up-down.svg"
+            },
+            "audio": {
+                "value": "../../assets/svg/icons/audio.svg"
+            },
+            "book": {
+                "value": "../../assets/svg/icons/book.svg"
+            },
+            "bookmark-outline": {
+                "value": "../../assets/svg/icons/bookmark-outline.svg"
+            },
+            "bookmark": {
+                "value": "../../assets/svg/icons/bookmark.svg"
+            },
+            "circle": {
+                "value": "../../assets/svg/icons/circle.svg"
+            },
+            "corporate": {
+                "value": "../../assets/svg/icons/corporate.svg"
+            },
+            "cross": {
+                "value": "../../assets/svg/icons/cross.svg"
+            },
+            "data": {
+                "value": "../../assets/svg/icons/data.svg"
+            },
+            "dollar": {
+                "value": "../../assets/svg/icons/dollar.svg"
+            },
+            "download": {
+                "value": "../../assets/svg/icons/download.svg"
+            },
+            "edit": {
+                "value": "../../assets/svg/icons/edit.svg"
+            },
+            "first": {
+                "value": "../../assets/svg/icons/first.svg"
+            },
+            "gift": {
+                "value": "../../assets/svg/icons/gift.svg"
+            },
+            "grid": {
+                "value": "../../assets/svg/icons/grid.svg"
+            },
+            "hamburger": {
+                "value": "../../assets/svg/icons/hamburger.svg"
+            },
+            "info": {
+                "value": "../../assets/svg/icons/info.svg"
+            },
+            "ipad": {
+                "value": "../../assets/svg/icons/ipad.svg"
+            },
+            "label-outline": {
+                "value": "../../assets/svg/icons/label-outline.svg"
+            },
+            "label": {
+                "value": "../../assets/svg/icons/label.svg"
+            },
+            "last": {
+                "value": "../../assets/svg/icons/last.svg"
+            },
+            "link": {
+                "value": "../../assets/svg/icons/link.svg"
+            },
+            "list": {
+                "value": "../../assets/svg/icons/list.svg"
+            },
+            "lock": {
+                "value": "../../assets/svg/icons/lock.svg"
+            },
+            "mail": {
+                "value": "../../assets/svg/icons/mail.svg"
+            },
+            "minus": {
+                "value": "../../assets/svg/icons/minus.svg"
+            },
+            "more": {
+                "value": "../../assets/svg/icons/more.svg"
+            },
+            "mute-notifications": {
+                "value": "../../assets/svg/icons/mute-notifications.svg"
+            },
+            "mute": {
+                "value": "../../assets/svg/icons/mute.svg"
+            },
+            "newspaper": {
+                "value": "../../assets/svg/icons/newspaper.svg"
+            },
+            "notifications": {
+                "value": "../../assets/svg/icons/notifications.svg"
+            },
+            "outside-page": {
+                "value": "../../assets/svg/icons/outside-page.svg"
+            },
+            "pause": {
+                "value": "../../assets/svg/icons/pause.svg"
+            },
+            "phone": {
+                "value": "../../assets/svg/icons/phone.svg"
+            },
+            "pin": {
+                "value": "../../assets/svg/icons/pin.svg"
+            },
+            "play": {
+                "value": "../../assets/svg/icons/play.svg"
+            },
+            "plus": {
+                "value": "../../assets/svg/icons/plus.svg"
+            },
+            "podcast": {
+                "value": "../../assets/svg/icons/podcast.svg"
+            },
+            "print": {
+                "value": "../../assets/svg/icons/print.svg"
+            },
+            "refresh": {
+                "value": "../../assets/svg/icons/refresh.svg"
+            },
+            "restore": {
+                "value": "../../assets/svg/icons/restore.svg"
+            },
+            "scroll-to": {
+                "value": "../../assets/svg/icons/scroll-to.svg"
+            },
+            "search": {
+                "value": "../../assets/svg/icons/search.svg"
+            },
+            "series": {
+                "value": "../../assets/svg/icons/series.svg"
+            },
+            "settings": {
+                "value": "../../assets/svg/icons/settings.svg"
+            },
+            "share": {
+                "value": "../../assets/svg/icons/share.svg"
+            },
+            "skip-backward-30": {
+                "value": "../../assets/svg/icons/skip-backward-30.svg"
+            },
+            "skip-forward-30": {
+                "value": "../../assets/svg/icons/skip-forward-30.svg"
+            },
+            "speech-left": {
+                "value": "../../assets/svg/icons/speech-left.svg"
+            },
+            "speech-right": {
+                "value": "../../assets/svg/icons/speech-right.svg"
+            },
+            "speech": {
+                "value": "../../assets/svg/icons/speech.svg"
+            },
+            "stop": {
+                "value": "../../assets/svg/icons/stop.svg"
+            },
+            "tick": {
+                "value": "../../assets/svg/icons/tick.svg"
+            },
+            "trash": {
+                "value": "../../assets/svg/icons/trash.svg"
+            },
+            "upload": {
+                "value": "../../assets/svg/icons/upload.svg"
+            },
+            "user": {
+                "value": "../../assets/svg/icons/user.svg"
+            },
+            "users": {
+                "value": "../../assets/svg/icons/users.svg"
+            },
+            "video": {
+                "value": "../../assets/svg/icons/video.svg"
+            },
+            "warning-alt": {
+                "value": "../../assets/svg/icons/warning-alt.svg"
+            },
+            "warning": {
+                "value": "../../assets/svg/icons/warning.svg"
+            },
+            "written-text": {
+                "value": "../../assets/svg/icons/written-text.svg"
+            }
+        }
+    }
+}
+

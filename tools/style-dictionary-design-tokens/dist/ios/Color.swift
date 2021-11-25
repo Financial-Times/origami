@@ -4,6 +4,255 @@ class DarkModeDesignTokens {}
 let bundle = Bundle(for: DarkModeDesignTokens.self)
 
 extension Color {
+  public static var backgroundButtonPrimaryBaseBase: Color {
+    return Color.init("backgroundButtonPrimaryBaseBase", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryBaseHover: Color {
+    return Color.init("backgroundButtonPrimaryBaseHover", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryBaseActive: Color {
+    return Color.init("backgroundButtonPrimaryBaseActive", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryBaseFocus: Color {
+    return Color.init("backgroundButtonPrimaryBaseFocus", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryInverseBase: Color {
+    return Color.init("backgroundButtonPrimaryInverseBase", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryInverseHover: Color {
+    return Color.init("backgroundButtonPrimaryInverseHover", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryInverseActive: Color {
+    return Color.init("backgroundButtonPrimaryInverseActive", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryInverseFocus: Color {
+    return Color.init("backgroundButtonPrimaryInverseFocus", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryMonoBase: Color {
+    return Color.init("backgroundButtonPrimaryMonoBase", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryMonoHover: Color {
+    return Color.init("backgroundButtonPrimaryMonoHover", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryMonoActive: Color {
+    return Color.init("backgroundButtonPrimaryMonoActive", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryMonoFocus: Color {
+    return Color.init("backgroundButtonPrimaryMonoFocus", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryB2cBase: Color {
+    return Color.init("backgroundButtonPrimaryB2cBase", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryB2cHover: Color {
+    return Color.init("backgroundButtonPrimaryB2cHover", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryB2cActive: Color {
+    return Color.init("backgroundButtonPrimaryB2cActive", bundle: bundle)
+  }
+  public static var backgroundButtonPrimaryB2cFocus: Color {
+    return Color.init("backgroundButtonPrimaryB2cFocus", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryBaseBase: Color {
+    return Color.init("backgroundButtonSecondaryBaseBase", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryBaseHover: Color {
+    return Color.init("backgroundButtonSecondaryBaseHover", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryBaseActive: Color {
+    return Color.init("backgroundButtonSecondaryBaseActive", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryBaseFocus: Color {
+    return Color.init("backgroundButtonSecondaryBaseFocus", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryInverseHover: Color {
+    return Color.init("backgroundButtonSecondaryInverseHover", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryInverseActive: Color {
+    return Color.init("backgroundButtonSecondaryInverseActive", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryInverseFocus: Color {
+    return Color.init("backgroundButtonSecondaryInverseFocus", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryMonoBase: Color {
+    return Color.init("backgroundButtonSecondaryMonoBase", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryMonoHover: Color {
+    return Color.init("backgroundButtonSecondaryMonoHover", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryMonoActive: Color {
+    return Color.init("backgroundButtonSecondaryMonoActive", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryMonoFocus: Color {
+    return Color.init("backgroundButtonSecondaryMonoFocus", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryB2cBase: Color {
+    return Color.init("backgroundButtonSecondaryB2cBase", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryB2cHover: Color {
+    return Color.init("backgroundButtonSecondaryB2cHover", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryB2cActive: Color {
+    return Color.init("backgroundButtonSecondaryB2cActive", bundle: bundle)
+  }
+  public static var backgroundButtonSecondaryB2cFocus: Color {
+    return Color.init("backgroundButtonSecondaryB2cFocus", bundle: bundle)
+  }
+  public static var backgroundPage: Color {
+    return Color.init("backgroundPage", bundle: bundle)
+  }
+  public static var backgroundLogo: Color {
+    return Color.init("backgroundLogo", bundle: bundle)
+  }
+  public static var backgroundBox: Color {
+    return Color.init("backgroundBox", bundle: bundle)
+  }
+  public static var textButtonPrimaryBaseBase: Color {
+    return Color.init("textButtonPrimaryBaseBase", bundle: bundle)
+  }
+  public static var textButtonPrimaryBaseHover: Color {
+    return Color.init("textButtonPrimaryBaseHover", bundle: bundle)
+  }
+  public static var textButtonPrimaryBaseActive: Color {
+    return Color.init("textButtonPrimaryBaseActive", bundle: bundle)
+  }
+  public static var textButtonPrimaryBaseFocus: Color {
+    return Color.init("textButtonPrimaryBaseFocus", bundle: bundle)
+  }
+  public static var textButtonPrimaryInverseBase: Color {
+    return Color.init("textButtonPrimaryInverseBase", bundle: bundle)
+  }
+  public static var textButtonPrimaryInverseHover: Color {
+    return Color.init("textButtonPrimaryInverseHover", bundle: bundle)
+  }
+  public static var textButtonPrimaryInverseActive: Color {
+    return Color.init("textButtonPrimaryInverseActive", bundle: bundle)
+  }
+  public static var textButtonPrimaryInverseFocus: Color {
+    return Color.init("textButtonPrimaryInverseFocus", bundle: bundle)
+  }
+  public static var textButtonPrimaryMonoBase: Color {
+    return Color.init("textButtonPrimaryMonoBase", bundle: bundle)
+  }
+  public static var textButtonPrimaryMonoHover: Color {
+    return Color.init("textButtonPrimaryMonoHover", bundle: bundle)
+  }
+  public static var textButtonPrimaryMonoActive: Color {
+    return Color.init("textButtonPrimaryMonoActive", bundle: bundle)
+  }
+  public static var textButtonPrimaryMonoFocus: Color {
+    return Color.init("textButtonPrimaryMonoFocus", bundle: bundle)
+  }
+  public static var textButtonPrimaryB2cBase: Color {
+    return Color.init("textButtonPrimaryB2cBase", bundle: bundle)
+  }
+  public static var textButtonPrimaryB2cHover: Color {
+    return Color.init("textButtonPrimaryB2cHover", bundle: bundle)
+  }
+  public static var textButtonPrimaryB2cActive: Color {
+    return Color.init("textButtonPrimaryB2cActive", bundle: bundle)
+  }
+  public static var textButtonPrimaryB2cFocus: Color {
+    return Color.init("textButtonPrimaryB2cFocus", bundle: bundle)
+  }
+  public static var textButtonSecondaryBaseBase: Color {
+    return Color.init("textButtonSecondaryBaseBase", bundle: bundle)
+  }
+  public static var textButtonSecondaryBaseHover: Color {
+    return Color.init("textButtonSecondaryBaseHover", bundle: bundle)
+  }
+  public static var textButtonSecondaryBaseActive: Color {
+    return Color.init("textButtonSecondaryBaseActive", bundle: bundle)
+  }
+  public static var textButtonSecondaryBaseFocus: Color {
+    return Color.init("textButtonSecondaryBaseFocus", bundle: bundle)
+  }
+  public static var textButtonSecondaryInverseBase: Color {
+    return Color.init("textButtonSecondaryInverseBase", bundle: bundle)
+  }
+  public static var textButtonSecondaryInverseHover: Color {
+    return Color.init("textButtonSecondaryInverseHover", bundle: bundle)
+  }
+  public static var textButtonSecondaryInverseActive: Color {
+    return Color.init("textButtonSecondaryInverseActive", bundle: bundle)
+  }
+  public static var textButtonSecondaryInverseFocus: Color {
+    return Color.init("textButtonSecondaryInverseFocus", bundle: bundle)
+  }
+  public static var textButtonSecondaryMonoBase: Color {
+    return Color.init("textButtonSecondaryMonoBase", bundle: bundle)
+  }
+  public static var textButtonSecondaryMonoHover: Color {
+    return Color.init("textButtonSecondaryMonoHover", bundle: bundle)
+  }
+  public static var textButtonSecondaryMonoActive: Color {
+    return Color.init("textButtonSecondaryMonoActive", bundle: bundle)
+  }
+  public static var textButtonSecondaryMonoFocus: Color {
+    return Color.init("textButtonSecondaryMonoFocus", bundle: bundle)
+  }
+  public static var textButtonSecondaryB2cBase: Color {
+    return Color.init("textButtonSecondaryB2cBase", bundle: bundle)
+  }
+  public static var textButtonSecondaryB2cHover: Color {
+    return Color.init("textButtonSecondaryB2cHover", bundle: bundle)
+  }
+  public static var textButtonSecondaryB2cActive: Color {
+    return Color.init("textButtonSecondaryB2cActive", bundle: bundle)
+  }
+  public static var textButtonSecondaryB2cFocus: Color {
+    return Color.init("textButtonSecondaryB2cFocus", bundle: bundle)
+  }
+  public static var textLogo: Color {
+    return Color.init("textLogo", bundle: bundle)
+  }
+  public static var textLink: Color {
+    return Color.init("textLink", bundle: bundle)
+  }
+  public static var textLinkHover: Color {
+    return Color.init("textLinkHover", bundle: bundle)
+  }
+  public static var textLinkTitle: Color {
+    return Color.init("textLinkTitle", bundle: bundle)
+  }
+  public static var textLinkTitleHover: Color {
+    return Color.init("textLinkTitleHover", bundle: bundle)
+  }
+  public static var textTagLink: Color {
+    return Color.init("textTagLink", bundle: bundle)
+  }
+  public static var textTagLinkHover: Color {
+    return Color.init("textTagLinkHover", bundle: bundle)
+  }
+  public static var textOpinionTagLink: Color {
+    return Color.init("textOpinionTagLink", bundle: bundle)
+  }
+  public static var textOpinionTagLinkHover: Color {
+    return Color.init("textOpinionTagLinkHover", bundle: bundle)
+  }
+  public static var textTitle: Color {
+    return Color.init("textTitle", bundle: bundle)
+  }
+  public static var textBody: Color {
+    return Color.init("textBody", bundle: bundle)
+  }
+  public static var textMuted: Color {
+    return Color.init("textMuted", bundle: bundle)
+  }
+  public static var textOpinion: Color {
+    return Color.init("textOpinion", bundle: bundle)
+  }
+  public static var borderButtonSecondaryBaseBase: Color {
+    return Color.init("borderButtonSecondaryBaseBase", bundle: bundle)
+  }
+  public static var borderButtonSecondaryInverseBase: Color {
+    return Color.init("borderButtonSecondaryInverseBase", bundle: bundle)
+  }
+  public static var borderButtonSecondaryMonoBase: Color {
+    return Color.init("borderButtonSecondaryMonoBase", bundle: bundle)
+  }
+  public static var borderButtonSecondaryB2cBase: Color {
+    return Color.init("borderButtonSecondaryB2cBase", bundle: bundle)
+  }
   public static var ftPink: Color {
     return Color.init("ftPink", bundle: bundle)
   }
@@ -178,55 +427,7 @@ extension Color {
   public static var matisse: Color {
     return Color.init("matisse", bundle: bundle)
   }
-  public static var backgroundPage: Color {
-    return Color.init("backgroundPage", bundle: bundle)
-  }
-  public static var backgroundLogo: Color {
-    return Color.init("backgroundLogo", bundle: bundle)
-  }
-  public static var backgroundBox: Color {
-    return Color.init("backgroundBox", bundle: bundle)
-  }
   public static var outlineFocus: Color {
     return Color.init("outlineFocus", bundle: bundle)
-  }
-  public static var textLogo: Color {
-    return Color.init("textLogo", bundle: bundle)
-  }
-  public static var textLink: Color {
-    return Color.init("textLink", bundle: bundle)
-  }
-  public static var textLinkHover: Color {
-    return Color.init("textLinkHover", bundle: bundle)
-  }
-  public static var textLinkTitle: Color {
-    return Color.init("textLinkTitle", bundle: bundle)
-  }
-  public static var textLinkTitleHover: Color {
-    return Color.init("textLinkTitleHover", bundle: bundle)
-  }
-  public static var textTagLink: Color {
-    return Color.init("textTagLink", bundle: bundle)
-  }
-  public static var textTagLinkHover: Color {
-    return Color.init("textTagLinkHover", bundle: bundle)
-  }
-  public static var textOpinionTagLink: Color {
-    return Color.init("textOpinionTagLink", bundle: bundle)
-  }
-  public static var textOpinionTagLinkHover: Color {
-    return Color.init("textOpinionTagLinkHover", bundle: bundle)
-  }
-  public static var textTitle: Color {
-    return Color.init("textTitle", bundle: bundle)
-  }
-  public static var textBody: Color {
-    return Color.init("textBody", bundle: bundle)
-  }
-  public static var textMuted: Color {
-    return Color.init("textMuted", bundle: bundle)
-  }
-  public static var textOpinion: Color {
-    return Color.init("textOpinion", bundle: bundle)
   }
 }

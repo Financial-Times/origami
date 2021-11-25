@@ -1,0 +1,133 @@
+{
+    "color": {
+        "background": {
+            "button": {
+                "primary": {
+                    "base": {
+                        "base": { "value": "#0d7680"},
+                        "hover": { "value": "#095259"},
+                        "active": { "value": "#052f33"},
+                        "focus": { "value": "#095259"}
+                    },
+                    "inverse": {
+                        "base": { "value": "white"},
+                        "hover": { "value": "#095259"},
+                        "active": { "value": "#052f33"},
+                        "focus": { "value": "#095259"}
+                    },
+                    "mono": {
+                        "base": { "value": "#0d7680"},
+                        "hover": { "value": "#095259"},
+                        "active": { "value": "#052f33"},
+                        "focus": { "value": "#095259"}
+                    },
+                    "b2c": {
+                        "base": { "value": "#0d7680"},
+                        "hover": { "value": "#095259"},
+                        "active": { "value": "#052f33"},
+                        "focus": { "value": "#095259"}
+                    }
+                },
+                "secondary": {
+                    "base": {
+                        "base": { "value": "transparent"},
+                        "hover": { "value": "rgba(13,118,128,.1)"},
+                        "active": { "value": "#0d7680"},
+                        "focus": { "value": "#0d7680"}
+                    },
+                    "inverse": {
+                        "hover": { "value": "rgba(255,255,255,.15)"},
+                        "active": { "value": "white"},
+                        "focus": { "value": "white"}
+                    },
+                    "mono": {
+                        "base": { "value": "#0d7680"},
+                        "hover": { "value": "#095259"},
+                        "active": { "value": "#052f33"},
+                        "focus": { "value": "#095259"}
+                    },
+                    "b2c": {
+                        "base": { "value": "#0d7680"},
+                        "hover": { "value": "#095259"},
+                        "active": { "value": "#052f33"},
+                        "focus": { "value": "#095259"}
+                    }
+                }
+            }
+        },
+        "text": {
+            "button": {
+                "primary": {
+                    "base": {
+                        "base": { "value": "#ffffff"},
+                        "hover": { "value": "#ffffff"},
+                        "active": { "value": "#ffffff"},
+                        "focus": { "value": "#ffffff"}
+                    },
+                    "inverse": {
+                        "base": { "value": "black"},
+                        "hover": { "value": "#095259"},
+                        "active": { "value": "#052f33"},
+                        "focus": { "value": "#095259"}
+                    },
+                    "mono": {
+                        "base": { "value": "#0d7680"},
+                        "hover": { "value": "#095259"},
+                        "active": { "value": "#052f33"},
+                        "focus": { "value": "#095259"}
+                    },
+                    "b2c": {
+                        "base": { "value": "#0d7680"},
+                        "hover": { "value": "#095259"},
+                        "active": { "value": "#052f33"},
+                        "focus": { "value": "#095259"}
+                    }
+                },
+                "secondary": {
+                    "base": {
+                        "base": { "value": "#0d7680"},
+                        "hover": { "value": "#0d7680"},
+                        "active": { "value": "white"},
+                        "focus": { "value": "white"}
+                    },
+                    "inverse": {
+                        "base": { "value": "white"},
+                        "hover": { "value": "white"},
+                        "active": { "value": "#000000"},
+                        "focus": { "value": "white"}
+                    },
+                    "mono": {
+                        "base": { "value": "#0d7680"},
+                        "hover": { "value": "#095259"},
+                        "active": { "value": "#052f33"},
+                        "focus": { "value": "#095259"}
+                    },
+                    "b2c": {
+                        "base": { "value": "#0d7680"},
+                        "hover": { "value": "#095259"},
+                        "active": { "value": "#052f33"},
+                        "focus": { "value": "#095259"}
+                    }
+                }
+            }
+        },
+        "border": {
+            "button": {
+                "secondary": {
+                    "base": {
+                        "base": { "value": "#0d7680"}
+                    },
+                    "inverse": {
+                        "base": { "value": "white"}
+                    },
+                    "mono": {
+                        "base": { "value": "#0d7680"}
+                    },
+                    "b2c": {
+                        "base": { "value": "#0d7680"}
+                    }
+                }
+            }
+        }
+    }
+}

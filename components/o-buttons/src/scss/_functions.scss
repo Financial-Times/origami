@@ -1,3 +1,31 @@
+@use 'sass:map';
+@import "@financial-times/style-dictionary-design-tokens/dist/web/tokens";
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Kitty Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+@function set-icon-color($icon, $color) {
+	// @todo can't actually use css variables in a url,
+	// mask with ie11 fallback?
+    // @todo use css variables instead of sass var,
+    // rely on post css for ie11?
+	$encoded-color: str-replace(#{$color}, '#', '%23');
+	@return str-replace($icon, 'var(--o-icons-color)', $encoded-color);
+}
+
 /// Gets the color of a button property for a given theme and state.
 ///
 /// @example background: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary');
@@ -87,9 +115,22 @@
 		@error 'Expected a button type of "secondary" or "primary".';
 	}
 
-	// Get button colour from custom theme map or brand config, see _brand.scss.
-	$color: _oButtonsGet('color', $theme);
-	$context-color: _oButtonsGet('context', $theme);
+	// If pre-defined tokens exist, use them
+	// If pre-defined tokens exist, use them
+	$theme: if($theme == null, 'base', $theme);
+	@if(
+		type-of($theme) == 'string' and
+		map-get($_tokens,'color','background','button', $type, $theme)
+	) {
+		@return (
+			'text': map-get($_tokens,'color','text','button', $type, $theme),
+			'background': map-get($_tokens,'color','background','button', $type, $theme),
+			'border': map-get($_tokens,'color','border','button', $type, $theme),
+		);
+	}
+
+	$color: map-get($theme, 'color');
+	$context-color: map-get($theme, 'context');
 
 	// Get button context, which is the background colour the button is placed on.
 	$page-background-usecase: oColorsByUsecase('page', 'background');
@@ -107,12 +148,15 @@
 
 	// If a button state does not have a property configured, set it to the
 	// default button colour.
-	@each $property in ('color', 'background', 'border') {
+	@each $property in ('text', 'background', 'border') {
 		@each $state in ('hover', 'focus', 'active') {
-			$state-color: map-get($color-map, '#{$state}-#{$property}');
+			$state-color: map-get($color-map, $property, $state);
 			@if(not $state-color) {
-				$color-map: map-merge($color-map, (
-					'#{$state}-#{$property}': map-get($color-map, $property)
+				// @todo, no dart sass
+				$color-map: map.deep-merge($color-map, (
+					#{$property}: (
+						#{$state}: map-get($color-map, $property, 'base')
+					)
 				));
 			}
 		}
@@ -298,15 +342,21 @@
 	}
 
 	@return (
-		'color': $default-color,
-		'background': $default-background,
-		'border': transparent,
-		'hover-background': $hover-focus-background,
-		'hover-color': $hover-focus-color,
-		'focus-background': $hover-focus-background,
-		'focus-color': $hover-focus-color,
-		'active-background': $active-background,
-		'active-color': $active-color,
+		'text': (
+			'base': $default-color,
+			'hover': $hover-focus-color,
+			'focus': $hover-focus-color,
+			'active': $active-color,
+		),
+		'background': (
+			'base': $default-background,
+			'hover': $hover-focus-background,
+			'focus': $hover-focus-background,
+			'active': $active-background,
+		),
+		'border': (
+			'base': transparent
+		),
 	);
 }
 
@@ -385,15 +435,21 @@
 	}
 
 	@return (
-		'color': $default-color,
-		'background': $default-background,
-		'border': $default-color,
-		'hover-background': $hover-focus-background,
-		'hover-color': $hover-focus-color,
-		'focus-background': $hover-focus-background,
-		'focus-color': $hover-focus-color,
-		'active-background': $active-background,
-		'active-color': $active-color,
+		'text': (
+			'base': $default-color,
+			'hover': $hover-focus-color,
+			'focus': $hover-focus-color,
+			'active': $active-color,
+		),
+		'background': (
+			'base': $default-background,
+			'hover': $hover-focus-background,
+			'focus': $hover-focus-background,
+			'active': $active-background,
+		),
+		'border': (
+			'base': $default-color
+		),
 	);
 }
 

@@ -196,11 +196,11 @@
 }
 
 /// Styles shared by all buttons of a given size with an icon.
-/// @param {Null|Number} $size
-@mixin _oButtonsIconBaseContent($size: null) {
+/// @param {String} $size
+@mixin _oButtonsIconBaseContent($size: 'default') {
 	background-repeat: no-repeat;
 	background-position: 3px;
-	padding-left: _oButtonsGet('icon-padding', $size);
+	padding-left: map-get($_o-buttons-size, $size, 'icon-padding');
 }
 
 /// Styles for a button which is an icon only.
@@ -211,42 +211,43 @@
 }
 
 /// Styles to size a button.
-/// @param {Null|Number} $size
-@mixin _oButtonsSizeContent($size: null) {
-	@include oTypographySans($scale: _oButtonsGet('scale', $size));
+/// @param {String} $size
+@mixin _oButtonsSizeContent($size: 'default') {
+	$scale: map-get($_o-buttons-size, $size, 'scale');
+	@include oTypographySans($scale);
 	$line-height: nth(oTypographyGetScale(
-		$index: _oButtonsGet('scale', $size),
+		$index: $scale,
 		$font: oTypographyGetFontFamily('sans')
 	), 1);
 	line-height: #{$line-height}px;
 	// IE11 renders the background image at a very small size if you do not
 	// double-up the background size here, declaring a width _and_ height.
 	// See https://thatemil.com/blog/2015/03/15/sizing-svg-background-images-in-internet-explorer/
-	background-size: _oButtonsGet('background-size', $size) _oButtonsGet('background-size', $size);
-	min-height: _oButtonsGet('min-height', $size);
-	min-width: _oButtonsGet('min-width', $size);
-	padding: _oButtonsGet('padding', $size);
+	background-size: map-get($_o-buttons-size, $size, 'background-size') map-get($_o-buttons-size, $size, 'background-size');
+	min-height: map-get($_o-buttons-size, $size, 'min-height');
+	min-width: map-get($_o-buttons-size, $size, 'min-width');
+	padding: map-get($_o-buttons-size, $size, 'padding');
 }
 
 /// Styles to apply colours to each button state, e.g. focus, active.
 /// @param {String} $type - The type of button, e.g. 'primary'
 /// @param {Map} $button-colors-map - The colours for this button (@see _oButtonsGetColors).
 @mixin _oButtonsStateContent($type, $button-colors-map) {
-	background-color: map-get($button-colors-map, 'background');
-	color: map-get($button-colors-map, 'color');
-	border-color: map-get($button-colors-map, 'border');
+	background-color: map-get($button-colors-map, 'background', 'base');
+	color: map-get($button-colors-map, 'text', 'base');
+	border-color: map-get($button-colors-map, 'border', 'base');
 
 	&:hover {
-		background-color: map-get($button-colors-map, 'hover-background');
-		color: map-get($button-colors-map, 'hover-color');
-		border-color: map-get($button-colors-map, 'hover-border');
+		background-color: map-get($button-colors-map, 'background', 'hover');
+		color: map-get($button-colors-map, 'text', 'hover');
+		border-color: map-get($button-colors-map, 'border', 'hover');
 		text-decoration: none;
 	}
 
 	&:focus {
-		background-color: map-get($button-colors-map, 'focus-background');
-		color: map-get($button-colors-map, 'focus-color');
-		border-color: map-get($button-colors-map, 'focus-border');
+		background-color: map-get($button-colors-map, 'background', 'focus');
+		color: map-get($button-colors-map, 'text', 'focus');
+		border-color: map-get($button-colors-map, 'border', 'focus');
 	}
 
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
@@ -255,9 +256,9 @@
 	&[aria-current], // e.g. A selected tab or page number in pagination (for links only).
 	&[aria-pressed=true], // e.g. A "follow" button that is pressed.
 	&:active {
-		background-color: map-get($button-colors-map, 'active-background');
-		color: map-get($button-colors-map, 'active-color');
-		border-color: map-get($button-colors-map, 'active-border');
+		background-color: map-get($button-colors-map, 'background', 'active');
+		color: map-get($button-colors-map, 'text', 'active');
+		border-color: map-get($button-colors-map, 'border', 'active');
 	}
 }
 
@@ -265,10 +266,10 @@
 /// @param {String} $type - The type of button, e.g. 'primary'
 /// @param {Map} $button-colors-map - The colours for this button (@see _oButtonsGetColors).
 @mixin _oButtonsIconStatesContent($icon, $button-colors-map) {
-	$normal-icon-color: map-get($button-colors-map, 'color');
-	$hover-icon-color: map-get($button-colors-map, 'hover-color');
-	$active-icon-color: map-get($button-colors-map, 'active-color');
-	$focus-icon-color: map-get($button-colors-map, 'focus-color');
+	$normal-icon-color: map-get($button-colors-map, 'text', 'base');
+	$hover-icon-color: map-get($button-colors-map, 'text', 'hover');
+	$active-icon-color: map-get($button-colors-map, 'text', 'active');
+	$focus-icon-color: map-get($button-colors-map, 'text', 'focus');
 
 	@include _oButtonsGetIcon($icon, $normal-icon-color);
 
@@ -276,17 +277,6 @@
 	@if($hover-icon-color != $normal-icon-color) {
 		&:hover {
 			@include _oButtonsGetIcon($icon, $hover-icon-color);
-		}
-		// Hack to get the hover state colour svg to download to prevent flash
-		// as icon is downloaded on hover
-		&:before {
-			@include _oButtonsGetIcon($icon, $hover-icon-color);
-			// For an unknown reason when button copy has leading whitespace
-			// Safari renders the before pseudo element above the content with
-			// a height of 16px and width 1px, making the button too tall.
-			// If whitespace is included in the pseudo element Safari does not
-			// do this: https://github.com/Financial-Times/o-buttons/issues/250
-			content: ' ';
 		}
 	}
 
@@ -304,14 +294,9 @@
 		&[aria-selected=true], // e.g. A selected tab or page number in pagination.
 		&[aria-current], // e.g. A selected tab or page number in pagination (for links only).
 		&[aria-pressed=true], // e.g. A "follow" button that is pressed.
+		&:hover:active,
 		&:active {
 			@include _oButtonsGetIcon($icon, $active-icon-color);
-		}
-		// Hack to get the active state colour svg to download to prevent flash
-		// as icon is downloaded on active
-		&:after {
-			@include _oButtonsGetIcon($icon, $active-icon-color);
-			content: '';
 		}
 	}
 
@@ -332,5 +317,15 @@
 /// @param {String} $icon-name - icon to request
 /// @param {Color} $icon-color - a hex for the button icon colour
 @mixin _oButtonsGetIcon($icon-name, $icon-color) {
-	@include oIconsContent($icon-name: $icon-name, $size: null, $color: $icon-color, $include-base-styles: false, $high-contrast-fallback: false);
+	@if $icon-name { // @todo why?
+		$id: #{$icon-name}-#{str-replace(#{$icon-color}, '#', '')};
+		@if index($_placeholders, $id) == null {
+			@at-root %#{$id} {
+				$icon: map-get($_tokens,'image','icon',$icon-name);
+				background-image: set-icon-color($icon, $icon-color);
+			}
+			$_placeholders: append($_placeholders, $id)!global;
+		}
+		@extend %#{$id};
+	}
 }

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Nov 2021 22:29:20 GMT
+ * Generated on Thu, 25 Nov 2021 23:15:20 GMT
  */
 
 :root {
@@ -98,6 +98,74 @@
   --color-white: #ffffff;
   --color-ft-grey: #333333;
   --color-ft-pink: #fcd0b1;
+  --color-border-button-secondary-b2c-base: #0d7680;
+  --color-border-button-secondary-mono-base: #0d7680;
+  --color-border-button-secondary-inverse-base: #ffffff;
+  --color-border-button-secondary-base-base: #0d7680;
+  --color-text-button-secondary-b2c-focus: #095259;
+  --color-text-button-secondary-b2c-active: #052f33;
+  --color-text-button-secondary-b2c-hover: #095259;
+  --color-text-button-secondary-b2c-base: #0d7680;
+  --color-text-button-secondary-mono-focus: #095259;
+  --color-text-button-secondary-mono-active: #052f33;
+  --color-text-button-secondary-mono-hover: #095259;
+  --color-text-button-secondary-mono-base: #0d7680;
+  --color-text-button-secondary-inverse-focus: #ffffff;
+  --color-text-button-secondary-inverse-active: #000000;
+  --color-text-button-secondary-inverse-hover: #ffffff;
+  --color-text-button-secondary-inverse-base: #ffffff;
+  --color-text-button-secondary-base-focus: #ffffff;
+  --color-text-button-secondary-base-active: #ffffff;
+  --color-text-button-secondary-base-hover: #0d7680;
+  --color-text-button-secondary-base-base: #0d7680;
+  --color-text-button-primary-b2c-focus: #095259;
+  --color-text-button-primary-b2c-active: #052f33;
+  --color-text-button-primary-b2c-hover: #095259;
+  --color-text-button-primary-b2c-base: #0d7680;
+  --color-text-button-primary-mono-focus: #095259;
+  --color-text-button-primary-mono-active: #052f33;
+  --color-text-button-primary-mono-hover: #095259;
+  --color-text-button-primary-mono-base: #0d7680;
+  --color-text-button-primary-inverse-focus: #095259;
+  --color-text-button-primary-inverse-active: #052f33;
+  --color-text-button-primary-inverse-hover: #095259;
+  --color-text-button-primary-inverse-base: #000000;
+  --color-text-button-primary-base-focus: #ffffff;
+  --color-text-button-primary-base-active: #ffffff;
+  --color-text-button-primary-base-hover: #ffffff;
+  --color-text-button-primary-base-base: #ffffff;
+  --color-background-button-secondary-b2c-focus: #095259;
+  --color-background-button-secondary-b2c-active: #052f33;
+  --color-background-button-secondary-b2c-hover: #095259;
+  --color-background-button-secondary-b2c-base: #0d7680;
+  --color-background-button-secondary-mono-focus: #095259;
+  --color-background-button-secondary-mono-active: #052f33;
+  --color-background-button-secondary-mono-hover: #095259;
+  --color-background-button-secondary-mono-base: #0d7680;
+  --color-background-button-secondary-inverse-focus: #ffffff;
+  --color-background-button-secondary-inverse-active: #ffffff;
+  --color-background-button-secondary-inverse-hover: rgba(255, 255, 255, 0.15);
+  --color-background-button-secondary-base-focus: #0d7680;
+  --color-background-button-secondary-base-active: #0d7680;
+  --color-background-button-secondary-base-hover: rgba(13, 118, 128, 0.1);
+  --color-background-button-secondary-base-base: rgba(0, 0, 0, 0);
+  --color-background-button-primary-b2c-focus: #095259;
+  --color-background-button-primary-b2c-active: #052f33;
+  --color-background-button-primary-b2c-hover: #095259;
+  --color-background-button-primary-b2c-base: #0d7680;
+  --color-background-button-primary-mono-focus: #095259;
+  --color-background-button-primary-mono-active: #052f33;
+  --color-background-button-primary-mono-hover: #095259;
+  --color-background-button-primary-mono-base: #0d7680;
+  --color-background-button-primary-inverse-focus: #095259;
+  --color-background-button-primary-inverse-active: #052f33;
+  --color-background-button-primary-inverse-hover: #095259;
+  --color-background-button-primary-inverse-base: #ffffff;
+  --color-background-button-primary-base-focus: #095259;
+  --color-background-button-primary-base-active: #052f33;
+  --color-background-button-primary-base-hover: #095259;
+  --color-background-button-primary-base-base: #0d7680;
+  --color-outline-focus: var(--color-black-50);
   --color-text-opinion: var(--color-black-20);
   --color-text-muted: var(--color-black-20);
   --color-text-body: var(--color-black-80);
@@ -111,7 +179,6 @@
   --color-text-link-hover: var(--color-teal-30);
   --color-text-link: var(--color-teal);
   --color-text-logo: var(--color-ft-grey);
-  --color-outline-focus: var(--color-black-50);
   --color-background-box: var(--color-wheat);
   --color-background-logo: var(--color-ft-pink);
   --color-background-page: var(--color-paper);

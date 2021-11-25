@@ -31,8 +31,7 @@ p {
 }
 
 .demo-inverse {
-	$background-color-name: _oButtonsGet('context', $from: 'inverse');
-	background-color: oColorsByName($background-color-name);
+	background-color: oColorsByName('slate');
 	padding: 1em;
 }
 

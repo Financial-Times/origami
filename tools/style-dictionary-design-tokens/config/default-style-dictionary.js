@@ -22,6 +22,7 @@ const styleDictionary = StyleDictionary.extend({
         'colorRGB': require('../transforms/colorRGB'),
         'attribute/cti': require('../transforms/attributeCTI'),
         'origamiFigmaColorName': require('../transforms/origamiFigmaColorName'),
+        'svgSassDataUrl': require('../transforms/svgSassDataUrl'),
     },
     // custom formats
     format: {
@@ -66,13 +67,20 @@ module.exports = (brand) => {
             // `outputReferences` not currently an option for scss/map-deep
             // https://github.com/amzn/style-dictionary/issues/712
             sass: {
-                transformGroup: `scss`,
+                transforms: [
+                    'attribute/cti',
+                    'name/cti/kebab',
+                    'time/seconds',
+                    'content/icon',
+                    'size/rem',
+                    'color/css',
+                    'svgSassDataUrl'
+                  ],
                 buildPath: webPath,
                 files: [
                     {
                         destination: `tokens.scss`,
                         format: `scss/map-deep`,
-                        filter: (token) => token.attributes.category !== `image`,
                         mapName: `_tokens`,
                         options: {
                             outputReferences: true

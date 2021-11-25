@@ -2,9 +2,92 @@
 
 <!--
   Do not edit directly
-  Generated on Wed, 03 Nov 2021 22:29:20 GMT
+  Generated on Thu, 25 Nov 2021 23:15:20 GMT
 -->
 <resources>
+  <color name="color_background_button_primary_base_base">#ff0d7680</color>
+  <color name="color_background_button_primary_base_hover">#ff095259</color>
+  <color name="color_background_button_primary_base_active">#ff052f33</color>
+  <color name="color_background_button_primary_base_focus">#ff095259</color>
+  <color name="color_background_button_primary_inverse_base">#ffffffff</color>
+  <color name="color_background_button_primary_inverse_hover">#ff095259</color>
+  <color name="color_background_button_primary_inverse_active">#ff052f33</color>
+  <color name="color_background_button_primary_inverse_focus">#ff095259</color>
+  <color name="color_background_button_primary_mono_base">#ff0d7680</color>
+  <color name="color_background_button_primary_mono_hover">#ff095259</color>
+  <color name="color_background_button_primary_mono_active">#ff052f33</color>
+  <color name="color_background_button_primary_mono_focus">#ff095259</color>
+  <color name="color_background_button_primary_b2c_base">#ff0d7680</color>
+  <color name="color_background_button_primary_b2c_hover">#ff095259</color>
+  <color name="color_background_button_primary_b2c_active">#ff052f33</color>
+  <color name="color_background_button_primary_b2c_focus">#ff095259</color>
+  <color name="color_background_button_secondary_base_base">#00000000</color>
+  <color name="color_background_button_secondary_base_hover">#1a0d7680</color>
+  <color name="color_background_button_secondary_base_active">#ff0d7680</color>
+  <color name="color_background_button_secondary_base_focus">#ff0d7680</color>
+  <color name="color_background_button_secondary_inverse_hover">#26ffffff</color>
+  <color name="color_background_button_secondary_inverse_active">#ffffffff</color>
+  <color name="color_background_button_secondary_inverse_focus">#ffffffff</color>
+  <color name="color_background_button_secondary_mono_base">#ff0d7680</color>
+  <color name="color_background_button_secondary_mono_hover">#ff095259</color>
+  <color name="color_background_button_secondary_mono_active">#ff052f33</color>
+  <color name="color_background_button_secondary_mono_focus">#ff095259</color>
+  <color name="color_background_button_secondary_b2c_base">#ff0d7680</color>
+  <color name="color_background_button_secondary_b2c_hover">#ff095259</color>
+  <color name="color_background_button_secondary_b2c_active">#ff052f33</color>
+  <color name="color_background_button_secondary_b2c_focus">#ff095259</color>
+  <color name="color_background_page">@color/color_paper</color>
+  <color name="color_background_logo">@color/color_ft_pink</color>
+  <color name="color_background_box">@color/color_wheat</color>
+  <color name="color_text_button_primary_base_base">#ffffffff</color>
+  <color name="color_text_button_primary_base_hover">#ffffffff</color>
+  <color name="color_text_button_primary_base_active">#ffffffff</color>
+  <color name="color_text_button_primary_base_focus">#ffffffff</color>
+  <color name="color_text_button_primary_inverse_base">#ff000000</color>
+  <color name="color_text_button_primary_inverse_hover">#ff095259</color>
+  <color name="color_text_button_primary_inverse_active">#ff052f33</color>
+  <color name="color_text_button_primary_inverse_focus">#ff095259</color>
+  <color name="color_text_button_primary_mono_base">#ff0d7680</color>
+  <color name="color_text_button_primary_mono_hover">#ff095259</color>
+  <color name="color_text_button_primary_mono_active">#ff052f33</color>
+  <color name="color_text_button_primary_mono_focus">#ff095259</color>
+  <color name="color_text_button_primary_b2c_base">#ff0d7680</color>
+  <color name="color_text_button_primary_b2c_hover">#ff095259</color>
+  <color name="color_text_button_primary_b2c_active">#ff052f33</color>
+  <color name="color_text_button_primary_b2c_focus">#ff095259</color>
+  <color name="color_text_button_secondary_base_base">#ff0d7680</color>
+  <color name="color_text_button_secondary_base_hover">#ff0d7680</color>
+  <color name="color_text_button_secondary_base_active">#ffffffff</color>
+  <color name="color_text_button_secondary_base_focus">#ffffffff</color>
+  <color name="color_text_button_secondary_inverse_base">#ffffffff</color>
+  <color name="color_text_button_secondary_inverse_hover">#ffffffff</color>
+  <color name="color_text_button_secondary_inverse_active">#ff000000</color>
+  <color name="color_text_button_secondary_inverse_focus">#ffffffff</color>
+  <color name="color_text_button_secondary_mono_base">#ff0d7680</color>
+  <color name="color_text_button_secondary_mono_hover">#ff095259</color>
+  <color name="color_text_button_secondary_mono_active">#ff052f33</color>
+  <color name="color_text_button_secondary_mono_focus">#ff095259</color>
+  <color name="color_text_button_secondary_b2c_base">#ff0d7680</color>
+  <color name="color_text_button_secondary_b2c_hover">#ff095259</color>
+  <color name="color_text_button_secondary_b2c_active">#ff052f33</color>
+  <color name="color_text_button_secondary_b2c_focus">#ff095259</color>
+  <color name="color_text_logo">@color/color_ft_grey</color>
+  <color name="color_text_link">@color/color_teal</color>
+  <color name="color_text_link_hover">@color/color_teal_30</color>
+  <color name="color_text_link_title">@color/color_black_80</color>
+  <color name="color_text_link_title_hover">@color/color_black_70</color>
+  <color name="color_text_tag_link">@color/color_claret</color>
+  <color name="color_text_tag_link_hover">@color/color_claret_30</color>
+  <color name="color_text_opinion_tag_link">@color/color_oxford</color>
+  <color name="color_text_opinion_tag_link_hover">@color/color_oxford_30</color>
+  <color name="color_text_title">@color/color_black</color>
+  <color name="color_text_body">@color/color_black_80</color>
+  <color name="color_text_muted">@color/color_black_20</color>
+  <color name="color_text_opinion">@color/color_black_20</color>
+  <color name="color_border_button_secondary_base_base">#ff0d7680</color>
+  <color name="color_border_button_secondary_inverse_base">#ffffffff</color>
+  <color name="color_border_button_secondary_mono_base">#ff0d7680</color>
+  <color name="color_border_button_secondary_b2c_base">#ff0d7680</color>
   <color name="color_ft_pink">#fffcd0b1</color>
   <color name="color_ft_grey">#ff333333</color>
   <color name="color_white">#ffffffff</color>
@@ -63,22 +146,6 @@
   <color name="color_org_b2c_dark">#ff3a70af</color>
   <color name="color_org_b2c_light">#ff99c6fb</color>
   <color name="color_matisse">#ff355778</color>
-  <color name="color_background_page">@color/color_paper</color>
-  <color name="color_background_logo">@color/color_ft_pink</color>
-  <color name="color_background_box">@color/color_wheat</color>
   <color name="color_outline_focus">@color/color_black_50</color>
-  <color name="color_text_logo">@color/color_ft_grey</color>
-  <color name="color_text_link">@color/color_teal</color>
-  <color name="color_text_link_hover">@color/color_teal_30</color>
-  <color name="color_text_link_title">@color/color_black_80</color>
-  <color name="color_text_link_title_hover">@color/color_black_70</color>
-  <color name="color_text_tag_link">@color/color_claret</color>
-  <color name="color_text_tag_link_hover">@color/color_claret_30</color>
-  <color name="color_text_opinion_tag_link">@color/color_oxford</color>
-  <color name="color_text_opinion_tag_link_hover">@color/color_oxford_30</color>
-  <color name="color_text_title">@color/color_black</color>
-  <color name="color_text_body">@color/color_black_80</color>
-  <color name="color_text_muted">@color/color_black_20</color>
-  <color name="color_text_opinion">@color/color_black_20</color>
   
 </resources>
