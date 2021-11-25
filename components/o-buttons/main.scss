@@ -103,6 +103,7 @@
 	}
 
 	// Type & theme modifiers.
+    // @todo output requested types/themes only
     $o-buttons-tokens: map-get($_tokens,'color','background','button');
     @each $type, $themes in $o-buttons-tokens {
 		@each $theme, $theme-tokens in $themes {
