@@ -36,27 +36,13 @@
 							"value": "#262a33"
 						},
 						"hover": {
-							"value": "#515257"
+							"value": "#51555c"
 						},
 						"focus": {
-							"value": "#515257"
+							"value": "#51555c"
 						},
 						"active": {
-							"value": "#727071"
-						}
-					},
-					"b2c": {
-						"base": {
-							"value": "#3a70af"
-						},
-						"hover": {
-							"value": "#2c5483"
-						},
-						"focus": {
-							"value": "#2c5483"
-						},
-						"active": {
-							"value": "#1d3858"
+							"value": "#72757a"
 						}
 					}
 				},
@@ -150,20 +136,6 @@
 						"active": {
 							"value": "white"
 						}
-					},
-					"b2c": {
-						"base": {
-							"value": "white"
-						},
-						"hover": {
-							"value": "white"
-						},
-						"focus": {
-							"value": "white"
-						},
-						"active": {
-							"value": "white"
-						}
 					}
 				},
 				"secondary": {
@@ -172,10 +144,10 @@
 							"value": "#0d7680"
 						},
 						"hover": {
-							"value": "#0c707a"
+							"value": "#0d7680"
 						},
 						"focus": {
-							"value": "#0c707a"
+							"value": "#0d7680"
 						},
 						"active": {
 							"value": "white"

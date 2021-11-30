@@ -1,6 +1,14 @@
 {
+  "color-background-button-primary-base-base": "#ffc0cb",
+  "color-background-button-primary-base-hover": "#ff69b4",
+  "color-background-button-primary-base-focus": "#ff1493",
+  "color-background-button-primary-base-active": "#ff1493",
   "color-background-page": "#262a33",
   "color-background-logo": "#ffffff",
+  "color-text-button-primary-base-base": {"value":"#262a33","palette":"tertiary","filePath":"/Users/leemoody/Projects/financial-times/origami/tokens/core/color/palette.json","isSource":false,"original":{"value":"#262a33","palette":"tertiary"},"name":"color-slate","attributes":{"category":"color","type":"slate"},"path":["color","slate"]},
+  "color-text-button-primary-base-hover": {"value":"#262a33","palette":"tertiary","filePath":"/Users/leemoody/Projects/financial-times/origami/tokens/core/color/palette.json","isSource":false,"original":{"value":"#262a33","palette":"tertiary"},"name":"color-slate","attributes":{"category":"color","type":"slate"},"path":["color","slate"]},
+  "color-text-button-primary-base-focus": "#ffff00",
+  "color-text-button-primary-base-active": "#ffff00",
   "color-text-logo": "#262a33",
   "color-text-title": "#ffffff",
   "color-text-body": "#ffffff"

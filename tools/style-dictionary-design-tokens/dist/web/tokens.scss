@@ -1,75 +1,68 @@
 
 /**
  * Do not edit directly
- * Generated on Thu, 25 Nov 2021 23:15:20 GMT
+ * Generated on Tue, 30 Nov 2021 18:01:31 GMT
  */
 
 $color-background-button-primary-base-base: #0d7680 !default;
 $color-background-button-primary-base-hover: #095259 !default;
-$color-background-button-primary-base-active: #052f33 !default;
 $color-background-button-primary-base-focus: #095259 !default;
+$color-background-button-primary-base-active: #052f33 !default;
 $color-background-button-primary-inverse-base: #ffffff !default;
-$color-background-button-primary-inverse-hover: #095259 !default;
-$color-background-button-primary-inverse-active: #052f33 !default;
-$color-background-button-primary-inverse-focus: #095259 !default;
-$color-background-button-primary-mono-base: #0d7680 !default;
-$color-background-button-primary-mono-hover: #095259 !default;
-$color-background-button-primary-mono-active: #052f33 !default;
-$color-background-button-primary-mono-focus: #095259 !default;
-$color-background-button-primary-b2c-base: #0d7680 !default;
-$color-background-button-primary-b2c-hover: #095259 !default;
-$color-background-button-primary-b2c-active: #052f33 !default;
-$color-background-button-primary-b2c-focus: #095259 !default;
+$color-background-button-primary-inverse-hover: #c9cacc !default;
+$color-background-button-primary-inverse-focus: #c9cacc !default;
+$color-background-button-primary-inverse-active: #9d9fa3 !default;
+$color-background-button-primary-mono-base: #262a33 !default;
+$color-background-button-primary-mono-hover: #515257 !default;
+$color-background-button-primary-mono-focus: #515257 !default;
+$color-background-button-primary-mono-active: #727071 !default;
+$color-background-button-primary-b2c-base: #3a70af !default;
+$color-background-button-primary-b2c-hover: #2c5483 !default;
+$color-background-button-primary-b2c-focus: #2c5483 !default;
+$color-background-button-primary-b2c-active: #1d3858 !default;
 $color-background-button-secondary-base-base: rgba(0, 0, 0, 0) !default;
 $color-background-button-secondary-base-hover: rgba(13, 118, 128, 0.1) !default;
+$color-background-button-secondary-base-focus: rgba(13, 118, 128, 0.1) !default;
 $color-background-button-secondary-base-active: #0d7680 !default;
-$color-background-button-secondary-base-focus: #0d7680 !default;
+$color-background-button-secondary-inverse-base: rgba(0, 0, 0, 0) !default;
 $color-background-button-secondary-inverse-hover: rgba(255, 255, 255, 0.15) !default;
+$color-background-button-secondary-inverse-focus: rgba(255, 255, 255, 0.15) !default;
 $color-background-button-secondary-inverse-active: #ffffff !default;
-$color-background-button-secondary-inverse-focus: #ffffff !default;
-$color-background-button-secondary-mono-base: #0d7680 !default;
-$color-background-button-secondary-mono-hover: #095259 !default;
-$color-background-button-secondary-mono-active: #052f33 !default;
-$color-background-button-secondary-mono-focus: #095259 !default;
-$color-background-button-secondary-b2c-base: #0d7680 !default;
-$color-background-button-secondary-b2c-hover: #095259 !default;
-$color-background-button-secondary-b2c-active: #052f33 !default;
-$color-background-button-secondary-b2c-focus: #095259 !default;
+$color-background-button-secondary-mono-base: rgba(0, 0, 0, 0) !default;
+$color-background-button-secondary-mono-hover: rgba(38, 42, 51, 0.15) !default;
+$color-background-button-secondary-mono-focus: rgba(38, 42, 51, 0.15) !default;
+$color-background-button-secondary-mono-active: #262a33 !default;
 $color-background-page: #fff1e5 !default;
 $color-background-logo: #fcd0b1 !default;
 $color-background-box: #f2dfce !default;
 $color-text-button-primary-base-base: #ffffff !default;
 $color-text-button-primary-base-hover: #ffffff !default;
-$color-text-button-primary-base-active: #ffffff !default;
 $color-text-button-primary-base-focus: #ffffff !default;
-$color-text-button-primary-inverse-base: #000000 !default;
-$color-text-button-primary-inverse-hover: #095259 !default;
-$color-text-button-primary-inverse-active: #052f33 !default;
-$color-text-button-primary-inverse-focus: #095259 !default;
-$color-text-button-primary-mono-base: #0d7680 !default;
-$color-text-button-primary-mono-hover: #095259 !default;
-$color-text-button-primary-mono-active: #052f33 !default;
-$color-text-button-primary-mono-focus: #095259 !default;
-$color-text-button-primary-b2c-base: #0d7680 !default;
-$color-text-button-primary-b2c-hover: #095259 !default;
-$color-text-button-primary-b2c-active: #052f33 !default;
-$color-text-button-primary-b2c-focus: #095259 !default;
+$color-text-button-primary-base-active: #ffffff !default;
+$color-text-button-primary-inverse-base: #262a33 !default;
+$color-text-button-primary-inverse-hover: #262a33 !default;
+$color-text-button-primary-inverse-focus: #262a33 !default;
+$color-text-button-primary-inverse-active: #262a33 !default;
+$color-text-button-primary-mono-base: #ffffff !default;
+$color-text-button-primary-mono-hover: #ffffff !default;
+$color-text-button-primary-mono-focus: #ffffff !default;
+$color-text-button-primary-mono-active: #ffffff !default;
+$color-text-button-primary-b2c-base: #ffffff !default;
+$color-text-button-primary-b2c-hover: #ffffff !default;
+$color-text-button-primary-b2c-focus: #ffffff !default;
+$color-text-button-primary-b2c-active: #ffffff !default;
 $color-text-button-secondary-base-base: #0d7680 !default;
-$color-text-button-secondary-base-hover: #0d7680 !default;
+$color-text-button-secondary-base-hover: #0c707a !default;
+$color-text-button-secondary-base-focus: #0c707a !default;
 $color-text-button-secondary-base-active: #ffffff !default;
-$color-text-button-secondary-base-focus: #ffffff !default;
 $color-text-button-secondary-inverse-base: #ffffff !default;
 $color-text-button-secondary-inverse-hover: #ffffff !default;
-$color-text-button-secondary-inverse-active: #000000 !default;
 $color-text-button-secondary-inverse-focus: #ffffff !default;
-$color-text-button-secondary-mono-base: #0d7680 !default;
-$color-text-button-secondary-mono-hover: #095259 !default;
-$color-text-button-secondary-mono-active: #052f33 !default;
-$color-text-button-secondary-mono-focus: #095259 !default;
-$color-text-button-secondary-b2c-base: #0d7680 !default;
-$color-text-button-secondary-b2c-hover: #095259 !default;
-$color-text-button-secondary-b2c-active: #052f33 !default;
-$color-text-button-secondary-b2c-focus: #095259 !default;
+$color-text-button-secondary-inverse-active: #000000 !default;
+$color-text-button-secondary-mono-base: #262a33 !default;
+$color-text-button-secondary-mono-hover: #262a33 !default;
+$color-text-button-secondary-mono-focus: #262a33 !default;
+$color-text-button-secondary-mono-active: #ffffff !default;
 $color-text-logo: #333333 !default;
 $color-text-link: #0d7680 !default;
 $color-text-link-hover: #08474d !default;
@@ -83,10 +76,19 @@ $color-text-title: #000000 !default;
 $color-text-body: #33302e !default;
 $color-text-muted: #ccc1b7 !default;
 $color-text-opinion: #ccc1b7 !default;
+$color-border-button-primary-base-base: rgba(0, 0, 0, 0) !default;
 $color-border-button-secondary-base-base: #0d7680 !default;
+$color-border-button-secondary-base-hover: #0c707a !default;
+$color-border-button-secondary-base-focus: #0c707a !default;
+$color-border-button-secondary-base-active: #0d7680 !default;
 $color-border-button-secondary-inverse-base: #ffffff !default;
-$color-border-button-secondary-mono-base: #0d7680 !default;
-$color-border-button-secondary-b2c-base: #0d7680 !default;
+$color-border-button-secondary-inverse-hover: #ffffff !default;
+$color-border-button-secondary-inverse-focus: #ffffff !default;
+$color-border-button-secondary-inverse-active: #ffffff !default;
+$color-border-button-secondary-mono-base: #262a33 !default;
+$color-border-button-secondary-mono-hover: #262a33 !default;
+$color-border-button-secondary-mono-focus: #262a33 !default;
+$color-border-button-secondary-mono-active: #262a33 !default;
 $color-ft-pink: #fcd0b1 !default;
 $color-ft-grey: #333333 !default;
 $color-white: #ffffff !default;
@@ -258,51 +260,46 @@ $_tokens: (
           'base': (
             'base': $color-background-button-primary-base-base,
             'hover': $color-background-button-primary-base-hover,
-            'active': $color-background-button-primary-base-active,
-            'focus': $color-background-button-primary-base-focus
+            'focus': $color-background-button-primary-base-focus,
+            'active': $color-background-button-primary-base-active
           ),
           'inverse': (
             'base': $color-background-button-primary-inverse-base,
             'hover': $color-background-button-primary-inverse-hover,
-            'active': $color-background-button-primary-inverse-active,
-            'focus': $color-background-button-primary-inverse-focus
+            'focus': $color-background-button-primary-inverse-focus,
+            'active': $color-background-button-primary-inverse-active
           ),
           'mono': (
             'base': $color-background-button-primary-mono-base,
             'hover': $color-background-button-primary-mono-hover,
-            'active': $color-background-button-primary-mono-active,
-            'focus': $color-background-button-primary-mono-focus
+            'focus': $color-background-button-primary-mono-focus,
+            'active': $color-background-button-primary-mono-active
           ),
           'b2c': (
             'base': $color-background-button-primary-b2c-base,
             'hover': $color-background-button-primary-b2c-hover,
-            'active': $color-background-button-primary-b2c-active,
-            'focus': $color-background-button-primary-b2c-focus
+            'focus': $color-background-button-primary-b2c-focus,
+            'active': $color-background-button-primary-b2c-active
           )
         ),
         'secondary': (
           'base': (
             'base': $color-background-button-secondary-base-base,
             'hover': $color-background-button-secondary-base-hover,
-            'active': $color-background-button-secondary-base-active,
-            'focus': $color-background-button-secondary-base-focus
+            'focus': $color-background-button-secondary-base-focus,
+            'active': $color-background-button-secondary-base-active
           ),
           'inverse': (
+            'base': $color-background-button-secondary-inverse-base,
             'hover': $color-background-button-secondary-inverse-hover,
-            'active': $color-background-button-secondary-inverse-active,
-            'focus': $color-background-button-secondary-inverse-focus
+            'focus': $color-background-button-secondary-inverse-focus,
+            'active': $color-background-button-secondary-inverse-active
           ),
           'mono': (
             'base': $color-background-button-secondary-mono-base,
             'hover': $color-background-button-secondary-mono-hover,
-            'active': $color-background-button-secondary-mono-active,
-            'focus': $color-background-button-secondary-mono-focus
-          ),
-          'b2c': (
-            'base': $color-background-button-secondary-b2c-base,
-            'hover': $color-background-button-secondary-b2c-hover,
-            'active': $color-background-button-secondary-b2c-active,
-            'focus': $color-background-button-secondary-b2c-focus
+            'focus': $color-background-button-secondary-mono-focus,
+            'active': $color-background-button-secondary-mono-active
           )
         )
       ),
@@ -316,52 +313,46 @@ $_tokens: (
           'base': (
             'base': $color-text-button-primary-base-base,
             'hover': $color-text-button-primary-base-hover,
-            'active': $color-text-button-primary-base-active,
-            'focus': $color-text-button-primary-base-focus
+            'focus': $color-text-button-primary-base-focus,
+            'active': $color-text-button-primary-base-active
           ),
           'inverse': (
             'base': $color-text-button-primary-inverse-base,
             'hover': $color-text-button-primary-inverse-hover,
-            'active': $color-text-button-primary-inverse-active,
-            'focus': $color-text-button-primary-inverse-focus
+            'focus': $color-text-button-primary-inverse-focus,
+            'active': $color-text-button-primary-inverse-active
           ),
           'mono': (
             'base': $color-text-button-primary-mono-base,
             'hover': $color-text-button-primary-mono-hover,
-            'active': $color-text-button-primary-mono-active,
-            'focus': $color-text-button-primary-mono-focus
+            'focus': $color-text-button-primary-mono-focus,
+            'active': $color-text-button-primary-mono-active
           ),
           'b2c': (
             'base': $color-text-button-primary-b2c-base,
             'hover': $color-text-button-primary-b2c-hover,
-            'active': $color-text-button-primary-b2c-active,
-            'focus': $color-text-button-primary-b2c-focus
+            'focus': $color-text-button-primary-b2c-focus,
+            'active': $color-text-button-primary-b2c-active
           )
         ),
         'secondary': (
           'base': (
             'base': $color-text-button-secondary-base-base,
             'hover': $color-text-button-secondary-base-hover,
-            'active': $color-text-button-secondary-base-active,
-            'focus': $color-text-button-secondary-base-focus
+            'focus': $color-text-button-secondary-base-focus,
+            'active': $color-text-button-secondary-base-active
           ),
           'inverse': (
             'base': $color-text-button-secondary-inverse-base,
             'hover': $color-text-button-secondary-inverse-hover,
-            'active': $color-text-button-secondary-inverse-active,
-            'focus': $color-text-button-secondary-inverse-focus
+            'focus': $color-text-button-secondary-inverse-focus,
+            'active': $color-text-button-secondary-inverse-active
           ),
           'mono': (
             'base': $color-text-button-secondary-mono-base,
             'hover': $color-text-button-secondary-mono-hover,
-            'active': $color-text-button-secondary-mono-active,
-            'focus': $color-text-button-secondary-mono-focus
-          ),
-          'b2c': (
-            'base': $color-text-button-secondary-b2c-base,
-            'hover': $color-text-button-secondary-b2c-hover,
-            'active': $color-text-button-secondary-b2c-active,
-            'focus': $color-text-button-secondary-b2c-focus
+            'focus': $color-text-button-secondary-mono-focus,
+            'active': $color-text-button-secondary-mono-active
           )
         )
       ),
@@ -389,18 +380,29 @@ $_tokens: (
     ),
     'border': (
       'button': (
+        'primary': (
+          'base': (
+            'base': $color-border-button-primary-base-base
+          )
+        ),
         'secondary': (
           'base': (
-            'base': $color-border-button-secondary-base-base
+            'base': $color-border-button-secondary-base-base,
+            'hover': $color-border-button-secondary-base-hover,
+            'focus': $color-border-button-secondary-base-focus,
+            'active': $color-border-button-secondary-base-active
           ),
           'inverse': (
-            'base': $color-border-button-secondary-inverse-base
+            'base': $color-border-button-secondary-inverse-base,
+            'hover': $color-border-button-secondary-inverse-hover,
+            'focus': $color-border-button-secondary-inverse-focus,
+            'active': $color-border-button-secondary-inverse-active
           ),
           'mono': (
-            'base': $color-border-button-secondary-mono-base
-          ),
-          'b2c': (
-            'base': $color-border-button-secondary-b2c-base
+            'base': $color-border-button-secondary-mono-base,
+            'hover': $color-border-button-secondary-mono-hover,
+            'focus': $color-border-button-secondary-mono-focus,
+            'active': $color-border-button-secondary-mono-active
           )
         )
       )

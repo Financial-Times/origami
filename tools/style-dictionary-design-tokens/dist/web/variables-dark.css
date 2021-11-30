@@ -1,12 +1,20 @@
 /**
  * Do not edit directly
- * Generated on Thu, 25 Nov 2021 23:15:21 GMT
+ * Generated on Tue, 30 Nov 2021 18:01:31 GMT
  */
 
 :root {
+  --color-text-button-primary-base-active: #ffff00;
+  --color-text-button-primary-base-focus: #ffff00;
+  --color-background-button-primary-base-active: #ff1493;
+  --color-background-button-primary-base-focus: #ff1493;
+  --color-background-button-primary-base-hover: #ff69b4;
+  --color-background-button-primary-base-base: #ffc0cb;
   --color-text-body: var(--color-white);
   --color-text-title: var(--color-white);
   --color-text-logo: var(--color-slate);
+  --color-text-button-primary-base-hover: [object Object];
+  --color-text-button-primary-base-base: [object Object];
   --color-background-logo: var(--color-white);
   --color-background-page: var(--color-slate);
 }

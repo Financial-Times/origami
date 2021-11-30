@@ -2,6 +2,7 @@
 
 html {
 	background-color: oColorsByUsecase('page', 'background');
+	background-color: var(--color-background-page, oColorsByUsecase('page', 'background'));
 }
 
 body {

@@ -8,7 +8,17 @@
 @import './src/scss/functions';
 @import './src/scss/mixins';
 
-@import "@financial-times/style-dictionary-design-tokens/dist/web/tokens";
+@import "@financial-times/style-dictionary-design-tokens/dist/web/variables";
+
+@media (prefers-color-scheme: dark) {
+    @import "@financial-times/style-dictionary-design-tokens/dist/web/variables-dark";
+}
+
+// @todo, can't do this, css format includes :root selector
+// @todo, all this is a mess, it's a playground
+[data-origami-mode="dark"] {
+    @import "@financial-times/style-dictionary-design-tokens/dist/web/variables-dark";
+}
 
 /// Output o-buttons classes.
 ///
@@ -83,11 +93,13 @@
 		@each $size in $sizes {
 			@if index($_o-buttons-sizes, $size) {
 				.o-buttons--#{$size}.o-buttons-icon {
-					// IE11 renders the background image at a very small size if you do not
-					// double-up the background size here, declaring a width _and_ height.
-					// See https://thatemil.com/blog/2015/03/15/sizing-svg-background-images-in-internet-explorer/
-                    background-size: map-get($_o-buttons-size, $size, 'background-size') map-get($_o-buttons-size, $size, 'background-size');
                     padding-left: map-get($_o-buttons-size, $size, 'icon-padding');
+					&:before {
+						// IE11 renders the background image at a very small size if you do not
+						// double-up the background size here, declaring a width _and_ height.
+						// See https://thatemil.com/blog/2015/03/15/sizing-svg-background-images-in-internet-explorer/
+                    	background-size: map-get($_o-buttons-size, $size, 'background-size') map-get($_o-buttons-size, $size, 'background-size');
+					}
 				}
 			}
 		}

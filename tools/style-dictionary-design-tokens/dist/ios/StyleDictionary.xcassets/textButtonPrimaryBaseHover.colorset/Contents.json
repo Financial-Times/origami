@@ -21,10 +21,28 @@
       "color": {
         "color-space": "srgb",
         "components": {
-          "alpha": "1.0000",
-          "blue": "1.0000",
-          "red": "1.0000",
-          "green": "1.0000"
+          "value": {
+            "alpha": "1.0000",
+            "blue": "0.2000",
+            "red": "0.1490",
+            "green": "0.1647"
+          },
+          "palette": "tertiary",
+          "filePath": "/Users/leemoody/Projects/financial-times/origami/tokens/core/color/palette.json",
+          "isSource": false,
+          "original": {
+            "value": "#262a33",
+            "palette": "tertiary"
+          },
+          "name": "slate",
+          "attributes": {
+            "category": "color",
+            "type": "slate"
+          },
+          "path": [
+            "color",
+            "slate"
+          ]
         }
       },
       "appearances": [

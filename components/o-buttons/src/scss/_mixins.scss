@@ -116,7 +116,7 @@
 	}
 
 	@if $type {
-		@include _oButtonsStateContent($type, $button-colors-map);
+		@include _oButtonsStateContent($type, $theme, $button-colors-map);
 	}
 
 	@if $icon and $include-base-icon-styles {
@@ -151,12 +151,14 @@
 	$theme-selector: if($theme-name, '.o-buttons--#{$theme-name}', '');
 	// Output variant styles.
 	#{$type-selector}#{$theme-selector} {
-		@include _oButtonsStateContent($type, $button-colors);
+		@include _oButtonsStateContent($type, $theme, $button-colors);
 	}
 	// Output variant icon styles.
 	@each $icon in $icons {
-		#{$type-selector}#{$theme-selector}.o-buttons-icon--#{$icon} {
-			@include _oButtonsIconStatesContent($icon, $button-colors);
+		@if type-of($icon) == 'string' {
+			#{$type-selector}#{$theme-selector}.o-buttons-icon--#{$icon} {
+				@include _oButtonsIconStatesContent($icon, $button-colors);
+			}
 		}
 	}
 }
@@ -176,7 +178,6 @@
 	cursor: pointer;
 	transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
 	user-select: none;
-	background-clip: border-box;
 	border-width: 1px;
 	// Prevent fat white type on a dark background
 	-webkit-font-smoothing: antialiased;
@@ -198,32 +199,51 @@
 /// Styles shared by all buttons of a given size with an icon.
 /// @param {String} $size
 @mixin _oButtonsIconBaseContent($size: 'default') {
-	background-repeat: no-repeat;
-	background-position: 3px;
+	position: relative;
 	padding-left: map-get($_o-buttons-size, $size, 'icon-padding');
+	&:before {
+		position: absolute;
+		content: '';
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-repeat: no-repeat;
+		background-position: 3px;
+		// IE11 renders the background image at a very small size if you do not
+		// double-up the background size here, declaring a width _and_ height.
+		// See https://thatemil.com/blog/2015/03/15/sizing-svg-background-images-in-internet-explorer/
+		background-size: map-get($_o-buttons-size, $size, 'background-size') map-get($_o-buttons-size, $size, 'background-size');
+
+		@supports (mask: initial) or (--moz-mask: initial) or (-webkit-mask: initial) {
+			mask-repeat: no-repeat;
+			mask-position: 3px;
+			background-color: currentColor;
+		}
+
+	}
 }
 
 /// Styles for a button which is an icon only.
 @mixin _oButtonsIconOnlyContent() {
 	padding-left: 0;
-	background-position: 50%;
 	min-width: 40px;
+	&:before {
+		background-position: 50%;
+	}
 }
 
 /// Styles to size a button.
-/// @param {String} $size
-@mixin _oButtonsSizeContent($size: 'default') {
+/// @param {String|null} $size
+@mixin _oButtonsSizeContent($size) {
+	$size: if($size, $size, 'default');
 	$scale: map-get($_o-buttons-size, $size, 'scale');
-	@include oTypographySans($scale);
+	@include oTypographySans($scale, $line-height: null);
 	$line-height: nth(oTypographyGetScale(
 		$index: $scale,
 		$font: oTypographyGetFontFamily('sans')
 	), 1);
 	line-height: #{$line-height}px;
-	// IE11 renders the background image at a very small size if you do not
-	// double-up the background size here, declaring a width _and_ height.
-	// See https://thatemil.com/blog/2015/03/15/sizing-svg-background-images-in-internet-explorer/
-	background-size: map-get($_o-buttons-size, $size, 'background-size') map-get($_o-buttons-size, $size, 'background-size');
 	min-height: map-get($_o-buttons-size, $size, 'min-height');
 	min-width: map-get($_o-buttons-size, $size, 'min-width');
 	padding: map-get($_o-buttons-size, $size, 'padding');
@@ -231,23 +251,41 @@
 
 /// Styles to apply colours to each button state, e.g. focus, active.
 /// @param {String} $type - The type of button, e.g. 'primary'
+/// @param {String} $theme - The theme of button, e.g. 'mono'
 /// @param {Map} $button-colors-map - The colours for this button (@see _oButtonsGetColors).
-@mixin _oButtonsStateContent($type, $button-colors-map) {
+@mixin _oButtonsStateContent($type, $theme, $button-colors-map) {
+	$theme: if($theme, $theme, 'base');
+
 	background-color: map-get($button-colors-map, 'background', 'base');
 	color: map-get($button-colors-map, 'text', 'base');
 	border-color: map-get($button-colors-map, 'border', 'base');
+	@if type-of($theme) == 'string' {
+		background-color: var(unquote("--color-background-button-#{$type}-#{$theme}-base"));
+		color: var(unquote("--color-text-button-#{$type}-#{$theme}-base"));
+		border-color: var(unquote("--color-border-button-#{$type}-#{$theme}-base"), transparent);
+	}
 
 	&:hover {
 		background-color: map-get($button-colors-map, 'background', 'hover');
 		color: map-get($button-colors-map, 'text', 'hover');
 		border-color: map-get($button-colors-map, 'border', 'hover');
 		text-decoration: none;
+		@if type-of($theme) == 'string' {
+			background-color: var(unquote("--color-background-button-#{$type}-#{$theme}-hover"));
+			color: var(unquote("--color-text-button-#{$type}-#{$theme}-hover"));
+			border-color: var(unquote("--color-border-button-#{$type}-#{$theme}-hover"), transparent);
+		}
 	}
 
 	&:focus {
 		background-color: map-get($button-colors-map, 'background', 'focus');
 		color: map-get($button-colors-map, 'text', 'focus');
 		border-color: map-get($button-colors-map, 'border', 'focus');
+		@if type-of($theme) == 'string' {
+			background-color: var(unquote("--color-background-button-#{$type}-#{$theme}-focus"));
+			color: var(unquote("--color-text-button-#{$type}-#{$theme}-focus"));
+			border-color: var(unquote("--color-border-button-#{$type}-#{$theme}-focus"), transparent);
+		}
 	}
 
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
@@ -259,6 +297,11 @@
 		background-color: map-get($button-colors-map, 'background', 'active');
 		color: map-get($button-colors-map, 'text', 'active');
 		border-color: map-get($button-colors-map, 'border', 'active');
+		@if type-of($theme) == 'string' {
+			background-color: var(unquote("--color-background-button-#{$type}-#{$theme}-active"));
+			color: var(unquote("--color-text-button-#{$type}-#{$theme}-active"));
+			border-color: var(unquote("--color-border-button-#{$type}-#{$theme}-active"), transparent);
+		}
 	}
 }
 
@@ -271,19 +314,26 @@
 	$active-icon-color: map-get($button-colors-map, 'text', 'active');
 	$focus-icon-color: map-get($button-colors-map, 'text', 'focus');
 
-	@include _oButtonsGetIcon($icon, $normal-icon-color);
+	$icon-mask: map-get($_tokens,'image','icon',$icon);
+	@supports (mask: initial) or (--moz-mask: initial) or (-webkit-mask: initial) {
+		&:before {
+			mask-image: set-icon-color($icon-mask, $color: '');
+		}
+	}
+
+	@include _oButtonsGetMaskFallbackIcon($icon, $normal-icon-color);
 
 	// Only output the hover icon if it is different to the default icon.
 	@if($hover-icon-color != $normal-icon-color) {
 		&:hover {
-			@include _oButtonsGetIcon($icon, $hover-icon-color);
+			@include _oButtonsGetMaskFallbackIcon($icon, $hover-icon-color);
 		}
 	}
 
 	// Only output the focus icon if it is different to the default or hover icon.
 	@if($focus-icon-color != $normal-icon-color or $focus-icon-color != $hover-icon-color) {
 		&:focus {
-			@include _oButtonsGetIcon($icon, $focus-icon-color);
+			@include _oButtonsGetMaskFallbackIcon($icon, $focus-icon-color);
 		}
 	}
 
@@ -296,7 +346,7 @@
 		&[aria-pressed=true], // e.g. A "follow" button that is pressed.
 		&:hover:active,
 		&:active {
-			@include _oButtonsGetIcon($icon, $active-icon-color);
+			@include _oButtonsGetMaskFallbackIcon($icon, $active-icon-color);
 		}
 	}
 
@@ -316,13 +366,18 @@
 ///
 /// @param {String} $icon-name - icon to request
 /// @param {Color} $icon-color - a hex for the button icon colour
-@mixin _oButtonsGetIcon($icon-name, $icon-color) {
+@mixin _oButtonsGetMaskFallbackIcon($icon-name, $icon-color) {
 	@if $icon-name { // @todo why?
 		$id: #{$icon-name}-#{str-replace(#{$icon-color}, '#', '')};
 		@if index($_placeholders, $id) == null {
 			@at-root %#{$id} {
-				$icon: map-get($_tokens,'image','icon',$icon-name);
-				background-image: set-icon-color($icon, $icon-color);
+				&:before {
+					$icon: map-get($_tokens,'image','icon',$icon-name);
+					background-image: set-icon-color($icon, $icon-color);
+					@supports (mask: initial) or (--moz-mask: initial) or (-webkit-mask: initial) {
+						background-image: none;
+					}
+				}
 			}
 			$_placeholders: append($_placeholders, $id)!global;
 		}

@@ -115,7 +115,6 @@
 					cursor: pointer;
 					transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
 					user-select: none;
-					background-clip: border-box;
 					border-width: 1px;
 					-webkit-font-smoothing: antialiased;
 					-moz-osx-font-smoothing: grayscale;
@@ -179,7 +178,6 @@
 					cursor: pointer;
 					transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
 					user-select: none;
-					background-clip: border-box;
 					border-width: 1px;
 					-webkit-font-smoothing: antialiased;
 					-moz-osx-font-smoothing: grayscale;

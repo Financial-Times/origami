@@ -1,0 +1,173 @@
+{
+	"color": {
+		"background": {
+			"button": {
+				"primary": {
+					"base": {
+						"base": {
+							"value": "#000000"
+						},
+						"hover": {
+							"value": "#333333"
+						},
+						"focus": {
+							"value": "#333333"
+						},
+						"active": {
+							"value": "#595959"
+						}
+					},
+					"inverse": {
+						"base": {
+							"value": "#ffffff"
+						},
+						"hover": {
+							"value": "#cccccc"
+						},
+						"focus": {
+							"value": "#cccccc"
+						},
+						"active": {
+							"value": "#a6a6a6"
+						}
+					}
+				},
+				"secondary": {
+					"base": {
+						"base": {
+							"value": "transparent"
+						},
+						"hover": {
+							"value": "rgba(0, 0, 0, 0.15)"
+						},
+						"focus": {
+							"value": "rgba(0, 0, 0, 0.15)"
+						},
+						"active": {
+							"value": "#000000"
+						}
+					},
+					"inverse": {
+						"base": {
+							"value": "transparent"
+						},
+						"hover": {
+							"value": "rgba(255, 255, 255, 0.15)"
+						},
+						"focus": {
+							"value": "rgba(255, 255, 255, 0.15)"
+						},
+						"active": {
+							"value": "#ffffff"
+						}
+					}
+				}
+			}
+		},
+		"text": {
+			"button": {
+				"primary": {
+					"base": {
+						"base": {
+							"value": "white"
+						},
+						"hover": {
+							"value": "white"
+						},
+						"focus": {
+							"value": "white"
+						},
+						"active": {
+							"value": "white"
+						}
+					},
+					"inverse": {
+						"base": {
+							"value": "black"
+						},
+						"hover": {
+							"value": "black"
+						},
+						"focus": {
+							"value": "black"
+						},
+						"active": {
+							"value": "black"
+						}
+					}
+				},
+				"secondary": {
+					"base": {
+						"base": {
+							"value": "#000000"
+						},
+						"hover": {
+							"value": "black"
+						},
+						"focus": {
+							"value": "black"
+						},
+						"active": {
+							"value": "white"
+						}
+					},
+					"inverse": {
+						"base": {
+							"value": "#ffffff"
+						},
+						"hover": {
+							"value": "white"
+						},
+						"focus": {
+							"value": "white"
+						},
+						"active": {
+							"value": "black"
+						}
+					}
+				}
+			}
+		},
+		"border": {
+			"button": {
+				"primary": {
+					"base": {
+						"base": {
+							"value": "transparent"
+						}
+					}
+				},
+				"secondary": {
+					"base": {
+						"base": {
+							"value": "white"
+						},
+						"hover": {
+							"value": "white"
+						},
+						"focus": {
+							"value": "white"
+						},
+						"active": {
+							"value": "{color.background.button.secondary.base.active.value}"
+						}
+					},
+					"inverse": {
+						"base": {
+							"value": "black"
+						},
+						"hover": {
+							"value": "black"
+						},
+						"focus": {
+							"value": "black"
+						},
+						"active": {
+							"value": "{color.background.button.secondary.inverse.active.value}"
+						}
+					}
+				}
+			}
+		}
+	}
+}

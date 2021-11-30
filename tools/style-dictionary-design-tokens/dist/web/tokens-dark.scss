@@ -1,11 +1,19 @@
 
 /**
  * Do not edit directly
- * Generated on Thu, 25 Nov 2021 23:15:21 GMT
+ * Generated on Tue, 30 Nov 2021 18:01:31 GMT
  */
 
+$color-background-button-primary-base-base: #ffc0cb !default;
+$color-background-button-primary-base-hover: #ff69b4 !default;
+$color-background-button-primary-base-focus: #ff1493 !default;
+$color-background-button-primary-base-active: #ff1493 !default;
 $color-background-page: #262a33 !default;
 $color-background-logo: #ffffff !default;
+$color-text-button-primary-base-base: [object Object] !default;
+$color-text-button-primary-base-hover: [object Object] !default;
+$color-text-button-primary-base-focus: #ffff00 !default;
+$color-text-button-primary-base-active: #ffff00 !default;
 $color-text-logo: #262a33 !default;
 $color-text-title: #ffffff !default;
 $color-text-body: #ffffff !default;
@@ -13,10 +21,30 @@ $color-text-body: #ffffff !default;
 $_tokens: (
   'color': (
     'background': (
+      'button': (
+        'primary': (
+          'base': (
+            'base': $color-background-button-primary-base-base,
+            'hover': $color-background-button-primary-base-hover,
+            'focus': $color-background-button-primary-base-focus,
+            'active': $color-background-button-primary-base-active
+          )
+        )
+      ),
       'page': $color-background-page,
       'logo': $color-background-logo
     ),
     'text': (
+      'button': (
+        'primary': (
+          'base': (
+            'base': $color-text-button-primary-base-base,
+            'hover': $color-text-button-primary-base-hover,
+            'focus': $color-text-button-primary-base-focus,
+            'active': $color-text-button-primary-base-active
+          )
+        )
+      ),
       'logo': $color-text-logo,
       'title': $color-text-title,
       'body': $color-text-body
