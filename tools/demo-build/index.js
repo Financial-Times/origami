@@ -266,7 +266,7 @@ for (const brand of brands) {
 		const buildConfig = {
 			demo: demoBuild || {},
 			brand: config.brand,
-			cwd: cwd
+			cwd: config.cwd
 		};
 
 		// Add demo html config.
