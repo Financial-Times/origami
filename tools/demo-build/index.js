@@ -185,8 +185,6 @@ async function buildDemoHtml(buildConfig) {
 
 	configuredPartials.oDemoTpl = String(oDemoTpl);
 
-	const polyfillUrl  = await constructPolyfillUrl();
-	data.oDemoPolyfillUrl = polyfillUrl;
 	partials = await loadPartials(partialsDir);
 	const template = await readFile(path.join(__dirname, '/page.mustache'), 'utf-8');
 	const result = mustache.render(template, data, Object.assign(configuredPartials, partials));
