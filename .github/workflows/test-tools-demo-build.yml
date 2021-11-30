@@ -1,6 +1,6 @@
-name: test tools/origami-build-tools
+name: test tools/demo-build
 concurrency:
-  group: ${{ github.head_ref }}-${{ github.workflow}}-tools/origami-build-tools
+  group: ${{ github.head_ref }}-${{ github.workflow}}-tools/demo-build
   cancel-in-progress: true
 
 on:
@@ -20,6 +20,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
     - run: npm ci
-    - run: npm run -w tools/origami-build-tools lint --if-present
-    - run: npm run -w tools/origami-build-tools build --if-present
-    - run: npm run -w tools/origami-build-tools test --if-present
+    - run: npm run -w tools/demo-build lint --if-present
+    - run: npm run -w tools/demo-build build --if-present
+    - run: npm run -w tools/demo-build test --if-present
