@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://www.github.com/Financial-Times/origami/compare/o-stepped-progress-v3.2.0...o-stepped-progress-v4.0.0) (2021-11-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* Drop IE9 support
+
+### Bug Fixes
+
+* Drop IE9 support ([998115b](https://www.github.com/Financial-Times/origami/commit/998115b3df2b8d4cc96c576475cfe7808d7b53ad))
+
 ## [3.2.0](https://www.github.com/Financial-Times/origami/compare/o-stepped-progress-v3.1.0...o-stepped-progress-v3.2.0) (2021-11-24)
 
 
