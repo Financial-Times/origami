@@ -32,8 +32,8 @@
     "npm": "8.1.4"
   },
   "engines": {
-    "node": "16.8.0",
-    "npm": "7.23.0"
+    "node": "16.13.0",
+    "npm": "8.1.4"
   },
   "workspaces": [
     "components/*",
