@@ -1,5 +1,9 @@
 # Migration
 
+## Migrating from v3 to v4
+
+Support for IE9 has been dropped. No other changes.
+
 ## Migrating from v2 to v3
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
