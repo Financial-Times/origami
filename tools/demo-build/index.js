@@ -245,7 +245,7 @@ for (const brand of brands) {
 	const demoBuildConfig = [];
 
 	for (const demoConfig of demos) {
-		if (demoSupportsBrand(demoConfig, config.brand)) {
+		if (demoSupportsBrand(demoConfig, brand)) {
 			demoBuildConfig.push(mergeDeep(
 				{
 					documentClasses: '',
