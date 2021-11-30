@@ -1,4 +1,5 @@
 {
+	"private": true,
 	"name": "origami-tools-helpers",
 	"version": "1.0.0",
 	"description": "",
@@ -13,4 +14,4 @@
 		"deglob": "^4.0.1",
 		"globby": "^12.0.2"
 	}
-  }
+}
