@@ -124,6 +124,16 @@
 		}
     }
 
+	// Add fallback for MS High Contrast mode.
+	// This only needs to be output once per icon, not for every type / theme / button state.
+	@each $icon in $icons {
+		@if type-of($icon) == 'string' {
+			.o-buttons-icon.o-buttons-icon--#{$icon} {
+				@include _oButtonsGetHighContrastFallbackIcon($icon);
+			}
+		}
+	}
+
 	// Pagination wrapper.
 	@if $pagination-enabled {
 		.o-buttons-pagination {

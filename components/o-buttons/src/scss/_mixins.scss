@@ -125,6 +125,7 @@
 
 	@if $icon and $type {
 		@include _oButtonsIconStatesContent($icon, $button-colors-map);
+		@include _oButtonsGetHighContrastFallbackIcon($icon);
 	}
 
 	@if $icon-only {
@@ -349,17 +350,6 @@
 			@include _oButtonsGetMaskFallbackIcon($icon, $active-icon-color);
 		}
 	}
-
-	// Add fallback for MS High Contrast mode.
-	// This only needs to be output once, not for every button state.
-	// sass-lint:disable no-vendor-prefixes
-	@media screen and (-ms-high-contrast: active) {
-		@include oIconsContent($icon-name: $icon, $size: null, $color: #ffffff, $include-base-styles: false, $high-contrast-fallback: false);
-	}
-	@media screen and (-ms-high-contrast: black-on-white) {
-		@include oIconsContent($icon-name: $icon, $size: null, $color: #000000, $include-base-styles: false, $high-contrast-fallback: false);
-	}
-	// sass-lint:enable no-vendor-prefixes
 }
 
 /// Request an icon from o-icons of a specific colour for a button.
@@ -367,20 +357,40 @@
 /// @param {String} $icon-name - icon to request
 /// @param {Color} $icon-color - a hex for the button icon colour
 @mixin _oButtonsGetMaskFallbackIcon($icon-name, $icon-color) {
-	@if $icon-name { // @todo why?
-		$id: #{$icon-name}-#{str-replace(#{$icon-color}, '#', '')};
-		@if index($_placeholders, $id) == null {
-			@at-root %#{$id} {
-				&:before {
-					$icon: map-get($_tokens,'image','icon',$icon-name);
-					background-image: set-icon-color($icon, $icon-color);
-					@supports (mask: initial) or (--moz-mask: initial) or (-webkit-mask: initial) {
-						background-image: none;
-					}
+	$id: #{$icon-name}-#{str-replace(#{$icon-color}, '#', '')};
+	@if index($_o-buttons-icon-placeholders, $id) == null {
+		@at-root %#{$id} {
+			&:before {
+				$icon: map-get($_tokens,'image','icon',$icon-name);
+				background-image: set-icon-color($icon, $icon-color);
+				@supports (mask: initial) or (--moz-mask: initial) or (-webkit-mask: initial) {
+					background-image: none;
 				}
 			}
-			$_placeholders: append($_placeholders, $id)!global;
 		}
-		@extend %#{$id};
+		$_o-buttons-icon-placeholders: append($_o-buttons-icon-placeholders, $id)!global;
 	}
+	@extend %#{$id};
+}
+
+/// Request an icon from o-icons to use for ms high contrast mode
+///
+/// @param {String} $icon-name - icon to request
+@mixin _oButtonsGetHighContrastFallbackIcon($icon-name) {
+	// sass-lint:disable no-vendor-prefixes
+	@media screen and (-ms-high-contrast: active) {
+		@include oIconsContent($icon-name, $size: null, $color: #ffffff, $include-base-styles: false, $high-contrast-fallback: false);
+		// @todo, shouldn't be needed when masks are used, confirm that
+		@supports (mask: initial) or (--moz-mask: initial) or (-webkit-mask: initial) {
+			background-image: none;
+		}
+	}
+	@media screen and (-ms-high-contrast: black-on-white) {
+		@include oIconsContent($icon-name, $size: null, $color: #000000, $include-base-styles: false, $high-contrast-fallback: false);
+		// @todo, shouldn't be needed when masks are used, confirm that
+		@supports (mask: initial) or (--moz-mask: initial) or (-webkit-mask: initial) {
+			background-image: none;
+		}
+	}
+	// sass-lint:enable no-vendor-prefixes
 }
