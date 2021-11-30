@@ -25,7 +25,7 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "dependencies": {
-    "@financial-times/ft-date-format": "^2.0.0"
+    "@financial-times/ft-date-format": "^2.1.0"
   },
   "volta": {
     "node": "14.16.1",
