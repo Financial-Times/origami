@@ -198,7 +198,7 @@ async function loadPartials(partialsDir) {
 
 	// Get a list of all mustache files in a directory
 	const filePaths = await files.getMustacheFilesList(partialsDir);
-	await Promise.all(filePaths.map(filePath => {
+	await Promise.all(filePaths.map(async filePath => {
 		// Calculate the partial name, which is what is used
 		// to refer to it in a template. We remove the base directory,
 		// replace any preceeding slashes, and remove the extension.
@@ -208,6 +208,7 @@ async function loadPartials(partialsDir) {
 		const file = await readFile(filePath, 'utf8')
 		partials[partialName] = file;
 	}));
+
 	return partials;
 }
 
