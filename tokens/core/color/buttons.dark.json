@@ -25,10 +25,10 @@
 				"primary": {
 					"base": {
 						"base": {
-							"value": "{color.slate}"
+							"value": "{color.slate.value}"
 						},
 						"hover": {
-							"value": "{color.slate}"
+							"value": "{color.slate.value}"
 						},
 						"focus": {
 							"value": "yellow"

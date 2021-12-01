@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 30 Nov 2021 18:01:31 GMT
+ * Generated on Wed, 01 Dec 2021 12:07:40 GMT
  */
 
 :root {
@@ -13,8 +13,8 @@
   --color-text-body: var(--color-white);
   --color-text-title: var(--color-white);
   --color-text-logo: var(--color-slate);
-  --color-text-button-primary-base-hover: [object Object];
-  --color-text-button-primary-base-base: [object Object];
+  --color-text-button-primary-base-hover: var(--color-slate);
+  --color-text-button-primary-base-base: var(--color-slate);
   --color-background-logo: var(--color-white);
   --color-background-page: var(--color-slate);
 }
