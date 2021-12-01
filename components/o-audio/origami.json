@@ -8,6 +8,7 @@
 	},
 	"supportStatus": "experimental",
 	"browserFeatures": {},
+	"brands": ["core"],
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
