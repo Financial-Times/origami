@@ -30,7 +30,7 @@ async function readOrigamiConfig() {
 }
 
 function hasDemos(origamiConfig) {
-	return Array.isArray(origamiConfig.demos) && origamiConfig.demos.length > 1
+	return Array.isArray(origamiConfig.demos) && origamiConfig.demos.length;
 }
 
 function getBrands(origamiConfig) {
