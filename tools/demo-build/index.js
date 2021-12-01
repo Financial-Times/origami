@@ -210,8 +210,7 @@ async function loadPartials(partialsDir) {
 	return partials;
 }
 
-const config = {} // #402-to-do: what flags and arguments should it accept? is it just brand and cwd?
-config.cwd = process.cwd();
+const cwd = process.cwd();
 const origamiConfig = await readOrigamiConfig();
 
 if (!hasDemos(origamiConfig)) {
@@ -263,8 +262,8 @@ for (const brand of brands) {
 	for (const demoBuild of demoBuildConfig) {
 		const buildConfig = {
 			demo: demoBuild || {},
-			brand: config.brand,
-			cwd: config.cwd
+			brand,
+			cwd
 		};
 
 		// Add demo html config.
