@@ -166,15 +166,15 @@ async function buildDemoHtml(buildConfig) {
 	// core will replace master brand, this is temporary whilst origami build service is updated to support both.
 	// we're updating the o-brand component and build tools first as origami build service uses branded components
 	// for integration tests.
-	const brand = buildConfig.brand === 'core' ? 'master' : buildConfig.brand;
+	const brand = buildConfig.brand;
 	data.oDemoTitle = moduleName + ': ' + buildConfig.demo.name + ' demo';
 	data.oDemoDocumentClasses = buildConfig.demo.documentClasses || buildConfig.demo.bodyClasses;
 
-	data.oDemoComponentStylePath = buildConfig.demo.sassDestination ?
+	data.oDemoComponentStylePath = `${brand}-` + (buildConfig.demo.sassDestination ?
 		path.basename(buildConfig.demo.sassDestination) :
-		'';
+		'');
 
-	data.oDemoComponentScriptPath = buildConfig.demo.jsDestination ? path.basename(buildConfig.demo.jsDestination) : '';
+	data.oDemoComponentScriptPath = `${brand}-` + (buildConfig.demo.jsDestination ? path.basename(buildConfig.demo.jsDestination) : '');
 
 	data.oDemoDependenciesStylePath = dependencies ?
 		`https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=${dependencies.toString()}${brand ? `&brand=${brand}` : ''}` :
