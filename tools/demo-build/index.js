@@ -289,20 +289,12 @@ for (const brand of brands) {
 			}
 		}
 	}
-   for (const html of htmlBuildsConfig) {
-		await buildDemoHtml(html)
-	}
-   for (const sass of sassBuildsConfig) {
-		await buildDemoSass(sass)
-	}
-   for (const js of jsBuildsConfig) {
-		await buildDemoJs(js)
-	}
+
 	await Promise.all([
 		...htmlBuildsConfig.map(c => buildDemoHtml(c)),
 		...sassBuildsConfig.map(c => buildDemoSass(c)),
-		...jsBuildsConfig.map(c => buildDemoJs(c))
-	]);
+		...jsBuildsConfig.map(c => buildDemoJs(c)),
+	])
 }
 
 console.log('demo-build: Building demos complete. No errors found.');

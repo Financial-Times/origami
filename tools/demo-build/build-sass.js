@@ -83,12 +83,15 @@ function buildSass(config) {
 					);
 					// Build Sass
 					let result = '';
-					const rand = Math.random().toString(36).slice(3);
-					const sassTempPath = path.resolve(sassFile, "..", `${rand}.scss`);
+					const prevd = process.cwd();
+
 					try {
-						await writeFile(sassTempPath, sassData, 'utf-8');
+						process.chdir(path.resolve(sassFile, ".."));
 						$.verbose = false;
-						result = await $`${sassBinary} ${sassTempPath} ${sassArguments}`;
+						const p =  $`${sassBinary} --stdin ${sassArguments}`;
+						p.stdin.write(sassData);
+						p.stdin.end();
+						result = await p;
 						// Output Sass debug logs and warnings
 						if (result.stderr) {
 							log.secondary(result.stderr);
@@ -112,7 +115,7 @@ function buildSass(config) {
 						// Forward Sass error.
 						throw new Error(errorMessage);
 					} finally {
-						await unlink(sassTempPath);
+						process.chdir(prevd);
 					}
 
 					return result.stdout;
