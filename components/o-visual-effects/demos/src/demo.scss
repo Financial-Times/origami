@@ -32,7 +32,7 @@ $card-size: 160px;
 
 // transitions
 .demo-transitions--slide {
-	background: slateblue;
+	background: cyan;
 	transition: all 0.5s $o-visual-effects-timing-slide;
 
 	.demo-off & {
