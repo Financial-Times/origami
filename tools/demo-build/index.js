@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import mergeDeep from 'merge-deep';
-import { readFile, writeFile } from 'fs/promises';
+import { readFile, writeFile, mkdir } from 'fs/promises';
 import * as path from 'node:path'
 import { files } from 'origami-tools-helpers'
 import { buildSass } from './build-sass.js';
@@ -140,6 +140,7 @@ async function buildDemoHtml(buildConfig) {
 	const src = path.join(buildConfig.cwd, '/' + buildConfig.demo.template);
 	const partialsDir = path.dirname(src);
 	const dest = path.join('demos', 'local');
+	await mkdir(dest, {recursive: true});
 	const destName = buildConfig.brand + '-' + buildConfig.demo.name + '.html';
 	let data;
 	let partials;
