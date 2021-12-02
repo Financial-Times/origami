@@ -29,7 +29,7 @@ body {
 	.o-colors-demo-#{$name} {
 		background-color: oColorsByName($name);
 		color: oColorsGetTextColor($name, 95, $minimum-contrast: null);
-		> input {
+		> .hex {
 			color: inherit;
 		}
 	}
