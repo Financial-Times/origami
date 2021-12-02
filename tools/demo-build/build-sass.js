@@ -83,8 +83,8 @@ function buildSass(config) {
 					);
 					// Build Sass
 					let result = '';
-					const rand = Math.random().toString(36).slice(3)
-					const sassTempPath = `./demos/src/temp-sass-compilation-${rand}.scss`;
+					const rand = Math.random().toString(36).slice(3);
+					const sassTempPath = path.resolve(sassFile, "..", `${rand}.scss`);
 					try {
 						await writeFile(sassTempPath, sassData, 'utf-8');
 						$.verbose = false;
