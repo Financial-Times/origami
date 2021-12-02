@@ -136,7 +136,7 @@ async function loadDemoData(buildConfig) {
 }
 
 async function buildDemoHtml(buildConfig) {
-	const src = path.join(buildConfig.cwd, '/' + buildConfig.demo.template);
+	const src = path.join(buildConfig.cwd, buildConfig.demo.template);
 	const partialsDir = path.dirname(src);
 	const dest = path.join('demos', 'local');
 	await mkdir(dest, {recursive: true});
