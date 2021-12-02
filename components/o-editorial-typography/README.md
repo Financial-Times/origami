@@ -93,7 +93,7 @@ Style an author tag using the class `o-editorial-typography-author`. An author t
 `o-editorial-typography-timestamp` styles a timestamp. It does not set font size or family so may be used in different contexts, such as an article byline or comments section.
 
 ```html
-<time class="o-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm" aria-label="October 11 2019">October 11 2019</time>
+<time class="o-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm">October 11 2019</time>
 ```
 
 #### Byline
@@ -104,7 +104,7 @@ A story byline may be styled using `o-editorial-typography-byline`. It's often u
 <div class="o-editorial-typography-byline">
     <a class="o-editorial-typography-author" href="#">Joe Doe</a>
     in London
-    <time class="o-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm" aria-label="October 11 2019">October 11 2019</time>
+    <time class="o-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm">October 11 2019</time>
 </div>
 ```
 
