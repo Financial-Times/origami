@@ -170,11 +170,11 @@ async function buildDemoHtml(buildConfig) {
 	data.oDemoTitle = moduleName + ': ' + buildConfig.demo.name + ' demo';
 	data.oDemoDocumentClasses = buildConfig.demo.documentClasses || buildConfig.demo.bodyClasses;
 
-	data.oDemoComponentStylePath = `${brand}-` + (buildConfig.demo.sassDestination ?
+	data.oDemoComponentStylePath = buildConfig.demo.sassDestination ?
 		path.basename(buildConfig.demo.sassDestination) :
-		'');
+		'';
 
-	data.oDemoComponentScriptPath = `${brand}-` + (buildConfig.demo.jsDestination ? path.basename(buildConfig.demo.jsDestination) : '');
+	data.oDemoComponentScriptPath = buildConfig.demo.jsDestination ? path.basename(buildConfig.demo.jsDestination) : '';
 
 	data.oDemoDependenciesStylePath = dependencies ?
 		`https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=${dependencies.toString()}${brand ? `&brand=${brand}` : ''}` :
