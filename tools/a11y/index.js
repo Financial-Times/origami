@@ -54,9 +54,9 @@ async function runPa11y (page) {
 		const errors = results.issues.filter(result => result.type === 'error')
 			.map(result => {
 				return dedent`
-				 • Error [${result.code}] ${result.message}
-               ├── Selector: ${result.selector.replace(/\s+/g, ' ')}
-				   └── Context: ${result.context.replace(/\s+/g, ' ')}`
+					• Error [${result.code}] ${result.message}
+						├── Selector: ${result.selector.replace(/\s+/g, ' ')}
+						└── Context: ${result.context.replace(/\s+/g, ' ')}`
 			})
 		if (isCI) {
 			// GitHub's annotation system requires newlines to be URI-encoded
