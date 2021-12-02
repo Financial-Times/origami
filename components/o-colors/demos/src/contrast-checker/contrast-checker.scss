@@ -182,11 +182,11 @@
 		.rating-result {
 			&--aaa,
 			&--aa {
-				color: oColorsByName('jade');
+				color: oColorsMix('jade', 'black', 70);
 			}
 
 			&--aa18 {
-				color: oColorsMix('crimson', 'lemon', 50);
+				color: oColorsMix('mandarin', 'black', 70);
 			}
 
 			&--fail {
