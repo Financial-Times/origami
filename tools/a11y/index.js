@@ -31,7 +31,7 @@ pa11yRulesToIgnore.push('page-has-heading-one')
 
 const errors = [];
 for (const page of builtDemoPages) {
-	console.log(bold(`Testing ${page}:`));
+	console.log(bold(`Running accessibility checks on ${page}.`));
 	const pageAccessibilityErrors = await runPa11y(page)
 	if (pageAccessibilityErrors) errors.push(pageAccessibilityErrors)
 	console.log();
