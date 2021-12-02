@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import mergeDeep from 'merge-deep';
 import { readFile, writeFile, mkdir } from 'fs/promises';
 import * as path from 'node:path'
@@ -216,7 +215,7 @@ const origamiConfig = await readOrigamiConfig();
 
 if (!hasDemos(origamiConfig)) {
 	console.error(`No demos exist in the origami.json file. Reference https://origami.ft.com/docs/manifests/origami-json/ to configure demos in the component's origami.json manifest file.`);
-	process.exit(1);
+	process.exit(0);
 }
 
 const demos = origamiConfig.demos;
