@@ -83,19 +83,18 @@ function buildSass(config) {
 					);
 					// Build Sass
 					let result = '';
+					const rand = Math.random().toString(36).slice(3)
+					const sassTempPath = `./demos/src/temp-sass-compilation-${rand}.scss`;
 					try {
-						const rand = Math.random().toString(36).slice(3)
-						const sassTempPath = `./demos/src/temp-sass-compilation-${rand}.scss`;
 						await writeFile(sassTempPath, sassData, 'utf-8');
 						$.verbose = false;
 						result = await $`${sassBinary} ${sassTempPath} ${sassArguments}`;
-						await unlink(sassTempPath);
 						// Output Sass debug logs and warnings
 						if (result.stderr) {
-							log.secondary(result.stderr);
+							console.log(result.stderr);
 						}
 					} catch (error) {
-						const stderr = error.stderr || '';
+						const stderr = error.message || error.stderr || '';
 						let errorMessage = `Failed building Sass:\n' ${stderr}\n`;
 						// Find where the Sass error occurred from stderr.
 						const errorLineMatch = stderr.match(/(?:[\s]+)?(.+.scss)(?:[\s]+)([0-9]+):([0-9]+)/);
@@ -112,6 +111,8 @@ function buildSass(config) {
 						}
 						// Forward Sass error.
 						throw new Error(errorMessage);
+					} finally {
+						await unlink(sassTempPath);
 					}
 
 					return result.stdout;
