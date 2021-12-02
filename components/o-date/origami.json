@@ -1,6 +1,7 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
+	"brands": ["core", "internal", "whitelabel"],
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-date,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
@@ -8,10 +9,7 @@
 	},
 	"supportStatus": "active",
 	"features": {
-		"required": [
-			"classlist",
-			"customevent"
-		]
+		"required": ["classlist", "customevent"]
 	},
 	"demosDefaults": {
 		"js": "demos/src/demo.js",
