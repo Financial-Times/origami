@@ -124,7 +124,7 @@ Form markup is allowed within the `o-share__action` label to to handle custom sh
 		<!-- a custom share action example which includes a text label -->
 		<li class="o-share__action o-share__action--labelled">
 			<!-- form markup is allowed to handle custom share actions -->
-			<form method="POST" action="#">
+			<form method="post" action="#">
 				<button type="submit" class="o-share__icon o-share__icon--share">
 					<span class="o-share__text">Save</span>
 				</button>
