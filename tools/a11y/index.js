@@ -31,8 +31,10 @@ pa11yRulesToIgnore.push('page-has-heading-one')
 
 const errors = [];
 for (const page of builtDemoPages) {
+	console.log(bold(`Testing ${page}:`));
 	const pageAccessibilityErrors = await runPa11y(page)
 	if (pageAccessibilityErrors) errors.push(pageAccessibilityErrors)
+	console.log();
 }
 
 if (errors.length) {
@@ -52,10 +54,8 @@ async function runPa11y (page) {
 		const errors = results.issues.filter(result => result.type === 'error')
 			.map(result => {
 				return dedent`
-				 • Error
-				   ├── Message: ${result.message}
-				   ├── Code: ${result.code}
-				   ├── Selector: ${result.selector.replace(/\s+/g, ' ')}
+				 • Error [${result.code}] ${result.message}
+               ├── Selector: ${result.selector.replace(/\s+/g, ' ')}
 				   └── Context: ${result.context.replace(/\s+/g, ' ')}`
 			})
 		if (isCI) {
