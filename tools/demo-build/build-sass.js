@@ -91,7 +91,7 @@ function buildSass(config) {
 						result = await $`${sassBinary} ${sassTempPath} ${sassArguments}`;
 						// Output Sass debug logs and warnings
 						if (result.stderr) {
-							console.log(result.stderr);
+							log.secondary(result.stderr);
 						}
 					} catch (error) {
 						const stderr = error.message || error.stderr || '';
