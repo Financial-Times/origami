@@ -40,8 +40,6 @@ function getBrands(origamiConfig) {
 	} else {
 		return ["core", "internal", "whitelabel"];
 	}
-	console.error(`No brands defined in origami.json.brands - The component needs to explicitly state which brands it supports.`);
-	process.exit(1);
 }
 
 function getComponentDefaultDemoConfig(origamiConfig) {
