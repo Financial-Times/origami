@@ -1,6 +1,8 @@
 import Delegate from 'ftdomdelegate';
 import viewport from '@financial-times/o-viewport';
 import utils from './utils.js';
+import focusable from 'focusable';
+
 const overlays = {};
 
 const checkOptions = function (opts) {
@@ -67,9 +69,7 @@ const focusTrap = function (event) {
 	const tabKeyCode = 9;
 	const overlayFocusableElements = [].slice
 		.call(
-			this.wrapper.querySelectorAll(
-				'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-			)
+			this.wrapper.querySelectorAll(focusable)
 		)
 		.filter(element => {
 			const elementVisible = isVisible(element);
