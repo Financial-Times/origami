@@ -62,6 +62,7 @@ try {
 		await generatePercySnapshots()
 	}
 } catch (error) {
+	console.log(error);
 	core.setFailed(error.message)
 }
 
