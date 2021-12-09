@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.1.1](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.0...o-grid-v6.1.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* use the correct path to import sass-mq ([0bbc293](https://www.github.com/Financial-Times/origami/commit/0bbc293af487a1e411462b0c539af252c52d3938))
+
 ## [6.1.0](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.0.2...o-grid-v6.1.0) (2021-11-24)
 
 
