@@ -26,6 +26,7 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "dependencies": {
+    "focusable": "^2.3.0",
     "ftdomdelegate": "^4.0.0"
   },
   "peerDependencies": {

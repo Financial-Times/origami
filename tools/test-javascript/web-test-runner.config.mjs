@@ -34,6 +34,7 @@ const dependenciesWhichUseCommonJS = [
 	/prismjs\/components\/.+\.js/,
 	/proclaim\/lib\/proclaim\.js/,
 	/ftdomdelegate\/browser\.js/,
+	/focusable/,
 	// /sinon\/lib\/sinon\.js/,
 	// /sinon\/lib\/sinon\/behavior\.js/,
 	// /sinon\/lib\/sinon\/util\/core\/next-tick\.js/,
