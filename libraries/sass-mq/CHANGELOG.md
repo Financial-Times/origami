@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.1](https://www.github.com/Financial-Times/origami/compare/sass-mq-v5.2.0...sass-mq-v5.2.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* rename sass-mq entry file to be public instead of private ([3743992](https://www.github.com/Financial-Times/origami/commit/3743992305f760ee29f40e279d1ab25e6b5d5644))
+
 ## [5.2.0](https://www.github.com/Financial-Times/origami/compare/sass-mq-v5.1.0...sass-mq-v5.2.0) (2021-11-24)
 
 
