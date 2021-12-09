@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.2](https://www.github.com/Financial-Times/origami/compare/sass-mq-v5.2.1...sass-mq-v5.2.2) (2021-12-09)
+
+
+### Bug Fixes
+
+* remove the files attribute so we publish the correct files ([8fe8e29](https://www.github.com/Financial-Times/origami/commit/8fe8e2915a1c3d51cea9e55f10593f2b3fad9519))
+
 ### [5.2.1](https://www.github.com/Financial-Times/origami/compare/sass-mq-v5.2.0...sass-mq-v5.2.1) (2021-12-09)
 
 
