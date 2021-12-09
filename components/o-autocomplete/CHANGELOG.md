@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.5.0...o-autocomplete-v1.6.0) (2021-12-09)
+
+
+### Features
+
+* support internal brand on o-autocomplete ([f519cf8](https://www.github.com/Financial-Times/origami/commit/f519cf8b668304ece9e0cc5e64940ad4295343ce))
+
 ## [1.5.0](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.4.1...o-autocomplete-v1.5.0) (2021-11-24)
 
 
