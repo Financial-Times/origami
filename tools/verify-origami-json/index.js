@@ -5,7 +5,7 @@ import isCI from 'is-ci'
 import { EOL } from 'node:os'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
-import { files } from 'origami-tools-helpers'
+import { fileExists } from 'origami-tools-helpers'
 
 // https://origami.ft.com/docs/manifests/origami-json/#origamitype
 // "component": A front-end component that follows the component specification
@@ -42,7 +42,7 @@ function isValidOrigamiType(origamiType) {
 
 function origamiJson() {
 	const result = [];
-	return files.fileExists(origamiJsonPath)
+	return fileExists(origamiJsonPath)
 		.then(exists => {
 			if (exists) {
 				return readFile(origamiJsonPath, 'utf8')
