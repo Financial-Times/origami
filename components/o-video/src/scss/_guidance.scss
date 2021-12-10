@@ -6,6 +6,7 @@
 		@include oTypographySans(-1);
 		background-color: oColorsMix($color: 'black', $background: 'transparent', $percentage: 75);
 		padding: 10px 16px;
+		position: relative;
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
