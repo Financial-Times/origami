@@ -20,7 +20,7 @@ class Drawer {
 		// then create an empty primary nav which functions as a draw for
 		// related content on mobile.
 		if (!this.nav && this.relatedContent) {
-			this.nav = document.createElement('div');
+			this.nav = document.createElement('nav');
 			this.nav.classList.add('o-header-services__primary-nav');
 			this.nav.setAttribute('aria-label', 'primary navigation');
 			this.nav.setAttribute('aria-hidden', 'true'); // Hidden until related content is added the drawer.
