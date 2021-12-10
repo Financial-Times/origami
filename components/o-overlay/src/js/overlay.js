@@ -305,9 +305,8 @@ class Overlay {
 
 			const title = document.createElement('span');
 			title.setAttribute('role', 'heading');
+			title.setAttribute('aria-level', '1');
 			title.className = 'o-overlay__title';
-
-			if (!this.opts.heading.visuallyhidetitle) {
 				title.innerHTML = this.opts.heading.title;
 			}
 
