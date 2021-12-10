@@ -31,7 +31,7 @@ o-syntax-highlight works with a single class. As long as this class is present i
 Every language has its own set of styles — in order to highlight html for example, you would need:
 ```html
 <div class="demo" data-o-component='o-syntax-highlight'>
-	<pre>
+	<pre tabindex="0">
 		<code class="o-syntax-highlight--json">
 <!-- everything in this element will be highlighted, including this comment! -->
 "object": {
@@ -66,7 +66,7 @@ It is worth pointing out that the wrapper can hold any html elements. So long as
 		<p></p>
 	</div>
 
-	<pre>
+	<pre tabindex="0">
 		<code class="o-syntax-highlight--json">
 <!-- everything in this element will be highlighted, including this comment! --></code>
 	</pre>
@@ -80,7 +80,7 @@ Because of the way in which the `<code>` tag works, if you want to highlight mar
 
 For example:
 ```
-<pre>
+<pre tabindex="0">
 	<code class="o-syntax-highlight--html">
 &lt;html>
 	&lt;head>
