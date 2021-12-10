@@ -89,8 +89,7 @@
 			"title": "Sticky header",
 			"data": "demos/src/header.json",
 			"template": "demos/src/sticky-header.mustache",
-			"description": "Sticky variation of the simple header. Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details.",
-			"documentClasses": "demo-sticky"
+			"description": "Sticky variation of the simple header. Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
 		},
 		{
 			"name": "subbranded-header",
