@@ -118,6 +118,19 @@ async function getComponentDemos(cwd) {
 	return [];
 }
 
+/**
+ * Get shared demo configuration.
+ * @param {string} cwd - The component's directory (the current working directory).
+ * @return {object} - An object of configuration.
+ */
+async function getComponentDefaultDemoConfig(cwd) {
+	const origamiJson = await getOrigamiJson(cwd);
+	if (origamiJson && origamiJson.demosDefaults && typeof origamiJson.demosDefaults === 'object') {
+		return origamiJson.demosDefaults;
+	}
+	return {};
+}
+
 // List mustache files in a directory, recursing over subdirectories
 function getMustacheFilesList(basePath) {
 	const opts = {
@@ -158,6 +171,7 @@ function getSassIncludePaths (cwd, config = {sassIncludePaths: []}) {
 	const npmPaths = [
 		path.join('..', '..', 'node_modules'),
 		'node_modules',
+		path.join('node_modules', '@financial-times')
 	];
 
 	return [cwd].concat([
@@ -182,5 +196,6 @@ export {
 	getSassTestFiles,
 	getModuleBrands,
 	getComponentDemos,
+	getComponentDefaultDemoConfig,
 	getSassIncludePaths,	
 }
