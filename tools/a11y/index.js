@@ -42,7 +42,6 @@ for (const file of builtDemoHtmlFiles) {
 	const results = await new AxeBuilder({ page }).disableRules(axeRulesToIgnore).analyze();
 	prettyPrintAxeReport({
         violations: results.violations,
-        passes: results.passes,
         url: file,
     });
 	errors.push(...results.violations);
