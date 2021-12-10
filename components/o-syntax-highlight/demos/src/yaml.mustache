@@ -1,5 +1,5 @@
 <div class="demo" data-o-component='o-syntax-highlight'>
-	<pre>
+	<pre tabindex="0">
 		<code class='o-syntax-highlight--yaml'>
 ---
 my_string: &my_string
@@ -35,7 +35,7 @@ jobs:
       - checkout
       - run: npx occ ${CIRCLE_TAG##v}
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $HOME/.npmrc
-      - run: npm publish --access public 
+      - run: npm publish --access public
 workflows:
   version: 2
   test:
