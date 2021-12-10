@@ -6,7 +6,7 @@
 			"field": {
 				"type": "radio-box",
 				"aria": {
-					"label": "radio-box-group-title"
+					"label": "radio-box-group-title1"
 				},
 				"modifiers": [ "demo-radio" ]
 			},
@@ -47,7 +47,7 @@
 			"field": {
 				"type": "radio-box",
 				"aria": {
-					"label": "radio-box-group-title",
+					"label": "radio-box-group-title2",
 					"info": "radio-box-group-info"
 				},
 				"modifiers": [ "demo-radio" ]

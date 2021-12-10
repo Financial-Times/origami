@@ -109,7 +109,7 @@
       "field": {
         "type": "toggle",
         "aria": {
-          "label": "inline-field-toggle-group-title"
+          "label": "inline-field-toggle-group-title1"
         }
       },
       "title": {
@@ -134,7 +134,7 @@
       "field": {
         "type": "toggle",
         "aria": {
-          "label": "inline-field-toggle-group-title"
+          "label": "inline-field-toggle-group-title2"
         },
         "modifiers": [ "inline" ]
       },
