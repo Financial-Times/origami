@@ -142,7 +142,7 @@
 				"field": {
 					"type": "radio-box",
 					"aria": {
-						"label": "radio-box-group-title",
+						"label": "radio-box-group-title1",
 						"info": "radio-box-group-info"
 					}
 				},
@@ -169,7 +169,7 @@
 				"field": {
 					"type": "radio-box",
 					"aria": {
-						"label": "multiple-radio-box-group-title"
+						"label": "multiple-radio-box-group-title2"
 					}
 				},
 				"title": {
