@@ -1,0 +1,19 @@
+{
+    "description": "fixture, with-npm-dependencies",
+    "keywords": [],
+    "origamiType": "component",
+    "origamiVersion": "2.0",
+    "brands": [],
+    "support": "https://github.com/Financial-Times/o-example/issues",
+    "supportContact": {
+        "email": "origami.support@ft.com",
+        "slack": "financialtimes/#origami-support"
+    },
+    "supportStatus": "experimental",
+    "browserFeatures": {},
+    "demosDefaults": {
+        "documentClasses": "",
+        "dependencies": []
+    },
+    "demos": []
+}

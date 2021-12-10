@@ -1,0 +1,25 @@
+.value-list-space {
+	box-shadow: 1px 1px black, 1px 1px black;
+}
+
+.argument-space {
+	transform: translate(1, 1);
+}
+
+.argument-newline {
+	@include baz(
+		'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+		'Lorem ipsum dolor sit amet consectetur adipisicing.'
+	);
+}
+
+// We do not lint against Sass parameter spaces.
+// Previously origami-build-tools did lint for this, but
+// no stylelint rule appears to exist at time of writing
+@mixin baz($argument-one,$argument-two) {
+	content: '#{$argument-one} #{$argument-two}';
+}
+
+.foo {
+	@include baz('foo','bar');
+}

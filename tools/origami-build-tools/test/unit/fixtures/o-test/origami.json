@@ -1,0 +1,23 @@
+{
+    "description": "Test module",
+    "origamiType": "component",
+    "origamiVersion": "2.0",
+    "support": "origami.support@ft.com",
+    "supportStatus": "active",
+    "demosDefaults": {
+        "sass": "demos/src/demo.scss",
+        "js": "demos/src/demo.js",
+        "bodyClasses": "o-hoverable-on"
+    },
+    "demos": [
+        {
+              "title": "Test module",
+              "name": "pa11y",
+              "template": "demos/src/origami-accessibility-demo.mustache",
+              "description": "Pa11y test"
+        }
+    ],
+    "browserFeatures": {
+        "required": ["promises"]
+    }
+}

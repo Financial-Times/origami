@@ -1,0 +1,5 @@
+.foo {
+	// if !important has been allowed,
+	// we still want there to be no extra space
+	content: 'bar' ! important;
+}

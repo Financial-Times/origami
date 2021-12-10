@@ -1,0 +1,20 @@
+{
+    "browserFeatures": {
+        "required": []
+    },
+    "demosDefaults": {
+        "sass": "demos/src/main.scss",
+        "js": "demos/src/main.js",
+        "documentClasses": "core",
+        "dependencies": "o-colors@^4.0.0"
+    },
+    "demos": [
+        {
+            "name": "sticky-header",
+            "title": "Sticky header",
+            "data": "demos/src/header.json",
+            "template": "demos/src/sticky-header.mustache",
+            "description": "Sticky variation of the simple header"
+        }
+    ]
+}

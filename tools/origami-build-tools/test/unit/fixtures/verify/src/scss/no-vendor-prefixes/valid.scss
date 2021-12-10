@@ -1,0 +1,14 @@
+// If you've included a vendor prefixed property that has a standard
+// alternative, one that Autoprefixer could take care of for you,
+// [the linter] rule will complain about it.
+// https://stylelint.io/user-guide/rules/property-no-vendor-prefix
+.ms-block {
+	-ms-hyphenate-limit-lines: no-limit;
+}
+.tap-highlight-color {
+	-webkit-tap-highlight-color: red;
+}
+
+.bar {
+	position: -moz-sticky;
+}

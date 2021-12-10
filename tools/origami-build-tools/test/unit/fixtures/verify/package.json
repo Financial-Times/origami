@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "stylelint": "^13.7.0",
+    "stylelint-config-origami-component": "^1.0.4"
+  }
+}

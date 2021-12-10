@@ -1,0 +1,9 @@
+{
+	"name": "@financial-times/test-component",
+	"description": "for a fixture",
+	"engines": {
+		"npm": "^7"
+	},
+	"keywords": [],
+	"type": "module"
+}

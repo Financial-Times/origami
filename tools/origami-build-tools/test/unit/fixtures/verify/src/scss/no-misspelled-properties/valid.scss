@@ -1,0 +1,8 @@
+// understands that text-size-adjust, an experimental
+// property at time of writing, is not misspelled
+.experimental-property-correct-spelling {
+	text-size-adjust: auto;
+	// This file is to confirm properties are recognised as spelled correctly,
+	// not about whether vendor prefixes are allowed or not.
+	-webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+}

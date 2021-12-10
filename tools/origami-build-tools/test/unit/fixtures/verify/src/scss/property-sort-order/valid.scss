@@ -1,0 +1,12 @@
+// we do not enforce property sort order
+.foo {
+	content: "baz";
+	height: 100vh;
+	width: 100vw;
+}
+
+.foo {
+	width: 100vw;
+	height: 100vh;
+	content: "baz";
+}

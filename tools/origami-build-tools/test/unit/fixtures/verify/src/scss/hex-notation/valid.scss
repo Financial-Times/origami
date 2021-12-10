@@ -1,0 +1,10 @@
+// lowercase hex notation is allowed
+$foo-color: #445566;
+
+.bar {
+	background: linear-gradient(top, #33ffff, #dddddd);
+}
+
+.baz {
+	color: #ffffff;
+}

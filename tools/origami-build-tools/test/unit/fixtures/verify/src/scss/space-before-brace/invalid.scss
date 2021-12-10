@@ -1,0 +1,9 @@
+.foo{
+	@include foo{
+		content: 'more more foo';
+	}
+}
+
+@mixin foo{
+	content: 'more foo';
+}

@@ -1,0 +1,22 @@
+@-webkit-keyframes anim {
+	0% { opacity: 0; }
+}
+
+::-moz-placeholder {
+	content: '';
+}
+
+.foo {
+	-webkit-transition: none;
+}
+
+.a {
+	display: -webkit-flex;
+}
+
+.more-disallowed-vendor-prefixes {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}

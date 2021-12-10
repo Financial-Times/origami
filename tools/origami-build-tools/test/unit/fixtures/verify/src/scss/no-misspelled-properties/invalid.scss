@@ -1,0 +1,14 @@
+// incorrect spelling
+.foo {
+	borders: 0;
+}
+
+// unknown property
+.bar {
+	border-right-left: 0;
+}
+
+// incorrect spelling
+.baz {
+	-webkit-transit1on: width 2s;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@financial-times/invalid-readme",
+  "version": "1.0.0",
+  "description": "for a fixture",
+  "keywords": [],
+  "browser": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "npm": "^7"
+  },
+  "devDependencies": {
+    "eslint-config-origami-component": "^1.1.1",
+    "remark-preset-lint-origami-component": "2.0.0-beta.1",
+    "stylelint": "^13.7.0",
+    "stylelint-config-origami-component": "^1.0.4"
+  }
+}
