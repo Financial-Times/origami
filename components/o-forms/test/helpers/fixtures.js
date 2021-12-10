@@ -1,9 +1,9 @@
 export default `
 <form action="" data-o-component="o-forms">
 
-	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
+	<div class="o-forms-field" role="group" aria-labelledby="date-group-title1">
 		<span class="o-forms-title" aria-hidden="true">
-			<span class="o-forms-title__main" id="date-group-title">Date input</span>
+			<span class="o-forms-title__main" id="date-group-title1">Date input</span>
 		</span>
 
 		<span class="o-forms-input o-forms-input--date">
@@ -42,20 +42,20 @@ export default `
 		</span>
 	</label>
 
-	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
+	<div class="o-forms-field" role="group" aria-labelledby="date-group-title2">
 		<span class="o-forms-title" aria-hidden="true">
-			<span class="o-forms-title__main" id="date-group-title">Radio box input</span>
+			<span class="o-forms-title__main" id="date-group-title2">Radio box input</span>
 		</span>
 
 		<span class="o-forms-input o-forms-input--radio-box">
 			<div class="o-forms-input--radio-box__container">
 				<label>
 					<input type="radio" name="radioBox">
-					<span class="o-forms-input__label" aria-hidden="true">Yes</span>
+					<span class="o-forms-input__label">Yes</span>
 				</label>
 				<label>
 					<input type="radio" name="radioBox" checked>
-					<span class="o-forms-input__label o-forms-input__label--negative" aria-hidden="true">No</span>
+					<span class="o-forms-input__label o-forms-input__label--negative">No</span>
 				</label>
 			</div>
 		</span>

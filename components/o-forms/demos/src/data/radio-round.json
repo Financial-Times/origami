@@ -31,7 +31,7 @@
 			"field": {
 				"type": "radio-round",
 				"aria": {
-					"label": "inline-radio-round-group-title"
+					"label": "inline-radio-round-group-title1"
 				},
 				"modifiers": ["inline"]
 			},
@@ -112,7 +112,7 @@
 			"field": {
 				"type": "radio-round",
 				"aria": {
-					"label": "inline-radio-round-group-title"
+					"label": "inline-radio-round-group-title2"
 				},
 				"modifiers": [
 					"inline"
