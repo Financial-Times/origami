@@ -1,13 +1,11 @@
 {
+	"settings": {},
 	"folders": [
 		{
 			"path": "."
 		},
 		{
 			"path": "tools/a11y"
-		},
-		{
-			"path": "tools/demo-build"
 		},
 		{
 			"path": "presets/eslint-config-origami-component"
@@ -181,7 +179,7 @@
 			"path": "components/o-visual-effects"
 		},
 		{
-			"path": "tools/origami-bower-safe-version-supervisor"
+			"path": "tools/origami-build-tools"
 		},
 		{
 			"path": "tools/origami-tools-helpers"
@@ -219,6 +217,5 @@
 		{
 			"path": "apps/website"
 		}
-	],
-	"settings": {}
+	]
 }

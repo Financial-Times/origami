@@ -1,3 +1,2 @@
 #!/bin/bash
-set -e
-demo-build
+obt demo
