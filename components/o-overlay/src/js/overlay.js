@@ -284,7 +284,6 @@ class Overlay {
 				// replace repeated hyphens with a single hyphen
 				.replace(/[\s-]+/g, '-');
 			heading.classList.add('o-overlay__heading');
-			heading.setAttribute('id', headingId);
 			wrapperEl.setAttribute('aria-labelledby', headingId);
 
 			if (this.opts.heading.shaded) {
@@ -307,7 +306,11 @@ class Overlay {
 			title.setAttribute('role', 'heading');
 			title.setAttribute('aria-level', '1');
 			title.className = 'o-overlay__title';
-				title.innerHTML = this.opts.heading.title;
+			title.innerHTML = this.opts.heading.title;
+			title.setAttribute('id', headingId);
+
+			if (this.opts.heading.visuallyhidetitle) {
+				title.classList.add('o-overlay__title--sr-only');
 			}
 
 			heading.appendChild(title);
