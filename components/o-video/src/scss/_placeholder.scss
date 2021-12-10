@@ -30,15 +30,27 @@
 		}
 	}
 
-	.o-video__play-button {
+	.o-video__play-button-container {
 		position: absolute;
 		bottom: 0;
 		// always align left, even when `text-align:center` is inherited
 		left: 0;
+		display: flex;
+		align-items: center;
+	}
+
+	.o-video__play-button-container > * {
+		align-self:stretch;
+		display:flex;
+		align-items:center;
+	}
+
+	.o-video__play-button {
+		position: relative;
 		padding: 0;
 		border: 0;
-		background-color: transparent;
 		cursor: pointer;
+		background-color: transparent;
 	}
 
 	.o-video__play-button-icon {
