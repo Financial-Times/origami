@@ -9,6 +9,7 @@ const workspace = "./" + process.env.WORKSPACE
 const isPullRequest = context.payload.pull_request
 
 async function shouldPercyRun() {
+	throw new Error('no percy right now');
 	const isDefaultBranch = context.ref.endsWith("/main")
 	if (isDefaultBranch) {
 		core.notice('This is a commit on the default branch, we need to run Percy to update the baseline images.')
