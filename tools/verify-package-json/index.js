@@ -4,7 +4,7 @@ import process from 'process'
 import isCI from 'is-ci'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
-import { files } from 'origami-tools-helpers'
+import { fileExists } from 'origami-tools-helpers'
 import semver from 'semver'
 import { EOL } from 'node:os'
 const cwd = process.argv[2] || process.cwd()
@@ -67,7 +67,7 @@ function validEngines(engines) {
  */
 async function validJavaScriptEntryPoint(manifest, workingDirectory) {
 	const mainJavaScriptExpectedPath = path.resolve(path.join(workingDirectory, '/main.js'));
-	const mainJavaScriptFileExists = await files.fileExists(mainJavaScriptExpectedPath);
+	const mainJavaScriptFileExists = await fileExists(mainJavaScriptExpectedPath);
 	if (mainJavaScriptFileExists) {
 		if (typeof manifest.browser === 'string') {
 			const browserPathIsCorrect = path.resolve(manifest.browser) === mainJavaScriptExpectedPath;
@@ -107,7 +107,7 @@ function validName(name) {
 async function packageJson() {
 	const result = [];
 	const packageJsonPath = path.join(cwd, '/package.json');
-	const exists = await files.fileExists(packageJsonPath);
+	const exists = await fileExists(packageJsonPath);
 	if (exists) {
 		const file = await readFile(packageJsonPath, 'utf8');
 		const packageJson = JSON.parse(file);
@@ -153,3 +153,4 @@ if(errors.length > 0) {
 }
 
 console.log('verify-package-json: No errors found.');
+
