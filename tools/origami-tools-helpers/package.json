@@ -1,17 +1,15 @@
 {
-	"private": true,
-	"name": "origami-tools-helpers",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"bin": "index.js",
-	"type": "module",
-	"keywords": [],
-	"author": "Helper functions for Origami tools",
-	"license": "MIT",
-	"dependencies": {
-		"colors": "^1.4.0",
-		"deglob": "^4.0.1",
-		"globby": "^12.0.2"
-	}
+  "name": "origami-tools-helpers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "type": "module",
+  "keywords": [],
+  "author": "Helper functions for Origami tools",
+  "license": "MIT",
+  "dependencies": {
+    "deglob": "^4.0.1"
+  },
+  "private": true
 }
