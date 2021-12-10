@@ -43,7 +43,7 @@
 	<div class="o-table-overlay-wrapper">
 		<div class="o-table-scroll-wrapper">
 			<table
-				aria-describedby="demo-table-caption"
+			{{#showSelectFilter}}aria-describedby="demo-table-caption"{{/showSelectFilter}}
 				{{#tableId}}id="{{tableId}}"{{/tableId}}
 				class="o-table o-table--row-stripes o-table--compact {{#tableType}}o-table--responsive-{{tableType}}{{/tableType}}"
 				data-o-component="o-table"
