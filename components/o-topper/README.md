@@ -110,7 +110,6 @@ To include o-topper styles granularly specify which elements, themes, and colour
 		'package-extra',
 		'package-extra-wide',
 		'package-special-report',
-		'news-package',
 		'right-rail',
 		'centered',
 	),
