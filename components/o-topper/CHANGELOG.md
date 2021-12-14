@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.2.0...o-topper-v5.2.1) (2021-12-14)
+
+
+### Bug Fixes
+
+* Deprecate the `news-package` topper. This is no longer used. ([e4ddf31](https://www.github.com/Financial-Times/origami/commit/e4ddf31ae78f99fe571f77b704fb9180d23504b2))
+
 ## [5.2.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.1.0...o-topper-v5.2.0) (2021-11-24)
 
 
