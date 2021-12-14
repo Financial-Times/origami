@@ -104,6 +104,12 @@
 		}
 	}
 
+	// @deprecated - remove in the next major version,
+	// decided not to warm here as users outputting all
+	// o-topper themes which includes the news-package
+	// by default should not be bothered. This is no longer
+	// in use on ft.com / app already:
+	// https://financialtimes.atlassian.net/browse/CI-944
 	@if index($themes, 'news-package') {
 		.o-topper--news-package {
 			@include _oTopperThemeNewsPackage;

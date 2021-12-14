@@ -90,12 +90,6 @@
 			"description": "Used for Special Reports, such as FT Wealth"
 		},
 		{
-			"name": "News Package",
-			"title": "News Series Landing Page Topper",
-			"template": "/demos/src/news-package.mustache",
-			"description": "Used for the lead article in a Series, or a live event."
-		},
-		{
 			"name": "Right hand rail",
 			"title": "Right hand rail Topper",
 			"template": "/demos/src/right-rail.mustache",

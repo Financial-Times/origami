@@ -1,5 +1,5 @@
 // sass-lint:disable mixins-before-declarations
-
+// @deprecated - no longer used on ft.com or the app, delete in the next major version
 @mixin _oTopperThemeNewsPackage {
 	@include oGridRespondTo($until: M) {
 		padding: 0;

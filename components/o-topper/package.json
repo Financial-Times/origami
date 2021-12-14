@@ -21,7 +21,7 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
-    "@financial-times/n-map-content-to-topper": "^1.4.0",
+    "@financial-times/n-map-content-to-topper": "^1.5.0",
     "@financial-times/o-colors": "^6.0.1",
     "@financial-times/o-editorial-typography": "^2.0.1",
     "@financial-times/o-grid": "^6.0.0",
