@@ -7,6 +7,9 @@ const reportFormatter = formatterFactory('codeframe');
 const validator = new HtmlValidate({
 	root: true,
 	extends: ['html-validate:standard'],
+	rules: {
+		"multiple-labeled-controls": "off"
+	},
 	elements: [
 		"html5",
 		{
