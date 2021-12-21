@@ -50,8 +50,8 @@ with; yield;`)
       console.log("operators:", `- -- -=
 + ++ +=
 &lt; &lt;= &lt;&lt; &lt;&lt;=
-> >= >> >>= >>> >>>=
-= == === =>
+&gt; &gt;= &gt;&gt; &gt;&gt;= &gt;&gt;&gt; &gt;&gt;&gt;=
+= == === =&gt;
 ! != !==
 & && &=
 | || |=
@@ -61,7 +61,7 @@ with; yield;`)
 ? ...`);
     console.log(/regex literal/);
     console.log("This is"+ "/, not a regex")
-    3 >= 2 || 2 &lt;= 4 && 3 === 3 && 2 == 2
+    3 &gt;= 2 || 2 &lt;= 4 && 3 === 3 && 2 == 2
     var a = 4;
     a--
     a -= 2
@@ -72,12 +72,12 @@ with; yield;`)
     a&lt;= 4
     a&lt;&lt; 2
     a &lt;&lt;= 3
-    a> 3
-    a>= 3
-    a>> 3
-    a>>= 3
-    a>>> 3
-    a>>>= 3
+    a&gt; 3
+    a&gt;= 3
+    a&gt;&gt; 3
+    a&gt;&gt;= 3
+    a&gt;&gt;&gt; 3
+    a&gt;&gt;&gt;= 3
     a = !a
     a!= a
     a!==a
@@ -118,7 +118,7 @@ with; yield;`)
   }
 
   add(...args) {
-    if (args.length > 1) {
+    if (args.length &gt; 1) {
       return args.pop() + add(...args);
     } else {
       return args[0];
@@ -161,12 +161,12 @@ ${world.toUpperCase()}?
   Thing.prototype.Ƞȡ_҇ = Thing.prototype.ಠ_ಠ;
 new Thing
 
-const identity = a => a
+const identity = a =&gt; a
 
-const i = (a) => {return a}
+const i = (a) =&gt; {return a}
 
 const fals = function (){return false}
-const tru = () => true
+const tru = () =&gt; true
 } catch (e) {
 } finally {
 }</code>

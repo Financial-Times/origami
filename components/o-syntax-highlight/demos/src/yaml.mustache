@@ -7,7 +7,7 @@ my_embed: &my_embed
  	nested: true
 otherProperty: *my_string
 acceptMerge:
-  <<: *my_embed
+  &lt;&lt;: *my_embed
 some_string: |
  	my string
  	over two lines
@@ -34,7 +34,7 @@ jobs:
     steps:
       - checkout
       - run: npx occ ${CIRCLE_TAG##v}
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $HOME/.npmrc
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" &gt; $HOME/.npmrc
       - run: npm publish --access public
 workflows:
   version: 2
