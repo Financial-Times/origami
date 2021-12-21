@@ -16,9 +16,10 @@
 @import 'src/scss/themes/split-text';
 @import 'src/scss/themes/full-bleed-image';
 @import 'src/scss/themes/package';
-@import 'src/scss/themes/news-package';
 @import 'src/scss/themes/right-rail';
 @import 'src/scss/themes/centered';
+
+@import 'src/scss/deprecated';
 
 @mixin oTopper($opts: (
 	'themes': $_o-topper-themes,
