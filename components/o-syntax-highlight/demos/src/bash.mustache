@@ -8,9 +8,9 @@ expr 3 + 12
 declare -i number
 number = (2 + 4) * 10
 
-cat file1 file2 > combined
+cat file1 file2 &gt; combined
 
-exec < file
+exec &lt; file
 
 this && that
 
