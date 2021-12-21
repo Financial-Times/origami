@@ -19,7 +19,7 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - run: npm ci && npm i
+    - run: npm ci
     - run: npm run -w apps/storybook/addons/guidelines lint --if-present
     - run: npm run -w apps/storybook/addons/guidelines build --if-present
     - run: npm run -w apps/storybook/addons/guidelines test --if-present

@@ -19,7 +19,7 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - run: npm ci && npm i
+    - run: npm ci
     - run: npm run -w apps/storybook/addons/markdown-tabs lint --if-present
     - run: npm run -w apps/storybook/addons/markdown-tabs build --if-present
     - run: npm run -w apps/storybook/addons/markdown-tabs test --if-present

@@ -19,7 +19,7 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - run: npm ci && npm i
+    - run: npm ci
     - run: npm run -w tools/origami-bower-safe-version-supervisor lint --if-present
     - run: npm run -w tools/origami-bower-safe-version-supervisor build --if-present
     - run: npm run -w tools/origami-bower-safe-version-supervisor test --if-present
