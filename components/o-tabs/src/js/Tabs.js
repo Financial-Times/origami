@@ -48,8 +48,7 @@ class Tabs {
 	}
 
 	getTabTargetId(tabEl) { // eslint-disable-line class-methods-use-this
-		const linkEls = tabEl.getElementsByTagName('a');
-		return linkEls && linkEls[0] ? linkEls[0].getAttribute('href').replace('#','') : '';
+		return tabEl ? tabEl.getAttribute('href').replace('#','') : '';
 	}
 
 	getTabPanelEls(tabEls) {
@@ -63,7 +62,7 @@ class Tabs {
 				tab.setAttribute('aria-controls', tabTargetId);
 				tab.setAttribute('tabindex', '0');
 
-				const label = tab.getElementsByTagName('a')[0];
+				const label = tab;
 				const labelId = tabTargetId + '-label';
 				label.setAttribute('tabindex', '-1');
 				label.id = labelId;
@@ -79,7 +78,7 @@ class Tabs {
 
 	getTabElementFromHash() {
 		const tabLink = this.rootEl.querySelector(`[href="${location.hash}"]`);
-		return tabLink && tabLink.parentNode ? tabLink.parentNode : null;
+		return tabLink ? tabLink : null;
 	}
 
 	getTabIndexFromElement(el) {
@@ -204,11 +203,10 @@ class Tabs {
 	}
 
 	tabHasValidUrl(tabEl) { // eslint-disable-line class-methods-use-this
-		const linkEls = tabEl.getElementsByTagName('a');
-		if (! linkEls || ! linkEls[0].hash) {
+		if (! tabEl || ! tabEl.hash) {
 			return false;
 		}
-		return linkEls[0].pathname === location.pathname;
+		return tabEl.pathname === location.pathname;
 	}
 
 	destroy() {
