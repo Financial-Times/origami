@@ -21,11 +21,11 @@ function insert(html) {
 
 function insertSimple() {
 	const html = `
-		<ul data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-disablefocus="true" id="tab-element">
-			<li role="tab" class="should-be-focusable"><a href="#tabContent1" class="should-not-be-focusable">Tab 1</a></li>
-			<li role="tab" class="should-be-focusable"><a href="#tabContent2" class="should-not-be-focusable">Tab 2</a></li>
-			<li role="tab" class="should-be-focusable"><a href="#tabContent3" class="should-not-be-focusable">Tab 3</a></li>
-		</ul>
+		<div data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-disablefocus="true" id="tab-element">
+			<a role="tab" class="should-be-focusable" href="#tabContent1">Tab 1</a>
+			<a role="tab" class="should-be-focusable" href="#tabContent2">Tab 2</a>
+			<a role="tab" class="should-be-focusable" href="#tabContent3">Tab 3</a>
+		</div>
 		<div id="tabContent1" class="o-tabs__tabpanel should-be-focusable" role="tabpanel">Tab content 1</div>
 		<div id="tabContent2" class="o-tabs__tabpanel should-be-focusable" role="tabpanel">Tab content 2</div>
 		<div id="tabContent3" class="o-tabs__tabpanel should-be-focusable" role="tabpanel">Tab content 3</div>
