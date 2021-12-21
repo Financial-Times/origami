@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import path from 'node:path'
+import { setTimeout } from "node:timers/promises";
 import {globby as glob} from "globby"
 import AxeBuilderPlaywright from '@axe-core/playwright'
 import playwright from 'playwright'
@@ -38,6 +39,11 @@ for (const file of builtDemoHtmlFiles) {
 	const context = await browser.newContext();
 	const page = await context.newPage();
 	await page.goto(pathToFileURL(file).toString());
+
+	// We sleep for 1-second to allow for short animations to finish running
+	// This is useful specifically for o-tooltip's demos which animate the opacity
+	// of the tooltip and during the animation - the contrast of the text is insufficient.
+	await setTimeout(1000);
 
 	const results = await new AxeBuilder({ page }).disableRules(axeRulesToIgnore).analyze();
 	prettyPrintAxeReport({
