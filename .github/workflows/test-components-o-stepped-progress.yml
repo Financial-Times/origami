@@ -19,7 +19,7 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - run: npm ci
+    - run: npm ci && npm i
     - run: npm run -w components/o-stepped-progress lint --if-present
     - run: npm run -w components/o-stepped-progress build --if-present
     - run: npm run -w components/o-stepped-progress test --if-present
