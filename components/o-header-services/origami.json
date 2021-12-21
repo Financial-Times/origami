@@ -64,19 +64,6 @@
 			}
 		},
 		{
-			"name": "theme-b2c",
-			"title": "Product theme: B2C",
-			"description": "B2C theme for this header component. If you're creating a product that isn't within B2B or B2C please contact Origami.",
-			"data": {
-				"modifier": "b2c",
-				"primary-navigation": true,
-				"sub-navigation": true
-			},
-			"brands": [
-				"core"
-			]
-		},
-		{
 			"name": "theme-b2b",
 			"title": "Product theme: B2B",
 			"description": "B2B theme for this header component. If you're creating a product that isn't within B2B or B2C please contact Origami.",
