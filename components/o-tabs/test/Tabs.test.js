@@ -47,7 +47,7 @@ describe('tabs', () => {
 		const clickEvent = document.createEvent('Event');
 		clickEvent.initEvent('click', true, true);
 
-		tabsEl.querySelectorAll('li a')[2].dispatchEvent(clickEvent);
+		tabsEl.querySelectorAll('a')[2].dispatchEvent(clickEvent);
 		proclaim.notCalled(testTabs.selectTab);
 
 		proclaim.equal(tabContentEl1.getAttribute('aria-expanded'), 'true');
@@ -72,16 +72,16 @@ describe('tabs', () => {
 
 		it('is has correct initial dom changes', () => {
 			proclaim.isTrue(tabsEl.hasAttribute('data-o-tabs--js'));
-			proclaim.strictEqual(tabsEl.querySelectorAll('li')[0].getAttribute('aria-controls'), 'tabContent1');
-			proclaim.strictEqual(tabsEl.querySelectorAll('li')[1].getAttribute('aria-controls'), 'tabContent2');
-			proclaim.strictEqual(tabsEl.querySelectorAll('li')[2].getAttribute('aria-controls'), 'tabContent3');
+			proclaim.strictEqual(tabsEl.querySelectorAll('a')[0].getAttribute('aria-controls'), 'tabContent1');
+			proclaim.strictEqual(tabsEl.querySelectorAll('a')[1].getAttribute('aria-controls'), 'tabContent2');
+			proclaim.strictEqual(tabsEl.querySelectorAll('a')[2].getAttribute('aria-controls'), 'tabContent3');
 
 			// Aria labelledby is set correctly:
-			proclaim.strictEqual(tabsEl.querySelectorAll('li')[2].querySelector('a').id, 'tabContent3-label');
+			proclaim.strictEqual(tabsEl.querySelectorAll('a')[2].id, 'tabContent3-label');
 			proclaim.strictEqual(tabContentEl3.getAttribute('aria-labelledby'), 'tabContent3-label');
 
 			// Focusable elements
-			[].forEach.call(document.querySelectorAll('.should-be-focusable'), function (element) {
+			[].forEach.call(document.querySelectorAll('a .should-be-focusable'), function (element) {
 				proclaim.equal(element.getAttribute('tabindex'), '0');
 			});
 			[].forEach.call(document.querySelectorAll('.should-not-be-focusable'), function (element) {
@@ -90,9 +90,9 @@ describe('tabs', () => {
 		});
 
 		it('has correct initial state', () => {
-			proclaim.equal(tabsEl.querySelectorAll('li')[0].getAttribute('aria-selected'), 'true');
-			proclaim.equal(tabsEl.querySelectorAll('li')[1].getAttribute('aria-selected'), 'false');
-			proclaim.equal(tabsEl.querySelectorAll('li')[2].getAttribute('aria-selected'), 'false');
+			proclaim.equal(tabsEl.querySelectorAll('a')[0].getAttribute('aria-selected'), 'true');
+			proclaim.equal(tabsEl.querySelectorAll('a')[1].getAttribute('aria-selected'), 'false');
+			proclaim.equal(tabsEl.querySelectorAll('a')[2].getAttribute('aria-selected'), 'false');
 			proclaim.equal(tabContentEl1.getAttribute('aria-expanded'), 'true');
 			proclaim.equal(tabContentEl1.getAttribute('aria-hidden'), 'false');
 			proclaim.equal(tabContentEl2.getAttribute('aria-expanded'), 'false');
@@ -107,9 +107,9 @@ describe('tabs', () => {
 
 		it('selectTab(1)', () => {
 			testTabs.selectTab(1);
-			proclaim.equal(tabsEl.querySelectorAll('li')[0].getAttribute('aria-selected'), 'false');
-			proclaim.equal(tabsEl.querySelectorAll('li')[1].getAttribute('aria-selected'), 'true');
-			proclaim.equal(tabsEl.querySelectorAll('li')[2].getAttribute('aria-selected'), 'false');
+			proclaim.equal(tabsEl.querySelectorAll('a')[0].getAttribute('aria-selected'), 'false');
+			proclaim.equal(tabsEl.querySelectorAll('a')[1].getAttribute('aria-selected'), 'true');
+			proclaim.equal(tabsEl.querySelectorAll('a')[2].getAttribute('aria-selected'), 'false');
 			proclaim.equal(tabContentEl1.getAttribute('aria-expanded'), 'false');
 			proclaim.equal(tabContentEl1.getAttribute('aria-hidden'), 'true');
 			proclaim.equal(tabContentEl2.getAttribute('aria-expanded'), 'true');
@@ -123,13 +123,13 @@ describe('tabs', () => {
 			const clickEvent = document.createEvent('Event');
 			clickEvent.initEvent('click', true, true);
 
-			tabsEl.querySelectorAll('li a')[2].dispatchEvent(clickEvent);
+			tabsEl.querySelectorAll('a')[2].dispatchEvent(clickEvent);
 			proclaim.calledWith(testTabs.selectTab, 2);
 
-			tabsEl.querySelectorAll('li a')[1].dispatchEvent(clickEvent);
+			tabsEl.querySelectorAll('a')[1].dispatchEvent(clickEvent);
 			proclaim.calledWith(testTabs.selectTab, 1);
 
-			tabsEl.querySelectorAll('li a')[0].dispatchEvent(clickEvent);
+			tabsEl.querySelectorAll('a')[0].dispatchEvent(clickEvent);
 			proclaim.calledWith(testTabs.selectTab, 0);
 
 		});
@@ -140,13 +140,13 @@ describe('tabs', () => {
 			keyPressEvent.keyCode = 13;
 			keyPressEvent.initEvent('keypress', true, true);
 
-			tabsEl.querySelectorAll('li a')[2].dispatchEvent(keyPressEvent);
+			tabsEl.querySelectorAll('a')[2].dispatchEvent(keyPressEvent);
 			proclaim.calledWith(testTabs.selectTab, 2);
 
-			tabsEl.querySelectorAll('li a')[1].dispatchEvent(keyPressEvent);
+			tabsEl.querySelectorAll('a')[1].dispatchEvent(keyPressEvent);
 			proclaim.calledWith(testTabs.selectTab, 1);
 
-			tabsEl.querySelectorAll('li a')[0].dispatchEvent(keyPressEvent);
+			tabsEl.querySelectorAll('a')[0].dispatchEvent(keyPressEvent);
 			proclaim.calledWith(testTabs.selectTab, 0);
 		});
 
@@ -184,7 +184,7 @@ describe('tabs', () => {
 			it('Should update the hash part of the url to the id of the active tab', () => {
 				rebuildTabs();
 				testTabs.selectTab(0);
-				const expectedHash = document.querySelector('.o-tabs li:first-child a').hash;
+				const expectedHash = document.querySelector('.o-tabs a:first-child').hash;
 				proclaim.strictEqual(location.hash, expectedHash);
 			});
 
