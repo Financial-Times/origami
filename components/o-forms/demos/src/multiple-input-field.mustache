@@ -35,7 +35,7 @@
 
 		<span class="o-forms-input o-forms-input--{{field.type}}{{#field.modifiers}} o-forms-input--{{.}}{{/field.modifiers}}">
 
-			{{#radioBox}}<div class="o-forms-input--radio-box__container">{{/radioBox}}
+			{{#radioBox}}<span class="o-forms-input--radio-box__container">{{/radioBox}}
 
 			{{#inputs}}
 				<label {{#label}}class="{{.}}"{{/label}}>
@@ -66,7 +66,7 @@
 				</label>
 			{{/inputs}}
 
-			{{#radioBox}}</div>{{/radioBox}}
+			{{#radioBox}}</span>{{/radioBox}}
 
 			{{#field.error}}<span class="o-forms-input__error">{{.}}</span>{{/field.error}}
 

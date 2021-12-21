@@ -48,7 +48,7 @@ export default `
 		</span>
 
 		<span class="o-forms-input o-forms-input--radio-box">
-			<div class="o-forms-input--radio-box__container">
+			<span class="o-forms-input--radio-box__container">
 				<label>
 					<input type="radio" name="radioBox">
 					<span class="o-forms-input__label">Yes</span>
@@ -57,7 +57,7 @@ export default `
 					<input type="radio" name="radioBox" checked>
 					<span class="o-forms-input__label o-forms-input__label--negative">No</span>
 				</label>
-			</div>
+			</span>
 		</span>
 	</div>
 
