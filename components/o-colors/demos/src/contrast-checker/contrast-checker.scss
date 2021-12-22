@@ -1,5 +1,7 @@
 // Import colors module
 @import '../../../main';
+@import '@financial-times/o-tabs/main';
+@include oTabs();
 @include oColors();
 
 @mixin swatchStyle() {

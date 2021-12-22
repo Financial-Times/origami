@@ -1,10 +1,11 @@
 <form class="color-selectors" id="color-selectors">
-	<ul data-o-component="o-tabs" class="o-tabs o-tabs--buttontabs" role="tablist">
-		<li role="tab" aria-selected="true"><a href="#foreground">Foreground Colour</a></li>
-		<li role="tab"><a href="#background">Background Colour</a></li>
-	</ul>
+	<div data-o-component="o-tabs" class="o-tabs o-tabs--buttontabs" role="tablist">
+		<a role="tab" aria-selected="true" href="#foreground">Foreground Colour</a>
+		<a role="tab" href="#background">Background Colour</a>
+	</div>
 
-	<fieldset id="foreground" class="swatches swatches--foreground o-tabs__tabpanel">
+	<div id="foreground" class="o-tabs__tabpanel">
+	<fieldset class="swatches swatches--foreground o-tabs__tabpanel">
 		{{> fieldsets/foreground }}
 		<span class="o-forms-title__main">Mixes</span>
 		<label title="Add mixed colour">
@@ -15,14 +16,17 @@
 				data-o-overlay-customclose="true">
 		</label>
 	</fieldset>
+	</div>
 
-	<fieldset id="background" class="swatches swatches--background o-tabs__tabpanel">
+	<div id="background" class="o-tabs__tabpanel">
+	<fieldset class="swatches swatches--background o-tabs__tabpanel">
 		{{> fieldsets/background}}
 		<span class="o-forms-title__main">Mixes</span>
 		<label title="Add mixed colour">
 			<input type="radio" class="trigger-input">
 		</label>
 	</fieldset>
+	</div>
 
 	{{> fieldsets/mixer }}
 </form>

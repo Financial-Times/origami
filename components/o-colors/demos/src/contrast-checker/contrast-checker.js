@@ -1,7 +1,9 @@
 import { getContrastRatio, getWCAGRating } from '../shared/contrast-ratio.js';
 import { getHexValues, mixHexes, expandHexValues } from '../shared/colors-mix.js';
+import Tabs from "@financial-times/o-tabs";
 
 document.addEventListener('DOMContentLoaded', () => {
+	Tabs.init();
 	const form = document.forms[0];
 	const foreground = form['foreground'];
 	const background = form['background'];
