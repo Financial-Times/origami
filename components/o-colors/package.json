@@ -29,6 +29,9 @@
     "@financial-times/o-brand": "^4.0.1",
     "@financial-times/math": "^1.0.0"
   },
+  "devDependencies": {
+    "@financial-times/o-tabs": "^6.2.0"
+  },
   "scripts": {
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
