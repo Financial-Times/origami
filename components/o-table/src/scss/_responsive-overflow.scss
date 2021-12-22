@@ -5,6 +5,13 @@
 @mixin _oTableResponsiveOverflow {
 	@include _oTableOverflowControlsOverlay;
 	@include _oTableOverflowFadeOverlay;
+	.o-table--responsive-overflow {
+		// Remove all hidden cells.
+		tr[aria-hidden="true"] { // stylelint-disable-line selector-no-qualifying-type
+			display: none;
+		}
+		// sass-lint:enable no-qualifying-elements
+	}
 }
 
 /// Styles for controls which overlay the table. Such as scroll forward/back buttons,
