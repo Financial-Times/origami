@@ -18,7 +18,7 @@ if (document.readyState === 'complete') {
 
 
 function setupDemo() {
-	if (document.documentElement.classList.contains('demo-sticky')) {
+	if (document.querySelector('.demo-sticky')) {
 		const p = document.createElement('p');
 		p.className = 'demo-sticky-message demo-sticky-message--';
 
