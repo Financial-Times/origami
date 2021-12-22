@@ -188,6 +188,12 @@
 			},
 			"inputs": [
 				{
+					"name": "password",
+					"type": "password",
+					"value": "password",
+					"label-first": true
+				},
+				{
 					"type": "checkbox",
 					"name": "show",
 					"value": "Show password",
