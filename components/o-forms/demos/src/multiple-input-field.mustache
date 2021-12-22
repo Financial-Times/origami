@@ -39,6 +39,14 @@
 
 			{{#inputs}}
 				<label {{#label}}class="{{.}}"{{/label}}>
+					{{#label-first}}
+						<span class="o-forms-input__label
+									{{#modifier}} o-forms-input__label--{{.}}{{/modifier}}
+									{{#icon}} o-forms-input__label__{{.}}-icon{{/icon}}"
+								{{#aria-label}}aria-hidden="true"{{/aria-label}}>
+									{{#date}}{{date}}{{/date}}{{^date}}{{value}}{{/date}}
+						</span>
+					{{/label-first}}
 					<input
 						type="{{type}}"
 						name="{{name}}"
@@ -51,6 +59,7 @@
 						{{#disabled}}disabled{{/disabled}}
 						{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>
 
+					{{^label-first}}
 					{{#name}}
 						<span class="o-forms-input__label
 									{{#modifier}} o-forms-input__label--{{.}}{{/modifier}}
@@ -59,6 +68,7 @@
 									{{#date}}{{date}}{{/date}}{{^date}}{{value}}{{/date}}
 						</span>
 					{{/name}}
+					{{/label-first}}
 
 					{{#additionalContent}}
 						<span class="o-forms-input__label">{{.}}</span>
