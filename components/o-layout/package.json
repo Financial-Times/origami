@@ -33,6 +33,16 @@
     "@financial-times/o-typography": "^7.0.1",
     "@financial-times/o-visual-effects": "^4.0.0"
   },
+  "devDependencies": {
+    "@financial-times/o-table":"^9.0.0",
+    "@financial-times/o-syntax-highlight":"^4.0.0",
+    "@financial-times/o-tabs":"^6.0.0",
+    "@financial-times/o-header-services":"^5.0.0",
+    "@financial-times/o-footer-services":"^4.0.0",
+    "@financial-times/o-buttons":"^7.0.0",
+    "@financial-times/o-forms":"^9.0.0",
+    "@financial-times/o-normalise":"^3.0.0"
+  },
   "engines": {
     "npm": "^7 || ^8"
   },

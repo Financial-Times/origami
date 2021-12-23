@@ -25,6 +25,10 @@
     "@financial-times/o-buttons": "^7.0.0",
     "@financial-times/o-colors": "^6.0.1"
   },
+  "devDependencies": {
+    "@financial-times/o-fonts":"^5",
+    "@financial-times/o-normalise":"^3"
+  },
   "engines": {
     "npm": "^7 || ^8"
   },

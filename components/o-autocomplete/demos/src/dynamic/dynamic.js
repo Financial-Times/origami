@@ -1,5 +1,6 @@
 import '../../../main.js';
-
+import oForms from '@financial-times/o-forms';
+oForms.init();
 /**
  * @typedef {Function} PopulateOptions
  * @property {Array<string>} options - The options which match the rext which was typed into the autocomplete by the user

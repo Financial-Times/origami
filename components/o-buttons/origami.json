@@ -13,11 +13,7 @@
 	},
 	"supportStatus": "active",
 	"demosDefaults": {
-		"sass": "demos/src/demo.scss",
-		"dependencies": [
-			"o-fonts@^5.0.0",
-			"o-normalise@^3.0.0"
-		]
+		"sass": "demos/src/demo.scss"
 	},
 	"demos": [
 		{

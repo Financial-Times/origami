@@ -1,4 +1,8 @@
 @import '../../main';
+@import '@financial-times/o-fonts/main';
+@include oFonts();
+@import '@financial-times/o-normalise/main';
+@include oNormalise();
 
 .demo {
 	margin-top: 40px;

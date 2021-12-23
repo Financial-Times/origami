@@ -12,11 +12,6 @@
 	],
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"dependencies": [
-			"o-fonts@^5.0.0",
-			"o-normalise@^3.0.0",
-			"o-typography@^7.0.0"
-		],
 		"documentClasses": "o-typography-wrapper"
 	},
 	"demos": [

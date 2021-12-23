@@ -21,6 +21,12 @@
     "test": "bash ../../scripts/component/test.bash",
     "lint": "bash ../../scripts/component/lint.bash"
   },
+  "devDependencies": {
+    "@financial-times/o-spacing":"^3.0.0",
+			"@financial-times/o-fonts":"^5.0.0",
+			"@financial-times/o-normalise":"^3.0.0",
+			"@financial-times/o-buttons":"^7.0.0"
+  },
   "engines": {
     "npm": "^7 || ^8"
   },
