@@ -27,8 +27,8 @@
     "@financial-times/sass-mq": "^5.0.2"
   },
   "devDependencies": {
-    "@financial-times/o-colors": "^6.4.0",
-    "@financial-times/o-buttons": "^7.2.0"
+    "@financial-times/o-buttons": "^7.2.0",
+    "@financial-times/o-colors": "^6.4.0"
   },
   "engines": {
     "npm": "^7 || ^8"
