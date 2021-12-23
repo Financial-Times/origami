@@ -26,11 +26,7 @@
 	},
 	"demosDefaults": {
 		"js": "demos/src/demo.js",
-		"sass": "demos/src/demo.scss",
-		"dependencies": [
-			"o-fonts@^5",
-			"o-normalise@^3"
-		]
+		"sass": "demos/src/demo.scss"
 	},
 	"demos": [
 		{

@@ -17,12 +17,7 @@
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"documentClasses": "o-grid-container o-colors-page-background",
-		"dependencies": [
-			"o-grid@^6.0.0",
-			"o-normalise@^3.0.0",
-			"o-colors@^6.0.0"
-		]
+		"documentClasses": "o-grid-container o-colors-page-background"
 	},
 	"demos": [
 		{

@@ -1,6 +1,7 @@
 import Autocomplete from '../../../main.js';
 import {data} from './data.js';
-
+import oForms from '@financial-times/o-forms';
+oForms.init();
 /**
  * @typedef {object} CustomOption
  * @property {string} Continent_Code - 2 letter continent code

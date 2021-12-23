@@ -1,7 +1,12 @@
 // Import colors module
 @import '../../../main';
 @include oColors();
-
+@import '@financial-times/o-forms/main';
+@include oForms();
+@import '@financial-times/o-normalise/main';
+@include oNormalise();
+@import '@financial-times/o-syntax-highlight/main';
+@include oSyntaxHighlight();
 :root {
 	--color: #000000;
 	--background: #ffffff;

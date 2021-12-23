@@ -1,5 +1,9 @@
 @import '../../main';
 @include oShare();
+@import '@financial-times/o-fonts/main';
+@include oFonts();
+@import '@financial-times/o-normalise/main';
+@include oNormalise();
 
 .demo {
 	background-color: oColorsByUsecase('page', 'background');

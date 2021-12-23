@@ -1,6 +1,11 @@
 // Import colors module
 @import '../../main';
 @include oColors();
+@import '@financial-times/o-fonts/main';
+@include oFonts();
+@import '@financial-times/o-normalise/main';
+@include oNormalise();
+
 
 body {
 	box-sizing: border-box;

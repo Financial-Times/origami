@@ -22,10 +22,6 @@
 		]
 	},
 	"demosDefaults": {
-		"dependencies": [
-			"o-fonts@^5.0.0",
-			"o-normalise@^3.0.0"
-		],
 		"sass": "demos/src/main.scss",
 		"template": "demos/src/header.mustache",
 		"js": "demos/src/main.js"

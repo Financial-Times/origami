@@ -15,11 +15,7 @@
 	"browserFeatures": {},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"documentClasses": "",
-		"dependencies": [
-			"o-colors@^6.0.3",
-			"o-buttons@^7.0.0"
-		]
+		"documentClasses": ""
 	},
 	"demos": [
 		{

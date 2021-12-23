@@ -22,6 +22,11 @@
     "@financial-times/o-colors": "^6.1.1",
     "@financial-times/o-typography": "^7.0.3"
   },
+  "devDependencies": {
+    "@financial-times/o-fonts": "^4.0.0",
+    "@financial-times/o-buttons": "^6.0.0",
+    "@financial-times/o-normalise": "^2.0.0"
+  },
   "scripts": {
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",

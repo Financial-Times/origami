@@ -38,6 +38,13 @@
     "@financial-times/o-typography": "^7.0.1",
     "@financial-times/o-visual-effects": "^4.0.1"
   },
+  "devDependencies": {
+    "@financial-times/o-fonts":"^5",
+    "@financial-times/o-normalise":"^3",
+    "@financial-times/o-typography":"^7",
+    "@financial-times/o-forms":"^9",
+    "@financial-times/o-buttons":"^7"
+  },
   "engines": {
     "npm": "^7 || ^8"
   },

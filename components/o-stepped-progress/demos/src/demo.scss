@@ -1,5 +1,11 @@
 @import '../../main';
 @include oSteppedProgress();
+@import '@financial-times/o-fonts/main';
+@include oFonts();
+@import '@financial-times/o-icons/main';
+@include oIcons();
+@import '@financial-times/o-normalise/main';
+@include oNormalise();
 
 body {
 	background: oColorsByUsecase('page', 'background');

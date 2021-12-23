@@ -14,11 +14,7 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
-		"documentClasses": "",
-		"dependencies": [
-			"o-fonts@^5",
-			"o-normalise@^3"
-		]
+		"documentClasses": ""
 	},
 	"demos": [
 		{

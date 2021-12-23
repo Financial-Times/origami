@@ -16,6 +16,11 @@
   "peerDependencies": {
     "@financial-times/math": "^1.0.0"
   },
+  "devDependencies": {
+    "@financial-times/o-normalise":"^3.0.0",
+			"@financial-times/o-typography":"^7.0.1",
+			"@financial-times/o-colors":"^6.0.3"
+  },
   "scripts": {
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",

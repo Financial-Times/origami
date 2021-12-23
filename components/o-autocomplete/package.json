@@ -39,6 +39,11 @@
     "@financial-times/o-typography": "^7.0.1",
     "@financial-times/o-visual-effects": "^4.0.1"
   },
+  "devDependencies": {
+    "@financial-times/o-forms":"^9.0.0",
+    "@financial-times/o-normalise":"^3.0.0",
+    "@financial-times/o-utils":"^2.0.0"
+  },
   "dependencies": {
     "@financial-times/accessible-autocomplete": "^2.1.2"
   },

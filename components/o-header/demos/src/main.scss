@@ -1,7 +1,12 @@
 @import '../../main';
 
 @include oHeader();
-
+@import '@financial-times/o-fonts/main';
+@include oFonts();
+@import '@financial-times/o-grid/main';
+@include oGrid();
+@import '@financial-times/o-normalise/main';
+@include oNormalise();
 body {
 	background-color: oColorsByUsecase('page', 'background');
 }
