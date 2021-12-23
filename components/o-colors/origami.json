@@ -15,12 +15,7 @@
 	"supportStatus": "active",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"js": "demos/src/demo.js",
-		"dependencies": [
-			"o-fonts@^5.0.0",
-			"o-normalise@^3.0.0",
-			"o-autoinit@^3.0.0"
-		]
+		"js": "demos/src/demo.js"
 	},
 	"demos": [
 		{
@@ -32,15 +27,6 @@
 			"template": "demos/src/contrast-checker/index.mustache",
 			"description": "",
 			"display_html": false,
-			"dependencies": [
-				"o-buttons@^7.0.0",
-				"o-fonts@^5.0.0",
-				"o-forms@^9.0.0",
-				"o-normalise@^3.0.0",
-				"o-overlay@^4.0.0",
-				"o-syntax-highlight@^4.0.0",
-				"o-autoinit@^3.0.0"
-			],
 			"brands": [
 				"core"
 			]
@@ -54,14 +40,6 @@
 			"template": "demos/src/color-mixer/index.mustache",
 			"display_html": false,
 			"description": "",
-			"dependencies": [
-				"o-fonts@^5.0.0",
-				"o-forms@^9.0.0",
-				"o-normalise@^3.0.0",
-				"o-overlay@^4.0.0",
-				"o-syntax-highlight@^4.0.0",
-				"o-autoinit@^3.0.0"
-			],
 			"brands": [
 				"core"
 			]
@@ -141,15 +119,6 @@
 			"sass": "demos/src/contrast-checker/contrast-checker.scss",
 			"template": "demos/src/contrast-checker/index.mustache",
 			"display_html": false,
-			"dependencies": [
-				"o-buttons@^7.0.0",
-				"o-fonts@^5.0.0",
-				"o-forms@^9.0.0",
-				"o-normalise@^3.0.0",
-				"o-overlay@^4.0.0",
-				"o-syntax-highlight@^4.0.0",
-				"o-autoinit@^3.0.0"
-			],
 			"description": "",
 			"brands": [
 				"internal"
@@ -163,14 +132,6 @@
 			"sass": "demos/src/color-mixer/color-mixer.scss",
 			"template": "demos/src/color-mixer/index.mustache",
 			"display_html": false,
-			"dependencies": [
-				"o-fonts@^5.0.0",
-				"o-forms@^9.0.0",
-				"o-normalise@^3.0.0",
-				"o-overlay@^4.0.0",
-				"o-syntax-highlight@^4.0.0",
-				"o-autoinit@^3.0.0"
-			],
 			"description": "",
 			"brands": [
 				"internal"

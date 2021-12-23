@@ -1,9 +1,14 @@
+import "@financial-times/o-autoinit";
 import { getContrastRatio, getWCAGRating } from '../shared/contrast-ratio.js';
 import { getHexValues, mixHexes, expandHexValues } from '../shared/colors-mix.js';
 import Tabs from "@financial-times/o-tabs";
+import Forms from "@financial-times/o-forms";
+import Overlay from "@financial-times/o-overlay";
 
 document.addEventListener('DOMContentLoaded', () => {
 	Tabs.init();
+	Forms.init();
+	Overlay.init();
 	const form = document.forms[0];
 	const foreground = form['foreground'];
 	const background = form['background'];
@@ -14,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	showContrastRatio(foreground, background);
 
 	document.querySelector('.trigger-input').addEventListener('click', () => {
-		Origami['o-overlay'].getOverlays()['mixer-overlay'].open(); //eslint-disable-line no-undef
+		Overlay.getOverlays()['mixer-overlay'].open(); //eslint-disable-line no-undef
 	});
 });
 

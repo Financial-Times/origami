@@ -1,5 +1,10 @@
 @import "./../../main";
-
+@import '@financial-times/o-fonts/main';
+@include oFonts();
+@import '@financial-times/o-buttons/main';
+@include oButtons();
+@import '@financial-times/o-normalise/main';
+@include oNormalise();
 body {
 	background: oColorsByUsecase(page, background);
 }

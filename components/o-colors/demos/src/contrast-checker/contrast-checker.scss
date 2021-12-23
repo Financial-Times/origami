@@ -1,9 +1,16 @@
 // Import colors module
 @import '../../../main';
+@include oColors();
 @import '@financial-times/o-tabs/main';
 @include oTabs();
-@include oColors();
-
+@import '@financial-times/o-forms/main';
+@include oForms();
+@import '@financial-times/o-normalise/main';
+@include oNormalise();
+@import '@financial-times/o-buttons/main';
+@include oButtons();
+@import '@financial-times/o-overlay/main';
+@include oOverlay();
 @mixin swatchStyle() {
 	appearance: none;
 	border: 1px solid lightgrey;

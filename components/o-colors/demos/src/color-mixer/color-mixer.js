@@ -1,3 +1,4 @@
+import "@financial-times/o-autoinit";
 import { getContrastRatio } from '../shared/contrast-ratio.js';
 import { getHexValues, mixHexes } from '../shared/colors-mix.js';
 

@@ -1,6 +1,12 @@
 @import '../../main';
 
 @include oSpacing();
+@import '@financial-times/o-colors/main';
+@include oColors();
+@import '@financial-times/o-typography/main';
+@include oTypography();
+@import '@financial-times/o-normalise/main';
+@include oNormalise();
 
 body {
 	font-family: if(oBrandIs('whitelabel'), Arial, MetricWeb); // todo use o-typography when it has a new major with sans default

@@ -1,3 +1,5 @@
+import "@financial-times/o-autoinit";
+
 const oCopyClass = 'o-copy-true';
 
 function oColorsDemoPalette() {

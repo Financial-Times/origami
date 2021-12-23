@@ -21,11 +21,7 @@
 	"demosDefaults": {
 		"js": "demos/src/demo.js",
 		"data": "demos/src/data/data.json",
-		"documentClasses": "",
-		"dependencies": [
-			"o-forms@^9.0.0",
-			"o-overlay@^4.0.0"
-		]
+		"documentClasses": ""
 	},
 	"demos": [
 		{

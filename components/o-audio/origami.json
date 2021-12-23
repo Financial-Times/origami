@@ -12,8 +12,7 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
-		"documentClasses": "",
-		"dependencies": ""
+		"documentClasses": ""
 	},
 	"demos": [
 		{

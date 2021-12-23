@@ -1,6 +1,11 @@
 @import '../../main';
 
 @include oTypography();
+@import '@financial-times/o-grid/main';
+@include oGrid();
+@import '@financial-times/o-normalise/main';
+@include oNormalise();
+
 
 body {
 	background-color: oColorsByUsecase('page', 'background');

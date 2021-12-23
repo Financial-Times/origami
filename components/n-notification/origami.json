@@ -10,11 +10,6 @@
 	},
 	"supportStatus": "experimental",
 	"demosDefaults": {
-		"dependencies": [
-			"o-fonts@^4.0.0",
-			"o-buttons@^6.0.0",
-			"o-normalise@^2.0.0"
-		],
 		"sass": "demos/src/main.scss",
 		"js": "demos/src/main.js"
 	},

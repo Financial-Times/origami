@@ -1,5 +1,7 @@
 import '../../../main.js';
-
+import {debounce} from '@financial-times/o-utils';
+import oForms from '@financial-times/o-forms';
+oForms.init();
 /**
  * @typedef {Function} PopulateOptions
  * @property {Array<string>} options - The options which match the rext which was typed into the autocomplete by the user
@@ -292,7 +294,7 @@ function customSuggestions(query, populateOptions) {
 	}, 1000);
 }
 
-window.customSuggestions = window.Origami['o-utils'].debounce(customSuggestions, 100);
+window.customSuggestions = debounce(customSuggestions, 100);
 
 document.addEventListener('DOMContentLoaded', function() {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));

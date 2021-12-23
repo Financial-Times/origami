@@ -24,12 +24,7 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
-		"documentClasses": "demo",
-		"dependencies": [
-			"o-fonts@^5.0.0",
-			"o-buttons@^7.0.0",
-			"o-normalise@^3.0.0"
-		]
+		"documentClasses": "demo"
 	},
 	"demos": [
 		{
