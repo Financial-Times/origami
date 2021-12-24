@@ -1,5 +1,44 @@
 # Migration
 
+## Migrating from v6 to v7
+
+The html for o-tabs was changed to bring support for assistive technologies.
+
+The component no longer uses `ul` and `li` elements and instead uses `div` and `a` elements.
+
+```diff
+-<ul data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
++<div data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
+-	<li role="tab"><a href="#tabContent1">Tab 1</a></li>
++	<a role="tab" href="#tabContent1">Tab 1</a>
+-	<li role="tab"><a href="#tabContent2">Tab 2</a></li>
++	<a role="tab" href="#tabContent2">Tab 2</a>
+-	<li role="tab"><a href="#tabContent3">Tab 3</a></li>
++	<a role="tab" href="#tabContent3">Tab 3</a>
+-</ul>
++</div>
+```
+
+E.G.
+
+This is the old html:
+```html
+<ul data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
+	<li role="tab"><a href="#tabContent1">Tab 1</a></li>
+	<li role="tab"><a href="#tabContent2">Tab 2</a></li>
+	<li role="tab"><a href="#tabContent3">Tab 3</a></li>
+</ul>
+```
+
+And this is the new html:
+```html
+<div data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
+	<a role="tab" href="#tabContent1">Tab 1</a>
+	<a role="tab" href="#tabContent2">Tab 2</a>
+	<a role="tab" href="#tabContent3">Tab 3</a>
+</div>
+```
+
 ## Migrating from v5 to v6
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
