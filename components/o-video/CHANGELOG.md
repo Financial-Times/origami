@@ -1,5 +1,15 @@
 # Changelog
 
+### [7.2.1](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.0...o-video-v7.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* add missing label for the video playlist demo ([99f17aa](https://www.github.com/Financial-Times/origami/commit/99f17aa2738aba6f32ed49b669981a62bfa062e6))
+* correct invalid html ([c16dd52](https://www.github.com/Financial-Times/origami/commit/c16dd52b3f321a2384c9f1254fe11ecbeeead848))
+* make subtitle link accessible for assistive technologies such as screenreaders ([5d5495e](https://www.github.com/Financial-Times/origami/commit/5d5495efccc3c1f7bce268d44f272e521bcd79fe))
+* remove aria-label from the video container div as the label does not convey useful information and the div has no 'role' which means it can not have an aria-label. ([d769558](https://www.github.com/Financial-Times/origami/commit/d769558f10f581149ae970f8ebe316f973f0d024))
+
 ## [7.2.0](https://www.github.com/Financial-Times/origami/compare/o-video-v7.1.0...o-video-v7.2.0) (2021-11-24)
 
 

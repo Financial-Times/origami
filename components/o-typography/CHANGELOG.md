@@ -1,5 +1,14 @@
 # Changelog
 
+### [7.2.1](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.2.0...o-typography-v7.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* add missing label on o-typograpy line width demo ([a5d18b7](https://www.github.com/Financial-Times/origami/commit/a5d18b7013674a390da72ebf76e3522fe273e975))
+* correct invalid html ([c16dd52](https://www.github.com/Financial-Times/origami/commit/c16dd52b3f321a2384c9f1254fe11ecbeeead848))
+* do not make the html element scrollable as it is not focusable ([b890337](https://www.github.com/Financial-Times/origami/commit/b8903370416c29622d7dd6cda00b3b1b00edd2bc))
+
 ## [7.2.0](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.1.0...o-typography-v7.2.0) (2021-11-24)
 
 

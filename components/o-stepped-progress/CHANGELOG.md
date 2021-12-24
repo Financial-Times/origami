@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.0.1](https://www.github.com/Financial-Times/origami/compare/o-stepped-progress-v4.0.0...o-stepped-progress-v4.0.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* correct invalid html ([c16dd52](https://www.github.com/Financial-Times/origami/commit/c16dd52b3f321a2384c9f1254fe11ecbeeead848))
+
 ## [4.0.0](https://www.github.com/Financial-Times/origami/compare/o-stepped-progress-v3.2.0...o-stepped-progress-v4.0.0) (2021-11-30)
 
 

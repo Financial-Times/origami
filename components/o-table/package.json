@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-table",
-  "version": "9.2.0",
+  "version": "9.2.1",
   "description": "Provides styling and behvaiour for tables across FT products.",
   "keywords": [
     "table",

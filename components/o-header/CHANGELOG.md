@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.2.1](https://www.github.com/Financial-Times/origami/compare/o-header-v9.2.0...o-header-v9.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* stop making the `html` element scrollable as it is not focusable via a keyboard which is an accessibility issue ([5797fa5](https://www.github.com/Financial-Times/origami/commit/5797fa5d12660b6b21c81e378d5a2abf2722f0b8))
+
 ## [9.2.0](https://www.github.com/Financial-Times/origami/compare/o-header-v9.1.1...o-header-v9.2.0) (2021-11-24)
 
 

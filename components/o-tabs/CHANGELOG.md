@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.0.0](https://www.github.com/Financial-Times/origami/compare/o-tabs-v6.2.0...o-tabs-v7.0.0) (2021-12-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* change the markup for o-tabs to no longer have nested interactive elements which is inaccessible
+
+### Bug Fixes
+
+* change the markup for o-tabs to no longer have nested interactive elements which is inaccessible ([7edc936](https://www.github.com/Financial-Times/origami/commit/7edc9363cbb8317ca932667a7312dc0400661e6b))
+
 ## [6.2.0](https://www.github.com/Financial-Times/origami/compare/o-tabs-v6.1.1...o-tabs-v6.2.0) (2021-11-24)
 
 

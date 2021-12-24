@@ -1,5 +1,13 @@
 # Changelog
 
+### [6.2.1](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.0...o-teaser-v6.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* only output the o-teaser__tag link if a tag exists ([1ffadca](https://www.github.com/Financial-Times/origami/commit/1ffadca7d12f753cf949a935ced0ee0969703446))
+* run o-date in the demos to give the teasers a relative time ([9709af5](https://www.github.com/Financial-Times/origami/commit/9709af5472ea919c89a9311d4efe6183430e8864))
+
 ## [6.2.0](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.1.0...o-teaser-v6.2.0) (2021-11-24)
 
 

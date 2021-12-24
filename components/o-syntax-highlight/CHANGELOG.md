@@ -1,5 +1,13 @@
 # Changelog
 
+### [4.2.1](https://www.github.com/Financial-Times/origami/compare/o-syntax-highlight-v4.2.0...o-syntax-highlight-v4.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* correct invalid html ([c16dd52](https://www.github.com/Financial-Times/origami/commit/c16dd52b3f321a2384c9f1254fe11ecbeeead848))
+* make pre tags which are scrollable be accessible via keyboard ([419e5aa](https://www.github.com/Financial-Times/origami/commit/419e5aa12c3efb9127fbff3665b5d09b14dedf1b))
+
 ## [4.2.0](https://www.github.com/Financial-Times/origami/compare/o-syntax-highlight-v4.1.0...o-syntax-highlight-v4.2.0) (2021-11-24)
 
 
