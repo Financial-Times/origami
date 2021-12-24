@@ -13,6 +13,7 @@
     "@types/unist": "^2.0.3",
     "github-slugger": "^1.3.0",
     "mdast-util-heading-range": "^2.1.4",
+    "mdast-util-to-string": "^2.0.0",
     "remark-lint": "^7.0.0",
     "remark-lint-blockquote-indentation": "^2.0.0",
     "remark-lint-checkbox-character-style": "^2.0.0",
