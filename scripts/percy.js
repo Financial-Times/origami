@@ -57,7 +57,7 @@ try {
 		}
 
 		let npxPath = await io.which("npx", true)
-		await $`"${npxPath}" npm exec -w ${workspace} obt demo`
+		await $`"${npxPath}" npm exec -w ${workspace} demo-build`
 
 		await generatePercySnapshots()
 	}
