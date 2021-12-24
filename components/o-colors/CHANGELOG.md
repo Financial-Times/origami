@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.4.1](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.4.0...o-colors-v6.4.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* update to the latest o-tabs implementation which includes accessibility fixes for the tabpanel ([5974af8](https://www.github.com/Financial-Times/origami/commit/5974af8001a8af42a2cff62272448f59856a7503))
+
 ## [6.4.0](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.3.0...o-colors-v6.4.0) (2021-11-24)
 
 

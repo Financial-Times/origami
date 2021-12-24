@@ -1,5 +1,13 @@
 # Changelog
 
+### [5.2.1](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.2.0...o-header-services-v5.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* always render the drawer markup as it needs to exist for our drawer JS to work ([04994c2](https://www.github.com/Financial-Times/origami/commit/04994c29a4542da04908a7433dec1454c1e28841))
+* change the navigation from a 'div' to a 'nav' so that the 'aria-label' attribute is allowed ([517533a](https://www.github.com/Financial-Times/origami/commit/517533a28d866b5372f4fd568b877d4a0895c4a7))
+
 ## [5.2.0](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.1.1...o-header-services-v5.2.0) (2021-11-24)
 
 

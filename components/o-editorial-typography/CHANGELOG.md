@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.3.1](https://www.github.com/Financial-Times/origami/compare/o-editorial-typography-v2.3.0...o-editorial-typography-v2.3.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* import o-colors so we can use the o-colors mixins in the knowledge they will exist ([26f91fa](https://www.github.com/Financial-Times/origami/commit/26f91faf2ee696dd1f74595b2eac9ad537f74db1))
+
 ## [2.3.0](https://www.github.com/Financial-Times/origami/compare/o-editorial-typography-v2.2.0...o-editorial-typography-v2.3.0) (2021-11-24)
 
 

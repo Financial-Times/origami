@@ -1,5 +1,14 @@
 # Changelog
 
+### [9.2.1](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.2.0...o-forms-v9.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* only add a checkbox if the related input is a checkbox ([1389125](https://www.github.com/Financial-Times/origami/commit/1389125c52bfd9aba201da3873e559825e80ad95))
+* remove duplicate ids and expose input label text to the AOM ([034f1f7](https://www.github.com/Financial-Times/origami/commit/034f1f755ad6ea7f6ff2adc7df397c0bde050e40))
+* remove password input used in checkbox demo as it is not possible to label it correctly and show password functionality is covered by the input suffix demo ([f4c4612](https://www.github.com/Financial-Times/origami/commit/f4c46126ec51da6d401a5c7465afe14eb65500fb))
+
 ## [9.2.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.1.1...o-forms-v9.2.0) (2021-11-24)
 
 

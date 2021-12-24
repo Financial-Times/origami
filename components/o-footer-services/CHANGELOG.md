@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.2.1](https://www.github.com/Financial-Times/origami/compare/o-footer-services-v4.2.0...o-footer-services-v4.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* add missing closing div in footer-services demos ([2e16652](https://www.github.com/Financial-Times/origami/commit/2e16652170ebffaffb4a95c0de57e050c8bb2a9d))
+
 ## [4.2.0](https://www.github.com/Financial-Times/origami/compare/o-footer-services-v4.1.1...o-footer-services-v4.2.0) (2021-11-24)
 
 

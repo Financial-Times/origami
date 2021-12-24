@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.2.1](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.2.0...o-cookie-message-v6.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* add missing dialog name to the custom-html-full demo ([0ca6bd2](https://www.github.com/Financial-Times/origami/commit/0ca6bd21ab5b8fd1d341c77c2b8cb841253a4ce1))
+
 ## [6.2.0](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.1.0...o-cookie-message-v6.2.0) (2021-11-24)
 
 

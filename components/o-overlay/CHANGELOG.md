@@ -1,5 +1,14 @@
 # Changelog
 
+### [4.2.2](https://www.github.com/Financial-Times/origami/compare/o-overlay-v4.2.1...o-overlay-v4.2.2) (2021-12-24)
+
+
+### Bug Fixes
+
+* add missing aria-level attribute which is required because the element has a 'role' set to 'heading' ([a41eb3a](https://www.github.com/Financial-Times/origami/commit/a41eb3aaaf6c43a3e2839d00263cdaaa08ee735f))
+* make the title be correctly associated to the overlay ([9ca6351](https://www.github.com/Financial-Times/origami/commit/9ca63517cb32cc889b5a91689e5d3ec728e8a28b))
+* visually hide the text in the sliding noticification demo as it is not meant to be read by anyone ([7b3bb56](https://www.github.com/Financial-Times/origami/commit/7b3bb5664b0f9fd87796b153c793885c00ffcfc7))
+
 ### [4.2.1](https://www.github.com/Financial-Times/origami/compare/o-overlay-v4.2.0...o-overlay-v4.2.1) (2021-12-09)
 
 

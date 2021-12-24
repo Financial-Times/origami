@@ -1,5 +1,13 @@
 # Changelog
 
+### [9.2.1](https://www.github.com/Financial-Times/origami/compare/o-table-v9.2.0...o-table-v9.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* only add aria-describeby if the demo-table-caption element exists ([3bd70f7](https://www.github.com/Financial-Times/origami/commit/3bd70f73a4464becc508703a1a7e4c44e07c99aa))
+* stop aria-hidden rows from being focusable ([43527d9](https://www.github.com/Financial-Times/origami/commit/43527d9a3f9b74151a8f674d9b78958e6df68f56))
+
 ## [9.2.0](https://www.github.com/Financial-Times/origami/compare/o-table-v9.1.1...o-table-v9.2.0) (2021-11-24)
 
 

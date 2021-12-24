@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.2.1](https://www.github.com/Financial-Times/origami/compare/o-normalise-v3.2.0...o-normalise-v3.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* add missing labels to o-normalise demo ([76f4871](https://www.github.com/Financial-Times/origami/commit/76f4871cdb86cad4aee43f36f49d90f275d167ff))
+
 ## [3.2.0](https://www.github.com/Financial-Times/origami/compare/o-normalise-v3.1.0...o-normalise-v3.2.0) (2021-11-24)
 
 

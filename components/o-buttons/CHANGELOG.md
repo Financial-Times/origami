@@ -1,5 +1,13 @@
 # Changelog
 
+### [7.2.1](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.2.0...o-buttons-v7.2.1) (2021-12-24)
+
+
+### Bug Fixes
+
+* remove disabled anchor buttons from the demos as anchors can not be disabled ([4d3a2a6](https://www.github.com/Financial-Times/origami/commit/4d3a2a634d3c690111fff4f280d3909b3ffd9a1e))
+* update demo to use aria-pressed instead of aria-selected as by default a button can not have a selected state ([af2b05a](https://www.github.com/Financial-Times/origami/commit/af2b05a0e524dde130198dbd5b88b0a964522b0c))
+
 ## [7.2.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.1.1...o-buttons-v7.2.0) (2021-11-24)
 
 

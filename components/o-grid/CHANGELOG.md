@@ -1,5 +1,13 @@
 # Changelog
 
+### [6.1.2](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.1...o-grid-v6.1.2) (2021-12-24)
+
+
+### Bug Fixes
+
+* make the body element scrollable instead of the html element as the html element is not accessible by keyboard by default ([e8cb804](https://www.github.com/Financial-Times/origami/commit/e8cb804731885b9d64d540767833a100a433c609))
+* use the correct path to import sass-mq ([798bc26](https://www.github.com/Financial-Times/origami/commit/798bc2650729a70476904798834e4f99ed93235a))
+
 ### [6.1.1](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.0...o-grid-v6.1.1) (2021-12-09)
 
 
