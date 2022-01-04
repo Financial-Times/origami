@@ -1,5 +1,12 @@
 # Changelog
 
+### [8.3.1](https://www.github.com/Financial-Times/origami/compare/o-comments-v8.3.0...o-comments-v8.3.1) (2022-01-04)
+
+
+### Bug Fixes
+
+* comments demo duplicate story issue ([369a795](https://www.github.com/Financial-Times/origami/commit/369a7954089dd19db444dbe9e7b59703b0c50151))
+
 ## [8.3.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v8.2.0...o-comments-v8.3.0) (2021-11-24)
 
 
