@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2022-01-04T09:45:10+00:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, October 2021</title><link href="https://origami.ft.com/blog/2021/11/05/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, October 2021" /><published>2021-11-05T00:00:00+00:00</published><updated>2021-11-05T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2021/11/05/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/11/05/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2022-01-04T16:28:19+00:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, October 2021</title><link href="https://origami.ft.com/blog/2021/11/05/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, October 2021" /><published>2021-11-05T00:00:00+00:00</published><updated>2021-11-05T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2021/11/05/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/11/05/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
 &lt;strong&gt;
 TL;DR:
 &lt;/strong&gt;
@@ -252,8 +252,8 @@ TL;DR:
 &lt;p&gt;The following 3 guides show how to migrate to the new npm-only Origami component releases depending on how your project currently includes components:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#using-origami-via-bower&quot;&gt;Origami Build Service&lt;/a&gt;: Follow this guide if your project uses the Origami Build Service.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#using-origami-via-origami-build-service&quot;&gt;Bower&lt;/a&gt;: Follow this guide if your project installs components with Bower.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#using-origami-via-origami-build-service&quot;&gt;Origami Build Service&lt;/a&gt;: Follow this guide if your project uses the Origami Build Service.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#using-origami-via-bower&quot;&gt;Bower&lt;/a&gt;: Follow this guide if your project installs components with Bower.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#using-origami-via-beta-npm&quot;&gt;Beta NPM&lt;/a&gt;: Follow this guide if your project already installs Origami components via NPM, these were experimental releases which were published to Bower and NPM.&lt;/li&gt;
 &lt;/ul&gt;
 
