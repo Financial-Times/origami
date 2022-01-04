@@ -35,8 +35,8 @@ See the below migration guides for more details.
 
 The following 3 guides show how to migrate to the new npm-only Origami component releases depending on how your project currently includes components:
 
-- [Origami Build Service](#using-origami-via-bower): Follow this guide if your project uses the Origami Build Service.
-- [Bower](#using-origami-via-origami-build-service): Follow this guide if your project installs components with Bower.
+- [Origami Build Service](#using-origami-via-origami-build-service): Follow this guide if your project uses the Origami Build Service.
+- [Bower](#using-origami-via-bower): Follow this guide if your project installs components with Bower.
 - [Beta NPM](#using-origami-via-beta-npm): Follow this guide if your project already installs Origami components via NPM, these were experimental releases which were published to Bower and NPM.
 
 ### Using Origami via Origami Build Service
