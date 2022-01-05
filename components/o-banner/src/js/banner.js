@@ -271,9 +271,19 @@ class Banner {
 	}
 
 	/**
+	 * Undo the init method
+	 */
+	destroy() {
+		if(this.closeButtonElement) {
+			this.closeButtonElement.remove();
+			delete this.closeButtonElement;
+		}
+	}
+
+	/**
 	 * Initialise banner components.
 	 *
-	 * @param {(HTMLElement | string)} rootElement - The root element to intialise banners in, or a CSS selector for the root element
+	 * @param {(HTMLElement | string)} [rootElement] - The root element to intialise banners in, or a CSS selector for the root element
 	 * @param {object} [options={}] - An options object for configuring the banners
 	 * @returns {Banner | Banner[]} - The newly instantiated Banner (or Banners, if rootElement was not a banner)
 	 */
