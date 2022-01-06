@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.2.2](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.2.1...o-cookie-message-v6.2.2) (2022-01-06)
+
+
+### Bug Fixes
+
+* support ie11 in the demo by adding object.assign to list of required browser features ([b997fe3](https://www.github.com/Financial-Times/origami/commit/b997fe378aaa512aa21579cce33390f4d407ee39))
+
 ### [6.2.1](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.2.0...o-cookie-message-v6.2.1) (2021-12-24)
 
 
