@@ -4,6 +4,7 @@
 	"browserFeatures": {
 		"required": [
 			"Element.prototype.classList",
+			"Element.prototype.matches",
 			"Array.from",
 			"CustomEvent"
 		]
