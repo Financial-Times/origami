@@ -13,7 +13,8 @@
 	"browserFeatures": {
 		"required": [
 			"Element.prototype.classList",
-			"Element.prototype.append"
+			"Element.prototype.append",
+			"Object.assign"
 		]
 	},
 	"demosDefaults": {
