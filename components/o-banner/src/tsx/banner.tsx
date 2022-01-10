@@ -11,11 +11,11 @@ export interface BannerLink {
 }
 
 export interface BannerProps {
-	suppressCloseButton?: boolean;
-	headingLong?: string;
-	headingShort?: string;
-	contentLong: string;
-	contentShort?: string;
+	heading?: string;
+	abbreviatedHeading?: string;
+	content: string;
+	abbreviatedContent?: string;
+	showCloseButton?: boolean;
 	closeButtonLabel?: string;
 	primaryAction?: BannerLink | BannerSubmitButton;
 	secondaryAction?: BannerLink
@@ -28,11 +28,11 @@ function isBannerSubmitButton(action: BannerSubmitButton | BannerLink): action i
 }
 
 export function Banner({
-	suppressCloseButton = false,
-	headingLong = '',
-	headingShort = '',
-	contentLong = 'Hello!',
-	contentShort = '',
+	showCloseButton = true,
+	heading = '',
+	abbreviatedHeading = '',
+	content = 'Hello!',
+	abbreviatedContent = '',
 	closeButtonLabel = 'Close',
 	primaryAction = {
 		copy: 'OK',
@@ -53,11 +53,11 @@ export function Banner({
 		classNames.push(`o-banner--${theme}`);
 	}
 
-	if(suppressCloseButton) {
+	if(!showCloseButton) {
 		dataAttributes['data-o-banner-suppress-close-button'] = true;
 	}
 
-	if(!suppressCloseButton && closeButtonLabel) {
+	if(showCloseButton && closeButtonLabel) {
 		dataAttributes['data-o-banner-close-button-label'] = closeButtonLabel;
 	}
 
@@ -65,24 +65,24 @@ export function Banner({
 		<div className={classNames.join(' ')} {...dataAttributes} data-o-component="o-banner">
 			<div className="o-banner__outer">
 				<div className="o-banner__inner" data-o-banner-inner>
-					{contentLong && (
+					{content && (
 					<div className="o-banner__content o-banner__content--long">
-						{headingLong && (
+						{heading && (
 						<header className="o-banner__heading">
-							<h2>{headingLong}</h2>
+							<h2>{heading}</h2>
 						</header>
 						)}
-						<p>{contentLong}</p>
+						<p>{content}</p>
 					</div>
 					)}
-					{contentShort && (
+					{(abbreviatedContent || abbreviatedHeading) && (
 					<div className="o-banner__content o-banner__content--short">
-						{headingShort && (
+						{abbreviatedHeading && (
 						<header className="o-banner__heading">
-							<h2>{headingShort}</h2>
+							<h2>{abbreviatedHeading || heading}</h2>
 						</header>
 						)}
-						<p>{contentShort}</p>
+						<p>{abbreviatedContent || content}</p>
 					</div>
 					)}
 					<div className="o-banner__actions">
