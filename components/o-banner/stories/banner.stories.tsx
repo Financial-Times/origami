@@ -30,7 +30,7 @@ const Story = args => {
 			banners = Array.isArray(banners) ? banners : [banners];
 			banners.forEach(banner => banner.destroy());
 		}
-	}, [args.showCloseButton, args.closeButtonLabel]);
+	}, [args.showCloseButton, true.closeButtonLabel]);
 	return <Banner {...args} />;
 };
 
@@ -38,7 +38,7 @@ export const Default = Story.bind({});
 Default.args = {
 	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
 	abbreviatedContent: 'Try it now',
-	showCloseButton: false,
+	showCloseButton: true,
 	closeButtonLabel: 'Close',
 	primaryAction: {
 		copy: 'Try it now',
@@ -62,7 +62,7 @@ Small.args = {
 	abbreviatedHeading: 'FT Compact',
 	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
 	abbreviatedContent: 'Try it now',
-	showCloseButton: false,
+	showCloseButton: true,
 	closeButtonLabel: 'Close',
 	primaryAction: {
 		copy: 'Try it now',
@@ -85,7 +85,7 @@ Compact.args = {
 	abbreviatedHeading: 'FT Compact',
 	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
 	abbreviatedContent: 'Try it now',
-	showCloseButton: false,
+	showCloseButton: true,
 	closeButtonLabel: 'Close',
 	primaryAction: {
 		copy: 'Try it now',
@@ -108,7 +108,7 @@ Marketing.args = {
 	abbreviatedHeading: 'FT Compact',
 	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
 	abbreviatedContent: 'Try it now',
-	showCloseButton: false,
+	showCloseButton: true,
 	closeButtonLabel: 'Close',
 	primaryAction: {
 		copy: 'Try it now',
@@ -128,7 +128,7 @@ Product.args = {
 	abbreviatedHeading: 'FT Compact',
 	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
 	abbreviatedContent: 'Try it now',
-	showCloseButton: false,
+	showCloseButton: true,
 	closeButtonLabel: 'Close',
 	primaryAction: {
 		copy: 'Try it now',
