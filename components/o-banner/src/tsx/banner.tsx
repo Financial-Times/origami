@@ -57,6 +57,10 @@ export function Banner({
 		dataAttributes['data-o-banner-suppress-close-button'] = true;
 	}
 
+	if(!suppressCloseButton && closeButtonLabel) {
+		dataAttributes['data-o-banner-close-button-label'] = closeButtonLabel;
+	}
+
 	return (
 		<div className={classNames.join(' ')} {...dataAttributes} data-o-component="o-banner">
 			<div className="o-banner__outer">

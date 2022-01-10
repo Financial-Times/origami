@@ -30,7 +30,7 @@ const Story = args => {
 			banners = Array.isArray(banners) ? banners : [banners];
 			banners.forEach(banner => banner.destroy());
 		}
-	}, [args.suppressCloseButton]);
+	}, [args.suppressCloseButton, args.closeButtonLabel]);
 	return <Banner {...args} />;
 };
 
