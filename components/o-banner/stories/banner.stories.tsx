@@ -30,15 +30,15 @@ const Story = args => {
 			banners = Array.isArray(banners) ? banners : [banners];
 			banners.forEach(banner => banner.destroy());
 		}
-	}, [args.suppressCloseButton, args.closeButtonLabel]);
+	}, [args.showCloseButton, args.closeButtonLabel]);
 	return <Banner {...args} />;
 };
 
 export const Default = Story.bind({});
 Default.args = {
-	suppressCloseButton: false,
-	contentLong: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
-	contentShort: 'Try it now',
+	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	abbreviatedContent: 'Try it now',
+	showCloseButton: false,
 	closeButtonLabel: 'Close',
 	primaryAction: {
 		copy: 'Try it now',
@@ -53,16 +53,16 @@ Default.args = {
 };
 // Exclude layout and heading controls to discourage use of the default layout with a heading.
 // https://github.com/Financial-Times/origami/pull/523
-Default.parameters = {controls: { exclude: ['headingLong', 'headingShort', 'layout'] }};
+Default.parameters = {controls: { exclude: ['heading', 'abbreviatedHeading', 'layout'] }};
 
 
 export const Small = Story.bind({});
 Small.args = {
-	suppressCloseButton: false,
-	headingLong: 'FT Compact',
-	headingShort: 'FT Compact',
-	contentLong: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
-	contentShort: 'Try it now',
+	heading: 'FT Compact',
+	abbreviatedHeading: 'FT Compact',
+	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	abbreviatedContent: 'Try it now',
+	showCloseButton: false,
 	closeButtonLabel: 'Close',
 	primaryAction: {
 		copy: 'Try it now',
@@ -81,11 +81,11 @@ Small.parameters = {controls: { exclude: ['layout'] }};
 
 export const Compact = Story.bind({});
 Compact.args = {
-	suppressCloseButton: false,
-	headingLong: 'FT Compact',
-	headingShort: 'FT Compact',
-	contentLong: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
-	contentShort: 'Try it now',
+	heading: 'FT Compact',
+	abbreviatedHeading: 'FT Compact',
+	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	abbreviatedContent: 'Try it now',
+	showCloseButton: false,
 	closeButtonLabel: 'Close',
 	primaryAction: {
 		copy: 'Try it now',
@@ -104,11 +104,11 @@ Compact.parameters = {controls: { exclude: ['layout'] }};
 
 export const Marketing = Story.bind({});
 Marketing.args = {
-	suppressCloseButton: false,
-	headingLong: 'FT Compact',
-	headingShort: 'FT Compact',
-	contentLong: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
-	contentShort: 'Try it now',
+	heading: 'FT Compact',
+	abbreviatedHeading: 'FT Compact',
+	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	abbreviatedContent: 'Try it now',
+	showCloseButton: false,
 	closeButtonLabel: 'Close',
 	primaryAction: {
 		copy: 'Try it now',
@@ -124,11 +124,11 @@ Marketing.args = {
 
 export const Product = Story.bind({});
 Product.args = {
-	suppressCloseButton: false,
-	headingLong: 'FT Compact',
-	headingShort: 'FT Compact',
-	contentLong: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
-	contentShort: 'Try it now',
+	heading: 'FT Compact',
+	abbreviatedHeading: 'FT Compact',
+	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	abbreviatedContent: 'Try it now',
+	showCloseButton: false,
 	closeButtonLabel: 'Close',
 	primaryAction: {
 		copy: 'Try it now',
