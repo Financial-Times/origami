@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.2.2](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.2.1...o-forms-v9.2.2) (2022-01-10)
+
+
+### Bug Fixes
+
+* o-forms remove demo inputs which have no id ([b8a3e01](https://www.github.com/Financial-Times/origami/commit/b8a3e010d944af507ad91d0f1cae6950190a7ddf)), closes [#524](https://www.github.com/Financial-Times/origami/issues/524)
+
 ### [9.2.1](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.2.0...o-forms-v9.2.1) (2021-12-24)
 
 
