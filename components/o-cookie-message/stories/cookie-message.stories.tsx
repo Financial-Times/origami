@@ -24,38 +24,39 @@ export default {
 const Story = args => {
 	useEffect(() => {
 		let cookieMessages = javascript.init();
-	});
+		return function cleanup() {
+			cookieMessages = Array.isArray(cookieMessages) ? cookieMessages : [cookieMessages];
+			cookieMessages.forEach(banner => banner.destroy());
+		}
+	}, [args]);
 	return <CookieMessage {...args} />;
 };
-
 export const Default = Story.bind({});
 Default.args = {
-	fullMarkup: true,
+	fullMarkupForDefaultContent: false,
 	heading: '',
 	copy: '',
+	redirect: '',
 	primaryAction: {
-		copy: "Accept &amp; continue",
-		url: "https://consent.ft.com/__consent/consent-record-cookie?redirect=#",
+		copy: ''
 	},
 	secondaryAction: {
-		copy: "Manage Cookies",
-		url: "https://www.ft.com/preferences/manage-cookies?redirect=#"
+		copy: ''
 	},
 	theme: '',
 };
 
 export const Alternative = Story.bind({});
 Alternative.args = {
-	fullMarkup: true,
+	fullMarkupForDefaultContent: false,
 	heading: '',
 	copy: '',
+	redirect: '',
 	primaryAction: {
-		copy: "Accept &amp; continue",
-		url: "https://consent.ft.com/__consent/consent-record-cookie?redirect=#",
+		copy: ''
 	},
 	secondaryAction: {
-		copy: "Manage Cookies",
-		url: "https://www.ft.com/preferences/manage-cookies?redirect=#"
+		copy: ''
 	},
 	theme: 'alternative'
 };
