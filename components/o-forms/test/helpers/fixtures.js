@@ -1,9 +1,9 @@
 export default `
 <form action="" data-o-component="o-forms">
 
-	<div class="o-forms-field" role="group" aria-labelledby="date-group-title1">
+	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
 		<span class="o-forms-title" aria-hidden="true">
-			<span class="o-forms-title__main" id="date-group-title1">Date input</span>
+			<span class="o-forms-title__main" id="date-group-title">Date input</span>
 		</span>
 
 		<span class="o-forms-input o-forms-input--date">
@@ -42,9 +42,9 @@ export default `
 		</span>
 	</label>
 
-	<div class="o-forms-field" role="group" aria-labelledby="date-group-title2">
+	<div class="o-forms-field" role="group" aria-labelledby="radio-group-title">
 		<span class="o-forms-title" aria-hidden="true">
-			<span class="o-forms-title__main" id="date-group-title2">Radio box input</span>
+			<span class="o-forms-title__main" id="radio-group-title">Radio box input</span>
 		</span>
 
 		<span class="o-forms-input o-forms-input--radio-box">

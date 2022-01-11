@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.2.1](https://www.github.com/Financial-Times/origami/compare/o-expander-v6.2.0...o-expander-v6.2.1) (2022-01-07)
+
+
+### Bug Fixes
+
+* support ie11 in the demo by adding Element.prototype.matches to list of required browser features ([3f63474](https://www.github.com/Financial-Times/origami/commit/3f63474321681268b5dfe627f2b06f6564cd0c9a))
+
 ## [6.2.0](https://www.github.com/Financial-Times/origami/compare/o-expander-v6.1.0...o-expander-v6.2.0) (2021-11-24)
 
 
