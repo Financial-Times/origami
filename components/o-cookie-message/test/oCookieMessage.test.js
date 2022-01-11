@@ -122,7 +122,7 @@ describe('Cookie Message', () => {
 			});
 		});
 
-		describe.only('destroy', () => {
+		describe('destroy', () => {
 			beforeEach(() => {
 				document.cookie = `FTCookieConsentGDPR=; Max-Age=-9999999999;; Path=/`;
 				fixtures.generateHTML('standard');
