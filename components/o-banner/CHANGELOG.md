@@ -1,5 +1,21 @@
 # Changelog
 
+## [4.3.0](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.2.0...o-banner-v4.3.0) (2022-01-11)
+
+
+### Features
+
+* add o-banner story to show banner with form submit button ([346f868](https://www.github.com/Financial-Times/origami/commit/346f8680bd2f90c921de1d4c28fbccbc1038c8d8))
+* Add Stories for o-banner demos. ([730910b](https://www.github.com/Financial-Times/origami/commit/730910b8c29407d919e15367e6f8fd2f791d6624))
+
+
+### Bug Fixes
+
+* close button label on o-banner storybook story ([07f0a26](https://www.github.com/Financial-Times/origami/commit/07f0a2634d738748543d21e3b55696d9b26a611f))
+* fix broken o-banner story ([9ec0af8](https://www.github.com/Financial-Times/origami/commit/9ec0af86817085f61e1f6b049d5d599559b3cb19))
+* make o-banner story controls more friendly, less like the JS API ([7cc8afe](https://www.github.com/Financial-Times/origami/commit/7cc8afe461a63a8e551152d2f0636157640280e0))
+* show close button by default on o-banner stories ([c958b92](https://www.github.com/Financial-Times/origami/commit/c958b927252967448223758cd4de405bacd62568))
+
 ## [4.2.0](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.1.0...o-banner-v4.2.0) (2021-11-24)
 
 
