@@ -55,6 +55,29 @@ Default.args = {
 // https://github.com/Financial-Times/origami/pull/523
 Default.parameters = {controls: { exclude: ['heading', 'abbreviatedHeading', 'layout'] }};
 
+export const FormPrimaryAction = Story.bind({});
+FormPrimaryAction.args = {
+	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	abbreviatedContent: 'Try it now',
+	showCloseButton: true,
+	closeButtonLabel: 'Close',
+	primaryAction: {
+		action: '#',
+		encoding: 'application/x-www-form-urlencoded',
+		method: 'POST',
+		copy: 'Try it now'
+	},
+	secondaryAction: {
+		copy: 'Give feedback',
+		url: '#'
+	},
+	theme: '',
+	layout: ''
+};
+// Exclude layout and heading controls to discourage use of the default layout with a heading.
+// https://github.com/Financial-Times/origami/pull/523
+FormPrimaryAction.parameters = {controls: { exclude: ['heading', 'abbreviatedHeading', 'layout'] }};
+
 
 export const Small = Story.bind({});
 Small.args = {

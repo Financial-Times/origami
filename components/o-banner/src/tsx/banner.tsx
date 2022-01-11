@@ -1,7 +1,7 @@
 export interface BannerSubmitButton {
 	action: string;
-	encoding: string;
-	method: string;
+	encoding: 'application/x-www-form-urlencoded' | 'multipart/form-data' | 'text/plain';
+	method: 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 	copy: string;
 }
 
@@ -92,8 +92,8 @@ export function Banner({
 							</div>
 						)}
 						{primaryAction && isBannerSubmitButton(primaryAction) && (
-							<form className="o-banner__action" method="{primaryAction.method}" encType="{primaryAction.encoding}" action="{primaryAction.action}">
-								<input className="o-banner__button" type="submit" value="{primaryAction.copy}" />
+							<form className="o-banner__action" method={primaryAction.method} encType={primaryAction.encoding} action={primaryAction.action}>
+								<input className="o-banner__button" type="submit" value={primaryAction.copy} />
 							</form>
 						)}
 						{secondaryAction && (
