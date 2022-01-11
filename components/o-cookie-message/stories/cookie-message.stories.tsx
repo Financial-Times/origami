@@ -12,10 +12,6 @@ export default {
 	args: {
 	},
 	parameters: {
-		design: {
-			type: 'figma',
-			url: 'https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=0%3A1489',
-		},
 		guidelines: {},
 		html: {},
 	},
