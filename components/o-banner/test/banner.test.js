@@ -1053,4 +1053,23 @@ describe('Banner', () => {
 
 	});
 
+	describe('.destroy', () => {
+
+		beforeEach(() => {
+			testArea.innerHTML = mainFixture;
+		});
+
+		describe('when the banner is initialised with a close button', () => {
+			it('removes the close button created on init', () => {
+				const banner = Banner.init()[0];
+				const closeButtonElement = banner.closeButtonElement;
+				proclaim.isTrue(document.body.contains(closeButtonElement), 'Close button not added to the document as expected.');
+				proclaim.isInstanceOf(banner.closeButtonElement, HTMLElement, 'Banner does not have a reference to a close button as expected.');
+				banner.destroy();
+				proclaim.isUndefined(banner.closeButtonElement, 'The destroy method did not remove the Banner\'s reference to its close button as expected.');
+				proclaim.isFalse(document.body.contains(closeButtonElement), 'The close button created on Banner init is still in the document after calling the destroy method.');
+
+			});
+		});
+	});
 });
