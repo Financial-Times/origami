@@ -16,7 +16,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	text-decoration: none;
-	padding: (_oLabelsGet('padding-vertical') - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal') - _oLabelsGet('border-width'));
+	padding: calc(#{_oLabelsGet('padding-vertical')} - #{_oLabelsGet('border-width')}) calc(#{_oLabelsGet('padding-horizontal')} - #{_oLabelsGet('border-width')});
 	color: _oLabelsGet('text-color');
 	background-color: _oLabelsGet('background-color');
 	border: solid _oLabelsGet('border-width') transparent;
@@ -175,7 +175,7 @@
 	@if $scale {
 		@include oTypographySans($scale, $line-height: 1, $include-font-family: false);
 	}
-	padding: (_oLabelsGet('padding-vertical', $size) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $size) - _oLabelsGet('border-width'));
+	padding: calc(#{_oLabelsGet('padding-vertical', $size)} - #{_oLabelsGet('border-width')}) calc(#{_oLabelsGet('padding-horizontal', $size)} - #{_oLabelsGet('border-width')});
 }
 
 /// Styles for a state.
@@ -195,7 +195,7 @@
 
 	// Set the spacing
 	@if _oLabelsGet('padding-vertical', $variant) and _oLabelsGet('padding-horizontal', $variant) {
-		padding: (_oLabelsGet('padding-vertical', $variant) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $variant) - _oLabelsGet('border-width'));
+		padding: calc(#{_oLabelsGet('padding-vertical', $variant)} - #{_oLabelsGet('border-width')}) calc(#{_oLabelsGet('padding-horizontal', $variant)} - #{_oLabelsGet('border-width')});
 	}
 }
 
