@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.2.2](https://www.github.com/Financial-Times/origami/compare/o-table-v9.2.1...o-table-v9.2.2) (2022-01-12)
+
+
+### Bug Fixes
+
+* Make demos work in IE11 by declaring Element.prototype.closest as a required feature ([722a4af](https://www.github.com/Financial-Times/origami/commit/722a4afc1a398d9d0b37c1951d6917bc8a466284))
+
 ### [9.2.1](https://www.github.com/Financial-Times/origami/compare/o-table-v9.2.0...o-table-v9.2.1) (2021-12-24)
 
 

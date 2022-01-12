@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.0.1](https://www.github.com/Financial-Times/origami/compare/o-tabs-v7.0.0...o-tabs-v7.0.1) (2022-01-12)
+
+
+### Bug Fixes
+
+* add/correct all the required features to get o-tabs working in ie11 ([e04e8a5](https://www.github.com/Financial-Times/origami/commit/e04e8a5322e1f6771ad4ba419b0bac283e01567b))
+
 ## [7.0.0](https://www.github.com/Financial-Times/origami/compare/o-tabs-v6.2.0...o-tabs-v7.0.0) (2021-12-24)
 
 
