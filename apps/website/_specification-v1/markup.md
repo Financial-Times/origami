@@ -92,14 +92,14 @@ Component styles and behaviour **may** assume that any HTML markup follows the h
 
 ## No Script
 
-Markup **may** contain elements that do not work without accompanying JavaScript. To support a [core and enhanced experience](/docs/components/compatibility/#core--enhanced-experiences) these elements **must** have a `o--if-js` class. They **should** be accompanied by an element with a class of `o--if-no-js` to offer feature fallback to users where the product developer opts not to run the JavaScript, or the user agent does not support it:
+Markup **may** contain elements that do not work without accompanying JavaScript. To support a [core and enhanced experience](/documentation/components/compatibility/#core--enhanced-experiences) these elements **must** have a `o--if-js` class. They **should** be accompanied by an element with a class of `o--if-no-js` to offer feature fallback to users where the product developer opts not to run the JavaScript, or the user agent does not support it:
 
 ```
 <div class="o--if-js">Submit a new comment: ... </div>
 <div class="o--if-no-js">To comment on this article, you need to upgrade your web browser.  <a href="...">Learn how to upgrade</a>.</div>
 ```
 
-If the `o--if-no-js` element contains an image for the [core experience](/docs/components/compatibility/#core--enhanced-experiences) only, a `<noscript>` tag **should** be used <a href="http://timkadlec.com/2012/04/media-query-asset-downloading-results/" class="o-typography-link--external">to avoid unnecessary HTTP requests</a>:
+If the `o--if-no-js` element contains an image for the [core experience](/documentation/components/compatibility/#core--enhanced-experiences) only, a `<noscript>` tag **should** be used <a href="http://timkadlec.com/2012/04/media-query-asset-downloading-results/" class="o-typography-link--external">to avoid unnecessary HTTP requests</a>:
 
 ```
 <div class="o--if-no-js">

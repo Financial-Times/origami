@@ -158,7 +158,7 @@ For the most part, use of this technique creates too much 'magic' behaviour that
 
 ## Data Storage
 
-Components that store data on the client via user-agent APIs **must** encapsulate all the logic required to get and set that data and must remain compatible with the format of data that they store, unless the major version number of the component changes. In that case the component **must not** invalidate any existing data, and **should** provide advice in docs on migrating user data from previous versions.
+Components that store data on the client via user-agent APIs **must** encapsulate all the logic required to get and set that data and must remain compatible with the format of data that they store, unless the major version number of the component changes. In that case the component **must not** invalidate any existing data, and **should** provide advice in documentation on migrating user data from previous versions.
 
 ## Viewport Events
 

@@ -15,7 +15,7 @@ Some of the bigger Origami news from the last month:
 
 Looking back over the 7 years of the team and project, we wrote a new mission statement for Origami.
 
-We've posted them on the website here: https://origami.ft.com/docs/principles/vision-and-mission/
+We've posted them on the website here: https://origami.ft.com/documentation/principles/vision-and-mission/
 
 #### Mission
 

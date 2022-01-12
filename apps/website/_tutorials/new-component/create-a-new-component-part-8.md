@@ -9,13 +9,13 @@ collection_listing_display: false
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
-1. [Intro & Boilerplate](/docs/tutorials/create-a-new-component-part-1/)
-2. [Base Styles](/docs/tutorials/create-a-new-component-part-2/)
-3. [Themes & Brands](/docs/tutorials/create-a-new-component-part-3/)
-4. [Demos](/docs/tutorials/create-a-new-component-part-4/)
-5. [JavaScript](/docs/tutorials/create-a-new-component-part-5/)
-6. [Testing](/docs/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/docs/tutorials/create-a-new-component-part-7/)
+1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
+2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
+3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
+4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
+5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
+6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
+7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
 8. Component Lifecycle
 
 In part eight we will learn how to publish our component to the Origami registry 🎉, and discuss the lifecycle of a published component.
@@ -87,7 +87,7 @@ After the first release Origami components may be released automatically by appl
 	</figcaption>
 </figure>
 
-The [semver specification](https://semver.org/) documents what constitutes a major, minor, or patch release. There are also some [Origami specific considerations](/docs/components/versioning/#how-components-are-versioned) to keep in mind when versioning a component. For example we may opt to release a major version of a component even with a compatible <abbr title="application programming interface">api</abbr> if it includes drastic visual changes.
+The [semver specification](https://semver.org/) documents what constitutes a major, minor, or patch release. There are also some [Origami specific considerations](/documentation/components/versioning/#how-components-are-versioned) to keep in mind when versioning a component. For example we may opt to release a major version of a component even with a compatible <abbr title="application programming interface">api</abbr> if it includes drastic visual changes.
 
 ## Component Lifecycle
 

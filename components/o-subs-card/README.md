@@ -13,7 +13,7 @@ This component is used for showing information about various FT subscription pac
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-subs-card`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-subs-card`.
 
 ## Markup
 

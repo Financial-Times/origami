@@ -9,14 +9,14 @@ collection_listing_display: false
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
-1. [Intro & Boilerplate](/docs/tutorials/create-a-new-component-part-1/)
-2. [Base Styles](/docs/tutorials/create-a-new-component-part-2/)
-3. [Themes & Brands](/docs/tutorials/create-a-new-component-part-3/)
-4. [Demos](/docs/tutorials/create-a-new-component-part-4/)
+1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
+2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
+3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
+4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. JavaScript
-6. [Testing](/docs/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/docs/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/docs/tutorials/create-a-new-component-part-8/)
+6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
+7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
 In part five we will add interactivity to our component using JavaScript. For reference, there is a [JavaScript part of the component specification](/specification/v1/components/javascript/) which we will be conforming to.
 
@@ -314,4 +314,4 @@ In part five we learnt how to make our component interactive with JavaScript, co
 - How to update the <abbr title="Document Object Model">DOM</abbr> with component JavaScript.
 - How to handle missing JavaScript features, or no JavaScript at all, to meet Financial Times browser support requirements.
 
-In part six we'll look at testing our component. [Continue to part six](/docs/tutorials/create-a-new-component-part-6).
+In part six we'll look at testing our component. [Continue to part six](/documentation/tutorials/create-a-new-component-part-6).

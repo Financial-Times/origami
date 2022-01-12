@@ -11,7 +11,7 @@ This component is for displaying collections of [o-teasers](http://registry.orig
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-teaser-collection`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-teaser-collection`.
 
 ## Markup
 

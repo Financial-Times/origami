@@ -14,7 +14,7 @@ _Use `o-fonts` to include Origami provided fonts, or register supported custom f
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-fonts`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-fonts`.
 
 ## Recommended Fonts
 

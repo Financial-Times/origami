@@ -1,12 +1,13 @@
 ---
 title: Origami Components
 description: Documentation on how to use Origami components, which provide reusable HTML, SCSS, and JavaScript for FT web pages.
-permalink: /docs/components/
+permalink: /documentation/components/
 layout: collection
 collection_id: components
 
 # Redirect from legacy URLs
 redirect_from:
+  - /docs/components/
   - /docs/developer-guide/modules/
   - /docs/developer-guide/modules/choosing-your-build-method/
 

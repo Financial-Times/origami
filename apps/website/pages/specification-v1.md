@@ -23,7 +23,7 @@ nav_order: 20
 The Origami specification outlines the requirements for Origami-compatible components and services. This is a <a href="https://www.w3.org/TR/qaframe-spec/" class="o-typography-link--external">normative</a> specification; non-normative (informative) sections are indicated explicitly or by inset and boxed asides. The words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** have the meaning given to them in <a href="http://www.ietf.org/rfc/rfc2119.txt" class="o-typography-link--external">RFC 2119</a>.
 
 <aside>
-	This section of the site is meant for people who are building Origami components or services. To use Origami, see the <a href="/docs/components/">components documentation</a> and <a href="/docs/services/">services documentation</a>.
+	This section of the site is meant for people who are building Origami components or services. To use Origami, see the <a href="/documentation/components/">components documentation</a> and <a href="/documentation/services/">services documentation</a>.
 </aside>
 
 

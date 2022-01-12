@@ -65,12 +65,12 @@ The "core" brand is the default brand, but your project may use any of the provi
 
 To select a brand within your project, see the tutorial for your method of including Origami components:
 
-- [Origami Build Service tutorial](/docs/tutorials/build-service/#selecting-a-brand)
-- [Package manager (npm) tutorial](/docs/tutorials/manual-build/#selecting-a-brand)
+- [Origami Build Service tutorial](/documentation/tutorials/build-service/#selecting-a-brand)
+- [Package manager (npm) tutorial](/documentation/tutorials/manual-build/#selecting-a-brand)
 
 ### Customise A Brand
 
-If your project has access to a component's Sass API (see the [package manager (npm) tutorial](/docs/tutorials/manual-build/#selecting-a-brand)) it is possible to customise your chosen brand. For example, at the time of writing, the [`oTypographySetFont`](https://registry.origami.ft.com/components/o-typography@6.4.5/sassdoc?brand=core#mixin-otypographysetfont) mixin can be used to customise component fonts. This customises the font used by all components included in your project.
+If your project has access to a component's Sass API (see the [package manager (npm) tutorial](/documentation/tutorials/manual-build/#selecting-a-brand)) it is possible to customise your chosen brand. For example, at the time of writing, the [`oTypographySetFont`](https://registry.origami.ft.com/components/o-typography@6.4.5/sassdoc?brand=core#mixin-otypographysetfont) mixin can be used to customise component fonts. This customises the font used by all components included in your project.
 
 <aside>
 Not all components support brand customisation but the Origami team are happy for support to be added as needed. Ask the core Origami team about new features in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel.
@@ -110,7 +110,7 @@ If your project is based on the core or internal brand, however, it is more like
 
 ## Variants
 
-If your project has access to a component's Sass (see the [manual build tutorial](/docs/tutorials/manual-build/#selecting-a-brand)) your project may use Sass mixins to customise components by outputting a new variant of that component. A component variant is an instance of a component with modified appearance or functionality.
+If your project has access to a component's Sass (see the [manual build tutorial](/documentation/tutorials/manual-build/#selecting-a-brand)) your project may use Sass mixins to customise components by outputting a new variant of that component. A component variant is an instance of a component with modified appearance or functionality.
 
 For instance, at the time of writing, the `o-banner` component has an [`oBannerAddTheme` mixin](https://registry.origami.ft.com/components/o-banner@3.4.2/sassdoc?brand=core#mixin-obanneraddtheme) which provides options for creating a banner variant with customised colour and background image:
 
@@ -121,7 +121,7 @@ For instance, at the time of writing, the `o-banner` component has an [`oBannerA
     button-background-color: oColorsByName('crimson'),
 ));</code></pre>
 
-<aside>If your project is using the <a href="/docs/tutorials/build-service/">Origami Build Service</a>, you do not have access to the component's Sass API, as such it is not currently possible to create custom component variants. It may be possible in the future using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">Custom CSS Properties (CSS Variables)</a>, when projects no longer support older browsers such as Internet Explorer.</aside>
+<aside>If your project is using the <a href="/documentation/tutorials/build-service/">Origami Build Service</a>, you do not have access to the component's Sass API, as such it is not currently possible to create custom component variants. It may be possible in the future using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">Custom CSS Properties (CSS Variables)</a>, when projects no longer support older browsers such as Internet Explorer.</aside>
 
 <figure>
 	<img alt="" src="/assets/images/component-customisation/pikachu-banner.png" />

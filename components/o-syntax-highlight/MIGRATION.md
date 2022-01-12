@@ -2,7 +2,7 @@
 
 ### Migrating from v3 to v4
 
-V4 has dropped support for use through Bower. If you have been using Bower, you will need to follow the [bower to npm migration guide](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+V4 has dropped support for use through Bower. If you have been using Bower, you will need to follow the [bower to npm migration guide](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
 
 When using Sass, you will need to add `node_modules` to your `includePath` as well as either:
 

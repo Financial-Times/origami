@@ -133,7 +133,7 @@ async function packageJson() {
 			result.push(invalidExplanation);
 		}
 	} else {
-		result.push(`No package.json file found. To make this an origami component, create a package.json file following the format defined at: https://origami.ft.com/docs/components/code/#package-management`);
+		result.push(`No package.json file found. To make this an origami component, create a package.json file following the format defined at: https://origami.ft.com/documentation/components/code/#package-management`);
 	}
 	return result;
 }
@@ -142,7 +142,7 @@ console.log('verify-package-json: Verifying your package.json');
 let errors = await packageJson()
 
 if(errors.length > 0) {
-	const message = 'Failed linting:\n\n' + errors.join('\n') + '\n\nThe package.json file does not conform to the expected format https://origami.ft.com/docs/manifests/origami-json/';
+	const message = 'Failed linting:\n\n' + errors.join('\n') + '\n\nThe package.json file does not conform to the expected format https://origami.ft.com/documentation/manifests/origami-json/';
 	if (isCI) {
 		const newLine = "%0A";
 		console.log(`::error file=${cwd}/package.json,line=1,col=1::${message.replace(/\n/g, newLine)}`);

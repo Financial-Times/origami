@@ -60,7 +60,7 @@ We'll be running these on the 26th April, at a time suitable for London and Sofi
 
 We now have a page to help our users decide if they need to customise an Origami component, and if so, how to go about it in a safe, supported way which should reduce the chance of the customisation breaking in the future.
 
-Please [have a read through the page](https://origami.ft.com/docs/components/customisation/) and let us know of any feedback you may have or suggestions for other topics we could write guidance for.
+Please [have a read through the page](https://origami.ft.com/documentation/components/customisation/) and let us know of any feedback you may have or suggestions for other topics we could write guidance for.
 
 
 ## Special thanks

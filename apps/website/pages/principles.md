@@ -1,12 +1,13 @@
 ---
 title: Origami Principles
 description: Guiding principles that Origami follows when developing products for the FT.
-permalink: /docs/principles/
+permalink: /documentation/principles/
 layout: collection
 collection_id: principles
 
 # Redirect from legacy URLs
 redirect_from:
+  -  /docs/principles/
   - /docs/developer-guide/general-best-practices/
 
 # Navigation config

@@ -11,7 +11,7 @@ This is an [Origami](http://origami.ft.com/) component that provides a visual lo
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-loading`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-loading`.
 
 ## Markup
 In order to display a loading indicator in your product, you will need to supply the theme and the size modifiers in your markup, e.g.:

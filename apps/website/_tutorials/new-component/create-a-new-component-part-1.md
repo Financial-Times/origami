@@ -9,13 +9,13 @@ cta: Learn how to create an Origami component
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
 1. Intro & Boilerplate
-2. [Base Styles](/docs/tutorials/create-a-new-component-part-2/)
-3. [Themes & Brands](/docs/tutorials/create-a-new-component-part-3/)
-4. [Demos](/docs/tutorials/create-a-new-component-part-4/)
-5. [JavaScript](/docs/tutorials/create-a-new-component-part-5/)
-6. [Testing](/docs/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/docs/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/docs/tutorials/create-a-new-component-part-8/)
+2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
+3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
+4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
+5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
+6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
+7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
 ## Introduction
 
@@ -220,4 +220,4 @@ In part one we learnt:
 - Origami components HTML markup is usually copied by users from component demos rather than from templates.
 - And finally we learnt how to update the markup in one of those demos.
 
-Now we know how to update our component markup, in part two we will style our component. [Continue to part two](/docs/tutorials/create-a-new-component-part-2).
+Now we know how to update our component markup, in part two we will style our component. [Continue to part two](/documentation/tutorials/create-a-new-component-part-2).

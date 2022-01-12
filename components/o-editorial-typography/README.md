@@ -13,7 +13,7 @@ _Typography styles for editorial content._
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-editorial-typography`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-editorial-typography`.
 
 ## Markup
 

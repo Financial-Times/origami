@@ -9,7 +9,7 @@ this one has an invalid toc without a "table of contents" heading
 
 ## Usage
 
-[Include components](https://origami.ft.com/docs/components/#including-origami-components-in-your-project).
+[Include components](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project).
 
 ## Markup
 

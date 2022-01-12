@@ -19,7 +19,7 @@ Some of the bigger Origami news from the last month:
 
 ### FT Bower Registry is now deprecated
 
-Our main objective this quarter was to have everything in Origami moved off of Bower and onto the [NPM registry](https://www.npmjs.com/) (see [January's announcement](/blog/2021/01/18/deprecating-bower-and-origami-via-npm/)). 
+Our main objective this quarter was to have everything in Origami moved off of Bower and onto the [NPM registry](https://www.npmjs.com/) (see [January's announcement](/blog/2021/01/18/deprecating-bower-and-origami-via-npm/)).
 
 Moving Origami from Bower to NPM provides many benefits, such as:
 
@@ -32,7 +32,7 @@ We have completed this piece of work and now are ready for teams to migrate thei
 
 The [FT Bower Registry](https://origami-bower-registry.ft.com/) has now also been placed into a maintenance only mode for 12 months, until 1st July 2022, when we will look to decommission the service completely.
 
-We have [created a set of guides](https://origami.ft.com/docs/tutorials/npm/) to cover the different ways products may choose to migrate.
+We have [created a set of guides](https://origami.ft.com/documentation/tutorials/npm/) to cover the different ways products may choose to migrate.
 
 
 ### o-autocomplete

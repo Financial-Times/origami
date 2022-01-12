@@ -12,7 +12,7 @@ This [Origami](http://origami.ft.com/) component provides CSS visual effects via
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-visual-effects`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-visual-effects`.
 
 ## Markup
 

@@ -178,7 +178,7 @@ Origami components are used by products across the Financial Times Group. Some o
 - internal: Style suitable for internal products, tools, and documentation.
 - whitelabel: Base, structural styles only to build on and customise.
 
-See [component brand documentation](/docs/components/branding/) for more details.
+See [component brand documentation](/documentation/components/branding/) for more details.
 
 ### Register Supported Brands
 
@@ -234,7 +234,7 @@ E.g.
 
 ## Feature Flags
 
-To support a [core and enhanced experience](/docs/components/compatibility/#core--enhanced-experiences) components must render acceptably without JavaScript avalible. Styles which only apply if JavaScript is available **must** be applied with a feature detect such as `.o--if-js`, and to hide an element of a component when JavaScript is available use `o--if-no-js`. If the component provides its own JavaScript feature flag, it **must** be named `.o-componentname--js`.
+To support a [core and enhanced experience](/documentation/components/compatibility/#core--enhanced-experiences) components must render acceptably without JavaScript avalible. Styles which only apply if JavaScript is available **must** be applied with a feature detect such as `.o--if-js`, and to hide an element of a component when JavaScript is available use `o--if-no-js`. If the component provides its own JavaScript feature flag, it **must** be named `.o-componentname--js`.
 
 To detect other features, standardised feature detects **should** be used as a preference, such as the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports" class="o-typography-link--external">@supports</a> at-rule. Otherwise a CSS class on the `documentElement` **may** be used to indicate feature support. The class name **should** be configurable, and default to the class name used by <a href="https://modernizr.com/" class="o-typography-link--external">Modernizr</a>:
 ```
