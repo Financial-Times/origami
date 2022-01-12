@@ -8,8 +8,8 @@
 					@include _oLabelsBaseContent;
 				}
 				@include contains() {
-					$expected-vertical-padding: oSpacingByName('s1') - 1px;
-					$expected-horizontal-padding: oSpacingByName('s2') - 1px;
+					$expected-vertical-padding: calc(#{oSpacingByName('s1')} - #{1px});
+					$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
 					padding: $expected-vertical-padding $expected-horizontal-padding;
 				}
 			}
@@ -24,8 +24,8 @@
 						@include _oLabelsSize('big');
 					}
 					@include contains($selector: false) {
-						$expected-vertical-padding: oSpacingByName('s2') - 1px;
-						$expected-horizontal-padding: oSpacingByName('s2') - 1px;
+						$expected-vertical-padding: calc(#{oSpacingByName('s2')} - #{1px});
+						$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
 						.o-labels--big {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
 						}
@@ -43,8 +43,8 @@
 						@include _oLabelsSize('small');
 					}
 					@include contains($selector: false) {
-						$expected-vertical-padding: 1px;
-						$expected-horizontal-padding: 3px;
+						$expected-vertical-padding: calc(#{2px} - #{1px});
+						$expected-horizontal-padding: calc(#{4px} - #{1px});
 						.o-labels--small {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
 						}
@@ -67,7 +67,7 @@
 						.o-example-label {
 							font-size: 12px;
 							line-height: 1;
-							padding: 1px 3px;
+							padding: calc(#{2px} - #{1px}) calc(#{4px} - #{1px});
 						}
 						.o-typography--loading-sans .o-example-label {
 							font-size: 10.44px;
@@ -126,7 +126,7 @@
 							color: white;
 							font-size: 12px;
 							line-height: 1;
-							padding: 1px 3px;
+							padding: calc(#{2px} - #{1px}) calc(#{4px} - #{1px});
 						}
 
 						.o-typography--loading-sans .o-example-label {
