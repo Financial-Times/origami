@@ -14,14 +14,12 @@
 	"supportStatus": "active",
 	"browserFeatures": {
 		"required": [
-			"queryselector",
-			"addeventlistener",
-			"classlist",
+			"Array.from",
+			"CustomEvent",
+			"Element.prototype.classList",
+			"Element.prototype.matches",
+			"String.prototype.includes",
 			"String.prototype.trim"
-		],
-		"optional": [
-			"domcontentready",
-			"customevent"
 		]
 	},
 	"demosDefaults": {
