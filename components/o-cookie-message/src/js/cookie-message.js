@@ -24,6 +24,13 @@ class CookieMessage {
 
 		this.cookieMessageElement = cookieMessageElement;
 
+		/**
+		 * Keep track of event listeners to remove within the destroy method
+		 * @type {{target: EventTarget, type: string, listener: EventListener}[]}
+		 * @access private
+		 */
+		this._eventListeners = [];
+
 		// Get cookie message options
 		options = options || CookieMessage.getOptionsFromDom(cookieMessageElement);
 
@@ -41,13 +48,17 @@ class CookieMessage {
 			this.removeCookieMessage();
 		}
 
-		window.addEventListener('pageshow', event => {
+		const pageshowListener = event => {
 			if (
 				event.persisted === true &&
 				this.shouldShowCookieMessage() === false
 			) {
 				return this.removeCookieMessage();
 			}
+		};
+		window.addEventListener('pageshow', pageshowListener);
+		this._eventListeners.push({
+			target: window, type: 'pageshow', listener: pageshowListener
 		});
 	}
 
@@ -109,7 +120,7 @@ class CookieMessage {
 	updateConsent() {
 		const button = document.querySelector(`.o-cookie-message__button`);
 		if (button) {
-			button.addEventListener('click', e => {
+			const clickListener = e => {
 				e.preventDefault();
 				this.dispatchEvent('oCookieMessage.act');
 				this.removeCookieMessage();
@@ -117,6 +128,10 @@ class CookieMessage {
 					method: 'get',
 					credentials: 'include',
 				});
+			};
+			button.addEventListener('click', clickListener);
+			this._eventListeners.push({
+				target: button, type: 'click', listener: clickListener
 			});
 		}
 	}
@@ -166,6 +181,21 @@ class CookieMessage {
 		} catch (err) {
 			// cookieMessageElement or its parentNode has already been removed
 		}
+	}
+
+	/**
+	 * Undo theme and event listeners set on init.
+	 *
+	 * @returns {void}
+	 */
+	destroy() {
+		this.cookieMessageElement.classList.remove(
+			`o-cookie-message--${this.options.theme}`
+		);
+		this._eventListeners.forEach(eventListener => {
+			const {target, type, listener} = eventListener;
+			target.removeEventListener(type, listener);
+		});
 	}
 
 	dispatchEvent(eventName) {

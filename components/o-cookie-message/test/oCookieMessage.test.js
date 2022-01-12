@@ -122,6 +122,35 @@ describe('Cookie Message', () => {
 			});
 		});
 
+		describe('destroy', () => {
+			beforeEach(() => {
+				document.cookie = `FTCookieConsentGDPR=; Max-Age=-9999999999;; Path=/`;
+				fixtures.generateHTML('standard');
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
+
+			it('removes the theme set via an option', () => {
+				cookieMessage = CookieMessage.init(null, { theme: 'alternative' });
+
+				proclaim.ok(document.querySelector('.o-cookie-message--alternative'), 'Did not find theme class before calling destroy');
+				cookieMessage.destroy();
+				proclaim.notOk(document.querySelector('.o-cookie-message--alternative'), 'Found theme class after calling destroy');
+			});
+
+			it('removes the button click event listener', () => {
+				document.body.addEventListener('oCookieMessage.act', function act (){
+					throw new Error('The click event listener was actioned after calling the `destroy` method.');
+				});
+				cookieMessage = CookieMessage.init();
+				cookieMessage.destroy();
+				const button = cookieMessage.cookieMessageElement.querySelector('.o-cookie-message__button');
+				button.click();
+			});
+		});
+
 		describe('bfcache behaviour', () => {
 			let hasClosed;
 

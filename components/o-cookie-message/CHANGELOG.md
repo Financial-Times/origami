@@ -1,5 +1,13 @@
 # Changelog
 
+## [6.3.0](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.2.2...o-cookie-message-v6.3.0) (2022-01-11)
+
+
+### Features
+
+* add cookie message destroy method ([c39b36d](https://www.github.com/Financial-Times/origami/commit/c39b36d1f99031e151b413904ebd90146e22a47f))
+* add o-cookie-message Storybook Story ([8d4e9d6](https://www.github.com/Financial-Times/origami/commit/8d4e9d6837bd15508258e7f2f1bfbc3e50bb8840))
+
 ### [6.2.2](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.2.1...o-cookie-message-v6.2.2) (2022-01-06)
 
 
