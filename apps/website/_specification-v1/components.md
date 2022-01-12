@@ -214,7 +214,7 @@ Components **should** implement CI. If a component does so then it **should** ve
 
 ### Browser/manual testing
 
-All components **must** be tested with all the browsers listed in the <a href="/docs/components/compatibility/#browser-support">FT browser support policy</a>. If a component includes JavaScript, it **must** be error free in all the browsers that fall above the recommended minimum boundary for enhanced experience in that policy.
+All components **must** be tested with all the browsers listed in the <a href="/documentation/components/compatibility/#browser-support">FT browser support policy</a>. If a component includes JavaScript, it **must** be error free in all the browsers that fall above the recommended minimum boundary for enhanced experience in that policy.
 
 The versions tested **should** be listed in the component’s documentation, so that when boundary recommendations are changed, it is still possible to determine the support that was designed into an older component.
 
@@ -244,7 +244,7 @@ Component JavaScript **should** be documented using <a href="http://usejsdoc.org
 
 ## Browser support
 
-All components **must** be tested with all the browsers listed in the [FT browser support policy](/docs/components/compatibility/#browser-support). If a component includes JavaScript, it **must** be error free in all the browsers which fall under the "enhanced experience" in that policy.
+All components **must** be tested with all the browsers listed in the [FT browser support policy](/documentation/components/compatibility/#browser-support). If a component includes JavaScript, it **must** be error free in all the browsers which fall under the "enhanced experience" in that policy.
 
 ## Demos
 
@@ -257,7 +257,7 @@ When deciding what demos to create, demos:
 
 When building demos, they:
 - **Must** have a description explaining what they show ([see origami.json](/specification/v1/manifest/#demos)).
-- **Should** be reproducible using the [Origami Build Service](/docs/services/#build-service) by copying the demo markup.
+- **Should** be reproducible using the [Origami Build Service](/documentation/services/#build-service) by copying the demo markup.
 - **Should not** include more than necessary to demonstrate the component, including: any headings, backgrounds, margins or other content that are not part of the component itself.
 
 Where styles need to be added specifically for a demo (e.g. to make the content of o-grid containers visible), they **must** be attached to classes with a `demo-` prefix, for example:
@@ -290,7 +290,7 @@ To ensure subsequent releases don't affect the current users of a component:
 
 When new versions of components are released, updates **may** be needed to other components and products that consume the component. The following notification rules apply:
 
-- If the release is a new **major** version, the component developer **must** notify maintainers of all components and products with dependents, at least 1 day prior to the release being tagged (to enable other breaking changes to be suggested), and again immediately after the release. When a new **major** release affects many dependent components and projects we call this a [major cascade](/docs/components/major-cascade/). It **may** require [extra consideration](/docs/components/major-cascade/) before release.
+- If the release is a new **major** version, the component developer **must** notify maintainers of all components and products with dependents, at least 1 day prior to the release being tagged (to enable other breaking changes to be suggested), and again immediately after the release. When a new **major** release affects many dependent components and projects we call this a [major cascade](/documentation/components/major-cascade/). It **may** require [extra consideration](/documentation/components/major-cascade/) before release.
 - If the release is a new **minor** version, the component developer **should** notify maintainers of all components and products listed as dependents in the Origami registry, immediately after the release.
 - If the release is a new **patch** version, no notifications need be sent.
 

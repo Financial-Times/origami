@@ -3,19 +3,19 @@
 collections:
   components:
     output: true
-    permalink: /docs/:collection/:name/
+    permalink: /documentation/:collection/:name/
   services:
     output: false
-    permalink: /docs/:collection/:name/
+    permalink: /documentation/:collection/:name/
   manifests:
     output: true
-    permalink: /docs/:collection/:name/
+    permalink: /documentation/:collection/:name/
   tutorials:
     output: true
-    permalink: /docs/:collection/:name/
+    permalink: /documentation/:collection/:name/
   principles:
     output: true
-    permalink: /docs/:collection/:name/
+    permalink: /documentation/:collection/:name/
   emails:
     output: true
     permalink: /:collection/:name/
@@ -28,7 +28,7 @@ defaults:
   - scope:
       path: ""
     values:
-      layout: o-layout-docs
+      layout: o-layout-documentation
   - scope:
       path: "_specification-v1"
     values:

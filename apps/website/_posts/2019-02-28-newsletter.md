@@ -15,7 +15,7 @@ These are some of the bigger things we've worked on or released over the last mo
 
 ### Origami Components On NPM
 
-Origami components are now available on the npmjs registry as well as the bower registry. This will help teams who have difficulty using bower in their projects. [Our guide](/docs/tutorials/bower-to-npm) shows how to move a project from bower to npmjs. Outside Origami, it looks like the apps team are going to be the first to migrate a project. Good work!
+Origami components are now available on the npmjs registry as well as the bower registry. This will help teams who have difficulty using bower in their projects. [Our guide](/documentation/tutorials/bower-to-npm) shows how to move a project from bower to npmjs. Outside Origami, it looks like the apps team are going to be the first to migrate a project. Good work!
 
 If you have any queries/questions, the Origami team are ready to help.
 

@@ -5,7 +5,7 @@ let { existsSync, readFileSync } = require("fs")
 
 /**
  * Has a link to general component usage information:
- * https://origami.ft.com/docs/components
+ * https://origami.ft.com/documentation/components
  *
  * @param {import("mdast").Root} tree
  */
@@ -14,7 +14,7 @@ function readmeHasGeneralUsage(tree, file) {
 		return
 	}
 
-	const generalUsageLink = "https://origami.ft.com/docs/components";
+	const generalUsageLink = "https://origami.ft.com/documentation/components";
 
 	let hasGeneralUsageLink = false;
 	walk(tree, "link" , function (node) {

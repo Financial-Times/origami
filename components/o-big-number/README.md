@@ -10,7 +10,7 @@ Typographical styles to highlight and describe a big number. Positioning of the 
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-big-number`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-big-number`.
 
 ## Markup
 

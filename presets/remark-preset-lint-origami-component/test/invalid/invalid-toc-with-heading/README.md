@@ -11,7 +11,7 @@ this one has an invalid toc with a heading
 
 ## Usage
 
-[Include components](https://origami.ft.com/docs/components/#including-origami-components-in-your-project).
+[Include components](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project).
 
 ## Markup
 

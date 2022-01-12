@@ -9,20 +9,20 @@ collection_listing_display: false
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
-1. [Intro & Boilerplate](/docs/tutorials/create-a-new-component-part-1/)
-2. [Base Styles](/docs/tutorials/create-a-new-component-part-2/)
-3. [Themes & Brands](/docs/tutorials/create-a-new-component-part-3/)
+1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
+2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
+3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
 4. Demos
-5. [JavaScript](/docs/tutorials/create-a-new-component-part-5/)
-6. [Testing](/docs/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/docs/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/docs/tutorials/create-a-new-component-part-8/)
+5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
+6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
+7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
-In part four we will create new demos to showcase the themes we created in [part three](/docs/tutorials/create-a-new-component-part-3). We will also revisit demo boilerplate, including the purpose of the `pa11y` demo you may have already noticed.
+In part four we will create new demos to showcase the themes we created in [part three](/documentation/tutorials/create-a-new-component-part-3). We will also revisit demo boilerplate, including the purpose of the `pa11y` demo you may have already noticed.
 
 ## Add More Demos
 
-In [part three](/docs/tutorials/create-a-new-component-part-3) we added an `inverse` theme for each brand and a `b2c` theme for the core brand but no demos for these. That means there is no visual preview for potential users of our component, and no ability to copy the html for these themes from the [Origami component registry](https://registry.origami.ft.com/components/).
+In [part three](/documentation/tutorials/create-a-new-component-part-3) we added an `inverse` theme for each brand and a `b2c` theme for the core brand but no demos for these. That means there is no visual preview for potential users of our component, and no ability to copy the html for these themes from the [Origami component registry](https://registry.origami.ft.com/components/).
 
 To add new demos we will update `origami.json`. This file contains lots of information about our components, including its name, description, demos, and more — see the [Origami Manifest specification](/specification/v1/manifest/) for full details.
 
@@ -137,4 +137,4 @@ In part four we learnt:
 - What the `pa11y` demo is used for.
 - How to use `origami.json` properties to make it easier to configure multiple demos.
 
-Although our component is starting to look good it has a button which doesn't do anything. So next we'll learn how to add interactivity to our component with JavaScript. [Continue to part five](/docs/tutorials/create-a-new-component-part-5).
+Although our component is starting to look good it has a button which doesn't do anything. So next we'll learn how to add interactivity to our component with JavaScript. [Continue to part five](/documentation/tutorials/create-a-new-component-part-5).

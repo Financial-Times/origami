@@ -27,7 +27,7 @@ This component is a collection of Sass styles to build a 12 column grid system, 
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-grid`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-grid`.
 
 ## Quick Start
 

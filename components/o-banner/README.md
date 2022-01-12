@@ -17,7 +17,7 @@ o-banner includes Sass and JavaScript to show and hide the banner. Banners can b
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-banner`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-banner`.
 
 ## Behaviour
 

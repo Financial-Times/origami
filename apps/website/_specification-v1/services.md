@@ -15,7 +15,7 @@ nav_order: 20
 
 # {{page.title}}
 
-An Origami web service is a hosted service, offered as a URL endpoint that delivers content or data services. See our [services documentation page](/docs/services/) for example services.
+An Origami web service is a hosted service, offered as a URL endpoint that delivers content or data services. See our [services documentation page](/documentation/services/) for example services.
 
 All services **must** adhere to the FT's <a href="https://docs.google.com/document/d/1NbgQwJKUhSJBVMWw8OVVrKyKwRieaXq7AOtioC69XKM" class="o-typography-link--external">engineering checklist</a>.
 
@@ -112,7 +112,7 @@ To decommission a previous version you **must**:
 
 ## Documentation
 
-Services **must** serve content on the bare versioned endpoints (e.g. `/v1/`) that documents the service, or links to documentation under a `docs` path (e.g. `/v1/docs/`). Documentation **should** use the [o-layout](https://registry.origami.ft.com/components/o-layout) component for formatting and layout.
+Services **must** serve content on the bare versioned endpoints (e.g. `/v1/`) that documents the service, or links to documentation under a `documentation` path (e.g. `/v1/documentation/`). Documentation **should** use the [o-layout](https://registry.origami.ft.com/components/o-layout) component for formatting and layout.
 
 ## JSONP
 

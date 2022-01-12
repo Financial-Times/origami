@@ -18,7 +18,7 @@ These are some of the bigger things we've done over the last month.
 
 ### Create A New Origami Component
 
-This month we released a new tutorial, [Create A New Origami Component](/docs/tutorials/create-a-new-component-part-1/). The tutorial starts from an empty folder and concludes by publishing a new component to the [Origami registry](https://registry.origami.ft.com/components).
+This month we released a new tutorial, [Create A New Origami Component](/documentation/tutorials/create-a-new-component-part-1/). The tutorial starts from an empty folder and concludes by publishing a new component to the [Origami registry](https://registry.origami.ft.com/components).
 
 Our aim was to encourage more contributions from outside the core Origami team by pulling together documentation from various sources into a complete step-by-step guide. We hope the tutorial will be useful for teams who want to create new Origami components, such as when the former Comments team built [o-comments](https://registry.origami.ft.com/components/o-comments@7.6.5); and for new or guest members of the Origami team, such as when Olga Averjanova created the [o-meter](https://registry.origami.ft.com/components/o-meter@2.0.4?brand=internal) component during their bootcamp with us.
 

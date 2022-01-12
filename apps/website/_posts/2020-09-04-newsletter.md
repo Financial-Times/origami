@@ -18,7 +18,7 @@ Welcome to our (slightly delayed) August newsletter, here are some updates from 
 
 ### Deleting Documentation
 
-Last issue we introduced a new tutorial: [Create A New Origami Component](/docs/tutorials/create-a-new-component-part-1/). This issue we're happy to report we deleted some of that work!
+Last issue we introduced a new tutorial: [Create A New Origami Component](/documentation/tutorials/create-a-new-component-part-1/). This issue we're happy to report we deleted some of that work!
 
 We wrote the tutorial to encourage more contributions from outside the core Origami team. However a secondary benefit of thoroughly documenting how to create a new component is that we can identify opportunities to simplify our process, for example by moving to new standards, and delete sections of the tutorial as we go.
 

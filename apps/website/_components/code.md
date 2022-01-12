@@ -16,7 +16,7 @@ The <a href="https://origami.ft.com/blog/2021/06/01/newsletter/#the-origami-spec
 ## Manifest
 
 Origami components contain an `origami.json` file at the top of the
-component's directory structure, with the `type` property set to `"component"`. The [`origami.json` manifest documentation](/docs/manifests/origami-json/) covers the contents of this file.
+component's directory structure, with the `type` property set to `"component"`. The [`origami.json` manifest documentation](/documentation/manifests/origami-json/) covers the contents of this file.
 
 ## Naming conventions
 

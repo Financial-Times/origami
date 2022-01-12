@@ -5,7 +5,7 @@
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
 
 ## Migrating from v5 to v6
 
@@ -33,7 +33,7 @@ const video = new Video(document.body, opts);
 
 Version 5 introduces a new major of `o-loading`. Updating to this new version will mean updating any other components that you have which are using `o-loading`.
 
-It also removes the dependency on `o-fetch-jsonp`, and requires the `fetch` polyfill to run in older browsers— we recommend visiting the [documentation for the Polyfill service](https://origami-test.ft.com/docs/components/compatibility/#polyfill-service) to do so.
+It also removes the dependency on `o-fetch-jsonp`, and requires the `fetch` polyfill to run in older browsers— we recommend visiting the [documentation for the Polyfill service](https://origami.ft.com/documentation/components/compatibility/#polyfill-service) to do so.
 
 This version also introduces the primary mixin, `oVideo()`.
 

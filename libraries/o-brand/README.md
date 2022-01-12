@@ -31,7 +31,7 @@ A variant is an addition or modification to a component within a given brand. Va
 
 **&#x26A0;&#xFE0F; Non-Origami projects must not depend on `o-brand` directly.**
 
-Non-Origami projects must not depend on `o-brand` directly. Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started using Origami components. If you would like to learn how develop a branded Origami component, the [Create An Origami Component tutorial](https://origami.ft.com/docs/tutorials/create-a-new-component-part-1/) shows how to use `o-brand` to build a customisable component.
+Non-Origami projects must not depend on `o-brand` directly. Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started using Origami components. If you would like to learn how develop a branded Origami component, the [Create An Origami Component tutorial](https://origami.ft.com/documentation/tutorials/create-a-new-component-part-1/) shows how to use `o-brand` to build a customisable component.
 
 ## Sass
 

@@ -112,7 +112,7 @@ And now, when we look at our page, we should have a styled table, different typo
 
 ### Selecting A Brand
 
-Public facing, ft.com product are known as "core brand" products, by setting the brand query parameter to "core" we are requesting that style of component. But Origami components offer tailored support for other contexts with component [branding](/docs/components/branding/).
+Public facing, ft.com product are known as "core brand" products, by setting the brand query parameter to "core" we are requesting that style of component. But Origami components offer tailored support for other contexts with component [branding](/documentation/components/branding/).
 
 For example we could set the brand to `internal`.
 
@@ -123,7 +123,7 @@ As the colour palette for the "internal" brand does not include "paper" (FT pink
 
 Now undo that by setting `&brand=core` again.
 
-For a list of supported brands and their purpose see the [component customisation page](/docs/components/customisation/).
+For a list of supported brands and their purpose see the [component customisation page](/documentation/components/customisation/).
 
 ## Component JavaScript
 
@@ -146,7 +146,7 @@ We've stepped through a basic set up of components with the Origami Build Servic
 
 There are a few more aspects to the development of a product with Origami components that are important for compatibility and consistency, and we encourage you to read more about them:
 
-- Origami components have been developed to provide a 'core' experience for older browsers, and an 'enhanced' experience for newer ones, and we check for this using a ['cuts the mustard'](/docs/components/compatibility/#cuts-the-mustard) test, which can determine which experience to serve to which browser.
+- Origami components have been developed to provide a 'core' experience for older browsers, and an 'enhanced' experience for newer ones, and we check for this using a ['cuts the mustard'](/documentation/components/compatibility/#cuts-the-mustard) test, which can determine which experience to serve to which browser.
 - Another service we provide is the <a href="https://polyfill.io" class="o-typography-link--external">Polyfill Service</a>, which makes newer APIs available to older browsers, allowing us to write code to modern standards.
-- Learn more about [Origami brands and component customisation](/docs/components/customisation/), which can change the appearance of components and provide unique features for different projects.
-- [Component versioning](/docs/components/versioning/) is also important when building and maintaining products that use Origami components.
+- Learn more about [Origami brands and component customisation](/documentation/components/customisation/), which can change the appearance of components and provide unique features for different projects.
+- [Component versioning](/documentation/components/versioning/) is also important when building and maintaining products that use Origami components.

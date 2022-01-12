@@ -9,16 +9,16 @@ collection_listing_display: false
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
-1. [Intro & Boilerplate](/docs/tutorials/create-a-new-component-part-1/)
-2. [Base Styles](/docs/tutorials/create-a-new-component-part-2/)
+1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
+2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. Themes & Brands
-4. [Demos](/docs/tutorials/create-a-new-component-part-4/)
-5. [JavaScript](/docs/tutorials/create-a-new-component-part-5/)
-6. [Testing](/docs/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/docs/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/docs/tutorials/create-a-new-component-part-8/)
+4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
+5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
+6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
+7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
-In part three we will build on our work in [part two](/docs/tutorials/create-a-new-component-part-2) by learning how to modify the style of our new component for different contexts.
+In part three we will build on our work in [part two](/documentation/tutorials/create-a-new-component-part-2) by learning how to modify the style of our new component for different contexts.
 
 ## Component Brands
 
@@ -27,19 +27,19 @@ Origami components are used by products across the Financial Times Group, and so
 - internal: Style suitable for internal products, tools, and documentation.
 - whitelabel: Base, structural styles only to build on and customise.
 
-A project chooses a brand globally, meaning all components included in a project must use the same brand. See [component brand documentation](/docs/components/branding/) for examples on how a project may use brands. For reference, when it comes to building branding components, there is also a [section on component brands in the specification](/specification/v1/components/sass/#brands).
+A project chooses a brand globally, meaning all components included in a project must use the same brand. See [component brand documentation](/documentation/components/branding/) for examples on how a project may use brands. For reference, when it comes to building branding components, there is also a [section on component brands in the specification](/specification/v1/components/sass/#brands).
 
 ### Supported Brands
 
 Origami components may support one or more brand. The brands a component supports are defined along with other component details in [`origami.json`](/specification/v1/manifest/#brands), by the `brands` property. If `brands` is not set the component is "unbranded" and implicitly only supports the "core" brand.
 
-When prompted by `obt init` in [part one](/docs/tutorials/create-a-new-component-part-1) we select all brands, so the `origami.json` file of our component should include an array of each brand `"brands": ["core","internal","whitelabel"],`. If not, update your `origami.json` now.
+When prompted by `obt init` in [part one](/documentation/tutorials/create-a-new-component-part-1) we select all brands, so the `origami.json` file of our component should include an array of each brand `"brands": ["core","internal","whitelabel"],`. If not, update your `origami.json` now.
 
 ### Switching Brands In Development
 
 When developing a branded Origami component pass the `--brand` flag to the `obt dev` command to switch brand.
 
-For example to build the `internal` version of our component run the command `obt dev --brand internal`. You should see in our demo the background colour has changed from a wheat colour to a light slate colour. That's because wheat is not part of the [internal brand colour palette](https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=internal#demo-primary-palette). As we used a colour usecase `oColorsByUsecase('box', 'background')` in [part two](/docs/tutorials/create-a-new-component-part-2), rather than specify a specific colour, it was updated automatically for the internal brand.
+For example to build the `internal` version of our component run the command `obt dev --brand internal`. You should see in our demo the background colour has changed from a wheat colour to a light slate colour. That's because wheat is not part of the [internal brand colour palette](https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=internal#demo-primary-palette). As we used a colour usecase `oColorsByUsecase('box', 'background')` in [part two](/documentation/tutorials/create-a-new-component-part-2), rather than specify a specific colour, it was updated automatically for the internal brand.
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-5-sass.png" />
@@ -48,7 +48,7 @@ For example to build the `internal` version of our component run the command `ob
 	</figcaption>
 </figure>
 
-Do the same for the whitelabel brand by running `obt dev --brand whitelabel`. You should see a Sass error `Error: 'The color "slate" does not exist.`. This error is because we set a border colour by name `oColorsByName('slate')` in [part two](/docs/tutorials/create-a-new-component-part-2), but slate is not in the limited [whitelabel colour palette](https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=whitelabel#demo-primary-palette).
+Do the same for the whitelabel brand by running `obt dev --brand whitelabel`. You should see a Sass error `Error: 'The color "slate" does not exist.`. This error is because we set a border colour by name `oColorsByName('slate')` in [part two](/documentation/tutorials/create-a-new-component-part-2), but slate is not in the limited [whitelabel colour palette](https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=whitelabel#demo-primary-palette).
 
 To fix this error we need to set the border colour of our component differently depending on which brand is being used.
 
@@ -568,4 +568,4 @@ In summary, in part three we learnt:
 - Origami components may be themed within a brand.
 - Some components allow custom themes to be created by the user.
 
-Now our component has multiple variants in the way of themes, we need multiple demos to present them to potential users in the [Origami registry](https://registry.origami.ft.com/components). In the next part we will add multiple demos and also look at other demo options in more detail. [Continue to part four](/docs/tutorials/create-a-new-component-part-4).
+Now our component has multiple variants in the way of themes, we need multiple demos to present them to potential users in the [Origami registry](https://registry.origami.ft.com/components). In the next part we will add multiple demos and also look at other demo options in more detail. [Continue to part four](/documentation/tutorials/create-a-new-component-part-4).

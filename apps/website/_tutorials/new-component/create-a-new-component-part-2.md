@@ -9,16 +9,16 @@ collection_listing_display: false
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
-1. [Intro & Boilerplate](/docs/tutorials/create-a-new-component-part-1/)
+1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. Base Styles
-3. [Themes & Brands](/docs/tutorials/create-a-new-component-part-3/)
-4. [Demos](/docs/tutorials/create-a-new-component-part-4/)
-5. [JavaScript](/docs/tutorials/create-a-new-component-part-5/)
-6. [Testing](/docs/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/docs/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/docs/tutorials/create-a-new-component-part-8/)
+3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
+4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
+5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
+6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
+7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
-In part two we will build on our work in [part one](/docs/tutorials/create-a-new-component-part-1) by learning how to add styles to our new component.
+In part two we will build on our work in [part one](/documentation/tutorials/create-a-new-component-part-1) by learning how to add styles to our new component.
 
 ## Sass
 
@@ -117,7 +117,7 @@ Let's style our component by adding a border and padding to the `.o-example` CSS
 }
 </code></pre>
 
-As the demo uses the primary mixin already, refreshing your demo page will show the new styles (provided the `obt dev` command is still running from [part one](/docs/tutorials/create-a-new-component-part-1)).
+As the demo uses the primary mixin already, refreshing your demo page will show the new styles (provided the `obt dev` command is still running from [part one](/documentation/tutorials/create-a-new-component-part-1)).
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-2-basic-styles.png" />
@@ -206,7 +206,7 @@ The next thing we wanted to do was style our component text using `o-typography`
 }
 </code></pre>
 
-Run `obt dev`, if not already, and preview the component demo as in [part one](/docs/tutorials/create-a-new-component-part-1). You should see the styles have been updated
+Run `obt dev`, if not already, and preview the component demo as in [part one](/documentation/tutorials/create-a-new-component-part-1). You should see the styles have been updated
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-3-basic-styles.png" />
@@ -232,7 +232,7 @@ Fortunately, `o-buttons` allows us to output a button with a custom class name u
 	@include oButtonsContent($opts: ('type': 'primary'));
 }</code></pre>
 
-We need to update our demo markup  `demos/src/demo.mustache` with the new button markup, similar to how we added text to the demo in [part one](/docs/tutorials/create-a-new-component-part-1):
+We need to update our demo markup  `demos/src/demo.mustache` with the new button markup, similar to how we added text to the demo in [part one](/documentation/tutorials/create-a-new-component-part-1):
 
 <pre><code class="o-syntax-highlight--diff">&lt;!-- demos/src/demo.mustache -->
 
@@ -259,4 +259,4 @@ To style our components we covered many topics in this part of the tutorial. We 
 - How to install Origami component dependencies from the [public npm registry](https://npmjs.com).
 - And finally how to include and use Sass from `o-colors`, `o-spacing`, `o-typography`, and `o-buttons`.
 
-Now we know how to add styles, in part three we will build on that knowledge to provide new visual variations of our component. We will add an alternative `inverse` theme that will modify the appearance of `o-example` to look better on a dark background. We will also "brand" our component to change its appearance depending on whether it is used within a reader facing ft.com project, internal project, or elsewhere. [Continue to part three](/docs/tutorials/create-a-new-component-part-3).
+Now we know how to add styles, in part three we will build on that knowledge to provide new visual variations of our component. We will add an alternative `inverse` theme that will modify the appearance of `o-example` to look better on a dark background. We will also "brand" our component to change its appearance depending on whether it is used within a reader facing ft.com project, internal project, or elsewhere. [Continue to part three](/documentation/tutorials/create-a-new-component-part-3).
