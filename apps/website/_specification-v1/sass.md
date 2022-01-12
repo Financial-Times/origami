@@ -1,10 +1,11 @@
 ---
 title: Sass Specification
 description: An overview of how the Origami team writes Sass.
-permalink: /spec/v1/components/sass/
+permalink: /specification/v1/components/sass/
 
 # Redirect from legacy URLs
 redirect_from:
+  - /spec/v1/components/sass/
   - /docs/syntax/scss/
   - /spec/v1/sass/
 
@@ -52,7 +53,7 @@ Sass mixins and functions **must** also be prefixed with the component name, and
 
 ## CSS Selectors
 
-A component **must not** style an element unless it, or any ancestor element, has a CSS class which starts with the name of the component e.g. `o-componentname` (see [naming conventions](/spec/v1/components/sass/#naming-conventions)).
+A component **must not** style an element unless it, or any ancestor element, has a CSS class which starts with the name of the component e.g. `o-componentname` (see [naming conventions](/specification/v1/components/sass/#naming-conventions)).
 
 - Good: `.o-thing {}`
 - Bad: `body {}`
@@ -181,7 +182,7 @@ See [component brand documentation](/docs/components/branding/) for more details
 
 ### Register Supported Brands
 
-If a component supports brands, it **must** register the brands it supports under the `brands` property in its [`origami.json`](/spec/v1/manifest/) file. E.g. to support all three Origami brands add:
+If a component supports brands, it **must** register the brands it supports under the `brands` property in its [`origami.json`](/specification/v1/manifest/) file. E.g. to support all three Origami brands add:
 
 ```json
 "brands" : [

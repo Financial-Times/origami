@@ -123,7 +123,7 @@ A digest of other things that have happened this month:
 
    - fix Symbol.prototype.description
 
-   - Fetch polyfill is no longer spec compliant
+   - Fetch polyfill is no longer specification compliant
 
    - Reflect fixes
 
@@ -171,7 +171,7 @@ A digest of other things that have happened this month:
 
    - Backport conflicts work to Build Service v2
 
-   - Feature: add support for spec v2 origami components
+   - Feature: add support for specification v2 origami components
 
    - Issue: ESM module support
 
@@ -415,7 +415,7 @@ A digest of other things that have happened this month:
 
    - Opting elements into dark mode via a parent selector
 
-   - Proposal: perform a review of the Origami spec
+   - Proposal: perform a review of the Origami specification
 
    - Proposal: npm-only origami components
 

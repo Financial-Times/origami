@@ -1,7 +1,7 @@
 ---
 title: Origami.json Manifest Specification
 description: A specification which describes the required structure of an Origami.json manifest file.
-cta: Read the manifest spec
+cta: Read the manifest specification
 
 # Navigation config
 nav_display: true
@@ -49,8 +49,8 @@ nav_order: 25
 
 Defines the type of Origami project that the manifest belongs to. **Must** be set to one of:
 
-- `"component"` or `"module"`: A front-end component that follows [the component specification](/spec/v1/components/)
-- `"service"`: An HTTP service that follows [the service specification](/spec/v1/services/)
+- `"component"` or `"module"`: A front-end component that follows [the component specification](/specification/v1/components/)
+- `"service"`: An HTTP service that follows [the service specification](/specification/v1/services/)
 - `"cli"`: A command line tool
 - `"library"`: A library that is not a front-end component
 - `"website"`: Origami websites that aren't intended to be services
@@ -60,7 +60,7 @@ Defines the type of Origami project that the manifest belongs to. **Must** be se
 - `null`: An Origami project that does not fit any of the named categories
 
 <aside>
-	The <code>type</code> of <code>"module"</code> is a hangover from when client-side Origami components were named "modules". It's likely to be deprecated or removed in a later version of the spec.
+	The <code>type</code> of <code>"module"</code> is a hangover from when client-side Origami components were named "modules". It's likely to be deprecated or removed in a later version of the specification.
 </aside>
 
 <pre><code class="o-syntax-highlight--json">{

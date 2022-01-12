@@ -18,15 +18,15 @@ The "Create A New Origami Component" tutorial is split into eight parts and is i
 7. [Documentation](/docs/tutorials/create-a-new-component-part-7/)
 8. [Component Lifecycle](/docs/tutorials/create-a-new-component-part-8/)
 
-In part five we will add interactivity to our component using JavaScript. For reference, there is a [JavaScript part of the component specification](/spec/v1/components/javascript/) which we will be conforming to.
+In part five we will add interactivity to our component using JavaScript. For reference, there is a [JavaScript part of the component specification](/specification/v1/components/javascript/) which we will be conforming to.
 
 We'll increment a counter within the component which will update every time the button is clicked. The counter will have an option to display a customisable message after a given count e.g. after 10 clicks display the word "lots" instead.
 
 ## Initialising Component JavaScript
 
-Our boilerplate JavaScript `main.js` and `/src/js/example` has all we need to [run (initialise) the component JavaScript](/spec/v1/components/javascript/#initialisation) and get any options we may want to allow users to configure.
+Our boilerplate JavaScript `main.js` and `/src/js/example` has all we need to [run (initialise) the component JavaScript](/specification/v1/components/javascript/#initialisation) and get any options we may want to allow users to configure.
 
-All Origami components provide [an `init` method](/spec/v1/components/javascript/#initialisation) for running component JavaScript. Notice the JavaScript class for our component and its `init` method is defined in `/src/js/example` (where `example` is the component name without the `o-` prefix).
+All Origami components provide [an `init` method](/specification/v1/components/javascript/#initialisation) for running component JavaScript. Notice the JavaScript class for our component and its `init` method is defined in `/src/js/example` (where `example` is the component name without the `o-` prefix).
 
 By default the `init` method will initialise any elements on the page which have the `data-o-component="o-example"` attribute. If a `HTMLElement` object or valid [`querySelector` expression](https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors) is given the `init` method will initialise the element given, or any children, with the `data-o-component="o-example"` attribute.
 
@@ -60,7 +60,7 @@ oExample.init(myElement);</code></pre>
 import oExample from 'o-example';
 oExample.init('.my-selector');</code></pre>
 
-For more details see the [JavaScript initialisation](/spec/v1/components/javascript/#initialisation) section of the Origami specification.
+For more details see the [JavaScript initialisation](/specification/v1/components/javascript/#initialisation) section of the Origami specification.
 
 ## User Configuration
 
@@ -70,7 +70,7 @@ In `/src/js/example` setting component configuration is handled in the construct
 
 For instance the `o-table` component has a sort feature which may be disabled by either passing `{sortable: false}` to the [`o-table` `init` method](https://registry.origami.ft.com/components/o-table@8.0.11/jsdoc?brand=core) or by adding the [`data-o-table-sortable="false"`](https://registry.origami.ft.com/components/o-table@8.0.11/readme?brand=core#disable-sort) attribute to the `o-table` element.
 
-We'll add configuration options later to demonstrate. For full details see the [JavaScript configuration](/spec/v1/components/javascript/#configuration) section of the Origami specification.
+We'll add configuration options later to demonstrate. For full details see the [JavaScript configuration](/specification/v1/components/javascript/#configuration) section of the Origami specification.
 
 ## Interactivity
 
@@ -302,9 +302,9 @@ We can then then add CSS to `main.scss` to hide the counter element `o-example__
 
 The core and enhanced experience cover an all or nothing approach. In some cases two browsers which receive the enhanced experience may not offer the same set of JavaScript features. In these cases [polyfill.io](https://polyfill.io/) may be used to add missing or broken JavaScript features to browsers we need to support ([Financial Times browser support policy](https://docs.google.com/document/d/1z6kecy_o9qHYIznTmqQ-IJqre72jhfd0nVa4JMsS7Q4/)).
 
-For example IE11 does not have the `Array.from` method, but support may be added with [polyfill.io](https://polyfill.io/). Any feature [polyfill.io](https://polyfill.io/) provides may be used by components but must be [specified as a required feature in origami.json](/spec/v1/manifest/#browserfeatures). Listing features in `origami.json` means users can find out what polyfills they need to include in their project, and also allows the `obt dev` command to include polyfills in the demo.
+For example IE11 does not have the `Array.from` method, but support may be added with [polyfill.io](https://polyfill.io/). Any feature [polyfill.io](https://polyfill.io/) provides may be used by components but must be [specified as a required feature in origami.json](/specification/v1/manifest/#browserfeatures). Listing features in `origami.json` means users can find out what polyfills they need to include in their project, and also allows the `obt dev` command to include polyfills in the demo.
 
-See the [Feature Stability And Polyfills section of the component specification](/spec/v1/components/javascript/#feature-stability-and-polyfills) for more details.
+See the [Feature Stability And Polyfills section of the component specification](/specification/v1/components/javascript/#feature-stability-and-polyfills) for more details.
 
 ## Part Six: Testing
 

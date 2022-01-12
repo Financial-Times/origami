@@ -24,9 +24,9 @@ In part four we will create new demos to showcase the themes we created in [part
 
 In [part three](/docs/tutorials/create-a-new-component-part-3) we added an `inverse` theme for each brand and a `b2c` theme for the core brand but no demos for these. That means there is no visual preview for potential users of our component, and no ability to copy the html for these themes from the [Origami component registry](https://registry.origami.ft.com/components/).
 
-To add new demos we will update `origami.json`. This file contains lots of information about our components, including its name, description, demos, and more — see the [Origami Manifest specification](/spec/v1/manifest/) for full details.
+To add new demos we will update `origami.json`. This file contains lots of information about our components, including its name, description, demos, and more — see the [Origami Manifest specification](/specification/v1/manifest/) for full details.
 
-We'll add a new object to the [demos array](/spec/v1/manifest/#demos) which will represent our new demo. Demos must have at least the following properties:
+We'll add a new object to the [demos array](/specification/v1/manifest/#demos) which will represent our new demo. Demos must have at least the following properties:
 - `title`: A descriptive title for the [component registry](https://registry.origami.ft.com/components).
 - `name`: The outputted html file name.
 - `template`: The path to the demo mustache template.
@@ -81,7 +81,7 @@ Now the `obt dev` command will build our new demo and create `demo-inverse.html`
 </figure>
 
 
-We also need to create a demo for the `b2c` theme. However the `b2c` theme we created only supports the `core` brand. It should not be displayed in the [Origami registry](https://registry.origami.ft.com/components) for the `internal` or `whitelabel` brands. To avoid that, we will set the [`brands` demo property](/spec/v1/manifest/#demos).
+We also need to create a demo for the `b2c` theme. However the `b2c` theme we created only supports the `core` brand. It should not be displayed in the [Origami registry](https://registry.origami.ft.com/components) for the `internal` or `whitelabel` brands. To avoid that, we will set the [`brands` demo property](/specification/v1/manifest/#demos).
 
 <pre><code class="o-syntax-highlight--diff">// origami.json
 
@@ -123,7 +123,7 @@ You may have noticed another demo named `pa11y` has already been configured. The
 
 ## Other Demo Options
 
-There are other demo options we haven't covered so far. For example as well as the `demos` array `origami.json` may include [`demosDefaults`](/spec/v1/manifest/#demosdefaults), which describe options to be applied to all demos. Among other settings we can specify the demo Mustache template, Sass, and JavaScript file. To learn more see the [Origami Manifest specification](/spec/v1/manifest/) which has a full list of all demo options.
+There are other demo options we haven't covered so far. For example as well as the `demos` array `origami.json` may include [`demosDefaults`](/specification/v1/manifest/#demosdefaults), which describe options to be applied to all demos. Among other settings we can specify the demo Mustache template, Sass, and JavaScript file. To learn more see the [Origami Manifest specification](/specification/v1/manifest/) which has a full list of all demo options.
 
 <aside>
 Demos may include their own Sass and JavaScript which are not part of the component itself.

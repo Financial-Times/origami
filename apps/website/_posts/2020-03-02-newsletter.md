@@ -71,7 +71,7 @@ A remarkable level of contribution for two weeks on the team! Thanks, Olga! 😊
 A digest list of other things that have happened:
 
 - Most of the team got one year older 🎂
-- We created a [JSON schema representation](https://github.com/Financial-Times/origami-manifest-specification-schema) of [the manifest specification](/spec/v1/manifest/)
+- We created a [JSON schema representation](https://github.com/Financial-Times/origami-manifest-specification-schema) of [the manifest specification](/specification/v1/manifest/)
 - We added `origami.json` to many more of our repos, so they'll be provided in repo data
 - Jake merged a billion pull requests and there are fewer than 10 on polyfill-library and polyfill-service combined!
 - The polyfill.io library tests [now](https://github.com/Financial-Times/polyfill-library/pull/455) complete in a fraction of the time they used to, thanks to a new custom runner

@@ -21,7 +21,7 @@ collections:
     permalink: /:collection/:name/
   specification-v1:
     output: true
-    permalink: /spec/v1/:name/
+    permalink: /specification/v1/:name/
 
 # Default front-matter
 defaults:
@@ -32,7 +32,7 @@ defaults:
   - scope:
       path: "_specification-v1"
     values:
-      layout: spec-v1
+      layout: specification-v1
   - scope:
       path: ""
       type: posts

@@ -81,9 +81,9 @@
 				</li>
 			{% endif %}
 
-			{% if page.url contains '/spec/v1/components/' %}
+			{% if page.url contains '/specification/v1/components/' %}
 				<li>
-					<a href="/spec/v1/components/" {% if page.url == '/spec/v1/components/' %}aria-current="page"{% endif %}>
+					<a href="/specification/v1/components/" {% if page.url == '/specification/v1/components/' %}aria-current="page"{% endif %}>
 						Components
 					</a>
 				</li>
@@ -119,20 +119,20 @@
 					</a>
 				</li>
 
-			{% elsif page.url contains '/spec/v1/components/' %}
+			{% elsif page.url contains '/specification/v1/components/' %}
 
 				<li>
-					<a href="/spec/v1/components/markup/" {% if page.url contains '/spec/v1/components/markup/' %}aria-current="page"{% endif %}>
+					<a href="/specification/v1/components/markup/" {% if page.url contains '/specification/v1/components/markup/' %}aria-current="page"{% endif %}>
 						Markup
 					</a>
 				</li>
 				<li>
-					<a href="/spec/v1/components/javascript/" {% if page.url contains '/spec/v1/components/javascript/' %}aria-current="page"{% endif %}>
+					<a href="/specification/v1/components/javascript/" {% if page.url contains '/specification/v1/components/javascript/' %}aria-current="page"{% endif %}>
 						JavaScript
 					</a>
 				</li>
 				<li>
-					<a href="/spec/v1/components/sass/" {% if page.url contains '/spec/v1/components/sass/' %}aria-current="page"{% endif %}>
+					<a href="/specification/v1/components/sass/" {% if page.url contains '/specification/v1/components/sass/' %}aria-current="page"{% endif %}>
 						Sass
 					</a>
 				</li>
@@ -165,5 +165,3 @@
 	</nav>
 	{% endif %}
 </header>
-
-
