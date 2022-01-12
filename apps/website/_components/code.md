@@ -37,7 +37,7 @@ A component’s name is used in the package.json, URLs, and CSS class names, so 
 Origami components are installable with the npm package manager.
 
 As well as following the
-[package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json) spec, components also include a:
+[package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json) specification, components also include a:
 
 - [`"browser"`](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#browser)`
   property set to the component's main JavaScript entry-point if the component
@@ -53,7 +53,7 @@ As well as following the
   license of the component, e.g. "MIT".
 - List any production Sass or Origami component dependencies under
   `"peerDependencies"`, to avoid using multiple versions of the same dependency.
-- `"bugs"` field as described in the [package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json) spec.
+- `"bugs"` field as described in the [package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json) specification.
 
 ## Documentation
 
@@ -76,7 +76,7 @@ and is linked to from the component's README.md.
 - A component’s markup should be contained in a root element that:
 	- Has a data-o-component attribute with value of the component’s name, or
 	- Is defined as a
-	  [customElement](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element)
+	  [customElement](https://html.specification.whatwg.org/multipage/custom-elements.html#custom-element)
 	  registered against the component’s JavaScript class
 - All data attributes and IDs are namespaced with the component’s name.
 

@@ -67,7 +67,7 @@ class LazyLoad {
 		this.options = Object.assign({}, defaults, opts, LazyLoad.getDataAttributes(rootEl));
 
 		// Assume if the rootEl is the document element or body that the user intends to
-		// observe the viewport. The spec calls this "the top-level browsing context"
+		// observe the viewport. The specification calls this "the top-level browsing context"
 		// <https://www.w3.org/TR/intersection-observer/#intersectionobserver-implicit-root>
 		if (rootEl === document.documentElement || rootEl === document.body) {
 			this.options.root = null;

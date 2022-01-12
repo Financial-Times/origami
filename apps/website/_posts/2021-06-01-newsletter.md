@@ -19,7 +19,7 @@ Some of the bigger Origami news from the last month:
 
 ### The Origami specification is no more
 
-The team spent most of the month revisiting the [Origami Specification](https://origami.ft.com/spec/v1/). The specification is a formal document detailing the rules of how an Origami project, such as a component, must be built. We were trying to separate the parts of it that were developer advice from the parts that were relied on by our tools and services. After reducing the specification from 35 pages to 3, we had one last meeting in which we ultimately decided to retire the specification entirely.
+The team spent most of the month revisiting the [Origami Specification](https://origami.ft.com/specification/v1/). The specification is a formal document detailing the rules of how an Origami project, such as a component, must be built. We were trying to separate the parts of it that were developer advice from the parts that were relied on by our tools and services. After reducing the specification from 35 pages to 3, we had one last meeting in which we ultimately decided to retire the specification entirely.
 
 ### What do people mean when they say Origami?
 

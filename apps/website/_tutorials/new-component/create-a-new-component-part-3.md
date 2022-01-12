@@ -27,11 +27,11 @@ Origami components are used by products across the Financial Times Group, and so
 - internal: Style suitable for internal products, tools, and documentation.
 - whitelabel: Base, structural styles only to build on and customise.
 
-A project chooses a brand globally, meaning all components included in a project must use the same brand. See [component brand documentation](/docs/components/branding/) for examples on how a project may use brands. For reference, when it comes to building branding components, there is also a [section on component brands in the specification](/spec/v1/components/sass/#brands).
+A project chooses a brand globally, meaning all components included in a project must use the same brand. See [component brand documentation](/docs/components/branding/) for examples on how a project may use brands. For reference, when it comes to building branding components, there is also a [section on component brands in the specification](/specification/v1/components/sass/#brands).
 
 ### Supported Brands
 
-Origami components may support one or more brand. The brands a component supports are defined along with other component details in [`origami.json`](/spec/v1/manifest/#brands), by the `brands` property. If `brands` is not set the component is "unbranded" and implicitly only supports the "core" brand.
+Origami components may support one or more brand. The brands a component supports are defined along with other component details in [`origami.json`](/specification/v1/manifest/#brands), by the `brands` property. If `brands` is not set the component is "unbranded" and implicitly only supports the "core" brand.
 
 When prompted by `obt init` in [part one](/docs/tutorials/create-a-new-component-part-1) we select all brands, so the `origami.json` file of our component should include an array of each brand `"brands": ["core","internal","whitelabel"],`. If not, update your `origami.json` now.
 
@@ -242,13 +242,13 @@ A component may also support themes within a brand, to allow for variations of t
 
 Unlike brands, which are set at a global level, a project could include many themes of a component at the same time. For example the [o-message](https://registry.origami.ft.com/components/o-message@4.1.3) component has success, error, and inform themes for notices.
 
-Now let's add themes to our `o-example` component. For reference there is a [theme section in the component specification](/spec/v1/components/sass/#themes).
+Now let's add themes to our `o-example` component. For reference there is a [theme section in the component specification](/specification/v1/components/sass/#themes).
 
 Our example component will have two themes: an `inverse` theme that should be used when our component is on a dark background; and a `b2c` (business to consumer) theme just for the core brand. We will also make our component flexible and allow a user to generate a custom theme.
 
 ### Theme Mixin
 
-We will add a new mixin called `oExampleAddTheme`, following the [theme convention in the specification](/spec/v1/components/sass/#themes), to a new file `src/scss/_mixins.scss`. Don't forget to import your new `src/scss/_mixins.scss` in `main.scss`, in the same way `src/scss/_variables_.scss` is imported.
+We will add a new mixin called `oExampleAddTheme`, following the [theme convention in the specification](/specification/v1/components/sass/#themes), to a new file `src/scss/_mixins.scss`. Don't forget to import your new `src/scss/_mixins.scss` in `main.scss`, in the same way `src/scss/_variables_.scss` is imported.
 
 Our `oExampleAddTheme` mixin will accept a theme name and output a CSS class `o-example--[theme-name]` which can be added to our component markup to change the theme. The double dash in the theme name is part of the [BEM modifier naming convention](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/).
 

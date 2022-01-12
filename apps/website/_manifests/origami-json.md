@@ -79,7 +79,7 @@ Defines the type of Origami project that the manifest belongs to:
 	</tr>
 </table>
 
-The version of the [Origami specification](/spec/) the project follows. Note that the specification is now deprecated as of v1, any value other than `1`, for example `2.0`, indicates the project does not follow a specification:
+The version of the [Origami specification](/specification/) the project follows. Note that the specification is now deprecated as of v1, any value other than `1`, for example `2.0`, indicates the project does not follow a specification:
 <pre><code class="o-syntax-highlight--json">{
 	"origamiVersion": 1
 }</code></pre>

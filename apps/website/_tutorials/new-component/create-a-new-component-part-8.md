@@ -36,7 +36,7 @@ git commit -m 'my o-example component'</code></pre>
 
 The second step of publishing our component to the [Origami Registry](https://registry.origami.ft.com/components/) is to commit our work and push to a new Github repository under the [Financial-Times](https://github.com/Financial-Times/) organisation. There is a [new Github repository tutorial](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository) which might be helpful if you have never created a Github repository before. Note Origami repositories are usually public and open-source unless there is a reason not to be (for example [o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets/) is private due to our font license).
 
-You may then push this to your remote github.com repository, under the `Financial-Times` organisation or another [supported Financial Times organisation](/spec/v1/components/#source-control).
+You may then push this to your remote github.com repository, under the `Financial-Times` organisation or another [supported Financial Times organisation](/specification/v1/components/#source-control).
 
 You might have noticed a `.github` directory already. This directory configures Github to give us some nice features including:
 - `ISSUE_TEMPLATE.md`: The contents of this file are used to provide a [template when opening a new Github issue](https://help.github.com/en/github/building-a-strong-community/about-issue-and-pull-request-templates). It helps users report bugs or provide feedback by prompting for useful information.
@@ -65,9 +65,9 @@ To see these Github Actions in practise let's release our component.
 
 Lets release the first version our new component. This will display our component in the Origami Registry and send a Slack notification to `{{site.data.contact.slack}}`.
 
-Our first release will be `1.0.0` following the [semver specification](https://semver.org/). Origami components [do not release versions lower than 1.0.0](/spec/v1/components/#component-release) but you may choose to release a beta `1.0.0-beta.1` again following the [semver specification](https://semver.org/).
+Our first release will be `1.0.0` following the [semver specification](https://semver.org/). Origami components [do not release versions lower than 1.0.0](/specification/v1/components/#component-release) but you may choose to release a beta `1.0.0-beta.1` again following the [semver specification](https://semver.org/).
 
-Before we release, this is a good time to update the components [support status](/spec/v1/manifest/#supportstatus) in `origami.json` according to whether this release of the component will be `experimental` (the component is not ready for production use), or `active` (feature development ongoing, bug reports will be gratefully received and acted upon promptly), etc.
+Before we release, this is a good time to update the components [support status](/specification/v1/manifest/#supportstatus) in `origami.json` according to whether this release of the component will be `experimental` (the component is not ready for production use), or `active` (feature development ongoing, bug reports will be gratefully received and acted upon promptly), etc.
 
 To release an Origami component create a git tag named after the semver version but beginning with a `v` e.g. `v1.0.0`. Create the tag either through the [Github release interface](https://docs.github.com/en/github/administering-a-repository/managing-releases-in-a-repository) or through the command line:
 
@@ -91,7 +91,7 @@ The [semver specification](https://semver.org/) documents what constitutes a maj
 
 ## Component Lifecycle
 
-As other teams may depend on Origami components its important to follow the [semver specification](https://semver.org/) when versioning components as discussed previously. It is also important to communicate upcoming changes. The Origami specification includes a section on the [component lifecycle](/spec/v1/components/#component-lifecycle) which includes guidance on how to manage existing components as they mature. The guidance includes how to communicate new releases, the deprecation of component features, and the deprecation of components which are no longer needed.
+As other teams may depend on Origami components its important to follow the [semver specification](https://semver.org/) when versioning components as discussed previously. It is also important to communicate upcoming changes. The Origami specification includes a section on the [component lifecycle](/specification/v1/components/#component-lifecycle) which includes guidance on how to manage existing components as they mature. The guidance includes how to communicate new releases, the deprecation of component features, and the deprecation of components which are no longer needed.
 
 ## Wrapping Up
 

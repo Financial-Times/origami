@@ -1,6 +1,6 @@
 # Event
 
-## Spec
+## Specification
 
 `category`, `action` and `system` are MANDATORY, everything else is OPTIONAL
 
@@ -69,7 +69,7 @@ For example:
 		"content": {
 			"uuid": "...",										// Content uuid [4]
 			"asset_type": "...", 								// Asset Type [7]
-		},														// [5] 
+		},														// [5]
 		"url": "...",											// [5]
 		"referrer": "...",										// See also [5]
 		funnel: {
