@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.0.2](https://www.github.com/Financial-Times/origami/compare/o-tabs-v7.0.1...o-tabs-v7.0.2) (2022-01-13)
+
+
+### Bug Fixes
+
+* expand all uses of docs to documentation ([26f8d9d](https://www.github.com/Financial-Times/origami/commit/26f8d9d8cbbe3e78902d8c3951b37e08150a77bd))
+
 ### [7.0.1](https://www.github.com/Financial-Times/origami/compare/o-tabs-v7.0.0...o-tabs-v7.0.1) (2022-01-12)
 
 
