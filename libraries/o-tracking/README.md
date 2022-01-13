@@ -15,7 +15,7 @@ Include in your product to send tracking requests to the [Spoor API](https://spo
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-tracking`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-tracking`.
 
 ### Tracking without JavaScript
 

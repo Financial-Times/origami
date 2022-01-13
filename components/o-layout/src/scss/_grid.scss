@@ -18,7 +18,7 @@
 		$column-gap-count: 2;
 		position: relative;
 		/*! autoprefixer: ignore next */
-		// o-layout does not cater for older `-ms-` versions of the grid spec.
+		// o-layout does not cater for older `-ms-` versions of the grid specification.
 		display: grid;
 		// make the main area have a max width equal to the o-layout container
 		// size, accounting for grid gaps

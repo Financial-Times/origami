@@ -15,7 +15,7 @@ A syntax highlighter for Origami-supported documentation that wraps [PrismJs](ht
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-syntax-highlight`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-syntax-highlight`.
 
 ## Overview
 

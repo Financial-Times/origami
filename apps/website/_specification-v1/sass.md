@@ -1,10 +1,11 @@
 ---
 title: Sass Specification
 description: An overview of how the Origami team writes Sass.
-permalink: /spec/v1/components/sass/
+permalink: /specification/v1/components/sass/
 
 # Redirect from legacy URLs
 redirect_from:
+  - /spec/v1/components/sass/
   - /docs/syntax/scss/
   - /spec/v1/sass/
 
@@ -52,7 +53,7 @@ Sass mixins and functions **must** also be prefixed with the component name, and
 
 ## CSS Selectors
 
-A component **must not** style an element unless it, or any ancestor element, has a CSS class which starts with the name of the component e.g. `o-componentname` (see [naming conventions](/spec/v1/components/sass/#naming-conventions)).
+A component **must not** style an element unless it, or any ancestor element, has a CSS class which starts with the name of the component e.g. `o-componentname` (see [naming conventions](/specification/v1/components/sass/#naming-conventions)).
 
 - Good: `.o-thing {}`
 - Bad: `body {}`
@@ -177,11 +178,11 @@ Origami components are used by products across the Financial Times Group. Some o
 - internal: Style suitable for internal products, tools, and documentation.
 - whitelabel: Base, structural styles only to build on and customise.
 
-See [component brand documentation](/docs/components/branding/) for more details.
+See [component brand documentation](/documentation/components/branding/) for more details.
 
 ### Register Supported Brands
 
-If a component supports brands, it **must** register the brands it supports under the `brands` property in its [`origami.json`](/spec/v1/manifest/) file. E.g. to support all three Origami brands add:
+If a component supports brands, it **must** register the brands it supports under the `brands` property in its [`origami.json`](/specification/v1/manifest/) file. E.g. to support all three Origami brands add:
 
 ```json
 "brands" : [
@@ -233,7 +234,7 @@ E.g.
 
 ## Feature Flags
 
-To support a [core and enhanced experience](/docs/components/compatibility/#core--enhanced-experiences) components must render acceptably without JavaScript avalible. Styles which only apply if JavaScript is available **must** be applied with a feature detect such as `.o--if-js`, and to hide an element of a component when JavaScript is available use `o--if-no-js`. If the component provides its own JavaScript feature flag, it **must** be named `.o-componentname--js`.
+To support a [core and enhanced experience](/documentation/components/compatibility/#core--enhanced-experiences) components must render acceptably without JavaScript avalible. Styles which only apply if JavaScript is available **must** be applied with a feature detect such as `.o--if-js`, and to hide an element of a component when JavaScript is available use `o--if-no-js`. If the component provides its own JavaScript feature flag, it **must** be named `.o-componentname--js`.
 
 To detect other features, standardised feature detects **should** be used as a preference, such as the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports" class="o-typography-link--external">@supports</a> at-rule. Otherwise a CSS class on the `documentElement` **may** be used to indicate feature support. The class name **should** be configurable, and default to the class name used by <a href="https://modernizr.com/" class="o-typography-link--external">Modernizr</a>:
 ```

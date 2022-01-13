@@ -12,7 +12,7 @@ This utility component adds toggle (show/hide) behaviour to a `<button>` or `<a>
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-toggle`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-toggle`.
 
 ## Markup
 

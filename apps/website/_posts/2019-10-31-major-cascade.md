@@ -114,9 +114,9 @@ We also simplified the developer interface for new button themes, which may be c
 
 ## Colours
 
-[o-colors](https://registry.origami.ft.com/components/o-colors) (yep, we use [British English for documentation and American English in our code](/docs/principles/tone-and-language/#use-british-english-for-documentation)), one of our lowest level components, also has some updates.
+[o-colors](https://registry.origami.ft.com/components/o-colors) (yep, we use [British English for documentation and American English in our code](/documentation/principles/tone-and-language/#use-british-english-for-documentation)), one of our lowest level components, also has some updates.
 
-These are mostly developer focused updates but also remove technical debt from our introduction of [component brands](/docs/components/branding/) (master, internal, and whitelabel); reduce the CSS bundle size for some users (for faster websites); and make changes to reduce the chance that visual errors make it to production. See more details in the [o-colors v5 proposal](https://github.com/Financial-Times/o-colors/issues/198).
+These are mostly developer focused updates but also remove technical debt from our introduction of [component brands](/documentation/components/branding/) (master, internal, and whitelabel); reduce the CSS bundle size for some users (for faster websites); and make changes to reduce the chance that visual errors make it to production. See more details in the [o-colors v5 proposal](https://github.com/Financial-Times/o-colors/issues/198).
 
 ## Dependants
 

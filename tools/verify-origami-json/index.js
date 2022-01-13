@@ -7,7 +7,7 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { files } from 'origami-tools-helpers'
 
-// https://origami.ft.com/docs/manifests/origami-json/#origamitype
+// https://origami.ft.com/documentation/manifests/origami-json/#origamitype
 // "component": A front-end component that follows the component specification
 // "imageset": A set of images that have an alias on the Origami Image Service
 // "service": An HTTP service that follows the service specification
@@ -85,7 +85,7 @@ function origamiJson() {
 						return result
 					});
 			} else {
-				result.push(`No origami.json file found. To make this an Origami component, create a file at ${path.join(cwd, '/origami.json')} following the format defined at: https://origami.ft.com/docs/manifests/origami-json/`)
+				result.push(`No origami.json file found. To make this an Origami component, create a file at ${path.join(cwd, '/origami.json')} following the format defined at: https://origami.ft.com/documentation/manifests/origami-json/`)
 				return result
 			}
 		});
@@ -95,7 +95,7 @@ console.log('verify-origami-json: Verifying your origami.json');
 let errors = await origamiJson()
 
 if(errors.length > 0) {
-	const message = 'Failed linting:\n\n' + errors.join('\n') + '\n\nThe origami.json file does not conform to the expected format https://origami.ft.com/docs/manifests/origami-json/';
+	const message = 'Failed linting:\n\n' + errors.join('\n') + '\n\nThe origami.json file does not conform to the expected format https://origami.ft.com/documentation/manifests/origami-json/';
 	if (isCI) {
 		const newLine = "%0A";
 		console.log(`::error file=${cwd}/origami.json,line=1,col=1::${message.replace(/\n/g, newLine)}`);

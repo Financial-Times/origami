@@ -26,7 +26,7 @@ The version numbers are in the following format: `1.2.3`, which is representativ
 - `MINOR`: When this number changes , we'll have made an improvement, added a feature or made a noticeable design tweak, for example.
 - `PATCH`: When we release patches, we are usually releasing a bug fix that does not affect the components overall functionality.
 
-_When a new `MAJOR` release affects many dependent components and projects we call this a [major cascade](/docs/components/major-cascade/). It may require [extra consideration and support](/docs/components/major-cascade/) before release._
+_When a new `MAJOR` release affects many dependent components and projects we call this a [major cascade](/documentation/components/major-cascade/). It may require [extra consideration and support](/documentation/components/major-cascade/) before release._
 
 ## How to request a versioned component
 

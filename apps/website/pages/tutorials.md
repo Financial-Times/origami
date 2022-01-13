@@ -1,9 +1,11 @@
 ---
 title: Origami Tutorials
 description: Step-by-step tutorials for people who are learning to use Origami.
-permalink: /docs/tutorials/
+permalink: /documentation/tutorials/
 layout: collection
 collection_id: tutorials
+redirect_form:
+  - /docs/tutorials/
 
 # Navigation config
 nav_display: true

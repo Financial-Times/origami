@@ -9,14 +9,14 @@ collection_listing_display: false
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
-1. [Intro & Boilerplate](/docs/tutorials/create-a-new-component-part-1/)
-2. [Base Styles](/docs/tutorials/create-a-new-component-part-2/)
-3. [Themes & Brands](/docs/tutorials/create-a-new-component-part-3/)
-4. [Demos](/docs/tutorials/create-a-new-component-part-4/)
-5. [JavaScript](/docs/tutorials/create-a-new-component-part-5/)
+1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
+2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
+3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
+4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
+5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
 6. Testing
-7. [Documentation](/docs/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/docs/tutorials/create-a-new-component-part-8/)
+7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
 In part six we will add tests to our component. Including tests for Sass, JavaScript, and common accessibility issues.
 
@@ -130,7 +130,7 @@ Again running the `obt test` command should show our new tests have run and pass
 
 ## Accessibility Tests
 
-`obt test` also runs some accessibility checks against the `pa11y` demo, as we [discussed in part four](/docs/tutorials/create-a-new-component-part-4#pa11y-demo). Whilst this will catch some common causes of accessibility issues, such as invalid html or low contrast between text and background, it is not a comprehensive test of component accessibility. For help testing the accessibility of your component see the [Origami's accessibility principles](/docs/principles/accessibility/) page, or reach out to the Financial Times [#accessibility Slack channel](https://app.slack.com/client/T025C95MN/C2LMEKC6S).
+`obt test` also runs some accessibility checks against the `pa11y` demo, as we [discussed in part four](/documentation/tutorials/create-a-new-component-part-4#pa11y-demo). Whilst this will catch some common causes of accessibility issues, such as invalid html or low contrast between text and background, it is not a comprehensive test of component accessibility. For help testing the accessibility of your component see the [Origami's accessibility principles](/documentation/principles/accessibility/) page, or reach out to the Financial Times [#accessibility Slack channel](https://app.slack.com/client/T025C95MN/C2LMEKC6S).
 
 ## Visual Regression Tests
 
@@ -163,4 +163,4 @@ Our component is working well and is almost complete. In this tutorial we learne
 - How to write and run JavaScript tests for the `obt test` command.
 - How to highlight visual differences a change has introduced with [percy.io](https://percy.io/).
 
-So far we have missed a crucial part of creating a component: documentation. Without documentation our component will be difficult for users to include in projects and future development may be hindered. In part seven we'll document our component in a way that is familiar to users and maintainers of other Origami components. [Continue to part seven](/docs/tutorials/create-a-new-component-part-7).
+So far we have missed a crucial part of creating a component: documentation. Without documentation our component will be difficult for users to include in projects and future development may be hindered. In part seven we'll document our component in a way that is familiar to users and maintainers of other Origami components. [Continue to part seven](/documentation/tutorials/create-a-new-component-part-7).

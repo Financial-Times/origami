@@ -15,7 +15,7 @@ Some of the bigger Origami news from the last month:
 
 Looking back over the 7 years of the team and project, we wrote a new mission statement for Origami.
 
-We've posted them on the website here: https://origami.ft.com/docs/principles/vision-and-mission/
+We've posted them on the website here: https://origami.ft.com/documentation/principles/vision-and-mission/
 
 #### Mission
 
@@ -123,7 +123,7 @@ A digest of other things that have happened this month:
 
    - fix Symbol.prototype.description
 
-   - Fetch polyfill is no longer spec compliant
+   - Fetch polyfill is no longer specification compliant
 
    - Reflect fixes
 
@@ -171,7 +171,7 @@ A digest of other things that have happened this month:
 
    - Backport conflicts work to Build Service v2
 
-   - Feature: add support for spec v2 origami components
+   - Feature: add support for specification v2 origami components
 
    - Issue: ESM module support
 
@@ -415,7 +415,7 @@ A digest of other things that have happened this month:
 
    - Opting elements into dark mode via a parent selector
 
-   - Proposal: perform a review of the Origami spec
+   - Proposal: perform a review of the Origami specification
 
    - Proposal: npm-only origami components
 

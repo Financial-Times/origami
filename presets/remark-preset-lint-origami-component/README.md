@@ -1,7 +1,7 @@
 # remark-preset-lint-origami-component
 
 remark preset to configure `remark-lint` with settings that enforce the rules
-and suggestions in the [origami component specification](https://origami.ft.com/spec/v1/components/#readme).
+and suggestions in the [origami component specification](https://origami.ft.com/specification/v1/components/#readme).
 
 ## installation
 

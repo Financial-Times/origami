@@ -11,7 +11,7 @@ A ribbon denoting affiliation with the Financial Times. This ribbon should be us
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-ft-affiliate-ribbon`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-ft-affiliate-ribbon`.
 
 ## Markup
 

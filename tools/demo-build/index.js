@@ -215,7 +215,7 @@ const cwd = process.cwd();
 const origamiConfig = await readOrigamiConfig();
 
 if (!hasDemos(origamiConfig)) {
-	console.error(`No demos exist in the origami.json file. Reference https://origami.ft.com/docs/manifests/origami-json/ to configure demos in the component's origami.json manifest file.`);
+	console.error(`No demos exist in the origami.json file. Reference https://origami.ft.com/documentation/manifests/origami-json/ to configure demos in the component's origami.json manifest file.`);
 	process.exit(0);
 }
 

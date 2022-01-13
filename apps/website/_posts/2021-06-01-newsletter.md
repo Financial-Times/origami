@@ -19,7 +19,7 @@ Some of the bigger Origami news from the last month:
 
 ### The Origami specification is no more
 
-The team spent most of the month revisiting the [Origami Specification](https://origami.ft.com/spec/v1/). The specification is a formal document detailing the rules of how an Origami project, such as a component, must be built. We were trying to separate the parts of it that were developer advice from the parts that were relied on by our tools and services. After reducing the specification from 35 pages to 3, we had one last meeting in which we ultimately decided to retire the specification entirely.
+The team spent most of the month revisiting the [Origami Specification](https://origami.ft.com/specification/v1/). The specification is a formal document detailing the rules of how an Origami project, such as a component, must be built. We were trying to separate the parts of it that were developer advice from the parts that were relied on by our tools and services. After reducing the specification from 35 pages to 3, we had one last meeting in which we ultimately decided to retire the specification entirely.
 
 ### What do people mean when they say Origami?
 
@@ -47,7 +47,7 @@ We'll be going into a lot more detail about our plans in a blog post at the end 
 
 This issues special thanks goes to Nick Ramsbottom! Nick worked with us on a component update to support New Product Development work, and enthusiastically got involved in the development. Together we were able to avoid project-specific overrides for a more reliable, consistent user interface.
 
-If your team are looking to customise an Origami component for a project, checkout our [guide to component customisation](https://origami.ft.com/docs/components/customisation/) or contact the team for support.
+If your team are looking to customise an Origami component for a project, checkout our [guide to component customisation](https://origami.ft.com/documentation/components/customisation/) or contact the team for support.
 
 ## Broader update
 

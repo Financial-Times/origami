@@ -49,7 +49,7 @@
 	@include _oLayoutAreaMain();
 	@include _oLayoutAreaFooter();
 
-	// Always include the sidebar nav for the docs layout.
+	// Always include the sidebar nav for the documentation layout.
 	@if($docs-layout or $nav) {
 		@include _oLayoutNavigation($query-layout);
 	}

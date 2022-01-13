@@ -9,14 +9,14 @@ collection_listing_display: false
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
-1. [Intro & Boilerplate](/docs/tutorials/create-a-new-component-part-1/)
-2. [Base Styles](/docs/tutorials/create-a-new-component-part-2/)
-3. [Themes & Brands](/docs/tutorials/create-a-new-component-part-3/)
-4. [Demos](/docs/tutorials/create-a-new-component-part-4/)
-5. [JavaScript](/docs/tutorials/create-a-new-component-part-5/)
-6. [Testing](/docs/tutorials/create-a-new-component-part-6/)
+1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
+2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
+3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
+4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
+5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
+6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
 7. Documentation
-8. [Component Lifecycle](/docs/tutorials/create-a-new-component-part-8/)
+8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
 In part seven we will add documentation to our component. With good documentation we can save people time and frustration by making our component as easy to use as possible. Thorough documentation will also help future contributors to our new component.
 
@@ -24,9 +24,9 @@ In part seven we will add documentation to our component. With good documentatio
 
 People from various backgrounds across the Financial Times use and contribute to Origami components, so its important to consider communication in documentation carefully.
 
-To help write clear documentation there are [Origami tone & language principles](/docs/principles/tone-and-language/). For example we work as a team so use ["we" over "I"](/docs/principles/tone-and-language/#prefer-we-to-i); for clarity and to express responsibility we use an [active voice](/docs/principles/tone-and-language/#use-the-active-voice) in component documentation; and as we work with people of different nationalities and backgrounds we [avoid metaphors or colloquialisms](/docs/principles/tone-and-language/#avoid-metaphors-or-colloquialisms).
+To help write clear documentation there are [Origami tone & language principles](/documentation/principles/tone-and-language/). For example we work as a team so use ["we" over "I"](/documentation/principles/tone-and-language/#prefer-we-to-i); for clarity and to express responsibility we use an [active voice](/documentation/principles/tone-and-language/#use-the-active-voice) in component documentation; and as we work with people of different nationalities and backgrounds we [avoid metaphors or colloquialisms](/documentation/principles/tone-and-language/#avoid-metaphors-or-colloquialisms).
 
-Read more on the [tone & language principles page](/docs/principles/tone-and-language/).
+Read more on the [tone & language principles page](/documentation/principles/tone-and-language/).
 
 ## Where Components Are Documented
 
@@ -136,10 +136,10 @@ It is important to keep `origami.json` up to date throughout the lifecycle of th
 
 In this part we learnt:
 
-- Component documentation follows [tone & language principles](/docs/principles/tone-and-language/).
+- Component documentation follows [tone & language principles](/documentation/principles/tone-and-language/).
 - What's in a components readme.
 - That we can document Sass apis with Sassdoc.
 - That we can document JavaScript apis with JSDoc.
 - The role of `origami.json` in documentation.
 
-In the next part we will publish our component and discuss the lifecycle of a published component. [Continue to part eight](/docs/tutorials/create-a-new-component-part-8).
+In the next part we will publish our component and discuss the lifecycle of a published component. [Continue to part eight](/documentation/tutorials/create-a-new-component-part-8).

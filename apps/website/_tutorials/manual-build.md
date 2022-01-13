@@ -10,7 +10,7 @@ redirect_from:
 
 # {{page.title}}
 
-Installing Origami components with a package manager (manual build) gives you more granular control over their styling and their behaviour within your project. It requires more set up though, compared to [using the Origami Build Service](/docs/tutorials/build-service/), so we're providing an in-depth walkthrough for building a page for an article about fruit.
+Installing Origami components with a package manager (manual build) gives you more granular control over their styling and their behaviour within your project. It requires more set up though, compared to [using the Origami Build Service](/documentation/tutorials/build-service/), so we're providing an in-depth walkthrough for building a page for an article about fruit.
 
 This tutorial assumes that:
 - You have not implemented a build step
@@ -189,7 +189,7 @@ By default Origami components do not output any CSS when you import them. This i
 @include oGrid();</code></pre>
 
 <aside>
-Some Origami components have a <a href="/docs/components/silent-mode/">silent mode</a> variable which, when set to false, outputs all of the CSS for a component. This method of including CSS is deprecated. We recommend using the component's mixins instead.
+Some Origami components have a <a href="/documentation/components/silent-mode/">silent mode</a> variable which, when set to false, outputs all of the CSS for a component. This method of including CSS is deprecated. We recommend using the component's mixins instead.
 
 <pre><code class="o-syntax-highlight--scss">// deprecated: output all o-grid css using the silent mode variable
 $o-grid-is-silent: false;
@@ -232,7 +232,7 @@ As soon as your build has completed, visit your page again in the browser. You s
 
 ### Selecting A Brand
 
-By default Origami components are tailored for public facing, ft.com products -- these are known as "core brand" products. But Origami components offer tailored support for other contexts with component [branding](/docs/components/branding/).
+By default Origami components are tailored for public facing, ft.com products -- these are known as "core brand" products. But Origami components offer tailored support for other contexts with component [branding](/documentation/components/branding/).
 
 To choose a brand other than the default "core" brand, set the `$o-brand` <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> variable at the start of your root <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> file, before importing any components.
 
@@ -245,7 +245,7 @@ As the colour palette for the "internal" brand does not include "paper" (FT pink
 
 Now we will undo that by deleting `$o-brand: "internal";`, making our project default to the "core" brand again.
 
-For a list of supported brands and their purpose see [component brands](/docs/components/branding/).
+For a list of supported brands and their purpose see [component brands](/documentation/components/branding/).
 
 ## Component Functionality
 
@@ -255,7 +255,7 @@ Not all Origami components use JavaScript. For example, of the components we hav
 
 Origami components listen for a custom event named `o.DOMContentLoaded` in order to initialise. We'll need to add that to our project so that the `o-table` JavaScript can kick in.
 
-<aside>There are multiple ways to <a href="/docs/components/initialising">initialise a component's JavaScript</a> when you are using Origami with the manual build process</aside>
+<aside>There are multiple ways to <a href="/documentation/components/initialising">initialise a component's JavaScript</a> when you are using Origami with the manual build process</aside>
 
 We'll need to add this to our file:
 
@@ -278,7 +278,7 @@ Now you can sort fruit alphabetically by name or characteristic, or numerically 
 
 We've given you an overview of how to build components manually. There is more information about each component, its variations, its individual behaviour and configuration in the <a href="https://registry.origami.ft.com/components">Origami Registry</a>. Here we've covered the fundamentals, but there are a few more aspects to the development of a product with Origami components that are important for compatibility and consistency, and we encourage you to read more about them:
 
-- Origami components have been developed to provide a 'core' experience for older browsers, and an 'enhanced' experience for newer ones, and we check for this using a ['cuts the mustard'](/docs/components/compatibility/#cuts-the-mustard) test, which can determine which experience to serve to which browser.
+- Origami components have been developed to provide a 'core' experience for older browsers, and an 'enhanced' experience for newer ones, and we check for this using a ['cuts the mustard'](/documentation/components/compatibility/#cuts-the-mustard) test, which can determine which experience to serve to which browser.
 - Another service we provide is the <a href="https://polyfill.io" class="o-typography-link--external">Polyfill Service</a>, which makes newer APIs available to older browsers, allowing us to write code to modern standards.
-- Learn more about Origami supported ['brands'](/docs/components/branding/), which can change the appearance of components and provide unique features for different projects.
-- [Component versioning](/docs/components/versioning) is also important when building and maintaining products that use Origami components.
+- Learn more about Origami supported ['brands'](/documentation/components/branding/), which can change the appearance of components and provide unique features for different projects.
+- [Component versioning](/documentation/components/versioning) is also important when building and maintaining products that use Origami components.
