@@ -1,5 +1,13 @@
 # Changelog
 
+### [6.4.2](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.4.1...o-colors-v6.4.2) (2022-01-13)
+
+
+### Bug Fixes
+
+* expand all uses of docs to documentation ([26f8d9d](https://www.github.com/Financial-Times/origami/commit/26f8d9d8cbbe3e78902d8c3951b37e08150a77bd))
+* update o-tabs to latest version within o-colors to benefit from the accessibility fixes applied within o-tabs ([88b56eb](https://www.github.com/Financial-Times/origami/commit/88b56eb5a8b7273f0a2001dc3ee420daa157d2f4))
+
 ### [6.4.1](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.4.0...o-colors-v6.4.1) (2021-12-24)
 
 

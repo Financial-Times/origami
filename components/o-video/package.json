@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-video",
-  "version": "7.2.1",
+  "version": "7.2.2",
   "description": "Creates a video player and attaches analytics. Also supports pre roll ads.",
   "keywords": [
     "videos",
