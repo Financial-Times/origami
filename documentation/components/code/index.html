@@ -1,0 +1,125 @@
+<h1 id="code-structure--languages">Code Structure &amp; Languages</h1>
+
+<p>The <a href="https://origami.ft.com/blog/2021/06/01/newsletter/#the-origami-specification-is-no-more">Origami component specification is now deprecated</a>. How Origami components are built is under active development and may change as Origami tooling and services are updated too. This is a non-normative reference for contributing to or creating new components.</p>
+
+<h2 id="manifest">Manifest</h2>
+
+<p>Origami components contain an <code class="language-plaintext highlighter-rouge">origami.json</code> file at the top of the
+component’s directory structure, with the <code class="language-plaintext highlighter-rouge">type</code> property set to <code class="language-plaintext highlighter-rouge">"component"</code>. The <a href="/documentation/manifests/origami-json/"><code class="language-plaintext highlighter-rouge">origami.json</code> manifest documentation</a> covers the contents of this file.</p>
+
+<h2 id="naming-conventions">Naming conventions</h2>
+
+<p>A component’s name is used in the package.json, URLs, and CSS class names, so they:</p>
+
+<ul>
+  <li>Contain only ASCII letters, numbers and hyphens</li>
+  <li>Begin with a letter</li>
+</ul>
+
+<aside>
+	Examples of good component names include
+	<code>o-colors</code>,
+	<code>o-grid</code> and
+	<code>o-cookie-message</code>.
+</aside>
+
+<h2 id="package-management">Package management</h2>
+
+<p>Origami components are installable with the npm package manager.</p>
+
+<p>As well as following the
+<a href="https://docs.npmjs.com/cli/v7/configuring-npm/package-json">package.json</a> specification, components also include a:</p>
+
+<ul>
+  <li><a href="https://docs.npmjs.com/cli/v7/configuring-npm/package-json#browser"><code class="language-plaintext highlighter-rouge">"browser"</code></a>`
+property set to the component’s main JavaScript entry-point if the component
+has JavaScript.</li>
+  <li><code class="language-plaintext highlighter-rouge">"sass"</code> property set to the component’s main Sass
+entry-point if the component has Sass.</li>
+  <li><code class="language-plaintext highlighter-rouge">"description"</code> property set to a short description of the
+component.</li>
+  <li><code class="language-plaintext highlighter-rouge">"keywords"</code> property in order to help users discover the right
+component.</li>
+  <li><code class="language-plaintext highlighter-rouge">"type"</code> property set to <code class="language-plaintext highlighter-rouge">"module"</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">"license"</code> property set to the SPDX license identifier for the
+license of the component, e.g. “MIT”.</li>
+  <li>List any production Sass or Origami component dependencies under
+<code class="language-plaintext highlighter-rouge">"peerDependencies"</code>, to avoid using multiple versions of the same dependency.</li>
+  <li><code class="language-plaintext highlighter-rouge">"bugs"</code> field as described in the <a href="https://docs.npmjs.com/cli/v7/configuring-npm/package-json">package.json</a> specification.</li>
+</ul>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>A component should have a README.md file at its root.</p>
+
+<p>When a new major version of a component is released a migration guide should be written to help users upgrade from the previous release. The migration guide
+is added to a MIGRATION.md file in the root of the component’s codebase,
+and is linked to from the component’s README.md.</p>
+
+<aside>
+	See
+	<a href="https://github.com/Financial-Times/o-table#migration">
+		o-table's migration guide
+	</a>
+	as an example.
+</aside>
+
+<h2 id="html">HTML</h2>
+
+<ul>
+  <li>A component’s markup should be contained in a root element that:
+    <ul>
+      <li>Has a data-o-component attribute with value of the component’s name, or</li>
+      <li>Is defined as a
+<a href="https://html.specification.whatwg.org/multipage/custom-elements.html#custom-element">customElement</a>
+registered against the component’s JavaScript class</li>
+    </ul>
+  </li>
+  <li>All data attributes and IDs are namespaced with the component’s name.</li>
+</ul>
+
+<h2 id="javascript">JavaScript</h2>
+
+<ul>
+  <li>We recommend components only modify:
+    <ul>
+      <li>The component’s root element, and its children</li>
+      <li>Elements passed explicitly to the component via JavaScript, and their
+children</li>
+      <li>Elements with any other data attribute in the component’s namespace,
+  and their children</li>
+    </ul>
+  </li>
+  <li>Components are configurable using data attributes</li>
+  <li>Events triggered by a component should be namespaced under the
+  target component’s name</li>
+  <li>Component JavaScript is usually annotated using JSDoc</li>
+</ul>
+
+<h2 id="sass">Sass</h2>
+
+<ul>
+  <li>CSS selectors follow the <a href="https://en.bem.info/methodology/naming-convention/">BEM naming convention</a>.</li>
+  <li>Sass functions, variables, mixins and placeholders defined in the global
+namespace are prefixed with the component name</li>
+  <li>We recommend components only style:
+    <ul>
+      <li>The component’s root element and its children</li>
+      <li>Elements with classes prefixed with the component’s name, and their
+children</li>
+      <li>Elements with any other data-attribute in the component’s namespace, and
+their children</li>
+    </ul>
+  </li>
+  <li>A component shouldn’t output CSS by default when Sass is loaded (i.e. <code class="language-plaintext highlighter-rouge">@use</code>, or
+<code class="language-plaintext highlighter-rouge">@import</code>)</li>
+  <li>If the component is consumed via the <code class="language-plaintext highlighter-rouge">@import</code> syntax:
+    <ul>
+      <li>It provides a primary mixin with a name that matches the component
+name (e.g. a component <code class="language-plaintext highlighter-rouge">o-well</code> provides a mixin <code class="language-plaintext highlighter-rouge">oWell</code>)</li>
+      <li>The primary mixin outputs all component CSS when no arguments are
+given.</li>
+    </ul>
+  </li>
+  <li>Sass is usually annotated with SassDoc</li>
+</ul>

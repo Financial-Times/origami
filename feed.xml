@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2022-01-13T11:19:14+00:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, October 2021</title><link href="https://origami.ft.com/blog/2021/11/05/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, October 2021" /><published>2021-11-05T00:00:00+00:00</published><updated>2021-11-05T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2021/11/05/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/11/05/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2022-01-13T13:06:48+00:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, October 2021</title><link href="https://origami.ft.com/blog/2021/11/05/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, October 2021" /><published>2021-11-05T00:00:00+00:00</published><updated>2021-11-05T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2021/11/05/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/11/05/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
 &lt;strong&gt;
 TL;DR:
 &lt;/strong&gt;
@@ -680,7 +680,7 @@ TL;DR:
 
 &lt;p&gt;The &lt;a href=&quot;https://origami-bower-registry.ft.com/&quot;&gt;FT Bower Registry&lt;/a&gt; has now also been placed into a maintenance only mode for 12 months, until 1st July 2022, when we will look to decommission the service completely.&lt;/p&gt;
 
-&lt;p&gt;We have &lt;a href=&quot;https://origami.ft.com/docs/tutorials/npm/&quot;&gt;created a set of guides&lt;/a&gt; to cover the different ways products may choose to migrate.&lt;/p&gt;
+&lt;p&gt;We have &lt;a href=&quot;https://origami.ft.com/documentation/tutorials/npm/&quot;&gt;created a set of guides&lt;/a&gt; to cover the different ways products may choose to migrate.&lt;/p&gt;
 
 &lt;h3 id=&quot;o-autocomplete&quot;&gt;o-autocomplete&lt;/h3&gt;
 
@@ -733,7 +733,7 @@ TL;DR:
 
 &lt;h3 id=&quot;the-origami-specification-is-no-more&quot;&gt;The Origami specification is no more&lt;/h3&gt;
 
-&lt;p&gt;The team spent most of the month revisiting the &lt;a href=&quot;https://origami.ft.com/spec/v1/&quot;&gt;Origami Specification&lt;/a&gt;. The specification is a formal document detailing the rules of how an Origami project, such as a component, must be built. We were trying to separate the parts of it that were developer advice from the parts that were relied on by our tools and services. After reducing the specification from 35 pages to 3, we had one last meeting in which we ultimately decided to retire the specification entirely.&lt;/p&gt;
+&lt;p&gt;The team spent most of the month revisiting the &lt;a href=&quot;https://origami.ft.com/specification/v1/&quot;&gt;Origami Specification&lt;/a&gt;. The specification is a formal document detailing the rules of how an Origami project, such as a component, must be built. We were trying to separate the parts of it that were developer advice from the parts that were relied on by our tools and services. After reducing the specification from 35 pages to 3, we had one last meeting in which we ultimately decided to retire the specification entirely.&lt;/p&gt;
 
 &lt;h3 id=&quot;what-do-people-mean-when-they-say-origami&quot;&gt;What do people mean when they say Origami?&lt;/h3&gt;
 
@@ -761,7 +761,7 @@ TL;DR:
 
 &lt;p&gt;This issues special thanks goes to Nick Ramsbottom! Nick worked with us on a component update to support New Product Development work, and enthusiastically got involved in the development. Together we were able to avoid project-specific overrides for a more reliable, consistent user interface.&lt;/p&gt;
 
-&lt;p&gt;If your team are looking to customise an Origami component for a project, checkout our &lt;a href=&quot;https://origami.ft.com/docs/components/customisation/&quot;&gt;guide to component customisation&lt;/a&gt; or contact the team for support.&lt;/p&gt;
+&lt;p&gt;If your team are looking to customise an Origami component for a project, checkout our &lt;a href=&quot;https://origami.ft.com/documentation/components/customisation/&quot;&gt;guide to component customisation&lt;/a&gt; or contact the team for support.&lt;/p&gt;
 
 &lt;h2 id=&quot;broader-update&quot;&gt;Broader update&lt;/h2&gt;
 
@@ -846,7 +846,7 @@ TL;DR:
 
 &lt;p&gt;We now have a page to help our users decide if they need to customise an Origami component, and if so, how to go about it in a safe, supported way which should reduce the chance of the customisation breaking in the future.&lt;/p&gt;
 
-&lt;p&gt;Please &lt;a href=&quot;https://origami.ft.com/docs/components/customisation/&quot;&gt;have a read through the page&lt;/a&gt; and let us know of any feedback you may have or suggestions for other topics we could write guidance for.&lt;/p&gt;
+&lt;p&gt;Please &lt;a href=&quot;https://origami.ft.com/documentation/components/customisation/&quot;&gt;have a read through the page&lt;/a&gt; and let us know of any feedback you may have or suggestions for other topics we could write guidance for.&lt;/p&gt;
 
 &lt;h2 id=&quot;special-thanks&quot;&gt;Special thanks&lt;/h2&gt;
 
@@ -919,8 +919,8 @@ TL;DR:
         &lt;ul&gt;
           &lt;li&gt;Only read &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;keywords&lt;/code&gt; property from the package.json manifest and not origami.json or bower.json&lt;/li&gt;
           &lt;li&gt;Allow origami version to be the “2.0” string&lt;/li&gt;
-          &lt;li&gt;use v3 of the build service for spec v2 components&lt;/li&gt;
-          &lt;li&gt;Correct the languages property of spec v2 component versions&lt;/li&gt;
+          &lt;li&gt;use v3 of the build service for specification v2 components&lt;/li&gt;
+          &lt;li&gt;Correct the languages property of specification v2 component versions&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -1153,7 +1153,7 @@ TL;DR:
 
 &lt;p&gt;Looking back over the 7 years of the team and project, we wrote a new mission statement for Origami.&lt;/p&gt;
 
-&lt;p&gt;We’ve posted them on the website here: https://origami.ft.com/docs/principles/vision-and-mission/&lt;/p&gt;
+&lt;p&gt;We’ve posted them on the website here: https://origami.ft.com/documentation/principles/vision-and-mission/&lt;/p&gt;
 
 &lt;h4 id=&quot;mission&quot;&gt;Mission&lt;/h4&gt;
 
@@ -1296,7 +1296,7 @@ TL;DR:
         &lt;p&gt;fix Symbol.prototype.description&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;Fetch polyfill is no longer spec compliant&lt;/p&gt;
+        &lt;p&gt;Fetch polyfill is no longer specification compliant&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
         &lt;p&gt;Reflect fixes&lt;/p&gt;
@@ -1377,7 +1377,7 @@ TL;DR:
         &lt;p&gt;Backport conflicts work to Build Service v2&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;Feature: add support for spec v2 origami components&lt;/p&gt;
+        &lt;p&gt;Feature: add support for specification v2 origami components&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
         &lt;p&gt;Issue: ESM module support&lt;/p&gt;
@@ -1813,7 +1813,7 @@ TL;DR:
         &lt;p&gt;Opting elements into dark mode via a parent selector&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;Proposal: perform a review of the Origami spec&lt;/p&gt;
+        &lt;p&gt;Proposal: perform a review of the Origami specification&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
         &lt;p&gt;Proposal: npm-only origami components&lt;/p&gt;

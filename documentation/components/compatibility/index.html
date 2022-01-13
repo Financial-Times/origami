@@ -1,0 +1,69 @@
+<h1 id="compatibility">Compatibility</h1>
+
+<h2 id="core--enhanced-experiences">Core &amp; enhanced experiences</h2>
+
+<p><code class="language-plaintext highlighter-rouge">core</code> and <code class="language-plaintext highlighter-rouge">enhanced</code> are definitions we have for ‘experiences’ that we serve to a browser. The experience we serve depends on the presence of some features within the browser.</p>
+
+<p>Generally, older browsers that don’t support newer JavaScript features will get a <code class="language-plaintext highlighter-rouge">core</code> experience, and modern browsers will get the <code class="language-plaintext highlighter-rouge">enhanced</code> experience.</p>
+
+<p>To determine whether or not a browser supports those features, we use a ‘cuts the mustard’ test.</p>
+
+<h3 id="cuts-the-mustard">Cuts the mustard</h3>
+
+<aside>This expression comes from the <abbr title="British Broadcasting Corporation">BBC</abbr>'s <a href="http://responsivenews.co.uk/post/18948466399/cutting-the-mustard" class="o-typography-link--external">post about <abbr title="Cuts The Mustard">CTM</abbr></a></aside>
+
+<h4 id="defining-a-ctm-test">Defining a <abbr title="Cuts The Mustard">CTM</abbr> test</h4>
+
+<p>This test checks browsers for some features that are only implemented by modern browsers. We recommend the following test:</p>
+
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--javascript">var script = document.createElement('script');
+var supportsDeferredScripts = "defer" in script &amp;&amp; "async" in script;
+window.cutsTheMustard = (typeof document.documentElement.dataset === 'object' &amp;&amp; ('visibilityState' in document) &amp;&amp; supportsDeferredScripts);</code></pre>
+
+<h4 id="toggling-styling">Toggling styling</h4>
+
+<p>The styling we choose to display rely on class names. Keeping with the experiences, we will be using <code class="language-plaintext highlighter-rouge">core</code> and <code class="language-plaintext highlighter-rouge">enhanced</code>. Origami components contain fallback styling for the browsers that fail the test. We need to toggle the class names based on the result of the test, and to avoid flashes of content we’ll always assume that the experience we will be served is core, until proven otherwise.</p>
+
+<p>Your <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> will need the <code class="language-plaintext highlighter-rouge">core</code> class:</p>
+<pre><code class="o-syntax-highlight--html">&lt;html class="core"&gt;</code></pre>
+
+<p>And we’ll want to add a script to replace that class with <code class="language-plaintext highlighter-rouge">enhanced</code> if the browser <em>does</em> pass the test:</p>
+
+<pre><code class="o-syntax-highlight--javascript">if (window.cutsTheMustard) {
+	document.documentElement.classList.replace('core', 'enhanced');
+}</code></pre>
+
+<p>Finally, we need to add instructions for our styling to handle the html class:</p>
+<pre><code class="o-syntax-highlight--css">.core .o--if-js,
+.enhanced .o--if-no-js {
+	display: none !important;
+}</code></pre>
+
+<h4 id="loading-javascript-asynchronously">Loading JavaScript asynchronously</h4>
+
+<p>If our browser passes the test and there is JavaScript that should only be served for the <code class="language-plaintext highlighter-rouge">enhanced</code> experience, we can load the JavaScript dynamically.</p>
+
+<p>If there is JavaScript to execute regardless of the experience served to the browser, we should add a <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> element to load that JavaScript.</p>
+
+<pre><code class="o-syntax-highlight--javascript">&lt;script&gt;
+	(function(src) {
+		if (window.cutsTheMustard) {
+			script.async = script.defer = true;
+			script.src = src;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(script, s);
+		}
+	}('https://example.com/main.js));
+&lt;/script&gt;</code></pre>
+
+<aside>We've put the full implementation of our <abbr title="Cuts The Mustard">CTM</abbr> test <a href="https://codepen.io/ft-origami/pen/rZjzbw" class="o-typography-link--external">on Codepen</a></aside>
+
+<h2 id="browser-support">Browser support</h2>
+
+<p>Origami follow the <a href="https://docs.google.com/document/d/1z6kecy_o9qHYIznTmqQ-IJqre72jhfd0nVa4JMsS7Q4/" class="o-typography-link--external"><abbr title="Financial Times">FT</abbr> Browser Support Policy document</a> available to <abbr title="Financial Times">FT</abbr> staff.</p>
+
+<h2 id="polyfill-service">Polyfill service</h2>
+
+<p>In the physical world, ‘Polyfilla’ is a type of plaster that is used to fill in small holes in walls. In web development, polyfills are snippets of code that implement a feature on browsers that do not natively support that feature. It means that we can write modern JavaScript without having to invest a large amount of time in making it work in older browsers.</p>
+
+<p>What can be time consuming, is identifying the polyfills we need, so for that, we use and maintain the <a href="http://polyfill.io" class="o-typography-link--external">Polyfill Service</a> which hosts all of its own documentation.</p>

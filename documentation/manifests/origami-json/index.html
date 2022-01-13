@@ -1,0 +1,427 @@
+<h1 id="origamijson">origami.json</h1>
+
+<p><code class="language-plaintext highlighter-rouge">origami.json</code> is a <a href="https://www.json.org/" class="o-typography-link--external"><abbr title="JavaScript Object Notation">JSON</abbr></a> format file that is responsible for describing various aspects of an Origami project. It is under active development and subject to change, <code class="language-plaintext highlighter-rouge">required</code> properties indicate those that Origami tools or services may still rely on.</p>
+
+<aside>
+The <a href="https://origami.ft.com/blog/2021/06/01/newsletter/#the-origami-specification-is-no-more">Origami specification is now deprecated</a>. The structure of <code class="language-plaintext highlighter-rouge">origami.json</code> may change as Origami tooling and services are updated.
+</aside>
+
+<h2 id="properties">Properties</h2>
+
+<h3 id="description">description</h3>
+
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>String</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>true</code></td>
+	</tr>
+</table>
+
+<p>A concise description of the purpose of the project.</p>
+<pre><code class="o-syntax-highlight--json">{
+	"description": "Branded tables"
+}</code></pre>
+
+<h3 id="origamitype">origamiType</h3>
+
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>String</code> or <code>null</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>true</code></td>
+	</tr>
+</table>
+
+<p>Defines the type of Origami project that the manifest belongs to:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"component"</code> (previously <code class="language-plaintext highlighter-rouge">module</code>): A front-end component</li>
+  <li><code class="language-plaintext highlighter-rouge">"service"</code>: An HTTP service</li>
+  <li><code class="language-plaintext highlighter-rouge">"cli"</code>: A command line tool</li>
+  <li><code class="language-plaintext highlighter-rouge">"library"</code>: A library that is not a front-end component</li>
+  <li><code class="language-plaintext highlighter-rouge">"website"</code>: Origami websites that aren’t intended to be services</li>
+  <li><code class="language-plaintext highlighter-rouge">"config"</code>: Projects that are configuration for other projects</li>
+  <li><code class="language-plaintext highlighter-rouge">"example"</code>: Example and boilerplate projects</li>
+  <li><code class="language-plaintext highlighter-rouge">"meta"</code>: Repository-only projects that relate to how Origami works</li>
+  <li><code class="language-plaintext highlighter-rouge">null</code>: An Origami project that does not fit any of the named categories</li>
+</ul>
+
+<pre><code class="o-syntax-highlight--json">{
+	"origamiType": "component"
+}</code></pre>
+
+<h3 id="origamiversion">origamiVersion</h3>
+
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>Integer</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>true</code></td>
+	</tr>
+</table>
+
+<p>The version of the <a href="/specification/">Origami specification</a> the project follows. Note that the specification is now deprecated as of v1, any value other than <code class="language-plaintext highlighter-rouge">1</code>, for example <code class="language-plaintext highlighter-rouge">2.0</code>, indicates the project does not follow a specification:</p>
+<pre><code class="o-syntax-highlight--json">{
+	"origamiVersion": 1
+}</code></pre>
+
+<h3 id="brands">brands</h3>
+
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>Array</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>false</code></td>
+	</tr>
+</table>
+
+<p>For components which support <a href="/documentation/components/customisation/">brands</a>, an array of one or more brands: “core”, “internal, “whitelabel”.
+If the brands property does not exist, this means the component is unbranded and supports all the brands.</p>
+
+<h3 id="keywords">keywords</h3>
+
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>Array</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>true</code></td>
+	</tr>
+</table>
+
+<p>Expects keywords related to the project to help discover it in the registry.</p>
+
+<pre><code class="o-syntax-highlight--json">{
+	"keywords": ["table", "rows", "columns"]
+}</code></pre>
+
+<h3 id="origamicategory">origamiCategory</h3>
+
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>String</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>true</code>*</td>
+	</tr>
+</table>
+
+<p>*Applies to <code class="language-plaintext highlighter-rouge">{ "origamiType": "component" }</code>.</p>
+
+<p>Describes the organisational category the component belongs to:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"utilities"</code>: Sass and JavaScript utilities that provide no markup, provide no classes and are used to encapsulate shared logic between components</li>
+  <li><code class="language-plaintext highlighter-rouge">"primitives"</code>: Base components that provide minimal markup and are used by other components</li>
+  <li><code class="language-plaintext highlighter-rouge">"components"</code>: Components built from primitives and utilities, which provide markup for a complete user interface</li>
+  <li><code class="language-plaintext highlighter-rouge">"layouts"</code>: Complex components that provide styles for the whole page</li>
+</ul>
+
+<pre><code class="o-syntax-highlight--json">{
+	"origamiCategory": "components"
+}</code></pre>
+
+<h3 id="support">support</h3>
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>String</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>true</code></td>
+	</tr>
+</table>
+<p>Describes where a user can go for support on this project, e.g. the project’s GitHub issues.</p>
+
+<pre><code class="o-syntax-highlight--json">{
+	"support": "https://github.com/Financial-Times/o-table/issues"
+}</code></pre>
+
+<h3 id="supportstatus">supportStatus</h3>
+
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>String</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>true</code></td>
+	</tr>
+</table>
+
+<p>Describes the support status of the project’s major version:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">active</code>: feature development ongoing, bug reports will be gratefully received and acted upon promptly</li>
+  <li><code class="language-plaintext highlighter-rouge">maintained</code>: not actively developed but reproducible bugs will be fixed promptly and work done where necessary to maintain compatibility with platforms and other projects</li>
+  <li><code class="language-plaintext highlighter-rouge">deprecated</code>: not actively developed, not recommended for new projects, only the most disabling bugs will be addressed and only when time allows, but existing implementations may still work</li>
+  <li><code class="language-plaintext highlighter-rouge">dead</code>: decommissioned entirely, will receive no support</li>
+  <li><code class="language-plaintext highlighter-rouge">experimental</code>: the project is not ready for production use</li>
+</ul>
+
+<pre><code class="o-syntax-highlight--json">{
+	"supportStatus": "active"
+}</code></pre>
+
+<h3 id="supportcontact">supportContact</h3>
+
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>Object</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>false</code></td>
+	</tr>
+</table>
+
+<p>Describes contact details a user can choose from to find support for this project. The owner(s) identified in the support options commit to:</p>
+<ul>
+  <li>reviewing code prior to release</li>
+  <li>signing off on deployments</li>
+  <li>publishing and maintaining up to date releases and documentation</li>
+  <li>decommissioning the project when appropriate</li>
+  <li>provide support to the users of the project</li>
+</ul>
+
+<p>The object requires two properties:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">email</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Is an email address that users can request support from. We recommend a group or role based email, not a named individual</li>
+  <li><code class="language-plaintext highlighter-rouge">slack</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Is a slack channel that users can go to for support in the format: organisation/channel-name</li>
+</ul>
+
+<pre><code class="o-syntax-highlight--json">{
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	}
+}</code></pre>
+
+<h3 id="browserfeatures">browserFeatures</h3>
+
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>Object</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>false</code></td>
+	</tr>
+</table>
+
+<p>Applies to <code class="language-plaintext highlighter-rouge">{ "origamiType": "component" }</code>. Outlines the browser features required for the component’s functionality.
+The object accepts two properties:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">required</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. A list of <a href="https://polyfill.io" class="o-typography-link--external">Polyfill Service</a> features or <a href="https://modernizr.com/docs/" class="o-typography-link--external">Modernizr</a> tests, which the component assumes exists. If these features do not exist, the component may error.</li>
+  <li><code class="language-plaintext highlighter-rouge">optional</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. A list of <a href="https://polyfill.io" class="o-typography-link--external">Polyfill Service</a> features or <a href="https://modernizr.com/docs/" class="o-typography-link--external">Modernizr</a> tests, which the component  will use if they are available in the browser. If not the component may offer different or reduced functionality, but with graceful degradation.</li>
+</ul>
+
+<pre><code class="o-syntax-highlight--json">{
+	"origamiType": "component",
+	"browserFeatures": {
+		"required": [
+		"customEvent"
+		],
+		"optional": [
+			"IntersectionObserver",
+			"IntersectionObserverEntry"
+		]
+	}
+}</code></pre>
+
+<h3 id="serviceurl">serviceUrl</h3>
+
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>String</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>true</code>*</td>
+	</tr>
+</table>
+
+<p>*Applies to <code class="language-plaintext highlighter-rouge">{ "origamiType": "service" }</code> only.</p>
+
+<p>Is the URL on which the service is provided.</p>
+
+<pre><code class="o-syntax-highlight--json">{
+	"origamiType": "service",
+	"serviceUrl": "https://www.ft.com/__origami/service/build/"
+}</code></pre>
+
+<h3 id="demosdefaults">demosDefaults</h3>
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>Object</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>false</code></td>
+	</tr>
+</table>
+
+<p>Describes default options to be applied to all demos.</p>
+
+<p>The object accepts the following properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">template</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Describes the path to the mustache template to render</li>
+  <li><code class="language-plaintext highlighter-rouge">sass</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Describes the path to the Sass file to compile.</li>
+  <li><code class="language-plaintext highlighter-rouge">js</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Describes the JS file to build.</li>
+  <li><code class="language-plaintext highlighter-rouge">data</code>: type <code class="language-plaintext highlighter-rouge">Object</code> or <code class="language-plaintext highlighter-rouge">String</code>. Describes data to populate to the mustache template with. If this is a string it must be a path to a JSON file containing the data, relative to the root of the repo.</li>
+  <li><code class="language-plaintext highlighter-rouge">documentClasses</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Names CSS classes to set on the <code class="language-plaintext highlighter-rouge">html</code> tag.</li>
+  <li><code class="language-plaintext highlighter-rouge">dependencies</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. Is a list of other components that are only needed for demos, which will be loaded via the <a href="https://www.ft.com/__origami/service/build" class="o-typography-link--external">Build Service</a></li>
+</ul>
+
+<p>All of these properties are <strong>optional</strong>.</p>
+
+<pre><code class="o-syntax-highlight--json">{
+	"demosDefaults": {
+		"template": "demos/src/demo.mustache"
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js"
+		"data": {
+			"striped-rows": true
+		},
+		"documentClasses": "demo-container",
+		"dependencies": ["o-normalise"]
+	}
+}</code></pre>
+
+<h3 id="demos">demos</h3>
+<table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
+	<tr>
+		<th scope="row" role="rowheader">Type</th>
+		<td><code>Array</code></td>
+	</tr>
+	<tr>
+		<th scope="row" role="rowheader">Required</th>
+		<td><code>false</code></td>
+	</tr>
+</table>
+
+<p>It accepts an array. Is a list of configuration objects for individual demos.
+Each object in the list accepts the following properties:</p>
+
+<p><strong>required</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">name</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Demo name which will be used as the name of the outputted html file</li>
+  <li><code class="language-plaintext highlighter-rouge">title</code>: type <code class="language-plaintext highlighter-rouge">String</code>. A title for the demo which will appear when listed in the Registry</li>
+  <li><code class="language-plaintext highlighter-rouge">description</code>: type <code class="language-plaintext highlighter-rouge">String</code>. An explanation of the purpose of the demo</li>
+  <li><code class="language-plaintext highlighter-rouge">template</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Describes the path to the demo-specific mustache template to render</li>
+</ul>
+
+<p><strong>optional</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sass</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Describes the path to the demo-specific Sass file to compile.</li>
+  <li><code class="language-plaintext highlighter-rouge">js</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Describes the path to the demo-specific JS file to build.</li>
+  <li><code class="language-plaintext highlighter-rouge">data</code>: type <code class="language-plaintext highlighter-rouge">Object</code> or <code class="language-plaintext highlighter-rouge">String</code>. Describes data to populate to the component-specific mustache template with. If this is a string it must be a path to a JSON file containing the data, relative to the root of the repo.</li>
+  <li><code class="language-plaintext highlighter-rouge">brands</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. For components which support <a href="/documentation/components/branding/">brands</a>, this describes one or more brands which the demo applies to (“core”, “internal, “whitelabel”)</li>
+  <li><code class="language-plaintext highlighter-rouge">documentClasses</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Names CSS classes to set on the component-specific <code class="language-plaintext highlighter-rouge">html</code> tag</li>
+  <li><code class="language-plaintext highlighter-rouge">dependencies</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. Is a list of other components that are only needed a this specific demo, which will be loaded via the <a href="https://www.ft.com/__origami/service/build" class="o-typography-link--external">Build Service</a></li>
+  <li><code class="language-plaintext highlighter-rouge">hidden</code>: type <code class="language-plaintext highlighter-rouge">Boolean</code>. Whether the demo should be hidden in the Registry</li>
+  <li><code class="language-plaintext highlighter-rouge">display_html</code>: type <code class="language-plaintext highlighter-rouge">Boolean</code>. Whether the demo should have a HTML tab in the Registry (defaults to true)</li>
+</ul>
+
+<pre><code class="o-syntax-highlight--json">{
+	"demos": [
+		{
+			"name": "Basic table",
+			"description": "Basic table implementation",
+			"template": "demos/src/basic-component.mustache"
+		},
+		{
+			"name": "Striped table",
+			"description": "Striped table implementation",
+			"template": "demos/src/striped-table.mustache",
+			"sass": "demos/src/striped-table.scss",
+			"documentClasses": "demo-striped-table-container",
+			"brands": ["core", "internal"]
+		},
+		{
+			"name": "pa11y",
+			"description": "Hidden test for pa11y",
+			"hidden": true,
+			"template": "demos/src/pa11y.mustache"
+		}
+	]
+}</code></pre>
+
+<h2 id="example">Example</h2>
+
+<p>This example joins all of the property snippets outlined above:</p>
+
+<pre><code class="o-syntax-highlight--json">{
+	"description": "Branded tables",
+	"origamiType": "component",
+	"origamiVersion": '2.0',
+	"keywords": ["table", "rows", "columns"],
+	"origamiCategory": "components",
+	"support": "https://github.com/Financial-Times/o-table/issues",
+	"supportStatus": "active",
+	"supportContact": {
+			"email": "origami.support@ft.com",
+			"slack": "financialtimes/origami-support"
+		}
+	"browserFeatures": {
+		"required": [
+		"customEvent"
+		],
+		"optional": [
+			"IntersectionObserver",
+			"IntersectionObserverEntry"
+		]
+	},
+	"demosDefaults": {
+		"template": "demos/src/demo.mustache"
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js"
+		"data": {
+			"striped-rows": true
+		},
+		"documentClasses": "demo-container",
+		"dependencies": ["o-normalise"]
+	},
+	"demos": [
+		{
+			"name": "Basic table",
+			"description": "Basic table implementation",
+			"template": "demos/src/basic-component.mustache"
+		},
+		{
+			"name": "Striped table",
+			"description": "Striped table implementation",
+			"template": "demos/src/striped-table.mustache",
+			"sass": "demos/src/striped-table.scss",
+			"documentClasses": "demo-striped-table-container"
+		},
+		{
+			"name": "pa11y",
+			"description": "Hidden test for pa11y",
+			"hidden": true,
+			"template": "demos/src/pa11y.mustache"
+		}
+	]
+}</code></pre>

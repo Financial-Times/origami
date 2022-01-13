@@ -1,0 +1,52 @@
+<h1 id="silent-mode">Silent mode</h1>
+
+<p>Some styled Origami components come with a ‘silent mode’ <a href="https://sass-lang.com/">Sass</a> variable, which is used to control when the component outputs CSS. However, this is now deprecated in favour of including a <a href="https://sass-lang.com/">Sass</a> mixin to control CSS output.</p>
+
+<aside>The <a href="https://sass-lang.com/guide" class="o-typography-link--external">Sass Guide</a> has more information about <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> mixins, and many other features.</aside>
+
+<p><code class="language-plaintext highlighter-rouge">$o-component-silent-mode</code> <strong>defaults to ON</strong>. You do not need to explicitly set it to be on, but you do need to be aware of this default.</p>
+
+<p>If we consider a small snippet of <abbr title="Sassy Cascading Style Sheets">SCSS</abbr>, as the one below, we can illustrate how silent mode works.</p>
+<aside>This is an illustration of styles in a component, not an accurate representation of an <code>o-message</code> mixin.</aside>
+
+<pre><code class="o-syntax-highlight--scss">$o-message-is-silent: true !default;
+
+@mixin oMessage() {
+	.o-message {
+		display: block;
+	}
+
+	.o-message--closed {
+		display: none;
+	}
+};
+
+@if ($o-message-is-silent == false) {
+	@include oMessage();
+
+	// Set to silent again to avoid being output twice
+	$o-message-is-silent: true !global;
+}</code></pre>
+
+<h2 id="on">ON</h2>
+
+<p>When a component’s silent mode is set to <code class="language-plaintext highlighter-rouge">true</code> or ‘on’: <code class="language-plaintext highlighter-rouge">$o-component-is-silent: true</code>, the <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> mixins and variables will be made available, but they will <em>not</em> be included or built.</p>
+
+<p>What will be available to you in this case is:</p>
+
+<pre><code class="o-syntax-highlight--scss">@mixin oMessage() {
+	...
+}</code></pre>
+
+<h2 id="off">OFF</h2>
+<p>When a component’s silent mode is <code class="language-plaintext highlighter-rouge">false</code> or, ‘off’: <code class="language-plaintext highlighter-rouge">$o-component-is-silent: false</code>, the <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> in the example above will be included automatically and will build all of its styles.</p>
+
+<p>The following will be available for you to use in your project:</p>
+
+<pre><code class="o-syntax-highlight--scss">.o-message {
+	display: block;
+}
+
+.o-message--closed {
+	display: none;
+}</code></pre>
