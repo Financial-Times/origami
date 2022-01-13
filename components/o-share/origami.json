@@ -31,47 +31,33 @@
 		{
 			"title": "Horizontal",
 			"name": "horizontal",
-			"template": "demos/src/main.mustache",
-			"data": "demos/src/data.json",
+			"template": "demos/src/horizontal.mustache",
 			"description": "horizontal"
 		},
 		{
 			"title": "Small",
 			"name": "small",
-			"template": "demos/src/main.mustache",
-			"data": "demos/src/data-small.json",
+			"template": "demos/src/small.mustache",
 			"description": "small icons"
 		},
 		{
 			"title": "Inverse",
 			"name": "inverse",
-			"template": "demos/src/main.mustache",
-			"data": "demos/src/data-inverse.json",
+			"template": "demos/src/inverse.mustache",
 			"documentClasses": "demo demo--inverse",
 			"description": "inverse share icons"
 		},
 		{
 			"title": "Vertical",
 			"name": "vertical",
-			"template": "demos/src/main.mustache",
-			"data": "demos/src/data-vertical.json",
+			"template": "demos/src/vertical.mustache",
 			"description": "vertical"
 		},
 		{
 			"title": "Custom Share",
 			"name": "custom-share",
-			"template": "demos/src/main.mustache",
-			"data": "demos/src/data-custom.json",
-			"description": "A custom share action may also be used alongside a form or with custom JavaScript behaviour attached, as shown with the last icon in this demo. Labels may be added to describe a custom share button."
-		},
-		{
-			"title": "Pa11y",
-			"name": "pa11y",
-			"template": "demos/src/pa11y.mustache",
-			"documentClasses": "",
-			"data": "demos/src/data.json",
-			"hidden": true,
-			"description": "Highlight accessibility issues"
+			"template": "demos/src/custom.mustache",
+			"description": "A custom share action may also be used alongside a form or with custom JavaScript behaviour attached, as shown with this demo. Labels may be added to describe a custom share button."
 		}
 	]
 }
