@@ -23,6 +23,17 @@ function addEvents (parent, menu) {
 		}, INTENT_ENTER);
 	});
 
+
+	const handleKeydown = (e) => {
+		if (e.keyCode === 27) {
+			if (isOpen(menu)) {
+				hide(menu);
+			}
+		}
+	};
+
+	document.addEventListener('keydown', handleKeydown);
+
 	parent.addEventListener('mouseleave', () => {
 		clearTimeout(timeout);
 		timeout = setTimeout(() => isOpen(menu) && hide(menu), INTENT_LEAVE);
