@@ -24,8 +24,11 @@ function addEvents (parent, menu) {
 	});
 
 
-	const handleKeydown = (e) => {
-		if (e.keyCode === 27) {
+	const handleKeydown = (event) => {
+		const key = event.key || event.keyCode;
+
+		// Internet Explorer 11 incorrectly maps the escape key to `Esc` instead of `Escape`
+		if (key === 'Escape' || key === 'Esc' || key === 27) {
 			if (isOpen(menu)) {
 				hide(menu);
 			}
