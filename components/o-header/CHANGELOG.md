@@ -1,5 +1,13 @@
 # Changelog
 
+### [9.2.3](https://www.github.com/Financial-Times/origami/compare/o-header-v9.2.2...o-header-v9.2.3) (2022-01-17)
+
+
+### Bug Fixes
+
+* use KeyboardEvent.key as it is the standardised and non-deprecated alternative to KeyboardEvent.keyCode ([4f07630](https://www.github.com/Financial-Times/origami/commit/4f07630635d4d84db0a0262c8c04b70353a22685))
+* when pressing escape key, close any open mega-menus ([c03bf89](https://www.github.com/Financial-Times/origami/commit/c03bf89296898cb783d69072caeb37ebd812e63c))
+
 ### [9.2.2](https://www.github.com/Financial-Times/origami/compare/o-header-v9.2.1...o-header-v9.2.2) (2022-01-13)
 
 
