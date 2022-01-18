@@ -102,7 +102,7 @@ describe('tabs', () => {
 		});
 
 		it('can set the config declaratively', () => {
-			proclaim.isTrue(testTabs.config.disablefocus);
+			proclaim.isTrue(testTabs.config.dataOTabsUpdateUrl);
 		});
 
 		it('selectTab(1)', () => {
@@ -168,7 +168,7 @@ describe('tabs', () => {
 				if (withUpdateUrl) {
 					tabsEl.setAttribute('data-o-tabs-update-url', '');
 				}
-				tabsEl.setAttribute('data-o-tabs-disablefocus', 'false');
+				tabsEl.setAttribute('data-o-tabs-update-url', "true");
 				testTabs.destroy();
 				testTabs = new Tabs(tabsEl);
 			};
