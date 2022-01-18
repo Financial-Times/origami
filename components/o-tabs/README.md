@@ -53,7 +53,6 @@ You can set config options declaratively by using `[data-o-tabs-]` prefixed data
 
 Options consist of:
 
-- `data-o-tabs-disablefocus="true"` - prevent the tabpanel being focused when selected.
 - `data-o-tabs-update-url="true"` - update the URL with the `#` of the selected panel.
 
 ### Core experience
@@ -99,9 +98,7 @@ Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the eve
 
 ```javascript
 import Tabs from '@financial-times/o-tabs';
-const tabsObjects = Tabs.init(document.body, {
-	disablefocus: false
-});
+const tabsObjects = Tabs.init(document.body);
 ```
 
 An array of any constructed Tabs objects will be returned.
@@ -113,7 +110,6 @@ An array of any constructed Tabs objects will be returned.
 ```javascript
 import Tabs from '@financial-times/o-tabs';
 const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {
-	disablefocus: false
 });
 ```
 
@@ -135,7 +131,6 @@ Tabs are indexed starting from 0.
 The following API methods are provided:
 
 - `init(config)`: Set attributes/classes, bind events. Called automatically on construction. Does nothing if already been called. `config` object accepts:
-	- `disablefocus`: If set to `true`, it will stop the aria-selected tab from receiving focus.
 - `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
 - `destroy()`: Unbind events, remove `o-tabs--js` class. After calling this, `init()` can be called again to re-initialise the tabs.
 
