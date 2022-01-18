@@ -59,9 +59,7 @@ class Tabs {
 			const targetEl = document.getElementById(tabTargetId);
 
 			if (targetEl) {
-				tab.setAttribute('aria-controls', tabTargetId);
 				tab.setAttribute('tabindex', '0');
-
 				const label = tab;
 				const labelId = tabTargetId + '-label';
 				label.id = labelId;
