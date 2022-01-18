@@ -102,27 +102,11 @@ class Tabs {
 		panelEl.setAttribute('aria-hidden', 'true');
 	}
 
-	showPanel(panelEl, disableFocus) { // eslint-disable-line class-methods-use-this
+	showPanel(panelEl) { // eslint-disable-line class-methods-use-this
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
+		panelEl.setAttribute('tabindex', '0');
 
-		// Remove the focus ring for sighted users
-		panelEl.style.outline = 0;
-
-		if (disableFocus) {
-			return;
-		}
-
-		// Get current scroll position
-		const x = window.scrollX || window.pageXOffset;
-		const y = window.scrollY || window.pageYOffset;
-
-		// Give focus to the panel for screen readers
-		// This might cause the browser to scroll up or down
-		panelEl.focus();
-
-		// Scroll back to the original position
-		window.scrollTo(x, y);
 	}
 
 	dispatchCustomEvent(event, data = {}, namespace = 'oTabs') {
