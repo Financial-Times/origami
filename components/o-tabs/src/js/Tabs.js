@@ -64,7 +64,6 @@ class Tabs {
 
 				const label = tab;
 				const labelId = tabTargetId + '-label';
-				label.setAttribute('tabindex', '-1');
 				label.id = labelId;
 				targetEl.setAttribute('aria-labelledby', labelId);
 				targetEl.setAttribute('role', 'tabpanel');
