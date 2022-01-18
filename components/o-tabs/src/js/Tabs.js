@@ -143,9 +143,11 @@ class Tabs {
 				for (let i = 0; i < this.tabEls.length; i++) {
 					if (newIndex === i) {
 						this.tabEls[i].setAttribute('aria-selected', 'true');
-						this.showPanel(this.tabpanelEls[i], this.config.disablefocus);
+						this.tabEls[i].removeAttribute('tabindex');
+						this.showPanel(this.tabpanelEls[i]);
 					} else {
 						this.tabEls[i].setAttribute('aria-selected', 'false');
+						this.tabEls[i].setAttribute('tabindex', '-1');
 						this.hidePanel(this.tabpanelEls[i]);
 					}
 				}
