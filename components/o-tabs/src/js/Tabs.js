@@ -16,7 +16,7 @@ class Tabs {
 		this.boundClickHandler = this.clickHandler.bind(this);
 		this.rootEl.addEventListener('click', this.boundClickHandler, false);
 		this.boundKeyPressHandler = this.keyPressHandler.bind(this);
-		this.rootEl.addEventListener('keypress', this.boundKeyPressHandler, false);
+		this.rootEl.addEventListener('keyup', this.boundKeyPressHandler, false);
 		this.boundHashChangeHandler = this.hashChangeHandler.bind(this);
 		window.addEventListener('hashchange', this.boundHashChangeHandler, false);
 
@@ -170,12 +170,55 @@ class Tabs {
 		}
 	}
 
-	keyPressHandler(ev) {
-		const tabEl = ev.target.closest('[role=tab]');
-		// Only update if key pressed is enter key
-		if (tabEl && ev.keyCode === 13 && this.tabHasValidUrl(tabEl)) {
-			ev.preventDefault();
-			this.updateCurrentTab(tabEl);
+	keyPressHandler(event) {
+		const tabEl = event.target;
+		const key = event.keyCode;
+		if (tabEl) {
+			// eslint-disable-next-line default-case
+			switch (key) {
+				case 37: { //left
+					if (tabEl.previousElementSibling) {
+						if (this.tabHasValidUrl(tabEl.previousElementSibling)) {
+							event.preventDefault();
+							tabEl.previousElementSibling.focus();
+							this.updateCurrentTab(tabEl.previousElementSibling);
+						}
+					} else {
+						const lastTab = tabEl.parentElement.children[tabEl.parentElement.children-1];
+						if (this.tabHasValidUrl(lastTab)) {
+							event.preventDefault();
+							lastTab.focus();
+							this.updateCurrentTab(lastTab);
+						}
+					}
+					break;
+				}
+				case 39: { //right
+					if (tabEl.nextElementSibling) {
+						if (this.tabHasValidUrl(tabEl.nextElementSibling)) {
+							event.preventDefault();
+							tabEl.nextElementSibling.focus();
+							this.updateCurrentTab(tabEl.nextElementSibling);
+						}
+					} else {
+						const firstTab = tabEl.parentElement.children[0];
+						if (this.tabHasValidUrl(firstTab)) {
+							event.preventDefault();
+							firstTab.focus();
+							this.updateCurrentTab(firstTab);
+						}
+					}
+					break;
+				}
+				case 13: //enter
+				case 32: { //space
+					if (this.tabHasValidUrl(tabEl)) {
+						event.preventDefault();
+						this.updateCurrentTab(tabEl);
+					}
+					break;
+				}
+			}
 		}
 	}
 
