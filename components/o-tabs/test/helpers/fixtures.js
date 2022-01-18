@@ -21,7 +21,7 @@ function insert(html) {
 
 function insertSimple() {
 	const html = `
-		<div data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-disablefocus="true" id="tab-element">
+		<div data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url="true" id="tab-element">
 			<a role="tab" class="should-be-focusable" href="#tabContent1">Tab 1</a>
 			<a role="tab" class="should-be-focusable" href="#tabContent2">Tab 2</a>
 			<a role="tab" class="should-be-focusable" href="#tabContent3">Tab 3</a>
