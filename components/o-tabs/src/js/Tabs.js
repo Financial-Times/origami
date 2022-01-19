@@ -67,6 +67,8 @@ class Tabs {
 				targetEl.setAttribute('role', 'tabpanel');
 				targetEl.setAttribute('tabindex', '0');
 				panelEls.push(targetEl);
+			} else {
+				targetEl.setAttribute('tabindex', '-1');
 			}
 		}
 
@@ -98,6 +100,7 @@ class Tabs {
 	hidePanel(panelEl) { // eslint-disable-line class-methods-use-this
 		panelEl.setAttribute('aria-expanded', 'false');
 		panelEl.setAttribute('aria-hidden', 'true');
+		panelEl.removeAttribute('tabindex');
 	}
 
 	showPanel(panelEl) { // eslint-disable-line class-methods-use-this
