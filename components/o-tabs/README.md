@@ -27,9 +27,9 @@ This is an example of an HTML structure that **o-tabs** will accept:
 
 ```html
 <div data-o-component="o-tabs" class="o-tabs" role="tablist">
-	<a role="tab" aria-controls="#tabContent1" href="#tabContent1" >Tab 1</a>
-	<a role="tab" aria-controls="#tabContent2" href="#tabContent2">Tab 2</a>
-	<a role="tab" aria-controls="#tabContent3" href="#tabContent3">Tab 3</a>
+	<a role="tab" aria-controls="tabContent1" href="#tabContent1" >Tab 1</a>
+	<a role="tab" aria-controls="tabContent2" href="#tabContent2">Tab 2</a>
+	<a role="tab" aria-controls="tabContent3" href="#tabContent3">Tab 3</a>
 </div>
 <div id="tabContent1" class="o-tabs__tabpanel">
 	Tab content 1
