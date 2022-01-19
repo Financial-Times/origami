@@ -240,7 +240,7 @@ class Tabs {
 
 	destroy() {
 		this.rootEl.removeEventListener('click', this.boundClickHandler, false);
-		this.rootEl.removeEventListener('keypress', this.boundKeyPressHandler, false);
+		this.rootEl.removeEventListener('keyup', this.boundKeyPressHandler, false);
 		window.removeEventListener('hashchange', this.boundHashChangeHandler, false);
 		this.rootEl.removeAttribute('data-o-tabs--js');
 
