@@ -171,7 +171,7 @@ class Tabs {
 							this.updateCurrentTab(tabEl.previousElementSibling);
 						}
 					} else {
-						const lastTab = tabEl.parentElement.children[tabEl.parentElement.children-1];
+						const lastTab = tabEl.parentElement.lastElementChild;
 						if (this.tabHasValidUrl(lastTab)) {
 							event.preventDefault();
 							lastTab.focus();
@@ -188,7 +188,7 @@ class Tabs {
 							this.updateCurrentTab(tabEl.nextElementSibling);
 						}
 					} else {
-						const firstTab = tabEl.parentElement.children[0];
+						const firstTab = tabEl.parentElement.firstElementChild;
 						if (this.tabHasValidUrl(firstTab)) {
 							event.preventDefault();
 							firstTab.focus();
