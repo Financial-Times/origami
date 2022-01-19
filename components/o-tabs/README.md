@@ -207,7 +207,7 @@ Key|Function
 Tab | When focus moves into the tab list, places focus on the active tab element. When the tab list already contains the focus, moves focus to the next element in the page tab sequence outside the tablist.
 Left Arrow | Moves focus to the previous tab. If focus is on the first tab, moves focus to the last tab. Activates the tabpanel which is associated with the newly focused tab.
 Right Arrow | Moves focus to the next tab. If focus is on the last tab element, moves focus to the first tab. Activates the tabpanel which is associated with the newly focused tab.
-Space or Enter | Activates the tabpanel which is associated with the focused if it was not already activated.
+Space or Enter | Activates the tabpanel which is associated with the focused tab if it was not already activated.
 
 
 ## Migration Guide
