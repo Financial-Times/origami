@@ -10,11 +10,11 @@ The component no longer uses `ul` and `li` elements and instead uses `div` and `
 -<ul data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
 +<div data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
 -	<li role="tab"><a href="#tabContent1">Tab 1</a></li>
-+	<a role="tab" aria-controls="#tabContent1" href="#tabContent1">Tab 1</a>
++	<a role="tab" aria-controls="tabContent1" href="#tabContent1">Tab 1</a>
 -	<li role="tab"><a href="#tabContent2">Tab 2</a></li>
-+	<a role="tab" aria-controls="#tabContent2" href="#tabContent2">Tab 2</a>
++	<a role="tab" aria-controls="tabContent2" href="#tabContent2">Tab 2</a>
 -	<li role="tab"><a href="#tabContent3">Tab 3</a></li>
-+	<a role="tab" aria-controls="#tabContent3" href="#tabContent3">Tab 3</a>
++	<a role="tab" aria-controls="tabContent3" href="#tabContent3">Tab 3</a>
 -</ul>
 +</div>
 ```
