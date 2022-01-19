@@ -1,62 +1,50 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
+import * as fixtures from './helpers/fixtures.js';
+import { screen } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
+import {assert} from '@open-wc/testing';
 import sinon from 'sinon/pkg/sinon-esm.js';
-
-import fixtures from './helpers/fixtures.js';
-
-sinon.assert.expose(proclaim, {
-	includeFail: false,
-	prefix: ''
-});
-
 import Tabs from '../main.js';
 
 let testTabs;
 let tabsEl;
-let tabContentEl1;
-let tabContentEl2;
-let tabContentEl3;
+let tabs;
+let tabPanels;
 
 describe('tabs', () => {
 
 	beforeEach(() => {
 		fixtures.insertSimple();
-		tabsEl = document.querySelector('[data-o-component=o-tabs]');
-		tabContentEl1 = document.getElementById('tabContent1');
-		tabContentEl2 = document.getElementById('tabContent2');
-		tabContentEl3 = document.getElementById('tabContent3');
+		tabsEl = screen.getByRole('tablist');
+		tabs = screen.getAllByRole('tab');
+		tabPanels = screen.getAllByRole('tabpanel');
 		testTabs = new Tabs(tabsEl);
 	});
 
 	afterEach(() => {
-		testTabs = null;
-		tabsEl = null;
-		tabContentEl1 = null;
-		tabContentEl2 = null;
-		tabContentEl3 = null;
 		fixtures.reset();
 	});
 
 	it('destroy()', () => {
-		testTabs.destroy();
+		let spy;
+		try {
+			testTabs.destroy();
 
-		proclaim.isFalse(tabsEl.classList.contains('o-tabs--js'));
+			assert.isFalse(tabsEl.classList.contains('o-tabs--js'));
+			spy = sinon.spy(testTabs, 'selectTab');
 
-		sinon.spy(testTabs, 'selectTab');
-		const clickEvent = document.createEvent('Event');
-		clickEvent.initEvent('click', true, true);
+			assert.isTrue(spy.notCalled);
 
-		tabsEl.querySelectorAll('a')[2].dispatchEvent(clickEvent);
-		proclaim.notCalled(testTabs.selectTab);
-
-		proclaim.equal(tabContentEl1.getAttribute('aria-expanded'), 'true');
-		proclaim.equal(tabContentEl1.getAttribute('aria-hidden'), 'false');
-		proclaim.equal(tabContentEl2.getAttribute('aria-expanded'), 'true');
-		proclaim.equal(tabContentEl2.getAttribute('aria-hidden'), 'false');
-		proclaim.equal(tabContentEl3.getAttribute('aria-expanded'), 'true');
-		proclaim.equal(tabContentEl3.getAttribute('aria-hidden'), 'false');
-
+			assert.strictEqual(tabPanels[0].getAttribute('aria-expanded'), 'true');
+			assert.strictEqual(tabPanels[0].getAttribute('aria-hidden'), 'false');
+			assert.strictEqual(tabPanels[1].getAttribute('aria-expanded'), 'true');
+			assert.strictEqual(tabPanels[1].getAttribute('aria-hidden'), 'false');
+			assert.strictEqual(tabPanels[2].getAttribute('aria-expanded'), 'true');
+			assert.strictEqual(tabPanels[2].getAttribute('aria-hidden'), 'false');
+		} finally {
+			spy.restore();
+		}
 	});
 
 	describe('tabs behaviour', () => {
@@ -66,98 +54,109 @@ describe('tabs', () => {
 		});
 
 		it('is defined', () => {
-			proclaim.isDefined(Tabs);
-			proclaim.isDefined(Tabs.init);
+			assert.isDefined(Tabs);
+			assert.isDefined(Tabs.init);
 		});
 
 		it('is has correct initial dom changes', () => {
-			proclaim.isTrue(tabsEl.hasAttribute('data-o-tabs--js'));
-			proclaim.strictEqual(tabsEl.querySelectorAll('a')[0].getAttribute('aria-controls'), 'tabContent1');
-			proclaim.strictEqual(tabsEl.querySelectorAll('a')[1].getAttribute('aria-controls'), 'tabContent2');
-			proclaim.strictEqual(tabsEl.querySelectorAll('a')[2].getAttribute('aria-controls'), 'tabContent3');
+			assert.isTrue(tabsEl.hasAttribute('data-o-tabs--js'));
+			assert.strictEqual(tabs[0].getAttribute('aria-controls'), 'tabContent1');
+			assert.strictEqual(tabs[1].getAttribute('aria-controls'), 'tabContent2');
+			assert.strictEqual(tabs[2].getAttribute('aria-controls'), 'tabContent3');
 
 			// Aria labelledby is set correctly:
-			proclaim.strictEqual(tabsEl.querySelectorAll('a')[2].id, 'tabContent3-label');
-			proclaim.strictEqual(tabContentEl3.getAttribute('aria-labelledby'), 'tabContent3-label');
+			assert.strictEqual(tabs[2].id, 'tabContent3-label');
+			assert.strictEqual(tabPanels[2].getAttribute('aria-labelledby'), 'tabContent3-label');
 
 			// Focusable elements
-			[].forEach.call(document.querySelectorAll('a .should-be-focusable'), function (element) {
-				proclaim.equal(element.getAttribute('tabindex'), '0');
-			});
-			[].forEach.call(document.querySelectorAll('.should-not-be-focusable'), function (element) {
-				proclaim.equal(element.getAttribute('tabindex'), '-1');
-			});
+			// Only one tab is focusable
+			assert.isFalse(tabs[0].hasAttribute('tabindex'));
+			assert.strictEqual(tabs[1].getAttribute('tabindex'), '-1');
+			assert.strictEqual(tabs[2].getAttribute('tabindex'), '-1');
+
+			// all tab panels are focusable but only one is ever shown on the screen at a time
+			for (const tab of tabPanels) {
+				assert.strictEqual(tab.getAttribute('tabindex'), '0');
+			}
 		});
 
 		it('has correct initial state', () => {
-			proclaim.equal(tabsEl.querySelectorAll('a')[0].getAttribute('aria-selected'), 'true');
-			proclaim.equal(tabsEl.querySelectorAll('a')[1].getAttribute('aria-selected'), 'false');
-			proclaim.equal(tabsEl.querySelectorAll('a')[2].getAttribute('aria-selected'), 'false');
-			proclaim.equal(tabContentEl1.getAttribute('aria-expanded'), 'true');
-			proclaim.equal(tabContentEl1.getAttribute('aria-hidden'), 'false');
-			proclaim.equal(tabContentEl2.getAttribute('aria-expanded'), 'false');
-			proclaim.equal(tabContentEl2.getAttribute('aria-hidden'), 'true');
-			proclaim.equal(tabContentEl3.getAttribute('aria-expanded'), 'false');
-			proclaim.equal(tabContentEl3.getAttribute('aria-hidden'), 'true');
+			assert.strictEqual(tabs[0].getAttribute('aria-selected'), 'true');
+			assert.strictEqual(tabs[1].getAttribute('aria-selected'), 'false');
+			assert.strictEqual(tabs[2].getAttribute('aria-selected'), 'false');
+			assert.strictEqual(tabPanels[0].getAttribute('aria-expanded'), 'true');
+			assert.strictEqual(tabPanels[0].getAttribute('aria-hidden'), 'false');
+			assert.strictEqual(tabPanels[1].getAttribute('aria-expanded'), 'false');
+			assert.strictEqual(tabPanels[1].getAttribute('aria-hidden'), 'true');
+			assert.strictEqual(tabPanels[2].getAttribute('aria-expanded'), 'false');
+			assert.strictEqual(tabPanels[2].getAttribute('aria-hidden'), 'true');
 		});
 
 		it('can set the config declaratively', () => {
-			proclaim.isTrue(testTabs.config.dataOTabsUpdateUrl);
+			assert.isTrue(testTabs.config['update-url']);
 		});
 
 		it('selectTab(1)', () => {
 			testTabs.selectTab(1);
-			proclaim.equal(tabsEl.querySelectorAll('a')[0].getAttribute('aria-selected'), 'false');
-			proclaim.equal(tabsEl.querySelectorAll('a')[1].getAttribute('aria-selected'), 'true');
-			proclaim.equal(tabsEl.querySelectorAll('a')[2].getAttribute('aria-selected'), 'false');
-			proclaim.equal(tabContentEl1.getAttribute('aria-expanded'), 'false');
-			proclaim.equal(tabContentEl1.getAttribute('aria-hidden'), 'true');
-			proclaim.equal(tabContentEl2.getAttribute('aria-expanded'), 'true');
-			proclaim.equal(tabContentEl2.getAttribute('aria-hidden'), 'false');
-			proclaim.equal(tabContentEl3.getAttribute('aria-expanded'), 'false');
-			proclaim.equal(tabContentEl3.getAttribute('aria-hidden'), 'true');
+			assert.strictEqual(tabs[0].getAttribute('aria-selected'), 'false');
+			assert.strictEqual(tabs[1].getAttribute('aria-selected'), 'true');
+			assert.strictEqual(tabs[2].getAttribute('aria-selected'), 'false');
+			assert.strictEqual(tabPanels[0].getAttribute('aria-expanded'), 'false');
+			assert.strictEqual(tabPanels[0].getAttribute('aria-hidden'), 'true');
+			assert.strictEqual(tabPanels[1].getAttribute('aria-expanded'), 'true');
+			assert.strictEqual(tabPanels[1].getAttribute('aria-hidden'), 'false');
+			assert.strictEqual(tabPanels[2].getAttribute('aria-expanded'), 'false');
+			assert.strictEqual(tabPanels[2].getAttribute('aria-hidden'), 'true');
 		});
 
 		it('click tab', () => {
-			sinon.spy(testTabs, 'selectTab');
-			const clickEvent = document.createEvent('Event');
-			clickEvent.initEvent('click', true, true);
+			let spy;
+			try {
+				spy = sinon.spy(testTabs, 'selectTab');
 
-			tabsEl.querySelectorAll('a')[2].dispatchEvent(clickEvent);
-			proclaim.calledWith(testTabs.selectTab, 2);
+				userEvent.click(tabs[2]);
+				assert.isTrue(spy.calledWith(2));
 
-			tabsEl.querySelectorAll('a')[1].dispatchEvent(clickEvent);
-			proclaim.calledWith(testTabs.selectTab, 1);
+				userEvent.click(tabs[1]);
+				assert.isTrue(spy.calledWith(1));
 
-			tabsEl.querySelectorAll('a')[0].dispatchEvent(clickEvent);
-			proclaim.calledWith(testTabs.selectTab, 0);
+				userEvent.click(tabs[0]);
+				assert.isTrue(spy.calledWith(0));
+			} finally {
+				spy.restore();
+			}
 
 		});
 
 		it('enter key press tab', () => {
-			sinon.spy(testTabs, 'selectTab');
-			const keyPressEvent = document.createEvent('Event');
-			keyPressEvent.keyCode = 13;
-			keyPressEvent.initEvent('keypress', true, true);
+			let spy;
+			try {
+				spy = sinon.spy(testTabs, 'selectTab');
 
-			tabsEl.querySelectorAll('a')[2].dispatchEvent(keyPressEvent);
-			proclaim.calledWith(testTabs.selectTab, 2);
+				tabs[2].focus();
+				userEvent.keyboard('{enter}');
+				assert.isTrue(spy.calledWith(2));
 
-			tabsEl.querySelectorAll('a')[1].dispatchEvent(keyPressEvent);
-			proclaim.calledWith(testTabs.selectTab, 1);
+				tabs[1].focus();
+				userEvent.keyboard('{enter}');
+				assert.isTrue(spy.calledWith(1));
 
-			tabsEl.querySelectorAll('a')[0].dispatchEvent(keyPressEvent);
-			proclaim.calledWith(testTabs.selectTab, 0);
+				tabs[0].focus();
+				userEvent.keyboard('{enter}');
+				assert.isTrue(spy.calledWith(0));
+			} finally {
+				spy.restore();
+			}
 		});
 
 		it('does not auto initialise when "data-o-tabs-autoconstruct=false" is set', () => {
 			fixtures.reset();
 
 			fixtures.insertSimple();
-			tabsEl = document.querySelector('[data-o-component=o-tabs]');
+			tabsEl = screen.getByRole('tablist');
 			tabsEl.setAttribute('data-o-tabs-autoconstruct', 'false');
 			Tabs.init();
-			proclaim.isFalse(tabsEl.hasAttribute('data-o-tabs--js'));
+			assert.isFalse(tabsEl.hasAttribute('data-o-tabs--js'));
 		});
 
 		describe('hash updating', () => {
@@ -167,8 +166,9 @@ describe('tabs', () => {
 				fixtures.insertSimple();
 				if (withUpdateUrl) {
 					tabsEl.setAttribute('data-o-tabs-update-url', '');
+				} else {
+					tabsEl.removeAttribute('data-o-tabs-update-url');
 				}
-				tabsEl.setAttribute('data-o-tabs-update-url', "true");
 				testTabs.destroy();
 				testTabs = new Tabs(tabsEl);
 			};
@@ -182,39 +182,47 @@ describe('tabs', () => {
 			});
 
 			it('Should update the hash part of the url to the id of the active tab', () => {
-				rebuildTabs();
+				rebuildTabs(true);
 				testTabs.selectTab(0);
 				const expectedHash = document.querySelector('.o-tabs a:first-child').hash;
-				proclaim.strictEqual(location.hash, expectedHash);
+				assert.strictEqual(location.hash, expectedHash);
 			});
 
 			it('Should not update the hash part of the url on tab initialisation', () => {
-				rebuildTabs();
-				proclaim.strictEqual(location.hash, '');
+				rebuildTabs(true);
+				assert.strictEqual(location.hash, '');
 			});
 
 			it('Should not update the url if the data attribute is not present', () => {
 				rebuildTabs(false);
 				testTabs.selectTab(0);
-				proclaim.strictEqual(location.hash, '');
+				assert.strictEqual(location.hash, '');
 			});
 
 			it('Should open the correct tab onload if the hash is present', (done) => {
 				location.hash = '#tabContent3';
 				tabsEl.addEventListener('oTabs.tabSelect', (ev) => {
-					proclaim.strictEqual(ev.detail.selected, 2);
-					done();
+					try {
+						assert.strictEqual(ev.detail.selected, 2);
+						done();
+					} catch (error) {
+						done(error);
+					}
 				});
-				rebuildTabs();
+				rebuildTabs(true);
 			});
 
 			it('Should respond to the hashchange event', (done) => {
-				rebuildTabs();
+				rebuildTabs(true);
 				testTabs.selectTab(0);
 				location.hash = '#tabContent3';
 				tabsEl.addEventListener('oTabs.tabSelect', (ev) => {
-					proclaim.strictEqual(ev.detail.selected, 2);
-					done();
+					try {
+						assert.strictEqual(ev.detail.selected, 2);
+						done();
+					} catch (error) {
+						done(error);
+					}
 				});
 			});
 		});

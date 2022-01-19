@@ -1,34 +1,46 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
+import * as fixtures from './helpers/fixtures.js';
+import { fireEvent, createEvent } from '@testing-library/dom';
+import {assert} from '@open-wc/testing';
 import sinon from 'sinon/pkg/sinon-esm.js';
-
-import fixtures from './helpers/fixtures.js';
-
 import Tabs from '../main.js';
 
 describe("Tabs", () => {
 	it('is defined', () => {
-		proclaim.equal(typeof Tabs, 'function');
+		assert.isFunction(Tabs);
 	});
 
 	it('has a static init method', () => {
-		proclaim.equal(typeof Tabs.init, 'function');
+		assert.isFunction(Tabs.init);
 	});
 
 	it("should autoinitialize", (done) => {
-		const initSpy = sinon.spy(Tabs, 'init');
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		setTimeout(function(){
-			proclaim.equal(initSpy.called, true);
+		let initSpy;
+		try {
+			initSpy = sinon.spy(Tabs, 'init');
+			fireEvent(document, createEvent('o.DOMContentLoaded', document));
+			setTimeout(function() {
+				try {
+					assert.isTrue(initSpy.called);
+					done();
+				} catch(error) {
+					done(error);
+				}
+			}, 100);
+		} finally {
 			initSpy.restore();
-			done();
-		}, 100);
+		}
 	});
 
 	it("should not autoinitialize when the event is not dispached", () => {
-		const initSpy = sinon.spy(Tabs, 'init');
-		proclaim.equal(initSpy.called, false);
+		let initSpy;
+		try {
+			initSpy = sinon.spy(Tabs, 'init');
+			assert.isFalse(initSpy.called);
+		} finally {
+			initSpy.restore();
+		}
 	});
 
 	describe("should create a new", () => {
@@ -42,13 +54,13 @@ describe("Tabs", () => {
 
 		it("component array when initialized", () => {
 			const tab = Tabs.init();
-			proclaim.equal(tab instanceof Array, true);
-			proclaim.equal(tab[0] instanceof Tabs, true);
+			assert.instanceOf(tab, Array);
+			assert.instanceOf(tab[0], Tabs);
 		});
 
 		it("single component when initialized with a root element", () => {
 			const tab = Tabs.init('#tab-element');
-			proclaim.equal(tab instanceof Tabs, true);
+			assert.instanceOf(tab, Tabs);
 		});
 	});
 });
