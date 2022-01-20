@@ -9,8 +9,7 @@ export default {
 	title: 'Cookie Message',
 	component: CookieMessage,
 	decorators: [withDesign, withHtml],
-	args: {
-	},
+	args: {},
 	parameters: {
 		guidelines: {},
 		html: {},
@@ -21,9 +20,11 @@ const Story = args => {
 	useEffect(() => {
 		let cookieMessages = javascript.init();
 		return function cleanup() {
-			cookieMessages = Array.isArray(cookieMessages) ? cookieMessages : [cookieMessages];
+			cookieMessages = Array.isArray(cookieMessages)
+				? cookieMessages
+				: [cookieMessages];
 			cookieMessages.forEach(banner => banner.destroy());
-		}
+		};
 	}, [args]);
 	return <CookieMessage {...args} />;
 };
@@ -34,10 +35,10 @@ Default.args = {
 	copy: '',
 	redirect: '',
 	primaryAction: {
-		copy: ''
+		copy: '',
 	},
 	secondaryAction: {
-		copy: ''
+		copy: '',
 	},
 	theme: '',
 };
@@ -49,10 +50,10 @@ Alternative.args = {
 	copy: '',
 	redirect: '',
 	primaryAction: {
-		copy: ''
+		copy: '',
 	},
 	secondaryAction: {
-		copy: ''
+		copy: '',
 	},
-	theme: 'alternative'
+	theme: 'alternative',
 };
