@@ -85,7 +85,7 @@
 @mixin _oLayoutAreaOverview() {
 	.o-layout__overview {
 		/*! autoprefixer: ignore next */
-		// o-layout does not cater for older `-ms-` versions of the grid spec.
+		// o-layout does not cater for older `-ms-` versions of the grid specification.
 		display: grid;
 		/*! autoprefixer: ignore next */
 		grid-template-columns: repeat(var(--_o-layout-overview-columns, auto-fit), minmax(250px, 1fr));
@@ -105,7 +105,7 @@
 
 		.o-layout-item {
 			/*! autoprefixer: ignore next */
-			// o-layout does not cater for older `-ms-` versions of the grid spec.
+			// o-layout does not cater for older `-ms-` versions of the grid specification.
 			display: grid;
 			/*! autoprefixer: ignore next */
 			grid-template-rows: 1fr min-content;

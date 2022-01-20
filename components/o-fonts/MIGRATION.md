@@ -4,7 +4,7 @@
 
 V5 has dropped support for use through Bower.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
 
 ### Migrating from v3 to v4
 

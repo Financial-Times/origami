@@ -18,7 +18,7 @@ Configurable custom overlay box that can be used to show overlay windows. The ov
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-overlay`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-overlay`.
 
 ## Markup
 
@@ -98,7 +98,7 @@ This table outlines all of the possible variants you can request in the [`oOverl
 
 ### Declarative
 
-JavaScript is initialised on `o-overlay` elements automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/v2/) users. If your project is using a manual build process, [initialise `o-overlay` manually](https://origami.ft.com/docs/components/initialising/).
+JavaScript is initialised on `o-overlay` elements automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/v2/) users. If your project is using a manual build process, [initialise `o-overlay` manually](https://origami.ft.com/documentation/components/initialising/).
 
 For example call the `init` method to initialise all `o-overlay` instances in the document:
 ```js

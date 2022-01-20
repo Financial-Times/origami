@@ -16,7 +16,7 @@
 /// @access public
 @mixin oTooltip() {
 	// Tooltip relies on the o-grid layout sizes being defined.
-	// This is still spec-compliant, as these mixins only output
+	// This is still specification-compliant, as these mixins only output
 	// element selectors – nothing prefixed with o-grid
 	@include oGridSurfaceCurrentLayout();
 

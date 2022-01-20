@@ -162,7 +162,7 @@ Errors.prototype.init = function(options, raven) {
 Errors.prototype._configureAndInstallRaven = function(options, raven) {
 
 	// To control the initialisation of the third party code (Raven)
-	// we include it only at init time see "http://origami.ft.com/docs/syntax/js/#initialisation"
+	// we include it only at init time see "http://origami.ft.com/documentation/syntax/js/#initialisation"
 	//
 	// It is optional so that it can be mocked in tests
 	if (!(raven || this.ravenClient)) {

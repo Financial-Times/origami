@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.3.2](https://www.github.com/Financial-Times/origami/compare/o-editorial-typography-v2.3.1...o-editorial-typography-v2.3.2) (2022-01-13)
+
+
+### Bug Fixes
+
+* expand all uses of docs to documentation ([26f8d9d](https://www.github.com/Financial-Times/origami/commit/26f8d9d8cbbe3e78902d8c3951b37e08150a77bd))
+
 ### [2.3.1](https://www.github.com/Financial-Times/origami/compare/o-editorial-typography-v2.3.0...o-editorial-typography-v2.3.1) (2021-12-24)
 
 

@@ -11,6 +11,13 @@
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
 	},
+	"browserFeatures": {
+		"required": [
+			"CustomEvent",
+			"Element.prototype.classList",
+			"NodeList.prototype.@@iterator"
+		]
+	},
 	"supportStatus": "active",
 	"demosDefaults": {
 		"js": "demos/src/demo.js",

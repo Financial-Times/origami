@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.2.3](https://www.github.com/Financial-Times/origami/compare/o-overlay-v4.2.2...o-overlay-v4.2.3) (2022-01-13)
+
+
+### Bug Fixes
+
+* expand all uses of docs to documentation ([26f8d9d](https://www.github.com/Financial-Times/origami/commit/26f8d9d8cbbe3e78902d8c3951b37e08150a77bd))
+
 ### [4.2.2](https://www.github.com/Financial-Times/origami/compare/o-overlay-v4.2.1...o-overlay-v4.2.2) (2021-12-24)
 
 

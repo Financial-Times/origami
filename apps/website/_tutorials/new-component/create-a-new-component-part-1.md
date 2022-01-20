@@ -9,13 +9,13 @@ cta: Learn how to create an Origami component
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
 1. Intro & Boilerplate
-2. [Base Styles](/docs/tutorials/create-a-new-component-part-2/)
-3. [Themes & Brands](/docs/tutorials/create-a-new-component-part-3/)
-4. [Demos](/docs/tutorials/create-a-new-component-part-4/)
-5. [JavaScript](/docs/tutorials/create-a-new-component-part-5/)
-6. [Testing](/docs/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/docs/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/docs/tutorials/create-a-new-component-part-8/)
+2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
+3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
+4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
+5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
+6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
+7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
 ## Introduction
 
@@ -37,7 +37,7 @@ If you have any questions please contact the Origami team to help make this tuto
 
 ## The Origami Specification
 
-The [Origami Specification](/spec/v1/) is deprecated, new components may diverge from its rules. However, some Origami tools and services continue to depend on parts of the deprecated specification so we will refer to relevant sections of the specification throughout this tutorial. Including for folder structure, code standards, documentation and more.
+The [Origami Specification](/specification/v1/) is deprecated, new components may diverge from its rules. However, some Origami tools and services continue to depend on parts of the deprecated specification so we will refer to relevant sections of the specification throughout this tutorial. Including for folder structure, code standards, documentation and more.
 
 <aside>
 See our [blogpost on why the Origami specification is deprecated](https://origami.ft.com/blog/2021/06/01/newsletter/#the-origami-specification-is-no-more).
@@ -59,23 +59,23 @@ Before we run `obt init`, let's discuss some of those questions.
 
 ### Component Name
 
-The first thing we will be asked is to decide a component name. Usually Origami components start with `o-`, and only contain lowercase letters or hyphens. See the [component naming convention](/spec/v1/components/#naming-conventions) for more details.
+The first thing we will be asked is to decide a component name. Usually Origami components start with `o-`, and only contain lowercase letters or hyphens. See the [component naming convention](/specification/v1/components/#naming-conventions) for more details.
 
 For this tutorial we will name our component `o-example`.
 
 ### Component Category
 
-Origami components are categorised, and different rules of the specification may apply to different categories. Examples of categories include `utilities`, `components`, and `layouts`. See the full list of categories with description in the [component category specification](/spec/v1/manifest/#origamicategory).
+Origami components are categorised, and different rules of the specification may apply to different categories. Examples of categories include `utilities`, `components`, and `layouts`. See the full list of categories with description in the [component category specification](/specification/v1/manifest/#origamicategory).
 
 For this tutorial we will select the most common `components` category.
 
 ### Supported Brands
 
-Component brands facilitate [component customisation](/spec/v1/components/sass/#customisation). Brands change the appearance of component elements globally, e.g. change the appearance of all “primary” buttons, including where they are used by other components. Brands include `core` (think, ft.com pink), `internal` for internal tools and products, and `whitelabel` for a striped-back un-opinionated style. Origami components may support one or more brands. We'll discuss brands more later, for now select the `core`, `internal`, and `whitelabel` brand when prompted by `obt init`.
+Component brands facilitate [component customisation](/specification/v1/components/sass/#customisation). Brands change the appearance of component elements globally, e.g. change the appearance of all “primary” buttons, including where they are used by other components. Brands include `core` (think, ft.com pink), `internal` for internal tools and products, and `whitelabel` for a striped-back un-opinionated style. Origami components may support one or more brands. We'll discuss brands more later, for now select the `core`, `internal`, and `whitelabel` brand when prompted by `obt init`.
 
 ### Support Status
 
-All Origami components have a support status. For example a `maintained` component means that "[the component is] not actively developed but reproducible bugs will be fixed promptly and work done where necessary to maintain compatibility with platforms and other projects"; an `experimental` component means "the [component] is not ready for production use". For a full list a support statuses and their meaning see the [support status section of the specification](/spec/v1/manifest/#supportstatus). It is sometimes a good idea to release a new component as `experimental` for a trial period to gather feedback from users, so select `experimental` for now.
+All Origami components have a support status. For example a `maintained` component means that "[the component is] not actively developed but reproducible bugs will be fixed promptly and work done where necessary to maintain compatibility with platforms and other projects"; an `experimental` component means "the [component] is not ready for production use". For a full list a support statuses and their meaning see the [support status section of the specification](/specification/v1/manifest/#supportstatus). It is sometimes a good idea to release a new component as `experimental` for a trial period to gather feedback from users, so select `experimental` for now.
 
 As well as a support status, the `obt init` command will ask for a support email address and slack channel. This will help identify your team as owners of the component. When the component is published a message will display in the component registry letting potential users know that support is not guaranteed by the Origami team, and that they should contact your team before using the component.
 
@@ -208,16 +208,16 @@ The `obt dev` command which we run earlier will detect that you have updated `de
 	</figcaption>
 </figure>
 
-The `div` tag in our demo may be any HTML tag provided there is a `data-o-component` attribute. The `data-o-component` attribute identifies the root of our component and its [owned dom](/spec/v1/components/markup/#owned-dom). A component may act on a DOM element using JavaScript if the DOM element, or any ancestor, has a data attribute containing the component’s name. There is also a CSS class `o-example` in our demo. Origami components may only style a DOM element with CSS if it, or any ancestor, has a class which starts with the name of the component. There are more details in the [markup section of the component specification](/spec/v1/components/markup/) but we'll revisit this when adding CSS styles and JavaScript to our component.
+The `div` tag in our demo may be any HTML tag provided there is a `data-o-component` attribute. The `data-o-component` attribute identifies the root of our component and its [owned dom](/specification/v1/components/markup/#owned-dom). A component may act on a DOM element using JavaScript if the DOM element, or any ancestor, has a data attribute containing the component’s name. There is also a CSS class `o-example` in our demo. Origami components may only style a DOM element with CSS if it, or any ancestor, has a class which starts with the name of the component. There are more details in the [markup section of the component specification](/specification/v1/components/markup/) but we'll revisit this when adding CSS styles and JavaScript to our component.
 
 ## Part Two: Base Styles
 
 In part one we learnt:
-- The [Origami specification](/spec/v1/) is deprecated, but some sections provide a useful reference to create components compatible with Origami tools and services whilst they are updated.
+- The [Origami specification](/specification/v1/) is deprecated, but some sections provide a useful reference to create components compatible with Origami tools and services whilst they are updated.
 - The [Origami Build Tools](https://github.com/Financial-Times/origami-build-tools) command line interface is used to help us develop and test components.
 - Specifically, we learnt about the Origami Build Tools `init` command to generate a component to work from when developing a new component.
 - Origami components use `git` source control and are stored remotely on Github.
 - Origami components HTML markup is usually copied by users from component demos rather than from templates.
 - And finally we learnt how to update the markup in one of those demos.
 
-Now we know how to update our component markup, in part two we will style our component. [Continue to part two](/docs/tutorials/create-a-new-component-part-2).
+Now we know how to update our component markup, in part two we will style our component. [Continue to part two](/documentation/tutorials/create-a-new-component-part-2).

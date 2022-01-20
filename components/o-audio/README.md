@@ -16,7 +16,7 @@ This is a beta version of oAudio. It will accept an `<audio>` element + attach o
 
 The expectation is that oAudio will eventually render it's own player interface, potentially with different skins, to be used on ft.com and the app.
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-audio`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-audio`.
 
 ### Markup
 

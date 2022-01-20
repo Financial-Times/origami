@@ -13,7 +13,7 @@ Responsive header for FT branded sites. See the [Origami Navigation Service](htt
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-header`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-header`.
 
 ## Markup
 
@@ -87,7 +87,7 @@ E.g. To get all of the CSS needed for the FT homepage you would call:
 
 ## Browser Support
 
-To use `o-header` setup a [core and enhanced experience](https://origami.ft.com/docs/components/compatibility/#core--enhanced-experiences) within your project. `o-header` depends on the `o--if-js` and `o--if-no-js` classes.
+To use `o-header` setup a [core and enhanced experience](https://origami.ft.com/documentation/components/compatibility/#core--enhanced-experiences) within your project. `o-header` depends on the `o--if-js` and `o--if-no-js` classes.
 
 ## Migration guide
 

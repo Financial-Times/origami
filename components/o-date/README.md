@@ -12,7 +12,7 @@ o-date formats `time` elements in the FT style, and supports formatting dates in
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-date`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-date`.
 
 ## Markup
 
@@ -27,7 +27,7 @@ _The rendered date will be a relative time or timestamp for a given date, in acc
 
 ### Core Experience
 
-We recommend a human readable date is added to the `time` element to support a [core experience](https://origami.ft.com/docs/components/compatibility/#core--enhanced-experiences) without JavaScript:
+We recommend a human readable date is added to the `time` element to support a [core experience](https://origami.ft.com/documentation/components/compatibility/#core--enhanced-experiences) without JavaScript:
 ```html
 <time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">
 	June 15 2000
@@ -83,7 +83,7 @@ _Previously a CSS class `o-date__printer` was used instead of the `data-o-date-p
 
 ## JavaScript
 
-Instantiate o-date JavaScript in the [same way as other Origami components](https://origami.ft.com/docs/components/initialising/).
+Instantiate o-date JavaScript in the [same way as other Origami components](https://origami.ft.com/documentation/components/initialising/).
 
 For example call the `init` method to initialise all `o-date` instances on the page:
 ```js

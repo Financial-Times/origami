@@ -1,5 +1,13 @@
 # Changelog
 
+### [8.2.1](https://www.github.com/Financial-Times/origami/compare/o-share-v8.2.0...o-share-v8.2.1) (2022-01-13)
+
+
+### Bug Fixes
+
+* expand all uses of docs to documentation ([26f8d9d](https://www.github.com/Financial-Times/origami/commit/26f8d9d8cbbe3e78902d8c3951b37e08150a77bd))
+* use the o-share js render method for demos ([52307e8](https://www.github.com/Financial-Times/origami/commit/52307e83cd88a7da17bca608874d592d35a52532))
+
 ## [8.2.0](https://www.github.com/Financial-Times/origami/compare/o-share-v8.1.1...o-share-v8.2.0) (2021-11-24)
 
 

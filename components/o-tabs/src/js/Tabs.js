@@ -11,12 +11,12 @@ class Tabs {
 
 		this.tabEls = this.rootEl.querySelectorAll('[role=tab]');
 		this.tabEls = [].slice.call(this.tabEls).filter(this.tabHasValidUrl);
-		this.tabpanelEls = this.getTabPanelEls(this.tabEls);
+		this.tabpanelEls = this._getTabPanelEls(this.tabEls);
 
 		this.boundClickHandler = this.clickHandler.bind(this);
 		this.rootEl.addEventListener('click', this.boundClickHandler, false);
-		this.boundKeyPressHandler = this.keyPressHandler.bind(this);
-		this.rootEl.addEventListener('keypress', this.boundKeyPressHandler, false);
+		this.boundKeyUpHandler = this.keyUpHandler.bind(this);
+		this.rootEl.addEventListener('keyup', this.boundKeyUpHandler, false);
 		this.boundHashChangeHandler = this.hashChangeHandler.bind(this);
 		window.addEventListener('hashchange', this.boundHashChangeHandler, false);
 
@@ -51,7 +51,12 @@ class Tabs {
 		return tabEl ? tabEl.getAttribute('href').replace('#','') : '';
 	}
 
-	getTabPanelEls(tabEls) {
+	/**
+	 * @private
+	 * @param {HTMLElement[]} tabEls Array of the elements which are the tabs for this o-tabs instance
+	 * @returns {HTMLElement[]} The same array that was passed in via the tabEls argument
+	 */
+	_getTabPanelEls(tabEls) {
 		const panelEls = [];
 
 		for (const tab of tabEls) {
@@ -59,17 +64,16 @@ class Tabs {
 			const targetEl = document.getElementById(tabTargetId);
 
 			if (targetEl) {
-				tab.setAttribute('aria-controls', tabTargetId);
 				tab.setAttribute('tabindex', '0');
-
 				const label = tab;
 				const labelId = tabTargetId + '-label';
-				label.setAttribute('tabindex', '-1');
 				label.id = labelId;
 				targetEl.setAttribute('aria-labelledby', labelId);
 				targetEl.setAttribute('role', 'tabpanel');
 				targetEl.setAttribute('tabindex', '0');
 				panelEls.push(targetEl);
+			} else {
+				targetEl.setAttribute('tabindex', '-1');
 			}
 		}
 
@@ -101,29 +105,14 @@ class Tabs {
 	hidePanel(panelEl) { // eslint-disable-line class-methods-use-this
 		panelEl.setAttribute('aria-expanded', 'false');
 		panelEl.setAttribute('aria-hidden', 'true');
+		panelEl.removeAttribute('tabindex');
 	}
 
-	showPanel(panelEl, disableFocus) { // eslint-disable-line class-methods-use-this
+	showPanel(panelEl) { // eslint-disable-line class-methods-use-this
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
+		panelEl.setAttribute('tabindex', '0');
 
-		// Remove the focus ring for sighted users
-		panelEl.style.outline = 0;
-
-		if (disableFocus) {
-			return;
-		}
-
-		// Get current scroll position
-		const x = window.scrollX || window.pageXOffset;
-		const y = window.scrollY || window.pageYOffset;
-
-		// Give focus to the panel for screen readers
-		// This might cause the browser to scroll up or down
-		panelEl.focus();
-
-		// Scroll back to the original position
-		window.scrollTo(x, y);
 	}
 
 	dispatchCustomEvent(event, data = {}, namespace = 'oTabs') {
@@ -144,9 +133,11 @@ class Tabs {
 				for (let i = 0; i < this.tabEls.length; i++) {
 					if (newIndex === i) {
 						this.tabEls[i].setAttribute('aria-selected', 'true');
-						this.showPanel(this.tabpanelEls[i], this.config.disablefocus);
+						this.tabEls[i].removeAttribute('tabindex');
+						this.showPanel(this.tabpanelEls[i]);
 					} else {
 						this.tabEls[i].setAttribute('aria-selected', 'false');
+						this.tabEls[i].setAttribute('tabindex', '-1');
 						this.hidePanel(this.tabpanelEls[i]);
 					}
 				}
@@ -171,12 +162,55 @@ class Tabs {
 		}
 	}
 
-	keyPressHandler(ev) {
-		const tabEl = ev.target.closest('[role=tab]');
-		// Only update if key pressed is enter key
-		if (tabEl && ev.keyCode === 13 && this.tabHasValidUrl(tabEl)) {
-			ev.preventDefault();
-			this.updateCurrentTab(tabEl);
+	keyUpHandler(event) {
+		const tabEl = event.target;
+		const key = event.keyCode;
+		if (tabEl) {
+			// eslint-disable-next-line default-case
+			switch (key) {
+				case 37: { //left
+					if (tabEl.previousElementSibling) {
+						if (this.tabHasValidUrl(tabEl.previousElementSibling)) {
+							event.preventDefault();
+							tabEl.previousElementSibling.focus();
+							this.updateCurrentTab(tabEl.previousElementSibling);
+						}
+					} else {
+						const lastTab = tabEl.parentElement.lastElementChild;
+						if (this.tabHasValidUrl(lastTab)) {
+							event.preventDefault();
+							lastTab.focus();
+							this.updateCurrentTab(lastTab);
+						}
+					}
+					break;
+				}
+				case 39: { //right
+					if (tabEl.nextElementSibling) {
+						if (this.tabHasValidUrl(tabEl.nextElementSibling)) {
+							event.preventDefault();
+							tabEl.nextElementSibling.focus();
+							this.updateCurrentTab(tabEl.nextElementSibling);
+						}
+					} else {
+						const firstTab = tabEl.parentElement.firstElementChild;
+						if (this.tabHasValidUrl(firstTab)) {
+							event.preventDefault();
+							firstTab.focus();
+							this.updateCurrentTab(firstTab);
+						}
+					}
+					break;
+				}
+				case 13: //enter
+				case 32: { //space
+					if (this.tabHasValidUrl(tabEl)) {
+						event.preventDefault();
+						this.updateCurrentTab(tabEl);
+					}
+					break;
+				}
+			}
 		}
 	}
 
@@ -211,7 +245,7 @@ class Tabs {
 
 	destroy() {
 		this.rootEl.removeEventListener('click', this.boundClickHandler, false);
-		this.rootEl.removeEventListener('keypress', this.boundKeyPressHandler, false);
+		this.rootEl.removeEventListener('keyup', this.boundKeyUpHandler, false);
 		window.removeEventListener('hashchange', this.boundHashChangeHandler, false);
 		this.rootEl.removeAttribute('data-o-tabs--js');
 
@@ -221,7 +255,7 @@ class Tabs {
 
 		// unset the bound event handlers
 		this.boundClickHandler = undefined;
-		this.boundKeyPressHandler = undefined;
+		this.boundKeyUpHandler = undefined;
 		this.boundHashChangeHandler = undefined;
 		// Destroy ALL the things!
 		this.tabEls = undefined;

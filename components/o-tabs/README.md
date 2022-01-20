@@ -6,13 +6,14 @@ Tabs component for dividing content into meaningful sections.
 - [Markup](#markup)
 - [JavaScript](#javascript)
 - [Sass](#sass)
-- [Migration guide](#migration-guide)
+- [Keyboard Support](#keyboard-support)
+- [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-tabs`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-tabs`.
 
 ## Markup
 
@@ -25,11 +26,11 @@ The _tabpanel_ elements must have a `o-tabs__tabpanel` class added to them.
 This is an example of an HTML structure that **o-tabs** will accept:
 
 ```html
-<ul data-o-component="o-tabs" class="o-tabs" role="tablist">
-	<li role="tab"><a href="#tabContent1">Tab 1</a></li>
-	<li role="tab"><a href="#tabContent2">Tab 2</a></li>
-	<li role="tab"><a href="#tabContent3">Tab 3</a></li>
-</ul>
+<div data-o-component="o-tabs" class="o-tabs" role="tablist">
+	<a role="tab" aria-controls="tabContent1" href="#tabContent1" >Tab 1</a>
+	<a role="tab" aria-controls="tabContent2" href="#tabContent2">Tab 2</a>
+	<a role="tab" aria-controls="tabContent3" href="#tabContent3">Tab 3</a>
+</div>
 <div id="tabContent1" class="o-tabs__tabpanel">
 	Tab content 1
 </div>
@@ -52,7 +53,6 @@ You can set config options declaratively by using `[data-o-tabs-]` prefixed data
 
 Options consist of:
 
-- `data-o-tabs-disablefocus="true"` - prevent the tabpanel being focused when selected.
 - `data-o-tabs-update-url="true"` - update the URL with the `#` of the selected panel.
 
 ### Core experience
@@ -98,9 +98,7 @@ Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the eve
 
 ```javascript
 import Tabs from '@financial-times/o-tabs';
-const tabsObjects = Tabs.init(document.body, {
-	disablefocus: false
-});
+const tabsObjects = Tabs.init(document.body);
 ```
 
 An array of any constructed Tabs objects will be returned.
@@ -112,7 +110,6 @@ An array of any constructed Tabs objects will be returned.
 ```javascript
 import Tabs from '@financial-times/o-tabs';
 const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {
-	disablefocus: false
 });
 ```
 
@@ -134,7 +131,6 @@ Tabs are indexed starting from 0.
 The following API methods are provided:
 
 - `init(config)`: Set attributes/classes, bind events. Called automatically on construction. Does nothing if already been called. `config` object accepts:
-	- `disablefocus`: If set to `true`, it will stop the aria-selected tab from receiving focus.
 - `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
 - `destroy()`: Unbind events, remove `o-tabs--js` class. After calling this, `init()` can be called again to re-initialise the tabs.
 
@@ -202,12 +198,25 @@ This table outlines some of the possible button themes you can request in the [`
 | mono      | Not included by default                  | core, internal             |
 | b2c       | Not included by default                  | core                       |
 
+## Keyboard Support
+
+### When focus is within the tab list
+
+Key|Function
+---|---
+Tab | When focus moves into the tab list, places focus on the active tab element. When the tab list already contains the focus, moves focus to the next element in the page tab sequence outside the tablist.
+Left Arrow | Moves focus to the previous tab. If focus is on the first tab, moves focus to the last tab. Activates the tabpanel which is associated with the newly focused tab.
+Right Arrow | Moves focus to the next tab. If focus is on the last tab element, moves focus to the first tab. Activates the tabpanel which is associated with the newly focused tab.
+Space or Enter | Activates the tabpanel which is associated with the focused tab if it was not already activated.
+
+
 ## Migration Guide
 
 | State | Major Version | Last Minor Release | Migration guide |
 | :---: | :---: | :---: | :---: |
-| ✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-| ✨ active | 5 | 5.0 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ✨ active | 6 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ⚠ maintained | 6 | 6.2 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ⚠ maintained | 5 | 5.0 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
 | ⚠ maintained | 4 | 4.3 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
 | ╳ deprecated | 3 | 3.0 | N/A |
 | ╳ deprecated | 2 | 2.2 | N/A |

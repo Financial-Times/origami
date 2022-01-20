@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 import proclaim from 'proclaim';
-
+import userEvent from '@testing-library/user-event';
 import mega from '../src/js/mega.js';
 
 function dispatch (target, type) {
@@ -69,6 +69,15 @@ describe('Mega', () => {
 
 			proclaim.equal(menu.classList.contains('o-header__mega--animation'), false);
 		});
+	});
+
+	it('hides the menu when escape key is pressed', () => {
+		const menu = containerEl.querySelector('div');
+		mega.show(menu, true);
+		userEvent.keyboard('{esc}');
+		proclaim.equal(menu.getAttribute('aria-hidden'), 'true');
+		proclaim.equal(menu.getAttribute('aria-expanded'), 'false');
+		proclaim.equal(menu.classList.contains('o-header__mega--animation'), false);
 	});
 
 	it('skips animation when switching menus', () => {

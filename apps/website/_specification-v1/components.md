@@ -1,7 +1,7 @@
 ---
 title: Component Specification
 description: A specification which describes what is required for a front-end component to be considered Origami-compatible, and included in our registry.
-cta: Read the component spec
+cta: Read the component specification
 
 # Redirect from legacy URLs
 redirect_from:
@@ -26,10 +26,10 @@ Origami components are repositories containing front end code which can be used 
 
 ## Origami.json manifest
 
-All Origami components **must** contain an `origami.json` file at the top of the repository's directory structure. The [`origami.json` manifest specification](/spec/v1/manifest/) covers the contents of this file. In addition to the rules outlined in the manifest specification, Origami components **must** set the `origamiType` property in the JSON to `"module"`.
+All Origami components **must** contain an `origami.json` file at the top of the repository's directory structure. The [`origami.json` manifest specification](/specification/v1/manifest/) covers the contents of this file. In addition to the rules outlined in the manifest specification, Origami components **must** set the `origamiType` property in the JSON to `"module"`.
 
 <aside>
-	The <code>origamiType</code> of <code>"module"</code> is a hangover from when client-side Origami components were named "modules". It's likely to change in a later version of the spec.
+	The <code>origamiType</code> of <code>"module"</code> is a hangover from when client-side Origami components were named "modules". It's likely to change in a later version of the specification.
 </aside>
 
 
@@ -93,7 +93,7 @@ Origami components **must** be installable through the <a href="https://bower.io
   <a href="https://origami-bower-registry.ft.com/" class="o-typography-link--external">Read the service documentation</a> for more information.
 </aside>
 
-As well as following the <a href="https://github.com/bower/spec/blob/master/json.md" class="o-typography-link--external">`bower.json` spec</a>, there are additional requirements to make the component's Bower manifest conform to the Origami specification:
+As well as following the <a href="https://github.com/bower/spec/blob/master/json.md" class="o-typography-link--external">`bower.json` specification</a>, there are additional requirements to make the component's Bower manifest conform to the Origami specification:
 
   - It **must** include a `name` property set to the repository name, e.g. `o-typography`
   - It **must** include a `main` property set to an array which **must**:
@@ -125,7 +125,7 @@ The following is the list of ignored files in most component Bower configuration
 
 ### npm
 
-Origami components **may** include a `package.json` manifest. As well as following the <a href="https://docs.npmjs.com/files/package.json" class="o-typography-link--external">`package.json` spec</a>, there are additional requirements to make the component's npm manifest conform to the Origami specification:
+Origami components **may** include a `package.json` manifest. As well as following the <a href="https://docs.npmjs.com/files/package.json" class="o-typography-link--external">`package.json` specification</a>, there are additional requirements to make the component's npm manifest conform to the Origami specification:
 
   - It **must not** include any of the following properties: `bin`, `bugs`, `config`, `cpu`, `dependencies` (as this would indicate that the manifest is required for consumption of the component), `engines`, `engineStrict`, `files`, `main`, `os`, `preferGlobal`, `publishConfig`
   - It **must not** include a `version` property
@@ -153,8 +153,8 @@ When listing dependencies in your `bower.json` manifest, the <a href="https://se
 (See the example for clarification).
 
 <aside>
-  <p>Examples of spec-compliant dependency versions: <code>^1.0.0</code>, <code>&lt;3</code></p>
-  <p>Examples of non-spec-compliant dependency versions: <code>^0.1.0</code>, <code>1.0.0</code>, <code>~1.0.0</code>, <code>^2.0.0-beta.4</code></p>
+  <p>Examples of specification-compliant dependency versions: <code>^1.0.0</code>, <code>&lt;3</code></p>
+  <p>Examples of non-specification-compliant dependency versions: <code>^0.1.0</code>, <code>1.0.0</code>, <code>~1.0.0</code>, <code>^2.0.0-beta.4</code></p>
 </aside>
 
 When an Origami component is a dependency of many other Origami components, it **must** verify and assert the widest version compatibility possible, including maintaining compatibility with earlier versions of a dependency unless to do so would be impractical. E.g. specifying a broad version range like `"o-colors": ">=3.0.0 <5"`
@@ -178,17 +178,17 @@ Commit messages **should** describe the change that they introduce to a componen
 
 ### Markup
 
-See [the Origami Markup Specification](/spec/v1/components/markup).
+See [the Origami Markup Specification](/specification/v1/components/markup).
 
 ### Styles
 
 Origami component styles are authored in <a href="http://sass-lang.com/" class="o-typography-link--external">Sass</a>, specifically the SCSS syntax.
 
-See [the Origami Sass Specification](/spec/v1/components/sass).
+See [the Origami Sass Specification](/specification/v1/components/sass).
 
 ### Behaviour
 
-See the [Origami javascript specification](/spec/v1/components/javascript).
+See the [Origami javascript specification](/specification/v1/components/javascript).
 
 ### Subresources
 
@@ -214,7 +214,7 @@ Components **should** implement CI. If a component does so then it **should** ve
 
 ### Browser/manual testing
 
-All components **must** be tested with all the browsers listed in the <a href="/docs/components/compatibility/#browser-support">FT browser support policy</a>. If a component includes JavaScript, it **must** be error free in all the browsers that fall above the recommended minimum boundary for enhanced experience in that policy.
+All components **must** be tested with all the browsers listed in the <a href="/documentation/components/compatibility/#browser-support">FT browser support policy</a>. If a component includes JavaScript, it **must** be error free in all the browsers that fall above the recommended minimum boundary for enhanced experience in that policy.
 
 The versions tested **should** be listed in the component’s documentation, so that when boundary recommendations are changed, it is still possible to determine the support that was designed into an older component.
 
@@ -244,11 +244,11 @@ Component JavaScript **should** be documented using <a href="http://usejsdoc.org
 
 ## Browser support
 
-All components **must** be tested with all the browsers listed in the [FT browser support policy](/docs/components/compatibility/#browser-support). If a component includes JavaScript, it **must** be error free in all the browsers which fall under the "enhanced experience" in that policy.
+All components **must** be tested with all the browsers listed in the [FT browser support policy](/documentation/components/compatibility/#browser-support). If a component includes JavaScript, it **must** be error free in all the browsers which fall under the "enhanced experience" in that policy.
 
 ## Demos
 
-Component authors **should** provide component demos, which **must** be [defined in origami.json](/spec/v1/manifest/#demos) and built with <a href="https://www.npmjs.com/package/origami-build-tools" class="o-typography-link--external">Origami Build Tools</a>.
+Component authors **should** provide component demos, which **must** be [defined in origami.json](/specification/v1/manifest/#demos) and built with <a href="https://www.npmjs.com/package/origami-build-tools" class="o-typography-link--external">Origami Build Tools</a>.
 
 When deciding what demos to create, demos:
 - **Must** be based on realistic use cases.
@@ -256,8 +256,8 @@ When deciding what demos to create, demos:
 - **Should not** be used to explain configuration and implementation differences, these should be explained in the component’s README.
 
 When building demos, they:
-- **Must** have a description explaining what they show ([see origami.json](/spec/v1/manifest/#demos)).
-- **Should** be reproducible using the [Origami Build Service](/docs/services/#build-service) by copying the demo markup.
+- **Must** have a description explaining what they show ([see origami.json](/specification/v1/manifest/#demos)).
+- **Should** be reproducible using the [Origami Build Service](/documentation/services/#build-service) by copying the demo markup.
 - **Should not** include more than necessary to demonstrate the component, including: any headings, backgrounds, margins or other content that are not part of the component itself.
 
 Where styles need to be added specifically for a demo (e.g. to make the content of o-grid containers visible), they **must** be attached to classes with a `demo-` prefix, for example:
@@ -290,7 +290,7 @@ To ensure subsequent releases don't affect the current users of a component:
 
 When new versions of components are released, updates **may** be needed to other components and products that consume the component. The following notification rules apply:
 
-- If the release is a new **major** version, the component developer **must** notify maintainers of all components and products with dependents, at least 1 day prior to the release being tagged (to enable other breaking changes to be suggested), and again immediately after the release. When a new **major** release affects many dependent components and projects we call this a [major cascade](/docs/components/major-cascade/). It **may** require [extra consideration](/docs/components/major-cascade/) before release.
+- If the release is a new **major** version, the component developer **must** notify maintainers of all components and products with dependents, at least 1 day prior to the release being tagged (to enable other breaking changes to be suggested), and again immediately after the release. When a new **major** release affects many dependent components and projects we call this a [major cascade](/documentation/components/major-cascade/). It **may** require [extra consideration](/documentation/components/major-cascade/) before release.
 - If the release is a new **minor** version, the component developer **should** notify maintainers of all components and products listed as dependents in the Origami registry, immediately after the release.
 - If the release is a new **patch** version, no notifications need be sent.
 
@@ -305,7 +305,7 @@ When new versions of components are released, updates **may** be needed to other
 
 In the event of deprecating an Origami component, the following steps **must** be followed:
 
-1. Modify [origami.json](/spec/v1/manifest/) to change the `supportStatus` to `deprecated`.
+1. Modify [origami.json](/specification/v1/manifest/) to change the `supportStatus` to `deprecated`.
 2. Change the `README.md` to have a paragraph at the top outlining the deprecation status. If it has been replaced, it must point to the new replacement component from the deprecated component.
 3. Disable the Issues functionality from the deprecated component's repository, if the component is hosted on Github.
 4. Update the repository's description to "deprecated - please use <component> instead" if it has been replaced and change the URL to point towards the replacement's repository on GitHub.

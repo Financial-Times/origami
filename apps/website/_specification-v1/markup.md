@@ -1,10 +1,11 @@
 ---
 title: Markup Specification
 description: An overview of how the Origami team writes markup.
-permalink: /spec/v1/components/markup/
+permalink: /specification/v1/components/markup/
 
 # Redirect from legacy URLs
 redirect_from:
+  - /spec/v1/components/markup/
   - /docs/syntax/html/
   - /docs/syntax/mustache/
   - /spec/v1/markup/
@@ -40,7 +41,7 @@ The following elements **must not** be used:
 - `<noscript>`
 - `<iframe>` (except iframes **may** be added to the DOM by JavaScript)
 
-Elements and attributes which are deprecated in the HTML5 spec **should not** be used:
+Elements and attributes which are deprecated in the HTML5 specification **should not** be used:
 - Bad: `<applet>`, `<frameset>`, `<font>`, `<link rev="">`, `<td align="right">`
 
 Elements that are normally singletons on a page **must not** be used in components:
@@ -56,7 +57,7 @@ The following attributes **must not** be present on any element:
 
 HREFs in markup **must not** use the `javascript:` protocol.
 
-Attributes that are normally singletons on a page **must not** be used in components. This includes attributes defined by specs external to the main HTML5 spec, such as Microdata and WAI-ARIA:
+Attributes that are normally singletons on a page **must not** be used in components. This includes attributes defined by specifications external to the main HTML5 specification, such as Microdata and WAI-ARIA:
 - Bad: the ARIA `role="main"` attribute.
 - Bad: the `id` attribute (except as below).
 
@@ -69,13 +70,13 @@ Component authors are encouraged to provide assistive accessibility information 
 
 ## Conditional Comments
 
-Conditional comments **must not** be used within components. To target styles for a specifc browser or feature set, see [feature flags in the Sass spec](/spec/v1/components/sass/#feature-flags).
+Conditional comments **must not** be used within components. To target styles for a specifc browser or feature set, see [feature flags in the Sass specification](/specification/v1/components/sass/#feature-flags).
 
 ## Owned DOM
 
 "Owned DOM" is the DOM a component **may** act on with JavaScript or style with CSS.
 
-A component **may** act on a DOM element using JavaScript if it, or any ancestor, has a data attribute containing the component's name `data-o-componentname`. It **must not** act on other DOM, [with two exceptions](/spec/v1/components/javascript/#encapsulation).
+A component **may** act on a DOM element using JavaScript if it, or any ancestor, has a data attribute containing the component's name `data-o-componentname`. It **must not** act on other DOM, [with two exceptions](/specification/v1/components/javascript/#encapsulation).
 
 A component **may** style a DOM element with CSS if it, or any ancestor, has a class which starts with the name of the component `o-componentname`. It **must not** style other DOM.
 
@@ -91,14 +92,14 @@ Component styles and behaviour **may** assume that any HTML markup follows the h
 
 ## No Script
 
-Markup **may** contain elements that do not work without accompanying JavaScript. To support a [core and enhanced experience](/docs/components/compatibility/#core--enhanced-experiences) these elements **must** have a `o--if-js` class. They **should** be accompanied by an element with a class of `o--if-no-js` to offer feature fallback to users where the product developer opts not to run the JavaScript, or the user agent does not support it:
+Markup **may** contain elements that do not work without accompanying JavaScript. To support a [core and enhanced experience](/documentation/components/compatibility/#core--enhanced-experiences) these elements **must** have a `o--if-js` class. They **should** be accompanied by an element with a class of `o--if-no-js` to offer feature fallback to users where the product developer opts not to run the JavaScript, or the user agent does not support it:
 
 ```
 <div class="o--if-js">Submit a new comment: ... </div>
 <div class="o--if-no-js">To comment on this article, you need to upgrade your web browser.  <a href="...">Learn how to upgrade</a>.</div>
 ```
 
-If the `o--if-no-js` element contains an image for the [core experience](/docs/components/compatibility/#core--enhanced-experiences) only, a `<noscript>` tag **should** be used <a href="http://timkadlec.com/2012/04/media-query-asset-downloading-results/" class="o-typography-link--external">to avoid unnecessary HTTP requests</a>:
+If the `o--if-no-js` element contains an image for the [core experience](/documentation/components/compatibility/#core--enhanced-experiences) only, a `<noscript>` tag **should** be used <a href="http://timkadlec.com/2012/04/media-query-asset-downloading-results/" class="o-typography-link--external">to avoid unnecessary HTTP requests</a>:
 
 ```
 <div class="o--if-no-js">

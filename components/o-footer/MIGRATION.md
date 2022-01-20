@@ -39,7 +39,7 @@ _Note: These changes have also been released in `v9.0.0-bower`, a temporary back
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
 
 _Note: If you are not able to upgrade to `v8` immediately, you may temporarily skip this upgrade and instead [upgrade to `v9.0.0-bower`](MIGRATION.md#migrating-from-v8-to-v9). `v9.0.0` introduces new features which are backported in `v9.0.0-bower` to support Bower and version 2 of the Origami Build Service. We do not recommend this as you may miss future updates, and will be [required to upgrade by July 2022](https://origami.ft.com/blog/2021/01/18/deprecating-bower-and-origami-via-npm/)._
 

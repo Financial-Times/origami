@@ -72,9 +72,9 @@ async function compilationTest(mainSassFile, { silent, brand } = {
         if (missingPrimaryMixin) {
             errorMessage = dedent`
                 Origami components require a primary mixin, in this case "${primaryMixinName}".
-                See the "Create A New Origami Component" tutorial to learn how to add a primary 
+                See the "Create A New Origami Component" tutorial to learn how to add a primary
                 mixin to your component, or contact the Origami community on Slack in #origami-support.
-                https://origami.ft.com/docs/tutorials/create-a-new-component-part-2/#primary-mixin`
+                https://origami.ft.com/documentation/tutorials/create-a-new-component-part-2/#primary-mixin`
         }
 
 		if (isCI) {

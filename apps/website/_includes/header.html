@@ -21,8 +21,8 @@
 				</a>
 			</li>
 			<li>
-				<a href="/docs/" {% if page.url == '/docs/' %}aria-current="page"{% endif %}>
-					Docs
+				<a href="/documentation/" {% if page.url == '/documentation/' %}aria-current="page"{% endif %}>
+					Documentation
 				</a>
 			</li>
 			<li>
@@ -44,14 +44,14 @@
 		{% assign nav_items = site[page.collection] | where:'nav_display',true | sort: 'nav_order', 'last' %}
 	{% endif %}
 
-	{% if page.url contains '/docs/' or nav_items.size > 0 %}
+	{% if page.url contains '/documentation/' or nav_items.size > 0 %}
 	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
 		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
 			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
-			{% if page.url contains '/docs/' %}
+			{% if page.url contains '/documentation/' %}
 				<li>
-					<a href="/docs/" {% if page.url == '/docs/' %}aria-current="page"{% endif %}>
-						Docs
+					<a href="/documentation/" {% if page.url == '/documentation/' %}aria-current="page"{% endif %}>
+						Documentation
 					</a>
 				</li>
 			{% endif %}
@@ -81,9 +81,9 @@
 				</li>
 			{% endif %}
 
-			{% if page.url contains '/spec/v1/components/' %}
+			{% if page.url contains '/specification/v1/components/' %}
 				<li>
-					<a href="/spec/v1/components/" {% if page.url == '/spec/v1/components/' %}aria-current="page"{% endif %}>
+					<a href="/specification/v1/components/" {% if page.url == '/specification/v1/components/' %}aria-current="page"{% endif %}>
 						Components
 					</a>
 				</li>
@@ -91,48 +91,48 @@
 			</ol>
 
 			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
-			{% if page.url == '/docs/' %}
+			{% if page.url == '/documentation/' %}
 
 				<li>
-					<a href="/docs/principles/" {% if page.url contains '/docs/principles/' %}aria-current="page"{% endif %}>
+					<a href="/documentation/principles/" {% if page.url contains '/documentation/principles/' %}aria-current="page"{% endif %}>
 						Principles
 					</a>
 				</li>
 				<li>
-					<a href="/docs/components/" {% if page.url contains '/docs/components/' %}aria-current="page"{% endif %}>
+					<a href="/documentation/components/" {% if page.url contains '/documentation/components/' %}aria-current="page"{% endif %}>
 						Components
 					</a>
 				</li>
 				<li>
-					<a href="/docs/services/" {% if page.url contains '/docs/services/' %}aria-current="page"{% endif %}>
+					<a href="/documentation/services/" {% if page.url contains '/documentation/services/' %}aria-current="page"{% endif %}>
 						Services
 					</a>
 				</li>
 				<li>
-					<a href="/docs/manifests/" {% if page.url contains '/docs/manifests/' %}aria-current="page"{% endif %}>
+					<a href="/documentation/manifests/" {% if page.url contains '/documentation/manifests/' %}aria-current="page"{% endif %}>
 						Manifests
 					</a>
 				</li>
 				<li>
-					<a href="/docs/tutorials/" {% if page.url contains '/docs/tutorials/' %}aria-current="page"{% endif %}>
+					<a href="/documentation/tutorials/" {% if page.url contains '/documentation/tutorials/' %}aria-current="page"{% endif %}>
 						Tutorials
 					</a>
 				</li>
 
-			{% elsif page.url contains '/spec/v1/components/' %}
+			{% elsif page.url contains '/specification/v1/components/' %}
 
 				<li>
-					<a href="/spec/v1/components/markup/" {% if page.url contains '/spec/v1/components/markup/' %}aria-current="page"{% endif %}>
+					<a href="/specification/v1/components/markup/" {% if page.url contains '/specification/v1/components/markup/' %}aria-current="page"{% endif %}>
 						Markup
 					</a>
 				</li>
 				<li>
-					<a href="/spec/v1/components/javascript/" {% if page.url contains '/spec/v1/components/javascript/' %}aria-current="page"{% endif %}>
+					<a href="/specification/v1/components/javascript/" {% if page.url contains '/specification/v1/components/javascript/' %}aria-current="page"{% endif %}>
 						JavaScript
 					</a>
 				</li>
 				<li>
-					<a href="/spec/v1/components/sass/" {% if page.url contains '/spec/v1/components/sass/' %}aria-current="page"{% endif %}>
+					<a href="/specification/v1/components/sass/" {% if page.url contains '/specification/v1/components/sass/' %}aria-current="page"{% endif %}>
 						Sass
 					</a>
 				</li>
@@ -165,5 +165,3 @@
 	</nav>
 	{% endif %}
 </header>
-
-

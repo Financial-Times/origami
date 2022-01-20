@@ -12,7 +12,7 @@ Track progress through a multi-step process, such as a form.
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-stepped-progress`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-stepped-progress`.
 
 ## Markup
 

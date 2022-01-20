@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.1.3](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.2...o-grid-v6.1.3) (2022-01-13)
+
+
+### Bug Fixes
+
+* expand all uses of docs to documentation ([26f8d9d](https://www.github.com/Financial-Times/origami/commit/26f8d9d8cbbe3e78902d8c3951b37e08150a77bd))
+
 ### [6.1.2](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.1...o-grid-v6.1.2) (2021-12-24)
 
 

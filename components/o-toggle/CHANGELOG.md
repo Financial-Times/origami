@@ -1,5 +1,19 @@
 # Changelog
 
+### [3.2.2](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.2.1...o-toggle-v3.2.2) (2022-01-13)
+
+
+### Bug Fixes
+
+* expand all uses of docs to documentation ([26f8d9d](https://www.github.com/Financial-Times/origami/commit/26f8d9d8cbbe3e78902d8c3951b37e08150a77bd))
+
+### [3.2.1](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.2.0...o-toggle-v3.2.1) (2022-01-12)
+
+
+### Bug Fixes
+
+* add/correct all the required features to get o-toggle working in ie11 ([fccc39c](https://www.github.com/Financial-Times/origami/commit/fccc39c81a213d2b35dd456dd4f464d25baa3b76))
+
 ## [3.2.0](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.1.0...o-toggle-v3.2.0) (2021-11-24)
 
 

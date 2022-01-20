@@ -1,6 +1,6 @@
 # o-footer
 
-Core brand FT page footer component. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-footer` markup with real navigation data. 
+Core brand FT page footer component. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-footer` markup with real navigation data.
 
 - [Usage](#usage)
 - [Markup](#markup)
@@ -12,7 +12,7 @@ Core brand FT page footer component. See the [Origami Navigation Service](https:
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-footer`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-footer`.
 
 _See [o-footer-services](https://registry.origami.ft.com/components/o-footer-services) for an alternate footer style for tools and specialist titles. _
 

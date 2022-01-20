@@ -1,5 +1,13 @@
 # Migration
 
+## Migrating from v7 to v8
+
+`disableFocus` has been removed as it is now the default behaviour and there is no way to change the behavior. This was changed because during an accessibility audit it was explained that focus should stay within the tab-list and not move away when a tab is activated.
+
+The method `getTabPanelEls` has now been renamed to `_getTabPanelEls` and marked as "private" as it is only meant to be used internally within o-tabs. If you need to use this method, please raise an issue on GitHub or Slack.
+
+The method `keyPressHandler` has now been renamed to `keyUpHandler`.
+
 ## Migrating from v6 to v7
 
 The html for o-tabs was changed to bring support for assistive technologies.
@@ -10,11 +18,11 @@ The component no longer uses `ul` and `li` elements and instead uses `div` and `
 -<ul data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
 +<div data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
 -	<li role="tab"><a href="#tabContent1">Tab 1</a></li>
-+	<a role="tab" href="#tabContent1">Tab 1</a>
++	<a role="tab" aria-controls="tabContent1" href="#tabContent1">Tab 1</a>
 -	<li role="tab"><a href="#tabContent2">Tab 2</a></li>
-+	<a role="tab" href="#tabContent2">Tab 2</a>
++	<a role="tab" aria-controls="tabContent2" href="#tabContent2">Tab 2</a>
 -	<li role="tab"><a href="#tabContent3">Tab 3</a></li>
-+	<a role="tab" href="#tabContent3">Tab 3</a>
++	<a role="tab" aria-controls="tabContent3" href="#tabContent3">Tab 3</a>
 -</ul>
 +</div>
 ```
@@ -43,7 +51,7 @@ And this is the new html:
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
 
 ## Migrating from v4 to v5
 

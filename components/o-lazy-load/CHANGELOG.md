@@ -1,5 +1,13 @@
 # Changelog
 
+### [3.1.1](https://www.github.com/Financial-Times/origami/compare/o-lazy-load-v3.1.0...o-lazy-load-v3.1.1) (2022-01-13)
+
+
+### Bug Fixes
+
+* expand all uses of docs to documentation ([26f8d9d](https://www.github.com/Financial-Times/origami/commit/26f8d9d8cbbe3e78902d8c3951b37e08150a77bd))
+* expand all uses of spec to specification ([e93de37](https://www.github.com/Financial-Times/origami/commit/e93de3789c3a0ae8b2737ab9d9e9e63b294e8f65))
+
 ## [3.1.0](https://www.github.com/Financial-Times/origami/compare/o-lazy-load-v3.0.1...o-lazy-load-v3.1.0) (2021-11-24)
 
 

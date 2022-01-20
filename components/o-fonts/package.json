@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-fonts",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "description": "Loads CSS declarations for FT web fonts. Does not include font assets.",
   "keywords": [
     "font",

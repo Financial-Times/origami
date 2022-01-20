@@ -1,7 +1,7 @@
 ---
 title: Origami.json Manifest Specification
 description: A specification which describes the required structure of an Origami.json manifest file.
-cta: Read the manifest spec
+cta: Read the manifest specification
 
 # Navigation config
 nav_display: true
@@ -49,8 +49,8 @@ nav_order: 25
 
 Defines the type of Origami project that the manifest belongs to. **Must** be set to one of:
 
-- `"component"` or `"module"`: A front-end component that follows [the component specification](/spec/v1/components/)
-- `"service"`: An HTTP service that follows [the service specification](/spec/v1/services/)
+- `"component"` or `"module"`: A front-end component that follows [the component specification](/specification/v1/components/)
+- `"service"`: An HTTP service that follows [the service specification](/specification/v1/services/)
 - `"cli"`: A command line tool
 - `"library"`: A library that is not a front-end component
 - `"website"`: Origami websites that aren't intended to be services
@@ -60,7 +60,7 @@ Defines the type of Origami project that the manifest belongs to. **Must** be se
 - `null`: An Origami project that does not fit any of the named categories
 
 <aside>
-	The <code>type</code> of <code>"module"</code> is a hangover from when client-side Origami components were named "modules". It's likely to be deprecated or removed in a later version of the spec.
+	The <code>type</code> of <code>"module"</code> is a hangover from when client-side Origami components were named "modules". It's likely to be deprecated or removed in a later version of the specification.
 </aside>
 
 <pre><code class="o-syntax-highlight--json">{
@@ -98,7 +98,7 @@ Defines the type of Origami project that the manifest belongs to. **Must** be se
 	</tr>
 </table>
 
-For components which support [brands](/docs/components/branding/), this **must** be an array of one or more brands: "master", "internal, "whitelabel".
+For components which support [brands](/documentation/components/branding/), this **must** be an array of one or more brands: "master", "internal, "whitelabel".
 If the brands property does not exist, this means the component supports all the brands.
 
 ### keywords
@@ -356,7 +356,7 @@ Each object in the list accepts the following properties:
 - `sass`: type `String`. Describes the path to the demo-specific Sass file to compile.
 - `js`: type `String`. Describes the path to the demo-specific JS file to build.
 - `data`: type `Object` or `String`. Describes data to populate to the component-specific mustache template with. If this is a string it must be a path to a JSON file containing the data, relative to the root of the repo.
-- `brands`: type `Array`. For components which support [brands](/docs/components/branding/), this describes one or more brands which the demo applies to ("master", "internal, "whitelabel")
+- `brands`: type `Array`. For components which support [brands](/documentation/components/branding/), this describes one or more brands which the demo applies to ("master", "internal, "whitelabel")
 - `documentClasses`: type `String`. Names CSS classes to set on the component-specific `html` tag
 - `dependencies`: type `Array`. Is a list of other components that are only needed a this specific demo, which will be loaded via the <a href="https://www.ft.com/__origami/service/build" class="o-typography-link--external">Build Service</a>
 - `hidden`: type `Boolean`. Whether the demo should be hidden in the Registry

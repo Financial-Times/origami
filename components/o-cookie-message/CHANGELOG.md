@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.3.1](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.3.0...o-cookie-message-v6.3.1) (2022-01-13)
+
+
+### Bug Fixes
+
+* expand all uses of docs to documentation ([26f8d9d](https://www.github.com/Financial-Times/origami/commit/26f8d9d8cbbe3e78902d8c3951b37e08150a77bd))
+
 ## [6.3.0](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.2.2...o-cookie-message-v6.3.0) (2022-01-11)
 
 

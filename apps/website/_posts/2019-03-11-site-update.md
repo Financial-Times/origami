@@ -35,7 +35,7 @@ On our homepage we've removed detail and instead focus on pointing people in the
 
 ## Documentation
 
-We've rewritten our documentation to cover our latest recommendations. As part of the rewrite we have introduced new sections like "[tone and language](/docs/principles/tone-and-language/)" -- a great reference whilst writing documentation. Some sections have been removed, often where the documentation can be found elsewhere (e.g. we shouldn't repeat <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> recommendations).
+We've rewritten our documentation to cover our latest recommendations. As part of the rewrite we have introduced new sections like "[tone and language](/documentation/principles/tone-and-language/)" -- a great reference whilst writing documentation. Some sections have been removed, often where the documentation can be found elsewhere (e.g. we shouldn't repeat <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> recommendations).
 
 Perhaps the most striking change is how we have restructured and presented the documentation under "principles", "components", "services", and "tutorials". Each section is now explicitly highlighted with a heading and content list.
 

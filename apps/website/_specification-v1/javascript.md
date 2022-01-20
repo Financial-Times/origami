@@ -1,10 +1,11 @@
 ---
 title: JavaScript Specification
 description: An overview of how the Origami team writes JavaScript.
-permalink: /spec/v1/components/javascript/
+permalink: /specification/v1/components/javascript/
 
 # Redirect from legacy URLs
 redirect_from:
+  - /spec/v1/components/javascript/
   - /docs/syntax/js/
   - /spec/v1/javascript/
 
@@ -35,7 +36,7 @@ i.e. a component named `o-dear` **should** be defined in a class named `Dear`.
 
 - Components **should not** add to the global scope.
 - Components **should not** assume the existence of globals except those defined as part of ECMAScript 5 and the DOM features listed in the `browserFeatures.required` section of `origami.json`.
-- Components **must not** modify the DOM outside of [owned DOM](/spec/v1/components/markup/#owned-dom) areas, except:
+- Components **must not** modify the DOM outside of [owned DOM](/specification/v1/components/markup/#owned-dom) areas, except:
 	- To add [CSS feature flags](/v1/sass/#feature-flags) to the `documentElement`.
 	- Where passed a DOM element explicitly by the host application using the component.
 
@@ -151,13 +152,13 @@ Components **may** emit events defined by other components, using the other comp
 
 - The foreign component is not a direct dependency; and
 - There are no callbacks in the event `details` payload; and
-- The foreign component has invited public use of the event in its documentation and has provided a comprehensive spec for the `details` payload.
+- The foreign component has invited public use of the event in its documentation and has provided a comprehensive specification for the `details` payload.
 
 For the most part, use of this technique creates too much 'magic' behaviour that would not be expected by a product developer and **should not** be used. Except in some cases e.g. analytics, where the approach may be a reasonable compromise to enable loose coupling.
 
 ## Data Storage
 
-Components that store data on the client via user-agent APIs **must** encapsulate all the logic required to get and set that data and must remain compatible with the format of data that they store, unless the major version number of the component changes. In that case the component **must not** invalidate any existing data, and **should** provide advice in docs on migrating user data from previous versions.
+Components that store data on the client via user-agent APIs **must** encapsulate all the logic required to get and set that data and must remain compatible with the format of data that they store, unless the major version number of the component changes. In that case the component **must not** invalidate any existing data, and **should** provide advice in documentation on migrating user data from previous versions.
 
 ## Viewport Events
 

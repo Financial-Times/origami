@@ -1,7 +1,7 @@
 {
   "name": "@financial-times/o-colors",
   "type": "module",
-  "version": "6.4.1",
+  "version": "6.4.2",
   "description": "The default colour palette for all FT products. The palette supports colour contrast checking, colour mixing and toneing.",
   "keywords": [
     "o-colours",
@@ -37,7 +37,7 @@
     "@financial-times/o-normalise": "^3.2.0",
     "@financial-times/o-overlay": "^4.2.1",
     "@financial-times/o-syntax-highlight": "^4.2.0",
-    "@financial-times/o-tabs": "^6.2.0"
+    "@financial-times/o-tabs": "^8.0.0"
   },
   "scripts": {
     "start": "npx serve ./demos/local",

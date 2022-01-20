@@ -91,4 +91,4 @@ the project.
 - PATCH: [useragent_parser](https://github.com/Financial-Times/useragent_parser), updated to correctly identify in-app IOS browsers, used by polyfill.io
 - PATCH: [origami-image-service](https://github.com/Financial-Times/origami-image-service), adds tests for SVG purification.
 - [origami-registry-ui](https://github.com/Financial-Times/origami-registry-ui), we removed a US Heroku backend to save a little extra money. As a Fastly backed bronze service we realised a US backend was surplus. We also improved a number of UI elements as described previously, including ensuring the "copy to html" button does not obscure demo HTML and works consistently.
-- [origami-website](https://github.com/Financial-Times/origami-website), [documents the need for a major cascade](/docs/components/major-cascade/) and adds [a new guide for using Origami via npm](/docs/tutorials/npm/).
+- [origami-website](https://github.com/Financial-Times/origami-website), [documents the need for a major cascade](/documentation/components/major-cascade/) and adds [a new guide for using Origami via npm](/documentation/tutorials/npm/).
