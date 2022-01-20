@@ -1,5 +1,36 @@
 # Changelog
 
+## [8.0.0](https://www.github.com/Financial-Times/origami/compare/o-tabs-v7.0.2...o-tabs-v8.0.0) (2022-01-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename getTabPanelEls to _getTabPanelEls as it is a private method
+* mark getTabPanelEls as a private method
+* rename keyPressHandler to keyUpHandler
+* remove ability to autofocus into the panel
+
+### Features
+
+* add ability to traverse tabs using left and right arrow keys and to select a tab using enter or space ([c22e879](https://www.github.com/Financial-Times/origami/commit/c22e879cad3a5194ed94dd135f117d9c353bdaab))
+
+
+### Bug Fixes
+
+* add aria-controls to each element with role tab referring to its associated tabpanel element. ([b252a56](https://www.github.com/Financial-Times/origami/commit/b252a5607e6c653e652467d30c2305b1c0222ed7))
+* allow tabs to be focusable ([4b52cb3](https://www.github.com/Financial-Times/origami/commit/4b52cb3a378f297f246482535b6b352ede774bfe))
+* mark getTabPanelEls as a private method ([d7a483e](https://www.github.com/Financial-Times/origami/commit/d7a483ee63c3259162f65cfc14059878bf99d804))
+* remove ability to autofocus into the panel ([ca1fa48](https://www.github.com/Financial-Times/origami/commit/ca1fa480a638dd5243298d8d9adc3717957c77c6))
+* remove disablefocus from tests as the option no longer exists ([a3eefeb](https://www.github.com/Financial-Times/origami/commit/a3eefebd2b8475b5859fdee979419c244c645830))
+* remove inactive tabs and tabpanels from the tabbing order ([d49c6d8](https://www.github.com/Financial-Times/origami/commit/d49c6d8b4fc2dc4cd76bfff44b0adc3581b21863))
+* remove keyup event when calling Tabs.destroy() ([767348c](https://www.github.com/Financial-Times/origami/commit/767348c45b5ccd782f83f960c973e1b4fde1edb9))
+* remove unselected tabs from the focusable elements ([6878f9c](https://www.github.com/Financial-Times/origami/commit/6878f9c725cc76a1366b4148825a8e664c9c87d7))
+* rename getTabPanelEls to _getTabPanelEls as it is a private method ([1f270e3](https://www.github.com/Financial-Times/origami/commit/1f270e395c09d837ab7632ecbd53b8b647c5fb03))
+* rename keyPressHandler to keyUpHandler ([b8f063e](https://www.github.com/Financial-Times/origami/commit/b8f063e82c8d9e46cd41ffbc348cb4c5c7b7f655))
+* stop modifying the aria-controls as they should be correct already within the html ([08bd4ef](https://www.github.com/Financial-Times/origami/commit/08bd4ef4bbcce7395579203a9cfe91bd34f9aedf))
+* update html markup to not include # in the aria-controls value ([c255a6c](https://www.github.com/Financial-Times/origami/commit/c255a6c27d123e2abbcdc987aa2e73193887295c))
+* when on the first tab in a tablist and pressing left arrow - move to the last tab in the tablist ([8bc11e1](https://www.github.com/Financial-Times/origami/commit/8bc11e1ddc9e5e3e63d7202b364253f9ac9b7c0c))
+
 ### [7.0.2](https://www.github.com/Financial-Times/origami/compare/o-tabs-v7.0.1...o-tabs-v7.0.2) (2022-01-13)
 
 
