@@ -15,8 +15,8 @@ class Tabs {
 
 		this.boundClickHandler = this.clickHandler.bind(this);
 		this.rootEl.addEventListener('click', this.boundClickHandler, false);
-		this.boundKeyPressHandler = this.keyPressHandler.bind(this);
-		this.rootEl.addEventListener('keyup', this.boundKeyPressHandler, false);
+		this.boundKeyUpHandler = this.keyUpHandler.bind(this);
+		this.rootEl.addEventListener('keyup', this.boundKeyUpHandler, false);
 		this.boundHashChangeHandler = this.hashChangeHandler.bind(this);
 		window.addEventListener('hashchange', this.boundHashChangeHandler, false);
 
@@ -157,7 +157,7 @@ class Tabs {
 		}
 	}
 
-	keyPressHandler(event) {
+	keyUpHandler(event) {
 		const tabEl = event.target;
 		const key = event.keyCode;
 		if (tabEl) {
@@ -240,7 +240,7 @@ class Tabs {
 
 	destroy() {
 		this.rootEl.removeEventListener('click', this.boundClickHandler, false);
-		this.rootEl.removeEventListener('keyup', this.boundKeyPressHandler, false);
+		this.rootEl.removeEventListener('keyup', this.boundKeyUpHandler, false);
 		window.removeEventListener('hashchange', this.boundHashChangeHandler, false);
 		this.rootEl.removeAttribute('data-o-tabs--js');
 
@@ -250,7 +250,7 @@ class Tabs {
 
 		// unset the bound event handlers
 		this.boundClickHandler = undefined;
-		this.boundKeyPressHandler = undefined;
+		this.boundKeyUpHandler = undefined;
 		this.boundHashChangeHandler = undefined;
 		// Destroy ALL the things!
 		this.tabEls = undefined;
