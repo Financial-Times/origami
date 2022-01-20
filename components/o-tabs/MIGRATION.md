@@ -1,5 +1,9 @@
 # Migration
 
+## Migrating from v7 to v8
+
+`disableFocus` has been removed as it is now the default behaviour and there is no way to change the behavior. This was changed because during an accessibility audit it was explained that focus should stay within the tab-list and not move away when a tab is activated.
+
 ## Migrating from v6 to v7
 
 The html for o-tabs was changed to bring support for assistive technologies.
