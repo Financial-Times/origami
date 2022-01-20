@@ -36,3 +36,4 @@ Icon?
 .clj-kondo/
 .lsp/
 .log/
+.nova/
