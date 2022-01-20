@@ -26,7 +26,11 @@ const Story = args => {
 			cookieMessages.forEach(banner => banner.destroy());
 		};
 	}, [args]);
-	return <CookieMessage {...args} />;
+	return (
+		<div>
+			<CookieMessage {...args} />
+		</div>
+	);
 };
 export const Default = Story.bind({});
 Default.args = {
