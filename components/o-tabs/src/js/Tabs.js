@@ -51,6 +51,11 @@ class Tabs {
 		return tabEl ? tabEl.getAttribute('href').replace('#','') : '';
 	}
 
+	/**
+	 * @private
+	 * @param {HTMLElement[]} tabEls Array of the elements which are the tabs for this o-tabs instance
+	 * @returns {HTMLElement[]} The same array that was passed in via the tabEls argument
+	 */
 	getTabPanelEls(tabEls) {
 		const panelEls = [];
 
