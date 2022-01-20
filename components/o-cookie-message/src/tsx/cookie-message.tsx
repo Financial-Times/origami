@@ -1,5 +1,3 @@
-import { data } from "remark";
-
 export interface CookieMessageLink {
 	copy: string;
 }
