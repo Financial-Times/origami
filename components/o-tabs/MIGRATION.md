@@ -4,7 +4,7 @@
 
 `disableFocus` has been removed as it is now the default behaviour and there is no way to change the behavior. This was changed because during an accessibility audit it was explained that focus should stay within the tab-list and not move away when a tab is activated.
 
-The method `getTabPanelEls` has now been marked as "private" as it is only meant to be used internally within o-tabs. If you need to use this method, please raise an issue on GitHub or Slack.
+The method `getTabPanelEls` has now been renamed to `_getTabPanelEls` and marked as "private" as it is only meant to be used internally within o-tabs. If you need to use this method, please raise an issue on GitHub or Slack.
 
 The method `keyPressHandler` has now been renamed to `keyUpHandler`.
 

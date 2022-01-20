@@ -11,7 +11,7 @@ class Tabs {
 
 		this.tabEls = this.rootEl.querySelectorAll('[role=tab]');
 		this.tabEls = [].slice.call(this.tabEls).filter(this.tabHasValidUrl);
-		this.tabpanelEls = this.getTabPanelEls(this.tabEls);
+		this.tabpanelEls = this._getTabPanelEls(this.tabEls);
 
 		this.boundClickHandler = this.clickHandler.bind(this);
 		this.rootEl.addEventListener('click', this.boundClickHandler, false);
@@ -56,7 +56,7 @@ class Tabs {
 	 * @param {HTMLElement[]} tabEls Array of the elements which are the tabs for this o-tabs instance
 	 * @returns {HTMLElement[]} The same array that was passed in via the tabEls argument
 	 */
-	getTabPanelEls(tabEls) {
+	_getTabPanelEls(tabEls) {
 		const panelEls = [];
 
 		for (const tab of tabEls) {
