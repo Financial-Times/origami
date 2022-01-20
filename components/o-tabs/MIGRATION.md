@@ -6,6 +6,8 @@
 
 The method `getTabPanelEls` has now been marked as "private" as it is only meant to be used internally within o-tabs. If you need to use this method, please raise an issue on GitHub or Slack.
 
+The method `keyPressHandler` has now been renamed to `keyUpHandler`.
+
 ## Migrating from v6 to v7
 
 The html for o-tabs was changed to bring support for assistive technologies.
