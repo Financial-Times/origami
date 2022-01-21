@@ -43,7 +43,7 @@ class Banner {
 			formMethod: 'post',
 			linkLabel: null,
 			linkUrl: '#',
-			closeButtonLabel: 'Close',
+			closeButtonLabel: 'Close banner',
 			theme: null,
 			layout: null
 		}, options || Banner.getOptionsFromDom(bannerElement));

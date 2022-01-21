@@ -76,7 +76,7 @@ describe('Banner', () => {
 				formMethod: 'post',
 				linkLabel: null,
 				linkUrl: '#',
-				closeButtonLabel: 'Close',
+				closeButtonLabel: 'Close banner',
 				theme: null,
 				layout: null
 			});
