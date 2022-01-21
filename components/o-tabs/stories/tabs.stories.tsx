@@ -20,7 +20,6 @@ export default {
 const Story = args => {
 	useEffect(() => {
 		let tabs = javascript.init();
-		console.log({ tabs });
 		return function cleanup() {
 			tabs = Array.isArray(tabs) ? tabs : [tabs];
 			tabs.forEach(tab => tab.destroy());
