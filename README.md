@@ -86,10 +86,32 @@ git lfs install
    npm run storybook
    ```
 
+### Developing components
+#### Setup
+
+Follow the [quick start guide](#quick-start) to get started developing components.
+
+#### Preview changes
+
+Not all components have a Storybook Story. Run the following commands to build and serve demos for a given component.
+```shell
+npm run build -w components/o-example
+npm run start -w components/o-example
+```
+#### Test
+
+Run tests for a given component with the npm `test` script.
+```shell
+npm run test -w components/o-example
+```
+
+Lint the code of a given component with the npm `lint` script.
+```shell
+npm run lint -w components/o-example
+```
+
 ### Tips
 
-- To run `obt` for a specific component try `npm exec -w components/o-name obt
-  dev` from the root
 - If you're working on the storybook configuration and it starts acting weird
   and not working, try running it without the cache:
   `npm run storybook -- --no-manager-cache`
