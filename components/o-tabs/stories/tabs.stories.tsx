@@ -104,7 +104,7 @@ Big.args = {
 		}
 	],
 	type: 'secondary',
-	theme: undefined,
+	theme: '',
 	size: 'big',
 	updateUrlHash: true
 };
