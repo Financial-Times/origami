@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.1.4](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.3...o-grid-v6.1.4) (2022-01-24)
+
+
+### Bug Fixes
+
+* update `oGridAddLayout` to support new, larger layouts. ([8ae844e](https://www.github.com/Financial-Times/origami/commit/8ae844e327ea8d6d5e55912a5603f0c58f9737e4))
+
 ### [6.1.3](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.2...o-grid-v6.1.3) (2022-01-13)
 
 
