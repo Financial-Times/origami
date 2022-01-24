@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.2.2](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.2.1...o-labels-v6.2.2) (2022-01-24)
+
+
+### Bug Fixes
+
+* o-labels error when relative type/spacing variables are enabled ([1e89475](https://www.github.com/Financial-Times/origami/commit/1e89475b5faaf1e619e60c3b18049a31947293cf))
+
 ### [6.2.1](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.2.0...o-labels-v6.2.1) (2022-01-13)
 
 
