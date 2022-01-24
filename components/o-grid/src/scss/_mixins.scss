@@ -56,8 +56,6 @@
 	@if $gutter-width {
 		$o-grid-gutters: $temp-gutters !global;
 	}
-
-	$_o-grid-max-width: map-get($o-grid-layouts, nth($_o-grid-layout-names, -1)) !global;
 }
 
 /// Apply styles at a given layout size (breakpoint) as the grid. It should be
