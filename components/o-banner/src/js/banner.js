@@ -154,6 +154,7 @@ class Banner {
 	buildBannerElement (bannerElement) {
 		bannerElement = bannerElement || document.createElement('div');
 		bannerElement.innerHTML = '';
+		bannerElement.setAttribute('role', 'banner');
 		bannerElement.classList.add(className);
 		if (this.options.theme) {
 			bannerElement.classList.add(`${className}--${this.options.theme}`);
