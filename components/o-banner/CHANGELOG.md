@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.4.0](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.3.1...o-banner-v4.4.0) (2022-01-26)
+
+
+### Features
+
+* associate the close button with the banner if the banner has an ID ([b67b037](https://www.github.com/Financial-Times/origami/commit/b67b037bb24563b5247a7f6e55c721825278813f))
+
+
+### Bug Fixes
+
+* add a banner role to o-banner elements ([6a1d161](https://www.github.com/Financial-Times/origami/commit/6a1d161ba6e5a3d7e6a4949b8d90a73a92f9666f))
+* make the IDs used in the o-banner demos and tests use a more specific name to avoid a chance of a project copying the o-banner demo markup and getting an ID clash ([e650234](https://www.github.com/Financial-Times/origami/commit/e6502341139ae252bde4ba65754ae00e0736df5e))
+* update default value for the close button text to mention it will close a banner ([49af900](https://www.github.com/Financial-Times/origami/commit/49af900d59e18d35635ae20773b5dd678442c74d))
+* use landmark instead of banner as the role for o-banner because a header element has a default role of banner and only one banner is allowed to exist on a page ([1ac0651](https://www.github.com/Financial-Times/origami/commit/1ac06518404d10dd4b294e22e920db8e224c8b90))
+
 ### [4.3.1](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.3.0...o-banner-v4.3.1) (2022-01-13)
 
 
