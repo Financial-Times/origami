@@ -465,7 +465,7 @@ describe('Banner', () => {
 
 				it('outputs only one content element using `options.contentLong`', () => {
 					assert.dom.equal(banner.bannerElement, `
-						<div class="o-banner o-banner--small" data-o-component="o-banner" id="banner">
+						<div class="o-banner o-banner--small" data-o-component="o-banner" id="o-banner-test">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content o-banner__content--long">
@@ -488,7 +488,7 @@ describe('Banner', () => {
 											<a href="#" class="o-banner__link">Give feedback</a>
 										</div>
 									</div>
-									<button class="o-banner__close" aria-label="Close banner" title="Close banner" aria-controls="banner"></button>
+									<button class="o-banner__close" aria-label="Close banner" title="Close banner" aria-controls="o-banner-test"></button>
 								</div>
 							</div>
 						</div>`
