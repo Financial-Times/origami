@@ -429,7 +429,7 @@ describe('Banner', () => {
 
 			it('constructs the element HTML based on the given options', () => {
 				assert.dom.equal(returnValue, `
-					<div role="landmark" class="o-banner">
+					<div role="region" class="o-banner">
 						<div class="o-banner__outer">
 							<div class="o-banner__inner" data-o-banner-inner="">
 								<div class="o-banner__content o-banner__content--long">
@@ -506,7 +506,7 @@ describe('Banner', () => {
 
 				it('outputs only one content element using `options.contentLong`', () => {
 					assert.dom.equal(returnValue, `
-						<div role="landmark" class="o-banner">
+						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content">
@@ -537,7 +537,7 @@ describe('Banner', () => {
 
 				it('does not include a secondary action/link', () => {
 					assert.dom.equal(returnValue, `
-						<div role="landmark" class="o-banner">
+						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content o-banner__content--long">
@@ -568,7 +568,7 @@ describe('Banner', () => {
 
 				it('does not include a primary action', () => {
 					assert.dom.equal(returnValue, `
-						<div role="landmark" class="o-banner">
+						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content o-banner__content--long">
@@ -600,7 +600,7 @@ describe('Banner', () => {
 
 				it('does not include the actions element', () => {
 					assert.dom.equal(returnValue, `
-						<div role="landmark" class="o-banner">
+						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content o-banner__content--long">
@@ -626,7 +626,7 @@ describe('Banner', () => {
 
 				it('adds the theme class to the banner element', () => {
 					assert.dom.equal(returnValue, `
-						<div role="landmark" class="o-banner o-banner--product">
+						<div role="region" class="o-banner o-banner--product">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content o-banner__content--long">
@@ -670,7 +670,7 @@ describe('Banner', () => {
 
 				it('adds the layout class to the banner element', () => {
 					assert.dom.equal(returnValue, `
-						<div role="landmark" class="o-banner o-banner--small">
+						<div role="region" class="o-banner o-banner--small">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content o-banner__content--long">
@@ -731,7 +731,7 @@ describe('Banner', () => {
 					returnValue = banner.buildBannerElement();
 
 					assert.dom.equal(returnValue, `
-						<div role="landmark" class="o-banner">
+						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content o-banner__content--long">
@@ -759,7 +759,7 @@ describe('Banner', () => {
 					returnValue = banner.buildBannerElement();
 
 					assert.dom.equal(returnValue, `
-						<div role="landmark" class="o-banner">
+						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content o-banner__content--long">
@@ -795,7 +795,7 @@ describe('Banner', () => {
 
 				it('uses a form and submit button in place of an anchor for the primary action', () => {
 					assert.dom.equal(returnValue, `
-						<div role="landmark" class="o-banner">
+						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content o-banner__content--long">
