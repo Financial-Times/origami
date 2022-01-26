@@ -35,27 +35,24 @@ export function Expander({
 	expandedText = 'hide',
 	togglePosition = 'before content',
 }: ExpanderProps) {
+	let button = (
+		<button className="o-expander__toggle">
+			{expanded ? expandedText : collapsedText}
+		</button>
+	);
 	return (
 		<div
 			data-o-component="o-expander"
 			className="o-expander"
 			data-o-expander-shrink-to="hidden">
 			{header}
-			{togglePosition == 'before content' ? (
-				<button className="o-expander__toggle">
-					{expanded ? expandedText : collapsedText}
-				</button>
-			) : null}
+			{togglePosition == 'before content' ? button : null}
 			<div
 				className="o-expander__content"
 				aria-hidden={expanded ? 'false' : 'true'}>
 				{children}
 			</div>
-			{togglePosition == 'after content' ? (
-				<button className="o-expander__toggle">
-					{expanded ? expandedText : collapsedText}
-				</button>
-			) : null}
+			{togglePosition == 'after content' ? button : null}
 		</div>
 	);
 }
