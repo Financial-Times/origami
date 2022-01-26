@@ -24,7 +24,7 @@ export const bannerWithoutID = `
 
 export const bannerWithID = `
 
-<div class="o-banner o-banner--small" data-o-component="o-banner" id="banner">
+<div class="o-banner o-banner--small" data-o-component="o-banner" id="o-banner-test">
 	<div class="o-banner__outer">
 		<div class="o-banner__inner" data-o-banner-inner="">
 			<div class="o-banner__content o-banner__content--long">
