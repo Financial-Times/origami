@@ -1,5 +1,14 @@
 # Changelog
 
+### [4.4.1](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.0...o-banner-v4.4.1) (2022-01-26)
+
+
+### Bug Fixes
+
+* add the landmark role to the demos to help show which role is applicable to a banner ([2540079](https://www.github.com/Financial-Times/origami/commit/2540079f2b504a99ff922e6d67928b4851a33a8a))
+* do not nest landmark roles within eachother ([cb61c64](https://www.github.com/Financial-Times/origami/commit/cb61c6464d4cfc475c3026fbbdc7388229e8edb6))
+* use role of region as a it is advised to not use the abstract role 'landmark' directly ([102d760](https://www.github.com/Financial-Times/origami/commit/102d7601d98f3d564e0db35f07bbd4cb324001a2))
+
 ## [4.4.0](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.3.1...o-banner-v4.4.0) (2022-01-26)
 
 
