@@ -6,7 +6,7 @@ import javascript from '@financial-times/o-stepped-progress';
 import withHtml from 'origami-storybook-addon-html';
 
 export default {
-	title: 'Stepped Progress',
+	title: 'Components/o-stepped-progress',
 	component: SteppedProgress,
 	decorators: [withDesign, withHtml],
 	parameters: {
@@ -25,7 +25,7 @@ const Story = args => {
 	return <SteppedProgress {...args} />;
 };
 
-export const Example = Story.bind({});
+const Example = Story.bind({});
 Example.args = {
 	steps: [
 		{label: 'Wake up', state: 'complete'},
@@ -34,6 +34,8 @@ Example.args = {
 		{label: 'Defeat everyone'},
 	],
 };
+
+export {Example as SteppedProgress};
 
 export const ErrorStep = Story.bind({});
 ErrorStep.args = {
