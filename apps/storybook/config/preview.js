@@ -6,19 +6,5 @@ export const parameters = {
 			date: /Date$/,
 		},
 	},
-	backgrounds: {
-		default: "page background",
-		values: [
-			{
-				name: "page background",
-				value: "var(--o-colors-page-background)",
-			},
-			...["slate", "candy", "white", "black", "velvet", "lemon"].map(name => {
-				return {
-					name,
-					value: `var(--o-colors-${name})`,
-				}
-			}),
-		],
-	},
+	backgrounds: {disable: true },
 }

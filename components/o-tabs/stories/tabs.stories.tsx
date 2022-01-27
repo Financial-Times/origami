@@ -55,9 +55,7 @@ Default.args = {
 
 export const Inverse = Story.bind({});
 Inverse.parameters = {
-	backgrounds: {
-		default: 'slate',
-	},
+	origamiBackground: 'slate'
 };
 Inverse.args = {
 	tabs: [

@@ -48,9 +48,7 @@ Inverse.args = {
 	theme: 'inverse',
 };
 Inverse.parameters = {
-	backgrounds: {
-		default: 'slate',
-	},
+	origamiBackground: 'slate'
 };
 
 export const Mono = Story.bind({});

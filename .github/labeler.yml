@@ -156,6 +156,8 @@ html:
   - apps/storybook/addons/html/**/*
 markdown-tabs:
   - apps/storybook/addons/markdown-tabs/**/*
+background:
+  - apps/storybook/addons/background/**/*
 storybook:
   - apps/storybook/**/*
 website:
