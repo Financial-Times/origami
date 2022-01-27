@@ -5,7 +5,7 @@ import withHtml from 'origami-storybook-addon-html';
 import {useEffect} from 'react';
 
 export default {
-	title: 'Expander',
+	title: 'Components/o-expander',
 	component: Expander,
 	decorators: [withHtml],
 	parameters: {
