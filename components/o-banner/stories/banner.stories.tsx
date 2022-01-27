@@ -6,11 +6,10 @@ import './banner.scss';
 import withHtml from 'origami-storybook-addon-html';
 
 export default {
-	title: 'Banner',
+	title: 'Components/o-banner',
 	component: Banner,
 	decorators: [withDesign, withHtml],
-	args: {
-	},
+	args: {},
 	parameters: {
 		design: {
 			type: 'figma',
@@ -29,14 +28,15 @@ const Story = args => {
 		return function cleanup() {
 			banners = Array.isArray(banners) ? banners : [banners];
 			banners.forEach(banner => banner.destroy());
-		}
+		};
 	}, [args.showCloseButton, args.closeButtonLabel]);
 	return <Banner {...args} />;
 };
 
 export const Default = Story.bind({});
 Default.args = {
-	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	content:
+		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
@@ -46,18 +46,21 @@ Default.args = {
 	},
 	secondaryAction: {
 		copy: 'Give feedback',
-		url: '#'
+		url: '#',
 	},
 	theme: '',
-	layout: ''
+	layout: '',
 };
 // Exclude layout and heading controls to discourage use of the default layout with a heading.
 // https://github.com/Financial-Times/origami/pull/523
-Default.parameters = {controls: { exclude: ['heading', 'abbreviatedHeading', 'layout'] }};
+Default.parameters = {
+	controls: {exclude: ['heading', 'abbreviatedHeading', 'layout']},
+};
 
 export const FormPrimaryAction = Story.bind({});
 FormPrimaryAction.args = {
-	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	content:
+		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
@@ -65,25 +68,27 @@ FormPrimaryAction.args = {
 		action: '#',
 		encoding: 'application/x-www-form-urlencoded',
 		method: 'POST',
-		copy: 'Try it now'
+		copy: 'Try it now',
 	},
 	secondaryAction: {
 		copy: 'Give feedback',
-		url: '#'
+		url: '#',
 	},
 	theme: '',
-	layout: ''
+	layout: '',
 };
 // Exclude layout and heading controls to discourage use of the default layout with a heading.
 // https://github.com/Financial-Times/origami/pull/523
-FormPrimaryAction.parameters = {controls: { exclude: ['heading', 'abbreviatedHeading', 'layout'] }};
-
+FormPrimaryAction.parameters = {
+	controls: {exclude: ['heading', 'abbreviatedHeading', 'layout']},
+};
 
 export const Small = Story.bind({});
 Small.args = {
 	heading: 'FT Compact',
 	abbreviatedHeading: 'FT Compact',
-	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	content:
+		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
@@ -93,20 +98,21 @@ Small.args = {
 	},
 	secondaryAction: {
 		copy: 'Give feedback',
-		url: '#'
+		url: '#',
 	},
 	theme: '',
-	layout: 'small'
+	layout: 'small',
 };
 // Exclude layout to discourage use of the default layout with a heading.
 // https://github.com/Financial-Times/origami/pull/523
-Small.parameters = {controls: { exclude: ['layout'] }};
+Small.parameters = {controls: {exclude: ['layout']}};
 
 export const Compact = Story.bind({});
 Compact.args = {
 	heading: 'FT Compact',
 	abbreviatedHeading: 'FT Compact',
-	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	content:
+		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
@@ -116,20 +122,21 @@ Compact.args = {
 	},
 	secondaryAction: {
 		copy: 'Give feedback',
-		url: '#'
+		url: '#',
 	},
 	theme: '',
-	layout: 'compact'
+	layout: 'compact',
 };
 // Exclude layout to discourage use of the default layout with a heading.
 // https://github.com/Financial-Times/origami/pull/523
-Compact.parameters = {controls: { exclude: ['layout'] }};
+Compact.parameters = {controls: {exclude: ['layout']}};
 
 export const Marketing = Story.bind({});
 Marketing.args = {
 	heading: 'FT Compact',
 	abbreviatedHeading: 'FT Compact',
-	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	content:
+		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
@@ -139,17 +146,18 @@ Marketing.args = {
 	},
 	secondaryAction: {
 		copy: 'Give feedback',
-		url: '#'
+		url: '#',
 	},
 	theme: 'marketing',
-	layout: 'small'
+	layout: 'small',
 };
 
 export const Product = Story.bind({});
 Product.args = {
 	heading: 'FT Compact',
 	abbreviatedHeading: 'FT Compact',
-	content: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	content:
+		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
@@ -159,8 +167,8 @@ Product.args = {
 	},
 	secondaryAction: {
 		copy: 'Give feedback',
-		url: '#'
+		url: '#',
 	},
 	theme: 'product',
-	layout: 'small'
+	layout: 'small',
 };
