@@ -4,55 +4,41 @@ export interface ExpanderProps {
 	 */
 	header?: JSX.Element;
 	/**
-	 * children will be put in o-expander__content
+	 * children will be put in `o-expander__content`
 	 */
 	children: JSX.Element | JSX.Element[];
 
 	/**
-	 * false by default. if it's true then `aria-hidden="false"` is set on
-	 * content
+	 * `false` by default. if `true` then content is in open-state
 	 */
-	expanded: boolean;
+	expanded?: boolean;
 
 	/**
-	 * toggle button content when hidden
+	 * toggle button content when closed
 	 */
-	collapsedText: string;
+	collapsedText?: string;
 
 	/**
-	 * toggle button content when hidden
+	 * toggle button content when open
 	 */
-	expandedText: string;
-
-	togglePosition: 'before content' | 'after content';
+	expandedText?: string;
 }
 
-export function Expander({
-	header,
-	children,
-	expanded,
-	collapsedText = 'show',
-	expandedText = 'hide',
-	togglePosition = 'before content',
-}: ExpanderProps) {
-	let button = (
-		<button className="o-expander__toggle">
-			{expanded ? expandedText : collapsedText}
-		</button>
-	);
+export function Expander({header = null, children, expanded}: ExpanderProps) {
 	return (
 		<div
 			data-o-component="o-expander"
 			className="o-expander"
 			data-o-expander-shrink-to="hidden">
 			{header}
-			{togglePosition == 'before content' ? button : null}
+			<button className="o-expander__toggle">
+				{expanded ? 'hide' : 'show'}
+			</button>
 			<div
 				className="o-expander__content"
 				aria-hidden={expanded ? 'false' : 'true'}>
 				{children}
 			</div>
-			{togglePosition == 'after content' ? button : null}
 		</div>
 	);
 }
