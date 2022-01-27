@@ -43,7 +43,7 @@ class Banner {
 			formMethod: 'post',
 			linkLabel: null,
 			linkUrl: '#',
-			closeButtonLabel: 'Close',
+			closeButtonLabel: 'Close banner',
 			theme: null,
 			layout: null
 		}, options || Banner.getOptionsFromDom(bannerElement));
@@ -154,6 +154,7 @@ class Banner {
 	buildBannerElement (bannerElement) {
 		bannerElement = bannerElement || document.createElement('div');
 		bannerElement.innerHTML = '';
+		bannerElement.setAttribute('role', 'region');
 		bannerElement.classList.add(className);
 		if (this.options.theme) {
 			bannerElement.classList.add(`${className}--${this.options.theme}`);
@@ -227,6 +228,9 @@ class Banner {
 		closeButton.className = classNames.close;
 		closeButton.setAttribute('aria-label', this.options.closeButtonLabel);
 		closeButton.setAttribute('title', this.options.closeButtonLabel);
+		if (this.bannerElement.id) {
+			closeButton.setAttribute('aria-controls', this.bannerElement.id);
+		}
 
 		// Add event listeners
 		closeButton.addEventListener('click', event => {
