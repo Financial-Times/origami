@@ -35,11 +35,11 @@ One great example is [o-tabs v8](https://registry.origami.ft.com/components/o-ta
 
 <blockquote>that tab panel looks pretty much prefect to me! <cite>- Digital Accessibility Center representative</cite></blockquote>
 
-In case you missed Guy Powell's email last week, you might like to know "DAC are now engaged 10 hours per week, every week to provide audits, reviewing new products and services, provide suggestions for improvements and answer any accessibility related questions". It has been incredibly helpful to get quick and iterative feedback on our improvements. 🙏 If you are thinking about organising an accessibility audit for your project, contact Rich Lewis or Guy Powell in the #accessibility-improvements Slack channel.
+In case you missed Guy Powell's email last week, you might like to know "DAC are now engaged 10 hours per week, every week to provide audits, reviewing new products and services, provide suggestions for improvements and answer any accessibility related questions". It has been incredibly helpful to get quick and iterative feedback on our improvements. 🙏 If you are thinking about organising an accessibility audit for your project, contact Rich Lewis or Guy Powell in the [#accessibility-improvements Slack channel](https://financialtimes.slack.com/archives/C02NW8G3VPD).
 
 ### App team collaboration
 
-This month the Origami collaborated with the Apps team to investigate ways the article page font resizing setting in the app could be improved using a little known [relative typography and spacing feature in Origami](https://registry.origami.ft.com/components/o-typography@7.1.0/sassdoc?brand=core#variable-o-typography-relative-units). Our aims were to:
+This month the Origami team collaborated with the Apps team to investigate ways the article page font resizing setting in the app could be improved using a little known [relative typography and spacing feature in Origami](https://registry.origami.ft.com/components/o-typography@7.1.0/sassdoc?brand=core#variable-o-typography-relative-units). Our aims were to:
 
 - **Improve the app’s article font size feature for users**, only some aspects of the article page resize correctly, other aspects do not respond and look somewhat broken – not a quality offering.
 - **Improve the app’s design consistency**, some Origami components cannot be used on the article page without significant work and ongoing maintenance of style overrides for the font size feature. This requires more work to re-implement UI in the app and reduces consistency across FT products.
@@ -59,7 +59,7 @@ This month the Origami collaborated with the Apps team to investigate ways the a
 	</figcaption>
 </figure>
 
-By the end of the week we had 5 possible approaches to recommendation ranging in scope from "delete the feature" to "modernise all the things", in-between a very clever and pragmatic solution – if we do say so ourselves.
+By the end of the week we had 5 possible approaches to recommend, ranging in scope from "delete the feature" to "modernise all the things", in-between a very clever and pragmatic solution – if we do say so ourselves.
 
 See the [ft-app font size feature spike document](https://docs.google.com/document/d/1JpAxWOzUTn1sD3hAj_9yWS_FMaKcxKECk_tiXUfjO-E/edit#heading=h.5a2d438n46du) to learn more.
 
