@@ -80,4 +80,4 @@ You can get a sneak peak at [origami.ft.com/storybook](https://origami.ft.com/st
 
 ## Special thanks
 
-Special thanks this week goes to Guy and Rich, and the Digital Accessibility Center, for their support in the [#accessibility-improvements Slack channel](https://financialtimes.slack.com/archives/C02NW8G3VPD) 🙇‍♂️
+Special thanks this month goes to Guy and Rich, and the Digital Accessibility Center, for their support in the [#accessibility-improvements Slack channel](https://financialtimes.slack.com/archives/C02NW8G3VPD) 🙇‍♂️
