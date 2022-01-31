@@ -352,6 +352,7 @@ A belated happy new year to you! The Origami team are off to a flying start. Thi
 
 
 
+
 <p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">Some of the bigger Origami news from the last month:</p>
 
 
@@ -361,6 +362,7 @@ A belated happy new year to you! The Origami team are off to a flying start. Thi
 <h3 style="font-size: 24px; line-height: 30px; font-weight: normal; margin: 0 0 15px 0; font-weight: bold;"><span class="text-sans-serif headline-4">Bower To npm / Origami Build Service migration update</span></h3>
 
  
+
 
 
 
@@ -399,6 +401,7 @@ A belated happy new year to you! The Origami team are off to a flying start. Thi
 
 
 
+
 <p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">Accessibility audits for ft.com help Origami identify issues in components and distribute fixes to other projects which use Origami, from 3rd party maintained products to internal tools. But Origami components have never been audited proactively and in isolation, until now!</p>
 
 <p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">We received our first accessibility audit by DAC (Digital Accessibility Center) and it’s a whopping 237 pages. This month the team have triaged the issues and begun releasing fixes. I’m pleased to report we’ve resolved 25% so far.</p>
@@ -409,7 +412,7 @@ A belated happy new year to you! The Origami team are off to a flying start. Thi
     <blockquote>
         <p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">that tab panel looks pretty much prefect to me!</p>
     </blockquote>
-    <figcaption>- Digital Accessibility Center representative</figcaption>
+    <figcaption style="line-height: 16px; font-size: 12px; font-family: arial, sans-serif; color: #262a33;">- Digital Accessibility Center representative</figcaption>
 </figure>
 
 <p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">In case you missed Guy Powell’s email last week, you might like to know “DAC are now engaged 10 hours per week, every week to provide audits, reviewing new products and services, provide suggestions for improvements and answer any accessibility related questions”. It has been incredibly helpful to get quick and iterative feedback on our improvements. 🙏 If you are thinking about organising an accessibility audit for your project, contact Rich Lewis or Guy Powell in the <a target="_blank" href="https://financialtimes.slack.com/archives/C02NW8G3VPD">#accessibility-improvements Slack channel</a>.</p>
@@ -434,6 +437,7 @@ A belated happy new year to you! The Origami team are off to a flying start. Thi
 
 
 
+
 <p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">This month the Origami team collaborated with the Apps team to investigate ways the article page font resizing setting in the app could be improved using a little known <a target="_blank" href="https://registry.origami.ft.com/components/o-typography@7.1.0/sassdoc?brand=core#variable-o-typography-relative-units">relative typography and spacing feature in Origami</a>. Our aims were to:</p>
 
 <ul style="padding-left: 30px;">
@@ -444,14 +448,14 @@ A belated happy new year to you! The Origami team are off to a flying start. Thi
 
 <figure>
 	<img alt="Left: FT APP article page with pull quote. The pull quote text is strangely smaller in size than the main article copy, with a large line height that makes it awkward to read. Right: FT APP article page with large, correctly scaled pull quote." src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2022-01-28-newsletter/ft-app-font-size-quote.png?source=origami" />
-	<figcaption>
+	<figcaption style="line-height: 16px; font-size: 12px; font-family: arial, sans-serif; color: #262a33;">
         Right: FT App article page with a large font size setting chosen. The pull quote does not scale correctly, lowering its impact and making it more difficult to read. Left: A proposed solution would allow all app elements to scale in proportion without targeted overrides – improving reliability and reducing implementation costs for new article features.
 	</figcaption>
 </figure>
 
 <figure>
 	<img alt="Left: FT APP article page with table. Table data is displayed larger and out of proportion compared to the main article copy. Right: FT APP article page with correctly scaled table data." src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2022-01-28-newsletter/ft-app-font-size-table.png?source=origami" />
-	<figcaption>
+	<figcaption style="line-height: 16px; font-size: 12px; font-family: arial, sans-serif; color: #262a33;">
         Right: FT App article page with a small font size setting selected. The table content does not scale in line with article body content, it looks out of place and means the user can't evaluate more table data without scrolling back and forth. Left: As before, a proposed solution would allow fix this. Since all components scale with this method without further targeted overrides components aren't missed and don't look out proportion, improving the perceived quality of the app.
 	</figcaption>
 </figure>
@@ -481,6 +485,7 @@ A belated happy new year to you! The Origami team are off to a flying start. Thi
 
 
 
+
 <p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">We mentioned in our <a target="_blank" href="/blog/2021/11/05/newsletter/#storybook">previous blog post</a> that we are working on an <a target="_blank" href="https://origami.ft.com/storybook/">Origami Storybook</a> which we see as an eventual replacement to our very custom <a target="_blank" href="https://registry.origami.ft.com/components?active=true\&amp;maintained=true">Origami component registry</a>. We’re making progress and adding new components each week.</p>
 
 <p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">This is very exciting because it will allow us to make the most of a large ecosystem of tools to help speed up design and development at the FT (<a target="_blank" href="/blog/2021/11/05/newsletter/#storybook">see details and screenshots in previous blog post</a>). It’s also exciting because we’re writing JSX templates for our components for the first time, which we may make public in the near future. For teams who also use JSX templates, this could hugely reduce the complexity of implementing Origami components in a project and make our most tricky kind of migration (markup changes) simple when upgrading from one major version of a component to another.</p>
@@ -493,6 +498,7 @@ A belated happy new year to you! The Origami team are off to a flying start. Thi
 
 <!-- Special thanks -->
 <h2 style="font-size: 28px; line-height: 32px; font-weight: normal; margin: 40px 0 15px 0; font-weight: bold;"><span class="text-sans-serif headline-3">Special Thanks</span></h2>
+
 
 
 
