@@ -33,7 +33,12 @@ We received our first accessibility audit by DAC (Digital Accessibility Center) 
 
 One great example is [o-tabs v8](https://registry.origami.ft.com/components/o-tabs@8.0.0) which now implements the [wai-aria tabs design pattern](https://www.w3.org/TR/wai-aria-practices/#tabpanel). Improvements include keyboard support for moving between tabs using arrow keys, relationships between tabs and their associated tab-panel, and more ([o-tabs@8 pull request](https://github.com/Financial-Times/origami/pull/571)).
 
-<blockquote>that tab panel looks pretty much prefect to me! <cite>- Digital Accessibility Center representative</cite></blockquote>
+<figure>
+    <blockquote>
+        <p>that tab panel looks pretty much prefect to me!</p>
+    </blockquote>
+    <figcaption>- Digital Accessibility Center representative</figcaption>
+</figure>
 
 In case you missed Guy Powell's email last week, you might like to know "DAC are now engaged 10 hours per week, every week to provide audits, reviewing new products and services, provide suggestions for improvements and answer any accessibility related questions". It has been incredibly helpful to get quick and iterative feedback on our improvements. 🙏 If you are thinking about organising an accessibility audit for your project, contact Rich Lewis or Guy Powell in the [#accessibility-improvements Slack channel](https://financialtimes.slack.com/archives/C02NW8G3VPD).
 
@@ -75,9 +80,4 @@ You can get a sneak peak at [origami.ft.com/storybook](https://origami.ft.com/st
 
 ## Special thanks
 
-
-## Broader update
-
-A digest of other things that have happened this month:
-
-- loads of stuff!?!??!?
+Special thanks this week goes to Guy and Rich, and the Digital Accessibility Center, for their support in the [#accessibility-improvements Slack channel](https://financialtimes.slack.com/archives/C02NW8G3VPD) 🙇‍♂️
