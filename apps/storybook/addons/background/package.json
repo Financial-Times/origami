@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Origami Storybook addon for switching the root element's background and foreground colour, to preview Stories in different contexts.",
   "main": "preset.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "",
   "license": "MIT",
   "private": true,
