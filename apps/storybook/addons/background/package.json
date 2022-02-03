@@ -8,6 +8,7 @@
   },
   "author": "",
   "license": "MIT",
+  "private": true,
   "dependencies": {
     "chroma-js": "^2.3.0"
   }
