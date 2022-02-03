@@ -6,6 +6,7 @@ cta: Learn how to build web pages using the Origami Build Service
 # Redirect from legacy URLs
 redirect_from:
   - /docs/developer-guide/modules/build-service/
+  - /docs/tutorials/build-service/
 ---
 
 # {{page.title}}
