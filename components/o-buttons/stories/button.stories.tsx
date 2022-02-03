@@ -4,7 +4,7 @@ import './button.scss';
 import withHtml from 'origami-storybook-addon-html';
 
 export default {
-	title: 'Button',
+	title: 'Components/o-buttons',
 	component: Button,
 	decorators: [withDesign, withHtml],
 	args: {
@@ -24,47 +24,47 @@ export default {
 
 const Story = args => <Button {...args} />;
 
-export const Primary = Story.bind({});
-Primary.args = {
+export const PrimaryButton = Story.bind({});
+PrimaryButton.args = {
 	label: 'Press button',
 	type: 'primary',
 };
 
-export const Secondary = Story.bind({});
-Secondary.args = {
+export const SecondaryButton = Story.bind({});
+SecondaryButton.args = {
 	label: 'Press button',
 	type: 'secondary',
 };
 
-export const Big = Story.bind({});
-Big.args = {
+export const BigButton = Story.bind({});
+BigButton.args = {
 	size: 'big',
 	label: 'Press button',
 };
 
-export const Inverse = Story.bind({});
-Inverse.args = {
+export const InverseButton = Story.bind({});
+InverseButton.args = {
 	label: 'Press button',
 	theme: 'inverse',
 };
-Inverse.parameters = {
+InverseButton.parameters = {
 	origamiBackground: 'slate'
 };
 
-export const Mono = Story.bind({});
-Mono.args = {
+export const MonoButton = Story.bind({});
+MonoButton.args = {
 	label: 'Press button',
 	theme: 'mono',
 };
 
-export const Icon = Story.bind({});
-Icon.args = {
+export const ButtonWithIcon = Story.bind({});
+ButtonWithIcon.args = {
 	label: 'Upload',
 	icon: 'upload',
 };
 
-export const IconOnly = Story.bind({});
-IconOnly.args = {
+export const IconOnlyButton = Story.bind({});
+IconOnlyButton.args = {
 	label: 'Next',
 	icon: 'arrow-right',
 	iconOnly: true,

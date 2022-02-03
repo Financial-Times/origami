@@ -28,7 +28,7 @@ defaults:
   - scope:
       path: ""
     values:
-      layout: o-layout-documentation
+      layout: o-layout-docs
   - scope:
       path: "_specification-v1"
     values:

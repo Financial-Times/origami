@@ -10,9 +10,9 @@ module.exports.stories = [
 ]
 
 module.exports.addons = [
+	"@storybook/addon-essentials",
 	"@storybook/addon-a11y",
 	"@storybook/addon-links",
-	"@storybook/addon-essentials",
 	{
 		name: "@storybook/preset-scss",
 		options: {

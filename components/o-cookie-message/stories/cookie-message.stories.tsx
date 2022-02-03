@@ -6,7 +6,7 @@ import './cookie-message.scss';
 import withHtml from 'origami-storybook-addon-html';
 
 export default {
-	title: 'Cookie Message',
+	title: 'Components/o-cookie-message',
 	component: CookieMessage,
 	decorators: [withDesign, withHtml],
 	args: {},
@@ -32,7 +32,7 @@ const Story = args => {
 		</div>
 	);
 };
-export const Default = Story.bind({});
+const Default = Story.bind({});
 Default.args = {
 	fullMarkupForDefaultContent: false,
 	heading: '',
@@ -47,8 +47,10 @@ Default.args = {
 	theme: '',
 };
 
-export const Alternative = Story.bind({});
-Alternative.args = {
+export {Default as CookieMessage};
+
+export const AlternativeDesignCookieMessage = Story.bind({});
+AlternativeDesignCookieMessage.args = {
 	fullMarkupForDefaultContent: false,
 	heading: '',
 	copy: '',

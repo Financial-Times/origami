@@ -23,5 +23,8 @@
     "watch": "bundle exec jekyll build --watch --drafts --incremental -d ../../origami.ft.com"
   },
   "snyk": true,
-  "private": true
+  "private": true,
+  "volta": {
+    "node": "16.13.2"
+  }
 }
