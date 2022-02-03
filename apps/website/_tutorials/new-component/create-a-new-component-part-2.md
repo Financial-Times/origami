@@ -135,7 +135,7 @@ First we will update our border colour using [o-colors](https://registry.origami
 ### Install Component Dependencies
 
 The first step is to install each component we want to use via [npm](https://npmjs.com/):
-<pre><code class="o-syntax-highlight--bash">npm install --save '@financial-times/o-colors@^5.0.0' '@financial-times/o-spacing@^2.0.0' '@financial-times/o-typography@^6.0.0' '@financial-times/o-buttons@^6.0.0'</code></pre>
+<pre><code class="o-syntax-highlight--bash">npm install --save-peer '@financial-times/o-colors@^5.0.0' '@financial-times/o-spacing@^2.0.0' '@financial-times/o-typography@^6.0.0' '@financial-times/o-buttons@^6.0.0'</code></pre>
 
 You should now have a `node_modules` directory with all the components we just installed. We can now make their Sass available for us to use with `@import` statements at the top of `main.scss`.
 
