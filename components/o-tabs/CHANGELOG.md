@@ -1,5 +1,18 @@
 # Changelog
 
+## [8.1.0](https://www.github.com/Financial-Times/origami/compare/o-tabs-v8.0.0...o-tabs-v8.1.0) (2022-02-03)
+
+
+### Features
+
+* add Storybook addon, Origami background selector  ([#595](https://www.github.com/Financial-Times/origami/issues/595)) ([f58329c](https://www.github.com/Financial-Times/origami/commit/f58329c17a8f8aa8dfa9aa2319f9aba07c0add69))
+* add Storybook stories for o-tabs ([40e1a77](https://www.github.com/Financial-Times/origami/commit/40e1a772c69ca6620fd777ccd1fc0ba602f7b1c8))
+
+
+### Bug Fixes
+
+* output primary inverse theme by default ([e8def1c](https://www.github.com/Financial-Times/origami/commit/e8def1cb35a983e3ad2d609c038f5cc24f970c8a))
+
 ## [8.0.0](https://www.github.com/Financial-Times/origami/compare/o-tabs-v7.0.2...o-tabs-v8.0.0) (2022-01-20)
 
 
