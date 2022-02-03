@@ -150,14 +150,14 @@ verify-origami-json:
   - tools/verify-origami-json/**/*
 verify-package-json:
   - tools/verify-package-json/**/*
+background:
+  - apps/storybook/addons/background/**/*
 guidelines:
   - apps/storybook/addons/guidelines/**/*
 html:
   - apps/storybook/addons/html/**/*
 markdown-tabs:
   - apps/storybook/addons/markdown-tabs/**/*
-background:
-  - apps/storybook/addons/background/**/*
 storybook:
   - apps/storybook/**/*
 website:
