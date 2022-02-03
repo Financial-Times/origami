@@ -262,7 +262,7 @@
 </pre>
 </aside>
 
-<p>Next, we need to install our components as direct dependencies, because they are crucial to our page. We will opt to install them through the command line, and save them to a <code class="language-plaintext highlighter-rouge">package.json</code> file. For the scope of this tutorial, all that needs to be in that file right now is:</p>
+<p>Next, we need to install our components as peer dependencies. We will opt to install them through the command line, and save them to a <code class="language-plaintext highlighter-rouge">package.json</code> file. For the scope of this tutorial, all that needs to be in that file right now is:</p>
 
 <pre><code class="o-syntax-highlight--json">{
 	"name": "o-fruit-demo"
@@ -271,13 +271,13 @@
 
 <p>Now we need to install our components, and we can save them all to our file by running:</p>
 
-<pre><code class="o-syntax-highlight--bash">npm install --save @financial-times/o-grid @financial-times/o-typography @financial-times/o-colors @financial-times/o-table</code></pre>
+<pre><code class="o-syntax-highlight--bash">npm install --save-peer @financial-times/o-grid @financial-times/o-typography @financial-times/o-colors @financial-times/o-table</code></pre>
 
 <p>And your <code class="language-plaintext highlighter-rouge">package.json</code> should now look something like this:</p>
 
 <pre><code class="o-syntax-highlight--json">{
   "name": "o-fruit-demo",
-  "dependencies": {
+  "peerDependencies": {
     "@financial-times/o-grid": "^6.0.0",
     "@financial-times/o-typography": "^7.0.2",
     "@financial-times/o-colors": "^6.0.8",
