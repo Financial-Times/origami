@@ -4,7 +4,7 @@ description: Step-by-step tutorials for people who are learning to use Origami.
 permalink: /documentation/tutorials/
 layout: collection
 collection_id: tutorials
-redirect_form:
+redirect_from:
   - /docs/tutorials/
 
 # Navigation config
