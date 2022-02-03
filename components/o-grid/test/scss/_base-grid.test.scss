@@ -72,13 +72,21 @@
 	}
 
 	@include describe('mixin: oGridAddLayout') {
-		@include it('adds a new layout') {
+		@include it('adds a new smaller layout') {
 			@include oGridAddLayout(
 				$layout-name: XXS,
 				$layout-width: 128px
 			);
 
 			@include assert-equal(map-get($o-grid-layouts, XXS), 128px);
+		}
+		@include it('adds a new larger layout') {
+			@include oGridAddLayout(
+				$layout-name: XXL,
+				$layout-width: 1221px
+			);
+
+			@include assert-equal(map-get($o-grid-layouts, XXL), 1221px);
 		}
 	}
 

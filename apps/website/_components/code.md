@@ -76,7 +76,7 @@ and is linked to from the component's README.md.
 - A component’s markup should be contained in a root element that:
 	- Has a data-o-component attribute with value of the component’s name, or
 	- Is defined as a
-	  [customElement](https://html.specification.whatwg.org/multipage/custom-elements.html#custom-element)
+	  [customElement](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element)
 	  registered against the component’s JavaScript class
 - All data attributes and IDs are namespaced with the component’s name.
 
