@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.3.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.2.2...o-buttons-v7.3.0) (2022-02-03)
+
+
+### Features
+
+* add Storybook addon, Origami background selector  ([#595](https://www.github.com/Financial-Times/origami/issues/595)) ([f58329c](https://www.github.com/Financial-Times/origami/commit/f58329c17a8f8aa8dfa9aa2319f9aba07c0add69))
+
 ### [7.2.2](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.2.1...o-buttons-v7.2.2) (2022-01-13)
 
 
