@@ -1,0 +1,12 @@
+{
+  "name": "origami-storybook-addon-background",
+  "version": "1.0.0",
+  "description": "Origami Storybook addon for switching the root element's background and foreground colour, to preview Stories in different contexts.",
+  "main": "preset.js",
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "chroma-js": "^2.3.0"
+  }
+}

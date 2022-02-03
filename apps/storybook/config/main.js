@@ -37,6 +37,7 @@ module.exports.addons = [
 	"origami-storybook-addon-html/register",
 	"origami-storybook-addon-guidelines/register",
 	"origami-storybook-addon-markdown-tabs",
+	"origami-storybook-addon-background",
 ]
 
 module.exports.typescript = {
