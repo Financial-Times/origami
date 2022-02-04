@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-fonts-v5.2.1...o-fonts-v5.3.0) (2022-02-04)
+
+
+### Features
+
+* o-fonts, add FinancierTextWeb regular/italic ([9df3e20](https://www.github.com/Financial-Times/origami/commit/9df3e20298fae640f62f9208b98103e68696d26f))
+
 ### [5.2.1](https://www.github.com/Financial-Times/origami/compare/o-fonts-v5.2.0...o-fonts-v5.2.1) (2022-01-13)
 
 
