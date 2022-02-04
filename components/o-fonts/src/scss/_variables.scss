@@ -50,6 +50,8 @@ $_o-fonts-all-financier-display-variants: (
 /// @type List
 /// @access private
 $_o-fonts-all-financier-text-variants: (
+	(weight: 'regular', style: italic),
+	(weight: 'regular', style: normal),
 	(weight: 'medium', style: normal),
 	(weight: 'bold', style: normal),
 	(weight: 'black', style: normal)
