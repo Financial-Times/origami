@@ -21,16 +21,25 @@ export interface ButtonProps {
 		| 'cross'
 		| '';
 	iconOnly?: boolean;
+	attributes?: {
+		[attribute: string]: string | boolean;
+	}
 }
 
-export function Button({
+interface LinkButtonProps extends ButtonProps {
+	href: string;
+}
+
+function ButtonTemplate({
 	label,
 	type = 'secondary',
 	size = '',
 	theme,
 	icon,
 	iconOnly = false,
-}: ButtonProps) {
+	href = '',
+	attributes = {}
+} : ButtonProps | LinkButtonProps) {
 	const classNames = ['o-buttons', `o-buttons--${type}`];
 
 	if (size) {
@@ -49,13 +58,59 @@ export function Button({
 		classNames.push('o-buttons-icon--icon-only');
 	}
 
+	const HtmlTag = href ? 'a' : 'button';
+
 	return (
-		<button className={classNames.join(' ')}>
+		<HtmlTag {...(href ? {href} : {})} className={classNames.join(' ')} {...attributes}>
 			{icon && iconOnly ? (
 				<span className="o-buttons-icon__label">{label}</span>
 			) : (
 				label
 			)}
-		</button>
+		</HtmlTag>
 	);
+}
+
+
+export function Button({
+	label,
+	type = 'secondary',
+	size = '',
+	theme,
+	icon,
+	iconOnly = false,
+	attributes = {},
+}: ButtonProps) {
+	return ButtonTemplate({
+		label,
+		type,
+		size,
+		theme,
+		icon,
+		iconOnly,
+		attributes
+	});
+}
+
+
+export function LinkButton({
+	label,
+	type = 'secondary',
+	size = '',
+	theme,
+	icon,
+	iconOnly = false,
+	attributes = {},
+	href = ''
+}: LinkButtonProps) {
+	return ButtonTemplate({
+		label,
+		type,
+		size,
+		theme,
+		icon,
+		iconOnly,
+		href,
+		attributes
+	});
 }
