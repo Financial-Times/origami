@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.2.4](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.2.3...o-forms-v9.2.4) (2022-02-07)
+
+
+### Bug Fixes
+
+* correct error summary links in the demos to use the correct IDs ([930c1cf](https://www.github.com/Financial-Times/origami/commit/930c1cff88589a1a4e7baef00f53ae54fd7e7d7d))
+
 ### [9.2.3](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.2.2...o-forms-v9.2.3) (2022-01-13)
 
 
