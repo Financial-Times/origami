@@ -113,7 +113,7 @@ The following markup example shows pagination for 20 pages, where the 14th page 
 ```html
 <div class="o-buttons-pagination">
 	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only">
-		<span class='o-buttons-icon__label'>Fewer results</span>
+		<span class='o-buttons-icon__label'>Previous results</span>
 	</a>
 
 	<a href="#" class="o-buttons o-buttons--secondary">1</a>
@@ -125,7 +125,7 @@ The following markup example shows pagination for 20 pages, where the 14th page 
 	<a href="#" class="o-buttons o-buttons--secondary">20</a>
 
 	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
-		<span class='o-buttons-icon__label'>More results</span>
+		<span class='o-buttons-icon__label'>Next results</span>
 	</a>
 </div>
 ```
@@ -138,7 +138,7 @@ The number of pages to display is not enforced by Origami. However we recommend 
 	- The selected page is one of the last 2 pages show ellipsis with 3 pages either side.
 	- The 3rd page is selected show 4 pages, the ellipsis, and 2 more pages.
 	- The 3rd from last page is selected show 2 pages, the ellipsis, and 4 more pages.
-	- The selected page is more than 3 from the first of last page show the first page, ellipsis, three pages, ellipsis, and the last page.
+	- The selected page is more than 3 from the first and last page show the first page, ellipsis, three pages, ellipsis, and the last page.
 
 For an example see the [pagination demos in the Origami registry](https://registry.origami.ft.com/components/o-buttons@6.0.19#demo-pagination-layout).
 
@@ -153,7 +153,7 @@ Big buttons may also be used in a pagination style. Add the `o-buttons--big` mod
 ```html
 <div class="o-buttons-pagination">
 	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" disabled>
-		<span class='o-buttons-icon__label'>Fewer results</span>
+		<span class='o-buttons-icon__label'>Previous results</span>
 	</a>
 
 	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary" aria-current="page">1</a>
@@ -165,7 +165,7 @@ Big buttons may also be used in a pagination style. Add the `o-buttons--big` mod
 	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary">20</a>
 
 	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
-		<span class='o-buttons-icon__label'>More results</span>
+		<span class='o-buttons-icon__label'>Next results</span>
 	</a>
 </div>
 ```
