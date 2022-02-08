@@ -7,9 +7,7 @@ export default {
 	title: 'Components/o-buttons',
 	component: Button,
 	decorators: [withDesign, withHtml],
-	args: {
-		iconOnly: false,
-	},
+	args: {},
 	parameters: {
 		design: {
 			type: 'figma',
