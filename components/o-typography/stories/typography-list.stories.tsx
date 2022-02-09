@@ -2,7 +2,6 @@ import {withDesign} from 'storybook-addon-designs';
 import {Body, List, ListItem} from '../src/tsx/typography';
 import './typography.scss';
 import withHtml from 'origami-storybook-addon-html';
-import { nanoid } from 'nanoid'
 
 export default {
 	title: 'Components/o-typography',
@@ -23,7 +22,7 @@ export default {
 
 const items = ['Apples', 'Bananas', 'Oranges', 'Pears', 'Tangelos'];
 const Story = args => <Body>
-    <List {...args} children={args.items.map(item => <ListItem key={nanoid()}>{item}</ListItem>)} />
+    <List {...args} children={args.items.map(item => <ListItem key={item}>{item}</ListItem>)} />
 </Body>;
 
 export const UnorderedList = Story.bind({});
