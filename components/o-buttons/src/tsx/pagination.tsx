@@ -1,5 +1,4 @@
 import {ButtonProps, Button, LinkButton} from './button'
-import { nanoid } from 'nanoid'
 
 export type ButtonPaginationProps = Pick<ButtonProps, "type" | "size" | "theme"> & {
   previousPager: ButtonPaginationPager,
@@ -95,7 +94,7 @@ export function ButtonPagination({
       pageAttributes['onClick'] = page.onClick;
     }
 
-    return <PageTag key={nanoid()} href={page.href} label={page.number.toString()} attributes={pageAttributes} theme={theme} size={size} type={type}></PageTag>
+    return <PageTag key={page.number} href={page.href} label={page.number.toString()} attributes={pageAttributes} theme={theme} size={size} type={type}></PageTag>
   }));
 
     return (
@@ -104,7 +103,7 @@ export function ButtonPagination({
           {pageElementsInGroups.flatMap((pageElementGroup, pageGroupIndex) => {
 						const elementGroup = [];
 						if(pageGroupIndex > 0) {
-							elementGroup.push(<Ellipsis key={nanoid()}></Ellipsis>);
+							elementGroup.push(<Ellipsis key={pageGroupIndex}></Ellipsis>);
 						};
 						elementGroup.push(pageElementGroup);
 						return elementGroup;
