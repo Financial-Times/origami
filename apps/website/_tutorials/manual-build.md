@@ -6,6 +6,7 @@ cta: Learn how to build web pages with locally-installed Origami components
 # Redirect from legacy URLs
 redirect_from:
   - /docs/developer-guide/modules/building-modules/
+  - /docs/tutorials/build-service/manual-build
 ---
 
 # {{page.title}}
@@ -106,7 +107,7 @@ All Origami components are available for installation via npm. They live in the 
 </pre>
 </aside>
 
-Next, we need to install our components as direct dependencies, because they are crucial to our page. We will opt to install them through the command line, and save them to a `package.json` file. For the scope of this tutorial, all that needs to be in that file right now is:
+Next, we need to install our components as peer dependencies. We will opt to install them through the command line, and save them to a `package.json` file. For the scope of this tutorial, all that needs to be in that file right now is:
 
 <pre><code class="o-syntax-highlight--json">{
 	"name": "o-fruit-demo"
@@ -115,13 +116,13 @@ Next, we need to install our components as direct dependencies, because they are
 
 Now we need to install our components, and we can save them all to our file by running:
 
-<pre><code class="o-syntax-highlight--bash">npm install --save @financial-times/o-grid @financial-times/o-typography @financial-times/o-colors @financial-times/o-table</code></pre>
+<pre><code class="o-syntax-highlight--bash">npm install --save-peer @financial-times/o-grid @financial-times/o-typography @financial-times/o-colors @financial-times/o-table</code></pre>
 
 And your `package.json` should now look something like this:
 
 <pre><code class="o-syntax-highlight--json">{
   "name": "o-fruit-demo",
-  "dependencies": {
+  "peerDependencies": {
     "@financial-times/o-grid": "^{{site.data.components.o-grid.version}}",
     "@financial-times/o-typography": "^{{site.data.components.o-typography.version}}",
     "@financial-times/o-colors": "^{{site.data.components.o-colors.version}}",

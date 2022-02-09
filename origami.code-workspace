@@ -22,6 +22,9 @@
 			"path": "apps/storybook/addons/markdown-tabs"
 		},
 		{
+			"path": "apps/storybook/addons/background"
+		},
+		{
 			"path": "libraries/math"
 		},
 		{

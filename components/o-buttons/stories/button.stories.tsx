@@ -7,9 +7,7 @@ export default {
 	title: 'Components/o-buttons',
 	component: Button,
 	decorators: [withDesign, withHtml],
-	args: {
-		iconOnly: false,
-	},
+	args: {},
 	parameters: {
 		design: {
 			type: 'figma',
@@ -56,9 +54,7 @@ InverseButton.args = {
 	theme: 'inverse',
 };
 InverseButton.parameters = {
-	backgrounds: {
-		default: 'slate',
-	},
+	origamiBackground: 'slate'
 };
 
 export const MonoButton = ButtonStory.bind({});

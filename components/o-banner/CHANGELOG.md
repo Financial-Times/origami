@@ -1,5 +1,19 @@
 # Changelog
 
+### [4.4.3](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.2...o-banner-v4.4.3) (2022-02-08)
+
+
+### Bug Fixes
+
+* do not repeat the description for banner close button ([dd9309e](https://www.github.com/Financial-Times/origami/commit/dd9309e557161bedb70244aabea9a8ddf292f8c6))
+
+### [4.4.2](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.1...o-banner-v4.4.2) (2022-02-03)
+
+
+### Bug Fixes
+
+* add labels to the links in o-banner demo to provide context for users who navigate to the links out of context by use of Jaws or other similar software ([ac638b5](https://www.github.com/Financial-Times/origami/commit/ac638b59f822574e5df28ace1aad8ce9bed9eb46)), closes [#502](https://www.github.com/Financial-Times/origami/issues/502)
+
 ### [4.4.1](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.0...o-banner-v4.4.1) (2022-01-26)
 
 

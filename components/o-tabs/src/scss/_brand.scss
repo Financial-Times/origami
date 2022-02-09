@@ -22,6 +22,7 @@ $_o-tabs-default-button-tabs: ();
 	$_o-tabs-default-button-tabs: (
 		('type': 'primary'),
 		('type': 'secondary'),
+		('type': 'primary', 'theme': 'inverse'),
 		('type': 'secondary', 'theme': 'inverse'),
 	) !global;
 }

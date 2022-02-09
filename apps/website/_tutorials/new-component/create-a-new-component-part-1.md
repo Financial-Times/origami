@@ -3,6 +3,9 @@ title: Create A New Origami Component
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
 
+# Redirect from legacy URLs
+redirect_from:
+  - /docs/tutorials/create-a-new-component-part-1/
 ---
 
 # {{page.title}}
