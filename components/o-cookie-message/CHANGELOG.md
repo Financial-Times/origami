@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.4.0](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.3.1...o-cookie-message-v6.4.0) (2022-02-09)
+
+
+### Features
+
+* Allow configuring the path to the manage cookies page ([ccb99a9](https://www.github.com/Financial-Times/origami/commit/ccb99a9a377fd05f07f923daaa139b9899065544))
+
 ### [6.3.1](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.3.0...o-cookie-message-v6.3.1) (2022-01-13)
 
 
