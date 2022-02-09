@@ -488,7 +488,7 @@ describe('Banner', () => {
 											<a href="#" class="o-banner__link">Give feedback</a>
 										</div>
 									</div>
-									<button class="o-banner__close" aria-label="Close banner" title="Close banner" aria-controls="o-banner-test"></button>
+									<button class="o-banner__close" aria-label="Close banner" aria-controls="o-banner-test"></button>
 								</div>
 							</div>
 						</div>`
@@ -850,7 +850,7 @@ describe('Banner', () => {
 
 			it('constructs the element HTML based on the given options', () => {
 				assert.dom.equal(returnValue, `
-					<button class="o-banner__close" aria-label="mockCloseButtonLabel" title="mockCloseButtonLabel"></button>
+					<button class="o-banner__close" aria-label="mockCloseButtonLabel"></button>
 				`);
 			});
 

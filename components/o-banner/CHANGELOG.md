@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.4.3](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.2...o-banner-v4.4.3) (2022-02-08)
+
+
+### Bug Fixes
+
+* do not repeat the description for banner close button ([dd9309e](https://www.github.com/Financial-Times/origami/commit/dd9309e557161bedb70244aabea9a8ddf292f8c6))
+
 ### [4.4.2](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.1...o-banner-v4.4.2) (2022-02-03)
 
 
