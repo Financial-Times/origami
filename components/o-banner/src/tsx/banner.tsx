@@ -13,6 +13,7 @@ export interface BannerLink {
 export interface BannerProps {
 	heading?: string;
 	abbreviatedHeading?: string;
+	navigationLabel: string,
 	content: string;
 	abbreviatedContent?: string;
 	showCloseButton?: boolean;
@@ -31,6 +32,7 @@ export function Banner({
 	showCloseButton = true,
 	heading = '',
 	abbreviatedHeading = '',
+	navigationLabel = "Try the new homepage",
 	content = 'Hello!',
 	abbreviatedContent = '',
 	closeButtonLabel = 'Close',
@@ -62,7 +64,7 @@ export function Banner({
 	}
 
 	return (
-		<div className={classNames.join(' ')} {...dataAttributes} data-o-component="o-banner">
+		<div className={classNames.join(' ')} {...dataAttributes} data-o-component="o-banner" role="region" id="o-banner-story" aria-label={navigationLabel}>
 			<div className="o-banner__outer">
 				<div className="o-banner__inner" data-o-banner-inner>
 					{content && (
