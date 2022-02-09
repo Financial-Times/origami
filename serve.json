@@ -1,4 +1,3 @@
 {
-	"trailingSlash": false,
-	"cleanUrls": ["/!storybook/**"]
+	"trailingSlash": false
 }
