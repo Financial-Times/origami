@@ -1,5 +1,13 @@
 # Changelog
 
+### [9.2.4](https://www.github.com/Financial-Times/origami/compare/o-header-v9.2.3...o-header-v9.2.4) (2022-02-09)
+
+
+### Bug Fixes
+
+* show the entire focus ring for links within the drawer ([5211b0e](https://www.github.com/Financial-Times/origami/commit/5211b0e2e937621a756c0b3e7b612e40aa9dcd73))
+* show the entire focus ring for links within the drawer ([459ae52](https://www.github.com/Financial-Times/origami/commit/459ae529ee88b6b1de289dbaadfe18d04ac2440e))
+
 ### [9.2.3](https://www.github.com/Financial-Times/origami/compare/o-header-v9.2.2...o-header-v9.2.3) (2022-01-17)
 
 
