@@ -113,6 +113,16 @@ const cookieMessage = new oCookieMessage(null, { theme: 'alternative' });
 ```
 
 
+### Custom Cookie Management path
+
+To use a different cookie management path, use the `manageCookiesPath` option:
+
+```js
+import oCookieMessage from '@financial-times/o-cookie-message';
+const cookieMessage = new oCookieMessage(null, { manageCookiesPath: 'preferences/manage-cookies' });
+```
+
+
 ### Firing an oDomContentLoaded event
 
 ```js
