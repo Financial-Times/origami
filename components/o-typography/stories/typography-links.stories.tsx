@@ -1,0 +1,36 @@
+import {withDesign} from 'storybook-addon-designs';
+import {Link} from '../src/tsx/typography';
+import './typography.scss';
+import withHtml from 'origami-storybook-addon-html';
+
+export default {
+	title: 'Components/o-typography',
+	component: Link,
+	decorators: [withDesign, withHtml],
+    args: {},
+	parameters: {
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=0%3A1433',
+		},
+		guidelines: {
+			notion: 'f82c8bd1ef1f4f649a61d17d5d49750c',
+		},
+		html: {},
+	},
+};
+
+const Story = args => <Link {...args} />;
+
+export const StandardLink = Story.bind({});
+StandardLink.args = {
+	children: 'link to another page',
+	href: '#'
+};
+
+export const ExternalLink = Story.bind({});
+ExternalLink.args = {
+	children: 'link to some other place',
+	href: '#',
+    external: true
+};
