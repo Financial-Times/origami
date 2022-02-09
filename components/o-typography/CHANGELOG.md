@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.3.0](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.2.2...o-typography-v7.3.0) (2022-02-09)
+
+
+### Features
+
+* add o-typography Stories ([82712ae](https://www.github.com/Financial-Times/origami/commit/82712ae95bf7d04c1751524113ac1a36fad88d98))
+
 ### [7.2.2](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.2.1...o-typography-v7.2.2) (2022-01-13)
 
 
