@@ -3,7 +3,6 @@ import {Button} from '../src/tsx/button';
 import {ButtonGroup} from '../src/tsx/group';
 import './button.scss';
 import withHtml from 'origami-storybook-addon-html';
-import { nanoid } from 'nanoid'
 
 export default {
 	title: 'Components/o-buttons',
@@ -18,7 +17,7 @@ export default {
 };
 
 const ButtonGroupStory = args => <ButtonGroup>
-	{args.buttons.map(buttonProps => <Button {...buttonProps} key={nanoid()}/>)}
+	{args.buttons.map(buttonProps => <Button {...buttonProps} key={buttonProps.label + buttonProps.type}/>)}
 </ButtonGroup>;
 
 export const GroupedButtons = ButtonGroupStory.bind({});
