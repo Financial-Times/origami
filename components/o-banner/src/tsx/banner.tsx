@@ -13,7 +13,7 @@ export interface BannerLink {
 export interface BannerProps {
 	heading?: string;
 	abbreviatedHeading?: string;
-	navigationLabel?: string,
+	navigationLabel: string,
 	content: string;
 	abbreviatedContent?: string;
 	showCloseButton?: boolean;
