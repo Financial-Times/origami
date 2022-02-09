@@ -1,21 +1,4 @@
 class CookieMessage {
-	static getCookieInfo() {
-		let domain = 'ft.com';
-		let manageCookiesPath = 'manage-cookies';
-		if (!/\.ft\.com$/i.test(window.location.hostname)) {
-			// replace www or subdomain
-			domain = window.location.hostname.replace(/^(.*?)\./, '');
-			manageCookiesPath = 'cookies';
-		}
-		const redirect = window.location.href;
-		return {
-			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie?cookieDomain=.${domain}`,
-			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
-			manageCookiesUrl: `https://cookies.${domain}/preferences/${manageCookiesPath}?redirect=${redirect}&cookieDomain=.${domain}`,
-			consentCookieName: 'FTCookieConsentGDPR',
-		};
-	}
-
 	constructor(cookieMessageElement, options) {
 		if (cookieMessageElement === null || cookieMessageElement === undefined) {
 			cookieMessageElement = document.createElement('div');
@@ -39,7 +22,7 @@ class CookieMessage {
 
 		this.options.theme = this.options.theme ? 'alternative' : null;
 
-		this.cookieInfo = CookieMessage.getCookieInfo();
+		this.cookieInfo = this.getCookieInfo();
 
 		if (this.shouldShowCookieMessage()) {
 			this.createCookieMessage();
@@ -60,6 +43,29 @@ class CookieMessage {
 		this._eventListeners.push({
 			target: window, type: 'pageshow', listener: pageshowListener
 		});
+	}
+
+	getCookieInfo() {
+		let domain = 'ft.com';
+		let manageCookiesPath = 'preferences/manage-cookies';
+
+		if (!/\.ft\.com$/i.test(window.location.hostname)) {
+			// replace www or subdomain
+			domain = window.location.hostname.replace(/^(.*?)\./, '');
+			manageCookiesPath = 'preferences/cookies';
+		}
+
+		if (typeof this.options.manageCookiesPath === 'string') {
+			manageCookiesPath = this.options.manageCookiesPath;
+		}
+
+		const redirect = window.location.href;
+		return {
+			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie?cookieDomain=.${domain}`,
+			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
+			manageCookiesUrl: `https://cookies.${domain}/${manageCookiesPath}?redirect=${redirect}&cookieDomain=.${domain}`,
+			consentCookieName: 'FTCookieConsentGDPR',
+		};
 	}
 
 	createCookieMessage() {
