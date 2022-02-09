@@ -227,7 +227,6 @@ class Banner {
 		const closeButton = document.createElement('button');
 		closeButton.className = classNames.close;
 		closeButton.setAttribute('aria-label', this.options.closeButtonLabel);
-		closeButton.setAttribute('title', this.options.closeButtonLabel);
 		if (this.bannerElement.id) {
 			closeButton.setAttribute('aria-controls', this.bannerElement.id);
 		}

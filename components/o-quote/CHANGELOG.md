@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-quote-v5.2.1...o-quote-v5.3.0) (2022-02-08)
+
+
+### Features
+
+* add o-quote to storybook ([8b57102](https://www.github.com/Financial-Times/origami/commit/8b57102ae89e9baa336ed70eb8b05fd51e8eb609))
+
 ### [5.2.1](https://www.github.com/Financial-Times/origami/compare/o-quote-v5.2.0...o-quote-v5.2.1) (2022-01-13)
 
 
