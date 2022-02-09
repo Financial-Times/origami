@@ -6,7 +6,7 @@ import './tabs.scss';
 import withHtml from 'origami-storybook-addon-html';
 
 export default {
-	title: 'Tabs',
+	title: 'Components/o-tabs',
 	component: Tabs,
 	decorators: [withDesign, withHtml],
 	args: {
