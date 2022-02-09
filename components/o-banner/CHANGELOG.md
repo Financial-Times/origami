@@ -1,5 +1,13 @@
 # Changelog
 
+### [4.4.4](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.3...o-banner-v4.4.4) (2022-02-09)
+
+
+### Bug Fixes
+
+* include a label on the banner demos to make the banners appear in the navigation tree ([98646a3](https://www.github.com/Financial-Times/origami/commit/98646a3158ade01f11e3f6460c2e8e9bf235c648))
+* update banner storybook to include role and aria-label attributes ([b445edd](https://www.github.com/Financial-Times/origami/commit/b445edd1d5961abbd011bca42bf80625ebc01c61))
+
 ### [4.4.3](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.2...o-banner-v4.4.3) (2022-02-08)
 
 
