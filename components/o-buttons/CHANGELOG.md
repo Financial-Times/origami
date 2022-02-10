@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.4.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.3.0...o-buttons-v7.4.0) (2022-02-10)
+
+
+### Features
+
+* add o-buttons pagination and group stories ([417f1e6](https://www.github.com/Financial-Times/origami/commit/417f1e681af8a2a84c09b34910e13d1d8d295d75))
+
 ## [7.3.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.2.2...o-buttons-v7.3.0) (2022-02-03)
 
 
