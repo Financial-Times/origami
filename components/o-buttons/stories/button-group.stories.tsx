@@ -17,7 +17,7 @@ export default {
 };
 
 const ButtonGroupStory = args => <ButtonGroup>
-	{args.buttons.map(buttonProps => <Button {...buttonProps} key={buttonProps.label + buttonProps.type}/>)}
+	{args.buttons.map((buttonProps, index) => <Button {...buttonProps} key={index}/>)}
 </ButtonGroup>;
 
 export const GroupedButtons = ButtonGroupStory.bind({});
