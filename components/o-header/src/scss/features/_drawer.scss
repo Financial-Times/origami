@@ -329,6 +329,10 @@
 		border-bottom: 0;
 		font-size: 18px;
 		text-decoration: none;
+		// This value exists to show the focus ring
+		// We need to keep it in sync to the outline width in o-normalise
+		// TODO: We should find a more maintainable way of setting focus rings
+		outline-offset: -2px;
 
 		&:hover {
 			color: _oHeaderGet('drawer-menu-link-hover-text');
