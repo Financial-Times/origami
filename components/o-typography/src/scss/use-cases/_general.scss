@@ -186,10 +186,6 @@
 		@supports (background-size: contain) {
 			background-size: contain;
 		}
-		&[target="_blank"]:after {
-			@include oNormaliseVisuallyHidden();
-			content: '(opens a new window)';
-		}
 	}
 
 	// Output base styles shared by all links.
@@ -327,4 +323,3 @@
 	margin-bottom: 0;
 	color: oColorsByUsecase('body', 'text', $fallback: null);
 }
-

@@ -88,10 +88,6 @@ Include the [complete markup, available in the Origami registry](https://registr
 </div>
 ```
 
-#### Open In A New Tab
-
-Social share actions open in the same frame, but you may add `target="_blank"` to the `<a>` element if your project requires share links are opened in a new tab/window where supported.
-
 #### Text Labels
 
 Add the `o-share__action--labelled` class to any share action to display the action text alongside the icon. This example uses the twitter action, but we recommend this only for [custom actions](#custom-actions) which are less recognisable compared with big social media brands.

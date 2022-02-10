@@ -621,18 +621,6 @@
 			}
 		}
 	}
-	@include test('outputs a notice for screen reader users that an external link is opened') {
-		@include assert {
-			@include output {
-				@include oTypographyLink($external: true);
-			}
-			@include contains {
-				&[target="_blank"]:after {
-					content: '(opens a new window)';
-				}
-			}
-		}
-	}
 	@include test('colours an external link icon according to a custom theme') {
 		@include assert {
 			@include output {

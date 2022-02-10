@@ -34,7 +34,7 @@ If there is anything that we might have missed or any questions you might have, 
 
 ## Special thanks
 
-Special thanks to Rhys Evans for implementing the most recent version of <a href="https://registry.origami.ft.com/components/o-layout?brand=internal" target="_blank">o-layout</a> so quickly after its release, and flagging small bugs for us 🙌.
+Special thanks to Rhys Evans for implementing the most recent version of <a href="https://registry.origami.ft.com/components/o-layout?brand=internal" target="_blank">o-layout (opens in a new window/tab)</a> so quickly after its release, and flagging small bugs for us 🙌.
 
 ## Broader update
 

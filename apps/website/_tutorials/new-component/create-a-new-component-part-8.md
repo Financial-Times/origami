@@ -102,4 +102,4 @@ If you have followed along this far congratulations!
 
 We hope this step-by-step tutorial has helped make you feel more able to contribute to Origami. Both in terms of creating new components, maintaining existing components, and influencing the direction of Origami as a whole.
 
-If you have any questions, bug reports, or feature requests please contact the Origami team &#x1F603;. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}" class="o-typography-link--external" target="_blank">#{{site.data.contact.slack}}</a>.
+If you have any questions, bug reports, or feature requests please contact the Origami team &#x1F603;. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}" class="o-typography-link--external" target="_blank">#{{site.data.contact.slack}} (opens a new tab)</a>.

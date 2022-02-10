@@ -33,6 +33,10 @@
 		}
 	}
 
+	.o-cookie-message__visually-hidden {
+		@include oNormaliseVisuallyHidden;
+	}
+
 	.o-cookie-message--active {
 		display: block;
 	}

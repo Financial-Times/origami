@@ -22,7 +22,7 @@ Use the following HTML to get a full-width FT affiliation ribbon. This should be
 	<div class="o-ft-affiliate-ribbon__container">
 		<div class="o-ft-affiliate-ribbon__row">
 			<a class="o-ft-affiliate-ribbon__logo" href="https://www.ft.com/" title="The Financial Times" target="_blank">
-				<span class="o-ft-affiliate-ribbon__visually-hidden">A service from the Financial Times</span>
+				<span class="o-ft-affiliate-ribbon__visually-hidden">A service from the Financial Times (opens in a new window)</span>
 			</a>
 		</div>
 	</div>

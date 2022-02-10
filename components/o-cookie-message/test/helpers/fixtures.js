@@ -42,7 +42,7 @@ export const html = {
 				<h2 id="o-cookie-message-label">Cookies on the FT</h2>
 			</div>
 			<p id="o-cookie-message-description">
-				We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a>
+				We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies <span class="o-cookie-message__visually-hidden">(opens in a new window/tab)</span></a>
 				for a number of reasons, such as keeping FT Sites reliable and secure, personalising
 				content and ads, providing social media features and to analyse how our Sites are used.
 			</p>
@@ -72,7 +72,7 @@ export const html = {
 				<h2 id="o-cookie-message-label">Cookies on the FT</h2>
 			</div>
 			<p id="o-cookie-message-description">
-				We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a>
+				We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies <span class="o-cookie-message__visually-hidden">(opens in a new window/tab)</span></a>
 				for a number of reasons, such as keeping FT Sites reliable and secure, personalising
 				content and ads, providing social media features and to analyse how our Sites are used.
 			</p>

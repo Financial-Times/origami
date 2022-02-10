@@ -64,7 +64,8 @@ export function CookieMessage({
 											className="o-cookie-message__link o-cookie-message__link--external"
 											target="_blank"
 											rel="noopener">
-											cookies
+											cookies{' '}
+											<span className="o-cookie-message__visually-hidden">(opens in a new window/tab)</span>
 										</a>{' '}
 										for a number of reasons, such as keeping FT Sites reliable
 										and secure, personalising content and ads, providing social
