@@ -22,6 +22,9 @@ export default {
 			url: 'TODO point this at the myft button design',
 		},
 		html: {},
+		actions: {
+			handles: ['submit'],
+		},
 	},
 };
 
@@ -37,11 +40,4 @@ Standard.args = {
 	conceptName: 'Movies',
 	theme: 'standard',
 	followed: false,
-};
-
-export const Follow = Story.bind({});
-Follow.args = {
-	conceptName: 'Dogs',
-	theme: 'inverse',
-	followed: true,
 };
