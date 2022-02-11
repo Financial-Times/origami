@@ -16,6 +16,8 @@ tools:
 templates:
   - templates/**/*
 
+myft-concept-button:
+  - components/myft-concept-button/**/*
 n-notification:
   - components/n-notification/**/*
 o-audio:
