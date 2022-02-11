@@ -1,18 +1,15 @@
 export interface FollowButtonProps {
 	label: string;
-	theme?: string;
+	theme?: 'standard' | 'inverse' | 'opinion' | 'monochrome';
 	// an optional csrf element
 	csrf?: JSX.Element;
-	// for tracking props that aren't appropriate in origami
+	// for props that aren't appropriate in origami
 	extraFormProps: any;
-	// for tracking props that aren't appropriate in origami
+	// for props that aren't appropriate in origami
 	extraButtonProps: any;
 	conceptName: string;
-	conceptId: string;
 	followAction: string;
 	unfollowAction: string;
-	jsFollowAction: string;
-	jsUnfollowAction: string;
 	followed: boolean;
 }
 
@@ -24,10 +21,6 @@ export default function FollowButton({
 	extraFormProps,
 	extraButtonProps,
 	followed,
-	followAction,
-	unfollowAction,
-	jsFollowAction,
-	jsUnfollowAction,
 }: FollowButtonProps) {
 	let buttonLabel = followed
 		? `Remove ${conceptName} from myFT`
@@ -40,19 +33,13 @@ export default function FollowButton({
 			}`}
 			data-o-component="myft-concept-button"
 			data-myft-concept-button-concept={conceptName}
-			method="GET"
-			data-myft-concept-button-js-follow-action={jsFollowAction}
-			data-myft-concept-button-js-unfollow-action={jsUnfollowAction}
-			data-myft-concept-button-js-action={
-				followed ? jsUnfollowAction : jsFollowAction
-			}
-			data-myft-concept-button-follow-action={followAction}
-			data-myft-concept-button-unfollow-action={unfollowAction}
-			action={followed ? unfollowAction : followAction}
+			method="get"
 			{...extraFormProps}>
 			{csrf || null}
-			<div
+			{
 				// TODO o-normalise-visually-hidden
+			}
+			<div
 				className="myft-follow-button__announcement o-normalise-visually-hidden"
 				aria-live="assertive"></div>
 			<button

@@ -1,0 +1,228 @@
+@import '@financial-times/o-typography/main';
+
+$myft-lozenge-themes: (
+	standard: (
+		background: oColorsByName('claret'),
+		text: oColorsByName('white'),
+		highlight: oColorsByName('claret-50'),
+		pressed-highlight: rgba(oColorsByName('black'), 0.05),
+		disabled: rgba(oColorsByName('black'), 0.5),
+		focus-outline: oColorsByUsecase('focus', 'outline', $fallback: null),
+	),
+	inverse: (
+		background: oColorsByName('white'),
+		text: oColorsByName('claret'),
+		highlight: rgba(white, 0.8),
+		pressed-highlight: rgba(white, 0.2),
+		disabled: rgba(oColorsByName('white'), 0.5),
+		focus-outline: oColorsByName('white'),
+	),
+	opinion: (
+		background: oColorsByName('oxford-40'),
+		text: oColorsByName('white'),
+		highlight: oColorsByName('oxford-30'),
+		pressed-highlight: rgba(oColorsByName('oxford-40'), 0.2),
+		disabled: rgba(oColorsByName('black'), 0.5),
+		focus-outline: oColorsByUsecase('focus', 'outline', $fallback: null),
+	),
+	monochrome: (
+		background: oColorsByName('white'),
+		text: oColorsByName('black'),
+		highlight: oColorsByName('white-80'),
+		pressed-highlight: rgba(oColorsByName('white'), 0.2),
+		disabled: rgba(oColorsByName('white'), 0.5),
+		focus-outline: oColorsByName('white'),
+	),
+);
+
+@function getThemeColor($key) {
+	@return map-get($theme-map, $key);
+}
+
+@mixin withTheme($theme) {
+	@if type-of($theme) == 'map' {
+		$theme-map: $theme !global;
+	} @else {
+		$theme-map: map-get($myft-lozenge-themes, $theme) !global;
+	}
+
+	@content;
+
+	// stylelint-disable order/order
+	$theme-map: null !global;
+}
+
+@mixin getIcon($name, $color) {
+	@include oIconsContent(
+		$icon-name: $name,
+		$size: 10,
+		$color: $color,
+		$iconset-version: 1
+	);
+	content: '';
+}
+
+@mixin plusIcon($color) {
+	@include getIcon('plus', $color);
+	background-size: 25px;
+	margin: 0 6px -1px 0;
+}
+
+@mixin tickIcon($color) {
+	@include getIcon('tick', $color);
+	background-size: 21px;
+}
+
+@mixin _icon($theme: standard) {
+	@include withTheme($theme) {
+		&::before {
+			@include plusIcon(getThemeColor(background));
+		}
+
+		&[aria-pressed='true'] {
+			&::before {
+				@include tickIcon(getThemeColor(text));
+			}
+		}
+
+		&[disabled],
+		&[disabled]:hover {
+			background: transparent;
+
+			&::before {
+				@include plusIcon(getThemeColor(disabled));
+				opacity: 0.5;
+			}
+
+			&[aria-pressed='true']::before {
+				@include tickIcon(getThemeColor(disabled));
+			}
+		}
+	}
+}
+
+@mixin focusOutlineColor($focus-color) {
+	// Apply :focus styles as a fallback
+	// These styles will be applied to all browsers that don't use the polyfill, this includes browsers which support the feature natively.
+	body:not(.js-focus-visible) &,
+	html:not(.js-focus-visible) & {
+		// Standardise focus styles.
+		&:focus {
+			outline: 2px solid $focus-color;
+		}
+	}
+
+	// When the focus-visible polyfill is applied `.js-focus-visible` is added to the html dom node
+	// (the body node in v4 of the 3rd party polyfill)
+
+	// stylelint-disable-next-line selector-no-qualifying-type
+	body.js-focus-visible &, // stylelint-disable-next-line selector-no-qualifying-type
+	html.js-focus-visible & {
+		// Standardise focus styles.
+		// stylelint-disable-next-line selector-no-qualifying-type
+		&.focus-visible {
+			outline: 2px solid $focus-color;
+		}
+		// Disable browser default focus style.
+		// stylelint-disable-next-line selector-no-qualifying-type
+		&:focus:not(.focus-visible) {
+			outline: 0;
+		}
+	}
+
+	// These styles will be ignored by browsers which do not recognise the :focus-visible selector (as per the third bullet point in https://www.w3.org/TR/selectors-3/#Conformance)
+	// If a browser supports :focus-visible we unset the :focus styles that were applied above
+	// (within the html:not(.js-focus-visible) block).
+	&:focus-visible,
+	body:not(.js-focus-visible) &:focus,
+	html:not(.js-focus-visible) &:focus {
+		outline: unset;
+	}
+
+	// Styles given :focus-visible support. Extra selectors needed to match
+	// previous `:focus` selector specificity.
+	body:not(.js-focus-visible) &:focus-visible,
+	html:not(.js-focus-visible) &:focus-visible,
+	&:focus-visible {
+		outline: 2px solid $focus-color;
+	}
+}
+
+@mixin _theme($theme: standard, $with-toggle-icon: false) {
+	@include withTheme($theme) {
+		background-color: transparent;
+		border: 1px solid getThemeColor(background);
+		color: getThemeColor(background);
+
+		@include focusOutlineColor(getThemeColor(focus-outline));
+
+		&:hover,
+		&:focus {
+			background-color: getThemeColor(pressed-highlight);
+			border-color: getThemeColor(background);
+			color: getThemeColor(background);
+		}
+
+		&[aria-pressed='true'] {
+			background-color: getThemeColor(background);
+			border: 1px solid getThemeColor(background);
+			color: getThemeColor(text);
+
+			&:hover,
+			&:focus {
+				background-color: getThemeColor(highlight);
+				border-color: getThemeColor(highlight);
+				color: getThemeColor(text);
+			}
+		}
+
+		&[disabled]:hover,
+		&[disabled] {
+			background: transparent;
+			border: 1px solid getThemeColor(disabled);
+			color: getThemeColor(disabled);
+		}
+	}
+}
+
+@mixin _base() {
+	@include oTypographySans($weight: 'semibold', $scale: -1);
+	border-radius: 100px;
+	box-sizing: content-box;
+	display: block;
+	font-size: 14px;
+	margin: 6px 4px 6px 2px;
+	max-width: 200px;
+	outline-offset: 2px;
+	overflow: hidden;
+	padding: 5px 12px;
+	text-align: left;
+	text-overflow: ellipsis;
+	transition: border-color, background-color 0.5s ease;
+	white-space: nowrap;
+}
+
+@mixin myftConceptButton(
+	$themes: (
+		'standard',
+		'opinion',
+		'inverse',
+		'monochrome',
+	)
+) {
+	.myft-concept-button,
+	.myft-concept-button__button {
+		@include _base();
+	}
+
+	@each $theme in map-keys($myft-lozenge-themes) {
+		.myft-concept-button--#{$theme} {
+			.myft-concept-button__button {
+				@include _theme($theme);
+			}
+			&.myft-concept-button--follow .myft-concept-button__button {
+				@include _icon($theme);
+			}
+		}
+	}
+}
