@@ -9,9 +9,9 @@ export const withOrigamiBackground = (Story, context) => {
 		context.parameters.origamiBackground ||
 		"page-background"
 
-	const origamiBackgroundHex = getComputedStyle(document.body).getPropertyValue(
-		`--o-colors-${origamiBackground}`
-	)
+	const origamiBackgroundHex = getComputedStyle(document.body)
+		.getPropertyValue(`--o-colors-${origamiBackground}`)
+		.trim()
 
 	const foreground =
 		contrast(origamiBackgroundHex, "black") >= 4.5 ? "black" : "white"
