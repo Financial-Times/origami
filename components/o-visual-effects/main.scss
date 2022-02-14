@@ -33,6 +33,13 @@
 		}
 	}
 
+	:root {
+		@each $shadow in $shadows {
+			--o-visual-effects-shadow-#{$shadow}: #{oVisualEffectsShadow($shadow)};
+		}
+	}
+
+
 	@if($ultralow) {
 		.o-visual-effects-shadow-ultralow {
 			@include oVisualEffectsShadowContent('ultralow');
