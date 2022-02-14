@@ -1,27 +1,30 @@
-import { useGlobals } from '@storybook/addons';
-import { contrast } from 'chroma-js';
+import {useGlobals} from "@storybook/addons"
+import {contrast} from "chroma-js"
 
 export const withOrigamiBackground = (Story, context) => {
-  let css = '';
-  let [{ origamiBackground }] = useGlobals();
-  origamiBackground = origamiBackground || context.parameters.origamiBackground;
+	let css = ""
+	let [{origamiBackground}] = useGlobals()
+	origamiBackground =
+		origamiBackground ||
+		context.parameters.origamiBackground ||
+		"page-background"
 
-  if (origamiBackground) {
-    const origamiBackgroundHex = getComputedStyle(document.body).getPropertyValue(`--o-colors-${origamiBackground}`);
-    const foreground = contrast(origamiBackgroundHex, 'black') >= 4.5 ? 'black' : 'white';
-    css = `
+	const origamiBackgroundHex = getComputedStyle(document.body).getPropertyValue(
+		`--o-colors-${origamiBackground}`
+	)
+
+	const foreground =
+		contrast(origamiBackgroundHex, "black") >= 4.5 ? "black" : "white"
+	css = `
       body {
         background: var(--o-colors-${origamiBackground});
         color: ${foreground};
-      }`;
-  }
+      }`
 
-  return <>
-       <style>{css}</style>
-       <Story />
-     </>
-
-};
-
-
-
+	return (
+		<>
+			<style>{css}</style>
+			<Story />
+		</>
+	)
+}
