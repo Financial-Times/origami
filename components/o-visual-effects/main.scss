@@ -33,9 +33,12 @@
 		}
 	}
 
-	:root {
-		@each $shadow in $shadows {
-			--o-visual-effects-shadow-#{$shadow}: #{oVisualEffectsShadow($shadow)};
+
+	@if ($shadows) {
+		:root {
+			@each $shadow in $shadows {
+				--o-visual-effects-shadow-#{$shadow}: #{oVisualEffectsShadow($shadow)};
+			}
 		}
 	}
 

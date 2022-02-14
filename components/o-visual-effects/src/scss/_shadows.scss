@@ -26,4 +26,6 @@
 	@if $elevation == 'high' {
 		@return 0 1px 4px rgba($color, 0.15), 0 8px 14px rgba($color, 0.2);
 	}
+
+	@error 'A shadow with elevation "#{$elevation}" is not supported. Must be one of: "ultralow", "low", "mid", or "high".'
 }
