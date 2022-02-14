@@ -16,20 +16,20 @@
 ///
 /// @example Primary and secondary button classes, plus the big button modifier class.
 ///    @include oButtons($opts: (
-///        'types': ('primary', 'secondary'),
+///        'types': ('primary', 'secondary', 'ghost'),
 ///        'sizes': ('big')
 ///    ));
 ///
 /// @example Primary and secondary button classes, plus an inverse theme modifier class, and classes for arrow left and arrow right icon buttons.
 ///    @include oButtons($opts: (
-///        'types': ('primary', 'secondary'),
+///        'types': ('primary', 'secondary', 'ghost'),
 ///        'themes': ('inverse'),
 ///        'icons': ('arrow-left', 'arrow-right')
 ///    ));
 ///
 /// @example Secondary button classes, plus classes to support button groups and pagination.
 ///    @include oButtons($opts: (
-///        'types': ('secondary'),
+///        'types': ('secondary', 'ghost'),
 ///        'pagination': true,
 ///        'groups': true
 ///    ));

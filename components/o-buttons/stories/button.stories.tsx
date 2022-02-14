@@ -63,6 +63,12 @@ MonoButton.args = {
 	theme: 'mono',
 };
 
+export const GhostButton = ButtonStory.bind({});
+GhostButton.args = {
+	label: 'Press button',
+	theme: 'ghost',
+};
+
 export const ButtonWithIcon = ButtonStory.bind({});
 ButtonWithIcon.args = {
 	label: 'Upload',

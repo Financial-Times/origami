@@ -1,8 +1,8 @@
 export interface ButtonProps {
 	label: string;
-	type: 'primary' | 'secondary';
+	type: 'primary' | 'secondary' | 'ghost';
 	size?: 'big' | '';
-	theme?: 'inverse' | 'mono' | 'ghost' | '';
+	theme?: 'inverse' | 'mono' | '';
 	icon?:
 		| 'arrow-left'
 		| 'arrow-right'
