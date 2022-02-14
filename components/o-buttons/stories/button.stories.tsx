@@ -54,7 +54,7 @@ InverseButton.args = {
 	theme: 'inverse',
 };
 InverseButton.parameters = {
-	origamiBackground: 'slate'
+	origamiBackground: 'slate',
 };
 
 export const MonoButton = ButtonStory.bind({});
