@@ -51,7 +51,14 @@ E.g.
 }
 ```
 
-Sass users should use [Sass variables](#sass) instead for improved browser support.
+CSS Custom Properties (CSS Variables) are also available for shadows.
+
+E.g.
+```css
+.my-shadow {
+	box-shadow: var(--o-visual-effects-shadow-high);
+}
+```
 
 ## Sass
 
