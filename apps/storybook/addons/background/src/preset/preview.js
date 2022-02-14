@@ -14,6 +14,7 @@ export const globalTypes = {
 					title: "recommended",
 				},
 				"paper",
+				"white",
 				"wheat",
 				"slate",
 			],
