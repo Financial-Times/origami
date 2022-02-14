@@ -3,9 +3,11 @@
 @import "@financial-times/o-buttons/main";
 @import "@financial-times/o-spacing/main";
 @import "@financial-times/o-typography/main";
+@import "@financial-times/o-fonts/main";
 @import "@financial-times/o-colors/main";
 
 @include oNormalise();
+@include oFonts();
 @include oVisualEffects();
 
 .demo-button {
