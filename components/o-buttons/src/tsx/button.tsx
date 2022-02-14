@@ -23,7 +23,7 @@ export interface ButtonProps {
 	iconOnly?: boolean;
 	attributes?: {
 		[attribute: string]: string | boolean;
-	}
+	};
 }
 
 interface LinkButtonProps extends ButtonProps {
@@ -38,8 +38,8 @@ function ButtonTemplate({
 	icon,
 	iconOnly = false,
 	href = '',
-	attributes = {}
-} : ButtonProps | LinkButtonProps) {
+	attributes = {},
+}: ButtonProps | LinkButtonProps) {
 	const classNames = ['o-buttons', `o-buttons--${type}`];
 
 	if (size) {
@@ -61,7 +61,10 @@ function ButtonTemplate({
 	const HtmlTag = href ? 'a' : 'button';
 
 	return (
-		<HtmlTag {...(href ? {href} : {})} className={classNames.join(' ')} {...attributes}>
+		<HtmlTag
+			{...(href ? {href} : {})}
+			className={classNames.join(' ')}
+			{...attributes}>
 			{icon && iconOnly ? (
 				<span className="o-buttons-icon__label">{label}</span>
 			) : (
@@ -70,7 +73,6 @@ function ButtonTemplate({
 		</HtmlTag>
 	);
 }
-
 
 export function Button({
 	label,
@@ -88,10 +90,9 @@ export function Button({
 		theme,
 		icon,
 		iconOnly,
-		attributes
+		attributes,
 	});
 }
-
 
 export function LinkButton({
 	label,
@@ -101,7 +102,7 @@ export function LinkButton({
 	icon,
 	iconOnly = false,
 	attributes = {},
-	href = ''
+	href = '',
 }: LinkButtonProps) {
 	return ButtonTemplate({
 		label,
@@ -111,6 +112,6 @@ export function LinkButton({
 		icon,
 		iconOnly,
 		href,
-		attributes
+		attributes,
 	});
 }
