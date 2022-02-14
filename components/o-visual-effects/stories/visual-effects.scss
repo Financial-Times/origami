@@ -11,52 +11,52 @@
 @include oVisualEffects();
 
 .demo-button {
-    @include oButtonsContent((
-        'size': 'big',
-        'type': 'primary',
-    ));
-    margin-right: oSpacingByName('s8');
-    float: left;
+	@include oButtonsContent((
+		'size': 'big',
+		'type': 'primary',
+	));
+	margin-right: oSpacingByName('s8');
+	float: left;
 }
 
 .demo-transition {
-    --demo-size: min(50vh, 50vw);
-    background-color: oColorsByName('teal-100');
-    border: 3px dashed oColorsByName('slate');
-    width: var(--demo-size);
-    height: var(--demo-size);
-    transition: all var(--demo-transition-duration) var(--demo-transition-timing-function);
-    display: inline-block;
+	--demo-size: min(50vh, 50vw);
+	background-color: oColorsByName('teal-100');
+	border: 3px dashed oColorsByName('slate');
+	width: var(--demo-size);
+	height: var(--demo-size);
+	transition: all var(--demo-transition-duration) var(--demo-transition-timing-function);
+	display: inline-block;
 }
 
 .demo-transition--slide {
-    border-radius: 100%;
-    transform: translateX(0);
-    &.demo-transition--active {
-        transform: translateX(calc(80vw - var(--demo-size)));
-    }
+	border-radius: 100%;
+	transform: translateX(0);
+	&.demo-transition--active {
+		transform: translateX(calc(80vw - var(--demo-size)));
+	}
 }
 
 .demo-transition--expand {
-    &.demo-transition--active {
-        height: calc(#{var(--demo-size)} * #{1.5});
-    }
+	&.demo-transition--active {
+		height: calc(#{var(--demo-size)} * #{1.5});
+	}
 }
 
 .demo-transition--fade {
-    opacity: 1;
-    &.demo-transition--active {
-        opacity: 0.3;
-    }
+	opacity: 1;
+	&.demo-transition--active {
+		opacity: 0.3;
+	}
 }
 
 .demo-transition__label {
-    @include oNormaliseVisuallyHidden();
+	@include oNormaliseVisuallyHidden();
 }
 
 .shadow-demo {
-    @include oTypographySans($scale: 1);
-    display: inline-flex;
+	@include oTypographySans($scale: 1);
+	display: inline-flex;
 	background: white;
 	width: 10rem;
 	height: 10rem;
