@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.0](https://www.github.com/Financial-Times/origami/compare/o-visual-effects-v4.1.1...o-visual-effects-v4.2.0) (2022-02-14)
+
+
+### Features
+
+* output o-visual-effects shadows as CSS custom properties ([1426ae6](https://www.github.com/Financial-Times/origami/commit/1426ae64113f987739be428a8609cbf1b56e9632))
+
 ### [4.1.1](https://www.github.com/Financial-Times/origami/compare/o-visual-effects-v4.1.0...o-visual-effects-v4.1.1) (2022-01-13)
 
 
