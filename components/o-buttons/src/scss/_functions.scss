@@ -83,8 +83,8 @@
 /// @param {String|Map} $theme
 /// @return {Map} - Button colours.
 @function _oButtonsGenerateColors($type, $theme: null) {
-	@if($type != 'primary' and $type != 'secondary') {
-		@error 'Expected a button type of "secondary" or "primary".';
+	@if($type != 'primary' and $type != 'secondary' and $type != 'ghost') {
+		@error 'Expected a button type of "secondary" or "primary" or "ghost".';
 	}
 
 	// Get button colour from custom theme map or brand config, see _brand.scss.
@@ -103,6 +103,10 @@
 
 	@if($type == 'secondary') {
 		$color-map: _oButtonsGetSecondaryButtonColors($color, $context-color);
+	}
+
+	@if($type == 'ghost') {
+		$color-map: _oButtonsGetGhostButtonColors($color, $context-color);
 	}
 
 	// If a button state does not have a property configured, set it to the
@@ -388,6 +392,93 @@
 		'color': $default-color,
 		'background': $default-background,
 		'border': $default-color,
+		'hover-background': $hover-focus-background,
+		'hover-color': $hover-focus-color,
+		'focus-background': $hover-focus-background,
+		'focus-color': $hover-focus-color,
+		'active-background': $active-background,
+		'active-color': $active-color,
+	);
+}
+
+/// For a colour and context colour (the background colour behind the button),
+/// generate ghost button colours and overrides for each button state.
+///
+/// @example
+///		$colors: _oButtonsGetGhostButtonColors('lemon', 'slate');
+///		// (
+///		// 	"color": #ffec1a,
+///		// 	"background": transparent,
+///		// 	"border": #ffec1a,
+///		// 	"hover-background": rgba(255, 236, 26, 0.15),
+///		// 	"hover-color": #ffec1a,
+///		// 	"focus-background": rgba(255, 236, 26, 0.15),
+///		// 	"focus-color": #ffec1a,
+///		// 	"active-background": #ffec1a,
+///		// 	"active-color": black
+///		// )
+///
+/// @param {String|Color} $color - The button colour e.g. 'teal' (from `o-colors` palette).
+/// @param {String|Color} $context-color - The page colour behind the button (from `o-colors` palette).
+/// @return {Map} - Colours for a ghost button. Including overrides for each button state.
+@function _oButtonsGetGhostButtonColors($color, $context-color) {
+	$default-color: if(type-of($color) == 'string', oColorsByName($color), $color);
+	$default-background: transparent;
+	$default-background-opaque: if(type-of($context-color) == 'string', oColorsByName($context-color), $context-color);
+
+	// Get hover/focus colors:
+	// The secondary button hover/focus background is transparent.
+	// It should be 15% opacity if the contrast ratio against the button
+	// copy is passes WCAG AA contrast checks, otherwise use 10%.
+	$hover-focus-background-mix: _oButtonsGetMix(
+		$color-a: $color,
+		$color-b: $context-color,
+		$contrast-color: $color,
+		$contrast-aim: 4.5,
+		$preferred-mix: 15,
+		$minimum-mix: 10
+	);
+	// Use transparency so the button may be used on a different background
+	// context, and trust the user to test accessibility in their app.
+	// But use an opaque mix to test contrast with the known context.
+	$hover-focus-background: oColorsMix($color, transparent, $hover-focus-background-mix);
+	$hover-focus-background-opaque: oColorsMix($color, $context-color, $hover-focus-background-mix);
+	// If the hover/focus state doesn't have high enough contrast darken/lighten
+	// the button foreground colour until it does.
+	$hover-focus-color: _oButtonsGetMixColor(
+		$color-a: $color,
+		$color-b: oColorsGetTextColor($hover-focus-background-opaque, 100),
+		$contrast-color: $hover-focus-background-opaque,
+		$contrast-aim: 4.5,
+		$preferred-mix: 100,
+		$minimum-mix: 0
+	);
+
+	// Get active colours.
+	$active-background: $default-color;
+	$active-color: oColorsGetTextColor($active-background, 100);
+
+	// Confirm the contrast of default state.
+	$contrast-error-message: 'Could not create an accessible ghost button of colour "#{$color}" for a background context "#{$context-color}".';
+	$default-contrast-ratio: oColorsGetContrastRatio($default-color, $default-background-opaque);
+	@if $default-contrast-ratio < 4.5 {
+		@error ($contrast-error-message + ' The default text and background colour do not pass WCAG AA contrast checks.');
+	}
+	// Confirm the focus/hover state contrast.
+	$hover-contrast-ratio: oColorsGetContrastRatio($hover-focus-color, $hover-focus-background-opaque);
+	@if $hover-contrast-ratio < 4.5 {
+		@error ($contrast-error-message + ' The text and background colour of the hover and focus state do not pass WCAG AA contrast checks.');
+	}
+	// Confirm the active state contrast.
+	$active-contrast-ratio: oColorsGetContrastRatio($active-color, $active-background);
+	@if $active-contrast-ratio < 4.5 {
+		@error ($contrast-error-message + ' The text and background colour of the active state do not pass WCAG AA contrast checks.');
+	}
+
+	@return (
+		'color': $default-color,
+		'background': $default-background,
+		'border': $default-background,
 		'hover-background': $hover-focus-background,
 		'hover-color': $hover-focus-color,
 		'focus-background': $hover-focus-background,

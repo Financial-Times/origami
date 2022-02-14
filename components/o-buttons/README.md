@@ -22,6 +22,7 @@ There are two types of buttons, primary buttons and secondary buttons.
 |-----------|-----------------------|------------------------------|
 | primary   | .o-buttons--primary      | core, internal, whitelabel |
 | secondary | .o-buttons--secondary | core, internal, whitelabel |
+| ghost | .o-buttons--ghost | core, internal, whitelabel |
 
 
 ```html
@@ -38,7 +39,6 @@ A theme may be applied to a button to change its appearance. o-buttons provides 
 | Theme   | Selector            | Works With Types   | Brand Support  |
 | ------- | ------------------- | ------------------ | -------------- |
 | inverse | .o-buttons--inverse | primary, secondary | core, internal |
-| ghost   | .o-buttons--ghost   | primary, secondary | core, internal |
 | mono    | .o-buttons--mono    | primary, secondary | core, internal |
 | b2c     | .o-buttons--b2c     | primary            | core           |
 
@@ -192,8 +192,8 @@ To output default o-buttons CSS make a single call to the primary mixin `oButton
 ```scss
 @include oButtons($opts: (
 	'sizes': ('big'), // e.g .o-buttons--big
-	'types': ('primary', 'secondary'), // e.g .o-buttons--primary
-	'themes': ('mono', 'inverse', 'ghost', 'b2c'), // e.g .o-buttons--inverse
+	'types': ('primary', 'secondary', 'ghost'), // e.g .o-buttons--primary
+	'themes': ('mono', 'inverse', 'b2c'), // e.g .o-buttons--inverse
 	'icons': ('arrow-left', 'arrow-right', 'search'), // any fticons, e.g .o-buttons-icons.o-buttons-icons--search
 	'pagination': true, // .o-buttons-pagination
 	'groups': true // .o-buttons-group

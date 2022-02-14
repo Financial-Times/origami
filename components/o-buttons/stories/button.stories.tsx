@@ -54,13 +54,19 @@ InverseButton.args = {
 	theme: 'inverse',
 };
 InverseButton.parameters = {
-	origamiBackground: 'slate'
+	origamiBackground: 'slate',
 };
 
 export const MonoButton = ButtonStory.bind({});
 MonoButton.args = {
 	label: 'Press button',
 	theme: 'mono',
+};
+
+export const GhostButton = ButtonStory.bind({});
+GhostButton.args = {
+	label: 'Press button',
+	theme: 'ghost',
 };
 
 export const ButtonWithIcon = ButtonStory.bind({});
