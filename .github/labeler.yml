@@ -150,6 +150,8 @@ verify-origami-json:
   - tools/verify-origami-json/**/*
 verify-package-json:
   - tools/verify-package-json/**/*
+origami-style-dictionary:
+  - tools/origami-style-dictionary/**/*
 background:
   - apps/storybook/addons/background/**/*
 guidelines:

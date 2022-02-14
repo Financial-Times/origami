@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "origami-style-dictionary",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A Style Dictionary tool for Origami component's",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "style-dictionary": "^3.1.1"
+  }
+}

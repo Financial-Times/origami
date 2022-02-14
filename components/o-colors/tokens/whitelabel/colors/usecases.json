@@ -1,0 +1,7 @@
+{
+    "color": {
+        "background": {
+            "page": { "value": "{color.white.value}" }
+        }
+    }
+}
