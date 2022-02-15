@@ -66,7 +66,7 @@ MonoButton.args = {
 export const GhostButton = ButtonStory.bind({});
 GhostButton.args = {
 	label: 'Press button',
-	theme: 'ghost',
+	type: 'ghost',
 };
 
 export const ButtonWithIcon = ButtonStory.bind({});
