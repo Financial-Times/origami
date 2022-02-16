@@ -13,24 +13,10 @@
 		@return _oColorsError('The color "#{inspect($color-name)}" does not exist.');
 	}
 
-	// Get color details.
-	$color-map: map-get($_o-colors-palette, $color-name);
-	$color: map-get($color-map, 'value');
-	$meta: map-get($color-map, 'meta');
+	// @todo teal-50 to map-get(tokens, teal, 50). maybe change design token structure to separate tones?
+	$token-value: map-get($_o-colors-branded-tokens, 'color', 'palette', $color-name);
 
-	// Output any deprecation notice.
-	$deprecated: map-get($meta, 'deprecated');
-	$already-warned: index($_o-colors-deprecation-warnings-output, $color-name) != null;
-	@if $deprecated and not $already-warned {
-		$deprecation-message: 'The color "#{$color-name}" is deprecated for your brand\'s palette, and will be removed in the next major.';
-		// Append any custom deprecation message.
-		$deprecation-message: if(type-of($deprecated) != 'string', $deprecation-message, $deprecation-message + ' ' + $deprecated);
-		// Output warning.
-		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $color-name) !global;
-		@warn $deprecation-message;
-	}
-
-	@return $color;
+	@return map-get($_o-colors-branded-tokens, 'color', 'palette', $color-name);
 }
 
 /// Return the defined palette color for a use case / property combination
@@ -59,8 +45,12 @@
 	// maybe try bringing the o-colors config back and manually map?
 	// then have tokens exposed elsewhere for new api going forward?
 	// could use code shift to help migrate teams automatically?
-	$token-value: map-get($_o-colors-branded-tokens, 'color', 'usecase', $property, $usecase);
-	@debug $token-value;
+	$token-usecase: if($usecase == 'link-hover', 'link', $usecase);
+	$token-value: map-get($_o-colors-branded-tokens, 'color', 'usecase', $property, $token-usecase);
+	@if (type-of($token-value) == 'map') {
+		$token-value: if($usecase == 'link-hover', map-get($token-value, 'hover'), map-get($token-value, '_'));
+	}
+	@debug $property, $usecase, $token-value;
 	@if($token-value) {
 		@return $token-value;
 	}
@@ -408,7 +398,7 @@
 
 /// Check if a colour name exists in the palette.
 @function _oColorsNameExists($color-name) {
-	@return map-has-key($_o-colors-palette, $color-name);
+	@return global-variable-exists('_o-colors-#{oBrandGetCurrentBrandNew()}-#{$color-name}');
 }
 
 /// Converts HSB/HSV values to a hex colour
