@@ -162,55 +162,17 @@
 		#{$usecase}: $new-usecase-config
 	)) !global;
 }
-
-/// Update the palette with default tones.
-/// e.g. teal-50, teal-40, teal-30
-/// @access private
-@mixin _oColorsSetPaletteTones {
-	@each $color-name, $tone-values in $_o-colors-default-palette-tones {
-		@each $value in $tone-values {
-			$name: "#{$color-name}-#{$value}";
-			$tone: oColorsGetTone($color-name, $value);
-			@include oColorsSetColor('o-colors/#{$name}', $tone);
-		}
-	}
-}
-
-/// Update the palette with default mixes (black and white with
-/// the default page background colour).
-/// e.g. black-5, black-10, white-10, white-20
-/// @access private
-@mixin _oColorsSetPaletteMixes {
-	// Set the page usecase first, which is needed for mixes.
-	@each $usecase, $colors, $opts in $_o-colors-default-usecases {
-		@if $usecase == 'page' {
-			@include oColorsSetUseCase('o-colors/#{$usecase}', $colors, $opts);
-		}
-	}
-	// Output colour mixies.
-	@each $color-name, $mix-values in $_o-colors-default-palette-mixes {
-		@each $value in $mix-values {
-			$name: "#{$color-name}-#{$value}";
-			$mix: oColorsMix($color-name, $percentage: $value);
-			@include oColorsSetColor('o-colors/#{$name}', $mix);
-		}
-	}
-}
-
-/// Add default o-colors palette colours.
-/// @access private
-@mixin _oColorsSetDefaultPaletteColors {
-	@each $color-name, $color-value, $opts in $_o-colors-default-palette-colors {
-		$opts: if($opts, $opts, ());
-		@include oColorsSetColor('o-colors/#{$color-name}', $color-value, $opts);
-	}
-}
-
-/// Add default o-colors usecases.
-/// @access private
-@mixin _oColorsSetDefaultUsecases {
-	@each $usecase, $colors, $opts in $_o-colors-default-usecases {
-		$opts: if($opts, $opts, ());
-		@include oColorsSetUseCase('o-colors/#{$usecase}', $colors, $opts);
-	}
+@mixin _oColorsSetColors($colors, $previous-key: null) {
+	// @each $color-name, $color-value in $colors {
+	// 	$color-value: if(type-of($color-value) == 'string', unquote($color-value), $color-value);
+	// 	@if($previous-key) {
+	// 		$color-name: if($color-name == '_', $previous-key, '#{$previous-key}-#{$color-name}');
+	// 	}
+	// 	$opts: ();
+	// 	@if(type-of($color-value) == 'map') {
+	// 		@include _oColorsSetColors($color-value, $color-name);
+	// 	} @else {
+	// 		@include oColorsSetColor('o-colors/#{$color-name}', $color-value, $opts);
+	// 	}
+	// }
 }

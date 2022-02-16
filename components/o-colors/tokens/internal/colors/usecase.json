@@ -1,29 +1,31 @@
 {
     "color": {
-        "background": {
-            "page": { "value": "{color.white.value}" },
-            "box": { "value": "{color.slate-white-5.value}" }
-        },
-        "outline": {
-            "focus": { "value": "{color.oxford.80.value}" }
-        },
-        "text": {
-            "link": {
-                "_": { "value": "{color.teal._.value}" },
-                "hover": { "value": "{color.teal.30.value}" }
+        "usecase": {
+            "background": {
+                "page": { "value": "{color.palette.white.value}" },
+                "box": { "value": "{color.palette.slate-white-5.value}" }
             },
-            "link-title": {
-                "_": { "value": "{color.slate-white-15.value}" },
-                "hover": { "value": "{color.slate-white-15.value}" }
+            "outline": {
+                "focus": { "value": "{color.palette.oxford.80.value}" }
             },
-            "title": {
-                "value": "{color.slate.value}"
-            },
-            "body": {
-                "value": "{color.slate.value}"
-            },
-            "muted": {
-                "value": "{color.black.20.value}"
+            "text": {
+                "link": {
+                    "_": { "value": "{color.palette.teal._.value}" },
+                    "hover": { "value": "{color.palette.teal.30.value}" }
+                },
+                "link-title": {
+                    "_": { "value": "{color.palette.slate-white-15.value}" },
+                    "hover": { "value": "{color.palette.slate-white-15.value}" }
+                },
+                "title": {
+                    "value": "{color.palette.slate.value}"
+                },
+                "body": {
+                    "value": "{color.palette.slate.value}"
+                },
+                "muted": {
+                    "value": "{color.palette.black.20.value}"
+                }
             }
         }
     }

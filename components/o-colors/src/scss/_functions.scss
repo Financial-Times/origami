@@ -54,6 +54,17 @@
 		'"#{inspect($valid-properties)}" but found "#{inspect($property)}".');
 	}
 
+
+	// @todo this is difficult because states are nested, not named hover-text for example.
+	// maybe try bringing the o-colors config back and manually map?
+	// then have tokens exposed elsewhere for new api going forward?
+	// could use code shift to help migrate teams automatically?
+	$token-value: map-get($_o-colors-branded-tokens, 'color', 'usecase', $property, $usecase);
+	@debug $token-value;
+	@if($token-value) {
+		@return $token-value;
+	}
+
 	// Find usecase config.
 	$config: map-get($_o-colors-usecases, $usecase);
 	$config: if($config, $config, ());

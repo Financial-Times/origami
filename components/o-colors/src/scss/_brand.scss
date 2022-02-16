@@ -1,0 +1,27 @@
+
+		@use '@financial-times/o-brand/main';
+
+		@use '../dist-tokens/core/tokens' as core;
+
+
+		@use '../dist-tokens/internal/tokens' as internal;
+
+
+		@use '../dist-tokens/whitelabel/tokens' as whitelabel;
+
+
+		$_o-colors-branded-tokens: ();
+
+
+		@if oBrandGetCurrentBrandNew() == core {
+			$_o-colors-branded-tokens: core.$o-colors-tokens !global;
+		}
+
+		@if oBrandGetCurrentBrandNew() == internal {
+			$_o-colors-branded-tokens: internal.$o-colors-tokens !global;
+		}
+
+		@if oBrandGetCurrentBrandNew() == whitelabel {
+			$_o-colors-branded-tokens: whitelabel.$o-colors-tokens !global;
+		}
+

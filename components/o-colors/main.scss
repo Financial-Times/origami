@@ -1,9 +1,9 @@
 @import '@financial-times/math';
 @import '@financial-times/o-brand/main';
 
+@import 'src/scss/brand';
+
 @import 'src/scss/variables';
-@import 'src/scss/palette';
-@import 'src/scss/use-cases';
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
 
@@ -11,10 +11,13 @@
 // NOTE: Only do this once as this partial will be included by many other components
 // and the multiple nested loops can have a huge effect on compilation performance.
 @if ($_o-colors-is-initialised == false) {
-	@include _oColorsSetDefaultPaletteColors();
-	@include _oColorsSetPaletteMixes();
-	@include _oColorsSetPaletteTones();
-	@include _oColorsSetDefaultUsecases();
+	$color: map-get($_o-colors-branded-tokens, 'color');
+
+	$palette: map-get($color, 'palette');
+	@include _oColorsSetColors($palette);
+
+	$usecase: map-get($color, 'usecase');
+	@include _oColorsSetColors($usecase);
 
 	$_o-colors-is-initialised: true !global;
 }

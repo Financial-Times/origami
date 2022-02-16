@@ -1,7 +1,9 @@
 {
     "color": {
-        "background": {
-            "page": { "value": "{color.white.value}" }
+        "usecase": {
+            "background": {
+                "page": { "value": "{color.palette.white.value}" }
+            }
         }
     }
 }
