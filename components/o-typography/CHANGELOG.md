@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.3.1](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.3.0...o-typography-v7.3.1) (2022-02-16)
+
+
+### Bug Fixes
+
+* remove icon for external links ([da7ea84](https://www.github.com/Financial-Times/origami/commit/da7ea8441f16db163e4459183d263cefea40e6b6))
+
 ## [7.3.0](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.2.2...o-typography-v7.3.0) (2022-02-09)
 
 

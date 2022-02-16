@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.2.3](https://www.github.com/Financial-Times/origami/compare/o-footer-services-v4.2.2...o-footer-services-v4.2.3) (2022-02-16)
+
+
+### Bug Fixes
+
+* remove icon for external links ([da7ea84](https://www.github.com/Financial-Times/origami/commit/da7ea8441f16db163e4459183d263cefea40e6b6))
+
 ### [4.2.2](https://www.github.com/Financial-Times/origami/compare/o-footer-services-v4.2.1...o-footer-services-v4.2.2) (2022-01-13)
 
 
