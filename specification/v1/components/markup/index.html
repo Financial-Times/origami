@@ -299,12 +299,12 @@
 <div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
 	<h1 id="markup-specification">Markup Specification</h1>
 
-<p>The markup <strong>must</strong> be <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax" class="o-typography-link--external">valid HTML5</a>, except that a DOCTYPE, and opening <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> tags should be assumed (i.e. the markup should be a document body fragment which becomes a valid HTML5 document when enclosed in <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> tags).</p>
+<p>The markup <strong>must</strong> be <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax">valid HTML5</a>, except that a DOCTYPE, and opening <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> tags should be assumed (i.e. the markup should be a document body fragment which becomes a valid HTML5 document when enclosed in <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> tags).</p>
 
 <p>Markup <strong>must</strong> also conform to the following XML rules:</p>
 <ul>
   <li><strong>Must</strong> have a single root element.</li>
-  <li>All elements that are opened <strong>must</strong> be closed (including <a href="https://github.com/Financial-Times/ft-origami/issues/66" class="o-typography-link--external">inline SVG</a>).</li>
+  <li>All elements that are opened <strong>must</strong> be closed (including <a href="https://github.com/Financial-Times/ft-origami/issues/66">inline SVG</a>).</li>
   <li>Closing tags <strong>must</strong> be in order.</li>
   <li><strong>Must</strong> not have valueless attributes.</li>
 </ul>
@@ -362,7 +362,7 @@
   <li>The component only has singleton use cases (i.e. it is pointless to include it in a product page more than once).</li>
 </ul>
 
-<p>Component authors are encouraged to provide assistive accessibility information in their component’s markup where appropriate. See <a href="https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/" class="o-typography-link--external">WAI-ARIA Authoring Practices</a>; keep in mind no ARIA is better than bad ARIA.</p>
+<p>Component authors are encouraged to provide assistive accessibility information in their component’s markup where appropriate. See <a href="https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/">WAI-ARIA Authoring Practices</a>; keep in mind no ARIA is better than bad ARIA.</p>
 
 <h2 id="conditional-comments">Conditional Comments</h2>
 
@@ -392,7 +392,7 @@
 &lt;div class="o--if-no-js"&gt;To comment on this article, you need to upgrade your web browser.  &lt;a href="..."&gt;Learn how to upgrade&lt;/a&gt;.&lt;/div&gt;
 </code></pre></div></div>
 
-<p>If the <code class="language-plaintext highlighter-rouge">o--if-no-js</code> element contains an image for the <a href="/documentation/components/compatibility/#core--enhanced-experiences">core experience</a> only, a <code class="language-plaintext highlighter-rouge">&lt;noscript&gt;</code> tag <strong>should</strong> be used <a href="http://timkadlec.com/2012/04/media-query-asset-downloading-results/" class="o-typography-link--external">to avoid unnecessary HTTP requests</a>:</p>
+<p>If the <code class="language-plaintext highlighter-rouge">o--if-no-js</code> element contains an image for the <a href="/documentation/components/compatibility/#core--enhanced-experiences">core experience</a> only, a <code class="language-plaintext highlighter-rouge">&lt;noscript&gt;</code> tag <strong>should</strong> be used <a href="http://timkadlec.com/2012/04/media-query-asset-downloading-results/">to avoid unnecessary HTTP requests</a>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="o--if-no-js"&gt;
     &lt;noscript&gt;
@@ -403,7 +403,7 @@
 
 <h2 id="templates">Templates</h2>
 
-<p>Origami components <strong>should not</strong> provide templates directly, outside of HTML within component demos and the readme. But where they do, templates <strong>must</strong> be in <a href="https://mustache.github.io/" class="o-typography-link--external">Mustache format</a>. This is because product developers may choose to use any technology stack to built their application, and it’s important that they not be forced to choose a particular one in order to use Origami components.</p>
+<p>Origami components <strong>should not</strong> provide templates directly, outside of HTML within component demos and the readme. But where they do, templates <strong>must</strong> be in <a href="https://mustache.github.io/">Mustache format</a>. This is because product developers may choose to use any technology stack to built their application, and it’s important that they not be forced to choose a particular one in order to use Origami components.</p>
 
 <h3 id="reference-formats">Reference formats</h3>
 
@@ -458,7 +458,7 @@
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
 			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
-				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/apps/website/_specification-v1/markup.md'>suggest an edit to this page</a>.</p>
+				<a href='https://github.com/Financial-Times/origami/edit/main/apps/website/_specification-v1/markup.md'>suggest an edit to this page</a>.</p>
 		</div>
 	</div>
 	<div class="o-footer-services__container">

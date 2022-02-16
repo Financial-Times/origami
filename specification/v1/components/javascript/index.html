@@ -301,9 +301,9 @@
 
 <h2 id="syntax-convention">Syntax Convention</h2>
 
-<p>JavaScript <strong>must</strong> be linted with <a href="http://www.eslint.org/" class="o-typography-link--external">ESLint</a>.</p>
+<p>JavaScript <strong>must</strong> be linted with <a href="http://www.eslint.org/">ESLint</a>.</p>
 
-<p>Developers <strong>should</strong> stick to the <a href="https://github.com/Financial-Times/origami-build-tools/blob/master/config/.eslintrc.js" class="o-typography-link--external">Origami eslintrc config</a>, since this represents a common standard across FT teams. Custom linting <strong>may</strong> be defined at the component level with a <code class="language-plaintext highlighter-rouge">.eslintrc</code> file, or at the file level with a <code class="language-plaintext highlighter-rouge">/*eslint ... */</code> comment.</p>
+<p>Developers <strong>should</strong> stick to the <a href="https://github.com/Financial-Times/origami-build-tools/blob/master/config/.eslintrc.js">Origami eslintrc config</a>, since this represents a common standard across FT teams. Custom linting <strong>may</strong> be defined at the component level with a <code class="language-plaintext highlighter-rouge">.eslintrc</code> file, or at the file level with a <code class="language-plaintext highlighter-rouge">/*eslint ... */</code> comment.</p>
 
 <p>In addition, Object properties <strong>must not</strong> be named after reserved words in the JavaScript language.</p>
 
@@ -330,12 +330,12 @@
 
 <p>Origami components <strong>must</strong> do as little as possible as the page parses. Instead they <strong>should</strong> provide a static <code class="language-plaintext highlighter-rouge">init</code> method which constructs instances of the component. The <code class="language-plaintext highlighter-rouge">init</code> method <strong>should</strong> run when the <code class="language-plaintext highlighter-rouge">o.DOMContentLoaded</code> or <code class="language-plaintext highlighter-rouge">o.load</code> events are fired.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">init</code> method <strong>must</strong> be callable with no arguments. It <strong>may</strong> accept arguments, but if it does, all arguments <strong>must</strong> be optional (see <a href="https://github.com/Financial-Times/ft-origami/pull/228" class="o-typography-link--external">issue 228</a>).</p>
+<p>The <code class="language-plaintext highlighter-rouge">init</code> method <strong>must</strong> be callable with no arguments. It <strong>may</strong> accept arguments, but if it does, all arguments <strong>must</strong> be optional (see <a href="https://github.com/Financial-Times/ft-origami/pull/228">issue 228</a>).</p>
 
 <p>If the <code class="language-plaintext highlighter-rouge">init</code> method (or the components constructor) takes an element argument to identifying its owned DOM, it <strong>must</strong> accept the following types:</p>
 
 <ul>
-  <li>An <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" class="o-typography-link--external"><code class="language-plaintext highlighter-rouge">HTMLElement</code></a> object</li>
+  <li>An <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"><code class="language-plaintext highlighter-rouge">HTMLElement</code></a> object</li>
   <li>A string containing a valid <code class="language-plaintext highlighter-rouge">querySelector</code> expression, e.g. <code class="language-plaintext highlighter-rouge">.main-content &gt; [data-o-component~='o-share']</code></li>
   <li>Nothing (or any falsey value), which <strong>should</strong> be interpreted as <code class="language-plaintext highlighter-rouge">document.body</code></li>
 </ul>
@@ -379,7 +379,7 @@
 
 <h2 id="error-handling">Error Handling</h2>
 
-<p>Components <strong>should</strong> use <a href="http://registry.origami.ft.com/components/o-errors" class="o-typography-link--external">o-errors</a> to report runtime JavaScript errors and exceptions, as well as log notices and other significant events, using the <code class="language-plaintext highlighter-rouge">oErrors.log</code> custom event.</p>
+<p>Components <strong>should</strong> use <a href="http://registry.origami.ft.com/components/o-errors">o-errors</a> to report runtime JavaScript errors and exceptions, as well as log notices and other significant events, using the <code class="language-plaintext highlighter-rouge">oErrors.log</code> custom event.</p>
 
 <p>Where components do not explicitly convert exceptions into <code class="language-plaintext highlighter-rouge">o-errors</code> events, any unhandled exceptions will still be caught and reported if <code class="language-plaintext highlighter-rouge">o-errors</code> has been initalised on the page. However, the report will lack critical information about the DOM elements to which the error relates.</p>
 
@@ -394,7 +394,7 @@
   <li>Include code (either your own or a dependency that provides the feature, without adding it outside of your <a href="#encapsulation">component’s scope</a>).</li>
 </ul>
 
-<aside>We recommend product developers use the <a href="http://polyfill.io/" class="o-typography-link--external">Polyfill Service</a> to support required features in older browsers.</aside>
+<aside>We recommend product developers use the <a href="http://polyfill.io/">Polyfill Service</a> to support required features in older browsers.</aside>
 
 <h2 id="integrating-with-a-component">Integrating With A Component</h2>
 
@@ -410,7 +410,7 @@
 
 <ul>
   <li>Use only browser-native DOM events with bubbling enabled.</li>
-  <li>Where the component wishes to attach custom data to events, use the <a href="https://developer.mozilla.org/en/docs/Web/API/CustomEvent" class="o-typography-link--external">CustomEvent</a> API, and pass an object in the <code class="language-plaintext highlighter-rouge">details</code> property.</li>
+  <li>Where the component wishes to attach custom data to events, use the <a href="https://developer.mozilla.org/en/docs/Web/API/CustomEvent">CustomEvent</a> API, and pass an object in the <code class="language-plaintext highlighter-rouge">details</code> property.</li>
   <li>Trigger events only on elements within the component’s owned DOM, or otherwise only on the body element.</li>
   <li>Namespace event names with the name of the component in camel-case, separated from the event name with a dot, e.g. <code class="language-plaintext highlighter-rouge">oComponentName.eventName</code></li>
   <li>Name the event using the present tense, e.g. <code class="language-plaintext highlighter-rouge">dialogClose</code>, not <code class="language-plaintext highlighter-rouge">dialogClosed</code>, and using camel-case.</li>
@@ -428,10 +428,10 @@
 
 <ul>
   <li><strong>Must not</strong> stop the propagation chain except for events created by itself.</li>
-  <li><strong>Should</strong> bind only to the body element and use <a href="https://github.com/Financial-Times/ftdomdelegate" class="o-typography-link--external">event delegation</a> to ensure that handlers do not need to be bound every time elements are created. If not bound to the body element, handlers <strong>must</strong> be bound to elements within the components’s owned DOM.</li>
+  <li><strong>Should</strong> bind only to the body element and use <a href="https://github.com/Financial-Times/ftdomdelegate">event delegation</a> to ensure that handlers do not need to be bound every time elements are created. If not bound to the body element, handlers <strong>must</strong> be bound to elements within the components’s owned DOM.</li>
 </ul>
 
-<p>Components <strong>should</strong> handle events during the <a href="http://stackoverflow.com/questions/4616694/what-is-event-bubbling-and-capturing" class="o-typography-link--external">bubbling phase</a>, not the capturing phase (unless the event has no bubbling phase)</p>
+<p>Components <strong>should</strong> handle events during the <a href="http://stackoverflow.com/questions/4616694/what-is-event-bubbling-and-capturing">bubbling phase</a>, not the capturing phase (unless the event has no bubbling phase)</p>
 
 <p>If a module wishes to bind to the <code class="language-plaintext highlighter-rouge">DOMContentLoaded</code> or <code class="language-plaintext highlighter-rouge">load</code> browser events, it <strong>must</strong> prefix the event name with <code class="language-plaintext highlighter-rouge">o.</code>, and <strong>must</strong> expose the function that it binds to the event via its external API, eg:</p>
 
@@ -468,7 +468,7 @@
   <li>Listen for events fired in its <code class="language-plaintext highlighter-rouge">o-layers__context</code> by other components that make use of the z-axis.</li>
 </ul>
 
-<p>Any component <strong>may</strong> use the <code class="language-plaintext highlighter-rouge">o-layers__context</code> class to define a new region of the DOM that can handle new layers independently of other regions of the DOM (e.g. two graphs handling their own tooltips independently, a date-picker appearing within a modal dialog). To learn more <a href="https://github.com/Financial-Times/o-layers/" class="o-typography-link--external">see o-layers</a>.</p>
+<p>Any component <strong>may</strong> use the <code class="language-plaintext highlighter-rouge">o-layers__context</code> class to define a new region of the DOM that can handle new layers independently of other regions of the DOM (e.g. two graphs handling their own tooltips independently, a date-picker appearing within a modal dialog). To learn more <a href="https://github.com/Financial-Times/o-layers/">see o-layers</a>.</p>
 
 
 	
@@ -484,7 +484,7 @@
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
 			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
-				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/apps/website/_specification-v1/javascript.md'>suggest an edit to this page</a>.</p>
+				<a href='https://github.com/Financial-Times/origami/edit/main/apps/website/_specification-v1/javascript.md'>suggest an edit to this page</a>.</p>
 		</div>
 	</div>
 	<div class="o-footer-services__container">

@@ -299,15 +299,15 @@
 <div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
 	<h1 id="sass-specification">Sass Specification</h1>
 
-<p>Origami component styles are authored in <a href="http://sass-lang.com/" class="o-typography-link--external">Sass</a>, specifically the SCSS syntax. Sass features <strong>should</strong> be used only where they result in increased clarity and reuse. Care should be taken that the resulting CSS is not compromised by unnecessary Sass nesting.</p>
+<p>Origami component styles are authored in <a href="http://sass-lang.com/">Sass</a>, specifically the SCSS syntax. Sass features <strong>should</strong> be used only where they result in increased clarity and reuse. Care should be taken that the resulting CSS is not compromised by unnecessary Sass nesting.</p>
 
 <h2 id="syntax-convention">Syntax Convention</h2>
 
 <p>Sass <strong>must</strong> be linted with <a href="https://stylelint.io/">Stylelint</a>.</p>
 
-<p>Developers <strong>should</strong> stick to the <a href="https://github.com/Financial-Times/stylelint-config-origami-component" class="o-typography-link--external">Origami Stylelint rules</a>, since this represents a common standard across FT teams. Custom linting <strong>may</strong> be defined at the component level with a <code class="language-plaintext highlighter-rouge">.stylelintrc.js</code> file, or at the file level with <a href="https://stylelint.io/user-guide/rules/comment-empty-line-before#stylelint-commands" class="o-typography-link--external">Stylelint comments</a>.</p>
+<p>Developers <strong>should</strong> stick to the <a href="https://github.com/Financial-Times/stylelint-config-origami-component">Origami Stylelint rules</a>, since this represents a common standard across FT teams. Custom linting <strong>may</strong> be defined at the component level with a <code class="language-plaintext highlighter-rouge">.stylelintrc.js</code> file, or at the file level with <a href="https://stylelint.io/user-guide/rules/comment-empty-line-before#stylelint-commands">Stylelint comments</a>.</p>
 
-<p>By default the <a href="https://github.com/Financial-Times/stylelint-config-origami-component" class="o-typography-link--external">Origami Stylelint rules</a> enforce a tab indentation style. However indentation style (tabs or spaces) is not standardised: developers <strong>must</strong> respect whatever indent type is already in use when editing existing components. To change indentation style update the component’s <a href="https://stylelint.io/user-guide/configure"><code class="language-plaintext highlighter-rouge">.stylelintrc.js</code> configuration</a>.</p>
+<p>By default the <a href="https://github.com/Financial-Times/stylelint-config-origami-component">Origami Stylelint rules</a> enforce a tab indentation style. However indentation style (tabs or spaces) is not standardised: developers <strong>must</strong> respect whatever indent type is already in use when editing existing components. To change indentation style update the component’s <a href="https://stylelint.io/user-guide/configure"><code class="language-plaintext highlighter-rouge">.stylelintrc.js</code> configuration</a>.</p>
 
 <p>In addition, component CSS <strong>should not</strong> use <code class="language-plaintext highlighter-rouge">!important</code>. Valid use cases for <code class="language-plaintext highlighter-rouge">!important</code> exist, but usually only at the product level. If <code class="language-plaintext highlighter-rouge">!important</code> is used in a component, a comment must be left in code to explain why it was necessary.</p>
 
@@ -315,7 +315,7 @@
 
 <p>CSS/Sass has limited encapsulation, so strict adherence to namespacing rules is essential.</p>
 
-<p>CSS selectors <strong>should</strong> follow the <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" class="o-typography-link--external">BEM</a> naming convention. They <strong>must</strong> also be prefixed with the component name and written as hyphen separated, lowercase strings:</p>
+<p>CSS selectors <strong>should</strong> follow the <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">BEM</a> naming convention. They <strong>must</strong> also be prefixed with the component name and written as hyphen separated, lowercase strings:</p>
 <ul>
   <li>Good: <code class="language-plaintext highlighter-rouge">.o-thing--large</code>, <code class="language-plaintext highlighter-rouge">.o-thing__content</code></li>
   <li>Bad: <code class="language-plaintext highlighter-rouge">.largething</code>, <code class="language-plaintext highlighter-rouge">.oThingContent</code></li>
@@ -384,9 +384,9 @@
   <li>Bad: <code class="language-plaintext highlighter-rouge">.o-thing-input {} .o-thing-input:not([type=radio]) {} .o-thing-input[type=radio] {}</code></li>
 </ul>
 
-<p>Pseudo selectors such as <code class="language-plaintext highlighter-rouge">:focus</code> or <code class="language-plaintext highlighter-rouge">:hover</code> <strong>should</strong> be used to style a component’s state. In the case of <code class="language-plaintext highlighter-rouge">:focus</code>, Origami components <strong>must</strong> enable a focused style that is distinct from its normal style (the focus style is usually provided by <a href="https://github.com/Financial-Times/o-normalise" class="o-typography-link--external">o-normalise</a>).</p>
+<p>Pseudo selectors such as <code class="language-plaintext highlighter-rouge">:focus</code> or <code class="language-plaintext highlighter-rouge">:hover</code> <strong>should</strong> be used to style a component’s state. In the case of <code class="language-plaintext highlighter-rouge">:focus</code>, Origami components <strong>must</strong> enable a focused style that is distinct from its normal style (the focus style is usually provided by <a href="https://github.com/Financial-Times/o-normalise">o-normalise</a>).</p>
 
-<p>Where an ARIA role is appropriate (<a href="https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/" class="o-typography-link--external">no ARIA is better than bad ARIA)</a>), it <strong>should</strong> be used to style a component’s state. For example <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-expanded" class="o-typography-link--external">aria-expanded</a>, with a correctly namespaced selector, <strong>should</strong> be used to style an expandable element:</p>
+<p>Where an ARIA role is appropriate (<a href="https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/">no ARIA is better than bad ARIA)</a>), it <strong>should</strong> be used to style a component’s state. For example <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-expanded">aria-expanded</a>, with a correctly namespaced selector, <strong>should</strong> be used to style an expandable element:</p>
 
 <ul>
   <li>Good: <code class="language-plaintext highlighter-rouge">.o-example[aria-expanded=true]</code></li>
@@ -416,7 +416,7 @@
 
 <h2 id="sass-placeholders">Sass Placeholders</h2>
 
-<p>Placeholder selectors (<code class="language-plaintext highlighter-rouge">%</code>) <strong>must not</strong> be used to reference other components, but <strong>may</strong> be used within a component, see <a href="https://github.com/Financial-Times/ft-origami/issues/254" class="o-typography-link--external">Issue #254</a>.</p>
+<p>Placeholder selectors (<code class="language-plaintext highlighter-rouge">%</code>) <strong>must not</strong> be used to reference other components, but <strong>may</strong> be used within a component, see <a href="https://github.com/Financial-Times/ft-origami/issues/254">Issue #254</a>.</p>
 
 <p>The <code class="language-plaintext highlighter-rouge">@extends</code> command <strong>must not</strong> be used to extend placeholders defined in other components, unless the component can only be consumed via <code class="language-plaintext highlighter-rouge">@extends</code> for historical reasons. This is because extending placeholders defined in other components creates unpredictable cascades and unreliable results, as the order components are included is unpredictable. A placeholder <strong>may</strong> be extended if defined within the same component.</p>
 
@@ -535,14 +535,14 @@
 
 <p>To support a <a href="/documentation/components/compatibility/#core--enhanced-experiences">core and enhanced experience</a> components must render acceptably without JavaScript avalible. Styles which only apply if JavaScript is available <strong>must</strong> be applied with a feature detect such as <code class="language-plaintext highlighter-rouge">.o--if-js</code>, and to hide an element of a component when JavaScript is available use <code class="language-plaintext highlighter-rouge">o--if-no-js</code>. If the component provides its own JavaScript feature flag, it <strong>must</strong> be named <code class="language-plaintext highlighter-rouge">.o-componentname--js</code>.</p>
 
-<p>To detect other features, standardised feature detects <strong>should</strong> be used as a preference, such as the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports" class="o-typography-link--external">@supports</a> at-rule. Otherwise a CSS class on the <code class="language-plaintext highlighter-rouge">documentElement</code> <strong>may</strong> be used to indicate feature support. The class name <strong>should</strong> be configurable, and default to the class name used by <a href="https://modernizr.com/" class="o-typography-link--external">Modernizr</a>:</p>
+<p>To detect other features, standardised feature detects <strong>should</strong> be used as a preference, such as the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports">@supports</a> at-rule. Otherwise a CSS class on the <code class="language-plaintext highlighter-rouge">documentElement</code> <strong>may</strong> be used to indicate feature support. The class name <strong>should</strong> be configurable, and default to the class name used by <a href="https://modernizr.com/">Modernizr</a>:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$o-thing-inline-svg-support: ‘.inlinesvg’ !default;
 $o-thing-inline-svg-support .o-thing__feature {
     // inline svg
 }
 </code></pre></div></div>
 
-<p>Component developers <strong>must not</strong> use feature flags that need to be set manually by a product developer (i.e. those outside <a href="https://modernizr.com/" class="o-typography-link--external">Modernizr</a> or Origami). Component developers <strong>must</strong> assume that feature flag classes will be set on the <code class="language-plaintext highlighter-rouge">documentElement</code>, i.e. the HTML tag.</p>
+<p>Component developers <strong>must not</strong> use feature flags that need to be set manually by a product developer (i.e. those outside <a href="https://modernizr.com/">Modernizr</a> or Origami). Component developers <strong>must</strong> assume that feature flag classes will be set on the <code class="language-plaintext highlighter-rouge">documentElement</code>, i.e. the HTML tag.</p>
 
 <h2 id="browser-targeting">Browser Targeting</h2>
 
@@ -553,7 +553,7 @@ $o-thing-inline-svg-support .o-thing__feature {
 <ul>
   <li>Assess if the proportion of impacted users is worth the fix.</li>
   <li>Tweak designs to accommodate most browsers instead.</li>
-  <li>Use <a href="http://browserhacks.com/" class="o-typography-link--external">browser hacks</a>:
+  <li>Use <a href="http://browserhacks.com/">browser hacks</a>:
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.el {
   background: url(‘data:image/png;base64,/* data */’) bottom right no-repeat;
 
@@ -566,7 +566,7 @@ $o-thing-inline-svg-support .o-thing__feature {
   <li>Rely on JavaScript user-agent sniffing (as a last resort, in some rare edge cases).</li>
 </ul>
 
-<p>Component developers <strong>must not</strong> use <a href="https://www.quirksmode.org/css/condcom.html" class="o-typography-link--external">IE conditional comments</a> to target user agents (use <a href="http://browserhacks.com/" class="o-typography-link--external">browser hacks</a> instead).</p>
+<p>Component developers <strong>must not</strong> use <a href="https://www.quirksmode.org/css/condcom.html">IE conditional comments</a> to target user agents (use <a href="http://browserhacks.com/">browser hacks</a> instead).</p>
 
 
 	
@@ -582,7 +582,7 @@ $o-thing-inline-svg-support .o-thing__feature {
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
 			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
-				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/apps/website/_specification-v1/sass.md'>suggest an edit to this page</a>.</p>
+				<a href='https://github.com/Financial-Times/origami/edit/main/apps/website/_specification-v1/sass.md'>suggest an edit to this page</a>.</p>
 		</div>
 	</div>
 	<div class="o-footer-services__container">

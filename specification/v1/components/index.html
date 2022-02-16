@@ -369,14 +369,14 @@
 
 <h3 id="bower">Bower</h3>
 
-<p>Origami components <strong>must</strong> be installable through the <a href="https://bower.io/" class="o-typography-link--external">Bower package manager</a>, and <strong>should</strong> include a <code class="language-plaintext highlighter-rouge">bower.json</code> manifest file which configures the component. The component <strong>should not</strong> be published to the public Bower registry (through <code class="language-plaintext highlighter-rouge">bower register</code> or similar).</p>
+<p>Origami components <strong>must</strong> be installable through the <a href="https://bower.io/">Bower package manager</a>, and <strong>should</strong> include a <code class="language-plaintext highlighter-rouge">bower.json</code> manifest file which configures the component. The component <strong>should not</strong> be published to the public Bower registry (through <code class="language-plaintext highlighter-rouge">bower register</code> or similar).</p>
 
 <aside>
   Origami components are not published to the public Bower registry because they can be accessed through the Origami Bower Registry.
-  <a href="https://origami-bower-registry.ft.com/" class="o-typography-link--external">Read the service documentation</a> for more information.
+  <a href="https://origami-bower-registry.ft.com/">Read the service documentation</a> for more information.
 </aside>
 
-<p>As well as following the <a href="https://github.com/bower/spec/blob/master/json.md" class="o-typography-link--external"><code class="language-plaintext highlighter-rouge">bower.json</code> specification</a>, there are additional requirements to make the component’s Bower manifest conform to the Origami specification:</p>
+<p>As well as following the <a href="https://github.com/bower/spec/blob/master/json.md"><code class="language-plaintext highlighter-rouge">bower.json</code> specification</a>, there are additional requirements to make the component’s Bower manifest conform to the Origami specification:</p>
 
 <ul>
   <li>It <strong>must</strong> include a <code class="language-plaintext highlighter-rouge">name</code> property set to the repository name, e.g. <code class="language-plaintext highlighter-rouge">o-typography</code></li>
@@ -419,7 +419,7 @@
 
 <h3 id="npm">npm</h3>
 
-<p>Origami components <strong>may</strong> include a <code class="language-plaintext highlighter-rouge">package.json</code> manifest. As well as following the <a href="https://docs.npmjs.com/files/package.json" class="o-typography-link--external"><code class="language-plaintext highlighter-rouge">package.json</code> specification</a>, there are additional requirements to make the component’s npm manifest conform to the Origami specification:</p>
+<p>Origami components <strong>may</strong> include a <code class="language-plaintext highlighter-rouge">package.json</code> manifest. As well as following the <a href="https://docs.npmjs.com/files/package.json"><code class="language-plaintext highlighter-rouge">package.json</code> specification</a>, there are additional requirements to make the component’s npm manifest conform to the Origami specification:</p>
 
 <ul>
   <li>It <strong>must not</strong> include any of the following properties: <code class="language-plaintext highlighter-rouge">bin</code>, <code class="language-plaintext highlighter-rouge">bugs</code>, <code class="language-plaintext highlighter-rouge">config</code>, <code class="language-plaintext highlighter-rouge">cpu</code>, <code class="language-plaintext highlighter-rouge">dependencies</code> (as this would indicate that the manifest is required for consumption of the component), <code class="language-plaintext highlighter-rouge">engines</code>, <code class="language-plaintext highlighter-rouge">engineStrict</code>, <code class="language-plaintext highlighter-rouge">files</code>, <code class="language-plaintext highlighter-rouge">main</code>, <code class="language-plaintext highlighter-rouge">os</code>, <code class="language-plaintext highlighter-rouge">preferGlobal</code>, <code class="language-plaintext highlighter-rouge">publishConfig</code></li>
@@ -439,7 +439,7 @@
   Sub-dependency example: if <code>o-component-a</code> includes <code>o-component-b</code> as a dependency and a new component you're developing requires features from both, then both must be added as explicit dependencies – you must not depend on <code>o-component-a</code> alone.
 </aside>
 
-<p>When listing dependencies in your <code class="language-plaintext highlighter-rouge">bower.json</code> manifest, the <a href="https://semver.org/" class="o-typography-link--external">SemVer</a> range that you specify:</p>
+<p>When listing dependencies in your <code class="language-plaintext highlighter-rouge">bower.json</code> manifest, the <a href="https://semver.org/">SemVer</a> range that you specify:</p>
 
 <ul>
   <li><strong>must</strong> be specified in a way that allows <code class="language-plaintext highlighter-rouge">MINOR</code> and <code class="language-plaintext highlighter-rouge">PATCH</code> to automatically update. This is normally achieved by using the caret (<code class="language-plaintext highlighter-rouge">^</code>) operator</li>
@@ -456,16 +456,16 @@
 
 <p>When an Origami component is a dependency of many other Origami components, it <strong>must</strong> verify and assert the widest version compatibility possible, including maintaining compatibility with earlier versions of a dependency unless to do so would be impractical. E.g. specifying a broad version range like <code class="language-plaintext highlighter-rouge">"o-colors": "&gt;=3.0.0 &lt;5"</code></p>
 
-<aside>If you want to understand more about how a SemVer expression matches specific versions, try <a href="https://semver.npmjs.com/" class="o-typography-link--external">npm's SemVer calculator</a>.</aside>
+<aside>If you want to understand more about how a SemVer expression matches specific versions, try <a href="https://semver.npmjs.com/">npm's SemVer calculator</a>.</aside>
 
 <h2 id="source-control">Source control</h2>
 
 <p>Origami component code <strong>must</strong> reside in a Git repository which has the same name as the component (<a href="#naming-conventions">see naming conventions</a>). This repository <strong>must</strong> be stored remotely under one of the following GitHub organisations:</p>
 
 <ul>
-  <li><a href="https://github.com/Financial-Times" class="o-typography-link--external">Financial-Times</a></li>
-  <li><a href="https://github.com/ft-interactive" class="o-typography-link--external">FT-Interactive</a></li>
-  <li><a href="https://github.com/ftlabs" class="o-typography-link--external">FTLabs</a></li>
+  <li><a href="https://github.com/Financial-Times">Financial-Times</a></li>
+  <li><a href="https://github.com/ft-interactive">FT-Interactive</a></li>
+  <li><a href="https://github.com/ftlabs">FTLabs</a></li>
 </ul>
 
 <p>Component repositories <strong>should</strong> be public by default, however they <strong>may</strong> be private if there is a compelling reason, e.g. to comply with a font license in the case of <code class="language-plaintext highlighter-rouge">o-fonts-assets</code>.</p>
@@ -480,7 +480,7 @@
 
 <h3 id="styles">Styles</h3>
 
-<p>Origami component styles are authored in <a href="http://sass-lang.com/" class="o-typography-link--external">Sass</a>, specifically the SCSS syntax.</p>
+<p>Origami component styles are authored in <a href="http://sass-lang.com/">Sass</a>, specifically the SCSS syntax.</p>
 
 <p>See <a href="/specification/v1/components/sass">the Origami Sass Specification</a>.</p>
 
@@ -490,17 +490,17 @@
 
 <h3 id="subresources">Subresources</h3>
 
-<p>Origami components <strong>may</strong> load additional files (fonts, JSON data, images etc) from their own source. To do so safely, components <strong>must</strong> resolve file paths using the <a href="https://github.com/Financial-Times/o-assets" class="o-typography-link--external">Origami assets module</a>:</p>
+<p>Origami components <strong>may</strong> load additional files (fonts, JSON data, images etc) from their own source. To do so safely, components <strong>must</strong> resolve file paths using the <a href="https://github.com/Financial-Times/o-assets">Origami assets module</a>:</p>
 
 <p>Without any explicit configuration, <code class="language-plaintext highlighter-rouge">o-assets</code> will assume, as we do for sub-resources in Sass, that the components are installed publicly at a URL path of <code class="language-plaintext highlighter-rouge">/bower_components</code> on the current host, and will form URLs on that basis.  Product developers are advised to reconfigure <code class="language-plaintext highlighter-rouge">o-assets</code> to accommodate their own server-side URL routing architecture.</p>
 
-<p>Where external resources are not within Origami components, a <a href="https://www.paulirish.com/2010/the-protocol-relative-url/" class="o-typography-link--external">protocol-relative</a> URL <strong>must</strong> be used (see <a href="https://github.com/Financial-Times/ft-origami/issues/173" class="o-typography-link--external">issue 173</a>.</p>
+<p>Where external resources are not within Origami components, a <a href="https://www.paulirish.com/2010/the-protocol-relative-url/">protocol-relative</a> URL <strong>must</strong> be used (see <a href="https://github.com/Financial-Times/ft-origami/issues/173">issue 173</a>.</p>
 
 <h2 id="testing">Testing</h2>
 
 <h3 id="automated-tests">Automated tests</h3>
 
-<p>Components <strong>should</strong> include automated tests which at least verify that the component can be built using <a href="https://github.com/Financial-Times/origami-build-tools" class="o-typography-link--external">Origami Build Tools</a>.</p>
+<p>Components <strong>should</strong> include automated tests which at least verify that the component can be built using <a href="https://github.com/Financial-Times/origami-build-tools">Origami Build Tools</a>.</p>
 
 <p>A component author <strong>may</strong> additionally test their component however they like, providing that all test-related files <strong>should</strong> be in the <code class="language-plaintext highlighter-rouge">test</code> directory, and also ignored as outlined in <a href="#bower-ignored-files">Bower ignored files</a>. A component <strong>may</strong> use Origami Build tools to run the tests for consistency:</p>
 
@@ -508,7 +508,7 @@
 
 <h3 id="continuous-integration">Continuous integration</h3>
 
-<p>Components <strong>should</strong> implement CI. If a component does so then it <strong>should</strong> verify that the component can be built using <a href="https://github.com/Financial-Times/origami-build-tools" class="o-typography-link--external">Origami Build Tools</a>, as mentioned in <a href="#automated-tests">Automated tests</a>.</p>
+<p>Components <strong>should</strong> implement CI. If a component does so then it <strong>should</strong> verify that the component can be built using <a href="https://github.com/Financial-Times/origami-build-tools">Origami Build Tools</a>, as mentioned in <a href="#automated-tests">Automated tests</a>.</p>
 
 <h3 id="browsermanual-testing">Browser/manual testing</h3>
 
@@ -528,18 +528,18 @@
 <ul>
   <li>Include a single-line description of what the component does.</li>
   <li>Give examples detailing the most common use cases.</li>
-  <li>Provide the licence, which <strong>should</strong> conform to the <a href="https://docs.google.com/document/d/1pI-qI3BrO5edFYdHcoDCH9wVbfbFvroclxSEtkXwpCw" class="o-typography-link--external">open source release policy</a>.</li>
+  <li>Provide the licence, which <strong>should</strong> conform to the <a href="https://docs.google.com/document/d/1pI-qI3BrO5edFYdHcoDCH9wVbfbFvroclxSEtkXwpCw">open source release policy</a>.</li>
 </ul>
 
 <p>The README <strong>should not</strong> include generic information (e.g. installation steps that apply equally to all components in general), but a link to such documentation <strong>may</strong> be included.</p>
 
 <h3 id="migration">Migration</h3>
 
-<p>When a new major version of a component is released a migration guide <strong>should</strong> be written to help users upgrade from the previous release. The migration guide <strong>should</strong> be added to a <code class="language-plaintext highlighter-rouge">MIGRATION.md</code> file in the root of the component’s codebase, and <strong>should</strong> be linked to from the component’s <code class="language-plaintext highlighter-rouge">README.md</code>. See <a href="https://github.com/Financial-Times/o-table#migration" class="o-typography-link--external">o-table’s migration guide</a> as an example.</p>
+<p>When a new major version of a component is released a migration guide <strong>should</strong> be written to help users upgrade from the previous release. The migration guide <strong>should</strong> be added to a <code class="language-plaintext highlighter-rouge">MIGRATION.md</code> file in the root of the component’s codebase, and <strong>should</strong> be linked to from the component’s <code class="language-plaintext highlighter-rouge">README.md</code>. See <a href="https://github.com/Financial-Times/o-table#migration">o-table’s migration guide</a> as an example.</p>
 
 <h3 id="codedocs">Codedocs</h3>
 
-<p>Component JavaScript <strong>should</strong> be documented using <a href="http://usejsdoc.org/" class="o-typography-link--external">JSDoc</a> and component Sass should be documented with <a href="http://sassdoc.com/" class="o-typography-link--external">SassDoc</a>. This allows users to view and search the component’s public interface in the registry. For example, see <a href="https://registry.origami.ft.com/components/o-grid/sassdoc">o-grid’s SassDocs</a>.</p>
+<p>Component JavaScript <strong>should</strong> be documented using <a href="http://usejsdoc.org/">JSDoc</a> and component Sass should be documented with <a href="http://sassdoc.com/">SassDoc</a>. This allows users to view and search the component’s public interface in the registry. For example, see <a href="https://registry.origami.ft.com/components/o-grid/sassdoc">o-grid’s SassDocs</a>.</p>
 
 <h2 id="browser-support">Browser support</h2>
 
@@ -547,7 +547,7 @@
 
 <h2 id="demos">Demos</h2>
 
-<p>Component authors <strong>should</strong> provide component demos, which <strong>must</strong> be <a href="/specification/v1/manifest/#demos">defined in origami.json</a> and built with <a href="https://www.npmjs.com/package/origami-build-tools" class="o-typography-link--external">Origami Build Tools</a>.</p>
+<p>Component authors <strong>should</strong> provide component demos, which <strong>must</strong> be <a href="/specification/v1/manifest/#demos">defined in origami.json</a> and built with <a href="https://www.npmjs.com/package/origami-build-tools">Origami Build Tools</a>.</p>
 
 <p>When deciding what demos to create, demos:</p>
 <ul>
@@ -571,7 +571,7 @@
 
 <h2 id="build-step">Build Step</h2>
 
-<p>All components <strong>must</strong> be buildable by the <a href="https://www.ft.com/__origami/service/build/v2/" class="o-typography-link--external">Origami Build Service</a>.</p>
+<p>All components <strong>must</strong> be buildable by the <a href="https://www.ft.com/__origami/service/build/v2/">Origami Build Service</a>.</p>
 
 <h2 id="component-lifecycle">Component Lifecycle</h2>
 
@@ -634,7 +634,7 @@
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
 			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
-				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/apps/website/_specification-v1/components.md'>suggest an edit to this page</a>.</p>
+				<a href='https://github.com/Financial-Times/origami/edit/main/apps/website/_specification-v1/components.md'>suggest an edit to this page</a>.</p>
 		</div>
 	</div>
 	<div class="o-footer-services__container">

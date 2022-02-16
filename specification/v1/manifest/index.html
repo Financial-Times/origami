@@ -331,7 +331,7 @@
 <div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
 	<h1 id="origamijson-manifest-specification">Origami.json Manifest Specification</h1>
 
-<p><code class="language-plaintext highlighter-rouge">origami.json</code> is a <a href="https://www.json.org/" class="o-typography-link--external"><abbr title="JavaScript Object Notation">JSON</abbr></a> format file that is responsible for describing various aspects of an Origami project.</p>
+<p><code class="language-plaintext highlighter-rouge">origami.json</code> is a <a href="https://www.json.org/"><abbr title="JavaScript Object Notation">JSON</abbr></a> format file that is responsible for describing various aspects of an Origami project.</p>
 
 <h2 id="properties">Properties</h2>
 
@@ -584,8 +584,8 @@ If the brands property does not exist, this means the component supports all the
 <p>Applies to <code class="language-plaintext highlighter-rouge">{ "origamiType": "component" }</code> and <code class="language-plaintext highlighter-rouge">{ "origamiType": "module" }</code>. Outlines the browser features required for the component’s functionality.
 The object accepts two properties:</p>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">required</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. A list of <a href="https://polyfill.io" class="o-typography-link--external">Polyfill Service</a> features or <a href="https://modernizr.com/docs/" class="o-typography-link--external">Modernizr</a> tests, which the component assumes exists. If these features do not exist, the component may error.</li>
-  <li><code class="language-plaintext highlighter-rouge">optional</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. A list of <a href="https://polyfill.io" class="o-typography-link--external">Polyfill Service</a> features or <a href="https://modernizr.com/docs/" class="o-typography-link--external">Modernizr</a> tests, which the component  will use if they are available in the browser. If not the component may offer different or reduced functionality, but with graceful degradation.</li>
+  <li><code class="language-plaintext highlighter-rouge">required</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. A list of <a href="https://polyfill.io">Polyfill Service</a> features or <a href="https://modernizr.com/docs/">Modernizr</a> tests, which the component assumes exists. If these features do not exist, the component may error.</li>
+  <li><code class="language-plaintext highlighter-rouge">optional</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. A list of <a href="https://polyfill.io">Polyfill Service</a> features or <a href="https://modernizr.com/docs/">Modernizr</a> tests, which the component  will use if they are available in the browser. If not the component may offer different or reduced functionality, but with graceful degradation.</li>
 </ul>
 
 <pre><code class="o-syntax-highlight--json">{
@@ -645,7 +645,7 @@ The object accepts two properties:</p>
   <li><code class="language-plaintext highlighter-rouge">js</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Describes the JS file to build.</li>
   <li><code class="language-plaintext highlighter-rouge">data</code>: type <code class="language-plaintext highlighter-rouge">Object</code> or <code class="language-plaintext highlighter-rouge">String</code>. Describes data to populate to the mustache template with. If this is a string it must be a path to a JSON file containing the data, relative to the root of the repo.</li>
   <li><code class="language-plaintext highlighter-rouge">documentClasses</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Names CSS classes to set on the <code class="language-plaintext highlighter-rouge">html</code> tag.</li>
-  <li><code class="language-plaintext highlighter-rouge">dependencies</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. Is a list of other components that are only needed for demos, which will be loaded via the <a href="https://www.ft.com/__origami/service/build" class="o-typography-link--external">Build Service</a></li>
+  <li><code class="language-plaintext highlighter-rouge">dependencies</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. Is a list of other components that are only needed for demos, which will be loaded via the <a href="https://www.ft.com/__origami/service/build">Build Service</a></li>
 </ul>
 
 <p>All of these properties are <strong>optional</strong>.</p>
@@ -693,7 +693,7 @@ Each object in the list accepts the following properties:</p>
   <li><code class="language-plaintext highlighter-rouge">data</code>: type <code class="language-plaintext highlighter-rouge">Object</code> or <code class="language-plaintext highlighter-rouge">String</code>. Describes data to populate to the component-specific mustache template with. If this is a string it must be a path to a JSON file containing the data, relative to the root of the repo.</li>
   <li><code class="language-plaintext highlighter-rouge">brands</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. For components which support <a href="/documentation/components/branding/">brands</a>, this describes one or more brands which the demo applies to (“master”, “internal, “whitelabel”)</li>
   <li><code class="language-plaintext highlighter-rouge">documentClasses</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Names CSS classes to set on the component-specific <code class="language-plaintext highlighter-rouge">html</code> tag</li>
-  <li><code class="language-plaintext highlighter-rouge">dependencies</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. Is a list of other components that are only needed a this specific demo, which will be loaded via the <a href="https://www.ft.com/__origami/service/build" class="o-typography-link--external">Build Service</a></li>
+  <li><code class="language-plaintext highlighter-rouge">dependencies</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. Is a list of other components that are only needed a this specific demo, which will be loaded via the <a href="https://www.ft.com/__origami/service/build">Build Service</a></li>
   <li><code class="language-plaintext highlighter-rouge">hidden</code>: type <code class="language-plaintext highlighter-rouge">Boolean</code>. Whether the demo should be hidden in the Registry</li>
   <li><code class="language-plaintext highlighter-rouge">display_html</code>: type <code class="language-plaintext highlighter-rouge">Boolean</code>. Whether the demo should have a HTML tab in the Registry (defaults to true)</li>
 </ul>
@@ -793,7 +793,7 @@ Each object in the list accepts the following properties:</p>
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
 			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
-				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/apps/website/_specification-v1/manifest.md'>suggest an edit to this page</a>.</p>
+				<a href='https://github.com/Financial-Times/origami/edit/main/apps/website/_specification-v1/manifest.md'>suggest an edit to this page</a>.</p>
 		</div>
 	</div>
 	<div class="o-footer-services__container">
