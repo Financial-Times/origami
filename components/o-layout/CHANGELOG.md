@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.2](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.2.1...o-layout-v5.2.2) (2022-02-16)
+
+
+### Bug Fixes
+
+* remove icon for external links ([da7ea84](https://www.github.com/Financial-Times/origami/commit/da7ea8441f16db163e4459183d263cefea40e6b6))
+
 ### [5.2.1](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.2.0...o-layout-v5.2.1) (2022-01-13)
 
 
