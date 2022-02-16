@@ -150,19 +150,10 @@
 		white-space: nowrap;
 	}
 
-	.o-cookie-message__link--external,
 	.o-cookie-message__link {
 		@include oTypographySans($scale: 0);
 		@include oTypographyLink($theme: $link-theme);
 		white-space: nowrap;
-	}
-
-	.o-cookie-message__link--external {
-		@include oTypographyLink(
-			$external: true,
-			$theme: $link-theme,
-			$include-base-styles: false
-		);
 	}
 }
 
@@ -186,17 +177,8 @@
 			border-color: oColorsByName('jade');
 		}
 
-		.o-cookie-message__link--external,
 		.o-cookie-message__link {
 			@include oTypographyLink($theme: $link-theme);
-		}
-
-		.o-cookie-message__link--external {
-			@include oTypographyLink(
-				$external: true,
-				$theme: $link-theme,
-				$include-base-styles: false
-			);
 		}
 	}
 }

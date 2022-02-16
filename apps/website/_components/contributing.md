@@ -19,7 +19,7 @@ The <a href="https://registry.origami.ft.com/components/">Origami registry</a> h
 
 ### Make a proposal
 For the Origami team to oversee a component's maintenance, a proposal needs to be made.
-You can find information about that process in the <a href="https://github.com/Financial-Times/origami/blob/master/.github/CONTRIBUTING.md" class="o-typography-link--external">origami</a> project board, where all proposals are logged.
+You can find information about that process in the <a href="https://github.com/Financial-Times/origami/blob/master/.github/CONTRIBUTING.md">origami</a> project board, where all proposals are logged.
 
 After the team have reviewed and accepted the proposal, according to the project guidelines, we will take responsibility for this component and help build and maintain it.
 
@@ -44,7 +44,7 @@ If there is a change you would like to see but you are not familiar with Github 
 
 If you've chosen to make changes to a component directly please feel free to contact the Origami team with any questions. To get started you'll need to use the [Origami Build Tools](https://github.com/Financial-Times/origami-build-tools#readme). In addition to building the scaffolding for a component, these command-line tools enable us to install dependencies, build demos locally, test our work and more. The [Create A New Origami Component tutorial](https://origami.ft.com/documentation/tutorials/create-a-new-component-part-1/) covers these topics.
 
-We provide details on what commands to use for `obt` in its <a href="https://github.com/Financial-Times/origami-build-tools#readme" class="o-typography-link--external">documentation</a>
+We provide details on what commands to use for `obt` in its <a href="https://github.com/Financial-Times/origami-build-tools#readme">documentation</a>
 
 When everything is right, open a <abbr title="Pull request">PR</abbr> with your changes to the component.
 

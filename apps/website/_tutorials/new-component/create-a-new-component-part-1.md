@@ -36,7 +36,7 @@ To follow this tutorial ensure the following software is install on your machine
 
 In addition this tutorial introduces a number of tools and libraries such as [git](https://git-scm.com/), [Sass](https://sass-lang.com/), [sinon.js](https://sinonjs.org/), etc. We do not cover these in depth but attempt to include brief descriptions and links to relevant documentation so that you may learn separately about the parts which are new to you.
 
-If you have any questions please contact the Origami team to help make this tutorial better &#x1F603;. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}" class="o-typography-link--external" target="_blank">#{{site.data.contact.slack}}</a>.
+If you have any questions please contact the Origami team to help make this tutorial better &#x1F603;. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}" target="_blank">#{{site.data.contact.slack}}</a>.
 
 ## The Origami Specification
 

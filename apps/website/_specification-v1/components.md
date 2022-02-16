@@ -86,14 +86,14 @@ When a consumer attempts to use a component and finds that it is installable thr
 
 ### Bower
 
-Origami components **must** be installable through the <a href="https://bower.io/" class="o-typography-link--external">Bower package manager</a>, and **should** include a `bower.json` manifest file which configures the component. The component **should not** be published to the public Bower registry (through `bower register` or similar).
+Origami components **must** be installable through the <a href="https://bower.io/">Bower package manager</a>, and **should** include a `bower.json` manifest file which configures the component. The component **should not** be published to the public Bower registry (through `bower register` or similar).
 
 <aside>
   Origami components are not published to the public Bower registry because they can be accessed through the Origami Bower Registry.
-  <a href="https://origami-bower-registry.ft.com/" class="o-typography-link--external">Read the service documentation</a> for more information.
+  <a href="https://origami-bower-registry.ft.com/">Read the service documentation</a> for more information.
 </aside>
 
-As well as following the <a href="https://github.com/bower/spec/blob/master/json.md" class="o-typography-link--external">`bower.json` specification</a>, there are additional requirements to make the component's Bower manifest conform to the Origami specification:
+As well as following the <a href="https://github.com/bower/spec/blob/master/json.md">`bower.json` specification</a>, there are additional requirements to make the component's Bower manifest conform to the Origami specification:
 
   - It **must** include a `name` property set to the repository name, e.g. `o-typography`
   - It **must** include a `main` property set to an array which **must**:
@@ -125,7 +125,7 @@ The following is the list of ignored files in most component Bower configuration
 
 ### npm
 
-Origami components **may** include a `package.json` manifest. As well as following the <a href="https://docs.npmjs.com/files/package.json" class="o-typography-link--external">`package.json` specification</a>, there are additional requirements to make the component's npm manifest conform to the Origami specification:
+Origami components **may** include a `package.json` manifest. As well as following the <a href="https://docs.npmjs.com/files/package.json">`package.json` specification</a>, there are additional requirements to make the component's npm manifest conform to the Origami specification:
 
   - It **must not** include any of the following properties: `bin`, `bugs`, `config`, `cpu`, `dependencies` (as this would indicate that the manifest is required for consumption of the component), `engines`, `engineStrict`, `files`, `main`, `os`, `preferGlobal`, `publishConfig`
   - It **must not** include a `version` property
@@ -144,7 +144,7 @@ Dependencies used in a component **must** be added explicitly to the package man
   Sub-dependency example: if <code>o-component-a</code> includes <code>o-component-b</code> as a dependency and a new component you're developing requires features from both, then both must be added as explicit dependencies – you must not depend on <code>o-component-a</code> alone.
 </aside>
 
-When listing dependencies in your `bower.json` manifest, the <a href="https://semver.org/" class="o-typography-link--external">SemVer</a> range that you specify:
+When listing dependencies in your `bower.json` manifest, the <a href="https://semver.org/">SemVer</a> range that you specify:
 
   - **must** be specified in a way that allows `MINOR` and `PATCH` to automatically update. This is normally achieved by using the caret (`^`) operator
   - **must** be greater than or equal to `1.0.0`
@@ -159,16 +159,16 @@ When listing dependencies in your `bower.json` manifest, the <a href="https://se
 
 When an Origami component is a dependency of many other Origami components, it **must** verify and assert the widest version compatibility possible, including maintaining compatibility with earlier versions of a dependency unless to do so would be impractical. E.g. specifying a broad version range like `"o-colors": ">=3.0.0 <5"`
 
-<aside>If you want to understand more about how a SemVer expression matches specific versions, try <a href="https://semver.npmjs.com/" class="o-typography-link--external">npm's SemVer calculator</a>.</aside>
+<aside>If you want to understand more about how a SemVer expression matches specific versions, try <a href="https://semver.npmjs.com/">npm's SemVer calculator</a>.</aside>
 
 
 ## Source control
 
 Origami component code **must** reside in a Git repository which has the same name as the component ([see naming conventions](#naming-conventions)). This repository **must** be stored remotely under one of the following GitHub organisations:
 
-  - <a href="https://github.com/Financial-Times" class="o-typography-link--external">Financial-Times</a>
-  - <a href="https://github.com/ft-interactive" class="o-typography-link--external">FT-Interactive</a>
-  - <a href="https://github.com/ftlabs" class="o-typography-link--external">FTLabs</a>
+  - <a href="https://github.com/Financial-Times">Financial-Times</a>
+  - <a href="https://github.com/ft-interactive">FT-Interactive</a>
+  - <a href="https://github.com/ftlabs">FTLabs</a>
 
 Component repositories **should** be public by default, however they **may** be private if there is a compelling reason, e.g. to comply with a font license in the case of `o-fonts-assets`.
 
@@ -182,7 +182,7 @@ See [the Origami Markup Specification](/specification/v1/components/markup).
 
 ### Styles
 
-Origami component styles are authored in <a href="http://sass-lang.com/" class="o-typography-link--external">Sass</a>, specifically the SCSS syntax.
+Origami component styles are authored in <a href="http://sass-lang.com/">Sass</a>, specifically the SCSS syntax.
 
 See [the Origami Sass Specification](/specification/v1/components/sass).
 
@@ -192,17 +192,17 @@ See the [Origami javascript specification](/specification/v1/components/javascri
 
 ### Subresources
 
-Origami components **may** load additional files (fonts, JSON data, images etc) from their own source. To do so safely, components **must** resolve file paths using the <a href="https://github.com/Financial-Times/o-assets" class="o-typography-link--external">Origami assets module</a>:
+Origami components **may** load additional files (fonts, JSON data, images etc) from their own source. To do so safely, components **must** resolve file paths using the <a href="https://github.com/Financial-Times/o-assets">Origami assets module</a>:
 
 Without any explicit configuration, `o-assets` will assume, as we do for sub-resources in Sass, that the components are installed publicly at a URL path of `/bower_components` on the current host, and will form URLs on that basis.  Product developers are advised to reconfigure `o-assets` to accommodate their own server-side URL routing architecture.
 
-Where external resources are not within Origami components, a <a href="https://www.paulirish.com/2010/the-protocol-relative-url/" class="o-typography-link--external">protocol-relative</a> URL **must** be used (see <a href="https://github.com/Financial-Times/ft-origami/issues/173" class="o-typography-link--external">issue 173</a>.
+Where external resources are not within Origami components, a <a href="https://www.paulirish.com/2010/the-protocol-relative-url/">protocol-relative</a> URL **must** be used (see <a href="https://github.com/Financial-Times/ft-origami/issues/173">issue 173</a>.
 
 ## Testing
 
 ### Automated tests
 
-Components **should** include automated tests which at least verify that the component can be built using <a href="https://github.com/Financial-Times/origami-build-tools" class="o-typography-link--external">Origami Build Tools</a>.
+Components **should** include automated tests which at least verify that the component can be built using <a href="https://github.com/Financial-Times/origami-build-tools">Origami Build Tools</a>.
 
 A component author **may** additionally test their component however they like, providing that all test-related files **should** be in the `test` directory, and also ignored as outlined in [Bower ignored files](#bower-ignored-files). A component **may** use Origami Build tools to run the tests for consistency:
 
@@ -210,7 +210,7 @@ A component author **may** additionally test their component however they like, 
 
 ### Continuous integration
 
-Components **should** implement CI. If a component does so then it **should** verify that the component can be built using <a href="https://github.com/Financial-Times/origami-build-tools" class="o-typography-link--external">Origami Build Tools</a>, as mentioned in [Automated tests](#automated-tests).
+Components **should** implement CI. If a component does so then it **should** verify that the component can be built using <a href="https://github.com/Financial-Times/origami-build-tools">Origami Build Tools</a>, as mentioned in [Automated tests](#automated-tests).
 
 ### Browser/manual testing
 
@@ -230,17 +230,17 @@ If the repository is hosted on GitHub, the Github “Website” URL **should** b
 A component **should** include a `README.md` in the root of the component's codebase. The README **should**:
 - Include a single-line description of what the component does.
 - Give examples detailing the most common use cases.
-- Provide the licence, which **should** conform to the <a href="https://docs.google.com/document/d/1pI-qI3BrO5edFYdHcoDCH9wVbfbFvroclxSEtkXwpCw" class="o-typography-link--external">open source release policy</a>.
+- Provide the licence, which **should** conform to the <a href="https://docs.google.com/document/d/1pI-qI3BrO5edFYdHcoDCH9wVbfbFvroclxSEtkXwpCw">open source release policy</a>.
 
 The README **should not** include generic information (e.g. installation steps that apply equally to all components in general), but a link to such documentation **may** be included.
 
 ### Migration
 
-When a new major version of a component is released a migration guide **should** be written to help users upgrade from the previous release. The migration guide **should** be added to a `MIGRATION.md` file in the root of the component's codebase, and **should** be linked to from the component's `README.md`. See <a href="https://github.com/Financial-Times/o-table#migration" class="o-typography-link--external">o-table's migration guide</a> as an example.
+When a new major version of a component is released a migration guide **should** be written to help users upgrade from the previous release. The migration guide **should** be added to a `MIGRATION.md` file in the root of the component's codebase, and **should** be linked to from the component's `README.md`. See <a href="https://github.com/Financial-Times/o-table#migration">o-table's migration guide</a> as an example.
 
 ### Codedocs
 
-Component JavaScript **should** be documented using <a href="http://usejsdoc.org/" class="o-typography-link--external">JSDoc</a> and component Sass should be documented with <a href="http://sassdoc.com/" class="o-typography-link--external">SassDoc</a>. This allows users to view and search the component's public interface in the registry. For example, see <a href="https://registry.origami.ft.com/components/o-grid/sassdoc">o-grid's SassDocs</a>.
+Component JavaScript **should** be documented using <a href="http://usejsdoc.org/">JSDoc</a> and component Sass should be documented with <a href="http://sassdoc.com/">SassDoc</a>. This allows users to view and search the component's public interface in the registry. For example, see <a href="https://registry.origami.ft.com/components/o-grid/sassdoc">o-grid's SassDocs</a>.
 
 ## Browser support
 
@@ -248,7 +248,7 @@ All components **must** be tested with all the browsers listed in the [FT browse
 
 ## Demos
 
-Component authors **should** provide component demos, which **must** be [defined in origami.json](/specification/v1/manifest/#demos) and built with <a href="https://www.npmjs.com/package/origami-build-tools" class="o-typography-link--external">Origami Build Tools</a>.
+Component authors **should** provide component demos, which **must** be [defined in origami.json](/specification/v1/manifest/#demos) and built with <a href="https://www.npmjs.com/package/origami-build-tools">Origami Build Tools</a>.
 
 When deciding what demos to create, demos:
 - **Must** be based on realistic use cases.
@@ -269,7 +269,7 @@ Where styles need to be added specifically for a demo (e.g. to make the content 
 
 ## Build Step
 
-All components **must** be buildable by the <a href="https://www.ft.com/__origami/service/build/v2/" class="o-typography-link--external">Origami Build Service</a>.
+All components **must** be buildable by the <a href="https://www.ft.com/__origami/service/build/v2/">Origami Build Service</a>.
 
 ## Component Lifecycle
 

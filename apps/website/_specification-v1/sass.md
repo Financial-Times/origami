@@ -18,16 +18,16 @@ collection_listing_display: false
 
 # {{page.title}}
 
-Origami component styles are authored in <a href="http://sass-lang.com/" class="o-typography-link--external">Sass</a>, specifically the SCSS syntax. Sass features **should** be used only where they result in increased clarity and reuse. Care should be taken that the resulting CSS is not compromised by unnecessary Sass nesting.
+Origami component styles are authored in <a href="http://sass-lang.com/">Sass</a>, specifically the SCSS syntax. Sass features **should** be used only where they result in increased clarity and reuse. Care should be taken that the resulting CSS is not compromised by unnecessary Sass nesting.
 
 ## Syntax Convention
 
 
 Sass **must** be linted with [Stylelint](https://stylelint.io/).
 
-Developers **should** stick to the <a href="https://github.com/Financial-Times/stylelint-config-origami-component" class="o-typography-link--external">Origami Stylelint rules</a>, since this represents a common standard across FT teams. Custom linting **may** be defined at the component level with a `.stylelintrc.js` file, or at the file level with <a href="https://stylelint.io/user-guide/rules/comment-empty-line-before#stylelint-commands" class="o-typography-link--external">Stylelint comments</a>.
+Developers **should** stick to the <a href="https://github.com/Financial-Times/stylelint-config-origami-component">Origami Stylelint rules</a>, since this represents a common standard across FT teams. Custom linting **may** be defined at the component level with a `.stylelintrc.js` file, or at the file level with <a href="https://stylelint.io/user-guide/rules/comment-empty-line-before#stylelint-commands">Stylelint comments</a>.
 
-By default the <a href="https://github.com/Financial-Times/stylelint-config-origami-component" class="o-typography-link--external">Origami Stylelint rules</a> enforce a tab indentation style. However indentation style (tabs or spaces) is not standardised: developers **must** respect whatever indent type is already in use when editing existing components. To change indentation style update the component's [`.stylelintrc.js` configuration](https://stylelint.io/user-guide/configure).
+By default the <a href="https://github.com/Financial-Times/stylelint-config-origami-component">Origami Stylelint rules</a> enforce a tab indentation style. However indentation style (tabs or spaces) is not standardised: developers **must** respect whatever indent type is already in use when editing existing components. To change indentation style update the component's [`.stylelintrc.js` configuration](https://stylelint.io/user-guide/configure).
 
 In addition, component CSS **should not** use `!important`. Valid use cases for `!important` exist, but usually only at the product level. If `!important` is used in a component, a comment must be left in code to explain why it was necessary.
 
@@ -35,7 +35,7 @@ In addition, component CSS **should not** use `!important`. Valid use cases for 
 
 CSS/Sass has limited encapsulation, so strict adherence to namespacing rules is essential.
 
-CSS selectors **should** follow the <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" class="o-typography-link--external">BEM</a> naming convention. They **must** also be prefixed with the component name and written as hyphen separated, lowercase strings:
+CSS selectors **should** follow the <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">BEM</a> naming convention. They **must** also be prefixed with the component name and written as hyphen separated, lowercase strings:
 - Good: `.o-thing--large`, `.o-thing__content`
 - Bad: `.largething`, `.oThingContent`
 
@@ -84,9 +84,9 @@ High specificity **should** be minimised. For instance, the pseudo class `:not` 
 - Good: `.o-thing-input {} .o-thing-radio {}`
 - Bad: `.o-thing-input {} .o-thing-input:not([type=radio]) {} .o-thing-input[type=radio] {}`
 
-Pseudo selectors such as `:focus` or `:hover` **should** be used to style a component's state. In the case of `:focus`, Origami components **must** enable a focused style that is distinct from its normal style (the focus style is usually provided by <a href="https://github.com/Financial-Times/o-normalise" class="o-typography-link--external">o-normalise</a>).
+Pseudo selectors such as `:focus` or `:hover` **should** be used to style a component's state. In the case of `:focus`, Origami components **must** enable a focused style that is distinct from its normal style (the focus style is usually provided by <a href="https://github.com/Financial-Times/o-normalise">o-normalise</a>).
 
-Where an ARIA role is appropriate (<a href="https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/" class="o-typography-link--external">no ARIA is better than bad ARIA)</a>), it **should** be used to style a component's state. For example <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-expanded" class="o-typography-link--external">aria-expanded</a>, with a correctly namespaced selector, **should** be used to style an expandable element:
+Where an ARIA role is appropriate (<a href="https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/">no ARIA is better than bad ARIA)</a>), it **should** be used to style a component's state. For example <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-expanded">aria-expanded</a>, with a correctly namespaced selector, **should** be used to style an expandable element:
 
 - Good: `.o-example[aria-expanded=true]`
 - Bad _(if an aria role is available)_: `.o-example--expanded`
@@ -112,7 +112,7 @@ Components **must not** overwrite variables defined by another component. Instea
 
 ## Sass Placeholders
 
-Placeholder selectors (`%`) **must not** be used to reference other components, but **may** be used within a component, see <a href="https://github.com/Financial-Times/ft-origami/issues/254" class="o-typography-link--external">Issue #254</a>.
+Placeholder selectors (`%`) **must not** be used to reference other components, but **may** be used within a component, see <a href="https://github.com/Financial-Times/ft-origami/issues/254">Issue #254</a>.
 
 The `@extends` command **must not** be used to extend placeholders defined in other components, unless the component can only be consumed via `@extends` for historical reasons. This is because extending placeholders defined in other components creates unpredictable cascades and unreliable results, as the order components are included is unpredictable. A placeholder **may** be extended if defined within the same component.
 
@@ -236,7 +236,7 @@ E.g.
 
 To support a [core and enhanced experience](/documentation/components/compatibility/#core--enhanced-experiences) components must render acceptably without JavaScript avalible. Styles which only apply if JavaScript is available **must** be applied with a feature detect such as `.o--if-js`, and to hide an element of a component when JavaScript is available use `o--if-no-js`. If the component provides its own JavaScript feature flag, it **must** be named `.o-componentname--js`.
 
-To detect other features, standardised feature detects **should** be used as a preference, such as the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports" class="o-typography-link--external">@supports</a> at-rule. Otherwise a CSS class on the `documentElement` **may** be used to indicate feature support. The class name **should** be configurable, and default to the class name used by <a href="https://modernizr.com/" class="o-typography-link--external">Modernizr</a>:
+To detect other features, standardised feature detects **should** be used as a preference, such as the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports">@supports</a> at-rule. Otherwise a CSS class on the `documentElement` **may** be used to indicate feature support. The class name **should** be configurable, and default to the class name used by <a href="https://modernizr.com/">Modernizr</a>:
 ```
 $o-thing-inline-svg-support: ‘.inlinesvg’ !default;
 $o-thing-inline-svg-support .o-thing__feature {
@@ -244,7 +244,7 @@ $o-thing-inline-svg-support .o-thing__feature {
 }
 ```
 
-Component developers **must not** use feature flags that need to be set manually by a product developer (i.e. those outside <a href="https://modernizr.com/" class="o-typography-link--external">Modernizr</a> or Origami). Component developers **must** assume that feature flag classes will be set on the `documentElement`, i.e. the HTML tag.
+Component developers **must not** use feature flags that need to be set manually by a product developer (i.e. those outside <a href="https://modernizr.com/">Modernizr</a> or Origami). Component developers **must** assume that feature flag classes will be set on the `documentElement`, i.e. the HTML tag.
 
 ## Browser Targeting
 
@@ -254,7 +254,7 @@ In order of preference, when targeting styles at a specific browser or user-agen
 
 - Assess if the proportion of impacted users is worth the fix.
 - Tweak designs to accommodate most browsers instead.
-- Use <a href="http://browserhacks.com/" class="o-typography-link--external">browser hacks</a>:
+- Use <a href="http://browserhacks.com/">browser hacks</a>:
 ```
 .el {
     background: url(‘data:image/png;base64,/* data */’) bottom right no-repeat;
@@ -266,4 +266,4 @@ In order of preference, when targeting styles at a specific browser or user-agen
 ```
 - Rely on JavaScript user-agent sniffing (as a last resort, in some rare edge cases).
 
-Component developers **must not** use <a href="https://www.quirksmode.org/css/condcom.html" class="o-typography-link--external">IE conditional comments</a> to target user agents (use <a href="http://browserhacks.com/" class="o-typography-link--external">browser hacks</a> instead).
+Component developers **must not** use <a href="https://www.quirksmode.org/css/condcom.html">IE conditional comments</a> to target user agents (use <a href="http://browserhacks.com/">browser hacks</a> instead).

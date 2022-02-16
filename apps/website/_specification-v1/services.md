@@ -17,9 +17,9 @@ nav_order: 20
 
 An Origami web service is a hosted service, offered as a URL endpoint that delivers content or data services. See our [services documentation page](/documentation/services/) for example services.
 
-All services **must** adhere to the FT's <a href="https://docs.google.com/document/d/1NbgQwJKUhSJBVMWw8OVVrKyKwRieaXq7AOtioC69XKM" class="o-typography-link--external">engineering checklist</a>.
+All services **must** adhere to the FT's <a href="https://docs.google.com/document/d/1NbgQwJKUhSJBVMWw8OVVrKyKwRieaXq7AOtioC69XKM">engineering checklist</a>.
 
-Node.js and <a href="https://github.com/Financial-Times/origami-service" class="o-typography-link--external">Origami Service</a>, which extends <a href="https://expressjs.com/" class="o-typography-link--external">Express</a>, **should** be used as a starting point to help meet service requirements.
+Node.js and <a href="https://github.com/Financial-Times/origami-service">Origami Service</a>, which extends <a href="https://expressjs.com/">Express</a>, **should** be used as a starting point to help meet service requirements.
 
 ## Naming Conventions
 
@@ -80,7 +80,7 @@ Services **must** require API endpoint requests to contain a `source` query stri
 
 Requests to non-API endpoints such as the root path or `/__about` **should not** require the source parameter.
 
-If you are building a Node.js/Express service, we provide an <a href="https://github.com/Financial-Times/source-param-middleware" class="o-typography-link--external">Express middleware</a> to check source parameters.
+If you are building a Node.js/Express service, we provide an <a href="https://github.com/Financial-Times/source-param-middleware">Express middleware</a> to check source parameters.
 
 ## Cache Control
 

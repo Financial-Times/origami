@@ -27,9 +27,6 @@ const Story = args => <>
     <P {...args}>
         Lorem ipsum dolor sit amet<Sup>Sup</Sup>, consectetur adipisicing elit<Sub>Sub</Sub>. <Link href="#">Link Necessitatibus asperiores</Link>.
     </P>
-    <P {...args}>
-        Lorem ipsum dolor <Link href="#" external={true}>sit amet consectetur</Link> adipisicing elit. Non atque doloribus quaerat, esse ipsum doloremque.
-    </P>
 </>;
 
 export const Body = Story.bind({});

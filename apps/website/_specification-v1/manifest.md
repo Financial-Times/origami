@@ -12,7 +12,7 @@ nav_order: 25
 
 # {{page.title}}
 
-`origami.json` is a <a href="https://www.json.org/" class="o-typography-link--external"><abbr title="JavaScript Object Notation">JSON</abbr></a> format file that is responsible for describing various aspects of an Origami project.
+`origami.json` is a <a href="https://www.json.org/"><abbr title="JavaScript Object Notation">JSON</abbr></a> format file that is responsible for describing various aspects of an Origami project.
 
 ## Properties
 
@@ -255,8 +255,8 @@ circle:	A CircleCI build status URL (https://circleci.com/api/v1/project/owner/r
 
 Applies to `{ "origamiType": "component" }` and `{ "origamiType": "module" }`. Outlines the browser features required for the component's functionality.
 The object accepts two properties:
-- `required`: type `Array`. A list of <a href="https://polyfill.io" class="o-typography-link--external">Polyfill Service</a> features or <a href="https://modernizr.com/docs/" class="o-typography-link--external">Modernizr</a> tests, which the component assumes exists. If these features do not exist, the component may error.
-- `optional`: type `Array`. A list of <a href="https://polyfill.io" class="o-typography-link--external">Polyfill Service</a> features or <a href="https://modernizr.com/docs/" class="o-typography-link--external">Modernizr</a> tests, which the component  will use if they are available in the browser. If not the component may offer different or reduced functionality, but with graceful degradation.
+- `required`: type `Array`. A list of <a href="https://polyfill.io">Polyfill Service</a> features or <a href="https://modernizr.com/docs/">Modernizr</a> tests, which the component assumes exists. If these features do not exist, the component may error.
+- `optional`: type `Array`. A list of <a href="https://polyfill.io">Polyfill Service</a> features or <a href="https://modernizr.com/docs/">Modernizr</a> tests, which the component  will use if they are available in the browser. If not the component may offer different or reduced functionality, but with graceful degradation.
 
 <pre><code class="o-syntax-highlight--json">{
 	"origamiType": "component",
@@ -314,7 +314,7 @@ The object accepts the following properties:
 - `js`: type `String`. Describes the JS file to build.
 - `data`: type `Object` or `String`. Describes data to populate to the mustache template with. If this is a string it must be a path to a JSON file containing the data, relative to the root of the repo.
 - `documentClasses`: type `String`. Names CSS classes to set on the `html` tag.
-- `dependencies`: type `Array`. Is a list of other components that are only needed for demos, which will be loaded via the <a href="https://www.ft.com/__origami/service/build" class="o-typography-link--external">Build Service</a>
+- `dependencies`: type `Array`. Is a list of other components that are only needed for demos, which will be loaded via the <a href="https://www.ft.com/__origami/service/build">Build Service</a>
 
 All of these properties are **optional**.
 
@@ -358,7 +358,7 @@ Each object in the list accepts the following properties:
 - `data`: type `Object` or `String`. Describes data to populate to the component-specific mustache template with. If this is a string it must be a path to a JSON file containing the data, relative to the root of the repo.
 - `brands`: type `Array`. For components which support [brands](/documentation/components/branding/), this describes one or more brands which the demo applies to ("master", "internal, "whitelabel")
 - `documentClasses`: type `String`. Names CSS classes to set on the component-specific `html` tag
-- `dependencies`: type `Array`. Is a list of other components that are only needed a this specific demo, which will be loaded via the <a href="https://www.ft.com/__origami/service/build" class="o-typography-link--external">Build Service</a>
+- `dependencies`: type `Array`. Is a list of other components that are only needed a this specific demo, which will be loaded via the <a href="https://www.ft.com/__origami/service/build">Build Service</a>
 - `hidden`: type `Boolean`. Whether the demo should be hidden in the Registry
 - `display_html`: type `Boolean`. Whether the demo should have a HTML tab in the Registry (defaults to true)
 

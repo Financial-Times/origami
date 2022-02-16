@@ -534,7 +534,7 @@
 }
 
 @include test-module('oTypographyLink') {
-	@include test('outputs default styles with no external link by default') {
+	@include test('outputs default styles by default') {
 		@include assert {
 			@include output {
 				@include oTypographyLink();
@@ -543,6 +543,19 @@
 				text-decoration: none;
 				cursor: pointer;
 				border-bottom: 0.25ex solid;
+				&[target="_blank"]:after {
+					position: absolute;
+					clip: rect(0 0 0 0);
+					clip-path: polygon(0 0, 0 0);
+					margin: -1px;
+					border: 0;
+					overflow: hidden;
+					padding: 0;
+					width: 2px;
+					height: 2px;
+					white-space: nowrap;
+					content: "(opens a new window)";
+				}
 				@supports (text-decoration-thickness: 0.25ex) {
 					border-bottom: 0;
 					text-decoration-thickness: 0.25ex; //sass-lint:disable-line no-misspelled-properties
@@ -573,6 +586,19 @@
 				), $include-base-styles: false);
 			}
 			@include expect {
+				&[target="_blank"]:after {
+					position: absolute;
+					clip: rect(0 0 0 0);
+					clip-path: polygon(0 0, 0 0);
+					margin: -1px;
+					border: 0;
+					overflow: hidden;
+					padding: 0;
+					width: 2px;
+					height: 2px;
+					white-space: nowrap;
+					content: "(opens a new window)";
+				}
 				color: #990f3d;
 				border-bottom-color: #ebc4c3;
 				text-decoration-color: #ebc4c3;
@@ -596,6 +622,19 @@
 				), $include-base-styles: false);
 			}
 			@include expect {
+				&[target="_blank"]:after {
+					position: absolute;
+					clip: rect(0 0 0 0);
+					clip-path: polygon(0 0, 0 0);
+					margin: -1px;
+					border: 0;
+					overflow: hidden;
+					padding: 0;
+					width: 2px;
+					height: 2px;
+					white-space: nowrap;
+					content: "(opens a new window)";
+				}
 				color: #990f3d;
 				border-bottom-color: #ebc4c3;
 				text-decoration-color: #ebc4c3;
@@ -610,39 +649,15 @@
 			}
 		}
 	}
-	@include test('outputs an icon for an external link') {
+	@include test('outputs a notice for screen reader users when a link opens in a new window') {
 		@include assert {
 			@include output {
-				@include oTypographyLink($external: true);
-			}
-			@include contains {
-				background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=test&tint=%230D7680,%230D7680&format=svg");
-				padding-right: calc(1em + 0.5ch - 0.25em - 0.25em);
-			}
-		}
-	}
-	@include test('outputs a notice for screen reader users that an external link is opened') {
-		@include assert {
-			@include output {
-				@include oTypographyLink($external: true);
+				@include oTypographyLink();
 			}
 			@include contains {
 				&[target="_blank"]:after {
 					content: '(opens a new window)';
 				}
-			}
-		}
-	}
-	@include test('colours an external link icon according to a custom theme') {
-		@include assert {
-			@include output {
-				@include oTypographyLink($theme: (
-					'base': 'claret',
-					'hover': 'claret-30',
-				), $external: true);
-			}
-			@include contains {
-				background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=test&tint=%23990F3D,%23990F3D&format=svg");
 			}
 		}
 	}

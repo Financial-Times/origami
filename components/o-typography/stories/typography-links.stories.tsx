@@ -27,10 +27,3 @@ StandardLink.args = {
 	children: 'link to another page',
 	href: '#'
 };
-
-export const ExternalLink = Story.bind({});
-ExternalLink.args = {
-	children: 'link to some other place',
-	href: '#',
-    external: true
-};

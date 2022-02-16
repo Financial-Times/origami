@@ -20,7 +20,7 @@ nav_order: 20
 
 # {{page.title}}
 
-The Origami specification outlines the requirements for Origami-compatible components and services. This is a <a href="https://www.w3.org/TR/qaframe-spec/" class="o-typography-link--external">normative</a> specification; non-normative (informative) sections are indicated explicitly or by inset and boxed asides. The words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** have the meaning given to them in <a href="http://www.ietf.org/rfc/rfc2119.txt" class="o-typography-link--external">RFC 2119</a>.
+The Origami specification outlines the requirements for Origami-compatible components and services. This is a <a href="https://www.w3.org/TR/qaframe-spec/">normative</a> specification; non-normative (informative) sections are indicated explicitly or by inset and boxed asides. The words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** have the meaning given to them in <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.
 
 <aside>
 	This section of the site is meant for people who are building Origami components or services. To use Origami, see the <a href="/documentation/components/">components documentation</a> and <a href="/documentation/services/">services documentation</a>.
@@ -40,7 +40,7 @@ Conforming to the Origami specification when building components or services is 
 
 ## Naming
 
-The name **repository** refers to a collection of files and folders which are stored in version control (such as <a class="o-typography-link--external" href="https://git-scm.com/">Git</a>.
+The name **repository** refers to a collection of files and folders which are stored in version control (such as <a href="https://git-scm.com/">Git</a>.
 
 The name **component** refers to a repository that:
 

@@ -63,7 +63,7 @@ To support a core experience without JavaScript, add the full `o-cookie-message`
 				<p id="o-cookie-message-description">
 					We use
 					<a href="http://help.ft.com/help/legal-privacy/cookies/"
-						class="o-cookie-message__link o-cookie-message__link--external"
+						class="o-cookie-message__link"
 						target="_blank"
 						rel="noopener">cookies</a>
 					for a number of reasons, such as keeping FT Sites reliable and secure, personalising content and

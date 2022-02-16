@@ -15,7 +15,7 @@ nav_order: 40
 
 Some styled Origami components come with a 'silent mode' [Sass](https://sass-lang.com/) variable, which is used to control when the component outputs CSS. However, this is now deprecated in favour of including a [Sass](https://sass-lang.com/) mixin to control CSS output.
 
-<aside>The <a href="https://sass-lang.com/guide" class="o-typography-link--external">Sass Guide</a> has more information about <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> mixins, and many other features.</aside>
+<aside>The <a href="https://sass-lang.com/guide">Sass Guide</a> has more information about <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> mixins, and many other features.</aside>
 
 `$o-component-silent-mode` **defaults to ON**. You do not need to explicitly set it to be on, but you do need to be aware of this default.
 
