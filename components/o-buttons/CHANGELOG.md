@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.5.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.4.0...o-buttons-v7.5.0) (2022-02-16)
+
+
+### Features
+
+* add ghost button type ([b5a87c1](https://www.github.com/Financial-Times/origami/commit/b5a87c1a726e26a376ba64608c4fde9d359932c1))
+* add ghost to tsx theme ([2d6e576](https://www.github.com/Financial-Times/origami/commit/2d6e5764cf6d59ab1b8b78de0fbd635a4c689eb3))
+
 ## [7.4.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.3.0...o-buttons-v7.4.0) (2022-02-10)
 
 
