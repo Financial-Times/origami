@@ -21,7 +21,6 @@ export interface LinkProps {
 	attributes?: {
 		[attribute: string]: string | boolean;
 	};
-	external?: boolean;
 	openInNewWindow?: boolean;
 }
 export interface SubScriptProps {
@@ -76,16 +75,11 @@ export function Heading({
 export function Link({
 	children = '',
 	href = '#',
-	external = false,
 	openInNewWindow = false,
 	attributes = {
 	},
 }: LinkProps) {
 	const classNames = ['o-typography-link'];
-
-	if(external) {
-		classNames.push('o-typography-link--external');
-	}
 
 	if(openInNewWindow) {
 		Object.assign(attributes,  {

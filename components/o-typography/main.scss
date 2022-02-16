@@ -101,13 +101,6 @@
 		.o-typography-link {
 			@include oTypographyLink;
 		}
-
-		.o-typography-link--external {
-			@include oTypographyLink(
-				$external: true,
-				$include-base-styles: false
-			);
-		}
 	}
 
 	// Lists

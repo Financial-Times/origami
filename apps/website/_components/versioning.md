@@ -17,7 +17,7 @@ nav_order: 20
 
 The Origami team maintains and improves the components regularly. This means that we release new versions of the components frequently, and a component's new version numbers follow the <abbr title="Semantic Versioning">semver</abbr> specification.
 
-<aside>You can find more information in the <a href="http://semver.org/" class="o-typography-link--external"><abbr title="Semantic Versioning">semver</abbr> specification</a></aside>
+<aside>You can find more information in the <a href="http://semver.org/"><abbr title="Semantic Versioning">semver</abbr> specification</a></aside>
 
 ## How components are versioned
 
@@ -32,7 +32,7 @@ _When a new `MAJOR` release affects many dependent components and projects we ca
 
 We recommend requesting an Origami component by requesting a particular version range, which is indicated by a caret (`^`). That syntax will specify a version but will also fetch minor and patch releases in the future. So if you request `o-message@^2.3.0`, you will get `v2.3.0`. But when we release a minor (`v2.4.0`) of that component further down the line, it means you'll automatically get that, too.
 
-<aside>With <abbr title="Semantic Versioning">semver</abbr> you can use different characters to <a href="https://semver.npmjs.com/" class="o-typography-link--external">specify different ranges</a></aside>
+<aside>With <abbr title="Semantic Versioning">semver</abbr> you can use different characters to <a href="https://semver.npmjs.com/">specify different ranges</a></aside>
 
 By requesting a component's version range, you'll have an up-to-date component as soon as we release it.
 

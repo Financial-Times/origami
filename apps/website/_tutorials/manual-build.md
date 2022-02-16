@@ -16,8 +16,8 @@ Installing Origami components with a package manager (manual build) gives you mo
 This tutorial assumes that:
 - You have not implemented a build step
 - You are using a UNIX-like OS with a bash shell
-- You are familiar with JavaScript, and <abbr title="Sassy Cascading Style Sheets"><a href="https://sass-lang.com/" class="o-typography-link--external">SCSS</a></abbr>
-- You have a basic understanding of <abbr title="Node Package Manager"><a href="https://www.npmjs.com/" class="o-typography-link--external">npm</a></abbr>)
+- You are familiar with JavaScript, and <abbr title="Sassy Cascading Style Sheets"><a href="https://sass-lang.com/">SCSS</a></abbr>
+- You have a basic understanding of <abbr title="Node Package Manager"><a href="https://www.npmjs.com/">npm</a></abbr>)
 
 ## Setting up your sandbox
 We will need a folder structure for our page. So let's begin by creating a new directory to work in.
@@ -66,7 +66,7 @@ Now we're ready to start adding components to our page.
 
 With the exception of JavaScript-only components, all of Origami's components rely on markup. This markup, combined with the styling and the functionality, is what determines how a component will look and behave on a page. So before we can style anything, we'll need to add some component markup to our page.
 
-<a href="https://registry.origami.ft.com/components/o-grid" class="o-typography-link--external">o-grid</a> will determine how our content sits on our page. To begin, let's add the following to the `<body>` in our `index.html`:
+<a href="https://registry.origami.ft.com/components/o-grid">o-grid</a> will determine how our content sits on our page. To begin, let's add the following to the `<body>` in our `index.html`:
 
 <pre><code class="o-syntax-highlight--html">&lt;div class="o-grid-container">
 	&lt;div class="o-grid-row o-typography-wrapper" data-o-grid-colspan="center 8">
@@ -89,13 +89,13 @@ This is a good time to highlight how the manual build process provides more flex
 
 Let's head over to <a href="https://registry.origami.ft.com/components/o-table#demo-row-stripes">the striped variation of o-table in the registry</a>, and copy that <abbr title="Hypertext Markup Language">HTML</abbr> in under our content.
 
-<aside>If you'd like to double check your work, we've put our <code>index.html</code> up <a href="https://codepen.io/ft-origami/pen/EprYzR" class="o-typography-link--external">on CodePen</a>.</aside>
+<aside>If you'd like to double check your work, we've put our <code>index.html</code> up <a href="https://codepen.io/ft-origami/pen/EprYzR">on CodePen</a>.</aside>
 
 ## Origami Registry & npm
 
 Now that we have set up the scaffolding for our page, we need to install those components so we can access their respective styles and functionalities.
 
-All Origami components are available for installation via npm. They live in the <a href="https://registry.origami.ft.com/components">Origami Registry</a>, and are published to the <a href="https://npmjs.com/" class="o-typography-link--external">public npm registry</a>.
+All Origami components are available for installation via npm. They live in the <a href="https://registry.origami.ft.com/components">Origami Registry</a>, and are published to the <a href="https://npmjs.com/">public npm registry</a>.
 
 <aside class="no-padding">
 <p>Our folder structure so far:</p>
@@ -146,7 +146,7 @@ And your `package.json` should now look something like this:
 </aside>
 
 So that we can see our progress as we build the page, now is the time to implement our build step.
-What we need is something to bundle the JavaScript we write, and compile Sass to CSS for the browser. But build steps may vary per application or team, so setting up build tools is out of scope for this tutorial. So we can focus on how to use Origami components we are going to use the <a href="https://github.com/Financial-Times/origami-workshop" class="o-typography-link--external">Origami Workshop tool</a>.
+What we need is something to bundle the JavaScript we write, and compile Sass to CSS for the browser. But build steps may vary per application or team, so setting up build tools is out of scope for this tutorial. So we can focus on how to use Origami components we are going to use the <a href="https://github.com/Financial-Times/origami-workshop">Origami Workshop tool</a>.
 
 As long as you have Node.js installed, you can run:
 
@@ -176,7 +176,7 @@ Now we can begin styling our components. For this, all of our work is going to h
 
 ### Output All Component Styles
 
-So we can monitor what projects component assets are being used, some components require a global Sass `$system-code` variable is set. This should be the project's <a href="https://biz-ops.in.ft.com" class="o-typography-link--external">biz-ops system code</a>, but we can set it to `test` for now in `src/main.scss`:
+So we can monitor what projects component assets are being used, some components require a global Sass `$system-code` variable is set. This should be the project's <a href="https://biz-ops.in.ft.com">biz-ops system code</a>, but we can set it to `test` for now in `src/main.scss`:
 <pre><code class="o-syntax-highlight--scss">$system-code: 'test';</code></pre>
 
 To include the components Sass use `@import`. For example this makes all `o-grid` Sass mixins, functions, and variables available:
@@ -228,7 +228,7 @@ body {
 
 As soon as your build has completed, visit your page again in the browser. You should have the pink that is characteristic of the FT as a background colour.
 
-<aside>If you'd like to double check your work, we've put our <code>main.scss</code> up <a href="https://codepen.io/ft-origami/pen/VBgwwJ" class="o-typography-link--external">on CodePen</a>.</aside>
+<aside>If you'd like to double check your work, we've put our <code>main.scss</code> up <a href="https://codepen.io/ft-origami/pen/VBgwwJ">on CodePen</a>.</aside>
 
 
 ### Selecting A Brand
@@ -280,6 +280,6 @@ Now you can sort fruit alphabetically by name or characteristic, or numerically 
 We've given you an overview of how to build components manually. There is more information about each component, its variations, its individual behaviour and configuration in the <a href="https://registry.origami.ft.com/components">Origami Registry</a>. Here we've covered the fundamentals, but there are a few more aspects to the development of a product with Origami components that are important for compatibility and consistency, and we encourage you to read more about them:
 
 - Origami components have been developed to provide a 'core' experience for older browsers, and an 'enhanced' experience for newer ones, and we check for this using a ['cuts the mustard'](/documentation/components/compatibility/#cuts-the-mustard) test, which can determine which experience to serve to which browser.
-- Another service we provide is the <a href="https://polyfill.io" class="o-typography-link--external">Polyfill Service</a>, which makes newer APIs available to older browsers, allowing us to write code to modern standards.
+- Another service we provide is the <a href="https://polyfill.io">Polyfill Service</a>, which makes newer APIs available to older browsers, allowing us to write code to modern standards.
 - Learn more about Origami supported ['brands'](/documentation/components/branding/), which can change the appearance of components and provide unique features for different projects.
 - [Component versioning](/documentation/components/versioning) is also important when building and maintaining products that use Origami components.

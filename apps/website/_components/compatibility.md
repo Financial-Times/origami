@@ -26,7 +26,7 @@ To determine whether or not a browser supports those features, we use a 'cuts th
 
 ### Cuts the mustard
 
-<aside>This expression comes from the <abbr title="British Broadcasting Corporation">BBC</abbr>'s <a href="http://responsivenews.co.uk/post/18948466399/cutting-the-mustard" class="o-typography-link--external">post about <abbr title="Cuts The Mustard">CTM</abbr></a></aside>
+<aside>This expression comes from the <abbr title="British Broadcasting Corporation">BBC</abbr>'s <a href="http://responsivenews.co.uk/post/18948466399/cutting-the-mustard">post about <abbr title="Cuts The Mustard">CTM</abbr></a></aside>
 
 #### Defining a <abbr title="Cuts The Mustard">CTM</abbr> test
 
@@ -72,14 +72,14 @@ If there is JavaScript to execute regardless of the experience served to the bro
 	}('https://example.com/main.js));
 &lt;/script></code></pre>
 
-<aside>We've put the full implementation of our <abbr title="Cuts The Mustard">CTM</abbr> test <a href="https://codepen.io/ft-origami/pen/rZjzbw" class="o-typography-link--external">on Codepen</a></aside>
+<aside>We've put the full implementation of our <abbr title="Cuts The Mustard">CTM</abbr> test <a href="https://codepen.io/ft-origami/pen/rZjzbw">on Codepen</a></aside>
 
 ## Browser support
 
-Origami follow the <a href="https://docs.google.com/document/d/1z6kecy_o9qHYIznTmqQ-IJqre72jhfd0nVa4JMsS7Q4/" class="o-typography-link--external"><abbr title="Financial Times">FT</abbr> Browser Support Policy document</a> available to <abbr title="Financial Times">FT</abbr> staff.
+Origami follow the <a href="https://docs.google.com/document/d/1z6kecy_o9qHYIznTmqQ-IJqre72jhfd0nVa4JMsS7Q4/"><abbr title="Financial Times">FT</abbr> Browser Support Policy document</a> available to <abbr title="Financial Times">FT</abbr> staff.
 
 ## Polyfill service
 
 In the physical world, 'Polyfilla' is a type of plaster that is used to fill in small holes in walls. In web development, polyfills are snippets of code that implement a feature on browsers that do not natively support that feature. It means that we can write modern JavaScript without having to invest a large amount of time in making it work in older browsers.
 
-What can be time consuming, is identifying the polyfills we need, so for that, we use and maintain the <a href="http://polyfill.io" class="o-typography-link--external">Polyfill Service</a> which hosts all of its own documentation.
+What can be time consuming, is identifying the polyfills we need, so for that, we use and maintain the <a href="http://polyfill.io">Polyfill Service</a> which hosts all of its own documentation.

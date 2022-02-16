@@ -19,11 +19,11 @@ collection_listing_display: false
 
 # Markup Specification
 
-The markup **must** be <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax" class="o-typography-link--external">valid HTML5</a>, except that a DOCTYPE, and opening `<html>` and `<body>` tags should be assumed (i.e. the markup should be a document body fragment which becomes a valid HTML5 document when enclosed in `<html>` and `<body>` tags).
+The markup **must** be <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax">valid HTML5</a>, except that a DOCTYPE, and opening `<html>` and `<body>` tags should be assumed (i.e. the markup should be a document body fragment which becomes a valid HTML5 document when enclosed in `<html>` and `<body>` tags).
 
 Markup **must** also conform to the following XML rules:
 - **Must** have a single root element.
-- All elements that are opened **must** be closed (including <a href="https://github.com/Financial-Times/ft-origami/issues/66" class="o-typography-link--external">inline SVG</a>).
+- All elements that are opened **must** be closed (including <a href="https://github.com/Financial-Times/ft-origami/issues/66">inline SVG</a>).
 - Closing tags **must** be in order.
 - **Must** not have valueless attributes.
 
@@ -66,7 +66,7 @@ The ID attribute **must not** be used, except where:
 - The value is namespaced with the name of the component, e.g. `o-signin-username`.
 - The component only has singleton use cases (i.e. it is pointless to include it in a product page more than once).
 
-Component authors are encouraged to provide assistive accessibility information in their component's markup where appropriate. See <a href="https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/" class="o-typography-link--external">WAI-ARIA Authoring Practices</a>; keep in mind no ARIA is better than bad ARIA.
+Component authors are encouraged to provide assistive accessibility information in their component's markup where appropriate. See <a href="https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/">WAI-ARIA Authoring Practices</a>; keep in mind no ARIA is better than bad ARIA.
 
 ## Conditional Comments
 
@@ -99,7 +99,7 @@ Markup **may** contain elements that do not work without accompanying JavaScript
 <div class="o--if-no-js">To comment on this article, you need to upgrade your web browser.  <a href="...">Learn how to upgrade</a>.</div>
 ```
 
-If the `o--if-no-js` element contains an image for the [core experience](/documentation/components/compatibility/#core--enhanced-experiences) only, a `<noscript>` tag **should** be used <a href="http://timkadlec.com/2012/04/media-query-asset-downloading-results/" class="o-typography-link--external">to avoid unnecessary HTTP requests</a>:
+If the `o--if-no-js` element contains an image for the [core experience](/documentation/components/compatibility/#core--enhanced-experiences) only, a `<noscript>` tag **should** be used <a href="http://timkadlec.com/2012/04/media-query-asset-downloading-results/">to avoid unnecessary HTTP requests</a>:
 
 ```
 <div class="o--if-no-js">
@@ -111,7 +111,7 @@ If the `o--if-no-js` element contains an image for the [core experience](/docume
 
 ## Templates
 
-Origami components **should not** provide templates directly, outside of HTML within component demos and the readme. But where they do, templates **must** be in <a href="https://mustache.github.io/" class="o-typography-link--external">Mustache format</a>. This is because product developers may choose to use any technology stack to built their application, and it’s important that they not be forced to choose a particular one in order to use Origami components.
+Origami components **should not** provide templates directly, outside of HTML within component demos and the readme. But where they do, templates **must** be in <a href="https://mustache.github.io/">Mustache format</a>. This is because product developers may choose to use any technology stack to built their application, and it’s important that they not be forced to choose a particular one in order to use Origami components.
 
 ### Reference formats
 

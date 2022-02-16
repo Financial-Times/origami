@@ -7,4 +7,4 @@ The Origami Navigation Service is a JSON API which provides navigation structure
 
 This service is freely available to users within the Financial Times **only**. Use by a party outside of the Financial Times may be blocked without warning.
 
-To start using the Navigation Service, please <a href="https://www.ft.com/__origami/service/navigation" class="o-typography-link--external">refer to the service documentation</a>.
+To start using the Navigation Service, please <a href="https://www.ft.com/__origami/service/navigation">refer to the service documentation</a>.

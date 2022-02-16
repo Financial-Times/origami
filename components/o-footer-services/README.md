@@ -24,7 +24,7 @@ A footer requires the following markup:
 			<p class="o-footer-services__logo">Origami</p>
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="http://github.com/financial-times/o-footer-services">View project on GitHub</a>
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://slack.com/messages/[id]/">#slack-channel</a>
-			<p class="o-footer-services__content">Help or advice can be found here <a href="mailto:an.email@someplace.com">an.email@someplace.com</a> and there are other places, <a class="o-footer-services__content--external" href='/somewhere'>like this one</a>.</p>
+			<p class="o-footer-services__content">Help or advice can be found here <a href="mailto:an.email@someplace.com">an.email@someplace.com</a> and there are other places, <a href='/somewhere'>like this one</a>.</p>
 		</div>
 	</div>
 	<div class="o-footer-services__container">

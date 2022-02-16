@@ -87,16 +87,6 @@
 ///     	@include oTypographyLink();
 ///     }
 ///
-/// @example Output the styles for an external link.
-///     .my-external-link {
-///     	@include oTypographyLink($external: true);
-///     }
-///
-/// @example Output the styles for an external link, without repeating styles shared by standard links.
-///     .my-link--external {
-///     	@include oTypographyLink($external: true, $include-base-styles: false);
-///     }
-///
 /// @example Output a custom, claret coloured link to go on the default background colour (paper for the core brand, white otherwise).
 ///     .my-claret-link {
 ///     	@include oTypographyLink($theme: (
@@ -114,9 +104,9 @@
 ///     	));
 ///     }
 ///
-/// @param {Boolean} $external [false] - If the style is for external links, set to true to output an external link icon.
+/// @param {Boolean} $external [false] - This parameter is deprecated - we no longer output an icon for external links
 /// @param {Map|Null} $theme [null] - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the core brand, white otherwise).
-/// @param {Boolean} $include-base-styles [true] - If set to false standard link styles will not be output, only additional styles required by a custom theme or external link.
+/// @param {Boolean} $include-base-styles [true] - If set to false standard link styles will not be output, only additional styles required by a custom theme.
 @mixin oTypographyLink($external: false, $theme: null, $include-base-styles: true) {
 	// Default link colours.
 	// These may be `null` if the usecase is not set, i.e. for the whitelabel brand.
@@ -156,40 +146,18 @@
 		}
 	}
 
-	// Output external link styles.
-	// Fallback to a black icon if no link colour is given.
-	@if($external) {
-		$icon-color: if($base-color, $base-color, oColorsByName('black'));
-		$icon-size: 1em;
-		$icon-inbuilt-padding-size: #{div($icon-size, 4)};
-		$icon-padding-calc: "#{$icon-size} + #{0.5ch}";
-		@include oIconsContent('outside-page', $icon-color, $size: null, $include-base-styles: false);
-		background-repeat: no-repeat;
-		// Add padding for icon background.
-		// To position the icon closer to the copy, minus the right/left padding
-		// built into the icon svg (10px for a 40px icon)
-		// https://github.com/Financial-Times/fticons/blob/v1.20.5/contributing.md#design
-		padding-right: calc(#{$icon-padding-calc} - #{$icon-inbuilt-padding-size} - #{$icon-inbuilt-padding-size});
-		background-position-x: calc(100% + 0.5ch);
-		// Mimic baseline alignment.
-		@supports (background-size: contain) {
-			background-position-y: calc(100% + #{$underline-size} - 1px);
-		}
-		@supports (text-decoration-thickness: $underline-size) {
-			background-position-y: calc(100% + #{$icon-inbuilt-padding-size} - #{$underline-size} - 1px);
-		}
-		background-origin: border-box;
-		// IE11 does not size and position the svg icon background correctly
-		// using `background-size: contain`. Use @supports to exclude IE11,
-		// as IE11 does not support @supports
-		background-size: calc(#{$icon-padding-calc}) calc(#{$icon-padding-calc}); // IE11 fallback
-		@supports (background-size: contain) {
-			background-size: contain;
-		}
-		&[target="_blank"]:after {
-			@include oNormaliseVisuallyHidden();
-			content: '(opens a new window)';
-		}
+	@if ($external) {
+		@warn 'The $external parameter for oTypographyLink is deprecated. ' +
+			'Remove the $external argument from the oTypographyLink include. ' +
+			'During an accessibility audit we found that the icon was causing confusion ' +
+			'as some users understood the icon to mean the link will open in a new window. ' +
+			'After discussing with the Design team and looking into what websites such as gov.uk do, ' +
+			'we decided to remove the icon for external links.';
+	}
+
+	&[target="_blank"]:after {
+		@include oNormaliseVisuallyHidden();
+		content: '(opens a new window)';
 	}
 
 	// Output base styles shared by all links.
@@ -327,4 +295,3 @@
 	margin-bottom: 0;
 	color: oColorsByUsecase('body', 'text', $fallback: null);
 }
-

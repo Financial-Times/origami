@@ -130,18 +130,6 @@
 				'context': _oFooterServicesGet('background-color', $from: $theme-name)
 			), $include-base-styles: false);
 		}
-
-		.o-footer-services__content--external {
-			@include oTypographyLink(
-				$theme: (
-					'base': _oFooterServicesGet('link-color', $from: $theme-name),
-					'hover': _oFooterServicesGet('link-color', $from: $theme-name),
-					'context': _oFooterServicesGet('background-color', $from: $theme-name)
-				),
-				$external: true,
-				$include-base-styles: false
-			);
-		}
 	}
 
 	@if $brand-strip {
