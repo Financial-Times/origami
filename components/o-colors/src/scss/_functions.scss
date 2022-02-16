@@ -7,13 +7,16 @@
 		@return _oColorsError('`$color-name` should be a string but found "#{inspect($color-name)}" of type "#{type-of($color-name)}".');
 	}
 
+	@if($color-name == 'transparent') {
+		@return transparent;
+	}
+
 	// Error when the color name is not found.
 	// Get the namespaced color name.
 	@if (not _oColorsNameExists($color-name)) {
 		@return _oColorsError('The color "#{inspect($color-name)}" does not exist.');
 	}
 
-	// @todo teal-50 to map-get(tokens, teal, 50). maybe change design token structure to separate tones?
 	$token-value: map-get($_o-colors-branded-tokens, 'color', 'palette', $color-name);
 
 	@return map-get($_o-colors-branded-tokens, 'color', 'palette', $color-name);
@@ -50,7 +53,6 @@
 	@if (type-of($token-value) == 'map') {
 		$token-value: if($usecase == 'link-hover', map-get($token-value, 'hover'), map-get($token-value, '_'));
 	}
-	@debug $property, $usecase, $token-value;
 	@if($token-value) {
 		@return $token-value;
 	}
@@ -111,8 +113,6 @@
 @function oColorsGetTone($color-name, $brightness) {
 	// Find palette colour information.
 	$color: oColorsByName($color-name);
-	$color-map: map-get($_o-colors-palette, $color-name);
-	$color-meta: map-get($color-map, 'meta');
 
 	// Validate brightness.
 	@if(type-of($brightness) != 'number' or $brightness > 100 or $brightness < 0) {
@@ -127,7 +127,7 @@
 	}
 
 	// Error for any palette colour which hasn't been configured to allow tones.
-	$allows-tones: map-get($color-meta, 'allow-tones');
+	$allows-tones: index($_o-colors-tone-allow-list, $color-name) != null;
 	@if (not $allows-tones) {
 		@return _oColorsError('"#{$color-name}" does not allow tones. ' +
 		'We only allow tones for some colours, to reduce the number ' +
@@ -147,6 +147,71 @@
 	@return _oColorsHsbToHex($hsb-hue, $hsb-saturation, $brightness);
 }
 
+
+/// String to number converter
+/// @author Hugo Giraudel
+/// @access private
+///
+/// Casts a string into a number
+///
+/// @param {String | Number} $value - Value to be parsed
+///
+/// @return {Number}
+///
+@function to-number($value) {
+	@if type-of($value) == 'number' {
+	  @return $value;
+	} @else if type-of($value) != 'string' {
+	  $_: log('Value for `to-number` should be a number or a string.');
+	}
+
+	$result: 0;
+	$digits: 0;
+	$minus: str-slice($value, 1, 1) == '-';
+	$numbers: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
+
+	@for $i from if($minus, 2, 1) through str-length($value) {
+	  $character: str-slice($value, $i, $i);
+
+	  @if not (index(map-keys($numbers), $character) or $character == '.') {
+		@return null
+	  }
+
+	  @if $character == '.' {
+		$digits: 1;
+	  } @else if $digits == 0 {
+		$result: $result * 10 + map-get($numbers, $character);
+	  } @else {
+		$digits: $digits * 10;
+		$result: $result + map-get($numbers, $character) / $digits;
+	  }
+	}
+
+	@return if($minus, -$result, $result);;
+  }
+
+@function str-split($string, $separator) {
+    // empty array/list
+    $split-arr: ();
+    // first index of separator in string
+    $index : str-index($string, $separator);
+    // loop through string
+    @while $index != null {
+        // get the substring from the first character to the separator
+        $item: str-slice($string, 1, $index - 1);
+        // push item to array
+        $split-arr: append($split-arr, $item);
+        // remove item and separator from string
+        $string: str-slice($string, $index + 1);
+        // find new index of separator
+        $index : str-index($string, $separator);
+    }
+    // add the remaining string to list (the last item)
+    $split-arr: append($split-arr, $string);
+
+    @return $split-arr;
+}
+
 /// Figure out if a given colour is a tone. If it is a tone return the original
 /// colour name and its tone brightness, otherwise return null.
 ///
@@ -158,21 +223,42 @@
 /// @param {String} $color - the palette colour or color name e.g. 'claret-80'
 /// @return {Map|Null} - the details of the given tone e.g. ('color-name': 'claret', 'brightness': 80)					)
 @function oColorsGetToneDetails($color) {
-	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
-	$hue: hue($color);
-	@each $tone-color, $tone-config in $_o-colors-default-palette-tones {
-		// Check the given colour against the tone to find the tone brightness.
-		$brightness: 0;
-		@while $brightness <= 100 {
-			@if(inspect(oColorsGetTone($tone-color, $brightness)) == inspect($color)) {
+	$token-palette: map-get($_o-colors-branded-tokens, 'color', 'palette');
+
+	// Gross: Try to find tone details from the palette
+	@each $tone-name, $tone-color in $token-palette {
+		$tone-details: str-split($tone-name, '-');
+		@if (inspect($tone-color) == inspect($color) and length($tone-details) == 2) {
+			$color-name: nth($tone-details, 1);
+			$tone-number: to-number(nth($tone-details, 2));
+			@if($tone-number) {
 				@return (
-					'color-name': $tone-color,
-					'brightness': $brightness
+					'color-name': $color-name,
+					'brightness': $tone-number
 				);
 			}
-			$brightness: $brightness + 1;
 		}
 	}
+
+	// Gross: Well, try generating a tone at every percentage point
+	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
+	$hue: hue($color);
+	@each $tone-color in $_o-colors-tone-allow-list {
+		@if(_oColorsNameExists($tone-color)) {
+			// Check the given colour against the tone to find the tone brightness.
+			$brightness: 0;
+			@while $brightness <= 100 {
+				@if(inspect(oColorsGetTone($tone-color, $brightness)) == inspect($color)) {
+					@return (
+						'color-name': $tone-color,
+						'brightness': $brightness
+					);
+				}
+				$brightness: $brightness + 1;
+			}
+		}
+	}
+
 	// No tone matched.
 	@return null;
 }
@@ -346,6 +432,7 @@
 @function oColorsGetPaletteDetails() {
 	$public-palette-details: ();
 
+	// @todo remove $_o-colors-palette, handle custom colours
 	@each $name, $color-map in $_o-colors-palette {
 		$details: (
 			'name': map-get($color-map, 'name')

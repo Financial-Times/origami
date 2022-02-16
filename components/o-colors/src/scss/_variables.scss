@@ -31,3 +31,7 @@ $_o-colors-deprecation-warnings-output: ();
 /// @access private
 /// @type Bool
 $_o-colors-test-environment: false !default;
+
+/// @access private
+/// @type list
+$_o-colors-tone-allow-list: ('black', 'claret', 'oxford', 'teal', 'wheat');

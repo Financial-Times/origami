@@ -6,12 +6,12 @@
                 "box": { "value": "{color.palette.slate-white-5.value}" }
             },
             "outline": {
-                "focus": { "value": "{color.palette.oxford.80.value}" }
+                "focus": { "value": "{color.palette.oxford-80.value}" }
             },
             "text": {
                 "link": {
-                    "_": { "value": "{color.palette.teal._.value}" },
-                    "hover": { "value": "{color.palette.teal.30.value}" }
+                    "_": { "value": "{color.palette.teal.value}" },
+                    "hover": { "value": "{color.palette.teal-30.value}" }
                 },
                 "link-title": {
                     "_": { "value": "{color.palette.slate-white-15.value}" },
@@ -24,7 +24,7 @@
                     "value": "{color.palette.slate.value}"
                 },
                 "muted": {
-                    "value": "{color.palette.black.20.value}"
+                    "value": "{color.palette.black-20.value}"
                 }
             }
         }

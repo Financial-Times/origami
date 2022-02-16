@@ -6,24 +6,27 @@ import {files} from 'origami-tools-helpers';
 const buildDictionaryForBrands = async (brands) => {
 	const componentName = await files.getComponentName();
 
-	for (const brand of brands) {
-		await buildDictionaryForBrand(brand);
-	}
-
-	await fsExtra.writeFile('src/scss/_brand.scss', `
-		@import '@financial-times/o-brand/main';
-		${brands.map(brand => `
-		@import '../dist-tokens/${brand}/backward-compatible-tokens';
-		`).join('\n')}
-
-		$_${componentName}-branded-tokens: ();
-
-		${brands.map(brand => `
-		@if oBrandGetCurrentBrandNew() == ${brand} {
-			$_${componentName}-branded-tokens: $_o-colors-${brand}-tokens !global;
+	// @todo only build for supported components
+	if(componentName === 'o-colors') {
+		for (const brand of brands) {
+			await buildDictionaryForBrand(brand);
 		}
-		`).join('')}
-	`);
+
+		await fsExtra.writeFile('src/scss/_brand.scss', `
+			@import '@financial-times/o-brand/main';
+			${brands.map(brand => `
+			@import '../dist-tokens/${brand}/backward-compatible-tokens';
+			`).join('\n')}
+
+			$_${componentName}-branded-tokens: ();
+
+			${brands.map(brand => `
+			@if oBrandGetCurrentBrandNew() == ${brand} {
+				$_${componentName}-branded-tokens: $_o-colors-${brand}-tokens !global;
+			}
+			`).join('')}
+		`);
+	}
 };
 
 const buildDictionaryForBrand = async (brand) => {

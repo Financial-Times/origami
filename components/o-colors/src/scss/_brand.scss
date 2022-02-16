@@ -1,28 +1,28 @@
 
-		@import '@financial-times/o-brand/main';
-		
-		@import '../dist-tokens/core/backward-compatible-tokens';
-		
+			@import '@financial-times/o-brand/main';
+			
+			@import '../dist-tokens/core/backward-compatible-tokens';
+			
 
-		@import '../dist-tokens/internal/backward-compatible-tokens';
-		
+			@import '../dist-tokens/internal/backward-compatible-tokens';
+			
 
-		@import '../dist-tokens/whitelabel/backward-compatible-tokens';
-		
+			@import '../dist-tokens/whitelabel/backward-compatible-tokens';
+			
 
-		$_o-colors-branded-tokens: ();
+			$_o-colors-branded-tokens: ();
 
+			
+			@if oBrandGetCurrentBrandNew() == core {
+				$_o-colors-branded-tokens: $_o-colors-core-tokens !global;
+			}
+			
+			@if oBrandGetCurrentBrandNew() == internal {
+				$_o-colors-branded-tokens: $_o-colors-internal-tokens !global;
+			}
+			
+			@if oBrandGetCurrentBrandNew() == whitelabel {
+				$_o-colors-branded-tokens: $_o-colors-whitelabel-tokens !global;
+			}
+			
 		
-		@if oBrandGetCurrentBrandNew() == core {
-			$_o-colors-branded-tokens: $_o-colors-core-tokens !global;
-		}
-		
-		@if oBrandGetCurrentBrandNew() == internal {
-			$_o-colors-branded-tokens: $_o-colors-internal-tokens !global;
-		}
-		
-		@if oBrandGetCurrentBrandNew() == whitelabel {
-			$_o-colors-branded-tokens: $_o-colors-whitelabel-tokens !global;
-		}
-		
-	

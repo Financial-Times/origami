@@ -4,40 +4,40 @@
             "background": {
                 "page": { "value": "{color.palette.paper.value}" },
                 "logo": { "value": "{color.palette.ft-pink.value}" },
-                "box": { "value": "{color.palette.wheat._.value}" }
+                "box": { "value": "{color.palette.wheat.value}" }
             },
             "outline": {
-                "focus": { "value": "{color.palette.black.50.value}" }
+                "focus": { "value": "{color.palette.black-50.value}" }
             },
             "text": {
                 "logo": { "value": "{color.palette.ft-grey.value}" },
                 "link": {
-                    "_": { "value": "{color.palette.teal._.value}" },
-                    "hover": { "value": "{color.palette.teal.30.value}" }
+                    "_": { "value": "{color.palette.teal.value}" },
+                    "hover": { "value": "{color.palette.teal-30.value}" }
                 },
                 "link-title": {
-                    "_": { "value": "{color.palette.black.80.value}" },
-                    "hover": { "value": "{color.palette.black.70.value}" }
+                    "_": { "value": "{color.palette.black-80.value}" },
+                    "hover": { "value": "{color.palette.black-70.value}" }
                 },
                 "tag-link": {
-                    "_": { "value": "{color.palette.claret._.value}" },
-                    "hover": { "value": "{color.palette.claret.30.value}" }
+                    "_": { "value": "{color.palette.claret.value}" },
+                    "hover": { "value": "{color.palette.claret-30.value}" }
                 },
                 "opinion-tag-link": {
-                    "_": { "value": "{color.palette.oxford._.value}" },
-                    "hover": { "value": "{color.palette.oxford.30.value}" }
+                    "_": { "value": "{color.palette.oxford.value}" },
+                    "hover": { "value": "{color.palette.oxford-30.value}" }
                 },
                 "title": {
-                    "value": "{color.palette.black._.value}"
+                    "value": "{color.palette.black.value}"
                 },
                 "body": {
-                    "value": "{color.palette.black.80.value}"
+                    "value": "{color.palette.black-80.value}"
                 },
                 "muted": {
-                    "value": "{color.palette.black.20.value}"
+                    "value": "{color.palette.black-20.value}"
                 },
                 "opinion": {
-                    "value": "{color.palette.black.20.value}"
+                    "value": "{color.palette.black-20.value}"
                 }
             }
         }
