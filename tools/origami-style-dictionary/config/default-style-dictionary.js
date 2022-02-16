@@ -11,16 +11,16 @@ const buildDictionaryForBrands = async (brands) => {
 	}
 
 	await fsExtra.writeFile('src/scss/_brand.scss', `
-		@use '@financial-times/o-brand/main';
+		@import '@financial-times/o-brand/main';
 		${brands.map(brand => `
-		@use '../dist-tokens/${brand}/tokens' as ${brand};
+		@import '../dist-tokens/${brand}/backward-compatible-tokens';
 		`).join('\n')}
 
 		$_${componentName}-branded-tokens: ();
 
 		${brands.map(brand => `
 		@if oBrandGetCurrentBrandNew() == ${brand} {
-			$_${componentName}-branded-tokens: ${brand}.$${componentName}-tokens !global;
+			$_${componentName}-branded-tokens: $_o-colors-${brand}-tokens !global;
 		}
 		`).join('')}
 	`);
@@ -40,11 +40,16 @@ const buildDictionaryForBrand = async (brand) => {
 	const storybook = StyleDictionary.extend({
 
 		transform: {
-			'origami/o-brand': {
-				type: `attribute`,
+			'origami/o-brand-compatibility': {
+				type: `name`,
 				transformer: token => {
-					token.path.unshift(brand);
-					return token;
+					return `${brand}-${token.name}`
+				}
+			},
+			'origami/private-sass': {
+				type: `name`,
+				transformer: token => {
+					return `_${token.name}`
 				}
 			},
 			'origami/component-name-prefix': {
@@ -59,8 +64,8 @@ const buildDictionaryForBrand = async (brand) => {
 				componentName === 'o-colors' && token.attributes?.category === 'color',
 				transformer: token => {
 					return token.name
-					.replace('o-colors-color-palette', 'o-colors')
-					.replace('o-colors-color-usecase', 'o-colors')
+					.replace('color-palette-', '')
+					.replace('color-usecase-', '')
 				}
 			}
 		},
@@ -100,10 +105,7 @@ const buildDictionaryForBrand = async (brand) => {
 					'content/icon',
 					'size/rem',
 					'color/css',
-					'color/css',
-					'origami/component-name-prefix',
-					'origami/o-colors-name',
-					'origami/o-brand'
+					'color/css'
 				],
 				buildPath,
 				files: [
@@ -111,7 +113,36 @@ const buildDictionaryForBrand = async (brand) => {
 						destination: `tokens.scss`,
 						format: `scss/map-deep`,
 						// @ts-ignore
-						mapName: `${componentName}-tokens`,
+						mapName: `tokens`,
+						options: {
+							outputReferences: true,
+							themeable: false
+						}
+					}
+				]
+			},
+
+			sassBackwardCompatibility: {
+				transforms: [
+					'attribute/cti',
+					'name/cti/kebab',
+					'time/seconds',
+					'content/icon',
+					'size/rem',
+					'color/css',
+					'color/css',
+					'origami/o-brand-compatibility',
+					'origami/component-name-prefix',
+					'origami/o-colors-name',
+					'origami/private-sass'
+				],
+				buildPath,
+				files: [
+					{
+						destination: `backward-compatible-tokens.scss`,
+						format: `scss/map-deep`,
+						// @ts-ignore
+						mapName: `_${componentName}-${brand}-tokens`,
 						options: {
 							outputReferences: true,
 							themeable: false
