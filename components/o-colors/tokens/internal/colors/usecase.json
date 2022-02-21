@@ -2,29 +2,29 @@
     "color": {
         "usecase": {
             "background": {
-                "page": { "value": "{color.palette.white.value}" },
-                "box": { "value": "{color.palette.slate-white-5.value}" }
+                "page": { "value": "{color.palette.white}" },
+                "box": { "value": "{color.palette.slate-white-5}" }
             },
             "outline": {
-                "focus": { "value": "{color.palette.oxford-80.value}" }
+                "focus": { "value": "{color.palette.oxford-80}" }
             },
             "text": {
                 "link": {
-                    "_": { "value": "{color.palette.teal.value}" },
-                    "hover": { "value": "{color.palette.teal-30.value}" }
+                    "_": { "value": "{color.palette.teal}" },
+                    "hover": { "value": "{color.palette.teal-30}" }
                 },
                 "link-title": {
-                    "_": { "value": "{color.palette.slate-white-15.value}" },
-                    "hover": { "value": "{color.palette.slate-white-15.value}" }
+                    "_": { "value": "{color.palette.slate-white-15}" },
+                    "hover": { "value": "{color.palette.slate-white-15}" }
                 },
                 "title": {
-                    "value": "{color.palette.slate.value}"
+                    "value": "{color.palette.slate}"
                 },
                 "body": {
-                    "value": "{color.palette.slate.value}"
+                    "value": "{color.palette.slate}"
                 },
                 "muted": {
-                    "value": "{color.palette.black-20.value}"
+                    "value": "{color.palette.black-20}"
                 }
             }
         }
