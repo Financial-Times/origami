@@ -2,24 +2,45 @@
 ///
 /// @param {String} $color-name - The name of the colour to get.
 @function oColorsByName($color-name) {
+	@if($color-name == 'transparent') {
+		@return transparent;
+	}
+
 	// Validate color name is a string.
 	@if(type-of($color-name) != 'string') {
 		@return _oColorsError('`$color-name` should be a string but found "#{inspect($color-name)}" of type "#{type-of($color-name)}".');
 	}
 
-	@if($color-name == 'transparent') {
-		@return transparent;
-	}
-
-	// Error when the color name is not found.
-	// Get the namespaced color name.
+	// Check if it exists.
 	@if (not _oColorsNameExists($color-name)) {
 		@return _oColorsError('The color "#{inspect($color-name)}" does not exist.');
 	}
 
+	// Check Origami design tokens:
 	$token-value: map-get($_o-colors-branded-tokens, 'color', 'palette', $color-name);
+	@if($token-value) {
+		@return map-get($_o-colors-branded-tokens, 'color', 'palette', $color-name);
+	}
 
-	@return map-get($_o-colors-branded-tokens, 'color', 'palette', $color-name);
+	// Check for a user defined custom colour:
+	// Get color details.
+	$color-map: map-get($_o-colors-palette, $color-name);
+	$color: map-get($color-map, 'value');
+	$meta: map-get($color-map, 'meta');
+
+	// Output any deprecation notice.
+	$deprecated: map-get($meta, 'deprecated');
+	$already-warned: index($_o-colors-deprecation-warnings-output, $color-name) != null;
+	@if $deprecated and not $already-warned {
+		$deprecation-message: 'The color "#{$color-name}" is deprecated for your brand\'s palette, and will be removed in the next major.';
+		// Append any custom deprecation message.
+		$deprecation-message: if(type-of($deprecated) != 'string', $deprecation-message, $deprecation-message + ' ' + $deprecated);
+		// Output warning.
+		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $color-name) !global;
+		@warn $deprecation-message;
+	}
+
+	@return $color;
 }
 
 /// Return the defined palette color for a use case / property combination
@@ -43,11 +64,43 @@
 		'"#{inspect($valid-properties)}" but found "#{inspect($property)}".');
 	}
 
-
-	// @todo this is difficult because states are nested, not named hover-text for example.
-	// maybe try bringing the o-colors config back and manually map?
-	// then have tokens exposed elsewhere for new api going forward?
-	// could use code shift to help migrate teams automatically?
+	// @todo it's difficult to map the existing "link-hover" usecase to the design token created
+	// structure which is nested when output as a Sass map or JSON object.
+	//
+	// https://github.com/amzn/style-dictionary/issues/119
+	// 'text': (
+    //     'logo': $_o-colors-core-text-logo,
+    //     'link': (
+    //       '_': $_o-colors-core-text-link,
+    //       'hover': $_o-colors-core-text-link-hover
+    //     ),
+    // )
+	//
+	// We could handle this case specifically and deprecate `oColorsByUsecase` function for plain
+	// CSS Custom Properties and Sass variables, so:
+	//
+	//	```
+	//		@include 'o-colors/main';
+	//  	[...]
+	//		color: oColorsByUsecase('link-hover', 'text')`
+	//	```
+	//	becomes
+	//
+	//	```
+	//		@use 'origami-tokens-or-something' as 'o';
+	//  	[...]
+	//		color: `o.color-usecase-text-link-title-hover`;
+	//	```
+	//
+	// Unlike the function arguments IDEs are able to autocomplete the Sass variable.
+	// (Could we automate this for users?)
+	//
+	// However functions allow us to output deprecation warnings and change design token structure
+	// behind the scenes.
+	// 1. Sass deprecation warnings: users don't tend to act on these... sometimes they can't without
+	// digging into a package they depend on.
+	// 2. It can be complicated to map one structure to another in Sass. I don't think it's a good
+	// trade-off. We should work on enabling users to upgrade Origami more regularly when changes are required.
 	$token-usecase: if($usecase == 'link-hover', 'link', $usecase);
 	$token-value: map-get($_o-colors-branded-tokens, 'color', 'usecase', $property, $token-usecase);
 	@if (type-of($token-value) == 'map') {
@@ -57,8 +110,9 @@
 		@return $token-value;
 	}
 
-	// Find usecase config.
-	$config: map-get($_o-colors-usecases, $usecase);
+	// No design token found for the requested usecase.
+	// Check for custom usecase.
+	$config: map-get($_o-colors-custom-usecases, $usecase);
 	$config: if($config, $config, ());
 
 	// Get colour for usecase property.
@@ -151,7 +205,7 @@
 /// String to number converter
 /// @author Hugo Giraudel
 /// @access private
-///
+/// @todo improve attribution and namespace
 /// Casts a string into a number
 ///
 /// @param {String | Number} $value - Value to be parsed
@@ -190,6 +244,7 @@
 	@return if($minus, -$result, $result);;
   }
 
+// @todo add attribution and namespace
 @function str-split($string, $separator) {
     // empty array/list
     $split-arr: ();
@@ -225,7 +280,26 @@
 @function oColorsGetToneDetails($color) {
 	$token-palette: map-get($_o-colors-branded-tokens, 'color', 'palette');
 
-	// Gross: Try to find tone details from the palette
+	// @todo The implementation of this function is not good.
+	// Given a colour (origami colour name or hex) finds the tone colour (e.g. claret) and
+	// brightness e.g. `80`.
+	//
+	// First it tries to match a default tone by checking design tokens for
+	// matching hex codes and splitting any name with a dash e.g. `claret-80`.
+	// It feels fragile, `some_other_not_tone-5` would lead to unexpected behaviour.
+	//
+	// Second it generates a tone in 1% increments for every colour in the palette
+	// which outputs tones by default. Horribly inefficient.
+	//
+	// This is used to generate o-button background colours. We could deprecate
+	// by switching o-buttons to use predefined design tokens for every button state
+	// and updating any component which adds custom button themes to also predefine
+	// the colour for each state. We'd want to add button design guidelines as part
+	// of this work. Updating custom buttons would be manual going forward (the
+	// decision for custom button colours is moved to guidelines and not enforced
+	// in Sass).
+
+	// Try to find tone details from the palette
 	@each $tone-name, $tone-color in $token-palette {
 		$tone-details: str-split($tone-name, '-');
 		@if (inspect($tone-color) == inspect($color) and length($tone-details) == 2) {
@@ -240,7 +314,7 @@
 		}
 	}
 
-	// Gross: Well, try generating a tone at every percentage point
+	// Try generating a tone at every percentage point
 	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
 	$hue: hue($color);
 	@each $tone-color in $_o-colors-tone-allow-list {
@@ -432,8 +506,18 @@
 @function oColorsGetPaletteDetails() {
 	$public-palette-details: ();
 
-	// @todo remove $_o-colors-palette, handle custom colours
-	@each $name, $color-map in $_o-colors-palette {
+	// get palette colours from origami design tokens
+	$color-tokens: map-get($_o-colors-branded-tokens, 'color');
+	$palette-tokens: map-get($color-tokens, 'palette');
+	@each $name, $value in $palette-tokens {
+		$details: (
+			'name': $name
+		);
+		$public-palette-details: append($public-palette-details, $details);
+	}
+
+	// merge custom palette colours set by the user
+	@each $name, $color-map in $_o-colors-custom-palette {
 		$details: (
 			'name': map-get($color-map, 'name')
 		);
@@ -485,7 +569,11 @@
 
 /// Check if a colour name exists in the palette.
 @function _oColorsNameExists($color-name) {
-	@return global-variable-exists('_o-colors-#{oBrandGetCurrentBrandNew()}-#{$color-name}');
+	$design-token-exists: global-variable-exists('_o-colors-#{oBrandGetCurrentBrandNew()}-#{$color-name}');
+	@if($design-token-exists) {
+		@return true;
+	}
+	@return map-has-key($_o-colors-custom-palette, $color-name);
 }
 
 /// Converts HSB/HSV values to a hex colour

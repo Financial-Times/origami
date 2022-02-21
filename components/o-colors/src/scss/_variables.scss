@@ -3,22 +3,17 @@
 /// @access public
 $o-colors-is-silent: true !default;
 
-/// Ensure default mixins are only called once
-/// @type Bool
-/// @access private
-$_o-colors-is-initialised: false !default;
-
-/// A map to store all set colour usecases.
+/// A map to store colour usecases set by the user.
 /// @see oColorsSetUseCase
 /// @type Map
 /// @access private
-$_o-colors-usecases: () !default;
+$_o-colors-custom-usecases: () !default;
 
-/// A map to store all set palette colours.
+/// A map to store all palette colours set by the user.
 /// @see oColorsSetColor
 /// @type Map
 /// @access private
-$_o-colors-palette: () !default;
+$_o-colors-custom-palette: () !default;
 
 /// A list of keys to indicate warnings which have been output,
 /// so that they aren't output a second time.

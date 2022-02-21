@@ -7,21 +7,6 @@
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
 
-// Set the palette colors programatically
-// NOTE: Only do this once as this partial will be included by many other components
-// and the multiple nested loops can have a huge effect on compilation performance.
-@if ($_o-colors-is-initialised == false) {
-	$color: map-get($_o-colors-branded-tokens, 'color');
-
-	$palette: map-get($color, 'palette');
-	@include _oColorsSetColors($palette);
-
-	$usecase: map-get($color, 'usecase');
-	@include _oColorsSetColors($usecase);
-
-	$_o-colors-is-initialised: true !global;
-}
-
 /// Output `o-colors` CSS.
 ///
 /// @example Output all `o-colors` styles.

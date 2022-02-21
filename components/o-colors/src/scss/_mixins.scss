@@ -17,6 +17,12 @@
 /// @param {Color} $color-value - The colour to set e.g. #ff69b4.
 /// @param {Map} $opts [()] - A map of options. Accepts a `deprecated` key with a message to deprecated a set colour e.g. `$opts: (deprecated: 'your deprecation message')`.
 @mixin oColorsSetColor($color-name, $color-value, $opts: ()) {
+
+	// @todo Deprecate this? Other Origami components or users who maintain packages could
+	// set custom colours and benefit from the ability to set deprecation warnings etc.
+	// Is it worth the complexity vs. using CSS Custom Properties or Sass variables? Probably not.
+	// See @todo in `oColorsByUsecase`.
+
 	// Validate color-value.
 	@if type-of($color-value) != 'color' {
 		@error 'Expected `$color-value` to be a colour, found "#{$color-value}" of type "#{type-of($color-value)}".';
@@ -65,7 +71,7 @@
 			'allow-tones': if($allow-tones == true, true, false)
 		)
 	));
-	$_o-colors-palette: map-merge($_o-colors-palette, $new-color) !global;
+	$_o-colors-custom-palette: map-merge($_o-colors-custom-palette, $new-color) !global;
 }
 
 /// Add a custom use case property.
@@ -138,8 +144,8 @@
 	$usecase: _oColorsRemoveDefaultNamespace($usecase);
 
 	// Default o-colors usecases may be customised by users.
-	@if ($namespace == 'o-colors' and map-has-key($_o-colors-usecases, $usecase)) {
-		$current-config: map-get($_o-colors-usecases, $usecase);
+	@if ($namespace == 'o-colors' and map-has-key($_o-colors-custom-usecases, $usecase)) {
+		$current-config: map-get($_o-colors-custom-usecases, $usecase);
 		$current-colors: map-get($current-config, 'colors');
 		$colors: map-merge($current-colors, $colors);
 	}
@@ -149,7 +155,7 @@
 	// Existing project/component usecases may not be customised by users:
 	// Customisation for non-default usecases usually happens on the component
 	// level, with component specific mixins.
-	$current-usecase-config: map-get($_o-colors-usecases, $usecase);
+	$current-usecase-config: map-get($_o-colors-custom-usecases, $usecase);
 	@if ($namespace != 'o-colors' and $current-usecase-config and $current-usecase-config != $new-usecase-config) {
 		@error 'A usecase "#{$usecase}" has already been set. ' +
 			'Only default o-colors usecases may be overridden with `oColorsSetUseCase`. ' +
@@ -158,21 +164,7 @@
 	}
 
 	// Add the use-case and its properties to the global use-case map.
-	$_o-colors-usecases: map-merge($_o-colors-usecases, (
+	$_o-colors-custom-usecases: map-merge($_o-colors-custom-usecases, (
 		#{$usecase}: $new-usecase-config
 	)) !global;
-}
-@mixin _oColorsSetColors($colors, $previous-key: null) {
-	// @each $color-name, $color-value in $colors {
-	// 	$color-value: if(type-of($color-value) == 'string', unquote($color-value), $color-value);
-	// 	@if($previous-key) {
-	// 		$color-name: if($color-name == '_', $previous-key, '#{$previous-key}-#{$color-name}');
-	// 	}
-	// 	$opts: ();
-	// 	@if(type-of($color-value) == 'map') {
-	// 		@include _oColorsSetColors($color-value, $color-name);
-	// 	} @else {
-	// 		@include oColorsSetColor('o-colors/#{$color-name}', $color-value, $opts);
-	// 	}
-	// }
 }
