@@ -20,9 +20,9 @@
 		"lint": "bash ../../scripts/component/lint.bash"
 	},
 	"peerDependencies": {
-		"@financial-times/o-typography": "^7.2.2"
+		"@financial-times/o-typography": "^7.2.2",
+		"@financial-times/o-normalise": "^3.2.2"
 	},
-	"devDependencies": {},
 	"engines": {
 		"npm": "^7 || ^8"
 	},
