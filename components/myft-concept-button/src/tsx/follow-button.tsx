@@ -38,7 +38,7 @@ export default function FollowButton({
 			method="get"
 			{...extraFormProps}>
 			{csrf || null}
-			<div className="myft-follow-button__announcement" aria-live="assertive">
+			<div className="myft-concept-button__announcement" aria-live="assertive">
 				{ariaLiveText}
 			</div>
 			<button
