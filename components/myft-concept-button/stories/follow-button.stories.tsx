@@ -19,7 +19,7 @@ export default {
 	parameters: {
 		design: {
 			type: 'figma',
-			url: 'TODO point this at the myft button design',
+			url: 'https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=0%3A915',
 		},
 		html: {},
 		actions: {
