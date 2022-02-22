@@ -220,7 +220,6 @@ $_myftConceptButtonThemes: (
 		'monochrome',
 	)
 ) {
-	.myft-concept-button,
 	.myft-concept-button__button {
 		@include _myftConceptButtonBase();
 	}
