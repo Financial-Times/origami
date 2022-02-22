@@ -1,4 +1,5 @@
 @import '@financial-times/o-typography/main';
+@import '@financial-times/o-normalise/main';
 
 /// @access private
 $_myftConceptButtonThemes: (
@@ -222,6 +223,10 @@ $_myftConceptButtonThemes: (
 	.myft-concept-button,
 	.myft-concept-button__button {
 		@include _myftConceptButtonBase();
+	}
+
+	.myft-concept-button__announcement {
+		@include oNormaliseVisuallyHidden();
 	}
 
 	@each $theme in map-keys($_myftConceptButtonThemes) {
