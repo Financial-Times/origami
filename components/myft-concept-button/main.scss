@@ -201,14 +201,12 @@ $_myftConceptButtonThemes: (
 	border-radius: 100px;
 	box-sizing: content-box;
 	display: block;
-	font-size: 14px;
-	margin: 6px 4px 6px 2px;
-	max-width: 200px;
 	outline-offset: 2px;
 	overflow: hidden;
 	padding: 5px 12px;
 	text-align: left;
 	text-overflow: ellipsis;
+	max-width: 15em;
 	transition: border-color, background-color 0.5s ease;
 	white-space: nowrap;
 }
