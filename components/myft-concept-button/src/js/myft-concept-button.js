@@ -16,25 +16,20 @@ export default class MyftConceptButton {
 	}
 
 	get isFollowed() {
-		return this.button.ariaPressed;
+		return this.button.ariaPressed === 'true';
 	}
 
 	/**
-	 * Toggle the button between followed and not.
+	 * Set the followed state
 	 * Updates the UI and adds text to the a11y box.
 	 *
-	 * @param {boolean=} [setting] If this is true, we are going
+	 * @param {boolean} [state] the state to set
 	 */
-	toggle(setting) {
-		if (arguments.length === 0) {
-			setting = !this.isFollowed;
-		}
-
-		if (setting) {
-			this.button.ariaPressed = 'false';
-		} else {
-			this.button.ariaPressed = 'true';
-		}
+	set isFollowed(state) {
+		this.button.ariaPressed = state ? 'true' : 'false';
+		this.live.textContent = `${state ? 'Now' : 'No longer'} following ${
+			this.options.concept
+		}.`;
 	}
 
 	getOptionsFromDom() {
