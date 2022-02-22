@@ -8,15 +8,16 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ## Concept pill
 
+```html
 <div
-  class="myft-concept-button myft-concept-button--standard"
-  data-o-component="myft-concept-button">
-  <button
-    aria-pressed="false"
-    class="myft-concept-button__button">
-    Movies
-  </button>
+	class="myft-concept-button myft-concept-button--standard"
+	data-o-component="myft-concept-button"
+>
+	<button aria-pressed="false" class="myft-concept-button__button">
+		Movies
+	</button>
 </div>
+```
 
 ### Follow button
 
@@ -90,6 +91,8 @@ Users with a React-compatible runtime aren't expected to load the Origami JavaSc
 The provided `.tsx` template sets the button type to `submit`, so you can wrap a form around it and add any required business logic in the `onSubmit`.
 
 You can attach a click handler to the button by passing an `onClick` function inside `extraButtonProps`.
+
+The [stories](stories/concept-button.stories.tsx) should provide some guidance here.
 
 ### Props
 
