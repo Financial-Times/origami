@@ -15,7 +15,7 @@ export default class MyftConceptButton {
 		this.options = Object.assign({}, options || this.getOptionsFromDom());
 	}
 
-	get isFollowed() {
+	get isPressed() {
 		return this.button.ariaPressed === 'true';
 	}
 
@@ -25,11 +25,33 @@ export default class MyftConceptButton {
 	 *
 	 * @param {boolean} [state] the state to set
 	 */
-	set isFollowed(state) {
+	set isPressed(state) {
 		this.button.ariaPressed = state ? 'true' : 'false';
-		this.live.textContent = `${state ? 'Now' : 'No longer'} following ${
-			this.options.concept
-		}.`;
+
+		if (
+			this.options.ariaLivePressedText &&
+			this.options.ariaLiveUnpressedText &&
+			this.live
+		) {
+			this.live.textContent = state
+				? this.options.ariaLivePressedText
+				: this.options.ariaLiveUnpressedText;
+		}
+
+		if (this.options.pressedText && this.options.unpressedText) {
+			this.button.textContent = state
+				? this.options.pressedText
+				: this.options.unpressedText;
+		}
+
+		if (
+			this.options.ariaLabelPressedText &&
+			this.options.ariaLabelUnpressedText
+		) {
+			this.button.ariaLabel = state
+				? this.options.ariaLabelPressedText
+				: this.options.ariaLiveUnpressedText;
+		}
 	}
 
 	getOptionsFromDom() {
