@@ -1,6 +1,7 @@
 @import '@financial-times/o-typography/main';
 
-$myft-lozenge-themes: (
+/// @access private
+$_myftConceptButtonThemes: (
 	standard: (
 		background: oColorsByName('claret'),
 		text: oColorsByName('white'),
@@ -35,15 +36,15 @@ $myft-lozenge-themes: (
 	),
 );
 
-@function getThemeColor($key) {
+@function _myftConceptButtonGetThemeColor($key) {
 	@return map-get($theme-map, $key);
 }
 
-@mixin withTheme($theme) {
+@mixin _myftConceptButtonWithTheme($theme) {
 	@if type-of($theme) == 'map' {
 		$theme-map: $theme !global;
 	} @else {
-		$theme-map: map-get($myft-lozenge-themes, $theme) !global;
+		$theme-map: map-get($_myftConceptButtonThemes, $theme) !global;
 	}
 
 	@content;
@@ -52,7 +53,7 @@ $myft-lozenge-themes: (
 	$theme-map: null !global;
 }
 
-@mixin getIcon($name, $color) {
+@mixin _myftConceptButtonGetIcon($name, $color) {
 	@include oIconsContent(
 		$icon-name: $name,
 		$size: 10,
@@ -62,26 +63,30 @@ $myft-lozenge-themes: (
 	content: '';
 }
 
-@mixin plusIcon($color) {
-	@include getIcon('plus', $color);
+@mixin _myftConceptButtonPlusIcon($color) {
+	@include _myftConceptButtonGetIcon('plus', $color);
 	background-size: 25px;
 	margin: 0 6px -1px 0;
 }
 
-@mixin tickIcon($color) {
-	@include getIcon('tick', $color);
+@mixin _myftConceptButtonTickIcon($color) {
+	@include _myftConceptButtonGetIcon('tick', $color);
 	background-size: 21px;
 }
 
-@mixin _icon($theme: standard) {
-	@include withTheme($theme) {
+@mixin _myftConceptButtonIcon($theme: standard) {
+	@include _myftConceptButtonWithTheme($theme) {
 		&::before {
-			@include plusIcon(getThemeColor(background));
+			@include _myftConceptButtonPlusIcon(
+				_myftConceptButtonGetThemeColor(background)
+			);
 		}
 
 		&[aria-pressed='true'] {
 			&::before {
-				@include tickIcon(getThemeColor(text));
+				@include _myftConceptButtonTickIcon(
+					_myftConceptButtonGetThemeColor(text)
+				);
 			}
 		}
 
@@ -90,18 +95,22 @@ $myft-lozenge-themes: (
 			background: transparent;
 
 			&::before {
-				@include plusIcon(getThemeColor(disabled));
+				@include _myftConceptButtonPlusIcon(
+					_myftConceptButtonGetThemeColor(disabled)
+				);
 				opacity: 0.5;
 			}
 
 			&[aria-pressed='true']::before {
-				@include tickIcon(getThemeColor(disabled));
+				@include _myftConceptButtonTickIcon(
+					_myftConceptButtonGetThemeColor(disabled)
+				);
 			}
 		}
 	}
 }
 
-@mixin focusOutlineColor($focus-color) {
+@mixin _myftConceptButtonFocusOutlineColor($focus-color) {
 	// Apply :focus styles as a fallback
 	// These styles will be applied to all browsers that don't use the polyfill, this includes browsers which support the feature natively.
 	body:not(.js-focus-visible) &,
@@ -148,44 +157,46 @@ $myft-lozenge-themes: (
 	}
 }
 
-@mixin _theme($theme: standard, $with-toggle-icon: false) {
-	@include withTheme($theme) {
+@mixin _myftConceptButtonTheme($theme: standard, $with-toggle-icon: false) {
+	@include _myftConceptButtonWithTheme($theme) {
 		background-color: transparent;
-		border: 1px solid getThemeColor(background);
-		color: getThemeColor(background);
+		border: 1px solid _myftConceptButtonGetThemeColor(background);
+		color: _myftConceptButtonGetThemeColor(background);
 
-		@include focusOutlineColor(getThemeColor(focus-outline));
+		@include _myftConceptButtonFocusOutlineColor(
+			_myftConceptButtonGetThemeColor(focus-outline)
+		);
 
 		&:hover,
 		&:focus {
-			background-color: getThemeColor(pressed-highlight);
-			border-color: getThemeColor(background);
-			color: getThemeColor(background);
+			background-color: _myftConceptButtonGetThemeColor(pressed-highlight);
+			border-color: _myftConceptButtonGetThemeColor(background);
+			color: _myftConceptButtonGetThemeColor(background);
 		}
 
 		&[aria-pressed='true'] {
-			background-color: getThemeColor(background);
-			border: 1px solid getThemeColor(background);
-			color: getThemeColor(text);
+			background-color: _myftConceptButtonGetThemeColor(background);
+			border: 1px solid _myftConceptButtonGetThemeColor(background);
+			color: _myftConceptButtonGetThemeColor(text);
 
 			&:hover,
 			&:focus {
-				background-color: getThemeColor(highlight);
-				border-color: getThemeColor(highlight);
-				color: getThemeColor(text);
+				background-color: _myftConceptButtonGetThemeColor(highlight);
+				border-color: _myftConceptButtonGetThemeColor(highlight);
+				color: _myftConceptButtonGetThemeColor(text);
 			}
 		}
 
 		&[disabled]:hover,
 		&[disabled] {
 			background: transparent;
-			border: 1px solid getThemeColor(disabled);
-			color: getThemeColor(disabled);
+			border: 1px solid _myftConceptButtonGetThemeColor(disabled);
+			color: _myftConceptButtonGetThemeColor(disabled);
 		}
 	}
 }
 
-@mixin _base() {
+@mixin _myftConceptButtonBase() {
 	@include oTypographySans($weight: 'semibold', $scale: -1);
 	border-radius: 100px;
 	box-sizing: content-box;
@@ -212,16 +223,16 @@ $myft-lozenge-themes: (
 ) {
 	.myft-concept-button,
 	.myft-concept-button__button {
-		@include _base();
+		@include _myftConceptButtonBase();
 	}
 
-	@each $theme in map-keys($myft-lozenge-themes) {
+	@each $theme in map-keys($_myftConceptButtonThemes) {
 		.myft-concept-button--#{$theme} {
 			.myft-concept-button__button {
-				@include _theme($theme);
+				@include _myftConceptButtonTheme($theme);
 			}
 			&.myft-concept-button--follow .myft-concept-button__button {
-				@include _icon($theme);
+				@include _myftConceptButtonIcon($theme);
 			}
 		}
 	}
