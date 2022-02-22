@@ -85,7 +85,7 @@ You can check the pressed state by reading `conceptButton.isPressed`.
 
 ## React
 
-React users aren't expected to load the Origami JavaScript at all, and are expected instead to take care of the labels and pressed state by themselves.
+Users with a React-compatible runtime aren't expected to load the Origami JavaScript at all, and are expected instead to take care of the labels and pressed state by themselves.
 
 The provided `.tsx` template sets the button type to `submit`, so you can wrap a form around it and add any required business logic in the `onSubmit`.
 
