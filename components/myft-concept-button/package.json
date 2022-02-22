@@ -1,7 +1,7 @@
 {
-	"name": "@financial-times/myft-follow-button",
+	"name": "@financial-times/myft-concept-button",
 	"version": "0.0.0",
-	"description": "myFT follow topic button",
+	"description": "myFT concept button (includes the myft follow button)",
 	"keywords": [
 		"button",
 		"myft",
