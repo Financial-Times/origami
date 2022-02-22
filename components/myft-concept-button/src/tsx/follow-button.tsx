@@ -11,6 +11,7 @@ export interface FollowButtonProps {
 	followAction: string;
 	unfollowAction: string;
 	followed: boolean;
+	ariaLiveText?: string;
 }
 
 export default function FollowButton({
@@ -21,6 +22,7 @@ export default function FollowButton({
 	extraFormProps,
 	extraButtonProps,
 	followed,
+	ariaLiveText = null,
 }: FollowButtonProps) {
 	let buttonLabel = followed
 		? `Remove ${conceptName} from myFT`
@@ -36,12 +38,9 @@ export default function FollowButton({
 			method="get"
 			{...extraFormProps}>
 			{csrf || null}
-			{
-				// TODO o-normalise-visually-hidden
-			}
-			<div
-				className="myft-follow-button__announcement o-normalise-visually-hidden"
-				aria-live="assertive"></div>
+			<div className="myft-follow-button__announcement" aria-live="assertive">
+				{ariaLiveText}
+			</div>
 			<button
 				aria-pressed={followed}
 				aria-label={buttonLabel}
