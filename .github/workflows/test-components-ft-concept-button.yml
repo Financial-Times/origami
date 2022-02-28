@@ -1,6 +1,6 @@
-name: test components/myft-concept-button
+name: test components/ft-concept-button
 concurrency:
-  group: ${{ github.head_ref }}-${{ github.workflow}}-components/myft-concept-button
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/ft-concept-button
   cancel-in-progress: true
 
 on:
@@ -20,6 +20,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
     - run: npm ci
-    - run: npm run -w components/myft-concept-button lint --if-present
-    - run: npm run -w components/myft-concept-button build --if-present
-    - run: npm run -w components/myft-concept-button test --if-present
+    - run: npm run -w components/ft-concept-button lint --if-present
+    - run: npm run -w components/ft-concept-button build --if-present
+    - run: npm run -w components/ft-concept-button test --if-present
