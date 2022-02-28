@@ -26,18 +26,18 @@ function ConceptButton({
 }: ConceptButtonProps) {
 	return (
 		<div
-			className={`myft-concept-button ${
-				type == 'follow' ? 'myft-concept-button--follow' : ''
-			} ${theme ? `myft-concept-button--${theme}` : ''}`}
-			data-o-component="myft-concept-button">
-			<div className="myft-concept-button__announcement" aria-live="assertive">
+			className={`ft-concept-button ${
+				type == 'follow' ? 'ft-concept-button--follow' : ''
+			} ${theme ? `ft-concept-button--${theme}` : ''}`}
+			data-o-component="ft-concept-button">
+			<div className="ft-concept-button__announcement" aria-live="assertive">
 				{ariaLiveText}
 			</div>
 			<button
 				aria-pressed={pressed}
 				aria-label={ariaLabel}
 				type="submit"
-				className="myft-concept-button__button"
+				className="ft-concept-button__button"
 				{...extraButtonProps}>
 				{label}
 			</button>

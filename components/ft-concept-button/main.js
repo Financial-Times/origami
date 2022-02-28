@@ -1,4 +1,4 @@
-import button from './src/js/myft-concept-button.js';
+import button from './src/js/ft-concept-button.js';
 
 function constructAll() {
 	button.init();

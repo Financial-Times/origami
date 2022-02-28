@@ -1,14 +1,14 @@
 {
-	"name": "@financial-times/myft-concept-button",
+	"name": "@financial-times/ft-concept-button",
 	"version": "0.0.0",
-	"description": "myFT concept button (includes the myft follow button)",
+	"description": "ft concept button (includes the ft follow button)",
 	"keywords": [
 		"button",
-		"myft",
+		"ft",
 		"follow"
 	],
 	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues/new?labels=myft-follow-button,components",
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=ft-follow-button,components",
 		"email": "origami.support@ft.com"
 	},
 	"license": "MIT",
