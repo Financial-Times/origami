@@ -1,8 +1,8 @@
-# myft-concept-button
+# ft-concept-button
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `myft-concept-button`.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `ft-concept-button`.
 
 ## Markup
 
@@ -10,12 +10,10 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ```html
 <div
-	class="myft-concept-button myft-concept-button--standard"
-	data-o-component="myft-concept-button"
+	class="ft-concept-button ft-concept-button--standard"
+	data-o-component="ft-concept-button"
 >
-	<button aria-pressed="false" class="myft-concept-button__button">
-		Movies
-	</button>
+	<button aria-pressed="false" class="ft-concept-button__button">Movies</button>
 </div>
 ```
 
@@ -23,39 +21,35 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ```html
 <div
-	class="myft-concept-button myft-concept-button--follow myft-concept-button--standard"
-	data-myft-concept-button-pressed-text="Signed up"
-	data-myft-concept-button-unpressed-text="Sign up"
-	data-myft-concept-button-aria-live-pressed-text="Now signed up"
-	data-myft-concept-button-aria-live-unpressed-text="No longer signed up"
-	data-o-component="myft-concept-button"
+	class="ft-concept-button ft-concept-button--follow ft-concept-button--standard"
+	data-ft-concept-button-pressed-text="Signed up"
+	data-ft-concept-button-unpressed-text="Sign up"
+	data-ft-concept-button-aria-live-pressed-text="Now signed up"
+	data-ft-concept-button-aria-live-unpressed-text="No longer signed up"
+	data-o-component="ft-concept-button"
 >
-	<div class="myft-concept-button__announcement" aria-live="assertive"></div>
-	<button aria-pressed="false" class="myft-concept-button__button">
+	<div class="ft-concept-button__announcement" aria-live="assertive"></div>
+	<button aria-pressed="false" class="ft-concept-button__button">
 		Sign up
 	</button>
 </div>
 ```
 
-### MyFT follow button
+### ft follow button
 
-This one has a little plus or a tick icon. You'd be advised to include the `data-myft-concept-button-aria-live-pressed-text` and `data-myft-concept-button-aria-live-unpressed-text` options so screenreader users are informed that a change has occurred.
+This one has a little plus or a tick icon. You'd be advised to include the `data-ft-concept-button-aria-live-pressed-text` and `data-ft-concept-button-aria-live-unpressed-text` options so screenreader users are informed that a change has occurred.
 
 ```html
 <div
-	class="myft-concept-button myft-concept-button--follow myft-concept-button--standard"
-	data-myft-concept-button-aria-live-pressed-text="Now following movies on my FT"
-	data-myft-concept-button-aria-live-unpressed-text="No longer following movies on my FT"
-	data-myft-concept-button-aria-label-pressed-text="Follow movies on my FT"
-	data-myft-concept-button-aria-label-unpressed-text="Stop following movies on my FT"
-	data-o-component="myft-concept-button"
+	class="ft-concept-button ft-concept-button--follow ft-concept-button--standard"
+	data-ft-concept-button-aria-live-pressed-text="Now following movies on my FT"
+	data-ft-concept-button-aria-live-unpressed-text="No longer following movies on my FT"
+	data-ft-concept-button-aria-label-pressed-text="Follow movies on my FT"
+	data-ft-concept-button-aria-label-unpressed-text="Stop following movies on my FT"
+	data-o-component="ft-concept-button"
 >
-	<div class="myft-concept-button__announcement" aria-live="assertive"></div>
-	<button
-		aria-pressed="false"
-		type="submit"
-		class="myft-concept-button__button"
-	>
+	<div class="ft-concept-button__announcement" aria-live="assertive"></div>
+	<button aria-pressed="false" type="submit" class="ft-concept-button__button">
 		Movies
 	</button>
 </div>

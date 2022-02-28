@@ -2,7 +2,7 @@
 @import '@financial-times/o-normalise/main';
 
 /// @access private
-$_myftConceptButtonThemes: (
+$_ftConceptButtonThemes: (
 	standard: (
 		background: oColorsByName('claret'),
 		text: oColorsByName('white'),
@@ -37,15 +37,15 @@ $_myftConceptButtonThemes: (
 	),
 );
 
-@function _myftConceptButtonGetThemeColor($key) {
+@function _ftConceptButtonGetThemeColor($key) {
 	@return map-get($theme-map, $key);
 }
 
-@mixin _myftConceptButtonWithTheme($theme) {
+@mixin _ftConceptButtonWithTheme($theme) {
 	@if type-of($theme) == 'map' {
 		$theme-map: $theme !global;
 	} @else {
-		$theme-map: map-get($_myftConceptButtonThemes, $theme) !global;
+		$theme-map: map-get($_ftConceptButtonThemes, $theme) !global;
 	}
 
 	@content;
@@ -54,7 +54,7 @@ $_myftConceptButtonThemes: (
 	$theme-map: null !global;
 }
 
-@mixin _myftConceptButtonGetIcon($name, $color) {
+@mixin _ftConceptButtonGetIcon($name, $color) {
 	@include oIconsContent(
 		$icon-name: $name,
 		$size: 10,
@@ -64,30 +64,28 @@ $_myftConceptButtonThemes: (
 	content: '';
 }
 
-@mixin _myftConceptButtonPlusIcon($color) {
-	@include _myftConceptButtonGetIcon('plus', $color);
+@mixin _ftConceptButtonPlusIcon($color) {
+	@include _ftConceptButtonGetIcon('plus', $color);
 	background-size: 25px;
 	margin: 0 6px -1px 0;
 }
 
-@mixin _myftConceptButtonTickIcon($color) {
-	@include _myftConceptButtonGetIcon('tick', $color);
+@mixin _ftConceptButtonTickIcon($color) {
+	@include _ftConceptButtonGetIcon('tick', $color);
 	background-size: 21px;
 }
 
-@mixin _myftConceptButtonIcon($theme: standard) {
-	@include _myftConceptButtonWithTheme($theme) {
+@mixin _ftConceptButtonIcon($theme: standard) {
+	@include _ftConceptButtonWithTheme($theme) {
 		&::before {
-			@include _myftConceptButtonPlusIcon(
-				_myftConceptButtonGetThemeColor(background)
+			@include _ftConceptButtonPlusIcon(
+				_ftConceptButtonGetThemeColor(background)
 			);
 		}
 
 		&[aria-pressed='true'] {
 			&::before {
-				@include _myftConceptButtonTickIcon(
-					_myftConceptButtonGetThemeColor(text)
-				);
+				@include _ftConceptButtonTickIcon(_ftConceptButtonGetThemeColor(text));
 			}
 		}
 
@@ -96,22 +94,22 @@ $_myftConceptButtonThemes: (
 			background: transparent;
 
 			&::before {
-				@include _myftConceptButtonPlusIcon(
-					_myftConceptButtonGetThemeColor(disabled)
+				@include _ftConceptButtonPlusIcon(
+					_ftConceptButtonGetThemeColor(disabled)
 				);
 				opacity: 0.5;
 			}
 
 			&[aria-pressed='true']::before {
-				@include _myftConceptButtonTickIcon(
-					_myftConceptButtonGetThemeColor(disabled)
+				@include _ftConceptButtonTickIcon(
+					_ftConceptButtonGetThemeColor(disabled)
 				);
 			}
 		}
 	}
 }
 
-@mixin _myftConceptButtonFocusOutlineColor($focus-color) {
+@mixin _ftConceptButtonFocusOutlineColor($focus-color) {
 	// Apply :focus styles as a fallback
 	// These styles will be applied to all browsers that don't use the polyfill, this includes browsers which support the feature natively.
 	body:not(.js-focus-visible) &,
@@ -158,46 +156,46 @@ $_myftConceptButtonThemes: (
 	}
 }
 
-@mixin _myftConceptButtonTheme($theme: standard, $with-toggle-icon: false) {
-	@include _myftConceptButtonWithTheme($theme) {
+@mixin _ftConceptButtonTheme($theme: standard, $with-toggle-icon: false) {
+	@include _ftConceptButtonWithTheme($theme) {
 		background-color: transparent;
-		border: 1px solid _myftConceptButtonGetThemeColor(background);
-		color: _myftConceptButtonGetThemeColor(background);
+		border: 1px solid _ftConceptButtonGetThemeColor(background);
+		color: _ftConceptButtonGetThemeColor(background);
 
-		@include _myftConceptButtonFocusOutlineColor(
-			_myftConceptButtonGetThemeColor(focus-outline)
+		@include _ftConceptButtonFocusOutlineColor(
+			_ftConceptButtonGetThemeColor(focus-outline)
 		);
 
 		&:hover,
 		&:focus {
-			background-color: _myftConceptButtonGetThemeColor(pressed-highlight);
-			border-color: _myftConceptButtonGetThemeColor(background);
-			color: _myftConceptButtonGetThemeColor(background);
+			background-color: _ftConceptButtonGetThemeColor(pressed-highlight);
+			border-color: _ftConceptButtonGetThemeColor(background);
+			color: _ftConceptButtonGetThemeColor(background);
 		}
 
 		&[aria-pressed='true'] {
-			background-color: _myftConceptButtonGetThemeColor(background);
-			border: 1px solid _myftConceptButtonGetThemeColor(background);
-			color: _myftConceptButtonGetThemeColor(text);
+			background-color: _ftConceptButtonGetThemeColor(background);
+			border: 1px solid _ftConceptButtonGetThemeColor(background);
+			color: _ftConceptButtonGetThemeColor(text);
 
 			&:hover,
 			&:focus {
-				background-color: _myftConceptButtonGetThemeColor(highlight);
-				border-color: _myftConceptButtonGetThemeColor(highlight);
-				color: _myftConceptButtonGetThemeColor(text);
+				background-color: _ftConceptButtonGetThemeColor(highlight);
+				border-color: _ftConceptButtonGetThemeColor(highlight);
+				color: _ftConceptButtonGetThemeColor(text);
 			}
 		}
 
 		&[disabled]:hover,
 		&[disabled] {
 			background: transparent;
-			border: 1px solid _myftConceptButtonGetThemeColor(disabled);
-			color: _myftConceptButtonGetThemeColor(disabled);
+			border: 1px solid _ftConceptButtonGetThemeColor(disabled);
+			color: _ftConceptButtonGetThemeColor(disabled);
 		}
 	}
 }
 
-@mixin _myftConceptButtonBase() {
+@mixin _ftConceptButtonBase() {
 	@include oTypographySans($weight: 'semibold', $scale: -1);
 	border-radius: 100px;
 	box-sizing: content-box;
@@ -212,7 +210,7 @@ $_myftConceptButtonThemes: (
 	white-space: nowrap;
 }
 
-@mixin myftConceptButton(
+@mixin ftConceptButton(
 	$themes: (
 		'standard',
 		'opinion',
@@ -220,21 +218,21 @@ $_myftConceptButtonThemes: (
 		'monochrome',
 	)
 ) {
-	.myft-concept-button__button {
-		@include _myftConceptButtonBase();
+	.ft-concept-button__button {
+		@include _ftConceptButtonBase();
 	}
 
-	.myft-concept-button__announcement {
+	.ft-concept-button__announcement {
 		@include oNormaliseVisuallyHidden();
 	}
 
-	@each $theme in map-keys($_myftConceptButtonThemes) {
-		.myft-concept-button--#{$theme} {
-			.myft-concept-button__button {
-				@include _myftConceptButtonTheme($theme);
+	@each $theme in map-keys($_ftConceptButtonThemes) {
+		.ft-concept-button--#{$theme} {
+			.ft-concept-button__button {
+				@include _ftConceptButtonTheme($theme);
 			}
-			&.myft-concept-button--follow .myft-concept-button__button {
-				@include _myftConceptButtonIcon($theme);
+			&.ft-concept-button--follow .ft-concept-button__button {
+				@include _ftConceptButtonIcon($theme);
 			}
 		}
 	}

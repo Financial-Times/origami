@@ -1,12 +1,11 @@
 import {withDesign} from 'storybook-addon-designs';
 import {ConceptButton} from '../src/tsx/concept-button';
-import {useState} from 'react';
 import {useArgs} from '@storybook/client-api';
 import './concept-button.scss';
 import withHtml from 'origami-storybook-addon-html';
 
 export default {
-	title: 'Components/myft-concept-button',
+	title: 'Components/ft-concept-button',
 	component: ConceptButton,
 	decorators: [withDesign, withHtml],
 	parameters: {
