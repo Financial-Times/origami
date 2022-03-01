@@ -1,5 +1,7 @@
 # ft-concept-button
 
+A special button used around ft.com when taking action on concepts.
+
 ## Usage
 
 Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `ft-concept-button`.
@@ -35,7 +37,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 </div>
 ```
 
-### ft follow button
+### FT follow button
 
 This one has a little plus or a tick icon. You'd be advised to include the `data-ft-concept-button-aria-live-pressed-text` and `data-ft-concept-button-aria-live-unpressed-text` options so screenreader users are informed that a change has occurred.
 
@@ -56,6 +58,10 @@ This one has a little plus or a tick icon. You'd be advised to include the `data
 ```
 
 ## JavaScript
+
+```js
+import ConceptButton from "./js/ft-concept-button"
+```
 
 ### Options
 

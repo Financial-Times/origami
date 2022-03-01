@@ -1,5 +1,4 @@
 export default class FtConceptButton {
-	// TODO make a @typedef for options
 	/**
 	 * Class constructor.
 	 *
