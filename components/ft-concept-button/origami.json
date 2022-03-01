@@ -3,5 +3,6 @@
 	"origamiVersion": "2.0",
 	"brands": [
 		"core"
-	]
+	],
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=ft-follow-button,components"
 }
