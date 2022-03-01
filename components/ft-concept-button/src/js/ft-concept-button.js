@@ -1,4 +1,4 @@
-export default class ftConceptButton {
+export default class FtConceptButton {
 	// TODO make a @typedef for options
 	/**
 	 * Class constructor.
@@ -81,7 +81,7 @@ export default class ftConceptButton {
 	 *
 	 * @param {(Element | HTMLElement | string)} rootEl - The root element to initialize the component in, or a CSS-style selector for the root element
 	 * @param {object} [options={}] - An options object for configuring the component
-	 * @returns {(ftConceptButton|Array<ftConceptButton>)} - ft-concept-button instance(s)
+	 * @returns {(FtConceptButton|Array<FtConceptButton>)} - ft-concept-button instance(s)
 	 */
 	static init(rootEl, options) {
 		if (!rootEl) {
@@ -94,11 +94,11 @@ export default class ftConceptButton {
 		const selector = '[data-o-component="ft-concept-button"]';
 
 		if (rootEl instanceof HTMLElement && rootEl.matches(selector)) {
-			return new ftConceptButton(rootEl, options);
+			return new FtConceptButton(rootEl, options);
 		}
 		return Array.from(
 			rootEl.querySelectorAll(selector),
-			rootEl => new ftConceptButton(rootEl, options)
+			rootEl => new FtConceptButton(rootEl, options)
 		);
 	}
 }
