@@ -83,7 +83,7 @@
     "del": "^6.0.0",
     "fast-glob": "^3.2.7",
     "globby": "^12.0.2",
-    "karma": "^6.3.4",
+    "karma": "^6.3.16",
     "mustache": "^4.2.0",
     "react-syntax-highlighter": "^15.4.4",
     "read-pkg": "^7.0.0",
