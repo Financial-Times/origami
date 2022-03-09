@@ -272,15 +272,14 @@ For example, when the below anchor element is clicked, it will add extra event f
 
 ## How to view the data
 
-Once you have sent data into Spoor, you can view the data via Chartio.
+Once you have sent data into Spoor, you can view the data via Looker.
 
-The FT has a Slack channel named #chartio_q_a where anyone can get help with Chartio.
+The FT has a Slack channel named #ask-an-analyst where anyone can get help with Chartio.
 
-If you have never used Chartio before, you will need to [request access via this form](https://docs.google.com/forms/d/e/1FAIpQLSc1z1hTtnhe4KSXuZ220Zf53wTm0ucYVf2B3jYY5ZSyNW2VSw/viewform).
+If you have never used Looker before, you will need to [request access via this form](https://fteunew.freshservice.com/support/catalog/items/73).
 
-To sign in to Chartio:
-- Open the [FT Chartio](https://chartio.com/financialtimes/) in your browser.
-- Press the "Sign in with Google" button and select your FT Google Account.
+To sign in to Looker:
+- Open the [FT Looker](https://ft.okta.com/home/looker/0oacqdp1byXmj5Zcz357/63357) in your browser.
 
 
 ## Example implementations
