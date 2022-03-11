@@ -35,6 +35,9 @@ async function shouldPercyRun() {
 }
 
 try {
+	if (!process.env.PERCY_TOKEN || process.env.PERCY_TOKEN == '') {
+		throw new Error('The percy token is not set, please add the token in the GitHub Actions Secrets');
+	}
 	const percyNeedsToRun = await shouldPercyRun();
 	if (percyNeedsToRun) {
 		if (isPullRequest) {
