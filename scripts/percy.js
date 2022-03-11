@@ -36,7 +36,7 @@ async function shouldPercyRun() {
 
 try {
 	if (!process.env.PERCY_TOKEN || process.env.PERCY_TOKEN == '') {
-		throw new Error('The percy token is not set, please add the token in the GitHub Actions Secrets');
+		throw new Error('The percy token is not set, please add the token in the GitHub Actions Secrets. You should be able to find the token in the project on the Origami Percy account (https://percy.io/27a07468). If a project does not exist, you should be able to create a new project (https://percy.io/organizations/27a07468/projects/new).');
 	}
 	const percyNeedsToRun = await shouldPercyRun();
 	if (percyNeedsToRun) {
