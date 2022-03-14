@@ -12,7 +12,7 @@ for (let key in outputs) {
 	let match = key.match(/^(.*\/.*)--release_created$/)
 	if (!match || !value) continue
 	let workspace = match[1]
-	await $`npm publish -w ${workspace}`
+	await $`npm publish -w ${workspace} --access public`
 	let pkgjson = await readPackage({cwd: workspace})
 	let {statusCode, body} = await request(
 		"https://origami-repo-data.ft.com/v1/queue",
