@@ -341,7 +341,7 @@ describe('stylelint', function () {
                 'stylelint',
                 '**/*.scss',
                 '--ignore-path=".gitignore"',
-                `--config="${path.relative(process.cwd(), rootDirectory)}/config.js"`,
+                `--config="${path.resolve(rootDirectory, "config.js")}"`,
                 `--formatter="unix"`
             ]);
             stylelintOutput = result.stdout || '';
