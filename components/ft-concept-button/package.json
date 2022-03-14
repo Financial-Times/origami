@@ -15,8 +15,6 @@
 	"type": "module",
 	"browser": "main.js",
 	"scripts": {
-		"build": "bash ../../scripts/component/build.bash",
-		"test": "bash ../../scripts/component/test.bash",
 		"lint": "bash ../../scripts/component/lint.bash"
 	},
 	"peerDependencies": {
