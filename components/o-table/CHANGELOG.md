@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.2.4](https://www.github.com/Financial-Times/origami/compare/o-table-v9.2.3...o-table-v9.2.4) (2022-03-14)
+
+
+### Bug Fixes
+
+* o-table filter when a second filter or more is applied ([62b853e](https://www.github.com/Financial-Times/origami/commit/62b853e7b200a5f93c0201d0d1f5a106cc106db8))
+
 ### [9.2.3](https://www.github.com/Financial-Times/origami/compare/o-table-v9.2.2...o-table-v9.2.3) (2022-01-13)
 
 
