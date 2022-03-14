@@ -1,6 +1,6 @@
 # ft-concept-button
 
-A special button used around ft.com when taking action on concepts.
+A special button used around ft.com when performing actions on concepts.
 
 ## Usage
 
