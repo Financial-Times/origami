@@ -1,112 +1,36 @@
 /// Check if a font variant exists for a family.
 ///
+/// @deprecated - oFontsVariantExists will be removed in the next major version of o-fonts. It does not account for variable font files, which support multiple weights. Now always returns `true`.
 /// @access public
-/// @param {String} $family - one of $_o-fonts-families
+/// @param {String} $family
 /// @param {String} $weight [regular] - The font weight.
 /// @param {String} $style [normal] - The font style.
 /// @return {Bool}
 /// @see oFontsDefineCustomFont To register a custom font's available variants.
 @function oFontsVariantExists($family, $weight, $style) {
-	$weight: if($weight, $weight, 'regular'); // Handles a falsy `$weight` value.
-	$style: if($style, $style, 'normal'); // Handles a falsy `$style` value.
-	$details: _oFontsGetFamilyDetails($family);
-	// Font is not registered.
-	@if type-of($details) != 'map' {
-		@return false;
-	}
-	$font-variants: map-get($details, variants);
-
-	@each $variant in $font-variants {
-		// Check if this weight and style variant exists for this family
-		// Known issue with LibSass 3.0.2 - https://github.com/sass/libsass/issues/741
-		@if (map-get($variant, weight) == $weight and map-get($variant, style) == $style) {
-			@return true;
-		}
-	}
-	@return false;
+	@warn 'Remove use of oFontsVariantExists. It is deprecated and will be removed ' +
+	' in the next major version of o-fonts. oFontsVariantExists does not account for ' +
+	'variable font files, which support multiple weights. Now always returns `true`.';
+	@return true;
 }
 
-/// Fetch details for a given font family including the variants the family
-/// supports. Alternate names for the same family are accounted for, for example
-/// the variable font family `FinancierDisplayWebVF` will return the same details
-/// as the non-variable family `FinancierDisplayWeb`.
-///
-/// @param {String} $family - a family name such as `MetricWeb`, `FinancierDisplayWeb`
-/// @return {Map|Null} - a map of details for a matching family, including supported `variants`, see $_o-fonts-families
-@function _oFontsGetFamilyDetails($family) {
-	$font: oFontsGetFontFamilyWithoutFallbacks($family);
-	@each $family-details in map-values($_o-fonts-families) {
-		$keys: map-get($family-details, 'keys');
-		@if index($keys, $font) != null {
-			@return $family-details;
-		}
-	}
-	@return null;
-}
-
-/// Get the variable font variation settings a given family supports.
-///
-/// @param {String} $family - a family name such as `FinancierDisplayWeb`
-/// @return {Map|Null} - a map of supported variable font variation settings, see $_o-fonts-families
-@function _oFontsGetVariationSettings($family) {
-	$details: _oFontsGetFamilyDetails($family);
-	@if type-of($details) != 'map' {
-		@return null;
-	}
-	$variation-settings: map-get($details, 'variation-settings');
-	@if type-of($variation-settings) != 'map' {
-		@return null;
-	}
-	@return $variation-settings;
-}
-
-/// Check if a family supports variable font weights.
-///
-/// @param {String} $family - a family name such as `FinancierDisplayWeb`
-/// @return {Boolean} - whether the family supports a variable weight
-@function _oFontsSupportsVariableWeight($family) {
-	$variation-settings: _oFontsGetVariationSettings($family);
-	@return if(
-		$variation-settings,
-		map-has-key($variation-settings, 'wght'),
-		false
-	);
-}
-
-/// Check if a family supports italics with a variable font.
-///
-/// @param {String} $family - a family name such as `FinancierDisplayWeb`
-/// @return {Boolean} - whether the family supports italics with a variable font
-@function _oFontsSupportsVariableItalic($family) {
-	$variation-settings: _oFontsGetVariationSettings($family);
-	@return if(
-		$variation-settings,
-		map-has-key($variation-settings, 'ital'),
-		false
-	);
-}
 
 /// Check if a font variant has been included
 /// in your project with the `oFonts` mixin.
 ///
+/// @deprecated - oFontsVariantIncluded is deprecated and will be removed in the next major version of o-fonts. oFontsVariantIncluded did not account for variable font files, which support multiple weights and now always returns `true`.';
 /// @access public
-/// @param {String} $family - one of $_o-fonts-families
+/// @param {String} $family
 /// @param {String} $weight [regular] - The font weight.
 /// @param {String} $style [normal] - The font style.
 /// @return {Bool}
 /// @see oFonts To include fonts
 @function oFontsVariantIncluded($family, $weight, $style) {
-	$weight: if($weight, $weight, 'regular'); // Handles a falsy `$weight` value.
-	$style: if($style, $style, 'normal'); // Handles a falsy `$style` value.
-	$variant-key: _oFontsVariantKey($family, $weight, $style);
-	$variants-included: map-get($_o-fonts-families-included, $family);
+	@warn 'Remove use of oFontsVariantIncluded. It is deprecated and will be removed ' +
+	' in the next major version of o-fonts. oFontsVariantIncluded did not account for ' +
+	'variable font files, which support multiple weights and now always returns `true`.';
 
-	@return index($variants-included, $variant-key) != null;
-}
-
-/// Check if any font from the family has been included
-@function _oFontsFamilyIncluded($family) {
-	@return map-has-key($_o-fonts-families-included, $family);
+	@return true;
 }
 
 /// Get a font-family stack with the appropriate fallbacks
@@ -117,12 +41,24 @@
 /// @param {String} family
 /// @return {String} - font-stack
 @function oFontsGetFontFamilyWithFallbacks($family) {
-	$family-details: _oFontsGetFamilyDetails($family);
-	@if not $family-details {
-		@error 'Font "#{inspect($family)}" not found. "$family" must be one of #{map-keys($_o-fonts-families)}.';
+	@if($family == 'MetricWeb') {
+		@return MetricWeb, sans-serif;
 	}
 
-	@return unquote(map-get($family-details, 'font-family'));
+	@if($family == 'FinancierDisplayWeb') {
+		@return FinancierDisplayWeb, serif;
+	}
+
+	@if($family == 'FinancierTextWeb') {
+		@return FinancierTextWeb, serif;
+	}
+
+	// @todo this function must still support custom font faces
+	@if($family == 'Georgia') {
+		@return Georgia, serif;
+	}
+
+	@error 'Font "#{inspect($family)}" not found. "$family" must be one of "MetricWeb", "FinancierDisplayWeb", or "FinancierTextWeb".';
 }
 
 /// Removes a fonts fallbacks.
@@ -156,77 +92,4 @@
 	}
 
 	@return map-get($_o-fonts-weights, $keyword);
-}
-
-/// Capitalise first letter of $string
-///
-/// @access private
-/// @param {String} $string - string to update
-/// @return {String} - the string with a capitalised first letter
-@function _oFontsStringCapitalise($string) {
-	$string: $string + unquote(''); // Make sure $string has a type of String
-	$first-letter: to-upper-case(str-slice($string, 0, 1));
-	$rest-of-string: str-slice($string, 2);
-
-	@return $first-letter + $rest-of-string;
-}
-
-
-/// For a font variant (family, weight, style) return
-/// a key to identify the variant.
-///
-/// @access private
-/// @param {String} $family - one of $_o-fonts-families
-/// @param {String} $weight - The font weight.
-/// @param {String} $style - The font style.
-/// @return {String} - the key
-@function _oFontsVariantKey($family, $weight, $style) {
-	@return "#{$family}-#{$weight}-#{$style}";
-}
-
-/// Given an o-fonts options map, return a list of variant maps e.g.
-/// (('family': 'MetricWeb', 'weight': 'regular', 'style': 'normal'),
-/// ('family': 'FinancierDisplayWeb', 'weight': 'bold', 'style': 'normal'))
-/// @param {Maps} $opts - An o-fonts options map (see `oFonts` and `oFontsVariantsIncluded`)
-/// @return {List} - A list of font variant maps, which include 'family', 'weight', and 'style'.
-@function _oFontsOptionsToVariants($opts) {
-	$all-validated-variants: ();
-	// Map of options to font name.
-	$fonts: (
-		'metric': 'MetricWeb',
-		'financier-display': 'FinancierDisplayWeb',
-		'financier-text': 'FinancierTextWeb',
-	);
-	// Include each font variant given.
-	@each $option, $family in $fonts {
-		// Get font variants to include from the opt map by font family.
-		$variants: map-get($opts, $option);
-		$variants: if($variants, $variants, ());
-		// Merge recommended font variants if recommended fonts were requested.
-		@if map-get($opts, 'recommended') == true {
-			$recommended-variants: map-get($_o-fonts-recommended, $option);
-			@if length($variants) > 0 {
-				$variants: append($recommended-variants, $variants);
-			} @else {
-				$variants: $recommended-variants;
-			}
-		}
-		@each $variant in $variants {
-			// Validate that the variant style and weight is given.
-			$weight: map-get($variant, 'weight');
-			$style: map-get($variant, 'style');
-			@if(type-of($weight) != 'string') {
-				@error 'Could not include the "#{$family}" font with weight "#{inspect($weight)}". Excepted a string.';
-			}
-			@if(type-of($style) != 'string') {
-				@error 'Could not include the "#{$family}" font with style "#{inspect($style)}". Excepted a string.';
-			}
-			// Include the font face for this variant.
-			$all-validated-variants: append(
-				$all-validated-variants,
-				('family': $family, 'weight': $weight, 'style': $style)
-			);
-		}
-	}
-	@return $all-validated-variants;
 }

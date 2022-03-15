@@ -95,16 +95,6 @@ $_o-typography-font-scale: (
 	@include oBrandCustomize('o-typography', $variables);
 }
 
-
-// Register Georgia font and allowed variants with `o-fonts`.
-// Shared by all brands.
-@include oFontsDefineCustomFont('Georgia, serif', (
-	(weight: regular, style: normal),
-	(weight: regular, style: italic),
-	(weight: bold, style: normal),
-	(weight: bold, style: italic)
-));
-
 @if oBrandIs('core') {
 	$_o-typography-sans: if($_o-typography-sans != '', $_o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
 	$_o-typography-serif: if($_o-typography-serif != '', $_o-typography-serif, (Georgia, serif)) !global;
@@ -178,16 +168,6 @@ $_o-typography-font-scale: (
 }
 
 @if oBrandIs('whitelabel') {
-	// Register Arial font with `o-fonts`.
-	@include oFontsDefineCustomFont('Arial, sans', (
-		(weight: regular, style: normal),
-		(weight: regular, style: italic),
-		(weight: semibold, style: normal),
-		(weight: bold, style: normal),
-		(weight: semibold, style: italic),
-		(weight: bold, style: italic)
-	));
-
 	$_o-typography-sans: if($_o-typography-sans != '', $_o-typography-sans, (Arial, sans)) !global;
 	$_o-typography-serif: if($_o-typography-serif != '', $_o-typography-serif, (Georgia, serif)) !global;
 	$_o-typography-display: if($_o-typography-display != '', $_o-typography-display, (Arial, sans)) !global;

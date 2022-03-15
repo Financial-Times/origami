@@ -46,13 +46,34 @@
 ///     ));
 /// @param {Map} $opts - the font faces to include, see the README or examples for more details.
 @mixin oFonts($opts: $_o-fonts-default) {
-	$variants: _oFontsOptionsToVariants($opts);
+	@if(map-has-key($opts, 'metric')) {
+		// @todo
+	}
 
-	@each $variant in $variants {
-		$family: map-get($variant, 'family');
-		$weight: map-get($variant, 'weight');
-		$style: map-get($variant, 'style');
-		@include _oFontsInclude($family, $weight, $style);
+	@if(map-has-key($opts, 'financier-display')) {
+		@font-face {
+			src: url($o-fonts-path + 'FinancierDisplay-VF.woff2') format('woff2-variations');
+			font-family: "FinancierDisplay";
+			font-style: normal;
+		}
+		@font-face {
+			src: url($o-fonts-path + 'FinancierDisplay-VF-Italic.woff2') format('woff2-variations');
+			font-family: "FinancierDisplay";
+			font-style: italic;
+		}
+	}
+
+	@if(map-has-key($opts, 'financier-text')) {
+		@font-face {
+			src: url($o-fonts-path + '#FinancierText-VF.woff2') format('woff2-variations');
+			font-family: "FinancierText";
+			font-style: normal;
+		}
+		@font-face {
+			src: url($o-fonts-path + '#FinancierText-VF-Italic.woff2') format('woff2-variations');
+			font-family: "FinancierText";
+			font-style: italic;
+		}
 	}
 }
 

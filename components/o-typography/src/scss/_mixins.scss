@@ -158,8 +158,9 @@
 /// @param {String} $family - The font family to set.
 @mixin oTypographySetFont($type, $family) {
 	$font: oFontsGetFontFamilyWithoutFallbacks($family);
-	@if not oFontsVariantExists($font, $weight: null, $style: null) {
-		@error 'Could not set the font family "#{$family}" as "#{$font}" does not exist in "o-fonts". If you are setting a custom font, first register your custom font with o-fonts (https://registry.origami.ft.com/components/o-fonts).';
+	// @todo multiple updated errors in o-typography are a bit of a mess
+	@if not $font {
+		@error 'Could not set the font family "#{$family}" as "#{$font}", could not find the font family in the o-fonts component.';
 	}
 	@if not index($_o-typography-types, $type) {
 		@error 'Could not set font-family "#{$family}" for family style "#{$type}", family style must be one of "#{$_o-typography-types}".';
@@ -231,21 +232,8 @@
 ) {
 	// Check font variant is supported.
 	$font-without-fallbacks: oFontsGetFontFamilyWithoutFallbacks($font);
-	$variant-exists: oFontsVariantExists($font-without-fallbacks, $weight, $style);
-	@if not $variant-exists {
-		@error 'Font family "#{$font-without-fallbacks}" of weight ' +
-			'"#{if($weight, $weight, 'regular')}" and style ' +
-			'"#{if($style, $style, 'normal')}" is not supported.';
-	}
-
-	// Check font variant has been included, and error if an error message
-	// has been set by the user.
-	$variant-included: oFontsVariantIncluded($font-without-fallbacks, $weight, $style);
-	@if not $variant-included and type-of($o-typography-error-for-missing-fonts) == 'string' {
-		@error 'The font face for font family "#{$font-without-fallbacks}" of ' +
-			'weight "#{if($weight, $weight, 'regular')}" and style ' +
-			'"#{if($style, $style, 'normal')}" has not been included in your ' +
-			'project. #{inspect($o-typography-error-for-missing-fonts)}';
+	@if(not $font-without-fallbacks) {
+		@error 'Could not find a font family for font "#{$font}".';
 	}
 
 	@if $include-font-family {
