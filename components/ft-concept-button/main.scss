@@ -1,0 +1,199 @@
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-normalise/main';
+
+/// @access private
+$_ftConceptButtonThemes: (
+	standard: (
+		background: oColorsByName('claret'),
+		text: oColorsByName('white'),
+		highlight: oColorsByName('claret-50'),
+		pressed-highlight: rgba(oColorsByName('black'), 0.05),
+		disabled: rgba(oColorsByName('black'), 0.5),
+		focus-outline: oColorsByUsecase('focus', 'outline', $fallback: null),
+	),
+	inverse: (
+		background: oColorsByName('white'),
+		text: oColorsByName('claret'),
+		highlight: rgba(white, 0.8),
+		pressed-highlight: rgba(white, 0.2),
+		disabled: rgba(oColorsByName('white'), 0.5),
+		focus-outline: oColorsByName('white'),
+	),
+	opinion: (
+		background: oColorsByName('oxford-40'),
+		text: oColorsByName('white'),
+		highlight: oColorsByName('oxford-30'),
+		pressed-highlight: rgba(oColorsByName('oxford-40'), 0.2),
+		disabled: rgba(oColorsByName('black'), 0.5),
+		focus-outline: oColorsByUsecase('focus', 'outline', $fallback: null),
+	),
+	monochrome: (
+		background: oColorsByName('white'),
+		text: oColorsByName('black'),
+		highlight: oColorsByName('white-80'),
+		pressed-highlight: rgba(oColorsByName('white'), 0.2),
+		disabled: rgba(oColorsByName('white'), 0.5),
+		focus-outline: oColorsByName('white'),
+	),
+);
+
+@function _ftConceptButtonGetThemeColor($key) {
+	@return map-get($theme-map, $key);
+}
+
+@mixin _ftConceptButtonWithTheme($theme) {
+	@if type-of($theme) == 'map' {
+		$theme-map: $theme !global;
+	} @else {
+		$theme-map: map-get($_ftConceptButtonThemes, $theme) !global;
+	}
+
+	@content;
+
+	// stylelint-disable order/order
+	$theme-map: null !global;
+}
+
+@mixin _ftConceptButtonGetIcon($name, $color) {
+	@include oIconsContent(
+		$icon-name: $name,
+		$size: 10,
+		$color: $color,
+		$iconset-version: 1
+	);
+	content: '';
+}
+
+@mixin _ftConceptButtonPlusIcon($color) {
+	@include _ftConceptButtonGetIcon('plus', $color);
+	background-size: 25px;
+	margin: 0 6px -1px 0;
+}
+
+@mixin _ftConceptButtonTickIcon($color) {
+	@include _ftConceptButtonGetIcon('tick', $color);
+	background-size: 21px;
+}
+
+@mixin _ftConceptButtonIcon($theme: standard) {
+	@include _ftConceptButtonWithTheme($theme) {
+		&::before {
+			@include _ftConceptButtonPlusIcon(
+				_ftConceptButtonGetThemeColor(background)
+			);
+		}
+
+		&[aria-pressed='true'] {
+			&::before {
+				@include _ftConceptButtonTickIcon(_ftConceptButtonGetThemeColor(text));
+			}
+		}
+
+		&[disabled],
+		&[disabled]:hover {
+			background: transparent;
+
+			&::before {
+				@include _ftConceptButtonPlusIcon(
+					_ftConceptButtonGetThemeColor(disabled)
+				);
+				opacity: 0.5;
+			}
+
+			&[aria-pressed='true']::before {
+				@include _ftConceptButtonTickIcon(
+					_ftConceptButtonGetThemeColor(disabled)
+				);
+			}
+		}
+	}
+}
+
+@mixin _ftConceptButtonFocusOutlineColor($focus-color) {
+	&:focus,
+	&.focus-visible {
+		outline-color: $focus-color;
+	}
+}
+
+@mixin _ftConceptButtonTheme($theme: standard, $with-toggle-icon: false) {
+	@include _ftConceptButtonWithTheme($theme) {
+		background-color: transparent;
+		border: 1px solid _ftConceptButtonGetThemeColor(background);
+		color: _ftConceptButtonGetThemeColor(background);
+
+		@include _ftConceptButtonFocusOutlineColor(
+			_ftConceptButtonGetThemeColor(focus-outline)
+		);
+
+		&:hover,
+		&:focus {
+			background-color: _ftConceptButtonGetThemeColor(pressed-highlight);
+			border-color: _ftConceptButtonGetThemeColor(background);
+			color: _ftConceptButtonGetThemeColor(background);
+		}
+
+		&[aria-pressed='true'] {
+			background-color: _ftConceptButtonGetThemeColor(background);
+			border: 1px solid _ftConceptButtonGetThemeColor(background);
+			color: _ftConceptButtonGetThemeColor(text);
+
+			&:hover,
+			&:focus {
+				background-color: _ftConceptButtonGetThemeColor(highlight);
+				border-color: _ftConceptButtonGetThemeColor(highlight);
+				color: _ftConceptButtonGetThemeColor(text);
+			}
+		}
+
+		&[disabled]:hover,
+		&[disabled] {
+			background: transparent;
+			border: 1px solid _ftConceptButtonGetThemeColor(disabled);
+			color: _ftConceptButtonGetThemeColor(disabled);
+		}
+	}
+}
+
+@mixin _ftConceptButtonBase() {
+	@include oTypographySans($weight: 'semibold', $scale: -1);
+	border-radius: 100px;
+	box-sizing: content-box;
+	display: block;
+	outline-offset: 2px;
+	overflow: hidden;
+	padding: 5px 12px;
+	text-align: left;
+	text-overflow: ellipsis;
+	max-width: 15em;
+	transition: border-color, background-color 0.5s ease;
+	white-space: nowrap;
+}
+
+@mixin ftConceptButton(
+	$themes: (
+		'standard',
+		'opinion',
+		'inverse',
+		'monochrome',
+	)
+) {
+	.ft-concept-button__button {
+		@include _ftConceptButtonBase();
+	}
+
+	.ft-concept-button__announcement {
+		@include oNormaliseVisuallyHidden();
+	}
+
+	@each $theme in map-keys($_ftConceptButtonThemes) {
+		.ft-concept-button--#{$theme} {
+			.ft-concept-button__button {
+				@include _ftConceptButtonTheme($theme);
+			}
+			&.ft-concept-button--follow .ft-concept-button__button {
+				@include _ftConceptButtonIcon($theme);
+			}
+		}
+	}
+}

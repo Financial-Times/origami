@@ -28,6 +28,9 @@
 			"path": "libraries/math"
 		},
 		{
+			"path": "components/myft-concept-button"
+		},
+		{
 			"path": "components/n-notification"
 		},
 		{

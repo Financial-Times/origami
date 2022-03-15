@@ -1,0 +1,9 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands": [
+		"core"
+	],
+	"supportStatus": "active",
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=ft-follow-button,components"
+}

@@ -71,12 +71,14 @@
 		margin-left: 10px;
 	}
 
-	// Visually hide any filtered rows.
-	// `display: none` is not used to avoid recalculating column row.
+	// Hide any filtered or hidden rows.
+	// `visibility: hidden` ensures children can't be tabbed to.
+	// `display: none` is not used as o-table relies on row being rendered to get their height.
 	// `visibility: collaposed` is not used due to inconsistent browser support.
-	// stylelint-disable-next-line selector-no-qualifying-type
+	//stylelint-disable selector-no-qualifying-type
+	tr[aria-hidden="true"],
 	tr[data-o-table-filtered="true"] {
 		visibility: hidden;
 	}
-	// sass-lint:enable no-qualifying-elements
+	//stylelint-enable selector-no-qualifying-type
 }
