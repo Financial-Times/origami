@@ -274,7 +274,7 @@ For example, when the below anchor element is clicked, it will add extra event f
 
 Once you have sent data into Spoor, you can view the data via Looker.
 
-The FT has a Slack channel named #ask-an-analyst where anyone can get help with Chartio.
+The FT has a Slack channel named #ask-an-analyst where anyone can get help with Looker.
 
 If you have never used Looker before, you will need to [request access via this form](https://fteunew.freshservice.com/support/catalog/items/73).
 
