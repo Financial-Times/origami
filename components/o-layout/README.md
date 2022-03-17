@@ -210,7 +210,7 @@ Use a containing `div` with class `o-layout__main__single-span` to constrain ele
 ```
 
 ### Sidebar
-By default `o-layout` will generate a sidebar navigation for the documentation layout. This feature is also supported by the query layout but is disabled by default. The sidebar links to any `<h2>` or `<h3>` element within the main content area, providing it has an `id`.
+By default `o-layout` will generate a sidebar navigation for the documentation layout. This feature is also supported by the query layout but is disabled by default. You will need to include an empty `<div class="o-layout__sidebar>` somewhere before your main content. The sidebar links to any `<h2>` or `<h3>` element within the main content area, providing it has an `id`.
 
 If you wish to display headings other than `<h2>` and `<h3>` in the navigation, you can customise the selector that's used with the `data-o-layout-nav-heading-selector` data attribute. For example, to select only headings which have the class `nav-heading`, use the following:
 
