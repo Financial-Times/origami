@@ -46,8 +46,8 @@ This one has a little plus or a tick icon. You'd be advised to include the `data
 	class="ft-concept-button ft-concept-button--follow ft-concept-button--standard"
 	data-ft-concept-button-aria-live-pressed-text="Now following movies on my FT"
 	data-ft-concept-button-aria-live-unpressed-text="No longer following movies on my FT"
-	data-ft-concept-button-aria-label-pressed-text="Follow movies on my FT"
-	data-ft-concept-button-aria-label-unpressed-text="Stop following movies on my FT"
+	data-ft-concept-button-aria-label-pressed-text="Stop following movies on my FT"
+	data-ft-concept-button-aria-label-unpressed-text="Follow movies on my FT"
 	data-o-component="ft-concept-button"
 >
 	<div class="ft-concept-button__announcement" aria-live="assertive"></div>
