@@ -10,7 +10,7 @@ export default class FtConceptButton {
 	constructor(element, options) {
 		this.element = element;
 		this.button = this.element.querySelector('.ft-concept-button__button');
-		this.live = this.element.querySelector('.ft-follow-button__announcement');
+		this.live = this.element.querySelector('.ft-concept-button__announcement');
 		this.options = Object.assign({}, options || this.getOptionsFromDom());
 	}
 
