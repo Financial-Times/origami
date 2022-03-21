@@ -61,7 +61,7 @@ Your migration to npm Origami components is finished! 🎉
 ### Using Origami via Bower
 
 <aside>
-This guide used to give a choice between updating Sass include paths ( <code>@import  <code>o-icons/main';</code> becomes  <code>@import '@financial-times/o-icons/main';`</code>) or adding <code>node_modules/@financial-times</code> to your compiler's <code>includePath<code> configuration. It has since been updated to require the former and discourage the latter outside a specific circumstance.
+This guide used to give a choice between updating Sass include paths ( <code>@import  <code>o-icons/main';</code> becomes  <code>@import '@financial-times/o-icons/main';</code>) or adding <code>node_modules/@financial-times</code> to your compiler's <code>includePath<code> configuration. It has since been updated to require the former and discourage the latter outside a specific circumstance.
 </aside>
 
 1. Run the project locally in its current state.
