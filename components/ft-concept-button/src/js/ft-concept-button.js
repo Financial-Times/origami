@@ -49,7 +49,7 @@ export default class FtConceptButton {
 		) {
 			this.button.ariaLabel = state
 				? this.options.ariaLabelPressedText
-				: this.options.ariaLiveUnpressedText;
+				: this.options.ariaLabelUnpressedText;
 		}
 	}
 
