@@ -25,7 +25,7 @@ export default class FtConceptButton {
 	 * @param {boolean} [state] the state to set
 	 */
 	set isPressed(state) {
-		this.button.ariaPressed = state ? 'true' : 'false';
+		this.button.setAttribute('aria-pressed', state ? 'true' : 'false');
 
 		if (
 			this.options.ariaLivePressedText &&
@@ -47,9 +47,9 @@ export default class FtConceptButton {
 			this.options.ariaLabelPressedText &&
 			this.options.ariaLabelUnpressedText
 		) {
-			this.button.ariaLabel = state
+			this.button.setAttribute('aria-label', state
 				? this.options.ariaLabelPressedText
-				: this.options.ariaLiveUnpressedText;
+				: this.options.ariaLiveUnpressedText);
 		}
 	}
 
