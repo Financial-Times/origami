@@ -15,7 +15,7 @@ export default class FtConceptButton {
 	}
 
 	get isPressed() {
-		return this.button.ariaPressed === 'true';
+		return this.button.getAttribute('aria-pressed') === 'true';
 	}
 
 	/**
