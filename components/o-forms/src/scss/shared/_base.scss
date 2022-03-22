@@ -39,10 +39,21 @@
 		display: block;
 	}
 
+
+	.o-forms-input__label__main {
+		@include oTypographySans($weight: 'regular', $include-font-family: false);
+		display: block;
+	}
+
+	.o-forms-input__label__prompt,
 	.o-forms-title__prompt {
 		@include oTypographySans($scale: -1, $include-font-family: false);
 		color: _oFormsGet('default-prompt-text');
 		display: block;
+	}
+
+	.o-forms-input__label__main + .o-forms-input__label__prompt {
+		margin-top: oSpacingByName('s1');
 	}
 
 	.o-forms-input {

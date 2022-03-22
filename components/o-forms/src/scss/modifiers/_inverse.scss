@@ -19,7 +19,9 @@
 		}
 
 		.o-forms-input__label:after {
+			@include oIconsContent('cross', $size: null, $color: _oFormsGet('toggle-inverse'), $include-base-styles: false);
 			border-color: _oFormsGet('toggle-inverse');
+			background-color: _oFormsGet('toggle-inverse-knob');
 		}
 
 		input[type=checkbox]:checked { // stylelint-disable-line selector-no-qualifying-type
@@ -28,6 +30,7 @@
 			}
 
 			+ .o-forms-input__label:after {// stylelint-disable-line selector-no-qualifying-type
+				@include oIconsContent('tick', $size: null, $color: _oFormsGet('toggle-inverse-selected'), $include-base-styles: false);
 				border-color: _oFormsGet('toggle-inverse-selected');
 			}
 		}

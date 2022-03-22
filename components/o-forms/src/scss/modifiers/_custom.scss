@@ -66,7 +66,7 @@
 	}
 
 	#{$element} {
-		padding-left: $_o-forms-spacing-six;
+		padding-left: $_o-forms-checkbox-radio-width;
 		padding-right: $_o-forms-spacing-two;
 		text-align: left;
 
@@ -84,7 +84,7 @@
 			@include oIconsContent(
 				$icon-name: $icon,
 				$color: _oFormsGet('controls-base', $from: $theme),
-				$size: $_o-forms-spacing-six,
+				$size: $_o-forms-checkbox-radio-width,
 				$include-base-styles: false
 			);
 		}
@@ -93,7 +93,7 @@
 			@include oIconsContent(
 				$icon-name: $icon,
 				$color: _oFormsGet('controls-checked-base', $from: $theme),
-				$size: $_o-forms-spacing-six,
+				$size: $_o-forms-checkbox-radio-width,
 				$include-base-styles: false
 			);
 			display: none;

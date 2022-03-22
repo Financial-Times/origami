@@ -17,7 +17,7 @@
 			}
 
 			&:indeterminate + .o-forms-input__label:after { // stylelint-disable-line selector-no-qualifying-type
-				@include oIconsContent('minus', _oFormsGet('controls-checked-base'), $_o-forms-spacing-six);
+				@include oIconsContent('minus', _oFormsGet('controls-checked-base'), $_o-forms-checkbox-radio-width);
 				background-color: _oFormsGet('controls-base');
 				opacity: 1;
 			}
@@ -37,7 +37,7 @@
 					&:before,
 					&:after {
 						// right: 0;
-						left: calc(100% - #{$_o-forms-spacing-six});
+						left: calc(100% - #{$_o-forms-checkbox-radio-width});
 					}
 				}
 			}
@@ -56,7 +56,7 @@
 
 			&:after {
 				@include _oFormsControlsPseudoElements();
-				@include oIconsContent('tick', _oFormsGet('controls-checked-base'), $_o-forms-spacing-six);
+				@include oIconsContent('tick', _oFormsGet('controls-checked-base'), $_o-forms-checkbox-radio-width);
 				background-color: _oFormsGet('controls-base');
 				opacity: 0;
 				transition: opacity 0.1s ease;

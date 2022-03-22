@@ -22,7 +22,7 @@
 			@include oIconsContent('arrow-down', _oFormsGet('field-standard-text'), $size: null, $include-base-styles: false);
 			appearance: none;
 			background-repeat: no-repeat;
-			background-size: $_o-forms-spacing-six $_o-forms-spacing-six;
+			background-size: $_o-forms-checkbox-radio-width $_o-forms-checkbox-radio-width;
 			border-radius: 0;
 			background-clip: padding-box;
 			color: _oFormsGet('default-text');
