@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.3.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.2.4...o-forms-v9.3.0) (2022-03-22)
+
+
+### Features
+
+* checkbox descriptive text + toggle checkbox improvements ([1a48067](https://www.github.com/Financial-Times/origami/commit/1a48067307f7da44a292e9fa6a86eb506f19fcb6))
+
 ### [9.2.4](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.2.3...o-forms-v9.2.4) (2022-02-07)
 
 
