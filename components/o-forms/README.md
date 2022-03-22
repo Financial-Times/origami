@@ -377,6 +377,37 @@ For a toggle checkbox, replace the `o-forms-input--checkbox` modifier class with
 
 Toggles have an inverse theme. Set `o-forms-field--inverse` on the field element to use the inverse theme on a dark background.
 
+##### Checkbox inputs with description
+
+Add descriptions to toggles / checkboxes by adding `o-forms-input__label__main` and `o-forms-input__label__prompt` span elements. These must be associated with the checkbox input using `aria-labelledby` and `aria-describedby` attributes:
+
+```html
+<div class="o-forms-field" role="group" aria-labelledby="[your-title-id]" aria-describedby="[your-description-id]">
+
+	<span class="o-forms-title">
+		<span class="o-forms-title__main" id="[your-title-id]">Toggle inputs with description</span>
+		<span class="o-forms-title__prompt" id="[your-description-id]">Optional prompt text</span>
+	</span>
+
+	<span class="o-forms-input o-forms-input--toggle">
+
+		<label>
+			<input type="checkbox" name="default" value="Lorem ipsum dolor sit amet" checked="" aria-labelledby="[your-checkbox-label-id]" aria-describedby="[your-checkbox-description-id]" required="">
+			<span class="o-forms-input__label">
+				<span id="[your-checkbox-label-id]" class="o-forms-input__label__main">
+					Lorem ipsum dolor sit amet
+				</span>
+				<span id="[your-checkbox-description-id]" class="o-forms-input__label__prompt">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad earum magnam vel possimus harum suscipit.
+				</span>
+			</span>
+		</label>
+
+	</span>
+
+</div>
+```
+
 #### Date inputs
 
 We do not use `input[type=date]`, but instead combine three `input[type=text]` inputs. We use `inputmode="numeric"` to show a numeric keyboard in mobile browsers which support the attribute. And use a `pattern` attribute for basic client side date validation.

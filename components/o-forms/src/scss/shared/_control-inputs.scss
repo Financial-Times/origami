@@ -9,8 +9,8 @@
 
 	position: absolute;
 	padding: 0;
-	width: $_o-forms-spacing-six;
-	height: $_o-forms-spacing-six;
+	width: $_o-forms-checkbox-radio-width;
+	height: $_o-forms-checkbox-radio-width;
 
 	&:checked ~ .o-forms-input__label:after {
 		opacity: 1;
@@ -35,8 +35,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: $_o-forms-spacing-six;
-	height: $_o-forms-spacing-six;
+	width: $_o-forms-checkbox-radio-width;
+	height: $_o-forms-checkbox-radio-width;
 	box-sizing: border-box;
 }
 

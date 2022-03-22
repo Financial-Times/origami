@@ -31,6 +31,43 @@
       "field": {
         "type": "toggle",
         "aria": {
+          "label": "toggle-group-with-description-title",
+          "info": "toggle-group-with-description-info"
+        }
+      },
+      "title": {
+        "main": "Toggle inputs with description",
+        "prompt": "Optional prompt text"
+      },
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "default",
+          "value": "Lorem ipsum dolor sit amet",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad earum magnam vel possimus harum suscipit.",
+          "checked": true,
+          "aria": {
+            "label": "toggle-group-option-1-label",
+            "info": "toggle-group-option-1-description"
+          }
+        },
+        {
+          "type": "checkbox",
+          "name": "default",
+          "value": "Lorem ipsum dolor",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam numquam aspernatur error voluptas dolorem ab.",
+          "checked": false,
+          "aria": {
+            "label": "toggle-group-option-2-label",
+            "info": "toggle-group-option-2-description"
+          }
+        }
+      ]
+    },
+    {
+      "field": {
+        "type": "toggle",
+        "aria": {
           "label": "inlined-toggle-group-title"
         },
         "modifiers": [ "inline" ]

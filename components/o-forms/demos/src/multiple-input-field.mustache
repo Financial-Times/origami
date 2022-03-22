@@ -44,7 +44,7 @@
 									{{#modifier}} o-forms-input__label--{{.}}{{/modifier}}
 									{{#icon}} o-forms-input__label__{{.}}-icon{{/icon}}"
 								{{#aria-label}}aria-hidden="true"{{/aria-label}}>
-									{{#date}}{{date}}{{/date}}{{^date}}{{value}}{{/date}}
+									{{#date}}{{date}}{{/date}}{{^date}}{{{value}}}{{/date}}
 						</span>
 					{{/label-first}}
 					<input
@@ -56,6 +56,8 @@
 						{{#pattern}}pattern={{.}}{{/pattern}}
 						{{#checked}}checked{{/checked}}
 						{{#aria-label}}aria-label="{{.}}"{{/aria-label}}
+						{{#aria.label}}aria-labelledby="{{value}}"{{/aria.label}}
+						{{#aria.info}}aria-describedby="{{aria.info}}"{{/aria.info}}
 						{{#disabled}}disabled{{/disabled}}
 						{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>
 
@@ -65,13 +67,24 @@
 									{{#modifier}} o-forms-input__label--{{.}}{{/modifier}}
 									{{#icon}} o-forms-input__label__{{.}}-icon{{/icon}}"
 								{{#aria-label}}aria-hidden="true"{{/aria-label}}>
-									{{#date}}{{date}}{{/date}}{{^date}}{{value}}{{/date}}
+								{{#description}}
+									<span class="o-forms-input__label__main">
+										{{#date}}{{date}}{{/date}}{{^date}}{{{value}}}{{/date}}
+									</span>
+									<span id="{{aria.info}}" class="o-forms-input__label__prompt">
+										{{description}}
+									</span>
+								{{/description}}
+								{{^description}}
+									{{#date}}{{date}}{{/date}}{{^date}}{{{value}}}{{/date}}
+								{{/description}}
+
 						</span>
 					{{/name}}
 					{{/label-first}}
 
 					{{#additionalContent}}
-						<span class="o-forms-input__label">{{.}}</span>
+						<span class="o-forms-input__label">{{{.}}}</span>
 					{{/additionalContent}}
 				</label>
 			{{/inputs}}

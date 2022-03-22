@@ -35,6 +35,43 @@
 		},
 		{
 			"field": {
+			  "type": "checkbox",
+			  "aria": {
+				"label": "checkbox-group-with-description-title",
+				"info": "checkbox-group-with-description-info"
+			  }
+			},
+			"title": {
+			  "main": "Checkbox inputs with description",
+			  "prompt": "Optional prompt text"
+			},
+			"inputs": [
+			  {
+				"type": "checkbox",
+				"name": "default",
+				"value": "Lorem ipsum dolor sit amet",
+				"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad earum magnam vel possimus harum suscipit.",
+				"checked": true,
+				"aria": {
+				  "label": "checkbox-group-option-1-label",
+				  "info": "checkbox-group-option-1-description"
+				}
+			  },
+			  {
+				"type": "checkbox",
+				"name": "default",
+				"value": "Lorem ipsum dolor",
+				"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam numquam aspernatur error voluptas dolorem ab.",
+				"checked": false,
+				"aria": {
+				  "label": "checkbox-group-option-2-label",
+				  "info": "checkbox-group-option-2-description"
+				}
+			  }
+			]
+		},
+		{
+			"field": {
 				"type": "checkbox",
 				"aria": {
 					"label": "disabed-checkbox-group-title"
