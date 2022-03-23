@@ -32,7 +32,7 @@
 			vertical-align: bottom;
 		}
 	
-		&.pause .g-audio--playbutton:before {
+		&.g-audio-pause .g-audio--playbutton:before {
 			@include oIconsContent('pause', $g-audio-button-color, 25);
 			content: '';
 			font-size: 0.8em;

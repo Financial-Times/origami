@@ -136,7 +136,7 @@ class AudioPlayer {
 	}
 
 	toggleAudio() {
-		if (this.targetObject.classList.contains('pause')) {
+		if (this.targetObject.classList.contains('g-audio-pause')) {
 			// console.log('go to pause')
 			this.pause();
 		} else {
@@ -180,7 +180,7 @@ class AudioPlayer {
 		}
 		this.audio.play();
 		this.dateTimePlayStart = Date.now();
-		this.targetObject.classList.add('pause');
+		this.targetObject.classList.add('g-audio-pause');
 	}
 
 	pause() {
@@ -194,7 +194,7 @@ class AudioPlayer {
 			this.playStart = this.audio.currentTime;
 		}
 
-		this.targetObject.classList.remove('pause');
+		this.targetObject.classList.remove('g-audio-pause');
 	}
 
 	destroy() {
