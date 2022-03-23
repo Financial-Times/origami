@@ -193,55 +193,73 @@
 <h3 id="using-origami-via-bower">Using Origami via Bower</h3>
 
 <aside>
-This guide used to give a choice between updating Sass include paths ( <code>@import  <code>o-icons/main';</code> becomes  <code>@import '@financial-times/o-icons/main';</code>) or adding <code>node_modules/@financial-times</code> to your compiler's <code>includePath<code> configuration. It has since been updated to require the former and discourage the latter outside a specific circumstance.
-&lt;/aside&gt;
+This guide used to give a choice between updating Sass include paths ( <code>@import o-icons/main';</code> becomes <code>@import '@financial-times/o-icons/main';</code>) or adding <code>node_modules/@financial-times</code> to your compiler's <code>includePath</code> configuration. It has since been updated to require the former and discourage the latter outside a specific circumstance.
+</aside>
 
-1. Run the project locally in its current state.
-1. Check your project installs the [latest major Bower release](#last-bower-releases) of each component. If your project is using outdated component releases, follow the [component migration guides](#last-bower-releases) to update to the latest major Bower release.
-1. Now you're ready to do the NPM migration.
-1. If the project is not using NPM version 7:
-   1. Clean the directory of `node_modules` and any built artefacts
-   1. Switch to NPM version 7 and install the dependencies
-   1. Confirm the project is still working correctly - If it is not working, try deleting the `package-lock.json` and/or `npm-shrinkwrap.json` files and run `npm install` again. There is a known issue with upgrading to NPM version 7 and those files becoming corrupted.
-1. Clean the directory of `node_modules` and any built artefacts
-1. Install all origami dependencies as npm dependencies and remove them from the `bower.json` file. All the components are under the `@financialt-times` namespace on NPM. I.E. To install o-table, `npm install @financial-times/o-table`.
-1. If there are still dependencies declared in the `bower.json` file, try and find the corresponding package on the NPM registry.
-1. Remove the `bower.json` file and `.bowerrc` file if it exists. E.G. `rm -f .bowerrc bower.json`
-1. Remove the `bower_components` directory. `rm -rf bower_components`
-1. Remove `bower` from the `package.json` file. E.G. `npm uninstall bower`
-1. Update the Sass compiler's `includePath` configuration to include `node_modules` and remove `bower_components`.
-1. Update the Origami Sass imports to include the `@financial-times` namespace. E.G. `@import 'o-icons/main';` becomes `@import '@financial-times/o-icons/main';`
-   1. Note: Although we don't recommend it, you may also add `node_modules/@financial-times` to your compiler's `includePath` configuration. This will resolve Sass published under `@financial-times` without specifying a namespace. We don't recommend this because it will require all dependent projects do the same. However, this step is required temporarily if your team is not updating to the latest version of Origami components on npm.
-1. Update your Origami JavaScript imports to include the `@financial-times` namespace. E.G. `import oTracking from 'o-tracking';` becomes `import oTracking from '@financial-times/o-tracking';` and `import 'o-layout';` becomes `import '@financial-times/o-layout';`
-1. Run the project locally and confirm it is still working correctly
+<ol>
+  <li>Run the project locally in its current state.</li>
+  <li>Check your project installs the <a href="#last-bower-releases">latest major Bower release</a> of each component. If your project is using outdated component releases, follow the <a href="#last-bower-releases">component migration guides</a> to update to the latest major Bower release.</li>
+  <li>Now you’re ready to do the NPM migration.</li>
+  <li>If the project is not using NPM version 7:
+    <ol>
+      <li>Clean the directory of <code class="language-plaintext highlighter-rouge">node_modules</code> and any built artefacts</li>
+      <li>Switch to NPM version 7 and install the dependencies</li>
+      <li>Confirm the project is still working correctly - If it is not working, try deleting the <code class="language-plaintext highlighter-rouge">package-lock.json</code> and/or <code class="language-plaintext highlighter-rouge">npm-shrinkwrap.json</code> files and run <code class="language-plaintext highlighter-rouge">npm install</code> again. There is a known issue with upgrading to NPM version 7 and those files becoming corrupted.</li>
+    </ol>
+  </li>
+  <li>Clean the directory of <code class="language-plaintext highlighter-rouge">node_modules</code> and any built artefacts</li>
+  <li>Install all origami dependencies as npm dependencies and remove them from the <code class="language-plaintext highlighter-rouge">bower.json</code> file. All the components are under the <code class="language-plaintext highlighter-rouge">@financialt-times</code> namespace on NPM. I.E. To install o-table, <code class="language-plaintext highlighter-rouge">npm install @financial-times/o-table</code>.</li>
+  <li>If there are still dependencies declared in the <code class="language-plaintext highlighter-rouge">bower.json</code> file, try and find the corresponding package on the NPM registry.</li>
+  <li>Remove the <code class="language-plaintext highlighter-rouge">bower.json</code> file and <code class="language-plaintext highlighter-rouge">.bowerrc</code> file if it exists. E.G. <code class="language-plaintext highlighter-rouge">rm -f .bowerrc bower.json</code></li>
+  <li>Remove the <code class="language-plaintext highlighter-rouge">bower_components</code> directory. <code class="language-plaintext highlighter-rouge">rm -rf bower_components</code></li>
+  <li>Remove <code class="language-plaintext highlighter-rouge">bower</code> from the <code class="language-plaintext highlighter-rouge">package.json</code> file. E.G. <code class="language-plaintext highlighter-rouge">npm uninstall bower</code></li>
+  <li>Update the Sass compiler’s <code class="language-plaintext highlighter-rouge">includePath</code> configuration to include <code class="language-plaintext highlighter-rouge">node_modules</code> and remove <code class="language-plaintext highlighter-rouge">bower_components</code>.</li>
+  <li>Update the Origami Sass imports to include the <code class="language-plaintext highlighter-rouge">@financial-times</code> namespace. E.G. <code class="language-plaintext highlighter-rouge">@import 'o-icons/main';</code> becomes <code class="language-plaintext highlighter-rouge">@import '@financial-times/o-icons/main';</code>
+    <ol>
+      <li>Note: Although we don’t recommend it, you may also add <code class="language-plaintext highlighter-rouge">node_modules/@financial-times</code> to your compiler’s <code class="language-plaintext highlighter-rouge">includePath</code> configuration. This will resolve Sass published under <code class="language-plaintext highlighter-rouge">@financial-times</code> without specifying a namespace. We don’t recommend this because it will require all dependent projects do the same. However, this step is required temporarily if your team is not updating to the latest version of Origami components on npm.</li>
+    </ol>
+  </li>
+  <li>Update your Origami JavaScript imports to include the <code class="language-plaintext highlighter-rouge">@financial-times</code> namespace. E.G. <code class="language-plaintext highlighter-rouge">import oTracking from 'o-tracking';</code> becomes <code class="language-plaintext highlighter-rouge">import oTracking from '@financial-times/o-tracking';</code> and <code class="language-plaintext highlighter-rouge">import 'o-layout';</code> becomes <code class="language-plaintext highlighter-rouge">import '@financial-times/o-layout';</code></li>
+  <li>Run the project locally and confirm it is still working correctly</li>
+</ol>
 
-Your migration to npm Origami components is finished! 🎉
+<p>Your migration to npm Origami components is finished! 🎉</p>
 
-### Using Origami via beta NPM
+<h3 id="using-origami-via-beta-npm">Using Origami via beta NPM</h3>
 
-If your project already installs Origami components via NPM, these were experimental releases which were published to Bower and NPM.
+<p>If your project already installs Origami components via NPM, these were experimental releases which were published to Bower and NPM.</p>
 
-1. Run your project locally in its current state and confirm it is still working correctly
-1. Check your project installs the [latest major version that was released to Bower](#last-bower-releases) of each component. If your project is using outdated component releases, follow the [component migration guides](#last-bower-releases) to update to the latest major release that was Bower-compatible.
-1. If your project is not using NPM version 7:
-   1. Clean the directory of node_modules and any built artefacts
-   1. Switch to NPM version 7 and install the dependencies
-      1. Confirm your project is still working correctly - If it is not working, try deleting the `package-lock.json` and/or `npm-shrinkwrap.json` files and run `npm install` again. There is a known issue with upgrading to NPM version 7 and those files becoming corrupted.
-1. Clean the directory of node_modules and any built artefacts
-1. Upgrade to the latest major versions of any Origami components you are using
-1. If using `lockspot` or `is-origami-flat`, these should be removed as they are no longer needed when using NPM version 7. `npm uninstall lockspot is-origami-flat`
-1. Run your project locally and confirm it is still working correctly
+<ol>
+  <li>Run your project locally in its current state and confirm it is still working correctly</li>
+  <li>Check your project installs the <a href="#last-bower-releases">latest major version that was released to Bower</a> of each component. If your project is using outdated component releases, follow the <a href="#last-bower-releases">component migration guides</a> to update to the latest major release that was Bower-compatible.</li>
+  <li>If your project is not using NPM version 7:
+    <ol>
+      <li>Clean the directory of node_modules and any built artefacts</li>
+      <li>Switch to NPM version 7 and install the dependencies
+        <ol>
+          <li>Confirm your project is still working correctly - If it is not working, try deleting the <code class="language-plaintext highlighter-rouge">package-lock.json</code> and/or <code class="language-plaintext highlighter-rouge">npm-shrinkwrap.json</code> files and run <code class="language-plaintext highlighter-rouge">npm install</code> again. There is a known issue with upgrading to NPM version 7 and those files becoming corrupted.</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Clean the directory of node_modules and any built artefacts</li>
+  <li>Upgrade to the latest major versions of any Origami components you are using</li>
+  <li>If using <code class="language-plaintext highlighter-rouge">lockspot</code> or <code class="language-plaintext highlighter-rouge">is-origami-flat</code>, these should be removed as they are no longer needed when using NPM version 7. <code class="language-plaintext highlighter-rouge">npm uninstall lockspot is-origami-flat</code></li>
+  <li>Run your project locally and confirm it is still working correctly</li>
+</ol>
 
-Your migration to npm Origami components is finished! 🎉
+<p>Your migration to npm Origami components is finished! 🎉</p>
 
-## Tracking migrations
+<h2 id="tracking-migrations">Tracking migrations</h2>
 
-We can detect when the relevant repos have been updated to remove Bower. Using that data, we will update:
+<p>We can detect when the relevant repos have been updated to remove Bower. Using that data, we will update:</p>
 
-- This [google spreadsheet](https://docs.google.com/spreadsheets/d/1Pem5e6cR0aiuKpYa7VD08AnSSynzjRtWt_VAHAoyhPQ/edit#gid=0), which contains your projects that are using Origami via Bower.
-- The associated [entry in the Risk Register](https://biz-ops.in.ft.com/Risk/origami-components-via-bower) which is linked to all the affected systems that we know of.
+<ul>
+  <li>This <a href="https://docs.google.com/spreadsheets/d/1Pem5e6cR0aiuKpYa7VD08AnSSynzjRtWt_VAHAoyhPQ/edit#gid=0">google spreadsheet</a>, which contains your projects that are using Origami via Bower.</li>
+  <li>The associated <a href="https://biz-ops.in.ft.com/Risk/origami-components-via-bower">entry in the Risk Register</a> which is linked to all the affected systems that we know of.</li>
+</ul>
 
-Below is a breakdown of how many systems and repositories will need to be migrated, split by group:
+<p>Below is a breakdown of how many systems and repositories will need to be migrated, split by group:</p>
 
 <div class="o-layout__main__single-span">
     <table class="o-table o-table--row-headings o-table--horizontal-lines" data-o-component="o-table">
@@ -282,9 +300,9 @@ Below is a breakdown of how many systems and repositories will need to be migrat
     </table>
 </div>
 
-## Last Bower Releases
+<h2 id="last-bower-releases">Last Bower Releases</h2>
 
-Make sure your project has upgraded to the latest component released to Bower before attempting to migrate to the NPM-only releases. Here is a table of Bower component releases for reference:
+<p>Make sure your project has upgraded to the latest component released to Bower before attempting to migrate to the NPM-only releases. Here is a table of Bower component releases for reference:</p>
 
 <div class="o-layout__main__single-span">
 	<table class="o-table o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
@@ -555,7 +573,6 @@ Make sure your project has upgraded to the latest component released to Bower be
 		</tbody>
 	</table>
 </div>
-</code></code></code></aside>
 
 
 </div>
