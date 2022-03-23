@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 import AudioPlayer from '../../main.js';
 
 describe('AudioPlayer API', () => {
