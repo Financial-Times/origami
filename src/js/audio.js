@@ -25,7 +25,7 @@ function addEvents(audio, events) {
 }
 
 function fireEvent(action, audioObject, extraDetail = {}) {
-	let playerType = (audioObject.targetObject.classList.contains('g-audio--block') ? 'block' : 'inline');
+	let playerType = audioObject.targetObject.classList.contains('g-audio--block') ? 'block' : 'inline';
 
 	const playButtonElement = audioObject.targetObject.getElementsByClassName('g-audio--playbutton')[0];
 	const contentElement = audioObject.targetObject.getElementsByClassName('g-audio-content')[0];
@@ -65,8 +65,8 @@ function unloadListener() {
 
 	// console.log('amt listened', +(this.amountListened / 1000).toFixed(2), (((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2));
 	fireEvent('listened', this, {
-		amount: +(this.amountListened / 1000).toFixed(2),
-		amountPercentage: +(((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2),
+		amount: Number(this.amountListened / 1000).toFixed(2),
+		amountPercentage: Number(((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2),
 	});
 }
 
