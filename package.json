@@ -1,7 +1,10 @@
 {
   "name": "@financial-times/g-audio",
+  "description": "IG audio player component",
+  "keywords": ["audio"],
   "browser": "main.js",
   "private": true,
+  "type": "module",
   "devDependencies": {
     "eslint": "^7.19.0",
     "eslint-config-origami-component": "^2.1.0",
@@ -12,6 +15,9 @@
     "stylelint-config-origami-component": "^1.0.4"
   },
   "scripts": {},
+  "engines": {
+		"npm": ">=7"
+	},
   "dependencies": {
     "@financial-times/o-icons": "^7.2.1"
   }

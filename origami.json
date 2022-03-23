@@ -2,7 +2,7 @@
   "description": "IG audio player component",
   "origamiType": "component",
   "origamiVersion": "2.0",
-  "keywords": ["audio, graphics, multimedia"],
+  "keywords": ["audio"],
   "origamiCategory": "components",
   "support": "https://github.com/Financial-Times/g-audio/issues",
   "supportStatus": "experimental",
