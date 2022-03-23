@@ -7,4 +7,9 @@
 .idea/
 /demos/local
 /coverage
-./types
+.eslintrc.cjs
+.github/
+.gitignore
+.remarkrc.cjs
+.stylelintrc.cjs
+test

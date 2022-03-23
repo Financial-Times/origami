@@ -1,3 +1,4 @@
+
 ---
 title: Issue: [type] [short description]
 ---
@@ -6,7 +7,7 @@ title: Issue: [type] [short description]
 <!--
 Please make sure you've checked that your issue hasn't already been raised within this repository.
 
-If you need help with submitting an issue, please get in touch with the Origami Team at origami.support@ft.com or #ft-origami on Slack.
+If you need help with submitting an issue, please get in touch with the team at data.journalism.development@ft.com or #djd-comms on Slack.
 -->
 ## What
 <!-- A clear description of what the problem or feature request is -->
