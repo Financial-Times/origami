@@ -7,13 +7,13 @@ This is an [origami](http://origami.ft.com/) component to help create styled aud
 Install the module:
 
 ```
-bower install --S g-audio
+npm install @financial-times/g-audio
 ```
 
 Load the JS:
 
 ```js
-const GAudio = require('g-audio');
+import * from GAudio from '@financial-times/g-audio';
 
 GAudio.init();
 ```
@@ -21,7 +21,7 @@ GAudio.init();
 Load the CSS:
 
 ```scss
-@import 'g-audio/main';
+@import '@financial-times/g-audio/main';
 ```
 
 Copy markup from one of the following demos:
@@ -47,6 +47,12 @@ To create an audio player between paragraphs of text (in development):
   </audio>
 </span>
 ```
+
+### Local development
+
+- Directions for [developing Origami components](https://origami.ft.com/documentation/tutorials/create-a-new-component-part-1/).
+- Run `obt install` to install component dependencies.
+- Run `obt dev` to start working on the component locally.
 
 ### License
 

@@ -1,31 +1,31 @@
 {
-	"description": "IG audio player module",
-	"origamiType": "module",
-	"origamiVersion": 1,
-	"keywords": "audio, graphics, multimedia",
-	"origamiCategory": "components",
-	"support": "https://github.com/Financial-Times/g-audio/issues",
-	"supportStatus": "experimental",
-	"supportContact": {
-		"email": "ig.developers@ft.com",
-		"slack": "financialtimes/graphics-dev"
-	},
-	"demosDefaults": {
-		"sass": "demos/src/demo.scss",
-		"js": "demos/src/demo.js"
-	},
-	"demos": [
-		{
-			"name": "inline",
-			"title": "Inline",
-			"template": "demos/src/inline.mustache",
-			"description": "Demo of inline audio player"
-		},
-		{
-			"name": "block",
-			"title": "Block",
-			"template": "demos/src/block.mustache",
-			"description": "Demo of block audio player"
-		}
+  "description": "IG audio player component",
+  "origamiType": "component",
+  "origamiVersion": "2.0",
+  "keywords": ["audio, graphics, multimedia"],
+  "origamiCategory": "components",
+  "support": "https://github.com/Financial-Times/g-audio/issues",
+  "supportStatus": "experimental",
+  "supportContact": {
+    "email": "data.journalism.development@ft.com",
+    "slack": "financialtimes/djd-comms"
+  },
+  "demosDefaults": {
+    "sass": "demos/src/demo.scss",
+    "js": "demos/src/demo.js"
+  },
+  "demos": [
+    {
+      "name": "inline",
+      "title": "Inline",
+      "template": "demos/src/inline.mustache",
+      "description": "Demo of inline audio player"
+    },
+    {
+      "name": "block",
+      "title": "Block",
+      "template": "demos/src/block.mustache",
+      "description": "Demo of block audio player"
+    }
   ]
 }

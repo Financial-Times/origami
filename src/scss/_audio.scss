@@ -22,11 +22,11 @@ $gaudio-button-color: #f6e9d8;
     color: $gaudio-button-color;
     margin-right: 2px;
     padding-left: $gaudio-horz-padding-inline;
-    padding-right: $gaudio-horz-padding-inline/2;
+    padding-right: calc($gaudio-horz-padding-inline / 2);
   }
 
   .g-audio--playbutton:before {
-    @include oIconsGetIcon('play', $gaudio-button-color, 25);
+    @include oIconsContent('play', $gaudio-button-color, 25);
     content: '';
     font-size: 0.8em;
     margin: -3px $gaudio-horz-padding-inline;
@@ -34,7 +34,7 @@ $gaudio-button-color: #f6e9d8;
   }
 
   &.pause .g-audio--playbutton:before {
-    @include oIconsGetIcon('pause', $gaudio-button-color, 25);
+    @include oIconsContent('pause', $gaudio-button-color, 25);
     content: '';
     font-size: 0.8em;
     margin: -3px $gaudio-horz-padding-inline;
@@ -72,13 +72,11 @@ $gaudio-button-color: #f6e9d8;
       background: $gaudio-button-background;
       border-radius: 0;
       color: $gaudio-button-color;
-      padding: $gaudio-vert-padding-block $gaudio-horz-padding-block;
-      padding-left: $gaudio-horz-padding-inline;
+      padding: $gaudio-vert-padding-block $gaudio-horz-padding-inline;
     }
 
     .g-audio-content {
       padding: $gaudio-vert-padding-block $gaudio-horz-padding-block;
-      // width: 100%;
     }
   }
 
