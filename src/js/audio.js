@@ -219,6 +219,20 @@ class AudioPlayer {
 		}
 	}
 
+	// initialise g-audio components
+	static init (rootElement, options) {
+		if (!rootElement) {
+			rootElement = document.body;
+		}
+		if (!(rootElement instanceof HTMLElement)) {
+			rootElement = document.querySelector(rootElement);
+		}
+		if (rootElement instanceof HTMLElement && rootElement.matches('[class="g-audio"]')) {
+			return new Audio(rootElement, options);
+		}
+		return Array.from(rootElement.querySelectorAll('[class="g-audio"]'), rootEl => new Audio(rootEl, options));
+	}
+
 }
 
 export default AudioPlayer;

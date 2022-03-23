@@ -1,6 +1,8 @@
-import AudioPlayer from './src/js/audio';
+import AudioPlayer from './src/js/audio.js';
 
 const constructAll = () => {
+	AudioPlayer.init();
+
 	const audio_components = document.querySelectorAll('.g-audio');
 
 	for (let i = 0; i < audio_components.length; i++) {
@@ -14,5 +16,4 @@ const constructAll = () => {
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-export { constructAll as init };
 export default AudioPlayer;

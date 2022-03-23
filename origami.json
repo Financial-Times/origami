@@ -26,6 +26,13 @@
       "title": "Block",
       "template": "demos/src/block.mustache",
       "description": "Demo of block audio player"
-    }
+    },
+    {
+      "name": "pa11y",
+			"title": "Pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"description": "Accessibility test will be run against this demo",
+			"hidden": true
+		}
   ]
 }
