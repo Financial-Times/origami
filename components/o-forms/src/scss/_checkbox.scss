@@ -30,7 +30,7 @@
 				input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
 					right: 0;
 				}
-				input[type=checkbox] + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+				input[type=checkbox] ~ .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
 					padding-left: 0;
 					padding-right: $_o-forms-spacing-controls;
 
@@ -43,7 +43,7 @@
 			}
 		}
 
-		input[type=checkbox] + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+		input[type=checkbox] ~ .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
 			display: inline-block;
 			padding: $_o-forms-spacing-half 0 0 $_o-forms-spacing-controls;
 			vertical-align: top;
