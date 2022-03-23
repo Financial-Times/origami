@@ -6,6 +6,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 - [Getting started](#getting-started)
 - [Local development](#local-development) 
+- [Migration](#migration)
 - [Licence](#licence)
 
 ## Getting started
@@ -59,6 +60,13 @@ To create an audio player between paragraphs of text (in development):
 - Directions for [developing Origami components](https://origami.ft.com/documentation/tutorials/create-a-new-component-part-1/).
 - Run `obt install` to install component dependencies.
 - Run `obt dev` to start working on the component locally.
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+⚠ maintained | 1 | 1.0.7 | N/A |
 
 ## Licence
 
