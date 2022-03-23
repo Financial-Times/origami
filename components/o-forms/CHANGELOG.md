@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.3.1](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.3.0...o-forms-v9.3.1) (2022-03-23)
+
+
+### Bug Fixes
+
+* checkboxes with long labels (split with multiple "label" span tags) ([8de473c](https://www.github.com/Financial-Times/origami/commit/8de473caebbb93884de4f53a37f2398ba03c63d1))
+
 ## [9.3.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.2.4...o-forms-v9.3.0) (2022-03-22)
 
 
