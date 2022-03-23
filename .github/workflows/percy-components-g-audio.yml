@@ -1,0 +1,41 @@
+name: percy components/g-audio
+concurrency:
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/g-audio
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  push:
+    branches: main
+    paths:
+      - "components/g-audio/package.json"
+      - "components/g-audio/package-lock.json"
+      - "components/g-audio/origami.json"
+      - "components/g-audio/main.js"
+      - "components/g-audio/main.scss"
+      - "components/g-audio/demos/**"
+      - "components/g-audio/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: node ./scripts/percy.js
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_G_AUDIO }}
+        WORKSPACE: components/g-audio

@@ -18,6 +18,8 @@ templates:
 
 ft-concept-button:
   - components/ft-concept-button/**/*
+g-audio:
+  - components/g-audio/**/*
 n-notification:
   - components/n-notification/**/*
 o-audio:

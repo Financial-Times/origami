@@ -2,6 +2,7 @@
 	"bootstrap-sha": "fdeb43fa39a78e96b2ae082458e04da5eb618a30",
 	"packages": {
 		"components/ft-concept-button": {},
+		"components/g-audio": {},
 		"components/n-notification": {},
 		"components/o-audio": {},
 		"components/o-autocomplete": {},
