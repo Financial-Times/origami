@@ -1,2 +1,91 @@
 @import '@financial-times/o-icons/main';
-@import 'src/scss/audio';
+@import 'src/scss/variables';
+
+/// Output all gAudio features
+/// @param {Map} $opts [()] - A map of options to configure the output
+/// @access public
+@mixin gAudio ($opts: ()) {
+	// content of primary mixin
+	.g-audio.g-audio--initialized {
+		border-radius: 6px;
+		cursor: pointer;
+		margin: 0 5px;
+		padding: 0 $g-audio-horz-padding-inline 0 0;
+		vertical-align: top;
+	
+		// inline player
+	
+		.g-audio--playbutton {
+			background: $g-audio-button-background;
+			border-radius: 6px 0 0 6px;
+			color: $g-audio-button-color;
+			margin-right: 2px;
+			padding-left: $g-audio-horz-padding-inline;
+			padding-right: calc($g-audio-horz-padding-inline / 2);
+		}
+	
+		.g-audio--playbutton:before {
+			@include oIconsContent('play', $g-audio-button-color, 25);
+			content: '';
+			font-size: 0.8em;
+			margin: -3px $g-audio-horz-padding-inline;
+			vertical-align: bottom;
+		}
+	
+		&.pause .g-audio--playbutton:before {
+			@include oIconsContent('pause', $g-audio-button-color, 25);
+			content: '';
+			font-size: 0.8em;
+			margin: -3px $g-audio-horz-padding-inline;
+			vertical-align: bottom;
+		}
+	
+		.g-audio-content {
+			background: rgba(175, 81, 108, 0.15);
+			display: inline;
+			padding: 0 $g-audio-horz-padding-inline;
+			position: relative;
+	
+			.g-audio-content-progressbar {
+				background: $g-audio-button-background;
+				height: 100%;
+				left: 0;
+				opacity: 0.3;
+				pointer-events: none;
+				position: absolute;
+				top: 0;
+			}
+		}
+	
+	
+		// block player
+	
+		&.g-audio--block {
+			border-radius: 0;
+			display: block;
+			margin: 1em 0;
+			padding: $g-audio-vert-padding-block 0;
+			width: 100%;
+	
+			.g-audio--playbutton {
+				background: $g-audio-button-background;
+				border-radius: 0;
+				color: $g-audio-button-color;
+				padding: $g-audio-vert-padding-block $g-audio-horz-padding-inline;
+			}
+	
+			.g-audio-content {
+				padding: $g-audio-vert-padding-block $g-audio-horz-padding-block;
+			}
+		}
+	
+	}
+	
+}
+
+@if ($g-audio-is-silent == false) {
+	@include gAudio();
+
+	// Set to silent again to avoid being output twice
+	$g-audio-is-silent: true !global;
+}
