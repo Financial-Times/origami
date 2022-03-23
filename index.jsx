@@ -3,12 +3,12 @@ import React from 'react'
 import BuildService from '../../../.storybook/build-service'
 
 const dependencies = {
-	'o-date': '^4.2.0',
-	'o-labels': '^5.2.0',
-	'o-normalise': '^2.0.0',
-	'o-teaser': '^5.2.3',
-	'o-typography': '^6.0.0',
-	'o-video': '^6.0.0'
+	'o-date': '^5.0.0',
+	'o-labels': '^6.0.0',
+	'o-normalise': '^3.0.0',
+	'o-teaser': '^6.0.0',
+	'o-typography': '^7.0.0',
+	'o-video': '^7.0.0'
 }
 
 const { argTypes } = require('./argTypes')
