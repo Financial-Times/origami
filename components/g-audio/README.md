@@ -28,6 +28,8 @@ Load the CSS:
 
 ```scss
 @import '@financial-times/g-audio/main';
+
+@include gAudio();
 ```
 
 Copy markup from one of the following demos:
