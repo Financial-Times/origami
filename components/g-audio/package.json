@@ -1,8 +1,10 @@
 {
   "name": "@financial-times/g-audio",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "IG audio player component",
-  "keywords": ["audio"],
+  "keywords": [
+    "audio"
+  ],
   "browser": "main.js",
   "type": "module",
   "scripts": {
@@ -12,8 +14,8 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "engines": {
-		"npm": ">=7"
-	},
+    "npm": ">=7"
+  },
   "peerDependencies": {
     "@financial-times/o-icons": "^7.2.1"
   },
