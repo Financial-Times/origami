@@ -220,19 +220,28 @@ class AudioPlayer {
 	}
 
 	// initialise g-audio components
-	static init (rootElement, options) {
+	static init (rootElement) {
 		if (!rootElement) {
 			rootElement = document.body;
 		}
 		if (!(rootElement instanceof HTMLElement)) {
 			rootElement = document.querySelector(rootElement);
 		}
-		if (rootElement instanceof HTMLElement && rootElement.matches('[class="g-audio"]')) {
-			return new Audio(rootElement, options);
-		}
-		return Array.from(rootElement.querySelectorAll('[class="g-audio"]'), rootEl => new Audio(rootEl, options));
-	}
 
+		/* If the root element has class g-audio, ie it is itself a gAudio component,
+		 return a new AudioPlayer */
+		if (rootElement instanceof HTMLElement && rootElement.matches('.g-audio')) {
+			const audioURL = rootElement.getElementsByTagName('source')[0].getAttribute('src');
+			return new AudioPlayer(rootElement, audioURL);
+		}
+
+		// If the root element contains gAudio components, return new AudioPlayers for each one
+		const audioComponents = rootElement.querySelectorAll('.g-audio');
+		return [].map.call(audioComponents, el => {
+			const audioURL = el.getElementsByTagName('source')[0].getAttribute('src');
+			return new AudioPlayer(el, audioURL);
+		});
+	}
 }
 
 export default AudioPlayer;
