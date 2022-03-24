@@ -58,6 +58,22 @@ Here is the corresponding tracking pixel setup:
 
 ### Tracking with JavaScript
 
+### Turning on offline support and queueing events
+
+By default o-tracking uses the browser Beacon API to send events to Spoor and the Beacon API only works when the device is online and o-tracking can not queue those events.
+
+If wanting to queue events (to retry them if they failed to send) and/or wanting to record events when offline, set `queue` to `true` during the intialisation of `o-tracking` like so:
+
+```js
+import oTracking from '@financial-times/o-tracking';
+
+const config = {
+    queue: true, // Make sure o-tracking stores the events on a local queue (this means o-tracking can work when the device is offline)
+    ...
+};
+oTracking.init(config);
+```
+
 #### Developer/Test Mode
 
 o-tracking has a development/test mode which will mark the events as test events, and also write to the console extra debugging information.

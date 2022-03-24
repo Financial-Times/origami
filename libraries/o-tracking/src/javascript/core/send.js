@@ -16,7 +16,12 @@ let queue;
  * @returns {boolean} Should we use sendBeacon?
  */
 function should_use_sendBeacon() {
-	return Boolean(navigator.sendBeacon);
+	let config = getSetting('config') || {};
+	if (config.queue === true) {
+		return false;
+	} else {
+		return Boolean(navigator.sendBeacon);
+	}
 }
 
 /**
