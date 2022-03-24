@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.1.2](https://www.github.com/Financial-Times/origami/compare/o-autoinit-v3.1.1...o-autoinit-v3.1.2) (2022-03-24)
+
+
+### Bug Fixes
+
+* add test runner to o-tracking so that the tests can run ([e41645a](https://www.github.com/Financial-Times/origami/commit/e41645aebba19eef73ba3a0260dc7b90fa16ab5a))
+
 ### [3.1.1](https://www.github.com/Financial-Times/origami/compare/o-autoinit-v3.1.0...o-autoinit-v3.1.1) (2022-01-13)
 
 
