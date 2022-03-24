@@ -19,7 +19,7 @@ npm install @financial-times/g-audio
 Load the JS:
 
 ```js
-import * from GAudio from '@financial-times/g-audio';
+import GAudio from '@financial-times/g-audio';
 
 GAudio.init();
 ```
