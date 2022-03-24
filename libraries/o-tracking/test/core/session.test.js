@@ -1,6 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
 
+import proclaim from 'proclaim';
 import {Store} from '../../src/javascript/core/store.js';
 import {init as initSession, session as getSession} from '../../src/javascript/core/session.js';
 

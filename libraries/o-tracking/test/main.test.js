@@ -1,7 +1,8 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
 
 import './setup.js';
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 import {destroy, get} from '../src/javascript/core/settings.js';
 import { Queue } from '../src/javascript/core/queue.js';
 import oTracking from '../main.js';
@@ -75,24 +76,13 @@ describe('main', function () {
 			parentTracking.click.init();
 
 			// Generate iframe content.
-			const karmaFile = '/base/test/o-tracking-test.js';
-			const bundleUrl =
-				window.__karma__ &&
-				window.__karma__.files &&
-				window.__karma__.files[karmaFile] ? karmaFile : null;
-
-			proclaim.ok(
-				bundleUrl,
-				'Could not find the o-tracking bundle served from a url, to ' +
-				'test instances across different browser contexts. Unfortunately ' +
-				'this depends on the Karma test runner. Has the test setup changed?'
-			);
+			const bundleUrl = '/libraries/o-tracking/test/o-tracking-test.js';
 
 			const iframeContent = new Blob([`
 				<html>
 				<head>
 					<!-- load o-tracking fixture -->
-					<script src="${window.location.origin}${bundleUrl}"></script>
+					<script src="${window.location.origin}${bundleUrl}" type=module></script>
 				</head>
 				<body>
 				</body>

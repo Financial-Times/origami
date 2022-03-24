@@ -1,6 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
 
+import proclaim from 'proclaim';
 import {Store} from '../../src/javascript/core/store.js';
 
 describe('Core.Store', function () {

@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
+
+import proclaim from 'proclaim';
 // autoinit is executed upon being imported
 // so we must import a test helper before to
 // count the times o-autoinit events are fired
