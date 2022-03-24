@@ -11,3 +11,6 @@ components/o-subs-card/* @Financial-Times/acquisition
 
 # Disco components
 components/n-notification/* @Financial-Times/content-discovery
+
+# Visual Journalism components
+components/g-audio/* @Financial-Times/visual-data-journalism-admins
