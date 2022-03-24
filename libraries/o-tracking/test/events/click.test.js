@@ -1,8 +1,8 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
 
 import '../setup.js';
-
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 import {Queue} from '../../src/javascript/core/queue.js';
 import {destroy, set} from '../../src/javascript/core/settings.js';
 import {init as initSend} from '../../src/javascript/core/send.js';

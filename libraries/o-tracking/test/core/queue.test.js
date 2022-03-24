@@ -1,7 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
 
-
+import proclaim from 'proclaim';
 import {Queue} from '../../src/javascript/core/queue.js';
 const queue_name = 'queue_test';
 

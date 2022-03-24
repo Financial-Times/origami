@@ -1,6 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
 
+import proclaim from 'proclaim';
 import {init, destroy, userID} from '../../src/javascript/core/user.js';
 
 describe('Core.User', function () {

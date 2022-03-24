@@ -1,6 +1,5 @@
-/* global sinon*/
-
 import {mock} from '../src/javascript/core/transports/index.js';
+import sinon from 'sinon/pkg/sinon-esm.js';
 
 let willError = false;
 
@@ -35,4 +34,3 @@ export function errorNextSend() {
 // for the vast majority of tests we want to use a mock transport
 // so we setup the mock globally here
 mockTransport();
-

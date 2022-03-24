@@ -11,6 +11,9 @@
     "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-tracking,libraries",
     "email": "origami.support@ft.com"
   },
+	"scripts": {
+		"test": "web-test-runner --config ./web-test-runner.config.mjs"
+	},
   "license": "MIT",
   "type": "module",
   "browser": "main.js",

@@ -1,8 +1,8 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
 
 import '../setup.js';
-
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 import {destroy, set} from '../../src/javascript/core/settings.js';
 import {init as initSend} from '../../src/javascript/core/send.js';
 import {init as initSession} from '../../src/javascript/core/session.js';

@@ -1,6 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
 
+import proclaim from 'proclaim';
 import {set, get, destroy} from '../../src/javascript/core/settings.js';
 
 describe('Core.Settings', function () {
