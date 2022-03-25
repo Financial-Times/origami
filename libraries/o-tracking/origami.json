@@ -21,15 +21,5 @@
 			"Promise",
 			"navigator.sendBeacon"
 		]
-	},
-	"demos": [
-		{
-			"title": "Json Config",
-			"name": "json-config",
-			"description": "Sample configuration for a product.",
-			"template": "demos/src/json-config.mustache",
-			"js": "demos/src/demo.js",
-			"sass": "demos/src/demo.scss"
-		}
-	]
+	}
 }
