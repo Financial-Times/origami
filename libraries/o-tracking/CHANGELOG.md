@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.0](https://www.github.com/Financial-Times/origami/compare/o-tracking-v4.2.2...o-tracking-v4.3.0) (2022-03-25)
+
+
+### Features
+
+* add ability to force o-tracking to use a queue ([f41d632](https://www.github.com/Financial-Times/origami/commit/f41d6322ef4f0bfda6d93f94fea17533f9923048))
+
 ### [4.2.2](https://www.github.com/Financial-Times/origami/compare/o-tracking-v4.2.1...o-tracking-v4.2.2) (2022-03-24)
 
 
