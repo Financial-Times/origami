@@ -107,10 +107,6 @@ describe('Core.Send', function () {
 			addAndRun(request);
 			setTimeout(() => {
 				try {
-					proclaim.equal(typeof dummyXHR.onerror, 'function');
-					proclaim.equal(typeof dummyXHR.onload, 'function');
-					// proclaim.equal(dummyXHR.onerror.length, 1) // it will get passed the error
-					// proclaim.equal(dummyXHR.onload.length, 0) // it will not get passed an error
 					proclaim.ok(dummyXHR.withCredentials, 'withCredentials');
 					proclaim.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/ingest?type=video:seek", true), 'is POST');
 					proclaim.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'), 'is application/json');
@@ -142,10 +138,6 @@ describe('Core.Send', function () {
 			addAndRun(request);
 			setTimeout(() => {
 				try {
-					proclaim.equal(typeof dummyXHR.onerror, 'function');
-					proclaim.equal(typeof dummyXHR.onload, 'function');
-					// proclaim.equal(dummyXHR.onerror.length, 1) // it will get passed the error
-					// proclaim.equal(dummyXHR.onload.length, 0) // it will not get passed an error
 					proclaim.ok(dummyXHR.withCredentials, 'withCredentials');
 					proclaim.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/ingest?type=video:seek", true), 'is POST');
 					proclaim.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'), 'is application/json');
@@ -238,8 +230,6 @@ describe('Core.Send', function () {
 
 			addAndRun(request);
 
-			// console.log((new Queue('requests')).storage.storage._type);
-
 			server.respond();
 			// Respond again for Image fallback
 			server.respondWith([500, { "Content-Type": "plain/text", "Content-Length": 5 }, "NOT OK"]);
@@ -272,8 +262,6 @@ describe('Core.Send', function () {
 		}
 
 		queue.save();
-
-		// console.log(queue.all().length);
 
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
