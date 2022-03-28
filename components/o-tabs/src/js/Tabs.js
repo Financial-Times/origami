@@ -1,6 +1,9 @@
 
 class Tabs {
-
+	/**
+	 * @param {HTMLElement} rootEl An element which contains o-tabs markup to turn into an o-tabs instance
+	 * @param {Object} config Configuration options for the o-tabs instance
+	 */
 	constructor(rootEl, config) {
 		this.rootEl = rootEl;
 		this.rootEl.setAttribute('data-o-tabs--js', '');
