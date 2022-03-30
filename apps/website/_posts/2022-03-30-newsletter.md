@@ -24,7 +24,7 @@ We have a new component, [ft-concept-button](https://origami.ft.com/storybook/?p
 2. The first component to be developed from scratch within Storybook.
 3. The first component to release public JSX templates for consuming projects to use.
 
-You won't find ft-concept-button in the [Origami component registry](https://registry.origami.ft.com/components/) right now. Instead take a look at our work in progress [Storybook demos](https://origami.ft.com/storybook/?path=/story/components-ft-concept-button--follow-button). We continue to add new demos for existing components there. Read our previous newsletter to learn [why Storybook and JSX templates are an exciting edition to Origami components](/blog/2022/01/28/newsletter/#storybook-stories--jsx-templates).
+You won't find ft-concept-button in the [Origami component registry](https://registry.origami.ft.com/components/) right now. Instead take a look at our work in progress [Storybook demos](https://origami.ft.com/storybook/?path=/story/components-ft-concept-button--follow-button). We continue to add new demos for existing components there. Read our previous newsletter to learn [why Storybook and JSX templates are an exciting addition to Origami components.](/blog/2022/01/28/newsletter/#storybook-stories--jsx-templates).
 
 ### More accessibility improvements
 
@@ -42,7 +42,7 @@ To learn more about the changes see the original [announcement and guides on how
 
 ## Special Thanks
 
-Special thanks this week goes to Joanna Kao from the data journalism team for her work migrating the [g-audio](https://registry.origami.ft.com/components/g-audio@2.0.1) from Bower to npm, and making a number of other improvements to bring it inline with current Origami standards. Thanks Joanna!
+Special thanks this week goes to Joanna Kao from the data journalism team for her work migrating the [g-audio](https://registry.origami.ft.com/components/g-audio@2.0.1) component from Bower to npm, and making a number of other improvements to bring it inline with current Origami standards. Thanks Joanna!
 
 ## Broader update
 
@@ -56,8 +56,7 @@ A digest list of some other things that have happened recently:
 - [useragent_parser](https://github.com/Financial-Times/useragent_parser): now detects iOS >=11 in-app webview, this project is used by [polyfill.io](https://polyfill.io/).
 - [polyfill-library](https://github.com/Financial-Times/polyfill-library): [gets a number of fixes](https://github.com/Financial-Times/polyfill-library/releases/tag/v3.111.0)
 - [o-table](https://registry.origami.ft.com/components/o-table): has received a fix which ensures table rows are displayed correctly when a filter is applied more than once.
-- node-health-check
-- [o-typography](https://registry.origami.ft.com/components/o-typography): external links no longer display an icon. During the Origami accessibility audit we discovered some people think the icon indicates the link will open in a new window, when in-fact we mean it to indicate an external link. The [Government Digital Services (GDS) team came to the same conclusion in their user testing](https://designnotes.blog.gov.uk/2016/11/28/removing-the-external-link-icon-from-gov-uk/). After discussing with the broader design team we followed GDS footsteps and removed the icon entirely from external links.
+- [o-typography](https://registry.origami.ft.com/components/o-typography): external links no longer display an icon. During the Origami accessibility audit we discovered some people think the icon indicates the link will open in a new window, when in-fact we mean it to indicate an external link. The [Government Digital Services (GDS) team came to the same conclusion in their user testing](https://designnotes.blog.gov.uk/2016/11/28/removing-the-external-link-icon-from-gov-uk/). After discussing with the broader design team we followed GDS and removed the icon entirely from external links.
 - [o-buttons](https://origami.ft.com/storybook/?path=/story/components-o-buttons--ghost-button): has a new button type, the ghost button 👻 It's useful when many buttons are used together, for example rows in a table with repeated action buttons. We've also added pagination and button group Storybook stories. The pagination [Storybook demo](https://origami.ft.com/storybook/?path=/story/components-o-buttons--pagination) is interactive, much more helpful than our [current pagination demo](https://registry.origami.ft.com/components/o-buttons@7.5.0#demo-pagination-layout).
 - [o-visual-effects](https://registry.origami.ft.com/components/o-visual-effects): gets new CSS Custom Properties so Origami Build Service users may match shadow styles e.g. `--o-visual-effects-shadow-high`
 - [origami-vscode-extension-pack](https://github.com/Financial-Times/origami-vscode-extension-pack): Is an extension pack for VSCode to make working with Origami components a smoother experience. It now includes Prettier.
