@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2022-03-28T17:54:21+01:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, January 2022</title><link href="https://origami.ft.com/blog/2022/01/28/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, January 2022" /><published>2022-01-28T00:00:00+00:00</published><updated>2022-01-28T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2022/01/28/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2022/01/28/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2022-03-30T16:19:40+01:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, March 2022</title><link href="https://origami.ft.com/blog/2022/03/30/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, March 2022" /><published>2022-03-30T00:00:00+01:00</published><updated>2022-03-30T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2022/03/30/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2022/03/30/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+&lt;strong&gt;
+TL;DR:
+&lt;/strong&gt;
+&lt;/abbr&gt; A new Origami component ft-concept-button (:blobaww:); more accessibility fixes (:blob-hype:); an update on the Bower and Origami Build Service v2 migration (:blobhelp:).&lt;/p&gt;
+
+&lt;h2 id=&quot;top-things&quot;&gt;Top things&lt;/h2&gt;
+
+&lt;p&gt;Some of the bigger Origami news since our last update:&lt;/p&gt;
+
+&lt;h3 id=&quot;a-new-component-ft-concept-button&quot;&gt;A new component, ft-concept-button&lt;/h3&gt;
+
+&lt;p&gt;We have a new component, &lt;a href=&quot;https://origami.ft.com/storybook/?path=/story/components-ft-concept-button--follow-button&quot;&gt;ft-concept-button&lt;/a&gt;! ft-concept-button was added to support the Accounts team build the new newsletters signup page. This component represents a number of exciting firsts. Nice work chee 👏&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The first new component to be added to the &lt;a href=&quot;https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=156%3A669&quot;&gt;design team’s Figma UI Library&lt;/a&gt; ahead of implementation in Origami – big thanks to Ajai! 💪 We think this workflow is the correct way around. Origami aims to be the reference implementation of our design guidelines.&lt;/li&gt;
+  &lt;li&gt;The first component to be developed from scratch within Storybook.&lt;/li&gt;
+  &lt;li&gt;The first component to release public JSX templates for consuming projects to use.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You won’t find ft-concept-button in the &lt;a href=&quot;https://registry.origami.ft.com/components/&quot;&gt;Origami component registry&lt;/a&gt; right now. Instead take a look at our work in progress &lt;a href=&quot;https://origami.ft.com/storybook/?path=/story/components-ft-concept-button--follow-button&quot;&gt;Storybook demos&lt;/a&gt;. We continue to add new demos for existing components there. Read our previous newsletter to learn &lt;a href=&quot;/blog/2022/01/28/newsletter/#storybook-stories--jsx-templates&quot;&gt;why Storybook and JSX templates are an exciting edition to Origami components&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;more-accessibility-improvements&quot;&gt;More accessibility improvements&lt;/h3&gt;
+
+&lt;p&gt;We continue to work away at accessibility improvements to address &lt;a href=&quot;https://github.com/Financial-Times/origami/issues/498&quot;&gt;issues raised by our Digital Accessibility Centre (DAC) audit&lt;/a&gt;. Jake has led on this work and shared his learnings along the way, which has been great. For example I’ve enjoyed using MacOS Voice Control to test an issue in &lt;a href=&quot;https://registry.origami.ft.com/components/o-forms&quot;&gt;o-forms&lt;/a&gt; demos where the form inputs &lt;a href=&quot;https://www.w3.org/WAI/WCAG21/Techniques/general/G211&quot;&gt;accessible name and visible label do not match&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In case you haven’t seen it already the &lt;a href=&quot;https://financialtimes.slack.com/archives/C2LMEKC6S&quot;&gt;#accessibility Slack channel&lt;/a&gt; is a great place to ask questions and share tips and articles.&lt;/p&gt;
+
+&lt;p&gt;If you are thinking about organising an accessibility audit for your project, contact Rich Lewis or Guy Powell in the &lt;a href=&quot;https://financialtimes.slack.com/archives/C02NW8G3VPD&quot;&gt;#accessibility-improvements Slack channel&lt;/a&gt;. DAC provide the FT with 10 hours per week for new audits and reviews, they can also provide suggestions for improvements and answer any accessibility related questions.&lt;/p&gt;
+
+&lt;h3 id=&quot;update-on-the-bower-and-origami-build-service-v2-migration&quot;&gt;Update on the Bower and Origami Build Service v2 migration&lt;/h3&gt;
+
+&lt;p&gt;There are only &lt;em&gt;3 months left&lt;/em&gt; to migrate from Origami Build Service V2 to V3 and migrate from the Bower to npm package manager. Apps which fail to migrate will break in July, a year after &lt;a href=&quot;https://origami.ft.com/blog/2021/07/01/origami-on-npm-and-how-to-migrate/&quot;&gt;our initial announcement&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To learn more about the changes see the original &lt;a href=&quot;https://origami.ft.com/blog/2021/07/01/origami-on-npm-and-how-to-migrate/&quot;&gt;announcement and guides on how to migrate products&lt;/a&gt;. We also have a &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1Pem5e6cR0aiuKpYa7VD08AnSSynzjRtWt_VAHAoyhPQ/edit#gid=1513272952&quot;&gt;migration tracker&lt;/a&gt; you may use to identify whether any of your systems are affected. I’m seeing a lot of projects from FT Core, FT Creative, FT Specialist there 👀 We’re continuing to reach out to teams and offer support, please let us know in the &lt;a href=&quot;https://financialtimes.slack.com/archives/C02FU5ARJ&quot;&gt;#origami-support&lt;/a&gt; Slack channel if you have any questions!&lt;/p&gt;
+
+&lt;h2 id=&quot;special-thanks&quot;&gt;Special Thanks&lt;/h2&gt;
+
+&lt;p&gt;Special thanks this week goes to Joanna Kao from the data journalism team for her work migrating the &lt;a href=&quot;https://registry.origami.ft.com/components/g-audio@2.0.1&quot;&gt;g-audio&lt;/a&gt; from Bower to npm, and making a number of other improvements to bring it inline with current Origami standards. Thanks Joanna!&lt;/p&gt;
+
+&lt;h2 id=&quot;broader-update&quot;&gt;Broader update&lt;/h2&gt;
+
+&lt;p&gt;A digest list of some other things that have happened recently:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-tracking&quot;&gt;o-tracking&lt;/a&gt;: now has an option to always use a queue instead of using the Beacon API, which only works when the device is online. This will allow ft-app to upgrade to the latest version of Origami components. Thank you Charlotte Payne for reviewing, and clearly communicating the apps requirements!&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/g-audio&quot;&gt;g-audio&lt;/a&gt;: has migrated from bower to npm, thanks again Joanna.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-forms&quot;&gt;o-forms&lt;/a&gt;: toggles and standard checkboxes may now include a label and longer description, this was added to support the acquisition team make improvements to consent options on article sign up and register pages; also toggles have been updated with iconography to indicate on/off state; and finally the colour of inverse toggles for dark background has been fixed.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://origami.ft.com/storybook/?path=/story/components-ft-concept-button--follow-button&quot;&gt;ft-concept-button&lt;/a&gt;: as mentioned, we have a new ft-concept-button component! Added to support the Accounts team build the new newsletters signup page.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-fonts-assets&quot;&gt;o-fonts-assets&lt;/a&gt;: we’re continuing to work on rolling out variable fonts, so our digital products can have more typographic design choices available – strengthening the FT brand – without hindering performance. We have the commissioned fonts from our type foundry Klim, and are working to verify they work as expected. Watch this space.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/useragent_parser&quot;&gt;useragent_parser&lt;/a&gt;: now detects iOS &amp;gt;=11 in-app webview, this project is used by &lt;a href=&quot;https://polyfill.io/&quot;&gt;polyfill.io&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/polyfill-library&quot;&gt;polyfill-library&lt;/a&gt;: &lt;a href=&quot;https://github.com/Financial-Times/polyfill-library/releases/tag/v3.111.0&quot;&gt;gets a number of fixes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-table&quot;&gt;o-table&lt;/a&gt;: has received a fix which ensures table rows are displayed correctly when a filter is applied more than once.&lt;/li&gt;
+  &lt;li&gt;node-health-check&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-typography&quot;&gt;o-typography&lt;/a&gt;: external links no longer display an icon. During the Origami accessibility audit we discovered some people think the icon indicates the link will open in a new window, when in-fact we mean it to indicate an external link. The &lt;a href=&quot;https://designnotes.blog.gov.uk/2016/11/28/removing-the-external-link-icon-from-gov-uk/&quot;&gt;Government Digital Services (GDS) team came to the same conclusion in their user testing&lt;/a&gt;. After discussing with the broader design team we followed GDS footsteps and removed the icon entirely from external links.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://origami.ft.com/storybook/?path=/story/components-o-buttons--ghost-button&quot;&gt;o-buttons&lt;/a&gt;: has a new button type, the ghost button 👻 It’s useful when many buttons are used together, for example rows in a table with repeated action buttons. We’ve also added pagination and button group Storybook stories. The pagination &lt;a href=&quot;https://origami.ft.com/storybook/?path=/story/components-o-buttons--pagination&quot;&gt;Storybook demo&lt;/a&gt; is interactive, much more helpful than our &lt;a href=&quot;https://registry.origami.ft.com/components/o-buttons@7.5.0#demo-pagination-layout&quot;&gt;current pagination demo&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-visual-effects&quot;&gt;o-visual-effects&lt;/a&gt;: gets new CSS Custom Properties so Origami Build Service users may match shadow styles e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--o-visual-effects-shadow-high&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami-vscode-extension-pack&quot;&gt;origami-vscode-extension-pack&lt;/a&gt;: Is an extension pack for VSCode to make working with Origami components a smoother experience. It now includes Prettier.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-header&quot;&gt;o-header&lt;/a&gt;: Now shows the entire focus ring within the drawer, improving accessibility for keyboard users.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-cookie-message&quot;&gt;o-cookie-message&lt;/a&gt;: Now supports a configurable “manage cookies page” url, so non-ft projects can use it.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-banner&quot;&gt;o-banner&lt;/a&gt;: has a number of accessibility improvements, e.g. the close button label is not repeated and it now appears in the navigation tree to allow users of assistive technology to jump straight to the banner.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-quote&quot;&gt;o-quote&lt;/a&gt;: now has &lt;a href=&quot;https://origami.ft.com/storybook/?path=/story/components-o-quote--editorial-quote&quot;&gt;o-quote Storybook demos&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-tabs&quot;&gt;o-tabs&lt;/a&gt;: now has &lt;a href=&quot;https://origami.ft.com/storybook/?path=/story/components-o-tabs--big&quot;&gt;o-tabs Storybook demos&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Lee Moody</name></author><category term="Newsletter" /><summary type="html">TL;DR: A new Origami component ft-concept-button (:blobaww:); more accessibility fixes (:blob-hype:); an update on the Bower and Origami Build Service v2 migration (:blobhelp:).</summary></entry><entry><title type="html">Origami Newsletter, January 2022</title><link href="https://origami.ft.com/blog/2022/01/28/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, January 2022" /><published>2022-01-28T00:00:00+00:00</published><updated>2022-01-28T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2022/01/28/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2022/01/28/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
 &lt;strong&gt;
 TL;DR:
 &lt;/strong&gt;
@@ -1122,112 +1185,4 @@ TL;DR:
       &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/remark-preset-lint-origami-component&quot;&gt;remark-preset-lint-origami-component&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Lee Moody</name></author><category term="Newsletter" /><summary type="html">TL;DR: This issue is a big one. It covers our progress toward the recently announced npm migration; a new Origami Image Service placeholder image feature; a new Origami Build Service feature to help teams keep components up to date; and a whole bunch more.</summary></entry><entry><title type="html">Migrating Origami Components to npm and Deprecating the FT Bower Registry</title><link href="https://origami.ft.com/blog/2021/01/18/deprecating-bower-and-origami-via-npm/" rel="alternate" type="text/html" title="Migrating Origami Components to npm and Deprecating the FT Bower Registry" /><published>2021-01-18T00:00:00+00:00</published><updated>2021-01-18T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2021/01/18/deprecating-bower-and-origami-via-npm</id><content type="html" xml:base="https://origami.ft.com/blog/2021/01/18/deprecating-bower-and-origami-via-npm/">&lt;p&gt;We are migrating Origami Components from Bower onto the &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npmjs registry&lt;/a&gt;, this will be done by the end of Q2. Once the Origami Components are on npm, the versions on Bower will go into a deprecated state where they have no new features added. Products/Projects which want to get new Origami designs and features will need to migrate to npm.&lt;/p&gt;
-
-&lt;p&gt;We are also deprecating the &lt;a href=&quot;https://origami-bower-registry.ft.com/&quot;&gt;Bower Registry&lt;/a&gt;, it will be placed into a maintenance only mode for 12 months and then we will look to decommission the service completely.&lt;/p&gt;
-
-&lt;p&gt;We recommend that all products/projects which use Bower migrate over to using the &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npmjs registry&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;will-the-origami-team-provide-migration-support&quot;&gt;Will the Origami team provide migration support?&lt;/h2&gt;
-
-&lt;p&gt;Yes, the team has done several migrations of our services and components in the past and know that helping our users migrate is very important.&lt;/p&gt;
-
-&lt;p&gt;We will be providing migration guides for every individual Origami component, as we have done in the past.&lt;/p&gt;
-
-&lt;p&gt;We will also provide written guidance on how to migrate a project from Origami via Bower to Origami via npmjs.&lt;/p&gt;
-
-&lt;p&gt;We are contactable via the Slack channel &lt;a href=&quot;https://financialtimes.slack.com/archives/C02FU5ARJ&quot;&gt;#origami-support&lt;/a&gt; if you want to speak to the team.&lt;/p&gt;
-
-&lt;p&gt;For teams which have too much to migrate on their own, we may be able to help migrate your products for you. If you would like our help migrating your products, please let us know in advance as there are only 3 of us, we won't be able to help every team.&lt;/p&gt;
-
-&lt;h2 id=&quot;what-is-the-timeline-for-this-work&quot;&gt;What is the timeline for this work?&lt;/h2&gt;
-
-&lt;p&gt;1st July 2021 - Origami Components moved from Bower to npm and guides to migrate are written&lt;/p&gt;
-
-&lt;p&gt;1st July 2021 - Deprecate the FT Bower Registry&lt;/p&gt;
-
-&lt;p&gt;1st July 2022 - Decommission the FT Bower Registry&lt;/p&gt;
-
-&lt;h2 id=&quot;who-does-this-affect&quot;&gt;Who does this affect?&lt;/h2&gt;
-
-&lt;p&gt;This affects every product/project which uses the FT Bower Registry. We've done a search across the entire Financial-Times GitHub account and collated all the projects which are affected and will need to migrate to an alternative Bower registry or off Bower completely. This &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1Pem5e6cR0aiuKpYa7VD08AnSSynzjRtWt_VAHAoyhPQ/edit#gid=0&quot;&gt;google spreadsheet&lt;/a&gt; contains all the systems which are affected.&lt;/p&gt;
-
-&lt;h2 id=&quot;do-i-need-to-do-anything-right-now&quot;&gt;Do I need to do anything right now?&lt;/h2&gt;
-
-&lt;p&gt;No you do not. If you are using any Origami Components via the Bower Registry then you will need to wait until we have migrated those Origami Components to the npmjs registry, which should be complete by the end of Q2. We will have guides on how to migrate from Bower to npm.&lt;/p&gt;
-
-&lt;h2 id=&quot;how-much-timeeffort-will-i-need-to-allocate-to-this-q3-onward&quot;&gt;How much time/effort will I need to allocate to this Q3 onward&lt;/h2&gt;
-
-&lt;p&gt;The time/effort varies drastically across products.&lt;/p&gt;
-
-&lt;p&gt;We know this will be a very big effort for Customer Products because they have many things on Bower themselves as well as having abstractions on top of Origami which will need to be migrated before they can migrate their products.&lt;/p&gt;
-
-&lt;p&gt;For Internal Products the effort should be smaller than Customer Products because they don't have extra abstractions to migrate first before migrating their products.&lt;/p&gt;
-
-&lt;p&gt;For FT Professional the effort should be the same as Internal Products.&lt;/p&gt;
-
-&lt;p&gt;Below is a breakdown of how many systems and repositories will need to be migrated, split by group:&lt;/p&gt;
-
-&lt;div class=&quot;o-layout__main__single-span&quot;&gt;
-    &lt;table class=&quot;o-table o-table--row-headings o-table--horizontal-lines&quot; data-o-component=&quot;o-table&quot;&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-        &lt;th&gt;Group&lt;/th&gt;
-        &lt;th&gt;Systems to migrate&lt;/th&gt;
-        &lt;th&gt;Repositories to migrate&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-        &lt;td&gt;Customer Products&lt;/td&gt;
-        &lt;td&gt;25&lt;/td&gt;
-        &lt;td&gt;74&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        &lt;td&gt;FT Core&lt;/td&gt;
-        &lt;td&gt;2&lt;/td&gt;
-        &lt;td&gt;10&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        &lt;td&gt;FT Professional&lt;/td&gt;
-        &lt;td&gt;4&lt;/td&gt;
-        &lt;td&gt;6&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        &lt;td&gt;Internal Products&lt;/td&gt;
-        &lt;td&gt;4&lt;/td&gt;
-        &lt;td&gt;2&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        &lt;td&gt;Operations &amp;amp; Reliability&lt;/td&gt;
-        &lt;td&gt;3&lt;/td&gt;
-        &lt;td&gt;41&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;how-are-you-tracking-the-migration-progress&quot;&gt;How are you tracking the migration progress?&lt;/h2&gt;
-
-&lt;p&gt;We can detect when the relevant repos have been updated to remove Bower. Using that data, once a week we will update:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;This &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1Pem5e6cR0aiuKpYa7VD08AnSSynzjRtWt_VAHAoyhPQ/edit#gid=0&quot;&gt;google spreadsheet&lt;/a&gt;, which contains the data for the table above.&lt;/li&gt;
-  &lt;li&gt;The associated &lt;a href=&quot;https://biz-ops.in.ft.com/Risk/origami-components-via-bower&quot;&gt;entry in the Risk Register&lt;/a&gt; which is linked to all the affected systems that we know of.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;why-is-this-happening&quot;&gt;Why is this happening?&lt;/h2&gt;
-
-&lt;p&gt;The front-end community at large has already moved away from using Bower for their projects and has moved to using npm. This change can also be seen within the FT, as some individual teams have already moved onto npm. Due to fewer projects using Bower, the amount of infrastructure and tooling which exists that supports Bower has been decreasing or not been kept up-to-date with the advancements in the rest of the front-end industry. Origami has had to invest lots of time and energy into creating new tools and infrastructure to support Bower.&lt;/p&gt;
-
-&lt;p&gt;The Origami project was stuck using Bower due to other software registries not having the features that Origami required. This is no longer the case with the latest release of npm. With the Origami project migrating off Bower and onto npm, it enables us to deprecate the Bower Registry and accompanying infrastructure and tooling which has become a large piece of technical debt we have.&lt;/p&gt;
-
-&lt;h2 id=&quot;what-benefits-does-this-give-the-ft&quot;&gt;What benefits does this give the FT?&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Saving £1,200 per month from our Heroku bill&lt;/li&gt;
-  &lt;li&gt;This will align the FT's front-end practices with those now most commonly used across the industry which will help improve the onboarding of new hires to projects.&lt;/li&gt;
-  &lt;li&gt;The Origami project will be able to use many of the 1.5 million packages which exist on the npmjs registry, greatly reducing the amount of code/features we currently have to write ourselves.&lt;/li&gt;
-  &lt;li&gt;The Origami team will be able to invest more time on the Origami project and services, which are used across many of the FT Group's products.&lt;/li&gt;
-  &lt;li&gt;It will be easier for our engineers to get started using or contributing to the Origami project.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Jake Champion</name></author><category term="Newsletter" /><summary type="html">We are migrating Origami Components from Bower onto the npmjs registry, this will be done by the end of Q2. Once the Origami Components are on npm, the versions on Bower will go into a deprecated state where they have no new features added. Products/Projects which want to get new Origami designs and features will need to migrate to npm.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Lee Moody</name></author><category term="Newsletter" /><summary type="html">TL;DR: This issue is a big one. It covers our progress toward the recently announced npm migration; a new Origami Image Service placeholder image feature; a new Origami Build Service feature to help teams keep components up to date; and a whole bunch more.</summary></entry></feed>
