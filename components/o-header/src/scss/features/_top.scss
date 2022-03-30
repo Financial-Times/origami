@@ -69,10 +69,21 @@
 			width: #{$_o-header-icon-size-large}px;
 			height: #{$_o-header-icon-size-large}px;
 		}
+	}
 
-		// first child for old IE
-		&:first-child {
-			margin-left: -10px; // -10px to remove the padding that the icon image has around it when used at a size of 40px.
+	.o-header__nav-item:first-child {
+		> .o-header__top-link--menu,
+		> .o-header__top-link--search,
+		> .o-header__top-link--myft {
+			margin-left: -#{$_o-header-icon-size-large * 0.25px}; // remove space built into icon image, -10px size given 40px icon.
+		}
+	}
+
+	.o-header__top-column {
+		> .o-header__top-link--menu:first-child,
+		> .o-header__top-link--search:first-child,
+		> .o-header__top-link--myft:first-child {
+			margin-left: -#{$_o-header-icon-size-large * 0.25px}; // remove space built into icon image, -10px size given 40px icon.
 		}
 	}
 
