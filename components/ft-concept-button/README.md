@@ -60,7 +60,7 @@ This one has a little plus or a tick icon. You'd be advised to include the `data
 ## JavaScript
 
 ```js
-import ConceptButton from "./js/ft-concept-button"
+import ConceptButton from "@financial-times/ft-concept-button";
 ```
 
 ### Options
