@@ -14,12 +14,14 @@ redirect_from:
 Installing Origami components with a package manager (manual build) gives you more granular control over their styling and their behaviour within your project. It requires more set up though, compared to [using the Origami Build Service](/documentation/tutorials/build-service/), so we're providing an in-depth walkthrough for building a page for an article about fruit.
 
 This tutorial assumes that:
+
 - You have not implemented a build step
 - You are using a UNIX-like OS with a bash shell
 - You are familiar with JavaScript, and <abbr title="Sassy Cascading Style Sheets"><a href="https://sass-lang.com/">SCSS</a></abbr>
 - You have a basic understanding of <abbr title="Node Package Manager"><a href="https://www.npmjs.com/">npm</a></abbr>)
 
 ## Setting up your sandbox
+
 We will need a folder structure for our page. So let's begin by creating a new directory to work in.
 
 <pre><code class="o-syntax-highlight--bash">mkdir o-fruit-demo && cd o-fruit-demo</code></pre>
@@ -75,6 +77,7 @@ With the exception of JavaScript-only components, all of Origami's components re
 </pre>
 
 We want to share some fruit facts, so let's add some content to that inner `div`:
+
 <pre style="white-space: pre-line"><code class="o-syntax-highlight--html">&lt;h1>Funky Fruit Facts&lt;/h1>
 &lt;h2>Durian&lt;/h2>
 &lt;p>Due to its overpowering smell, durian has been banned on many types of public transport across Thailand, Japan and Hong Kong. In Singapore, the fruit is banned across all types of public transportation and even taxis have signs to let you know they refuse to carry passengers transporting the smelly fruit.&lt;/p>
@@ -177,9 +180,11 @@ Now we can begin styling our components. For this, all of our work is going to h
 ### Output All Component Styles
 
 So we can monitor what projects component assets are being used, some components require a global Sass `$system-code` variable is set. This should be the project's <a href="https://biz-ops.in.ft.com">biz-ops system code</a>, but we can set it to `test` for now in `src/main.scss`:
+
 <pre><code class="o-syntax-highlight--scss">$system-code: 'test';</code></pre>
 
 To include the components Sass use `@import`. For example this makes all `o-grid` Sass mixins, functions, and variables available:
+
 <pre><code class="o-syntax-highlight--scss">$system-code: 'test';
 @import '@financial-times/o-grid/main';</code></pre>
 
@@ -230,7 +235,6 @@ As soon as your build has completed, visit your page again in the browser. You s
 
 <aside>If you'd like to double check your work, we've put our <code>main.scss</code> up <a href="https://codepen.io/ft-origami/pen/VBgwwJ">on CodePen</a>.</aside>
 
-
 ### Selecting A Brand
 
 By default Origami components are tailored for public facing, ft.com products -- these are known as "core brand" products. But Origami components offer tailored support for other contexts with component [branding](/documentation/components/branding/).
@@ -238,6 +242,7 @@ By default Origami components are tailored for public facing, ft.com products --
 To choose a brand other than the default "core" brand, set the `$o-brand` <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> variable at the start of your root <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> file, before importing any components.
 
 To see this in action we can set our brand to "internal":
+
 <pre><code class="o-syntax-highlight--scss">$o-brand: "internal"; // Set brand before anything else.
 @import '@financial-times/o-colors/main';
 //...</code></pre>
@@ -250,15 +255,21 @@ For a list of supported brands and their purpose see [component brands](/documen
 
 ## Component Functionality
 
-The final step in our tutorial involves adding JavaScript to our components, and we'll be doing all of that work in `src/main.js`.
+The final step in our tutorial involves adding JavaScript to our components. Not that all Origami components use JavaScript but of the components we have installed today `o-table` does. We'll be doing all of that work in `src/main.js`.
 
-Not all Origami components use JavaScript. For example, of the components we have installed today, only `o-table` requires it.
+There are multiple ways to initialise component JavaScript.
+
+1. Initialise all components on the page, using the `o.DOMContentLoaded` event.
+2. Initialise every instance of one Origami component, using the component's `init` method.
+3. Initialise each Origami component individually, using the component's constructor.
+
+For this tutorial we will follow approach (1), however the other approaches are outlined below for reference.
+
+### Initialise all components on the page
 
 Origami components listen for a custom event named `o.DOMContentLoaded` in order to initialise. We'll need to add that to our project so that the `o-table` JavaScript can kick in.
 
-<aside>There are multiple ways to <a href="/documentation/components/initialising">initialise a component's JavaScript</a> when you are using Origami with the manual build process</aside>
-
-We'll need to add this to our file:
+For the purposes of this tutorial let's follow this method and add the following to our JavaScript file:
 
 <pre class="o-layout__main__full-span"><code class="o-syntax-highlight--js">import '@financial-times/o-table';
 
@@ -274,6 +285,35 @@ document.addEventListener('DOMContentLoaded', function() {
 </pre>
 
 Now you can sort fruit alphabetically by name or characteristic, or numerically by popularity.
+
+### Initialise every instance of one Origami component
+
+For reference, we could instead have initialised all instances of the o-table using its `init()` method.
+
+The `init()` method accepts two optional arguments, an `HTMLElement` and an options object. What constitutes as 'options' is detailed in each components' README.
+
+<pre><code class="o-syntax-highlight--javascript">import oTable from '@financial-times/o-table';
+
+// Initialise all o-table instances on the page
+
+oTable.init();
+
+// == or ==
+
+// Initialise all o-table instances
+// found within a given DOM element
+
+oTable.init(HTMLElement);</code></pre>
+
+### Initialise each Origami component individually
+
+Another approach we could have taken is to initialise our single `o-table` element specifically.
+
+<pre><code class="o-syntax-highlight--javascript">import oTable from '@financial-times/o-table';
+
+// Initialise an o-table instance for the passed in DOM element
+const myTableElement = document.querySelector('table');
+new oTable(myTableElement);</code></pre>
 
 ## Next steps
 
