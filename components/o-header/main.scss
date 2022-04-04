@@ -33,6 +33,12 @@
 /// @param {Boolean} $include-base-styles [true]
 @mixin oHeader($opts: $_o-header-features, $include-base-styles: true) {
 
+	@include oGridAddLayout(
+		$layout-name: 'oHeaderL',
+		$layout-width: 1080px,
+		$gutter-width: map-get($o-grid-gutters, 'M')
+	);
+
 	@if $include-base-styles == true {
 		@include _oHeaderBase;
 	}
@@ -45,6 +51,16 @@
 		}
 
 		// Output feature.
+		@if ($feature == 'top' or $feature == 'nav') and _oHeaderSupports($feature) {
+			.o-header__top-button,
+			.o-header__nav-button {
+				@include oButtonsContent((
+					'type': 'primary',
+					'theme': $_o-header-buttons-theme
+				));
+			}
+		}
+
 		@if $feature == 'top' and _oHeaderSupports($feature) {
 			@include _oHeaderTop;
 		}
