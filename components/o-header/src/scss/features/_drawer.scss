@@ -146,6 +146,16 @@
 	}
 
 	//
+	// Actions
+	//
+	.o-header__drawer-actions {
+		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+		.o-header__nav-button {
+			width: 100%;
+		}
+	}
+
+	//
 	// Search
 	//
 	.o-header__drawer-search {
