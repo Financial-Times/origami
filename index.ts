@@ -1,5 +1,6 @@
 import anon from './anon'
 import drawerUK from './drawerUK'
+import actionsUK from './actionsUK'
 import editionsUK from './editionsUK'
 import navbarRight from './navbarRight'
 import navbarRightAnon from './navbarRightAnon'
@@ -24,6 +25,7 @@ const data: THeaderProps = {
     anon,
     breadcrumb,
     drawer: drawerUK,
+    actions: actionsUK,
     editions: editionsUK,
     footer: null,
     navbar: navbarUK,
