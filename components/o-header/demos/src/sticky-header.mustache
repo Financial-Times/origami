@@ -53,8 +53,12 @@
 						</div>
 						{{/nav.isSignedIn}}
 
+						{{#anon}}
+							<a class="o-header__top-button" href="">Subscribe</a>
+						{{/anon}}
+
 						{{#nav.isSignedIn}}
-						<a class="o-header__top-link o-header__top-link--myft" href="/myft" aria-label="My F T" tabindex="-1">
+						<a class="o-header__top-link o-header__top-link--hide-s o-header__top-link--myft" href="/myft" aria-label="My F T" tabindex="-1">
 							<span class="o-header__visually-hidden">myFT</span>
 						</a>
 						{{/nav.isSignedIn}}
