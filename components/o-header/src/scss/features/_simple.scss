@@ -14,7 +14,7 @@
 			margin-top: 0;
 			margin-bottom: 0;
 
-			@include oGridRespondTo('L') {
+			@include oGridRespondTo('oHeaderL') {
 				@include _oHeaderLogoSize('M');
 			}
 		}

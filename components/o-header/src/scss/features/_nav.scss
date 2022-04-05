@@ -14,7 +14,7 @@
 	.o-header__nav--mobile {
 		white-space: nowrap;
 
-		@include oGridRespondTo('L') {
+		@include oGridRespondTo('oHeaderL') {
 			display: none;
 		}
 	}
@@ -22,7 +22,7 @@
 	.o-header__nav--desktop {
 		display: none;
 
-		@include oGridRespondTo('L') {
+		@include oGridRespondTo('oHeaderL') {
 			display: block;
 		}
 	}
@@ -85,12 +85,5 @@
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
 		// sass-lint:enable no-vendor-prefixes
-	}
-
-	.o-header__nav-button {
-		@include oButtonsContent((
-			'type': 'primary',
-			'theme': $_o-header-buttons-theme
-		));
 	}
 }

@@ -33,8 +33,11 @@
 					</a>
 				</div>
 				<div class="o-header__top-column o-header__top-column--right">
+					{{#anon}}
+						<a class="o-header__top-button" href="">Subscribe</a>
+					{{/anon}}
 					{{#hasMyFT}}
-					<a class="o-header__top-link o-header__top-link--myft" href="/myft" aria-label="My F T">
+					<a class="o-header__top-link o-header__top-link--hide-s o-header__top-link--myft" href="/myft" aria-label="My F T">
 						<span class="o-header__visually-hidden">myFT</span>
 					</a>
 					{{/hasMyFT}}
