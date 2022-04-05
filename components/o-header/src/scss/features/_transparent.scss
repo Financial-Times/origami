@@ -24,6 +24,7 @@
 			@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon', $from: 'transparent'), 500);
 		}
 
+		.o-header__drawer-button,
 		.o-header__top-button,
 		.o-header__nav-button {
 			@include oButtonsContent((
