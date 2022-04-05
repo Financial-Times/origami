@@ -45,6 +45,17 @@
 		}
 
 		// Output feature.
+		@if ($feature == 'top' or $feature == 'nav' or $feature == 'drawer') and _oHeaderSupports($feature) {
+			.o-header__drawer-button,
+			.o-header__top-button,
+			.o-header__nav-button {
+				@include oButtonsContent((
+					'type': 'primary',
+					'theme': $_o-header-buttons-theme
+				));
+			}
+		}
+
 		@if $feature == 'top' and _oHeaderSupports($feature) {
 			@include _oHeaderTop;
 		}
