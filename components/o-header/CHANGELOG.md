@@ -1,5 +1,18 @@
 # Changelog
 
+## [9.3.0](https://www.github.com/Financial-Times/origami/compare/o-header-v9.2.4...o-header-v9.3.0) (2022-04-05)
+
+
+### Features
+
+* add drawer button demo and update class name ([7b79555](https://www.github.com/Financial-Times/origami/commit/7b7955528c5a67386f824df1036a2d6c49a0c3c4))
+* update o-header with new subs button for annon readers ([217018b](https://www.github.com/Financial-Times/origami/commit/217018be87605674a822056bc353ca5eddeb4f32))
+
+
+### Bug Fixes
+
+* o-header, handle nav icon spacing within `o-header__nav-item` ([43d761c](https://www.github.com/Financial-Times/origami/commit/43d761c7860d1fe211c728929ff420c5ec46f780))
+
 ### [9.2.4](https://www.github.com/Financial-Times/origami/compare/o-header-v9.2.3...o-header-v9.2.4) (2022-02-09)
 
 
