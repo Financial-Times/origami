@@ -21,15 +21,18 @@
 	}
 
 	.o-header__top-column--left {
+		grid-column-start: 1;
 		justify-self: left;
 	}
 
-	.o-header__top-column--right {
-		justify-self: right;
+	.o-header__top-column--center {
+		grid-column-start: 2;
+		justify-self: center;
 	}
 
-	.o-header__top-column--center {
-		justify-self: center;
+	.o-header__top-column--right {
+		grid-column-start: 3;
+		justify-self: right;
 	}
 
 	.o-header__top-takeover {
