@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.3.1](https://www.github.com/Financial-Times/origami/compare/o-header-v9.3.0...o-header-v9.3.1) (2022-04-06)
+
+
+### Bug Fixes
+
+* center ft logo in o-header when right/left columns are missing ([#692](https://www.github.com/Financial-Times/origami/issues/692)) ([815604d](https://www.github.com/Financial-Times/origami/commit/815604d8c6ddbc05f7f49552a7284353708aacef))
+
 ## [9.3.0](https://www.github.com/Financial-Times/origami/compare/o-header-v9.2.4...o-header-v9.3.0) (2022-04-05)
 
 
