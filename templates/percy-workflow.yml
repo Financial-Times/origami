@@ -1,7 +1,7 @@
 {{=<% %>=}}
 name: percy <%& workspace %>
 concurrency:
-  group: ${{ github.head_ref }}-${{ github.workflow }}-<%& workspace %>
+  group: ${{ github.head_ref }}-${{ github.workflow }}
   cancel-in-progress: true
 
 on:
@@ -22,7 +22,8 @@ on:
       - "<%& workspace %>/src/**"
 
 jobs:
-  percy:
+  <%#projects%>
+  percy-<%& workspaceFilename %>:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -40,3 +41,4 @@ jobs:
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_<% percyTokenName %> }}
         WORKSPACE: <%& workspace %>
+  <%/projects%>

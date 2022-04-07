@@ -1,7 +1,7 @@
 {{=<% %>=}}
-name: test <%& workspace %>
+name: test
 concurrency:
-  group: ${{ github.head_ref }}-${{ github.workflow}}-<%& workspace %>
+  group: ${{ github.head_ref }}-${{ github.workflow}}
   cancel-in-progress: true
 
 on:
@@ -9,7 +9,8 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  <%#projects%>
+  test-<%& workspaceFilename %>:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -24,3 +25,4 @@ jobs:
     - run: npm run -w <%& workspace %> lint --if-present
     - run: npm run -w <%& workspace %> build --if-present
     - run: npm run -w <%& workspace %> test --if-present
+  <%/projects%>
