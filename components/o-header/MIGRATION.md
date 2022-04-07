@@ -1,5 +1,10 @@
 # Migration Guide
+## Migrating from v9 to v10
 
+o-header v10 includes markup changes. Use demo markup to update your project. Changes to be aware of include:
+- Deprecated markup for the old style of edition switcher has changed. The following classes no longer exist `.o-header__drawer-editions` and `.o-header__drawer-editions-link`. Check the markup of the header drawer is correct.
+- Add "icon" to classes `o-header__top-link o-header__top-link--[icon]`, where `[icon]` is "menu", "search", or "myft". E.g. `o-header__top-link o-header__top-link--menu` becomes `o-header__top-icon-link o-header__top-icon-link--[icon]`.
+- Add signup and subscribe links to `o-header__top-column--right`.
 ## Migrating from v8 to v9
 
 v9 drops support for Bower and version 2 of the Origami Build Service.

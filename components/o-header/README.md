@@ -93,7 +93,8 @@ To use `o-header` setup a [core and enhanced experience](https://origami.ft.com/
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
+✨ active | 10 | N/A | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
+⚠ maintained | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
 ⚠ maintained | 8 | 8.6 | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
 ╳ deprecated | 7 | 7.8 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
 ╳ deprecated | 6 | 6.14 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
