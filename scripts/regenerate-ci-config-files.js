@@ -31,23 +31,21 @@ let releasePleaseConfig = {
 	packages: {},
 }
 
+const percyProjects = [];
+const allProjects = [];
+
 for (let workspace of workspacePaths) {
-	let percyTokenName = workspace.replace(/[/-]/g, "_").toUpperCase()
+	const projectConfig = {
+		workspace: workspace,
+		percyTokenName: workspace.replace(/[/-]/g, "_").toUpperCase(),
+		workspaceFilename: workspace.replaceAll("/", "-"),
+	};
 
-	let workspaceFilename = workspace.replaceAll("/", "-")
-
-	let testFile = Mustache.render(testTemplate, {workspace})
-
-	await writeFile(`.github/workflows/test-${workspaceFilename}.yml`, testFile)
+	allProjects.push(projectConfig);
 
 	let pkg = await readPackage({cwd: workspace})
-
 	if (pkg.percy === true) {
-		let percyFile = Mustache.render(percyTemplate, {workspace, percyTokenName})
-		await writeFile(
-			`.github/workflows/percy-${workspaceFilename}.yml`,
-			percyFile
-		)
+		percyProjects.push(projectConfig);
 	}
 
 	if (pkg.private !== true) {
@@ -55,6 +53,20 @@ for (let workspace of workspacePaths) {
 		releasePleaseConfig.packages[workspace] = {}
 	}
 }
+
+let testFile = Mustache.render(testTemplate, {
+	projects: allProjects
+})
+
+await writeFile(`.github/workflows/test.yml`, testFile)
+
+let percyFile = Mustache.render(percyTemplate,  {
+	projects: percyProjects
+})
+await writeFile(
+	`.github/workflows/percy.yml`,
+	percyFile
+)
 
 await writeFile(
 	".release-please-manifest.json",
