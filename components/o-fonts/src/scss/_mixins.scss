@@ -145,7 +145,7 @@
 		}
 
 		@font-face {
-			src: url($o-fonts-path + '#{$family}-#{$font-suffix}' + '.woff2') format('woff2'), url($o-fonts-path + '#{$family}-#{$font-suffix}' + '.woff') format('woff');
+			src: url($o-fonts-path + '&font_name=#{$family}-#{$font-suffix}&font_format=woff2') format('woff2'), url($o-fonts-path + '&font_name=#{$family}-#{$font-suffix}&font_format=woff') format('woff');
 			font-family: $family;
 			font-weight: oFontsWeight($weight);
 			font-style: unquote($style);
