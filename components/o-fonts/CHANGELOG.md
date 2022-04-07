@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-fonts-v5.3.0...o-fonts-v5.3.1) (2022-04-07)
+
+
+### Bug Fixes
+
+* update o-fonts-path to use origami build service v3 font api endpoint instead of v2 as that is decomissioned ([c79fccd](https://www.github.com/Financial-Times/origami/commit/c79fccd5e42164bf7ed65baa44da023a7837e54c))
+
 ## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-fonts-v5.2.1...o-fonts-v5.3.0) (2022-02-04)
 
 
