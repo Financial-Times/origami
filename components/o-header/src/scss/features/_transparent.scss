@@ -27,10 +27,14 @@
 		.o-header__drawer-button,
 		.o-header__top-button,
 		.o-header__nav-button {
-			@include oButtonsContent((
-				'type': 'primary',
-				'theme': 'inverse'
-			), $include-base-styles: false);
+			@include oButtonsContent(
+				(
+					'type': 'primary',
+					'theme': 'inverse'
+				),
+				$include-base-styles: false,
+				$include-base-icon-styles: false
+			);
 		}
 
 		.o-header__nav-link,
