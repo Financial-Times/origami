@@ -118,33 +118,6 @@
 		margin: 0.5em 0;
 	}
 
-	// @deprecated - Remove `o-header__drawer-editions` in the next major
-	.o-header__drawer-editions {
-		padding: 0 $_o-header-drawer-padding-x;
-	}
-
-	// @deprecated - Remove `o-header__drawer-editions-link` in the next major
-	.o-header__drawer-editions-link {
-		color: _oHeaderGet('drawer-editions-link');
-		display: inline-block;
-		padding: div($_o-header-drawer-padding-y, 2) 0 8px;
-		margin-left: 0.5em;
-		border-bottom: 0;
-		font-size: 18px;
-		text-decoration: underline;
-
-		&:first-child {
-			margin-left: 0;
-		}
-
-		&[aria-current] {
-			color: _oHeaderGet('drawer-editions-link-highlight');
-			font-weight: 600;
-			text-decoration: none;
-			pointer-events: none;
-		}
-	}
-
 	//
 	// Actions
 	//
