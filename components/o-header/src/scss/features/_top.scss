@@ -53,6 +53,7 @@
 	}
 
 	.o-header__top-icon-link {
+		@include _oHeaderLink;
 		display: inline-block;
 		text-transform: uppercase;
 		font-size: 10px;
@@ -79,14 +80,17 @@
 		}
 	}
 
-	.o-header__top-button.o-header__top-button--hide-s,
-	.o-header__top-link.o-header__top-link--hide-s {
+	.o-header__top-icon-link--hide-s,
+	.o-header__top-button--hide-s,
+	.o-header__top-link--hide-s {
 		@include oGridRespondTo($until: 'S') {
 			display: none;
 		}
 	}
-	.o-header__top-button.o-header__top-button--hide-m,
-	.o-header__top-link.o-header__top-link--hide-m {
+
+	.o-header__top-icon-link--hide-m,
+	.o-header__top-button--hide-m,
+	.o-header__top-link--hide-m {
 		@include oGridRespondTo($until: 'M') {
 			display: none;
 		}
