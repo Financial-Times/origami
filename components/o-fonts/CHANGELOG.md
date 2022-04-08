@@ -1,5 +1,13 @@
 # Changelog
 
+### [5.3.2](https://www.github.com/Financial-Times/origami/compare/o-fonts-v5.3.1...o-fonts-v5.3.2) (2022-04-08)
+
+
+### Bug Fixes
+
+* add missing system_code query parameter using the $system-code global variable ([89c8151](https://www.github.com/Financial-Times/origami/commit/89c8151ab437c6a19295598717cc05794aa82b93))
+* remove invalid trailing slash ([a5aad94](https://www.github.com/Financial-Times/origami/commit/a5aad9457c539d7597e58d3b75409b3e5f5ce201))
+
 ### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-fonts-v5.3.0...o-fonts-v5.3.1) (2022-04-07)
 
 
