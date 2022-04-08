@@ -145,7 +145,7 @@
 		}
 
 		@font-face {
-			src: url($o-fonts-path + '&font_name=#{$family}-#{$font-suffix}&font_format=woff2&system_code=#{$system-code}') format('woff2'), url($o-fonts-path + '&font_name=#{$family}-#{$font-suffix}&font_format=woff&system_code=#{$system-code}') format('woff');
+			src: url($o-fonts-path + '&font_name=#{$family}-#{$font-suffix}&font_format=woff2&system_code=origami') format('woff2'), url($o-fonts-path + '&font_name=#{$family}-#{$font-suffix}&font_format=woff&system_code=origami') format('woff');
 			font-family: $family;
 			font-weight: oFontsWeight($weight);
 			font-style: unquote($style);
