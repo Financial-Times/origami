@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.3.3](https://www.github.com/Financial-Times/origami/compare/o-fonts-v5.3.2...o-fonts-v5.3.3) (2022-04-08)
+
+
+### Bug Fixes
+
+* use latest non-beta of o-font-assets; use same system code across projects for cache reasons ([#700](https://www.github.com/Financial-Times/origami/issues/700)) ([d9ae99a](https://www.github.com/Financial-Times/origami/commit/d9ae99a7ce56683f32fdc408f1d3f19d80d6c8ab))
+
 ### [5.3.2](https://www.github.com/Financial-Times/origami/compare/o-fonts-v5.3.1...o-fonts-v5.3.2) (2022-04-08)
 
 
