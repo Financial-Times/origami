@@ -1,9 +1,15 @@
+
+import * as workspaces from "./lib/workspaces.js"
 import core from "@actions/core"
 import {$} from "zx"
 import io from "@actions/io"
 import fs from "fs"
 import {context} from "@actions/github"
+import {readPackage} from "read-pkg"
+import { dirname, join, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const workspace = "./" + process.env.WORKSPACE
 
 const isPullRequest = context.payload.pull_request
@@ -17,13 +23,53 @@ async function shouldPercyRun() {
 		let baseRef = context.payload.pull_request.base.ref;
 		let headRef = context.payload.pull_request.head.ref;
 		$.verbose = false
-		let commits = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef} -- ${process.env.WORKSPACE}`;
+		let commits = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef}`;
 		$.verbose = true
 		let messages = commits.stdout.split('\n');
 		for (const message of messages) {
 			if (message.startsWith('fix:') || message.startsWith('fix!:') || message.startsWith('feat:') || message.startsWith('feat!:')) {
-				core.notice('A commit in the pull-request is a `fix` or `feat` commit - which means some user facing changes have been made. This means we need to run Percy on the pull-request.')
-				return true;
+				$.verbose = false
+				let {stdout: changedFiles} = await $`git diff --name-only origin/${baseRef}...origin/${headRef}`;
+				$.verbose = true
+				const changedPackages = new Set;
+				for (const file of changedFiles.split('\n')) {
+					if (file) {
+						const a = file.split('/');
+						if (a.length > 1) {
+							const path = join(__dirname, '../', a[0], a[1])
+							try {
+								const pkg = await readPackage({cwd:path})
+								changedPackages.add(pkg.name);
+							} catch {}
+						}
+					}
+				}
+				let previousChangedPackagesSize = 0
+				while (previousChangedPackagesSize != changedPackages.size) {
+					previousChangedPackagesSize = changedPackages.size
+					for (let cwd of await workspaces.paths()) {
+						let pkg = await readPackage({cwd})
+						const packageDependencies = new Set(Object.keys(pkg.dependencies||[]).concat(Object.keys(pkg.devDependencies||[])).concat(Object.keys(pkg.peerDependencies||[])))
+						for (const dependency of packageDependencies) {
+							if (changedPackages.has(dependency)) {
+								changedPackages.add(pkg.name)
+							}
+						}
+					}
+				}
+				let pkg = await readPackage({cwd: workspace})
+				if (changedPackages.has(pkg.name)) {
+					core.notice('A commit in the pull-request is a `fix` or `feat` commit - which means some user facing changes have been made. Those user facing changes are in this package. This means we need to run Percy on the pull-request.')
+					return true;
+				}
+				const packageDependencies = new Set(Object.keys(pkg.dependencies||[]).concat(Object.keys(pkg.devDependencies||[])).concat(Object.keys(pkg.peerDependencies||[])))
+				for (const dependency of packageDependencies) {
+					if (changedPackages.has(dependency)) {
+						core.notice('A commit in the pull-request is a `fix` or `feat` commit - which means some user facing changes have been made. Those user facing changes are in a dependency of this package. This means we need to run Percy on the pull-request.')
+						return true;
+					}
+				}
+				return false;
 			}
 		}
 		core.notice('No commits in the pull-request are a `fix` or `feat` - which means no user facing changes have been made. This means we do not need to run Percy.')
