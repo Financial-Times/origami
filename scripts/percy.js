@@ -71,7 +71,8 @@ async function shouldPercyRun() {
 				for (const dependency of packageDependencies) {
 					if (changedPackages.has(dependency)) {
 						core.notice('A commit in the pull-request is a `fix` or `feat` commit - which means some user facing changes have been made. Those user facing changes are in a dependency of this package. This means we need to run Percy on the pull-request.')
-						core.notice(`The dependencies for this package (${pkg.name}) are: ${packageDependencies.join(', ')}`)
+						core.notice(`The dependencies for this package (${pkg.name}) are: ${packageDependencies.join('\n')}`)
+						core.notice(`The packages which were affected by the user facing change are: ${Array.from(changedPackages.keys()).join('\n')}`)
 						return true;
 					}
 				}
