@@ -34,9 +34,9 @@ async function shouldPercyRun() {
 				const changedPackages = new Set;
 				for (const file of changedFiles.split('\n')) {
 					if (file) {
-						const a = file.split('/');
-						if (a.length > 1) {
-							const path = join(__dirname, '../', a[0], a[1])
+						const filePathParts = file.split('/');
+						if (filePathParts.length > 1) {
+							const path = join(__dirname, '../', filePathParts[0], filePathParts[1])
 							try {
 								const pkg = await readPackage({cwd:path})
 								changedPackages.add(pkg.name);
