@@ -506,7 +506,7 @@ document.addEventListener('oTable.sorted', (event) => {
 This event is fired just before a table sorts based on user interaction. It may be prevented to implement custom sort functionality. This may be useful to sort a paginated table server-side.
 
 The event provides the following properties:
-- `detail.sortOrder` - The sort requested e.g. "ascending" _(String)_.
+- `detail.sort` - The sort requested e.g. "ascending" _(String)_.
 - `detail.columnIndex` - The index of the column heading which will be sorted _(Number)_.
 - `detail.instance` - The effected `o-table` instance _(FlatTable | ScrollTable | OverflowTable | BasicTable)_.
 
@@ -519,7 +519,10 @@ document.addEventListener('oTable.sorting', (event) => {
 	// Update the table with a custom sort.
 	console.log(`Update the table with sorted data here.`);
 	// Fire the sorted event, passing along the column index and sort.
-	event.detail.instance.sorted(event.detail.columnIndex, event.detail.sort);
+	event.detail.instance.sorted({
+		columnIndex: event.detail.columnIndex,
+		sortOrder: event.detail.sort
+	});
 });
 ```
 
