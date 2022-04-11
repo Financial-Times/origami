@@ -46,6 +46,9 @@ async function shouldPercyRun() {
 						}
 					}
 				}
+				// This section figures out which packages in the monorepo are affected by any of the changed packages.
+				// We look through every package in the workspaces and if they have a dependency affected by a
+				// changed package, then we add that package to the list of changed packages and we start the loop again.
 				let previousChangedPackagesSize = 0
 				while (previousChangedPackagesSize != changedPackages.size) {
 					previousChangedPackagesSize = changedPackages.size
