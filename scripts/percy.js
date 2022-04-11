@@ -36,8 +36,10 @@ async function shouldPercyRun() {
 					if (file) {
 						const filePathParts = file.split('/');
 						if (filePathParts.length > 1) {
-							const path = join(__dirname, '../', filePathParts[0], filePathParts[1])
+							// We swallow errors because not every file in the monorepo is contained in a folder
+							// or does not contain a package.json 
 							try {
+								const path = join(__dirname, '../', filePathParts[0], filePathParts[1])
 								const pkg = await readPackage({cwd:path})
 								changedPackages.add(pkg.name);
 							} catch {}
