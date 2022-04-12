@@ -96,6 +96,12 @@
 		}
 	}
 
+	.o-header__top-icon-link.o-header__top-icon-link--show-m {
+		@include oGridRespondTo($from: 'M') {
+			display: none;
+		}
+	}
+
 	.o-header__top-icon-link--menu {
 		margin-left: -#{$_o-header-icon-size-large * 0.25px}; // remove space built into icon image, -10px size given 40px icon.
 	}
