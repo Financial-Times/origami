@@ -1,5 +1,16 @@
 # Changelog
 
+## [10.0.0](https://www.github.com/Financial-Times/origami/compare/o-header-v9.3.1...o-header-v10.0.0) (2022-04-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* header anon updates (#696)
+
+### Features
+
+* header anon updates ([#696](https://www.github.com/Financial-Times/origami/issues/696)) ([d80a023](https://www.github.com/Financial-Times/origami/commit/d80a023201e87a951de8ef856e84d68c1606e973))
+
 ### [9.3.1](https://www.github.com/Financial-Times/origami/compare/o-header-v9.3.0...o-header-v9.3.1) (2022-04-06)
 
 
