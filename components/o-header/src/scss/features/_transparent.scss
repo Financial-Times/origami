@@ -8,7 +8,7 @@
 			border-bottom-color: _oHeaderGet('header-border', $from: 'transparent');
 		}
 
-		.o-header__top-link--menu:before {
+		.o-header__top-icon-link--menu:before {
 			@include oIconsContent('hamburger', _oHeaderGet('header-icon', $from: 'transparent'), $size: null, $include-base-styles: false);
 		}
 
@@ -16,7 +16,7 @@
 			@include oIconsContent('search', _oHeaderGet('header-icon', $from: 'transparent'), $size: null, $include-base-styles: false);
 		}
 
-		.o-header__top-link--myft:before {
+		.o-header__top-icon-link--myft:before {
 			@include _oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon', $from: 'transparent'), 52);
 		}
 
@@ -27,10 +27,14 @@
 		.o-header__drawer-button,
 		.o-header__top-button,
 		.o-header__nav-button {
-			@include oButtonsContent((
-				'type': 'primary',
-				'theme': 'inverse'
-			), $include-base-styles: false);
+			@include oButtonsContent(
+				(
+					'type': 'primary',
+					'theme': 'inverse'
+				),
+				$include-base-styles: false,
+				$include-base-icon-styles: false
+			);
 		}
 
 		.o-header__nav-link,

@@ -46,8 +46,13 @@
 			}
 		}
 	}
-
 	.o-header__top-link {
+		@include _oHeaderLink;
+		@include oTypographySans(-1);
+		@include _oHeaderFancyLink();
+	}
+
+	.o-header__top-icon-link {
 		@include _oHeaderLink;
 		display: inline-block;
 		text-transform: uppercase;
@@ -75,17 +80,33 @@
 		}
 	}
 
-	.o-header__top-link--hide-s {
+	.o-header__top-icon-link.o-header__top-icon-link--hide-s,
+	.o-header__top-button.o-header__top-button--hide-s,
+	.o-header__top-link.o-header__top-link--hide-s {
 		@include oGridRespondTo($until: 'S') {
 			display: none;
 		}
 	}
 
-	.o-header__top-link--menu {
+	.o-header__top-icon-link.o-header__top-icon-link--hide-m,
+	.o-header__top-button.o-header__top-button--hide-m,
+	.o-header__top-link.o-header__top-link--hide-m {
+		@include oGridRespondTo($until: 'M') {
+			display: none;
+		}
+	}
+
+	.o-header__top-icon-link.o-header__top-icon-link--show-m {
+		@include oGridRespondTo($from: 'M') {
+			display: none;
+		}
+	}
+
+	.o-header__top-icon-link--menu {
 		margin-left: -#{$_o-header-icon-size-large * 0.25px}; // remove space built into icon image, -10px size given 40px icon.
 	}
 
-	.o-header__top-link--menu {
+	.o-header__top-icon-link--menu {
 		&:before {
 			// container size (24) is only included for the fallback image.
 			// IE8 has a static stylesheet generated for the L breakpoint.
@@ -93,20 +114,20 @@
 		}
 	}
 
-	.o-header__top-link--search {
+	.o-header__top-icon-link--search {
 		&:before {
 			@include oIconsContent('search', _oHeaderGet('header-icon'), $size: null, $include-base-styles: false);
 		}
 
 		// when used in tandem with the menu toggle, hide this on smaller screen sizes
-		.o-header__top-link--menu + & {
+		.o-header__top-icon-link--menu + & {
 			@include oGridRespondTo($until: 'L') {
 				display: none;
 			}
 		}
 	}
 
-	.o-header__top-link--myft {
+	.o-header__top-icon-link--myft {
 		&:before {
 			@include _oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon'), 52);
 			// this is not a very square icon
