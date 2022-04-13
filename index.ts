@@ -25,7 +25,7 @@ const data: THeaderProps = {
     anon,
     breadcrumb,
     drawer: drawerUK,
-    actions: actionsUK,
+    subscribeAction: actionsUK,
     editions: editionsUK,
     footer: null,
     navbar: navbarUK,
