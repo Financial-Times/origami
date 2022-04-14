@@ -3,8 +3,8 @@
 	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-tracking,libraries",
 	"supportContact": {
-		"email": "origami.support@ft.com",
-		"slack": "financialtimes/origami-support"
+		"email": "data.platform@ft.com",
+		"slack": "financialtimes/data-support"
 	},
 	"supportStatus": "active",
 	"browserFeatures": {
