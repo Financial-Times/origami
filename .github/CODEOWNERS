@@ -1,16 +1,19 @@
 # The Origami Team watch over the whole component system
-* @Financial-Times/origami-core
+* @Financial-Times/origami-core 
 
 # Storytelling components
-components/o-audio/* @Financial-Times/content-innovation
-components/o-comments/* @Financial-Times/content-innovation
-components/o-video/* @Financial-Times/content-innovation
+components/o-audio/ @Financial-Times/content-innovation
+components/o-comments/ @Financial-Times/content-innovation
+components/o-video/ @Financial-Times/content-innovation
 
 # Acquisition components
-components/o-subs-card/* @Financial-Times/acquisition
+components/o-subs-card/ @Financial-Times/acquisition
 
 # Disco components
-components/n-notification/* @Financial-Times/content-discovery
+components/n-notification/ @Financial-Times/content-discovery
 
 # Visual Journalism components
-components/g-audio/* @Financial-Times/visual-data-journalism-admins
+components/g-audio/ @Financial-Times/visual-data-journalism-admins
+
+# Data platform own o-tracking
+libraries/o-tracking @Financial-Times/data-platform
