@@ -5,6 +5,6 @@ const constructAll = () => {
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
-document.addEventListener('o.DOMContentLoaded', constructAll);
+if (document) document.addEventListener('o.DOMContentLoaded', constructAll);
 
 export default Toggle;
