@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.3.1](https://www.github.com/Financial-Times/origami/compare/o-tracking-v4.3.0...o-tracking-v4.3.1) (2022-04-20)
+
+
+### Bug Fixes
+
+* update o-tracking origami.json with new owner ([#707](https://www.github.com/Financial-Times/origami/issues/707)) ([70fd495](https://www.github.com/Financial-Times/origami/commit/70fd4953f4c23a3f91109d1828cb32955b4b4ff0))
+
 ## [4.3.0](https://www.github.com/Financial-Times/origami/compare/o-tracking-v4.2.2...o-tracking-v4.3.0) (2022-03-25)
 
 
