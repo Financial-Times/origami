@@ -142,7 +142,9 @@ Components **should** handle events during the <a href="http://stackoverflow.com
 If a module wishes to bind to the `DOMContentLoaded` or `load` browser events, it **must** prefix the event name with `o.`, and **must** expose the function that it binds to the event via its external API, eg:
 
 ```js
-document.addEventListener('o.DOMContentLoaded', init);
+if (typeof document !== 'undefined') {
+	document.addEventListener('o.DOMContentLoaded', init);
+}
 export init;
 ```
 

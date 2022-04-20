@@ -7,6 +7,8 @@ function constructAll () {
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 }
 
-document.addEventListener('o.DOMContentLoaded', constructAll);
+if (typeof document !== 'undefined') {
+	document.addEventListener('o.DOMContentLoaded', constructAll);
+}
 
 export default Banner;

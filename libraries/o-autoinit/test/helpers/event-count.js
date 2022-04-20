@@ -1,8 +1,10 @@
 // Count the number of times `o.DOMContentLoaded` is fired.
 let eventCount = 0;
-document.addEventListener('o.DOMContentLoaded', () => {
-	eventCount++;
-});
+if (typeof document !== 'undefined') {
+	document.addEventListener('o.DOMContentLoaded', () => {
+		eventCount++;
+	});
+}
 
 export default () => {
 	return eventCount;
