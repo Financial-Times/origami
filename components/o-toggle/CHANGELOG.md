@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.2.3](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.2.2...o-toggle-v3.2.3) (2022-04-20)
+
+
+### Bug Fixes
+
+* Check for `document` before using it ([af1ad12](https://www.github.com/Financial-Times/origami/commit/af1ad128652d5db42aa5b26bba2cd527855af16e))
+
 ### [3.2.2](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.2.1...o-toggle-v3.2.2) (2022-01-13)
 
 
