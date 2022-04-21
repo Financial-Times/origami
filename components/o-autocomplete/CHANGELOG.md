@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.6.2](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.6.1...o-autocomplete-v1.6.2) (2022-04-21)
+
+
+### Bug Fixes
+
+* Adds basic existence checking to most module entry points ([#714](https://www.github.com/Financial-Times/origami/issues/714)) ([7ba3a61](https://www.github.com/Financial-Times/origami/commit/7ba3a61d0de2a32d3a27a225fd4258b3820c7bda))
+
 ### [1.6.1](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.6.0...o-autocomplete-v1.6.1) (2022-01-13)
 
 

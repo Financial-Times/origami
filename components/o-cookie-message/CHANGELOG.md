@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.4.2](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.4.1...o-cookie-message-v6.4.2) (2022-04-21)
+
+
+### Bug Fixes
+
+* Adds basic existence checking to most module entry points ([#714](https://www.github.com/Financial-Times/origami/issues/714)) ([7ba3a61](https://www.github.com/Financial-Times/origami/commit/7ba3a61d0de2a32d3a27a225fd4258b3820c7bda))
+
 ### [6.4.1](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.4.0...o-cookie-message-v6.4.1) (2022-02-16)
 
 

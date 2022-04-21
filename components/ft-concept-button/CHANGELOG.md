@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/Financial-Times/origami/compare/ft-concept-button-v1.0.1...ft-concept-button-v1.0.2) (2022-04-21)
+
+
+### Bug Fixes
+
+* Adds basic existence checking to most module entry points ([#714](https://www.github.com/Financial-Times/origami/issues/714)) ([7ba3a61](https://www.github.com/Financial-Times/origami/commit/7ba3a61d0de2a32d3a27a225fd4258b3820c7bda))
+
 ### [1.0.1](https://www.github.com/Financial-Times/origami/compare/ft-concept-button-v1.0.0...ft-concept-button-v1.0.1) (2022-03-21)
 
 
