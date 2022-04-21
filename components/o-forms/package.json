@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-forms",
-  "version": "9.3.1",
+  "version": "9.4.0",
   "description": "This component provides responsive styling for form fields and inputs. It provides validation and error handling for forms, as well.",
   "keywords": [
     "form",

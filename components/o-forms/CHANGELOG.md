@@ -1,5 +1,17 @@
 # Changelog
 
+## [9.4.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.3.1...o-forms-v9.4.0) (2022-04-21)
+
+
+### Features
+
+* o-forms toggle on white background support ([#715](https://www.github.com/Financial-Times/origami/issues/715)) ([00e579f](https://www.github.com/Financial-Times/origami/commit/00e579f757be1bfa277bdf7f1fc1ffbb78f44ea7))
+
+
+### Bug Fixes
+
+* Adds basic existence checking to most module entry points ([#714](https://www.github.com/Financial-Times/origami/issues/714)) ([7ba3a61](https://www.github.com/Financial-Times/origami/commit/7ba3a61d0de2a32d3a27a225fd4258b3820c7bda))
+
 ### [9.3.1](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.3.0...o-forms-v9.3.1) (2022-03-23)
 
 
