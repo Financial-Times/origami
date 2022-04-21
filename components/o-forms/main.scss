@@ -34,20 +34,28 @@
 	'features': (
 		'disabled',
 		'inline',
-		'inverse',
+		'inverse', // @deprecated, see 'themes' property
 		'error-summary',
 		'right',
 		'small',
 		'state',
 		'suffix'
+	),
+	'themes': (
+		'inverse',
+		'white',
 	)
 )) {
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
+	$themes: map-get($opts, 'themes');
 
 	$disabled: index($features, 'disabled');
 	$inline: index($features, 'inline');
-	$inverse: index($features, 'inverse');
+	// For use on a dark background.
+	$inverse-theme: index($features, 'inverse') or index($themes, 'inverse');
+	// For use on a white background (as oppose to another background, e.g. paper for the core brand)
+	$white-theme: index($themes, 'white');
 	$error-summary: index($features, 'error-summary');
 	$right: index($features, 'right');
 	$small: index($features, 'small');
@@ -125,8 +133,14 @@
 		@include _oFormsErrorSummary();
 	}
 
-	@if $inverse {
+	@if $inverse-theme {
 		@include _oFormsInverse($error-summary, $radio-box, $file);
+	}
+
+	@if $white-theme {
+		.o-forms-field--white {
+			--o-forms-toggle-handle-color: #{oColorsByName('white')};
+		}
 	}
 
 	@if $state {

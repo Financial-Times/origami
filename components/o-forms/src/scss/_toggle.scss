@@ -34,6 +34,7 @@
 			&:after {
 				@include oIconsContent('cross', $color: _oFormsGet('default-text'), $size: null);
 				background-color: oColorsByUsecase(page, background);
+				background-color: var(--o-forms-toggle-handle-color, #{oColorsByUsecase(page, background)});
 				border: $_o-forms-spacing-half solid _oFormsGet('default-text');
 				border-radius: 50%;
 				box-sizing: border-box;
