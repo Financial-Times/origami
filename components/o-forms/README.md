@@ -375,7 +375,9 @@ For a toggle checkbox, replace the `o-forms-input--checkbox` modifier class with
 </div>
 ```
 
-Toggles have an inverse theme. Set `o-forms-field--inverse` on the field element to use the inverse theme on a dark background.
+Toggles support 2 themes.
+- inverse: For a toggle on a dark background. Set `o-forms-field--inverse` on the field element.
+- white: For a toggle on a white background. Set `o-forms-field--white` on the field element.
 
 ##### Checkbox inputs with description
 
@@ -712,11 +714,14 @@ The `$opts` map accepts two lists with the following options:
 	- `'disabled'`
 	- `'inline'`
 	- `'right'`
-	- `'inverse'`
+	- `'inverse'` (deprecated, see the 'themes' option)
 	- `'small'`
 	- `'state'`
 	- `'suffix'`
 	- `error-summary`
+- `'themes'`
+	- `'inverse'`
+	- `'white'`
 
 _Note 1: `valid` and `invalid` styles are output with the base of `o-forms` so there is no need to include them in the list above._
 
