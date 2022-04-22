@@ -9,6 +9,7 @@ export function Toggle({label, id, children}: ToggleProps) {
 		<>
 			<button
 				data-o-component="o-toggle"
+				type="button"
 				data-o-toggle-target={id}
 				className="o-buttons o-buttons--primary">
 				{label}

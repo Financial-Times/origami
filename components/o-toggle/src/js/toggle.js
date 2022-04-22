@@ -58,8 +58,7 @@ class Toggle {
 	destroy() {
 		this.toggleEl.removeEventListener('click', this.toggle);
 		this.toggleEl.removeAttribute('aria-expanded');
-		this.toggleEl.removeAttribute('role');
-		this.toggleEl.removeAttribute('data-o-toggle--js');
+		this.toggleEl.removeAttribute('aria-controls');
 		this.toggleEl = undefined;
 	}
 

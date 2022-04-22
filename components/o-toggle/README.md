@@ -21,7 +21,11 @@ Add the `data-o-component="o-toggle"` and `data-o-toggle-target` to your toggle 
 When the toggle is clicked, the `aria-expanded` attribute is toggled.
 
 ```html
-<button data-o-component="o-toggle" data-o-toggle-target="#my-target">
+<button
+	data-o-component="o-toggle"
+	data-o-toggle-target="#my-target"
+	type="button"
+>
 	My button
 </button>
 <div id="my-target" class="o-toggle">Some toggleable content</div>
