@@ -5,7 +5,7 @@
 ///     @include oToggle();
 /// @access public
 @mixin oToggle() {
-	.o-toggle[aria-expanded="false"] + .o-toggle-target {
+	[data-o-component="o-toggle"][aria-expanded="false"] + .o-toggle {
 		display: none;
 	}
 }

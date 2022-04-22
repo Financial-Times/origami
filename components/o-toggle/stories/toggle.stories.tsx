@@ -15,7 +15,14 @@ export default {
 };
 
 const Story = args => {
-	useEffect(() => void setTimeout(javascript.init.bind(javascript), 1000), []);
+	useEffect(() => {
+		const toggles = javascript.init();
+		return () => {
+			toggles.forEach(toggle => {
+				toggle.destroy();
+			});
+		};
+	}, []);
 	return <Toggle {...args} />;
 };
 

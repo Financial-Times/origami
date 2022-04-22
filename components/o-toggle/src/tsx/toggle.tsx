@@ -10,10 +10,10 @@ export function Toggle({label, id, children}: ToggleProps) {
 			<button
 				data-o-component="o-toggle"
 				data-o-toggle-target={id}
-				className="o-buttons o-buttons--primary o-toggle">
+				className="o-buttons o-buttons--primary">
 				{label}
 			</button>
-			<div id={id} className="o-toggle-target">
+			<div id={id} className="o-toggle">
 				{children}
 			</div>
 		</>

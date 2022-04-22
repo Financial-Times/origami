@@ -35,11 +35,7 @@ class Toggle {
 		this.toggleEl.addEventListener('click', this.toggle);
 
 		this.toggleEl.setAttribute('aria-expanded', 'false');
-
-		this.targetEl = config.target;
-		if (!(this.targetEl instanceof HTMLElement)) {
-			this.targetEl = document.querySelector(this.targetEl);
-		}
+		this.toggleEl.setAttribute('aria-controls', config.targetId);
 	}
 
 	open() {
@@ -64,12 +60,7 @@ class Toggle {
 		this.toggleEl.removeAttribute('aria-expanded');
 		this.toggleEl.removeAttribute('role');
 		this.toggleEl.removeAttribute('data-o-toggle--js');
-
-		this.target.removeToggle(this);
-
-		this.target = undefined;
 		this.toggleEl = undefined;
-		this.callback = undefined;
 	}
 
 	static init(el, config) {
