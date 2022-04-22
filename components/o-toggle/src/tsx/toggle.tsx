@@ -1,20 +1,19 @@
 interface ToggleProps {
 	label: string;
-	type: 'display' | 'visibility';
 	children: string | string[] | JSX.Element | JSX.Element[];
 	id: string;
 }
 
-export function Toggle({label, type, id, children}: ToggleProps) {
+export function Toggle({label, id, children}: ToggleProps) {
 	return (
 		<>
 			<button
 				data-o-component="o-toggle"
 				data-o-toggle-target={id}
-				className="o-buttons o-buttons--primary">
+				className="o-buttons o-buttons--primary o-toggle">
 				{label}
 			</button>
-			<div id={id} className={`o-toggle o-toggle-${type}`}>
+			<div id={id} className="o-toggle-target">
 				{children}
 			</div>
 		</>

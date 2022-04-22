@@ -1,6 +1,8 @@
 import './toggle.scss';
+import javascript from '../main';
 import withHtml from 'origami-storybook-addon-html';
 import {Toggle} from '../src/tsx/toggle';
+import {useEffect} from 'react';
 
 export default {
 	title: 'Components/o-toggle',
@@ -12,20 +14,15 @@ export default {
 	},
 };
 
-const Story = args => <Toggle {...args} />;
-
-export const Display = Story.bind({});
-
-Display.args = {
-	type: 'display',
-	label: 'Click me',
-	children: 'I was hidden completely',
+const Story = args => {
+	useEffect(() => void setTimeout(javascript.init.bind(javascript), 1000), []);
+	return <Toggle {...args} />;
 };
 
-export const Visibility = Story.bind({});
+export const Example = Story.bind({});
 
-Visibility.args = {
-	type: 'visibility',
+Example.args = {
 	label: 'Click me',
-	children: 'I was hidden, but my space was held for me.',
+	children: 'I was hidden, but now I am exposed',
+	id: 'display-toggle',
 };
