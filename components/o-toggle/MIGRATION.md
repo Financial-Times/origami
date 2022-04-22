@@ -1,5 +1,11 @@
 ## Migration Guide
 
+### Migrating from v3 to v4
+
+- The `callback` feature has been removed.
+- The `display` and `visibility` options have been removed. `o-toggle` sets `display: none` on the target.
+- The toggle target must directly follow the toggle button.
+
 ### Migrating from v2 to v3
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
