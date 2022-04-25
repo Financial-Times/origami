@@ -5,7 +5,11 @@
 ///     @include oToggle();
 /// @access public
 @mixin oToggle() {
-	[data-o-component="o-toggle"][aria-expanded="false"] + .o-toggle {
+	.o-toggle[aria-hidden="false"] {
+		display: block;
+	}
+
+	.o-toggle[aria-hidden="true"] {
 		display: none;
 	}
 }

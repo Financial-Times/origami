@@ -26,10 +26,10 @@ const Story = args => {
 	return <Toggle {...args} />;
 };
 
-export const Example = Story.bind({});
+export const Simple = Story.bind({});
 
-Example.args = {
+Simple.args = {
 	label: 'Click me',
 	children: 'I was hidden, but now I am exposed',
-	id: 'display-toggle',
+	targetId: 'display-toggle',
 };

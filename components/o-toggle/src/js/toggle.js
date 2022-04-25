@@ -16,7 +16,11 @@ class Toggle {
 			Array.prototype.forEach.call(toggleEl.attributes, attr => {
 				if (attr.name.indexOf('data-o-toggle') === 0) {
 					// Remove the prefix part of the data attribute name
-					const key = attr.name.replace('data-o-toggle-', '');
+					const key = attr.name
+						.replace('data-o-toggle-', '')
+						.replace(/-([a-z])/g, (_, w) => {
+							return w.toUpperCase();
+						});
 					try {
 						// If it's a JSON, a boolean or a number, we want it stored like that, and not as a string
 						// We also replace all ' with " so JSON strings are parsed correctly
@@ -34,16 +38,22 @@ class Toggle {
 		this.toggle = this.toggle.bind(this);
 		this.toggleEl.addEventListener('click', this.toggle);
 
-		this.toggleEl.setAttribute('aria-expanded', 'false');
 		this.toggleEl.setAttribute('aria-controls', config.targetId);
+		this.close();
+	}
+
+	get targetEl() {
+		return document.getElementById(this.toggleEl.getAttribute('aria-controls'));
 	}
 
 	open() {
 		this.toggleEl.setAttribute('aria-expanded', 'true');
+		this.targetEl.setAttribute('aria-hidden', 'false');
 	}
 
 	close() {
 		this.toggleEl.setAttribute('aria-expanded', 'false');
+		this.targetEl.setAttribute('aria-hidden', 'true');
 	}
 
 	// toggle is bound to the Toggle instance in the constructor

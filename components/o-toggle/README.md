@@ -23,7 +23,7 @@ When the toggle is clicked, the `aria-expanded` attribute is toggled.
 ```html
 <button
 	data-o-component="o-toggle"
-	data-o-toggle-target="#my-target"
+	data-o-toggle-target-id="my-target"
 	type="button"
 >
 	My button
