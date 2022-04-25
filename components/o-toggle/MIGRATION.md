@@ -4,7 +4,7 @@
 
 - The `callback` feature has been removed.
 - The `display` and `visibility` options have been removed. `o-toggle` sets `display: none` on the target.
-- The toggle target must directly follow the toggle button.
+- The `target` option has been replaced with `target-id`, and should be an ID rather than a selector (this lets us use `aria-controls`)
 
 ### Migrating from v2 to v3
 
