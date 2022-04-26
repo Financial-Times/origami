@@ -518,6 +518,21 @@ jobs:
     - run: npm run -w components/o-share lint --if-present
     - run: npm run -w components/o-share build --if-present
     - run: npm run -w components/o-share test --if-present
+  test-components-o-social-follow:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: npm run -w components/o-social-follow lint --if-present
+    - run: npm run -w components/o-social-follow build --if-present
+    - run: npm run -w components/o-social-follow test --if-present
   test-components-o-spacing:
     runs-on: ubuntu-latest
     steps:

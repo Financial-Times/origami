@@ -1,0 +1,48 @@
+{
+	"brands": [
+		"core",
+		"internal",
+		"whitelabel"
+	],
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-social-follow,components",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss"
+	},
+	"demos": [
+		{
+			"title": "Container",
+			"name": "container",
+			"template": "demos/src/social-follow.mustache",
+			"description": "Follow on social media links.",
+			"documentClasses": "demo"
+		},
+		{
+			"title": "Stand alone",
+			"name": "stand-alone",
+			"template": "demos/src/social-follow.mustache",
+			"data": {
+				"standalone": true
+			},
+			"description": "Follow on social media links without a containing border.",
+			"documentClasses": "demo"
+		},
+		{
+			"title": "Inverse",
+			"name": "inverse",
+			"template": "demos/src/social-follow.mustache",
+			"description": "An inverse theme for use on dark backgrounds.",
+			"data": {
+				"inverse": true
+			},
+			"documentClasses": "demo demo--inverse"
+		}
+	]
+}
