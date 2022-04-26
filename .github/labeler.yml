@@ -84,6 +84,8 @@ o-quote:
   - components/o-quote/**/*
 o-share:
   - components/o-share/**/*
+o-social-follow:
+  - components/o-social-follow/**/*
 o-spacing:
   - components/o-spacing/**/*
 o-stepped-progress:
