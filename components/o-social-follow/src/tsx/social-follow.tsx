@@ -22,7 +22,7 @@ export function SocialFollow({
     }
 
 	return (
-        <section className="o-social-follow"  aria-label="Social media sharing buttons">
+        <section className="o-social-follow"  aria-label="Follow on social media">
             {icons.map(icon => {
                 return <a href="#" className={[...iconClassNames, `o-social-follow-icon--${icon}`].join(' ')}>
                     <span className="o-social-follow-icon__label">on {icon}</span>

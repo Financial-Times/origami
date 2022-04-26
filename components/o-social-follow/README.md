@@ -34,7 +34,7 @@ Social icons currently supported include:
 
 The following example shows a single Facebook link.
 ```html
-<section class="o-social-follow"  aria-label="Social media sharing buttons">
+<section class="o-social-follow"  aria-label="Follow on social media">
 
 	<a href="#" class="o-social-follow-icon o-social-follow-icon--facebook">
 		<span class="o-social-follow-icon__label">on facebook</span>
@@ -45,7 +45,7 @@ The following example shows a single Facebook link.
 
 The next example shows multiple social media links.
 ```html
-<section class="o-social-follow" aria-label="Social media sharing buttons">
+<section class="o-social-follow" aria-label="Follow on social media">
 	<a href="#" class="o-social-follow-icon o-social-follow-icon--twitter">
 		<span class="o-social-follow-icon__label">on twitter</span>
 	</a>
