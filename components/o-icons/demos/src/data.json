@@ -197,6 +197,12 @@
 		},
 		{
 			"name": "written-text"
+		},
+		{
+			"name": "eye-open"
+		},
+		{
+			"name": "eye-closed"
 		}
 	]
 }
