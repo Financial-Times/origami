@@ -15,7 +15,7 @@ A styling utility component to aid projects and component with consistent spacin
 
 Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-spacing`.
 
-For [Build Service](https://www.ft.com/__origami/service/build/v2/) users, `o-spacing` provides [CSS classes](#markup) for vertical space and [CSS Custom Properties (CSS Variables)](#css-custom-properties) for other usecases. For Sass users `o-spacing` also provides a number of [Sass functions and mixins](#sass) for applying space to a project.
+For [Build Service](https://www.ft.com/__origami/service/build/) users, `o-spacing` provides [CSS classes](#markup) for vertical space and [CSS Custom Properties (CSS Variables)](#css-custom-properties) for other usecases. For Sass users `o-spacing` also provides a number of [Sass functions and mixins](#sass) for applying space to a project.
 
 ## Spaces
 
@@ -62,7 +62,7 @@ To apply spaces to other properties `o-spacing` provides [CSS Custom Properties 
 
 ### Named Space Custom Properties
 
-`o-spacing` outputs a CSS Custom Property (CSS Variable) for each named space. E.g. `--o-spacing-s1`. These may be used to apply spaces in custom CSS if your project [supports](https://caniuse.com/#feat=css-variables) CSS Custom Properties. This is particularly useful for [Build Service](https://www.ft.com/__origami/service/build/v2/) users who do not have access to `o-spacing`'s [Sass](#sass) functions.
+`o-spacing` outputs a CSS Custom Property (CSS Variable) for each named space. E.g. `--o-spacing-s1`. These may be used to apply spaces in custom CSS if your project [supports](https://caniuse.com/#feat=css-variables) CSS Custom Properties. This is particularly useful for [Build Service](https://www.ft.com/__origami/service/build/) users who do not have access to `o-spacing`'s [Sass](#sass) functions.
 
 ```scss
 .example {

@@ -98,7 +98,7 @@ This table outlines all of the possible variants you can request in the [`oOverl
 
 ### Declarative
 
-JavaScript is initialised on `o-overlay` elements automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/v2/) users. If your project is using a manual build process, [initialise `o-overlay` manually](https://origami.ft.com/documentation/components/initialising/).
+JavaScript is initialised on `o-overlay` elements automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/) users. If your project is using a manual build process, [initialise `o-overlay` manually](https://origami.ft.com/documentation/components/initialising/).
 
 For example call the `init` method to initialise all `o-overlay` instances in the document:
 ```js

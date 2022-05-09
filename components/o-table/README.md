@@ -134,9 +134,9 @@ Or to disable sort per table column, add `data-o-table-heading-disable-sort` to 
 
 There are three options for small viewports where the table does not fit.
 
-1. [overflow](https://www.ft.com/__origami/service/build/v2/demos/o-table/responsive-overflow) - Scroll the whole table including headings horizontally. This option also supports an [expander](#expander).
-2. [scroll](https://www.ft.com/__origami/service/build/v2/demos/o-table/responsive-scroll) - Flip the table so headings are in the first column and sticky, data is scrollable horizontally.
-3. [flat](https://www.ft.com/__origami/service/build/v2/demos/o-table/responsive-flat) - Split each row into an individual item and repeat headings.
+1. [overflow](https://registry.origami.ft.com/components/o-table#demo-responsive-overflow) - Scroll the whole table including headings horizontally. This option also supports an [expander](#expander).
+2. [scroll](https://registry.origami.ft.com/components/o-table#demo-responsive-scroll) - Flip the table so headings are in the first column and sticky, data is scrollable horizontally.
+3. [flat](https://registry.origami.ft.com/components/o-table#demo-responsive-flat) - Split each row into an individual item and repeat headings.
 
 To enable these set `data-o-table-responsive` to the type of responsive table desired and add the classes for that type of table. Then wrap the table in `o-table-container`, `o-table-overlay-wrapper`, `o-table-scroll-wrapper`. E.g for an "overflow" table:
 

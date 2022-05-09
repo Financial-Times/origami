@@ -209,20 +209,7 @@ In the v0.x.x of o-forms, the module loaded webfonts itself and was setting its 
 
 The module now inherits the `font-family` set in your application and doesn't embed web fonts anymore.
 
-Solution: products must load webfonts themselves (tipically, with [o-fonts](https://github.com/Financial-Times/o-fonts) and [o-ft-icons](https://github.com/Financial-Times/o-ft-icons)).
-
-```html
-<!-- Load web fonts and icons with @font-face declarations  -->
-<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-fonts@^3.0.0,o-icons@^5.0.0" />
-
-<!-- Set the font family on the whole document -->
-<style>
-	html {
-		font-family: BentonSans, sans-serif;
-	}
-</style>
-```
-
+Solution: products must load webfonts themselves (with [o-fonts](https://github.com/Financial-Times/o-fonts) and [o-ft-icons](https://github.com/Financial-Times/o-ft-icons)).
 
 #### 3. Helper classes name changes
 
