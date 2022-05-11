@@ -46,7 +46,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ## Markup
 
-Predefined CSS classes in `o-typography` are available when using the [build service](https://www.ft.com/__origami/service/build/v2/), and can be included optionally via [Sass](#sass).
+Predefined CSS classes in `o-typography` are available when using the [Build Service](https://www.ft.com/__origami/service/build/), and can be included optionally via [Sass](#sass).
 
 Classes do not depend on specific HTML, but we encourage developers to use semantic elements.
 

@@ -112,7 +112,7 @@ In rare cases, a user may have already set their display name in a different par
 
 ## JavaScript
 
-No code will run automatically unless you are using the [Build Service](https://www.ft.com/__origami/service/build/v2/). You must either construct an `o-comments` object or fire the `o.DOMContentLoaded` event, which o-comments listens for.
+No code will run automatically unless you are using the [Build Service](https://www.ft.com/__origami/service/build/). You must either construct an `o-comments` object or fire the `o.DOMContentLoaded` event, which o-comments listens for.
 
 ### Constructing an o-comments
 

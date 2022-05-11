@@ -66,7 +66,7 @@ The subs card standard theme is teal. To differentiate amongst different subscri
 
 ## JavaScript
 
-If you're using the [Build Service](https://www.ft.com/__origami/service/build/v2/) to get this component, you won't need to initialise your JavaScript, it should just work.
+If you're using the [Build Service](https://www.ft.com/__origami/service/build/) to get this component, you won't need to initialise your JavaScript, it should just work.
 
 If you aren't using the Build Service, you'll need to fire an `o.DOMContentLoaded` event (which o-subs-card listens for) or construct an `oSubsCard` object.
 
