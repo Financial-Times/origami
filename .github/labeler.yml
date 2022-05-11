@@ -116,6 +116,8 @@ o-viewport:
   - components/o-viewport/**/*
 o-visual-effects:
   - components/o-visual-effects/**/*
+ftdomdelegate:
+  - libraries/ftdomdelegate/**/*
 math:
   - libraries/math/**/*
 o-autoinit:
