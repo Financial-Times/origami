@@ -758,6 +758,21 @@ jobs:
     - run: npm run -w components/o-visual-effects lint --if-present
     - run: npm run -w components/o-visual-effects build --if-present
     - run: npm run -w components/o-visual-effects test --if-present
+  test-libraries-ftdomdelegate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: npm run -w libraries/ftdomdelegate lint --if-present
+    - run: npm run -w libraries/ftdomdelegate build --if-present
+    - run: npm run -w libraries/ftdomdelegate test --if-present
   test-libraries-math:
     runs-on: ubuntu-latest
     steps:
