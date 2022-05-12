@@ -1,5 +1,14 @@
 ## Migration
 
+### Migrating from v8 to v9
+
+To migrate update your projects use of the `oComments` sass mixin. Set its `coral-talk-iframe` option to `false`.
+
+```diff
+-@include oComments();
++@include oComments($opts: ('coral-talk-iframe': false));
+```
+
 ### Migrating from v7 to v8
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
