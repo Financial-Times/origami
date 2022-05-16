@@ -5,13 +5,11 @@ import {withDesign} from 'storybook-addon-designs';
 import javascript from '../main';
 import {Date as ODate} from '../src/tsx/date';
 
-// the storybook args are slightly different to the Date props:
-// 1. dateTime is a UNIX timestamp, the format storybook uses in its controls
-// 2. the description field appends a description of the timestamp inline
+// the storybook args are slightly different to the Date props as dateTime is a
+// UNIX timestamp, the format storybook uses in its controls
 type DateStory = Story<
 	Omit<ComponentProps<typeof ODate>, 'dateTime'> & {
 		dateTime: number;
-		description: string;
 	}
 >;
 
@@ -37,13 +35,11 @@ export default {
 				'time-ago-no-seconds',
 			],
 		},
-		// the description doesn't need to be editable
-		description: {table: {disable: true}},
 	},
 	parameters: {controls: {sort: 'requiredFirst'}},
 } as ComponentMeta<typeof ODate>;
 
-const Template: DateStory = ({description, ...args}) => {
+const Template: DateStory = args => {
 	useEffect(() => {
 		let dates = javascript.init();
 		return function cleanup() {
@@ -52,10 +48,7 @@ const Template: DateStory = ({description, ...args}) => {
 		};
 	});
 	return (
-		<>
-			<ODate {...{...args, dateTime: new Date(args.dateTime).toISOString()}} />
-			{` (${description})`}
-		</>
+		<ODate {...{...args, dateTime: new Date(args.dateTime).toISOString()}} />
 	);
 };
 
@@ -63,39 +56,32 @@ export const Abbreviated: DateStory = Template.bind({});
 Abbreviated.args = {
 	dateTime: new Date('2000-06-14T23:00:00.000Z').getTime(),
 	children: 'June 15, 2000',
-	description: 'dates far in the past are formatted as exact dates',
 };
 
 export const Relative: DateStory = Template.bind({});
-Relative.args = {
-	description: 'more recent dates are formatted as relative times',
-};
+Relative.args = {};
 
 export const TodayOrYesterday: DateStory = Template.bind({});
 TodayOrYesterday.args = {
 	format: 'today-or-yesterday-or-nothing',
-	description: 'using the o-date-format option',
 };
 
 export const FourHourLimit: DateStory = Template.bind({});
 FourHourLimit.storyName = '4 Hour Limit';
 FourHourLimit.args = {
 	format: 'time-ago-limit-4-hours',
-	description: 'using the o-date-format with time-ago-limit-4-hours',
 };
 
 export const TwentyFourHourLimit: DateStory = Template.bind({});
 TwentyFourHourLimit.storyName = '24 Hour Limit';
 TwentyFourHourLimit.args = {
 	format: 'time-ago-limit-24-hours',
-	description: 'using the o-date-format with time-ago-limit-24-hours',
 };
 
 export const CustomFormatting: DateStory = Template.bind({});
 CustomFormatting.args = {
 	dateTime: new Date('1912-04-15T05:18Z').getTime(),
 	format: 'h:mm a',
-	description: 'using the o-date-format with custom format string',
 };
 CustomFormatting.argTypes = {
 	format: {control: 'text'},
@@ -114,5 +100,4 @@ Multiple.args = {
 			<span data-o-date-printer data-o-date-format="h:mm"></span>
 		</>
 	),
-	description: 'using multiple o-date-format elements',
 };
