@@ -45,10 +45,10 @@ export default {
 
 const Template: DateStory = ({description, ...args}) => {
 	useEffect(() => {
-		let tabs = javascript.init();
+		let dates = javascript.init();
 		return function cleanup() {
-			tabs = Array.isArray(tabs) ? tabs : [tabs];
-			tabs.forEach(tab => tab.destroy());
+			dates = Array.isArray(dates) ? dates : [dates];
+			dates.forEach(date => date.destroy());
 		};
 	});
 	return (
