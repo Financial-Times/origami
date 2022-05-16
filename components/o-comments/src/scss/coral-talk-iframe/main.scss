@@ -93,7 +93,7 @@
 		.coral-tabBar-myProfile,
 		.coral-tabBar-configure {
 			@include oButtonsContent($opts: (
-			'type': 'secondary'
+				'type': 'secondary'
 			));
 			border-width: 1px;
 
@@ -129,7 +129,7 @@
 		.coral-createReplyComment-submit,
 		.coral-editComment-submit {
 			@include oButtonsContent($opts: (
-			'type': 'primary'
+				'type': 'primary'
 			));
 
 			// normally, these should come for free with oButtons mixin
@@ -152,7 +152,7 @@
 		.coral-editComment-cancel,
 		.coral-editComment-close {
 			@include oButtonsContent($opts: (
-			'type': 'secondary'
+				'type': 'secondary'
 			));
 
 			color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'secondary') !important;
@@ -250,7 +250,7 @@
 		.coral-sharePopover-copyButotn, // a spelling mistake on Coral side
 		.coral-sharePopover-copyButton {
 			@include oButtonsContent($opts: (
-			'type': 'primary'
+				'type': 'primary'
 			));
 
 			color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary') !important;
@@ -308,7 +308,7 @@
 		.coral-featuredComments-loadMoreButton,
 		.coral-myComments-loadMoreButton {
 			@include oButtonsContent($opts: (
-			'type': 'secondary'
+				'type': 'secondary'
 			));
 			color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'secondary') !important;
 			border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'secondary') !important;
@@ -327,7 +327,7 @@
 		// edit button
 		.coral-comment-editButton {
 			@include oButtonsContent($opts: (
-			'type': 'secondary'
+				'type': 'secondary'
 			));
 
 			border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'secondary') !important;
