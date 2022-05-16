@@ -1,5 +1,16 @@
 # Changelog
 
+## [9.0.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v8.3.3...o-comments-v9.0.0) (2022-05-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove o-comments reliance on Build Service v2
+
+### Features
+
+* Remove o-comments reliance on Build Service v2 ([8095e65](https://www.github.com/Financial-Times/origami/commit/8095e65529a991d3e37f7ca5952e3d8658f7172d))
+
 ### [8.3.3](https://www.github.com/Financial-Times/origami/compare/o-comments-v8.3.2...o-comments-v8.3.3) (2022-04-21)
 
 
