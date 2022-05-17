@@ -165,6 +165,7 @@
 	<h1 id="create-a-new-origami-component---part-3-themes--brands">Create A New Origami Component - Part 3 Themes &amp; Brands</h1>
 
 <p>The “Create A New Origami Component” tutorial is split into eight parts and is intended to be followed sequentially from start to finish:</p>
+
 <ol>
   <li><a href="/documentation/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-2/">Base Styles</a></li>
@@ -181,6 +182,7 @@
 <h2 id="component-brands">Component Brands</h2>
 
 <p>Origami components are used by products across the Financial Times Group, and some groups require a distinct appearance from others; internal tools have a distinct style from ft.com products for example. To cater for these broad usecases, the appearance of Origami components may be changed within a project by choosing a “brand”:</p>
+
 <ul>
   <li>core: FT branding for public ft.com sites and affiliates.</li>
   <li>internal: Style suitable for internal products, tools, and documentation.</li>
@@ -234,6 +236,7 @@
 <p>Lets break down what this is doing.</p>
 
 <p>First, we check if the current brand is the <code class="language-plaintext highlighter-rouge">core</code> brand using the <code class="language-plaintext highlighter-rouge">o-brand</code> function <code class="language-plaintext highlighter-rouge">oBrandGetCurrentBrand</code> and a <a href="https://sass-lang.com/documentation/at-rules/control/if">Sass if statement</a>. We do this to ensure the Sass within the <code class="language-plaintext highlighter-rouge">if</code> statement is only evaluated when the brand is the <code class="language-plaintext highlighter-rouge">core</code> brand:</p>
+
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
 @if oBrandGetCurrentBrand() == 'core' {
@@ -251,6 +254,7 @@
 }</code></pre>
 
 <p>Third, we pass configuration to <code class="language-plaintext highlighter-rouge">oBrandDefine</code> for the brand. We set a brand variable <code class="language-plaintext highlighter-rouge">border-color</code> within a <code class="language-plaintext highlighter-rouge">variables</code> map, to the value of the slate colour <code class="language-plaintext highlighter-rouge">oColorsByName('slate')</code>. We also set a property <code class="language-plaintext highlighter-rouge">supports-variants</code>, which we will discuss more shortly.</p>
+
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
 @if oBrandGetCurrentBrand() == 'core' {
@@ -309,6 +313,7 @@
 <p>The <code class="language-plaintext highlighter-rouge">_oExampleGet</code> function is a component specific function which wraps a <code class="language-plaintext highlighter-rouge">o-brand</code> function <code class="language-plaintext highlighter-rouge">oBrandGet</code>. <code class="language-plaintext highlighter-rouge">oBrandGet</code> is used to retrieve a brand variable depending on the current brand. Wrapping this in <code class="language-plaintext highlighter-rouge">_oExampleGet</code> is useful to avoid passing the <code class="language-plaintext highlighter-rouge">$component</code> argument repeatedly.</p>
 
 <p>Update <code class="language-plaintext highlighter-rouge">main.scss</code> to set our border color with <code class="language-plaintext highlighter-rouge">_oExampleGet('border-color')</code>:</p>
+
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
 .o-example {
@@ -358,6 +363,7 @@
 }</code></pre>
 
 <p>And update <code class="language-plaintext highlighter-rouge">main.scss</code> again:</p>
+
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
 .o-example {
@@ -545,6 +551,7 @@
 <h3 id="output-theme-css">Output Theme CSS</h3>
 
 <p>We can now complete our theme mixin:</p>
+
 <ul>
   <li>Use <code class="language-plaintext highlighter-rouge">_oExampleSupports</code> with <a href="https://sass-lang.com/documentation/at-rules/error">the Sass <code class="language-plaintext highlighter-rouge">@error</code> at-rule</a> to throw an error if the theme name given is not supported by the current brand.</li>
   <li>Use <code class="language-plaintext highlighter-rouge">_oExampleGet</code> to get theme values.</li>
@@ -637,6 +644,7 @@
 <h3 id="custom-theme">Custom Theme</h3>
 
 <p>We can make our <code class="language-plaintext highlighter-rouge">o-example</code> component more flexible by allowing users to create their own theme. To achieve that we will add an optional <code class="language-plaintext highlighter-rouge">$opts</code> argument to <code class="language-plaintext highlighter-rouge">oExampleAddTheme</code>. The <code class="language-plaintext highlighter-rouge">$opts</code> argument will accept a map of variables (like those we defined in <code class="language-plaintext highlighter-rouge">src/scss/_brand.scss</code>), and pass them to <code class="language-plaintext highlighter-rouge">_oExampleGet</code> to create a custom theme. We’ll add support for one new option, <code class="language-plaintext highlighter-rouge">button-color</code>, which we will forward to the <code class="language-plaintext highlighter-rouge">oButtonsContent</code> mixin, so custom <code class="language-plaintext highlighter-rouge">o-example</code> themes can change the colour of the button also.</p>
+
 <pre><code class="o-syntax-highlight--scss">// src/scss/_mixins.scss
 
 @mixin oExampleAddTheme($name, $opts: null) {
@@ -675,6 +683,7 @@
 }</code></pre>
 
 <p>From a users point of view, this is how a custom theme will be created using our <code class="language-plaintext highlighter-rouge">oExampleAddTheme</code> mixin:</p>
+
 <pre><code class="o-syntax-highlight--scss">// src/scss/_mixins.scss
 
 // Create a custom theme `.o-example--my-custom-theme`
@@ -724,6 +733,7 @@
 <p>In total we’ve created 7 visual variants of our component across 3 brands and 2 themes, and created a Sass <abbr title="application programming interface">api</abbr> for users of the component to create custom themes. Many components don’t need to support so many variants but building a complex example has allowed us to explore all aspects of branding and themes.</p>
 
 <p>In summary, in part three we learnt:</p>
+
 <ul>
   <li>Origami components may offer a distinct appearance for different brands: core, internal, or whitelabel.</li>
   <li>How to use <code class="language-plaintext highlighter-rouge">o-brand</code> to set and retrieve brand variables in Sass.</li>

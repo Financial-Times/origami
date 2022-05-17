@@ -165,6 +165,7 @@
 	<h1 id="create-a-new-origami-component---part-2-base-styles">Create A New Origami Component - Part 2 Base Styles</h1>
 
 <p>The “Create A New Origami Component” tutorial is split into eight parts and is intended to be followed sequentially from start to finish:</p>
+
 <ol>
   <li><a href="/documentation/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
   <li>Base Styles</li>
@@ -181,6 +182,7 @@
 <h2 id="sass">Sass</h2>
 
 <p>Origami component styles are written in <a href="https://sass-lang.com/">Sass</a>. According to the <a href="https://sass-lang.com/documentation">Sass Documentation</a>:</p>
+
 <blockquote>
   <p>Sass is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized and makes it easy to share design within and across projects.</p>
 </blockquote>
@@ -190,6 +192,7 @@
 <p>Components have an entry Sass file <code class="language-plaintext highlighter-rouge">main.scss</code>, which may <a href="/specification/v1/components/sass/#sass-includes">import Sass from the <code class="language-plaintext highlighter-rouge">src/scss</code> directory</a>.</p>
 
 <p>Within <code class="language-plaintext highlighter-rouge">main.scss</code> you will see something like this:</p>
+
 <pre><code class="o-syntax-highlight--scss">// main.scss
 
 @import 'src/scss/variables';
@@ -221,6 +224,7 @@
 <h2 id="imports">Imports</h2>
 
 <p>The first line imports Sass from <code class="language-plaintext highlighter-rouge">src/scss/_variables.scss</code>. Note the underscore and extension is not needed in the <code class="language-plaintext highlighter-rouge">@import</code> statement. All Origami Sass files except <code class="language-plaintext highlighter-rouge">main.scss</code> should start with an underscore to indicate they are <a href="https://sass-lang.com/documentation/at-rules/import#partials">Sass partials</a> for import and should not be compiled on their own.</p>
+
 <pre><code class="o-syntax-highlight--scss">// main.scss
 
 @import 'src/scss/variables';</code></pre>
@@ -253,6 +257,7 @@
 <p>The most important naming convention is prefixing CSS selectors and Sass with the component name. Doing so makes sure a component only applies styles to itself, does not unexpectedly style other parts of a project, and does not clash with Sass from other components.</p>
 
 <p>Other naming conventions to keep in mind include:</p>
+
 <ul>
   <li>Origami CSS follows the <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">BEM naming convention</a>.</li>
   <li>Sass variables are hyphen separated and lowercase.</li>
@@ -297,6 +302,7 @@
 <h3 id="install-component-dependencies">Install Component Dependencies</h3>
 
 <p>The first step is to install each component we want to use via <a href="https://npmjs.com/">npm</a>:</p>
+
 <pre><code class="o-syntax-highlight--bash">npm install --save-peer '@financial-times/o-colors@^5.0.0' '@financial-times/o-spacing@^2.0.0' '@financial-times/o-typography@^6.0.0' '@financial-times/o-buttons@^6.0.0'</code></pre>
 
 <p>You should now have a <code class="language-plaintext highlighter-rouge">node_modules</code> directory with all the components we just installed. We can now make their Sass available for us to use with <code class="language-plaintext highlighter-rouge">@import</code> statements at the top of <code class="language-plaintext highlighter-rouge">main.scss</code>.</p>
@@ -337,6 +343,7 @@
 <h3 id="o-spacing">o-spacing</h3>
 
 <p>Then we can use one of the recommended space values from <code class="language-plaintext highlighter-rouge">o-spacing</code> using its <a href="https://registry.origami.ft.com/components/o-spacing@2.0.4/readme?brand=core#named-space">oSpacingByName</a> Sass function.</p>
+
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
 @mixin oExample ($opts: ()) {
@@ -394,7 +401,7 @@
 	@include oButtonsContent($opts: ('type': 'primary'));
 }</code></pre>
 
-<p>We need to update our demo markup  <code class="language-plaintext highlighter-rouge">demos/src/demo.mustache</code> with the new button markup, similar to how we added text to the demo in <a href="/documentation/tutorials/create-a-new-component-part-1">part one</a>:</p>
+<p>We need to update our demo markup <code class="language-plaintext highlighter-rouge">demos/src/demo.mustache</code> with the new button markup, similar to how we added text to the demo in <a href="/documentation/tutorials/create-a-new-component-part-1">part one</a>:</p>
 
 <pre><code class="o-syntax-highlight--diff">&lt;!-- demos/src/demo.mustache --&gt;
 
@@ -415,6 +422,7 @@
 <h2 id="part-three-themes-and-branding">Part Three: Themes And Branding</h2>
 
 <p>To style our components we covered many topics in this part of the tutorial. We learnt:</p>
+
 <ul>
   <li>Origami component CSS is written with <a href="https://sass-lang.com/documentation">Sass</a>.</li>
   <li>Component Sass includes <a href="http://sassdoc.com/">SassDoc</a> comments for Sass documentation.</li>

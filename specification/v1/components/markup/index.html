@@ -302,6 +302,7 @@
 <p>The markup <strong>must</strong> be <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax">valid HTML5</a>, except that a DOCTYPE, and opening <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> tags should be assumed (i.e. the markup should be a document body fragment which becomes a valid HTML5 document when enclosed in <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> tags).</p>
 
 <p>Markup <strong>must</strong> also conform to the following XML rules:</p>
+
 <ul>
   <li><strong>Must</strong> have a single root element.</li>
   <li>All elements that are opened <strong>must</strong> be closed (including <a href="https://github.com/Financial-Times/ft-origami/issues/66">inline SVG</a>).</li>
@@ -312,12 +313,14 @@
 <h2 id="elements">Elements</h2>
 
 <p>Semantic markup <strong>must</strong> be used where native elements exist to describe the content:</p>
+
 <ul>
   <li>Good: <code class="language-plaintext highlighter-rouge">&lt;address&gt;</code></li>
   <li>Bad: <code class="language-plaintext highlighter-rouge">&lt;div class="address"&gt;</code></li>
 </ul>
 
 <p>The following elements <strong>must not</strong> be used:</p>
+
 <ul>
   <li><code class="language-plaintext highlighter-rouge">&lt;script&gt;</code></li>
   <li><code class="language-plaintext highlighter-rouge">&lt;style&gt;</code></li>
@@ -328,11 +331,13 @@
 </ul>
 
 <p>Elements and attributes which are deprecated in the HTML5 specification <strong>should not</strong> be used:</p>
+
 <ul>
   <li>Bad: <code class="language-plaintext highlighter-rouge">&lt;applet&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;frameset&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;font&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;link rev=""&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;td align="right"&gt;</code></li>
 </ul>
 
 <p>Elements that are normally singletons on a page <strong>must not</strong> be used in components:</p>
+
 <ul>
   <li>Bad: <code class="language-plaintext highlighter-rouge">&lt;meta name="viewport" content="..." /&gt;</code>.</li>
   <li>Bad: <code class="language-plaintext highlighter-rouge">&lt;meta charset="utf-8"&gt;</code>.</li>
@@ -342,6 +347,7 @@
 <h2 id="attributes">Attributes</h2>
 
 <p>The following attributes <strong>must not</strong> be present on any element:</p>
+
 <ul>
   <li>target</li>
   <li>Event handler attributes, e.g. <code class="language-plaintext highlighter-rouge">onclick</code>, <code class="language-plaintext highlighter-rouge">onchange</code></li>
@@ -350,12 +356,14 @@
 <p>HREFs in markup <strong>must not</strong> use the <code class="language-plaintext highlighter-rouge">javascript:</code> protocol.</p>
 
 <p>Attributes that are normally singletons on a page <strong>must not</strong> be used in components. This includes attributes defined by specifications external to the main HTML5 specification, such as Microdata and WAI-ARIA:</p>
+
 <ul>
   <li>Bad: the ARIA <code class="language-plaintext highlighter-rouge">role="main"</code> attribute.</li>
   <li>Bad: the <code class="language-plaintext highlighter-rouge">id</code> attribute (except as below).</li>
 </ul>
 
 <p>The ID attribute <strong>must not</strong> be used, except where:</p>
+
 <ul>
   <li>It identifies a form element that needs to be targeted by a <code class="language-plaintext highlighter-rouge">for</code> attribute <em>or</em> is an unavoidable requirement of a third party library e.g. google ads.</li>
   <li>The value is namespaced with the name of the component, e.g. <code class="language-plaintext highlighter-rouge">o-signin-username</code>.</li>
@@ -377,6 +385,7 @@
 <p>A component <strong>may</strong> style a DOM element with CSS if it, or any ancestor, has a class which starts with the name of the component <code class="language-plaintext highlighter-rouge">o-componentname</code>. It <strong>must not</strong> style other DOM.</p>
 
 <p>As an example, the <code class="language-plaintext highlighter-rouge">o-date</code> component is permitted to style and apply JavaScript behaviour to the following element:</p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z"&gt;June 15, 2000&lt;/time&gt;
 </code></pre></div></div>
 
@@ -433,12 +442,14 @@
 <h3 id="links">Links</h3>
 
 <p>Links to real URLs <strong>must</strong> be <a href="https://www.paulirish.com/2010/the-protocol-relative-url/">protocol-relative</a>:</p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="//www.google.com"&gt;Google&lt;/a&gt;
 </code></pre></div></div>
 
 <h3 id="data">Data</h3>
 
 <p>Placeholders for the component’s data model <strong>must</strong> be referenced using a descriptive (lowercased and hyphened) keyword, prefixed with the name of the component and a dot:</p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ o-header.main-title }}
 </code></pre></div></div>
 

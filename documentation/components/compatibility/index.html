@@ -261,6 +261,7 @@ window.cutsTheMustard = (typeof document.documentElement.dataset === 'object' &a
 <p>The styling we choose to display rely on class names. Keeping with the experiences, we will be using <code class="language-plaintext highlighter-rouge">core</code> and <code class="language-plaintext highlighter-rouge">enhanced</code>. Origami components contain fallback styling for the browsers that fail the test. We need to toggle the class names based on the result of the test, and to avoid flashes of content we’ll always assume that the experience we will be served is core, until proven otherwise.</p>
 
 <p>Your <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> will need the <code class="language-plaintext highlighter-rouge">core</code> class:</p>
+
 <pre><code class="o-syntax-highlight--html">&lt;html class="core"&gt;</code></pre>
 
 <p>And we’ll want to add a script to replace that class with <code class="language-plaintext highlighter-rouge">enhanced</code> if the browser <em>does</em> pass the test:</p>
@@ -270,6 +271,7 @@ window.cutsTheMustard = (typeof document.documentElement.dataset === 'object' &a
 }</code></pre>
 
 <p>Finally, we need to add instructions for our styling to handle the html class:</p>
+
 <pre><code class="o-syntax-highlight--css">.core .o--if-js,
 .enhanced .o--if-no-js {
 	display: none !important;

@@ -350,7 +350,7 @@
 
 <p>The component <strong>must</strong> be configurable using data attributes on the component’s root HTML element. Data attributes <strong>must</strong> be named <code class="language-plaintext highlighter-rouge">data-{componentname}-{key}</code>, e.g. <code class="language-plaintext highlighter-rouge">data-o-share-id</code>.</p>
 
-<p>Developers <strong>should</strong> avoid the temptation to name data attributes based on the same naming conventions as BEM in CSS.  Data attributes are not subject to the same semantics as classes so BEM is not a great fit.</p>
+<p>Developers <strong>should</strong> avoid the temptation to name data attributes based on the same naming conventions as BEM in CSS. Data attributes are not subject to the same semantics as classes so BEM is not a great fit.</p>
 
 <h3 id="global-declarative-configuration-block">Global declarative configuration block</h3>
 
@@ -367,9 +367,9 @@
 &lt;/script&gt;
 </code></pre></div></div>
 
-<p>Components <strong>must</strong> parse any such configuration using <code class="language-plaintext highlighter-rouge">JSON.parse</code> and only in response to an event (such as <code class="language-plaintext highlighter-rouge">o.DOMContentLoaded</code>) or function call.  Components <strong>must not</strong> expect more than one global declarative configuration block in their namespace to be present on the page.</p>
+<p>Components <strong>must</strong> parse any such configuration using <code class="language-plaintext highlighter-rouge">JSON.parse</code> and only in response to an event (such as <code class="language-plaintext highlighter-rouge">o.DOMContentLoaded</code>) or function call. Components <strong>must not</strong> expect more than one global declarative configuration block in their namespace to be present on the page.</p>
 
-<p>Any configuration option expecting a <code class="language-plaintext highlighter-rouge">function</code> <strong>must</strong> not be defined in a declarative configuration block and <strong>must</strong> be optional, providing default behaviour where the imperative configuration using <code class="language-plaintext highlighter-rouge">init()</code> is absent.  If a configuration key is present in the declarative configuration block that expects a <code class="language-plaintext highlighter-rouge">function</code>, an <code class="language-plaintext highlighter-rouge">Error</code> <strong>should</strong> be thrown to warn the developer of the invalid configuration.</p>
+<p>Any configuration option expecting a <code class="language-plaintext highlighter-rouge">function</code> <strong>must</strong> not be defined in a declarative configuration block and <strong>must</strong> be optional, providing default behaviour where the imperative configuration using <code class="language-plaintext highlighter-rouge">init()</code> is absent. If a configuration key is present in the declarative configuration block that expects a <code class="language-plaintext highlighter-rouge">function</code>, an <code class="language-plaintext highlighter-rouge">Error</code> <strong>should</strong> be thrown to warn the developer of the invalid configuration.</p>
 
 <p>Global declarative configuration is not useful in situations where a developer chooses to call a component’s static <code class="language-plaintext highlighter-rouge">init</code> method directly, since the configuration could be given as an argument. Component’s <strong>should</strong> support that, and consider throwing an error if declarative configuration exists when <code class="language-plaintext highlighter-rouge">init</code> is called.</p>
 
@@ -388,6 +388,7 @@
 <p>Components <strong>must not</strong> use JavaScript features that are not yet part of a finalised standard, or which are proprietary, even if polyfills for them are available. JavaScript in components <strong>may</strong> use ES6 syntax, which product developers are expected to transpile to be ES5 if required.</p>
 
 <p>If you want to use a modern browser feature, you <strong>must</strong>:</p>
+
 <ul>
   <li>Declare it as a requirement in your Origami manifest <code class="language-plaintext highlighter-rouge">origami.json</code>; or</li>
   <li>Declare it as optional, test for it, and if not present, skip that functionality; or</li>

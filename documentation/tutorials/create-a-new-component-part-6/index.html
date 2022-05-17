@@ -165,6 +165,7 @@
 	<h1 id="create-a-new-origami-component---part-6-testing">Create A New Origami Component - Part 6 Testing</h1>
 
 <p>The “Create A New Origami Component” tutorial is split into eight parts and is intended to be followed sequentially from start to finish:</p>
+
 <ol>
   <li><a href="/documentation/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-2/">Base Styles</a></li>
@@ -189,6 +190,7 @@
 <p>JavaScript tests are located under the <code class="language-plaintext highlighter-rouge">tests/js</code> directory. The file <code class="language-plaintext highlighter-rouge">example.test.js</code> already has boilerplate tests, which use component markup defined in <code class="language-plaintext highlighter-rouge">tests/js/helpers/fixtures.js</code> to confirm the <code class="language-plaintext highlighter-rouge">init</code> method works as expected.</p>
 
 <p>Our first step will be to update the <code class="language-plaintext highlighter-rouge">htmlCode</code> method in <code class="language-plaintext highlighter-rouge">tests/js/helpers/fixtures.js</code> with our latest component markup. We’ll add an id <code class="language-plaintext highlighter-rouge">id="element"</code> which we can use in our tests:</p>
+
 <pre><code class="o-syntax-highlight--js">// tests/js/helpers/fixtures.js
 
 function htmlCode () {
@@ -206,6 +208,7 @@ function htmlCode () {
 </code></pre>
 
 <p>Next we can append our new tests within the main <code class="language-plaintext highlighter-rouge">describe("Example", () =&gt; {})</code> block:</p>
+
 <pre><code class="o-syntax-highlight--js">// tests/js/example.test.js
 
 describe("with a button", () =&gt; {
@@ -315,6 +318,7 @@ describe("with a button", () =&gt; {
 <h2 id="part-seven-documentation">Part Seven: Documentation</h2>
 
 <p>Our component is working well and is almost complete. In this tutorial we learned:</p>
+
 <ul>
   <li>That <code class="language-plaintext highlighter-rouge">obt test</code> runs Sass, JavaScript, and limited accessibility tests.</li>
   <li>That <code class="language-plaintext highlighter-rouge">obt verify</code> analyses our component for potential errors.</li>

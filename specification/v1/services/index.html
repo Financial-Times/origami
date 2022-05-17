@@ -342,6 +342,7 @@
 <p>All of our services <strong>should</strong> be named in the pattern “Origami &#x3C;name&#x3E; Service”, e.g. Origami Build Service, Origami Image Service. Services <strong>may</strong> make exceptions to this naming structure in circumstances where “Service” doesn’t effectively describe what the application does, e.g. with Origami Bower Registry. If you think that a different name might be required then discuss with the team.</p>
 
 <p>Names <strong>may</strong> be slugified where needed (this is a lower case, hyphenated version of the name, e.g. origami-build-service, origami-image-service). For instance, a slugified name <strong>must</strong> be used for the service’s:</p>
+
 <ul>
   <li>System code.</li>
   <li>Repository.</li>
@@ -359,6 +360,7 @@
 <p>When using a subdomain, it <strong>should</strong> be <code class="language-plaintext highlighter-rouge">&lt;short-name&gt;.ft.com</code>. The short name in this case is the slugified service name with -service removed, E.g. <code class="language-plaintext highlighter-rouge">origami-build.ft.com</code>.</p>
 
 <p>Services <strong>must</strong> also include a mandatory version number for all API endpoints. This <strong>must not</strong> expose minor version changes and <strong>must</strong> be prefixed with a <code class="language-plaintext highlighter-rouge">v</code>. The only exception to this rule is when the service is replicating a third-party API. E.g. a Bower registry. Good examples include:</p>
+
 <ul>
   <li><code class="language-plaintext highlighter-rouge">www.ft.com/__origami/service/tweet/v1/&lt;endpoint&gt;</code></li>
   <li><code class="language-plaintext highlighter-rouge">www.ft.com/__origami/service/most-popular/v2/&lt;endpoint&gt;</code></li>
