@@ -57,7 +57,9 @@ $_o-buttons-shared-brand-config: (
 			'primary-mono',
 			'secondary-inverse',
 			'secondary-mono',
-			'ghost'
+			'ghost',
+			'ghost-inverse',
+			'ghost-mono'
 		))
 	);
 }
@@ -81,7 +83,9 @@ $_o-buttons-shared-brand-config: (
 			'secondary',
 			'secondary-inverse',
 			'secondary-mono',
-			'ghost'
+			'ghost',
+			'ghost-inverse',
+			'ghost-mono'
 		))
 	);
 }
@@ -100,7 +104,8 @@ $_o-buttons-shared-brand-config: (
 			'secondary',
 			'primary-inverse',
 			'secondary-inverse',
-			'ghost'
+			'ghost',
+			'ghost-inverse'
 		)
 	));
 }
