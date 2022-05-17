@@ -10,7 +10,7 @@ redirect_from:
   - /spec/
   - /spec/v1/
   - /docs/component-spec/
-  - /documents/component-spec/
+  - /documentation/component-spec/
 
 # Navigation config
 nav_display: false

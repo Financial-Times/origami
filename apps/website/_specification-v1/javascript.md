@@ -7,7 +7,7 @@ permalink: /specification/v1/components/javascript/
 redirect_from:
   - /spec/v1/components/javascript/
   - /docs/syntax/js/
-  - /documents/syntax/js/
+  - /documentation/syntax/js/
   - /spec/v1/javascript/
 
 # Navigation config

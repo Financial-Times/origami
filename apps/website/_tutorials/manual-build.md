@@ -6,9 +6,9 @@ cta: Learn how to build web pages with locally-installed Origami components
 # Redirect from legacy URLs
 redirect_from:
   - /docs/developer-guide/modules/building-modules/
-  - /documents/developer-guide/modules/building-modules/
+  - /documentation/developer-guide/modules/building-modules/
   - /docs/tutorials/build-service/manual-build
-  - /documents/tutorials/build-service/manual-build
+  - /documentation/tutorials/build-service/manual-build
 ---
 
 # {{page.title}}

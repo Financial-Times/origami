@@ -6,7 +6,7 @@ cta: Learn how to create an Origami component
 # Redirect from legacy URLs
 redirect_from:
   - /docs/tutorials/create-a-new-component-part-1/
-  - /documents/tutorials/create-a-new-component-part-1/
+  - /documentation/tutorials/create-a-new-component-part-1/
 ---
 
 # {{page.title}}

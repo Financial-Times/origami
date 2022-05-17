@@ -9,7 +9,7 @@ collection_id: principles
 redirect_from:
   - /docs/principles/
   - /docs/developer-guide/general-best-practices/
-  - /documents/developer-guide/general-best-practices/
+  - /documentation/developer-guide/general-best-practices/
 
 # Navigation config
 nav_display: true

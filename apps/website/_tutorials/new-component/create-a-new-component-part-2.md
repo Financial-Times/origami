@@ -7,7 +7,7 @@ collection_listing_display: false
 # Redirect from legacy URLs
 redirect_from:
   - /docs/tutorials/create-a-new-component-part-2/
-  - /documents/tutorials/create-a-new-component-part-2/
+  - /documentation/tutorials/create-a-new-component-part-2/
 ---
 
 # {{page.title}}

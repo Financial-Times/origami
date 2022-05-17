@@ -7,7 +7,7 @@ permalink: /specification/v1/components/sass/
 redirect_from:
   - /spec/v1/components/sass/
   - /docs/syntax/scss/
-  - /documents/syntax/scss/
+  - /documentation/syntax/scss/
   - /spec/v1/sass/
 
 # Navigation config

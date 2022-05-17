@@ -6,7 +6,7 @@ layout: collection
 collection_id: tutorials
 redirect_from:
   - /docs/tutorials/
-  - /documents/tutorials/
+  - /documentation/tutorials/
 
 # Navigation config
 nav_display: true

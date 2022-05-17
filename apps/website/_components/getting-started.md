@@ -6,9 +6,9 @@ cta: Get started using Origami components in your project.
 # Redirect from legacy URLs
 redirect_from:
   - /docs/developer-guide/modules/initialising-modules/
-  - /documents/developer-guide/modules/initialising-modules/
+  - /documentation/developer-guide/modules/initialising-modules/
   - /docs/components/initialising/
-  - /documents/components/initialising/
+  - /documentation/components/initialising/
 
 # Navigation config
 nav_display: true

@@ -7,9 +7,9 @@ permalink: /specification/v1/components/markup/
 redirect_from:
   - /spec/v1/components/markup/
   - /docs/syntax/html/
-  - /documents/syntax/html/
+  - /documentation/syntax/html/
   - /docs/syntax/mustache/
-  - /documents/syntax/mustache/
+  - /documentation/syntax/mustache/
   - /spec/v1/markup/
 
 # Navigation config
