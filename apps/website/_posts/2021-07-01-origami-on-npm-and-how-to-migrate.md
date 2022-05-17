@@ -6,7 +6,9 @@ author: Origami
 # Redirect from legacy URLs
 redirect_from:
   - /docs/tutorials/npm/
+  - /documents/tutorials/npm/
   - /docs/tutorials/bower-to-npm/
+  - /documents/tutorials/bower-to-npm/
 ---
 
 We have completed our migration of Origami components from Bower to the [NPM registry](https://www.npmjs.com/) (see [January's announcement](/blog/2021/01/18/deprecating-bower-and-origami-via-npm/)). Component releases on Bower are now deprecated and we recommend all products migrate to the new implementation to keep up-to-date with future releases to Origami.

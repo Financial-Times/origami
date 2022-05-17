@@ -7,8 +7,9 @@ collection_id: principles
 
 # Redirect from legacy URLs
 redirect_from:
-  -  /docs/principles/
+  - /docs/principles/
   - /docs/developer-guide/general-best-practices/
+  - /documents/developer-guide/general-best-practices/
 
 # Navigation config
 nav_display: true

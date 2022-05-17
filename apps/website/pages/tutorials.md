@@ -6,12 +6,12 @@ layout: collection
 collection_id: tutorials
 redirect_from:
   - /docs/tutorials/
+  - /documents/tutorials/
 
 # Navigation config
 nav_display: true
 nav_label: Tutorials
 ---
-
 
 # {{page.title}}
 

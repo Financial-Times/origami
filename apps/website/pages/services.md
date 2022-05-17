@@ -9,13 +9,14 @@ collection_title: Services
 # Redirect from legacy URLs
 redirect_from:
   - /docs/services/
+  - /documents/services/
   - /docs/developer-guide/web-services/
+  - /documents/developer-guide/web-services/
 
 # Navigation config
 nav_display: true
 nav_label: Services
 ---
-
 
 # {{page.title}}
 
