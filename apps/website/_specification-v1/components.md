@@ -6,9 +6,9 @@ cta: Read the component specification
 # Redirect from legacy URLs
 redirect_from:
   - /docs/component-spec/modules/
-  - /documents/component-spec/modules/
+  - /documentation/component-spec/modules/
   - /docs/background-linters/
-  - /documents/background-linters/
+  - /documentation/background-linters/
 
 # Navigation config
 nav_display: true

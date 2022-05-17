@@ -6,7 +6,7 @@ cta: Read more about Origami and design
 # Redirect from legacy URLs
 redirect_from:
   - /docs/syntax/design-guidelines/
-  - /documents/syntax/design-guidelines/
+  - /documentation/syntax/design-guidelines/
 
 # Navigation config
 nav_display: true

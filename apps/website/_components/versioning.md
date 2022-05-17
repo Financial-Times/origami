@@ -6,7 +6,7 @@ cta: Read more about component versioning
 # Redirect from legacy URLs
 redirect_from:
   - /docs/developer-guide/modules/module-versioning/
-  - /documents/developer-guide/modules/module-versioning/
+  - /documentation/developer-guide/modules/module-versioning/
 
 # Navigation config
 nav_display: true

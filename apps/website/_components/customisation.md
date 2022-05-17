@@ -6,7 +6,7 @@ cta: Read more about how to customise components
 # Redirect from previous branding page
 redirect_from:
   - /docs/components/branding/
-  - /documents/components/branding/
+  - /documentation/components/branding/
 
 # Navigation config
 nav_display: true

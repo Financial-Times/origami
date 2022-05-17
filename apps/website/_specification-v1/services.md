@@ -6,7 +6,7 @@ cta: Read the service specification
 # Redirect from legacy URLs
 redirect_from:
   - /docs/component-spec/web-services/
-  - /documents/component-spec/web-services/
+  - /documentation/component-spec/web-services/
 
 # Navigation config
 nav_display: true

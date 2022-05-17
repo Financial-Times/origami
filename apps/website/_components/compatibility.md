@@ -6,9 +6,9 @@ cta: Read more about Origami's compatibility
 # Redirect from legacy URLs
 redirect_from:
   - /docs/developer-guide/modules/core-vs-enhanced-experience/
-  - /documents/developer-guide/modules/core-vs-enhanced-experience/
+  - /documentation/developer-guide/modules/core-vs-enhanced-experience/
   - /docs/developer-guide/modules/using-the-polyfill-service/
-  - /documents/developer-guide/modules/using-the-polyfill-service/
+  - /documentation/developer-guide/modules/using-the-polyfill-service/
 
 # Navigation config
 nav_display: true
