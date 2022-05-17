@@ -7,11 +7,13 @@ collection_listing_display: false
 # Redirect from legacy URLs
 redirect_from:
   - /docs/tutorials/create-a-new-component-part-5/
+  - /documents/tutorials/create-a-new-component-part-5/
 ---
 
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
+
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
@@ -312,6 +314,7 @@ See the [Feature Stability And Polyfills section of the component specification]
 ## Part Six: Testing
 
 In part five we learnt how to make our component interactive with JavaScript, covering:
+
 - JavaScript initialisation using the `init` method, or automatically for Origami Build Service users.
 - JavaScript configuration using the `init` argument or namespaced data attributes.
 - How to update the <abbr title="Document Object Model">DOM</abbr> with component JavaScript.

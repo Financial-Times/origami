@@ -6,6 +6,7 @@ cta: Read the service specification
 # Redirect from legacy URLs
 redirect_from:
   - /docs/component-spec/web-services/
+  - /documents/component-spec/web-services/
 
 # Navigation config
 nav_display: true
@@ -26,9 +27,10 @@ Node.js and <a href="https://github.com/Financial-Times/origami-service">Origami
 All of our services **should** be named in the pattern "Origami &#x3C;name&#x3E; Service", e.g. Origami Build Service, Origami Image Service. Services **may** make exceptions to this naming structure in circumstances where “Service” doesn’t effectively describe what the application does, e.g. with Origami Bower Registry. If you think that a different name might be required then discuss with the team.
 
 Names **may** be slugified where needed (this is a lower case, hyphenated version of the name, e.g. origami-build-service, origami-image-service). For instance, a slugified name **must** be used for the service's:
-  - System code.
-  - Repository.
-  - Heroku application, where applicable.
+
+- System code.
+- Repository.
+- Heroku application, where applicable.
 
 In addition to the slugified service name, Heroku applications **must** be suffixed with an environment identifier for non-production applications, and a region identifier for production applications. E.g. origami-build-service-qa, origami-build-service-eu.
 
@@ -41,6 +43,7 @@ When using a path, it **should** be `/__origami/service/<short-name>`. The short
 When using a subdomain, it **should** be `<short-name>.ft.com`. The short name in this case is the slugified service name with -service removed, E.g. `origami-build.ft.com`.
 
 Services **must** also include a mandatory version number for all API endpoints. This **must not** expose minor version changes and **must** be prefixed with a `v`. The only exception to this rule is when the service is replicating a third-party API. E.g. a Bower registry. Good examples include:
+
 - `www.ft.com/__origami/service/tweet/v1/<endpoint>`
 - `www.ft.com/__origami/service/most-popular/v2/<endpoint>`
 - `www.ft.com/__origami/service/jobs/v3/<endpoint>`

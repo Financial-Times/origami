@@ -6,6 +6,7 @@ cta: Read more about how to customise components
 # Redirect from previous branding page
 redirect_from:
   - /docs/components/branding/
+  - /documents/components/branding/
 
 # Navigation config
 nav_display: true
@@ -32,6 +33,7 @@ TL;DR:
 ## Check Customisation Is Appropriate
 
 The first step before customising an Origami component is to ask:
+
 1. Is there an existing style which could work already? After searching the [Origami Registry](https://registry.origami.ft.com/components) it's worth double checking in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel, to reduce duplicated effort and to help maintain a consistent user interface across FT Group projects.
 2. Would your customisation be useful for other teams/projects? Maybe a component should be updated for your usecase, so other teams benefit from your work. A new component might be more appropriate if your design diverges significantly.
 
@@ -44,6 +46,7 @@ Most Origami components are branded to provide a distinct appearance within diff
 ### Supported brands
 
 Origami maintained brands include:
+
 - core: FT branding for public ft.com sites and affiliates.
 - internal: Style suitable for tools, documentation, and internal products.
 - whitelabel: Base, structural styles only to build on and customise.
@@ -96,7 +99,6 @@ $o-brand: 'whitelabel';
 ));
 </code></pre>
 
-
 <figure>
 	<img alt="" src="/assets/images/component-customisation/whitelabel-customisation.png" />
 	<figcaption>
@@ -139,6 +141,7 @@ The Origami team are available to support you in removing CSS overrides, and red
 </aside>
 
 For instance, given a component `o-example-component` with the following code:
+
 <pre><code class="o-syntax-highlight--html">&lt;!-- Component HTML (o-example-component) -->
 &lt;div class="o-example-component">
     &lt;div class="o-example-component__content">
@@ -152,6 +155,7 @@ For instance, given a component `o-example-component` with the following code:
 }</code></pre>
 
 You could include the component CSS in your project and customise the link colour by adding your own CSS afterward:
+
 <pre><code class="o-syntax-highlight--scss">// Your Project CSS:
 // Override "o-example-component" links
 // to be hotpink in colour:
