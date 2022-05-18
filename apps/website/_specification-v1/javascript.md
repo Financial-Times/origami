@@ -7,7 +7,6 @@ permalink: /specification/v1/components/javascript/
 redirect_from:
   - /spec/v1/components/javascript/
   - /docs/syntax/js/
-  - /documentation/syntax/js/
   - /spec/v1/javascript/
 
 # Navigation config
@@ -38,8 +37,8 @@ i.e. a component named `o-dear` **should** be defined in a class named `Dear`.
 - Components **should not** add to the global scope.
 - Components **should not** assume the existence of globals except those defined as part of ECMAScript 5 and the DOM features listed in the `browserFeatures.required` section of `origami.json`.
 - Components **must not** modify the DOM outside of [owned DOM](/specification/v1/components/markup/#owned-dom) areas, except:
-  - To add [CSS feature flags](/v1/sass/#feature-flags) to the `documentElement`.
-  - Where passed a DOM element explicitly by the host application using the component.
+	- To add [CSS feature flags](/v1/sass/#feature-flags) to the `documentElement`.
+	- Where passed a DOM element explicitly by the host application using the component.
 
 ## Initialisation
 
@@ -63,25 +62,25 @@ If a component's JavaScript requires configuration, the following methods of pas
 
 The component **must** be configurable using data attributes on the component's root HTML element. Data attributes **must** be named `data-{componentname}-{key}`, e.g. `data-o-share-id`.
 
-Developers **should** avoid the temptation to name data attributes based on the same naming conventions as BEM in CSS. Data attributes are not subject to the same semantics as classes so BEM is not a great fit.
+Developers **should** avoid the temptation to name data attributes based on the same naming conventions as BEM in CSS.  Data attributes are not subject to the same semantics as classes so BEM is not a great fit.
 
 ### Global declarative configuration block
 
 Where it is possible for multiple instances of a component to exist on a page and for the same configuration to apply to all of them, or where a component has no markup (e.g. `o-tracking` or `o-errors`), the component **must** support declarative configuration via JSON data placed within a `<script>` block with a `type='application/json'` and a data attribute in the component's namespace with the key 'config' and no value, ie. `data-{componentname}-config`. For example:
 
-    <script data-o-errors-config type='application/json'>
-        {
-            "sentryEndpoint": "https://....",
-            "application": {
-                "version": "1.2.3",
-                "name": "Foo Application"
-            }
-        }
-    </script>
+	<script data-o-errors-config type='application/json'>
+	    {
+	        "sentryEndpoint": "https://....",
+	        "application": {
+	            "version": "1.2.3",
+	            "name": "Foo Application"
+	        }
+	    }
+	</script>
 
-Components **must** parse any such configuration using `JSON.parse` and only in response to an event (such as `o.DOMContentLoaded`) or function call. Components **must not** expect more than one global declarative configuration block in their namespace to be present on the page.
+Components **must** parse any such configuration using `JSON.parse` and only in response to an event (such as `o.DOMContentLoaded`) or function call.  Components **must not** expect more than one global declarative configuration block in their namespace to be present on the page.
 
-Any configuration option expecting a `function` **must** not be defined in a declarative configuration block and **must** be optional, providing default behaviour where the imperative configuration using `init()` is absent. If a configuration key is present in the declarative configuration block that expects a `function`, an `Error` **should** be thrown to warn the developer of the invalid configuration.
+Any configuration option expecting a `function` **must** not be defined in a declarative configuration block and **must** be optional, providing default behaviour where the imperative configuration using `init()` is absent.  If a configuration key is present in the declarative configuration block that expects a `function`, an `Error` **should** be thrown to warn the developer of the invalid configuration.
 
 Global declarative configuration is not useful in situations where a developer chooses to call a component's static `init` method directly, since the configuration could be given as an argument. Component's **should** support that, and consider throwing an error if declarative configuration exists when `init` is called.
 
@@ -100,7 +99,6 @@ Where components do not explicitly convert exceptions into `o-errors` events, an
 Components **must not** use JavaScript features that are not yet part of a finalised standard, or which are proprietary, even if polyfills for them are available. JavaScript in components **may** use ES6 syntax, which product developers are expected to transpile to be ES5 if required.
 
 If you want to use a modern browser feature, you **must**:
-
 - Declare it as a requirement in your Origami manifest `origami.json`; or
 - Declare it as optional, test for it, and if not present, skip that functionality; or
 - Include code (either your own or a dependency that provides the feature, without adding it outside of your [component's scope](#encapsulation)).
@@ -136,8 +134,8 @@ this.dispatchEvent(new CustomEvent('oExampleComponent.exampleEvent', {
 
 Components **may** bind to events emitted by themselves, other components, the host page or the browser. In doing so, the component:
 
-- **Must not** stop the propagation chain except for events created by itself.
-- **Should** bind only to the body element and use <a href="https://github.com/Financial-Times/ftdomdelegate">event delegation</a> to ensure that handlers do not need to be bound every time elements are created. If not bound to the body element, handlers **must** be bound to elements within the components's owned DOM.
+* **Must not** stop the propagation chain except for events created by itself.
+* **Should** bind only to the body element and use <a href="https://github.com/Financial-Times/ftdomdelegate">event delegation</a> to ensure that handlers do not need to be bound every time elements are created. If not bound to the body element, handlers **must** be bound to elements within the components's owned DOM.
 
 Components **should** handle events during the <a href="http://stackoverflow.com/questions/4616694/what-is-event-bubbling-and-capturing">bubbling phase</a>, not the capturing phase (unless the event has no bubbling phase)
 

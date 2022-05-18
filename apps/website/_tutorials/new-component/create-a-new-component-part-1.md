@@ -6,13 +6,11 @@ cta: Learn how to create an Origami component
 # Redirect from legacy URLs
 redirect_from:
   - /docs/tutorials/create-a-new-component-part-1/
-  - /documentation/tutorials/create-a-new-component-part-1/
 ---
 
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
-
 1. Intro & Boilerplate
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
@@ -33,7 +31,6 @@ In this tutorial we'll build an Origami component. Our example component will di
 Before you get started, it's a good idea to discuss your new component with the Origami team first. The team will be able to make sure there's not an existing component or [component proposal](https://github.com/Financial-Times/origami#propose-a-new-component) that fulfils the same purpose, and will be available to answer any questions.
 
 To follow this tutorial ensure the following software is install on your machine:
-
 - [NodeJS](https://nodejs.org/en/) (Version 10 or higher)
 - [NPM](https://www.npmjs.com/get-npm) (Version 7 or higher)
 
@@ -219,7 +216,6 @@ The `div` tag in our demo may be any HTML tag provided there is a `data-o-compon
 ## Part Two: Base Styles
 
 In part one we learnt:
-
 - The [Origami specification](/specification/v1/) is deprecated, but some sections provide a useful reference to create components compatible with Origami tools and services whilst they are updated.
 - The [Origami Build Tools](https://github.com/Financial-Times/origami-build-tools) command line interface is used to help us develop and test components.
 - Specifically, we learnt about the Origami Build Tools `init` command to generate a component to work from when developing a new component.

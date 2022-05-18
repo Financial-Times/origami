@@ -7,9 +7,7 @@ permalink: /specification/v1/components/markup/
 redirect_from:
   - /spec/v1/components/markup/
   - /docs/syntax/html/
-  - /documentation/syntax/html/
   - /docs/syntax/mustache/
-  - /documentation/syntax/mustache/
   - /spec/v1/markup/
 
 # Navigation config
@@ -24,7 +22,6 @@ collection_listing_display: false
 The markup **must** be <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax">valid HTML5</a>, except that a DOCTYPE, and opening `<html>` and `<body>` tags should be assumed (i.e. the markup should be a document body fragment which becomes a valid HTML5 document when enclosed in `<html>` and `<body>` tags).
 
 Markup **must** also conform to the following XML rules:
-
 - **Must** have a single root element.
 - All elements that are opened **must** be closed (including <a href="https://github.com/Financial-Times/ft-origami/issues/66">inline SVG</a>).
 - Closing tags **must** be in order.
@@ -33,12 +30,10 @@ Markup **must** also conform to the following XML rules:
 ## Elements
 
 Semantic markup **must** be used where native elements exist to describe the content:
-
 - Good: `<address>`
 - Bad: `<div class="address">`
 
 The following elements **must not** be used:
-
 - `<script>`
 - `<style>`
 - `<base>`
@@ -47,11 +42,9 @@ The following elements **must not** be used:
 - `<iframe>` (except iframes **may** be added to the DOM by JavaScript)
 
 Elements and attributes which are deprecated in the HTML5 specification **should not** be used:
-
 - Bad: `<applet>`, `<frameset>`, `<font>`, `<link rev="">`, `<td align="right">`
 
 Elements that are normally singletons on a page **must not** be used in components:
-
 - Bad: `<meta name="viewport" content="..." />`.
 - Bad: `<meta charset="utf-8">`.
 - Bad: `<title>`, `<html>`, `<head>`, `<body>`.
@@ -59,19 +52,16 @@ Elements that are normally singletons on a page **must not** be used in componen
 ## Attributes
 
 The following attributes **must not** be present on any element:
-
 - target
 - Event handler attributes, e.g. `onclick`, `onchange`
 
 HREFs in markup **must not** use the `javascript:` protocol.
 
 Attributes that are normally singletons on a page **must not** be used in components. This includes attributes defined by specifications external to the main HTML5 specification, such as Microdata and WAI-ARIA:
-
 - Bad: the ARIA `role="main"` attribute.
 - Bad: the `id` attribute (except as below).
 
 The ID attribute **must not** be used, except where:
-
 - It identifies a form element that needs to be targeted by a `for` attribute _or_ is an unavoidable requirement of a third party library e.g. google ads.
 - The value is namespaced with the name of the component, e.g. `o-signin-username`.
 - The component only has singleton use cases (i.e. it is pointless to include it in a product page more than once).
@@ -91,7 +81,6 @@ A component **may** act on a DOM element using JavaScript if it, or any ancestor
 A component **may** style a DOM element with CSS if it, or any ancestor, has a class which starts with the name of the component `o-componentname`. It **must not** style other DOM.
 
 As an example, the `o-date` component is permitted to style and apply JavaScript behaviour to the following element:
-
 ```
 <time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">June 15, 2000</time>
 ```
@@ -99,6 +88,7 @@ As an example, the `o-date` component is permitted to style and apply JavaScript
 ## Markup Structure
 
 Component styles and behaviour **may** assume that any HTML markup follows the hierarchical structure specified in their documentation and demos. However, components **should not** make assumptions about the order of HTML elements, and **should**, as far as possible, cope with additional HTML elements not specified.
+
 
 ## No Script
 
@@ -154,7 +144,6 @@ Static assets (such as images) included from the same repository **must** be ref
 ### Links
 
 Links to real URLs **must** be [protocol-relative](https://www.paulirish.com/2010/the-protocol-relative-url/):
-
 ```
 <a href="//www.google.com">Google</a>
 ```
@@ -162,7 +151,6 @@ Links to real URLs **must** be [protocol-relative](https://www.paulirish.com/201
 ### Data
 
 Placeholders for the component's data model **must** be referenced using a descriptive (lowercased and hyphened) keyword, prefixed with the name of the component and a dot:
-
 ```
 {% raw %}{{ o-header.main-title }}{% endraw %}
 ```

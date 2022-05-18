@@ -8,16 +8,14 @@ collection_id: components
 # Redirect from legacy URLs
 redirect_from:
   - /docs/components/
-  - /documentation/components/
   - /docs/developer-guide/modules/
-  - /documentation/developer-guide/modules/
   - /docs/developer-guide/modules/choosing-your-build-method/
-  - /documentation/developer-guide/modules/choosing-your-build-method/
 
 # Navigation config
 nav_display: true
 nav_label: Components
 ---
+
 
 # {{page.title}}
 

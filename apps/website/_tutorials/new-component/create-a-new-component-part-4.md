@@ -7,13 +7,11 @@ collection_listing_display: false
 # Redirect from legacy URLs
 redirect_from:
   - /docs/tutorials/create-a-new-component-part-4/
-  - /documentation/tutorials/create-a-new-component-part-4/
 ---
 
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
-
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
@@ -32,7 +30,6 @@ In [part three](/documentation/tutorials/create-a-new-component-part-3) we added
 To add new demos we will update `origami.json`. This file contains lots of information about our components, including its name, description, demos, and more — see the [Origami Manifest specification](/specification/v1/manifest/) for full details.
 
 We'll add a new object to the [demos array](/specification/v1/manifest/#demos) which will represent our new demo. Demos must have at least the following properties:
-
 - `title`: A descriptive title for the [component registry](https://registry.origami.ft.com/components).
 - `name`: The outputted html file name.
 - `template`: The path to the demo mustache template.
@@ -85,6 +82,7 @@ Now the `obt dev` command will build our new demo and create `demo-inverse.html`
         A list of demos and demo assets, served from `localhost` using the `obt dev` command. There is now `demo-inverse.html`.
 	</figcaption>
 </figure>
+
 
 We also need to create a demo for the `b2c` theme. However the `b2c` theme we created only supports the `core` brand. It should not be displayed in the [Origami registry](https://registry.origami.ft.com/components) for the `internal` or `whitelabel` brands. To avoid that, we will set the [`brands` demo property](/specification/v1/manifest/#demos).
 
