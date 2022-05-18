@@ -7,13 +7,11 @@ collection_listing_display: false
 # Redirect from legacy URLs
 redirect_from:
   - /docs/tutorials/create-a-new-component-part-2/
-  - /documentation/tutorials/create-a-new-component-part-2/
 ---
 
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
-
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. Base Styles
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
@@ -28,15 +26,13 @@ In part two we will build on our work in [part one](/documentation/tutorials/cre
 ## Sass
 
 Origami component styles are written in [Sass](https://sass-lang.com/). According to the [Sass Documentation](https://sass-lang.com/documentation):
-
-> Sass is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized and makes it easy to share design within and across projects.
+>Sass is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized and makes it easy to share design within and across projects.
 
 We won't cover Sass in depth in this tutorial but will briefly describe the Sass syntax we use. If you're not familiar with Sass we recommend referencing the [Sass documentation](https://sass-lang.com/documentation).
 
 Components have an entry Sass file `main.scss`, which may [import Sass from the `src/scss` directory](/specification/v1/components/sass/#sass-includes).
 
 Within `main.scss` you will see something like this:
-
 <pre><code class="o-syntax-highlight--scss">// main.scss
 
 @import 'src/scss/variables';
@@ -68,7 +64,6 @@ Let's break this down a little.
 ## Imports
 
 The first line imports Sass from `src/scss/_variables.scss`. Note the underscore and extension is not needed in the `@import` statement. All Origami Sass files except `main.scss` should start with an underscore to indicate they are [Sass partials](https://sass-lang.com/documentation/at-rules/import#partials) for import and should not be compiled on their own.
-
 <pre><code class="o-syntax-highlight--scss">// main.scss
 
 @import 'src/scss/variables';</code></pre>
@@ -101,7 +96,6 @@ We call the mixin which shares the component name (`oExample`) the ["primary mix
 The most important naming convention is prefixing CSS selectors and Sass with the component name. Doing so makes sure a component only applies styles to itself, does not unexpectedly style other parts of a project, and does not clash with Sass from other components.
 
 Other naming conventions to keep in mind include:
-
 - Origami CSS follows the [BEM naming convention](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/).
 - Sass variables are hyphen separated and lowercase.
 - Sass mixins and functions are camel-case.
@@ -144,7 +138,6 @@ First we will update our border colour using [o-colors](https://registry.origami
 ### Install Component Dependencies
 
 The first step is to install each component we want to use via [npm](https://npmjs.com/):
-
 <pre><code class="o-syntax-highlight--bash">npm install --save-peer '@financial-times/o-colors@^5.0.0' '@financial-times/o-spacing@^2.0.0' '@financial-times/o-typography@^6.0.0' '@financial-times/o-buttons@^6.0.0'</code></pre>
 
 You should now have a `node_modules` directory with all the components we just installed. We can now make their Sass available for us to use with `@import` statements at the top of `main.scss`.
@@ -185,7 +178,6 @@ As well as include a colour by name, we can also get a colour for a [specific us
 ### o-spacing
 
 Then we can use one of the recommended space values from `o-spacing` using its [oSpacingByName](https://registry.origami.ft.com/components/o-spacing@2.0.4/readme?brand=core#named-space) Sass function.
-
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
 @mixin oExample ($opts: ()) {
@@ -243,7 +235,7 @@ Fortunately, `o-buttons` allows us to output a button with a custom class name u
 	@include oButtonsContent($opts: ('type': 'primary'));
 }</code></pre>
 
-We need to update our demo markup `demos/src/demo.mustache` with the new button markup, similar to how we added text to the demo in [part one](/documentation/tutorials/create-a-new-component-part-1):
+We need to update our demo markup  `demos/src/demo.mustache` with the new button markup, similar to how we added text to the demo in [part one](/documentation/tutorials/create-a-new-component-part-1):
 
 <pre><code class="o-syntax-highlight--diff">&lt;!-- demos/src/demo.mustache -->
 
@@ -264,7 +256,6 @@ _Note: the double underscore in `.o-example__button` is part of the [BEM naming 
 ## Part Three: Themes And Branding
 
 To style our components we covered many topics in this part of the tutorial. We learnt:
-
 - Origami component CSS is written with [Sass](https://sass-lang.com/documentation).
 - Component Sass includes [SassDoc](http://sassdoc.com/) comments for Sass documentation.
 - Conventional Origami Sass patterns such as the ["primary mixin"](/specification/v1/components/sass/#primary-mixin).

@@ -7,13 +7,11 @@ collection_listing_display: false
 # Redirect from legacy URLs
 redirect_from:
   - /docs/tutorials/create-a-new-component-part-3/
-  - /documentation/tutorials/create-a-new-component-part-3/
 ---
 
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
-
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. Themes & Brands
@@ -28,7 +26,6 @@ In part three we will build on our work in [part two](/documentation/tutorials/c
 ## Component Brands
 
 Origami components are used by products across the Financial Times Group, and some groups require a distinct appearance from others; internal tools have a distinct style from ft.com products for example. To cater for these broad usecases, the appearance of Origami components may be changed within a project by choosing a "brand":
-
 - core: FT branding for public ft.com sites and affiliates.
 - internal: Style suitable for internal products, tools, and documentation.
 - whitelabel: Base, structural styles only to build on and customise.
@@ -80,7 +77,6 @@ You should see in `src/scss/_brand.scss` two Sass functions which we will discus
 Lets break down what this is doing.
 
 First, we check if the current brand is the `core` brand using the `o-brand` function `oBrandGetCurrentBrand` and a [Sass if statement](https://sass-lang.com/documentation/at-rules/control/if). We do this to ensure the Sass within the `if` statement is only evaluated when the brand is the `core` brand:
-
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
 @if oBrandGetCurrentBrand() == 'core' {
@@ -98,7 +94,6 @@ Second, we call the mixin `oBrandDefine`, which will let us set component config
 }</code></pre>
 
 Third, we pass configuration to `oBrandDefine` for the brand. We set a brand variable `border-color` within a `variables` map, to the value of the slate colour `oColorsByName('slate')`. We also set a property `supports-variants`, which we will discuss more shortly.
-
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
 @if oBrandGetCurrentBrand() == 'core' {
@@ -157,7 +152,6 @@ Now we have defined `border-color` for each brand, with a different colour set f
 The `_oExampleGet` function is a component specific function which wraps a `o-brand` function `oBrandGet`. `oBrandGet` is used to retrieve a brand variable depending on the current brand. Wrapping this in `_oExampleGet` is useful to avoid passing the `$component` argument repeatedly.
 
 Update `main.scss` to set our border color with `_oExampleGet('border-color')`:
-
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
 .o-example {
@@ -207,7 +201,6 @@ Now when we run `obt dev --brand whitelabel` we get a different error! The error
 }</code></pre>
 
 And update `main.scss` again:
-
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
 .o-example {
@@ -395,7 +388,6 @@ The `_oExampleSupports` function we briefly mentioned earlier will return `true`
 ### Output Theme CSS
 
 We can now complete our theme mixin:
-
 - Use `_oExampleSupports` with [the Sass `@error` at-rule](https://sass-lang.com/documentation/at-rules/error) to throw an error if the theme name given is not supported by the current brand.
 - Use `_oExampleGet` to get theme values.
 - Use `oButtonsContent` to update the button styles if there is a matching [o-buttons theme](https://registry.origami.ft.com/components/o-buttons@6.0.14/readme?brand=core#themes).
@@ -486,7 +478,6 @@ Currently users of the `oExample` mixin are forced to output all themes. This wi
 ### Custom Theme
 
 We can make our `o-example` component more flexible by allowing users to create their own theme. To achieve that we will add an optional `$opts` argument to `oExampleAddTheme`. The `$opts` argument will accept a map of variables (like those we defined in `src/scss/_brand.scss`), and pass them to `_oExampleGet` to create a custom theme. We'll add support for one new option, `button-color`, which we will forward to the `oButtonsContent` mixin, so custom `o-example` themes can change the colour of the button also.
-
 <pre><code class="o-syntax-highlight--scss">// src/scss/_mixins.scss
 
 @mixin oExampleAddTheme($name, $opts: null) {
@@ -525,7 +516,6 @@ We can make our `o-example` component more flexible by allowing users to create 
 }</code></pre>
 
 From a users point of view, this is how a custom theme will be created using our `oExampleAddTheme` mixin:
-
 <pre><code class="o-syntax-highlight--scss">// src/scss/_mixins.scss
 
 // Create a custom theme `.o-example--my-custom-theme`
@@ -575,7 +565,6 @@ To see the b2c theme, update the component class to `o-example o-example--b2c`:
 In total we've created 7 visual variants of our component across 3 brands and 2 themes, and created a Sass <abbr title="application programming interface">api</abbr> for users of the component to create custom themes. Many components don't need to support so many variants but building a complex example has allowed us to explore all aspects of branding and themes.
 
 In summary, in part three we learnt:
-
 - Origami components may offer a distinct appearance for different brands: core, internal, or whitelabel.
 - How to use `o-brand` to set and retrieve brand variables in Sass.
 - How to switch brands locally using the `obt dev` `--brand` flag.

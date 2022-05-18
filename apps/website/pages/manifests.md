@@ -9,14 +9,13 @@ collection_title: Manifests
 # Redirect from legacy URLs
 redirect_from:
   - /docs/manifests/
-  - /documentation/manifests/
   - /docs/syntax/origamijson/
-  - /documentation/syntax/origamijson/
 
 # Navigation config
 nav_display: true
 nav_label: Manifests
 ---
+
 
 # {{page.title}}
 

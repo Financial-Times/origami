@@ -6,7 +6,6 @@ cta: Read more about component versioning
 # Redirect from legacy URLs
 redirect_from:
   - /docs/developer-guide/modules/module-versioning/
-  - /documentation/developer-guide/modules/module-versioning/
 
 # Navigation config
 nav_display: true
@@ -23,7 +22,6 @@ The Origami team maintains and improves the components regularly. This means tha
 ## How components are versioned
 
 The version numbers are in the following format: `1.2.3`, which is representative of `MAJOR.MINOR.PATCH`.
-
 - `MAJOR`: When a major is released, we refer to it as a breaking change. This usually means that we have made a drastic visual change, or a change that breaks backwards compatibility. When this changes, we will communicate the change and offer help with migration.
 - `MINOR`: When this number changes , we'll have made an improvement, added a feature or made a noticeable design tweak, for example.
 - `PATCH`: When we release patches, we are usually releasing a bug fix that does not affect the components overall functionality.
