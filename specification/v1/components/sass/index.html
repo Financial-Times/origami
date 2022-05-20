@@ -316,28 +316,24 @@
 <p>CSS/Sass has limited encapsulation, so strict adherence to namespacing rules is essential.</p>
 
 <p>CSS selectors <strong>should</strong> follow the <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">BEM</a> naming convention. They <strong>must</strong> also be prefixed with the component name and written as hyphen separated, lowercase strings:</p>
-
 <ul>
   <li>Good: <code class="language-plaintext highlighter-rouge">.o-thing--large</code>, <code class="language-plaintext highlighter-rouge">.o-thing__content</code></li>
   <li>Bad: <code class="language-plaintext highlighter-rouge">.largething</code>, <code class="language-plaintext highlighter-rouge">.oThingContent</code></li>
 </ul>
 
 <p>Sass variables <strong>must</strong> be prefixed with the component name and written as hyphen separated, lowercase strings:</p>
-
 <ul>
   <li>Good: <code class="language-plaintext highlighter-rouge">$o-grid-is-responsive: true;</code></li>
   <li>Bad: <code class="language-plaintext highlighter-rouge">$GridIsResponsive: true;</code></li>
 </ul>
 
 <p>Sass variables <strong>should</strong> also be named by their purpose, rather than their value:</p>
-
 <ul>
   <li>Good: <code class="language-plaintext highlighter-rouge">$o-colors-skyline-bg</code></li>
   <li>Bad <code class="language-plaintext highlighter-rouge">$o-colors-beige</code></li>
 </ul>
 
 <p>Sass mixins and functions <strong>must</strong> also be prefixed with the component name, and be written in camel-case:</p>
-
 <ul>
   <li>Good: <code class="language-plaintext highlighter-rouge">@mixin oGalleryCalculatePadding()</code></li>
   <li>Bad: <code class="language-plaintext highlighter-rouge">@mixin calculate-padding()</code></li>
@@ -429,7 +425,6 @@
 <p>Silent mode means a component’s Sass will compile to an empty string, but provides mixins or variables which <strong>may</strong> be used by dependent code. Silent mode enables projects to include styles granularly, and components to include styles from other components.</p>
 
 <p>Components that make use of styles defined in other components which support silent mode <strong>must</strong> use those styles silently, e.g. for a component <code class="language-plaintext highlighter-rouge">o-foo</code> which depends on <code class="language-plaintext highlighter-rouge">o-bar</code>:</p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@import ‘o-bar/main’;
 
 @mixin oFoo {
@@ -441,7 +436,6 @@
 </code></pre></div></div>
 
 <p>To support silent mode, components <strong>must</strong> include a public, silent mode variable which is <code class="language-plaintext highlighter-rouge">true</code> by default <code class="language-plaintext highlighter-rouge">$o-{componentname}-is-silent: true !default;</code>. That is, no styles are output by default. When silent mode has been turned off and the component’s CSS has been output, the component must reset the silent mode variable:</p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@if ($o-thing-is-silent == false) {
 	@include oThing();
 
@@ -468,13 +462,9 @@
 <span class="c1">// these example options are arbitrary and are decided by the component</span>
 <span class="c1">// .o-thing {}</span>
 <span class="c1">// .o-thing--inverse {}</span>
-<span class="k">@include</span> <span class="nd">oThing</span><span class="p">(</span>
-	<span class="nv">$opts</span><span class="o">:</span> <span class="p">(</span>
-		<span class="s1">'theme'</span><span class="o">:</span> <span class="p">(</span>
-			<span class="s1">'inverse'</span><span class="o">,</span>
-		<span class="p">)</span><span class="o">,</span>
-	<span class="p">)</span>
-<span class="p">);</span>
+<span class="k">@include</span> <span class="nd">oThing</span><span class="p">(</span><span class="nv">$opts</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s1">'theme'</span><span class="o">:</span> <span class="p">(</span><span class="s1">'inverse'</span><span class="p">)</span>
+<span class="p">));</span>
 </code></pre></div></div>
 
 <h2 id="customisation">Customisation</h2>
@@ -515,7 +505,6 @@
 <h4 id="brand-customisation">Brand Customisation</h4>
 
 <p>To support whitelabel brand customisation components <strong>may</strong> provide a customisation mixin which <strong>should</strong> be named after the component and end in <code class="language-plaintext highlighter-rouge">Customize</code> (<code class="language-plaintext highlighter-rouge">[oComponentName]Customize</code>). The mixin <strong>should</strong> accept a map of brand variables. E.g. For a component <code class="language-plaintext highlighter-rouge">o-example</code>:</p>
-
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">oExampleCustomize</span><span class="p">(</span><span class="nv">$variables</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">@include</span> <span class="nd">oBrandCustomize</span><span class="p">(</span><span class="nv">$component</span><span class="o">:</span> <span class="s1">'o-example'</span><span class="o">,</span> <span class="nv">$variables</span><span class="p">);</span>
 <span class="p">}</span>
@@ -530,22 +519,16 @@
 <p>If a theme mixin is provided, it <strong>must</strong> accept the variant name and output a modifier class which includes that name <code class="language-plaintext highlighter-rouge">o-component--[theme-name]</code>. This indicates that the modifier class was generated by the component.</p>
 
 <p>E.g.</p>
-
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// outputs .o-buttons--my-special-button {}</span>
 <span class="k">@include</span> <span class="nd">oButtonsAddTheme</span><span class="p">(</span>
-	<span class="s1">'my-special-button'</span><span class="o">,</span>
-	<span class="p">(</span>
-		<span class="s1">'color'</span><span class="o">:</span> <span class="s1">'claret-80'</span><span class="o">,</span>
-	<span class="p">)</span>
+    <span class="s1">'my-special-button'</span><span class="o">,</span>
+    <span class="p">(</span><span class="s1">'color'</span><span class="o">:</span> <span class="s1">'claret-80'</span><span class="p">)</span>
 <span class="p">);</span>
 
 <span class="c1">// outputs .o-labels--citrus-fruit {}</span>
-<span class="k">@include</span> <span class="nd">oLabelsAddState</span><span class="p">(</span>
-	<span class="s1">'citrus-fruit'</span><span class="o">,</span>
-	<span class="p">(</span>
-		<span class="n">background-color</span><span class="o">:</span> <span class="s1">'lemon'</span><span class="o">,</span>
-	<span class="p">)</span>
-<span class="p">);</span>
+<span class="k">@include</span> <span class="nd">oLabelsAddState</span><span class="p">(</span><span class="s1">'citrus-fruit'</span><span class="o">,</span> <span class="p">(</span>
+    <span class="n">background-color</span><span class="o">:</span> <span class="s1">'lemon'</span>
+<span class="p">));</span>
 </code></pre></div></div>
 
 <h2 id="feature-flags">Feature Flags</h2>
@@ -553,7 +536,6 @@
 <p>To support a <a href="/documentation/components/compatibility/#core--enhanced-experiences">core and enhanced experience</a> components must render acceptably without JavaScript avalible. Styles which only apply if JavaScript is available <strong>must</strong> be applied with a feature detect such as <code class="language-plaintext highlighter-rouge">.o--if-js</code>, and to hide an element of a component when JavaScript is available use <code class="language-plaintext highlighter-rouge">o--if-no-js</code>. If the component provides its own JavaScript feature flag, it <strong>must</strong> be named <code class="language-plaintext highlighter-rouge">.o-componentname--js</code>.</p>
 
 <p>To detect other features, standardised feature detects <strong>should</strong> be used as a preference, such as the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports">@supports</a> at-rule. Otherwise a CSS class on the <code class="language-plaintext highlighter-rouge">documentElement</code> <strong>may</strong> be used to indicate feature support. The class name <strong>should</strong> be configurable, and default to the class name used by <a href="https://modernizr.com/">Modernizr</a>:</p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$o-thing-inline-svg-support: ‘.inlinesvg’ !default;
 $o-thing-inline-svg-support .o-thing__feature {
     // inline svg
@@ -571,19 +553,16 @@ $o-thing-inline-svg-support .o-thing__feature {
 <ul>
   <li>Assess if the proportion of impacted users is worth the fix.</li>
   <li>Tweak designs to accommodate most browsers instead.</li>
-  <li>Use <a href="http://browserhacks.com/">browser hacks</a>:</li>
-</ul>
+  <li>Use <a href="http://browserhacks.com/">browser hacks</a>:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.el {
+  background: url(‘data:image/png;base64,/* data */’) bottom right no-repeat;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.el {
-    background: url(‘data:image/png;base64,/* data */’) bottom right no-repeat;
-
-    // IE &lt; 8 don't support data-uri, fallback to border bottom instead:
-    *border-bottom: 1px solid #eeeeee;
-    *background-image: none;
+  // IE &lt; 8 don't support data-uri, fallback to border bottom instead:
+  *border-bottom: 1px solid #eeeeee;
+  *background-image: none;
 }
-</code></pre></div></div>
-
-<ul>
+</code></pre></div>    </div>
+  </li>
   <li>Rely on JavaScript user-agent sniffing (as a last resort, in some rare edge cases).</li>
 </ul>
 

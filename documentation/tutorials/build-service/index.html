@@ -171,7 +171,6 @@
 <p>Below is a step by step walkthrough for building a page for an article about fruit, with FT.com colors and fonts, and we’ll include a few Origami components to do so.</p>
 
 <h2 id="setting-up-your-sandbox">Setting up your sandbox</h2>
-
 <p>For this tutorial, we recommend you follow along by setting up your project in <a href="https://codepen.io/">CodePen</a>, or <a href="https://jsbin.com/">JSBin</a>.</p>
 
 <p>There are usually three three parts to an Origami component; <abbr title="Hypertext Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr> and JavaScript. We’re going implement one at a time to put together our page.</p>
@@ -181,7 +180,6 @@
 <p>Let’s begin.</p>
 
 <h2 id="boilerplate-html">Boilerplate <abbr title="Hypertext Markup Language">HTML</abbr></h2>
-
 <p>We’ll need to start with some boilerplate markup.</p>
 
 <p>There are three things we want on a <abbr title="Financial Times">FT</abbr>-like article page: a <a href="https://registry.origami.ft.com/components/o-grid">grid</a>, consistent <a href="https://registry.origami.ft.com/components/o-typography">typography</a> and a background <a href="https://registry.origami.ft.com/components/o-colors">color</a>.</p>
@@ -209,7 +207,6 @@
 <p>For now, let’s finish putting together the content of our page.</p>
 
 <h2 id="component-html">Component <abbr title="Hypertext Markup Language">HTML</abbr></h2>
-
 <p>With the exception of JavaScript-only components, all of Origami’s components rely on markup. This markup, combined with the styling and the functionality, is what determines how a component will look and behave on a page.</p>
 
 <aside>A single component can have many variations, and all the variations for all components can be found in the <a href="https://registry.origami.ft.com/components">Origami Registry</a>.</aside>
@@ -248,7 +245,7 @@
 
 <p>The component query parameter is used to specify what components and which version we want to include. In the above we request <code class="language-plaintext highlighter-rouge">o-grid@^6.0.0</code>.</p>
 
-<p>The brand query parameter will affect the appearance of included components, its value depends on what kind of project we are building – more on this later.</p>
+<p>The brand query parameter will affect the appearance of included components, its value depends on what kind of project we are building  – more on this later.</p>
 
 <aside><a href="https://codepen.io/ft-origami/pen/ajazYj" rel="noreferrer noopener" target="_blank" class="o-typography-link">Show me the CodePen</a></aside>
 <p>Now, you should see all of your content snap to the center of the page. This means that we’ve successfully fetched the <code class="language-plaintext highlighter-rouge">o-grid</code> <abbr title="Cascading Style Sheets">CSS</abbr> bundle from the Origami Build Service.</p>

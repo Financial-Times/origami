@@ -492,7 +492,7 @@
 
 <p>Origami components <strong>may</strong> load additional files (fonts, JSON data, images etc) from their own source. To do so safely, components <strong>must</strong> resolve file paths using the <a href="https://github.com/Financial-Times/o-assets">Origami assets module</a>:</p>
 
-<p>Without any explicit configuration, <code class="language-plaintext highlighter-rouge">o-assets</code> will assume, as we do for sub-resources in Sass, that the components are installed publicly at a URL path of <code class="language-plaintext highlighter-rouge">/bower_components</code> on the current host, and will form URLs on that basis. Product developers are advised to reconfigure <code class="language-plaintext highlighter-rouge">o-assets</code> to accommodate their own server-side URL routing architecture.</p>
+<p>Without any explicit configuration, <code class="language-plaintext highlighter-rouge">o-assets</code> will assume, as we do for sub-resources in Sass, that the components are installed publicly at a URL path of <code class="language-plaintext highlighter-rouge">/bower_components</code> on the current host, and will form URLs on that basis.  Product developers are advised to reconfigure <code class="language-plaintext highlighter-rouge">o-assets</code> to accommodate their own server-side URL routing architecture.</p>
 
 <p>Where external resources are not within Origami components, a <a href="https://www.paulirish.com/2010/the-protocol-relative-url/">protocol-relative</a> URL <strong>must</strong> be used (see <a href="https://github.com/Financial-Times/ft-origami/issues/173">issue 173</a>.</p>
 
@@ -525,7 +525,6 @@
 <h3 id="readme">README</h3>
 
 <p>A component <strong>should</strong> include a <code class="language-plaintext highlighter-rouge">README.md</code> in the root of the component’s codebase. The README <strong>should</strong>:</p>
-
 <ul>
   <li>Include a single-line description of what the component does.</li>
   <li>Give examples detailing the most common use cases.</li>
@@ -551,7 +550,6 @@
 <p>Component authors <strong>should</strong> provide component demos, which <strong>must</strong> be <a href="/specification/v1/manifest/#demos">defined in origami.json</a> and built with <a href="https://www.npmjs.com/package/origami-build-tools">Origami Build Tools</a>.</p>
 
 <p>When deciding what demos to create, demos:</p>
-
 <ul>
   <li><strong>Must</strong> be based on realistic use cases.</li>
   <li><strong>Should</strong> be visually different from one another.</li>
@@ -559,7 +557,6 @@
 </ul>
 
 <p>When building demos, they:</p>
-
 <ul>
   <li><strong>Must</strong> have a description explaining what they show (<a href="/specification/v1/manifest/#demos">see origami.json</a>).</li>
   <li><strong>Should</strong> be reproducible using the <a href="/documentation/services/#build-service">Origami Build Service</a> by copying the demo markup.</li>
@@ -567,7 +564,6 @@
 </ul>
 
 <p>Where styles need to be added specifically for a demo (e.g. to make the content of o-grid containers visible), they <strong>must</strong> be attached to classes with a <code class="language-plaintext highlighter-rouge">demo-</code> prefix, for example:</p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.demo-cell {
   background-color: red;
 }

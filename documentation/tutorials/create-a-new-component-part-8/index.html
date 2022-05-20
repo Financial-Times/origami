@@ -165,7 +165,6 @@
 	<h1 id="create-a-new-origami-component---part-8-component-lifecycle">Create A New Origami Component - Part 8 Component Lifecycle</h1>
 
 <p>The “Create A New Origami Component” tutorial is split into eight parts and is intended to be followed sequentially from start to finish:</p>
-
 <ol>
   <li><a href="/documentation/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-2/">Base Styles</a></li>
@@ -198,7 +197,6 @@ git commit -m 'my o-example component'</code></pre>
 <p>You may then push this to your remote github.com repository, under the <code class="language-plaintext highlighter-rouge">Financial-Times</code> organisation or another <a href="/specification/v1/components/#source-control">supported Financial Times organisation</a>.</p>
 
 <p>You might have noticed a <code class="language-plaintext highlighter-rouge">.github</code> directory already. This directory configures Github to give us some nice features including:</p>
-
 <ul>
   <li><code class="language-plaintext highlighter-rouge">ISSUE_TEMPLATE.md</code>: The contents of this file are used to provide a <a href="https://help.github.com/en/github/building-a-strong-community/about-issue-and-pull-request-templates">template when opening a new Github issue</a>. It helps users report bugs or provide feedback by prompting for useful information.</li>
   <li><code class="language-plaintext highlighter-rouge">CODEOWNERS</code>: defines individuals or teams to automatically assign to new Github issues or pull requests (<a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners">see the Github code owners documentation</a>).</li>
@@ -206,7 +204,6 @@ git commit -m 'my o-example component'</code></pre>
 </ul>
 
 <p>There is also some manual Github configuration left to do. When your new component is pushed to Github <a href="https://docs.github.com/en/github/getting-started-with-github/access-permissions-on-github">update access in the Github settings of your repository</a>. Grant these teams the following permissions:</p>
-
 <ul>
   <li><code class="language-plaintext highlighter-rouge">@origami-read-only</code>: <strong>read</strong> - required, for a team of helpful Origami bots</li>
   <li><code class="language-plaintext highlighter-rouge">@origami-collaborators</code>: <strong>write</strong> - so engineers from other teams may contribute</li>
@@ -218,7 +215,6 @@ git commit -m 'my o-example component'</code></pre>
 <p>Earlier we saw that the <code class="language-plaintext highlighter-rouge">obt init</code> command creates a directory <code class="language-plaintext highlighter-rouge">.github</code>. It contains configuration for Github including a nested directory <code class="language-plaintext highlighter-rouge">workflows</code> which contains configuration for Github Actions.</p>
 
 <p>Origami components use Github Actions for a number of helpful functions including:</p>
-
 <ul>
   <li>Synchronise github <a href="https://github.com/Financial-Times/origami-labels#labels">labels</a> for issues and pull requests (<a href="https://docs.github.com/en/github/managing-your-work-on-github/about-labels">learn about Github labels</a>).</li>
   <li>Run component tests when new commits are made to a pull request.</li>
