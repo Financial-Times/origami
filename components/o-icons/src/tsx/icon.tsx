@@ -1,7 +1,7 @@
+import {IconName} from './data';
+
 export interface IconProps {
-	// currently no way to get a const type from a JSON import in TypeScript so
-	// let's stick with a string type for now
-	icon: string;
+	icon: IconName;
 }
 
 export function Icon({icon}: IconProps): JSX.Element {
