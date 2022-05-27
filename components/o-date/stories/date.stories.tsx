@@ -3,7 +3,7 @@ import withHtml from 'origami-storybook-addon-html';
 import {ComponentProps, useEffect} from 'react';
 import {withDesign} from 'storybook-addon-designs';
 import javascript from '../main';
-import {Date as ODate} from '../src/tsx/date';
+import {Date as ODate, DatePrinter} from '../src/tsx/date';
 
 // the storybook args are slightly different to the Date props as dateTime is a
 // UNIX timestamp, the format storybook uses in its controls
@@ -93,11 +93,8 @@ Multiple.args = {
 	format: 'date-only',
 	children: (
 		<>
-			<span data-o-date-printer></span>{' '}
-			<span
-				data-o-date-printer
-				data-o-date-format="time-ago-limit-4-hours"></span>{' '}
-			<span data-o-date-printer data-o-date-format="h:mm"></span>
+			<DatePrinter /> <DatePrinter format={'time-ago-limit-4-hours'} />{' '}
+			<DatePrinter format={'h:mm'} />
 		</>
 	),
 };
