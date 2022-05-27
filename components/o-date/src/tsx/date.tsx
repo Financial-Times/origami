@@ -31,3 +31,18 @@ export function Date({
 		</time>
 	);
 }
+
+export interface DatePrinterProps {
+	format?: DateFormat;
+}
+
+export function DatePrinter({
+	format,
+	children,
+}: React.PropsWithChildren<DatePrinterProps>): JSX.Element {
+	return (
+		<span data-o-date-printer data-o-date-format={format}>
+			{children}
+		</span>
+	);
+}
