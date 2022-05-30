@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.3](https://www.github.com/Financial-Times/origami/compare/o-tooltip-v5.2.2...o-tooltip-v5.2.3) (2022-05-30)
+
+
+### Bug Fixes
+
+* o-tooltip, add missing o-brand peerDep ([42690c3](https://www.github.com/Financial-Times/origami/commit/42690c301e3832fef616cf180aa2fb59e4a09944))
+
 ### [5.2.2](https://www.github.com/Financial-Times/origami/compare/o-tooltip-v5.2.1...o-tooltip-v5.2.2) (2022-04-21)
 
 

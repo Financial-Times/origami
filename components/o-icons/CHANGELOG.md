@@ -1,5 +1,18 @@
 # Changelog
 
+## [7.4.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.3.0...o-icons-v7.4.0) (2022-05-30)
+
+
+### Features
+
+* add stories for o-icons demos ([a4b8d65](https://www.github.com/Financial-Times/origami/commit/a4b8d65c8a4caa5d56d45c3d83e8a6567d019dd6))
+* generate string union type of icons ([577f6dc](https://www.github.com/Financial-Times/origami/commit/577f6dcc0c07867ef9ccb1543b11fa57c4036e3d))
+
+
+### Bug Fixes
+
+* remove custom icons story ([9ccb3cc](https://www.github.com/Financial-Times/origami/commit/9ccb3ccfe998b89de74b5277f10c03f966d95d85))
+
 ## [7.3.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.2.1...o-icons-v7.3.0) (2022-05-04)
 
 

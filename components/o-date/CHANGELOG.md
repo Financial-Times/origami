@@ -1,5 +1,18 @@
 # Changelog
 
+## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-date-v5.2.2...o-date-v5.3.0) (2022-05-30)
+
+
+### Features
+
+* add stories for o-date demos ([7a8d77a](https://www.github.com/Financial-Times/origami/commit/7a8d77a15ade1356ec9bdf5ec72710693294ad31))
+* create date printer JSX component ([bced601](https://www.github.com/Financial-Times/origami/commit/bced601f3184ddc1100c9b1369687be22cf1e51b))
+
+
+### Bug Fixes
+
+* don't inline descriptions for o-date stories ([e8816b3](https://www.github.com/Financial-Times/origami/commit/e8816b331952f0db705270cd86123a8bbd8ec2d0))
+
 ### [5.2.2](https://www.github.com/Financial-Times/origami/compare/o-date-v5.2.1...o-date-v5.2.2) (2022-04-21)
 
 
