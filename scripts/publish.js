@@ -3,9 +3,10 @@ import {$} from "zx"
 import {readPackage} from "read-pkg"
 import {request} from "undici"
 
-let outputs = JSON.parse(process.argv[2])
+let {REPO_DATA_KEY, REPO_DATA_SECRET, RELEASE_PLEASE_OUTPUT} = process.env
+console.log({'release please output': RELEASE_PLEASE_OUTPUT});
 
-let {REPO_DATA_KEY, REPO_DATA_SECRET} = process.env
+let outputs = JSON.parse(RELEASE_PLEASE_OUTPUT)
 
 for (let key in outputs) {
 	let value = outputs[key]
