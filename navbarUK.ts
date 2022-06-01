@@ -989,7 +989,7 @@ const data: TNavMenu = {
         }
       ]
     },
-    { label: 'How to Spend It', url: 'https://howtospendit.ft.com/', submenu: null }
+    { label: 'HTSI', url: 'https://howtospendit.ft.com/', submenu: null }
   ]
 }
 
