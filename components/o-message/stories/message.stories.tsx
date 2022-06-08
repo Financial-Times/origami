@@ -14,18 +14,12 @@ export default {
 	args: {},
   } as ComponentMeta<typeof Message>;
 
-const InnerLayout = ({ condition, wrapper, children }) => {
-	return condition ? wrapper(children) : children;
-}
+
+const innerDecorator = (Story) => <div style={{ margin: "auto", maxWidth: "400px" }}>{Story()}</div>
 
 const Story = args => {
 	useEffect(() => void javascript.init(), [])
-	return (
-	<InnerLayout
-		condition={args.inner}
-		wrapper={children => <div className="demo-inner-message">{children}</div>} >
-		<Message {...args} />
-	</InnerLayout>)
+	return <Message {...args} />
 };
 
 const defaultButtonActions = {
@@ -57,6 +51,7 @@ AlertSuccess.args = {
 };
 
 export const AlertInnerSuccess: ComponentStory<typeof Message> = Story.bind({})
+AlertInnerSuccess.decorators = [innerDecorator]
 AlertInnerSuccess.storyName = "Alert Inner: Success"
 AlertInnerSuccess.args = {
 	type: 'alert',
@@ -84,8 +79,8 @@ AlertNeutral.args = {
 	showCloseButton: true
 }
 
-
 export const AlertInnerNeutral: ComponentStory<typeof Message> = Story.bind({})
+AlertInnerNeutral.decorators = [innerDecorator]
 AlertInnerNeutral.storyName = "Alert Inner: Neutral"
 AlertInnerNeutral.args = {
 	type: 'alert',
@@ -98,7 +93,6 @@ AlertInnerNeutral.args = {
 	inner: true,
 	showCloseButton: true
 }
-
 
 
 export const AlertError: ComponentStory<typeof Message> = Story.bind({})
@@ -114,9 +108,10 @@ AlertError.args = {
 	showCloseButton: true
 }
 
-export const AlertErrorNeutral: ComponentStory<typeof Message> = Story.bind({})
-AlertErrorNeutral.storyName = "Alert Inner: Error"
-AlertErrorNeutral.args = {
+export const AlertInnerError: ComponentStory<typeof Message> = Story.bind({})
+AlertInnerError.decorators = [innerDecorator]
+AlertInnerError.storyName = "Alert Inner: Error"
+AlertInnerError.args = {
 	type: 'alert',
 	state: "error",
 	content: {
@@ -128,8 +123,6 @@ AlertErrorNeutral.args = {
 	inner: true,
 	showCloseButton: true
 }
-
-
 
 export const NoticeInform: ComponentStory<typeof Message> = Story.bind({})
 NoticeInform.storyName = "Notice: Inform"
@@ -145,6 +138,7 @@ NoticeInform.args = {
 }
 
 export const NoticeInnerInform: ComponentStory<typeof Message> = Story.bind({})
+NoticeInnerInform.decorators = [innerDecorator]
 NoticeInnerInform.storyName = "Notice Inner: Inform"
 NoticeInnerInform.args = {
 	type: 'notice',
@@ -171,6 +165,7 @@ NoticeFeedback.args = {
 }
 
 export const NoticeInnerFeedback: ComponentStory<typeof Message> = Story.bind({})
+NoticeInnerFeedback.decorators = [innerDecorator]
 NoticeInnerFeedback.storyName = "Notice Inner: Feedback"
 NoticeInnerFeedback.args = {
 	type: 'notice',
