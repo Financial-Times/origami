@@ -31,7 +31,13 @@ export default {
 const innerDecorator = (Story) => <div style={{ margin: "auto", maxWidth: "400px" }}>{Story()}</div>
 
 const Story = args => {
-	useEffect(() => void javascript.init(), [])
+	useEffect(() => {
+		let messages = javascript.init()
+		return () => {
+			messages = Array.isArray(messages) ? messages : [messages];
+			messages.forEach(message => message.destroy());
+		}
+	}, [args.showCloseButton])
 	return <Message {...args} />
 };
 
