@@ -4,8 +4,7 @@ import {ComponentStory, ComponentMeta} from '@storybook/react'
 import { useEffect } from 'react';
 import {Message} from '../src/tsx/message';
 import javascript from '../main';
-import './message.scss'
-
+import './message.scss';
 
 export default {
 	title: 'Components/o-message',
@@ -15,9 +14,18 @@ export default {
 	args: {},
   } as ComponentMeta<typeof Message>;
 
+const InnerLayout = ({ condition, wrapper, children }) => {
+	return condition ? wrapper(children) : children;
+}
+
 const Story = args => {
-	useEffect(() => void javascript.init(null, null), [])
-	return <Message {...args} />
+	useEffect(() => void javascript.init(), [])
+	return (
+	<InnerLayout
+		condition={args.inner}
+		wrapper={children => <div className="demo-inner-message">{children}</div>} >
+		<Message {...args} />
+	</InnerLayout>)
 };
 
 const defaultButtonActions = {
