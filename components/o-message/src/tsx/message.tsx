@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 
 type MessageContent = {
 	detail: string;
-	hightLight?: string;
+	highlight?: string;
 	additionalInfo?: string;
 }
 
