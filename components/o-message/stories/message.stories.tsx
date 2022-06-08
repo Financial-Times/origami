@@ -11,7 +11,20 @@ export default {
 	component: Message,
 	decorators: [withDesign, withHtml],
 	parameters: {},
-	args: {},
+	args: {
+		showCloseButton: true,
+		inner: false,
+		primaryAction: {
+			text: 'Button',
+			url: '#',
+			openInNewWindow: false
+		},
+		secondaryAction: {
+			text: 'Text link',
+			url: '#',
+			openInNewWindow:  false
+		}
+	},
   } as ComponentMeta<typeof Message>;
 
 
@@ -22,18 +35,6 @@ const Story = args => {
 	return <Message {...args} />
 };
 
-const defaultButtonActions = {
-	primaryAction: {
-		text: 'Button',
-		url: '#',
-		openInNewWindow: false
-	},
-	secondaryAction: {
-		text: 'Text link',
-		url: '#',
-		openInNewWindow:  false
-	}
-}
 
 
 export const AlertSuccess: ComponentStory<typeof Message> = Story.bind({});
@@ -45,9 +46,6 @@ AlertSuccess.args = {
 		detail: 'The quick brown fox jumped over the lazy dogs!',
 		highlight: 'Hooray!',
 	},
-	...defaultButtonActions,
-	inner: false,
-	showCloseButton: true
 };
 
 export const AlertInnerSuccess: ComponentStory<typeof Message> = Story.bind({})
@@ -61,9 +59,7 @@ AlertInnerSuccess.args = {
 		highlight: 'Hooray!',
 		additionalInfo: "Did you know that that sentence uses all of the letters in the alphabet at least once?"
 	},
-	...defaultButtonActions,
 	inner: true,
-	showCloseButton: true
 }
 
 export const AlertNeutral: ComponentStory<typeof Message> = Story.bind({})
@@ -74,9 +70,6 @@ AlertNeutral.args = {
 	content: {
 		detail: "There's a fox, and some lazy dogs. Many lazy dogs. Many, many, many lazy dogs. Only one fox. Many, many, many lazy dogs."
 	},
-	...defaultButtonActions,
-	inner: false,
-	showCloseButton: true
 }
 
 export const AlertInnerNeutral: ComponentStory<typeof Message> = Story.bind({})
@@ -89,9 +82,7 @@ AlertInnerNeutral.args = {
 		detail: 'The quick brown fox did no jump over the lazy dogs!',
 		highlight: 'Meh.',
 	},
-	...defaultButtonActions,
 	inner: true,
-	showCloseButton: true
 }
 
 
@@ -103,9 +94,6 @@ AlertError.args = {
 	content: {
 		detail: 'The quick brown fox did not jump over the lazy dogs.',
 	},
-	...defaultButtonActions,
-	inner: false,
-	showCloseButton: true
 }
 
 export const AlertInnerError: ComponentStory<typeof Message> = Story.bind({})
@@ -119,9 +107,7 @@ AlertInnerError.args = {
 		highlight: 'Oops.',
 		additionalInfo: 'But that sentence still uses all of the letters in the alphabet at least once!'
 	},
-	...defaultButtonActions,
 	inner: true,
-	showCloseButton: true
 }
 
 export const NoticeInform: ComponentStory<typeof Message> = Story.bind({})
@@ -132,9 +118,6 @@ NoticeInform.args = {
 	content: {
 		detail: "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
 	},
-	...defaultButtonActions,
-	inner: false,
-	showCloseButton: true
 }
 
 export const NoticeInnerInform: ComponentStory<typeof Message> = Story.bind({})
@@ -146,7 +129,6 @@ NoticeInnerInform.args = {
 	content: {
 		detail: "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
 	},
-	...defaultButtonActions,
 	inner: true,
 	showCloseButton: false
 }
@@ -159,9 +141,6 @@ NoticeFeedback.args = {
 	content: {
 		detail: "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
 	},
-	...defaultButtonActions,
-	inner: false,
-	showCloseButton: true
 }
 
 export const NoticeInnerFeedback: ComponentStory<typeof Message> = Story.bind({})
@@ -173,7 +152,5 @@ NoticeInnerFeedback.args = {
 	content: {
 		detail: "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed.",
 	},
-	...defaultButtonActions,
 	inner: true,
-	showCloseButton: true
 }

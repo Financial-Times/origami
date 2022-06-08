@@ -44,14 +44,8 @@ export function Message({
 	inner=false,
 	showCloseButton=true
 }: MessageProps) {
-	const dataAttributes = {};
-
-	if(!showCloseButton) {
-		dataAttributes['data-o-message-close'] = false;
-	}
-
   return (
-	<div className={`o-message o-message--${type} o-message--${state} ${inner ? "o-message--inner": ""}`} {...dataAttributes} data-o-component="o-message">
+	<div className={`o-message o-message--${type} o-message--${state} ${inner ? "o-message--inner": ""}`} data-o-message-close={showCloseButton.toString()} data-o-component="o-message">
 		<div className="o-message__container">
 			<div className="o-message__content">
 				<p className="o-message__content-main">
