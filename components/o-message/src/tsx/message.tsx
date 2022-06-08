@@ -7,7 +7,7 @@ type MessageContent = {
 }
 
 type MessageAction = {
-	copy: string;
+	text: string;
 	url: string;
 	openInNewWindow?: boolean
 }
