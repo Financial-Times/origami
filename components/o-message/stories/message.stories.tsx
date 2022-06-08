@@ -11,28 +11,12 @@ export default {
 	title: 'Components/o-message',
 	component: Message,
 	decorators: [withDesign, withHtml],
-	// These params are copied from banner.tsx. need to find corresponding design in figma
-	parameters: {
-		design: {
-			type: 'figma',
-			url: 'https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=0%3A1489',
-		},
-		guidelines: {
-			notion: '37cdc7ac2cac4d60a4c9f451c47a4647',
-		},
-		html: {},
-	},
+	parameters: {},
 	args: {},
   } as ComponentMeta<typeof Message>;
 
 const Story = args => {
-	useEffect(() => {
-		let messages = javascript.init(null, null)
-		return function cleanup() {
-			messages = Array.isArray(messages) ? messages : [messages];
-			messages.forEach(message => message.destroy());
-		};
-	}, [args.showCloseButton])
+	useEffect(() => void javascript.init(null, null), [])
 	return <Message {...args} />
 };
 
@@ -60,7 +44,7 @@ AlertSuccess.args = {
 		hightLight: 'Hooray!',
 	},
 	...defaultButtonActions,
-	hasInnerLayout: false,
+	inner: false,
 	showCloseButton: true
 };
 
@@ -75,7 +59,7 @@ AlertInnerSuccess.args = {
 		additionalInfo: "Did you know that that sentence uses all of the letters in the alphabet at least once?"
 	},
 	...defaultButtonActions,
-	hasInnerLayout: true,
+	inner: true,
 	showCloseButton: true
 }
 
@@ -88,7 +72,7 @@ AlertNeutral.args = {
 		detail: "There's a fox, and some lazy dogs. Many lazy dogs. Many, many, many lazy dogs. Only one fox. Many, many, many lazy dogs."
 	},
 	...defaultButtonActions,
-	hasInnerLayout: false,
+	inner: false,
 	showCloseButton: true
 }
 
@@ -103,7 +87,7 @@ AlertInnerNeutral.args = {
 		hightLight: 'Meh.',
 	},
 	...defaultButtonActions,
-	hasInnerLayout: true,
+	inner: true,
 	showCloseButton: true
 }
 
@@ -118,7 +102,7 @@ AlertError.args = {
 		detail: 'The quick brown fox did not jump over the lazy dogs.',
 	},
 	...defaultButtonActions,
-	hasInnerLayout: false,
+	inner: false,
 	showCloseButton: true
 }
 
@@ -133,7 +117,7 @@ AlertErrorNeutral.args = {
 		additionalInfo: 'But that sentence still uses all of the letters in the alphabet at least once!'
 	},
 	...defaultButtonActions,
-	hasInnerLayout: true,
+	inner: true,
 	showCloseButton: true
 }
 
@@ -148,7 +132,7 @@ NoticeInform.args = {
 		detail: "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
 	},
 	...defaultButtonActions,
-	hasInnerLayout: false,
+	inner: false,
 	showCloseButton: true
 }
 
@@ -161,7 +145,7 @@ NoticeInnerInform.args = {
 		detail: "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
 	},
 	...defaultButtonActions,
-	hasInnerLayout: true,
+	inner: true,
 	showCloseButton: false
 }
 
@@ -174,7 +158,7 @@ NoticeFeedback.args = {
 		detail: "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
 	},
 	...defaultButtonActions,
-	hasInnerLayout: false,
+	inner: false,
 	showCloseButton: true
 }
 
@@ -187,6 +171,6 @@ NoticeInnerFeedback.args = {
 		detail: "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed.",
 	},
 	...defaultButtonActions,
-	hasInnerLayout: true,
+	inner: true,
 	showCloseButton: true
 }
