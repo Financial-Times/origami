@@ -47,7 +47,7 @@ export function Message({
 	content = undefined,
 	primaryAction = undefined,
 	secondaryAction = undefined,
-	hasInnerLayout=false,
+	inner=false,
 	showCloseButton=true
 }: MessageProps) {
 	const dataAttributes = {};
