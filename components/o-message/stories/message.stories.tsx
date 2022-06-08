@@ -22,12 +22,12 @@ const Story = args => {
 
 const defaultButtonActions = {
 	primaryAction: {
-		copy: 'Button',
+		text: 'Button',
 		url: '#',
 		openInNewWindow: false
 	},
 	secondaryAction: {
-		copy: 'Text link',
+		text: 'Text link',
 		url: '#',
 		openInNewWindow:  false
 	}
@@ -41,7 +41,7 @@ AlertSuccess.args = {
 	state: "success",
 	content: {
 		detail: 'The quick brown fox jumped over the lazy dogs!',
-		hightLight: 'Hooray!',
+		highlight: 'Hooray!',
 	},
 	...defaultButtonActions,
 	inner: false,
@@ -55,7 +55,7 @@ AlertInnerSuccess.args = {
 	state: "success",
 	content: {
 		detail: 'The quick brown fox jumped over the lazy dogs!',
-		hightLight: 'Hooray!',
+		highlight: 'Hooray!',
 		additionalInfo: "Did you know that that sentence uses all of the letters in the alphabet at least once?"
 	},
 	...defaultButtonActions,
@@ -84,7 +84,7 @@ AlertInnerNeutral.args = {
 	state: "neutral",
 	content: {
 		detail: 'The quick brown fox did no jump over the lazy dogs!',
-		hightLight: 'Meh.',
+		highlight: 'Meh.',
 	},
 	...defaultButtonActions,
 	inner: true,
@@ -113,7 +113,7 @@ AlertErrorNeutral.args = {
 	state: "error",
 	content: {
 		detail: 'The quick brown fox did not jump over the lazy dogs.',
-		hightLight: 'Oops.',
+		highlight: 'Oops.',
 		additionalInfo: 'But that sentence still uses all of the letters in the alphabet at least once!'
 	},
 	...defaultButtonActions,
