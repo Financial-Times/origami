@@ -168,7 +168,12 @@ class Message {
 			return options;
 		}, {});
 	}
-
+	destroy() {
+		if(this.closeButton) {
+			this.closeButton.remove();
+			delete this.closeButton;
+		}
+	}
 	/**
 	 * Initialise message component.
 	 *
