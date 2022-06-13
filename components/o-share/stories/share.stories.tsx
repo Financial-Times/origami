@@ -13,14 +13,20 @@ export default {
 	decorators: [withDesign, withHtml],
 	args: {
 		title: 'US drags',
-		socialNetworks: ['twitter', 'facebook', 'linkedin', 'whatsapp', 'pinterest'],
+		socialNetworks: [
+			'twitter',
+			'facebook',
+			'linkedin',
+			'whatsapp',
+			'pinterest',
+		],
 		url: 'http://on.ft.com/1mUdgA2',
 		titleExtra: 'FT.com | Pharmaceuticals',
 		summary: 'US drugs group vows to maintain big British presence',
 		relatedTwitterAccounts: 'ftcompanies',
 		small: false,
 		inverse: false,
-		vertical: false
+		vertical: false,
 	},
 } as ComponentMeta<typeof Share>;
 
