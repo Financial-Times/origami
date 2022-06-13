@@ -1,25 +1,5 @@
 import DomDelegate from 'ftdomdelegate';
 
-const socialUrls = {
-	twitter: "https://twitter.com/intent/tweet?url={{url}}&text={{title}}&related={{relatedTwitterAccounts}}&via=FT",
-	facebook: "http://www.facebook.com/sharer.php?u={{url}}",
-	linkedin: "http://www.linkedin.com/shareArticle?mini=true&url={{url}}&title={{title}}+%7C+{{titleExtra}}&summary={{summary}}&source=Financial+Times",
-	pinterest: "http://www.pinterest.com/pin/create/button/?url={{url}}&description={{title}}",
-	whatsapp: "whatsapp://send?text={{title}}%20({{titleExtra}})%20-%20{{url}}",
-	link: "{{url}}",
-	enterpriseSharing: "{{url}}",
-};
-
-const descriptiveLinkText = {
-	twitter: 'Share {{title}} on Twitter (opens a new window)',
-	facebook: 'Share {{title}} on Facebook (opens a new window)',
-	linkedin: 'Share {{title}} on LinkedIn (opens a new window)',
-	pinterest: 'Share {{title}} on Pinterest (opens a new window)',
-	whatsapp: 'Share {{title}} on Whatsapp (opens a new window)',
-	link: 'Open link in new window',
-	enterpriseSharing: 'Share {{title}} with your Enterprise Sharing tools (opens a new window)',
-};
-
 /**
  * The `oShare.open` open event fires when a social network share action is
  * triggered, to open a new window.
@@ -124,36 +104,6 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	 * Transforms the default social urls
-	 *
-	 * @private
-	 * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
-	 * @returns {string} - the generated url
-	 */
-	function generateSocialUrl(socialNetwork) {
-		let templateUrl = socialUrls[socialNetwork];
-		templateUrl = templateUrl.replace('{{url}}', encodeURIComponent(config.url))
-			.replace('{{title}}', encodeURIComponent(config.title))
-			.replace('{{titleExtra}}', encodeURIComponent(config.titleExtra))
-			.replace('{{summary}}', encodeURIComponent(config.summary))
-			.replace('{{relatedTwitterAccounts}}', encodeURIComponent(config.relatedTwitterAccounts));
-		return templateUrl;
-	}
-
-	/**
-	 * Transforms the descriptive text for social links
-	 *
-	 * @private
-	 * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
-	 * @returns {string} - A lovely URL
-	 */
-	function generateDesriptiveLinkText (socialNetwork) {
-		let templateLinkText = descriptiveLinkText[socialNetwork];
-		templateLinkText = templateLinkText.replace('{{title}}', config.title);
-		return templateLinkText;
-	}
-
-	/**
 	 * Renders the list of social networks in {@link config.links}
 	 *
 	 * @returns {void}
@@ -161,7 +111,6 @@ function Share(rootEl, config) {
 	 */
 	function render() {
 		normaliseConfig();
-
 		const ulElement = document.createElement('ul');
 		for (let i = 0; i < config.links.length; i++) {
 			const liElement = document.createElement('li');
@@ -171,10 +120,10 @@ function Share(rootEl, config) {
 			liElement.classList.add('o-share__action', `o-share__action--${config.links[i]}`);
 
 			spanElement.classList.add('o-share__text');
-			spanElement.innerText = generateDesriptiveLinkText(config.links[i]);
+			spanElement.innerText = generateDescriptiveLinkText(config.links[i]);
 
 			aElement.classList.add('o-share__icon', `o-share__icon--${config.links[i]}`);
-			aElement.href = generateSocialUrl(config.links[i]);
+			aElement.href = generateSocialUrl(config, config.links[i]);
 			aElement.setAttribute('target', '_blank');
 			aElement.setAttribute('rel', 'noopener');
 
@@ -250,9 +199,10 @@ function Share(rootEl, config) {
 Share.prototype.destroy = function () {
 	this.rootDomDelegate.destroy();
 	// Should destroy remove its children? Maybe setting .innerHTML to '' is faster
-	for (let i = 0; i < this.rootEl.children; i++) {
-		this.rootEl.removeChild(this.rootEl.children[i]);
-	}
+	// for (let i = 0; i < this.rootEl.children; i++) {
+	// 	this.rootEl.removeChild(this.rootEl.children[i]);
+	// }
+	this.rootEl.textContent = '';
 
 	this.rootEl.removeAttribute('data-o-share--js');
 	this.rootEl = undefined;
@@ -273,5 +223,60 @@ Share.init = function (rootEl = document.body) {
 	}
 	return Array.from(rootEl.querySelectorAll('[data-o-component=o-share]'), rootEl => new Share(rootEl));
 };
+
+
+/**
+ * Transforms the default social urls
+ *
+ * @private
+ * @param {object} config - Optional
+ * @param {string} config.url - Optional, url to share
+ * @param {string} config.title - Optional, title to be used in social network sharing
+ * @param {string} config.titleExtra - Optional, extra bit to add to the title for some social networks
+ * @param {string} config.summary - Optional, summary of the page that's being shared
+ * @param {string} config.relatedTwitterAccounts - Optional, extra information for sharing on Twitter
+ * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
+ * @returns {string} - the generated url
+ */
+export function generateSocialUrl(config, socialNetwork) {
+	const url = encodeURIComponent(config.url);
+	const title = encodeURIComponent(config.title);
+	const titleExtra = encodeURIComponent(config.titleExtra);
+	const summary = encodeURIComponent(config.summary);
+	const relatedTwitterAccounts = encodeURIComponent(config.relatedTwitterAccounts);
+	const socialUrls = {
+		twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}&related=${relatedTwitterAccounts}&via=FT`,
+		facebook: `http://www.facebook.com/sharer.php?u=${url}`,
+		linkedin: `http://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}+%7C+${titleExtra}&summary=${summary}&source=Financial+Times`,
+		pinterest: `http://www.pinterest.com/pin/create/button/?url=${url}&description=${title}`,
+		whatsapp: `whatsapp://send?text=${title}%20(${titleExtra})%20-%20${url}`,
+		link: url,
+		enterpriseSharing: url,
+	};
+	return socialUrls[socialNetwork];
+}
+
+
+/**
+ * Transforms the descriptive text for social links
+ *
+ * @private
+ * @param {object} config - Optional
+ * @param {string} config.title - Optional, title to be used in social network sharing
+ * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
+ * @returns {string} - A lovely URL
+ */
+export function generateDescriptiveLinkText (config, socialNetwork) {
+	const descriptiveLinkText = {
+		twitter: `Share ${config.title} on Twitter (opens a new window)`,
+		facebook: `Share ${config.title} on Facebook (opens a new window)`,
+		linkedin: `Share ${config.title} on LinkedIn (opens a new window)`,
+		pinterest: `Share ${config.title} on Pinterest (opens a new window)`,
+		whatsapp: `Share ${config.title} on Whatsapp (opens a new window)`,
+		link: `Open link in new window`,
+		enterpriseSharing: `Share ${config.title} with your Enterprise Sharing tools (opens a new window)`,
+	};
+	return descriptiveLinkText[socialNetwork];
+}
 
 export default Share;
