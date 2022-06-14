@@ -1,13 +1,90 @@
+const { readFile, access } = require('node:fs/promises');
+const {constants } = require('node:fs');
+const path = require('node:path');
+const process = require('node:process');
+const globby = require('globby');
+
+const brand = process.env.ORIGAMI_STORYBOOK_BRAND || "core";
+/**
+ * Node.JS no longer has an fs.exists method.
+ * Instead we use the fs.access method and check we can read the file.
+ * fs.access will throw an error if the file does not exist.
+ * @param {string} file file-system path to the file you are wanting to check exists or not
+ * @returns {Promise.<boolean>} Whether the file exists
+*/
+async function fileExists(file) {
+	try {
+		await access(file, constants.R_OK);
+		return true;
+	} catch (error) {
+		return false;
+	}
+}
+
+function readIfExists(filePath) {
+	return fileExists(filePath)
+		.then(exists => {
+			if (exists) {
+				return readFile(filePath, 'utf-8');
+			} else {
+				return undefined;
+			}
+		});
+}
+
+function requireIfExists(filePath) {
+	return readIfExists(filePath)
+		.then(file => {
+			return file ? JSON.parse(file) : undefined;
+		});
+}
+
+function getOrigamiJson(cwd) {
+	cwd = cwd || process.cwd();
+	return requireIfExists(path.join(cwd, '/origami.json'));
+}
+
+
+function getComponentBrands(cwd) {
+	return getOrigamiJson(cwd)
+		.then(origamiJson => {
+			const hasBrandsDefined = origamiJson && origamiJson.brands && Array.isArray(origamiJson.brands) && origamiJson.brands.length > 0;
+			if (hasBrandsDefined) {
+				return origamiJson.brands;
+			}
+			return ['core', 'internal', 'whitelabel'];
+		});
+}
+
 module.exports.core = {
 	builder: "webpack5",
 }
 
-module.exports.stories = [
-	"../stories/**/*.stories.mdx",
-	"../stories/**/*.stories.@(js|jsx|ts|tsx)",
-	"../../../components/*/stories/**/*.stories.mdx",
-	"../../../components/*/stories/**/*.stories.@(js|jsx|ts|tsx)",
-]
+module.exports.stories = (async () => {
+	const storyPaths = [
+		"../stories/**/*.stories.mdx",
+		"../stories/**/*.stories.@(js|jsx|ts|tsx)"
+	];
+
+	const componentDirectories = await globby(['../../components/**'], {
+		gitignore: false,
+		expandDirectories: false,
+		onlyDirectories: true,
+		deep: 1,
+	});
+
+	for (const componentDirectory of componentDirectories) {
+		const brands = await getComponentBrands(componentDirectory);
+		const storiesForBrand = brands.includes(brand) ? await globby([`${componentDirectory}/stories/**/*.stories.@(mdx|js|jsx|ts|tsx)`], {
+			gitignore: false,
+			expandDirectories: false,
+			deep: 1,
+		}) : [];
+		storyPaths.push(...storiesForBrand.map(storyPath => `../${storyPath}`));
+	}
+
+	return storyPaths;
+})();
 
 module.exports.addons = [
 	"@storybook/addon-essentials",
@@ -24,7 +101,7 @@ module.exports.addons = [
 					return (
 						`
 							$system-code: origami;
-							$o-brand: ${process.env.ORIGAMI_STORYBOOK_BRAND || "core"};
+							$o-brand: ${brand};
 							@import "@financial-times/o-colors/main";
 							@include oColors();
 						` + content
