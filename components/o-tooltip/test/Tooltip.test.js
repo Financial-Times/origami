@@ -291,6 +291,16 @@ describe("Tooltip", () => {
 			proclaim.strictEqual(tooltipEl.style.zIndex, fakeZ);
 		});
 
+		it("adds a close button with an aria label, role and title when opts.showOnConstruction is set to true", () => {
+			const tooltip = new Tooltip(document.getElementById('tooltip-demo-8'));
+			tooltip.show();
+			tooltipEl = document.getElementById('tooltip-demo-8');
+			const buttonEl = tooltipEl.querySelector('.o-tooltip-close');
+			proclaim.isDefined(buttonEl);
+			proclaim.isTrue(buttonEl.hasAttribute('aria-label'));
+			proclaim.isTrue(buttonEl.hasAttribute('title'));
+		});
+
 		it("adds a close button with an aria label, role and title when opts.showOnClick is set to true", () => {
 			const tooltip = new Tooltip(document.getElementById('tooltip-demo-3'));
 			tooltip.show();
