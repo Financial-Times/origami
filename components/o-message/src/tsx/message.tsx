@@ -26,8 +26,6 @@ type MessageProps = {
 	secondaryAction?: MessageAction;
 	inner?: boolean;
 	showCloseButton?: boolean;
-	autoOpen?: boolean;
-	parentElement?: string;
 };
 
 type TextContentPropType = {
@@ -45,9 +43,19 @@ const Highlight = ({text}: TextContentPropType) => {
 export function Message({
 	type = 'alert',
 	state = 'success',
-	content = undefined,
-	primaryAction = undefined,
-	secondaryAction = undefined,
+	content = {
+		detail: 'The quick brown fox jumped over the lazy dogs!',
+		highlight: 'Hooray!',
+		additionalInfo: '',
+	},
+	primaryAction = {
+		url: '#',
+		text: 'Button',
+	},
+	secondaryAction = {
+		url: '#',
+		text: 'Text link',
+	},
 	inner = false,
 	showCloseButton = true,
 }: MessageProps) {
