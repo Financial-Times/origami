@@ -94,7 +94,7 @@ function getComponentName(cwd) {
 		});
 }
 
-function getModuleBrands(cwd) {
+function getComponentBrands(cwd) {
 	return getOrigamiJson(cwd)
 		.then(origamiJson => {
 			const hasBrandsDefined = origamiJson && origamiJson.brands && Array.isArray(origamiJson.brands) && origamiJson.brands.length > 0;
@@ -180,7 +180,7 @@ export {
 	getSassFilesList,
 	getMustacheFilesList,
 	getSassTestFiles,
-	getModuleBrands,
+	getComponentBrands,
 	getComponentDemos,
-	getSassIncludePaths,	
+	getSassIncludePaths,
 }
