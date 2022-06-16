@@ -11,20 +11,9 @@ type MessageAction = {
 };
 
 type MessageProps = {
-	type: 'action' | 'alert' | 'notice';
-	state:
-		| 'success'
-		| 'neutral'
-		| 'error'
-		| 'feedback'
-		| 'warning'
-		| 'warning-light'
-		| 'inform'
-		| 'inform-inverse';
 	content: MessageContent;
 	primaryAction?: MessageAction;
 	secondaryAction?: MessageAction;
-	inner?: boolean;
 	showCloseButton?: boolean;
 };
 
@@ -32,16 +21,21 @@ type TextContentPropType = {
 	text: string;
 };
 
-const AdditionalInfo = ({text}: TextContentPropType) => {
-	return <p className="o-message__content-additional">{text}</p>;
-};
+interface AlertMessageProps extends MessageProps {
+	state: 'success' | 'neutral' | 'error';
+	inner?: boolean;
+}
 
-const Highlight = ({text}: TextContentPropType) => {
-	return <span className="o-message__content-highlight"> {text} </span>;
-};
+interface NoticeMessageProps extends MessageProps {
+	state: 'inform' | 'feedback' | 'warning' | 'warning-light';
+	inner?: boolean;
+}
 
-export function Message({
-	type = 'alert',
+interface ActionMessageProps extends MessageProps {
+	state: 'inform' | 'inform-inverse';
+}
+
+export function AlertMessage({
 	state = 'success',
 	content = {
 		detail: 'The quick brown fox jumped over the lazy dogs!',
@@ -58,7 +52,71 @@ export function Message({
 	},
 	inner = false,
 	showCloseButton = true,
-}: MessageProps) {
+}: AlertMessageProps) {
+	return message(
+		'alert',
+		state,
+		showCloseButton,
+		content,
+		primaryAction,
+		secondaryAction,
+		inner
+	);
+}
+
+export function NoticeMessage({
+	state = 'inform',
+	content = {
+		detail: 'The quick brown fox jumped over the lazy dogs!',
+		highlight: 'Hooray!',
+		additionalInfo: '',
+	},
+	primaryAction,
+	secondaryAction,
+	inner = false,
+	showCloseButton = true,
+}: NoticeMessageProps) {
+	return message(
+		'notice',
+		state,
+		showCloseButton,
+		content,
+		primaryAction,
+		secondaryAction,
+		inner
+	);
+}
+
+export function ActionMessage({
+	state = 'inform',
+	content = {
+		detail: 'The quick brown fox jumped over the lazy dogs!',
+		highlight: 'Hooray!',
+		additionalInfo: '',
+	},
+	primaryAction,
+	secondaryAction,
+	showCloseButton = true,
+}: ActionMessageProps) {
+	return message(
+		'notice',
+		state,
+		showCloseButton,
+		content,
+		primaryAction,
+		secondaryAction
+	);
+}
+
+function message(
+	type: string,
+	state: string,
+	showCloseButton: boolean,
+	content: MessageContent,
+	primaryAction?: MessageAction,
+	secondaryAction?: MessageAction,
+	inner?: boolean
+) {
 	return (
 		<div
 			className={`o-message o-message--${type} o-message--${state} ${
@@ -72,15 +130,19 @@ export function Message({
 						{content.highlight && <Highlight text={content.highlight} />}
 						{content.detail}
 					</p>
-					{inner && <AdditionalInfo text={content.additionalInfo} />}
+					{inner && content.additionalInfo && (
+						<AdditionalInfo text={content.additionalInfo} />
+					)}
 					<div className="o-message__actions">
-						<a
-							href={primaryAction.url}
-							className="o-message__actions__primary"
-							target={primaryAction.openInNewWindow ? '_blank' : '_self'}>
-							{primaryAction.text}
-						</a>
-						{state !== 'feedback' && (
+						{primaryAction && (
+							<a
+								href={primaryAction.url}
+								className="o-message__actions__primary"
+								target={primaryAction.openInNewWindow ? '_blank' : '_self'}>
+								{primaryAction.text}
+							</a>
+						)}
+						{secondaryAction && (
 							<a
 								href={secondaryAction.url}
 								className="o-message__actions__secondary"
@@ -94,3 +156,11 @@ export function Message({
 		</div>
 	);
 }
+
+const AdditionalInfo = ({text}: TextContentPropType) => {
+	return <p className="o-message__content-additional">{text}</p>;
+};
+
+const Highlight = ({text}: TextContentPropType) => {
+	return <span className="o-message__content-highlight"> {text} </span>;
+};

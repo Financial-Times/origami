@@ -154,3 +154,9 @@ module.exports.webpackFinal = async function webpackFinal(config) {
 	config.resolve.extensions.push(".ts", ".tsx")
 	return config
 }
+
+
+module.exports.env = (config) => ({
+    ...config,
+	ORIGAMI_STORYBOOK_BRAND: brand
+})

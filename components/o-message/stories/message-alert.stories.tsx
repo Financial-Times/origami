@@ -2,13 +2,15 @@ import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
-import {Message} from '../src/tsx/message';
+import {AlertMessage} from '../src/tsx/message';
 import javascript from '../main';
 import './message.scss';
 
+const Brand = process.env.ORIGAMI_STORYBOOK_BRAND || 'core';
+
 export default {
 	title: 'Components/o-message',
-	component: Message,
+	component: AlertMessage,
 	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {
@@ -25,13 +27,13 @@ export default {
 			openInNewWindow: false,
 		},
 	},
-} as ComponentMeta<typeof Message>;
+} as ComponentMeta<typeof AlertMessage>;
 
 const innerDecorator = Story => (
 	<div style={{margin: 'auto', maxWidth: '400px'}}>{Story()}</div>
 );
 
-const Story = args => {
+const AlertStory = args => {
 	useEffect(() => {
 		let messages = javascript.init();
 		return () => {
@@ -39,13 +41,13 @@ const Story = args => {
 			messages.forEach(message => message.destroy());
 		};
 	}, [args.showCloseButton]);
-	return <Message {...args} />;
+	return <AlertMessage {...args} />;
 };
 
-export const AlertSuccess: ComponentStory<typeof Message> = Story.bind({});
+export const AlertSuccess: ComponentStory<typeof AlertMessage> =
+	AlertStory.bind({});
 AlertSuccess.storyName = 'Alert: Success';
 AlertSuccess.args = {
-	type: 'alert',
 	state: 'success',
 	content: {
 		detail: 'The quick brown fox jumped over the lazy dogs!',
@@ -53,11 +55,11 @@ AlertSuccess.args = {
 	},
 };
 
-export const AlertInnerSuccess: ComponentStory<typeof Message> = Story.bind({});
+export const AlertInnerSuccess: ComponentStory<typeof AlertMessage> =
+	AlertStory.bind({});
 AlertInnerSuccess.decorators = [innerDecorator];
 AlertInnerSuccess.storyName = 'Alert Inner: Success';
 AlertInnerSuccess.args = {
-	type: 'alert',
 	state: 'success',
 	content: {
 		detail: 'The quick brown fox jumped over the lazy dogs!',
@@ -68,10 +70,10 @@ AlertInnerSuccess.args = {
 	inner: true,
 };
 
-export const AlertNeutral: ComponentStory<typeof Message> = Story.bind({});
+export const AlertNeutral: ComponentStory<typeof AlertMessage> =
+	AlertStory.bind({});
 AlertNeutral.storyName = 'Alert: Neutral';
 AlertNeutral.args = {
-	type: 'alert',
 	state: 'neutral',
 	content: {
 		detail:
@@ -79,11 +81,11 @@ AlertNeutral.args = {
 	},
 };
 
-export const AlertInnerNeutral: ComponentStory<typeof Message> = Story.bind({});
+export const AlertInnerNeutral: ComponentStory<typeof AlertMessage> =
+	AlertStory.bind({});
 AlertInnerNeutral.decorators = [innerDecorator];
 AlertInnerNeutral.storyName = 'Alert Inner: Neutral';
 AlertInnerNeutral.args = {
-	type: 'alert',
 	state: 'neutral',
 	content: {
 		detail: 'The quick brown fox did no jump over the lazy dogs!',
@@ -92,78 +94,28 @@ AlertInnerNeutral.args = {
 	inner: true,
 };
 
-export const AlertError: ComponentStory<typeof Message> = Story.bind({});
+export const AlertError: ComponentStory<typeof AlertMessage> = AlertStory.bind(
+	{}
+);
 AlertError.storyName = 'Alert: Error';
 AlertError.args = {
-	type: 'alert',
 	state: 'error',
 	content: {
 		detail: 'The quick brown fox did not jump over the lazy dogs.',
 	},
 };
 
-export const AlertInnerError: ComponentStory<typeof Message> = Story.bind({});
+export const AlertInnerError: ComponentStory<typeof AlertMessage> =
+	AlertStory.bind({});
 AlertInnerError.decorators = [innerDecorator];
 AlertInnerError.storyName = 'Alert Inner: Error';
 AlertInnerError.args = {
-	type: 'alert',
 	state: 'error',
 	content: {
 		detail: 'The quick brown fox did not jump over the lazy dogs.',
 		highlight: 'Oops.',
 		additionalInfo:
 			'But that sentence still uses all of the letters in the alphabet at least once!',
-	},
-	inner: true,
-};
-
-export const NoticeInform: ComponentStory<typeof Message> = Story.bind({});
-NoticeInform.storyName = 'Notice: Inform';
-NoticeInform.args = {
-	type: 'notice',
-	state: 'inform',
-	content: {
-		detail:
-			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
-	},
-};
-
-export const NoticeInnerInform: ComponentStory<typeof Message> = Story.bind({});
-NoticeInnerInform.decorators = [innerDecorator];
-NoticeInnerInform.storyName = 'Notice Inner: Inform';
-NoticeInnerInform.args = {
-	type: 'notice',
-	state: 'inform',
-	content: {
-		detail:
-			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
-	},
-	inner: true,
-	showCloseButton: false,
-};
-
-export const NoticeFeedback: ComponentStory<typeof Message> = Story.bind({});
-NoticeFeedback.storyName = 'Notice: Feedback';
-NoticeFeedback.args = {
-	type: 'notice',
-	state: 'feedback',
-	content: {
-		detail:
-			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
-	},
-};
-
-export const NoticeInnerFeedback: ComponentStory<typeof Message> = Story.bind(
-	{}
-);
-NoticeInnerFeedback.decorators = [innerDecorator];
-NoticeInnerFeedback.storyName = 'Notice Inner: Feedback';
-NoticeInnerFeedback.args = {
-	type: 'notice',
-	state: 'feedback',
-	content: {
-		detail:
-			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed.",
 	},
 	inner: true,
 };
