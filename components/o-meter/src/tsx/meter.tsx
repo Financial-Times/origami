@@ -1,6 +1,6 @@
 export type MeterProps = {
 	meterValue: number;
-	ariaLabel: string;
+	label: string;
 	min?: number;
 	max?: number;
 	low?: number;
@@ -26,7 +26,7 @@ const MeterContainerWrapper = ({condition, details, children}) => {
 
 export function Meter({
 	meterValue,
-	ariaLabel,
+	label,
 	min,
 	max,
 	low,
@@ -45,7 +45,7 @@ export function Meter({
 			details={{meterValue, boxValueIndentation}}>
 			<meter
 				className="o-meter"
-				aria-label={ariaLabel}
+				aria-label={label}
 				data-o-component="o-meter"
 				min={min}
 				max={max}
