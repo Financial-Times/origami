@@ -17,7 +17,8 @@
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
-    "lint": "bash ../../scripts/component/lint.bash"
+    "lint": "bash ../../scripts/component/lint.bash",
+    "watch": "bash ../../scripts/component/watch.bash"
   },
   "dependencies": {
     "ftdomdelegate": "^4.0.6"
