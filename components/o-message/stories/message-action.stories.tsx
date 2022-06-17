@@ -27,6 +27,13 @@ const actionProps = {
 			openInNewWindow: false,
 		},
 	},
+	argTypes: {
+		inner: {
+			table: {
+				disable: true,
+			},
+		},
+	},
 };
 
 const defaultProps = Brand !== 'core' ? actionProps : {};
@@ -50,8 +57,7 @@ ActionInform.storyName = 'Action: Inform Inverse';
 ActionInform.args = {
 	state: 'inform-inverse',
 	content: {
-		detail:
-			"The quick brown fox did not jump over the lazy dogs.",
+		detail: 'The quick brown fox did not jump over the lazy dogs.',
 	},
-	secondaryAction: undefined
+	secondaryAction: undefined,
 };

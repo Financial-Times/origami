@@ -73,7 +73,6 @@ const noticeProps = {
 	},
 	argTypes: argTypes(Brand),
 };
-// const defaultProps = Brand === 'internal' && noticeProps
 
 export default noticeProps as ComponentMeta<typeof NoticeMessage>;
 
