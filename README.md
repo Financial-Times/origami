@@ -35,6 +35,10 @@ components.
 
 Scripts for maintenance of the repository itself
 
+### scripts/components
+
+Default scripts used in component package.jsons for building and testing components.
+
 ### tools
 
 Tools used to build and test Origami components
@@ -65,6 +69,22 @@ brew install git-lfs
 git lfs install
 ```
 
+#### entr
+
+[entr](https://eradman.com/entrproject/) is used in the component `watch` command for watching files
+
+```shell
+brew install entr
+```
+
+#### rg
+
+[ripgrep](https://github.com/BurntSushi/ripgrep) is used in the component `watch` command for quickly choosing the files to watch for changes.
+
+```shell
+brew install rg
+```
+
 ### Quick start
 
 1. First, clone the repo
@@ -87,17 +107,29 @@ git lfs install
    ```
 
 ### Developing components
+
 #### Setup
 
 Follow the [quick start guide](#quick-start) to get started developing components.
 
-#### Preview changes
+#### Preview demos
 
-Not all components have a Storybook Story. Run the following commands to build and serve demos for a given component.
+Components that have not yet been migrated to Storybook still have their old demos as shown in the registry.
+You can view these using the build and start commands.
+
 ```shell
 npm run build -w components/o-example
 npm run start -w components/o-example
 ```
+
+##### Watch demos
+
+To serve the demos, and have them automatically rebuild when the code changes you can use the `watch` command.
+
+```shell
+npm run watch -w components/o-example
+```
+
 #### Test
 
 Run tests for a given component with the npm `test` script.
