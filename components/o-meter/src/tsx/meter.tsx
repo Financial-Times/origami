@@ -1,17 +1,3 @@
-import {CSSProperties} from 'react';
-
-interface CustomColorsTypes extends CSSProperties {
-	'--o-meter-background-color'?: string;
-	'--o-meter-optimum-color'?: string;
-	'--o-meter-sub-optimum-color'?: string;
-	'--o-meter-less-than-sub-optimum-color'?: string;
-}
-
-interface CustomDimensionsTypes extends CSSProperties {
-	'--o-meter-width'?: string;
-	'--o-meter-height'?: string;
-}
-
 export type MeterProps = {
 	meterValue: number;
 	ariaLabel: string;
@@ -21,8 +7,6 @@ export type MeterProps = {
 	high?: number;
 	optimum?: number;
 	valueBox?: boolean;
-	customColors?: CustomColorsTypes;
-	customDimensions?: CustomDimensionsTypes;
 };
 
 const MeterContainerWrapper = ({condition, details, children}) => {
@@ -49,21 +33,16 @@ export function Meter({
 	high = 100,
 	optimum,
 	valueBox,
-	customColors,
-	customDimensions,
 }: MeterProps) {
 	let boxValueIndentation;
-	let customStyles = {...customColors};
 
 	if (valueBox) {
 		boxValueIndentation = (meterValue / high) * 100 + '%';
-	} else {
-		customStyles = {...customStyles, ...customDimensions};
 	}
 	return (
 		<MeterContainerWrapper
 			condition={valueBox}
-			details={{meterValue, boxValueIndentation, customDimensions}}>
+			details={{meterValue, boxValueIndentation}}>
 			<meter
 				className="o-meter"
 				aria-label={ariaLabel}
@@ -73,7 +52,6 @@ export function Meter({
 				low={low}
 				high={high}
 				optimum={optimum}
-				style={customStyles}
 				value={meterValue}>
 				{meterValue}
 			</meter>
