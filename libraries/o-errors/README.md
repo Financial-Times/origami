@@ -55,7 +55,7 @@ automatically if they occur _before_ initialisation, although any errors reporte
 Report errors using the [`oErrors.report`](http://codedocs.webservices.ft.com/v1/jsdoc/o-errors/Errors.html#report) method.
 
 ```JS
-import oErrors from 'o-errors';
+import oErrors from '@financial-times/o-errors';
 
 oErrors.report(new Error("My error"));
 ```
@@ -301,7 +301,7 @@ If `sentryEndpoint` is not configured in the options,
 an `Error` is thrown.
 
 ```JS
-import oErrors from 'o-errors';
+import oErrors from '@financial-times/o-errors';
 oErrors.init({
 	sentryEndpoint: "https://dsn@app.getsentry.com/appid",
 	siteVersion:    "v1.0.0",                              // Optional
