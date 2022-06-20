@@ -198,7 +198,6 @@ function Share(rootEl, config) {
  */
 Share.prototype.destroy = function () {
 	this.rootDomDelegate.destroy();
-	// Should destroy remove its children? Maybe setting .innerHTML to '' is faster
 	// for (let i = 0; i < this.rootEl.children; i++) {
 	// 	this.rootEl.removeChild(this.rootEl.children[i]);
 	// }
