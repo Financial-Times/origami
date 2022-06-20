@@ -120,7 +120,7 @@ function Share(rootEl, config) {
 			liElement.classList.add('o-share__action', `o-share__action--${config.links[i]}`);
 
 			spanElement.classList.add('o-share__text');
-			spanElement.innerText = generateDescriptiveLinkText(config.links[i]);
+			spanElement.innerText = generateDescriptiveLinkText(config, config.links[i]);
 
 			aElement.classList.add('o-share__icon', `o-share__icon--${config.links[i]}`);
 			aElement.href = generateSocialUrl(config, config.links[i]);
