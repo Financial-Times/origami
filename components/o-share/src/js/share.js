@@ -198,9 +198,6 @@ function Share(rootEl, config) {
  */
 Share.prototype.destroy = function () {
 	this.rootDomDelegate.destroy();
-	// for (let i = 0; i < this.rootEl.children; i++) {
-	// 	this.rootEl.removeChild(this.rootEl.children[i]);
-	// }
 	this.rootEl.textContent = '';
 
 	this.rootEl.removeAttribute('data-o-share--js');
