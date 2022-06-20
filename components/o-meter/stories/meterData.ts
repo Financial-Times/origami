@@ -6,7 +6,7 @@ type ListProps = {
 };
 
 const higherIsBetterDefaults = {
-	ariaLabel: 'demo meter ',
+	label: 'demo meter ',
 	min: 0,
 	max: 100,
 	low: 25,
@@ -15,7 +15,7 @@ const higherIsBetterDefaults = {
 };
 
 const lowerIsBetterDefaults = {
-	ariaLabel: 'demo meter ',
+	label: 'demo meter ',
 	min: 0,
 	max: 100,
 	low: 25,
@@ -30,7 +30,7 @@ export const higherIsBetterDemoData: ListProps[] = [
 			'Higher values are best in the following meter. It has a value &lt; high, value &lt; low, optimum &gt; high.',
 		meterArgs: {
 			...higherIsBetterDefaults,
-			meterValue: 10,
+			value: 10,
 		},
 	},
 
@@ -39,7 +39,7 @@ export const higherIsBetterDemoData: ListProps[] = [
 			'Higher values are best in the following meter. It has a value &lt; high, value &gt; low, optimum &gt; high.',
 		meterArgs: {
 			...higherIsBetterDefaults,
-			meterValue: 35,
+			value: 35,
 		},
 	},
 	{
@@ -47,7 +47,7 @@ export const higherIsBetterDemoData: ListProps[] = [
 			'Higher values are best in the following meter. It has a value &gt; high, value &gt; low, optimum &gt; high.',
 		meterArgs: {
 			...higherIsBetterDefaults,
-			meterValue: 80,
+			value: 80,
 		},
 	},
 ];
@@ -58,7 +58,7 @@ export const lowerIsBetterDemoData: ListProps[] = [
 			'Lower values are best in the following meter. It has a value &gt; high, value &gt; low, optimum &lt; low.',
 		meterArgs: {
 			...lowerIsBetterDefaults,
-			meterValue: 60,
+			value: 60,
 		},
 	},
 	{
@@ -66,7 +66,7 @@ export const lowerIsBetterDemoData: ListProps[] = [
 			'Lower values are best in the following meter. It has a value &lt; high, value &gt; low, optimum &lt; low.',
 		meterArgs: {
 			...lowerIsBetterDefaults,
-			meterValue: 40,
+			value: 40,
 		},
 	},
 	{
@@ -74,7 +74,7 @@ export const lowerIsBetterDemoData: ListProps[] = [
 			'Lower values are best in the following meter. It has a value &lt; high, value &lt; low, optimum &lt; low.',
 		meterArgs: {
 			...lowerIsBetterDefaults,
-			meterValue: 10,
+			value: 10,
 		},
 	},
 ];

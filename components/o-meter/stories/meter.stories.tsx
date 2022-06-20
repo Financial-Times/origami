@@ -39,7 +39,7 @@ const ComplexStory = args => {
 export const simpleMeter: ComponentStory<typeof Meter> = Story.bind({});
 simpleMeter.args = {
 	label: 'demo meter 33',
-	meterValue: 33,
+	value: 33,
 };
 
 export const higherIsBetter = ComplexStory.bind({});
@@ -60,7 +60,7 @@ export const optionalBox: ComponentStory<typeof Meter> = Story.bind({});
 optionalBox.storyName = 'Meter With Optional Value Box';
 optionalBox.args = {
 	label: 'demo meter 2.5',
-	meterValue: 2.5,
+	value: 2.5,
 	max: 10,
 	high: 10,
 	valueBox: true,

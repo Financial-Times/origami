@@ -1,5 +1,5 @@
 export type MeterProps = {
-	meterValue: number;
+	value: number;
 	label: string;
 	min?: number;
 	max?: number;
@@ -9,40 +9,36 @@ export type MeterProps = {
 	valueBox?: boolean;
 };
 
-const MeterContainerWrapper = ({condition, details, children}) => {
+type WrapperProps = {
+	condition: boolean | undefined;
+	children: JSX.Element;
+};
+
+const MeterContainerWrapper = ({condition, children}: WrapperProps) => {
 	const wrapper = children => (
-		<div className="o-meter-container" style={details.customDimensions}>
-			{children}
-			<span
-				className="o-meter-value"
-				aria-hidden="true"
-				style={{left: details.boxValueIndentation}}>
-				{details.meterValue}
-			</span>
-		</div>
+		<div className="o-meter-container">{children}</div>
 	);
 	return condition ? wrapper(children) : children;
 };
 
 export function Meter({
-	meterValue,
+	value,
 	label,
 	min,
-	max,
+	max = 100,
 	low,
-	high = 100,
+	high,
 	optimum,
-	valueBox,
+	valueBox = false,
 }: MeterProps) {
 	let boxValueIndentation;
 
 	if (valueBox) {
-		boxValueIndentation = (meterValue / max) * 100 + '%';
+		boxValueIndentation = (value / max) * 100 + '%';
 	}
 	return (
-		<MeterContainerWrapper
-			condition={valueBox}
-			details={{meterValue, boxValueIndentation}}>
+		<MeterContainerWrapper condition={valueBox}>
+			<>
 			<meter
 				className="o-meter"
 				aria-label={label}
@@ -52,9 +48,18 @@ export function Meter({
 				low={low}
 				high={high}
 				optimum={optimum}
-				value={meterValue}>
-				{meterValue}
+				value={value}>
+				{value}
 			</meter>
+			{valueBox && (
+				<span
+				className="o-meter-value"
+				aria-hidden="true"
+				style={{left: boxValueIndentation}}>
+					{value}
+				</span>
+			)}
+			</>
 		</MeterContainerWrapper>
 	);
 }
