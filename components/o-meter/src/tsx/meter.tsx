@@ -37,7 +37,7 @@ export function Meter({
 	let boxValueIndentation;
 
 	if (valueBox) {
-		boxValueIndentation = (meterValue / high) * 100 + '%';
+		boxValueIndentation = (meterValue / max) * 100 + '%';
 	}
 	return (
 		<MeterContainerWrapper
