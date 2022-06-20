@@ -45,6 +45,9 @@ export const Inverse: ComponentStory<typeof Share> = Story.bind({});
 Inverse.args = {
 	inverse: true,
 };
+Inverse.parameters = {
+	origamiBackground: 'slate',
+};
 export const Vertical: ComponentStory<typeof Share> = Story.bind({});
 Vertical.args = {
 	vertical: true,
