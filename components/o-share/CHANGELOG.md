@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.3.0](https://www.github.com/Financial-Times/origami/compare/o-share-v8.2.2...o-share-v8.3.0) (2022-06-21)
+
+
+### Features
+
+* o-share demos for storybook ([#749](https://www.github.com/Financial-Times/origami/issues/749)) ([bbb6cef](https://www.github.com/Financial-Times/origami/commit/bbb6cef08b2575ab6449d93890ee5cdc392942b1))
+
 ### [8.2.2](https://www.github.com/Financial-Times/origami/compare/o-share-v8.2.1...o-share-v8.2.2) (2022-04-21)
 
 
