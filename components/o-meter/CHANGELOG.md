@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://www.github.com/Financial-Times/origami/compare/o-meter-v3.1.1...o-meter-v3.2.0) (2022-06-21)
+
+
+### Features
+
+* o-meter demos for storybook ([#751](https://www.github.com/Financial-Times/origami/issues/751)) ([3de498a](https://www.github.com/Financial-Times/origami/commit/3de498a8001fc931bbe3f7acebf0c03ea7e740e7))
+
 ### [3.1.1](https://www.github.com/Financial-Times/origami/compare/o-meter-v3.1.0...o-meter-v3.1.1) (2022-01-13)
 
 

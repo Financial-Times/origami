@@ -3,10 +3,24 @@
 /// @type Bool
 $o-fonts-is-silent: true !default;
 
-/// Path to default font files.
+/// Origami Build Service path to font files.
 ///
+/// @deprecated - Use "$o-fonts-build-service-path" or "$o-fonts-self-host-path" instead.
 /// @type String
 $o-fonts-path: 'https://www.ft.com/__origami/service/build/v3/font?version=1.12' !default;
+
+/// Origami Build Service path to font files.
+///
+/// @type String
+$o-fonts-build-service-path: $o-fonts-path !default;
+
+/// Alternative path to self hosted font files, hosted on a service which does not 
+/// conform to the Origami Build Service api. For example this is used by 
+/// Financial-Times/ft-app to support offline fonts.
+///
+/// @see $o-fonts-build-service-path - If not set the Origami Build Service is used to host fonts.
+/// @type String
+$o-fonts-self-host-path: '' !default;
 
 /// The default `font-display` property of included font faces.
 /// https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display

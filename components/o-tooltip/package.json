@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-tooltip",
-  "version": "5.2.3",
+  "version": "5.2.4",
   "description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
   "keywords": [
     "tooltip",
@@ -22,7 +22,8 @@
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
-    "lint": "bash ../../scripts/component/lint.bash"
+    "lint": "bash ../../scripts/component/lint.bash",
+    "watch": "bash ../../scripts/component/watch.bash"
   },
   "dependencies": {
     "ftdomdelegate": "^4.0.6"

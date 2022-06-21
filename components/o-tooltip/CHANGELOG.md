@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.4](https://www.github.com/Financial-Times/origami/compare/o-tooltip-v5.2.3...o-tooltip-v5.2.4) (2022-06-15)
+
+
+### Bug Fixes
+
+* o-tooltip show close button on construction ([0c71889](https://www.github.com/Financial-Times/origami/commit/0c71889e0b1855041efe28dadcff9dbefb99d704))
+
 ### [5.2.3](https://www.github.com/Financial-Times/origami/compare/o-tooltip-v5.2.2...o-tooltip-v5.2.3) (2022-05-30)
 
 

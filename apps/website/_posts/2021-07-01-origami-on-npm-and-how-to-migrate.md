@@ -68,6 +68,7 @@ This guide used to give a choice between updating Sass include paths ( <code>@im
 
 1. Run the project locally in its current state.
 1. Check your project installs the [latest major Bower release](#last-bower-releases) of each component. If your project is using outdated component releases, follow the [component migration guides](#last-bower-releases) to update to the latest major Bower release.
+1. Check your project builds Sass using [Dart Sass](https://www.npmjs.com/package/sass), the canonical version of Sass, which is now required by Origami components – [LibSass and Node Sass were deprecated](https://sass-lang.com/blog/libsass-is-deprecated) in 2020.
 1. Now you're ready to do the NPM migration.
 1. If the project is not using NPM version 7:
    1. Clean the directory of `node_modules` and any built artefacts
