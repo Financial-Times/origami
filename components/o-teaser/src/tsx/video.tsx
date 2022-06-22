@@ -1,17 +1,19 @@
-import { h } from '@financial-times/x-engine'
-import Image from './Image'
+import Image from './image';
 
 // Re-format the data for use with o-video
-const formatData = (props) =>
+const formatData = props =>
 	JSON.stringify({
 		renditions: [props.video],
-		mainImageUrl: props.image ? props.image.url : null
-	})
+		mainImageUrl: props.image ? props.image.url : null,
+	});
 
 // To prevent React from touching the DOM after mounting… return an empty <div />
 // <https://reactjs.org/docs/integrating-with-other-libraries.html>
-const Embed = (props) => {
-	const showGuidance = typeof props.showGuidance === 'boolean' ? props.showGuidance.toString() : 'true'
+const Embed = props => {
+	const showGuidance =
+		typeof props.showGuidance === 'boolean'
+			? props.showGuidance.toString()
+			: 'true';
 	return (
 		<div className="o-teaser__image-container js-image-container">
 			<div
@@ -30,10 +32,10 @@ const Embed = (props) => {
 				data-o-video-systemcode={props.systemCode}
 			/>
 		</div>
-	)
-}
+	);
+};
 
-export default (props) => (
+export default props => (
 	<div className="o-teaser__video">
 		<div className="o--if-js">
 			<Embed {...props} />
@@ -42,4 +44,4 @@ export default (props) => (
 			<Image {...props} />
 		</div>
 	</div>
-)
+);

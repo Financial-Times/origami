@@ -1,16 +1,23 @@
-import { h } from '@financial-times/x-engine'
-import Link from './Link'
+import Link from './link';
 
-export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators, ...props }) => {
-	const displayTitle = headlineTesting && altTitle ? altTitle : title
-	const displayUrl = relativeUrl || url
+export default ({
+	title,
+	altTitle,
+	headlineTesting,
+	relativeUrl,
+	url,
+	indicators,
+	...props
+}) => {
+	const displayTitle = headlineTesting && altTitle ? altTitle : title;
+	const displayUrl = relativeUrl || url;
 	// o-labels--premium left for backwards compatibility for o-labels v3
-	const premiumClass = 'o-labels o-labels--premium o-labels--content-premium'
-	let ariaLabel
+	const premiumClass = 'o-labels o-labels--premium o-labels--content-premium';
+	let ariaLabel;
 	if (props.type === 'video') {
-		ariaLabel = `Watch video ${displayTitle}`
+		ariaLabel = `Watch video ${displayTitle}`;
 	} else if (props.type === 'audio') {
-		ariaLabel = `Listen to podcast ${displayTitle}`
+		ariaLabel = `Listen to podcast ${displayTitle}`;
 	}
 
 	return (
@@ -21,7 +28,7 @@ export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators
 				attrs={{
 					'data-trackable': 'heading-link',
 					className: 'js-teaser-heading-link',
-					'aria-label': ariaLabel
+					'aria-label': ariaLabel,
 				}}>
 				{displayTitle}
 			</Link>
@@ -33,5 +40,5 @@ export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators
 				</span>
 			) : null}
 		</div>
-	)
-}
+	);
+};

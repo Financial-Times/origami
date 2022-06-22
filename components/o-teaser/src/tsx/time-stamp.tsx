@@ -1,7 +1,6 @@
-import { h } from '@financial-times/x-engine'
-import dateformat from 'dateformat'
+import dateformat from 'dateformat';
 
-export default ({ publishedDate }) => (
+export default ({publishedDate}) => (
 	<div className="o-teaser__timestamp">
 		<time
 			className="o-teaser__timestamp-date"
@@ -9,4 +8,4 @@ export default ({ publishedDate }) => (
 			{dateformat(publishedDate, dateformat.masks.longDate, true)}
 		</time>
 	</div>
-)
+);

@@ -1,12 +1,12 @@
-import { Layouts } from './constants'
+import {Layouts} from './constants';
 
 const Small = {
 	layout: Layouts.Small,
 	useRelativeTime: true,
 	showMeta: true,
 	showTitle: true,
-	showStatus: true
-}
+	showStatus: true,
+};
 
 const SmallHeavy = {
 	layout: Layouts.Small,
@@ -16,8 +16,8 @@ const SmallHeavy = {
 	showStandfirst: true,
 	showStatus: true,
 	showImage: true,
-	imageSize: 'Small'
-}
+	imageSize: 'Small',
+};
 
 const Large = {
 	layout: Layouts.Large,
@@ -27,8 +27,8 @@ const Large = {
 	showStandfirst: true,
 	showStatus: true,
 	showImage: true,
-	imageSize: 'Medium'
-}
+	imageSize: 'Medium',
+};
 
 const Hero = {
 	layout: Layouts.Hero,
@@ -37,8 +37,8 @@ const Hero = {
 	showTitle: true,
 	showStatus: true,
 	showImage: true,
-	imageSize: 'Medium'
-}
+	imageSize: 'Medium',
+};
 
 const HeroNarrow = {
 	layout: Layouts.Hero,
@@ -46,8 +46,8 @@ const HeroNarrow = {
 	showMeta: true,
 	showTitle: true,
 	showStandfirst: true,
-	showStatus: true
-}
+	showStatus: true,
+};
 
 const HeroVideo = {
 	layout: Layouts.Hero,
@@ -55,8 +55,8 @@ const HeroVideo = {
 	showMeta: true,
 	showTitle: true,
 	showVideo: true,
-	imageSize: 'Large'
-}
+	imageSize: 'Large',
+};
 
 const HeroOverlay = {
 	layout: Layouts.Hero,
@@ -66,8 +66,8 @@ const HeroOverlay = {
 	showStatus: true,
 	showImage: true,
 	imageSize: 'XL',
-	modifiers: ['hero-image']
-}
+	modifiers: ['hero-image'],
+};
 
 const TopStory = {
 	layout: Layouts.TopStory,
@@ -76,8 +76,8 @@ const TopStory = {
 	showTitle: true,
 	showStandfirst: true,
 	showStatus: true,
-	showRelatedLinks: true
-}
+	showRelatedLinks: true,
+};
 
 const TopStoryLandscape = {
 	layout: Layouts.TopStory,
@@ -89,8 +89,8 @@ const TopStoryLandscape = {
 	showImage: true,
 	imageSize: 'XL',
 	showRelatedLinks: true,
-	modifiers: ['landscape']
-}
+	modifiers: ['landscape'],
+};
 
 export default {
 	Small,
@@ -101,5 +101,5 @@ export default {
 	HeroVideo,
 	HeroOverlay,
 	TopStory,
-	TopStoryLandscape
-}
+	TopStoryLandscape,
+};
