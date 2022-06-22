@@ -3,16 +3,17 @@ import Content from './content';
 import CustomSlot from './custom-slot';
 import Headshot from './headshot';
 import Image from './image';
-import Meta from './meta';
+import {Meta} from './meta';
 import RelatedLinks from './related-links';
 import Status from './status';
 import Standfirst from './standfirst';
 import Title from './title';
 import Video from './video';
 import {media} from './concerns/rules';
-import {TeaserProps} from './props';
+import {TeaserProps} from './prop-types';
 
 export function Teaser(props: TeaserProps) {
+	console.log({props})
 	return (
 		<Container {...props}>
 			<Content>

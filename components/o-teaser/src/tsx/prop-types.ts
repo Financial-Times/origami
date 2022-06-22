@@ -47,17 +47,40 @@ export interface General {
 	indicators: Indicators;
 }
 
-export interface Meta {
+
+//  meta.tsx prop type definitions
+export interface PromotedProps {
+	/** Promoted content type */
+	promotedPrefixText?: string;
+	promotedSuffixText?: string;
+}
+
+export interface Context {
+	/** Enables alternative content for headline testing */
+	headlineTesting?: Boolean;
+	/** Shows the alternative meta link when the label matches */
+	parentLabel?: String;
+	/** Shows the alternative meta link when the ID matches */
+	parentId?: String;
+}
+
+export interface MetaLinkProps extends Context {
 	/** Usually a brand, or a genre, or content type */
 	metaPrefixText?: string;
 	metaSuffixText?: string;
 	metaLink?: MetaLink;
 	/** Fallback used if the parentId is the same as the display concept */
 	metaAltLink?: MetaLink;
-	/** Promoted content type */
-	promotedPrefixText?: string;
-	promotedSuffixText?: string;
 }
+export interface MetaProps extends PromotedProps, MetaLinkProps {}
+
+
+
+
+
+
+
+
 
 export interface Title {
 	title: string;
@@ -100,14 +123,7 @@ export interface RelatedLinks {
 	relatedLinks?: Link[];
 }
 
-export interface Context {
-	/** Enables alternative content for headline testing */
-	headlineTesting?: Boolean;
-	/** Shows the alternative meta link when the label matches */
-	parentLabel?: String;
-	/** Shows the alternative meta link when the ID matches */
-	parentId?: String;
-}
+
 
 export interface Variants {
 	/** Default is "small" */
@@ -123,6 +139,7 @@ export interface Variants {
 //
 
 export interface MetaLink {
+	id: string;
 	url: string;
 	/** Preferred if available */
 	relativeUrl?;
@@ -158,7 +175,7 @@ export interface Indicators {
 export interface TeaserProps
 	extends Features,
 		General,
-		Meta,
+		MetaProps,
 		Title,
 		Standfirst,
 		Status,
@@ -166,5 +183,4 @@ export interface TeaserProps
 		Headshot,
 		Video,
 		RelatedLinks,
-		Context,
 		Variants {}
