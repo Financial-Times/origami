@@ -1,4 +1,5 @@
-/**
+import { TeaserProps } from './../Props.d';
+/*
  * Rules are sets of exclusive properties.
  * They are used to ensure that only one property can take precedence.
  */
@@ -40,13 +41,7 @@ const rulesets = {
 	},
 };
 
-/**
- * Rules
- * @param {String} rule
- * @param {Props} props
- * @returns {String|null}
- */
-export default function rules(rule, props) {
+export default function rules(rule: string, props: TeaserProps) {
 	if (rulesets.hasOwnProperty(rule)) {
 		return rulesets[rule](props);
 	} else {
