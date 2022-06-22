@@ -17,11 +17,10 @@ export const argTypes = {
 		options: ['XS', 'Small', 'Medium', 'Large', 'XL', 'XXL'],
 		control: 'select',
 	},
-	// headshotTint: {
-	// 	// Not in use
-	// 	name: 'Headshot tint',
-	// 	control: {type: 'select', options: {Default: ''}},
-	// },
+	headshotTint: {
+		name: 'Headshot tint',
+		control: {type: 'select', options: {Default: ''}},
+	},
 	accessLevel: {
 		name: 'Access level',
 		options: ['free', 'registered', 'subscribed', 'premium'],
