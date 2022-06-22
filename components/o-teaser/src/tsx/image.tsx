@@ -2,11 +2,6 @@ import {ImageSizes} from './concerns/constants';
 import imageService from './concerns/image-service';
 import Link from './link';
 
-/**
- * Aspect Ratio
- * @param {{ width: Number, height: Number }} image
- * @returns {String|null}
- */
 const aspectRatio = ({width, height}) => {
 	if (typeof width === 'number' && typeof height === 'number') {
 		const ratio = (100 / width) * height;

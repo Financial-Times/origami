@@ -1,11 +1,6 @@
 import {isRecent, getRelativeDate, getStatus} from './concerns/date-time';
 import dateformat from 'dateformat';
 
-/**
- * Display Time
- * @param {Number} date
- * @returns {String}
- */
 const displayTime = date => {
 	const hours = Math.floor(Math.abs(date / 3600000));
 	const plural = hours === 1 ? 'hour' : 'hours';
@@ -17,7 +12,6 @@ const displayTime = date => {
 export default ({publishedDate, firstPublishedDate, showAlways = false}) => {
 	const relativeDate = getRelativeDate(publishedDate);
 	const status = getStatus(publishedDate, firstPublishedDate);
-
 	return showAlways === true || isRecent(relativeDate) ? (
 		<div className={`o-teaser__timestamp o-teaser__timestamp--${status}`}>
 			{status ? (

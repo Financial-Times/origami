@@ -1,8 +1,3 @@
-/**
- * Render
- * @param {String|ReactElement} action
- * @returns {ReactElement}
- */
 const render = action => {
 	// Allow parent components to pass raw HTML strings
 	if (typeof action === 'string') {
