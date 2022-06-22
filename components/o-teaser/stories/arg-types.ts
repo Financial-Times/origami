@@ -19,7 +19,8 @@ export const argTypes = {
 	},
 	headshotTint: {
 		name: 'Headshot tint',
-		control: {type: 'select', options: {Default: ''}},
+		options: [],
+		control: {type: 'select'},
 	},
 	accessLevel: {
 		name: 'Access level',
