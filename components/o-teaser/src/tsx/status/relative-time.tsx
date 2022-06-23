@@ -1,4 +1,4 @@
-import {isRecent, getRelativeDate, getStatus} from './concerns/date-time';
+import {isRecent, getRelativeDate, getStatus} from '../concerns/date-time';
 import dateformat from 'dateformat';
 
 const displayTime = date => {

@@ -3,7 +3,7 @@ import RelativeTime from './relative-time';
 import LiveBlogStatus from './live-blog-status';
 import AlwaysShowTimestamp from './always-show-timestamp';
 
-export default props => {
+export function Status(props) {
 	if (props.status) {
 		return <LiveBlogStatus {...props} />;
 	}
@@ -19,4 +19,4 @@ export default props => {
 	}
 
 	return null;
-};
+}
