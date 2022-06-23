@@ -1,22 +1,22 @@
 import {Link} from './link';
+import {TitleProps} from './prop-types';
 
-export default ({
+export function Title({
 	title,
 	altTitle,
-	headlineTesting,
 	relativeUrl,
 	url,
 	indicators,
-	...props
-}) => {
-	const displayTitle = headlineTesting && altTitle ? altTitle : title;
+	type,
+}: TitleProps) {
+	const displayTitle = altTitle ? altTitle : title;
 	const displayUrl = relativeUrl || url;
 	// o-labels--premium left for backwards compatibility for o-labels v3
 	const premiumClass = 'o-labels o-labels--premium o-labels--content-premium';
 	let ariaLabel;
-	if (props.type === 'video') {
+	if (type === 'video') {
 		ariaLabel = `Watch video ${displayTitle}`;
-	} else if (props.type === 'audio') {
+	} else if (type === 'audio') {
 		ariaLabel = `Listen to podcast ${displayTitle}`;
 	}
 
@@ -40,4 +40,4 @@ export default ({
 			)}
 		</div>
 	);
-};
+}

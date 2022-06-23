@@ -76,7 +76,7 @@ export interface MetaProps extends PromotedProps, MetaLinkProps {}
 // link.tsx types
 
 export interface LinkProps {
-	url: string;
+	url: string | undefined;
 	attrs: {
 		'data-trackable'?: string;
 		'aria-label'?: string;
@@ -87,8 +87,9 @@ export interface LinkProps {
 	children: React.ReactNode[] | React.ReactNode | string;
 }
 
-export interface Title {
-	title: string;
+// title.tsx prop type definitions
+export interface TitleProps extends General {
+	title: string
 	/** Used for testing headline variations */
 	altTitle?: string;
 }
@@ -179,7 +180,7 @@ export interface TeaserProps
 	extends Features,
 		General,
 		MetaProps,
-		Title,
+		TitleProps,
 		Standfirst,
 		Status,
 		Image,

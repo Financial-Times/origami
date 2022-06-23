@@ -1,15 +1,13 @@
 import {Link} from './link';
 
-export default ({
+export function Standfirst ({
 	standfirst,
 	altStandfirst,
-	headlineTesting,
 	relativeUrl,
 	url,
 	...props
-}) => {
-	const displayStandfirst =
-		headlineTesting && altStandfirst ? altStandfirst : standfirst;
+}) {
+	const displayStandfirst = altStandfirst ? altStandfirst : standfirst;
 	const displayUrl = relativeUrl || url;
 	return displayStandfirst ? (
 		<p className="o-teaser__standfirst">
