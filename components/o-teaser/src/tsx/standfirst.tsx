@@ -1,18 +1,17 @@
 import {Link} from './link';
+import {StandfirstProps} from './prop-types';
 
-export function Standfirst ({
+export function Standfirst({
 	standfirst,
 	altStandfirst,
 	relativeUrl,
 	url,
-	...props
-}) {
+}: StandfirstProps) {
 	const displayStandfirst = altStandfirst ? altStandfirst : standfirst;
 	const displayUrl = relativeUrl || url;
 	return displayStandfirst ? (
 		<p className="o-teaser__standfirst">
 			<Link
-				{...props}
 				url={displayUrl}
 				attrs={{
 					'data-trackable': 'standfirst-link',
@@ -23,4 +22,4 @@ export function Standfirst ({
 			</Link>
 		</p>
 	) : null;
-};
+}

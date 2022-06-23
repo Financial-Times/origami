@@ -13,15 +13,15 @@ import {media} from './concerns/rules';
 import {TeaserProps} from './prop-types';
 
 export function Teaser(props: TeaserProps) {
-	console.log({props})
+	console.log({props});
 
 	return (
 		<Container {...props}>
 			<Content>
-				{props.showMeta ? <Meta {...props} /> : null}
-				{media(props) === 'video' ? <Video {...props} /> : null}
-				{props.showTitle ? <Title {...props} /> : null}
-				{props.showStandfirst ? <Standfirst {...props} /> : null}
+				{props.showMeta && <Meta {...props} />}
+				{media(props) === 'video' && <Video {...props} />}
+				{props.showTitle && <Title {...props} />}
+				{props.showStandfirst && <Standfirst {...props} />}
 				{props.showStatus ? <Status {...props} /> : null}
 				{props.showCustomSlot ? <CustomSlot {...props} /> : null}
 				{media(props) === 'headshot' ? <Headshot {...props} /> : null}

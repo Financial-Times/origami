@@ -89,12 +89,12 @@ export interface LinkProps {
 
 // title.tsx prop type definitions
 export interface TitleProps extends General {
-	title: string
+	title: string;
 	/** Used for testing headline variations */
 	altTitle?: string;
 }
 
-export interface Standfirst {
+export interface StandfirstProps extends General {
 	standfirst?: string;
 	/** Used for testing standfirst variations */
 	altStandfirst?: string;
@@ -181,7 +181,7 @@ export interface TeaserProps
 		General,
 		MetaProps,
 		TitleProps,
-		Standfirst,
+		StandfirstProps,
 		Status,
 		Image,
 		Headshot,
