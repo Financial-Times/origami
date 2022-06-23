@@ -10,6 +10,7 @@ const displayTime = date => {
 };
 
 export default ({publishedDate, firstPublishedDate, showAlways = false}) => {
+	console.log({publishedDate, firstPublishedDate, showAlways});
 	const relativeDate = getRelativeDate(publishedDate);
 	const status = getStatus(publishedDate, firstPublishedDate);
 	return showAlways === true || isRecent(relativeDate) ? (

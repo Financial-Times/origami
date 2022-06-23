@@ -94,13 +94,15 @@ export interface TitleProps extends General {
 	altTitle?: string;
 }
 
+// standfirst.tsx prop type definitions
 export interface StandfirstProps extends General {
 	standfirst?: string;
 	/** Used for testing standfirst variations */
 	altStandfirst?: string;
 }
 
-export interface Status {
+// status.tsx prop type definitions
+export interface StatusProps {
 	publishedDate: DateLike;
 	firstPublishedDate: DateLike;
 	/** Displays new/updated X mins/hours ago */
@@ -182,7 +184,7 @@ export interface TeaserProps
 		MetaProps,
 		TitleProps,
 		StandfirstProps,
-		Status,
+		StatusProps,
 		Image,
 		Headshot,
 		Video,
