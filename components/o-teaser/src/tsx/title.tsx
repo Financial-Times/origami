@@ -1,4 +1,4 @@
-import Link from './link';
+import {Link} from './link';
 
 export default ({
 	title,
@@ -23,7 +23,6 @@ export default ({
 	return (
 		<div className="o-teaser__heading">
 			<Link
-				{...props}
 				url={displayUrl}
 				attrs={{
 					'data-trackable': 'heading-link',
@@ -32,13 +31,13 @@ export default ({
 				}}>
 				{displayTitle}
 			</Link>
-			{indicators && indicators.accessLevel === 'premium' ? (
+			{indicators?.accessLevel === 'premium' && (
 				<span>
 					{' '}
 					<span className={premiumClass}>Premium</span>
 					<span className="o-normalise-visually-hidden">&nbsp;content</span>
 				</span>
-			) : null}
+			)}
 		</div>
 	);
 };

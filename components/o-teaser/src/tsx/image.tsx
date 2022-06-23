@@ -1,6 +1,6 @@
 import {ImageSizes} from './concerns/constants';
 import imageService from './concerns/image-service';
-import Link from './link';
+import {Link} from './link';
 
 const aspectRatio = ({width, height}) => {
 	if (typeof width === 'number' && typeof height === 'number') {
@@ -8,7 +8,7 @@ const aspectRatio = ({width, height}) => {
 		return ratio.toFixed(4) + '%';
 	}
 
-	return null;
+	return 0;
 };
 
 const NormalImage = ({src}) => (
@@ -52,8 +52,8 @@ export default ({
 				url={displayUrl}
 				attrs={{
 					'data-trackable': 'image-link',
-					tabIndex: '-1',
-					'aria-hidden': 'true',
+					tabIndex: -1,
+					'aria-hidden': "true",
 				}}>
 				<div
 					className="o-teaser__image-placeholder"

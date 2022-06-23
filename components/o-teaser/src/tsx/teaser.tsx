@@ -8,12 +8,13 @@ import RelatedLinks from './related-links';
 import Status from './status';
 import Standfirst from './standfirst';
 import Title from './title';
-import Video from './video';
+import {Video} from './video';
 import {media} from './concerns/rules';
 import {TeaserProps} from './prop-types';
 
 export function Teaser(props: TeaserProps) {
 	console.log({props})
+
 	return (
 		<Container {...props}>
 			<Content>

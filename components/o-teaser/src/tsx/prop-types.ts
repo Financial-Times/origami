@@ -47,7 +47,6 @@ export interface General {
 	indicators: Indicators;
 }
 
-
 //  meta.tsx prop type definitions
 export interface PromotedProps {
 	/** Promoted content type */
@@ -74,13 +73,19 @@ export interface MetaLinkProps extends Context {
 }
 export interface MetaProps extends PromotedProps, MetaLinkProps {}
 
+// link.tsx types
 
-
-
-
-
-
-
+export interface LinkProps {
+	url: string;
+	attrs: {
+		'data-trackable'?: string;
+		'aria-label'?: string;
+		'aria-hidden'?: 'true' | 'false' | undefined;
+		className?: string;
+		tabIndex?: number;
+	};
+	children: React.ReactNode[] | React.ReactNode | string;
+}
 
 export interface Title {
 	title: string;
@@ -122,8 +127,6 @@ export interface Video {
 export interface RelatedLinks {
 	relatedLinks?: Link[];
 }
-
-
 
 export interface Variants {
 	/** Default is "small" */

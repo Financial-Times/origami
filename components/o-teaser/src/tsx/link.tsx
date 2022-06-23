@@ -1,4 +1,7 @@
-const BaseLink = ({url, attrs = {}, children}) => {
+import {LinkProps} from './prop-types';
+
+
+export function Link({url, attrs, children}: LinkProps) {
 	if (url) {
 		return (
 			<a href={url} {...attrs}>
@@ -8,9 +11,4 @@ const BaseLink = ({url, attrs = {}, children}) => {
 	} else {
 		return <span {...attrs}>{children}</span>;
 	}
-};
-
-export default ({customElements = {}, ...props}) => {
-	const Link = customElements.Link || BaseLink;
-	return <Link {...props} />;
-};
+}

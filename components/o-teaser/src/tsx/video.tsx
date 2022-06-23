@@ -35,13 +35,15 @@ const Embed = props => {
 	);
 };
 
-export default props => (
-	<div className="o-teaser__video">
-		<div className="o--if-js">
-			<Embed {...props} />
+export function Video(props) {
+	return (
+		<div className="o-teaser__video">
+			<div className="o--if-js">
+				<Embed {...props} />
+			</div>
+			<div className="o--if-no-js">
+				<Image {...props} />
+			</div>
 		</div>
-		<div className="o--if-no-js">
-			<Image {...props} />
-		</div>
-	</div>
-);
+	);
+}
