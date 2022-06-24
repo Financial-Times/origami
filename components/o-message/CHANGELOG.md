@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-message-v5.2.2...o-message-v5.3.0) (2022-06-24)
+
+
+### Features
+
+* o-message tsx and storybook demos ([959a5c5](https://www.github.com/Financial-Times/origami/commit/959a5c53a6b69c5c1952ca0699ac879e03846038))
+
 ### [5.2.2](https://www.github.com/Financial-Times/origami/compare/o-message-v5.2.1...o-message-v5.2.2) (2022-04-21)
 
 
