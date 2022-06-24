@@ -14,17 +14,19 @@ export type DateFormat =
 export interface DateProps {
 	dateTime: string;
 	format?: DateFormat;
+	className?: string;
 }
 
 export function Date({
 	dateTime,
 	format,
+	className="o-date",
 	children,
 }: React.PropsWithChildren<DateProps>): JSX.Element {
 	return (
 		<time
 			data-o-component="o-date"
-			className="o-date"
+			className={className}
 			dateTime={dateTime}
 			data-o-date-format={format}>
 			{children}

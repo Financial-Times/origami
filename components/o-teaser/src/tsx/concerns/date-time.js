@@ -1,4 +1,5 @@
-import {Newish, Recent} from './constants.ts';
+const Newish = 1000 * 60 * 60;
+const Recent = 1000 * 60 * 60 * 4;
 
 /**
  * To Date

@@ -15,6 +15,3 @@ export const Layouts = {
 	TopStory: 'top-story',
 };
 
-export const Newish = 1000 * 60 * 60;
-
-export const Recent = 1000 * 60 * 60 * 4;

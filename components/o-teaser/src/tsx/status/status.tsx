@@ -2,6 +2,7 @@ import TimeStamp from './time-stamp';
 import RelativeTime from './relative-time';
 import LiveBlogStatus from './live-blog-status';
 import {StatusProps} from '../prop-types';
+import {toDate} from '../concerns/date-time';
 
 export function Status({
 	status,
@@ -12,10 +13,10 @@ export function Status({
 	if (status) {
 		return <LiveBlogStatus status={status} />;
 	}
-console.log({
-	a: isToday(publishedDate),
-	useRelativeTime,
-})
+	console.log({
+		a: isToday(publishedDate),
+		useRelativeTime,
+	});
 	if (publishedDate) {
 		if (isToday(publishedDate) || useRelativeTime) {
 			return (
@@ -40,8 +41,7 @@ console.log({
  */
 function isToday(date) {
 	const today = new Date();
-	const dateToCompare = new Date(Date.parse(date));
-
+	const dateToCompare = toDate(date);
 	if (today.toDateString() == dateToCompare.toDateString()) {
 		return true;
 	}
