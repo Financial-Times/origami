@@ -23,33 +23,11 @@ export default {
 	parameters: {},
 } as ComponentMeta<typeof Teaser>;
 
-// const Template: DateStory = args => {
-// 	useEffect(() => {
-// 		let dates = javascript.init();
-// 		return function cleanup() {
-// 			dates = Array.isArray(dates) ? dates : [dates];
-// 			dates.forEach(date => date.destroy());
-// 		};
-// 	});
-// 	return (
-// 		<ODate {...{...args, dateTime: new Date(args.dateTime).toISOString()}} />
-// 	);
-// };
-
-
 const Story: ComponentStory<typeof Teaser> = args => {
-	// useEffect(() => {
-	// 	let dates = javascript.init();
-	// 	return function cleanup() {
-	// 		dates = Array.isArray(dates) ? dates : [dates];
-	// 		dates.forEach(date => date.destroy());
-	// 	};
-	// });
-return <Teaser {...args} />
-}
+	return <Teaser {...args} />;
+};
 
 export const Article: ComponentStory<typeof Teaser> = Story.bind({});
-console.log({articleArgs})
 Article.args = articleArgs;
 Article.argTypes = argTypes;
 

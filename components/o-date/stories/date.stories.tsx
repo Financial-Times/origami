@@ -40,13 +40,6 @@ export default {
 } as ComponentMeta<typeof ODate>;
 
 const Template: DateStory = args => {
-	useEffect(() => {
-		let dates = javascript.init();
-		return function cleanup() {
-			dates = Array.isArray(dates) ? dates : [dates];
-			dates.forEach(date => date.destroy());
-		};
-	});
 	return (
 		<ODate {...{...args, dateTime: new Date(args.dateTime).toISOString()}} />
 	);

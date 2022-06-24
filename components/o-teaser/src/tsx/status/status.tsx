@@ -10,14 +10,10 @@ export function Status({
 	useRelativeTime,
 	firstPublishedDate,
 }: StatusProps) {
-	console.log(status)
+
 	if (status) {
 		return <LiveBlogStatus status={status} />;
 	}
-	console.log({
-		a: isToday(publishedDate),
-		useRelativeTime,
-	});
 
 	if (publishedDate) {
 		if (isToday(publishedDate) || useRelativeTime) {
@@ -48,4 +44,14 @@ function isToday(date) {
 		return true;
 	}
 	return false;
+}
+
+
+export function formatTimeToIsoString(date) {
+	if (typeof date === 'number') {
+		return new Date(date).toISOString();
+	} else if (typeof date === 'object') {
+		return date.toISOString();
+	}
+	return date;
 }

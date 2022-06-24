@@ -1,3 +1,5 @@
+import js from '../../main'
+import { useEffect } from 'react';
 export type DateFormat =
 	| 'today-or-yesterday-or-nothing'
 	| 'date-only'
@@ -23,6 +25,13 @@ export function Date({
 	className="o-date",
 	children,
 }: React.PropsWithChildren<DateProps>): JSX.Element {
+	useEffect(() => {
+		let dates = js.init();
+		return function cleanup() {
+			dates = Array.isArray(dates) ? dates : [dates];
+			dates.forEach(date => date.destroy());
+		};
+	});
 	return (
 		<time
 			data-o-component="o-date"
