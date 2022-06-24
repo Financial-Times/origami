@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.0.1](https://www.github.com/Financial-Times/origami/compare/o-comments-v9.0.0...o-comments-v9.0.1) (2022-06-21)
+
+
+### Bug Fixes
+
+* o-comments, use coral v6.18.2 api to set container / body class ([3de1e3e](https://www.github.com/Financial-Times/origami/commit/3de1e3e8ba342c29c727cb8be458bc26c2a3a99d))
+
 ## [9.0.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v8.3.3...o-comments-v9.0.0) (2022-05-16)
 
 
