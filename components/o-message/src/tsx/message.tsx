@@ -133,24 +133,7 @@ function message(
 					{inner && content.additionalInfo && (
 						<AdditionalInfo text={content.additionalInfo} />
 					)}
-					<div className="o-message__actions">
-						{primaryAction && (
-							<a
-								href={primaryAction.url}
-								className="o-message__actions__primary"
-								target={primaryAction.openInNewWindow ? '_blank' : '_self'}>
-								{primaryAction.text}
-							</a>
-						)}
-						{secondaryAction && (
-							<a
-								href={secondaryAction.url}
-								className="o-message__actions__secondary"
-								target={secondaryAction.openInNewWindow ? '_blank' : '_self'}>
-								{secondaryAction.text}
-							</a>
-						)}
-					</div>
+					{Actions(primaryAction, secondaryAction)}
 				</div>
 			</div>
 		</div>
@@ -163,4 +146,33 @@ const AdditionalInfo = ({text}: TextContentPropType) => {
 
 const Highlight = ({text}: TextContentPropType) => {
 	return <span className="o-message__content-highlight"> {text} </span>;
+};
+
+const Actions = (
+	primaryAction: MessageAction | undefined,
+	secondaryAction: MessageAction | undefined
+) => {
+	if (!primaryAction && !secondaryAction) {
+		return null;
+	}
+	return (
+		<div className="o-message__actions">
+			{primaryAction && (
+				<a
+					href={primaryAction.url}
+					className="o-message__actions__primary"
+					target={primaryAction.openInNewWindow ? '_blank' : '_self'}>
+					{primaryAction.text}
+				</a>
+			)}
+			{secondaryAction && (
+				<a
+					href={secondaryAction.url}
+					className="o-message__actions__secondary"
+					target={secondaryAction.openInNewWindow ? '_blank' : '_self'}>
+					{secondaryAction.text}
+				</a>
+			)}
+		</div>
+	);
 };
