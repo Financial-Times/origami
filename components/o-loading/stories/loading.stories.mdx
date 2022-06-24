@@ -22,17 +22,17 @@ Visual loading indicators.
 For light backgrounds
 
 <Canvas>
-	<Story name="Dark mini">
-		<Loading size="mini" theme="dark" />
+	<Story name="Dark mini" args={{size: 'mini', theme: 'dark'}}>
+		{Template.bind({})}
 	</Story>
-	<Story name="Dark small">
-		<Loading size="small" theme="dark" />
+	<Story name="Dark small" args={{size: 'small', theme: 'dark'}}>
+		{Template.bind({})}
 	</Story>
-	<Story name="Dark medium">
-		<Loading size="medium" theme="dark" />
+	<Story name="Dark medium" args={{size: 'medium', theme: 'dark'}}>
+		{Template.bind({})}
 	</Story>
-	<Story name="Dark large">
-		<Loading size="large" theme="dark" />
+	<Story name="Dark large" args={{size: 'large', theme: 'dark'}}>
+		{Template.bind({})}
 	</Story>
 </Canvas>
 
@@ -41,17 +41,29 @@ For light backgrounds
 For dark backgrounds
 
 <Canvas style={{backgroundColor: 'var(--o-colors-slate)'}}>
-	<Story name="Light mini">
-		<Loading size="mini" theme="light" />
+	<Story
+		name="Light mini"
+		args={{size: 'mini', theme: 'light'}}
+		parameters={{origamiBackground: 'slate'}}>
+		{Template.bind({})}
 	</Story>
-	<Story name="Light small">
-		<Loading size="small" theme="light" />
+	<Story
+		name="Light small"
+		args={{size: 'small', theme: 'light'}}
+		parameters={{origamiBackground: 'slate'}}>
+		>{Template.bind({})}
 	</Story>
-	<Story name="Light medium">
-		<Loading size="medium" theme="light" />
+	<Story
+		name="Light medium"
+		args={{size: 'medium', theme: 'light'}}
+		parameters={{origamiBackground: 'slate'}}>
+		>{Template.bind({})}
 	</Story>
-	<Story name="Light large">
-		<Loading size="large" theme="light" />
+	<Story
+		name="Light large"
+		args={{size: 'large', theme: 'light'}}
+		parameters={{origamiBackground: 'slate'}}>
+		>{Template.bind({})}
 	</Story>
 </Canvas>
 
