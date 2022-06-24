@@ -77,7 +77,7 @@ const noticeProps = {
 export default noticeProps as ComponentMeta<typeof NoticeMessage>;
 
 const innerDecorator = Story => (
-	<div style={{margin: 'auto', maxWidth: '400px'}}>{Story()}</div>
+	<div className='demo-inner-message'>{Story()}</div>
 );
 
 const NoticeStory = args => {

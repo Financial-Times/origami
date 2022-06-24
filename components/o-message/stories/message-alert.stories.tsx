@@ -30,7 +30,7 @@ export default {
 } as ComponentMeta<typeof AlertMessage>;
 
 const innerDecorator = Story => (
-	<div style={{margin: 'auto', maxWidth: '400px'}}>{Story()}</div>
+	<div className='demo-inner-message'>{Story()}</div>
 );
 
 const AlertStory = args => {
