@@ -1,6 +1,6 @@
 export interface LoadingProps {
-	size?: 'mini' | 'small' | 'medium' | 'large';
-	theme?: 'light' | 'dark';
+	size: 'mini' | 'small' | 'medium' | 'large';
+	theme: 'light' | 'dark';
 }
 
 export function Loading({theme, size}: LoadingProps) {
