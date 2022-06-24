@@ -1,7 +1,6 @@
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-
 import {Teaser} from '../src/tsx/teaser';
 import './teaser.scss';
 import {
@@ -24,9 +23,33 @@ export default {
 	parameters: {},
 } as ComponentMeta<typeof Teaser>;
 
-const Story: ComponentStory<typeof Teaser> = args => <Teaser {...args} />;
+// const Template: DateStory = args => {
+// 	useEffect(() => {
+// 		let dates = javascript.init();
+// 		return function cleanup() {
+// 			dates = Array.isArray(dates) ? dates : [dates];
+// 			dates.forEach(date => date.destroy());
+// 		};
+// 	});
+// 	return (
+// 		<ODate {...{...args, dateTime: new Date(args.dateTime).toISOString()}} />
+// 	);
+// };
+
+
+const Story: ComponentStory<typeof Teaser> = args => {
+	// useEffect(() => {
+	// 	let dates = javascript.init();
+	// 	return function cleanup() {
+	// 		dates = Array.isArray(dates) ? dates : [dates];
+	// 		dates.forEach(date => date.destroy());
+	// 	};
+	// });
+return <Teaser {...args} />
+}
 
 export const Article: ComponentStory<typeof Teaser> = Story.bind({});
+console.log({articleArgs})
 Article.args = articleArgs;
 Article.argTypes = argTypes;
 

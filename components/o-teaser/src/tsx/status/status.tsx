@@ -10,6 +10,7 @@ export function Status({
 	useRelativeTime,
 	firstPublishedDate,
 }: StatusProps) {
+	console.log(status)
 	if (status) {
 		return <LiveBlogStatus status={status} />;
 	}
@@ -17,6 +18,7 @@ export function Status({
 		a: isToday(publishedDate),
 		useRelativeTime,
 	});
+
 	if (publishedDate) {
 		if (isToday(publishedDate) || useRelativeTime) {
 			return (

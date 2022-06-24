@@ -6,7 +6,7 @@ export type ContentType =
 	| 'package'
 	| 'liveblog'
 	| 'promoted-content'
-	| 'paid-post';
+	| 'paid-post'
 
 /** Strings must be a parseable format, e.g. ISO 8601 */
 export type DateLike = Date | string | number;
