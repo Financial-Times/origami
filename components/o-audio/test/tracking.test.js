@@ -243,7 +243,7 @@ describe('Tracking' , () => {
 			const stubAudioEl = initAudioElement();
 			initTracking(stubAudioEl, { foo: 'bar' });
 			stubAudioEl.dispatchEvent(new Event('playing'));
-			proclaim.notOk(events[0].foo);
+			proclaim.equal(events[0].foo, 'bar');
 		});
 	});
 });
