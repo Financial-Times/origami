@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.3.4](https://www.github.com/Financial-Times/origami/compare/o-fonts-v5.3.3...o-fonts-v5.3.4) (2022-06-17)
+
+
+### Bug Fixes
+
+* o-fonts, support self hosted fonts ([e2ccd49](https://www.github.com/Financial-Times/origami/commit/e2ccd49ca21ef66c72341a7a2bff54d8204f354c))
+
 ### [5.3.3](https://www.github.com/Financial-Times/origami/compare/o-fonts-v5.3.2...o-fonts-v5.3.3) (2022-04-08)
 
 

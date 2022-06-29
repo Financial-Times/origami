@@ -1,5 +1,10 @@
 /// Output All oComments Features
-@mixin oComments () {
+@mixin oComments($opts: ('coral-talk-iframe': true)) {
+
+	@if map-get($opts, coral-talk-iframe) {
+		@include _oCommentsTalkIframe();
+	}
+
 	.o-comments__staging-message-container {
 		margin-bottom: oSpacingByName('s2');
 		padding: 0;

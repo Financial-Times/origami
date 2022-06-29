@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.6.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.5.0...o-buttons-v7.6.0) (2022-05-17)
+
+
+### Features
+
+* o-buttons add ghost mono / inverse themes ([#725](https://www.github.com/Financial-Times/origami/issues/725)) ([832f400](https://www.github.com/Financial-Times/origami/commit/832f400e6200b015772025f3b91a0e02080e7a75))
+
 ## [7.5.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.4.0...o-buttons-v7.5.0) (2022-02-16)
 
 

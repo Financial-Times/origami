@@ -6,7 +6,9 @@ author: Origami
 # Redirect from legacy URLs
 redirect_from:
   - /docs/tutorials/npm/
+  - /documentation/tutorials/npm/
   - /docs/tutorials/bower-to-npm/
+  - /documentation/tutorials/bower-to-npm/
 ---
 
 We have completed our migration of Origami components from Bower to the [NPM registry](https://www.npmjs.com/) (see [January's announcement](/blog/2021/01/18/deprecating-bower-and-origami-via-npm/)). Component releases on Bower are now deprecated and we recommend all products migrate to the new implementation to keep up-to-date with future releases to Origami.
@@ -66,6 +68,7 @@ This guide used to give a choice between updating Sass include paths ( <code>@im
 
 1. Run the project locally in its current state.
 1. Check your project installs the [latest major Bower release](#last-bower-releases) of each component. If your project is using outdated component releases, follow the [component migration guides](#last-bower-releases) to update to the latest major Bower release.
+1. Check your project builds Sass using [Dart Sass](https://www.npmjs.com/package/sass), the canonical version of Sass, which is now required by Origami components – [LibSass and Node Sass were deprecated](https://sass-lang.com/blog/libsass-is-deprecated) in 2020.
 1. Now you're ready to do the NPM migration.
 1. If the project is not using NPM version 7:
    1. Clean the directory of `node_modules` and any built artefacts

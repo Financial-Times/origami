@@ -123,7 +123,7 @@ class ODate {
 	/**
 	 * Initialise the o-date component.
 	 *
-	 * @param {HTMLElement | string} el - The root element or CSS selector to initialise
+	 * @param {HTMLElement | string} [el] - The root element or CSS selector to initialise
 	 * @returns {Array<ODate> | ODate} - An o-date instance or array of o-date instances.
 	 */
 	static init (el) {

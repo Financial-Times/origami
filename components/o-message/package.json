@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-message",
-  "version": "5.2.2",
+  "version": "5.3.0",
   "description": "Provides message elements for alerting, informing or making calls to action.",
   "keywords": [
     "message",
@@ -21,7 +21,8 @@
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
-    "lint": "bash ../../scripts/component/lint.bash"
+    "lint": "bash ../../scripts/component/lint.bash",
+    "watch": "bash ../../scripts/component/watch.bash"
   },
   "peerDependencies": {
     "@financial-times/math": "^1.0.0",

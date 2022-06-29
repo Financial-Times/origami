@@ -388,7 +388,7 @@ describe("smoke-tests (./overlay.js)", function() {
 		this.timeout(10000);
 
 		const mod = new Overlay('testOverlay', {
-			src: 'https://www.ft.com/__origami/service/build/v2/files/o-card@2.2.3/demos/standard.html',
+			src: 'https://www.ft.com/__origami/service/build/v3/demo/html?component=o-typography%407.3.2&demo=links&system_code=origami&brand=core',
 			trigger: document.querySelector('.o-overlay-trigger')
 		});
 
@@ -396,7 +396,7 @@ describe("smoke-tests (./overlay.js)", function() {
 			let overlays = document.querySelectorAll('.o-overlay');
 			proclaim.equal(overlays.length, 1);
 
-			proclaim.include(mod.content.innerHTML, '<div class="o-card__container">');
+			proclaim.include(mod.content.innerHTML, 'o-typography-body');
 
 			mod.close();
 			overlays = document.querySelectorAll('.o-overlay');

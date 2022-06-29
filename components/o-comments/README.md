@@ -112,7 +112,7 @@ In rare cases, a user may have already set their display name in a different par
 
 ## JavaScript
 
-No code will run automatically unless you are using the [Build Service](https://www.ft.com/__origami/service/build/v2/). You must either construct an `o-comments` object or fire the `o.DOMContentLoaded` event, which o-comments listens for.
+No code will run automatically unless you are using the [Build Service](https://www.ft.com/__origami/service/build/). You must either construct an `o-comments` object or fire the `o.DOMContentLoaded` event, which o-comments listens for.
 
 ### Constructing an o-comments
 
@@ -205,27 +205,26 @@ const comments = new Comments(commentsElement, {
 
 ## Sass
 
-Include all styles for o-comments with the mixin `oComments`:
+Include all styles for o-comments with the mixin `oComments`. Set the `coral-talk-iframe` option to `false`:
 
 ```scss
-@include oComments()
+@include oComments($opts: ('coral-talk-iframe': false));
 ```
+
+The `coral-talk-iframe` option is set to false as these styles are included in the Coral Talk iframe, via the [Origami Build Service](https://www.ft.com/__origami/service/build/), and do not need to be included directly within projects themselves.
 
 ### Styling of Coral Talk iframe
 
-This component contains a sass file (/src/scss/coral-talk-iframe/main.scss) that provides custom styling for Coral Talk components inside their own iframe. That file **must only** be referenced from Coral Talk admin panel by specifying the path of the file in Origami Build Service.
-
-Example: `modules=o-comments@6.0.0-beta.24:/src/scss/coral-talk-iframe/main.scss`
-
-Encoded URL: `https://www.ft.com/__origami/service/build/v2/bundles/css?modules%3Do-comments%406.0.0-beta.24%3A%2Fsrc%2Fscss%2Fcoral-talk-iframe%2Fmain.scss`
+This component contains a sass file (/src/scss/coral-talk-iframe/main.scss) that provides custom styling for Coral Talk components inside their own iframe. That file is included in the Coral Talk admin panel by including o-comments using an [Origami Build Service](https://www.ft.com/__origami/service/build/) request.
 
 
 ## Migration
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 8 | N/A | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-⚠ maintained | 7 | 7.7 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+✨ active | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
+⚠ maintained | 8 | N/A | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+╳ deprecated | 7 | 7.7 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
 ╳ deprecated | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
 ╳ deprecated | 5 | 5.0.1 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
 ╳ deprecated | 4 | 4.2.0 | - |
