@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.2.6](https://www.github.com/Financial-Times/origami/compare/o-table-v9.2.5...o-table-v9.2.6) (2022-06-29)
+
+
+### Bug Fixes
+
+* alternate to a lighter background  ([a4f2252](https://www.github.com/Financial-Times/origami/commit/a4f2252f83c40165a4c1151196bffb93ad816a98))
+
 ### [9.2.5](https://www.github.com/Financial-Times/origami/compare/o-table-v9.2.4...o-table-v9.2.5) (2022-04-21)
 
 
