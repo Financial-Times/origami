@@ -238,7 +238,7 @@ describe('Tracking' , () => {
 			})
 		);
 
-		it('doesnt allow unknown attributes', () => {
+		it('does allow unknown attributes', () => {
 			const events = oTracking.start();
 			const stubAudioEl = initAudioElement();
 			initTracking(stubAudioEl, { foo: 'bar' });
