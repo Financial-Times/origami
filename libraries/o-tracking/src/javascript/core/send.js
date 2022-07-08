@@ -47,7 +47,7 @@ function sendRequest(request, callback) {
 		transport: transport.name, // The transport method used.
 	});
 
-	if (getSetting('config').test) {
+	if (getSetting('config').test || getSetting('config').test_data) {
 		system.is_live = false;
 	} else {
 		system.is_live = true;
