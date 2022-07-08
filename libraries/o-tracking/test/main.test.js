@@ -295,6 +295,48 @@ describe('main', function () {
 		proclaim.equal(sent_data.system.is_live, true);
 	});
 
+	it('should set system.is_live to be false if `test_data` is set to true', function () {
+		oTracking.destroy();
+
+		oTracking.init({
+			test_data: true
+		});
+
+
+		const callback = sinon.spy();
+
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?3"
+		}, callback);
+
+		proclaim.ok(callback.called, 'Callback not called.');
+
+		const sent_data = callback.getCall(0).thisValue;
+
+		proclaim.equal(sent_data.system.is_live, false);
+	});
+
+	it('should set system.is_live to be true if `test_data` is set to false', function () {
+		oTracking.destroy();
+
+		oTracking.init({
+			test_data: false
+		});
+
+
+		const callback = sinon.spy();
+
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?4"
+		}, callback);
+
+		proclaim.ok(callback.called, 'Callback not called.');
+
+		const sent_data = callback.getCall(0).thisValue;
+
+		proclaim.equal(sent_data.system.is_live, true);
+	});
+
 	it('should set system.is_live to be false if `test` is set to true', function () {
 		oTracking.destroy();
 
@@ -337,7 +379,7 @@ describe('main', function () {
 		proclaim.equal(sent_data.system.is_live, true);
 	});
 
-	it('should set system.is_live to be true if `test` is not set', function () {
+	it('should set system.is_live to be true if `test` and `test_data` is not set', function () {
 		const callback = sinon.spy();
 
 		oTracking.page({
