@@ -6,14 +6,15 @@ export type ContentType =
 	| 'package'
 	| 'liveblog'
 	| 'promoted-content'
-	| 'paid-post';
+	| 'paid-post'
+	| (string & {});
 
 /** Strings must be a parseable format, e.g. ISO 8601 */
 export type DateLike = Date | string | number;
 
-export type Layout = 'small' | 'large' | 'hero' | 'top-story';
+export type Layout = 'small' | 'large' | 'hero' | 'top-story' | (string & {});
 
-export type Theme = 'extra-article';
+export type Theme = 'extra-article'  | (string & {});
 
 export type Modifier =
 	| 'stacked'
@@ -22,9 +23,9 @@ export type Modifier =
 	| 'opinion-background'
 	| 'landscape'
 	| 'big-story'
-	| string;
 
-export type ImageSize = 'XS' | 'Small' | 'Medium' | 'Large' | 'XL' | 'XXL';
+
+export type ImageSize = 'XS' | 'Small' | 'Medium' | 'Large' | 'XL' | 'XXL' | (string & {});
 
 export interface Features {
 	showMeta?: boolean;
@@ -53,7 +54,7 @@ export interface Meta {
 	metaSuffixText?: string;
 	metaLink?: MetaLink;
 	/** Fallback used if the parentId is the same as the display concept */
-	metaAltLink?: MetaLink;
+	metaAltLink?: MetaLink | (string & {});
 	/** Promoted content type */
 	promotedPrefixText?: string;
 	promotedSuffixText?: string;
@@ -77,7 +78,7 @@ export interface Status {
 	/** Displays new/updated X mins/hours ago */
 	useRelativeTime?: boolean;
 	/** Live blog status, will override date and time */
-	status?: 'inprogress' | 'comingsoon' | 'closed';
+	status?: 'inprogress' | 'comingsoon' | 'closed' | (string & {});
 }
 
 export interface Image {
@@ -115,7 +116,7 @@ export interface Variants {
 	/** Content package theme */
 	theme?: Theme;
 	/** Extra class name variations to append */
-	modifiers?: Modifier[];
+	modifiers?: Modifier[] | (string & {});
 }
 
 //
@@ -132,7 +133,7 @@ export interface MetaLink {
 export interface Link {
 	id: string;
 	type: ContentType;
-	url: string;
+	url?: string;
 	/** Preferred to url if available */
 	relativeUrl?;
 	title: string;
@@ -145,7 +146,7 @@ export interface Media {
 }
 
 export interface Indicators {
-	accessLevel: 'premium' | 'subscribed' | 'registered' | 'free';
+	accessLevel?: 'premium' | 'subscribed' | 'registered' | 'free';
 	isOpinion?: boolean;
 	isColumn?: boolean;
 	isPodcast?: boolean;
