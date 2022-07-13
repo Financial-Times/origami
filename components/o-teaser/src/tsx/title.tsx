@@ -1,5 +1,9 @@
 import Link from './link';
+import { Title, General } from './props';
 
+interface TitleProps extends Title, General {
+	headlineTesting?: boolean,
+}
 export default ({
 	title,
 	altTitle,
@@ -8,7 +12,7 @@ export default ({
 	url,
 	indicators,
 	...props
-}) => {
+}: TitleProps) => {
 	const displayTitle = headlineTesting && altTitle ? altTitle : title;
 	const displayUrl = relativeUrl || url;
 	// o-labels--premium left for backwards compatibility for o-labels v3

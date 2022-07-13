@@ -70,7 +70,7 @@ export interface Meta {
 export interface Title {
 	title: string;
 	/** Used for testing headline variations */
-	altTitle?: string;
+	altTitle: string;
 }
 
 export interface Standfirst {
@@ -92,12 +92,12 @@ export interface Image {
 	/** Images must be accessible to the Origami Image Service */
 	image?: Media;
 	imageSize?: ImageSize;
-	imageLazyLoad?: Boolean | String;
+	imageLazyLoad?: boolean | string;
 }
 
 export interface Headshot {
-	headshot?: String;
-	headshotTint?: String;
+	headshot?: string;
+	headshotTint?: string;
 }
 
 export interface Video {
@@ -110,11 +110,11 @@ export interface RelatedLinks {
 
 export interface Context {
 	/** Enables alternative content for headline testing */
-	headlineTesting?: Boolean;
+	headlineTesting?: boolean;
 	/** Shows the alternative meta link when the label matches */
-	parentLabel?: String;
+	parentLabel?: string;
 	/** Shows the alternative meta link when the ID matches */
-	parentId?: String;
+	parentId?: string;
 }
 
 export interface Variants {
@@ -175,4 +175,6 @@ export interface TeaserProps
 		Video,
 		RelatedLinks,
 		Context,
-		Variants {}
+		Variants {
+			customSlot?: string
+		}

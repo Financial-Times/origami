@@ -1,4 +1,6 @@
-const renderLink = ({id, type, title, url, relativeUrl}, i) => {
+import { Link, RelatedLinks } from "./Props";
+
+const renderLink = ({id, type, title, url, relativeUrl}: Link, i) => {
 	const displayUrl = relativeUrl || url;
 	return (
 		<li
@@ -12,7 +14,7 @@ const renderLink = ({id, type, title, url, relativeUrl}, i) => {
 	);
 };
 
-export default ({relatedLinks = []}) =>
+export default ({relatedLinks = []}: RelatedLinks) =>
 	relatedLinks && relatedLinks.length ? (
 		<ul className="o-teaser__related">{relatedLinks.map(renderLink)}</ul>
 	) : null;

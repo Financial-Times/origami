@@ -1,6 +1,7 @@
 import {ImageSizes} from './concerns/constants';
 import imageService from './concerns/image-service';
 import Link from './link';
+import { Image } from './props';
 
 const aspectRatio = ({width, height}) => {
 	if (typeof width === 'number' && typeof height === 'number') {
@@ -22,6 +23,13 @@ const LazyImage = ({src, lazyLoad}) => {
 	);
 };
 
+interface ImageProps extends Image {
+	relativeUrl?: string,
+	url?: string,
+	imageHighestQuality?: string,
+
+}
+
 export default ({
 	relativeUrl,
 	url,
@@ -30,7 +38,7 @@ export default ({
 	imageLazyLoad,
 	imageHighestQuality,
 	...props
-}) => {
+}: ImageProps) => {
 	if (!image || (image && !image.url)) {
 		return null;
 	}
@@ -52,7 +60,7 @@ export default ({
 				url={displayUrl}
 				attrs={{
 					'data-trackable': 'image-link',
-					tabIndex: '-1',
+					tabIndex: -1,
 					'aria-hidden': 'true',
 				}}>
 				<div

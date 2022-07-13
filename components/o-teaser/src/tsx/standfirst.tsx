@@ -1,4 +1,11 @@
 import Link from './link';
+import { Standfirst } from './props';
+
+interface StandfirstProps extends Standfirst {
+	headlineTesting?: boolean,
+	relativeUrl?: string,
+	url?: string,
+}
 
 export default ({
 	standfirst,
@@ -7,7 +14,7 @@ export default ({
 	relativeUrl,
 	url,
 	...props
-}) => {
+}: StandfirstProps) => {
 	const displayStandfirst =
 		headlineTesting && altStandfirst ? altStandfirst : standfirst;
 	const displayUrl = relativeUrl || url;

@@ -1,6 +1,6 @@
 import {isRecent, getRelativeDate, getStatus} from './concerns/date-time';
 import dateformat from 'dateformat';
-
+import {DateLike} from './props';
 const displayTime = date => {
 	const hours = Math.floor(Math.abs(date / 3600000));
 	const plural = hours === 1 ? 'hour' : 'hours';
@@ -8,8 +8,12 @@ const displayTime = date => {
 
 	return `${hours} ${suffix}`;
 };
-
-export default ({publishedDate, firstPublishedDate, showAlways = false}) => {
+export type RelativeTimeProps = {
+	publishedDate?: DateLike;
+	firstPublishedDate?: DateLike;
+	showAlways?: boolean;
+}
+export default ({publishedDate, firstPublishedDate, showAlways = false}: RelativeTimeProps) => {
 	const relativeDate = getRelativeDate(publishedDate);
 	const status = getStatus(publishedDate, firstPublishedDate);
 	return showAlways === true || isRecent(relativeDate) ? (

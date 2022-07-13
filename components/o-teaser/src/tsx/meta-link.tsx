@@ -1,3 +1,5 @@
+import {Meta} from './props';
+
 const sameId = (context = {}, id) => {
 	return id && context && context.parentId && id === context.parentId;
 };
@@ -8,13 +10,19 @@ const sameLabel = (context = {}, label) => {
 	);
 };
 
+// not sure if context prop is ever passed down teaser props.
+// and it does not exist in type definitions either.
+interface MetaLinkProps extends Meta {
+	context?: any;
+}
+
 export default ({
 	metaPrefixText,
 	metaLink,
 	metaAltLink,
 	metaSuffixText,
 	context,
-}) => {
+}: MetaLinkProps) => {
 	const showPrefixText = metaPrefixText && !sameLabel(context, metaPrefixText);
 	const showSuffixText = metaSuffixText && !sameLabel(context, metaSuffixText);
 	const linkId = metaLink && metaLink.id;

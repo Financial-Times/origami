@@ -1,7 +1,8 @@
 import Image from './image';
+import {Video} from './props';
 
 // Re-format the data for use with o-video
-const formatData = props =>
+const formatData = (props) =>
 	JSON.stringify({
 		renditions: [props.video],
 		mainImageUrl: props.image ? props.image.url : null,
@@ -9,7 +10,7 @@ const formatData = props =>
 
 // To prevent React from touching the DOM after mounting… return an empty <div />
 // <https://reactjs.org/docs/integrating-with-other-libraries.html>
-const Embed = props => {
+const Embed = (props: Video) => {
 	const showGuidance =
 		typeof props.showGuidance === 'boolean'
 			? props.showGuidance.toString()
