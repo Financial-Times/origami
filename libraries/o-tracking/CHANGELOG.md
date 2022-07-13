@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.0](https://www.github.com/Financial-Times/origami/compare/o-tracking-v4.3.2...o-tracking-v4.4.0) (2022-07-12)
+
+
+### Features
+
+* o-tracking, add test mode minus debug logs ([fcea526](https://www.github.com/Financial-Times/origami/commit/fcea526f883ce422e5cd48f7b318242afa7fced8))
+
 ### [4.3.2](https://www.github.com/Financial-Times/origami/compare/o-tracking-v4.3.1...o-tracking-v4.3.2) (2022-04-21)
 
 
