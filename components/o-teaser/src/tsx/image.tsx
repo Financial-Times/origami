@@ -3,13 +3,13 @@ import imageService from './concerns/image-service';
 import Link from './link';
 import { Image } from './props';
 
-const aspectRatio = ({width, height}) => {
+const aspectRatio = ({width, height}: {width: number, height: number}) => {
 	if (typeof width === 'number' && typeof height === 'number') {
 		const ratio = (100 / width) * height;
 		return ratio.toFixed(4) + '%';
 	}
 
-	return null;
+	return 0;
 };
 
 const NormalImage = ({src}) => (
@@ -48,7 +48,7 @@ export default ({
 	);
 	const options =
 		imageSize === 'XXL' && imageHighestQuality ? {quality: 'highest'} : {};
-	const imageSrc = useImageService
+	const imageSrc = useImageService && imageSize
 		? imageService(image.url, ImageSizes[imageSize], options)
 		: image.url;
 	const ImageComponent = imageLazyLoad ? LazyImage : NormalImage;

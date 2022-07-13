@@ -2,15 +2,21 @@ import Image from './image';
 import {Video} from './props';
 
 // Re-format the data for use with o-video
-const formatData = (props) =>
+const formatData = props =>
 	JSON.stringify({
 		renditions: [props.video],
 		mainImageUrl: props.image ? props.image.url : null,
 	});
 
+// showGuidance Prop is not passed down from anywhere
+interface VideoProps extends Video {
+	showGuidance?: boolean;
+	id?: string;
+	systemCode?: string;
+}
 // To prevent React from touching the DOM after mounting… return an empty <div />
 // <https://reactjs.org/docs/integrating-with-other-libraries.html>
-const Embed = (props: Video) => {
+const Embed = (props: VideoProps) => {
 	const showGuidance =
 		typeof props.showGuidance === 'boolean'
 			? props.showGuidance.toString()

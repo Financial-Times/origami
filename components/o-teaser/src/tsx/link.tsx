@@ -1,5 +1,3 @@
-import { Link } from "./props";
-
 const BaseLink = ({url, attrs = {}, children}) => {
 	if (url) {
 		return (

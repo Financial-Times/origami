@@ -102,6 +102,7 @@ export interface Headshot {
 
 export interface Video {
 	video?: Media;
+
 }
 
 export interface RelatedLinks {
@@ -131,10 +132,12 @@ export interface Variants {
 //
 
 export interface MetaLink {
+	id?: string;
 	url: string;
 	/** Preferred if available */
 	relativeUrl?;
 	prefLabel: string;
+
 }
 
 export interface Link {
@@ -163,6 +166,10 @@ export interface Indicators {
 	isScoop?: boolean;
 }
 
+export interface CustomSlot {
+	customSlot?: JSX.Element | string;
+}
+
 export interface TeaserProps
 	extends Features,
 		General,
@@ -175,6 +182,5 @@ export interface TeaserProps
 		Video,
 		RelatedLinks,
 		Context,
-		Variants {
-			customSlot?: string
-		}
+		Variants,
+		CustomSlot {}

@@ -1,4 +1,5 @@
 import DOMPurify from 'dompurify';
+import { CustomSlot } from './Props';
 
 const render = (action: JSX.Element | string) => {
 	// Allow parent components to pass raw HTML strings
@@ -9,11 +10,7 @@ const render = (action: JSX.Element | string) => {
 	}
 };
 
-type CustomSlotProps = {
-	customSlot?: JSX.Element | string;
-}
-
-export default (props: CustomSlotProps) =>
+export default (props: CustomSlot) =>
 	props.customSlot ? (
 		<div className="o-teaser__action">{render(props.customSlot)}</div>
 	) : null;

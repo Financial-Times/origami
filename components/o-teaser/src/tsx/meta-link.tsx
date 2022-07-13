@@ -1,10 +1,10 @@
 import {Meta} from './props';
 
-const sameId = (context = {}, id) => {
+const sameId = (context: Context | undefined, id: string | undefined) => {
 	return id && context && context.parentId && id === context.parentId;
 };
 
-const sameLabel = (context = {}, label) => {
+const sameLabel = (context: Context | undefined, label: string | undefined) => {
 	return (
 		label && context && context.parentLabel && label === context.parentLabel
 	);
@@ -12,10 +12,20 @@ const sameLabel = (context = {}, label) => {
 
 // not sure if context prop is ever passed down teaser props.
 // and it does not exist in type definitions either.
-interface MetaLinkProps extends Meta {
-	context?: any;
-}
+type Context = {
+	parentId?: string;
+	parentLabel?: string;
+};
 
+interface MetaLinkProps extends Meta {
+	context?: Context;
+	// metaAltLink?: MetaLink;
+}
+type DisplayLink = {
+	relativeUrl?: string;
+	url?: string;
+	prefLabel?: string;
+}
 export default ({
 	metaPrefixText,
 	metaLink,
