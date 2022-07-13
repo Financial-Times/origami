@@ -45,7 +45,7 @@
   "percy": true,
   "private": false,
   "dependencies": {
-    "date-fns": "^2.28.0",
-    "dateformat": "^5.0.3"
+    "date-fns": "^1.29.0",
+    "dateformat": "^3.0.3"
   }
 }
