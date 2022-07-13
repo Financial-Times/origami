@@ -14,7 +14,7 @@ export type DateLike = Date | string | number;
 
 export type Layout = 'small' | 'large' | 'hero' | 'top-story' | (string & {});
 
-export type Theme = 'extra-article'  | (string & {});
+export type Theme = 'extra-article' | (string & {});
 
 export type Modifier =
 	| 'stacked'
@@ -23,9 +23,16 @@ export type Modifier =
 	| 'opinion-background'
 	| 'landscape'
 	| 'big-story'
+	| (string & {});
 
-
-export type ImageSize = 'XS' | 'Small' | 'Medium' | 'Large' | 'XL' | 'XXL' | (string & {});
+export type ImageSize =
+	| 'XS'
+	| 'Small'
+	| 'Medium'
+	| 'Large'
+	| 'XL'
+	| 'XXL'
+	| (string & {});
 
 export interface Features {
 	showMeta?: boolean;
