@@ -48,13 +48,53 @@ const controlsToExclude = [
 export const Article: ComponentStory<typeof Teaser> = Story.bind({});
 Article.args = articleArgs;
 Article.argTypes = argTypes;
-Article.parameters = {controls: {exclude: controlsToExclude}};
+Article.parameters = {
+	controls: {
+		exclude: [
+			'relatedLinks',
+			'video',
+			'headshot',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showVideo',
+			'showHeadshot',
+		],
+	},
+};
 
 export const Podcast: ComponentStory<typeof Teaser> = Story.bind({});
 Podcast.args = podcastArgs;
 Podcast.argTypes = argTypes;
 Podcast.parameters = {
-	controls: {exclude: [...controlsToExclude, 'metaPrefixText', 'altTitle']},
+	controls: {
+		exclude: [
+			'relatedLinks',
+			'video',
+			'headshot',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showVideo',
+			'showHeadshot',
+			'metaPrefixText',
+			'altTitle',
+		],
+	},
 };
 
 export const Opinion: ComponentStory<typeof Teaser> = Story.bind({});
@@ -63,7 +103,21 @@ Opinion.argTypes = argTypes;
 
 Opinion.parameters = {
 	controls: {
-		exclude: subtractArrays(controlsToExclude, ['showHeadshot', 'headshot']),
+		exclude: [
+			'relatedLinks',
+			'video',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showVideo',
+		],
 	},
 };
 
@@ -72,7 +126,27 @@ ContentPackage.storyName = 'ContentPackage';
 ContentPackage.args = contentPackageArgs;
 ContentPackage.argTypes = argTypes;
 ContentPackage.parameters = {
-	controls: {exclude: [...controlsToExclude, 'showStandfirst', 'indicators']},
+	controls: {
+		exclude: [
+			'relatedLinks',
+			'video',
+			'headshot',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showVideo',
+			'showHeadshot',
+			'showStandfirst',
+			'indicators',
+		],
+	},
 };
 
 export const PackageItem: ComponentStory<typeof Teaser> = Story.bind({});
@@ -82,7 +156,21 @@ PackageItem.argTypes = argTypes;
 PackageItem.parameters = {
 	controls: {
 		exclude: [
-			...controlsToExclude,
+			'relatedLinks',
+			'video',
+			'headshot',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showVideo',
+			'showHeadshot',
 			'showStandfirst',
 			'metaAltLink',
 			'altTitle',
@@ -94,48 +182,83 @@ PackageItem.parameters = {
 export const Promoted: ComponentStory<typeof Teaser> = Story.bind({});
 Promoted.args = promotedArgs;
 Promoted.argTypes = argTypes;
-const promotedUnusedControls = subtractArrays(
-	[
-		...controlsToExclude,
-		'indicators',
-		'metaPrefixText',
-		'metaSuffixText',
-		'metaLink',
-		'metaAltLink',
-		'altTitle',
-		'altStandfirst',
-	],
-	['promotedPrefixText', 'promotedSuffixText']
-);
-Promoted.parameters = {controls: {exclude: promotedUnusedControls}};
+Promoted.parameters = {
+	controls: {
+		exclude: [
+			'relatedLinks',
+			'video',
+			'headshot',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showVideo',
+			'showHeadshot',
+			'indicators',
+			'metaPrefixText',
+			'metaSuffixText',
+			'metaLink',
+			'metaAltLink',
+			'altTitle',
+			'altStandfirst',
+		],
+	},
+};
 
 export const TopStory: ComponentStory<typeof Teaser> = Story.bind({});
 TopStory.storyName = 'TopStory';
 TopStory.args = topStoryArgs;
 TopStory.argTypes = argTypes;
-const topStoryUnusedControls = subtractArrays(
-	[...controlsToExclude, 'indicators'],
-	['relatedLinks', 'showRelatedLinks']
-);
-TopStory.parameters = {controls: {exclude: topStoryUnusedControls}};
+TopStory.parameters = {
+	controls: {
+		exclude: [
+			'video',
+			'headshot',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showVideo',
+			'showHeadshot',
+			'indicators',
+		],
+	},
+};
 
 export const Video: ComponentStory<typeof Teaser> = Story.bind({});
 Video.args = videoArgs;
 Video.argTypes = argTypes;
-const videoUnusedControls = subtractArrays(
-	[
-		...controlsToExclude,
-		'showStandfirst',
-		'showStatus',
-		'showImage',
-		'indicators',
-		'altTitle',
-		'altStandfirst',
-	],
-	['video', 'showVideo']
-);
-Video.parameters = {controls: {exclude: videoUnusedControls}};
-
-function subtractArrays(a: string[], b: string[]) {
-	return a.filter(x => !b.includes(x));
-}
+Video.parameters = {
+	controls: {
+		exclude: [
+			'relatedLinks',
+			'headshot',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showHeadshot',
+			'showStandfirst',
+			'showStatus',
+			'showImage',
+			'indicators',
+			'altTitle',
+			'altStandfirst',
+		],
+	},
+};
