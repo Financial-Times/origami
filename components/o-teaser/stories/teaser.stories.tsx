@@ -1,3 +1,6 @@
+import parse from 'html-react-parser';
+import DOMPurify from 'dompurify';
+
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
@@ -16,6 +19,10 @@ import {
 
 import {argTypes} from './arg-types';
 
+argTypes.customSlot = {
+	type: 'string',
+};
+
 export default {
 	title: 'Components/o-teaser',
 	component: Teaser,
@@ -24,26 +31,14 @@ export default {
 } as ComponentMeta<typeof Teaser>;
 
 const Story: ComponentStory<typeof Teaser> = args => {
+	console.log();
+
+	if (args.showCustomSlot) {
+		const parsedElement = parse(DOMPurify.sanitize(args.customSlot));
+		args.customSlot = parsedElement;
+	}
 	return <Teaser {...args} />;
 };
-
-const controlsToExclude = [
-	'relatedLinks',
-	'video',
-	'headshot',
-	'imageLazyLoad',
-	'parentId',
-	'parentLabel',
-	'headlineTesting',
-	'promotedSuffixText',
-	'promotedPrefixText',
-	'relativeUrl',
-	'showCustomSlot',
-	'customSlot',
-	'showRelatedLinks',
-	'showVideo',
-	'showHeadshot',
-];
 
 export const Article: ComponentStory<typeof Teaser> = Story.bind({});
 Article.args = articleArgs;

@@ -86,4 +86,5 @@ export const argTypes = {
 	},
 	publishedDate: {name: 'Published Date', control: 'date'},
 	firstPublishedDate: {name: 'First Published Date', control: 'date'},
+	customSlot: {}
 };

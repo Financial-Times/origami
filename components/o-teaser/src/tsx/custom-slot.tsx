@@ -1,10 +1,9 @@
-import DOMPurify from 'dompurify';
 import { CustomSlot } from './Props';
 
-const render = (action: JSX.Element | string) => {
+const render = (action: JSX.Element | JSX.Element[] | string) => {
 	// Allow parent components to pass raw HTML strings
 	if (typeof action === 'string') {
-		return <span dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(action)}} />;
+		return <span>{action}</span>;
 	} else {
 		return action;
 	}

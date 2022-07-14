@@ -102,7 +102,6 @@ export interface Headshot {
 
 export interface Video {
 	video?: Media;
-
 }
 
 export interface RelatedLinks {
@@ -137,7 +136,6 @@ export interface MetaLink {
 	/** Preferred if available */
 	relativeUrl?;
 	prefLabel: string;
-
 }
 
 export interface Link {
@@ -167,7 +165,8 @@ export interface Indicators {
 }
 
 export interface CustomSlot {
-	customSlot?: JSX.Element | string;
+	/** HTML string. Two sibling tags needs to be wrapped inside a parent element */
+	customSlot?: JSX.Element | JSX.Element[] | string;
 }
 
 export interface TeaserProps
