@@ -68,6 +68,9 @@
 	.o-teaser__standfirst {
 		@include _oTeaserStandfirst;
 	}
+	.o-teaser__visually-hidden {
+		@include oTeaserVisuallyHidden;
+	}
 }
 
 @mixin _oTeaserElementsImages {

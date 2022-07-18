@@ -1,8 +1,8 @@
 import Link from './link';
-import { Title, General } from './props';
+import {Title, General} from './props';
 
 interface TitleProps extends Title, General {
-	headlineTesting?: boolean,
+	headlineTesting?: boolean;
 }
 export default ({
 	title,
@@ -40,7 +40,7 @@ export default ({
 				<span>
 					{' '}
 					<span className={premiumClass}>Premium</span>
-					<span className="o-normalise-visually-hidden">&nbsp;content</span>
+					<span className="o-teaser__visually-hidden">&nbsp;content</span>
 				</span>
 			) : null}
 		</div>
