@@ -2,14 +2,16 @@ import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
-import {Header} from '../src/tsx/header';
+import {OHeader} from '../src/tsx/o-header';
 import javascript from '../main';
 import './header.scss';
 
 
+import { headerData, megaMenuData } from './args';
+
 export default {
 	title: 'Components/o-header',
-	component: Header,
+	component: OHeader,
 	decorators: [withDesign, withHtml],
 	args: {
 	},
@@ -17,15 +19,17 @@ export default {
 		guidelines: {},
 		html: {},
 	},
-} as ComponentMeta<typeof Header>
+} as ComponentMeta<typeof OHeader>
 
-const Story: ComponentStory<typeof Header> = args => {
+const Story: ComponentStory<typeof OHeader> = args => {
 	useEffect(() => void javascript.init(), []);
-	return <Header {...args} />;
+	return <OHeader {...args} />;
 };
 
 
-export const HeaderPrimary = Story.bind({})
+export const HeaderPrimary: ComponentStory<typeof OHeader> = Story.bind({})
 HeaderPrimary.storyName = 'Header'
-HeaderPrimary.args = {}
+HeaderPrimary.args = headerData
 
+export const MegaMenu: ComponentStory<typeof OHeader> = Story.bind({})
+MegaMenu.args = {...megaMenuData, megamenu: true}
