@@ -12,13 +12,13 @@ export type HeaderProps = {
 	drawer?: Drawer;
 	subnav?: boolean;
 	currentNav?: CurrentNav;
+	type: 'primary' | 'megamenu' | 'subnav';
 };
 
 // General Types
 export type AnchorType = {
 	name: string;
 	href: string;
-	isButton?: boolean;
 };
 
 // NAV types
@@ -38,15 +38,15 @@ export type NavItem = {
 export interface NavDesktopItem extends NavItem {
 	hasMega?: boolean;
 	articles?: Article[];
-	subsections?: Subsections[];
+	subsections?: Subsection[];
 }
 
-type Article = {
+export type Article = {
 	title: string;
 	url: string;
 };
 
-type Subsections = {
+export type Subsection = {
 	name: string;
 	url: string;
 };
@@ -92,8 +92,9 @@ type User = {
 };
 
 // CUrrent NAV types
-type CurrentNav = {
+export type CurrentNav = {
 	name: string;
+	href?: string;
 	children: AnchorType[];
 	selected?: boolean;
 	childrenRight?: AnchorType[];

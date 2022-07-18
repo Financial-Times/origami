@@ -480,6 +480,7 @@
 	},
 	"subnav": true,
 	"currentNav": {
+		"href": "#",
 		"name": "xx x xxxxxx",
 		"selected": true,
 		"ancestors": [
