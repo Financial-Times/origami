@@ -40,3 +40,8 @@ HeaderWithSubnav.args = {...subnavData, type: 'subnav'}
 export const HeaderWithSubnavAndRightAlignedItems: ComponentStory<typeof OHeader> = Story.bind({})
 HeaderWithSubnavAndRightAlignedItems.args = {...subNavRightAlignData, type: 'subnav'}
 
+export const LogoOnlyHeader: ComponentStory<typeof OHeader> = Story.bind({})
+
+LogoOnlyHeader.args = {
+	type: 'logo-only'
+}

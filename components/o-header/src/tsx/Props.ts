@@ -12,7 +12,7 @@ export type HeaderProps = {
 	drawer?: DrawerProps;
 	subnav?: boolean;
 	currentNav?: CurrentNav;
-	type: 'primary' | 'megamenu' | 'subnav';
+	type: 'primary' | 'megamenu' | 'subnav' | 'logo-only';
 };
 
 // General Types

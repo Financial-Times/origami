@@ -2,6 +2,7 @@ import {Header} from './header-primary';
 import {MegaMenu} from './mega-menu';
 import {HeaderProps} from './Props';
 import {Subnav} from './subnav';
+import {LogoOnlyHeader} from './logo-only'
 
 export function OHeader({
 	currentNav,
@@ -39,6 +40,7 @@ export function OHeader({
 		megamenu: nav ? <MegaMenu {...nav} /> : null,
 		subnav:
 			nav && currentNav ? <Subnav {...nav} currentNav={currentNav} /> : null,
+			'logo-only': <LogoOnlyHeader />
 	};
 
 	return typeMapping[type];
