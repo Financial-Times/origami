@@ -9,7 +9,7 @@ export type HeaderProps = {
 	simple?: boolean;
 	transparent?: boolean;
 	megamenu?: boolean;
-	drawer?: Drawer;
+	drawer?: DrawerProps;
 	subnav?: boolean;
 	currentNav?: CurrentNav;
 	type: 'primary' | 'megamenu' | 'subnav';
@@ -54,7 +54,7 @@ export type Subsection = {
 
 
 // Drawer types
-type Drawer = {
+export type DrawerProps = {
 	nav: DrawerNav[];
 	editions: {
 		current: EditionType;
@@ -63,30 +63,30 @@ type Drawer = {
 	user: User;
 };
 
-type DrawerNav = {
+export type DrawerNav = {
 	heading?: {
 		name: string;
 	};
-	items: DrawerNavItem[];
+	items: DrawerNavItemProps[];
 };
 
-type EditionType = {
+export type EditionType = {
 	name: string;
 	id: string;
 };
 
-type DrawerNavItem = {
+export type DrawerNavItemProps = {
 	name: string;
-	href: string;
-	index: number;
+	href?: string;
+	index?: number;
 	selected?: boolean;
 	hasChildren?: boolean;
 	children?: AnchorType[];
 	variation?: string;
-	divider?: boolean;
+	divide?: boolean;
 };
 
-type User = {
+export type User = {
 	isSignedIn: boolean;
 	name: string;
 };

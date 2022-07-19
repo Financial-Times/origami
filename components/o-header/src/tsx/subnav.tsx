@@ -18,9 +18,8 @@ export function Subnav({
 			data-o-component="o-header"
 			data-o-header--no-js>
 			<NavMobile navItems={mobile} />
-
 			<NavDesktop navItems={desktop} isSignedIn={isSignedIn} />
-			<SubNavigation currentNav={currentNav}/>
+			<SubNavigation currentNav={currentNav} />
 		</header>
 	);
 }

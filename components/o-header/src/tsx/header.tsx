@@ -35,7 +35,7 @@ export function OHeader({
 	});
 
 	const typeMapping = {
-		primary: nav ? <Header {...nav} /> : null,
+		primary: nav && drawer ? <Header {...nav} drawer={drawer} /> : null,
 		megamenu: nav ? <MegaMenu {...nav} /> : null,
 		subnav:
 			nav && currentNav ? <Subnav {...nav} currentNav={currentNav} /> : null,

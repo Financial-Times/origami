@@ -1,11 +1,21 @@
 import {NavMobile, NavDesktop} from './nav';
-import {Nav} from './Props';
+import {DrawerProps, NavItem, NavDesktopItem} from './Props';
 import {Drawer} from './drawer';
 import {Search} from './search';
 import {Anon} from './anon';
 import {Top} from './top';
 
-export function Header({mobile, desktop, isSignedIn}: Nav) {
+export function Header({
+	mobile,
+	desktop,
+	isSignedIn,
+	drawer,
+}: {
+	mobile: NavItem[];
+	desktop: NavDesktopItem[];
+	isSignedIn: boolean;
+	drawer: DrawerProps;
+}) {
 	return (
 		<>
 			<header
@@ -19,7 +29,7 @@ export function Header({mobile, desktop, isSignedIn}: Nav) {
 				<NavDesktop navItems={desktop} isSignedIn={isSignedIn} />
 			</header>
 
-			<Drawer />
+			<Drawer {...drawer} />
 		</>
 	);
 }
