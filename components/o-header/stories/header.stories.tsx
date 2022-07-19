@@ -7,7 +7,7 @@ import javascript from '../main';
 import './header.scss';
 
 
-import { headerData, megaMenuData, subnavData } from './args';
+import { headerData, megaMenuData, subnavData, subNavRightAlignData } from './args';
 
 export default {
 	title: 'Components/o-header',
@@ -36,4 +36,7 @@ MegaMenu.args = {...megaMenuData, type: 'megamenu'}
 
 export const HeaderWithSubnav: ComponentStory<typeof OHeader> = Story.bind({})
 HeaderWithSubnav.args = {...subnavData, type: 'subnav'}
+
+export const HeaderWithSubnavAndRightAlignedItems: ComponentStory<typeof OHeader> = Story.bind({})
+HeaderWithSubnavAndRightAlignedItems.args = {...subNavRightAlignData, type: 'subnav'}
 

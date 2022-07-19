@@ -1,5 +1,5 @@
 import {NavMobile, NavDesktop, SubNavigation} from './nav';
-import {CurrentNav, Nav, NavDesktopItem, NavItem} from './Props';
+import {CurrentNav, NavDesktopItem, NavItem} from './Props';
 
 export function Subnav({
 	mobile,

@@ -186,7 +186,7 @@ function TopStories({articles}: {articles?: Article[]}) {
 }
 
 export function SubNavigation({currentNav}: {currentNav: CurrentNav}) {
-	const {name, href, children, ancestors} = currentNav;
+	const {name, href, children, ancestors, childrenRight} = currentNav;
 	return (
 		<div
 			className="o-header__subnav"
@@ -235,6 +235,20 @@ export function SubNavigation({currentNav}: {currentNav: CurrentNav}) {
 										</li>
 									))}
 							</ul>
+							{childrenRight && (
+								<ul
+									className="o-header__subnav-list o-header__subnav-list--children o-header__subnav-list--right"
+									aria-label="Actions">
+									{childrenRight.map(({name, href}, i) => (
+										<li className="o-header__subnav-item">
+											<a className="o-header__subnav-link" href={href} key={i}>
+												{' '}
+												{name}{' '}
+											</a>
+										</li>
+									))}
+								</ul>
+							)}
 						</div>
 					</div>
 					<button
