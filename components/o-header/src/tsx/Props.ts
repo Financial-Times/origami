@@ -12,7 +12,7 @@ export type HeaderProps = {
 	drawer?: DrawerProps;
 	subnav?: boolean;
 	currentNav?: CurrentNav;
-	type: 'primary' | 'megamenu' | 'subnav' | 'logo-only';
+	type: 'primary' | 'megamenu' | 'subnav' | 'logo-only' | 'simple';
 };
 
 // General Types
@@ -33,7 +33,7 @@ export type NavItem = {
 	url: string;
 	index: number;
 	selected?: boolean;
-}
+};
 
 export interface NavDesktopItem extends NavItem {
 	hasMega?: boolean;
@@ -50,8 +50,6 @@ export type Subsection = {
 	name: string;
 	url: string;
 };
-
-
 
 // Drawer types
 export type DrawerProps = {

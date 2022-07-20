@@ -1,4 +1,4 @@
-export function Top() {
+export function Top({topLeft, topCenter, topRight}) {
 	return (
 		<div className="o-header__row o-header__top">
 			<div className="o-header__container">
