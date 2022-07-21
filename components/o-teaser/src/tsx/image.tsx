@@ -1,9 +1,9 @@
 import {ImageSizes} from './concerns/constants';
 import imageService from './concerns/image-service';
 import Link from './link';
-import { Image } from './props';
+import {Image} from './props';
 
-const aspectRatio = ({width, height}: {width: number, height: number}) => {
+const aspectRatio = ({width, height}: {width: number; height: number}) => {
 	if (typeof width === 'number' && typeof height === 'number') {
 		const ratio = (100 / width) * height;
 		return ratio.toFixed(4) + '%';
@@ -24,10 +24,12 @@ const LazyImage = ({src, lazyLoad}) => {
 };
 
 interface ImageProps extends Image {
-	relativeUrl?: string,
-	url?: string,
-	imageHighestQuality?: string,
-
+	relativeUrl?: string;
+	url?: string;
+	/**
+	 * Calls image service with "quality=highest" option, works only with XXL images
+	 */
+	imageHighestQuality?: string;
 }
 
 export default ({
@@ -48,9 +50,10 @@ export default ({
 	);
 	const options =
 		imageSize === 'XXL' && imageHighestQuality ? {quality: 'highest'} : {};
-	const imageSrc = useImageService && imageSize
-		? imageService(image.url, ImageSizes[imageSize], options)
-		: image.url;
+	const imageSrc =
+		useImageService && imageSize
+			? imageService(image.url, ImageSizes[imageSize], options)
+			: image.url;
 	const ImageComponent = imageLazyLoad ? LazyImage : NormalImage;
 
 	return (

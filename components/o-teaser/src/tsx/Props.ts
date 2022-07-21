@@ -40,17 +40,26 @@ export interface Features {
 	showStandfirst?: boolean;
 	showStatus?: boolean;
 	showImage?: boolean;
+	/**
+	 * Takes precedence over image
+	 */
 	showHeadshot?: boolean;
+	/**
+	 * Takes precedence over image or headshot
+	 */
 	showVideo?: boolean;
 	showRelatedLinks?: boolean;
 	showCustomSlot?: boolean;
 }
 
 export interface General {
+	/** Content UUID  */
 	id: string;
+	/** Canonical URL */
 	url?: string;
-	/** Preferred to url if available */
+	/** URL path, will take precedence over `url` */
 	relativeUrl?: string;
+	/** Content type (article, video, etc.) */
 	type: ContentType;
 	indicators: Indicators;
 }
@@ -62,7 +71,7 @@ export interface Meta {
 	metaLink?: MetaLink;
 	/** Fallback used if the parentId is the same as the display concept */
 	metaAltLink?: MetaLink | (string & {});
-	/** Promoted content type */
+	/** Promoted content type. Will take precedence over links */
 	promotedPrefixText?: string;
 	promotedSuffixText?: string;
 }
@@ -80,9 +89,10 @@ export interface Standfirst {
 }
 
 export interface Status {
+	/** Last published date */
 	publishedDate: DateLike;
 	firstPublishedDate: DateLike;
-	/** Displays new/updated X mins/hours ago */
+	/** Display time since publish. Displays new/updated X mins/hours ago */
 	useRelativeTime?: boolean;
 	/** Live blog status, will override date and time */
 	status?: 'inprogress' | 'comingsoon' | 'closed' | (string & {});
@@ -91,16 +101,25 @@ export interface Status {
 export interface Image {
 	/** Images must be accessible to the Origami Image Service */
 	image?: Media;
+	/** XS, Small, Medium, Large, XL or XXL */
 	imageSize?: ImageSize;
+	/** Output image with `data-src` attribute. If this is a string it will be appended to the image as a class name. */
 	imageLazyLoad?: boolean | string;
 }
 
 export interface Headshot {
+	/**
+	 * Only displayed if `showHeadshot` and columnist indicator is true
+	 */
 	headshot?: string;
+	/**
+	 * See the image service API (https://www.ft.com/__origami/service/image/v2/docs/api) for usage
+	 */
 	headshotTint?: string;
 }
 
 export interface Video {
+	/** Requires o-video to create a video player */
 	video?: Media;
 }
 
@@ -118,9 +137,9 @@ export interface Context {
 }
 
 export interface Variants {
-	/** Default is "small" */
+	/** "small", "large", "hero", or "top-story". Default is "small" */
 	layout?: Layout;
-	/** Content package theme */
+	/** Content package theme, setting this will override any other indicators */
 	theme?: Theme;
 	/** Extra class name variations to append */
 	modifiers?: Modifier[] | (string & {});
@@ -132,6 +151,9 @@ export interface Variants {
 
 export interface MetaLink {
 	id?: string;
+	/**
+	 * Canonical URL
+	 */
 	url: string;
 	/** Preferred if available */
 	relativeUrl?;
@@ -139,8 +161,11 @@ export interface MetaLink {
 }
 
 export interface Link {
+	/** Content UUID */
 	id: string;
+	/** Content type (article, video, etc.) */
 	type: ContentType;
+	/** Canonical URL */
 	url?: string;
 	/** Preferred to url if available */
 	relativeUrl?;
@@ -148,6 +173,7 @@ export interface Link {
 }
 
 export interface Media {
+	/** Content UUID or, in the case of images, data: or blob: URL */
 	url: string;
 	width: number;
 	height: number;
