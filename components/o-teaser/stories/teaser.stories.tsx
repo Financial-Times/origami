@@ -31,8 +31,6 @@ export default {
 } as ComponentMeta<typeof Teaser>;
 
 const Story: ComponentStory<typeof Teaser> = args => {
-	console.log();
-
 	if (args.showCustomSlot) {
 		const parsedElement = parse(DOMPurify.sanitize(args.customSlot));
 		args.customSlot = parsedElement;
