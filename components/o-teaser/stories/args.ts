@@ -1,12 +1,12 @@
 import presets from '../src/tsx/concerns/presets';
-import articleData from '../demos/__fixtures__/article.json';
-import podcastData from '../demos/__fixtures__/podcast.json';
-import opinionData from '../demos/__fixtures__/opinion.json';
-import contentPackageData from '../demos/__fixtures__/content-package.json';
-import contentPackageItemData from '../demos/__fixtures__/package-item.json';
-import promotedData from '../demos/__fixtures__/promoted.json';
-import topStoryData from '../demos/__fixtures__/top-story.json';
-import videoData from '../demos/__fixtures__/video.json';
+import articleData from './__fixtures__/article.json';
+import podcastData from './__fixtures__/podcast.json';
+import opinionData from './__fixtures__/opinion.json';
+import contentPackageData from './__fixtures__/content-package.json';
+import contentPackageItemData from './__fixtures__/package-item.json';
+import promotedData from './__fixtures__/promoted.json';
+import topStoryData from './__fixtures__/top-story.json';
+import videoData from './__fixtures__/video.json';
 
 const {SmallHeavy, Hero, TopStoryLandscape, HeroVideo} = presets;
 
