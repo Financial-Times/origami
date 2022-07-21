@@ -10,18 +10,6 @@
 	font-weight: oFontsWeight(medium);
 }
 
-@mixin oTeaserVisuallyHidden {
-	position: absolute;
-	clip: rect(0 0 0 0);
-	clip-path: polygon(0 0, 0 0);
-	margin: -1px;
-	border: 0;
-	overflow: hidden;
-	padding: 0;
-	width: 2px;
-	height: 2px;
-	white-space: nowrap;
-}
 /// Base styles for a teaser
 /// sets the font and basic display properties
 @mixin _oTeaserBase {

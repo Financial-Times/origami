@@ -69,7 +69,7 @@
 		@include _oTeaserStandfirst;
 	}
 	.o-teaser__visually-hidden {
-		@include oTeaserVisuallyHidden;
+		@include oNormaliseVisuallyHidden;
 	}
 }
 
