@@ -1,37 +1,37 @@
-import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
+import {NavMenuItem} from '../../src/tsx/Props';
 
-const item: TNavMenuItem = {
-  label: 'UK',
-  url: '/world/uk',
-  selected: true,
-  submenu: null
-}
+const item: NavMenuItem = {
+	label: 'UK',
+	url: '/world/uk',
+	selected: true,
+	submenu: null,
+};
 
-const siblings: TNavMenuItem[] = []
+const siblings: NavMenuItem[] = [];
 
-const children: TNavMenuItem[] = [
-  {
-    label: 'UK Business & Economy',
-    url: '/uk-business-economy',
-    submenu: null
-  },
-  {
-    label: 'UK Politics & Policy',
-    url: '/world/uk/politics',
-    submenu: null
-  },
-  {
-    label: 'UK Companies',
-    url: '/companies/uk',
-    submenu: null
-  }
-]
+const children: NavMenuItem[] = [
+	{
+		label: 'UK Business & Economy',
+		url: '/uk-business-economy',
+		submenu: null,
+	},
+	{
+		label: 'UK Politics & Policy',
+		url: '/world/uk/politics',
+		submenu: null,
+	},
+	{
+		label: 'UK Companies',
+		url: '/companies/uk',
+		submenu: null,
+	},
+];
 
-const ancestors: TNavMenuItem[] = [
-  {
-    label: 'World',
-    url: '/world'
-  }
-]
+const ancestors: NavMenuItem[] = [
+	{
+		label: 'World',
+		url: '/world',
+	},
+];
 
-export default { item, siblings, children, ancestors }
+export default {item, siblings, children, ancestors};

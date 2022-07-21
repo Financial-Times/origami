@@ -1,5 +1,8 @@
-import { TNavAction } from '@financial-times/dotcom-types-navigation'
+import {NavAction} from '../../src/tsx/Props';
+const data: NavAction = {
+	id: 'subscribe',
+	name: 'Subscribe for full access',
+	url: '#',
+};
 
-const data: TNavAction = { id: 'subscribe', name: 'Subscribe for full access', url: '#' }
-
-export default data
+export default data;

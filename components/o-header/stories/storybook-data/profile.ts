@@ -8,12 +8,12 @@ import navbarUK from './navbarUK'
 import subNavigation from './subNavigationProfile'
 import user from './user'
 
-import { THeaderProps } from '../../interfaces'
+import {HeaderProps } from '../../src/tsx/Props'
 
 const breadcrumb = subNavigation.ancestors.concat(subNavigation.item)
 const subsections = subNavigation.children
 
-const data: THeaderProps = {
+const data: HeaderProps = {
   userIsAnonymous: false,
   userIsLoggedIn: true,
   showSubNavigation: true,

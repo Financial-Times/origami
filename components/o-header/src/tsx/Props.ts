@@ -1,100 +1,108 @@
-export type HeaderProps = {
-	top?: {
-		hasMyFT: boolean;
+export type NavMenuKeys =
+	| 'account'
+	| 'anon'
+	| 'drawer-international'
+	| 'drawer-uk'
+	| 'footer'
+	| 'navbar-international'
+	| 'navbar-uk'
+	| 'navbar-right'
+	| 'navbar-right-anon'
+	| 'navbar-simple'
+	| 'user';
+
+export type NavMenuKeysForEdition =
+	| 'account'
+	| 'anon'
+	| 'drawer'
+	| 'footer'
+	| 'navbar'
+	| 'navbar-right'
+	| 'navbar-right-anon'
+	| 'navbar-simple'
+	| 'user';
+
+export type NavMenus = {[key in NavMenuKeys]: NavMenu};
+
+export type NavMenusForEdition = {[key in NavMenuKeysForEdition]: NavMenu};
+
+export type HeaderProps = HeaderOptions & {
+	data: NavigationData;
+};
+export type NavigationData = NavMenusForEdition &
+	NavSubNavigation & {
+		editions: NavEditions;
+		subscribeAction?: NavAction;
+		currentPath?: string;
 	};
-	nav?: Nav;
-	search?: boolean;
-	anon?: boolean;
-	sticky?: boolean;
-	simple?: boolean;
-	transparent?: boolean;
-	megamenu?: boolean;
-	drawer?: DrawerProps;
-	subnav?: boolean;
-	currentNav?: CurrentNav;
-	type: 'primary' | 'megamenu' | 'subnav' | 'logo-only' | 'simple';
+export type HeaderOptions = {
+	variant?: HeaderVariant;
+	userIsAnonymous?: boolean;
+	userIsLoggedIn?: boolean;
+	userIsSubscribed?: boolean;
+	showSubNavigation?: boolean;
+	showUserNavigation?: boolean;
+	showStickyHeader?: boolean;
+	showMegaNav?: boolean;
+	showLogoLink?: boolean;
 };
 
-// General Types
-export type AnchorType = {
-	name: string;
-	href: string;
+export type HeaderVariant = 'simple' | 'large-logo';
+
+export type NavMenu = {
+	label: string | null;
+	items: NavMenuItem[];
 };
 
-// NAV types
-export type Nav = {
-	mobile: NavItem[];
-	desktop: NavDesktopItem[];
-	isSignedIn: boolean;
-};
-
-export type NavItem = {
-	name: string;
-	url: string;
-	index: number;
+export type NavMenuItem = {
+	label: string | null;
+	url: string | null;
+	index?: number;
 	selected?: boolean;
+	submenu?: NavMenu | null;
+	meganav?: NavMeganav[];
+	disableTracking?: boolean;
 };
 
-export interface NavDesktopItem extends NavItem {
-	hasMega?: boolean;
-	articles?: Article[];
-	subsections?: Subsection[];
+export type NavMeganav = NavMeganavSections | NavMeganavArticles;
+
+export interface NavMeganavSections {
+	component: 'sectionlist';
+	dataset: 'subsections';
+	title: string;
+	/** This data has been split into "columns" by the Next navigation API */
+	data: NavMenuItem[][];
 }
 
-export type Article = {
+export interface NavMeganavArticles {
+	component: 'articlelist';
+	dataset: 'popular';
 	title: string;
-	url: string;
-};
+	data: NavMenuItem[];
+}
 
-export type Subsection = {
+export type NavAction = {
 	name: string;
+	id: string;
 	url: string;
 };
 
-// Drawer types
-export type DrawerProps = {
-	nav: DrawerNav[];
-	editions: {
-		current: EditionType;
-		others: EditionType[];
-	};
-	user: User;
+export type NavSubNavigation = {
+	breadcrumb?: NavMenuItem[];
+	subsections?: NavMenuItem[];
+	'subsections-right'?: NavMenuItem[];
 };
 
-export type DrawerNav = {
-	heading?: {
-		name: string;
-	};
-	items: DrawerNavItemProps[];
+export type NavEditions = {
+	current: EditionType;
+	others: EditionType[];
 };
 
 export type EditionType = {
 	name: string;
 	id: string;
+	url: string;
 };
 
-export type DrawerNavItemProps = {
-	name: string;
-	href?: string;
-	index?: number;
-	selected?: boolean;
-	hasChildren?: boolean;
-	children?: AnchorType[];
-	variation?: string;
-	divide?: boolean;
-};
 
-export type User = {
-	isSignedIn: boolean;
-	name: string;
-};
-
-// CUrrent NAV types
-export type CurrentNav = {
-	name: string;
-	href?: string;
-	children: AnchorType[];
-	selected?: boolean;
-	childrenRight?: AnchorType[];
-	ancestors?: AnchorType[];
-};
+export type VariantType = 'simple' | 'large-logo' | undefined;
