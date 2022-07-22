@@ -6,21 +6,14 @@ import {DefaultHeader} from '../src/tsx/header';
 import javascript from '../main';
 import './header.scss';
 import storyData from './storybook-data';
-
+import { argTypes } from './arg-types';
 export default {
 	title: 'Components/o-header',
 	component: DefaultHeader,
 	args: {
 		currentPath: '/',
 	},
-	argTypes: {
-		currentPath: {
-			control: {
-				type: 'radio',
-				options: {show: '/', hide: '/404'},
-			},
-		},
-	},
+	argTypes,
 	decorators: [withDesign, withHtml],
 } as ComponentMeta<typeof DefaultHeader>;
 
@@ -36,6 +29,7 @@ export const HeaderPrimary: ComponentStory<typeof DefaultHeader> = args => {
 HeaderPrimary.storyName = 'Default header with drawer';
 HeaderPrimary.args = {
 	...storyData,
+	variant: 'simple',
 	showSubNavigation: true,
 	showMegaNav: true,
 	showUserNavigation: true,

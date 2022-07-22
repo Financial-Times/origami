@@ -47,7 +47,7 @@ export type HeaderOptions = {
 	showLogoLink?: boolean;
 };
 
-export type HeaderVariant = 'simple' | 'large-logo';
+export type HeaderVariant = 'simple' | 'large-logo' | string;
 
 export type NavMenu = {
 	label: string | null;
@@ -103,6 +103,3 @@ export type EditionType = {
 	id: string;
 	url: string;
 };
-
-
-export type VariantType = 'simple' | 'large-logo' | undefined;
