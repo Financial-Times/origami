@@ -1,8 +1,8 @@
-export function Search({instance}: {instance: string}) {
+export function Search() {
 	return (
 		<div
-			id={`o-header-search-${instance}`}
-			className={`o-header__row o-header__search o-header__search--${instance}`}
+			id="o-header-search"
+			className="o-header__row o-header__search o-header__search"
 			data-o-header-search>
 			<div className="o-header__container">
 				<form
@@ -12,12 +12,12 @@ export function Search({instance}: {instance: string}) {
 					aria-label="Site search">
 					<label
 						className="o-header__visually-hidden"
-						htmlFor={`o-header-search-term-${instance}`}>
+						htmlFor="o-header-search-term">
 						Search the <abbr title="Financial Times">FT</abbr>
 					</label>
 					<input
 						className="o-header__search-term"
-						id={`o-header-search-term-${instance}`}
+						id="o-header-search-term"
 						name="q"
 						type="text"
 						autoComplete="off"
@@ -32,7 +32,7 @@ export function Search({instance}: {instance: string}) {
 					<button
 						className="o-header__search-close o--if-js"
 						type="button"
-						aria-controls={`o-header-search-${instance}`}
+						aria-controls="o-header-search"
 						title="Close search bar">
 						<span className="o-header__visually-hidden">Close search bar</span>
 					</button>

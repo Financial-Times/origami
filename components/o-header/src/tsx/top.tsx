@@ -31,38 +31,50 @@ export const TopWrapper = ({
 	</div>
 );
 
-export function TopColumnLeft({instance}: {instance: string}) {
+export function TopColumnLeft() {
 	return (
 		<div className="o-header__top-column o-header__top-column--left">
 			<a
 				href="#o-header-drawer"
 				className="o-header__top-icon-link o-header__top-icon-link--menu"
 				aria-controls="o-header-drawer"
-				title="Open side navigation menu">
+				title="Open side navigation menu"
+				data-trackable="drawer-toggle">
 				<span className="o-header__top-link-label">
 					Open side navigation menu
 				</span>
 			</a>
 			<a
-				href={`#o-header-search-${instance}`}
+				href="#o-header-search"
 				className="o-header__top-icon-link o-header__top-icon-link--search"
-				aria-controls={`o-header-search-${instance}`}
-				title="Open search bar">
+				aria-controls="o-header-search"
+				title="Open search bar"
+				data-trackable="search-toggle">
 				<span className="o-header__top-link-label">Open search bar</span>
 			</a>
 		</div>
 	);
 }
 
-export function TopColumnCenter() {
+export function TopColumnCenter({showLogoLink}: {showLogoLink?: boolean}) {
+	if (showLogoLink) {
+		return (
+			<div className="o-header__top-column o-header__top-column--center">
+				<a
+					className="o-header__top-logo"
+					data-trackable="logo"
+					href="/"
+					title="Go to Financial Times homepage">
+					<span className="o-header__visually-hidden">Financial Times</span>
+				</a>
+			</div>
+		);
+	}
 	return (
 		<div className="o-header__top-column o-header__top-column--center">
-			<a
-				className="o-header__top-logo"
-				href="/"
-				title="Go to Financial Times homepage">
+			<div className="o-header__top-logo">
 				<span className="o-header__visually-hidden">Financial Times</span>
-			</a>
+			</div>
 		</div>
 	);
 }

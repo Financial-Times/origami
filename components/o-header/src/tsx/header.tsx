@@ -1,53 +1,6 @@
 import {Header} from './header-default';
-import {MegaMenu} from './mega-menu';
 import {HeaderProps} from './Props';
-import {Subnav} from './subnav';
-import {LogoOnlyHeader} from './logo-only';
-import {SimpleHeader} from './simple-header';
 import {HeaderWrapper} from './top';
-
-export function OHeader({
-	currentNav,
-	top,
-	nav,
-	search,
-	subnav,
-	anon,
-	sticky,
-	simple,
-	transparent,
-	megamenu,
-	drawer,
-	type,
-}) {
-	console.log({
-		props: {
-			type,
-			top,
-			nav,
-			search,
-			subnav,
-			currentNav,
-			anon,
-			sticky,
-			simple,
-			transparent,
-			megamenu,
-			drawer,
-		},
-	});
-
-	const typeMapping = {
-		primary: nav && drawer ? <Header {...nav} drawer={drawer} /> : null,
-		megamenu: nav ? <MegaMenu {...nav} /> : null,
-		subnav:
-			nav && currentNav ? <Subnav {...nav} currentNav={currentNav} /> : null,
-		'logo-only': <LogoOnlyHeader />,
-		simple: drawer ? <SimpleHeader drawer={drawer} /> : null,
-	};
-
-	return typeMapping[type];
-}
 
 export function DefaultHeader(props: HeaderProps) {
 	const {
@@ -73,9 +26,10 @@ export function DefaultHeader(props: HeaderProps) {
 		showLogoLink,
 		showUserNavigation,
 		userIsLoggedIn,
+		showMegaNav,
 		userIsSubscribed,
 		variant,
-		data
+		data,
 	};
 
 	return (

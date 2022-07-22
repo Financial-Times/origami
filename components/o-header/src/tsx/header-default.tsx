@@ -15,6 +15,7 @@ export function Header({
 	includeUserActionsNav,
 	includeSubNavigation,
 	showLogoLink,
+	showMegaNav,
 	showUserNavigation,
 	userIsSubscribed,
 	userIsLoggedIn,
@@ -25,13 +26,15 @@ export function Header({
 	const breadcrumb = data.breadcrumb;
 	const subsections = data.subsections;
 	const rightSubSection = data['navbar-right-subsection'];
-	const mobileNavItems = data['navbar-simple'].items
+	const mobileNavItems = data['navbar-simple'].items;
+	const desktopNavItems = data.navbar.items;
+	const rightNavItems = data['navbar-right'].items;
 	return (
 		<>
 			{includeUserActionsNav && <UserActionsNav userNavItems={userNavItems} />}
 			<TopWrapper>
-				<TopColumnLeft instance='primary'/>
-				<TopColumnCenter />
+				<TopColumnLeft />
+				<TopColumnCenter showLogoLink={showLogoLink} />
 				<TopColumnRight
 					userIsLoggedIn={userIsLoggedIn}
 					userIsSubscribed={userIsSubscribed}
@@ -39,8 +42,16 @@ export function Header({
 					userNavItems={userNavItems}
 				/>
 			</TopWrapper>
-			<Search instance="primary" />
-			{/* <NavMobile navItems={mobileNavItems}/> */}
+			<Search />
+			<NavMobile navItems={mobileNavItems} />
+			<NavDesktop
+				navItems={desktopNavItems}
+				userIsLoggedIn={userIsLoggedIn}
+				showUserNavigation={showUserNavigation}
+				rightNavItems={rightNavItems}
+				showMegaNav={showMegaNav}
+			/>
+
 			{includeSubNavigation && (
 				<SubNavigation
 					breadcrumb={breadcrumb}
@@ -48,11 +59,6 @@ export function Header({
 					rightSubsection={rightSubSection}
 				/>
 			)}
-
-			{/* <NavMobile navItems={mobile} /> */}
-			{/* <NavDesktop navItems={desktop} isSignedIn={isSignedIn} /> */}
-
-			{/* <Drawer {...drawer} /> */}
 		</>
 	);
 }
