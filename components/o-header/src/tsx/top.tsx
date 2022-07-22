@@ -1,10 +1,10 @@
-import {NavMenuItem, VariantType} from './Props';
+import {NavMenuItem, HeaderVariant} from './Props';
 
 export function HeaderWrapper({
 	variant,
 	children,
 }: {
-	variant: VariantType;
+	variant: HeaderVariant;
 	children: JSX.Element[] | JSX.Element;
 }) {
 	return (
@@ -30,20 +30,6 @@ export const TopWrapper = ({
 		</div>
 	</div>
 );
-
-// export const Top = () => {
-// 	return (
-// 		<div className="o-header__row o-header__top">
-// 			<div className="o-header__container">
-// 				<div className="o-header__top-wrapper">
-// 					<TopLeft />
-// 					<TopCenter />
-// 					<TopRight />
-// 				</div>
-// 			</div>
-// 		</div>
-// 	);
-// }
 
 export function TopColumnLeft({instance}: {instance: string}) {
 	return (
@@ -89,7 +75,7 @@ export function TopColumnRight({
 }: {
 	userIsLoggedIn: boolean;
 	userIsSubscribed: boolean;
-	variant: VariantType;
+	variant: HeaderVariant;
 	userNavItems: NavMenuItem[];
 }) {
 	if (userIsLoggedIn) {
@@ -111,7 +97,7 @@ const TopColumnRightLoggedIn = ({
 }: {
 	items: NavMenuItem[];
 	userIsSubscribed: boolean;
-	variant: VariantType;
+	variant: HeaderVariant;
 }) => {
 	const subscribeAction = items?.[1];
 	return (

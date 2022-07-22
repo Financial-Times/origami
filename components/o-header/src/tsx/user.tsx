@@ -1,8 +1,9 @@
 import {NavMenuItem} from './Props';
 
 export function UserActionsNav({userNavItems}: {userNavItems: NavMenuItem[]}) {
+	console.log({userNavItems});
 	return (
-		<div className="o-header__row o-header__anon">
+		<div className="o-header__row o-header__anon" data-trackable="header-anon">
 			<ul className="o-header__anon-list">
 				{userNavItems.map((item, index) => (
 					<li className="o-header__anon-item" key={`link-${index}`}>
