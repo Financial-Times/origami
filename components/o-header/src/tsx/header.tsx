@@ -1,6 +1,7 @@
 import {Header} from './header-default';
 import {HeaderProps} from './Props';
 import {HeaderWrapper} from './top';
+import {Drawer} from './drawer';
 
 export function DefaultHeader(props: HeaderProps) {
 	const {
@@ -37,6 +38,7 @@ export function DefaultHeader(props: HeaderProps) {
 			<HeaderWrapper variant={variant}>
 				<Header {...defaultHeaderProps} />
 			</HeaderWrapper>
+			<Drawer data={data} userIsLoggedIn={userIsLoggedIn} userIsSubscribed={userIsSubscribed}/>
 		</>
 	);
 }

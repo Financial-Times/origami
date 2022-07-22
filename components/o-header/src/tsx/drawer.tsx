@@ -1,13 +1,10 @@
-import {
-	AnchorType,
-	DrawerNav,
-	DrawerNavItemProps,
-	DrawerProps,
-	EditionType,
-	User,
-} from './Props';
+import {EditionType, NavAction, NavEditions} from './Props';
 
-export function Drawer({nav, editions, user}: DrawerProps) {
+export function Drawer({data, userIsLoggedIn, userIsSubscribed}) {
+	const editions = data.editions;
+	const subscribeAction = data.subscribeAction;
+	const [primary, secondary, tertiary] = data.drawer.items;
+	const user = userIsLoggedIn ? data.user : data.anon;
 	return (
 		<div
 			className="o-header__drawer"
@@ -15,45 +12,55 @@ export function Drawer({nav, editions, user}: DrawerProps) {
 			role="navigation"
 			aria-label="Drawer menu"
 			data-o-header-drawer
-			data-o-header-drawer--no-js>
+			data-o-header-drawer--no-js
+			data-trackable="drawer"
+			data-trackable-terminate>
 			<div className="o-header__drawer-inner">
-				<DrawerTools currentEdition={editions.current} />
-				<DrawerAction />
+				<DrawerTools current={editions.current} />
+				{!userIsSubscribed && subscribeAction && (
+					<DrawerAction action={subscribeAction} />
+				)}
 				<DrawerSearch />
 				<DrawerEditionSwitcher otherEditions={editions.others} />
-				<DrawerMenu navItems={nav} />
-				<DrawerUser user={user}/>
+				{/* <DrawerMenu navItems={nav} /> */}
+				<DrawerUser user={user} />
 			</div>
 		</div>
 	);
 }
 
-function DrawerTools({currentEdition}: {currentEdition: EditionType}) {
+function DrawerTools({current}: {current: EditionType}) {
 	return (
 		<div className="o-header__drawer-tools">
-			<a className="o-header__drawer-tools-logo" href="/">
+			<a className="o-header__drawer-tools-logo" href="/" data-trackable="logo">
 				<span className="o-header__visually-hidden">Financial Times</span>
 			</a>
 			<button
 				type="button"
 				className="o-header__drawer-tools-close"
 				aria-controls="o-header-drawer"
-				title="Close drawer menu">
+				title="Close drawer menu"
+				data-trackable="close">
 				<span className="o-header__visually-hidden">Close drawer menu</span>
 			</button>
-			<p className="o-header__drawer-current-edition">
-				{currentEdition.name} Edition
-			</p>
+			{current && (
+				<p className="o-header__drawer-current-edition">
+					{current.name} Edition
+				</p>
+			)}
 		</div>
 	);
 }
 
-function DrawerAction() {
+function DrawerAction({action}: {action: NavAction}) {
 	return (
 		<div className="o-header__drawer-actions">
-			<a className="o-header__drawer-button" href="#">
-				{' '}
-				subscribe{' '}
+			<a
+				className="o-header__drawer-button"
+				role="button"
+				href={action.url}
+				data-trackable="subscribe-button">
+				{action.name}
 			</a>
 		</div>
 	);
@@ -66,7 +73,10 @@ function DrawerSearch() {
 				className="o-header__drawer-search-form"
 				action="/search"
 				role="search"
-				aria-label="Site search">
+				aria-label="Site search"
+				data-n-topic-search
+				data-n-topic-search-categories="concepts,equities"
+				data-n-topic-search-view-all>
 				<label
 					className="o-header__visually-hidden"
 					htmlFor="o-header-drawer-search-term">
@@ -75,15 +85,19 @@ function DrawerSearch() {
 				<input
 					className="o-header__drawer-search-term"
 					id="o-header-drawer-search-term"
-					name="q"
 					type="text"
 					autoComplete="off"
 					autoCorrect="off"
 					autoCapitalize="off"
-					spellCheck="false"
+					spellCheck={false}
 					placeholder="Search the FT"
+					data-trackable="search-term"
+					data-n-topic-search-input
 				/>
-				<button className="o-header__drawer-search-submit" type="submit">
+				<button
+					className="o-header__drawer-search-submit"
+					type="submit"
+					data-trackable="search-submit">
 					<span className="o-header__visually-hidden">Search</span>
 				</button>
 			</form>
@@ -91,17 +105,19 @@ function DrawerSearch() {
 	);
 }
 
-function DrawerEditionSwitcher({
-	otherEditions,
-}: {
-	otherEditions: EditionType[];
-}) {
+function DrawerEditionSwitcher({otherEditions}) {
 	return (
 		<nav className="o-header__drawer-menu" aria-label="Edition switcher">
 			<ul className="o-header__drawer-menu-list">
-				{otherEditions.map(({name, id}) => (
-					<li className="o-header__drawer-menu-item" key={id}>
-						<a className="o-header__drawer-menu-link" href={`/?edition=${id}`}>
+				{otherEditions.map(({name, id, url}) => (
+					<li
+						className="o-header__drawer-menu-item"
+						key={id}
+						data-trackable="edition-switcher">
+						<a
+							className="o-header__drawer-menu-link"
+							href={`${url}?edition=${id}`}
+							data-trackable={id}>
 							Switch to {name} Edition
 						</a>
 					</li>
@@ -111,22 +127,7 @@ function DrawerEditionSwitcher({
 	);
 }
 
-interface ExtendedDrawerNavItem extends DrawerNavItemProps {
-	additionalClass?: string;
-}
-function AnchorElement({
-	href,
-	name,
-	selected,
-	additionalClasses,
-	variation,
-}: {
-	href: string;
-	name: string;
-	selected?: boolean;
-	additionalClasses?: string;
-	variation?: string;
-}) {
+function AnchorElement({href, name, selected, additionalClasses, variation}) {
 	const ariaLabel = selected ? name + ', current page' : undefined;
 	const ariaCurrent = selected ? 'page' : undefined;
 	let anchorClass = selected
@@ -150,17 +151,7 @@ function AnchorElement({
 	);
 }
 
-function DrawerSubMenu({
-	name,
-	href,
-	index,
-	children,
-}: {
-	name: string;
-	href: string;
-	index: number;
-	children: AnchorType[];
-}) {
+function DrawerSubMenu({name, href, index, children}) {
 	const additionalClasses = '  o-header__drawer-menu-link--parent';
 	const childAnchorClass = ' o-header__drawer-menu-link--child';
 
@@ -204,7 +195,7 @@ function DrawerNavItem({
 	variation,
 	divide,
 	additionalClass,
-}: ExtendedDrawerNavItem) {
+}) {
 	let additionalClassName = additionalClass ? ` ${additionalClass}` : '';
 	const renderDrawerSubMenu = hasChildren && children && href && index;
 	if (divide) additionalClassName = ' o-header__drawer-menu-item--divide';
@@ -235,7 +226,7 @@ function DrawerNavItem({
 		</li>
 	);
 }
-function DrawerMenu({navItems}: {navItems: DrawerNav[]}) {
+function DrawerMenu({navItems}) {
 	return (
 		<nav className="o-header__drawer-menu o-header__drawer-menu--primary">
 			<ul className="o-header__drawer-menu-list">
@@ -262,7 +253,7 @@ function DrawerMenu({navItems}: {navItems: DrawerNav[]}) {
 	);
 }
 
-function DrawerUser({user}: {user: User}) {
+function DrawerUser({user}) {
 	return (
 		<nav className="o-header__drawer-menu o-header__drawer-menu--user">
 			<ul className="o-header__drawer-menu-list">
