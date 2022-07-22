@@ -6,7 +6,7 @@ import {DefaultHeader} from '../src/tsx/header';
 import javascript from '../main';
 import './header.scss';
 import storyData from './storybook-data';
-import { argTypes } from './arg-types';
+import {argTypes} from './arg-types';
 export default {
 	title: 'Components/o-header',
 	component: DefaultHeader,
@@ -35,7 +35,7 @@ HeaderPrimary.args = {
 	showUserNavigation: true,
 	userIsLoggedIn: false,
 	userIsSubscribed: false,
-	showLogoLink: false,
+	showLogoLink: true,
 };
 
 // export const MegaMenu: ComponentStory<typeof MainHeader> = Story.bind({});

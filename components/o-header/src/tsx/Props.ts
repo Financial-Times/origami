@@ -45,6 +45,7 @@ export type HeaderOptions = {
 	showStickyHeader?: boolean;
 	showMegaNav?: boolean;
 	showLogoLink?: boolean;
+	extraHeaderProps?: any;
 };
 
 export type HeaderVariant = 'simple' | 'large-logo' | string;

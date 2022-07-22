@@ -60,13 +60,17 @@ export const argTypes = {
 		},
 	},
 	showLogoLink: {
-		description: 'Marks FT logo as a link',
+		description:
+			'By default the logo serves as a home page link, which can be deactivated by providing prop `showLogoLink: false`.',
 		table: {
-			defaultValue: {summary: 'false'},
+			defaultValue: {summary: 'true'},
 		},
 	},
 	data: {
 		description:
 			'Navigation data for rendering the header links fetched from the navigation API',
+	},
+	extraHeaderProps: {
+		description: "for props that aren't appropriate in Origami",
 	},
 };
