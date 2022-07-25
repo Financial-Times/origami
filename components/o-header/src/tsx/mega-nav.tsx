@@ -13,8 +13,6 @@ export function MegaNav({
 		({component}) => component === 'sectionlist'
 	);
 	const articles = meganav.find(({component}) => component === 'articlelist');
-
-	console.log({subsections, articles});
 	return (
 		<div
 			className="o-header__mega"

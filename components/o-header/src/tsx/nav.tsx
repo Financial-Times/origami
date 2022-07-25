@@ -27,8 +27,6 @@ export function NavDesktop({
 	showMegaNav?: boolean;
 	rightNavItems?: NavMenuItem[];
 }) {
-	console.log({navItems});
-
 	return (
 		<nav
 			id="o-header-nav-desktop"

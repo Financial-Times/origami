@@ -1,10 +1,10 @@
-import {EditionType, NavAction, NavEditions} from './Props';
+import {EditionType, NavAction, NavMenuItem} from './Props';
 
 export function Drawer({data, userIsLoggedIn, userIsSubscribed}) {
 	const editions = data.editions;
 	const subscribeAction = data.subscribeAction;
-	const [primary, secondary, tertiary] = data.drawer.items;
-	const user = userIsLoggedIn ? data.user : data.anon;
+	const navItems = data.drawer.items;
+	const userData = userIsLoggedIn ? data.user : data.anon;
 	return (
 		<div
 			className="o-header__drawer"
@@ -22,8 +22,8 @@ export function Drawer({data, userIsLoggedIn, userIsSubscribed}) {
 				)}
 				<DrawerSearch />
 				<DrawerEditionSwitcher otherEditions={editions.others} />
-				{/* <DrawerMenu navItems={nav} /> */}
-				<DrawerUser user={user} />
+				<DrawerMenu navItems={navItems} />
+				<DrawerUser {...userData} />
 			</div>
 		</div>
 	);
@@ -105,7 +105,11 @@ function DrawerSearch() {
 	);
 }
 
-function DrawerEditionSwitcher({otherEditions}) {
+function DrawerEditionSwitcher({
+	otherEditions,
+}: {
+	otherEditions: EditionType[];
+}) {
 	return (
 		<nav className="o-header__drawer-menu" aria-label="Edition switcher">
 			<ul className="o-header__drawer-menu-list">
@@ -127,8 +131,84 @@ function DrawerEditionSwitcher({otherEditions}) {
 	);
 }
 
-function AnchorElement({href, name, selected, additionalClasses, variation}) {
-	const ariaLabel = selected ? name + ', current page' : undefined;
+function DrawerMenu({navItems}: {navItems: NavMenuItem[]}) {
+	return (
+		<nav className="o-header__drawer-menu o-header__drawer-menu--primary">
+			<ul className="o-header__drawer-menu-list">
+				{navItems.map(({label, url, submenu}, i) => {
+					const menuItemClass = label ? 'heading' : 'divide';
+					return (
+						<>
+							<li
+								className={`o-header__drawer-menu-item o-header__drawer-menu-item--${menuItemClass}`}>
+								{label}
+							</li>
+							{submenu?.items.map((item, j) => {
+								return (
+									<DrawerNavItem
+										navItem={item}
+										index={`${i}-${j}`}
+										hasHeading={!!label}
+									/>
+								);
+							})}
+						</>
+					);
+				})}
+			</ul>
+		</nav>
+	);
+}
+
+function DrawerNavItem({
+	navItem,
+	index,
+	hasHeading,
+}: {
+	navItem: NavMenuItem;
+	index: string;
+	hasHeading?: boolean;
+}) {
+	const {label, url, submenu, selected} = navItem;
+	if (submenu) {
+		return (
+			<DrawerSubMenu
+				url={url}
+				label={label}
+				submenu={submenu.items}
+				selected={selected}
+				idSuffix={index}
+			/>
+		);
+	}
+	return (
+		<li className="o-header__drawer-menu-item">
+			<AnchorElement
+				url={url}
+				label={label}
+				selected={selected}
+				additionalClasses={
+					!hasHeading && 'o-header__drawer-menu-link--secondary'
+				}
+			/>
+		</li>
+	);
+}
+
+function AnchorElement({
+	url,
+	label,
+	selected,
+	additionalClasses,
+	variation,
+}: {
+	url: string;
+	label: string;
+	selected?: boolean;
+	additionalClasses?: string;
+	variation?: string;
+}) {
+	const ariaLabel = selected ? label + ', current page' : undefined;
 	const ariaCurrent = selected ? 'page' : undefined;
 	let anchorClass = selected
 		? ' o-header__drawer-menu-link--selected'
@@ -143,132 +223,79 @@ function AnchorElement({href, name, selected, additionalClasses, variation}) {
 	return (
 		<a
 			className={`o-header__drawer-menu-link${anchorClass}`}
-			href={href}
+			href={url}
 			aria-label={ariaLabel}
 			aria-current={ariaCurrent}>
-			{name}
+			{label}
 		</a>
 	);
 }
 
-function DrawerSubMenu({name, href, index, children}) {
+function DrawerSubMenu({
+	label,
+	url,
+	idSuffix,
+	selected,
+	submenu,
+}: {
+	label: string;
+	url: string;
+	idSuffix: string;
+	selected?: boolean;
+	submenu: NavMenuItem[];
+}) {
 	const additionalClasses = '  o-header__drawer-menu-link--parent';
 	const childAnchorClass = ' o-header__drawer-menu-link--child';
 
 	return (
-		<>
+		<li className="o-header__drawer-menu-item">
 			<div className="o-header__drawer-menu-toggle-wrapper">
 				<AnchorElement
-					href={href}
-					name={name}
+					url={url}
+					label={label}
+					selected={selected}
 					additionalClasses={additionalClasses}
 				/>
 				<button
 					className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
-					aria-controls={`o-header-drawer-child-${index}`}>
+					aria-controls={`o-header-drawer-child-${idSuffix}`}>
 					Show more {name} links
 				</button>
 			</div>
 			<ul
 				className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
-				id={`o-header-drawer-child-${index}`}>
-				{children.map(({name, href}, i) => (
+				id={`o-header-drawer-child-${idSuffix}`}>
+				{submenu.map(({label, url, selected}, i) => (
 					<li className="o-header__drawer-menu-item" key={i}>
 						<AnchorElement
-							href={href}
-							name={name}
+							url={url}
+							label={label}
+							selected={selected}
 							additionalClasses={childAnchorClass}
 						/>
 					</li>
 				))}
 			</ul>
-		</>
-	);
-}
-function DrawerNavItem({
-	name,
-	href,
-	selected,
-	index,
-	hasChildren,
-	children,
-	variation,
-	divide,
-	additionalClass,
-}) {
-	let additionalClassName = additionalClass ? ` ${additionalClass}` : '';
-	const renderDrawerSubMenu = hasChildren && children && href && index;
-	if (divide) additionalClassName = ' o-header__drawer-menu-item--divide';
-	if (renderDrawerSubMenu) {
-		return (
-			<li className={`o-header__drawer-menu-item${additionalClassName}`}>
-				<DrawerSubMenu
-					name={name}
-					href={href}
-					index={index}
-					children={children}
-				/>
-			</li>
-		);
-	}
-	return (
-		<li className={`o-header__drawer-menu-item${additionalClassName}`}>
-			{href ? (
-				<AnchorElement
-					href={href}
-					name={name}
-					selected={selected}
-					variation={variation}
-				/>
-			) : (
-				<>{name}</>
-			)}
 		</li>
 	);
 }
-function DrawerMenu({navItems}) {
-	return (
-		<nav className="o-header__drawer-menu o-header__drawer-menu--primary">
-			<ul className="o-header__drawer-menu-list">
-				{navItems.map(({heading, items}, i) => {
-					const Items = items.map((item, j) => {
-						return <DrawerNavItem {...item} key={j} />;
-					});
-					if (heading?.name) {
-						return (
-							<>
-								<DrawerNavItem
-									name={heading.name}
-									additionalClass="o-header__drawer-menu-item--heading"
-									key={i}
-								/>
-								{Items}
-							</>
-						);
-					}
-					return <>{Items}</>;
-				})}
-			</ul>
-		</nav>
-	);
-}
 
-function DrawerUser({user}) {
+function DrawerUser({items}: {items: NavMenuItem[]}) {
 	return (
-		<nav className="o-header__drawer-menu o-header__drawer-menu--user">
+		<nav
+			className="o-header__drawer-menu o-header__drawer-menu--user"
+			data-trackable="user-nav">
 			<ul className="o-header__drawer-menu-list">
-				<li className="o-header__drawer-menu-item">
-					<a
-						className="o-header__drawer-menu-link"
-						href="/products?segID=400863&amp;segmentID=190b4443-dc03-bd53-e79b-b4b6fbd04e64">
-						Subscribe
-					</a>
-				</li>
-				<li className="o-header__drawer-menu-item">
-					<a className="o-header__drawer-menu-link" href="/login">
-						Sign In
-					</a>
-				</li>
+				{items.map(item => (
+					<li key={item.url} className="o-header__drawer-menu-item">
+						<a
+							className="o-header__drawer-menu-link"
+							href={item.url}
+							data-trackable={item.label}>
+							{item.label}
+						</a>
+					</li>
+				))}
 			</ul>
 		</nav>
 	);
