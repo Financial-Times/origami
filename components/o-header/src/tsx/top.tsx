@@ -4,7 +4,7 @@ export function HeaderWrapper({
 	variant,
 	children,
 }: {
-	variant: HeaderVariant;
+	variant?: HeaderVariant;
 	children: JSX.Element[] | JSX.Element;
 }) {
 	return (

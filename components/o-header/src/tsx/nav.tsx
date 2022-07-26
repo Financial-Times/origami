@@ -22,7 +22,7 @@ export function NavDesktop({
 	rightNavItems,
 }: {
 	userIsLoggedIn: boolean;
-	navItems: NavMenuItem[];
+	navItems?: NavMenuItem[];
 	showUserNavigation?: boolean;
 	showMegaNav?: boolean;
 	rightNavItems?: NavMenuItem[];
@@ -84,7 +84,7 @@ function NavList({
 	);
 }
 
-function NavRight({
+export function NavRight({
 	userIsLoggedIn,
 	items,
 }: {

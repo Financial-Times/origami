@@ -3,6 +3,8 @@ import {HeaderProps} from './Props';
 import {HeaderWrapper} from './top';
 import {Drawer} from './drawer';
 import {StickyHeader} from './sticky';
+import {LogoOnlyHeader} from './logo-only';
+import {NoOutboundLinks} from './no-outbound-links';
 
 export function DefaultHeader(props: HeaderProps) {
 	const {
@@ -12,7 +14,6 @@ export function DefaultHeader(props: HeaderProps) {
 		showStickyHeader,
 		showSubNavigation,
 		showUserNavigation,
-		userIsAnonymous,
 		userIsLoggedIn,
 		userIsSubscribed,
 		variant,
@@ -55,4 +56,18 @@ export function DefaultHeader(props: HeaderProps) {
 			/>
 		</>
 	);
+}
+
+export function LogoOnly({
+	showLogoLink,
+	variant,
+}: {
+	showLogoLink?: boolean;
+	variant?: string;
+}) {
+	return <LogoOnlyHeader variant={variant} showLogoLink={showLogoLink} />;
+}
+
+export function NoOutboundLinksHeader(props: HeaderProps) {
+	return <NoOutboundLinks {...props} />;
 }

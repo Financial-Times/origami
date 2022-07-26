@@ -2,7 +2,11 @@ import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
-import {DefaultHeader} from '../src/tsx/header';
+import {
+	DefaultHeader,
+	LogoOnly,
+	NoOutboundLinksHeader,
+} from '../src/tsx/header';
 import javascript from '../main';
 import './header.scss';
 import storyData from './storybook-data';
@@ -49,13 +53,14 @@ export const DefaultHeaderWithRightAlignedSubnav: ComponentStory<
 	useEffect(() => void javascript.init(), []);
 	return (
 		<>
-			<DefaultHeader {...profileStoryData} {...args} />
+			<DefaultHeader {...args} />
 		</>
 	);
 };
 DefaultHeaderWithRightAlignedSubnav.storyName =
 	'Default header with right aligned subnav';
 DefaultHeaderWithRightAlignedSubnav.args = {
+	...profileStoryData,
 	showSubNavigation: true,
 	showMegaNav: true,
 	showUserNavigation: true,
@@ -71,16 +76,54 @@ DefaultHeaderWithRightAlignedSubnav.args = {
 // 	type: 'subnav',
 // };
 
-// export const LogoOnlyHeader: ComponentStory<typeof MainHeader> = Story.bind({});
-// LogoOnlyHeader.args = {
-// 	type: 'logo-only',
-// };
+export const LogoOnlyHeader: ComponentStory<typeof LogoOnly> = args => {
+	useEffect(() => void javascript.init(), []);
+	return (
+		<>
+			<LogoOnly {...args} />
+		</>
+	);
+};
+LogoOnlyHeader.args = {
+	variant: 'simple',
+	showLogoLink: false,
+};
+LogoOnlyHeader.argTypes = {
+	variant: {
+		control: {
+			type: 'radio',
+			options: {default: 'simple', large: 'large'},
+		},
+	},
+};
 
-// export const SimpleHeader: ComponentStory<typeof MainHeader> = Story.bind({});
-// SimpleHeader.args = {
-// 	...headerData,
-// 	type: 'simple',
-// };
+export const NoOutboundLinks = args => {
+	useEffect(() => void javascript.init(), []);
+	return <NoOutboundLinksHeader {...args} />;
+};
+
+NoOutboundLinks.storyName = 'No Outbound links';
+NoOutboundLinks.args = {
+	...storyData,
+	showSubNavigation: true,
+	showUserNavigation: true,
+	userIsLoggedIn: false,
+	showLogoLink: false,
+};
+
+NoOutboundLinks.parameters = {
+	controls: {
+		exclude: [
+			'currentPath',
+			'variant',
+			'showMegaNav',
+			'userIsSubscribed',
+			'showStickyHeader',
+			'userIsAnonymous',
+			'extraHeaderProps'
+		],
+	},
+};
 
 // inverse demo
 

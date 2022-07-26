@@ -2,7 +2,7 @@ export const argTypes = {
 	currentPath: {
 		options: ['/', '/404'],
 		table: {
-			defaultValue: {summary: 'show'},
+			defaultValue: {summary: '/'},
 		},
 		control: {
 			type: 'radio',
