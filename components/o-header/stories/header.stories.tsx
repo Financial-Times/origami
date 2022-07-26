@@ -6,7 +6,9 @@ import {DefaultHeader} from '../src/tsx/header';
 import javascript from '../main';
 import './header.scss';
 import storyData from './storybook-data';
+import profileStoryData from './storybook-data/profile';
 import {argTypes} from './arg-types';
+
 export default {
 	title: 'Components/o-header',
 	component: DefaultHeader,
@@ -16,11 +18,6 @@ export default {
 	argTypes,
 	decorators: [withDesign, withHtml],
 } as ComponentMeta<typeof DefaultHeader>;
-
-// const Story: ComponentStory<typeof MainHeader> = args => {
-// 	useEffect(() => void javascript.init(), []);
-// 	return <OHeader {...args} />;
-// };
 
 export const HeaderPrimary: ComponentStory<typeof DefaultHeader> = args => {
 	useEffect(() => void javascript.init(), []);
@@ -46,11 +43,25 @@ HeaderPrimary.args = {
 	showStickyHeader: true,
 };
 
-// export const MegaMenu: ComponentStory<typeof MainHeader> = Story.bind({});
-// MegaMenu.args = {...megaMenuData, type: 'megamenu'};
-
-// export const HeaderWithSubnav: ComponentStory<typeof MainHeader> = Story.bind({});
-// HeaderWithSubnav.args = {...subnavData, type: 'subnav'};
+export const DefaultHeaderWithRightAlignedSubnav: ComponentStory<
+	typeof DefaultHeader
+> = args => {
+	useEffect(() => void javascript.init(), []);
+	return (
+		<>
+			<DefaultHeader {...profileStoryData} {...args} />
+		</>
+	);
+};
+DefaultHeaderWithRightAlignedSubnav.storyName =
+	'Default header with right aligned subnav';
+DefaultHeaderWithRightAlignedSubnav.args = {
+	showSubNavigation: true,
+	showMegaNav: true,
+	showUserNavigation: true,
+	userIsLoggedIn: true,
+	showLogoLink: false,
+};
 
 // export const HeaderWithSubnavAndRightAlignedItems: ComponentStory<
 // 	typeof OHeader
@@ -70,3 +81,7 @@ HeaderPrimary.args = {
 // 	...headerData,
 // 	type: 'simple',
 // };
+
+// inverse demo
+
+// subBrand demo

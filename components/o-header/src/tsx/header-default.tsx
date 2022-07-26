@@ -23,7 +23,7 @@ export function Header({
 	const userNavItems = includeUserActionsNav && data['navbar-right-anon'].items;
 	const breadcrumb = data.breadcrumb;
 	const subsections = data.subsections;
-	const rightSubSection = data['navbar-right-subsection'];
+	const rightSubSection = data['subsections-right'];
 	const mobileNavItems = data['navbar-simple'].items;
 	const desktopNavItems = data.navbar.items;
 	const rightNavItems = data['navbar-right'].items;
