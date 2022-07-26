@@ -2,6 +2,7 @@ import {Header} from './header-default';
 import {HeaderProps} from './Props';
 import {HeaderWrapper} from './top';
 import {Drawer} from './drawer';
+import {StickyHeader} from './sticky';
 
 export function DefaultHeader(props: HeaderProps) {
 	const {
@@ -33,12 +34,25 @@ export function DefaultHeader(props: HeaderProps) {
 		data,
 	};
 
+	const stickyHeaderProps = {
+		userIsLoggedIn,
+		showUserNavigation,
+		userIsSubscribed,
+		includeUserActionsNav,
+		data,
+	};
+
 	return (
 		<>
 			<HeaderWrapper variant={variant}>
 				<Header {...defaultHeaderProps} />
 			</HeaderWrapper>
-			<Drawer data={data} userIsLoggedIn={userIsLoggedIn} userIsSubscribed={userIsSubscribed}/>
+			{showStickyHeader && <StickyHeader {...stickyHeaderProps} />}
+			<Drawer
+				data={data}
+				userIsLoggedIn={userIsLoggedIn}
+				userIsSubscribed={userIsSubscribed}
+			/>
 		</>
 	);
 }

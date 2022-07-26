@@ -31,7 +31,13 @@ export const TopWrapper = ({
 	</div>
 );
 
-export function TopColumnLeft() {
+export function TopColumnLeft({isSticky}: {isSticky?: boolean}) {
+	const drawerLabel = isSticky ? 'Menu' : 'Open side navigation menu';
+	const searchProps = {
+		href: isSticky ? '#o-header-search-sticky' : '#o-header-search',
+		'aria-controls': isSticky ? 'o-header-search-sticky' : 'o-header-search',
+		tabIndex: isSticky ? -1 : undefined,
+	};
 	return (
 		<div className="o-header__top-column o-header__top-column--left">
 			<a
@@ -39,15 +45,13 @@ export function TopColumnLeft() {
 				className="o-header__top-icon-link o-header__top-icon-link--menu"
 				aria-controls="o-header-drawer"
 				title="Open side navigation menu"
-				data-trackable="drawer-toggle">
-				<span className="o-header__top-link-label">
-					Open side navigation menu
-				</span>
+				data-trackable="drawer-toggle"
+				tabIndex={isSticky ? -1 : undefined}>
+				<span className="o-header__top-link-label">{drawerLabel}</span>
 			</a>
 			<a
-				href="#o-header-search"
+				{...searchProps}
 				className="o-header__top-icon-link o-header__top-icon-link--search"
-				aria-controls="o-header-search"
 				title="Open search bar"
 				data-trackable="search-toggle">
 				<span className="o-header__top-link-label">Open search bar</span>
@@ -146,7 +150,7 @@ const SignInLink = ({
 		</a>
 	);
 };
-const SubscribeButton = ({
+export const SubscribeButton = ({
 	item,
 	variant,
 	className,
@@ -170,7 +174,7 @@ const SubscribeButton = ({
 	);
 };
 
-const TopColumnRightAnon = ({
+export const TopColumnRightAnon = ({
 	items,
 	variant,
 }: {

@@ -1,4 +1,4 @@
-import {NavMeganav, NavMeganavArticles, NavMenuItem} from './Props';
+import {NavMeganav, NavMenuItem} from './Props';
 
 export function MegaNav({
 	meganav,

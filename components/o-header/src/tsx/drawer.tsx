@@ -130,30 +130,34 @@ function DrawerEditionSwitcher({
 		</nav>
 	);
 }
+let r = (Math.random() + 1).toString(36).substring(7);
 
 function DrawerMenu({navItems}: {navItems: NavMenuItem[]}) {
 	return (
 		<nav className="o-header__drawer-menu o-header__drawer-menu--primary">
 			<ul className="o-header__drawer-menu-list">
-				{navItems.map(({label, url, submenu}, i) => {
+				{navItems.map(({label, submenu}, i) => {
 					const menuItemClass = label ? 'heading' : 'divide';
-					return (
-						<>
-							<li
-								className={`o-header__drawer-menu-item o-header__drawer-menu-item--${menuItemClass}`}>
-								{label}
-							</li>
-							{submenu?.items.map((item, j) => {
-								return (
-									<DrawerNavItem
-										navItem={item}
-										index={`${i}-${j}`}
-										hasHeading={!!label}
-									/>
-								);
-							})}
-						</>
-					);
+
+					const navigationItems = submenu?.items.map((item, j) => {
+						return (
+							<DrawerNavItem
+								navItem={item}
+								index={`${i}-${j}`}
+								hasHeading={!!label}
+								key={`submenu-${i}-${j}`}
+							/>
+						);
+					});
+					const menuItem = [
+						<li
+							className={`o-header__drawer-menu-item o-header__drawer-menu-item--${menuItemClass}`}
+							key={i}>
+							{label}
+						</li>,
+						navigationItems,
+					];
+					return menuItem;
 				})}
 			</ul>
 		</nav>
@@ -266,7 +270,7 @@ function DrawerSubMenu({
 				className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
 				id={`o-header-drawer-child-${idSuffix}`}>
 				{submenu.map(({label, url, selected}, i) => (
-					<li className="o-header__drawer-menu-item" key={i}>
+					<li className="o-header__drawer-menu-item" key={url + i}>
 						<AnchorElement
 							url={url}
 							label={label}

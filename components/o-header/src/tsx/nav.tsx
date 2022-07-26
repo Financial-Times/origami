@@ -59,7 +59,6 @@ function NavList({
 	return (
 		<ul className={wrapperClassName}>
 			{navItems.map((navItem, i) => {
-				// const {label, selected, index, hasMega, articles, subsections} = navItem;
 				const {label, selected, index, url, meganav} = navItem;
 				const ariaLabel = selected ? label + ', current page' : undefined;
 				const ariaCurrent = selected ? 'page' : undefined;

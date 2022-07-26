@@ -1,11 +1,15 @@
 export const argTypes = {
 	currentPath: {
-		options: {show: '/', hide: '/404'},
+		options: ['/', '/404'],
 		table: {
 			defaultValue: {summary: 'show'},
 		},
 		control: {
 			type: 'radio',
+			labels: {
+				'/': 'show',
+				'/404': 'hide'
+			}
 		},
 	},
 	variant: {

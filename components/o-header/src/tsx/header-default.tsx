@@ -1,6 +1,4 @@
 import {NavMobile, NavDesktop} from './nav';
-// import {DrawerProps, NavItem, NavDesktopItem} from './Props';
-// import {Drawer} from './drawer';
 import {Search} from './search';
 import {UserActionsNav} from './user';
 import {SubNavigation} from './subnavigation';

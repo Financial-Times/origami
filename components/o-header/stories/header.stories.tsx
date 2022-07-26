@@ -24,9 +24,16 @@ export default {
 
 export const HeaderPrimary: ComponentStory<typeof DefaultHeader> = args => {
 	useEffect(() => void javascript.init(), []);
-	return <DefaultHeader {...args} />;
+	return (
+		<>
+			<DefaultHeader {...args} />
+			<p className="demo-sticky-message demo-sticky-message--scroll">
+				Scroll down
+			</p>
+		</>
+	);
 };
-HeaderPrimary.storyName = 'Default header with drawer';
+HeaderPrimary.storyName = 'Default header with drawer and sticky header';
 HeaderPrimary.args = {
 	...storyData,
 	variant: 'simple',
@@ -36,6 +43,7 @@ HeaderPrimary.args = {
 	userIsLoggedIn: false,
 	userIsSubscribed: false,
 	showLogoLink: true,
+	showStickyHeader: true,
 };
 
 // export const MegaMenu: ComponentStory<typeof MainHeader> = Story.bind({});
