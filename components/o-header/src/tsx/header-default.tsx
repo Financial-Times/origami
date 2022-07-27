@@ -8,12 +8,13 @@ import {
 	TopColumnLeft,
 	TopColumnRight,
 } from './top';
-
+import { Subbrand } from './subbranded-header';
 export function Header({
 	includeUserActionsNav,
 	includeSubNavigation,
 	showLogoLink,
 	showMegaNav,
+	showSubbrand,
 	showUserNavigation,
 	userIsSubscribed,
 	userIsLoggedIn,
@@ -27,6 +28,7 @@ export function Header({
 	const mobileNavItems = data['navbar-simple'].items;
 	const desktopNavItems = data.navbar.items;
 	const rightNavItems = data['navbar-right'].items;
+	const subbrandData = data['subbrand'];
 	return (
 		<>
 			{includeUserActionsNav && <UserActionsNav userNavItems={userNavItems} />}
@@ -41,6 +43,7 @@ export function Header({
 				/>
 			</TopWrapper>
 			<Search />
+			{showSubbrand && <Subbrand {...subbrandData} />}
 			<NavMobile navItems={mobileNavItems} />
 			<NavDesktop
 				navItems={desktopNavItems}

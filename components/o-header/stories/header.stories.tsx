@@ -7,7 +7,6 @@ import {
 	LogoOnly,
 	NoOutboundLinksHeader,
 	InverseHeader,
-	SubBrandedHeader
 } from '../src/tsx/header';
 import javascript from '../main';
 import './header.scss';
@@ -50,7 +49,7 @@ HeaderPrimary.args = {
 };
 HeaderPrimary.parameters = {
 	controls: {
-		exclude: ['data', 'variant', 'userIsAnonymous', 'extraHeaderProps'],
+		exclude: ['data', 'variant', 'userIsAnonymous', 'extraHeaderProps', 'showSubbrand'],
 	},
 };
 
@@ -78,6 +77,7 @@ DefaultHeaderWithRightAlignedSubnav.parameters = {
 			'userIsSubscribed',
 			'userIsAnonymous',
 			'extraHeaderProps',
+			'showSubbrand',
 		],
 	},
 };
@@ -112,6 +112,7 @@ LogoOnlyHeader.parameters = {
 			'userIsAnonymous',
 			'extraHeaderProps',
 			'data',
+			'showSubbrand',
 		],
 	},
 };
@@ -143,6 +144,8 @@ NoOutboundLinks.parameters = {
 			'showStickyHeader',
 			'userIsAnonymous',
 			'extraHeaderProps',
+			'data',
+			'showSubbrand',
 		],
 	},
 };
@@ -173,6 +176,7 @@ InverseSimpleHeader.parameters = {
 			'userIsSubscribed',
 			'userIsAnonymous',
 			'extraHeaderProps',
+			'showSubbrand',
 		],
 	},
 };
@@ -182,10 +186,11 @@ export const SubbrandedHeader: ComponentStory<
 	typeof InverseHeader
 > = args => {
 	useEffect(() => void javascript.init(), []);
-	return <SubBrandedHeader {...args} />;
+	return <DefaultHeader {...args} />;
 };
 SubbrandedHeader.args = {
 	...storyData,
+	showSubbrand: true,
 	showSubNavigation: true,
 	showUserNavigation: true,
 	userIsLoggedIn: false,

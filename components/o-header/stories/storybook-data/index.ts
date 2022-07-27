@@ -8,6 +8,7 @@ import navbarSimple from './navbarSimple'
 import navbarUK from './navbarUK'
 import subNavigation from './subNavigationUK'
 import user from './user'
+import subbrand from './subbrand'
 
 import { HeaderProps } from '../../src/tsx/Props'
 const breadcrumb = subNavigation.ancestors.concat(subNavigation.item)
@@ -33,7 +34,8 @@ const data: HeaderProps = {
     'navbar-simple': navbarSimple,
     subsections,
     'subsections-right': [],
-    user
+    user,
+		subbrand,
   }
 }
 

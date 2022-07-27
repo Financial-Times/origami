@@ -34,7 +34,14 @@ export type NavigationData = NavMenusForEdition &
 		editions: NavEditions;
 		subscribeAction?: NavAction;
 		currentPath?: string;
+		subbrand?: SubbrandItem
 	};
+
+export type SubbrandItem = {
+	label: string;
+	url: string;
+	imageUrl: string;
+};
 export type HeaderOptions = {
 	variant?: HeaderVariant;
 	userIsAnonymous?: boolean;
@@ -45,6 +52,7 @@ export type HeaderOptions = {
 	showStickyHeader?: boolean;
 	showMegaNav?: boolean;
 	showLogoLink?: boolean;
+	showSubbrand?: boolean;
 	extraHeaderProps?: any;
 };
 

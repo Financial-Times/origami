@@ -17,6 +17,7 @@ export function DefaultHeader(props: HeaderProps) {
 		showSubNavigation,
 		showUserNavigation,
 		userIsLoggedIn,
+		showSubbrand,
 		userIsSubscribed,
 		variant,
 	} = props;
@@ -32,6 +33,7 @@ export function DefaultHeader(props: HeaderProps) {
 		showUserNavigation,
 		userIsLoggedIn,
 		showMegaNav,
+		showSubbrand,
 		userIsSubscribed,
 		variant,
 		data,
@@ -82,8 +84,4 @@ export function InverseHeader(props: HeaderProps) {
 		showUserNavigation: props.showUserNavigation,
 	};
 	return <InverseSimpleHeader {...inverseProps} />;
-}
-
-export function SubBrandedHeader(props: HeaderProps) {
-	return <Subbrand />;
 }
