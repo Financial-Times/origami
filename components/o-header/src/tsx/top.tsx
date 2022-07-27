@@ -2,15 +2,18 @@ import {NavMenuItem, HeaderVariant} from './Props';
 
 export function HeaderWrapper({
 	variant,
+	additionalClassName,
 	children,
 }: {
 	variant?: HeaderVariant;
+	additionalClassName?: string;
 	children: JSX.Element[] | JSX.Element;
 }) {
+	const headerClassNames = `o-header o-header--${variant || 'simple'} ${additionalClassName}`
 	return (
 		<header
 			id="site-navigation"
-			className={`o-header o-header--${variant || 'simple'}`}
+			className={headerClassNames}
 			data-o-component="o-header"
 			data-o-header--no-js={true}
 			tabIndex={-1}>
@@ -90,8 +93,8 @@ export function TopColumnRight({
 	userNavItems,
 }: {
 	userIsLoggedIn: boolean;
-	userIsSubscribed: boolean;
-	variant: HeaderVariant;
+	userIsSubscribed?: boolean;
+	variant?: HeaderVariant;
 	userNavItems: NavMenuItem[];
 }) {
 	if (userIsLoggedIn) {

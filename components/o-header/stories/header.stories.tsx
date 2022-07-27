@@ -6,6 +6,8 @@ import {
 	DefaultHeader,
 	LogoOnly,
 	NoOutboundLinksHeader,
+	InverseHeader,
+	SubBrandedHeader
 } from '../src/tsx/header';
 import javascript from '../main';
 import './header.scss';
@@ -46,16 +48,17 @@ HeaderPrimary.args = {
 	showLogoLink: true,
 	showStickyHeader: true,
 };
+HeaderPrimary.parameters = {
+	controls: {
+		exclude: ['data', 'variant', 'userIsAnonymous', 'extraHeaderProps'],
+	},
+};
 
 export const DefaultHeaderWithRightAlignedSubnav: ComponentStory<
 	typeof DefaultHeader
 > = args => {
 	useEffect(() => void javascript.init(), []);
-	return (
-		<>
-			<DefaultHeader {...args} />
-		</>
-	);
+	return <DefaultHeader {...args} />;
 };
 DefaultHeaderWithRightAlignedSubnav.storyName =
 	'Default header with right aligned subnav';
@@ -67,22 +70,21 @@ DefaultHeaderWithRightAlignedSubnav.args = {
 	userIsLoggedIn: true,
 	showLogoLink: false,
 };
-
-// export const HeaderWithSubnavAndRightAlignedItems: ComponentStory<
-// 	typeof OHeader
-// > = Story.bind({});
-// HeaderWithSubnavAndRightAlignedItems.args = {
-// 	...subNavRightAlignData,
-// 	type: 'subnav',
-// };
+DefaultHeaderWithRightAlignedSubnav.parameters = {
+	controls: {
+		exclude: [
+			'data',
+			'variant',
+			'userIsSubscribed',
+			'userIsAnonymous',
+			'extraHeaderProps',
+		],
+	},
+};
 
 export const LogoOnlyHeader: ComponentStory<typeof LogoOnly> = args => {
 	useEffect(() => void javascript.init(), []);
-	return (
-		<>
-			<LogoOnly {...args} />
-		</>
-	);
+	return <LogoOnly {...args} />;
 };
 LogoOnlyHeader.args = {
 	variant: 'simple',
@@ -96,8 +98,27 @@ LogoOnlyHeader.argTypes = {
 		},
 	},
 };
+LogoOnlyHeader.parameters = {
+	controls: {
+		exclude: [
+			'data',
+			'currentPath',
+			'userIsLoggedIn',
+			'showSubNavigation',
+			'showUserNavigation',
+			'showMegaNav',
+			'userIsSubscribed',
+			'showStickyHeader',
+			'userIsAnonymous',
+			'extraHeaderProps',
+			'data',
+		],
+	},
+};
 
-export const NoOutboundLinks = args => {
+export const NoOutboundLinks: ComponentStory<
+	typeof NoOutboundLinksHeader
+> = args => {
 	useEffect(() => void javascript.init(), []);
 	return <NoOutboundLinksHeader {...args} />;
 };
@@ -114,17 +135,74 @@ NoOutboundLinks.args = {
 NoOutboundLinks.parameters = {
 	controls: {
 		exclude: [
+			'data',
 			'currentPath',
 			'variant',
 			'showMegaNav',
 			'userIsSubscribed',
 			'showStickyHeader',
 			'userIsAnonymous',
-			'extraHeaderProps'
+			'extraHeaderProps',
 		],
 	},
 };
 
-// inverse demo
+export const InverseSimpleHeader: ComponentStory<
+	typeof InverseHeader
+> = args => {
+	useEffect(() => void javascript.init(), []);
+	return <InverseHeader {...args} />;
+};
+InverseSimpleHeader.storyName = 'Simple transparent (inverse) header';
+InverseSimpleHeader.args = {
+	...storyData,
+	showUserNavigation: true,
+	userIsLoggedIn: false,
+};
+InverseSimpleHeader.parameters = {
+	origamiBackground: 'slate',
+	controls: {
+		exclude: [
+			'data',
+			'currentPath',
+			'variant',
+			'showMegaNav',
+			'showSubNavigation',
+			'showLogoLink',
+			'showStickyHeader',
+			'userIsSubscribed',
+			'userIsAnonymous',
+			'extraHeaderProps',
+		],
+	},
+};
 
-// subBrand demo
+
+export const SubbrandedHeader: ComponentStory<
+	typeof InverseHeader
+> = args => {
+	useEffect(() => void javascript.init(), []);
+	return <SubBrandedHeader {...args} />;
+};
+SubbrandedHeader.args = {
+	...storyData,
+	showSubNavigation: true,
+	showUserNavigation: true,
+	userIsLoggedIn: false,
+	showLogoLink: false,
+};
+SubbrandedHeader.parameters = {
+	controls: {
+		exclude: [
+			'data',
+			'currentPath',
+			'variant',
+			'showSubNavigation',
+			'showMegaNav',
+			'userIsSubscribed',
+			'showStickyHeader',
+			'userIsAnonymous',
+			'extraHeaderProps',
+		],
+	},
+};
