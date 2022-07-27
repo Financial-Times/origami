@@ -9,7 +9,6 @@ export function NoOutboundLinks(props: HeaderProps) {
 	const {
 		data,
 		showLogoLink,
-		showMegaNav,
 		showSubNavigation,
 		showUserNavigation,
 		userIsLoggedIn,
@@ -33,7 +32,6 @@ export function NoOutboundLinks(props: HeaderProps) {
 				id="o-header-nav-desktop"
 				className="o-header__row o-header__nav o-header__nav--desktop"
 				role="navigation"
-				data-trackable="header-nav:desktop"
 				aria-label="Primary navigation">
 				<div className="o-header__container">
 					<NavRight userIsLoggedIn={userIsLoggedIn} items={rightNavItems} />

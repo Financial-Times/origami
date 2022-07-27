@@ -19,8 +19,7 @@ export function MegaNav({
 			id={'o-header-mega-' + index}
 			role="group"
 			aria-labelledby={'o-header-link-' + index}
-			data-o-header-mega
-			data-trackable={`meganav | ${label}`}>
+			data-o-header-mega>
 			<div className="o-header__container">
 				<div className="o-header__mega-wrapper">
 					<SubSections data={subsections.data} title={subsections.title} />
@@ -39,9 +38,7 @@ function SubSections({
 	title: string;
 }) {
 	return (
-		<div
-			className="o-header__mega-column o-header__mega-column--subsections"
-			data-trackable="sections">
+		<div className="o-header__mega-column o-header__mega-column--subsections">
 			<div className="o-header__mega-heading">{title}</div>
 			<div className="o-header__mega-content">
 				<ul className="o-header__mega-list">
@@ -57,8 +54,7 @@ function SubSections({
 										className="o-header__mega-link"
 										href={url}
 										aria-label={ariaLabel}
-										aria-current={ariaCurrent}
-										data-trackable="link">
+										aria-current={ariaCurrent}>
 										{label}
 									</a>
 								</li>
@@ -79,9 +75,7 @@ function TopStories({
 	title: string;
 }) {
 	return (
-		<div
-			className="o-header__mega-column o-header__mega-column--articles"
-			data-trackable="popular">
+		<div className="o-header__mega-column o-header__mega-column--articles">
 			<div className="o-header__mega-heading">{title}</div>
 			<div className="o-header__mega-content">
 				<ul className="o-header__mega-list">
@@ -95,8 +89,7 @@ function TopStories({
 									className="o-header__mega-link"
 									aria-label={ariaLabel}
 									aria-current={ariaCurrent}
-									href={url}
-									data-trackable="link">
+									href={url}>
 									{label}
 								</a>
 							</li>

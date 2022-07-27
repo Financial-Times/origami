@@ -7,7 +7,6 @@ export function NavMobile({navItems}: {navItems: NavMenuItem[]}) {
 			id="o-header-nav-mobile"
 			className="o-header__row o-header__nav o-header__nav--mobile"
 			role="navigation"
-			data-trackable="header-nav:mobile"
 			aria-label="Primary navigation">
 			<NavList navItems={navItems} mobile={true} />
 		</nav>
@@ -32,7 +31,6 @@ export function NavDesktop({
 			id="o-header-nav-desktop"
 			className="o-header__row o-header__nav o-header__nav--desktop"
 			role="navigation"
-			data-trackable="header-nav:desktop"
 			aria-label="Primary navigation">
 			<div className="o-header__container">
 				<NavList navItems={navItems} showMegaNav={showMegaNav} />
@@ -93,15 +91,10 @@ export function NavRight({
 }) {
 	if (userIsLoggedIn) {
 		return (
-			<ul
-				className="o-header__nav-list o-header__nav-list--right"
-				data-trackable="user-nav">
+			<ul className="o-header__nav-list o-header__nav-list--right">
 				{items.map((item, index) => (
 					<li className="o-header__nav-item" key={`link-${index}`}>
-						<a
-							className="o-header__nav-link"
-							href={item.url}
-							data-trackable={item.label}>
+						<a className="o-header__nav-link" href={item.url}>
 							{item.label}
 						</a>
 					</li>

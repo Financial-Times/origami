@@ -54,15 +54,12 @@ const StickyTopColumnCenter = ({navBarItems}: {navBarItems: NavMenuItem[]}) => {
 const Navigation = ({navBarItems}: {navBarItems: NavMenuItem[]}) => (
 	<div className="o-header__top-takeover">
 		<div className="o-header__nav">
-			<ul
-				className="o-header__nav-list o-header__nav-list--left"
-				data-trackable="primary-nav">
+			<ul className="o-header__nav-list o-header__nav-list--left">
 				{navBarItems.map((item, index) => (
 					<li className="o-header__nav-item" key={`link-${index}`}>
 						<a
 							className="o-header__nav-link o-header__nav-link--primary"
 							href={item.url}
-							data-trackable={item.label}
 							tabIndex={-1}>
 							{item.label}
 						</a>

@@ -9,7 +9,9 @@ export function HeaderWrapper({
 	additionalClassName?: string;
 	children: JSX.Element[] | JSX.Element;
 }) {
-	const headerClassNames = `o-header o-header--${variant || 'simple'} ${additionalClassName}`
+	const headerClassNames = `o-header o-header--${
+		variant || 'simple'
+	} ${additionalClassName}`;
 	return (
 		<header
 			id="site-navigation"
@@ -27,7 +29,7 @@ export const TopWrapper = ({
 }: {
 	children: JSX.Element | JSX.Element[];
 }) => (
-	<div className="o-header__row o-header__top" data-trackable="header-top">
+	<div className="o-header__row o-header__top">
 		<div className="o-header__container">
 			<div className="o-header__top-wrapper">{children}</div>
 		</div>
@@ -48,15 +50,13 @@ export function TopColumnLeft({isSticky}: {isSticky?: boolean}) {
 				className="o-header__top-icon-link o-header__top-icon-link--menu"
 				aria-controls="o-header-drawer"
 				title="Open side navigation menu"
-				data-trackable="drawer-toggle"
 				tabIndex={isSticky ? -1 : undefined}>
 				<span className="o-header__top-link-label">{drawerLabel}</span>
 			</a>
 			<a
 				{...searchProps}
 				className="o-header__top-icon-link o-header__top-icon-link--search"
-				title="Open search bar"
-				data-trackable="search-toggle">
+				title="Open search bar">
 				<span className="o-header__top-link-label">Open search bar</span>
 			</a>
 		</div>
@@ -69,7 +69,6 @@ export function TopColumnCenter({showLogoLink}: {showLogoLink?: boolean}) {
 			<div className="o-header__top-column o-header__top-column--center">
 				<a
 					className="o-header__top-logo"
-					data-trackable="logo"
 					href="/"
 					title="Go to Financial Times homepage">
 					<span className="o-header__visually-hidden">Financial Times</span>
@@ -147,7 +146,6 @@ const SignInLink = ({
 		<a
 			className={`o-header__top-link ${className}`}
 			href={item.url || undefined}
-			data-trackable={item.label}
 			{...setTabIndex}>
 			{item.label}
 		</a>
@@ -170,7 +168,6 @@ export const SubscribeButton = ({
 			// as it looks like a button but behaves like a link without this role.
 			role="button"
 			href={item.url || undefined}
-			data-trackable={item.label}
 			{...setTabIndex}>
 			{item.label}
 		</a>
@@ -212,8 +209,6 @@ const MyFt = ({className}: {className?: string}) => (
 		className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
 		id="o-header-top-link-myft"
 		href="/myft"
-		data-trackable="my-ft"
-		data-tour-stage="myFt"
 		aria-label="My F T">
 		<span className="o-header__visually-hidden">myFT</span>
 	</a>

@@ -12,9 +12,7 @@ export function Drawer({data, userIsLoggedIn, userIsSubscribed}) {
 			role="navigation"
 			aria-label="Drawer menu"
 			data-o-header-drawer
-			data-o-header-drawer--no-js
-			data-trackable="drawer"
-			data-trackable-terminate>
+			data-o-header-drawer--no-js>
 			<div className="o-header__drawer-inner">
 				<DrawerTools current={editions.current} />
 				{!userIsSubscribed && subscribeAction && (
@@ -32,15 +30,14 @@ export function Drawer({data, userIsLoggedIn, userIsSubscribed}) {
 function DrawerTools({current}: {current: EditionType}) {
 	return (
 		<div className="o-header__drawer-tools">
-			<a className="o-header__drawer-tools-logo" href="/" data-trackable="logo">
+			<a className="o-header__drawer-tools-logo" href="/">
 				<span className="o-header__visually-hidden">Financial Times</span>
 			</a>
 			<button
 				type="button"
 				className="o-header__drawer-tools-close"
 				aria-controls="o-header-drawer"
-				title="Close drawer menu"
-				data-trackable="close">
+				title="Close drawer menu">
 				<span className="o-header__visually-hidden">Close drawer menu</span>
 			</button>
 			{current && (
@@ -55,11 +52,7 @@ function DrawerTools({current}: {current: EditionType}) {
 function DrawerAction({action}: {action: NavAction}) {
 	return (
 		<div className="o-header__drawer-actions">
-			<a
-				className="o-header__drawer-button"
-				role="button"
-				href={action.url}
-				data-trackable="subscribe-button">
+			<a className="o-header__drawer-button" role="button" href={action.url}>
 				{action.name}
 			</a>
 		</div>
@@ -73,10 +66,7 @@ function DrawerSearch() {
 				className="o-header__drawer-search-form"
 				action="/search"
 				role="search"
-				aria-label="Site search"
-				data-n-topic-search
-				data-n-topic-search-categories="concepts,equities"
-				data-n-topic-search-view-all>
+				aria-label="Site search">
 				<label
 					className="o-header__visually-hidden"
 					htmlFor="o-header-drawer-search-term">
@@ -91,13 +81,8 @@ function DrawerSearch() {
 					autoCapitalize="off"
 					spellCheck={false}
 					placeholder="Search the FT"
-					data-trackable="search-term"
-					data-n-topic-search-input
 				/>
-				<button
-					className="o-header__drawer-search-submit"
-					type="submit"
-					data-trackable="search-submit">
+				<button className="o-header__drawer-search-submit" type="submit">
 					<span className="o-header__visually-hidden">Search</span>
 				</button>
 			</form>
@@ -114,14 +99,10 @@ function DrawerEditionSwitcher({
 		<nav className="o-header__drawer-menu" aria-label="Edition switcher">
 			<ul className="o-header__drawer-menu-list">
 				{otherEditions.map(({name, id, url}) => (
-					<li
-						className="o-header__drawer-menu-item"
-						key={id}
-						data-trackable="edition-switcher">
+					<li className="o-header__drawer-menu-item" key={id}>
 						<a
 							className="o-header__drawer-menu-link"
-							href={`${url}?edition=${id}`}
-							data-trackable={id}>
+							href={`${url}?edition=${id}`}>
 							Switch to {name} Edition
 						</a>
 					</li>
@@ -286,16 +267,11 @@ function DrawerSubMenu({
 
 function DrawerUser({items}: {items: NavMenuItem[]}) {
 	return (
-		<nav
-			className="o-header__drawer-menu o-header__drawer-menu--user"
-			data-trackable="user-nav">
+		<nav className="o-header__drawer-menu o-header__drawer-menu--user">
 			<ul className="o-header__drawer-menu-list">
 				{items.map(item => (
 					<li key={item.url} className="o-header__drawer-menu-item">
-						<a
-							className="o-header__drawer-menu-link"
-							href={item.url}
-							data-trackable={item.label}>
+						<a className="o-header__drawer-menu-link" href={item.url}>
 							{item.label}
 						</a>
 					</li>

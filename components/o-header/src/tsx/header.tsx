@@ -6,7 +6,6 @@ import {StickyHeader} from './sticky';
 import {LogoOnlyHeader} from './logo-only';
 import {NoOutboundLinks} from './no-outbound-links';
 import {InverseSimpleHeader} from './inverse-header';
-import {Subbrand} from './subbranded-header';
 
 export function DefaultHeader(props: HeaderProps) {
 	const {

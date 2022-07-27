@@ -14,8 +14,7 @@ export function SubNavigation({
 			className="o-header__subnav"
 			role="navigation"
 			aria-label="Sub navigation"
-			data-o-header-subnav
-			data-trackable="header-subnav">
+			data-o-header-subnav>
 			<div className="o-header__container">
 				<div className="o-header__subnav-wrap-outside">
 					<div
@@ -54,10 +53,9 @@ function BreadCrumb({breadcrumb}: {breadcrumb: NavMenuItem[]}) {
 	return (
 		<ol
 			className="o-header__subnav-list o-header__subnav-list--breadcrumb"
-			aria-label="Breadcrumb"
-			data-trackable="breadcrumb">
+			aria-label="Breadcrumb">
 			{breadcrumb &&
-				breadcrumb.map(({label, url, selected, index}, i) => {
+				breadcrumb.map(({label, url, selected}, i) => {
 					const selectedClass = selected
 						? 'o-header__subnav-link--highlight'
 						: '';
@@ -69,7 +67,6 @@ function BreadCrumb({breadcrumb}: {breadcrumb: NavMenuItem[]}) {
 								className={`o-header__subnav-link ${selectedClass}`}
 								aria-label={ariaLabel}
 								aria-current={ariaCurrent}
-								data-trackable={label}
 								href={url}>
 								{label}
 							</a>
@@ -95,8 +92,7 @@ function SubSections({
 	return (
 		<ul
 			className={`o-header__subnav-list o-header__subnav-list--children${wrapperClass}`}
-			aria-label={rightAlignment ? 'Additional Sub Navigation' : 'Subsections'}
-			data-trackable="subsections">
+			aria-label={rightAlignment ? 'Additional Sub Navigation' : 'Subsections'}>
 			{subsections &&
 				subsections.map(({label, url, selected, index}, i) => {
 					const selectedClass = selected
@@ -109,7 +105,6 @@ function SubSections({
 							<a
 								className={`o-header__subnav-link ${selectedClass}`}
 								aria-label={ariaLabel}
-								data-trackable={label}
 								aria-current={ariaCurrent}
 								href={url}>
 								{label}

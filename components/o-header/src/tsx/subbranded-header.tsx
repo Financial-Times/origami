@@ -1,4 +1,6 @@
-export function Subbrand({label, url, imageUrl}) {
+import { SubbrandItem } from "./Props";
+
+export function Subbrand({label, url, imageUrl}: SubbrandItem) {
 	return (
 		<div className="o-header__subbrand" data-o-header-subbrand>
 			<a
