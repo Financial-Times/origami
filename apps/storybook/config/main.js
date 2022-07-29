@@ -160,3 +160,26 @@ module.exports.env = (config) => ({
     ...config,
 	ORIGAMI_STORYBOOK_BRAND: brand
 })
+
+
+if (brand == 'core') {
+	module.exports.refs = (config, { configType }) => {
+		if (configType === 'DEVELOPMENT') {
+			return {
+				Internal: {
+					title: "Internal",
+					url: "http://127.0.0.1:6970/",
+					expanded: false
+				}
+			}
+		}
+		// Once different brands are supported, this will need to be updated to the correct url
+		return {
+			Internal: {
+				title: "Whitelabel",
+				url: "PROD_URL",
+				expanded: false
+			}
+		}
+	}
+}

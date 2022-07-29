@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "origami's storybook",
   "scripts": {
-    "storybook": "start-storybook -p ${PORT:-6969} -c ./config",
-    "build-storybook": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook",
+    "storybook:core": "start-storybook -p ${PORT:-6969} -c ./config",
+    "storybook:internal": "ORIGAMI_STORYBOOK_BRAND=internal start-storybook -p ${PORT:-6970} -c ./config",
+    "storybook": "(npm run storybook:internal) & (npm run storybook:core)",
+    "build-storybook:core": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/core",
+    "build-storybook:internal": "ORIGAMI_STORYBOOK_BRAND=internal build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/internal",
+    "build-storybook": "run-p build-storybook:*",
     "watch-storybook": "npm run build-storybook -- -w"
   },
   "dependencies": {
@@ -33,7 +37,8 @@
   "author": "chee <chee@snoot.club>",
   "license": "MIT",
   "devDependencies": {
-    "@types/react-dom": "^17.0.10"
+    "@types/react-dom": "^17.0.10",
+    "npm-run-all": "^4.1.5"
   },
   "private": true
 }
