@@ -173,11 +173,10 @@ if (brand == 'core') {
 				}
 			}
 		}
-		// Once different brands are supported, this will need to be updated to the correct url
 		return {
 			Internal: {
-				title: "Whitelabel",
-				url: "PROD_URL",
+				title: "Internal",
+				url: "https://origami.ft.com/storybook/internal",
 				expanded: false
 			}
 		}
