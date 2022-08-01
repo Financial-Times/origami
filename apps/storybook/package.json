@@ -3,17 +3,20 @@
   "version": "1.0.0",
   "description": "origami's storybook",
   "scripts": {
+    "sb-default": "start-storybook -p ${PORT:-6968} -c ./wrapper",
     "sb:core": "start-storybook -p ${PORT:-6969} -c ./config",
     "sb:internal": "ORIGAMI_STORYBOOK_BRAND=internal start-storybook -p ${PORT:-6970} -c ./config",
     "storybook": "(npm run sb:internal) & (npm run sb:core)",
-    "build-sb-default": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/core",
-    "build-sb:internal": "ORIGAMI_STORYBOOK_BRAND=internal build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/internal",
-    "build-storybook": "npm run build-sb:internal && npm run build-sb-default",
+    "build-sb-default": "build-storybook --modern -c ./wrapper -o ../../origami.ft.com/storybook",
+    "build-sb:core": "ORIGAMI_STORYBOOK_BRAND=internal build-storybook --modern -c ./config -o ../../origami.ft.com/brands/core",
+    "build-sb:internal": "ORIGAMI_STORYBOOK_BRAND=internal build-storybook --modern -c ./config -o ../../origami.ft.com/brands/internal",
+    "build-storybook": "run-p build-sb:* && npm run build-sb-default",
     "watch-storybook": "npm run build-storybook -- -w"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^6.4.22",
     "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-docs": "^6.5.9",
     "@storybook/addon-links": "^6.4.22",
     "@storybook/addons": "^6.4.22",
     "@storybook/builder-webpack5": "^6.4.22",

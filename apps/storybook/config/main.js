@@ -167,25 +167,3 @@ module.exports.env = (config) => ({
 module.exports.features = {
 	buildStoriesJson: true
 }
-
-if (brand == 'core') {
-	module.exports.refs = (config, { configType }) => {
-		if (configType === 'DEVELOPMENT') {
-			return {
-				Internal: {
-					title: "Internal",
-					url: "http://127.0.0.1:6970/",
-					expanded: false
-				}
-			}
-		}
-		console.log({env: process.env})
-		return {
-			Internal: {
-				title: "Internal",
-				url: "https://origami-webs-storybook--ffs4ek.herokuapp.com/storybook/internal/",
-				expanded: false
-			}
-		}
-	}
-}
