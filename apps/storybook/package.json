@@ -8,7 +8,7 @@
     "storybook": "(npm run sb:internal) & (npm run sb:core)",
     "build-sb-default": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/core",
     "build-sb:internal": "ORIGAMI_STORYBOOK_BRAND=internal build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/internal",
-    "build-storybook": "build-sb:internal && build-sb-default",
+    "build-storybook": "npm run build-sb:internal && npm run build-sb-default",
     "watch-storybook": "npm run build-storybook -- -w"
   },
   "dependencies": {
