@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "description": "origami's storybook",
   "scripts": {
-    "sb-server": "start-storybook -p ${PORT:-6968} -c ./server",
-    "storybook:core": "start-storybook -p ${PORT:-6969} -c ./config",
-    "storybook:internal": "ORIGAMI_STORYBOOK_BRAND=internal start-storybook -p ${PORT:-6970} -c ./config",
-    "storybook": "run-p storybook:*",
-    "build-storybook:core": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/core",
-    "build-storybook:internal": "ORIGAMI_STORYBOOK_BRAND=internal build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/internal",
-    "build-storybook": "build-storybook --modern -c ./server -o ../../origami.ft.com/storybook && run-p build-storybook:*",
+    "sb:core": "start-storybook -p ${PORT:-6969} -c ./config",
+    "sb:internal": "ORIGAMI_STORYBOOK_BRAND=internal start-storybook -p ${PORT:-6970} -c ./config",
+    "storybook": "(npm run sb:internal) & (npm run sb:core)",
+    "build-sb-default": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook",
+    "build-sb:internal": "ORIGAMI_STORYBOOK_BRAND=internal build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/internal",
+    "build-storybook": "npm run build-sb-default && run-p build-sb:*",
     "watch-storybook": "npm run build-storybook -- -w"
   },
   "dependencies": {

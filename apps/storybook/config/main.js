@@ -165,27 +165,24 @@ module.exports.env = (config) => ({
 	ORIGAMI_STORYBOOK_BRAND: brand
 })
 
-module.exports.features = {
-    storyStoreV7: true,
-	buildStoriesJson: true
+
+if (brand == 'core') {
+	module.exports.refs = (config, { configType }) => {
+		if (configType === 'DEVELOPMENT') {
+			return {
+				Internal: {
+					title: "Internal",
+					url: "http://127.0.0.1:6970/",
+					expanded: false
+				}
+			}
+		}
+		return {
+			Internal: {
+				title: "Internal",
+				url: "https://origami.ft.com/storybook/internal",
+				expanded: false
+			}
+		}
+	}
 }
-// if (brand == 'core') {
-// 	module.exports.refs = (config, { configType }) => {
-// 		if (configType === 'DEVELOPMENT') {
-// 			return {
-// 				Internal: {
-// 					title: "Internal",
-// 					url: "http://127.0.0.1:6970/",
-// 					expanded: false
-// 				}
-// 			}
-// 		}
-// 		return {
-// 			Internal: {
-// 				title: "Internal",
-// 				url: "https://origami.ft.com/storybook/internal",
-// 				expanded: false
-// 			}
-// 		}
-// 	}
-// }
