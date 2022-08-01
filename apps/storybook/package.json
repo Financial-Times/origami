@@ -8,10 +8,7 @@
     "storybook": "(npm run sb:internal) & (npm run sb:core)",
     "build-sb-default": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook",
     "build-sb:internal": "ORIGAMI_STORYBOOK_BRAND=internal build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/internal",
-    "build-storybook": "npm run build-sb-default && run-p build-sb:* && npm run extract",
-		"extract-sb:core": "npx sb extract ../../origami.ft.com/storybook",
-		"extract-sb:internal": "npx sb extract ../../origami.ft.com/storybook/internal",
-		"extract": "run-p extract-sb:*",
+    "build-storybook": "npm run build-sb-default && run-p build-sb:*",
     "watch-storybook": "npm run build-storybook -- -w"
   },
   "dependencies": {

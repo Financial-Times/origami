@@ -165,6 +165,9 @@ module.exports.env = (config) => ({
 	ORIGAMI_STORYBOOK_BRAND: brand
 })
 
+module.exports.features = {
+	buildStoriesJson: true
+}
 
 if (brand == 'core') {
 	module.exports.refs = (config, { configType }) => {
