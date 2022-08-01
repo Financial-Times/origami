@@ -180,10 +180,11 @@ if (brand == 'core') {
 				}
 			}
 		}
+		console.log({env: process.env})
 		return {
 			Internal: {
 				title: "Internal",
-				url: "https://origami.ft.com/storybook/internal",
+				url: "https://origami-webs-storybook--ffs4ek.herokuapp.com/storybook/internal/",
 				expanded: false
 			}
 		}
