@@ -60,7 +60,6 @@ module.exports.core = {
 	builder: "webpack5",
 	options: {
         lazyCompilation: true,
-		fsCache: true,
       },
 }
 

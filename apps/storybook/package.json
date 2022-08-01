@@ -6,9 +6,9 @@
     "sb:core": "start-storybook -p ${PORT:-6969} -c ./config",
     "sb:internal": "ORIGAMI_STORYBOOK_BRAND=internal start-storybook -p ${PORT:-6970} -c ./config",
     "storybook": "(npm run sb:internal) & (npm run sb:core)",
-    "build-sb-default": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook",
+    "build-sb-default": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/core",
     "build-sb:internal": "ORIGAMI_STORYBOOK_BRAND=internal build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/internal",
-    "build-storybook": "npm run build-sb-default && run-p build-sb:*",
+    "build-storybook": "build-sb:internal && build-sb-default",
     "watch-storybook": "npm run build-storybook -- -w"
   },
   "dependencies": {
