@@ -5,7 +5,10 @@ module.exports.core = {
 module.exports.stories = ["./*.stories.tsx"]
 
 module.exports.addons = [
-	"@storybook/addon-docs"
+	"@storybook/addon-essentials",
+	"@storybook/addon-a11y",
+	"@storybook/addon-links",
+	"origami-storybook-addon-html/register",
 ]
 
 module.exports.refs = (config, {configType}) => {
