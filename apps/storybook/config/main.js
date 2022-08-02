@@ -164,6 +164,6 @@ module.exports.env = (config) => ({
 	ORIGAMI_STORYBOOK_BRAND: brand
 })
 
-module.exports.features = {
-	buildStoriesJson: true
-}
+// module.exports.features = {
+// 	buildStoriesJson: true
+// }
