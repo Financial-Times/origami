@@ -1,25 +1,23 @@
-
 import { GluegunToolbox } from 'gluegun'
-  
 
 module.exports = {
-  name: 'generate',
-  alias: ['g'],
-  run: async (toolbox: GluegunToolbox) => {
-    const {
-      parameters,
-      template: { generate },
-      print: { info },
-    } = toolbox
+	name: 'generate',
+	alias: ['g'],
+	run: async (toolbox: GluegunToolbox) => {
+		const {
+			parameters,
+			template: { generate },
+			print: { info },
+		} = toolbox
 
-    const name = parameters.first
+		const name = parameters.first
 
-    await generate({
-      template: 'model.ts.ejs',
-      target: `models/${name}-model.ts`,
-      props: { name },
-    })
+		await generate({
+			template: 'model.ts.ejs',
+			target: `models/${name}-model.ts`,
+			props: { name },
+		})
 
-    info(`Generated file at models/${name}-model.ts`)
-  },
+		info(`Generated file at models/${name}-model.ts`)
+	},
 }
