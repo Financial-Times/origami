@@ -1,11 +1,11 @@
-import {NavMenuItem, HeaderVariant} from './Props';
+import {TNavMenuItem, THeaderVariant} from './Props';
 
 export function HeaderWrapper({
 	variant,
 	additionalClassName,
 	children,
 }: {
-	variant?: HeaderVariant;
+	variant?: THeaderVariant;
 	additionalClassName?: string;
 	children: JSX.Element[] | JSX.Element;
 }) {
@@ -93,8 +93,8 @@ export function TopColumnRight({
 }: {
 	userIsLoggedIn: boolean;
 	userIsSubscribed?: boolean;
-	variant?: HeaderVariant;
-	userNavItems: NavMenuItem[];
+	variant?: THeaderVariant;
+	userNavItems: TNavMenuItem[];
 }) {
 	if (userIsLoggedIn) {
 		return (
@@ -113,9 +113,9 @@ const TopColumnRightLoggedIn = ({
 	userIsSubscribed,
 	variant,
 }: {
-	items: NavMenuItem[];
+	items: TNavMenuItem[];
 	userIsSubscribed: boolean;
-	variant: HeaderVariant;
+	variant: THeaderVariant;
 }) => {
 	const subscribeAction = items?.[1];
 	return (
@@ -137,7 +137,7 @@ const SignInLink = ({
 	variant,
 	className,
 }: {
-	item: NavMenuItem;
+	item: TNavMenuItem;
 	variant?: string;
 	className?: string;
 }) => {
@@ -156,7 +156,7 @@ export const SubscribeButton = ({
 	variant,
 	className,
 }: {
-	item: NavMenuItem;
+	item: TNavMenuItem;
 	variant?: string;
 	className?: string;
 }) => {
@@ -178,7 +178,7 @@ export const TopColumnRightAnon = ({
 	items,
 	variant,
 }: {
-	items: NavMenuItem[];
+	items: TNavMenuItem[];
 	variant?: string;
 }) => {
 	// If user is anonymous the second list item is styled as a button

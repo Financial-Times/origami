@@ -1,6 +1,6 @@
-import {NavMenu} from '../../src/tsx/Props';
+import {TNavMenu} from '../../src/tsx/Props';
 
-const data: NavMenu = {
+const data: TNavMenu = {
 	label: 'Navigation',
 	items: [
 		{

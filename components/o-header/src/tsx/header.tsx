@@ -1,13 +1,13 @@
 import {Header} from './header-default';
-import {HeaderProps} from './Props';
+import {THeaderProps} from './Props';
 import {HeaderWrapper} from './top';
-import {Drawer} from './drawer';
+// import {Drawer} from './drawer';
 import {StickyHeader} from './sticky';
 import {LogoOnlyHeader} from './logo-only';
 import {NoOutboundLinks} from './no-outbound-links';
 import {InverseSimpleHeader} from './inverse-header';
 
-export function DefaultHeader(props: HeaderProps) {
+export function DefaultHeader(props: THeaderProps) {
 	const {
 		data,
 		showLogoLink,
@@ -16,7 +16,6 @@ export function DefaultHeader(props: HeaderProps) {
 		showSubNavigation,
 		showUserNavigation,
 		userIsLoggedIn,
-		showSubbrand,
 		userIsSubscribed,
 		variant,
 	} = props;
@@ -29,10 +28,10 @@ export function DefaultHeader(props: HeaderProps) {
 		includeUserActionsNav,
 		includeSubNavigation,
 		showLogoLink,
+		showSubNavigation,
 		showUserNavigation,
 		userIsLoggedIn,
 		showMegaNav,
-		showSubbrand,
 		userIsSubscribed,
 		variant,
 		data,
@@ -52,11 +51,11 @@ export function DefaultHeader(props: HeaderProps) {
 				<Header {...defaultHeaderProps} />
 			</HeaderWrapper>
 			{showStickyHeader && <StickyHeader {...stickyHeaderProps} />}
-			<Drawer
+			{/* <Drawer
 				data={data}
 				userIsLoggedIn={userIsLoggedIn}
 				userIsSubscribed={userIsSubscribed}
-			/>
+			/> */}
 		</>
 	);
 }
@@ -71,11 +70,11 @@ export function LogoOnly({
 	return <LogoOnlyHeader variant={variant} showLogoLink={showLogoLink} />;
 }
 
-export function NoOutboundLinksHeader(props: HeaderProps) {
+export function NoOutboundLinksHeader(props: THeaderProps) {
 	return <NoOutboundLinks {...props} />;
 }
 
-export function InverseHeader(props: HeaderProps) {
+export function InverseHeader(props: THeaderProps) {
 	const inverseProps = {
 		includeUserActionsNav: props.showUserNavigation && !props.userIsLoggedIn,
 		data: props.data,

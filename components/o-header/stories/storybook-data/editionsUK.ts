@@ -1,6 +1,6 @@
-import {NavEditions} from '../../src/tsx/Props';
+import {TNavEditions} from '../../src/tsx/Props';
 
-const data: NavEditions = {
+const data: TNavEditions = {
 	current: {id: 'uk', name: 'UK', url: '#'},
 	others: [{id: 'international', name: 'International', url: '#'}],
 };

@@ -1,5 +1,5 @@
-import {NavAction} from '../../src/tsx/Props';
-const data: NavAction = {
+import {TNavAction} from '../../src/tsx/Props';
+const data: TNavAction = {
 	id: 'subscribe',
 	name: 'Subscribe for full access',
 	url: '#',

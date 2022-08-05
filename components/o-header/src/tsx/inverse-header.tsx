@@ -6,12 +6,13 @@ import {
 } from './top';
 import {UserActionsNav} from './user';
 import {NavMobile, NavDesktop} from './nav';
+import { THeaderProps } from './Props';
 export function InverseSimpleHeader({
-	includeUserActionsNav,
 	userIsLoggedIn,
 	showUserNavigation,
 	data,
-}) {
+}: THeaderProps) {
+	const includeUserActionsNav = showUserNavigation && !userIsLoggedIn;
 	const userNavItems = includeUserActionsNav && data['navbar-right-anon'].items;
 	const mobileNavItems = data['navbar-simple'].items;
 	const desktopNavItems = data.navbar.items;

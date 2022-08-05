@@ -1,14 +1,14 @@
-import {NavMenuItem} from '../../src/tsx/Props';
-const item: NavMenuItem = {
+import {TNavMenuItem} from '../../src/tsx/Props';
+const item: TNavMenuItem = {
 	label: 'Settings & Account',
 	url: '/myaccount/personal-details',
 	selected: true,
 	submenu: null,
 };
 
-const siblings: NavMenuItem[] = [];
+const siblings: TNavMenuItem[] = [];
 
-const children: NavMenuItem[] = [
+const children: TNavMenuItem[] = [
 	{
 		label: 'Personal Details',
 		url: '/myaccount/personal-details',
@@ -21,6 +21,6 @@ const children: NavMenuItem[] = [
 	},
 ];
 
-const ancestors: NavMenuItem[] = [];
+const ancestors: TNavMenuItem[] = [];
 
 export default {item, siblings, children, ancestors};

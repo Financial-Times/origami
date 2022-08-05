@@ -1,5 +1,5 @@
-import {NavMenu} from '../../src/tsx/Props';
-const data: NavMenu = {
+import {TNavMenu} from '../../src/tsx/Props';
+const data: TNavMenu = {
 	label: 'User',
 	items: [
 		{label: 'Help Centre', url: 'http://help.ft.com', submenu: null},

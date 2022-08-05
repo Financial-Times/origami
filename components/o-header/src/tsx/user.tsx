@@ -1,6 +1,6 @@
-import {NavMenuItem} from './Props';
+import {TNavMenuItem} from './Props';
 
-export function UserActionsNav({userNavItems}: {userNavItems: NavMenuItem[]}) {
+export function UserActionsNav({userNavItems}: {userNavItems: TNavMenuItem[]}) {
 	return (
 		<div className="o-header__row o-header__anon">
 			<ul className="o-header__anon-list">

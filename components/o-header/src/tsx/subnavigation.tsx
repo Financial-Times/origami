@@ -1,13 +1,13 @@
-import {NavMenuItem} from './Props';
+import {TNavMenuItem} from './Props';
 
 export function SubNavigation({
 	breadcrumb,
 	subsections,
 	rightSubsection,
 }: {
-	breadcrumb: NavMenuItem[];
-	subsections: NavMenuItem[];
-	rightSubsection?: NavMenuItem[];
+	breadcrumb: TNavMenuItem[];
+	subsections: TNavMenuItem[];
+	rightSubsection?: TNavMenuItem[];
 }) {
 	return (
 		<div
@@ -49,7 +49,7 @@ export function SubNavigation({
 	);
 }
 
-function BreadCrumb({breadcrumb}: {breadcrumb: NavMenuItem[]}) {
+function BreadCrumb({breadcrumb}: {breadcrumb: TNavMenuItem[]}) {
 	return (
 		<ol
 			className="o-header__subnav-list o-header__subnav-list--breadcrumb"
@@ -67,7 +67,7 @@ function BreadCrumb({breadcrumb}: {breadcrumb: NavMenuItem[]}) {
 								className={`o-header__subnav-link ${selectedClass}`}
 								aria-label={ariaLabel}
 								aria-current={ariaCurrent}
-								href={url}>
+								href={url || undefined}>
 								{label}
 							</a>
 						</li>
@@ -81,7 +81,7 @@ function SubSections({
 	subsections,
 	rightAlignment,
 }: {
-	subsections: NavMenuItem[];
+	subsections: TNavMenuItem[];
 	rightAlignment?: boolean;
 }) {
 	if (!subsections || subsections.length === 0) {
@@ -94,7 +94,7 @@ function SubSections({
 			className={`o-header__subnav-list o-header__subnav-list--children${wrapperClass}`}
 			aria-label={rightAlignment ? 'Additional Sub Navigation' : 'Subsections'}>
 			{subsections &&
-				subsections.map(({label, url, selected, index}, i) => {
+				subsections.map(({label, url, selected}, i) => {
 					const selectedClass = selected
 						? 'o-header__subnav-link--highlight'
 						: '';
@@ -106,7 +106,7 @@ function SubSections({
 								className={`o-header__subnav-link ${selectedClass}`}
 								aria-label={ariaLabel}
 								aria-current={ariaCurrent}
-								href={url}>
+								href={url || undefined}>
 								{label}
 							</a>
 						</li>

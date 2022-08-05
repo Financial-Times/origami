@@ -1,4 +1,4 @@
-export type NavMenuKeys =
+export type TNavMenuKeys =
 	| 'account'
 	| 'anon'
 	| 'drawer-international'
@@ -11,7 +11,7 @@ export type NavMenuKeys =
 	| 'navbar-simple'
 	| 'user';
 
-export type NavMenuKeysForEdition =
+export type TNavMenuKeysForEdition =
 	| 'account'
 	| 'anon'
 	| 'drawer'
@@ -22,28 +22,22 @@ export type NavMenuKeysForEdition =
 	| 'navbar-simple'
 	| 'user';
 
-export type NavMenus = {[key in NavMenuKeys]: NavMenu};
+export type TNavMenus = {[key in TNavMenuKeys]: TNavMenu};
 
-export type NavMenusForEdition = {[key in NavMenuKeysForEdition]: NavMenu};
+export type TNavMenusForEdition = {[key in TNavMenuKeysForEdition]: TNavMenu};
 
-export type HeaderProps = HeaderOptions & {
-	data: NavigationData;
+export type THeaderProps = THeaderOptions & {
+	data: TNavigationData;
 };
-export type NavigationData = NavMenusForEdition &
-	NavSubNavigation & {
-		editions: NavEditions;
-		subscribeAction?: NavAction;
+export type TNavigationData = TNavMenusForEdition &
+	TNavSubNavigation & {
+		editions: TNavEditions;
+		subscribeAction?: TNavAction;
 		currentPath?: string;
-		subbrand?: SubbrandItem
 	};
 
-export type SubbrandItem = {
-	label: string;
-	url: string;
-	imageUrl: string;
-};
-export type HeaderOptions = {
-	variant?: HeaderVariant;
+export type THeaderOptions = {
+	variant?: THeaderVariant;
 	userIsAnonymous?: boolean;
 	userIsLoggedIn?: boolean;
 	userIsSubscribed?: boolean;
@@ -52,62 +46,66 @@ export type HeaderOptions = {
 	showStickyHeader?: boolean;
 	showMegaNav?: boolean;
 	showLogoLink?: boolean;
-	showSubbrand?: boolean;
 	extraHeaderProps?: any;
 };
 
-export type HeaderVariant = 'simple' | 'large-logo' | string;
+export type THeaderVariant = 'simple' | 'large-logo' | string;
 
-export type NavMenu = {
+export type TNavMenu = {
 	label: string | null;
-	items: NavMenuItem[];
+	items: TNavMenuItem[];
+};
+/** Menu data for the footer will be split into "columns" by the Next navigation API */
+export type TNavMenuWithColumns = {
+	label: string | null;
+	items: TNavMenuItem[][];
 };
 
-export type NavMenuItem = {
+export type TNavMenuItem = {
 	label: string | null;
 	url: string | null;
 	index?: number;
 	selected?: boolean;
-	submenu?: NavMenu | null;
-	meganav?: NavMeganav[];
+	submenu?: TNavMenu | TNavMenuWithColumns;
+	meganav?: TNavMeganav[];
 	disableTracking?: boolean;
 };
 
-export type NavMeganav = NavMeganavSections | NavMeganavArticles;
+export type TNavMeganav = TNavMeganavSections | NavMeganavArticles;
 
-export interface NavMeganavSections {
+export interface TNavMeganavSections {
 	component: 'sectionlist';
 	dataset: 'subsections';
 	title: string;
 	/** This data has been split into "columns" by the Next navigation API */
-	data: NavMenuItem[][];
+	data: TNavMenuItem[][];
 }
 
 export interface NavMeganavArticles {
 	component: 'articlelist';
 	dataset: 'popular';
 	title: string;
-	data: NavMenuItem[];
+	data: TNavMenuItem[];
 }
 
-export type NavAction = {
+export type TNavAction = {
 	name: string;
 	id: string;
 	url: string;
 };
 
-export type NavSubNavigation = {
-	breadcrumb?: NavMenuItem[];
-	subsections?: NavMenuItem[];
-	'subsections-right'?: NavMenuItem[];
+export type TNavSubNavigation = {
+	breadcrumb?: TNavMenuItem[];
+	subsections?: TNavMenuItem[];
+	'subsections-right'?: TNavMenuItem[];
 };
 
-export type NavEditions = {
-	current: EditionType;
-	others: EditionType[];
+export type TNavEditions = {
+	current: TNavEdition;
+	others: TNavEdition[];
 };
 
-export type EditionType = {
+export type TNavEdition = {
 	name: string;
 	id: string;
 	url: string;

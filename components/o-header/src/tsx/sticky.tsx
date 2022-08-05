@@ -1,4 +1,4 @@
-import {NavMenuItem} from './Props';
+import {THeaderProps, TNavMenuItem} from './Props';
 import {
 	TopColumnLeft,
 	TopWrapper,
@@ -10,9 +10,9 @@ export function StickyHeader({
 	userIsLoggedIn,
 	showUserNavigation,
 	userIsSubscribed,
-	includeUserActionsNav,
 	data,
-}) {
+}: THeaderProps) {
+	const includeUserActionsNav = showUserNavigation && !userIsLoggedIn;
 	const userNavItems = includeUserActionsNav && data['navbar-right-anon'].items;
 	const navBarItems = data.navbar.items;
 	return (
@@ -37,7 +37,7 @@ export function StickyHeader({
 	);
 }
 
-const StickyTopColumnCenter = ({navBarItems}: {navBarItems: NavMenuItem[]}) => {
+const StickyTopColumnCenter = ({navBarItems}: {navBarItems: TNavMenuItem[]}) => {
 	return (
 		<div className="o-header__top-column o-header__top-column--center">
 			<Navigation navBarItems={navBarItems} />
@@ -51,7 +51,7 @@ const StickyTopColumnCenter = ({navBarItems}: {navBarItems: NavMenuItem[]}) => {
 		</div>
 	);
 };
-const Navigation = ({navBarItems}: {navBarItems: NavMenuItem[]}) => (
+const Navigation = ({navBarItems}: {navBarItems: TNavMenuItem[]}) => (
 	<div className="o-header__top-takeover">
 		<div className="o-header__nav">
 			<ul className="o-header__nav-list o-header__nav-list--left">
@@ -59,7 +59,7 @@ const Navigation = ({navBarItems}: {navBarItems: NavMenuItem[]}) => (
 					<li className="o-header__nav-item" key={`link-${index}`}>
 						<a
 							className="o-header__nav-link o-header__nav-link--primary"
-							href={item.url}
+							href={item.url || undefined}
 							tabIndex={-1}>
 							{item.label}
 						</a>
@@ -79,10 +79,10 @@ function TopRightSTicky({
 	userIsLoggedIn: boolean;
 	showUserNavigation: boolean;
 	userIsSubscribed: boolean;
-	userNavItems: NavMenuItem[];
+	userNavItems: TNavMenuItem[];
 }) {
 	const subscribeAction = userNavItems?.[1];
-	let children = null;
+	let children;
 	if (userIsLoggedIn) {
 		return (
 			<div className="o-header__top-column o-header__top-column--right">

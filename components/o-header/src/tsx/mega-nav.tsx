@@ -1,13 +1,11 @@
-import {NavMeganav, NavMenuItem} from './Props';
+import {TNavMeganav, TNavMenuItem} from './Props';
 
 export function MegaNav({
 	meganav,
 	index,
-	label,
 }: {
-	meganav: NavMeganav[];
+	meganav: TNavMeganav[];
 	index?: number;
-	label?: string;
 }) {
 	const subsections = meganav.find(
 		({component}) => component === 'sectionlist'
@@ -22,8 +20,8 @@ export function MegaNav({
 			data-o-header-mega>
 			<div className="o-header__container">
 				<div className="o-header__mega-wrapper">
-					<SubSections data={subsections.data} title={subsections.title} />
-					<TopStories data={articles.data} title={articles.title} />
+					{subsections && <SubSections data={subsections.data} title={subsections.title} />}
+					{articles && <TopStories data={articles.data} title={articles.title} />}
 				</div>
 			</div>
 		</div>
@@ -34,7 +32,7 @@ function SubSections({
 	data,
 	title,
 }: {
-	data: NavMenuItem[][] | NavMenuItem[];
+	data: TNavMenuItem[][] | TNavMenuItem[];
 	title: string;
 }) {
 	return (
@@ -71,7 +69,7 @@ function TopStories({
 	data,
 	title,
 }: {
-	data: NavMenuItem[] | NavMenuItem[][];
+	data: TNavMenuItem[] | TNavMenuItem[][];
 	title: string;
 }) {
 	return (

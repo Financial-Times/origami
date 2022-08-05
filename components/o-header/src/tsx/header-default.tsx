@@ -1,5 +1,6 @@
 import {NavMobile, NavDesktop} from './nav';
 import {Search} from './search';
+import {THeaderProps} from './Props';
 import {UserActionsNav} from './user';
 import {SubNavigation} from './subnavigation';
 import {
@@ -8,19 +9,19 @@ import {
 	TopColumnLeft,
 	TopColumnRight,
 } from './top';
-import { Subbrand } from './subbranded-header';
 export function Header({
-	includeUserActionsNav,
-	includeSubNavigation,
 	showLogoLink,
 	showMegaNav,
-	showSubbrand,
+	showSubNavigation,
 	showUserNavigation,
 	userIsSubscribed,
 	userIsLoggedIn,
 	variant,
 	data,
-}) {
+}: THeaderProps) {
+	const includeUserActionsNav = showUserNavigation && !userIsLoggedIn;
+	const includeSubNavigation =
+		showSubNavigation && (data.breadcrumb || data.subsections);
 	const userNavItems = includeUserActionsNav && data['navbar-right-anon'].items;
 	const breadcrumb = data.breadcrumb;
 	const subsections = data.subsections;
@@ -28,7 +29,6 @@ export function Header({
 	const mobileNavItems = data['navbar-simple'].items;
 	const desktopNavItems = data.navbar.items;
 	const rightNavItems = data['navbar-right'].items;
-	const subbrandData = data['subbrand'];
 	return (
 		<>
 			{includeUserActionsNav && <UserActionsNav userNavItems={userNavItems} />}
@@ -43,7 +43,6 @@ export function Header({
 				/>
 			</TopWrapper>
 			<Search />
-			{showSubbrand && <Subbrand {...subbrandData} />}
 			<NavMobile navItems={mobileNavItems} />
 			<NavDesktop
 				navItems={desktopNavItems}

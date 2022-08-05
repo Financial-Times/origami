@@ -1,7 +1,7 @@
 import {MegaNav} from './mega-nav';
-import {NavMenuItem} from './Props';
+import {TNavMenuItem} from './Props';
 
-export function NavMobile({navItems}: {navItems: NavMenuItem[]}) {
+export function NavMobile({navItems}: {navItems: TNavMenuItem[]}) {
 	return (
 		<nav
 			id="o-header-nav-mobile"
@@ -21,10 +21,10 @@ export function NavDesktop({
 	rightNavItems,
 }: {
 	userIsLoggedIn: boolean;
-	navItems?: NavMenuItem[];
+	navItems?: TNavMenuItem[];
 	showUserNavigation?: boolean;
 	showMegaNav?: boolean;
-	rightNavItems?: NavMenuItem[];
+	rightNavItems?: TNavMenuItem[];
 }) {
 	return (
 		<nav
@@ -33,8 +33,8 @@ export function NavDesktop({
 			role="navigation"
 			aria-label="Primary navigation">
 			<div className="o-header__container">
-				<NavList navItems={navItems} showMegaNav={showMegaNav} />
-				{showUserNavigation && (
+				{navItems && <NavList navItems={navItems} showMegaNav={showMegaNav} />}
+				{showUserNavigation && rightNavItems && (
 					<NavRight userIsLoggedIn={userIsLoggedIn} items={rightNavItems} />
 				)}
 			</div>
@@ -47,7 +47,7 @@ function NavList({
 	mobile,
 	showMegaNav,
 }: {
-	navItems: NavMenuItem[];
+	navItems: TNavMenuItem[];
 	mobile?: boolean;
 	showMegaNav?: boolean;
 }) {
@@ -65,7 +65,7 @@ function NavList({
 					<li className="o-header__nav-item" key={'nav-item' + i}>
 						<a
 							className="o-header__nav-link o-header__nav-link--primary"
-							href={url}
+							href={url || undefined}
 							aria-label={ariaLabel}
 							aria-current={ariaCurrent}
 							aria-controls={ariaControls}
@@ -73,7 +73,7 @@ function NavList({
 							{label}
 						</a>
 						{showMegaNav && meganav && (
-							<MegaNav meganav={meganav} label={label} index={index} />
+							<MegaNav meganav={meganav} label={label || undefined} index={index} />
 						)}
 					</li>
 				);
@@ -87,14 +87,14 @@ export function NavRight({
 	items,
 }: {
 	userIsLoggedIn: boolean;
-	items: NavMenuItem[];
+	items: TNavMenuItem[];
 }) {
 	if (userIsLoggedIn) {
 		return (
 			<ul className="o-header__nav-list o-header__nav-list--right">
 				{items.map((item, index) => (
 					<li className="o-header__nav-item" key={`link-${index}`}>
-						<a className="o-header__nav-link" href={item.url}>
+						<a className="o-header__nav-link" href={item.url || undefined}>
 							{item.label}
 						</a>
 					</li>

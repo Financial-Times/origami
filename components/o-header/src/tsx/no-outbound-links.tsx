@@ -1,11 +1,11 @@
-import {HeaderProps} from './Props';
+import {THeaderProps} from './Props';
 import {HeaderWrapper} from './top';
 import {TopWrapper, TopColumnCenter} from './top';
 import {UserActionsNav} from './user';
 import {NavRight} from './nav';
 import {SubNavigation} from './subnavigation';
 
-export function NoOutboundLinks(props: HeaderProps) {
+export function NoOutboundLinks(props: THeaderProps) {
 	const {
 		data,
 		showLogoLink,
@@ -15,7 +15,6 @@ export function NoOutboundLinks(props: HeaderProps) {
 	} = props;
 	const includeUserActionsNav = showUserNavigation && !userIsLoggedIn;
 	const userNavItems = includeUserActionsNav && data['navbar-right-anon'].items;
-	const desktopNavItems = data.navbar.items;
 	const rightNavItems = data['navbar-right'].items;
 	const includeSubNavigation =
 		showSubNavigation && (data.breadcrumb || data.subsections);

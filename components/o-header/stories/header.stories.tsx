@@ -49,7 +49,13 @@ HeaderPrimary.args = {
 };
 HeaderPrimary.parameters = {
 	controls: {
-		exclude: ['data', 'variant', 'userIsAnonymous', 'extraHeaderProps', 'showSubbrand'],
+		exclude: [
+			'data',
+			'variant',
+			'userIsAnonymous',
+			'extraHeaderProps',
+			'showSubbrand',
+		],
 	},
 };
 
@@ -77,7 +83,6 @@ DefaultHeaderWithRightAlignedSubnav.parameters = {
 			'userIsSubscribed',
 			'userIsAnonymous',
 			'extraHeaderProps',
-			'showSubbrand',
 		],
 	},
 };
@@ -112,7 +117,6 @@ LogoOnlyHeader.parameters = {
 			'userIsAnonymous',
 			'extraHeaderProps',
 			'data',
-			'showSubbrand',
 		],
 	},
 };
@@ -145,7 +149,6 @@ NoOutboundLinks.parameters = {
 			'userIsAnonymous',
 			'extraHeaderProps',
 			'data',
-			'showSubbrand',
 		],
 	},
 };
@@ -176,21 +179,16 @@ InverseSimpleHeader.parameters = {
 			'userIsSubscribed',
 			'userIsAnonymous',
 			'extraHeaderProps',
-			'showSubbrand',
 		],
 	},
 };
 
-
-export const SubbrandedHeader: ComponentStory<
-	typeof InverseHeader
-> = args => {
+export const SubbrandedHeader: ComponentStory<typeof InverseHeader> = args => {
 	useEffect(() => void javascript.init(), []);
 	return <DefaultHeader {...args} />;
 };
 SubbrandedHeader.args = {
 	...storyData,
-	showSubbrand: true,
 	showSubNavigation: true,
 	showUserNavigation: true,
 	userIsLoggedIn: false,

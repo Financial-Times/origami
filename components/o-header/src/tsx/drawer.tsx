@@ -1,6 +1,6 @@
-import {EditionType, NavAction, NavMenuItem} from './Props';
+import {TNavEdition, TNavAction, TNavMenuItem, THeaderProps} from './Props';
 
-export function Drawer({data, userIsLoggedIn, userIsSubscribed}) {
+export function Drawer({data, userIsLoggedIn, userIsSubscribed}: THeaderProps) {
 	const editions = data.editions;
 	const subscribeAction = data.subscribeAction;
 	const navItems = data.drawer.items;
@@ -27,7 +27,7 @@ export function Drawer({data, userIsLoggedIn, userIsSubscribed}) {
 	);
 }
 
-function DrawerTools({current}: {current: EditionType}) {
+function DrawerTools({current}: {current: TNavEdition}) {
 	return (
 		<div className="o-header__drawer-tools">
 			<a className="o-header__drawer-tools-logo" href="/">
@@ -49,7 +49,7 @@ function DrawerTools({current}: {current: EditionType}) {
 	);
 }
 
-function DrawerAction({action}: {action: NavAction}) {
+function DrawerAction({action}: {action: TNavAction}) {
 	return (
 		<div className="o-header__drawer-actions">
 			<a className="o-header__drawer-button" role="button" href={action.url}>
@@ -93,7 +93,7 @@ function DrawerSearch() {
 function DrawerEditionSwitcher({
 	otherEditions,
 }: {
-	otherEditions: EditionType[];
+	otherEditions: TNavEdition[];
 }) {
 	return (
 		<nav className="o-header__drawer-menu" aria-label="Edition switcher">
@@ -111,9 +111,8 @@ function DrawerEditionSwitcher({
 		</nav>
 	);
 }
-let r = (Math.random() + 1).toString(36).substring(7);
 
-function DrawerMenu({navItems}: {navItems: NavMenuItem[]}) {
+function DrawerMenu({navItems}: {navItems: TNavMenuItem[]}) {
 	return (
 		<nav className="o-header__drawer-menu o-header__drawer-menu--primary">
 			<ul className="o-header__drawer-menu-list">
@@ -150,7 +149,7 @@ function DrawerNavItem({
 	index,
 	hasHeading,
 }: {
-	navItem: NavMenuItem;
+	navItem: TNavMenuItem;
 	index: string;
 	hasHeading?: boolean;
 }) {
@@ -227,7 +226,7 @@ function DrawerSubMenu({
 	url: string;
 	idSuffix: string;
 	selected?: boolean;
-	submenu: NavMenuItem[];
+	submenu: TNavMenuItem[] | TNavMenuItem[][];
 }) {
 	const additionalClasses = '  o-header__drawer-menu-link--parent';
 	const childAnchorClass = ' o-header__drawer-menu-link--child';
@@ -250,12 +249,12 @@ function DrawerSubMenu({
 			<ul
 				className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
 				id={`o-header-drawer-child-${idSuffix}`}>
-				{submenu.map(({label, url, selected}, i) => (
-					<li className="o-header__drawer-menu-item" key={url + i}>
+				{submenu.map((item, i) => (
+					<li className="o-header__drawer-menu-item" key={item.url + i}>
 						<AnchorElement
-							url={url}
-							label={label}
-							selected={selected}
+							url={item.url}
+							label={item.label}
+							selected={item.selected}
 							additionalClasses={childAnchorClass}
 						/>
 					</li>
@@ -265,7 +264,7 @@ function DrawerSubMenu({
 	);
 }
 
-function DrawerUser({items}: {items: NavMenuItem[]}) {
+function DrawerUser({items}: {items: TNavMenuItem[]}) {
 	return (
 		<nav className="o-header__drawer-menu o-header__drawer-menu--user">
 			<ul className="o-header__drawer-menu-list">

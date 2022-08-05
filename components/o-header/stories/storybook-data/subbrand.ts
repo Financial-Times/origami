@@ -1,6 +1,6 @@
-import {SubbrandItem} from '../../src/tsx/Props';
+import {TSubbrandItem} from '../../src/tsx/Props';
 
-const data: SubbrandItem = {
+const data: TSubbrandItem = {
 	label: 'Life&amp;Arts',
 	url: '/',
 	imageUrl:

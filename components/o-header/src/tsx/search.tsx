@@ -1,5 +1,6 @@
 // return (<!-- To support both core and enhanced, duplicating the search row is necessary to avoid it flashing in enhanced -->
 // 	<!-- Pick only one of the two <div> if you don't need to support both core and enhanced -->
+
 export function Search() {
 	return (
 		<div

@@ -1,15 +1,15 @@
-import {NavMenuItem} from '../../src/tsx/Props';
+import {TNavMenuItem} from '../../src/tsx/Props';
 
-const item: NavMenuItem = {
+const item: TNavMenuItem = {
 	label: 'UK',
 	url: '/world/uk',
 	selected: true,
 	submenu: null,
 };
 
-const siblings: NavMenuItem[] = [];
+const siblings: TNavMenuItem[] = [];
 
-const children: NavMenuItem[] = [
+const children: TNavMenuItem[] = [
 	{
 		label: 'UK Business & Economy',
 		url: '/uk-business-economy',
@@ -27,7 +27,7 @@ const children: NavMenuItem[] = [
 	},
 ];
 
-const ancestors: NavMenuItem[] = [
+const ancestors: TNavMenuItem[] = [
 	{
 		label: 'World',
 		url: '/world',
