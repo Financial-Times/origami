@@ -7,7 +7,7 @@ import {LogoOnlyHeader} from './logo-only';
 import {NoOutboundLinks} from './no-outbound-links';
 import {InverseSimpleHeader} from './inverse-header';
 
-export function DefaultHeader(props: THeaderProps) {
+export function MainHeader(props: THeaderProps) {
 	const {
 		data,
 		showLogoLink,
@@ -51,11 +51,7 @@ export function DefaultHeader(props: THeaderProps) {
 				<Header {...defaultHeaderProps} />
 			</HeaderWrapper>
 			{showStickyHeader && <StickyHeader {...stickyHeaderProps} />}
-			{/* <Drawer
-				data={data}
-				userIsLoggedIn={userIsLoggedIn}
-				userIsSubscribed={userIsSubscribed}
-			/> */}
+			
 		</>
 	);
 }

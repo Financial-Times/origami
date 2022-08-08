@@ -3,6 +3,7 @@ import {TNavMeganav, TNavMenuItem} from './Props';
 export function MegaNav({
 	meganav,
 	index,
+
 }: {
 	meganav: TNavMeganav[];
 	index?: number;

@@ -249,7 +249,7 @@ function DrawerSubMenu({
 			<ul
 				className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
 				id={`o-header-drawer-child-${idSuffix}`}>
-				{submenu.map((item, i) => (
+				{submenu && submenu.map((item, i) => (
 					<li className="o-header__drawer-menu-item" key={item.url + i}>
 						<AnchorElement
 							url={item.url}

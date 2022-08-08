@@ -73,7 +73,7 @@ function NavList({
 							{label}
 						</a>
 						{showMegaNav && meganav && (
-							<MegaNav meganav={meganav} label={label || undefined} index={index} />
+							<MegaNav meganav={meganav} index={index} />
 						)}
 					</li>
 				);

@@ -3,7 +3,7 @@ import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
 import {
-	DefaultHeader,
+	MainHeader,
 	LogoOnly,
 	NoOutboundLinksHeader,
 	InverseHeader,
@@ -13,22 +13,27 @@ import './header.scss';
 import storyData from './storybook-data';
 import profileStoryData from './storybook-data/profile';
 import {argTypes} from './arg-types';
-
+import {Drawer} from '../src/tsx/drawer';
 export default {
 	title: 'Components/o-header',
-	component: DefaultHeader,
+	component: MainHeader,
 	args: {
 		currentPath: '/',
 	},
 	argTypes,
 	decorators: [withDesign, withHtml],
-} as ComponentMeta<typeof DefaultHeader>;
+} as ComponentMeta<typeof MainHeader>;
 
-export const HeaderPrimary: ComponentStory<typeof DefaultHeader> = args => {
+export const HeaderPrimary: ComponentStory<typeof MainHeader> = args => {
 	useEffect(() => void javascript.init(), []);
 	return (
 		<>
-			<DefaultHeader {...args} />
+			<MainHeader {...args} />
+			<Drawer
+				data={args.data}
+				userIsLoggedIn={args.userIsLoggedIn}
+				userIsSubscribed={args.userIsSubscribed}
+			/>
 			<p className="demo-sticky-message demo-sticky-message--scroll">
 				Scroll down
 			</p>
@@ -60,10 +65,19 @@ HeaderPrimary.parameters = {
 };
 
 export const DefaultHeaderWithRightAlignedSubnav: ComponentStory<
-	typeof DefaultHeader
+	typeof MainHeader
 > = args => {
 	useEffect(() => void javascript.init(), []);
-	return <DefaultHeader {...args} />;
+	return (
+		<>
+			<MainHeader {...args} />;
+			<Drawer
+				data={args.data}
+				userIsLoggedIn={args.userIsLoggedIn}
+				userIsSubscribed={args.userIsSubscribed}
+			/>
+		</>
+	);
 };
 DefaultHeaderWithRightAlignedSubnav.storyName =
 	'Default header with right aligned subnav';
@@ -185,7 +199,7 @@ InverseSimpleHeader.parameters = {
 
 export const SubbrandedHeader: ComponentStory<typeof InverseHeader> = args => {
 	useEffect(() => void javascript.init(), []);
-	return <DefaultHeader {...args} />;
+	return <MainHeader {...args} />;
 };
 SubbrandedHeader.args = {
 	...storyData,
