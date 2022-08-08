@@ -36,7 +36,7 @@ const command: GluegunCommand = {
 		const props = await prompt.ask(questions)
 		const f = await prompt.confirm('Ya`ll ready for this?')
 
-		await o.copyFiles(props)
+		await o.copyTemplates(props)
 
 		print.info({ props, f })
 	},

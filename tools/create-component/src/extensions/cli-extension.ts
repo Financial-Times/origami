@@ -4,7 +4,7 @@ import { GluegunToolbox } from 'gluegun'
 // to your commands
 module.exports = (toolbox: GluegunToolbox) => {
 	toolbox.o = {
-		copyFiles: (props) => copyFiles(toolbox, props),
+		copyTemplates: (props) => copyTemplates(toolbox, props),
 	}
 
 	// enable this if you want to read configuration in from
@@ -16,7 +16,7 @@ module.exports = (toolbox: GluegunToolbox) => {
 	// }
 }
 
-async function copyFiles(toolbox, props) {
+async function copyTemplates(toolbox, props) {
 	const { filesystem } = toolbox
 	const files = filesystem
 		.find('src/templates')
