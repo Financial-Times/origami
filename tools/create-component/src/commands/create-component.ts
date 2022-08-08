@@ -4,7 +4,7 @@ const command: GluegunCommand = {
 	description: 'Create new component',
 	alias: ['new', 'create', 'generate', 'n'],
 	run: async (toolbox) => {
-		const { print, prompt, filesystem, template: t } = toolbox
+		const { print, prompt, o } = toolbox
 		// console.log({ template })
 		// text input
 		const askComponentName = {
@@ -35,28 +35,9 @@ const command: GluegunCommand = {
 		const questions = [askComponentName, chooseFiles, chooseFramework]
 		const props = await prompt.ask(questions)
 		const f = await prompt.confirm('Ya`ll ready for this?')
-		const rootFiles = filesystem.list('src/templates')
-		console.log({ rootFiles })
-		const filesCopy = rootFiles.reduce((acc, file) => {
-			const template = `/${file}`
-			// Where to copy this file to.
-			const target = `../../components/${props.name}/${file.replace(
-				'.ejs',
-				''
-			)}`
-			/*
-			  First argument is the template,
-			  Second is the target, where to put the file
-			  The third is the argument to be passed into the file
-			  returns a promise
-			*/
-			const gen = t.generate({ template, target, props })
-			return acc.concat([gen])
-		}, [])
-		// Wait for all promises to resolve
-		await Promise.all(filesCopy)
-		// Set permissions for cli to execute
-		// filesystem.chmodSync(`${props.name}/bin/card.js`, '755')
+
+		await o.copyFiles(props)
+
 		print.info({ props, f })
 	},
 }
