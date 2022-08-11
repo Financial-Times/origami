@@ -3,6 +3,7 @@ export interface ButtonProps {
 	type: 'primary' | 'secondary' | 'ghost';
 	size?: 'big' | '';
 	theme?: 'inverse' | 'mono' | '';
+	href?: string;
 	icon?:
 		| 'arrow-left'
 		| 'arrow-right'
@@ -24,11 +25,7 @@ export interface ButtonProps {
 	attributes?: {
 		[attribute: string]: string | boolean;
 	};
-	onClick?: Function;
-}
-
-interface LinkButtonProps extends ButtonProps {
-	href: string;
+	onClick?: () => void;
 }
 
 function ButtonTemplate({
@@ -41,7 +38,7 @@ function ButtonTemplate({
 	href = '',
 	attributes = {},
 	onClick
-}: ButtonProps | LinkButtonProps) {
+}: ButtonProps) {
 	const classNames = ['o-buttons', `o-buttons--${type}`];
 
 	if (size) {
@@ -109,7 +106,7 @@ export function LinkButton({
 	attributes = {},
 	href = '',
 	onClick
-}: LinkButtonProps) {
+}: ButtonProps) {
 	return ButtonTemplate({
 		label,
 		type,
