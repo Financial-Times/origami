@@ -43,5 +43,11 @@
     "npm": "7.11.1"
   },
   "percy": true,
-  "private": false
+  "private": false,
+  "dependencies": {
+    "date-fns": "^1.29.0",
+    "dateformat": "^3.0.3",
+    "dompurify": "^2.3.9",
+    "html-react-parser": "^3.0.1"
+  }
 }
