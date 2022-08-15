@@ -7,7 +7,13 @@ export default {
 	title: 'Components/o-buttons',
 	component: Button,
 	decorators: [withDesign, withHtml],
-	args: {},
+	args: {
+		onClick: {
+			table: {
+				disable: true
+			}
+		}
+	},
 	parameters: {
 		design: {
 			type: 'figma',

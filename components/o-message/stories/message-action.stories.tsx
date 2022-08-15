@@ -36,7 +36,8 @@ const actionProps = {
 	},
 };
 
-const defaultProps = Brand !== 'core' ? actionProps : {};
+
+const defaultProps = Brand !== 'core' ? actionProps : null;
 export default defaultProps as ComponentMeta<typeof ActionMessage>;
 
 const ActionStory = args => {

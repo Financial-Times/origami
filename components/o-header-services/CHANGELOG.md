@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.4](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.2.3...o-header-services-v5.2.4) (2022-08-08)
+
+
+### Bug Fixes
+
+* o-header-service, prevent error where `data-o-header-services-level` is used with no dropdown drawer ([#786](https://www.github.com/Financial-Times/origami/issues/786)) ([dfb25c8](https://www.github.com/Financial-Times/origami/commit/dfb25c8489572d2baf858c5afc26ea13fbdfa950))
+
 ### [5.2.3](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.2.2...o-header-services-v5.2.3) (2022-04-21)
 
 

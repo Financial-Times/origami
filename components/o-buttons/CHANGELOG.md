@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.7.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.6.0...o-buttons-v7.7.0) (2022-07-26)
+
+
+### Features
+
+* publish o-buttons tsx ([#779](https://www.github.com/Financial-Times/origami/issues/779)) ([d7c8eec](https://www.github.com/Financial-Times/origami/commit/d7c8eec8b0f0bf1eccc1dcc64cb846f518593598))
+* publish o-buttons tsx with added support for `onClick` event listener ([d7c8eec](https://www.github.com/Financial-Times/origami/commit/d7c8eec8b0f0bf1eccc1dcc64cb846f518593598))
+
 ## [7.6.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.5.0...o-buttons-v7.6.0) (2022-05-17)
 
 
