@@ -12,7 +12,10 @@ class DropDown {
 		this.drawer = drawer;
 		this.headerEl = headerEl;
 
-		this.navItems = [...headerEl.querySelectorAll('[data-o-header-services-level="1"]')];
+		/**
+		 * @type {Element[]} - Nav items with a dropdown.
+		 */
+		this.navItems = [...headerEl.querySelectorAll('[data-o-header-services-level="1"]')].filter(item => item.querySelector('ul'));
 		this.navItems.forEach(item => {
 			const button = item.querySelector('button');
 			if (!button) {

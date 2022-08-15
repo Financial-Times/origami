@@ -1,5 +1,14 @@
 # Changelog
 
+### [2.1.3](https://www.github.com/Financial-Times/origami/compare/o-audio-v2.1.2...o-audio-v2.1.3) (2022-06-29)
+
+
+### Bug Fixes
+
+* remove the whitelist function & `TRACKING_ATTRIBUTES` ([50c3729](https://www.github.com/Financial-Times/origami/commit/50c3729eb2e51e4fe9304624300de86b8a51bdd4))
+* test description correction ([5e5c186](https://www.github.com/Financial-Times/origami/commit/5e5c186fa0e4e72d10869d62b05814924787fed4))
+* update `o-audio` tracking test ([a0b00b7](https://www.github.com/Financial-Times/origami/commit/a0b00b7db960a7262c2c6f80f5eb39432d5fdc7d))
+
 ### [2.1.2](https://www.github.com/Financial-Times/origami/compare/o-audio-v2.1.1...o-audio-v2.1.2) (2022-04-21)
 
 

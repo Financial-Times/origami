@@ -7,10 +7,22 @@
 			"path": "tools/a11y"
 		},
 		{
+			"path": "apps/storybook/addons/background"
+		},
+		{
 			"path": "tools/demo-build"
 		},
 		{
 			"path": "presets/eslint-config-origami-component"
+		},
+		{
+			"path": "components/ft-concept-button"
+		},
+		{
+			"path": "libraries/ftdomdelegate"
+		},
+		{
+			"path": "components/g-audio"
 		},
 		{
 			"path": "apps/storybook/addons/guidelines"
@@ -22,13 +34,7 @@
 			"path": "apps/storybook/addons/markdown-tabs"
 		},
 		{
-			"path": "apps/storybook/addons/background"
-		},
-		{
 			"path": "libraries/math"
-		},
-		{
-			"path": "components/myft-concept-button"
 		},
 		{
 			"path": "components/n-notification"
@@ -134,6 +140,9 @@
 		},
 		{
 			"path": "components/o-share"
+		},
+		{
+			"path": "components/o-social-follow"
 		},
 		{
 			"path": "components/o-spacing"

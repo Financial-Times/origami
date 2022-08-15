@@ -90,6 +90,18 @@ const config = {
 oTracking.init(config);
 ```
 
+o-tracking also has a `test-data` mode to mark events as test events without the debugging information in the console:
+
+```js
+import oTracking from '@financial-times/o-tracking';
+
+const config = {
+    test_data: true, // Mark the events as test events without extra debug logging.
+    ...
+};
+oTracking.init(config);
+```
+
 #### Methods
 
 ##### oTracking.init
