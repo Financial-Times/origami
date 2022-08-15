@@ -1,0 +1,30 @@
+{
+  "type": "article",
+  "id": "",
+  "url": "#",
+  "title": "Inside charity fundraiser where hostesses are put on show",
+  "altTitle": "Men Only, the charity fundraiser with hostesses on show",
+  "standfirst": "FT investigation finds groping and sexual harassment at secretive black-tie dinner",
+  "altStandfirst": "Groping and sexual harassment at black-tie dinner charity event",
+  "publishedDate": "2018-01-23T15:07:00.000Z",
+  "firstPublishedDate": "2018-01-23T13:53:00.000Z",
+  "metaPrefixText": "",
+  "metaSuffixText": "",
+  "metaLink": {
+    "url": "#",
+    "prefLabel": "Sexual misconduct allegations"
+  },
+  "metaAltLink": {
+    "url": "#",
+    "prefLabel": "FT Investigations"
+  },
+  "image": {
+    "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
+    "width": 2048,
+    "height": 1152,
+    "imageLazyLoad": "js-image-lazy-load"
+  },
+  "indicators": {
+    "isEditorsChoice": true
+  }
+}
