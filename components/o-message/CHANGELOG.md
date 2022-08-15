@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-message-v5.3.0...o-message-v5.3.1) (2022-07-19)
+
+
+### Bug Fixes
+
+* Fix incorect rendering of action message for core brand ([d3bfb6b](https://www.github.com/Financial-Times/origami/commit/d3bfb6b9a65136aa321df72bba900be975d0abd7))
+
 ## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-message-v5.2.2...o-message-v5.3.0) (2022-06-24)
 
 
