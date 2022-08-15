@@ -17,8 +17,7 @@
   "browser": "main.js",
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm run build:tsx && bash ../../scripts/component/build.bash",
-		"build:tsx": "tsc",
+    "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"

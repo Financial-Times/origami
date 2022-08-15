@@ -1,8 +1,0 @@
-{
-	"extends": "../../tsconfig.json",
-	"compilerOptions": {
-		"outDir": "react-lib",
-	},
-	"include": ["./src/tsx/**/*.tsx"],
-	"exclude": ["node_modules", "react-lib", "test", "stories"]
-  }
