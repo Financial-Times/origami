@@ -31,17 +31,7 @@ interface LinkButtonProps extends ButtonProps {
 	href: string;
 }
 
-function ButtonTemplate({
-	label,
-	type = 'secondary',
-	size = '',
-	theme,
-	icon,
-	iconOnly = false,
-	href = '',
-	attributes = {},
-	onClick
-}: ButtonProps | LinkButtonProps) {
+function makeClassNames({type, size, theme, icon, iconOnly}) {
 	const classNames = ['o-buttons', `o-buttons--${type}`];
 
 	if (size) {
@@ -59,22 +49,7 @@ function ButtonTemplate({
 	if (iconOnly) {
 		classNames.push('o-buttons-icon--icon-only');
 	}
-
-	const HtmlTag = href ? 'a' : 'button';
-
-	return (
-		<HtmlTag
-			{...(href ? {href} : {})}
-			{...(onClick ? {onClick} : {})}
-			className={classNames.join(' ')}
-			{...attributes}>
-			{icon && iconOnly ? (
-				<span className="o-buttons-icon__label">{label}</span>
-			) : (
-				label
-			)}
-		</HtmlTag>
-	);
+	return classNames.join(' ');
 }
 
 export function Button({
@@ -85,18 +60,20 @@ export function Button({
 	icon,
 	iconOnly = false,
 	attributes = {},
-	onClick
+	onClick,
 }: ButtonProps) {
-	return ButtonTemplate({
-		label,
-		type,
-		size,
-		theme,
-		icon,
-		iconOnly,
-		attributes,
-		onClick
-	});
+	return (
+		<button
+			{...(onClick ? {onClick} : {})}
+			className={makeClassNames({type, size, theme, icon, iconOnly})}
+			{...attributes}>
+			{icon && iconOnly ? (
+				<span className="o-buttons-icon__label">{label}</span>
+			) : (
+				label
+			)}
+		</button>
+	);
 }
 
 export function LinkButton({
@@ -107,18 +84,20 @@ export function LinkButton({
 	icon,
 	iconOnly = false,
 	attributes = {},
-	href = '',
-	onClick
+	href = null,
+	onClick,
 }: LinkButtonProps) {
-	return ButtonTemplate({
-		label,
-		type,
-		size,
-		theme,
-		icon,
-		iconOnly,
-		href,
-		attributes,
-		onClick
-	});
+	return (
+		<a
+			href={href}
+			{...(onClick ? {onClick} : {})}
+			className={makeClassNames({type, size, theme, icon, iconOnly})}
+			{...attributes}>
+			{icon && iconOnly ? (
+				<span className="o-buttons-icon__label">{label}</span>
+			) : (
+				label
+			)}
+		</a>
+	);
 }
