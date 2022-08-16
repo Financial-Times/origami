@@ -64,7 +64,7 @@ export function Button({
 }: ButtonProps) {
 	return (
 		<button
-			{...(onClick ? {onClick} : {})}
+			onClick={onClick ? event => onClick(event) : null}
 			className={makeClassNames({type, size, theme, icon, iconOnly})}
 			{...attributes}>
 			{icon && iconOnly ? (
@@ -90,7 +90,7 @@ export function LinkButton({
 	return (
 		<a
 			href={href}
-			{...(onClick ? {onClick} : {})}
+			onClick={onClick ? event => onClick(event) : null}
 			className={makeClassNames({type, size, theme, icon, iconOnly})}
 			{...attributes}>
 			{icon && iconOnly ? (
