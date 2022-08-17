@@ -1,5 +1,13 @@
 # Changelog
 
+### [7.7.1](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.7.0...o-buttons-v7.7.1) (2022-08-17)
+
+
+### Bug Fixes
+
+* attach onClick handler ourselves ([a5ea55f](https://www.github.com/Financial-Times/origami/commit/a5ea55f49a47fd535253050676d5d1678e9363ab))
+* separate linkbutton and button ([95ed2b3](https://www.github.com/Financial-Times/origami/commit/95ed2b31a1a778ca13df527bbf1d8fc663fad41f))
+
 ## [7.7.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.6.0...o-buttons-v7.7.0) (2022-07-26)
 
 
