@@ -589,6 +589,22 @@ This layout may be used without a right-hand side bar. To remove it, delete the 
 |       FOOTER       |
 └————————————————————┘
 ```
+### Skip Links
+
+To add a skip link to your project, place a link with the `o-layout-skip-link` class at the top of the page. It is important the link comes before the nav or any other tab-able content.
+
+<a class="o-layout-skip-link" href="#main-content">
+	Skip to Content
+</a>
+```
+
+To ensure the link navigates to the right place, give the main content an id. The id must correspond to the skip link’s href.
+
+```html
+<main id="main-content">
+	<!-- ... -->
+</main>
+```
 
 ## Sass
 You can include o-layout styles with the `oLayout` mixin.
