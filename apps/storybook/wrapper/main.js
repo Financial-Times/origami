@@ -11,6 +11,16 @@ module.exports.addons = [
 	"origami-storybook-addon-html/register",
 ]
 
+module.exports.managerWebpack = async function managerWebpack(config) {
+	config.output.publicPath = "/storybook/"
+	return config
+}
+
+module.exports.webpackFinal = async function webpackFinal(config) {
+	config.output.publicPath = "/storybook/"
+	return config
+}
+
 module.exports.refs = (config, {configType}) => {
 	if (configType === "DEVELOPMENT") {
 		return {

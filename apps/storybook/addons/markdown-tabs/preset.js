@@ -1,3 +1,5 @@
+const brand = process.env.ORIGAMI_STORYBOOK_BRAND || "core"
+
 module.exports.managerEntries = function managerEntries(entry = []) {
 	return [
 		...entry,
@@ -6,6 +8,7 @@ module.exports.managerEntries = function managerEntries(entry = []) {
 }
 
 module.exports.managerWebpack = function managerWebpack(baseConfig) {
+	baseConfig.output.publicPath = `/brands/${brand}/`
 	baseConfig.module.rules.push({
 		test: /\.md$/,
 		type: "asset/source",
