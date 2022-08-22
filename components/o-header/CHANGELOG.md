@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.1.0](https://www.github.com/Financial-Times/origami/compare/o-header-v10.0.1...o-header-v10.1.0) (2022-08-17)
+
+
+### Features
+
+* Add storybook / tsx templates ([e533fcc](https://www.github.com/Financial-Times/origami/commit/e533fccb9e80d758a21b52d4a176248f46d11a50))
+
 ### [10.0.1](https://www.github.com/Financial-Times/origami/compare/o-header-v10.0.0...o-header-v10.0.1) (2022-04-21)
 
 
