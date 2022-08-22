@@ -46,7 +46,7 @@
 		left: oSpacingByName('s2');
 		padding: oSpacingByName('s2') oSpacingByName('s4');
 		background-color: oColorsByName('oxford');
-		color: white;
+		color: oColorsByName('white');
 		text-decoration: none;
 		transform: translateY(-120%);
 		@media (prefers-reduced-motion: no-preference) {
