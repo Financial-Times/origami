@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 
-* o-layout, use o-colors to get "white" hex ([1bc0727](https://www.github.com/Financial-Times/origami/commit/1bc07275cb2f7461964d5a35c1f8fb1103a90d69))
+* Add skip link for screen reader users
 
 ### [5.2.3](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.2.2...o-layout-v5.2.3) (2022-04-21)
 
