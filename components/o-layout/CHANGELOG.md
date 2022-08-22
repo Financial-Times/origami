@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.4](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.2.3...o-layout-v5.2.4) (2022-08-22)
+
+
+### Bug Fixes
+
+* o-layout, use o-colors to get "white" hex ([1bc0727](https://www.github.com/Financial-Times/origami/commit/1bc07275cb2f7461964d5a35c1f8fb1103a90d69))
+
 ### [5.2.3](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.2.2...o-layout-v5.2.3) (2022-04-21)
 
 
