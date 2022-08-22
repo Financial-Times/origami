@@ -37,24 +37,24 @@
 		min-height: 100vh;
 		// create a break if an entire word cannot be placed on its own line without overflowing
 		overflow-wrap: break-word;
+	}
 
-		&-skip-link {
-			z-index: 999;
-			position: absolute;
-			left: 0.5rem;
-			padding: 0.5em 1em;
-			background-color: oColorsByName('oxford');
-			color: white;
-			font-size: 1.2rem;
-			text-decoration: none;
-			transform: translateY(-120%);
-			@media (prefers-reduced-motion: no-preference) {
-				transition: transform 300ms ease-in;
-			}
+	.o-layout-skip-link {
+		@include oTypographySans($scale: 1);
+		z-index: 999;
+		position: absolute;
+		left: oSpacingByName('s2');
+		padding: oSpacingByName('s2') oSpacingByName('s4');
+		background-color: oColorsByName('oxford');
+		color: white;
+		text-decoration: none;
+		transform: translateY(-120%);
+		@media (prefers-reduced-motion: no-preference) {
+			transition: transform 300ms ease-in;
+		}
 
-			&:focus {
-				transform: translateY(0);
-			}
+		&:focus {
+			transform: translateY(0);
 		}
 	}
 }
