@@ -1,0 +1,10 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _<%= props.camelCase(props.name) %>Get($variables, $from: null) {
+	@return oBrandGet($component: '<%= props.name %>', $variables: $variables, $from: $from);
+}
+/// Helper for `o-brand` function.
+/// @access private
+@function _<%= props.camelCase(props.name) %>Supports($variant) {
+	@return oBrandSupportsVariant($component: '<%= props.name %>', $variant: $variant);
+}
