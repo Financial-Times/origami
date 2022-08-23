@@ -1,3 +1,4 @@
 components/
 libraries/
-tools/
+tools/*
+!tools/create-component
