@@ -1,0 +1,565 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component template files Root ejs files expect README.md ejsRenderer fn output to match snapshot 1`] = `
+"# @financial-times/o-test-name
+
+_A short description of what the component does._
+
+- [Usage](#usage)
+- [Behaviour](#behaviour)
+- [Markup](#markup)
+- [Sass](#sass)
+- [JavaScript](#javascript)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [Migration](#migration)
+- [Contact](#contact)
+- [Licence](#licence)
+
+_Instructions for the component. We've broken this down by Markup, JavaScript, Sass, etc. You may add more sections as needed._
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-components-in-your-project) to get started with \`o-test-name\`.
+
+## Behaviour
+
+\`o-test-name\` Behaviour description.
+
+## Markup
+
+_Markup documentation for the component. Including css classes, data attributes, and tags for variations of the component._
+_Demo markup is also shown in the registry. For complex markup it can be useful to describe the markup and link to the registry demos for a full example._
+_Remember to start your codeblocks with three backticks and \\"html\\" so your markup is syntax highlighted correctly._
+\`\`\`html
+<div data-o-component=\\"o-test-name\\" class='o-test-name'>
+</div>
+\`\`\`
+
+## Sass
+
+_Sass documentation. With instructions to include styles with a primary mixin, what options are available, brand support where applicable._
+_For complex components it may be helpful to document apis with SassDoc and link to the components SassDoc in the Origami Registry._
+_Remember to start your codeblocks with three backticks and \\"scss\\" so your markup is syntax highlighted correctly._
+
+Use \`@include oTestName()\` to include styles for all \`o-test-name\` features.
+
+\`\`\`scss
+@import \\"@financial-times/o-test-name\\";
+
+@include oTestName();
+\`\`\`
+
+
+## JavaScript
+
+_JavaScript documentation. Including how to initialise the component, available options, and common usecases._
+_For complex components it may be helpful to document apis with JSDoc and link to the components JSDocs in the Origami Registry._
+_Remember to start your codeblocks with three backticks and \\"js\\" so your js is syntax highlighted correctly._
+
+JavaScript is initialised automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/v2/) users. If your project is using a manual build process, [initialise  \`o-test-name\` manually](https://origami.ft.com/docs/tutorials/manual-build/).
+
+For example call the \`init\` method to initialise all \`o-test-name\` instances in the document:
+
+\`\`\`js
+import oTestName from 'o-test-name';
+oTestName.init();
+\`\`\`
+
+Or pass an element to initialise a specific \`o-test-name\` instance:
+
+\`\`\`js
+import oTestName from 'o-test-name';
+const oTestNameElement = document.getElementById('#my-o-test-name-element');
+oTestName.init(oTestNameElement);
+\`\`\`
+
+
+
+## Troubleshooting
+
+_Answers to questions or problems that come up repeatedly._
+_It's likely you can delete this section for now. Remember to remove it from the table of contents._
+
+## Contributing
+
+_Contributing documentation for non typical components._
+_It's likely you can delete this section if your component conforms with other components._
+_Remember to update the table of contents is you remove this section._
+
+## Migration
+
+_Guides to upgrade from one major version of a component to another._
+_This section includes a table of major versions with links to \`MIGRATION.md\`._
+_\`MIGRATION.md\` would provide upgrade instructions, but since this is a new component there is no \`MIGRATION.md\`._
+_Delete this section, including from the table of contents, until there is a second major version of this component._
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+⚠ maintained | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.0 | N/A |
+
+## Contact
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/origami/issues/new?labels=o-test-name,components), visit [#origami-support](https://financialtimes.slack.com/messages/#origami-support/) or email [origami.support@ft.com](mailto:origami.support@ft.com).
+
+## Licence
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
+\`;
+};
+"
+`;
+
+exports[`Component template files Root ejs files expect main.js ejsRenderer fn output to match snapshot 1`] = `
+"import oTestName from './src/js/test-name.js';
+
+const constructAll = () => {
+	oTestName.init();
+	document.removeEventListener('o.DOMContentLoaded', constructAll);
+};
+
+if (typeof document !== 'undefined') {
+	document.addEventListener('o.DOMContentLoaded', constructAll);
+}
+
+export default oTestName;
+"
+`;
+
+exports[`Component template files Root ejs files expect main.scss ejsRenderer fn output to match snapshot 1`] = `
+"@import '@financial-times/o-brand/main';
+
+@import './src/scss/variables';
+@import 'src/scss/brand';
+/// Output all oTestName features
+/// @param {Map} $opts [()] - A map of options to configure the output
+/// @access public
+/// @example scss
+///		@include oTestName($opts: (
+///			// your opts here
+///		))
+@mixin oTestName ($opts: ()) {
+	// content of primary mixin
+	.o-test-name {
+		display: block;
+	}
+}
+
+"
+`;
+
+exports[`Component template files Root ejs files expect origami.json ejsRenderer fn output to match snapshot 1`] = `
+"{
+	\\"origamiType\\": \\"component\\",
+	\\"origamiVersion\\": \\"2.0\\",
+	\\"brands\\": [\\"core\\",\\"internal\\"],
+	\\"support\\": \\"https://github.com/Financial-Times/origami/issues/new?labels=o-test-name,components\\",
+	\\"supportContact\\": {
+		\\"email\\":  \\"origami.support@ft.com\\",
+		\\"slack\\": \\"#origami-support\\"
+	},
+	\\"supportStatus\\": \\"experimental\\",
+	\\"browserFeatures\\": {},
+	\\"demosDefaults\\": {
+		\\"sass\\": \\"demos/src/demo.scss\\", 
+		\\"js\\": \\"demos/src/demo.js\\", 
+		\\"template\\": \\"demos/src/demo.mustache\\",
+		\\"documentClasses\\": \\"\\",
+		\\"dependencies\\": []
+	},
+	\\"demos\\": [
+		{
+			\\"title\\": \\"A Useful Demo\\",
+			\\"name\\": \\"demo\\",
+			\\"template\\": \\"demos/src/demo.mustache\\",
+			\\"description\\": \\"Description of the demo\\"
+		},
+		{
+			\\"title\\": \\"Pa11y\\",
+			\\"name\\": \\"pa11y\\",
+			\\"template\\": \\"demos/src/pa11y.mustache\\",
+			\\"description\\": \\"Accessibility test will be run against this demo\\",
+			\\"hidden\\": true
+		}
+	]
+}
+"
+`;
+
+exports[`Component template files Root ejs files expect package.json ejsRenderer fn output to match snapshot 1`] = `
+"{
+  \\"name\\": \\"@financial-times/o-test-name\\",
+  \\"version\\": \\"0.0.0\\",
+  \\"description\\": \\"bla blas \\",
+  \\"keywords\\": [\\"git\\",\\"o\\",\\"init\\"],
+  \\"homepage\\": \\"https://registry.origami.ft.com/components/o-test-name\\",
+  \\"bugs\\": {
+    \\"url\\": \\"https://github.com/Financial-Times/origami/issues/new?labels=o-test-name,components\\",
+    \\"email\\": \\"origami.support@ft.com\\"
+  },
+  \\"license\\": \\"MIT\\",
+  \\"type\\": \\"module\\",
+  \\"browser\\": \\"main.js\\",
+  \\"scripts\\": {
+    \\"start\\": \\"npx serve ./demos/local\\",
+    \\"build\\": \\"bash ../../scripts/component/build.bash\\",
+    \\"test\\": \\"bash ../../scripts/component/test.bash\\",
+    \\"lint\\": \\"bash ../../scripts/component/lint.bash\\",
+    \\"watch\\": \\"bash ../../scripts/component/watch.bash\\"
+  },
+	\\"peerDependencies\\": {
+			\\"@financial-times/o-brand\\": \\"^4.1.0\\"
+	},
+	  \\"devDependencies\\": {},
+  \\"engines\\": {
+    \\"npm\\": \\"^7 || ^8\\"
+  },
+  \\"volta\\": {
+    \\"node\\": \\"14.16.1\\",
+    \\"npm\\": \\"7.11.1\\"
+  },
+  \\"percy\\": true,
+  \\"private\\": false
+}
+"
+`;
+
+exports[`Component template files Root non ejs files expect .eslintignore ejsRenderer fn output to match snapshot 1`] = `
+"demos/local/**
+"
+`;
+
+exports[`Component template files Root non ejs files expect .eslintrc.cjs ejsRenderer fn output to match snapshot 1`] = `
+"module.exports = {
+	\\"extends\\": \\"origami-component\\"
+};
+"
+`;
+
+exports[`Component template files Root non ejs files expect .gitignore ejsRenderer fn output to match snapshot 1`] = `
+".DS_Store
+.env
+/.sass-cache/
+/bower_components/
+/node_modules/
+/build/
+.idea/
+/demos/local
+/coverage
+"
+`;
+
+exports[`Component template files Root non ejs files expect .npmignore ejsRenderer fn output to match snapshot 1`] = `
+".env
+.gitignore
+.npmignore
+.eslintrc.cjs
+.remarkrc.cjs
+.stylelintrc.cjs
+.prettierrc.toml
+.eslintignore
+.stylelintignore
+stories/
+src/tsx/
+.github/
+test/
+demos/local/
+
+"
+`;
+
+exports[`Component template files Root non ejs files expect .prettierrc.toml ejsRenderer fn output to match snapshot 1`] = `
+"printWidth = 80
+trailingComma = \\"es5\\"
+semi = true
+singleQuote = true
+useTabs = true
+bracketSpacing = false
+jsxBracketSameLine = true
+arrowParens = \\"avoid\\"
+"
+`;
+
+exports[`Component template files Root non ejs files expect .remarkrc.cjs ejsRenderer fn output to match snapshot 1`] = `
+"module.exports.plugins = [require(\\"remark-preset-lint-origami-component\\")]
+"
+`;
+
+exports[`Component template files Root non ejs files expect .stylelintignore ejsRenderer fn output to match snapshot 1`] = `
+"demos/local/**
+"
+`;
+
+exports[`Component template files Root non ejs files expect .stylelintrc.cjs ejsRenderer fn output to match snapshot 1`] = `
+"module.exports = {
+    \\"extends\\": \\"stylelint-config-origami-component\\"
+};"
+`;
+
+exports[`Component template files demos ejs files expect demo.js ejsRenderer fn output to match snapshot 1`] = `
+"import '../../main.js';
+
+document.addEventListener(\\"DOMContentLoaded\\", function () {
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
+"
+`;
+
+exports[`Component template files demos ejs files expect demo.mustache ejsRenderer fn output to match snapshot 1`] = `
+"<div class=\\"o-test-name\\"data-o-component=\\"o-test-name\\"></div>
+"
+`;
+
+exports[`Component template files demos ejs files expect demo.scss ejsRenderer fn output to match snapshot 1`] = `
+"@import '../../main';
+
+@include oTestName();
+"
+`;
+
+exports[`Component template files demos ejs files expect pa11y.mustache ejsRenderer fn output to match snapshot 1`] = `
+"<div class=\\"o-test-name\\"data-o-component=\\"o-test-name\\"></div>
+"
+`;
+
+exports[`Component template files src and stories ejs files expect <name>.js ejsRenderer fn output to match snapshot 1`] = `
+"class TestName {
+	/**
+		* Class constructor.
+		* @param {HTMLElement} [testNameEl] - The component element in the DOM
+		* @param {Object} [options={}] - An options object for configuring the component
+		*/
+	constructor (testNameEl, options) {
+		this.testNameEl = testNameEl;
+		this.options = Object.assign({}, {
+		}, options || TestName.getDataAttributes(testNameEl));
+	}
+	/**
+		* Get the data attributes from the TestNameElement. If the element is being set up
+		* declaratively, this method is used to extract the data attributes from the DOM.
+		* @param {HTMLElement} testNameEl - The component element in the DOM
+		* @returns {Object} An options object which can be used for configuring the component
+		*/
+	static getDataAttributes (testNameEl) {
+		if (!(testNameEl instanceof HTMLElement)) {
+			return {};
+		}
+		return Object.keys(testNameEl.dataset).reduce((options, key) => {
+			// Ignore keys which are not in the component's namespace
+			if (!key.match(/^oTestName(\\\\w)(\\\\w+)$/)) {
+				return options;
+			}
+			// Build a concise key and get the option value
+			const shortKey = key.replace(/^oTestName(\\\\w)(\\\\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const value = testNameEl.dataset[key];
+			// Try parsing the value as JSON, otherwise just set it as a string
+			try {
+				options[shortKey] = JSON.parse(value.replace(/'/g, '\\"'));
+			} catch (error) {
+				options[shortKey] = value;
+			}
+			return options;
+		}, {});
+	}
+	/**
+		* Initialise o-test-name component/s.
+		* @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
+		* @param {Object} [options={}] - An options object for configuring the component
+		* @returns {TestName|TestName[]} The newly constructed TestName components
+		*/
+	static init (rootElement, options) {
+		if (!rootElement) {
+			rootElement = document.body;
+		}
+		if (!(rootElement instanceof HTMLElement)) {
+			rootElement = document.querySelector(rootElement);
+		}
+		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=o-test-name]')) {
+			return new TestName(rootElement, options);
+		}
+		return Array.from(rootElement.querySelectorAll('[data-o-component=\\"o-test-name\\"]'), rootEl => new TestName(rootEl, options));
+	}
+}
+
+export default TestName;
+"
+`;
+
+exports[`Component template files src and stories ejs files expect <name>.stories.tsx ejsRenderer fn output to match snapshot 1`] = `
+"import withHtml from 'origami-storybook-addon-html';
+import {withDesign} from 'storybook-addon-designs';
+import {ComponentStory, ComponentMeta} from '@storybook/react';
+import {OTestName} from '../src/tsx/o-test-name';
+import './o-test-name.scss';
+
+export default {
+	title: 'Components/o-test-name',
+	component: OTestName,
+	decorators: [withDesign, withHtml],
+	parameters: {},
+	args: {},
+} as ComponentMeta<typeof OTestName>;
+
+const OTestNameStory = args => <OTestName {...args} />;
+export const DefaultOTestName: ComponentStory<typeof OTestName> = OTestNameStory.bind(
+	{}
+);
+"
+`;
+
+exports[`Component template files src and stories ejs files expect <name>.tsx ejsRenderer fn output to match snapshot 1`] = `
+"export function OTestName() {
+	return (<div className=\\"o-test-name\\"data-o-component=\\"o-test-name\\"></div>)
+}
+"
+`;
+
+exports[`Component template files src and stories ejs files expect <name>.tsx ejsRenderer fn output to match snapshot 2`] = `
+"@import \\"@financial-times/o-test-name/main\\";
+@include oTestName();
+"
+`;
+
+exports[`Component template files src and stories ejs files expect _brand.scss ejsRenderer fn output to match snapshot 1`] = `
+"/// Helper for \`o-brand\` function.
+/// @access private
+@function _oTestNameGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-test-name', $variables: $variables, $from: $from);
+}
+/// Helper for \`o-brand\` function.
+/// @access private
+@function _oTestNameSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-test-name', $variant: $variant);
+}
+"
+`;
+
+exports[`Component template files src and stories ejs files expect _variables.scss ejsRenderer fn output to match snapshot 1`] = `
+"// Add any global Sass variables for o-test-name here.
+"
+`;
+
+exports[`Component template files test ejs files expect <name>.test.js ejsRenderer fn output to match snapshot 1`] = `
+"/* eslint-env mocha */
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
+import * as fixtures from './helpers/fixtures.js';
+import TestName from '../../main.js';
+
+describe(\\"TestName\\", () => {
+	it('is defined', () => {
+		proclaim.equal(typeof TestName, 'function');
+	});
+
+	it('has a static init method', () => {
+		proclaim.equal(typeof TestName.init, 'function');
+	});
+
+	it(\\"should autoinitialize\\", (done) => {
+		const initSpy = sinon.spy(TestName, 'init');
+		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+		setTimeout(function(){
+			proclaim.equal(initSpy.called, true);
+			initSpy.restore();
+			done();
+		}, 100);
+	});
+
+	it(\\"should not autoinitialize when the event is not dispached\\", () => {
+		const initSpy = sinon.spy(TestName, 'init');
+		proclaim.equal(initSpy.called, false);
+	});
+
+	describe(\\"should create a new o-test-name\\", () => {
+
+		beforeEach(() => {
+			fixtures.htmlCode();
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+
+		it(\\"component array when initialized\\", () => {
+			const boilerplate = TestName.init();
+			proclaim.equal(boilerplate instanceof Array, true);
+			proclaim.equal(boilerplate[0] instanceof TestName, true);
+		});
+
+		it(\\"single component when initialized with a root element\\", () => {
+			const boilerplate = TestName.init('#element');
+			proclaim.equal(boilerplate instanceof TestName, true);
+		});
+	});
+});
+"
+`;
+
+exports[`Component template files test ejs files expect _main.test.scss ejsRenderer fn output to match snapshot 1`] = `
+"@include describe('oTestName mixins') {
+	@include describe('oTestName') {
+		@include it('does something') {
+			@include assert() {
+				@include output($selector: false) {
+					.test-mixin {
+						@include oTestName();
+					}
+				}
+				@include expect($selector: false) {
+					.test-mixin .o-test-name {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}
+"
+`;
+
+exports[`Component template files test ejs files expect fixtures.js ejsRenderer fn output to match snapshot 1`] = `
+"let sandboxEl;
+
+function createSandbox() {
+	if (document.querySelector('.sandbox')) {
+		sandboxEl = document.querySelector('.sandbox');
+	} else {
+		sandboxEl = document.createElement('div');
+		sandboxEl.setAttribute('class', 'sandbox');
+		document.body.appendChild(sandboxEl);
+	}
+}
+
+function reset() {
+	sandboxEl.innerHTML = '';
+}
+
+function insert(html) {
+	createSandbox();
+	sandboxEl.innerHTML = html;
+}
+
+function htmlCode () {
+	const html = \`<div>
+		<div class=\\"o-test-name \\" data-o-component=\\"o-test-name \\" id=\\"element\\"></div>
+	</div>
+	\`;
+	insert(html);
+}
+
+export {
+	htmlCode,
+	reset
+};
+"
+`;
+
+exports[`Component template files test ejs files expect index.test.scss ejsRenderer fn output to match snapshot 1`] = `
+"@import 'true';
+@import '../../main';
+
+$_test-environment: true;
+
+@import 'main.test';
+"
+`;

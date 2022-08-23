@@ -1,0 +1,3 @@
+export function <%= props.titleCase(props.camelCase(props.name)) %>() {
+	return (<div className="<%= props.name %>"<% if (props.javascript) { %>data-o-component="<%= props.name %>"<% } %>></div>)
+}

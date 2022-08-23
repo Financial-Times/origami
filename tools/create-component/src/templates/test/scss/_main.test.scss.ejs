@@ -1,0 +1,18 @@
+@include describe('<%= props.camelCase(props.name) %> mixins') {
+	@include describe('<%= props.camelCase(props.name) %>') {
+		@include it('does something') {
+			@include assert() {
+				@include output($selector: false) {
+					.test-mixin {
+						@include <%= props.camelCase(props.name) %>();
+					}
+				}
+				@include expect($selector: false) {
+					.test-mixin .<%= props.name %> {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}

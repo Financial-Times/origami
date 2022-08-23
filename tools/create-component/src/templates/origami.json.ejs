@@ -1,19 +1,34 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands": [
-	"<%= props.name %>"
-	],
-	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-message,components",
+	"brands": <%- JSON.stringify(props.brands) %>,
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=<%= props.name %>,components",
 	"supportContact": {
-		"email": "origami.support@ft.com",
-		"slack": "financialtimes/origami-support"
+		"email":  "<%= props.team.email %>",
+		"slack": "<%= props.team.slack %>"
 	},
-	"supportStatus": "active",
+	"supportStatus": "<%= props.status %>",
+	"browserFeatures": {},
 	"demosDefaults": {
-		"sass": "demos/src/demo.scss",
-		"js": "demos/src/demo.js",
-		"template": "demos/src/message-template.mustache",
-		"documentClasses": ""
-	}
+		<% if (props.scss) { %>"sass": "demos/src/demo.scss", -%><% } %>
+		<% if (props.javascript) { %>"js": "demos/src/demo.js", -%><% } %>
+		"template": "demos/src/demo.mustache",
+		"documentClasses": "",
+		"dependencies": []
+	},
+	"demos": [
+		{
+			"title": "A Useful Demo",
+			"name": "demo",
+			"template": "demos/src/demo.mustache",
+			"description": "Description of the demo"
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"description": "Accessibility test will be run against this demo",
+			"hidden": true
+		}
+	]
 }

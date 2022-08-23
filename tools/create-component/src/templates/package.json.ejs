@@ -1,0 +1,35 @@
+{
+  "name": "@financial-times/<%= props.name %>",
+  "version": "0.0.0",
+  "description": "<%= props.description %>",
+  "keywords": <%- JSON.stringify(props.keywords) %>,
+  "homepage": "https://registry.origami.ft.com/components/<%= props.name %>",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=<%= props.name %>,components",
+    "email": "<%= props.team.email %>"
+  },
+  "license": "MIT",
+  "type": "module",
+  <% if (props.javascript) { %>"browser": "main.js",<% } %>
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash",
+    "watch": "bash ../../scripts/component/watch.bash"
+  },
+	<% if (props.brands) { %>"peerDependencies": {
+			"@financial-times/o-brand": "^4.1.0"
+	},
+	<% } -%>
+  "devDependencies": {},
+  "engines": {
+    "npm": "^7 || ^8"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  },
+  "percy": true,
+  "private": false
+}

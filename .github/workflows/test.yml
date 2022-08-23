@@ -1163,3 +1163,16 @@ jobs:
     - run: npm run -w apps/website lint --if-present
     - run: npm run -w apps/website build --if-present
     - run: npm run -w apps/website test --if-present
+  test-create-component:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: npm run -w tools/demo-build test --if-present
