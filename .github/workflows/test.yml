@@ -1175,4 +1175,4 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
     - run: npm ci
-    - run: npm run -w tools/demo-build test --if-present
+    - run: npm run -w tools/create-component test --if-present
