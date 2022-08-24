@@ -18,7 +18,7 @@ A command is a file that looks something like this:
 
 module.exports = {
   run: (toolbox) => {
-    const { print, filesystem } = toolbox
+    const { print } = toolbox
 
     const desktopDirectories = filesystem.subdirectories(`~/Desktop`)
     print.info(desktopDirectories)

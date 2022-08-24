@@ -1,9 +1,9 @@
 import * as fs from 'fs';
 import * as ejs from 'ejs';
-import {filesystem} from 'gluegun';
+import * as jetPack from 'fs-jetpack';
 import * as ejsHelpers from '../helpers/name-formats';
 const ejsRenderer = async (file, data) => {
-	const filePath = filesystem.path(__dirname, '..', 'src', 'templates', file);
+	const filePath = jetPack.path(__dirname, '..', 'src', 'templates', file);
 	const template = fs.readFileSync(filePath, 'utf8');
 	const str = await ejs.render(template, data, {
 		helpers: ejsHelpers,

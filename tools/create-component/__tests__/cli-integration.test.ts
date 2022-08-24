@@ -1,12 +1,12 @@
 import {templateFiles} from './../helpers/utils';
-import {filesystem} from 'gluegun';
 import * as nixt from 'nixt';
-import * as rimraf from 'rimraf';
+import * as jetPack from 'fs-jetpack';
 
 describe('CLI integration tests', () => {
 	jest.setTimeout(100000);
 	afterEach(done => {
-		rimraf('./__tests__/o-test-name', done);
+		jetPack.remove('./__tests__/o-test-name');
+		done();
 	});
 
 	it('CLI with all properties', done => {
@@ -70,8 +70,8 @@ function getNixtInstance(
 }
 
 function checkFiles(filesNotToInclude?: string[]) {
-	const testComponentPath = filesystem.path(__dirname, 'o-test-name');
-	const actualGeneratedFiles = filesystem
+	const testComponentPath = jetPack.path(__dirname, 'o-test-name');
+	const actualGeneratedFiles = jetPack
 		.find(testComponentPath)
 		.map(filePath => filePath.split('o-test-name/')[1]);
 	templateFiles

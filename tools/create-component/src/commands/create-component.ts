@@ -6,6 +6,7 @@ import {
 	generateKeywords,
 } from '../../helpers/utils';
 import {createStoryBookBoilerPlate} from '../../helpers/create-storybook';
+
 const command: GluegunCommand = {
 	name: 'create-component',
 	description: 'Create new component',

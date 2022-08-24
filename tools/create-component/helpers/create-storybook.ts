@@ -1,5 +1,4 @@
-import {filesystem} from 'gluegun';
-
+import * as jetPack from 'fs-jetpack';
 export async function createStoryBookBoilerPlate(toolbox) {
 	const {prompt, print} = toolbox;
 	const props = await prompt.ask(componentName);
@@ -19,18 +18,24 @@ const componentName = {
 };
 
 function findComponentsWithoutStoryBook() {
-	const components = filesystem
-		.subdirectories('../../components')
-		.filter(dir => !filesystem.exists(`${dir}/stories`))
+	const components = jetPack
+		.cwd('../../components')
+		.find({
+			matching: '*',
+			directories: true,
+			recursive: false,
+			files: false,
+		})
+		.filter(dir => !jetPack.exists(`${dir}/stories`))
 		.map(dir => dir.replace('../../components/', ''));
 	return components;
 }
 
 async function copyTemplates(toolbox, props) {
-	const storyBookFiles = filesystem
+	const storyBookFiles = jetPack
 		.find('src/templates/stories')
 		.map(file => file.split('templates/')[1]);
-	const tsx = filesystem
+	const tsx = jetPack
 		.find('src/templates/src/tsx')
 		.map(file => file.split('templates/')[1]);
 	const files = [...storyBookFiles, ...tsx];
