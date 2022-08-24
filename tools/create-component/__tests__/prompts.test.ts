@@ -22,15 +22,14 @@ describe('Prompts:', () => {
 	beforeAll(() => (io = stdin()));
 	afterAll(() => io.restore());
 	describe('Prompts: name', () => {
-		it('should accept a correctly formatted name', async done => {
+		it('should accept a correctly formatted name', async () => {
 			const sendKeystrokes = async () => {
 				io.send('o-test-name');
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answers = await prompt.ask(componentName);
 			expect(answers.name).toEqual('o-test-name');
-			done();
 		});
 
 		describe('should sanitise and check a name that has been incorrectly formatted', () => {
@@ -41,34 +40,30 @@ describe('Prompts:', () => {
 					await delay(10);
 					io.send(keys.enter);
 				};
-				setTimeout(() => sendKeystrokes().then(), 5);
+				setTimeout(async () => await sendKeystrokes(), 5);
 				const answers = await prompt.ask([componentName, confirmQuestion]);
 				if (answers.confirm) {
 					answers.name = sanitizeName(answers.name);
 				}
 				expect(answers).toEqual({name: 'o-test-name', confirm: true});
 			};
-			it('with spaces', async done => {
+			it('with spaces', async () => {
 				await testNameFormatting('o test name');
-				done();
 			});
 
-			it('with camel case', async done => {
+			it('with camel case', async () => {
 				await testNameFormatting('oTestName');
-				done();
 			});
 
-			it('with non-hyphen characters', async done => {
+			it('with non-hyphen characters', async () => {
 				await testNameFormatting('o-test-name');
-				done();
 			});
 
-			it('with excess hyphens', async done => {
+			it('with excess hyphens', async () => {
 				await testNameFormatting('o-test-name');
-				done();
 			});
 
-			it('if check is not approved, asks name again', async done => {
+			it('if check is not approved, asks name again', async () => {
 				const sendKeystrokes = async () => {
 					io.send('o test-name');
 					io.send(keys.enter);
@@ -80,7 +75,7 @@ describe('Prompts:', () => {
 					await delay(10);
 					io.send(keys.enter);
 				};
-				setTimeout(() => sendKeystrokes().then(), 5);
+				setTimeout(async () => await sendKeystrokes(), 5);
 				const answers = await prompt.ask([
 					componentName,
 					confirmQuestion,
@@ -89,16 +84,15 @@ describe('Prompts:', () => {
 				]);
 
 				expect(answers).toEqual({name: 'o-test-component', confirm: true});
-				done();
 			});
-			it('if name exists, asks name again', async done => {
+			it('if name exists, asks name again', async () => {
 				const sendKeystrokes = async () => {
 					io.send('o buttons');
 					io.send(keys.enter);
 					await delay(10);
 					io.send('y');
 				};
-				setTimeout(() => sendKeystrokes().then(), 5);
+				setTimeout(async () => await sendKeystrokes(), 5);
 				let answers = await prompt.ask([componentName, confirmQuestion]);
 				if (answers.confirm) {
 					answers.name = sanitizeName(answers.name);
@@ -109,113 +103,105 @@ describe('Prompts:', () => {
 							await delay(10);
 							io.send(keys.enter);
 						};
-						setTimeout(() => sendKeystrokes().then(), 5);
+						setTimeout(async () => await sendKeystrokes(), 5);
 						answers = await prompt.ask([componentName, confirmQuestion]);
 					}
 				}
 				expect(answers).toEqual({name: 'o-test-component', confirm: true});
-				done();
 			});
 		});
 	});
 
 	describe('Prompts: description', () => {
-		it('should return description', async done => {
+		it('should return description', async () => {
 			const sendKeystrokes = async () => {
 				io.send('bla bla test description');
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([description]);
 			expect(answer.description).toEqual('bla bla test description');
-			done();
 		});
-		it('if no description provided promt the question again', async done => {
+		it('if no description provided promt the question again', async () => {
 			const sendKeystrokes = async () => {
 				io.send(keys.enter);
 				await delay(10);
 				io.send('new description after re-prompt');
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([description]);
 			expect(answer.description).toEqual('new description after re-prompt');
-			done();
 		});
 	});
 
 	describe('Prompts: keywords', () => {
-		it('should return array of keywords if input is separated by space', async done => {
+		it('should return array of keywords if input is separated by space', async () => {
 			const sendKeystrokes = async () => {
 				io.send('git new component');
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([keywords]);
 			expect(generateKeywords(answer.keywords)).toEqual([
 				'git',
 				'new',
 				'component',
 			]);
-			done();
 		});
 
-		it('should return array of keywords if input is separated by commas', async done => {
+		it('should return array of keywords if input is separated by commas', async () => {
 			const sendKeystrokes = async () => {
 				io.send('git, new, component');
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([keywords]);
 			expect(generateKeywords(answer.keywords)).toEqual([
 				'git',
 				'new',
 				'component',
 			]);
-			done();
 		});
 
-		it('should return array of keywords if input is separated by mix of commas and spaces', async done => {
+		it('should return array of keywords if input is separated by mix of commas and spaces', async () => {
 			const sendKeystrokes = async () => {
 				io.send('git new,     component');
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([keywords]);
 			expect(generateKeywords(answer.keywords)).toEqual([
 				'git',
 				'new',
 				'component',
 			]);
-			done();
 		});
 
-		it('should return empty array if no input provided', async done => {
+		it('should return empty array if no input provided', async () => {
 			const sendKeystrokes = async () => {
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([keywords]);
 			expect(generateKeywords(answer.keywords)).toEqual([]);
-			done();
 		});
 	});
 
 	describe('Prompts: form', () => {
-		it('Returns Defaults', async done => {
+		it('Returns Defaults', async () => {
 			const sendKeystrokes = async () => {
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([form]);
 			expect(answer.team).toEqual({
 				githubTeam: 'origami-core',
 				email: 'origami.support@ft.com',
 				slack: '#origami-support',
 			});
-			done();
 		});
-		it('Returns correct details if default changed', async done => {
+		it('Returns correct details if default changed', async () => {
 			const sendKeystrokes = async () => {
 				io.send('test.email@ft.com');
 				io.send(keys.down);
@@ -227,17 +213,16 @@ describe('Prompts:', () => {
 				await delay(10);
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([form]);
 			expect(answer.team).toEqual({
 				githubTeam: 'test-github-team',
 				email: 'test.email@ft.com',
 				slack: '#test-slack',
 			});
-			done();
 		});
 
-		it('Returns default slack when skipped to specify', async done => {
+		it('Returns default slack when skipped to specify', async () => {
 			const sendKeystrokes = async () => {
 				io.send('test.email@ft.com');
 				io.send(keys.down);
@@ -248,62 +233,57 @@ describe('Prompts:', () => {
 				await delay(10);
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([form]);
 			expect(answer.team).toEqual({
 				githubTeam: 'test-github-team',
 				email: 'test.email@ft.com',
 				slack: '#origami-support',
 			});
-			done();
 		});
 	});
 
 	describe('Prompts: status', () => {
-		it('Returns initial value', async done => {
+		it('Returns initial value', async () => {
 			const sendKeystrokes = async () => {
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([status]);
 			expect(answer.status).toEqual('experimental');
-			done();
 		});
-		it('Returns `active` if user hits keyup', async done => {
+		it('Returns `active` if user hits keyup', async () => {
 			const sendKeystrokes = async () => {
 				io.send(keys.up);
 				await delay(10);
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([status]);
 			expect(answer.status).toEqual('active');
-			done();
 		});
-		it('Returns `maintained` if user hits keydown', async done => {
+		it('Returns `maintained` if user hits keydown', async () => {
 			const sendKeystrokes = async () => {
 				io.send(keys.down);
 				await delay(10);
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([status]);
 			expect(answer.status).toEqual('maintained');
-			done();
 		});
 	});
 
 	describe('Prompts: brands', () => {
-		it('Returns core by default', async done => {
+		it('Returns core by default', async () => {
 			const sendKeystrokes = async () => {
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([brands]);
 			expect(answer.brands).toEqual(['core']);
-			done();
 		});
-		it('Selecting all brands', async done => {
+		it('Selecting all brands', async () => {
 			const sendKeystrokes = async () => {
 				io.send(keys.down);
 				io.send(keys.space);
@@ -311,53 +291,48 @@ describe('Prompts:', () => {
 				io.send(keys.space);
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([brands]);
 			expect(answer.brands).toEqual(['core', 'internal', 'whitelabel']);
-			done();
 		});
 	});
 
 	describe('Prompt: javascript', () => {
-		it('Returns true if selected', async done => {
+		it('Returns true if selected', async () => {
 			const sendKeystrokes = async () => {
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([javascript]);
 			expect(answer.javascript).toEqual(true);
-			done();
 		});
-		it('Returns false if not selected', async done => {
+		it('Returns false if not selected', async () => {
 			const sendKeystrokes = async () => {
 				io.send('n');
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([javascript]);
 			expect(answer.javascript).toEqual(false);
-			done();
 		});
 	});
 	describe('Prompt: scss', () => {
-		it('Returns true if selected', async done => {
+		it('Returns true if selected', async () => {
 			const sendKeystrokes = async () => {
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([scss]);
 			expect(answer.scss).toEqual(true);
-			done();
 		});
-		it('Returns false if not selected', async done => {
+		it('Returns false if not selected', async () => {
 			const sendKeystrokes = async () => {
 				io.send('n');
 				io.send(keys.enter);
 			};
-			setTimeout(() => sendKeystrokes().then(), 5);
+			setTimeout(async () => await sendKeystrokes(), 5);
 			const answer = await prompt.ask([scss]);
 			expect(answer.scss).toEqual(false);
-			done();
 		});
 	});
 });
