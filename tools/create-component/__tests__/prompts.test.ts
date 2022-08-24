@@ -1,4 +1,5 @@
-import {prompt, filesystem} from 'gluegun';
+import {prompt} from 'gluegun';
+import * as jetPack from 'fs-jetpack';
 import {stdin} from 'mock-stdin';
 import {delay, keys} from '../helpers/test-utils';
 import {componentName, questions} from '../helpers/questions';
@@ -96,7 +97,7 @@ describe('Prompts:', () => {
 				let answers = await prompt.ask([componentName, confirmQuestion]);
 				if (answers.confirm) {
 					answers.name = sanitizeName(answers.name);
-					if (filesystem.list(oComponentsPath).includes(answers.name)) {
+					if (jetPack.list(oComponentsPath).includes(answers.name)) {
 						const sendKeystrokes = async () => {
 							io.send('o-test-component');
 							io.send(keys.enter);

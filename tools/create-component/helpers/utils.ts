@@ -1,13 +1,26 @@
-import {filesystem} from 'gluegun';
+import * as jetPack from 'fs-jetpack';
 import {componentName, questions} from './questions';
 
-export const oComponentsPath = filesystem.path(
-	__dirname,
-	'../../../components'
-);
-export const templateFiles = filesystem
+export const oComponentsPath = jetPack.path(__dirname, '../../../components');
+
+export const templateFiles = jetPack
 	.find('src/templates')
 	.map(file => file.split('templates/')[1]);
+
+export const jsFilesNotToInclude = [
+	'src/js/<name>.js.ejs',
+	'test/<name>.test.js.ejs',
+	'test/helpers/fixtures.js.ejs',
+	'main.js.ejs',
+];
+
+export const sassFilesNotToInclude = [
+	'src/scss/_brand.scss.ejs',
+	'src/scss/_variables.scss.ejs',
+	'test/scss/index.test.scss',
+	'test/scss/_main.test.scss.ejs',
+	'main.scss.ejs',
+];
 
 export async function getComponentName(toolbox) {
 	const {prompt, print} = toolbox;
@@ -83,7 +96,7 @@ export async function getFinalConfirmation(toolbox, props) {
 }
 
 function findExistingComponents() {
-	return filesystem.list(oComponentsPath);
+	return jetPack.list(oComponentsPath);
 }
 
 export function generateKeywords(input) {

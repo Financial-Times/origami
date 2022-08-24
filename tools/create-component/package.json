@@ -23,9 +23,9 @@
 	"license": "MIT",
 	"dependencies": {
 		"ejs": "^3.1.8",
+		"fs-jetpack": "^4.3.1",
 		"gluegun": "latest",
-		"nixt": "^0.5.1",
-		"rimraf": "^3.0.2"
+		"nixt": "^0.5.1"
 	},
 	"devDependencies": {
 		"@types/jest": "^26.0.20",
