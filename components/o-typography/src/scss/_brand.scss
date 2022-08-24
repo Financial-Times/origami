@@ -33,13 +33,17 @@ $_o-typography-font-scale: (
 	7: (48, 48),
 	8: (56, 56),
 	9: (72, 72),
-	10: (84, 84),
+	10: (84, 84)
 ) !default;
 
 /// Helper for `o-brand` function.
 /// @access private
 @function _oTypographyGet($variables, $from: null) {
-	@return oBrandGet($component: 'o-typography', $variables: $variables, $from: $from);
+	@return oBrandGet(
+		$component: 'o-typography',
+		$variables: $variables,
+		$from: $from
+	);
 }
 
 /// Helper for `o-brand` function.
@@ -95,102 +99,151 @@ $_o-typography-font-scale: (
 	@include oBrandCustomize('o-typography', $variables);
 }
 
-
 // Register Georgia font and allowed variants with `o-fonts`.
 // Shared by all brands.
-@include oFontsDefineCustomFont('Georgia, serif', (
-	(weight: regular, style: normal),
-	(weight: regular, style: italic),
-	(weight: bold, style: normal),
-	(weight: bold, style: italic)
-));
+@include oFontsDefineCustomFont(
+	'Georgia, serif',
+	(
+		(weight: regular, style: normal),
+		(weight: regular, style: italic),
+		(weight: bold, style: normal),
+		(weight: bold, style: italic)
+	)
+);
 
 @if oBrandIs('core') {
-	$_o-typography-sans: if($_o-typography-sans != '', $_o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
-	$_o-typography-serif: if($_o-typography-serif != '', $_o-typography-serif, (Georgia, serif)) !global;
-	$_o-typography-display: if($_o-typography-display != '', $_o-typography-display, oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb)) !global;
+	$_o-typography-sans: if(
+		$_o-typography-sans != '',
+		$_o-typography-sans,
+		oFontsGetFontFamilyWithFallbacks(MetricWeb)
+	) !global;
+	$_o-typography-serif: if(
+		$_o-typography-serif != '',
+		$_o-typography-serif,
+		(Georgia, serif)
+	) !global;
+	$_o-typography-display: if(
+		$_o-typography-display != '',
+		$_o-typography-display,
+		oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb)
+	) !global;
 
-	@include oBrandDefine('o-typography', 'core', (
-		'variables': (
-			'author-color': oColorsByUsecase('body', 'text'),
-			'author-hover-color': oColorsByName('claret'),
-			'heading-level-one': (
-				'scale': 5,
-				'weight': 'semibold'
+	@include oBrandDefine(
+		'o-typography',
+		'core',
+		(
+			'variables': (
+				'author-color': oColorsByUsecase('body', 'text'),
+				'author-hover-color': oColorsByName('claret'),
+				'heading-level-one': (
+					'scale': 5,
+					'weight': 'semibold',
+				),
+				'heading-level-two': (
+					'scale': 4,
+					'weight': 'semibold',
+				),
+				'heading-level-three': (
+					'scale': 3,
+					'weight': 'semibold',
+				),
+				'heading-level-four': (
+					'scale': 2,
+					'weight': 'semibold',
+				),
+				'heading-level-five': (
+					'scale': 1,
+					'weight': 'semibold',
+				),
+				'heading-level-six': (
+					'scale': 0,
+					'weight': 'semibold',
+				),
 			),
-			'heading-level-two': (
-				'scale': 4,
-				'weight': 'semibold'
-			),
-			'heading-level-three': (
-				'scale': 3,
-				'weight': 'semibold'
-			),
-			'heading-level-four': (
-				'scale': 2,
-				'weight': 'semibold'
-			),
-			'heading-level-five': (
-				'scale': 1,
-				'weight': 'semibold'
-			),
-			'heading-level-six': (
-				'scale': 0,
-				'weight': 'semibold'
-			)
-		),
-		'supports-variants': ()
-	));
+			'supports-variants': (),
+		)
+	);
 }
 
 @if oBrandIs('internal') {
-	$_o-typography-sans: if($_o-typography-sans != '', $_o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
-	$_o-typography-serif: if($_o-typography-serif != '', $_o-typography-serif, (Georgia, serif)) !global;
-	$_o-typography-display: if($_o-typography-display != '', $_o-typography-display, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
+	$_o-typography-sans: if(
+		$_o-typography-sans != '',
+		$_o-typography-sans,
+		oFontsGetFontFamilyWithFallbacks(MetricWeb)
+	) !global;
+	$_o-typography-serif: if(
+		$_o-typography-serif != '',
+		$_o-typography-serif,
+		(Georgia, serif)
+	) !global;
+	$_o-typography-display: if(
+		$_o-typography-display != '',
+		$_o-typography-display,
+		oFontsGetFontFamilyWithFallbacks(MetricWeb)
+	) !global;
 
-	@include oBrandDefine('o-typography', 'internal', (
-		'variables': (
-			'heading-level-one': (
-				'scale': 5,
-				'weight': 'semibold'
+	@include oBrandDefine(
+		'o-typography',
+		'internal',
+		(
+			'variables': (
+				'heading-level-one': (
+					'scale': 5,
+					'weight': 'semibold',
+				),
+				'heading-level-two': (
+					'scale': 5,
+				),
+				'heading-level-three': (
+					'scale': 4,
+					'weight': 'semibold',
+				),
+				'heading-level-four': (
+					'scale': 4,
+				),
+				'heading-level-five': (
+					'scale': 3,
+					'weight': 'semibold',
+				),
+				'heading-level-six': (
+					'scale': 2,
+					'weight': 'semibold',
+				),
 			),
-			'heading-level-two': (
-				'scale': 5
-			),
-			'heading-level-three': (
-				'scale': 4,
-				'weight': 'semibold'
-			),
-			'heading-level-four': (
-				'scale': 4
-			),
-			'heading-level-five': (
-				'scale': 3,
-				'weight': 'semibold'
-			),
-			'heading-level-six': (
-				'scale': 2,
-				'weight': 'semibold'
-			)
-		),
-		'supports-variants': ()
-	));
+			'supports-variants': (),
+		)
+	);
 }
 
 @if oBrandIs('whitelabel') {
 	// Register Arial font with `o-fonts`.
-	@include oFontsDefineCustomFont('Arial, sans', (
-		(weight: regular, style: normal),
-		(weight: regular, style: italic),
-		(weight: semibold, style: normal),
-		(weight: bold, style: normal),
-		(weight: semibold, style: italic),
-		(weight: bold, style: italic)
-	));
+	@include oFontsDefineCustomFont(
+		'Arial, sans',
+		(
+			(weight: regular, style: normal),
+			(weight: regular, style: italic),
+			(weight: semibold, style: normal),
+			(weight: bold, style: normal),
+			(weight: semibold, style: italic),
+			(weight: bold, style: italic)
+		)
+	);
 
-	$_o-typography-sans: if($_o-typography-sans != '', $_o-typography-sans, (Arial, sans)) !global;
-	$_o-typography-serif: if($_o-typography-serif != '', $_o-typography-serif, (Georgia, serif)) !global;
-	$_o-typography-display: if($_o-typography-display != '', $_o-typography-display, (Arial, sans)) !global;
+	$_o-typography-sans: if(
+		$_o-typography-sans != '',
+		$_o-typography-sans,
+		(Arial, sans)
+	) !global;
+	$_o-typography-serif: if(
+		$_o-typography-serif != '',
+		$_o-typography-serif,
+		(Georgia, serif)
+	) !global;
+	$_o-typography-display: if(
+		$_o-typography-display != '',
+		$_o-typography-display,
+		(Arial, sans)
+	) !global;
 
 	// Change the default font scale for the whitelabel brand.
 	$_o-typography-font-scale: (
@@ -206,30 +259,34 @@ $_o-typography-font-scale: (
 		7: (48, (48 * 1.2)),
 		8: (56, (56 * 1.2)),
 		9: (72, (72 * 1.2)),
-		10: (84, (84 * 1.2)),
+		10: (84, (84 * 1.2))
 	) !global;
 
-	@include oBrandDefine('o-typography', 'whitelabel', (
-		'variables': (
-			'heading-level-one': (
-				'scale': 6,
+	@include oBrandDefine(
+		'o-typography',
+		'whitelabel',
+		(
+			'variables': (
+				'heading-level-one': (
+					'scale': 6,
+				),
+				'heading-level-two': (
+					'scale': 5,
+				),
+				'heading-level-three': (
+					'scale': 4,
+				),
+				'heading-level-four': (
+					'scale': 3,
+				),
+				'heading-level-five': (
+					'scale': 2,
+				),
+				'heading-level-six': (
+					'scale': 1,
+				),
 			),
-			'heading-level-two': (
-				'scale': 5
-			),
-			'heading-level-three': (
-				'scale': 4
-			),
-			'heading-level-four': (
-				'scale': 3
-			),
-			'heading-level-five': (
-				'scale': 2
-			),
-			'heading-level-six': (
-				'scale': 1
-			)
-		),
-		'supports-variants': ()
-	));
+			'supports-variants': (),
+		)
+	);
 }

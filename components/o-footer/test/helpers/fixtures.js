@@ -19,8 +19,7 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-
-function htmlCode () {
+function htmlCode() {
 	/* Generated from the footer.mustache demo */
 	const html = `<div id="my-footer">
 <footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js>
@@ -165,7 +164,4 @@ function htmlCode () {
 	insert(html);
 }
 
-export {
-	htmlCode,
-	reset
-};
+export {htmlCode, reset};

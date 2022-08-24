@@ -22,7 +22,7 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-function htmlCode () {
+function htmlCode() {
 	const html = `<div>
 		<h1>Basic Demo</h1>
 		<div class="o-typography" data-o-component="o-typography" id="element"></div>
@@ -31,7 +31,4 @@ function htmlCode () {
 	insert(html);
 }
 
-export {
-	htmlCode,
-	reset
-};
+export {htmlCode, reset};

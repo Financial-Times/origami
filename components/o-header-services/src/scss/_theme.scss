@@ -24,7 +24,10 @@
 			.o-header-services__primary-nav--drawer {
 				background-color: rgba(0, 0, 0, 0.2);
 				.o-header-services__related-content li {
-					background-color: _oHeaderServicesGet('nav-background', $from: $theme);
+					background-color: _oHeaderServicesGet(
+						'nav-background',
+						$from: $theme
+					);
 				}
 
 				.o-header-services__related-content li a {
@@ -37,7 +40,11 @@
 			.o-header-services__drawer-close-button:hover {
 				color: _oHeaderServicesGet('nav-text', $from: $theme);
 				&:after {
-					@include oIconsContent('cross', _oHeaderServicesGet('nav-text', $from: $theme),  1.5rem);
+					@include oIconsContent(
+						'cross',
+						_oHeaderServicesGet('nav-text', $from: $theme),
+						1.5rem
+					);
 					vertical-align: inherit;
 				}
 			}
@@ -54,7 +61,10 @@
 					&:hover,
 					&[aria-current] {
 						color: _oHeaderServicesGet('nav-text', $from: $theme);
-						background-color: _oHeaderServicesGet('nav-hover-background', $from: $theme);
+						background-color: _oHeaderServicesGet(
+							'nav-hover-background',
+							$from: $theme
+						);
 					}
 				}
 			}

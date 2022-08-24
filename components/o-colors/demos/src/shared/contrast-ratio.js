@@ -18,10 +18,9 @@ function getWCAGRating(ratio, foreground, background) {
 	return {
 		combination,
 		wcagRating,
-		message
+		message,
 	};
 }
-
 
 function getContrastRatio(foreground, background) {
 	const l1 = oColorsColorLuminance(foreground) + 0.05;
@@ -51,9 +50,9 @@ function oColorsColorLuminance(hex) {
 	});
 
 	const colors = {
-		'red': decimals[0],
-		'green': decimals[1],
-		'blue': decimals[2]
+		red: decimals[0],
+		green: decimals[1],
+		blue: decimals[2],
 	};
 
 	Object.keys(colors).forEach(color => {
@@ -65,12 +64,10 @@ function oColorsColorLuminance(hex) {
 			colors[color] = (colors[color] + 0.055) / 1.055;
 			colors[color] = Math.pow(colors[color], 2.4);
 		}
-
 	});
-	return colors['red'] * 0.2126 + colors['green'] * 0.7152 + colors['blue'] * 0.0722;
+	return (
+		colors['red'] * 0.2126 + colors['green'] * 0.7152 + colors['blue'] * 0.0722
+	);
 }
 
-export {
-	getWCAGRating,
-	getContrastRatio
-};
+export {getWCAGRating, getContrastRatio};

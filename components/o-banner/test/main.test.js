@@ -8,11 +8,10 @@ import {default as BannerSrc} from './../src/js/banner.js';
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,
-	prefix: ''
+	prefix: '',
 });
 
 describe('main', () => {
-
 	beforeEach(() => {
 		sinon.stub(Banner, 'init');
 		sinon.spy(document, 'removeEventListener');
@@ -38,5 +37,4 @@ describe('main', () => {
 		});
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 	});
-
 });

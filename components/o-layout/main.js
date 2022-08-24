@@ -1,6 +1,6 @@
 import oLayout from './src/js/layout.js';
 
-const constructAll = function() {
+const constructAll = function () {
 	oLayout.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

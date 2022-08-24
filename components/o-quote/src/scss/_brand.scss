@@ -1,7 +1,11 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oQuoteGet($variables, $from: null) {
-	@return oBrandGet($component: 'o-quote', $variables: $variables, $from: $from);
+	@return oBrandGet(
+		$component: 'o-quote',
+		$variables: $variables,
+		$from: $from
+	);
 }
 
 /// Helper for `o-brand` function.
@@ -11,29 +15,41 @@
 }
 
 @if oBrandIs('core') {
-	@include oBrandDefine('o-quote', 'core', (
-		'variables': (),
-		'supports-variants': (
-			'editorial',
-			'standard'
+	@include oBrandDefine(
+		'o-quote',
+		'core',
+		(
+			'variables': (),
+			'supports-variants': (
+				'editorial',
+				'standard',
+			),
 		)
-	));
+	);
 }
 
 @if oBrandIs('internal') {
-	@include oBrandDefine('o-quote', 'internal', (
-		'variables': (),
-		'supports-variants': (
-			'standard'
+	@include oBrandDefine(
+		'o-quote',
+		'internal',
+		(
+			'variables': (),
+			'supports-variants': (
+				'standard',
+			),
 		)
-	));
+	);
 }
 
 @if oBrandIs('whitelabel') {
-	@include oBrandDefine('o-quote', 'whitelabel', (
-		'variables': (),
-		'supports-variants': (
-			'standard'
+	@include oBrandDefine(
+		'o-quote',
+		'whitelabel',
+		(
+			'variables': (),
+			'supports-variants': (
+				'standard',
+			),
 		)
-	));
+	);
 }

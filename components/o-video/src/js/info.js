@@ -1,5 +1,5 @@
 class VideoInfo {
-	constructor (video) {
+	constructor(video) {
 		this.video = video;
 
 		this.opts = this.video.opts.placeholderInfo.reduce((map, key) => {
@@ -33,9 +33,10 @@ class VideoInfo {
 		this.video.placeholderEl.appendChild(this.infoEl);
 	}
 
-	update () {
+	update() {
 		if (this.brandEl) {
-			const brandName = this.video.videoData.brand && this.video.videoData.brand.name;
+			const brandName =
+				this.video.videoData.brand && this.video.videoData.brand.name;
 			this.brandEl.textContent = brandName;
 		}
 
@@ -48,7 +49,7 @@ class VideoInfo {
 		}
 	}
 
-	teardown () {
+	teardown() {
 		this.video.placeholderEl.removeChild(this.infoEl);
 
 		delete this.infoEl;

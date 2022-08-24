@@ -14,5 +14,9 @@
 }
 
 .demo--inverse {
-	background-color: if(oBrandIs('core') or oBrandIs('internal'), oColorsByName('slate'), oColorsByName('black'));
+	background-color: if(
+		oBrandIs('core') or oBrandIs('internal'),
+		oColorsByName('slate'),
+		oColorsByName('black')
+	);
 }

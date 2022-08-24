@@ -14,17 +14,19 @@ const form = `<form id="o-comments-displayname-form" class="o-forms o-forms o-co
 	</form>
 </form>`;
 
-const isUnique = (displayName) => {
-	const url = `https://comments-api.ft.com/displayname/isavailable/${encodeURIComponent(displayName)}`;
+const isUnique = displayName => {
+	const url = `https://comments-api.ft.com/displayname/isavailable/${encodeURIComponent(
+		displayName
+	)}`;
 
-	return fetch(url, { method: 'GET' })
+	return fetch(url, {method: 'GET'})
 		.then(response => response.json())
 		.then(({available}) => {
 			return available;
 		});
 };
 
-const findInvalidCharacters = (displayName) => {
+const findInvalidCharacters = displayName => {
 	/*
 	 * Allowed Characters
 	 * The below regex matches any character not in the allowed characters set
@@ -36,16 +38,18 @@ const findInvalidCharacters = (displayName) => {
 	 */
 
 	const matchInvalidCharacters = /[^0-9a-z!#$%'`()*+,\-.\/:;=@[\]\^_{}\|\s]/gi;
-	const matchingCharacters = displayName
-		.match(matchInvalidCharacters);
-	const uniqueMatchingCharacters = matchingCharacters && matchingCharacters.length ?
-		matchingCharacters
-			.filter((character, position) => matchingCharacters.indexOf(character) === position) :
-		[];
+	const matchingCharacters = displayName.match(matchInvalidCharacters);
+	const uniqueMatchingCharacters =
+		matchingCharacters && matchingCharacters.length
+			? matchingCharacters.filter(
+					(character, position) =>
+						matchingCharacters.indexOf(character) === position
+			  )
+			: [];
 
-	return uniqueMatchingCharacters.length ?
-		uniqueMatchingCharacters.join('') :
-		false;
+	return uniqueMatchingCharacters.length
+		? uniqueMatchingCharacters.join('')
+		: false;
 };
 
 const prompt = () => {
@@ -54,8 +58,8 @@ const prompt = () => {
 		class: 'o-comments__displayname-prompt',
 		compact: true,
 		heading: {
-			title: 'Choose a commenting display name'
-		}
+			title: 'Choose a commenting display name',
+		},
 	});
 
 	overlay.open();
@@ -63,7 +67,7 @@ const prompt = () => {
 	return overlay;
 };
 
-const validation = (displayName) => {
+const validation = displayName => {
 	return new Promise((resolve, reject) => {
 		if (!displayName) {
 			return reject(new Error('Empty display name'));
@@ -72,18 +76,26 @@ const validation = (displayName) => {
 		const invalidCharacters = findInvalidCharacters(displayName);
 
 		if (invalidCharacters) {
-			return reject(new Error(`The display name contains the following invalid characters: ${invalidCharacters}`));
+			return reject(
+				new Error(
+					`The display name contains the following invalid characters: ${invalidCharacters}`
+				)
+			);
 		} else {
 			isUnique(displayName)
 				.then(isUnique => {
 					if (!isUnique) {
-						return reject(new Error('Unfortunately that display name is already taken'));
+						return reject(
+							new Error('Unfortunately that display name is already taken')
+						);
 					} else {
 						return resolve(displayName);
 					}
 				})
 				.catch(() => {
-					const apiError = new Error('Sorry, we are unable to update display names. Please try again later.');
+					const apiError = new Error(
+						'Sorry, we are unable to update display names. Please try again later.'
+					);
 
 					apiError.name = 'CommentsApiError';
 
@@ -93,18 +105,19 @@ const validation = (displayName) => {
 	});
 };
 
-const promptValidation = (event) => {
+const promptValidation = event => {
 	event.preventDefault();
 
 	return new Promise(resolve => {
 		const displayNameForm = event.srcElement;
 		const input = displayNameForm.querySelector('input');
 		const displayName = input.value.trim();
-		const errorMessage = displayNameForm.querySelector('#o-comments-displayname-error');
+		const errorMessage = displayNameForm.querySelector(
+			'#o-comments-displayname-error'
+		);
 
 		errorMessage.innerText = '';
 		displayNameForm.classList.remove('o-forms-input--invalid');
-
 
 		return validation(displayName)
 			.then(displayName => resolve(displayName))
@@ -122,5 +135,5 @@ const promptValidation = (event) => {
 export default {
 	prompt,
 	validation,
-	promptValidation
+	promptValidation,
 };

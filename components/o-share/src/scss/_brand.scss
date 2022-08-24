@@ -1,8 +1,11 @@
-
 /// Helper for `o-brand` function.
 /// @access private
 @function _oShareGet($variables, $from: null) {
-	@return oBrandGet($component: 'o-share', $variables: $variables, $from: $from);
+	@return oBrandGet(
+		$component: 'o-share',
+		$variables: $variables,
+		$from: $from
+	);
 }
 
 /// Helper for `o-brand` function.
@@ -13,39 +16,47 @@
 
 // Define core brand
 @if oBrandIs('core') {
-	@include oBrandDefine('o-share', 'core', (
-		'variables': (
-			'size': $o-share-icon-size,
-			'border-color': oColorsByUsecase('o-share/default-icon', 'border'),
-			'color': oColorsByUsecase('o-share/default-icon', 'text'),
-			'small': (
-				'size': $o-share-icon-small-size,
-				'margin': oSpacingByName('s3'),
+	@include oBrandDefine(
+		'o-share',
+		'core',
+		(
+			'variables': (
+				'size': $o-share-icon-size,
+				'border-color': oColorsByUsecase('o-share/default-icon', 'border'),
+				'color': oColorsByUsecase('o-share/default-icon', 'text'),
+				'small': (
+					'size': $o-share-icon-small-size,
+					'margin': oSpacingByName('s3'),
+				),
+				'inverse': (
+					'border-color': oColorsMix('slate', 'white', 50),
+					'color': oColorsByName('white'),
+				),
 			),
-			'inverse': (
-				'border-color': oColorsMix('slate', 'white', 50),
-				'color': oColorsByName('white'),
-			)
-		),
-		'supports-variants': ()
-	));
+			'supports-variants': (),
+		)
+	);
 }
 
 @if oBrandIs('internal') {
-	@include oBrandDefine('o-share', 'internal', (
-		'variables': (
-			'size': $o-share-icon-size,
-			'border-color': oColorsByUsecase('o-share/default-icon', 'border'),
-			'color': oColorsByUsecase('o-share/default-icon', 'text'),
-			'small': (
-				'size': $o-share-icon-small-size,
-				'margin': oSpacingByName('s3'),
+	@include oBrandDefine(
+		'o-share',
+		'internal',
+		(
+			'variables': (
+				'size': $o-share-icon-size,
+				'border-color': oColorsByUsecase('o-share/default-icon', 'border'),
+				'color': oColorsByUsecase('o-share/default-icon', 'text'),
+				'small': (
+					'size': $o-share-icon-small-size,
+					'margin': oSpacingByName('s3'),
+				),
+				'inverse': (
+					'border-color': oColorsMix('slate', 'white', 50),
+					'color': oColorsByName('white'),
+				),
 			),
-			'inverse': (
-				'border-color': oColorsMix('slate', 'white', 50),
-				'color': oColorsByName('white'),
-			)
-		),
-		'supports-variants': ()
-	));
+			'supports-variants': (),
+		)
+	);
 }

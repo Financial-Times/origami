@@ -54,10 +54,13 @@
 	}
 
 	.o-header__mega-column--articles {
-
 		.o-header__mega-item {
 			&:before {
-				@include oIconsContent('arrow-right', oColorsByName('claret'), $size: $_o-header-icon-size-small);
+				@include oIconsContent(
+					'arrow-right',
+					oColorsByName('claret'),
+					$size: $_o-header-icon-size-small
+				);
 				vertical-align: text-top;
 				content: '';
 			}

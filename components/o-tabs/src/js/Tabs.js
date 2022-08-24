@@ -1,4 +1,3 @@
-
 class Tabs {
 	/**
 	 * @param {HTMLElement} rootEl An element which contains o-tabs markup to turn into an o-tabs instance
@@ -10,7 +9,6 @@ class Tabs {
 
 		this.updateUrl = rootEl.getAttribute('data-o-tabs-update-url') !== null;
 		this.selectedTabIndex = -1;
-
 
 		this.tabEls = this.rootEl.querySelectorAll('[role=tab]');
 		this.tabEls = [].slice.call(this.tabEls).filter(this.tabHasValidUrl);
@@ -25,7 +23,7 @@ class Tabs {
 
 		if (!config) {
 			config = {};
-			Array.prototype.forEach.call(this.rootEl.attributes, function(attr) {
+			Array.prototype.forEach.call(this.rootEl.attributes, function (attr) {
 				if (attr.name.includes('data-o-tabs')) {
 					// Remove the unnecessary part of the string the first
 					// time this is run for each attribute
@@ -45,13 +43,14 @@ class Tabs {
 
 		this.config = config;
 		this.dispatchCustomEvent('ready', {
-			tabs: this
+			tabs: this,
 		});
 		this.selectTab(this.getSelectedTabIndex(), false);
 	}
 
-	getTabTargetId(tabEl) { // eslint-disable-line class-methods-use-this
-		return tabEl ? tabEl.getAttribute('href').replace('#','') : '';
+	getTabTargetId(tabEl) {
+		// eslint-disable-line class-methods-use-this
+		return tabEl ? tabEl.getAttribute('href').replace('#', '') : '';
 	}
 
 	/**
@@ -97,32 +96,40 @@ class Tabs {
 	}
 
 	getSelectedTabIndex() {
-		const selectedTabElement = this.updateUrl && location.hash ? this.getTabElementFromHash() : this.getSelectedTabElement();
-		return selectedTabElement ? this.getTabIndexFromElement(selectedTabElement) : 0;
+		const selectedTabElement =
+			this.updateUrl && location.hash
+				? this.getTabElementFromHash()
+				: this.getSelectedTabElement();
+		return selectedTabElement
+			? this.getTabIndexFromElement(selectedTabElement)
+			: 0;
 	}
 
 	isValidTab(index) {
 		return !isNaN(index) && index >= 0 && index < this.tabEls.length;
 	}
 
-	hidePanel(panelEl) { // eslint-disable-line class-methods-use-this
+	hidePanel(panelEl) {
+		// eslint-disable-line class-methods-use-this
 		panelEl.setAttribute('aria-expanded', 'false');
 		panelEl.setAttribute('aria-hidden', 'true');
 		panelEl.removeAttribute('tabindex');
 	}
 
-	showPanel(panelEl) { // eslint-disable-line class-methods-use-this
+	showPanel(panelEl) {
+		// eslint-disable-line class-methods-use-this
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
 		panelEl.setAttribute('tabindex', '0');
-
 	}
 
 	dispatchCustomEvent(event, data = {}, namespace = 'oTabs') {
-		this.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
-			detail: data,
-			bubbles: true
-		}));
+		this.rootEl.dispatchEvent(
+			new CustomEvent(namespace + '.' + event, {
+				detail: data,
+				bubbles: true,
+			})
+		);
 	}
 
 	selectTab(newIndex, updateUrl = this.updateUrl) {
@@ -148,7 +155,7 @@ class Tabs {
 				this.dispatchCustomEvent('tabSelect', {
 					tabs: this,
 					selected: newIndex,
-					lastSelected: this.selectedTabIndex
+					lastSelected: this.selectedTabIndex,
 				});
 
 				this.selectedTabIndex = newIndex;
@@ -171,7 +178,8 @@ class Tabs {
 		if (tabEl) {
 			// eslint-disable-next-line default-case
 			switch (key) {
-				case 37: { //left
+				case 37: {
+					//left
 					if (tabEl.previousElementSibling) {
 						if (this.tabHasValidUrl(tabEl.previousElementSibling)) {
 							event.preventDefault();
@@ -188,7 +196,8 @@ class Tabs {
 					}
 					break;
 				}
-				case 39: { //right
+				case 39: {
+					//right
 					if (tabEl.nextElementSibling) {
 						if (this.tabHasValidUrl(tabEl.nextElementSibling)) {
 							event.preventDefault();
@@ -206,7 +215,8 @@ class Tabs {
 					break;
 				}
 				case 13: //enter
-				case 32: { //space
+				case 32: {
+					//space
 					if (this.tabHasValidUrl(tabEl)) {
 						event.preventDefault();
 						this.updateCurrentTab(tabEl);
@@ -232,15 +242,20 @@ class Tabs {
 	updateCurrentTab(tabEl) {
 		const index = this.getTabIndexFromElement(tabEl);
 		this.selectTab(index);
-		this.dispatchCustomEvent('event', {
-			category: 'tabs',
-			action: 'click',
-			tab: tabEl.textContent.trim()
-		}, 'oTracking');
+		this.dispatchCustomEvent(
+			'event',
+			{
+				category: 'tabs',
+				action: 'click',
+				tab: tabEl.textContent.trim(),
+			},
+			'oTracking'
+		);
 	}
 
-	tabHasValidUrl(tabEl) { // eslint-disable-line class-methods-use-this
-		if (! tabEl || ! tabEl.hash) {
+	tabHasValidUrl(tabEl) {
+		// eslint-disable-line class-methods-use-this
+		if (!tabEl || !tabEl.hash) {
 			return false;
 		}
 		return tabEl.pathname === location.pathname;
@@ -249,7 +264,11 @@ class Tabs {
 	destroy() {
 		this.rootEl.removeEventListener('click', this.boundClickHandler, false);
 		this.rootEl.removeEventListener('keyup', this.boundKeyUpHandler, false);
-		window.removeEventListener('hashchange', this.boundHashChangeHandler, false);
+		window.removeEventListener(
+			'hashchange',
+			this.boundHashChangeHandler,
+			false
+		);
 		this.rootEl.removeAttribute('data-o-tabs--js');
 
 		for (const tabPanelEl of this.tabpanelEls) {
@@ -277,8 +296,14 @@ class Tabs {
 			rootEl = document.querySelector(rootEl);
 		}
 
-		if (rootEl instanceof HTMLElement && /\bo-tabs\b/.test(rootEl.getAttribute('data-o-component'))) {
-			if (!rootEl.matches('[data-o-tabs-autoconstruct=false]') && !rootEl.hasAttribute('data-o-tabs--js')) {
+		if (
+			rootEl instanceof HTMLElement &&
+			/\bo-tabs\b/.test(rootEl.getAttribute('data-o-component'))
+		) {
+			if (
+				!rootEl.matches('[data-o-tabs-autoconstruct=false]') &&
+				!rootEl.hasAttribute('data-o-tabs--js')
+			) {
 				return new Tabs(rootEl, config);
 			}
 		}
@@ -288,7 +313,7 @@ class Tabs {
 				'[data-o-component=o-tabs]:not([data-o-tabs-autoconstruct=false]):not([data-o-tabs--js])'
 			);
 
-			return Array.from(tabElements, (tabEl) => {
+			return Array.from(tabElements, tabEl => {
 				return new Tabs(tabEl, config);
 			});
 		}

@@ -1,4 +1,4 @@
-@import "../../main";
+@import '../../main';
 @import '@financial-times/o-fonts/main';
 @include oFonts();
 @import '@financial-times/o-normalise/main';
@@ -27,7 +27,6 @@ p {
 	padding: 10px;
 	margin-left: -10px;
 	margin-right: 10px;
-
 }
 
 .custom-button-theme-demo body {
@@ -41,33 +40,39 @@ p {
 }
 
 // Include o-buttons.
-@include oButtons($opts: (
-	'sizes': (
-		'big'
-	),
-	'types': (
-		'primary',
-		'secondary',
-	),
-	'themes': (
-		'inverse',
-		'mono',
-		'b2c'
-	),
-	'icons': join($_o-buttons-icons, ('book')), // Also include the book icon, which is not in the defaut set.
-	'pagination': true,
-	'groups': true
-));
+@include oButtons(
+	$opts: (
+		'sizes': (
+			'big',
+		),
+		'types': (
+			'primary',
+			'secondary',
+		),
+		'themes': (
+			'inverse',
+			'mono',
+			'b2c',
+		),
+		'icons': join($_o-buttons-icons, ('book')),
+		 // Also include the book icon, which is not in the defaut set
+		'pagination': true,
+		'groups': true,
+	)
+);
 
 @if oBrandIs('core') {
 	// Custom theme.
-	@include oButtonsAddTheme (
+	@include oButtonsAddTheme(
 		$name: 'custom-lemon',
 		$opts: (
 			'color': 'lemon',
-			'context': 'slate'
+			'context': 'slate',
 		),
-		$types: ('primary', 'secondary')
+		$types: (
+			'primary',
+			'secondary',
+		)
 	);
 
 	// Custom theme with icons.
@@ -75,10 +80,15 @@ p {
 		$name: 'custom-claret',
 		$opts: (
 			'color': 'claret-80',
-			'context': 'paper'
+			'context': 'paper',
 		),
-		$types: ('primary', 'secondary'),
-		$icons: ('book')
+		$types: (
+			'primary',
+			'secondary',
+		),
+		$icons: (
+			'book',
+		)
 	);
 
 	// Demo containers for the custom buttons

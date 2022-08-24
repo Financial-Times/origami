@@ -21,12 +21,14 @@
 
 @import 'src/scss/deprecated';
 
-@mixin oTopper($opts: (
-	'themes': $_o-topper-themes,
-	'elements': $_o-topper-elements,
-	'colors': $_o-topper-colors
-), $include-base-styles: true) {
-
+@mixin oTopper(
+	$opts: (
+		'themes': $_o-topper-themes,
+		'elements': $_o-topper-elements,
+		'colors': $_o-topper-colors,
+	),
+	$include-base-styles: true
+) {
 	// Get topper themes to include.
 	$themes: map-get($opts, 'themes');
 	$themes: if($themes, $themes, ());

@@ -1,7 +1,11 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oLayoutGet($variables, $from: null) {
-	@return oBrandGet($component: 'o-layout', $variables: $variables, $from: $from);
+	@return oBrandGet(
+		$component: 'o-layout',
+		$variables: $variables,
+		$from: $from
+	);
 }
 
 /// Helper for `o-brand` function.
@@ -11,25 +15,33 @@
 }
 
 @if oBrandIs('core') {
-	@include oBrandDefine('o-layout', 'core', (
-		'variables': (),
-		'supports-variants': (
-			'default',
-			'bleed',
-			'documentation',
+	@include oBrandDefine(
+		'o-layout',
+		'core',
+		(
+			'variables': (),
+			'supports-variants': (
+				'default',
+				'bleed',
+				'documentation',
+			),
 		)
-	));
+	);
 }
 
 @if oBrandIs('internal') {
-	@include oBrandDefine('o-layout', 'internal', (
-		'variables': (),
-		'supports-variants': (
-			'default',
-			'bleed',
-			'documentation',
-			'landing',
-			'query'
+	@include oBrandDefine(
+		'o-layout',
+		'internal',
+		(
+			'variables': (),
+			'supports-variants': (
+				'default',
+				'bleed',
+				'documentation',
+				'landing',
+				'query',
+			),
 		)
-	));
+	);
 }

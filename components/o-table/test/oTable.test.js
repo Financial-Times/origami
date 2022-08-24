@@ -39,7 +39,6 @@ describe('OTable constructs', () => {
 		proclaim.isInstanceOf(testOTable, OverflowTable);
 	});
 
-
 	it('a FlatTable when the table has attribute data-o-table-responsive="flat"', () => {
 		oTableEl.setAttribute('data-o-table-responsive', 'flat');
 		testOTable = new OTable(oTableEl);
@@ -60,7 +59,6 @@ describe('OTable constructs', () => {
 });
 
 describe('Init', () => {
-
 	beforeEach(() => {
 		sandbox.init();
 		sandbox.setContents(`
@@ -76,15 +74,31 @@ describe('Init', () => {
 
 	it('instantiates every o-table in the document', () => {
 		const tables = OTable.init();
-		proclaim.equal(tables instanceof Array, true, 'init did not return an array of tables.');
-		proclaim.equal(tables.length, 3, 'init did not return the expected number of tables.');
-		proclaim.equal(tables[0] instanceof BaseTable, true, 'a table returned did not extend BaseTable.');
+		proclaim.equal(
+			tables instanceof Array,
+			true,
+			'init did not return an array of tables.'
+		);
+		proclaim.equal(
+			tables.length,
+			3,
+			'init did not return the expected number of tables.'
+		);
+		proclaim.equal(
+			tables[0] instanceof BaseTable,
+			true,
+			'a table returned did not extend BaseTable.'
+		);
 	});
 
 	it('instantiates a single o-table for a given selector which returns one table', () => {
 		const firstTable = document.querySelector('.o-table');
 		firstTable.setAttribute('id', 'test-table');
 		const otable = OTable.init('#test-table');
-		proclaim.equal(otable instanceof BaseTable, true, 'Did not return an instance of BaseTable.');
+		proclaim.equal(
+			otable instanceof BaseTable,
+			true,
+			'Did not return an instance of BaseTable.'
+		);
 	});
 });

@@ -17,7 +17,9 @@
 
 	@include oGridRespondTo(XL) {
 		width: div(map-get($o-grid-layouts, XL), 2.5); // width is 40% grid
-		left: calc((100vw - #{map-get($o-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
+		left: calc(
+			(100vw - #{map-get($o-grid-layouts, XL)}) / 2
+		); // ((viewport - grid width) / 2)
 	}
 }
 

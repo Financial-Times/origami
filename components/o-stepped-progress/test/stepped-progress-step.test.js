@@ -7,7 +7,6 @@ import * as fixtures from './helpers/fixtures.js';
 import SteppedProgressStep from '../src/js/stepped-progress-step.js';
 
 describe('src/js/stepped-progress-step', () => {
-
 	it('exports a class constructor', () => {
 		proclaim.isFunction(SteppedProgressStep);
 		proclaim.throws(SteppedProgressStep, TypeError);
@@ -24,8 +23,12 @@ describe('src/js/stepped-progress-step', () => {
 			const sandbox = document.createElement('div');
 			sandbox.innerHTML = fixtures.testMarkup.steppedProgressStep;
 			mockStepElement = sandbox.querySelector('.o-stepped-progress__step');
-			mockLabelElement = mockStepElement.querySelector('.o-stepped-progress__label');
-			mockStatusElement = mockStepElement.querySelector('.o-stepped-progress__status');
+			mockLabelElement = mockStepElement.querySelector(
+				'.o-stepped-progress__label'
+			);
+			mockStatusElement = mockStepElement.querySelector(
+				'.o-stepped-progress__status'
+			);
 			mockParent = {};
 			step = new SteppedProgressStep(mockStepElement, mockParent);
 		});
@@ -49,7 +52,6 @@ describe('src/js/stepped-progress-step', () => {
 		});
 
 		describe('.statusElement', () => {
-
 			it('is set to the status element found inside `stepElement`', () => {
 				proclaim.strictEqual(step.statusElement, mockStatusElement);
 			});
@@ -57,11 +59,9 @@ describe('src/js/stepped-progress-step', () => {
 			it('is emptied of any text', () => {
 				proclaim.strictEqual(step.statusElement.textContent.trim(), '');
 			});
-
 		});
 
 		describe('.isComplete()', () => {
-
 			describe('when the step has the "complete" modifier class', () => {
 				it('returns `true`', () => {
 					mockStepElement.classList.add('o-stepped-progress__step--complete');
@@ -71,15 +71,15 @@ describe('src/js/stepped-progress-step', () => {
 
 			describe('when the step does not have the "complete" modifier class', () => {
 				it('returns `false`', () => {
-					mockStepElement.classList.remove('o-stepped-progress__step--complete');
+					mockStepElement.classList.remove(
+						'o-stepped-progress__step--complete'
+					);
 					proclaim.isFalse(step.isComplete());
 				});
 			});
-
 		});
 
 		describe('.isCurrent()', () => {
-
 			describe('when the step has the "current" modifier class', () => {
 				it('returns `true`', () => {
 					mockStepElement.classList.add('o-stepped-progress__step--current');
@@ -93,11 +93,9 @@ describe('src/js/stepped-progress-step', () => {
 					proclaim.isFalse(step.isCurrent());
 				});
 			});
-
 		});
 
 		describe('.isError()', () => {
-
 			describe('when the step has the "error" modifier class', () => {
 				it('returns `true`', () => {
 					mockStepElement.classList.add('o-stepped-progress__step--error');
@@ -111,11 +109,9 @@ describe('src/js/stepped-progress-step', () => {
 					proclaim.isFalse(step.isError());
 				});
 			});
-
 		});
 
 		describe('.isFuture()', () => {
-
 			beforeEach(() => {
 				sinon.stub(step, 'isComplete').returns(false);
 				sinon.stub(step, 'isCurrent').returns(false);
@@ -154,11 +150,9 @@ describe('src/js/stepped-progress-step', () => {
 					proclaim.isFalse(step.isFuture());
 				});
 			});
-
 		});
 
 		describe('.markAsComplete()', () => {
-
 			beforeEach(() => {
 				mockStepElement.classList.add('o-stepped-progress__step--current');
 				mockStepElement.classList.add('o-stepped-progress__step--error');
@@ -166,22 +160,33 @@ describe('src/js/stepped-progress-step', () => {
 			});
 
 			it('removes any other status classes', () => {
-				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--current'));
-				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--error'));
+				proclaim.isFalse(
+					mockStepElement.classList.contains(
+						'o-stepped-progress__step--current'
+					)
+				);
+				proclaim.isFalse(
+					mockStepElement.classList.contains('o-stepped-progress__step--error')
+				);
 			});
 
 			it('adds the "complete" status class', () => {
-				proclaim.isTrue(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
+				proclaim.isTrue(
+					mockStepElement.classList.contains(
+						'o-stepped-progress__step--complete'
+					)
+				);
 			});
 
 			it('sets the status element text to indicate the new state', () => {
-				proclaim.strictEqual(step.statusElement.textContent.trim(), '(completed)');
+				proclaim.strictEqual(
+					step.statusElement.textContent.trim(),
+					'(completed)'
+				);
 			});
-
 		});
 
 		describe('.markAsCurrent()', () => {
-
 			beforeEach(() => {
 				mockStepElement.classList.add('o-stepped-progress__step--complete');
 				mockStepElement.classList.add('o-stepped-progress__step--error');
@@ -189,22 +194,33 @@ describe('src/js/stepped-progress-step', () => {
 			});
 
 			it('removes any other status classes', () => {
-				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
-				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--error'));
+				proclaim.isFalse(
+					mockStepElement.classList.contains(
+						'o-stepped-progress__step--complete'
+					)
+				);
+				proclaim.isFalse(
+					mockStepElement.classList.contains('o-stepped-progress__step--error')
+				);
 			});
 
 			it('adds the "current" status class', () => {
-				proclaim.isTrue(mockStepElement.classList.contains('o-stepped-progress__step--current'));
+				proclaim.isTrue(
+					mockStepElement.classList.contains(
+						'o-stepped-progress__step--current'
+					)
+				);
 			});
 
 			it('sets the status element text to indicate the new state', () => {
-				proclaim.strictEqual(step.statusElement.textContent.trim(), '(current step)');
+				proclaim.strictEqual(
+					step.statusElement.textContent.trim(),
+					'(current step)'
+				);
 			});
-
 		});
 
 		describe('.markAsError()', () => {
-
 			beforeEach(() => {
 				mockStepElement.classList.add('o-stepped-progress__step--complete');
 				mockStepElement.classList.add('o-stepped-progress__step--current');
@@ -212,22 +228,30 @@ describe('src/js/stepped-progress-step', () => {
 			});
 
 			it('removes any other status classes', () => {
-				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
-				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--current'));
+				proclaim.isFalse(
+					mockStepElement.classList.contains(
+						'o-stepped-progress__step--complete'
+					)
+				);
+				proclaim.isFalse(
+					mockStepElement.classList.contains(
+						'o-stepped-progress__step--current'
+					)
+				);
 			});
 
 			it('adds the "error" status class', () => {
-				proclaim.isTrue(mockStepElement.classList.contains('o-stepped-progress__step--error'));
+				proclaim.isTrue(
+					mockStepElement.classList.contains('o-stepped-progress__step--error')
+				);
 			});
 
 			it('sets the status element text to indicate the new state', () => {
 				proclaim.strictEqual(step.statusElement.textContent.trim(), '(error)');
 			});
-
 		});
 
 		describe('.markAsFuture()', () => {
-
 			beforeEach(() => {
 				mockStepElement.classList.add('o-stepped-progress__step--complete');
 				mockStepElement.classList.add('o-stepped-progress__step--current');
@@ -237,19 +261,27 @@ describe('src/js/stepped-progress-step', () => {
 			});
 
 			it('removes all status classes', () => {
-				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
-				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--current'));
-				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--error'));
+				proclaim.isFalse(
+					mockStepElement.classList.contains(
+						'o-stepped-progress__step--complete'
+					)
+				);
+				proclaim.isFalse(
+					mockStepElement.classList.contains(
+						'o-stepped-progress__step--current'
+					)
+				);
+				proclaim.isFalse(
+					mockStepElement.classList.contains('o-stepped-progress__step--error')
+				);
 			});
 
 			it('clears the status element text', () => {
 				proclaim.strictEqual(step.statusElement.textContent.trim(), '');
 			});
-
 		});
 
 		describe('when the status element does not exist', () => {
-
 			beforeEach(() => {
 				mockStatusElement.remove();
 				step = new SteppedProgressStep(mockStepElement, mockParent);
@@ -257,13 +289,14 @@ describe('src/js/stepped-progress-step', () => {
 
 			it('is created', () => {
 				proclaim.isDefined(step.statusElement);
-				proclaim.strictEqual(step.statusElement.outerHTML, '<span class="o-stepped-progress__status"></span>');
+				proclaim.strictEqual(
+					step.statusElement.outerHTML,
+					'<span class="o-stepped-progress__status"></span>'
+				);
 			});
-
 		});
 
 		describe('when the initial state of the step is "complete"', () => {
-
 			beforeEach(() => {
 				mockStatusElement.textContent = '';
 				mockStepElement.classList.add('o-stepped-progress__step--complete');
@@ -272,14 +305,15 @@ describe('src/js/stepped-progress-step', () => {
 
 			describe('.statusElement', () => {
 				it('has its text set to indicate the initial state', () => {
-					proclaim.strictEqual(step.statusElement.textContent.trim(), '(completed)');
+					proclaim.strictEqual(
+						step.statusElement.textContent.trim(),
+						'(completed)'
+					);
 				});
 			});
-
 		});
 
 		describe('when the initial state of the step is "current"', () => {
-
 			beforeEach(() => {
 				mockStatusElement.textContent = '';
 				mockStepElement.classList.add('o-stepped-progress__step--current');
@@ -288,14 +322,15 @@ describe('src/js/stepped-progress-step', () => {
 
 			describe('.statusElement', () => {
 				it('has its text set to indicate the initial state', () => {
-					proclaim.strictEqual(step.statusElement.textContent.trim(), '(current step)');
+					proclaim.strictEqual(
+						step.statusElement.textContent.trim(),
+						'(current step)'
+					);
 				});
 			});
-
 		});
 
 		describe('when the initial state of the step is "error"', () => {
-
 			beforeEach(() => {
 				mockStatusElement.textContent = '';
 				mockStepElement.classList.add('o-stepped-progress__step--error');
@@ -304,12 +339,12 @@ describe('src/js/stepped-progress-step', () => {
 
 			describe('.statusElement', () => {
 				it('has its text set to indicate the initial state', () => {
-					proclaim.strictEqual(step.statusElement.textContent.trim(), '(error)');
+					proclaim.strictEqual(
+						step.statusElement.textContent.trim(),
+						'(error)'
+					);
 				});
 			});
-
 		});
-
 	});
-
 });

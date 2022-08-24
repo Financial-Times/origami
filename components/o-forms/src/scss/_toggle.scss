@@ -32,10 +32,17 @@
 			}
 
 			&:after {
-				@include oIconsContent('cross', $color: _oFormsGet('default-text'), $size: null);
+				@include oIconsContent(
+					'cross',
+					$color: _oFormsGet('default-text'),
+					$size: null
+				);
 				background-color: oColorsByUsecase(page, background);
 				//stylelint-disable-next-line declaration-block-no-duplicate-properties
-				background-color: var(--o-forms-toggle-handle-color, #{oColorsByUsecase(page, background)});
+				background-color: var(
+					--o-forms-toggle-handle-color,
+					#{oColorsByUsecase(page, background)}
+				);
 				border: $_o-forms-spacing-half solid _oFormsGet('default-text');
 				border-radius: 50%;
 				box-sizing: border-box;
@@ -45,29 +52,43 @@
 			}
 		}
 
-		input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
-			&:checked + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+		input[type='checkbox'] {
+			// stylelint-disable-line selector-no-qualifying-type
+			&:checked + .o-forms-input__label {
+				// stylelint-disable-line selector-no-qualifying-type
 				&:before {
 					background-color: _oFormsGet('toggle-selected');
 				}
 				&:after {
-					@include oIconsContent('tick', $size: null, $color: _oFormsGet('toggle-selected'), $include-base-styles: false);
+					@include oIconsContent(
+						'tick',
+						$size: null,
+						$color: _oFormsGet('toggle-selected'),
+						$include-base-styles: false
+					);
 					left: $_o-forms-spacing-four;
 					border-color: _oFormsGet('toggle-selected');
 				}
 			}
 
-			&:invalid:not(:disabled) + .o-forms-input__label:after { // stylelint-disable-line selector-no-qualifying-type
+			&:invalid:not(:disabled) + .o-forms-input__label:after {
+				// stylelint-disable-line selector-no-qualifying-type
 				border-color: inherit;
 			}
 		}
 
 		@if $disabled {
-			input[type=checkbox]:disabled + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+			input[type='checkbox']:disabled + .o-forms-input__label {
+				// stylelint-disable-line selector-no-qualifying-type
 				color: _oFormsGet('disabled-text');
 
 				&:after {
-					@include oIconsContent('cross', $size: null, $color: black, $include-base-styles: false);
+					@include oIconsContent(
+						'cross',
+						$size: null,
+						$color: black,
+						$include-base-styles: false
+					);
 					border-color: _oFormsGet('toggle-disabled');
 					background-color: _oFormsGet('toggle-knob-disabled');
 				}
@@ -76,9 +97,15 @@
 					background-color: _oFormsGet('toggle-disabled');
 				}
 			}
-			input[type=checkbox]:disabled:checked + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+			input[type='checkbox']:disabled:checked + .o-forms-input__label {
+				// stylelint-disable-line selector-no-qualifying-type
 				&:after {
-					@include oIconsContent('tick', $size: null, $color: black, $include-base-styles: false);
+					@include oIconsContent(
+						'tick',
+						$size: null,
+						$color: black,
+						$include-base-styles: false
+					);
 				}
 			}
 		}

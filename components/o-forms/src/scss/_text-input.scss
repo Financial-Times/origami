@@ -14,7 +14,7 @@
 	$selector: '.o-forms-input--text';
 	$element: 'input';
 
-	@if($include-password-selector) {
+	@if ($include-password-selector) {
 		$selector: $selector + ', .o-forms-input--password';
 	}
 

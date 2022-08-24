@@ -9,7 +9,6 @@ $o-subs-card-is-silent: false;
 @import '@financial-times/o-normalise/main';
 @include oNormalise();
 
-
 body {
 	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;

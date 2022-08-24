@@ -4,7 +4,11 @@
 @mixin _oVideoGuidance {
 	.o-video__guidance {
 		@include oTypographySans(-1);
-		background-color: oColorsMix($color: 'black', $background: 'transparent', $percentage: 75);
+		background-color: oColorsMix(
+			$color: 'black',
+			$background: 'transparent',
+			$percentage: 75
+		);
 		padding: 10px 16px;
 		position: relative;
 		// sass-lint:disable no-vendor-prefixes
@@ -50,7 +54,7 @@
 		@include oTypographyLink(
 			$theme: (
 				'base': 'white',
-				'hover': 'white'
+				'hover': 'white',
 			),
 			$external: true
 		);
@@ -59,12 +63,20 @@
 	}
 
 	.o-video__guidance__close {
-		@include oIconsContent('cross', $color: oColorsByName('white'), $size: 20px);
+		@include oIconsContent(
+			'cross',
+			$color: oColorsByName('white'),
+			$size: 20px
+		);
 		border: 0;
 		cursor: pointer;
 
 		&:hover {
-			background-color: oColorsMix($color: 'black', $background: 'white', $percentage: 75);
+			background-color: oColorsMix(
+				$color: 'black',
+				$background: 'white',
+				$percentage: 75
+			);
 		}
 	}
 

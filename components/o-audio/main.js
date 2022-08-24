@@ -12,4 +12,4 @@ if (typeof document !== 'undefined') {
 
 export default oAudio;
 
-export { Tracking };
+export {Tracking};

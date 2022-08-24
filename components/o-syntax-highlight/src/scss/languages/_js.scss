@@ -1,4 +1,4 @@
-@mixin _oSyntaxHighlightJS () {
+@mixin _oSyntaxHighlightJS() {
 	.o-syntax-highlight--js,
 	.o-syntax-highlight--javascript {
 		.token {
@@ -15,7 +15,9 @@
 			&.keyword,
 			&.function {
 				color: $_o-syntax-highlight-oxford;
-				.function-variable { color: $_o-syntax-highlight-oxford-crimson-50; }
+				.function-variable {
+					color: $_o-syntax-highlight-oxford-crimson-50;
+				}
 			}
 
 			&.number,

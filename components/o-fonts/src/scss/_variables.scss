@@ -14,8 +14,8 @@ $o-fonts-path: 'https://www.ft.com/__origami/service/build/v3/font?version=1.12'
 /// @type String
 $o-fonts-build-service-path: $o-fonts-path !default;
 
-/// Alternative path to self hosted font files, hosted on a service which does not 
-/// conform to the Origami Build Service api. For example this is used by 
+/// Alternative path to self hosted font files, hosted on a service which does not
+/// conform to the Origami Build Service api. For example this is used by
 /// Financial-Times/ft-app to support offline fonts.
 ///
 /// @see $o-fonts-build-service-path - If not set the Origami Build Service is used to host fonts.
@@ -32,43 +32,118 @@ $o-fonts-display: swap !default;
 /// @type List
 /// @access private
 $_o-fonts-all-metric-variants: (
-	(weight: 'thin', style: normal),
-	(weight: 'light', style: normal),
-	(weight: 'light', style: italic),
-	(weight: 'regular', style: normal),
-	(weight: 'regular', style: italic),
-	(weight: 'medium', style: normal),
-	(weight: 'semibold', style: normal),
-	(weight: 'bold', style: normal),
-	(weight: 'bold', style: italic),
-	(weight: 'black', style: normal)
+	(
+		weight: 'thin',
+		style: normal,
+	),
+	(
+		weight: 'light',
+		style: normal,
+	),
+	(
+		weight: 'light',
+		style: italic,
+	),
+	(
+		weight: 'regular',
+		style: normal,
+	),
+	(
+		weight: 'regular',
+		style: italic,
+	),
+	(
+		weight: 'medium',
+		style: normal,
+	),
+	(
+		weight: 'semibold',
+		style: normal,
+	),
+	(
+		weight: 'bold',
+		style: normal,
+	),
+	(
+		weight: 'bold',
+		style: italic,
+	),
+	(
+		weight: 'black',
+		style: normal,
+	)
 );
 
 /// A list of all weight and style variants of the FinancierDisplayWeb font.
 /// @type List
 /// @access private
 $_o-fonts-all-financier-display-variants: (
-	(weight: 'light', style: normal),
-	(weight: 'light', style: italic),
-	(weight: 'regular', style: normal),
-	(weight: 'regular', style: italic),
-	(weight: 'medium', style: italic),
-	(weight: 'medium', style: normal),
-	(weight: 'semibold', style: normal),
-	(weight: 'semibold', style: italic),
-	(weight: 'bold', style: normal),
-	(weight: 'black', style: normal)
+	(
+		weight: 'light',
+		style: normal,
+	),
+	(
+		weight: 'light',
+		style: italic,
+	),
+	(
+		weight: 'regular',
+		style: normal,
+	),
+	(
+		weight: 'regular',
+		style: italic,
+	),
+	(
+		weight: 'medium',
+		style: italic,
+	),
+	(
+		weight: 'medium',
+		style: normal,
+	),
+	(
+		weight: 'semibold',
+		style: normal,
+	),
+	(
+		weight: 'semibold',
+		style: italic,
+	),
+	(
+		weight: 'bold',
+		style: normal,
+	),
+	(
+		weight: 'black',
+		style: normal,
+	)
 );
 
 /// A list of all weight and style variants of the FinancierTextWeb font.
 /// @type List
 /// @access private
 $_o-fonts-all-financier-text-variants: (
-	(weight: 'regular', style: italic),
-	(weight: 'regular', style: normal),
-	(weight: 'medium', style: normal),
-	(weight: 'bold', style: normal),
-	(weight: 'black', style: normal)
+	(
+		weight: 'regular',
+		style: italic,
+	),
+	(
+		weight: 'regular',
+		style: normal,
+	),
+	(
+		weight: 'medium',
+		style: normal,
+	),
+	(
+		weight: 'bold',
+		style: normal,
+	),
+	(
+		weight: 'black',
+		style: normal,
+	)
 );
 
 /// The fonts to include by default, which vary per brand.
@@ -79,14 +154,14 @@ $_o-fonts-default: ();
 @if oBrandIs('core') {
 	$_o-fonts-default: (
 		'metric': $_o-fonts-all-metric-variants,
-		'financier-display': $_o-fonts-all-financier-display-variants
+		'financier-display': $_o-fonts-all-financier-display-variants,
 	) !global;
 }
 
 @if oBrandIs('internal') {
 	$_o-fonts-default: (
 		'metric': $_o-fonts-all-metric-variants,
-		'financier-display': ()
+		'financier-display': (),
 	) !global;
 }
 
@@ -96,31 +171,49 @@ $_o-fonts-default: ();
 $_o-fonts-recommended: (
 	'metric': (),
 	'financier-display': (),
-	'financier-text': ()
+	'financier-text': (),
 );
 
 @if oBrandIs('core') {
 	$_o-fonts-recommended: (
 		'metric': (
-			(weight: regular, style: normal),
-			(weight: semibold, style: normal)
+			(
+				weight: regular,
+				style: normal,
+			),
+			(
+				weight: semibold,
+				style: normal,
+			),
 		),
 		'financier-display': (
-			(weight: medium, style: normal),
-			(weight: bold, style: normal)
+			(
+				weight: medium,
+				style: normal,
+			),
+			(
+				weight: bold,
+				style: normal,
+			),
 		),
-		'financier-text': ()
+		'financier-text': (),
 	);
 }
 
 @if oBrandIs('internal') {
 	$_o-fonts-recommended: (
 		'metric': (
-			(weight: regular, style: normal),
-			(weight: semibold, style: normal)
+			(
+				weight: regular,
+				style: normal,
+			),
+			(
+				weight: semibold,
+				style: normal,
+			),
 		),
 		'financier-display': (),
-		'financier-text': ()
+		'financier-text': (),
 	);
 }
 
@@ -131,15 +224,15 @@ $_o-fonts-recommended: (
 $_o-fonts-families: (
 	MetricWeb: (
 		font-family: 'MetricWeb, sans-serif',
-		variants: $_o-fonts-all-metric-variants
+		variants: $_o-fonts-all-metric-variants,
 	),
 	FinancierDisplayWeb: (
 		font-family: 'FinancierDisplayWeb, serif',
-		variants: $_o-fonts-all-financier-display-variants
+		variants: $_o-fonts-all-financier-display-variants,
 	),
 	FinancierTextWeb: (
 		font-family: 'FinancierTextWeb, serif',
-		variants: $_o-fonts-all-financier-text-variants
+		variants: $_o-fonts-all-financier-text-variants,
 	),
 ) !default;
 
@@ -148,14 +241,14 @@ $_o-fonts-families: (
 /// @type Map
 /// @access private
 $_o-fonts-weights: (
-	'thin':       100,
-	'light':      300,
-	'regular':    400,
-	'normal':     400,
-	'medium':     500,
-	'semibold':   600,
-	'bold':       700,
-	'black':      900,
+	'thin': 100,
+	'light': 300,
+	'regular': 400,
+	'normal': 400,
+	'medium': 500,
+	'semibold': 600,
+	'bold': 700,
+	'black': 900,
 ) !default;
 
 /// Map of families and styles which have already been included

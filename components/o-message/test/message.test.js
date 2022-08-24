@@ -9,10 +9,10 @@ import fixtures from './helpers/fixtures.js';
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,
-	prefix: ''
+	prefix: '',
 });
 
-describe("Message", () => {
+describe('Message', () => {
 	let testArea;
 	let message;
 	let messageElement;
@@ -39,7 +39,6 @@ describe("Message", () => {
 			messageElement = document.querySelector('[data-o-component=o-message]');
 			message = new Message(messageElement);
 
-
 			Message.prototype.render.restore();
 			Message.prototype.open.restore();
 			Message.prototype.close.restore();
@@ -62,21 +61,21 @@ describe("Message", () => {
 				content: {
 					highlight: null,
 					detail: '&hellip;',
-					additionalInfo: false
+					additionalInfo: false,
 				},
 				actions: {
 					primary: {
 						text: null,
 						url: null,
-						openInNewWindow: false
+						openInNewWindow: false,
 					},
 					secondary: {
 						text: null,
 						url: null,
-						openInNewWindow: false
-					}
+						openInNewWindow: false,
+					},
 				},
-				close: true
+				close: true,
 			});
 		});
 
@@ -128,7 +127,6 @@ describe("Message", () => {
 				options.autoOpen = false;
 				message = new Message(testArea, options);
 
-
 				Message.prototype.render.restore();
 				Message.prototype.open.restore();
 				Message.prototype.close.restore();
@@ -146,7 +144,6 @@ describe("Message", () => {
 			it('does not extract options from the DOM', () => {
 				proclaim.notCalled(stubs.getDataAttributes);
 			});
-
 		});
 
 		describe('.render()', () => {
@@ -159,8 +156,8 @@ describe("Message", () => {
 					state: 'success',
 					type: 'alert',
 					content: {
-						highlight: 'Good.'
-					}
+						highlight: 'Good.',
+					},
 				};
 
 				const mockContainerElement = document.createElement('div');
@@ -216,8 +213,6 @@ describe("Message", () => {
 			});
 		});
 
-
-
 		describe('.getDataAttributes', () => {
 			let mockMessageEl;
 			let returnValue;
@@ -229,7 +224,10 @@ describe("Message", () => {
 				mockMessageEl.setAttribute('data-another-key', 'value');
 				mockMessageEl.setAttribute('data-o-message-foo', 'bar');
 				mockMessageEl.setAttribute('data-o-message-json', '{"foo": "bar"}');
-				mockMessageEl.setAttribute('data-o-message-json-single', '{\'foo\': \'bar\'}');
+				mockMessageEl.setAttribute(
+					'data-o-message-json-single',
+					"{'foo': 'bar'}"
+				);
 				returnValue = Message.getDataAttributes(mockMessageEl);
 			});
 
@@ -255,17 +253,17 @@ describe("Message", () => {
 				proclaim.strictEqual(returnValue.foo, 'bar');
 			});
 
-			it('parses the key as JSON if it\'s valid', () => {
+			it("parses the key as JSON if it's valid", () => {
 				proclaim.isObject(returnValue.json);
 				proclaim.deepEqual(returnValue.json, {
-					foo: 'bar'
+					foo: 'bar',
 				});
 			});
 
 			it('parses the key as JSON even if single quotes are used', () => {
 				proclaim.isObject(returnValue.jsonSingle);
 				proclaim.deepEqual(returnValue.jsonSingle, {
-					foo: 'bar'
+					foo: 'bar',
 				});
 			});
 

@@ -9,10 +9,22 @@
 /// @param {Bool} $include-base-styles [true] - If true, will output style rules for the container. If false will only output the background-image property
 /// @param {Bool} $high-contrast-fallback [true] - To output Microsoft High Contrast fallback for accessibility reasons or not.
 /// @param {Number} $iconset-version [1] - At present only 1 version of the icon set is available.
-@mixin oIconsContent($icon-name, $color: null, $size: 128, $include-base-styles: true, $high-contrast-fallback: true, $iconset-version: 1) {
+@mixin oIconsContent(
+	$icon-name,
+	$color: null,
+	$size: 128,
+	$include-base-styles: true,
+	$high-contrast-fallback: true,
+	$iconset-version: 1
+) {
 	// Error if the global $system-code variable is not set.
 	// This is required for image service requests.
-	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+	@if (
+		global-variable-exists('system-code') ==
+			false or
+			type-of($system-code) !=
+			'string'
+	) {
 		@error 'A global "$system-code" Sass variable must be set to a valid Bizops system code (\e]8;;https://biz-ops.in.ft.com/list/Systems\e\\https://biz-ops.in.ft.com/list/Systems\e]8;;\e\\).';
 	}
 
@@ -22,8 +34,8 @@
 	}
 
 	// Define base image service path.
-	$scheme: "fticon-v#{$iconset-version}";
-	$service-url: "https://www.ft.com/__origami/service/image/v2/images/raw/#{$scheme}:#{$icon-name}";
+	$scheme: 'fticon-v#{$iconset-version}';
+	$service-url: 'https://www.ft.com/__origami/service/image/v2/images/raw/#{$scheme}:#{$icon-name}';
 
 	// Include base styles shared by all icons.
 	@if ($include-base-styles == true) {
@@ -36,12 +48,12 @@
 
 	// Include the icon via the image service.
 	// Build an image service url for the requested icon.
-	$query: "?source=#{$system-code}";
+	$query: '?source=#{$system-code}';
 	@if $color != null {
 		$color: str-slice(ie-hex-str($color), 4);
-		$query: $query + "&tint=%23#{$color},%23#{$color}";
+		$query: $query + '&tint=%23#{$color},%23#{$color}';
 	}
-	background-image: url($service-url + $query + "&format=svg");
+	background-image: url($service-url + $query + '&format=svg');
 
 	// Include a fallback for Window's high contrast mode.
 	// This mode removes background images unless specifcally included
@@ -49,11 +61,11 @@
 	// sass-lint:disable no-vendor-prefixes
 	@if $high-contrast-fallback {
 		@media screen and (-ms-high-contrast: active) {
-			background-image: url($service-url + "?source=#{$system-code}&tint=%23ffffff,%23ffffff&format=svg");
+			background-image: url($service-url + '?source=#{$system-code}&tint=%23ffffff,%23ffffff&format=svg');
 		}
 
 		@media screen and (-ms-high-contrast: black-on-white) {
-			background-image: url($service-url + "?source=#{$system-code}&tint=%23000000,%23000000&format=svg");
+			background-image: url($service-url + '?source=#{$system-code}&tint=%23000000,%23000000&format=svg');
 		}
 	}
 	// sass-lint:enable no-vendor-prefixes

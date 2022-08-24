@@ -1,12 +1,10 @@
 import Toggle from '@financial-times/o-toggle';
 import layout from './layout.js';
 
-
 const COLLAPSIBLE_BREAKPOINTS = ['default', 'XS', 'S'];
 
 class Footer {
-
-	constructor (footerEl) {
+	constructor(footerEl) {
 		if (!footerEl) {
 			footerEl = document.querySelector('[data-o-component="o-footer"]');
 		} else if (typeof footerEl === 'string') {
@@ -31,25 +29,27 @@ class Footer {
 		this.footerEl.setAttribute('data-o-footer--js', '');
 	}
 
-	setup () {
+	setup() {
 		this._toggles = [];
 
 		const toggleEls = this.footerEl.querySelectorAll('[aria-controls]');
 
 		Array.prototype.forEach.call(toggleEls, toggleEl => {
-			const target = document.getElementById(toggleEl.getAttribute('aria-controls'));
+			const target = document.getElementById(
+				toggleEl.getAttribute('aria-controls')
+			);
 			toggleEl.setAttribute('role', 'button');
 			toggleEl.setAttribute('tabindex', '0');
-			this._toggles.push(new Toggle(toggleEl, { target }));
+			this._toggles.push(new Toggle(toggleEl, {target}));
 		});
 	}
 
-	destroy () {
+	destroy() {
 		this._toggles.forEach(toggle => toggle.destroy());
 		this._toggles = null;
 	}
 
-	static get collapsibleBreakpoints(){
+	static get collapsibleBreakpoints() {
 		return COLLAPSIBLE_BREAKPOINTS;
 	}
 
@@ -57,7 +57,7 @@ class Footer {
 		return COLLAPSIBLE_BREAKPOINTS.indexOf(breakpoint) !== -1;
 	}
 
-	static init (rootEl) {
+	static init(rootEl) {
 		if (!rootEl) {
 			rootEl = document.body;
 		} else if (typeof rootEl === 'string') {

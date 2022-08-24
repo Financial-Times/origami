@@ -1,7 +1,6 @@
 import BaseTable from './BaseTable.js';
 
 class FlatTable extends BaseTable {
-
 	/**
 	 * Initialises an `o-table` component with "flat" responsive behaviour.
 	 *
@@ -15,11 +14,16 @@ class FlatTable extends BaseTable {
 	constructor(rootEl, sorter, opts = {}) {
 		super(rootEl, sorter, opts);
 		// Duplicate row headings before adding sort buttons.
-		this._tableHeadersWithoutSort = this.tableHeaders.map(header => header.cloneNode(true));
+		this._tableHeadersWithoutSort = this.tableHeaders.map(header =>
+			header.cloneNode(true)
+		);
 		// Flat table can only work given headers.
 		if (this.tableHeaders.length <= 0) {
 			// eslint-disable-next-line no-console
-			console.warn('Could not create a "flat" table as no headers were found. Ensure table headers are placed within "<thead>". Removing class "o-table--responsive-flat".', rootEl);
+			console.warn(
+				'Could not create a "flat" table as no headers were found. Ensure table headers are placed within "<thead>". Removing class "o-table--responsive-flat".',
+				rootEl
+			);
 			rootEl.classList.remove('o-table--responsive-flat');
 		} else {
 			this._createFlatTableStructure();
@@ -51,7 +55,11 @@ class FlatTable extends BaseTable {
 	 * @access private
 	 */
 	_getLatestRowNodes() {
-		return this.tbody ? Array.from(this.tbody.querySelectorAll('tr:not(.o-table__duplicate-row)')) : [];
+		return this.tbody
+			? Array.from(
+					this.tbody.querySelectorAll('tr:not(.o-table__duplicate-row)')
+			  )
+			: [];
 	}
 
 	/**

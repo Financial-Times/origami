@@ -9,7 +9,7 @@ import BaseTable from './../src/js/Tables/BaseTable.js';
 import TableSorter from './../src/js/Sort/TableSorter.js';
 const sorter = new TableSorter();
 
-describe("ScrollTable", () => {
+describe('ScrollTable', () => {
 	let oTableEl;
 
 	beforeEach(() => {
@@ -42,7 +42,11 @@ describe("ScrollTable", () => {
 			try {
 				const thead = oTableEl.querySelector('thead');
 				const sortButtons = thead.querySelectorAll('button');
-				proclaim.equal(sortButtons.length, 0, 'Expected to find no sort buttons when table has been set to non-sortable.');
+				proclaim.equal(
+					sortButtons.length,
+					0,
+					'Expected to find no sort buttons when table has been set to non-sortable.'
+				);
 			} catch (error) {
 				done(error);
 			} finally {
@@ -51,16 +55,26 @@ describe("ScrollTable", () => {
 		}, 100);
 	});
 
-	it('clones column data into a new row with row header for the "scroll" version of the table (mobile version)', (done) => {
+	it('clones column data into a new row with row header for the "scroll" version of the table (mobile version)', done => {
 		new ScrollTable(oTableEl, sorter);
 		setTimeout(() => {
 			try {
 				const duplicateRowClass = '.o-table__duplicate-row';
 				const duplicateRows = document.querySelectorAll(duplicateRowClass);
-				proclaim.equal(duplicateRows.length, 5, `Expected to find 5 rows with duplicate data and class "${duplicateRowClass}".`);
+				proclaim.equal(
+					duplicateRows.length,
+					5,
+					`Expected to find 5 rows with duplicate data and class "${duplicateRowClass}".`
+				);
 				duplicateRows.forEach(row => {
-					const duplicateHeadings = row.querySelectorAll('th[scope="row"][role="rowheader"]');
-					proclaim.equal(duplicateHeadings.length, 1, `Expected to find a row heading within the rows of duplicate data, with scope="row" and role="rowheader".`);
+					const duplicateHeadings = row.querySelectorAll(
+						'th[scope="row"][role="rowheader"]'
+					);
+					proclaim.equal(
+						duplicateHeadings.length,
+						1,
+						`Expected to find a row heading within the rows of duplicate data, with scope="row" and role="rowheader".`
+					);
 				});
 				done();
 			} catch (error) {
@@ -69,16 +83,22 @@ describe("ScrollTable", () => {
 		}, 100); // wait for window.requestAnimationFrame
 	});
 
-	it('filters cloned column data for the "scroll" version of the table (mobile version)', (done) => {
+	it('filters cloned column data for the "scroll" version of the table (mobile version)', done => {
 		const table = new ScrollTable(oTableEl, sorter);
 		table.filter(0, 'Durian');
 		setTimeout(() => {
 			try {
 				const duplicateRowClass = '.o-table__duplicate-row';
 				const duplicateRows = document.querySelectorAll(duplicateRowClass);
-				duplicateRows.forEach((row) => {
-					const visibleData = row.querySelectorAll('td[data-o-table-filtered="false"]');
-					proclaim.equal(visibleData.length, 1, `Expected one non-filtered data point per row but found "${visibleData.length}".`);
+				duplicateRows.forEach(row => {
+					const visibleData = row.querySelectorAll(
+						'td[data-o-table-filtered="false"]'
+					);
+					proclaim.equal(
+						visibleData.length,
+						1,
+						`Expected one non-filtered data point per row but found "${visibleData.length}".`
+					);
 				});
 				done();
 			} catch (error) {
@@ -87,9 +107,11 @@ describe("ScrollTable", () => {
 		}, 100); // wait for window.requestAnimationFrame
 	});
 
-	describe("updateRows", () => {
-		it('for any new rows, clones column data into the rows created for the scroll view (mobile version)', (done) => {
-			const trClone = oTableEl.querySelector('tbody > tr').cloneNode({ deep: true });
+	describe('updateRows', () => {
+		it('for any new rows, clones column data into the rows created for the scroll view (mobile version)', done => {
+			const trClone = oTableEl
+				.querySelector('tbody > tr')
+				.cloneNode({deep: true});
 			const table = new ScrollTable(oTableEl, sorter);
 			setTimeout(() => {
 				// table initialised and rendered
@@ -123,5 +145,4 @@ describe("ScrollTable", () => {
 			}, 100); // wait for window.requestAnimationFrame
 		});
 	});
-
 });

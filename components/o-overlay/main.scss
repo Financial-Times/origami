@@ -25,9 +25,15 @@
 /// @example scss - Base styles and compact variant, but with no full-screen or heading-shaded variants
 ///   @include oOverlay($opts: ('variants': ('compact'));
 /// @access public
-@mixin oOverlay($opts: (
-	'variants': ('compact', 'full-screen', 'heading-shaded')
-)) {
+@mixin oOverlay(
+	$opts: (
+		'variants': (
+			'compact',
+			'full-screen',
+			'heading-shaded',
+		),
+	)
+) {
 	$variants: map-get($opts, 'variants');
 
 	// Include base styles

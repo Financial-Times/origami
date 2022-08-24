@@ -1,9 +1,9 @@
-import "@financial-times/o-autoinit";
-import { getContrastRatio, getWCAGRating } from '../shared/contrast-ratio.js';
-import { getHexValues, mixHexes, expandHexValues } from '../shared/colors-mix.js';
-import Tabs from "@financial-times/o-tabs";
-import Forms from "@financial-times/o-forms";
-import Overlay from "@financial-times/o-overlay";
+import '@financial-times/o-autoinit';
+import {getContrastRatio, getWCAGRating} from '../shared/contrast-ratio.js';
+import {getHexValues, mixHexes, expandHexValues} from '../shared/colors-mix.js';
+import Tabs from '@financial-times/o-tabs';
+import Forms from '@financial-times/o-forms';
+import Overlay from '@financial-times/o-overlay';
 
 document.addEventListener('DOMContentLoaded', () => {
 	Tabs.init();
@@ -25,13 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function showContrastRatio(text, background) {
 	const textHex = expandHexValues(changeColor(text.value, 'foreground'));
-	const backgroundHex = expandHexValues(changeColor(background.value, 'background'));
+	const backgroundHex = expandHexValues(
+		changeColor(background.value, 'background')
+	);
 
 	const ratio = getContrastRatio(textHex, backgroundHex);
 	const rating = getWCAGRating(ratio, text.value, background.value);
 
 	document.querySelector('.combination').innerHTML = rating.combination;
-	document.querySelector('.contrast-ratio').innerHTML = `Contrast ratio: <strong>${ratio}</strong>`;
+	document.querySelector(
+		'.contrast-ratio'
+	).innerHTML = `Contrast ratio: <strong>${ratio}</strong>`;
 
 	const ratingMessage = document.querySelector('.rating-message');
 	ratingMessage.className = `rating-message rating-result--${rating.wcagRating.toLowerCase()}`;
@@ -44,9 +48,13 @@ function showContrastRatio(text, background) {
 
 function changeColor(colorName, property) {
 	const root = document.documentElement;
-	let hexValue = getComputedStyle(root).getPropertyValue(`--o-colors-${colorName}`);
+	let hexValue = getComputedStyle(root).getPropertyValue(
+		`--o-colors-${colorName}`
+	);
 
-	if (hexValue.length <= 0) { hexValue = colorName; }
+	if (hexValue.length <= 0) {
+		hexValue = colorName;
+	}
 
 	root.style.setProperty(`--${property}`, hexValue);
 	return hexValue.replace('#', '').trim();
@@ -56,7 +64,10 @@ let eventsAdded = false;
 document.addEventListener('oOverlay.ready', () => {
 	generateRange();
 
-	document.forms[0]['overlay-fieldset'].addEventListener('change', generateRange);
+	document.forms[0]['overlay-fieldset'].addEventListener(
+		'change',
+		generateRange
+	);
 
 	if (!eventsAdded) {
 		document.getElementById('add-mix').addEventListener('click', () => {

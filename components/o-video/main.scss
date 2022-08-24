@@ -1,24 +1,34 @@
 $o-video-is-silent: true !default;
 
-@import "@financial-times/o-colors/main";
-@import "@financial-times/o-icons/main";
-@import "@financial-times/o-loading/main";
-@import "@financial-times/o-normalise/main";
-@import "@financial-times/o-typography/main";
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-loading/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-typography/main';
 
-@import "src/scss/ads";
-@import "src/scss/base";
-@import "src/scss/info";
-@import "src/scss/placeholder";
-@import "src/scss/guidance";
+@import 'src/scss/ads';
+@import 'src/scss/base';
+@import 'src/scss/info';
+@import 'src/scss/placeholder';
+@import 'src/scss/guidance';
 
 /// @access public
 /// @param {Map} $opts - ['attributes': ('ads', 'info', 'placeholder'), 	'sizes': ('small', 'medium', 'large')]
 /// Outputs all video styles
-@mixin oVideo($opts: (
-	'attributes': ('ads', 'info', 'placeholder'),
-	'sizes': ('small', 'medium', 'large')
-)) {
+@mixin oVideo(
+	$opts: (
+		'attributes': (
+			'ads',
+			'info',
+			'placeholder',
+		),
+		'sizes': (
+			'small',
+			'medium',
+			'large',
+		),
+	)
+) {
 	$attributes: map-get($opts, 'attributes');
 	$sizes: map-get($opts, 'sizes');
 
@@ -40,7 +50,6 @@ $o-video-is-silent: true !default;
 }
 
 @if $o-video-is-silent == false {
-
 	@include oVideo();
 
 	$o-video-is-silent: true !global;

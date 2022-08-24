@@ -1,7 +1,6 @@
 import BaseTable from './BaseTable.js';
 
 class BasicTable extends BaseTable {
-
 	/**
 	 * Initialises an `o-table` component without responsive behaviour.
 	 *

@@ -29,7 +29,10 @@ describe('Target', () => {
 
 	context('get left()', () => {
 		it('should return the left edge of the target', () => {
-			const leftEdge = targetEl.getBoundingClientRect().left - (targetEl.offsetParent && targetEl.offsetParent.getBoundingClientRect().left);
+			const leftEdge =
+				targetEl.getBoundingClientRect().left -
+				(targetEl.offsetParent &&
+					targetEl.offsetParent.getBoundingClientRect().left);
 			proclaim.equal(target.left, leftEdge);
 		});
 	});
@@ -43,7 +46,10 @@ describe('Target', () => {
 
 	context('get top()', () => {
 		it('should return the top edge of the target', () => {
-			const topEdge = targetEl.getBoundingClientRect().top - (targetEl.offsetParent && targetEl.offsetParent.getBoundingClientRect().top);
+			const topEdge =
+				targetEl.getBoundingClientRect().top -
+				(targetEl.offsetParent &&
+					targetEl.offsetParent.getBoundingClientRect().top);
 			proclaim.equal(target.top, topEdge);
 		});
 	});
@@ -70,8 +76,8 @@ describe('Target', () => {
 	context('get centrePoint()', () => {
 		it('should return the centre point of the target', () => {
 			proclaim.deepEqual(target.centrePoint, {
-				x: target.left + target.width/2,
-				y: target.top + target.height/2
+				x: target.left + target.width / 2,
+				y: target.top + target.height / 2,
 			});
 		});
 	});

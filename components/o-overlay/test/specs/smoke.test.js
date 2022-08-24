@@ -6,10 +6,10 @@ import sinon from 'sinon/pkg/sinon-esm.js';
 import * as o from '../helpers/events.js';
 import Overlay from '../../src/js/overlay.js';
 
-const testContent = '<div class="test-overlay"><span class="test-overlay__text">Hello Overlay</span></div>';
+const testContent =
+	'<div class="test-overlay"><span class="test-overlay__text">Hello Overlay</span></div>';
 
-describe("smoke-tests (./overlay.js)", function() {
-
+describe('smoke-tests (./overlay.js)', function () {
 	afterEach(() => {
 		Overlay.destroy();
 		const overlays = document.querySelectorAll('.o-overlay, .o-overlay-shadow');
@@ -19,7 +19,6 @@ describe("smoke-tests (./overlay.js)", function() {
 	});
 
 	describe('opening and closing', () => {
-
 		beforeEach(() => {
 			const el = document.createElement('button');
 			el.setAttribute('data-o-overlay-src', '.test-overlay');
@@ -68,7 +67,10 @@ describe("smoke-tests (./overlay.js)", function() {
 				proclaim.equal(testBody.length, 1);
 
 				Overlay.getOverlays()['testOverlay'].close();
-				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
+				document.body.removeEventListener(
+					'oOverlay.ready',
+					overlayReadyHandler
+				);
 
 				done();
 			}
@@ -91,7 +93,7 @@ describe("smoke-tests (./overlay.js)", function() {
 				o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
 				o.fireEvent(document.body, 'click');
 				o.fireEvent(document.body, 'keyup', {
-					keyCode: 27
+					keyCode: 27,
 				});
 				o.fireCustomEvent(document.body, 'oOverlay.layerOpen');
 				proclaim.equal(Overlay.prototype.close.callCount, 3);
@@ -99,17 +101,18 @@ describe("smoke-tests (./overlay.js)", function() {
 				Overlay.prototype.close = realCloseFunction;
 				currentOverlay.close();
 
-				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
+				document.body.removeEventListener(
+					'oOverlay.ready',
+					overlayReadyHandler
+				);
 				done();
 			}
 
 			document.body.addEventListener('oOverlay.ready', overlayReadyHandler);
 			o.fireEvent(trigger, 'click');
-
 		});
 
 		it('modal with prevent closing should not be closable with esc key, close button, but can with new layer ', done => {
-
 			const realCloseFunction = Overlay.prototype.close;
 			const stubbedCloseFunction = sinon.stub();
 			Overlay.prototype.close = stubbedCloseFunction;
@@ -127,7 +130,7 @@ describe("smoke-tests (./overlay.js)", function() {
 				}
 				o.fireEvent(document.body, 'click');
 				o.fireEvent(document.body, 'keyup', {
-					keyCode: 27
+					keyCode: 27,
 				});
 
 				proclaim.equal(Overlay.prototype.close.callCount, 0);
@@ -139,17 +142,18 @@ describe("smoke-tests (./overlay.js)", function() {
 				Overlay.prototype.close = realCloseFunction;
 				currentOverlay.close();
 
-				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
+				document.body.removeEventListener(
+					'oOverlay.ready',
+					overlayReadyHandler
+				);
 				done();
 			}
 
 			document.body.addEventListener('oOverlay.ready', overlayReadyHandler);
 			o.fireEvent(trigger, 'click');
-
 		});
 
-
-		it('non-modal should be closable in different ways', function() {
+		it('non-modal should be closable in different ways', function () {
 			const realCloseFunction = Overlay.prototype.close;
 			const stubbedCloseFunction = sinon.stub();
 			Overlay.prototype.close = stubbedCloseFunction;
@@ -164,7 +168,7 @@ describe("smoke-tests (./overlay.js)", function() {
 			o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
 			o.fireEvent(document.body, 'click');
 			o.fireEvent(document.body, 'keyup', {
-				keyCode: 27
+				keyCode: 27,
 			});
 			o.fireCustomEvent(document.body, 'oOverlay.layerOpen', {el: 'something'});
 
@@ -174,7 +178,7 @@ describe("smoke-tests (./overlay.js)", function() {
 			currentOverlay.close();
 		});
 
-		it('should be closable in fewer ways when nested in the page', function() {
+		it('should be closable in fewer ways when nested in the page', function () {
 			const realCloseFunction = Overlay.prototype.close;
 			const stubbedCloseFunction = sinon.stub();
 			Overlay.prototype.close = stubbedCloseFunction;
@@ -190,7 +194,7 @@ describe("smoke-tests (./overlay.js)", function() {
 			o.fireEvent(trigger, 'click');
 
 			o.fireEvent(document.body, 'keyup', {
-				keyCode: 27
+				keyCode: 27,
 			});
 			proclaim.equal(Overlay.prototype.close.callCount, 0);
 
@@ -271,7 +275,7 @@ describe("smoke-tests (./overlay.js)", function() {
 			proclaim.equal(closedLayers, 0);
 		});
 
-		it('should remove all traces on close', function() {
+		it('should remove all traces on close', function () {
 			const trigger = document.querySelector('.o-overlay-trigger');
 			trigger.setAttribute('data-o-overlay-modal', 'false');
 			Overlay.init();
@@ -312,10 +316,10 @@ describe("smoke-tests (./overlay.js)", function() {
 			Overlay.prototype.closeOnEscapePress.restore();
 		});
 
-		it('should be possible to open and close imperatively', function() {
+		it('should be possible to open and close imperatively', function () {
 			const mod = new Overlay('testOverlay', {
 				html: testContent,
-				trigger: document.querySelector('.o-overlay-trigger')
+				trigger: document.querySelector('.o-overlay-trigger'),
 			});
 
 			mod.open();
@@ -346,7 +350,10 @@ describe("smoke-tests (./overlay.js)", function() {
 				proclaim.equal(triggerPressed, 'true');
 
 				Overlay.getOverlays()['testOverlay'].close();
-				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
+				document.body.removeEventListener(
+					'oOverlay.ready',
+					overlayReadyHandler
+				);
 
 				triggerPressed = trigger.getAttribute('aria-pressed');
 				proclaim.equal(triggerPressed, 'false');
@@ -364,12 +371,12 @@ describe("smoke-tests (./overlay.js)", function() {
 		const scriptEl = document.createElement('script');
 		scriptEl.id = 'test-overlay-content';
 		scriptEl.setAttribute('type', 'text/template');
-		scriptEl.innerHTML = "Test content";
+		scriptEl.innerHTML = 'Test content';
 		document.body.appendChild(scriptEl);
 
 		const mod = new Overlay('testOverlay', {
 			src: '#test-overlay-content',
-			trigger: document.querySelector('.o-overlay-trigger')
+			trigger: document.querySelector('.o-overlay-trigger'),
 		});
 
 		mod.open();
@@ -383,13 +390,13 @@ describe("smoke-tests (./overlay.js)", function() {
 	});
 
 	// Note: must not be an arrow function as we reference `this`
-	it('should be able to inject content from a url', function(done) {
+	it('should be able to inject content from a url', function (done) {
 		// Increase the timeout of this function to allow for the fetching of the url
 		this.timeout(10000);
 
 		const mod = new Overlay('testOverlay', {
 			src: 'https://www.ft.com/__origami/service/build/v3/demo/html?component=o-typography%407.3.2&demo=links&system_code=origami&brand=core',
-			trigger: document.querySelector('.o-overlay-trigger')
+			trigger: document.querySelector('.o-overlay-trigger'),
 		});
 
 		function overlayReadyHandler() {
@@ -413,7 +420,7 @@ describe("smoke-tests (./overlay.js)", function() {
 
 	it('should add the unique id as a CSS styling hook', () => {
 		const mod = new Overlay('test overlay', {
-			html: testContent
+			html: testContent,
 		});
 		mod.open();
 

@@ -6,7 +6,7 @@ import sinon from 'sinon/pkg/sinon-esm.js';
 import * as fixtures from './helpers/fixtures.js';
 import Share from './../main.js';
 
-describe("Share", () => {
+describe('Share', () => {
 	it('is defined', () => {
 		proclaim.equal(typeof Share, 'function');
 	});
@@ -15,22 +15,22 @@ describe("Share", () => {
 		proclaim.equal(typeof Share.init, 'function');
 	});
 
-	it("should autoinitialize", (done) => {
+	it('should autoinitialize', done => {
 		const initSpy = sinon.spy(Share, 'init');
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		setTimeout(function(){
+		setTimeout(function () {
 			proclaim.equal(initSpy.called, true);
 			initSpy.restore();
 			done();
 		}, 100);
 	});
 
-	it("should not autoinitialize when the event is not dispached", () => {
+	it('should not autoinitialize when the event is not dispached', () => {
 		const initSpy = sinon.spy(Share, 'init');
 		proclaim.equal(initSpy.called, false);
 	});
 
-	describe("should create a new", () => {
+	describe('should create a new', () => {
 		beforeEach(() => {
 			fixtures.insertShareLinks();
 		});
@@ -39,13 +39,13 @@ describe("Share", () => {
 			fixtures.reset();
 		});
 
-		it("component array when initialized", () => {
+		it('component array when initialized', () => {
 			const boilerplate = Share.init();
 			proclaim.equal(boilerplate instanceof Array, true);
 			proclaim.equal(boilerplate[0] instanceof Share, true);
 		});
 
-		it("single component when initialized with a root element", () => {
+		it('single component when initialized with a root element', () => {
 			const boilerplate = Share.init('#element');
 			proclaim.equal(boilerplate instanceof Share, true);
 		});

@@ -15,7 +15,14 @@
 	}
 
 	.o-topper__headline {
-		@include oTypographyDisplay($scale: (default: 6, S: 4, M: 6, L: 8));
+		@include oTypographyDisplay(
+			$scale: (
+				default: 6,
+				S: 4,
+				M: 6,
+				L: 8,
+			)
+		);
 	}
 
 	.o-topper__picture {

@@ -31,29 +31,30 @@
 
 /// Adds box sizing to current and all child elements
 @mixin oNormaliseBoxSizing {
-
 	/*autoprefixer: off*/
 	-webkit-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
 	-moz-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
 	box-sizing: border-box;
 
-
 	& *,
 	& *:before,
 	& *:after {
-
 		/*autoprefixer: off*/
 		-webkit-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
 		-moz-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
 		box-sizing: inherit;
-
 	}
 }
 
 /// Adds normalising styles to general html elements
 /// effects: <html>, <body>, <main>, and :focus state
 /// @access private
-@mixin _oNormaliseBody($font-smoothing: true, $box-sizing: true, $focus: true, $reduce-motion: true) {
+@mixin _oNormaliseBody(
+	$font-smoothing: true,
+	$box-sizing: true,
+	$focus: true,
+	$reduce-motion: true
+) {
 	html,
 	body {
 		margin: 0;
@@ -62,12 +63,9 @@
 		-ms-text-size-adjust: 100%; // stylelint-disable-line property-no-vendor-prefix
 		-webkit-text-size-adjust: 100%; // stylelint-disable-line property-no-vendor-prefix
 
-
 		@if $font-smoothing {
-
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-
 		}
 
 		@if $box-sizing {
@@ -82,11 +80,9 @@
 				*,
 				*:before,
 				*:after {
-
 					animation-duration: 0.001s !important; // stylelint-disable-line declaration-no-important
 					transition-duration: 0.001s !important; // stylelint-disable-line declaration-no-important
 					animation-iteration-count: 1 !important; // stylelint-disable-line declaration-no-important
-
 				}
 			}
 		}
@@ -145,7 +141,6 @@
 		}
 	}
 
-
 	// These styles will be ignored by browsers which do not recognise the :focus-visible selector (as per the third bullet point in https://www.w3.org/TR/selectors-3/#Conformance)
 	// If a browser supports :focus-visible we unset the :focus styles that were applied above
 	// (within the html:not(.js-focus-visible) block).
@@ -192,13 +187,11 @@
 	[readonly]:focus {
 		outline: none;
 	}
-
 }
 
 /// Adds normalising styles to link elements
 /// @access private
 @mixin _oNormaliseLinks {
-
 	// Remove the grey background on active links in IE 10.
 	a {
 		background-color: transparent;
@@ -210,13 +203,11 @@
 	a:hover {
 		outline-width: 0;
 	}
-
 }
 
 /// Adds normalising styles to text related elements
 /// @access private
 @mixin _oNormaliseText {
-
 	// 1. Remove the bottom border in Firefox 39-.
 	// 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
 	// stylelint-disable-next-line selector-no-qualifying-type
@@ -285,7 +276,8 @@
 	// 2. Show the overflow in Edge, Firefox, and IE.
 	button,
 	input,   // [1]
-	select { // [2]
+	select {
+		// [2]
 		overflow: visible;
 	}
 
@@ -294,22 +286,24 @@
 	button,
 	input,
 	select,
-	textarea { // [1]
+	textarea {
+		// [1]
 		margin: 0;
 	}
 
 	// Remove the inheritance of text transform in Edge, Firefox, and IE.
 	// 1. Remove the inheritance of text transform in Firefox.
 	button,
-	select { // [1]
+	select {
+		// [1]
 		text-transform: none;
 	}
 
 	// Change the cursor in all browsers (opinionated).
 	button,
-	[type="button"],
-	[type="reset"],
-	[type="submit"] {
+	[type='button'],
+	[type='reset'],
+	[type='submit'] {
 		cursor: pointer;
 	}
 

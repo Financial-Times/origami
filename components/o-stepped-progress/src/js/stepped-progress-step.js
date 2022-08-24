@@ -31,14 +31,13 @@ export const statusTexts = {
 const stateClassNames = [
 	classNames.complete,
 	classNames.current,
-	classNames.error
+	classNames.error,
 ];
 
 /**
  * Represents a step in a stepped progress component.
  */
 class SteppedProgressStep {
-
 	/**
 	 * Class constructor.
 	 *
@@ -46,7 +45,7 @@ class SteppedProgressStep {
 	 * @param {HTMLElement} stepElement - The step element in the DOM
 	 * @param {import("./stepped-progress")} parent - The parent stepped progress instance
 	 */
-	constructor (stepElement, parent) {
+	constructor(stepElement, parent) {
 		this.stepElement = stepElement;
 		this.parent = parent;
 		this.labelElement = this._selectLabelElement();
@@ -91,11 +90,7 @@ class SteppedProgressStep {
 	 * @returns {boolean} Returns whether the step has no explicit state.
 	 */
 	isFuture() {
-		return (
-			!this.isComplete() &&
-			!this.isCurrent() &&
-			!this.isError()
-		);
+		return !this.isComplete() && !this.isCurrent() && !this.isError();
 	}
 
 	/**
@@ -212,7 +207,6 @@ class SteppedProgressStep {
 			this.stepElement.classList.remove(className);
 		}
 	}
-
 }
 
 export default SteppedProgressStep;

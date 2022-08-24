@@ -71,5 +71,5 @@ export {
 	insertShareLinks,
 	insertShareComponent,
 	insertRelativeShareComponent,
-	reset
+	reset,
 };

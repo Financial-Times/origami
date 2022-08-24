@@ -1,4 +1,3 @@
-
 /// Header Area
 /// Outputs grid header area
 /// @access private
@@ -62,7 +61,8 @@
 		}
 	}
 
-	.o-layout__hero:not(.o-layout__hero--muted) h1:not(.o-layout__unstyled-element) {
+	.o-layout__hero:not(.o-layout__hero--muted)
+		h1:not(.o-layout__unstyled-element) {
 		@include oTypographyDisplay($scale: 6);
 	}
 
@@ -88,7 +88,10 @@
 		// o-layout does not cater for older `-ms-` versions of the grid specification.
 		display: grid;
 		/*! autoprefixer: ignore next */
-		grid-template-columns: repeat(var(--_o-layout-overview-columns, auto-fit), minmax(250px, 1fr));
+		grid-template-columns: repeat(
+			var(--_o-layout-overview-columns, auto-fit),
+			minmax(250px, 1fr)
+		);
 		/*! autoprefixer: ignore next */
 		grid-gap: $_o-layout-gutter * 3;
 		/*! autoprefixer: ignore next */
@@ -101,7 +104,9 @@
 
 	.o-layout__overview--actions {
 		grid-gap: $_o-layout-gutter;
-		margin-bottom: oSpacingByIncrement(7); // Aligns with <p> margin set by oTypographyBody
+		margin-bottom: oSpacingByIncrement(
+			7
+		); // Aligns with <p> margin set by oTypographyBody
 
 		.o-layout-item {
 			/*! autoprefixer: ignore next */

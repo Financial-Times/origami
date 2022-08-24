@@ -33,7 +33,4 @@ function insertSimple() {
 	insert(html);
 }
 
-export {
-	insertSimple,
-	reset
-};
+export {insertSimple, reset};

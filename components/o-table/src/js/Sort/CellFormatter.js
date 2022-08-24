@@ -7,7 +7,7 @@
  * @access private
  * @returns {HTMLElement} the parameter
  */
-function extractAltFromImages(cell){
+function extractAltFromImages(cell) {
 	const images = Array.from(cell.getElementsByTagName('img'));
 	images.forEach(image => {
 		const contents = image.getAttribute('alt');
@@ -32,11 +32,11 @@ function extractAltFromImages(cell){
  * @access private
  * @returns {HTMLElement} text representation of the HTML node
  */
-function extractText(cell){
+function extractText(cell) {
 	const time = cell.querySelector('time');
 	if (time && time.dateTime) {
 		const date = new Date(time.dateTime);
-		if (!isNaN(date.getTime())){
+		if (!isNaN(date.getTime())) {
 			return String(date.getTime());
 		}
 	}
@@ -46,7 +46,8 @@ function extractText(cell){
 	if (text === '') {
 		const nodes = cell.querySelectorAll('a, span, i');
 		text = Array.from(nodes).reduce((accumulator, node) => {
-			const nodeText = node.getAttribute('aria-label') || node.getAttribute('title');
+			const nodeText =
+				node.getAttribute('aria-label') || node.getAttribute('title');
 			return nodeText ? `${accumulator} ${nodeText}` : accumulator;
 		}, '');
 	}
@@ -69,9 +70,9 @@ function extractText(cell){
 function expandAbbreviations(text) {
 	text = text.replace(/([\d,.]+)([a-zA-Z]+)/g, (match, digit, abbreviation) => {
 		const zeros = {
-			'm': 6,
-			'bn': 9,
-			'tn': 12
+			m: 6,
+			bn: 9,
+			tn: 12,
 		};
 		return `${digit * Math.pow(10, zeros[abbreviation] || 0)}`;
 	});
@@ -156,9 +157,24 @@ function extractNumberFromRange(text) {
  * @returns {number} Number representation of date and/or time for sorting.
  */
 function ftDateTimeToNumber(text) {
-	const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+	const monthNames = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December',
+	];
 	// FT style for writing dates: is June 23 2016 (no commas, month date year)
-	const date = text.match(/^([A-Za-z]{3,})(?:[\s])(?=[\d])((?:\d{1,2})?(?![\d]))?(?:\s)?(\d{4})?/);
+	const date = text.match(
+		/^([A-Za-z]{3,})(?:[\s])(?=[\d])((?:\d{1,2})?(?![\d]))?(?:\s)?(\d{4})?/
+	);
 	// FT style for writing time:
 	// The 12 hour clock should be used: 1am, 9.30pm
 	const time = text.match(/(?:\s|^)(\d{1,2}(?:[.](\d{2}))?)(pm|am)$/);
@@ -191,9 +207,17 @@ function ftDateTimeToNumber(text) {
 		return parseFloat(`${twentyFourHour}.${minute}`);
 	}
 
-	if (year !== null || monthIndex !== null || day !== null || twentyFourHour !== null || minute !== null) {
+	if (
+		year !== null ||
+		monthIndex !== null ||
+		day !== null ||
+		twentyFourHour !== null ||
+		minute !== null
+	) {
 		// Unix epoch to sort FT formated date.
-		const dateObj = new Date(Date.UTC(year, monthIndex, day, twentyFourHour, minute));
+		const dateObj = new Date(
+			Date.UTC(year, monthIndex, day, twentyFourHour, minute)
+		);
 		return isNaN(dateObj.getTime()) ? text : dateObj.getTime();
 	} else {
 		return text;
@@ -240,9 +264,16 @@ function removeEmptyCellIndicators(text) {
  * @returns {string} The node content to sort on.
  */
 function extractNodeContent(cell) {
-	const steps = [extractAltFromImages, extractText, removeRefereneAsterisk, removeEmptyCellIndicators];
+	const steps = [
+		extractAltFromImages,
+		extractText,
+		removeRefereneAsterisk,
+		removeEmptyCellIndicators,
+	];
 	let text = cell;
-	steps.forEach(step => { text = step(text); });
+	steps.forEach(step => {
+		text = step(text);
+	});
 	return typeof text === 'string' ? text : '';
 }
 
@@ -254,8 +285,15 @@ function extractNodeContent(cell) {
  * @returns {number | string} A number if one could a extracted, string otherwise.
  */
 function extractNumber(text) {
-	const steps = [removeDigitGroupSeparators, expandAbbreviations, extractDigitsIfFound, extractNumberFromRange];
-	steps.forEach(step => { text = step(text); });
+	const steps = [
+		removeDigitGroupSeparators,
+		expandAbbreviations,
+		extractDigitsIfFound,
+		extractNumberFromRange,
+	];
+	steps.forEach(step => {
+		text = step(text);
+	});
 	return text;
 }
 
@@ -265,8 +303,7 @@ function extractNumber(text) {
  * @access public
  */
 class CellFormatter {
-
-	constructor () {
+	constructor() {
 		// This object is used to keep the running order of filter methods
 		this.filters = {
 			text: [extractNodeContent],
@@ -274,7 +311,7 @@ class CellFormatter {
 			percent: [extractNodeContent, extractNumber],
 			currency: [extractNodeContent, extractNumber],
 			numeric: [extractNodeContent, extractNumber],
-			date: [extractNodeContent, ftDateTimeToNumber]
+			date: [extractNodeContent, ftDateTimeToNumber],
 		};
 	}
 
@@ -315,14 +352,16 @@ class CellFormatter {
 	 * @access public
 	 * @returns {string | number} A representation of cell which can be used for sorting.
 	 */
-	formatCell({ cell, type = 'text' }) {
+	formatCell({cell, type = 'text'}) {
 		type = type || 'text';
 		let sortValue = cell.getAttribute('data-o-table-sort-value');
 		if (sortValue === null) {
 			if (this.filters[type]) {
-				const cellClone = cell.cloneNode({ deep: true });
+				const cellClone = cell.cloneNode({deep: true});
 				sortValue = cellClone;
-				this.filters[type].forEach(fn => { sortValue = fn(sortValue); });
+				this.filters[type].forEach(fn => {
+					sortValue = fn(sortValue);
+				});
 			}
 			cell.setAttribute('data-o-table-sort-value', sortValue);
 		}

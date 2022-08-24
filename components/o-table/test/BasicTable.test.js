@@ -10,7 +10,7 @@ import BaseTable from './../src/js/Tables/BaseTable.js';
 import TableSorter from './../src/js/Sort/TableSorter.js';
 const sorter = new TableSorter();
 
-describe("BasicTable", () => {
+describe('BasicTable', () => {
 	let oTableEl;
 
 	beforeEach(() => {
@@ -32,8 +32,8 @@ describe("BasicTable", () => {
 		proclaim.isInstanceOf(table, BaseTable);
 	});
 
-	it('adds sort buttons', (done) => {
-		const addSortSpy = sinon.spy(BasicTable.prototype, "addSortButtons");
+	it('adds sort buttons', done => {
+		const addSortSpy = sinon.spy(BasicTable.prototype, 'addSortButtons');
 		new BasicTable(oTableEl, sorter);
 		setTimeout(() => {
 			try {
@@ -56,7 +56,11 @@ describe("BasicTable", () => {
 			try {
 				const thead = oTableEl.querySelector('thead');
 				const sortButtons = thead.querySelectorAll('button');
-				proclaim.equal(sortButtons.length, 0, 'Expected to find no sort buttons when table has been set to non-sortable.');
+				proclaim.equal(
+					sortButtons.length,
+					0,
+					'Expected to find no sort buttons when table has been set to non-sortable.'
+				);
 			} catch (error) {
 				done(error);
 			} finally {

@@ -35,16 +35,30 @@
 ///			'logo': 'origami',
 ///			'drawer-breakpoint': 'L'
 ///		))
-@mixin oHeaderServices($opts: (
-	'types': ('primary-nav', 'secondary-nav', 'b2b', 'b2c'),
-	'features': ('bleed', 'drop-down'),
-	'logo': _oHeaderServicesGet('logo'),
-	'drawer-breakpoint': 'M'
-)) {
+@mixin oHeaderServices(
+	$opts: (
+		'types': (
+			'primary-nav',
+			'secondary-nav',
+			'b2b',
+			'b2c',
+		),
+		'features': (
+			'bleed',
+			'drop-down',
+		),
+		'logo': _oHeaderServicesGet('logo'),
+		'drawer-breakpoint': 'M',
+	)
+) {
 	$types: map-get($opts, 'types');
 	$features: map-get($opts, 'features');
 	$logo: map-get($opts, 'logo');
-	$drawer-breakpoint: if(map-get($opts, 'drawer-breakpoint'), map-get($opts, 'drawer-breakpoint'), 'M');
+	$drawer-breakpoint: if(
+		map-get($opts, 'drawer-breakpoint'),
+		map-get($opts, 'drawer-breakpoint'),
+		'M'
+	);
 
 	$bleed: index($features, 'bleed');
 	$drop-down: index($features, 'drop-down');

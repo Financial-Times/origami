@@ -6,11 +6,10 @@ import sinon from 'sinon/pkg/sinon-esm.js';
 import Drawer from '../src/js/drawer.js';
 
 describe('Drawer instance', () => {
-
 	describe('handleMouseleave', () => {
 		let windowSpy;
 
-		beforeEach (() => {
+		beforeEach(() => {
 			windowSpy = sinon.spy(window, 'setTimeout');
 		});
 
@@ -22,9 +21,8 @@ describe('Drawer instance', () => {
 			const originalWindowValue = window.innerWidth;
 			window.innerWidth = 401;
 
-			const scope = { offsetWidth: 400 };
+			const scope = {offsetWidth: 400};
 			const callback = Function.prototype;
-
 
 			Drawer.handleCloseEvents(scope, callback).handleMouseleave();
 
@@ -36,9 +34,8 @@ describe('Drawer instance', () => {
 			const originalWindowValue = window.innerWidth;
 			window.innerWidth = 400;
 
-			const scope = { offsetWidth: 401 };
+			const scope = {offsetWidth: 401};
 			const callback = Function.prototype;
-
 
 			Drawer.handleCloseEvents(scope, callback).handleMouseleave();
 

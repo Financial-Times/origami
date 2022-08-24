@@ -11,17 +11,25 @@ class Forms {
 	 */
 	constructor(formElement, options) {
 		if (formElement.nodeName !== 'FORM') {
-			throw new Error(`[data-o-component="o-forms"] must be set on a form element. It is currently set on a '${formElement.nodeName.toLowerCase()}'.`);
+			throw new Error(
+				`[data-o-component="o-forms"] must be set on a form element. It is currently set on a '${formElement.nodeName.toLowerCase()}'.`
+			);
 		}
 
 		this.form = formElement;
-		this.formInputs = Array.from(this.form.elements, element => new Input(element));
+		this.formInputs = Array.from(
+			this.form.elements,
+			element => new Input(element)
+		);
 		this.stateElements = [];
 
-		this.opts = Object.assign({
-			useBrowserValidation: false,
-			errorSummary: true
-		}, options || Forms.getDataAttributes(formElement));
+		this.opts = Object.assign(
+			{
+				useBrowserValidation: false,
+				errorSummary: true,
+			},
+			options || Forms.getDataAttributes(formElement)
+		);
 
 		if (!this.opts.useBrowserValidation) {
 			this.form.setAttribute('novalidate', true);
@@ -55,7 +63,10 @@ class Forms {
 			}
 
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oMessage(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(
+				/^oMessage(\w)(\w+)$/,
+				(m, m1, m2) => m1.toLowerCase() + m2
+			);
 			const value = formElement.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string
@@ -77,7 +88,10 @@ class Forms {
 	 */
 	handleEvent(event) {
 		const RETURN_KEY = 13;
-		if (event.type === 'click' || event.type === 'keydown' && event.key === RETURN_KEY) {
+		if (
+			event.type === 'click' ||
+			(event.type === 'keydown' && event.key === RETURN_KEY)
+		) {
 			if (this.form.checkValidity() === false) {
 				this.validateFormInputs();
 			}
@@ -94,7 +108,10 @@ class Forms {
 						this.form.replaceChild(newSummary, this.summary);
 						this.summary = newSummary;
 					} else {
-						this.summary = this.form.insertBefore(new ErrorSummary(checkedElements), this.form.firstElementChild);
+						this.summary = this.form.insertBefore(
+							new ErrorSummary(checkedElements),
+							this.form.firstElementChild
+						);
 					}
 					const firstErrorAnchor = this.summary.querySelector('a');
 					if (firstErrorAnchor) {
@@ -121,19 +138,25 @@ class Forms {
 			const valid = oFormInput.validate();
 			const input = oFormInput.input;
 			const field = input.closest('.o-forms-field');
-			const labelElement = field ? field.querySelector('.o-forms-title__main') : null;
+			const labelElement = field
+				? field.querySelector('.o-forms-title__main')
+				: null;
 			// label is actually the field title, not for example the label of a single checkbox.
 			// this is used to generate an error summary
 			const label = labelElement ? labelElement.textContent : null;
-			const errorElement = field ? field.querySelector('.o-forms-input__error') : null;
-			const error = errorElement ? errorElement.textContent : input.validationMessage;
+			const errorElement = field
+				? field.querySelector('.o-forms-input__error')
+				: null;
+			const error = errorElement
+				? errorElement.textContent
+				: input.validationMessage;
 			return {
 				id: input.id,
 				valid,
 				error: !valid ? error : null,
 				label,
 				field,
-				element: input
+				element: input,
 			};
 		});
 	}
@@ -154,8 +177,12 @@ class Forms {
 	 * @param {string} options.iconLabel [null] - customise the label of the state, e.g. the saved state defaults to "Saving" but could be "Sent"
 	 * @param {boolean} options.iconOnly [false] - when true display an icon only, hiding the status label
 	 */
-	setState(state, name, options = { iconLabel: null, iconOnly: false }) {
-		if (typeof options !== 'object' || options === null || Array.isArray(options)) {
+	setState(state, name, options = {iconLabel: null, iconOnly: false}) {
+		if (
+			typeof options !== 'object' ||
+			options === null ||
+			Array.isArray(options)
+		) {
 			throw new Error('The `options` argument must be an object');
 		}
 
@@ -163,7 +190,7 @@ class Forms {
 		if (!object) {
 			object = {
 				name,
-				element: new State(this.form.elements[name], options)
+				element: new State(this.form.elements[name], options),
 			};
 
 			this.stateElements.push(object);
@@ -210,7 +237,10 @@ class Forms {
 			return new Forms(rootEl, opts);
 		}
 
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-forms"]'), rootEl => new Forms(rootEl, opts));
+		return Array.from(
+			rootEl.querySelectorAll('[data-o-component="o-forms"]'),
+			rootEl => new Forms(rootEl, opts)
+		);
 	}
 }
 

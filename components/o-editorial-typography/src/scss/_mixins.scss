@@ -4,13 +4,21 @@
 ///     	@include oEditorialTypographyBody();
 ///     }
 /// @param {map} $opts [('margin-reset': true)] - Options. Set `margin-reset` to false to avoid outputting a margin.
-@mixin oEditorialTypographyBody($opts: (
-	'margin-reset': true
-)) {
-	@include oTypographySerif($scale: (default: 1, XL: 2), $line-height: 1.6);
+@mixin oEditorialTypographyBody(
+	$opts: (
+		'margin-reset': true,
+	)
+) {
+	@include oTypographySerif(
+		$scale: (
+			default: 1,
+			XL: 2,
+		),
+		$line-height: 1.6
+	);
 	color: oColorsByUsecase('body', 'text');
 	// undo browser defaults
-	@if(map-get($opts,'margin-reset')) {
+	@if (map-get($opts, 'margin-reset')) {
 		margin: 0;
 	}
 }
@@ -67,7 +75,11 @@
 @mixin oEditorialTypographyHeadline() {
 	@include oEditorialTypographyDecorated();
 	@include oTypographyDisplay(
-		$scale: (default: 5, S: 6, L: 7),
+		$scale: (
+			default: 5,
+			S: 6,
+			L: 7,
+		),
 		$weight: 'bold'
 	);
 	margin: 0; // remove browser default margin from headings
@@ -76,38 +88,43 @@
 /// Output styles for editorial page heading copy.
 /// @param {number} $level - The heading level 1-5.
 /// @param {map} $opts [('margin-reset': true)] - Options. Set `margin-reset` to false to avoid outputting a margin.
-@mixin oEditorialTypographyHeading($level, $opts: (
-	'margin-reset': true
-)) {
+@mixin oEditorialTypographyHeading($level, $opts: ('margin-reset': true)) {
 	@if type-of($level) != 'number' or $level < 1 or $level > 5 {
 		@error 'Heading levels must be a number between 1 and 5.';
 	}
 
 	// undo browser defaults
-	@if(map-get($opts, 'margin-reset')) {
+	@if (map-get($opts, 'margin-reset')) {
 		margin: 0;
 	}
 
 	// set color
 	color: oColorsByUsecase('body', 'text');
 
-	@if($level == 1) {
-		@include oTypographyDisplay($scale: (default: 4, S: 5, L: 6), $weight: 'regular');
+	@if ($level == 1) {
+		@include oTypographyDisplay(
+			$scale: (
+				default: 4,
+				S: 5,
+				L: 6,
+			),
+			$weight: 'regular'
+		);
 	}
 
-	@if($level == 2) {
+	@if ($level == 2) {
 		@include oTypographySans($scale: 4, $weight: 'semibold');
 	}
 
-	@if($level == 3) {
+	@if ($level == 3) {
 		@include oTypographySans($scale: 4, $weight: 'regular');
 	}
 
-	@if($level == 4) {
+	@if ($level == 4) {
 		@include oTypographySans($scale: 3, $weight: 'regular');
 	}
 
-	@if($level == 5) {
+	@if ($level == 5) {
 		@include oTypographySans($scale: 0, $weight: 'regular');
 		text-transform: uppercase;
 		letter-spacing: 0.5px;
@@ -163,7 +180,7 @@
 	// the tags to be bold we must set the font family
 	// rather than assume it, as our sans and serif fonts
 	// use different font weights.
-	@if($type == 'author' or $type == 'topic') {
+	@if ($type == 'author' or $type == 'topic') {
 		@include oTypographySans($weight: 'semibold');
 	}
 
@@ -173,7 +190,7 @@
 	// But author tags are the same colour as body copy until hover.
 	$tag-link-selector: selector-unify('a', '#{&}');
 	@at-root #{$tag-link-selector} {
-		@if($type != 'author') {
+		@if ($type != 'author') {
 			color: oColorsByUsecase('tag-link', text);
 		}
 
@@ -210,12 +227,15 @@
 ///     }
 /// @param {String} $align ['left'] - either 'left' or 'center'
 /// @param {Boolean} $include-base-styles [true] - set to false to only output styles to modify standard decorator alignment
-@mixin oEditorialTypographyDecorated($align: 'left', $include-base-styles: true) {
-	@if($align != 'left' and $align != 'center') {
+@mixin oEditorialTypographyDecorated(
+	$align: 'left',
+	$include-base-styles: true
+) {
+	@if ($align != 'left' and $align != 'center') {
 		@error 'Align must be "left" or "center", found "#{inspect($align)}".';
 	}
 
-	@if($include-base-styles) {
+	@if ($include-base-styles) {
 		&:after {
 			content: '';
 			display: block;
@@ -228,13 +248,13 @@
 			max-width: 100%;
 			// 20px assuming a 48px font size
 			padding-top: 0.416em;
-			@if($align == 'center') {
+			@if ($align == 'center') {
 				margin: auto;
 			}
 		}
 	}
 
-	@if($align == 'center') {
+	@if ($align == 'center') {
 		&:after {
 			margin: auto;
 		}

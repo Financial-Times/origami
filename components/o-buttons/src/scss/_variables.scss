@@ -13,20 +13,12 @@ $_o-buttons-sizes: ('big') !default;
 /// support which themes.
 /// @type List
 /// @access private
-$_o-buttons-themes: (
-	inverse,
-	mono,
-	b2c
-) !default;
+$_o-buttons-themes: (inverse, mono, b2c) !default;
 
 /// A list of all available button types.
 /// @type List
 /// @access private
-$_o-buttons-types: (
-	primary,
-	secondary,
-	ghost
-) !default;
+$_o-buttons-types: (primary, secondary, ghost) !default;
 
 /// List of icons to generate classes for icon buttons.
 /// Build service users will only be able to use these icons, but there is
@@ -37,6 +29,8 @@ $_o-buttons-types: (
 /// Update README.md with icon options when updating this list.
 ///
 /// @type List
-$_o-buttons-icons: "arrow-left", "arrow-right", "upload", "tick", "plus", "warning", "arrow-down", "arrow-up", "grid", "list", "edit", "download", "search", "refresh", "cross" !default;
+$_o-buttons-icons: 'arrow-left', 'arrow-right', 'upload', 'tick', 'plus',
+	'warning', 'arrow-down', 'arrow-up', 'grid', 'list', 'edit', 'download',
+	'search', 'refresh', 'cross' !default;
 
 $_o-buttons-generated-themes: ();

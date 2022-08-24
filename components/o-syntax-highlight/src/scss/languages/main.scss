@@ -16,16 +16,22 @@
 			tab-size: 4;
 			overflow-x: auto;
 
-			.token.comment { color: $_o-syntax-highlight-oxford-grey-60; }
-			.token.punctuation { color: $_o-syntax-highlight-grey-70; }
-			.token.string { color: $_o-syntax-highlight-oxford-jade-60; }
+			.token.comment {
+				color: $_o-syntax-highlight-oxford-grey-60;
+			}
+			.token.punctuation {
+				color: $_o-syntax-highlight-grey-70;
+			}
+			.token.string {
+				color: $_o-syntax-highlight-oxford-jade-60;
+			}
 		}
 
 		code,
 		var {
 			background: $_o-syntax-highlight-grey-5;
 			color: oColorsByName('black');
-			font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+			font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
 			font-size: 14px;
 			line-height: 1.5;
 			white-space: inherit;

@@ -5,7 +5,9 @@ let interval;
 
 function ftDateFormatWarning(methodName) {
 	// eslint-disable-next-line no-console
-	console.warn(`The o-date method "${methodName}" is deprecated. Use the "ft-date-format" package instead or contact the Origami team for help: https://github.com/Financial-Times/ft-date-format`);
+	console.warn(
+		`The o-date method "${methodName}" is deprecated. Use the "ft-date-format" package instead or contact the Origami team for help: https://github.com/Financial-Times/ft-date-format`
+	);
 }
 
 /**
@@ -14,22 +16,24 @@ function ftDateFormatWarning(methodName) {
  * @param {HTMLElement | string} rootElement - The root element or CSS selector to initialise
  */
 class ODate {
-
 	constructor(rootEl) {
-
 		if (!rootEl) {
 			// eslint-disable-next-line no-console
-			console.warn('To initialise all o-date elements on the page use ' +
-				'the `init` method. Passing no arguments to the constructor ' +
-				'is deprecated.');
+			console.warn(
+				'To initialise all o-date elements on the page use ' +
+					'the `init` method. Passing no arguments to the constructor ' +
+					'is deprecated.'
+			);
 		}
 
 		if (rootEl && !(rootEl instanceof HTMLElement)) {
 			// eslint-disable-next-line no-console
-			console.warn('Using the constructor to initialise one or more ' +
-				'o-date elements with a query selector is deprecated. ' +
-				'Pass a single o-date HTMLElement to initialise or use the ' +
-				'`init` method.');
+			console.warn(
+				'Using the constructor to initialise one or more ' +
+					'o-date elements with a query selector is deprecated. ' +
+					'Pass a single o-date HTMLElement to initialise or use the ' +
+					'`init` method.'
+			);
 		}
 
 		if (!rootEl) {
@@ -38,7 +42,7 @@ class ODate {
 			rootEl = document.querySelector(rootEl);
 		}
 
-		if (rootEl.getAttribute('data-o-component') === "o-date") {
+		if (rootEl.getAttribute('data-o-component') === 'o-date') {
 			this.el = rootEl;
 		} else {
 			this.el = rootEl.querySelector('[data-o-component~="o-date"]');
@@ -90,7 +94,9 @@ class ODate {
 		// @deprecated - The class `.o-date__printer` is deprecated.
 		// `.o-date__printer` should be removed in the next major.
 		// Use `[data-o-date-printer]` instead of `.o-date__printer`.
-		let printers = el.querySelectorAll('.o-date__printer,[data-o-date-printer]');
+		let printers = el.querySelectorAll(
+			'.o-date__printer,[data-o-date-printer]'
+		);
 		printers = printers.length ? printers : [el];
 
 		// Render the found date in each printer element.
@@ -126,7 +132,7 @@ class ODate {
 	 * @param {HTMLElement | string} [el] - The root element or CSS selector to initialise
 	 * @returns {Array<ODate> | ODate} - An o-date instance or array of o-date instances.
 	 */
-	static init (el) {
+	static init(el) {
 		if (!el) {
 			el = document.body;
 		}
@@ -156,7 +162,8 @@ class ODate {
 	_renderDateFor(printer, date) {
 		// Use the printer `data-o-date-format` if found or fallback to the
 		// root element if not found.
-		const format = printer.getAttribute('data-o-date-format') ||
+		const format =
+			printer.getAttribute('data-o-date-format') ||
 			this.el.getAttribute('data-o-date-format');
 
 		let formattedDate;
@@ -166,17 +173,27 @@ class ODate {
 		} else if (format === 'date-only') {
 			formattedDate = ftDateFormat.format(date, 'date');
 		} else if (format === 'time-ago-limit-4-hours') {
-			formattedDate = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
+			formattedDate = ftDateFormat.timeAgo(date, {
+				limit: 4 * ftDateFormat.inSeconds.hour,
+			});
 		} else if (format === 'time-ago-limit-24-hours') {
-			formattedDate = ftDateFormat.timeAgo(date, { limit: 24 * ftDateFormat.inSeconds.hour });
+			formattedDate = ftDateFormat.timeAgo(date, {
+				limit: 24 * ftDateFormat.inSeconds.hour,
+			});
 		} else if (format === 'time-ago-abbreviated') {
 			// eslint-disable-next-line no-console
-			console.warn('The o-date format "time-ago-abbreviated" is deprecated and the time is no longer abbreviated. Consider using "time-ago-limit-4-hours" instead.');
+			console.warn(
+				'The o-date format "time-ago-abbreviated" is deprecated and the time is no longer abbreviated. Consider using "time-ago-limit-4-hours" instead.'
+			);
 			formattedDate = ftDateFormat.timeAgo(date);
 		} else if (format === 'time-ago-abbreviated-limit-4-hours') {
 			// eslint-disable-next-line no-console
-			console.warn('The o-date format "time-ago-abbreviated-limit-4-hours" is deprecated and the time is no longer abbreviated. Use "time-ago-limit-4-hours" instead.');
-			formattedDate = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
+			console.warn(
+				'The o-date format "time-ago-abbreviated-limit-4-hours" is deprecated and the time is no longer abbreviated. Use "time-ago-limit-4-hours" instead.'
+			);
+			formattedDate = ftDateFormat.timeAgo(date, {
+				limit: 4 * ftDateFormat.inSeconds.hour,
+			});
 		} else if (format === 'time-ago-no-seconds') {
 			formattedDate = ftDateFormat.timeAgoNoSeconds(date);
 		} else if (format !== null) {
@@ -187,7 +204,8 @@ class ODate {
 
 		// To avoid triggering a parent live region unnecessarily
 		// <https://github.com/Financial-Times/o-date/pull/43>
-		const hasSingleTextNode = printer.childNodes.length === 1 &&
+		const hasSingleTextNode =
+			printer.childNodes.length === 1 &&
 			printer.firstChild &&
 			printer.firstChild.nodeType === 3;
 
@@ -296,7 +314,6 @@ class ODate {
 		ftDateFormatWarning('timeAgoNoSeconds');
 		return ftDateFormat.timeAgoNoSeconds(...arguments);
 	}
-
 }
 
 export default ODate;

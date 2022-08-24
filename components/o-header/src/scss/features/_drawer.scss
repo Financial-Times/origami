@@ -15,7 +15,11 @@
 			border-right: 1px solid _oHeaderGet('drawer-border');
 			// use a 2D transform because 3D are unsupported by IE9
 			transform: translateX(-100%);
-			transform: translate3d(-100%, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
+			transform: translate3d(
+				-100%,
+				0,
+				0
+			); // stylelint-disable-line declaration-block-no-duplicate-properties
 
 			// this is literally the specification example for will-change
 			will-change: transform;
@@ -32,10 +36,14 @@
 				margin-left: -30px;
 			}
 
-			&[aria-hidden="false"] {
+			&[aria-hidden='false'] {
 				// use a 2D transform because 3D are unsupported by IE9
 				transform: translateX(0);
-				transform: translate3d(0, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
+				transform: translate3d(
+					0,
+					0,
+					0
+				); // stylelint-disable-line declaration-block-no-duplicate-properties
 			}
 		}
 	}
@@ -75,13 +83,18 @@
 	//
 	.o-header__drawer-tools {
 		overflow: hidden;
-		padding: ($_o-header-drawer-padding-y * 1.5) 0 $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+		padding: ($_o-header-drawer-padding-y * 1.5) 0 $_o-header-drawer-padding-y
+			$_o-header-drawer-padding-x;
 		background-color: _oHeaderGet('drawer-tools-background');
 		color: _oHeaderGet('drawer-tools-text');
 	}
 
 	.o-header__drawer-tools-logo {
-		@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 210);
+		@include _oHeaderBrandImage(
+			'brand-ft-masthead',
+			_oHeaderGet('header-icon'),
+			210
+		);
 		display: inline-block;
 		background-repeat: no-repeat;
 		background-size: contain;
@@ -92,7 +105,11 @@
 
 	.o-header__drawer-tools-close {
 		// dividing by 1px removes the unit
-		@include oIconsContent('cross', _oHeaderGet('drawer-tools-close'), $size: $_o-header-icon-size-large);
+		@include oIconsContent(
+			'cross',
+			_oHeaderGet('drawer-tools-close'),
+			$size: $_o-header-icon-size-large
+		);
 		box-sizing: border-box;
 		float: right;
 		border: 0;
@@ -169,7 +186,8 @@
 		// be a breaking change, this colour could go in o-colors as a usecase
 		border: 1px solid oColorsByName('black-50');
 
-		&:focus { //currently overriden by o-normalise
+		&:focus {
+			//currently overriden by o-normalise
 			border-color: _oHeaderGet('drawer-search-term-highlight-border');
 		}
 	}
@@ -179,7 +197,11 @@
 		border-color: _oHeaderGet('drawer-search-submit-border');
 
 		&:after {
-			@include oIconsContent('search', oColorsByName('white'), $size: $_o-header-icon-size);
+			@include oIconsContent(
+				'search',
+				oColorsByName('white'),
+				$size: $_o-header-icon-size
+			);
 			content: '';
 			margin-top: -(div($_o-header-drawer-padding-y, 2));
 		}
@@ -218,14 +240,15 @@
 			visibility: hidden;
 			transition: max-height 0.25s ease-out;
 
-			&[aria-hidden="false"] {
+			&[aria-hidden='false'] {
 				background-color: _oHeaderGet('drawer-menu-list-background');
 				// magic number... you can't transition between 0 and unknown
 				// but as long as this is larger than the content it will do
 				max-height: 600px;
 				visibility: visible;
 				// a border would create some flickery layout
-				box-shadow: inset 0 -1px 0 _oHeaderGet('drawer-menu-border'), inset 0 1px 0 _oHeaderGet('drawer-menu-border');
+				box-shadow: inset 0 -1px 0 _oHeaderGet('drawer-menu-border'),
+					inset 0 1px 0 _oHeaderGet('drawer-menu-border');
 			}
 		}
 	}
@@ -270,7 +293,7 @@
 			margin-left: 9px; // magic number to vertically align icon in box
 		}
 
-		&[aria-expanded="true"] {
+		&[aria-expanded='true'] {
 			&:before {
 				// don't download another icon...
 				transform: rotate(180deg);
@@ -291,7 +314,11 @@
 		background: rgba(_oHeaderGet('drawer-selected-toggle-background'), 0.25);
 
 		&:before {
-			@include oIconsContent('arrow-down', _oHeaderGet('drawer-selected-toggle-text'), $size: $_o-header-icon-size);
+			@include oIconsContent(
+				'arrow-down',
+				_oHeaderGet('drawer-selected-toggle-text'),
+				$size: $_o-header-icon-size
+			);
 		}
 	}
 
@@ -299,7 +326,11 @@
 		background: rgba(_oHeaderGet('drawer-unselected-toggle-background'), 0.85);
 
 		&:before {
-			@include oIconsContent('arrow-down', _oHeaderGet('drawer-unselected-toggle-text'), $size: $_o-header-icon-size);
+			@include oIconsContent(
+				'arrow-down',
+				_oHeaderGet('drawer-unselected-toggle-text'),
+				$size: $_o-header-icon-size
+			);
 		}
 	}
 
@@ -322,7 +353,7 @@
 			color: _oHeaderGet('drawer-menu-link-hover-text');
 		}
 
-		[aria-expanded="true"] + & {
+		[aria-expanded='true'] + & {
 			background-color: _oHeaderGet('drawer-menu-link-background');
 		}
 	}
@@ -338,7 +369,7 @@
 			outline-color: _oHeaderGet('drawer-menu-text');
 		}
 
-		[aria-expanded="true"] + & {
+		[aria-expanded='true'] + & {
 			// specificity
 			background-color: _oHeaderGet('drawer-menu-selected-link-background');
 		}

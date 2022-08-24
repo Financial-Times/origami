@@ -13,7 +13,7 @@ class Input {
 
 		this.className = {
 			invalid: 'o-forms-input--invalid',
-			valid: 'o-forms-input--valid'
+			valid: 'o-forms-input--valid',
 		};
 	}
 
@@ -42,8 +42,10 @@ class Input {
 		if (!this.input.validity.valid) {
 			this.parent.classList.add(this.className.invalid);
 			return false;
-
-		} else if (this.input.validity.valid && this.parent.classList.contains(this.className.invalid)) {
+		} else if (
+			this.input.validity.valid &&
+			this.parent.classList.contains(this.className.invalid)
+		) {
 			this.parent.classList.remove(this.className.invalid);
 			this.parent.classList.add(this.className.valid);
 		}

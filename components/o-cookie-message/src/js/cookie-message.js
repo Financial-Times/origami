@@ -41,7 +41,9 @@ class CookieMessage {
 		};
 		window.addEventListener('pageshow', pageshowListener);
 		this._eventListeners.push({
-			target: window, type: 'pageshow', listener: pageshowListener
+			target: window,
+			type: 'pageshow',
+			listener: pageshowListener,
 		});
 	}
 
@@ -137,7 +139,9 @@ class CookieMessage {
 			};
 			button.addEventListener('click', clickListener);
 			this._eventListeners.push({
-				target: button, type: 'click', listener: clickListener
+				target: button,
+				type: 'click',
+				listener: clickListener,
 			});
 		}
 	}

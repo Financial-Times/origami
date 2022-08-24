@@ -1,6 +1,6 @@
 import Tooltip from './src/js/tooltip.js';
 
-const constructAll = function() {
+const constructAll = function () {
 	Tooltip.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

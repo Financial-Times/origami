@@ -1,4 +1,4 @@
-@import "common";
+@import 'common';
 
 [data-demo-highlight] {
 	display: inline-block;
@@ -13,19 +13,19 @@
 		opacity: 1;
 	}
 }
-[data-demo-highlight*="default"] {
+[data-demo-highlight*='default'] {
 	@include demo-highlight($until: S);
 }
-[data-demo-highlight*="S"] {
+[data-demo-highlight*='S'] {
 	@include demo-highlight(S, M);
 }
-[data-demo-highlight*="M"] {
+[data-demo-highlight*='M'] {
 	@include demo-highlight(M, L);
 }
-[data-demo-highlight="L"],
-[data-demo-highlight*=" L"] {
+[data-demo-highlight='L'],
+[data-demo-highlight*=' L'] {
 	@include demo-highlight(L, XL);
 }
-[data-demo-highlight*="XL"] {
+[data-demo-highlight*='XL'] {
 	@include demo-highlight(XL);
 }

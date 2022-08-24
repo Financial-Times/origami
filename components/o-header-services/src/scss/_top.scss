@@ -68,7 +68,13 @@
 	}
 
 	.o-header-services__product-name {
-		@include oTypographySans($scale: (default: 2, M: 4), $weight: 'semibold');
+		@include oTypographySans(
+			$scale: (
+				default: 2,
+				M: 4,
+			),
+			$weight: 'semibold'
+		);
 		text-overflow: ellipsis;
 	}
 
@@ -96,7 +102,10 @@
 			background-color: _oHeaderServicesGet('top-background');
 
 			a {
-				@include oTypographySans($weight: 'semibold', $include-font-family: false);
+				@include oTypographySans(
+					$weight: 'semibold',
+					$include-font-family: false
+				);
 				color: _oHeaderServicesGet('top-text');
 				display: inline-block;
 				padding: $_o-header-services-padding oSpacingByName('s3');

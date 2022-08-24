@@ -7,7 +7,6 @@
 
 /// Output All oMeter Features
 @mixin oMeter() {
-
 	:root {
 		--o-meter-width: 100%; // we need width to synch .o-meter-container with .o-meter-value to display the value label in the right position
 		--o-meter-height: 1em;
@@ -74,7 +73,6 @@
 		// Chrome 83 added a display grid which we want to override
 		display: inline-block;
 	}
-
 
 	/* for Firefox */
 	.o-meter-value,

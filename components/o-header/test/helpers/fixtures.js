@@ -36,15 +36,10 @@ function insertTwo() {
 	insert(html);
 }
 
-export {
-	insertOne,
-	insertTwo,
-	reset
-};
+export {insertOne, insertTwo, reset};
 
 export default {
 	insertOne,
 	insertTwo,
-	reset
+	reset,
 };
-

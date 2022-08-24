@@ -181,14 +181,16 @@
 }
 
 @mixin _oBannerButton {
-	@include oButtonsContent((
-		'size': 'big',
-		'type': 'primary',
-		'theme': (
-			'color': _oBannerGet('button-background-color'),
-			'context': _oBannerGet('background-color')
+	@include oButtonsContent(
+		(
+			'size': 'big',
+			'type': 'primary',
+			'theme': (
+				'color': _oBannerGet('button-background-color'),
+				'context': _oBannerGet('background-color'),
+			),
 		)
-	));
+	);
 	white-space: nowrap;
 }
 
@@ -199,7 +201,11 @@
 }
 
 @mixin _oBannerCloseButton {
-	@include oIconsContent('cross', _oBannerGet('text-color'), $size: $_o-banner-close-button-size);
+	@include oIconsContent(
+		'cross',
+		_oBannerGet('text-color'),
+		$size: $_o-banner-close-button-size
+	);
 	// start: undo button styles
 	appearance: none;
 	color: inherit;
@@ -209,7 +215,9 @@
 	cursor: pointer;
 	outline: inherit;
 	// end: undo button styles
-	$close-button-position: round(div(($_o-banner-spacing - $_o-banner-close-button-size), 2));
+	$close-button-position: round(
+		div(($_o-banner-spacing - $_o-banner-close-button-size), 2)
+	);
 	display: block;
 	position: absolute;
 	right: $close-button-position;
@@ -230,7 +238,6 @@
 ///   ));
 /// @access public
 @mixin oBannerAddTheme($theme-name, $opts: null) {
-
 	// If we have a custom config, we use that instead of one of the
 	// preconfigured themes
 	$variant: if($opts, $opts, $theme-name);

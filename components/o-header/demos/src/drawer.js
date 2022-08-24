@@ -2,26 +2,26 @@ export default function () {
 	const editionsData = {
 		current: {
 			name: 'UK',
-			id: 'uk'
+			id: 'uk',
 		},
 		others: [
 			{
 				name: 'International',
-				id: 'international'
-			}
-		]
+				id: 'international',
+			},
+		],
 	};
 
 	const navData = [
 		{
 			heading: {
-				name: 'Top sections'
+				name: 'Top sections',
 			},
 			items: [
 				{
 					name: 'Home',
 					href: '#',
-					selected: true
+					selected: true,
 				},
 				{
 					name: 'World',
@@ -30,45 +30,45 @@ export default function () {
 					children: [
 						{
 							name: 'World Economy',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'UK',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'US',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'China',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Africa',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Asia Pacific',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Emerging Markets',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Europe',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Latin America',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Middle East and Africa',
-							href: '#'
-						}
-					]
+							href: '#',
+						},
+					],
 				},
 				{
 					name: 'UK',
@@ -77,17 +77,17 @@ export default function () {
 					children: [
 						{
 							name: 'UK Economy',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'UK Politics & Policy',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'UK Companies',
-							href: '#'
-						}
-					]
+							href: '#',
+						},
+					],
 				},
 				{
 					name: 'Companies',
@@ -96,41 +96,41 @@ export default function () {
 					children: [
 						{
 							name: 'Energy',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Financials',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Health',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Industrials',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Media',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Retail & Consumer',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Technology',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Telecoms',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Transport',
-							href: '#'
-						}
-					]
+							href: '#',
+						},
+					],
 				},
 				{
 					name: 'Markets',
@@ -139,37 +139,37 @@ export default function () {
 					children: [
 						{
 							name: 'Alphaville',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Markets Data',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Capital Markets',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Commodities',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Currencies',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Equities',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Fund Management',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Trading',
-							href: '#'
-						}
-					]
+							href: '#',
+						},
+					],
 				},
 				{
 					name: 'Opinion',
@@ -178,33 +178,33 @@ export default function () {
 					children: [
 						{
 							name: 'Columnists',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'FT View',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'The Big Read',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Lex',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Alphaville',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Obituaries',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Letters',
-							href: '#'
-						}
-					]
+							href: '#',
+						},
+					],
 				},
 				{
 					name: 'Work & Careers',
@@ -213,25 +213,25 @@ export default function () {
 					children: [
 						{
 							name: 'Business School Rankings',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Business Education',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Entrepreneurship',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Recruitment',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Business Books',
-							href: '#'
-						}
-					]
+							href: '#',
+						},
+					],
 				},
 				{
 					name: 'Life & Arts',
@@ -240,45 +240,45 @@ export default function () {
 					children: [
 						{
 							name: 'House & Home',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Books',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Food & Drink',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Travel',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Style',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Arts',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Sports',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Music',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Film, TV & Radio',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Magazine',
-							href: '#'
-						}
-					]
+							href: '#',
+						},
+					],
 				},
 				{
 					name: 'Personal Finance',
@@ -287,90 +287,90 @@ export default function () {
 					children: [
 						{
 							name: 'Property & Mortgages',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Investments',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Pensions',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Tax',
-							href: '#'
+							href: '#',
 						},
 						{
 							name: 'Bankings & Savings',
-							href: '#'
-						}
-					]
+							href: '#',
+						},
+					],
 				},
 				{
 					name: 'Science & Environment',
-					href: '#'
-				}
-			]
+					href: '#',
+				},
+			],
 		},
 		{
 			heading: {
-				name: 'FT recommends'
+				name: 'FT recommends',
 			},
 			items: [
 				{
 					name: 'Lex',
-					href: '#'
+					href: '#',
 				},
 				{
 					name: 'Alphaville',
-					href: '#'
+					href: '#',
 				},
 				{
 					name: 'Lunch with the FT',
-					href: '#'
+					href: '#',
 				},
 				{
 					name: 'Video',
-					href: '#'
+					href: '#',
 				},
 				{
 					name: 'Special Reports',
-					href: '#'
+					href: '#',
 				},
 				{
 					name: 'News feed',
-					href: '#'
+					href: '#',
 				},
 				{
 					name: 'Newsletters',
-					href: '#'
-				}
-			]
+					href: '#',
+				},
+			],
 		},
 		{
 			items: [
 				{
 					name: 'My FT',
 					href: '#',
-					variation: 'secondary'
+					variation: 'secondary',
 				},
 				{
 					name: 'Portfolio',
 					href: '#',
-					variation: 'secondary'
+					variation: 'secondary',
 				},
 				{
-					name: 'Today\'s Paper',
+					name: "Today's Paper",
 					href: '#',
-					variation: 'secondary'
-				}
-			]
-		}
+					variation: 'secondary',
+				},
+			],
+		},
 	];
 
 	// Adds indexes for aria attributes
-	navData.forEach((section) => {
+	navData.forEach(section => {
 		section.items.map((item, index) => {
 			if (!section.heading && index === 0) {
 				item.divide = true;
@@ -382,13 +382,13 @@ export default function () {
 
 	const userData = {
 		isSignedIn: false,
-		name: 'User\'s name'
+		name: "User's name",
 	};
 
 	const drawer = {
 		nav: navData,
 		editions: editionsData,
-		user: userData
+		user: userData,
 	};
 
 	return drawer;

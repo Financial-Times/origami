@@ -24,9 +24,13 @@ describe('Drawer', () => {
 	});
 
 	context('on viewports above 740px', () => {
-		it('drawer is not enabled', (done) => {
+		it('drawer is not enabled', done => {
 			setTimeout(() => {
-				proclaim.isFalse(primaryNav.classList.contains('o-header-services__primary-nav--drawer'));
+				proclaim.isFalse(
+					primaryNav.classList.contains(
+						'o-header-services__primary-nav--drawer'
+					)
+				);
 				done();
 			}, 100);
 		});

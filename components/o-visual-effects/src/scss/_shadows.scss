@@ -2,7 +2,10 @@
 /// @param {String} $elevation [] - 'ultra', 'low', 'mid' or 'high'
 /// @param {Color} $color []
 /// @output A repeating linear gradient background
-@mixin oVisualEffectsShadowContent($elevation: 'low', $color: $o-visual-effects-shadow-color) {
+@mixin oVisualEffectsShadowContent(
+	$elevation: 'low',
+	$color: $o-visual-effects-shadow-color
+) {
 	box-shadow: oVisualEffectsShadow($elevation, $color);
 }
 
@@ -10,7 +13,10 @@
 /// @param {String} $elevation [] - 'ultra', 'low', 'mid' or 'high'
 /// @param {Color} $color []
 /// @output A repeating linear gradient background
-@function oVisualEffectsShadow($elevation: 'low', $color: $o-visual-effects-shadow-color) {
+@function oVisualEffectsShadow(
+	$elevation: 'low',
+	$color: $o-visual-effects-shadow-color
+) {
 	@if $elevation == 'ultralow' {
 		@return 0 2px 2px rgba($color, 0.12), 0 4px 6px rgba($color, 0.1);
 	}

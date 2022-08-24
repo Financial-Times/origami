@@ -31,11 +31,7 @@
 
 	%_o-quote-blockquote-cite {
 		// Output weight and style to override browser defaults.
-		@include oTypographySans(
-			$scale: 1,
-			$weight: 'regular',
-			$style: 'normal'
-		);
+		@include oTypographySans($scale: 1, $weight: 'regular', $style: 'normal');
 		a {
 			@include oTypographyLink;
 		}
@@ -43,11 +39,7 @@
 
 	%_o-quote-blockquote-author {
 		// Output weight and style to override browser defaults.
-		@include oTypographySans(
-			$scale: 0,
-			$weight: 'semibold',
-			$style: 'normal'
-		);
+		@include oTypographySans($scale: 0, $weight: 'semibold', $style: 'normal');
 		text-transform: uppercase;
 	}
 }

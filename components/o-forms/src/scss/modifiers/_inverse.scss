@@ -19,18 +19,31 @@
 		}
 
 		.o-forms-input__label:after {
-			@include oIconsContent('cross', $size: null, $color: _oFormsGet('toggle-inverse'), $include-base-styles: false);
+			@include oIconsContent(
+				'cross',
+				$size: null,
+				$color: _oFormsGet('toggle-inverse'),
+				$include-base-styles: false
+			);
 			border-color: _oFormsGet('toggle-inverse');
 			background-color: _oFormsGet('toggle-inverse-knob');
 		}
 
-		input[type=checkbox]:checked { // stylelint-disable-line selector-no-qualifying-type
-			+ .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
+		input[type='checkbox']:checked {
+			// stylelint-disable-line selector-no-qualifying-type
+			+ .o-forms-input__label:before {
+				// stylelint-disable-line selector-no-qualifying-type
 				background-color: _oFormsGet('toggle-inverse-selected');
 			}
 
-			+ .o-forms-input__label:after {// stylelint-disable-line selector-no-qualifying-type
-				@include oIconsContent('tick', $size: null, $color: _oFormsGet('toggle-inverse-selected'), $include-base-styles: false);
+			+ .o-forms-input__label:after {
+				// stylelint-disable-line selector-no-qualifying-type
+				@include oIconsContent(
+					'tick',
+					$size: null,
+					$color: _oFormsGet('toggle-inverse-selected'),
+					$include-base-styles: false
+				);
 				border-color: _oFormsGet('toggle-inverse-selected');
 			}
 		}
@@ -64,10 +77,13 @@
 
 		@if $file {
 			.o-forms-input--file ::file-selector-button {
-				@include oButtonsContent($opts: (
-					'type': 'primary',
-					'theme': 'inverse'
-				), $include-base-styles: false);
+				@include oButtonsContent(
+					$opts: (
+						'type': 'primary',
+						'theme': 'inverse',
+					),
+					$include-base-styles: false
+				);
 			}
 		}
 	}
@@ -93,5 +109,4 @@
 			}
 		}
 	}
-
 }

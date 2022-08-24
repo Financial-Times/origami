@@ -16,10 +16,14 @@
 /// @example scss - Base styles and primary theme
 ///   @include oTabs($opts: ('themes': ('primary'));
 /// @access public
-@mixin oTabs($opts: (
-	'sizes': ('big'),
-	'button-tabs': $_o-tabs-default-button-tabs
-)) {
+@mixin oTabs(
+	$opts: (
+		'sizes': (
+			'big',
+		),
+		'button-tabs': $_o-tabs-default-button-tabs,
+	)
+) {
 	$sizes: map-get($opts, 'sizes');
 	$button-tabs: map-get($opts, 'button-tabs');
 

@@ -6,9 +6,8 @@ import * as fixtures from './helpers/fixtures.js';
 
 import Expander from './../main.js';
 
-describe("Expander", () => {
-	describe("createCustom", () => {
-
+describe('Expander', () => {
+	describe('createCustom', () => {
 		let customConfig;
 
 		beforeEach(() => {
@@ -24,8 +23,8 @@ describe("Expander", () => {
 					inactive: 'my-expander--inactive',
 					expanded: 'my-expander__content--expanded',
 					collapsed: 'my-expander__content--collapsed',
-					collapsibleItem: 'my-expander__collapsible-item'
-				}
+					collapsibleItem: 'my-expander__collapsible-item',
+				},
 			};
 		});
 
@@ -86,16 +85,19 @@ describe("Expander", () => {
 			try {
 				Expander.createCustom(expanderElement, customConfig);
 			} catch (error) {
-				throw new Error(`createCustom threw an unexpected error: ${error.message}`);
+				throw new Error(
+					`createCustom threw an unexpected error: ${error.message}`
+				);
 			}
 		});
 
-		it('should toggle a collapsed expander with custom selectors and classnames', (done) => {
+		it('should toggle a collapsed expander with custom selectors and classnames', done => {
 			// Setup test.
 			fixtures.custom();
 			// Select and init expander.
 			const expanderElement = document.getElementById('expander');
-			const expanderContentElement = document.getElementById('expander-content');
+			const expanderContentElement =
+				document.getElementById('expander-content');
 			// Init custom expander.
 			Expander.createCustom(expanderElement, customConfig);
 			// Assert collapsed classes applied.
@@ -116,35 +118,38 @@ describe("Expander", () => {
 				proclaim.isFalse(
 					expanderElement.classList.contains(classnames.inactive),
 					'Custom inactive class was applied, but an active ' +
-					'expander was expected.'
+						'expander was expected.'
 				);
 				proclaim.isFalse(
 					expanderContentElement.classList.contains(classnames.expanded),
 					'Custom expanded class was applied, but a collapsed ' +
-					'expander was expected.'
+						'expander was expected.'
 				);
 				// Custom `collapsibleItem` class has been applied, to items
 				// within the expander which can collapse.
-				const collapsableItems = expanderElement.querySelectorAll(`.${classnames.collapsibleItem}`);
+				const collapsableItems = expanderElement.querySelectorAll(
+					`.${classnames.collapsibleItem}`
+				);
 				const allItems = expanderElement.querySelectorAll('li');
 				const expectedLength = allItems.length - customConfig.shrinkTo;
 				proclaim.equal(
 					collapsableItems.length,
 					expectedLength,
 					`Did not apply the custom collapsible item  class to ` +
-					`the expected number of items. Found ${collapsableItems.length} ` +
-					`expected ${expectedLength}.`
+						`the expected number of items. Found ${collapsableItems.length} ` +
+						`expected ${expectedLength}.`
 				);
 				done();
 			}, 100);
 		});
 
-		it('should toggle an expanded expander with custom selectors and classnames', (done) => {
+		it('should toggle an expanded expander with custom selectors and classnames', done => {
 			// Setup test.
 			fixtures.custom();
 			// Select and init expander.
 			const expanderElement = document.getElementById('expander');
-			const expanderContentElement = document.getElementById('expander-content');
+			const expanderContentElement =
+				document.getElementById('expander-content');
 			// Init custom expander.
 			const myExpander = Expander.createCustom(expanderElement, customConfig);
 			myExpander.expand();
@@ -166,18 +171,18 @@ describe("Expander", () => {
 				proclaim.isFalse(
 					expanderElement.classList.contains(classnames.inactive),
 					'Custom inactive class was applied, but an active ' +
-					'expander was expected.'
+						'expander was expected.'
 				);
 				proclaim.isFalse(
 					expanderContentElement.classList.contains(classnames.collapsed),
 					'Custom collapsed class was applied, but an expanded ' +
-					'expander was expected.'
+						'expander was expected.'
 				);
 				done();
 			}, 100);
 		});
 
-		it('should add a custom inactive class to an inactive expander', (done) => {
+		it('should add a custom inactive class to an inactive expander', done => {
 			// Setup test.
 			fixtures.custom();
 			// Select and init expander.
@@ -198,7 +203,5 @@ describe("Expander", () => {
 				done();
 			}, 100);
 		});
-
-
 	});
 });

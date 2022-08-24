@@ -10,10 +10,12 @@ class Drawer {
 		this.headerEl = headerEl;
 		this.class = {
 			drawer: 'o-header-services__primary-nav--drawer',
-			open: 'o-header-services__primary-nav--open'
+			open: 'o-header-services__primary-nav--open',
 		};
 
-		this.relatedContent = headerEl.querySelector('.o-header-services__related-content');
+		this.relatedContent = headerEl.querySelector(
+			'.o-header-services__related-content'
+		);
 		this.nav = headerEl.querySelector('.o-header-services__primary-nav');
 
 		// If the primary nav `nav` does not exist, but related content does,
@@ -37,13 +39,17 @@ class Drawer {
 			return;
 		}
 
-		this.navList = this.nav.querySelector('.o-header-services__primary-nav-list');
+		this.navList = this.nav.querySelector(
+			'.o-header-services__primary-nav-list'
+		);
 
 		// Create drawer header.
 		const drawerHeader = document.createElement('li');
 		drawerHeader.classList.add('o-header-services__drawer-header');
 		this.drawerCloseButton = document.createElement('button');
-		this.drawerCloseButton.classList.add('o-header-services__drawer-close-button');
+		this.drawerCloseButton.classList.add(
+			'o-header-services__drawer-close-button'
+		);
 		this.drawerCloseButton.innerText = 'Close';
 		// Add drawer header to navlist, with close button.
 		if (this.navList) {
@@ -56,7 +62,9 @@ class Drawer {
 		}
 
 		this.debouncedRender = oUtils.debounce(() => this.render(), 33);
-		this.burger = this.headerEl.querySelector('.o-header-services__hamburger-icon');
+		this.burger = this.headerEl.querySelector(
+			'.o-header-services__hamburger-icon'
+		);
 		if (this.burger) {
 			this.burger.addEventListener('click', this);
 		}
@@ -78,13 +86,20 @@ class Drawer {
 		}
 
 		if (event.type === 'keydown' && this.burger) {
-			if (event.key === 'Escape' && this.nav.classList.contains(this.class.open)) {
+			if (
+				event.key === 'Escape' &&
+				this.nav.classList.contains(this.class.open)
+			) {
 				this.toggleDrawer();
 				this.burger.focus();
 			}
 		}
 
-		if (event.type === 'click' && this.burger && [this.nav, this.burger, this.drawerCloseButton].includes(event.target)) {
+		if (
+			event.type === 'click' &&
+			this.burger &&
+			[this.nav, this.burger, this.drawerCloseButton].includes(event.target)
+		) {
 			event.preventDefault();
 			this.toggleDrawer();
 		}
@@ -96,7 +111,7 @@ class Drawer {
 	 *
 	 * @returns {boolean} is the burger visible?
 	 */
-	get enabled () {
+	get enabled() {
 		return Boolean(this.nav && this.burger && this.burger.offsetHeight !== 0);
 	}
 
@@ -105,7 +120,7 @@ class Drawer {
 	 *
 	 * @returns {void}
 	 */
-	render () {
+	render() {
 		if (this.enabled) {
 			this.nav.addEventListener('click', this);
 		} else {
@@ -124,10 +139,10 @@ class Drawer {
 		// Toggle drawer classlist. Cannot use `toggle` as IE11 does not support
 		// the `toggle` method, and adding a new polyfill requirement is a
 		// breaking change.
-		if(this.enabled) {
+		if (this.enabled) {
 			this.nav.classList.add(this.class.drawer);
 		}
-		if(!this.enabled) {
+		if (!this.enabled) {
 			this.nav.classList.remove(this.class.drawer);
 		}
 
@@ -139,18 +154,23 @@ class Drawer {
 	 *
 	 * @returns {void}
 	 */
-	toggleDrawer () {
+	toggleDrawer() {
 		this.nav.classList.toggle(this.class.open);
 		const open = this.nav.classList.contains(this.class.open);
 
 		this.nav.setAttribute('aria-hidden', !open);
 		this.burger.setAttribute('aria-expanded', open);
-		this.burger.querySelector('span').innerText = open ? 'Close primary navigation' : 'Open primary navigation';
+		this.burger.querySelector('span').innerText = open
+			? 'Close primary navigation'
+			: 'Open primary navigation';
 
 		if (open) {
-			setTimeout(function(){
-				this.drawerCloseButton.focus();
-			}.bind(this), 50); // Wait for drawer to be open
+			setTimeout(
+				function () {
+					this.drawerCloseButton.focus();
+				}.bind(this),
+				50
+			); // Wait for drawer to be open
 		}
 	}
 }

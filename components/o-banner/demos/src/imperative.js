@@ -1,4 +1,3 @@
-
 import Banner from '../../main.js';
 
 const demoBannerConfigurations = [
@@ -12,8 +11,8 @@ const demoBannerConfigurations = [
 				<p>Try the new compact homepage.</p>
 			`,
 			buttonLabel: 'Try it now',
-			linkLabel: 'Give feedback'
-		}
+			linkLabel: 'Give feedback',
+		},
 	},
 	{
 		elementId: 'banner-small',
@@ -26,8 +25,8 @@ const demoBannerConfigurations = [
 			`,
 			buttonLabel: 'Try it now',
 			linkLabel: 'Give feedback',
-			layout: 'small'
-		}
+			layout: 'small',
+		},
 	},
 	{
 		elementId: 'banner-compact',
@@ -40,8 +39,8 @@ const demoBannerConfigurations = [
 			`,
 			buttonLabel: 'Try it now',
 			linkLabel: 'Give feedback',
-			layout: 'compact'
-		}
+			layout: 'compact',
+		},
 	},
 	{
 		elementId: 'banner-marketing',
@@ -64,8 +63,8 @@ const demoBannerConfigurations = [
 			`,
 			buttonLabel: 'Save 33% now',
 			linkLabel: 'Terms and conditions',
-			theme: 'marketing'
-		}
+			theme: 'marketing',
+		},
 	},
 	{
 		elementId: 'banner-marketing-small',
@@ -89,8 +88,8 @@ const demoBannerConfigurations = [
 			buttonLabel: 'Save 33% now',
 			linkLabel: 'Terms and conditions',
 			layout: 'small',
-			theme: 'marketing'
-		}
+			theme: 'marketing',
+		},
 	},
 	{
 		elementId: 'banner-marketing-compact',
@@ -114,8 +113,8 @@ const demoBannerConfigurations = [
 			buttonLabel: 'Save 33% now',
 			linkLabel: 'Terms and conditions',
 			layout: 'compact',
-			theme: 'marketing'
-		}
+			theme: 'marketing',
+		},
 	},
 	{
 		elementId: 'banner-product',
@@ -134,8 +133,8 @@ const demoBannerConfigurations = [
 			`,
 			buttonLabel: 'Try it now',
 			linkLabel: 'Give feedback',
-			theme: 'product'
-		}
+			theme: 'product',
+		},
 	},
 	{
 		elementId: 'banner-product-small',
@@ -155,8 +154,8 @@ const demoBannerConfigurations = [
 			buttonLabel: 'Try it now',
 			linkLabel: 'Give feedback',
 			layout: 'small',
-			theme:  'product'
-		}
+			theme: 'product',
+		},
 	},
 	{
 		elementId: 'banner-product-compact',
@@ -176,8 +175,8 @@ const demoBannerConfigurations = [
 			buttonLabel: 'Try it now',
 			linkLabel: 'Give feedback',
 			layout: 'compact',
-			theme: 'product'
-		}
+			theme: 'product',
+		},
 	},
 	{
 		elementId: 'banner-custom',
@@ -200,8 +199,8 @@ const demoBannerConfigurations = [
 			`,
 			buttonLabel: 'Save 33% now',
 			linkLabel: 'Terms and conditions',
-			theme: 'pikachu'
-		}
+			theme: 'pikachu',
+		},
 	},
 	{
 		elementId: 'banner-custom-small',
@@ -225,8 +224,8 @@ const demoBannerConfigurations = [
 			buttonLabel: 'Save 33% now',
 			linkLabel: 'Terms and conditions',
 			layout: 'small',
-			theme: 'pikachu'
-		}
+			theme: 'pikachu',
+		},
 	},
 	{
 		elementId: 'banner-custom-compact',
@@ -250,8 +249,8 @@ const demoBannerConfigurations = [
 			buttonLabel: 'Save 33% now',
 			linkLabel: 'Terms and conditions',
 			layout: 'compact',
-			theme: 'pikachu'
-		}
+			theme: 'pikachu',
+		},
 	},
 	{
 		elementId: 'banner-form',
@@ -277,9 +276,9 @@ const demoBannerConfigurations = [
 			layout: 'small',
 			theme: 'marketing',
 			formAction: '#form-submitted',
-			formMethod: 'get'
-		}
-	}
+			formMethod: 'get',
+		},
+	},
 ];
 
 function initDemos() {

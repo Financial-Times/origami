@@ -8,12 +8,12 @@ import fixtures from './helpers/fixtures.js';
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,
-	prefix: ''
+	prefix: '',
 });
 
 const flatten = string => string.replace(/\s/g, '');
 
-describe("constructElement", () => {
+describe('constructElement', () => {
 	let mockObj;
 	beforeEach(() => {
 		mockObj = {
@@ -21,19 +21,19 @@ describe("constructElement", () => {
 				type: 'alert',
 				state: 'success',
 				content: {
-					highlight: 'Important'
+					highlight: 'Important',
 				},
 				actions: {
 					primary: {
 						text: 'a button',
-						url: '#'
+						url: '#',
 					},
 					secondary: {
 						text: 'a link',
-						url: '#'
-					}
-				}
-			}
+						url: '#',
+					},
+				},
+			},
 		};
 	});
 
@@ -43,27 +43,34 @@ describe("constructElement", () => {
 		});
 
 		it('builds a message component based on the provided theme', () => {
-			proclaim.strictEqual(flatten(construct.message(mockObj.opts).innerHTML), flatten(fixtures.alert));
+			proclaim.strictEqual(
+				flatten(construct.message(mockObj.opts).innerHTML),
+				flatten(fixtures.alert)
+			);
 		});
 
 		it('includes the close data attribute when configured as non-dismissible', () => {
 			const opts = Object.assign({}, mockObj.opts, {
-				close: false
+				close: false,
 			});
-			proclaim.include(flatten(construct.message(opts).outerHTML), 'data-o-message-close="false"');
+			proclaim.include(
+				flatten(construct.message(opts).outerHTML),
+				'data-o-message-close="false"'
+			);
 		});
 
 		it('throws an error if no type is defined', () => {
 			mockObj.opts.type = null;
 
-			const error = "*** o-message error:\nMessages require a type. Available types are:\n- action\n- alert\n- notice\n***";
+			const error =
+				'*** o-message error:\nMessages require a type. Available types are:\n- action\n- alert\n- notice\n***';
 			proclaim.throws(() => construct.message(mockObj.opts), error);
 		});
 
 		it('throws an error if no state is defined', () => {
 			mockObj.opts.state = null;
 
-			const error = "*** o-message error:\nMessages require a state.\n***";
+			const error = '*** o-message error:\nMessages require a state.\n***';
 			proclaim.throws(() => construct.message(mockObj.opts), error);
 		});
 
@@ -74,12 +81,18 @@ describe("constructElement", () => {
 
 			it('if additional info is provided', () => {
 				mockObj.opts.content.additionalInfo = 'Additional info';
-				proclaim.strictEqual(flatten(construct.message(mockObj.opts).innerHTML), flatten(fixtures.innerAlert));
+				proclaim.strictEqual(
+					flatten(construct.message(mockObj.opts).innerHTML),
+					flatten(fixtures.innerAlert)
+				);
 			});
 
 			it('if additional info is not provided', () => {
 				mockObj.opts.content.additionalInfo = false;
-				proclaim.strictEqual(flatten(construct.message(mockObj.opts).innerHTML), flatten(fixtures.innerAlertWithOutAdditionalInfo));
+				proclaim.strictEqual(
+					flatten(construct.message(mockObj.opts).innerHTML),
+					flatten(fixtures.innerAlertWithOutAdditionalInfo)
+				);
 			});
 		});
 	});
@@ -91,19 +104,19 @@ describe("constructElement", () => {
 					type: 'notice',
 					state: 'inform',
 					content: {
-						detail: 'Many things are here to be said about this message'
+						detail: 'Many things are here to be said about this message',
 					},
 					actions: {
 						primary: {
 							text: 'a button',
-							url: '#'
+							url: '#',
 						},
 						secondary: {
 							text: 'a link',
-							url: '#'
-						}
-					}
-				}
+							url: '#',
+						},
+					},
+				},
 			};
 		});
 
@@ -112,13 +125,16 @@ describe("constructElement", () => {
 		});
 
 		it('builds a message component based on the provided messageClass and theme', () => {
-			proclaim.strictEqual(flatten(construct.message(mockObj.opts).innerHTML), flatten(fixtures.notice));
+			proclaim.strictEqual(
+				flatten(construct.message(mockObj.opts).innerHTML),
+				flatten(fixtures.notice)
+			);
 		});
 
 		it('throws an error if no state is defined', () => {
 			mockObj.opts.state = null;
 
-			const error = "*** o-message error:\nMessages require a state.\n***";
+			const error = '*** o-message error:\nMessages require a state.\n***';
 			proclaim.throws(() => construct.message(mockObj.opts), error);
 		});
 	});
@@ -129,7 +145,10 @@ describe("constructElement", () => {
 		});
 
 		it('builds a close button component', () => {
-			proclaim.strictEqual(flatten(construct.closeButton().outerHTML), flatten(fixtures.closeButton));
+			proclaim.strictEqual(
+				flatten(construct.closeButton().outerHTML),
+				flatten(fixtures.closeButton)
+			);
 		});
 	});
 });

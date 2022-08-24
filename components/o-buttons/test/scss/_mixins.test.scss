@@ -53,7 +53,7 @@
 			// arrow-left is an example of an icon
 			@include contains($selector: false) {
 				.o-buttons--secondary.o-buttons-icon--arrow-left {
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%230D7680,%230D7680&format=svg");
+					background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%230D7680,%230D7680&format=svg');
 				}
 			}
 		}
@@ -113,7 +113,8 @@
 					text-align: center;
 					text-decoration: none;
 					cursor: pointer;
-					transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
+					transition: 0.3s background-color, 0.15s color ease-out,
+						0.15s border-color ease-out;
 					user-select: none;
 					background-clip: border-box;
 					border-width: 1px;
@@ -152,7 +153,7 @@
 						'type': 'primary',
 						'theme': 'mono',
 						'size': 'big',
-						'icon': 'arrow-left'
+						'icon': 'arrow-left',
 					)
 				);
 			}
@@ -177,7 +178,8 @@
 					text-align: center;
 					text-decoration: none;
 					cursor: pointer;
-					transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
+					transition: 0.3s background-color, 0.15s color ease-out,
+						0.15s border-color ease-out;
 					user-select: none;
 					background-clip: border-box;
 					border-width: 1px;
@@ -192,7 +194,7 @@
 					background-repeat: no-repeat;
 					background-position: 3px;
 					padding-left: 40px;
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg");
+					background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg');
 				}
 
 				.o-typography--loading-sans & {
@@ -219,9 +221,9 @@
 					border-color: transparent;
 				}
 
-				&[aria-selected=true],
+				&[aria-selected='true'],
 				&[aria-current],
-				&[aria-pressed=true],
+				&[aria-pressed='true'],
 				&:active {
 					background-color: #727071;
 					color: white;
@@ -230,13 +232,13 @@
 
 				@media screen and (-ms-high-contrast: active) {
 					& {
-						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg");
+						background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg');
 					}
 				}
 
 				@media screen and (-ms-high-contrast: black-on-white) {
 					& {
-						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23000000,%23000000&format=svg");
+						background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23000000,%23000000&format=svg');
 					}
 				}
 			}
@@ -247,7 +249,7 @@
 			@include output() {
 				@include oButtonsContent(
 					$opts: (
-						'type': 'primary'
+						'type': 'primary',
 					),
 					$include-base-styles: false,
 					$include-base-icon-styles: false
@@ -275,9 +277,9 @@
 					border-color: transparent;
 				}
 
-				&[aria-selected=true],
+				&[aria-selected='true'],
 				&[aria-current],
-				&[aria-pressed=true],
+				&[aria-pressed='true'],
 				&:active {
 					background-color: #052f33;
 					color: white;
@@ -291,7 +293,7 @@
 			@include output() {
 				@include oButtonsContent(
 					$opts: (
-						'size': 'big'
+						'size': 'big',
 					),
 					$include-base-styles: false,
 					$include-base-icon-styles: false
@@ -326,9 +328,12 @@
 					$name: 'test-named-theme-colors',
 					$opts: (
 						'color': 'teal-90',
-						'context': 'slate'
+						'context': 'slate',
 					),
-					$types: ('primary', 'secondary'),
+					$types: (
+						'primary',
+						'secondary',
+					),
 					$icons: null
 				);
 			}
@@ -350,9 +355,12 @@
 					$name: 'test-mixed-theme-colors',
 					$opts: (
 						'color': oColorsMix('black', 'jade', $percentage: 43),
-						'context': oColorsMix('jade', $percentage: 20)
+						'context': oColorsMix('jade', $percentage: 20),
 					),
-					$types: ('primary', 'secondary'),
+					$types: (
+						'primary',
+						'secondary',
+					),
 					$icons: null
 				);
 			}
@@ -367,16 +375,21 @@
 		}
 	}
 
-	@include it('outputs a theme for given colour hexes which are in the colour palette') {
+	@include it(
+		'outputs a theme for given colour hexes which are in the colour palette'
+	) {
 		@include assert() {
 			@include output($selector: false) {
 				@include oButtonsAddTheme(
 					$name: 'test-hex-theme-colors',
 					$opts: (
 						'color': oColorsByName('teal-90'),
-						'context': oColorsByName('slate')
+						'context': oColorsByName('slate'),
 					),
-					$types: ('primary', 'secondary'),
+					$types: (
+						'primary',
+						'secondary',
+					),
 					$icons: null
 				);
 			}

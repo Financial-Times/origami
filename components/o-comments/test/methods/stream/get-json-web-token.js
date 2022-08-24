@@ -6,8 +6,7 @@ import fetchMock from 'fetch-mock';
 import fixtures from '../../helpers/fixtures.js';
 import Stream from '../../../src/js/stream.js';
 
-
-export default function getJsonWebToken () {
+export default function getJsonWebToken() {
 	beforeEach(() => {
 		fixtures.streamMarkup();
 	});
@@ -17,14 +16,14 @@ export default function getJsonWebToken () {
 		sinon.restore();
 	});
 
-	it("is a function", () => {
+	it('is a function', () => {
 		proclaim.isFunction(new Stream().getJsonWebToken);
 	});
 
-	describe("when comments api returns a valid response", () => {
+	describe('when comments api returns a valid response', () => {
 		before(() => {
 			fetchMock.mock('https://comments-api.ft.com/user/auth/', {
-				token: '12345'
+				token: '12345',
 			});
 		});
 
@@ -32,18 +31,19 @@ export default function getJsonWebToken () {
 			fetchMock.reset();
 		});
 
-		it("returns a promise", () => {
+		it('returns a promise', () => {
 			const returnValue = new Stream().getJsonWebToken();
 			proclaim.isInstanceOf(returnValue, Promise);
 		});
 
-		it("returns a promise which contains a JSON Web Token as a string", () => {
-			return new Stream().getJsonWebToken()
+		it('returns a promise which contains a JSON Web Token as a string', () => {
+			return new Stream()
+				.getJsonWebToken()
 				.then(result => proclaim.isString(result.token));
 		});
 	});
 
-	describe("when the comments api response is missing the token", () => {
+	describe('when the comments api response is missing the token', () => {
 		before(() => {
 			fetchMock.mock('https://comments-api.ft.com/user/auth/', {});
 		});
@@ -53,19 +53,23 @@ export default function getJsonWebToken () {
 		});
 
 		it('resolves with an object', () => {
-			return new Stream().getJsonWebToken()
+			return new Stream()
+				.getJsonWebToken()
 				.then(result => proclaim.isObject(result));
 		});
 
-		it("resolves with undefined token", () => {
-			return new Stream().getJsonWebToken()
+		it('resolves with undefined token', () => {
+			return new Stream()
+				.getJsonWebToken()
 				.then(result => proclaim.equal(result.token, undefined));
 		});
 	});
 
-	describe("when the comments api response is missing the token", () => {
+	describe('when the comments api response is missing the token', () => {
 		before(() => {
-			fetchMock.mock('https://comments-api.ft.com/user/auth/', {token: undefined});
+			fetchMock.mock('https://comments-api.ft.com/user/auth/', {
+				token: undefined,
+			});
 		});
 
 		after(() => {
@@ -73,17 +77,17 @@ export default function getJsonWebToken () {
 		});
 
 		it('resolves with an object', () => {
-			return new Stream().getJsonWebToken()
-				.then(proclaim.isObject);
+			return new Stream().getJsonWebToken().then(proclaim.isObject);
 		});
 
-		it("resolves with undefined token", () => {
-			return new Stream().getJsonWebToken()
+		it('resolves with undefined token', () => {
+			return new Stream()
+				.getJsonWebToken()
 				.then(result => proclaim.equal(result.token, undefined));
 		});
 	});
 
-	describe("when the comments api responds with 205", () => {
+	describe('when the comments api responds with 205', () => {
 		before(() => {
 			fetchMock.mock('https://comments-api.ft.com/user/auth/', 205);
 		});
@@ -93,22 +97,23 @@ export default function getJsonWebToken () {
 		});
 
 		it('resolves with an object', () => {
-			return new Stream().getJsonWebToken()
-				.then(proclaim.isObject);
+			return new Stream().getJsonWebToken().then(proclaim.isObject);
 		});
 
-		it("resolves with undefined token", () => {
-			return new Stream().getJsonWebToken()
+		it('resolves with undefined token', () => {
+			return new Stream()
+				.getJsonWebToken()
 				.then(result => proclaim.equal(result.token, undefined));
 		});
 
-		it("resolves with userIsSignedIn true", () => {
-			return new Stream().getJsonWebToken()
-				.then((result) => proclaim.isTrue(result.userIsSignedIn));
+		it('resolves with userIsSignedIn true', () => {
+			return new Stream()
+				.getJsonWebToken()
+				.then(result => proclaim.isTrue(result.userIsSignedIn));
 		});
 	});
 
-	describe("when the comments api responds with 404", () => {
+	describe('when the comments api responds with 404', () => {
 		before(() => {
 			fetchMock.mock('https://comments-api.ft.com/user/auth/', 404);
 		});
@@ -118,22 +123,23 @@ export default function getJsonWebToken () {
 		});
 
 		it('resolves with an object', () => {
-			return new Stream().getJsonWebToken()
-				.then(proclaim.isObject);
+			return new Stream().getJsonWebToken().then(proclaim.isObject);
 		});
 
-		it("resolves with undefined token", () => {
-			return new Stream().getJsonWebToken()
+		it('resolves with undefined token', () => {
+			return new Stream()
+				.getJsonWebToken()
 				.then(result => proclaim.equal(result.token, undefined));
 		});
 
-		it("resolves with userIsSignedIn false", () => {
-			return new Stream().getJsonWebToken()
+		it('resolves with userIsSignedIn false', () => {
+			return new Stream()
+				.getJsonWebToken()
 				.then(result => proclaim.isFalse(result.userIsSignedIn));
 		});
 	});
 
-	describe("when the comments api responds with a bad response other than 404", () => {
+	describe('when the comments api responds with a bad response other than 404', () => {
 		before(() => {
 			fetchMock.mock('https://comments-api.ft.com/user/auth/', 500);
 		});
@@ -143,17 +149,20 @@ export default function getJsonWebToken () {
 		});
 
 		it('resolves with an object', () => {
-			return new Stream().getJsonWebToken()
+			return new Stream()
+				.getJsonWebToken()
 				.then(result => proclaim.isObject(result));
 		});
 
-		it("resolves with undefined token", () => {
-			return new Stream().getJsonWebToken()
+		it('resolves with undefined token', () => {
+			return new Stream()
+				.getJsonWebToken()
 				.then(result => proclaim.equal(result.token, undefined));
 		});
 
-		it("resolves with userIsSignedIn false", () => {
-			return new Stream().getJsonWebToken()
+		it('resolves with userIsSignedIn false', () => {
+			return new Stream()
+				.getJsonWebToken()
 				.then(result => proclaim.isFalse(result.userIsSignedIn));
 		});
 	});

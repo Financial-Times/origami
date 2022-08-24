@@ -1,20 +1,14 @@
 const formats = {
-	mpeg4: [
-		'video/mp4; codecs="mp4v.20.8"'
-	],
+	mpeg4: ['video/mp4; codecs="mp4v.20.8"'],
 	h264: [
 		'video/mp4; codecs="avc1.42E01E"',
-		'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+		'video/mp4; codecs="avc1.42E01E, mp4a.40.2"',
 	],
-	ogg: [
-		'video/ogg; codecs="theora"'
-	],
-	webm: [
-		'video/webm; codecs="vp8, vorbis"'
-	]
+	ogg: ['video/ogg; codecs="theora"'],
+	webm: ['video/webm; codecs="vp8, vorbis"'],
 };
 
-function supportedFormats () {
+function supportedFormats() {
 	const testEl = document.createElement('video');
 	const supported = [];
 
@@ -24,7 +18,7 @@ function supportedFormats () {
 				supported.push(format);
 			}
 		});
-	} catch(e) {
+	} catch (e) {
 		// it's okay
 	}
 

@@ -19,7 +19,7 @@
 			// o-footer-services__icon-link--github icon styles
 			@include contains($selector: false) {
 				.o-footer-services .o-footer-services__icon-link--github:before {
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Agithub?source=#{$system-code}&tint=000000&format=svg");
+					background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Agithub?source=#{$system-code}&tint=000000&format=svg');
 				}
 			}
 		}
@@ -28,7 +28,11 @@
 	@include test('Outputs a given logo.') {
 		@include assert {
 			@include output($selector: false) {
-				@include oFooterServices($opts: ('logo': 'ftlogo-v1:origami'));
+				@include oFooterServices(
+					$opts: (
+						'logo': 'ftlogo-v1:origami',
+					)
+				);
 			}
 			// o-footer-service__container base styles
 			@include contains($selector: false) {
@@ -42,12 +46,18 @@
 	@include test('Outputs a given icon.') {
 		@include assert {
 			@include output($selector: false) {
-				@include oFooterServices($opts: ('icons': ('whatsapp')));
+				@include oFooterServices(
+					$opts: (
+						'icons': (
+							'whatsapp',
+						),
+					)
+				);
 			}
 			// o-footer-service__container base styles
 			@include contains($selector: false) {
 				.o-footer-services .o-footer-services__icon-link--whatsapp:before {
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Awhatsapp?source=#{$system-code}&tint=000000&format=svg");
+					background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Awhatsapp?source=#{$system-code}&tint=000000&format=svg');
 				}
 			}
 		}
@@ -56,14 +66,12 @@
 	@include test('Does not output base styles if turned off.') {
 		@include assert {
 			@include output() {
-				@include oFooterServices(
-					$opts: (),
-					$include-base-styles: false
-				);
+				@include oFooterServices($opts: (), $include-base-styles: false);
 			}
 			// Note we are using "expect" not "contains":
 			// With no options set and no base styles nothing should be output.
-			@include expect() { //styleling-disable-lie block-no-empty
+			@include expect() {
+				//styleling-disable-lie block-no-empty
 			}
 		}
 	}

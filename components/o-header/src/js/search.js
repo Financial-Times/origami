@@ -1,8 +1,9 @@
 import Toggle from '@financial-times/o-toggle';
 
-function init (headerEl) {
+function init(headerEl) {
 	const target = headerEl.querySelector('[data-o-header-search]');
-	const controls = target && headerEl.querySelectorAll(`[aria-controls="${target.id}"]`);
+	const controls =
+		target && headerEl.querySelectorAll(`[aria-controls="${target.id}"]`);
 
 	if (controls === null || controls.length === 0) {
 		return;
@@ -24,9 +25,9 @@ function init (headerEl) {
 	};
 
 	for (let i = 0, len = controls.length; i < len; i++) {
-		new Toggle(controls[i], { target, callback });
+		new Toggle(controls[i], {target, callback});
 	}
 }
 
-export { init };
-export default { init };
+export {init};
+export default {init};

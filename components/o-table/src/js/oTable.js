@@ -16,7 +16,6 @@ const sorter = new TableSorter();
  */
 
 class OTable {
-
 	/**
 	 * Constructs an o-table component.
 	 *
@@ -59,12 +58,13 @@ class OTable {
 		if (/\bo-table\b/.test(el.getAttribute('data-o-component'))) {
 			return new OTable(el, opts);
 		}
-		const tableEls = Array.from(el.querySelectorAll('[data-o-component~="o-table"]'));
+		const tableEls = Array.from(
+			el.querySelectorAll('[data-o-component~="o-table"]')
+		);
 		return tableEls.map(el => {
 			return new OTable(el, opts);
 		});
 	}
-
 
 	/**
 	 * The custom formatter accepts a table cell and returns a sort value for that cell.

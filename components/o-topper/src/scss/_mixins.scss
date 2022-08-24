@@ -78,7 +78,9 @@
 		}
 	}
 
-	@if index($themes, 'full-bleed-image-center') or index($themes, 'full-bleed-image-left') {
+	@if index($themes, 'full-bleed-image-center') or
+		index($themes, 'full-bleed-image-left')
+	{
 		.o-topper--full-bleed-image-center,
 		.o-topper--full-bleed-image-left {
 			@include _oTopperThemeFullBleedImage;
@@ -236,7 +238,11 @@
 	$background: oColorsByName($color-name);
 	$foreground: oColorsGetTextColor($background, $opacity: 100);
 	$link-text-color: oColorsByUsecase('link', 'text');
-	$link-contrasts-with-background: oColorsGetContrastRatio($background, $link-text-color) > 4.5;
+	$link-contrasts-with-background: oColorsGetContrastRatio(
+			$background,
+			$link-text-color
+		)
+		> 4.5;
 
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
@@ -244,7 +250,6 @@
 	.o-topper__content {
 		background-color: $background;
 	}
-
 
 	.o-topper__standfirst,
 	.o-topper__summary {
@@ -320,9 +325,21 @@
 }
 
 @mixin _oTopperAlignText($position) {
-	$mleft: ('left': 0, 'center': auto, 'right': auto);
-	$mright: ('left': auto, 'center': auto, 'right': 0);
-	$value: ('left': flex-start, 'center': center, 'right': flex-end);
+	$mleft: (
+		'left': 0,
+		'center': auto,
+		'right': auto,
+	);
+	$mright: (
+		'left': auto,
+		'center': auto,
+		'right': 0,
+	);
+	$value: (
+		'left': flex-start,
+		'center': center,
+		'right': flex-end,
+	);
 
 	.o-topper__headline--large {
 		&:after {
@@ -344,8 +361,11 @@
 @mixin _oTopperDefineOnce($label) {
 	@if not map-has-key($_o-topper-defined, $label) {
 		@content;
-		$_o-topper-defined: map-merge($_o-topper-defined, (
-			$label: true
-		)) !global;
+		$_o-topper-defined: map-merge(
+			$_o-topper-defined,
+			(
+				$label: true,
+			)
+		) !global;
 	}
 }

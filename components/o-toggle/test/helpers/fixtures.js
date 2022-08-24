@@ -19,9 +19,7 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-
-function declarativeMarkup (callback) {
-
+function declarativeMarkup(callback) {
 	const html = `
 		<div class='declarativeToggleContainer'>
 			<button
@@ -36,13 +34,13 @@ function declarativeMarkup (callback) {
 	insert(html);
 }
 
-function imperativeMarkup () {
+function imperativeMarkup() {
 	const html = `<button data-o-component="o-toggle">Toggle</button>
 			<div class="imperativeTestTarget">Target of the toggle</div>`;
 	insert(html);
 }
 
-function twoTogglesOneTarget () {
+function twoTogglesOneTarget() {
 	const html = `<button id="testToggle1" data-o-component="o-toggle" data-o-toggle-target=".twoTogglesTarget">Toggle</button>
 		<button id="testToggle2" data-o-component="o-toggle" data-o-toggle-target=".twoTogglesTarget">Toggle</button>
 
@@ -50,7 +48,7 @@ function twoTogglesOneTarget () {
 	insert(html);
 }
 
-function toggleAsALink () {
+function toggleAsALink() {
 	const html = `<a id="linkToggle" data-o-component="o-toggle" data-o-toggle-target=".linkTogglesTarget">Toggle</a>
 		<div class="linkTogglesTarget">Target of the toggle</div>`;
 	insert(html);
@@ -61,5 +59,5 @@ export {
 	declarativeMarkup,
 	twoTogglesOneTarget,
 	toggleAsALink,
-	reset
+	reset,
 };

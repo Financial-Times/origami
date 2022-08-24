@@ -1,6 +1,4 @@
-
 const testMarkup = {
-
 	steppedProgress: `
 		<div class="o-stepped-progress" data-o-component="o-stepped-progress">
 			<ol class="o-stepped-progress__steps">
@@ -39,9 +37,7 @@ const testMarkup = {
 				<span class="o-stepped-progress__status">mock status</span>
 			</span>
 		</a>
-	`
+	`,
 };
 
-export {
-	testMarkup
-};
+export {testMarkup};

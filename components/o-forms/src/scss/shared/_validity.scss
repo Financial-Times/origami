@@ -28,10 +28,7 @@
 		}
 
 		.o-forms-input__error {
-			@include oTypographySans(
-				$scale: -1,
-				$include-font-family: false
-			);
+			@include oTypographySans($scale: -1, $include-font-family: false);
 			color: _oFormsGet('invalid-base');
 			display: block;
 			position: relative;

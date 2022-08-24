@@ -7,18 +7,19 @@ class OAudio {
 	 * @param {HTMLAudioElement} [oAudioEl] - The component element in the DOM
 	 * @param {object} [opts={}] - An options object for configuring the component
 	 */
-	constructor (oAudioEl, opts) {
-
+	constructor(oAudioEl, opts) {
 		if (!(oAudioEl instanceof HTMLAudioElement)) {
 			// eslint-disable-next-line no-console
 			console.warn('oAudioEl should be an instance of HTMLAudioElement');
 		}
 		this.oAudioEl = oAudioEl;
-		this.options = Object.assign({}, {
-		}, opts || OAudio.getDataAttributes(oAudioEl));
+		this.options = Object.assign(
+			{},
+			{},
+			opts || OAudio.getDataAttributes(oAudioEl)
+		);
 
 		this.tracking = new Tracking(oAudioEl, this.options);
-
 	}
 
 	/**
@@ -37,19 +38,21 @@ class OAudio {
 	 * @param {HTMLElement} oAudioEl - The component element in the DOM
 	 * @returns {object} - Data attributes as an object
 	 */
-	static getDataAttributes (oAudioEl) {
+	static getDataAttributes(oAudioEl) {
 		if (!(oAudioEl instanceof HTMLElement)) {
 			return {};
 		}
 		return Object.keys(oAudioEl.dataset).reduce((options, key) => {
-
 			// Ignore data-o-component
 			if (key === 'oComponent') {
 				return options;
 			}
 
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oAudio(w)(w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(
+				/^oAudio(w)(w+)$/,
+				(m, m1, m2) => m1.toLowerCase() + m2
+			);
 			const value = oAudioEl.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string
@@ -70,17 +73,23 @@ class OAudio {
 	 * @param {object} [opts={}] - An options object for configuring the component
 	 * @returns {(OAudio|Array<OAudio>)} - OAudio instance(s)
 	 */
-	static init (rootEl, opts) {
+	static init(rootEl, opts) {
 		if (!rootEl) {
 			rootEl = document.body;
 		}
 		if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		if (rootEl instanceof HTMLAudioElement && rootEl.matches('[data-o-component=o-audio]')) {
+		if (
+			rootEl instanceof HTMLAudioElement &&
+			rootEl.matches('[data-o-component=o-audio]')
+		) {
 			return new OAudio(rootEl, opts);
 		}
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-audio"]'), rootEl => new OAudio(rootEl, opts));
+		return Array.from(
+			rootEl.querySelectorAll('[data-o-component="o-audio"]'),
+			rootEl => new OAudio(rootEl, opts)
+		);
 	}
 }
 

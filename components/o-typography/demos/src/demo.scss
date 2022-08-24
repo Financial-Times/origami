@@ -6,7 +6,6 @@
 @import '@financial-times/o-normalise/main';
 @include oNormalise();
 
-
 body {
 	background-color: oColorsByUsecase('page', 'background');
 	overflow-y: scroll;

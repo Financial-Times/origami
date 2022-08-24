@@ -56,7 +56,8 @@ class ErrorSummary {
 		}
 		div.setAttribute('aria-labelledby', 'error-summary');
 		div.setAttribute('role', 'alert');
-		div.innerHTML = '<h4 class="o-forms__error-summary__heading" id="error-summary">There is a problem</h4>';
+		div.innerHTML =
+			'<h4 class="o-forms__error-summary__heading" id="error-summary">There is a problem</h4>';
 
 		div.appendChild(ErrorSummary.createList(invalidInputs));
 		return div;
@@ -85,9 +86,12 @@ class ErrorSummary {
 			// invalid input but with no label to create an error summary
 			if (input.valid === false && !input.label) {
 				// eslint-disable-next-line no-console
-				console.warn(`Could not add an invalid input to the error summary. ` +
-				`Check the input has a parent \`o-forms-field\` element with correct title markup. ` +
-				`Or disable the error summary feature for this form with \`data-o-forms-error-summary="false"\`.`, input.element);
+				console.warn(
+					`Could not add an invalid input to the error summary. ` +
+						`Check the input has a parent \`o-forms-field\` element with correct title markup. ` +
+						`Or disable the error summary feature for this form with \`data-o-forms-error-summary="false"\`.`,
+					input.element
+				);
 			}
 			// invalid input, add to error summary
 			if (input.valid === false && input.label) {
@@ -117,8 +121,11 @@ class ErrorSummary {
 		}
 		// If no id exist return an error summary item without a link.
 		// eslint-disable-next-line no-console
-		console.warn(`Could not link to an invalid input from the error summary. ` +
-			`Add a unique id attribute to the input element.`, input.element);
+		console.warn(
+			`Could not link to an invalid input from the error summary. ` +
+				`Add a unique id attribute to the input element.`,
+			input.element
+		);
 
 		item.innerHTML = ErrorSummary._getItemContent(input);
 		return item;
@@ -133,10 +140,13 @@ class ErrorSummary {
 	static createAnchor(input) {
 		const anchor = document.createElement('a');
 		anchor.setAttribute('href', `#${input.id}`);
-		anchor.addEventListener('click', function(e) {
-			e.preventDefault();
-			document.getElementById(this.id).focus();
-		}.bind(input));
+		anchor.addEventListener(
+			'click',
+			function (e) {
+				e.preventDefault();
+				document.getElementById(this.id).focus();
+			}.bind(input)
+		);
 		anchor.innerHTML = ErrorSummary._getItemContent(input);
 		return anchor;
 	}
@@ -147,9 +157,11 @@ class ErrorSummary {
 	 * @returns {string} - the html text for an error summary item
 	 */
 	static _getItemContent(input) {
-		return '<span class="o-forms__error-summary__item-overview">' +
+		return (
+			'<span class="o-forms__error-summary__item-overview">' +
 			`${input.label}</span>: ` +
-			`<span class="o-forms__error-summary__item-detail">${input.error}</span>`;
+			`<span class="o-forms__error-summary__item-detail">${input.error}</span>`
+		);
 	}
 }
 

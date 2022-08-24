@@ -7,7 +7,7 @@ import Playlist from './playlist.js';
 import Guidance from './guidance.js';
 
 function listenOnce(el, eventName, fn) {
-	const wrappedFn = function(...args) {
+	const wrappedFn = function (...args) {
 		el.removeEventListener(eventName, wrappedFn);
 		fn(...args);
 	};
@@ -15,14 +15,18 @@ function listenOnce(el, eventName, fn) {
 }
 
 function eventListener(video, ev) {
-
 	// On some platforms (eg iOS), the Google advert library will use the main <video> element
 	// used by o-video to also play a pre-roll advert; as the advert plays, this will trigger
 	// the normal <video> event listeners.  Discard events that we can identify as coming
 	// from the pre-roll rather than the main content.
 	// To do this, check whether advertising is still enabled (it'll be disabled on any error),
 	// and for the video ads load and completed flags.
-	if (video.opts.advertising && video.videoAds && video.videoAds.adsLoaded && !video.videoAds.adsCompleted) {
+	if (
+		video.opts.advertising &&
+		video.videoAds &&
+		video.videoAds.adsLoaded &&
+		!video.videoAds.adsCompleted
+	) {
 		return;
 	}
 
@@ -34,19 +38,22 @@ function eventListener(video, ev) {
 	fireEvent(ev.type, video, {
 		progress: video.getProgress(),
 		duration: video.getDuration(),
-		textTrackMode: video.getTrackMode()
+		textTrackMode: video.getTrackMode(),
 	});
 }
 
 function fireEvent(action, video, extraDetail = {}) {
 	const event = new CustomEvent('oTracking.event', {
-		detail: Object.assign({
-			category: 'video',
-			action,
-			advertising: video.opts.advertising,
-			contentId: video.opts.id,
-		}, extraDetail),
-		bubbles: true
+		detail: Object.assign(
+			{
+				category: 'video',
+				action,
+				advertising: video.opts.advertising,
+				contentId: video.opts.id,
+			},
+			extraDetail
+		),
+		bubbles: true,
 	});
 	document.body.dispatchEvent(event);
 }
@@ -56,11 +63,8 @@ function shouldDispatch(video) {
 	const progress = video.getProgress();
 	const id = video.opts.id;
 	const relevantProgressPoints = [
-		8, 9, 10, 11, 12,
-		23, 24, 25, 26, 27,
-		48, 49, 50, 51, 52,
-		73, 74, 75, 76, 77,
-		100
+		8, 9, 10, 11, 12, 23, 24, 25, 26, 27, 48, 49, 50, 51, 52, 73, 74, 75, 76,
+		77, 100,
 	];
 
 	// Initialise dispatched progress store
@@ -90,7 +94,9 @@ function addEvents(video, events) {
 
 // use the image resizing service, if width supplied
 function updatePosterUrl(posterImage, width, systemcode) {
-	let url = `https://www.ft.com/__origami/service/image/v2/images/raw/${encodeURIComponent(posterImage)}?source=${systemcode}&quality=low`;
+	let url = `https://www.ft.com/__origami/service/image/v2/images/raw/${encodeURIComponent(
+		posterImage
+	)}?source=${systemcode}&quality=low`;
 	if (width) {
 		url += `&fit=scale-down&width=${width}`;
 	}
@@ -102,12 +108,14 @@ function updatePosterUrl(posterImage, width, systemcode) {
 function getOptionsFromDataAttributes(attributes) {
 	const opts = {};
 	// Try to get config set declaratively on the element
-	Array.prototype.forEach.call(attributes, (attr) => {
+	Array.prototype.forEach.call(attributes, attr => {
 		if (attr.name.indexOf('data-o-video') === 0) {
 			// Remove the prefix part of the data attribute name and hyphen-case to camelCase
-			const key = attr.name.replace('data-o-video-', '').replace(/-([a-z])/g, (m, w) => {
-				return w.toUpperCase();
-			});
+			const key = attr.name
+				.replace('data-o-video-', '')
+				.replace(/-([a-z])/g, (m, w) => {
+					return w.toUpperCase();
+				});
 
 			try {
 				// If it's a JSON, a boolean or a number, we want it stored like that, and not as a string
@@ -132,7 +140,7 @@ function unloadListener() {
 	this.updateAmountWatched();
 	fireEvent('watched', this, {
 		amount: this.getAmountWatched(0),
-		amountPercentage: this.getAmountWatchedPercentage(0)
+		amountPercentage: this.getAmountWatchedPercentage(0),
 	});
 }
 
@@ -158,7 +166,7 @@ const defaultOpts = {
 	playsinline: false,
 	showCaptions: true,
 	showGuidance: true,
-	data: null
+	data: null,
 };
 
 class Video {
@@ -170,10 +178,17 @@ class Video {
 		this.visibilityListener = visibilityListener.bind(this);
 		this.didUserPressPlay = false;
 
-		this.opts = Object.assign({}, defaultOpts, opts, getOptionsFromDataAttributes(this.containerEl.attributes));
+		this.opts = Object.assign(
+			{},
+			defaultOpts,
+			opts,
+			getOptionsFromDataAttributes(this.containerEl.attributes)
+		);
 
-		if(typeof this.opts.systemcode !== 'string') {
-			throw new Error('o-video requires "systemcode" is configured using the "data-o-video-systemcode" data attribute, or configured with the `opts` constructor argument. It must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).');
+		if (typeof this.opts.systemcode !== 'string') {
+			throw new Error(
+				'o-video requires "systemcode" is configured using the "data-o-video-systemcode" data attribute, or configured with the `opts` constructor argument. It must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).'
+			);
 		}
 
 		if (typeof this.opts.classes === 'string') {
@@ -188,7 +203,7 @@ class Video {
 			site: '/5887/ft.com',
 			position: 'video',
 			sizes: '592x333|400x225',
-			videoId: this.opts.id
+			videoId: this.opts.id,
 		};
 
 		if (this.opts.advertising) {
@@ -207,20 +222,34 @@ class Video {
 	}
 
 	getData() {
-		const dataPromise = this.opts.data ?
-			Promise.resolve(this.opts.data) :
-			fetch(`https://next-media-api.ft.com/v1/${this.opts.id}`)
-				.then(response => {
-					if (response.ok) {
-						return response.json();
-					} else {
-						throw Error('Next Media API responded with a ' + response.status + ' (' + response.statusText + ') for id ' + this.opts.id);
+		const dataPromise = this.opts.data
+			? Promise.resolve(this.opts.data)
+			: fetch(`https://next-media-api.ft.com/v1/${this.opts.id}`).then(
+					response => {
+						if (response.ok) {
+							return response.json();
+						} else {
+							throw Error(
+								'Next Media API responded with a ' +
+									response.status +
+									' (' +
+									response.statusText +
+									') for id ' +
+									this.opts.id
+							);
+						}
 					}
-				});
+			  );
 
 		return dataPromise.then(data => {
 			this.videoData = data;
-			this.posterImage = data.mainImageUrl && updatePosterUrl(data.mainImageUrl, this.opts.optimumwidth, this.opts.systemcode);
+			this.posterImage =
+				data.mainImageUrl &&
+				updatePosterUrl(
+					data.mainImageUrl,
+					this.opts.optimumwidth,
+					this.opts.systemcode
+				);
 			this.rendition = getRendition(data.renditions, this.opts);
 		});
 	}
@@ -236,7 +265,9 @@ class Video {
 	}
 
 	init() {
-		return (this.opts.advertising ? VideoAds.loadAdsLibrary() : Promise.resolve())
+		return (
+			this.opts.advertising ? VideoAds.loadAdsLibrary() : Promise.resolve()
+		)
 			.catch(() => {
 				// If ad doesn't load for some reason, load video as normal
 				this.opts.advertising = false;
@@ -247,11 +278,13 @@ class Video {
 
 	addVideo() {
 		this.liveRegionEl = document.createElement('div');
-		this.liveRegionEl.setAttribute('aria-live','assertive');
+		this.liveRegionEl.setAttribute('aria-live', 'assertive');
 		this.liveRegionEl.classList.add('o-video__live-region');
 		this.videoEl = document.createElement('video');
 		this.videoEl.controls = true;
-		this.videoEl.className = Array.isArray(this.opts.classes) ? this.opts.classes.join(' ') : this.opts.classes;
+		this.videoEl.className = Array.isArray(this.opts.classes)
+			? this.opts.classes.join(' ')
+			: this.opts.classes;
 		this.containerEl.classList.add('o-video--player');
 
 		if (this.opts.playsinline) {
@@ -273,12 +306,27 @@ class Video {
 		this.containerEl.appendChild(this.liveRegionEl);
 		this.containerEl.appendChild(this.videoEl);
 
-		addEvents(this, ['playing', 'pause', 'ended', 'progress', 'seeked', 'error', 'stalled', 'waiting']);
+		addEvents(this, [
+			'playing',
+			'pause',
+			'ended',
+			'progress',
+			'seeked',
+			'error',
+			'stalled',
+			'waiting',
+		]);
 		this.videoEl.addEventListener('playing', this.pauseOtherVideos.bind(this));
 		this.videoEl.addEventListener('playing', this.markPlayStart.bind(this));
 		this.videoEl.addEventListener('pause', this.updateAmountWatched.bind(this));
-		this.videoEl.addEventListener('suspend', this.clearCurrentlyPlaying.bind(this));
-		this.videoEl.addEventListener('ended', this.clearCurrentlyPlaying.bind(this));
+		this.videoEl.addEventListener(
+			'suspend',
+			this.clearCurrentlyPlaying.bind(this)
+		);
+		this.videoEl.addEventListener(
+			'ended',
+			this.clearCurrentlyPlaying.bind(this)
+		);
 
 		if (this.opts.advertising) {
 			this.videoAds.setUpAds();
@@ -297,7 +345,9 @@ class Video {
 		}
 
 		if (typeof this.videoData === 'undefined') {
-			throw new Error('Please call `getData()` before calling `addCaptions()` directly.');
+			throw new Error(
+				'Please call `getData()` before calling `addCaptions()` directly.'
+			);
 		}
 
 		const existingTrackEl = this.videoEl.querySelector('track');
@@ -352,7 +402,11 @@ class Video {
 
 		// play button
 		const playCTA = document.createElement('div');
-		playCTA.className = `o-video__play-cta ${this.opts.placeholderHint ? 'o-video__play-cta--with-hint' : 'o-video__play-cta--without-hint'}`;
+		playCTA.className = `o-video__play-cta ${
+			this.opts.placeholderHint
+				? 'o-video__play-cta--with-hint'
+				: 'o-video__play-cta--without-hint'
+		}`;
 
 		this.playButtonElContainer = document.createElement('div');
 		this.playButtonElContainer.className = 'o-video__play-button-container';
@@ -364,10 +418,9 @@ class Video {
 		playButtonIconEl.className = 'o-video__play-button-icon';
 		playButtonIconEl.textContent = this.opts.placeholderHint;
 
-
 		playCTA.appendChild(playButtonIconEl);
 
-		const { captionsUrl } = this.videoData || {};
+		const {captionsUrl} = this.videoData || {};
 		if (!captionsUrl && this.guidance) {
 			this.playButtonElContainer.appendChild(this.guidance.createPlaceholder());
 		}
@@ -387,7 +440,6 @@ class Video {
 
 	play() {
 		if (this.placeholderEl) {
-
 			// Adds video soon so ads can start loading
 			this.addVideo();
 			this.videoEl.focus();
@@ -414,7 +466,10 @@ class Video {
 		}
 
 		if (this.playButtonEl) {
-			this.playButtonEl.setAttribute('aria-label', `Play video ${this.videoData.title}`);
+			this.playButtonEl.setAttribute(
+				'aria-label',
+				`Play video ${this.videoData.title}`
+			);
 		}
 	}
 
@@ -426,7 +481,7 @@ class Video {
 
 		this.didUserPressPlay = false;
 
-		this.opts = Object.assign(this.opts, { data: null }, newOpts);
+		this.opts = Object.assign(this.opts, {data: null}, newOpts);
 
 		if (!this.videoEl && !this.placeholderEl) {
 			return this.init();
@@ -442,7 +497,9 @@ class Video {
 	}
 
 	getProgress() {
-		return this.videoEl.duration ? parseInt(100 * this.videoEl.currentTime / this.videoEl.duration, 10) : 0;
+		return this.videoEl.duration
+			? parseInt((100 * this.videoEl.currentTime) / this.videoEl.duration, 10)
+			: 0;
 	}
 
 	getDuration() {
@@ -450,21 +507,33 @@ class Video {
 	}
 
 	getTrackMode() {
-		return this.videoEl.textTracks && this.videoEl.textTracks[0] ? this.videoEl.textTracks[0].mode : undefined;
+		return this.videoEl.textTracks && this.videoEl.textTracks[0]
+			? this.videoEl.textTracks[0].mode
+			: undefined;
 	}
 
 	getAmountWatched(decimalPoints) {
 		const secondsWatched = this.amountWatched / 1000;
-		return decimalPoints !== undefined ? Number(secondsWatched.toFixed(decimalPoints)) : secondsWatched;
+		return decimalPoints !== undefined
+			? Number(secondsWatched.toFixed(decimalPoints))
+			: secondsWatched;
 	}
 
 	getAmountWatchedPercentage(decimalPoints) {
-		const percentageWatched = this.videoEl && this.videoEl.duration ? 100 / this.videoEl.duration * this.getAmountWatched() : 0;
-		return decimalPoints !== undefined ? Number(percentageWatched.toFixed(decimalPoints)) : percentageWatched;
+		const percentageWatched =
+			this.videoEl && this.videoEl.duration
+				? (100 / this.videoEl.duration) * this.getAmountWatched()
+				: 0;
+		return decimalPoints !== undefined
+			? Number(percentageWatched.toFixed(decimalPoints))
+			: percentageWatched;
 	}
 
 	pauseOtherVideos() {
-		if (this.currentlyPlayingVideo && this.currentlyPlayingVideo !== this.videoEl) {
+		if (
+			this.currentlyPlayingVideo &&
+			this.currentlyPlayingVideo !== this.videoEl
+		) {
 			this.currentlyPlayingVideo.pause();
 		}
 
@@ -477,29 +546,29 @@ class Video {
 		}
 	}
 
-	markPlayStart () {
+	markPlayStart() {
 		this.playStart = Date.now();
 	}
 
-	updateAmountWatched () {
+	updateAmountWatched() {
 		if (this.playStart !== undefined) {
 			this.amountWatched += Date.now() - this.playStart;
 			this.playStart = undefined;
 		}
 	}
 
-	resetAmountWatched () {
+	resetAmountWatched() {
 		this.amountWatched = 0;
 	}
 
-	showGuidanceBanner () {
-		const { captionsUrl } = this.videoData || {};
+	showGuidanceBanner() {
+		const {captionsUrl} = this.videoData || {};
 		if (!this.didUserPressPlay && !captionsUrl && this.guidance) {
 			this.containerEl.appendChild(this.guidance.createBanner());
 		}
 	}
 
-	destroy () {
+	destroy() {
 		// remove listeners
 		window.removeEventListener(unloadEventName, this.fireWatchedEvent);
 		window.removeEventListener('oViewport.visibility', this.visibilityListener);
@@ -513,7 +582,9 @@ class Video {
 			rootEl = document.querySelector(rootEl);
 		}
 
-		const videoEls = rootEl.querySelectorAll(':not([data-o-video-js])[data-o-component~="o-video"]');
+		const videoEls = rootEl.querySelectorAll(
+			':not([data-o-video-js])[data-o-component~="o-video"]'
+		);
 
 		for (let i = 0; i < videoEls.length; i++) {
 			videos.push(new Video(videoEls[i], config));

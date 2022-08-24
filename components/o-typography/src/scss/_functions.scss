@@ -4,7 +4,10 @@
 /// @param {String} $font [''] - The font to get the scale number for, as fonts may have different scales. Uses the default scale if not specified.
 /// @returns {List} List of the requested scale value.
 @function oTypographyGetScale($index: 0, $font: '') {
-	$scale: map-get($_o-typography-font-scale-by-font, oFontsGetFontFamilyWithoutFallbacks($font));
+	$scale: map-get(
+		$_o-typography-font-scale-by-font,
+		oFontsGetFontFamilyWithoutFallbacks($font)
+	);
 	$scale: if(type-of($scale) == 'map', $scale, $_o-typography-font-scale);
 	@return map-get($scale, $index);
 }
@@ -79,7 +82,7 @@
 /// @access private
 /// @param {Number|String} $value - Any none numbers are returned as is (e.g. "unset")
 @function _oTypographyAdjustUnit($value) {
-	@if(type-of($value) != 'number') {
+	@if (type-of($value) != 'number') {
 		@return $value;
 	}
 
@@ -103,11 +106,12 @@
 /// Throw a warning if it hasn't been thrown before.
 /// @return {Null}
 @function _oTypographyWarnOnce($key, $message) {
-	@if(not map-get($_o-typography-warnings, $key)) {
+	@if (not map-get($_o-typography-warnings, $key)) {
 		@warn #{$message};
-		$_o-typography-warnings: map-merge($_o-typography-warnings, (
-			#{$key}: true
-		)) !global;
+		$_o-typography-warnings: map-merge(
+			$_o-typography-warnings,
+			(#{$key}: true)
+		) !global;
 	}
 	@return null;
 }

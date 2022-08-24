@@ -7,7 +7,6 @@ oForms.init();
  * @property {Array<string>} options - The options which match the rext which was typed into the autocomplete by the user
  */
 
-
 let suggestionTimeoutId;
 /**
  * @param {string} query - Text which was typed into the autocomplete by the user
@@ -79,7 +78,7 @@ function customSuggestions(query, populateOptions) {
 		'Cook Islands',
 		'Coral Sea Islands',
 		'Costa Rica',
-		'Cote d\'Ivoire',
+		"Cote d'Ivoire",
 		'Croatia',
 		'Cuba',
 		'Cyprus',
@@ -276,10 +275,10 @@ function customSuggestions(query, populateOptions) {
 		'Western Sahara',
 		'Yemen',
 		'Zambia',
-		'Zimbabwe'
+		'Zimbabwe',
 	];
 	suggestionTimeoutId = setTimeout(() => {
-		suggestions.sort(function(a,b) {
+		suggestions.sort(function (a, b) {
 			return a.localeCompare(b);
 		});
 
@@ -296,6 +295,6 @@ function customSuggestions(query, populateOptions) {
 
 window.customSuggestions = debounce(customSuggestions, 100);
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });

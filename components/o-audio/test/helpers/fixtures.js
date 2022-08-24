@@ -19,8 +19,7 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-
-function htmlCode () {
+function htmlCode() {
 	const html = `<div>
 		<audio class="o-audio" data-o-component="o-audio" id="element"></audio>
 	</div>
@@ -28,7 +27,4 @@ function htmlCode () {
 	insert(html);
 }
 
-export {
-	htmlCode,
-	reset
-};
+export {htmlCode, reset};

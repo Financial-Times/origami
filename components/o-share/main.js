@@ -1,6 +1,6 @@
 import Share from './src/js/share.js';
 
-const constructAll = function() {
+const constructAll = function () {
 	Share.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

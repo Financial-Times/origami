@@ -1,7 +1,11 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oButtonsGet($variables, $from: null) {
-	@return oBrandGet($component: 'o-buttons', $variables: $variables, $from: $from);
+	@return oBrandGet(
+		$component: 'o-buttons',
+		$variables: $variables,
+		$from: $from
+	);
 }
 
 /// Helper for `o-brand` function.
@@ -12,7 +16,8 @@
 
 $_o-buttons-shared-brand-config: (
 	'scale': -1,
-	'background-size': 21px, // Magic number to reduce poor antialiasing on icons at small sizes
+	'background-size': 21px,
+	// Magic number to reduce poor antialiasing on icons at small sizes
 	'min-height': 28px,
 	'min-width': 60px,
 	// Sorry for the magic numbers, we need to use vertical padding here because
@@ -29,83 +34,108 @@ $_o-buttons-shared-brand-config: (
 		'background-size': 40px,
 		'min-height': 40px,
 		'min-width': 80px,
-		'padding': 11px 20px, // See comment above regarding padding magic numbers
-		'icon-padding': 40px
+		'padding': 11px 20px,
+		// See comment above regarding padding magic numbers
+		'icon-padding': 40px,
 	),
 );
 
 @if oBrandIs('core') {
-	@include oBrandDefine('o-buttons', 'core', (
-		'variables': map-merge($_o-buttons-shared-brand-config, (
-			'color': 'teal',
-			'inverse': (
-				'color': 'white',
-				'context': 'slate'
+	@include oBrandDefine(
+		'o-buttons',
+		'core',
+		(
+			'variables':
+				map-merge(
+					$_o-buttons-shared-brand-config,
+					(
+						'color': 'teal',
+						'inverse': (
+							'color': 'white',
+							'context': 'slate',
+						),
+						'mono': (
+							'color': 'slate',
+						),
+						'b2c': (
+							'color': 'org-b2c-dark',
+						),
+					)
+				),
+			'supports-variants': (
+				'primary',
+				'secondary',
+				'primary-b2c',
+				'primary-inverse',
+				'primary-mono',
+				'secondary-inverse',
+				'secondary-mono',
+				'ghost',
+				'ghost-inverse',
+				'ghost-mono',
 			),
-			'mono': (
-				'color': 'slate'
-			),
-			'b2c': (
-				'color': 'org-b2c-dark'
-			)
-		)),
-		'supports-variants': (
-			'primary',
-			'secondary',
-			'primary-b2c',
-			'primary-inverse',
-			'primary-mono',
-			'secondary-inverse',
-			'secondary-mono',
-			'ghost',
-			'ghost-inverse',
-			'ghost-mono'
-		))
+		)
 	);
 }
 
 @if oBrandIs('internal') {
-	@include oBrandDefine('o-buttons', 'internal', (
-		'variables': map-merge($_o-buttons-shared-brand-config, (
-			'color': 'teal',
-			'inverse': (
-				'color': 'white',
-				'context': 'slate'
+	@include oBrandDefine(
+		'o-buttons',
+		'internal',
+		(
+			'variables':
+				map-merge(
+					$_o-buttons-shared-brand-config,
+					(
+						'color': 'teal',
+						'inverse': (
+							'color': 'white',
+							'context': 'slate',
+						),
+						'mono': (
+							'color': 'slate',
+						),
+					)
+				),
+			'supports-variants': (
+				'primary',
+				'primary-inverse',
+				'primary-mono',
+				'secondary',
+				'secondary-inverse',
+				'secondary-mono',
+				'ghost',
+				'ghost-inverse',
+				'ghost-mono',
 			),
-			'mono': (
-				'color': 'slate'
-			)
-		)),
-		'supports-variants': (
-			'primary',
-			'primary-inverse',
-			'primary-mono',
-			'secondary',
-			'secondary-inverse',
-			'secondary-mono',
-			'ghost',
-			'ghost-inverse',
-			'ghost-mono'
-		))
+		)
 	);
 }
 
 @if oBrandIs('whitelabel') {
-	@include oBrandDefine('o-buttons', 'whitelabel', (
-		'variables': map-merge($_o-buttons-shared-brand-config, (
-			'color': 'black',
-			'inverse': (
-				'color': 'white',
-				'context': 'black'
+	@include oBrandDefine(
+		'o-buttons',
+		'whitelabel',
+		(
+			'variables':
+				map-merge(
+					$_o-buttons-shared-brand-config,
+					(
+						'color': 'black',
+						'inverse': (
+							'color': 'white',
+							'context': 'black',
+						),
+					)
+				),
+			'supports-variants': (
+				'primary',
+				'secondary',
+				'primary-inverse',
+				'secondary-inverse',
+				'ghost',
+				'ghost-inverse',
 			),
-		)),
-		'supports-variants': (
-			'primary',
-			'secondary',
-			'primary-inverse',
-			'secondary-inverse',
-			'ghost',
-			'ghost-inverse'
 		)
-	));
+	);
 }

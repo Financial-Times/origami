@@ -28,7 +28,8 @@
 	@each $variant in $variants {
 		$weight: map-get($variant, 'weight');
 		$style: map-get($variant, 'style');
-		@if type-of($weight) != 'string' and map-has-key($_o-fonts-weights, $weight) {
+		@if type-of($weight) != 'string' and map-has-key($_o-fonts-weights, $weight)
+		{
 			@error 'Could not include custom font "#{$font-family}". All variants must specify a weight, one of "#{$_o-fonts-weights}".';
 		}
 		@if type-of($style) != 'string' {
@@ -36,11 +37,16 @@
 		}
 	}
 	$font-key: oFontsGetFontFamilyWithoutFallbacks($font-family);
-	$_o-fonts-families: map-merge(($font-key: (
-		'font-family': $font-family,
-		'variants': $variants,
-		'custom': true
-	)), $_o-fonts-families) !global;
+	$_o-fonts-families: map-merge(
+		(
+			$font-key: (
+				'font-family': $font-family,
+				'variants': $variants,
+				'custom': true,
+			),
+		),
+		$_o-fonts-families
+	) !global;
 	@content; // Output a custom Font-face declaration.
 }
 
@@ -99,7 +105,12 @@
 /// @param {String} $style [normal] - e.g. 'italic'
 /// @param {String|Null} $display - the font-display property for this font face, defaults to $o-fonts-display
 /// @access private
-@mixin _oFontsInclude($family, $weight: regular, $style: normal, $display: $o-fonts-display) {
+@mixin _oFontsInclude(
+	$family,
+	$weight: regular,
+	$style: normal,
+	$display: $o-fonts-display
+) {
 	// Help user if they requested a normal rather than regular weight.
 	@if $weight == normal {
 		@warn '"normal" is not a font weight for "#{$family}". Request a "regular" weight instead.';
@@ -147,14 +158,24 @@
 		// set path for self hosted font
 		$self-host-path: $o-fonts-self-host-path + $font-file;
 		// set path using existing o-fonts-path variable, for font hosted on Build Service api implementation
-		$build-service-path: $o-fonts-build-service-path + '&font_name=#{$font-file}&system_code=origami';
+		$build-service-path: $o-fonts-build-service-path +
+			'&font_name=#{$font-file}&system_code=origami';
 
 		// use $o-fonts-self-host-path if set, $o-fonts-build-service-path otherwise
-		$font-url-woff: if($o-fonts-self-host-path == '', '#{$build-service-path}&font_format=woff', '#{$self-host-path}.woff');
-		$font-url-woff2: if($o-fonts-self-host-path == '', '#{$build-service-path}&font_format=woff2', '#{$self-host-path}.woff2');
+		$font-url-woff: if(
+			$o-fonts-self-host-path == '',
+			'#{$build-service-path}&font_format=woff',
+			'#{$self-host-path}.woff'
+		);
+		$font-url-woff2: if(
+			$o-fonts-self-host-path == '',
+			'#{$build-service-path}&font_format=woff2',
+			'#{$self-host-path}.woff2'
+		);
 
 		@font-face {
-			src: url($font-url-woff2) format('woff2'), url($font-url-woff) format('woff');
+			src: url($font-url-woff2) format('woff2'),
+				url($font-url-woff) format('woff');
 			font-family: $family;
 			font-weight: oFontsWeight($weight);
 			font-style: unquote($style);
@@ -174,5 +195,10 @@
 @mixin _oFontsVariantIncluded($family, $weight, $style) {
 	// Add to the list of already included families / variants
 	$variant-key: _oFontsVariantKey($family, $weight, $style);
-	$_o-fonts-families-included: map-merge($_o-fonts-families-included, ($variant-key: true)) !global;
+	$_o-fonts-families-included: map-merge(
+		$_o-fonts-families-included,
+		(
+			$variant-key: true,
+		)
+	) !global;
 }

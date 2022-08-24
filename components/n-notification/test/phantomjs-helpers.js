@@ -10,5 +10,5 @@ function click(el) {
 }
 
 export default {
-	click
+	click,
 };

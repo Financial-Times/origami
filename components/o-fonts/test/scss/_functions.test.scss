@@ -13,10 +13,7 @@
 	}
 	@include test('Uses the default weight/style when given a falsy value.') {
 		// Checks for the font 'MetricWeb' with a default weight/style, i.e. normal/regular.
-		@include assert-equal(
-			oFontsVariantExists('MetricWeb', false, false),
-			true
-		);
+		@include assert-equal(oFontsVariantExists('MetricWeb', false, false), true);
 	}
 	@include test('Returns false when the font has not been defined') {
 		@include assert-equal(
@@ -38,9 +35,13 @@
 		// o-fonts keeps track of included fonts, so reset this
 		// private variable for each test :mask:
 		$original-o-fonts-families-included: $_o-fonts-families-included;
-		@include oFonts($opts: (
-			'metric': ((weight: regular, style: normal),)
-		));
+		@include oFonts(
+			$opts: (
+				'metric': (
+					(weight: regular, style: normal),
+				),
+			)
+		);
 		@include assert-equal(
 			oFontsVariantIncluded('MetricWeb', 'regular', 'normal'),
 			true
@@ -52,9 +53,13 @@
 		// o-fonts keeps track of included fonts, so reset this
 		// private variable for each test :mask:
 		$original-o-fonts-families-included: $_o-fonts-families-included;
-		@include oFonts($opts: (
-			'metric': ((weight: regular, style: normal),)
-		));
+		@include oFonts(
+			$opts: (
+				'metric': (
+					(weight: regular, style: normal),
+				),
+			)
+		);
 		@include assert-equal(
 			oFontsVariantIncluded('MetricWeb', false, false),
 			true
@@ -76,13 +81,17 @@
 			'MetricWeb'
 		);
 	}
-	@include test('Removes fallback fonts from a font family with two fallbacks') {
+	@include test(
+		'Removes fallback fonts from a font family with two fallbacks'
+	) {
 		@include assert-equal(
 			oFontsGetFontFamilyWithoutFallbacks('MetricWeb, SomeOtherFont, sans'),
 			'MetricWeb'
 		);
 	}
-	@include test('Removes fallback fonts from a font family defined as a list rather than string') {
+	@include test(
+		'Removes fallback fonts from a font family defined as a list rather than string'
+	) {
 		$test-list-family: MetricWeb, SomeOtherFont, sans;
 		@include assert-equal(
 			oFontsGetFontFamilyWithoutFallbacks($test-list-family),

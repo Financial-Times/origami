@@ -5,7 +5,7 @@ import proclaim from 'proclaim';
 import * as fixtures from './helpers/fixtures.js';
 import CookieMessage from './../src/js/cookie-message.js';
 
-const flatten = (string) => string.replace(/\s/g, '');
+const flatten = string => string.replace(/\s/g, '');
 
 describe('Cookie Message', () => {
 	let cookieMessage;
@@ -21,7 +21,7 @@ describe('Cookie Message', () => {
 		});
 
 		it('sets theme to `alternative` if theme option provided', () => {
-			cookieMessage = CookieMessage.init(null, { theme: 'surprise-cookie' });
+			cookieMessage = CookieMessage.init(null, {theme: 'surprise-cookie'});
 			proclaim.deepEqual(cookieMessage.options.theme, 'alternative');
 		});
 	});
@@ -31,13 +31,25 @@ describe('Cookie Message', () => {
 			it('with standard theme', () => {
 				fixtures.generateHTML('standard');
 				cookieMessage = CookieMessage.init();
-				proclaim.deepEqual(flatten(cookieMessage.cookieMessageElement.outerHTML).replaceAll(window.location.toString(), 'http://example.com'), flatten(fixtures.html.imperativeCookieMessage));
+				proclaim.deepEqual(
+					flatten(cookieMessage.cookieMessageElement.outerHTML).replaceAll(
+						window.location.toString(),
+						'http://example.com'
+					),
+					flatten(fixtures.html.imperativeCookieMessage)
+				);
 			});
 
 			it('with alternative theme', () => {
 				fixtures.generateHTML('standard');
-				cookieMessage = CookieMessage.init(null, { theme: 'alternative' });
-				proclaim.deepEqual(flatten(cookieMessage.cookieMessageElement.outerHTML).replaceAll(window.location.toString(), 'http://example.com'), flatten(fixtures.html.imperativeAltCookieMessage));
+				cookieMessage = CookieMessage.init(null, {theme: 'alternative'});
+				proclaim.deepEqual(
+					flatten(cookieMessage.cookieMessageElement.outerHTML).replaceAll(
+						window.location.toString(),
+						'http://example.com'
+					),
+					flatten(fixtures.html.imperativeAltCookieMessage)
+				);
 			});
 		});
 	});
@@ -60,7 +72,10 @@ describe('Cookie Message', () => {
 					isVisible = true;
 				});
 				CookieMessage.init();
-				proclaim.isFalse(isVisible, 'Expected the `oCookieMessage.view` event not to be emitted.');
+				proclaim.isFalse(
+					isVisible,
+					'Expected the `oCookieMessage.view` event not to be emitted.'
+				);
 			});
 
 			it('emits `oCookieMessage.close`', () => {
@@ -69,7 +84,10 @@ describe('Cookie Message', () => {
 					hasClosed = true;
 				});
 				CookieMessage.init();
-				proclaim.isTrue(hasClosed, 'Expected the `oCookieMessage.close` to be emitted but it was not.');
+				proclaim.isTrue(
+					hasClosed,
+					'Expected the `oCookieMessage.close` to be emitted but it was not.'
+				);
 			});
 		});
 
@@ -84,41 +102,57 @@ describe('Cookie Message', () => {
 				fixtures.reset();
 			});
 
-			it('emits `oCookieMessage.view` if consent cookies are not already set', (done) => {
+			it('emits `oCookieMessage.view` if consent cookies are not already set', done => {
 				let isVisible = false;
-				document.body.addEventListener('oCookieMessage.view', function view () {
+				document.body.addEventListener('oCookieMessage.view', function view() {
 					isVisible = true;
 					document.body.removeEventListener('oCookieMessage.view', view);
 					done();
 				});
 				CookieMessage.init();
-				proclaim.isTrue(isVisible, 'Expected the `oCookieMessage.view` event to be emitted but it was not.');
+				proclaim.isTrue(
+					isVisible,
+					'Expected the `oCookieMessage.view` event to be emitted but it was not.'
+				);
 			});
 
-			it('emits `oCookieMessage.act` when consent is given', (done) => {
+			it('emits `oCookieMessage.act` when consent is given', done => {
 				let consentGiven = false;
-				document.body.addEventListener('oCookieMessage.act', function act (){
+				document.body.addEventListener('oCookieMessage.act', function act() {
 					consentGiven = true;
 					document.body.removeEventListener('oCookieMessage.act', act);
 					done();
 				});
 				cookieMessage = CookieMessage.init();
-				const button = cookieMessage.cookieMessageElement.querySelector('.o-cookie-message__button');
+				const button = cookieMessage.cookieMessageElement.querySelector(
+					'.o-cookie-message__button'
+				);
 				button.click();
-				proclaim.isTrue(consentGiven, 'Expected `oCookieMessage.act` event to be emitted but it was not.');
+				proclaim.isTrue(
+					consentGiven,
+					'Expected `oCookieMessage.act` event to be emitted but it was not.'
+				);
 			});
 
-			it('emits `oCookieMessage.close` when consent is given', (done) => {
+			it('emits `oCookieMessage.close` when consent is given', done => {
 				let consentGiven = false;
-				document.body.addEventListener('oCookieMessage.close', function close() {
-					consentGiven = true;
-					document.body.removeEventListener('oCookieMessage.close', close);
-					done();
-				});
+				document.body.addEventListener(
+					'oCookieMessage.close',
+					function close() {
+						consentGiven = true;
+						document.body.removeEventListener('oCookieMessage.close', close);
+						done();
+					}
+				);
 				cookieMessage = CookieMessage.init();
-				const button = cookieMessage.cookieMessageElement.querySelector('.o-cookie-message__button');
+				const button = cookieMessage.cookieMessageElement.querySelector(
+					'.o-cookie-message__button'
+				);
 				button.click();
-				proclaim.isTrue(consentGiven, 'Expected `oCookieMessage.close` event to be emitted but it was not.');
+				proclaim.isTrue(
+					consentGiven,
+					'Expected `oCookieMessage.close` event to be emitted but it was not.'
+				);
 			});
 		});
 
@@ -133,20 +167,30 @@ describe('Cookie Message', () => {
 			});
 
 			it('removes the theme set via an option', () => {
-				cookieMessage = CookieMessage.init(null, { theme: 'alternative' });
+				cookieMessage = CookieMessage.init(null, {theme: 'alternative'});
 
-				proclaim.ok(document.querySelector('.o-cookie-message--alternative'), 'Did not find theme class before calling destroy');
+				proclaim.ok(
+					document.querySelector('.o-cookie-message--alternative'),
+					'Did not find theme class before calling destroy'
+				);
 				cookieMessage.destroy();
-				proclaim.notOk(document.querySelector('.o-cookie-message--alternative'), 'Found theme class after calling destroy');
+				proclaim.notOk(
+					document.querySelector('.o-cookie-message--alternative'),
+					'Found theme class after calling destroy'
+				);
 			});
 
 			it('removes the button click event listener', () => {
-				document.body.addEventListener('oCookieMessage.act', function act (){
-					throw new Error('The click event listener was actioned after calling the `destroy` method.');
+				document.body.addEventListener('oCookieMessage.act', function act() {
+					throw new Error(
+						'The click event listener was actioned after calling the `destroy` method.'
+					);
 				});
 				cookieMessage = CookieMessage.init();
 				cookieMessage.destroy();
-				const button = cookieMessage.cookieMessageElement.querySelector('.o-cookie-message__button');
+				const button = cookieMessage.cookieMessageElement.querySelector(
+					'.o-cookie-message__button'
+				);
 				button.click();
 			});
 		});
@@ -190,21 +234,30 @@ describe('Cookie Message', () => {
 			it('The pageshow event is not responded to unless swiping back', () => {
 				cookieMessage = CookieMessage.init();
 				firePageTransitionEvent('pageshow');
-				proclaim.deepEqual(flatten(cookieMessage.cookieMessageElement.outerHTML).replaceAll(window.location.toString(), 'http://example.com'), flatten(fixtures.html.imperativeCookieMessage));
+				proclaim.deepEqual(
+					flatten(cookieMessage.cookieMessageElement.outerHTML).replaceAll(
+						window.location.toString(),
+						'http://example.com'
+					),
+					flatten(fixtures.html.imperativeCookieMessage)
+				);
 			});
 
 			it('emits `oCookieMessage.close` when swiping back with consent granted', () => {
 				cookieMessage = CookieMessage.init();
 
 				document.cookie = 'FTCookieConsentGDPR=true; Max-Age=500;';
-				firePageTransitionEvent('pageshow', { persisted: true });
+				firePageTransitionEvent('pageshow', {persisted: true});
 
-				proclaim.isTrue(hasClosed, 'Expected the `oCookieMessage.close` to be emitted but it was not.');
+				proclaim.isTrue(
+					hasClosed,
+					'Expected the `oCookieMessage.close` to be emitted but it was not.'
+				);
 			});
 
 			it('Remains open when when swiping back and consent has not been given', () => {
 				cookieMessage = CookieMessage.init();
-				firePageTransitionEvent('pageshow', { persisted: true });
+				firePageTransitionEvent('pageshow', {persisted: true});
 
 				proclaim.isFalse(hasClosed, 'Expected the banner to remain open.');
 			});

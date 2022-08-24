@@ -27,7 +27,12 @@
 /// @param {List|Null} $icons [null] - The button icons to output for this theme.
 @mixin oButtonsAddTheme($name, $opts, $types, $icons: null) {
 	// Add the name to the theme map.
-	$theme: map-merge(('name': $name), $opts);
+	$theme: map-merge(
+		(
+			'name': $name,
+		),
+		$opts
+	);
 	// Create each button type for the new theme.
 	@each $type in $types {
 		@include _oButtonsAdd($type, $theme, $icons);
@@ -75,13 +80,17 @@
 /// @param {Map} $opts [('type': 'null', 'theme': null, 'size': null, 'icon': null, 'icon-only': false)] - The kind of button styles to output.
 /// @param {Boolean} $include-base-styles [true] - Whether to include base button styles, shared by all buttons.
 /// @param {Boolean} $include-base-icon-styles [true] - Whether to include base icon button styles, shared by all icon buttons (defaults to true only when outputting an icon button).
-@mixin oButtonsContent($opts: (
-	'type': null,
-	'theme': null,
-	'size': null,
-	'icon': null,
-	'icon-only': false
-), $include-base-styles: true, $include-base-icon-styles: true) {
+@mixin oButtonsContent(
+	$opts: (
+		'type': null,
+		'theme': null,
+		'size': null,
+		'icon': null,
+		'icon-only': false,
+	),
+	$include-base-styles: true,
+	$include-base-icon-styles: true
+) {
 	$theme: map-get($opts, 'theme');
 	$type: map-get($opts, 'type');
 	$icon-only: map-get($opts, 'icon-only');
@@ -132,7 +141,6 @@
 	}
 }
 
-
 /// @output Styles for a button e.g. `.o-buttons--primary`, `.o-buttons--primary.o-buttons--inverse`.
 ///
 /// @param {String} $type - The type of button to output e.g. ('primary', 'secondary').
@@ -140,7 +148,9 @@
 /// @param {List|Null} $icons [null] - The button icons to output for the button type and theme.
 @mixin _oButtonsAdd($type, $theme: null, $icons: null) {
 	// Error if the theme is not expected.
-	@if ($theme != null and type-of($theme) != 'string' and type-of($theme) != 'map') {
+	@if (
+		$theme != null and type-of($theme) != 'string' and type-of($theme) != 'map'
+	) {
 		@error 'Expected the button theme to be a string, map, or `null`.';
 	}
 	// Generate button colours if they don't already exist for this button.
@@ -174,7 +184,8 @@
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
-	transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
+	transition: 0.3s background-color, 0.15s color ease-out,
+		0.15s border-color ease-out;
 	user-select: none;
 	background-clip: border-box;
 	border-width: 1px;
@@ -214,15 +225,19 @@
 /// @param {Null|Number} $size
 @mixin _oButtonsSizeContent($size: null) {
 	@include oTypographySans($scale: _oButtonsGet('scale', $size));
-	$line-height: nth(oTypographyGetScale(
-		$index: _oButtonsGet('scale', $size),
-		$font: oTypographyGetFontFamily('sans')
-	), 1);
+	$line-height: nth(
+		oTypographyGetScale(
+			$index: _oButtonsGet('scale', $size),
+			$font: oTypographyGetFontFamily('sans'),
+		),
+		1
+	);
 	line-height: #{$line-height}px;
 	// IE11 renders the background image at a very small size if you do not
 	// double-up the background size here, declaring a width _and_ height.
 	// See https://thatemil.com/blog/2015/03/15/sizing-svg-background-images-in-internet-explorer/
-	background-size: _oButtonsGet('background-size', $size) _oButtonsGet('background-size', $size);
+	background-size: _oButtonsGet('background-size', $size)
+		_oButtonsGet('background-size', $size);
 	min-height: _oButtonsGet('min-height', $size);
 	min-width: _oButtonsGet('min-width', $size);
 	padding: _oButtonsGet('padding', $size);
@@ -273,7 +288,7 @@
 	@include _oButtonsGetIcon($icon, $normal-icon-color);
 
 	// Only output the hover icon if it is different to the default icon.
-	@if($hover-icon-color != $normal-icon-color) {
+	@if ($hover-icon-color != $normal-icon-color) {
 		&:hover {
 			@include _oButtonsGetIcon($icon, $hover-icon-color);
 		}
@@ -291,14 +306,26 @@
 	}
 
 	// Only output the focus icon if it is different to the default or hover icon.
-	@if($focus-icon-color != $normal-icon-color or $focus-icon-color != $hover-icon-color) {
+	@if (
+		$focus-icon-color !=
+			$normal-icon-color or
+			$focus-icon-color !=
+			$hover-icon-color
+	) {
 		&:focus {
 			@include _oButtonsGetIcon($icon, $focus-icon-color);
 		}
 	}
 
 	// Only output the active icon if it is different to states with less specificity.
-	@if($active-icon-color != $normal-icon-color or $active-icon-color != $hover-icon-color or $active-icon-color != $focus-icon-color) {
+	@if (
+		$active-icon-color !=
+			$normal-icon-color or
+			$active-icon-color !=
+			$hover-icon-color or
+			$active-icon-color !=
+			$focus-icon-color
+	) {
 		// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
 		// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
 		&[aria-selected=true], // e.g. A selected tab or page number in pagination.
@@ -319,10 +346,22 @@
 	// This only needs to be output once, not for every button state.
 	// sass-lint:disable no-vendor-prefixes
 	@media screen and (-ms-high-contrast: active) {
-		@include oIconsContent($icon-name: $icon, $size: null, $color: #ffffff, $include-base-styles: false, $high-contrast-fallback: false);
+		@include oIconsContent(
+			$icon-name: $icon,
+			$size: null,
+			$color: #ffffff,
+			$include-base-styles: false,
+			$high-contrast-fallback: false
+		);
 	}
 	@media screen and (-ms-high-contrast: black-on-white) {
-		@include oIconsContent($icon-name: $icon, $size: null, $color: #000000, $include-base-styles: false, $high-contrast-fallback: false);
+		@include oIconsContent(
+			$icon-name: $icon,
+			$size: null,
+			$color: #000000,
+			$include-base-styles: false,
+			$high-contrast-fallback: false
+		);
 	}
 	// sass-lint:enable no-vendor-prefixes
 }
@@ -332,5 +371,11 @@
 /// @param {String} $icon-name - icon to request
 /// @param {Color} $icon-color - a hex for the button icon colour
 @mixin _oButtonsGetIcon($icon-name, $icon-color) {
-	@include oIconsContent($icon-name: $icon-name, $size: null, $color: $icon-color, $include-base-styles: false, $high-contrast-fallback: false);
+	@include oIconsContent(
+		$icon-name: $icon-name,
+		$size: null,
+		$color: $icon-color,
+		$include-base-styles: false,
+		$high-contrast-fallback: false
+	);
 }

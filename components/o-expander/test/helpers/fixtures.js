@@ -19,7 +19,7 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-function simple () {
+function simple() {
 	const html = `
 	<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="2" id="element">
 		<h2>Collapsing to number of items in a list</h2>
@@ -52,7 +52,7 @@ function simple () {
 	insert(html);
 }
 
-function manualInit () {
+function manualInit() {
 	const html = `
 	<div id="expander" data-o-component="o-expander" class="o-expander">
 		<h2>Collapsing to number of items in a list</h2>
@@ -68,7 +68,7 @@ function manualInit () {
 	insert(html);
 }
 
-function custom () {
+function custom() {
 	const html = `
 	<div id="expander" class="my-expander">
 		<h2>Collapsing to number of items in a list</h2>
@@ -84,7 +84,7 @@ function custom () {
 	insert(html);
 }
 
-function numberItemSelector () {
+function numberItemSelector() {
 	const html = `
 	<div id="expander" data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="2" data-o-expander-item-selector="p" id="element">
 		<h2>Collapsing to number of items in a list</h2>
@@ -100,10 +100,4 @@ function numberItemSelector () {
 	insert(html);
 }
 
-export {
-	custom,
-	numberItemSelector,
-	manualInit,
-	simple,
-	reset
-};
+export {custom, numberItemSelector, manualInit, simple, reset};

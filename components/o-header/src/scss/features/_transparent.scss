@@ -9,19 +9,37 @@
 		}
 
 		.o-header__top-icon-link--menu:before {
-			@include oIconsContent('hamburger', _oHeaderGet('header-icon', $from: 'transparent'), $size: null, $include-base-styles: false);
+			@include oIconsContent(
+				'hamburger',
+				_oHeaderGet('header-icon', $from: 'transparent'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		.o-header__top-link--search:before {
-			@include oIconsContent('search', _oHeaderGet('header-icon', $from: 'transparent'), $size: null, $include-base-styles: false);
+			@include oIconsContent(
+				'search',
+				_oHeaderGet('header-icon', $from: 'transparent'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		.o-header__top-icon-link--myft:before {
-			@include _oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon', $from: 'transparent'), 52);
+			@include _oHeaderBrandImage(
+				'brand-myft',
+				_oHeaderGet('header-icon', $from: 'transparent'),
+				52
+			);
 		}
 
 		.o-header__top-logo {
-			@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon', $from: 'transparent'), 500);
+			@include _oHeaderBrandImage(
+				'brand-ft-masthead',
+				_oHeaderGet('header-icon', $from: 'transparent'),
+				500
+			);
 		}
 
 		.o-header__drawer-button,
@@ -30,7 +48,7 @@
 			@include oButtonsContent(
 				(
 					'type': 'primary',
-					'theme': 'inverse'
+					'theme': 'inverse',
 				),
 				$include-base-styles: false,
 				$include-base-icon-styles: false
@@ -54,7 +72,10 @@
 
 			&--highlight:after,
 			&[aria-current]:after {
-				background-color: _oHeaderGet('link-highlight-text', $from: 'transparent');
+				background-color: _oHeaderGet(
+					'link-highlight-text',
+					$from: 'transparent'
+				);
 			}
 		}
 	}

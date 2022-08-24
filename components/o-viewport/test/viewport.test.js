@@ -10,19 +10,17 @@ function isPhantom() {
 }
 
 describe('o-viewport utils', function () {
-
-	it('throttle should be exposed', function() {
+	it('throttle should be exposed', function () {
 		proclaim.isTypeOf(utils.throttle, 'function');
 	});
 
-	it('debounce should be exposed', function() {
+	it('debounce should be exposed', function () {
 		proclaim.isTypeOf(utils.debounce, 'function');
 	});
 });
 
-describe('o-viewport', function() {
-
-	before(function() {
+describe('o-viewport', function () {
+	before(function () {
 		if (isPhantom()) {
 			// hack to make test run in PhantomJS
 			// it doesn't support visibilitychange
@@ -30,7 +28,7 @@ describe('o-viewport', function() {
 		}
 	});
 
-	after(function() {
+	after(function () {
 		if (isPhantom()) {
 			// hack to make test run in PhantomJS
 			// it doesn't support visibilitychange
@@ -38,9 +36,9 @@ describe('o-viewport', function() {
 		}
 	});
 
-	it('should listen to orientationchange event', function(done) {
+	it('should listen to orientationchange event', function (done) {
 		oViewport.listenTo('orientation');
-		document.body.addEventListener('oViewport.orientation', function(ev) {
+		document.body.addEventListener('oViewport.orientation', function (ev) {
 			proclaim.equal(ev.type, 'oViewport.orientation');
 			proclaim.notEqual(ev.detail.viewport, undefined);
 			proclaim.notEqual(ev.detail.orientation, undefined);
@@ -50,9 +48,9 @@ describe('o-viewport', function() {
 		window.dispatchEvent(new Event('orientationchange'));
 	});
 
-	it('should listen to visibilitychange event', function(done) {
+	it('should listen to visibilitychange event', function (done) {
 		oViewport.listenTo('visibility');
-		document.body.addEventListener('oViewport.visibility', function(ev) {
+		document.body.addEventListener('oViewport.visibility', function (ev) {
 			proclaim.equal(ev.type, 'oViewport.visibility');
 			proclaim.notEqual(ev.detail.hidden, undefined);
 			proclaim.notEqual(ev.detail.originalEvent, undefined);
@@ -61,9 +59,9 @@ describe('o-viewport', function() {
 		window.dispatchEvent(new Event('visibilitychange'));
 	});
 
-	it('should listen to resize event', function(done) {
+	it('should listen to resize event', function (done) {
 		oViewport.listenTo('resize');
-		document.body.addEventListener('oViewport.resize', function(ev) {
+		document.body.addEventListener('oViewport.resize', function (ev) {
 			proclaim.equal(ev.type, 'oViewport.resize');
 			proclaim.notEqual(ev.detail.viewport, undefined);
 			proclaim.notEqual(ev.detail.originalEvent, undefined);
@@ -72,9 +70,9 @@ describe('o-viewport', function() {
 		window.dispatchEvent(new Event('resize'));
 	});
 
-	it('should listen to scroll event', function(done) {
+	it('should listen to scroll event', function (done) {
 		oViewport.listenTo('scroll');
-		document.body.addEventListener('oViewport.scroll', function(ev) {
+		document.body.addEventListener('oViewport.scroll', function (ev) {
 			proclaim.equal(ev.type, 'oViewport.scroll');
 			proclaim.notEqual(ev.detail.viewport, undefined);
 			proclaim.notEqual(ev.detail.scrollTop, undefined);
@@ -87,23 +85,26 @@ describe('o-viewport', function() {
 		window.dispatchEvent(new Event('scroll'));
 	});
 
-	it('should get size the size of the viewport', function() {
+	it('should get size the size of the viewport', function () {
 		const viewportSize = oViewport.getSize();
 		proclaim.isTypeOf(viewportSize.width, 'number');
 		proclaim.isTypeOf(viewportSize.height, 'number');
 	});
 
-	it('should get the orientation of the viewport', function() {
-		proclaim.isTrue(oViewport.getOrientation() === 'portrait' || oViewport.getOrientation() === 'landscape');
+	it('should get the orientation of the viewport', function () {
+		proclaim.isTrue(
+			oViewport.getOrientation() === 'portrait' ||
+				oViewport.getOrientation() === 'landscape'
+		);
 	});
 
-	it('should be able to get the visibility of the viewport', function() {
+	it('should be able to get the visibility of the viewport', function () {
 		proclaim.isTypeOf(oViewport.getVisibility(), 'boolean');
 	});
 
-	it('should stop listening to scroll event', function(done) {
+	it('should stop listening to scroll event', function (done) {
 		oViewport.stopListeningTo('scroll');
-		document.body.addEventListener('oViewport.scroll', function() {
+		document.body.addEventListener('oViewport.scroll', function () {
 			done(new Error('scroll event still ran!'));
 		});
 
@@ -114,21 +115,21 @@ describe('o-viewport', function() {
 		window.dispatchEvent(new Event('scroll'));
 	});
 
-	it('should stop listening to all events', function(done) {
+	it('should stop listening to all events', function (done) {
 		oViewport.stopListeningTo('all');
-		document.body.addEventListener('oViewport.resize', function() {
+		document.body.addEventListener('oViewport.resize', function () {
 			done(new Error('resize event still ran!'));
 		});
 
-		document.body.addEventListener('oViewport.orientationchange', function() {
+		document.body.addEventListener('oViewport.orientationchange', function () {
 			done(new Error('orientationchange event still ran!'));
 		});
 
-		document.body.addEventListener('oViewport.visibilitychange', function() {
+		document.body.addEventListener('oViewport.visibilitychange', function () {
 			done(new Error('visibilitychange event still ran!'));
 		});
 
-		setTimeout(function() {
+		setTimeout(function () {
 			done();
 		}, 1500);
 

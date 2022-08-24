@@ -3,7 +3,7 @@ const INTENT_LEAVE = 400;
 
 const expanded = [];
 
-function addEvents (parent, menu) {
+function addEvents(parent, menu) {
 	let timeout;
 
 	parent.addEventListener('mouseenter', () => {
@@ -23,8 +23,7 @@ function addEvents (parent, menu) {
 		}, INTENT_ENTER);
 	});
 
-
-	const handleKeydown = (event) => {
+	const handleKeydown = event => {
 		const key = event.key || event.keyCode;
 
 		// Internet Explorer 11 incorrectly maps the escape key to `Esc` instead of `Escape`
@@ -43,11 +42,11 @@ function addEvents (parent, menu) {
 	});
 }
 
-function isOpen (menu) {
+function isOpen(menu) {
 	return expanded.indexOf(menu) !== -1;
 }
 
-function show (menu, animate) {
+function show(menu, animate) {
 	if (animate) {
 		menu.classList.add('o-header__mega--animation');
 	}
@@ -55,22 +54,22 @@ function show (menu, animate) {
 	menu.setAttribute('aria-hidden', 'false');
 	menu.setAttribute('aria-expanded', 'true');
 
-	menu.dispatchEvent(new CustomEvent('oHeader.MegaMenuShow', { bubbles: true }));
+	menu.dispatchEvent(new CustomEvent('oHeader.MegaMenuShow', {bubbles: true}));
 
 	expanded.push(menu);
 }
 
-function hide (menu) {
+function hide(menu) {
 	menu.classList.remove('o-header__mega--animation');
 	menu.setAttribute('aria-hidden', 'true');
 	menu.setAttribute('aria-expanded', 'false');
 
-	menu.dispatchEvent(new CustomEvent('oHeader.MegaMenuHide', { bubbles: true }));
+	menu.dispatchEvent(new CustomEvent('oHeader.MegaMenuHide', {bubbles: true}));
 
 	expanded.splice(expanded.indexOf(menu), 1);
 }
 
-function init (headerEl) {
+function init(headerEl) {
 	const menus = Array.from(headerEl.querySelectorAll('[data-o-header-mega]'));
 	const parents = menus.map(menu => menu.parentNode);
 
@@ -82,5 +81,5 @@ function init (headerEl) {
 	parents.forEach((parent, i) => addEvents(parent, menus[i]));
 }
 
-export { init, show, hide };
-export default { init, show, hide };
+export {init, show, hide};
+export default {init, show, hide};

@@ -20,7 +20,7 @@ body {
 	margin: 20px;
 }
 
-[data-o-component="o-tooltip"] {
+[data-o-component='o-tooltip'] {
 	display: none;
 }
 
@@ -50,8 +50,10 @@ body {
 	top: 0;
 }
 
-
-@include oTooltipAddTheme('demo-custom-theme', (
-	'background-color': oColorsByName('black'),
-	'foreground-color': oColorsByName('white')
-));
+@include oTooltipAddTheme(
+	'demo-custom-theme',
+	(
+		'background-color': oColorsByName('black'),
+		'foreground-color': oColorsByName('white'),
+	)
+);

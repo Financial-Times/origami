@@ -44,8 +44,14 @@ describe('State', () => {
 			form = document.forms[0];
 			nodeList = form.elements['radioBox'];
 			state = new State(nodeList);
-			stateClass = (state) => nodeList[0].closest('.o-forms-input').classList.contains(`o-forms-input--${state}`);
-			getStateText = () => nodeList[0].closest('.o-forms-input').querySelector('.o-forms-input__state').textContent;
+			stateClass = state =>
+				nodeList[0]
+					.closest('.o-forms-input')
+					.classList.contains(`o-forms-input--${state}`);
+			getStateText = () =>
+				nodeList[0]
+					.closest('.o-forms-input')
+					.querySelector('.o-forms-input__state').textContent;
 		});
 
 		afterEach(() => {
@@ -94,7 +100,7 @@ describe('State', () => {
 		});
 
 		it('accepts an options object with iconOnly key', () => {
-			state = new State(nodeList, { iconOnly: true });
+			state = new State(nodeList, {iconOnly: true});
 			state.set('saving');
 			const icon = document.querySelector('.o-forms-input__state--icon-only');
 			proclaim.isNotNull(icon);

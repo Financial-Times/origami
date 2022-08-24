@@ -3,18 +3,20 @@
 @import 'src/scss/variables';
 @import 'src/scss/languages/main';
 
-@mixin oSyntaxHighlight($opts: (
-	'languages': (
-		'bash',
-		'css',
-		'diff',
-		'html',
-		'js',
-		'json',
-		'sass',
-		'yaml'
+@mixin oSyntaxHighlight(
+	$opts: (
+		'languages': (
+			'bash',
+			'css',
+			'diff',
+			'html',
+			'js',
+			'json',
+			'sass',
+			'yaml',
+		),
 	)
-)) {
+) {
 	$languages: map-get($opts, 'languages');
 
 	@include _oSyntaxHighlightBase();

@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 import * as fixtures from './helpers/fixtures.js';
-import { screen } from '@testing-library/dom';
+import {screen} from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import {assert} from '@open-wc/testing';
 import sinon from 'sinon/pkg/sinon-esm.js';
@@ -16,7 +16,6 @@ let tabs;
 let tabPanels;
 
 describe('tabs', () => {
-
 	beforeEach(() => {
 		fixtures.insertSimple();
 		tabsEl = screen.getByRole('tablist');
@@ -51,7 +50,6 @@ describe('tabs', () => {
 	});
 
 	describe('tabs behaviour', () => {
-
 		afterEach(() => {
 			oTabs.destroy();
 		});
@@ -69,7 +67,10 @@ describe('tabs', () => {
 
 			// Aria labelledby is set correctly:
 			assert.strictEqual(tabs[2].id, 'tabContent3-label');
-			assert.strictEqual(tabPanels[2].getAttribute('aria-labelledby'), 'tabContent3-label');
+			assert.strictEqual(
+				tabPanels[2].getAttribute('aria-labelledby'),
+				'tabContent3-label'
+			);
 
 			// Focusable elements
 			// Only one tab is focusable
@@ -128,7 +129,6 @@ describe('tabs', () => {
 			} finally {
 				spy.restore();
 			}
-
 		});
 
 		it('enter key press tab', () => {
@@ -163,7 +163,6 @@ describe('tabs', () => {
 		});
 
 		describe('hash updating', () => {
-
 			const rebuildTabs = (withUpdateUrl = true) => {
 				fixtures.reset();
 				fixtures.insertSimple();
@@ -187,7 +186,9 @@ describe('tabs', () => {
 			it('Should update the hash part of the url to the id of the active tab', () => {
 				rebuildTabs(true);
 				oTabs.selectTab(0);
-				const expectedHash = document.querySelector('.o-tabs a:first-child').hash;
+				const expectedHash = document.querySelector(
+					'.o-tabs a:first-child'
+				).hash;
 				assert.strictEqual(location.hash, expectedHash);
 			});
 
@@ -202,9 +203,9 @@ describe('tabs', () => {
 				assert.strictEqual(location.hash, '');
 			});
 
-			it('Should open the correct tab onload if the hash is present', (done) => {
+			it('Should open the correct tab onload if the hash is present', done => {
 				location.hash = '#tabContent3';
-				tabsEl.addEventListener('oTabs.tabSelect', (ev) => {
+				tabsEl.addEventListener('oTabs.tabSelect', ev => {
 					try {
 						assert.strictEqual(ev.detail.selected, 2);
 						done();
@@ -215,11 +216,11 @@ describe('tabs', () => {
 				rebuildTabs(true);
 			});
 
-			it('Should respond to the hashchange event', (done) => {
+			it('Should respond to the hashchange event', done => {
 				rebuildTabs(true);
 				oTabs.selectTab(0);
 				location.hash = '#tabContent3';
-				tabsEl.addEventListener('oTabs.tabSelect', (ev) => {
+				tabsEl.addEventListener('oTabs.tabSelect', ev => {
 					try {
 						assert.strictEqual(ev.detail.selected, 2);
 						done();
@@ -235,30 +236,30 @@ describe('tabs', () => {
 		/**
 		 * @type {HTMLElement}
 		 */
-		 let tabList;
-		 /**
-		  * @type {HTMLElement}
-		  */
-		 let firstTab;
-		 /**
-		  * @type {HTMLElement}
-		  */
-		 let secondTab;
-		 /**
-		  * @type {HTMLElement}
-		  */
-		 let lastTab;
-		 beforeEach(() => {
-			 tabList = screen.queryByRole('tablist');
-			 const tabs = tabList.querySelectorAll('[role=tab]');
-			 firstTab = tabs[0];
-			 secondTab = tabs[1];
-			 lastTab = tabs[2];
-		 });
+		let tabList;
+		/**
+		 * @type {HTMLElement}
+		 */
+		let firstTab;
+		/**
+		 * @type {HTMLElement}
+		 */
+		let secondTab;
+		/**
+		 * @type {HTMLElement}
+		 */
+		let lastTab;
+		beforeEach(() => {
+			tabList = screen.queryByRole('tablist');
+			const tabs = tabList.querySelectorAll('[role=tab]');
+			firstTab = tabs[0];
+			secondTab = tabs[1];
+			lastTab = tabs[2];
+		});
 
-		 afterEach(() => {
-			 oTabs.destroy();
-		 });
+		afterEach(() => {
+			oTabs.destroy();
+		});
 		context('clicking onto an unactive tab in the tab-list', () => {
 			beforeEach(() => {
 				secondTab.click();
@@ -278,27 +279,55 @@ describe('tabs', () => {
 				assert.isFalse(secondTab.hasAttribute('tabindex'));
 			});
 			it('activates the tabpanel which is associated with the newly selected tab', () => {
-				const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
-				assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-expanded'), 'true');
-				assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-hidden'), 'false');
+				const panelAssociatedWithSecondTab = document.getElementById(
+					secondTab.getAttribute('aria-controls')
+				);
+				assert.equal(
+					panelAssociatedWithSecondTab.getAttribute('aria-expanded'),
+					'true'
+				);
+				assert.equal(
+					panelAssociatedWithSecondTab.getAttribute('aria-hidden'),
+					'false'
+				);
 			});
 			it('adds the tabpanel which is associated with the newly selected tab to the tabbing order', () => {
-				const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
-				assert.equal(panelAssociatedWithSecondTab.getAttribute('tabindex'), '0');
+				const panelAssociatedWithSecondTab = document.getElementById(
+					secondTab.getAttribute('aria-controls')
+				);
+				assert.equal(
+					panelAssociatedWithSecondTab.getAttribute('tabindex'),
+					'0'
+				);
 			});
 			it('deactivates any tabpanels in the tab component which are not associated with the newly selected tab', () => {
-				const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
-				assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-expanded'), 'false');
-				assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-hidden'), 'true');
+				const panelAssociatedWithFirstTab = document.getElementById(
+					firstTab.getAttribute('aria-controls')
+				);
+				assert.equal(
+					panelAssociatedWithFirstTab.getAttribute('aria-expanded'),
+					'false'
+				);
+				assert.equal(
+					panelAssociatedWithFirstTab.getAttribute('aria-hidden'),
+					'true'
+				);
 				assert.isFalse(panelAssociatedWithFirstTab.hasAttribute('tabindex'));
 
-				const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
-				assert.equal(panelAssociatedWithLastTab.getAttribute('aria-expanded'), 'false');
-				assert.equal(panelAssociatedWithLastTab.getAttribute('aria-hidden'), 'true');
+				const panelAssociatedWithLastTab = document.getElementById(
+					lastTab.getAttribute('aria-controls')
+				);
+				assert.equal(
+					panelAssociatedWithLastTab.getAttribute('aria-expanded'),
+					'false'
+				);
+				assert.equal(
+					panelAssociatedWithLastTab.getAttribute('aria-hidden'),
+					'true'
+				);
 				assert.isFalse(panelAssociatedWithLastTab.hasAttribute('tabindex'));
 			});
 		});
-
 	});
 
 	describe('keyboard accessibility', () => {
@@ -337,7 +366,7 @@ describe('tabs', () => {
 				// Tab to the next focusable item which will be the o-tabs component
 				userEvent.tab();
 				const elementInFocus = document.activeElement;
-				const activeTab = screen.getByRole('tab', { selected: true });
+				const activeTab = screen.getByRole('tab', {selected: true});
 				assert.strictEqual(elementInFocus, activeTab);
 			});
 		});
@@ -350,10 +379,12 @@ describe('tabs', () => {
 
 			context('pressing the left arrow key', () => {
 				beforeEach(() => {
-					firstTab.dispatchEvent(new KeyboardEvent('keyup', {
-						keyCode: 37,
-						bubbles:true
-					}));
+					firstTab.dispatchEvent(
+						new KeyboardEvent('keyup', {
+							keyCode: 37,
+							bubbles: true,
+						})
+					);
 				});
 				it('will remove the first tab from the tabbing order', () => {
 					assert.equal(firstTab.getAttribute('tabindex'), '-1');
@@ -368,32 +399,63 @@ describe('tabs', () => {
 					assert.isFalse(lastTab.hasAttribute('tabindex'));
 				});
 				it('activates the tabpanel which is associated with the newly focused tab', () => {
-					const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-expanded'), 'true');
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-hidden'), 'false');
+					const panelAssociatedWithLastTab = document.getElementById(
+						lastTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-expanded'),
+						'true'
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-hidden'),
+						'false'
+					);
 				});
 				it('adds the tabpanel which is associated with the newly focused tab to the tabbing order', () => {
-					const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithLastTab.getAttribute('tabindex'), '0');
+					const panelAssociatedWithLastTab = document.getElementById(
+						lastTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('tabindex'),
+						'0'
+					);
 				});
 				it('deactivates any tabpanels in the tab component which are not associated with the newly focused tab', () => {
-					const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithFirstTab = document.getElementById(
+						firstTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithFirstTab.hasAttribute('tabindex'));
 
-					const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithSecondTab = document.getElementById(
+						secondTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithSecondTab.hasAttribute('tabindex'));
 				});
 			});
 			context('pressing the right arrow key', () => {
 				beforeEach(() => {
-					firstTab.dispatchEvent(new KeyboardEvent('keyup', {
-						keyCode: 39,
-						bubbles:true
-					}));
+					firstTab.dispatchEvent(
+						new KeyboardEvent('keyup', {
+							keyCode: 39,
+							bubbles: true,
+						})
+					);
 				});
 				it('will remove the first tab from the tabbing order', () => {
 					assert.equal(firstTab.getAttribute('tabindex'), '-1');
@@ -408,38 +470,73 @@ describe('tabs', () => {
 					assert.isFalse(secondTab.hasAttribute('tabindex'));
 				});
 				it('activates the tabpanel which is associated with the newly focused tab', () => {
-					const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-expanded'), 'true');
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-hidden'), 'false');
+					const panelAssociatedWithSecondTab = document.getElementById(
+						secondTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-expanded'),
+						'true'
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-hidden'),
+						'false'
+					);
 				});
 				it('adds the tabpanel which is associated with the newly focused tab to the tabbing order', () => {
-					const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('tabindex'), '0');
+					const panelAssociatedWithSecondTab = document.getElementById(
+						secondTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('tabindex'),
+						'0'
+					);
 				});
 				it('deactivates any tabpanels in the tab component which are not associated with the newly focused tab', () => {
-					const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithFirstTab = document.getElementById(
+						firstTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithFirstTab.hasAttribute('tabindex'));
 
-					const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithLastTab = document.getElementById(
+						lastTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithLastTab.hasAttribute('tabindex'));
 				});
 			});
 			it('pressing the tab key will change the focus to the open tab-panel', () => {
-				const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
+				const panelAssociatedWithFirstTab = document.getElementById(
+					firstTab.getAttribute('aria-controls')
+				);
 				userEvent.tab();
 				assert.strictEqual(document.activeElement, panelAssociatedWithFirstTab);
 			});
 			it('pressing the space key activates the tabpanel which is associated with the focused tab', () => {
-				const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
+				const panelAssociatedWithFirstTab = document.getElementById(
+					firstTab.getAttribute('aria-controls')
+				);
 				userEvent.keyboard('{space}');
 				assert.strictEqual(document.activeElement, panelAssociatedWithFirstTab);
 			});
 			it('pressing the enter key activates the tabpanel which is associated with the focused tab', () => {
-				const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
+				const panelAssociatedWithFirstTab = document.getElementById(
+					firstTab.getAttribute('aria-controls')
+				);
 				userEvent.keyboard('{enter}');
 				assert.strictEqual(document.activeElement, panelAssociatedWithFirstTab);
 			});
@@ -452,10 +549,12 @@ describe('tabs', () => {
 			});
 			context('pressing the left arrow key', () => {
 				beforeEach(() => {
-					secondTab.dispatchEvent(new KeyboardEvent('keyup', {
-						keyCode: 37,
-						bubbles:true
-					}));
+					secondTab.dispatchEvent(
+						new KeyboardEvent('keyup', {
+							keyCode: 37,
+							bubbles: true,
+						})
+					);
 				});
 				it('will remove the second tab from the tabbing order', () => {
 					assert.equal(secondTab.getAttribute('tabindex'), '-1');
@@ -470,32 +569,63 @@ describe('tabs', () => {
 					assert.isFalse(firstTab.hasAttribute('tabindex'));
 				});
 				it('activates the tabpanel which is associated with the newly focused tab', () => {
-					const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-expanded'), 'true');
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-hidden'), 'false');
+					const panelAssociatedWithFirstTab = document.getElementById(
+						firstTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-expanded'),
+						'true'
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-hidden'),
+						'false'
+					);
 				});
 				it('adds the tabpanel which is associated with the newly focused tab to the tabbing order', () => {
-					const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('tabindex'), '0');
+					const panelAssociatedWithFirstTab = document.getElementById(
+						firstTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('tabindex'),
+						'0'
+					);
 				});
 				it('deactivates any tabpanels in the tab component which are not associated with the newly focused tab', () => {
-					const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithSecondTab = document.getElementById(
+						secondTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithSecondTab.hasAttribute('tabindex'));
 
-					const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithLastTab = document.getElementById(
+						lastTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithLastTab.hasAttribute('tabindex'));
 				});
 			});
 			context('pressing the right arrow key', () => {
 				beforeEach(() => {
-					secondTab.dispatchEvent(new KeyboardEvent('keyup', {
-						keyCode: 39,
-						bubbles:true
-					}));
+					secondTab.dispatchEvent(
+						new KeyboardEvent('keyup', {
+							keyCode: 39,
+							bubbles: true,
+						})
+					);
 				});
 				it('will remove the second tab from the tabbing order', () => {
 					assert.equal(secondTab.getAttribute('tabindex'), '-1');
@@ -510,40 +640,84 @@ describe('tabs', () => {
 					assert.isFalse(lastTab.hasAttribute('tabindex'));
 				});
 				it('activates the tabpanel which is associated with the newly focused tab', () => {
-					const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-expanded'), 'true');
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-hidden'), 'false');
+					const panelAssociatedWithLastTab = document.getElementById(
+						lastTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-expanded'),
+						'true'
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-hidden'),
+						'false'
+					);
 				});
 				it('adds the tabpanel which is associated with the newly focused tab to the tabbing order', () => {
-					const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithLastTab.getAttribute('tabindex'), '0');
+					const panelAssociatedWithLastTab = document.getElementById(
+						lastTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('tabindex'),
+						'0'
+					);
 				});
 				it('deactivates any tabpanels in the tab component which are not associated with the newly focused tab', () => {
-					const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithFirstTab = document.getElementById(
+						firstTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithFirstTab.hasAttribute('tabindex'));
 
-					const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithSecondTab = document.getElementById(
+						secondTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithSecondTab.hasAttribute('tabindex'));
 				});
 			});
 			it('pressing the tab key will change the focus to the open tab-panel', () => {
-				const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
+				const panelAssociatedWithSecondTab = document.getElementById(
+					secondTab.getAttribute('aria-controls')
+				);
 				userEvent.tab();
-				assert.strictEqual(document.activeElement, panelAssociatedWithSecondTab);
+				assert.strictEqual(
+					document.activeElement,
+					panelAssociatedWithSecondTab
+				);
 			});
 			it('pressing the space key activates the tabpanel which is associated with the focused tab', () => {
-				const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
+				const panelAssociatedWithSecondTab = document.getElementById(
+					secondTab.getAttribute('aria-controls')
+				);
 				userEvent.keyboard('{space}');
-				assert.strictEqual(document.activeElement, panelAssociatedWithSecondTab);
+				assert.strictEqual(
+					document.activeElement,
+					panelAssociatedWithSecondTab
+				);
 			});
 			it('pressing the enter key activates the tabpanel which is associated with the focused tab', () => {
-				const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
+				const panelAssociatedWithSecondTab = document.getElementById(
+					secondTab.getAttribute('aria-controls')
+				);
 				userEvent.keyboard('{enter}');
-				assert.strictEqual(document.activeElement, panelAssociatedWithSecondTab);
+				assert.strictEqual(
+					document.activeElement,
+					panelAssociatedWithSecondTab
+				);
 			});
 		});
 
@@ -554,10 +728,12 @@ describe('tabs', () => {
 			});
 			context('pressing the left arrow key', () => {
 				beforeEach(() => {
-					lastTab.dispatchEvent(new KeyboardEvent('keyup', {
-						keyCode: 37,
-						bubbles:true
-					}));
+					lastTab.dispatchEvent(
+						new KeyboardEvent('keyup', {
+							keyCode: 37,
+							bubbles: true,
+						})
+					);
 				});
 				it('will remove the last tab from the tabbing order', () => {
 					assert.equal(lastTab.getAttribute('tabindex'), '-1');
@@ -572,32 +748,63 @@ describe('tabs', () => {
 					assert.isFalse(secondTab.hasAttribute('tabindex'));
 				});
 				it('activates the tabpanel which is associated with the newly focused tab', () => {
-					const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-expanded'), 'true');
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-hidden'), 'false');
+					const panelAssociatedWithSecondTab = document.getElementById(
+						secondTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-expanded'),
+						'true'
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-hidden'),
+						'false'
+					);
 				});
 				it('adds the tabpanel which is associated with the newly focused tab to the tabbing order', () => {
-					const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('tabindex'), '0');
+					const panelAssociatedWithSecondTab = document.getElementById(
+						secondTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('tabindex'),
+						'0'
+					);
 				});
 				it('deactivates any tabpanels in the tab component which are not associated with the newly focused tab', () => {
-					const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithFirstTab = document.getElementById(
+						firstTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithFirstTab.hasAttribute('tabindex'));
 
-					const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithLastTab = document.getElementById(
+						lastTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithLastTab.hasAttribute('tabindex'));
 				});
 			});
 			context('pressing the right arrow key', () => {
 				beforeEach(() => {
-					lastTab.dispatchEvent(new KeyboardEvent('keyup', {
-						keyCode: 39,
-						bubbles:true
-					}));
+					lastTab.dispatchEvent(
+						new KeyboardEvent('keyup', {
+							keyCode: 39,
+							bubbles: true,
+						})
+					);
 				});
 				it('will remove the last tab from the tabbing order', () => {
 					assert.equal(lastTab.getAttribute('tabindex'), '-1');
@@ -612,38 +819,73 @@ describe('tabs', () => {
 					assert.isFalse(firstTab.hasAttribute('tabindex'));
 				});
 				it('activates the tabpanel which is associated with the newly focused tab', () => {
-					const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-expanded'), 'true');
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('aria-hidden'), 'false');
+					const panelAssociatedWithFirstTab = document.getElementById(
+						firstTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-expanded'),
+						'true'
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('aria-hidden'),
+						'false'
+					);
 				});
 				it('adds the tabpanel which is associated with the newly focused tab to the tabbing order', () => {
-					const panelAssociatedWithFirstTab = document.getElementById(firstTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithFirstTab.getAttribute('tabindex'), '0');
+					const panelAssociatedWithFirstTab = document.getElementById(
+						firstTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithFirstTab.getAttribute('tabindex'),
+						'0'
+					);
 				});
 				it('deactivates any tabpanels in the tab component which are not associated with the newly focused tab', () => {
-					const panelAssociatedWithSecondTab = document.getElementById(secondTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithSecondTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithSecondTab = document.getElementById(
+						secondTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithSecondTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithSecondTab.hasAttribute('tabindex'));
 
-					const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-expanded'), 'false');
-					assert.equal(panelAssociatedWithLastTab.getAttribute('aria-hidden'), 'true');
+					const panelAssociatedWithLastTab = document.getElementById(
+						lastTab.getAttribute('aria-controls')
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-expanded'),
+						'false'
+					);
+					assert.equal(
+						panelAssociatedWithLastTab.getAttribute('aria-hidden'),
+						'true'
+					);
 					assert.isFalse(panelAssociatedWithLastTab.hasAttribute('tabindex'));
 				});
 			});
 			it('pressing the tab key will change the focus to the open tab-panel', () => {
-				const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
+				const panelAssociatedWithLastTab = document.getElementById(
+					lastTab.getAttribute('aria-controls')
+				);
 				userEvent.tab();
 				assert.strictEqual(document.activeElement, panelAssociatedWithLastTab);
 			});
 			it('pressing the space key activates the tabpanel which is associated with the focused tab', () => {
-				const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
+				const panelAssociatedWithLastTab = document.getElementById(
+					lastTab.getAttribute('aria-controls')
+				);
 				userEvent.keyboard('{space}');
 				assert.strictEqual(document.activeElement, panelAssociatedWithLastTab);
 			});
 			it('pressing the enter key activates the tabpanel which is associated with the focused tab', () => {
-				const panelAssociatedWithLastTab = document.getElementById(lastTab.getAttribute('aria-controls'));
+				const panelAssociatedWithLastTab = document.getElementById(
+					lastTab.getAttribute('aria-controls')
+				);
 				userEvent.keyboard('{enter}');
 				assert.strictEqual(document.activeElement, panelAssociatedWithLastTab);
 			});

@@ -7,7 +7,7 @@ import * as fixtures from '../helpers/fixtures.js';
 
 import Overlay from './../../main.js';
 
-describe("Overlay", () => {
+describe('Overlay', () => {
 	it('is defined', () => {
 		proclaim.equal(typeof Overlay, 'function');
 	});
@@ -16,22 +16,22 @@ describe("Overlay", () => {
 		proclaim.equal(typeof Overlay.init, 'function');
 	});
 
-	it("should autoinitialize", (done) => {
+	it('should autoinitialize', done => {
 		const initSpy = sinon.spy(Overlay, 'init');
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		setTimeout(function(){
+		setTimeout(function () {
 			proclaim.equal(initSpy.called, true);
 			initSpy.restore();
 			done();
 		}, 100);
 	});
 
-	it("should not autoinitialize when the event is not dispached", () => {
+	it('should not autoinitialize when the event is not dispached', () => {
 		const initSpy = sinon.spy(Overlay, 'init');
 		proclaim.equal(initSpy.called, false);
 	});
 
-	describe("should create a new", () => {
+	describe('should create a new', () => {
 		beforeEach(() => {
 			fixtures.htmlCode();
 		});
@@ -41,14 +41,14 @@ describe("Overlay", () => {
 			Overlay.destroy();
 		});
 
-		it("component array when initialized", () => {
+		it('component array when initialized', () => {
 			const overlays = Overlay.init();
 			proclaim.equal(overlays instanceof Array, true);
 			proclaim.equal(overlays.length, 2);
 			proclaim.equal(overlays[0] instanceof Overlay, true);
 		});
 
-		it("component array of overlays found in the element passed in", () => {
+		it('component array of overlays found in the element passed in', () => {
 			const overlays = Overlay.init('#element');
 			proclaim.equal(overlays instanceof Array, true);
 			proclaim.equal(overlays.length, 1);

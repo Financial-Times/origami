@@ -13,7 +13,16 @@
 /// Single related content item styles
 @mixin _oTeaserRelatedItem {
 	@include oTypographySans(
-		$scale: (default: (-1, 22px), L: (0, 24px)),
+		$scale: (
+			default: (
+				-1,
+				22px,
+			),
+			L: (
+				0,
+				24px,
+			),
+		),
 		$include-font-family: false
 	);
 	color: $_o-teaser-muted;

@@ -17,14 +17,17 @@
 	}
 
 	.o-subs-card__select-button {
-		@include oButtonsContent($opts: (
-			'type': 'secondary',
-			'size': 'big',
-			'theme': ('inverse')
-		));
+		@include oButtonsContent(
+			$opts: (
+				'type': 'secondary',
+				'size': 'big',
+				'theme': (
+					'inverse',
+				),
+			)
+		);
 	}
 }
-
 
 @mixin oSubsCardDiscount {
 	.o-subs-card__copy-title {
@@ -40,14 +43,16 @@
 	}
 
 	.o-subs-card__select-button {
-		@include oButtonsContent($opts: (
-			'type': 'primary',
-			'size': 'big',
-			'theme': (
-				color: 'claret-80',
-				context: 'white'
+		@include oButtonsContent(
+			$opts: (
+				'type': 'primary',
+				'size': 'big',
+				'theme': (
+					color: 'claret-80',
+					context: 'white',
+				),
 			)
-		));
+		);
 	}
 
 	.o-subs-card__charge__value {

@@ -26,16 +26,28 @@
 ///     ));
 ///
 /// @param {Map} $opts [('headings': (1, 2, 3, 4, 5, 6), 'wrapper': true, 'body': true, 'links': true, 'lists': ('ordered', 'unordered'), 'caption': true, 'footer': true, 'utilities': true)] - The features of o-typography to output classes for. See the [README](https://registry.origami.ft.com/components/o-typography/readme) for more details.
-@mixin oTypography($opts: (
-	'headings': (1, 2, 3, 4, 5, 6),
-	'wrapper': true,
-	'body': true,
-	'links': true,
-	'lists': ('ordered', 'unordered'),
-	'caption': true,
-	'footer': true,
-	'utilities': true,
-)) {
+@mixin oTypography(
+	$opts: (
+		'headings': (
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+		),
+		'wrapper': true,
+		'body': true,
+		'links': true,
+		'lists': (
+			'ordered',
+			'unordered',
+		),
+		'caption': true,
+		'footer': true,
+		'utilities': true,
+	)
+) {
 	$wrapper-enabled: map-get($opts, 'wrapper');
 	$body-enabled: map-get($opts, 'body');
 	$links-enabled: map-get($opts, 'links');
@@ -44,12 +56,18 @@
 	$utilities-enabled: map-get($opts, 'utilities');
 	$headings: map-get($opts, 'headings');
 	$headings: if($headings, $headings, ());
-	@if($headings and type-of($headings) != 'list' and type-of($headings) != 'number') {
+	@if (
+		$headings and
+			type-of($headings) !=
+			'list' and
+			type-of($headings) !=
+			'number'
+	) {
 		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5, 6)`.');
 	}
 	$lists: map-get($opts, 'lists');
 	$lists: if($lists, $lists, ());
-	@if($lists and type-of($lists) != 'list') {
+	@if ($lists and type-of($lists) != 'list') {
 		@error ('The "lists" option must be a list of list types to include e.g. `(\'ordered\', \'unordered\')`.');
 	}
 
@@ -70,7 +88,7 @@
 	// Body, Italic, Superscript, Subscript.
 	@if $utilities-enabled {
 		.o-typography-bold {
-			@include oTypographySans (
+			@include oTypographySans(
 				$weight: 'semibold',
 				$include-font-family: false
 			);

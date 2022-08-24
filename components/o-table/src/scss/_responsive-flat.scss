@@ -54,7 +54,10 @@
 			tbody {
 				background-color: _oTableGet('table-background');
 				&:nth-child(even) {
-					background-color: _oTableGet('table-item-alternate-background', 'flat');
+					background-color: _oTableGet(
+						'table-item-alternate-background',
+						'flat'
+					);
 				}
 			}
 

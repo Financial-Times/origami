@@ -67,7 +67,7 @@ describe('o-lazy-load', () => {
 		});
 
 		it('loads target when moved into bounds', () => {
-			const [ a, b, c, d ] = sandboxEl.querySelectorAll('.o-lazy-load');
+			const [a, b, c, d] = sandboxEl.querySelectorAll('.o-lazy-load');
 
 			return Promise.resolve()
 				.then(() => {
@@ -93,26 +93,32 @@ describe('o-lazy-load', () => {
 		});
 
 		it('can load images, pictures, and toggle class names', () => {
-			const [ a, b, c, d ] = sandboxEl.querySelectorAll('.o-lazy-load');
+			const [a, b, c, d] = sandboxEl.querySelectorAll('.o-lazy-load');
 
 			return Promise.resolve()
 				.then(() => {
 					// <img data-src>
 					proclaim.isNull(a.getAttribute('src'));
 					a.scrollIntoView();
-					return waitUntil(() => proclaim.equal(a.getAttribute('src'), 'path/to/img-1.jpg'));
+					return waitUntil(() =>
+						proclaim.equal(a.getAttribute('src'), 'path/to/img-1.jpg')
+					);
 				})
 				.then(() => {
 					// <img data-srcset>
 					proclaim.isNull(b.getAttribute('srcset'));
 					b.scrollIntoView();
-					return waitUntil(() => proclaim.equal(b.getAttribute('srcset'), 'path/to/img-2.jpg 800w'));
+					return waitUntil(() =>
+						proclaim.equal(b.getAttribute('srcset'), 'path/to/img-2.jpg 800w')
+					);
 				})
 				.then(() => {
 					// <div data-toggle-class></div>
 					proclaim.isFalse(c.classList.contains('is-loaded'));
 					c.scrollIntoView();
-					return waitUntil(() => proclaim.isTrue(c.classList.contains('is-loaded')));
+					return waitUntil(() =>
+						proclaim.isTrue(c.classList.contains('is-loaded'))
+					);
 				})
 				.then(() => {
 					// <picture><source data-srcset><img data-src></picture>

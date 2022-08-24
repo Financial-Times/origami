@@ -1,6 +1,6 @@
 import oTable from './src/js/oTable.js';
 
-const constructAll = function() {
+const constructAll = function () {
 	oTable.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

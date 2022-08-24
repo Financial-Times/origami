@@ -1,6 +1,6 @@
 import SyntaxHighlight from './src/js/syntax-highlight.js';
 
-const constructAll = function() {
+const constructAll = function () {
 	SyntaxHighlight.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

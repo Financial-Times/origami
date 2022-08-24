@@ -1,6 +1,6 @@
 import {SubsCard} from './src/js/subsCard.js';
 
-const constructAll = function() {
+const constructAll = function () {
 	SubsCard.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

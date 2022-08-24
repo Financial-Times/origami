@@ -1,5 +1,4 @@
 @mixin _oTopperThemeBranded {
-
 	.o-topper__content {
 		grid-row: 2 / span 3;
 		@include oGridRespondTo($until: L) {
@@ -29,14 +28,18 @@
 	.o-topper__standfirst {
 		padding-right: calc(#{$_o-topper-headshot-width} + #{oSpacingByName('s2')});
 		@include oGridRespondTo(M) {
-			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oSpacingByName('s2')});
+			padding-right: calc(
+				#{$_o-topper-headshot-width-M} + #{oSpacingByName('s2')}
+			);
 		}
 	}
 
 	.o-topper__tags,
 	.o-topper__headline {
 		@include oGridRespondTo(M) {
-			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oSpacingByName('s2')});
+			padding-right: calc(
+				#{$_o-topper-headshot-width-M} + #{oSpacingByName('s2')}
+			);
 		}
 	}
 }
@@ -44,7 +47,11 @@
 @mixin _oTopperThemeOpinion {
 	.o-topper__topic,
 	.o-topper__opinion-genre {
-		@include oTypographySans($scale: 2, $line-height: 28px, $include-font-family: false);
+		@include oTypographySans(
+			$scale: 2,
+			$line-height: 28px,
+			$include-font-family: false
+		);
 	}
 }
 

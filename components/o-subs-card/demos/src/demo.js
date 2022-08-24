@@ -1,6 +1,6 @@
-import { SubsCard } from './../../main.js';
+import {SubsCard} from './../../main.js';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	const cards = SubsCard.init();
 
 	document.querySelector('.toggle-all').addEventListener('click', () => {

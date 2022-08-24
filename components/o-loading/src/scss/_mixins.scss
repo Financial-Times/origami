@@ -35,7 +35,7 @@
 /// @access private
 @mixin _oLoadingColor($theme) {
 	$color: _oLoadingGet('default-color', $from: $theme);
-	@if(not $color) {
+	@if (not $color) {
 		@error 'No color found for o-loading theme "#{$theme}".';
 	}
 
@@ -65,10 +65,12 @@
 /// @param {Map} $opts ['theme': ('light', 'dark'), 'size': ('mini', 'small', 'medium', 'large')
 /// @access public
 // Outputs loading styles for a custom class
-@mixin oLoadingContent($opts: (
-	'theme': null,
-	'size': null
-)) {
+@mixin oLoadingContent(
+	$opts: (
+		'theme': null,
+		'size': null,
+	)
+) {
 	$theme: map-get($opts, 'theme');
 	$size: map-get($opts, 'size');
 

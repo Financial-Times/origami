@@ -3,7 +3,9 @@
 @mixin _oTableSort {
 	$_o-table-sort-icon-size: 1.25rem;
 
-	.o-table:not([data-o-table-sortable="false"]) thead th:not([data-o-table-heading-disable-sort]) {
+	.o-table:not([data-o-table-sortable='false'])
+		thead
+		th:not([data-o-table-heading-disable-sort]) {
 		padding-right: $_o-table-sort-icon-size;
 		min-width: 60px;
 	}

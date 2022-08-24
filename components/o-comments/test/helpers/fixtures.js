@@ -19,7 +19,7 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-function streamMarkup () {
+function streamMarkup() {
 	const html = `
 		<div>
 			<div class="o-comments"
@@ -32,7 +32,7 @@ function streamMarkup () {
 	insert(html);
 }
 
-function countMarkup () {
+function countMarkup() {
 	const html = `
 		<div>
 			<div class="o-comments"
@@ -45,7 +45,7 @@ function countMarkup () {
 	insert(html);
 }
 
-function useStagingEnvironmentMarkup () {
+function useStagingEnvironmentMarkup() {
 	const html = `
 		<div>
 			<div class="o-comments"
@@ -59,7 +59,7 @@ function useStagingEnvironmentMarkup () {
 	insert(html);
 }
 
-function doNotUseStagingEnvironmentMarkup () {
+function doNotUseStagingEnvironmentMarkup() {
 	const html = `
 		<div>
 			<div class="o-comments"
@@ -78,5 +78,5 @@ export default {
 	streamMarkup,
 	countMarkup,
 	useStagingEnvironmentMarkup,
-	doNotUseStagingEnvironmentMarkup
+	doNotUseStagingEnvironmentMarkup,
 };

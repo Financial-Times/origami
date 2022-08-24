@@ -6,19 +6,18 @@ import * as fixtures from './helpers/fixtures.js';
 
 import Expander from './../main.js';
 
-describe("Expander", () => {
-
-	it('should update the toogle\`s aria-pressed attribute but not it\'s text when "toggleState" is set to aria', (done) => {
+describe('Expander', () => {
+	it('should update the toogle`s aria-pressed attribute but not it\'s text when "toggleState" is set to aria', done => {
 		// Setup test.
 		fixtures.manualInit();
 		// Select and init expander.
 		const expanderElement = document.getElementById('expander');
 		new Expander(expanderElement, {
-			toggleState: 'aria'
+			toggleState: 'aria',
 		});
 		// Confirm `toggleState` config works as expected.
 		document.getElementById('expander-toggle').click();
-		setTimeout(function(){
+		setTimeout(function () {
 			const expanderToggle = document.getElementById('expander-toggle');
 			proclaim.equal(
 				expanderToggle.getAttribute('aria-expanded'),
@@ -34,17 +33,17 @@ describe("Expander", () => {
 		}, 100);
 	});
 
-	it('should neither update the toogle\`s aria-pressed attribute or it\'s text when "toggleState" is set to none', (done) => {
+	it('should neither update the toogle`s aria-pressed attribute or it\'s text when "toggleState" is set to none', done => {
 		// Setup test.
 		fixtures.manualInit();
 		// Select and init expander.
 		const expanderElement = document.getElementById('expander');
 		new Expander(expanderElement, {
-			toggleState: 'none'
+			toggleState: 'none',
 		});
 		// Confirm `toggleState` config works as expected.
 		document.getElementById('expander-toggle').click();
-		setTimeout(function(){
+		setTimeout(function () {
 			const expanderToggle = document.getElementById('expander-toggle');
 			const ariaExpanded = expanderToggle.getAttribute('aria-expanded');
 			const innerText = expanderToggle.innerText;
@@ -61,7 +60,7 @@ describe("Expander", () => {
 		}, 100);
 	});
 
-	it('should update both the toogle\`s aria-pressed attribute and it\'s text when "toggleState" is not configured', (done) => {
+	it('should update both the toogle`s aria-pressed attribute and it\'s text when "toggleState" is not configured', done => {
 		// Setup test.
 		fixtures.manualInit();
 		// Select and init expander.
@@ -69,7 +68,7 @@ describe("Expander", () => {
 		new Expander(expanderElement, {});
 		// Confirm `toggleState` config works as expected.
 		document.getElementById('expander-toggle').click();
-		setTimeout(function(){
+		setTimeout(function () {
 			const expanderToggle = document.getElementById('expander-toggle');
 			const ariaExpanded = expanderToggle.getAttribute('aria-expanded');
 			const innerText = expanderToggle.innerText;
@@ -87,19 +86,21 @@ describe("Expander", () => {
 		}, 100);
 	});
 
-	it('should apply the collapsable item class and aria-hidden attribute when "shrinkTo" is a number of items', (done) => {
+	it('should apply the collapsable item class and aria-hidden attribute when "shrinkTo" is a number of items', done => {
 		// Setup test.
 		fixtures.manualInit();
 		const shrinkTo = 3;
 		// Select and init expander.
 		const expanderElement = document.getElementById('expander');
 		new Expander(expanderElement, {
-			shrinkTo
+			shrinkTo,
 		});
 		// Confirm `shrinkTo` config works as expected.
 		document.getElementById('expander-toggle').click();
-		setTimeout(function(){
-			const collapsableItems = expanderElement.querySelectorAll('.o-expander__collapsible-item');
+		setTimeout(function () {
+			const collapsableItems = expanderElement.querySelectorAll(
+				'.o-expander__collapsible-item'
+			);
 			const allItems = expanderElement.querySelectorAll('li');
 			// Number of items with the collapsable class should be the total
 			// number minus the number of items to shrink to.
@@ -108,8 +109,8 @@ describe("Expander", () => {
 				collapsableItems.length,
 				expectedLength,
 				`Did not apply the ".o-expander__collapsible-item" class to ` +
-				`the expected number of items. Found ${collapsableItems.length} ` +
-				`expected ${expectedLength}.`
+					`the expected number of items. Found ${collapsableItems.length} ` +
+					`expected ${expectedLength}.`
 			);
 			collapsableItems.forEach(item => {
 				proclaim.equal(item.getAttribute('aria-hidden'), 'false');
@@ -118,7 +119,7 @@ describe("Expander", () => {
 		}, 100);
 	});
 
-	it('should apply the collapsable item class and aria-hidden attribute when "shrinkTo" is a number of items and `itemSelector` is "p"', (done) => {
+	it('should apply the collapsable item class and aria-hidden attribute when "shrinkTo" is a number of items and `itemSelector` is "p"', done => {
 		// Setup test.
 		fixtures.numberItemSelector();
 		const shrinkTo = 3;
@@ -127,12 +128,14 @@ describe("Expander", () => {
 		const expanderElement = document.getElementById('expander');
 		new Expander(expanderElement, {
 			shrinkTo,
-			itemSelector
+			itemSelector,
 		});
 		// Confirm `shrinkTo` config works as expected.
 		document.getElementById('expander-toggle').click();
-		setTimeout(function(){
-			const collapsableItems = expanderElement.querySelectorAll('.o-expander__collapsible-item');
+		setTimeout(function () {
+			const collapsableItems = expanderElement.querySelectorAll(
+				'.o-expander__collapsible-item'
+			);
 			const allItems = expanderElement.querySelectorAll(itemSelector);
 			// Number of items with the collapsable class should be the total
 			// number minus the number of items to shrink to.
@@ -141,8 +144,8 @@ describe("Expander", () => {
 				collapsableItems.length,
 				expectedLength,
 				`Did not apply the ".o-expander__collapsible-item" class to ` +
-				`the expected number of items. Found ${collapsableItems.length} ` +
-				`expected ${expectedLength}.`
+					`the expected number of items. Found ${collapsableItems.length} ` +
+					`expected ${expectedLength}.`
 			);
 			collapsableItems.forEach(item => {
 				proclaim.equal(item.getAttribute('aria-hidden'), 'false');

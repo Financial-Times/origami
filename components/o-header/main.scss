@@ -32,7 +32,6 @@
 /// @param {List} $opts [('top', 'subnav', 'search', 'nav', 'anon', 'drawer', 'megamenu', 'sticky', 'simple', 'subbrand', 'transparent')]
 /// @param {Boolean} $include-base-styles [true]
 @mixin oHeader($opts: $_o-header-features, $include-base-styles: true) {
-
 	@include oGridAddLayout(
 		$layout-name: 'oHeaderL',
 		$layout-width: 1080px,
@@ -51,14 +50,18 @@
 		}
 
 		// Output feature.
-		@if ($feature == 'top' or $feature == 'nav' or $feature == 'drawer') and _oHeaderSupports($feature) {
+		@if ($feature == 'top' or $feature == 'nav' or $feature == 'drawer') and
+			_oHeaderSupports($feature)
+		{
 			.o-header__drawer-button,
 			.o-header__top-button,
 			.o-header__nav-button {
-				@include oButtonsContent((
-					'type': 'primary',
-					'theme': $_o-header-buttons-theme
-				));
+				@include oButtonsContent(
+					(
+						'type': 'primary',
+						'theme': $_o-header-buttons-theme,
+					)
+				);
 			}
 		}
 

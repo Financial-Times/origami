@@ -16,7 +16,8 @@ function init(headerEl) {
 	function checkCurrentPosition() {
 		const currentSelection = wrapper.querySelector('[aria-current]');
 		if (currentSelection) {
-			const currentSelectionEnd = currentSelection.getBoundingClientRect().right;
+			const currentSelectionEnd =
+				currentSelection.getBoundingClientRect().right;
 
 			//if the current selection is wider than the end of the wrapper
 			if (currentSelectionEnd > wrapperWidth) {
@@ -53,7 +54,8 @@ function init(headerEl) {
 		let distance = 100;
 
 		if (direction(e.currentTarget) === 'left') {
-			distance = (wrapper.scrollLeft > distance ? distance : wrapper.scrollLeft) * -1;
+			distance =
+				(wrapper.scrollLeft > distance ? distance : wrapper.scrollLeft) * -1;
 		} else {
 			const remaining = scrollWidth - wrapperWidth - wrapper.scrollLeft;
 			distance = remaining > distance ? distance : remaining;
@@ -74,5 +76,5 @@ function init(headerEl) {
 	checkCurrentPosition();
 }
 
-export { init };
-export default { init };
+export {init};
+export default {init};

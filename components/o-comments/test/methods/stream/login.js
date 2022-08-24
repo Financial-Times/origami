@@ -5,7 +5,7 @@ import sinon from 'sinon/pkg/sinon-esm.js';
 import fixtures from '../../helpers/fixtures.js';
 import Stream from '../../../src/js/stream.js';
 
-export default function login () {
+export default function login() {
 	beforeEach(() => {
 		fixtures.streamMarkup();
 	});
@@ -15,14 +15,14 @@ export default function login () {
 		sinon.restore();
 	});
 
-	describe("authenticationToken exists", () => {
-		it("calls embed.login with the authentication token", () => {
+	describe('authenticationToken exists', () => {
+		it('calls embed.login with the authentication token', () => {
 			const loginStub = sinon.stub();
 			const stream = new Stream();
 			stream.authenticationToken = 'fake-jwt';
 
 			stream.embed = {
-				login: loginStub
+				login: loginStub,
 			};
 
 			stream.login();
@@ -30,8 +30,8 @@ export default function login () {
 		});
 	});
 
-	describe("displayName exists", () => {
-		it("calls .renderSignedInMessage", () => {
+	describe('displayName exists', () => {
+		it('calls .renderSignedInMessage', () => {
 			const loginStub = sinon.stub();
 			const signedInMessageStub = sinon.stub();
 
@@ -41,7 +41,7 @@ export default function login () {
 			stream.displayName = 'fake-display-name';
 
 			stream.embed = {
-				login: loginStub
+				login: loginStub,
 			};
 
 			stream.login();

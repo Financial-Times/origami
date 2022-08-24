@@ -35,14 +35,16 @@
 ///    ));
 ///
 /// @param {List} $opts
-@mixin oButtons($opts: (
-	'sizes': $_o-buttons-sizes,
-	'types': $_o-buttons-types,
-	'themes': $_o-buttons-themes,
-	'icons': $_o-buttons-icons,
-	'pagination': true,
-	'groups': true
-)) {
+@mixin oButtons(
+	$opts: (
+		'sizes': $_o-buttons-sizes,
+		'types': $_o-buttons-types,
+		'themes': $_o-buttons-themes,
+		'icons': $_o-buttons-icons,
+		'pagination': true,
+		'groups': true,
+	)
+) {
 	$types: map-get($opts, 'types');
 	$types: if($types, $types, ());
 	$sizes: map-get($opts, 'sizes');
@@ -85,7 +87,8 @@
 					// IE11 renders the background image at a very small size if you do not
 					// double-up the background size here, declaring a width _and_ height.
 					// See https://thatemil.com/blog/2015/03/15/sizing-svg-background-images-in-internet-explorer/
-					background-size: _oButtonsGet('background-size', $size) _oButtonsGet('background-size', $size);
+					background-size: _oButtonsGet('background-size', $size)
+						_oButtonsGet('background-size', $size);
 					padding-left: _oButtonsGet('icon-padding', $size);
 				}
 			}

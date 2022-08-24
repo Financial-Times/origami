@@ -1,8 +1,8 @@
-import "@financial-times/o-autoinit";
-import { getContrastRatio } from '../shared/contrast-ratio.js';
-import { getHexValues, mixHexes } from '../shared/colors-mix.js';
+import '@financial-times/o-autoinit';
+import {getContrastRatio} from '../shared/contrast-ratio.js';
+import {getHexValues, mixHexes} from '../shared/colors-mix.js';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	const form = document.getElementById('color-mix-form');
 	const mixer = form['mixer'];
 	const base = form['base'];
@@ -19,18 +19,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	//set visible hex value and sass function to default values of mixColors
 	form['range'][5].checked = true;
-	const defaultHex = getComputedStyle(document.documentElement).getPropertyValue(`--o-colors-${mixer.value}-50`);
+	const defaultHex = getComputedStyle(
+		document.documentElement
+	).getPropertyValue(`--o-colors-${mixer.value}-50`);
 	fillCodeSnippets(defaultHex, mixer.value, base.value, 50);
 });
 
-const checkTextContrast = (background) => {
+const checkTextContrast = background => {
 	const root = document.documentElement;
 	const text = getComputedStyle(root).getPropertyValue('--color');
 
 	let textColor = text === '#000000' ? '#000000' : '#f3f3f3';
 	const ratio = getContrastRatio(textColor, background);
 
-	if (ratio <= 3) { // if it fails accessbility, change text colour
+	if (ratio <= 3) {
+		// if it fails accessbility, change text colour
 		textColor = textColor === '#000000' ? '#f3f3f3' : '#000000';
 		root.style.setProperty('--color', textColor);
 	}
@@ -52,11 +55,15 @@ const fillSwatches = (hexes, mixer, base) => {
 		const swatch = range[index];
 		swatch.style.backgroundColor = swatch.value = hex;
 
-		swatch.addEventListener('click', (e) => fillCodeSnippets(e.target.value, mixer, base, index * 10));
+		swatch.addEventListener('click', e =>
+			fillCodeSnippets(e.target.value, mixer, base, index * 10)
+		);
 	});
 };
 
 const fillCodeSnippets = (hex, mixer, base, index) => {
 	document.getElementById('hex-value').innerText = hex.trim();
-	document.getElementById('code-snippet').innerText = `oColorsMix(${mixer}, ${base}, ${index})`;
+	document.getElementById(
+		'code-snippet'
+	).innerText = `oColorsMix(${mixer}, ${base}, ${index})`;
 };

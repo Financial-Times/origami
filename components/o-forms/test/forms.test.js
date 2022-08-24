@@ -13,7 +13,10 @@ describe('Forms', () => {
 	let dateFields;
 
 	before(() => {
-		parentClass = (element, modifier) => element.closest('.o-forms-input').classList.contains(`o-forms-input--${modifier}`);
+		parentClass = (element, modifier) =>
+			element
+				.closest('.o-forms-input')
+				.classList.contains(`o-forms-input--${modifier}`);
 	});
 
 	context('on `submit`', () => {
@@ -36,7 +39,7 @@ describe('Forms', () => {
 		});
 
 		it('`opts.useBrowserValidation = true` relays form validation to browser on all invalid form inputs', () => {
-			new Forms(formEl, { useBrowserValidation: true });
+			new Forms(formEl, {useBrowserValidation: true});
 			submit.click();
 
 			proclaim.isTrue(formSpy.withArgs('submit').notCalled);
@@ -105,10 +108,15 @@ describe('Forms', () => {
 				</form>
 			`;
 				const range = document.createRange();
-				const formDocumentFragment = range.createContextualFragment(singleCheckboxFormString);
+				const formDocumentFragment = range.createContextualFragment(
+					singleCheckboxFormString
+				);
 				document.body.appendChild(formDocumentFragment);
-				const singleCheckboxFormEl = document.getElementById('single-checkbox-form');
-				const singleCheckboxFormSubmitEl = singleCheckboxFormEl.querySelector('[type="submit"]');
+				const singleCheckboxFormEl = document.getElementById(
+					'single-checkbox-form'
+				);
+				const singleCheckboxFormSubmitEl =
+					singleCheckboxFormEl.querySelector('[type="submit"]');
 				// initialise and submit the form, with no error
 				new Forms(singleCheckboxFormEl);
 				singleCheckboxFormSubmitEl.click();
@@ -117,7 +125,7 @@ describe('Forms', () => {
 
 		context('`opts.errorSummary = false`', () => {
 			it('does not create a new summary when inputs are invalid ', () => {
-				new Forms(formEl, { errorSummary: false });
+				new Forms(formEl, {errorSummary: false});
 				submit.click();
 				summary = formEl.querySelector('.o-forms__error-summary');
 				proclaim.isNull(summary);
@@ -141,7 +149,8 @@ describe('Forms', () => {
 				</form>
 			`;
 			const range = document.createRange();
-			const secondFormDocumentFragment = range.createContextualFragment(secondFormString);
+			const secondFormDocumentFragment =
+				range.createContextualFragment(secondFormString);
 			document.body.appendChild(secondFormDocumentFragment);
 			const secondFormEl = document.getElementById('second-initialised-form');
 			// initialise the first form
@@ -153,8 +162,14 @@ describe('Forms', () => {
 			// submit the first form
 			submit.click();
 			// the first form is validated, the second is not
-			proclaim.isTrue(formSpy.called, 'The first form was submitted but not validated.');
-			proclaim.isTrue(secondFormSpy.notCalled, 'The second form was not submitted but was validated.');
+			proclaim.isTrue(
+				formSpy.called,
+				'The first form was submitted but not validated.'
+			);
+			proclaim.isTrue(
+				secondFormSpy.notCalled,
+				'The second form was not submitted but was validated.'
+			);
 		});
 
 		it('does not attempt to validate other uninitialised forms on submit', () => {
@@ -174,7 +189,8 @@ describe('Forms', () => {
 				</form>
 			`;
 			const range = document.createRange();
-			const secondFormDocumentFragment = range.createContextualFragment(secondFormString);
+			const secondFormDocumentFragment =
+				range.createContextualFragment(secondFormString);
 			document.body.appendChild(secondFormDocumentFragment);
 			const secondFormEl = document.getElementById('second-form');
 			const secondFormSubmitEl = secondFormEl.querySelector('[type="submit"]');
@@ -184,7 +200,10 @@ describe('Forms', () => {
 			// submit the second form
 			secondFormSubmitEl.click();
 			// the first form is not validated
-			proclaim.isTrue(formSpy.notCalled, 'The first form was validated even though it was not submitted.');
+			proclaim.isTrue(
+				formSpy.notCalled,
+				'The first form was validated even though it was not submitted.'
+			);
 		});
 	});
 

@@ -1,20 +1,19 @@
-
 class OTrackingCollector {
-	constructor () {
+	constructor() {
 		this.events = [];
 		this.listener = null;
 	}
 
-	start () {
+	start() {
 		if (!this.listener) {
-			this.listener = ({ detail }) => this.events.push(detail);
+			this.listener = ({detail}) => this.events.push(detail);
 			document.body.addEventListener('oTracking.event', this.listener);
 		}
 		this.events = [];
 		return this.events;
 	}
 
-	stop () {
+	stop() {
 		document.body.removeEventListener('oTracking.event', this.listener);
 	}
 }

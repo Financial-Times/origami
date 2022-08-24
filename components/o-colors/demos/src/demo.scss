@@ -6,7 +6,6 @@
 @import '@financial-times/o-normalise/main';
 @include oNormalise();
 
-
 body {
 	box-sizing: border-box;
 	font-family: MetricWeb, Arial, sans-serif;
@@ -75,7 +74,7 @@ body {
 
 	&:after {
 		position: absolute;
-		content: "Click to copy";
+		content: 'Click to copy';
 		bottom: 20px;
 		display: block;
 		opacity: 0;
@@ -83,7 +82,7 @@ body {
 	}
 
 	&.copied:after {
-		content: "Copied!";
+		content: 'Copied!';
 	}
 
 	.o-copy-true &:hover:after {
@@ -111,7 +110,6 @@ body {
 		cursor: pointer;
 	}
 }
-
 
 .demo-wrapper--tones-mixes {
 	justify-content: space-between;

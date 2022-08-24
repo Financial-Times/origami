@@ -7,6 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		content: '<p>Click to save to somewhere</p>',
 		showOnConstruction: true,
 		position: 'above',
-		appendToBody: true
+		appendToBody: true,
 	});
 });

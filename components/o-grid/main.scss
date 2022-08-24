@@ -29,13 +29,20 @@
 /// 	));
 ///
 /// @param {Map} $opts [('bleed': true, 'shuffle-selectors': true, 'friendly-selectors': true, 'surface': ('current-layout', 'layout-sizes'), 'rows': ('compact'))]
-@mixin oGrid($opts: (
-	'bleed': true,
-	'shuffle-selectors': true,
-	'friendly-selectors': true,
-	'surface': ('current-layout', 'layout-sizes'),
-	'rows': ('compact')
-)) {
+@mixin oGrid(
+	$opts: (
+		'bleed': true,
+		'shuffle-selectors': true,
+		'friendly-selectors': true,
+		'surface': (
+			'current-layout',
+			'layout-sizes',
+		),
+		'rows': (
+			'compact',
+		),
+	)
+) {
 	// Bleed styles e.g. `o-grid-container--bleed`.
 	$bleed: map-get($opts, 'bleed');
 	// Human friendly selectors, e.g. `data-o-grid-colspan="one-half"`.
@@ -51,11 +58,11 @@
 	$layout-sizes: index($surface, 'layout-sizes');
 
 	// Surface layouts for JS on html:after, html:before.
-	@if($current-layout) {
+	@if ($current-layout) {
 		@include oGridSurfaceCurrentLayout;
 	}
 
-	@if($layout-sizes) {
+	@if ($layout-sizes) {
 		@include oGridSurfaceLayoutSizes;
 	}
 
@@ -64,7 +71,7 @@
 		@include oGridContainer();
 	}
 
-	@if($bleed) {
+	@if ($bleed) {
 		.o-grid-container--bleed {
 			padding-left: 0;
 			padding-right: 0;
@@ -77,7 +84,7 @@
 	}
 
 	// Compact, gutterless row of columns
-	@if($compact-rows) {
+	@if ($compact-rows) {
 		.o-grid-row--compact {
 			margin-left: 0;
 
@@ -92,12 +99,12 @@
 		@include oGridColspan();
 	}
 
-	[data-o-grid-colspan~="0"] {
+	[data-o-grid-colspan~='0'] {
 		display: none;
 	}
 
 	@for $colspan from 1 through $o-grid-columns {
-		[data-o-grid-colspan~="#{$colspan}"] {
+		[data-o-grid-colspan~='#{$colspan}'] {
 			@include oGridColspan($colspan, $width-only: true);
 		}
 	}
@@ -113,7 +120,6 @@
 	// Responsive columns
 	@each $layout-name in $_o-grid-layout-names {
 		@include oGridRespondTo($layout-name) {
-
 			@if $friendly-selectors {
 				@include _oGridHumanFriendlyColumns($layout-name);
 			}
@@ -122,18 +128,20 @@
 				@include _oGridShuffleColumns($layout-name);
 			}
 
-			[data-o-grid-colspan~="#{$layout-name}0"] {
+			[data-o-grid-colspan~='#{$layout-name}0'] {
 				display: none;
 			}
 
 			@for $colspan from 1 through $o-grid-columns {
-				[data-o-grid-colspan~="#{$layout-name}#{$colspan}"] {
+				[data-o-grid-colspan~='#{$layout-name}#{$colspan}'] {
 					// Restore visibility from `display: none`
 					// if `data-o-grid-colspan` was set to `0` or `hide`
 					display: block;
 
 					// Apply width in %
-					@include _oGridFixSafariWrap($colspan); //stylelint-disable-line order/order
+					@include _oGridFixSafariWrap(
+						$colspan
+					); //stylelint-disable-line order/order
 					min-width: oGridColspan($colspan);
 					max-width: oGridColspan($colspan);
 					width: oGridColspan($colspan);

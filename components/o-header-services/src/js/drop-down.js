@@ -15,7 +15,9 @@ class DropDown {
 		/**
 		 * @type {Element[]} - Nav items with a dropdown.
 		 */
-		this.navItems = [...headerEl.querySelectorAll('[data-o-header-services-level="1"]')].filter(item => item.querySelector('ul'));
+		this.navItems = [
+			...headerEl.querySelectorAll('[data-o-header-services-level="1"]'),
+		].filter(item => item.querySelector('ul'));
 		this.navItems.forEach(item => {
 			const button = item.querySelector('button');
 			if (!button) {
@@ -38,9 +40,11 @@ class DropDown {
 			const resizeObserver = new ResizeObserver(this.reset.bind(this));
 			resizeObserver.observe(this.drawer.burger);
 		} else {
-			window.addEventListener('resize', oUtils.debounce(() => this.reset(), 33));
+			window.addEventListener(
+				'resize',
+				oUtils.debounce(() => this.reset(), 33)
+			);
 		}
-
 	}
 
 	/**
@@ -56,7 +60,8 @@ class DropDown {
 
 		if (event.type === 'click' && event.target) {
 			// Close dropdown if some non-nav element on the page is clicked.
-			if (event.target.nodeName !== 'BUTTON' &&
+			if (
+				event.target.nodeName !== 'BUTTON' &&
 				event.target.nodeName !== 'A' &&
 				event.target !== this.drawer.navList
 			) {
@@ -119,16 +124,18 @@ class DropDown {
 		// change.
 		this.headerEl.classList.add('o-header-services--disable-transition');
 		// In the next animation frame...
-		window.requestAnimationFrame(function () {
-			// Close all dropdowns except within the drawer only, where the
-			// dropdown for the current page should be open.
-			DropDown.collapseAll(this.navItems);
-			if (this.isDrawer()) {
-				DropDown.expandAll(DropDown.getCurrent(this.navItems));
-			}
-			// Enable transitions again, which should happen on user interaction
-			this.headerEl.classList.remove('o-header-services--disable-transition');
-		}.bind(this));
+		window.requestAnimationFrame(
+			function () {
+				// Close all dropdowns except within the drawer only, where the
+				// dropdown for the current page should be open.
+				DropDown.collapseAll(this.navItems);
+				if (this.isDrawer()) {
+					DropDown.expandAll(DropDown.getCurrent(this.navItems));
+				}
+				// Enable transitions again, which should happen on user interaction
+				this.headerEl.classList.remove('o-header-services--disable-transition');
+			}.bind(this)
+		);
 	}
 
 	/**
@@ -216,8 +223,8 @@ class DropDown {
 				// Check against "page" and "true" as o-header-services
 				// used "true" in its markup before switching to "page".
 				// https://www.aditus.io/aria/aria-current/#aria-current-page
-				const ariaCurrent = link.getAttribute('aria-current') ;
-				return result || (ariaCurrent === 'true' || ariaCurrent === 'page');
+				const ariaCurrent = link.getAttribute('aria-current');
+				return result || ariaCurrent === 'true' || ariaCurrent === 'page';
 			}, false);
 			return hasCurrentLink;
 		});

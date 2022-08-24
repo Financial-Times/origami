@@ -16,7 +16,6 @@ if (document.readyState === 'complete') {
 	setupDemo();
 }
 
-
 function setupDemo() {
 	if (document.querySelector('.demo-sticky')) {
 		const p = document.createElement('p');
@@ -33,6 +32,7 @@ function setupDemo() {
 		document.body.appendChild(p);
 	}
 
-	document.documentElement.className = document.documentElement.className.replace('core', 'enhanced');
+	document.documentElement.className =
+		document.documentElement.className.replace('core', 'enhanced');
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 }

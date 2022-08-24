@@ -14,7 +14,6 @@ import accessibleAutocomplete from '@financial-times/accessible-autocomplete';
  * @property {boolean} 1 - should it be highlighted?
  */
 
-
 /**
  * @param {string} suggestion - Text which is going to be suggested to the user
  * @param {string} query - Text which was typed into the autocomplete by the user
@@ -23,11 +22,14 @@ import accessibleAutocomplete from '@financial-times/accessible-autocomplete';
 function highlightSuggestion(suggestion, query) {
 	const result = suggestion.split('');
 
-	const matchIndex = suggestion.toLocaleLowerCase().indexOf(query.toLocaleLowerCase());
-	return result.map(function(character, index) {
+	const matchIndex = suggestion
+		.toLocaleLowerCase()
+		.indexOf(query.toLocaleLowerCase());
+	return result.map(function (character, index) {
 		let shouldHighlight = true;
 		const hasMatched = matchIndex > -1;
-		const characterIsWithinMatch = index >= matchIndex && index <= matchIndex + query.length - 1;
+		const characterIsWithinMatch =
+			index >= matchIndex && index <= matchIndex + query.length - 1;
 		if (hasMatched && characterIsWithinMatch) {
 			shouldHighlight = false;
 		}
@@ -185,7 +187,7 @@ class Autocomplete {
 	 * @param {HTMLElement} [autocompleteEl] - The component element in the DOM
 	 * @param {AutocompleteOptions} [options={}] - An options object for configuring the component
 	 */
-	constructor (autocompleteEl, options) {
+	constructor(autocompleteEl, options) {
 		this.autocompleteEl = autocompleteEl;
 
 		const opts = options || Autocomplete.getDataAttributes(autocompleteEl);
@@ -206,7 +208,9 @@ class Autocomplete {
 
 		const selectInputElement = autocompleteEl.querySelector('select');
 		if (!this.options.source && !selectInputElement) {
-			throw new Error("Could not find a source for auto-completion options. Add a `select` element to your markup, or configure a `source` function to fetch autocomplete options.");
+			throw new Error(
+				'Could not find a source for auto-completion options. Add a `select` element to your markup, or configure a `source` function to fetch autocomplete options.'
+			);
 		}
 
 		if (this.options.source) {
@@ -215,14 +219,20 @@ class Autocomplete {
 			/**
 			 * @type {Source}
 			 */
-			const customSource = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
+			const customSource =
+				typeof this.options.source === 'string'
+					? window[this.options.source]
+					: this.options.source;
 
 			// If mapOptionToSuggestedValue is a string, then it is the name of a global function to use.
 			// If mapOptionToSuggestedValue is not a string, then it is a function to use.
 			/**
 			 * @type {MapOptionToSuggestedValue}
 			 */
-			this.mapOptionToSuggestedValue = typeof this.options.mapOptionToSuggestedValue === 'string' ? window[this.options.mapOptionToSuggestedValue] : this.options.mapOptionToSuggestedValue;
+			this.mapOptionToSuggestedValue =
+				typeof this.options.mapOptionToSuggestedValue === 'string'
+					? window[this.options.mapOptionToSuggestedValue]
+					: this.options.mapOptionToSuggestedValue;
 
 			/**
 			 * @param {string} query - Text which was typed into the autocomplete by the user
@@ -235,7 +245,7 @@ class Autocomplete {
 				 * @param {Array<string>} options - The options which match the rext which was typed into the autocomplete by the user
 				 * @returns {void}
 				 */
-				const callback = (options) => {
+				const callback = options => {
 					hideLoadingPane(this);
 					populateOptions(options);
 				};
@@ -248,7 +258,9 @@ class Autocomplete {
 			const isRequired = input.hasAttribute('required');
 
 			if (!id) {
-				throw new Error("Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.");
+				throw new Error(
+					'Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.'
+				);
 			}
 			this.autocompleteEl.innerHTML = '';
 			this.autocompleteEl.appendChild(this.container);
@@ -258,7 +270,7 @@ class Autocomplete {
 				name: name,
 				placeholder: placeholder,
 				required: isRequired,
-				onConfirm: (option) => {
+				onConfirm: option => {
 					if (option && this.options.onConfirm) {
 						this.options.onConfirm(option);
 					}
@@ -274,7 +286,7 @@ class Autocomplete {
 					 * @param {*} option The suggestion to apply the template with.
 					 * @returns {string} HTML string to represent a single suggestion.
 					 */
-					suggestion: (option) => {
+					suggestion: option => {
 						if (typeof option !== 'undefined') {
 							// If the `mapOptionToSuggestedValue` function is defined
 							// Apply the function to the option. This is a way for the
@@ -286,7 +298,9 @@ class Autocomplete {
 							if (typeof this.mapOptionToSuggestedValue === 'function') {
 								option = this.mapOptionToSuggestedValue(option);
 							} else if (typeof option !== 'string') {
-								throw new Error(`The option trying to be displayed as a suggestion is not a string, it is "${typeof option}". o-autocomplete can only display strings as suggestions. Define a \`mapOptionToSuggestedValue\` function to convert the option into a string to be used as the suggestion.`);
+								throw new Error(
+									`The option trying to be displayed as a suggestion is not a string, it is "${typeof option}". o-autocomplete can only display strings as suggestions. Define a \`mapOptionToSuggestedValue\` function to convert the option into a string to be used as the suggestion.`
+								);
 							}
 						}
 
@@ -298,7 +312,7 @@ class Autocomplete {
 					 * @param {*} option The suggestion which was selected.
 					 * @returns {string} String to represent the suggestion.
 					 */
-					inputValue: (option) => {
+					inputValue: option => {
 						if (typeof option !== 'undefined') {
 							// If the `mapOptionToSuggestedValue` function is defined
 							// Apply the function to the option. This is a way for the
@@ -310,13 +324,15 @@ class Autocomplete {
 							if (typeof this.mapOptionToSuggestedValue === 'function') {
 								option = this.mapOptionToSuggestedValue(option);
 							} else if (typeof option !== 'string') {
-								throw new Error(`The option trying to be displayed as a suggestion is not a string, it is "${typeof option}". o-autocomplete can only display strings as suggestions. Define a \`mapOptionToSuggestedValue\` function to convert the option into a string to be used as the suggestion.`);
+								throw new Error(
+									`The option trying to be displayed as a suggestion is not a string, it is "${typeof option}". o-autocomplete can only display strings as suggestions. Define a \`mapOptionToSuggestedValue\` function to convert the option into a string to be used as the suggestion.`
+								);
 							}
 						}
 
 						return option;
-					}
-				}
+					},
+				},
 			});
 		} else {
 			const id = selectInputElement.getAttribute('id');
@@ -324,7 +340,9 @@ class Autocomplete {
 			const isRequired = selectInputElement.hasAttribute('required');
 
 			if (!id) {
-				throw new Error("Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.");
+				throw new Error(
+					'Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.'
+				);
 			}
 			this.autocompleteEl.appendChild(this.container);
 			this.container.appendChild(selectInputElement);
@@ -332,7 +350,7 @@ class Autocomplete {
 				selectElement: selectInputElement,
 				name: name,
 				required: isRequired,
-				onConfirm: (option) => {
+				onConfirm: option => {
 					if (option && this.options.onConfirm) {
 						this.options.onConfirm(option);
 					}
@@ -344,8 +362,8 @@ class Autocomplete {
 				displayMenu: 'overlay',
 				showNoOptionsFound: false,
 				templates: {
-					suggestion: this.suggestionTemplate.bind(this)
-				}
+					suggestion: this.suggestionTemplate.bind(this),
+				},
 			});
 			selectInputElement.parentElement.removeChild(selectInputElement); // Remove the original select element
 		}
@@ -360,12 +378,15 @@ class Autocomplete {
 	 * @param {string} suggestedValue The suggestion to apply the template with.
 	 * @returns {string} HTML string to be represent a single suggestion.
 	 */
-	suggestionTemplate (suggestedValue) {
+	suggestionTemplate(suggestedValue) {
 		// o-autocomplete has a UI design to highlight characters in the suggestions.
 		/**
 		 * @type {CharacterHighlight[]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
 		 */
-		const characters = highlightSuggestion(suggestedValue, this.autocompleteEl.querySelector('input').value);
+		const characters = highlightSuggestion(
+			suggestedValue,
+			this.autocompleteEl.querySelector('input').value
+		);
 
 		let output = '';
 		for (const [character, shoudHighlight] of characters) {
@@ -388,14 +409,14 @@ class Autocomplete {
 	 * @param {HTMLElement} autocompleteEl - The component element in the DOM
 	 * @returns {object} An options object which can be used for configuring the component
 	 */
-	static getDataAttributes (autocompleteEl) {
+	static getDataAttributes(autocompleteEl) {
 		if (!(autocompleteEl instanceof HTMLElement)) {
 			return {};
 		}
 
 		if (autocompleteEl.dataset.oAutocompleteSource) {
 			return {
-				source: autocompleteEl.dataset.oAutocompleteSource
+				source: autocompleteEl.dataset.oAutocompleteSource,
 			};
 		} else {
 			return {};
@@ -408,17 +429,23 @@ class Autocomplete {
 	 * @param {object} [options={}] - An options object for configuring the component
 	 * @returns {Autocomplete|Autocomplete[]} The newly constructed Autocomplete components
 	 */
-	static init (rootElement, options) {
+	static init(rootElement, options) {
 		if (!rootElement) {
 			rootElement = document.body;
 		}
 		if (!(rootElement instanceof HTMLElement)) {
 			rootElement = document.querySelector(rootElement);
 		}
-		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=o-autocomplete]')) {
+		if (
+			rootElement instanceof HTMLElement &&
+			rootElement.matches('[data-o-component=o-autocomplete]')
+		) {
 			return new Autocomplete(rootElement, options);
 		}
-		return Array.from(rootElement.querySelectorAll('[data-o-component="o-autocomplete"]'), rootEl => new Autocomplete(rootEl, options));
+		return Array.from(
+			rootElement.querySelectorAll('[data-o-component="o-autocomplete"]'),
+			rootEl => new Autocomplete(rootEl, options)
+		);
 	}
 }
 

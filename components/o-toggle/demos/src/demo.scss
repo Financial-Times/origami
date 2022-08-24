@@ -1,4 +1,4 @@
-@import "./../../main";
+@import './../../main';
 
 @include oToggle();
 @import '@financial-times/o-fonts/main';
@@ -14,7 +14,8 @@ body {
 	margin: var(--o-spacing-s4, 1rem);
 }
 
-#demo-target { // stylelint-disable-line selector-max-id
+#demo-target {
+	// stylelint-disable-line selector-max-id
 	font-family: if(oBrandIs('whitelabel'), Arial, MetricWeb);
 	margin: var(--o-spacing-s4, 1rem) 0;
 }

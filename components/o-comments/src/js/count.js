@@ -5,7 +5,7 @@ class Count {
 	 * @param {HTMLElement} [countEl] - The component element in the DOM
 	 * @param {object} [opts={}] - An options object for configuring the component
 	 */
-	constructor (countEl, opts = {}) {
+	constructor(countEl, opts = {}) {
 		this.countEl = countEl;
 		this.articleId = opts.articleId;
 		this.useStagingEnvironment = Boolean(opts.useStagingEnvironment);
@@ -17,7 +17,7 @@ class Count {
 	 * @access private
 	 * @returns {Promise<void>} A promise that resolves when the count has been updated
 	 */
-	renderCount () {
+	renderCount() {
 		if (this.countEl && !(this.countEl instanceof HTMLElement)) {
 			this.countEl = document.querySelector(this.countEl);
 		}
@@ -26,13 +26,14 @@ class Count {
 			throw new Error('Element must be a HTMLElement');
 		}
 
-		return Count.fetchCount(this.articleId, this.useStagingEnvironment)
-			.then((count) => {
+		return Count.fetchCount(this.articleId, this.useStagingEnvironment).then(
+			count => {
 				this.countEl.textContent = count;
 
 				const countLabel = Count.getCountLabel(count);
 				this.countEl.setAttribute('aria-label', countLabel);
-			});
+			}
+		);
 	}
 
 	/**
@@ -41,7 +42,7 @@ class Count {
 	 * @param {number} count - The comment count
 	 * @returns {string} The string that should be used as the aria-label
 	 */
-	static getCountLabel (count) {
+	static getCountLabel(count) {
 		if (count === 1) {
 			return 'There is 1 comment, click to go to the comment section.';
 		} else {
@@ -49,8 +50,10 @@ class Count {
 		}
 	}
 
-	static fetchCount (id, useStaging) {
-		const url = `https://comments-api.ft.com/story/count/${id}` + (useStaging ? '?staging=1' : '');
+	static fetchCount(id, useStaging) {
+		const url =
+			`https://comments-api.ft.com/story/count/${id}` +
+			(useStaging ? '?staging=1' : '');
 
 		return fetch(url)
 			.then(res => res.json())

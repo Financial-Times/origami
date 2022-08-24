@@ -1,7 +1,6 @@
 import ExpanderUtility from './expander-utility.js';
 
 class Expander extends ExpanderUtility {
-
 	/**
 	 * o-expander constructor.
 	 *
@@ -13,26 +12,29 @@ class Expander extends ExpanderUtility {
 	 * @param {string} opts.expandedToggleText ['fewer'] - Toggle text for when the expander is collapsed. Defaults to "fewer", or "less" when `shrinkTo` is "height", or "hidden" when `shrinkTo` is "hidden".
 	 * @param {string} opts.collapsedToggleText ['more'] - Toggle text for when the expander is collapsed. Defaults to "more" or "show" when `shrinkTo` is "hidden".
 	 */
-	constructor (oExpanderElement, opts) {
+	constructor(oExpanderElement, opts) {
 		// Get user configuration.
 		const userOptions = opts || Expander._getDataAttributes(oExpanderElement);
 		// Initialise with user options and o-expander classes and selectors.
 		// Only `selectors.item`, which is not o-expander specific, is
 		// configurable by the user with the `itemSelector` option.
-		super(oExpanderElement, Object.assign(userOptions, {
-			selectors: {
-				toggle: '.o-expander__toggle',
-				content: '.o-expander__content',
-				item: userOptions.itemSelector || 'li',
-			},
-			classnames: {
-				initialized: 'o-expander--initialized',
-				inactive: 'o-expander--inactive',
-				expanded: 'o-expander__content--expanded',
-				collapsed: 'o-expander__content--collapsed',
-				collapsibleItem: 'o-expander__collapsible-item'
-			}
-		}));
+		super(
+			oExpanderElement,
+			Object.assign(userOptions, {
+				selectors: {
+					toggle: '.o-expander__toggle',
+					content: '.o-expander__content',
+					item: userOptions.itemSelector || 'li',
+				},
+				classnames: {
+					initialized: 'o-expander--initialized',
+					inactive: 'o-expander--inactive',
+					expanded: 'o-expander__content--expanded',
+					collapsed: 'o-expander__content--collapsed',
+					collapsibleItem: 'o-expander__collapsible-item',
+				},
+			})
+		);
 	}
 
 	/**
@@ -62,10 +64,16 @@ class Expander extends ExpanderUtility {
 		if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-expander]')) {
+		if (
+			rootEl instanceof HTMLElement &&
+			rootEl.matches('[data-o-component=o-expander]')
+		) {
 			return new Expander(rootEl, opts);
 		}
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-expander"]'), rootEl => new Expander(rootEl, opts));
+		return Array.from(
+			rootEl.querySelectorAll('[data-o-component="o-expander"]'),
+			rootEl => new Expander(rootEl, opts)
+		);
 	}
 
 	/**
@@ -86,7 +94,10 @@ class Expander extends ExpanderUtility {
 				return options;
 			}
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oExpander(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(
+				/^oExpander(\w)(\w+)$/,
+				(m, m1, m2) => m1.toLowerCase() + m2
+			);
 			const value = oExpanderElement.dataset[key];
 			// Try parsing the value as JSON, otherwise just set it as a string
 			try {

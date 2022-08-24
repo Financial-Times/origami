@@ -14,26 +14,34 @@ class Layout {
 		const isDocsLayout = this.layoutEl.classList.contains('o-layout--docs');
 		const isQueryLayout = this.layoutEl.classList.contains('o-layout--query');
 
-		this.options = Object.assign({}, {
-			constructNav: isDocsLayout ? true : false,
-			navHeadingSelector: 'h1, h2, h3',
-			linkHeadings: true,
-			linkedHeadingSelector: 'h1, h2, h3, h4, h5, h6',
-		}, options || Layout.getDataAttributes(layoutEl));
+		this.options = Object.assign(
+			{},
+			{
+				constructNav: isDocsLayout ? true : false,
+				navHeadingSelector: 'h1, h2, h3',
+				linkHeadings: true,
+				linkedHeadingSelector: 'h1, h2, h3, h4, h5, h6',
+			},
+			options || Layout.getDataAttributes(layoutEl)
+		);
 
 		// Get linkable headings.
-		const linkableHeadings = Array.from(this.layoutEl.querySelectorAll(this.options.linkedHeadingSelector))
-			.filter(heading => heading.getAttribute('id'));
+		const linkableHeadings = Array.from(
+			this.layoutEl.querySelectorAll(this.options.linkedHeadingSelector)
+		).filter(heading => heading.getAttribute('id'));
 
 		// Construct linkable headings.
 		this.linkedHeadings = [];
 		if (this.options.linkHeadings) {
-			this.linkedHeadings = linkableHeadings.map(heading => new LinkedHeading(heading, {}));
+			this.linkedHeadings = linkableHeadings.map(
+				heading => new LinkedHeading(heading, {})
+			);
 		}
 
 		// Get nav headings.
-		this.navHeadings = Array.from(this.layoutEl.querySelectorAll(this.options.navHeadingSelector))
-			.filter(heading => heading.getAttribute('id'));
+		this.navHeadings = Array.from(
+			this.layoutEl.querySelectorAll(this.options.navHeadingSelector)
+		).filter(heading => heading.getAttribute('id'));
 
 		// Construct the default navigation.
 		if ((isDocsLayout || isQueryLayout) && this.options.constructNav) {
@@ -59,56 +67,85 @@ class Layout {
 	 * @access private
 	 */
 	static _getContentFromHeading(heading) {
-		const contentElement = heading.querySelector(`.o-layout__linked-heading__content`);
-		const headingText = contentElement ? contentElement.textContent : heading.textContent;
+		const contentElement = heading.querySelector(
+			`.o-layout__linked-heading__content`
+		);
+		const headingText = contentElement
+			? contentElement.textContent
+			: heading.textContent;
 		return headingText;
 	}
 
 	/**
 	 * Construct the sidebar navigation from headings within the DOM.
 	 */
-	constructNavFromDOM () {
+	constructNavFromDOM() {
 		// Get an array of headings. If there are h2 headings followed by h3 headings (or lower),
 		// add a property `subItems` to the parent h2 which contains an array of the following smaller headings.
-		const headingsWithHierarchy = Array.from(this.navHeadings).reduce((headings, heading) => {
-			const supportedHeadings = ['H3', 'H4', 'H5', 'H6'];
-			const parents = headings.filter(heading => heading.nodeName === 'H2');
-			const parent = parents ? parents[parents.length - 1] : null;
-			if (!headings.length) {
-				return [heading];
-			}
-			if (parent && supportedHeadings.includes(heading.nodeName)) {
-				parent.subItems = parent.subItems ? [...parent.subItems, heading] : [heading];
+		const headingsWithHierarchy = Array.from(this.navHeadings).reduce(
+			(headings, heading) => {
+				const supportedHeadings = ['H3', 'H4', 'H5', 'H6'];
+				const parents = headings.filter(heading => heading.nodeName === 'H2');
+				const parent = parents ? parents[parents.length - 1] : null;
+				if (!headings.length) {
+					return [heading];
+				}
+				if (parent && supportedHeadings.includes(heading.nodeName)) {
+					parent.subItems = parent.subItems
+						? [...parent.subItems, heading]
+						: [heading];
+					return headings;
+				}
+				headings.push(heading);
 				return headings;
-			}
-			headings.push(heading);
-			return headings;
-		}, []);
+			},
+			[]
+		);
 
 		// Create the nav markup.
 		const nav = document.createElement('nav');
 		nav.classList.add(`o-layout__navigation`);
 		const list = document.createElement('ol');
 		list.classList.add(`o-layout__unstyled-element`);
-		const listInnerHTML = Array.from(headingsWithHierarchy).reduce((html, heading) => {
-			const pageTitleClass = heading.nodeName === 'H1' ? 'o-layout__navigation-title' : '';
-			return html + `
+		const listInnerHTML = Array.from(headingsWithHierarchy).reduce(
+			(html, heading) => {
+				const pageTitleClass =
+					heading.nodeName === 'H1' ? 'o-layout__navigation-title' : '';
+				return (
+					html +
+					`
 <li class="o-layout__unstyled-element ${pageTitleClass}">
-	<a class="o-layout__unstyled-element" href='#${heading.id}'>${Layout._getContentFromHeading(heading)}</a>
-	${heading.subItems ? `
+	<a class="o-layout__unstyled-element" href='#${
+		heading.id
+	}'>${Layout._getContentFromHeading(heading)}</a>
+	${
+		heading.subItems
+			? `
 	<ol>
 	${heading.subItems.reduce((html, heading) => {
-		return html + `<li><a class="o-layout__unstyled-element" href="#${heading.id}">${Layout._getContentFromHeading(heading)}</a></li>`;
+		return (
+			html +
+			`<li><a class="o-layout__unstyled-element" href="#${
+				heading.id
+			}">${Layout._getContentFromHeading(heading)}</a></li>`
+		);
 	}, '')}
 	</ol>
-	` : ''}
-</li>`;
-		}, '');
+	`
+			: ''
+	}
+</li>`
+				);
+			},
+			''
+		);
 		list.innerHTML = listInnerHTML;
 		nav.appendChild(list);
 
 		// Add the nav to the page.
-		const sidebar = this.layoutEl.querySelector(`.o-layout__sidebar`) || this.layoutEl.querySelector(`.o-layout__query-sidebar`);
+		const sidebar =
+			this.layoutEl.querySelector(`.o-layout__sidebar`) ||
+			this.layoutEl.querySelector(`.o-layout__query-sidebar`);
 		if (sidebar) {
 			window.requestAnimationFrame(() => {
 				sidebar.append(nav);
@@ -191,7 +228,7 @@ class Layout {
 	 * @private
 	 * @returns {void}
 	 */
-	 setupIntersectionObserversForHeadings() {
+	setupIntersectionObserversForHeadings() {
 		function getY(domRect) {
 			return Object.prototype.hasOwnProperty.call(domRect, 'y')
 				? domRect.y
@@ -216,7 +253,8 @@ class Layout {
 						navheading => navheading === entry.target
 					);
 					const isAbove =
-						getY(entry.boundingClientRect) < (getY(entry.rootBounds || {}) || 0);
+						getY(entry.boundingClientRect) <
+						(getY(entry.rootBounds || {}) || 0);
 					if (isAbove) {
 						above.push(intersectingElemIdx);
 					} else {
@@ -246,10 +284,9 @@ class Layout {
 					}
 				});
 				this.highlightedHeadingIndex = headingIndexToHighlight;
-			}, {
-				rootMargin: `-${
-					headingFontSize
-				} 0px 0px 0px`,
+			},
+			{
+				rootMargin: `-${headingFontSize} 0px 0px 0px`,
 				threshold: 0.1,
 			}
 		);
@@ -258,22 +295,27 @@ class Layout {
 		});
 
 		// When we reach the bottom we want to set the last heading as the current active heading
-		const observerbottom = new IntersectionObserver((entries) => {
-			if (entries[0].isIntersecting === true) {
-				this.highlightedHeadingIndex = this.navAnchors.length - 1;
-				this.navAnchors.forEach((anchor, index) => {
-					if (this.highlightedHeadingIndex === index) {
-						anchor.setAttribute('aria-current', 'location');
-					} else {
-						anchor.setAttribute('aria-current', 'false');
-					}
-				});
+		const observerbottom = new IntersectionObserver(
+			entries => {
+				if (entries[0].isIntersecting === true) {
+					this.highlightedHeadingIndex = this.navAnchors.length - 1;
+					this.navAnchors.forEach((anchor, index) => {
+						if (this.highlightedHeadingIndex === index) {
+							anchor.setAttribute('aria-current', 'location');
+						} else {
+							anchor.setAttribute('aria-current', 'false');
+						}
+					});
+				}
+			},
+			{
+				threshold: 1, // Trigger only when whole element was visible
 			}
-		}, {
-			threshold: 1, // Trigger only when whole element was visible
-		});
+		);
 
-		const lastElementOnPage = this.layoutEl.querySelector('.o-layout__footer') || this.layoutEl.querySelector('.o-layout__main').lastElementChild;
+		const lastElementOnPage =
+			this.layoutEl.querySelector('.o-layout__footer') ||
+			this.layoutEl.querySelector('.o-layout__main').lastElementChild;
 		observerbottom.observe(lastElementOnPage);
 	}
 
@@ -299,19 +341,21 @@ class Layout {
 	 * @param {HTMLElement} layoutElement - The layout element in the DOM
 	 * @returns {Object.<string, any>} - Options for configuring the layout
 	 */
-	static getDataAttributes (layoutElement) {
+	static getDataAttributes(layoutElement) {
 		if (!(layoutElement instanceof HTMLElement)) {
 			return {};
 		}
 		return Object.keys(layoutElement.dataset).reduce((options, key) => {
-
 			// Ignore data-o-component
 			if (key === 'oComponent') {
 				return options;
 			}
 
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oLayout(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(
+				/^oLayout(\w)(\w+)$/,
+				(m, m1, m2) => m1.toLowerCase() + m2
+			);
 			const value = layoutElement.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string
@@ -325,7 +369,6 @@ class Layout {
 		}, {});
 	}
 
-
 	/**
 	 * Initialise layout component.
 	 *
@@ -333,17 +376,23 @@ class Layout {
 	 * @param {object} [opts={}] - An options object for configuring layout behaviour.
 	 * @returns {Layout | Layout[]} Returns either a single Layout instance or an array of Layout instances
 	 */
-	static init (rootEl, opts) {
+	static init(rootEl, opts) {
 		if (!rootEl) {
 			rootEl = document.body;
 		}
 		if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-layout]')) {
+		if (
+			rootEl instanceof HTMLElement &&
+			rootEl.matches('[data-o-component=o-layout]')
+		) {
 			return new Layout(rootEl, opts);
 		}
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-layout"]'), rootEl => new Layout(rootEl, opts));
+		return Array.from(
+			rootEl.querySelectorAll('[data-o-component="o-layout"]'),
+			rootEl => new Layout(rootEl, opts)
+		);
 	}
 }
 

@@ -5,7 +5,7 @@ import sinon from 'sinon/pkg/sinon-esm.js';
 import fixtures from '../../helpers/fixtures.js';
 import Stream from '../../../src/js/stream.js';
 
-export default function publishEvent () {
+export default function publishEvent() {
 	beforeEach(() => {
 		fixtures.streamMarkup();
 	});
@@ -15,36 +15,36 @@ export default function publishEvent () {
 		sinon.restore();
 	});
 
-	describe("valid event", () => {
-		describe("loginPrompt event", () => {
-			describe("this.userHasValidSession is truthy", () => {
-				it("calls displayNamePrompt", () => {
+	describe('valid event', () => {
+		describe('loginPrompt event', () => {
+			describe('this.userHasValidSession is truthy', () => {
+				it('calls displayNamePrompt', () => {
 					const displayNamePromptStub = sinon.stub();
 
 					const stream = new Stream();
 					stream.userHasValidSession = true;
 					stream.displayNamePrompt = displayNamePromptStub;
-					stream.publishEvent({ name: 'loginPrompt' });
+					stream.publishEvent({name: 'loginPrompt'});
 
 					proclaim.isTrue(displayNamePromptStub.calledOnce);
 				});
 			});
 
-			describe("this.userHasValidSession is falsy", () => {
+			describe('this.userHasValidSession is falsy', () => {
 				it("doesn't calls displayNamePrompt", () => {
 					const displayNamePromptStub = sinon.stub();
 
 					const stream = new Stream();
 					stream.userHasValidSession = false;
 					stream.displayNamePrompt = displayNamePromptStub;
-					stream.publishEvent({ name: 'loginPrompt' });
+					stream.publishEvent({name: 'loginPrompt'});
 
 					proclaim.isFalse(displayNamePromptStub.calledOnce);
 				});
 			});
 		});
 
-		it("maps coral events to oComment events", (done) => {
+		it('maps coral events to oComment events', done => {
 			const listener = () => {
 				document.removeEventListener('oComments.ready', listener);
 				done();
@@ -52,11 +52,11 @@ export default function publishEvent () {
 			document.addEventListener('oComments.ready', listener);
 
 			const stream = new Stream();
-			stream.publishEvent({ name: 'ready' });
+			stream.publishEvent({name: 'ready'});
 		});
 
-		it("maps coral events to oTracking events", (done) => {
-			const listener = (event) => {
+		it('maps coral events to oTracking events', done => {
+			const listener = event => {
 				document.removeEventListener('oTracking.event', listener);
 				try {
 					proclaim.equal(event.detail.category, 'comment');
@@ -69,11 +69,11 @@ export default function publishEvent () {
 			document.addEventListener('oTracking.event', listener);
 
 			const stream = new Stream();
-			stream.publishEvent({ name: 'ready' });
+			stream.publishEvent({name: 'ready'});
 		});
 
-		it("sets isWithheld to true when a comment is withheld for moderation", (done) => {
-			const listener = (event) => {
+		it('sets isWithheld to true when a comment is withheld for moderation', done => {
+			const listener = event => {
 				document.removeEventListener('oTracking.event', listener);
 				try {
 					proclaim.isTrue(event.detail.isWithheld);
@@ -89,16 +89,22 @@ export default function publishEvent () {
 				name: 'createComment.success',
 				data: {
 					success: {
-						status: 'SYSTEM_WITHHELD'
-					}
-				}
+						status: 'SYSTEM_WITHHELD',
+					},
+				},
 			});
 		});
 
-		it("doesn't emit oTracking events if it has been disabled", (done) => {
-			const oTrackingEventListener = (event) => {
-				if (event.detail.category === 'comment' && event.detail.action === 'ready') {
-					document.removeEventListener('oTracking.event', oTrackingEventListener);
+		it("doesn't emit oTracking events if it has been disabled", done => {
+			const oTrackingEventListener = event => {
+				if (
+					event.detail.category === 'comment' &&
+					event.detail.action === 'ready'
+				) {
+					document.removeEventListener(
+						'oTracking.event',
+						oTrackingEventListener
+					);
 					done(new Error('This event should not have been fired'));
 				}
 			};
@@ -109,9 +115,9 @@ export default function publishEvent () {
 			delete commentsElement.dataset.oComponent;
 
 			const stream = new Stream(commentsElement, {
-				disableOTracking: true
+				disableOTracking: true,
 			});
-			stream.publishEvent({ name: 'ready' });
+			stream.publishEvent({name: 'ready'});
 			document.removeEventListener('oTracking.event', oTrackingEventListener);
 
 			window.setTimeout(() => {
@@ -120,13 +126,13 @@ export default function publishEvent () {
 			}, 500);
 		});
 
-		it("only maps 1 event every 100 milliseconds", (done) => {
+		it('only maps 1 event every 100 milliseconds', done => {
 			const listenerStub = sinon.stub();
 			document.addEventListener('oComments.ready', listenerStub);
 
 			const stream = new Stream();
 			const interval = window.setInterval(() => {
-				stream.publishEvent({ name: 'ready' });
+				stream.publishEvent({name: 'ready'});
 			}, 10);
 
 			window.setTimeout(() => {
@@ -142,8 +148,8 @@ export default function publishEvent () {
 		});
 	});
 
-	describe("valid coral error", () => {
-		it("maps coral errors to oComment events", (done) => {
+	describe('valid coral error', () => {
+		it('maps coral errors to oComment events', done => {
 			const listener = () => {
 				document.removeEventListener('oComments.errorComment', listener);
 				done();
@@ -151,11 +157,11 @@ export default function publishEvent () {
 			document.addEventListener('oComments.errorComment', listener);
 
 			const stream = new Stream();
-			stream.publishEvent({ name: 'createComment.error' });
+			stream.publishEvent({name: 'createComment.error'});
 		});
 
-		it("maps coral errors to oTracking events", (done) => {
-			const listener = (event) => {
+		it('maps coral errors to oTracking events', done => {
+			const listener = event => {
 				document.removeEventListener('oTracking.event', listener);
 				try {
 					proclaim.equal(event.detail.category, 'comment');
@@ -172,15 +178,18 @@ export default function publishEvent () {
 				name: 'createComment.error',
 				data: {
 					error: {
-						code: 'TOXIC_COMMENT'
-					}
-				}
+						code: 'TOXIC_COMMENT',
+					},
+				},
 			});
 		});
 
-		it("doesn't emit oTracking events if it has been disabled", (done) => {
-			const listener = (event) => {
-				if (event.detail.category === 'comment' && event.detail.action === 'post-error') {
+		it("doesn't emit oTracking events if it has been disabled", done => {
+			const listener = event => {
+				if (
+					event.detail.category === 'comment' &&
+					event.detail.action === 'post-error'
+				) {
 					document.removeEventListener('oTracking.event', listener);
 					done(new Error('This event should not have been fired'));
 				}
@@ -192,15 +201,15 @@ export default function publishEvent () {
 			delete commentsElement.dataset.oComponent;
 
 			const stream = new Stream(commentsElement, {
-				disableOTracking: true
+				disableOTracking: true,
 			});
 			stream.publishEvent({
 				name: 'createComment.error',
 				data: {
 					error: {
-						code: 'TOXIC_COMMENT'
-					}
-				}
+						code: 'TOXIC_COMMENT',
+					},
+				},
 			});
 			document.removeEventListener('oTracking.event', listener);
 
@@ -210,11 +219,13 @@ export default function publishEvent () {
 			}, 500);
 		});
 
-
-		it("only maps 1 event every 100 milliseconds", (done) => {
+		it('only maps 1 event every 100 milliseconds', done => {
 			const listenerStub = sinon.stub();
-			const listener = (event) => {
-				if (event.detail.category === 'comment' && event.detail.action === 'post-error') {
+			const listener = event => {
+				if (
+					event.detail.category === 'comment' &&
+					event.detail.action === 'post-error'
+				) {
 					listenerStub();
 				}
 			};
@@ -226,9 +237,9 @@ export default function publishEvent () {
 					name: 'createComment.error',
 					data: {
 						error: {
-							code: 'TOXIC_COMMENT'
-						}
-					}
+							code: 'TOXIC_COMMENT',
+						},
+					},
 				});
 			}, 10);
 

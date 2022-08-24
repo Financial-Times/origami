@@ -1,6 +1,6 @@
 import './../../main.js';
 
-function setWidths () {
+function setWidths() {
 	const selection = document.querySelector('#select-scale');
 
 	if (selection) {
@@ -17,7 +17,7 @@ function setWidths () {
 document.documentElement.setAttribute('data-o-component', 'o-typography');
 
 function initDemos() {
-	document.addEventListener('DOMContentLoaded', function() {
+	document.addEventListener('DOMContentLoaded', function () {
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 		setWidths();
 	});

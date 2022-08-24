@@ -1,6 +1,5 @@
 /// Typography wrapper
 @mixin _oTypographyWrapper() {
-
 	// Lists inherit font family and size from the wrapper.
 	@include oTypographyBody();
 
@@ -57,10 +56,7 @@
 	}
 
 	> strong {
-		@include oTypographySans(
-			$weight: 'semibold',
-			$include-font-family: false
-		);
+		@include oTypographySans($weight: 'semibold', $include-font-family: false);
 	}
 
 	> em {

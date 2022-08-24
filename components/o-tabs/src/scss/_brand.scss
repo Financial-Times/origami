@@ -1,4 +1,3 @@
-
 /// Helper for `o-brand` function.
 /// @access private
 @function _oTabsGet($variables, $from: null) {
@@ -16,30 +15,50 @@
 /// @access private
 $_o-tabs-default-button-tabs: ();
 
-
 // Define core brand
 @if oBrandIs('core') {
 	$_o-tabs-default-button-tabs: (
-		('type': 'primary'),
-		('type': 'secondary'),
-		('type': 'primary', 'theme': 'inverse'),
-		('type': 'secondary', 'theme': 'inverse'),
+		(
+			'type': 'primary',
+		),
+		(
+			'type': 'secondary',
+		),
+		(
+			'type': 'primary',
+			'theme': 'inverse',
+		),
+		(
+			'type': 'secondary',
+			'theme': 'inverse',
+		)
 	) !global;
 }
 
 // Define internal brand
 @if oBrandIs('internal') {
 	$_o-tabs-default-button-tabs: (
-		('type': 'primary'),
-		('type': 'secondary'),
-		('type': 'secondary', 'theme': 'inverse'),
+		(
+			'type': 'primary',
+		),
+		(
+			'type': 'secondary',
+		),
+		(
+			'type': 'secondary',
+			'theme': 'inverse',
+		)
 	) !global;
 }
 
 // Define whitelabel brand
 @if oBrandIs('whitelabel') {
 	$_o-tabs-default-button-tabs: (
-		('type': 'primary'),
-		('type': 'secondary')
+		(
+			'type': 'primary',
+		),
+		(
+			'type': 'secondary',
+		)
 	) !global;
 }

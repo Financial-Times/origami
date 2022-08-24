@@ -1,4 +1,3 @@
-
 const longTableWithContainer = `
 <div class="o-table-container">
 	<div class="o-table-overlay-wrapper">
@@ -305,5 +304,5 @@ export {
 	longTableWithContainer,
 	shortTableWithContainer,
 	tableWithContainerAndComplexHeadings,
-	getTableMarkupFor
+	getTableMarkupFor,
 };

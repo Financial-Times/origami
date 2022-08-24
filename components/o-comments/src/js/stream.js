@@ -10,27 +10,30 @@ class Stream {
 	 * @param {HTMLElement} [streamEl] - The component element in the DOM
 	 * @param {object} [opts={}] - An options object for configuring the component
 	 */
-	constructor (streamEl, opts = {}) {
+	constructor(streamEl, opts = {}) {
 		this.streamEl = streamEl || document;
 		this.options = opts;
 		this.eventSeenTimes = {};
 		this.useStagingEnvironment = Boolean(opts.useStagingEnvironment);
 	}
 
-	init () {
-		const renderAndAuthenticate = (displayName) => {
-			return Promise.all([this.renderComments(), this.authenticateUser(displayName)])
-				.then(() => {
-					this.login();
-				});
+	init() {
+		const renderAndAuthenticate = displayName => {
+			return Promise.all([
+				this.renderComments(),
+				this.authenticateUser(displayName),
+			]).then(() => {
+				this.login();
+			});
 		};
 
-		return displayName.validation(this.options.displayName)
+		return displayName
+			.validation(this.options.displayName)
 			.then(displayName => renderAndAuthenticate(displayName))
 			.catch(() => renderAndAuthenticate());
 	}
 
-	login () {
+	login() {
 		if (this.authenticationToken) {
 			this.embed.login(this.authenticationToken);
 
@@ -40,16 +43,17 @@ class Stream {
 		}
 	}
 
-	authenticateUser (displayName) {
+	authenticateUser(displayName) {
 		const fetchOptions = {
-			useStagingEnvironment: this.useStagingEnvironment
+			useStagingEnvironment: this.useStagingEnvironment,
 		};
 
 		if (displayName) {
 			fetchOptions.displayName = displayName;
 		}
 
-		return auth.fetchJsonWebToken(fetchOptions)
+		return auth
+			.fetchJsonWebToken(fetchOptions)
 			.then(response => {
 				this.displayName = response.displayName;
 
@@ -64,8 +68,8 @@ class Stream {
 			});
 	}
 
-	renderComments () {
-		return new Promise((resolve) => {
+	renderComments() {
+		return new Promise(resolve => {
 			try {
 				/*global Coral*/
 				const cacheBuster = 'cachebust=20210806';
@@ -77,21 +81,19 @@ class Stream {
 				scriptElement.src = `${rootUrl}/assets/js/embed.js?${cacheBuster}`;
 
 				scriptElement.onload = () => {
-					this.embed = Coral.createStreamEmbed(
-						{
-							id: this.streamEl.id,
-							storyURL: this.options.articleUrl,
-							storyID: this.options.articleId,
-							rootURL: rootUrl,
-							autoRender: true,
-							bodyClassName: 'o-comments-coral-talk-container',
-							events: (events) => {
-								events.onAny((name, data) => {
-									this.publishEvent({name, data});
-								});
-							}
-						}
-					);
+					this.embed = Coral.createStreamEmbed({
+						id: this.streamEl.id,
+						storyURL: this.options.articleUrl,
+						storyID: this.options.articleId,
+						rootURL: rootUrl,
+						autoRender: true,
+						bodyClassName: 'o-comments-coral-talk-container',
+						events: events => {
+							events.onAny((name, data) => {
+								this.publishEvent({name, data});
+							});
+						},
+					});
 					resolve();
 				};
 				this.streamEl.parentNode.appendChild(scriptElement);
@@ -114,26 +116,26 @@ class Stream {
 		});
 	}
 
-	displayNamePrompt ({purgeCacheAfterCompletion = false} = {}) {
+	displayNamePrompt({purgeCacheAfterCompletion = false} = {}) {
 		const overlay = displayName.prompt();
 
-		const onOverlayReady = (event) => {
+		const onOverlayReady = event => {
 			const sourceOverlay = event.srcElement;
-			const displayNameForm = sourceOverlay.querySelector('#o-comments-displayname-form');
+			const displayNameForm = sourceOverlay.querySelector(
+				'#o-comments-displayname-form'
+			);
 
 			if (displayNameForm) {
-				displayNameForm.addEventListener('submit', (event) => {
-					displayName.promptValidation(event)
-						.then(displayName => {
-							overlay.close();
-							this.authenticateUser(displayName)
-								.then(() => {
-									this.login();
-								});
-							if (purgeCacheAfterCompletion) {
-								purgeJwtCache();
-							}
+				displayNameForm.addEventListener('submit', event => {
+					displayName.promptValidation(event).then(displayName => {
+						overlay.close();
+						this.authenticateUser(displayName).then(() => {
+							this.login();
 						});
+						if (purgeCacheAfterCompletion) {
+							purgeJwtCache();
+						}
+					});
 				});
 			}
 		};
@@ -155,13 +157,8 @@ class Stream {
 	 * @param {object} args.data - The event payload
 	 * @returns {void}
 	 */
-	publishEvent ({name, data = {}}) {
-		const {
-			success: {
-				status
-			} = {},
-			error
-		} = data;
+	publishEvent({name, data = {}}) {
+		const {success: {status} = {}, error} = data;
 
 		if (name === 'loginPrompt' && this.userHasValidSession) {
 			return this.displayNamePrompt();
@@ -170,20 +167,24 @@ class Stream {
 		const mappedEvent = events.coralEventMap.get(name);
 
 		if (mappedEvent) {
-			const now = Number(new Date);
+			const now = Number(new Date());
 			const delayInMilliseconds = 100;
-			const eventHasntBeenSeenRecently = !this.eventSeenTimes[mappedEvent.oComments] ||
+			const eventHasntBeenSeenRecently =
+				!this.eventSeenTimes[mappedEvent.oComments] ||
 				now > this.eventSeenTimes[mappedEvent.oComments] + delayInMilliseconds;
 
 			if (eventHasntBeenSeenRecently) {
 				this.eventSeenTimes[mappedEvent.oComments] = now;
 
-				const oCommentsEventOptions = { bubbles: true };
+				const oCommentsEventOptions = {bubbles: true};
 				if (error) {
-					oCommentsEventOptions.detail = { error };
+					oCommentsEventOptions.detail = {error};
 				}
 
-				const oCommentsEvent = new CustomEvent(mappedEvent.oComments, oCommentsEventOptions);
+				const oCommentsEvent = new CustomEvent(
+					mappedEvent.oComments,
+					oCommentsEventOptions
+				);
 				this.streamEl.dispatchEvent(oCommentsEvent);
 
 				if (mappedEvent.oTracking && !this.options.disableOTracking) {
@@ -193,22 +194,25 @@ class Stream {
 							category: 'comment',
 							action: mappedEvent.oTracking,
 							coral: true,
-							isWithheld: status === 'SYSTEM_WITHHELD'
-						}
+							isWithheld: status === 'SYSTEM_WITHHELD',
+						},
 					};
 
 					if (error) {
 						oTrackingEventOptions.detail.error = error;
 					}
 
-					const oTrackingEvent = new CustomEvent('oTracking.event', oTrackingEventOptions);
+					const oTrackingEvent = new CustomEvent(
+						'oTracking.event',
+						oTrackingEventOptions
+					);
 					document.body.dispatchEvent(oTrackingEvent);
 				}
 			}
 		}
 	}
 
-	renderSignedInMessage () {
+	renderSignedInMessage() {
 		const editButtonId = `o-comments-edit-button--${this.streamEl.id}`;
 		const signedInMessage = document.createElement('div');
 		signedInMessage.classList.add('o-comments__signed-in-container');
@@ -219,9 +223,13 @@ class Stream {
 											Edit <span class="o-comments__edit-display-name-descriptive">commenting display name</span>
 										</button>
 									</p>`;
-		signedInMessage.querySelector('.o-comments__signed-in-inner-text').innerText = this.displayName;
+		signedInMessage.querySelector(
+			'.o-comments__signed-in-inner-text'
+		).innerText = this.displayName;
 
-		const oldSignedInMessage = this.streamEl.parentNode.querySelector('.o-comments__signed-in-container');
+		const oldSignedInMessage = this.streamEl.parentNode.querySelector(
+			'.o-comments__signed-in-container'
+		);
 		if (oldSignedInMessage) {
 			oldSignedInMessage.remove();
 		}

@@ -8,13 +8,15 @@ import {mediaApiResponse1} from './fixtures/media-api-1.js';
 import {mediaApiResponse2} from './fixtures/media-api-2.js';
 
 describe('Video', () => {
-
 	let containerEl;
 
 	beforeEach(() => {
 		containerEl = document.createElement('div');
 		containerEl.setAttribute('data-o-component', 'o-video');
-		containerEl.setAttribute('data-o-video-id', 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
+		containerEl.setAttribute(
+			'data-o-video-id',
+			'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526'
+		);
 		containerEl.setAttribute('data-o-video-autorender', 'false');
 		containerEl.setAttribute('data-o-video-show-captions', 'false');
 		containerEl.setAttribute('data-o-video-systemcode', 'origami-build-tools');
@@ -37,7 +39,10 @@ describe('Video', () => {
 			proclaim.equal(video.targeting.site, '/5887/ft.com');
 			proclaim.equal(video.targeting.position, 'video');
 			proclaim.equal(video.targeting.sizes, '592x333|400x225');
-			proclaim.equal(video.targeting.videoId, 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
+			proclaim.equal(
+				video.targeting.videoId,
+				'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526'
+			);
 
 			proclaim.equal(video.containerEl, containerEl);
 			proclaim.isTrue(video.containerEl.hasAttribute('data-o-video-js'));
@@ -58,7 +63,10 @@ describe('Video', () => {
 		it('should allow setting options through attribute', () => {
 			containerEl.setAttribute('data-o-video-optimumwidth', 300);
 			containerEl.setAttribute('data-o-video-placeholder', true);
-			containerEl.setAttribute('data-o-video-placeholder-info', '[\'title\', \'description\']');
+			containerEl.setAttribute(
+				'data-o-video-placeholder-info',
+				"['title', 'description']"
+			);
 			containerEl.setAttribute('data-o-video-classes', 'a-class another-class');
 			containerEl.setAttribute('data-o-video-show-captions', true);
 			containerEl.setAttribute('data-o-video-systemcode', 'test');
@@ -73,7 +81,7 @@ describe('Video', () => {
 			proclaim.equal(video.opts.systemcode, 'test');
 		});
 
-		it('should error if a system code is not given', (done) => {
+		it('should error if a system code is not given', done => {
 			const testEl = containerEl.cloneNode(true);
 			testEl.removeAttribute('data-o-video-systemcode');
 
@@ -108,7 +116,7 @@ describe('Video', () => {
 		beforeEach(() => {
 			const res1 = new window.Response(JSON.stringify(mediaApiResponse1), {
 				status: 200,
-				headers: { 'Content-type': 'application/json' }
+				headers: {'Content-type': 'application/json'},
 			});
 
 			fetchStub = sinon.stub(window, 'fetch');
@@ -125,17 +133,29 @@ describe('Video', () => {
 
 			return video.getData().then(() => {
 				proclaim.equal(fetchStub.calledWithMatch('4084879507001'), true);
-				proclaim.equal(video.videoData.id, 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
+				proclaim.equal(
+					video.videoData.id,
+					'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526'
+				);
 			});
 		});
 
 		it('can work with a uuid', () => {
-			containerEl.setAttribute('data-o-video-id', 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
+			containerEl.setAttribute(
+				'data-o-video-id',
+				'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526'
+			);
 			const video = new Video(containerEl);
 
 			return video.getData().then(() => {
-				proclaim.equal(fetchStub.calledWithMatch('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526'), true);
-				proclaim.equal(video.videoData.id, 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
+				proclaim.equal(
+					fetchStub.calledWithMatch('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526'),
+					true
+				);
+				proclaim.equal(
+					video.videoData.id,
+					'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526'
+				);
 			});
 		});
 	});
@@ -144,7 +164,7 @@ describe('Video', () => {
 		it('should add a video element', () => {
 			const video = new Video(containerEl);
 			video.rendition = {
-				url: 'http://url.mock'
+				url: 'http://url.mock',
 			};
 			video.posterImage = 'mockimage';
 			video.addVideo();
@@ -155,23 +175,25 @@ describe('Video', () => {
 			proclaim.deepEqual(video.videoEl.src, 'http://url.mock/');
 			proclaim.deepEqual(video.videoEl.controls, true);
 			proclaim.isFalse(video.videoEl.hasAttribute('playsinline'));
-
 		});
 
 		it('should add supplied classes to element', () => {
 			const video = new Video(containerEl, {
 				classes: ['class-one', 'class-two'],
-				autorender: false
+				autorender: false,
 			});
 
 			video.addVideo();
-			proclaim.deepEqual(video.videoEl.className, 'class-one class-two o-video__video');
+			proclaim.deepEqual(
+				video.videoEl.className,
+				'class-one class-two o-video__video'
+			);
 		});
 
 		it('should support the playsinline option set to true', () => {
 			const video = new Video(containerEl, {
 				playsinline: true,
-				autorender: false
+				autorender: false,
 			});
 
 			video.addVideo();
@@ -182,7 +204,7 @@ describe('Video', () => {
 		it('should support the playsinline option set to false', () => {
 			const video = new Video(containerEl, {
 				playsinline: false,
-				autorender: false
+				autorender: false,
 			});
 
 			video.addVideo();
@@ -197,7 +219,10 @@ describe('Video', () => {
 			Element.prototype.addEventListener = addEventListenerSpy;
 
 			video.addVideo();
-			proclaim.deepEqual(addEventListenerSpy.alwaysCalledOn(video.videoEl), true);
+			proclaim.deepEqual(
+				addEventListenerSpy.alwaysCalledOn(video.videoEl),
+				true
+			);
 			addEventListenerSpy.calledWith('playing', video.pauseOtherVideos);
 			addEventListenerSpy.calledWith('playing', video.markPlayStart);
 			addEventListenerSpy.calledWith('pause', video.updateAmountWatched);
@@ -237,7 +262,7 @@ describe('Video', () => {
 				// Duration on the video element is read only so we have to replace
 				video.videoEl = {
 					duration: 100,
-					currentTime: 50
+					currentTime: 50,
 				};
 
 				// Call dispatch on the original
@@ -250,7 +275,7 @@ describe('Video', () => {
 				// Duration on the video element is read only so we have to replace
 				video.videoEl = {
 					duration: 100,
-					currentTime: 80
+					currentTime: 80,
 				};
 
 				// Call dispatch on the original
@@ -263,7 +288,7 @@ describe('Video', () => {
 				// Duration on the video element is read only so we have to replace
 				video.videoEl = {
 					duration: 100,
-					currentTime: 10
+					currentTime: 10,
 				};
 
 				// Call dispatch multiple times on the original
@@ -282,7 +307,7 @@ describe('Video', () => {
 			beforeEach(() => {
 				const res1 = new window.Response(JSON.stringify(mediaApiResponse1), {
 					status: 200,
-					headers: { 'Content-type': 'application/json' }
+					headers: {'Content-type': 'application/json'},
 				});
 
 				fetchStub = sinon.stub(window, 'fetch');
@@ -304,8 +329,14 @@ describe('Video', () => {
 
 				return video.init().then(() => {
 					video.addVideo();
-					proclaim.deepEqual(containerEl.querySelector('video > track').getAttribute('kind'), 'captions');
-					proclaim.deepEqual(containerEl.querySelector('video > track').getAttribute('src'), 'https://next-media-api.ft.com/v1/5393611350001.vtt');
+					proclaim.deepEqual(
+						containerEl.querySelector('video > track').getAttribute('kind'),
+						'captions'
+					);
+					proclaim.deepEqual(
+						containerEl.querySelector('video > track').getAttribute('src'),
+						'https://next-media-api.ft.com/v1/5393611350001.vtt'
+					);
 				});
 			});
 
@@ -331,8 +362,14 @@ describe('Video', () => {
 				const video = new Video(containerEl);
 
 				return video.init().then(() => {
-					proclaim.deepEqual(containerEl.querySelector('video > track').getAttribute('kind'), 'captions');
-					proclaim.deepEqual(containerEl.querySelector('video > track').getAttribute('src'), 'https://next-media-api.ft.com/v1/5393611350001.vtt');
+					proclaim.deepEqual(
+						containerEl.querySelector('video > track').getAttribute('kind'),
+						'captions'
+					);
+					proclaim.deepEqual(
+						containerEl.querySelector('video > track').getAttribute('src'),
+						'https://next-media-api.ft.com/v1/5393611350001.vtt'
+					);
 				});
 			});
 
@@ -347,19 +384,19 @@ describe('Video', () => {
 		});
 
 		describe('`watched` Event', () => {
-
 			let mochaOnbeforeunloadHandler;
 			let trackingSpy;
 
 			const createVisibilityEvent = isHidden => {
 				const visibiltyEvent = new Event('oViewport.visibility');
 				visibiltyEvent.detail = {
-					hidden: isHidden
+					hidden: isHidden,
 				};
 				return visibiltyEvent;
 			};
 
-			const unloadEventName = 'onbeforeunload' in window ? 'beforeunload' : 'unload';
+			const unloadEventName =
+				'onbeforeunload' in window ? 'beforeunload' : 'unload';
 
 			const preventPageReload = ev => ev.preventDefault();
 
@@ -386,9 +423,9 @@ describe('Video', () => {
 				video.amountWatched = 1234567;
 				// allows us to set the duration (otherwise it's read only)
 				video.videoEl = {
-					duration: 7654.321
+					duration: 7654.321,
 				};
-				window.dispatchEvent(new Event(unloadEventName, { cancelable: true }));
+				window.dispatchEvent(new Event(unloadEventName, {cancelable: true}));
 
 				const eventDetail = trackingSpy.lastCall.args[0].detail;
 				proclaim.deepEqual(eventDetail.amount, 1235);
@@ -402,7 +439,7 @@ describe('Video', () => {
 				video.videoEl.dispatchEvent(new Event('playing'));
 				// allows us to set read only properties
 				video.videoEl = {
-					duration: 200
+					duration: 200,
 				};
 				clock.tick(7000);
 				// hide tab
@@ -410,7 +447,7 @@ describe('Video', () => {
 				// view tab
 				window.dispatchEvent(createVisibilityEvent(false));
 				clock.tick(3000);
-				window.dispatchEvent(new Event(unloadEventName, { cancelable: true }));
+				window.dispatchEvent(new Event(unloadEventName, {cancelable: true}));
 
 				const eventDetail = trackingSpy.lastCall.args[0].detail;
 				proclaim.deepEqual(eventDetail.amount, 10);
@@ -429,7 +466,7 @@ describe('Video', () => {
 				// // allows us to set read only properties
 				video.videoEl = {
 					paused: true,
-					duration: 200
+					duration: 200,
 				};
 				// hide tab
 				window.dispatchEvent(createVisibilityEvent(true));
@@ -437,7 +474,7 @@ describe('Video', () => {
 				window.dispatchEvent(createVisibilityEvent(false));
 				// as the video is paused, this shouldn't be included in the watched total
 				clock.tick(3000);
-				window.dispatchEvent(new Event(unloadEventName, { cancelable: true }));
+				window.dispatchEvent(new Event(unloadEventName, {cancelable: true}));
 
 				const eventDetail = trackingSpy.lastCall.args[0].detail;
 				proclaim.deepEqual(eventDetail.amount, 10);
@@ -445,12 +482,10 @@ describe('Video', () => {
 
 				clock.restore();
 			});
-
 		});
 	});
 
 	describe('#addPlaceholder', () => {
-
 		const realAddVideo = Video.prototype.addVideo;
 		const addVideoSpy = sinon.spy();
 
@@ -465,7 +500,7 @@ describe('Video', () => {
 		it('should be able to create a placeholder', () => {
 			const video = new Video(containerEl, {
 				autorender: false,
-				placeholder: true
+				placeholder: true,
 			});
 
 			video.videoData = {};
@@ -474,19 +509,30 @@ describe('Video', () => {
 
 			proclaim.isInstanceOf(video.placeholderEl, HTMLElement);
 			proclaim.deepEqual(video.placeholderEl.parentElement, containerEl);
-			proclaim.deepEqual(video.placeholderEl.classList.contains('o-video__placeholder'), true);
+			proclaim.deepEqual(
+				video.placeholderEl.classList.contains('o-video__placeholder'),
+				true
+			);
 
 			proclaim.isInstanceOf(video.placeholderImageEl, HTMLImageElement);
-			proclaim.deepEqual(video.placeholderImageEl.parentElement, video.placeholderEl);
+			proclaim.deepEqual(
+				video.placeholderImageEl.parentElement,
+				video.placeholderEl
+			);
 			proclaim.include(video.placeholderImageEl.src, 'mockimage');
-			proclaim.deepEqual(video.placeholderImageEl.classList.contains('o-video__placeholder-image'), true);
+			proclaim.deepEqual(
+				video.placeholderImageEl.classList.contains(
+					'o-video__placeholder-image'
+				),
+				true
+			);
 		});
 
 		it('should be able to create a placeholder with an info panel', () => {
 			const video = new Video(containerEl, {
 				autorender: false,
 				placeholder: true,
-				placeholderInfo: ['title', 'description', 'duration', 'brand']
+				placeholderInfo: ['title', 'description', 'duration', 'brand'],
 			});
 
 			video.videoData = mediaApiResponse1;
@@ -494,26 +540,44 @@ describe('Video', () => {
 
 			proclaim.ok(video.infoPanel);
 
-			proclaim.deepEqual(video.infoPanel.infoEl.parentElement, video.placeholderEl);
+			proclaim.deepEqual(
+				video.infoPanel.infoEl.parentElement,
+				video.placeholderEl
+			);
 
-			proclaim.deepEqual(video.infoPanel.titleEl.textContent, 'Markets cautious, oil eases');
-			proclaim.deepEqual(video.infoPanel.titleEl.parentElement, video.infoPanel.infoEl);
+			proclaim.deepEqual(
+				video.infoPanel.titleEl.textContent,
+				'Markets cautious, oil eases'
+			);
+			proclaim.deepEqual(
+				video.infoPanel.titleEl.parentElement,
+				video.infoPanel.infoEl
+			);
 
-			proclaim.include(video.infoPanel.descriptionEl.textContent, 'Top stories in the markets');
-			proclaim.deepEqual(video.infoPanel.descriptionEl.parentElement, video.infoPanel.infoEl);
+			proclaim.include(
+				video.infoPanel.descriptionEl.textContent,
+				'Top stories in the markets'
+			);
+			proclaim.deepEqual(
+				video.infoPanel.descriptionEl.parentElement,
+				video.infoPanel.infoEl
+			);
 
 			proclaim.deepEqual(video.infoPanel.brandEl.textContent, 'Market Minute');
-			proclaim.deepEqual(video.infoPanel.brandEl.parentElement, video.infoPanel.infoEl);
+			proclaim.deepEqual(
+				video.infoPanel.brandEl.parentElement,
+				video.infoPanel.infoEl
+			);
 		});
 
 		it('should be able to create an info panel when there is no brand name', () => {
 			const video = new Video(containerEl, {
 				autorender: false,
 				placeholder: true,
-				placeholderInfo: ['brand']
+				placeholderInfo: ['brand'],
 			});
 
-			video.videoData = Object.assign({}, mediaApiResponse1, { brand: null });
+			video.videoData = Object.assign({}, mediaApiResponse1, {brand: null});
 			video.addPlaceholder();
 
 			proclaim.deepEqual(video.infoPanel.brandEl.textContent, '');
@@ -533,8 +597,12 @@ describe('Video', () => {
 			video.videoData = {};
 			video.addPlaceholder();
 
-			const playButtonEl = video.placeholderEl.querySelector('.o-video__play-button');
-			const playIconEl = playButtonEl.querySelector('.o-video__play-button-icon');
+			const playButtonEl = video.placeholderEl.querySelector(
+				'.o-video__play-button'
+			);
+			const playIconEl = playButtonEl.querySelector(
+				'.o-video__play-button-icon'
+			);
 
 			proclaim.ok(playButtonEl);
 			proclaim.ok(playIconEl);
@@ -555,7 +623,10 @@ describe('Video', () => {
 			video.videoData = mediaApiResponse1;
 			video.addPlaceholder();
 
-			proclaim.strictEqual(video.playButtonEl.attributes['aria-label'].value, 'Play video Markets cautious, oil eases');
+			proclaim.strictEqual(
+				video.playButtonEl.attributes['aria-label'].value,
+				'Play video Markets cautious, oil eases'
+			);
 		});
 	});
 
@@ -565,12 +636,12 @@ describe('Video', () => {
 		beforeEach(() => {
 			const res1 = new window.Response(JSON.stringify(mediaApiResponse1), {
 				status: 200,
-				headers: { 'Content-type': 'application/json' }
+				headers: {'Content-type': 'application/json'},
 			});
 
 			const res2 = new window.Response(JSON.stringify(mediaApiResponse2), {
 				status: 200,
-				headers: { 'Content-type': 'application/json' }
+				headers: {'Content-type': 'application/json'},
 			});
 
 			fetchStub = sinon.stub(window, 'fetch');
@@ -596,14 +667,14 @@ describe('Video', () => {
 					id: 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526',
 					autorender: false,
 					placeholder: true,
-					placeholderInfo: ['title', 'brand']
+					placeholderInfo: ['title', 'brand'],
 				});
 
 				return video.init();
 			});
 
 			it('replaces old options with the new', () => {
-				const newOpts = { prop: 'new prop', id: mediaApiResponse2.id };
+				const newOpts = {prop: 'new prop', id: mediaApiResponse2.id};
 
 				return video.update(newOpts).then(() => {
 					proclaim.deepEqual(video.opts.prop, newOpts.prop);
@@ -612,38 +683,55 @@ describe('Video', () => {
 			});
 
 			it('updates the placeholder image and title', () => {
-				const newOpts = { id: mediaApiResponse2.id };
+				const newOpts = {id: mediaApiResponse2.id};
 
 				proclaim.include(video.placeholderImageEl.src, '5393611350001');
-				proclaim.deepEqual(video.infoPanel.titleEl.textContent, mediaApiResponse1.title);
+				proclaim.deepEqual(
+					video.infoPanel.titleEl.textContent,
+					mediaApiResponse1.title
+				);
 
 				return video.update(newOpts).then(() => {
 					proclaim.include(video.placeholderImageEl.src, '5394885102001');
-					proclaim.deepEqual(video.infoPanel.titleEl.textContent, mediaApiResponse2.title);
+					proclaim.deepEqual(
+						video.infoPanel.titleEl.textContent,
+						mediaApiResponse2.title
+					);
 				});
 			});
 
 			it('updates the aria-label of the play button', () => {
-				const newOpts = { id: mediaApiResponse2.id };
+				const newOpts = {id: mediaApiResponse2.id};
 
 				return video.update(newOpts).then(() => {
-					proclaim.strictEqual(video.playButtonEl.attributes['aria-label'].value, 'Play video The Bank of England and the bond market');
+					proclaim.strictEqual(
+						video.playButtonEl.attributes['aria-label'].value,
+						'Play video The Bank of England and the bond market'
+					);
 				});
 			});
 
 			it('removes previous brand tag', () => {
-				const mediaApiNoBrand = Object.assign({}, mediaApiResponse2, { brand: null });
-				const resNoBrand = new window.Response(JSON.stringify(mediaApiNoBrand), {
-					status: 200,
-					headers: { 'Content-type': 'application/json' }
+				const mediaApiNoBrand = Object.assign({}, mediaApiResponse2, {
+					brand: null,
 				});
+				const resNoBrand = new window.Response(
+					JSON.stringify(mediaApiNoBrand),
+					{
+						status: 200,
+						headers: {'Content-type': 'application/json'},
+					}
+				);
 
 				fetchStub.resetBehavior();
 				fetchStub.returns(Promise.resolve(resNoBrand));
 
-				const newOpts = { id: mediaApiResponse2.id };
+				const newOpts = {id: mediaApiResponse2.id};
 
-				proclaim.deepEqual(video.infoPanel.brandEl.textContent, 'Market Minute');
+				proclaim.deepEqual(
+					video.infoPanel.brandEl.textContent,
+					'Market Minute'
+				);
 
 				return video.update(newOpts).then(() => {
 					proclaim.deepEqual(video.infoPanel.brandEl.textContent, '');
@@ -659,69 +747,91 @@ describe('Video', () => {
 				video = new Video(containerEl, {
 					id: mediaApiResponse1.id,
 					autorender: false,
-					placeholder: false
+					placeholder: false,
 				});
 
 				return video.init();
 			});
 
 			it('updates the video source and poster', () => {
-				const newOpts = { id: mediaApiResponse2.id };
+				const newOpts = {id: mediaApiResponse2.id};
 				proclaim.include(video.videoEl.poster, '5393611350001');
-				proclaim.include(video.videoEl.src, '/34/47628783001/201704/970/47628783001_5393625770001_5393611350001.mp4?pubId=47628783001&videoId=5393611350001');
+				proclaim.include(
+					video.videoEl.src,
+					'/34/47628783001/201704/970/47628783001_5393625770001_5393611350001.mp4?pubId=47628783001&videoId=5393611350001'
+				);
 
 				return video.update(newOpts).then(() => {
 					proclaim.include(video.videoEl.poster, '5394885102001');
-					proclaim.include(video.videoEl.src, '/34/47628783001/201704/873/47628783001_5394886872001_5394885102001.mp4?pubId=47628783001&videoId=5394885102001');
+					proclaim.include(
+						video.videoEl.src,
+						'/34/47628783001/201704/873/47628783001_5394886872001_5394885102001.mp4?pubId=47628783001&videoId=5394885102001'
+					);
 				});
 			});
 
 			it('removes the poster if not supplied in data', () => {
-				const mediaApiNoPoster = Object.assign({}, mediaApiResponse2, { mainImageUrl: null });
-				const resNoPoster = new window.Response(JSON.stringify(mediaApiNoPoster), {
-					status: 200,
-					headers: { 'Content-type': 'application/json' }
+				const mediaApiNoPoster = Object.assign({}, mediaApiResponse2, {
+					mainImageUrl: null,
 				});
+				const resNoPoster = new window.Response(
+					JSON.stringify(mediaApiNoPoster),
+					{
+						status: 200,
+						headers: {'Content-type': 'application/json'},
+					}
+				);
 
 				fetchStub.resetBehavior();
 				fetchStub.returns(Promise.resolve(resNoPoster));
 
 				proclaim.include(video.videoEl.poster, '5393611350001');
 
-				const newOpts = { id: mediaApiResponse2.id };
+				const newOpts = {id: mediaApiResponse2.id};
 				return video.update(newOpts).then(() => {
 					proclaim.deepEqual(video.videoEl.poster, '');
 				});
 			});
 
 			it('replaces the previous captions with the new ones', () => {
-				const resWithCaptions = new window.Response(JSON.stringify(mediaApiResponse2), {
-					status: 200,
-					headers: { 'Content-type': 'application/json' }
-				});
+				const resWithCaptions = new window.Response(
+					JSON.stringify(mediaApiResponse2),
+					{
+						status: 200,
+						headers: {'Content-type': 'application/json'},
+					}
+				);
 
 				fetchStub.resetBehavior();
 				fetchStub.returns(Promise.resolve(resWithCaptions));
 
-				const newOpts = { id: mediaApiResponse2.id };
+				const newOpts = {id: mediaApiResponse2.id};
 				return video.update(newOpts).then(() => {
 					const tracks = document.querySelectorAll('track');
 					proclaim.deepEqual(tracks.length, 1);
-					proclaim.deepEqual(tracks[0].src, 'https://next-media-api.ft.com/v1/5394885102001.vtt');
+					proclaim.deepEqual(
+						tracks[0].src,
+						'https://next-media-api.ft.com/v1/5394885102001.vtt'
+					);
 				});
 			});
 
 			it('removes captions if the replacement video doesn`t have any', () => {
-				const mediaApiNoCaptions = Object.assign({}, mediaApiResponse2, { captionsUrl: null });
-				const resNoCaptions = new window.Response(JSON.stringify(mediaApiNoCaptions), {
-					status: 200,
-					headers: { 'Content-type': 'application/json' }
+				const mediaApiNoCaptions = Object.assign({}, mediaApiResponse2, {
+					captionsUrl: null,
 				});
+				const resNoCaptions = new window.Response(
+					JSON.stringify(mediaApiNoCaptions),
+					{
+						status: 200,
+						headers: {'Content-type': 'application/json'},
+					}
+				);
 
 				fetchStub.resetBehavior();
 				fetchStub.returns(Promise.resolve(resNoCaptions));
 
-				const newOpts = { id: mediaApiResponse2.id };
+				const newOpts = {id: mediaApiResponse2.id};
 				return video.update(newOpts).then(() => {
 					const tracks = document.querySelectorAll('track');
 					proclaim.deepEqual(tracks.length, 0);
@@ -734,12 +844,12 @@ describe('Video', () => {
 
 			beforeEach(() => {
 				video = new Video(containerEl, {
-					autorender: false
+					autorender: false,
 				});
 			});
 
-			it('will initialise if it hasn\'t done so already', () => {
-				const newOpts = { id: mediaApiResponse1.id };
+			it("will initialise if it hasn't done so already", () => {
+				const newOpts = {id: mediaApiResponse1.id};
 
 				sinon.spy(video, 'init');
 
@@ -771,7 +881,6 @@ describe('Video', () => {
 			video.videoEl.currentTime = 50;
 			proclaim.deepEqual(video.getProgress(), 25);
 		});
-
 	});
 
 	describe('#getTrackMode', () => {
@@ -780,7 +889,7 @@ describe('Video', () => {
 		beforeEach(() => {
 			const res1 = new window.Response(JSON.stringify(mediaApiResponse1), {
 				status: 200,
-				headers: { 'Content-type': 'application/json' }
+				headers: {'Content-type': 'application/json'},
 			});
 
 			fetchStub = sinon.stub(window, 'fetch');
@@ -816,7 +925,6 @@ describe('Video', () => {
 				proclaim.isUndefined(mode);
 			});
 		});
-
 	});
 
 	describe('#getDuration', () => {
@@ -839,11 +947,9 @@ describe('Video', () => {
 			video.videoEl.duration = 22.46324646;
 			proclaim.deepEqual(video.getDuration(), 22);
 		});
-
 	});
 
 	describe('#getData', () => {
-
 		let fetchStub;
 
 		beforeEach(() => {
@@ -851,8 +957,8 @@ describe('Video', () => {
 			const res = new window.Response(JSON.stringify(mediaApiResponse1), {
 				status: 200,
 				headers: {
-					'Content-type': 'application/json'
-				}
+					'Content-type': 'application/json',
+				},
 			});
 			fetchStub.returns(Promise.resolve(res));
 
@@ -868,23 +974,22 @@ describe('Video', () => {
 		it('should send poster through image service if optimumwidth defined', () => {
 			containerEl.setAttribute('data-o-video-optimumwidth', '300');
 			const video = new Video(containerEl);
-			return video.getData()
-				.then(() => {
-					proclaim.deepEqual(video.posterImage,
-						'https://www.ft.com/__origami/service/image/v2/images/raw/' +
+			return video.getData().then(() => {
+				proclaim.deepEqual(
+					video.posterImage,
+					'https://www.ft.com/__origami/service/image/v2/images/raw/' +
 						'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201704%2F970%2F47628783001_5393625566001_5393611350001-vs.jpg%3FpubId%3D47628783001%26videoId%3D5393611350001' +
 						'?source=origami-build-tools&quality=low&fit=scale-down&width=300'
-					);
-				});
+				);
+			});
 		});
 
 		it('should request an optimised rendition if optimumvideowidth defined', () => {
 			containerEl.setAttribute('data-o-video-optimumvideowidth', '300');
 			const video = new Video(containerEl);
-			return video.getData()
-				.then(() => {
-					proclaim.deepEqual(video.rendition.pixelWidth, 480);
-				});
+			return video.getData().then(() => {
+				proclaim.deepEqual(video.rendition.pixelWidth, 480);
+			});
 		});
 
 		it('should not fetch from video if full data provided in opts', () => {
@@ -892,52 +997,55 @@ describe('Video', () => {
 				data: {
 					prop: 'val',
 					videoStillUrl: 'abc',
-					renditions: []
+					renditions: [],
 				},
-				autorender: false
+				autorender: false,
 			});
 
-			return video
-				.getData()
-				.then(() => {
-					proclaim.deepEqual(video.videoData.prop, 'val');
-					proclaim.deepEqual(video.videoData.videoStillUrl, 'abc');
-					proclaim.deepEqual(video.videoData.renditions.length, 0);
-				});
+			return video.getData().then(() => {
+				proclaim.deepEqual(video.videoData.prop, 'val');
+				proclaim.deepEqual(video.videoData.videoStillUrl, 'abc');
+				proclaim.deepEqual(video.videoData.renditions.length, 0);
+			});
 		});
 
 		context('dealing with quotes', () => {
 			const quoteyData = {
 				title: 'Macron - What next?',
 				standfirst: 'President-elect\'s "pro-EU" and trade agenda',
-				description: "Another 'great' \"quote here\"",
-				renditions: []
+				description: 'Another \'great\' "quote here"',
+				renditions: [],
 			};
 
 			const videoDataShouldMatch = video => {
 				proclaim.deepEqual(video.videoData.title, 'Macron - What next?');
-				proclaim.deepEqual(video.videoData.standfirst, 'President-elect\'s "pro-EU" and trade agenda');
-				proclaim.deepEqual(video.videoData.description, 'Another \'great\' "quote here"');
+				proclaim.deepEqual(
+					video.videoData.standfirst,
+					'President-elect\'s "pro-EU" and trade agenda'
+				);
+				proclaim.deepEqual(
+					video.videoData.description,
+					'Another \'great\' "quote here"'
+				);
 				proclaim.deepEqual(video.videoData.renditions.length, 0);
 			};
 
 			it('can deal with quotes when data passed via constructor', () => {
 				const video = new Video(containerEl, {
-					data: quoteyData
+					data: quoteyData,
 				});
 
-				return video
-					.getData()
-					.then(() => videoDataShouldMatch(video));
+				return video.getData().then(() => videoDataShouldMatch(video));
 			});
 
 			it('can deal with quotes when data passed via attribute', () => {
-				containerEl.setAttribute('data-o-video-data', JSON.stringify(quoteyData));
+				containerEl.setAttribute(
+					'data-o-video-data',
+					JSON.stringify(quoteyData)
+				);
 				const video = new Video(containerEl);
 
-				return video
-					.getData()
-					.then(() => videoDataShouldMatch(video));
+				return video.getData().then(() => videoDataShouldMatch(video));
 			});
 		});
 	});
@@ -946,11 +1054,18 @@ describe('Video', () => {
 		let fetchStub;
 
 		beforeEach(() => {
-			const mediaApiResponseWithoutCaptions = Object.assign({}, mediaApiResponse1, { captionsUrl: null });
-			const res1 = new window.Response(JSON.stringify(mediaApiResponseWithoutCaptions), {
-				status: 200,
-				headers: { 'Content-type': 'application/json' }
-			});
+			const mediaApiResponseWithoutCaptions = Object.assign(
+				{},
+				mediaApiResponse1,
+				{captionsUrl: null}
+			);
+			const res1 = new window.Response(
+				JSON.stringify(mediaApiResponseWithoutCaptions),
+				{
+					status: 200,
+					headers: {'Content-type': 'application/json'},
+				}
+			);
 
 			fetchStub = sinon.stub(window, 'fetch');
 			fetchStub.resolves(res1);
@@ -962,17 +1077,16 @@ describe('Video', () => {
 
 		context('on the placeholder, a guidance message', () => {
 			it('is displayed by default', () => {
-				const video = new Video(containerEl, { placeholder: true });
+				const video = new Video(containerEl, {placeholder: true});
 
 				return video.init().then(() => {
 					proclaim.ok(containerEl.querySelector('.o-video__guidance'));
 				});
 			});
 
-
 			it('is not displayed if showGuidance option is set false', () => {
 				containerEl.setAttribute('data-o-video-show-guidance', false);
-				const video = new Video(containerEl, { placeholder: true });
+				const video = new Video(containerEl, {placeholder: true});
 
 				return video.init().then(() => {
 					proclaim.notOk(containerEl.querySelector('.o-video__guidance'));
@@ -995,7 +1109,9 @@ describe('Video', () => {
 				const video = new Video(containerEl);
 				return video.init().then(() => {
 					video.videoEl.dispatchEvent(new Event('playing'));
-					proclaim.notOk(containerEl.querySelector('.o-video__guidance--banner'));
+					proclaim.notOk(
+						containerEl.querySelector('.o-video__guidance--banner')
+					);
 					containerEl.setAttribute('data-o-video-show-guidance', true);
 				});
 			});
@@ -1004,26 +1120,37 @@ describe('Video', () => {
 				const video = new Video(containerEl);
 				return video.init().then(() => {
 					video.videoEl.dispatchEvent(new Event('playing'));
-					containerEl.querySelector('.o-video__guidance__close').dispatchEvent(new Event('click'));
-					proclaim.notOk(containerEl.querySelector('.o-video__guidance--banner'));
+					containerEl
+						.querySelector('.o-video__guidance__close')
+						.dispatchEvent(new Event('click'));
+					proclaim.notOk(
+						containerEl.querySelector('.o-video__guidance--banner')
+					);
 				});
 			});
 
 			it('is removed when the next video in the playlist is played', () => {
 				const video = new Video(containerEl);
-				return video.init()
+				return video
+					.init()
 					.then(() => {
-						const resWithCaptions = new window.Response(JSON.stringify(mediaApiResponse2), {
-							status: 200,
-							headers: { 'Content-type': 'application/json' }
-						});
+						const resWithCaptions = new window.Response(
+							JSON.stringify(mediaApiResponse2),
+							{
+								status: 200,
+								headers: {'Content-type': 'application/json'},
+							}
+						);
 
 						fetchStub.resetBehavior();
 						fetchStub.returns(Promise.resolve(resWithCaptions));
-						const newOpts = { id: mediaApiResponse2.id };
+						const newOpts = {id: mediaApiResponse2.id};
 						return video.update(newOpts);
-					}).then(() => {
-						proclaim.notOk(containerEl.querySelector('.o-video__guidance--banner'));
+					})
+					.then(() => {
+						proclaim.notOk(
+							containerEl.querySelector('.o-video__guidance--banner')
+						);
 					});
 			});
 		});

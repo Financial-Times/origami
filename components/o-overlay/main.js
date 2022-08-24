@@ -1,7 +1,6 @@
-
 import Overlay from './src/js/overlay.js';
 
-const constructAll = function() {
+const constructAll = function () {
 	Overlay.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

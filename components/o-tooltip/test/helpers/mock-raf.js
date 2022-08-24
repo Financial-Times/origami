@@ -1,4 +1,4 @@
-export function createMockRaf () {
+export function createMockRaf() {
 	let allCallbacks = {};
 	let callbacksLength = 0;
 
@@ -21,10 +21,13 @@ export function createMockRaf () {
 	};
 
 	const step = function (opts) {
-		const options = Object.assign({
-			time: 1000 / 60,
-			count: 1
-		}, opts);
+		const options = Object.assign(
+			{
+				time: 1000 / 60,
+				count: 1,
+			},
+			opts
+		);
 
 		let oldAllCallbacks;
 
@@ -45,6 +48,6 @@ export function createMockRaf () {
 		now: getNow,
 		raf: raf,
 		cancel: cancel,
-		step: step
+		step: step,
 	};
 }

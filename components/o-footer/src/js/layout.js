@@ -1,7 +1,7 @@
 import oGrid from '@financial-times/o-grid';
 import oViewport from '@financial-times/o-viewport';
 
-export default function init (callback) {
+export default function init(callback) {
 	oViewport.listenTo('resize');
 
 	let lastBreakpoint = oGrid.getCurrentLayout();

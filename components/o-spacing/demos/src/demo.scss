@@ -9,19 +9,32 @@
 @include oNormalise();
 
 body {
-	font-family: if(oBrandIs('whitelabel'), Arial, MetricWeb); // todo use o-typography when it has a new major with sans default
+	font-family: if(
+		oBrandIs('whitelabel'),
+		Arial,
+		MetricWeb
+	); // todo use o-typography when it has a new major with sans default
 }
 
 .demo-utilities div {
 	height: 0.5rem;
 	background-color: black;
-	background-color: var(--o-colors-teal, black); // stylelint-disable-line declaration-block-no-duplicate-properties
+	background-color: var(
+		--o-colors-teal,
+		black
+	); // stylelint-disable-line declaration-block-no-duplicate-properties
 }
 
 .demo-named-spaces-container {
 	padding-top: oSpacingByIncrement(3);
 	padding-left: oSpacingByIncrement(3);
-	background: repeating-linear-gradient(0deg, white, white oSpacingByIncrement(1), lightgrey oSpacingByIncrement(1), lightgrey oSpacingByIncrement(2));
+	background: repeating-linear-gradient(
+		0deg,
+		white,
+		white oSpacingByIncrement(1),
+		lightgrey oSpacingByIncrement(1),
+		lightgrey oSpacingByIncrement(2)
+	);
 }
 
 .demo-named-space__name {
@@ -45,7 +58,10 @@ body {
 	vertical-align: top;
 	margin-bottom: oSpacingByIncrement(5);
 	background: black;
-	background: var(--o-colors-teal, black); // stylelint-disable-line declaration-block-no-duplicate-properties
+	background: var(
+		--o-colors-teal,
+		black
+	); // stylelint-disable-line declaration-block-no-duplicate-properties
 }
 
 .demo-named-space--s1::before {

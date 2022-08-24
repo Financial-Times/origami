@@ -1,4 +1,4 @@
-import CellFormatter from "./CellFormatter.js";
+import CellFormatter from './CellFormatter.js';
 
 /**
  * Construct Intl.Collator if supported.
@@ -22,11 +22,14 @@ function getIntlCollator() {
  * @returns {number} comp
  */
 function ascendingSort(a, b, intlCollator) {
-	if ((typeof a === 'string' || a instanceof String) && (typeof b === 'string' || b instanceof String)) {
+	if (
+		(typeof a === 'string' || a instanceof String) &&
+		(typeof b === 'string' || b instanceof String)
+	) {
 		return intlCollator ? intlCollator.compare(a, b) : a.localeCompare(b);
-	} else if (!isNaN(b) && isNaN(a) || a < b) {
+	} else if ((!isNaN(b) && isNaN(a)) || a < b) {
 		return -1;
-	} else if (!isNaN(a) && isNaN(b) || b < a) {
+	} else if ((!isNaN(a) && isNaN(b)) || b < a) {
 		return 1;
 	} else {
 		return 0;
@@ -50,7 +53,6 @@ function descendingSort(a, b, intlCollator) {
  * Provides methods to sort table instances.
  */
 class TableSorter {
-
 	constructor() {
 		this._cellFormatter = new CellFormatter();
 	}
@@ -70,21 +72,30 @@ class TableSorter {
 
 		if (batch) {
 			// eslint-disable-next-line no-console
-			console.warn('o-table: The "batch" argument is deprecated and no longer used.');
+			console.warn(
+				'o-table: The "batch" argument is deprecated and no longer used.'
+			);
 		}
 
 		if (['ascending', 'descending'].indexOf(sortOrder) === -1) {
-			throw new Error(`Sort order "${sortOrder}" is not supported. Must be "ascending" or "descending".`);
+			throw new Error(
+				`Sort order "${sortOrder}" is not supported. Must be "ascending" or "descending".`
+			);
 		}
 
 		const intlCollator = getIntlCollator();
 		const cellFormatter = this._cellFormatter;
-		const type = tableHeaderElement.getAttribute('data-o-table-data-type') || undefined;
+		const type =
+			tableHeaderElement.getAttribute('data-o-table-data-type') || undefined;
 		table.tableRows.sort((a, b) => {
-			let aCol = a.querySelectorAll('td,th:not(.o-table__duplicate-heading)')[columnIndex];
-			let bCol = b.querySelectorAll('td,th:not(.o-table__duplicate-heading)')[columnIndex];
-			aCol = cellFormatter.formatCell({ cell: aCol, type });
-			bCol = cellFormatter.formatCell({ cell: bCol, type });
+			let aCol = a.querySelectorAll('td,th:not(.o-table__duplicate-heading)')[
+				columnIndex
+			];
+			let bCol = b.querySelectorAll('td,th:not(.o-table__duplicate-heading)')[
+				columnIndex
+			];
+			aCol = cellFormatter.formatCell({cell: aCol, type});
+			bCol = cellFormatter.formatCell({cell: bCol, type});
 			if (sortOrder === 'ascending') {
 				return ascendingSort(aCol, bCol, intlCollator);
 			} else {
@@ -95,7 +106,7 @@ class TableSorter {
 		// Table sorted.
 		table.sorted({
 			columnIndex,
-			sortOrder
+			sortOrder,
 		});
 
 		// Render sorted table rows.
@@ -103,7 +114,7 @@ class TableSorter {
 
 		// Update table headings.
 		window.requestAnimationFrame(() => {
-			table.tableHeaders.forEach((header) => {
+			table.tableHeaders.forEach(header => {
 				const headerSort = header === tableHeaderElement ? sortOrder : 'none';
 				header.setAttribute('aria-sort', headerSort);
 			});

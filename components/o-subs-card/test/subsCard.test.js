@@ -7,7 +7,7 @@ import * as fixtures from './helpers/fixtures.js';
 
 import {SubsCard} from './../main.js';
 
-describe("SubsCard", () => {
+describe('SubsCard', () => {
 	it('is defined', () => {
 		proclaim.equal(typeof SubsCard, 'function');
 	});
@@ -16,22 +16,22 @@ describe("SubsCard", () => {
 		proclaim.equal(typeof SubsCard.init, 'function');
 	});
 
-	it("should autoinitialize", (done) => {
+	it('should autoinitialize', done => {
 		const initSpy = sinon.spy(SubsCard, 'init');
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		setTimeout(function(){
+		setTimeout(function () {
 			proclaim.equal(initSpy.called, true);
 			initSpy.restore();
 			done();
 		}, 100);
 	});
 
-	it("should not autoinitialize when the event is not dispached", () => {
+	it('should not autoinitialize when the event is not dispached', () => {
 		const initSpy = sinon.spy(SubsCard, 'init');
 		proclaim.equal(initSpy.called, false);
 	});
 
-	describe("should create a new", () => {
+	describe('should create a new', () => {
 		beforeEach(() => {
 			fixtures.htmlCode();
 		});
@@ -40,20 +40,19 @@ describe("SubsCard", () => {
 			fixtures.reset();
 		});
 
-		it("component array when initialized", () => {
+		it('component array when initialized', () => {
 			const card = SubsCard.init();
 			proclaim.equal(card instanceof Array, true);
 			proclaim.equal(card[0] instanceof SubsCard, true);
 		});
 
-		it("single component when initialized with a root element", () => {
+		it('single component when initialized with a root element', () => {
 			const subsCard = SubsCard.init('.o-subs-card');
 			proclaim.equal(subsCard instanceof SubsCard, true);
 		});
 	});
 
 	describe('multiple components', () => {
-
 		beforeEach(() => {
 			fixtures.htmlCodeMulti();
 		});
@@ -69,7 +68,5 @@ describe("SubsCard", () => {
 
 			proclaim.equal(matchHeightsSpy.called, true);
 		});
-
 	});
-
 });

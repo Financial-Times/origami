@@ -16,7 +16,8 @@
 		flex-shrink: 0;
 		padding-right: oGridGutter(M);
 
-		@include oGridRespondTo($until: M) { // Mobile screens only
+		@include oGridRespondTo($until: M) {
+			// Mobile screens only
 			display: none;
 		}
 	}

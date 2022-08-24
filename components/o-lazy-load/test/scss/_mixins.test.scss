@@ -56,10 +56,15 @@
 	@include it('outputs custom placeholder ratios') {
 		@include assert() {
 			@include output() {
-				@include oLazyLoad($opts: (
-					'placeholder': true,
-					'placeholder-ratios': ((32, 9), (4, 3))
-				));
+				@include oLazyLoad(
+					$opts: (
+						'placeholder': true,
+						'placeholder-ratios': (
+							(32, 9),
+							(4, 3),
+						),
+					)
+				);
 			}
 
 			@include contains() {

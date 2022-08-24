@@ -57,14 +57,16 @@
 	// Set colours without the default o-colors namespace so consumers
 	// do not have to check returned colour names with the namespace.
 	$color-name: _oColorsRemoveDefaultNamespace($color-name);
-	$new-color: ($color-name: (
-		'value': $color-value,
-		'name': $color-name,
-		'meta': (
-			'deprecated': $deprecation-message,
-			'allow-tones': if($allow-tones == true, true, false)
-		)
-	));
+	$new-color: (
+		$color-name: (
+			'value': $color-value,
+			'name': $color-name,
+			'meta': (
+				'deprecated': $deprecation-message,
+				'allow-tones': if($allow-tones == true, true, false),
+			),
+		),
+	);
 	$_o-colors-palette: map-merge($_o-colors-palette, $new-color) !global;
 }
 
@@ -117,16 +119,16 @@
 	// Error if any of the usecase colours are not a string, or the property
 	// not supported.
 	@each $property, $color in $colors {
-		@if(not index($valid-properties, $property)) {
+		@if (not index($valid-properties, $property)) {
 			@error 'A property "#{inspect($property)}" cannot be set for usecase "#{$usecase}".' +
 				'A property may be one of "#{$valid-properties}".';
 		}
-		@if(type-of($color) != 'string' and type-of($color) != 'color') {
+		@if (type-of($color) != 'string' and type-of($color) != 'color') {
 			@error 'The "#{$usecase}" usecase property "#{inspect($property)}" ' +
 				'cannot be set to "#{inspect($color)}". A usecase property may ' +
 				'only be set to an o-colors colour or colour name such as "paper".';
 		}
-		@if(type-of($color) == 'string' and not _oColorsNameExists($color)) {
+		@if (type-of($color) == 'string' and not _oColorsNameExists($color)) {
 			@error 'The "#{$usecase}" usecase property "#{inspect($property)}" ' +
 				'cannot be set to "#{inspect($color)}". The colour "#{inspect($color)}" ' +
 				'does not exist.';
@@ -138,19 +140,30 @@
 	$usecase: _oColorsRemoveDefaultNamespace($usecase);
 
 	// Default o-colors usecases may be customised by users.
-	@if ($namespace == 'o-colors' and map-has-key($_o-colors-usecases, $usecase)) {
+	@if (
+		$namespace == 'o-colors' and map-has-key($_o-colors-usecases, $usecase)
+	) {
 		$current-config: map-get($_o-colors-usecases, $usecase);
 		$current-colors: map-get($current-config, 'colors');
 		$colors: map-merge($current-colors, $colors);
 	}
 
-	$new-usecase-config: ('colors': $colors, 'opts': $opts);
+	$new-usecase-config: (
+		'colors': $colors,
+		'opts': $opts,
+	);
 
 	// Existing project/component usecases may not be customised by users:
 	// Customisation for non-default usecases usually happens on the component
 	// level, with component specific mixins.
 	$current-usecase-config: map-get($_o-colors-usecases, $usecase);
-	@if ($namespace != 'o-colors' and $current-usecase-config and $current-usecase-config != $new-usecase-config) {
+	@if (
+		$namespace !=
+			'o-colors' and
+			$current-usecase-config and
+			$current-usecase-config !=
+			$new-usecase-config
+	) {
 		@error 'A usecase "#{$usecase}" has already been set. ' +
 			'Only default o-colors usecases may be overridden with `oColorsSetUseCase`. ' +
 			'If you would like to customise "#{$namespace}" colours, check its README for ' +
@@ -158,9 +171,10 @@
 	}
 
 	// Add the use-case and its properties to the global use-case map.
-	$_o-colors-usecases: map-merge($_o-colors-usecases, (
-		#{$usecase}: $new-usecase-config
-	)) !global;
+	$_o-colors-usecases: map-merge(
+		$_o-colors-usecases,
+		(#{$usecase}: $new-usecase-config)
+	) !global;
 }
 
 /// Update the palette with default tones.
@@ -169,7 +183,7 @@
 @mixin _oColorsSetPaletteTones {
 	@each $color-name, $tone-values in $_o-colors-default-palette-tones {
 		@each $value in $tone-values {
-			$name: "#{$color-name}-#{$value}";
+			$name: '#{$color-name}-#{$value}';
 			$tone: oColorsGetTone($color-name, $value);
 			@include oColorsSetColor('o-colors/#{$name}', $tone);
 		}
@@ -190,7 +204,7 @@
 	// Output colour mixies.
 	@each $color-name, $mix-values in $_o-colors-default-palette-mixes {
 		@each $value in $mix-values {
-			$name: "#{$color-name}-#{$value}";
+			$name: '#{$color-name}-#{$value}';
 			$mix: oColorsMix($color-name, $percentage: $value);
 			@include oColorsSetColor('o-colors/#{$name}', $mix);
 		}

@@ -57,11 +57,14 @@
 				@include _oHeaderItemSeparatorContent();
 				&:before {
 					top: 50%;
-					margin-top: - $_o-header-subnav-height-base * div($_o-header-item-separator-percentage-height, 2);
-					height: $_o-header-subnav-height-base * $_o-header-item-separator-percentage-height;
-					@include oGridRespondTo('M') { // stylelint-disable-line max-nesting-depth
-						margin-top: - $_o-header-subnav-height-medium * div($_o-header-item-separator-percentage-height, 2);
-						height: $_o-header-subnav-height-medium * $_o-header-item-separator-percentage-height;
+					margin-top: -$_o-header-subnav-height-base * div($_o-header-item-separator-percentage-height, 2);
+					height: $_o-header-subnav-height-base *
+						$_o-header-item-separator-percentage-height;
+					@include oGridRespondTo('M') {
+						// stylelint-disable-line max-nesting-depth
+						margin-top: -$_o-header-subnav-height-medium * div($_o-header-item-separator-percentage-height, 2);
+						height: $_o-header-subnav-height-medium *
+							$_o-header-item-separator-percentage-height;
 					}
 				}
 			}
@@ -77,14 +80,19 @@
 			padding-left: 16px;
 		}
 
-		.o-header__subnav-list--children:not(.o-header__subnav-list--right) &:first-child {
+		.o-header__subnav-list--children:not(.o-header__subnav-list--right)
+			&:first-child {
 			// align left side correctly
 			padding-left: 0;
 		}
 
 		.o-header__subnav-list--breadcrumb & {
 			&:before {
-				@include oIconsContent('arrow-right', _oHeaderGet('link-highlight-text'), $size: $_o-header-icon-size-small);
+				@include oIconsContent(
+					'arrow-right',
+					_oHeaderGet('link-highlight-text'),
+					$size: $_o-header-icon-size-small
+				);
 				content: '';
 				position: relative;
 				top: 0.125em;
@@ -97,11 +105,9 @@
 		}
 	}
 
-
 	.o-header__subnav-list--children.o-header__subnav-list--right {
 		margin-left: auto;
 	}
-
 
 	.o-header__subnav-link {
 		@include _oHeaderLink;
@@ -129,7 +135,11 @@
 	}
 
 	.o-header__subnav-button {
-		@include oIconsContent('arrow-left', _oHeaderGet('subnav-button-text'), $size: null);
+		@include oIconsContent(
+			'arrow-left',
+			_oHeaderGet('subnav-button-text'),
+			$size: null
+		);
 		background-color: _oHeaderGet('subnav-button-background');
 		position: absolute;
 		top: 0;

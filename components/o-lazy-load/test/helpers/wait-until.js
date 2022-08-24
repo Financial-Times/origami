@@ -1,4 +1,4 @@
-const wait = (ms = 100) => new Promise((resolve) => setTimeout(resolve, ms));
+const wait = (ms = 100) => new Promise(resolve => setTimeout(resolve, ms));
 
 export default (assert, count = 5) => {
 	return new Promise((resolve, reject) => {

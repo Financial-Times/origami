@@ -5,12 +5,17 @@
 @mixin _oFooterBrandImage($logo-name, $fallback-width) {
 	// Error if the global $system-code variable is not set.
 	// This is required for image service requests.
-	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+	@if (
+		global-variable-exists('system-code') ==
+			false or
+			type-of($system-code) !=
+			'string'
+	) {
 		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
 	}
 
-	$base-url: "https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:";
-	background-image: url($base-url + $logo-name + "?source=#{$system-code}&format=svg");
+	$base-url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:';
+	background-image: url($base-url + $logo-name + '?source=#{$system-code}&format=svg');
 }
 
 /// Styles for the dark theme
@@ -119,13 +124,17 @@
 
 				@each $theme in $themes {
 					.o-footer--theme-#{$theme} & {
-						@include oIconsContent('arrow-down', _oFooterGet('title', $theme), $size: $_o-footer-icon-size);
+						@include oIconsContent(
+							'arrow-down',
+							_oFooterGet('title', $theme),
+							$size: $_o-footer-icon-size
+						);
 					}
 				}
 			}
 		}
 
-		&[aria-expanded="true"] {
+		&[aria-expanded='true'] {
 			&:after {
 				// don't download another icon...
 				transform: rotate(180deg);
@@ -147,7 +156,7 @@
 	}
 
 	.o-footer__matrix-content {
-		&[aria-hidden="true"] {
+		&[aria-hidden='true'] {
 			display: none;
 		}
 	}

@@ -21,32 +21,74 @@
 /// @param {Number} $gutter-width [null] - Gutter width in px
 @mixin oGridAddLayout($layout-name, $layout-width, $gutter-width: null) {
 	$temp-layouts: ();
-	$temp-gutters: (default: oGridGutter());
+	$temp-gutters: (
+		default: oGridGutter(),
+	);
 	$current-max-width: map-get($o-grid-layouts, nth($_o-grid-layout-names, -1));
 
 	// Add the new layout in the correct position:
 	// (we want $o-grid-layouts and $o-grid-gutters to be ordered from the smallest to the largest layout)
-	@if($layout-width >= $current-max-width) {
-		$temp-layouts: map-merge($o-grid-layouts, ($layout-name: $layout-width));
-		$temp-gutters: map-merge($o-grid-gutters, ($layout-name: $gutter-width));
+	@if ($layout-width >= $current-max-width) {
+		$temp-layouts: map-merge(
+			$o-grid-layouts,
+			(
+				$layout-name: $layout-width,
+			)
+		);
+		$temp-gutters: map-merge(
+			$o-grid-gutters,
+			(
+				$layout-name: $gutter-width,
+			)
+		);
 	} @else {
 		@for $index from 1 through length($o-grid-layouts) {
-			$previous-layout-width: if($index == 1, 0, map-get($o-grid-layouts, nth($_o-grid-layout-names, $index - 1)));
+			$previous-layout-width: if(
+				$index == 1,
+				0,
+				map-get($o-grid-layouts, nth($_o-grid-layout-names, $index - 1))
+			);
 			$current-layout-name: nth($_o-grid-layout-names, $index);
 			$current-layout-width: map-get($o-grid-layouts, $current-layout-name);
 
 			$current-gutter-width: map-get($o-grid-gutters, $current-layout-name);
 
 			// Assumes all layouts use the same unit e.g. px or rem (as does the JavaScript)
-			@if not ($previous-layout-width > $layout-width or $current-layout-width < $layout-width) {
-				$temp-layouts: map-merge($temp-layouts, ($layout-name: $layout-width));
-				$temp-gutters: map-merge($temp-gutters, ($layout-name: $gutter-width));
+			@if not(
+				$previous-layout-width >
+					$layout-width or
+					$current-layout-width <
+					$layout-width
+			)
+			{
+				$temp-layouts: map-merge(
+					$temp-layouts,
+					(
+						$layout-name: $layout-width,
+					)
+				);
+				$temp-gutters: map-merge(
+					$temp-gutters,
+					(
+						$layout-name: $gutter-width,
+					)
+				);
 			}
 
-			$temp-layouts: map-merge($temp-layouts, ($current-layout-name: $current-layout-width));
+			$temp-layouts: map-merge(
+				$temp-layouts,
+				(
+					$current-layout-name: $current-layout-width,
+				)
+			);
 
 			@if $current-gutter-width {
-				$temp-gutters: map-merge($temp-gutters, ($current-layout-name: $current-gutter-width));
+				$temp-gutters: map-merge(
+					$temp-gutters,
+					(
+						$current-layout-name: $current-gutter-width,
+					)
+				);
 			}
 		}
 	}
@@ -85,7 +127,6 @@
 /// @param {String} from - one of $o-grid-layouts
 /// @param {String} until - one of $o-grid-layouts
 @mixin oGridRespondTo($from: false, $until: false) {
-
 	$grid-is-responsive: $o-grid-mode != 'fixed';
 	@include mq(
 		$from: $from,
@@ -184,7 +225,9 @@
 		}
 
 		@each $layout-name in $_o-grid-layout-names {
-			@if index($_o-grid-layout-names, $layout-name) >= index($_o-grid-layout-names, $o-grid-start-snappy-mode-at) {
+			@if index($_o-grid-layout-names, $layout-name) >=
+				index($_o-grid-layout-names, $o-grid-start-snappy-mode-at)
+			{
 				@include oGridRespondTo($layout-name) {
 					@if $grid-mode == 'snappy' {
 						max-width: map-get($o-grid-layouts, $layout-name);
@@ -243,7 +286,7 @@
 /// Remove gutters from columns in a row
 ///
 /// @param {string} $column-selector ["[o-grid-colspan]"] - CSS selector for row element
-@mixin oGridRowCompact($column-selector: "[o-grid-colspan]") {
+@mixin oGridRowCompact($column-selector: '[o-grid-colspan]') {
 	margin-left: 0;
 
 	> #{unquote($column-selector)} {
@@ -332,7 +375,8 @@
 
 		@each $breakpoint in $_o-grid-layout-names {
 			@include oGridRespondTo($breakpoint) {
-				content: '{ "layout": "' + $breakpoint + '", "gutter": "' + oGridGutter($breakpoint) + '" }';
+				content: '{ "layout": "' + $breakpoint + '", "gutter": "' +
+					oGridGutter($breakpoint) + '" }';
 			}
 		}
 	}
@@ -366,10 +410,13 @@
 			$key: nth($keys, $ittr);
 			$value: map-get($o-grid-layouts, $key);
 
-			$combined: $combined + _oGridQuoteString($key) + ': ' + _oGridQuoteString($value);
+			$combined: $combined +
+				_oGridQuoteString($key) +
+				': ' +
+				_oGridQuoteString($value);
 
 			@if $ittr < length($keys) {
-				$combined: $combined + ", ";
+				$combined: $combined + ', ';
 			}
 		}
 
@@ -396,31 +443,42 @@
 ///
 /// @param {String} $layout-name [null]
 @mixin _oGridHumanFriendlyColumns($layout-name: null) {
-	[data-o-grid-colspan~="#{$layout-name}hide"] {
+	[data-o-grid-colspan~='#{$layout-name}hide'] {
 		display: none;
 	}
 
 	// Center and un-center
-	[data-o-grid-colspan~="#{$layout-name}center"] {
+	[data-o-grid-colspan~='#{$layout-name}center'] {
 		@include oGridCenter;
 	}
 	// Since writing [data-o-grid-colspan~="uncenter"] wouldn't make much sense
 	// we only allow "uncenter" combined with a layout (e.g. XLuncenter)
 	@if $layout-name != null {
-		[data-o-grid-colspan~="#{$layout-name}uncenter"] {
+		[data-o-grid-colspan~='#{$layout-name}uncenter'] {
 			@include oGridUncenter;
 		}
 	}
 
 	// Portions
-	@each $human-friendly-name in (full-width, one-half, one-third, two-thirds, one-quarter, three-quarters) {
-		[data-o-grid-colspan~="#{$layout-name}#{$human-friendly-name}"] {
+	@each $human-friendly-name
+		in (
+			full-width,
+			one-half,
+			one-third,
+			two-thirds,
+			one-quarter,
+			three-quarters
+		)
+	{
+		[data-o-grid-colspan~='#{$layout-name}#{$human-friendly-name}'] {
 			// Restore visibility from `display: none`
 			// if `data-o-grid-colspan` was set to `0` or `hide`
 			display: block;
 
 			// Define width in %
-			@include _oGridFixSafariWrap($human-friendly-name); // stylelint-disable-line order/order
+			@include _oGridFixSafariWrap(
+				$human-friendly-name
+			); // stylelint-disable-line order/order
 			min-width: oGridColspan($human-friendly-name);
 			max-width: oGridColspan($human-friendly-name);
 			width: oGridColspan($human-friendly-name);
@@ -435,13 +493,13 @@
 /// @param {String} $layout-name [null]
 @mixin _oGridShuffleColumns($layout-name: null) {
 	@for $colspan from 0 through ($o-grid-columns - 1) {
-		[data-o-grid-colspan~="#{$layout-name}push#{$colspan}"] {
+		[data-o-grid-colspan~='#{$layout-name}push#{$colspan}'] {
 			@include oGridPush($colspan);
 		}
-		[data-o-grid-colspan~="#{$layout-name}pull#{$colspan}"] {
+		[data-o-grid-colspan~='#{$layout-name}pull#{$colspan}'] {
 			@include oGridPull($colspan);
 		}
-		[data-o-grid-colspan~="#{$layout-name}offset#{$colspan}"] {
+		[data-o-grid-colspan~='#{$layout-name}offset#{$colspan}'] {
 			@include oGridOffset($colspan);
 		}
 	}
@@ -465,7 +523,6 @@
 	} @else {
 		// $span is a number or a keyword, so we're outputting the default width for that column
 		@if type-of($span) == number or type-of($span) == string {
-
 			// Restore visibility from `display: none`
 			// if `data-o-grid-colspan` was set to `0` or `hide`
 			display: block;
@@ -493,7 +550,9 @@
 						// if `data-o-grid-colspan` was set to `0` or `hide`
 						display: block;
 						// Define width in %
-						@include _oGridFixSafariWrap($layout-span); // stylelint-disable-line order/order
+						@include _oGridFixSafariWrap(
+							$layout-span
+						); // stylelint-disable-line order/order
 						min-width: oGridColspan($layout-span);
 						max-width: oGridColspan($layout-span);
 					}

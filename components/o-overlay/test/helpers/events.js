@@ -12,13 +12,12 @@ const fireEvent = function (el, event, data) {
 };
 
 const fireCustomEvent = function (el, event, data) {
-	el.dispatchEvent(new CustomEvent(event, {
-		detail: data,
-		bubbles: true
-	}));
+	el.dispatchEvent(
+		new CustomEvent(event, {
+			detail: data,
+			bubbles: true,
+		})
+	);
 };
 
-export {
-	fireEvent,
-	fireCustomEvent
-};
+export {fireEvent, fireCustomEvent};

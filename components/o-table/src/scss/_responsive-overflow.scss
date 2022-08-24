@@ -18,17 +18,18 @@
 		left: 0;
 		pointer-events: none;
 
-
 		.o-table-control {
 			display: inline-block;
 			background: _oTableGet('table-background');
 			pointer-events: all;
 			transition: 1s opacity ease-in-out;
 			button {
-				@include oButtonsContent((
-					'type': 'primary',
-					'size': 'big'
-				));
+				@include oButtonsContent(
+					(
+						'type': 'primary',
+						'size': 'big',
+					)
+				);
 			}
 		}
 
@@ -55,10 +56,13 @@
 
 		.o-table-control--back button,
 		.o-table-control--forward button {
-			@include oButtonsContent((
-				'size': 'big',
-				'icon-only': true
-			), $include-base-styles: false);
+			@include oButtonsContent(
+				(
+					'size': 'big',
+					'icon-only': true,
+				),
+				$include-base-styles: false
+			);
 		}
 
 		.o-table-control--back {
@@ -69,7 +73,7 @@
 				@include oButtonsContent(
 					$opts: (
 						'type': 'primary',
-						'icon': 'arrow-left'
+						'icon': 'arrow-left',
 					),
 					$include-base-styles: false,
 					$include-base-icon-styles: false
@@ -85,7 +89,7 @@
 				@include oButtonsContent(
 					$opts: (
 						'type': 'primary',
-						'icon': 'arrow-right'
+						'icon': 'arrow-right',
 					),
 					$include-base-styles: false,
 					$include-base-icon-styles: false
@@ -159,7 +163,16 @@
 	// Show horizontal fade when the table is scrolled.
 	.o-table-overflow-fade-overlay--scroll {
 		@if _oTableGet('table-background') {
-			background: linear-gradient(to right, _oTableGet('table-background') 2px, rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-start)), linear-gradient(to left, _oTableGet('table-background') 2px, rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-end));
+			background: linear-gradient(
+					to right,
+					_oTableGet('table-background') 2px,
+					rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-start)
+				),
+				linear-gradient(
+					to left,
+					_oTableGet('table-background') 2px,
+					rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-end)
+				);
 		}
 	}
 
@@ -172,7 +185,11 @@
 			bottom: 0;
 			left: 0;
 			right: 0;
-			background: linear-gradient(to top, _oTableGet('table-background') 30px, rgba(_oTableGet('table-background'), 0) 80px);
+			background: linear-gradient(
+				to top,
+				_oTableGet('table-background') 30px,
+				rgba(_oTableGet('table-background'), 0) 80px
+			);
 			pointer-events: none;
 		}
 	}

@@ -1,6 +1,4 @@
-
 @include describe('oLabels mixins') {
-
 	@include describe('_oLabelsBaseContent') {
 		@include it('subtracts border width from the padding values') {
 			@include assert() {
@@ -25,7 +23,9 @@
 					}
 					@include contains($selector: false) {
 						$expected-vertical-padding: calc(#{oSpacingByName('s2')} - #{1px});
-						$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
+						$expected-horizontal-padding: calc(
+							#{oSpacingByName('s2')} - #{1px}
+						);
 						.o-labels--big {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
 						}
@@ -60,7 +60,11 @@
 				@include assert() {
 					@include output($selector: false) {
 						.o-example-label {
-							@include oLabelsContent($opts: ('size': 'small'));
+							@include oLabelsContent(
+								$opts: (
+									'size': 'small',
+								)
+							);
 						}
 					}
 					@include expect($selector: false) {
@@ -81,7 +85,11 @@
 				@include assert() {
 					@include output() {
 						.o-example-label {
-							@include oLabelsContent($opts: ('state': 'content-commercial'));
+							@include oLabelsContent(
+								$opts: (
+									'state': 'content-commercial',
+								)
+							);
 						}
 					}
 					@include expect() {
@@ -98,9 +106,13 @@
 				@include assert() {
 					@include output() {
 						.o-example-label {
-							@include oLabelsContent($opts: ('state': (
-								'background-color': hotpink
-							)));
+							@include oLabelsContent(
+								$opts: (
+									'state': (
+										'background-color': hotpink,
+									),
+								)
+							);
 						}
 					}
 					@include expect() {
@@ -117,7 +129,12 @@
 				@include assert() {
 					@include output($selector: false) {
 						.o-example-label {
-							@include oLabelsContent($opts: ('size': 'small', 'state': 'content-commercial'));
+							@include oLabelsContent(
+								$opts: (
+									'size': 'small',
+									'state': 'content-commercial',
+								)
+							);
 						}
 					}
 					@include expect($selector: false) {
@@ -140,7 +157,11 @@
 			@include it('outputs fundamental label styles required by all labels') {
 				@include assert() {
 					@include output() {
-						@include oLabelsContent($opts: ('base': true));
+						@include oLabelsContent(
+							$opts: (
+								'base': true,
+							)
+						);
 					}
 					@include contains() {
 						box-sizing: border-box;
@@ -149,6 +170,4 @@
 			}
 		}
 	}
-
-
 }

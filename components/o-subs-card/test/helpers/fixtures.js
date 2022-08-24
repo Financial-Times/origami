@@ -19,7 +19,7 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-function htmlCode () {
+function htmlCode() {
 	const html = `<div>
 		<h1>Basic Demo</h1>
 		<div class="o-subs-card" data-o-component="o-subs-card">
@@ -35,7 +35,7 @@ function htmlCode () {
 	insert(html);
 }
 
-function htmlCodeMulti () {
+function htmlCodeMulti() {
 	const html = `<div>
 		<h1>Basic Demo</h1>
 		<div class="o-subs-card__container">
@@ -63,8 +63,4 @@ function htmlCodeMulti () {
 	insert(html);
 }
 
-export {
-	htmlCodeMulti,
-	htmlCode,
-	reset
-};
+export {htmlCodeMulti, htmlCode, reset};

@@ -36,11 +36,13 @@
 ///     ));
 ///
 /// @param {Map} $opts - The o-colors features to output. See the [readme](https://registry.origami.ft.com/components/o-colors) for a full list of options.
-@mixin oColors($opts: (
-	'palette-custom-properties': true,
-	'usecase-custom-properties': true,
-	'usecase-classes': true,
-)) {
+@mixin oColors(
+	$opts: (
+		'palette-custom-properties': true,
+		'usecase-custom-properties': true,
+		'usecase-classes': true,
+	)
+) {
 	$palette-properties: map-get($opts, 'palette-custom-properties');
 	$usecase-properties: map-get($opts, 'usecase-custom-properties');
 	$usecase-classes: map-get($opts, 'usecase-classes');
@@ -51,12 +53,23 @@
 	// especially usecases which are intended for focus or hover states.
 	// Update the README when adding to this list.
 	@if $usecase-classes {
-		@each $usecase, $property in (
-			'page': ('background'),
-			'box': ('background'),
-			'body': ('text'),
-			'muted': ('text'),
-		) {
+		@each $usecase,
+			$property
+				in (
+					'page': (
+						'background',
+					),
+					'box': (
+						'background',
+					),
+					'body': (
+						'text',
+					),
+					'muted': (
+						'text',
+					)
+				)
+		{
 			.o-colors-#{$usecase}-#{$property} {
 				$color-value: oColorsByUsecase($usecase, $property, $fallback: null);
 				$css-property: if($property == 'text', 'color', $property);
@@ -70,14 +83,29 @@
 		// E.g. --o-colors-page-background: #fff1e5;
 		// Update the README when adding to this list.
 		@if $usecase-properties {
-			@each $usecase, $property in (
-				'page': ('background'),
-				'box': ('background'),
-				'body': ('text'),
-				'muted': ('text'),
-				'link': ('text'),
-				'link-hover': ('text'),
-			) {
+			@each $usecase,
+				$property
+					in (
+						'page': (
+							'background',
+						),
+						'box': (
+							'background',
+						),
+						'body': (
+							'text',
+						),
+						'muted': (
+							'text',
+						),
+						'link': (
+							'text',
+						),
+						'link-hover': (
+							'text',
+						)
+					)
+			{
 				$color-value: oColorsByUsecase($usecase, $property, $fallback: null);
 				@if $color-value {
 					#{--o-colors-}#{$usecase}-#{$property}: $color-value;

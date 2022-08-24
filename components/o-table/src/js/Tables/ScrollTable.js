@@ -14,7 +14,9 @@ class ScrollTable extends BaseTable {
 	constructor(rootEl, sorter, opts = {}) {
 		super(rootEl, sorter, opts);
 		// Duplicate row headings before adding sort buttons.
-		this._tableHeadersWithoutSort = this.tableHeaders.map(header => header.cloneNode(true));
+		this._tableHeadersWithoutSort = this.tableHeaders.map(header =>
+			header.cloneNode(true)
+		);
 		// Create scrollable layout for devices with small viewports.
 		this._createScrollTableStructure();
 		// Defer other tasks.
@@ -60,7 +62,11 @@ class ScrollTable extends BaseTable {
 	 * @access private
 	 */
 	_getLatestRowNodes() {
-		return this.tbody ? Array.from(this.tbody.querySelectorAll('tr:not(.o-table__duplicate-row)')) : [];
+		return this.tbody
+			? Array.from(
+					this.tbody.querySelectorAll('tr:not(.o-table__duplicate-row)')
+			  )
+			: [];
 	}
 
 	/**
@@ -96,18 +102,22 @@ class ScrollTable extends BaseTable {
 		});
 
 		// Add new rows to the table body.
-		window.requestAnimationFrame(function () {
-			const rowHeadingRows = Array.from(this.tbody.querySelectorAll('.o-table__duplicate-row'));
-			rowHeadingRows.forEach(row => this.tbody.removeChild(row));
-			if (this.tbody.prepend) {
-				this.tbody.prepend(...clonedRows);
-			} else {
-				clonedRows.reverse().forEach(row => {
-					this.tbody.insertBefore(row, this.tbody.firstChild);
-				});
-			}
-			this._updateTableHeight();
-		}.bind(this));
+		window.requestAnimationFrame(
+			function () {
+				const rowHeadingRows = Array.from(
+					this.tbody.querySelectorAll('.o-table__duplicate-row')
+				);
+				rowHeadingRows.forEach(row => this.tbody.removeChild(row));
+				if (this.tbody.prepend) {
+					this.tbody.prepend(...clonedRows);
+				} else {
+					clonedRows.reverse().forEach(row => {
+						this.tbody.insertBefore(row, this.tbody.firstChild);
+					});
+				}
+				this._updateTableHeight();
+			}.bind(this)
+		);
 	}
 }
 

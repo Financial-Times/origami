@@ -5,7 +5,7 @@ import sinon from 'sinon/pkg/sinon-esm.js';
 import fixtures from '../../helpers/fixtures.js';
 import Stream from '../../../src/js/stream.js';
 
-export default function displayNamePrompt () {
+export default function displayNamePrompt() {
 	beforeEach(() => {
 		fixtures.streamMarkup();
 	});
@@ -15,13 +15,17 @@ export default function displayNamePrompt () {
 		sinon.restore();
 	});
 
-	it("renders the display name prompt on the page", () => {
-		const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
+	it('renders the display name prompt on the page', () => {
+		const mockStreamEl = document.querySelector(
+			'[data-o-comments-article-id="id"]'
+		);
 		const stream = new Stream(mockStreamEl);
 		stream.displayNamePrompt();
 
 		document.addEventListener('oOverlay.ready', () => {
-			const displayNameForm = document.getElementById('o-comments-displayname-form');
+			const displayNameForm = document.getElementById(
+				'o-comments-displayname-form'
+			);
 			proclaim.isTrue(Boolean(displayNameForm));
 		});
 	});

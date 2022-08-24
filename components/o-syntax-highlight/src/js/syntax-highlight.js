@@ -24,12 +24,15 @@ class SyntaxHighlight {
 	 * @param {object} [options={}] - An options object for configuring the message
 	 * @param {string} options.language - The language to tokenise the code for
 	 */
-	constructor (syntaxEl, options) {
+	constructor(syntaxEl, options) {
 		this.syntaxElement = syntaxEl;
-		this.opts = Object.assign({
-			language: '',
-			syntaxString: ''
-		}, options);
+		this.opts = Object.assign(
+			{
+				language: '',
+				syntaxString: '',
+			},
+			options
+		);
 
 		if (typeof this.syntaxElement === 'string') {
 			this._setLanguage();
@@ -41,7 +44,7 @@ class SyntaxHighlight {
 	/**
 	 * Set language for syntax highlighting
 	 */
-	_setLanguage () {
+	_setLanguage() {
 		if (this.opts.language) {
 			this.opts.syntaxString = this.syntaxElement;
 			this._checkLanguage();
@@ -57,16 +60,22 @@ class SyntaxHighlight {
 	 * @returns {string | null} - The language name e.g. `js` or null if not defined.
 	 */
 	_getLanguage(element) {
-		const highlightClassNames = [...element.classList].filter(c => c.includes('o-syntax-highlight--'));
-		const highlightClassName = highlightClassNames ? highlightClassNames[0]: null;
+		const highlightClassNames = [...element.classList].filter(c =>
+			c.includes('o-syntax-highlight--')
+		);
+		const highlightClassName = highlightClassNames
+			? highlightClassNames[0]
+			: null;
 
 		if (!highlightClassName) {
 			// eslint-disable-next-line no-console
 			console.warn(
 				`In order to highlight a codeblock, the '<code>' ` +
-				`requires a specific class to define a language. E.g. ` +
-				`class="o-syntax-highlight--html" or ` +
-				`class="o-syntax-highlight--js"`, element);
+					`requires a specific class to define a language. E.g. ` +
+					`class="o-syntax-highlight--html" or ` +
+					`class="o-syntax-highlight--js"`,
+				element
+			);
 			return null;
 		}
 
@@ -80,18 +89,25 @@ class SyntaxHighlight {
 	/**
 	 * Check if language is present for tokenising, add if not load it here (e.g.scss, json);
 	 */
-	_checkLanguage () {
-		if (this.opts.language && !Object.prototype.hasOwnProperty.call(prism.languages, this.opts.language)) {
-			throwError(`The language ${this.opts.language} is not supported. Please contact Origami if you would like to have it added.`);
+	_checkLanguage() {
+		if (
+			this.opts.language &&
+			!Object.prototype.hasOwnProperty.call(prism.languages, this.opts.language)
+		) {
+			throwError(
+				`The language ${this.opts.language} is not supported. Please contact Origami if you would like to have it added.`
+			);
 		}
 	}
 
 	/**
 	 * Fetch and tokenise every <code> tag's content under the syntaxEl
 	 */
-	_tokeniseCodeBlocks () {
+	_tokeniseCodeBlocks() {
 		const codeBlocks = Array.from(this.syntaxElement.querySelectorAll('PRE'))
-			.filter(pre => pre.firstElementChild && pre.firstElementChild.tagName === 'CODE')
+			.filter(
+				pre => pre.firstElementChild && pre.firstElementChild.tagName === 'CODE'
+			)
 			.map(pre => pre.firstElementChild);
 
 		codeBlocks.forEach(this._tokeniseBlock.bind(this));
@@ -102,7 +118,7 @@ class SyntaxHighlight {
 	 *
 	 * @param {HTMLElement} element - The html element that holds the syntax to highlight
 	 */
-	_tokeniseBlock (element) {
+	_tokeniseBlock(element) {
 		const language = this._getLanguage(element);
 		if (language) {
 			this.opts.syntaxString = element.innerText;
@@ -115,8 +131,11 @@ class SyntaxHighlight {
 	 *
 	 @returns {HTMLElement} tokenised code in the form of HTML elements
 	 */
-	tokenise () {
-		return prism.highlight(this.opts.syntaxString, prism.languages[this.opts.language]);
+	tokenise() {
+		return prism.highlight(
+			this.opts.syntaxString,
+			prism.languages[this.opts.language]
+		);
 	}
 
 	/**
@@ -126,7 +145,7 @@ class SyntaxHighlight {
 	 * @param {object} [options={}] - An options object for configuring the syntax highlighting
 	 * @returns {SyntaxHighlight | SyntaxHighlight[]} - The SyntaxHighlight instance or instances
 	 */
-	static init (rootElement, options) {
+	static init(rootElement, options) {
 		if (!rootElement) {
 			rootElement = document.body;
 		}
@@ -135,11 +154,17 @@ class SyntaxHighlight {
 			rootElement = document.querySelector(rootElement);
 		}
 
-		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=o-syntax-highlight]')) {
+		if (
+			rootElement instanceof HTMLElement &&
+			rootElement.matches('[data-o-component=o-syntax-highlight]')
+		) {
 			return new SyntaxHighlight(rootElement, options);
 		}
 
-		return Array.from(rootElement.querySelectorAll('[data-o-component="o-syntax-highlight"]'), rootEl => new SyntaxHighlight(rootEl, options));
+		return Array.from(
+			rootElement.querySelectorAll('[data-o-component="o-syntax-highlight"]'),
+			rootEl => new SyntaxHighlight(rootEl, options)
+		);
 	}
 }
 

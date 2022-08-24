@@ -1,4 +1,4 @@
-@import "src/scss/variables";
+@import 'src/scss/variables';
 
 /// Outputs toggle stlyes.
 /// @param {list} $opts [('display': true, 'visibility': true)] - A map of which default toggle classes to output, i.e. `o-toggle-display`, `o-toggle-visibility`.
@@ -10,10 +10,12 @@
 ///     @include oToggle($opts: ('visibility': true));
 /// @example Output all o-toggle features.
 /// @access public
-@mixin oToggle($opts: (
-	'display': true,
-	'visibility': true
-)) {
+@mixin oToggle(
+	$opts: (
+		'display': true,
+		'visibility': true,
+	)
+) {
 	$display: map-get($opts, 'display');
 	$visibility: map-get($opts, 'visibility');
 

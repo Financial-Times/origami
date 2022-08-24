@@ -49,7 +49,6 @@ describe('Banner', () => {
 			bannerRenderStub.restore();
 			bannerOpenStub.restore();
 			bannerCloseStub.restore();
-
 		});
 
 		it('stores `bannerElement` in a `bannerElement` property', () => {
@@ -75,7 +74,7 @@ describe('Banner', () => {
 				linkUrl: '#',
 				closeButtonLabel: 'Close banner',
 				theme: null,
-				layout: null
+				layout: null,
 			});
 		});
 
@@ -96,7 +95,6 @@ describe('Banner', () => {
 		});
 
 		describe('when `options.autoOpen` is `false`', () => {
-
 			beforeEach(() => {
 				Banner._bannerInstances = [];
 
@@ -113,7 +111,6 @@ describe('Banner', () => {
 				bannerRenderStub.restore();
 				bannerOpenStub.restore();
 				bannerCloseStub.restore();
-
 			});
 
 			it('does not open the banner', () => {
@@ -123,16 +120,14 @@ describe('Banner', () => {
 			it('closes the banner', () => {
 				assert.isTrue(bannerCloseStub.calledOnce);
 			});
-
 		});
 
 		describe('when `options.appendTo` is set', () => {
-
 			describe('to an invalid selector', () => {
-				it('throws and error', (done) => {
+				it('throws and error', done => {
 					try {
 						banner = new Banner(null, {
-							appendTo: '£$%^&*('
+							appendTo: '£$%^&*(',
 						});
 					} catch (error) {
 						done();
@@ -142,10 +137,10 @@ describe('Banner', () => {
 			});
 
 			describe('to an object', () => {
-				it('throws and error', (done) => {
+				it('throws and error', done => {
 					try {
 						banner = new Banner(null, {
-							appendTo: {}
+							appendTo: {},
 						});
 					} catch (error) {
 						done();
@@ -162,17 +157,21 @@ describe('Banner', () => {
 					testArea.appendChild(testDiv);
 					// Append banner to test div.
 					banner = new Banner(null, {
-						appendTo: '.test'
+						appendTo: '.test',
 					});
-					assert.equal([].slice.call(testDiv.childNodes).length, 1, 'Did not find the banner within the expected element.');
+					assert.equal(
+						[].slice.call(testDiv.childNodes).length,
+						1,
+						'Did not find the banner within the expected element.'
+					);
 				});
 			});
 
 			describe('to a valid selector which does not have a matching element', () => {
-				it('throws and error', (done) => {
+				it('throws and error', done => {
 					try {
 						banner = new Banner(null, {
-							appendTo: '.this-does-not-exist-in-the-dom'
+							appendTo: '.this-does-not-exist-in-the-dom',
 						});
 					} catch (error) {
 						done();
@@ -180,21 +179,17 @@ describe('Banner', () => {
 					throw new Error('Did not throw an error.');
 				});
 			});
-
-
 		});
 
 		describe('when `options` is not defined', () => {
-
 			beforeEach(() => {
-
 				// Stub out methods called in constructor
 				bannerGetOptionsFromDomStub = sinon.stub(Banner, 'getOptionsFromDom');
 				bannerRenderStub = sinon.stub(Banner.prototype, 'render');
 				bannerOpenStub = sinon.stub(Banner.prototype, 'open');
 
 				bannerGetOptionsFromDomStub.returns({
-					mockOption: 'from dom'
+					mockOption: 'from dom',
 				});
 
 				// Create a banner
@@ -204,14 +199,12 @@ describe('Banner', () => {
 				bannerGetOptionsFromDomStub.restore();
 				bannerRenderStub.restore();
 				bannerOpenStub.restore();
-
 			});
 
 			it('extracts the options from the DOM', () => {
 				assert.isTrue(bannerGetOptionsFromDomStub.calledOnce);
 				assert.strictEqual(banner.options.mockOption, 'from dom');
 			});
-
 		});
 
 		it('has a render method', () => {
@@ -229,9 +222,15 @@ describe('Banner', () => {
 				mockCloseButtonElement = document.createElement('a');
 
 				sinon.stub(banner, 'buildBannerElement').returns(mockBannerElement);
-				sinon.stub(bannerElement, 'querySelector').returns(mockBannerInnerElement);
-				sinon.stub(mockBannerElement, 'querySelector').returns(mockBannerInnerElement);
-				sinon.stub(banner, 'buildCloseButtonElement').returns(mockCloseButtonElement);
+				sinon
+					.stub(bannerElement, 'querySelector')
+					.returns(mockBannerInnerElement);
+				sinon
+					.stub(mockBannerElement, 'querySelector')
+					.returns(mockBannerInnerElement);
+				sinon
+					.stub(banner, 'buildCloseButtonElement')
+					.returns(mockCloseButtonElement);
 				sinon.stub(mockBannerInnerElement, 'appendChild');
 
 				banner.render();
@@ -242,7 +241,10 @@ describe('Banner', () => {
 			});
 
 			it('selects the inner element and stores it on the `innerElement` property', () => {
-				sinon.assert.calledWithExactly(bannerElement.querySelector, '[data-o-banner-inner]');
+				sinon.assert.calledWithExactly(
+					bannerElement.querySelector,
+					'[data-o-banner-inner]'
+				);
 				assert.strictEqual(banner.innerElement, mockBannerInnerElement);
 			});
 
@@ -253,7 +255,10 @@ describe('Banner', () => {
 
 			it('appends the close button element to the inner element', () => {
 				assert.isTrue(mockBannerInnerElement.appendChild.calledOnce);
-				sinon.assert.calledWithExactly(mockBannerInnerElement.appendChild, mockCloseButtonElement);
+				sinon.assert.calledWithExactly(
+					mockBannerInnerElement.appendChild,
+					mockCloseButtonElement
+				);
 			});
 
 			describe('when the `bannerElement` property is not an HTML element', () => {
@@ -276,9 +281,11 @@ describe('Banner', () => {
 
 				it('appends the banner element to the body', () => {
 					assert.isTrue(appendChildStub.calledOnce);
-					sinon.assert.calledWithExactly(document.body.appendChild, mockBannerElement);
+					sinon.assert.calledWithExactly(
+						document.body.appendChild,
+						mockBannerElement
+					);
 				});
-
 			});
 
 			describe('when the `bannerElement` property is an empty HTML element', () => {
@@ -304,7 +311,6 @@ describe('Banner', () => {
 				it('does not append the banner element to the body', () => {
 					sinon.assert.notCalled(document.body.appendChild);
 				});
-
 			});
 
 			describe('when the `bannerElement` property is an HTML element with content but no "outer" element', () => {
@@ -335,11 +341,9 @@ describe('Banner', () => {
 				it('does not append the banner element to the body', () => {
 					sinon.assert.notCalled(appendChildStub);
 				});
-
 			});
 
 			describe('when suppressCloseButton is true', () => {
-
 				beforeEach(() => {
 					banner.buildCloseButtonElement.resetHistory();
 					banner.options.suppressCloseButton = true;
@@ -350,7 +354,6 @@ describe('Banner', () => {
 					assert.isTrue(banner.buildCloseButtonElement.notCalled);
 				});
 			});
-
 		});
 
 		it('has an open method', () => {
@@ -358,7 +361,6 @@ describe('Banner', () => {
 		});
 
 		describe('.open()', () => {
-
 			beforeEach(() => {
 				sinon.spy(bannerElement.classList, 'remove');
 				sinon.spy(bannerElement, 'dispatchEvent');
@@ -367,15 +369,23 @@ describe('Banner', () => {
 
 			it('removes the banner closed class', () => {
 				assert.isTrue(bannerElement.classList.remove.calledOnce);
-				sinon.assert.calledWith(bannerElement.classList.remove, "o-banner--closed");
+				sinon.assert.calledWith(
+					bannerElement.classList.remove,
+					'o-banner--closed'
+				);
 			});
 
 			it('dispatches an `o.bannerOpened` event', () => {
 				assert.isTrue(bannerElement.dispatchEvent.calledOnce);
-				assert.instanceOf(bannerElement.dispatchEvent.firstCall.args[0], CustomEvent);
-				assert.strictEqual(bannerElement.dispatchEvent.firstCall.args[0].type, 'o.bannerOpened');
+				assert.instanceOf(
+					bannerElement.dispatchEvent.firstCall.args[0],
+					CustomEvent
+				);
+				assert.strictEqual(
+					bannerElement.dispatchEvent.firstCall.args[0].type,
+					'o.bannerOpened'
+				);
 			});
-
 		});
 
 		it('has a close method', () => {
@@ -383,7 +393,6 @@ describe('Banner', () => {
 		});
 
 		describe('.close()', () => {
-
 			beforeEach(() => {
 				sinon.spy(bannerElement.classList, 'add');
 				sinon.spy(bannerElement, 'dispatchEvent');
@@ -392,15 +401,23 @@ describe('Banner', () => {
 
 			it('adds the banner closed class', () => {
 				assert.isTrue(bannerElement.classList.add.calledOnce);
-				sinon.assert.calledWith(bannerElement.classList.add, "o-banner--closed");
+				sinon.assert.calledWith(
+					bannerElement.classList.add,
+					'o-banner--closed'
+				);
 			});
 
 			it('dispatches an `o.bannerClosed` event', () => {
 				assert.isTrue(bannerElement.dispatchEvent.calledOnce);
-				assert.instanceOf(bannerElement.dispatchEvent.firstCall.args[0], CustomEvent);
-				assert.strictEqual(bannerElement.dispatchEvent.firstCall.args[0].type, 'o.bannerClosed');
+				assert.instanceOf(
+					bannerElement.dispatchEvent.firstCall.args[0],
+					CustomEvent
+				);
+				assert.strictEqual(
+					bannerElement.dispatchEvent.firstCall.args[0].type,
+					'o.bannerClosed'
+				);
 			});
-
 		});
 
 		it('has a buildBannerElement method', () => {
@@ -411,7 +428,6 @@ describe('Banner', () => {
 			let returnValue;
 
 			beforeEach(() => {
-
 				// Mock options used to test output HTML
 				banner.options.contentLong = 'mockContentLong';
 				banner.options.contentShort = 'mockContentShort';
@@ -428,7 +444,9 @@ describe('Banner', () => {
 			});
 
 			it('constructs the element HTML based on the given options', () => {
-				assert.dom.equal(returnValue, `
+				assert.dom.equal(
+					returnValue,
+					`
 					<div role="region" class="o-banner">
 						<div class="o-banner__outer">
 							<div class="o-banner__inner" data-o-banner-inner="">
@@ -449,22 +467,23 @@ describe('Banner', () => {
 							</div>
 						</div>
 					</div>
-				`);
+				`
+				);
 			});
 
 			describe('when the banner has an ID', () => {
-
 				beforeEach(() => {
 					testArea.innerHTML = bannerWithID;
 					// Create a banner
 					bannerElement = document.querySelector('[data-o-component=o-banner]');
 					options = {};
 					banner = new Banner(bannerElement, options);
-
 				});
 
 				it('outputs only one content element using `options.contentLong`', () => {
-					assert.dom.equal(banner.bannerElement, `
+					assert.dom.equal(
+						banner.bannerElement,
+						`
 						<div class="o-banner o-banner--small" data-o-component="o-banner" id="o-banner-test">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -494,18 +513,18 @@ describe('Banner', () => {
 						</div>`
 					);
 				});
-
 			});
 
 			describe('when `options.contentShort` is not a string', () => {
-
 				beforeEach(() => {
 					banner.options.contentShort = null;
 					returnValue = banner.buildBannerElement();
 				});
 
 				it('outputs only one content element using `options.contentLong`', () => {
-					assert.dom.equal(returnValue, `
+					assert.dom.equal(
+						returnValue,
+						`
 						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -523,20 +542,21 @@ describe('Banner', () => {
 								</div>
 							</div>
 						</div>
-					`);
+					`
+					);
 				});
-
 			});
 
 			describe('when `options.linkLabel` is not a string', () => {
-
 				beforeEach(() => {
 					banner.options.linkLabel = null;
 					returnValue = banner.buildBannerElement();
 				});
 
 				it('does not include a secondary action/link', () => {
-					assert.dom.equal(returnValue, `
+					assert.dom.equal(
+						returnValue,
+						`
 						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -554,20 +574,21 @@ describe('Banner', () => {
 								</div>
 							</div>
 						</div>
-					`);
+					`
+					);
 				});
-
 			});
 
 			describe('when `options.buttonLabel` is not a string', () => {
-
 				beforeEach(() => {
 					banner.options.buttonLabel = null;
 					returnValue = banner.buildBannerElement();
 				});
 
 				it('does not include a primary action', () => {
-					assert.dom.equal(returnValue, `
+					assert.dom.equal(
+						returnValue,
+						`
 						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -585,13 +606,12 @@ describe('Banner', () => {
 								</div>
 							</div>
 						</div>
-					`);
+					`
+					);
 				});
-
 			});
 
 			describe('when `options.buttonLabel` and `options.linkLabel` are not a string', () => {
-
 				beforeEach(() => {
 					banner.options.buttonLabel = null;
 					banner.options.linkLabel = null;
@@ -599,7 +619,9 @@ describe('Banner', () => {
 				});
 
 				it('does not include the actions element', () => {
-					assert.dom.equal(returnValue, `
+					assert.dom.equal(
+						returnValue,
+						`
 						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -612,20 +634,21 @@ describe('Banner', () => {
 								</div>
 							</div>
 						</div>
-					`);
+					`
+					);
 				});
-
 			});
 
 			describe('when `options.theme` is defined and is a string', () => {
-
 				beforeEach(() => {
 					banner.options.theme = 'product';
 					returnValue = banner.buildBannerElement();
 				});
 
 				it('adds the theme class to the banner element', () => {
-					assert.dom.equal(returnValue, `
+					assert.dom.equal(
+						returnValue,
+						`
 						<div role="region" class="o-banner o-banner--product">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -646,30 +669,31 @@ describe('Banner', () => {
 								</div>
 							</div>
 						</div>
-					`);
+					`
+					);
 				});
-
 			});
 
 			describe('when `options.theme` is defined and is an array', () => {
 				it('errors', () => {
 					assert.throws(() => {
 						banner = new Banner(null, {
-							theme: ['marketing', 'product']
+							theme: ['marketing', 'product'],
 						});
 					}, '');
 				});
 			});
 
 			describe('when `options.layout` is defined and is a string', () => {
-
 				beforeEach(() => {
 					banner.options.theme = 'small';
 					returnValue = banner.buildBannerElement();
 				});
 
 				it('adds the layout class to the banner element', () => {
-					assert.dom.equal(returnValue, `
+					assert.dom.equal(
+						returnValue,
+						`
 						<div role="region" class="o-banner o-banner--small">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -690,16 +714,16 @@ describe('Banner', () => {
 								</div>
 							</div>
 						</div>
-					`);
+					`
+					);
 				});
-
 			});
 
 			describe('when `options.layout` is an invalid layout', () => {
 				it('errors', () => {
 					assert.throws(() => {
 						banner = new Banner(null, {
-							layout: 'not-a-real-layout'
+							layout: 'not-a-real-layout',
 						});
 					}, '');
 				});
@@ -721,16 +745,16 @@ describe('Banner', () => {
 				it('returns the passed in banner element', () => {
 					assert.strictEqual(returnValue, bannerElement);
 				});
-
 			});
 
 			describe('when `options.formAction` is not specified', () => {
-
 				it('uses an anchor in place of the form for the primary action when formAction is null', () => {
 					banner.options.formAction = null;
 					returnValue = banner.buildBannerElement();
 
-					assert.dom.equal(returnValue, `
+					assert.dom.equal(
+						returnValue,
+						`
 						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -751,14 +775,17 @@ describe('Banner', () => {
 								</div>
 							</div>
 						</div>
-					`);
+					`
+					);
 				});
 
 				it('uses an anchor in place of the form for the primary action when formAction is undefined', () => {
 					banner.options.formAction = undefined;
 					returnValue = banner.buildBannerElement();
 
-					assert.dom.equal(returnValue, `
+					assert.dom.equal(
+						returnValue,
+						`
 						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -779,13 +806,12 @@ describe('Banner', () => {
 								</div>
 							</div>
 						</div>
-					`);
+					`
+					);
 				});
-
 			});
 
 			describe('when `options.formAction` is not null', () => {
-
 				beforeEach(() => {
 					banner.options.formAction = 'mock-form-action';
 					banner.options.formEncoding = 'mock-form-encoding';
@@ -794,7 +820,9 @@ describe('Banner', () => {
 				});
 
 				it('uses a form and submit button in place of an anchor for the primary action', () => {
-					assert.dom.equal(returnValue, `
+					assert.dom.equal(
+						returnValue,
+						`
 						<div role="region" class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -815,11 +843,10 @@ describe('Banner', () => {
 								</div>
 							</div>
 						</div>
-					`);
+					`
+					);
 				});
-
 			});
-
 		});
 
 		it('has a buildCloseButtonElement method', () => {
@@ -831,11 +858,13 @@ describe('Banner', () => {
 			let addEventListenerStub;
 
 			beforeEach(() => {
-
 				// Mock options used to test output HTML
 				banner.options.closeButtonLabel = 'mockCloseButtonLabel';
 
-				addEventListenerStub = sinon.stub(HTMLElement.prototype, 'addEventListener');
+				addEventListenerStub = sinon.stub(
+					HTMLElement.prototype,
+					'addEventListener'
+				);
 
 				returnValue = banner.buildCloseButtonElement();
 			});
@@ -849,9 +878,12 @@ describe('Banner', () => {
 			});
 
 			it('constructs the element HTML based on the given options', () => {
-				assert.dom.equal(returnValue, `
+				assert.dom.equal(
+					returnValue,
+					`
 					<button class="o-banner__close" aria-label="mockCloseButtonLabel"></button>
-				`);
+				`
+				);
 			});
 
 			it('adds a handler for the button click event', () => {
@@ -866,7 +898,7 @@ describe('Banner', () => {
 				beforeEach(() => {
 					const clickHandler = returnValue.addEventListener.firstCall.args[1];
 					event = {
-						preventDefault: sinon.stub()
+						preventDefault: sinon.stub(),
 					};
 					sinon.stub(banner, 'close');
 					clickHandler(event);
@@ -879,11 +911,8 @@ describe('Banner', () => {
 				it('prevents the default click behaviour', () => {
 					assert.isTrue(event.preventDefault.calledOnce);
 				});
-
 			});
-
 		});
-
 	});
 
 	describe('.getOptionsFromDom(bannerElement)', () => {
@@ -897,7 +926,10 @@ describe('Banner', () => {
 			mockBannerElement.setAttribute('data-another-key', 'value');
 			mockBannerElement.setAttribute('data-o-banner-foo', 'bar');
 			mockBannerElement.setAttribute('data-o-banner-json', '{"foo": "bar"}');
-			mockBannerElement.setAttribute('data-o-banner-json-single', '{\'foo\': \'bar\'}');
+			mockBannerElement.setAttribute(
+				'data-o-banner-json-single',
+				"{'foo': 'bar'}"
+			);
 			returnValue = Banner.getOptionsFromDom(mockBannerElement);
 		});
 
@@ -923,17 +955,17 @@ describe('Banner', () => {
 			assert.strictEqual(returnValue.foo, 'bar');
 		});
 
-		it('parses the key as JSON if it\'s valid', () => {
+		it("parses the key as JSON if it's valid", () => {
 			assert.isObject(returnValue.json);
 			assert.deepEqual(returnValue.json, {
-				foo: 'bar'
+				foo: 'bar',
 			});
 		});
 
 		it('parses the key as JSON even if single quotes are used', () => {
 			assert.isObject(returnValue.jsonSingle);
 			assert.deepEqual(returnValue.jsonSingle, {
-				foo: 'bar'
+				foo: 'bar',
 			});
 		});
 
@@ -948,9 +980,7 @@ describe('Banner', () => {
 				assert.isObject(returnValue);
 				assert.deepEqual(returnValue, {});
 			});
-
 		});
-
 	});
 
 	describe('.init(rootElement, options)', () => {
@@ -967,7 +997,7 @@ describe('Banner', () => {
 			openStub = sinon.stub(Banner.prototype, 'open');
 			mockRootElement = document.createElement('div');
 			options = {
-				mockOption: 'test'
+				mockOption: 'test',
 			};
 		});
 
@@ -978,7 +1008,6 @@ describe('Banner', () => {
 		});
 
 		describe('when `rootElement` is an HTML element with a `data-o-component` attribute set to "o-banner"', () => {
-
 			beforeEach(() => {
 				mockRootElement.setAttribute('data-o-component', 'o-banner');
 				returnValue = Banner.init(mockRootElement, options);
@@ -993,7 +1022,6 @@ describe('Banner', () => {
 				assert.strictEqual(returnValue.bannerElement, mockRootElement);
 				assert.strictEqual(returnValue.options.mockOption, 'test');
 			});
-
 		});
 
 		describe('when `rootElement` is an HTML element with no `data-o-component` attribute', () => {
@@ -1020,7 +1048,10 @@ describe('Banner', () => {
 
 			it('queries the `rootElement` for banner elements', () => {
 				assert.isTrue(mockRootElement.querySelectorAll.calledOnce);
-				sinon.assert.calledWithExactly(mockRootElement.querySelectorAll, '[data-o-component="o-banner"]');
+				sinon.assert.calledWithExactly(
+					mockRootElement.querySelectorAll,
+					'[data-o-component="o-banner"]'
+				);
 			});
 
 			it('creates a new Banner instance with each banner element in `rootElement`, and returns an array of them', () => {
@@ -1033,7 +1064,6 @@ describe('Banner', () => {
 				assert.strictEqual(returnValue[1].bannerElement, mockBanner2);
 				assert.strictEqual(returnValue[1].options.mockOption, 'test');
 			});
-
 		});
 
 		describe('when `rootElement` is defined, but is not an HTML element', () => {
@@ -1056,7 +1086,6 @@ describe('Banner', () => {
 				assert.strictEqual(returnValue.bannerElement, foundElement);
 				assert.strictEqual(returnValue.options.mockOption, 'test');
 			});
-
 		});
 
 		describe('when `rootElement` is not defined', () => {
@@ -1085,7 +1114,10 @@ describe('Banner', () => {
 
 			it('queries `document.body` for banner elements', () => {
 				sinon.assert.calledOnce(document.body.querySelectorAll);
-				sinon.assert.calledWithExactly(document.body.querySelectorAll, '[data-o-component="o-banner"]');
+				sinon.assert.calledWithExactly(
+					document.body.querySelectorAll,
+					'[data-o-component="o-banner"]'
+				);
 			});
 
 			it('creates a new Banner instance with each banner element in `document.body`, and returns an array of them', () => {
@@ -1099,11 +1131,9 @@ describe('Banner', () => {
 				assert.strictEqual(returnValue[1].options.mockOption, 'test');
 			});
 		});
-
 	});
 
 	describe('.destroy', () => {
-
 		beforeEach(() => {
 			testArea.innerHTML = bannerWithoutID;
 		});
@@ -1112,12 +1142,24 @@ describe('Banner', () => {
 			it('removes the close button created on init', () => {
 				const banner = Banner.init()[0];
 				const closeButtonElement = banner.closeButtonElement;
-				assert.isTrue(document.body.contains(closeButtonElement), 'Close button not added to the document as expected.');
-				assert.instanceOf(banner.closeButtonElement, HTMLElement, 'Banner does not have a reference to a close button as expected.');
+				assert.isTrue(
+					document.body.contains(closeButtonElement),
+					'Close button not added to the document as expected.'
+				);
+				assert.instanceOf(
+					banner.closeButtonElement,
+					HTMLElement,
+					'Banner does not have a reference to a close button as expected.'
+				);
 				banner.destroy();
-				assert.isUndefined(banner.closeButtonElement, 'The destroy method did not remove the Banner\'s reference to its close button as expected.');
-				assert.isFalse(document.body.contains(closeButtonElement), 'The close button created on Banner init is still in the document after calling the destroy method.');
-
+				assert.isUndefined(
+					banner.closeButtonElement,
+					"The destroy method did not remove the Banner's reference to its close button as expected."
+				);
+				assert.isFalse(
+					document.body.contains(closeButtonElement),
+					'The close button created on Banner init is still in the document after calling the destroy method.'
+				);
 			});
 		});
 	});

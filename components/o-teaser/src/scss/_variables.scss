@@ -3,11 +3,28 @@ $o-teaser-is-silent: true !default;
 
 /// List of theme styles available
 /// @access private
-$_o-teaser-themes: ('small', 'large', 'standard', 'video', 'audio', 'hero', 'top-stories', 'package', 'live');
+$_o-teaser-themes: (
+	'small',
+	'large',
+	'standard',
+	'video',
+	'audio',
+	'hero',
+	'top-stories',
+	'package',
+	'live'
+);
 
 /// List of element styles available
 /// @access private
-$_o-teaser-elements: ('default', 'images', 'timestamp', 'promoted', 'related-items', 'syndication');
+$_o-teaser-elements: (
+	'default',
+	'images',
+	'timestamp',
+	'promoted',
+	'related-items',
+	'syndication'
+);
 
 /// Commonly used text colour.
 /// @type Color

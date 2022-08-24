@@ -5,8 +5,7 @@ import subnav from './subnav.js';
 import sticky from './sticky.js';
 
 class Header {
-
-	constructor (headerEl) {
+	constructor(headerEl) {
 		if (!headerEl) {
 			headerEl = document.querySelector('[data-o-component="o-header"]');
 		} else if (typeof headerEl === 'string') {
@@ -29,7 +28,7 @@ class Header {
 		this.headerEl.setAttribute('data-o-header--js', '');
 	}
 
-	static init (rootEl) {
+	static init(rootEl) {
 		if (!rootEl) {
 			rootEl = document.body;
 		}
@@ -40,15 +39,16 @@ class Header {
 			return new Header(rootEl);
 		}
 
-		return [].map.call(rootEl.querySelectorAll('[data-o-component="o-header"]'), el => {
-			if (!el.hasAttribute('data-o-header--js')) {
-				return new Header(el);
-			}
-		}).filter((header) => {
-			return header !== undefined;
-		});
+		return [].map
+			.call(rootEl.querySelectorAll('[data-o-component="o-header"]'), el => {
+				if (!el.hasAttribute('data-o-header--js')) {
+					return new Header(el);
+				}
+			})
+			.filter(header => {
+				return header !== undefined;
+			});
 	}
-
 }
 
 export default Header;

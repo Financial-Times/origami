@@ -55,10 +55,12 @@
 	}
 
 	.o-subs-card__select-button {
-		@include oButtonsContent($opts: (
-			'type': 'primary',
-			'size': 'big',
-		));
+		@include oButtonsContent(
+			$opts: (
+				'type': 'primary',
+				'size': 'big',
+			)
+		);
 		margin-bottom: oSpacingByName('s1');
 		width: 100%;
 	}
@@ -183,7 +185,7 @@
 @mixin oSubsCardContainer {
 	border-spacing: $o-subs-card-horizontal-margin; //ie 9
 	display: table-cell; // ie 9
-	display: flex;	// stylelint-disable-line declaration-block-no-duplicate-properties
+	display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
 	flex-direction: column;
 	flex: auto;
 	margin: 0 20px;

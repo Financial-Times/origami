@@ -39,7 +39,7 @@ function customSuggestions(query, populateOptions) {
 		populateOptions([]);
 		return;
 	}
-	suggestions.sort(function(a,b) {
+	suggestions.sort(function (a, b) {
 		return a.Country_Name.localeCompare(b.Country_Name);
 	});
 
@@ -53,11 +53,14 @@ function customSuggestions(query, populateOptions) {
 	populateOptions(filteredOptions);
 }
 
-new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
-	source: customSuggestions,
-	mapOptionToSuggestedValue,
-	onConfirm: function (option) {
-		// eslint-disable-next-line no-console
-		console.log('You chose option', option);
+new Autocomplete(
+	document.querySelector('[data-o-component="o-autocomplete"]'),
+	{
+		source: customSuggestions,
+		mapOptionToSuggestedValue,
+		onConfirm: function (option) {
+			// eslint-disable-next-line no-console
+			console.log('You chose option', option);
+		},
 	}
-});
+);

@@ -8,7 +8,10 @@
 		padding: $_o-forms-spacing-three;
 
 		.o-forms__error-summary__heading {
-			@include oTypographySans($weight: 'semibold', $include-font-family: false);
+			@include oTypographySans(
+				$weight: 'semibold',
+				$include-font-family: false
+			);
 			color: oColorsMix('black', _oFormsGet('invalid-base'), $percentage: 12.5);
 			margin: 0 0 $_o-forms-spacing-one;
 		}
@@ -19,7 +22,11 @@
 			padding: 0;
 
 			a {
-				color: oColorsMix('black', _oFormsGet('invalid-base'), $percentage: 12.5);
+				color: oColorsMix(
+					'black',
+					_oFormsGet('invalid-base'),
+					$percentage: 12.5
+				);
 				display: inline-block;
 				font-weight: 400;
 				margin-top: $_o-forms-spacing-one;
@@ -28,7 +35,10 @@
 			}
 
 			.o-forms__error-summary__item-overview {
-				@include oTypographySans($weight: 'semibold', $include-font-family: false);
+				@include oTypographySans(
+					$weight: 'semibold',
+					$include-font-family: false
+				);
 			}
 		}
 	}

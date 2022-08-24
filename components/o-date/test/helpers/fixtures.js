@@ -27,7 +27,4 @@ function htmlCode() {
 	insert(html);
 }
 
-export {
-	htmlCode,
-	reset
-};
+export {htmlCode, reset};

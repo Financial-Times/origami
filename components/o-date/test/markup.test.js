@@ -22,7 +22,10 @@ describe('o-date DOM', () => {
 			elevenMinutesAgo.setMinutes(fakeNow.getMinutes() - 11);
 			clock = sinon.useFakeTimers(fakeNow);
 
-			elevenMinutesAgoDateTime = ftDateFormat.format(elevenMinutesAgo, 'datetime');
+			elevenMinutesAgoDateTime = ftDateFormat.format(
+				elevenMinutesAgo,
+				'datetime'
+			);
 
 			sandbox = document.createElement('div');
 			sandbox.innerHTML = `<time data-o-component="o-date" datetime="${elevenMinutesAgo.toISOString()}" class="o-date"></time>`;
@@ -39,7 +42,10 @@ describe('o-date DOM', () => {
 			let elevenMinutesAgoCustomFormat;
 			beforeEach(() => {
 				const customFormat = 'h:mm';
-				elevenMinutesAgoCustomFormat = ftDateFormat.format(elevenMinutesAgo, customFormat);
+				elevenMinutesAgoCustomFormat = ftDateFormat.format(
+					elevenMinutesAgo,
+					customFormat
+				);
 
 				mockDateElement.dataset.odateformat = 'date-only';
 				mockDateElement.innerHTML = `
@@ -55,11 +61,17 @@ describe('o-date DOM', () => {
 
 			it('renders all dates in the element', () => {
 				proclaim.include(mockDateElement.textContent, '11 minutes ago');
-				proclaim.include(mockDateElement.textContent, elevenMinutesAgoCustomFormat);
+				proclaim.include(
+					mockDateElement.textContent,
+					elevenMinutesAgoCustomFormat
+				);
 			});
 
 			it('adds a title attribute to all printers containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), elevenMinutesAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					elevenMinutesAgoDateTime
+				);
 			});
 		});
 
@@ -74,7 +86,10 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), elevenMinutesAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					elevenMinutesAgoDateTime
+				);
 			});
 		});
 
@@ -89,12 +104,14 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), elevenMinutesAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					elevenMinutesAgoDateTime
+				);
 			});
 		});
 
 		describe('time-ago-abbreviated (deprecated)', () => {
-
 			beforeEach(() => {
 				mockDateElement.dataset.oDateFormat = 'time-ago-abbreviated';
 				new ODate(mockDateElement);
@@ -105,13 +122,17 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), elevenMinutesAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					elevenMinutesAgoDateTime
+				);
 			});
 		});
 
 		describe('time-ago-abbreviated-limit-4-hours (deprecated)', () => {
 			beforeEach(() => {
-				mockDateElement.dataset.oDateFormat = 'time-ago-abbreviated-limit-4-hours';
+				mockDateElement.dataset.oDateFormat =
+					'time-ago-abbreviated-limit-4-hours';
 				new ODate(mockDateElement);
 			});
 
@@ -120,7 +141,10 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), elevenMinutesAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					elevenMinutesAgoDateTime
+				);
 			});
 		});
 
@@ -135,7 +159,10 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), elevenMinutesAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					elevenMinutesAgoDateTime
+				);
 			});
 		});
 
@@ -150,7 +177,10 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), elevenMinutesAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					elevenMinutesAgoDateTime
+				);
 			});
 		});
 
@@ -165,7 +195,10 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), elevenMinutesAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					elevenMinutesAgoDateTime
+				);
 			});
 		});
 	});
@@ -204,7 +237,10 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), fiveHoursAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					fiveHoursAgoDateTime
+				);
 			});
 		});
 
@@ -219,12 +255,14 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), fiveHoursAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					fiveHoursAgoDateTime
+				);
 			});
 		});
 
 		describe('time-ago-abbreviated (deprecated)', () => {
-
 			beforeEach(() => {
 				mockDateElement.dataset.oDateFormat = 'time-ago-abbreviated';
 				new ODate(mockDateElement);
@@ -235,13 +273,17 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), fiveHoursAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					fiveHoursAgoDateTime
+				);
 			});
 		});
 
 		describe('time-ago-abbreviated-limit-4-hours (deprecated)', () => {
 			beforeEach(() => {
-				mockDateElement.dataset.oDateFormat = 'time-ago-abbreviated-limit-4-hours';
+				mockDateElement.dataset.oDateFormat =
+					'time-ago-abbreviated-limit-4-hours';
 				new ODate(mockDateElement);
 			});
 
@@ -269,7 +311,10 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), fiveHoursAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					fiveHoursAgoDateTime
+				);
 			});
 		});
 
@@ -284,10 +329,11 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds a title attribute containing the full date', () => {
-				proclaim.equal(mockDateElement.getAttribute('title'), fiveHoursAgoDateTime);
+				proclaim.equal(
+					mockDateElement.getAttribute('title'),
+					fiveHoursAgoDateTime
+				);
 			});
 		});
-
 	});
-
 });

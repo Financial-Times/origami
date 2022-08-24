@@ -8,7 +8,7 @@ const intervals = {
 	resize: 100,
 	orientation: 100,
 	visibility: 100,
-	scroll: 100
+	scroll: 100,
 };
 
 /**
@@ -44,18 +44,17 @@ function listenToResize() {
 		return;
 	}
 	const eventType = 'resize';
-	const handler = debounce(function(ev) {
+	const handler = debounce(function (ev) {
 		utils.broadcast('resize', {
 			viewport: utils.getSize(),
-			originalEvent: ev
+			originalEvent: ev,
 		});
 	}, intervals.resize);
-
 
 	window.addEventListener(eventType, handler);
 	listeners.resize = {
 		eventType: eventType,
-		handler: handler
+		handler: handler,
 	};
 }
 
@@ -63,24 +62,23 @@ function listenToResize() {
  * @access private
  */
 function listenToOrientation() {
-
 	if (listeners.orientation) {
 		return;
 	}
 
 	const eventType = 'orientationchange';
-	const handler = debounce(function(ev) {
+	const handler = debounce(function (ev) {
 		utils.broadcast('orientation', {
 			viewport: utils.getSize(),
 			orientation: utils.getOrientation(),
-			originalEvent: ev
+			originalEvent: ev,
 		});
 	}, intervals.orientation);
 
 	window.addEventListener(eventType, handler);
 	listeners.orientation = {
 		eventType: eventType,
-		handler: handler
+		handler: handler,
 	};
 }
 
@@ -88,16 +86,15 @@ function listenToOrientation() {
  * @access private
  */
 function listenToVisibility() {
-
 	if (listeners.visibility) {
 		return;
 	}
 
 	const eventType = 'visibilitychange';
-	const handler = debounce(function(ev) {
+	const handler = debounce(function (ev) {
 		utils.broadcast('visibility', {
 			hidden: utils.getVisibility(),
-			originalEvent: ev
+			originalEvent: ev,
 		});
 	}, intervals.visibility);
 
@@ -105,7 +102,7 @@ function listenToVisibility() {
 
 	listeners.visibility = {
 		eventType: eventType,
-		handler: handler
+		handler: handler,
 	};
 }
 
@@ -113,13 +110,12 @@ function listenToVisibility() {
  * @access private
  */
 function listenToScroll() {
-
 	if (listeners.scroll) {
 		return;
 	}
 
 	const eventType = 'scroll';
-	const handler = throttle(function(ev) {
+	const handler = throttle(function (ev) {
 		const scrollPos = utils.getScrollPosition();
 		utils.broadcast('scroll', {
 			viewport: utils.getSize(),
@@ -127,14 +123,14 @@ function listenToScroll() {
 			scrollLeft: scrollPos.left,
 			scrollTop: scrollPos.top,
 			scrollWidth: scrollPos.width,
-			originalEvent: ev
+			originalEvent: ev,
 		});
 	}, intervals.scroll);
 
 	window.addEventListener(eventType, handler);
 	listeners.scroll = {
 		eventType: eventType,
-		handler: handler
+		handler: handler,
 	};
 }
 
@@ -183,7 +179,10 @@ function stopListeningTo(eventType) {
 	if (eventType === 'all') {
 		Object.keys(listeners).forEach(stopListeningTo);
 	} else if (listeners[eventType]) {
-		window.removeEventListener(listeners[eventType].eventType, listeners[eventType].handler);
+		window.removeEventListener(
+			listeners[eventType].eventType,
+			listeners[eventType].handler
+		);
 		delete listeners[eventType];
 	}
 }
@@ -198,5 +197,5 @@ export default {
 	getOrientation: utils.getOrientation,
 	getSize: utils.getSize,
 	getScrollPosition: utils.getScrollPosition,
-	getVisibility: utils.getVisibility
+	getVisibility: utils.getVisibility,
 };

@@ -1,6 +1,6 @@
 import CookieMessage from './src/js/cookie-message.js';
 
-function constructAll () {
+function constructAll() {
 	CookieMessage.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 }

@@ -9,7 +9,10 @@ const lastMonth = new Date();
 lastMonth.setMonth(now.getMonth() - 6);
 
 times[0].setAttribute('datetime', today.toISOString());
-times[1].setAttribute('datetime', new Date(today.getTime() - 1000 * 60 * 60 * 20).toISOString());
+times[1].setAttribute(
+	'datetime',
+	new Date(today.getTime() - 1000 * 60 * 60 * 20).toISOString()
+);
 times[2].setAttribute('datetime', lastMonth.toISOString());
 
 ODate.init();

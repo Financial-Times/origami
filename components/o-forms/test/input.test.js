@@ -13,7 +13,10 @@ describe('Input', () => {
 
 	beforeEach(() => {
 		dispatch = (event, element) => element.dispatchEvent(new Event(event));
-		parentClass = (element, validity) => element.closest('.o-forms-input').classList.contains(`o-forms-input--${validity}`);
+		parentClass = (element, validity) =>
+			element
+				.closest('.o-forms-input')
+				.classList.contains(`o-forms-input--${validity}`);
 	});
 
 	it('validation ignores an input that is not required or invalid', () => {
@@ -49,7 +52,7 @@ describe('Input', () => {
 			dispatch('blur', requiredField);
 			proclaim.isTrue(parentClass(requiredField, 'invalid'));
 
-			requiredField.value = "some text";
+			requiredField.value = 'some text';
 			dispatch('input', requiredField);
 
 			proclaim.isFalse(parentClass(requiredField, 'invalid'));
@@ -71,7 +74,7 @@ describe('Input', () => {
 		});
 
 		it('`blur` event sets the field to invalid if input does not match pattern', () => {
-			dateField.value = "tenth";
+			dateField.value = 'tenth';
 			dispatch('blur', dateField);
 
 			proclaim.isTrue(parentClass(dateField, 'invalid'));

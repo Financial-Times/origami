@@ -3,7 +3,7 @@ import Target from './target.js';
 // Some assistive technologies, like screen readers, suggest to press 'space'
 // when interacting with a link with a role of 'button'.
 // We need to ensure that we replicate this functionality that exists on a button element.
-function handleSpaceKeydown (e) {
+function handleSpaceKeydown(e) {
 	// if the pressed key is a space, we'll simulate a click
 	if (e.keyCode === 32) {
 		this.toggle(e);
@@ -11,7 +11,6 @@ function handleSpaceKeydown (e) {
 }
 
 class Toggle {
-
 	constructor(toggleEl, config) {
 		if (!Toggle._targets) {
 			Toggle._targets = new Map();
@@ -30,7 +29,7 @@ class Toggle {
 		if (!config) {
 			config = {};
 			// Try to get config set declaratively on the element
-			Array.prototype.forEach.call(toggleEl.attributes, (attr) => {
+			Array.prototype.forEach.call(toggleEl.attributes, attr => {
 				if (attr.name.indexOf('data-o-toggle') === 0) {
 					// Remove the prefix part of the data attribute name
 					const key = attr.name.replace('data-o-toggle-', '');
@@ -49,7 +48,9 @@ class Toggle {
 		if (config.callback && typeof config.callback === 'string') {
 			// Error if the callback is a string and a global function of that name does not exist.
 			if (typeof window[config.callback] !== 'function') {
-				throw new Error(`Could not find o-toggle callback "${config.callback}".`);
+				throw new Error(
+					`Could not find o-toggle callback "${config.callback}".`
+				);
 			}
 			this.callback = window[config.callback];
 		}
@@ -107,14 +108,13 @@ class Toggle {
 
 	// toggle is bound to the Toggle instance in the constructor
 	toggle(e) {
-
 		this.target.toggle();
 
-		if(e) {
+		if (e) {
 			e.preventDefault();
 		}
 
-		if (this.callback){
+		if (this.callback) {
 			const stateName = this.target.isOpen() ? 'open' : 'close';
 			this.callback(stateName, e);
 		}

@@ -71,7 +71,7 @@ window.customSuggestions = function customSuggestions(query, populateOptions) {
 		'Cook Islands',
 		'Coral Sea Islands',
 		'Costa Rica',
-		'Cote d\'Ivoire',
+		"Cote d'Ivoire",
 		'Croatia',
 		'Cuba',
 		'Cyprus',
@@ -268,14 +268,14 @@ window.customSuggestions = function customSuggestions(query, populateOptions) {
 		'Western Sahara',
 		'Yemen',
 		'Zambia',
-		'Zimbabwe'
+		'Zimbabwe',
 	];
 
 	if (!query) {
 		populateOptions([]);
 		return;
 	}
-	suggestions.sort(function(a,b) {
+	suggestions.sort(function (a, b) {
 		return a.localeCompare(b);
 	});
 
@@ -289,6 +289,6 @@ window.customSuggestions = function customSuggestions(query, populateOptions) {
 	populateOptions(filteredOptions);
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });

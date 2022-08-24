@@ -6,7 +6,6 @@ import * as fixtures from './helpers/fixtures.js';
 import oDate from '../main.js';
 
 describe('o-date', () => {
-
 	const inSeconds = {
 		second: 1,
 		minute: 60,
@@ -18,7 +17,6 @@ describe('o-date', () => {
 	};
 
 	describe('toDate', () => {
-
 		it('is defined', () => {
 			proclaim.equal(typeof oDate, 'function');
 		});
@@ -27,7 +25,7 @@ describe('o-date', () => {
 			proclaim.equal(typeof oDate.init, 'function');
 		});
 
-		it("should autoinitialize", (done) => {
+		it('should autoinitialize', done => {
 			const initSpy = sinon.spy(oDate, 'init');
 			document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 			setTimeout(function () {
@@ -37,13 +35,12 @@ describe('o-date', () => {
 			}, 100);
 		});
 
-		it("should not autoinitialize when the event is not dispached", () => {
+		it('should not autoinitialize when the event is not dispached', () => {
 			const initSpy = sinon.spy(oDate, 'init');
 			proclaim.equal(initSpy.called, false);
 		});
 
-		describe("should create a new o-date", () => {
-
+		describe('should create a new o-date', () => {
 			beforeEach(() => {
 				fixtures.htmlCode();
 			});
@@ -52,13 +49,13 @@ describe('o-date', () => {
 				fixtures.reset();
 			});
 
-			it("component array when initialized", () => {
+			it('component array when initialized', () => {
 				const boilerplate = oDate.init();
 				proclaim.equal(boilerplate instanceof Array, true);
 				proclaim.equal(boilerplate[0] instanceof oDate, true);
 			});
 
-			it("single component when initialized with a root element", () => {
+			it('single component when initialized with a root element', () => {
 				const boilerplate = oDate.init('#element');
 				proclaim.equal(boilerplate instanceof oDate, true);
 			});
@@ -86,28 +83,34 @@ describe('o-date', () => {
 	});
 
 	describe('oDate.format', () => {
-		const someDate = new Date("Mon Jul 18 2016 23:12:11");
+		const someDate = new Date('Mon Jul 18 2016 23:12:11');
 
 		const someTimes = {
-			"midnight": new Date("Monday July 18, 2016 00:01"),
-			"1am":		new Date("Monday July 18, 2016 01:00"),
-			"10am":	 new Date("Monday July 18, 2016 10:00"),
-			"midday":	 new Date("Monday July 18, 2016 12:00"),
-			"1pm":		new Date("Monday July 18, 2016 13:00"),
-			"11pm":	 new Date("Monday July 18, 2016 23:00"),
+			midnight: new Date('Monday July 18, 2016 00:01'),
+			'1am': new Date('Monday July 18, 2016 01:00'),
+			'10am': new Date('Monday July 18, 2016 10:00'),
+			midday: new Date('Monday July 18, 2016 12:00'),
+			'1pm': new Date('Monday July 18, 2016 13:00'),
+			'11pm': new Date('Monday July 18, 2016 23:00'),
 		};
 
 		it('returns a date if "date" is passed in as a second argument', () => {
-			proclaim.strictEqual(oDate.format(someDate, "date"), 'July 18 2016');
+			proclaim.strictEqual(oDate.format(someDate, 'date'), 'July 18 2016');
 		});
 
 		it('returns a datetime if "datetime" is passed in as a second argument', () => {
-			proclaim.strictEqual(oDate.format(someDate, "datetime"), 'July 18 2016 11:12 pm');
+			proclaim.strictEqual(
+				oDate.format(someDate, 'datetime'),
+				'July 18 2016 11:12 pm'
+			);
 		});
 
 		it('doesnt zero pad single digit hours', () => {
-			const someDate = new Date("Mon Jul 18 2016 06:12:11");
-			proclaim.strictEqual(oDate.format(someDate, "datetime"), 'July 18 2016 6:12 am');
+			const someDate = new Date('Mon Jul 18 2016 06:12:11');
+			proclaim.strictEqual(
+				oDate.format(someDate, 'datetime'),
+				'July 18 2016 6:12 am'
+			);
 		});
 
 		// This is a bit of a cop-out really as what we're testing here is oDate's
@@ -116,91 +119,96 @@ describe('o-date', () => {
 			const date = new Date(2000, 1, 5, 6, 7, 22, 499);
 
 			proclaim.strictEqual(oDate.format(date, 'yyyy yy'), '2000 00');
-			proclaim.strictEqual(oDate.format(date, 'MMMM MMM MM M'), 'February Feb 02 2');
+			proclaim.strictEqual(
+				oDate.format(date, 'MMMM MMM MM M'),
+				'February Feb 02 2'
+			);
 			proclaim.strictEqual(oDate.format(date, 'EEEE EEE'), 'Saturday Sat');
 			proclaim.strictEqual(oDate.format(date, 'd dd'), '5 05');
 			proclaim.strictEqual(oDate.format(date, 'h hh'), '6 06');
 			proclaim.strictEqual(oDate.format(date, 'm mm'), '7 07');
 			proclaim.strictEqual(oDate.format(date, 'a'), 'am');
-			proclaim.strictEqual(oDate.format(date, 'This is \\a co\\mmon string mm'), 'This is a common string 07');
+			proclaim.strictEqual(
+				oDate.format(date, 'This is \\a co\\mmon string mm'),
+				'This is a common string 07'
+			);
 		});
 
 		it('returns an unpadded 12hour clock value for `h` format', () => {
-			proclaim.strictEqual(oDate.format(someTimes["midnight"], 'h'), '12');
-			proclaim.strictEqual(oDate.format(someTimes["1am"], 'h'), '1');
-			proclaim.strictEqual(oDate.format(someTimes["10am"], 'h'), '10');
-			proclaim.strictEqual(oDate.format(someTimes["midday"], 'h'), '12');
-			proclaim.strictEqual(oDate.format(someTimes["1pm"], 'h'), '1');
-			proclaim.strictEqual(oDate.format(someTimes["11pm"], 'h'), '11');
+			proclaim.strictEqual(oDate.format(someTimes['midnight'], 'h'), '12');
+			proclaim.strictEqual(oDate.format(someTimes['1am'], 'h'), '1');
+			proclaim.strictEqual(oDate.format(someTimes['10am'], 'h'), '10');
+			proclaim.strictEqual(oDate.format(someTimes['midday'], 'h'), '12');
+			proclaim.strictEqual(oDate.format(someTimes['1pm'], 'h'), '1');
+			proclaim.strictEqual(oDate.format(someTimes['11pm'], 'h'), '11');
 		});
 
 		it('returns a padded 12hour clock value for `hh` format', () => {
-			proclaim.strictEqual(oDate.format(someTimes["midnight"], 'hh'), '12');
-			proclaim.strictEqual(oDate.format(someTimes["1am"], 'hh'), '01');
-			proclaim.strictEqual(oDate.format(someTimes["10am"], 'hh'), '10');
-			proclaim.strictEqual(oDate.format(someTimes["midday"], 'hh'), '12');
-			proclaim.strictEqual(oDate.format(someTimes["1pm"], 'hh'), '01');
-			proclaim.strictEqual(oDate.format(someTimes["11pm"], 'hh'), '11');
+			proclaim.strictEqual(oDate.format(someTimes['midnight'], 'hh'), '12');
+			proclaim.strictEqual(oDate.format(someTimes['1am'], 'hh'), '01');
+			proclaim.strictEqual(oDate.format(someTimes['10am'], 'hh'), '10');
+			proclaim.strictEqual(oDate.format(someTimes['midday'], 'hh'), '12');
+			proclaim.strictEqual(oDate.format(someTimes['1pm'], 'hh'), '01');
+			proclaim.strictEqual(oDate.format(someTimes['11pm'], 'hh'), '11');
 		});
 
 		it('returns an unpadded 24hour clock value for `H` format', () => {
-			proclaim.strictEqual(oDate.format(someTimes["midnight"], 'H'), '0');
-			proclaim.strictEqual(oDate.format(someTimes["1am"], 'H'), '1');
-			proclaim.strictEqual(oDate.format(someTimes["10am"], 'H'), '10');
-			proclaim.strictEqual(oDate.format(someTimes["midday"], 'H'), '12');
-			proclaim.strictEqual(oDate.format(someTimes["1pm"], 'H'), '13');
-			proclaim.strictEqual(oDate.format(someTimes["11pm"], 'H'), '23');
+			proclaim.strictEqual(oDate.format(someTimes['midnight'], 'H'), '0');
+			proclaim.strictEqual(oDate.format(someTimes['1am'], 'H'), '1');
+			proclaim.strictEqual(oDate.format(someTimes['10am'], 'H'), '10');
+			proclaim.strictEqual(oDate.format(someTimes['midday'], 'H'), '12');
+			proclaim.strictEqual(oDate.format(someTimes['1pm'], 'H'), '13');
+			proclaim.strictEqual(oDate.format(someTimes['11pm'], 'H'), '23');
 		});
 
 		it('returns an padded 24hour clock value for `HH` format', () => {
-			proclaim.strictEqual(oDate.format(someTimes["midnight"], 'HH'), '00');
-			proclaim.strictEqual(oDate.format(someTimes["1am"], 'HH'), '01');
-			proclaim.strictEqual(oDate.format(someTimes["10am"], 'HH'), '10');
-			proclaim.strictEqual(oDate.format(someTimes["midday"], 'HH'), '12');
-			proclaim.strictEqual(oDate.format(someTimes["1pm"], 'HH'), '13');
-			proclaim.strictEqual(oDate.format(someTimes["11pm"], 'HH'), '23');
+			proclaim.strictEqual(oDate.format(someTimes['midnight'], 'HH'), '00');
+			proclaim.strictEqual(oDate.format(someTimes['1am'], 'HH'), '01');
+			proclaim.strictEqual(oDate.format(someTimes['10am'], 'HH'), '10');
+			proclaim.strictEqual(oDate.format(someTimes['midday'], 'HH'), '12');
+			proclaim.strictEqual(oDate.format(someTimes['1pm'], 'HH'), '13');
+			proclaim.strictEqual(oDate.format(someTimes['11pm'], 'HH'), '23');
 		});
 	});
 
 	describe('oDate.ftTime', () => {
-
-		it('returns a result from timeAgo if the publish date is less than 4 hours ago even if that date is also yesterday', ()=>{
+		it('returns a result from timeAgo if the publish date is less than 4 hours ago even if that date is also yesterday', () => {
 			try {
-				const oneHourAgo = new Date("Jul 13 2016 23:02:49");
-				const twoHoursAgo = new Date("Jul 13 2016 22:02:49");
-				const threeHoursAgo = new Date("Jul 13 2016 21:02:49");
-				const fourHoursAgo = new Date("Jul 13 2016 20:02:50");
+				const oneHourAgo = new Date('Jul 13 2016 23:02:49');
+				const twoHoursAgo = new Date('Jul 13 2016 22:02:49');
+				const threeHoursAgo = new Date('Jul 13 2016 21:02:49');
+				const fourHoursAgo = new Date('Jul 13 2016 20:02:50');
 				const now = Date.now;
-				const fakeNow = new Date("Jul 14 2016 00:02:49");
+				const fakeNow = new Date('Jul 14 2016 00:02:49');
 				sinon.stub(window, 'Date').returns(fakeNow);
 				Date.now = now;
 
-				proclaim.strictEqual(oDate.ftTime(oneHourAgo), "an hour ago");
-				proclaim.strictEqual(oDate.ftTime(twoHoursAgo), "2 hours ago");
-				proclaim.strictEqual(oDate.ftTime(threeHoursAgo), "3 hours ago");
-				proclaim.strictEqual(oDate.ftTime(fourHoursAgo), "4 hours ago");
+				proclaim.strictEqual(oDate.ftTime(oneHourAgo), 'an hour ago');
+				proclaim.strictEqual(oDate.ftTime(twoHoursAgo), '2 hours ago');
+				proclaim.strictEqual(oDate.ftTime(threeHoursAgo), '3 hours ago');
+				proclaim.strictEqual(oDate.ftTime(fourHoursAgo), '4 hours ago');
 			} finally {
 				window.Date.restore();
 			}
 		});
 
-		it('doesnt return a result from timeAgo if the publish date is more than 4 hours ago and isToday is false', ()=>{
+		it('doesnt return a result from timeAgo if the publish date is more than 4 hours ago and isToday is false', () => {
 			try {
-				const oDateTimeAgoReturn = "mocked timeAgo date";
+				const oDateTimeAgoReturn = 'mocked timeAgo date';
 				sinon.stub(oDate, 'timeAgo').returns(oDateTimeAgoReturn);
 				sinon.stub(oDate, 'isNearFuture').returns(false);
 				sinon.stub(oDate, 'isFarFuture').returns(false);
 				sinon.stub(oDate, 'isToday').returns(false);
 
 				const publishDatesInTheLast4Hours = [
-					new Date("Jul 13 2016 19:02:49"),
-					new Date("Jul 13 2016 18:02:49"),
-					new Date("Jul 13 2016 17:02:49"),
-					new Date("Jul 13 2016 00:02:50")
+					new Date('Jul 13 2016 19:02:49'),
+					new Date('Jul 13 2016 18:02:49'),
+					new Date('Jul 13 2016 17:02:49'),
+					new Date('Jul 13 2016 00:02:50'),
 				];
 
 				const now = Date.now;
-				const fakeNow = new Date("Jul 14 2016 00:02:49");
+				const fakeNow = new Date('Jul 14 2016 00:02:49');
 				sinon.stub(window, 'Date').returns(fakeNow);
 				Date.now = now;
 
@@ -220,13 +228,13 @@ describe('o-date', () => {
 
 	describe('isNearFuture', () => {
 		it('returns true if the interval is less than 5 mins in the future', () => {
-			proclaim.isTrue(oDate.isNearFuture(- inSeconds.minute));
-			proclaim.isTrue(oDate.isNearFuture(- inSeconds.second));
+			proclaim.isTrue(oDate.isNearFuture(-inSeconds.minute));
+			proclaim.isTrue(oDate.isNearFuture(-inSeconds.second));
 		});
 		it('returns false if the interval is more than 5 mins in the future', () => {
-			proclaim.isFalse(oDate.isNearFuture(- 100 * inSeconds.hour));
-			proclaim.isFalse(oDate.isNearFuture(- inSeconds.hour));
-			proclaim.isFalse(oDate.isNearFuture(- 10 * inSeconds.minute));
+			proclaim.isFalse(oDate.isNearFuture(-100 * inSeconds.hour));
+			proclaim.isFalse(oDate.isNearFuture(-inSeconds.hour));
+			proclaim.isFalse(oDate.isNearFuture(-10 * inSeconds.minute));
 		});
 		it('returns false if the interval in the past', () => {
 			proclaim.isFalse(oDate.isNearFuture(inSeconds.hour));
@@ -238,15 +246,14 @@ describe('o-date', () => {
 
 	describe('isFarFuture', () => {
 		it('returns true if the interval ismore than 5 mins in the future', () => {
-			proclaim.isTrue(oDate.isFarFuture(- 100 * inSeconds.hour));
-			proclaim.isTrue(oDate.isFarFuture(- inSeconds.hour));
-			proclaim.isTrue(oDate.isFarFuture(- 10 * inSeconds.minute));
+			proclaim.isTrue(oDate.isFarFuture(-100 * inSeconds.hour));
+			proclaim.isTrue(oDate.isFarFuture(-inSeconds.hour));
+			proclaim.isTrue(oDate.isFarFuture(-10 * inSeconds.minute));
 		});
 		it('returns false if the interval is less than 5 mins in the future', () => {
-			proclaim.isFalse(oDate.isFarFuture(- 5 * inSeconds.minute));
-			proclaim.isFalse(oDate.isFarFuture(- inSeconds.minute));
-			proclaim.isFalse(oDate.isFarFuture(- inSeconds.second));
-
+			proclaim.isFalse(oDate.isFarFuture(-5 * inSeconds.minute));
+			proclaim.isFalse(oDate.isFarFuture(-inSeconds.minute));
+			proclaim.isFalse(oDate.isFarFuture(-inSeconds.second));
 		});
 		it('returns false if the interval in the past', () => {
 			proclaim.isFalse(oDate.isFarFuture(inSeconds.hour));
@@ -258,19 +265,19 @@ describe('o-date', () => {
 
 	describe('isToday', () => {
 		it('returns true if the dates passed in are the same day', () => {
-			const publishDate = new Date("Jul 13 2016 10:02:00");
+			const publishDate = new Date('Jul 13 2016 10:02:00');
 			const interval = inSeconds.hour;
 			const now = new Date(publishDate.getTime() + interval * 1000);
 			proclaim.isTrue(oDate.isToday(publishDate, now, interval));
 		});
 		it('returns false if the dates passed in are not same day', () => {
-			const publishDate = new Date("Jul 13 2016 10:02:00");
+			const publishDate = new Date('Jul 13 2016 10:02:00');
 			const interval = inSeconds.day;
 			const now = new Date(publishDate.getTime() + interval * 1000);
 			proclaim.isFalse(oDate.isToday(publishDate, now, interval));
 		});
 		it('returns false if the dates are both tuesday but more than 24h apart', () => {
-			const publishDate = new Date("Jul 13 2016 10:02:00");
+			const publishDate = new Date('Jul 13 2016 10:02:00');
 			const interval = inSeconds.week;
 			const now = new Date(publishDate.getTime() + interval * 1000);
 
@@ -282,21 +289,21 @@ describe('o-date', () => {
 
 	describe('isYesterday', () => {
 		it('returns true if the date passed in is yesterday', () => {
-			const publishDate = new Date("Jul 13 2016 10:02:00");
+			const publishDate = new Date('Jul 13 2016 10:02:00');
 			const interval = inSeconds.day;
 			const now = new Date(publishDate.getTime() + interval * 1000);
 			proclaim.isTrue(oDate.isYesterday(publishDate, now, interval));
 		});
 
 		it('returns false if the dates passed are the same day', () => {
-			const publishDate = new Date("Jul 13 2016 10:02:00");
+			const publishDate = new Date('Jul 13 2016 10:02:00');
 			const interval = inSeconds.hour;
 			const now = new Date(publishDate.getTime() + interval * 1000);
 			proclaim.isFalse(oDate.isYesterday(publishDate, now, interval));
 		});
 
 		it('returns false if the weekdays are 1 apart but more than 24h apart', () => {
-			const publishDate = new Date("Jul 13 2016 10:02:00");
+			const publishDate = new Date('Jul 13 2016 10:02:00');
 			const interval = inSeconds.week + inSeconds.day;
 			const now = new Date(publishDate.getTime() + interval * 1000);
 
@@ -318,7 +325,8 @@ describe('o-date', () => {
 			// this ensures that `oDate.toDate` still works.
 			OriginalDate = Date;
 			mockDate = 'Jul 13 2016 10:02:49';
-			Date = input => { // eslint-disable-line no-global-assign
+			Date = input => {
+				// eslint-disable-line no-global-assign
 				input = input || mockDate;
 				return new OriginalDate(input);
 			};
@@ -340,7 +348,7 @@ describe('o-date', () => {
 				'a month ago': 25 * inSeconds.day,
 				'2 months ago': 45 * inSeconds.day,
 				'a year ago': 345 * inSeconds.day,
-				'2 years ago': 547 * inSeconds.day
+				'2 years ago': 547 * inSeconds.day,
 			};
 			const formatsHigh = {
 				'59 seconds ago': 59 * inSeconds.second,
@@ -352,7 +360,7 @@ describe('o-date', () => {
 				'25 days ago': 25 * inSeconds.day - inSeconds.second,
 				'a month ago': 45 * inSeconds.day - inSeconds.second,
 				'11 months ago': 345 * inSeconds.day - inSeconds.second,
-				'a year ago': 547 * inSeconds.day - inSeconds.second
+				'a year ago': 547 * inSeconds.day - inSeconds.second,
 			};
 
 			Object.keys(formatsLow).forEach(function (format) {
@@ -376,12 +384,15 @@ describe('o-date', () => {
 			const publishDate = new Date('Jul 13 2016 10:02:49');
 			const datesWithinLimit = [
 				'Jul 13 2016 11:02:48', // 59 minutes and 59 seconds later
-				'Jul 13 2016 10:02:50' // 1 second later
+				'Jul 13 2016 10:02:50', // 1 second later
 			];
 
 			for (const date of datesWithinLimit) {
 				mockDate = date;
-				proclaim.notStrictEqual(oDate.timeAgo(publishDate, {limit: inSeconds.hour}), '');
+				proclaim.notStrictEqual(
+					oDate.timeAgo(publishDate, {limit: inSeconds.hour}),
+					''
+				);
 			}
 		});
 
@@ -390,12 +401,15 @@ describe('o-date', () => {
 			const datesWithinLimit = [
 				'Jul 13 2016 11:02:51', // 60 minutes, 2 seconds later
 				'Jul 13 2016 23:02:52', // 12 hours, 3 seconds later
-				'Jul 14 2016 10:02:49' // the next day
+				'Jul 14 2016 10:02:49', // the next day
 			];
 
 			for (const date of datesWithinLimit) {
 				mockDate = date;
-				proclaim.strictEqual(oDate.timeAgo(publishDate, {limit: inSeconds.hour}), '');
+				proclaim.strictEqual(
+					oDate.timeAgo(publishDate, {limit: inSeconds.hour}),
+					''
+				);
 			}
 		});
 
@@ -404,12 +418,15 @@ describe('o-date', () => {
 			const dates = [
 				'Jul 13 2016 11:02:51',
 				'Jul 13 2016 23:02:52',
-				'Jul 14 2016 10:02:49'
+				'Jul 14 2016 10:02:49',
 			];
 
 			for (const date of dates) {
 				mockDate = date;
-				proclaim.strictEqual(oDate.timeAgo(publishDate, {interval: 5}), '5 seconds ago');
+				proclaim.strictEqual(
+					oDate.timeAgo(publishDate, {interval: 5}),
+					'5 seconds ago'
+				);
 			}
 		});
 
@@ -418,7 +435,7 @@ describe('o-date', () => {
 			const dates = [
 				'Jul 13 2016 11:02:51',
 				'Jul 13 2016 23:02:52',
-				'Jul 14 2016 10:02:49'
+				'Jul 14 2016 10:02:49',
 			];
 
 			for (const date of dates) {
@@ -439,25 +456,34 @@ describe('o-date', () => {
 				'1 month ago': 25 * inSeconds.day,
 				'2 month ago': 45 * inSeconds.day,
 				'1 year ago': 345 * inSeconds.day,
-				'2 year ago': 547 * inSeconds.day
+				'2 year ago': 547 * inSeconds.day,
 			};
 
 			Object.keys(abbreviations).forEach(function (abbreviation) {
 				let date = new Date();
 				date = date - abbreviations[abbreviation] * 1000;
-				proclaim.strictEqual(oDate.timeAgo(date, { abbreviated: true }), abbreviation);
+				proclaim.strictEqual(
+					oDate.timeAgo(date, {abbreviated: true}),
+					abbreviation
+				);
 			});
 		});
 	});
 
 	describe('oDate.timeAgoNoSeconds', () => {
-		it('returns \'Less than a minute ago\' if time was less than a minute ago', () => {
+		it("returns 'Less than a minute ago' if time was less than a minute ago", () => {
 			let date;
 			date = new Date() - 2 * inSeconds.second * 1000; // 1 second ago
-			proclaim.strictEqual(oDate.timeAgoNoSeconds(date), 'Less than a minute ago');
+			proclaim.strictEqual(
+				oDate.timeAgoNoSeconds(date),
+				'Less than a minute ago'
+			);
 
 			date = new Date() - 59 * inSeconds.second * 1000; // 59 seconds ago
-			proclaim.strictEqual(oDate.timeAgoNoSeconds(date), 'Less than a minute ago');
+			proclaim.strictEqual(
+				oDate.timeAgoNoSeconds(date),
+				'Less than a minute ago'
+			);
 
 			date = new Date() - 60 * inSeconds.second * 1000; // 1 minute ago
 			oDate.timeAgoNoSeconds(date);

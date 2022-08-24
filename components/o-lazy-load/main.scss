@@ -1,11 +1,13 @@
 @import '@financial-times/math';
 @import 'src/scss/variables';
 
-@mixin oLazyLoad($opts: (
-	'placeholder': true,
-	'placeholder-ratios': $_o-lazy-load-placholder-ratios,
-	'transition': true,
-)) {
+@mixin oLazyLoad(
+	$opts: (
+		'placeholder': true,
+		'placeholder-ratios': $_o-lazy-load-placholder-ratios,
+		'transition': true,
+	)
+) {
 	/// Add a fade-in transition effect, works best for <img> or <picture> elements
 	@if map-get($opts, 'transition') {
 		.o-lazy-load--transition {

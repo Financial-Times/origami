@@ -68,9 +68,7 @@ const isVisible = function (element) {
 const focusTrap = function (event) {
 	const tabKeyCode = 9;
 	const overlayFocusableElements = [].slice
-		.call(
-			this.wrapper.querySelectorAll(focusable)
-		)
+		.call(this.wrapper.querySelectorAll(focusable))
 		.filter(element => {
 			const elementVisible = isVisible(element);
 			// Inputs for radio and checkboxes are visually hidden,
@@ -390,7 +388,10 @@ class Overlay {
 
 		if (this.opts.layer) {
 			this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
-			this.delegates.context.on('oOverlay.layerOpen', this.closeOnNewLayerHandler);
+			this.delegates.context.on(
+				'oOverlay.layerOpen',
+				this.closeOnNewLayerHandler
+			);
 
 			this.broadcast('layerOpen');
 		}
@@ -446,7 +447,7 @@ class Overlay {
 				 * @property {Overlay} instance - the firing instance
 				 */
 				this.broadcast('ready', 'oOverlay', {
-					instance: this
+					instance: this,
 				});
 
 				// Add o-tracking integration
@@ -547,7 +548,8 @@ class Overlay {
 	broadcast(eventType, namespace, detail) {
 		namespace = namespace || 'oOverlay';
 
-		const isLayerEvent = eventType === 'layerOpen' || eventType === 'layerClose';
+		const isLayerEvent =
+			eventType === 'layerOpen' || eventType === 'layerClose';
 		const target = isLayerEvent ? this.context : this.wrapper || document.body;
 
 		detail = detail || {};
