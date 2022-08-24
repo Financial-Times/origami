@@ -70,7 +70,8 @@ function merge(target, options) {
 
 		// Gets rid of missing values too
 		if (typeof copy !== 'undefined' && copy !== null) {
-			target[name] = src === Object(src) && !is(src, 'function') ? merge(src, copy) : copy;
+			target[name] =
+				src === Object(src) && !is(src, 'function') ? merge(src, copy) : copy;
 		}
 	}
 	/* jshint +W089 */
@@ -134,10 +135,12 @@ function addEvent(element, event, listener) {
 function broadcast(namespace, eventType, detail) {
 	detail = detail || {};
 	try {
-		window.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
-			detail: detail,
-			bubbles: true
-		}));
+		window.dispatchEvent(
+			new CustomEvent(namespace + '.' + eventType, {
+				detail: detail,
+				bubbles: true,
+			})
+		);
 	} catch (error) {
 		// empty
 	}
@@ -173,7 +176,11 @@ function triggerPage() {
  * @returns {string} - The vale from the cookie
  */
 function getValueFromCookie(matcher) {
-	return document.cookie.match(matcher) && RegExp.$1 !== '' && RegExp.$1 !== 'null' ? RegExp.$1 : null;
+	return document.cookie.match(matcher) &&
+		RegExp.$1 !== '' &&
+		RegExp.$1 !== 'null'
+		? RegExp.$1
+		: null;
 }
 
 /**
@@ -183,7 +190,7 @@ function getValueFromCookie(matcher) {
  * @param {Array} allowedPropertyNames - The list of props to allow
  * @returns {object} An object containing only the allowed props
  */
-function filterProperties (objectToFilter, allowedPropertyNames) {
+function filterProperties(objectToFilter, allowedPropertyNames) {
 	const filteredObject = {};
 	for (const allowedName of allowedPropertyNames) {
 		if (objectToFilter[allowedName]) {
@@ -199,7 +206,7 @@ function filterProperties (objectToFilter, allowedPropertyNames) {
  * @param {string} str - The string to trim.
  * @returns {string} The trimmed string.
  */
-function sanitise (str) {
+function sanitise(str) {
 	return typeof str === 'string' ? str.trim() : str;
 }
 
@@ -210,7 +217,7 @@ function sanitise (str) {
  * @param {object} target - be assigned the value
  * @returns {void}
  */
-function assignIfUndefined (subject, target) {
+function assignIfUndefined(subject, target) {
 	for (const prop in subject) {
 		if (!target[prop]) {
 			target[prop] = subject[prop];
@@ -252,10 +259,10 @@ function findCircularPathsIn(rootObject) {
 				if (value instanceof Object) {
 					const parentObjectIsAnArray = Array.isArray(currentObject);
 					if (parentObjectIsAnArray) {
-					// Store path in bracket notation when value is an array
+						// Store path in bracket notation when value is an array
 						_findCircularPathsIn(value, `${path}[${key}]`);
 					} else {
-					// Store path in dot-notation when value is an object
+						// Store path in dot-notation when value is an object
 						_findCircularPathsIn(value, `${path}.${key}`);
 					}
 				}
@@ -263,7 +270,7 @@ function findCircularPathsIn(rootObject) {
 		}
 	}
 
-	_findCircularPathsIn(rootObject, "");
+	_findCircularPathsIn(rootObject, '');
 	return circularPaths;
 }
 
@@ -309,11 +316,7 @@ function containsCircularPaths(rootObject) {
 
 	// _containsCircularPaths returns true or undefined.
 	// By using Boolean we convert the undefined into false.
-	return Boolean(
-		_containsCircularPaths(
-			rootObject
-		)
-	);
+	return Boolean(_containsCircularPaths(rootObject));
 }
 
 /**
@@ -328,12 +331,7 @@ function isDeepEqual(a, b) {
 		return true;
 	}
 
-	if (
-		a &&
-		b &&
-		typeof a === "object" &&
-		typeof b === "object"
-	) {
+	if (a && b && typeof a === 'object' && typeof b === 'object') {
 		if (a.constructor !== b.constructor) {
 			return false;
 		}
@@ -352,9 +350,7 @@ function isDeepEqual(a, b) {
 		}
 
 		if (a.constructor === RegExp) {
-			return (
-				a.source === b.source && a.flags === b.flags
-			);
+			return a.source === b.source && a.flags === b.flags;
 		}
 		if (a.valueOf !== Object.prototype.valueOf) {
 			return a.valueOf() === b.valueOf();
@@ -405,5 +401,5 @@ export {
 	filterProperties,
 	findCircularPathsIn,
 	containsCircularPaths,
-	isDeepEqual
+	isDeepEqual,
 };

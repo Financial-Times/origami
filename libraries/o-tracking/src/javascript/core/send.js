@@ -1,5 +1,13 @@
 import {get as getSetting} from './settings.js';
-import {broadcast, is, findCircularPathsIn, containsCircularPaths, merge, addEvent, log} from '../utils.js';
+import {
+	broadcast,
+	is,
+	findCircularPathsIn,
+	containsCircularPaths,
+	merge,
+	addEvent,
+	log,
+} from '../utils.js';
 import {Queue} from './queue.js';
 import {get as getTransport} from './transports/index.js';
 
@@ -35,12 +43,15 @@ function sendRequest(request, callback) {
 	const queueTime = request.queueTime;
 	const offlineLag = new Date().getTime() - queueTime;
 
-	const transport = should_use_sendBeacon() ? getTransport('sendBeacon')() :
-		window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? getTransport('xhr')() :
-			getTransport('image')();
+	const transport = should_use_sendBeacon()
+		? getTransport('sendBeacon')()
+		: window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest()
+		? getTransport('xhr')()
+		: getTransport('image')();
 	const user_callback = request.callback;
 
-	const core_system = getSetting('config') && getSetting('config').system || {};
+	const core_system =
+		(getSetting('config') && getSetting('config').system) || {};
 	const system = merge(core_system, {
 		version: getSetting('version'), // Version of the tracking client e.g. '1.2'
 		source: getSetting('source'), // Source of the tracking client e.g. 'o-tracking'
@@ -53,8 +64,7 @@ function sendRequest(request, callback) {
 		system.is_live = true;
 	}
 
-
-	request = merge({ system: system }, request);
+	request = merge({system: system}, request);
 
 	// Only bothered about offlineLag if it's longer than a second, but less than 12 months. (Especially as Date can be dodgy)
 	if (offlineLag > 1000 && offlineLag < 12 * 30 * 24 * 60 * 60 * 1000) {
@@ -69,10 +79,11 @@ function sendRequest(request, callback) {
 	log('PreSend', request);
 
 	if (containsCircularPaths(request)) {
-		const errorMessage = "o-tracking does not support circular references in the analytics data.\n" +
-		"Please remove the circular references in the data.\n" +
-		"Here are the paths in the data which are circular:\n" +
-		JSON.stringify(findCircularPathsIn(request), undefined, 4);
+		const errorMessage =
+			'o-tracking does not support circular references in the analytics data.\n' +
+			'Please remove the circular references in the data.\n' +
+			'Here are the paths in the data which are circular:\n' +
+			JSON.stringify(findCircularPathsIn(request), undefined, 4);
 		throw new Error(errorMessage);
 	}
 
@@ -92,7 +103,7 @@ function sendRequest(request, callback) {
 
 			broadcast('oErrors', 'log', {
 				error: error.message,
-				info: { module: 'o-tracking' }
+				info: {module: 'o-tracking'},
 			});
 		} else if (callback) {
 			callback();
@@ -133,7 +144,11 @@ function add(request) {
  * @param {Function} [callback] - Optional callback
  * @returns {void}
  */
-function run(callback = function () { /* empty */}) {
+function run(
+	callback = function () {
+		/* empty */
+	}
+) {
 	// Investigate queue lengths bug
 	// https://jira.ft.com/browse/DTP-330
 	const all_events = queue.all();
@@ -160,8 +175,8 @@ function run(callback = function () { /* empty */}) {
 				url: document.URL,
 				queue_length: all_events.length,
 				counts: counts,
-				storage: queue.storage.storage._type
-			}
+				storage: queue.storage.storage._type,
+			},
 		});
 	}
 
@@ -200,7 +215,7 @@ function init() {
 	queue = new Queue('requests');
 
 	// If any tracking calls are made whilst offline, try sending them the next time the device comes online
-	addEvent(window, 'online', function() {
+	addEvent(window, 'online', function () {
 		run();
 	});
 
@@ -210,9 +225,4 @@ function init() {
 	return queue;
 }
 
-export {
-	init,
-	add,
-	run,
-	addAndRun
-};
+export {init, add, run, addAndRun};

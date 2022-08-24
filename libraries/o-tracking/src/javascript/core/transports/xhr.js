@@ -25,8 +25,8 @@ function xhr() {
 					callback('Incorrect response: ' + xhr.status);
 				}
 			};
-		}
+		},
 	};
 }
 
-export { xhr };
+export {xhr};

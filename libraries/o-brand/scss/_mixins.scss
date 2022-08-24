@@ -10,13 +10,28 @@
 		$brand: 'core';
 	}
 	// Validate brand name.
-	$validated-brand-name: _oBrandValidateName('Brand', $brand, 'Cannot define brand "#{$brand}" for component "#{$component}"');
+	$validated-brand-name: _oBrandValidateName(
+		'Brand',
+		$brand,
+		'Cannot define brand "#{$brand}" for component "#{$component}"'
+	);
 	// Validate component name.
-	$validated-component-name: _oBrandValidateName('Component', $component, 'Cannot define brand "#{$brand}" for component "#{$component}"');
+	$validated-component-name: _oBrandValidateName(
+		'Component',
+		$component,
+		'Cannot define brand "#{$brand}" for component "#{$component}"'
+	);
 	// Validate config.
 	$validated-config: _oBrandValidateConfig($component, $brand, $config);
 	// Update config.
-	$_o-brands: _oBrandRecursiveMapMerge($_o-brands, ($component: ($brand: $config))) !global;
+	$_o-brands: _oBrandRecursiveMapMerge(
+		$_o-brands,
+		(
+			$component: (
+				$brand: $config,
+			),
+		)
+	) !global;
 }
 
 /// Customise the brand variables for the current brand.
@@ -29,8 +44,15 @@
 		@debug 'Customising the "#{_oBrandGetCurrentValidBrand()}" brand version of the "#{$component}" component.'; // stylelint-disable-line at-rule-blacklist
 	}
 	// Validate component.
-	$validated-component-name: _oBrandValidateName('Component', $component, 'Cannot customise component "#{$component}"');
-	$existing-brand-config: _oBrandGetConfig($component, _oBrandGetCurrentValidBrand());
+	$validated-component-name: _oBrandValidateName(
+		'Component',
+		$component,
+		'Cannot customise component "#{$component}"'
+	);
+	$existing-brand-config: _oBrandGetConfig(
+		$component,
+		_oBrandGetCurrentValidBrand()
+	);
 	@if type-of($existing-brand-config) != 'map' {
 		@error 'Could not customise brand "#{_oBrandGetCurrentValidBrand()}" of the "#{$component}" component. Make sure that component supports the "#{_oBrandGetCurrentValidBrand()}" brand.';
 	}
@@ -42,5 +64,14 @@
 		@error 'Could not customise "#{$component}". oBrandCustomize expects a map of brand variables to customise variants. It is not possible to add or remove support for variants.';
 	}
 	// Update config.
-	$_o-brands: _oBrandRecursiveMapMerge($_o-brands, ($component: (_oBrandGetCurrentValidBrand(): ('variables': $variables)))) !global;
+	$_o-brands: _oBrandRecursiveMapMerge(
+		$_o-brands,
+		(
+			$component: (
+				_oBrandGetCurrentValidBrand(): (
+					'variables': $variables,
+				),
+			),
+		)
+	) !global;
 }

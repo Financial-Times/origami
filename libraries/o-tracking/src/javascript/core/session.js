@@ -11,7 +11,7 @@ let store;
 const defaultSessionConfig = {
 	storage: 'best',
 	name: 'session',
-	expires: 30 * 60 * 1000 // 30 minutes
+	expires: 30 * 60 * 1000, // 30 minutes
 };
 
 /**
@@ -26,7 +26,7 @@ function setSession(session) {
 
 	store.write({
 		value: session,
-		expiry: d.valueOf()
+		expiry: d.valueOf(),
 	});
 }
 
@@ -61,7 +61,7 @@ function getSession() {
 
 	return {
 		id: session,
-		isNew: isNew
+		isNew: isNew,
 	};
 }
 
@@ -73,7 +73,7 @@ function getSession() {
  */
 function init(config) {
 	if (is(config, 'string')) {
-		config = { name: config };
+		config = {name: config};
 	}
 
 	if (isUndefined(config)) {
@@ -92,4 +92,4 @@ function init(config) {
 	return getSession();
 }
 
-export { getSession as session, init };
+export {getSession as session, init};

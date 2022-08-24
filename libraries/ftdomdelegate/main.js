@@ -9,23 +9,22 @@
  * @param {Node|string} [root] The root node or a selector string matching the root node
  */
 function Delegate(root) {
-
 	/**
 	 * Maintain a map of listener
 	 * lists, keyed by event name.
 	 *
 	 * @type Object
 	 */
-	this.listenerMap = [{}, {}];
+	this.listenerMap = [{}, {}]
 	if (root) {
-		this.root(root);
+		this.root(root)
 	}
 
 	/** @type function() */
-	this.handle = Delegate.prototype.handle.bind(this);
+	this.handle = Delegate.prototype.handle.bind(this)
 
 	// Cache of event listeners removed during an event cycle
-	this._removedListeners = [];
+	this._removedListeners = []
 }
 
 /**
@@ -36,19 +35,19 @@ function Delegate(root) {
  * @returns {Delegate} This method is chainable
  */
 Delegate.prototype.root = function (root) {
-	const listenerMap = this.listenerMap;
-	let eventType;
+	const listenerMap = this.listenerMap
+	let eventType
 
 	// Remove master event listeners
 	if (this.rootElement) {
 		for (eventType in listenerMap[1]) {
 			if (listenerMap[1].hasOwnProperty(eventType)) {
-				this.rootElement.removeEventListener(eventType, this.handle, true);
+				this.rootElement.removeEventListener(eventType, this.handle, true)
 			}
 		}
 		for (eventType in listenerMap[0]) {
 			if (listenerMap[0].hasOwnProperty(eventType)) {
-				this.rootElement.removeEventListener(eventType, this.handle, false);
+				this.rootElement.removeEventListener(eventType, this.handle, false)
 			}
 		}
 	}
@@ -58,9 +57,9 @@ Delegate.prototype.root = function (root) {
 	// root reference and exit here
 	if (!root || !root.addEventListener) {
 		if (this.rootElement) {
-			delete this.rootElement;
+			delete this.rootElement
 		}
-		return this;
+		return this
 	}
 
 	/**
@@ -69,30 +68,34 @@ Delegate.prototype.root = function (root) {
 	 *
 	 * @type Node
 	 */
-	this.rootElement = root;
+	this.rootElement = root
 
 	// Set up master event listeners
 	for (eventType in listenerMap[1]) {
 		if (listenerMap[1].hasOwnProperty(eventType)) {
-			this.rootElement.addEventListener(eventType, this.handle, true);
+			this.rootElement.addEventListener(eventType, this.handle, true)
 		}
 	}
 	for (eventType in listenerMap[0]) {
 		if (listenerMap[0].hasOwnProperty(eventType)) {
-			this.rootElement.addEventListener(eventType, this.handle, false);
+			this.rootElement.addEventListener(eventType, this.handle, false)
 		}
 	}
 
-	return this;
-};
+	return this
+}
 
 /**
  * @param {string} eventType
  * @returns boolean
  */
 Delegate.prototype.captureForType = function (eventType) {
-	return ['blur', 'error', 'focus', 'load', 'resize', 'scroll'].indexOf(eventType) !== -1;
-};
+	return (
+		["blur", "error", "focus", "load", "resize", "scroll"].indexOf(
+			eventType
+		) !== -1
+	)
+}
 
 /**
  * Attach a handler to one
@@ -120,61 +123,61 @@ Delegate.prototype.captureForType = function (eventType) {
  * @returns {Delegate} This method is chainable
  */
 Delegate.prototype.on = function (eventType, selector, handler, useCapture) {
-	let root;
-	let listenerMap;
-	let matcher;
-	let matcherParam;
+	let root
+	let listenerMap
+	let matcher
+	let matcherParam
 
 	if (!eventType) {
-		throw new TypeError('Invalid event type: ' + eventType);
+		throw new TypeError("Invalid event type: " + eventType)
 	}
 
 	// handler can be passed as
 	// the second or third argument
-	if (typeof selector === 'function') {
-		useCapture = handler;
-		handler = selector;
-		selector = null;
+	if (typeof selector === "function") {
+		useCapture = handler
+		handler = selector
+		selector = null
 	}
 
 	// Fallback to sensible defaults
 	// if useCapture not set
 	if (useCapture === undefined) {
-		useCapture = this.captureForType(eventType);
+		useCapture = this.captureForType(eventType)
 	}
 
-	if (typeof handler !== 'function') {
-		throw new TypeError('Handler must be a type of Function');
+	if (typeof handler !== "function") {
+		throw new TypeError("Handler must be a type of Function")
 	}
 
-	root = this.rootElement;
-	listenerMap = this.listenerMap[useCapture ? 1 : 0];
+	root = this.rootElement
+	listenerMap = this.listenerMap[useCapture ? 1 : 0]
 
 	// Add master handler for type if not created yet
 	if (!listenerMap[eventType]) {
 		if (root) {
-			root.addEventListener(eventType, this.handle, useCapture);
+			root.addEventListener(eventType, this.handle, useCapture)
 		}
-		listenerMap[eventType] = [];
+		listenerMap[eventType] = []
 	}
 
 	if (!selector) {
-		matcherParam = null;
+		matcherParam = null
 
 		// COMPLEX - matchesRoot needs to have access to
 		// this.rootElement, so bind the function to this.
-		matcher = matchesRoot.bind(this);
+		matcher = matchesRoot.bind(this)
 
 		// Compile a matcher for the given selector
 	} else if (/^[a-z]+$/i.test(selector)) {
-		matcherParam = selector;
-		matcher = matchesTag;
+		matcherParam = selector
+		matcher = matchesTag
 	} else if (/^#[a-z0-9\-_]+$/i.test(selector)) {
-		matcherParam = selector.slice(1);
-		matcher = matchesId;
+		matcherParam = selector.slice(1)
+		matcher = matchesId
 	} else {
-		matcherParam = selector;
-		matcher = Element.prototype.matches;
+		matcherParam = selector
+		matcher = Element.prototype.matches
 	}
 
 	// Add to the list of listeners
@@ -182,11 +185,11 @@ Delegate.prototype.on = function (eventType, selector, handler, useCapture) {
 		selector: selector,
 		handler: handler,
 		matcher: matcher,
-		matcherParam: matcherParam
-	});
+		matcherParam: matcherParam,
+	})
 
-	return this;
-};
+	return this
+}
 
 /**
  * Remove an event handler
@@ -199,68 +202,70 @@ Delegate.prototype.on = function (eventType, selector, handler, useCapture) {
  * @returns {Delegate} This method is chainable
  */
 Delegate.prototype.off = function (eventType, selector, handler, useCapture) {
-	let i;
-	let listener;
-	let listenerMap;
-	let listenerList;
-	let singleEventType;
+	let i
+	let listener
+	let listenerMap
+	let listenerList
+	let singleEventType
 
 	// Handler can be passed as
 	// the second or third argument
-	if (typeof selector === 'function') {
-		useCapture = handler;
-		handler = selector;
-		selector = null;
+	if (typeof selector === "function") {
+		useCapture = handler
+		handler = selector
+		selector = null
 	}
 
 	// If useCapture not set, remove
 	// all event listeners
 	if (useCapture === undefined) {
-		this.off(eventType, selector, handler, true);
-		this.off(eventType, selector, handler, false);
-		return this;
+		this.off(eventType, selector, handler, true)
+		this.off(eventType, selector, handler, false)
+		return this
 	}
 
-	listenerMap = this.listenerMap[useCapture ? 1 : 0];
+	listenerMap = this.listenerMap[useCapture ? 1 : 0]
 	if (!eventType) {
 		for (singleEventType in listenerMap) {
 			if (listenerMap.hasOwnProperty(singleEventType)) {
-				this.off(singleEventType, selector, handler);
+				this.off(singleEventType, selector, handler)
 			}
 		}
 
-		return this;
+		return this
 	}
 
-	listenerList = listenerMap[eventType];
+	listenerList = listenerMap[eventType]
 	if (!listenerList || !listenerList.length) {
-		return this;
+		return this
 	}
 
 	// Remove only parameter matches
 	// if specified
 	for (i = listenerList.length - 1; i >= 0; i--) {
-		listener = listenerList[i];
+		listener = listenerList[i]
 
-		if ((!selector || selector === listener.selector) && (!handler || handler === listener.handler)) {
-			this._removedListeners.push(listener);
-			listenerList.splice(i, 1);
+		if (
+			(!selector || selector === listener.selector) &&
+			(!handler || handler === listener.handler)
+		) {
+			this._removedListeners.push(listener)
+			listenerList.splice(i, 1)
 		}
 	}
 
 	// All listeners removed
 	if (!listenerList.length) {
-		delete listenerMap[eventType];
+		delete listenerMap[eventType]
 
 		// Remove the main handler
 		if (this.rootElement) {
-			this.rootElement.removeEventListener(eventType, this.handle, useCapture);
+			this.rootElement.removeEventListener(eventType, this.handle, useCapture)
 		}
 	}
 
-	return this;
-};
-
+	return this
+}
 
 /**
  * Handle an arbitrary event.
@@ -268,83 +273,85 @@ Delegate.prototype.off = function (eventType, selector, handler, useCapture) {
  * @param {Event} event
  */
 Delegate.prototype.handle = function (event) {
-	let i;
-	let l;
-	const type = event.type;
-	let root;
-	let phase;
-	let listener;
-	let returned;
-	let listenerList = [];
-	let target;
-	const eventIgnore = 'ftLabsDelegateIgnore';
+	let i
+	let l
+	const type = event.type
+	let root
+	let phase
+	let listener
+	let returned
+	let listenerList = []
+	let target
+	const eventIgnore = "ftLabsDelegateIgnore"
 
 	if (event[eventIgnore] === true) {
-		return;
+		return
 	}
 
-	target = event.target;
+	target = event.target
 
 	// Hardcode value of Node.TEXT_NODE
 	// as not defined in IE8
 	if (target.nodeType === 3) {
-		target = target.parentNode;
+		target = target.parentNode
 	}
 
 	// Handle SVG <use> elements in IE
 	if (target.correspondingUseElement) {
-		target = target.correspondingUseElement;
+		target = target.correspondingUseElement
 	}
 
-	root = this.rootElement;
+	root = this.rootElement
 
-	phase = event.eventPhase || (event.target !== event.currentTarget ? 3 : 2);
+	phase = event.eventPhase || (event.target !== event.currentTarget ? 3 : 2)
 
 	// eslint-disable-next-line default-case
 	switch (phase) {
 		case 1: //Event.CAPTURING_PHASE:
-			listenerList = this.listenerMap[1][type];
-			break;
+			listenerList = this.listenerMap[1][type]
+			break
 		case 2: //Event.AT_TARGET:
 			if (this.listenerMap[0] && this.listenerMap[0][type]) {
-				listenerList = listenerList.concat(this.listenerMap[0][type]);
+				listenerList = listenerList.concat(this.listenerMap[0][type])
 			}
 			if (this.listenerMap[1] && this.listenerMap[1][type]) {
-				listenerList = listenerList.concat(this.listenerMap[1][type]);
+				listenerList = listenerList.concat(this.listenerMap[1][type])
 			}
-			break;
+			break
 		case 3: //Event.BUBBLING_PHASE:
-			listenerList = this.listenerMap[0][type];
-			break;
+			listenerList = this.listenerMap[0][type]
+			break
 	}
 
-	let toFire = [];
+	let toFire = []
 
 	// Need to continuously check
 	// that the specific list is
 	// still populated in case one
 	// of the callbacks actually
 	// causes the list to be destroyed.
-	l = listenerList.length;
+	l = listenerList.length
 	while (target && l) {
 		for (i = 0; i < l; i++) {
-			listener = listenerList[i];
+			listener = listenerList[i]
 
 			// Bail from this loop if
 			// the length changed and
 			// no more listeners are
 			// defined between i and l.
 			if (!listener) {
-				break;
+				break
 			}
 
 			if (
 				target.tagName &&
-				["button", "input", "select", "textarea"].indexOf(target.tagName.toLowerCase()) > -1 &&
+				["button", "input", "select", "textarea"].indexOf(
+					target.tagName.toLowerCase()
+				) > -1 &&
 				target.hasAttribute("disabled")
 			) {
 				// Remove things that have previously fired
-				toFire = [];
+				toFire = []
 			}
 			// Check for match and fire
 			// the event if there's one
@@ -353,7 +360,7 @@ Delegate.prototype.handle = function (event) {
 			// to check if event#stopImmediatePropagation
 			// was called. If so, break both loops.
 			else if (listener.matcher.call(target, listener.matcherParam, target)) {
-				toFire.push([event, target, listener]);
+				toFire.push([event, target, listener])
 			}
 		}
 
@@ -363,42 +370,42 @@ Delegate.prototype.handle = function (event) {
 		// through the DOM. Stop if the
 		// delegation root has been reached
 		if (target === root) {
-			break;
+			break
 		}
 
-		l = listenerList.length;
+		l = listenerList.length
 
 		// Fall back to parentNode since SVG children have no parentElement in IE
-		target = target.parentElement || target.parentNode;
+		target = target.parentElement || target.parentNode
 
 		// Do not traverse up to document root when using parentNode, though
 		if (target instanceof HTMLDocument) {
-			break;
+			break
 		}
 	}
 
-	let ret;
+	let ret
 
 	for (i = 0; i < toFire.length; i++) {
 		// Has it been removed during while the event function was fired
 		if (this._removedListeners.indexOf(toFire[i][2]) > -1) {
-			continue;
+			continue
 		}
-		returned = this.fire.apply(this, toFire[i]);
+		returned = this.fire.apply(this, toFire[i])
 
 		// Stop propagation to subsequent
 		// callbacks if the callback returned
 		// false
 		if (returned === false) {
-			toFire[i][0][eventIgnore] = true;
-			toFire[i][0].preventDefault();
-			ret = false;
-			break;
+			toFire[i][0][eventIgnore] = true
+			toFire[i][0].preventDefault()
+			ret = false
+			break
 		}
 	}
 
-	return ret;
-};
+	return ret
+}
 
 /**
  * Fire a listener on a target.
@@ -409,8 +416,8 @@ Delegate.prototype.handle = function (event) {
  * @returns {boolean}
  */
 Delegate.prototype.fire = function (event, target, listener) {
-	return listener.handler.call(target, event, target);
-};
+	return listener.handler.call(target, event, target)
+}
 
 /**
  * Check whether an element
@@ -425,7 +432,7 @@ Delegate.prototype.fire = function (event, target, listener) {
  * @returns boolean
  */
 function matchesTag(tagName, element) {
-	return tagName.toLowerCase() === element.tagName.toLowerCase();
+	return tagName.toLowerCase() === element.tagName.toLowerCase()
 }
 
 /**
@@ -445,9 +452,9 @@ function matchesRoot(selector, element) {
 			element === document.documentElement ||
 			// Or the window itself (dispatched from window)
 			element === window
-		);
+		)
 	}
-	return this.rootElement === element;
+	return this.rootElement === element
 }
 
 /**
@@ -462,7 +469,7 @@ function matchesRoot(selector, element) {
  * @returns boolean
  */
 function matchesId(id, element) {
-	return id === element.id;
+	return id === element.id
 }
 
 /**
@@ -473,8 +480,8 @@ function matchesId(id, element) {
  * @return void
  */
 Delegate.prototype.destroy = function () {
-	this.off();
-	this.root();
-};
+	this.off()
+	this.root()
+}
 
-export default Delegate;
+export default Delegate

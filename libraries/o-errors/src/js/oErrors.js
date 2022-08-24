@@ -38,8 +38,12 @@ function Errors() {
 	this._declarativeConfigString = false;
 
 	// noop operations
-	this._filterError = function() { return true; };
-	this._transformError = function(data) { return data; };
+	this._filterError = function () {
+		return true;
+	};
+	this._transformError = function (data) {
+		return data;
+	};
 }
 
 /**
@@ -67,7 +71,7 @@ function Errors() {
  * @param {Object} raven                   - The Raven JS client object.
  * @returns {Errors}  - The Errors instance
  */
-Errors.prototype.init = function(options, raven) {
+Errors.prototype.init = function (options, raven) {
 	if (this.initialised) {
 		return this;
 	}
@@ -91,17 +95,29 @@ Errors.prototype.init = function(options, raven) {
 
 		if (options.filterError) {
 			options.filterError = undefined;
-			throwLater(new Error("Can not configure 'oErrors' with `filterError` using declarative markup - error filtering will not be enabled"));
+			throwLater(
+				new Error(
+					"Can not configure 'oErrors' with `filterError` using declarative markup - error filtering will not be enabled"
+				)
+			);
 		}
 
 		if (options.transformError) {
 			options.transformError = undefined;
-			throwLater(new Error("Can not configure 'oErrors' with `transformError` using declarative markup - error transforming will not be enabled"));
+			throwLater(
+				new Error(
+					"Can not configure 'oErrors' with `transformError` using declarative markup - error transforming will not be enabled"
+				)
+			);
 		}
 
 		if (options.transportFunction) {
 			options.transportFunction = undefined;
-			throwLater(new Error("Can not configure 'oErrors' with `transportFunction` using declarative markup - overriding Sentry's transport function will not be enabled"));
+			throwLater(
+				new Error(
+					"Can not configure 'oErrors' with `transportFunction` using declarative markup - overriding Sentry's transport function will not be enabled"
+				)
+			);
 		}
 	}
 
@@ -120,21 +136,28 @@ Errors.prototype.init = function(options, raven) {
 	// If errors is configured to be disabled, (options.disabled = true),
 	// then stub this.report, turn off logging (which turns them into noops),
 	// and return 'initialised' before installing raven.
-	const isErrorsDisabled = options.enabled === undefined ? false : options.enabled === false;
+	const isErrorsDisabled =
+		options.enabled === undefined ? false : options.enabled === false;
 
 	const logLevel = isErrorsDisabled ? Logger.off : options.logLevel;
 	const defaultLogLength = 10;
 	this.logger = new Logger(defaultLogLength, logLevel);
 
 	if (isErrorsDisabled) {
-		this.report = function(error) { return error; };
-		this.wrapWithContext = function(context, fn) { return fn; };
+		this.report = function (error) {
+			return error;
+		};
+		this.wrapWithContext = function (context, fn) {
+			return fn;
+		};
 		this.initialised = true;
 		return this;
 	}
 
 	if (!options.sentryEndpoint) {
-		throw new Error('Could not initialise o-errors: Sentry endpoint and auth configuration missing.');
+		throw new Error(
+			'Could not initialise o-errors: Sentry endpoint and auth configuration missing.'
+		);
 	}
 
 	// Only install Raven if not using console only logging level
@@ -143,11 +166,11 @@ Errors.prototype.init = function(options, raven) {
 	} else {
 		const logger = this.logger;
 		this.ravenClient = {
-			captureException: function() {
+			captureException: function () {
 				return logger.error(arguments);
 			},
 			// eslint-disable-next-line no-empty-function
-			uninstall: function(){}
+			uninstall: function () {},
 		};
 	}
 
@@ -159,8 +182,7 @@ Errors.prototype.init = function(options, raven) {
 	return this;
 };
 
-Errors.prototype._configureAndInstallRaven = function(options, raven) {
-
+Errors.prototype._configureAndInstallRaven = function (options, raven) {
 	// To control the initialisation of the third party code (Raven)
 	// we include it only at init time see "http://origami.ft.com/documentation/syntax/js/#initialisation"
 	//
@@ -175,7 +197,7 @@ Errors.prototype._configureAndInstallRaven = function(options, raven) {
 	const updatePayloadBeforeSend = this._updatePayloadBeforeSend.bind(this);
 
 	const ravenOptions = {
-		dataCallback: updatePayloadBeforeSend
+		dataCallback: updatePayloadBeforeSend,
 	};
 
 	if (options.siteVersion) {
@@ -208,13 +230,13 @@ Errors.prototype._configureAndInstallRaven = function(options, raven) {
  *
  * @returns {undefined} - undefined
  */
-Errors.prototype._flushBufferedErrors = function() {
+Errors.prototype._flushBufferedErrors = function () {
 	if (!this.initialised) {
 		return;
 	}
 
 	const errors = this;
-	this._errorBuffer.forEach(function(bufferedError) {
+	this._errorBuffer.forEach(function (bufferedError) {
 		errors.report(bufferedError.error, bufferedError.context);
 	});
 
@@ -242,7 +264,7 @@ Errors.prototype._flushBufferedErrors = function() {
  *                            aggregator
  * @return {Error} - The passed in error
  */
-Errors.prototype.report = function(error, context) {
+Errors.prototype.report = function (error, context) {
 	const _context = context || {};
 	let reportObject = {
 		error: error,
@@ -250,8 +272,8 @@ Errors.prototype.report = function(error, context) {
 			// The extra key tells Sentry to put this information
 			// in the Additional Data section, otherwise, it doesn't
 			// understand the context and ignores it
-			extra: _context
-		}
+			extra: _context,
+		},
 	};
 
 	if (!this.initialised) {
@@ -299,7 +321,7 @@ Errors.prototype.report = function(error, context) {
  * @param {String}  message - The message to log
  * @returns {undefined} - undefined
  */
-Errors.prototype.error = function() {
+Errors.prototype.error = function () {
 	this.logger.error.apply(this.logger, arguments);
 };
 
@@ -312,7 +334,7 @@ Errors.prototype.error = function() {
  * @param {String} warnMessage  - The message to log.
  * @returns {undefined} - undefined
  */
-Errors.prototype.warn = function() {
+Errors.prototype.warn = function () {
 	this.logger.warn.apply(this.logger, arguments);
 };
 
@@ -324,10 +346,9 @@ Errors.prototype.warn = function() {
  * @param {String} logMessage - The message to log.
  * @returns {undefined} - undefined
  */
-Errors.prototype.log = function() {
+Errors.prototype.log = function () {
 	this.logger.log.apply(this.logger, arguments);
 };
-
 
 /**
  * Wrap a function so that any uncaught errors are caught and reported to the
@@ -345,7 +366,7 @@ Errors.prototype.log = function() {
  * @param {Function} fn     - The function to wrap.
  * @return {Function} - Wrapped function
  */
-Errors.prototype.wrap = function(fn) {
+Errors.prototype.wrap = function (fn) {
 	return this.wrapWithContext({}, fn);
 };
 
@@ -365,12 +386,12 @@ Errors.prototype.wrap = function(fn) {
  * @param {Function} fn          - The function to wrap
  * @return {Function} - Wrapped function with context
  */
-Errors.prototype.wrapWithContext = function(context, fn) {
+Errors.prototype.wrapWithContext = function (context, fn) {
 	const errors = this;
-	return function() {
+	return function () {
 		try {
 			return fn.apply(undefined, arguments);
-		} catch(e) {
+		} catch (e) {
 			errors.report(e, context);
 			throw e;
 		}
@@ -386,13 +407,15 @@ Errors.prototype.wrapWithContext = function(context, fn) {
  *
  * @returns {undefined} - undefined
  */
-Errors.prototype.destroy = function() {
-	if (!this.initialised) { return; }
+Errors.prototype.destroy = function () {
+	if (!this.initialised) {
+		return;
+	}
 	document.removeEventListener('oErrors.log', this._logEventHandler);
 	this.ravenClient.uninstall();
 };
 
-Errors.prototype.handleLogEvent = function(ev) {
+Errors.prototype.handleLogEvent = function (ev) {
 	// If no event is passed here, return early
 	if (!ev) {
 		return;
@@ -402,22 +425,31 @@ Errors.prototype.handleLogEvent = function(ev) {
 	const context = {
 		info: ev.detail.info || {},
 		extra: {
-			"context:dom": this._getEventPath(ev).reduceRight(function(builder, el) {
+			'context:dom': this._getEventPath(ev).reduceRight(function (builder, el) {
 				const classList = Array.prototype.slice.call(el.classList || []);
 
 				if (!el.nodeName) {
-					return builder + " - " + el.constructor.name + "\n";
+					return builder + ' - ' + el.constructor.name + '\n';
 				}
 
 				const nodeName = el.nodeName.toLowerCase();
 
 				if (nodeName.indexOf('#') === 0) {
-					return builder + "<" + nodeName + ">\n";
+					return builder + '<' + nodeName + '>\n';
 				}
 
-				return builder + "<" + el.nodeName.toLowerCase() + " class='" + classList.join(' ') + "' id='" + (el.id || '') + "'>\n";
-			}, "")
-		}
+				return (
+					builder +
+					'<' +
+					el.nodeName.toLowerCase() +
+					" class='" +
+					classList.join(' ') +
+					"' id='" +
+					(el.id || '') +
+					"'>\n"
+				);
+			}, ''),
+		},
 	};
 	this.report(ev.detail.error, context);
 };
@@ -430,7 +462,7 @@ Errors.prototype.handleLogEvent = function(ev) {
  * @param {Event} event - The event to get the path for.
  * @returns {Array} - An array of Elements.
  */
-Errors.prototype._getEventPath = function(event) {
+Errors.prototype._getEventPath = function (event) {
 	const path = [];
 
 	// IE backwards compatibility (get the actual target). If IE, uses
@@ -452,9 +484,9 @@ Errors.prototype._getEventPath = function(event) {
  * @param {Object} data - The data object from Raven
  * @returns {Object} - Updated data
  */
-Errors.prototype._updatePayloadBeforeSend = function(data) {
+Errors.prototype._updatePayloadBeforeSend = function (data) {
 	if (this.logger.enabled) {
-		data.extra["context:log"] = this.logger.logLines();
+		data.extra['context:log'] = this.logger.logLines();
 	}
 	return data;
 };
@@ -465,7 +497,7 @@ Errors.prototype._updatePayloadBeforeSend = function(data) {
  * @private
  * @returns {boolean} - Boolean value indicating if there's declarative config
  */
-Errors.prototype._hasDeclarativeConfig = function() {
+Errors.prototype._hasDeclarativeConfig = function () {
 	return Boolean(this._getDeclarativeConfig());
 };
 
@@ -475,11 +507,12 @@ Errors.prototype._hasDeclarativeConfig = function() {
  * @private
  * @returns {string} - Stringified configuration
  */
-Errors.prototype._getDeclarativeConfig = function() {
+Errors.prototype._getDeclarativeConfig = function () {
 	if (!this._declarativeConfigString) {
 		const config = document.querySelector('script[data-o-errors-config]');
 		if (config) {
-			this._declarativeConfigString = config.textContent || config.innerText || config.innerHTML;
+			this._declarativeConfigString =
+				config.textContent || config.innerText || config.innerHTML;
 		} else {
 			return false;
 		}
@@ -498,8 +531,7 @@ Errors.prototype._getDeclarativeConfig = function() {
  * @returns {Object} - The options modified to include the options gathered
  *                     from the DOM
  */
-Errors.prototype._initialiseDeclaratively = function(options) {
-
+Errors.prototype._initialiseDeclaratively = function (options) {
 	if (!this._hasDeclarativeConfig()) {
 		return false;
 	}
@@ -508,8 +540,12 @@ Errors.prototype._initialiseDeclaratively = function(options) {
 
 	try {
 		declarativeOptions = JSON.parse(this._getDeclarativeConfig());
-	} catch(e) {
-		throw new Error("Invalid JSON configuration syntax, check validity for o-errors configuration: '" + e.message + "'");
+	} catch (e) {
+		throw new Error(
+			"Invalid JSON configuration syntax, check validity for o-errors configuration: '" +
+				e.message +
+				"'"
+		);
 	}
 
 	for (const property in declarativeOptions) {
@@ -525,4 +561,4 @@ Errors.prototype._initialiseDeclaratively = function(options) {
 };
 
 export default Errors;
-export { Errors };
+export {Errors};

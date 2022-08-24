@@ -1,8 +1,8 @@
 import {addAndRun} from './core/send.js';
-import { userID } from './core/user.js';
-import { session } from './core/session.js';
-import { get } from './core/settings.js';
-import { guid, getValueFromCookie, merge, log } from './utils.js';
+import {userID} from './core/user.js';
+import {session} from './core/session.js';
+import {get} from './core/settings.js';
+import {guid, getValueFromCookie, merge, log} from './utils.js';
 
 let rootID;
 
@@ -38,7 +38,12 @@ function getRootID() {
  *
  * @returns {object} request
  */
-function track(config, callback = function(){ /* empty */}) {
+function track(
+	config,
+	callback = function () {
+		/* empty */
+	}
+) {
 	const currentSession = session();
 
 	// Set up the base request object with some values which should always be sent.
@@ -50,7 +55,7 @@ function track(config, callback = function(){ /* empty */}) {
 		},
 		user: {
 			ft_session: getValueFromCookie(/FTSession=([^;]+)/),
-			ft_session_s: getValueFromCookie(/FTSession_s=([^;]+)/)
+			ft_session_s: getValueFromCookie(/FTSession_s=([^;]+)/),
 		},
 		device: {
 			spoor_session: currentSession.id,
@@ -85,5 +90,5 @@ function track(config, callback = function(){ /* empty */}) {
 export default {
 	setRootID,
 	getRootID,
-	track
+	track,
 };

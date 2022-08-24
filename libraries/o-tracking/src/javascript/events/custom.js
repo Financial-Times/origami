@@ -1,9 +1,5 @@
 import core from '../core.js';
-import {
-	is,
-	broadcast,
-	merge,
-	addEvent} from '../utils.js';
+import {is, broadcast, merge, addEvent} from '../utils.js';
 
 /**
  * Default properties for events.
@@ -15,7 +11,7 @@ const defaultEventConfig = function () {
 	return {
 		category: 'event',
 		action: 'generic',
-		context: {}
+		context: {},
 	};
 };
 
@@ -37,7 +33,7 @@ function event(trackingEvent, callback) {
 		const noCategoryActionVals = 'Missing category or action values';
 		broadcast('oErrors', 'log', {
 			error: noCategoryActionVals,
-			info: { module: 'o-tracking' }
+			info: {module: 'o-tracking'},
 		});
 		throw noCategoryActionVals;
 	}
@@ -45,7 +41,7 @@ function event(trackingEvent, callback) {
 	const config = merge(defaultEventConfig(), {
 		category: trackingEvent.detail.category,
 		action: trackingEvent.detail.action,
-		context: trackingEvent.detail
+		context: trackingEvent.detail,
 	});
 
 	delete config.context.category;
@@ -53,8 +49,10 @@ function event(trackingEvent, callback) {
 
 	const origamiElement = getOrigamiEventTarget(trackingEvent);
 	if (origamiElement) {
-		config.context.component_name = origamiElement.getAttribute('data-o-component');
-		config.context.component_id = config.context.component_id || getComponentId(origamiElement);
+		config.context.component_name =
+			origamiElement.getAttribute('data-o-component');
+		config.context.component_id =
+			config.context.component_id || getComponentId(origamiElement);
 	}
 
 	core.track(config, callback);
@@ -109,10 +107,10 @@ function getComponentId(element) {
 		} else {
 			return 0;
 		}
-	}(srcElement));
+	})(srcElement);
 
 	// Generate a normalised string (normalising browser quirks) from the sequence of elements
-	const normalisedStringPath = path.reduceRight(function(builder, el) {
+	const normalisedStringPath = path.reduceRight(function (builder, el) {
 		if (!el.nodeName) {
 			return builder + ' - ' + el.constructor.name + '\n';
 		}
@@ -125,9 +123,8 @@ function getComponentId(element) {
 		}
 
 		// Replace this stuff with stuff that makes each node unique - without including styling detail (as this may change depending on animation state etc, position)
-		return builder + '<' + nodeName +' id="' + (el.id || '') + '">';
+		return builder + '<' + nodeName + ' id="' + (el.id || '') + '">';
 	}, '');
-
 
 	// Append a sibling index to the string and use some simple, off the shelf string hashing algorithm.
 	return _generateHash(normalisedStringPath + '_siblingIndex=' + siblingIndex);
@@ -181,16 +178,22 @@ function _generateHash(str) {
 	let k;
 
 	while (l >= 4) {
-		k = str.charCodeAt(i) & 0xff |
-			(str.charCodeAt(++i) & 0xff) << 8 |
-			(str.charCodeAt(++i) & 0xff) << 16 |
-			(str.charCodeAt(++i) & 0xff) << 24;
+		k =
+			(str.charCodeAt(i) & 0xff) |
+			((str.charCodeAt(++i) & 0xff) << 8) |
+			((str.charCodeAt(++i) & 0xff) << 16) |
+			((str.charCodeAt(++i) & 0xff) << 24);
 
-		k = (k & 0xffff) * 0x5bd1e995 + (((k >>> 16) * 0x5bd1e995 & 0xffff) << 16);
+		k =
+			(k & 0xffff) * 0x5bd1e995 + ((((k >>> 16) * 0x5bd1e995) & 0xffff) << 16);
 		k ^= k >>> 24;
-		k = (k & 0xffff) * 0x5bd1e995 + (((k >>> 16) * 0x5bd1e995 & 0xffff) << 16);
+		k =
+			(k & 0xffff) * 0x5bd1e995 + ((((k >>> 16) * 0x5bd1e995) & 0xffff) << 16);
 
-		h = (h & 0xffff) * 0x5bd1e995 + (((h >>> 16) * 0x5bd1e995 & 0xffff) << 16) ^ k;
+		h =
+			((h & 0xffff) * 0x5bd1e995 +
+				((((h >>> 16) * 0x5bd1e995) & 0xffff) << 16)) ^
+			k;
 
 		l -= 4;
 		++i;
@@ -205,14 +208,16 @@ function _generateHash(str) {
 			break;
 		case 1:
 			h ^= str.charCodeAt(i) & 0xff;
-			h = (h & 0xffff) * 0x5bd1e995 + (((h >>> 16) * 0x5bd1e995 & 0xffff) << 16);
+			h =
+				(h & 0xffff) * 0x5bd1e995 +
+				((((h >>> 16) * 0x5bd1e995) & 0xffff) << 16);
 			break;
 		default:
 			break;
 	}
 
 	h ^= h >>> 13;
-	h = (h & 0xffff) * 0x5bd1e995 + (((h >>> 16) * 0x5bd1e995 & 0xffff) << 16);
+	h = (h & 0xffff) * 0x5bd1e995 + ((((h >>> 16) * 0x5bd1e995) & 0xffff) << 16);
 	h ^= h >>> 15;
 
 	return h >>> 0;
@@ -223,4 +228,4 @@ const init = function init() {
 };
 event.init = init;
 
-export { event };
+export {event};

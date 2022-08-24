@@ -8,7 +8,6 @@ import Errors from './src/js/oErrors.js';
 
 const errors = new Errors();
 
-
 function initialise() {
 	errors.init();
 	document.removeEventListener('o.DOMContentLoaded', initialise);
@@ -27,4 +26,4 @@ if (typeof document !== 'undefined') {
  * @type {Errors}
  */
 export default errors;
-export { errors };
+export {errors};

@@ -15,8 +15,8 @@ const defaultPageConfig = function () {
 		action: 'view',
 		context: {
 			url: document.URL,
-			referrer: document.referrer
-		}
+			referrer: document.referrer,
+		},
 	};
 };
 
@@ -29,7 +29,7 @@ const defaultPageConfig = function () {
  */
 function page(config, callback) {
 	config = merge(defaultPageConfig(), {
-		context: config
+		context: config,
 	});
 
 	// Set a new root ID only if the page function has already been called once before.
@@ -50,7 +50,9 @@ function page(config, callback) {
 	if (pageViewEventHasAlreadyBeenSentBefore(config)) {
 		if (getSetting('config').test) {
 			// eslint-disable-next-line no-console
-			console.warn('A page event has already been sent for this page, refusing to send a duplicate page event.');
+			console.warn(
+				'A page event has already been sent for this page, refusing to send a duplicate page event.'
+			);
 		}
 	} else {
 		core.track(config, callback);
@@ -73,7 +75,9 @@ function pageViewEventHasAlreadyBeenSentBefore(config) {
 	delete configWithoutContextIDs.context.id;
 	delete configWithoutContextIDs.context.root_id;
 
-	if (isDeepEqual(previousPageConfigWithoutContextIDs, configWithoutContextIDs)) {
+	if (
+		isDeepEqual(previousPageConfigWithoutContextIDs, configWithoutContextIDs)
+	) {
 		return true;
 	} else {
 		previousPageConfigWithoutContextIDs = configWithoutContextIDs;
@@ -97,4 +101,4 @@ const init = function init() {
 };
 page.init = init;
 
-export { page };
+export {page};

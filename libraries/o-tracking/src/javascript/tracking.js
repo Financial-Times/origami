@@ -6,7 +6,7 @@ import {event} from './events/custom.js';
 import {page} from './events/page-view.js';
 import {click} from './events/click.js';
 import core from './core.js';
-import { merge, broadcast } from './utils.js';
+import {merge, broadcast} from './utils.js';
 import {view} from './events/component-view.js';
 
 const initEvent = event.init;
@@ -100,9 +100,7 @@ function init(config = {}) {
 		return tracking;
 	}
 
-	const hasDeclarativeConfig = Boolean(
-		getDeclarativeConfigElement()
-	);
+	const hasDeclarativeConfig = Boolean(getDeclarativeConfigElement());
 
 	if (hasDeclarativeConfig) {
 		config = getDeclarativeConfig(config);
@@ -160,7 +158,8 @@ function getDeclarativeConfig(options) {
 	const configEl = getDeclarativeConfigElement();
 	let declarativeConfigString;
 	if (configEl) {
-		declarativeConfigString = configEl.textContent || configEl.innerText || configEl.innerHTML;
+		declarativeConfigString =
+			configEl.textContent || configEl.innerText || configEl.innerHTML;
 	} else {
 		return false;
 	}
@@ -168,11 +167,15 @@ function getDeclarativeConfig(options) {
 	try {
 		const declarativeOptions = JSON.parse(declarativeConfigString);
 		Object.assign(options, declarativeOptions);
-	} catch(e) {
-		const configError = new Error('Invalid JSON configuration syntax, check validity for o-tracking configuration: "' + e.message + '"');
+	} catch (e) {
+		const configError = new Error(
+			'Invalid JSON configuration syntax, check validity for o-tracking configuration: "' +
+				e.message +
+				'"'
+		);
 		broadcast('oErrors', 'log', {
 			error: configError.message,
-			info: { module: 'o-tracking' }
+			info: {module: 'o-tracking'},
 		});
 		throw configError;
 	}
@@ -197,7 +200,7 @@ const tracking = {
 	event,
 	page,
 	view,
-	getRootID: core.getRootID
+	getRootID: core.getRootID,
 };
 
 export default tracking;

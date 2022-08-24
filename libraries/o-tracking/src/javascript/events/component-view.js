@@ -10,8 +10,7 @@ const TRACKING_ATTRIBUTES = [
 ];
 
 const decorateEventData = (eventData, viewedEl, opts) => {
-
-	const { trace, customContext } = getTrace(viewedEl);
+	const {trace, customContext} = getTrace(viewedEl);
 	let context;
 
 	if (opts.getContextData) {
@@ -46,9 +45,11 @@ const decorateEventData = (eventData, viewedEl, opts) => {
  * @returns {undefined}
  */
 const init = (opts = {}) => {
-	if(!window.IntersectionObserver) {
+	if (!window.IntersectionObserver) {
 		// eslint-disable-next-line no-console
-		console.warn('o-tracking: Unable to track component view events as "window.IntersectionObserver" is not supported.');
+		console.warn(
+			'o-tracking: Unable to track component view events as "window.IntersectionObserver" is not supported.'
+		);
 		return;
 	}
 
@@ -59,12 +60,12 @@ const init = (opts = {}) => {
 		return;
 	}
 
-	function onChange (changes) {
+	function onChange(changes) {
 		changes.forEach(change => {
-			if(change.isIntersecting || change.intersectionRatio > 0) {
+			if (change.isIntersecting || change.intersectionRatio > 0) {
 				const eventData = {
 					action: opts.action || 'view',
-					category: opts.category || 'component'
+					category: opts.category || 'component',
 				};
 				const viewedEl = change.target;
 
@@ -75,15 +76,13 @@ const init = (opts = {}) => {
 		});
 	}
 
-	const observer = new IntersectionObserver(onChange, { threshold: [ 1.0 ] });
+	const observer = new IntersectionObserver(onChange, {threshold: [1.0]});
 
 	elementsToTrack.forEach(el => observer.observe(el));
 };
 
 const view = {
-	init
+	init,
 };
 
-export { view };
-
-
+export {view};

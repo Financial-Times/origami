@@ -1,5 +1,4 @@
-
-const settings = {config:{}};
+const settings = {config: {}};
 
 /**
  * Very basic implementation of deep clone, and only supports simple POJO objects and
@@ -57,8 +56,4 @@ function destroy(key) {
 const set = setValue;
 const get = getValue;
 
-export {
-	set,
-	get,
-	destroy
-};
+export {set, get, destroy};

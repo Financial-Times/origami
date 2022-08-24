@@ -16,8 +16,12 @@ $o-brand: null !default;
 $o-brand-debug: false !default;
 
 $_o-brands: () !default; // A map of components to their defined brands.
-$_o-brand-available-brands: ('core', 'internal', 'whitelabel'); // A list of available brands to use for a component
+$_o-brand-available-brands: (
+	'core',
+	'internal',
+	'whitelabel'
+); // A list of available brands to use for a component
 $_o-brand-default: 'core'; // The fallback current brand.
-$_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefine";
+$_o-brand-define-readme: 'https://github.com/Financial-Times/o-brand/#obranddefine';
 
 $_o-brand-test-environment: false !default;

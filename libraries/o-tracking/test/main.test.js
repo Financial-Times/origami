@@ -4,16 +4,15 @@ import './setup.js';
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon-esm.js';
 import {destroy, get} from '../src/javascript/core/settings.js';
-import { Queue } from '../src/javascript/core/queue.js';
+import {Queue} from '../src/javascript/core/queue.js';
 import oTracking from '../main.js';
-import { sendSpy } from './setup.js';
+import {sendSpy} from './setup.js';
 
 const clickEvent = new MouseEvent('click', {
-	'view': window,
-	'bubbles': true,
-	'cancelable': true
+	view: window,
+	bubbles: true,
+	cancelable: true,
 });
-
 
 describe('main', function () {
 	let root_id;
@@ -23,18 +22,18 @@ describe('main', function () {
 		destroy('config'); // Empty settings.
 	});
 
-	it('should only allow a single tracking instance to exist per context', function() {
+	it('should only allow a single tracking instance to exist per context', function () {
 		oTracking.destroy();
 		const confEl = document.createElement('script');
 		confEl.type = 'application/json';
 		confEl.dataset.oTrackingConfig = 'true';
 		const config = {
 			context: {
-				product: 'desktop'
+				product: 'desktop',
 			},
 			user: {
-				user_id: '023ur9jfokwenvcklwnfiwhfoi324'
-			}
+				user_id: '023ur9jfokwenvcklwnfiwhfoi324',
+			},
 		};
 		confEl.innerText = JSON.stringify(config);
 
@@ -53,11 +52,11 @@ describe('main', function () {
 		let parentLink;
 		const config = {
 			context: {
-				product: 'desktop'
+				product: 'desktop',
 			},
 			user: {
-				user_id: '023ur9jfokwenvcklwnfiwhfoi324'
-			}
+				user_id: '023ur9jfokwenvcklwnfiwhfoi324',
+			},
 		};
 
 		beforeEach(function () {
@@ -78,7 +77,9 @@ describe('main', function () {
 			// Generate iframe content.
 			const bundleUrl = '/libraries/o-tracking/test/o-tracking-test.js';
 
-			const iframeContent = new Blob([`
+			const iframeContent = new Blob(
+				[
+					`
 				<html>
 				<head>
 					<!-- load o-tracking fixture -->
@@ -87,12 +88,15 @@ describe('main', function () {
 				<body>
 				</body>
 				</html>
-			`], { type: 'text/html' });
+			`,
+				],
+				{type: 'text/html'}
+			);
 
 			iframeSrc = URL.createObjectURL(iframeContent);
 		});
 
-		it('should not send the same click event multiple times from the parent page', function(done) {
+		it('should not send the same click event multiple times from the parent page', function (done) {
 			// First click, e.g. like a cmd-click on macOS which opens a new tab
 			// (the iframe is used to mimic this)
 			parentLink.dispatchEvent(clickEvent, true);
@@ -109,7 +113,11 @@ describe('main', function () {
 				sendSpy.resetHistory();
 				parentLink.dispatchEvent(clickEvent, true);
 				try {
-					proclaim.equal(sendSpy.callCount, 1, 'Expected 1 event to be sent, the latest click event, no more.');
+					proclaim.equal(
+						sendSpy.callCount,
+						1,
+						'Expected 1 event to be sent, the latest click event, no more.'
+					);
 				} catch (error) {
 					done(error);
 				}
@@ -119,24 +127,24 @@ describe('main', function () {
 		});
 	});
 
-	it('should quit without any config to init with', function() {
+	it('should quit without any config to init with', function () {
 		oTracking.destroy();
 		const tracking = oTracking.init();
 		proclaim.equal(tracking, null);
 		oTracking.destroy();
 	});
 
-	it('should configure itself from the DOM if no options are present', function() {
+	it('should configure itself from the DOM if no options are present', function () {
 		const confEl = document.createElement('script');
 		confEl.type = 'application/json';
 		confEl.dataset.oTrackingConfig = 'true';
 		const config = {
 			context: {
-				product: 'desktop'
+				product: 'desktop',
 			},
 			user: {
-				user_id: '023ur9jfokwenvcklwnfiwhfoi324'
-			}
+				user_id: '023ur9jfokwenvcklwnfiwhfoi324',
+			},
 		};
 		confEl.innerText = JSON.stringify(config);
 
@@ -153,18 +161,21 @@ describe('main', function () {
 	it('should track a page', function () {
 		oTracking.init({
 			context: {
-				product: 'desktop'
+				product: 'desktop',
 			},
 			user: {
-				user_id: '023ur9jfokwenvcklwnfiwhfoi324'
-			}
+				user_id: '023ur9jfokwenvcklwnfiwhfoi324',
+			},
 		});
 
 		const callback = sinon.spy();
 
-		oTracking.page({
-			url: 'http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html'
-		}, callback);
+		oTracking.page(
+			{
+				url: 'http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html',
+			},
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -173,75 +184,98 @@ describe('main', function () {
 		root_id = sent_data.context.root_id;
 
 		// Basics
-		proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+		proclaim.deepEqual(Object.keys(sent_data), [
+			'system',
+			'context',
+			'user',
+			'device',
+			'category',
+			'action',
+		]);
 
 		// Meta
 		proclaim.ok(sent_data.system.version.match(/\d+\.\d+.\d+/));
-		proclaim.equal(sent_data.system.source, "o-tracking");
+		proclaim.equal(sent_data.system.source, 'o-tracking');
 
 		// Type
-		proclaim.equal(sent_data.category, "page");
-		proclaim.equal(sent_data.action, "view");
+		proclaim.equal(sent_data.category, 'page');
+		proclaim.equal(sent_data.action, 'view');
 
 		// User
 		proclaim.equal(sent_data.user.user_id, '023ur9jfokwenvcklwnfiwhfoi324');
 
 		// Page
-		proclaim.equal(sent_data.context.url, "http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html");
-		proclaim.equal(sent_data.context.product, "desktop");
+		proclaim.equal(
+			sent_data.context.url,
+			'http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html'
+		);
+		proclaim.equal(sent_data.context.product, 'desktop');
 	});
 
 	it('should track an event', function () {
-
 		const callback = sinon.spy();
 
-		oTracking.event(new CustomEvent('oTracking.event', {
-			detail: {
-				category: 'video',
-				action: 'play',
-				component_id: '123456'
-			}
-		}), callback);
+		oTracking.event(
+			new CustomEvent('oTracking.event', {
+				detail: {
+					category: 'video',
+					action: 'play',
+					component_id: '123456',
+				},
+			}),
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
-
 
 		const sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+		proclaim.deepEqual(Object.keys(sent_data), [
+			'system',
+			'context',
+			'user',
+			'device',
+			'category',
+			'action',
+		]);
 
 		// Type
-		proclaim.equal(sent_data.category, "video");
-		proclaim.equal(sent_data.action, "play");
-		proclaim.equal(sent_data.context.component_id, "123456");
+		proclaim.equal(sent_data.category, 'video');
+		proclaim.equal(sent_data.action, 'play');
+		proclaim.equal(sent_data.context.component_id, '123456');
 
 		// User
 		proclaim.equal(sent_data.user.user_id, '023ur9jfokwenvcklwnfiwhfoi324');
 
 		// Page
 		proclaim.equal(sent_data.context.root_id, root_id);
-		proclaim.equal(sent_data.context.product, "desktop");
+		proclaim.equal(sent_data.context.product, 'desktop');
 	});
 
 	it('should not mutate init config', function () {
-
 		const callback1 = sinon.spy();
 		const callback2 = sinon.spy();
 
-		oTracking.page({
-			my_key: "my_val"
-		}, callback1);
+		oTracking.page(
+			{
+				my_key: 'my_val',
+			},
+			callback1
+		);
 
 		proclaim.ok(callback1.called, 'Callback not called.');
 
 		const sent_data1 = callback1.getCall(0).thisValue;
-		proclaim.equal(sent_data1.context.my_key, "my_val");
+		proclaim.equal(sent_data1.context.my_key, 'my_val');
 
 		// Track another page
-		oTracking.page({
-			url: "http://www.ft.com/home/uk"
-		}, callback2);
+		oTracking.page(
+			{
+				url: 'http://www.ft.com/home/uk',
+			},
+			callback2
+		);
 		proclaim.ok(callback2.called, 'Callback not called.');
 
 		// Ensure vars from the first track don't leak into the second
@@ -254,22 +288,24 @@ describe('main', function () {
 
 		oTracking.init({
 			system: {
-				environment: 'prod'
-			}
+				environment: 'prod',
+			},
 		});
-
 
 		const callback = sinon.spy();
 
-		oTracking.page({
-			url: "http://www.ft.com/home/uk?1"
-		}, callback);
+		oTracking.page(
+			{
+				url: 'http://www.ft.com/home/uk?1',
+			},
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
 		const sent_data = callback.getCall(0).thisValue;
 
-		proclaim.equal(sent_data.system.environment, "prod");
+		proclaim.equal(sent_data.system.environment, 'prod');
 	});
 
 	it('should not allow system.is_live to be set on init', function () {
@@ -277,16 +313,18 @@ describe('main', function () {
 
 		oTracking.init({
 			system: {
-				is_live: "carrot"
-			}
+				is_live: 'carrot',
+			},
 		});
-
 
 		const callback = sinon.spy();
 
-		oTracking.page({
-			url: "http://www.ft.com/home/uk?2"
-		}, callback);
+		oTracking.page(
+			{
+				url: 'http://www.ft.com/home/uk?2',
+			},
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -299,15 +337,17 @@ describe('main', function () {
 		oTracking.destroy();
 
 		oTracking.init({
-			test_data: true
+			test_data: true,
 		});
-
 
 		const callback = sinon.spy();
 
-		oTracking.page({
-			url: "http://www.ft.com/home/uk?3"
-		}, callback);
+		oTracking.page(
+			{
+				url: 'http://www.ft.com/home/uk?3',
+			},
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -320,15 +360,17 @@ describe('main', function () {
 		oTracking.destroy();
 
 		oTracking.init({
-			test_data: false
+			test_data: false,
 		});
-
 
 		const callback = sinon.spy();
 
-		oTracking.page({
-			url: "http://www.ft.com/home/uk?4"
-		}, callback);
+		oTracking.page(
+			{
+				url: 'http://www.ft.com/home/uk?4',
+			},
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -341,15 +383,17 @@ describe('main', function () {
 		oTracking.destroy();
 
 		oTracking.init({
-			test: true
+			test: true,
 		});
-
 
 		const callback = sinon.spy();
 
-		oTracking.page({
-			url: "http://www.ft.com/home/uk?3"
-		}, callback);
+		oTracking.page(
+			{
+				url: 'http://www.ft.com/home/uk?3',
+			},
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -362,15 +406,17 @@ describe('main', function () {
 		oTracking.destroy();
 
 		oTracking.init({
-			test: false
+			test: false,
 		});
-
 
 		const callback = sinon.spy();
 
-		oTracking.page({
-			url: "http://www.ft.com/home/uk?4"
-		}, callback);
+		oTracking.page(
+			{
+				url: 'http://www.ft.com/home/uk?4',
+			},
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -382,9 +428,12 @@ describe('main', function () {
 	it('should set system.is_live to be true if `test` and `test_data` is not set', function () {
 		const callback = sinon.spy();
 
-		oTracking.page({
-			url: "http://www.ft.com/home/uk?5"
-		}, callback);
+		oTracking.page(
+			{
+				url: 'http://www.ft.com/home/uk?5',
+			},
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -397,7 +446,7 @@ describe('main', function () {
 		oTracking.destroy();
 		oTracking.init({
 			device: {
-				orientation: "landscape",
+				orientation: 'landscape',
 				is_offline: true,
 			},
 			context: {
@@ -407,15 +456,18 @@ describe('main', function () {
 				region: 'europe',
 			},
 			user: {
-				user_id: 'c2nb134j8hz2p'
-			}
+				user_id: 'c2nb134j8hz2p',
+			},
 		});
 
 		const callback = sinon.spy();
 
-		oTracking.event(new CustomEvent('oTracking.event', {
-			detail: { category: 'video', action: 'play', component_id: '12345' }
-		}), callback);
+		oTracking.event(
+			new CustomEvent('oTracking.event', {
+				detail: {category: 'video', action: 'play', component_id: '12345'},
+			}),
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -429,7 +481,7 @@ describe('main', function () {
 		oTracking.updateConfig({
 			server: 'somewhere over the rainbow',
 			device: {
-				orientation: "portrait",
+				orientation: 'portrait',
 			},
 			context: {
 				marketing: {
@@ -437,13 +489,16 @@ describe('main', function () {
 				},
 			},
 			user: {
-				user_id: 'cjw30zh3bxei6'
-			}
+				user_id: 'cjw30zh3bxei6',
+			},
 		});
 
-		oTracking.event(new CustomEvent('oTracking.event', {
-			detail: { category: 'video', action: 'play', component_id: '12346' }
-		}), callback);
+		oTracking.event(
+			new CustomEvent('oTracking.event', {
+				detail: {category: 'video', action: 'play', component_id: '12346'},
+			}),
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -459,16 +514,19 @@ describe('main', function () {
 	it('should override core configuration with individual calls', function () {
 		const callback = sinon.spy();
 
-		oTracking.event(new CustomEvent('oTracking.event', {
-			detail: {
-				category: 'video',
-				action: 'play',
-				component_id: '12349',
-				marketing: {
-					segid: '4321',
+		oTracking.event(
+			new CustomEvent('oTracking.event', {
+				detail: {
+					category: 'video',
+					action: 'play',
+					component_id: '12349',
+					marketing: {
+						segid: '4321',
+					},
 				},
-			}
-		}), callback);
+			}),
+			callback
+		);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 

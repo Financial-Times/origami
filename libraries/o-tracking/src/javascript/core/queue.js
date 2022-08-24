@@ -9,12 +9,12 @@ import {Store} from './store.js';
  * @param {string} name - The name of the queue.
  * @returns {Queue} - Returns the instance of the queue.
  */
-function Queue (name) {
+function Queue(name) {
 	if (isUndefined(name)) {
 		const undefinedName = new Error('You must specify a name for the queue.');
 		broadcast('oErrors', 'log', {
 			error: undefinedName.message,
-			info: { module: 'o-tracking' }
+			info: {module: 'o-tracking'},
 		});
 		throw undefinedName;
 	}
@@ -102,7 +102,7 @@ Queue.prototype.add = function (item) {
 	function doAdd(item) {
 		self.queue.push({
 			created_at: new Date().valueOf(),
-			item: item
+			item: item,
 		});
 	}
 
@@ -135,7 +135,7 @@ Queue.prototype.replace = function (items) {
 	const invalidArg = new Error('Argument invalid, must be an array.');
 	broadcast('oErrors', 'log', {
 		error: invalidArg.message,
-		info: { module: 'o-tracking' }
+		info: {module: 'o-tracking'},
 	});
 	throw invalidArg;
 };
@@ -168,4 +168,4 @@ Queue.prototype.save = function () {
 	return this;
 };
 
-export { Queue };
+export {Queue};

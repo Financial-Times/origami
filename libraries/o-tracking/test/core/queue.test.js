@@ -8,7 +8,6 @@ const queue_name = 'queue_test';
 new Queue(queue_name).replace([]);
 
 describe('Core.Queue', function () {
-
 	describe('init()', function () {
 		it('should require a name', function () {
 			proclaim.throws(function () {
@@ -24,13 +23,13 @@ describe('Core.Queue', function () {
 	describe('add', function () {
 		it('should add a string to the queue', function () {
 			proclaim.doesNotThrow(function () {
-				queue.add("hello");
+				queue.add('hello');
 			});
 		});
 
 		it('should add an object to the queue', function () {
 			proclaim.doesNotThrow(function () {
-				queue.add({ "hello": "world" });
+				queue.add({hello: 'world'});
 			});
 		});
 
@@ -47,7 +46,7 @@ describe('Core.Queue', function () {
 		});
 
 		it('should get the first item', function () {
-			proclaim.equal(queue.first(), "hello");
+			proclaim.equal(queue.first(), 'hello');
 		});
 
 		it('should get the last item', function () {
@@ -58,7 +57,14 @@ describe('Core.Queue', function () {
 	describe('replace', function () {
 		it('should replace the queue', function () {
 			proclaim.doesNotThrow(function () {
-				queue.replace(["i", 'am', /the/, function () { return 'replacement'; }]);
+				queue.replace([
+					'i',
+					'am',
+					/the/,
+					function () {
+						return 'replacement';
+					},
+				]);
 			});
 		});
 

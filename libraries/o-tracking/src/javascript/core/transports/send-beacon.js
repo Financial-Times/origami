@@ -18,14 +18,13 @@ function sendBeacon() {
 			} else {
 				rejecter(new Error('Failed to send beacon event: ' + data.toString()));
 			}
-
 		},
 		complete: function (callback) {
 			if (callback) {
 				p.then(callback, callback);
 			}
-		}
+		},
 	};
 }
 
-export { sendBeacon };
+export {sendBeacon};

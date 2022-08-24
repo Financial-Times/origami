@@ -1,4 +1,3 @@
-
 /// Gets the value of a component variable for the current brand.
 /// If multiple variables are requested they are concatenated.
 ///
@@ -19,7 +18,11 @@
 ///
 @function oBrandGet($component, $variables, $from: null) {
 	// Validate component name.
-	$validated-component-name: _oBrandValidateName('Component', $component, 'Cannot get variable(s) "#{$variables}" for component "#{$component}"');
+	$validated-component-name: _oBrandValidateName(
+		'Component',
+		$component,
+		'Cannot get variable(s) "#{$variables}" for component "#{$component}"'
+	);
 	// Validate variant name if getting the variables from a pre-defined variant.
 	@if type-of($from) != 'map' and type-of($from) != 'null' {
 		$validated: _oBrandValidateName(
@@ -61,7 +64,9 @@
 	@each $variable in $variables {
 		$value: map-get($from, $variable);
 		@if type-of($value) == 'map' {
-			@return _oBrandError('Could not get variable "#{$variable}" for component "#{component}" as it is a map of variant variables.');
+			@return _oBrandError(
+				'Could not get variable "#{$variable}" for component "#{component}" as it is a map of variant variables.'
+			);
 		}
 		@if $values {
 			$values: join($values, $value);
@@ -86,7 +91,11 @@
 ///
 @function oBrandSupportsVariant($component, $variant) {
 	// Validate component name.
-	$validated-component-name: _oBrandValidateName('Component', $component, 'Cannot check component "#{$component}" supports variant "#{$variant}"');
+	$validated-component-name: _oBrandValidateName(
+		'Component',
+		$component,
+		'Cannot check component "#{$component}" supports variant "#{$variant}"'
+	);
 	// A custom or null variant is always supported.
 	@if type-of($variant) == 'map' and type-of($variant) == 'null' {
 		@return true;
@@ -129,7 +138,9 @@
 	$current-brand: if($o-brand, $o-brand, $_o-brand-default);
 
 	@if not index($_o-brand-available-brands, $current-brand) {
-		@return _oBrandError('The brand "#{$current-brand}" is not supported by o-brand. Please use one of #{$_o-brand-available-brands}.');
+		@return _oBrandError(
+			'The brand "#{$current-brand}" is not supported by o-brand. Please use one of #{$_o-brand-available-brands}.'
+		);
 	}
 
 	@return $brand == $current-brand;

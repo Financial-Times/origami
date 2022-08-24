@@ -21,7 +21,7 @@ function init(value, cookieDomain) {
 		// Set the store cookie domain to .ft.com for ft.com and all its subdomains
 		domain: location.hostname.match(/^(?:.+\.)?ft\.com$/) ? 'ft.com' : null,
 	};
-	if ( cookieDomain ) {
+	if (cookieDomain) {
 		defaultUserConfig.domain = cookieDomain;
 	}
 
@@ -71,9 +71,4 @@ function id() {
 	return userID;
 }
 
-export {
-	init,
-	setUser,
-	id as userID,
-	destroy
-};
+export {init, setUser, id as userID, destroy};

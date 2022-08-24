@@ -2,10 +2,12 @@
 
 import proclaim from 'proclaim';
 import {Store} from '../../src/javascript/core/store.js';
-import {init as initSession, session as getSession} from '../../src/javascript/core/session.js';
+import {
+	init as initSession,
+	session as getSession,
+} from '../../src/javascript/core/session.js';
 
 describe('Core.Session', function () {
-
 	beforeEach(function () {
 		// clean up previous tests' pollution
 		new Store('session').destroy();
@@ -37,5 +39,4 @@ describe('Core.Session', function () {
 			proclaim.equal(newSession.isNew, false);
 		});
 	});
-
 });

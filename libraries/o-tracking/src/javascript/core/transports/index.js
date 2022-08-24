@@ -2,11 +2,7 @@ import {xhr} from './xhr.js';
 import {sendBeacon} from './send-beacon.js';
 import {image} from './image.js';
 
-export {
-	xhr,
-	sendBeacon,
-	image
-};
+export {xhr, sendBeacon, image};
 
 /**
  * @type {object|undefined} - mock transport for testing

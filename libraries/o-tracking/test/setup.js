@@ -16,12 +16,12 @@ export function mockTransport() {
 				} else {
 					callback();
 				}
-			}
+			},
 		};
 	};
 }
 
-export { sendSpy };
+export {sendSpy};
 
 export function unmockTransport() {
 	delete mock.transport;
