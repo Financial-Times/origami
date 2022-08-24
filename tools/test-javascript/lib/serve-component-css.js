@@ -1,12 +1,12 @@
-import {readFile,writeFile} from "node:fs/promises"
+import {readFile, writeFile} from "node:fs/promises"
 import {createRequire} from "node:module"
 import {join} from "node:path"
 import {$} from "zx"
 import _commonjs from "@rollup/plugin-commonjs"
 import camelCase from "camelcase"
 import del from "del"
-import process from 'process'
-import parseJson from 'parse-json'
+import process from "process"
+import parseJson from "parse-json"
 
 const require = createRequire(import.meta.url)
 const sassBinary = require.resolve("sass-bin/src/sass")
@@ -26,55 +26,58 @@ export function testRunnerHtml(testFramework) {
         <body>
             <script type="module" src="${testFramework}"></script>
         </body>
-    </html>`;
+    </html>`
 }
 
 async function readOrigami() {
-	return parseJson(await readFile('./origami.json', 'utf8'))
+	return parseJson(await readFile("./origami.json", "utf8"))
 }
 
 async function getBrands() {
 	const origami = await readOrigami()
-    return origami.brands || []
+	return origami.brands || []
 }
 
 export async function compileComponentsSassPlugin(component) {
-
-    $.verbose = false
-    let css = "/* component has no css */";
-    let brand = (await getBrands())[0]
-    try {
-        const sassFile = await readFile("main.scss", "utf-8")
-        const primaryMixinName = camelCase(component)
-        const sassFileContents = `
+	$.verbose = false
+	let css = "/* component has no css */"
+	let brand = (await getBrands())[0]
+	try {
+		const sassFile = await readFile("main.scss", "utf-8")
+		const primaryMixinName = camelCase(component)
+		const sassFileContents = `
             $system-code: "origami";
-            ${brand ? `$o-brand: ${brand};` : ''}
+            ${brand ? `$o-brand: ${brand};` : ""}
             ${sassFile}
             @if mixin-exists('${primaryMixinName}') {
                 @include ${primaryMixinName}();
             };`
-        const sassTestPath = "test-main.scss"
-        try {
-            await writeFile(sassTestPath, sassFileContents, "utf-8")
-            const result = await $ `${sassBinary} ${sassTestPath} --style=compressed --no-source-map --load-path=${cwd} --load-path=${join(cwd, "node_modules")} --load-path=${join(cwd, "../../node_modules")}`
+		const sassTestPath = "test-main.scss"
+		try {
+			await writeFile(sassTestPath, sassFileContents, "utf-8")
+			const result =
+				await $`${sassBinary} ${sassTestPath} --style=compressed --no-source-map --load-path=${cwd} --load-path=${join(
+					cwd,
+					"node_modules"
+				)} --load-path=${join(cwd, "../../node_modules")}`
 
-            css = result.stdout
-        } finally {
-            await del(sassTestPath)
-        }
-    } catch {}
-    return {
-	    name: "sass",
-        serve(context) {
-            // This path comes from the link element in the above testRunnerHtml
-            if (context.path === "/main.css") {
-                return {
-                    body: css,
-                    headers: {
-                        "content-type": "text/css",
-                    }
-                }
-            }
-        },
-    };
+			css = result.stdout
+		} finally {
+			await del(sassTestPath)
+		}
+	} catch {}
+	return {
+		name: "sass",
+		serve(context) {
+			// This path comes from the link element in the above testRunnerHtml
+			if (context.path === "/main.css") {
+				return {
+					body: css,
+					headers: {
+						"content-type": "text/css",
+					},
+				}
+			}
+		},
+	}
 }
