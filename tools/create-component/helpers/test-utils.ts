@@ -3,6 +3,6 @@ export const keys = {
 	down: '\x1B\x5B\x42',
 	enter: '\x0D',
 	space: '\x20',
-}
+};
 // helper function for timing
-export const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+export const delay = ms => new Promise(resolve => setTimeout(resolve, ms));

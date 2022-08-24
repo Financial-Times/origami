@@ -52,13 +52,13 @@
 			"o-test-name"
 		]
 	},
-	"prettier": {
-		"semi": false,
-		"singleQuote": true
-	},
 	"husky": {
 		"hooks": {
 			"pre-commit": "pretty-quick --staged"
 		}
+	},
+	"volta": {
+		"node": "16.13.0",
+		"npm": "8.5.4"
 	}
 }
