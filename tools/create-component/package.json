@@ -8,12 +8,6 @@
 		"create-component": "bin/create-component"
 	},
 	"scripts": {
-		"clean-build": "rm -rf ./build",
-		"compile": "tsc -p .",
-		"copy-templates": "copyfiles ./src/templates/* ./build/templates",
-		"build": "yarn clean-build && yarn compile && yarn copy-templates",
-		"prepublishOnly": "yarn build",
-		"format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
 		"test": "jest",
 		"watch": "jest --watch",
 		"snapupdate": "jest --updateSnapshot",
