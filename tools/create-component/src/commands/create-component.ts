@@ -18,10 +18,9 @@ const command: GluegunCommand = {
 		if (toolbox.parameters.first === 'storybook') {
 			return await createStoryBookBoilerPlate(toolbox);
 		}
-		const {print, prompt, origami} = toolbox;
+		const {print, prompt, system, origami} = toolbox;
 		const name = await getComponentName(toolbox);
 		const answers = await prompt.ask(questions);
-
 		const props = {
 			name,
 			...answers,
@@ -44,6 +43,18 @@ const command: GluegunCommand = {
 			ignore: ['node_modules'],
 		});
 		print.info(tree.report);
+		const spinner = print.spin(
+			`Registering component in the monorepo (This might take some time)...`
+		);
+		await system.run(`cd ${jetPack.path('..', '..')} && npm install`);
+		await system.run(`cd ${jetPack.path('..', '..')} && npm run regenerate`);
+		spinner.stop();
+		print.success('All Done!');
+		print.warning(`To start local dev server, run:`);
+		print.highlight(`
+		npm run build -w components/${props.name}
+		npm run start -w components/${props.name}
+		`);
 	},
 };
 
