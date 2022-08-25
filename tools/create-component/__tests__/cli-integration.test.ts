@@ -51,6 +51,7 @@ describe('CLI integration tests', () => {
 
 	it('without javascript', async done => {
 		const jsFilesToExclude = [
+			'demos/src/demo.js',
 			'src/js/o-test-name.js',
 			'test/o-test-name.test.js',
 			'test/helpers/fixtures.js',
@@ -80,6 +81,8 @@ describe('CLI integration tests', () => {
 	});
 	it('without sass', async done => {
 		const sassFilesToExclude = [
+			'demos/src/demo.scss',
+			'stories/o-test-name.scss',
 			'src/scss/_brand.scss',
 			'src/scss/_variables.scss',
 			'test/scss/index.test.scss',

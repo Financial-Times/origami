@@ -8,6 +8,7 @@ export const templateFiles = jetPack
 	.map(file => file.split('templates/')[1]);
 
 export const jsFilesNotToInclude = [
+	'demos/src/demo.js',
 	'src/js/<name>.js.ejs',
 	'test/<name>.test.js.ejs',
 	'test/helpers/fixtures.js.ejs',
@@ -15,6 +16,8 @@ export const jsFilesNotToInclude = [
 ];
 
 export const sassFilesNotToInclude = [
+	'demos/src/demo.scss.ejs',
+	'stories/<name>.scss.ejs',
 	'src/scss/_brand.scss.ejs',
 	'src/scss/_variables.scss.ejs',
 	'test/scss/index.test.scss',

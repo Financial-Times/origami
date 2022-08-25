@@ -317,11 +317,6 @@ exports[`Component template files demos ejs files expect demo.scss ejsRenderer f
 "
 `;
 
-exports[`Component template files demos ejs files expect pa11y.mustache ejsRenderer fn output to match snapshot 1`] = `
-"<div class=\\"o-test-name\\"data-o-component=\\"o-test-name\\"></div>
-"
-`;
-
 exports[`Component template files src and stories ejs files expect <name>.js ejsRenderer fn output to match snapshot 1`] = `
 "class TestName {
 	/**
@@ -415,7 +410,12 @@ exports[`Component template files src and stories ejs files expect <name>.tsx ej
 `;
 
 exports[`Component template files src and stories ejs files expect <name>.tsx ejsRenderer fn output to match snapshot 2`] = `
-"@import \\"@financial-times/o-test-name/main\\";
+"@import '@financial-times/o-fonts/main';
+@import '@financial-times/o-normalise/main';
+@include oFonts();
+@include oNormalise();
+
+@import \\"@financial-times/o-test-name/main\\";
 @include oTestName();
 "
 `;

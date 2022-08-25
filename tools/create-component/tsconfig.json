@@ -21,8 +21,7 @@
 		"strict": false,
 		"target": "ES6",
 		"declaration": true,
-		"declarationDir": "build/types",
-		"esModuleInterop": true
+		"declarationDir": "build/types"
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules"]
