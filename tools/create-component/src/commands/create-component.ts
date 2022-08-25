@@ -28,11 +28,11 @@ const command: GluegunCommand = {
 			keywords: generateKeywords(answers.keywords),
 		};
 		const confirm = await getFinalConfirmation(toolbox, props);
-		print.highlight(confirm);
 		if (!confirm) {
 			print.error(`The component "${props.name}" was cancelled.`);
 			return;
 		}
+		print.highlight(confirm);
 		print.warning(`ok! generating "${props.name}" in components folder!`);
 		await origami.copyTemplates(props);
 		print.success(`yay! "${props.name}" is ready!`);
