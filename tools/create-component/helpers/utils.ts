@@ -1,8 +1,7 @@
 import * as jetPack from 'fs-jetpack';
 import {componentName, questions} from './questions';
-
-export const oComponentsPath = jetPack.path('..', '..', 'components');
-
+export const origamiRoot = jetPack.path('..', '..');
+export const oComponentsPath = jetPack.path(origamiRoot, 'components');
 export const templateFiles = jetPack
 	.find('src/templates')
 	.map(file => file.split('templates/')[1]);
@@ -104,4 +103,14 @@ function findExistingComponents() {
 
 export function generateKeywords(input) {
 	return [...new Set(input.split(/\s*[\s,]\s*/).filter(Boolean))];
+}
+
+export function addComponentInWorkspace(name) {
+	const workspacePath = jetPack.path(origamiRoot, 'origami.code-workspace');
+	const workspaceData = eval('(' + jetPack.read(workspacePath) + ')');
+	const newEntry = {
+		path: `./components/${name}`,
+	};
+	workspaceData.folders.push(newEntry);
+	jetPack.write(workspacePath, JSON.stringify(workspaceData, null, '\t'));
 }
