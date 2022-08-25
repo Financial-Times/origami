@@ -88,10 +88,6 @@ describe('Component template files', () => {
 			const str = await ejsToHTML('demos/src/demo.scss.ejs', data);
 			expect(str).toMatchSnapshot();
 		});
-		it('expect pa11y.mustache ejsRenderer fn output to match snapshot', async () => {
-			const str = await ejsToHTML('demos/src/pa11y.mustache.ejs', data);
-			expect(str).toMatchSnapshot();
-		});
 	});
 	describe('src and stories ejs files', () => {
 		it(`expect <name>.js ejsRenderer fn output to match snapshot`, async () => {
