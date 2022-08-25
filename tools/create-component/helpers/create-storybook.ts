@@ -1,7 +1,6 @@
 import * as jetPack from 'fs-jetpack';
 import {ejsToHTML, HtmlStringToFile} from './ejsFunctions';
-
-const componentsPath = jetPack.path('..', '..', 'components');
+import {oComponentsPath as componentsPath} from './utils';
 
 export async function createStoryBookBoilerPlate(toolbox) {
 	const {prompt, print} = toolbox;
