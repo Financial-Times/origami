@@ -64,6 +64,12 @@ const brands = {
 	message: 'choose templates for files:',
 	initial: ['core'],
 	choices: ['core', 'internal', 'whitelabel'],
+	validate: value => {
+		if (!value.length) {
+			return 'This field is required';
+		}
+		return true;
+	},
 };
 const javascript = {
 	name: 'javascript',
