@@ -1,10 +1,13 @@
 import * as jetPack from 'fs-jetpack';
+import {ejsToHTML, HtmlStringToFile} from './ejsFunctions';
+
+const componentsPath = jetPack.path('..', '..', 'components');
+
 export async function createStoryBookBoilerPlate(toolbox) {
 	const {prompt, print} = toolbox;
 	const props = await prompt.ask(componentName);
-	console.log(props.name);
 	print.warning(`ok! generating "${props.name}" in components folder!`);
-	await copyTemplates(toolbox, props);
+	await copyTemplates(props);
 	print.success(`yay! "${props.name}" is ready!`);
 }
 
@@ -19,19 +22,22 @@ const componentName = {
 
 function findComponentsWithoutStoryBook() {
 	const components = jetPack
-		.cwd('../../components')
+		.cwd(componentsPath)
 		.find({
 			matching: '*',
 			directories: true,
 			recursive: false,
 			files: false,
 		})
-		.filter(dir => !jetPack.exists(`${dir}/stories`))
+		.filter(dir => {
+			const componentDir = jetPack.path(componentsPath, dir, 'stories');
+			return !jetPack.exists(componentDir);
+		})
 		.map(dir => dir.replace('../../components/', ''));
 	return components;
 }
 
-async function copyTemplates(toolbox, props) {
+async function copyTemplates(props) {
 	const storyBookFiles = jetPack
 		.find('src/templates/stories')
 		.map(file => file.split('templates/')[1]);
@@ -41,20 +47,17 @@ async function copyTemplates(toolbox, props) {
 	const files = [...storyBookFiles, ...tsx];
 	await Promise.all(
 		files.map(async file => {
-			const template = `/${file}`;
-			// Where to copy this file to.
-			const target = `../../components/${props.name}/${file
+			const templateStr = await ejsToHTML(file, {
+				props: {...props, name: trimName(props.name)},
+			});
+			const target = `${componentsPath}/${props.name}/${file
 				.replace('<name>', trimName(props.name))
 				.replace('.ejs', '')}`;
-			return await toolbox.template.generate({
-				template,
-				target,
-				props: {...props},
-			});
+			HtmlStringToFile(target, templateStr);
 		})
 	);
 }
 
 function trimName(name) {
-	return name.replace('o-', '');
+	return name.replace(/o-|n-|g-/, '');
 }
