@@ -15,8 +15,8 @@ async function run(argv) {
 			'patching',
 			'semver',
 			'strings',
-			'system',
 			'template',
+			'packageManager',
 		])
 		.src(__dirname)
 		.plugins('./node_modules', {matching: 'create-component-*', hidden: true})
