@@ -1,9 +1,12 @@
+import * as jetPack from 'fs-jetpack';
 import {GluegunCommand} from 'gluegun';
+import treee = require('tree-cli');
 import {questions} from '../../helpers/questions';
 import {
 	getComponentName,
 	getFinalConfirmation,
 	generateKeywords,
+	oComponentsPath,
 } from '../../helpers/utils';
 import {createStoryBookBoilerPlate} from '../../helpers/create-storybook';
 
@@ -34,6 +37,13 @@ const command: GluegunCommand = {
 		await origami.copyTemplates(props);
 		print.success(`yay! "${props.name}" is ready!`);
 		print.info(`here's what it looks like:`);
+		const tree = await treee({
+			base: jetPack.path(oComponentsPath, props.name),
+			noreport: true,
+			l: 4,
+			ignore: ['node_modules'],
+		});
+		print.info(tree.report);
 	},
 };
 

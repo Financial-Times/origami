@@ -1,7 +1,7 @@
 import * as jetPack from 'fs-jetpack';
 import {componentName, questions} from './questions';
 
-export const oComponentsPath = jetPack.path(__dirname, '../../../components');
+export const oComponentsPath = jetPack.path('..', '..', 'components');
 
 export const templateFiles = jetPack
 	.find('src/templates')
