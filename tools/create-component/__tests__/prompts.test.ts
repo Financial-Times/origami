@@ -3,12 +3,12 @@ import * as jetPack from 'fs-jetpack';
 import {stdin} from 'mock-stdin';
 import {delay, keys} from '../helpers/test-utils';
 import {componentName, questions} from '../helpers/questions';
-
 import {
 	sanitizeName,
 	oComponentsPath,
 	generateKeywords,
 } from '../helpers/utils';
+
 const confirmQuestion = {
 	type: 'confirm',
 	name: 'confirm',

@@ -1,6 +1,6 @@
 export type PropsType = {
 	name: string;
-	desciption: string;
+	description: string;
 	keywords: string[];
 	team: {
 		email: string;
@@ -11,4 +11,8 @@ export type PropsType = {
 	brands: string[];
 	javascript: boolean;
 	scss: boolean;
+	lowercase?: (string: string) => string;
+	titleCase?: (string: string) => string;
+	camelCase?: (string: string) => string;
+	withoutPrefix?: (string: string) => string;
 };
