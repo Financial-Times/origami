@@ -21,7 +21,8 @@
 		"strict": false,
 		"target": "ES6",
 		"declaration": true,
-		"declarationDir": "build/types"
+		"declarationDir": "build/types",
+		"resolveJsonModule": true
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules"]
