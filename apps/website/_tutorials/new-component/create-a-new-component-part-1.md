@@ -34,7 +34,7 @@ To follow this tutorial ensure the following software is install on your machine
 - [NodeJS](https://nodejs.org/en/) (Version 10 or higher)
 - [NPM](https://www.npmjs.com/get-npm) (Version 7 or higher)
 
-In addition this tutorial introduces a number of tools and libraries such as [git](https://git-scm.com/), [Sass](https://sass-lang.com/), [sinon.js](https://sinonjs.org/), etc. We do not cover these in depth but attempt to include brief descriptions and links to relevant documentation so that you may learn separately about the parts which are new to you.
+In addition this tutorial introduces a number of tools and libraries such as [git](https://git-scm.com/), [Sass](https://sass-lang.com/), [sinon.js](https://sinonjs.org/), [storybook](https://storybook.js.org/) etc. We do not cover these in depth but attempt to include brief descriptions and links to relevant documentation so that you may learn separately about the parts which are new to you.
 
 If you have any questions please contact the Origami team to help make this tutorial better &#x1F603;. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}" target="_blank">#{{site.data.contact.slack}}</a>.
 
@@ -48,39 +48,31 @@ See our [blogpost on why the Origami specification is deprecated](https://origam
 
 ## Build Tools
 
-Origami components are developed using the [Origami Build Tools](https://github.com/Financial-Times/origami-build-tools) (`obt`) command line interface. To work on our component, install Origami Build Tools (`obt`) on your machine by running this command in your terminal:
-
-<pre><code class="o-syntax-highlight--bash">npm install -g origami-build-tools</code></pre>
-
-_This requires Node and npm, see the [Origami Build Tools readme](https://github.com/Financial-Times/origami-build-tools#installation) for more information._
-
+Origami components are developed using the [Origami `create-component`](https://github.com/Financial-Times/origami/tree/main/tools/create-component) interactive command line interface. The CLI tool was developed using [Glugun](https://infinitered.github.io/gluegun/#/) and it will generate all the files needed for your component configuration. The component will be created in Origami monorepo under the [components](https://github.com/Financial-Times/origami/tree/main/components) folder.
 ## Boilerplate
 
-To help us get started we can use the [Origami Build Tools `init` command](https://github.com/Financial-Times/origami-build-tools#init). The `init` command will ask a number of questions to determine what kind of component we're building and generate a basic component for us to build from.
+To help us get started we can use the following command:
 
-Before we run `obt init`, let's discuss some of those questions.
+<pre><code class="o-syntax-highlight--bash">npm run create-component</code></pre>
+
+The `npm run create-component` command will ask a number of questions to determine what kind of component we're building and generate a basic component for us to build from.
+
+Before we run `create-component`, let's discuss some of those questions.
 
 ### Component Name
 
 The first thing we will be asked is to decide a component name. Usually Origami components start with `o-`, and only contain lowercase letters or hyphens. See the [component naming convention](/specification/v1/components/#naming-conventions) for more details.
 
 For this tutorial we will name our component `o-example`.
-
-### Component Category
-
-Origami components are categorised, and different rules of the specification may apply to different categories. Examples of categories include `utilities`, `components`, and `layouts`. See the full list of categories with description in the [component category specification](/specification/v1/manifest/#origamicategory).
-
-For this tutorial we will select the most common `components` category.
-
 ### Supported Brands
 
-Component brands facilitate [component customisation](/specification/v1/components/sass/#customisation). Brands change the appearance of component elements globally, e.g. change the appearance of all “primary” buttons, including where they are used by other components. Brands include `core` (think, ft.com pink), `internal` for internal tools and products, and `whitelabel` for a striped-back un-opinionated style. Origami components may support one or more brands. We'll discuss brands more later, for now select the `core`, `internal`, and `whitelabel` brand when prompted by `obt init`.
+Component brands facilitate [component customisation](/specification/v1/components/sass/#customisation). Brands change the appearance of component elements globally, e.g. change the appearance of all “primary” buttons, including where they are used by other components. Brands include `core` (think, ft.com pink), `internal` for internal tools and products, and `whitelabel` for a striped-back un-opinionated style. Origami components may support one or more brands. We'll discuss brands more later, for now select the `core`, `internal`, and `whitelabel` brand when prompted by `create-component`.
 
 ### Support Status
 
 All Origami components have a support status. For example a `maintained` component means that "[the component is] not actively developed but reproducible bugs will be fixed promptly and work done where necessary to maintain compatibility with platforms and other projects"; an `experimental` component means "the [component] is not ready for production use". For a full list a support statuses and their meaning see the [support status section of the specification](/specification/v1/manifest/#supportstatus). It is sometimes a good idea to release a new component as `experimental` for a trial period to gather feedback from users, so select `experimental` for now.
 
-As well as a support status, the `obt init` command will ask for a support email address and slack channel. This will help identify your team as owners of the component. When the component is published a message will display in the component registry letting potential users know that support is not guaranteed by the Origami team, and that they should contact your team before using the component.
+As well as a support status, the `create-component` command will ask for a support email address, slack channel and github team. This will help identify your team as owners of the component. When the component is published a message will display in the component registry letting potential users know that support is not guaranteed by the Origami team, and that they should contact your team before using the component.
 
 ### JavaScript And Sass
 
@@ -88,11 +80,11 @@ Origami components may include JavaScript for interactivity or [Sass](https://sa
 
 ### Other Questions
 
-This tutorial won't expand on other questions asked by the `obt init` command, like what the component description and keywords are. Please feel free to contact the Origami team if you have any questions during this step.
+This tutorial won't expand on other questions asked by the `create-component` command, like what the component description and keywords are. Please feel free to contact the Origami team if you have any questions during this step.
 
 ### Output
 
-Now run `obt init` and answer the questions as above. You should see a directory which contains component boilerplate (commonly shared component code we can build on top of).
+Now run `npm run create-component` and answer the questions as above. You should see a directory inside components folder which contains component boilerplate (commonly shared component code we can build on top of).
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/example-init-output.png" />
