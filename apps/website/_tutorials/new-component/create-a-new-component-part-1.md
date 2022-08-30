@@ -41,9 +41,9 @@ There is some software you'll need on your computer in order to work with this
 repository.
 #### Node.js & npm
 
-[Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/get-npm) are required to develop Origami components. 
+[Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/get-npm) are required to develop Origami components.
 
-Check the version of Node.js and npm installed on your local machine matches the `engines` property of [package.json](https://github.com/Financial-Times/origami/blob/main/package.json). 
+Check the version of Node.js and npm installed on your local machine matches the `engines` property of [package.json](https://github.com/Financial-Times/origami/blob/main/package.json).
 
 We recommend using [volta](https://docs.volta.sh/guide/getting-started) to manage which version of Node.js and npm is used on your machine across multiple projects.
 #### git-lfs
