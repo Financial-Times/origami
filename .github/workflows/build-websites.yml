@@ -21,7 +21,7 @@ jobs:
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.7.6
-        bundler-cache: true
+        bundler-cache: false
     - run: npm i -g npm@7
     - run: npm ci
     - run: bash ./scripts/build-website.bash
