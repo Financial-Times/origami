@@ -74,16 +74,6 @@ export function CookieMessage({
 							</p>
 						</div>
 						<div className="o-cookie-message__actions">
-							<div className="o-cookie-message__action">
-								<a
-									href={
-										'https://consent.ft.com/__consent/consent-record-cookie?redirect=' +
-										redirectURIEncoded
-									}
-									className="o-cookie-message__button">
-									{primaryAction.copy || 'Accept & continue'}
-								</a>
-							</div>
 							<div className="o-cookie-message__action o-cookie-message__action--secondary">
 								<a
 									href={
@@ -92,6 +82,16 @@ export function CookieMessage({
 									}
 									className="o-cookie-message__link">
 									{secondaryAction.copy || 'Manage cookies'}
+								</a>
+							</div>
+							<div className="o-cookie-message__action">
+								<a
+									href={
+										'https://consent.ft.com/__consent/consent-record-cookie?redirect=' +
+										redirectURIEncoded
+									}
+									className="o-cookie-message__button">
+									{primaryAction.copy || 'Accept & continue'}
 								</a>
 							</div>
 						</div>
