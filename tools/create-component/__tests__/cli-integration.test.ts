@@ -52,8 +52,8 @@ describe('CLI integration tests', () => {
 	it('without javascript', async done => {
 		const jsFilesToExclude = [
 			'demos/src/demo.js',
-			'src/js/o-test-name.js',
-			'test/o-test-name.test.js',
+			'src/js/test-name.js',
+			'test/test-name.test.js',
 			'test/helpers/fixtures.js',
 			'main.js',
 		];
@@ -82,7 +82,7 @@ describe('CLI integration tests', () => {
 	it('without sass', async done => {
 		const sassFilesToExclude = [
 			'demos/src/demo.scss',
-			'stories/o-test-name.scss',
+			'stories/test-name.scss',
 			'src/scss/_brand.scss',
 			'src/scss/_variables.scss',
 			'test/scss/index.test.scss',
@@ -147,7 +147,7 @@ function checkFiles(tempDirPath: string, filesNotToInclude?: string[]) {
 		.map(filePath => filePath.split('o-test-name/')[1]);
 	templateFiles
 		.map(template =>
-			template.replace('<name>', 'o-test-name').replace('.ejs', '')
+			template.replace('<name>', 'test-name').replace('.ejs', '')
 		)
 		.map(template => {
 			if (filesNotToInclude && filesNotToInclude.includes(template)) {

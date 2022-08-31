@@ -111,10 +111,10 @@ This software is published by the Financial Times under the [MIT licence](http:/
 `;
 
 exports[`Component template files Root ejs files expect main.js ejsRenderer fn output to match snapshot 1`] = `
-"import oTestName from './src/js/test-name.js';
+"import TestName from './src/js/test-name.js';
 
 const constructAll = () => {
-	oTestName.init();
+	TestName.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
@@ -122,7 +122,7 @@ if (typeof document !== 'undefined') {
 	document.addEventListener('o.DOMContentLoaded', constructAll);
 }
 
-export default oTestName;
+export default TestName;
 "
 `;
 
@@ -299,7 +299,7 @@ document.addEventListener(\\"DOMContentLoaded\\", function () {
 `;
 
 exports[`Component template files demos ejs files expect demo.mustache ejsRenderer fn output to match snapshot 1`] = `
-"<div class=\\"o-test-name\\"data-o-component=\\"o-test-name\\"></div>
+"<div class=\\"o-test-name\\" data-o-component=\\"o-test-name\\"></div>
 "
 `;
 
@@ -377,26 +377,26 @@ exports[`Component template files src and stories ejs files expect <name>.storie
 "import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {OTestName} from '../src/tsx/o-test-name';
-import './o-test-name.scss';
+import {TestName} from '../src/tsx/test-name';
+import './test-name.scss';
 
 export default {
 	title: 'Components/o-test-name',
-	component: OTestName,
+	component: TestName,
 	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {},
-} as ComponentMeta<typeof OTestName>;
+} as ComponentMeta<typeof TestName>;
 
-const OTestNameStory = args => <OTestName {...args} />;
-export const DefaultOTestName: ComponentStory<typeof OTestName> = OTestNameStory.bind(
+const TestNameStory = args => <TestName {...args} />;
+export const DefaultTestName: ComponentStory<typeof TestName> = TestNameStory.bind(
 	{}
 );
 "
 `;
 
 exports[`Component template files src and stories ejs files expect <name>.tsx ejsRenderer fn output to match snapshot 1`] = `
-"export function OTestName() {
+"export function TestName() {
 	return (<div className=\\"o-test-name\\"data-o-component=\\"o-test-name\\"></div>)
 }
 "
@@ -437,7 +437,7 @@ exports[`Component template files test ejs files expect <name>.test.js ejsRender
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon-esm.js';
 import * as fixtures from './helpers/fixtures.js';
-import TestName from '../../main.js';
+import TestName from '../main.js';
 
 describe(\\"TestName\\", () => {
 	it('is defined', () => {
@@ -534,7 +534,7 @@ function insert(html) {
 
 function htmlCode () {
 	const html = \`<div>
-		<div class=\\"o-test-name \\" data-o-component=\\"o-test-name \\" id=\\"element\\"></div>
+		<div class=\\"o-test-name\\" data-o-component=\\"o-test-name\\" id=\\"element\\"></div>
 	</div>
 	\`;
 	insert(html);
