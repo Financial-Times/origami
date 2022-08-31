@@ -41,6 +41,9 @@
 				}
 			}
 		}
+		.o-topper--branded.o-topper--color-matisse .o-topper__standfirst {
+			opacity: 1;
+		}
 	}
 
 	@if index($themes, 'opinion') {
