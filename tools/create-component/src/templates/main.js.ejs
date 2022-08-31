@@ -1,7 +1,7 @@
-import <%- props.camelCase(props.name) %> from './src/js/<%- props.withoutPrefix(props.name) %>.js';
+import <%- props.titleCase(props.withoutPrefix(props.name)) %> from './src/js/<%- props.withoutPrefix(props.name) %>.js';
 
 const constructAll = () => {
-	<%- props.camelCase(props.name) %>.init();
+	<%- props.titleCase(props.withoutPrefix(props.name)) %>.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
@@ -9,4 +9,4 @@ if (typeof document !== 'undefined') {
 	document.addEventListener('o.DOMContentLoaded', constructAll);
 }
 
-export default <%- props.camelCase(props.name) %>;
+export default <%- props.titleCase(props.withoutPrefix(props.name)) %>;

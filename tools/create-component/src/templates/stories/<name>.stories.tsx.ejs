@@ -1,18 +1,19 @@
+<% const componentName = props.camelCase(props.titleCase(props.withoutPrefix(props.name)))  -%>
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {<%= props.titleCase(props.camelCase(props.name)) %>} from '../src/tsx/<%= props.name %>';
-import './<%= props.name %>.scss';
+import {<%= componentName %>} from '../src/tsx/<%= props.withoutPrefix(props.name) %>';
+import './<%= props.withoutPrefix(props.name) %>.scss';
 
 export default {
 	title: 'Components/<%= props.name %>',
-	component: <%= props.titleCase(props.camelCase(props.name)) %>,
+	component: <%= componentName %>,
 	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {},
-} as ComponentMeta<typeof <%= props.titleCase(props.camelCase(props.name)) %>>;
+} as ComponentMeta<typeof <%= componentName %>>;
 
-const <%= props.titleCase(props.camelCase(props.name)) %>Story = args => <<%= props.titleCase(props.camelCase(props.name)) %> {...args} />;
-export const Default<%= props.titleCase(props.camelCase(props.name)) %>: ComponentStory<typeof <%= props.titleCase(props.camelCase(props.name)) %>> = <%= props.titleCase(props.camelCase(props.name)) %>Story.bind(
+const <%= componentName %>Story = args => <<%= componentName %> {...args} />;
+export const Default<%= componentName %>: ComponentStory<typeof <%= componentName %>> = <%= componentName %>Story.bind(
 	{}
 );

@@ -53,16 +53,13 @@ const command: GluegunCommand = {
 		);
 		await system.run(`cd ${origamiRoot} && npm install`);
 		await system.run(`cd ${origamiRoot} && npm run regenerate`);
-		spinner.stop();
+		await spinner.stop();
 		print.success('All Done!');
 		print.warning(`To start local dev server, run:`);
-		print.highlight(
-			`npm run watch -w components/${props.name}`
-		);
+		print.highlight(`npm run watch -w components/${props.name}`);
 		print.info('or');
-		print.highlight(
-			`npm run storybook`
-		);
+		print.highlight(`npm run storybook`);
+		process.exit(0);
 	},
 };
 
