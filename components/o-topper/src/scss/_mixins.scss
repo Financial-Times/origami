@@ -320,6 +320,14 @@
 			}
 		}
 	}
+
+	@if $color-name == 'matisse' {
+		.o-topper__columnist-name {			
+			&:hover {
+				color: oColorsMix($foreground, $color-name, 73);
+			}
+		}
+	}
 }
 
 @mixin _oTopperAlignText($position) {
