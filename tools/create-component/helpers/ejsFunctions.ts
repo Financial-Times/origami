@@ -26,7 +26,7 @@ export async function copyTemplates(
 				props: {...props},
 			});
 			const target = `${targetPath}/${props.name}/${file
-				.replace('<name>', props.name)
+				.replace('<name>', withoutPrefix(props.name))
 				.replace('.ejs', '')}`;
 			HtmlStringToFile(target, templateStr);
 		})
