@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.4.3](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.4.2...o-cookie-message-v6.4.3) (2022-08-31)
+
+
+### Bug Fixes
+
+* o-cookie-message, fix tab order ([1ffc599](https://www.github.com/Financial-Times/origami/commit/1ffc5998e67f53a139324e101d4394bcf86c0ae8))
+
 ### [6.4.2](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.4.1...o-cookie-message-v6.4.2) (2022-04-21)
 
 
