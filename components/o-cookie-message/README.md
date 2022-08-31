@@ -72,14 +72,13 @@ To support a core experience without JavaScript, add the full `o-cookie-message`
 			</div>
 
 			<div class="o-cookie-message__actions">
+				<div class="o-cookie-message__action o-cookie-message__action--secondary">
+					<a href="https://www.ft.com/preferences/manage-cookies?redirect=#" class="o-cookie-message__link">Manage cookies</a>
+				</div>
 				<div class="o-cookie-message__action">
 					<a href="https://consent.ft.com/__consent/consent-record-cookie?redirect=#" class="o-cookie-message__button">
 						Accept &amp; continue
 					</a>
-				</div>
-
-				<div class="o-cookie-message__action o-cookie-message__action--secondary">
-					<a href="https://www.ft.com/preferences/manage-cookies?redirect=#" class="o-cookie-message__link">Manage cookies</a>
 				</div>
 			</div>
 		</div>

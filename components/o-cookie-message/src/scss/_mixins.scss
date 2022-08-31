@@ -114,11 +114,10 @@
 		display: flex;
 		align-items: center;
 		margin-top: oSpacingByName('s6');
-		flex-direction: row-reverse;
 		justify-content: space-between;
 
 		@include oGridRespondTo($until: M) {
-			flex-direction: column-reverse;
+			flex-direction: column;
 			align-items: flex-start;
 			margin-top: 0;
 			.o-cookie-message__action {
@@ -133,6 +132,7 @@
 	}
 
 	.o-cookie-message__action--secondary {
+		order: -1;
 		@include oGridRespondTo($until: M) {
 			margin-top: div($_o-cookie-message-spacing, 4);
 		}

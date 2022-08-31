@@ -8,7 +8,7 @@ A site to document the Origami team, components, and services.
 
 ## Code
 
-origami
+origami-website
 
 ## Service Tier
 

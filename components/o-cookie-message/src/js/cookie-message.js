@@ -76,15 +76,14 @@ class CookieMessage {
 				${content}
 		</div>
 		<div class="o-cookie-message__actions">
+			<div class="o-cookie-message__action o-cookie-message__action--secondary">
+				<a href="${this.cookieInfo.manageCookiesUrl}" class="o-cookie-message__link">Manage cookies</a>
+			</div>
 
 			<div class="o-cookie-message__action">
 				<a href="${this.cookieInfo.acceptUrlFallback}" class="o-cookie-message__button">
 					Accept &amp; continue
 				</a>
-			</div>
-
-			<div class="o-cookie-message__action o-cookie-message__action--secondary">
-				<a href="${this.cookieInfo.manageCookiesUrl}" class="o-cookie-message__link">Manage cookies</a>
 			</div>
 		</div>
 	</div>
