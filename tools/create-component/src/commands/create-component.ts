@@ -57,7 +57,11 @@ const command: GluegunCommand = {
 		print.success('All Done!');
 		print.warning(`To start local dev server, run:`);
 		print.highlight(
-			`npm run build -w components/${props.name}\nnpm run start -w components/${props.name}`
+			`npm run watch -w components/${props.name}`
+		);
+		print.info('or');
+		print.highlight(
+			`npm run storybook`
 		);
 	},
 };
