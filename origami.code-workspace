@@ -4,6 +4,9 @@
 			"path": "."
 		},
 		{
+			"path": "tools/create-component"
+		},
+		{
 			"path": "tools/a11y"
 		},
 		{
@@ -233,7 +236,7 @@
 		},
 		{
 			"path": "apps/website"
-		}
+		},
 	],
 	"settings": {}
 }

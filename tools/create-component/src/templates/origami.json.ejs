@@ -1,0 +1,27 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands": <%- JSON.stringify(props.brands) %>,
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=<%= props.name %>,components",
+	"supportContact": {
+		"email":  "<%= props.team.email %>",
+		"slack": "<%= props.team.slack %>"
+	},
+	"supportStatus": "<%= props.status %>",
+	"browserFeatures": {},
+	"demosDefaults": {
+		<% if (props.scss) { %>"sass": "demos/src/demo.scss", -%><% } %>
+		<% if (props.javascript) { %>"js": "demos/src/demo.js", -%><% } %>
+		"template": "demos/src/demo.mustache",
+		"documentClasses": "",
+		"dependencies": []
+	},
+	"demos": [
+		{
+			"title": "A Useful Demo",
+			"name": "demo",
+			"template": "demos/src/demo.mustache",
+			"description": "Description of the demo"
+		}
+	]
+}

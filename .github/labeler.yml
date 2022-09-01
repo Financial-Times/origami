@@ -140,6 +140,8 @@ stylelint-config-origami-component:
   - presets/stylelint-config-origami-component/**/*
 a11y:
   - tools/a11y/**/*
+create-component:
+  - tools/create-component/**/*
 demo-build:
   - tools/demo-build/**/*
 origami-bower-safe-version-supervisor:

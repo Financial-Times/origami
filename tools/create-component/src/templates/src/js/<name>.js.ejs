@@ -1,0 +1,61 @@
+<% const className = props.titleCase(props.withoutPrefix(props.name))  -%>
+<% const elementName = `${props.camelCase(props.withoutPrefix(props.name))}El` -%>
+class <%= className %> {
+	/**
+		* Class constructor.
+		* @param {HTMLElement} [<%= elementName %>] - The component element in the DOM
+		* @param {Object} [options={}] - An options object for configuring the component
+		*/
+	constructor (<%= elementName %>, options) {
+		this.<%= elementName %> = <%= elementName %>;
+		this.options = Object.assign({}, {
+		}, options || <%= className %>.getDataAttributes(<%= elementName %>));
+	}
+	/**
+		* Get the data attributes from the <%= className %>Element. If the element is being set up
+		* declaratively, this method is used to extract the data attributes from the DOM.
+		* @param {HTMLElement} <%= elementName %> - The component element in the DOM
+		* @returns {Object} An options object which can be used for configuring the component
+		*/
+	static getDataAttributes (<%= elementName %>) {
+		if (!(<%= elementName %> instanceof HTMLElement)) {
+			return {};
+		}
+		return Object.keys(<%= elementName %>.dataset).reduce((options, key) => {
+			// Ignore keys which are not in the component's namespace
+			if (!key.match(/^<%= props.camelCase(props.name) %>(\w)(\w+)$/)) {
+				return options;
+			}
+			// Build a concise key and get the option value
+			const shortKey = key.replace(/^<%= props.camelCase(props.name) %>(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const value = <%= elementName %>.dataset[key];
+			// Try parsing the value as JSON, otherwise just set it as a string
+			try {
+				options[shortKey] = JSON.parse(value.replace(/'/g, '"'));
+			} catch (error) {
+				options[shortKey] = value;
+			}
+			return options;
+		}, {});
+	}
+	/**
+		* Initialise <%= props.name %> component/s.
+		* @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
+		* @param {Object} [options={}] - An options object for configuring the component
+		* @returns {<%= className %>|<%= className %>[]} The newly constructed <%= className %> components
+		*/
+	static init (rootElement, options) {
+		if (!rootElement) {
+			rootElement = document.body;
+		}
+		if (!(rootElement instanceof HTMLElement)) {
+			rootElement = document.querySelector(rootElement);
+		}
+		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=<%= props.name %>]')) {
+			return new <%= className %>(rootElement, options);
+		}
+		return Array.from(rootElement.querySelectorAll('[data-o-component="<%= props.name %>"]'), rootEl => new <%= className %>(rootEl, options));
+	}
+}
+
+export default <%= className %>;

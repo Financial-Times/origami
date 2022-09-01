@@ -1,0 +1,18 @@
+@import '@financial-times/o-brand/main';
+
+@import './src/scss/variables';
+<% if (props.brands) { %>@import 'src/scss/brand';<% } %>
+/// Output all <%= props.camelCase(props.name) %> features
+/// @param {Map} $opts [()] - A map of options to configure the output
+/// @access public
+/// @example scss
+///		@include <%= props.camelCase(props.name) %>($opts: (
+///			// your opts here
+///		))
+@mixin <%= props.camelCase(props.name) %> ($opts: ()) {
+	// content of primary mixin
+	.<%= props.lowercase(props.name) %> {
+		display: block;
+	}
+}
+
