@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.3.0...o-topper-v5.3.1) (2022-09-01)
+
+
+### Bug Fixes
+
+* update n-map-content-to-topper to support alphaville article page branding
+
 ## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.2.3...o-topper-v5.3.0) (2022-09-01)
 
 
