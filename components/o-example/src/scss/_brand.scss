@@ -1,0 +1,61 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oExampleGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-example', $variables: $variables, $from: $from);
+}
+/// Helper for `o-brand` function.
+/// @access private
+@function _oExampleSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-example', $variant: $variant);
+}
+
+// Add core brand configuration.
+@if oBrandIs('core') {
+	@include oBrandDefine('o-example', 'core', (
+		'variables': (
+			'border-color': oColorsByName('slate'),
+			'background-color': oColorsByName('wheat'),
+			'inverse': (
+				'text-color': oColorsByName('white'),
+				'background-color': oColorsByName('slate')
+			),
+			'b2c': (
+				'background-color': oColorsByName('org-b2c-light')
+			)
+		),
+		'supports-variants': (
+			'inverse',
+			'b2c'
+		)
+	));
+}
+
+// Add internal brand configuration.
+@if oBrandIs('internal') {
+	@include oBrandDefine('o-example', 'internal', (
+		'variables': (
+			'border-color': oColorsByName('slate'),
+			'background-color': oColorsByName('slate-white-5'),
+			'inverse': (
+				'text-color': oColorsByName('white'),
+				'background-color': oColorsByName('slate')
+			)
+		),
+		'supports-variants': ('inverse')
+	));
+}
+
+// Add whitelabel brand configuration.
+@if oBrandIs('whitelabel') {
+	@include oBrandDefine('o-example', 'whitelabel', (
+		'variables': (
+			'border-color': oColorsByName('black'),
+			'background-color': oColorsByName('white'),
+			'inverse': (
+				'text-color': oColorsByName('white'),
+				'background-color': oColorsByName('black')
+			)
+		),
+		'supports-variants': ('inverse')
+	));
+}

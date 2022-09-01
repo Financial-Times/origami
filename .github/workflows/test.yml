@@ -218,6 +218,21 @@ jobs:
     - run: npm run -w components/o-editorial-typography lint --if-present
     - run: npm run -w components/o-editorial-typography build --if-present
     - run: npm run -w components/o-editorial-typography test --if-present
+  test-components-o-example:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: npm run -w components/o-example lint --if-present
+    - run: npm run -w components/o-example build --if-present
+    - run: npm run -w components/o-example test --if-present
   test-components-o-expander:
     runs-on: ubuntu-latest
     steps:

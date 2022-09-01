@@ -1,5 +1,5 @@
 ---
-title: Create A New Origami Component - Part 8 Component Lifecycle
+title: Create A New Origami Component - Part 9 Component Lifecycle
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
 collection_listing_display: false
@@ -17,53 +17,26 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
-6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
-8. Component Lifecycle
+6. [Storybook](/documentation/tutorials/create-a-new-component-part-storybook/)
+7. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
+8. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+9. Component Lifecycle
 
-In part eight we will learn how to publish our component to the Origami registry 🎉, and discuss the lifecycle of a published component.
+In part nine we will learn how to publish our component to the Origami registry 🎉, and discuss the lifecycle of a published component.
 
 _We don't actually want to publish an example component `o-example`. If you have been following along so far using `o-example`, rather than working on your own component that should actually be published, read this part of the tutorial as a reference only until you're ready to publish a new component for real._
 
 ## Source Control
 
-The first step of publishing our component is to introduce source control.
+Origami components are store in [Origami monorepo](https://github.com/Financial-Times/origami) under components. We will start by commiting the boilerplate as an initial commit. For example:
 
-Origami components usually use [git](https://git-scm.com/) for source control. Create a new git repository by running `git init`, and commit the boilerplate as an initial commit. For example:
+<pre><code class="o-syntax-highlight--bash">git add --all
+git commit -m 'my o-example component'
+git push</code></pre>
 
-<pre><code class="o-syntax-highlight--bash">git init
-git add --all
-git commit -m 'my o-example component'</code></pre>
+After pushing your commits you should be able to open a pull request. If you have never open a PR(pull request) you can read more about it on [github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 
-## Push To Github
-
-The second step of publishing our component to the [Origami Registry](https://registry.origami.ft.com/components/) is to commit our work and push to a new Github repository under the [Financial-Times](https://github.com/Financial-Times/) organisation. There is a [new Github repository tutorial](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository) which might be helpful if you have never created a Github repository before. Note Origami repositories are usually public and open-source unless there is a reason not to be (for example [o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets/) is private due to our font license).
-
-You may then push this to your remote github.com repository, under the `Financial-Times` organisation or another [supported Financial Times organisation](/specification/v1/components/#source-control).
-
-You might have noticed a `.github` directory already. This directory configures Github to give us some nice features including:
-- `ISSUE_TEMPLATE.md`: The contents of this file are used to provide a [template when opening a new Github issue](https://help.github.com/en/github/building-a-strong-community/about-issue-and-pull-request-templates). It helps users report bugs or provide feedback by prompting for useful information.
-- `CODEOWNERS`: defines individuals or teams to automatically assign to new Github issues or pull requests ([see the Github code owners documentation](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners)).
-- `workflows/*`: the workflows directory configures a number of [Github Actions](https://github.com/features/actions) which will automate component testing and release. We'll look at some of these shortly.
-
-There is also some manual Github configuration left to do. When your new component is pushed to Github [update access in the Github settings of your repository](https://docs.github.com/en/github/getting-started-with-github/access-permissions-on-github). Grant these teams the following permissions:
-- `@origami-read-only`: **read** - required, for a team of helpful Origami bots
-- `@origami-collaborators`: **write** - so engineers from other teams may contribute
-- `@origami-core`: **admin** - so Origami team members can help to the fullest
-
-## Github Actions
-
-Earlier we saw that the `obt init` command creates a directory `.github`. It contains configuration for Github including a nested directory `workflows` which contains configuration for Github Actions.
-
-Origami components use Github Actions for a number of helpful functions including:
-- Synchronise github [labels](https://github.com/Financial-Times/origami-labels#labels) for issues and pull requests ([learn about Github labels](https://docs.github.com/en/github/managing-your-work-on-github/about-labels)).
-- Run component tests when new commits are made to a pull request.
-- Automatically release minor and patch updates to developer dependencies given tests pass.
-- Add a [semver](https://semver.org/) git tag to release a component when a pull request with a [release label](https://github.com/Financial-Times/origami-labels#continuous-delivery-labels) is merged.
-- Build and publish an [npm](https://www.npmjs.com/) package when a release is made with a git tag, so Origami components may be included via [npm](https://www.npmjs.com/)
-
-To see these Github Actions in practise let's release our component.
-
+_To be able to opon a PR you will need to be part of [origami collaborators](https://github.com/orgs/Financial-Times/teams/origami-collaborators) team and if you are not a member already ask [#origami-support](https://financialtimes.slack.com/archives/C02FU5ARJ) to help you._
 ## Initial Release
 
 Lets release the first version our new component. This will display our component in the Origami Registry and send a Slack notification to `{{site.data.contact.slack}}`.
@@ -77,7 +50,7 @@ To release an Origami component create a git tag named after the semver version 
 <pre><code class="o-syntax-highlight--bash">git tag v1.0.0
 git push origin v1.0.0</code></pre>
 
-Within a couple of minutes at most, your component should be visible in the [Origami Registry](https://registry.origami.ft.com/components?module=true&active=true&maintained=true&experimental=true) and should be published to the npm registry](https://www.npmjs.com/~the-ft) 🎉. If not you may want to confirm that the `obt test` and `obt verify` commands pass without error, check the output of the Github Actions under the 'Actions" tab, or contact the Origami team for support in the `#{{site.data.contact.slack}}` Slack channel.
+Within a couple of minutes at most, your component should be visible in the [Origami Registry](https://registry.origami.ft.com/components?module=true&active=true&maintained=true&experimental=true) and should be published to the npm registry](https://www.npmjs.com/~the-ft) 🎉. If not you may want to confirm that the `npm run test -w components/o-example` and `npm run lint -w components/o-example` commands pass without error, check the output of the Github Actions under the 'Actions" tab, or contact the Origami team for support in the `#{{site.data.contact.slack}}` Slack channel.
 
 ## Subsequent Releases
 
