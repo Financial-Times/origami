@@ -5,8 +5,7 @@
 
 ### Bug Fixes
 
-* move n-map-content-to-topper to depencies ([6fdd95f](https://www.github.com/Financial-Times/origami/commit/6fdd95f80db1a38d7620ba97bcf5e97ba7010668))
-* upgrade n-map-content-to-topper version in o-topper ([21de9d2](https://www.github.com/Financial-Times/origami/commit/21de9d28536e7f5bb52df2eaf1b3f112f5c37336))
+* update n-map-content-to-topper to support alphaville article page branding
 
 ## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.2.3...o-topper-v5.3.0) (2022-09-01)
 
