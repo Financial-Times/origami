@@ -11,17 +11,18 @@ redirect_from:
 
 # {{page.title}}
 
-The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
+The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
 4. Demos
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
-6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
+6. [Storybook](/documentation/tutorials/create-a-new-component-part-storybook/)
+7. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
+8. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
-In part four we will create new demos to showcase the themes we created in [part three](/documentation/tutorials/create-a-new-component-part-3). We will also revisit demo boilerplate, including the purpose of the `pa11y` demo you may have already noticed.
+In part four we will create new demos to showcase the themes we created in [part three](/documentation/tutorials/create-a-new-component-part-3).
 
 ## Add More Demos
 
@@ -54,18 +55,11 @@ We could create a new mustache template for our new theme demo, but as our theme
 +		"template": "demos/src/demo.mustache",
 +		"data": { "theme": "inverse" },
 +		"description": "This demo shows an o-example component with the inverse theme."
-+	},
-	{
-		"title": "Pa11y",
-		"name": "pa11y",
-		"template": "demos/src/pa11y.mustache",
-		"description": "Accessibility test will be run against this demo",
-		"hidden": true
-	}
++	}
 ]
 </code></pre>
 
-Now the `obt dev` command will build our new demo and create `demo-inverse.html`. To actually show the inverse theme we need to update the template `demos/src/demo.mustache` to use the data `{ "theme": "inverse" }` we have passed to it. In the code snippet below, we output the theme modifier class if a theme variable is found (see the [mustache documentation](https://mustache.github.io/mustache.5.html))
+Now if you refresh your browser on local dev server (e.g. `localhost:5000`) you should be able to find `demo-inverse.html` generated next to other assets of the component. To actually show the inverse theme we need to update the template `demos/src/demo.mustache` to use the data `{ "theme": "inverse" }` we have passed to it. In the code snippet below, we output the theme modifier class if a theme variable is found (see the [mustache documentation](https://mustache.github.io/mustache.5.html))
 
 <pre><code class="o-syntax-highlight--diff">&lt;!-- demos/src/demo.mustache -->
 
@@ -79,7 +73,7 @@ Now the `obt dev` command will build our new demo and create `demo-inverse.html`
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-11-demo.png" />
 	<figcaption>
-        A list of demos and demo assets, served from `localhost` using the `obt dev` command. There is now `demo-inverse.html`.
+        A list of demos and demo assets, served from `localhost` using the `npm run watch -w components/o-example` command. There is now `core-demo-inverse.html`.
 	</figcaption>
 </figure>
 
@@ -109,20 +103,9 @@ We also need to create a demo for the `b2c` theme. However the `b2c` theme we cr
 +		"data": { "theme": "b2c" },
 +		"brands": ["core"],
 +		"description": "This demo shows an o-example component with the b2c theme."
-+	},
-	{
-		"title": "Pa11y",
-		"name": "pa11y",
-		"template": "demos/src/pa11y.mustache",
-		"description": "Accessibility test will be run against this demo",
-		"hidden": true
-	}
++	}
 ]
 </code></pre>
-
-## Pa11y Demo
-
-You may have noticed another demo named `pa11y` has already been configured. The `pa11y` demo is used by Origami Build Tools to run [Pa11y](https://pa11y.org/). Pa11y is a command-line tool which we run against the pa11y demo to find some common accessibility issues. When building components its important to add any variations to the pa11y demo to test for accessibility issues, such as low contrast or incorrect markup. The pa11y demo is for testing purposes only and is hidden from users in the [Origami Registry](https://registry.origami.ft.com/components).
 
 ## Other Demo Options
 
@@ -137,7 +120,6 @@ Demos may include their own Sass and JavaScript which are not part of the compon
 In part four we learnt:
 
 - How to add or update demos to a component.
-- What the `pa11y` demo is used for.
 - How to use `origami.json` properties to make it easier to configure multiple demos.
 
 Although our component is starting to look good it has a button which doesn't do anything. So next we'll learn how to add interactivity to our component with JavaScript. [Continue to part five](/documentation/tutorials/create-a-new-component-part-5).

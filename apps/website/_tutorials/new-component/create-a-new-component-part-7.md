@@ -11,7 +11,7 @@ redirect_from:
 
 # {{page.title}}
 
-The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
+The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
