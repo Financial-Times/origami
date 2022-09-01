@@ -11,15 +11,16 @@ redirect_from:
 
 # {{page.title}}
 
-The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
+The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. Themes & Brands
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
-6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
+6. [Storybook](/documentation/tutorials/create-a-new-component-part-storybook/)
+7. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
+8. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
 In part three we will build on our work in [part two](/documentation/tutorials/create-a-new-component-part-2) by learning how to modify the style of our new component for different contexts.
 
@@ -36,13 +37,15 @@ A project chooses a brand globally, meaning all components included in a project
 
 Origami components may support one or more brand. The brands a component supports are defined along with other component details in [`origami.json`](/specification/v1/manifest/#brands), by the `brands` property. If `brands` is not set the component is "unbranded" and implicitly only supports the "core" brand.
 
-When prompted by `obt init` in [part one](/documentation/tutorials/create-a-new-component-part-1) we select all brands, so the `origami.json` file of our component should include an array of each brand `"brands": ["core","internal","whitelabel"],`. If not, update your `origami.json` now.
+When prompted by `npm run create-component` in [part one](/documentation/tutorials/create-a-new-component-part-1) we select all brands, so the `origami.json` file of our component should include an array of each brand `"brands": ["core","internal","whitelabel"],`. If not, update your `origami.json` now.
 
 ### Switching Brands In Development
 
-When developing a branded Origami component pass the `--brand` flag to the `obt dev` command to switch brand.
+When building a branded Origami component it will generate component assets (<abbr title="Hyper Text Markup Language">HTML</abbr>, <abbr title="JavaScript">JS</abbr>, and <abbr title="Cascading Style Sheets ">CSS</abbr> files) for each brand in `local` folder inside the component directory.
 
-For example to build the `internal` version of our component run the command `obt dev --brand internal`. You should see in our demo the background colour has changed from a wheat colour to a light slate colour. That's because wheat is not part of the [internal brand colour palette](https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=internal#demo-primary-palette). As we used a colour usecase `oColorsByUsecase('box', 'background')` in [part two](/documentation/tutorials/create-a-new-component-part-2), rather than specify a specific colour, it was updated automatically for the internal brand.
+To switch between brands you can simple go back to development URL (e.g `localhost:5000`) and choose correct brand HTML file. Alternatively, you can manually change url end point from `/core-demo` to `/internal-demo`.
+
+Once URL is updated you should see in our demo the background colour has changed from a wheat colour to a light slate colour. That's because wheat is not part of the [internal brand colour palette](https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=internal#demo-primary-palette). As we used a colour usecase `oColorsByUsecase('box', 'background')` in [part two](/documentation/tutorials/create-a-new-component-part-2), rather than specify a specific colour, it was updated automatically for the internal brand.
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-5-sass.png" />
@@ -51,13 +54,13 @@ For example to build the `internal` version of our component run the command `ob
 	</figcaption>
 </figure>
 
-Do the same for the whitelabel brand by running `obt dev --brand whitelabel`. You should see a Sass error `Error: 'The color "slate" does not exist.`. This error is because we set a border colour by name `oColorsByName('slate')` in [part two](/documentation/tutorials/create-a-new-component-part-2), but slate is not in the limited [whitelabel colour palette](https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=whitelabel#demo-primary-palette).
+Do the same for the whitelabel brand by changing/choosing `whitelabel-demo.html` file from rendered assets. Maybe you already noticed, but if you look at our terminal logs you should see a Sass error `Error: 'The color "slate" does not exist.`. This error is because we set a border colour by name `oColorsByName('slate')` in [part two](/documentation/tutorials/create-a-new-component-part-2), but slate is not in the limited [whitelabel colour palette](https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=whitelabel#demo-primary-palette).
 
 To fix this error we need to set the border colour of our component differently depending on which brand is being used.
 
 ### Configuring Brand Variables
 
-To style our component according to the current brand we need to use [o-brand](https://registry.origami.ft.com/components/o-brand@/readme), which `obt init` has already added as a dependency.
+To style our component according to the current brand we need to use [o-brand](https://registry.origami.ft.com/components/o-brand@/readme), which `create-component` has already added as a dependency.
 
 We will use `o-brand` to define a brand variable `border-color` in `src/scss/_brand.scss`, which is where all our brand configuration will go.
 
@@ -65,7 +68,7 @@ You should see in `src/scss/_brand.scss` two Sass functions which we will discus
 
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate')
@@ -76,10 +79,10 @@ You should see in `src/scss/_brand.scss` two Sass functions which we will discus
 
 Lets break down what this is doing.
 
-First, we check if the current brand is the `core` brand using the `o-brand` function `oBrandGetCurrentBrand` and a [Sass if statement](https://sass-lang.com/documentation/at-rules/control/if). We do this to ensure the Sass within the `if` statement is only evaluated when the brand is the `core` brand:
+First, we check if the current brand is the `core` brand using the `o-brand` function `oBrandIs()` and a [Sass if statement](https://sass-lang.com/documentation/at-rules/control/if). We do this to ensure the Sass within the `if` statement is only evaluated when the brand is the `core` brand:
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	//...
 }</code></pre>
 
@@ -87,7 +90,7 @@ Second, we call the mixin `oBrandDefine`, which will let us set component config
 
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
         // brand configuration for the core brand here..
     ));
@@ -96,7 +99,7 @@ Second, we call the mixin `oBrandDefine`, which will let us set component config
 Third, we pass configuration to `oBrandDefine` for the brand. We set a brand variable `border-color` within a `variables` map, to the value of the slate colour `oColorsByName('slate')`. We also set a property `supports-variants`, which we will discuss more shortly.
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate')
@@ -110,7 +113,7 @@ Now repeat this block for the `internal` and `whitelabel` brand, but change `bor
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
 // Add core brand configuration.
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate')
@@ -120,7 +123,7 @@ Now repeat this block for the `internal` and `whitelabel` brand, but change `bor
 }
 
 // Add internal brand configuration.
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-example', 'internal', (
 		'variables': (
 			'border-color': oColorsByName('slate')
@@ -130,7 +133,7 @@ Now repeat this block for the `internal` and `whitelabel` brand, but change `bor
 }
 
 // Add whitelabel brand configuration.
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-example', 'whitelabel', (
 		'variables': (
 			'border-color': oColorsByName('black')
@@ -163,7 +166,7 @@ Update `main.scss` to set our border color with `_oExampleGet('border-color')`:
 		margin: oSpacingByName('s1');
 	}</code></pre>
 
-Now when we run `obt dev --brand whitelabel` we get a different error! The error is `Could not find a colour for the "box" "background" usecase.`. That's because the whitelabel brand does not support the [box colour usecase](https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=core#usecases) we used to set a background. Unlike the core and internal brand, the whitelabel brand is not opinionated and provides a limited set of colour usescases. Instead of using the usecase lets add a new brand variable `background-color` so we can support the whitelabel brand as well:
+Now if we check our terminal logs again we get a different error! The error is `Could not find a colour for the "box" "background" usecase.`. That's because the whitelabel brand does not support the [box colour usecase](https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=core#usecases) we used to set a background. Unlike the core and internal brand, the whitelabel brand is not opinionated and provides a limited set of colour usescases. Instead of using the usecase lets add a new brand variable `background-color` so we can support the whitelabel brand as well:
 
 <pre><code class="o-syntax-highlight--diff">// src/scss/_brand.scss
 
@@ -567,7 +570,7 @@ In total we've created 7 visual variants of our component across 3 brands and 2 
 In summary, in part three we learnt:
 - Origami components may offer a distinct appearance for different brands: core, internal, or whitelabel.
 - How to use `o-brand` to set and retrieve brand variables in Sass.
-- How to switch brands locally using the `obt dev` `--brand` flag.
+- How to switch brands locally.
 - Origami components may be themed within a brand.
 - Some components allow custom themes to be created by the user.
 
