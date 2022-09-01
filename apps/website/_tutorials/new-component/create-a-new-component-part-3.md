@@ -171,7 +171,7 @@ Now if we check our terminal logs again we get a different error! The error is `
 <pre><code class="o-syntax-highlight--diff">// src/scss/_brand.scss
 
 // Add core brand configuration.
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
@@ -182,7 +182,7 @@ Now if we check our terminal logs again we get a different error! The error is `
 }
 
 // Add internal brand configuration.
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-example', 'internal', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
@@ -193,7 +193,7 @@ Now if we check our terminal logs again we get a different error! The error is `
 }
 
 // Add whitelabel brand configuration.
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-example', 'whitelabel', (
 		'variables': (
 			'border-color': oColorsByName('black'),
@@ -278,7 +278,7 @@ To define variables for a variant within a brand add a map to the `variables` co
 <pre><code class="o-syntax-highlight--diff">// src/scss/_brand.scss
 
 // Add core brand configuration.
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
@@ -296,7 +296,7 @@ To define variables for a variant within a brand add a map to the `variables` co
 }
 
 // Add internal brand configuration.
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-example', 'internal', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
@@ -311,7 +311,7 @@ To define variables for a variant within a brand add a map to the `variables` co
 }
 
 // Add whitelabel brand configuration.
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-example', 'whitelabel', (
 		'variables': (
 			'border-color': oColorsByName('black'),
@@ -336,11 +336,11 @@ To allow us to check if the theme name given to our `oExampleAddTheme` mixin is 
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
 // Add core brand configuration.
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
-			'background-color': oColorsByName('wheat')
+			'background-color': oColorsByName('wheat'),
 			'inverse': (
 				'text-color': oColorsByName('white'),
 				'background-color': oColorsByName('slate')
@@ -357,7 +357,7 @@ To allow us to check if the theme name given to our `oExampleAddTheme` mixin is 
 }
 
 // Add internal brand configuration.
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-example', 'internal', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
@@ -372,7 +372,7 @@ To allow us to check if the theme name given to our `oExampleAddTheme` mixin is 
 }
 
 // Add whitelabel brand configuration.
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-example', 'whitelabel', (
 		'variables': (
 			'border-color': oColorsByName('black'),

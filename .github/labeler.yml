@@ -44,6 +44,8 @@ o-editorial-layout:
   - components/o-editorial-layout/**/*
 o-editorial-typography:
   - components/o-editorial-typography/**/*
+o-example:
+  - components/o-example/**/*
 o-expander:
   - components/o-expander/**/*
 o-fonts:

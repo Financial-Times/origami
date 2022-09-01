@@ -1,5 +1,5 @@
 ---
-title: Create A New Origami Component - Part 6 Testing
+title: Create A New Origami Component - Part 7 Testing
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
 collection_listing_display: false
@@ -17,13 +17,45 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
-6. Testing
-7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
+6. [Storybook](/documentation/tutorials/create-a-new-component-part-storybook/)
+7. Testing
+8. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
-In part six we will add tests to our component. Including tests for Sass, JavaScript, and common accessibility issues.
+In part seven we will add tests to our component. Including tests for Sass, JavaScript, and common accessibility issues.
 
-Run `obt test` to run component tests. Run `obt verify` to lint code style and check the validity of `origami.json`.
+Run `npm run test -w components/o-example` to run component tests (you will get some errors but we will fix it in a moment). Run `npm run lint -w components/o-example` to lint code style and check the validity of `origami.json`.
+
+## Sass Tests
+
+Component Sass tests are run using the [Oddbird True](https://www.oddbird.net/true/) library. Sass tests for a component are located in the `test/scss` directory.
+
+This tutorial won't cover Oddbird True in detail, for that see the [Oddbird True documentation](https://www.oddbird.net/true/docs/). However to demonstrate we will update the boilerplate test (`tests/scss/_main.test.scss`) to confirm the `oExample` mixin outputs CSS for the inverse theme by default:
+
+<pre><code class="o-syntax-highlight--scss">// tests/scss/_main.test.scss
+
+@include describe('oExample mixins') {
+    // tests for the primary mixin oExample
+	@include describe('oExample') {
+		@include it('outputs the inverse theme by default') {
+			@include assert() {
+				// output actual CSS
+				@include output() {
+					@include oExample();
+				}
+				// expected output CSS to contain
+				@include contains() {
+					.o-example--inverse {
+						background: #262a33;
+						color: #ffffff;
+					}
+				}
+			}
+		}
+	}
+}</code></pre>
+
+Again running the `npm run test -w components/o-example` command should show our new tests have run and passed.
 
 ## JavaScript Tests
 
@@ -31,7 +63,7 @@ Component JavaScript tests use [mocha](https://mochajs.org/) as a test runner; [
 
 To demonstrate how these projects are used to test components we will add a new test to confirm that clicking a button in our component increments the count.
 
-JavaScript tests are located under the `tests/js` directory. The file `example.test.js` already has boilerplate tests, which use component markup defined in `tests/js/helpers/fixtures.js` to confirm the `init` method works as expected.
+JavaScript tests are located under the `test` directory. The file `example.test.js` already has boilerplate tests, which use component markup defined in `tests/js/helpers/fixtures.js` to confirm the `init` method works as expected.
 
 Our first step will be to update the `htmlCode` method in `tests/js/helpers/fixtures.js` with our latest component markup. We'll add an id `id="element"` which we can use in our tests:
 <pre><code class="o-syntax-highlight--js">// tests/js/helpers/fixtures.js
@@ -96,44 +128,12 @@ describe("with a button", () => {
 });
 </code></pre>
 
-Now run `obt test`. You should see our new tests are run and pass.
+Now run `npm run test -w components/o-example`. You should see our new tests are run and pass.
 
-The debug flag `obt test --debug` is useful whilst actively working on or debugging JavaScript tests. It allows you to run tests in the browser and get feedback in the browsers developer console. The `--browserstack` flag also enables tests to run against multiple browsers at once in [BrowserStack](browserstack.com/). See the [Origami Build Tools documentation](https://github.com/Financial-Times/origami-build-tools) for more details.
-
-## Sass Tests
-
-Component Sass tests are run using the [Oddbird True](https://www.oddbird.net/true/) library. Sass tests for a component are located in the `tests/scss` directory.
-
-This tutorial won't cover Oddbird True in detail, for that see the [Oddbird True documentation](https://www.oddbird.net/true/docs/). However to demonstrate we will update the boilerplate test (`tests/scss/_main.test.scss`) to confirm the `oExample` mixin outputs CSS for the inverse theme by default:
-
-<pre><code class="o-syntax-highlight--scss">// tests/scss/_main.test.scss
-
-@include describe('oExample mixins') {
-    // tests for the primary mixin oExample
-	@include describe('oExample') {
-		@include it('outputs the inverse theme by default') {
-			@include assert() {
-				// output actual CSS
-				@include output() {
-					@include oExample();
-				}
-				// expected output CSS to contain
-				@include contains() {
-					.o-example--inverse {
-						background: #262a33;
-						color: #ffffff;
-					}
-				}
-			}
-		}
-	}
-}</code></pre>
-
-Again running the `obt test` command should show our new tests have run and passed.
 
 ## Accessibility Tests
 
-`obt test` also runs some accessibility checks against the `pa11y` demo, as we [discussed in part four](/documentation/tutorials/create-a-new-component-part-4#pa11y-demo). Whilst this will catch some common causes of accessibility issues, such as invalid html or low contrast between text and background, it is not a comprehensive test of component accessibility. For help testing the accessibility of your component see the [Origami's accessibility principles](/documentation/principles/accessibility/) page, or reach out to the Financial Times [#accessibility Slack channel](https://app.slack.com/client/T025C95MN/C2LMEKC6S).
+`npm run test -w components/o-example` also runs some accessibility checks. Whilst this will catch some common causes of accessibility issues, such as invalid html or low contrast between text and background, it is not a comprehensive test of component accessibility. For help testing the accessibility of your component see the [Origami's accessibility principles](/documentation/principles/accessibility/) page, or reach out to the Financial Times [#accessibility Slack channel](https://app.slack.com/client/T025C95MN/C2LMEKC6S).
 
 ## Visual Regression Tests
 
@@ -160,10 +160,10 @@ _Don't worry if you are unfamiliar with Github and pull request labels. Later, w
 ## Part Seven: Documentation
 
 Our component is working well and is almost complete. In this tutorial we learned:
-- That `obt test` runs Sass, JavaScript, and limited accessibility tests.
-- That `obt verify` analyses our component for potential errors.
-- How to write Sass tests for the `obt test` command.
-- How to write and run JavaScript tests for the `obt test` command.
+- That `npm run test -w components/o-example` runs Sass, JavaScript, and limited accessibility tests.
+- That `npm run lint -w components/o-example` analyses our component for potential errors.
+- How to write Sass tests for the `npm run test -w components/o-example` command.
+- How to write and run JavaScript tests for the `npm run test -w components/o-example` command.
 - How to highlight visual differences a change has introduced with [percy.io](https://percy.io/).
 
-So far we have missed a crucial part of creating a component: documentation. Without documentation our component will be difficult for users to include in projects and future development may be hindered. In part seven we'll document our component in a way that is familiar to users and maintainers of other Origami components. [Continue to part seven](/documentation/tutorials/create-a-new-component-part-7).
+So far we have missed a crucial part of creating a component: documentation. Without documentation our component will be difficult for users to include in projects and future development may be hindered. In part eight we'll document our component in a way that is familiar to users and maintainers of other Origami components. [Continue to part eight](/documentation/tutorials/create-a-new-component-part-7).

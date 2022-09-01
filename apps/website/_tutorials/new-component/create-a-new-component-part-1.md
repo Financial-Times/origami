@@ -172,8 +172,6 @@ o-example
 
 Now we have a basic component to work from we can start developing!
 
-<pre><code class="o-syntax-highlight--bash">npm run build -w components/o-example</code></pre>
-
 The `npm run watch` command creates a server for us to preview our component in the browser. And whenever we make any change to the source code the component will be rebuilt, which we will be able to see by refreshing our browser:
 
 <pre><code class="o-syntax-highlight--bash">npm run watch -w components/o-example</code></pre>

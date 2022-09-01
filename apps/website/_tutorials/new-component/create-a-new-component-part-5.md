@@ -237,18 +237,18 @@ constructor (exampleEl, options) {
 +		this.exampleEl.setAttribute('data-o-example-js', '');
 	}</code></pre>
 
-Next lets wrap any the counter specific part of `o-example` markup in a `span` element with the class `o-example__counter`:
+Next lets wrap any counter specific part of `o-example` markup in a `span` element with the class `o-example__counter`:
 
 <pre><code class="o-syntax-highlight--html">&lt;!-- demos/src/demo.mustache  -->
 
-&lt;div id="element" class="o-example" data-o-component="o-example">
+&lt;div id="element" class="o-example &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}}" data-o-component="o-example">
 	Hello world, I am a component named o-example!
 	&lt;span class="o-example__counter">
 		You have clicked this lovely button &lt;span data-o-example-current-count>0&lt;/span> times.
 		&lt;button class="o-example__button">count&lt;/button>
-	&lt;span>
+	&lt;/span>
 &lt;/div>
-}
+
 </code></pre>
 
 We can then then add CSS to `main.scss` to hide the counter element `o-example__counter` until the data attribute `data-o-example-js` has been added:
@@ -302,7 +302,7 @@ We can then then add CSS to `main.scss` to hide the counter element `o-example__
 	</figcaption>
 </figure>
 
-## Part Six: Testing
+## Part Six: Storybook
 
 In part five we learnt how to make our component interactive with JavaScript, covering:
 - JavaScript initialisation using the `init` method.

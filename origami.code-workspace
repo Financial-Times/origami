@@ -237,6 +237,9 @@
 		{
 			"path": "apps/website"
 		},
+		{
+			"path": "./components/o-example"
+		}
 	],
 	"settings": {}
 }
