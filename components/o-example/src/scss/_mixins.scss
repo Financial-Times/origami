@@ -1,0 +1,47 @@
+/// Output a css modifier class for an o-example theme.
+/// This may be an existing theme, or a new custom them.
+/// @param {String} $name - The name of the theme to output.
+/// @param {Map} $opts [null] - A map of theme options to create a custom theme. See the examples and README for full details.
+/// @example scss - Output a custom theme modifier class "o-example--my-custom-theme".
+///     @include oExampleAddTheme('my-custom-theme', (
+///     	'background-color': oColorsByName('white'),
+///     	'text-color': oColorsByName('crimson'),
+///     	'button-color': oColorsByName('crimson'),
+///     ));
+/// @example scss - Output a default o-example theme modifier class "o-example--inverse".
+///     @include oExampleAddTheme('inverse');
+/// @access public
+@mixin oExampleAddTheme($name, $opts: null) {
+	// Error if an unsupported theme name is given without
+	// `$opts` options. If `$opts` are given we are adding
+	// a new custom theme.
+	@if not $opts and not _oExampleSupports($name) {
+		@error 'The name "#{$name}" is not a supported "#{oBrandGetCurrentBrand()}" brand theme';
+	}
+
+	// If options are given use them to create a custom theme,
+	// otherwise use the predefined variables.
+	$theme: if($opts, $opts, $name);
+
+	// Output theme css.
+	.o-example--#{$name} {
+		background: _oExampleGet('background-color', $from: $theme);
+		color: _oExampleGet('text-color', $from: $theme);
+		// Theme the o-example button using o-buttons.
+		// Only output button styles to change the theme,
+		// don't repeat styles shared by all buttons.
+		$matching-button-theme: $name == 'inverse' or $name == 'b2c';
+		// Theme the button with the `button-color` option if the theme
+		// name does not match inverse or b2c, existing o-buttons theme.
+		// https://registry.origami.ft.com/components/o-buttons@6.0.14/readme?brand=core#themes
+		$custom-button-color: _oExampleGet('button-color', $from: $theme);
+		@if $matching-button-theme or $custom-button-color {
+			.o-example__button {
+				@include oButtonsContent($opts: (
+					'type': 'primary',
+					'theme': if($matching-button-theme, $name, ('color': $custom-button-color))
+				), $include-base-styles: false);
+			}
+		}
+	}
+}

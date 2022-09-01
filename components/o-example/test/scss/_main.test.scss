@@ -1,0 +1,20 @@
+@include describe('oExample mixins') {
+	// tests for the primary mixin oExample
+@include describe('oExample') {
+	@include it('outputs the inverse theme by default') {
+		@include assert() {
+			// output actual CSS
+			@include output() {
+				@include oExample();
+			}
+			// expected output CSS to contain
+			@include contains() {
+				.o-example--inverse {
+					background: #262a33;
+					color: #ffffff;
+				}
+			}
+		}
+	}
+}
+}

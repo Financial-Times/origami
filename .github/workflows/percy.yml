@@ -273,6 +273,24 @@ jobs:
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_EDITORIAL_TYPOGRAPHY }}
         WORKSPACE: components/o-editorial-typography
+  percy-components-o-example:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: node ./scripts/percy.js
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_EXAMPLE }}
+        WORKSPACE: components/o-example
   percy-components-o-expander:
     runs-on: ubuntu-latest
     steps:
