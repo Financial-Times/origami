@@ -1,5 +1,14 @@
 # Changelog
 
+## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.2.3...o-topper-v5.3.0) (2022-09-01)
+
+
+### Features
+
+* add mattisee to o-topper-colors ([edb2ccd](https://www.github.com/Financial-Times/origami/commit/edb2ccd5ce89d6c51c5793d4938d8f0e266978cc))
+* change hover color on columnist_name when background matisse ([afa271c](https://www.github.com/Financial-Times/origami/commit/afa271cf1b07b10669faf3353f561e489c2f1673))
+* change opacity when background matisse in brand topper ([8202445](https://www.github.com/Financial-Times/origami/commit/820244541d6c6a9fd6c3a20ff0dff6b8a055cbc8))
+
 ### [5.2.3](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.2.2...o-topper-v5.2.3) (2022-01-13)
 
 
