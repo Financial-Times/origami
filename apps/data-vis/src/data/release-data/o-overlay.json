@@ -1,0 +1,1019 @@
+[
+  {
+    "release": {
+      "major": "4",
+      "minor": "2",
+      "patch": "4"
+    },
+    "version": "4.2.4",
+    "published_at": "2022-04-21"
+  },
+  {
+    "release": {
+      "major": "4",
+      "minor": "2",
+      "patch": "3"
+    },
+    "version": "4.2.3",
+    "published_at": "2022-01-13"
+  },
+  {
+    "release": {
+      "major": "4",
+      "minor": "2",
+      "patch": "2"
+    },
+    "version": "4.2.2",
+    "published_at": "2021-12-24"
+  },
+  {
+    "release": {
+      "major": "4",
+      "minor": "2",
+      "patch": "1"
+    },
+    "version": "4.2.1",
+    "published_at": "2021-12-09"
+  },
+  {
+    "release": {
+      "major": "4",
+      "minor": "2",
+      "patch": "0"
+    },
+    "version": "4.2.0",
+    "published_at": "2021-11-24"
+  },
+  {
+    "release": {
+      "major": "4",
+      "minor": "1",
+      "patch": "1"
+    },
+    "version": "4.1.1",
+    "published_at": "2021-11-08"
+  },
+  {
+    "release": {
+      "major": "4",
+      "minor": "1",
+      "patch": "0"
+    },
+    "version": "4.1.0",
+    "published_at": "2021-11-08"
+  },
+  {
+    "release": {
+      "major": "4",
+      "minor": "0",
+      "patch": "2"
+    },
+    "version": "4.0.2",
+    "published_at": "2021-11-02"
+  },
+  {
+    "release": {
+      "major": "4",
+      "minor": "0",
+      "patch": "1"
+    },
+    "version": "4.0.1",
+    "published_at": "2021-09-21"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "1",
+      "patch": "0"
+    },
+    "version": "3.1.0",
+    "published_at": "2020-12-08"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "0",
+      "patch": "10"
+    },
+    "version": "3.0.10",
+    "published_at": "2020-12-04"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "0",
+      "patch": "9"
+    },
+    "version": "3.0.9",
+    "published_at": "2020-09-04"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "0",
+      "patch": "8"
+    },
+    "version": "3.0.8",
+    "published_at": "2020-08-07"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "0",
+      "patch": "7"
+    },
+    "version": "3.0.7",
+    "published_at": "2020-08-07"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "0",
+      "patch": "6"
+    },
+    "version": "3.0.6",
+    "published_at": "2020-06-03"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "0",
+      "patch": "5"
+    },
+    "version": "3.0.5",
+    "published_at": "2020-05-06"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "0",
+      "patch": "4"
+    },
+    "version": "3.0.4",
+    "published_at": "2020-04-09"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "0",
+      "patch": "3"
+    },
+    "version": "3.0.3",
+    "published_at": "2020-03-24"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "0",
+      "patch": "2"
+    },
+    "version": "3.0.2",
+    "published_at": "2020-01-09"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "0",
+      "patch": "1"
+    },
+    "version": "3.0.1",
+    "published_at": "2019-12-18"
+  },
+  {
+    "release": {
+      "major": "3",
+      "minor": "0",
+      "patch": "0"
+    },
+    "version": "3.0.0",
+    "published_at": "2019-11-22"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "11"
+    },
+    "version": "2.7.11",
+    "published_at": "2019-09-27"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "10"
+    },
+    "version": "2.7.10",
+    "published_at": "2019-08-29"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "9"
+    },
+    "version": "2.7.9",
+    "published_at": "2019-08-08"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "8"
+    },
+    "version": "2.7.8",
+    "published_at": "2019-07-23"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "7"
+    },
+    "version": "2.7.7",
+    "published_at": "2019-06-07"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "6"
+    },
+    "version": "2.7.6",
+    "published_at": "2019-06-04"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "5"
+    },
+    "version": "2.7.5",
+    "published_at": "2019-05-31"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "4"
+    },
+    "version": "2.7.4",
+    "published_at": "2019-05-13"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "3"
+    },
+    "version": "2.7.3",
+    "published_at": "2019-04-09"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "2"
+    },
+    "version": "2.7.2",
+    "published_at": "2019-03-07"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "1"
+    },
+    "version": "2.7.1",
+    "published_at": "2019-03-07"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "7",
+      "patch": "0"
+    },
+    "version": "2.7.0",
+    "published_at": "2019-03-06"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "6",
+      "patch": "2"
+    },
+    "version": "2.6.2",
+    "published_at": "2019-02-28"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "6",
+      "patch": "1"
+    },
+    "version": "2.6.1",
+    "published_at": "2019-02-26"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "6",
+      "patch": "0"
+    },
+    "version": "2.6.0",
+    "published_at": "2019-02-18"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "5",
+      "patch": "0"
+    },
+    "version": "2.5.0",
+    "published_at": "2019-02-12"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "4",
+      "patch": "3"
+    },
+    "version": "2.4.3",
+    "published_at": "2018-06-08"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "4",
+      "patch": "2"
+    },
+    "version": "2.4.2",
+    "published_at": "2018-05-09"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "4",
+      "patch": "1"
+    },
+    "version": "2.4.1",
+    "published_at": "2018-03-27"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "4",
+      "patch": "0"
+    },
+    "version": "2.4.0",
+    "published_at": "2018-03-26"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "3",
+      "patch": "2"
+    },
+    "version": "2.3.2",
+    "published_at": "2018-02-26"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "3",
+      "patch": "1"
+    },
+    "version": "2.3.1",
+    "published_at": "2018-02-26"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "3",
+      "patch": "0"
+    },
+    "version": "2.3.0",
+    "published_at": "2018-02-20"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "2",
+      "patch": "1"
+    },
+    "version": "2.2.1",
+    "published_at": "2018-02-15"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "2",
+      "patch": "0"
+    },
+    "version": "2.2.0",
+    "published_at": "2018-02-07"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "1",
+      "patch": "8"
+    },
+    "version": "2.1.8",
+    "published_at": "2018-02-01"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "1",
+      "patch": "7"
+    },
+    "version": "2.1.7",
+    "published_at": "2018-02-01"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "1",
+      "patch": "6"
+    },
+    "version": "2.1.6",
+    "published_at": "2018-01-24"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "1",
+      "patch": "5"
+    },
+    "version": "2.1.5",
+    "published_at": "2017-12-05"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "1",
+      "patch": "4"
+    },
+    "version": "2.1.4",
+    "published_at": "2017-11-14"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "1",
+      "patch": "3"
+    },
+    "version": "2.1.3",
+    "published_at": "2017-10-18"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "1",
+      "patch": "2"
+    },
+    "version": "2.1.2",
+    "published_at": "2017-10-17"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "1",
+      "patch": "1"
+    },
+    "version": "2.1.1",
+    "published_at": "2017-10-05"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "1",
+      "patch": "0"
+    },
+    "version": "2.1.0",
+    "published_at": "2017-09-19"
+  },
+  {
+    "release": {
+      "major": "2",
+      "minor": "0",
+      "patch": "0"
+    },
+    "version": "2.0.0",
+    "published_at": "2017-06-05"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "17",
+      "patch": "0"
+    },
+    "version": "1.17.0",
+    "published_at": "2017-03-30"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "16",
+      "patch": "1"
+    },
+    "version": "1.16.1",
+    "published_at": "2017-03-29"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "16",
+      "patch": "0"
+    },
+    "version": "1.16.0",
+    "published_at": "2017-03-28"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "15",
+      "patch": "1"
+    },
+    "version": "1.15.1",
+    "published_at": "2017-03-14"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "15",
+      "patch": "0"
+    },
+    "version": "1.15.0",
+    "published_at": "2017-03-14"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "14",
+      "patch": "1"
+    },
+    "version": "1.14.1",
+    "published_at": "2017-03-07"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "14",
+      "patch": "0"
+    },
+    "version": "1.14.0",
+    "published_at": "2017-02-24"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "13",
+      "patch": "0"
+    },
+    "version": "1.13.0",
+    "published_at": "2017-02-21"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "12",
+      "patch": "1"
+    },
+    "version": "1.12.1",
+    "published_at": "2017-02-08"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "12",
+      "patch": "0"
+    },
+    "version": "1.12.0",
+    "published_at": "2017-01-30"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "11",
+      "patch": "0"
+    },
+    "version": "1.11.0",
+    "published_at": "2017-01-27"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "10",
+      "patch": "0"
+    },
+    "version": "1.10.0",
+    "published_at": "2017-01-12"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "9",
+      "patch": "0"
+    },
+    "version": "1.9.0",
+    "published_at": "2017-01-12"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "8",
+      "patch": "8"
+    },
+    "version": "1.8.8",
+    "published_at": "2016-11-21"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "8",
+      "patch": "7"
+    },
+    "version": "1.8.7",
+    "published_at": "2016-11-03"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "8",
+      "patch": "6"
+    },
+    "version": "1.8.6",
+    "published_at": "2016-10-07"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "8",
+      "patch": "5"
+    },
+    "version": "1.8.5",
+    "published_at": "2016-05-25"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "8",
+      "patch": "4"
+    },
+    "version": "1.8.4",
+    "published_at": "2016-05-12"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "8",
+      "patch": "3"
+    },
+    "version": "1.8.3",
+    "published_at": "2016-05-04"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "8",
+      "patch": "2"
+    },
+    "version": "1.8.2",
+    "published_at": "2016-05-03"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "8",
+      "patch": "1"
+    },
+    "version": "1.8.1",
+    "published_at": "2016-04-12"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "8",
+      "patch": "0"
+    },
+    "version": "1.8.0",
+    "published_at": "2016-04-04"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "7",
+      "patch": "0"
+    },
+    "version": "1.7.0",
+    "published_at": "2016-03-29"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "6",
+      "patch": "3"
+    },
+    "version": "1.6.3",
+    "published_at": "2015-10-30"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "6",
+      "patch": "2"
+    },
+    "version": "1.6.2",
+    "published_at": "2015-10-14"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "6",
+      "patch": "1"
+    },
+    "version": "1.6.1",
+    "published_at": "2015-09-01"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "6",
+      "patch": "0"
+    },
+    "version": "1.6.0",
+    "published_at": "2015-08-25"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "5",
+      "patch": "0"
+    },
+    "version": "1.5.0",
+    "published_at": "2015-08-04"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "4",
+      "patch": "9"
+    },
+    "version": "1.4.9",
+    "published_at": "2015-06-16"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "4",
+      "patch": "8"
+    },
+    "version": "1.4.8",
+    "published_at": "2015-06-02"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "4",
+      "patch": "7"
+    },
+    "version": "1.4.7",
+    "published_at": "2015-05-05"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "4",
+      "patch": "6"
+    },
+    "version": "1.4.6",
+    "published_at": "2015-04-30"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "4",
+      "patch": "5"
+    },
+    "version": "1.4.5",
+    "published_at": "2015-03-16"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "4",
+      "patch": "4"
+    },
+    "version": "1.4.4",
+    "published_at": "2015-03-16"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "4",
+      "patch": "3"
+    },
+    "version": "1.4.3",
+    "published_at": "2015-03-12"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "4",
+      "patch": "2"
+    },
+    "version": "1.4.2",
+    "published_at": "2015-03-12"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "4",
+      "patch": "1"
+    },
+    "version": "1.4.1",
+    "published_at": "2015-03-02"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "4",
+      "patch": "0"
+    },
+    "version": "1.4.0",
+    "published_at": "2015-02-19"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "3",
+      "patch": "4"
+    },
+    "version": "1.3.4",
+    "published_at": "2015-02-13"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "3",
+      "patch": "3"
+    },
+    "version": "1.3.3",
+    "published_at": "2015-02-13"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "3",
+      "patch": "2"
+    },
+    "version": "1.3.2",
+    "published_at": "2015-01-29"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "3",
+      "patch": "1"
+    },
+    "version": "1.3.1",
+    "published_at": "2015-01-23"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "3",
+      "patch": "0"
+    },
+    "version": "1.3.0",
+    "published_at": "2015-01-23"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "2",
+      "patch": "2"
+    },
+    "version": "1.2.2",
+    "published_at": "2015-01-19"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "2",
+      "patch": "1"
+    },
+    "version": "1.2.1",
+    "published_at": "2015-01-19"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "2",
+      "patch": "0"
+    },
+    "version": "1.2.0",
+    "published_at": "2015-01-16"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "1",
+      "patch": "3"
+    },
+    "version": "1.1.3",
+    "published_at": "2014-12-10"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "1",
+      "patch": "2"
+    },
+    "version": "1.1.2",
+    "published_at": "2014-12-09"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "1",
+      "patch": "1"
+    },
+    "version": "1.1.1",
+    "published_at": "2014-12-04"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "1",
+      "patch": "0"
+    },
+    "version": "1.1.0",
+    "published_at": "2014-11-28"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "0",
+      "patch": "3"
+    },
+    "version": "1.0.3",
+    "published_at": "2014-10-09"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "0",
+      "patch": "1"
+    },
+    "version": "1.0.1",
+    "published_at": "2014-08-29"
+  },
+  {
+    "release": {
+      "major": "1",
+      "minor": "0",
+      "patch": "0"
+    },
+    "version": "1.0.0",
+    "published_at": "2014-08-27"
+  },
+  {
+    "release": {
+      "major": "0",
+      "minor": "0",
+      "patch": "24"
+    },
+    "version": "0.0.24",
+    "published_at": "2014-04-25"
+  },
+  {
+    "release": {
+      "major": "0",
+      "minor": "0",
+      "patch": "23"
+    },
+    "version": "0.0.23",
+    "published_at": "2014-03-26"
+  },
+  {
+    "release": {
+      "major": "0",
+      "minor": "0",
+      "patch": "19"
+    },
+    "version": "0.0.19",
+    "published_at": "2014-03-12"
+  },
+  {
+    "release": {
+      "major": "0",
+      "minor": "0",
+      "patch": "12"
+    },
+    "version": "0.0.12",
+    "published_at": "2014-02-25"
+  }
+]
