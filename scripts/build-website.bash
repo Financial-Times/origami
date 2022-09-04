@@ -8,6 +8,8 @@ bundle
 bundle exec jekyll build -d ../../origami.ft.com --incremental
 cd ../storybook/
 npm run build-storybook
+cd ../data-vis
+npm run build
 cd ../../
 
 if ! [ -z "$SHOULD_DELETE_ALL_YOUR_FILES" ]; then

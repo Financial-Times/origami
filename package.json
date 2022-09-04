@@ -8,7 +8,7 @@
     "regenerate": "node ./scripts/regenerate-ci-config-files.js",
     "install": "./scripts/install.bash",
     "storybook": "cd apps/storybook && npm run storybook",
-		"svelte-dev": "cd apps/data-vis && npm run dev",
+		"build-dataVis": "cd apps/data-vis && npm run build",
     "build-storybook": "cd apps/storybook && npm run build-storybook",
     "build": "./scripts/build-website.bash # this is for heroku, not people",
     "start": "npx serve origami.ft.com # this is for heroku, not people",
