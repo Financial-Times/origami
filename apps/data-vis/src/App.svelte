@@ -6,8 +6,8 @@
 	<p>{component.name}</p>
 {/each}
 
-<style global lang="scss">
+<style lang="scss">
 	p {
-		color: $red;
+		color: oColorsByName("teal");
 	}
 </style>
