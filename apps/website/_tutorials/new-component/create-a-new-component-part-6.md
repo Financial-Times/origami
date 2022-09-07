@@ -111,6 +111,7 @@ First of all we will need to import [`useEffect` hook](https://reactjs.org/docs/
 ## Theming
 We already discussed how to run different brands in storybook but we still need to cover the theming part. This is the area where storybook really starts to shine. We provided theme as a prop for our JSX component and it would be amazing if we had a drop down where we could select a theme and immediately see how certain themes effect our component.
 
+The code below dynamically creates labels and options for correct brand. We use Storybook controls to make theming easier, have better demos where experimenting is easier and developers can integrate correct version of component into their code.
 The code below dynamically creates labels and options for the current brand. We use Storybook controls to have better demos where experimenting with component options and content is easier, allowing developers and designers to integrate Origami in their project.
 
 <pre><code class="o-syntax-highlight--diff">// stories/example.stories.tsx
