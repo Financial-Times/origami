@@ -19,8 +19,8 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
 6. [Storybook](/documentation/tutorials/create-a-new-component-part-6/)
 7. Testing
-8. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
-9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
+8. [Documentation](/documentation/tutorials/create-a-new-component-part-8/)
+9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-9/)
 
 In part seven we will add tests to our component. Including tests for Sass, JavaScript, and common accessibility issues.
 
@@ -166,4 +166,4 @@ Our component is working well and is almost complete. In this tutorial we learne
 - How to write and run JavaScript tests for the `npm run test -w components/o-example` command.
 - How to highlight visual differences a change has introduced with [percy.io](https://percy.io/).
 
-So far we have missed a crucial part of creating a component: documentation. Without documentation our component will be difficult for users to include in projects and future development may be hindered. In part eight we'll document our component in a way that is familiar to users and maintainers of other Origami components. [Continue to part eight](/documentation/tutorials/create-a-new-component-part-7).
+So far we have missed a crucial part of creating a component: documentation. Without documentation our component will be difficult for users to include in projects and future development may be hindered. In part eight we'll document our component in a way that is familiar to users and maintainers of other Origami components. [Continue to part eight](/documentation/tutorials/create-a-new-component-part-8).

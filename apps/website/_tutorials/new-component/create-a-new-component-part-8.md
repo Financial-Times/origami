@@ -18,9 +18,9 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
 6. [Storybook](/documentation/tutorials/create-a-new-component-part-6/)
-7. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
+7. [Testing](/documentation/tutorials/create-a-new-component-part-7/)
 8. Documentation
-9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
+9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-9/)
 
 In part eight we will add documentation to our component. With good documentation we can save people time and frustration by making our component as easy to use as possible. Thorough documentation will also help future contributors to our new component.
 
@@ -137,8 +137,6 @@ Similar to SassDoc, JSDoc uses annotations such as `@param` to document paramete
 	</figcaption>
 </figure>
 
-## Documenting Storybook
-TO BE DONE
 ## Origami Manifest
 
 The `origami.json` manifest file also contributes to the documentation of a component. As we have seen in previous parts of this tutorial `origami.json` includes a component name, description, keywords, demos, demo descriptions, required polyfills, support contacts, maintenance status, and more information which is displayed in the [Origami Registry](https://registry.origami.ft.com/components/).
@@ -156,4 +154,4 @@ In this part we learnt:
 - That we can storybook demos.
 - The role of `origami.json` in documentation.
 
-In the next part we will publish our component and discuss the lifecycle of a published component. [Continue to part nine](/documentation/tutorials/create-a-new-component-part-8).
+In the next part we will publish our component and discuss the lifecycle of a published component. [Continue to part nine](/documentation/tutorials/create-a-new-component-part-9).

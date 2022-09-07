@@ -18,8 +18,8 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
 6. [Storybook](/documentation/tutorials/create-a-new-component-part-6/)
-7. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
-8. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
+7. [Testing](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Documentation](/documentation/tutorials/create-a-new-component-part-8/)
 9. Component Lifecycle
 
 In part nine we will learn how to publish our component to the Origami registry 🎉, and discuss the lifecycle of a published component.
@@ -28,10 +28,10 @@ _We don't actually want to publish an example component `o-example`. If you have
 
 ## Source Control
 
-Origami components are store in [Origami monorepo](https://github.com/Financial-Times/origami) under components. We will start by commiting the boilerplate as an initial commit. For example:
+Origami components are store in [Origami monorepo](https://github.com/Financial-Times/origami) under components. We will start by commiting the boilerplate as an initial commit. We use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to write commit messages. For example:
 
 <pre><code class="o-syntax-highlight--bash">git add --all
-git commit -m 'my o-example component'
+git commit -m 'feat: my o-example component'
 git push</code></pre>
 
 After pushing your commits you should be able to open a pull request. If you have never open a PR(pull request) you can read more about it on [github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
