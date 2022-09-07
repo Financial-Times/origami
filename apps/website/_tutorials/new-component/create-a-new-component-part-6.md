@@ -18,9 +18,9 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
 6. Storybook
-7. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
-8. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
-9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
+7. [Testing](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Documentation](/documentation/tutorials/create-a-new-component-part-8/)
+9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-9/)
 
 In part six we will rewrite `demo.mustache` into tsx template, we will use our component's javascript code to initialise interactivity for storybook demos and implement all the variants of our component.
 
@@ -45,7 +45,7 @@ The code in `example.tsx` will be very similar to what we have in `demo.mustache
 
 JSX is heavily linked to React and its ecosystem but it JSX is just a syntax that can exists without React and it could be used by other frameworks. The whole idea behind using JSX syntax is to make our storybook demos easy to write and also enable developers to easily import this templates in their code. Our TSX templates don't use React specific imports in them but we are leveraging [JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) which enables us to use JSX without importing React and therefore making it somewhat framework agnostic.
 
-We are writing our compononent in [typeScript](https://www.typescriptlang.org/docs/handbook/basic-types.html) which enables us to make less errors and it will help us to [document our components](/documentation/tutorials/create-a-new-component-part-7/#documenting-storybook) in storybook.
+We are writing our compononent in [typeScript](https://www.typescriptlang.org/docs/handbook/basic-types.html) which enables us to make less errors.
 
 This is what our `example.tsx` should look like:
 <pre><code class="o-syntax-highlight--js">// src/tsx/example.tsx
@@ -55,8 +55,9 @@ type ExampleProps = {
 }
 
 export function Example({theme}: {theme: ExampleProps}) {
+	const classNames = theme ? `o-example o-example--${theme}` : 'o-example'
 	return (
-		&lt;div id="element" className={`o-example o-example--${theme}`} data-o-component="o-example">
+		&lt;div id="element" className={classNames} data-o-component="o-example">
 			Hello world, I am a component named o-example!
 			&lt;span className="o-example__counter">
 				You have clicked this lovely button &lt;span data-o-example-current-count>0&lt;/span> times.
@@ -69,7 +70,7 @@ export function Example({theme}: {theme: ExampleProps}) {
 
 But let's brake this down a bit and compare it to the `demo.mustache` file.
 1. First thing we notice is `ExampleProps` [type declaration](https://www.typescriptlang.org/docs/handbook/basic-types.html) for our [component props](https://reactjs.org/docs/components-and-props.html). This type declaration is used to make sure that our component only gets passed down theme prop and it must be string.
-2. Second thing we notice is that we are using the [JSX syntax](https://reactjs.org/docs/jsx-in-depth.html) to write our component and return from `Example` function.
+2. Second thing we notice is that we are using the [JSX syntax](https://reactjs.org/docs/jsx-in-depth.html) to write our component and return it from `Example` function.
 3. Syntax for JSX and Mustache are slightly different. In JSX we use `className` instead of `class` and we are passing theme prop to our JSX using literal string (`${theme}`) syntax.
 
 <figure>
@@ -176,4 +177,4 @@ In part six we learnt how to make storybook demo for `o-example` component, cove
 - Initialising JavaScript for TSX template.
 - Using storybook controls to create theming for the component.
 
-In part seven we'll look at writing tests for our component. [Continue to part seven](/documentation/tutorials/create-a-new-component-part-6).
+In part seven we'll look at writing tests for our component. [Continue to part seven](/documentation/tutorials/create-a-new-component-part-7).
