@@ -17,7 +17,7 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
 4. Demos
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
-6. [Storybook](/documentation/tutorials/create-a-new-component-part-storybook/)
+6. [Storybook](/documentation/tutorials/create-a-new-component-part-6/)
 7. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
 8. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
 9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
