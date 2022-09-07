@@ -16,7 +16,7 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
-6. [Storybook](/documentation/tutorials/create-a-new-component-part-storybook/)
+6. [Storybook](/documentation/tutorials/create-a-new-component-part-6/)
 7. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
 8. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
 9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
@@ -36,40 +36,28 @@ There is some software you'll need on your computer in order to work with this
 repo.
 #### volta
 
-We use [volta](https://docs.volta.sh/guide/getting-started) to make sure everyone
-is using the same versions of node and npm.
-
-```shell
-curl https://get.volta.sh | bash
-```
+We use [volta](https://docs.volta.sh/guide/getting-started) to make sure everyone is using the same versions of node and npm.
+<pre><code class="o-syntax-highlight--bash">curl https://get.volta.sh | bash</code></pre>
 
 #### git-lfs
 
 To keep the repo speedy, we use [git-lfs](https://git-lfs.github.com/) to store
 binary files like the images on the website.
-
-```shell
-brew install git-lfs
+<pre><code class="o-syntax-highlight--bash">brew install git-lfs
 git lfs install
-```
+</code></pre>
 
 #### entr
 
 [entr](https://eradman.com/entrproject/) is used in the component `watch` command for watching files
 
-```shell
-brew install entr
-```
+<pre><code class="o-syntax-highlight--bash">brew install entr</code></pre>
 #### rg
 [ripgrep](https://github.com/BurntSushi/ripgrep) is used in the component `watch` command for quickly choosing the files to watch for changes.
-```shell
-brew install rg
-```
+<pre><code class="o-syntax-highlight--bash">brew install rg</code></pre>
 #### Clone the repo
-```shell
-git clone git@snoot.club:Financial-Times/origami.git
-cd origami
-```
+<pre><code class="o-syntax-highlight--bash">git clone git@snoot.club:Financial-Times/origami.git
+cd origami</code></pre>
 #### Install dependencies
 
 `npm install` This will install all the components into the root `node_modules`, allows all the components to [find one another](https://nodejs.org/api/modules.html#loading-from-node_modules-folders).

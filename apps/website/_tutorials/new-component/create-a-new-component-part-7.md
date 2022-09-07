@@ -1,12 +1,12 @@
 ---
-title: Create A New Origami Component - Part 8 Documentation
+title: Create A New Origami Component - Part 7 Testing
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
 collection_listing_display: false
 
 # Redirect from legacy URLs
 redirect_from:
-  - /docs/tutorials/create-a-new-component-part-7/
+  - /docs/tutorials/create-a-new-component-part-6/
 ---
 
 # {{page.title}}
@@ -17,143 +17,153 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
-6. [Storybook](/documentation/tutorials/create-a-new-component-part-storybook/)
-7. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
-8. Documentation
+6. [Storybook](/documentation/tutorials/create-a-new-component-part-6/)
+7. Testing
+8. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
 9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
 
-In part eight we will add documentation to our component. With good documentation we can save people time and frustration by making our component as easy to use as possible. Thorough documentation will also help future contributors to our new component.
+In part seven we will add tests to our component. Including tests for Sass, JavaScript, and common accessibility issues.
 
-## Tone & language
+Run `npm run test -w components/o-example` to run component tests (you will get some errors but we will fix it in a moment). Run `npm run lint -w components/o-example` to lint code style and check the validity of `origami.json`.
 
-People from various backgrounds across the Financial Times use and contribute to Origami components, so its important to consider communication in documentation carefully.
+## Sass Tests
 
-To help write clear documentation there are [Origami tone & language principles](/documentation/principles/tone-and-language/). For example we work as a team so use ["we" over "I"](/documentation/principles/tone-and-language/#prefer-we-to-i); for clarity and to express responsibility we use an [active voice](/documentation/principles/tone-and-language/#use-the-active-voice) in component documentation; and as we work with people of different nationalities and backgrounds we [avoid metaphors or colloquialisms](/documentation/principles/tone-and-language/#avoid-metaphors-or-colloquialisms).
+Component Sass tests are run using the [Oddbird True](https://www.oddbird.net/true/) library. Sass tests for a component are located in the `test/scss` directory.
 
-Read more on the [tone & language principles page](/documentation/principles/tone-and-language/).
+This tutorial won't cover Oddbird True in detail, for that see the [Oddbird True documentation](https://www.oddbird.net/true/docs/). However to demonstrate we will update the boilerplate test (`tests/scss/_main.test.scss`) to confirm the `oExample` mixin outputs CSS for the inverse theme by default:
 
-## Where Components Are Documented
+<pre><code class="o-syntax-highlight--scss">// tests/scss/_main.test.scss
 
-Origami components are documented in four key ways. We have already seen some examples of these:
-- The `README.md` file.
-- The `origami.json` manifest file.
-- SassDoc comments (for components with Sass).
-- JSDoc comments (for components with JavaScript).
-- Storybook documentation (for components with Storybook).
+@include describe('oExample mixins') {
+    // tests for the primary mixin oExample
+	@include describe('oExample') {
+		@include it('outputs the inverse theme by default') {
+			@include assert() {
+				// output actual CSS
+				@include output() {
+					@include oExample();
+				}
+				// expected output CSS to contain
+				@include contains() {
+					.o-example--inverse {
+						background: #262a33;
+						color: #ffffff;
+					}
+				}
+			}
+		}
+	}
+}</code></pre>
 
-Lets review each of these types of documentation for our `o-example` component.
+Again running the `npm run test -w components/o-example` command should show our new tests have run and passed.
 
-## Readme
+## JavaScript Tests
 
-Perhaps the most important part of component documentation is the `README.md` file, found in the root directory. This is presented in the Origami Registry for each component, for example see the [o-table readme](https://registry.origami.ft.com/components/o-table/readme).
+Component JavaScript tests use [mocha](https://mochajs.org/) as a test runner; [sinon](https://sinonjs.org/) for stubs, spies, and mocks; and [proclaim](https://github.com/rowanmanning/proclaim) to make assertions.
 
-In our `o-example` component there is already a `README.md` with boilerplate content. The readme includes basic component information such as:
-- name
-- description
-- intended usecase
-- intended behaviour
+To demonstrate how these projects are used to test components we will add a new test to confirm that clicking a button in our component increments the count.
 
-The readme goes on to provide technical details of how to use the component:
-- Markup - [e.g. how to apply themes](https://registry.origami.ft.com/components/o-buttons@6.0.15/readme?brand=core#themes).
-- JavaScript - e.g. what [options are available](https://registry.origami.ft.com/components/o-table@8.1.2/readme?brand=core#javascript), and how to [perform common tasks](https://registry.origami.ft.com/components/o-forms@8.3.10/readme?brand=core#state).
-- Sass - e.g. where and why to use [Sass mixins](https://registry.origami.ft.com/components/o-typography@6.4.3/readme?brand=core#sass)
+JavaScript tests are located under the `test` directory. The file `example.test.js` already has boilerplate tests, which use component markup defined in `tests/js/helpers/fixtures.js` to confirm the `init` method works as expected.
 
-The readme should also contain information about hot to do:
-- Troubleshooting
-- Contributing
-- Migration
+Our first step will be to update the `htmlCode` method in `tests/js/helpers/fixtures.js` with our latest component markup. We'll add an id `id="element"` which we can use in our tests:
+<pre><code class="o-syntax-highlight--js">// tests/js/helpers/fixtures.js
 
-And concludes with general information:
-- Contact
-- Licence
-
-For more complex or novel components there may be additional sections such as for troubleshooting and contributing to the component. Components which have released major changes may also include a migration section which points to a `MIGRATION.md` file to help users upgrade from one version of a component to the next.
-
-Reference the `README.md` generated by `npm run create-component` along with examples from other components to write your own readme. For our component we don't need any special troubleshooting or contributing guides, so we can delete this section from readme. We also haven't released multiple major versions yet so can delete the migration guide section for now.
-
-<figure>
-	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-16-docs.png" />
-	<figcaption>
-        The readme is shown in the Origami registry. This image shows the <a href="https://registry.origami.ft.com/components/o-table@8.1.2/readme?brand=core">o-table readme</a>.
-	</figcaption>
-</figure>
-
-The readme of a component is thorough but risks becoming verbose so Origami components also document Sass and JavaScript <abbr title="application programming interfaces">apis</abbr> separately. This allows more detailed <abbr title="application programming interface">api</abbr> information that the readme can link to. It also provides engineers who are already familiar with a component a reference, to quickly look up an <abbr title="application programming interface">api</abbr>.
-
-## SassDoc
-
-To document Sass functions, mixins, and variables, Origami uses [SassDoc](http://sassdoc.com/). A SassDoc comment comes before the Sass to document. It uses three forward slashes and has a number of [annotations](sassdoc.com/annotations/). Its easier to see with an example. Let's add SassDoc comments to our undocumented `oExampleAddTheme` mixin we created earlier:
-
-<pre><code class="o-syntax-highlight--scss">// src/scss/_mixins.scss
-
-/// Output a css modifier class for an o-example theme.
-/// This may be an existing theme, or a new custom them.
-/// @param {String} $name - The name of the theme to output.
-/// @param {Map} $opts [null] - A map of theme options to create a custom theme. See the examples and README for full details.
-/// @example scss - Output a custom theme modifier class "o-example--my-custom-theme".
-///     @include oExampleAddTheme('my-custom-theme', (
-///     	'background-color': oColorsByName('white'),
-///     	'text-color': oColorsByName('crimson'),
-///     	'button-color': oColorsByName('crimson'),
-///     ));
-/// @example scss - Output a default o-example theme modifier class "o-example--inverse".
-///     @include oExampleAddTheme('inverse');
-/// @access public
-@mixin oExampleAddTheme($name, $opts: null) {
-    // theme sass here from before, see part 3
+function htmlCode () {
+	const html = `
+        &lt;div id="element" class="o-example" data-o-component="o-example">
+            Hello world, I am a component named o-example!
+            &lt;span class="o-example__counter">
+                You have clicked this lovely button &lt;span data-o-example-current-count>0&lt;/span> times.
+                &lt;button class="o-example__button">count&lt;/button>
+            &lt;span>
+        &lt;/div>
+	`;
+	insert(html);
 }
 </code></pre>
 
-Above we give a [description](http://sassdoc.com/annotations/#description) of the mixins usecase. We use the [`@param`](http://sassdoc.com/annotations/#parameter) annotation to document the parameters of our mixin. Note that SassDoc does not provide a way to document each property of the `$opts` map. Instead we use the [`@example`](http://sassdoc.com/annotations/#example) annotation and readme to compensate. Finally we use the [`@access`](http://sassdoc.com/annotations/#access) annotation to indicate the mixin is public and can be included by component users.
+Next we can append our new tests within the main `describe("Example", () => {})` block:
+<pre><code class="o-syntax-highlight--js">// tests/js/example.test.js
+
+describe("with a button", () => {
+
+    beforeEach(() => {
+        // Add our component markup to the DOM
+        fixtures.htmlCode();
+    });
+
+    afterEach(() => {
+        // Remove our component markup from the DOM
+        fixtures.reset();
+    });
+
+    it("should increment the count on click", () => {
+        // initialise o-example on fixture markup
+        const oExample = Example.init('#element');
+        // find and click the button
+        const button = document.querySelector('button');
+        button.click();
+        // confirm the count has incremented
+        const actual = oExample.count;
+        const expected = 1;
+        proclaim.equal(actual, expected, `Expected count to equal ${expected} given a single button click.`);
+    });
+
+    it("should display the new count on click", () => {
+        // initialise o-example on fixture markup
+        Example.init('#element');
+        // find and click the button
+        const button = document.querySelector('button');
+        button.click();
+        // confirm the new count is reflected in the DOM
+        const countElement = document.querySelector('[data-o-example-current-count]');
+        const actual = countElement.textContent;
+        const expected = '1';
+        proclaim.include(
+            actual,
+            expected,
+            `Expected the new count to display in the component.`
+        );
+    });
+});
+</code></pre>
+
+Now run `npm run test -w components/o-example`. You should see our new tests are run and pass.
+
+
+## Accessibility Tests
+
+`npm run test -w components/o-example` also runs some accessibility checks. Whilst this will catch some common causes of accessibility issues, such as invalid html or low contrast between text and background, it is not a comprehensive test of component accessibility. For help testing the accessibility of your component see the [Origami's accessibility principles](/documentation/principles/accessibility/) page, or reach out to the Financial Times [#accessibility Slack channel](https://app.slack.com/client/T025C95MN/C2LMEKC6S).
+
+## Visual Regression Tests
+
+To check all component demos for any visual bugs that may have been introduced accidentally as part of a change may be rather taxing as a manual piece of work. To help, demos may be run through [percy.io](https://percy.io/) to highlight visual differences between two versions of a component automatically.
+
+We can't run Percy yet as we haven't released a version of our component to compare changes against. But later, when we have released our component, you will be able to run [percy.io](https://percy.io/) by adding a `percy` label to Github pull requests. When Percy has run a comment is added to the pull request, and the demo comparisons are ready for review at [percy.io/Financial-Times](https://percy.io/Financial-Times/).
 
 <figure>
-	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-17-docs.png" />
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-21-tests.png" />
 	<figcaption>
-        The SassDoc is shown in the Origami registry. This image shows <a href="https://registry.origami.ft.com/components/o-table@8.1.2/sassdoc?brand=core">o-table SassDocs</a>.
+        This image show a Github pull request where the `percy` label had been added. Percy then ran to visually compare the component demos in the pull request against the last release, and removed the `percy` label when done.
 	</figcaption>
 </figure>
 
-## JSDoc
-
-Origami components use [JSDoc comments](https://jsdoc.app/about-getting-started.html) to document JavaScript. For example see the existing JSDoc for the `init` method of our `o-example` component, which was generated for us by the `obt init` command:
-
-<pre><code class="o-syntax-highlight--js">// src/js/example.js
-
-/**
- * Initialise o-example component.
- * @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
- * @param {Object} [options={}] - An options object for configuring the component
- */
-static init (rootEl, opts) {
-	// init js here
-}</code></pre>
-
-Similar to SassDoc, JSDoc uses annotations such as `@param` to document parameters. For more annotations see the [JSDoc documentation](https://jsdoc.app). As with Sass, the [`@access`](https://jsdoc.app/tags-access.html) annotation may be used but Origami components consider JavaScript methods which begin with an underscore as private, and those without as public.
-
 <figure>
-	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-18-docs.png" />
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-22-tests.png" />
 	<figcaption>
-        The JSDoc is shown in the Origami registry. This image shows <a href="https://registry.origami.ft.com/components/o-table@8.1.2/jsdoc?brand=core">o-table JSDoc</a>.
+        This image shows an example of the Percy interface. To the left is an image of a component demo, to the right the updated demo with visual changes highlighted in red.
 	</figcaption>
 </figure>
 
-## Documenting Storybook
-TO BE DONE
-## Origami Manifest
+_Don't worry if you are unfamiliar with Github and pull request labels. Later, when releasing our component, we will discuss other available labels and link to helpful Github documentation. For now its useful to know that visual regression tests can be run, even if you're not sure yet how they work._
 
-The `origami.json` manifest file also contributes to the documentation of a component. As we have seen in previous parts of this tutorial `origami.json` includes a component name, description, keywords, demos, demo descriptions, required polyfills, support contacts, maintenance status, and more information which is displayed in the [Origami Registry](https://registry.origami.ft.com/components/).
+## Part Seven: Documentation
 
-It is important to keep `origami.json` up to date throughout the lifecycle of the component.
+Our component is working well and is almost complete. In this tutorial we learned:
+- That `npm run test -w components/o-example` runs Sass, JavaScript, and limited accessibility tests.
+- That `npm run lint -w components/o-example` analyses our component for potential errors.
+- How to write Sass tests for the `npm run test -w components/o-example` command.
+- How to write and run JavaScript tests for the `npm run test -w components/o-example` command.
+- How to highlight visual differences a change has introduced with [percy.io](https://percy.io/).
 
-## Part Eight: Component Lifecycle
-
-In this part we learnt:
-
-- Component documentation follows [tone & language principles](/documentation/principles/tone-and-language/).
-- What's in a components readme.
-- That we can document Sass apis with Sassdoc.
-- That we can document JavaScript apis with JSDoc.
-- That we can storybook demos.
-- The role of `origami.json` in documentation.
-
-In the next part we will publish our component and discuss the lifecycle of a published component. [Continue to part nine](/documentation/tutorials/create-a-new-component-part-8).
+So far we have missed a crucial part of creating a component: documentation. Without documentation our component will be difficult for users to include in projects and future development may be hindered. In part eight we'll document our component in a way that is familiar to users and maintainers of other Origami components. [Continue to part eight](/documentation/tutorials/create-a-new-component-part-7).

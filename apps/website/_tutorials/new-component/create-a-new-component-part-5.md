@@ -17,7 +17,7 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. JavaScript
-6. [Storybook](/documentation/tutorials/create-a-new-component-part-storybook/)
+6. [Storybook](/documentation/tutorials/create-a-new-component-part-6/)
 7. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
 8. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
 9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
@@ -310,4 +310,4 @@ In part five we learnt how to make our component interactive with JavaScript, co
 - How to update the <abbr title="Document Object Model">DOM</abbr> with component JavaScript.
 - How to handle no JavaScript at all, to meet Financial Times browser support requirements.
 
-In part six we'll look at writing storybook templates for our component. [Continue to part six](/documentation/tutorials/create-a-new-component-part-storybook).
+In part six we'll look at writing storybook templates for our component. [Continue to part six](/documentation/tutorials/create-a-new-component-part-6).
