@@ -28,42 +28,40 @@ _We don't actually want to publish an example component `o-example`. If you have
 
 ## Source Control
 
-Origami components are store in [Origami monorepo](https://github.com/Financial-Times/origami) under components. We will start by commiting the boilerplate as an initial commit. We use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to write commit messages. For example:
+Origami components are stored in [Origami monorepo](https://github.com/Financial-Times/origami) under components. We will start by committing the boilerplate as an initial commit. Our commit messages use a simplified form of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). This is how our automated release system knows what a given commit means.
+
+<pre><code class="o-syntax-highlight--bash">
+[type]: [description]
+
+[body]
+</code></pre>
+
+The `type` can be any of `feat`, `fix`, `docs` or `backstage`.
+
+The prefix is used to calculate the semver release level, and the section of the release notes to place the commit message in.
+<pre><code class="o-syntax-highlight--bash">
+| type      | when to use                         | release level | release note section |
+| --------- | ----------------------------------- | ------------- | -------------------- |
+| feat      | a feature has been added            | `minor`       | Feature              |
+| fix       | a bug has been patched              | `patch`       | Bug fixes            |
+| docs      | a change to documentation           | none          | Documentation        |
+| backstage | any changes that aren't user-facing | none          | none                 |
+</code></pre>
+Indicate a breaking change by placing an `!` between the type name and the colon. And we will use `feat!` type to do initial release.
 
 <pre><code class="o-syntax-highlight--bash">git add --all
-git commit -m 'feat: my o-example component'
+git commit -m 'feat!: create my o-example component'
 git push</code></pre>
 
 After pushing your commits you should be able to open a pull request. If you have never open a PR(pull request) you can read more about it on [github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 
 _To be able to opon a PR you will need to be part of [origami collaborators](https://github.com/orgs/Financial-Times/teams/origami-collaborators) team and if you are not a member already ask [#origami-support](https://financialtimes.slack.com/archives/C02FU5ARJ) to help you._
-## Initial Release
-
-Lets release the first version our new component. This will display our component in the Origami Registry and send a Slack notification to `{{site.data.contact.slack}}`.
-
-Our first release will be `1.0.0` following the [semver specification](https://semver.org/). Origami components [do not release versions lower than 1.0.0](/specification/v1/components/#component-release) but you may choose to release a beta `1.0.0-beta.1` again following the [semver specification](https://semver.org/).
-
-Before we release, this is a good time to update the components [support status](/specification/v1/manifest/#supportstatus) in `origami.json` according to whether this release of the component will be `experimental` (the component is not ready for production use), or `active` (feature development ongoing, bug reports will be gratefully received and acted upon promptly), etc.
-
-To release an Origami component create a git tag named after the semver version but beginning with a `v` e.g. `v1.0.0`. Create the tag either through the [Github release interface](https://docs.github.com/en/github/administering-a-repository/managing-releases-in-a-repository) or through the command line:
-
-<pre><code class="o-syntax-highlight--bash">git tag v1.0.0
-git push origin v1.0.0</code></pre>
-
-Within a couple of minutes at most, your component should be visible in the [Origami Registry](https://registry.origami.ft.com/components?module=true&active=true&maintained=true&experimental=true) and should be published to the npm registry](https://www.npmjs.com/~the-ft) 🎉. If not you may want to confirm that the `npm run test -w components/o-example` and `npm run lint -w components/o-example` commands pass without error, check the output of the Github Actions under the 'Actions" tab, or contact the Origami team for support in the `#{{site.data.contact.slack}}` Slack channel.
 
 ## Subsequent Releases
 
-After the first release Origami components may be released automatically by applying one of the Origami labels `release:patch`, `release:minor`, or `release:major` to pull requests (see [Github instructions on applying labels](https://docs.github.com/en/github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests)). When a pull request is merged with a release label a Github Action will create a new [semver](https://semver.org/) git tag according to which label was used. A comment on the pull request will let you know what version number was released.
+After the first release Origami components may be released automatically by using conventional commits. You will need to figure out what counts as a breaking change, and what counts as a feature or patch and use correct commit message.
 
-<figure>
-	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-20-github.png" />
-	<figcaption>
-        This image shows a component pull request which has been merged and released. The `release:patch` label was first added to the pull request. It was then merged. A Github action responded to the release label on merge. It checked the latest release number `v8.1.1` and, as a patch release, calculated the next version should be `v8.1.2`. The Github action then created a new tag `v8.1.2` to release the new version and posted a comment on the pull request.
-	</figcaption>
-</figure>
-
-The [semver specification](https://semver.org/) documents what constitutes a major, minor, or patch release. There are also some [Origami specific considerations](/documentation/components/versioning/#how-components-are-versioned) to keep in mind when versioning a component. For example we may opt to release a major version of a component even with a compatible <abbr title="application programming interface">api</abbr> if it includes drastic visual changes.
+We use [semver specification](https://semver.org/) for new releases. The [semver specification](https://semver.org/) documents what constitutes a major, minor, or patch release. There are also some [Origami specific considerations](/documentation/components/versioning/#how-components-are-versioned) to keep in mind when versioning a component. For example we may opt to release a major version of a component even with a compatible <abbr title="application programming interface">api</abbr> if it includes drastic visual changes.
 
 ## Component Lifecycle
 
