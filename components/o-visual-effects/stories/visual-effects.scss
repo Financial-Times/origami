@@ -25,7 +25,7 @@
     background-color: oColorsByName('white');
 		border: 3px dashed oColorsByName('black');
   } @else {
-		background-color: oColorsByName('teal-100');
+	  background-color: oColorsByName('teal-100');
 		border: 3px dashed oColorsByName('slate');
   }
 	width: var(--demo-size);
