@@ -6,6 +6,7 @@
     "storybook": "start-storybook -p ${PORT:-6969} -c ./config",
     "build-sb:core": "ORIGAMI_STORYBOOK_BRAND=core build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/brands/core",
     "build-sb:internal": "ORIGAMI_STORYBOOK_BRAND=internal build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/brands/internal",
+    "build-sb:whitelabel": "ORIGAMI_STORYBOOK_BRAND=whitelabel build-storybook --modern -c ./config -o ../../origami.ft.com/storybook/brands/whitelabel",
     "build-storybook": "run-p build-sb:*",
     "watch-storybook": "npm run build-storybook -- -w"
   },
