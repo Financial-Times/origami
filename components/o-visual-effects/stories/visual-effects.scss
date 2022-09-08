@@ -21,8 +21,13 @@
 
 .demo-transition {
 	--demo-size: min(50vh, 50vw);
-	background-color: oColorsByName('teal-100');
-	border: 3px dashed oColorsByName('slate');
+	@if oBrandIs('whitelabel') {
+    background-color: oColorsByName('white');
+		border: 3px dashed oColorsByName('black');
+  } @else {
+		background-color: oColorsByName('teal-100');
+		border: 3px dashed oColorsByName('slate');
+  }
 	width: var(--demo-size);
 	height: var(--demo-size);
 	transition: all var(--demo-transition-duration) var(--demo-transition-timing-function);
