@@ -28,7 +28,7 @@ _We don't actually want to publish an example component `o-example`. If you have
 
 ## Source Control
 
-Origami components are stored in [Origami monorepo](https://github.com/Financial-Times/origami) under components. We will start by committing the boilerplate as an initial commit. Our commit messages use a simplified form of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). This is how our automated release system knows what a given commit means.
+Origami components are stored in the [Origami monorepo](https://github.com/Financial-Times/origami), under the `components` directory. We will start by committing the boilerplate as an initial commit. Our commit messages use a simplified form of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). Origami component's release process is automated using commit messages to identify the next version number to release, so it's important to use conventional commits.
 
 <pre><code class="o-syntax-highlight--bash">
 [type]: [description]
@@ -38,7 +38,7 @@ Origami components are stored in [Origami monorepo](https://github.com/Financial
 
 The `type` can be any of `feat`, `fix`, `docs` or `backstage`.
 
-The prefix is used to calculate the semver release level, and the section of the release notes to place the commit message in.
+The prefix is used to calculate the version number to release – according to [semver](https://semver.org/#summary) – and the section of the release notes to place the commit message in.
 <pre><code class="o-syntax-highlight--bash">
 | type      | when to use                         | release level | release note section |
 | --------- | ----------------------------------- | ------------- | -------------------- |
@@ -47,15 +47,15 @@ The prefix is used to calculate the semver release level, and the section of the
 | docs      | a change to documentation           | none          | Documentation        |
 | backstage | any changes that aren't user-facing | none          | none                 |
 </code></pre>
-Indicate a breaking change by placing an `!` between the type name and the colon. And we will use `feat!` type to do initial release.
+Indicate a breaking change by placing an `!` between the type name and the colon. We will use `feat!` to do an initial release.
 
 <pre><code class="o-syntax-highlight--bash">git add --all
 git commit -m 'feat!: create my o-example component'
 git push</code></pre>
 
-After pushing your commits you should be able to open a pull request. If you have never open a PR(pull request) you can read more about it on [github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+After pushing your commits you should be able to open a pull request. If you have never open a PR (pull request) you can read more about it in [github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 
-_To be able to opon a PR you will need to be part of [origami collaborators](https://github.com/orgs/Financial-Times/teams/origami-collaborators) team and if you are not a member already ask [#origami-support](https://financialtimes.slack.com/archives/C02FU5ARJ) to help you._
+_To be able to opon a PR you will need to be part of [origami collaborators](https://github.com/orgs/Financial-Times/teams/origami-collaborators) team. If you are not a member already ask [#origami-support](https://financialtimes.slack.com/archives/C02FU5ARJ) to help you._
 
 ## Subsequent Releases
 
