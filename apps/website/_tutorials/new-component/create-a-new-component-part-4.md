@@ -59,7 +59,7 @@ We could create a new mustache template for our new theme demo, but as our theme
 ]
 </code></pre>
 
-Now if you refresh your browser on local dev server (e.g. `localhost:5000`) you should be able to find `demo-inverse.html` generated next to other assets of the component. To actually show the inverse theme we need to update the template `demos/src/demo.mustache` to use the data `{ "theme": "inverse" }` we have passed to it. In the code snippet below, we output the theme modifier class if a theme variable is found (see the [mustache documentation](https://mustache.github.io/mustache.5.html))
+Now if you refresh your browser you should be able to find `demo-inverse.html` generated next to other assets of the component. To actually show the inverse theme we need to update the template `demos/src/demo.mustache` to use the data `{ "theme": "inverse" }` we have passed to it. In the code snippet below, we output the theme modifier class if a theme variable is found (see the [mustache documentation](https://mustache.github.io/mustache.5.html))
 
 <pre><code class="o-syntax-highlight--diff">&lt;!-- demos/src/demo.mustache -->
 

@@ -41,11 +41,11 @@ When prompted by `npm run create-component` in [part one](/documentation/tutoria
 
 ### Switching Brands In Development
 
-When building a branded Origami component it will generate component assets (<abbr title="Hyper Text Markup Language">HTML</abbr>, <abbr title="JavaScript">JS</abbr>, and <abbr title="Cascading Style Sheets ">CSS</abbr> files) for each brand in `local` folder inside the component directory.
+When building a branded Origami component it will generate component assets (<abbr title="Hyper Text Markup Language">HTML</abbr>, <abbr title="JavaScript">JS</abbr>, and <abbr title="Cascading Style Sheets ">CSS</abbr> files) for each brand.
 
-To switch between brands you can simple go back to development URL (e.g `localhost:5000`) and choose correct brand HTML file. Alternatively, you can manually change url end point from `/core-demo` to `/internal-demo`.
+To switch between brands go back to your development URL (e.g `localhost:5000`) and choose the correct brand HTML file. Alternatively, you can manually change the url end point from `/core-demo` to `/internal-demo`.
 
-Once URL is updated you should see in our demo the background colour has changed from a wheat colour to a light slate colour. That's because wheat is not part of the [internal brand colour palette](https://registry.origami.ft.com/components/o-colors@6.4.2/?brand=internal#demo-primary-palette). As we used a colour usecase `oColorsByUsecase('box', 'background')` in [part two](/documentation/tutorials/create-a-new-component-part-2), rather than specify a specific colour, it was updated automatically for the internal brand.
+Once the URL is updated you should see in our demo the background colour has changed from a wheat colour to a light slate colour. That's because wheat is not part of the [internal brand colour palette](https://registry.origami.ft.com/components/o-colors@6.4.2/?brand=internal#demo-primary-palette). As we used a colour usecase `oColorsByUsecase('box', 'background')` in [part two](/documentation/tutorials/create-a-new-component-part-2), rather than specify a specific colour, it was updated automatically for the internal brand.
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-5-sass.png" />
@@ -54,7 +54,7 @@ Once URL is updated you should see in our demo the background colour has changed
 	</figcaption>
 </figure>
 
-Do the same for the whitelabel brand by changing/choosing `whitelabel-demo.html` file from rendered assets. Maybe you already noticed, but if you look at our terminal logs you should see a Sass error `Error: 'The color "slate" does not exist.`. This error is because we set a border colour by name `oColorsByName('slate')` in [part two](/documentation/tutorials/create-a-new-component-part-2), but slate is not in the limited [whitelabel colour palette](https://registry.origami.ft.com/components/o-colors@6.4.2/?brand=whitelabel#demo-primary-palette).
+Do the same for the whitelabel brand by changing/choosing the `whitelabel-demo.html` file from rendered assets. Maybe you already noticed, but if you look at our terminal logs you should see a Sass error `Error: 'The color "slate" does not exist.`. This error is because we set a border colour by name `oColorsByName('slate')` in [part two](/documentation/tutorials/create-a-new-component-part-2), but slate is not in the limited [whitelabel colour palette](https://registry.origami.ft.com/components/o-colors@6.4.2/?brand=whitelabel#demo-primary-palette).
 
 To fix this error we need to set the border colour of our component differently depending on which brand is being used.
 
