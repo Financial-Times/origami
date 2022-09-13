@@ -139,7 +139,7 @@ Now run `npm run test -w components/o-example`. You should see our new tests are
 
 To check all component demos for any visual bugs that may have been introduced accidentally as part of a change may be rather taxing as a manual piece of work. To help, demos may be run through [percy.io](https://percy.io/) to highlight visual differences between two versions of a component automatically.
 
-We can't run Percy yet as we haven't released a version of our component to compare changes against. But later, when we have released our component, you will be able to run [percy.io](https://percy.io/) by adding a `percy` label to Github pull requests. When Percy has run a comment is added to the pull request, and the demo comparisons are ready for review at [percy.io/Financial-Times](https://percy.io/Financial-Times/).
+We can't run Percy yet as we haven't released a version of our component to compare changes against. But later, when we have released our component, [percy.io](https://percy.io/) will run automatically against new pull requests.
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-21-tests.png" />
@@ -155,7 +155,6 @@ We can't run Percy yet as we haven't released a version of our component to comp
 	</figcaption>
 </figure>
 
-_Don't worry if you are unfamiliar with Github and pull request labels. Later, when releasing our component, we will discuss other available labels and link to helpful Github documentation. For now its useful to know that visual regression tests can be run, even if you're not sure yet how they work._
 
 ## Part Seven: Documentation
 
