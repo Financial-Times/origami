@@ -31,7 +31,7 @@ In this tutorial we'll build an Origami component. Our example component will di
 
 Before you get started, it's a good idea to discuss your new component with the Origami team first. The team will be able to make sure there's not an existing component or [component proposal](https://github.com/Financial-Times/origami#Proposals) that fulfils the same purpose, and will be available to answer any questions.
 
-This tutorial introduces assumes some knowledge. For example we introduce a number of tools and libraries such as [git](https://git-scm.com/), [Sass](https://sass-lang.com/), [storybook](https://storybook.js.org/), etc. We do not cover these in depth but attempt to include brief descriptions and links to relevant documentation so that you may learn separately about the parts which are new to you.
+This tutorial assumes some knowledge. For example we introduce a number of tools and libraries such as [git](https://git-scm.com/), [Sass](https://sass-lang.com/), [storybook](https://storybook.js.org/), etc. We do not cover these in depth but attempt to include brief descriptions and links to relevant documentation so that you may learn separately about the parts which are new to you.
 
 If you have any questions please contact the Origami team to help make this tutorial better &#x1F603;. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}" target="_blank">#{{site.data.contact.slack}}</a>.
 
