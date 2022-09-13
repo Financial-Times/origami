@@ -337,7 +337,7 @@ class Autocomplete {
 						this.options.onConfirm(option);
 					}
 				},
-				autoselect: true,
+				autoselect: false,
 				defaultValue: '',
 				placeholder: '',
 				cssNamespace: 'o-autocomplete',
