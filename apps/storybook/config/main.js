@@ -58,6 +58,9 @@ function getComponentBrands(cwd) {
 
 module.exports.core = {
 	builder: "webpack5",
+	options: {
+		lazyCompilation: true,
+	},
 }
 
 module.exports.stories = (async () => {
@@ -160,3 +163,8 @@ module.exports.env = (config) => ({
     ...config,
 	ORIGAMI_STORYBOOK_BRAND: brand
 })
+
+
+module.exports.features = {
+	buildStoriesJson: true
+}
