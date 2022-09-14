@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.6.2...o-autocomplete-v1.7.0) (2022-09-14)
+
+
+### Features
+
+* autocomplete, add a `defaultValue` for a default input value ([#812](https://www.github.com/Financial-Times/origami/issues/812)) ([70a77ae](https://www.github.com/Financial-Times/origami/commit/70a77ae218c9c19967fe3bb32c18206d7cd9c2c3))
+
 ### [1.6.2](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.6.1...o-autocomplete-v1.6.2) (2022-04-21)
 
 
