@@ -192,9 +192,9 @@ Clicking the <abbr title="Hyper Text Markup Language">HTML</abbr> file `core-dem
 
 ## Markup
 
-Origami components are not built to work with any particular framework in mind. This is because product developers may choose to use any technology stack to build their application, and it’s important that they not be forced to choose a particular one in order to use Origami components. With that in mind Origami components are not written in a templating language or a framework but in plain <abbr title="Hyper Text Markup Language">HTML</abbr>. Some of the origami component also have [storybook demos](/documentation/tutorials/create-a-new-component-part-6/) and they are rewritten in TSX markup. This is something we think is the future for origami but until we have a full migration we will continue to write demos in mustache and TSX.
+Origami components are not built to work with any particular framework in mind. This is because product developers may choose to use any technology stack to build their application, and it’s important that they not be forced to choose a particular one in order to use Origami components. With that in mind Origami components are not written in a templating language or a framework but in plain <abbr title="Hyper Text Markup Language">HTML</abbr>. However some Origami components do provide complimentary TSX templates, which may be used optionally.
 
-Therefore to include component HTML Origami users copy and paste component HTML from the readme `README.md`, interactive component demos which are presented in the [Origami registry](https://registry.origami.ft.com/components/) or from [storybook page](https://origami.ft.com/storybook/).
+Therefore to include component HTML Origami users copy and paste component HTML from the readme `README.md`, interactive component demos which are presented in the [Origami registry](https://registry.origami.ft.com/components/) or from [Storybook page](https://origami.ft.com/storybook/).
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/example-demo-registry.png" />
