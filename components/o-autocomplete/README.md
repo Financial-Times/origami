@@ -43,7 +43,7 @@ To provide a static set of suggestions, we recommend using a `select` element. o
 
 ### For a dynamic set of suggestions
 
-To provide a dynamic set of suggestions, you will need to provide a javascript function or name of a javascript function on the window object which follows the [dynamic-suggestions-function](dynamic-suggestions-function) <abbr title="application programming interface">API</abbr>.
+To provide a dynamic set of suggestions, provide a javascript function or name of a javascript function on the window object which follows the [dynamic-suggestions-function](#dynamic-suggestions-function) <abbr title="application programming interface">API</abbr>.
 
 The input element requires an `id` attribute, this is used within the component to implement the accessibility features.
 ```html
@@ -56,12 +56,12 @@ The input element requires an `id` attribute, this is used within the component 
 
 To have styling for labels, you will need to use [o-forms](https://registry.origami.ft.com/components/o-forms) as part of the autocomplete implementation.
 
-Below is an example of how to combine o-forms and o-autocomplete components together:
+Below is an example of how to combine o-forms and o-autocomplete components together. Note the `label` and `select` element are connected using `for` and `id` attributes.
 ```html
-<label class="o-forms-field" >
-    <span class="o-forms-title">
+<span class="o-forms-field" >
+    <label for="my-autocomplete" class="o-forms-title">
         <span class="o-forms-title__main">Select your country</span>
-    </span>
+    </label>
     <span class="o-forms-input o-forms-input--select">
         <span data-o-component="o-autocomplete" class="o-autocomplete">
             <select id="my-autocomplete">
@@ -70,7 +70,7 @@ Below is an example of how to combine o-forms and o-autocomplete components toge
             </select>
         </span>
     </span>
-</label>
+</span>
 ```
 ## Sass
 
@@ -101,7 +101,6 @@ import oAutocomplete from 'o-autocomplete';
 const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
 new oAutocomplete(oAutocompleteElement);
 ```
-
 ### dynamic suggestions function
 
 #### Example
@@ -111,7 +110,7 @@ import oAutocomplete from 'o-autocomplete';
 
 /**
  * @callback PopulateOptions
- * @param {Array<*>} options - The options which match the rext which was typed into the autocomplete by the user
+ * @param {Array<*>} options - The options which match the text which was typed into the autocomplete by the user
  * @returns {void}
  */
 /**
@@ -237,6 +236,13 @@ new oAutocomplete(oAutocompleteElement, {
 | --- | --- | --- |
 | option | <code>\*</code> | The option the user selected |
 
+#### `defaultValue` (default: `''`)
+
+Type: `string`
+
+If setting a default input value for a [dynamic set of suggestions](for-a-dynamic-set-of-suggestions) set the `defaultValue` option.
+
+_When progressively enhancing a [static set of suggestions](#for-a-static-set-of-suggestions) set a default value using HTML, by providing an appropriate `option` element._
 
 ## Keyboard Support
 
