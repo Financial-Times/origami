@@ -192,9 +192,9 @@ Clicking the <abbr title="Hyper Text Markup Language">HTML</abbr> file `core-dem
 
 ## Markup
 
-Origami components are not built to work with any particular framework in mind. This is because product developers may choose to use any technology stack to build their application, and it’s important that they not be forced to choose a particular one in order to use Origami components. With that in mind Origami components are not written in a templating language or a framework but in plain <abbr title="Hyper Text Markup Language">HTML</abbr>.
+Origami components are not built to work with any particular framework in mind. This is because product developers may choose to use any technology stack to build their application, and it’s important that they not be forced to choose a particular one in order to use Origami components. With that in mind Origami components are not written in a templating language or a framework but in plain <abbr title="Hyper Text Markup Language">HTML</abbr>. Some of the origami component also have [storybook demos](/documentation/tutorials/create-a-new-component-part-6/) and they are rewritten in TSX markup. This is something we think is the future for origami but until we have a full migration we will continue to write demos in mustache and TSX.
 
-Therefore to include component HTML Origami users copy and paste component HTML from the readme `README.md` or interactive component demos which are presented in the [Origami registry](https://registry.origami.ft.com/components/).
+Therefore to include component HTML Origami users copy and paste component HTML from the readme `README.md`, interactive component demos which are presented in the [Origami registry](https://registry.origami.ft.com/components/) or from [storybook page](https://origami.ft.com/storybook/).
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/example-demo-registry.png" />
@@ -237,7 +237,7 @@ In part one we learnt:
 - The [Origami specification](/specification/v1/) is deprecated, but some sections provide a useful reference to create components compatible with Origami tools and services whilst they are updated.
 - Specifically, we learnt about the `npm run create-component` command to generate a component to work from when developing a new component.
 - Origami components are generated inside `components` directory and are stored remotely on Github.
-- Origami components HTML markup is usually copied by users from component demos rather than from templates.
+- Origami components HTML markup is usually copied by users from origami registry or from storybook demos.
 - And finally we learnt how to update the markup in one of those demos.
 
 Now we know how to update our component markup, in part two we will style our component. [Continue to part two](/documentation/tutorials/create-a-new-component-part-2).
