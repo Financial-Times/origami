@@ -144,7 +144,7 @@ We can't run Percy yet as we haven't released a version of our component to comp
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-21-tests.png" />
 	<figcaption>
-        This image show a Github pull request where the `percy` label had been added. Percy then ran to visually compare the component demos in the pull request against the last release, and removed the `percy` label when done.
+				Percy checks are run automatically and this image shows a Github pull request where the `percy` has already ran to visually compare `o-autocomplete` demos in the pull request against the last release.
 	</figcaption>
 </figure>
 
