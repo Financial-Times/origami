@@ -22,7 +22,7 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 8. [Documentation](/documentation/tutorials/create-a-new-component-part-8/)
 9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-9/)
 
-In part four we will create new demos to showcase the themes we created in [part three](/documentation/tutorials/create-a-new-component-part-3).
+In part four we will create new demos to showcase the themes we created in [part three](/documentation/tutorials/create-a-new-component-part-3). The demos we create in this part are for our old Origami registry. Until full migration to storybook this is still very important but in near feature all demos will be moved to storybook and we will cover this in [part six](/documentation/tutorials/create-a-new-component-part-6/).
 
 ## Add More Demos
 
