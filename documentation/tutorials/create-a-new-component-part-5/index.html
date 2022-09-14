@@ -170,16 +170,17 @@
 <div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
 	<h1 id="create-a-new-origami-component---part-5-javascript">Create A New Origami Component - Part 5 JavaScript</h1>
 
-<p>The “Create A New Origami Component” tutorial is split into eight parts and is intended to be followed sequentially from start to finish:</p>
+<p>The “Create A New Origami Component” tutorial is split into nine parts and is intended to be followed sequentially from start to finish:</p>
 <ol>
   <li><a href="/documentation/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-2/">Base Styles</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-3/">Themes &amp; Brands</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-4/">Demos</a></li>
   <li>JavaScript</li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-6/">Testing</a></li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-7/">Documentation</a></li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-8/">Component Lifecycle</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-6/">Storybook</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-7/">Testing</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-8/">Documentation</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-9/">Component Lifecycle</a></li>
 </ol>
 
 <p>In part five we will add interactivity to our component using JavaScript. For reference, there is a <a href="/specification/v1/components/javascript/">JavaScript part of the component specification</a> which we will be conforming to.</p>
@@ -228,9 +229,9 @@ oExample.init('.my-selector');</code></pre>
 
 <h2 id="user-configuration">User Configuration</h2>
 
-<p>The second <code class="language-plaintext highlighter-rouge">init</code> argument is <code class="language-plaintext highlighter-rouge">opts</code>, an <code class="language-plaintext highlighter-rouge">Object</code> of options for the user to configure the component. So users of <a href="https://registry.origami.ft.com/components/o-autoinit@2.0.4/readme">o-autoinit</a> or the <a href="https://www.ft.com/__origami/service/build/v2/">Origami Build Service</a> can also configure components, data attributes may alternatively be used to set component configuration.</p>
+<p>The second <code class="language-plaintext highlighter-rouge">init</code> argument is <code class="language-plaintext highlighter-rouge">options</code>, an <code class="language-plaintext highlighter-rouge">Object</code> of options for the user to configure the component. So users of <a href="https://registry.origami.ft.com/components/o-autoinit@2.0.4/readme">o-autoinit</a> or the <a href="https://www.ft.com/__origami/service/build/v3/">Origami Build Service</a> can also configure components, data attributes may alternatively be used to set component configuration.</p>
 
-<p>In <code class="language-plaintext highlighter-rouge">/src/js/example</code> setting component configuration is handled in the constructor. The <code class="language-plaintext highlighter-rouge">this.options</code> property is assigned to the given <code class="language-plaintext highlighter-rouge">opts</code> object, which is merged with any data attributes that have a namespace <code class="language-plaintext highlighter-rouge">data-o-example-[option]</code>.</p>
+<p>In <code class="language-plaintext highlighter-rouge">/src/js/example</code> setting component configuration is handled in the constructor. The <code class="language-plaintext highlighter-rouge">this.options</code> property is assigned to the given <code class="language-plaintext highlighter-rouge">optionions</code> object, which is merged with any data attributes that have a namespace <code class="language-plaintext highlighter-rouge">data-o-example-[option]</code>.</p>
 
 <p>For instance the <code class="language-plaintext highlighter-rouge">o-table</code> component has a sort feature which may be disabled by either passing <code class="language-plaintext highlighter-rouge">{sortable: false}</code> to the <a href="https://registry.origami.ft.com/components/o-table@8.0.11/jsdoc?brand=core"><code class="language-plaintext highlighter-rouge">o-table</code> <code class="language-plaintext highlighter-rouge">init</code> method</a> or by adding the <a href="https://registry.origami.ft.com/components/o-table@8.0.11/readme?brand=core#disable-sort"><code class="language-plaintext highlighter-rouge">data-o-table-sortable="false"</code></a> attribute to the <code class="language-plaintext highlighter-rouge">o-table</code> element.</p>
 
@@ -251,10 +252,10 @@ oExample.init('.my-selector');</code></pre>
 	 * @param {HTMLElement} [exampleEl] - The component element in the DOM
 	 * @param {Object} [options={}] - An options object for configuring the component
 	 */
-	constructor (exampleEl, opts) {
+	constructor (exampleEl, optionions) {
 		this.exampleEl = exampleEl;
 		this.options = Object.assign({}, {
-		}, opts || Example.getDataAttributes(exampleEl));
+		}, optionions || Example.getDataAttributes(exampleEl));
 		// A property to store the current count.
 		this.count = 0;
 		// Listen to all click events on the o-example instance.
@@ -318,24 +319,24 @@ handleEvent(event) {
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-13-js.png" />
 	<figcaption>
-        The `o-example` component now displays how many times the button has been clicked. Here it has been clicked over 100 times.
+        The `o-example` component now displays how many times the button has been clicked. Here it has been clicked over 10 times.
 	</figcaption>
 </figure>
 
-<p>Our example component now displays the click count. In the example above the button has been clicked over 100 times (what fun!) Instead of counting clicks infinitely, we should update the count to display a message “lots and lots of” after a user defined number of clicks.</p>
+<p>Our example component now displays the click count. In the example above the button has been clicked over 10 times (what fun!) Instead of counting clicks infinitely, we should update the count to display a message “lots and lots of” after a user defined number of clicks.</p>
 
-<p>To do that add an option <code class="language-plaintext highlighter-rouge">highCount</code> in the constructor, with a default value of <code class="language-plaintext highlighter-rouge">100</code>:</p>
+<p>To do that add an option <code class="language-plaintext highlighter-rouge">highCount</code> in the constructor, with a default value of <code class="language-plaintext highlighter-rouge">10</code>:</p>
 
 <pre><code class="o-syntax-highlight--js">// src/js/example.js
 
-constructor (exampleEl, opts) {
+constructor (exampleEl, optionions) {
         this.exampleEl = exampleEl;
-        // Get the `highCount` option from the `opts` argument or
+        // Get the `highCount` option from the `optionions` argument or
         // from a `data-o-example-high-count` data attribute, or
-        // default to `100` if not set.
+        // default to `10` if not set.
 		this.options = Object.assign({}, {
-            highCount: 100
-		}, opts || Example.getDataAttributes(exampleEl));
+            highCount: 10
+		}, options || Example.getDataAttributes(exampleEl));
 		// A property to store the current count.
 		this.count = 0;
 		// Listen to all click events on the o-example instance.
@@ -366,7 +367,7 @@ handleEvent(event) {
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-14-js.png" />
 	<figcaption>
-        The `o-example` component now says it has been clicked "lots and lots of time" if the click count is 100 or greater.
+        The `o-example` component now says it has been clicked "lots and lots of time" if the click count is 10 or greater.
 	</figcaption>
 </figure>
 
@@ -384,10 +385,10 @@ handleEvent(event) {
 
 <pre><code class="o-syntax-highlight--diff">// src/js/example.js
 
-constructor (exampleEl, opts) {
+constructor (exampleEl, optionions) {
 		this.exampleEl = exampleEl;
 		this.options = Object.assign({}, {
-		}, opts || Example.getDataAttributes(exampleEl));
+		}, optionions || Example.getDataAttributes(exampleEl));
 		// A property to store the current count.
 		this.count = 0;
 		// Listen to all click events on the o-example instance.
@@ -397,18 +398,18 @@ constructor (exampleEl, opts) {
 +		this.exampleEl.setAttribute('data-o-example-js', '');
 	}</code></pre>
 
-<p>Next lets wrap any the counter specific part of <code class="language-plaintext highlighter-rouge">o-example</code> markup in a <code class="language-plaintext highlighter-rouge">span</code> element with the class <code class="language-plaintext highlighter-rouge">o-example__counter</code>:</p>
+<p>Next lets wrap any counter specific part of <code class="language-plaintext highlighter-rouge">o-example</code> markup in a <code class="language-plaintext highlighter-rouge">span</code> element with the class <code class="language-plaintext highlighter-rouge">o-example__counter</code>:</p>
 
 <pre><code class="o-syntax-highlight--html">&lt;!-- demos/src/demo.mustache  --&gt;
 
-&lt;div id="element" class="o-example" data-o-component="o-example"&gt;
+&lt;div id="element" class="o-example &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}} &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}}" data-o-component="o-example"&gt;
 	Hello world, I am a component named o-example!
 	&lt;span class="o-example__counter"&gt;
 		You have clicked this lovely button &lt;span data-o-example-current-count&gt;0&lt;/span&gt; times.
 		&lt;button class="o-example__button"&gt;count&lt;/button&gt;
-	&lt;span&gt;
+	&lt;//span&gt;
 &lt;/div&gt;
-}
+
 </code></pre>
 
 <p>We can then then add CSS to <code class="language-plaintext highlighter-rouge">main.scss</code> to hide the counter element <code class="language-plaintext highlighter-rouge">o-example__counter</code> until the data attribute <code class="language-plaintext highlighter-rouge">data-o-example-js</code> has been added:</p>
@@ -462,25 +463,17 @@ constructor (exampleEl, opts) {
 	</figcaption>
 </figure>
 
-<h3 id="polyfills">Polyfills</h3>
-
-<p>The core and enhanced experience cover an all or nothing approach. In some cases two browsers which receive the enhanced experience may not offer the same set of JavaScript features. In these cases <a href="https://polyfill.io/">polyfill.io</a> may be used to add missing or broken JavaScript features to browsers we need to support (<a href="https://docs.google.com/document/d/1z6kecy_o9qHYIznTmqQ-IJqre72jhfd0nVa4JMsS7Q4/">Financial Times browser support policy</a>).</p>
-
-<p>For example IE11 does not have the <code class="language-plaintext highlighter-rouge">Array.from</code> method, but support may be added with <a href="https://polyfill.io/">polyfill.io</a>. Any feature <a href="https://polyfill.io/">polyfill.io</a> provides may be used by components but must be <a href="/specification/v1/manifest/#browserfeatures">specified as a required feature in origami.json</a>. Listing features in <code class="language-plaintext highlighter-rouge">origami.json</code> means users can find out what polyfills they need to include in their project, and also allows the <code class="language-plaintext highlighter-rouge">obt dev</code> command to include polyfills in the demo.</p>
-
-<p>See the <a href="/specification/v1/components/javascript/#feature-stability-and-polyfills">Feature Stability And Polyfills section of the component specification</a> for more details.</p>
-
-<h2 id="part-six-testing">Part Six: Testing</h2>
+<h2 id="part-six-storybook">Part Six: Storybook</h2>
 
 <p>In part five we learnt how to make our component interactive with JavaScript, covering:</p>
 <ul>
-  <li>JavaScript initialisation using the <code class="language-plaintext highlighter-rouge">init</code> method, or automatically for Origami Build Service users.</li>
+  <li>JavaScript initialisation using the <code class="language-plaintext highlighter-rouge">init</code> method.</li>
   <li>JavaScript configuration using the <code class="language-plaintext highlighter-rouge">init</code> argument or namespaced data attributes.</li>
   <li>How to update the <abbr title="Document Object Model">DOM</abbr> with component JavaScript.</li>
-  <li>How to handle missing JavaScript features, or no JavaScript at all, to meet Financial Times browser support requirements.</li>
+  <li>How to handle no JavaScript at all, to meet Financial Times browser support requirements.</li>
 </ul>
 
-<p>In part six we’ll look at testing our component. <a href="/documentation/tutorials/create-a-new-component-part-6">Continue to part six</a>.</p>
+<p>In part six we’ll look at writing storybook templates for our component. <a href="/documentation/tutorials/create-a-new-component-part-6">Continue to part six</a>.</p>
 
 </div>
 

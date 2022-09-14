@@ -170,16 +170,17 @@
 <div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
 	<h1 id="create-a-new-origami-component---part-3-themes--brands">Create A New Origami Component - Part 3 Themes &amp; Brands</h1>
 
-<p>The “Create A New Origami Component” tutorial is split into eight parts and is intended to be followed sequentially from start to finish:</p>
+<p>The “Create A New Origami Component” tutorial is split into nine parts and is intended to be followed sequentially from start to finish:</p>
 <ol>
   <li><a href="/documentation/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-2/">Base Styles</a></li>
   <li>Themes &amp; Brands</li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-4/">Demos</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-5/">JavaScript</a></li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-6/">Testing</a></li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-7/">Documentation</a></li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-8/">Component Lifecycle</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-6/">Storybook</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-7/">Testing</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-8/">Documentation</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-9/">Component Lifecycle</a></li>
 </ol>
 
 <p>In part three we will build on our work in <a href="/documentation/tutorials/create-a-new-component-part-2">part two</a> by learning how to modify the style of our new component for different contexts.</p>
@@ -199,13 +200,15 @@
 
 <p>Origami components may support one or more brand. The brands a component supports are defined along with other component details in <a href="/specification/v1/manifest/#brands"><code class="language-plaintext highlighter-rouge">origami.json</code></a>, by the <code class="language-plaintext highlighter-rouge">brands</code> property. If <code class="language-plaintext highlighter-rouge">brands</code> is not set the component is “unbranded” and implicitly only supports the “core” brand.</p>
 
-<p>When prompted by <code class="language-plaintext highlighter-rouge">obt init</code> in <a href="/documentation/tutorials/create-a-new-component-part-1">part one</a> we select all brands, so the <code class="language-plaintext highlighter-rouge">origami.json</code> file of our component should include an array of each brand <code class="language-plaintext highlighter-rouge">"brands": ["core","internal","whitelabel"],</code>. If not, update your <code class="language-plaintext highlighter-rouge">origami.json</code> now.</p>
+<p>When prompted by <code class="language-plaintext highlighter-rouge">npm run create-component</code> in <a href="/documentation/tutorials/create-a-new-component-part-1">part one</a> we select all brands, so the <code class="language-plaintext highlighter-rouge">origami.json</code> file of our component should include an array of each brand <code class="language-plaintext highlighter-rouge">"brands": ["core","internal","whitelabel"],</code>. If not, update your <code class="language-plaintext highlighter-rouge">origami.json</code> now.</p>
 
 <h3 id="switching-brands-in-development">Switching Brands In Development</h3>
 
-<p>When developing a branded Origami component pass the <code class="language-plaintext highlighter-rouge">--brand</code> flag to the <code class="language-plaintext highlighter-rouge">obt dev</code> command to switch brand.</p>
+<p>When building a branded Origami component it will generate component assets (<abbr title="Hyper Text Markup Language">HTML</abbr>, <abbr title="JavaScript">JS</abbr>, and <abbr title="Cascading Style Sheets ">CSS</abbr> files) for each brand.</p>
 
-<p>For example to build the <code class="language-plaintext highlighter-rouge">internal</code> version of our component run the command <code class="language-plaintext highlighter-rouge">obt dev --brand internal</code>. You should see in our demo the background colour has changed from a wheat colour to a light slate colour. That’s because wheat is not part of the <a href="https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=internal#demo-primary-palette">internal brand colour palette</a>. As we used a colour usecase <code class="language-plaintext highlighter-rouge">oColorsByUsecase('box', 'background')</code> in <a href="/documentation/tutorials/create-a-new-component-part-2">part two</a>, rather than specify a specific colour, it was updated automatically for the internal brand.</p>
+<p>To switch between brands go back to your development URL (e.g <code class="language-plaintext highlighter-rouge">localhost:5000</code>) and choose the correct brand HTML file. Alternatively, you can manually change the url end point from <code class="language-plaintext highlighter-rouge">/core-demo</code> to <code class="language-plaintext highlighter-rouge">/internal-demo</code>.</p>
+
+<p>Once the URL is updated you should see in our demo the background colour has changed from a wheat colour to a light slate colour. That’s because wheat is not part of the <a href="https://registry.origami.ft.com/components/o-colors@6.4.2/?brand=internal#demo-primary-palette">internal brand colour palette</a>. As we used a colour usecase <code class="language-plaintext highlighter-rouge">oColorsByUsecase('box', 'background')</code> in <a href="/documentation/tutorials/create-a-new-component-part-2">part two</a>, rather than specify a specific colour, it was updated automatically for the internal brand.</p>
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-5-sass.png" />
@@ -214,13 +217,13 @@
 	</figcaption>
 </figure>
 
-<p>Do the same for the whitelabel brand by running <code class="language-plaintext highlighter-rouge">obt dev --brand whitelabel</code>. You should see a Sass error <code class="language-plaintext highlighter-rouge">Error: 'The color "slate" does not exist.</code>. This error is because we set a border colour by name <code class="language-plaintext highlighter-rouge">oColorsByName('slate')</code> in <a href="/documentation/tutorials/create-a-new-component-part-2">part two</a>, but slate is not in the limited <a href="https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=whitelabel#demo-primary-palette">whitelabel colour palette</a>.</p>
+<p>Do the same for the whitelabel brand by changing/choosing the <code class="language-plaintext highlighter-rouge">whitelabel-demo.html</code> file from rendered assets. Maybe you already noticed, but if you look at our terminal logs you should see a Sass error <code class="language-plaintext highlighter-rouge">Error: 'The color "slate" does not exist.</code>. This error is because we set a border colour by name <code class="language-plaintext highlighter-rouge">oColorsByName('slate')</code> in <a href="/documentation/tutorials/create-a-new-component-part-2">part two</a>, but slate is not in the limited <a href="https://registry.origami.ft.com/components/o-colors@6.4.2/?brand=whitelabel#demo-primary-palette">whitelabel colour palette</a>.</p>
 
 <p>To fix this error we need to set the border colour of our component differently depending on which brand is being used.</p>
 
 <h3 id="configuring-brand-variables">Configuring Brand Variables</h3>
 
-<p>To style our component according to the current brand we need to use <a href="https://registry.origami.ft.com/components/o-brand@/readme">o-brand</a>, which <code class="language-plaintext highlighter-rouge">obt init</code> has already added as a dependency.</p>
+<p>To style our component according to the current brand we need to use <a href="https://registry.origami.ft.com/components/o-brand@/readme">o-brand</a>, which <code class="language-plaintext highlighter-rouge">create-component</code> has already added as a dependency.</p>
 
 <p>We will use <code class="language-plaintext highlighter-rouge">o-brand</code> to define a brand variable <code class="language-plaintext highlighter-rouge">border-color</code> in <code class="language-plaintext highlighter-rouge">src/scss/_brand.scss</code>, which is where all our brand configuration will go.</p>
 
@@ -228,7 +231,7 @@
 
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate')
@@ -239,10 +242,10 @@
 
 <p>Lets break down what this is doing.</p>
 
-<p>First, we check if the current brand is the <code class="language-plaintext highlighter-rouge">core</code> brand using the <code class="language-plaintext highlighter-rouge">o-brand</code> function <code class="language-plaintext highlighter-rouge">oBrandGetCurrentBrand</code> and a <a href="https://sass-lang.com/documentation/at-rules/control/if">Sass if statement</a>. We do this to ensure the Sass within the <code class="language-plaintext highlighter-rouge">if</code> statement is only evaluated when the brand is the <code class="language-plaintext highlighter-rouge">core</code> brand:</p>
+<p>First, we check if the current brand is the <code class="language-plaintext highlighter-rouge">core</code> brand using the <code class="language-plaintext highlighter-rouge">o-brand</code> function <code class="language-plaintext highlighter-rouge">oBrandIs()</code> and a <a href="https://sass-lang.com/documentation/at-rules/control/if">Sass if statement</a>. We do this to ensure the Sass within the <code class="language-plaintext highlighter-rouge">if</code> statement is only evaluated when the brand is the <code class="language-plaintext highlighter-rouge">core</code> brand:</p>
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	//...
 }</code></pre>
 
@@ -250,7 +253,7 @@
 
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
         // brand configuration for the core brand here..
     ));
@@ -259,7 +262,7 @@
 <p>Third, we pass configuration to <code class="language-plaintext highlighter-rouge">oBrandDefine</code> for the brand. We set a brand variable <code class="language-plaintext highlighter-rouge">border-color</code> within a <code class="language-plaintext highlighter-rouge">variables</code> map, to the value of the slate colour <code class="language-plaintext highlighter-rouge">oColorsByName('slate')</code>. We also set a property <code class="language-plaintext highlighter-rouge">supports-variants</code>, which we will discuss more shortly.</p>
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate')
@@ -268,12 +271,12 @@
 	));
 }</code></pre>
 
-<p>Now repeat this block for the <code class="language-plaintext highlighter-rouge">internal</code> and <code class="language-plaintext highlighter-rouge">whitelabel</code> brand, but change <code class="language-plaintext highlighter-rouge">border-color</code> to <code class="language-plaintext highlighter-rouge">oColorsByName('black')</code> for the <code class="language-plaintext highlighter-rouge">whitelabel</code> brand (as <code class="language-plaintext highlighter-rouge">slate</code> is not part of the <a href="https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=whitelabel#demo-primary-palette">whitelabel colour palette</a>):</p>
+<p>Now repeat this block for the <code class="language-plaintext highlighter-rouge">internal</code> and <code class="language-plaintext highlighter-rouge">whitelabel</code> brand, but change <code class="language-plaintext highlighter-rouge">border-color</code> to <code class="language-plaintext highlighter-rouge">oColorsByName('black')</code> for the <code class="language-plaintext highlighter-rouge">whitelabel</code> brand (as <code class="language-plaintext highlighter-rouge">slate</code> is not part of the <a href="https://registry.origami.ft.com/components/o-colors@6.4.2/?brand=whitelabel#demo-primary-palette">whitelabel colour palette</a>):</p>
 
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
 // Add core brand configuration.
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate')
@@ -283,7 +286,7 @@
 }
 
 // Add internal brand configuration.
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-example', 'internal', (
 		'variables': (
 			'border-color': oColorsByName('slate')
@@ -293,7 +296,7 @@
 }
 
 // Add whitelabel brand configuration.
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-example', 'whitelabel', (
 		'variables': (
 			'border-color': oColorsByName('black')
@@ -326,12 +329,12 @@
 		margin: oSpacingByName('s1');
 	}</code></pre>
 
-<p>Now when we run <code class="language-plaintext highlighter-rouge">obt dev --brand whitelabel</code> we get a different error! The error is <code class="language-plaintext highlighter-rouge">Could not find a colour for the "box" "background" usecase.</code>. That’s because the whitelabel brand does not support the <a href="https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=core#usecases">box colour usecase</a> we used to set a background. Unlike the core and internal brand, the whitelabel brand is not opinionated and provides a limited set of colour usescases. Instead of using the usecase lets add a new brand variable <code class="language-plaintext highlighter-rouge">background-color</code> so we can support the whitelabel brand as well:</p>
+<p>Now if we check our terminal logs again we get a different error! The error is <code class="language-plaintext highlighter-rouge">Could not find a colour for the "box" "background" usecase.</code>. That’s because the whitelabel brand does not support the <a href="https://registry.origami.ft.com/components/o-colors@6.4.2/readme?brand=core#usecases">box colour usecase</a> we used to set a background. Unlike the core and internal brand, the whitelabel brand is not opinionated and provides a limited set of colour usescases. Instead of using the usecase lets add a new brand variable <code class="language-plaintext highlighter-rouge">background-color</code> so we can support the whitelabel brand as well:</p>
 
 <pre><code class="o-syntax-highlight--diff">// src/scss/_brand.scss
 
 // Add core brand configuration.
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
@@ -342,7 +345,7 @@
 }
 
 // Add internal brand configuration.
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-example', 'internal', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
@@ -353,7 +356,7 @@
 }
 
 // Add whitelabel brand configuration.
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-example', 'whitelabel', (
 		'variables': (
 			'border-color': oColorsByName('black'),
@@ -406,7 +409,7 @@
 
 <p>A component may also support themes within a brand, to allow for variations of the component. Further, some components include a Sass interface for users of the component to generate a custom theme.</p>
 
-<p>Unlike brands, which are set at a global level, a project could include many themes of a component at the same time. For example the <a href="https://registry.origami.ft.com/components/o-message@4.1.3">o-message</a> component has success, error, and inform themes for notices.</p>
+<p>Unlike brands, which are set at a global level, a project could include many themes of a component at the same time. For example the <a href="https://registry.origami.ft.com/components/o-message@5.3.1">o-message</a> component has success, neutral and error themes for alerts.</p>
 
 <p>Now let’s add themes to our <code class="language-plaintext highlighter-rouge">o-example</code> component. For reference there is a <a href="/specification/v1/components/sass/#themes">theme section in the component specification</a>.</p>
 
@@ -438,7 +441,7 @@
 <pre><code class="o-syntax-highlight--diff">// src/scss/_brand.scss
 
 // Add core brand configuration.
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
@@ -456,7 +459,7 @@
 }
 
 // Add internal brand configuration.
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-example', 'internal', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
@@ -471,7 +474,7 @@
 }
 
 // Add whitelabel brand configuration.
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-example', 'whitelabel', (
 		'variables': (
 			'border-color': oColorsByName('black'),
@@ -496,11 +499,11 @@
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
 // Add core brand configuration.
-@if oBrandGetCurrentBrand() == 'core' {
+@if oBrandIs('core') {
 	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
-			'background-color': oColorsByName('wheat')
+			'background-color': oColorsByName('wheat'),
 			'inverse': (
 				'text-color': oColorsByName('white'),
 				'background-color': oColorsByName('slate')
@@ -517,7 +520,7 @@
 }
 
 // Add internal brand configuration.
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-example', 'internal', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
@@ -532,7 +535,7 @@
 }
 
 // Add whitelabel brand configuration.
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-example', 'whitelabel', (
 		'variables': (
 			'border-color': oColorsByName('black'),
@@ -733,7 +736,7 @@
 <ul>
   <li>Origami components may offer a distinct appearance for different brands: core, internal, or whitelabel.</li>
   <li>How to use <code class="language-plaintext highlighter-rouge">o-brand</code> to set and retrieve brand variables in Sass.</li>
-  <li>How to switch brands locally using the <code class="language-plaintext highlighter-rouge">obt dev</code> <code class="language-plaintext highlighter-rouge">--brand</code> flag.</li>
+  <li>How to switch brands locally.</li>
   <li>Origami components may be themed within a brand.</li>
   <li>Some components allow custom themes to be created by the user.</li>
 </ul>

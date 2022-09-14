@@ -170,16 +170,17 @@
 <div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
 	<h1 id="create-a-new-origami-component---part-2-base-styles">Create A New Origami Component - Part 2 Base Styles</h1>
 
-<p>The “Create A New Origami Component” tutorial is split into eight parts and is intended to be followed sequentially from start to finish:</p>
+<p>The “Create A New Origami Component” tutorial is split into nine parts and is intended to be followed sequentially from start to finish:</p>
 <ol>
   <li><a href="/documentation/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
   <li>Base Styles</li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-3/">Themes &amp; Brands</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-4/">Demos</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-5/">JavaScript</a></li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-6/">Testing</a></li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-7/">Documentation</a></li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-8/">Component Lifecycle</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-6/">Storybook</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-7/">Testing</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-8/">Documentation</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-9/">Component Lifecycle</a></li>
 </ol>
 
 <p>In part two we will build on our work in <a href="/documentation/tutorials/create-a-new-component-part-1">part one</a> by learning how to add styles to our new component.</p>
@@ -212,13 +213,6 @@
 	.o-example {
 		display: block;
 	}
-}
-
-@if ($o-example-is-silent == false) {
-	@include oExample();
-
-	// Set to silent again to avoid being output twice
-	$o-example-is-silent: true !global;
 }
 </code></pre>
 
@@ -285,7 +279,7 @@
 }
 </code></pre>
 
-<p>As the demo uses the primary mixin already, refreshing your demo page will show the new styles (provided the <code class="language-plaintext highlighter-rouge">obt dev</code> command is still running from <a href="/documentation/tutorials/create-a-new-component-part-1">part one</a>).</p>
+<p>As the demo uses the primary mixin already, refreshing your demo page will show the new styles (provided the <code class="language-plaintext highlighter-rouge">npm run watch -w components/o-example</code> command is still running from <a href="/documentation/tutorials/create-a-new-component-part-1">part one</a>).</p>
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-2-basic-styles.png" />
@@ -303,9 +297,9 @@
 <h3 id="install-component-dependencies">Install Component Dependencies</h3>
 
 <p>The first step is to install each component we want to use via <a href="https://npmjs.com/">npm</a>:</p>
-<pre><code class="o-syntax-highlight--bash">npm install --save-peer '@financial-times/o-colors@^5.0.0' '@financial-times/o-spacing@^2.0.0' '@financial-times/o-typography@^6.0.0' '@financial-times/o-buttons@^6.0.0'</code></pre>
+<pre><code class="o-syntax-highlight--bash">npm install --save-peer '@financial-times/o-colors@^6.0.0' '@financial-times/o-spacing@^3.0.0' '@financial-times/o-typography@^7.0.0' '@financial-times/o-buttons@^7.0.0'</code></pre>
 
-<p>You should now have a <code class="language-plaintext highlighter-rouge">node_modules</code> directory with all the components we just installed. We can now make their Sass available for us to use with <code class="language-plaintext highlighter-rouge">@import</code> statements at the top of <code class="language-plaintext highlighter-rouge">main.scss</code>.</p>
+<p>We can now make their Sass available for us to use with <code class="language-plaintext highlighter-rouge">@import</code> statements at the top of <code class="language-plaintext highlighter-rouge">main.scss</code>.</p>
 
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
@@ -374,7 +368,7 @@
 }
 </code></pre>
 
-<p>Run <code class="language-plaintext highlighter-rouge">obt dev</code>, if not already, and preview the component demo as in <a href="/documentation/tutorials/create-a-new-component-part-1">part one</a>. You should see the styles have been updated</p>
+<p>Run <code class="language-plaintext highlighter-rouge">npm run watch -w components/o-example</code>, if not already, and preview the component demo as in <a href="/documentation/tutorials/create-a-new-component-part-1">part one</a>. You should see the styles have been updated</p>
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-3-basic-styles.png" />
@@ -387,9 +381,9 @@
 
 <p>In this tutorial we’re aiming to build a component that includes a button which will count the number of times it was clicked, so next we will add a button to our component.</p>
 
-<p>If we were adding buttons to a project we might include the primary Sass mixin <a href="https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=core#mixin-obuttons"><code class="language-plaintext highlighter-rouge">oButtons</code></a> to output CSS for the buttons we want to use. However the primary mixin will output button classes like <code class="language-plaintext highlighter-rouge">.o-buttons</code> and we learnt in a previous section that Origami components must prefix their CSS selectors with the component name. What we want is a class that starts with our component name such as <code class="language-plaintext highlighter-rouge">.o-example__button</code>.</p>
+<p>If we were adding buttons to a project we might include the primary Sass mixin <a href="https://registry.origami.ft.com/components/o-buttons@7.7.0/sassdoc?brand=core#mixin-obuttons"><code class="language-plaintext highlighter-rouge">oButtons</code></a> to output CSS for the buttons we want to use. However the primary mixin will output button classes like <code class="language-plaintext highlighter-rouge">.o-buttons</code> and we learnt in a previous section that Origami components must prefix their CSS selectors with the component name. What we want is a class that starts with our component name such as <code class="language-plaintext highlighter-rouge">.o-example__button</code>.</p>
 
-<p>Fortunately, <code class="language-plaintext highlighter-rouge">o-buttons</code> allows us to output a button with a custom class name using the Sass mixin <a href="https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=core#mixin-obuttonscontent"><code class="language-plaintext highlighter-rouge">oButtonsContent</code></a>. There are a number of options we could pass to <code class="language-plaintext highlighter-rouge">oButtonsContent</code> for different types of buttons. We’ll choose a “primary” button type for this tutorial. In <code class="language-plaintext highlighter-rouge">main.scss</code> define a new CSS class <code class="language-plaintext highlighter-rouge">.o-example__button</code> and include the button CSS with <code class="language-plaintext highlighter-rouge">oButtonsContent</code>:</p>
+<p>Fortunately, <code class="language-plaintext highlighter-rouge">o-buttons</code> allows us to output a button with a custom class name using the Sass mixin <a href="https://registry.origami.ft.com/components/o-buttons@7.7.0/sassdoc?brand=core#mixin-obuttonscontent"><code class="language-plaintext highlighter-rouge">oButtonsContent</code></a>. There are a number of options we could pass to <code class="language-plaintext highlighter-rouge">oButtonsContent</code> for different types of buttons. We’ll choose a “primary” button type for this tutorial. In <code class="language-plaintext highlighter-rouge">main.scss</code> define a new CSS class <code class="language-plaintext highlighter-rouge">.o-example__button</code> and include the button CSS with <code class="language-plaintext highlighter-rouge">oButtonsContent</code>:</p>
 
 <pre><code class="o-syntax-highlight--scss">// main.scss
 .o-example {

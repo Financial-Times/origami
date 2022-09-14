@@ -5,7 +5,7 @@
 	<!-- Page meta-information -->
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Create A New Origami Component - Part 4 Demos</title>
+	<title>Create A New Origami Component - Part 9 Component Lifecycle</title>
 	<meta name="description" content="A step-by-step tutorial which teaches you how to build and deploy a new Origami component." />
 
 	<!-- Cuts the mustard test -->
@@ -27,7 +27,7 @@
 
 	<!-- Site links -->
 	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
-	<link rel="canonical" href="https://origami.ft.com/documentation/tutorials/create-a-new-component-part-4/" />
+	<link rel="canonical" href="https://origami.ft.com/documentation/tutorials/create-a-new-component-part-9/" />
 
 	<!-- Feed -->
 	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
@@ -168,125 +168,73 @@
 		<div class="o-layout__sidebar"></div>
 
 <div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
-	<h1 id="create-a-new-origami-component---part-4-demos">Create A New Origami Component - Part 4 Demos</h1>
+	<h1 id="create-a-new-origami-component---part-9-component-lifecycle">Create A New Origami Component - Part 9 Component Lifecycle</h1>
 
 <p>The “Create A New Origami Component” tutorial is split into nine parts and is intended to be followed sequentially from start to finish:</p>
 <ol>
   <li><a href="/documentation/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-2/">Base Styles</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-3/">Themes &amp; Brands</a></li>
-  <li>Demos</li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-4/">Demos</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-5/">JavaScript</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-6/">Storybook</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-7/">Testing</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-8/">Documentation</a></li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-9/">Component Lifecycle</a></li>
+  <li>Component Lifecycle</li>
 </ol>
 
-<p>In part four we will create new demos to showcase the themes we created in <a href="/documentation/tutorials/create-a-new-component-part-3">part three</a>. The demos we will create in this part are for the <a href="registry.origami.ft.com/">Origami Registry</a>. In the near future all demos will be moved to Storybook, which we will cover in <a href="/documentation/tutorials/create-a-new-component-part-6/">part six</a>.</p>
+<p>In part nine we will learn how to publish our component to the Origami registry 🎉, and discuss the lifecycle of a published component.</p>
 
-<h2 id="add-more-demos">Add More Demos</h2>
+<p><em>We don’t actually want to publish an example component <code class="language-plaintext highlighter-rouge">o-example</code>. If you have been following along so far using <code class="language-plaintext highlighter-rouge">o-example</code>, rather than working on your own component that should actually be published, read this part of the tutorial as a reference only until you’re ready to publish a new component for real.</em></p>
 
-<p>In <a href="/documentation/tutorials/create-a-new-component-part-3">part three</a> we added an <code class="language-plaintext highlighter-rouge">inverse</code> theme for each brand and a <code class="language-plaintext highlighter-rouge">b2c</code> theme for the core brand but no demos for these. That means there is no visual preview for potential users of our component, and no ability to copy the html for these themes from the <a href="https://registry.origami.ft.com/components/">Origami component registry</a>.</p>
+<h2 id="source-control">Source Control</h2>
 
-<p>To add new demos we will update <code class="language-plaintext highlighter-rouge">origami.json</code>. This file contains lots of information about our components, including its name, description, demos, and more — see the <a href="/specification/v1/manifest/">Origami Manifest specification</a> for full details.</p>
+<p>Origami components are stored in the <a href="https://github.com/Financial-Times/origami">Origami monorepo</a>, under the <code class="language-plaintext highlighter-rouge">components</code> directory. We will start by committing the boilerplate as an initial commit. Our commit messages use a simplified form of <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commits</a>. Origami component’s release process is automated using commit messages to identify the next version number to release, so it’s important to use conventional commits.</p>
 
-<p>We’ll add a new object to the <a href="/specification/v1/manifest/#demos">demos array</a> which will represent our new demo. Demos must have at least the following properties:</p>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">title</code>: A descriptive title for the <a href="https://registry.origami.ft.com/components">component registry</a>.</li>
-  <li><code class="language-plaintext highlighter-rouge">name</code>: The outputted html file name.</li>
-  <li><code class="language-plaintext highlighter-rouge">template</code>: The path to the demo mustache template.</li>
-  <li><code class="language-plaintext highlighter-rouge">description</code>: A descriptive for the <a href="https://registry.origami.ft.com/components">component registry</a>.</li>
-</ul>
+<pre><code class="o-syntax-highlight--bash">
+[type]: [description]
 
-<p>We could create a new mustache template for our new theme demo, but as our theme demo uses almost the same markup as our current demo we will reuse our current template <code class="language-plaintext highlighter-rouge">demos/src/demo.mustache</code>. To do that, we will pass the theme name to the template using the demo <code class="language-plaintext highlighter-rouge">data</code> property as shown below:</p>
-
-<pre><code class="o-syntax-highlight--diff">// origami.json
-
-"demos": [
-	{
--		"title": "A Useful Demo",
-+		"title": "Basic Example",
-		"name": "demo",
-		"template": "demos/src/demo.mustache",
--		"description": "Description of the demo"
-+		"description": "This demo shows a basic o-example component."
-	},
-+	{
-+		"title": "Inverse Example",
-+		"name": "demo-inverse",
-+		"template": "demos/src/demo.mustache",
-+		"data": { "theme": "inverse" },
-+		"description": "This demo shows an o-example component with the inverse theme."
-+	}
-]
+[body]
 </code></pre>
 
-<p>Now if you refresh your browser you should be able to find <code class="language-plaintext highlighter-rouge">demo-inverse.html</code> generated next to other assets of the component. To actually show the inverse theme we need to update the template <code class="language-plaintext highlighter-rouge">demos/src/demo.mustache</code> to use the data <code class="language-plaintext highlighter-rouge">{ "theme": "inverse" }</code> we have passed to it. In the code snippet below, we output the theme modifier class if a theme variable is found (see the <a href="https://mustache.github.io/mustache.5.html">mustache documentation</a>)</p>
+<p>The <code class="language-plaintext highlighter-rouge">type</code> can be any of <code class="language-plaintext highlighter-rouge">feat</code>, <code class="language-plaintext highlighter-rouge">fix</code>, <code class="language-plaintext highlighter-rouge">docs</code> or <code class="language-plaintext highlighter-rouge">backstage</code>.</p>
 
-<pre><code class="o-syntax-highlight--diff">&lt;!-- demos/src/demo.mustache --&gt;
-
--&lt;div class="o-example" data-o-component="o-example"&gt;
-+&lt;div class="o-example &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}}" data-o-component="o-example"&gt;
-    Hello world, I am a component named o-example!
-    &lt;button class="o-example__button"&gt;count&lt;/button&gt;
-&lt;/div&gt;
+<p>The prefix is used to calculate the version number to release – according to <a href="https://semver.org/#summary">semver</a> – and the section of the release notes to place the commit message in.</p>
+<pre><code class="o-syntax-highlight--bash">
+| type      | when to use                         | release level | release note section |
+| --------- | ----------------------------------- | ------------- | -------------------- |
+| feat      | a feature has been added            | `minor`       | Feature              |
+| fix       | a bug has been patched              | `patch`       | Bug fixes            |
+| docs      | a change to documentation           | none          | Documentation        |
+| backstage | any changes that aren't user-facing | none          | none                 |
 </code></pre>
+<p>Indicate a breaking change by placing an <code class="language-plaintext highlighter-rouge">!</code> between the type name and the colon. We will use <code class="language-plaintext highlighter-rouge">feat!</code> to do an initial release.</p>
 
-<figure>
-	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-11-demo.png" />
-	<figcaption>
-        A list of demos and demo assets, served from `localhost` using the `npm run watch -w components/o-example` command. There is now `core-demo-inverse.html`.
-	</figcaption>
-</figure>
+<pre><code class="o-syntax-highlight--bash">git add --all
+git commit -m 'feat!: create my o-example component'
+git push</code></pre>
 
-<p>We also need to create a demo for the <code class="language-plaintext highlighter-rouge">b2c</code> theme. However the <code class="language-plaintext highlighter-rouge">b2c</code> theme we created only supports the <code class="language-plaintext highlighter-rouge">core</code> brand. It should not be displayed in the <a href="https://registry.origami.ft.com/components">Origami registry</a> for the <code class="language-plaintext highlighter-rouge">internal</code> or <code class="language-plaintext highlighter-rouge">whitelabel</code> brands. To avoid that, we will set the <a href="/specification/v1/manifest/#demos"><code class="language-plaintext highlighter-rouge">brands</code> demo property</a>.</p>
+<p>After pushing your commits you should be able to open a pull request. If you have never open a PR (pull request) you can read more about it in <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">github documentation</a></p>
 
-<pre><code class="o-syntax-highlight--diff">// origami.json
+<p><em>To be able to opon a PR you will need to be part of <a href="https://github.com/orgs/Financial-Times/teams/origami-collaborators">origami collaborators</a> team. If you are not a member already ask <a href="https://financialtimes.slack.com/archives/C02FU5ARJ">#origami-support</a> to help you.</em></p>
 
-"demos": [
-	{
-		"title": "Basic Example",
-		"name": "demo",
-		"template": "demos/src/demo.mustache",
-		"description": "This demo shows a basic o-example component."
-	},
-	{
-		"title": "Inverse Example",
-		"name": "demo-inverse",
-		"template": "demos/src/demo.mustache",
-		"data": { "theme": "inverse" },
-		"description": "This demo shows an o-example component with the inverse theme."
-	},
-+	{
-+		"title": "B2C Example",
-+		"name": "demo-b2c",
-+		"template": "demos/src/demo.mustache",
-+		"data": { "theme": "b2c" },
-+		"brands": ["core"],
-+		"description": "This demo shows an o-example component with the b2c theme."
-+	}
-]
-</code></pre>
+<h2 id="subsequent-releases">Subsequent Releases</h2>
 
-<h2 id="other-demo-options">Other Demo Options</h2>
+<p>After the first release Origami components may be released automatically by using conventional commits. You will need to figure out what counts as a breaking change, and what counts as a feature or patch and use correct commit message.</p>
 
-<p>There are other demo options we haven’t covered so far. For example as well as the <code class="language-plaintext highlighter-rouge">demos</code> array <code class="language-plaintext highlighter-rouge">origami.json</code> may include <a href="/specification/v1/manifest/#demosdefaults"><code class="language-plaintext highlighter-rouge">demosDefaults</code></a>, which describe options to be applied to all demos. Among other settings we can specify the demo Mustache template, Sass, and JavaScript file. To learn more see the <a href="/specification/v1/manifest/">Origami Manifest specification</a> which has a full list of all demo options.</p>
+<p>We use <a href="https://semver.org/">semver specification</a> for new releases. The <a href="https://semver.org/">semver specification</a> documents what constitutes a major, minor, or patch release. There are also some <a href="/documentation/components/versioning/#how-components-are-versioned">Origami specific considerations</a> to keep in mind when versioning a component. For example we may opt to release a major version of a component even with a compatible <abbr title="application programming interface">api</abbr> if it includes drastic visual changes.</p>
 
-<aside>
-Demos may include their own Sass and JavaScript which are not part of the component itself.
-</aside>
+<h2 id="component-lifecycle">Component Lifecycle</h2>
 
-<h2 id="part-five-javascript">Part Five: JavaScript</h2>
+<p>As other teams may depend on Origami components its important to follow the <a href="https://semver.org/">semver specification</a> when versioning components as discussed previously. It is also important to communicate upcoming changes. The Origami specification includes a section on the <a href="/specification/v1/components/#component-lifecycle">component lifecycle</a> which includes guidance on how to manage existing components as they mature. The guidance includes how to communicate new releases, the deprecation of component features, and the deprecation of components which are no longer needed.</p>
 
-<p>In part four we learnt:</p>
+<h2 id="wrapping-up">Wrapping Up</h2>
 
-<ul>
-  <li>How to add or update demos to a component.</li>
-  <li>How to use <code class="language-plaintext highlighter-rouge">origami.json</code> properties to make it easier to configure multiple demos.</li>
-</ul>
+<p>If you have followed along this far congratulations!</p>
 
-<p>Although our component is starting to look good it has a button which doesn’t do anything. So next we’ll learn how to add interactivity to our component with JavaScript. <a href="/documentation/tutorials/create-a-new-component-part-5">Continue to part five</a>.</p>
+<p>We hope this step-by-step tutorial has helped make you feel more able to contribute to Origami. Both in terms of creating new components, maintaining existing components, and influencing the direction of Origami as a whole.</p>
+
+<p>If you have any questions, bug reports, or feature requests please contact the Origami team 😃. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/origami-support" target="_blank">#origami-support</a>.</p>
 
 </div>
 
@@ -300,7 +248,7 @@ Demos may include their own Sass and JavaScript which are not part of the compon
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
 			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
 			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
-				<a href='https://github.com/Financial-Times/origami/edit/main/apps/website/_tutorials/new-component/create-a-new-component-part-4.md'>suggest an edit to this page</a>.</p>
+				<a href='https://github.com/Financial-Times/origami/edit/main/apps/website/_tutorials/new-component/create-a-new-component-part-9.md'>suggest an edit to this page</a>.</p>
 		</div>
 	</div>
 	<div class="o-footer-services__container">

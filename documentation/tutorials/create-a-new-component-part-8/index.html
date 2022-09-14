@@ -5,7 +5,7 @@
 	<!-- Page meta-information -->
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Create A New Origami Component - Part 8 Component Lifecycle</title>
+	<title>Create A New Origami Component - Part 8 Documentation</title>
 	<meta name="description" content="A step-by-step tutorial which teaches you how to build and deploy a new Origami component." />
 
 	<!-- Cuts the mustard test -->
@@ -168,108 +168,166 @@
 		<div class="o-layout__sidebar"></div>
 
 <div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
-	<h1 id="create-a-new-origami-component---part-8-component-lifecycle">Create A New Origami Component - Part 8 Component Lifecycle</h1>
+	<h1 id="create-a-new-origami-component---part-8-documentation">Create A New Origami Component - Part 8 Documentation</h1>
 
-<p>The “Create A New Origami Component” tutorial is split into eight parts and is intended to be followed sequentially from start to finish:</p>
+<p>The “Create A New Origami Component” tutorial is split into nine parts and is intended to be followed sequentially from start to finish:</p>
 <ol>
   <li><a href="/documentation/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-2/">Base Styles</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-3/">Themes &amp; Brands</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-4/">Demos</a></li>
   <li><a href="/documentation/tutorials/create-a-new-component-part-5/">JavaScript</a></li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-6/">Testing</a></li>
-  <li><a href="/documentation/tutorials/create-a-new-component-part-7/">Documentation</a></li>
-  <li>Component Lifecycle</li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-6/">Storybook</a></li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-7/">Testing</a></li>
+  <li>Documentation</li>
+  <li><a href="/documentation/tutorials/create-a-new-component-part-9/">Component Lifecycle</a></li>
 </ol>
 
-<p>In part eight we will learn how to publish our component to the Origami registry 🎉, and discuss the lifecycle of a published component.</p>
+<p>In part eight we will add documentation to our component. With good documentation we can save people time and frustration by making our component as easy to use as possible. Thorough documentation will also help future contributors to our new component.</p>
 
-<p><em>We don’t actually want to publish an example component <code class="language-plaintext highlighter-rouge">o-example</code>. If you have been following along so far using <code class="language-plaintext highlighter-rouge">o-example</code>, rather than working on your own component that should actually be published, read this part of the tutorial as a reference only until you’re ready to publish a new component for real.</em></p>
+<h2 id="tone--language">Tone &amp; language</h2>
 
-<h2 id="source-control">Source Control</h2>
+<p>People from various backgrounds across the Financial Times use and contribute to Origami components, so its important to consider communication in documentation carefully.</p>
 
-<p>The first step of publishing our component is to introduce source control.</p>
+<p>To help write clear documentation there are <a href="/documentation/principles/tone-and-language/">Origami tone &amp; language principles</a>. For example we work as a team so use <a href="/documentation/principles/tone-and-language/#prefer-we-to-i">“we” over “I”</a>; for clarity and to express responsibility we use an <a href="/documentation/principles/tone-and-language/#use-the-active-voice">active voice</a> in component documentation; and as we work with people of different nationalities and backgrounds we <a href="/documentation/principles/tone-and-language/#avoid-metaphors-or-colloquialisms">avoid metaphors or colloquialisms</a>.</p>
 
-<p>Origami components usually use <a href="https://git-scm.com/">git</a> for source control. Create a new git repository by running <code class="language-plaintext highlighter-rouge">git init</code>, and commit the boilerplate as an initial commit. For example:</p>
+<p>Read more on the <a href="/documentation/principles/tone-and-language/">tone &amp; language principles page</a>.</p>
 
-<pre><code class="o-syntax-highlight--bash">git init
-git add --all
-git commit -m 'my o-example component'</code></pre>
+<h2 id="where-components-are-documented">Where Components Are Documented</h2>
 
-<h2 id="push-to-github">Push To Github</h2>
-
-<p>The second step of publishing our component to the <a href="https://registry.origami.ft.com/components/">Origami Registry</a> is to commit our work and push to a new Github repository under the <a href="https://github.com/Financial-Times/">Financial-Times</a> organisation. There is a <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository">new Github repository tutorial</a> which might be helpful if you have never created a Github repository before. Note Origami repositories are usually public and open-source unless there is a reason not to be (for example <a href="https://github.com/Financial-Times/o-fonts-assets/">o-fonts-assets</a> is private due to our font license).</p>
-
-<p>You may then push this to your remote github.com repository, under the <code class="language-plaintext highlighter-rouge">Financial-Times</code> organisation or another <a href="/specification/v1/components/#source-control">supported Financial Times organisation</a>.</p>
-
-<p>You might have noticed a <code class="language-plaintext highlighter-rouge">.github</code> directory already. This directory configures Github to give us some nice features including:</p>
+<p>Origami components are documented in four key ways. We have already seen some examples of these:</p>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">ISSUE_TEMPLATE.md</code>: The contents of this file are used to provide a <a href="https://help.github.com/en/github/building-a-strong-community/about-issue-and-pull-request-templates">template when opening a new Github issue</a>. It helps users report bugs or provide feedback by prompting for useful information.</li>
-  <li><code class="language-plaintext highlighter-rouge">CODEOWNERS</code>: defines individuals or teams to automatically assign to new Github issues or pull requests (<a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners">see the Github code owners documentation</a>).</li>
-  <li><code class="language-plaintext highlighter-rouge">workflows/*</code>: the workflows directory configures a number of <a href="https://github.com/features/actions">Github Actions</a> which will automate component testing and release. We’ll look at some of these shortly.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">README.md</code> file.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">origami.json</code> manifest file.</li>
+  <li>SassDoc comments (for components with Sass).</li>
+  <li>JSDoc comments (for components with JavaScript).</li>
+  <li>Storybook documentation (for components with Storybook).</li>
 </ul>
 
-<p>There is also some manual Github configuration left to do. When your new component is pushed to Github <a href="https://docs.github.com/en/github/getting-started-with-github/access-permissions-on-github">update access in the Github settings of your repository</a>. Grant these teams the following permissions:</p>
+<p>Lets review each of these types of documentation for our <code class="language-plaintext highlighter-rouge">o-example</code> component.</p>
+
+<h2 id="readme">Readme</h2>
+
+<p>Perhaps the most important part of component documentation is the <code class="language-plaintext highlighter-rouge">README.md</code> file, found in the root directory. This is presented in the Origami Registry for each component, for example see the <a href="https://registry.origami.ft.com/components/o-table/readme">o-table readme</a>.</p>
+
+<p>In our <code class="language-plaintext highlighter-rouge">o-example</code> component there is already a <code class="language-plaintext highlighter-rouge">README.md</code> with boilerplate content. The readme includes basic component information such as:</p>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">@origami-read-only</code>: <strong>read</strong> - required, for a team of helpful Origami bots</li>
-  <li><code class="language-plaintext highlighter-rouge">@origami-collaborators</code>: <strong>write</strong> - so engineers from other teams may contribute</li>
-  <li><code class="language-plaintext highlighter-rouge">@origami-core</code>: <strong>admin</strong> - so Origami team members can help to the fullest</li>
+  <li>name</li>
+  <li>description</li>
+  <li>intended usecase</li>
+  <li>intended behaviour</li>
 </ul>
 
-<h2 id="github-actions">Github Actions</h2>
-
-<p>Earlier we saw that the <code class="language-plaintext highlighter-rouge">obt init</code> command creates a directory <code class="language-plaintext highlighter-rouge">.github</code>. It contains configuration for Github including a nested directory <code class="language-plaintext highlighter-rouge">workflows</code> which contains configuration for Github Actions.</p>
-
-<p>Origami components use Github Actions for a number of helpful functions including:</p>
+<p>The readme goes on to provide technical details of how to use the component:</p>
 <ul>
-  <li>Synchronise github <a href="https://github.com/Financial-Times/origami-labels#labels">labels</a> for issues and pull requests (<a href="https://docs.github.com/en/github/managing-your-work-on-github/about-labels">learn about Github labels</a>).</li>
-  <li>Run component tests when new commits are made to a pull request.</li>
-  <li>Automatically release minor and patch updates to developer dependencies given tests pass.</li>
-  <li>Add a <a href="https://semver.org/">semver</a> git tag to release a component when a pull request with a <a href="https://github.com/Financial-Times/origami-labels#continuous-delivery-labels">release label</a> is merged.</li>
-  <li>Build and publish an <a href="https://www.npmjs.com/">npm</a> package when a release is made with a git tag, so Origami components may be included via <a href="https://www.npmjs.com/">npm</a></li>
+  <li>Markup - <a href="https://registry.origami.ft.com/components/o-buttons@6.0.15/readme?brand=core#themes">e.g. how to apply themes</a>.</li>
+  <li>JavaScript - e.g. what <a href="https://registry.origami.ft.com/components/o-table@8.1.2/readme?brand=core#javascript">options are available</a>, and how to <a href="https://registry.origami.ft.com/components/o-forms@8.3.10/readme?brand=core#state">perform common tasks</a>.</li>
+  <li>Sass - e.g. where and why to use <a href="https://registry.origami.ft.com/components/o-typography@6.4.3/readme?brand=core#sass">Sass mixins</a></li>
 </ul>
 
-<p>To see these Github Actions in practise let’s release our component.</p>
+<p>The readme should also contain information about hot to do:</p>
+<ul>
+  <li>Troubleshooting</li>
+  <li>Contributing</li>
+  <li>Migration</li>
+</ul>
 
-<h2 id="initial-release">Initial Release</h2>
+<p>And concludes with general information:</p>
+<ul>
+  <li>Contact</li>
+  <li>Licence</li>
+</ul>
 
-<p>Lets release the first version our new component. This will display our component in the Origami Registry and send a Slack notification to <code class="language-plaintext highlighter-rouge">origami-support</code>.</p>
+<p>For more complex or novel components there may be additional sections such as for troubleshooting and contributing to the component. Components which have released major changes may also include a migration section which points to a <code class="language-plaintext highlighter-rouge">MIGRATION.md</code> file to help users upgrade from one version of a component to the next.</p>
 
-<p>Our first release will be <code class="language-plaintext highlighter-rouge">1.0.0</code> following the <a href="https://semver.org/">semver specification</a>. Origami components <a href="/specification/v1/components/#component-release">do not release versions lower than 1.0.0</a> but you may choose to release a beta <code class="language-plaintext highlighter-rouge">1.0.0-beta.1</code> again following the <a href="https://semver.org/">semver specification</a>.</p>
-
-<p>Before we release, this is a good time to update the components <a href="/specification/v1/manifest/#supportstatus">support status</a> in <code class="language-plaintext highlighter-rouge">origami.json</code> according to whether this release of the component will be <code class="language-plaintext highlighter-rouge">experimental</code> (the component is not ready for production use), or <code class="language-plaintext highlighter-rouge">active</code> (feature development ongoing, bug reports will be gratefully received and acted upon promptly), etc.</p>
-
-<p>To release an Origami component create a git tag named after the semver version but beginning with a <code class="language-plaintext highlighter-rouge">v</code> e.g. <code class="language-plaintext highlighter-rouge">v1.0.0</code>. Create the tag either through the <a href="https://docs.github.com/en/github/administering-a-repository/managing-releases-in-a-repository">Github release interface</a> or through the command line:</p>
-
-<pre><code class="o-syntax-highlight--bash">git tag v1.0.0
-git push origin v1.0.0</code></pre>
-
-<p>Within a couple of minutes at most, your component should be visible in the <a href="https://registry.origami.ft.com/components?module=true&amp;active=true&amp;maintained=true&amp;experimental=true">Origami Registry</a> and should be published to the npm registry](https://www.npmjs.com/~the-ft) 🎉. If not you may want to confirm that the <code class="language-plaintext highlighter-rouge">obt test</code> and <code class="language-plaintext highlighter-rouge">obt verify</code> commands pass without error, check the output of the Github Actions under the ‘Actions” tab, or contact the Origami team for support in the <code class="language-plaintext highlighter-rouge">#origami-support</code> Slack channel.</p>
-
-<h2 id="subsequent-releases">Subsequent Releases</h2>
-
-<p>After the first release Origami components may be released automatically by applying one of the Origami labels <code class="language-plaintext highlighter-rouge">release:patch</code>, <code class="language-plaintext highlighter-rouge">release:minor</code>, or <code class="language-plaintext highlighter-rouge">release:major</code> to pull requests (see <a href="https://docs.github.com/en/github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests">Github instructions on applying labels</a>). When a pull request is merged with a release label a Github Action will create a new <a href="https://semver.org/">semver</a> git tag according to which label was used. A comment on the pull request will let you know what version number was released.</p>
+<p>Reference the <code class="language-plaintext highlighter-rouge">README.md</code> generated by <code class="language-plaintext highlighter-rouge">npm run create-component</code> along with examples from other components to write your own readme. For our component we don’t need any special troubleshooting or contributing guides, so we can delete this section from readme. We also haven’t released multiple major versions yet so can delete the migration guide section for now.</p>
 
 <figure>
-	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-20-github.png" />
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-16-docs.png" />
 	<figcaption>
-        This image shows a component pull request which has been merged and released. The `release:patch` label was first added to the pull request. It was then merged. A Github action responded to the release label on merge. It checked the latest release number `v8.1.1` and, as a patch release, calculated the next version should be `v8.1.2`. The Github action then created a new tag `v8.1.2` to release the new version and posted a comment on the pull request.
+        The readme is shown in the Origami registry. This image shows the <a href="https://registry.origami.ft.com/components/o-table@8.1.2/readme?brand=core">o-table readme</a>.
 	</figcaption>
 </figure>
 
-<p>The <a href="https://semver.org/">semver specification</a> documents what constitutes a major, minor, or patch release. There are also some <a href="/documentation/components/versioning/#how-components-are-versioned">Origami specific considerations</a> to keep in mind when versioning a component. For example we may opt to release a major version of a component even with a compatible <abbr title="application programming interface">api</abbr> if it includes drastic visual changes.</p>
+<p>The readme of a component is thorough but risks becoming verbose so Origami components also document Sass and JavaScript <abbr title="application programming interfaces">apis</abbr> separately. This allows more detailed <abbr title="application programming interface">api</abbr> information that the readme can link to. It also provides engineers who are already familiar with a component a reference, to quickly look up an <abbr title="application programming interface">api</abbr>.</p>
 
-<h2 id="component-lifecycle">Component Lifecycle</h2>
+<h2 id="sassdoc">SassDoc</h2>
 
-<p>As other teams may depend on Origami components its important to follow the <a href="https://semver.org/">semver specification</a> when versioning components as discussed previously. It is also important to communicate upcoming changes. The Origami specification includes a section on the <a href="/specification/v1/components/#component-lifecycle">component lifecycle</a> which includes guidance on how to manage existing components as they mature. The guidance includes how to communicate new releases, the deprecation of component features, and the deprecation of components which are no longer needed.</p>
+<p>To document Sass functions, mixins, and variables, Origami uses <a href="http://sassdoc.com/">SassDoc</a>. A SassDoc comment comes before the Sass to document. It uses three forward slashes and has a number of <a href="sassdoc.com/annotations/">annotations</a>. Its easier to see with an example. Let’s add SassDoc comments to our undocumented <code class="language-plaintext highlighter-rouge">oExampleAddTheme</code> mixin we created earlier:</p>
 
-<h2 id="wrapping-up">Wrapping Up</h2>
+<pre><code class="o-syntax-highlight--scss">// src/scss/_mixins.scss
 
-<p>If you have followed along this far congratulations!</p>
+/// Output a css modifier class for an o-example theme.
+/// This may be an existing theme, or a new custom them.
+/// @param {String} $name - The name of the theme to output.
+/// @param {Map} $opts [null] - A map of theme options to create a custom theme. See the examples and README for full details.
+/// @example scss - Output a custom theme modifier class "o-example--my-custom-theme".
+///     @include oExampleAddTheme('my-custom-theme', (
+///     	'background-color': oColorsByName('white'),
+///     	'text-color': oColorsByName('crimson'),
+///     	'button-color': oColorsByName('crimson'),
+///     ));
+/// @example scss - Output a default o-example theme modifier class "o-example--inverse".
+///     @include oExampleAddTheme('inverse');
+/// @access public
+@mixin oExampleAddTheme($name, $opts: null) {
+    // theme sass here from before, see part 3
+}
+</code></pre>
 
-<p>We hope this step-by-step tutorial has helped make you feel more able to contribute to Origami. Both in terms of creating new components, maintaining existing components, and influencing the direction of Origami as a whole.</p>
+<p>Above we give a <a href="http://sassdoc.com/annotations/#description">description</a> of the mixins usecase. We use the <a href="http://sassdoc.com/annotations/#parameter"><code class="language-plaintext highlighter-rouge">@param</code></a> annotation to document the parameters of our mixin. Note that SassDoc does not provide a way to document each property of the <code class="language-plaintext highlighter-rouge">$opts</code> map. Instead we use the <a href="http://sassdoc.com/annotations/#example"><code class="language-plaintext highlighter-rouge">@example</code></a> annotation and readme to compensate. Finally we use the <a href="http://sassdoc.com/annotations/#access"><code class="language-plaintext highlighter-rouge">@access</code></a> annotation to indicate the mixin is public and can be included by component users.</p>
 
-<p>If you have any questions, bug reports, or feature requests please contact the Origami team 😃. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/origami-support" target="_blank">#origami-support</a>.</p>
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-17-docs.png" />
+	<figcaption>
+        The SassDoc is shown in the Origami registry. This image shows <a href="https://registry.origami.ft.com/components/o-table@8.1.2/sassdoc?brand=core">o-table SassDocs</a>.
+	</figcaption>
+</figure>
+
+<h2 id="jsdoc">JSDoc</h2>
+
+<p>Origami components use <a href="https://jsdoc.app/about-getting-started.html">JSDoc comments</a> to document JavaScript. For example see the existing JSDoc for the <code class="language-plaintext highlighter-rouge">init</code> method of our <code class="language-plaintext highlighter-rouge">o-example</code> component, which was generated for us by the <code class="language-plaintext highlighter-rouge">npm run create-component</code> command:</p>
+
+<pre><code class="o-syntax-highlight--js">// src/js/example.js
+
+/**
+ * Initialise o-example component.
+ * @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
+ * @param {Object} [options={}] - An options object for configuring the component
+ */
+static init (rootEl, opts) {
+	// init js here
+}</code></pre>
+
+<p>Similar to SassDoc, JSDoc uses annotations such as <code class="language-plaintext highlighter-rouge">@param</code> to document parameters. For more annotations see the <a href="https://jsdoc.app">JSDoc documentation</a>. As with Sass, the <a href="https://jsdoc.app/tags-access.html"><code class="language-plaintext highlighter-rouge">@access</code></a> annotation may be used but Origami components consider JavaScript methods which begin with an underscore as private, and those without as public.</p>
+
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-18-docs.png" />
+	<figcaption>
+        The JSDoc is shown in the Origami registry. This image shows <a href="https://registry.origami.ft.com/components/o-table@8.1.2/jsdoc?brand=core">o-table JSDoc</a>.
+	</figcaption>
+</figure>
+
+<h2 id="origami-manifest">Origami Manifest</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">origami.json</code> manifest file also contributes to the documentation of a component. As we have seen in previous parts of this tutorial <code class="language-plaintext highlighter-rouge">origami.json</code> includes a component name, description, keywords, demos, demo descriptions, required polyfills, support contacts, maintenance status, and more information which is displayed in the <a href="https://registry.origami.ft.com/components/">Origami Registry</a>.</p>
+
+<p>It is important to keep <code class="language-plaintext highlighter-rouge">origami.json</code> up to date throughout the lifecycle of the component.</p>
+
+<h2 id="part-eight-component-lifecycle">Part Eight: Component Lifecycle</h2>
+
+<p>In this part we learnt:</p>
+
+<ul>
+  <li>Component documentation follows <a href="/documentation/principles/tone-and-language/">tone &amp; language principles</a>.</li>
+  <li>What’s in a components readme.</li>
+  <li>That we can document Sass apis with Sassdoc.</li>
+  <li>That we can document JavaScript apis with JSDoc.</li>
+  <li>That we can storybook demos.</li>
+  <li>The role of <code class="language-plaintext highlighter-rouge">origami.json</code> in documentation.</li>
+</ul>
+
+<p>In the next part we will publish our component and discuss the lifecycle of a published component. <a href="/documentation/tutorials/create-a-new-component-part-9">Continue to part nine</a>.</p>
 
 </div>
 
