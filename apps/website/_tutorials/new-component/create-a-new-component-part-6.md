@@ -6,7 +6,7 @@ collection_listing_display: false
 
 # Redirect from legacy URLs
 redirect_from:
-  - /docs/tutorials/create-a-new-component-part-storybook/
+  - /docs/tutorials/create-a-new-component-part-6/
 ---
 
 # {{page.title}}
