@@ -3,5 +3,12 @@
 @include oFonts();
 @include oNormalise();
 
-@import "@financial-times/o-syntax-highlight/main";
+@import '@financial-times/o-syntax-highlight/main';
 @include oSyntaxHighlight();
+
+$o-syntax-highlight-is-silent: false;
+
+.demo {
+	margin: 0 auto;
+	width: 750px;
+}
