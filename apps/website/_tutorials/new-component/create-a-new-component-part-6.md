@@ -25,6 +25,11 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 In part six we will rewrite `demo.mustache` into tsx template, we will use our component's javascript code to initialise interactivity for storybook demos and implement all the variants of our component.
 
 ## Storybook
+
+We are aiming to replace the Origami Registry that is currently used to view demos and documentation for Origami components with a new Storybook interface. The reasoning behind choosing Storybook is that it is a well known and widely used tool for documenting and making highly interactive UI demos. Storybook demos are written in [JSX](https://reactjs.org/docs/introducing-jsx.html) and can be written in JavaScript or TypeScript. JSX is a syntax extension to JavaScript that allows you to write HTML-like code in JavaScript. It is a very powerful tool that allows you to write highly interactive demos and documentation for your component. It is also a very popular tool that is mostly used by [React](https://reactjs.org/) (the most popular javascript framework) developers.
+
+Our TSX (JSX + [typeScript](https://www.typescriptlang.org/)) templates don't use React specific imports in them and we are leveraging [JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) which enables us to use JSX without importing React and therefore making it somewhat framework agnostic.
+
 To run storybook locally run `npm run storybook` from your root directory. This will start a localhost server automatically.
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-23-storybook.png" />
@@ -34,20 +39,17 @@ To run storybook locally run `npm run storybook` from your root directory. This 
 </figure>
 
 ## Styles
+
 Once the storybook dev server is running we notice that some styles are already applied to our component. This is coming from `o-example/stories/example.scss` file which is imported by `example.stories.tsx`. `example.stories.tsx` is where we define our demos and its variants, [controls](https://storybook.js.org/docs/react/essentials/controls#gatsby-focus-wrapper) and anything related to storybook demos.
 
 ## Brands
+
 When we were working on [implementing brand](/documentation/tutorials/create-a-new-component-part-3/#component-brands) variants for our component we noticed that our build server generated different `html` files for us and we could swap between them. In storybook we will need to restart our dev server and provide an environment variable. To start internal component demos in storybook you will need to run `ORIGAMI_STORYBOOK_BRAND=internal npm run storybook` and similarly for whitelababel you can run `ORIGAMI_STORYBOOK_BRAND=whitelabel npm run storybook`.
 ## TSX template
 `npm run create-component` generated a TSX ([JSX](https://reactjs.org/docs/jsx-in-depth.html) + [typeScript](https://www.typescriptlang.org/docs/handbook/basic-types.html)) boilerplate template as well.
 
-The code in `example.tsx` will be very similar to what we have in `demo.mustache` but with different syntax. The syntax we are using is called [JSX](https://reactjs.org/docs/jsx-in-depth.html).
+The code in `example.tsx` will be very similar to what we have in `demo.mustache` but with different syntax:
 
-JSX is heavily linked to React and its ecosystem but it JSX is just a syntax that can exists without React and it could be used by other frameworks. The whole idea behind using JSX syntax is to make our storybook demos easy to write and also enable developers to easily import this templates in their code. Our TSX templates don't use React specific imports in them but we are leveraging [JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) which enables us to use JSX without importing React and therefore making it somewhat framework agnostic.
-
-We are writing our compononent in [typeScript](https://www.typescriptlang.org/docs/handbook/basic-types.html) which enables us to make less errors.
-
-This is what our `example.tsx` should look like:
 <pre><code class="o-syntax-highlight--js">// src/tsx/example.tsx
 
 type ExampleProps = {
@@ -71,7 +73,7 @@ export function Example({theme}: {theme: ExampleProps}) {
 But let's break this down a bit and compare it to the `demo.mustache` file.
 1. First thing we notice is `ExampleProps` [type declaration](https://www.typescriptlang.org/docs/handbook/basic-types.html) for our [component props](https://reactjs.org/docs/components-and-props.html). This type declaration is used to make sure that our component is given an object argument with a `theme` property of type string.
 2. Second thing we notice is that we are using the [JSX syntax](https://reactjs.org/docs/jsx-in-depth.html) to write our component and return it from the `Example` function.
-3. Syntax for JSX and Mustache are slightly different. In JSX we use `className` instead of `class` and we are passing theme prop to our JSX using literal string (`${theme}`) syntax.
+3. Syntax for [JSX](https://reactjs.org/docs/jsx-in-depth.html) and Mustache are slightly different. In [JSX](https://reactjs.org/docs/jsx-in-depth.html) we use `className` instead of `class` and we are passing theme prop to our JSX using literal string (`${theme}`) syntax.
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-24-storybook.png" />
@@ -81,6 +83,7 @@ But let's break this down a bit and compare it to the `demo.mustache` file.
 </figure>
 
 ## Adding button
+
 Our demo is missing the count button and it's related sentence. When we discussed [browser support](/documentation/tutorials/create-a-new-component-part-5/#browser-support) we decided to display count functionality if JS was enabled. In this case we have written a TSX template but never initialised components javascript. To do so we will need to update our `example.stories.tsx` file by adding the following code:
 
 <pre><code class="o-syntax-highlight--diff">// stories/example.stories.tsx
@@ -109,6 +112,7 @@ First of all we will need to import [`useEffect` hook](https://reactjs.org/docs/
 </figure>
 
 ## Theming
+
 We already discussed how to run different brands in storybook but we still need to cover the theming part. This is the area where storybook really starts to shine. We provided theme as a prop for our JSX component and it would be amazing if we had a drop down where we could select a theme and immediately see how certain themes effect our component.
 
 The code below dynamically creates labels and options for correct brand. We use Storybook controls to make theming easier, have better demos where experimenting is easier and developers can integrate correct version of component into their code.
