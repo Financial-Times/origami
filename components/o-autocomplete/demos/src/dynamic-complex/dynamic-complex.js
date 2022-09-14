@@ -13,13 +13,19 @@ oForms.init();
  */
 
 /**
- * @param {CustomOption|undefined} option - The option to transform into a suggestion string
+ * @param {CustomOption} option - The option to transform into a suggestion string
  * @returns {string} The string to display in the suggestions dropdown for this option
  */
 function mapOptionToSuggestedValue(option) {
-	if (option) {
-		return option.Country_Name;
+	if (typeof option !== 'object') {
+		throw new Error(`Could not map option to suggested value, unexpected type: ${typeof option}.`);
 	}
+
+	if (typeof option.Country_Name !== 'string') {
+		throw new Error(`Could not map option to suggested value, option.Country_Name is not a string`);
+	}
+
+	return option.Country_Name;
 }
 
 /**
@@ -56,6 +62,7 @@ function customSuggestions(query, populateOptions) {
 new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
 	source: customSuggestions,
 	mapOptionToSuggestedValue,
+	defaultValue: data.find((d) => d['Two_Letter_Country_Code'] === 'GB')?.Country_Name,
 	onConfirm: function (option) {
 		// eslint-disable-next-line no-console
 		console.log('You chose option', option);

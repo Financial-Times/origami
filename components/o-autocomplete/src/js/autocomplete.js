@@ -173,6 +173,7 @@ function initClearButton(instance) {
 
 /**
  * @typedef {object} AutocompleteOptions
+ * @property {string} [defaultValue] - Specify a string to prefill the autocomplete with
  * @property {Source} [source] - The function which retrieves the suggestions to display
  * @property {MapOptionToSuggestedValue} [mapOptionToSuggestedValue] - Function which transforms a suggestion before rendering
  * @property {onConfirm} [onConfirm] - Function which is called when the user selects an option
@@ -192,6 +193,7 @@ class Autocomplete {
 		this.options = {};
 		if (opts.source) {
 			this.options.source = opts.source;
+			this.options.defaultValue = opts.defaultValue;
 		}
 		if (opts.mapOptionToSuggestedValue) {
 			this.options.mapOptionToSuggestedValue = opts.mapOptionToSuggestedValue;
@@ -250,6 +252,7 @@ class Autocomplete {
 			if (!id) {
 				throw new Error("Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.");
 			}
+
 			this.autocompleteEl.innerHTML = '';
 			this.autocompleteEl.appendChild(this.container);
 			accessibleAutocomplete({
@@ -266,16 +269,17 @@ class Autocomplete {
 				source: this.options.source,
 				cssNamespace: 'o-autocomplete',
 				displayMenu: 'overlay',
+				defaultValue: this.options.defaultValue || '',
 				showNoOptionsFound: false,
 				templates: {
 					/**
 					 * Used when rendering suggestions, the return value of this will be used as the innerHTML for a single suggestion.
 					 *
 					 * @param {*} option The suggestion to apply the template with.
-					 * @returns {string} HTML string to represent a single suggestion.
+					 * @returns {string|undefined} HTML string to represent a single suggestion.
 					 */
 					suggestion: (option) => {
-						if (typeof option !== 'undefined') {
+						if (typeof option === 'object') {
 							// If the `mapOptionToSuggestedValue` function is defined
 							// Apply the function to the option. This is a way for the
 							// consuming application to decide what text should be
@@ -285,9 +289,11 @@ class Autocomplete {
 							// which should be used as the suggestion string.
 							if (typeof this.mapOptionToSuggestedValue === 'function') {
 								option = this.mapOptionToSuggestedValue(option);
-							} else if (typeof option !== 'string') {
-								throw new Error(`The option trying to be displayed as a suggestion is not a string, it is "${typeof option}". o-autocomplete can only display strings as suggestions. Define a \`mapOptionToSuggestedValue\` function to convert the option into a string to be used as the suggestion.`);
 							}
+						}
+
+						if (typeof option !== 'string' && typeof option !== 'undefined') {
+							throw new Error(`The option trying to be displayed as a suggestion is not a string, it is "${typeof option}". o-autocomplete can only display strings as suggestions. Define a \`mapOptionToSuggestedValue\` function to convert the option into a string to be used as the suggestion.`);
 						}
 
 						return this.suggestionTemplate(option);
@@ -296,10 +302,10 @@ class Autocomplete {
 					 * Used when a suggestion is selected, the return value of this will be used as the value for the input element.
 					 *
 					 * @param {*} option The suggestion which was selected.
-					 * @returns {string} String to represent the suggestion.
+					 * @returns {string|undefined} String to represent the suggestion.
 					 */
 					inputValue: (option) => {
-						if (typeof option !== 'undefined') {
+						if (typeof option === 'object') {
 							// If the `mapOptionToSuggestedValue` function is defined
 							// Apply the function to the option. This is a way for the
 							// consuming application to decide what text should be
@@ -309,9 +315,11 @@ class Autocomplete {
 							// which should be used as the suggestion string.
 							if (typeof this.mapOptionToSuggestedValue === 'function') {
 								option = this.mapOptionToSuggestedValue(option);
-							} else if (typeof option !== 'string') {
-								throw new Error(`The option trying to be displayed as a suggestion is not a string, it is "${typeof option}". o-autocomplete can only display strings as suggestions. Define a \`mapOptionToSuggestedValue\` function to convert the option into a string to be used as the suggestion.`);
 							}
+						}
+
+						if (typeof option !== 'string' && typeof option !== 'undefined') {
+							throw new Error(`The option trying to be displayed as a suggestion is not a string, it is "${typeof option}". o-autocomplete can only display strings as suggestions. Define a \`mapOptionToSuggestedValue\` function to convert the option into a string to be used as the suggestion.`);
 						}
 
 						return option;
@@ -338,6 +346,8 @@ class Autocomplete {
 					}
 				},
 				autoselect: false,
+				// To fallback with JS an enhanced element's default value should
+				// be set using static html.
 				defaultValue: '',
 				placeholder: '',
 				cssNamespace: 'o-autocomplete',
@@ -362,10 +372,11 @@ class Autocomplete {
 	 */
 	suggestionTemplate (suggestedValue) {
 		// o-autocomplete has a UI design to highlight characters in the suggestions.
+		const input = this.autocompleteEl.querySelector('input');
 		/**
 		 * @type {CharacterHighlight[]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
 		 */
-		const characters = highlightSuggestion(suggestedValue, this.autocompleteEl.querySelector('input').value);
+		const characters = highlightSuggestion(suggestedValue, input ? input.value : suggestedValue);
 
 		let output = '';
 		for (const [character, shoudHighlight] of characters) {
@@ -395,7 +406,8 @@ class Autocomplete {
 
 		if (autocompleteEl.dataset.oAutocompleteSource) {
 			return {
-				source: autocompleteEl.dataset.oAutocompleteSource
+				source: autocompleteEl.dataset.oAutocompleteSource,
+				defaultValue: autocompleteEl.dataset.oAutocompleteDefaultValue
 			};
 		} else {
 			return {};

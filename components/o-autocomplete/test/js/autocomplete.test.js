@@ -388,7 +388,7 @@ describe("Autocomplete", function () {
 
 			it('the unsupported options are not set on this.options', () => {
 				assert.instanceOf(autocomplete, Autocomplete);
-				assert.deepEqual(Object.keys(autocomplete.options), ['source']);
+				assert.deepEqual(Object.keys(autocomplete.options), ['source', 'defaultValue']);
 				assert.isFunction(autocomplete.options.source,);
 			});
 
