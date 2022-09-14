@@ -11,15 +11,16 @@ redirect_from:
 
 # {{page.title}}
 
-The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
+The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. JavaScript
-6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
+6. [Storybook](/documentation/tutorials/create-a-new-component-part-6/)
+7. [Testing](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Documentation](/documentation/tutorials/create-a-new-component-part-8/)
+9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-9/)
 
 In part five we will add interactivity to our component using JavaScript. For reference, there is a [JavaScript part of the component specification](/specification/v1/components/javascript/) which we will be conforming to.
 
@@ -67,9 +68,9 @@ For more details see the [JavaScript initialisation](/specification/v1/component
 
 ## User Configuration
 
-The second `init` argument is `opts`, an `Object` of options for the user to configure the component. So users of [o-autoinit](https://registry.origami.ft.com/components/o-autoinit@2.0.4/readme) or the [Origami Build Service](https://www.ft.com/__origami/service/build/v2/) can also configure components, data attributes may alternatively be used to set component configuration.
+The second `init` argument is `options`, an `Object` of options for the user to configure the component. So users of [o-autoinit](https://registry.origami.ft.com/components/o-autoinit@2.0.4/readme) or the [Origami Build Service](https://www.ft.com/__origami/service/build/v3/) can also configure components, data attributes may alternatively be used to set component configuration.
 
-In `/src/js/example` setting component configuration is handled in the constructor. The `this.options` property is assigned to the given `opts` object, which is merged with any data attributes that have a namespace `data-o-example-[option]`.
+In `/src/js/example` setting component configuration is handled in the constructor. The `this.options` property is assigned to the given `optionions` object, which is merged with any data attributes that have a namespace `data-o-example-[option]`.
 
 For instance the `o-table` component has a sort feature which may be disabled by either passing `{sortable: false}` to the [`o-table` `init` method](https://registry.origami.ft.com/components/o-table@8.0.11/jsdoc?brand=core) or by adding the [`data-o-table-sortable="false"`](https://registry.origami.ft.com/components/o-table@8.0.11/readme?brand=core#disable-sort) attribute to the `o-table` element.
 
@@ -90,10 +91,10 @@ Origami components use browser apis directly for [<abbr title="Document Object M
 	 * @param {HTMLElement} [exampleEl] - The component element in the DOM
 	 * @param {Object} [options={}] - An options object for configuring the component
 	 */
-	constructor (exampleEl, opts) {
+	constructor (exampleEl, optionions) {
 		this.exampleEl = exampleEl;
 		this.options = Object.assign({}, {
-		}, opts || Example.getDataAttributes(exampleEl));
+		}, optionions || Example.getDataAttributes(exampleEl));
 		// A property to store the current count.
 		this.count = 0;
 		// Listen to all click events on the o-example instance.
@@ -157,24 +158,24 @@ handleEvent(event) {
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-13-js.png" />
 	<figcaption>
-        The `o-example` component now displays how many times the button has been clicked. Here it has been clicked over 100 times.
+        The `o-example` component now displays how many times the button has been clicked. Here it has been clicked over 10 times.
 	</figcaption>
 </figure>
 
-Our example component now displays the click count. In the example above the button has been clicked over 100 times (what fun!) Instead of counting clicks infinitely, we should update the count to display a message "lots and lots of" after a user defined number of clicks.
+Our example component now displays the click count. In the example above the button has been clicked over 10 times (what fun!) Instead of counting clicks infinitely, we should update the count to display a message "lots and lots of" after a user defined number of clicks.
 
-To do that add an option `highCount` in the constructor, with a default value of `100`:
+To do that add an option `highCount` in the constructor, with a default value of `10`:
 
 <pre><code class="o-syntax-highlight--js">// src/js/example.js
 
-constructor (exampleEl, opts) {
+constructor (exampleEl, optionions) {
         this.exampleEl = exampleEl;
-        // Get the `highCount` option from the `opts` argument or
+        // Get the `highCount` option from the `optionions` argument or
         // from a `data-o-example-high-count` data attribute, or
-        // default to `100` if not set.
+        // default to `10` if not set.
 		this.options = Object.assign({}, {
-            highCount: 100
-		}, opts || Example.getDataAttributes(exampleEl));
+            highCount: 10
+		}, options || Example.getDataAttributes(exampleEl));
 		// A property to store the current count.
 		this.count = 0;
 		// Listen to all click events on the o-example instance.
@@ -205,7 +206,7 @@ handleEvent(event) {
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-14-js.png" />
 	<figcaption>
-        The `o-example` component now says it has been clicked "lots and lots of time" if the click count is 100 or greater.
+        The `o-example` component now says it has been clicked "lots and lots of time" if the click count is 10 or greater.
 	</figcaption>
 </figure>
 
@@ -223,10 +224,10 @@ So we know when our component JavaScript is initiated successfully lets add a da
 
 <pre><code class="o-syntax-highlight--diff">// src/js/example.js
 
-constructor (exampleEl, opts) {
+constructor (exampleEl, optionions) {
 		this.exampleEl = exampleEl;
 		this.options = Object.assign({}, {
-		}, opts || Example.getDataAttributes(exampleEl));
+		}, optionions || Example.getDataAttributes(exampleEl));
 		// A property to store the current count.
 		this.count = 0;
 		// Listen to all click events on the o-example instance.
@@ -236,18 +237,18 @@ constructor (exampleEl, opts) {
 +		this.exampleEl.setAttribute('data-o-example-js', '');
 	}</code></pre>
 
-Next lets wrap any the counter specific part of `o-example` markup in a `span` element with the class `o-example__counter`:
+Next lets wrap any counter specific part of `o-example` markup in a `span` element with the class `o-example__counter`:
 
 <pre><code class="o-syntax-highlight--html">&lt;!-- demos/src/demo.mustache  -->
 
-&lt;div id="element" class="o-example" data-o-component="o-example">
+&lt;div id="element" class="o-example &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}} &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}}" data-o-component="o-example">
 	Hello world, I am a component named o-example!
 	&lt;span class="o-example__counter">
 		You have clicked this lovely button &lt;span data-o-example-current-count>0&lt;/span> times.
 		&lt;button class="o-example__button">count&lt;/button>
-	&lt;span>
+	&lt;//span>
 &lt;/div>
-}
+
 </code></pre>
 
 We can then then add CSS to `main.scss` to hide the counter element `o-example__counter` until the data attribute `data-o-example-js` has been added:
@@ -301,20 +302,12 @@ We can then then add CSS to `main.scss` to hide the counter element `o-example__
 	</figcaption>
 </figure>
 
-### Polyfills
-
-The core and enhanced experience cover an all or nothing approach. In some cases two browsers which receive the enhanced experience may not offer the same set of JavaScript features. In these cases [polyfill.io](https://polyfill.io/) may be used to add missing or broken JavaScript features to browsers we need to support ([Financial Times browser support policy](https://docs.google.com/document/d/1z6kecy_o9qHYIznTmqQ-IJqre72jhfd0nVa4JMsS7Q4/)).
-
-For example IE11 does not have the `Array.from` method, but support may be added with [polyfill.io](https://polyfill.io/). Any feature [polyfill.io](https://polyfill.io/) provides may be used by components but must be [specified as a required feature in origami.json](/specification/v1/manifest/#browserfeatures). Listing features in `origami.json` means users can find out what polyfills they need to include in their project, and also allows the `obt dev` command to include polyfills in the demo.
-
-See the [Feature Stability And Polyfills section of the component specification](/specification/v1/components/javascript/#feature-stability-and-polyfills) for more details.
-
-## Part Six: Testing
+## Part Six: Storybook
 
 In part five we learnt how to make our component interactive with JavaScript, covering:
-- JavaScript initialisation using the `init` method, or automatically for Origami Build Service users.
+- JavaScript initialisation using the `init` method.
 - JavaScript configuration using the `init` argument or namespaced data attributes.
 - How to update the <abbr title="Document Object Model">DOM</abbr> with component JavaScript.
-- How to handle missing JavaScript features, or no JavaScript at all, to meet Financial Times browser support requirements.
+- How to handle no JavaScript at all, to meet Financial Times browser support requirements.
 
-In part six we'll look at testing our component. [Continue to part six](/documentation/tutorials/create-a-new-component-part-6).
+In part six we'll look at writing storybook templates for our component. [Continue to part six](/documentation/tutorials/create-a-new-component-part-6).

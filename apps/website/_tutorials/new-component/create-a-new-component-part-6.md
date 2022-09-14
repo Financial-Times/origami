@@ -1,169 +1,185 @@
 ---
-title: Create A New Origami Component - Part 6 Testing
+title: Create A New Origami Component - Part 6 Storybook
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
 collection_listing_display: false
 
 # Redirect from legacy URLs
 redirect_from:
-  - /docs/tutorials/create-a-new-component-part-6/
+  - /docs/tutorials/create-a-new-component-part-storybook/
 ---
 
 # {{page.title}}
 
-The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
+The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
-6. Testing
-7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
+6. Storybook
+7. [Testing](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Documentation](/documentation/tutorials/create-a-new-component-part-8/)
+9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-9/)
 
-In part six we will add tests to our component. Including tests for Sass, JavaScript, and common accessibility issues.
+In part six we will rewrite `demo.mustache` into tsx template, we will use our component's javascript code to initialise interactivity for storybook demos and implement all the variants of our component.
 
-Run `obt test` to run component tests. Run `obt verify` to lint code style and check the validity of `origami.json`.
+## Storybook
 
-## JavaScript Tests
+We are aiming to replace the Origami Registry that is currently used to view demos and documentation for Origami components with a new Storybook interface. The reasoning behind choosing Storybook is that it is a well known and widely used tool for documenting and making highly interactive UI demos. Storybook demos are written in [JSX](https://reactjs.org/docs/introducing-jsx.html) and can be written in JavaScript or TypeScript. JSX is a syntax extension to JavaScript that allows you to write HTML-like code in JavaScript. It is a very powerful tool that allows you to write highly interactive demos and documentation for your component. It is also a very popular tool that is mostly used by [React](https://reactjs.org/) (the most popular javascript framework) developers.
 
-Component JavaScript tests use [mocha](https://mochajs.org/) as a test runner; [sinon](https://sinonjs.org/) for stubs, spies, and mocks; and [proclaim](https://github.com/rowanmanning/proclaim) to make assertions.
+Our TSX (JSX + [typeScript](https://www.typescriptlang.org/)) templates don't use React specific imports in them and we are leveraging [JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) which enables us to use JSX without importing React and therefore making it somewhat framework agnostic.
 
-To demonstrate how these projects are used to test components we will add a new test to confirm that clicking a button in our component increments the count.
+To run storybook locally run `npm run storybook` from your root directory. This will start a localhost server automatically.
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-23-storybook.png" />
+	<figcaption>
+        A list of storybook components. There should be o-example displayed in the side navigation bar.
+	</figcaption>
+</figure>
 
-JavaScript tests are located under the `tests/js` directory. The file `example.test.js` already has boilerplate tests, which use component markup defined in `tests/js/helpers/fixtures.js` to confirm the `init` method works as expected.
+## Styles
 
-Our first step will be to update the `htmlCode` method in `tests/js/helpers/fixtures.js` with our latest component markup. We'll add an id `id="element"` which we can use in our tests:
-<pre><code class="o-syntax-highlight--js">// tests/js/helpers/fixtures.js
+Once the storybook dev server is running we notice that some styles are already applied to our component. This is coming from `o-example/stories/example.scss` file which is imported by `example.stories.tsx`. `example.stories.tsx` is where we define our demos and its variants, [controls](https://storybook.js.org/docs/react/essentials/controls#gatsby-focus-wrapper) and anything related to storybook demos.
 
-function htmlCode () {
-	const html = `
-        &lt;div id="element" class="o-example" data-o-component="o-example">
-            Hello world, I am a component named o-example!
-            &lt;span class="o-example__counter">
-                You have clicked this lovely button &lt;span data-o-example-current-count>0&lt;/span> times.
-                &lt;button class="o-example__button">count&lt;/button>
-            &lt;span>
-        &lt;/div>
-	`;
-	insert(html);
+## Brands
+
+When we were working on [implementing brand](/documentation/tutorials/create-a-new-component-part-3/#component-brands) variants for our component we noticed that our build server generated different `html` files for us and we could swap between them. In storybook we will need to restart our dev server and provide an environment variable. To start internal component demos in storybook you will need to run `ORIGAMI_STORYBOOK_BRAND=internal npm run storybook` and similarly for whitelababel you can run `ORIGAMI_STORYBOOK_BRAND=whitelabel npm run storybook`.
+## TSX template
+`npm run create-component` generated a TSX ([JSX](https://reactjs.org/docs/jsx-in-depth.html) + [typeScript](https://www.typescriptlang.org/docs/handbook/basic-types.html)) boilerplate template as well.
+
+The code in `example.tsx` will be very similar to what we have in `demo.mustache` but with different syntax:
+
+<pre><code class="o-syntax-highlight--js">// src/tsx/example.tsx
+
+type ExampleProps = {
+	theme: string
+}
+
+export function Example({theme}: {theme: ExampleProps}) {
+	const classNames = theme ? `o-example o-example--${theme}` : 'o-example'
+	return (
+		&lt;div id="element" className={classNames} data-o-component="o-example">
+			Hello world, I am a component named o-example!
+			&lt;span className="o-example__counter">
+				You have clicked this lovely button &lt;span data-o-example-current-count>0&lt;/span> times.
+				&lt;button className="o-example__button">count&lt;/button>
+			&lt;/span>
+		&lt;/div>
+	)
 }
 </code></pre>
 
-Next we can append our new tests within the main `describe("Example", () => {})` block:
-<pre><code class="o-syntax-highlight--js">// tests/js/example.test.js
+But let's break this down a bit and compare it to the `demo.mustache` file.
+1. First thing we notice is `ExampleProps` [type declaration](https://www.typescriptlang.org/docs/handbook/basic-types.html) for our [component props](https://reactjs.org/docs/components-and-props.html). This type declaration is used to make sure that our component is given an object argument with a `theme` property of type string.
+2. Second thing we notice is that we are using the [JSX syntax](https://reactjs.org/docs/jsx-in-depth.html) to write our component and return it from the `Example` function.
+3. Syntax for [JSX](https://reactjs.org/docs/jsx-in-depth.html) and Mustache are slightly different. In [JSX](https://reactjs.org/docs/jsx-in-depth.html) we use `className` instead of `class` and we are passing theme prop to our JSX using literal string (`${theme}`) syntax.
 
-describe("with a button", () => {
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-24-storybook.png" />
+	<figcaption>
+        Example demo in storybook.
+	</figcaption>
+</figure>
 
-    beforeEach(() => {
-        // Add our component markup to the DOM
-        fixtures.htmlCode();
-    });
+## Adding button
 
-    afterEach(() => {
-        // Remove our component markup from the DOM
-        fixtures.reset();
-    });
+Our demo is missing the count button and it's related sentence. When we discussed [browser support](/documentation/tutorials/create-a-new-component-part-5/#browser-support) we decided to display count functionality if JS was enabled. In this case we have written a TSX template but never initialised components javascript. To do so we will need to update our `example.stories.tsx` file by adding the following code:
 
-    it("should increment the count on click", () => {
-        // initialise o-example on fixture markup
-        const oExample = Example.init('#element');
-        // find and click the button
-        const button = document.querySelector('button');
-        button.click();
-        // confirm the count has incremented
-        const actual = oExample.count;
-        const expected = 1;
-        proclaim.equal(actual, expected, `Expected count to equal ${expected} given a single button click.`);
-    });
+<pre><code class="o-syntax-highlight--diff">// stories/example.stories.tsx
 
-    it("should display the new count on click", () => {
-        // initialise o-example on fixture markup
-        Example.init('#element');
-        // find and click the button
-        const button = document.querySelector('button');
-        button.click();
-        // confirm the new count is reflected in the DOM
-        const countElement = document.querySelector('[data-o-example-current-count]');
-        const actual = countElement.textContent;
-        const expected = '1';
-        proclaim.include(
-            actual,
-            expected,
-            `Expected the new count to display in the component.`
-        );
-    });
-});
++ import {useEffect} from 'react';
++ import javascript from '../main';
+// ....
+
+- const ExampleStory = args => &lt;Example {...args} />;
++ const ExampleStory = args => {
++	 useEffect(() => {
++		javascript.init()
++	 })
++	 return &lt;Example {...args} />
++ };
+// ....
 </code></pre>
 
-Now run `obt test`. You should see our new tests are run and pass.
-
-The debug flag `obt test --debug` is useful whilst actively working on or debugging JavaScript tests. It allows you to run tests in the browser and get feedback in the browsers developer console. The `--browserstack` flag also enables tests to run against multiple browsers at once in [BrowserStack](browserstack.com/). See the [Origami Build Tools documentation](https://github.com/Financial-Times/origami-build-tools) for more details.
-
-## Sass Tests
-
-Component Sass tests are run using the [Oddbird True](https://www.oddbird.net/true/) library. Sass tests for a component are located in the `tests/scss` directory.
-
-This tutorial won't cover Oddbird True in detail, for that see the [Oddbird True documentation](https://www.oddbird.net/true/docs/). However to demonstrate we will update the boilerplate test (`tests/scss/_main.test.scss`) to confirm the `oExample` mixin outputs CSS for the inverse theme by default:
-
-<pre><code class="o-syntax-highlight--scss">// tests/scss/_main.test.scss
-
-@include describe('oExample mixins') {
-    // tests for the primary mixin oExample
-	@include describe('oExample') {
-		@include it('outputs the inverse theme by default') {
-			@include assert() {
-				// output actual CSS
-				@include output() {
-					@include oExample();
-				}
-				// expected output CSS to contain
-				@include contains() {
-					.o-example--inverse {
-						background: #262a33;
-						color: #ffffff;
-					}
-				}
-			}
-		}
-	}
-}</code></pre>
-
-Again running the `obt test` command should show our new tests have run and passed.
-
-## Accessibility Tests
-
-`obt test` also runs some accessibility checks against the `pa11y` demo, as we [discussed in part four](/documentation/tutorials/create-a-new-component-part-4#pa11y-demo). Whilst this will catch some common causes of accessibility issues, such as invalid html or low contrast between text and background, it is not a comprehensive test of component accessibility. For help testing the accessibility of your component see the [Origami's accessibility principles](/documentation/principles/accessibility/) page, or reach out to the Financial Times [#accessibility Slack channel](https://app.slack.com/client/T025C95MN/C2LMEKC6S).
-
-## Visual Regression Tests
-
-To check all component demos for any visual bugs that may have been introduced accidentally as part of a change may be rather taxing as a manual piece of work. To help, demos may be run through [percy.io](https://percy.io/) to highlight visual differences between two versions of a component automatically.
-
-We can't run Percy yet as we haven't released a version of our component to compare changes against. But later, when we have released our component, you will be able to run [percy.io](https://percy.io/) by adding a `percy` label to Github pull requests. When Percy has run a comment is added to the pull request, and the demo comparisons are ready for review at [percy.io/Financial-Times](https://percy.io/Financial-Times/).
+First of all we will need to import [`useEffect` hook](https://reactjs.org/docs/hooks-effect.html) from React. Component TSX templates aim to make no framework assumption, so Origami users can benefit from templates in production whilst using other frameworks such as React. Our Storybook demos on the other hand are private and are not included in other projects, these are written specifically in React. Initialising component javascript with `useEffect` should display the count button and number of times it was clicked.
 
 <figure>
-	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-21-tests.png" />
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-25-storybook.png" />
 	<figcaption>
-        This image show a Github pull request where the `percy` label had been added. Percy then ran to visually compare the component demos in the pull request against the last release, and removed the `percy` label when done.
+        Example demo in storybook that also has counter functionality working.
+	</figcaption>
+</figure>
+
+## Theming
+
+We already discussed how to run different brands in storybook but we still need to cover the theming part. This is the area where storybook really starts to shine. We provided theme as a prop for our JSX component and it would be amazing if we had a drop down where we could select a theme and immediately see how certain themes effect our component.
+
+The code below dynamically creates labels and options for correct brand. We use Storybook controls to make theming easier, have better demos where experimenting is easier and developers can integrate correct version of component into their code.
+The code below dynamically creates labels and options for the current brand. We use Storybook controls to have better demos where experimenting with component options and content is easier, allowing developers and designers to integrate Origami in their project.
+
+<pre><code class="o-syntax-highlight--diff">// stories/example.stories.tsx
+
+// ....
+export const DefaultExample: ComponentStory&lt;typeof Example> = ExampleStory.bind(
+ 	{}
+);
+
++ const themeOptions: string[] = ['', 'inverse']
++ const controlLabels: Record&lt;string, string> = {
++ 	'': 'Default',
++ 	inverse: 'Inverse',
++ }
++
++ const Brand = process.env.ORIGAMI_STORYBOOK_BRAND || 'core';
++
++ if (Brand === 'core') {
++ 	themeOptions.push('b2c')
++ 	controlLabels.b2c = 'B2C'
++ }
++ DefaultExample.argTypes = {
++ 	theme: {
++ 		name: 'Theme',
++ 		options: themeOptions,
++ 		control: {
++ 			type: 'select',
++ 			labels: controlLabels
++ 		}
++ 	}
++ }
+</code></pre>
+
+Implementing the above code should give us an option to choose between themes and apply them immediately once selected.
+
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-26-storybook.png" />
+	<figcaption>
+        Example demo in storybook with default theme.
 	</figcaption>
 </figure>
 
 <figure>
-	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-22-tests.png" />
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-27-storybook.png" />
 	<figcaption>
-        This image shows an example of the Percy interface. To the left is an image of a component demo, to the right the updated demo with visual changes highlighted in red.
+        Example demo in storybook that has inverse theme applied on it.
 	</figcaption>
 </figure>
 
-_Don't worry if you are unfamiliar with Github and pull request labels. Later, when releasing our component, we will discuss other available labels and link to helpful Github documentation. For now its useful to know that visual regression tests can be run, even if you're not sure yet how they work._
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-28-storybook.png" />
+	<figcaption>
+        Example demo in storybook that has the b2c theme applied on it.
+	</figcaption>
+</figure>
 
-## Part Seven: Documentation
 
-Our component is working well and is almost complete. In this tutorial we learned:
-- That `obt test` runs Sass, JavaScript, and limited accessibility tests.
-- That `obt verify` analyses our component for potential errors.
-- How to write Sass tests for the `obt test` command.
-- How to write and run JavaScript tests for the `obt test` command.
-- How to highlight visual differences a change has introduced with [percy.io](https://percy.io/).
 
-So far we have missed a crucial part of creating a component: documentation. Without documentation our component will be difficult for users to include in projects and future development may be hindered. In part seven we'll document our component in a way that is familiar to users and maintainers of other Origami components. [Continue to part seven](/documentation/tutorials/create-a-new-component-part-7).
+## Part six: Storybook
+
+In part six we learnt how to make a storybook demo for `o-example` component, covering:
+- How to start storybook server for development for different brands.
+- What are TSX template and how to write them.
+- Initialising component JavaScript in React.
+- Using storybook controls to demo theming for the component.
+
+In part seven we'll look at writing tests for our component. [Continue to part seven](/documentation/tutorials/create-a-new-component-part-7).

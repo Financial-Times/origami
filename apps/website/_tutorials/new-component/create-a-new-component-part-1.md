@@ -10,15 +10,16 @@ redirect_from:
 
 # {{page.title}}
 
-The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
+The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
 1. Intro & Boilerplate
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
 4. [Demos](/documentation/tutorials/create-a-new-component-part-4/)
 5. [JavaScript](/documentation/tutorials/create-a-new-component-part-5/)
-6. [Testing](/documentation/tutorials/create-a-new-component-part-6/)
-7. [Documentation](/documentation/tutorials/create-a-new-component-part-7/)
-8. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-8/)
+6. [Storybook](/documentation/tutorials/create-a-new-component-part-6/)
+7. [Testing](/documentation/tutorials/create-a-new-component-part-7/)
+8. [Documentation](/documentation/tutorials/create-a-new-component-part-8/)
+9. [Component Lifecycle](/documentation/tutorials/create-a-new-component-part-9/)
 
 ## Introduction
 
@@ -28,59 +29,85 @@ In this tutorial we'll build an Origami component. Our example component will di
 
 ## Prerequisites
 
-Before you get started, it's a good idea to discuss your new component with the Origami team first. The team will be able to make sure there's not an existing component or [component proposal](https://github.com/Financial-Times/origami#propose-a-new-component) that fulfils the same purpose, and will be available to answer any questions.
+Before you get started, it's a good idea to discuss your new component with the Origami team first. The team will be able to make sure there's not an existing component or [component proposal](https://github.com/Financial-Times/origami#Proposals) that fulfils the same purpose, and will be available to answer any questions.
 
-To follow this tutorial ensure the following software is install on your machine:
-- [NodeJS](https://nodejs.org/en/) (Version 10 or higher)
-- [NPM](https://www.npmjs.com/get-npm) (Version 7 or higher)
-
-In addition this tutorial introduces a number of tools and libraries such as [git](https://git-scm.com/), [Sass](https://sass-lang.com/), [sinon.js](https://sinonjs.org/), etc. We do not cover these in depth but attempt to include brief descriptions and links to relevant documentation so that you may learn separately about the parts which are new to you.
+This tutorial assumes some knowledge. For example we introduce a number of tools and libraries such as [git](https://git-scm.com/), [Sass](https://sass-lang.com/), [storybook](https://storybook.js.org/), etc. We do not cover these in depth but attempt to include brief descriptions and links to relevant documentation so that you may learn separately about the parts which are new to you.
 
 If you have any questions please contact the Origami team to help make this tutorial better &#x1F603;. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}" target="_blank">#{{site.data.contact.slack}}</a>.
+
+### Requirements
+
+There is some software you'll need on your computer in order to work with this
+repository.
+#### Node.js & npm
+
+[Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/get-npm) are required to develop Origami components.
+
+Check the version of Node.js and npm installed on your local machine matches the `engines` property of [package.json](https://github.com/Financial-Times/origami/blob/main/package.json).
+
+We recommend using [volta](https://docs.volta.sh/guide/getting-started) to manage which version of Node.js and npm is used on your machine across multiple projects.
+#### git-lfs
+
+To keep the repo speedy, we use [git-lfs](https://git-lfs.github.com/) to store
+binary files like the images on the website.
+<pre><code class="o-syntax-highlight--bash">brew install git-lfs
+git lfs install
+</code></pre>
+
+#### entr
+
+[entr](https://eradman.com/entrproject/) is used in the component `watch` command for watching files
+
+<pre><code class="o-syntax-highlight--bash">brew install entr</code></pre>
+#### rg
+[ripgrep](https://github.com/BurntSushi/ripgrep) is used in the component `watch` command for quickly choosing the files to watch for changes.
+<pre><code class="o-syntax-highlight--bash">brew install rg</code></pre>
+## Getting Started
+
+### Clone the Origami repository
+<pre><code class="o-syntax-highlight--bash">git clone git@github.com:Financial-Times/origami.git
+cd origami</code></pre>
+
+### Install dependencies
+<pre><code class="o-syntax-highlight--bash">npm install</code></pre>
+
+This will install all the components into the root `node_modules` directory, and allow all the components to [find one another](https://nodejs.org/api/modules.html#loading-from-node_modules-folders).
+In addition this tutorial introduces a number of tools and libraries such as [git](https://git-scm.com/), [Sass](https://sass-lang.com/), [sinon.js](https://sinonjs.org/), [storybook](https://storybook.js.org/) etc. We do not cover these in depth but attempt to include brief descriptions and links to relevant documentation so that you may learn separately about the parts which are new to you.
+
 
 ## The Origami Specification
 
 The [Origami Specification](/specification/v1/) is deprecated, new components may diverge from its rules. However, some Origami tools and services continue to depend on parts of the deprecated specification so we will refer to relevant sections of the specification throughout this tutorial. Including for folder structure, code standards, documentation and more.
 
 <aside>
-See our [blogpost on why the Origami specification is deprecated](https://origami.ft.com/blog/2021/06/01/newsletter/#the-origami-specification-is-no-more).
+See our <a href='https://origami.ft.com/blog/2021/06/01/newsletter/#the-origami-specification-is-no-more'>blogpost on why the Origami specification is deprecated</a>.
 </aside>
 
-## Build Tools
-
-Origami components are developed using the [Origami Build Tools](https://github.com/Financial-Times/origami-build-tools) (`obt`) command line interface. To work on our component, install Origami Build Tools (`obt`) on your machine by running this command in your terminal:
-
-<pre><code class="o-syntax-highlight--bash">npm install -g origami-build-tools</code></pre>
-
-_This requires Node and npm, see the [Origami Build Tools readme](https://github.com/Financial-Times/origami-build-tools#installation) for more information._
 
 ## Boilerplate
 
-To help us get started we can use the [Origami Build Tools `init` command](https://github.com/Financial-Times/origami-build-tools#init). The `init` command will ask a number of questions to determine what kind of component we're building and generate a basic component for us to build from.
+To help us get started we can use the following command:
 
-Before we run `obt init`, let's discuss some of those questions.
+<pre><code class="o-syntax-highlight--bash">npm run create-component</code></pre>
+
+The `npm run create-component` command will ask a number of questions to determine what kind of component we're building and generate a basic component for us to build from.
+
+Before we run `create-component`, let's discuss some of those questions.
 
 ### Component Name
 
 The first thing we will be asked is to decide a component name. Usually Origami components start with `o-`, and only contain lowercase letters or hyphens. See the [component naming convention](/specification/v1/components/#naming-conventions) for more details.
 
 For this tutorial we will name our component `o-example`.
-
-### Component Category
-
-Origami components are categorised, and different rules of the specification may apply to different categories. Examples of categories include `utilities`, `components`, and `layouts`. See the full list of categories with description in the [component category specification](/specification/v1/manifest/#origamicategory).
-
-For this tutorial we will select the most common `components` category.
-
 ### Supported Brands
 
-Component brands facilitate [component customisation](/specification/v1/components/sass/#customisation). Brands change the appearance of component elements globally, e.g. change the appearance of all “primary” buttons, including where they are used by other components. Brands include `core` (think, ft.com pink), `internal` for internal tools and products, and `whitelabel` for a striped-back un-opinionated style. Origami components may support one or more brands. We'll discuss brands more later, for now select the `core`, `internal`, and `whitelabel` brand when prompted by `obt init`.
+Component brands facilitate [component customisation](/specification/v1/components/sass/#customisation). Brands change the appearance of component elements globally, e.g. change the appearance of all “primary” buttons, including where they are used by other components. Brands include `core` (think, ft.com pink), `internal` for internal tools and products, and `whitelabel` for a striped-back un-opinionated style. Origami components may support one or more brands. We'll discuss brands more later, for now select the `core`, `internal`, and `whitelabel` brand when prompted by `create-component`.
 
 ### Support Status
 
 All Origami components have a support status. For example a `maintained` component means that "[the component is] not actively developed but reproducible bugs will be fixed promptly and work done where necessary to maintain compatibility with platforms and other projects"; an `experimental` component means "the [component] is not ready for production use". For a full list a support statuses and their meaning see the [support status section of the specification](/specification/v1/manifest/#supportstatus). It is sometimes a good idea to release a new component as `experimental` for a trial period to gather feedback from users, so select `experimental` for now.
 
-As well as a support status, the `obt init` command will ask for a support email address and slack channel. This will help identify your team as owners of the component. When the component is published a message will display in the component registry letting potential users know that support is not guaranteed by the Origami team, and that they should contact your team before using the component.
+As well as a support status, the `create-component` command will ask for a support email address, slack channel and github team. This will help identify your team as owners of the component. When the component is published a message will display in the component registry letting potential users know that support is not guaranteed by the Origami team, and that they should contact your team before using the component.
 
 ### JavaScript And Sass
 
@@ -88,16 +115,16 @@ Origami components may include JavaScript for interactivity or [Sass](https://sa
 
 ### Other Questions
 
-This tutorial won't expand on other questions asked by the `obt init` command, like what the component description and keywords are. Please feel free to contact the Origami team if you have any questions during this step.
+This tutorial won't expand on other questions asked by the `create-component` command, like what the component description and keywords are. Please feel free to contact the Origami team if you have any questions during this step.
 
 ### Output
 
-Now run `obt init` and answer the questions as above. You should see a directory which contains component boilerplate (commonly shared component code we can build on top of).
+Now run `npm run create-component` and answer the questions as above. You should see a directory inside the `components` folder which contains component boilerplate (commonly shared component code we can build on top of).
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/example-init-output.png" />
 	<figcaption>
-        Example output from the `obt init` command at the time of writing. It shows the questions asked and example responses, as discussed previously.
+        Example output from the `create-component` command at the time of writing. It shows the questions asked and example responses, as discussed previously.
 	</figcaption>
 </figure>
 
@@ -105,78 +132,69 @@ The structure of our component now looks something like this. In the next sectio
 
 ```
 o-example
-├── .eslintrc.js
-├── .dependabot
-│   └── config.yml
-├── .github
-│   ├── CODEOWNERS
-│   ├── ISSUE_TEMPLATE.md
-│   └── workflows
-│       └── [a number of .yml files]
-├── .gitignore
-├── .stylelintrc.js
 ├── README.md
 ├── demos
-│   └── src
-│       ├── demo.js
-│       ├── demo.mustache
-│       ├── demo.scss
-│       └── pa11y.mustache
+|  └── src
+|     ├── demo.js
+|     ├── demo.mustache
+|     └── demo.scss
 ├── main.js
 ├── main.scss
 ├── origami.json
 ├── package.json
 ├── src
-│   ├── js
-│   │   └── example.js
-│   └── scss
-│       ├── _brand.scss
-│       └── _variables.scss
+|  ├── js
+|  |  └── o-example.js
+|  ├── scss
+|  |  ├── _brand.scss
+|  |  └── _variables.scss
+|  └── tsx
+|     └── o-example.tsx
+├── stories
+|  ├── o-example.scss
+|  └── o-example.stories.tsx
 └── test
-    ├── js
-    │   ├── example.test.js
-    │   └── helpers
-    │       └── fixtures.js
-    └── scss
-        ├── _main.test.scss
-        └── index.test.scss
+   ├── helpers
+   |  └── fixtures.js
+   ├── o-example.test.js
+   └── scss
+      ├── _main.test.scss
+      └── index.test.scss
 ```
 
 ## Start Developing
 
 Now we have a basic component to work from we can start developing!
 
-First we need to install any component dependencies by running the Origami Build Tools `install` command:
+The `npm run watch` command creates a server for us to preview our component in the browser. And whenever we make any change to the source code the component will be rebuilt, which we will be able to see by refreshing our browser:
 
-<pre><code class="o-syntax-highlight--bash">obt install</code></pre>
+<pre><code class="o-syntax-highlight--bash">npm run watch -w components/o-example</code></pre>
 
-Then we can use the `develop` (`dev`) command to start working on the component. The `dev` command creates a server for us to preview our component in the browser. And whenever we make any change to the source code the component will be rebuilt, which we will be able to see by refreshing our browser:
+Opening the link output by the develop command, for example `localhost:5000`, lists the built component assets in the browser (<abbr title="Hyper Text Markup Language">HTML</abbr>, <abbr title="JavaScript">JS</abbr>, and <abbr title="Cascading Style Sheets ">CSS</abbr> files) for each brand that component supports.
 
-<pre><code class="o-syntax-highlight--bash">obt dev</code></pre>
-
-Opening the link output by the develop command, for example `localhost:8999`, lists the built component assets in the browser (<abbr title="Hyper Text Markup Language">HTML</abbr>, <abbr title="JavaScript">JS</abbr>, and <abbr title="Cascading Style Sheets ">CSS</abbr> files).
+_The `-w components/o-example` flag is used to run the `watch` command inside the `o-example` [NPM workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces). If you want to execute a command in a different workspace you can by providing the `-w` flag and workspace name._
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/example-dev-output.png" />
 	<figcaption>
-        Running the dev command builds our component assets (<abbr title="Hyper Text Markup Language">HTML</abbr>, <abbr title="JavaScript">JS</abbr>, and <abbr title="Cascading Style Sheets ">CSS</abbr> files).
+        Running the start command builds our component assets (<abbr title="Hyper Text Markup Language">HTML</abbr>, <abbr title="JavaScript">JS</abbr>, and <abbr title="Cascading Style Sheets ">CSS</abbr> files) for each brand specified using the create-component tool.
 	</figcaption>
 </figure>
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/example-demos-local.png" />
 	<figcaption>
-        Opening the link output by the develop command, `localhost:8999` in this case, shows us the component assets in the browser (<abbr title="Hyper Text Markup Language">HTML</abbr>, <abbr title="JavaScript">JS</abbr>, and <abbr title="Cascading Style Sheets ">CSS</abbr> files).
+        Opening the link output by the develop command, `localhost:5000` in this case, shows us the component assets in the browser (<abbr title="Hyper Text Markup Language">HTML</abbr>, <abbr title="JavaScript">JS</abbr>, and <abbr title="Cascading Style Sheets ">CSS</abbr> files).
 	</figcaption>
 </figure>
 
-Clicking the <abbr title="Hyper Text Markup Language">HTML</abbr> file `demo.html` will show a blank page. In the next section we will update our component with new <abbr title="Hyper Text Markup Language">HTML</abbr> and content.
+Clicking the <abbr title="Hyper Text Markup Language">HTML</abbr> file `core-demo.html` (or other `[BRAND]-core-demo.html` (or other `[BRAND]-demo.html`)) will show a blank page. In the next section we will update our component with new <abbr title="Hyper Text Markup Language">HTML</abbr> and content.
 
 ## Markup
 
-Origami components are not built to work with any particular framework in mind. This is because product developers may choose to use any technology stack to build their application, and it’s important that they not be forced to choose a particular one in order to use Origami components. With that in mind Origami components are not written in a templating language or a framework but in plain <abbr title="Hyper Text Markup Language">HTML</abbr>.
+Origami components are not built to work with any particular framework in mind. This is because product developers may choose to use any technology stack to build their application, and it’s important that they not be forced to choose a particular one in order to use Origami components. With that in mind Origami components are not written in a templating language or a framework but in plain <abbr title="Hyper Text Markup Language">HTML</abbr>. However some Origami components do provide complimentary TSX templates, which may be used optionally.
 
-Therefore to include component HTML Origami users copy and paste component HTML from the readme `README.md` or interactive component demos which are presented in the [Origami registry](https://registry.origami.ft.com/components/).
+Therefore to include component HTML Origami users copy and paste component HTML from the readme `README.md`, interactive component demos which are presented in the [Origami registry](https://registry.origami.ft.com/components/) or from [Storybook page](https://origami.ft.com/storybook/).
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/example-demo-registry.png" />
@@ -202,7 +220,7 @@ That `div` element is our component markup. So we can see something in out demo,
 +   Hello world, I am a component named o-example!
 +&lt;/div></code></pre>
 
-The `obt dev` command which we run earlier will detect that you have updated `demos/src/demo.mustache` and compile it to `demos/local/demo.html`. Now if you refresh your browser you should see the content we just added to the demo.
+The `npm run watch` command which we run earlier will detect that you have updated `demos/src/demo.mustache` and compile it to `demos/local/core-demo.html`. Now if you refresh your browser you should see the content we just added to the demo.
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo.png" />
@@ -217,10 +235,9 @@ The `div` tag in our demo may be any HTML tag provided there is a `data-o-compon
 
 In part one we learnt:
 - The [Origami specification](/specification/v1/) is deprecated, but some sections provide a useful reference to create components compatible with Origami tools and services whilst they are updated.
-- The [Origami Build Tools](https://github.com/Financial-Times/origami-build-tools) command line interface is used to help us develop and test components.
-- Specifically, we learnt about the Origami Build Tools `init` command to generate a component to work from when developing a new component.
-- Origami components use `git` source control and are stored remotely on Github.
-- Origami components HTML markup is usually copied by users from component demos rather than from templates.
+- Specifically, we learnt about the `npm run create-component` command to generate a component to work from when developing a new component.
+- Origami components are generated inside `components` directory and are stored remotely on Github.
+- Origami components HTML markup is usually copied by users from origami registry or from storybook demos.
 - And finally we learnt how to update the markup in one of those demos.
 
 Now we know how to update our component markup, in part two we will style our component. [Continue to part two](/documentation/tutorials/create-a-new-component-part-2).
