@@ -188,7 +188,7 @@ _The `-w components/o-example` flag is used to run the `watch` command inside th
 	</figcaption>
 </figure>
 
-Clicking the <abbr title="Hyper Text Markup Language">HTML</abbr> file `core-demo.html` (or other `[BRAND]-demo.html`) will show a blank page. In the next section we will update our component with new <abbr title="Hyper Text Markup Language">HTML</abbr> and content.
+Clicking the <abbr title="Hyper Text Markup Language">HTML</abbr> file `core-demo.html` (or other `[BRAND]-core-demo.html` (or other `[BRAND]-demo.html`)) will show a blank page. In the next section we will update our component with new <abbr title="Hyper Text Markup Language">HTML</abbr> and content.
 
 ## Markup
 

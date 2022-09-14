@@ -70,7 +70,7 @@ For more details see the [JavaScript initialisation](/specification/v1/component
 
 The second `init` argument is `options`, an `Object` of options for the user to configure the component. So users of [o-autoinit](https://registry.origami.ft.com/components/o-autoinit@2.0.4/readme) or the [Origami Build Service](https://www.ft.com/__origami/service/build/v3/) can also configure components, data attributes may alternatively be used to set component configuration.
 
-In `/src/js/example` setting component configuration is handled in the constructor. The `this.options` property is assigned to the given `options` object, which is merged with any data attributes that have a namespace `data-o-example-[option]`.
+In `/src/js/example` setting component configuration is handled in the constructor. The `this.options` property is assigned to the given `optionions` object, which is merged with any data attributes that have a namespace `data-o-example-[option]`.
 
 For instance the `o-table` component has a sort feature which may be disabled by either passing `{sortable: false}` to the [`o-table` `init` method](https://registry.origami.ft.com/components/o-table@8.0.11/jsdoc?brand=core) or by adding the [`data-o-table-sortable="false"`](https://registry.origami.ft.com/components/o-table@8.0.11/readme?brand=core#disable-sort) attribute to the `o-table` element.
 
@@ -91,10 +91,10 @@ Origami components use browser apis directly for [<abbr title="Document Object M
 	 * @param {HTMLElement} [exampleEl] - The component element in the DOM
 	 * @param {Object} [options={}] - An options object for configuring the component
 	 */
-	constructor (exampleEl, options) {
+	constructor (exampleEl, optionions) {
 		this.exampleEl = exampleEl;
 		this.options = Object.assign({}, {
-		}, options || Example.getDataAttributes(exampleEl));
+		}, optionions || Example.getDataAttributes(exampleEl));
 		// A property to store the current count.
 		this.count = 0;
 		// Listen to all click events on the o-example instance.
@@ -168,9 +168,9 @@ To do that add an option `highCount` in the constructor, with a default value of
 
 <pre><code class="o-syntax-highlight--js">// src/js/example.js
 
-constructor (exampleEl, options) {
+constructor (exampleEl, optionions) {
         this.exampleEl = exampleEl;
-        // Get the `highCount` option from the `options` argument or
+        // Get the `highCount` option from the `optionions` argument or
         // from a `data-o-example-high-count` data attribute, or
         // default to `10` if not set.
 		this.options = Object.assign({}, {
@@ -224,10 +224,10 @@ So we know when our component JavaScript is initiated successfully lets add a da
 
 <pre><code class="o-syntax-highlight--diff">// src/js/example.js
 
-constructor (exampleEl, options) {
+constructor (exampleEl, optionions) {
 		this.exampleEl = exampleEl;
 		this.options = Object.assign({}, {
-		}, options || Example.getDataAttributes(exampleEl));
+		}, optionions || Example.getDataAttributes(exampleEl));
 		// A property to store the current count.
 		this.count = 0;
 		// Listen to all click events on the o-example instance.
@@ -241,12 +241,12 @@ Next lets wrap any counter specific part of `o-example` markup in a `span` eleme
 
 <pre><code class="o-syntax-highlight--html">&lt;!-- demos/src/demo.mustache  -->
 
-&lt;div id="element" class="o-example &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}}" data-o-component="o-example">
+&lt;div id="element" class="o-example &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}} &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}}" data-o-component="o-example">
 	Hello world, I am a component named o-example!
 	&lt;span class="o-example__counter">
 		You have clicked this lovely button &lt;span data-o-example-current-count>0&lt;/span> times.
 		&lt;button class="o-example__button">count&lt;/button>
-	&lt;/span>
+	&lt;//span>
 &lt;/div>
 
 </code></pre>

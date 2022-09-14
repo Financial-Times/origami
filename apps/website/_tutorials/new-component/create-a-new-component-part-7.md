@@ -6,7 +6,7 @@ collection_listing_display: false
 
 # Redirect from legacy URLs
 redirect_from:
-  - /docs/tutorials/create-a-new-component-part-7/
+  - /docs/tutorials/create-a-new-component-part-6/
 ---
 
 # {{page.title}}
@@ -95,6 +95,18 @@ describe("with a button", () => {
     afterEach(() => {
         // Remove our component markup from the DOM
         fixtures.reset();
+    });
+
+    it("should increment the count on click", () => {
+        // initialise o-example on fixture markup
+        const oExample = Example.init('#element');
+        // find and click the button
+        const button = document.querySelector('button');
+        button.click();
+        // confirm the count has incremented
+        const actual = oExample.count;
+        const expected = 1;
+        proclaim.equal(actual, expected, `Expected count to equal ${expected} given a single button click.`);
     });
 
     it("should increment the count on click", () => {
