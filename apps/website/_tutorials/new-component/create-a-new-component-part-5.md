@@ -68,7 +68,7 @@ For more details see the [JavaScript initialisation](/specification/v1/component
 
 ## User Configuration
 
-The second `init` argument is `options`, an `Object` of options for the user to configure the component. So users of [o-autoinit](https://registry.origami.ft.com/components/o-autoinit@2.0.4/readme) can also configure components, data attributes may alternatively be used to set component configuration.
+The second `init` argument is `options`, an `Object` of options for the user to configure the component. So users of [o-autoinit](https://registry.origami.ft.com/components/o-autoinit@2.0.4/readme) or the [Origami Build Service](https://www.ft.com/__origami/service/build/v3/) can also configure components, data attributes may alternatively be used to set component configuration.
 
 In `/src/js/example` setting component configuration is handled in the constructor. The `this.options` property is assigned to the given `options` object, which is merged with any data attributes that have a namespace `data-o-example-[option]`.
 
