@@ -2,14 +2,17 @@ import {useEffect} from 'react';
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {SyntaxHighlight} from '../src/tsx/syntax-highlight';
+import {
+	SyntaxHighlightBlock,
+	SyntaxHighlight,
+} from '../src/tsx/syntax-highlight';
 import './syntax-highlight.scss';
 import javascript from '../main';
 import {langTemplates} from './fixtures.js';
 
 export default {
 	title: 'Components/o-syntax-highlight',
-	component: SyntaxHighlight,
+	component: SyntaxHighlightBlock,
 	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {},
@@ -42,101 +45,93 @@ export default {
 			],
 		},
 	},
-} as ComponentMeta<typeof SyntaxHighlight>;
+} as ComponentMeta<typeof SyntaxHighlightBlock>;
 
 const SyntaxHighlightStory = args => {
 	useEffect(() => {
 		javascript.init();
 	});
-	console.log(args);
-	return (
-		<div className="demo" data-o-component="o-syntax-highlight">
-			{/* if code is written inline language is set to empty string */}
-			{!args.language ? (
-				<>
-					<p>
-						This is some text, and it is here to illustrate that if you use a
-						<code>&lt;code&gt;</code> tag, it will get treatment regardless of
-						what language is inside it. But only if it is an inline
-						<code>&lt;code&gt;</code> tag
-					</p>
-					<p>
-						This is some text, and it is here to illustrate that if you use a
-						<var>&lt;var&gt;</var> tag, it will get treatment regardless of what
-						language is inside it. But only if it is an inline
-						<var>&lt;var&gt;</var> tag
-					</p>
-					<pre tabIndex={0}>
-						<code className="o-syntax-highlight--html">
-							<SyntaxHighlight {...args} />
-						</code>
-					</pre>
-				</>
-			) : (
-				<SyntaxHighlight {...args} />
-			)}
-		</div>
+	return !args.language ? (
+		<SyntaxHighlight>
+			<p>
+				This is some text, and it is here to illustrate that if you use a
+				<code>&lt;code&gt;</code> tag, it will get treatment regardless of what
+				language is inside it. But only if it is an inline
+				<code>&lt;code&gt;</code> tag
+			</p>
+			<p>
+				This is some text, and it is here to illustrate that if you use a
+				<var>&lt;var&gt;</var> tag, it will get treatment regardless of what
+				language is inside it. But only if it is an inline
+				<var>&lt;var&gt;</var> tag
+			</p>
+			<SyntaxHighlightBlock language="html" code={args.code} />
+		</SyntaxHighlight>
+	) : (
+		<SyntaxHighlight>
+			<SyntaxHighlightBlock {...args} />
+		</SyntaxHighlight>
 	);
 };
-export const HTML: ComponentStory<typeof SyntaxHighlight> =
+export const HTML: ComponentStory<typeof SyntaxHighlightBlock> =
 	SyntaxHighlightStory.bind({});
 HTML.args = {
 	language: 'html',
-	template: langTemplates.html,
+	code: langTemplates.html,
 };
 
-export const Javascript: ComponentStory<typeof SyntaxHighlight> =
+export const Javascript: ComponentStory<typeof SyntaxHighlightBlock> =
 	SyntaxHighlightStory.bind({});
 Javascript.args = {
 	language: 'js',
-	template: langTemplates.js,
+	code: langTemplates.js,
 };
 
-export const CSS: ComponentStory<typeof SyntaxHighlight> =
+export const CSS: ComponentStory<typeof SyntaxHighlightBlock> =
 	SyntaxHighlightStory.bind({});
 CSS.args = {
 	language: 'css',
-	template: langTemplates.css,
+	code: langTemplates.css,
 };
 
-export const InlineCode: ComponentStory<typeof SyntaxHighlight> =
+export const InlineCode: ComponentStory<typeof SyntaxHighlightBlock> =
 	SyntaxHighlightStory.bind({});
 InlineCode.args = {
 	language: '',
-	template: langTemplates.inline,
+	code: langTemplates.inline,
 };
 
-export const JSON: ComponentStory<typeof SyntaxHighlight> =
+export const JSON: ComponentStory<typeof SyntaxHighlightBlock> =
 	SyntaxHighlightStory.bind({});
 JSON.args = {
 	language: 'json',
-	template: langTemplates.json,
+	code: langTemplates.json,
 };
 
-export const YAML: ComponentStory<typeof SyntaxHighlight> =
+export const YAML: ComponentStory<typeof SyntaxHighlightBlock> =
 	SyntaxHighlightStory.bind({});
 YAML.args = {
 	language: 'yaml',
-	template: langTemplates.yaml,
+	code: langTemplates.yaml,
 };
 
-export const SCSS: ComponentStory<typeof SyntaxHighlight> =
+export const SCSS: ComponentStory<typeof SyntaxHighlightBlock> =
 	SyntaxHighlightStory.bind({});
 SCSS.args = {
 	language: 'scss',
-	template: langTemplates.scss,
+	code: langTemplates.scss,
 };
 
-export const Diff: ComponentStory<typeof SyntaxHighlight> =
+export const Diff: ComponentStory<typeof SyntaxHighlightBlock> =
 	SyntaxHighlightStory.bind({});
 Diff.args = {
 	language: 'diff',
-	template: langTemplates.diff,
+	code: langTemplates.diff,
 };
 
-export const Bash: ComponentStory<typeof SyntaxHighlight> =
+export const Bash: ComponentStory<typeof SyntaxHighlightBlock> =
 	SyntaxHighlightStory.bind({});
 Bash.args = {
 	language: 'bash',
-	template: langTemplates.bash,
+	code: langTemplates.bash,
 };
