@@ -86,9 +86,10 @@ export function TimestampLabel({
 	if (inverse) {
 		classNames.push('o-labels-timestamp--inverse');
 	}
+	const dateString = new Date(props.dateTime).toISOString()
 	return (
 		<time className={classNames.join(' ')}>
-			<ODate {...props} />
+			<ODate dateTime={dateString} />
 		</time>
 	);
 }

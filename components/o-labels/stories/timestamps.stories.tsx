@@ -12,6 +12,7 @@ export default {
 	decorators: [withDesign, withHtml],
 	argTypes: {
 		inverse: {control: 'boolean', defaultValue: false},
+		dateTime: {control: 'date'},
 	},
 } as ComponentMeta<typeof OTimestampLabel>;
 
