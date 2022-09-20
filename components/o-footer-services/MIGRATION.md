@@ -82,10 +82,10 @@ All previous variations of the footer have been discontinued. To illustrate the 
 +		<div class="o-footer-services__container">
 +			<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
 +				<div class="o-footer-services__links">
-+					<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
-+					<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
-+					<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
-+					<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
++					<a href="https://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
++					<a href="https://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
++					<a href="https://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
++					<a href="https://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
 +					<a href="https://help.ft.com/legal-privacy/copyright-policy/">Slavery Statement & Policies</a>
 +				</div>
 +				<p><span>&copy; THE FINANCIAL TIMES LTD 2020.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
