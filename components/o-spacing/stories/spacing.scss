@@ -1,0 +1,23 @@
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-normalise/main";
+@import "@financial-times/o-fonts/main";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-brand/main";
+
+@include oNormalise();
+@include oFonts();
+@include oSpacing();
+
+.demo {
+	@if oBrandIs('whitelabel') {
+		background-color: oColorsByName('white');
+		outline: 3px dashed oColorsByName('black');
+	} @else {
+		background-color: oColorsByName('teal-100');
+		outline: 3px dashed oColorsByName('slate');
+	}
+}
+
+.demo-visually-hidden {
+	@include oNormaliseVisuallyHidden;
+}
