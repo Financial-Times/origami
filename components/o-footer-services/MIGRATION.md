@@ -86,6 +86,7 @@ All previous variations of the footer have been discontinued. To illustrate the 
 +					<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
 +					<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
 +					<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
++					<a href="https://help.ft.com/legal-privacy/copyright-policy/">Slavery Statement & Policies</a>
 +				</div>
 +				<p><span>&copy; THE FINANCIAL TIMES LTD 2020.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
 +			</div>
