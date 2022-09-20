@@ -1,9 +1,10 @@
 import ODate from '@financial-times/o-date/main';
-import type {ComponentMeta, ComponentStory} from '@storybook/react';
+import {Date as DateTSX} from '@financial-times/o-date/src/tsx/date';
+import type {Meta, Story} from '@storybook/react';
 import withHtml from 'origami-storybook-addon-html';
 import {useEffect} from 'react';
 import {withDesign} from 'storybook-addon-designs';
-import {TimestampLabel as OTimestampLabel} from '../src/tsx/label';
+import {TimestampLabel as OTimestampLabel, TimestampLabelProps} from '../src/tsx/label';
 import './labels.scss';
 
 export default {
@@ -14,9 +15,9 @@ export default {
 		inverse: {control: 'boolean', defaultValue: false},
 		dateTime: {control: 'date'},
 	},
-} as ComponentMeta<typeof OTimestampLabel>;
+} as Meta<TimestampLabelProps>;
 
-export const TimestampLabel: ComponentStory<typeof OTimestampLabel> = args => {
+export const TimestampLabel: Story<TimestampLabelProps & {dateTime: Date}> = args => {
 	useEffect(() => {
 		let dates = ODate.init();
 		return function cleanup() {
@@ -24,8 +25,13 @@ export const TimestampLabel: ComponentStory<typeof OTimestampLabel> = args => {
 			dates.forEach(date => date.destroy());
 		};
 	});
-	return <OTimestampLabel {...args} />;
+
+	const dateString = new Date(args.dateTime).toISOString()
+	return <OTimestampLabel {...args} >
+		<DateTSX dateTime={dateString} />
+	</OTimestampLabel>;
 };
+
 TimestampLabel.args = {
-	dateTime: new Date(2022, 1, 10, 8, 30).toISOString(),
+	dateTime: new Date(2022, 1, 10, 8, 30),
 };

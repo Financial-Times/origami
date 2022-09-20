@@ -1,9 +1,10 @@
 import ODate from '@financial-times/o-date/main';
-import type {ComponentMeta, ComponentStory} from '@storybook/react';
+import {Date as DateTSX} from '@financial-times/o-date/src/tsx/date';
+import type {Meta, Story} from '@storybook/react';
 import withHtml from 'origami-storybook-addon-html';
 import {useEffect} from 'react';
 import {withDesign} from 'storybook-addon-designs';
-import {IndicatorLabel as OIndicatorLabel} from '../src/tsx/label';
+import {IndicatorLabel as OIndicatorLabel, IndicatorLabelProps} from '../src/tsx/label';
 import './labels.scss';
 
 export default {
@@ -12,10 +13,12 @@ export default {
 	decorators: [withDesign, withHtml],
 	argTypes: {
 		inverse: {control: 'boolean', defaultValue: false},
+		dateTime: {control: 'date'}
 	},
-} as ComponentMeta<typeof OIndicatorLabel>;
+} as Meta<IndicatorLabelProps>;
 
-const Template: ComponentStory<typeof OIndicatorLabel> = args => {
+type IndicatorStory =  Story<IndicatorLabelProps & {dateTime: Date | number}>
+const Template: IndicatorStory = args => {
 	useEffect(() => {
 		let dates = ODate.init();
 		return function cleanup() {
@@ -23,34 +26,53 @@ const Template: ComponentStory<typeof OIndicatorLabel> = args => {
 			dates.forEach(date => date.destroy());
 		};
 	});
-	return <OIndicatorLabel {...args} />;
+	const dateString = args.dateTime && new Date(args.dateTime).toISOString()
+	return <OIndicatorLabel {...args}>
+		{dateString && <DateTSX dateTime={dateString} />}
+	</OIndicatorLabel>;
 };
 
-export const LiveIndicatorLabel: ComponentStory<typeof OIndicatorLabel> =
+export const LiveIndicatorLabel: IndicatorStory =
 	Template.bind({});
 LiveIndicatorLabel.args = {
 	indicator: 'live',
 	status: 'live',
 };
 
-export const ClosedIndicatorLabel: ComponentStory<typeof OIndicatorLabel> =
+LiveIndicatorLabel.argTypes = {
+	dateTime: {
+		table: {
+			disable: true
+		}
+	}
+}
+
+export const ClosedIndicatorLabel: IndicatorStory =
 	Template.bind({});
 ClosedIndicatorLabel.args = {
 	indicator: 'closed',
 	status: 'closed',
 };
+ClosedIndicatorLabel.argTypes = {
+	dateTime: {
+		table: {
+			disable: true
+		}
+	}
+}
 
-export const NewIndicatorLabel: ComponentStory<typeof OIndicatorLabel> =
+export const NewIndicatorLabel: IndicatorStory =
 	Template.bind({});
 NewIndicatorLabel.args = {
 	indicator: 'new',
 	status: 'new',
-	timestamp: {dateTime: new Date(2022, 1, 10, 8, 30).toISOString()},
+	dateTime: Date.now(),
 };
 
-export const UpdatedIndicatorLabel: ComponentStory<typeof OIndicatorLabel> =
+export const UpdatedIndicatorLabel: IndicatorStory =
 	Template.bind({});
 UpdatedIndicatorLabel.args = {
 	indicator: 'updated',
 	status: 'updated',
+	dateTime: Date.now(),
 };
