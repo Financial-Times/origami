@@ -14,21 +14,10 @@ components.forEach(async dir => {
 	const localJsonData = jetpack.read(jsonPath, "json")
 	const localOrigamiJsonData = jetpack.read(origamiJsonPath, "json")
 	const componentName = localJsonData.name.split("/")[1]
-	console.log(componentName)
-	const extractedData = {
-		name: componentName,
-		url: localJsonData.homepage,
-		description: localJsonData.description,
-		version: localJsonData.version,
-		brands: localOrigamiJsonData.brands,
-		languages: findSupportedLanguages(jetpack.path(componentsPath, dir)),
-		peerDependencies: localJsonData.peerDependencies,
-		devDependencies: localJsonData.devDependencies,
-		dependencies: localJsonData.dependencies,
-	}
-	newJsonData.push(extractedData)
+
 	const archivedReleases =
-		jetpack.read(`src/data/archived-releases/${componentName}.json`, "json") || []
+		jetpack.read(`src/data/archived-releases/${componentName}.json`, "json") ||
+		[]
 	const changeLogPath = jetpack.path(componentsPath, dir, "CHANGELOG.md")
 	const changeLogData = jetpack
 		.read(changeLogPath, "utf8")
@@ -54,7 +43,19 @@ components.forEach(async dir => {
 			published_at: release.published_at.split("T")[0],
 		}
 	})
-	jetpack.write(`src/data/release-data/${componentName}.json`, releases)
+	const extractedData = {
+		name: componentName,
+		url: localJsonData.homepage,
+		description: localJsonData.description,
+		version: localJsonData.version,
+		brands: localOrigamiJsonData.brands,
+		languages: findSupportedLanguages(jetpack.path(componentsPath, dir)),
+		peerDependencies: localJsonData.peerDependencies,
+		devDependencies: localJsonData.devDependencies,
+		dependencies: localJsonData.dependencies,
+		releases: releases,
+	}
+	newJsonData.push(extractedData)
 })
 
 jetpack.write("src/data/component-data.json", newJsonData)

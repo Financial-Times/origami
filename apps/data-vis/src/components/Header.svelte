@@ -8,7 +8,7 @@
 	}
 </script>
 
-<svg width={1000}>
+<svg width={1000} height={300}>
 	<g transform={`translate(${calculateGridPos(0, 4, 120)})`}>
 		<path d={paths.g} />
 		<text>P</text>

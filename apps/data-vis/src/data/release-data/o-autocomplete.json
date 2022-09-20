@@ -2,6 +2,15 @@
   {
     "release": {
       "major": "1",
+      "minor": "7",
+      "patch": "0"
+    },
+    "version": "1.7.0",
+    "published_at": "2022-09-14"
+  },
+  {
+    "release": {
+      "major": "1",
       "minor": "6",
       "patch": "2"
     },
