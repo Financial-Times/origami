@@ -33,7 +33,9 @@ redirect_from:
 			{% assign documents = site.principles | sort: 'nav_order', 'last' %}
 			<ul>
 				{% for item in documents %}
-					<li><a href="{{item.url}}">{{item.title}}</a></li>
+					{% if item.collection_listing_display != false %}
+						<li><a href="{{item.url}}">{{item.title}}</a></li>
+					{% endif %}
 				{% endfor %}
 			</ul>
 		</div>
@@ -46,7 +48,9 @@ redirect_from:
 			{% assign documents = site.components | sort: 'nav_order', 'last' %}
 			<ul>
 				{% for item in documents %}
-					<li><a href="{{item.url}}">{{item.title}}</a></li>
+					{% if item.collection_listing_display != false %}
+						<li><a href="{{item.url}}">{{item.title}}</a></li>
+					{% endif %}
 				{% endfor %}
 			</ul>
 		</div>
@@ -59,7 +63,9 @@ redirect_from:
 			{% assign documents = site.services | sort: 'nav_order', 'last' %}
 			<ul>
 				{% for item in documents %}
-					<li><a href="/documentation/services/#{{item.title | slugify}}">{{item.title}}</a></li>
+					{% if item.collection_listing_display != false %}
+						<li><a href="/documentation/services/#{{item.title | slugify}}">{{item.title}}</a></li>
+					{% endif %}
 				{% endfor %}
 			</ul>
 		</div>
