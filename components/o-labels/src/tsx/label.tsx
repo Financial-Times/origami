@@ -1,5 +1,3 @@
-import {Date as ODate, DateProps} from '@financial-times/o-date/src/tsx/date';
-
 export type Brand = 'core' | 'internal' | 'whitelabel';
 
 export interface BrandStates {
@@ -48,15 +46,15 @@ export function Label<B extends Brand>({
 export interface IndicatorLabelProps {
 	indicator: 'live' | 'closed' | 'new' | 'updated';
 	status: string;
-	timestamp?: DateProps;
 	inverse?: boolean;
+	children?: JSX.Element | JSX.Element[];
 }
 
 export function IndicatorLabel({
 	indicator,
 	status,
-	timestamp,
 	inverse,
+	children,
 }: IndicatorLabelProps): JSX.Element {
 	const classNames = ['o-labels-indicator', `o-labels-indicator--${indicator}`];
 	if (inverse) {
@@ -64,32 +62,29 @@ export function IndicatorLabel({
 	}
 	return (
 		<span className={classNames.join(' ')}>
-			<span className="o-labels-indicator__status">{status}</span>
-			{timestamp && (
+			<span className="o-labels-indicator__status"> {status} </span>
+			{children && (
 				<time className="o-labels-indicator__timestamp">
-					<time {...timestamp}></time>
+					{children}
 				</time>
 			)}
 		</span>
 	);
 }
 
-export interface TimestampLabelProps extends DateProps {
+export interface TimestampLabelProps {
 	inverse?: boolean;
+	children?: JSX.Element | JSX.Element[]
 }
 
-export function TimestampLabel({
-	inverse,
-	...props
-}: TimestampLabelProps): JSX.Element {
+export function TimestampLabel({inverse, children}: TimestampLabelProps): JSX.Element {
 	const classNames = ['o-labels-timestamp'];
 	if (inverse) {
 		classNames.push('o-labels-timestamp--inverse');
 	}
-	const dateString = new Date(props.dateTime).toISOString()
 	return (
 		<time className={classNames.join(' ')}>
-			<ODate dateTime={dateString} />
+			{children}
 		</time>
 	);
 }
