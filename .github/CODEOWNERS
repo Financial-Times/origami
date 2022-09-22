@@ -2,9 +2,9 @@
 * @Financial-Times/origami-core 
 
 # Storytelling components
-components/o-audio/ @Financial-Times/content-innovation
-components/o-comments/ @Financial-Times/content-innovation
-components/o-video/ @Financial-Times/content-innovation
+components/o-audio/ @Financial-Times/storytelling
+components/o-comments/ @Financial-Times/storytelling
+components/o-video/ @Financial-Times/storytelling
 
 # Acquisition components
 components/o-subs-card/ @Financial-Times/acquisition
