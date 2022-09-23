@@ -2,7 +2,7 @@ import {TNavMenu} from '../../src/tsx/Props';
 const data: TNavMenu = {
 	label: 'User',
 	items: [
-		{label: 'Help Centre', url: 'http://help.ft.com', submenu: null},
+		{label: 'Help Centre', url: 'https://help.ft.com', submenu: null},
 		{
 			label: 'Settings & Account',
 			url: 'https://www.ft.com/myaccount',

@@ -62,7 +62,7 @@ To support a core experience without JavaScript, add the full `o-cookie-message`
 				</div>
 				<p id="o-cookie-message-description">
 					We use
-					<a href="http://help.ft.com/help/legal-privacy/cookies/"
+					<a href="https://help.ft.com/help/legal-privacy/cookies/"
 						class="o-cookie-message__link"
 						target="_blank"
 						rel="noopener">cookies</a>
