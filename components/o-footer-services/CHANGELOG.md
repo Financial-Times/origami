@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.2.4](https://www.github.com/Financial-Times/origami/compare/o-footer-services-v4.2.3...o-footer-services-v4.2.4) (2022-09-23)
+
+
+### Bug Fixes
+
+* add missing Slavery Statement & Policies to footer demos / docs ([#819](https://www.github.com/Financial-Times/origami/issues/819)) ([73bc1c6](https://www.github.com/Financial-Times/origami/commit/73bc1c6e3e75a677602fd3051c4ea9f9f72f360d))
+
 ### [4.2.3](https://www.github.com/Financial-Times/origami/compare/o-footer-services-v4.2.2...o-footer-services-v4.2.3) (2022-02-16)
 
 
