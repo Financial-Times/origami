@@ -60,7 +60,7 @@ export function CookieMessage({
 									<>
 										We use{' '}
 										<a
-											href="http://help.ft.com/help/legal-privacy/cookies/"
+											href="https://help.ft.com/help/legal-privacy/cookies/"
 											className="o-cookie-message__link"
 											target="_blank"
 											rel="noopener">

@@ -96,7 +96,7 @@ class CookieMessage {
 	<h2 id="${labelId}">Cookies on the FT</h2>
 </div>
 <p id="${descriptionId}">
-	We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link" target="_blank" rel="noopener">cookies</a> for a number of reasons, such as keeping FT Sites reliable and secure, personalising content and ads, providing social media features and to analyse how our Sites are used.
+	We use <a href="https://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link" target="_blank" rel="noopener">cookies</a> for a number of reasons, such as keeping FT Sites reliable and secure, personalising content and ads, providing social media features and to analyse how our Sites are used.
 </p>`;
 
 		const child = this.cookieMessageElement.firstElementChild;

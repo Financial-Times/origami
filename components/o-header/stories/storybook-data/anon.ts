@@ -5,7 +5,7 @@ const data: TNavMenu = {
 	items: [
 		{
 			label: 'Help Centre',
-			url: 'http://help.ft.com',
+			url: 'https://help.ft.com',
 			submenu: null,
 		},
 		{
