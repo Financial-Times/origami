@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.2.4](https://www.github.com/Financial-Times/origami/compare/o-footer-v9.2.3...o-footer-v9.2.4) (2022-09-23)
+
+
+### Bug Fixes
+
+* Add another missing Slavery Statement & Policies link ([#822](https://www.github.com/Financial-Times/origami/issues/822)) ([f0731e8](https://www.github.com/Financial-Times/origami/commit/f0731e8d6f6564f8afba6d490609f3d549bca65a))
+
 ### [9.2.3](https://www.github.com/Financial-Times/origami/compare/o-footer-v9.2.2...o-footer-v9.2.3) (2022-09-23)
 
 
