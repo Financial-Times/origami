@@ -38,7 +38,7 @@
 			{{#radioBox}}<span class="o-forms-input--radio-box__container">{{/radioBox}}
 
 			{{#inputs}}
-				<label {{#label}}class="{{.}}"{{/label}}>
+				<label {{#id}}for="{{id}}" {{/id}}{{#label}}class="{{.}}" {{/label}}>
 					{{#label-first}}
 						<span class="o-forms-input__label
 									{{#modifier}} o-forms-input__label--{{.}}{{/modifier}}
@@ -48,6 +48,7 @@
 						</span>
 					{{/label-first}}
 					<input
+						{{#id}}id="{{id}}" {{/id}}
 						type="{{type}}"
 						name="{{name}}"
 						value="{{value}}"
