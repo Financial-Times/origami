@@ -53,19 +53,7 @@ const SyntaxHighlightStory = args => {
 	});
 	return !args.language ? (
 		<SyntaxHighlight>
-			<p>
-				This is some text, and it is here to illustrate that if you use a
-				<code>&lt;code&gt;</code> tag, it will get treatment regardless of what
-				language is inside it. But only if it is an inline
-				<code>&lt;code&gt;</code> tag
-			</p>
-			<p>
-				This is some text, and it is here to illustrate that if you use a
-				<var>&lt;var&gt;</var> tag, it will get treatment regardless of what
-				language is inside it. But only if it is an inline
-				<var>&lt;var&gt;</var> tag
-			</p>
-			<SyntaxHighlightBlock language="html" code={args.code} />
+			<div dangerouslySetInnerHTML={{__html: args.code}} />
 		</SyntaxHighlight>
 	) : (
 		<SyntaxHighlight>

@@ -349,19 +349,16 @@ nothing
 
 	echo *.txt
 	#some comment`,
-	inline: `<html>
-<head>
-	<!-- links and scripts -->
-</head>
-<body>
-	<div class="some-class" data-attribute="value">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consectetur est in urna iaculis tempus.</p>
-		<p>Nam faucibus feugiat lectus, <a href="#">sit amet blandit</a> purus bibendum et.</p>
-		<button type="button" name="button">Button.</button>
-		<span>Comment</span>
-
-	</div>
-</body>
-</html></code>
-</pre>`,
+	inline: `<p>
+	This is some text, and it is here to illustrate that if you use a
+	<code>&lt;code&gt;</code> tag, it will get treatment regardless of what
+	language is inside it. But only if it is an inline
+	<code>&lt;code&gt;</code> tag
+</p>
+<p>
+	This is some text, and it is here to illustrate that if you use a
+	<var>&lt;var&gt;</var> tag, it will get treatment regardless of what
+	language is inside it. But only if it is an inline
+	<var>&lt;var&gt;</var> tag
+</p>`,
 };
