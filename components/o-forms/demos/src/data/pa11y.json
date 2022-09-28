@@ -18,18 +18,21 @@
 						"type": "checkbox",
 						"name": "default",
 						"value": "Stacked 1",
-						"checked": true
+						"checked": true,
+						"id": "stacked-1"
 					},
 					{
 						"type": "checkbox",
 						"name": "default",
-						"value": "Stacked 2"
+						"value": "Stacked 2",
+						"id": "stacked-2"
 					},
 					{
 						"type": "checkbox",
 						"name": "default",
 						"value": "Stacked 3",
-						"checked": true
+						"checked": true,
+						"id": "stacked-3"
 					}
 				]
 			},
@@ -49,13 +52,15 @@
 						"name": "disabled",
 						"value": "Disabled 1",
 						"checked": true,
-						"disabled": true
+						"disabled": true,
+						"id": "disabled-1"
 					},
 					{
 						"type": "checkbox",
 						"name": "disabled",
 						"value": "Disabled 2",
-						"disabled": true
+						"disabled": true,
+						"id": "disabled-2"
 					}
 				]
 			},
@@ -77,22 +82,22 @@
 						"type": "text",
 						"pattern": "0[1-9]|[12]\\d|3[01]",
 						"classes": "o-forms-input__day-part",
-						"aria-label": "Day (DD)",
-						"date": "DD"
+						"date": "DD",
+						"id": "date"
 					},
 					{
 						"type": "text",
 						"pattern": "0?[1-9]|1[012]",
 						"classes": "o-forms-input__month-part",
-						"aria-label": "Month (MM)",
-						"date": "MM"
+						"date": "MM",
+						"id": "month"
 					},
 					{
 						"type": "text",
 						"pattern": "[0-9]{4}",
 						"classs": "o-forms-input__year-part",
-						"aria-label": "Year (YYYY)",
-						"date": "YYYY"
+						"date": "YYYY",
+						"id": "year"
 					}
 				]
 			},
@@ -115,24 +120,24 @@
 						"type": "text",
 						"pattern": "0[1-9]|[12]\\d|3[01]",
 						"classes": "o-forms-input__day-part",
-						"aria-label": "Day (DD)",
 						"date": "DD",
-						"value": "01"
+						"value": "01",
+						"id": "error-date"
 					},
 					{
 						"type": "text",
 						"classes": "o-forms-input__month-part",
 						"pattern": "0?[1-9]|1[012]",
-						"aria-label": "Month (MM)",
 						"date": "MM",
-						"value": "24"
+						"value": "24",
+						"id": "error-month"
 					},
 					{
 						"type": "text",
 						"pattern": "[0-9]{4}",
-						"aria-label": "Year (YYYY)",
 						"date": "YYYY",
-						"value": "2019"
+						"value": "2019",
+						"id": "error-year"
 					}
 				]
 			},
@@ -155,12 +160,14 @@
 						"type": "radio",
 						"name": "default",
 						"value": "Daily",
-						"checked": true
+						"checked": true,
+						"id": "daily"
 					},
 					{
 						"type": "radio",
 						"name": "default",
-						"value": "Weekly"
+						"value": "Weekly",
+						"id": "weekly"
 					}
 				]
 			},
@@ -179,18 +186,21 @@
 					{
 						"type": "radio",
 						"name": "multiple",
-						"value": "Daily"
+						"value": "Daily",
+						"id": "multiple-daily"
 					},
 					{
 						"type": "radio",
 						"name": "multiple",
 						"value": "Weekly",
-						"checked": true
+						"checked": true,
+						"id": "multiple-weekly"
 					},
 					{
 						"type": "radio",
 						"name": "multiple",
-						"value": "Monthly"
+						"value": "Monthly",
+						"id": "multiple-monthly"
 					}
 				]
 			},
@@ -218,12 +228,14 @@
 						"type": "radio",
 						"name": "saving",
 						"value": "Daily",
-						"checked": true
+						"checked": true,
+						"id": "saving-daily"
 					},
 					{
 						"type": "radio",
 						"name": "saving",
-						"value": "Weekly"
+						"value": "Weekly",
+						"id": "saving-weekly"
 					}
 				]
 			},
@@ -245,12 +257,14 @@
 						"type": "radio",
 						"name": "default",
 						"value": "Default 1",
-						"checked": true
+						"checked": true,
+						"id": "default-1"
 					},
 					{
 						"type": "radio",
 						"name": "default",
-						"value": "Default 2"
+						"value": "Default 2",
+						"id": "default-2"
 					}
 				]
 			},
@@ -270,13 +284,15 @@
 						"name": "disabled",
 						"value": "Disabled 1",
 						"checked": true,
-						"disabled": true
+						"disabled": true,
+						"id": "disabled-1"
 					},
 					{
 						"type": "radio",
 						"name": "disabled",
 						"value": "Disabled 2",
-						"disabled": true
+						"disabled": true,
+						"id": "disabled-2"
 					}
 				]
 			},
@@ -298,12 +314,14 @@
 						"type": "checkbox",
 						"name": "default",
 						"value": "Stacked 1",
-						"checked": true
+						"checked": true,
+						"id": "stacked-1"
 					},
 					{
 						"type": "checkbox",
 						"name": "default",
-						"value": "Stacked 2"
+						"value": "Stacked 2",
+						"id": "stacked-2"
 					}
 				]
 			},
@@ -326,12 +344,14 @@
 						"type": "checkbox",
 						"name": "inverse",
 						"value": "Inverse 1",
-						"checked": true
+						"checked": true,
+						"id": "inverse-1"
 					},
 					{
 						"type": "checkbox",
 						"name": "inverse",
-						"value": "Inverse 2"
+						"value": "Inverse 2",
+						"id": "inverse-2"
 					}
 				]
 			}
@@ -347,7 +367,8 @@
 					"prompt": "Optional prompt text"
 				},
 				"input": {
-					"type": "text"
+					"type": "text",
+					"id": "optional-text-input"
 				}
 			},
 			{
@@ -360,7 +381,8 @@
 					"modifiers": [
 						"valid"
 					],
-					"value": "Valid Input"
+					"value": "Valid Input",
+					"id": "valid-text-input"
 				}
 			},
 			{
@@ -374,7 +396,8 @@
 						"invalid"
 					],
 					"value": "Invalid Input",
-					"error": "Something went wrong"
+					"error": "Something went wrong",
+					"id": "invalid-text-input"
 				}
 			},
 			{
@@ -385,7 +408,8 @@
 				},
 				"input": {
 					"type": "text",
-					"value": "Disabled"
+					"value": "Disabled",
+					"id": "disabled-text-input"
 				}
 			},
 			{
@@ -399,7 +423,8 @@
 						"suffix"
 					],
 					"value": "",
-					"button": "o-buttons o-buttons--secondary o-buttons--big"
+					"button": "o-buttons o-buttons--secondary o-buttons--big",
+					"id": "suffix-text-input"
 				}
 			},
 			{
@@ -408,7 +433,8 @@
 					"main": "File input"
 				},
 				"input": {
-					"type": "file"
+					"type": "file",
+					"id": "file-input"
 				}
 			},
 			{
@@ -418,7 +444,8 @@
 				},
 				"input": {
 					"type": "password",
-					"value": "password"
+					"value": "password",
+					"id": "password-input"
 				}
 			},
 			{
@@ -436,7 +463,8 @@
 					],
 					"modifiers": [
 						"small"
-					]
+					],
+					"id": "small-select"
 				}
 			},
 			{
@@ -452,7 +480,8 @@
 						"Option 2",
 						"Option 3",
 						"Option 4"
-					]
+					],
+					"id": "multiple-select"
 				}
 			},
 			{
@@ -463,7 +492,8 @@
 					"prompt": "Optional prompt text"
 				},
 				"input": {
-					"type": "textarea"
+					"type": "textarea",
+					"id": "optional-text-area"
 				}
 			},
 			{
@@ -474,7 +504,8 @@
 				},
 				"input": {
 					"type": "textarea",
-					"value": "Disabled"
+					"value": "Disabled",
+					"id": "disabled-text-area"
 				}
 			}
 		]
