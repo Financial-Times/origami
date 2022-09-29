@@ -19,20 +19,20 @@
 						"name": "default",
 						"value": "Stacked 1",
 						"checked": true,
-						"id": "stacked-1"
+						"id": "checkbox-stacked-1"
 					},
 					{
 						"type": "checkbox",
 						"name": "default",
 						"value": "Stacked 2",
-						"id": "stacked-2"
+						"id": "checkbox-stacked-2"
 					},
 					{
 						"type": "checkbox",
 						"name": "default",
 						"value": "Stacked 3",
 						"checked": true,
-						"id": "stacked-3"
+						"id": "checkbox-stacked-3"
 					}
 				]
 			},
@@ -53,14 +53,14 @@
 						"value": "Disabled 1",
 						"checked": true,
 						"disabled": true,
-						"id": "disabled-1"
+						"id": "checkbox-disabled-1"
 					},
 					{
 						"type": "checkbox",
 						"name": "disabled",
 						"value": "Disabled 2",
 						"disabled": true,
-						"id": "disabled-2"
+						"id": "checkbox-disabled-2"
 					}
 				]
 			},
@@ -285,14 +285,14 @@
 						"value": "Disabled 1",
 						"checked": true,
 						"disabled": true,
-						"id": "disabled-1"
+						"id": "radio-disabled-1"
 					},
 					{
 						"type": "radio",
 						"name": "disabled",
 						"value": "Disabled 2",
 						"disabled": true,
-						"id": "disabled-2"
+						"id": "radio-disabled-2"
 					}
 				]
 			},
@@ -315,13 +315,13 @@
 						"name": "default",
 						"value": "Stacked 1",
 						"checked": true,
-						"id": "stacked-1"
+						"id": "toggle-stacked-1"
 					},
 					{
 						"type": "checkbox",
 						"name": "default",
 						"value": "Stacked 2",
-						"id": "stacked-2"
+						"id": "toggle-stacked-2"
 					}
 				]
 			},
