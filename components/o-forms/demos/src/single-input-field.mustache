@@ -22,6 +22,7 @@
 
 			{{#textArea}}
 				<textarea
+					{{#input.id}}id="{{input.id}}" {{/input.id}}
 					{{#inputmode}}inputmode="{{.}}"{{/inputmode}}
 					{{#pattern}}pattern={{.}}{{/pattern}}
 					{{#disabled}}disabled{{/disabled}}
