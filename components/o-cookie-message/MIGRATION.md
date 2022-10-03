@@ -76,7 +76,7 @@ The 2.0.0 release changes the default behaviour of o-cookie-message. Instead of 
 ```diff
 <div class="o-cookie-message__container">
 -	<p class="o-cookie-message__description">
--		By continuing to use this site you consent to the use of cookies on your device as described in our <a href="http://help.ft.com/tools-services/how-the-ft-manages-cookies-on-its-websites/">cookie policy</a> unless you have disabled them. You can change your <a href="http://help.ft.com/help/legal-privacy/cookies/how-to-mange-cookies/">cookie settings</a> at any time but parts of our site will not function correctly without them.
+-		By continuing to use this site you consent to the use of cookies on your device as described in our <a href="https://help.ft.com/tools-services/how-the-ft-manages-cookies-on-its-websites/">cookie policy</a> unless you have disabled them. You can change your <a href="https://help.ft.com/help/legal-privacy/cookies/how-to-mange-cookies/">cookie settings</a> at any time but parts of our site will not function correctly without them.
 -	</p>
 -	<div class="o-cookie-message__close-btn-container">
 -		<button class="o-cookie-message__close-btn" data-o-component="o-cookie-message-close">

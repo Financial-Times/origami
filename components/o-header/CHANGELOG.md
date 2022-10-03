@@ -1,5 +1,4 @@
 # Changelog
-
 ## [10.1.0](https://www.github.com/Financial-Times/origami/compare/o-header-v10.0.1...o-header-v10.1.0) (2022-08-17)
 
 
