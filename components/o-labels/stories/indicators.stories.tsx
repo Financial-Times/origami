@@ -13,7 +13,12 @@ export default {
 	decorators: [withDesign, withHtml],
 	argTypes: {
 		inverse: {control: 'boolean', defaultValue: false},
-		dateTime: {control: 'date'}
+		dateTime: {control: 'date'},
+		indicator: {
+			table: {
+				disable: true
+			}
+		}
 	},
 } as Meta<IndicatorLabelProps>;
 
