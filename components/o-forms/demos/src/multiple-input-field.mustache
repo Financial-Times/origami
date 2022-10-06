@@ -1,3 +1,4 @@
+<form action="" data-o-component="o-forms">
 {{#variants}}
 
 {{#anchor}}
@@ -92,7 +93,7 @@
 
 			{{#radioBox}}</span>{{/radioBox}}
 
-			{{#field.error}}<span class="o-forms-input__error">{{.}}</span>{{/field.error}}
+			{{#field.error}}<span role=alert class="o-forms-input__error">{{.}}</span>{{/field.error}}
 
 			{{#field.state}}
 				<span class="o-forms-input__state {{#field.icon}}o-forms-input__state--icon-only{{/field.icon}}">
@@ -106,3 +107,4 @@
 
 {{/anchor}}
 {{/variants}}
+</form>
