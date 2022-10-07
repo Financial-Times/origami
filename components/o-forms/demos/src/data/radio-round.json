@@ -96,7 +96,7 @@
 				"aria": {
 					"label": "error-radio-round-group-title"
 				},
-				"error": "Please select an option",
+				"error": "An example error. Try again.",
 				"modifiers": [ "invalid" ]
 			},
 			"title": {

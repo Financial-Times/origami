@@ -109,7 +109,7 @@
 				"aria": {
 					"label": "error-checkbox-group-title"
 				},
-				"error": "Please select at least one option",
+				"error": "An example error. Try again.",
 				"modifiers": [ "invalid" ]
 			},
 			"title": {
