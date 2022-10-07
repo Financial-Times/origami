@@ -6,11 +6,13 @@
 				{
 					"value": "Link A",
 					"href": "#",
-					"current": true
+					"current": true,
+					"id": "link-a"
 				},
 				{
 					"value": "Link B",
-					"href": "#"
+					"href": "#",
+					"id": "link-b"
 				}
 			]
 		}

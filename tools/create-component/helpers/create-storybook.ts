@@ -47,16 +47,14 @@ async function copyTemplates(props) {
 	await Promise.all(
 		files.map(async file => {
 			const templateStr = await ejsToHTML(file, {
-				props: {...props, name: trimName(props.name)},
+				props,
 			});
 			const target = `${componentsPath}/${props.name}/${file
-				.replace('<name>', trimName(props.name))
+				.replace('<name>', withoutPrefix(props.name))
 				.replace('.ejs', '')}`;
 			HtmlStringToFile(target, templateStr);
 		})
 	);
 }
 
-function trimName(name) {
-	return name.replace(/o-|n-|g-/, '');
-}
+const withoutPrefix = string => string.replace(/^[a-z]-/g, '');

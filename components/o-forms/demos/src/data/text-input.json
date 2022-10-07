@@ -8,7 +8,8 @@
 				"prompt": "Optional prompt text"
 			},
 			"input": {
-				"type": "text"
+				"type": "text",
+				"id": "optional"
 			}
 		},
 		{
@@ -19,7 +20,8 @@
 			"input": {
 				"type": "text",
 				"modifiers": [ "valid" ],
-				"value": "Valid Input"
+				"value": "Valid Input",
+				"id": "valid"
 			}
 		},
 		{
@@ -30,7 +32,8 @@
 			"input": {
 				"type": "text",
 				"modifiers": [ "invalid" ],
-				"error": "Please fill out this field"
+				"error": "Please fill out this field",
+				"id": "invalid"
 			}
 		},
 		{
@@ -41,7 +44,8 @@
 			},
 			"input": {
 				"type": "text",
-				"value": "Disabled"
+				"value": "Disabled",
+				"id": "disabled"
 			}
 		},
 		{
@@ -52,7 +56,8 @@
 			"input": {
 				"type": "text",
 				"modifiers": [ "small" ],
-				"value": "Value"
+				"value": "Value",
+				"id": "small"
 			}
 		},
 		{
@@ -65,7 +70,8 @@
 				"type": "text",
 				"modifiers": [ "suffix" ],
 				"value": "",
-				"button": "o-buttons o-buttons--secondary o-buttons--big"
+				"button": "o-buttons o-buttons--secondary o-buttons--big",
+				"id": "suffix"
 			}
 		},
 		{
@@ -77,7 +83,8 @@
 				"type": "text",
 				"modifiers": [ "small", "suffix" ],
 				"value": "",
-				"button": "o-buttons o-buttons--secondary"
+				"button": "o-buttons o-buttons--secondary",
+				"id": "small-suffix"
 			}
 		},
 		{
@@ -90,7 +97,8 @@
 				"modifiers": [ "shrink", "vertical-center" ]
 			},
 			"input": {
-				"type": "text"
+				"type": "text",
+				"id": "shrunken"
 			}
 		},
 		{
@@ -100,7 +108,8 @@
 			},
 			"input": {
 				"type": "password",
-				"value": "password"
+				"value": "password",
+				"id": "password"
 			}
 		}
 	]

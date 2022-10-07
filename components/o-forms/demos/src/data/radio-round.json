@@ -18,12 +18,14 @@
 					"type": "radio",
 					"name": "default",
 					"value": "Default 1",
-					"checked": true
+					"checked": true,
+					"id": "default-1"
 				},
 				{
 					"type": "radio",
 					"name": "default",
-					"value": "Default 2"
+					"value": "Default 2",
+					"id": "default-2"
 				}
 			]
 		},
@@ -43,17 +45,20 @@
 					"type": "radio",
 					"name": "inline-radio",
 					"value": "Inlined 1",
-					"checked": true
+					"checked": true,
+					"id": "inline-radio-1"
 				},
 				{
 					"type": "radio",
 					"name": "inline-radio",
-					"value": "Inlined 2"
+					"value": "Inlined 2",
+					"id": "inline-radio-2"
 				},
 				{
 					"type": "radio",
 					"name": "inline-radio",
-					"value": "Inlined 3"
+					"value": "Inlined 3",
+					"id": "inline-radio-3"
 				}
 			]
 		},
@@ -73,13 +78,15 @@
 					"name": "disabled",
 					"value": "Disabled 1",
 					"checked": true,
-					"disabled": true
+					"disabled": true,
+					"id": "disabled-1"
 				},
 				{
 					"type": "radio",
 					"name": "disabled",
 					"value": "Disabled 2",
-					"disabled": true
+					"disabled": true,
+					"id": "disabled-2"
 				}
 			]
 		},
@@ -99,12 +106,14 @@
 				{
 					"type": "radio",
 					"name": "error",
-					"value": "Error 1"
+					"value": "Error 1",
+					"id": "error-1"
 				},
 				{
 					"type": "radio",
 					"name": "error",
-					"value": "Error 2"
+					"value": "Error 2",
+					"id": "error-2"
 				}
 			]
 		},
@@ -126,17 +135,20 @@
 					"type": "radio",
 					"name": "inline",
 					"value": "Inlined 1",
-					"checked": true
+					"checked": true,
+					"id": "inline-1"
 				},
 				{
 					"type": "radio",
 					"name": "inline",
-					"value": "Inlined 2"
+					"value": "Inlined 2",
+					"id": "inline-2"
 				},
 				{
 					"type": "radio",
 					"name": "inline",
-					"value": "Inlined 3"
+					"value": "Inlined 3",
+					"id": "inline-3"
 				}
 			]
 		},
@@ -159,12 +171,14 @@
 					"type": "radio",
 					"name": "inline-field",
 					"value": "Inlined 1",
-					"checked": true
+					"checked": true,
+					"id": "inline-field-1"
 				},
 				{
 					"type": "radio",
 					"name": "inline-field",
-					"value": "Inlined 2"
+					"value": "Inlined 2",
+					"id": "inline-field-2"
 				}
 			]
 		},
@@ -186,17 +200,20 @@
 					"type": "radio",
 					"name": "inline-stacked",
 					"value": "Inlined 1",
-					"checked": true
+					"checked": true,
+					"id": "inline-stacked-1"
 				},
 				{
 					"type": "radio",
 					"name": "inline-stacked",
-					"value": "Inlined 2"
+					"value": "Inlined 2",
+					"id": "inline-stacked-2"
 				},
 				{
 					"type": "radio",
 					"name": "inline-stacked",
-					"value": "Inlined 3"
+					"value": "Inlined 3",
+					"id": "inline-stacked-3"
 				}
 			]
 		}

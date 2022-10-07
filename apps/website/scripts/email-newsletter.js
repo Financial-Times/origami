@@ -8,25 +8,20 @@ const path = require('path');
 const axios = require('axios');
 
 sendNewsletter({
-	recipients: (
-		process.env.EMAIL_RECIPIENTS ?
-		process.env.EMAIL_RECIPIENTS.split(',').map(recipient => recipient.trim()) :
-		['origami.support@ft.com']
-	),
+	recipients: process.env.EMAIL_RECIPIENTS
+		? process.env.EMAIL_RECIPIENTS.split(',').map(recipient => recipient.trim())
+		: ['origami.support@ft.com'],
 	accessKey: process.env.EMAIL_API_KEY,
 	newsletter: process.env.EMAIL_SOURCE_HTML,
 	send: process.argv.includes('--send'),
-	local: Boolean(process.env.EMAIL_LOCAL)
+	local: Boolean(process.env.EMAIL_LOCAL),
 });
 
 // Generate and send the Origami newsletter
 async function sendNewsletter(options) {
-
-	const schemeAndHost = (
-		options.local ?
-		'http://localhost:4000' :
-		'https://origami.ft.com'
-	);
+	const schemeAndHost = options.local
+		? 'http://localhost:4000'
+		: 'https://origami.ft.com';
 	const htmlUri = `${schemeAndHost}/emails/newsletter-${options.newsletter}`;
 
 	// Fetch the HTML content from the live URL
@@ -50,36 +45,38 @@ async function sendNewsletter(options) {
 	// Add a max width to all images
 	const imgManipulationJsdom = new JSDOM(htmlContent);
 	const images = imgManipulationJsdom.window.document.querySelectorAll('img');
-	images.forEach(i => i.style['max-width'] = '100%');
+	images.forEach(i => (i.style['max-width'] = '100%'));
 	htmlContent = imgManipulationJsdom.serialize();
 
 	// Generate the plain text content
 	const plainTextContent = htmlToText.fromString(htmlContent, {
 		ignoreImage: true,
 		wordwrap: 65,
-		baseElement: [
-			'div.email-body',
-			'div.footer'
-		]
+		baseElement: ['div.email-body', 'div.footer'],
 	});
 
 	// Get the subject line
-	const subject = new JSDOM(htmlContent).window.document.querySelector('title').textContent;
+	const subject = new JSDOM(htmlContent).window.document.querySelector(
+		'title'
+	).textContent;
 
 	// Compose the email
 	const body = composeEmail({
 		recipients: options.recipients,
 		subject,
 		htmlContent,
-		plainTextContent
+		plainTextContent,
 	});
 
 	// If we're not sending the email...
 	if (!options.send) {
-
 		// Save files for review
-		const htmlReviewFile = path.resolve(`${__dirname}/../.email-review/html-email.html`);
-		const plainTextReviewFile = path.resolve(`${__dirname}/../.email-review/plain-text-email.txt`);
+		const htmlReviewFile = path.resolve(
+			`${__dirname}/../.email-review/html-email.html`
+		);
+		const plainTextReviewFile = path.resolve(
+			`${__dirname}/../.email-review/plain-text-email.txt`
+		);
 		await fs.mkdirs('`${__dirname}/../.email-review');
 		await fs.writeFile(htmlReviewFile, htmlContent);
 		await fs.writeFile(plainTextReviewFile, plainTextContent);
@@ -131,11 +128,15 @@ async function sendNewsletter(options) {
 	console.log('');
 
 	// Actually send the email
-	const response = await axios.post('https://ep.ft.com/send-by-address', body, {
-		headers: {
-			authorization: options.accessKey
+	const response = await axios.post(
+		'https://ep.ft.com/send-api-mailgun/send-by-address',
+		body,
+		{
+			headers: {
+				authorization: options.accessKey,
+			},
 		}
-	});
+	);
 
 	console.log('JSON response from service:');
 	console.log({
@@ -143,18 +144,20 @@ async function sendNewsletter(options) {
 		statusText: response.statusText,
 		data: response.data,
 	});
-
 }
 
 function composeEmail(data) {
-	return Object.assign({
-		to: {
-			address: data.recipients
+	return Object.assign(
+		{
+			to: {
+				address: data.recipients,
+			},
+			from: {
+				address: 'origami.support@send.ft.com',
+				name: 'The Origami Team',
+			},
+			replyTo: 'origami.support@ft.com',
 		},
-		from: {
-			address: 'origami.support@service.ft.com',
-			name: 'The Origami Team'
-		},
-		replyTo: 'origami.support@ft.com'
-	}, data);
+		data
+	);
 }

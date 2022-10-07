@@ -1,8 +1,4 @@
 # Changelog
-
-### [5.2.4](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.2.3...o-layout-v5.2.4) (2022-08-22)
-
-
 ### Bug Fixes
 
 * Add skip link for screen reader users
