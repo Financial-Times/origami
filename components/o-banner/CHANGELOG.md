@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.4.6](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.5...o-banner-v4.4.6) (2022-10-07)
+
+
+### Bug Fixes
+
+* o-banner, relative space close button position ([bb90aaa](https://www.github.com/Financial-Times/origami/commit/bb90aaa9d5850cbac3fe357e62bb65ba3b5c9fc8))
+
 ### [4.4.5](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.4...o-banner-v4.4.5) (2022-04-21)
 
 
