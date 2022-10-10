@@ -60,6 +60,14 @@
 			&:invalid:not(:disabled) + .o-forms-input__label:after { // stylelint-disable-line selector-no-qualifying-type
 				border-color: inherit;
 			}
+			&:focus-visible {
+				position: absolute;
+				outline: 4px solid #000000;
+				border-radius: $_o-forms-spacing-ten;
+				height: $_o-forms-checkbox-radio-width;
+				width: $toggle-width;
+				box-shadow: 0px 0px 0px 4px #ffffff;
+			}
 		}
 
 		@if $disabled {
