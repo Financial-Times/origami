@@ -9,13 +9,15 @@
 		curveBasisClosed,
 		curveBasis,
 		curveBasisOpen,
+		curveNatural,
+		curveCardinal,
 	} from "d3-shape"
 	import {scaleLinear} from "d3-scale"
 
 	import compnentData from "./data/component-data.json"
 	import {calculateGridPos, scaleCoordinates} from "./utils/index"
-	import {dataset_dev} from "svelte/internal"
-
+	import Racingbar from "./components/racingBar/RacingBar.svelte"
+	import RacingBar from "./components/racingBar/RacingBar.svelte"
 	let innerWidth = 0
 	let innerHeight = 0
 	const pathWidth = 200
@@ -73,11 +75,81 @@
 		const entries = Object.entries(groupedReleasesByMajorRelase)
 		return entries
 	}
+
+	function drawTestRadials(d) {
+		console.log({d})
+		// const data = [
+		// 	[0, 120],
+		// 	// [Math.PI * 0.25, 120],
+		// 	[Math.PI * 0.5, 120],
+		// 	// [Math.PI * 0.75, 120],
+		// 	[Math.PI, 120],
+		// 	// [Math.PI * 1.25, 120],
+		// 	[Math.PI * 1.5, 120],
+		// 	// [Math.PI * 1.75, 120],
+		// 	// [Math.PI * 2, 120],
+		// 	[Math.PI * 2, 120],
+		// 	[0, 120],
+		// ]
+
+		const data = [
+			[0, 120],
+			[Math.PI * 0.1, 120],
+			[Math.PI * 0.2, 120],
+			[Math.PI * 0.3, 120],
+			[Math.PI * 0.4, 120],
+			[Math.PI * 0.5, 126],
+			[Math.PI * 0.6, 120],
+			[Math.PI * 0.7, 120],
+			[Math.PI * 0.8, 120],
+			[Math.PI * 0.9, 130],
+			[Math.PI, 120],
+			[Math.PI * 1.1, 120],
+			[Math.PI * 1.2, 120],
+			[Math.PI * 1.3, 120],
+			[Math.PI * 1.4, 120],
+			[Math.PI * 1.5, 128],
+			[Math.PI * 1.6, 120],
+			[Math.PI * 1.7, 120],
+			[Math.PI * 1.8, 120],
+			[Math.PI * 1.9, 126],
+			[Math.PI * 2, 120],
+		]
+
+		const radial = lineRadial().curve(curveNatural)(data)
+		return radial
+	}
+	const bannerData = compnentData[5].releases
+	const groupedReleasesByMajorRelase = groupReleasesByMajor(bannerData)
+	console.log(`🚀 ~ groupedReleasesByMajorRelase`, groupedReleasesByMajorRelase)
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
+<RacingBar {compnentData}/>
 <!-- <Header /> -->
-<div class="wrapper" width={innerWidth}>
+<!-- <div style="margin-top: 200px;">
+	Radial line tests
+	<svg width={500} height={500}>
+		<g transform="translate(250,250)">
+			{#each groupedReleasesByMajorRelase as release, i}
+				<g
+					transform={`rotate(${
+						i * (360 / groupedReleasesByMajorRelase.length)
+					}) transalte(${100 * i}, ${100 * i})`}
+				>
+					<circle
+						cx={60 * Math.cos(i * Math.PI * 2 - Math.PI / 2)}
+						cy={60 * Math.sin(i * Math.PI * 2 - Math.PI / 2)}
+						r={120 - i * 5}
+						fill="none"
+						stroke="black"
+					/>
+				</g>
+			{/each}
+		</g>
+	</svg>
+</div> -->
+<!-- <div class="wrapper" width={innerWidth}>
 	<svg width={innerWidth} height={innerHeight}>
 		{#if innerWidth > 0}
 			{#each compnentData as component, i (component.name)}
@@ -96,8 +168,9 @@
 			{/each}
 		{/if}
 	</svg>
-</div>
+</div> -->
 
+<!--
 <div class="wrapper" width={innerWidth}>
 	<svg width={innerWidth} height={innerHeight}>
 		{#if innerWidth > 0}
@@ -109,8 +182,7 @@
 			{/each}
 		{/if}
 	</svg>
-</div>
-
+</div> -->
 <style lang="scss">
 	.component-name {
 		// @include oTypography();
