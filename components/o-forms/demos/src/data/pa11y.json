@@ -220,7 +220,7 @@
 						"saving",
 						"inline"
 					],
-					"state": true
+					"state": "Saving"
 				},
 				"title": {
 					"main": "Inline Saving state",
