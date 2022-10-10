@@ -130,7 +130,7 @@
 				"aria": {
 					"label": "error-radio-box-group-title"
 				},
-				"error": "Please select an option",
+				"error": "An example error. Try again.",
 				"modifiers": [ "invalid" ]
 			},
 			"title": {

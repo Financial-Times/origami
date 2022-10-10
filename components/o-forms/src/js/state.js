@@ -78,6 +78,7 @@ class State {
 		// When icon-only is set there is no copy when given a custom label so
 		// add an aria label.
 		this.stateEl.setAttribute('aria-label', label || 'Saving');
+		this.stateEl.setAttribute('role', 'status');
 	}
 
 	/**
@@ -98,6 +99,7 @@ class State {
 		// When icon-only is set there is no copy when given a custom label so
 		// add an aria label.
 		this.stateEl.setAttribute('aria-label', label || 'Saved');
+		this.stateEl.setAttribute('role', 'status');
 	}
 
 	/**

@@ -1,3 +1,4 @@
+<form action="" data-o-component="o-forms">
 {{#variants}}
 
 {{#anchor}}
@@ -59,8 +60,7 @@
 						{{#aria-label}}aria-label="{{.}}"{{/aria-label}}
 						{{#aria.label}}aria-labelledby="{{value}}"{{/aria.label}}
 						{{#aria.info}}aria-describedby="{{aria.info}}"{{/aria.info}}
-						{{#disabled}}disabled{{/disabled}}
-						{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>
+						{{#disabled}}disabled{{/disabled}}>
 
 					{{^label-first}}
 					{{#name}}
@@ -92,7 +92,7 @@
 
 			{{#radioBox}}</span>{{/radioBox}}
 
-			{{#field.error}}<span class="o-forms-input__error">{{.}}</span>{{/field.error}}
+			{{#field.error}}<span role=alert class="o-forms-input__error">{{.}}</span>{{/field.error}}
 
 			{{#field.state}}
 				<span class="o-forms-input__state {{#field.icon}}o-forms-input__state--icon-only{{/field.icon}}">
@@ -106,3 +106,4 @@
 
 {{/anchor}}
 {{/variants}}
+</form>
