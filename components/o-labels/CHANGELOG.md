@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.0](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.2.2...o-labels-v6.3.0) (2022-10-10)
+
+
+### Features
+
+* wip add stories for o-labels demos ([fa53f7d](https://www.github.com/Financial-Times/origami/commit/fa53f7de0c2f2eae1ca1d760faee4b39844e0fd9))
+
 ### [6.2.2](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.2.1...o-labels-v6.2.2) (2022-01-24)
 
 

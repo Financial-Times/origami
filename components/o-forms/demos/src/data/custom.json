@@ -18,12 +18,14 @@
 					"type": "radio",
 					"name": "default",
 					"value": "Daily",
-					"checked": true
+					"checked": true,
+					"id": "daily"
 				},
 				{
 					"type": "radio",
 					"name": "default",
-					"value": "Weekly"
+					"value": "Weekly",
+					"id": "weekly"
 				}
 			]
 		},
@@ -34,11 +36,13 @@
 				{
 					"value": "Anchor Link A",
 					"href": "#",
-					"current": true
+					"current": true,
+					"id": "anchor-link-a"
 				},
 				{
 					"value": "Anchor Link B",
-					"href": "#"
+					"href": "#",
+					"id": "anchor-link-b"
 				}
 			]
 		},
@@ -61,14 +65,16 @@
 					"type": "radio",
 					"name": "icon",
 					"value": "Grid",
-					"icon": "grid"
+					"icon": "grid",
+					"id": "grid"
 				},
 				{
 					"type": "radio",
 					"name": "icon",
 					"value": "List",
 					"icon": "list",
-					"checked": true
+					"checked": true,
+					"id": "list"
 				}
 			]
 		},
@@ -80,12 +86,14 @@
 					"value": "Grid Link",
 					"href": "#",
 					"current": true,
-					"icon": "grid"
+					"icon": "grid",
+					"id": "grid-link"
 				},
 				{
 					"value": "List Link",
 					"href": "#",
-					"icon": "list"
+					"icon": "list",
+					"id": "list-link"
 				}
 			]
 		}

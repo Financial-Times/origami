@@ -19,12 +19,14 @@
 					"type": "radio",
 					"name": "default",
 					"value": "Daily",
-					"checked": true
+					"checked": true,
+					"id": "daily"
 				},
 				{
 					"type": "radio",
 					"name": "default",
-					"value": "Weekly"
+					"value": "Weekly",
+					"id": "weekly"
 				}
 			]
 		},
@@ -46,14 +48,16 @@
 				{
 					"type": "radio",
 					"name": "negative",
-					"value": "Yes"
+					"value": "Yes",
+					"id": "yes"
 				},
 				{
 					"type": "radio",
 					"name": "negative",
 					"value": "No",
 					"checked": true,
-					"modifier": ["negative"]
+					"modifier": ["negative"],
+					"id": "no"
 				}
 			]
 		},
@@ -72,18 +76,21 @@
 				{
 					"type": "radio",
 					"name": "multiple",
-					"value": "Daily"
+					"value": "Daily",
+					"id": "multiple-daily"
 				},
 				{
 					"type": "radio",
 					"name": "multiple",
 					"value": "Weekly",
-					"checked": true
+					"checked": true,
+					"id": "multiple-weekly"
 				},
 				{
 					"type": "radio",
 					"name": "multiple",
-					"value": "Monthly"
+					"value": "Monthly",
+					"id": "multiple-monthly"
 				}
 			]
 		},
@@ -104,13 +111,15 @@
 					"name": "disabled",
 					"value": "Daily",
 					"checked": true,
-					"disabled": true
+					"disabled": true,
+					"id": "disabled-daily"
 				},
 				{
 					"type": "radio",
 					"name": "disabled",
 					"value": "Monthly",
-					"disabled": true
+					"disabled": true,
+					"id": "disabled-monthly"
 				}
 			]
 		},
@@ -121,7 +130,7 @@
 				"aria": {
 					"label": "error-radio-box-group-title"
 				},
-				"error": "Please select an option",
+				"error": "An example error. Try again.",
 				"modifiers": [ "invalid" ]
 			},
 			"title": {
@@ -131,12 +140,14 @@
 				{
 					"type": "radio",
 					"name": "error",
-					"value": "Yes"
+					"value": "Yes",
+					"id": "error-yes"
 				},
 				{
 					"type": "radio",
 					"name": "error",
-					"value": "No"
+					"value": "No",
+					"id": "error-no"
 				}
 			]
 		},
@@ -159,12 +170,14 @@
 					"type": "radio",
 					"name": "inline",
 					"value": "Daily",
-					"checked": true
+					"checked": true,
+					"id": "inline-daily"
 				},
 				{
 					"type": "radio",
 					"name": "inline",
-					"value": "Weekly"
+					"value": "Weekly",
+					"id": "inline-weekly"
 				}
 			]
 		},
@@ -189,12 +202,14 @@
 					"type": "radio",
 					"name": "saving",
 					"value": "Daily",
-					"checked": true
+					"checked": true,
+					"id": "saving-daily"
 				},
 				{
 					"type": "radio",
 					"name": "saving",
-					"value": "Weekly"
+					"value": "Weekly",
+					"id": "saving-weekly"
 				}
 			]
 		},
@@ -216,13 +231,15 @@
 				{
 					"type": "radio",
 					"name": "saved",
-					"value": "Daily"
+					"value": "Daily",
+					"id": "saved-daily"
 				},
 				{
 					"type": "radio",
 					"name": "saved",
 					"value": "Weekly",
-					"checked": true
+					"checked": true,
+					"id": "saved-weekly"
 				}
 			]
 		},
@@ -248,12 +265,14 @@
 					"type": "radio",
 					"name": "icon",
 					"value": "Daily",
-					"checked": true
+					"checked": true,
+					"id": "icon-daily"
 				},
 				{
 					"type": "radio",
 					"name": "icon",
-					"value": "Weekly"
+					"value": "Weekly",
+					"id": "icon-weekly"
 				}
 			]
 		}

@@ -4,13 +4,14 @@
 			"select": true,
 			"optional": true,
 			"title": {
-				"main": "Default select box",
+				"main": "Default",
 				"prompt": "Optional prompt/description text"
 			},
 			"input": {
 				"type": "select",
 				"selected": "Option 1 (low chars: qgjpy)",
-				"options": [ "Option 2", "Option 3", "Option 4" ]
+				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"id": "optional"
 			}
 		},
 		{
@@ -22,7 +23,8 @@
 				"type": "select",
 				"selected": "Option 1",
 				"options": [ "Option 2", "Option 3", "Option 4" ],
-				"modifiers": ["valid"]
+				"modifiers": ["valid"],
+				"id": "valid"
 			}
 		},
 		{
@@ -35,7 +37,8 @@
 				"selected": "",
 				"options": ["", "Option 1", "Option 2", "Option 3" ],
 				"modifiers": ["invalid"],
-				"error": "Please select an option"
+				"error": "An example error. Try again.",
+				"id": "invalid"
 			}
 		},
 		{
@@ -47,7 +50,8 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ]
+				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"id": "disabled"
 			}
 		},
 		{
@@ -59,7 +63,8 @@
 				"type": "select",
 				"selected": "Option 1",
 				"options": [ "Option 2", "Option 3", "Option 4" ],
-				"modifiers": [ "small" ]
+				"modifiers": [ "small" ],
+				"id": "small"
 			}
 		},
 		{
@@ -71,7 +76,8 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ]
+				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"id": "multiple"
 			}
 		},
 		{
@@ -85,7 +91,8 @@
 				"selected": "Option 1",
 				"options": [ "Option 2", "Option 3", "Option 4" ],
 				"modifiers": [ "suffix" ],
-				"button": "o-buttons o-buttons--secondary o-buttons--big"
+				"button": "o-buttons o-buttons--secondary o-buttons--big",
+				"id": "suffix"
 			}
 		},
 		{
@@ -98,7 +105,8 @@
 				"selected": "Option 1",
 				"options": [ "Option 2", "Option 3", "Option 4" ],
 				"modifiers": [ "suffix", "small" ],
-				"button": "o-buttons o-buttons--secondary"
+				"button": "o-buttons o-buttons--secondary",
+				"id": "small-suffix"
 			}
 		},
 		{
@@ -112,7 +120,8 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ]
+				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"id": "short-title"
 			}
 		},
 		{
@@ -125,7 +134,8 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ]
+				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"id": "vertical-center"
 			}
 		},
 		{
@@ -139,7 +149,8 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ]
+				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"id": "inline-multiple"
 			}
 		}
 	]

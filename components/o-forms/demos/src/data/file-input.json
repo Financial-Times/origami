@@ -7,7 +7,8 @@
 				"prompt": "Optional prompt file"
 			},
 			"input": {
-				"type": "file"
+				"type": "file",
+				"id": "optional"
 			}
 		},
 		{
@@ -16,7 +17,8 @@
 			},
 			"input": {
 				"type": "file",
-				"modifiers": [ "valid" ]
+				"modifiers": [ "valid" ],
+				"id": "valid"
 			}
 		},
 		{
@@ -26,7 +28,8 @@
 			"input": {
 				"type": "file",
 				"modifiers": [ "invalid" ],
-				"error": "Please select a file"
+				"error": "An example error. Try again.",
+				"id": "invalid"
 			}
 		},
 		{
@@ -35,7 +38,8 @@
 				"main": "Inline file input"
 			},
 			"input": {
-				"type": "file"
+				"type": "file",
+				"id": "inline"
 			}
 		}
 	]

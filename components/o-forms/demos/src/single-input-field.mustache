@@ -1,8 +1,9 @@
+<form action="" data-o-component="o-forms">
 {{#variants}}
-	<label class="o-forms-field{{#inline-field}} o-forms-field--inline{{/inline-field}}{{#optional}} o-forms-field--optional{{/optional}}">
+	<span class="o-forms-field{{#inline-field}} o-forms-field--inline{{/inline-field}}{{#optional}} o-forms-field--optional{{/optional}}">
 
 		<span	class="o-forms-title{{#title.modifiers}} o-forms-title--{{.}}{{/title.modifiers}}">
-			<span class="o-forms-title__main">{{title.main}}</span>
+			<label class="o-forms-title__main" {{#input.id}}for="{{input.id}}" {{/input.id}}>{{title.main}}</label>
 			{{#title.prompt}}<span class="o-forms-title__prompt">{{.}}</span>{{/title.prompt}}
 		</span>
 
@@ -10,6 +11,7 @@
 
 			{{#textInput}}
 				<input
+					{{#input.id}}id="{{input.id}}" {{/input.id}}
 					type="{{input.type}}"
 					name="text"
 					value="{{input.value}}"
@@ -21,6 +23,7 @@
 
 			{{#textArea}}
 				<textarea
+					{{#input.id}}id="{{input.id}}" {{/input.id}}
 					{{#inputmode}}inputmode="{{.}}"{{/inputmode}}
 					{{#pattern}}pattern={{.}}{{/pattern}}
 					{{#disabled}}disabled{{/disabled}}
@@ -29,6 +32,7 @@
 
 			{{#select}}
 				<select
+					{{#input.id}}id="{{input.id}}" {{/input.id}}
 					{{#multiple}}multiple{{/multiple}}
 					{{#disabled}}disabled{{/disabled}}
 					{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>
@@ -37,9 +41,10 @@
 				</select>
 			{{/select}}
 
-			{{#input.error}}<span class="o-forms-input__error">{{.}}</span>{{/input.error}}
+			{{#input.error}}<span role=alert class="o-forms-input__error">{{.}}</span>{{/input.error}}
 			{{#input.button}}<button class="{{.}}">Go</button>{{/input.button}}
 		</span>
 
-	</label>
+	</span>
 {{/variants}}
+</form>

@@ -18,18 +18,21 @@
 					"type": "checkbox",
 					"name": "default",
 					"value": "Stacked 1",
-					"checked": true
+					"checked": true,
+					"id": "stacked-1"
 				},
 				{
 					"type": "checkbox",
 					"name": "default",
-					"value": "Stacked 2"
+					"value": "Stacked 2",
+					"id": "stacked-2"
 				},
 				{
 					"type": "checkbox",
 					"name": "default",
 					"value": "Stacked 3",
-					"checked": true
+					"checked": true,
+					"id": "stacked-3"
 				}
 			]
 		},
@@ -55,7 +58,8 @@
 				"aria": {
 				  "label": "checkbox-group-option-1-label",
 				  "info": "checkbox-group-option-1-description"
-				}
+				},
+				"id": "checkbox-group-option-1"
 			  },
 			  {
 				"type": "checkbox",
@@ -66,7 +70,8 @@
 				"aria": {
 				  "label": "checkbox-group-option-2-label",
 				  "info": "checkbox-group-option-2-description"
-				}
+				},
+				"id": "checkbox-group-option-2"
 			  }
 			]
 		},
@@ -86,13 +91,15 @@
 					"name": "disabled",
 					"value": "Disabled 1",
 					"checked": true,
-					"disabled": true
+					"disabled": true,
+					"id": "disabled-1"
 				},
 				{
 					"type": "checkbox",
 					"name": "disabled",
 					"value": "Disabled 2",
-					"disabled": true
+					"disabled": true,
+					"id": "disabled-2"
 				}
 			]
 		},
@@ -102,7 +109,7 @@
 				"aria": {
 					"label": "error-checkbox-group-title"
 				},
-				"error": "Please select at least one option",
+				"error": "An example error. Try again.",
 				"modifiers": [ "invalid" ]
 			},
 			"title": {
@@ -112,12 +119,14 @@
 				{
 					"type": "checkbox",
 					"name": "error",
-					"value": "Error 1"
+					"value": "Error 1",
+					"id": "error-1"
 				},
 				{
 					"type": "checkbox",
 					"name": "error",
-					"value": "Error 2"
+					"value": "Error 2",
+					"id": "error-2"
 				}
 			]
 		},
@@ -139,17 +148,20 @@
 					"type": "checkbox",
 					"name": "inline",
 					"value": "Inlined 1",
-					"checked": true
+					"checked": true,
+					"id": "inline-1"
 				},
 				{
 					"type": "checkbox",
 					"name": "inline",
-					"value": "This is a very long inlined checkbox to demonstrate the correct alignment of checkboxes"
+					"value": "This is a very long inlined checkbox to demonstrate the correct alignment of checkboxes",
+					"id": "inline-2"
 				},
 				{
 					"type": "checkbox",
 					"name": "inline",
-					"value": "Inlined 3"
+					"value": "Inlined 3",
+					"id": "inline-3"
 				}
 			]
 		},
@@ -170,12 +182,14 @@
 					"type": "checkbox",
 					"name": "inline-field",
 					"value": "Inline 1",
-					"checked": true
+					"checked": true,
+					"id": "inline-field-1"
 				},
 				{
 					"type": "checkbox",
 					"name": "inline-field",
-					"value": "Inline 2"
+					"value": "Inline 2",
+					"id": "inline-field-2"
 				}
 			]
 		},
@@ -194,19 +208,22 @@
 				{
 					"type": "checkbox",
 					"name": "inline-stacked",
-					"value": "Inline 1"
+					"value": "Inline 1",
+					"id": "inline-stacked-1"
 				},
 				{
 					"type": "checkbox",
 					"name": "inline-stacked",
 					"value": "Inline 2",
-					"checked": true
+					"checked": true,
+					"id": "inline-stacked-2"
 				},
 				{
 					"type": "checkbox",
 					"name": "inline-stacked",
 					"value": "Inline 3",
-					"checked": true
+					"checked": true,
+					"id": "inline-stacked-3"
 				}
 			]
 		},
@@ -228,13 +245,15 @@
 					"name": "password",
 					"type": "password",
 					"value": "password",
-					"label-first": true
+					"label-first": true,
+					"id": "password-1"
 				},
 				{
 					"type": "checkbox",
 					"name": "show",
 					"value": "Show password",
-					"label": "o-forms-input__right"
+					"label": "o-forms-input__right",
+					"id": "password-2"
 				}
 			]
 		},
@@ -254,26 +273,30 @@
 				{
 					"type": "checkbox",
 					"name": "extra",
-					"value": "Select All"
+					"value": "Select All",
+					"id": "extra-1"
 				},
 				{
 					"type": "checkbox",
 					"name": "extra",
 					"value": "I confirm I have read and agree to the terms & conditions, privacy policy and cookie policy*.",
-					"additionalContent": "We will send you occasional emails to improve your experience of the Financial Times."
+					"additionalContent": "We will send you occasional emails to improve your experience of the Financial Times.",
+					"id": "extra-2"
 				},
 				{
 					"type": "checkbox",
 					"name": "extra",
 					"value": "This is a disabled checkbox with extra content.",
 					"additionalContent": "Here is the extra content for this checkbox.",
-					"disabled": true
+					"disabled": true,
+					"id": "extra-3"
 				},
 				{
 					"type": "checkbox",
 					"name": "extra",
 					"value": "By submitting this form, you indicate your consent to also being contacted by the Financial Times by email. post or phone about our other products, services or special offers unless you untick this box. You can change your preferences anytime in the My Account section.",
-					"checked": true
+					"checked": true,
+					"id": "extra-4"
 				}
 			]
 		}

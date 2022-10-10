@@ -1,21 +1,24 @@
+<form action="" data-o-component="o-forms">
 {{#variants}}
-	<label class="o-forms-field{{#inline-field}} o-forms-field--inline{{/inline-field}}{{#optional}} o-forms-field--optional{{/optional}}">
+	<span class="o-forms-field{{#inline-field}} o-forms-field--inline{{/inline-field}}{{#optional}} o-forms-field--optional{{/optional}}">
 
 		<span class="o-forms-title{{#title.modifiers}} o-forms-title--{{.}}{{/title.modifiers}}">
-			<span class="o-forms-title__main">{{title.main}}</span>
+			<label {{#input.id}}for="{{input.id}}" {{/input.id}} class="o-forms-title__main">{{title.main}}</label>
 			{{#title.prompt}}<span class="o-forms-title__prompt">{{.}}</span>{{/title.prompt}}
 		</span>
 
 		<span class="o-forms-input o-forms-input--{{input.type}}{{#input.modifiers}} o-forms-input--{{.}}{{/input.modifiers}}">
 
 			<input
+				{{#input.id}}id="{{input.id}}" {{/input.id}}
 				type="{{input.type}}"
 				name="text"
 				value="{{input.value}}"
 			>
 
-			{{#input.error}}<span class="o-forms-input__error">{{.}}</span>{{/input.error}}
+			{{#input.error}}<span role=alert class="o-forms-input__error">{{.}}</span>{{/input.error}}
 		</span>
 
-	</label>
+	</span>
 {{/variants}}
+</form>
