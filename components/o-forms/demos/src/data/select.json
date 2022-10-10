@@ -37,7 +37,7 @@
 				"selected": "",
 				"options": ["", "Option 1", "Option 2", "Option 3" ],
 				"modifiers": ["invalid"],
-				"error": "Please select an option",
+				"error": "An example error. Try again.",
 				"id": "invalid"
 			}
 		},
