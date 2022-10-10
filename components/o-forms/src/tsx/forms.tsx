@@ -73,10 +73,10 @@ export function FormField ({title, field, children}:FormFieldProps){
 )}
 
 
-export function RadioButtons (props:RadioButtonsProps){
+export function RadioButtons ({inputs}:RadioButtonsProps){
 	return (
 			<span className="o-forms-input--radio-box__container">
-				{props.inputs.map(({value, name, disabled, checked, modifier})=>{
+				{inputs.map(({value, name, disabled, checked, modifier})=>{
 					return (
 						<label>
 								<input type="radio" name={name} value={value} disabled={disabled} checked={checked} required />
