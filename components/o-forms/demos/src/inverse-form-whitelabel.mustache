@@ -24,17 +24,17 @@
 			</span>
 
 			<span class="o-forms-input o-forms-input--date">
-				<label>
-					<input class="o-forms-input__day-part" id="date" type="text" name="date" value pattern="0[1-9]|[12]\d|3[01]" aria-label="Day (DD)" required>
-					<span class="o-forms-input__label" aria-hidden="true">DD</span>
+				<label for="date">
+					<input class="o-forms-input__day-part" id="date" type="text" name="date" value pattern="0[1-9]|[12]\d|3[01]" required>
+					<span class="o-forms-input__label">DD</span>
 				</label>
-				<label>
-					<input class="o-forms-input__month-part" type="text" name="date" value pattern="0?[1-9]|1[012]" aria-label="Month (MM)" required>
-					<span class="o-forms-input__label" aria-hidden="true">MM</span>
+				<label for="month">
+					<input class="o-forms-input__month-part" id="month" type="text" name="date" value pattern="0?[1-9]|1[012]" required>
+					<span class="o-forms-input__label">MM</span>
 				</label>
-				<label>
-					<input class="o-forms-input__year-part" type="text" name="date" value pattern="[0-9]{4}" aria-label="Year (YYYY)" required>
-					<span class="o-forms-input__label" aria-hidden="true">YYYY</span>
+				<label for="year">
+					<input class="o-forms-input__year-part" id="year" type="text" name="date" value pattern="[0-9]{4}" required>
+					<span class="o-forms-input__label">YYYY</span>
 				</label>
 				<span class="o-forms-input__error">Please fill out this field with the required format (DD/MM/YYYY)</span>
 			</span>
@@ -47,19 +47,19 @@
 
 			<span class="o-forms-input o-forms-input--radio-box">
 				<span class="o-forms-input--radio-box__container">
-					<label>
-						<input id="radio" type="radio" name="box">
+					<label for="radio-yes">
+						<input id="radio-yes" type="radio" name="box">
 						<span class="o-forms-input__label">Yes</span>
 					</label>
-					<label>
-						<input type="radio" name="box" checked>
+					<label for="radio-no">
+						<input id="radio-no" type="radio" name="box" checked>
 						<span class="o-forms-input__label o-forms-input__label--negative">No</span>
 					</label>
 				</span>
 			</span>
 		</div>
 
-		<label class="o-forms-field o-forms-field--inverse">
+		<label class="o-forms-field o-forms-field--inverse" for="required">
 			<span class="o-forms-title">
 				<span class="o-forms-title__main">Required text input</span>
 			</span>
@@ -70,21 +70,21 @@
 			</span>
 		</label>
 
-		<label class="o-forms-field o-forms-field--optional o-forms-field--inverse">
+		<span class="o-forms-field o-forms-field--optional o-forms-field--inverse">
 			<span class="o-forms-title">
-				<span class="o-forms-title__main">Optional text input</span>
+				<label for="optional" class="o-forms-title__main">Optional text input</label>
 				<span class="o-forms-title__prompt">Optional prompt text</span>
 			</span>
 
 			<span class="o-forms-input o-forms-input--text">
-				<input type="text" name="optional" value>
+				<input id="optional" type="text" name="optional" value>
 			</span>
-		</label>
+		</span>
 
 		<!-- with no o-forms-title this is not able to show in the error summary -->
 		<div class="o-forms-field o-forms-field--inverse">
 			<span class="o-forms-input o-forms-input--checkbox">
-				<label>
+				<label for="my-single-checkbox">
 					<input id="my-single-checkbox" type="checkbox" name="my-single-checkbox" required>
 					<span class="o-forms-input__label">I accept these terms.</span>
 				</label>

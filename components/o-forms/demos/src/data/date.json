@@ -20,22 +20,22 @@
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
-					"aria-label": "Day (DD)",
-					"date": "DD"
+					"date": "DD",
+					"id": "date"
 				},
 				{
 					"type": "text",
 					"name": "date",
 					"pattern": "0?[1-9]|1[012]",
-					"aria-label": "Month (MM)",
-					"date": "MM"
+					"date": "MM",
+					"id": "month"
 				},
 				{
 					"type": "text",
 					"name": "date",
 					"pattern": "[0-9]{4}",
-					"aria-label": "Year (YYYY)",
-					"date": "YYYY"
+					"date": "YYYY",
+					"id": "year"
 				}
 			]
 		},
@@ -56,9 +56,9 @@
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
-					"aria-label": "Day (DD)",
 					"date": "DD",
-					"disabled": true
+					"disabled": true,
+					"id": "disabled-date"
 				},
 				{
 					"type": "text",
@@ -66,9 +66,9 @@
 					"pattern": "0?[1-9]|1[012]",
 					"classes": "o-forms-input__month-part",
 					"inputmode": "numeric",
-					"aria-label": "Month (MM)",
 					"date": "MM",
-					"disabled": true
+					"disabled": true,
+					"id": "disabled-month"
 				},
 				{
 					"type": "text",
@@ -76,9 +76,9 @@
 					"pattern": "[0-9]{4}",
 					"classes": "o-forms-input__year-part",
 					"inputmode": "numeric",
-					"aria-label": "Year (YYYY)",
 					"date": "YYYY",
-					"disabled": true
+					"disabled": true,
+					"id": "disabled-year"
 				}
 			]
 		},
@@ -103,9 +103,9 @@
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
-					"aria-label": "Day (DD)",
 					"date": "DD",
-					"value": "01"
+					"value": "01",
+					"id": "invalid-date"
 				},
 				{
 					"type": "text",
@@ -113,9 +113,9 @@
 					"pattern": "0?[1-9]|1[012]",
 					"classes": "o-forms-input__month-part",
 					"inputmode": "numeric",
-					"aria-label": "Month (MM)",
 					"date": "MM",
-					"value": "24"
+					"value": "24",
+					"id": "invalid-month"
 				},
 				{
 					"type": "text",
@@ -123,9 +123,9 @@
 					"pattern": "[0-9]{4}",
 					"classes": "o-forms-input__year-part",
 					"inputmode": "numeric",
-					"aria-label": "Year (YYYY)",
 					"date": "YYYY",
-					"value": "2019"
+					"value": "2019",
+					"id": "invalid-year"
 				}
 			]
 		},
@@ -148,22 +148,22 @@
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
-					"aria-label": "Day (DD)",
-					"date": "DD"
+					"date": "DD",
+					"id": "inline-date"
 				},
 				{
 					"type": "text",
 					"name": "inline-date",
 					"pattern": "0?[1-9]|1[012]",
-					"aria-label": "Month (MM)",
-					"date": "MM"
+					"date": "MM",
+					"id": "inline-month"
 				},
 				{
 					"type": "text",
 					"name": "inline-date",
 					"pattern": "[0-9]{4}",
-					"aria-label": "Year (YYYY)",
-					"date": "YYYY"
+					"date": "YYYY",
+					"id": "inline-year"
 				}
 			]
 		}

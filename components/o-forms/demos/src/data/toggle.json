@@ -18,12 +18,14 @@
           "type": "checkbox",
           "name": "default",
           "value": "Stacked 1",
-          "checked": true
+          "checked": true,
+					"id": "default-1"
         },
         {
           "type": "checkbox",
           "name": "default",
-          "value": "Stacked 2"
+          "value": "Stacked 2",
+					"id": "default-2"
         }
       ]
     },
@@ -49,7 +51,8 @@
           "aria": {
             "label": "toggle-group-option-1-label",
             "info": "toggle-group-option-1-description"
-          }
+          },
+					"id": "description-1"
         },
         {
           "type": "checkbox",
@@ -60,7 +63,8 @@
           "aria": {
             "label": "toggle-group-option-2-label",
             "info": "toggle-group-option-2-description"
-          }
+          },
+					"id": "description-2"
         }
       ]
     },
@@ -80,12 +84,14 @@
           "type": "checkbox",
           "name": "optional",
           "value": "Optional 1",
-          "checked": true
+          "checked": true,
+					"id": "inline-1"
         },
         {
           "type": "checkbox",
           "name": "optional",
-          "value": "Optional 2"
+          "value": "Optional 2",
+					"id": "inline-2"
         }
       ]
     },
@@ -105,13 +111,15 @@
           "name": "disabled",
           "value": "Disabled 1",
           "checked": true,
-          "disabled": true
+          "disabled": true,
+					"id": "disabled-1"
         },
         {
           "type": "checkbox",
           "name": "disabled",
           "value": "Disabled 2",
-          "disabled": true
+          "disabled": true,
+					"id": "disabled-2"
         }
       ]
     },
@@ -132,12 +140,14 @@
           "type": "checkbox",
           "name": "error",
           "value": "Error 1",
-          "checked": true
+          "checked": true,
+					"id": "error-1"
         },
         {
           "type": "checkbox",
           "name": "error",
-          "value": "Error 2"
+          "value": "Error 2",
+					"id": "error-2"
         }
       ]
     },
@@ -157,12 +167,14 @@
           "type": "checkbox",
           "name": "inline-field",
           "value": "Inlined 1",
-          "checked": true
+          "checked": true,
+					"id": "inline-field-1"
         },
         {
           "type": "checkbox",
           "name": "inline-field",
-          "value": "Inlined 2"
+          "value": "Inlined 2",
+					"id": "inline-field-2"
         }
       ]
     },
@@ -183,12 +195,14 @@
           "type": "checkbox",
           "name": "inline-all",
           "value": "Inlined 1",
-          "checked": true
+          "checked": true,
+					"id": "inline-all-1"
         },
         {
           "type": "checkbox",
           "name": "inline-all",
-          "value": "Inlined 2"
+          "value": "Inlined 2",
+					"id": "inline-all-2"
         }
       ]
     },
@@ -210,12 +224,14 @@
           "type": "checkbox",
           "name": "inverse",
           "value": "Inverse 1",
-          "checked": true
+          "checked": true,
+					"id": "inverse-1"
         },
         {
           "type": "checkbox",
           "name": "inverse",
-          "value": "Inverse 2"
+          "value": "Inverse 2",
+					"id": "inverse-2"
         }
       ]
     }

@@ -95,7 +95,7 @@ describe('Forms', () => {
 				<form action="" id="single-checkbox-form">
 					<div class="o-forms-field">
 						<span class="o-forms-input o-forms-input--checkbox">
-							<label>
+							<label for="my-single-checkbox">
 								<input id="my-single-checkbox" type="checkbox" name="my-single-checkbox" required/>
 								<span class="o-forms-input__label">I accept these terms.</span>
 							</label>
@@ -128,7 +128,7 @@ describe('Forms', () => {
 			// Add a second form.
 			const secondFormString = `
 				<form action="#" id="second-initialised-form">
-					<label class="o-forms-field">
+					<label for="text" class="o-forms-field">
 						<span class="o-forms-title">
 							<span class="o-forms-title__main">Required text input</span>
 						</span>
@@ -161,7 +161,7 @@ describe('Forms', () => {
 			// Add a second form.
 			const secondFormString = `
 				<form action="" id="second-form">
-					<label class="o-forms-field">
+					<label for="text" class="o-forms-field">
 						<span class="o-forms-title">
 							<span class="o-forms-title__main">Required text input</span>
 						</span>
