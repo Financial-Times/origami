@@ -61,12 +61,14 @@
 				border-color: inherit;
 			}
 			&:focus-visible {
-				position: absolute;
-				outline: 4px solid #000000;
-				border-radius: $_o-forms-spacing-ten;
-				height: $_o-forms-checkbox-radio-width;
-				width: $toggle-width;
-				box-shadow: 0px 0px 0px 4px #ffffff;
+				outline: none;
+				box-shadow: none;
+			}
+
+			&:focus + .o-forms-input__label::before {
+				@if oBrandIs('core') or oBrandIs('internal') {
+					outline: 4px solid oColorsByUsecase(focus, 'outline'); // oCoulorsByUsecase doesn't support whitelable brand
+				}
 			}
 		}
 
