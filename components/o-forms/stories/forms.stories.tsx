@@ -1,8 +1,8 @@
 import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {useEffect} from 'react';
-import {Forms} from '../src/tsx/forms';
+import { withDesign } from 'storybook-addon-designs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { useEffect } from 'react';
+import { Forms } from '../src/tsx/forms';
 import './forms.scss';
 import javascript from '../main.js'
 export default {
@@ -21,7 +21,7 @@ const FormsStory = args => {
 			form = Array.isArray(form) ? form : [form];
 			form.forEach(element => element.destroy());
 		};
-	},[]);
+	}, []);
 	return <Forms {...args} />;
 };
 
@@ -61,8 +61,8 @@ export const SavingStateBoxRadioButton: ComponentStory<typeof Forms> = FormsStor
 	{}
 );
 
-BoxRadioButton.args={
-	inputs:[
+BoxRadioButton.args = {
+	inputs: [
 		{
 			type: "radio",
 			name: "negative",
@@ -75,24 +75,24 @@ BoxRadioButton.args={
 			value: "Weekly"
 		}
 	],
-	formField:{
-			field:{
-				type: "radio-box",
-				aria: {
-					label: "negative-radio-box-group-title",
-					info: "negative-radio-box-group-info"
-				}
-			},
-			title:{
-				mainTitle:"Box Radio Button", 
-				promptTitle:"This is a box radio button sample"
-			 }
+	formField: {
+		field: {
+			type: "radio-box",
+			aria: {
+				label: "negative-radio-box-group-title",
+				info: "negative-radio-box-group-info"
+			}
+		},
+		title: {
+			mainTitle: "Box Radio Button",
+			promptTitle: "This is a box radio button sample"
+		}
 	},
-	
+
 }
 
-HiglightBoxRadioButton.args={
-	inputs:[
+HiglightBoxRadioButton.args = {
+	inputs: [
 		{
 			type: "radio",
 			name: "default",
@@ -106,24 +106,24 @@ HiglightBoxRadioButton.args={
 			modifier: ["negative"]
 		}
 	],
-	formField:{
-			field:{
-				type: "radio-box",
-					aria: {
-						label: "radio-box-group-title",
-						info: "radio-box-group-info"
-					},
+	formField: {
+		field: {
+			type: "radio-box",
+			aria: {
+				label: "radio-box-group-title",
+				info: "radio-box-group-info"
 			},
-			title:{
-				mainTitle:"Box Radio Button", 
-				promptTitle:"Optional prompt text"
-			 }
+		},
+		title: {
+			mainTitle: "Box Radio Button",
+			promptTitle: "Optional prompt text"
+		}
 	},
-	
+
 }
 
-MultipleBoxRadioButton.args={
-	inputs:[
+MultipleBoxRadioButton.args = {
+	inputs: [
 		{
 			type: "radio",
 			name: "multiple",
@@ -141,23 +141,23 @@ MultipleBoxRadioButton.args={
 			value: "Monthly"
 		}
 	],
-	formField:{
-			field:{
-				type: "radio-box",
-				aria: {
-					label: "multiple-radio-box-group-title"
-				}
-			},
-			title: {
-				mainTitle: "Multiple box-styled radio buttons"
-			},
+	formField: {
+		field: {
+			type: "radio-box",
+			aria: {
+				label: "multiple-radio-box-group-title"
+			}
+		},
+		title: {
+			mainTitle: "Multiple box-styled radio buttons"
+		},
 	},
-	
+
 }
 
 
-DisabledBoxRadioButton.args={
-	inputs:[
+DisabledBoxRadioButton.args = {
+	inputs: [
 		{
 			type: "radio",
 			name: "disabled",
@@ -172,24 +172,24 @@ DisabledBoxRadioButton.args={
 			disabled: true
 		}
 	],
-	formField:{
-			field:{
-				type: "radio-box",
-					aria: {
-						label: "disabed-radio-box-group-title"
-					}
-			},
-			title: {
-				mainTitle: "Disabled box-styled radio buttons"
-			},
+	formField: {
+		field: {
+			type: "radio-box",
+			aria: {
+				label: "disabed-radio-box-group-title"
+			}
+		},
+		title: {
+			mainTitle: "Disabled box-styled radio buttons"
+		},
 	},
-	
+
 }
 
 
 
-ErrorBoxRadioButton.args={
-	inputs:[
+ErrorBoxRadioButton.args = {
+	inputs: [
 		{
 			type: "radio",
 			name: "error",
@@ -201,25 +201,25 @@ ErrorBoxRadioButton.args={
 			value: "No"
 		}
 	],
-	formField:{
-			field:{
-				type: "radio-box",
-				aria: {
-					label: "error-radio-box-group-title"
-				},
-				error: "Please select an option",
-				modifiers: ["invalid"]
+	formField: {
+		field: {
+			type: "radio-box",
+			aria: {
+				label: "error-radio-box-group-title"
 			},
-			title: {
-				mainTitle: "Error box-style radio buttons"
-			},
+			error: "Please select an option",
+			modifiers: ["invalid"]
+		},
+		title: {
+			mainTitle: "Error box-style radio buttons"
+		},
 	},
-	
+
 }
 
 
-VCenteredBoxRadioButton.args={
-	inputs:[
+VCenteredBoxRadioButton.args = {
+	inputs: [
 		{
 			type: "radio",
 			name: "inline",
@@ -232,25 +232,25 @@ VCenteredBoxRadioButton.args={
 			value: "Weekly"
 		}
 	],
-	formField:{
-			field:{
-				type: "radio-box",
-				aria: {
-					label: "inline-radio-box-group-title"
-				},
-				error: "Please select an option",
-				modifiers: ["inline"]
+	formField: {
+		field: {
+			type: "radio-box",
+			aria: {
+				label: "inline-radio-box-group-title"
 			},
-			title: {
-				mainTitle: "V-centered inline radio box"
-			},
+			error: "Please select an option",
+			modifiers: ["inline"]
+		},
+		title: {
+			mainTitle: "V-centered inline radio box"
+		},
 	},
-	
+
 }
 
 
-LongTitleBoxRadioButton.args={
-	inputs:[
+LongTitleBoxRadioButton.args = {
+	inputs: [
 		{
 			type: "radio",
 			name: "saving",
@@ -263,28 +263,28 @@ LongTitleBoxRadioButton.args={
 			value: "Weekly"
 		}
 	],
-	formField:{
-			field:{
-				type: "radio-box",
-				aria: {
-					label: "saving-state-group-title-long",
-					info: "saving-state-group-info-long"				
-				},
-				modifiers: ["saving"],
-				state: "Saving",
-				icon: true
+	formField: {
+		field: {
+			type: "radio-box",
+			aria: {
+				label: "saving-state-group-title-long",
+				info: "saving-state-group-info-long"
 			},
-			title: {
-				mainTitle: "Inline box-style radio buttons with very long title. Inline box-style radio buttons with very long title",
-				promptTitle: "With a stacked saving state"
-			},
+			modifiers: ["saving"],
+			state: "Saving",
+			icon: true
+		},
+		title: {
+			mainTitle: "Inline box-style radio buttons with very long title. Inline box-style radio buttons with very long title",
+			promptTitle: "With a stacked saving state"
+		},
 	},
-	
+
 }
 
 
-SavedStateBoxRadioButton.args={
-	inputs:[
+SavedStateBoxRadioButton.args = {
+	inputs: [
 		{
 			type: "radio",
 			name: "saved",
@@ -297,26 +297,26 @@ SavedStateBoxRadioButton.args={
 			checked: true
 		}
 	],
-	formField:{
-			field:{
-				type: "radio-box",
-				aria: {
-					label: "saved-state-group-title"		
-				},
-				modifiers: ["saved", "inline"],
-				state: "Saved",
-				icon: true
+	formField: {
+		field: {
+			type: "radio-box",
+			aria: {
+				label: "saved-state-group-title"
 			},
-			title: {
-				mainTitle: "Inline saved state"
-			},
+			modifiers: ["saved", "inline"],
+			state: "Saved",
+			icon: true
+		},
+		title: {
+			mainTitle: "Inline saved state"
+		},
 	},
-	
+
 }
 
 
-SavingStateBoxRadioButton.args={
-	inputs:[
+SavingStateBoxRadioButton.args = {
+	inputs: [
 		{
 			type: "radio",
 			name: "icon",
@@ -329,21 +329,21 @@ SavingStateBoxRadioButton.args={
 			checked: true
 		}
 	],
-	formField:{
-			field:{
-				type: "radio-box",
-				aria: {
-					label: "saving-state-group-title",
-					info: "saving-state-group-info"		
-				},
-				modifiers: ["saving", "inline"],
-				state: "Saving",
-				icon: true
+	formField: {
+		field: {
+			type: "radio-box",
+			aria: {
+				label: "saving-state-group-title",
+				info: "saving-state-group-info"
 			},
-			title: {
-				mainTitle: "Inline saving state",
-				promptTitle: "Icon only—also available for saved state"
-			},
+			modifiers: ["saving", "inline"],
+			state: "Saving",
+			icon: true
+		},
+		title: {
+			mainTitle: "Inline saving state",
+			promptTitle: "Icon only—also available for saved state"
+		},
 	},
-	
+
 }
