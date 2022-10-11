@@ -65,8 +65,10 @@
 				box-shadow: none;
 			}
 
-			&:focus + .o-forms-input__label::before {
-				outline: 4px solid oColorsByUsecase('focus', 'outline', $fallback: null);
+			&:focus + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+				&:before {
+					outline: 4px solid oColorsByUsecase('focus', 'outline', $fallback: null);
+				}
 			}
 		}
 
