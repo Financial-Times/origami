@@ -16,7 +16,6 @@ export default {
 const FormsStory = args => {
 	useEffect(() => {
 		let form = javascript.init();
-		console.log('forms', form)
 		return function cleanup() {
 			form = Array.isArray(form) ? form : [form];
 			form.forEach(element => element.destroy());
@@ -29,7 +28,7 @@ export const BoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind(
 	{}
 );
 
-export const HiglightBoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind(
+export const HighlightBoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind(
 	{}
 );
 
@@ -91,7 +90,8 @@ BoxRadioButton.args = {
 
 }
 
-HiglightBoxRadioButton.args = {
+
+HighlightBoxRadioButton.args = {
 	inputs: [
 		{
 			type: "radio",
@@ -121,6 +121,7 @@ HiglightBoxRadioButton.args = {
 	},
 
 }
+
 
 MultipleBoxRadioButton.args = {
 	inputs: [
@@ -176,7 +177,7 @@ DisabledBoxRadioButton.args = {
 		field: {
 			type: "radio-box",
 			aria: {
-				label: "disabed-radio-box-group-title"
+				label: "disabled-radio-box-group-title"
 			}
 		},
 		title: {
@@ -185,7 +186,6 @@ DisabledBoxRadioButton.args = {
 	},
 
 }
-
 
 
 ErrorBoxRadioButton.args = {
