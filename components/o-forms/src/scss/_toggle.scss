@@ -66,9 +66,7 @@
 			}
 
 			&:focus + .o-forms-input__label::before {
-				@if oBrandIs('core') or oBrandIs('internal') {
-					outline: 4px solid oColorsByUsecase(focus, 'outline'); // oCoulorsByUsecase doesn't support whitelable brand
-				}
+				outline: 4px solid oColorsByUsecase('focus', 'outline', $fallback: null);
 			}
 		}
 
