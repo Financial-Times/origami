@@ -52,21 +52,21 @@ export function Forms({
 export function FormField({ title, field, children }: FormFieldProps) {
 	return (
 		<div className={addNewClassNames('o-forms-field o-forms-field--white', field.modifiers, 'o-forms-field--')} role="group" aria-labelledby={field.aria.label} aria-describedby={field.aria.info}>
-			<span className="o-forms-title">
+			<span className="o-forms-title" role="status">
 				{title.mainTitle && (
-					<span className="o-forms-title__main" id="negative-radio-box-group-title">{title.mainTitle}</span>
+					<span className="o-forms-title__main" role="status" id="negative-radio-box-group-title">{title.mainTitle}</span>
 				)}
 				{title.promptTitle && (
-					<span className="o-forms-title__prompt" id="negative-radio-box-group-info">{title.promptTitle}</span>
+					<span className="o-forms-title__prompt" role="status" id="negative-radio-box-group-info">{title.promptTitle}</span>
 				)}
 			</span>
 			<span className={addNewClassNames('o-forms-input o-forms-input--radio-box', field.modifiers, 'o-forms-input--')}>
 				{children}
 				{field.error && (
-					<span className="o-forms-input__error" >{field.error}</span>
+					<span className="o-forms-input__error" role="alert" >{field.error}</span>
 				)}
 				{field.state && (
-					<span className="o-forms-input__state " />
+					<span className="o-forms-input__state" role="status" />
 				)}
 			</span>
 		</div>
@@ -76,17 +76,15 @@ export function FormField({ title, field, children }: FormFieldProps) {
 
 export function RadioButtons({ inputs }: RadioButtonsProps) {
 	return (
-		<span className="o-forms-input--radio-box__container">
+		<span className="o-forms-input--radio-box__container" role="status" >
 			{inputs.map(({ value, name, disabled, checked, modifier }) => {
 				return (
 					<label>
-						<input type="radio" name={name} value={value} disabled={disabled} checked={checked} required />
-						<span className={addNewClassNames('o-forms-input__label', modifier, 'o-forms-input__label--')}> {value} </span>
+						<input type="radio" name={name} value={value} disabled={disabled} defaultChecked={checked} required />
+						<span className={addNewClassNames('o-forms-input__label', modifier, 'o-forms-input__label--')} role="status"> {value} </span>
 					</label>
 				)
-			}
-			)
-			}
+			})}
 		</span>
 	)
 }
