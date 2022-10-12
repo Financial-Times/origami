@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.3.1](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.3.0...o-labels-v6.3.1) (2022-10-12)
+
+
+### Bug Fixes
+
+* fix labels deployment ([a3e2182](https://www.github.com/Financial-Times/origami/commit/a3e21820b5b287073728ed8629c79cc3797caea5))
+
 ## [6.3.0](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.2.2...o-labels-v6.3.0) (2022-10-10)
 
 
