@@ -1,5 +1,5 @@
 {{=<% %>=}}
-name: percy <%& workspace %>
+name: percy
 concurrency:
   group: ${{ github.head_ref }}-${{ github.workflow }}
   cancel-in-progress: true
@@ -13,13 +13,9 @@ on:
   push:
     branches: main
     paths:
-      - "<%& workspace %>/package.json"
-      - "<%& workspace %>/package-lock.json"
-      - "<%& workspace %>/origami.json"
-      - "<%& workspace %>/main.js"
-      - "<%& workspace %>/main.scss"
-      - "<%& workspace %>/demos/**"
-      - "<%& workspace %>/src/**"
+      - "/package.json"
+      - "/package-lock.json"
+      - "/components/**"
 
 jobs:
   <%#projects%>
