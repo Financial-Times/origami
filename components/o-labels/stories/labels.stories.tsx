@@ -4,9 +4,11 @@ import {withDesign} from 'storybook-addon-designs';
 import {Brand, BrandStates, Label as OLabel} from '../src/tsx/label';
 import './labels.scss';
 
+const brand = process.env.ORIGAMI_STORYBOOK_BRAND;
+
 const stateOptions = (): BrandStates[keyof BrandStates][] => {
 	let states = [];
-	switch ((process.env.ORIGAMI_STORYBOOK_BRAND ?? 'core') as Brand) {
+	switch ((brand ?? 'core') as Brand) {
 		case 'core':
 			states = ['content-commercial', 'content-premium', 'lifecycle-beta'];
 			break;
@@ -37,22 +39,19 @@ const stateOptions = (): BrandStates[keyof BrandStates][] => {
 	return states;
 };
 
-function findStoriesToInclude() {
-	const brand = process.env.ORIGAMI_STORYBOOK_BRAND;
-	if (brand === 'core') {
-		return ['ContentLabel', 'LifecycleLabel'];
-	} else if (brand === 'internal') {
-		return ['SupportLabel', 'ServiceTierLabel', 'ColorPalletLabel'];
-	} else {
-		return ['Label'];
-	}
-}
+const BrandStories = {
+	core: ['ContentLabel', 'LifecycleLabel'],
+	internal: ['SupportLabel', 'ServiceTierLabel', 'ColorPalletLabel'],
+	whiteLabel: ['Label'],
+};
 
-export default {
+const includeStories = BrandStories[brand ?? 'core'];
+
+const labelProps = {
 	title: 'Components/o-labels',
 	component: OLabel,
 	decorators: [withDesign, withHtml],
-	includeStories: findStoriesToInclude(),
+	includeStories,
 	argTypes: {
 		size: {
 			control: {type: 'radio', labels: {undefined: 'default'}},
@@ -68,7 +67,8 @@ export default {
 			defaultValue: 'Example Label',
 		},
 	},
-} as ComponentMeta<typeof OLabel>;
+};
+export default labelProps as ComponentMeta<typeof OLabel>;
 
 export const ContentLabel = args => {
 	return stateOptions()
