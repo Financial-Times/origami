@@ -30,7 +30,10 @@ The  `o-expander` component has a content element `o-expander__content` (the DOM
 	<div class="o-expander__content">
 		<!-- Some content to expand and collapse. -->
 	</div>
-	<button class="o-expander__toggle">Toggle Content</button>
+	<button class="o-expander__toggle">
+		Toggle
+		<span class="o-expander__visually-hidden">(content will be added above button)</span>
+	</button>
 </div>
 ```
 
@@ -42,7 +45,10 @@ By default o-expander will collapse content on initialisation. To prevent this a
 +	<div class="o-expander__content o-expander__content--expanded">
 		<!-- Some content to expand and collapse. -->
 	</div>
-	<button class="o-expander__toggle">Toggle Content</button>
+	<button class="o-expander__toggle">
+		Toggle
+		<span class="o-expander__visually-hidden">(content will be added above button)</span>
+	</button>
 </div>
 ```
 
@@ -54,7 +60,10 @@ or
 +	<div class="o-expander__content" aria-hidden="false">
 		<!-- Some content to expand and collapse. -->
 	</div>
-	<button class="o-expander__toggle">Toggle Content</button>
+	<button class="o-expander__toggle">
+		Toggle
+		<span class="o-expander__visually-hidden">(content will be added above button)</span>
+	</button>
 </div>
 ```
 
@@ -69,7 +78,10 @@ By default the expander is based on height. Set the `max-height` of your collaps
 	<div class="o-expander__content">
 		<!-- Some content to expand and collapse. -->
 	</div>
-	<button class="o-expander__toggle">Toggle Content</button>
+	<button class="o-expander__toggle">
+		Toggle
+		<span class="o-expander__visually-hidden">(content will be added above button)</span>
+	</button>
 </div>
 ```
 
@@ -98,7 +110,10 @@ The expander may also be based on the number of items within `o-expander__conten
 			<li>item</li> //hidden when collapsed
 			<li>item</li> //hidden when collapsed
 		</ul>
-		<button class="o-expander__toggle">Toggle Content</button>
+		<button class="o-expander__toggle">
+			Toggle
+			<span class="o-expander__visually-hidden">(content will be added above button)</span>
+		</button>
 	</div>
 ```
 
@@ -115,7 +130,10 @@ By default the item count assumes a list. To expand based on other children, suc
 			<p>item</p> //hidden when collapsed
 			<p>item</p> //hidden when collapsed
 		</div>
-		<button class="o-expander__toggle">Toggle Content</button>
+		<button class="o-expander__toggle">
+			Toggle
+			<span class="o-expander__visually-hidden">(content will be added above button)</span>
+		</button>
 	</div>
 ```
 
@@ -130,7 +148,10 @@ The expander may also toggle the visibility of `o-expander__content` entirely. S
 		<div class="o-expander__content">
 			<!-- Some content to entirely hide/show. -->
 		</div>
-		<button class="o-expander__toggle">Toggle Content</button>
+		<button class="o-expander__toggle">
+			Toggle
+			<span class="o-expander__visually-hidden">(content will be added above button)</span>
+		</button>
 	</div>
 ```
 
@@ -150,7 +171,10 @@ All expanders update toggle text when the expander is toggled. To customise defa
 		</div>
 		<!-- This toggle text will update when be "Show more of this please!" when the expander initialises. -->
 		<!-- And "Less of this please!" when the user expands the expander. -->
-		<button class="o-expander__toggle">Toggle</button>
+		<button class="o-expander__toggle">
+			Toggle
+			<span class="o-expander__visually-hidden">(content will be added above button)</span>
+		</button>
 	</div>
 ```
 
@@ -163,7 +187,10 @@ Set `data-o-expander-toggle-state="aria"` to update the toggle aria attributes b
 			<!-- Some content to expand -->
 		</div>
 		<!-- This toggle text will not change. -->
-		<button class="o-expander__toggle">Toggle</button>
+		<button class="o-expander__toggle">
+			Toggle
+			<span class="o-expander__visually-hidden">(content will be added above button)</span>
+		</button>
 	</div>
 ```
 
