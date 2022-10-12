@@ -1,12 +1,12 @@
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
-import {ServiceTier} from '../src/tsx/label';
+import {ServiceLabel} from '../src/tsx/label';
 import './labels.scss';
 
 const brand = process.env.ORIGAMI_STORYBOOK_BRAND;
 const ComponentDescription = {
 	title: 'Components/o-labels',
-	component: ServiceTier,
+	component: ServiceLabel,
     includeStories: (brand === 'internal' ? /.*/ : []),
 	argTypes: {
 		state: { defaultValue: 'tier-bronze' },
@@ -32,5 +32,5 @@ export const ServiceTierLabel = args => {
 	if(args.size === 'default') {
 		delete args.size;
 	}
-	return <ServiceTier {...args}>{copy}</ServiceTier>;
+	return <ServiceLabel {...args}>{copy}</ServiceLabel>;
 }
