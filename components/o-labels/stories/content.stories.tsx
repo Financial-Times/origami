@@ -6,32 +6,32 @@ import './labels.scss';
 
 const brand = process.env.ORIGAMI_STORYBOOK_BRAND;
 const ComponentDescription = {
-	title: 'Components/o-labels',
-	component: ContentLabelTsx,
+    title: 'Components/o-labels',
+    component: ContentLabelTsx,
     includeStories: (brand === 'core' ? /.*/ : []),
-	argTypes: {
-		state: { defaultValue: 'content-premium' },
-		size: {
-			options: ['small', 'default', 'big'],
-			defaultValue: 'default'
-		},
-		text: {
-			name: 'text',
-			type: { name: 'string', required: false },
-			control: {
-			  type: 'text'
-			}
-		  }
-	},
-	decorators: [withDesign, withHtml]
+    argTypes: {
+        state: { defaultValue: 'content-premium' },
+        size: {
+            options: ['small', 'default', 'big'],
+            defaultValue: 'default'
+        },
+        text: {
+            name: 'text',
+            type: { name: 'string', required: false },
+            control: {
+                type: 'text'
+            }
+        }
+    },
+    decorators: [withDesign, withHtml]
 };
 
 export default ComponentDescription;
 
 export const ContentLabel = args => {
-	const copy = args.text || args.state.replace('content-', '');
-	if(args.size === 'default') {
-		delete args.size;
-	}
-	return <ContentLabelTsx {...args}>{copy}</ContentLabelTsx>;
+    const copy = args.text || args.state.replace('content-', '');
+    if(args.size === 'default') {
+        delete args.size;
+    }
+    return <ContentLabelTsx {...args}>{copy}</ContentLabelTsx>;
 }
