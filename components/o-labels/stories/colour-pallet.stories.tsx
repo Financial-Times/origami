@@ -1,13 +1,13 @@
 
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
-import {ColourPallet} from '../src/tsx/label';
+import {ColourLabel} from '../src/tsx/label';
 import './labels.scss';
 
 const brand = process.env.ORIGAMI_STORYBOOK_BRAND;
 const ComponentDescription = {
 	title: 'Components/o-labels',
-	component: ColourPallet,
+	component: ColourLabel,
 	includeStories: (brand === 'internal' ? /.*/ : []),
 	argTypes: {
 		state: { defaultValue: 'oxford' },
@@ -33,5 +33,5 @@ export const ColourPalletLabel = args => {
 	if(args.size === 'default') {
 		delete args.size;
 	}
-	return <ColourPallet {...args}>{copy}</ColourPallet>;
+	return <ColourLabel {...args}>{copy}</ColourLabel>;
 }

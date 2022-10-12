@@ -1,11 +1,11 @@
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
-import {Base} from '../src/tsx/label';
+import {BaseLabel as BaseLabelTsx} from '../src/tsx/label';
 import './labels.scss';
 
 export default {
 	title: 'Components/o-labels',
-	component: Base,
+	component: BaseLabelTsx,
 	argTypes: {
 		size: {
 			options: ['small', 'default', 'big'],
@@ -28,5 +28,5 @@ export const BaseLabel = args => {
 	if(args.size === 'default') {
 		delete args.size;
 	}
-	return <Base {...args}>{copy}</Base>;
+	return <BaseLabelTsx {...args}>{copy}</BaseLabelTsx>;
 }

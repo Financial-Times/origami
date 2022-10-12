@@ -1,13 +1,13 @@
 
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
-import {Content} from '../src/tsx/label';
+import {ContentLabel as ContentLabelTsx} from '../src/tsx/label';
 import './labels.scss';
 
 const brand = process.env.ORIGAMI_STORYBOOK_BRAND;
 const ComponentDescription = {
 	title: 'Components/o-labels',
-	component: Content,
+	component: ContentLabelTsx,
     includeStories: (brand === 'core' ? /.*/ : []),
 	argTypes: {
 		state: { defaultValue: 'content-premium' },
@@ -33,5 +33,5 @@ export const ContentLabel = args => {
 	if(args.size === 'default') {
 		delete args.size;
 	}
-	return <Content {...args}>{copy}</Content>;
+	return <ContentLabelTsx {...args}>{copy}</ContentLabelTsx>;
 }

@@ -1,12 +1,12 @@
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
-import {SupportStatus} from '../src/tsx/label';
+import {SupportLabel} from '../src/tsx/label';
 import './labels.scss';
 
 const brand = process.env.ORIGAMI_STORYBOOK_BRAND;
 const ComponentDescription = {
 	title: 'Components/o-labels',
-	component: SupportStatus,
+	component: SupportLabel,
     includeStories: (brand === 'internal' ? /.*/ : []),
 	argTypes: {
 		state: {defaultValue: 'support-active'},
@@ -32,5 +32,5 @@ export const SupportStatusLabel = args => {
 	if(args.size === 'default') {
 		delete args.size;
 	}
-	return <SupportStatus {...args}>{copy}</SupportStatus>;
+	return <SupportLabel {...args}>{copy}</SupportLabel>;
 }
