@@ -1,38 +1,47 @@
-export type Brand = 'core' | 'internal' | 'whitelabel';
-
-export interface BrandStates {
-	core: 'content-commercial' | 'content-premium' | 'lifecycle-beta';
-	internal:
+export interface BaseProps {
+	size?: 'small' | 'big';
+	children: string;
+}
+export interface SupportStatusProps extends BaseProps {
+	state:
 		| 'support-active'
 		| 'support-dead'
 		| 'support-deprecated'
 		| 'support-experimental'
 		| 'support-maintained'
+}
+export interface ServiceTierProps extends BaseProps {
+	state:
 		| 'tier-bronze'
 		| 'tier-gold'
 		| 'tier-platinum'
 		| 'tier-silver'
+}
+export interface ColourPalletProps extends BaseProps {
+	state:
 		| 'oxford'
 		| 'teal'
 		| 'lemon'
 		| 'slate'
 		| 'jade'
 		| 'crimson'
-		| 'mandarin';
-	whitelabel: never;
+		| 'mandarin'
+}
+export interface ContentProps extends BaseProps {
+	state:
+		| 'content-commercial'
+		| 'content-premium'
+}
+export interface LifeCycleProps extends BaseProps {
+	state:
+		| 'lifecycle-beta'
 }
 
-export interface LabelProps<B extends Brand> {
-	size?: 'small' | 'big';
-	state?: BrandStates[B];
-	text: string;
-}
-
-export function Label<B extends Brand>({
+function SimpleLabel({
 	size,
 	state,
-	text,
-}: LabelProps<B>): JSX.Element {
+	children,
+}: {size?: string, state?: string, children: string}): JSX.Element {
 	const classNames = ['o-labels'];
 	if (size) {
 		classNames.push(`o-labels--${size}`);
@@ -40,51 +49,71 @@ export function Label<B extends Brand>({
 	if (state) {
 		classNames.push(`o-labels--${state}`);
 	}
-	return <span className={classNames.join(' ')}>{text}</span>;
+	return <span className={classNames.join(' ')}>{children}</span>;
 }
 
-export interface IndicatorLabelProps {
+export function Base(props: BaseProps): JSX.Element {
+	return SimpleLabel(props)
+}
+
+export function SupportStatus(props: SupportStatusProps): JSX.Element {
+	return SimpleLabel(props)
+}
+export function ServiceTier(props: ServiceTierProps): JSX.Element {
+	return SimpleLabel(props)
+}
+export function ColourPallet(props: ColourPalletProps): JSX.Element {
+	return SimpleLabel(props)
+}
+export function Content(props: ContentProps): JSX.Element {
+	return SimpleLabel(props)
+}
+export function LifeCycle(props: LifeCycleProps): JSX.Element {
+	return SimpleLabel(props)
+}
+
+export interface IndicatorProps {
 	indicator: 'live' | 'closed' | 'new' | 'updated';
-	status: string;
+	status?: string;
 	inverse?: boolean;
-	children?: JSX.Element | JSX.Element[];
+	timestamp?: JSX.Element | JSX.Element[];
 }
 
 export function IndicatorLabel({
 	indicator,
 	status,
 	inverse,
-	children,
-}: IndicatorLabelProps): JSX.Element {
+	timestamp,
+}: IndicatorProps): JSX.Element {
 	const classNames = ['o-labels-indicator', `o-labels-indicator--${indicator}`];
 	if (inverse) {
 		classNames.push('o-labels-indicator--inverse');
 	}
 	return (
 		<span className={classNames.join(' ')}>
-			<span className="o-labels-indicator__status"> {status} </span>
-			{children && (
-				<time className="o-labels-indicator__timestamp">
-					{children}
-				</time>
+			<span className="o-labels-indicator__status"> {status || indicator} </span>
+			{timestamp && (
+				<span className="o-labels-indicator__timestamp">
+					{timestamp}
+				</span>
 			)}
 		</span>
 	);
 }
 
-export interface TimestampLabelProps {
+export interface TimestampProps {
 	inverse?: boolean;
 	children?: JSX.Element | JSX.Element[]
 }
 
-export function TimestampLabel({inverse, children}: TimestampLabelProps): JSX.Element {
+export function TimestampLabel({inverse, children}: TimestampProps): JSX.Element {
 	const classNames = ['o-labels-timestamp'];
 	if (inverse) {
 		classNames.push('o-labels-timestamp--inverse');
 	}
 	return (
-		<time className={classNames.join(' ')}>
+		<span className={classNames.join(' ')}>
 			{children}
-		</time>
+		</span>
 	);
 }
