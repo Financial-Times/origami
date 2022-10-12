@@ -60,6 +60,16 @@
 			&:invalid:not(:disabled) + .o-forms-input__label:after { // stylelint-disable-line selector-no-qualifying-type
 				border-color: inherit;
 			}
+			&:focus-visible {
+				outline: none;
+				box-shadow: none;
+			}
+
+			&:focus + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+				&:before {
+					outline: 4px solid oColorsByUsecase('focus', 'outline', $fallback: null);
+				}
+			}
 		}
 
 		@if $disabled {
@@ -84,3 +94,4 @@
 		}
 	}
 }
+
