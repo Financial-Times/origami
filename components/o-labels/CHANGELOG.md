@@ -1,5 +1,17 @@
 # Changelog
 
+## [6.4.0](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.3.1...o-labels-v6.4.0) (2022-10-12)
+
+
+### Features
+
+* o-labels, make tsx public ([0b0a298](https://www.github.com/Financial-Times/origami/commit/0b0a2988b80a58ac6d61026187272983702e73cc))
+
+
+### Bug Fixes
+
+* Update o-label tsx and stories ([5ce516b](https://www.github.com/Financial-Times/origami/commit/5ce516bdf9c71e713367db063766e7f8e1d569d3))
+
 ### [6.3.1](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.3.0...o-labels-v6.3.1) (2022-10-12)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.4.0](https://www.github.com/Financial-Times/origami/compare/o-date-v5.3.0...o-date-v5.4.0) (2022-10-12)
+
+
+### Features
+
+* o-date, publish tsx ([720c57b](https://www.github.com/Financial-Times/origami/commit/720c57b33c9c66baf1ba585f4747ca50ffb4ab52))
+
 ## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-date-v5.2.2...o-date-v5.3.0) (2022-05-30)
 
 
