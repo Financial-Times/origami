@@ -32,7 +32,10 @@ export function Expander({header = null, children, expanded}: ExpanderProps) {
 			data-o-expander-shrink-to="hidden">
 			{header}
 			<button className="o-expander__toggle">
-				{expanded ? 'hide' : 'show'}
+				{expanded ?
+					'hide' :
+					`show ${<span className="o-expander__visually-hidden">(content will be added above button)</span>}`
+				}
 			</button>
 			<div
 				className="o-expander__content"
