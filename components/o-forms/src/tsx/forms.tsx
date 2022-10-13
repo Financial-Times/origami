@@ -24,64 +24,74 @@ type inputs = {
 	disabled?: boolean
 }[]
 
-export interface RadioButtonsProps {
+interface RadioButtonsProps {
 	inputs?: inputs
+	highlight?: boolean
 }
 
-export interface FormFieldProps {
+interface FormFieldProps {
 	children?: JSX.Element | JSX.Element[]
 	title?: title
 	field?: field
+	centered?: boolean
+	saved?: boolean
 }
 
-export interface FormsProps extends RadioButtonsProps {
+interface FormsProps extends RadioButtonsProps {
 	formField?: FormFieldProps
+	centered?: boolean
+	saved?: boolean
 }
 
 export function Forms({
 	inputs,
-	formField
+	formField,
+	highlight,
+	centered,
+	saved
 }: FormsProps) {
 	return (
-		<FormField title={formField.title} field={formField.field}>
-			<RadioButtons inputs={inputs} />
-		</FormField>
+		<form data-o-component="o-forms">
+			<FormField title={formField.title} field={formField.field} centered={centered} saved={saved}>
+				<RadioButtons inputs={inputs} highlight={highlight} />
+			</FormField>
+		</form>
 	)
 }
 
-export function FormField({ title, field, children }: FormFieldProps) {
+export function FormField({ title, field, children, saved, centered }: FormFieldProps) {
 	return (
-		<div className={addNewClassNames('o-forms-field o-forms-field--white', field.modifiers, 'o-forms-field--')} role="group" aria-labelledby={field.aria.label} aria-describedby={field.aria.info}>
-			<span className="o-forms-title" role="status">
+		<div className={`o-forms-field ${centered && 'o-forms-field--inline'}`} role="group" aria-labelledby={field.aria.label} aria-describedby={field.aria.info}>
+			<span className="o-forms-title">
 				{title.mainTitle && (
-					<span className="o-forms-title__main" role="status" id="negative-radio-box-group-title">{title.mainTitle}</span>
+					<span className="o-forms-title__main" id="negative-radio-box-group-title">{title.mainTitle}</span>
 				)}
 				{title.promptTitle && (
-					<span className="o-forms-title__prompt" role="status" id="negative-radio-box-group-info">{title.promptTitle}</span>
+					<span className="o-forms-title__prompt" id="negative-radio-box-group-info">{title.promptTitle}</span>
 				)}
 			</span>
-			<span className={addNewClassNames('o-forms-input o-forms-input--radio-box', field.modifiers, 'o-forms-input--')}>
+			<span className={`o-forms-input o-forms-input--radio-box ${field.state && `o-forms-input--${saved ? 'saved' : 'saving'}`} ${field.error && `o-forms-input--invalid`}`}>
 				{children}
 				{field.error && (
-					<span className="o-forms-input__error" role="alert" >{field.error}</span>
+					<span className="o-forms-input__error error" role="alert" >{field.error}</span>
 				)}
 				{field.state && (
 					<span className="o-forms-input__state" role="status" />
 				)}
 			</span>
-		</div>
+		</div >
 	)
 }
 
 
-export function RadioButtons({ inputs }: RadioButtonsProps) {
+export function RadioButtons({ inputs, highlight }: RadioButtonsProps) {
 	return (
-		<span className="o-forms-input--radio-box__container" role="status" >
+		<span className="o-forms-input--radio-box__container">
 			{inputs.map(({ value, name, disabled, checked, modifier }) => {
 				return (
-					<label>
+					<label key={value}>
 						<input type="radio" name={name} value={value} disabled={disabled} defaultChecked={checked} required />
-						<span className={addNewClassNames('o-forms-input__label', modifier, 'o-forms-input__label--')} role="status"> {value} </span>
+						<span className={`o-forms-input__label ${highlight && 'o-forms-input__label--negative'}`}> {value} </span>
 					</label>
 				)
 			})}
@@ -89,13 +99,4 @@ export function RadioButtons({ inputs }: RadioButtonsProps) {
 	)
 }
 
-function addNewClassNames(currentClass, modifiers, prefix) {
-	const classNames = [currentClass]
-	if (modifiers) {
-		modifiers.forEach(modifier => {
-			classNames.push(`${prefix}${modifier}`);
-		})
-	};
-	return classNames.join(' ');
-}
 
