@@ -6,11 +6,15 @@ import { Forms } from '../src/tsx/forms';
 import './forms.scss';
 import javascript from '../main.js'
 export default {
-	title: 'Components/o-forms',
+	title: 'Components/o-forms/radio-box-buttons',
 	component: Forms,
 	decorators: [withDesign, withHtml],
 	parameters: {},
-	args: {},
+	args: {
+		highlight: false,
+		centered: false,
+		saved: false
+	},
 } as ComponentMeta<typeof Forms>;
 
 const FormsStory = args => {
@@ -28,10 +32,6 @@ export const BoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind(
 	{}
 );
 
-export const HighlightBoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind(
-	{}
-);
-
 export const MultipleBoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind(
 	{}
 );
@@ -44,21 +44,11 @@ export const ErrorBoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind
 	{}
 );
 
-export const VCenteredBoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind(
+
+export const StateBoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind(
 	{}
 );
 
-export const LongTitleBoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind(
-	{}
-);
-
-export const SavedStateBoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind(
-	{}
-);
-
-export const SavingStateBoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind(
-	{}
-);
 
 BoxRadioButton.args = {
 	inputs: [
@@ -85,38 +75,6 @@ BoxRadioButton.args = {
 		title: {
 			mainTitle: "Box Radio Button",
 			promptTitle: "This is a box radio button sample"
-		}
-	},
-
-}
-
-
-HighlightBoxRadioButton.args = {
-	inputs: [
-		{
-			type: "radio",
-			name: "default",
-			value: "Daily"
-		},
-		{
-			type: "radio",
-			name: "default",
-			value: "Weekly",
-			checked: true,
-			modifier: ["negative"]
-		}
-	],
-	formField: {
-		field: {
-			type: "radio-box",
-			aria: {
-				label: "radio-box-group-title",
-				info: "radio-box-group-info"
-			},
-		},
-		title: {
-			mainTitle: "Box Radio Button",
-			promptTitle: "Optional prompt text"
 		}
 	},
 
@@ -217,105 +175,7 @@ ErrorBoxRadioButton.args = {
 
 }
 
-
-VCenteredBoxRadioButton.args = {
-	inputs: [
-		{
-			type: "radio",
-			name: "inline",
-			value: "Daily",
-			checked: true
-		},
-		{
-			type: "radio",
-			name: "inline",
-			value: "Weekly"
-		}
-	],
-	formField: {
-		field: {
-			type: "radio-box",
-			aria: {
-				label: "inline-radio-box-group-title"
-			},
-			error: "Please select an option",
-			modifiers: ["inline"]
-		},
-		title: {
-			mainTitle: "V-centered inline radio box"
-		},
-	},
-
-}
-
-
-LongTitleBoxRadioButton.args = {
-	inputs: [
-		{
-			type: "radio",
-			name: "saving",
-			value: "Daily",
-			checked: true
-		},
-		{
-			type: "radio",
-			name: "saving",
-			value: "Weekly"
-		}
-	],
-	formField: {
-		field: {
-			type: "radio-box",
-			aria: {
-				label: "saving-state-group-title-long",
-				info: "saving-state-group-info-long"
-			},
-			modifiers: ["saving"],
-			state: "Saving",
-			icon: true
-		},
-		title: {
-			mainTitle: "Inline box-style radio buttons with very long title. Inline box-style radio buttons with very long title",
-			promptTitle: "With a stacked saving state"
-		},
-	},
-
-}
-
-
-SavedStateBoxRadioButton.args = {
-	inputs: [
-		{
-			type: "radio",
-			name: "saved",
-			value: "Daily"
-		},
-		{
-			type: "radio",
-			name: "saved",
-			value: "Weekly",
-			checked: true
-		}
-	],
-	formField: {
-		field: {
-			type: "radio-box",
-			aria: {
-				label: "saved-state-group-title"
-			},
-			modifiers: ["saved", "inline"],
-			state: "Saved",
-			icon: true
-		},
-		title: {
-			mainTitle: "Inline saved state"
-		},
-	},
-
-}
-
-
-SavingStateBoxRadioButton.args = {
+StateBoxRadioButton.args = {
 	inputs: [
 		{
 			type: "radio",
@@ -341,8 +201,8 @@ SavingStateBoxRadioButton.args = {
 			icon: true
 		},
 		title: {
-			mainTitle: "Inline saving state",
-			promptTitle: "Icon only—also available for saved state"
+			mainTitle: "Radio box with state",
+			promptTitle: "Icon available for saved/saving states"
 		},
 	},
 
