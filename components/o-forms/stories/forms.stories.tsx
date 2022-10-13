@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { Forms } from '../src/tsx/forms';
 import './forms.scss';
 import javascript from '../main.js'
+
 export default {
 	title: 'Components/o-forms/radio-box-buttons',
 	component: Forms,
@@ -14,7 +15,7 @@ export default {
 		highlight: false,
 		centered: false,
 		saved: false
-	},
+	}
 } as ComponentMeta<typeof Forms>;
 
 const FormsStory = args => {
@@ -80,6 +81,13 @@ BoxRadioButton.args = {
 
 }
 
+BoxRadioButton.argTypes = {
+	saved: {
+		table: {
+			disable: true
+		}
+	}
+}
 
 MultipleBoxRadioButton.args = {
 	inputs: [
@@ -114,6 +122,14 @@ MultipleBoxRadioButton.args = {
 
 }
 
+MultipleBoxRadioButton.argTypes = {
+	saved: {
+		table: {
+			disable: true
+		}
+	}
+}
+
 
 DisabledBoxRadioButton.args = {
 	inputs: [
@@ -145,6 +161,13 @@ DisabledBoxRadioButton.args = {
 
 }
 
+DisabledBoxRadioButton.argTypes = {
+	saved: {
+		table: {
+			disable: true
+		}
+	}
+}
 
 ErrorBoxRadioButton.args = {
 	inputs: [
@@ -173,6 +196,14 @@ ErrorBoxRadioButton.args = {
 		},
 	},
 
+}
+
+ErrorBoxRadioButton.argTypes = {
+	saved: {
+		table: {
+			disable: true
+		}
+	}
 }
 
 StateBoxRadioButton.args = {
