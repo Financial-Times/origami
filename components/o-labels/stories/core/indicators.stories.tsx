@@ -4,21 +4,13 @@ import type {Meta, Story} from '@storybook/react';
 import withHtml from 'origami-storybook-addon-html';
 import {useEffect} from 'react';
 import {withDesign} from 'storybook-addon-designs';
-import {IndicatorLabel as OIndicatorLabel, IndicatorLabelProps} from '../src/tsx/label';
-import './labels.scss';
-
-const brand = process.env.ORIGAMI_STORYBOOK_BRAND;
+import {IndicatorLabel as OIndicatorLabel, IndicatorLabelProps} from '../../src/tsx/label';
+import '../labels.scss';
 
 export default {
 	title: 'Components/o-labels',
 	component: OIndicatorLabel,
 	decorators: [withDesign, withHtml],
-	includeStories: (brand === 'core' ? [
-		'LiveIndicatorLabel',
-		'ClosedIndicatorLabel',
-		'NewIndicatorLabel',
-		'UpdatedIndicatorLabel'
-	] : []),
 	argTypes: {
 		inverse: {control: 'boolean', defaultValue: false},
 		dateTime: {control: 'date'},
