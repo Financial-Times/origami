@@ -39,16 +39,54 @@ class Input {
 			return;
 		}
 
+		// validate date input
+		if (this.parent.classList.contains('o-forms-input--date')) {
+			return this.validateDate();
+		}
+
 		if (!this.input.validity.valid) {
-			this.parent.classList.add(this.className.invalid);
+			this.toggleParentClasses("invalid");
 			return false;
 
 		} else if (this.input.validity.valid && this.parent.classList.contains(this.className.invalid)) {
-			this.parent.classList.remove(this.className.invalid);
-			this.parent.classList.add(this.className.valid);
+			this.toggleParentClasses("valid");
 		}
 
 		return true;
+	}
+
+
+	validateDate() {
+		const elements = this.parent.querySelectorAll('input');
+		const [date, month, year] = Array.from(elements).map(element => element.value);
+
+		const dateObj = Date.parse(`${date}/${month}/${year}`);
+		if (isNaN(dateObj)) {
+			this.toggleParentClasses("invalid");
+			return false;
+		}
+
+		const isDateInputValid = /(0[1-9]|1[0-9]|2[0-9]|3[01])/.test(date);
+		const isMonthInputValid = /(0[1-9]|1[012])/.test(month);
+		const isYearInputValid = /[0-9]{4}/.test(year);
+		const dateFormatIsInvalid = !isDateInputValid || !isMonthInputValid || !isYearInputValid;
+		if (dateFormatIsInvalid) {
+			this.toggleParentClasses("invalid");
+			return false;
+		}
+
+		this.toggleParentClasses("valid");
+		return true;
+	}
+
+	toggleParentClasses(state) {
+		if (state === "valid" ) {
+			this.parent.classList.remove(this.className.invalid);
+			this.parent.classList.add(this.className.valid);
+		} else {
+			this.parent.classList.remove(this.className.valid);
+			this.parent.classList.add(this.className.invalid);
+		}
 	}
 
 	destroy() {

@@ -17,7 +17,6 @@
 				{
 					"type": "text",
 					"name": "date",
-					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
 					"date": "DD",
@@ -26,14 +25,14 @@
 				{
 					"type": "text",
 					"name": "date",
-					"pattern": "0?[1-9]|1[012]",
+					"classes": "o-forms-input__month-part",
 					"date": "MM",
 					"id": "month"
 				},
 				{
 					"type": "text",
 					"name": "date",
-					"pattern": "[0-9]{4}",
+					"classes": "o-forms-input__year-part",
 					"date": "YYYY",
 					"id": "year"
 				}
@@ -53,7 +52,6 @@
 				{
 					"type": "text",
 					"name": "disabled-date",
-					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
 					"date": "DD",
@@ -63,7 +61,6 @@
 				{
 					"type": "text",
 					"name": "disabled-date",
-					"pattern": "0?[1-9]|1[012]",
 					"classes": "o-forms-input__month-part",
 					"inputmode": "numeric",
 					"date": "MM",
@@ -73,7 +70,6 @@
 				{
 					"type": "text",
 					"name": "disabled-date",
-					"pattern": "[0-9]{4}",
 					"classes": "o-forms-input__year-part",
 					"inputmode": "numeric",
 					"date": "YYYY",
@@ -100,7 +96,6 @@
 				{
 					"type": "text",
 					"name": "invalid-date",
-					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
 					"date": "DD",
@@ -110,7 +105,6 @@
 				{
 					"type": "text",
 					"name": "invalid-date",
-					"pattern": "0?[1-9]|1[012]",
 					"classes": "o-forms-input__month-part",
 					"inputmode": "numeric",
 					"date": "MM",
@@ -120,7 +114,6 @@
 				{
 					"type": "text",
 					"name": "invalid-date",
-					"pattern": "[0-9]{4}",
 					"classes": "o-forms-input__year-part",
 					"inputmode": "numeric",
 					"date": "YYYY",
@@ -145,7 +138,6 @@
 				{
 					"type": "text",
 					"name": "inline-date",
-					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
 					"date": "DD",
@@ -154,14 +146,14 @@
 				{
 					"type": "text",
 					"name": "inline-date",
-					"pattern": "0?[1-9]|1[012]",
+					"classes": "o-forms-input__month-part",
 					"date": "MM",
 					"id": "inline-month"
 				},
 				{
 					"type": "text",
 					"name": "inline-date",
-					"pattern": "[0-9]{4}",
+					"classes": "o-forms-input__year-part",
 					"date": "YYYY",
 					"id": "inline-year"
 				}
