@@ -1,14 +1,12 @@
 
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
-import {ColourLabel} from '../src/tsx/label';
+import {ColourLabel} from '../../src/tsx/label';
 import './labels.scss';
 
-const brand = process.env.ORIGAMI_STORYBOOK_BRAND;
 const ComponentDescription = {
 	title: 'Components/o-labels',
 	component: ColourLabel,
-	includeStories: (brand === 'internal' ? /.*/ : []),
 	argTypes: {
 		state: { defaultValue: 'oxford' },
 		size: {

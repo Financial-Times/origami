@@ -1,15 +1,18 @@
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
-import {SupportLabel} from '../src/tsx/label';
-import './labels.scss';
+import {LifeCycleLabel as LifeCycleLabelTsx} from '../../src/tsx/label';
+import '../labels.scss';
 
-const brand = process.env.ORIGAMI_STORYBOOK_BRAND;
 const ComponentDescription = {
 	title: 'Components/o-labels',
-	component: SupportLabel,
-    includeStories: (brand === 'internal' ? /.*/ : []),
+	component: LifeCycleLabelTsx,
 	argTypes: {
-		state: {defaultValue: 'support-active'},
+		state: {
+            defaultValue: 'lifecycle-beta',
+            table: {
+                disable: true
+            }
+        },
 		size: {
 			options: ['small', 'default', 'big'],
 			defaultValue: 'default'
@@ -27,10 +30,10 @@ const ComponentDescription = {
 
 export default ComponentDescription;
 
-export const SupportStatusLabel = args => {
-	const copy = args.text || args.state.replace('support-', '');
+export const LifeCycleLabel = args => {
+	const copy = args.text || args.state.replace('lifecycle-', '');
 	if(args.size === 'default') {
 		delete args.size;
 	}
-	return <SupportLabel {...args}>{copy}</SupportLabel>;
+	return <LifeCycleLabelTsx {...args}>{copy}</LifeCycleLabelTsx>;
 }
