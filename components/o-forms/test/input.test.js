@@ -59,10 +59,14 @@ describe('Input', () => {
 
 	context('validates pattern-matching fields', () => {
 		let dateField;
+		let monthField;
+		let yearField;
 		before(() => {
 			document.body.innerHTML = formFixture;
 			form = document.forms[0];
 			dateField = form.elements['date'][0];
+			monthField = form.elements['date'][1];
+			yearField = form.elements['date'][2];
 			new Input(dateField);
 		});
 
@@ -83,7 +87,9 @@ describe('Input', () => {
 			proclaim.isTrue(parentClass(dateField, 'invalid'));
 
 			dateField.value = 10;
-			dispatch('input', dateField);
+			monthField.value = 10;
+			yearField.value = 2022;
+			dispatch('blur', dateField);
 
 			proclaim.isFalse(parentClass(dateField, 'invalid'));
 			proclaim.isTrue(parentClass(dateField, 'valid'));
