@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.3.2](https://www.github.com/Financial-Times/origami/compare/o-message-v5.3.1...o-message-v5.3.2) (2022-10-17)
+
+
+### Bug Fixes
+
+* storybook build / brand unique stories ([7942d0a](https://www.github.com/Financial-Times/origami/commit/7942d0a8c6ad5f4b8564276deccf5878855acc49))
+
 ### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-message-v5.3.0...o-message-v5.3.1) (2022-07-19)
 
 
