@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.2.4](https://www.github.com/Financial-Times/origami/compare/o-expander-v6.2.3...o-expander-v6.2.4) (2022-10-13)
+
+
+### Bug Fixes
+
+* o-expander, advertise where content is added to screen reader users ([a2e75a7](https://www.github.com/Financial-Times/origami/commit/a2e75a7422e8c7b56b4ac3482c874f20116a9b3b))
+
 ### [6.2.3](https://www.github.com/Financial-Times/origami/compare/o-expander-v6.2.2...o-expander-v6.2.3) (2022-04-21)
 
 

@@ -6,8 +6,6 @@ import {AlertMessage} from '../src/tsx/message';
 import javascript from '../main';
 import './message.scss';
 
-const Brand = process.env.ORIGAMI_STORYBOOK_BRAND || 'core';
-
 export default {
 	title: 'Components/o-message',
 	component: AlertMessage,
