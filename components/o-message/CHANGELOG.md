@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.4.0](https://www.github.com/Financial-Times/origami/compare/o-message-v5.3.2...o-message-v5.4.0) (2022-10-17)
+
+
+### Features
+
+* publish o-message jsx templates ([e0067d6](https://www.github.com/Financial-Times/origami/commit/e0067d6517832787f2a737e381ed99e5304d15ac))
+
 ### [5.3.2](https://www.github.com/Financial-Times/origami/compare/o-message-v5.3.1...o-message-v5.3.2) (2022-10-17)
 
 
