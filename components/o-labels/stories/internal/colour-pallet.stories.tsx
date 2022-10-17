@@ -1,20 +1,21 @@
+
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
-import {BaseLabel as BaseLabelTsx} from '../src/tsx/label';
+import {ColourLabel} from '../../src/tsx/label';
 import './labels.scss';
 
-export default {
+const ComponentDescription = {
 	title: 'Components/o-labels',
-	component: BaseLabelTsx,
+	component: ColourLabel,
 	argTypes: {
+		state: { defaultValue: 'oxford' },
 		size: {
 			options: ['small', 'default', 'big'],
 			defaultValue: 'default'
 		},
 		text: {
 			name: 'text',
-			type: { name: 'string', required: true },
-			defaultValue: 'example label',
+			type: { name: 'string', required: false },
 			control: {
 			  type: 'text'
 			}
@@ -23,10 +24,12 @@ export default {
 	decorators: [withDesign, withHtml]
 };
 
-export const BaseLabel = args => {
-	const copy = args.text;
+export default ComponentDescription;
+
+export const ColourPalletLabel = args => {
+	const copy = args.text || args.state;
 	if(args.size === 'default') {
 		delete args.size;
 	}
-	return <BaseLabelTsx {...args}>{copy}</BaseLabelTsx>;
+	return <ColourLabel {...args}>{copy}</ColourLabel>;
 }

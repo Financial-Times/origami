@@ -4,8 +4,8 @@ import type {Meta, Story} from '@storybook/react';
 import withHtml from 'origami-storybook-addon-html';
 import {useEffect} from 'react';
 import {withDesign} from 'storybook-addon-designs';
-import {IndicatorLabel as OIndicatorLabel, IndicatorLabelProps} from '../src/tsx/label';
-import './labels.scss';
+import {IndicatorLabel as OIndicatorLabel, IndicatorLabelProps} from '../../src/tsx/label';
+import '../labels.scss';
 
 export default {
 	title: 'Components/o-labels',
@@ -14,6 +14,11 @@ export default {
 	argTypes: {
 		inverse: {control: 'boolean', defaultValue: false},
 		dateTime: {control: 'date'},
+		timestamp: {
+			table: {
+				disable: true
+			}
+		},
 		indicator: {
 			table: {
 				disable: true
@@ -32,9 +37,10 @@ const Template: IndicatorStory = args => {
 		};
 	});
 	const dateString = args.dateTime && new Date(args.dateTime).toISOString()
-	return <OIndicatorLabel {...args}>
-		{dateString && <DateTSX dateTime={dateString} />}
-	</OIndicatorLabel>;
+	if(dateString) {
+		args.timestamp =  <DateTSX dateTime={dateString} />;
+	}
+	return <OIndicatorLabel {...args} />;
 };
 
 export const LiveIndicatorLabel: IndicatorStory =

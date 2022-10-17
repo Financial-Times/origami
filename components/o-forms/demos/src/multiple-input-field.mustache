@@ -95,7 +95,7 @@
 			{{#field.error}}<span role=alert class="o-forms-input__error">{{.}}</span>{{/field.error}}
 
 			{{#field.state}}
-				<span class="o-forms-input__state {{#field.icon}}o-forms-input__state--icon-only{{/field.icon}}">
+				<span aria-label={{field.state}} role=status class="o-forms-input__state {{#field.icon}}o-forms-input__state--icon-only{{/field.icon}}">
 				</span>
 			{{/field.state}}
 		</span>

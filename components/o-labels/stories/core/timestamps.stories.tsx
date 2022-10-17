@@ -4,8 +4,8 @@ import type {Meta, Story} from '@storybook/react';
 import withHtml from 'origami-storybook-addon-html';
 import {useEffect} from 'react';
 import {withDesign} from 'storybook-addon-designs';
-import {TimestampLabel as OTimestampLabel, TimestampLabelProps} from '../src/tsx/label';
-import './labels.scss';
+import {TimestampLabel as OTimestampLabel, TimestampLabelProps} from '../../src/tsx/label';
+import '../labels.scss';
 
 export default {
 	title: 'Components/o-labels',

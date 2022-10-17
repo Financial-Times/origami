@@ -295,7 +295,7 @@ For a box-like, rectangular radio button replace the `o-forms-input--radio-round
 
 Box radio buttons may also, optionally represent a negative choose by applying the `o-forms-input__label--negative` modifier class to its label. This is useful for a yes/no input.
 
-Loading states are also supported by box radio buttons. We recommend using [`o-forms` JavaScript](#javascript) to add states to an existing form. However to add a state manually add an additional `o-forms-input__state` element and a state modifier class to the `o-forms-input` element, `o-forms-input--saving` or `o-forms-input--saved`.
+Loading states are also supported by box radio buttons. We recommend using [`o-forms` JavaScript](#javascript) to add states to an existing form. However to add a state manually add an additional `o-forms-input__state` element with `role=status` and `aria-label="[STATE]"` attributes. In addition, add a state modifier class to the `o-forms-input` element, `o-forms-input--saving` or `o-forms-input--saved`. 
 
 The below example shows a box style radio button with a positive "yes" and negative "no" option. The "no" option is checked and a saved state is shown.
 

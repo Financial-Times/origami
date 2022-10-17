@@ -176,10 +176,10 @@ For an updated or new label use the associated modifier class, e.g. `o-labels-in
     <span class="o-labels-indicator__status">
         new
     </span>
-    <time class="o-labels-indicator__timestamp">
+    <span class="o-labels-indicator__timestamp">
         <!-- demo `time` element only (the datetime is not 1 hour ago) -->
         <time datetime="2020-07-09T12:52:33+0000" title="July 9 2020 1:52 pm">1 hour ago</time>
-    </time>
+    </span>
 </span>
 ```
 
@@ -198,10 +198,10 @@ Indicator labels also support an inverse theme for use on dark backgrounds. To u
 To include a timestamp label use the following markup. Note the timestamp label also supports an optional inverse variant for dark background with the `o-labels-timestamp--inverse` class:
 
 ```html
-<time class="o-labels-timestamp o-labels-timestamp--inverse">
+<span class="o-labels-timestamp o-labels-timestamp--inverse">
     <!-- demo `time` element only -->
     <time datetime="2016-02-29T12:35:48Z" title="February 29 2016 12:35 pm">February 29 2016</time>
-</time>
+</span>
 ```
 
 As with the indicator label, we recommend using [o-date](https://registry.origami.ft.com/components/o-date) to format the timestamp element.
