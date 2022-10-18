@@ -107,6 +107,20 @@
 			"template": "/demos/src/indicators.mustache"
 		},
 		{
+			"name": "indicators-badge",
+			"title": "Badge Indicators",
+			"description": "",
+			"data": {
+				"modifiers": [
+					"badge"
+				]
+			},
+			"brands": [
+				"core"
+			],
+			"template": "/demos/src/indicators-badge.mustache"
+		},
+		{
 			"name": "indicators-sizes",
 			"title": "Indicator Sizes",
 			"description": "All indicator labels adapt to the set font size. This demo shows using custom CSS to set the font size of indicator labels.",

@@ -252,3 +252,10 @@
 		}
 	}
 }
+
+
+@mixin _oLabelIndicatorBadge ($color) {
+	background: oColorsByName($color);
+	padding: oSpacingByName('s1') oSpacingByName('s2');
+	font-weight: oFontsWeight('bold');
+}
