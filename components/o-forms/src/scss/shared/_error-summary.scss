@@ -1,9 +1,9 @@
-$o-forms-error-summary-foreground-color: oColorsMix(
+$_o-forms-error-summary-foreground-color: oColorsMix(
 	'black',
 	_oFormsGet('invalid-base'),
 	$percentage: 12.5
 );
-$o-forms-error-summary-background-color: oColorsMix(
+$_o-forms-error-summary-background-color: oColorsMix(
 	_oFormsGet('invalid-base'),
 	$percentage: 10
 );
@@ -22,7 +22,7 @@ $alert-icon-right-padding: $_o-forms-spacing-two;
 @mixin _oFormsErrorSummary() {
 	.o-forms__error-summary {
 		@include oTypographySans($scale: 0);
-		background-color: $o-forms-error-summary-background-color;
+		background-color: $_o-forms-error-summary-background-color;
 		margin-bottom: $_o-forms-spacing-four;
 		padding: $_o-forms-spacing-three;
 		position: relative;
@@ -34,7 +34,7 @@ $alert-icon-right-padding: $_o-forms-spacing-two;
 		&:before {
 			@include oIconsContent(
 				$icon-name: 'warning-alt',
-				$color: $o-forms-error-summary-foreground-color,
+				$color: $_o-forms-error-summary-foreground-color,
 				$size: $_o-forms-alert-icon-size
 			);
 
@@ -54,7 +54,7 @@ $alert-icon-right-padding: $_o-forms-spacing-two;
 				$weight: 'semibold',
 				$include-font-family: false
 			);
-			color: $o-forms-error-summary-foreground-color;
+			color: $_o-forms-error-summary-foreground-color;
 			margin: 0 0 $_o-forms-spacing-one;
 		}
 
@@ -64,7 +64,7 @@ $alert-icon-right-padding: $_o-forms-spacing-two;
 			padding: 0;
 
 			a {
-				color: $o-forms-error-summary-foreground-color;
+				color: $_o-forms-error-summary-foreground-color;
 				display: inline-block;
 				font-weight: 400;
 				margin-top: $_o-forms-spacing-one;
