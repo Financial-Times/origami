@@ -14,9 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
