@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.4.2](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.1...o-forms-v9.4.2) (2022-10-18)
+
+
+### Bug Fixes
+
+* Add icon to o-forms error summary ([16e46b5](https://www.github.com/Financial-Times/origami/commit/16e46b5209b27f27f49ea8c181dd2308c35df7e9))
+
 ### [9.4.1](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.0...o-forms-v9.4.1) (2022-10-12)
 
 
