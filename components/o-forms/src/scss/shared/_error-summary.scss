@@ -13,9 +13,9 @@ $_o-forms-alert-icon-inbuilt-space: $_o-forms-alert-icon-size * 0.25;
 
 // Icon svgs are drawn to a 40px grid with 10px whitespace either side.
 // This is what the size of the alert icon would be without the whitespace.
-$true-alert-icon-size: div($_o-forms-alert-icon-size, 2);
-$alert-icon-left-padding: $_o-forms-spacing-four;
-$alert-icon-right-padding: $_o-forms-spacing-two;
+$_o-forms-true-alert-icon-size: div($_o-forms-alert-icon-size, 2);
+$_o-forms-alert-icon-left-padding: $_o-forms-spacing-four;
+$_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
 
 /// @access private
 /// @output styles for error summary
@@ -27,8 +27,8 @@ $alert-icon-right-padding: $_o-forms-spacing-two;
 		padding: $_o-forms-spacing-three;
 		position: relative;
 		padding-left: calc(
-			$alert-icon-left-padding + $true-alert-icon-size +
-				$alert-icon-right-padding
+			$_o-forms-alert-icon-left-padding + $_o-forms-true-alert-icon-size +
+				$_o-forms-alert-icon-right-padding
 		);
 
 		&:before {
@@ -44,7 +44,7 @@ $alert-icon-right-padding: $_o-forms-spacing-two;
 			// from the icon svg, to to position the visible alert icon more
 			// intuitively
 			margin: -$_o-forms-alert-icon-inbuilt-space;
-			left: $alert-icon-left-padding;
+			left: $_o-forms-alert-icon-left-padding;
 			// Match message padding plus a "magic" rem value to center with
 			// the message.
 			top: calc($_o-forms-spacing-three + 0.1rem);
