@@ -74,6 +74,7 @@ export function LifeCycleLabel(props: LifeCycleLabelProps): JSX.Element {
 
 export interface IndicatorLabelProps {
 	indicator: 'live' | 'closed' | 'new' | 'updated';
+	badge?: boolean;
 	status?: string;
 	inverse?: boolean;
 	timestamp?: JSX.Element | JSX.Element[];
@@ -84,10 +85,14 @@ export function IndicatorLabel({
 	status,
 	inverse,
 	timestamp,
+	badge,
 }: IndicatorLabelProps): JSX.Element {
 	const classNames = ['o-labels-indicator', `o-labels-indicator--${indicator}`];
 	if (inverse) {
 		classNames.push('o-labels-indicator--inverse');
+	}
+	if(badge) {
+		classNames.push('o-labels-indicator--badge');
 	}
 	return (
 		<span className={classNames.join(' ')}>

@@ -63,7 +63,6 @@ This table outlines the possible standard label states. Custom states may also b
 ### Indicator Label
 
 The indicator label is used to show story status with new, updated, and live variants. The indicator label only supports the core brand but [internal brand support is under consideration](https://github.com/Financial-Times/o-labels/issues/58).
-
 #### Indicator Label Status
 
 This table outlines the possible indicator label statuses:
@@ -75,6 +74,22 @@ This table outlines the possible indicator label statuses:
 | new                  | Indicate a story is new.                                      | core        |
 | updated              | Indicate a story has been updated.                            | core        |
 
+E.g. for a live label:
+
+```html
+<span class="o-labels-indicator o-labels-indicator--live">
+  <span class="o-labels-indicator__status">live</span>
+</span>
+```
+
+The live and closed labels also support a more prominent badge variant:
+```html
+<span
+  class="o-labels-indicator o-labels-indicator--live o-labels-indicator--inverse o-labels-indicator--badge"
+>
+  <span class="o-labels-indicator__status">live</span>
+</span>
+```
 ### Timestamp Label
 
 The timestamp label is used to show article status in place of an indicator label when the article is not new, updated, or live. The timestamp label only supports the core brand.
