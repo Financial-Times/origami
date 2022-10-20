@@ -64,9 +64,3 @@ $_o-labels-indicator-status: (
 	'new',
 	'updated'
 );
-
-/// Whether or not the animation keyframes for the live indicator
-/// label has already been output.
-/// @type Boolean
-/// @access private
-$_o-labels-indicator-live-pulse-output: false !default;
