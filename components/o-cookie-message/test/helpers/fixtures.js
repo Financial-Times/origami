@@ -84,7 +84,7 @@ export const html = {
 					</div>
 
 					<div class="o-cookie-message__action">
-						<a href="https://consent.localhost/__consent/consent-record-cookie?redirect=http://example.com&amp;cookieDomain=.localhost" class="o-cookie-message__button">Accept &amp; continue</a>
+						<a href="https://consent.localhost/__consent/consent-record-cookie?redirect=http://example.com&amp;cookieDomain=.localhost" class="o-cookie-message__button">Accept cookies</a>
 					</div>
 				</div>
 			</div>
