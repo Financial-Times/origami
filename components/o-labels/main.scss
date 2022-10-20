@@ -115,7 +115,7 @@
 			padding: oSpacingByName('s1') oSpacingByName('s2');
 			font-weight: oFontsWeight('bold');
 			color: oColorsByName('white');
-			border-radius: div(2,16) * 1rem;
+			border-radius: div(2, 16) * 1rem;
 			&.o-labels-indicator--live {
 				background: oColorsByName('crimson');
 			}
