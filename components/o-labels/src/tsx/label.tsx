@@ -1,6 +1,7 @@
 export interface BaseLabelProps {
 	size?: 'small' | 'big';
 	children: string;
+	state?: string;
 }
 export interface SupportLabelProps extends BaseLabelProps {
 	state:

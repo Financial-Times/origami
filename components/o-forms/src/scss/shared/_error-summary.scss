@@ -1,15 +1,61 @@
+$_o-forms-error-summary-foreground-color: oColorsMix(
+	'black',
+	_oFormsGet('invalid-base'),
+	$percentage: 12.5
+);
+$_o-forms-error-summary-background-color: oColorsMix(
+	_oFormsGet('invalid-base'),
+	$percentage: 10
+);
+
+$_o-forms-alert-icon-size: 2rem;
+$_o-forms-alert-icon-inbuilt-space: $_o-forms-alert-icon-size * 0.25;
+
+// Icon svgs are drawn to a 40px grid with 10px whitespace either side.
+// This is what the size of the alert icon would be without the whitespace.
+$_o-forms-true-alert-icon-size: div($_o-forms-alert-icon-size, 2);
+$_o-forms-alert-icon-left-padding: $_o-forms-spacing-four;
+$_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
+
 /// @access private
 /// @output styles for error summary
 @mixin _oFormsErrorSummary() {
 	.o-forms__error-summary {
 		@include oTypographySans($scale: 0);
-		background-color: oColorsMix(_oFormsGet('invalid-base'), $percentage: 10);
+		background-color: $_o-forms-error-summary-background-color;
 		margin-bottom: $_o-forms-spacing-four;
 		padding: $_o-forms-spacing-three;
+		position: relative;
+		padding-left: calc(
+			$_o-forms-alert-icon-left-padding +
+			$_o-forms-true-alert-icon-size +
+			$_o-forms-alert-icon-right-padding
+		);
 
+		&:before {
+			@include oIconsContent(
+				$icon-name: 'warning-alt',
+				$color: $_o-forms-error-summary-foreground-color,
+				$size: $_o-forms-alert-icon-size
+			);
+
+			content: '';
+			position: absolute;
+			// Use negative margins to effectively remove the whitespace
+			// from the icon svg, to to position the visible alert icon more
+			// intuitively
+			margin: -$_o-forms-alert-icon-inbuilt-space;
+			left: $_o-forms-alert-icon-left-padding;
+			// Match message padding plus a "magic" rem value to center with
+			// the message.
+			top: calc($_o-forms-spacing-three + 0.1rem);
+		}
 		.o-forms__error-summary__heading {
-			@include oTypographySans($weight: 'semibold', $include-font-family: false);
-			color: oColorsMix('black', _oFormsGet('invalid-base'), $percentage: 12.5);
+			@include oTypographySans(
+				$weight: 'semibold',
+				$include-font-family: false
+			);
+			color: $_o-forms-error-summary-foreground-color;
 			margin: 0 0 $_o-forms-spacing-one;
 		}
 
@@ -19,7 +65,7 @@
 			padding: 0;
 
 			a {
-				color: oColorsMix('black', _oFormsGet('invalid-base'), $percentage: 12.5);
+				color: $_o-forms-error-summary-foreground-color;
 				display: inline-block;
 				font-weight: 400;
 				margin-top: $_o-forms-spacing-one;
@@ -28,7 +74,10 @@
 			}
 
 			.o-forms__error-summary__item-overview {
-				@include oTypographySans($weight: 'semibold', $include-font-family: false);
+				@include oTypographySans(
+					$weight: 'semibold',
+					$include-font-family: false
+				);
 			}
 		}
 	}

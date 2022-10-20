@@ -90,11 +90,11 @@ class Forms {
 			if (checkedElements.some(input => input.valid === false)) {
 				if (this.opts.errorSummary) {
 					if (this.summary) {
-						const newSummary = new ErrorSummary(checkedElements);
+						const newSummary = new ErrorSummary(checkedElements, this.opts.errorSummaryMessage);
 						this.form.replaceChild(newSummary, this.summary);
 						this.summary = newSummary;
 					} else {
-						this.summary = this.form.insertBefore(new ErrorSummary(checkedElements), this.form.firstElementChild);
+						this.summary = this.form.insertBefore(new ErrorSummary(checkedElements, this.opts.errorSummaryMessage), this.form.firstElementChild);
 					}
 					const firstErrorAnchor = this.summary.querySelector('a');
 					if (firstErrorAnchor) {
