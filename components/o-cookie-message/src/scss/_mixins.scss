@@ -31,6 +31,9 @@
 			width: div(map-get($o-grid-layouts, XL), 2.5); // width is 40% grid
 			left: calc((100vw - #{map-get($o-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
 		}
+
+		max-height: 50vh;
+		overflow: scroll;
 	}
 
 	.o-cookie-message--active {
@@ -63,8 +66,6 @@
 		padding: $_o-cookie-message-spacing;
 		padding-top: oSpacingByIncrement(7);
 		max-width: none;
-		max-height: 50vh;
-		overflow: scroll;
 	}
 
 	.o-cookie-message__content {
