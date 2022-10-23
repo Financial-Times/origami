@@ -1,5 +1,22 @@
 # Changelog
 
+### [9.4.2](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.1...o-forms-v9.4.2) (2022-10-18)
+
+
+### Bug Fixes
+
+* Add icon to o-forms error summary ([16e46b5](https://www.github.com/Financial-Times/origami/commit/16e46b5209b27f27f49ea8c181dd2308c35df7e9))
+
+### [9.4.1](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.0...o-forms-v9.4.1) (2022-10-12)
+
+
+### Bug Fixes
+
+* fix DAC issue on suffix element ([31f696c](https://www.github.com/Financial-Times/origami/commit/31f696c5d10f4450908eb5074359416a54d5b0b3))
+* fix DAC issue on suffix element ([6a1603c](https://www.github.com/Financial-Times/origami/commit/6a1603c69e7ef43c8638c22eab7b1390f1197d62))
+* fix lint error by disabling lint for selector ([a735654](https://www.github.com/Financial-Times/origami/commit/a73565444a2ae7d2837ae34d679a0934207666b6))
+* fix runbook,md error ([a5019f8](https://www.github.com/Financial-Times/origami/commit/a5019f867a75ef3684b04dac431e286692f79452))
+
 ## [9.4.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.3.1...o-forms-v9.4.0) (2022-04-21)
 
 

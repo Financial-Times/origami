@@ -28,7 +28,7 @@
 			"input": {
 				"type": "file",
 				"modifiers": [ "invalid" ],
-				"error": "Please select a file",
+				"error": "An example error. Try again.",
 				"id": "invalid"
 			}
 		},

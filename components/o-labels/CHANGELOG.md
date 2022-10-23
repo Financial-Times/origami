@@ -1,5 +1,46 @@
 # Changelog
 
+## [6.5.0](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.4.1...o-labels-v6.5.0) (2022-10-20)
+
+
+### Features
+
+* Add support for a "badged" variant of live and close labels. ([a5e4a98](https://www.github.com/Financial-Times/origami/commit/a5e4a98a7c2021b31f6f98ce26df9eee031ec754))
+* o-labels, support custom labels with tsx templates ([2191c7c](https://www.github.com/Financial-Times/origami/commit/2191c7cfb165e8f2c77b288a2c02a5242b3795e5))
+
+### [6.4.1](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.4.0...o-labels-v6.4.1) (2022-10-17)
+
+
+### Bug Fixes
+
+* storybook build / brand unique stories ([7942d0a](https://www.github.com/Financial-Times/origami/commit/7942d0a8c6ad5f4b8564276deccf5878855acc49))
+
+## [6.4.0](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.3.1...o-labels-v6.4.0) (2022-10-12)
+
+
+### Features
+
+* o-labels, make tsx public ([0b0a298](https://www.github.com/Financial-Times/origami/commit/0b0a2988b80a58ac6d61026187272983702e73cc))
+
+
+### Bug Fixes
+
+* Update o-label tsx and stories ([5ce516b](https://www.github.com/Financial-Times/origami/commit/5ce516bdf9c71e713367db063766e7f8e1d569d3))
+
+### [6.3.1](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.3.0...o-labels-v6.3.1) (2022-10-12)
+
+
+### Bug Fixes
+
+* fix labels deployment ([a3e2182](https://www.github.com/Financial-Times/origami/commit/a3e21820b5b287073728ed8629c79cc3797caea5))
+
+## [6.3.0](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.2.2...o-labels-v6.3.0) (2022-10-10)
+
+
+### Features
+
+* wip add stories for o-labels demos ([fa53f7d](https://www.github.com/Financial-Times/origami/commit/fa53f7de0c2f2eae1ca1d760faee4b39844e0fd9))
+
 ### [6.2.2](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.2.1...o-labels-v6.2.2) (2022-01-24)
 
 

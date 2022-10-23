@@ -1,60 +1,14 @@
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
+import {ComponentStory} from '@storybook/react';
 import {useEffect} from 'react';
-import {NoticeMessage} from '../src/tsx/message';
-import javascript from '../main';
-import './message.scss';
+import {NoticeMessage} from '../../src/tsx/message';
+import javascript from '../../main';
+import '../message.scss';
 
-const Brand = process.env.ORIGAMI_STORYBOOK_BRAND || 'core';
-
-const argTypes = brand => {
-	const argTypes = {
-		state: {
-			options: ['inform', 'feedback', 'warning', 'warning-light'],
-		},
-	};
-	if (brand === 'core') {
-		argTypes.state.options = ['inform', 'feedback'];
-	}
-
-	if (brand === 'whitelabel') {
-		argTypes.state.options = ['inform'];
-	}
-	return argTypes;
-};
-
-const determineStoriesToIncludeByBrand = brand => {
-	let NoticeStories = [
-		'NoticeInform',
-		'NoticeInnerInform',
-		'NoticeWarningLight',
-		'NoticeInnerWarningLight',
-		'NoticeWarning',
-		'NoticeInnerWarning',
-		'NoticeFeedback',
-		'NoticeInnerFeedback',
-	];
-	switch (brand) {
-		case 'whitelabel':
-			return ['NoticeInform', 'NoticeInnerInform'];
-		case 'core':
-			return [
-				'NoticeInform',
-				'NoticeInnerInform',
-				'NoticeFeedback',
-				'NoticeInnerFeedback',
-			];
-		default:
-			break;
-	}
-	return NoticeStories;
-};
-
-const noticeProps = {
+export const ComponentDescription = {
 	title: 'Components/o-message',
 	component: NoticeMessage,
-	includeStories: determineStoriesToIncludeByBrand(Brand),
 	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {
@@ -71,10 +25,7 @@ const noticeProps = {
 			openInNewWindow: false,
 		},
 	},
-	argTypes: argTypes(Brand),
 };
-
-export default noticeProps as ComponentMeta<typeof NoticeMessage>;
 
 const innerDecorator = Story => (
 	<div className='demo-inner-message'>{Story()}</div>

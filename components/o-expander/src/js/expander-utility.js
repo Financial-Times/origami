@@ -106,6 +106,7 @@ class ExpanderUtility {
 		// or "more" when collapsing to a height.
 		if (!this.options.collapsedToggleText) {
 			this.options.collapsedToggleText = this.options.shrinkTo === 'hidden' ? 'show' : 'more';
+			this.options.collapsedToggleText += ' <span class="o-expander__visually-hidden">(content will be shown above button)</span>';
 		}
 
 		// Elements.

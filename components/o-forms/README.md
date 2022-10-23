@@ -2,26 +2,45 @@
 
 FT-branded styles for form elements.
 
-- [Usage](#usage)
-- [Markup](#markup)
-	- [Single input fields](#single-input-fields)
-	- [Multiple input fields](#multiple-input-fields)
-	- [Prompt Text](#prompt-text)
-	- [Optional](#optional)
-	- [Suffix](#suffix)
-	- [Small](#small)
-	- [Inline](#inline)
-	- [Validity](#validity)
-- [Sass](#sass)
-	- [Options](#options)
-	- [Customisation](#customisation)
-- [JavaScript](#javascript)
-	- [Form Instance](#form-instance)
-	- [Individual Inputs](#individual-inputs)
-	- [State](#state)
-- [Migration guide](#migration-guide)
-- [Contact](#contact)
-- [Licence](#licence)
+- [o-forms ![MIT licensed](#licence)](#o-forms-)
+	- [Usage](#usage)
+	- [Markup](#markup)
+		- [Single input fields](#single-input-fields)
+			- [Text input](#text-input)
+			- [File input](#file-input)
+			- [Password input](#password-input)
+			- [Textarea input](#textarea-input)
+			- [Select Input](#select-input)
+			- [Other single inputs](#other-single-inputs)
+		- [Multiple input fields](#multiple-input-fields)
+			- [Radio inputs](#radio-inputs)
+				- [Round radio inputs](#round-radio-inputs)
+				- [Box radio inputs](#box-radio-inputs)
+				- [Pseudo box radio inputs](#pseudo-box-radio-inputs)
+			- [Checkbox inputs](#checkbox-inputs)
+				- [Square checkbox inputs](#square-checkbox-inputs)
+				- [Toggle checkbox inputs](#toggle-checkbox-inputs)
+				- [Checkbox inputs with description](#checkbox-inputs-with-description)
+			- [Date inputs](#date-inputs)
+		- [Prompt Text](#prompt-text)
+		- [Optional](#optional)
+		- [Suffix](#suffix)
+		- [Small](#small)
+		- [Inline](#inline)
+			- [Inline Field](#inline-field)
+			- [Inline Inputs](#inline-inputs)
+		- [Validity](#validity)
+			- [Error Summary](#error-summary)
+	- [Sass](#sass)
+		- [Options](#options)
+		- [Customisation](#customisation)
+	- [JavaScript](#javascript)
+		- [Form Instance](#form-instance)
+		- [Individual Inputs](#individual-inputs)
+		- [State](#state)
+	- [Migration guide](#migration-guide)
+	- [Contact](#contact)
+	- [Licence](#licence)
 
 
 ## Usage
@@ -276,7 +295,7 @@ For a box-like, rectangular radio button replace the `o-forms-input--radio-round
 
 Box radio buttons may also, optionally represent a negative choose by applying the `o-forms-input__label--negative` modifier class to its label. This is useful for a yes/no input.
 
-Loading states are also supported by box radio buttons. We recommend using [`o-forms` JavaScript](#javascript) to add states to an existing form. However to add a state manually add an additional `o-forms-input__state` element and a state modifier class to the `o-forms-input` element, `o-forms-input--saving` or `o-forms-input--saved`.
+Loading states are also supported by box radio buttons. We recommend using [`o-forms` JavaScript](#javascript) to add states to an existing form. However to add a state manually add an additional `o-forms-input__state` element with `role=status` and `aria-label="[STATE]"` attributes. In addition, add a state modifier class to the `o-forms-input` element, `o-forms-input--saving` or `o-forms-input--saved`. 
 
 The below example shows a box style radio button with a positive "yes" and negative "no" option. The "no" option is checked and a saved state is shown.
 
@@ -296,7 +315,7 @@ The below example shows a box style radio button with a positive "yes" and negat
 			<span class="o-forms-input__label o-forms-input__label--negative">No</span>
 		</label>
 
-		<span class="o-forms-input__state"></span>
+		<span role="status" class="o-forms-input__state"></span>
 	</span>
 </div>
 ```
@@ -611,7 +630,7 @@ Add the class `o-forms-input--inline` to the `o-forms-input` element to display 
 
 [`o-forms` JavaScript](#javascript) builds on [form validation built into the browser](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) to visually display an input as valid or invalid; display a custom error message below the input; and generate an [error summary](#error-summary).
 
-To show a custom error message below an input add an element with class `o-forms-input__error` as a child of the `o-forms-input` element. Add your message to `o-forms-input__error`.
+To show a custom error message below an input add an element with class `o-forms-input__error` as a child of the `o-forms-input` element. Add your message to `o-forms-input__error` and to meet [accessibility standards](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role) we add `role="alert"`.
 
 For example to create a required text field with a custom error message, whilst including [`o-forms` JavaScript](#javascript).
 
@@ -624,7 +643,7 @@ For example to create a required text field with a custom error message, whilst 
 	<span class="o-forms-input o-forms-input--text">
 -		<input id="required-text" type="text" name="required-text-example">
 +		<input id="required-text" type="text" name="required-text-example" required>
-+		<span class="o-forms-input__error>Error message here for a required input</span>
++		<span role="alert" class="o-forms-input__error>Error message here for a required input</span>
 	</span>
 </label>
 ```
@@ -643,7 +662,7 @@ For example to render an invalid field without [`o-forms` JavaScript](#javascrip
 +	<span class="o-forms-input o-forms-input--text o-forms-input--invalid">
 -		<input id="required-text" type="text" name="required-text-example">
 +		<input id="required-text" type="text" name="required-text-example" required>
-+		<span class="o-forms-input__error>Error message here for a required input</span>
++		<span role="alert" class="o-forms-input__error>Error message here for a required input</span>
 	</span>
 </label>
 ```

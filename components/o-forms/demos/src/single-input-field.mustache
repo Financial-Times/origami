@@ -1,3 +1,4 @@
+<form action="" data-o-component="o-forms">
 {{#variants}}
 	<span class="o-forms-field{{#inline-field}} o-forms-field--inline{{/inline-field}}{{#optional}} o-forms-field--optional{{/optional}}">
 
@@ -40,9 +41,10 @@
 				</select>
 			{{/select}}
 
-			{{#input.error}}<span class="o-forms-input__error">{{.}}</span>{{/input.error}}
-			{{#input.button}}<button class="{{.}}">Go</button>{{/input.button}}
+			{{#input.error}}<span role=alert class="o-forms-input__error">{{.}}</span>{{/input.error}}
+			{{#input.button}}<button class="{{.}}">Submit</button>{{/input.button}}
 		</span>
 
 	</span>
 {{/variants}}
+</form>

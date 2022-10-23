@@ -1,4 +1,4 @@
-name: percy 
+name: percy
 concurrency:
   group: ${{ github.head_ref }}-${{ github.workflow }}
   cancel-in-progress: true
@@ -12,13 +12,9 @@ on:
   push:
     branches: main
     paths:
-      - "/package.json"
-      - "/package-lock.json"
-      - "/origami.json"
-      - "/main.js"
-      - "/main.scss"
-      - "/demos/**"
-      - "/src/**"
+      - "package.json"
+      - "package-lock.json"
+      - "components/**"
 
 jobs:
   percy-components-ft-concept-button:
@@ -27,9 +23,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -45,9 +42,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -63,9 +61,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -81,9 +80,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -99,9 +99,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -117,9 +118,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -135,9 +137,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -153,9 +156,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -171,9 +175,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -189,9 +194,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -207,9 +213,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -225,9 +232,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -243,9 +251,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -261,9 +270,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -279,9 +289,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -297,9 +308,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -315,9 +327,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -333,9 +346,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -351,9 +365,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -369,9 +384,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -387,9 +403,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -405,9 +422,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -423,9 +441,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -441,9 +460,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -459,9 +479,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -477,9 +498,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -495,9 +517,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -513,9 +536,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -531,9 +555,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -549,9 +574,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -567,9 +593,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -585,9 +612,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -603,9 +631,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -621,9 +650,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -639,9 +669,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -657,9 +688,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -675,9 +707,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -693,9 +726,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -711,9 +745,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -729,9 +764,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -747,9 +783,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -765,9 +802,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -783,9 +821,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -801,9 +840,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -819,9 +859,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -837,9 +878,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -855,9 +897,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -873,9 +916,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -891,9 +935,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
@@ -909,9 +954,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: volta-cli/action@v1
+    - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
+        volta-version: "1.0.8"
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
