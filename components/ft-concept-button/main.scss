@@ -1,8 +1,17 @@
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-normalise/main';
+@import '@financial-times/o-fonts/main';
 
 /// @access private
 $_ftConceptButtonThemes: (
+	link: (
+		background: oColorsByUsecase('link', 'text'),
+		text: oColorsByName('white'),
+		highlight: oColorsByUsecase('link-hover', 'text'),
+		pressed-highlight: rgba(oColorsByUsecase('link-hover', 'text'), 0.05),
+		disabled: rgba(oColorsByName('black'), 0.5),
+		focus-outline: oColorsByUsecase('focus', 'outline', $fallback: null),
+	),
 	standard: (
 		background: oColorsByName('claret'),
 		text: oColorsByName('white'),
@@ -34,7 +43,7 @@ $_ftConceptButtonThemes: (
 		pressed-highlight: rgba(oColorsByName('white'), 0.2),
 		disabled: rgba(oColorsByName('white'), 0.5),
 		focus-outline: oColorsByName('white'),
-	),
+	)
 );
 
 @function _ftConceptButtonGetThemeColor($key) {
@@ -159,10 +168,10 @@ $_ftConceptButtonThemes: (
 	@include oTypographySans($weight: 'semibold', $scale: -1);
 	border-radius: 100px;
 	box-sizing: content-box;
-	display: block;
+	display: inline-block;
 	outline-offset: 2px;
 	overflow: hidden;
-	padding: 5px 12px;
+	padding: oSpacingByName('s1') oSpacingByName('s2');
 	text-align: left;
 	text-overflow: ellipsis;
 	max-width: 15em;
@@ -178,8 +187,14 @@ $_ftConceptButtonThemes: (
 		'monochrome',
 	)
 ) {
+	.ft-concept-button__link,
 	.ft-concept-button__button {
 		@include _ftConceptButtonBase();
+	}
+
+	.ft-concept-button__link {
+		@include _ftConceptButtonTheme('link');
+		text-decoration: none;
 	}
 
 	.ft-concept-button__announcement {
