@@ -8,6 +8,15 @@ export default {
 	title: 'Components/ft-concept-button',
 	component: ConceptButton,
 	decorators: [withDesign, withHtml],
+	// @todo Deprecate concept pill button?
+	// It looks like the concept pill has only ever
+	// been intended as a link to concepts.
+	excludeStories: [
+		'ConceptPill',
+		'OpinionPill',
+		'InversePill',
+		'MonochromePill'
+	],
 	parameters: {
 		design: {
 			type: 'figma',
