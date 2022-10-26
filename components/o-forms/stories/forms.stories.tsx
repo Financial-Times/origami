@@ -2,22 +2,23 @@ import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
-import {Forms} from '../src/tsx/forms';
+import {Form, FormFieldset} from '../src/tsx/Form';
+import { BoxRadioBtns, BoxRadioBtn } from '../src/tsx/BoxRadioBtns';
 import './forms.scss';
 import javascript from '../main.js';
 
 export default {
 	title: 'Components/o-forms/radio-box-buttons',
-	component: Forms,
+	component: Form,
 	decorators: [withDesign, withHtml],
 	parameters: {},
-	args: {
+	/* args: {
 		highlight: false,
 		centered: false,
-	},
-} as ComponentMeta<typeof Forms>;
+	}, */
+} as ComponentMeta<typeof Form>;
 
-const FormsStory = args => {
+const FormStory = args => {
 	useEffect(() => {
 		let form = javascript.init();
 		return function cleanup() {
@@ -25,23 +26,29 @@ const FormsStory = args => {
 			form.forEach(element => element.destroy());
 		};
 	}, []);
-	return <Forms {...args} />;
+	return <Form {...args}>
+		<FormFieldset title="Box style radio buttons" describedby='Optional prompt text'>
+			<BoxRadioBtns state={"true"}>
+				<BoxRadioBtn name="default" value='weekly' checked={true}/>
+				<BoxRadioBtn name="default" value='daily'/>
+			</BoxRadioBtns>
+		</FormFieldset>
+	</Form>;
 };
 
-export const BoxRadioButton: ComponentStory<typeof Forms> = FormsStory.bind({});
+export const BoxRadioButton: ComponentStory<typeof Form> = FormStory.bind({});
 
-export const MultipleBoxRadioButton: ComponentStory<typeof Forms> =
-	FormsStory.bind({});
+export const MultipleBoxRadioButton: ComponentStory<typeof Form> =
+	FormStory.bind({});
 
-export const DisabledBoxRadioButton: ComponentStory<typeof Forms> =
-	FormsStory.bind({});
+export const DisabledBoxRadioButton: ComponentStory<typeof Form> = FormStory.bind({});
 
-export const ErrorBoxRadioButton: ComponentStory<typeof Forms> =
-	FormsStory.bind({});
+export const ErrorBoxRadioButton: ComponentStory<typeof Form> =
+	FormStory.bind({});
 
-export const StateBoxRadioButton: ComponentStory<typeof Forms> =
-	FormsStory.bind({});
-
+export const StateBoxRadioButton: ComponentStory<typeof Form> =
+	FormStory.bind({});
+/*
 BoxRadioButton.args = {
 	inputs: [
 		{
@@ -203,3 +210,4 @@ StateBoxRadioButton.args = {
 		},
 	},
 };
+ */

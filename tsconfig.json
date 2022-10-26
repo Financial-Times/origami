@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
-	  // 👇️ set jsx to react-jsx
-	  "jsx": "react-jsx",
-
+		// 👇️ set jsx to react-jsx
+		"jsx": "react-jsx",
+		"esModuleInterop": true
 	}
-  }
+}
