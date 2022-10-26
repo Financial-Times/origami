@@ -82,6 +82,13 @@ But let's break this down a bit and compare it to the `demo.mustache` file.
 	</figcaption>
 </figure>
 
+While working with different brands you might encounter examples where certain variations/themes are supported in one brand but not in another. For example o-message Action message supports internal and whitelabel brands but not core. In this kind of situations we recommend to use create brand specific folders inside stories directory and our storybook configuration will take care of the rest. Example directory structure:
+
+`stories/*.stories.tsx` - stories for all brands
+`stories/[brand]/*.stories.tsx` - stories for a specific brand
+`stories/shared/.tsx` - exports stories for re-export to support multiple specific brands (no .stories extension)
+
+If component supports only one brand you don't need brand specific structure for this since `origami.json` will make our storybook configuration aware that there is only one brand and it will skip builds for other brands.
 ## Adding button
 
 Our demo is missing the count button and it's related sentence. When we discussed [browser support](/documentation/tutorials/create-a-new-component-part-5/#browser-support) we decided to display count functionality if JS was enabled. In this case we have written a TSX template but never initialised components javascript. To do so we will need to update our `example.stories.tsx` file by adding the following code:

@@ -108,35 +108,6 @@ describe("with a button", () => {
         const expected = 1;
         proclaim.equal(actual, expected, `Expected count to equal ${expected} given a single button click.`);
     });
-
-    it("should increment the count on click", () => {
-        // initialise o-example on fixture markup
-        const oExample = Example.init('#element');
-        // find and click the button
-        const button = document.querySelector('button');
-        button.click();
-        // confirm the count has incremented
-        const actual = oExample.count;
-        const expected = 1;
-        proclaim.equal(actual, expected, `Expected count to equal ${expected} given a single button click.`);
-    });
-
-    it("should display the new count on click", () => {
-        // initialise o-example on fixture markup
-        Example.init('#element');
-        // find and click the button
-        const button = document.querySelector('button');
-        button.click();
-        // confirm the new count is reflected in the DOM
-        const countElement = document.querySelector('[data-o-example-current-count]');
-        const actual = countElement.textContent;
-        const expected = '1';
-        proclaim.include(
-            actual,
-            expected,
-            `Expected the new count to display in the component.`
-        );
-    });
 });
 </code></pre>
 

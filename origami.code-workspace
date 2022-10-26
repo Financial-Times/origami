@@ -238,5 +238,9 @@
 			"path": "apps/website"
 		},
 	],
-	"settings": {}
+  "settings": {
+    "cSpell.words": [
+      "whitelabel"
+    ]
+  }
 }
