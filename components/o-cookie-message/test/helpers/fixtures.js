@@ -36,6 +36,8 @@ export const html = {
 		<div class="o-cookie-message__outer">
 			<div class="o-cookie-message__inner">
 
+			<div class="o-cookie-message__content-outer">
+
 			<div class="o-cookie-message__content">
 
 			<div class="o-cookie-message__heading">
@@ -58,6 +60,7 @@ export const html = {
 						<a href="https://consent.localhost/__consent/consent-record-cookie?redirect=http://example.com&amp;cookieDomain=.localhost" class="o-cookie-message__button">Accept &amp; continue</a>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>`,
@@ -65,6 +68,8 @@ export const html = {
 		<div class="o-cookie-message__outer">
 			<div class="o-cookie-message__inner">
 
+			<div class="o-cookie-message__content-outer">
+
 			<div class="o-cookie-message__content">
 
 			<div class="o-cookie-message__heading">
@@ -87,6 +92,7 @@ export const html = {
 						<a href="https://consent.localhost/__consent/consent-record-cookie?redirect=http://example.com&amp;cookieDomain=.localhost" class="o-cookie-message__button">Accept &amp; continue</a>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>`
