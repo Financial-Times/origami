@@ -44,9 +44,6 @@ export function BoxRadioBtn({value, name, disabled, checked, required, highlight
 	const modifiers = [];
 	if(isNegative) modifiers.push('o-forms-input__label--negative');
 	if(highlight) modifiers.push(`o-forms-input--${highlight}`)
-	console.log(highlight);
-	console.log(modifiers);
-
 
 	return (
 		<label htmlFor={labelId} key={value}>
@@ -56,7 +53,7 @@ export function BoxRadioBtn({value, name, disabled, checked, required, highlight
 				name={name}
 				value={value}
 				disabled={disabled}
-				defaultChecked={checked} /* how does this work with react controlled inputs */
+				defaultChecked={checked}
 				required={required}
 			/>
 			<span
