@@ -1,59 +1,70 @@
 import uniqueId from 'lodash.uniqueid';
-import { InputProps, FormError } from './Form';
+import { InputProps, FormError, Form, FormFieldset } from './Form';
+
 
 interface BoxRadioBtnsProps {
-	children: JSX.Element | JSX.Element[]; /* specify btn only */
+	children: JSX.Element | JSX.Element[];
 	error?: string;
-	saved?: boolean; /* specific to boxButton */		/* LOOK */
-	showStateText?: boolean; /* TODO implement */		/* LOOK */
-	state?: string;																	/* LOOK */
+	state?: 'saving' | 'saved';
+	hideStateText?: boolean;
+	customStateText?: string;
 }
 
 interface BoxRadioBtnProps extends InputProps{
 	checked?: boolean;
 	modifier?: string[];
 	disabled?: boolean;
-	highlight?: 'valid' | 'invalid'; /* should this be on  */
+	highlight?: 'valid' | 'invalid'; /* Does this work */
+	isNegative? : boolean;
 }
 
-export function BoxRadioBtns({children, saved, error, state}: BoxRadioBtnsProps) {
+export function BoxRadioBtns({children, error, state, customStateText, hideStateText}: BoxRadioBtnsProps) {
+	const modifiers = [];
+	if(state) modifiers.push(`o-forms-input--${state}`)
+	if(error) modifiers.push('o-forms-input--invalid')
 	return (
 		<span
-				className={`o-forms-input o-forms-input--radio-box ${
-					saved && `o-forms-input--${saved ? 'saved' : 'saving'}`
-				} ${error && `o-forms-input--invalid`}`}>
+				className={`o-forms-input o-forms-input--radio-box  ${modifiers.join(' ')}`}>
 				<span className="o-forms-input--radio-box__container">
 					{children}
 				</span>
 				{error && (
 					<FormError error={error}/>
 				)}
-				{state && <span className="o-forms-input__state" role="status" />}
+				{state &&
+				<span className={`o-forms-input__state ${(hideStateText || customStateText) && "o-forms-input__state--icon-only"}`} role="status" aria-label={customStateText || ''} >
+					{customStateText}
+				</span>}
 			</span>
-
 	);
 }
 
-export function BoxRadioBtn({value, name, disabled, checked, required, highlight}: BoxRadioBtnProps) {
+export function BoxRadioBtn({value, name, disabled, checked, required, highlight, isNegative}: BoxRadioBtnProps) {
+	/* make id optional */
 	const labelId = uniqueId('box_button_')
+	const modifiers = [];
+	if(isNegative) modifiers.push('o-forms-input__label--negative');
+	if(highlight) modifiers.push(`o-forms-input--${highlight}`)
+	console.log(highlight);
+	console.log(modifiers);
+
+
 	return (
 		<label htmlFor={labelId} key={value}>
 			<input
-			/* should these be under attributes and destructured? */
 				id={labelId}
 				type="radio"
 				name={name}
 				value={value}
 				disabled={disabled}
-				defaultChecked={checked} /* default? */ //react handles diffenetly with state?
+				defaultChecked={checked} /* how does this work with react controlled inputs */
 				required={required}
 			/>
 			<span
-				className={`o-forms-input__label ${
-					highlight && `o-forms-input--${highlight}`
-				}`}>
+				className={`o-forms-input__label ${modifiers.join(' ')}`}>
 				{value}
 			</span>
 		</label>
 	);
 }
+

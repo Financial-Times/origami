@@ -4,116 +4,100 @@ import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
 import {Form, FormFieldset} from '../src/tsx/Form';
 import { BoxRadioBtns, BoxRadioBtn } from '../src/tsx/BoxRadioBtns';
+import { BoxBtnDemo } from './RadioBobDemos';
 import './forms.scss';
 import javascript from '../main.js';
 
+
+
 export default {
 	title: 'Components/o-forms/radio-box-buttons',
-	component: Form,
+	component: BoxBtnDemo,
 	decorators: [withDesign, withHtml],
+	argTypes: {
+		saved: {control: "boolean"}
+	},
 	parameters: {},
-	/* args: {
-		highlight: false,
-		centered: false,
-	}, */
-} as ComponentMeta<typeof Form>;
+} as ComponentMeta<typeof BoxBtnDemo>;
 
 const FormStory = args => {
 	useEffect(() => {
 		let form = javascript.init();
+
 		return function cleanup() {
 			form = Array.isArray(form) ? form : [form];
 			form.forEach(element => element.destroy());
 		};
 	}, []);
-	return <Form {...args}>
-		<FormFieldset title="Box style radio buttons" describedby='Optional prompt text'>
-			<BoxRadioBtns state={"true"}>
-				<BoxRadioBtn name="default" value='weekly' checked={true}/>
-				<BoxRadioBtn name="default" value='daily'/>
-			</BoxRadioBtns>
-		</FormFieldset>
-	</Form>;
+	return <BoxBtnDemo {...args}/>;
 };
 
-export const BoxRadioButton: ComponentStory<typeof Form> = FormStory.bind({});
+export const BoxRadioButton: ComponentStory<typeof BoxBtnDemo> = FormStory.bind({});
 
-export const MultipleBoxRadioButton: ComponentStory<typeof Form> =
+export const NegativeHighlight: ComponentStory<typeof BoxBtnDemo> =
 	FormStory.bind({});
 
-export const DisabledBoxRadioButton: ComponentStory<typeof Form> = FormStory.bind({});
-
-export const ErrorBoxRadioButton: ComponentStory<typeof Form> =
+export const MultipleBoxRadioButton: ComponentStory<typeof BoxBtnDemo> =
 	FormStory.bind({});
 
-export const StateBoxRadioButton: ComponentStory<typeof Form> =
+export const DisabledBoxRadioButton: ComponentStory<typeof BoxBtnDemo> = FormStory.bind({});
+
+export const ErrorBoxRadioButton: ComponentStory<typeof BoxBtnDemo> =
 	FormStory.bind({});
-/*
-BoxRadioButton.args = {
-	inputs: [
+
+export const StateBoxRadioButton: ComponentStory<typeof BoxBtnDemo> =
+	FormStory.bind({});
+
+BoxRadioButton.args ={saved: true, ...data.variants[6]};
+BoxRadioButton.args ={
+	title: "Box style radio buttons",
+	describedby: "Optional prompt text",
+	isOptional:true,
+	boxBtns: [
+		{name: "default",
+		value: "Daily",
+	checked: true},
+		{name: "default",
+		value: "Weekly"}
+
+	]
+};
+NegativeHighlight.args = {
+	title: "Negative highlight",
+	describedby: "Requires a modifier on the label",
+	boxBtns: [
 		{
-			type: 'radio',
-			name: 'negative',
-			value: 'Daily',
+			name: "default",
+			value: "Yes",
+		},
+		{
+			name: "default",
+			value: "No",
 			checked: true,
-			id: 'Daily',
-		},
-		{
-			type: 'radio',
-			name: 'negative',
-			value: 'Weekly',
-			id: 'Weekly',
-		},
-	],
-	formField: {
-		field: {
-			type: 'radio-box',
-			aria: {
-				label: 'negative-radio-box-group-title',
-				info: 'negative-radio-box-group-info',
-			},
-		},
-		title: {
-			mainTitle: 'Box Radio Button',
-			promptTitle: 'This is a box radio button sample',
-		},
-	},
+			isNegative: true
+		}
+	]
 };
 
 MultipleBoxRadioButton.args = {
-	inputs: [
+	title: "Multiple box-styled radio buttons",
+	boxBtns: [
 		{
-			type: 'radio',
-			name: 'multiple',
-			value: 'Daily',
-			id: 'Daily',
-		},
-		{
-			type: 'radio',
-			name: 'multiple',
-			value: 'Weekly',
-			checked: true,
-			id: 'Weekly',
+			name: "default",
+			value: "Daily",
 		},
 		{
-			type: 'radio',
-			name: 'multiple',
-			value: 'Monthly',
-			id: 'Monthly',
+			name: "default",
+			value: "Weekly",
+			checked: true
 		},
-	],
-	formField: {
-		field: {
-			type: 'radio-box',
-			aria: {
-				label: 'multiple-radio-box-group-title',
-			},
-		},
-		title: {
-			mainTitle: 'Multiple box-styled radio buttons',
-		},
-	},
-};
+		{
+			name: "default",
+			value: "Monthly",
+		}
+	]
+}
+/*
 
 DisabledBoxRadioButton.args = {
 	inputs: [

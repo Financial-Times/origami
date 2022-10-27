@@ -191,7 +191,7 @@
 					"info": "saving-state-group-info-long"
 				},
 				"modifiers": ["saving"],
-				"state": "Saving"
+				"state": "saving"
 			},
 			"title": {
 				"main": "Inline box-style radio buttons with very long title. Inline box-style radio buttons with very long title",
