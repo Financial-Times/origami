@@ -1,8 +1,8 @@
 import uniqueId from 'lodash.uniqueid';
-import { InputProps, FormError, Form, FormFieldset } from './Form';
+import { InputProps, FormError } from './Form';
 
 
-interface BoxRadioBtnsProps {
+export interface BoxRadioBtnsProps {
 	children: JSX.Element | JSX.Element[];
 	error?: string;
 	state?: 'saving' | 'saved';
@@ -10,10 +10,9 @@ interface BoxRadioBtnsProps {
 	customStateText?: string;
 }
 
-interface BoxRadioBtnProps extends InputProps{
+export interface BoxRadioBtnProps extends InputProps{
 	checked?: boolean;
 	modifier?: string[];
-	disabled?: boolean;
 	highlight?: 'valid' | 'invalid'; /* Does this work */
 	isNegative? : boolean;
 }

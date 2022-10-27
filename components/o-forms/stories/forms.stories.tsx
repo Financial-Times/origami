@@ -8,15 +8,10 @@ import { BoxBtnDemo } from './RadioBobDemos';
 import './forms.scss';
 import javascript from '../main.js';
 
-
-
 export default {
 	title: 'Components/o-forms/radio-box-buttons',
 	component: BoxBtnDemo,
 	decorators: [withDesign, withHtml],
-	argTypes: {
-		saved: {control: "boolean"}
-	},
 	parameters: {},
 } as ComponentMeta<typeof BoxBtnDemo>;
 
@@ -48,24 +43,25 @@ export const ErrorBoxRadioButton: ComponentStory<typeof BoxBtnDemo> =
 export const StateBoxRadioButton: ComponentStory<typeof BoxBtnDemo> =
 	FormStory.bind({});
 
-BoxRadioButton.args ={saved: true, ...data.variants[6]};
-BoxRadioButton.args ={
+BoxRadioButton.args = {
+	Buttons: [
+		{
+			name: "default",
+			value: "Daily",
+			checked: true
+		},
+		{
+			name: "default",
+			value: "Weekly"
+		}
+	],
 	title: "Box style radio buttons",
-	describedby: "Optional prompt text",
+	description: "Optional prompt text",
 	isOptional:true,
-	boxBtns: [
-		{name: "default",
-		value: "Daily",
-	checked: true},
-		{name: "default",
-		value: "Weekly"}
-
-	]
 };
+
 NegativeHighlight.args = {
-	title: "Negative highlight",
-	describedby: "Requires a modifier on the label",
-	boxBtns: [
+	Buttons: [
 		{
 			name: "default",
 			value: "Yes",
@@ -76,12 +72,13 @@ NegativeHighlight.args = {
 			checked: true,
 			isNegative: true
 		}
-	]
-};
+	],
+	title: "Negative highlight",
+	description: "Requires a modifier on the label",
+}
 
 MultipleBoxRadioButton.args = {
-	title: "Multiple box-styled radio buttons",
-	boxBtns: [
+	Buttons: [
 		{
 			name: "default",
 			value: "Daily",
@@ -95,103 +92,55 @@ MultipleBoxRadioButton.args = {
 			name: "default",
 			value: "Monthly",
 		}
-	]
+	],
+	title: "Multiple box-styled radio buttons",
 }
-/*
+
 
 DisabledBoxRadioButton.args = {
-	inputs: [
+	Buttons: [
 		{
-			type: 'radio',
-			name: 'disabled',
-			value: 'Daily',
+			name: "default",
+			value: "Daily",
 			checked: true,
 			disabled: true,
-			id: 'Daily',
 		},
 		{
-			type: 'radio',
-			name: 'disabled',
-			value: 'Monthly',
+			name: "default",
+			value: "Weekly",
 			disabled: true,
-			id: 'Monthly',
-		},
+		}
 	],
-	formField: {
-		field: {
-			type: 'radio-box',
-			aria: {
-				label: 'disabled-radio-box-group-title',
-			},
-		},
-		title: {
-			mainTitle: 'Disabled box-styled radio buttons',
-		},
-	},
+	title: "Disabled box-styled radio buttons",
 };
-
 ErrorBoxRadioButton.args = {
-	inputs: [
+	Buttons: [
 		{
-			type: 'radio',
-			name: 'error',
-			value: 'Yes',
-			id: 'Yes',
+			name: "default",
+			value: "Yes",
 		},
 		{
-			type: 'radio',
-			name: 'error',
-			value: 'No',
-			id: 'No',
-		},
+			name: "default",
+			value: "No",
+		}
 	],
-	formField: {
-		field: {
-			type: 'radio-box',
-			aria: {
-				label: 'error-radio-box-group-title',
-			},
-			error: 'Please select an option',
-			modifiers: ['invalid'],
-		},
-		title: {
-			mainTitle: 'Error box-style radio buttons',
-		},
-	},
-};
+	title: "Error box-style radio buttons",
+	error: "An example error. Try again."
+}
 
 StateBoxRadioButton.args = {
-	saved: false,
-	inputs: [
+Buttons: [
 		{
-			type: 'radio',
-			name: 'icon',
-			value: 'Daily',
-			id: 'Daily',
+			name: "default",
+			value: "Daily",
+			checked: true
 		},
 		{
-			type: 'radio',
-			name: 'icon',
-			value: 'Weekly',
-			checked: true,
-			id: 'Weekly',
-		},
+			name: "default",
+			value: "Weekly"
+		}
 	],
-	formField: {
-		field: {
-			type: 'radio-box',
-			aria: {
-				label: 'saving-state-group-title',
-				info: 'saving-state-group-info',
-			},
-			modifiers: ['saving', 'inline'],
-			state: 'Saving',
-			icon: true,
-		},
-		title: {
-			mainTitle: 'Radio box with state',
-			promptTitle: 'Icon available for saved/saving states',
-		},
-	},
+	title: "Stateful Box Button",
+	description: "Also availble with icon only",
+	state: 'saving',
 };
- */

@@ -1,21 +1,30 @@
 import { Form, FormFieldset } from "../src/tsx/Form";
-import { BoxRadioBtn, BoxRadioBtns } from "../src/tsx/BoxRadioBtns";
+import { BoxRadioBtn, BoxRadioBtns, BoxRadioBtnProps } from "../src/tsx/BoxRadioBtns";
 
 
+interface BoxBtnDemoProps {
+	title: string;
+	description: string;
+	isOptional: boolean;
+	Buttons: BoxRadioBtnProps[];
+	state: 'saving'|'saved'| 'none';
+	hideStateText?: boolean;
+	customStateText: string;
+	error?: string;
+	isVerticalCenter?: boolean;
+	isInline?: boolean;
+}
 
-export function BoxBtnDemo({title, describedby, boxBtns, saved, isOptional}) {
-	/* console.log(saved);
-
-	const saveState = saved ? 'saved' : 'saving'; */
-	//console.log(saveState);
-
-	return (<Form>
-		<FormFieldset title={title} describedby={describedby} isOptional={isOptional}>
-			<BoxRadioBtns state={null} /* customStateText='searching' */>
-				{boxBtns.map(({name, value, checked, highlight, isNegative})=> {
-					return <BoxRadioBtn name={name} value={value} highlight={highlight} checked={checked} isNegative={isNegative}/>
-				})}
-			</BoxRadioBtns>
-		</FormFieldset>
-	</Form>)
+export function BoxBtnDemo({title, description, Buttons, state, hideStateText, customStateText, error, isOptional, isVerticalCenter, isInline}: BoxBtnDemoProps) {
+	return (
+		<Form>
+			<FormFieldset title={title} description={description} isOptional={isOptional} isInline={isInline} isVerticalCenter={isVerticalCenter}>
+				<BoxRadioBtns state={state !== 'none' ? state : null } customStateText={customStateText} hideStateText={hideStateText} error={error}>
+					{Buttons.map((props)=> {
+						return <BoxRadioBtn {...props}/>
+					})}
+				</BoxRadioBtns>
+			</FormFieldset>
+		</Form>
+	)
 }
