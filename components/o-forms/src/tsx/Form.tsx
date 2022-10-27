@@ -8,9 +8,10 @@ export interface FormProps {
 export interface FormField {
 	children: JSX.Element;
 	title: string;
-	describedby?: string;
+	description?: string;
 	isOptional?: boolean;
 	isInline?: boolean;
+	isVerticalCenter?: boolean;
 }
 
 export interface FormFieldProps extends FormField {
@@ -22,9 +23,11 @@ export interface FormFieldsetProps extends FormField {
 
 export interface InputProps {
 	name: string;
-	type?: 'text' | 'file' | 'password' | 'email' | 'radio' | 'checkbox'; /* might handle in component, ie text input will have text (but might want the option of password) */ /* OR MIGHT ADD TO FIELD FOR CONDITIONAL WRAPPING */
 	value?: string;
 	required?: boolean;
+	disabled?: boolean;
+	isInline?: boolean;
+	// type?: 'text' | 'file' | 'password' | 'email' | 'radio' | 'checkbox'; /* might handle in component, ie text input will have text (but might want the option of password) */ /* OR MIGHT ADD TO FIELD FOR CONDITIONAL WRAPPING */
 }
 
 
@@ -57,13 +60,14 @@ export function Form({children, onSubmit}: FormProps) {
 
 export function FormFieldset({
 	title,
-	describedby,
-	isInline,
+	description,
 	isOptional,
+	isInline,
+	isVerticalCenter,
 	children,
 }: FormFieldsetProps) {
 	const labelId = uniqueId('labelledby_');
-	const describedbyId = describedby &&  uniqueId('describedby_');
+	const describedbyId = description &&  uniqueId('describedby_');
 
 	const modifiers = [];
 	if(isInline) modifiers.push('o-forms-field--inline')
@@ -76,17 +80,17 @@ export function FormFieldset({
 			aria-labelledby={labelId}
 			aria-describedby={describedbyId}>
 				{/* private title component */}
-			<span className="o-forms-title">
+			<span className={`o-forms-title ${isVerticalCenter && 'o-forms-title--vertical-center'}`}>
 					<span
 						className="o-forms-title__main"
 						id={labelId}>
 						{title}
 					</span>
-				{describedby && (
+				{description && (
 					<span
 						className="o-forms-title__prompt"
 						id={describedbyId}>
-						{describedby}
+						{description}
 					</span>
 				)}
 			</span>
@@ -102,4 +106,3 @@ export function FormError({error}){
 			{error}
 		</span>)
 }
-
