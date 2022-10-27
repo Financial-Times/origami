@@ -1,7 +1,7 @@
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ServiceLabel} from '../../src/tsx/label';
-import './labels.scss';
+import '../labels.scss';
 
 const ComponentDescription = {
 	title: 'Components/o-labels',

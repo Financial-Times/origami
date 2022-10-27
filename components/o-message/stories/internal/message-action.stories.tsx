@@ -4,7 +4,7 @@ import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
 import {ActionMessage} from '../../src/tsx/message';
 import javascript from '../../main';
-import './message.scss';
+import '../message.scss';
 
 export default {
 	title: 'Components/o-message',
