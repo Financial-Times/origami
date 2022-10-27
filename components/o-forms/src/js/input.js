@@ -41,28 +41,31 @@ class Input {
 
 		// validate date input
 		if (this.parent.classList.contains('o-forms-input--date')) {
-			return this.validateDate();
+			return this._validateDate();
 		}
 
 		if (!this.input.validity.valid) {
-			this.toggleParentClasses("invalid");
+			this._toggleParentClasses("invalid");
 			return false;
 
 		} else if (this.input.validity.valid && this.parent.classList.contains(this.className.invalid)) {
-			this.toggleParentClasses("valid");
+			this._toggleParentClasses("valid");
 		}
 
 		return true;
 	}
 
 
-	validateDate() {
+	_validateDate() {
 		const elements = this.parent.querySelectorAll('input');
-		const [date, month, year] = Array.from(elements).map(element => element.value);
 
-		const dateObj = Date.parse(`${date}/${month}/${year}`);
+		if (!elements.length > 0 ) {
+			return console.error("Make sure 'o-forms-input--date' element contains input elements for date, month and year.");
+		}
+		const [date, month, year] = Array.from(elements).map(element => element.value);
+		const dateObj = Date.parse(`${month}/${date}/${year}`);
 		if (isNaN(dateObj)) {
-			this.toggleParentClasses("invalid");
+			this._toggleParentClasses("invalid");
 			return false;
 		}
 
@@ -71,15 +74,15 @@ class Input {
 		const isYearInputValid = /[0-9]{4}/.test(year);
 		const dateFormatIsInvalid = !isDateInputValid || !isMonthInputValid || !isYearInputValid;
 		if (dateFormatIsInvalid) {
-			this.toggleParentClasses("invalid");
+			this._toggleParentClasses("invalid");
 			return false;
 		}
 
-		this.toggleParentClasses("valid");
+		this._toggleParentClasses("valid");
 		return true;
 	}
 
-	toggleParentClasses(state) {
+	_toggleParentClasses(state) {
 		if (state === "valid" ) {
 			this.parent.classList.remove(this.className.invalid);
 			this.parent.classList.add(this.className.valid);
