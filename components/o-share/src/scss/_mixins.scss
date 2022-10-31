@@ -24,6 +24,13 @@
 
 		.o-share__icon--#{$icon-name}:before {
 			background-image: url($service-url + $query + "&format=svg&tint=#{$color-encoded}");
+			@media screen and (-ms-high-contrast: active) {
+				background-image: url($service-url + $query + "&format=svg&tint=%23ffffff,%23ffffff");
+			}
+
+			@media screen and (-ms-high-contrast: black-on-white) {
+				background-image: url($service-url + $query + "&format=svg&tint=%23000000,%23000000");
+			}
 		}
 
 		.o-share__icon--#{$icon-name}:hover,
