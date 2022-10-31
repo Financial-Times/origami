@@ -82,7 +82,7 @@ But let's break this down a bit and compare it to the `demo.mustache` file.
 	</figcaption>
 </figure>
 
-While working with different brands you might encounter examples where certain variations/themes are supported in one brand but not in another. For example o-message Action message supports internal and whitelabel brands but not core. In this kind of situations we recommend to use create brand specific folders inside stories directory and our storybook configuration will take care of the rest. Example directory structure:
+While working with different brands you might encounter examples where certain variations/themes are supported in one brand but not in another. For example o-message Action message supports internal and whitelabel brands but not core. In this kind of situation create brand specific folders inside the `stories` directory and our storybook configuration will take care of the rest. Example directory structure:
 
 `stories/*.stories.tsx` - stories for all brands
 `stories/[brand]/*.stories.tsx` - stories for a specific brand
