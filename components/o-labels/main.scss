@@ -1,3 +1,4 @@
+@import '@financial-times/math';
 @import '@financial-times/o-spacing/main';
 @import '@financial-times/o-brand/main';
 @import "@financial-times/o-colors/main";
@@ -107,6 +108,27 @@
 		@if $indicator-label-inverse {
 			.o-labels-indicator--inverse {
 				@extend %_o-labels-timestamp--inverse;
+			}
+		}
+
+		.o-labels-indicator.o-labels-indicator--badge {
+			padding: oSpacingByName('s1') oSpacingByName('s2');
+			font-weight: oFontsWeight('bold');
+			color: oColorsByName('white');
+			border-radius: div(2, 16) * 1rem;
+			&.o-labels-indicator--live {
+				background: oColorsByName('crimson');
+			}
+
+			&.o-labels-indicator--closed {
+				background: oColorsByName('black-60');
+			}
+		}
+
+		.o-labels-indicator.o-labels-indicator--badge.o-labels-indicator--inverse {
+			&.o-labels-indicator--live,
+			&.o-labels-indicator--closed {
+				background: transparent;
 			}
 		}
 	}

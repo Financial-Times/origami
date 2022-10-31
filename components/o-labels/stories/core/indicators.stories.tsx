@@ -48,6 +48,7 @@ export const LiveIndicatorLabel: IndicatorStory =
 LiveIndicatorLabel.args = {
 	indicator: 'live',
 	status: 'live',
+	badge: false,
 };
 
 LiveIndicatorLabel.argTypes = {
@@ -63,6 +64,7 @@ export const ClosedIndicatorLabel: IndicatorStory =
 ClosedIndicatorLabel.args = {
 	indicator: 'closed',
 	status: 'closed',
+	badge: false,
 };
 ClosedIndicatorLabel.argTypes = {
 	dateTime: {
@@ -77,8 +79,17 @@ export const NewIndicatorLabel: IndicatorStory =
 NewIndicatorLabel.args = {
 	indicator: 'new',
 	status: 'new',
+	badge: false,
 	dateTime: Date.now(),
 };
+
+NewIndicatorLabel.argTypes = {
+	badge: {
+		table: {
+			disable: true
+		}
+	}
+}
 
 export const UpdatedIndicatorLabel: IndicatorStory =
 	Template.bind({});
@@ -87,3 +98,11 @@ UpdatedIndicatorLabel.args = {
 	status: 'updated',
 	dateTime: Date.now(),
 };
+
+UpdatedIndicatorLabel.argTypes = {
+	badge: {
+		table: {
+			disable: true
+		}
+	}
+}

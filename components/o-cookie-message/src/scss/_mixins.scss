@@ -65,6 +65,11 @@
 		max-width: none;
 	}
 
+	.o-cookie-message__content-outer {
+		max-height: 50vh;
+		overflow: auto;
+	}
+
 	.o-cookie-message__content {
 		padding: 0;
 

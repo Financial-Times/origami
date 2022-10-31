@@ -72,18 +72,20 @@ class CookieMessage {
 		const wrapContent = content => `
 <div class="o-cookie-message__outer">
 	<div class="o-cookie-message__inner">
-		<div class="o-cookie-message__content">
-				${content}
-		</div>
-		<div class="o-cookie-message__actions">
-			<div class="o-cookie-message__action o-cookie-message__action--secondary">
-				<a href="${this.cookieInfo.manageCookiesUrl}" class="o-cookie-message__link">Manage cookies</a>
+		<div class="o-cookie-message__content-outer">
+			<div class="o-cookie-message__content">
+					${content}
 			</div>
+			<div class="o-cookie-message__actions">
+				<div class="o-cookie-message__action o-cookie-message__action--secondary">
+					<a href="${this.cookieInfo.manageCookiesUrl}" class="o-cookie-message__link">Manage cookies</a>
+				</div>
 
-			<div class="o-cookie-message__action">
-				<a href="${this.cookieInfo.acceptUrlFallback}" class="o-cookie-message__button">
-					Accept cookies
-				</a>
+				<div class="o-cookie-message__action">
+					<a href="${this.cookieInfo.acceptUrlFallback}" class="o-cookie-message__button">
+						Accept cookies
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

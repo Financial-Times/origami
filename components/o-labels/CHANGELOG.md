@@ -1,5 +1,13 @@
 # Changelog
 
+## [6.5.0](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.4.1...o-labels-v6.5.0) (2022-10-20)
+
+
+### Features
+
+* Add support for a "badged" variant of live and close labels. ([a5e4a98](https://www.github.com/Financial-Times/origami/commit/a5e4a98a7c2021b31f6f98ce26df9eee031ec754))
+* o-labels, support custom labels with tsx templates ([2191c7c](https://www.github.com/Financial-Times/origami/commit/2191c7cfb165e8f2c77b288a2c02a5242b3795e5))
+
 ### [6.4.1](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.4.0...o-labels-v6.4.1) (2022-10-17)
 
 
