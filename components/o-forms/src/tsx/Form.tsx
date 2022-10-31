@@ -2,6 +2,8 @@ import uniqueId from 'lodash.uniqueid';
 
 export interface FormProps {
 	children: JSX.Element | JSX.Element[];
+	action?: string;
+	method?: string;
 	onSubmit?: Function;
 }
 
@@ -15,7 +17,7 @@ export interface FormField {
 }
 
 export interface FormFieldProps extends FormField {
-
+	id: string;
 }
 export interface FormFieldsetProps extends FormField {
 
@@ -26,37 +28,65 @@ export interface InputProps {
 	value?: string;
 	required?: boolean;
 	disabled?: boolean;
-	isInline?: boolean;
-	// type?: 'text' | 'file' | 'password' | 'email' | 'radio' | 'checkbox'; /* might handle in component, ie text input will have text (but might want the option of password) */ /* OR MIGHT ADD TO FIELD FOR CONDITIONAL WRAPPING */
+	isInline?: boolean; /*  */
 }
 
+interface FormTitleProps {
+	isVerticalCenter?: boolean;
+	labelId?: string;
+	title: string;
+	description?: string;
+	describedbyId?: string;
+}
 
-export function Form({children, onSubmit}: FormProps) {
+export function Form({children, action, method, onSubmit}: FormProps) {
 	return (
-		<form data-o-component="o-forms" onSubmit={onSubmit ? event => onSubmit(event) : null } >
+		<form data-o-component="o-forms" onSubmit={onSubmit ? event => onSubmit(event) : null } action={action} method={method} >
 			{children}
 		</form>
 	);
 }
 
-// export function FormField ({title,
-// 	children,
-// 	centered,
-// 	optional,
-// 	describedby}:FormFieldProps) {
-// 		const labelId = uniqueId('label_');
-// 	return(
-// 		<label htmlFor={labelId} className="o-forms-field">
-//     <span className="o-forms-title">
-//         <span className="o-forms-title__main">Label for input here</span>
-//     </span>
+function FormTitle({isVerticalCenter, labelId, title, description, describedbyId}: FormTitleProps){
+	return(
+				<span className={`o-forms-title ${isVerticalCenter && 'o-forms-title--vertical-center'}`}>
+					<span
+						className="o-forms-title__main"
+						id={labelId}>
+						{title}
+					</span>
+				{description && (
+					<span
+						className="o-forms-title__prompt"
+						id={describedbyId}>
+						{description}
+					</span>
+				)}
+				</span>
+	)
+}
 
-// 		{/* would need to pass id down to child, or pass child as prop*/}
-// 		{children}
+export function FormField ({
+	id,
+	title,
+	description,
+	isOptional,
+	isInline,
+	isVerticalCenter,
+	children,
+}:FormFieldProps) {
+		const describedbyId = description &&  uniqueId('describedby_');
+		const modifiers = [];
+		if(isInline) modifiers.push('o-forms-field--inline')
+		if(isOptional) modifiers.push('o-forms-field--optional')
+	return(
+		<label htmlFor={id} className={`o-forms-field ${modifiers.join(' ')}`}>
+    	<FormTitle isVerticalCenter={isVerticalCenter} title={title} description={description} describedbyId={describedbyId} />
+			{children}
+		</label>
+	)
+}
 
-// </label>
-// 	)
-// }
 
 export function FormFieldset({
 	title,
@@ -79,30 +109,47 @@ export function FormFieldset({
 			role="group"
 			aria-labelledby={labelId}
 			aria-describedby={describedbyId}>
-				{/* private title component */}
-			<span className={`o-forms-title ${isVerticalCenter && 'o-forms-title--vertical-center'}`}>
-					<span
-						className="o-forms-title__main"
-						id={labelId}>
-						{title}
-					</span>
-				{description && (
-					<span
-						className="o-forms-title__prompt"
-						id={describedbyId}>
-						{description}
-					</span>
-				)}
-			</span>
-			{/* title component */}
+			<FormTitle isVerticalCenter={isVerticalCenter} labelId={labelId} title={title} description={description} describedbyId={describedbyId} />
 			{children}
 		</div>
 	);
 }
 
-export function FormError({error}){
+export function FormError({errorMessage}){
 	return(
 		<span className="o-forms-input__error error" role="alert">
-			{error}
+			{errorMessage}
 		</span>)
 }
+
+
+
+/*
+
+<Form>
+	<FormField>
+		<Text />
+	</FormField>
+
+	<FormFieldSet>
+		<CheckBoxes>
+			<CheckBox />
+			<CheckBox />
+			<CheckBox />
+		</CheckBoxes>
+	</FormFieldSet>
+</Form>
+
+
+
+INPUTS
+
+<Text type="password | email | text | textarea"/>
+<File />
+<CheckBox />
+<RadioBtn />
+<BoxRadioBtn />
+
+
+*/
+
