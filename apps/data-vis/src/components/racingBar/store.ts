@@ -1,14 +1,11 @@
-import { writable, derived } from 'svelte/store';
-import { tweened } from "svelte/motion";
+import {tweened} from "svelte/motion"
+import {writable, derived} from "svelte/store"
 
-export const data = writable([]);
-export const duration = 300; // ms between keyframes
-export const barCount = 8; // how many bars to show
-export const barMargin = 4; // space between bars
-export const keyframeCount = data.length; // number of keyframes
+export const barCount = writable(10)
+export const barHeight = writable(70) // how many bars to show
 
-
-const dimensions = writable({});
-const scales = writable({});
-const barData = derived(duration, $duration => tweened(null, { duration: $duration }) );
-const xMax = tweened(null, { duration });
+export const duration = writable(300)
+export const xMax = tweened(null, {duration: 100})
+export const svgWidth = writable(0)
+export const height = writable(0)
+export const scaleX = writable(() => {})

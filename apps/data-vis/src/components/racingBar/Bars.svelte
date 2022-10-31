@@ -1,20 +1,13 @@
 <script>
-  import { getContext } from "svelte";
-
-	import Bar from "./Bar.svelte";
-  import {colors} from "./colors";
-  export let barCount
+	import Bar from "./Bar.svelte"
+	import {colors} from "./colors"
+	import {barCount} from "./store"
 	export let currentData
-	// const { data } = getContext("chart");
-	$: console.log(`🚀 ~ data from bars`, currentData);
-  const colorCount = colors.length;
-
-	$: data = currentData.sort((a, b) => a.rank - b.rank);
-
+	const colorCount = colors.length
 </script>
 
-{#each data as { value, rank }, i (i)}
-  {#if rank < barCount}
-    <Bar y={i * 75 + 10} width={value} fill="{colors[i % colorCount]}" />
-  {/if}
+{#each currentData as { name, value, rank }, i (i)}
+	{#if rank <= $barCount && value > 0}
+		<Bar fill={colors[i % colorCount]} label={name} {value} {rank} />
+	{/if}
 {/each}

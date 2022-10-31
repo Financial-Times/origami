@@ -1,11 +1,7 @@
 <script lang="ts">
 	import {descending} from "d3-array"
-
 	import RacingBars from "./components/racingBar/RacingBars.svelte"
-
 	import compnentData from "./data/component-data.json"
-	let innerWidth = 0
-	let innerHeight = 0
 
 	let formatedData = []
 	let names = []
@@ -34,7 +30,7 @@
 			releaseVersions = releaseVersions
 		})
 		const componentsWithReleaseValues = names.map(name => {
-			return {date, name, value: releaseVersions[name]}
+			return {name, value: releaseVersions[name]}
 		})
 
 		dataByDate.push([date, rank(componentsWithReleaseValues)])
@@ -44,10 +40,18 @@
 		return components
 			.sort((a, b) => descending(a.value, b.value))
 			.map((d, i) => {
-				return {...d, rank: i + 1}
+				return {...d, rank: i}
 			})
 	}
 </script>
 
-<svelte:window bind:innerWidth bind:innerHeight />
-<RacingBars data={dataByDate} labels={names} />
+<div>
+	<RacingBars data={dataByDate} labels={names} />
+</div>
+
+<style>
+	div {
+		width: 80%;
+		margin: 0 auto;
+	}
+</style>
