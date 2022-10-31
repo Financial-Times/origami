@@ -1,4 +1,15 @@
 # Changelog
+## [6.5.0](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.4.3...o-cookie-message-v6.5.0) (2022-10-31)
+
+
+### Features
+
+* make cookie banner content scrollable ([pr 867](https://github.com/Financial-Times/origami/pull/867))
+
+### Bug Fixes
+
+* update missed cookie message CTA copy with context, "accept cookies" rather than "accept & continue"  ([pr 867](https://github.com/Financial-Times/origami/pull/867))
+
 ### [6.4.3](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.4.2...o-cookie-message-v6.4.3) (2022-08-31)
 
 
