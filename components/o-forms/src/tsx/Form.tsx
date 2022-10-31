@@ -33,6 +33,7 @@ export interface InputProps {
 
 interface FormTitleProps {
 	isVerticalCenter?: boolean;
+	isInline?: boolean;
 	labelId?: string;
 	title: string;
 	description?: string;
@@ -53,13 +54,18 @@ export function Form({children, action, method, onSubmit}: FormProps) {
 
 function FormTitle({
 	isVerticalCenter,
+	isInline,
 	labelId,
 	title,
 	description,
 	describedbyId
 }: FormTitleProps){
+	const modifiers = [];
+		if(isInline) modifiers.push('o-forms-title--shrink')
+		if(isVerticalCenter) modifiers.push('o-forms-title--vertical-center')
+
 	return(
-				<span className={`o-forms-title ${isVerticalCenter && 'o-forms-title--vertical-center'}`}>
+				<span className={`o-forms-title ${modifiers.join(' ')}`}>
 					<span
 						className="o-forms-title__main"
 						id={labelId}>
@@ -94,7 +100,9 @@ export function FormField ({
     	<FormTitle isVerticalCenter={isVerticalCenter}
 				title={title}
 				description={description}
-				describedbyId={describedbyId} />
+				describedbyId={describedbyId}
+				isInline={isInline}/>
+
 			{children}
 		</label>
 	)
@@ -126,7 +134,9 @@ export function FormFieldset({
 				labelId={labelId}
 				title={title}
 				description={description}
-				describedbyId={describedbyId} />
+				describedbyId={describedbyId}
+				isInline={isInline}/>
+
 			{children}
 		</div>
 	);
