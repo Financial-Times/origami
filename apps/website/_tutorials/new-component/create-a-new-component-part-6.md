@@ -88,7 +88,7 @@ While working with different brands you might encounter examples where certain v
 `stories/[brand]/*.stories.tsx` - stories for a specific brand
 `stories/shared/.tsx` - exports stories for re-export to support multiple specific brands (no .stories extension)
 
-If component supports only one brand you don't need brand specific structure for this since `origami.json` will make our storybook configuration aware that there is only one brand and it will skip builds for other brands.
+If your component supports only one brand you don't need a brand specific `stories` directory structure for this, since `origami.json` will make our storybook configuration aware that there is only one brand and it will skip builds for other brands.
 ## Adding button
 
 Our demo is missing the count button and it's related sentence. When we discussed [browser support](/documentation/tutorials/create-a-new-component-part-5/#browser-support) we decided to display count functionality if JS was enabled. In this case we have written a TSX template but never initialised components javascript. To do so we will need to update our `example.stories.tsx` file by adding the following code:
