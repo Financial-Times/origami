@@ -3,7 +3,7 @@ import { FormError, InputProps, FormField, FormFieldProps } from "./Form";
 
 export type TextInputType = 'text' | 'password' | 'email' | 'textarea';
 
-export interface TextInputProps extends InputProps, FormFieldProps{
+export interface TextInputProps extends InputProps, FormField{
 	highlight?: 'valid' | 'invalid';
 	errorMessage?: string;
 	hasSuffix?: boolean;
@@ -12,6 +12,7 @@ export interface TextInputProps extends InputProps, FormFieldProps{
 	children?: JSX.Element;
 	onChange?: Function;
 	ref?: any; /* Look up correct type */
+	/* currently inherts children wrongly and id unnessaserily  */
 }
 
 export function TextInput({
@@ -31,7 +32,8 @@ export function TextInput({
 	required,
 	disabled,
 	hasSuffix,
-	children}: TextInputProps) {
+	children
+}: TextInputProps) {
 	const id = uniqueId('labelledby_');
 	const InputComponent = type !== 'textarea' ? 'input' : 'textarea';
 	const modifiers = [];
