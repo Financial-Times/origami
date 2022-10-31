@@ -4,20 +4,11 @@
 
 ### Features
 
-* make cookie banner content scrollable ([7d08de6](https://www.github.com/Financial-Times/origami/commit/7d08de6017e2abe03d0515d8a051d579503b564a))
-* make cookie banner scrollable when too large ([34fc940](https://www.github.com/Financial-Times/origami/commit/34fc94093d1f1990d5ee83df9121c90622e332ca))
-* restrict cookie banner within 320X256 ([8f83abf](https://www.github.com/Financial-Times/origami/commit/8f83abfd376b62875bdd597e71437a8446c29d4a))
-
+* make cookie banner content scrollable ([pr 867](https://github.com/Financial-Times/origami/pull/867))
 
 ### Bug Fixes
 
-* add child element to encap. css rules ([a8e510b](https://www.github.com/Financial-Times/origami/commit/a8e510bcf10631aa57e17139be127a2339c16368))
-* cookie content scroll only on overflow ([36ef82f](https://www.github.com/Financial-Times/origami/commit/36ef82f8244052dbdeb1c76cd5857356eb92e2a0))
-* cookie message, overflow at 50vh ([ea22312](https://www.github.com/Financial-Times/origami/commit/ea223123e47d94b461bdd6e2eaa9ea4b78c4c68f))
-* fix drop shadow size change ([45881ca](https://www.github.com/Financial-Times/origami/commit/45881cab3069f428ec6bed130e11399ebb569e1f))
-* reverse `o-cookie-message__content-outer` markup addition ([b736587](https://www.github.com/Financial-Times/origami/commit/b736587f9517fbb6932ec2642e44bba16fe6b289))
-* show drop shadow removed by overflow ([3607171](https://www.github.com/Financial-Times/origami/commit/360717142700ccdd2cf42f3013de0a30c631f99f))
-* Update missed cookie message CTA copy ([3fe7536](https://www.github.com/Financial-Times/origami/commit/3fe75365d6380e806e99816959496190c08f324c))
+* update missed cookie message CTA copy with context, "accept cookies" rather than "accept & continue"  ([pr 867](https://github.com/Financial-Times/origami/pull/867))
 
 ### [6.4.3](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.4.2...o-cookie-message-v6.4.3) (2022-08-31)
 
