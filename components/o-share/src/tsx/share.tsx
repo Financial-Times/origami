@@ -20,6 +20,7 @@ type ShareProps = {
 	small?: boolean;
 	vertical?: boolean;
 	inverse?: boolean;
+	accesible?:boolean;
 };
 
 export function Share({
@@ -32,13 +33,16 @@ export function Share({
 	small,
 	vertical,
 	inverse,
+	accesible,
 }: ShareProps) {
 	let className = '';
+	let additionalProperties = {};
 	if (small) className = ' o-share--small';
 	if (vertical) className = ' o-share--vertical';
 	if (inverse) className += ' o-share--inverse';
+	if (accesible) additionalProperties['data-o-share--accesible'] = true
 	return (
-		<div data-o-component="o-share" className={`o-share${className}`}>
+		<div data-o-component="o-share" className={`o-share${className}`} {...additionalProperties} >
 			<ul>
 				{socialNetworks.map((socialNetwork, i) => (
 					<li className="o-share__action" key={i + socialNetwork}>

@@ -88,6 +88,14 @@
 		background-size: $size $size;
 	}
 
+	.o-share-accesible {
+		width: $size - ($o-share-border-size * 2);
+		height: $size - ($o-share-border-size * 2);
+		&:before {
+			display: none;
+		}
+	}
+
 	// If there is not a margin use a negative margin
 	// to make icons borders overlap.
 	@if not $margin {

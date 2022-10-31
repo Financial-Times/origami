@@ -130,6 +130,16 @@ function Share(rootEl, config) {
 			aElement.appendChild(spanElement);
 			liElement.appendChild(aElement);
 			ulElement.appendChild(liElement);
+			if(config.accessible){
+				if (document.readyState === "complete" || document.readyState === "loaded") {
+					addAccesibleIcons(aElement);
+				}
+				else{
+					document.addEventListener('DOMContentLoaded',() => {
+						addAccesibleIcons(aElement);
+					});
+				}
+			}
 		}
 		oShare.rootEl.appendChild(ulElement);
 	}
@@ -179,6 +189,7 @@ function Share(rootEl, config) {
 				config.titleExtra = rootEl.getAttribute('data-o-share-titleExtra') || '';
 				config.summary = rootEl.getAttribute('data-o-share-summary') || '';
 				config.relatedTwitterAccounts = rootEl.getAttribute('data-o-share-relatedTwitterAccounts') || '';
+				config.accessible = rootEl.getAttribute('data-o-share-accesible') !== null;
 			}
 			render();
 		}
@@ -186,6 +197,32 @@ function Share(rootEl, config) {
 		dispatchCustomEvent('ready', {
 			share: oShare
 		});
+	}
+	/**
+	 * Returns the image url from an html element pseudoelement ::before which has set a background-image
+	 *
+	 * @param element
+	 * @returns
+	 */
+	function getImageIconUrl(element){
+		const style = window.getComputedStyle(element, '::before');
+		const imageUrl = /url\s*\("(.*)"\)/.exec(style.getPropertyValue('background-image'))[1];
+		return imageUrl;
+	}
+
+	/**
+	 * add an image html element and hides background-image from an icon element
+	 *
+	 * @param {*} aElement
+	 */
+	function addAccesibleIcons(aElement){
+		if(aElement && !aElement.classList.contains('o-share-accesible')){
+			const accesibleImgIcon = document.createElement("img");
+			const urlIcon = getImageIconUrl(aElement);
+			accesibleImgIcon.src = urlIcon;
+			aElement.appendChild(accesibleImgIcon);
+			aElement.classList.add('o-share-accesible');
+		}
 	}
 
 	init();

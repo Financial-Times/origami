@@ -27,6 +27,7 @@ export default {
 		small: false,
 		inverse: false,
 		vertical: false,
+		accesible: false
 	},
 } as ComponentMeta<typeof Share>;
 
