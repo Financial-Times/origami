@@ -2,16 +2,27 @@ import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect, useState} from 'react';
-import { TextBoxDemo } from './Demos';
 import './forms.scss';
 import javascript from '../main.js';
+import { TextInput } from '../src/tsx/TextInput';
 
 export default {
 	title: 'Components/o-forms/text-box',
-	component: TextBoxDemo,
+	component: TextInput,
 	decorators: [withDesign, withHtml],
-	parameters: {},
-} as ComponentMeta<typeof TextBoxDemo>;
+	argTypes:{
+		onChange: {
+			table: {
+        disable: true
+      }
+		},
+		ref: {
+			table: {
+				disable: true
+				}
+			}
+		}
+	} as ComponentMeta<typeof TextInput>;
 
 const FormStory = args => {
 	const [value, setValue] = useState('this is a controlled input');
@@ -24,10 +35,10 @@ const FormStory = args => {
 			form.forEach(element => element.destroy());
 		};
 	}, []);
-	return <TextBoxDemo {...args} value={value} onChange={onChange}/>;
+	return <TextInput {...args} value={value} onChange={onChange}/>;
 };
 
-export const TextBox: ComponentStory<typeof TextBoxDemo> = FormStory.bind({});
+export const TextBox: ComponentStory<typeof TextInput> = FormStory.bind({});
 
 
 TextBox.args = {
