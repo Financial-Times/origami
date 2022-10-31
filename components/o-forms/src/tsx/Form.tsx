@@ -8,7 +8,7 @@ export interface FormProps {
 }
 
 export interface FormField {
-	children: JSX.Element;
+	children?: JSX.Element; /* Shouldn't be optional */
 	title: string;
 	description?: string;
 	isOptional?: boolean;
@@ -41,13 +41,23 @@ interface FormTitleProps {
 
 export function Form({children, action, method, onSubmit}: FormProps) {
 	return (
-		<form data-o-component="o-forms" onSubmit={onSubmit ? event => onSubmit(event) : null } action={action} method={method} >
+		<form
+			data-o-component="o-forms"
+			onSubmit={onSubmit ? event => onSubmit(event) : null }
+			action={action}
+			method={method} >
 			{children}
 		</form>
 	);
 }
 
-function FormTitle({isVerticalCenter, labelId, title, description, describedbyId}: FormTitleProps){
+function FormTitle({
+	isVerticalCenter,
+	labelId,
+	title,
+	description,
+	describedbyId
+}: FormTitleProps){
 	return(
 				<span className={`o-forms-title ${isVerticalCenter && 'o-forms-title--vertical-center'}`}>
 					<span
@@ -81,7 +91,10 @@ export function FormField ({
 		if(isOptional) modifiers.push('o-forms-field--optional')
 	return(
 		<label htmlFor={id} className={`o-forms-field ${modifiers.join(' ')}`}>
-    	<FormTitle isVerticalCenter={isVerticalCenter} title={title} description={description} describedbyId={describedbyId} />
+    	<FormTitle isVerticalCenter={isVerticalCenter}
+				title={title}
+				description={description}
+				describedbyId={describedbyId} />
 			{children}
 		</label>
 	)
@@ -98,7 +111,6 @@ export function FormFieldset({
 }: FormFieldsetProps) {
 	const labelId = uniqueId('labelledby_');
 	const describedbyId = description &&  uniqueId('describedby_');
-
 	const modifiers = [];
 	if(isInline) modifiers.push('o-forms-field--inline')
 	if(isOptional) modifiers.push('o-forms-field--optional')
@@ -109,7 +121,12 @@ export function FormFieldset({
 			role="group"
 			aria-labelledby={labelId}
 			aria-describedby={describedbyId}>
-			<FormTitle isVerticalCenter={isVerticalCenter} labelId={labelId} title={title} description={description} describedbyId={describedbyId} />
+			<FormTitle
+				isVerticalCenter={isVerticalCenter}
+				labelId={labelId}
+				title={title}
+				description={description}
+				describedbyId={describedbyId} />
 			{children}
 		</div>
 	);
@@ -127,9 +144,8 @@ export function FormError({errorMessage}){
 /*
 
 <Form>
-	<FormField>
-		<Text />
-	</FormField>
+
+	<TextInput />
 
 	<FormFieldSet>
 		<CheckBoxes>

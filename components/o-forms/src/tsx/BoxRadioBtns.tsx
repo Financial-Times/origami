@@ -17,7 +17,13 @@ export interface BoxRadioBtnProps extends InputProps{
 	isNegative? : boolean;
 }
 
-export function BoxRadioBtns({children, errorMessage, state, customStateText, hideStateText}: BoxRadioBtnsProps) {
+export function BoxRadioBtns({
+	children,
+	errorMessage,
+	state,
+	customStateText,
+	hideStateText
+}: BoxRadioBtnsProps) {
 	const modifiers = [];
 	if(state) modifiers.push(`o-forms-input--${state}`)
 	if(errorMessage) modifiers.push('o-forms-input--invalid')
@@ -38,7 +44,15 @@ export function BoxRadioBtns({children, errorMessage, state, customStateText, hi
 	);
 }
 
-export function BoxRadioBtn({value, name, disabled, checked, required, highlight, isNegative}: BoxRadioBtnProps) {
+export function BoxRadioBtn({
+	value,
+	name,
+	disabled,
+	checked,
+	required,
+	highlight,
+	isNegative
+}: BoxRadioBtnProps) {
 	const labelId = uniqueId('box_button_')
 	const modifiers = [];
 	if(isNegative) modifiers.push('o-forms-input__label--negative');

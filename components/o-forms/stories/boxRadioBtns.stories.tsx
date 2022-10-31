@@ -10,7 +10,6 @@ export default {
 	title: 'Components/o-forms/box-radio-buttons',
 	component: BoxBtnDemo,
 	decorators: [withDesign, withHtml],
-	parameters: {},
 } as ComponentMeta<typeof BoxBtnDemo>;
 
 const FormStory = args => {
@@ -123,7 +122,7 @@ ErrorBoxRadioButton.args = {
 		}
 	],
 	title: "Error box-style radio buttons",
-	error: "An example error. Try again."
+	errorMessage: "An example error. Try again."
 }
 
 StateBoxRadioButton.args = {
