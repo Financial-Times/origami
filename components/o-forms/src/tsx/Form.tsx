@@ -146,31 +146,3 @@ export function FormError({errorMessage}){
 			{errorMessage}
 		</span>)
 }
-
-
-
-/*
-
-<Form>
-	<TextInput />
-
-	<CheckBoxes>
-		<CheckBox />
-		<CheckBox />
-		<CheckBox />
-	</CheckBoxes>
-</Form>
-
-
-
-INPUTS
-
-<Text type="password | email | text | textarea"/>
-<File />
-<CheckBox />
-<RadioBtn />
-<BoxRadioBtn />
-
-
-*/
-
