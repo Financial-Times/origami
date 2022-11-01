@@ -1,7 +1,5 @@
 # o-forms tsx components
-
 ## Form Components
-
 ### `Form`
 
 ```jsx
@@ -19,10 +17,7 @@
 | `action` | str |  | standard html attribute for `<form>` |
 | `method` | str |  | standard html attribute for `<form>` |
 
-
-
 ## Input Components
-
 ### `Text Input`
 #### example jsx
 ```jsx
@@ -48,8 +43,6 @@
 | `state` | 'saving' \| 'saved' |  | shows text and icon |
 | `hideStateText` | bool |  | displays icon only |
 | `customStateText` | str |  | change state text from default "saving" |
-
-
 
 ### `Box Radio Buttons`
 #### example jsx
@@ -91,8 +84,9 @@
 
 | Property | Type | Required | Description |
 | ------------- | ------ | -------- | ------------------------- |
+| `children` | JSX.Element \| str |  | the text or element to display within the button, if non are provided the value will be used |
+| `value` | str | *yes | standard html attribute for `<input/>` |
 | `name` | str | *yes | standard html attribute for `<input/>` |
-| `value` | `<BoxRadioBtn/>` | *yes | standard html attribute for `<input/>` |
 | `required` | bool |  |standard html attribute for `<input/>` |
 | `disabled` | bool |  | standard html attribute for `<input/>` |
 | `checked` | bool |  | maps to defaultChecked attribute on `<input/>` |

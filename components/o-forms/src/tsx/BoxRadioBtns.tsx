@@ -14,6 +14,7 @@ export interface BoxRadioBtnsWrapperProps {
 export interface BoxRadioBtnProps extends InputProps{
 	checked?: boolean;
 	isNegative? : boolean;
+	children?: JSX.Element | string;
 }
 
 export interface BoxRadioBtnsProps extends BoxRadioBtnsWrapperProps, TypeFormField {
@@ -87,9 +88,9 @@ export function BoxRadioBtn({
 	disabled,
 	checked,
 	required,
-	isNegative
+	isNegative,
+	children
 }: BoxRadioBtnProps) {
-
 	const labelId = uniqueId('box_button_')
 	const [addClass, getClasses] = classBuilder('o-forms-input', false);
 	if(isNegative) addClass('__label--negative', false);
@@ -107,7 +108,7 @@ export function BoxRadioBtn({
 			/>
 			<span
 				className={`o-forms-input__label ${getClasses()}`}>
-				{value}
+				{children || value}
 			</span>
 		</label>
 	);
