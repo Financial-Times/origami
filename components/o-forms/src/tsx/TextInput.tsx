@@ -4,7 +4,7 @@ import { FormError, InputProps, TypeFormField, FormField } from "./Form";
 
 export type TextInputType = 'text' | 'password' | 'email' | 'textarea';
 
-export interface TextInputProps extends InputProps, TypeFormField{
+interface TypeTextInput extends InputProps {
 	highlight?: 'valid' | 'invalid';
 	errorMessage?: string;
 	hasSuffix?: boolean;
@@ -12,8 +12,58 @@ export interface TextInputProps extends InputProps, TypeFormField{
 	isSmall?: boolean;
 	children?: JSX.Element;
 	onChange?: Function;
-	isInline?: true; /* need to implement */
+	isInlineInput?: boolean;
 	ref?: any; /* Look up correct type */
+}
+export interface TextInputProps extends TypeTextInput, TypeFormField{
+}
+interface PrivateTextInputProps extends TypeTextInput {
+	id: string;
+}
+
+
+function PrivateTextInput({
+	id,
+	value,
+	type,
+	name,
+	onChange,
+	ref,
+	highlight,
+	errorMessage,
+	isSmall,
+	required,
+	disabled,
+	hasSuffix,
+	children,
+	isInlineInput
+}: PrivateTextInputProps) {
+	const InputComponent = type !== 'textarea' ? 'input' : 'textarea';
+	const inputType = (!type || type === 'email') ? 'text' : type;
+	const [addClass, getClasses] = classBuilder('o-forms-input');
+	addClass(inputType);
+	if(highlight) addClass(highlight);
+	if(errorMessage) addClass('invalid');
+	if(isSmall) addClass('small')
+	if(isInlineInput) addClass('inline')
+	if((hasSuffix || children) && hasSuffix !== false) addClass('suffix')
+
+	return(
+			<span className={getClasses()}>
+				<InputComponent
+					id={id}
+					type={type}
+					name={name}
+					value={value}
+					onChange={onChange ? event => onChange(event) : null }
+					ref={ref}
+					required={required}
+					disabled={disabled}
+				/>
+				{children}
+				{errorMessage && <FormError errorMessage={errorMessage}/>}
+			</span>
+	)
 }
 
 export function TextInput({
@@ -33,43 +83,40 @@ export function TextInput({
 	required,
 	disabled,
 	hasSuffix,
+	isInlineInput,
 	children
 }: TextInputProps) {
 	const id = uniqueId('labelledby_');
-	const InputComponent = type !== 'textarea' ? 'input' : 'textarea';
-	const [addClass, getClasses] = classBuilder('o-forms-input');
-	const inputType = (!type || type === 'email') ? 'text' : type;
-	addClass(inputType);
-	if(highlight) addClass(highlight);
-	if(errorMessage) addClass('invalid'); /*  */
-	if(isSmall) addClass('small')
-	if((hasSuffix || children) && hasSuffix !== false) addClass('suffix')
+	const inputProps = {
+		id,
+		value,
+		type,
+		name,
+		onChange,
+		ref,
+		highlight,
+		errorMessage,
+		isSmall,
+		required,
+		disabled,
+		hasSuffix,
+		isInlineInput
+	}
+	const fieldProps = {
+		id,
+		title,
+		description,
+		isOptional,
+		isInline,
+		isVerticalCenter
+	}
 
 	return(
-		<FormField id={id} title={title} description={description} isOptional={isOptional} isInline={isInline} isVerticalCenter={isVerticalCenter}>
-			<span className={getClasses()}>
-				<InputComponent id={id} type={type} name={name} value={value} onChange={onChange ? event => onChange(event) : null } ref={ref} required={required} disabled={disabled}/>
+		<FormField {...fieldProps}>
+			<PrivateTextInput {...inputProps}>
 				{children}
-				{errorMessage && <FormError errorMessage={errorMessage}/>}
-			</span>
+			</PrivateTextInput>
 		</FormField>
 	)
 }
 
-/* export function PureTextInput({id, value, type, name, onChange, ref, highlight, errorMessage, isSmall, required, disabled, hasSuffix, children}: TextInputProps) {
-	const InputComponent = type !== 'textarea' ? 'input' : 'textarea';
-	const modifiers = [];
-	const inputType = (!type || type === 'email') ? 'text' : type;
-	modifiers.push(`o-forms-input--${inputType}`);
-	if(highlight) modifiers.push(`o-forms-input--${highlight}`);
-	if(errorMessage) modifiers.push(`o-forms-input--${highlight}`);
-	if(isSmall) modifiers.push('o-forms-input--small')
-	if((hasSuffix || children) && hasSuffix !== false) modifiers.push('o-forms-input--suffix')
-	return(
-		<span className={`o-forms-input ${modifiers.join(' ')}`}>
-			<InputComponent id={id} type={type} name={name} value={value} onChange={onChange ? event => onChange(event) : null } ref={ref} required={required} disabled={disabled}/>
-			{children}
-			{errorMessage && <FormError errorMessage={errorMessage}/>}
-		</span>
-	)
-} */
