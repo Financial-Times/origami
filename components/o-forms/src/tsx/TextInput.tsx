@@ -11,8 +11,8 @@ interface TypeTextInput extends InputProps {
 	type?: TextInputType;
 	isSmall?: boolean;
 	children?: JSX.Element;
-	onChange?: Function;
 	isInlineInput?: boolean;
+	onChange?: Function;
 	ref?: any; /* Look up correct type */
 }
 export interface TextInputProps extends TypeTextInput, TypeFormField{
