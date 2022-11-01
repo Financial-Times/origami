@@ -7,21 +7,20 @@ import javascript from '../main.js';
 import { TextInput } from '../src/tsx/TextInput';
 import { Button } from '../../o-buttons/src/tsx/button';
 
+const hideArg = {
+	table: {
+    disable: true
+  }
+};
+
 export default {
 	title: 'Components/o-forms/text-box',
 	component: TextInput,
 	decorators: [withDesign, withHtml],
 	argTypes:{
-		onChange: {
-			table: {
-        disable: true
-      }
-		},
-		ref: {
-			table: {
-				disable: true
-				}
-			}
+		onChange: hideArg,
+		ref: hideArg,
+		children: hideArg,
 		}
 	} as ComponentMeta<typeof TextInput>;
 
@@ -71,9 +70,9 @@ InvalidEntry.args = {
 }
 
 TextArea.args = {
-	title: "Optional text input",
+	title: "Textarea input",
 	type: "textarea",
-	value: "With type 'textarea'"
+	value: "This is a text input with type 'textarea'."
 }
 
 DisabledTextInput.args = {
@@ -95,8 +94,7 @@ InputWithSuffix.args = {
 }
 
 InlineWithShrunkenTitle.args = {
-	title: "Shrunken title",
-	isOptional: true,
+	title: "Inline & shruken title",
 	description: "Vertically centered",
 	isInline: true,
 	isVerticalCenter: true
