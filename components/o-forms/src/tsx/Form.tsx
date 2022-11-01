@@ -1,15 +1,13 @@
 import uniqueId from 'lodash.uniqueid';
 import {classBuilder} from '../utils/classBuilder'
 
-export interface FormProps {
+interface TypeFormProps {
 	children: JSX.Element | JSX.Element[];
 	action?: string;
 	method?: string;
 	onSubmit?: Function;
 }
-
-export interface FormField {
-	children?: JSX.Element; /* Shouldn't be optional */
+export interface TypeFormField {
 	title: string;
 	description?: string;
 	isOptional?: boolean;
@@ -17,11 +15,12 @@ export interface FormField {
 	isVerticalCenter?: boolean;
 }
 
-export interface FormFieldProps extends FormField {
+export interface FormFieldProps extends TypeFormField {
 	id: string;
+	children: JSX.Element;
 }
-export interface FormFieldsetProps extends FormField {
-
+export interface FormFieldsetProps extends TypeFormField {
+	children: JSX.Element;
 }
 
 export interface InputProps {
@@ -29,7 +28,6 @@ export interface InputProps {
 	value?: string;
 	required?: boolean;
 	disabled?: boolean;
-	isInline?: boolean; /*  */
 }
 
 interface FormTitleProps {
@@ -41,7 +39,7 @@ interface FormTitleProps {
 	describedbyId?: string;
 }
 
-export function Form({children, action, method, onSubmit}: FormProps) {
+export function Form({children, action, method, onSubmit}: TypeFormProps) {
 	return (
 		<form
 			data-o-component="o-forms"
@@ -154,16 +152,13 @@ export function FormError({errorMessage}){
 /*
 
 <Form>
-
 	<TextInput />
 
-	<FormFieldSet>
-		<CheckBoxes>
-			<CheckBox />
-			<CheckBox />
-			<CheckBox />
-		</CheckBoxes>
-	</FormFieldSet>
+	<CheckBoxes>
+		<CheckBox />
+		<CheckBox />
+		<CheckBox />
+	</CheckBoxes>
 </Form>
 
 
