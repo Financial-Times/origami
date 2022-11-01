@@ -1,4 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
+import { classBuilder } from '../utils/classBuilder';
 import { InputProps, FormError } from './Form';
 
 
@@ -24,12 +25,12 @@ export function BoxRadioBtns({
 	customStateText,
 	hideStateText
 }: BoxRadioBtnsProps) {
-	const modifiers = [];
-	if(state) modifiers.push(`o-forms-input--${state}`)
-	if(errorMessage) modifiers.push('o-forms-input--invalid')
+	const [addClass, getClasses] = classBuilder('o-forms-input');
+	if(state) addClass(`${state}`)
+	if(errorMessage) addClass('invalid')
 	return (
 		<span
-				className={`o-forms-input o-forms-input--radio-box  ${modifiers.join(' ')}`}>
+				className={`${getClasses()} o-forms-input--radio-box`}>
 				<span className="o-forms-input--radio-box__container">
 					{children}
 				</span>
@@ -54,9 +55,9 @@ export function BoxRadioBtn({
 	isNegative
 }: BoxRadioBtnProps) {
 	const labelId = uniqueId('box_button_')
-	const modifiers = [];
-	if(isNegative) modifiers.push('o-forms-input__label--negative');
-	if(highlight) modifiers.push(`o-forms-input--${highlight}`)
+	const [addClass, getClasses] = classBuilder('o-forms-input', false);
+	if(isNegative) addClass('__label--negative', false);
+	if(highlight) addClass(`${highlight}`)
 
 	return (
 		<label htmlFor={labelId} key={value}>
@@ -70,7 +71,7 @@ export function BoxRadioBtn({
 				required={required}
 			/>
 			<span
-				className={`o-forms-input__label ${modifiers.join(' ')}`}>
+				className={`o-forms-input__label ${getClasses()}`}>
 				{value}
 			</span>
 		</label>
