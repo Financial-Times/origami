@@ -1,4 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
+import {classBuilder} from '../utils/classBuilder'
 
 export interface FormProps {
 	children: JSX.Element | JSX.Element[];
@@ -60,12 +61,12 @@ function FormTitle({
 	description,
 	describedbyId
 }: FormTitleProps){
-	const modifiers = [];
-		if(isInline) modifiers.push('o-forms-title--shrink')
-		if(isVerticalCenter) modifiers.push('o-forms-title--vertical-center')
+	const [addClass, getClasses] = classBuilder('o-forms-title');
+	if(isInline) addClass('shrink');
+	if(isVerticalCenter) addClass('vertical-center');
 
 	return(
-				<span className={`o-forms-title ${modifiers.join(' ')}`}>
+				<span className={getClasses()}>
 					<span
 						className="o-forms-title__main"
 						id={labelId}>
@@ -92,11 +93,11 @@ export function FormField ({
 	children,
 }:FormFieldProps) {
 		const describedbyId = description &&  uniqueId('describedby_');
-		const modifiers = [];
-		if(isInline) modifiers.push('o-forms-field--inline')
-		if(isOptional) modifiers.push('o-forms-field--optional')
+		const [addClass, getClasses] = classBuilder('o-forms-field');
+		if(isInline) addClass('inline')
+		if(isOptional) addClass('optional')
 	return(
-		<label htmlFor={id} className={`o-forms-field ${modifiers.join(' ')}`}>
+		<label htmlFor={id} className={getClasses()}>
     	<FormTitle isVerticalCenter={isVerticalCenter}
 				title={title}
 				description={description}
@@ -119,13 +120,13 @@ export function FormFieldset({
 }: FormFieldsetProps) {
 	const labelId = uniqueId('labelledby_');
 	const describedbyId = description &&  uniqueId('describedby_');
-	const modifiers = [];
-	if(isInline) modifiers.push('o-forms-field--inline')
-	if(isOptional) modifiers.push('o-forms-field--optional')
+	const [addClass, getClasses] = classBuilder('o-forms-field');
+	if(isInline) addClass('inline')
+	if(isOptional) addClass('optional')
 
 	return (
 		<div
-			className={`o-forms-field ${modifiers.join(' ')}`}
+			className={getClasses()}
 			role="group"
 			aria-labelledby={labelId}
 			aria-describedby={describedbyId}>
@@ -136,7 +137,6 @@ export function FormFieldset({
 				description={description}
 				describedbyId={describedbyId}
 				isInline={isInline}/>
-
 			{children}
 		</div>
 	);

@@ -1,4 +1,5 @@
 import uniqueId from "lodash.uniqueid";
+import { classBuilder } from "../utils/classBuilder";
 import { FormError, InputProps, FormField, FormFieldProps } from "./Form";
 
 export type TextInputType = 'text' | 'password' | 'email' | 'textarea';
@@ -36,17 +37,17 @@ export function TextInput({
 }: TextInputProps) {
 	const id = uniqueId('labelledby_');
 	const InputComponent = type !== 'textarea' ? 'input' : 'textarea';
-	const modifiers = [];
+	const [addClass, getClasses] = classBuilder('o-forms-input');
 	const inputType = (!type || type === 'email') ? 'text' : type;
-	modifiers.push(`o-forms-input--${inputType}`);
-	if(highlight) modifiers.push(`o-forms-input--${highlight}`);
-	if(errorMessage) modifiers.push(`o-forms-input--${highlight}`);
-	if(isSmall) modifiers.push('o-forms-input--small')
-	if((hasSuffix || children) && hasSuffix !== false) modifiers.push('o-forms-input--suffix')
+	addClass(inputType);
+	if(highlight) addClass(highlight);
+	if(errorMessage) addClass('invalid'); /*  */
+	if(isSmall) addClass('small')
+	if((hasSuffix || children) && hasSuffix !== false) addClass('suffix')
 
 	return(
 		<FormField id={id} title={title} description={description} isOptional={isOptional} isInline={isInline} isVerticalCenter={isVerticalCenter}>
-			<span className={`o-forms-input ${modifiers.join(' ')}`}>
+			<span className={getClasses()}>
 				<InputComponent id={id} type={type} name={name} value={value} onChange={onChange ? event => onChange(event) : null } ref={ref} required={required} disabled={disabled}/>
 				{children}
 				{errorMessage && <FormError errorMessage={errorMessage}/>}
