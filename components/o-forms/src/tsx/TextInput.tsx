@@ -1,10 +1,10 @@
 import uniqueId from "lodash.uniqueid";
 import { classBuilder } from "../utils/classBuilder";
-import { FormError, InputProps, FormField, FormFieldProps } from "./Form";
+import { FormError, InputProps, TypeFormField, FormField } from "./Form";
 
 export type TextInputType = 'text' | 'password' | 'email' | 'textarea';
 
-export interface TextInputProps extends InputProps, FormField{
+export interface TextInputProps extends InputProps, TypeFormField{
 	highlight?: 'valid' | 'invalid';
 	errorMessage?: string;
 	hasSuffix?: boolean;
@@ -12,8 +12,8 @@ export interface TextInputProps extends InputProps, FormField{
 	isSmall?: boolean;
 	children?: JSX.Element;
 	onChange?: Function;
+	isInline?: true; /* need to implement */
 	ref?: any; /* Look up correct type */
-	/* currently inherts children wrongly and id unnessaserily  */
 }
 
 export function TextInput({

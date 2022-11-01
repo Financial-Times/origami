@@ -1,9 +1,9 @@
 import uniqueId from 'lodash.uniqueid';
 import { classBuilder } from '../utils/classBuilder';
-import { InputProps, FormError } from './Form';
+import { InputProps, FormError, FormFieldset, TypeFormField } from './Form';
 
 
-export interface BoxRadioBtnsProps {
+export interface BoxRadioBtnsWrapperProps {
 	children: JSX.Element | JSX.Element[];
 	errorMessage?: string;
 	state?: 'saving' | 'saved';
@@ -13,35 +13,71 @@ export interface BoxRadioBtnsProps {
 
 export interface BoxRadioBtnProps extends InputProps{
 	checked?: boolean;
-	modifier?: string[];
-	highlight?: 'valid' | 'invalid'; /* for text fields */
 	isNegative? : boolean;
 }
+
+export interface BoxRadioBtnsProps extends BoxRadioBtnsWrapperProps, TypeFormField {
+
+}
+
+function BoxRadioBtnsWrapper({
+		children,
+		errorMessage,
+		state,
+		customStateText,
+		hideStateText
+	}: BoxRadioBtnsWrapperProps) {
+		const [addClass, getClasses] = classBuilder('o-forms-input');
+		if(state) addClass(`${state}`)
+		if(errorMessage) addClass('invalid')
+		return (
+			<span
+					className={`${getClasses()} o-forms-input--radio-box`}>
+					<span className="o-forms-input--radio-box__container">
+						{children}
+					</span>
+					{errorMessage && (
+						<FormError errorMessage={errorMessage}/>
+					)}
+					{state &&
+					<span className={`o-forms-input__state ${(hideStateText || customStateText) && "o-forms-input__state--icon-only"}`} role="status" aria-label={customStateText || ''} >
+						{customStateText}
+					</span>}
+				</span>
+		);
+	}
 
 export function BoxRadioBtns({
 	children,
 	errorMessage,
 	state,
 	customStateText,
-	hideStateText
+	hideStateText,
+	title,
+	description,
+	isOptional,
+	isInline,
+	isVerticalCenter
 }: BoxRadioBtnsProps) {
-	const [addClass, getClasses] = classBuilder('o-forms-input');
-	if(state) addClass(`${state}`)
-	if(errorMessage) addClass('invalid')
+	const wrapperProps = {
+		errorMessage,
+		state,
+		customStateText,
+		hideStateText,
+	}
+	const fieldsetProps = {
+		title,
+		description,
+		isOptional,
+		isInline,
+		isVerticalCenter,
+	}
 	return (
-		<span
-				className={`${getClasses()} o-forms-input--radio-box`}>
-				<span className="o-forms-input--radio-box__container">
-					{children}
-				</span>
-				{errorMessage && (
-					<FormError errorMessage={errorMessage}/>
-				)}
-				{state &&
-				<span className={`o-forms-input__state ${(hideStateText || customStateText) && "o-forms-input__state--icon-only"}`} role="status" aria-label={customStateText || ''} >
-					{customStateText}
-				</span>}
-			</span>
+		<FormFieldset {...fieldsetProps}>
+			<BoxRadioBtnsWrapper {...wrapperProps}>
+				{children}
+			</BoxRadioBtnsWrapper>
+		</FormFieldset>
 	);
 }
 
@@ -51,13 +87,12 @@ export function BoxRadioBtn({
 	disabled,
 	checked,
 	required,
-	highlight,
 	isNegative
 }: BoxRadioBtnProps) {
+
 	const labelId = uniqueId('box_button_')
 	const [addClass, getClasses] = classBuilder('o-forms-input', false);
 	if(isNegative) addClass('__label--negative', false);
-	if(highlight) addClass(`${highlight}`)
 
 	return (
 		<label htmlFor={labelId} key={value}>
@@ -77,4 +112,3 @@ export function BoxRadioBtn({
 		</label>
 	);
 }
-
