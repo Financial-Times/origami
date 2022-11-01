@@ -41,7 +41,13 @@ function BoxRadioBtnsWrapper({
 						<FormError errorMessage={errorMessage}/>
 					)}
 					{state &&
-					<span className={`o-forms-input__state ${(hideStateText || customStateText) && "o-forms-input__state--icon-only"}`} role="status" aria-label={customStateText || ''} >
+					<span
+					className={`
+						o-forms-input__state
+						${(hideStateText || customStateText) && "o-forms-input__state--icon-only"}`
+					}
+					role="status"
+					aria-label={customStateText || ''} >
 						{customStateText}
 					</span>}
 				</span>
