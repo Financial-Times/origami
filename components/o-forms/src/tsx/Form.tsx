@@ -1,5 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
-import {classBuilder} from '../utils/classBuilder'
+import {classBuilder} from '../utils/classBuilder';
 
 interface TypeFormProps {
 	children: JSX.Element | JSX.Element[];
@@ -43,9 +43,9 @@ export function Form({children, action, method, onSubmit}: TypeFormProps) {
 	return (
 		<form
 			data-o-component="o-forms"
-			onSubmit={onSubmit ? event => onSubmit(event) : null }
+			onSubmit={onSubmit ? event => onSubmit(event) : null}
 			action={action}
-			method={method} >
+			method={method}>
 			{children}
 		</form>
 	);
@@ -57,31 +57,27 @@ function FormTitle({
 	labelId,
 	title,
 	description,
-	describedbyId
-}: FormTitleProps){
+	describedbyId,
+}: FormTitleProps) {
 	const [addClass, getClasses] = classBuilder('o-forms-title');
-	if(inlineField) addClass('shrink');
-	if(isVerticalCenter) addClass('vertical-center');
+	if (inlineField) addClass('shrink');
+	if (isVerticalCenter) addClass('vertical-center');
 
-	return(
-				<span className={getClasses()}>
-					<span
-						className="o-forms-title__main"
-						id={labelId}>
-						{title}
-					</span>
-				{description && (
-					<span
-						className="o-forms-title__prompt"
-						id={describedbyId}>
-						{description}
-					</span>
-				)}
+	return (
+		<span className={getClasses()}>
+			<span className="o-forms-title__main" id={labelId}>
+				{title}
+			</span>
+			{description && (
+				<span className="o-forms-title__prompt" id={describedbyId}>
+					{description}
 				</span>
-	)
+			)}
+		</span>
+	);
 }
 
-export function FormField ({
+export function FormField({
 	id,
 	title,
 	description,
@@ -89,24 +85,25 @@ export function FormField ({
 	inlineField,
 	isVerticalCenter,
 	children,
-}:FormFieldProps) {
-		const describedbyId = description &&  uniqueId('describedby_');
-		const [addClass, getClasses] = classBuilder('o-forms-field');
-		if(inlineField) addClass('inline')
-		if(isOptional) addClass('optional')
-	return(
+}: FormFieldProps) {
+	const describedbyId = description && uniqueId('describedby_');
+	const [addClass, getClasses] = classBuilder('o-forms-field');
+	if (inlineField) addClass('inline');
+	if (isOptional) addClass('optional');
+	return (
 		<label htmlFor={id} className={getClasses()}>
-    	<FormTitle isVerticalCenter={isVerticalCenter}
+			<FormTitle
+				isVerticalCenter={isVerticalCenter}
 				title={title}
 				description={description}
 				describedbyId={describedbyId}
-				inlineField={inlineField}/>
+				inlineField={inlineField}
+			/>
 
 			{children}
 		</label>
-	)
+	);
 }
-
 
 export function FormFieldset({
 	title,
@@ -117,10 +114,10 @@ export function FormFieldset({
 	children,
 }: FormFieldsetProps) {
 	const labelId = uniqueId('labelledby_');
-	const describedbyId = description &&  uniqueId('describedby_');
+	const describedbyId = description && uniqueId('describedby_');
 	const [addClass, getClasses] = classBuilder('o-forms-field');
-	if(inlineField) addClass('inline')
-	if(isOptional) addClass('optional')
+	if (inlineField) addClass('inline');
+	if (isOptional) addClass('optional');
 
 	return (
 		<div
@@ -134,15 +131,17 @@ export function FormFieldset({
 				title={title}
 				description={description}
 				describedbyId={describedbyId}
-				inlineField={inlineField}/>
+				inlineField={inlineField}
+			/>
 			{children}
 		</div>
 	);
 }
 
-export function FormError({errorMessage}){
-	return(
+export function FormError({errorMessage}) {
+	return (
 		<span className="o-forms-input__error error" role="alert">
 			{errorMessage}
-		</span>)
+		</span>
+	);
 }

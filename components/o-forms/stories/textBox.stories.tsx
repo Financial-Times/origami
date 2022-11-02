@@ -4,29 +4,31 @@ import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect, useState} from 'react';
 import './forms.scss';
 import javascript from '../main.js';
-import { TextInput } from '../src/tsx/TextInput';
-import { Button } from '../../o-buttons/src/tsx/button';
+import {TextInput} from '../src/tsx/TextInput';
+import {Button} from '../../o-buttons/src/tsx/button';
 
 const hideArg = {
 	table: {
-    disable: true
-  }
+		disable: true,
+	},
 };
 
 export default {
 	title: 'Components/o-forms/text-box',
 	component: TextInput,
 	decorators: [withDesign, withHtml],
-	argTypes:{
+	argTypes: {
 		onChange: hideArg,
 		ref: hideArg,
 		children: hideArg,
-	}
+	},
 } as ComponentMeta<typeof TextInput>;
 
 const Template: ComponentStory<typeof TextInput> = args => {
 	const [value, setValue] = useState(args.value);
-	const onChange = (e) => {setValue(e.target.value)}
+	const onChange = e => {
+		setValue(e.target.value);
+	};
 	useEffect(() => {
 		let form = javascript.init();
 
@@ -35,7 +37,7 @@ const Template: ComponentStory<typeof TextInput> = args => {
 			form.forEach(element => element.destroy());
 		};
 	}, []);
-	return <TextInput {...args} value={value} onChange={onChange}/>;
+	return <TextInput {...args} value={value} onChange={onChange} />;
 };
 
 export const OptionalText = Template.bind({});
@@ -49,66 +51,63 @@ export const SmallInputWithSuffix = Template.bind({});
 export const InlineWithShrunkenTitle = Template.bind({});
 export const PasswordInput = Template.bind({});
 
-
-
 OptionalText.args = {
-	title: "Optional text input",
-	description: "Optional prompt text",
-	isOptional: true
-}
+	title: 'Optional text input',
+	description: 'Optional prompt text',
+	isOptional: true,
+};
 
 ValidEntry.args = {
-	title: "Text input with a valid entry",
+	title: 'Text input with a valid entry',
 	highlight: 'valid',
-	value: 'Valid Input'
-}
+	value: 'Valid Input',
+};
 
 InvalidEntry.args = {
-	title: "Text input with an invalid entry",
+	title: 'Text input with an invalid entry',
 	highlight: 'invalid',
-	errorMessage: 'Please fill out this field'
-}
+	errorMessage: 'Please fill out this field',
+};
 
 TextArea.args = {
-	title: "Textarea input",
-	type: "textarea",
-	value: "This is a text input with type 'textarea'."
-}
+	title: 'Textarea input',
+	type: 'textarea',
+	value: "This is a text input with type 'textarea'.",
+};
 
 DisabledTextInput.args = {
-	title: "Disabled text input",
+	title: 'Disabled text input',
 	disabled: true,
-	value: 'Disabled'
-}
+	value: 'Disabled',
+};
 
 SmallTextInput.args = {
-	title: "Small text input",
+	title: 'Small text input',
 	isSmall: true,
-	value: 'Value'
-}
+	value: 'Value',
+};
 
 InputWithSuffix.args = {
-	title: "Text input with suffix",
+	title: 'Text input with suffix',
 	isOptional: true,
-	children: <Button label='Submit' type='secondary' size='big'/>
-}
+	children: <Button label="Submit" type="secondary" size="big" />,
+};
 
 InlineWithShrunkenTitle.args = {
-	title: "Inline & shruken title",
-	description: "Vertically centered",
+	title: 'Inline & shruken title',
+	description: 'Vertically centered',
 	inlineField: true,
-	isVerticalCenter: true
-}
+	isVerticalCenter: true,
+};
 
 SmallInputWithSuffix.args = {
-	title: "Small text input with suffix",
+	title: 'Small text input with suffix',
 	isSmall: true,
-	children: <Button label='Submit' type='secondary'/>
-}
+	children: <Button label="Submit" type="secondary" />,
+};
 
 PasswordInput.args = {
-	title: "Password input",
+	title: 'Password input',
 	type: 'password',
-	value: 'password'
-}
-
+	value: 'password',
+};
