@@ -1,7 +1,6 @@
 import uniqueId from 'lodash.uniqueid';
-import { classBuilder } from '../utils/classBuilder';
-import { InputProps, FormError, FormFieldset, TypeFormField } from './Form';
-
+import {classBuilder} from '../utils/classBuilder';
+import {InputProps, FormError, FormFieldset, TypeFormField} from './Form';
 
 export interface RadioBtnsWrapperProps {
 	children: JSX.Element | JSX.Element[];
@@ -13,51 +12,50 @@ export interface RadioBtnsWrapperProps {
 	inlineInputs?: boolean;
 }
 
-export interface RadioBtnProps extends InputProps{
+export interface RadioBtnProps extends InputProps {
 	checked?: boolean;
-	isNegative? : boolean;
+	isNegative?: boolean;
 	children?: JSX.Element | string;
 }
 
-export interface RadioBtnsProps extends RadioBtnsWrapperProps, TypeFormField {
-
-}
+export interface RadioBtnsProps extends RadioBtnsWrapperProps, TypeFormField {}
 
 function RadioBtnsWrapper({
-		children,
-		errorMessage,
-		state,
-		customStateText,
-		hideStateText,
-		type,
-		inlineInputs
-	}: RadioBtnsWrapperProps) {
-		const [addClass, getClasses] = classBuilder('o-forms-input');
-		if(state) addClass(state);
-		if(errorMessage) addClass('invalid');
-		if(inlineInputs) addClass('inline');
-		return (
-			<span
-					className={`${getClasses()} o-forms-input--radio-${type}`}>
-					{ type === 'box' ?
-					<span className={'o-forms-input--radio-box__container'}>{children}</span> :
-					<>{children}</> }
-					{errorMessage && (
-						<FormError errorMessage={errorMessage}/>
-					)}
-					{state &&
-					<span
+	children,
+	errorMessage,
+	state,
+	customStateText,
+	hideStateText,
+	type,
+	inlineInputs,
+}: RadioBtnsWrapperProps) {
+	const [addClass, getClasses] = classBuilder('o-forms-input');
+	if (state) addClass(state);
+	if (errorMessage) addClass('invalid');
+	if (inlineInputs) addClass('inline');
+	return (
+		<span className={`${getClasses()} o-forms-input--radio-${type}`}>
+			{type === 'box' ? (
+				<span className={'o-forms-input--radio-box__container'}>
+					{children}
+				</span>
+			) : (
+				<>{children}</>
+			)}
+			{errorMessage && <FormError errorMessage={errorMessage} />}
+			{state && (
+				<span
 					className={`
 						o-forms-input__state
-						${(hideStateText || customStateText) && "o-forms-input__state--icon-only"}`
-					}
+						${(hideStateText || customStateText) && 'o-forms-input__state--icon-only'}`}
 					role="status"
-					aria-label={customStateText || ''} >
-						{customStateText}
-					</span>}
+					aria-label={customStateText || ''}>
+					{customStateText}
 				</span>
-		);
-	}
+			)}
+		</span>
+	);
+}
 
 export function RadioBtns({
 	children,
@@ -73,31 +71,27 @@ export function RadioBtns({
 	type,
 	inlineInputs,
 }: RadioBtnsProps) {
-
 	const wrapperProps = {
 		errorMessage,
 		state,
 		customStateText,
 		hideStateText,
 		type,
-		inlineInputs
-	}
+		inlineInputs,
+	};
 	const fieldsetProps = {
 		title,
 		description,
 		isOptional,
 		inlineField,
 		isVerticalCenter,
-
-	}
-	if (!wrapperProps.type){
-		wrapperProps.type = 'round'
+	};
+	if (!wrapperProps.type) {
+		wrapperProps.type = 'round';
 	}
 	return (
 		<FormFieldset {...fieldsetProps}>
-			<RadioBtnsWrapper {...wrapperProps}>
-				{children}
-			</RadioBtnsWrapper>
+			<RadioBtnsWrapper {...wrapperProps}>{children}</RadioBtnsWrapper>
 		</FormFieldset>
 	);
 }
@@ -109,11 +103,11 @@ export function RadioBtn({
 	checked,
 	required,
 	isNegative,
-	children
+	children,
 }: RadioBtnProps) {
-	const labelId = uniqueId('radio_button_')
+	const labelId = uniqueId('radio_button_');
 	const [addClass, getClasses] = classBuilder('o-forms-input', false);
-	if(isNegative) addClass('__label--negative', false);
+	if (isNegative) addClass('__label--negative', false);
 
 	return (
 		<label htmlFor={labelId} key={value}>
@@ -126,8 +120,7 @@ export function RadioBtn({
 				defaultChecked={checked}
 				required={required}
 			/>
-			<span
-				className={`o-forms-input__label ${getClasses()}`}>
+			<span className={`o-forms-input__label ${getClasses()}`}>
 				{children || value}
 			</span>
 		</label>
