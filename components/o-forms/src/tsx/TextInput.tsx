@@ -5,7 +5,7 @@ import {FormError, InputProps, TypeFormField, FormField} from './Form';
 export type TextInputType = 'text' | 'password' | 'email' | 'textarea';
 
 interface TypeTextInput extends InputProps {
-	highlight?: 'valid' | 'invalid';
+	highlightValid?: boolean;
 	errorMessage?: string;
 	hasSuffix?: boolean;
 	type?: TextInputType;
@@ -27,7 +27,7 @@ function PrivateTextInput({
 	name,
 	onChange,
 	ref,
-	highlight,
+	highlightValid,
 	errorMessage,
 	isSmall,
 	required,
@@ -40,7 +40,7 @@ function PrivateTextInput({
 	const inputType = !type || type === 'email' ? 'text' : type;
 	const [addClass, getClasses] = classBuilder('o-forms-input');
 	addClass(inputType);
-	if (highlight) addClass(highlight);
+	if (highlightValid && !errorMessage) addClass('valid');
 	if (errorMessage) addClass('invalid');
 	if (isSmall) addClass('small');
 	if (inlineInput) addClass('inline');
@@ -75,7 +75,7 @@ export function TextInput({
 	name,
 	onChange,
 	ref,
-	highlight,
+	highlightValid,
 	errorMessage,
 	isSmall,
 	required,
@@ -92,7 +92,7 @@ export function TextInput({
 		name,
 		onChange,
 		ref,
-		highlight,
+		highlightValid,
 		errorMessage,
 		isSmall,
 		required,
