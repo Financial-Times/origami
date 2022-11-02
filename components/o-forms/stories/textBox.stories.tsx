@@ -21,6 +21,9 @@ export default {
 		onChange: hideArg,
 		ref: hideArg,
 		children: hideArg,
+		highlightValid: {
+			if: {arg: 'errorMessage', truthy: false},
+		},
 	},
 } as ComponentMeta<typeof TextInput>;
 
@@ -59,13 +62,12 @@ OptionalText.args = {
 
 ValidEntry.args = {
 	title: 'Text input with a valid entry',
-	highlight: 'valid',
+	highlightValid: true,
 	value: 'Valid Input',
 };
 
 InvalidEntry.args = {
 	title: 'Text input with an invalid entry',
-	highlight: 'invalid',
 	errorMessage: 'Please fill out this field',
 };
 
