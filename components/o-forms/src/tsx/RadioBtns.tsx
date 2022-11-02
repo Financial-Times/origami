@@ -3,40 +3,45 @@ import { classBuilder } from '../utils/classBuilder';
 import { InputProps, FormError, FormFieldset, TypeFormField } from './Form';
 
 
-export interface BoxRadioBtnsWrapperProps {
+export interface RadioBtnsWrapperProps {
 	children: JSX.Element | JSX.Element[];
 	errorMessage?: string;
+	type?: 'box' | 'round';
 	state?: 'saving' | 'saved';
 	hideStateText?: boolean;
 	customStateText?: string;
+	inlineInputs?: boolean;
 }
 
-export interface BoxRadioBtnProps extends InputProps{
+export interface RadioBtnProps extends InputProps{
 	checked?: boolean;
 	isNegative? : boolean;
 	children?: JSX.Element | string;
 }
 
-export interface BoxRadioBtnsProps extends BoxRadioBtnsWrapperProps, TypeFormField {
+export interface RadioBtnsProps extends RadioBtnsWrapperProps, TypeFormField {
 
 }
 
-function BoxRadioBtnsWrapper({
+function RadioBtnsWrapper({
 		children,
 		errorMessage,
 		state,
 		customStateText,
-		hideStateText
-	}: BoxRadioBtnsWrapperProps) {
+		hideStateText,
+		type,
+		inlineInputs
+	}: RadioBtnsWrapperProps) {
 		const [addClass, getClasses] = classBuilder('o-forms-input');
-		if(state) addClass(state)
-		if(errorMessage) addClass('invalid')
+		if(state) addClass(state);
+		if(errorMessage) addClass('invalid');
+		if(inlineInputs) addClass('inline');
 		return (
 			<span
-					className={`${getClasses()} o-forms-input--radio-box`}>
-					<span className="o-forms-input--radio-box__container">
-						{children}
-					</span>
+					className={`${getClasses()} o-forms-input--radio-${type}`}>
+					{ type === 'box' ?
+					<span className={'o-forms-input--radio-box__container'}>{children}</span> :
+					<>{children}</> }
 					{errorMessage && (
 						<FormError errorMessage={errorMessage}/>
 					)}
@@ -54,7 +59,7 @@ function BoxRadioBtnsWrapper({
 		);
 	}
 
-export function BoxRadioBtns({
+export function RadioBtns({
 	children,
 	errorMessage,
 	state,
@@ -63,32 +68,41 @@ export function BoxRadioBtns({
 	title,
 	description,
 	isOptional,
-	isInline,
-	isVerticalCenter
-}: BoxRadioBtnsProps) {
+	inlineField,
+	isVerticalCenter,
+	type,
+	inlineInputs,
+}: RadioBtnsProps) {
+
 	const wrapperProps = {
 		errorMessage,
 		state,
 		customStateText,
 		hideStateText,
+		type,
+		inlineInputs
 	}
 	const fieldsetProps = {
 		title,
 		description,
 		isOptional,
-		isInline,
+		inlineField,
 		isVerticalCenter,
+
+	}
+	if (!wrapperProps.type){
+		wrapperProps.type = 'round'
 	}
 	return (
 		<FormFieldset {...fieldsetProps}>
-			<BoxRadioBtnsWrapper {...wrapperProps}>
+			<RadioBtnsWrapper {...wrapperProps}>
 				{children}
-			</BoxRadioBtnsWrapper>
+			</RadioBtnsWrapper>
 		</FormFieldset>
 	);
 }
 
-export function BoxRadioBtn({
+export function RadioBtn({
 	value,
 	name,
 	disabled,
@@ -96,8 +110,8 @@ export function BoxRadioBtn({
 	required,
 	isNegative,
 	children
-}: BoxRadioBtnProps) {
-	const labelId = uniqueId('box_button_')
+}: RadioBtnProps) {
+	const labelId = uniqueId('radio_button_')
 	const [addClass, getClasses] = classBuilder('o-forms-input', false);
 	if(isNegative) addClass('__label--negative', false);
 

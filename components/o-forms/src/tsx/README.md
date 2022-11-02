@@ -45,13 +45,13 @@
 | `type` | 'text' \| 'password' \| 'email' \| 'textarea' |  | defaults to text |
 | `description` | str |  | Optional description associated with the input |
 | `isOptional` | bool |  | marks group as optional |
-| `isInline` | bool |  | displays label side by side with input |
+| `inlineField` | bool |  | displays label side by side with input |
 | `isVerticalCenter` | bool |  | verically centers label with input when displaying inline |
 | `errorMessage` | str |  | |
 | `required` | bool |  |standard html attribute for `<input/>` |
 | `disabled` | bool |  | standard html attribute for `<input/>` |
 | `isSmall` | bool |  | reduces height of input |
-| `isInlineInput` | bool |  | set to true if you wish to display multiple inputs inline |
+| `inlineInput` | bool |  | set to true if you wish to display multiple inputs inline |
 | `highlight` | 'valid' \| 'invalid' |  | styles input as valid or invalid |
 | `children` | `JSX.Element` |  | add an element after an input for example a submit button |
 | `hasSuffix` | bool |  | displays input inline with child, defaults to true if child is present |
@@ -63,39 +63,42 @@
 #### example jsx
 ```jsx
 <Form>
-	<BoxRadioBtns
+	<RadioBtns
 		description="Also availble with icon only"
 		state="saving"
 		title="Stateful Box Button"
+		type="box"
 	>
-		<BoxRadioBtn
+		<RadioBtn
 			name="default"
 			value="Daily"
 			checked
 		/>
-		<BoxRadioBtn
+		<RadioBtn
 			name="default"
 			value="Weekly"
 		/>
-	</BoxRadioBtns>
+	</RadioBtns>
 </Form>
 ```
 
-### BoxRadioBtns options
+### RadioBtns options
 | Property | Type | Required | Description |
 | -------- | ---- | -------- | ----------- |
 | `title` | str | *yes | The label text to go with the group of buttons |
 | `children` | `<BoxRadioBtn/>` | *yes | one or more box buttons |
+| `type` | 'box' \| 'round' |  | defaults to round |
 | `description` | str |  | Optional description of group of buttons |
 | `isOptional` | bool |  | marks group as optional |
-| `isInline` | bool |  | displays label side by side with buttons |
+| `inlineField` | bool |  | displays label side by side with buttons |
+| `inlineInput` | bool |  | display buttons side by side (default is stacked) |
 | `isVerticalCenter` | bool |  | verically centers label with buttons when displaying inline |
 | `errorMessage` | str |  | |
 | `state` | 'saving' \| 'saved' |  | shows text and icon |
 | `hideStateText` | bool |  | displays icon only |
 | `customStateText` | str |  | change state text from default "saving" |
 
-### BoxRadioBtn options
+### RadioBtn options
 
 | Property | Type | Required | Description |
 | -------- | ---- | -------- | ----------- |
@@ -105,4 +108,4 @@
 | `required` | bool |  |standard html attribute for `<input/>` |
 | `disabled` | bool |  | standard html attribute for `<input/>` |
 | `checked` | bool |  | maps to defaultChecked attribute on `<input/>` |
-| `isNegative` | bool |  | adds negative highlight o button |
+| `isNegative` | bool |  | adds negative highlight to a button (box type btns only) |

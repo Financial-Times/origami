@@ -11,7 +11,7 @@ interface TypeTextInput extends InputProps {
 	type?: TextInputType;
 	isSmall?: boolean;
 	children?: JSX.Element;
-	isInlineInput?: boolean;
+	inlineInput?: boolean;
 	onChange?: Function;
 	ref?: any; /* Look up correct type */
 }
@@ -36,7 +36,7 @@ function PrivateTextInput({
 	disabled,
 	hasSuffix,
 	children,
-	isInlineInput
+	inlineInput
 }: PrivateTextInputProps) {
 	const InputComponent = type !== 'textarea' ? 'input' : 'textarea';
 	const inputType = (!type || type === 'email') ? 'text' : type;
@@ -45,7 +45,7 @@ function PrivateTextInput({
 	if(highlight) addClass(highlight);
 	if(errorMessage) addClass('invalid');
 	if(isSmall) addClass('small')
-	if(isInlineInput) addClass('inline')
+	if(inlineInput) addClass('inline')
 	if((hasSuffix || children) && hasSuffix !== false) addClass('suffix')
 
 	return(
@@ -70,7 +70,7 @@ export function TextInput({
 	title,
 	description,
 	isOptional,
-	isInline,
+	inlineField,
 	isVerticalCenter,
 	value,
 	type,
@@ -83,7 +83,7 @@ export function TextInput({
 	required,
 	disabled,
 	hasSuffix,
-	isInlineInput,
+	inlineInput,
 	children
 }: TextInputProps) {
 	const id = uniqueId('labelledby_');
@@ -100,14 +100,14 @@ export function TextInput({
 		required,
 		disabled,
 		hasSuffix,
-		isInlineInput
+		inlineInput
 	}
 	const fieldProps = {
 		id,
 		title,
 		description,
 		isOptional,
-		isInline,
+		inlineField,
 		isVerticalCenter
 	}
 
