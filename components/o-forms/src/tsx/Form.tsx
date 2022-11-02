@@ -11,7 +11,7 @@ export interface TypeFormField {
 	title: string;
 	description?: string;
 	isOptional?: boolean;
-	isInline?: boolean;
+	inlineField?: boolean;
 	isVerticalCenter?: boolean;
 }
 
@@ -32,7 +32,7 @@ export interface InputProps {
 
 interface FormTitleProps {
 	isVerticalCenter?: boolean;
-	isInline?: boolean;
+	inlineField?: boolean;
 	labelId?: string;
 	title: string;
 	description?: string;
@@ -53,14 +53,14 @@ export function Form({children, action, method, onSubmit}: TypeFormProps) {
 
 function FormTitle({
 	isVerticalCenter,
-	isInline,
+	inlineField,
 	labelId,
 	title,
 	description,
 	describedbyId
 }: FormTitleProps){
 	const [addClass, getClasses] = classBuilder('o-forms-title');
-	if(isInline) addClass('shrink');
+	if(inlineField) addClass('shrink');
 	if(isVerticalCenter) addClass('vertical-center');
 
 	return(
@@ -86,13 +86,13 @@ export function FormField ({
 	title,
 	description,
 	isOptional,
-	isInline,
+	inlineField,
 	isVerticalCenter,
 	children,
 }:FormFieldProps) {
 		const describedbyId = description &&  uniqueId('describedby_');
 		const [addClass, getClasses] = classBuilder('o-forms-field');
-		if(isInline) addClass('inline')
+		if(inlineField) addClass('inline')
 		if(isOptional) addClass('optional')
 	return(
 		<label htmlFor={id} className={getClasses()}>
@@ -100,7 +100,7 @@ export function FormField ({
 				title={title}
 				description={description}
 				describedbyId={describedbyId}
-				isInline={isInline}/>
+				inlineField={inlineField}/>
 
 			{children}
 		</label>
@@ -112,14 +112,14 @@ export function FormFieldset({
 	title,
 	description,
 	isOptional,
-	isInline,
+	inlineField,
 	isVerticalCenter,
 	children,
 }: FormFieldsetProps) {
 	const labelId = uniqueId('labelledby_');
 	const describedbyId = description &&  uniqueId('describedby_');
 	const [addClass, getClasses] = classBuilder('o-forms-field');
-	if(isInline) addClass('inline')
+	if(inlineField) addClass('inline')
 	if(isOptional) addClass('optional')
 
 	return (
@@ -134,7 +134,7 @@ export function FormFieldset({
 				title={title}
 				description={description}
 				describedbyId={describedbyId}
-				isInline={isInline}/>
+				inlineField={inlineField}/>
 			{children}
 		</div>
 	);

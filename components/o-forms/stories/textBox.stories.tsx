@@ -21,8 +21,8 @@ export default {
 		onChange: hideArg,
 		ref: hideArg,
 		children: hideArg,
-		}
-	} as ComponentMeta<typeof TextInput>;
+	}
+} as ComponentMeta<typeof TextInput>;
 
 const Template: ComponentStory<typeof TextInput> = args => {
 	const [value, setValue] = useState(args.value);
@@ -96,7 +96,7 @@ InputWithSuffix.args = {
 InlineWithShrunkenTitle.args = {
 	title: "Inline & shruken title",
 	description: "Vertically centered",
-	isInline: true,
+	inlineField: true,
 	isVerticalCenter: true
 }
 
