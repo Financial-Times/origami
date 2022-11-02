@@ -24,7 +24,7 @@ export default {
 		}
 	} as ComponentMeta<typeof TextInput>;
 
-const FormStory = args => {
+const Template: ComponentStory<typeof TextInput> = args => {
 	const [value, setValue] = useState(args.value);
 	const onChange = (e) => {setValue(e.target.value)}
 	useEffect(() => {
@@ -38,16 +38,16 @@ const FormStory = args => {
 	return <TextInput {...args} value={value} onChange={onChange}/>;
 };
 
-export const OptionalText: ComponentStory<typeof TextInput> = FormStory.bind({});
-export const ValidEntry: ComponentStory<typeof TextInput> = FormStory.bind({});
-export const InvalidEntry: ComponentStory<typeof TextInput> = FormStory.bind({});
-export const TextArea: ComponentStory<typeof TextInput> = FormStory.bind({});
-export const DisabledTextInput: ComponentStory<typeof TextInput> = FormStory.bind({});
-export const SmallTextInput: ComponentStory<typeof TextInput> = FormStory.bind({});
-export const InputWithSuffix: ComponentStory<typeof TextInput> = FormStory.bind({});
-export const SmallInputWithSuffix: ComponentStory<typeof TextInput> = FormStory.bind({});
-export const InlineWithShrunkenTitle: ComponentStory<typeof TextInput> = FormStory.bind({});
-export const PasswordInput: ComponentStory<typeof TextInput> = FormStory.bind({});
+export const OptionalText = Template.bind({});
+export const ValidEntry = Template.bind({});
+export const InvalidEntry = Template.bind({});
+export const TextArea = Template.bind({});
+export const DisabledTextInput = Template.bind({});
+export const SmallTextInput = Template.bind({});
+export const InputWithSuffix = Template.bind({});
+export const SmallInputWithSuffix = Template.bind({});
+export const InlineWithShrunkenTitle = Template.bind({});
+export const PasswordInput = Template.bind({});
 
 
 

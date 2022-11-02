@@ -29,7 +29,7 @@ function BoxRadioBtnsWrapper({
 		hideStateText
 	}: BoxRadioBtnsWrapperProps) {
 		const [addClass, getClasses] = classBuilder('o-forms-input');
-		if(state) addClass(`${state}`)
+		if(state) addClass(state)
 		if(errorMessage) addClass('invalid')
 		return (
 			<span

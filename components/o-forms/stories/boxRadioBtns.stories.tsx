@@ -13,7 +13,7 @@ export default {
 	decorators: [withDesign, withHtml],
 } as ComponentMeta<typeof BoxRadioBtns>;
 
-const FormStory = (args) => {
+const Template: ComponentStory<typeof BoxRadioBtns> = (args) => {
 	useEffect(() => {
 		let form = javascript.init();
 		return function cleanup() {
@@ -24,21 +24,17 @@ const FormStory = (args) => {
 	return <BoxRadioBtns {...args}/>;
 };
 
-export const BoxRadioButton: ComponentStory<typeof BoxRadioBtns> = FormStory.bind({});
+export const BoxRadioButton = Template.bind({});
 
-export const NegativeHighlight: ComponentStory<typeof BoxRadioBtns> =
-	FormStory.bind({});
+export const NegativeHighlight = Template.bind({});
 
-export const MultipleBoxRadioButton: ComponentStory<typeof BoxRadioBtns> =
-	FormStory.bind({});
+export const MultipleBoxRadioButton = Template.bind({});
 
-export const DisabledBoxRadioButton: ComponentStory<typeof BoxRadioBtns> = FormStory.bind({});
+export const DisabledBoxRadioButton = Template.bind({});
 
-export const ErrorBoxRadioButton: ComponentStory<typeof BoxRadioBtns> =
-	FormStory.bind({});
+export const ErrorBoxRadioButton = Template.bind({});
 
-export const StateBoxRadioButton: ComponentStory<typeof BoxRadioBtns> =
-	FormStory.bind({});
+export const StateBoxRadioButton = Template.bind({});
 
 BoxRadioButton.args = {
 	children: [
