@@ -32,15 +32,10 @@ const Template: ComponentStory<typeof RadioBtns> = args => {
 };
 
 export const BoxRadioButton = Template.bind({});
-
 export const NegativeHighlight = Template.bind({});
-
 export const MultipleBoxRadioButton = Template.bind({});
-
 export const DisabledBoxRadioButton = Template.bind({});
-
 export const ErrorBoxRadioButton = Template.bind({});
-
 export const StateBoxRadioButton = Template.bind({});
 
 BoxRadioButton.args = {
