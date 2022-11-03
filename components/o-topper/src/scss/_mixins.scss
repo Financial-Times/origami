@@ -294,7 +294,7 @@
 	}
 	
 	.o-topper__image-credit {
-		color:$foreground;
+		color:oColorsMix($foreground, $color-name, 73);
 	}
 
 	@if $color-name == 'paper' or $color-name == 'wheat' {
