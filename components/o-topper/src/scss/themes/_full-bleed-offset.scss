@@ -3,10 +3,15 @@
 @mixin _oTopperThemeFullBleedOffset {
 	display: flex;
 	flex-direction: column;
-
+	
 	@include oGridRespondTo($until: L) {
 		margin: 0 auto;
 		padding: 0;
+
+		.o-topper__background {
+			position: absolute;
+			height:100%;
+		}
 	}
 
 	.o-topper__read-next {
@@ -40,12 +45,14 @@
 		.o-topper__visual {
 			grid-column: 1;
 			grid-row: 1 / span 3;
+			
 		}
 	}
 
+
 	//Add extra 20px columns to get the space outside the content well
 	@include oGridRespondTo(L) {
-		grid-template-columns: 40px 0px 20px minmax(500px, 700px) 20px minmax(0, auto) 300px;
+		grid-template-columns: 40px 40px 20px minmax(500px, 700px) 40px minmax(0, auto) 300px;
 
 		// .o-topper__content {
 		&.o-topper--centered {
@@ -63,29 +70,51 @@
 
 		.o-topper__visual {
 			grid-column: 1 / span 7;
+			left: 0px;
+			margin-left:0px;
+			width: inherit;
 		}
-	}
-
-	@include oGridRespondTo(XL) {
-		grid-template-columns: 40px 40px 20px minmax(500px, 700px) 40px minmax(0, auto) 300px;
+		.o-topper__picture{
+			position: absolute;
+			width: 100vw;
+			margin-left:-50vw;
+			left:50%;
+			height:100%;
+		}
 	}
 
 	@supports (object-fit: cover) {
 		.o-topper__visual {
 			height: auto;
-			max-height: 480px;
 
 			@include oGridRespondTo(L) {
 				height: 600px;
-				max-height: 600px;
 			}
 		}
 	}
-
-	.o-topper__image-credit {
-		@include oGridRespondTo($from: M, $until: XL) {
-			bottom: auto;
-			top: 0;
-		}
+	@include oGridRespondTo( $from: M , $until: L ) {
+		display:flex;
 	}
+	.o-topper__image-credit {
+		text-align: left;
+		@include oGridRespondTo($from: L,$until: XL) { 
+			position: absolute;
+			-webkit-transform: translateY(100%);
+			transform: translate(calc(100% - 300px), 100%);
+			bottom: 0;
+			right: 0;
+			width: 300px;
+		}
+		@include oGridRespondTo($from: XL) { 
+			position: absolute;
+			-webkit-transform: translateY(100%);
+			transform: translate(calc(100% - 340px), 100%);
+			bottom: 0;
+			right: 0;
+			width: calc(50vw - 280px );
+		}
+		
+	}
+
+	
 }

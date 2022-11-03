@@ -41,12 +41,8 @@
 }
 
 @mixin _oTopperImageCredit {
-	@include oTypographySans(-2);
-	color: oColorsByName('white');
-	position: absolute;
-	right: 12px;
-	bottom: 2px;
-	text-shadow: 1px 1px 1px oColorsByName('slate');
+	@include oTypographySans(-1);
+	padding: 3px 7px;
 }
 
 //IE9 support
