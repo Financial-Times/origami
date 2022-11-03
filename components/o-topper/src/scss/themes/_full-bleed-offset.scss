@@ -3,10 +3,15 @@
 @mixin _oTopperThemeFullBleedOffset {
 	display: flex;
 	flex-direction: column;
-
+	
 	@include oGridRespondTo($until: L) {
 		margin: 0 auto;
 		padding: 0;
+
+		.o-topper__background {
+			position: absolute;
+			height:100%;
+		}
 	}
 
 	.o-topper__read-next {
@@ -40,8 +45,10 @@
 		.o-topper__visual {
 			grid-column: 1;
 			grid-row: 1 / span 3;
+			
 		}
 	}
+
 
 	//Add extra 20px columns to get the space outside the content well
 	@include oGridRespondTo(L) {
@@ -73,19 +80,27 @@
 	@supports (object-fit: cover) {
 		.o-topper__visual {
 			height: auto;
-			max-height: 480px;
 
 			@include oGridRespondTo(L) {
 				height: 600px;
-				max-height: 600px;
 			}
 		}
 	}
-
-	.o-topper__image-credit {
-		@include oGridRespondTo($from: M, $until: XL) {
-			bottom: auto;
-			top: 0;
-		}
+	@include oGridRespondTo( $from: M , $until: L ) {
+		display:flex;
 	}
+	.o-topper__image-credit {
+		text-align: right;
+		@include oGridRespondTo($from: L,$until: XL) { 
+			width: 28%;
+			float:right;
+		}
+		@include oGridRespondTo($from: XL) { 
+			width: 29%;
+			float:right;
+		}
+		
+	}
+
+	
 }

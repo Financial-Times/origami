@@ -237,11 +237,10 @@
 	$foreground: oColorsGetTextColor($background, $opacity: 100);
 	$link-text-color: oColorsByUsecase('link', 'text');
 	$link-contrasts-with-background: oColorsGetContrastRatio($background, $link-text-color) > 4.5;
-
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
 	.o-topper__background,
-	.o-topper__content {
+	.o-topper__content, .o-topper__image-credit {
 		background-color: $background;
 	}
 
@@ -292,6 +291,10 @@
 		&:hover {
 			color: oColorsMix($foreground, $color-name, 73);
 		}
+	}
+	
+	.o-topper__image-credit {
+		color:$foreground;
 	}
 
 	@if $color-name == 'paper' or $color-name == 'wheat' {
