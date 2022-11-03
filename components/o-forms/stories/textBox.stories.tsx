@@ -4,7 +4,7 @@ import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect, useState} from 'react';
 import './forms.scss';
 import javascript from '../main.js';
-import {TextInput} from '../src/tsx/TextInput';
+import {TextInput} from '../src/tsx/o-forms';
 import {Button} from '../../o-buttons/src/tsx/button';
 
 const hideArg = {

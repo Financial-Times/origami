@@ -4,7 +4,7 @@ import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect, useState} from 'react';
 import './forms.scss';
 import javascript from '../main.js';
-import {Select} from '../src/tsx/Select';
+import {Select} from '../src/tsx/o-forms';
 import {Button} from '../../o-buttons/src/tsx/button';
 
 const hideArg = {
@@ -28,10 +28,6 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = args => {
-	// const [value, setValue] = useState(args.value);
-	/* const onChange = e => {
-		setValue(e.target.value);
-	}; */
 	useEffect(() => {
 		let form = javascript.init();
 
@@ -40,7 +36,7 @@ const Template: ComponentStory<typeof Select> = args => {
 			form.forEach(element => element.destroy());
 		};
 	}, []);
-	return <Select {...args} /* onChange={onChange}  */ />;
+	return <Select {...args} />;
 };
 
 export const OptionalText = Template.bind({});

@@ -2,7 +2,7 @@ import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
-import {RadioBtn, RadioBtns} from '../src/tsx/RadioBtns';
+import {RadioBtn, RadioBtns} from '../src/tsx/o-forms';
 import './forms.scss';
 import javascript from '../main.js';
 
