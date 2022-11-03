@@ -245,6 +245,13 @@ export function Example({theme}: {theme: ExampleProps}) {
 	</figcaption>
 </figure>
 
+<p>While working with different brands you might encounter examples where certain variations/themes are supported in one brand but not in another. For example o-message Action message supports internal and whitelabel brands but not core. In this kind of situation create brand specific folders inside the <code class="language-plaintext highlighter-rouge">stories</code> directory and our storybook configuration will take care of the rest. Example directory structure:</p>
+
+<p><code class="language-plaintext highlighter-rouge">stories/*.stories.tsx</code> - stories for all brands
+<code class="language-plaintext highlighter-rouge">stories/[brand]/*.stories.tsx</code> - stories for a specific brand
+<code class="language-plaintext highlighter-rouge">stories/shared/.tsx</code> - exports stories for re-export to support multiple specific brands (no .stories extension)</p>
+
+<p>If your component supports only one brand you don’t need a brand specific <code class="language-plaintext highlighter-rouge">stories</code> directory structure for this, since <code class="language-plaintext highlighter-rouge">origami.json</code> will make our storybook configuration aware that there is only one brand and it will skip builds for other brands.</p>
 <h2 id="adding-button">Adding button</h2>
 
 <p>Our demo is missing the count button and it’s related sentence. When we discussed <a href="/documentation/tutorials/create-a-new-component-part-5/#browser-support">browser support</a> we decided to display count functionality if JS was enabled. In this case we have written a TSX template but never initialised components javascript. To do so we will need to update our <code class="language-plaintext highlighter-rouge">example.stories.tsx</code> file by adding the following code:</p>

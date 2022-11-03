@@ -231,7 +231,7 @@ oExample.init('.my-selector');</code></pre>
 
 <p>The second <code class="language-plaintext highlighter-rouge">init</code> argument is <code class="language-plaintext highlighter-rouge">options</code>, an <code class="language-plaintext highlighter-rouge">Object</code> of options for the user to configure the component. So users of <a href="https://registry.origami.ft.com/components/o-autoinit@2.0.4/readme">o-autoinit</a> or the <a href="https://www.ft.com/__origami/service/build/v3/">Origami Build Service</a> can also configure components, data attributes may alternatively be used to set component configuration.</p>
 
-<p>In <code class="language-plaintext highlighter-rouge">/src/js/example</code> setting component configuration is handled in the constructor. The <code class="language-plaintext highlighter-rouge">this.options</code> property is assigned to the given <code class="language-plaintext highlighter-rouge">optionions</code> object, which is merged with any data attributes that have a namespace <code class="language-plaintext highlighter-rouge">data-o-example-[option]</code>.</p>
+<p>In <code class="language-plaintext highlighter-rouge">/src/js/example</code> setting component configuration is handled in the constructor. The <code class="language-plaintext highlighter-rouge">this.options</code> property is assigned to the given <code class="language-plaintext highlighter-rouge">options</code> object, which is merged with any data attributes that have a namespace <code class="language-plaintext highlighter-rouge">data-o-example-[option]</code>.</p>
 
 <p>For instance the <code class="language-plaintext highlighter-rouge">o-table</code> component has a sort feature which may be disabled by either passing <code class="language-plaintext highlighter-rouge">{sortable: false}</code> to the <a href="https://registry.origami.ft.com/components/o-table@8.0.11/jsdoc?brand=core"><code class="language-plaintext highlighter-rouge">o-table</code> <code class="language-plaintext highlighter-rouge">init</code> method</a> or by adding the <a href="https://registry.origami.ft.com/components/o-table@8.0.11/readme?brand=core#disable-sort"><code class="language-plaintext highlighter-rouge">data-o-table-sortable="false"</code></a> attribute to the <code class="language-plaintext highlighter-rouge">o-table</code> element.</p>
 
@@ -252,10 +252,10 @@ oExample.init('.my-selector');</code></pre>
 	 * @param {HTMLElement} [exampleEl] - The component element in the DOM
 	 * @param {Object} [options={}] - An options object for configuring the component
 	 */
-	constructor (exampleEl, optionions) {
+	constructor (exampleEl, options) {
 		this.exampleEl = exampleEl;
 		this.options = Object.assign({}, {
-		}, optionions || Example.getDataAttributes(exampleEl));
+		}, options || Example.getDataAttributes(exampleEl));
 		// A property to store the current count.
 		this.count = 0;
 		// Listen to all click events on the o-example instance.
@@ -310,9 +310,9 @@ handleEvent(event) {
         // the attribute data-o-example-current-count.
         const countElements = this.exampleEl.querySelectorAll('[data-o-example-current-count]');
         // For each count element found, update the count.
-		for (const element of countElements) {
-			element.innerText = this.count;
-		}
+			for (const element of countElements) {
+				element.innerText = this.count;
+			}
     }
 }</code></pre>
 
@@ -329,9 +329,9 @@ handleEvent(event) {
 
 <pre><code class="o-syntax-highlight--js">// src/js/example.js
 
-constructor (exampleEl, optionions) {
+constructor (exampleEl, options) {
         this.exampleEl = exampleEl;
-        // Get the `highCount` option from the `optionions` argument or
+        // Get the `highCount` option from the `options` argument or
         // from a `data-o-example-high-count` data attribute, or
         // default to `10` if not set.
 		this.options = Object.assign({}, {
@@ -385,10 +385,10 @@ handleEvent(event) {
 
 <pre><code class="o-syntax-highlight--diff">// src/js/example.js
 
-constructor (exampleEl, optionions) {
+constructor (exampleEl, options) {
 		this.exampleEl = exampleEl;
 		this.options = Object.assign({}, {
-		}, optionions || Example.getDataAttributes(exampleEl));
+		}, options || Example.getDataAttributes(exampleEl));
 		// A property to store the current count.
 		this.count = 0;
 		// Listen to all click events on the o-example instance.
@@ -402,12 +402,12 @@ constructor (exampleEl, optionions) {
 
 <pre><code class="o-syntax-highlight--html">&lt;!-- demos/src/demo.mustache  --&gt;
 
-&lt;div id="element" class="o-example &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}} &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}}" data-o-component="o-example"&gt;
+&lt;div id="element" class="o-example &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}}" data-o-component="o-example"&gt;
 	Hello world, I am a component named o-example!
 	&lt;span class="o-example__counter"&gt;
 		You have clicked this lovely button &lt;span data-o-example-current-count&gt;0&lt;/span&gt; times.
 		&lt;button class="o-example__button"&gt;count&lt;/button&gt;
-	&lt;//span&gt;
+	&lt;/span&gt;
 &lt;/div&gt;
 
 </code></pre>
