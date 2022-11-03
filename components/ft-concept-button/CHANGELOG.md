@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/Financial-Times/origami/compare/ft-concept-button-v1.0.2...ft-concept-button-v1.1.0) (2022-11-03)
+
+
+### Features
+
+* Add link variant to ft-concept-button ([74d2201](https://www.github.com/Financial-Times/origami/commit/74d2201ccb935c876e79d006bfdb22f71cbdeebb))
+
 ### [1.0.2](https://www.github.com/Financial-Times/origami/compare/ft-concept-button-v1.0.1...ft-concept-button-v1.0.2) (2022-04-21)
 
 
