@@ -14,7 +14,7 @@ const hideArg = {
 };
 
 export default {
-	title: 'Components/o-forms/pseudo-radio-box-links',
+	title: 'Components/o-forms/pseudo-box-radio-links',
 	component: RadioBoxLinks,
 	decorators: [withDesign, withHtml],
 	argTypes: {
