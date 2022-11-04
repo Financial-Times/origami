@@ -5,6 +5,7 @@ import {TextInput} from './TextInput';
 import {Select} from './Select';
 import {FileInput} from './FileInput';
 import {DateInput} from './DateInput';
+import { Checkbox, Checkboxes } from './Checkboxes';
 
 export {
 	Form,
@@ -16,4 +17,6 @@ export {
 	RadioBoxLinks,
 	RadioBoxLink,
 	Select,
+	Checkbox,
+	Checkboxes,
 };

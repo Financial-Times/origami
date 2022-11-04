@@ -16,11 +16,9 @@ export default {
 	title: 'Components/o-forms/box-radio-buttons',
 	component: RadioBtns,
 	decorators: [withDesign, withHtml],
-	/* add some args here? Array of objects */
 } as ComponentMeta<typeof RadioBtns>;
 
 const Template: ComponentStory<typeof RadioBtns> = args => {
-	/* use these inpus to render buttons */
 	useEffect(() => {
 		let form = javascript.init();
 		return function cleanup() {
