@@ -3,17 +3,17 @@
 ///
 /// @param {String} $group
 @mixin _oTeaserGetElementsMixin($group) {
-	@if $group == 'default' {
+	@if $group == "default" {
 		@include _oTeaserElementsDefault;
-	} @else if $group == 'images' {
+	} @else if $group == "images" {
 		@include _oTeaserElementsImages;
-	} @else if $group == 'timestamp' {
+	} @else if $group == "timestamp" {
 		@include _oTeaserElementsTimestamp;
-	} @else if $group == 'promoted' {
+	} @else if $group == "promoted" {
 		@include _oTeaserElementsPromoted;
-	} @else if $group == 'related-items' {
+	} @else if $group == "related-items" {
 		@include _oTeaserElementsRelatedItems;
-	} @else if $group == 'syndication' {
+	} @else if $group == "syndication" {
 		@include _oTeaserSyndicationIndicator;
 	}
 }
@@ -23,23 +23,23 @@
 ///
 /// @param {String} $theme
 @mixin _oTeaserGetThemeMixin($theme) {
-	@if $theme == 'small' {
+	@if $theme == "small" {
 		@include _oTeaserThemeSmall;
-	} @else if $theme == 'large' {
+	} @else if $theme == "large" {
 		@include _oTeaserThemeLarge;
-	} @else if $theme == 'standard' {
+	} @else if $theme == "standard" {
 		@include _oTeaserThemeStandard;
-	} @else if $theme == 'hero' {
+	} @else if $theme == "hero" {
 		@include _oTeaserThemeHero;
-	} @else if $theme == 'top-stories' {
+	} @else if $theme == "top-stories" {
 		@include _oTeaserThemeTopStories;
-	} @else if $theme == 'video' {
+	} @else if $theme == "video" {
 		@include _oTeaserThemeVideo;
-	} @else if $theme == 'audio' {
+	} @else if $theme == "audio" {
 		@include _oTeaserThemeAudio;
-	} @else if $theme == 'package' {
+	} @else if $theme == "package" {
 		@include _oTeaserThemePackage;
-	} @else if $theme == 'live' {
+	} @else if $theme == "live" {
 		@include _oTeaserThemeLive;
 	}
 }
@@ -105,8 +105,8 @@
 				$external: true,
 				$include-base-styles: false,
 				$theme: (
-					'base': $_o-teaser-base-color,
-					'hover': $_o-teaser-focus-hover
+					"base": $_o-teaser-base-color,
+					"hover": $_o-teaser-focus-hover,
 				)
 			);
 		}

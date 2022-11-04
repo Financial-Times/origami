@@ -12,7 +12,6 @@ tags:
 	</strong>
 </abbr> {{page.description}}
 
-
 ## Top three things
 
 Here's the big stuff we've done this month:
@@ -65,7 +64,6 @@ polyfill](https://github.com/Financial-Times/polyfill-library/pull/461)!
 
 A remarkable level of contribution for two weeks on the team! Thanks, Olga! 😊
 
-
 ## Broader update
 
 A digest list of other things that have happened:
@@ -82,4 +80,4 @@ A digest list of other things that have happened:
 - We decommissioned origami-webhooks
 - Polyfill.io documentation was improved
 
-*[TL;DR]: too long; didn't read
+\*[TL;DR]: too long; didn't read

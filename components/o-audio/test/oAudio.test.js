@@ -1,24 +1,24 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
-import * as fixtures from './helpers/fixtures.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
+import * as fixtures from "./helpers/fixtures.js";
 
-import OAudio from './../main.js';
+import OAudio from "./../main.js";
 
 describe("OAudio", () => {
-	it('is defined', () => {
-		proclaim.equal(typeof OAudio, 'function');
+	it("is defined", () => {
+		proclaim.equal(typeof OAudio, "function");
 	});
 
-	it('has a static init method', () => {
-		proclaim.equal(typeof OAudio.init, 'function');
+	it("has a static init method", () => {
+		proclaim.equal(typeof OAudio.init, "function");
 	});
 
-	it("should autoinitialize", (done) => {
-		const initSpy = sinon.spy(OAudio, 'init');
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		setTimeout(function(){
+	it("should autoinitialize", done => {
+		const initSpy = sinon.spy(OAudio, "init");
+		document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
+		setTimeout(function () {
 			try {
 				proclaim.equal(initSpy.called, true);
 				initSpy.restore();
@@ -30,7 +30,7 @@ describe("OAudio", () => {
 	});
 
 	it("should not autoinitialize when the event is not dispached", () => {
-		const initSpy = sinon.spy(OAudio, 'init');
+		const initSpy = sinon.spy(OAudio, "init");
 		proclaim.equal(initSpy.called, false);
 	});
 
@@ -50,9 +50,8 @@ describe("OAudio", () => {
 		});
 
 		it("single component when initialized with a root element", () => {
-			const boilerplate = OAudio.init('#element');
+			const boilerplate = OAudio.init("#element");
 			proclaim.equal(boilerplate instanceof OAudio, true);
 		});
 	});
-
 });

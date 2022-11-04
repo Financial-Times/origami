@@ -9,7 +9,6 @@ When using Sass, you will need to add `node_modules` to your `includePath` as we
 - Update your code to use the fully qualified package name, i.e.: `@import "@financial-times/o-brand/main"`, or
 - Also add `node_modules/@financial-times` to the Sass include path
 
-
 ### Migrating from v2 to v3
 
 All [o-syntax-highlight colour usecases](https://github.com/Financial-Times/o-syntax-highlight/blob/v2.1.0/src/scss/colors.scss) have been removed. Ensure your project is not using these colours by checking for build errors. If so replace with an [o-colors](https://registry.origami.ft.com/components/o-colors) colour.
@@ -38,6 +37,7 @@ The main change is how to output syntax-specific styling:
 ```
 
 The primary mixin requires an `$opts` parameter that accepts a 'languages' list. That list can contains any or all of the following:
+
 - 'bash'
 - 'css'
 - 'diff'

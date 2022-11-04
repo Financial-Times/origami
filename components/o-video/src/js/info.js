@@ -1,5 +1,5 @@
 class VideoInfo {
-	constructor (video) {
+	constructor(video) {
 		this.video = video;
 
 		this.opts = this.video.opts.placeholderInfo.reduce((map, key) => {
@@ -7,24 +7,24 @@ class VideoInfo {
 			return map;
 		}, {});
 
-		this.infoEl = document.createElement('div');
-		this.infoEl.className = 'o-video__info';
+		this.infoEl = document.createElement("div");
+		this.infoEl.className = "o-video__info";
 
 		if (this.opts.brand) {
-			this.brandEl = document.createElement('span');
-			this.brandEl.className = 'o-video__info-brand';
+			this.brandEl = document.createElement("span");
+			this.brandEl.className = "o-video__info-brand";
 			this.infoEl.appendChild(this.brandEl);
 		}
 
 		if (this.opts.title) {
-			this.titleEl = document.createElement('span');
-			this.titleEl.className = 'o-video__info-title';
+			this.titleEl = document.createElement("span");
+			this.titleEl.className = "o-video__info-title";
 			this.infoEl.appendChild(this.titleEl);
 		}
 
 		if (this.opts.description) {
-			this.descriptionEl = document.createElement('p');
-			this.descriptionEl.className = 'o-video__info-description';
+			this.descriptionEl = document.createElement("p");
+			this.descriptionEl.className = "o-video__info-description";
 			this.infoEl.appendChild(this.descriptionEl);
 		}
 
@@ -33,9 +33,10 @@ class VideoInfo {
 		this.video.placeholderEl.appendChild(this.infoEl);
 	}
 
-	update () {
+	update() {
 		if (this.brandEl) {
-			const brandName = this.video.videoData.brand && this.video.videoData.brand.name;
+			const brandName =
+				this.video.videoData.brand && this.video.videoData.brand.name;
 			this.brandEl.textContent = brandName;
 		}
 
@@ -48,7 +49,7 @@ class VideoInfo {
 		}
 	}
 
-	teardown () {
+	teardown() {
 		this.video.placeholderEl.removeChild(this.infoEl);
 
 		delete this.infoEl;

@@ -1,4 +1,4 @@
-const className = 'o-banner';
+const className = "o-banner";
 const classNames = {
 	closed: `${className}--closed`,
 	outer: `${className}__outer`,
@@ -18,7 +18,6 @@ const classNames = {
  * Represents a banner.
  */
 class Banner {
-
 	/**
 	 * Class constructor.
 	 *
@@ -26,52 +25,61 @@ class Banner {
 	 * @param {object} [options={}] - An options object for configuring the banner
 	 * @property {HTMLElement} bannerElement - The banner element we were given
 	 */
-	constructor (bannerElement, options) {
+	constructor(bannerElement, options) {
 		this.bannerElement = bannerElement;
 		// Default the options
-		this.options = Object.assign({}, {
-			autoOpen: true,
-			suppressCloseButton: false,
-			closeExistingBanners: true,
-			appendTo: document.body,
-			contentLong: '&hellip;',
-			contentShort: null,
-			buttonLabel: 'OK',
-			buttonUrl: '#',
-			formAction: null,
-			formEncoding: 'application/x-www-form-urlencoded',
-			formMethod: 'post',
-			linkLabel: null,
-			linkUrl: '#',
-			closeButtonLabel: 'Close banner',
-			theme: null,
-			layout: null
-		}, options || Banner.getOptionsFromDom(bannerElement));
+		this.options = Object.assign(
+			{},
+			{
+				autoOpen: true,
+				suppressCloseButton: false,
+				closeExistingBanners: true,
+				appendTo: document.body,
+				contentLong: "&hellip;",
+				contentShort: null,
+				buttonLabel: "OK",
+				buttonUrl: "#",
+				formAction: null,
+				formEncoding: "application/x-www-form-urlencoded",
+				formMethod: "post",
+				linkLabel: null,
+				linkUrl: "#",
+				closeButtonLabel: "Close banner",
+				theme: null,
+				layout: null,
+			},
+			options || Banner.getOptionsFromDom(bannerElement)
+		);
 
 		// Validate theme choice.
-		if (this.options.theme && typeof this.options.theme !== 'string') {
+		if (this.options.theme && typeof this.options.theme !== "string") {
 			throw new Error(`"${this.options.theme}" must be a string.`);
 		}
 
 		// Validate layout choice.
-		const validLayouts = ['small', 'compact'];
+		const validLayouts = ["small", "compact"];
 		const layout = this.options.layout;
 		if (layout && !validLayouts.includes(layout)) {
-			throw new Error(`"${layout}" is not a valid layout. Use one of ${validLayouts}.`);
+			throw new Error(
+				`"${layout}" is not a valid layout. Use one of ${validLayouts}.`
+			);
 		}
 
 		// Find the element to append the banner to if configured.
 		try {
 			// Find by query selector.
-			if (typeof this.options.appendTo === 'string') {
+			if (typeof this.options.appendTo === "string") {
 				this.options.appendTo = document.querySelector(this.options.appendTo);
 			}
 			// Confirm a html element has been given or found.
 			if (this.options.appendTo instanceof HTMLElement !== true) {
-				throw new Error('It is not an Node instance.');
+				throw new Error("It is not an Node instance.");
 			}
 		} catch (error) {
-			throw new Error(`Cound not find the element to append the banner to: ${error.message}`, this);
+			throw new Error(
+				`Cound not find the element to append the banner to: ${error.message}`,
+				this
+			);
 		}
 
 		// Render the banner
@@ -97,16 +105,14 @@ class Banner {
 	 *
 	 * @returns {void}
 	 */
-	render () {
+	render() {
 		if (!(this.bannerElement instanceof HTMLElement)) {
 			// If the banner element is not an HTML Element, build one
 			this.bannerElement = this.buildBannerElement();
 			this.options.appendTo.appendChild(this.bannerElement);
-
-		} else if (this.bannerElement.innerHTML.trim() === '') {
+		} else if (this.bannerElement.innerHTML.trim() === "") {
 			// If the banner element is empty, we construct the banner
 			this.bannerElement = this.buildBannerElement(this.bannerElement);
-
 		} else if (!this.bannerElement.querySelector(`.${classNames.outer}`)) {
 			// If the banner element is not empty and also does not contain an outer element,
 			// we assume the element content is the banner content
@@ -116,7 +122,9 @@ class Banner {
 		}
 
 		// Select all the elements we need
-		this.innerElement = this.bannerElement.querySelector('[data-o-banner-inner]');
+		this.innerElement = this.bannerElement.querySelector(
+			"[data-o-banner-inner]"
+		);
 
 		// Build the close button
 		if (!this.options.suppressCloseButton) {
@@ -130,9 +138,9 @@ class Banner {
 	 *
 	 * @returns {void}
 	 */
-	open () {
+	open() {
 		this.bannerElement.classList.remove(classNames.closed);
-		this.bannerElement.dispatchEvent(new CustomEvent('o.bannerOpened'));
+		this.bannerElement.dispatchEvent(new CustomEvent("o.bannerOpened"));
 	}
 
 	/**
@@ -140,9 +148,9 @@ class Banner {
 	 *
 	 * @returns {void}
 	 */
-	close () {
+	close() {
 		this.bannerElement.classList.add(classNames.closed);
-		this.bannerElement.dispatchEvent(new CustomEvent('o.bannerClosed'));
+		this.bannerElement.dispatchEvent(new CustomEvent("o.bannerClosed"));
 	}
 
 	/**
@@ -151,10 +159,10 @@ class Banner {
 	 * @param {HTMLElement} [bannerElement] - The banner element to build around
 	 * @returns {HTMLElement} Returns the new banner element
 	 */
-	buildBannerElement (bannerElement) {
-		bannerElement = bannerElement || document.createElement('div');
-		bannerElement.innerHTML = '';
-		bannerElement.setAttribute('role', 'region');
+	buildBannerElement(bannerElement) {
+		bannerElement = bannerElement || document.createElement("div");
+		bannerElement.innerHTML = "";
+		bannerElement.setAttribute("role", "region");
 		bannerElement.classList.add(className);
 		if (this.options.theme) {
 			bannerElement.classList.add(`${className}--${this.options.theme}`);
@@ -179,9 +187,12 @@ class Banner {
 				</div>
 			`;
 		}
-		let primaryActionHtml = '';
+		let primaryActionHtml = "";
 		if (this.options.buttonLabel) {
-			if (this.options.formAction !== null && this.options.formAction !== undefined) {
+			if (
+				this.options.formAction !== null &&
+				this.options.formAction !== undefined
+			) {
 				primaryActionHtml = `
 					<form class="${classNames.action}" action="${this.options.formAction}" enctype="${this.options.formEncoding}" method="${this.options.formMethod}">
 						<input class="${classNames.button}" type="submit" value="${this.options.buttonLabel}"/>
@@ -195,7 +206,7 @@ class Banner {
 				`;
 			}
 		}
-		let secondaryActionHtml = '';
+		let secondaryActionHtml = "";
 		if (this.options.linkLabel) {
 			secondaryActionHtml = `
 				<div class="${classNames.action} ${classNames.secondaryAction}">
@@ -207,11 +218,13 @@ class Banner {
 			<div class="${classNames.outer}">
 				<div class="${classNames.inner}" data-o-banner-inner="">
 					${contentHtml}
-					${(primaryActionHtml || secondaryActionHtml) &&
-					`<div class="${classNames.actions}">
+					${
+						(primaryActionHtml || secondaryActionHtml) &&
+						`<div class="${classNames.actions}">
 						${primaryActionHtml}
 						${secondaryActionHtml}
-					</div>`}
+					</div>`
+					}
 				</div>
 			</div>
 		`;
@@ -223,16 +236,16 @@ class Banner {
 	 *
 	 * @returns {HTMLElement} Returns the new close button element
 	 */
-	buildCloseButtonElement () {
-		const closeButton = document.createElement('button');
+	buildCloseButtonElement() {
+		const closeButton = document.createElement("button");
 		closeButton.className = classNames.close;
-		closeButton.setAttribute('aria-label', this.options.closeButtonLabel);
+		closeButton.setAttribute("aria-label", this.options.closeButtonLabel);
 		if (this.bannerElement.id) {
-			closeButton.setAttribute('aria-controls', this.bannerElement.id);
+			closeButton.setAttribute("aria-controls", this.bannerElement.id);
 		}
 
 		// Add event listeners
-		closeButton.addEventListener('click', event => {
+		closeButton.addEventListener("click", event => {
 			this.close();
 			event.preventDefault();
 		});
@@ -247,19 +260,21 @@ class Banner {
 	 * @param {HTMLElement} bannerElement - The banner element in the DOM
 	 * @returns {Object.<string, any>} - The options
 	 */
-	static getOptionsFromDom (bannerElement) {
+	static getOptionsFromDom(bannerElement) {
 		if (!(bannerElement instanceof HTMLElement)) {
 			return {};
 		}
 		return Object.keys(bannerElement.dataset).reduce((options, key) => {
-
 			// Ignore data-o-component
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return options;
 			}
 
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oBanner(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(
+				/^oBanner(\w)(\w+)$/,
+				(m, m1, m2) => m1.toLowerCase() + m2
+			);
 			const value = bannerElement.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string
@@ -277,7 +292,7 @@ class Banner {
 	 * Undo the init method
 	 */
 	destroy() {
-		if(this.closeButtonElement) {
+		if (this.closeButtonElement) {
 			this.closeButtonElement.remove();
 			delete this.closeButtonElement;
 		}
@@ -290,7 +305,7 @@ class Banner {
 	 * @param {object} [options={}] - An options object for configuring the banners
 	 * @returns {Banner | Banner[]} - The newly instantiated Banner (or Banners, if rootElement was not a banner)
 	 */
-	static init (rootElement, options) {
+	static init(rootElement, options) {
 		if (!rootElement) {
 			rootElement = document.body;
 		}
@@ -302,14 +317,19 @@ class Banner {
 
 		// If the rootElement is an HTMLElement (ie it was found in the document anywhere)
 		// AND the rootElement has the data-o-component=o-banner then initialise just 1 banner (this one)
-		if (rootElement instanceof HTMLElement && /\bo-banner\b/.test(rootElement.getAttribute('data-o-component'))) {
+		if (
+			rootElement instanceof HTMLElement &&
+			/\bo-banner\b/.test(rootElement.getAttribute("data-o-component"))
+		) {
 			return new Banner(rootElement, options);
 		}
 
 		// If the rootElement wasn't itself a banner, then find ALL of the child things that have the data-o-component=oBanner set
-		return Array.from(rootElement.querySelectorAll('[data-o-component="o-banner"]'), rootElement => new Banner(rootElement, options));
+		return Array.from(
+			rootElement.querySelectorAll('[data-o-component="o-banner"]'),
+			rootElement => new Banner(rootElement, options)
+		);
 	}
-
 }
 
 Banner._bannerInstances = [];

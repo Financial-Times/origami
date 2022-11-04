@@ -12,6 +12,7 @@ redirect_from:
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
+
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
@@ -39,6 +40,7 @@ Origami components are stored in the [Origami monorepo](https://github.com/Finan
 The `type` can be any of `feat`, `fix`, `docs` or `backstage`.
 
 The prefix is used to calculate the version number to release – according to [semver](https://semver.org/#summary) – and the section of the release notes to place the commit message in.
+
 <pre><code class="o-syntax-highlight--bash">
 | type      | when to use                         | release level | release note section |
 | --------- | ----------------------------------- | ------------- | -------------------- |
@@ -47,6 +49,7 @@ The prefix is used to calculate the version number to release – according to [
 | docs      | a change to documentation           | none          | Documentation        |
 | backstage | any changes that aren't user-facing | none          | none                 |
 </code></pre>
+
 Indicate a breaking change by placing an `!` between the type name and the colon. We will use `feat!` to do an initial release.
 
 <pre><code class="o-syntax-highlight--bash">git add --all

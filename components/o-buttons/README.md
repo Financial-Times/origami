@@ -18,12 +18,11 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 There are two types of buttons, primary buttons and secondary buttons.
 
-| Type      | Selector              | Brand Support                |
-|-----------|-----------------------|------------------------------|
-| primary   | .o-buttons--primary      | core, internal, whitelabel |
+| Type      | Selector              | Brand Support              |
+| --------- | --------------------- | -------------------------- |
+| primary   | .o-buttons--primary   | core, internal, whitelabel |
 | secondary | .o-buttons--secondary | core, internal, whitelabel |
-| ghost | .o-buttons--ghost | core, internal, whitelabel |
-
+| ghost     | .o-buttons--ghost     | core, internal, whitelabel |
 
 ```html
 <button class="o-buttons o-buttons--primary">Submit</button>
@@ -44,7 +43,9 @@ A theme may be applied to a button to change its appearance. o-buttons provides 
 
 ```html
 <button class="o-buttons o-buttons--primary o-buttons--inverse">Submit</button>
-<button class="o-buttons o-buttons--secondary o-buttons--inverse">Cancel</button>
+<button class="o-buttons o-buttons--secondary o-buttons--inverse">
+	Cancel
+</button>
 ```
 
 Sass users may create [custom themes](#custom-themes).
@@ -62,6 +63,7 @@ Any button may be made larger using the `o-buttons--big` modifier class.
 To add an icon to your button add the class `o-buttons-icon` and `o-buttons-icon--{icon-name}` to your button.
 
 [Sass](#sass) users may output any icon from the [fticons](https://registry.origami.ft.com/components/fticons/) set. However if you're using the [Build Service](https://www.ft.com/__origami/service/build/) a limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller, but if you need an icon button that we don't currently support then please contact the Origami team:
+
 - arrow-left
 - arrow-right
 - upload
@@ -79,17 +81,25 @@ To add an icon to your button add the class `o-buttons-icon` and `o-buttons-icon
 - cross
 
 ```html
-<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-down">Down Arrow</button>
-<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--download">Download</button>
+<button
+	class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-down"
+>
+	Down Arrow
+</button>
+<button
+	class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--download"
+>
+	Download
+</button>
 ```
 
 If you would like your button to display only an icon, add the class `o-buttons-icon--icon-only` and provide a visually hidden label for screen-reader users with `o-buttons-icon__label`.
 
 ```html
-<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-down o-buttons-icon--icon-only">
-	<span class="o-buttons-icon__label">
-		Down Arrow
-	</span>
+<button
+	class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-down o-buttons-icon--icon-only"
+>
+	<span class="o-buttons-icon__label"> Down Arrow </span>
 </button>
 ```
 
@@ -99,7 +109,9 @@ Wrap buttons with `.o-buttons-group` to group them together:
 
 ```html
 <div class="o-buttons-group">
-	<button class="o-buttons o-buttons--secondary" aria-selected="true">One</button>
+	<button class="o-buttons o-buttons--secondary" aria-selected="true">
+		One
+	</button>
 	<button class="o-buttons o-buttons--secondary">Two</button>
 	<button class="o-buttons o-buttons--secondary">Three</button>
 </div>
@@ -113,8 +125,11 @@ The following markup example shows pagination for 20 pages, where the 14th page 
 
 ```html
 <div class="o-buttons-pagination">
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only">
-		<span class='o-buttons-icon__label'>Previous results</span>
+	<a
+		href="#"
+		class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only"
+	>
+		<span class="o-buttons-icon__label">Previous results</span>
 	</a>
 
 	<a href="#" class="o-buttons o-buttons--secondary">1</a>
@@ -125,8 +140,11 @@ The following markup example shows pagination for 20 pages, where the 14th page 
 	<span class="o-buttons-pagination__ellipsis">...</span>
 	<a href="#" class="o-buttons o-buttons--secondary">20</a>
 
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
-		<span class='o-buttons-icon__label'>Next results</span>
+	<a
+		href="#"
+		class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only"
+	>
+		<span class="o-buttons-icon__label">Next results</span>
 	</a>
 </div>
 ```
@@ -134,12 +152,13 @@ The following markup example shows pagination for 20 pages, where the 14th page 
 #### Pagination Rules
 
 The number of pages to display is not enforced by Origami. However we recommend the following:
+
 - Show no more than 7 pages at a time. When there are more than 7 pages, hide more pages behind the pagination ellipsis in the following way. Given:
-	- The selected page is below 3 show ellipsis with 3 pages either side.
-	- The selected page is one of the last 2 pages show ellipsis with 3 pages either side.
-	- The 3rd page is selected show 4 pages, the ellipsis, and 2 more pages.
-	- The 3rd from last page is selected show 2 pages, the ellipsis, and 4 more pages.
-	- The selected page is more than 3 from the first and last page show the first page, ellipsis, three pages, ellipsis, and the last page.
+  - The selected page is below 3 show ellipsis with 3 pages either side.
+  - The selected page is one of the last 2 pages show ellipsis with 3 pages either side.
+  - The 3rd page is selected show 4 pages, the ellipsis, and 2 more pages.
+  - The 3rd from last page is selected show 2 pages, the ellipsis, and 4 more pages.
+  - The selected page is more than 3 from the first and last page show the first page, ellipsis, three pages, ellipsis, and the last page.
 
 For an example see the [pagination demos in the Origami registry](https://registry.origami.ft.com/components/o-buttons@6.0.19#demo-pagination-layout).
 
@@ -153,20 +172,35 @@ Big buttons may also be used in a pagination style. Add the `o-buttons--big` mod
 
 ```html
 <div class="o-buttons-pagination">
-	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" disabled>
-		<span class='o-buttons-icon__label'>Previous results</span>
+	<a
+		href="#"
+		class="o-buttons o-buttons--big o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only"
+		disabled
+	>
+		<span class="o-buttons-icon__label">Previous results</span>
 	</a>
 
-	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary" aria-current="page">1</a>
+	<a
+		href="#"
+		class="o-buttons o-buttons--big o-buttons--secondary"
+		aria-current="page"
+		>1</a
+	>
 	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary">2</a>
 	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary">3</a>
-	<span class="o-buttons-pagination__ellipsis o-buttons-pagination__ellipsis--big">...</span>
+	<span
+		class="o-buttons-pagination__ellipsis o-buttons-pagination__ellipsis--big"
+		>...</span
+	>
 	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary">18</a>
 	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary">19</a>
 	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary">20</a>
 
-	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
-		<span class='o-buttons-icon__label'>Next results</span>
+	<a
+		href="#"
+		class="o-buttons o-buttons--big o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only"
+	>
+		<span class="o-buttons-icon__label">Next results</span>
 	</a>
 </div>
 ```
@@ -190,14 +224,38 @@ To make a button disabled add the `disabled` attribute. To visually hide the dis
 To output default o-buttons CSS make a single call to the primary mixin `oButtons`. It is recommended that you pass an options map as the first argument to include only the button styles you need. Without the options map, all o-buttons styles are included.
 
 ```scss
-@include oButtons($opts: (
-	'sizes': ('big'), // e.g .o-buttons--big
-	'types': ('primary', 'secondary', 'ghost'), // e.g .o-buttons--primary
-	'themes': ('mono', 'inverse', 'b2c'), // e.g .o-buttons--inverse
-	'icons': ('arrow-left', 'arrow-right', 'search'), // any fticons, e.g .o-buttons-icons.o-buttons-icons--search
-	'pagination': true, // .o-buttons-pagination
-	'groups': true // .o-buttons-group
-));
+@include oButtons(
+	$opts: (
+		"sizes": (
+			"big",
+		),
+		// e.g .o-buttons--bi
+		"types":
+			(
+				"primary",
+				"secondary",
+				"ghost",
+			),
+		// e.g .o-buttons--primar
+		"themes":
+			(
+				"mono",
+				"inverse",
+				"b2c",
+			),
+		// e.g .o-buttons--invers
+		"icons":
+			(
+				"arrow-left",
+				"arrow-right",
+				"search",
+			),
+		// any fticons, e.g .o-buttons-icons.o-buttons-icons--searc
+		"pagination": true,
+		// .o-buttons-paginatio
+		"groups": true // .o-buttons-grou,,,,,
+	)
+);
 ```
 
 ### Custom Themes
@@ -206,18 +264,26 @@ To create a new button theme call `oButtonsAddTheme` with the colour of your the
 
 - name: The name of your theme. This is used for the modifer class output `o-buttons--{name}`.
 - opts: A map of options for your theme. Keys include `color` and `context`.
-	- color: The main colour of your button. Any o-colors palette colour name.
-	- context (optional): The background colour your button is placed on. Defaults to the page colour (paper for the core brand, white otherwise). This is used to confirm accessibility and in some cases changes the colour of the button.
+  - color: The main colour of your button. Any o-colors palette colour name.
+  - context (optional): The background colour your button is placed on. Defaults to the page colour (paper for the core brand, white otherwise). This is used to confirm accessibility and in some cases changes the colour of the button.
 - types: A list of button types your theme is used with.
 - icons: A list of icons your theme is used with. Any [fticons](https://registry.origami.ft.com/components/fticons/) icon name.
 
 ```scss
 /// .o-buttons--my-special-button
 @include oButtonsAddTheme(
-	$name: 'my-special-button',
-	$opts: ('color': 'claret-80'),
-	$types: ('primary', 'secondary'),
-	$icons: ('arrow-up', 'arrow-down')
+	$name: "my-special-button",
+	$opts: (
+		"color": "claret-80",
+	),
+	$types: (
+		"primary",
+		"secondary",
+	),
+	$icons: (
+		"arrow-up",
+		"arrow-down",
+	)
 );
 ```
 
@@ -227,25 +293,35 @@ We recommend using `o-buttons` markup as this encourages CSS reuse and smaller b
 
 ```scss
 .my-button {
-	@include oButtonsContent($opts: ('type': 'primary'));
+	@include oButtonsContent(
+		$opts: (
+			"type": "primary",
+		)
+	);
 }
 ```
 
 ```scss
 .my-icon-button {
-	@include oButtonsContent($opts: (
-		'type': 'primary',
-		'icon': 'arrow-right'
-	));
+	@include oButtonsContent(
+		$opts: (
+			"type": "primary",
+			"icon": "arrow-right",
+		)
+	);
 }
 ```
 
 ```scss
 .my-lemon-button {
-	@include oButtonsContent($opts: (
-		'type': 'primary',
-		'theme': ('color': 'lemon')
-	));
+	@include oButtonsContent(
+		$opts: (
+			"type": "primary",
+			"theme": (
+				"color": "lemon",
+			),
+		)
+	);
 }
 ```
 
@@ -257,22 +333,21 @@ We recommend using `o-buttons` markup as this encourages CSS reuse and smaller b
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 7 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-⚠ maintained | 6 | 6.2 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.16 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.5 | - |
-╳ deprecated | 3 | 3.1 | - |
-╳ deprecated | 2 | 2.0 | - |
-╳ deprecated | 1 | 1.8 | - |
-
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       7       |        N/A         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ⚠ maintained |       6       |        6.2         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated |       5       |        5.16        | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.5         |                           -                           |
+| ╳ deprecated |       3       |        3.1         |                           -                           |
+| ╳ deprecated |       2       |        2.0         |                           -                           |
+| ╳ deprecated |       1       |        1.8         |                           -                           |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-buttons/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

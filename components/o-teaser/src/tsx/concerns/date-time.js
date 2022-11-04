@@ -1,4 +1,4 @@
-import {Newish, Recent} from './constants.ts';
+import { Newish, Recent } from "./constants.ts";
 
 /**
  * To Date
@@ -6,11 +6,11 @@ import {Newish, Recent} from './constants.ts';
  * @returns {Date}
  */
 export function toDate(date) {
-	if (typeof date === 'string') {
+	if (typeof date === "string") {
 		return new Date(date);
 	}
 
-	if (typeof date === 'number') {
+	if (typeof date === "number") {
 		return new Date(date);
 	}
 
@@ -35,13 +35,13 @@ export function getRelativeDate(date) {
 export function getStatus(publishedDate, firstPublishedDate) {
 	if (getRelativeDate(publishedDate) < Newish) {
 		if (publishedDate === firstPublishedDate) {
-			return 'new';
+			return "new";
 		} else {
-			return 'updated';
+			return "updated";
 		}
 	}
 
-	return '';
+	return "";
 }
 
 /**

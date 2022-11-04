@@ -1,8 +1,8 @@
-import {ButtonProps, Button, LinkButton} from './button';
+import { ButtonProps, Button, LinkButton } from "./button";
 
 export type ButtonPaginationProps = Pick<
 	ButtonProps,
-	'type' | 'size' | 'theme'
+	"type" | "size" | "theme"
 > & {
 	previousPager: ButtonPaginationPager;
 	pages: ButtonPaginationItem[];
@@ -24,7 +24,8 @@ const Ellipsis = () => (
 	<span
 		className="
 o-buttons-pagination__ellipsis o-buttons-pagination__ellipsis--big
-">
+"
+	>
 		...
 	</span>
 );
@@ -88,8 +89,8 @@ function splitPages(pages) {
 }
 
 export function ButtonPagination({
-	type = 'secondary',
-	size = 'big',
+	type = "secondary",
+	size = "big",
 	theme,
 	previousPager,
 	pages,
@@ -107,13 +108,13 @@ export function ButtonPagination({
 
 			const pageAttributes = {};
 			if (page.current && page.href) {
-				pageAttributes['aria-current'] = 'page';
+				pageAttributes["aria-current"] = "page";
 			}
 			if (page.current && !page.href) {
-				pageAttributes['aria-selected'] = true;
+				pageAttributes["aria-selected"] = true;
 			}
 			if (page.onClick) {
-				pageAttributes['onClick'] = page.onClick;
+				pageAttributes["onClick"] = page.onClick;
 			}
 
 			return (
@@ -124,7 +125,8 @@ export function ButtonPagination({
 					attributes={pageAttributes}
 					theme={theme}
 					size={size}
-					type={type}></PageTag>
+					type={type}
+				></PageTag>
 			);
 		})
 	);
@@ -134,16 +136,17 @@ export function ButtonPagination({
 			<PreviousTag
 				attributes={
 					firstPageIsSelected
-						? {disabled: true}
-						: {onClick: previousPager.onClick}
+						? { disabled: true }
+						: { onClick: previousPager.onClick }
 				}
 				href={previousPager.href}
 				label={previousPager.label}
-				icon={'arrow-left'}
+				icon={"arrow-left"}
 				iconOnly={true}
 				theme={theme}
 				size={size}
-				type={type}></PreviousTag>
+				type={type}
+			></PreviousTag>
 			{pageElementsInGroups.flatMap((pageElementGroup, pageGroupIndex) => {
 				const elementGroup = [];
 				if (pageGroupIndex > 0) {
@@ -154,15 +157,18 @@ export function ButtonPagination({
 			})}
 			<NextTag
 				attributes={
-					lastPageIsSelected ? {disabled: true} : {onClick: nextPager.onClick}
+					lastPageIsSelected
+						? { disabled: true }
+						: { onClick: nextPager.onClick }
 				}
 				href={nextPager.href}
 				label={nextPager.label}
-				icon={'arrow-right'}
+				icon={"arrow-right"}
 				iconOnly={true}
 				theme={theme}
 				size={size}
-				type={type}></NextTag>
+				type={type}
+			></NextTag>
 		</div>
 	);
 }

@@ -22,7 +22,10 @@ For a standard blockquote style use classes `o-quote o-quote--standard` and the 
 ```html
 <blockquote class="o-quote o-quote--standard">
 	<p>
-		The prize for this century’s worst technology product probably belongs to Google Glass, a pair of spectacles with an inbuilt camera and a tiny lens on which you could browse the internet. Suddenly you could film everybody you met, or silently ignore them and read Wikipedia.
+		The prize for this century’s worst technology product probably belongs to
+		Google Glass, a pair of spectacles with an inbuilt camera and a tiny lens on
+		which you could browse the internet. Suddenly you could film everybody you
+		met, or silently ignore them and read Wikipedia.
 	</p>
 	<cite class="o-quote__cite">
 		<span class="o-quote__author">Henry Mance</span>
@@ -32,6 +35,7 @@ For a standard blockquote style use classes `o-quote o-quote--standard` and the 
 ```
 
 For an editorial style blockquote swap the `o-quote--standard` class for `o-quote--editorial`. The editorial variant inherits font size and colour to support multiple editorial contexts. For example at the time of writing [live blogs](https://www.ft.com/content/f61c179d-fd47-38ba-b1ab-df158fa62dd9) and article pages have different font sizes on large viewports but both should share the editorial quote style. Therefore the editorial quote must be within an element that sets typography styles such as [o-editorial-typography-body](https://registry.origami.ft.com/components/o-editorial-typography/readme?brand=core#body).
+
 ```diff
 -<blockquote class="o-quote o-quote--standard">
 +<blockquote class="o-quote o-quote--editorial">
@@ -50,21 +54,28 @@ For an editorial style blockquote swap the `o-quote--standard` class for `o-quot
 To output all o-quote styles include the `oQuote` mixin.
 
 ```scss
-@import '@financial-times/o-quote/main';
+@import "@financial-times/o-quote/main";
 @include oQuote();
 ```
 
 Pass an options `$opts` map to include only the o-quote styles you need. For example o-quote has styles for standard and editorial blockquotes. To only include styles for the editorial blockquote:
+
 ```scss
-@include oQuote($opts: (
-	'standard': false, // do not output .o-quote--standard variant styles
-	'editorial': true, // output .o-quote--editorial variant styles
-	'cite': true // output .o-quote__cite styles, to support citations
-));
+@include oQuote(
+	$opts: (
+		"standard": false,
+		// do not output .o-quote--standard variant style
+		"editorial": true,
+		// output .o-quote--editorial variant style
+		"cite": true // output .o-quote__cite styles, to support citation,,
+	)
+);
 ```
+
 _The "editorial" option is only available to core brand users._
 
 You may also use o-quote mixins with custom HTML markup. For example if your markup used `my-blockquote` as a classname. We do not recommend this approach unless you are unable to update your markup, as it may lead to unnecessary CSS output and more difficult migrations.
+
 ```html
 <blockquote class="my-blockquote">
 	<p>The quote.</p>
@@ -95,16 +106,15 @@ You may also use o-quote mixins with custom HTML markup. For example if your mar
 
 The `oQuoteEditorial` mixins shown here are only available to core brand users. For a full list of o-quote mixins see [o-quote SassDoc in the registry](https://registry.origami.ft.com/components/o-quote/sassdoc).
 
-
 ## Migration Guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-⚠ maintained | 4 | 4.1 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ broken | 3 | 3.0 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.2 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.3 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ⚠ maintained |       4       |        4.1         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+|   ╳ broken   |       3       |        3.0         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.2         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.3         |                          N/A                          |
 
 ## Contact
 

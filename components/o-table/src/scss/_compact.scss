@@ -9,7 +9,10 @@
 		}
 
 		th {
-			@include oTypographySans($weight: 'semibold', $include-font-family: false);
+			@include oTypographySans(
+				$weight: "semibold",
+				$include-font-family: false
+			);
 		}
 	}
 }

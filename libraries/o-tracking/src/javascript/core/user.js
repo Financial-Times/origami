@@ -1,5 +1,5 @@
-import {guid} from '../utils.js';
-import {Store} from './store.js';
+import { guid } from "../utils.js";
+import { Store } from "./store.js";
 
 let userID;
 let store;
@@ -13,15 +13,15 @@ let store;
  */
 function init(value, cookieDomain) {
 	const defaultUserConfig = {
-		storage: 'cookie',
-		name: 'spoor-id',
-		nameOverride: 'spoor-id',
+		storage: "cookie",
+		name: "spoor-id",
+		nameOverride: "spoor-id",
 		value: null,
 
 		// Set the store cookie domain to .ft.com for ft.com and all its subdomains
-		domain: location.hostname.match(/^(?:.+\.)?ft\.com$/) ? 'ft.com' : null,
+		domain: location.hostname.match(/^(?:.+\.)?ft\.com$/) ? "ft.com" : null,
 	};
-	if ( cookieDomain ) {
+	if (cookieDomain) {
 		defaultUserConfig.domain = cookieDomain;
 	}
 
@@ -71,9 +71,4 @@ function id() {
 	return userID;
 }
 
-export {
-	init,
-	setUser,
-	id as userID,
-	destroy
-};
+export { init, setUser, id as userID, destroy };

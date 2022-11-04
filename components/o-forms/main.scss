@@ -1,13 +1,13 @@
-@import '@financial-times/math';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-brand/main';
-@import '@financial-times/o-grid/main';
-@import '@financial-times/o-icons/main';
-@import '@financial-times/o-loading/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-typography/main';
+@import "@financial-times/math";
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-brand/main";
+@import "@financial-times/o-grid/main";
+@import "@financial-times/o-icons/main";
+@import "@financial-times/o-loading/main";
+@import "@financial-times/o-normalise/main";
+@import "@financial-times/o-typography/main";
 
-@import 'src/scss/main';
+@import "src/scss/main";
 
 /// @access public
 /// @param {Map} $opts [('elements': ('checkbox', 'date', 'password', 'pseudo-radio-link', 'radio-round', 'radio-box', 'select', 'textarea', 'text', 'toggle'), 'features': ('disabled', 'inline', 'inverse', 'error-summary', 'right', 'small', 'state', 'suffix'))] The o-form features to include styles for (see the README for a full list).
@@ -17,71 +17,69 @@
 ///			'features': ('inline')
 ///		));
 /// @output Styles for form elements.
-@mixin oForms($opts: (
-	'elements': (
-		'checkbox',
-		'date',
-		'file',
-		'password',
-		'pseudo-radio-link',
-		'radio-round',
-		'radio-box',
-		'select',
-		'textarea',
-		'text',
-		'toggle'
-	),
-	'features': (
-		'disabled',
-		'inline',
-		'inverse', // @deprecated, see 'themes' property
-		'error-summary',
-		'right',
-		'small',
-		'state',
-		'suffix'
-	),
-	'themes': (
-		'inverse',
-		'white',
+@mixin oForms(
+	$opts: (
+		"elements": (
+			"checkbox",
+			"date",
+			"file",
+			"password",
+			"pseudo-radio-link",
+			"radio-round",
+			"radio-box",
+			"select",
+			"textarea",
+			"text",
+			"toggle",
+		),
+		"features": (
+			"disabled",
+			"inline",
+			"inverse",
+			// @deprecated, see 'themes' propert
+			"error-summary",
+			"right",
+			"small",
+			"state",
+			"suffix",
+		),
+		"themes": (
+			"inverse",
+			"white",
+		),
 	)
-)) {
-	$elements: map-get($opts, 'elements');
-	$features: map-get($opts, 'features');
-	$themes: map-get($opts, 'themes');
+) {
+	$elements: map-get($opts, "elements");
+	$features: map-get($opts, "features");
+	$themes: map-get($opts, "themes");
 
-	$disabled: index($features, 'disabled');
-	$inline: index($features, 'inline');
+	$disabled: index($features, "disabled");
+	$inline: index($features, "inline");
 	// For use on a dark background.
-	$inverse-theme: index($features, 'inverse') or index($themes, 'inverse');
+	$inverse-theme: index($features, "inverse") or index($themes, "inverse");
 	// For use on a white background (as oppose to another background, e.g. paper for the core brand)
-	$white-theme: index($themes, 'white');
-	$error-summary: index($features, 'error-summary');
-	$right: index($features, 'right');
-	$small: index($features, 'small');
-	$state: index($features, 'state');
-	$suffix: index($features, 'suffix');
-	$radio-round: index($elements, 'radio-round');
-	$radio-box: index($elements, 'radio-box');
-	$file: index($elements, 'file');
+	$white-theme: index($themes, "white");
+	$error-summary: index($features, "error-summary");
+	$right: index($features, "right");
+	$small: index($features, "small");
+	$state: index($features, "state");
+	$suffix: index($features, "suffix");
+	$radio-round: index($elements, "radio-round");
+	$radio-box: index($elements, "radio-box");
+	$file: index($elements, "file");
 
 	@include _oFormsBase();
 
-	@if index($elements, 'pseudo-radio-link') {
+	@if index($elements, "pseudo-radio-link") {
 		@include _oFormsPseudoRadioLink();
 	}
 
-	@if index($elements, 'checkbox') {
-		@include _oFormsCheckbox(
-			$disabled,
-			$right
-		);
+	@if index($elements, "checkbox") {
+		@include _oFormsCheckbox($disabled, $right);
 	}
 
-	@if index($elements, 'date') {
-		@include _oFormsDate(
-			$disabled
-		);
+	@if index($elements, "date") {
+		@include _oFormsDate($disabled);
 	}
 
 	@if $file {
@@ -89,39 +87,31 @@
 	}
 
 	@if $radio-round {
-		@include _oFormsRadioRound(
-			$disabled
-		);
+		@include _oFormsRadioRound($disabled);
 	}
 
 	@if $radio-box {
-		@include _oFormsRadioBox(
-			$disabled
-		);
+		@include _oFormsRadioBox($disabled);
 	}
 
-	@if index($elements, 'select') {
-		@include _oFormsSelect(
-			$disabled,
-			$small,
-			$suffix
-		);
+	@if index($elements, "select") {
+		@include _oFormsSelect($disabled, $small, $suffix);
 	}
 
-	@if index($elements, 'textarea') {
+	@if index($elements, "textarea") {
 		@include _oFormsTextArea($disabled);
 	}
 
-	@if index($elements, 'text') or index($elements, 'password') {
+	@if index($elements, "text") or index($elements, "password") {
 		@include _oFormsTextInput(
 			$disabled,
 			$small,
 			$suffix,
-			$include-password-selector: index($elements, 'password')
+			$include-password-selector: index($elements, "password")
 		);
 	}
 
-	@if index($elements, 'toggle') {
+	@if index($elements, "toggle") {
 		@include _oFormsToggle($disabled);
 	}
 
@@ -139,7 +129,7 @@
 
 	@if $white-theme {
 		.o-forms-field--white {
-			--o-forms-toggle-handle-color: #{oColorsByName('white')};
+			--o-forms-toggle-handle-color: #{oColorsByName("white")};
 		}
 	}
 

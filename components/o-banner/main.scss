@@ -1,8 +1,8 @@
-@import '@financial-times/math';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-buttons/main';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-grid/main';
+@import "@financial-times/math";
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-buttons/main";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-grid/main";
 @import "@financial-times/o-icons/main";
 @import "@financial-times/o-typography/main";
 @import "@financial-times/o-visual-effects/main";
@@ -32,13 +32,15 @@
 ///     ));
 ///
 /// @param {Map} $opts - The o-banner features to output. See the [readme](https://registry.origami.ft.com/components/o-banner) for a full list of options.
-@mixin oBanner($opts: (
-	'layouts': $_o-banner-layouts,
-	'themes': $_o-banner-themes
-)) {
-	$themes: map-get($opts, 'themes');
+@mixin oBanner(
+	$opts: (
+		"layouts": $_o-banner-layouts,
+		"themes": $_o-banner-themes,
+	)
+) {
+	$themes: map-get($opts, "themes");
 	$themes: if($themes, $themes, ());
-	$layouts: map-get($opts, 'layouts');
+	$layouts: map-get($opts, "layouts");
 	$layouts: if($layouts, $layouts, ());
 
 	// Base banner styles

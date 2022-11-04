@@ -1,10 +1,9 @@
-import oExpander from '@financial-times/o-expander';
+import oExpander from "@financial-times/o-expander";
 
 let tallestTopHeight = 0;
 
 class SubsCard {
-
-	constructor (rootEl) {
+	constructor(rootEl) {
 		this.rootEl = rootEl;
 		this.expander = null;
 		this.setExpanders();
@@ -12,7 +11,7 @@ class SubsCard {
 	}
 
 	checkTallest() {
-		const top = this.rootEl.querySelector('.o-subs-card__top');
+		const top = this.rootEl.querySelector(".o-subs-card__top");
 
 		if (top && top.clientHeight > tallestTopHeight) {
 			tallestTopHeight = top.clientHeight;
@@ -20,26 +19,30 @@ class SubsCard {
 	}
 
 	setExpanders() {
-		const expander = this.rootEl.querySelector('.o-subs-card__expander');
-		const titleElem = this.rootEl.querySelector('.o-subs-card__copy-title');
+		const expander = this.rootEl.querySelector(".o-subs-card__expander");
+		const titleElem = this.rootEl.querySelector(".o-subs-card__copy-title");
 		const opts = {
-			shrinkTo: 'hidden',
-			collapsedToggleText: titleElem ? `Read more <span class="o-subs-card-visually-hidden">about ${titleElem.textContent}</span>` : 'Read more',
-			expandedToggleText: titleElem ? `Read less <span class="o-subs-card-visually-hidden">about ${titleElem.textContent}</span>` : 'Read less',
-			toggleState: 'all',
+			shrinkTo: "hidden",
+			collapsedToggleText: titleElem
+				? `Read more <span class="o-subs-card-visually-hidden">about ${titleElem.textContent}</span>`
+				: "Read more",
+			expandedToggleText: titleElem
+				? `Read less <span class="o-subs-card-visually-hidden">about ${titleElem.textContent}</span>`
+				: "Read less",
+			toggleState: "all",
 			selectors: {
-				toggle: '.o-subs-card__read-more',
-				content: '.o-subs-card__copy-details'
+				toggle: ".o-subs-card__read-more",
+				content: ".o-subs-card__copy-details",
 			},
 			classnames: {
-				initialized: 'o-subs-card__expander--initialized',
-				inactive: 'o-subs-card__expander--inactive',
-				expanded: 'o-subs-card__expander--expanded',
-				collapsed: 'o-subs-card__expander--collapsed'
-			}
+				initialized: "o-subs-card__expander--initialized",
+				inactive: "o-subs-card__expander--inactive",
+				expanded: "o-subs-card__expander--expanded",
+				collapsed: "o-subs-card__expander--collapsed",
+			},
 		};
 
-		expander.setAttribute('data-o-component', 'o-expander');
+		expander.setAttribute("data-o-component", "o-expander");
 		this.expander = oExpander.createCustom(expander, opts);
 	}
 
@@ -61,17 +64,23 @@ class SubsCard {
 		}
 	}
 
-	static init (rootEl) {
+	static init(rootEl) {
 		if (!rootEl) {
 			rootEl = document.body;
 		}
 		if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-subs-card]')) {
+		if (
+			rootEl instanceof HTMLElement &&
+			rootEl.matches("[data-o-component=o-subs-card]")
+		) {
 			return new SubsCard(rootEl);
 		}
-		const cards = Array.from(rootEl.querySelectorAll('[data-o-component="o-subs-card"]'), rootEl => new SubsCard(rootEl));
+		const cards = Array.from(
+			rootEl.querySelectorAll('[data-o-component="o-subs-card"]'),
+			rootEl => new SubsCard(rootEl)
+		);
 
 		if (cards.length > 1) {
 			SubsCard.matchHeights(cards);
@@ -82,13 +91,11 @@ class SubsCard {
 
 	static matchHeights(cards) {
 		for (let i = 0; i < cards.length; i++) {
-			const cardTop = cards[i].rootEl.querySelector('.o-subs-card__top');
+			const cardTop = cards[i].rootEl.querySelector(".o-subs-card__top");
 
 			cardTop.style.flex = `0 1 ${tallestTopHeight}px`;
 		}
 	}
 }
 
-export {
-	SubsCard
-};
+export { SubsCard };

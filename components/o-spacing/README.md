@@ -2,14 +2,14 @@
 
 A styling utility component to aid projects and component with consistent spacing, according to the baseline grid within the design guidelines.
 
--   [Usage](#usage)
--   [Spaces](#spaces)
--   [Markup](#markup)
--   [CSS Custom Properties](#css-custom-properties)
--   [Sass](#sass)
--   [Migration](#migration)
--   [Contact](#contact)
--   [Licence](#licence)
+- [Usage](#usage)
+- [Spaces](#spaces)
+- [Markup](#markup)
+- [CSS Custom Properties](#css-custom-properties)
+- [Sass](#sass)
+- [Migration](#migration)
+- [Contact](#contact)
+- [Licence](#licence)
 
 ## Usage
 
@@ -32,17 +32,17 @@ Our baseline grid defaults to 4px. Any multiple of this default may be applied t
 Named spaces are the sizes we use to layout a component or page consistently. Each space is based on the 4px baseline. Small sizes such as `s1` or `s2` are ideal for space within a component; use medium sizes `m12` and `m16` for related content on a page; and large sizes `l18`, `l24` for separating distinct areas within a project.
 
 | name | value |
-|------|-------|
-| s1 | 4px |
-| s2 | 8px |
-| s3 | 12px |
-| s4 | 16px |
-| s6 | 24px |
-| s8 | 32px |
-| m12 | 48px |
-| m16 | 64px |
-| l18 | 72px |
-| l24 | 96px |
+| ---- | ----- |
+| s1   | 4px   |
+| s2   | 8px   |
+| s3   | 12px  |
+| s4   | 16px  |
+| s6   | 24px  |
+| s8   | 32px  |
+| m12  | 48px  |
+| m16  | 64px  |
+| l18  | 72px  |
+| l24  | 96px  |
 
 To apply named spaces see `o-spacing` [markup](#markup) and [Sass](#sass) documentation.
 
@@ -52,8 +52,8 @@ To apply named spaces see `o-spacing` [markup](#markup) and [Sass](#sass) docume
 
 ```html
 <!-- Add a 48px vertical margin between elements. -->
-<div class='o-spacing-m12'></div>
-<div class='o-spacing-m12'></div>
+<div class="o-spacing-m12"></div>
+<div class="o-spacing-m12"></div>
 ```
 
 To apply spaces to other properties `o-spacing` provides [CSS Custom Properties (CSS Variables)](#css-custom-properties).
@@ -88,12 +88,12 @@ We recommend using a [named space](#named-spaces), but for more granular control
 For compatibility with existing Origami projects, `o-spacing` outputs `px` values by default. To use relative `rem` values, set `$o-spacing-relative-units: true` before importing `@financial-times/o-spacing/main`.
 
 ```scss
-	$o-spacing-relative-units: true;
+$o-spacing-relative-units: true;
 
-	.example {
-		padding: oSpacingByName('s1');  // Small padding (0.24rem).
-		margin-bottom: oSpacingByName('m12'); // Medium margin (3rem).
-	}
+.example {
+	padding: oSpacingByName("s1"); // Small padding (0.24rem).
+	margin-bottom: oSpacingByName("m12"); // Medium margin (3rem).
+}
 ```
 
 _If using `o-typography` set [$o-typography-relative-units](https://registry.origami.ft.com/components/o-typography@5.11.3/sassdoc?brand=core#variable-o-typography-relative-units) also._
@@ -103,10 +103,10 @@ _If using `o-typography` set [$o-typography-relative-units](https://registry.ori
 We recommend Sass users apply space to their project using the `oSpacingByName` function. It accepts a [space name](#named-spaces) and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
 
 ```scss
-	.example {
-		padding: oSpacingByName('s1');  // Small padding (4px).
-		margin-bottom: oSpacingByName('m12'); // Medium margin (48px).
-	}
+.example {
+	padding: oSpacingByName("s1"); // Small padding (4px).
+	margin-bottom: oSpacingByName("m12"); // Medium margin (48px).
+}
 ```
 
 ### Baseline Space
@@ -114,9 +114,9 @@ We recommend Sass users apply space to their project using the `oSpacingByName` 
 We recommend the use of [named spaces](#named-space), but any space that multiplies our [baseline](#baseline) is allowed. To apply a multiple of the baseline value use `oSpacingByIncrement`. It accepts a value to multiply the baseline by and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
 
 ```scss
-	.example {
-		margin-bottom: oSpacingByIncrement(4);
-	}
+.example {
+	margin-bottom: oSpacingByIncrement(4);
+}
 ```
 
 ### Custom Properties &amp; Utility Classes
@@ -124,19 +124,22 @@ We recommend the use of [named spaces](#named-space), but any space that multipl
 We recommend users apply named spaces using the Sass function [oSpacingByName](#named-space), but Sass users may output all `o-spacing` CSS including [utility classes](#markup) and [CSS custom properties](#css-custom-properties) using the `oSpacing` mixin.
 
 ```scss
-@include oSpacing($opts: (
-	'margin-bottom-utilities': true, // Output CSS classes such as `o-spacing-s1`
-	'custom-properties': true // Output CSS variables
-));
+@include oSpacing(
+	$opts: (
+		"margin-bottom-utilities": true,
+		// Output CSS classes such as `o-spacing-s1
+		"custom-properties": true // Output CSS variable,,
+	)
+);
 ```
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3)
-⚠ maintained | 2 | 2.1 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.0 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       3       |        N/A         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ⚠ maintained |       2       |        2.1         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.0         |                          N/A                          |
 
 ## Contact
 

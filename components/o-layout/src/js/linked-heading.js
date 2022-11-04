@@ -1,11 +1,9 @@
-
 /**
  * Represents a linked heading.
  *
  * @public
  */
 class LinkedHeading {
-
 	/**
 	 * Class constructor.
 	 *
@@ -15,14 +13,18 @@ class LinkedHeading {
 	 * @param {string} [options.content="¶"] - The content to add to the created link
 	 * @param {string} [options.title="Link directly to this section of the page"] - The title attribute to add to the created link
 	 */
-	constructor (headingElement, options = {}) {
+	constructor(headingElement, options = {}) {
 		this.headingElement = headingElement;
-		this.id = headingElement.getAttribute('id');
+		this.id = headingElement.getAttribute("id");
 
-		this.options = Object.assign({}, {
-			content: '#',
-			title: 'Link directly to this section of the page'
-		}, options);
+		this.options = Object.assign(
+			{},
+			{
+				content: "#",
+				title: "Link directly to this section of the page",
+			},
+			options
+		);
 
 		this.linkElement = this.constructLinkElement();
 	}
@@ -34,13 +36,13 @@ class LinkedHeading {
 	 * @private
 	 * @returns {HTMLElement} Returns the new link element, or the existing link element if present
 	 */
-	constructLinkElement () {
+	constructLinkElement() {
 		if (!this.id) {
 			return null;
 		}
 
 		// Check for an existing link element
-		const existingAnchor = this.headingElement.querySelector('a');
+		const existingAnchor = this.headingElement.querySelector("a");
 		if (existingAnchor) {
 			return existingAnchor;
 		}
@@ -50,21 +52,22 @@ class LinkedHeading {
 		const anchor = document.createElement("a");
 		anchor.href = `#${this.id}`;
 		anchor.title = this.options.title;
-		anchor.classList.add('o-layout__linked-heading__link');
+		anchor.classList.add("o-layout__linked-heading__link");
 		anchor.innerHTML = `
 			<span class="o-layout__linked-heading__content">${headingText}</span>
 			<span class="o-layout__linked-heading__label">${this.options.content}</span>
 		`;
 
-		window.requestAnimationFrame(function () {
-			this.headingElement.innerHTML = '';
-			this.headingElement.classList.add('o-layout__linked-heading');
-			this.headingElement.appendChild(anchor);
-		}.bind(this));
+		window.requestAnimationFrame(
+			function () {
+				this.headingElement.innerHTML = "";
+				this.headingElement.classList.add("o-layout__linked-heading");
+				this.headingElement.appendChild(anchor);
+			}.bind(this)
+		);
 
 		return anchor;
 	}
-
 }
 
 // Exports

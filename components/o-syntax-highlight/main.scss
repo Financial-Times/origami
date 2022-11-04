@@ -1,53 +1,55 @@
-@import '@financial-times/o-colors/main';
+@import "@financial-times/o-colors/main";
 
-@import 'src/scss/variables';
-@import 'src/scss/languages/main';
+@import "src/scss/variables";
+@import "src/scss/languages/main";
 
-@mixin oSyntaxHighlight($opts: (
-	'languages': (
-		'bash',
-		'css',
-		'diff',
-		'html',
-		'js',
-		'json',
-		'sass',
-		'yaml'
+@mixin oSyntaxHighlight(
+	$opts: (
+		"languages": (
+			"bash",
+			"css",
+			"diff",
+			"html",
+			"js",
+			"json",
+			"sass",
+			"yaml",
+		),
 	)
-)) {
-	$languages: map-get($opts, 'languages');
+) {
+	$languages: map-get($opts, "languages");
 
 	@include _oSyntaxHighlightBase();
 
-	@if index($languages, 'bash') {
+	@if index($languages, "bash") {
 		@include _oSyntaxHighlightBash();
 	}
 
-	@if index($languages, 'css') {
+	@if index($languages, "css") {
 		@include _oSyntaxHighlightCSS();
 	}
 
-	@if index($languages, 'diff') {
+	@if index($languages, "diff") {
 		@include _oSyntaxHighlightDiff();
 	}
 
-	@if index($languages, 'html') {
+	@if index($languages, "html") {
 		@include _oSyntaxHighlightHTML();
 	}
 
-	@if index($languages, 'js') or index($languages, 'javascript') {
+	@if index($languages, "js") or index($languages, "javascript") {
 		@include _oSyntaxHighlightJS();
 	}
 
-	@if index($languages, 'json') {
+	@if index($languages, "json") {
 		@include _oSyntaxHighlightJSON();
 	}
 
-	@if index($languages, 'yaml') or index($languages, 'yml') {
+	@if index($languages, "yaml") or index($languages, "yml") {
 		@include _oSyntaxHighlightYAML();
 	}
 
-	@if index($languages, 'scss') or index($languages, 'sass') {
+	@if index($languages, "scss") or index($languages, "sass") {
 		@include _oSyntaxHighlightSCSS();
 	}
 }

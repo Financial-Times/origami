@@ -1,7 +1,7 @@
-import TimeStamp from './time-stamp';
-import RelativeTime from './relative-time';
-import {differenceInCalendarDays} from 'date-fns';
-import { Status } from './props';
+import TimeStamp from "./time-stamp";
+import RelativeTime from "./relative-time";
+import { differenceInCalendarDays } from "date-fns";
+import { Status } from "./props";
 
 /**
  * Timestamp shown always, the default 4h limit does not apply here

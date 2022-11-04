@@ -1,11 +1,13 @@
-import ftDateFormat from '@financial-times/ft-date-format';
+import ftDateFormat from "@financial-times/ft-date-format";
 
-const updateEventName = 'update';
+const updateEventName = "update";
 let interval;
 
 function ftDateFormatWarning(methodName) {
 	// eslint-disable-next-line no-console
-	console.warn(`The o-date method "${methodName}" is deprecated. Use the "ft-date-format" package instead or contact the Origami team for help: https://github.com/Financial-Times/ft-date-format`);
+	console.warn(
+		`The o-date method "${methodName}" is deprecated. Use the "ft-date-format" package instead or contact the Origami team for help: https://github.com/Financial-Times/ft-date-format`
+	);
 }
 
 /**
@@ -14,22 +16,24 @@ function ftDateFormatWarning(methodName) {
  * @param {HTMLElement | string} rootElement - The root element or CSS selector to initialise
  */
 class ODate {
-
 	constructor(rootEl) {
-
 		if (!rootEl) {
 			// eslint-disable-next-line no-console
-			console.warn('To initialise all o-date elements on the page use ' +
-				'the `init` method. Passing no arguments to the constructor ' +
-				'is deprecated.');
+			console.warn(
+				"To initialise all o-date elements on the page use " +
+					"the `init` method. Passing no arguments to the constructor " +
+					"is deprecated."
+			);
 		}
 
 		if (rootEl && !(rootEl instanceof HTMLElement)) {
 			// eslint-disable-next-line no-console
-			console.warn('Using the constructor to initialise one or more ' +
-				'o-date elements with a query selector is deprecated. ' +
-				'Pass a single o-date HTMLElement to initialise or use the ' +
-				'`init` method.');
+			console.warn(
+				"Using the constructor to initialise one or more " +
+					"o-date elements with a query selector is deprecated. " +
+					"Pass a single o-date HTMLElement to initialise or use the " +
+					"`init` method."
+			);
 		}
 
 		if (!rootEl) {
@@ -38,7 +42,7 @@ class ODate {
 			rootEl = document.querySelector(rootEl);
 		}
 
-		if (rootEl.getAttribute('data-o-component') === "o-date") {
+		if (rootEl.getAttribute("data-o-component") === "o-date") {
 			this.el = rootEl;
 		} else {
 			this.el = rootEl.querySelector('[data-o-component~="o-date"]');
@@ -48,7 +52,7 @@ class ODate {
 			document.body.addEventListener(updateEventName, this);
 
 			this.update();
-			this.el.setAttribute('data-o-date-js', '');
+			this.el.setAttribute("data-o-date-js", "");
 		}
 
 		if (this.el && !interval) {
@@ -76,9 +80,9 @@ class ODate {
 		// Find the date to render.
 		// Use the current date if the `datetime` attribute is not set and
 		// the o-date `time` element has no text content.
-		const dateTime = el.getAttribute('datetime');
+		const dateTime = el.getAttribute("datetime");
 		let date = dateTime ? ftDateFormat.toDate(dateTime) : null;
-		if (!date && this.el.textContent === '') {
+		if (!date && this.el.textContent === "") {
 			date = new Date();
 		}
 
@@ -90,7 +94,9 @@ class ODate {
 		// @deprecated - The class `.o-date__printer` is deprecated.
 		// `.o-date__printer` should be removed in the next major.
 		// Use `[data-o-date-printer]` instead of `.o-date__printer`.
-		let printers = el.querySelectorAll('.o-date__printer,[data-o-date-printer]');
+		let printers = el.querySelectorAll(
+			".o-date__printer,[data-o-date-printer]"
+		);
 		printers = printers.length ? printers : [el];
 
 		// Render the found date in each printer element.
@@ -102,10 +108,10 @@ class ODate {
 		// format chosen does not output the time after x hours,
 		// then hide the `time` element.
 		if (el.textContent) {
-			el.setAttribute('title', ftDateFormat.format(date, 'datetime'));
-			el.removeAttribute('aria-hidden');
+			el.setAttribute("title", ftDateFormat.format(date, "datetime"));
+			el.removeAttribute("aria-hidden");
 		} else {
-			el.setAttribute('aria-hidden', true);
+			el.setAttribute("aria-hidden", true);
 		}
 	}
 
@@ -126,7 +132,7 @@ class ODate {
 	 * @param {HTMLElement | string} [el] - The root element or CSS selector to initialise
 	 * @returns {Array<ODate> | ODate} - An o-date instance or array of o-date instances.
 	 */
-	static init (el) {
+	static init(el) {
 		if (!el) {
 			el = document.body;
 		}
@@ -135,7 +141,7 @@ class ODate {
 		}
 		/* If el's data-o-component has \bo-date\b in it, ie it is itself a date,
 		 return a new o-date */
-		if (/\bo-date\b/.test(el.getAttribute('data-o-component'))) {
+		if (/\bo-date\b/.test(el.getAttribute("data-o-component"))) {
 			return new ODate(el);
 		}
 
@@ -156,28 +162,39 @@ class ODate {
 	_renderDateFor(printer, date) {
 		// Use the printer `data-o-date-format` if found or fallback to the
 		// root element if not found.
-		const format = printer.getAttribute('data-o-date-format') ||
-			this.el.getAttribute('data-o-date-format');
+		const format =
+			printer.getAttribute("data-o-date-format") ||
+			this.el.getAttribute("data-o-date-format");
 
 		let formattedDate;
 
-		if (format === 'today-or-yesterday-or-nothing') {
+		if (format === "today-or-yesterday-or-nothing") {
 			formattedDate = ftDateFormat.asTodayOrYesterdayOrNothing(date);
-		} else if (format === 'date-only') {
-			formattedDate = ftDateFormat.format(date, 'date');
-		} else if (format === 'time-ago-limit-4-hours') {
-			formattedDate = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
-		} else if (format === 'time-ago-limit-24-hours') {
-			formattedDate = ftDateFormat.timeAgo(date, { limit: 24 * ftDateFormat.inSeconds.hour });
-		} else if (format === 'time-ago-abbreviated') {
+		} else if (format === "date-only") {
+			formattedDate = ftDateFormat.format(date, "date");
+		} else if (format === "time-ago-limit-4-hours") {
+			formattedDate = ftDateFormat.timeAgo(date, {
+				limit: 4 * ftDateFormat.inSeconds.hour,
+			});
+		} else if (format === "time-ago-limit-24-hours") {
+			formattedDate = ftDateFormat.timeAgo(date, {
+				limit: 24 * ftDateFormat.inSeconds.hour,
+			});
+		} else if (format === "time-ago-abbreviated") {
 			// eslint-disable-next-line no-console
-			console.warn('The o-date format "time-ago-abbreviated" is deprecated and the time is no longer abbreviated. Consider using "time-ago-limit-4-hours" instead.');
+			console.warn(
+				'The o-date format "time-ago-abbreviated" is deprecated and the time is no longer abbreviated. Consider using "time-ago-limit-4-hours" instead.'
+			);
 			formattedDate = ftDateFormat.timeAgo(date);
-		} else if (format === 'time-ago-abbreviated-limit-4-hours') {
+		} else if (format === "time-ago-abbreviated-limit-4-hours") {
 			// eslint-disable-next-line no-console
-			console.warn('The o-date format "time-ago-abbreviated-limit-4-hours" is deprecated and the time is no longer abbreviated. Use "time-ago-limit-4-hours" instead.');
-			formattedDate = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
-		} else if (format === 'time-ago-no-seconds') {
+			console.warn(
+				'The o-date format "time-ago-abbreviated-limit-4-hours" is deprecated and the time is no longer abbreviated. Use "time-ago-limit-4-hours" instead.'
+			);
+			formattedDate = ftDateFormat.timeAgo(date, {
+				limit: 4 * ftDateFormat.inSeconds.hour,
+			});
+		} else if (format === "time-ago-no-seconds") {
 			formattedDate = ftDateFormat.timeAgoNoSeconds(date);
 		} else if (format !== null) {
 			formattedDate = ftDateFormat.format(date, format);
@@ -187,7 +204,8 @@ class ODate {
 
 		// To avoid triggering a parent live region unnecessarily
 		// <https://github.com/Financial-Times/o-date/pull/43>
-		const hasSingleTextNode = printer.childNodes.length === 1 &&
+		const hasSingleTextNode =
+			printer.childNodes.length === 1 &&
 			printer.firstChild &&
 			printer.firstChild.nodeType === 3;
 
@@ -203,7 +221,7 @@ class ODate {
 	 * @returns {string} - A formatted date or empty string.
 	 */
 	static toDate() {
-		ftDateFormatWarning('toDate');
+		ftDateFormatWarning("toDate");
 		return ftDateFormat.toDate(...arguments);
 	}
 
@@ -212,7 +230,7 @@ class ODate {
 	 * @returns {string} - A formatted date or empty string.
 	 */
 	static format() {
-		ftDateFormatWarning('format');
+		ftDateFormatWarning("format");
 		return ftDateFormat.format(...arguments);
 	}
 
@@ -221,7 +239,7 @@ class ODate {
 	 * @returns {string} - A formatted date or empty string.
 	 */
 	static getSecondsBetween() {
-		ftDateFormatWarning('getSecondsBetween');
+		ftDateFormatWarning("getSecondsBetween");
 		return ftDateFormat.getSecondsBetween(...arguments);
 	}
 
@@ -230,7 +248,7 @@ class ODate {
 	 * @returns {string} - A formatted date or empty string.
 	 */
 	static ftTime() {
-		ftDateFormatWarning('ftTime');
+		ftDateFormatWarning("ftTime");
 		return ftDateFormat.ftTime(...arguments);
 	}
 
@@ -239,7 +257,7 @@ class ODate {
 	 * @returns {string} - A formatted date or empty string.
 	 */
 	static isNearFuture() {
-		ftDateFormatWarning('isNearFuture');
+		ftDateFormatWarning("isNearFuture");
 		return ftDateFormat.isNearFuture(...arguments);
 	}
 
@@ -248,7 +266,7 @@ class ODate {
 	 * @returns {string} - A formatted date or empty string.
 	 */
 	static isFarFuture() {
-		ftDateFormatWarning('isFarFuture');
+		ftDateFormatWarning("isFarFuture");
 		return ftDateFormat.isFarFuture(...arguments);
 	}
 
@@ -257,7 +275,7 @@ class ODate {
 	 * @returns {string} - A formatted date or empty string.
 	 */
 	static isToday() {
-		ftDateFormatWarning('isToday');
+		ftDateFormatWarning("isToday");
 		return ftDateFormat.isToday(...arguments);
 	}
 
@@ -266,7 +284,7 @@ class ODate {
 	 * @returns {string} - A formatted date or empty string.
 	 */
 	static isYesterday() {
-		ftDateFormatWarning('isYesterday');
+		ftDateFormatWarning("isYesterday");
 		return ftDateFormat.isYesterday(...arguments);
 	}
 
@@ -275,7 +293,7 @@ class ODate {
 	 * @returns {string} - A formatted date or empty string.
 	 */
 	static timeAgo() {
-		ftDateFormatWarning('timeAgo');
+		ftDateFormatWarning("timeAgo");
 		return ftDateFormat.timeAgo(...arguments);
 	}
 
@@ -284,7 +302,7 @@ class ODate {
 	 * @returns {string} - A formatted date or empty string.
 	 */
 	static asTodayOrYesterdayOrNothing() {
-		ftDateFormatWarning('asTodayOrYesterdayOrNothing');
+		ftDateFormatWarning("asTodayOrYesterdayOrNothing");
 		return ftDateFormat.asTodayOrYesterdayOrNothing(...arguments);
 	}
 
@@ -293,10 +311,9 @@ class ODate {
 	 * @returns {string} - A formatted date or empty string.
 	 */
 	static timeAgoNoSeconds() {
-		ftDateFormatWarning('timeAgoNoSeconds');
+		ftDateFormatWarning("timeAgoNoSeconds");
 		return ftDateFormat.timeAgoNoSeconds(...arguments);
 	}
-
 }
 
 export default ODate;

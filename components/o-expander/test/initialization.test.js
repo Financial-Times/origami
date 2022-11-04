@@ -1,25 +1,25 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import * as fixtures from './helpers/fixtures.js';
+import * as fixtures from "./helpers/fixtures.js";
 
-import Expander from './../main.js';
+import Expander from "./../main.js";
 
 describe("Expander", () => {
-	it('is defined', () => {
-		proclaim.equal(typeof Expander, 'function');
+	it("is defined", () => {
+		proclaim.equal(typeof Expander, "function");
 	});
 
-	it('has a static init method', () => {
-		proclaim.equal(typeof Expander.init, 'function');
+	it("has a static init method", () => {
+		proclaim.equal(typeof Expander.init, "function");
 	});
 
-	it("should autoinitialize", (done) => {
-		const initSpy = sinon.spy(Expander, 'init');
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		setTimeout(function(){
+	it("should autoinitialize", done => {
+		const initSpy = sinon.spy(Expander, "init");
+		document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
+		setTimeout(function () {
 			proclaim.equal(initSpy.called, true);
 			initSpy.restore();
 			done();
@@ -27,7 +27,7 @@ describe("Expander", () => {
 	});
 
 	it("should not autoinitialize when the event is not dispached", () => {
-		const initSpy = sinon.spy(Expander, 'init');
+		const initSpy = sinon.spy(Expander, "init");
 		proclaim.equal(initSpy.called, false);
 	});
 
@@ -47,12 +47,12 @@ describe("Expander", () => {
 		});
 
 		it("single component when initialized with a root element", () => {
-			const expander = Expander.init('#element');
+			const expander = Expander.init("#element");
 			proclaim.equal(expander instanceof Expander, true);
 		});
 	});
 
-	it('should be collapsed by default', (done) => {
+	it("should be collapsed by default", done => {
 		fixtures.simple();
 		// init all expanders on the page
 		const expanders = Expander.init();
@@ -65,17 +65,29 @@ describe("Expander", () => {
 		}, 100);
 	});
 
-	it('should be expanded by default given the expanded modifier class is applied', (done) => {
+	it("should be expanded by default given the expanded modifier class is applied", done => {
 		fixtures.simple();
-		const expanderContentElements = document.querySelectorAll('[data-o-component="o-expander"]');
+		const expanderContentElements = document.querySelectorAll(
+			'[data-o-component="o-expander"]'
+		);
 		// add the expanded class to non-hidden expanders
-		[].slice.apply(expanderContentElements)
-			.filter(e => e.getAttribute('data-o-expander-shrink-to') !== 'hidden')
-			.forEach(e => e.querySelector('.o-expander__content').classList.add('o-expander__content--expanded'));
+		[].slice
+			.apply(expanderContentElements)
+			.filter(e => e.getAttribute("data-o-expander-shrink-to") !== "hidden")
+			.forEach(e =>
+				e
+					.querySelector(".o-expander__content")
+					.classList.add("o-expander__content--expanded")
+			);
 		// add the aria-hidden=false attribute to hidden expanders
-		[].slice.apply(expanderContentElements)
-			.filter(e => e.getAttribute('data-o-expander-shrink-to') === 'hidden')
-			.forEach(e => e.querySelector('.o-expander__content').setAttribute('aria-hidden', 'false'));
+		[].slice
+			.apply(expanderContentElements)
+			.filter(e => e.getAttribute("data-o-expander-shrink-to") === "hidden")
+			.forEach(e =>
+				e
+					.querySelector(".o-expander__content")
+					.setAttribute("aria-hidden", "false")
+			);
 		// init all expanders on the page
 		const expanders = Expander.init();
 		setTimeout(function () {

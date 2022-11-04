@@ -2,15 +2,15 @@
 
 _Use `o-fonts` to include Origami provided fonts, or register supported custom fonts._
 
--   [Usage](#usage)
--   [Recommended Fonts](#recommended-fonts)
--   [Fonts Included By Default](#fonts-included-by-default)
--   [All Available Fonts](#all-available-fonts)
--   [Sass](#sass)
--   [Contributing](#contributing)
--   [Migration guide](#migration-guide)
--   [Contact](#contact)
--   [Licence](#licence)
+- [Usage](#usage)
+- [Recommended Fonts](#recommended-fonts)
+- [Fonts Included By Default](#fonts-included-by-default)
+- [All Available Fonts](#all-available-fonts)
+- [Sass](#sass)
+- [Contributing](#contributing)
+- [Migration guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
 
 ## Usage
 
@@ -23,32 +23,32 @@ Origami components use a limited set of recommended font faces which vary per br
 ### Core Brand Recommended Fonts
 
 | Weight   | FinancierDisplayWeb | MetricWeb |
-|----------|:-------------------:|:---------:|
+| -------- | :-----------------: | :-------: |
 | thin     |                     |           |
 | light    |                     |           |
-| regular  |                     |    ✓      |
-| medium   |         ✓           |           |
-| semibold |                     |    ✓      |
-| bold     |         ✓           |           |
+| regular  |                     |     ✓     |
+| medium   |          ✓          |           |
+| semibold |                     |     ✓     |
+| bold     |          ✓          |           |
 | black    |                     |           |
 
--   **✓**: normal style available
--   **i**: italic style available (if not, faux-italic will be displayed)
+- **✓**: normal style available
+- **i**: italic style available (if not, faux-italic will be displayed)
 
 ### Internal Brand Recommended Fonts
 
 | Weight   | MetricWeb |
-|----------|:---------:|
+| -------- | :-------: |
 | thin     |           |
 | light    |           |
-| regular  |    ✓      |
+| regular  |     ✓     |
 | medium   |           |
-| semibold |    ✓      |
+| semibold |     ✓     |
 | bold     |           |
 | black    |           |
 
--   **✓**: normal style available
--   **i**: italic style available (if not, faux-italic will be displayed)
+- **✓**: normal style available
+- **i**: italic style available (if not, faux-italic will be displayed)
 
 ### Whitelabel Brand Recommended Fonts
 
@@ -58,29 +58,28 @@ _(None)_. Origami components make no font assumptions for whitelabel brands and 
 
 A selection wider than [recommended fonts](#recommended-fonts) are included by default so they are available to Build Service users. Font faces included by default, if using the Origami Build Service or [including default fonts with SASS](#include-default-fonts), depend on your products chosen brand:
 
-| Brand       | Fonts included by default ([all weights and styles available](#all-available-fonts)) |
-|-------------|--------------------------------------------------------------------------------------|
-| core      | FinancierDisplayWeb, MetricWeb                                                       |
-| internal    | MetricWeb                                                                            |
-| whitelabel  | _(none)_                                                                             |
-
+| Brand      | Fonts included by default ([all weights and styles available](#all-available-fonts)) |
+| ---------- | ------------------------------------------------------------------------------------ |
+| core       | FinancierDisplayWeb, MetricWeb                                                       |
+| internal   | MetricWeb                                                                            |
+| whitelabel | _(none)_                                                                             |
 
 ## All Available Fonts
 
 Any of the below fonts may be included with `o-fonts` using [SASS](#sass), this is useful for brands such as specialist titles who may use additional fonts. Build Service users are limited to [fonts included by default](#fonts-included-by-default).
 
-| Weight   | FinancierDisplayWeb | FinancierTextWeb    | MetricWeb |
-|----------|:-------------------:|:-------------------:|:---------:|
-| thin     |                     |                     |    ✓      |
-| light    |         ✓ i         |                     |    ✓ i    |
-| regular  |         ✓ i         |          ✓ i        |    ✓ i    |
-| medium   |         ✓ i         |          ✓          |    ✓      |
-| semibold |         ✓ i         |                     |    ✓      |
-| bold     |         ✓           |          ✓          |    ✓ i    |
-| black    |         ✓           |          ✓          |    ✓      |
+| Weight   | FinancierDisplayWeb | FinancierTextWeb | MetricWeb |
+| -------- | :-----------------: | :--------------: | :-------: |
+| thin     |                     |                  |     ✓     |
+| light    |         ✓ i         |                  |    ✓ i    |
+| regular  |         ✓ i         |       ✓ i        |    ✓ i    |
+| medium   |         ✓ i         |        ✓         |     ✓     |
+| semibold |         ✓ i         |                  |     ✓     |
+| bold     |          ✓          |        ✓         |    ✓ i    |
+| black    |          ✓          |        ✓         |     ✓     |
 
--   **✓**: normal style available
--   **i**: italic style available (if not, faux-italic will be displayed)
+- **✓**: normal style available
+- **i**: italic style available (if not, faux-italic will be displayed)
 
 ## Sass
 
@@ -89,29 +88,37 @@ Any of the below fonts may be included with `o-fonts` using [SASS](#sass), this 
 To include [all fonts for your brand](#fonts-included-by-default), call `oFonts`.
 
 ```scss
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
 ```
 
 To improve site performance, Origami components use a more limited set of font faces. To included only the recommended set of font faces, set `recommended: true` in the options `$opts` map.
+
 ```scss
-@import '@financial-times/o-fonts/main';
-@include oFonts($opts: ('recommended': true));
+@import "@financial-times/o-fonts/main";
+@include oFonts(
+	$opts: (
+		"recommended": true,
+	)
+);
 ```
 
 You may also include specific fonts granularly using an options `$opts` map. The map has a key for each font `metric`, `financier-display`, or `financier-text`, which accepts a list of weight and styles to include.
 
 For example to include recommended fonts used by Origami components and an extra font, `MetricWeb` in a medium weight, and regular `FinancierDisplayWeb`:
+
 ```scss
-@include oFonts($opts: (
-	'recommended': true,
-	'metric': (
-		('weight': 'medium', 'style': 'normal')
-	),
-	'financier-display': (
-		('weight': 'regular', 'style': 'normal')
+@include oFonts(
+	$opts: (
+		"recommended": true,
+		"metric": (
+			("weight": "medium", "style": "normal"),
+		),
+		"financier-display": (
+			("weight": "regular", "style": "normal"),
+		),
 	)
-));
+);
 ```
 
 _Note: If your project has multiple Sass entry points call `oFontsVariantsIncluded` with the same options as `oFonts`, to tell `o-fonts` which font faces have been output._
@@ -122,9 +129,8 @@ By default [font-display](https://developer.mozilla.org/en-US/docs/Web/CSS/@font
 
 ```scss
 // Customise font loading.
-$o-fonts-display: 'optional';
-@import '@financial-times/o-fonts/main';
-
+$o-fonts-display: "optional";
+@import "@financial-times/o-fonts/main";
 
 @include oFonts();
 ```
@@ -134,19 +140,22 @@ $o-fonts-display: 'optional';
 To register a custom font and supported variants, use the mixin `oFontsDefineCustomFont`.
 
 In this example we register a custom font "MyFont" with sans fallback `MyFont, sans`. We configure this font to allow two variants (a normal style of either bold or regular weight). In the mixin content we include the `@font-face` declaration to load these fonts from our own source.
+
 ```scss
-@include oFontsDefineCustomFont('MyFont, sans', (
-	(weight: regular, style: normal),
-	(weight: bold, style: normal)
-)) {
+@include oFontsDefineCustomFont(
+	"MyFont, sans",
+	((weight: regular, style: normal), (weight: bold, style: normal))
+) {
 	@font-face {
-		src: url('MyFont-Thin.woff2') format('woff2'), url('MyFont-Thin.woff') format('woff');
+		src: url("MyFont-Thin.woff2") format("woff2"), url("MyFont-Thin.woff")
+				format("woff");
 		font-family: MyFont;
 		font-weight: 100;
 		font-style: normal;
 	}
 	@font-face {
-		src: url('MyFont-Bold.woff2') format('woff2'), url('MyFont-Bold.woff') format('woff');
+		src: url("MyFont-Bold.woff2") format("woff2"), url("MyFont-Bold.woff")
+				format("woff");
 		font-family: MyFont;
 		font-weight: 700;
 		font-style: normal;
@@ -159,7 +168,9 @@ In this example we register a custom font "MyFont" with sans fallback `MyFont, s
 To get a `font-family` with web safe fallbacks for a font, use the `oFontsGetFontFamilyWithFallbacks` function.
 
 ```scss
-$family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb); // FinancierDisplayWeb, sans-serif
+$family: oFontsGetFontFamilyWithFallbacks(
+	FinancierDisplayWeb
+); // FinancierDisplayWeb, sans-serif
 ```
 
 ### Get a font name from a font family
@@ -167,7 +178,9 @@ $family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb); // FinancierDisp
 To get a font without fallbacks, use `oFontsGetFontFamilyWithoutFallbacks`:
 
 ```scss
-$font: oFontsGetFontFamilyWithoutFallbacks('FinancierDisplayWeb, sans-serif'); // FinancierDisplayWeb
+$font: oFontsGetFontFamilyWithoutFallbacks(
+	"FinancierDisplayWeb, sans-serif"
+); // FinancierDisplayWeb
 ```
 
 ### Check a font of weight or style exists
@@ -175,8 +188,8 @@ $font: oFontsGetFontFamilyWithoutFallbacks('FinancierDisplayWeb, sans-serif'); /
 To check if a font supports a weight/style use `oFontsVariantExists`.
 
 ```scss
-$allowed: oFontsVariantExists('MetricWeb', 'bold', 'normal'); // true
-$allowed: oFontsVariantExists('MetricWeb', 'black', 'italic'); // false
+$allowed: oFontsVariantExists("MetricWeb", "bold", "normal"); // true
+$allowed: oFontsVariantExists("MetricWeb", "black", "italic"); // false
 ```
 
 ### Check a font of weight or style has been included
@@ -185,15 +198,16 @@ To check if a font weight/style has been output in your project use `oFontsVaria
 
 ```scss
 // including fonts in project
-@include oFonts($opts: (
-	'metric': (
-		('weight': 'medium', 'style': 'normal')
-	),
-));
+@include oFonts(
+	$opts: (
+		"metric": (
+			("weight": "medium", "style": "normal"),
+		),
+	)
+);
 
-
-$included: oFontsVariantIncluded('MetricWeb', 'medium', 'normal'); // true
-$included: oFontsVariantIncluded('MetricWeb', 'bold', 'normal'); // false
+$included: oFontsVariantIncluded("MetricWeb", "medium", "normal"); // true
+$included: oFontsVariantIncluded("MetricWeb", "bold", "normal"); // false
 ```
 
 _Note: If your project has multiple Sass entry points call `oFontsVariantsIncluded` with the same options as `oFonts`, to tell `o-fonts` which font faces have been output._
@@ -208,27 +222,27 @@ Note: font files are contained in a separate, private repository ([o-fonts-asset
 
 2.  Add the font family name (if it's an entirely new family) and the variant styles to the private `$_o-fonts-families` map.
 
-3.  If adding an entirely new font, add a new option to the `oFonts` mixin. To include the new [font by default](#fonts-included-by-default) or with [recommended fonts](#recommended-fonts)  (see `$_o-fonts-default` and `$_o-fonts-recommended`).
+3.  If adding an entirely new font, add a new option to the `oFonts` mixin. To include the new [font by default](#fonts-included-by-default) or with [recommended fonts](#recommended-fonts) (see `$_o-fonts-default` and `$_o-fonts-recommended`).
 
 4.  Finally, update the demos (see `origami.json`).
 
 ## Migration Guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-⚠ maintained | 4 | 4.5 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.3 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.3 | -   |
-╳ deprecated | 1 | 1.5 | -   |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ⚠ maintained |       4       |        4.5         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.3         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.3         |                           -                           |
+| ╳ deprecated |       1       |        1.5         |                           -                           |
 
-***
+---
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-fonts/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

@@ -1,8 +1,8 @@
-import TimeStamp from './time-stamp';
-import RelativeTime from './relative-time';
-import LiveBlogStatus from './live-blog-status';
-import AlwaysShowTimestamp from './always-show-timestamp';
-import { Status } from './props';
+import TimeStamp from "./time-stamp";
+import RelativeTime from "./relative-time";
+import LiveBlogStatus from "./live-blog-status";
+import AlwaysShowTimestamp from "./always-show-timestamp";
+import { Status } from "./props";
 
 interface StatusProps extends Status {
 	useRelativeTimeIfToday?: boolean;

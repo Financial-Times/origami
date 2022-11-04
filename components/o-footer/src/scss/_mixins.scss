@@ -5,7 +5,12 @@
 @mixin _oFooterBrandImage($logo-name, $fallback-width) {
 	// Error if the global $system-code variable is not set.
 	// This is required for image service requests.
-	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+	@if (
+		global-variable-exists("system-code") ==
+			false or
+			type-of($system-code) !=
+			"string"
+	) {
 		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
 	}
 
@@ -16,52 +21,52 @@
 /// Styles for the dark theme
 /// @param {String} $theme - The theme, see _brand.scss for theme configuration.
 @mixin _oFooterTheme($theme) {
-	@if $theme != 'light' and $theme != 'dark' {
+	@if $theme != "light" and $theme != "dark" {
 		@error 'No theme "#{inspect($theme)}" exists. Supported themes include "light" and "dark".';
 	}
 
 	.o-footer--theme-#{$theme} {
-		color: _oFooterGet('text', $from: $theme);
-		background: _oFooterGet('background', $from: $theme);
+		color: _oFooterGet("text", $from: $theme);
+		background: _oFooterGet("background", $from: $theme);
 
 		.o-footer__title {
-			color: _oFooterGet('title', $from: $theme);
+			color: _oFooterGet("title", $from: $theme);
 		}
 
 		.o-footer__matrix-link--more:after {
 			@include oIconsContent(
-				$icon-name: 'arrow-right',
+				$icon-name: "arrow-right",
 				$size: $_o-footer-icon-size,
-				$color: _oFooterGet('text', $from: $theme),
+				$color: _oFooterGet("text", $from: $theme),
 				$include-base-styles: false
 			);
 		}
 
 		.o-footer__matrix-title--link,
 		.o-footer__matrix-title[aria-expanded] {
-			border-color: _oFooterGet('border', $from: $theme);
+			border-color: _oFooterGet("border", $from: $theme);
 		}
 
 		.o-footer__matrix-title a {
-			color: _oFooterGet('text', $from: $theme);
+			color: _oFooterGet("text", $from: $theme);
 		}
 
 		a {
-			color: _oFooterGet('link', $from: $theme);
+			color: _oFooterGet("link", $from: $theme);
 
 			&:hover,
 			&:focus {
-				color: _oFooterGet('link-hover', $from: $theme);
+				color: _oFooterGet("link-hover", $from: $theme);
 			}
 		}
 
 		.o-footer__copyright {
-			color: _oFooterGet('copyright', $from: $theme);
+			color: _oFooterGet("copyright", $from: $theme);
 		}
 
 		.o-footer__brand {
-			color: _oFooterGet('text', $from: $theme);
-			background: _oFooterGet('brand-background', $from: $theme);
+			color: _oFooterGet("text", $from: $theme);
+			background: _oFooterGet("brand-background", $from: $theme);
 		}
 	}
 }
@@ -81,10 +86,10 @@
 
 	@each $key, $value in $_o-footer-matrix {
 		.o-footer__matrix-group--#{$key} {
-			@include oGridColspan(map-get($value, 'group'), $width-only: true);
+			@include oGridColspan(map-get($value, "group"), $width-only: true);
 
 			.o-footer__matrix-column {
-				@include oGridColspan(map-get($value, 'columns'), $width-only: true);
+				@include oGridColspan(map-get($value, "columns"), $width-only: true);
 			}
 		}
 	}
@@ -112,14 +117,18 @@
 			cursor: pointer;
 
 			&:after {
-				content: ' ';
+				content: " ";
 				position: absolute;
 				right: 0;
 				top: div(($line-size - $_o-footer-icon-size), 2);
 
 				@each $theme in $themes {
 					.o-footer--theme-#{$theme} & {
-						@include oIconsContent('arrow-down', _oFooterGet('title', $theme), $size: $_o-footer-icon-size);
+						@include oIconsContent(
+							"arrow-down",
+							_oFooterGet("title", $theme),
+							$size: $_o-footer-icon-size
+						);
 					}
 				}
 			}
@@ -153,13 +162,13 @@
 	}
 
 	.o-footer__matrix-column {
-		margin-top: oSpacingByName('s4');
-		margin-bottom: oSpacingByName('s4');
+		margin-top: oSpacingByName("s4");
+		margin-bottom: oSpacingByName("s4");
 	}
 
 	.o-footer__matrix-link {
-		padding-top: oSpacingByName('s2');
-		padding-bottom: oSpacingByName('s2');
+		padding-top: oSpacingByName("s2");
+		padding-bottom: oSpacingByName("s2");
 		display: block;
 
 		&:first-child {
@@ -172,12 +181,12 @@
 
 		&:after {
 			@include oIconsContent(
-				$icon-name: 'arrow-right',
+				$icon-name: "arrow-right",
 				$size: $_o-footer-icon-size,
-				$color: _oFooterGet('text'),
+				$color: _oFooterGet("text"),
 				$include-base-styles: true
 			);
-			content: '';
+			content: "";
 			align-self: center;
 		}
 	}

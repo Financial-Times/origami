@@ -8,7 +8,6 @@ hasCharts: true
 {% assign results = site.data.survey['2020-04-20'] %}
 {% assign areas = "CRM, Customer Products, Enterprise Services and Security, FT Core, FT Group Products, Internal Products, Operations and Reliability, Product" | split: ", " %}
 
-
 We recently sent out an internal survey titled "Origami Survey: Building Components". The survey was designed to gather some quantititive data from our users, and the aim was to help us understand the barriers that teams have to developing their own Origami (or Origami-compatible) components. We sent the survey to engineers, and indicated that we were interested in responses from engineers of all seniorities and levels of experience with Origami.
 
 After two weeks, we had **{{results | size}} responses** from different groups within Product and Technology. This post will explore some of the results, and what we can learn from them. (Bear in mind that while great that we've got this many responses, we should be wary of drawing too many conclusions from 27 out of all the engineers in Product and Technology).
@@ -16,7 +15,6 @@ After two weeks, we had **{{results | size}} responses** from different groups w
 To help segment the data, we asked each respondent which area of Product and Technology they worked in, as well as asking them to self-report their level of familiarity with using Origami components.
 
 We'd like to say a big thanks to everyone who filled out the survey 🙂
-
 
 ## Familiarity
 
@@ -50,7 +48,6 @@ We asked the question _**"How familiar are you with using Origami components?"**
 </table>
 
 When you filter this by the area that the person works in, you can see that the groups who have been using Origami for the longest (Customer Products, Internal Products) generally self-report as having more experience.
-
 
 ## Creating Components
 
@@ -109,7 +106,6 @@ When you filter this by the area that the person works in, you can see that Cust
 	{% endfor %}
 </div>
 
-
 ## Prior Experience
 
 We also asked _**"Have you ever built or contributed to an Origami component?"**_, and gave respondents the ability to indicate whether they've either built a component, contributed to a component, or both. The vast majority of respondents have neither built nor contributed to the development of a component:
@@ -145,16 +141,15 @@ We also asked _**"Have you ever built or contributed to an Origami component?"**
 	</tbody>
 </table>
 
-
 ## What if an Origami component doesn't exist?
 
 To get an idea of how people are building their front ends, we asked _**"If there isn't an Origami component that suits your needs, how do you build that part of your website?"**_, and gave respondents the ability to select multiple options from the following, or provide their own response:
 
-  * We build and use our own Origami components (Own Origami)
-  * We build and use our own reusable non-Origami components, which are used across multiple applications (Own Non-Origami)
-  * We build it directly into our application codebase (Directly Into App)
-  * We never need anything other than Origami components (Only Origami)
-  * We use third-party libraries and components (Third-Party)
+- We build and use our own Origami components (Own Origami)
+- We build and use our own reusable non-Origami components, which are used across multiple applications (Own Non-Origami)
+- We build it directly into our application codebase (Directly Into App)
+- We never need anything other than Origami components (Only Origami)
+- We use third-party libraries and components (Third-Party)
 
 Ignoring responses of "Other" for now, the results look like this. You can see that in the majority of cases, if an Origami component is not available then front-end code gets built directly into people's application codebase:
 
@@ -187,12 +182,12 @@ Ignoring responses of "Other" for now, the results look like this. You can see t
 
 The "Other" responses to this question are as follows:
 
-  * We beg origami to consider it for their roadmap 🙏, rally others who may benefit from it too
-  * Didn't hit such case. Even if I did, would use some simple custom elements. Instead of including other third party libs
-  * We copy/paste it from another repo that's done something similar
-  * Sorry, I'm just not familiar with Origami components
-  * I'm new :D Never had to touch an Origami component yet!
-  * Talked to Origami developers who then worked with us improving existing components to meet our requirements
+- We beg origami to consider it for their roadmap 🙏, rally others who may benefit from it too
+- Didn't hit such case. Even if I did, would use some simple custom elements. Instead of including other third party libs
+- We copy/paste it from another repo that's done something similar
+- Sorry, I'm just not familiar with Origami components
+- I'm new :D Never had to touch an Origami component yet!
+- Talked to Origami developers who then worked with us improving existing components to meet our requirements
 
 We can see that very few people build Origami-compatible components outside of the Origami team. Engineers are also more likely to use third-party code than build their own reusable components.
 

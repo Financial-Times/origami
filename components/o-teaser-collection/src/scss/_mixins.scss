@@ -21,33 +21,38 @@
 ///			));
 ///		}
 /// @param {Map} $opts [('anchor': true,'divider': true,'sizes': ('full-width', 'half-width', 'small'))]
-@mixin oTeaserCollectionContentHeading($opts: (
-	'anchor': true,
-	'divider': true,
-	'sizes': ('full-width', 'half-width', 'small')
-)) {
-	$anchor: map-get($opts, 'anchor');
-	$divider: map-get($opts, 'divider');
+@mixin oTeaserCollectionContentHeading(
+	$opts: (
+		"anchor": true,
+		"divider": true,
+		"sizes": (
+			"full-width",
+			"half-width",
+			"small",
+		),
+	)
+) {
+	$anchor: map-get($opts, "anchor");
+	$divider: map-get($opts, "divider");
 
-	$sizes: map-get($opts, 'sizes');
-	$full-width: index($sizes, 'full-width');
-	$half-width: index($sizes, 'half-width');
-	$small: index($sizes, 'small');
+	$sizes: map-get($opts, "sizes");
+	$full-width: index($sizes, "full-width");
+	$half-width: index($sizes, "half-width");
+	$small: index($sizes, "small");
 
-	@include oTypographySans(3, $weight: 'regular');
+	@include oTypographySans(3, $weight: "regular");
 	position: relative;
 	width: 100%;
 	margin: 0;
-	padding-top: oSpacingByName('s3');
+	padding-top: oSpacingByName("s3");
 	padding-bottom: oSpacingByIncrement(5);
 	-webkit-font-smoothing: antialiased;
 
-
-	@if($divider) {
+	@if ($divider) {
 		&:before,
 		&:after {
-			border-top: 8px solid rgba(oColorsByName('black'), 0.05);
-			content: '';
+			border-top: 8px solid rgba(oColorsByName("black"), 0.05);
+			content: "";
 			left: 0;
 			top: 0;
 			position: absolute;
@@ -55,7 +60,7 @@
 		}
 
 		&:after {
-			border-top-color: oColorsByName('black');
+			border-top-color: oColorsByName("black");
 
 			@include oGridRespondTo(L) {
 				width: 32.5%;
@@ -63,13 +68,13 @@
 		}
 	}
 
-	@if($divider and $full-width) {
+	@if ($divider and $full-width) {
 		&--full-width:after {
 			width: 100%;
 		}
 	}
 
-	@if($divider and $half-width) {
+	@if ($divider and $half-width) {
 		&--half-width:after {
 			@include oGridRespondTo(L) {
 				width: 49%;
@@ -77,12 +82,12 @@
 		}
 	}
 
-	@if($small) {
+	@if ($small) {
 		&--small {
 			margin-bottom: oSpacingByIncrement(5);
 			border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
 
-			@if($divider) {
+			@if ($divider) {
 				&:after {
 					width: 100%;
 				}
@@ -97,7 +102,6 @@
 	}
 }
 
-
 /// @access private
 @mixin _oTeaserCollectionHeadingLink {
 	color: inherit;
@@ -106,12 +110,12 @@
 	padding: 1px 0px 3px; // Magic numbers to make the focus style the same height for the text and > icon
 
 	&:hover {
-		color: oColorsMix('black', $percentage: 55);
+		color: oColorsMix("black", $percentage: 55);
 	}
 
 	&:after {
-		@include oIconsContent('arrow-right', oColorsByName('black'), $size: 30);
-		content: '';
+		@include oIconsContent("arrow-right", oColorsByName("black"), $size: 30);
+		content: "";
 		display: inline-block;
 		position: relative;
 		top: 8px;
@@ -153,7 +157,7 @@
 	background-color: $colour;
 
 	&:after {
-		content: '';
+		content: "";
 		position: absolute;
 		top: 0;
 		z-index: -1;

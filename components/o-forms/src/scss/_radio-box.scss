@@ -2,9 +2,8 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @output Styling for box-styled radio inputs
-@mixin _oFormsRadioBox(
-	$disabled: null
-) {
+@mixin _oFormsRadioBox($disabled: null) {
+	// stylelint-disable selector-no-qualifying-type
 	.o-forms-input--radio-box {
 		@include _oFormsRadioBoxInputStyles();
 
@@ -13,7 +12,7 @@
 		}
 
 		&.o-forms-input--invalid .o-forms-input--radio-box__container {
-			border-color: _oFormsGet('invalid-base');
+			border-color: _oFormsGet("invalid-base");
 		}
 
 		label {
@@ -35,7 +34,7 @@
 			}
 		}
 
-		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
+		input[type="radio"] {
 			position: absolute;
 			// Hide visually while remaining accessible to voice control like Dragon
 			// Dragon requires the input it is trying to click to be actually clickable
@@ -46,7 +45,7 @@
 			cursor: pointer;
 
 			@if $disabled {
-				&:disabled + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+				&:disabled + .o-forms-input__label {
 					cursor: default;
 					opacity: 0.4;
 				}
@@ -71,39 +70,44 @@
 /// @param {Map|null} $theme Custom theme map
 /// @output styling for box-styled radio inputs
 @mixin _oFormsRadioBoxInputStyles($theme: null) {
-	border-color: _oFormsGet('default-border', $from: $theme);
+	border-color: _oFormsGet("default-border", $from: $theme);
 
 	.o-forms-input--radio-box__container {
-		background-color: _oFormsGet('radio-background');
+		background-color: _oFormsGet("radio-background");
 	}
 
 	.o-forms-input--radio-box__container,
 	label:not(:first-of-type) {
-		border-color: _oFormsGet('default-border', $from: $theme);
+		border-color: _oFormsGet("default-border", $from: $theme);
 	}
 
-	input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
-		& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
-			color: _oFormsGet('controls-base', $from: $theme);
+	input[type="radio"] {
+		& + .o-forms-input__label {
+			color: _oFormsGet("controls-base", $from: $theme);
 		}
 
-		&:not(:checked):not(:disabled):hover + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
-			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
+		&:not(:checked):not(:disabled):hover + .o-forms-input__label {
+			background-color: rgba(_oFormsGet("controls-base", $from: $theme), 0.15);
 		}
 
-		&:focus + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
-			border-color: oColorsByUsecase('focus', 'outline', $fallback: null);
-			box-shadow: 0 0 0 $_o-forms-spacing-half oColorsByUsecase('focus', 'outline', $fallback: null);
+		&:focus + .o-forms-input__label {
+			border-color: oColorsByUsecase("focus", "outline", $fallback: null);
+			box-shadow: 0 0 0 $_o-forms-spacing-half
+				oColorsByUsecase("focus", "outline", $fallback: null);
 			outline: none;
 		}
 
-		&:checked + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
-			background-color: _oFormsGet('controls-base', $from: $theme);
-			color: _oFormsGet('controls-checked-base', $from: $theme);
+		&:checked + .o-forms-input__label {
+			background-color: _oFormsGet("controls-base", $from: $theme);
+			color: _oFormsGet("controls-checked-base", $from: $theme);
 
-			&.o-forms-input__label--negative { // stylelint-disable-line selector-no-qualifying-type
-				background-color: _oFormsGet('controls-negative-checked-background', $from: $theme);
+			&.o-forms-input__label--negative {
+				background-color: _oFormsGet(
+					"controls-negative-checked-background",
+					$from: $theme
+				);
 			}
 		}
 	}
+	// stylelint-enable selector-no-qualifying-type
 }

@@ -2,51 +2,44 @@
 
 ### [3.2.3](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.2.2...o-toggle-v3.2.3) (2022-04-20)
 
-
 ### Bug Fixes
 
-* Check for `document` before using it ([af1ad12](https://www.github.com/Financial-Times/origami/commit/af1ad128652d5db42aa5b26bba2cd527855af16e))
+- Check for `document` before using it ([af1ad12](https://www.github.com/Financial-Times/origami/commit/af1ad128652d5db42aa5b26bba2cd527855af16e))
 
 ### [3.2.2](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.2.1...o-toggle-v3.2.2) (2022-01-13)
 
-
 ### Bug Fixes
 
-* expand all uses of docs to documentation ([26f8d9d](https://www.github.com/Financial-Times/origami/commit/26f8d9d8cbbe3e78902d8c3951b37e08150a77bd))
+- expand all uses of docs to documentation ([26f8d9d](https://www.github.com/Financial-Times/origami/commit/26f8d9d8cbbe3e78902d8c3951b37e08150a77bd))
 
 ### [3.2.1](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.2.0...o-toggle-v3.2.1) (2022-01-12)
 
-
 ### Bug Fixes
 
-* add/correct all the required features to get o-toggle working in ie11 ([fccc39c](https://www.github.com/Financial-Times/origami/commit/fccc39c81a213d2b35dd456dd4f464d25baa3b76))
+- add/correct all the required features to get o-toggle working in ie11 ([fccc39c](https://www.github.com/Financial-Times/origami/commit/fccc39c81a213d2b35dd456dd4f464d25baa3b76))
 
 ## [3.2.0](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.1.0...o-toggle-v3.2.0) (2021-11-24)
 
-
 ### Features
 
-* allow npm 8 in engines config ([eeb1cae](https://www.github.com/Financial-Times/origami/commit/eeb1cae6e7f0379e647f2b41240b1f294997d528))
+- allow npm 8 in engines config ([eeb1cae](https://www.github.com/Financial-Times/origami/commit/eeb1cae6e7f0379e647f2b41240b1f294997d528))
 
 ## [3.1.0](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.0.2...o-toggle-v3.1.0) (2021-11-08)
 
-
 ### Features
 
-* Rename master brand in component origami.json ([f642faf](https://www.github.com/Financial-Times/origami/commit/f642faf0574d84ea8185b56e6090c8015def27e6))
+- Rename master brand in component origami.json ([f642faf](https://www.github.com/Financial-Times/origami/commit/f642faf0574d84ea8185b56e6090c8015def27e6))
 
 ### [3.0.2](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.0.1...o-toggle-v3.0.2) (2021-11-02)
 
-
 ### Bug Fixes
 
-* Update `o-brand` in components, replace "master" with "core" ([322617e](https://www.github.com/Financial-Times/origami/commit/322617ea80f30a6825d9c36872e05574b871ea82))
+- Update `o-brand` in components, replace "master" with "core" ([322617e](https://www.github.com/Financial-Times/origami/commit/322617ea80f30a6825d9c36872e05574b871ea82))
 
 ### [3.0.1](https://www.github.com/Financial-Times/origami/compare/o-toggle-v3.0.0...o-toggle-v3.0.1) (2021-09-21)
 
-
 ### Bug Fixes
 
-* Add homepage, bugs and support email to the package.json ([6c0de60](https://www.github.com/Financial-Times/origami/commit/6c0de60ebd6e64c4dd16d000fcc6b79412ce30f4))
-* update bugs urls ([3ea0ca0](https://www.github.com/Financial-Times/origami/commit/3ea0ca03bcb6e55142a77387ad0fff5ddf056d44))
-* update origami json urls ([c757653](https://www.github.com/Financial-Times/origami/commit/c7576532b5a14f0462d5346dfb63238be025602e))
+- Add homepage, bugs and support email to the package.json ([6c0de60](https://www.github.com/Financial-Times/origami/commit/6c0de60ebd6e64c4dd16d000fcc6b79412ce30f4))
+- update bugs urls ([3ea0ca0](https://www.github.com/Financial-Times/origami/commit/3ea0ca03bcb6e55142a77387ad0fff5ddf056d44))
+- update origami json urls ([c757653](https://www.github.com/Financial-Times/origami/commit/c7576532b5a14f0462d5346dfb63238be025602e))

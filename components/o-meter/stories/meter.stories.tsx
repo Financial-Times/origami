@@ -1,14 +1,14 @@
-import {Fragment} from 'react';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {withDesign} from 'storybook-addon-designs';
-import withHtml from 'origami-storybook-addon-html';
+import { Fragment } from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { withDesign } from "storybook-addon-designs";
+import withHtml from "origami-storybook-addon-html";
 
-import {Meter} from '../src/tsx/meter';
-import './meter.scss';
-import {higherIsBetterDemoData, lowerIsBetterDemoData} from './meterData';
+import { Meter } from "../src/tsx/meter";
+import "./meter.scss";
+import { higherIsBetterDemoData, lowerIsBetterDemoData } from "./meterData";
 
 export default {
-	title: 'Components/o-meter',
+	title: "Components/o-meter",
 	component: Meter,
 	decorators: [withDesign, withHtml],
 	args: {
@@ -26,9 +26,9 @@ const ComplexStory = args => {
 	let meters = args.items;
 	return (
 		<Fragment>
-			{meters.map(({description, meterArgs}, i) => (
+			{meters.map(({ description, meterArgs }, i) => (
 				<Fragment key={i}>
-					<p dangerouslySetInnerHTML={{__html: description}} />
+					<p dangerouslySetInnerHTML={{ __html: description }} />
 					<Meter {...meterArgs}></Meter>
 				</Fragment>
 			))}
@@ -38,28 +38,28 @@ const ComplexStory = args => {
 
 export const simpleMeter: ComponentStory<typeof Meter> = Story.bind({});
 simpleMeter.args = {
-	label: 'demo meter 33',
+	label: "demo meter 33",
 	value: 33,
 };
 
 export const higherIsBetter = ComplexStory.bind({});
 higherIsBetter.storyName =
-	'Simple Meter With Different Values Where Higher Is Better';
+	"Simple Meter With Different Values Where Higher Is Better";
 higherIsBetter.args = {
 	items: higherIsBetterDemoData,
 };
 
 export const lowerIsBetter = ComplexStory.bind({});
 lowerIsBetter.storyName =
-	'Simple Meter With Different Values Where Lower Is Better';
+	"Simple Meter With Different Values Where Lower Is Better";
 lowerIsBetter.args = {
 	items: lowerIsBetterDemoData,
 };
 
 export const optionalBox: ComponentStory<typeof Meter> = Story.bind({});
-optionalBox.storyName = 'Meter With Optional Value Box';
+optionalBox.storyName = "Meter With Optional Value Box";
 optionalBox.args = {
-	label: 'demo meter 2.5',
+	label: "demo meter 2.5",
 	value: 2.5,
 	max: 10,
 	high: 10,

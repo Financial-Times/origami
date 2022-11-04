@@ -17,24 +17,29 @@ function Logger(logSize, logLevel) {
 		this._consoleLog = noop;
 	}
 
-	const out = typeof console !== 'undefined' ? console : { log: noop, warn: noop, error: noop };
+	const out =
+		typeof console !== "undefined"
+			? console
+			: { log: noop, warn: noop, error: noop };
 	this.out = out;
 }
 
-Logger.prototype.error = function() {
+Logger.prototype.error = function () {
 	this._consoleLog("ERROR", this.out.error, arguments);
 };
 
-Logger.prototype.log = function() {
+Logger.prototype.log = function () {
 	this._consoleLog("LOG", this.out.log, arguments);
 };
 
-Logger.prototype.warn = function() {
+Logger.prototype.warn = function () {
 	this._consoleLog("WARN", this.out.warn, arguments);
 };
 
-Logger.prototype._consoleLog = function(name, consoleMethod, args) {
-	const debug = this._logLevel === Logger.level.debug || this._logLevel === Logger.level.consoleonly;
+Logger.prototype._consoleLog = function (name, consoleMethod, args) {
+	const debug =
+		this._logLevel === Logger.level.debug ||
+		this._logLevel === Logger.level.consoleonly;
 
 	// Because 'arguments' is not a true array we call out to argsAsLogString
 	// to efficiently concatenate the arguments as string types to create the
@@ -54,14 +59,14 @@ function argsAsLogString(logName, args) {
 	// use util.format (provided by browserify), but it adds 8K to the
 	// minified output, it doesn't seem worth it. Kornel suggests
 	// git.svc.ft.com/projects/LOG/repos/js-abbreviate/browse
-	for(let index = 0; index < args.length; index++) {
+	for (let index = 0; index < args.length; index++) {
 		string += " " + args[index];
 	}
 
 	return string;
 }
 
-Logger.prototype.append = function(logLine) {
+Logger.prototype.append = function (logLine) {
 	this._logBuffer[this._nextLogIndex] = logLine;
 
 	// Really simple Ring buffer implementation (keep track of next insertion
@@ -80,7 +85,7 @@ Logger.prototype.append = function(logLine) {
  * @private
  * @returns {String} - Rolled up string
  */
-Logger.prototype.logLines = function() {
+Logger.prototype.logLines = function () {
 	let index = this._nextLogIndex;
 	const nextLogIndex = this._nextLogIndex;
 	const rolledUpLogs = [];
@@ -111,7 +116,7 @@ Logger.level = {
 	/**
 	 * No logging at all occurs, each call to errors.log or errors.log are no-ops
 	 */
-	off:         0,
+	off: 0,
 
 	/**
 	 * Logs are stored in a buffer, by default the last 10 lines.  When an
@@ -123,12 +128,12 @@ Logger.level = {
 	 * Logs are stored in the buffer as with `contextonly` however, they are
 	 * also passed through to the relevant `console.*` API.
 	 */
-	debug:       2, // contextonly & debug
+	debug: 2, // contextonly & debug
 
 	/**
 	 * Logging only occurs in the console. Raven client is not initialised.
 	 */
-	consoleonly: 3
+	consoleonly: 3,
 };
 
 // eslint-disable-next-line no-empty-function

@@ -1,4 +1,4 @@
-@import '@financial-times/math';
+@import "@financial-times/math";
 @import "@financial-times/o-typography/main";
 @import "@financial-times/o-spacing/main";
 @import "@financial-times/o-visual-effects/main";
@@ -18,16 +18,20 @@
 ///     ));
 ///
 /// @param {Map} $opts - The o-cookie-message features to output. See the [readme](https://registry.origami.ft.com/components/o-cookie-message) for a full list of options.
-@mixin oCookieMessage($opts: ('themes': $_o-cookie-message-themes)) {
+@mixin oCookieMessage(
+	$opts: (
+		"themes": $_o-cookie-message-themes,
+	)
+) {
 	@include _oCookieMessageBase();
 
-	$themes: map-get($opts, 'themes');
+	$themes: map-get($opts, "themes");
 	$themes: if($themes, $themes, ());
 
 	@each $theme in $themes {
 		@if not index($_o-cookie-message-themes, $theme) {
 			@error "There is no theme '#{$theme}' available in o-cookie-message, please use one of the following: #{$_o-cookie-message-themes}.";
-		} @else if $theme == 'alternative' {
+		} @else if $theme == "alternative" {
 			@include _oCookieMessageAlternative();
 		}
 	}

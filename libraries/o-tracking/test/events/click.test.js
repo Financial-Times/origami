@@ -1,104 +1,103 @@
 /* eslint-env mocha */
 
-import '../setup.js';
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
-import {Queue} from '../../src/javascript/core/queue.js';
-import {destroy, set} from '../../src/javascript/core/settings.js';
-import {init as initSend} from '../../src/javascript/core/send.js';
-import core from '../../src/javascript/core.js';
-import {click} from '../../src/javascript/events/click.js';
-import {init as initSession} from '../../src/javascript/core/session.js';
+import "../setup.js";
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
+import { Queue } from "../../src/javascript/core/queue.js";
+import { destroy, set } from "../../src/javascript/core/settings.js";
+import { init as initSend } from "../../src/javascript/core/send.js";
+import core from "../../src/javascript/core.js";
+import { click } from "../../src/javascript/events/click.js";
+import { init as initSession } from "../../src/javascript/core/session.js";
 
-describe('click', function () {
-
+describe("click", function () {
 	before(function () {
 		initSession();
 		initSend();
 
 		const config = {
 			context: {
-				product: 'desktop'
+				product: "desktop",
 			},
 			user: {
-				user_id: '123456'
-			}
+				user_id: "123456",
+			},
 		};
 
-		set("config",config);
+		set("config", config);
 	});
 
-	beforeEach(function() {
-		sinon.spy(core, 'track');
+	beforeEach(function () {
+		sinon.spy(core, "track");
 	});
 
-	afterEach(function() {
+	afterEach(function () {
 		core.track.restore();
 	});
 
 	after(function () {
-		new Queue('requests').replace([]); // Empty the queue
-		destroy('config'); // Empty settings.
+		new Queue("requests").replace([]); // Empty the queue
+		destroy("config"); // Empty settings.
 	});
 
-	describe('when the old clicks queue exists', function() {
+	describe("when the old clicks queue exists", function () {
 		const clickEventStoredInQueue = {
-			"created_at": 1625589236422,
-			"item": {
-				"server": "https://spoor-api.ft.com/ingest",
-				"context": {
-					"product": "desktop",
-					"url": "https://www.example.com/",
-					"href": "https://www.example.com/",
+			created_at: 1625589236422,
+			item: {
+				server: "https://spoor-api.ft.com/ingest",
+				context: {
+					product: "desktop",
+					url: "https://www.example.com/",
+					href: "https://www.example.com/",
 				},
-				"action": "click",
-				"category": "cta"
-			}
+				action: "click",
+				category: "cta",
+			},
 		};
-		beforeEach(function() {
+		beforeEach(function () {
 			// Add the click event to the old 'clicks' queue which o-tracking v2 uses
-			new Queue('clicks').replace([clickEventStoredInQueue]);
+			new Queue("clicks").replace([clickEventStoredInQueue]);
 		});
-		afterEach(function() {
+		afterEach(function () {
 			// Remove the events from the old 'clicks' queue
-			new Queue('clicks').replace([]);
+			new Queue("clicks").replace([]);
 		});
 
-		it('should track an event for a click stored on the old clicks queue', function (done) {
-			click.init("blah", '#anchorA');
+		it("should track an event for a click stored on the old clicks queue", function (done) {
+			click.init("blah", "#anchorA");
 			setTimeout(() => {
 				try {
 					proclaim.equal(core.track.calledOnce, true, "click event tracked");
-					proclaim.deepStrictEqual(core.track.firstCall.firstArg, clickEventStoredInQueue);
+					proclaim.deepStrictEqual(
+						core.track.firstCall.firstArg,
+						clickEventStoredInQueue
+					);
 					done();
 				} catch (error) {
 					done(error);
 				}
-
 			}, 10);
-
 		});
 	});
 
-	it('should track an event for a click', function (done) {
-
-		click.init("blah", '#anchorA');
+	it("should track an event for a click", function (done) {
+		click.init("blah", "#anchorA");
 		const rootID = core.getRootID();
 
-		const aLinkToGoogle = document.createElement('a');
+		const aLinkToGoogle = document.createElement("a");
 
 		aLinkToGoogle.href = "http://www.google.com";
 		aLinkToGoogle.text = "A link to Google's website";
 		aLinkToGoogle.id = "anchorA";
 
-		aLinkToGoogle.addEventListener('click', function(e){
+		aLinkToGoogle.addEventListener("click", function (e) {
 			e.preventDefault();
 		}); //we don't want the browser to follow click in test
 
-		const event = new MouseEvent('click', {
-			'view': window,
-			'bubbles': true,
-			'cancelable': true
+		const event = new MouseEvent("click", {
+			view: window,
+			bubbles: true,
+			cancelable: true,
 		});
 
 		document.body.appendChild(aLinkToGoogle);
@@ -108,77 +107,74 @@ describe('click', function () {
 			try {
 				proclaim.equal(core.track.calledOnce, true, "click event tracked");
 				proclaim.deepStrictEqual(core.track.firstCall.firstArg, {
-					"context": {
-						"product": "desktop",
-						"domPathTokens": [
+					context: {
+						product: "desktop",
+						domPathTokens: [
 							{
-								"nodeName": "A",
-								"className": false,
-								"id": "anchorA",
-								"href": "http://www.google.com/",
-								"text": "A link to Google's website",
-								"role": false
+								nodeName: "A",
+								className: false,
+								id: "anchorA",
+								href: "http://www.google.com/",
+								text: "A link to Google's website",
+								role: false,
 							},
 							{
-								"nodeName": "BODY",
-								"className": false,
-								"id": false,
-								"href": false,
-								"text": false,
-								"role": false
+								nodeName: "BODY",
+								className: false,
+								id: false,
+								href: false,
+								text: false,
+								role: false,
 							},
 							{
-								"nodeName": "HTML",
-								"className": false,
-								"id": false,
-								"href": false,
-								"text": false,
-								"role": false
-							}
+								nodeName: "HTML",
+								className: false,
+								id: false,
+								href: false,
+								text: false,
+								role: false,
+							},
 						],
-						"url": window.location.toString(),
-						"source_id": rootID,
-						"nodeName": "A",
-						"className": false,
-						"href": "http://www.google.com/",
-						"text": "A link to Google's website",
-						"role": false
+						url: window.location.toString(),
+						source_id: rootID,
+						nodeName: "A",
+						className: false,
+						href: "http://www.google.com/",
+						text: "A link to Google's website",
+						role: false,
 					},
-					"user": {
-						"user_id": "123456"
+					user: {
+						user_id: "123456",
 					},
-					"action": "click",
-					"category": "blah"
+					action: "click",
+					category: "blah",
 				});
 
 				done();
 			} catch (error) {
 				done(error);
 			}
-
 		}, 10);
-
 	});
 
-	it('should add the root_id as the value to context.source_id', function (done) {
-
-		click.init("blah", '#anchorB');
+	it("should add the root_id as the value to context.source_id", function (done) {
+		click.init("blah", "#anchorB");
 		const rootID = core.getRootID();
 
-		const aLinkToGoogle = document.createElement('a');
+		const aLinkToGoogle = document.createElement("a");
 
 		aLinkToGoogle.href = "http://www.google.com";
 		aLinkToGoogle.text = "A link to Google's website";
 		aLinkToGoogle.id = "anchorB";
 
-		aLinkToGoogle.addEventListener('click', function(e){
+		aLinkToGoogle.addEventListener("click", function (e) {
 			e.preventDefault();
 		}); //we don't want the browser to follow click in test
 
-		const event = new MouseEvent('click', {
-			'view': window,
-			'bubbles': true,
-			'cancelable': true
+		const event = new MouseEvent("click", {
+			view: window,
+			bubbles: true,
+			cancelable: true,
 		});
 
 		document.body.appendChild(aLinkToGoogle);
@@ -187,36 +183,36 @@ describe('click', function () {
 		setTimeout(() => {
 			try {
 				proclaim.equal(core.track.calledOnce, true, "click event tracked");
-				proclaim.deepStrictEqual(core.track.firstCall.firstArg.context.source_id, rootID);
+				proclaim.deepStrictEqual(
+					core.track.firstCall.firstArg.context.source_id,
+					rootID
+				);
 
 				done();
 			} catch (error) {
 				done(error);
 			}
-
 		}, 10);
-
 	});
 
-	it('should track custom event properties and send through in the context', (done) => {
+	it("should track custom event properties and send through in the context", done => {
+		click.init("blah", "#anchorB");
 
-		click.init("blah", '#anchorB');
-
-		const aLinkToGoogle = document.createElement('a');
+		const aLinkToGoogle = document.createElement("a");
 
 		aLinkToGoogle.href = "http://www.google.com";
 		aLinkToGoogle.text = "A link to Google's website";
 		aLinkToGoogle.id = "anchorB";
-		aLinkToGoogle.setAttribute('data-trackable-context-foo', 'bar');
+		aLinkToGoogle.setAttribute("data-trackable-context-foo", "bar");
 
-		aLinkToGoogle.addEventListener('click', function(e){
+		aLinkToGoogle.addEventListener("click", function (e) {
 			e.preventDefault();
 		}); //we don't want the browser to follow click in test
 
-		const event = new MouseEvent('click', {
-			'view': window,
-			'bubbles': true,
-			'cancelable': true
+		const event = new MouseEvent("click", {
+			view: window,
+			bubbles: true,
+			cancelable: true,
 		});
 
 		document.body.appendChild(aLinkToGoogle);
@@ -224,53 +220,46 @@ describe('click', function () {
 
 		setTimeout(() => {
 			try {
-				proclaim.equal(core.track.getCall(0).args[0].context.foo, 'bar');
-
+				proclaim.equal(core.track.getCall(0).args[0].context.foo, "bar");
 
 				done();
 			} catch (error) {
 				done(error);
 			}
 		}, 10);
-
 	});
 
-	it('should not track an event for a securedrop click', function (done) {
+	it("should not track an event for a securedrop click", function (done) {
+		click.init("blah", "#anchorC");
 
-		click.init("blah", '#anchorC');
-
-		const aLinkToSecuredrop = document.createElement('a');
+		const aLinkToSecuredrop = document.createElement("a");
 
 		aLinkToSecuredrop.href = "https://www.ft.com/securedrop";
 		aLinkToSecuredrop.text = "A link to securedrop";
 		aLinkToSecuredrop.id = "anchorC";
 		aLinkToSecuredrop.setAttribute("data-o-tracking-do-not-track", "true");
 
-		aLinkToSecuredrop.addEventListener('click', function(e){
+		aLinkToSecuredrop.addEventListener("click", function (e) {
 			e.preventDefault();
 		}); //we don't want the browser to follow click in test
 
-		const event = new MouseEvent('click', {
-			'view': window,
-			'bubbles': true,
-			'cancelable': true
+		const event = new MouseEvent("click", {
+			view: window,
+			bubbles: true,
+			cancelable: true,
 		});
 
 		document.body.appendChild(aLinkToSecuredrop);
 		aLinkToSecuredrop.dispatchEvent(event, true);
 
 		setTimeout(() => {
-
 			try {
 				proclaim.equal(core.track.notCalled, true, "click event not tracked");
-
 
 				done();
 			} catch (error) {
 				done(error);
 			}
-
 		}, 10);
-
 	});
 });

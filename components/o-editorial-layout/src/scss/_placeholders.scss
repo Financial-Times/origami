@@ -1,6 +1,6 @@
 // Only output placeholders if the current brand is the core brand.
 // This allows components which support multiple brands to use o-editorial-layout.
-@if $_o-editorial-layout-placeholders-output == false and oBrandIs('core') {
+@if $_o-editorial-layout-placeholders-output == false and oBrandIs("core") {
 	// Only output placeholders once.
 	$_o-editorial-layout-placeholders-output: true !global;
 
@@ -13,7 +13,7 @@
 	// h1
 	// - small margin below by default
 	%_o-editorial-layout-heading-1 {
-		margin-bottom: oSpacingByName('s1');
+		margin-bottom: oSpacingByName("s1");
 		margin-top: 0;
 	}
 	// h2
@@ -23,7 +23,7 @@
 		// Break typical spacing rules with a bottom margin of 14px, which does
 		// not align to the 4px baseline grid, as requested by the design team.
 		margin-bottom: oSpacingGetBaselineValue() * 3.5;
-		margin-top: oSpacingByName('s8');
+		margin-top: oSpacingByName("s8");
 	}
 	// h3 & h4
 	// - medium margin below by default
@@ -37,13 +37,13 @@
 	// h5
 	// - small margin below by default
 	%_o-editorial-layout-heading-5 {
-		margin-bottom: oSpacingByName('s1');
+		margin-bottom: oSpacingByName("s1");
 		margin-top: 0;
 	}
 	// body
 	// - medium margin below by default
 	%_o-editorial-layout-body {
-		margin-bottom: oSpacingByName('s6');
+		margin-bottom: oSpacingByName("s6");
 		margin-top: 0;
 	}
 
@@ -56,7 +56,7 @@
 	%_o-editorial-layout-heading-4,
 	%_o-editorial-layout-heading-5 {
 		& + %_o-editorial-layout-body {
-			margin-top: oSpacingByName('s1');
+			margin-top: oSpacingByName("s1");
 		}
 
 		& + figure,

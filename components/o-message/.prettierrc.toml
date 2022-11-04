@@ -1,8 +1,8 @@
 printWidth = 80
 trailingComma = "es5"
 semi = true
-singleQuote = true
+singleQuote = false
 useTabs = true
-bracketSpacing = false
-jsxBracketSameLine = true
+bracketSpacing = true
+jsxBracketSameLine = false
 arrowParens = "avoid"

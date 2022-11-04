@@ -1,10 +1,10 @@
-@import '../../main';
+@import "../../main";
 
 @include oEditorialTypography();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 
 body {
-	background: oColorsByUsecase('page', 'background');
-	margin: oSpacingByName('s2');
+	background: oColorsByUsecase("page", "background");
+	margin: oSpacingByName("s2");
 }

@@ -1,6 +1,6 @@
 @import "./../../main";
 @include oTable();
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
 
 @import "@financial-times/o-normalise/main";
@@ -12,7 +12,7 @@
 @import "@financial-times/o-buttons/main";
 @include oButtons();
 html {
-	background: oColorsByUsecase('page', 'background');
+	background: oColorsByUsecase("page", "background");
 }
 
 .o-forms-field--demo {

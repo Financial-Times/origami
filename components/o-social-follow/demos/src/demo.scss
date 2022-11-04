@@ -1,18 +1,22 @@
-@import '../../main';
-@import '@financial-times/o-brand/main';
-@import '@financial-times/o-fonts/main';
-@import '@financial-times/o-normalise/main';
+@import "../../main";
+@import "@financial-times/o-brand/main";
+@import "@financial-times/o-fonts/main";
+@import "@financial-times/o-normalise/main";
 
 @include oNormalise();
 @include oFonts();
 @include oSocialFollow();
 
 .demo {
-	background-color: oColorsByUsecase('page', 'background');
+	background-color: oColorsByUsecase("page", "background");
 	margin: 1rem;
 	padding: 1rem;
 }
 
 .demo--inverse {
-	background-color: if(oBrandIs('core') or oBrandIs('internal'), oColorsByName('slate'), oColorsByName('black'));
+	background-color: if(
+		oBrandIs("core") or oBrandIs("internal"),
+		oColorsByName("slate"),
+		oColorsByName("black")
+	);
 }

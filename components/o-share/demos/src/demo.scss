@@ -1,16 +1,16 @@
-@import '../../main';
+@import "../../main";
 @include oShare();
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 
 .demo {
-	background-color: oColorsByUsecase('page', 'background');
+	background-color: oColorsByUsecase("page", "background");
 	margin: 1rem;
 	padding: 1rem;
 }
 
 .demo--inverse {
-	background-color: oColorsByName('slate');
+	background-color: oColorsByName("slate");
 }

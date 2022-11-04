@@ -23,6 +23,7 @@ It's hard to believe we were largely working from an office at the beginning of 
 We're also running our workshops as usual. This month we ran out first ever fully remote "An Introduction to Origami" workshop for our fellow colleagues in Sofia. Thanks to everyone who attended!
 
 Find us on Slack here:
+
 - [#origami-support](https://app.slack.com/client/T025C95MN/C02FU5ARJ), a place for questions and general support.
 - [#origami-chat](https://app.slack.com/client/T025C95MN/CSW6B2VAN), a place to generally chat with the team, make proposals, or discuss all things Origami related.
 
@@ -64,7 +65,7 @@ This months special thanks goes to you all! You're all doing a great job. Treat 
 
 A digest list of other things that have happened since our last update:
 
-- MAJOR: [origami-build-tools](https://github.com/Financial-Times/origami-build-tools ), only build assets once when shared by multiple demos, swaps lib sass for dart sass, fix demo sass source maps, drop node v8 support.
+- MAJOR: [origami-build-tools](https://github.com/Financial-Times/origami-build-tools), only build assets once when shared by multiple demos, swaps lib sass for dart sass, fix demo sass source maps, drop node v8 support.
 - MAJOR: [o-teaser](https://github.com/Financial-Times/o-teaser) introduces a new typography style (great work Olga Averjanova and Mark Limb!)
 - MINOR: [o-banner](https://github.com/Financial-Times/o-banner) now allows for banner button customisation (thanks Ben Fletcher!).
 - MINOR: [o-message](https://github.com/Financial-Times/o-message) adds support for custom message states, which was used to build our Corona virus newsletter signup messaging.
@@ -73,8 +74,8 @@ A digest list of other things that have happened since our last update:
 - MINOR: [o-forms](https://github.com/Financial-Times/o-forms), adds support for a declarative error summary without using o-forms JavaScript, for server-side rendering.
 - MINOR: [o-fonts](https://github.com/Financial-Times/o-fonts), adds a new Financier font weight for redesigned teasers (thanks Olga Averjanova!) And introduces recommended fonts to make it easier to include fonts commonly used across ft.com products.
 - MINOR: [o-typography](https://github.com/Financial-Times/o-typography), adds an option to error if a font variant (family/weight/style)
-is used when a font face for that variant has not been included in
-the project.
+  is used when a font face for that variant has not been included in
+  the project.
 - MINOR: [o-comment-api](https://github.com/Financial-Times/o-comment-api), updated support status to "dead". This project is no longer maintained and has been replaced by the new version of [o-comments](https://github.com/Financial-Times/o-comments).
 - MINOR: [o-linked-list](https://github.com/Financial-Times/o-linked-list), updated support status to "dead". This component is no longer maintained, please speak to the team if you would like to use a component like o-link-list.
 - MINOR: [o-fetch-jsonp](https://github.com/Financial-Times/o-fetch-jsonp), updated support status to "dead". This component is no longer maintained, use the `fetch` [polyfill](http://polyfill.io/) and [Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) instead.

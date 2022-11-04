@@ -1,17 +1,17 @@
 let sandboxEl;
 
 function createSandbox() {
-	if (document.querySelector('.sandbox')) {
-		sandboxEl = document.querySelector('.sandbox');
+	if (document.querySelector(".sandbox")) {
+		sandboxEl = document.querySelector(".sandbox");
 	} else {
-		sandboxEl = document.createElement('div');
-		sandboxEl.setAttribute('class', 'sandbox');
+		sandboxEl = document.createElement("div");
+		sandboxEl.setAttribute("class", "sandbox");
 		document.body.appendChild(sandboxEl);
 	}
 }
 
 function reset() {
-	sandboxEl.innerHTML = '';
+	sandboxEl.innerHTML = "";
 }
 
 function insert(html) {
@@ -19,7 +19,7 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-function htmlSelectCode () {
+function htmlSelectCode() {
 	const html = `<div id=test>
 	<label class="o-forms-field" >
 		<span class="o-forms-title">
@@ -39,7 +39,7 @@ function htmlSelectCode () {
 	insert(html);
 }
 
-function invalidHtmlSelectCode () {
+function invalidHtmlSelectCode() {
 	const html = `<div id=test>
 	<label class="o-forms-field" >
 		<span class="o-forms-title">
@@ -59,7 +59,7 @@ function invalidHtmlSelectCode () {
 	insert(html);
 }
 
-function htmlInputCode () {
+function htmlInputCode() {
 	const html = `<div id=test>
 	<label class="o-forms-field" >
 		<span class="o-forms-title">
@@ -76,7 +76,7 @@ function htmlInputCode () {
 	insert(html);
 }
 
-function invalidHtmlInputCode () {
+function invalidHtmlInputCode() {
 	const html = `<div id=test>
 	<label class="o-forms-field" >
 		<span class="o-forms-title">

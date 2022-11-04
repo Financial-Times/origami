@@ -1,31 +1,39 @@
 class Playlist {
-	constructor (opts) {
+	constructor(opts) {
 		this.opts = opts;
 
 		// find the currently playing video, always deal with strings
-		const currentId = opts.player.videoData ? opts.player.videoData.id : opts.player.opts.id;
-		this.currentIndex = currentId ? opts.queue.indexOf(currentId.toString()) : -1;
+		const currentId = opts.player.videoData
+			? opts.player.videoData.id
+			: opts.player.opts.id;
+		this.currentIndex = currentId
+			? opts.queue.indexOf(currentId.toString())
+			: -1;
 
 		this.cache = {};
 
 		if (this.opts.autoplay) {
-			this.opts.player.containerEl.addEventListener('ended', this.next.bind(this), true);
+			this.opts.player.containerEl.addEventListener(
+				"ended",
+				this.next.bind(this),
+				true
+			);
 
-			if ( this.currentIndex === -1) {
+			if (this.currentIndex === -1) {
 				this.next();
 			}
 		}
 	}
 
-	next () {
+	next() {
 		this.goto(this.currentIndex + 1);
 	}
 
-	prev () {
+	prev() {
 		this.goto(this.currentIndex - 1);
 	}
 
-	goto (index) {
+	goto(index) {
 		if (index < 0) {
 			this.currentIndex = this.opts.queue.length - 1;
 		} else if (index >= this.opts.queue.length) {
@@ -35,7 +43,8 @@ class Playlist {
 		}
 
 		// store the current data for quick access later
-		const currentVideoId = this.opts.player.videoData && this.opts.player.videoData.id;
+		const currentVideoId =
+			this.opts.player.videoData && this.opts.player.videoData.id;
 
 		if (currentVideoId && !this.cache[currentVideoId]) {
 			this.cache[currentVideoId] = this.opts.player.videoData;
@@ -49,7 +58,7 @@ class Playlist {
 
 		const nextVideoOpts = {
 			id: nextVideoId,
-			data: this.cache[nextVideoId]
+			data: this.cache[nextVideoId],
 		};
 
 		return this.opts.player.update(nextVideoOpts).then(() => {

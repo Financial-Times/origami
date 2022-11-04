@@ -4,14 +4,18 @@
 	.o-forms-input__state {
 		// the loading spinner and tick icons for state are mismatched in terms of size/padding,
 		// the custom line-height aligns them as closely as possible (with minimal style changes)
-		@include oTypographySans($scale: -1, $line-height: 1.75, $include-font-family: false);
+		@include oTypographySans(
+			$scale: -1,
+			$line-height: 1.75,
+			$include-font-family: false
+		);
 		color: inherit;
 		display: flex;
 		align-items: center;
 
 		&:before,
 		&:after {
-			content: '';
+			content: "";
 		}
 	}
 
@@ -31,16 +35,20 @@
 	.o-forms-input--saving {
 		display: block;
 
-
 		.o-forms-input__state {
 			padding: 0;
 
 			&:after {
-				content: 'Saving';
+				content: "Saving";
 			}
 
 			&:before {
-				@include oLoadingContent($opts: ('theme': 'dark', 'size': 'mini'));
+				@include oLoadingContent(
+					$opts: (
+						"theme": "dark",
+						"size": "mini",
+					)
+				);
 				margin: 0 $_o-forms-spacing-two 0 0;
 			}
 		}
@@ -49,17 +57,21 @@
 	// Saved status styles.
 	.o-forms-input--saved {
 		display: block;
-		color: _oFormsGet('valid-base');
+		color: _oFormsGet("valid-base");
 
 		.o-forms-input__state {
 			margin-left: -$_o-forms-spacing-one;
 
 			&:after {
-				content: 'Saved';
+				content: "Saved";
 			}
 
 			&:before {
-				@include oIconsContent('tick', _oFormsGet('valid-base'), $_o-forms-spacing-seven);
+				@include oIconsContent(
+					"tick",
+					_oFormsGet("valid-base"),
+					$_o-forms-spacing-seven
+				);
 			}
 		}
 	}

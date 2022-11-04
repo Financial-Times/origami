@@ -10,12 +10,14 @@
 ///     @include oToggle($opts: ('visibility': true));
 /// @example Output all o-toggle features.
 /// @access public
-@mixin oToggle($opts: (
-	'display': true,
-	'visibility': true
-)) {
-	$display: map-get($opts, 'display');
-	$visibility: map-get($opts, 'visibility');
+@mixin oToggle(
+	$opts: (
+		"display": true,
+		"visibility": true,
+	)
+) {
+	$display: map-get($opts, "display");
+	$visibility: map-get($opts, "visibility");
 
 	@if $display {
 		.o-toggle-display:not(.o-toggle--active) {

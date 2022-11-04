@@ -1,14 +1,14 @@
-@import '../../main';
+@import "../../main";
 @include oSteppedProgress();
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-icons/main';
+@import "@financial-times/o-icons/main";
 @include oIcons();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 
 body {
-	background: oColorsByUsecase('page', 'background');
+	background: oColorsByUsecase("page", "background");
 	margin: 1em;
 }
 

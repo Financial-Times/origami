@@ -1,4 +1,4 @@
-import * as oUtils from '@financial-times/o-utils';
+import * as oUtils from "@financial-times/o-utils";
 
 class Scroll {
 	/**
@@ -6,22 +6,35 @@ class Scroll {
 	 *
 	 * @param {HTMLElement} [headerEl] - The component element in the DOM
 	 */
-	constructor (headerEl) {
+	constructor(headerEl) {
 		this.headerEl = headerEl;
-		this.container = headerEl.querySelector('[data-o-header-services-nav]');
+		this.container = headerEl.querySelector("[data-o-header-services-nav]");
 
-		if (!this.container) { return; }
+		if (!this.container) {
+			return;
+		}
 
-		this.list = this.container.querySelector('[data-o-header-services-nav-list]');
-		this.buttons = Array.from(this.container.getElementsByTagName('button'), button => {
-			button.addEventListener('click', this.scroll.bind(this));
-			return button;
-		});
+		this.list = this.container.querySelector(
+			"[data-o-header-services-nav-list]"
+		);
+		this.buttons = Array.from(
+			this.container.getElementsByTagName("button"),
+			button => {
+				button.addEventListener("click", this.scroll.bind(this));
+				return button;
+			}
+		);
 
 		this.width = {};
 
-		this.list.addEventListener('scroll', oUtils.debounce(this.toggleScrollButtons.bind(this), 100));
-		window.addEventListener('resize', oUtils.debounce(this.toggleScrollButtons.bind(this), 500));
+		this.list.addEventListener(
+			"scroll",
+			oUtils.debounce(this.toggleScrollButtons.bind(this), 100)
+		);
+		window.addEventListener(
+			"resize",
+			oUtils.debounce(this.toggleScrollButtons.bind(this), 500)
+		);
 
 		this.render();
 	}
@@ -31,7 +44,7 @@ class Scroll {
 	 *
 	 * @returns {void}
 	 */
-	render () {
+	render() {
 		this.showCurrentSelection();
 		this.toggleScrollButtons();
 	}
@@ -41,13 +54,14 @@ class Scroll {
 	 *
 	 * @returns {void}
 	 */
-	toggleScrollButtons () {
+	toggleScrollButtons() {
 		this._getWidths();
 		this.buttons.forEach(button => {
-			if (button.className.match('left')) {
+			if (button.className.match("left")) {
 				button.disabled = this.list.scrollLeft === 0;
 			} else {
-				const remaining = this.width.list > this.width.container ? this._remaining() : 0;
+				const remaining =
+					this.width.list > this.width.container ? this._remaining() : 0;
 				button.disabled = remaining <= 1;
 			}
 		});
@@ -63,8 +77,10 @@ class Scroll {
 		const target = event.currentTarget;
 		let distance = 100;
 
-		if (target.className.match('left')) {
-			distance = (this.list.scrollLeft > distance ? distance : this.list.scrollLeft) * -1;
+		if (target.className.match("left")) {
+			distance =
+				(this.list.scrollLeft > distance ? distance : this.list.scrollLeft) *
+				-1;
 		} else {
 			const remaining = this._remaining();
 			distance = remaining > distance ? distance : remaining;
@@ -75,11 +91,11 @@ class Scroll {
 		this.toggleScrollButtons();
 	}
 
-	_remaining () {
+	_remaining() {
 		return this.width.list - this.width.container - this.list.scrollLeft;
 	}
 
-	_getWidths () {
+	_getWidths() {
 		this.width.list = this.list.scrollWidth;
 		this.width.container = this.list.clientWidth;
 	}
@@ -89,11 +105,13 @@ class Scroll {
 	 *
 	 * @returns {void}
 	 */
-	showCurrentSelection () {
+	showCurrentSelection() {
 		this._getWidths();
-		const currentSelection = this.list.querySelector('[aria-current]');
+		const currentSelection = this.list.querySelector("[aria-current]");
 
-		if (!currentSelection) { return; }
+		if (!currentSelection) {
+			return;
+		}
 
 		const currentSelectionEnd = currentSelection.getBoundingClientRect().right;
 
@@ -102,9 +120,12 @@ class Scroll {
 			// check by how much
 			let diff = currentSelectionEnd - this.width.container;
 			// if the difference is greater than half of the list, scroll to the end of the current selection.
-			diff = diff > this.width.container / 2 ? currentSelectionEnd : this.width.container / 2;
+			diff =
+				diff > this.width.container / 2
+					? currentSelectionEnd
+					: this.width.container / 2;
 
-			this.list.scrollTo({ left: diff, top: 0, behaviour: 'smooth' });
+			this.list.scrollTo({ left: diff, top: 0, behaviour: "smooth" });
 		}
 	}
 }

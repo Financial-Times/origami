@@ -30,14 +30,16 @@
 /// Output all styles for teasers.
 ///
 /// @param {Map} $opts [all] - A map of teaser options. Includes an 'elements' key, to list which teaser elements will be used; and a 'themes' key, to list whilst themes will be used to modify the included teaser elements.
-@mixin oTeaser($opts: (
-	'elements': $_o-teaser-elements,
-	'themes': $_o-teaser-themes
-)) {
-	$elements: map-get($opts, 'elements');
+@mixin oTeaser(
+	$opts: (
+		"elements": $_o-teaser-elements,
+		"themes": $_o-teaser-themes,
+	)
+) {
+	$elements: map-get($opts, "elements");
 	$elements: if($elements, $elements, ());
 
-	$themes: map-get($opts, 'themes');
+	$themes: map-get($opts, "themes");
 	$themes: if($themes, $themes, ());
 
 	.o-teaser {

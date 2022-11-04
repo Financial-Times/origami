@@ -1,18 +1,18 @@
-import Toggle from '@financial-times/o-toggle';
+import Toggle from "@financial-times/o-toggle";
 
 const LISTEN_DELAY = 300;
 const INTENT_DELAY = 1000;
 
-function handleCloseEvents (scope, callback, allFocusable) {
+function handleCloseEvents(scope, callback, allFocusable) {
 	let timeout;
 
-	const handleKeydown = (e) => {
+	const handleKeydown = e => {
 		if (e.keyCode === 27) {
 			callback();
 		}
 	};
 
-	const handleClick = (e) => {
+	const handleClick = e => {
 		if (!scope.contains(e.target)) {
 			callback();
 		}
@@ -32,7 +32,7 @@ function handleCloseEvents (scope, callback, allFocusable) {
 		}
 	};
 
-	const handleFocus = (e) => {
+	const handleFocus = e => {
 		const target = e.relatedTarget || e.target;
 
 		if (!scope.contains(target)) {
@@ -40,7 +40,7 @@ function handleCloseEvents (scope, callback, allFocusable) {
 		}
 	};
 
-	const handleTab = (e) => {
+	const handleTab = e => {
 		if (e.keyCode === 9) {
 			const firstEl = allFocusable[0];
 			const lastEl = allFocusable[allFocusable.length - 1];
@@ -49,7 +49,8 @@ function handleCloseEvents (scope, callback, allFocusable) {
 			if (!e.shiftKey && e.target === lastEl) {
 				firstEl.focus();
 				e.preventDefault();
-			} else if (e.shiftKey && e.target === firstEl) { // loop to the bottom when shift+tabbing.
+			} else if (e.shiftKey && e.target === firstEl) {
+				// loop to the bottom when shift+tabbing.
 				lastEl.focus();
 				e.preventDefault();
 			}
@@ -59,42 +60,44 @@ function handleCloseEvents (scope, callback, allFocusable) {
 	const removeEvents = () => {
 		clearTimeout(timeout);
 
-		scope.removeEventListener('mouseenter', handleMouseenter);
-		scope.removeEventListener('mouseleave', handleMouseleave);
-		document.removeEventListener('click', handleClick);
-		document.removeEventListener('touchstart', handleClick);
-		document.removeEventListener('keydown', handleKeydown);
-		document.removeEventListener('focusin', handleFocus);
-		document.removeEventListener('focusout', handleFocus);
-		scope.removeEventListener('keydown', handleTab);
+		scope.removeEventListener("mouseenter", handleMouseenter);
+		scope.removeEventListener("mouseleave", handleMouseleave);
+		document.removeEventListener("click", handleClick);
+		document.removeEventListener("touchstart", handleClick);
+		document.removeEventListener("keydown", handleKeydown);
+		document.removeEventListener("focusin", handleFocus);
+		document.removeEventListener("focusout", handleFocus);
+		scope.removeEventListener("keydown", handleTab);
 	};
 
 	const addEvents = () => {
-		scope.addEventListener('mouseenter', handleMouseenter);
-		scope.addEventListener('mouseleave', handleMouseleave);
-		document.addEventListener('click', handleClick);
-		document.addEventListener('touchstart', handleClick);
-		document.addEventListener('keydown', handleKeydown);
+		scope.addEventListener("mouseenter", handleMouseenter);
+		scope.addEventListener("mouseleave", handleMouseleave);
+		document.addEventListener("click", handleClick);
+		document.addEventListener("touchstart", handleClick);
+		document.addEventListener("keydown", handleKeydown);
 
 		// Firefox doesn't support focusin or focusout
 		// https://bugzilla.mozilla.org/show_bug.cgi?id=687787
-		document.addEventListener('focusin', handleFocus);
-		document.addEventListener('focusout', handleFocus);
+		document.addEventListener("focusin", handleFocus);
+		document.addEventListener("focusout", handleFocus);
 
-		scope.addEventListener('keydown', handleTab);
+		scope.addEventListener("keydown", handleTab);
 	};
 
 	return { addEvents, removeEvents, handleMouseleave };
 }
 
-function addDrawerToggles (drawerEl, allFocusable) {
-	const controls = Array.from(document.body.querySelectorAll(`[aria-controls="${drawerEl.id}"]`));
+function addDrawerToggles(drawerEl, allFocusable) {
+	const controls = Array.from(
+		document.body.querySelectorAll(`[aria-controls="${drawerEl.id}"]`)
+	);
 
 	let handleClose;
 	let openingControl;
 
-	function toggleCallback (state, e) {
-		if (state === 'close') {
+	function toggleCallback(state, e) {
+		if (state === "close") {
 			toggleTabbing(drawerEl, false, allFocusable);
 
 			handleClose.removeEvents();
@@ -115,32 +118,37 @@ function addDrawerToggles (drawerEl, allFocusable) {
 			setTimeout(() => {
 				// Don't focus on the drawer itself or iOS VoiceOver will miss it
 				// Focus on the first focusable element
-				const firstFocusable = drawerEl.querySelector('a, button, input, select');
+				const firstFocusable = drawerEl.querySelector(
+					"a, button, input, select"
+				);
 
 				if (firstFocusable) {
 					firstFocusable.focus();
-				}
-				else {
+				} else {
 					drawerEl.focus();
 				}
 			});
 		}
 
-		drawerEl.classList.toggle('o-header__drawer--closing', state === 'close');
-		drawerEl.classList.toggle('o-header__drawer--opening', state === 'open');
+		drawerEl.classList.toggle("o-header__drawer--closing", state === "close");
+		drawerEl.classList.toggle("o-header__drawer--opening", state === "open");
 	}
 
-	controls.forEach((control) => {
+	controls.forEach(control => {
 		const drawerToggle = new Toggle(control, {
 			target: drawerEl,
-			callback: toggleCallback
+			callback: toggleCallback,
 		});
 
 		// Both toggles have the same target, so the toggle function will be the same
 		// If there's a separate handleClose instance for each toggle, removeEvents doesn't work
 		// when the close toggle is clicked
 		if (!handleClose) {
-			handleClose = handleCloseEvents(drawerEl, drawerToggle.toggle, allFocusable);
+			handleClose = handleCloseEvents(
+				drawerEl,
+				drawerToggle.toggle,
+				allFocusable
+			);
 		}
 	});
 
@@ -148,19 +156,22 @@ function addDrawerToggles (drawerEl, allFocusable) {
 	drawerEl.tabIndex = -1;
 }
 
-function addSubmenuToggles (drawerEl) {
+function addSubmenuToggles(drawerEl) {
 	const submenus = drawerEl.querySelectorAll('[id^="o-header-drawer-child-"]');
 
 	Array.from(submenus).forEach(submenu => {
 		const button = drawerEl.querySelector(`[aria-controls="${submenu.id}"]`);
 
-		submenu.setAttribute('aria-hidden', 'true');
+		submenu.setAttribute("aria-hidden", "true");
 
 		new Toggle(button, {
 			target: submenu,
-			callback: (state) => {
-				button.textContent = button.textContent.replace(/fewer|more/, state === 'open' ? 'fewer' : 'more');
-			}
+			callback: state => {
+				button.textContent = button.textContent.replace(
+					/fewer|more/,
+					state === "open" ? "fewer" : "more"
+				);
+			},
 		});
 	});
 }
@@ -168,24 +179,26 @@ function addSubmenuToggles (drawerEl) {
 // This function is to solve accessibility issue
 // when o-header-drawer is closed => tabbing is disabled.
 // when o-header-drawer is open => tabbing is enabled.
-function toggleTabbing (drawerEl, isEnabled, allFocusable) {
+function toggleTabbing(drawerEl, isEnabled, allFocusable) {
 	if (isEnabled) {
 		allFocusable.forEach(el => {
-			el.removeAttribute('tabindex');
+			el.removeAttribute("tabindex");
 		});
 	} else {
 		allFocusable.forEach(el => {
-			el.setAttribute('tabindex', '-1');
+			el.setAttribute("tabindex", "-1");
 		});
 	}
 }
 
-function init () {
-	const drawerEl = document.body.querySelector('[data-o-header-drawer]');
+function init() {
+	const drawerEl = document.body.querySelector("[data-o-header-drawer]");
 	if (!drawerEl) {
 		return;
 	}
-	const allFocusable = Array.from(drawerEl.querySelectorAll('a, button, input, select'));
+	const allFocusable = Array.from(
+		drawerEl.querySelectorAll("a, button, input, select")
+	);
 	toggleTabbing(drawerEl, false, allFocusable);
 	addSubmenuToggles(drawerEl);
 	addDrawerToggles(drawerEl, allFocusable);
@@ -194,8 +207,8 @@ function init () {
 	// toggleTabbing and the removal of the no-js attribute spikes the CPU
 	// and causes the main process to block for around 10 seconds.
 	setTimeout(() => {
-		drawerEl.removeAttribute('data-o-header-drawer--no-js');
-		drawerEl.setAttribute('data-o-header-drawer--js', 'true');
+		drawerEl.removeAttribute("data-o-header-drawer--no-js");
+		drawerEl.setAttribute("data-o-header-drawer--js", "true");
 	});
 }
 

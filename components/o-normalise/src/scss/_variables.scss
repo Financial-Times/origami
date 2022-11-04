@@ -2,4 +2,8 @@
 $o-normalise-is-silent: true !default;
 
 /// @access private
-$_o-normalise-focus-color: oColorsByUsecase('focus', 'outline', $fallback: null);
+$_o-normalise-focus-color: oColorsByUsecase(
+	"focus",
+	"outline",
+	$fallback: null
+);

@@ -1,25 +1,25 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import * as fixtures from './helpers/fixtures.js';
+import * as fixtures from "./helpers/fixtures.js";
 
-import Tooltip from '../main.js';
+import Tooltip from "../main.js";
 
 describe("Tooltip", () => {
-	it('is defined', () => {
-		proclaim.equal(typeof Tooltip, 'function');
+	it("is defined", () => {
+		proclaim.equal(typeof Tooltip, "function");
 	});
 
-	it('has a static init method', () => {
-		proclaim.equal(typeof Tooltip.init, 'function');
+	it("has a static init method", () => {
+		proclaim.equal(typeof Tooltip.init, "function");
 	});
 
-	it("should autoinitialize", (done) => {
-		const initSpy = sinon.spy(Tooltip, 'init');
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		setTimeout(function(){
+	it("should autoinitialize", done => {
+		const initSpy = sinon.spy(Tooltip, "init");
+		document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
+		setTimeout(function () {
 			proclaim.equal(initSpy.called, true);
 			initSpy.restore();
 			done();
@@ -27,7 +27,7 @@ describe("Tooltip", () => {
 	});
 
 	it("should not autoinitialize when the event is not dispached", () => {
-		const initSpy = sinon.spy(Tooltip, 'init');
+		const initSpy = sinon.spy(Tooltip, "init");
 		proclaim.equal(initSpy.called, false);
 	});
 
@@ -47,7 +47,7 @@ describe("Tooltip", () => {
 		});
 
 		it("single component when initialized with a root element", () => {
-			const tooltip = Tooltip.init('#tooltip-demo');
+			const tooltip = Tooltip.init("#tooltip-demo");
 			proclaim.equal(tooltip instanceof Tooltip, true);
 		});
 	});

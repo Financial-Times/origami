@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
-import fixtures from '../../helpers/fixtures.js';
-import Stream from '../../../src/js/stream.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
+import fixtures from "../../helpers/fixtures.js";
+import Stream from "../../../src/js/stream.js";
 
-export default function login () {
+export default function login() {
 	beforeEach(() => {
 		fixtures.streamMarkup();
 	});
@@ -19,14 +19,14 @@ export default function login () {
 		it("calls embed.login with the authentication token", () => {
 			const loginStub = sinon.stub();
 			const stream = new Stream();
-			stream.authenticationToken = 'fake-jwt';
+			stream.authenticationToken = "fake-jwt";
 
 			stream.embed = {
-				login: loginStub
+				login: loginStub,
 			};
 
 			stream.login();
-			proclaim.isTrue(loginStub.calledWith('fake-jwt'));
+			proclaim.isTrue(loginStub.calledWith("fake-jwt"));
 		});
 	});
 
@@ -37,11 +37,11 @@ export default function login () {
 
 			const stream = new Stream();
 			stream.renderSignedInMessage = signedInMessageStub;
-			stream.authenticationToken = 'fake-jwt';
-			stream.displayName = 'fake-display-name';
+			stream.authenticationToken = "fake-jwt";
+			stream.displayName = "fake-display-name";
 
 			stream.embed = {
-				login: loginStub
+				login: loginStub,
 			};
 
 			stream.login();

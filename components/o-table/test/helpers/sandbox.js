@@ -1,11 +1,11 @@
 let sandboxEl;
 
 export function init() {
-	if (document.querySelector('.sandbox')) {
-		sandboxEl = document.querySelector('.sandbox');
+	if (document.querySelector(".sandbox")) {
+		sandboxEl = document.querySelector(".sandbox");
 	} else {
-		sandboxEl = document.createElement('div');
-		sandboxEl.classList.add('sandbox');
+		sandboxEl = document.createElement("div");
+		sandboxEl.classList.add("sandbox");
 		document.body.appendChild(sandboxEl);
 	}
 }

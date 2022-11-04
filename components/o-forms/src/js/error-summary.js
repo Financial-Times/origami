@@ -29,10 +29,10 @@ class ErrorSummary {
 	 */
 	constructor(elements, headingMessage) {
 		this.elements = elements;
-		this.headingMessage = headingMessage || 'There is a problem';
+		this.headingMessage = headingMessage || "There is a problem";
 		const hasAnInverseField = elements.some(elem => {
 			if (elem.field) {
-				return elem.field.classList.contains('o-forms-field--inverse');
+				return elem.field.classList.contains("o-forms-field--inverse");
 			} else {
 				return false;
 			}
@@ -51,13 +51,13 @@ class ErrorSummary {
 	createSummary() {
 		const invalidInputs = this.elements.filter(e => !e.valid);
 
-		const div = document.createElement('div');
-		div.classList.add('o-forms__error-summary');
+		const div = document.createElement("div");
+		div.classList.add("o-forms__error-summary");
 		if (this.inverse) {
-			div.classList.add('o-forms__error-summary--inverse');
+			div.classList.add("o-forms__error-summary--inverse");
 		}
-		div.setAttribute('aria-labelledby', 'error-summary');
-		div.setAttribute('role', 'alert');
+		div.setAttribute("aria-labelledby", "error-summary");
+		div.setAttribute("role", "alert");
 
 		div.innerHTML = `<h4 class="o-forms__error-summary__heading" id="error-summary">${this.headingMessage}</h4>`;
 		div.appendChild(ErrorSummary.createList(invalidInputs));
@@ -71,8 +71,8 @@ class ErrorSummary {
 	 * @returns {HTMLUListElement} - the list
 	 */
 	static createList(inputs) {
-		const list = document.createElement('ul');
-		list.classList.add('o-forms__error-summary__list');
+		const list = document.createElement("ul");
+		list.classList.add("o-forms__error-summary__list");
 		const fieldsInTheList = [];
 		inputs.forEach(input => {
 			// A field may contain multiple invalid inputs. E.g. a date field
@@ -111,8 +111,8 @@ class ErrorSummary {
 	 * @returns {Element} - li
 	 */
 	static createItem(input) {
-		const item = document.createElement('li');
-		item.classList.add('o-forms__error-summary__item');
+		const item = document.createElement("li");
+		item.classList.add("o-forms__error-summary__item");
 
 		// Return a error summary item which links to the input if an id exists.
 		if (input.id) {
@@ -139,10 +139,10 @@ class ErrorSummary {
 	 * @returns {Element} - a
 	 */
 	static createAnchor(input) {
-		const anchor = document.createElement('a');
-		anchor.setAttribute('href', `#${input.id}`);
+		const anchor = document.createElement("a");
+		anchor.setAttribute("href", `#${input.id}`);
 		anchor.addEventListener(
-			'click',
+			"click",
 			function (e) {
 				e.preventDefault();
 				document.getElementById(this.id).focus();

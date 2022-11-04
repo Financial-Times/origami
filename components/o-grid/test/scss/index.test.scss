@@ -1,7 +1,7 @@
-@import 'true';
+@import "true";
 $system-code: "test";
 
-@import '../../main';
+@import "../../main";
 
-@import 'fluid-grid.test';
-@import 'fixed-grid.test';
+@import "fluid-grid.test";
+@import "fixed-grid.test";

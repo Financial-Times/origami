@@ -31,6 +31,7 @@ The Sass mixins `oExpanderToggle` and `oExpanderContent` have been removed. Inst
 ### JavaScript
 
 The following functions are removed or now private, ensure your project doesn't call them:
+
 - `toggleExpander` and `displayState`: use `toggle`, `collapse`, or `expand` methods instead.
 - `ariaToggles`
 - `configure`

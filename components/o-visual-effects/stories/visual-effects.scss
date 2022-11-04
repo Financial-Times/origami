@@ -11,26 +11,29 @@
 @include oVisualEffects();
 
 .demo-button {
-	@include oButtonsContent((
-		'size': 'big',
-		'type': 'primary',
-	));
-	margin-right: oSpacingByName('s8');
+	@include oButtonsContent(
+		(
+			"size": "big",
+			"type": "primary",
+		)
+	);
+	margin-right: oSpacingByName("s8");
 	float: left;
 }
 
 .demo-transition {
 	--demo-size: min(50vh, 50vw);
-	@if oBrandIs('whitelabel') {
-		background-color: oColorsByName('white');
-		border: 3px dashed oColorsByName('black');
+	@if oBrandIs("whitelabel") {
+		background-color: oColorsByName("white");
+		border: 3px dashed oColorsByName("black");
 	} @else {
-		background-color: oColorsByName('teal-100');
-		border: 3px dashed oColorsByName('slate');
+		background-color: oColorsByName("teal-100");
+		border: 3px dashed oColorsByName("slate");
 	}
 	width: var(--demo-size);
 	height: var(--demo-size);
-	transition: all var(--demo-transition-duration) var(--demo-transition-timing-function);
+	transition: all var(--demo-transition-duration)
+		var(--demo-transition-timing-function);
 	display: inline-block;
 }
 
@@ -65,7 +68,7 @@
 	background: white;
 	width: 10rem;
 	height: 10rem;
-	margin: oSpacingByName('s3');
+	margin: oSpacingByName("s3");
 	justify-content: center;
 	align-items: center;
 }

@@ -1,5 +1,5 @@
-import Image from './image';
-import {Video} from './props';
+import Image from "./image";
+import { Video } from "./props";
 
 // Re-format the data for use with o-video
 const formatData = props =>
@@ -18,9 +18,9 @@ interface VideoProps extends Video {
 // <https://reactjs.org/docs/integrating-with-other-libraries.html>
 const Embed = (props: VideoProps) => {
 	const showGuidance =
-		typeof props.showGuidance === 'boolean'
+		typeof props.showGuidance === "boolean"
 			? props.showGuidance.toString()
-			: 'true';
+			: "true";
 	return (
 		<div className="o-teaser__image-container js-image-container">
 			<div

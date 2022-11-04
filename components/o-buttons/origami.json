@@ -1,11 +1,7 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands": [
-		"core",
-		"internal",
-		"whitelabel"
-	],
+	"brands": ["core", "internal", "whitelabel"],
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-buttons,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
@@ -59,29 +55,21 @@
 		{
 			"name": "primary-mono",
 			"title": "Primary button (mono)",
-			"brands": [
-				"core",
-				"internal"
-			],
+			"brands": ["core", "internal"],
 			"template": "/demos/src/primary-mono.mustache",
 			"description": "Primary \"monochrome\" theme."
 		},
 		{
 			"name": "mono",
 			"title": "Secondary/default button (mono)",
-			"brands": [
-				"core",
-				"internal"
-			],
+			"brands": ["core", "internal"],
 			"template": "/demos/src/mono.mustache",
 			"description": "Secondary/default \"monochrome\" theme."
 		},
 		{
 			"name": "B2C",
 			"title": "B2C theme",
-			"brands": [
-				"core"
-			],
+			"brands": ["core"],
 			"template": "/demos/src/b2c.mustache",
 			"description": "B2C themed buttons should be used in Customer facing non-editorial products eg Help or About Us."
 		},
@@ -114,9 +102,7 @@
 			"title": "Custom",
 			"name": "custom",
 			"template": "/demos/src/custom.mustache",
-			"brands": [
-				"core"
-			],
+			"brands": ["core"],
 			"hidden": true,
 			"bodyClasses": "custom-button-theme-demo",
 			"description": "Custom theme test"
@@ -125,9 +111,7 @@
 			"title": "Custom Icon Button",
 			"name": "custom icon button",
 			"template": "/demos/src/custom-icon-button.mustache",
-			"brands": [
-				"core"
-			],
+			"brands": ["core"],
 			"hidden": true,
 			"description": "Visual tests for the icon buttons mixins"
 		},
@@ -136,12 +120,7 @@
 			"name": "pa11y",
 			"template": "/demos/src/pa11y.mustache",
 			"data": {
-				"themes": [
-					"",
-					"mono",
-					"inverse",
-					"b2c"
-				]
+				"themes": ["", "mono", "inverse", "b2c"]
 			},
 			"hidden": true,
 			"description": "Pa11y test for accesibility"

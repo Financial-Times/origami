@@ -1,12 +1,12 @@
-import {withDesign} from 'storybook-addon-designs';
-import {Button} from '../src/tsx/button';
-import {ButtonPagination} from '../src/tsx/pagination';
-import './button.scss';
-import withHtml from 'origami-storybook-addon-html';
-import { useState } from 'react';
+import { withDesign } from "storybook-addon-designs";
+import { Button } from "../src/tsx/button";
+import { ButtonPagination } from "../src/tsx/pagination";
+import "./button.scss";
+import withHtml from "origami-storybook-addon-html";
+import { useState } from "react";
 
 export default {
-	title: 'Components/o-buttons',
+	title: "Components/o-buttons",
 	component: ButtonPagination,
 	decorators: [withDesign, withHtml],
 	args: {},
@@ -19,11 +19,13 @@ export default {
 
 const ButtonPaginationStory = args => {
 	const configuredCurrentPage = args.pages.find(page => page.current);
-	const [currentPageSelection, setCurrentPageSelection] = useState(configuredCurrentPage ? configuredCurrentPage.number : 0);
+	const [currentPageSelection, setCurrentPageSelection] = useState(
+		configuredCurrentPage ? configuredCurrentPage.number : 0
+	);
 
 	function updatePages(currentPageSelection) {
 		setCurrentPageSelection(currentPageSelection);
-		args.pages.forEach(p => p.current = p.number === currentPageSelection);
+		args.pages.forEach(p => (p.current = p.number === currentPageSelection));
 	}
 
 	args.pages.forEach(page => {
@@ -43,28 +45,30 @@ const ButtonPaginationStory = args => {
 		updatePages(currentPageSelection - 1);
 	};
 
-	return <ButtonPagination {...args} />
+	return <ButtonPagination {...args} />;
 };
 
 export const Pagination = ButtonPaginationStory.bind({});
 Pagination.args = {
-	type: 'secondary',
-	size: 'big',
+	type: "secondary",
+	size: "big",
 	previousPager: {
-		href: '#previous',
-		label: 'previous results'
+		href: "#previous",
+		label: "previous results",
 	},
-  	pages: Array(10).fill(null).map((page, index) => {
-		const number = index + 1;
-		const currentPageNumber = 3;
-		return {
-			href: '#',
-			current: number === currentPageNumber,
-			number,
-		};
-	}),
+	pages: Array(10)
+		.fill(null)
+		.map((page, index) => {
+			const number = index + 1;
+			const currentPageNumber = 3;
+			return {
+				href: "#",
+				current: number === currentPageNumber,
+				number,
+			};
+		}),
 	nextPager: {
-		href: '#next',
-		label: 'next results'
+		href: "#next",
+		label: "next results",
 	},
 };

@@ -1,21 +1,31 @@
-import Stream from './stream.js';
-import Count from './count.js';
+import Stream from "./stream.js";
+import Count from "./count.js";
 
 class Comments {
-	constructor (rootEl, opts) {
-		this.options = Object.assign({}, {}, opts || Comments.getDataAttributes(rootEl));
-		const isCount = rootEl.getAttribute('data-o-comments-count') === 'true';
+	constructor(rootEl, opts) {
+		this.options = Object.assign(
+			{},
+			{},
+			opts || Comments.getDataAttributes(rootEl)
+		);
+		const isCount = rootEl.getAttribute("data-o-comments-count") === "true";
 		if (!this.options.articleId) {
 			// eslint-disable-next-line no-console
-			console.error('Missing required configuration option: `articleId`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments');
+			console.error(
+				"Missing required configuration option: `articleId`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments"
+			);
 		}
 		if (!this.options.articleUrl) {
 			// eslint-disable-next-line no-console
-			console.error('Missing required configuration option: `articleUrl`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments');
+			console.error(
+				"Missing required configuration option: `articleUrl`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments"
+			);
 		}
 		if (!this.options.title) {
 			// eslint-disable-next-line no-console
-			console.error('Missing required configuration option: `title`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments');
+			console.error(
+				"Missing required configuration option: `title`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments"
+			);
 		}
 
 		if (isCount) {
@@ -31,7 +41,7 @@ class Comments {
 		}
 	}
 
-	static getCount (id) {
+	static getCount(id) {
 		return Count.fetchCount(id);
 	}
 
@@ -42,19 +52,21 @@ class Comments {
 	 * @param {HTMLElement} rootEl - The component element in the DOM
 	 * @returns {object} - Data attributes as an object
 	 */
-	static getDataAttributes (rootEl) {
+	static getDataAttributes(rootEl) {
 		if (!(rootEl instanceof HTMLElement)) {
 			return {};
 		}
 		return Object.keys(rootEl.dataset).reduce((options, key) => {
-
 			// Ignore data-o-component
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return options;
 			}
 
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oComments(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(
+				/^oComments(\w)(\w+)$/,
+				(m, m1, m2) => m1.toLowerCase() + m2
+			);
 			const value = rootEl.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string
@@ -75,17 +87,23 @@ class Comments {
 	 * @param {object} [opts={}] - An options object for configuring the component
 	 * @returns {(Comments|Array<Comments>)} - Comments instance(s)
 	 */
-	static init (rootEl, opts) {
+	static init(rootEl, opts) {
 		if (!rootEl) {
 			rootEl = document.body;
 		}
 		if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-comments]')) {
+		if (
+			rootEl instanceof HTMLElement &&
+			rootEl.matches("[data-o-component=o-comments]")
+		) {
 			return new Comments(rootEl, opts);
 		}
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-comments"]'), rootEl => new Comments(rootEl, opts));
+		return Array.from(
+			rootEl.querySelectorAll('[data-o-component="o-comments"]'),
+			rootEl => new Comments(rootEl, opts)
+		);
 	}
 }
 

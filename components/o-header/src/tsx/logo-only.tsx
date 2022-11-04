@@ -1,4 +1,4 @@
-import {HeaderWrapper, TopWrapper, TopColumnCenter} from './top';
+import { HeaderWrapper, TopWrapper, TopColumnCenter } from "./top";
 
 export function LogoOnlyHeader({
 	showLogoLink,

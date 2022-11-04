@@ -1,26 +1,26 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
+import proclaim from "proclaim";
 
-import Header from '../src/js/header.js';
+import Header from "../src/js/header.js";
 
-describe('Header API', () => {
-	it('is defined', () => {
-		proclaim.isTypeOf(Header, 'function');
+describe("Header API", () => {
+	it("is defined", () => {
+		proclaim.isTypeOf(Header, "function");
 	});
 });
 
-describe('Header instance', () => {
+describe("Header instance", () => {
 	let headerEl;
 	let containerEl;
 
 	beforeEach(() => {
-		containerEl = document.createElement('div');
+		containerEl = document.createElement("div");
 		document.body.appendChild(containerEl);
 		containerEl.innerHTML = `
 			<header class="o-header" data-o-component="o-header"></header>
 		`;
-		headerEl = containerEl.querySelector('.o-header');
+		headerEl = containerEl.querySelector(".o-header");
 	});
 
 	afterEach(() => {
@@ -29,10 +29,10 @@ describe('Header instance', () => {
 		containerEl = null;
 	});
 
-	it('constructor', () => {
+	it("constructor", () => {
 		const header = new Header(headerEl);
 		proclaim.isInstanceOf(header, Header);
 		proclaim.deepEqual(header.headerEl, headerEl);
-		proclaim.isNotNull(headerEl.getAttribute('data-o-header--js'));
+		proclaim.isNotNull(headerEl.getAttribute("data-o-header--js"));
 	});
 });

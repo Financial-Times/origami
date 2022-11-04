@@ -1,18 +1,21 @@
-import sassTrue from 'sass-true'
-import sass from 'sass'
-import {globbySync as glob} from "globby"
-const sassTestFiles = glob('./test/**/[^_]*.test.scss', {onlyFiles: true})
+import sassTrue from "sass-true";
+import sass from "sass";
+import { globbySync as glob } from "globby";
+const sassTestFiles = glob("./test/**/[^_]*.test.scss", { onlyFiles: true });
 
-describe('sass', () => {
-  for (const file of sassTestFiles) {
-    sassTrue.runSass({
-      file,
-      functions: {},
-      includePaths: ['../../node_modules']
-    }, {
-      describe,
-      it,
-      sassEngine: sass
-    })
-  }
-})
+describe("sass", () => {
+	for (const file of sassTestFiles) {
+		sassTrue.runSass(
+			{
+				file,
+				functions: {},
+				includePaths: ["../../node_modules"],
+			},
+			{
+				describe,
+				it,
+				sassEngine: sass,
+			}
+		);
+	}
+});

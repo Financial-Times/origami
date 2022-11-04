@@ -1,4 +1,4 @@
-import SteppedProgressStep from './stepped-progress-step.js';
+import SteppedProgressStep from "./stepped-progress-step.js";
 
 /**
  * Component class names.
@@ -7,14 +7,13 @@ import SteppedProgressStep from './stepped-progress-step.js';
  * @type {object}
  */
 const classNames = {
-	step: 'o-stepped-progress__step'
+	step: "o-stepped-progress__step",
 };
 
 /**
  * Represents a stepped progress component.
  */
 class SteppedProgress {
-
 	/**
 	 * Class constructor.
 	 *
@@ -22,11 +21,15 @@ class SteppedProgress {
 	 * @param {HTMLElement} steppedProgressElement - The component element in the DOM.
 	 * @param {object} [options={}] - An options object for configuring the component.
 	 */
-	constructor (steppedProgressElement, options) {
+	constructor(steppedProgressElement, options) {
 		this.steppedProgressElement = steppedProgressElement;
-		this.options = Object.assign({}, {
-			// TODO
-		}, options || SteppedProgress.getDataAttributes(steppedProgressElement));
+		this.options = Object.assign(
+			{},
+			{
+				// TODO
+			},
+			options || SteppedProgress.getDataAttributes(steppedProgressElement)
+		);
 		this._constructSteps();
 	}
 
@@ -147,8 +150,12 @@ class SteppedProgress {
 	 * @returns {void}
 	 */
 	_constructSteps() {
-		const elements = this.steppedProgressElement.querySelectorAll(`.${classNames.step}`);
-		this._steps = [...elements].map(element => new SteppedProgressStep(element, this));
+		const elements = this.steppedProgressElement.querySelectorAll(
+			`.${classNames.step}`
+		);
+		this._steps = [...elements].map(
+			element => new SteppedProgressStep(element, this)
+		);
 	}
 
 	/**
@@ -163,26 +170,31 @@ class SteppedProgress {
 		if (!(steppedProgressElement instanceof HTMLElement)) {
 			return {};
 		}
-		return Object.keys(steppedProgressElement.dataset).reduce((options, key) => {
+		return Object.keys(steppedProgressElement.dataset).reduce(
+			(options, key) => {
+				// Ignore data-o-component
+				if (key === "oComponent") {
+					return options;
+				}
 
-			// Ignore data-o-component
-			if (key === 'oComponent') {
+				// Build a concise key and get the option value
+				const shortKey = key.replace(
+					/^oSteppedProgress(w)(w+)$/,
+					(m, m1, m2) => m1.toLowerCase() + m2
+				);
+				const value = steppedProgressElement.dataset[key];
+
+				// Try parsing the value as JSON, otherwise just set it as a string
+				try {
+					options[shortKey] = JSON.parse(value.replace(/'/g, '"'));
+				} catch (error) {
+					options[shortKey] = value;
+				}
+
 				return options;
-			}
-
-			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oSteppedProgress(w)(w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
-			const value = steppedProgressElement.dataset[key];
-
-			// Try parsing the value as JSON, otherwise just set it as a string
-			try {
-				options[shortKey] = JSON.parse(value.replace(/'/g, '"'));
-			} catch (error) {
-				options[shortKey] = value;
-			}
-
-			return options;
-		}, {});
+			},
+			{}
+		);
 	}
 
 	/**
@@ -200,10 +212,16 @@ class SteppedProgress {
 		if (!(rootElement instanceof HTMLElement)) {
 			rootElement = document.querySelector(rootElement);
 		}
-		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=o-stepped-progress]')) {
+		if (
+			rootElement instanceof HTMLElement &&
+			rootElement.matches("[data-o-component=o-stepped-progress]")
+		) {
 			return new SteppedProgress(rootElement, options);
 		}
-		return Array.from(rootElement.querySelectorAll('[data-o-component="o-stepped-progress"]'), rootEl => new SteppedProgress(rootEl, options));
+		return Array.from(
+			rootElement.querySelectorAll('[data-o-component="o-stepped-progress"]'),
+			rootEl => new SteppedProgress(rootEl, options)
+		);
 	}
 }
 

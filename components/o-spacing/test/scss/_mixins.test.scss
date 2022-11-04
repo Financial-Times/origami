@@ -1,68 +1,51 @@
-@include describe('oSpacing mixins') {
+@include describe("oSpacing mixins") {
+	@include describe("oSpacingByName") {
+		@include it("returns a px value for a named space") {
+			@include assert-equal(oSpacingByName("s1"), 4px);
 
-	@include describe('oSpacingByName') {
-		@include it('returns a px value for a named space') {
-			@include assert-equal(
-				oSpacingByName('s1'),
-				4px
-			);
-
-			@include assert-equal(
-				oSpacingByName('l24'),
-				96px
-			);
+			@include assert-equal(oSpacingByName("l24"), 96px);
 		}
 
-		@include it('returns a rem value for a named space when relative units are enabled') {
+		@include it(
+			"returns a rem value for a named space when relative units are enabled"
+		) {
 			$o-spacing-relative-units: true !global;
-			@include assert-equal(
-				oSpacingByName('s1'),
-				0.25rem
-			);
+			@include assert-equal(oSpacingByName("s1"), 0.25rem);
 
-			@include assert-equal(
-				oSpacingByName('l24'),
-				6rem
-			);
+			@include assert-equal(oSpacingByName("l24"), 6rem);
 			$o-spacing-relative-units: false !global;
 		}
 	}
 
-	@include describe('oSpacingByIncrement') {
-		@include it('returns a px value based on the baseline') {
-			@include assert-equal(
-				oSpacingByIncrement(1),
-				4px
-			);
+	@include describe("oSpacingByIncrement") {
+		@include it("returns a px value based on the baseline") {
+			@include assert-equal(oSpacingByIncrement(1), 4px);
 
-			@include assert-equal(
-				oSpacingByIncrement(100),
-				400px
-			);
+			@include assert-equal(oSpacingByIncrement(100), 400px);
 		}
 
-		@include it('returns a rem value based on the baseline when relative units are enabled') {
+		@include it(
+			"returns a rem value based on the baseline when relative units are enabled"
+		) {
 			$o-spacing-relative-units: true !global;
-			@include assert-equal(
-				oSpacingByIncrement(1),
-				0.25rem
-			);
+			@include assert-equal(oSpacingByIncrement(1), 0.25rem);
 
-			@include assert-equal(
-				oSpacingByIncrement(100),
-				25rem
-			);
+			@include assert-equal(oSpacingByIncrement(100), 25rem);
 			$o-spacing-relative-units: false !global;
 		}
 	}
 
-	@include describe('oSpacing') {
-		@include it('outputs only CSS custom properties when "custom-properties" is the only option enabled') {
+	@include describe("oSpacing") {
+		@include it(
+			'outputs only CSS custom properties when "custom-properties" is the only option enabled'
+		) {
 			@include assert() {
 				@include output($selector: false) {
-					@include oSpacing($opts: (
-						'custom-properties': true
-					));
+					@include oSpacing(
+						$opts: (
+							"custom-properties": true,
+						)
+					);
 				}
 
 				@include expect($selector: false) {
@@ -82,12 +65,16 @@
 				}
 			}
 		}
-		@include it('outputs only CSS utility classes when "margin-bottom-utilities" is the only option enabled') {
+		@include it(
+			'outputs only CSS utility classes when "margin-bottom-utilities" is the only option enabled'
+		) {
 			@include assert() {
 				@include output($selector: false) {
-					@include oSpacing($opts: (
-						'margin-bottom-utilities': true
-					));
+					@include oSpacing(
+						$opts: (
+							"margin-bottom-utilities": true,
+						)
+					);
 				}
 
 				@include expect($selector: false) {
@@ -124,7 +111,9 @@
 				}
 			}
 		}
-		@include it('outputs CSS Custom Properties and utility classes by default') {
+		@include it(
+			"outputs CSS Custom Properties and utility classes by default"
+		) {
 			@include assert() {
 				@include output($selector: false) {
 					@include oSpacing();

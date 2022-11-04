@@ -1,4 +1,4 @@
-@import '../../main';
+@import "../../main";
 @include oLazyLoad();
 
 // Warning message to display if a demo should be viewed in a new window
@@ -13,10 +13,10 @@
 		font-size: 75%;
 	}
 	&:before {
-		content: '◀';
+		content: "◀";
 	}
 	&:after {
-		content: '▶';
+		content: "▶";
 	}
 }
 

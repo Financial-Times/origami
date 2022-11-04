@@ -2,17 +2,17 @@
 /// @access private
 @mixin _oTableRowStripes() {
 	.o-table--row-stripes {
-		background-color: _oTableGet('table-background');
+		background-color: _oTableGet("table-background");
 
 		caption {
-			background-color: _oTableGet('table-background');
+			background-color: _oTableGet("table-background");
 		}
 
 		tbody tr:nth-child(even) {
-			background-color: _oTableGet('table-alternate-background');
+			background-color: _oTableGet("table-alternate-background");
 			th {
 				// For sticky "responsive-scroll" headers.
-				background-color: _oTableGet('table-alternate-background');
+				background-color: _oTableGet("table-alternate-background");
 			}
 		}
 	}

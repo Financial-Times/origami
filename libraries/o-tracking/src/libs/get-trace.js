@@ -1,18 +1,19 @@
 // Trace the element and all of its parents, collecting properties as we go
-import {sanitise, assignIfUndefined} from '../javascript/utils.js';
+import { sanitise, assignIfUndefined } from "../javascript/utils.js";
 
 // For a given container element, get the number of elements that match the
 // original element (siblings); and the index of the original element (position).
 const getSiblingsAndPosition = (el, originalEl, selector) => {
 	const siblings = Array.from(el.querySelectorAll(selector));
 	const position = siblings.findIndex(item => item === originalEl);
-	if(position === -1) {return;}
+	if (position === -1) {
+		return;
+	}
 	return {
 		siblings: siblings.length,
 		position,
 	};
 };
-
 
 const elementPropertiesToCollect = [
 	"nodeName",
@@ -24,12 +25,14 @@ const elementPropertiesToCollect = [
 ];
 // Get all (sanitised) properties of a given element.
 const getAllElementProperties = element => {
-
 	const properties = {};
 	for (const property of elementPropertiesToCollect) {
-		const value = element[property] || element.getAttribute(property) || element.hasAttribute(property);
+		const value =
+			element[property] ||
+			element.getAttribute(property) ||
+			element.hasAttribute(property);
 		if (value !== undefined) {
-			if (typeof value === 'boolean') {
+			if (typeof value === "boolean") {
 				properties[property] = value;
 			} else {
 				properties[property] = sanitise(value);
@@ -42,10 +45,11 @@ const getAllElementProperties = element => {
 
 // Get some properties of a given element.
 const getDomPathProps = (attrs, props) => {
-
 	// Collect any attribute that matches given strings.
 	attrs
-		.filter(attribute => attribute.name.match(/^data-trackable|^data-o-|^aria-/i))
+		.filter(attribute =>
+			attribute.name.match(/^data-trackable|^data-o-|^aria-/i)
+		)
 		.forEach(attribute => {
 			props[attribute.name] = attribute.value;
 		});
@@ -55,13 +59,12 @@ const getDomPathProps = (attrs, props) => {
 
 // Get only the custom data-trackable-context-? properties of a given element
 const getContextProps = (attrs, props, isOriginalEl) => {
-
 	const customProps = {};
 
 	// for the original element collect properties like className, nodeName
 	if (isOriginalEl) {
 		elementPropertiesToCollect.forEach(name => {
-			if (typeof props[name] !== 'undefined' && name !== 'id') {
+			if (typeof props[name] !== "undefined" && name !== "id") {
 				customProps[name] = props[name];
 			}
 		});
@@ -71,16 +74,19 @@ const getContextProps = (attrs, props, isOriginalEl) => {
 	attrs
 		.filter(attribute => attribute.name.match(/^data-trackable-context-/i))
 		.forEach(attribute => {
-			customProps[attribute.name.replace('data-trackable-context-', '')] = attribute.value;
+			customProps[attribute.name.replace("data-trackable-context-", "")] =
+				attribute.value;
 		});
 
 	return customProps;
 };
 
-export function getTrace (el) {
+export function getTrace(el) {
 	const rootEl = document;
 	const originalEl = el;
-	const selector = originalEl.getAttribute('data-trackable') ? `[data-trackable="${originalEl.getAttribute('data-trackable')}"]` : originalEl.nodeName;
+	const selector = originalEl.getAttribute("data-trackable")
+		? `[data-trackable="${originalEl.getAttribute("data-trackable")}"]`
+		: originalEl.nodeName;
 	const trace = [];
 	const customContext = {};
 	while (el && el !== rootEl) {

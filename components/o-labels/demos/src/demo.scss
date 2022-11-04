@@ -1,9 +1,9 @@
 @import "../../main";
 
 @include oLabels();
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 
 body {
@@ -11,12 +11,12 @@ body {
 }
 
 html {
-	background: oColorsByUsecase('page', 'background');
+	background: oColorsByUsecase("page", "background");
 }
 
-@if oBrandIs('core') {
+@if oBrandIs("core") {
 	.demo-inverse {
-		background: oColorsByName('slate');
+		background: oColorsByName("slate");
 	}
 }
 
@@ -35,24 +35,43 @@ html {
 
 // custom standard label markup
 .my-label {
-	@include oLabelsContent($opts: (
-		'base': true
-	));
+	@include oLabelsContent(
+		$opts: (
+			"base": true,
+		)
+	);
 }
 
 // custom indicator label markup
 .my-indicator-label {
-	@include oLabelsIndicatorContent($opts: ('block': true));
+	@include oLabelsIndicatorContent(
+		$opts: (
+			"block": true,
+		)
+	);
 }
 
 .my-indicator-label--live {
-	@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'live'));
+	@include oLabelsIndicatorContent(
+		$opts: (
+			"block": true,
+			"modifier": "live",
+		)
+	);
 }
 
 .my-indicator-label__status {
-	@include oLabelsIndicatorContent($opts: ('element': 'status'));
+	@include oLabelsIndicatorContent(
+		$opts: (
+			"element": "status",
+		)
+	);
 }
 
 .my-indicator-label__date {
-	@include oLabelsIndicatorContent($opts: ('element': 'timestamp'));
+	@include oLabelsIndicatorContent(
+		$opts: (
+			"element": "timestamp",
+		)
+	);
 }

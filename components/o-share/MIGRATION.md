@@ -17,6 +17,7 @@ its dependencies. See [the Bower config for these](./bower.json).
 ### Palette Colours
 
 Social palette colours have been renamed:
+
 - `o-share-color-twitter` is now `o-share/twitter`.
 - `o-share-color-facebook` is now `o-share/facebook`.
 - `o-share-color-linkedin` is now `o-share/linkedin`.
@@ -31,12 +32,14 @@ Social palette colours have been renamed:
 ### Colour Usecases
 
 The `tooltip` colour usecases have been removed. If used replace with `white` for text and `black-80` for backgrounds, e.g:
+
 ```diff
 -$color: oColorsGetColorFor('tooltip', background);
 +$color: oColorsByName('black-80');
 ```
 
 The colour usecases for social icons have been renamed:
+
 - `o-share-twitter-color` is now `o-share/twitter-icon`.
 - `o-share-facebook-color` is now `o-share/facebook-icon`.
 - `o-share-linkedin-color` is now `o-share/linkedin-icon`.
@@ -52,6 +55,7 @@ The colour usecases for social icons have been renamed:
 ```
 
 The following usecases have been removed. Please contact the Origami Team if your project requires these:
+
 - `o-share-button-inverse`
 - `o-share-button-hover`
 
@@ -60,7 +64,7 @@ The following usecases have been removed. Please contact the Origami Team if you
 The variable `$o-share-colors` is now private ans must not be used. Instead use colour usecases, e.g:
 
 ```scss
-$twitter-color: oColorsByName('facebook', $from: 'o-share')
+$twitter-color: oColorsByName("facebook", $from: "o-share");
 ```
 
 ### Mixins
@@ -118,6 +122,7 @@ href="#">
 	</span>
 </button>
 ```
+
 - The BEM modifier used to vary the social platform type has been removed from the element with the `o-share__action` class.
 
 ```diff
@@ -137,6 +142,7 @@ href="#">
 o-share v5 introduces a breaking change that you may need to update in your product:
 
 - buttons and anchor elements require an extra class (`o-share__action--icon`) to avoid specificity issues with other components that use `o-icons`
+
 ```diff
 <a
 +class="o-share__action--icon"
@@ -150,14 +156,13 @@ href="#"><i>Icon</i></a>
 
 o-share v4 introduces a few breaking changes that you may need to update in your product:
 
-  - V4 introduces the new major version of `o-colors`. Updating to this new version will mean updating any other components that you have which are using `o-colors`
-  - the link share option has been removed
+- V4 introduces the new major version of `o-colors`. Updating to this new version will mean updating any other components that you have which are using `o-colors`
+- the link share option has been removed
 
 ## Migrating from v2 to v3
 
 o-share v3 introduces a few breaking changes that you may need to update in your product:
 
-
-  - button size has increased from 36px to 40px which might effect the surrounding elements of your design
-  - the Reddit share option has been removed
-  - the URL share option has been renamed from `o-share__action--url` to `o-share__action--link`
+- button size has increased from 36px to 40px which might effect the surrounding elements of your design
+- the Reddit share option has been removed
+- the URL share option has been renamed from `o-share__action--url` to `o-share__action--link`

@@ -1,59 +1,68 @@
 const coralEventMap = new Map([
-	['ready',
+	[
+		"ready",
 		{
-			oComments: 'oComments.ready',
-			oTracking: 'ready'
-		}
+			oComments: "oComments.ready",
+			oTracking: "ready",
+		},
 	],
-	['loginPrompt',
+	[
+		"loginPrompt",
 		{
-			oComments: 'oComments.loginPrompt'
-		}
+			oComments: "oComments.loginPrompt",
+		},
 	],
-	['createComment.success',
+	[
+		"createComment.success",
 		{
-			oComments: 'oComments.postComment',
-			oTracking: 'post'
-		}
+			oComments: "oComments.postComment",
+			oTracking: "post",
+		},
 	],
-	['createComment.error',
+	[
+		"createComment.error",
 		{
-			oComments: 'oComments.errorComment',
-			oTracking: 'post-error'
-		}
+			oComments: "oComments.errorComment",
+			oTracking: "post-error",
+		},
 	],
-	['createCommentReply.success',
+	[
+		"createCommentReply.success",
 		{
-			oComments: 'oComments.replyComment',
-			oTracking: 'reply'
-		}
+			oComments: "oComments.replyComment",
+			oTracking: "reply",
+		},
 	],
-	['editComment.success',
+	[
+		"editComment.success",
 		{
-			oComments: 'oComments.editComment',
-			oTracking: 'edit'
-		}
+			oComments: "oComments.editComment",
+			oTracking: "edit",
+		},
 	],
-	['createCommentReaction.success',
+	[
+		"createCommentReaction.success",
 		{
-			oComments: 'oComments.likeComment',
-			oTracking: 'like'
-		}
+			oComments: "oComments.likeComment",
+			oTracking: "like",
+		},
 	],
-	['reportComment.success',
+	[
+		"reportComment.success",
 		{
-			oComments: 'oComments.reportComment',
-			oTracking: 'report'
-		}
+			oComments: "oComments.reportComment",
+			oTracking: "report",
+		},
 	],
-	['ignoreUser.success',
+	[
+		"ignoreUser.success",
 		{
-			oComments: 'oComments.ignoreUser',
-			oTracking: 'ignore-user'
-		}
-	]
+			oComments: "oComments.ignoreUser",
+			oTracking: "ignore-user",
+		},
+	],
 ]);
 
 export default {
-	coralEventMap
+	coralEventMap,
 };

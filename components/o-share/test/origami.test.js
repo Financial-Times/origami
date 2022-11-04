@@ -1,24 +1,24 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import * as fixtures from './helpers/fixtures.js';
-import Share from './../main.js';
+import * as fixtures from "./helpers/fixtures.js";
+import Share from "./../main.js";
 
 describe("Share", () => {
-	it('is defined', () => {
-		proclaim.equal(typeof Share, 'function');
+	it("is defined", () => {
+		proclaim.equal(typeof Share, "function");
 	});
 
-	it('has a static init method', () => {
-		proclaim.equal(typeof Share.init, 'function');
+	it("has a static init method", () => {
+		proclaim.equal(typeof Share.init, "function");
 	});
 
-	it("should autoinitialize", (done) => {
-		const initSpy = sinon.spy(Share, 'init');
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		setTimeout(function(){
+	it("should autoinitialize", done => {
+		const initSpy = sinon.spy(Share, "init");
+		document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
+		setTimeout(function () {
 			proclaim.equal(initSpy.called, true);
 			initSpy.restore();
 			done();
@@ -26,7 +26,7 @@ describe("Share", () => {
 	});
 
 	it("should not autoinitialize when the event is not dispached", () => {
-		const initSpy = sinon.spy(Share, 'init');
+		const initSpy = sinon.spy(Share, "init");
 		proclaim.equal(initSpy.called, false);
 	});
 
@@ -46,7 +46,7 @@ describe("Share", () => {
 		});
 
 		it("single component when initialized with a root element", () => {
-			const boilerplate = Share.init('#element');
+			const boilerplate = Share.init("#element");
 			proclaim.equal(boilerplate instanceof Share, true);
 		});
 	});

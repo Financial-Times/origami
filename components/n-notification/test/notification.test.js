@@ -16,8 +16,9 @@ describe('Notifications', () => {
 		it('should display a notification with the expected content', () => {
 			nNotification.show({ title: 'Title', content: 'Content' });
 			proclaim.isNotNull(document.querySelector('.n-notification__item'));
-			const content = document.querySelector('.n-notification__content')
-				.innerHTML;
+			const content = document.querySelector(
+				'.n-notification__content'
+			).innerHTML;
 			proclaim.include(content, 'Content');
 		});
 
@@ -37,11 +38,11 @@ describe('Notifications', () => {
 			proclaim.isNull(document.querySelector('.n-notification--default'));
 		});
 
-		it('should remove the message after the specified timeout', done => {
+		it('should remove the message after the specified timeout', (done) => {
 			nNotification.show({
 				title: 'Title',
 				content: 'Content',
-				duration: defaultDuration
+				duration: defaultDuration,
 			});
 			proclaim.isNotNull(document.querySelector('.n-notification__item'));
 
@@ -89,7 +90,7 @@ describe('Notifications', () => {
 
 		it('should create a notification when an event is triggered', () => {
 			const event = new CustomEvent('nNotification.show', {
-				detail: { content: 'Title' }
+				detail: { content: 'Title' },
 			});
 			document.dispatchEvent(event);
 			proclaim.isNotNull(document.querySelector('.n-notification__item'));
@@ -105,7 +106,7 @@ describe('Notifications', () => {
 			proclaim.isNotNull(document.querySelector('.n-notification'));
 			nNotification.destroy();
 			const event = new CustomEvent('nNotification.show', {
-				detail: { content: 'Title' }
+				detail: { content: 'Title' },
 			});
 			document.dispatchEvent(event);
 			proclaim.isNull(document.querySelector('.n-notification'));

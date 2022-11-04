@@ -1,5 +1,5 @@
 function config(entry = []) {
-  return [...entry, require.resolve("./src/preset/preview")];
+	return [...entry, require.resolve("./src/preset/preview")];
 }
 
- module.exports = { config }
+module.exports = { config };

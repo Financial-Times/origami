@@ -1,5 +1,5 @@
 /// Output All oMessage Features
-@mixin oAudio ($class: 'o-audio') {
+@mixin oAudio($class: "o-audio") {
 	.#{$class} {
 		display: block;
 	}

@@ -1,8 +1,8 @@
 /// Small teaser styles
 @mixin _oTeaserSmall {
 	display: flex;
-	padding-bottom: oSpacingByName('s3');
-	border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+	padding-bottom: oSpacingByName("s3");
+	border-bottom: 1px solid oColorsByUsecase("o-teaser/base", "border");
 
 	.o-teaser__content {
 		// IE needs a unit to apply flex-basis correctly 😐
@@ -16,7 +16,8 @@
 		flex-shrink: 0;
 		padding-right: oGridGutter(M);
 
-		@include oGridRespondTo($until: M) { // Mobile screens only
+		@include oGridRespondTo($until: M) {
+			// Mobile screens only
 			display: none;
 		}
 	}
@@ -37,7 +38,7 @@
 	}
 
 	.o-teaser__image-container {
-		margin-bottom: oSpacingByName('s3');
+		margin-bottom: oSpacingByName("s3");
 		width: 100%;
 		// <https://connect.microsoft.com/IE/feedbackdetail/view/891815>
 		min-height: 1px;

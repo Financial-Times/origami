@@ -49,9 +49,9 @@
 	$variants: _oFontsOptionsToVariants($opts);
 
 	@each $variant in $variants {
-		$family: map-get($variant, 'family');
-		$weight: map-get($variant, 'weight');
-		$style: map-get($variant, 'style');
+		$family: map-get($variant, "family");
+		$weight: map-get($variant, "weight");
+		$style: map-get($variant, "style");
 		@include _oFontsInclude($family, $weight, $style);
 	}
 }

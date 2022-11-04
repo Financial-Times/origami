@@ -1,13 +1,11 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
+import proclaim from "proclaim";
 
-import supportedFormats from './../../src/js/helpers/supported-formats.js';
+import supportedFormats from "./../../src/js/helpers/supported-formats.js";
 
-describe('Supported Formats', () => {
-
-	it('should exist', () => {
+describe("Supported Formats", () => {
+	it("should exist", () => {
 		proclaim.ok(supportedFormats);
 	});
-
 });

@@ -30,7 +30,7 @@
 /// @access private
 /// @output Shared pseudo element styles for checkboxes, toggle, round- and box-style radio buttons.
 @mixin _oFormsControlsPseudoElements {
-	content: '';
+	content: "";
 	cursor: pointer;
 	position: absolute;
 	top: 0;
@@ -57,7 +57,7 @@
 	@include oTypographySans(
 		$scale: -1,
 		$line-height: unset,
-		$weight: 'semibold',
+		$weight: "semibold",
 		$include-font-family: false
 	);
 	box-sizing: border-box;

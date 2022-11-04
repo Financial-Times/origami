@@ -1,6 +1,6 @@
-import Drawer from './drawer.js';
-import DropDown from './drop-down.js';
-import Scroll from './scroll.js';
+import Drawer from "./drawer.js";
+import DropDown from "./drop-down.js";
+import Scroll from "./scroll.js";
 
 class HeaderServices {
 	/**
@@ -8,11 +8,11 @@ class HeaderServices {
 	 *
 	 * @param {HTMLElement} [headerEl] - The component element in the DOM
 	 */
-	constructor (headerEl) {
+	constructor(headerEl) {
 		const drawer = new Drawer(headerEl);
 		new DropDown(headerEl, drawer);
 		new Scroll(headerEl);
-		headerEl.setAttribute('data-o-header-services-js', true);
+		headerEl.setAttribute("data-o-header-services-js", true);
 	}
 
 	/**
@@ -22,17 +22,23 @@ class HeaderServices {
 	 * @param {object} [options={}] - An options object for configuring the component
 	 * @returns {Array<HTMLElement>|HTMLElement} - The header(s) initalised.
 	 */
-	static init (rootElement, options) {
+	static init(rootElement, options) {
 		if (!rootElement) {
 			rootElement = document.body;
 		}
 		if (!(rootElement instanceof HTMLElement)) {
 			rootElement = document.querySelector(rootElement);
 		}
-		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=o-header-services]')) {
+		if (
+			rootElement instanceof HTMLElement &&
+			rootElement.matches("[data-o-component=o-header-services]")
+		) {
 			return new HeaderServices(rootElement, options);
 		}
-		return Array.from(rootElement.querySelectorAll('[data-o-component="o-header-services"]'), rootElement => new HeaderServices(rootElement, options));
+		return Array.from(
+			rootElement.querySelectorAll('[data-o-component="o-header-services"]'),
+			rootElement => new HeaderServices(rootElement, options)
+		);
 	}
 }
 

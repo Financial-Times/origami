@@ -2,7 +2,7 @@
 	.o-header__search {
 		padding: $_o-header-padding-y 0;
 		text-align: center;
-		background: _oHeaderGet('search-background');
+		background: _oHeaderGet("search-background");
 
 		&[aria-hidden="false"] {
 			display: block;
@@ -40,21 +40,27 @@
 		&:focus {
 			//also, overriden by o-normalise
 			outline: none;
-			border-color: _oHeaderGet('search-border');
+			border-color: _oHeaderGet("search-border");
 		}
 	}
 
 	.o-header__search-submit {
-		@include oButtonsContent((
-			'type': 'primary',
-			'theme': $_o-header-buttons-theme
-		));
+		@include oButtonsContent(
+			(
+				"type": "primary",
+				"theme": $_o-header-buttons-theme,
+			)
+		);
 		height: 32px; // override o-buttons height
 		margin-left: $_o-header-padding-x;
 	}
 
 	.o-header__search-close {
-		@include oIconsContent('cross', _oHeaderGet('search-close'), $size: $_o-header-icon-size-large);
+		@include oIconsContent(
+			"cross",
+			_oHeaderGet("search-close"),
+			$size: $_o-header-icon-size-large
+		);
 		border: 0;
 		margin-left: $_o-header-padding-x;
 		vertical-align: middle;
@@ -64,7 +70,7 @@
 			opacity: 0.75;
 		}
 
-		@include oGridRespondTo($until: 'M') {
+		@include oGridRespondTo($until: "M") {
 			display: none;
 		}
 	}

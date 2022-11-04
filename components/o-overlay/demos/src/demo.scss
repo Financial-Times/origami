@@ -1,20 +1,20 @@
 @import "../../main";
 @include oOverlay();
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-buttons/main';
+@import "@financial-times/o-buttons/main";
 @include oButtons();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 
 body {
 	@include oTypographySans();
-	padding: oSpacingByName('s3');
+	padding: oSpacingByName("s3");
 	min-height: 500px;
 }
 
 .demo-button {
-	margin-right: oSpacingByName('s1');
+	margin-right: oSpacingByName("s1");
 }
 
 .demo-overlay-container {

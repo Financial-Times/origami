@@ -3,7 +3,7 @@ title: Origami Newsletter, May 2021
 description: The Origami specification is no more
 author: chee rabbits, lee moody
 tags:
-- Newsletter
+  - Newsletter
 ---
 
 <abbr title="Too long; didn't read">
@@ -15,7 +15,6 @@ TL;DR:
 ## Top things
 
 Some of the bigger Origami news from the last month:
-
 
 ### The Origami specification is no more
 
@@ -31,7 +30,7 @@ When we say Origami we tend to mean our reference implementation of the brand gu
 
 Origami was originally conceived as a series of specifications for components and services. There was an expectation that people all over the company and at external agencies would be building new Origami components and services all the time. In that context, a shared contract made a lot of sense.
 
-But that’s not how it ended up. Origami components are mostly built by our team, and we’re always in the loop when other teams build Origami components. 
+But that’s not how it ended up. Origami components are mostly built by our team, and we’re always in the loop when other teams build Origami components.
 
 Teams don't trust the specification, they trust **us**.
 
@@ -67,10 +66,10 @@ A digest of other things that have happened since our last update:
 - PATCH: [useragent_parser](https://github.com/Financial-Times/useragent_parser) updates the detection logic for more accurate reporting of ios 11 and newer versions.
 - The [Origami Registry](https://registry.origami.ft.com/components) now shows stable releases of components by default. Use the version switcher in the right-hand sidebar to preview upcoming beta releases.
 - The following projects have had additional updates to support the [migration from bower to NPM](https://origami.ft.com/blog/2021/01/18/deprecating-bower-and-origami-via-npm/):
-   - [origami-repo-data](https://github.com/Financial-Times/origami-repo-data)
-   - [origami-website](https://github.com/Financial-Times/origami-website)
-   - [o-test-component](https://github.com/Financial-Times/o-test-component)
-   - [origami-build-tools](https://github.com/Financial-Times/origami-build-tools)
-   - [origami-build-service](https://github.com/Financial-Times/origami-build-service)
-   - [create-origami-component](https://github.com/Financial-Times/create-origami-component)
-   - [remark-preset-lint-origami-component](https://github.com/Financial-Times/remark-preset-lint-origami-component)
+  - [origami-repo-data](https://github.com/Financial-Times/origami-repo-data)
+  - [origami-website](https://github.com/Financial-Times/origami-website)
+  - [o-test-component](https://github.com/Financial-Times/o-test-component)
+  - [origami-build-tools](https://github.com/Financial-Times/origami-build-tools)
+  - [origami-build-service](https://github.com/Financial-Times/origami-build-service)
+  - [create-origami-component](https://github.com/Financial-Times/create-origami-component)
+  - [remark-preset-lint-origami-component](https://github.com/Financial-Times/remark-preset-lint-origami-component)

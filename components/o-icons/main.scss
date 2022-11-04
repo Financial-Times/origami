@@ -2,16 +2,17 @@
 @import "src/scss/mixins";
 @import "src/scss/icon-list";
 
-
 /// @access public
 /// @param {Map} $opts [('icons': ('arrow-down', 'audio', 'book'))] A map of o-icons options, including all icons to include (defaults to all icons, see the README for a full list).
 /// @example Include all o-icons css.
 ///		@include oIcons();
 /// @example Include only css for the up and down arrows.
 ///		@include oIcons($opts: ('icons': ('arrow-down', 'arrow-up')));
-@mixin oIcons($opts: (
-	'icons': $o-icons-list
-)) {
+@mixin oIcons(
+	$opts: (
+		"icons": $o-icons-list,
+	)
+) {
 	.o-icons-icon {
 		@include oIconsContentBaseStyles;
 	}

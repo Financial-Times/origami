@@ -11,20 +11,19 @@ function sendBeacon() {
 		rejecter = reject;
 	});
 	return {
-		name: 'sendBeacon',
+		name: "sendBeacon",
 		send: function (url, data) {
 			if (navigator.sendBeacon(url, data)) {
 				resolver();
 			} else {
-				rejecter(new Error('Failed to send beacon event: ' + data.toString()));
+				rejecter(new Error("Failed to send beacon event: " + data.toString()));
 			}
-
 		},
 		complete: function (callback) {
 			if (callback) {
 				p.then(callback, callback);
 			}
-		}
+		},
 	};
 }
 

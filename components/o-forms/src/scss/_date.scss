@@ -3,11 +3,9 @@
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for date inputs
-@mixin _oFormsDate (
-	$disabled: null,
-) {
+@mixin _oFormsDate($disabled: null) {
+	// stylelint-disable selector-no-qualifying-type
 	.o-forms-input--date {
-
 		label {
 			display: flex;
 			float: left;
@@ -15,7 +13,7 @@
 			margin-bottom: 0;
 		}
 
-		input[type=text] { // stylelint-disable-line selector-no-qualifying-type
+		input[type="text"] {
 			@include _oFormsInputBase($disabled);
 			display: block;
 			margin: $_o-forms-spacing-one $_o-forms-spacing-three 0 0;
@@ -27,8 +25,8 @@
 			// @breaking remove pattern selector
 			&.o-forms-input__day-part,
 			&.o-forms-input__month-part,
-			&[pattern$='{2}'],
-			&[pattern$='[012]'] {
+			&[pattern$="{2}"],
+			&[pattern$="[012]"] {
 				// Based on character width (plus kerning) and line height.
 				width: calc(2.2ch + 1em);
 			}
@@ -38,7 +36,7 @@
 			// For backwards compatibility select on both.
 			// @breaking remove pattern selector
 			&.o-forms-input__year-part,
-			&[pattern$='{4}'] {
+			&[pattern$="{4}"] {
 				// Based on character width (plus kerning) and line height.
 				width: calc(4.2ch + 1em);
 			}
@@ -50,4 +48,4 @@
 		}
 	}
 }
-// sass-lint:enable no-qualifying-elements
+// stylelint-enable selector-no-qualifying-type

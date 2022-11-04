@@ -1,7 +1,7 @@
-import Delegate from 'ftdomdelegate';
-import Viewport from '@financial-times/o-viewport';
-import oGrid from '@financial-times/o-grid';
-import Target from './target.js';
+import Delegate from "ftdomdelegate";
+import Viewport from "@financial-times/o-viewport";
+import oGrid from "@financial-times/o-grid";
+import Target from "./target.js";
 
 class Tooltip {
 	static _getCurrentLayout() {
@@ -44,24 +44,24 @@ class Tooltip {
 		};
 
 		if (this.opts.showOnClick) {
-			this.delegates.target.on('click', this.show.bind(this));
+			this.delegates.target.on("click", this.show.bind(this));
 		}
 
 		if (this.opts.toggleOnClick) {
-			this.delegates.target.on('click', this.toggle.bind(this));
+			this.delegates.target.on("click", this.toggle.bind(this));
 		}
 
 		if (this.opts.showOnHover) {
-			this.delegates.target.on('mouseover', this.show.bind(this));
-			this.delegates.target.on('mouseout', this.close.bind(this));
+			this.delegates.target.on("mouseover", this.show.bind(this));
+			this.delegates.target.on("mouseout", this.close.bind(this));
 		}
 
-		if(this.opts.showOnFocus) {
-			this.delegates.target.on('focusin', this.show.bind(this));
-			this.delegates.target.on('focusout', this.close.bind(this));
+		if (this.opts.showOnFocus) {
+			this.delegates.target.on("focusin", this.show.bind(this));
+			this.delegates.target.on("focusout", this.close.bind(this));
 		}
 
-		Viewport.listenTo('resize');
+		Viewport.listenTo("resize");
 
 		this.render();
 
@@ -72,14 +72,12 @@ class Tooltip {
 			if (this.opts.closeAfter) {
 				this.closeAfter(this.opts.closeAfter);
 			}
-		}
-		else {
+		} else {
 			if (this.opts.showAfter) {
 				this.showAfter(this.opts.showAfter);
 			}
 		}
 	}
-
 
 	/**
 	 * Get the data attributes from the tooltipEl. If the tooltip is being set up
@@ -91,11 +89,15 @@ class Tooltip {
 	 */
 	static getOptions(tooltipEl) {
 		const dataset = tooltipEl.dataset;
-		return Object.keys(dataset).reduce((col, key) => { // Phantom doesn't like Object.entries :sob:
-			if (key === 'oComponent') {
+		return Object.keys(dataset).reduce((col, key) => {
+			// Phantom doesn't like Object.entries :sob:
+			if (key === "oComponent") {
 				return col; // Bail on data-o-component
 			}
-			const shortKey = key.replace(/^oTooltip(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(
+				/^oTooltip(\w)(\w+)$/,
+				(m, m1, m2) => m1.toLowerCase() + m2
+			);
 
 			try {
 				col[shortKey] = JSON.parse(dataset[key].replace(/\'/g, '"'));
@@ -118,15 +120,20 @@ class Tooltip {
 	 * @returns {object} opts
 	 */
 	static checkOptions(opts) {
-
 		if (!opts.target) {
-			Tooltip.throwError("tooltip.target is not set. An target for the tooltip to point at must be provided");
+			Tooltip.throwError(
+				"tooltip.target is not set. An target for the tooltip to point at must be provided"
+			);
 		}
 
 		// Check that the value of tooltip position is valid. Default to below.
 		if (opts.position) {
 			if (Tooltip.validTooltipPositions.indexOf(opts.position) === -1) {
-				Tooltip.throwError("Invalid value for tooltip position. Valid values are:" + Tooltip.validTooltipPositions.toString() + " or nothing which will default to a value of `below`");
+				Tooltip.throwError(
+					"Invalid value for tooltip position. Valid values are:" +
+						Tooltip.validTooltipPositions.toString() +
+						" or nothing which will default to a value of `below`"
+				);
 			}
 		} else {
 			opts.position = "below";
@@ -136,10 +143,13 @@ class Tooltip {
 	}
 
 	static constructElement(targetEl, opts) {
-		const element = document.createElement('div');
-		targetEl.setAttribute('id', opts.target);
-		element.setAttribute('data-o-component', 'o-tooltip');
-		element.insertAdjacentHTML('afterbegin', `<div class='o-tooltip-content'>${opts.content}</div>`);
+		const element = document.createElement("div");
+		targetEl.setAttribute("id", opts.target);
+		element.setAttribute("data-o-component", "o-tooltip");
+		element.insertAdjacentHTML(
+			"afterbegin",
+			`<div class='o-tooltip-content'>${opts.content}</div>`
+		);
 		return element;
 	}
 
@@ -153,28 +163,38 @@ class Tooltip {
 			if (!document.getElementById(this.opts.target + Tooltip.idSuffix)) {
 				document.body.appendChild(this.tooltipEl);
 			}
-		} else if (this.targetNode && this.targetNode.nextSibling !== this.tooltipEl) {
+		} else if (
+			this.targetNode &&
+			this.targetNode.nextSibling !== this.tooltipEl
+		) {
 			// or is the next sibling of the target
 			if (this.targetNode.nextSibling) {
-				this.targetNode.parentNode.insertBefore(this.tooltipEl, this.targetNode.nextSibling);
+				this.targetNode.parentNode.insertBefore(
+					this.tooltipEl,
+					this.targetNode.nextSibling
+				);
 			} else {
 				this.targetNode.parentNode.appendChild(this.tooltipEl);
 			}
 		}
 
-		this.tooltipEl.setAttribute('role', 'tooltip');
-		this.tooltipEl.classList.add('o-tooltip');
+		this.tooltipEl.setAttribute("role", "tooltip");
+		this.tooltipEl.classList.add("o-tooltip");
 
 		if (this.opts.zIndex) {
 			this.tooltipEl.style.zIndex = this.opts.zIndex;
 		}
 
-		if (this.opts.showOnConstruction || this.opts.showOnClick || this.opts.toggleOnClick) {
+		if (
+			this.opts.showOnConstruction ||
+			this.opts.showOnClick ||
+			this.opts.toggleOnClick
+		) {
 			// Build and append the close button
-			const button = document.createElement('button');
-			button.className = 'o-tooltip-close';
-			button.setAttribute('aria-label', 'Close tooltip');
-			button.setAttribute('title', 'Close tooltip');
+			const button = document.createElement("button");
+			button.className = "o-tooltip-close";
+			button.setAttribute("aria-label", "Close tooltip");
+			button.setAttribute("title", "Close tooltip");
 			this.tooltipEl.appendChild(button);
 		}
 	}
@@ -189,30 +209,37 @@ class Tooltip {
 		this.delegates.doc.root(document.body);
 		this.delegates.tooltip.root(this.tooltipEl);
 
-		this.tooltipEl.dispatchEvent(new CustomEvent('oTooltip.show'));
+		this.tooltipEl.dispatchEvent(new CustomEvent("oTooltip.show"));
 
 		// Set up all the ways to close the tooltip
 		this.closeHandler = this.close.bind(this);
-		this.delegates.tooltip.on('click', '.o-tooltip-close', this.closeHandler);
-		this.delegates.tooltip.on('touchend', '.o-tooltip-close', this.closeHandler);
+		this.delegates.tooltip.on("click", ".o-tooltip-close", this.closeHandler);
+		this.delegates.tooltip.on(
+			"touchend",
+			".o-tooltip-close",
+			this.closeHandler
+		);
 
 		this.closeOnKeyUpHandler = this.closeOnKeyUp.bind(this);
-		this.delegates.doc.on('keyup', this.closeOnKeyUpHandler);
+		this.delegates.doc.on("keyup", this.closeOnKeyUpHandler);
 
 		// Resize means we might need to move our tooltip so it is still on screen
 		this.resizeListenerHandler = this.resizeListener.bind(this);
-		this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
+		this.delegates.doc.on(
+			"oViewport.resize",
+			"body",
+			this.resizeListenerHandler
+		);
 
 		this.drawTooltip();
 		this.visible = true;
 		clearTimeout(this.showTimeout);
 
 		// Run show tooltip transition
-		this.tooltipEl.style.display = 'block';
+		this.tooltipEl.style.display = "block";
 		this.tooltipEl.style.opacity = 1;
-		this.tooltipEl.classList.add('visible');
+		this.tooltipEl.classList.add("visible");
 	}
-
 
 	/**
 	 * Toggle the tooltip open and close
@@ -220,12 +247,10 @@ class Tooltip {
 	toggle() {
 		if (this.visible) {
 			this.close();
-		}
-		else {
+		} else {
 			this.show();
 		}
 	}
-
 
 	/**
 	 * Close the tooltip after set time
@@ -237,7 +262,6 @@ class Tooltip {
 			this.close();
 		}, seconds * 1000);
 	}
-
 
 	/**
 	 * Show the tooltip after set time
@@ -257,13 +281,18 @@ class Tooltip {
 		if (this.visible === true) {
 			this.close();
 		}
-		if (this.tooltipEl && this.tooltipEl.parentElement && this.opts && this.opts.content) {
+		if (
+			this.tooltipEl &&
+			this.tooltipEl.parentElement &&
+			this.opts &&
+			this.opts.content
+		) {
 			this.tooltipEl.parentElement.removeChild(this.tooltipEl);
 		}
 
 		Tooltip._tooltips.delete(this.tooltipEl);
 		if (Tooltip._tooltips.size === 0) {
-			Viewport.stopListeningTo('resize');
+			Viewport.stopListeningTo("resize");
 			delete Tooltip._tooltips;
 		}
 	}
@@ -277,9 +306,8 @@ class Tooltip {
 	 * @returns {boolean} false
 	 */
 	close(_event, _target, fireCloseEvent = true) {
-
 		if (fireCloseEvent) {
-			this.tooltipEl.dispatchEvent(new CustomEvent('oTooltip.close'));
+			this.tooltipEl.dispatchEvent(new CustomEvent("oTooltip.close"));
 		}
 
 		this.delegates.doc.destroy();
@@ -290,19 +318,23 @@ class Tooltip {
 
 		// Run close tooltip transition
 		this.tooltipEl.style.opacity = 0;
-		this.tooltipEl.classList.remove('visible');
+		this.tooltipEl.classList.remove("visible");
 
 		// Set `display: none` after animation & remove listener
-		this.tooltipEl.addEventListener('transitionend', () => {
-			// Check this is still false and that the tooltip hasn't reappeared
-			// in the transition period
-			if (this.visible === false) {
-				this.tooltipEl.style.display = 'none';
-			}
-		}, { once: true });
+		this.tooltipEl.addEventListener(
+			"transitionend",
+			() => {
+				// Check this is still false and that the tooltip hasn't reappeared
+				// in the transition period
+				if (this.visible === false) {
+					this.tooltipEl.style.display = "none";
+				}
+			},
+			{ once: true }
+		);
 
 		if (this.opts.showOnClick) {
-			this.delegates.target.on('click', null, this.show.bind(this)); // Re-attach click handler
+			this.delegates.target.on("click", null, this.show.bind(this)); // Re-attach click handler
 		}
 
 		return false;
@@ -312,13 +344,11 @@ class Tooltip {
 	 * @param {Event} ev - calls close on the tooltip if the key is Esc
 	 */
 	closeOnKeyUp(ev) {
-
 		/* keyCode 27 is the escape key */
 		if (ev.keyCode === 27) {
 			this.close();
 		}
 	}
-
 
 	/**
 	 * Respond to resize events. Redraw the tooltip in case the target has moved.
@@ -343,34 +373,40 @@ class Tooltip {
 	 */
 	drawTooltip() {
 		// render the tooltip so we know how big it is
-		this.tooltipEl.style.display = 'block';
+		this.tooltipEl.style.display = "block";
 		// don't increase in size, i.e due to inline content, after positioning
-		this.tooltipEl.style['max-width'] = `${this.width()}px`;
+		this.tooltipEl.style["max-width"] = `${this.width()}px`;
 		// check bounds for every position (4 counts)
 		// if chosen position cannot fit flip the toolip.
 		let count = 0;
 		let tooltipRect = {};
 		let position = this._getConfiguredTooltipPosition();
-		let alignment = 'middle';
+		let alignment = "middle";
 		// Assume out of bounds until tooltipRect is calculated.
 		let isOutOfBounds = true;
 		while (count < 5 && isOutOfBounds) {
 			count++;
 			switch (position) {
-				case 'above':
-					({tooltipRect, alignment, isOutOfBounds} = this._evaulateTooltip('above'));
+				case "above":
+					({ tooltipRect, alignment, isOutOfBounds } =
+						this._evaulateTooltip("above"));
 					break;
-				case 'right':
-					({tooltipRect, alignment, isOutOfBounds} = this._evaulateTooltip('right'));
+				case "right":
+					({ tooltipRect, alignment, isOutOfBounds } =
+						this._evaulateTooltip("right"));
 					break;
-				case 'below':
-					({tooltipRect, alignment, isOutOfBounds} = this._evaulateTooltip('below'));
+				case "below":
+					({ tooltipRect, alignment, isOutOfBounds } =
+						this._evaulateTooltip("below"));
 					break;
-				case 'left':
-					({tooltipRect, alignment, isOutOfBounds} = this._evaulateTooltip('left'));
+				case "left":
+					({ tooltipRect, alignment, isOutOfBounds } =
+						this._evaulateTooltip("left"));
 					break;
 				default:
-					throw Tooltip.throwError('drawTooltip entered the default case, which is not expected.');
+					throw Tooltip.throwError(
+						"drawTooltip entered the default case, which is not expected."
+					);
 			}
 			if (isOutOfBounds && count < 5) {
 				position = Tooltip._rotateOrientation(position);
@@ -381,19 +417,26 @@ class Tooltip {
 		this.tooltipRect = tooltipRect;
 		this.tooltipAlignment = alignment;
 		this.tooltipPosition = position;
-		const targetLeftOffset = this.target.targetEl.offsetParent && this.target.targetEl.offsetParent.getBoundingClientRect().left;
-		const targetTopOffset = this.target.targetEl.offsetParent && this.target.targetEl.offsetParent.getBoundingClientRect().top;
+		const targetLeftOffset =
+			this.target.targetEl.offsetParent &&
+			this.target.targetEl.offsetParent.getBoundingClientRect().left;
+		const targetTopOffset =
+			this.target.targetEl.offsetParent &&
+			this.target.targetEl.offsetParent.getBoundingClientRect().top;
 
 		const startWidth = this.tooltipEl.getBoundingClientRect().width;
 		if (this.opts.appendToBody) {
 			// If the tooltip will be apended directly to body:
 			// set an ID in order to be identified
 			this.tooltipEl.id = this.opts.target + Tooltip.idSuffix;
-			this.tooltipEl.style.top = this.tooltipRect.top + document.documentElement.scrollTop + 'px';
-			this.tooltipEl.style.left = this.tooltipRect.left + document.documentElement.scrollLeft + 'px';
+			this.tooltipEl.style.top =
+				this.tooltipRect.top + document.documentElement.scrollTop + "px";
+			this.tooltipEl.style.left =
+				this.tooltipRect.left + document.documentElement.scrollLeft + "px";
 		} else {
-			this.tooltipEl.style.top = this.tooltipRect.top - targetTopOffset + 'px';
-			this.tooltipEl.style.left = this.tooltipRect.left - targetLeftOffset + 'px';
+			this.tooltipEl.style.top = this.tooltipRect.top - targetTopOffset + "px";
+			this.tooltipEl.style.left =
+				this.tooltipRect.left - targetLeftOffset + "px";
 		}
 		const endWidth = this.tooltipEl.getBoundingClientRect().width;
 
@@ -410,7 +453,9 @@ class Tooltip {
 		// Warn all positions were tried and the tooltip is sill out of bounds.
 		if (count >= 5) {
 			// eslint-disable-next-line no-console
-			console.warn("There is not enough space in the client window to draw the tooltip.");
+			console.warn(
+				"There is not enough space in the client window to draw the tooltip."
+			);
 		}
 	}
 
@@ -433,14 +478,19 @@ class Tooltip {
 	 * @returns {boolean} If the set position is out of bounds.
 	 */
 	_evaulateTooltip(position) {
-		const axis = position === 'above' || position === 'below' ? 'y' : 'x';
-		const alignments = axis === 'y' ? ['middle', 'right', 'left'] : ['middle', 'top', 'bottom'];
+		const axis = position === "above" || position === "below" ? "y" : "x";
+		const alignments =
+			axis === "y" ? ["middle", "right", "left"] : ["middle", "top", "bottom"];
 
 		// Attempt all position alignments.
 		let isOutOfBounds = true;
 		let tooltipRect;
 		let alignment;
-		for (let index = 0; index < alignments.length && isOutOfBounds === true; index++) {
+		for (
+			let index = 0;
+			index < alignments.length && isOutOfBounds === true;
+			index++
+		) {
 			alignment = alignments[index];
 			tooltipRect = this._calculateTooltipRectangle(position, alignment);
 			isOutOfBounds = this._tooltipIsOutOfBounds(tooltipRect);
@@ -448,7 +498,7 @@ class Tooltip {
 
 		// If all alignments fail to fit in bounds default to the middle alignment.
 		if (isOutOfBounds) {
-			alignment = 'middle';
+			alignment = "middle";
 			tooltipRect = this._calculateTooltipRectangle(position, alignment);
 		}
 
@@ -463,45 +513,45 @@ class Tooltip {
 	 */
 	_calculateTooltipRectangle(position, alignment) {
 		const rect = {};
-		const axis = position === 'above' || position === 'below' ? 'y' : 'x';
+		const axis = position === "above" || position === "below" ? "y" : "x";
 
 		// Calculate for position above/below.
-		if (axis === 'y') {
+		if (axis === "y") {
 			// the arrow is placed 10% along the body of the tooltip
 			const arrowPosition = this.width() / 10;
 
-			if (alignment === 'left') {
+			if (alignment === "left") {
 				rect.left = this.target.centrePoint.x - this.width() + arrowPosition;
 			}
-			if (alignment === 'right') {
+			if (alignment === "right") {
 				rect.left = this.target.centrePoint.x - arrowPosition;
 			}
-			if (alignment === 'middle') {
+			if (alignment === "middle") {
 				rect.left = this.target.centrePoint.x - this.width() / 2;
 			}
-			if (position === 'above') {
+			if (position === "above") {
 				rect.top = this.target.top - this.height() - Tooltip.arrowDepth;
 			}
-			if (position === 'below') {
+			if (position === "below") {
 				rect.top = this.target.bottom + Tooltip.arrowDepth;
 			}
 		}
 
 		// Calculate for position right/left.
-		if (axis === 'x') {
-			if (alignment === 'top') {
+		if (axis === "x") {
+			if (alignment === "top") {
 				rect.top = this.target.top;
 			}
-			if (alignment === 'bottom') {
+			if (alignment === "bottom") {
 				rect.top = this.target.bottom - this.height();
 			}
-			if (alignment === 'middle') {
+			if (alignment === "middle") {
 				rect.top = this.target.centrePoint.y - this.height() / 2;
 			}
-			if (position === 'right') {
+			if (position === "right") {
 				rect.left = this.target.right + Tooltip.arrowDepth;
 			}
-			if (position === 'left') {
+			if (position === "left") {
 				rect.left = this.target.left - this.width() - Tooltip.arrowDepth;
 			}
 		}
@@ -514,21 +564,21 @@ class Tooltip {
 
 	calculateTooltipRect(position) {
 		// eslint-disable-next-line no-console
-		console.warn('`calculateTooltipRect` is deprecated.');
-		return this._calculateTooltipRectangle(position, 'middle');
+		console.warn("`calculateTooltipRect` is deprecated.");
+		return this._calculateTooltipRectangle(position, "middle");
 	}
 
 	_getConfiguredTooltipPosition() {
 		const { position, positionS, positionM, positionL, positionXl } = this.opts;
 		const currentBreakpoint = Tooltip._getCurrentLayout();
 		switch (currentBreakpoint) {
-			case 'S':
+			case "S":
 				return positionS || position;
-			case 'M':
+			case "M":
 				return positionM || positionS || position;
-			case 'L':
+			case "L":
 				return positionL || positionM || positionS || position;
-			case 'XL':
+			case "XL":
 				return positionXl || positionL || positionM || positionS || position;
 			default:
 				return position;
@@ -536,8 +586,8 @@ class Tooltip {
 	}
 
 	_setArrow() {
-		const arrowClassRoot = 'o-tooltip--arrow-';
-		const alignmentClassRoot = 'o-tooltip-arrow--align-';
+		const arrowClassRoot = "o-tooltip--arrow-";
+		const alignmentClassRoot = "o-tooltip-arrow--align-";
 
 		const classesToRemove = [
 			"o-tooltip--arrow-left",
@@ -548,12 +598,17 @@ class Tooltip {
 			"o-tooltip-arrow--align-bottom",
 			"o-tooltip-arrow--align-left",
 			"o-tooltip-arrow--align-right",
-			"o-tooltip-arrow--align-middle"
+			"o-tooltip-arrow--align-middle",
 		];
 
 		this.tooltipEl.classList.remove(...classesToRemove);
-		this.tooltipEl.classList.add(arrowClassRoot + Tooltip.positionToArrowPositionMap[this.tooltipPosition]);
-		this.tooltipEl.classList.add(alignmentClassRoot + Tooltip.alignmentToArrowAlignmentMap[this.tooltipAlignment]);
+		this.tooltipEl.classList.add(
+			arrowClassRoot + Tooltip.positionToArrowPositionMap[this.tooltipPosition]
+		);
+		this.tooltipEl.classList.add(
+			alignmentClassRoot +
+				Tooltip.alignmentToArrowAlignmentMap[this.tooltipAlignment]
+		);
 	}
 
 	/**
@@ -563,11 +618,29 @@ class Tooltip {
 	 * @returns {boolean} is the tooltip in bounds?
 	 */
 	_tooltipIsOutOfBounds(tooltipRect) {
-		const topOutofBounds = Tooltip._pointIsOutOfBounds(tooltipRect.top, 'y', this.opts);
-		const bottomOutofBounds = Tooltip._pointIsOutOfBounds(tooltipRect.bottom, 'y', this.opts);
-		const leftOutofBounds = Tooltip._pointIsOutOfBounds(tooltipRect.left, 'x', this.opts);
-		const rightOutofBounds = Tooltip._pointIsOutOfBounds(tooltipRect.right, 'x', this.opts);
-		return topOutofBounds || bottomOutofBounds || leftOutofBounds || rightOutofBounds;
+		const topOutofBounds = Tooltip._pointIsOutOfBounds(
+			tooltipRect.top,
+			"y",
+			this.opts
+		);
+		const bottomOutofBounds = Tooltip._pointIsOutOfBounds(
+			tooltipRect.bottom,
+			"y",
+			this.opts
+		);
+		const leftOutofBounds = Tooltip._pointIsOutOfBounds(
+			tooltipRect.left,
+			"x",
+			this.opts
+		);
+		const rightOutofBounds = Tooltip._pointIsOutOfBounds(
+			tooltipRect.right,
+			"x",
+			this.opts
+		);
+		return (
+			topOutofBounds || bottomOutofBounds || leftOutofBounds || rightOutofBounds
+		);
 	}
 
 	/*
@@ -580,15 +653,15 @@ class Tooltip {
 			return true;
 		}
 		if (opts.showOnConstruction) {
-			if (axis === 'y' && point > document.body.clientHeight) {
+			if (axis === "y" && point > document.body.clientHeight) {
 				return true;
-			} else if (axis === 'x' && point > document.body.clientWidth) {
+			} else if (axis === "x" && point > document.body.clientWidth) {
 				return true;
 			}
 		} else {
-			if (axis === 'y' && point > document.documentElement.clientHeight) {
+			if (axis === "y" && point > document.documentElement.clientHeight) {
 				return true;
-			} else if (axis === 'x' && point > document.documentElement.clientWidth) {
+			} else if (axis === "x" && point > document.documentElement.clientWidth) {
 				return true;
 			}
 		}
@@ -597,10 +670,10 @@ class Tooltip {
 
 	static _rotateOrientation(orientation) {
 		const rotate = {
-			"above": "right",
-			"right": "below",
-			"below": "left",
-			"left": "above"
+			above: "right",
+			right: "below",
+			below: "left",
+			left: "above",
 		};
 
 		return rotate[orientation];
@@ -622,30 +695,36 @@ class Tooltip {
 
 		// If the rootEl is an HTMLElement (ie it was found in the document anywhere)
 		// AND the rootEl has the data-o-component=o-tooltip then initialise just 1 tooltip (this one)
-		if (rootEl instanceof HTMLElement && /\bo-tooltip\b/.test(rootEl.getAttribute('data-o-component'))) {
+		if (
+			rootEl instanceof HTMLElement &&
+			/\bo-tooltip\b/.test(rootEl.getAttribute("data-o-component"))
+		) {
 			return new Tooltip(rootEl, opts);
 		}
 
 		// If the rootEl wasn't itself a tooltip, then find ALL of the child things that have the data-o-component=oTooltip set
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-tooltip"]'), rootEl => new Tooltip(rootEl, opts));
+		return Array.from(
+			rootEl.querySelectorAll('[data-o-component="o-tooltip"]'),
+			rootEl => new Tooltip(rootEl, opts)
+		);
 	}
 }
 
-Tooltip.idSuffix = '-tooltip';
+Tooltip.idSuffix = "-tooltip";
 
 Tooltip.arrowDepth = 10;
 Tooltip.positionToArrowPositionMap = {
-	"above": "below",
-	"below": "above",
-	"left": "right",
-	"right": "left"
+	above: "below",
+	below: "above",
+	left: "right",
+	right: "left",
 };
 Tooltip.alignmentToArrowAlignmentMap = {
-	"top": "top",
-	"bottom": "bottom",
-	"right": "left",
-	"left": "right",
-	"middle": "middle"
+	top: "top",
+	bottom: "bottom",
+	right: "left",
+	left: "right",
+	middle: "middle",
 };
 
 Tooltip.validArrowAlignments = ["top", "bottom", "left", "right"];

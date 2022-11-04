@@ -10,15 +10,15 @@
 /// @param {Number} $level - The heading level 1-5.
 @mixin oTypographyHeading($level) {
 	$headings: (
-		'heading-level-one',
-		'heading-level-two',
-		'heading-level-three',
-		'heading-level-four',
-		'heading-level-five',
-		'heading-level-six',
+		"heading-level-one",
+		"heading-level-two",
+		"heading-level-three",
+		"heading-level-four",
+		"heading-level-five",
+		"heading-level-six"
 	);
 
-	@if(type-of($level) != 'number' or $level < 1 or $level > 6) {
+	@if (type-of($level) != "number" or $level < 1 or $level > 6) {
 		@error 'Heading level must be a Number 1-6. Found #{inspect($level)}.';
 	}
 
@@ -26,28 +26,27 @@
 
 	// Get heading styles from brand config (see _brand.scss)
 	// If weight is not given default to regular, to override browser defaults.
-	$weight: _oTypographyGet('weight', $from);
-	$weight: if($weight, $weight, 'regular');
+	$weight: _oTypographyGet("weight", $from);
+	$weight: if($weight, $weight, "regular");
 	@include oTypographySans(
 		$scale: (
-			default: _oTypographyGet('scale', $from),
-			S: _oTypographyGet('scale-s', $from),
-			M: _oTypographyGet('scale-m', $from),
-			L: _oTypographyGet('scale-l', $from),
-			XL: _oTypographyGet('scale-xl', $from)
+			default: _oTypographyGet("scale", $from),
+			S: _oTypographyGet("scale-s", $from),
+			M: _oTypographyGet("scale-m", $from),
+			L: _oTypographyGet("scale-l", $from),
+			XL: _oTypographyGet("scale-xl", $from),
 		),
 		$weight: $weight
 	);
-	color: oColorsByUsecase('body', 'text', $fallback: null);
-	margin: 0 0 oSpacingByName('s4');
+	color: oColorsByUsecase("body", "text", $fallback: null);
+	margin: 0 0 oSpacingByName("s4");
 }
-
 
 /// Body text styles
 @mixin oTypographyBody {
 	@include oTypographySans(1);
-	margin: 0 0 oSpacingByName('s6');
-	color: oColorsByUsecase('body', 'text', $fallback: null);
+	margin: 0 0 oSpacingByName("s6");
+	color: oColorsByUsecase("body", "text", $fallback: null);
 }
 
 /// Subscript text
@@ -107,7 +106,11 @@
 /// @param {Boolean} $external [false] - This parameter is deprecated - we no longer output an icon for external links
 /// @param {Map|Null} $theme [null] - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the core brand, white otherwise).
 /// @param {Boolean} $include-base-styles [true] - If set to false standard link styles will not be output, only additional styles required by a custom theme.
-@mixin oTypographyLink($external: false, $theme: null, $include-base-styles: true) {
+@mixin oTypographyLink(
+	$external: false,
+	$theme: null,
+	$include-base-styles: true
+) {
 	// Default link colours.
 	// These may be `null` if the usecase is not set, i.e. for the whitelabel brand.
 	$base-color: oColorsByUsecase(link, text, $fallback: null);
@@ -117,31 +120,43 @@
 
 	// If a custom theme is given check it is a map with the required keys.
 	// And update the link colours.
-	$required-theme-keys: ('base', 'hover');
-	@if($theme and type-of($theme) != 'map') {
+	$required-theme-keys: ("base", "hover");
+	@if ($theme and type-of($theme) != "map") {
 		@error 'The link $theme argument must `null` or a map. ' +
 			'Found: "#{inspect($theme)}"';
 	}
-	@if(type-of($theme) == 'map') {
+	@if (type-of($theme) == "map") {
 		// Get custom base colour.
-		$theme-base: map-get($theme, 'base');
-		$base-color: if(type-of($theme-base) == 'string', oColorsByName($theme-base), $theme-base);
+		$theme-base: map-get($theme, "base");
+		$base-color: if(
+			type-of($theme-base) == "string",
+			oColorsByName($theme-base),
+			$theme-base
+		);
 		// Get custom hover colour.
-		$theme-hover: map-get($theme, 'hover');
-		$hover-color: if(type-of($theme-hover) == 'string', oColorsByName($theme-hover), $theme-hover);
+		$theme-hover: map-get($theme, "hover");
+		$hover-color: if(
+			type-of($theme-hover) == "string",
+			oColorsByName($theme-hover),
+			$theme-hover
+		);
 		// Get optional context colour.
-		$theme-context: map-get($theme, 'context');
+		$theme-context: map-get($theme, "context");
 		@if $theme-context {
-			$context-color: if(type-of($theme-context) == 'string', oColorsByName($theme-context), $theme-context);
+			$context-color: if(
+				type-of($theme-context) == "string",
+				oColorsByName($theme-context),
+				$theme-context
+			);
 		}
 		// Validate colours given.
-		@if(type-of($base-color) != 'color') {
+		@if (type-of($base-color) != "color") {
 			@error 'A custom link theme must have a `base` property with a colour or palette colour name e.g. `claret`. But found #{$theme-base}.';
 		}
-		@if(type-of($hover-color) != 'color') {
+		@if (type-of($hover-color) != "color") {
 			@error 'A custom link theme must have a `hover` property with a color or palette colour name e.g. `claret`. But found #{$theme-hover}.';
 		}
-		@if($theme-context and type-of($context-color) != 'color') {
+		@if ($theme-context and type-of($context-color) != "color") {
 			@error 'A custom link theme may optionally have a `context` property with a color or palette colour name, to indicate the colour of the page behind the link, e.g. `null` or `paper`. But found #{$theme-context}.';
 		}
 	}
@@ -157,11 +172,11 @@
 
 	&[target="_blank"]:after {
 		@include oNormaliseVisuallyHidden();
-		content: '(opens a new window)';
+		content: "(opens a new window)";
 	}
 
 	// Output base styles shared by all links.
-	@if($include-base-styles) {
+	@if ($include-base-styles) {
 		text-decoration: none;
 		cursor: pointer;
 		border-bottom: $underline-size solid;
@@ -175,17 +190,25 @@
 
 	// Output base styles shared by all links, or
 	// required for a custom link theme.
-	@if($include-base-styles or $theme) {
+	@if ($include-base-styles or $theme) {
 		color: $base-color;
-		$decoration-color: if($base-color, oColorsMix($base-color, $context-color, $percentage: 20), null);
+		$decoration-color: if(
+			$base-color,
+			oColorsMix($base-color, $context-color, $percentage: 20),
+			null
+		);
 		border-bottom-color: $decoration-color;
 		text-decoration-color: $decoration-color;
 	}
 
 	&:hover {
-		@if($include-base-styles or $theme) {
+		@if ($include-base-styles or $theme) {
 			color: $hover-color;
-			$decoration-color: if($base-color, oColorsMix($base-color, $context-color, $percentage: 40), null);
+			$decoration-color: if(
+				$base-color,
+				oColorsMix($base-color, $context-color, $percentage: 40),
+				null
+			);
 			border-bottom-color: $decoration-color;
 			text-decoration-color: $decoration-color;
 		}
@@ -193,12 +216,12 @@
 
 	// o-normalise provides extra focus styles for links
 	&:focus {
-		@if($include-base-styles) {
+		@if ($include-base-styles) {
 			$decoration-color: transparent;
 			border-bottom-color: $decoration-color;
 			text-decoration-color: $decoration-color;
 		}
-		@if($include-base-styles or $theme) {
+		@if ($include-base-styles or $theme) {
 			color: $hover-color;
 		}
 	}
@@ -232,26 +255,26 @@
 /// @param {Boolean} $include-base-styles [true] - set to false to exclude base styles which are shared by all list types
 @mixin oTypographyList($type: null, $include-base-styles: true) {
 	// Undo browser defaults.
-	@if($include-base-styles) {
-		margin: 0 0 oSpacingByName('s6');
+	@if ($include-base-styles) {
+		margin: 0 0 oSpacingByName("s6");
 		padding: 0;
 		list-style: none;
 	}
 	// Reset number counter for new ordered list.
-	@if($type == 'ordered') {
+	@if ($type == "ordered") {
 		counter-reset: item;
 	}
 	> li {
-		@if($include-base-styles) {
+		@if ($include-base-styles) {
 			position: relative;
 			// Undo browser default.
 			margin: 0;
 			// Allow space for 2-3 numbers for both ordered and unordered lists,
 			// so content aligns between both list types.
-			padding-left: calc(2ch + #{oSpacingByName('s1')});
+			padding-left: calc(2ch + #{oSpacingByName("s1")});
 		}
 		&:before {
-			@if($include-base-styles) {
+			@if ($include-base-styles) {
 				@include oTypographySans();
 				display: inline-block;
 				position: absolute;
@@ -259,8 +282,8 @@
 				transform-origin: center left;
 			}
 
-			@if($type == 'unordered') {
-				content: '\2022'; // dot character
+			@if ($type == "unordered") {
+				content: "\2022"; // dot character
 				color: inherit;
 				// 28px marker given a parent font-size of 18px
 				transform: scale(#{div(28, 18)});
@@ -268,8 +291,11 @@
 				margin-top: #{div(28, 18) * -0.16ch};
 			}
 
-			@if($type == 'ordered') {
-				@include oTypographySans($weight: 'semibold', $include-font-family: false);
+			@if ($type == "ordered") {
+				@include oTypographySans(
+					$weight: "semibold",
+					$include-font-family: false
+				);
 				content: counter(item);
 				counter-increment: item;
 				font-feature-settings: "tnum";
@@ -285,13 +311,13 @@
 /// Style for <footer> tags
 @mixin oTypographyFooter {
 	@include oTypographySans($scale: 1, $line-height: 24px);
-	color: oColorsByUsecase('body', 'text', $fallback: null);
+	color: oColorsByUsecase("body", "text", $fallback: null);
 }
 
 /// Styles for photo or video credit/caption
 @mixin oTypographyCaption {
 	@include oTypographySans($scale: -1);
-	margin-top: oSpacingByName('s2');
+	margin-top: oSpacingByName("s2");
 	margin-bottom: 0;
-	color: oColorsByUsecase('body', 'text', $fallback: null);
+	color: oColorsByUsecase("body", "text", $fallback: null);
 }

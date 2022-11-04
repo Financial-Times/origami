@@ -1,10 +1,9 @@
-import viewport from '@financial-times/o-viewport';
+import viewport from "@financial-times/o-viewport";
 
 // Used to create a unique o-expander id.
 let count = 0;
 
 class ExpanderUtility {
-
 	/**
 	 * Class constructor.
 	 *
@@ -27,13 +26,15 @@ class ExpanderUtility {
 	 */
 	constructor(oExpanderElement, opts) {
 		// Error if the expander element is not an element.
-		if(!(oExpanderElement instanceof Element)) {
-			throw new Error('Expected an expander Element.');
+		if (!(oExpanderElement instanceof Element)) {
+			throw new Error("Expected an expander Element.");
 		}
 
 		// Error if no options are given.
-		if (typeof opts !== 'object') {
-			throw new Error(`Expected an \`opts\` object, found type of "${typeof opts}".`);
+		if (typeof opts !== "object") {
+			throw new Error(
+				`Expected an \`opts\` object, found type of "${typeof opts}".`
+			);
 		}
 
 		// Set expander state.
@@ -41,10 +42,14 @@ class ExpanderUtility {
 		this._currentState = null;
 
 		// Get configurable options.
-		this.options = Object.assign({}, {
-			shrinkTo: 'height',
-			toggleState: 'all',
-		}, opts);
+		this.options = Object.assign(
+			{},
+			{
+				shrinkTo: "height",
+				toggleState: "all",
+			},
+			opts
+		);
 
 		// If `shrinkTo` is a number, cast to an actual number using the
 		// unary operator `+`. I.e so `typeof` returns `number`.
@@ -55,32 +60,40 @@ class ExpanderUtility {
 		// Validate the required selectors are configured.
 		// The `item` selector is only required if this expander is a
 		// "number" expander, i.e. based on the number of visible content items.
-		const requiredSelectors = ['toggle', 'content'];
-		if (typeof this.options.shrinkTo === 'number') {
+		const requiredSelectors = ["toggle", "content"];
+		if (typeof this.options.shrinkTo === "number") {
 			requiredSelectors.push(`item`);
 		}
 		const actualSelectors = Object.keys(opts.selectors);
-		const missingSelectors = requiredSelectors.filter(s => actualSelectors.indexOf(s) === -1);
-		if (typeof opts.selectors !== 'object' || missingSelectors.length) {
-			throw new Error(`Expected the following "selectors" to be specified within the options object "${requiredSelectors}", missing "${missingSelectors}".`);
+		const missingSelectors = requiredSelectors.filter(
+			s => actualSelectors.indexOf(s) === -1
+		);
+		if (typeof opts.selectors !== "object" || missingSelectors.length) {
+			throw new Error(
+				`Expected the following "selectors" to be specified within the options object "${requiredSelectors}", missing "${missingSelectors}".`
+			);
 		}
 
 		// Validate the required classnames are configured.
 		// The `collapsibleItem` class is only required if this expander is a
 		// "number" expander, i.e. based on the number of visible content items.
 		const requiredClassnames = [
-			'initialized',
-			'inactive',
-			'expanded',
-			'collapsed'
+			"initialized",
+			"inactive",
+			"expanded",
+			"collapsed",
 		];
-		if (typeof this.options.shrinkTo === 'number') {
+		if (typeof this.options.shrinkTo === "number") {
 			requiredClassnames.push(`collapsibleItem`);
 		}
 		const actualClassnames = Object.keys(opts.classnames);
-		const missingClassnames = requiredClassnames.filter(s => actualClassnames.indexOf(s) === -1);
-		if (typeof opts.selectors !== 'object' || missingClassnames.length) {
-			throw new Error(`Expected the following "classnames" to be specified within the options object "${requiredClassnames}", missing "${missingClassnames}".`);
+		const missingClassnames = requiredClassnames.filter(
+			s => actualClassnames.indexOf(s) === -1
+		);
+		if (typeof opts.selectors !== "object" || missingClassnames.length) {
+			throw new Error(
+				`Expected the following "classnames" to be specified within the options object "${requiredClassnames}", missing "${missingClassnames}".`
+			);
 		}
 
 		// If the user has not configured toggle text for the expanded state,
@@ -89,14 +102,14 @@ class ExpanderUtility {
 		// given value; "fewer" otherwise.
 		if (!this.options.expandedToggleText) {
 			switch (this.options.shrinkTo) {
-				case 'hidden':
-					this.options.expandedToggleText = 'hide';
+				case "hidden":
+					this.options.expandedToggleText = "hide";
 					break;
-				case 'height':
-					this.options.expandedToggleText = 'less';
+				case "height":
+					this.options.expandedToggleText = "less";
 					break;
 				default:
-					this.options.expandedToggleText = 'fewer';
+					this.options.expandedToggleText = "fewer";
 					break;
 			}
 		}
@@ -105,43 +118,53 @@ class ExpanderUtility {
 		// set it based on the "shrinkTo" option: "show" hiding collapsed items;
 		// or "more" when collapsing to a height.
 		if (!this.options.collapsedToggleText) {
-			this.options.collapsedToggleText = this.options.shrinkTo === 'hidden' ? 'show' : 'more';
-			this.options.collapsedToggleText += ' <span class="o-expander__visually-hidden">(content will be shown above button)</span>';
+			this.options.collapsedToggleText =
+				this.options.shrinkTo === "hidden" ? "show" : "more";
+			this.options.collapsedToggleText +=
+				' <span class="o-expander__visually-hidden">(content will be shown above button)</span>';
 		}
 
 		// Elements.
 		this.oExpanderElement = oExpanderElement;
-		this.contentElement = this.oExpanderElement.querySelector(this.options.selectors.content);
-		this.toggles = [].slice.apply(this.oExpanderElement.querySelectorAll(this.options.selectors.toggle));
+		this.contentElement = this.oExpanderElement.querySelector(
+			this.options.selectors.content
+		);
+		this.toggles = [].slice.apply(
+			this.oExpanderElement.querySelectorAll(this.options.selectors.toggle)
+		);
 		if (!this.toggles.length) {
 			throw new Error(
-				'o-expander needs a toggle link or button. ' +
-				`None were found for toggle selector "${this.options.selectors.toggle}".`
+				"o-expander needs a toggle link or button. " +
+					`None were found for toggle selector "${this.options.selectors.toggle}".`
 			);
 		}
 
 		// Set `aria-controls` on each toggle using expander ids.
 		this.id = this.contentElement.id;
 		if (!this.id) {
-			while (document.querySelector('#o-expander__toggle--' + count)) {
+			while (document.querySelector("#o-expander__toggle--" + count)) {
 				count++;
 			}
-			this.id = this.contentElement.id = 'o-expander__toggle--' + count;
+			this.id = this.contentElement.id = "o-expander__toggle--" + count;
 		}
-		this.toggles.forEach(toggle => toggle.setAttribute('aria-controls', this.id));
+		this.toggles.forEach(toggle =>
+			toggle.setAttribute("aria-controls", this.id)
+		);
 
 		// Add a click event to each toggle.
 		this.toggles.forEach(toggle => {
-			toggle.addEventListener('click', () => this.toggle());
+			toggle.addEventListener("click", () => this.toggle());
 		});
 
 		// If shrinking based on a height set in css, reapply the expander on
 		// orientation and resize events.
-		if (this.options.shrinkTo === 'height') {
-			viewport.listenTo('resize');
-			viewport.listenTo('orientation');
-			document.body.addEventListener('oViewport.orientation', () => this.apply());
-			document.body.addEventListener('oViewport.resize', () => this.apply());
+		if (this.options.shrinkTo === "height") {
+			viewport.listenTo("resize");
+			viewport.listenTo("orientation");
+			document.body.addEventListener("oViewport.orientation", () =>
+				this.apply()
+			);
+			document.body.addEventListener("oViewport.resize", () => this.apply());
 		}
 
 		// Add a class to indicate the expander is initialised, which
@@ -153,7 +176,7 @@ class ExpanderUtility {
 		this.apply(true);
 
 		// Setup. Fire the `oExpander.init` event.
-		this._dispatchEvent('init');
+		this._dispatchEvent("init");
 	}
 
 	/**
@@ -170,9 +193,11 @@ class ExpanderUtility {
 			//Remove the inactive class, this expander may be toggled.
 			this.oExpanderElement.classList.remove(this.options.classnames.inactive);
 			// Mark collapsible items with the `o-expander__collapsible-item` classnames.
-			if (typeof this.options.shrinkTo === 'number') {
+			if (typeof this.options.shrinkTo === "number") {
 				const collapsibleCountElements = this._getCollapseableItems();
-				collapsibleCountElements.forEach(el => el.classList.add(this.options.classnames.collapsibleItem));
+				collapsibleCountElements.forEach(el =>
+					el.classList.add(this.options.classnames.collapsibleItem)
+				);
 			}
 			// Collapse or expand.
 			if (this.isCollapsed()) {
@@ -203,7 +228,7 @@ class ExpanderUtility {
 	 * @returns {void}
 	 */
 	expand(isSilent) {
-		this._setExpandedState('expand', isSilent);
+		this._setExpandedState("expand", isSilent);
 	}
 
 	/**
@@ -213,7 +238,7 @@ class ExpanderUtility {
 	 * @returns {void}
 	 */
 	collapse(isSilent) {
-		this._setExpandedState('collapse', isSilent);
+		this._setExpandedState("collapse", isSilent);
 	}
 
 	/**
@@ -224,15 +249,17 @@ class ExpanderUtility {
 	isCollapsed() {
 		// If the expander has been run we store the current state.
 		if (this._currentState) {
-			return this._currentState === 'collapse';
+			return this._currentState === "collapse";
 		}
 		// If not check for dom attributes to decide if the user intends
 		// the expander to be expanded or collapsed by default.
-		if (this.options.shrinkTo === 'hidden') {
+		if (this.options.shrinkTo === "hidden") {
 			// Check is not false so hidden expanders collapse by default.
-			return this.contentElement.getAttribute('aria-hidden') !== 'false';
+			return this.contentElement.getAttribute("aria-hidden") !== "false";
 		}
-		return !this.contentElement.classList.contains(this.options.classnames.expanded);
+		return !this.contentElement.classList.contains(
+			this.options.classnames.expanded
+		);
 	}
 
 	/**
@@ -241,16 +268,18 @@ class ExpanderUtility {
 	 * @returns {void}
 	 */
 	destroy() {
-		if (this.options.shrinkTo === 'height') {
-			document.body.removeEventListener('oViewport.orientation', () => this.apply());
-			document.body.removeEventListener('oViewport.resize', () => this.apply());
+		if (this.options.shrinkTo === "height") {
+			document.body.removeEventListener("oViewport.orientation", () =>
+				this.apply()
+			);
+			document.body.removeEventListener("oViewport.resize", () => this.apply());
 		}
 		this.toggles.forEach(toggle => {
-			toggle.removeEventListener('click', this.toggle);
-			toggle.removeAttribute('aria-controls');
-			toggle.removeAttribute('aria-expanded');
+			toggle.removeEventListener("click", this.toggle);
+			toggle.removeAttribute("aria-controls");
+			toggle.removeAttribute("aria-expanded");
 		});
-		this.contentElement.removeAttribute('aria-hidden');
+		this.contentElement.removeAttribute("aria-hidden");
 		this.contentElement.classList.remove(this.options.classnames.expanded);
 		this.contentElement.classList.remove(this.options.classnames.collapsed);
 		this.oExpanderElement.classList.remove(this.options.classnames.initialized);
@@ -268,10 +297,10 @@ class ExpanderUtility {
 	 * @returns {Array<Element>} - All content items.
 	 */
 	_getItems() {
-		if (typeof this.options.shrinkTo !== 'number') {
+		if (typeof this.options.shrinkTo !== "number") {
 			throw new Error(
-				'Can not get items for an expander which is not based on a ' +
-				'number of items.'
+				"Can not get items for an expander which is not based on a " +
+					"number of items."
 			);
 		}
 		return this.contentElement.querySelectorAll(this.options.selectors.item);
@@ -286,13 +315,13 @@ class ExpanderUtility {
 	 */
 	_isActive() {
 		// An expander may always toggle an expander which hides items.
-		if (this.options.shrinkTo === 'hidden') {
+		if (this.options.shrinkTo === "hidden") {
 			return true;
 		}
 		// An expander based on the number of items in a container may only
 		// collapse if the items length exceeds the number to shrink to. I.e.
 		// a list of 2 can't collapse to 5.
-		if (typeof this.options.shrinkTo === 'number') {
+		if (typeof this.options.shrinkTo === "number") {
 			const items = this._getItems();
 			return items.length > this.options.shrinkTo;
 		}
@@ -300,10 +329,12 @@ class ExpanderUtility {
 		// the content container.
 		let overflows = false;
 		if (this.isCollapsed()) {
-			overflows = this.contentElement.clientHeight < this.contentElement.scrollHeight;
+			overflows =
+				this.contentElement.clientHeight < this.contentElement.scrollHeight;
 		} else {
 			this.collapse();
-			overflows = this.contentElement.clientHeight < this.contentElement.scrollHeight;
+			overflows =
+				this.contentElement.clientHeight < this.contentElement.scrollHeight;
 			this.expand();
 		}
 		return overflows;
@@ -321,31 +352,41 @@ class ExpanderUtility {
 		// Record the current state of the expander.
 		this._currentState = state;
 		// Toggle expanded and collapsed classes.
-		this.contentElement.classList.toggle(this.options.classnames.expanded, state === 'expand');
-		this.contentElement.classList.toggle(this.options.classnames.collapsed, state !== 'expand');
+		this.contentElement.classList.toggle(
+			this.options.classnames.expanded,
+			state === "expand"
+		);
+		this.contentElement.classList.toggle(
+			this.options.classnames.collapsed,
+			state !== "expand"
+		);
 		// Set `aria-hidden`.
-		const ariaHidden = state === 'expand' ? 'false' : 'true';
+		const ariaHidden = state === "expand" ? "false" : "true";
 		// If toggling all content set `aria-hidden` on the content element.
-		if (this.options.shrinkTo === 'hidden') {
-			this.contentElement.setAttribute('aria-hidden', ariaHidden);
+		if (this.options.shrinkTo === "hidden") {
+			this.contentElement.setAttribute("aria-hidden", ariaHidden);
 		}
 		// If toggling elements based on the number of items, set `aria-hidden`
 		// on collapseable items.
-		if (typeof this.options.shrinkTo === 'number') {
+		if (typeof this.options.shrinkTo === "number") {
 			const collapsibleCountElements = this._getCollapseableItems();
 			collapsibleCountElements.forEach(el =>
-				el.setAttribute('aria-hidden', ariaHidden)
+				el.setAttribute("aria-hidden", ariaHidden)
 			);
 		}
 		// Set the toggle text and `aria-expanded` attribute.
-		if (this.options.toggleState !== 'none') {
+		if (this.options.toggleState !== "none") {
 			this.toggles.forEach(toggle => {
-				if (this.options.toggleState !== 'aria') {
-					toggle.innerHTML = state === 'expand' ?
-						this.options.expandedToggleText :
-						this.options.collapsedToggleText;
+				if (this.options.toggleState !== "aria") {
+					toggle.innerHTML =
+						state === "expand"
+							? this.options.expandedToggleText
+							: this.options.collapsedToggleText;
 				}
-				toggle.setAttribute('aria-expanded', state === 'expand' ? 'true' : 'false');
+				toggle.setAttribute(
+					"aria-expanded",
+					state === "expand" ? "true" : "false"
+				);
 			});
 		}
 		// Dispatch `oExpander.collapse` or `oExpander.expand` event.
@@ -362,9 +403,10 @@ class ExpanderUtility {
 	 * @access private
 	 */
 	_dispatchEvent(name) {
-		this.oExpanderElement.dispatchEvent(new CustomEvent('oExpander.' + name, { bubbles: true }));
+		this.oExpanderElement.dispatchEvent(
+			new CustomEvent("oExpander." + name, { bubbles: true })
+		);
 	}
-
 }
 
 export default ExpanderUtility;

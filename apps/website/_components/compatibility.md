@@ -13,8 +13,8 @@ nav_display: true
 nav_label: Compatibility
 nav_order: 30
 ---
-# {{ page.title }}
 
+# {{ page.title }}
 
 ## Core & enhanced experiences
 
@@ -41,6 +41,7 @@ window.cutsTheMustard = (typeof document.documentElement.dataset === 'object' &&
 The styling we choose to display rely on class names. Keeping with the experiences, we will be using `core` and `enhanced`. Origami components contain fallback styling for the browsers that fail the test. We need to toggle the class names based on the result of the test, and to avoid flashes of content we'll always assume that the experience we will be served is core, until proven otherwise.
 
 Your `<html>` will need the `core` class:
+
 <pre><code class="o-syntax-highlight--html">&lt;html class="core"></code></pre>
 
 And we'll want to add a script to replace that class with `enhanced` if the browser _does_ pass the test:
@@ -50,6 +51,7 @@ And we'll want to add a script to replace that class with `enhanced` if the brow
 }</code></pre>
 
 Finally, we need to add instructions for our styling to handle the html class:
+
 <pre><code class="o-syntax-highlight--css">.core .o--if-js,
 .enhanced .o--if-no-js {
 	display: none !important;

@@ -1,9 +1,9 @@
-@import '../../main';
+@import "../../main";
 
 @include oNormalise();
-@import '@financial-times/o-colors/main';
+@import "@financial-times/o-colors/main";
 @include oColors();
-@import '@financial-times/o-buttons/main';
+@import "@financial-times/o-buttons/main";
 @include oButtons();
 
 body {

@@ -1,6 +1,6 @@
-import Input from './input.js';
-import State from './state.js';
-import ErrorSummary from './error-summary.js';
+import Input from "./input.js";
+import State from "./state.js";
+import ErrorSummary from "./error-summary.js";
 
 class Forms {
 	/**
@@ -10,28 +10,36 @@ class Forms {
 	 * @param {object} [options={}] - An options object for configuring the form
 	 */
 	constructor(formElement, options) {
-		if (formElement.nodeName !== 'FORM') {
-			throw new Error(`[data-o-component="o-forms"] must be set on a form element. It is currently set on a '${formElement.nodeName.toLowerCase()}'.`);
+		if (formElement.nodeName !== "FORM") {
+			throw new Error(
+				`[data-o-component="o-forms"] must be set on a form element. It is currently set on a '${formElement.nodeName.toLowerCase()}'.`
+			);
 		}
 
 		this.form = formElement;
-		this.formInputs = Array.from(this.form.elements, element => new Input(element));
+		this.formInputs = Array.from(
+			this.form.elements,
+			element => new Input(element)
+		);
 		this.stateElements = [];
 
-		this.opts = Object.assign({
-			useBrowserValidation: false,
-			errorSummary: true
-		}, options || Forms.getDataAttributes(formElement));
+		this.opts = Object.assign(
+			{
+				useBrowserValidation: false,
+				errorSummary: true,
+			},
+			options || Forms.getDataAttributes(formElement)
+		);
 
 		if (!this.opts.useBrowserValidation) {
-			this.form.setAttribute('novalidate', true);
-			this.form.addEventListener('submit', this);
+			this.form.setAttribute("novalidate", true);
+			this.form.addEventListener("submit", this);
 		} else {
-			this.form.removeAttribute('novalidate');
-			this.submits = this.form.querySelectorAll('[type=submit]');
+			this.form.removeAttribute("novalidate");
+			this.submits = this.form.querySelectorAll("[type=submit]");
 			this.submits.forEach(submit => {
-				submit.addEventListener('click', this);
-				submit.addEventListener('keydown', this);
+				submit.addEventListener("click", this);
+				submit.addEventListener("keydown", this);
 			});
 		}
 	}
@@ -50,12 +58,15 @@ class Forms {
 
 		return Object.keys(formElement.dataset).reduce((options, key) => {
 			// Ignore data-o-component
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return options;
 			}
 
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oMessage(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(
+				/^oMessage(\w)(\w+)$/,
+				(m, m1, m2) => m1.toLowerCase() + m2
+			);
 			const value = formElement.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string
@@ -77,26 +88,35 @@ class Forms {
 	 */
 	handleEvent(event) {
 		const RETURN_KEY = 13;
-		if (event.type === 'click' || event.type === 'keydown' && event.key === RETURN_KEY) {
+		if (
+			event.type === "click" ||
+			(event.type === "keydown" && event.key === RETURN_KEY)
+		) {
 			if (this.form.checkValidity() === false) {
 				this.validateFormInputs();
 			}
 		}
 
-		if (event.type === 'submit') {
+		if (event.type === "submit") {
 			event.preventDefault();
 			const checkedElements = this.validateFormInputs();
 
 			if (checkedElements.some(input => input.valid === false)) {
 				if (this.opts.errorSummary) {
 					if (this.summary) {
-						const newSummary = new ErrorSummary(checkedElements, this.opts.errorSummaryMessage);
+						const newSummary = new ErrorSummary(
+							checkedElements,
+							this.opts.errorSummaryMessage
+						);
 						this.form.replaceChild(newSummary, this.summary);
 						this.summary = newSummary;
 					} else {
-						this.summary = this.form.insertBefore(new ErrorSummary(checkedElements, this.opts.errorSummaryMessage), this.form.firstElementChild);
+						this.summary = this.form.insertBefore(
+							new ErrorSummary(checkedElements, this.opts.errorSummaryMessage),
+							this.form.firstElementChild
+						);
 					}
-					const firstErrorAnchor = this.summary.querySelector('a');
+					const firstErrorAnchor = this.summary.querySelector("a");
 					if (firstErrorAnchor) {
 						firstErrorAnchor.focus();
 					}
@@ -120,20 +140,26 @@ class Forms {
 		return this.formInputs.map(oFormInput => {
 			const valid = oFormInput.validate();
 			const input = oFormInput.input;
-			const field = input.closest('.o-forms-field');
-			const labelElement = field ? field.querySelector('.o-forms-title__main') : null;
+			const field = input.closest(".o-forms-field");
+			const labelElement = field
+				? field.querySelector(".o-forms-title__main")
+				: null;
 			// label is actually the field title, not for example the label of a single checkbox.
 			// this is used to generate an error summary
 			const label = labelElement ? labelElement.textContent : null;
-			const errorElement = field ? field.querySelector('.o-forms-input__error') : null;
-			const error = errorElement ? errorElement.textContent : input.validationMessage;
+			const errorElement = field
+				? field.querySelector(".o-forms-input__error")
+				: null;
+			const error = errorElement
+				? errorElement.textContent
+				: input.validationMessage;
 			return {
 				id: input.id,
 				valid,
 				error: !valid ? error : null,
 				label,
 				field,
-				element: input
+				element: input,
 			};
 		});
 	}
@@ -155,15 +181,19 @@ class Forms {
 	 * @param {boolean} options.iconOnly [false] - when true display an icon only, hiding the status label
 	 */
 	setState(state, name, options = { iconLabel: null, iconOnly: false }) {
-		if (typeof options !== 'object' || options === null || Array.isArray(options)) {
-			throw new Error('The `options` argument must be an object');
+		if (
+			typeof options !== "object" ||
+			options === null ||
+			Array.isArray(options)
+		) {
+			throw new Error("The `options` argument must be an object");
 		}
 
 		let object = this.stateElements.find(item => item.name === name);
 		if (!object) {
 			object = {
 				name,
-				element: new State(this.form.elements[name], options)
+				element: new State(this.form.elements[name], options),
 			};
 
 			this.stateElements.push(object);
@@ -176,11 +206,11 @@ class Forms {
 	 */
 	destroy() {
 		if (!this.opts.useBrowserValidation) {
-			this.form.removeEventListener('submit', this);
+			this.form.removeEventListener("submit", this);
 		} else {
 			this.submits.forEach(submit => {
-				submit.removeEventListener('click', this);
-				submit.removeEventListener('keydown', this);
+				submit.removeEventListener("click", this);
+				submit.removeEventListener("keydown", this);
 			});
 		}
 		this.form = null;
@@ -210,7 +240,10 @@ class Forms {
 			return new Forms(rootEl, opts);
 		}
 
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-forms"]'), rootEl => new Forms(rootEl, opts));
+		return Array.from(
+			rootEl.querySelectorAll('[data-o-component="o-forms"]'),
+			rootEl => new Forms(rootEl, opts)
+		);
 	}
 }
 

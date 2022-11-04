@@ -9,15 +9,27 @@
 /// @param {Bool} $include-base-styles [true] - If true, will output style rules for the container. If false will only output the background-image property
 /// @param {Bool} $high-contrast-fallback [true] - To output Microsoft High Contrast fallback for accessibility reasons or not.
 /// @param {Number} $iconset-version [1] - At present only 1 version of the icon set is available.
-@mixin oIconsContent($icon-name, $color: null, $size: 128, $include-base-styles: true, $high-contrast-fallback: true, $iconset-version: 1) {
+@mixin oIconsContent(
+	$icon-name,
+	$color: null,
+	$size: 128,
+	$include-base-styles: true,
+	$high-contrast-fallback: true,
+	$iconset-version: 1
+) {
 	// Error if the global $system-code variable is not set.
 	// This is required for image service requests.
-	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+	@if (
+		global-variable-exists("system-code") ==
+			false or
+			type-of($system-code) !=
+			"string"
+	) {
 		@error 'A global "$system-code" Sass variable must be set to a valid Bizops system code (\e]8;;https://biz-ops.in.ft.com/list/Systems\e\\https://biz-ops.in.ft.com/list/Systems\e]8;;\e\\).';
 	}
 
 	// If the size of the icons has been given without a unit, default to px.
-	@if (type-of($size) == 'number' and unitless($size)) {
+	@if (type-of($size) == "number" and unitless($size)) {
 		$size: $size + 0px;
 	}
 

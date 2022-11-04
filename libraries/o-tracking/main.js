@@ -1,4 +1,4 @@
-import tracking from './src/javascript/tracking.js';
+import tracking from "./src/javascript/tracking.js";
 
 /**
  * Automatically initilise o-tracking
@@ -7,13 +7,13 @@ import tracking from './src/javascript/tracking.js';
  */
 function initialise() {
 	tracking.init();
-	document.removeEventListener('o.DOMContentLoaded', initialise);
+	document.removeEventListener("o.DOMContentLoaded", initialise);
 }
 
 // Try and initialise on o.DOMContentLoaded. If it fails, defer to the
 // consumer of the library.
-if (typeof document !== 'undefined') {
-	document.addEventListener('o.DOMContentLoaded', initialise);
+if (typeof document !== "undefined") {
+	document.addEventListener("o.DOMContentLoaded", initialise);
 }
 
 /**

@@ -1,4 +1,3 @@
-
 export const bannerWithoutID = `
 
 <div class="o-banner" data-o-component="o-banner">

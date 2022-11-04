@@ -1,13 +1,13 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory} from '@storybook/react';
-import {useEffect} from 'react';
-import {NoticeMessage} from '../../src/tsx/message';
-import javascript from '../../main';
-import '../message.scss';
+import withHtml from "origami-storybook-addon-html";
+import { withDesign } from "storybook-addon-designs";
+import { ComponentStory } from "@storybook/react";
+import { useEffect } from "react";
+import { NoticeMessage } from "../../src/tsx/message";
+import javascript from "../../main";
+import "../message.scss";
 
 export const ComponentDescription = {
-	title: 'Components/o-message',
+	title: "Components/o-message",
 	component: NoticeMessage,
 	decorators: [withDesign, withHtml],
 	parameters: {},
@@ -15,20 +15,20 @@ export const ComponentDescription = {
 		showCloseButton: true,
 		inner: false,
 		primaryAction: {
-			text: 'Button',
-			url: '#',
+			text: "Button",
+			url: "#",
 			openInNewWindow: false,
 		},
 		secondaryAction: {
-			text: 'Text link',
-			url: '#',
+			text: "Text link",
+			url: "#",
 			openInNewWindow: false,
 		},
 	},
 };
 
 const innerDecorator = Story => (
-	<div className='demo-inner-message'>{Story()}</div>
+	<div className="demo-inner-message">{Story()}</div>
 );
 
 const NoticeStory = args => {
@@ -44,9 +44,9 @@ const NoticeStory = args => {
 
 export const NoticeInform: ComponentStory<typeof NoticeMessage> =
 	NoticeStory.bind({});
-NoticeInform.storyName = 'Notice: Inform';
+NoticeInform.storyName = "Notice: Inform";
 NoticeInform.args = {
-	state: 'inform',
+	state: "inform",
 	content: {
 		detail:
 			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
@@ -56,9 +56,9 @@ NoticeInform.args = {
 export const NoticeInnerInform: ComponentStory<typeof NoticeMessage> =
 	NoticeStory.bind({});
 NoticeInnerInform.decorators = [innerDecorator];
-NoticeInnerInform.storyName = 'Notice Inner: Inform';
+NoticeInnerInform.storyName = "Notice Inner: Inform";
 NoticeInnerInform.args = {
-	state: 'inform',
+	state: "inform",
 	content: {
 		detail:
 			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
@@ -69,9 +69,9 @@ NoticeInnerInform.args = {
 
 export const NoticeWarningLight: ComponentStory<typeof NoticeMessage> =
 	NoticeStory.bind({});
-NoticeWarningLight.storyName = 'Notice: Warning Light';
+NoticeWarningLight.storyName = "Notice: Warning Light";
 NoticeWarningLight.args = {
-	state: 'warning-light',
+	state: "warning-light",
 	content: {
 		detail:
 			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
@@ -82,9 +82,9 @@ NoticeWarningLight.args = {
 
 export const NoticeInnerWarningLight: ComponentStory<typeof NoticeMessage> =
 	NoticeStory.bind({});
-NoticeInnerWarningLight.storyName = 'Notice Inner: Warning Light';
+NoticeInnerWarningLight.storyName = "Notice Inner: Warning Light";
 NoticeInnerWarningLight.args = {
-	state: 'warning-light',
+	state: "warning-light",
 	content: {
 		detail:
 			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed.",
@@ -96,9 +96,9 @@ NoticeInnerWarningLight.args = {
 
 export const NoticeWarning: ComponentStory<typeof NoticeMessage> =
 	NoticeStory.bind({});
-NoticeWarning.storyName = 'Notice: Warning';
+NoticeWarning.storyName = "Notice: Warning";
 NoticeWarning.args = {
-	state: 'warning',
+	state: "warning",
 	content: {
 		detail:
 			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
@@ -109,9 +109,9 @@ NoticeWarning.args = {
 
 export const NoticeInnerWarning: ComponentStory<typeof NoticeMessage> =
 	NoticeStory.bind({});
-NoticeInnerWarning.storyName = 'Notice Inner: Warning';
+NoticeInnerWarning.storyName = "Notice Inner: Warning";
 NoticeInnerWarning.args = {
-	state: 'warning',
+	state: "warning",
 	content: {
 		detail:
 			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed.",
@@ -123,9 +123,9 @@ NoticeInnerWarning.args = {
 
 export const NoticeFeedback: ComponentStory<typeof NoticeMessage> =
 	NoticeStory.bind({});
-NoticeFeedback.storyName = 'Notice: Feedback';
+NoticeFeedback.storyName = "Notice: Feedback";
 NoticeFeedback.args = {
-	state: 'feedback',
+	state: "feedback",
 	content: {
 		detail:
 			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
@@ -136,9 +136,9 @@ NoticeFeedback.args = {
 export const NoticeInnerFeedback: ComponentStory<typeof NoticeMessage> =
 	NoticeStory.bind({});
 NoticeInnerFeedback.decorators = [innerDecorator];
-NoticeInnerFeedback.storyName = 'Notice Inner: Feedback';
+NoticeInnerFeedback.storyName = "Notice Inner: Feedback";
 NoticeInnerFeedback.args = {
-	state: 'feedback',
+	state: "feedback",
 	content: {
 		detail:
 			"There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed.",

@@ -1,10 +1,10 @@
 $_o-forms-error-summary-foreground-color: oColorsMix(
-	'black',
-	_oFormsGet('invalid-base'),
+	"black",
+	_oFormsGet("invalid-base"),
 	$percentage: 12.5
 );
 $_o-forms-error-summary-background-color: oColorsMix(
-	_oFormsGet('invalid-base'),
+	_oFormsGet("invalid-base"),
 	$percentage: 10
 );
 
@@ -27,19 +27,18 @@ $_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
 		padding: $_o-forms-spacing-three;
 		position: relative;
 		padding-left: calc(
-			$_o-forms-alert-icon-left-padding +
-			$_o-forms-true-alert-icon-size +
-			$_o-forms-alert-icon-right-padding
+			$_o-forms-alert-icon-left-padding + $_o-forms-true-alert-icon-size +
+				$_o-forms-alert-icon-right-padding
 		);
 
 		&:before {
 			@include oIconsContent(
-				$icon-name: 'warning-alt',
+				$icon-name: "warning-alt",
 				$color: $_o-forms-error-summary-foreground-color,
 				$size: $_o-forms-alert-icon-size
 			);
 
-			content: '';
+			content: "";
 			position: absolute;
 			// Use negative margins to effectively remove the whitespace
 			// from the icon svg, to to position the visible alert icon more
@@ -52,7 +51,7 @@ $_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
 		}
 		.o-forms__error-summary__heading {
 			@include oTypographySans(
-				$weight: 'semibold',
+				$weight: "semibold",
 				$include-font-family: false
 			);
 			color: $_o-forms-error-summary-foreground-color;
@@ -70,12 +69,12 @@ $_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
 				font-weight: 400;
 				margin-top: $_o-forms-spacing-one;
 				text-decoration: none;
-				border-bottom: 1px solid _oFormsGet('invalid-base');
+				border-bottom: 1px solid _oFormsGet("invalid-base");
 			}
 
 			.o-forms__error-summary__item-overview {
 				@include oTypographySans(
-					$weight: 'semibold',
+					$weight: "semibold",
 					$include-font-family: false
 				);
 			}

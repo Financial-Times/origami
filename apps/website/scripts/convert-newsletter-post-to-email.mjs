@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-import {createReadStream} from 'fs';
-import {fromMarkdown} from 'mdast-util-from-markdown';
-import {visitParents as visit} from 'unist-util-visit-parents';
-import {toString} from 'mdast-util-to-string';
-import {toMarkdown} from 'mdast-util-to-markdown';
-import {frontmatter} from 'micromark-extension-frontmatter';
-import {frontmatterFromMarkdown} from 'mdast-util-frontmatter';
-import YAML from 'js-yaml';
+import { createReadStream } from "fs";
+import { fromMarkdown } from "mdast-util-from-markdown";
+import { visitParents as visit } from "unist-util-visit-parents";
+import { toString } from "mdast-util-to-string";
+import { toMarkdown } from "mdast-util-to-markdown";
+import { frontmatter } from "micromark-extension-frontmatter";
+import { frontmatterFromMarkdown } from "mdast-util-frontmatter";
+import YAML from "js-yaml";
 
 if (process.argv.length != 3) {
 	console.log(
@@ -22,9 +22,9 @@ let match = postFileName.match(/(\d{4})-(\d{2})-(\d{2})-newsletter.md$/);
 let postHost = `https://origami.ft.com`;
 let postUrl = `${postHost}/blog/${match[1]}/${match[2]}/${match[3]}/newsletter/`;
 
-const reader = createReadStream(postFileName, 'utf-8');
+const reader = createReadStream(postFileName, "utf-8");
 
-let md = '';
+let md = "";
 
 const fields = {};
 
@@ -33,18 +33,18 @@ for await (const chunk of reader) {
 }
 
 const tree = fromMarkdown(md, {
-	extensions: [frontmatter(['yaml'])],
-	mdastExtensions: [frontmatterFromMarkdown(['yaml'])],
+	extensions: [frontmatter(["yaml"])],
+	mdastExtensions: [frontmatterFromMarkdown(["yaml"])],
 });
 
 class FieldMachine {
-	state = 'begin';
-	title = '';
+	state = "begin";
+	title = "";
 	postUrl = postUrl;
-	tldr = '';
+	tldr = "";
 	things = [];
-	thanks = '';
-	changelog = '';
+	thanks = "";
+	changelog = "";
 	pending = [];
 
 	swallow(item) {
@@ -53,7 +53,7 @@ class FieldMachine {
 
 	spit() {
 		let content = toMarkdown({
-			type: 'root',
+			type: "root",
 			children: this.pending,
 		});
 		this.pending = [];
@@ -89,7 +89,7 @@ ${thing.content}
 {% endcapture %} {% include email/markdown.html content=text %}
 `
 	)
-	.join('\n')}
+	.join("\n")}
 
 
 <!-- Special thanks -->
@@ -121,74 +121,82 @@ visit(
 	tree,
 	() => true,
 	function (node, parents) {
-		if (machine.state == 'begin') {
-			if (node.type == 'root') {
-				return 'SKIP';
-			} else if (node.type == 'yaml') {
+		if (machine.state == "begin") {
+			if (node.type == "root") {
+				return "SKIP";
+			} else if (node.type == "yaml") {
 				const frontmatter = YAML.load(node.value);
 				for (const key in frontmatter) {
 					machine[key] = frontmatter[key];
 				}
-				machine.state = 'outside';
+				machine.state = "outside";
 			} else {
 				throw new Error(
-					'expected document to start with yaml frontmatter block'
+					"expected document to start with yaml frontmatter block"
 				);
 			}
-		} else if (machine.state == 'outside') {
-			if (node.type == 'heading' && node.depth == 2) {
-				machine.state = 'top-things';
+		} else if (machine.state == "outside") {
+			if (node.type == "heading" && node.depth == 2) {
+				machine.state = "top-things";
 				machine.things = [];
 			} else {
-				return 'SKIP';
+				return "SKIP";
 			}
-		} else if (machine.state == 'top-things') {
+		} else if (machine.state == "top-things") {
 			// consider grabbing content between here and the first h3
-			if (node.type == 'heading') {
+			if (node.type == "heading") {
 				if (node.depth == 3) {
 					machine.things[0] = {
 						title: toString(node),
 					};
-					machine.state = 'thing-1';
+					machine.state = "thing-1";
 				} else {
-					throw new Error('expected an h3 after the top things h2');
+					throw new Error("expected an h3 after the top things h2");
 				}
 			}
-		} else if (machine.state == 'thing-1') {
-			if (node.type == 'heading' && node.depth == 3) {
-				machine.things[0].content = machine.spit().replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
+		} else if (machine.state == "thing-1") {
+			if (node.type == "heading" && node.depth == 3) {
+				machine.things[0].content = machine
+					.spit()
+					.replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
 				machine.things[1] = {
 					title: toString(node),
 				};
-				machine.state = 'thing-2';
+				machine.state = "thing-2";
 			} else if (parents.length == 1) {
 				machine.swallow(node);
 			}
-		} else if (machine.state == 'thing-2') {
-			if (node.type == 'heading' && node.depth == 3) {
-				machine.things[1].content = machine.spit().replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
+		} else if (machine.state == "thing-2") {
+			if (node.type == "heading" && node.depth == 3) {
+				machine.things[1].content = machine
+					.spit()
+					.replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
 				machine.things[2] = {
 					title: toString(node),
 				};
-				machine.state = 'thing-3';
+				machine.state = "thing-3";
 			} else if (parents.length == 1) {
 				machine.swallow(node);
 			}
-		} else if (machine.state == 'thing-3') {
-			if (node.type == 'heading' && node.depth == 2) {
-				machine.things[2].content = machine.spit().replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
-				machine.state = 'thanks';
+		} else if (machine.state == "thing-3") {
+			if (node.type == "heading" && node.depth == 2) {
+				machine.things[2].content = machine
+					.spit()
+					.replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
+				machine.state = "thanks";
 			} else if (parents.length == 1) {
 				machine.swallow(node);
 			}
-		} else if (machine.state == 'thanks') {
-			if (node.type == 'heading' && node.depth == 2) {
-				machine.thanks = machine.spit().replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
-				machine.state = 'changelog';
+		} else if (machine.state == "thanks") {
+			if (node.type == "heading" && node.depth == 2) {
+				machine.thanks = machine
+					.spit()
+					.replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
+				machine.state = "changelog";
 			} else if (parents.length == 1) {
 				machine.swallow(node);
 			}
-		} else if (machine.state == 'changelog' && parents.length == 1) {
+		} else if (machine.state == "changelog" && parents.length == 1) {
 			machine.swallow(node);
 		}
 	}

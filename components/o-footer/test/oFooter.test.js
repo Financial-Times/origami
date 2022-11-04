@@ -1,15 +1,14 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import * as fixtures from './helpers/fixtures.js';
-import Toggle from '@financial-times/o-toggle';
+import * as fixtures from "./helpers/fixtures.js";
+import Toggle from "@financial-times/o-toggle";
 
-import oFooter from './../main.js';
+import oFooter from "./../main.js";
 
 describe("oFooter", () => {
-
 	beforeEach(() => {
 		fixtures.htmlCode();
 	});
@@ -19,24 +18,21 @@ describe("oFooter", () => {
 	});
 
 	describe("init behaviour", () => {
-
 		let destroySpy;
 		let setupSpy;
 
 		beforeEach(() => {
-			destroySpy = sinon.spy(oFooter.prototype, 'destroy');
-			setupSpy = sinon.spy(oFooter.prototype, 'setup');
-
+			destroySpy = sinon.spy(oFooter.prototype, "destroy");
+			setupSpy = sinon.spy(oFooter.prototype, "setup");
 		});
 		afterEach(() => {
 			oFooter.prototype.destroy.restore();
 			oFooter.prototype.setup.restore();
 		});
 
-		describe ("at a narrow screen", () => {
-
+		describe("at a narrow screen", () => {
 			beforeEach(() => {
-				sinon.stub(oFooter, 'shouldCollapse').returns(true);
+				sinon.stub(oFooter, "shouldCollapse").returns(true);
 			});
 
 			afterEach(() => {
@@ -54,9 +50,9 @@ describe("oFooter", () => {
 			});
 		});
 
-		describe ("at a desktop width screen", () => {
+		describe("at a desktop width screen", () => {
 			beforeEach(() => {
-				sinon.stub(oFooter, 'shouldCollapse').returns(false);
+				sinon.stub(oFooter, "shouldCollapse").returns(false);
 			});
 
 			afterEach(() => {
@@ -76,11 +72,11 @@ describe("oFooter", () => {
 			it("creates a new toggles for every toggle target on the page", () => {
 				const footer = oFooter.init();
 
-				proclaim.equal(typeof footer._toggles, 'undefined');
+				proclaim.equal(typeof footer._toggles, "undefined");
 
 				footer.setup();
 
-				proclaim.equal(typeof footer._toggles, 'object');
+				proclaim.equal(typeof footer._toggles, "object");
 				proclaim.equal(footer._toggles.length, 5);
 			});
 		});
@@ -96,22 +92,24 @@ describe("oFooter", () => {
 
 				proclaim.equal(toggleSpy.called, true);
 				proclaim.equal(footer._toggles, null);
-
 			});
 		});
 
 		describe("the shouldCollapse method", () => {
 			it("returns true if the breakpoint passed in is in the COLLAPSIBLE_BREAKPOINTS array", () => {
-				Array.prototype.forEach.call(oFooter.collapsibleBreakpoints, breakpoint => {
-					proclaim.equal(oFooter.shouldCollapse(breakpoint), true);
-				});
+				Array.prototype.forEach.call(
+					oFooter.collapsibleBreakpoints,
+					breakpoint => {
+						proclaim.equal(oFooter.shouldCollapse(breakpoint), true);
+					}
+				);
 			});
 
 			it("returns false if the breakpoint passed in is not in the COLLAPSIBLE_BREAKPOINTS array", () => {
-				proclaim.equal(oFooter.shouldCollapse('madeUpBreakPoint'), false);
-				proclaim.equal(oFooter.shouldCollapse('l'), false);
-				proclaim.equal(oFooter.shouldCollapse('xl'), false);
-				proclaim.equal(oFooter.shouldCollapse('m'), false);
+				proclaim.equal(oFooter.shouldCollapse("madeUpBreakPoint"), false);
+				proclaim.equal(oFooter.shouldCollapse("l"), false);
+				proclaim.equal(oFooter.shouldCollapse("xl"), false);
+				proclaim.equal(oFooter.shouldCollapse("m"), false);
 			});
 		});
 	});

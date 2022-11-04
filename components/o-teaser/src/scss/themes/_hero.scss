@@ -4,18 +4,18 @@
 	flex-flow: column nowrap;
 
 	.o-teaser__content {
-		background: oColorsByUsecase('o-teaser/hero', 'background');
+		background: oColorsByUsecase("o-teaser/hero", "background");
 		border: 0;
 		word-break: break-word;
 	}
 
 	.o-teaser__meta:after {
-		content: '';
+		content: "";
 		display: block;
 		width: 60px;
-		border-bottom: oSpacingByIncrement(1) solid oColorsByName('claret');
-		margin-top: oSpacingByName('s1');
-		margin-bottom: oSpacingByName('s2');
+		border-bottom: oSpacingByIncrement(1) solid oColorsByName("claret");
+		margin-top: oSpacingByName("s1");
+		margin-bottom: oSpacingByName("s2");
 	}
 }
 
@@ -40,8 +40,8 @@
 
 /// Hero opinion theme - blue background white based text
 @mixin _oTeaserHeroOpinion {
-	$opinion-color: oColorsByUsecase('o-teaser/hero-opinion', 'text');
-	$opinion-background: oColorsByUsecase('o-teaser/hero-opinion', 'background');
+	$opinion-color: oColorsByUsecase("o-teaser/hero-opinion", "text");
+	$opinion-background: oColorsByUsecase("o-teaser/hero-opinion", "background");
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -60,7 +60,11 @@
 	}
 
 	.o-teaser__timestamp-prefix:before {
-		background-color: oColorsMix(oColorsByName('white'), $opinion-background, 80);
+		background-color: oColorsMix(
+			oColorsByName("white"),
+			$opinion-background,
+			80
+		);
 	}
 
 	.o-teaser__content,
@@ -104,7 +108,11 @@
 			width: 100%;
 			min-height: 30%;
 			background-color: transparent;
-			background-image: linear-gradient(to bottom, rgba(oColorsByName('black'), 0.75), transparent);
+			background-image: linear-gradient(
+				to bottom,
+				rgba(oColorsByName("black"), 0.75),
+				transparent
+			);
 			pointer-events: none;
 		}
 
@@ -116,12 +124,12 @@
 		.o-teaser__standfirst a,
 		.o-teaser__standfirst a:visited,
 		.o-teaser__timestamp {
-			color: oColorsByName('white');
+			color: oColorsByName("white");
 			pointer-events: auto;
 		}
 
 		.o-teaser__meta:after {
-			border-bottom-color: oColorsByName('white');
+			border-bottom-color: oColorsByName("white");
 		}
 	}
 }
@@ -142,7 +150,7 @@
 		padding-left: 30%;
 
 		&:after {
-			background: oColorsByUsecase('o-teaser/hero', 'background');
+			background: oColorsByUsecase("o-teaser/hero", "background");
 			display: block;
 			top: 50%;
 			border: 0;
@@ -195,11 +203,20 @@
 
 // Hero Package theme — extra
 @mixin _oTeaserHeroExtra {
-	$hero-extra-color: oColorsByUsecase('o-teaser/theme-hero-extra', 'text');
-	$hero-extra-background: oColorsByUsecase('o-teaser/theme-hero-extra', 'background');
+	$hero-extra-color: oColorsByUsecase("o-teaser/theme-hero-extra", "text");
+	$hero-extra-background: oColorsByUsecase(
+		"o-teaser/theme-hero-extra",
+		"background"
+	);
 	// highlight colours
-	$hero-extra-highlight-border: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'border');
-	$hero-extra-highlight-color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
+	$hero-extra-highlight-border: oColorsByUsecase(
+		"o-teaser/theme-hero-extra-highlight",
+		"border"
+	);
+	$hero-extra-highlight-color: oColorsByUsecase(
+		"o-teaser/theme-hero-extra-highlight",
+		"text"
+	);
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__standfirst a:hover,
@@ -209,7 +226,7 @@
 
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oColorsMix(oColorsByName('white'), $hero-extra-highlight-color, 73);
+		color: oColorsMix(oColorsByName("white"), $hero-extra-highlight-color, 73);
 	}
 
 	.o-teaser__meta {
@@ -222,15 +239,23 @@
 
 	.o-teaser__heading,
 	.o-teaser__standfirst {
-		color: oColorsByName('white');
+		color: oColorsByName("white");
 		a:visited {
-			color: oColorsMix($hero-extra-color, $hero-extra-background, $percentage: 50);
+			color: oColorsMix(
+				$hero-extra-color,
+				$hero-extra-background,
+				$percentage: 50
+			);
 		}
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oColorsMix($hero-extra-color, $hero-extra-background, $percentage: 80);
+		color: oColorsMix(
+			$hero-extra-color,
+			$hero-extra-background,
+			$percentage: 80
+		);
 	}
 
 	.o-teaser__image-container:after,

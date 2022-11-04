@@ -53,13 +53,6 @@
 			"text": "Search"
 		}
 	],
-	"themes": [
-		{"name": ""},
-		{"name": "mono"},
-		{"name": "inverse"}
-	],
-	"sizes": [
-		{"name": "small"},
-		{"name": "big"}
-	]
+	"themes": [{ "name": "" }, { "name": "mono" }, { "name": "inverse" }],
+	"sizes": [{ "name": "small" }, { "name": "big" }]
 }

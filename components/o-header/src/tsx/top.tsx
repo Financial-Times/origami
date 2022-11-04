@@ -1,4 +1,4 @@
-import {TNavMenuItem, THeaderVariant} from './Props';
+import { TNavMenuItem, THeaderVariant } from "./Props";
 
 export function HeaderWrapper({
 	variant,
@@ -10,7 +10,7 @@ export function HeaderWrapper({
 	children: JSX.Element[] | JSX.Element;
 }) {
 	const headerClassNames = `o-header o-header--${
-		variant || 'simple'
+		variant || "simple"
 	} ${additionalClassName}`;
 	return (
 		<header
@@ -18,7 +18,8 @@ export function HeaderWrapper({
 			className={headerClassNames}
 			data-o-component="o-header"
 			data-o-header--no-js={true}
-			tabIndex={-1}>
+			tabIndex={-1}
+		>
 			{children}
 		</header>
 	);
@@ -36,11 +37,11 @@ export const TopWrapper = ({
 	</div>
 );
 
-export function TopColumnLeft({isSticky}: {isSticky?: boolean}) {
-	const drawerLabel = isSticky ? 'Menu' : 'Open side navigation menu';
+export function TopColumnLeft({ isSticky }: { isSticky?: boolean }) {
+	const drawerLabel = isSticky ? "Menu" : "Open side navigation menu";
 	const searchProps = {
-		href: isSticky ? '#o-header-search-sticky' : '#o-header-search',
-		'aria-controls': isSticky ? 'o-header-search-sticky' : 'o-header-search',
+		href: isSticky ? "#o-header-search-sticky" : "#o-header-search",
+		"aria-controls": isSticky ? "o-header-search-sticky" : "o-header-search",
 		tabIndex: isSticky ? -1 : undefined,
 	};
 	return (
@@ -50,27 +51,30 @@ export function TopColumnLeft({isSticky}: {isSticky?: boolean}) {
 				className="o-header__top-icon-link o-header__top-icon-link--menu"
 				aria-controls="o-header-drawer"
 				title="Open side navigation menu"
-				tabIndex={isSticky ? -1 : undefined}>
+				tabIndex={isSticky ? -1 : undefined}
+			>
 				<span className="o-header__top-link-label">{drawerLabel}</span>
 			</a>
 			<a
 				{...searchProps}
 				className="o-header__top-icon-link o-header__top-icon-link--search"
-				title="Open search bar">
+				title="Open search bar"
+			>
 				<span className="o-header__top-link-label">Open search bar</span>
 			</a>
 		</div>
 	);
 }
 
-export function TopColumnCenter({showLogoLink}: {showLogoLink?: boolean}) {
+export function TopColumnCenter({ showLogoLink }: { showLogoLink?: boolean }) {
 	if (showLogoLink) {
 		return (
 			<div className="o-header__top-column o-header__top-column--center">
 				<a
 					className="o-header__top-logo"
 					href="/"
-					title="Go to Financial Times homepage">
+					title="Go to Financial Times homepage"
+				>
 					<span className="o-header__visually-hidden">Financial Times</span>
 				</a>
 			</div>
@@ -141,12 +145,13 @@ const SignInLink = ({
 	variant?: string;
 	className?: string;
 }) => {
-	const setTabIndex = variant === 'sticky' ? {tabIndex: -1} : null;
+	const setTabIndex = variant === "sticky" ? { tabIndex: -1 } : null;
 	return (
 		<a
 			className={`o-header__top-link ${className}`}
 			href={item.url || undefined}
-			{...setTabIndex}>
+			{...setTabIndex}
+		>
 			{item.label}
 		</a>
 	);
@@ -160,7 +165,7 @@ export const SubscribeButton = ({
 	variant?: string;
 	className?: string;
 }) => {
-	const setTabIndex = variant === 'sticky' ? {tabIndex: -1} : null;
+	const setTabIndex = variant === "sticky" ? { tabIndex: -1 } : null;
 	return (
 		<a
 			className={`o-header__top-button ${className}`}
@@ -168,7 +173,8 @@ export const SubscribeButton = ({
 			// as it looks like a button but behaves like a link without this role.
 			role="button"
 			href={item.url || undefined}
-			{...setTabIndex}>
+			{...setTabIndex}
+		>
 			{item.label}
 		</a>
 	);
@@ -204,12 +210,13 @@ export const TopColumnRightAnon = ({
 	);
 };
 
-const MyFt = ({className}: {className?: string}) => (
+const MyFt = ({ className }: { className?: string }) => (
 	<a
 		className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
 		id="o-header-top-link-myft"
 		href="/myft"
-		aria-label="My F T">
+		aria-label="My F T"
+	>
 		<span className="o-header__visually-hidden">myFT</span>
 	</a>
 );

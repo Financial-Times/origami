@@ -1,14 +1,14 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
-import fixtures from '../../helpers/fixtures.js';
-import Stream from '../../../src/js/stream.js';
-import auth from '../../../src/js/utils/auth.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
+import fixtures from "../../helpers/fixtures.js";
+import Stream from "../../../src/js/stream.js";
+import auth from "../../../src/js/utils/auth.js";
 
 let fetchJWTStub;
 
-export default function authenticateUser () {
+export default function authenticateUser() {
 	it("is a function", () => {
 		proclaim.isFunction(new Stream().authenticateUser);
 	});
@@ -17,7 +17,7 @@ export default function authenticateUser () {
 		beforeEach(() => {
 			fixtures.streamMarkup();
 			fetchJWTStub = sinon.stub();
-			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
+			sinon.stub(auth, "fetchJsonWebToken").get(() => fetchJWTStub);
 			fetchJWTStub.rejects();
 		});
 
@@ -31,12 +31,10 @@ export default function authenticateUser () {
 
 			const stream = new Stream();
 
-			return stream.authenticateUser('Glynn')
-				.then(() => {
-					const options = fetchJWTStub.getCall(0).args[0];
-					proclaim.equal(options.displayName, 'Glynn');
-				});
-
+			return stream.authenticateUser("Glynn").then(() => {
+				const options = fetchJWTStub.getCall(0).args[0];
+				proclaim.equal(options.displayName, "Glynn");
+			});
 		});
 
 		it("displayName option is not used if undefined", () => {
@@ -44,36 +42,31 @@ export default function authenticateUser () {
 
 			const stream = new Stream();
 
-			return stream.authenticateUser(undefined)
-				.then(() => {
-					const options = fetchJWTStub.getCall(0).args[0];
-					proclaim.isNotString(options.displayName);
-				});
-
+			return stream.authenticateUser(undefined).then(() => {
+				const options = fetchJWTStub.getCall(0).args[0];
+				proclaim.isNotString(options.displayName);
+			});
 		});
 
 		it("staging option is passed to fetchJsonWebToken", () => {
 			fetchJWTStub.resolves({});
 
 			const stream = new Stream(null, {
-				useStagingEnvironment: true
+				useStagingEnvironment: true,
 			});
 
-			return stream.authenticateUser()
-				.then(() => {
-					const options = fetchJWTStub.getCall(0).args[0];
-					proclaim.equal(options.useStagingEnvironment, true);
-				});
-
+			return stream.authenticateUser().then(() => {
+				const options = fetchJWTStub.getCall(0).args[0];
+				proclaim.equal(options.useStagingEnvironment, true);
+			});
 		});
-
 	});
 
 	describe("fetchJsonWebToken returns a token", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
 			fetchJWTStub = sinon.stub();
-			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
+			sinon.stub(auth, "fetchJsonWebToken").get(() => fetchJWTStub);
 		});
 
 		afterEach(() => {
@@ -83,25 +76,22 @@ export default function authenticateUser () {
 
 		it("sets this.authenticationToken to the token", () => {
 			fetchJWTStub.resolves({
-				token: 'fake-jwt'
+				token: "fake-jwt",
 			});
 
 			const stream = new Stream();
 
-			return stream.authenticateUser()
-				.then(() => {
-					proclaim.equal(stream.authenticationToken, 'fake-jwt');
-				});
-
+			return stream.authenticateUser().then(() => {
+				proclaim.equal(stream.authenticationToken, "fake-jwt");
+			});
 		});
-
 	});
 
 	describe("fetchJsonWebToken returns a displayName", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
 			fetchJWTStub = sinon.stub();
-			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
+			sinon.stub(auth, "fetchJsonWebToken").get(() => fetchJWTStub);
 		});
 
 		afterEach(() => {
@@ -111,25 +101,22 @@ export default function authenticateUser () {
 
 		it("sets this.displayName to the display name", () => {
 			fetchJWTStub.resolves({
-				displayName: 'fake-display-name'
+				displayName: "fake-display-name",
 			});
 
 			const stream = new Stream();
 
-			return stream.authenticateUser()
-				.then(() => {
-					proclaim.equal(stream.displayName, 'fake-display-name');
-				});
-
+			return stream.authenticateUser().then(() => {
+				proclaim.equal(stream.displayName, "fake-display-name");
+			});
 		});
-
 	});
 
 	describe("fetchJsonWebToken returns userHasValidSession", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
 			fetchJWTStub = sinon.stub();
-			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
+			sinon.stub(auth, "fetchJsonWebToken").get(() => fetchJWTStub);
 		});
 
 		afterEach(() => {
@@ -140,31 +127,27 @@ export default function authenticateUser () {
 		describe("userHasValidSession is true", () => {
 			it("sets this.userHasValidSession to true", () => {
 				fetchJWTStub.resolves({
-					userHasValidSession: true
+					userHasValidSession: true,
 				});
 
 				const stream = new Stream();
-				return stream.authenticateUser()
-					.then(() => {
-						proclaim.isTrue(stream.userHasValidSession);
-					});
-
+				return stream.authenticateUser().then(() => {
+					proclaim.isTrue(stream.userHasValidSession);
+				});
 			});
 		});
 
 		describe("userHasValidSession is false", () => {
 			it("sets this.userHasValidSession to false", () => {
 				fetchJWTStub.resolves({
-					userHasValidSession: false
+					userHasValidSession: false,
 				});
 
 				const stream = new Stream();
-				return stream.authenticateUser()
-					.then(() => {
-						proclaim.isFalse(stream.userHasValidSession);
-					});
+				return stream.authenticateUser().then(() => {
+					proclaim.isFalse(stream.userHasValidSession);
+				});
 			});
 		});
-
 	});
 }

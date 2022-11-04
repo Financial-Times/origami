@@ -14,27 +14,27 @@ Typographical styles for FT branded sites.
 
 ## Overview
 
- The component provides typographical fundamentals such as font scales, vertical rhythm, and font fallbacks. Plus styles for UI including links, headings, and titles.
+The component provides typographical fundamentals such as font scales, vertical rhythm, and font fallbacks. Plus styles for UI including links, headings, and titles.
 
- Other components build on o-typography to provide for more specific usecases such as [editorial typography](https://github.com/Financial-Times/o-editorial-typography), [quotes](https://github.com/Financial-Times/o-quote/), or [big numbers](https://github.com/Financial-Times/o-big-number/).
+Other components build on o-typography to provide for more specific usecases such as [editorial typography](https://github.com/Financial-Times/o-editorial-typography), [quotes](https://github.com/Financial-Times/o-quote/), or [big numbers](https://github.com/Financial-Times/o-big-number/).
 
 By default, o-typography uses a single typographic scale for use with all fonts. The scale consists of font-size and line-height combinations, as shown below:
 
 | Scale | Font size | Line height |
-|------ |---------- |------------ |
-|    -2 |      12px |        16px |
-|    -1 |      14px |        16px |
-|     0 |      16px |        20px |
-|     1 |      18px |        20px |
-|     2 |      20px |        24px |
-|     3 |      24px |        28px |
-|     4 |      28px |        32px |
-|     5 |      32px |        32px |
-|     6 |      40px |        40px |
-|     7 |      48px |        48px |
-|     8 |      56px |        56px |
-|     9 |      72px |        72px |
-|    10 |      84px |        84px |
+| ----- | --------- | ----------- |
+| -2    | 12px      | 16px        |
+| -1    | 14px      | 16px        |
+| 0     | 16px      | 20px        |
+| 1     | 18px      | 20px        |
+| 2     | 20px      | 24px        |
+| 3     | 24px      | 28px        |
+| 4     | 28px      | 32px        |
+| 5     | 32px      | 32px        |
+| 6     | 40px      | 40px        |
+| 7     | 48px      | 48px        |
+| 8     | 56px      | 56px        |
+| 9     | 72px      | 72px        |
+| 10    | 84px      | 84px        |
 
 _Note: The whitelabel branded version of o-typography has a different default scale. The font sizes are the same, but the line-height is 1.2x the font size at every scale._
 
@@ -51,18 +51,25 @@ Predefined CSS classes in `o-typography` are available when using the [Build Ser
 Classes do not depend on specific HTML, but we encourage developers to use semantic elements.
 
 E.g.
+
 ```html
 <h1 class="o-typography-heading-level-1">Heading level 1</h1>
 <h2 class="o-typography-heading-level-2">Heading level 2</h2>
 <p class="o-typography-body">Some body copy.</p>
-<a class="o-typography-link" href="#" >Some link.</a>
+<a class="o-typography-link" href="#">Some link.</a>
 <!-- etc. -->
 ```
 
 A link _may_ open in a new window/tab with `target="_blank"` but we recommend against this for most cases as it may disorientate users (see the [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG20-TECHS/G200.html) for advice on when it may be appropriate to open in a new window/tab). Use the `rel="noreferrer noopener"` attribute with `target="_blank"` to avoid [exploitation of the `window.opener` API](https://mathiasbynens.github.io/rel-noopener/).
 
 ```html
-<a href="https://www.w3.org/TR/WCAG20-TECHS/G200.html" rel="noreferrer noopener" target="_blank" class="o-typography-link">Some external link.</a>
+<a
+	href="https://www.w3.org/TR/WCAG20-TECHS/G200.html"
+	rel="noreferrer noopener"
+	target="_blank"
+	class="o-typography-link"
+	>Some external link.</a
+>
 ```
 
 See the [demos](http://registry.origami.ft.com/components/o-typography) for a full list of the classes provided and their effects.
@@ -113,8 +120,8 @@ If you do not want to use `o-typography` progressive font loading set `$o-typogr
 // configure o-typography to not include progressive font fallback css
 $o-typography-progressive-font-loading: false;
 // import dependencies
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-fonts/main";
 ```
 
 #### Setup Progressive Loading
@@ -122,19 +129,24 @@ $o-typography-progressive-font-loading: false;
 To setup `o-typography` progressive font loading include both its CSS and JavaScript in your project. While ensuring you have the loading classes for each font you wish to load on your html element:
 
 ```html
-<html class="o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold">
+<html
+	class="o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold"
+></html>
 ```
 
 The fallback font will be switched for the custom font on each page load, as o-typography JavaScript detects the font has loaded and removes the above CSS classes. This causes a visual "flash". To prevent that add the following JavaScript snippet in the `head` of your page:
 
 ```js
-	var rootElement = document.querySelector('html')
-	if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
-		var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
-		for (var i = 0; i < fontLabels.length; i++) {
-			rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
-		}
+var rootElement = document.querySelector("html");
+if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+	var fontLabels = ["sans", "sans-bold", "display", "display-bold"];
+	for (var i = 0; i < fontLabels.length; i++) {
+		rootElement.className = rootElement.className.replace(
+			"o-typography--loading-" + fontLabels[i],
+			""
+		);
 	}
+}
 ```
 
 If you build your projects using Sass, styles for progressively loading fonts are output by default when using the [use case mixins](#use-case-mixins) or [type mixins](#type-mixins).
@@ -150,21 +162,23 @@ To include all typography classes use the `oTypography` mixin:
 To include typography styles granularly pass an options argument with the features to include:
 
 ```scss
-@include oTypography($opts: (
-	'wrapper'
-));
+@include oTypography(
+	$opts: (
+		"wrapper",
+	)
+);
 ```
 
-| Feature          | Description                                                                                                                                                                                                                               | Brand support                |
-|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| headings         | Heading classes. E.g. `o-typography-heading-level-1`, `o-typography-heading-level-2`, etc.                                                                                                                                                | core, internal, whitelabel |
-| wrapper          | A class `o-typography-wrapper` which styles children elements based on semantics including headings, paragraphs, lists, links, and more e.g. `<h1>`, `<p>`, `<li>`, `<a>`, `<figcaption>`                                                 | core, internal, whitelabel |
-| body             | A class for standard body copy, such as paragraphs.                                                                                                                                                                                       | core, internal, whitelabel |
-| links            | A class for anchor tags, including a septate class to indicate external links.                                                                                                                                                            | core, internal, whitelabel |
-| lists            | Classes to style lists, ordered or unordered.                                                                                                                                                                                             | core, internal, whitelabel |
-| caption          | A class to style captions.                                                                                                                                                                                                                | core, internal, whitelabel |
-| footer           | A class to style footers.                                                                                                                                                                                                                 | core, internal, whitelabel |
-| utilities        | A collection of classes to modify typography including weight, style, superscript, and subscript.                                                                                                                                         | core, internal, whitelabel |
+| Feature   | Description                                                                                                                                                                               | Brand support              |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| headings  | Heading classes. E.g. `o-typography-heading-level-1`, `o-typography-heading-level-2`, etc.                                                                                                | core, internal, whitelabel |
+| wrapper   | A class `o-typography-wrapper` which styles children elements based on semantics including headings, paragraphs, lists, links, and more e.g. `<h1>`, `<p>`, `<li>`, `<a>`, `<figcaption>` | core, internal, whitelabel |
+| body      | A class for standard body copy, such as paragraphs.                                                                                                                                       | core, internal, whitelabel |
+| links     | A class for anchor tags, including a septate class to indicate external links.                                                                                                            | core, internal, whitelabel |
+| lists     | Classes to style lists, ordered or unordered.                                                                                                                                             | core, internal, whitelabel |
+| caption   | A class to style captions.                                                                                                                                                                | core, internal, whitelabel |
+| footer    | A class to style footers.                                                                                                                                                                 | core, internal, whitelabel |
+| utilities | A collection of classes to modify typography including weight, style, superscript, and subscript.                                                                                         | core, internal, whitelabel |
 
 [See the demos](http://registry.origami.ft.com/components/o-typography) for a full list of the CSS classes provided by these features.
 
@@ -174,12 +188,16 @@ Calling `oTypography` will output font faces to download custom Financial Times 
 
 ```scss
 // import dependencies
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-fonts/main";
 // configure o-typography to not include fonts
 $o-typography-load-fonts: false;
 // include a limited set of recommended font families manually
-@include oFonts($opts: ('recommended': true));
+@include oFonts(
+	$opts: (
+		"recommended": true,
+	)
+);
 // include css for all typography
 @include oTypography();
 ```
@@ -188,23 +206,26 @@ If an `oTypography` mixin outputs a font family/weight/style for a font face whi
 
 ```scss
 // import dependencies
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-fonts/main";
 // configure o-typography to not include fonts
 $o-typography-load-fonts: false;
 // error if a font is used which has not been included
-$o-typography-error-for-missing-fonts: 'This project only allows recommended o-fonts! No fun for you without first discussing performance with the Font Guardians of this project.';
+$o-typography-error-for-missing-fonts: "This project only allows recommended o-fonts! No fun for you without first discussing performance with the Font Guardians of this project.";
 // include a limited set of recommended font families manually
-@include oFonts($opts: ('recommended': true));
+@include oFonts(
+	$opts: (
+		"recommended": true,
+	)
+);
 // try to use a font which is not recommended,
 // and has not been included with o-fonts
 .fancy-typography-used-only-here {
 	// throws an error which includes the `$o-typography-error-for-missing-fonts` message.
 	// a thin/italic font face has not been included
-	@include oTypographySans($scale: 1, $weight: 'thin', $style: 'normal');
+	@include oTypographySans($scale: 1, $weight: "thin", $style: "normal");
 }
 ```
-
 
 The Sass in o-typography also provides several mixins for use in your project. To explore all functions/mixins see the [SassDoc documentation](sassdoc) in the registry.
 
@@ -252,7 +273,12 @@ To create a custom link style set the `$theme` argument. Where `$theme` is a map
 
 ```scss
 .my-custom-link {
-	@include oTypographyLink($theme: ('base': 'claret', 'hover': 'claret-30'));
+	@include oTypographyLink(
+		$theme: (
+			"base": "claret",
+			"hover": "claret-30",
+		)
+	);
 }
 ```
 
@@ -260,27 +286,29 @@ To create a custom link style set the `$theme` argument. Where `$theme` is a map
 
 `oTypographyList` outputs styles for lists such as `ul` or `ol` elements and styles child `li` elements. It does not output specific font styles such as font size, weight, etc. Font styles are instead inherited from the parent element.
 
-`oTypographyList` by default outputs only shared styles between all list types. To output all styles for a list type set the  `$type` argument to either `unordered` or `ordered`.
+`oTypographyList` by default outputs only shared styles between all list types. To output all styles for a list type set the `$type` argument to either `unordered` or `ordered`.
 
 E.g. to output styles for an unordered list:
+
 ```scss
 .my-unordered-list {
-	@include oTypographyList('unordered');
+	@include oTypographyList("unordered");
 }
 ```
 
 Use `$include-base-styles` to avoid duplicating shared styles between list types:
+
 ```scss
 .my-list {
 	@include oTypographyList();
 }
 
 .my-list--ordered {
-	@include oTypographyList($type: 'ordered', $include-base-styles: false);
+	@include oTypographyList($type: "ordered", $include-base-styles: false);
 }
 
 .my-list--unordered {
-	@include oTypographyList($type: 'unordered', $include-base-styles: false);
+	@include oTypographyList($type: "unordered", $include-base-styles: false);
 }
 ```
 
@@ -335,40 +363,60 @@ These mixins take arguments:
 - **include-font-family**: Whether to output the `font-family` property. `true` by default.
 - **include-progressive**: Whether to output progressive font loading styles. `true` by default.
 
-
 Output a font-family property only for the serif font.
+
 ```scss
 @include oTypographySerif();
 ```
 
 Output font-family, font-size, and line-height for the sans font.
+
 ```scss
 @include oTypographySans($scale: 1);
 ```
 
 Output font-family, font-size, and line-height for the serif font responsively. The scale is 0 by default, 1 on a medium display, 2 on an extra large display.
+
 ```scss
-@include oTypographySerif($scale: ('default': 0, 'M': 1, 'XL': 2));
+@include oTypographySerif(
+	$scale: (
+		"default": 0,
+		"M": 1,
+		"XL": 2,
+	)
+);
 ```
 
 Output font-family, font-size, and line-height for the display font. Set a custom line-height of 1.6.
+
 ```scss
 @include oTypographyDisplay($scale: 1, $line-height: 1.6);
 ```
 
 Output font-family, font-size, line-height, font-weight, and font-style for the serif font.
+
 ```scss
-@include oTypographySerif($scale: 1, $weight: 'bold', $style: 'italic');
+@include oTypographySerif($scale: 1, $weight: "bold", $style: "italic");
 ```
 
 Output sans font properties without the font-family property. This is useful if modifying the scale of existing typography where the font family is inherited and does not need repeating.
+
 ```scss
-@include oTypographySans($scale: 1, $style: 'italic', $include-font-family: false);
+@include oTypographySans(
+	$scale: 1,
+	$style: "italic",
+	$include-font-family: false
+);
 ```
 
 Output serif font properties without sizes for the fallback font (without progressive font loading).
+
 ```scss
-@include oTypographySerif($scale: 1, $style: 'italic', $include-progressive: false);
+@include oTypographySerif(
+	$scale: 1,
+	$style: "italic",
+	$include-progressive: false
+);
 ```
 
 ### Line Width Capping
@@ -387,7 +435,7 @@ Then set the custom font using `oTypographySetFont` before calling any other `o-
 
 ```scss
 // Set custom sans font.
-@include oTypographySetFont($type: 'sans', $family: 'MySansFont, sans');
+@include oTypographySetFont($type: "sans", $family: "MySansFont, sans");
 // The custom sans font is now output by other `o-typography` mixins such as `oTypography`.
 @include oTypography();
 ```
@@ -399,9 +447,10 @@ Then set the custom font using `oTypographySetFont` before calling any other `o-
 If defining a scale for a custom font, first [set the custom font](#use-a-custom-font).
 
 ```scss
-$example-custom-font-family: 'MySansFont, sans';
+$example-custom-font-family: "MySansFont, sans";
 $example-custom-font-scale: (
-	-2: (12, 16), // $scale: ($font-size, $line-height)
+	-2: (12, 16),
+	// $scale: ($font-size, $line-height)
 	-1: (14, 16),
 	0: (16, 20),
 	1: (18, 20),
@@ -413,10 +462,13 @@ $example-custom-font-scale: (
 	7: (48, 48),
 	8: (56, 56),
 	9: (72, 72),
-	10: (84, 84),
+	10: (84, 84)
 );
 
-@include oTypographyDefineFontScale($example-custom-font-family, $example-custom-font-scale);
+@include oTypographyDefineFontScale(
+	$example-custom-font-family,
+	$example-custom-font-scale
+);
 ```
 
 ### Customisation
@@ -436,7 +488,7 @@ In the below example, we update the size and weight of h1 and h2 headings:
 
 ```scss
 $o-brand: whitelabel;
-@import '@financial-times/o-typography/main';
+@import "@financial-times/o-typography/main";
 
 // 1. Set a custom font.
 // See "Use A Custom Font".
@@ -445,16 +497,21 @@ $o-brand: whitelabel;
 // See "Use A Custom Font Scale".
 
 // 3. Customise typography variants.
-@include oTypographyCustomize((
-	'heading-level-one': (
-		'scale': 5, // Update the size of h1.
-		'scale-s': 7, // Increase the size of h1 on small devices and above.
-		'weight': 'semibold' // Update the weight of the h1.
-	),
-	'heading-level-two': (
-		'scale': 6 // Update the size of h2 (up to h6 is supported heading-level-six).
+@include oTypographyCustomize(
+	(
+		"heading-level-one": (
+			"scale": 5,
+					// Update the size of h
+			"scale-s": 7,
+					// Increase the size of h1 on small devices and abov
+			"weight": "semibold" " // Update the weight of the h1,
+		),
+		"heading-level-two": (
+			"scale": 6
+						// Update the size of h2 (up to h6 is supported heading-level-six),
+		),
 	)
-));
+);
 
 // 4. Output typography styles.
 h1 {
@@ -477,7 +534,7 @@ Unless you're using the Build Service no JS will run automatically. You must eit
 **Constructing o-typography**
 
 ```js
-import oTypography from 'o-typography';
+import oTypography from "o-typography";
 
 const otypography = new oTypography();
 ```
@@ -485,8 +542,8 @@ const otypography = new oTypography();
 **Firing an oDomContentLoaded event**
 
 ```js
-document.addEventListener('DOMContentLoaded', function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+document.addEventListener("DOMContentLoaded", function () {
+	document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
 });
 ```
 
@@ -495,30 +552,30 @@ Both methods will trigger the font loading scripts. This will remove the loading
 ## Troubleshooting
 
 ### Fonts not loading in IE11
+
 This is likely due to a misconfigured `Vary` header. In IE11 if the `Vary` header contains the name of a header which the browser is not aware of E.G. `FT-Site`, then it will cancel downloading the fonts part way through recieving the response yet still report the response as having a 200 HTTP status code. The solution to this is to remove the erroneous `Vary` header values or to remove the `Vary` header altogether. You can read more about how IE handles the `Vary` header on [MSDN](https://blogs.msdn.microsoft.com/ieinternals/2009/06/17/vary-with-care/).
 
 ### Fonts not loading in any browser
-This is likely due to the server sending the fonts having misconfigured Cross Origin Resource Sharing (CORS). The solution to this is to set the header `Access-Control-Allow-Origin` with the value `*` for any font requests.
 
+This is likely due to the server sending the fonts having misconfigured Cross Origin Resource Sharing (CORS). The solution to this is to set the header `Access-Control-Allow-Origin` with the value `*` for any font requests.
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 7 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-⚠ maintained | 6 | 6.4.6 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.12 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.3 | - |
-╳ deprecated | 3 | 3.3 | - |
-╳ deprecated | 2 | 2.0 | - |
-╳ deprecated | 1 | 1.16 | - |
-
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       7       |        N/A         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ⚠ maintained |       6       |       6.4.6        | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated |       5       |        5.12        | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.3         |                           -                           |
+| ╳ deprecated |       3       |        3.3         |                           -                           |
+| ╳ deprecated |       2       |        2.0         |                           -                           |
+| ╳ deprecated |       1       |        1.16        |                           -                           |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-typography/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

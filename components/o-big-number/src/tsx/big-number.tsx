@@ -3,7 +3,7 @@ interface BigNumberProps {
 	content: string;
 }
 
-export function BigNumber({title, content}: BigNumberProps) {
+export function BigNumber({ title, content }: BigNumberProps) {
 	return (
 		<div className="o-big-number">
 			<div className="o-big-number__title">{title}</div>

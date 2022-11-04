@@ -9,12 +9,12 @@
 @include oSpacing();
 
 .demo {
-	@if oBrandIs('whitelabel') {
-		background-color: oColorsByName('white');
-		outline: 3px dashed oColorsByName('black');
+	@if oBrandIs("whitelabel") {
+		background-color: oColorsByName("white");
+		outline: 3px dashed oColorsByName("black");
 	} @else {
-		background-color: oColorsByName('teal-100');
-		outline: 3px dashed oColorsByName('slate');
+		background-color: oColorsByName("teal-100");
+		outline: 3px dashed oColorsByName("slate");
 	}
 }
 

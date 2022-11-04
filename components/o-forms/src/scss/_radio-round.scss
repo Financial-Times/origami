@@ -1,12 +1,12 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @output Styling for box-styled radio inputs
-@mixin _oFormsRadioRound(
-	$disabled: null
-) {
+@mixin _oFormsRadioRound($disabled: null) {
+	// stylelint-disable selector-no-qualifying-type
 	.o-forms-input--radio-round {
 		.o-forms-input__label {
-			padding: $_o-forms-spacing-half 0 $_o-forms-spacing-half $_o-forms-spacing-controls;
+			padding: $_o-forms-spacing-half 0 $_o-forms-spacing-half
+				$_o-forms-spacing-controls;
 			display: inline-block;
 
 			&:before,
@@ -14,7 +14,7 @@
 				@include _oFormsControlsPseudoElements;
 				border-radius: 50%;
 				transition: opacity 0.1s ease-in;
-				background-color: _oFormsGet('radio-background');
+				background-color: _oFormsGet("radio-background");
 			}
 
 			&:before {
@@ -22,7 +22,7 @@
 			}
 
 			&:after {
-				background-color: _oFormsGet('controls-base');
+				background-color: _oFormsGet("controls-base");
 				border-radius: 50%;
 				height: $_o-forms-spacing-three;
 				width: $_o-forms-spacing-three;
@@ -34,18 +34,20 @@
 			}
 		}
 
-		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
+		input[type="radio"] {
 			@include _oFormsControlsBase($disabled);
 
-			&:checked + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-				border-color: _oFormsGet('controls-base');
+			&:checked + .o-forms-input__label:before {
+				border-color: _oFormsGet("controls-base");
 			}
 
-			&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-				border-color: oColorsByUsecase('focus', 'outline', $fallback: null);
-				box-shadow: 0 0 0 $_o-forms-spacing-half oColorsByUsecase('focus', 'outline', $fallback: null);
+			&:focus + .o-forms-input__label:before {
+				border-color: oColorsByUsecase("focus", "outline", $fallback: null);
+				box-shadow: 0 0 0 $_o-forms-spacing-half
+					oColorsByUsecase("focus", "outline", $fallback: null);
 				outline: none;
 			}
 		}
 	}
+	// stylelint-enable selector-no-qualifying-type
 }

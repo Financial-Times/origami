@@ -9,7 +9,6 @@
  * @param {Node|string} [root] The root node or a selector string matching the root node
  */
 function Delegate(root) {
-
 	/**
 	 * Maintain a map of listener
 	 * lists, keyed by event name.
@@ -91,7 +90,11 @@ Delegate.prototype.root = function (root) {
  * @returns boolean
  */
 Delegate.prototype.captureForType = function (eventType) {
-	return ['blur', 'error', 'focus', 'load', 'resize', 'scroll'].indexOf(eventType) !== -1;
+	return (
+		["blur", "error", "focus", "load", "resize", "scroll"].indexOf(
+			eventType
+		) !== -1
+	);
 };
 
 /**
@@ -126,12 +129,12 @@ Delegate.prototype.on = function (eventType, selector, handler, useCapture) {
 	let matcherParam;
 
 	if (!eventType) {
-		throw new TypeError('Invalid event type: ' + eventType);
+		throw new TypeError("Invalid event type: " + eventType);
 	}
 
 	// handler can be passed as
 	// the second or third argument
-	if (typeof selector === 'function') {
+	if (typeof selector === "function") {
 		useCapture = handler;
 		handler = selector;
 		selector = null;
@@ -143,8 +146,8 @@ Delegate.prototype.on = function (eventType, selector, handler, useCapture) {
 		useCapture = this.captureForType(eventType);
 	}
 
-	if (typeof handler !== 'function') {
-		throw new TypeError('Handler must be a type of Function');
+	if (typeof handler !== "function") {
+		throw new TypeError("Handler must be a type of Function");
 	}
 
 	root = this.rootElement;
@@ -182,7 +185,7 @@ Delegate.prototype.on = function (eventType, selector, handler, useCapture) {
 		selector: selector,
 		handler: handler,
 		matcher: matcher,
-		matcherParam: matcherParam
+		matcherParam: matcherParam,
 	});
 
 	return this;
@@ -207,7 +210,7 @@ Delegate.prototype.off = function (eventType, selector, handler, useCapture) {
 
 	// Handler can be passed as
 	// the second or third argument
-	if (typeof selector === 'function') {
+	if (typeof selector === "function") {
 		useCapture = handler;
 		handler = selector;
 		selector = null;
@@ -242,7 +245,10 @@ Delegate.prototype.off = function (eventType, selector, handler, useCapture) {
 	for (i = listenerList.length - 1; i >= 0; i--) {
 		listener = listenerList[i];
 
-		if ((!selector || selector === listener.selector) && (!handler || handler === listener.handler)) {
+		if (
+			(!selector || selector === listener.selector) &&
+			(!handler || handler === listener.handler)
+		) {
 			this._removedListeners.push(listener);
 			listenerList.splice(i, 1);
 		}
@@ -261,7 +267,6 @@ Delegate.prototype.off = function (eventType, selector, handler, useCapture) {
 	return this;
 };
 
-
 /**
  * Handle an arbitrary event.
  *
@@ -277,7 +282,7 @@ Delegate.prototype.handle = function (event) {
 	let returned;
 	let listenerList = [];
 	let target;
-	const eventIgnore = 'ftLabsDelegateIgnore';
+	const eventIgnore = "ftLabsDelegateIgnore";
 
 	if (event[eventIgnore] === true) {
 		return;
@@ -340,7 +345,9 @@ Delegate.prototype.handle = function (event) {
 
 			if (
 				target.tagName &&
-				["button", "input", "select", "textarea"].indexOf(target.tagName.toLowerCase()) > -1 &&
+				["button", "input", "select", "textarea"].indexOf(
+					target.tagName.toLowerCase()
+				) > -1 &&
 				target.hasAttribute("disabled")
 			) {
 				// Remove things that have previously fired

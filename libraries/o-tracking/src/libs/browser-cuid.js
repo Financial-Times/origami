@@ -16,13 +16,11 @@ const discreteValues = Math.pow(base, blockSize);
 
 const pad = function pad(num, size) {
 	const s = "000000000" + num;
-	return s.substr(s.length-size);
+	return s.substr(s.length - size);
 };
 
 const randomBlock = function randomBlock() {
-	return pad((Math.random() *
-		discreteValues << 0)
-		.toString(base), blockSize);
+	return pad(((Math.random() * discreteValues) << 0).toString(base), blockSize);
 };
 
 const safeCounter = () => {
@@ -35,13 +33,12 @@ const api = function cuid() {
 	// Starting with a lowercase letter makes
 	// it HTML element ID friendly.
 	// hard-coded allows for sequential access
-	const letter = 'c';
+	const letter = "c";
 
 	// timestamp
 	// warning: this exposes the exact date and time
 	// that the uid was created.
 	const timestamp = new Date().getTime().toString(base);
-
 
 	// A few chars to generate distinct ids for different
 	// clients (so different computers are far less
@@ -60,15 +57,13 @@ const api = function cuid() {
 api.slug = function slug() {
 	const date = new Date().getTime().toString(36);
 
-	const print = api.fingerprint().slice(0,1) +
-		api.fingerprint().slice(-1);
+	const print = api.fingerprint().slice(0, 1) + api.fingerprint().slice(-1);
 
 	const random = randomBlock().slice(-2);
 
 	const counter = safeCounter().toString(36).slice(-4);
 
-	return date.slice(-2) +
-		counter + print + random;
+	return date.slice(-2) + counter + print + random;
 };
 
 api.globalCount = function globalCount() {
@@ -76,21 +71,24 @@ api.globalCount = function globalCount() {
 	const cache = (function calc() {
 		let count = 0;
 
-		for (const i in window) { // eslint-disable-line no-unused-vars, guard-for-in
+		for (const i in window) {
+			// eslint-disable-line no-unused-vars, guard-for-in
 			count++;
 		}
 
 		return count;
-	}());
+	})();
 
 	api.globalCount = () => cache;
 	return cache;
 };
 
 api.fingerprint = function browserPrint() {
-	return pad((navigator.mimeTypes.length +
-		navigator.userAgent.length).toString(36) +
-		api.globalCount().toString(36), 4);
+	return pad(
+		(navigator.mimeTypes.length + navigator.userAgent.length).toString(36) +
+			api.globalCount().toString(36),
+		4
+	);
 };
 
 export { api };

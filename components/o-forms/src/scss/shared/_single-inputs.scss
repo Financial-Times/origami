@@ -4,7 +4,7 @@
 @mixin _oFormsInputBase($disabled) {
 	font-family: inherit;
 	font-size: inherit;
-	background-color: _oFormsGet('default-background');
+	background-color: _oFormsGet("default-background");
 	border: $_o-forms-border;
 	box-sizing: border-box;
 	min-height: $_o-forms-spacing-ten;
@@ -21,9 +21,9 @@
 @mixin _oFormsInputDisabled {
 	&:disabled {
 		cursor: default;
-		color: _oFormsGet('disabled-text');
-		background-color: _oFormsGet('disabled-base');
-		border-color: _oFormsGet('disabled-base');
+		color: _oFormsGet("disabled-text");
+		background-color: _oFormsGet("disabled-base");
+		border-color: _oFormsGet("disabled-base");
 		// Ensure Safari uses the correct text colour
 		// for disabled inputs.
 		// sass-lint:disable no-vendor-prefixes

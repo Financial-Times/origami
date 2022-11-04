@@ -6,60 +6,61 @@ $o-topper-is-silent: true !default;
 /// @prop {List} - colours available to editorial in methode for the background
 /// @access private
 $_o-topper-colors: (
-	'white',
-	'black',
-	'claret',
-	'oxford',
-	'paper',
-	'slate',
-	'wheat',
-	'crimson',
-	'sky',
-	'matisse'
+	"white",
+	"black",
+	"claret",
+	"oxford",
+	"paper",
+	"slate",
+	"wheat",
+	"crimson",
+	"sky",
+	"matisse"
 );
 
 /// When adding a new theme update the README
 /// @prop {List} - theme options
 /// @access private
 $_o-topper-themes: (
-	'basic',
-	'branded',
-	'opinion',
-	'has-headshot',
-	'full-bleed-offset',
-	'split-text-left',
-	'split-text-center',
-	'full-bleed-image-center',
-	'full-bleed-image-left',
-	'package',
-	'package-extra',
-	'package-extra-wide',
-	'package-special-report',
-	'news-package', // @deprecated
-	'right-rail',
-	'centered',
+	"basic",
+	"branded",
+	"opinion",
+	"has-headshot",
+	"full-bleed-offset",
+	"split-text-left",
+	"split-text-center",
+	"full-bleed-image-center",
+	"full-bleed-image-left",
+	"package",
+	"package-extra",
+	"package-extra-wide",
+	"package-special-report",
+	"news-package",
+	// @deprecated
+	"right-rail",
+	"centered"
 );
 
 /// When adding a new element update the README
 /// @prop {List} - element options
 /// @access private
 $_o-topper-elements: (
-	'content',
-	'visual',
-	'background',
-	'headline',
-	'headline--large',
-	'summary',
-	'standfirst',
-	'summary--body',
-	'tags',
-	'columnist',
-	'columnist-name',
-	'brand',
-	'topic',
-	'read-next',
-	'image',
-	'image-credit'
+	"content",
+	"visual",
+	"background",
+	"headline",
+	"headline--large",
+	"summary",
+	"standfirst",
+	"summary--body",
+	"tags",
+	"columnist",
+	"columnist-name",
+	"brand",
+	"topic",
+	"read-next",
+	"image",
+	"image-credit"
 );
 
 /// @access private

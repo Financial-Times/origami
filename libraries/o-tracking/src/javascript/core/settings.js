@@ -1,5 +1,4 @@
-
-const settings = {config:{}};
+const settings = { config: {} };
 
 /**
  * Very basic implementation of deep clone, and only supports simple POJO objects and
@@ -14,9 +13,9 @@ function clone(value) {
 		return value;
 	}
 	switch (Object.prototype.toString.call(value)) {
-		case '[object Object]':
+		case "[object Object]":
 			return JSON.parse(JSON.stringify(value));
-		case '[object Array]':
+		case "[object Array]":
 			return [].slice.call(value);
 		default:
 			return value;
@@ -57,8 +56,4 @@ function destroy(key) {
 const set = setValue;
 const get = getValue;
 
-export {
-	set,
-	get,
-	destroy
-};
+export { set, get, destroy };

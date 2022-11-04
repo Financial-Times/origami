@@ -19,7 +19,10 @@ A big number has two parts. The big number itself and copy to describe the big n
 ```html
 <div class="o-big-number">
 	<div class="o-big-number__title">&pound;350m</div>
-	<div class="o-big-number__content">Cost of the rights expected to increase by one-third — or about £350m a year — although some anticipate inflation of up to 70%</div>
+	<div class="o-big-number__content">
+		Cost of the rights expected to increase by one-third — or about £350m a year
+		— although some anticipate inflation of up to 70%
+	</div>
 </div>
 ```
 
@@ -36,21 +39,21 @@ We recommend you use `oBigNumber` and default `o-big-number` classes, however if
 
 ```scss
 .my-big-number-title {
-    @include oBigNumberTitle();
+	@include oBigNumberTitle();
 }
 
 .my-big-number-content {
-    @include oBigNumberContent();
+	@include oBigNumberContent();
 }
 ```
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-⚠ maintained | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.1 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       3       |        N/A         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ⚠ maintained |       2       |        2.0         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.1         |                          N/A                          |
 
 ## Licence
 

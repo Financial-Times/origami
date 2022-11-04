@@ -1,22 +1,21 @@
 /* eslint-env mocha */
 
-import * as Utils from './../main.js';
-import proclaim from 'proclaim';
-import sinon from 'sinon';
+import * as Utils from "./../main.js";
+import proclaim from "proclaim";
+import sinon from "sinon";
 
-describe("getIndex()", function() {
-
+describe("getIndex()", function () {
 	let clock;
 
-	beforeEach(function() {
+	beforeEach(function () {
 		clock = sinon.useFakeTimers();
 	});
 
-	afterEach(function() {
+	afterEach(function () {
 		clock.restore();
 	});
 
-	it('should throttle callback to every 100ms', function(done) {
+	it("should throttle callback to every 100ms", function (done) {
 		const callback = sinon.spy();
 		const throttled = Utils.throttle(callback, 100);
 
@@ -32,7 +31,7 @@ describe("getIndex()", function() {
 		done();
 	});
 
-	it('should debounce callback by 100ms', function(done) {
+	it("should debounce callback by 100ms", function (done) {
 		const callback = sinon.spy();
 		const debounced = Utils.debounce(callback, 100);
 

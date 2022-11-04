@@ -19,18 +19,21 @@ To strike a balance between a professional and friendly tone, while being clear 
 ## General Styles
 
 ##### Be conversational
+
 - Use contractions: "we're" over "we are"
 - Starting sentences with conjunctions like "but" or "so" is allowed.
 
 As we've said, we aim to be conversational. We speak with contractions and begin our sentences with conjunctions, so we would like to translate that to our writing, as well—if it sounds like something we'd say out loud, we're likely on the right track.
 
 ##### Prefer "we" to "I"
+
 - **do**: "We would recommend you do ..."
 - **don't**: "I would recommend you do ..."
 
 The work we do is as a team, and we rely on each other, and the input from our users, to be able to maintain and deliver our work. It is language that can extend to include the reader, and discourages the use of the passive voice.
 
 ##### Use the active voice
+
 - **do**: "We would recommend you do ..."
 - **don't**: "It is recommended you do ..."
 
@@ -46,6 +49,7 @@ If we find we've ended up with too many commas or a long running sentence, odds 
 By that, we mean qualifiers. Qualifiers are words like "pretty", "mostly", "probably", "usually". They can make the information in our writing ambiguous. They can also communicate an opinion about something. Though we want to be conversational, we don't want to start documenting unhelpful statements.
 
 ##### Write for skim readers
+
 - code variables go in `back-ticks`
 - use tables
 - use asides
@@ -56,6 +60,7 @@ By that, we mean qualifiers. Qualifiers are words like "pretty", "mostly", "prob
 By providing any of the above, we'll allow skim readers to quickly scan our documentation to find relevant information. It also helps us break different topics down into digestible sections.
 
 ##### Avoid metaphors or colloquialisms
+
 - **do**: "This site has everything you need to know"
 - **don't**: "This site is a one stop shop for Origami"
 
@@ -83,6 +88,7 @@ We reserve capitalisation for component code, when we need to write syntax and n
 Similarly to capitalising "Origami", we capitalise the services we maintain because they are distinguished products that have user-facing interfaces of their own.
 
 ##### Use British English for documentation
+
 - **British**: colour, organise
 - **American**: color, organize
 
@@ -118,5 +124,5 @@ In language, it presents itself as wording like "lame", "crazy", "blind", "dumb"
 
 ### Bringing it together
 
-These guides are here to help us along when we have doubts about what we're  writing, but as long as we're writing with other people in mind, we'll be on the right path.
+These guides are here to help us along when we have doubts about what we're writing, but as long as we're writing with other people in mind, we'll be on the right path.
 If you have any questions, please get in touch with us via <a href="https://financialtimes.slack.com/messages/origami-support">Slack</a> or [Email](origami.support@ft.com).

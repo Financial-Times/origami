@@ -5,15 +5,15 @@ A component, integrated with FT authentication and [Coral Talk](https://coralpro
 - [Usage](#usage)
 - [Additional dependencies](#additional-dependencies)
 - [Markup](#markup)
-	- [Stream](#stream)
-	- [Count](#count)
-	- [Use staging environment](#use-staging-environment)
-	- [Pass a display name into Coral Talk](#pass-a-display-name-into-coral-talk)
+  - [Stream](#stream)
+  - [Count](#count)
+  - [Use staging environment](#use-staging-environment)
+  - [Pass a display name into Coral Talk](#pass-a-display-name-into-coral-talk)
 - [JavaScript](#javascript)
-	- [Constructing an o-comments](#constructing-an-o-comments)
-	- [Firing an oDomContentLoaded event](#firing-an-odomcontentloaded-event)
-	- [Events](#events)
-	- [Tracking](#tracking)
+  - [Constructing an o-comments](#constructing-an-o-comments)
+  - [Firing an oDomContentLoaded event](#firing-an-odomcontentloaded-event)
+  - [Events](#events)
+  - [Tracking](#tracking)
 - [Sass](#sass)
 - [Migration](#migration)
 - [Contact](#contact)
@@ -38,13 +38,15 @@ These elements will be initialized automatically on the `o.DOMContentReady` even
 Use the following markup to enable a comment stream:
 
 ```html
-<div class="o-comments"
+<div
+	class="o-comments"
 	id="{element-id}"
 	data-o-component="o-comments"
 	data-o-comments-article-id="{article-id}"
-	data-o-comments-article-url="{optional-article-url}">
-</div>
+	data-o-comments-article-url="{optional-article-url}"
+></div>
 ```
+
 Coral needs a parent element id when initialising the comment stream embed script.
 
 ### Count
@@ -67,8 +69,7 @@ The comment count is rendered when the `data-o-comments-count` attribute value i
 If you need the count as a value, use the `getCount` method which returns an integer.
 
 ```js
-Comments.getCount('article-id')
-	.then(count => console.log(count));
+Comments.getCount("article-id").then(count => console.log(count));
 ```
 
 ### Use staging environment
@@ -76,6 +77,7 @@ Comments.getCount('article-id')
 Add the following attribute to the markup to use Coral staging environment:
 
 For stream:
+
 ```diff
 <div class="o-comments"
 	id="o-comments-stream"
@@ -87,6 +89,7 @@ For stream:
 ```
 
 For count:
+
 ```diff
 <div class="o-comments"
 	data-o-component="o-comments"
@@ -119,12 +122,12 @@ No code will run automatically unless you are using the [Build Service](https://
 Assuming you have an HTML element on the page to represent your comment stream or count:
 
 ```js
-import oComments from '@financial-times/o-comments';
-const commentsElement = document.querySelector('#element');
+import oComments from "@financial-times/o-comments";
+const commentsElement = document.querySelector("#element");
 const Comments = new oComments(commentsElement, {
-	articleId: 'article-id',
-	articleUrl: 'optional-article-url'
-})
+	articleId: "article-id",
+	articleUrl: "optional-article-url",
+});
 ```
 
 Add `useStagingEnvironment: true` to the options if you want to use Coral staging environment.
@@ -132,17 +135,17 @@ Add `useStagingEnvironment: true` to the options if you want to use Coral stagin
 If you want to initialise every comment stream or count element on the page (based on the presence of the attribute: `data-o-component="o-comments"`):
 
 ```js
-import oComments from '@financial-times/o-comments';
+import oComments from "@financial-times/o-comments";
 oComments.init();
 ```
 
 ### Firing an oDomContentLoaded event
 
 ```js
-import '@financial-times/o-comments';
+import "@financial-times/o-comments";
 
-document.addEventListener('DOMContentLoaded', function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+document.addEventListener("DOMContentLoaded", function () {
+	document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
 });
 ```
 
@@ -151,8 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
 Events are emitted during key events or interactions and can be listened to by listening for events on the document.
 
 ```js
-document.addEventListener('oComments.ready', (event) => {
-	console.log('This comments have rendered');
+document.addEventListener("oComments.ready", event => {
+	console.log("This comments have rendered");
 });
 ```
 
@@ -183,11 +186,12 @@ To keep tracking consistent across applications o-comments will emit [o-tracking
 If you want to disable the o-tracking events and manage tracking / analytics yourself this can be done by passing the `disableOTracking` option to the o-comments instance.
 
 **Imperatively**
+
 ```js
-import oComments from '@financial-times/o-comments';
-const commentsElement = document.querySelector('#element');
+import oComments from "@financial-times/o-comments";
+const commentsElement = document.querySelector("#element");
 const comments = new Comments(commentsElement, {
-	disableOTracking: true
+	disableOTracking: true,
 });
 ```
 
@@ -208,7 +212,11 @@ const comments = new Comments(commentsElement, {
 Include all styles for o-comments with the mixin `oComments`. Set the `coral-talk-iframe` option to `false`:
 
 ```scss
-@include oComments($opts: ('coral-talk-iframe': false));
+@include oComments(
+	$opts: (
+		"coral-talk-iframe": false,
+	)
+);
 ```
 
 The `coral-talk-iframe` option is set to false as these styles are included in the Coral Talk iframe, via the [Origami Build Service](https://www.ft.com/__origami/service/build/), and do not need to be included directly within projects themselves.
@@ -217,20 +225,19 @@ The `coral-talk-iframe` option is set to false as these styles are included in t
 
 This component contains a sass file (/src/scss/coral-talk-iframe/main.scss) that provides custom styling for Coral Talk components inside their own iframe. That file is included in the Coral Talk admin panel by including o-comments using an [Origami Build Service](https://www.ft.com/__origami/service/build/) request.
 
-
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-⚠ maintained | 8 | N/A | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-╳ deprecated | 7 | 7.7 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-╳ deprecated | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.0.1 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.2.0 | - |
-╳ deprecated | 3 | 3.5.0 | - |
-╳ deprecated | 2 | 2.5.0 | - |
-╳ deprecated | 1 | 1.0.10 | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       9       |        N/A         | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
+| ⚠ maintained |       8       |        N/A         | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+| ╳ deprecated |       7       |        7.7         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ╳ deprecated |       6       |        N/A         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated |       5       |       5.0.1        | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |       4.2.0        |                           -                           |
+| ╳ deprecated |       3       |       3.5.0        |                           -                           |
+| ╳ deprecated |       2       |       2.5.0        |                           -                           |
+| ╳ deprecated |       1       |       1.0.10       |                           -                           |
 
 ## Contact
 

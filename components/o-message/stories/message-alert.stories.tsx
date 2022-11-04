@@ -1,13 +1,13 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {useEffect} from 'react';
-import {AlertMessage} from '../src/tsx/message';
-import javascript from '../main';
-import './message.scss';
+import withHtml from "origami-storybook-addon-html";
+import { withDesign } from "storybook-addon-designs";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { useEffect } from "react";
+import { AlertMessage } from "../src/tsx/message";
+import javascript from "../main";
+import "./message.scss";
 
 export default {
-	title: 'Components/o-message',
+	title: "Components/o-message",
 	component: AlertMessage,
 	decorators: [withDesign, withHtml],
 	parameters: {},
@@ -15,20 +15,20 @@ export default {
 		showCloseButton: true,
 		inner: false,
 		primaryAction: {
-			text: 'Button',
-			url: '#',
+			text: "Button",
+			url: "#",
 			openInNewWindow: false,
 		},
 		secondaryAction: {
-			text: 'Text link',
-			url: '#',
+			text: "Text link",
+			url: "#",
 			openInNewWindow: false,
 		},
 	},
 } as ComponentMeta<typeof AlertMessage>;
 
 const innerDecorator = Story => (
-	<div className='demo-inner-message'>{Story()}</div>
+	<div className="demo-inner-message">{Story()}</div>
 );
 
 const AlertStory = args => {
@@ -44,35 +44,35 @@ const AlertStory = args => {
 
 export const AlertSuccess: ComponentStory<typeof AlertMessage> =
 	AlertStory.bind({});
-AlertSuccess.storyName = 'Alert: Success';
+AlertSuccess.storyName = "Alert: Success";
 AlertSuccess.args = {
-	state: 'success',
+	state: "success",
 	content: {
-		detail: 'The quick brown fox jumped over the lazy dogs!',
-		highlight: 'Hooray!',
+		detail: "The quick brown fox jumped over the lazy dogs!",
+		highlight: "Hooray!",
 	},
 };
 
 export const AlertInnerSuccess: ComponentStory<typeof AlertMessage> =
 	AlertStory.bind({});
 AlertInnerSuccess.decorators = [innerDecorator];
-AlertInnerSuccess.storyName = 'Alert Inner: Success';
+AlertInnerSuccess.storyName = "Alert Inner: Success";
 AlertInnerSuccess.args = {
-	state: 'success',
+	state: "success",
 	content: {
-		detail: 'The quick brown fox jumped over the lazy dogs!',
-		highlight: 'Hooray!',
+		detail: "The quick brown fox jumped over the lazy dogs!",
+		highlight: "Hooray!",
 		additionalInfo:
-			'Did you know that that sentence uses all of the letters in the alphabet at least once?',
+			"Did you know that that sentence uses all of the letters in the alphabet at least once?",
 	},
 	inner: true,
 };
 
 export const AlertNeutral: ComponentStory<typeof AlertMessage> =
 	AlertStory.bind({});
-AlertNeutral.storyName = 'Alert: Neutral';
+AlertNeutral.storyName = "Alert: Neutral";
 AlertNeutral.args = {
-	state: 'neutral',
+	state: "neutral",
 	content: {
 		detail:
 			"There's a fox, and some lazy dogs. Many lazy dogs. Many, many, many lazy dogs. Only one fox. Many, many, many lazy dogs.",
@@ -82,12 +82,12 @@ AlertNeutral.args = {
 export const AlertInnerNeutral: ComponentStory<typeof AlertMessage> =
 	AlertStory.bind({});
 AlertInnerNeutral.decorators = [innerDecorator];
-AlertInnerNeutral.storyName = 'Alert Inner: Neutral';
+AlertInnerNeutral.storyName = "Alert Inner: Neutral";
 AlertInnerNeutral.args = {
-	state: 'neutral',
+	state: "neutral",
 	content: {
-		detail: 'The quick brown fox did no jump over the lazy dogs!',
-		highlight: 'Meh.',
+		detail: "The quick brown fox did no jump over the lazy dogs!",
+		highlight: "Meh.",
 	},
 	inner: true,
 };
@@ -95,25 +95,25 @@ AlertInnerNeutral.args = {
 export const AlertError: ComponentStory<typeof AlertMessage> = AlertStory.bind(
 	{}
 );
-AlertError.storyName = 'Alert: Error';
+AlertError.storyName = "Alert: Error";
 AlertError.args = {
-	state: 'error',
+	state: "error",
 	content: {
-		detail: 'The quick brown fox did not jump over the lazy dogs.',
+		detail: "The quick brown fox did not jump over the lazy dogs.",
 	},
 };
 
 export const AlertInnerError: ComponentStory<typeof AlertMessage> =
 	AlertStory.bind({});
 AlertInnerError.decorators = [innerDecorator];
-AlertInnerError.storyName = 'Alert Inner: Error';
+AlertInnerError.storyName = "Alert Inner: Error";
 AlertInnerError.args = {
-	state: 'error',
+	state: "error",
 	content: {
-		detail: 'The quick brown fox did not jump over the lazy dogs.',
-		highlight: 'Oops.',
+		detail: "The quick brown fox did not jump over the lazy dogs.",
+		highlight: "Oops.",
 		additionalInfo:
-			'But that sentence still uses all of the letters in the alphabet at least once!',
+			"But that sentence still uses all of the letters in the alphabet at least once!",
 	},
 	inner: true,
 };

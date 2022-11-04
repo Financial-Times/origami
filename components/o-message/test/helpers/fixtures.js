@@ -69,5 +69,5 @@ export default {
 				</div>
 			</div>
 		`,
-	closeButton: `<button class="o-message__close" aria-label="close" title="Close"></button>`
+	closeButton: `<button class="o-message__close" aria-label="close" title="Close"></button>`,
 };

@@ -2,14 +2,14 @@
 
 Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons) image set.
 
--   [Usage](#usage)
--   [Summary](#summary)
--   [Markup](#markup)
--   [Sass](#sass)
--   [Contributing](#contributing)
--   [Migration](#migration)
--   [Contact](#contact)
--   [Licence](#licence)
+- [Usage](#usage)
+- [Summary](#summary)
+- [Markup](#markup)
+- [Sass](#sass)
+- [Contributing](#contributing)
+- [Migration](#migration)
+- [Contact](#contact)
+- [Licence](#licence)
 
 ## Usage
 
@@ -22,7 +22,6 @@ There are a few ways to get icons from `fticons`:
 1.  Use [o-icons CSS classes](#markup)
 2.  Use [o-icons Sass mixins](#sass) with your own CSS.
 3.  Request the icon directly from the [Image Service](https://www.ft.com/__origami/service/image/v2/docs/url-builder?url=fticon-v1%3Aarrow-down&preview=true) (without using o-icons at all).
-
 
 ## Markup
 
@@ -54,8 +53,8 @@ The `$color` argument should be set using an [o-colors](https://registry.origami
 // Output a 32px, claret coloured plus icon.
 .my-icon-plus {
 	@include oIconsContent(
-		$icon-name: 'plus',
-		$color: oColorsByName('claret'),
+		$icon-name: "plus",
+		$color: oColorsByName("claret"),
 		$size: 32
 	);
 }
@@ -75,8 +74,8 @@ The `oIconsContent` mixins outputs styles used by each icon. This is inefficient
 
 .my-icon--plus {
 	@include oIconsContent(
-		$icon-name: 'plus',
-		$color: oColorsByName('claret'),
+		$icon-name: "plus",
+		$color: oColorsByName("claret"),
 		$size: 32,
 		$include-base-styles: false // do not duplicate the base styles
 	);
@@ -92,8 +91,8 @@ The `oIconsContent` mixins outputs styles used by each icon. This is inefficient
 ```scss
 .no-high-contrast-window {
 	@include oIconsContent(
-		$icon-name: 'plus',
-		$color: oColorsByName('claret'),
+		$icon-name: "plus",
+		$color: oColorsByName("claret"),
 		$high-contrast-fallback: false
 	);
 }
@@ -102,16 +101,24 @@ The `oIconsContent` mixins outputs styles used by each icon. This is inefficient
 ### Using the default CSS helper classes
 
 To output all icon [helper classes](#markup) include the `oIcons` mixin.
+
 ```scss
 @import "@financial-times/o-icons/main";
 @include oIcons(); // include helper classes for all icons
 ```
 
 To avoid including all icon [helper classes](#markup), `oIcons` mixin also accepts a list of icons to include:
+
 ```scss
-@include oIcons($opts: (
-	'icons': ('arrow-down', 'audio') // include helper classes for the arrow-down and audio icons
-));
+@include oIcons(
+	$opts: (
+		"icons": (
+			"arrow-down",
+			"audio",
+		)
+		// include helper classes for the arrow-down and audio icon,,
+	)
+);
 ```
 
 ## Contributing
@@ -120,22 +127,21 @@ To avoid including all icon [helper classes](#markup), `oIcons` mixin also accep
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 7 | N/A  | [migrate to v6](MIGRATION.md#migrating-from-v6-to-v7) |
-✨ active | 6 | 6.3  | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | 5.9  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.5  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.3 | - |
-╳ deprecated | 2 | 2.4 | - |
-╳ deprecated | 1 | 1.2 | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       7       |        N/A         | [migrate to v6](MIGRATION.md#migrating-from-v6-to-v7) |
+|  ✨ active   |       6       |        6.3         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ⚠ maintained |       5       |        5.9         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.5         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.3         |                           -                           |
+| ╳ deprecated |       2       |        2.4         |                           -                           |
+| ╳ deprecated |       1       |        1.2         |                           -                           |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-icons/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-
-***
+---
 
 ## Licence
 

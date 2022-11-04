@@ -8,7 +8,7 @@
 		width: 100%;
 
 		thead {
-			border-bottom: 2px solid _oTableGet('table-data-color');
+			border-bottom: 2px solid _oTableGet("table-data-color");
 		}
 
 		th,
@@ -17,15 +17,18 @@
 			padding: 10px;
 			text-align: left;
 			vertical-align: top;
-			color: _oTableGet('table-data-color');
+			color: _oTableGet("table-data-color");
 			min-width: 3ch; // helps prevent some layout updates
 			box-sizing: border-box;
 		}
 
 		th {
-			@include oTypographySans($weight: 'semibold', $include-font-family: false);
-			background-color: _oTableGet('header-background');
-			&:not([scope=row]) {
+			@include oTypographySans(
+				$weight: "semibold",
+				$include-font-family: false
+			);
+			background-color: _oTableGet("header-background");
+			&:not([scope="row"]) {
 				vertical-align: bottom;
 			}
 		}
@@ -33,8 +36,8 @@
 		td {
 			scroll-snap-align: none center;
 			&:empty:before {
-				@include oIconsContent('minus', $size: 15);
-				content: '';
+				@include oIconsContent("minus", $size: 15);
+				content: "";
 				vertical-align: middle;
 			}
 		}

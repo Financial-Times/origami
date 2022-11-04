@@ -1,4 +1,3 @@
-
 /// Gets the value of a component variable for the current brand.
 /// If multiple variables are requested they are concatenated.
 ///
@@ -19,11 +18,15 @@
 ///
 @function oBrandGet($component, $variables, $from: null) {
 	// Validate component name.
-	$validated-component-name: _oBrandValidateName('Component', $component, 'Cannot get variable(s) "#{$variables}" for component "#{$component}"');
+	$validated-component-name: _oBrandValidateName(
+		"Component",
+		$component,
+		'Cannot get variable(s) "#{$variables}" for component "#{$component}"'
+	);
 	// Validate variant name if getting the variables from a pre-defined variant.
-	@if type-of($from) != 'map' and type-of($from) != 'null' {
+	@if type-of($from) != "map" and type-of($from) != "null" {
 		$validated: _oBrandValidateName(
-			'Variant',
+			"Variant",
 			$from,
 			'Get variables "#{$variables}" for "#{$component}" from "#{inspect($from)}"'
 		);
@@ -31,28 +34,28 @@
 	// Validate names of the variables we are trying to get.
 	@each $variable-name in $variables {
 		$validated-variable-names: _oBrandValidateName(
-			'Variable',
+			"Variable",
 			$variable-name,
 			'Cannot get variable "#{$variable-name}" for component "#{$component}" from variant "#{inspect($from)}"'
 		);
 	}
 	// If from default component variables or a pre-defined variant.
-	@if type-of($from) == 'string' or type-of($from) == 'null' {
+	@if type-of($from) == "string" or type-of($from) == "null" {
 		// A brand must be configured before o-brand can be used.
 		$brand: _oBrandGetCurrentValidBrand();
 		$brand-config: _oBrandGetConfig($component, $brand);
-		$brand-variables: map-get($brand-config, 'variables');
-		@if type-of($from) == 'null' {
+		$brand-variables: map-get($brand-config, "variables");
+		@if type-of($from) == "null" {
 			// Get from default variables.
 			$from: $brand-variables;
-		} @else if type-of($from) == 'string' {
+		} @else if type-of($from) == "string" {
 			// Get from variant variables.
 			$from: map-get($brand-variables, $from);
 		}
 	}
 
 	// No variable values defined.
-	@if type-of($from) != 'map' {
+	@if type-of($from) != "map" {
 		@return null;
 	}
 
@@ -60,8 +63,10 @@
 	$values: null;
 	@each $variable in $variables {
 		$value: map-get($from, $variable);
-		@if type-of($value) == 'map' {
-			@return _oBrandError('Could not get variable "#{$variable}" for component "#{component}" as it is a map of variant variables.');
+		@if type-of($value) == "map" {
+			@return _oBrandError(
+				'Could not get variable "#{$variable}" for component "#{component}" as it is a map of variant variables.'
+			);
 		}
 		@if $values {
 			$values: join($values, $value);
@@ -86,15 +91,19 @@
 ///
 @function oBrandSupportsVariant($component, $variant) {
 	// Validate component name.
-	$validated-component-name: _oBrandValidateName('Component', $component, 'Cannot check component "#{$component}" supports variant "#{$variant}"');
+	$validated-component-name: _oBrandValidateName(
+		"Component",
+		$component,
+		'Cannot check component "#{$component}" supports variant "#{$variant}"'
+	);
 	// A custom or null variant is always supported.
-	@if type-of($variant) == 'map' and type-of($variant) == 'null' {
+	@if type-of($variant) == "map" and type-of($variant) == "null" {
 		@return true;
 	}
 
 	// Confirm the variant is valid, to provide a useful error in case of typos etc.
 	$validated: _oBrandValidateName(
-		'Variant',
+		"Variant",
 		$variant,
 		'Cannot check if component "#{$component}" supports variant "#{$variant}"'
 	);
@@ -102,12 +111,12 @@
 	// Check support for a pre-defined variant.
 	$brand: _oBrandGetCurrentValidBrand();
 	$brand-config: _oBrandGetConfig($component, $brand);
-	$supports-variants: map-get($brand-config, 'supports-variants');
+	$supports-variants: map-get($brand-config, "supports-variants");
 
-	@if type-of($supports-variants) == 'list' {
+	@if type-of($supports-variants) == "list" {
 		@return if(index($supports-variants, $variant), true, false);
 	}
-	@if type-of($supports-variants) == 'string' {
+	@if type-of($supports-variants) == "string" {
 		@return $variant == $supports-variants;
 	}
 	// No variants are supported.
@@ -129,7 +138,9 @@
 	$current-brand: if($o-brand, $o-brand, $_o-brand-default);
 
 	@if not index($_o-brand-available-brands, $current-brand) {
-		@return _oBrandError('The brand "#{$current-brand}" is not supported by o-brand. Please use one of #{$_o-brand-available-brands}.');
+		@return _oBrandError(
+			'The brand "#{$current-brand}" is not supported by o-brand. Please use one of #{$_o-brand-available-brands}.'
+		);
 	}
 
 	@return $brand == $current-brand;

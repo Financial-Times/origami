@@ -16,7 +16,7 @@ its dependencies. See [the Bower config for these](./bower.json).
 
 ## Migrating from v3 to v4
 
-- The `oLabels` mixin parameters have been changed, and all of the  mixins have changed significantly. See the [Sass documentation](README.md#sass) for how to use the new and updated mixins
+- The `oLabels` mixin parameters have been changed, and all of the mixins have changed significantly. See the [Sass documentation](README.md#sass) for how to use the new and updated mixins
   - The following states have been removed. The decision to remove was based on a search of the various codebases using o-labels, if you need one of the removed states then please contact us and we'll add it back:
     - `active`: This state has been removed entirely
     - `brand`: This state has been removed entirely

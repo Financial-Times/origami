@@ -3,45 +3,44 @@
 FT-branded styles for form elements.
 
 - [o-forms ![MIT licensed](#licence)](#o-forms-)
-	- [Usage](#usage)
-	- [Markup](#markup)
-		- [Single input fields](#single-input-fields)
-			- [Text input](#text-input)
-			- [File input](#file-input)
-			- [Password input](#password-input)
-			- [Textarea input](#textarea-input)
-			- [Select Input](#select-input)
-			- [Other single inputs](#other-single-inputs)
-		- [Multiple input fields](#multiple-input-fields)
-			- [Radio inputs](#radio-inputs)
-				- [Round radio inputs](#round-radio-inputs)
-				- [Box radio inputs](#box-radio-inputs)
-				- [Pseudo box radio inputs](#pseudo-box-radio-inputs)
-			- [Checkbox inputs](#checkbox-inputs)
-				- [Square checkbox inputs](#square-checkbox-inputs)
-				- [Toggle checkbox inputs](#toggle-checkbox-inputs)
-				- [Checkbox inputs with description](#checkbox-inputs-with-description)
-			- [Date inputs](#date-inputs)
-		- [Prompt Text](#prompt-text)
-		- [Optional](#optional)
-		- [Suffix](#suffix)
-		- [Small](#small)
-		- [Inline](#inline)
-			- [Inline Field](#inline-field)
-			- [Inline Inputs](#inline-inputs)
-		- [Validity](#validity)
-			- [Error Summary](#error-summary)
-	- [Sass](#sass)
-		- [Options](#options)
-		- [Customisation](#customisation)
-	- [JavaScript](#javascript)
-		- [Form Instance](#form-instance)
-		- [Individual Inputs](#individual-inputs)
-		- [State](#state)
-	- [Migration guide](#migration-guide)
-	- [Contact](#contact)
-	- [Licence](#licence)
-
+  - [Usage](#usage)
+  - [Markup](#markup)
+    - [Single input fields](#single-input-fields)
+      - [Text input](#text-input)
+      - [File input](#file-input)
+      - [Password input](#password-input)
+      - [Textarea input](#textarea-input)
+      - [Select Input](#select-input)
+      - [Other single inputs](#other-single-inputs)
+    - [Multiple input fields](#multiple-input-fields)
+      - [Radio inputs](#radio-inputs)
+        - [Round radio inputs](#round-radio-inputs)
+        - [Box radio inputs](#box-radio-inputs)
+        - [Pseudo box radio inputs](#pseudo-box-radio-inputs)
+      - [Checkbox inputs](#checkbox-inputs)
+        - [Square checkbox inputs](#square-checkbox-inputs)
+        - [Toggle checkbox inputs](#toggle-checkbox-inputs)
+        - [Checkbox inputs with description](#checkbox-inputs-with-description)
+      - [Date inputs](#date-inputs)
+    - [Prompt Text](#prompt-text)
+    - [Optional](#optional)
+    - [Suffix](#suffix)
+    - [Small](#small)
+    - [Inline](#inline)
+      - [Inline Field](#inline-field)
+      - [Inline Inputs](#inline-inputs)
+    - [Validity](#validity)
+      - [Error Summary](#error-summary)
+  - [Sass](#sass)
+    - [Options](#options)
+    - [Customisation](#customisation)
+  - [JavaScript](#javascript)
+    - [Form Instance](#form-instance)
+    - [Individual Inputs](#individual-inputs)
+    - [State](#state)
+  - [Migration guide](#migration-guide)
+  - [Contact](#contact)
+  - [Licence](#licence)
 
 ## Usage
 
@@ -52,6 +51,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 `o-forms` has "field" elements which hold an input and information about that input, e.g. its label text. Use unique ids to associate form inputs and their labels. This is required as [some assistive technologies do not support implicit labels](https://a11ysupport.io/tests/html_label_element_implicit), such as Dragon Naturally Speaking.
 
 All form fields follow the same structure:
+
 ```
 ┌— field container (.o-forms-field) —————┐
 |      (one of div or label)             |
@@ -85,7 +85,7 @@ The following example shows a text input:
 	</span>
 
 	<span class="o-forms-input o-forms-input--text">
-		<input id="text" type="text" name="text-example">
+		<input id="text" type="text" name="text-example" />
 	</span>
 </label>
 ```
@@ -117,7 +117,7 @@ To create a text input use a [single input](#single-input-fields) field structur
 	</span>
 
 	<span class="o-forms-input o-forms-input--text">
-		<input id="text-example" type="text" name="text-example" value>
+		<input id="text-example" type="text" name="text-example" value />
 	</span>
 </label>
 ```
@@ -133,7 +133,7 @@ To create a file input use a [single input](#single-input-fields) field structur
 	</span>
 
 	<span class="o-forms-input o-forms-input--file">
-		<input id="text-example" type="file" name="file-example" value>
+		<input id="text-example" type="file" name="file-example" value />
 	</span>
 </label>
 ```
@@ -149,7 +149,12 @@ To create a password input use a [single input](#single-input-fields) field stru
 	</span>
 
 	<span class="o-forms-input o-forms-input--password">
-		<input id="password-example" type="password" name="password-example" value>
+		<input
+			id="password-example"
+			type="password"
+			name="password-example"
+			value
+		/>
 	</span>
 </label>
 ```
@@ -202,7 +207,7 @@ E.g. to create an email input use a [single input](#single-input-fields) field s
 	</span>
 
 	<span class="o-forms-input o-forms-input--text">
-		<input id="email-example" type="email" name="email-example" value>
+		<input id="email-example" type="email" name="email-example" value />
 	</span>
 </label>
 ```
@@ -216,16 +221,18 @@ For example to for a group of radio buttons:
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title" role="group">
 	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
+		<span class="o-forms-title__main" id="example-group-title"
+			>Group Title</span
+		>
 	</span>
 
 	<span class="o-forms-input o-forms-input--radio-round">
 		<label for="radio-1">
-			<input id="radio-1" type="radio" name="radio-1" value="Radio 1" checked>
+			<input id="radio-1" type="radio" name="radio-1" value="Radio 1" checked />
 			<span class="o-forms-input__label">Radio 1</span>
 		</label>
 		<label for="radio-2">
-			<input id="radio-2" type="radio" name="radio-2" value="Radio 2" checked>
+			<input id="radio-2" type="radio" name="radio-2" value="Radio 2" checked />
 			<span class="o-forms-input__label">Radio 2</span>
 		</label>
 	</span>
@@ -234,7 +241,7 @@ For example to for a group of radio buttons:
 
 Note that to associate the field title to the group of inputs we should use a [fieldset and legend element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend). However `o-forms` instead relies on a `role="group"` attribute along with an `aria-labelledby` attribute and associated `id`, `example-group-title` in the label above.
 
-_We chose not to work with a fieldset because they are [especially difficult to style consistently](https://thatemil.com/blog/2015/01/03/reset-your-fieldset/) _and_ we wanted to provide visual flexibility for our users._
+_We chose not to work with a fieldset because they are [especially difficult to style consistently](https://thatemil.com/blog/2015/01/03/reset-your-fieldset/) \_and_ we wanted to provide visual flexibility for our users.\_
 
 Other fields which use multiple input elements follow the same structure. E.g. for a group of [`checkbox` inputs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox):
 
@@ -271,16 +278,18 @@ To create a radio input use a [multiple input](#multiple-input-fields) field str
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title" role="group">
 	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
+		<span class="o-forms-title__main" id="example-group-title"
+			>Group Title</span
+		>
 	</span>
 
 	<span class="o-forms-input o-forms-input--radio-round">
 		<label for="radio-1">
-			<input id="radio-1" type="radio" name="radio-1" value="Radio 1" checked>
+			<input id="radio-1" type="radio" name="radio-1" value="Radio 1" checked />
 			<span class="o-forms-input__label">Radio 1</span>
 		</label>
 		<label for="radio-2">
-			<input id="radio-2" type="radio" name="radio-2" value="Radio 2">
+			<input id="radio-2" type="radio" name="radio-2" value="Radio 2" />
 			<span class="o-forms-input__label">Radio 2</span>
 		</label>
 	</span>
@@ -295,24 +304,28 @@ For a box-like, rectangular radio button replace the `o-forms-input--radio-round
 
 Box radio buttons may also, optionally represent a negative choose by applying the `o-forms-input__label--negative` modifier class to its label. This is useful for a yes/no input.
 
-Loading states are also supported by box radio buttons. We recommend using [`o-forms` JavaScript](#javascript) to add states to an existing form. However to add a state manually add an additional `o-forms-input__state` element with `role=status` and `aria-label="[STATE]"` attributes. In addition, add a state modifier class to the `o-forms-input` element, `o-forms-input--saving` or `o-forms-input--saved`. 
+Loading states are also supported by box radio buttons. We recommend using [`o-forms` JavaScript](#javascript) to add states to an existing form. However to add a state manually add an additional `o-forms-input__state` element with `role=status` and `aria-label="[STATE]"` attributes. In addition, add a state modifier class to the `o-forms-input` element, `o-forms-input--saving` or `o-forms-input--saved`.
 
 The below example shows a box style radio button with a positive "yes" and negative "no" option. The "no" option is checked and a saved state is shown.
 
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title" role="group">
 	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
+		<span class="o-forms-title__main" id="example-group-title"
+			>Group Title</span
+		>
 	</span>
 
 	<span class="o-forms-input o-forms-input--radio-round o-forms-input--saved">
 		<label for="radio-yes">
-			<input id="radio-yes" type="radio" name="positive" value="Yes">
+			<input id="radio-yes" type="radio" name="positive" value="Yes" />
 			<span class="o-forms-input__label">Yes</span>
 		</label>
 		<label for="radio-no">
-			<input id="radio-no" type="radio" name="negative" value="No" checked>
-			<span class="o-forms-input__label o-forms-input__label--negative">No</span>
+			<input id="radio-no" type="radio" name="negative" value="No" checked />
+			<span class="o-forms-input__label o-forms-input__label--negative"
+				>No</span
+			>
 		</label>
 
 		<span role="status" class="o-forms-input__state"></span>
@@ -328,7 +341,9 @@ Its possible to achieve the look of box style radio inputs with anchor elements 
 
 ```html
 <div class="o-forms-input o-forms-input--pseudo-radio-link">
-	<a class="o-forms-input__link o-forms-input__link--current" href="/category">Category View</a>
+	<a class="o-forms-input__link o-forms-input__link--current" href="/category"
+		>Category View</a
+	>
 	<a class="o-forms-input__link" href="/timeline">Timeline View</a>
 </div>
 ```
@@ -342,16 +357,18 @@ To create a checkbox input use a [multiple input](#multiple-input-fields) field 
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title">
 	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
+		<span class="o-forms-title__main" id="example-group-title"
+			>Group Title</span
+		>
 	</span>
 
 	<span class="o-forms-input o-forms-input--checkbox">
 		<label for="checkbox-1">
-			<input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
+			<input id="checkbox-1" type="checkbox" name="checkbox-1" value="1" />
 			<span class="o-forms-input__label">Checkbox 1</span>
 		</label>
 		<label for="checkbox-2">
-			<input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
+			<input id="checkbox-2" type="checkbox" name="checkbox-2" value="2" />
 			<span class="o-forms-input__label">Checkbox 2</span>
 		</label>
 	</span>
@@ -359,6 +376,7 @@ To create a checkbox input use a [multiple input](#multiple-input-fields) field 
 ```
 
 To align the checkbox to the **right** of its `label`, add the `o-forms-input__right` class to the `label` element:
+
 ```diff
 ...
 <span class="o-forms-input o-forms-input--checkbox">
@@ -378,16 +396,18 @@ For a toggle checkbox, replace the `o-forms-input--checkbox` modifier class with
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title">
 	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
+		<span class="o-forms-title__main" id="example-group-title"
+			>Group Title</span
+		>
 	</span>
 
 	<span class="o-forms-input o-forms-input--toggle">
 		<label for="checkbox-1">
-			<input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
+			<input id="checkbox-1" type="checkbox" name="checkbox-1" value="1" />
 			<span class="o-forms-input__label">Checkbox 1</span>
 		</label>
 		<label for="checkbox-2">
-			<input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
+			<input id="checkbox-2" type="checkbox" name="checkbox-2" value="2" />
 			<span class="o-forms-input__label">Checkbox 2</span>
 		</label>
 	</span>
@@ -395,6 +415,7 @@ For a toggle checkbox, replace the `o-forms-input--checkbox` modifier class with
 ```
 
 Toggles support 2 themes.
+
 - inverse: For a toggle on a dark background. Set `o-forms-field--inverse` on the field element.
 - white: For a toggle on a white background. Set `o-forms-field--white` on the field element.
 
@@ -403,29 +424,47 @@ Toggles support 2 themes.
 Add descriptions to toggles / checkboxes by adding `o-forms-input__label__main` and `o-forms-input__label__prompt` span elements. These must be associated with the checkbox input using `aria-labelledby` and `aria-describedby` attributes:
 
 ```html
-<div class="o-forms-field" role="group" aria-labelledby="[your-title-id]" aria-describedby="[your-description-id]">
-
+<div
+	class="o-forms-field"
+	role="group"
+	aria-labelledby="[your-title-id]"
+	aria-describedby="[your-description-id]"
+>
 	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="[your-title-id]">Toggle inputs with description</span>
-		<span class="o-forms-title__prompt" id="[your-description-id]">Optional prompt text</span>
+		<span class="o-forms-title__main" id="[your-title-id]"
+			>Toggle inputs with description</span
+		>
+		<span class="o-forms-title__prompt" id="[your-description-id]"
+			>Optional prompt text</span
+		>
 	</span>
 
 	<span class="o-forms-input o-forms-input--toggle">
-
 		<label for="checkbox-example">
-			<input id="checkbox-example" type="checkbox" name="default" value="Lorem ipsum dolor sit amet" checked="" aria-labelledby="[your-checkbox-label-id]" aria-describedby="[your-checkbox-description-id]" required="">
+			<input
+				id="checkbox-example"
+				type="checkbox"
+				name="default"
+				value="Lorem ipsum dolor sit amet"
+				checked=""
+				aria-labelledby="[your-checkbox-label-id]"
+				aria-describedby="[your-checkbox-description-id]"
+				required=""
+			/>
 			<span class="o-forms-input__label">
 				<span id="[your-checkbox-label-id]" class="o-forms-input__label__main">
 					Lorem ipsum dolor sit amet
 				</span>
-				<span id="[your-checkbox-description-id]" class="o-forms-input__label__prompt">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad earum magnam vel possimus harum suscipit.
+				<span
+					id="[your-checkbox-description-id]"
+					class="o-forms-input__label__prompt"
+				>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad earum
+					magnam vel possimus harum suscipit.
 				</span>
 			</span>
 		</label>
-
 	</span>
-
 </div>
 ```
 
@@ -438,20 +477,46 @@ To create our date input use a [multiple input](#multiple-input-fields) field st
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title">
 	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
+		<span class="o-forms-title__main" id="example-group-title"
+			>Group Title</span
+		>
 	</span>
 
 	<span class="o-forms-input o-forms-input--date">
 		<label for="date">
-			<input id="date" class="o-forms-input__day-part" type="text" inputmode="numeric" pattern="0[1-9]|[12]\d|3[01]" name="my-date" aria-label="Day (DD)"/>
+			<input
+				id="date"
+				class="o-forms-input__day-part"
+				type="text"
+				inputmode="numeric"
+				pattern="0[1-9]|[12]\d|3[01]"
+				name="my-date"
+				aria-label="Day (DD)"
+			/>
 			<span class="o-forms-input__label">DD</span>
 		</label>
 		<label for="month">
-			<input id="month" class="o-forms-input__month-part" type="text" inputmode="numeric" pattern="0?[1-9]|1[012]" name="my-date" aria-label="Month (MM)"/>
+			<input
+				id="month"
+				class="o-forms-input__month-part"
+				type="text"
+				inputmode="numeric"
+				pattern="0?[1-9]|1[012]"
+				name="my-date"
+				aria-label="Month (MM)"
+			/>
 			<span class="o-forms-input__label">MM</span>
 		</label>
 		<label for="year">
-			<input id="year" class="o-forms-input__year-part" type="text" inputmode="numeric" pattern="[0-9]{4}" name="my-date" aria-label="Year (YYYY)"/>
+			<input
+				id="year"
+				class="o-forms-input__year-part"
+				type="text"
+				inputmode="numeric"
+				pattern="[0-9]{4}"
+				name="my-date"
+				aria-label="Year (YYYY)"
+			/>
 			<span class="o-forms-input__label">YYYY</span>
 		</label>
 	</span>
@@ -465,6 +530,7 @@ _We avoid `type="number"` here for a number of reasons related to accessibility 
 To add additional, contextual information to an input label add a title element with class `o-forms-title__prompt`. When adding a prompt to a multiple input field, such as a checkbox or radio button group, give the prompt element an `id` and associated `aria-describedby` label on the field.
 
 For a single input field, such as a text input:
+
 ```diff
 <span class="o-forms-field">
 	<span class="o-forms-title">
@@ -479,6 +545,7 @@ For a single input field, such as a text input:
 ```
 
 For a multiple input field, such as a checkbox group:
+
 ```diff
 -<div class="o-forms-field" aria-labelledby="example-group-title">
 +<div class="o-forms-field" aria-labelledby="example-group-title" aria-describedby="example-group-prompt">
@@ -503,6 +570,7 @@ For a multiple input field, such as a checkbox group:
 ### Optional
 
 Add the `o-forms-field--optional` class to indicate that a field is optional. For example to mark a text field as optional:
+
 ```diff
 -<label for="text-example" class="o-forms-field">
 +<label for="text-example" class="o-forms-field o-forms-field--optional">
@@ -668,6 +736,7 @@ For example to render an invalid field without [`o-forms` JavaScript](#javascrip
 ```
 
 #### Error Summary
+
 `o-forms` also generates an error message element when a form is submitted and invalid inputs are recognised. Inputs must have a unique id and a field title element to show in the error summary.
 
 This feature will collect the custom messages of the invalid fields if they are present in the markup, or will default to the browsers native error message if they aren't. It will associate the message to the title of the input that is invalid, generate a list of links at the top of the form, and focus on the first link.
@@ -678,14 +747,21 @@ If you are not using `o-forms` JavaScript you may manually create the error summ
 
 ```html
 <!-- error summary, `labelledby` the error heading  -->
-<div class="o-forms__error-summary" aria-labelledby="my-error-summary" role="alert">
-	<h4 id="my-error-summary" class="o-forms__error-summary__heading">There is a problem</h4>
+<div
+	class="o-forms__error-summary"
+	aria-labelledby="my-error-summary"
+	role="alert"
+>
+	<h4 id="my-error-summary" class="o-forms__error-summary__heading">
+		There is a problem
+	</h4>
 	<ul class="o-forms__error-summary__list">
 		<li class="o-forms__error-summary__item">
 			<!-- link to the invalid input -->
 			<a href="#my-date-input">
 				<!-- the name of the invalid input -->
-				<span class="o-forms__error-summary__item-overview">My date input</span>:
+				<span class="o-forms__error-summary__item-overview">My date input</span
+				>:
 				<!-- a description of what is wrong and how to fix it -->
 				<span class="o-forms__error-summary__item-detail">
 					Please use the format (DD/MM/YYYY)
@@ -697,80 +773,95 @@ If you are not using `o-forms` JavaScript you may manually create the error summ
 ```
 
 ## Sass
+
 `o-forms` has a primary mixin; `oForms()`.
 
 You can include styles for every input type and feature by calling that mixin:
+
 ```scss
-@import '@financial-times/o-forms/main';
+@import "@financial-times/o-forms/main";
 @include oForms();
 ```
 
 If you would like to be more specific about what aspects of the styles get output, then you'll need to provide the primary mixin with an `$opts` map. For example, in order to output styles for text inputs and checkboxes, and add the ability to inlne them, you would use the following:
+
 ```scss
-@import '@financial-times/o-forms/main';
-@include oForms($opts: (
-	'elements': ('text', 'checkbox'),
-	'features': ('inline')
-));
+@import "@financial-times/o-forms/main";
+@include oForms(
+	$opts: (
+		"elements": (
+			"text",
+			"checkbox",
+		),
+		"features": (
+			"inline",
+		),
+	)
+);
 ```
 
 ### Options
+
 `o-forms` has many options due to its comprehensive nature.
 The `$opts` map accepts two lists with the following options:
+
 - `'elements'`:
-	- `'checkbox'`
-	- `'date'`
-	- `'file'`
-	- `'password'`
-	- `'pseudo-radio-link'`
-	- `'radio-round'`
-	- `'radio-box'`
-	- `'select'`
-	- `'textarea'`
-	- `'text'`
-	- `'toggle'`
+  - `'checkbox'`
+  - `'date'`
+  - `'file'`
+  - `'password'`
+  - `'pseudo-radio-link'`
+  - `'radio-round'`
+  - `'radio-box'`
+  - `'select'`
+  - `'textarea'`
+  - `'text'`
+  - `'toggle'`
 - `'features'`:
-	- `'disabled'`
-	- `'inline'`
-	- `'right'`
-	- `'inverse'` (deprecated, see the 'themes' option)
-	- `'small'`
-	- `'state'`
-	- `'suffix'`
-	- `error-summary`
+  - `'disabled'`
+  - `'inline'`
+  - `'right'`
+  - `'inverse'` (deprecated, see the 'themes' option)
+  - `'small'`
+  - `'state'`
+  - `'suffix'`
+  - `error-summary`
 - `'themes'`
-	- `'inverse'`
-	- `'white'`
+  - `'inverse'`
+  - `'white'`
 
 _Note 1: `valid` and `invalid` styles are output with the base of `o-forms` so there is no need to include them in the list above._
 
 _Note 2: It's important to remember that not all features will apply to all input types. If there are any features you would like to see added to an input, please [get in touch with the team](#contact)._
 
-
 ### Customisation
 
 There is one public mixin to customise two types of input: [pseudo radio links](#pseudo-radio-links) and [box-styled `input[type=radio]`](#inputttyperadio-box).
 It accepts four arguments:
+
 - `$input`: (required) either `'pseudo-radio-link'` or `'radio'`
 - `$modifier`: (required) this will name the modifier to add to the input container class list
 - `$icons`: (optional) accepts an icon or a list of icons to output according to the custom theme
 - `$theme`: (required) a map of the colors that define the custom theme:
-	- `'controls-base'`: the base color of the theme
-	- `'controls-checked-base'`: the background color of a checked input
-	- `'controls-negative-checked-background'`: the background color for a 'negative' checked input
-	- `'controls-border'`: the colour of the border around the controls
+  - `'controls-base'`: the base color of the theme
+  - `'controls-checked-base'`: the background color of a checked input
+  - `'controls-negative-checked-background'`: the background color for a 'negative' checked input
+  - `'controls-border'`: the colour of the border around the controls
 
 ```scss
-@include oFormsAddCustom((
-	$input: 'radio',
-	$modifier: 'my-theme', // outputs the class 'o-forms-input--my-theme',
-	$icons: 'burger'
-	$theme: (
-		controls-base: 'claret',
-		controls-checked-base: 'white',
-		controls-negative-checked-background: 'claret-30'
+@include oFormsAddCustom(
+	(
+		$input: "radio",
+		$modifier: "my-theme",
+		// outputs the class 'o-forms-input--my-theme',
+		$icons: "burger" $theme:
+			(
+				controls-base: "claret",
+				controls-checked-base: "white",
+				controls-negative-checked-background: "claret-30",
+			),
 	)
-));
+);
 ```
 
 ## JavaScript
@@ -784,6 +875,7 @@ If you would like to use an input without a form element, you can still apply va
 ### Form Instance
 
 The main `o-forms` JavaScript has been written to identify and run on a `<form>` element. You'll need to set up your form and include the data attribute `data-o-component="o-forms"`:
+
 ```html
 <form data-o-component="o-forms">
 	<!-- form elements as demonstrated in the markup section above  -->
@@ -791,28 +883,34 @@ The main `o-forms` JavaScript has been written to identify and run on a `<form>`
 ```
 
 By default, `o-forms` is initialised _without_ native browser validation, and with an error summary for invalid elements when the form is submitted. In order to use the default behaviour, you'll need to do the following:
+
 ```js
-import oForms from '@financial-times/o-forms';
-oForms.init()
+import oForms from "@financial-times/o-forms";
+oForms.init();
 ```
+
 The default behaviour can be changed by configuring the options object:
+
 ```js
 oForms.init(null, {
 	useBrowserValidation: true,
-	errorSummary: false
-})
+	errorSummary: false,
+});
 ```
+
 You can also set these values to the data attributes `data-o-forms-use-browser-validation` and `data-o-forms-error-summary` on the `<form>` element if you are not initialising the `oForms` instance in your product.
 
 ### Individual Inputs
 
 In the case where a single input is enough for a product but requires validation, you can initialise an `Input` instance:
+
 ```js
-import Input from '@financial-times/o-forms/src/js/input';
+import Input from "@financial-times/o-forms/src/js/input";
 new Input(myInputEl);
 ```
 
 ### State
+
 `o-forms` offers the ability to display a 'saving' or 'saved' state. However, currently the only input that accepts state is the [box-styled `input[type=radio]`](#inputtyperadio-box). If you would like to apply state to any other input, please [get in touch with the team](#contact).
 
 `o-forms` has no opinion about the timing of the states—it doesn't know when to change from 'saving' to 'saved', but it has a public method `setState` that allows the project to control this.
@@ -822,23 +920,23 @@ The `setState` method accepts three arguments: the state, name, and label. State
 ```html
 <form data-o-component="o-forms">
 	...
-		<label for="daily">
-			<span class="o-forms-input__label">Daily</span>
-			<input id="daily" type="radio" name="my-radio-box"/>
-		</label>
-			<label for="weekly">
-			<span class="o-forms-input__label">Weekly</span>
-			<input id="weekly" type="radio" name="my-radio-box"/>
-		</label>
+	<label for="daily">
+		<span class="o-forms-input__label">Daily</span>
+		<input id="daily" type="radio" name="my-radio-box" />
+	</label>
+	<label for="weekly">
+		<span class="o-forms-input__label">Weekly</span>
+		<input id="weekly" type="radio" name="my-radio-box" />
+	</label>
 	...
 </form>
 ```
 
 ```js
-import oForms from '@financial-times/o-forms';
+import oForms from "@financial-times/o-forms";
 let myForm = oForms.init();
 // on event, e.g. click
-myForm.setState('saving', 'my-radio-box');
+myForm.setState("saving", "my-radio-box");
 ```
 
 To change the saving label pass a third argument, e.g. to update the label from "Saving" to "Sending":
@@ -853,25 +951,25 @@ To change the saving label pass a third argument, e.g. to update the label from 
 You also have the option of displaying state as an icon without text. In order to do this, you can call the method above with an extra options argument:
 
 ```js
-myForm.setState('saving', 'my-radio-box', {
-	iconOnly: true
+myForm.setState("saving", "my-radio-box", {
+	iconOnly: true,
 });
 ```
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-⚠ maintained | 8 | 8.5 | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-╳ deprecated | 7 | 7.1 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-╳ deprecated | 6 | 6.0 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.11 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.1 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.5 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.0 | [migrate to v1](MIGRATION.md#migrating-to-v1) |
-╳ deprecated | 0 | 0.13 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       9       |        N/A         | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
+| ⚠ maintained |       8       |        8.5         | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+| ╳ deprecated |       7       |        7.1         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ╳ deprecated |       6       |        6.0         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated |       5       |        5.11        | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.1         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.5         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.0         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.0         |     [migrate to v1](MIGRATION.md#migrating-to-v1)     |
+| ╳ deprecated |       0       |        0.13        |                          N/A                          |
 
 ## Contact
 

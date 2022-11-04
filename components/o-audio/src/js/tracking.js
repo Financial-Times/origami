@@ -1,21 +1,27 @@
-import Delegate from 'ftdomdelegate';
-import * as Utils from '@financial-times/o-utils';
+import Delegate from "ftdomdelegate";
+import * as Utils from "@financial-times/o-utils";
 
 function fireEvent(action, audioObject, extraDetail = {}) {
-	const error = audioObject.audio.error ? {
-		code: audioObject.audio.error.code,
-		message: audioObject.audio.error.message,
-		currentTime: audioObject.audio.currentTime,
-		src: audioObject.audio.currentSrc
-	} : undefined;
+	const error = audioObject.audio.error
+		? {
+				code: audioObject.audio.error.code,
+				message: audioObject.audio.error.message,
+				currentTime: audioObject.audio.currentTime,
+				src: audioObject.audio.currentSrc,
+		  }
+		: undefined;
 
-	const event = new CustomEvent('oTracking.event', {
-		detail: Object.assign({
-			category: 'audio',
-			action,
-			duration: audioObject.audioLength,
-			error,
-		}, audioObject.trackingProperties, extraDetail),
+	const event = new CustomEvent("oTracking.event", {
+		detail: Object.assign(
+			{
+				category: "audio",
+				action,
+				duration: audioObject.audioLength,
+				error,
+			},
+			audioObject.trackingProperties,
+			extraDetail
+		),
 		bubbles: true,
 	});
 	document.body.dispatchEvent(event);
@@ -28,7 +34,7 @@ const progressWindows = [
 	[73, 77, 75],
 	[83, 87, 85],
 	[88, 92, 90],
-	[93, 97, 95]
+	[93, 97, 95],
 ];
 
 function getProgressPoint(progress) {
@@ -36,21 +42,22 @@ function getProgressPoint(progress) {
 		return progress;
 	}
 	// eslint-disable-next-line no-unused-vars
-	const [lower, upper, point] = progressWindows.find(([lower, upper]) => {
-		return progress >= lower && progress <= upper;
-	}) || [];
+	const [lower, upper, point] =
+		progressWindows.find(([lower, upper]) => {
+			return progress >= lower && progress <= upper;
+		}) || [];
 
 	return point;
 }
 
 const EVENTS = [
-	{ name: 'playing' },
-	{ name: 'pause' },
-	{ name: 'seeked', debounceEvery: 1000 },
-	{ name: 'timeupdate' },
-	{ name: 'ended' },
-	{ name: 'error' },
-	{ name: 'stalled' }
+	{ name: "playing" },
+	{ name: "pause" },
+	{ name: "seeked", debounceEvery: 1000 },
+	{ name: "timeupdate" },
+	{ name: "ended" },
+	{ name: "error" },
+	{ name: "stalled" },
 ];
 
 class AudioTracking {
@@ -61,7 +68,7 @@ class AudioTracking {
 		this.lastTrackedProgressPoint = undefined;
 
 		this.delegate = new Delegate(audio);
-		this.delegate.on('loadedmetadata', this.extractMetadata.bind(this));
+		this.delegate.on("loadedmetadata", this.extractMetadata.bind(this));
 
 		this.attachListeners();
 		this.extractMetadata();
@@ -81,18 +88,25 @@ class AudioTracking {
 		this.audioLength = parseInt(this.audio.duration, 10);
 	}
 
-	eventListener (ev) {
-		const progress = parseInt(100 * (this.audio.currentTime || 0) / this.audioLength, 10);
+	eventListener(ev) {
+		const progress = parseInt(
+			(100 * (this.audio.currentTime || 0)) / this.audioLength,
+			10
+		);
 
-		if (ev.type !== 'timeupdate') {
+		if (ev.type !== "timeupdate") {
 			return fireEvent(ev.type, this, { progress });
 		}
 
 		const progressPoint = getProgressPoint(progress);
-		if (progressPoint !== undefined && progressPoint !== this.lastTrackedProgressPoint && !this.audio.paused) {
+		if (
+			progressPoint !== undefined &&
+			progressPoint !== this.lastTrackedProgressPoint &&
+			!this.audio.paused
+		) {
 			this.lastTrackedProgressPoint = progressPoint;
 			// log as 'progress' to keep consistency with o-video
-			fireEvent('progress', this, { progress: progressPoint });
+			fireEvent("progress", this, { progress: progressPoint });
 		}
 	}
 

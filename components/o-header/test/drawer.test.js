@@ -1,30 +1,28 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import Drawer from '../src/js/drawer.js';
+import Drawer from "../src/js/drawer.js";
 
-describe('Drawer instance', () => {
-
-	describe('handleMouseleave', () => {
+describe("Drawer instance", () => {
+	describe("handleMouseleave", () => {
 		let windowSpy;
 
-		beforeEach (() => {
-			windowSpy = sinon.spy(window, 'setTimeout');
+		beforeEach(() => {
+			windowSpy = sinon.spy(window, "setTimeout");
 		});
 
 		afterEach(() => {
 			windowSpy.restore();
 		});
 
-		it('sets a timeout for a callback if the drawer does not take up the full screen', () => {
+		it("sets a timeout for a callback if the drawer does not take up the full screen", () => {
 			const originalWindowValue = window.innerWidth;
 			window.innerWidth = 401;
 
 			const scope = { offsetWidth: 400 };
 			const callback = Function.prototype;
-
 
 			Drawer.handleCloseEvents(scope, callback).handleMouseleave();
 
@@ -32,13 +30,12 @@ describe('Drawer instance', () => {
 			window.innerWidth = originalWindowValue;
 		});
 
-		it('does nothing if the drawer is full width', () => {
+		it("does nothing if the drawer is full width", () => {
 			const originalWindowValue = window.innerWidth;
 			window.innerWidth = 400;
 
 			const scope = { offsetWidth: 401 };
 			const callback = Function.prototype;
-
 
 			Drawer.handleCloseEvents(scope, callback).handleMouseleave();
 

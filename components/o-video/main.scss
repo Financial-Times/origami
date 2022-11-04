@@ -15,24 +15,34 @@ $o-video-is-silent: true !default;
 /// @access public
 /// @param {Map} $opts - ['attributes': ('ads', 'info', 'placeholder'), 	'sizes': ('small', 'medium', 'large')]
 /// Outputs all video styles
-@mixin oVideo($opts: (
-	'attributes': ('ads', 'info', 'placeholder'),
-	'sizes': ('small', 'medium', 'large')
-)) {
-	$attributes: map-get($opts, 'attributes');
-	$sizes: map-get($opts, 'sizes');
+@mixin oVideo(
+	$opts: (
+		"attributes": (
+			"ads",
+			"info",
+			"placeholder",
+		),
+		"sizes": (
+			"small",
+			"medium",
+			"large",
+		),
+	)
+) {
+	$attributes: map-get($opts, "attributes");
+	$sizes: map-get($opts, "sizes");
 
 	@include _oVideoBase();
 
-	@if index($attributes, 'ads') {
+	@if index($attributes, "ads") {
 		@include _oVideoAds();
 	}
 
-	@if index($attributes, 'placeholder') {
+	@if index($attributes, "placeholder") {
 		@include _oVideoPlaceholder();
 	}
 
-	@if index($attributes, 'info') {
+	@if index($attributes, "info") {
 		@include _oVideoInfo($sizes);
 	}
 
@@ -40,7 +50,6 @@ $o-video-is-silent: true !default;
 }
 
 @if $o-video-is-silent == false {
-
 	@include oVideo();
 
 	$o-video-is-silent: true !global;

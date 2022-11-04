@@ -1,17 +1,17 @@
 let sandboxEl;
 
 function createSandbox() {
-	if (document.querySelector('.sandbox')) {
-		sandboxEl = document.querySelector('.sandbox');
+	if (document.querySelector(".sandbox")) {
+		sandboxEl = document.querySelector(".sandbox");
 	} else {
-		sandboxEl = document.createElement('div');
-		sandboxEl.setAttribute('class', 'sandbox');
+		sandboxEl = document.createElement("div");
+		sandboxEl.setAttribute("class", "sandbox");
 		document.body.appendChild(sandboxEl);
 	}
 }
 
 export function reset() {
-	sandboxEl.innerHTML = '';
+	sandboxEl.innerHTML = "";
 }
 
 function insert(html) {
@@ -19,7 +19,9 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-export function generateHTML(type) { insert(html[type]); }
+export function generateHTML(type) {
+	insert(html[type]);
+}
 
 export const html = {
 	standard: `<div role="dialog" data-o-component="o-cookie-message" class='o-cookie-message'></div>`,
@@ -89,5 +91,5 @@ export const html = {
 				</div>
 			</div>
 		</div>
-	</div>`
+	</div>`,
 };

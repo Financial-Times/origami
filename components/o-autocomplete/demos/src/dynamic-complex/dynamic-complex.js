@@ -1,6 +1,6 @@
-import Autocomplete from '../../../main.js';
-import {data} from './data.js';
-import oForms from '@financial-times/o-forms';
+import Autocomplete from "../../../main.js";
+import { data } from "./data.js";
+import oForms from "@financial-times/o-forms";
 oForms.init();
 /**
  * @typedef {object} CustomOption
@@ -17,12 +17,16 @@ oForms.init();
  * @returns {string} The string to display in the suggestions dropdown for this option
  */
 function mapOptionToSuggestedValue(option) {
-	if (typeof option !== 'object') {
-		throw new Error(`Could not map option to suggested value, unexpected type: ${typeof option}.`);
+	if (typeof option !== "object") {
+		throw new Error(
+			`Could not map option to suggested value, unexpected type: ${typeof option}.`
+		);
 	}
 
-	if (typeof option.Country_Name !== 'string') {
-		throw new Error(`Could not map option to suggested value, option.Country_Name is not a string`);
+	if (typeof option.Country_Name !== "string") {
+		throw new Error(
+			`Could not map option to suggested value, option.Country_Name is not a string`
+		);
 	}
 
 	return option.Country_Name;
@@ -45,7 +49,7 @@ function customSuggestions(query, populateOptions) {
 		populateOptions([]);
 		return;
 	}
-	suggestions.sort(function(a,b) {
+	suggestions.sort(function (a, b) {
 		return a.Country_Name.localeCompare(b.Country_Name);
 	});
 
@@ -59,12 +63,16 @@ function customSuggestions(query, populateOptions) {
 	populateOptions(filteredOptions);
 }
 
-new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
-	source: customSuggestions,
-	mapOptionToSuggestedValue,
-	defaultValue: data.find((d) => d['Two_Letter_Country_Code'] === 'GB')?.Country_Name,
-	onConfirm: function (option) {
-		// eslint-disable-next-line no-console
-		console.log('You chose option', option);
+new Autocomplete(
+	document.querySelector('[data-o-component="o-autocomplete"]'),
+	{
+		source: customSuggestions,
+		mapOptionToSuggestedValue,
+		defaultValue: data.find(d => d["Two_Letter_Country_Code"] === "GB")
+			?.Country_Name,
+		onConfirm: function (option) {
+			// eslint-disable-next-line no-console
+			console.log("You chose option", option);
+		},
 	}
-});
+);

@@ -1,8 +1,8 @@
 @mixin _oHeaderSubnav() {
 	.o-header__subnav {
 		@include oTypographySans(0);
-		background-color: _oHeaderGet('subnav-background');
-		border-bottom: 1px solid _oHeaderGet('subnav-border');
+		background-color: _oHeaderGet("subnav-background");
+		border-bottom: 1px solid _oHeaderGet("subnav-border");
 	}
 
 	.o-header__subnav-wrap-outside {
@@ -14,7 +14,7 @@
 			// height *needs* setting so we can hide scrollbars.
 			// This is the content height of .o-header__subnav-content
 			height: $_o-header-subnav-height-base;
-			@include oGridRespondTo('M') {
+			@include oGridRespondTo("M") {
 				height: $_o-header-subnav-height-medium;
 			}
 		}
@@ -57,11 +57,16 @@
 				@include _oHeaderItemSeparatorContent();
 				&:before {
 					top: 50%;
-					margin-top: - $_o-header-subnav-height-base * div($_o-header-item-separator-percentage-height, 2);
-					height: $_o-header-subnav-height-base * $_o-header-item-separator-percentage-height;
-					@include oGridRespondTo('M') { // stylelint-disable-line max-nesting-depth
-						margin-top: - $_o-header-subnav-height-medium * div($_o-header-item-separator-percentage-height, 2);
-						height: $_o-header-subnav-height-medium * $_o-header-item-separator-percentage-height;
+					margin-top: -$_o-header-subnav-height-base *
+						div($_o-header-item-separator-percentage-height, 2);
+					height: $_o-header-subnav-height-base *
+						$_o-header-item-separator-percentage-height;
+					// stylelint-disable-next-line max-nesting-depth
+					@include oGridRespondTo("M") {
+						margin-top: -$_o-header-subnav-height-medium *
+							div($_o-header-item-separator-percentage-height, 2);
+						height: $_o-header-subnav-height-medium *
+							$_o-header-item-separator-percentage-height;
 					}
 				}
 			}
@@ -77,15 +82,20 @@
 			padding-left: 16px;
 		}
 
-		.o-header__subnav-list--children:not(.o-header__subnav-list--right) &:first-child {
+		.o-header__subnav-list--children:not(.o-header__subnav-list--right)
+			&:first-child {
 			// align left side correctly
 			padding-left: 0;
 		}
 
 		.o-header__subnav-list--breadcrumb & {
 			&:before {
-				@include oIconsContent('arrow-right', _oHeaderGet('link-highlight-text'), $size: $_o-header-icon-size-small);
-				content: '';
+				@include oIconsContent(
+					"arrow-right",
+					_oHeaderGet("link-highlight-text"),
+					$size: $_o-header-icon-size-small
+				);
+				content: "";
 				position: relative;
 				top: 0.125em;
 				margin-right: 6px;
@@ -97,24 +107,22 @@
 		}
 	}
 
-
 	.o-header__subnav-list--children.o-header__subnav-list--right {
 		margin-left: auto;
 	}
 
-
 	.o-header__subnav-link {
 		@include _oHeaderLink;
 		@include _oHeaderFancyLink;
-		color: _oHeaderGet('subnav-link');
+		color: _oHeaderGet("subnav-link");
 		display: inline-block;
 		padding: 12px 0;
-		@include oGridRespondTo('M') {
+		@include oGridRespondTo("M") {
 			padding: 8px 0;
 		}
 
 		.o-header__subnav-list--breadcrumb & {
-			color: _oHeaderGet('link-highlight-text');
+			color: _oHeaderGet("link-highlight-text");
 			text-transform: uppercase;
 			font-weight: 600;
 		}
@@ -123,14 +131,18 @@
 	.o-header__subnav-link--right {
 		float: right;
 		display: none;
-		@include oGridRespondTo('M') {
+		@include oGridRespondTo("M") {
 			display: block;
 		}
 	}
 
 	.o-header__subnav-button {
-		@include oIconsContent('arrow-left', _oHeaderGet('subnav-button-text'), $size: null);
-		background-color: _oHeaderGet('subnav-button-background');
+		@include oIconsContent(
+			"arrow-left",
+			_oHeaderGet("subnav-button-text"),
+			$size: null
+		);
+		background-color: _oHeaderGet("subnav-button-background");
 		position: absolute;
 		top: 0;
 		width: #{$_o-header-icon-size}px;
@@ -140,7 +152,7 @@
 		transition: 0.25s opacity 0.5s;
 
 		&:hover {
-			background-color: _oHeaderGet('subnav-button-hover-background');
+			background-color: _oHeaderGet("subnav-button-hover-background");
 		}
 
 		&[disabled] {

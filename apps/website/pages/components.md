@@ -16,7 +16,6 @@ nav_display: true
 nav_label: Components
 ---
 
-
 # {{page.title}}
 
 An Origami component is a collection of styles and functionality. They provide reusable <abbr title="Hypertext Markup Language">HTML</abbr>, <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> and JavaScript for a multitude of different products under the <abbr title="Financial Times">FT</abbr> umbrella.

@@ -3,7 +3,7 @@ title: Migrating Origami Components to npm and Deprecating the FT Bower Registry
 description: We are migrating Origami Components from Bower onto the npmjs registry, this will be done by the end of Q2. Once the Origami Components are on npm, the versions on Bower will go into a deprecated state where they have no new features added. Products/Projects which want to get new Origami designs and features will need to migrate to npm.
 author: Jake Champion
 tags:
-- Newsletter
+  - Newsletter
 ---
 
 We are migrating Origami Components from Bower onto the [npmjs registry](https://www.npmjs.com/), this will be done by the end of Q2. Once the Origami Components are on npm, the versions on Bower will go into a deprecated state where they have no new features added. Products/Projects which want to get new Origami designs and features will need to migrate to npm.

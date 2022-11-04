@@ -31,23 +31,22 @@ Some elements inside the header require specific data attributes so the JavaScri
 - data-o-header-subnav: Applied to the root `div` of the subnav menu
 - data-o-header-subnav-wrapper: Applied to the inner wrapper `div` of the subnav menu so the JS can handle the scrolling
 
-
 ## JavaScript
 
 An o-header object must be constructed for every `<header>` you have on your page that uses this component.
 
 ```js
-import Header from '@financial-times/o-header';
-const headerEl = document.querySelector('.o-header');
+import Header from "@financial-times/o-header";
+const headerEl = document.querySelector(".o-header");
 const header = new oHeader(headerEl);
 ```
 
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the document to auto-construct an o-header object for each element with a `data-o-component="o-header"` attribute:
 
 ```js
-import '@financial-times/o-header';
-document.addEventListener("DOMContentLoaded", function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+import "@financial-times/o-header";
+document.addEventListener("DOMContentLoaded", function () {
+	document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
 });
 ```
 
@@ -58,7 +57,6 @@ o-header fires the following events:
 - `oHeader.MegaMenuShow`: When a mega menu is shown. The target of the event is the menu itself.
 - `oHeader.MegaMenuClose`: When a mega menu is closed. The target of the event is the menu itself.
 - `oHeader.Sticky`: When the header changes to or from sticky. The event detail will contain an `isActive` boolean indicated sticky or not. The target of the event is the menu itself.
-
 
 ## Sass
 
@@ -82,7 +80,7 @@ To output styles for a feature only, excluding base header styles required by al
 E.g. To get all of the CSS needed for the FT homepage you would call:
 
 ```scss
-@include oHeader(('sticky', 'simple', 'anon', 'search', 'nav', 'megamenu'));
+@include oHeader(("sticky", "simple", "anon", "search", "nav", "megamenu"));
 ```
 
 ## Browser Support
@@ -91,24 +89,24 @@ To use `o-header` setup a [core and enhanced experience](https://origami.ft.com/
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 10 | N/A | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
-⚠ maintained | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-⚠ maintained | 8 | 8.6 | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-╳ deprecated | 7 | 7.8 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-╳ deprecated | 6 | 6.14 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.0 | - |
-╳ deprecated | 4 | 4.0 | - |
-╳ deprecated | 3 | 3.0 | - |
-╳ deprecated | 2 | 2.5 | - |
-╳ deprecated | 1 | 1.1 | - |
+|    State     | Major Version | Last Minor Release |                     Migration guide                     |
+| :----------: | :-----------: | :----------------: | :-----------------------------------------------------: |
+|  ✨ active   |      10       |        N/A         | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
+| ⚠ maintained |       9       |        N/A         |  [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9)  |
+| ⚠ maintained |       8       |        8.6         |  [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8)  |
+| ╳ deprecated |       7       |        7.8         |  [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7)  |
+| ╳ deprecated |       6       |        6.14        |  [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6)  |
+| ╳ deprecated |       5       |        5.0         |                            -                            |
+| ╳ deprecated |       4       |        4.0         |                            -                            |
+| ╳ deprecated |       3       |        3.0         |                            -                            |
+| ╳ deprecated |       2       |        2.5         |                            -                            |
+| ╳ deprecated |       1       |        1.1         |                            -                            |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-header/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

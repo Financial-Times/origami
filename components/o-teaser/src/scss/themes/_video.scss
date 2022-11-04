@@ -1,14 +1,13 @@
 @mixin _oTeaserVideo {
 	.o-teaser__heading:before {
-		@include oIconsContent('play', oColorsByName('white'), $size: null);
-		content: '';
+		@include oIconsContent("play", oColorsByName("white"), $size: null);
+		content: "";
 		width: 0.7em;
 		height: 0.7em;
 		min-width: 12px;
 		min-height: 12px;
 		margin-right: 0.15em;
-		background-color: oColorsByName('slate');
-
+		background-color: oColorsByName("slate");
 	}
 
 	// hide the title prefix icon if there is an image...
@@ -18,8 +17,8 @@
 
 	// ...except for when the image is hidden on small teasers on narrow viewports
 	&.o-teaser--has-image.o-teaser--small .o-teaser__heading:before {
-		@include oGridRespondTo($until: 'M') {
-			content: '';
+		@include oGridRespondTo($until: "M") {
+			content: "";
 		}
 	}
 
@@ -28,9 +27,9 @@
 		position: relative;
 
 		&:after {
-			@include oIconsContent('play', oColorsByName('white'), $size: null);
+			@include oIconsContent("play", oColorsByName("white"), $size: null);
 			pointer-events: none;
-			content: '';
+			content: "";
 			position: absolute;
 			bottom: 0;
 			left: 0;
@@ -39,7 +38,7 @@
 			padding-top: 15%;
 			min-width: 20px;
 			min-height: 20px;
-			background-color: oColorsByName('slate');
+			background-color: oColorsByName("slate");
 		}
 	}
 
@@ -62,7 +61,7 @@
 	.o-teaser__image-container {
 		// use padding instead of margins so we don't have to worry about
 		// the --stretch (flexbox) variant containing margins and doubling up.
-		padding: 0 0 oSpacingByName('s3');
+		padding: 0 0 oSpacingByName("s3");
 	}
 
 	&.o-teaser--large .o-teaser__image-container,
@@ -72,10 +71,10 @@
 	}
 
 	&.o-teaser--large .o-teaser__image-container {
-		padding-top: oSpacingByName('s3');
+		padding-top: oSpacingByName("s3");
 	}
 
 	&.o-teaser--hero .o-teaser__image-container {
-		padding-top: oSpacingByName('s1');
+		padding-top: oSpacingByName("s1");
 	}
 }

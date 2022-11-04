@@ -1,5 +1,5 @@
-@include test-module('oTeaserCollection') {
-	@include test('Outputs collection, heading, and items default') {
+@include test-module("oTeaserCollection") {
+	@include test("Outputs collection, heading, and items default") {
 		// collection
 		@include assert {
 			@include output($selector: false) {
@@ -34,12 +34,16 @@
 			}
 		}
 	}
-	@include test('Outputs a given collection modifer') {
+	@include test("Outputs a given collection modifer") {
 		@include assert {
 			@include output() {
-				@include oTeaserCollection($opts: (
-					'collections': ('special')
-				));
+				@include oTeaserCollection(
+					$opts: (
+						"collections": (
+							"special",
+						),
+					)
+				);
 			}
 			@include contains() {
 				.o-teaser-collection--special {
@@ -48,12 +52,16 @@
 			}
 		}
 	}
-	@include test('Outputs a given heading modifer') {
+	@include test("Outputs a given heading modifer") {
 		@include assert {
 			@include output() {
-				@include oTeaserCollection($opts: (
-					'headings': ('inverse')
-				));
+				@include oTeaserCollection(
+					$opts: (
+						"headings": (
+							"inverse",
+						),
+					)
+				);
 			}
 			@include contains() {
 				.o-teaser-collection__heading--inverse {
@@ -62,12 +70,16 @@
 			}
 		}
 	}
-	@include test('Outputs a given items modifer') {
+	@include test("Outputs a given items modifer") {
 		@include assert {
 			@include output() {
-				@include oTeaserCollection($opts: (
-					'items': ('stretched')
-				));
+				@include oTeaserCollection(
+					$opts: (
+						"items": (
+							"stretched",
+						),
+					)
+				);
 			}
 			@include contains() {
 				.o-teaser-collection__item--stretched {

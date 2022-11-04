@@ -28,32 +28,31 @@
 
 	.o-forms-field--optional .o-forms-title__main:after {
 		@include oTypographySans($scale: -1, $include-font-family: false);
-		content: '(optional)';
-		color: _oFormsGet('default-prompt-text');
+		content: "(optional)";
+		color: _oFormsGet("default-prompt-text");
 		font-weight: 400;
 		margin-left: $_o-forms-spacing-one;
 	}
 
 	.o-forms-title__main {
-		@include oTypographySans($weight: 'semibold', $include-font-family: false);
+		@include oTypographySans($weight: "semibold", $include-font-family: false);
 		display: block;
 	}
 
-
 	.o-forms-input__label__main {
-		@include oTypographySans($weight: 'regular', $include-font-family: false);
+		@include oTypographySans($weight: "regular", $include-font-family: false);
 		display: block;
 	}
 
 	.o-forms-input__label__prompt,
 	.o-forms-title__prompt {
 		@include oTypographySans($scale: -1, $include-font-family: false);
-		color: _oFormsGet('default-prompt-text');
+		color: _oFormsGet("default-prompt-text");
 		display: block;
 	}
 
 	.o-forms-input__label__main + .o-forms-input__label__prompt {
-		margin-top: oSpacingByName('s1');
+		margin-top: oSpacingByName("s1");
 	}
 
 	.o-forms-input {

@@ -21,12 +21,14 @@ Some of the bigger Origami news from the last month:
 It's been a while and we've had a few requests, so we've arranged new Introduction To Origami sessions for November ✨
 
 We're doing things a little differently this time. There are two sessions. The first presentation is useful for anyone who works in Product and Technology – we cover things at a high level rather than diving into too many technical details, including:
+
 1. The Origami Team (History)
 2. Origami Components
 3. Origami Services
 4. Origami Collaboration
 
 The second session is a workshop which looks at components in more detail. We’ll briefly cover how components are built and move on to learn how to include them in projects. Including a practical element where you’ll have the opportunity to put together an FT page with Origami components.
+
 1. Languages & Tools (History)
 2. Structure
 3. Delivery
@@ -37,7 +39,8 @@ We'll be running the sessions Tuesday, 3rd November from 10:00am (London time). 
 ### o-tracking Major Release
 
 You may know from our previous issues that the Origami team had taken on stewardship of `o-tracking` (there is a [technology proposal to find new owners](https://github.com/Financial-Times/technology-proposals/issues/51)). Well, we've just released a new major version (v3) with some big improvements:
--  Using cookies as a storage mechanism for queuing events has been removed to improve site performance. The browser would send the tracking cookie (which ranged in size from 500 bytes to 2.5kb) with every request on a page, for example to fetch each image, slowing down each request and making page loading slower. At the cookie's largest size, and with over 100 requests made to render a site like ft.com, that adds up to a significant data saving 🎉
+
+- Using cookies as a storage mechanism for queuing events has been removed to improve site performance. The browser would send the tracking cookie (which ranged in size from 500 bytes to 2.5kb) with every request on a page, for example to fetch each image, slowing down each request and making page loading slower. At the cookie's largest size, and with over 100 requests made to render a site like ft.com, that adds up to a significant data saving 🎉
 - The Beacon API is used by default by all browsers which support it, helping ensure we don't miss data. We tested this on article pages and have seen a 50% increase in the amount of tracking events received by the the data platform.
 - <abbr title="Application programming interface">API</abbr> changes have been made to improve usability and future maintainability, i.e. by reducing the public <abbr title="Application programming interface">API</abbr> and number of configuration options.
 - Documentation has been updated with more detail and examples.

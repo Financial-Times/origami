@@ -1,17 +1,17 @@
 let sandboxEl;
 
 function createSandbox() {
-	if (document.querySelector('.sandbox')) {
-		sandboxEl = document.querySelector('.sandbox');
+	if (document.querySelector(".sandbox")) {
+		sandboxEl = document.querySelector(".sandbox");
 	} else {
-		sandboxEl = document.createElement('div');
-		sandboxEl.setAttribute('class', 'sandbox');
+		sandboxEl = document.createElement("div");
+		sandboxEl.setAttribute("class", "sandbox");
 		document.body.appendChild(sandboxEl);
 	}
 }
 
 function reset() {
-	sandboxEl.innerHTML = '';
+	sandboxEl.innerHTML = "";
 }
 
 function insert(html) {
@@ -19,7 +19,7 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-function declarativeCode () {
+function declarativeCode() {
 	const html = `
 		<div class="tooltip-test-wrapper">
 			<div class='tooltip-target' id="demo-tooltip-target">
@@ -140,7 +140,7 @@ function declarativeCode () {
 	insert(html);
 }
 
-function imperativeCode () {
+function imperativeCode() {
 	const html = `<div class='tooltip-target' id="demo-tooltip-target">
 			Thing to point the tooltip at.
 		</div>
@@ -148,8 +148,4 @@ function imperativeCode () {
 	insert(html);
 }
 
-export {
-	declarativeCode,
-	imperativeCode,
-	reset
-};
+export { declarativeCode, imperativeCode, reset };

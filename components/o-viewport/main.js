@@ -1,4 +1,4 @@
-import utils from './src/utils.js';
+import utils from "./src/utils.js";
 
 const throttle = utils.throttle;
 const debounce = utils.debounce;
@@ -8,7 +8,7 @@ const intervals = {
 	resize: 100,
 	orientation: 100,
 	visibility: 100,
-	scroll: 100
+	scroll: 100,
 };
 
 /**
@@ -26,11 +26,11 @@ const intervals = {
  *     setThrottleInterval(30);
  */
 function setThrottleInterval(eventType, interval) {
-	if (typeof arguments[0] === 'number') {
-		setThrottleInterval('scroll', arguments[0]);
-		setThrottleInterval('resize', arguments[1]);
-		setThrottleInterval('orientation', arguments[2]);
-		setThrottleInterval('visibility', arguments[3]);
+	if (typeof arguments[0] === "number") {
+		setThrottleInterval("scroll", arguments[0]);
+		setThrottleInterval("resize", arguments[1]);
+		setThrottleInterval("orientation", arguments[2]);
+		setThrottleInterval("visibility", arguments[3]);
 	} else if (interval) {
 		intervals[eventType] = interval;
 	}
@@ -43,19 +43,18 @@ function listenToResize() {
 	if (listeners.resize) {
 		return;
 	}
-	const eventType = 'resize';
-	const handler = debounce(function(ev) {
-		utils.broadcast('resize', {
+	const eventType = "resize";
+	const handler = debounce(function (ev) {
+		utils.broadcast("resize", {
 			viewport: utils.getSize(),
-			originalEvent: ev
+			originalEvent: ev,
 		});
 	}, intervals.resize);
-
 
 	window.addEventListener(eventType, handler);
 	listeners.resize = {
 		eventType: eventType,
-		handler: handler
+		handler: handler,
 	};
 }
 
@@ -63,24 +62,23 @@ function listenToResize() {
  * @access private
  */
 function listenToOrientation() {
-
 	if (listeners.orientation) {
 		return;
 	}
 
-	const eventType = 'orientationchange';
-	const handler = debounce(function(ev) {
-		utils.broadcast('orientation', {
+	const eventType = "orientationchange";
+	const handler = debounce(function (ev) {
+		utils.broadcast("orientation", {
 			viewport: utils.getSize(),
 			orientation: utils.getOrientation(),
-			originalEvent: ev
+			originalEvent: ev,
 		});
 	}, intervals.orientation);
 
 	window.addEventListener(eventType, handler);
 	listeners.orientation = {
 		eventType: eventType,
-		handler: handler
+		handler: handler,
 	};
 }
 
@@ -88,16 +86,15 @@ function listenToOrientation() {
  * @access private
  */
 function listenToVisibility() {
-
 	if (listeners.visibility) {
 		return;
 	}
 
-	const eventType = 'visibilitychange';
-	const handler = debounce(function(ev) {
-		utils.broadcast('visibility', {
+	const eventType = "visibilitychange";
+	const handler = debounce(function (ev) {
+		utils.broadcast("visibility", {
 			hidden: utils.getVisibility(),
-			originalEvent: ev
+			originalEvent: ev,
 		});
 	}, intervals.visibility);
 
@@ -105,7 +102,7 @@ function listenToVisibility() {
 
 	listeners.visibility = {
 		eventType: eventType,
-		handler: handler
+		handler: handler,
 	};
 }
 
@@ -113,28 +110,27 @@ function listenToVisibility() {
  * @access private
  */
 function listenToScroll() {
-
 	if (listeners.scroll) {
 		return;
 	}
 
-	const eventType = 'scroll';
-	const handler = throttle(function(ev) {
+	const eventType = "scroll";
+	const handler = throttle(function (ev) {
 		const scrollPos = utils.getScrollPosition();
-		utils.broadcast('scroll', {
+		utils.broadcast("scroll", {
 			viewport: utils.getSize(),
 			scrollHeight: scrollPos.height,
 			scrollLeft: scrollPos.left,
 			scrollTop: scrollPos.top,
 			scrollWidth: scrollPos.width,
-			originalEvent: ev
+			originalEvent: ev,
 		});
 	}, intervals.scroll);
 
 	window.addEventListener(eventType, handler);
 	listeners.scroll = {
 		eventType: eventType,
-		handler: handler
+		handler: handler,
 	};
 }
 
@@ -152,19 +148,19 @@ function listenToScroll() {
  *      });
  */
 function listenTo(eventType) {
-	if (eventType === 'resize' || eventType === 'all') {
+	if (eventType === "resize" || eventType === "all") {
 		listenToResize();
 	}
 
-	if (eventType === 'scroll' || eventType === 'all') {
+	if (eventType === "scroll" || eventType === "all") {
 		listenToScroll();
 	}
 
-	if (eventType === 'orientation' || eventType === 'all') {
+	if (eventType === "orientation" || eventType === "all") {
 		listenToOrientation();
 	}
 
-	if (eventType === 'visibility' || eventType === 'all') {
+	if (eventType === "visibility" || eventType === "all") {
 		listenToVisibility();
 	}
 }
@@ -180,10 +176,13 @@ function listenTo(eventType) {
  * 		oViewport.stopListeningTo('all');
  */
 function stopListeningTo(eventType) {
-	if (eventType === 'all') {
+	if (eventType === "all") {
 		Object.keys(listeners).forEach(stopListeningTo);
 	} else if (listeners[eventType]) {
-		window.removeEventListener(listeners[eventType].eventType, listeners[eventType].handler);
+		window.removeEventListener(
+			listeners[eventType].eventType,
+			listeners[eventType].handler
+		);
 		delete listeners[eventType];
 	}
 }
@@ -198,5 +197,5 @@ export default {
 	getOrientation: utils.getOrientation,
 	getSize: utils.getSize,
 	getScrollPosition: utils.getScrollPosition,
-	getVisibility: utils.getVisibility
+	getVisibility: utils.getVisibility,
 };

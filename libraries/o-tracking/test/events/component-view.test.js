@@ -1,47 +1,49 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
-import '../setup.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
+import "../setup.js";
 
-import {set} from '../../src/javascript/core/settings.js';
-import {init as initSend} from '../../src/javascript/core/send.js';
-import core from '../../src/javascript/core.js';
-import {init as initSession} from '../../src/javascript/core/session.js';
-import {view} from '../../src/javascript/events/component-view.js';
+import { set } from "../../src/javascript/core/settings.js";
+import { init as initSend } from "../../src/javascript/core/send.js";
+import core from "../../src/javascript/core.js";
+import { init as initSession } from "../../src/javascript/core/session.js";
+import { view } from "../../src/javascript/events/component-view.js";
 
 const config = {
 	context: {
-		product: 'desktop'
+		product: "desktop",
 	},
 	user: {
-		user_id: '123456'
+		user_id: "123456",
 	},
 };
 
 let targetComponent;
 let errorThrown;
 
-function createTargetComponent (attributes, text) {
-	targetComponent = document.createElement('div');
-	attributes.forEach(attr => targetComponent.setAttribute(attr.key, attr.value));
+function createTargetComponent(attributes, text) {
+	targetComponent = document.createElement("div");
+	attributes.forEach(attr =>
+		targetComponent.setAttribute(attr.key, attr.value)
+	);
 	targetComponent.innerHTML = text;
 	document.body.appendChild(targetComponent);
 }
 
-function viewed (target) {
-	const event = new Event('intersect');
+function viewed(target) {
+	const event = new Event("intersect");
 	target.dispatchEvent(event);
 }
 
-function setMockIntersectionObserver (observeSpy, unobserveSpy) {
+function setMockIntersectionObserver(observeSpy, unobserveSpy) {
 	function mockIntersectionObserver(callback, options) {
 		this.callback = callback;
 		this.options = options;
 	}
 
 	mockIntersectionObserver.prototype.observe = function (target) {
-		target.addEventListener('intersect', () => {
+		target.addEventListener("intersect", () => {
 			try {
 				this.callback([{ isIntersecting: true, target }]);
 			} catch (e) {
@@ -58,18 +60,16 @@ function setMockIntersectionObserver (observeSpy, unobserveSpy) {
 	window.IntersectionObserver = mockIntersectionObserver;
 }
 
-
-describe('component:view', () => {
-
+describe("component:view", () => {
 	const observeSpy = sinon.spy();
 	const unobserveSpy = sinon.spy();
 
 	beforeEach(() => {
 		initSession();
 		initSend();
-		set('config', config);
+		set("config", config);
 		setMockIntersectionObserver(observeSpy, unobserveSpy);
-		sinon.spy(core, 'track');
+		sinon.spy(core, "track");
 	});
 
 	afterEach(() => {
@@ -83,45 +83,53 @@ describe('component:view', () => {
 		core.track.restore();
 	});
 
-	context('with default props', () => {
+	context("with default props", () => {
 		beforeEach(() => {
-			const attributes = [{ key: 'data-o-tracking-view', value: true }];
-			const text = 'component:view target for default props';
+			const attributes = [{ key: "data-o-tracking-view", value: true }];
+			const text = "component:view target for default props";
 
 			createTargetComponent(attributes, text);
 			view.init();
 			viewed(targetComponent);
 		});
 
-		it('should track an event for a component view ', () => {
+		it("should track an event for a component view ", () => {
 			proclaim.equal(errorThrown, undefined);
-			proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
-			proclaim.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
+			proclaim.equal(
+				observeSpy.calledOnce,
+				true,
+				"IntersectionObserver observed target"
+			);
+			proclaim.equal(
+				unobserveSpy.calledOnce,
+				true,
+				"IntersectionObserver unobserved target"
+			);
 		});
 	});
 
-	context('with custom props', () => {
-		const category = 'custom';
-		const id = '1234';
-		const type = 'audio';
-		const targetAttribute = 'data-custom-element';
-		const idAttribute = 'data-id';
+	context("with custom props", () => {
+		const category = "custom";
+		const id = "1234";
+		const type = "audio";
+		const targetAttribute = "data-custom-element";
+		const idAttribute = "data-id";
 		const attributes = [
 			{ key: targetAttribute, value: true },
 			{ key: idAttribute, value: id },
 		];
-		const text = 'component:view target for custom props';
+		const text = "component:view target for custom props";
 
 		beforeEach(() => {
 			createTargetComponent(attributes, text);
 		});
 
-		describe('given correct', () => {
+		describe("given correct", () => {
 			beforeEach(() => {
 				const opts = {
 					category,
 					selector: `[${targetAttribute}]`,
-					getContextData: (el) => {
+					getContextData: el => {
 						return { componentContentId: el.getAttribute(idAttribute), type };
 					},
 				};
@@ -130,15 +138,23 @@ describe('component:view', () => {
 				viewed(targetComponent);
 			});
 
-			it('should track an event for a component view', () => {
+			it("should track an event for a component view", () => {
 				proclaim.equal(errorThrown, undefined);
-				proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
-				proclaim.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
+				proclaim.equal(
+					observeSpy.calledOnce,
+					true,
+					"IntersectionObserver observed target"
+				);
+				proclaim.equal(
+					unobserveSpy.calledOnce,
+					true,
+					"IntersectionObserver unobserved target"
+				);
 			});
 		});
 
-		describe('given wrong', () => {
-			context('getContextData is not a function', () => {
+		describe("given wrong", () => {
+			context("getContextData is not a function", () => {
 				beforeEach(() => {
 					const opts = {
 						selector: `[${targetAttribute}]`,
@@ -149,55 +165,86 @@ describe('component:view', () => {
 					viewed(targetComponent);
 				});
 
-				it('should throw an error', () => {
-					proclaim.equal(errorThrown.message, 'opts.getContextData is not a function');
-					proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
-					proclaim.equal(unobserveSpy.calledOnce, false, 'IntersectionObserver unobserved target');
+				it("should throw an error", () => {
+					proclaim.equal(
+						errorThrown.message,
+						"opts.getContextData is not a function"
+					);
+					proclaim.equal(
+						observeSpy.calledOnce,
+						true,
+						"IntersectionObserver observed target"
+					);
+					proclaim.equal(
+						unobserveSpy.calledOnce,
+						false,
+						"IntersectionObserver unobserved target"
+					);
 				});
 			});
 
-			context('getContextData returns non-Object', () => {
+			context("getContextData returns non-Object", () => {
 				beforeEach(() => {
 					const opts = {
 						selector: `[${targetAttribute}]`,
-						getContextData: (el) => `${el}`,
+						getContextData: el => `${el}`,
 					};
 
 					view.init(opts);
 					viewed(targetComponent);
 				});
 
-				it('should throw an error', () => {
-					proclaim.equal(errorThrown.message, 'opts.getContextData function should return {object}');
-					proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
-					proclaim.equal(unobserveSpy.calledOnce, false, 'IntersectionObserver unobserved target');
+				it("should throw an error", () => {
+					proclaim.equal(
+						errorThrown.message,
+						"opts.getContextData function should return {object}"
+					);
+					proclaim.equal(
+						observeSpy.calledOnce,
+						true,
+						"IntersectionObserver observed target"
+					);
+					proclaim.equal(
+						unobserveSpy.calledOnce,
+						false,
+						"IntersectionObserver unobserved target"
+					);
 				});
 			});
 
-			context('getContextData returns an Object which includes unfiltered props', () => {
-				beforeEach(() => {
-					const opts = {
-						selector: `[${targetAttribute}]`,
-						getContextData: (el) => {
-							return {
-								componentContentId: el.getAttribute(idAttribute),
-								name: 'name',
-							};
-						},
-					};
+			context(
+				"getContextData returns an Object which includes unfiltered props",
+				() => {
+					beforeEach(() => {
+						const opts = {
+							selector: `[${targetAttribute}]`,
+							getContextData: el => {
+								return {
+									componentContentId: el.getAttribute(idAttribute),
+									name: "name",
+								};
+							},
+						};
 
-					view.init(opts);
-					viewed(targetComponent);
-				});
+						view.init(opts);
+						viewed(targetComponent);
+					});
 
-				it('should not throw an error', () => {
-					proclaim.equal(errorThrown, undefined);
-					proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
-					proclaim.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
-				});
-			});
-
+					it("should not throw an error", () => {
+						proclaim.equal(errorThrown, undefined);
+						proclaim.equal(
+							observeSpy.calledOnce,
+							true,
+							"IntersectionObserver observed target"
+						);
+						proclaim.equal(
+							unobserveSpy.calledOnce,
+							true,
+							"IntersectionObserver unobserved target"
+						);
+					});
+				}
+			);
 		});
 	});
-
 });

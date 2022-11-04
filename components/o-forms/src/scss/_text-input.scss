@@ -11,11 +11,11 @@
 	$suffix: null,
 	$include-password-selector: false
 ) {
-	$selector: '.o-forms-input--text';
-	$element: 'input';
+	$selector: ".o-forms-input--text";
+	$element: "input";
 
-	@if($include-password-selector) {
-		$selector: $selector + ', .o-forms-input--password';
+	@if ($include-password-selector) {
+		$selector: $selector + ", .o-forms-input--password";
 	}
 
 	#{$selector} {

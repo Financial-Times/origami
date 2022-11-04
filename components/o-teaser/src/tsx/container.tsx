@@ -1,4 +1,4 @@
-import {media, theme} from './concerns/rules';
+import { media, theme } from "./concerns/rules";
 
 const dynamicModifiers = props => {
 	const modifiers = [];
@@ -26,13 +26,14 @@ export default props => {
 	const classNames = variants
 		.filter(Boolean)
 		.map(mod => `o-teaser--${mod}`)
-		.join(' ');
+		.join(" ");
 
 	return (
 		<div
 			className={`o-teaser ${classNames} js-teaser`}
 			data-id={props.id}
-			data-trackable={props.dataTrackable}>
+			data-trackable={props.dataTrackable}
+		>
 			{props.children}
 		</div>
 	);

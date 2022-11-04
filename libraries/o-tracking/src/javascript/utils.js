@@ -1,12 +1,12 @@
 /**
  * Shared 'internal' scope.
  */
-import {get} from './core/settings.js';
+import { get } from "./core/settings.js";
 
 /**
  * CUID Generator
  */
-import {api as cuid} from '../libs/browser-cuid.js';
+import { api as cuid } from "../libs/browser-cuid.js";
 
 /**
  * Record of callbacks to call when a page is tracked.
@@ -20,7 +20,7 @@ const page_callbacks = [];
  * @returns {void}
  */
 function log(...args) {
-	if (get('config').test && window.console) {
+	if (get("config").test && window.console) {
 		for (const arg of args) {
 			window.console.log(arg);
 		}
@@ -35,7 +35,7 @@ function log(...args) {
  *
  * @returns {boolean} - The answer for if the variable is of type.
  */
-function is(variable, type = 'undefined') {
+function is(variable, type = "undefined") {
 	return typeof variable === type;
 }
 
@@ -69,8 +69,9 @@ function merge(target, options) {
 		}
 
 		// Gets rid of missing values too
-		if (typeof copy !== 'undefined' && copy !== null) {
-			target[name] = src === Object(src) && !is(src, 'function') ? merge(src, copy) : copy;
+		if (typeof copy !== "undefined" && copy !== null) {
+			target[name] =
+				src === Object(src) && !is(src, "function") ? merge(src, copy) : copy;
 		}
 	}
 	/* jshint +W089 */
@@ -119,7 +120,7 @@ function addEvent(element, event, listener) {
 	if (element.addEventListener) {
 		element.addEventListener(event, listener, false);
 	} else {
-		element.attachEvent('on' + event, listener);
+		element.attachEvent("on" + event, listener);
 	}
 }
 
@@ -134,10 +135,12 @@ function addEvent(element, event, listener) {
 function broadcast(namespace, eventType, detail) {
 	detail = detail || {};
 	try {
-		window.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
-			detail: detail,
-			bubbles: true
-		}));
+		window.dispatchEvent(
+			new CustomEvent(namespace + "." + eventType, {
+				detail: detail,
+				bubbles: true,
+			})
+		);
 	} catch (error) {
 		// empty
 	}
@@ -150,7 +153,7 @@ function broadcast(namespace, eventType, detail) {
  * @returns {void}
  */
 function onPage(cb) {
-	if (is(cb, 'function') && !page_callbacks.includes(cb)) {
+	if (is(cb, "function") && !page_callbacks.includes(cb)) {
 		page_callbacks.push(cb);
 	}
 }
@@ -173,7 +176,11 @@ function triggerPage() {
  * @returns {string} - The vale from the cookie
  */
 function getValueFromCookie(matcher) {
-	return document.cookie.match(matcher) && RegExp.$1 !== '' && RegExp.$1 !== 'null' ? RegExp.$1 : null;
+	return document.cookie.match(matcher) &&
+		RegExp.$1 !== "" &&
+		RegExp.$1 !== "null"
+		? RegExp.$1
+		: null;
 }
 
 /**
@@ -183,7 +190,7 @@ function getValueFromCookie(matcher) {
  * @param {Array} allowedPropertyNames - The list of props to allow
  * @returns {object} An object containing only the allowed props
  */
-function filterProperties (objectToFilter, allowedPropertyNames) {
+function filterProperties(objectToFilter, allowedPropertyNames) {
 	const filteredObject = {};
 	for (const allowedName of allowedPropertyNames) {
 		if (objectToFilter[allowedName]) {
@@ -199,8 +206,8 @@ function filterProperties (objectToFilter, allowedPropertyNames) {
  * @param {string} str - The string to trim.
  * @returns {string} The trimmed string.
  */
-function sanitise (str) {
-	return typeof str === 'string' ? str.trim() : str;
+function sanitise(str) {
+	return typeof str === "string" ? str.trim() : str;
 }
 
 /**
@@ -210,7 +217,7 @@ function sanitise (str) {
  * @param {object} target - be assigned the value
  * @returns {void}
  */
-function assignIfUndefined (subject, target) {
+function assignIfUndefined(subject, target) {
 	for (const prop in subject) {
 		if (!target[prop]) {
 			target[prop] = subject[prop];
@@ -252,10 +259,10 @@ function findCircularPathsIn(rootObject) {
 				if (value instanceof Object) {
 					const parentObjectIsAnArray = Array.isArray(currentObject);
 					if (parentObjectIsAnArray) {
-					// Store path in bracket notation when value is an array
+						// Store path in bracket notation when value is an array
 						_findCircularPathsIn(value, `${path}[${key}]`);
 					} else {
-					// Store path in dot-notation when value is an object
+						// Store path in dot-notation when value is an object
 						_findCircularPathsIn(value, `${path}.${key}`);
 					}
 				}
@@ -309,11 +316,7 @@ function containsCircularPaths(rootObject) {
 
 	// _containsCircularPaths returns true or undefined.
 	// By using Boolean we convert the undefined into false.
-	return Boolean(
-		_containsCircularPaths(
-			rootObject
-		)
-	);
+	return Boolean(_containsCircularPaths(rootObject));
 }
 
 /**
@@ -328,12 +331,7 @@ function isDeepEqual(a, b) {
 		return true;
 	}
 
-	if (
-		a &&
-		b &&
-		typeof a === "object" &&
-		typeof b === "object"
-	) {
+	if (a && b && typeof a === "object" && typeof b === "object") {
 		if (a.constructor !== b.constructor) {
 			return false;
 		}
@@ -352,9 +350,7 @@ function isDeepEqual(a, b) {
 		}
 
 		if (a.constructor === RegExp) {
-			return (
-				a.source === b.source && a.flags === b.flags
-			);
+			return a.source === b.source && a.flags === b.flags;
 		}
 		if (a.valueOf !== Object.prototype.valueOf) {
 			return a.valueOf() === b.valueOf();
@@ -405,5 +401,5 @@ export {
 	filterProperties,
 	findCircularPathsIn,
 	containsCircularPaths,
-	isDeepEqual
+	isDeepEqual,
 };

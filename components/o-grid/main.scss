@@ -1,8 +1,8 @@
-@import '@financial-times/math';
-@import '@financial-times/sass-mq';
-@import 'src/scss/variables';
-@import 'src/scss/functions';
-@import 'src/scss/mixins';
+@import "@financial-times/math";
+@import "@financial-times/sass-mq";
+@import "src/scss/variables";
+@import "src/scss/functions";
+@import "src/scss/mixins";
 
 /// Output o-grid styles. This mixin outputs all styles by default.
 /// Pass an options argument to include styles granularly, see the
@@ -29,33 +29,40 @@
 /// 	));
 ///
 /// @param {Map} $opts [('bleed': true, 'shuffle-selectors': true, 'friendly-selectors': true, 'surface': ('current-layout', 'layout-sizes'), 'rows': ('compact'))]
-@mixin oGrid($opts: (
-	'bleed': true,
-	'shuffle-selectors': true,
-	'friendly-selectors': true,
-	'surface': ('current-layout', 'layout-sizes'),
-	'rows': ('compact')
-)) {
+@mixin oGrid(
+	$opts: (
+		"bleed": true,
+		"shuffle-selectors": true,
+		"friendly-selectors": true,
+		"surface": (
+			"current-layout",
+			"layout-sizes",
+		),
+		"rows": (
+			"compact",
+		),
+	)
+) {
 	// Bleed styles e.g. `o-grid-container--bleed`.
-	$bleed: map-get($opts, 'bleed');
+	$bleed: map-get($opts, "bleed");
 	// Human friendly selectors, e.g. `data-o-grid-colspan="one-half"`.
-	$friendly-selectors: map-get($opts, 'friendly-selectors');
+	$friendly-selectors: map-get($opts, "friendly-selectors");
 	// Offset, push, and pull selectors, e.g. `push4`.
-	$shuffle-selectors: map-get($opts, 'shuffle-selectors');
+	$shuffle-selectors: map-get($opts, "shuffle-selectors");
 	// Compact rows, e.g. `o-grid-row--compact`.
-	$rows: map-get($opts, 'rows');
-	$compact-rows: index($rows, 'compact');
+	$rows: map-get($opts, "rows");
+	$compact-rows: index($rows, "compact");
 	// Surce layout details for JS.
-	$surface: map-get($opts, 'surface');
-	$current-layout: index($surface, 'current-layout');
-	$layout-sizes: index($surface, 'layout-sizes');
+	$surface: map-get($opts, "surface");
+	$current-layout: index($surface, "current-layout");
+	$layout-sizes: index($surface, "layout-sizes");
 
 	// Surface layouts for JS on html:after, html:before.
-	@if($current-layout) {
+	@if ($current-layout) {
 		@include oGridSurfaceCurrentLayout;
 	}
 
-	@if($layout-sizes) {
+	@if ($layout-sizes) {
 		@include oGridSurfaceLayoutSizes;
 	}
 
@@ -64,7 +71,7 @@
 		@include oGridContainer();
 	}
 
-	@if($bleed) {
+	@if ($bleed) {
 		.o-grid-container--bleed {
 			padding-left: 0;
 			padding-right: 0;
@@ -77,7 +84,7 @@
 	}
 
 	// Compact, gutterless row of columns
-	@if($compact-rows) {
+	@if ($compact-rows) {
 		.o-grid-row--compact {
 			margin-left: 0;
 
@@ -113,7 +120,6 @@
 	// Responsive columns
 	@each $layout-name in $_o-grid-layout-names {
 		@include oGridRespondTo($layout-name) {
-
 			@if $friendly-selectors {
 				@include _oGridHumanFriendlyColumns($layout-name);
 			}
@@ -133,7 +139,9 @@
 					display: block;
 
 					// Apply width in %
-					@include _oGridFixSafariWrap($colspan); //stylelint-disable-line order/order
+					@include _oGridFixSafariWrap(
+						$colspan
+					); //stylelint-disable-line order/order
 					min-width: oGridColspan($colspan);
 					max-width: oGridColspan($colspan);
 					width: oGridColspan($colspan);

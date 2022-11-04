@@ -4,11 +4,11 @@
  * @access private
  */
 export const classNames = {
-	complete: 'o-stepped-progress__step--complete',
-	current: 'o-stepped-progress__step--current',
-	error: 'o-stepped-progress__step--error',
-	label: 'o-stepped-progress__label',
-	status: 'o-stepped-progress__status',
+	complete: "o-stepped-progress__step--complete",
+	current: "o-stepped-progress__step--current",
+	error: "o-stepped-progress__step--error",
+	label: "o-stepped-progress__label",
+	status: "o-stepped-progress__status",
 };
 
 /**
@@ -17,9 +17,9 @@ export const classNames = {
  * @access private
  */
 export const statusTexts = {
-	complete: '(completed)',
-	current: '(current step)',
-	error: '(error)',
+	complete: "(completed)",
+	current: "(current step)",
+	error: "(error)",
 };
 
 /**
@@ -31,14 +31,13 @@ export const statusTexts = {
 const stateClassNames = [
 	classNames.complete,
 	classNames.current,
-	classNames.error
+	classNames.error,
 ];
 
 /**
  * Represents a step in a stepped progress component.
  */
 class SteppedProgressStep {
-
 	/**
 	 * Class constructor.
 	 *
@@ -46,7 +45,7 @@ class SteppedProgressStep {
 	 * @param {HTMLElement} stepElement - The step element in the DOM
 	 * @param {import("./stepped-progress")} parent - The parent stepped progress instance
 	 */
-	constructor (stepElement, parent) {
+	constructor(stepElement, parent) {
 		this.stepElement = stepElement;
 		this.parent = parent;
 		this.labelElement = this._selectLabelElement();
@@ -91,11 +90,7 @@ class SteppedProgressStep {
 	 * @returns {boolean} Returns whether the step has no explicit state.
 	 */
 	isFuture() {
-		return (
-			!this.isComplete() &&
-			!this.isCurrent() &&
-			!this.isError()
-		);
+		return !this.isComplete() && !this.isCurrent() && !this.isError();
 	}
 
 	/**
@@ -164,7 +159,7 @@ class SteppedProgressStep {
 	_selectStatusElement() {
 		let statusElement = this.stepElement.querySelector(`.${classNames.status}`);
 		if (!statusElement) {
-			statusElement = document.createElement('span');
+			statusElement = document.createElement("span");
 			statusElement.classList.add(classNames.status);
 			this.labelElement.appendChild(statusElement);
 		}
@@ -178,7 +173,7 @@ class SteppedProgressStep {
 	 * @param {string} [statusText=''] - The text to set.
 	 * @returns {void}
 	 */
-	_setStatusText(statusText = '') {
+	_setStatusText(statusText = "") {
 		this.statusElement.innerHTML = statusText;
 	}
 
@@ -212,7 +207,6 @@ class SteppedProgressStep {
 			this.stepElement.classList.remove(className);
 		}
 	}
-
 }
 
 export default SteppedProgressStep;

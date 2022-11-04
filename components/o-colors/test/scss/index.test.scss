@@ -1,9 +1,9 @@
-@import 'true';
+@import "true";
 $system-code: "test";
-@import '../../main';
+@import "../../main";
 
 $_o-colors-test-environment: true;
 
-@import 'functions.test';
-@import 'mixins.test';
-@import 'palette.test';
+@import "functions.test";
+@import "mixins.test";
+@import "palette.test";

@@ -2,13 +2,7 @@
 	"description": "The Origami homepage",
 	"origamiType": "website",
 	"origamiVersion": 1,
-	"keywords": [
-		"website",
-		"home",
-		"registry",
-		"docs",
-		"specs"
-	],
+	"keywords": ["website", "home", "registry", "docs", "specs"],
 	"support": "https://github.com/Financial-Times/origami/issues",
 	"supportStatus": "active",
 	"supportContact": {

@@ -5,6 +5,7 @@ An overview of g-audio analytics.
 ## Audio events
 
 The following audio events are fired as part of the [native HTML Media Events API](https://developer.mozilla.org/en/docs/Web/Guide/Events/Media_events):
+
 - playing: user played the audio
 - progress: audio played through to a particular waypoint, fires at ~10/25/50/75/100 progress
 - ended: audio played through to the end
@@ -23,6 +24,7 @@ detail: {
   duration: 14, // audio length in seconds
 }
 ```
+
 There is also a `listened` event which is fired on page `unload`, which contains how much (in seconds) of the audio was actually played, e.g.
 
 ```js

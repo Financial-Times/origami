@@ -1,17 +1,17 @@
 let sandboxEl;
 
 function createSandbox() {
-	if (document.querySelector('.sandbox')) {
-		sandboxEl = document.querySelector('.sandbox');
+	if (document.querySelector(".sandbox")) {
+		sandboxEl = document.querySelector(".sandbox");
 	} else {
-		sandboxEl = document.createElement('div');
-		sandboxEl.setAttribute('class', 'sandbox');
+		sandboxEl = document.createElement("div");
+		sandboxEl.setAttribute("class", "sandbox");
 		document.body.appendChild(sandboxEl);
 	}
 }
 
 function reset() {
-	sandboxEl.innerHTML = '';
+	sandboxEl.innerHTML = "";
 }
 
 function insert(html) {
@@ -19,11 +19,12 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-function htmlCode () {
-	const viewportHeight = '600px';
+function htmlCode() {
+	const viewportHeight = "600px";
 
 	// Intersection observer targets must have dimensions.
-	const styleAttribute = 'style="display: block; width: 10px; height: 10px; background: red;"';
+	const styleAttribute =
+		'style="display: block; width: 10px; height: 10px; background: red;"';
 
 	const html = `
 		<div id="scrollable" style="width: 100px; height: ${viewportHeight}; overflow: scroll;">
@@ -51,7 +52,4 @@ function htmlCode () {
 	insert(html);
 }
 
-export {
-	htmlCode,
-	reset
-};
+export { htmlCode, reset };

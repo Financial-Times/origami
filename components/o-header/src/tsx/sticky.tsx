@@ -1,10 +1,10 @@
-import {THeaderProps, TNavMenuItem} from './Props';
+import { THeaderProps, TNavMenuItem } from "./Props";
 import {
 	TopColumnLeft,
 	TopWrapper,
 	SubscribeButton,
 	TopColumnRightAnon,
-} from './top';
+} from "./top";
 
 export function StickyHeader({
 	userIsLoggedIn,
@@ -13,7 +13,7 @@ export function StickyHeader({
 	data,
 }: THeaderProps) {
 	const includeUserActionsNav = showUserNavigation && !userIsLoggedIn;
-	const userNavItems = includeUserActionsNav && data['navbar-right-anon'].items;
+	const userNavItems = includeUserActionsNav && data["navbar-right-anon"].items;
 	const navBarItems = data.navbar.items;
 	return (
 		<header
@@ -21,7 +21,8 @@ export function StickyHeader({
 			data-o-component="o-header"
 			data-o-header--sticky
 			aria-hidden="true"
-			role="presentation">
+			role="presentation"
+		>
 			<TopWrapper>
 				<TopColumnLeft isSticky={true} />
 				<StickyTopColumnCenter navBarItems={navBarItems} />
@@ -37,7 +38,11 @@ export function StickyHeader({
 	);
 }
 
-const StickyTopColumnCenter = ({navBarItems}: {navBarItems: TNavMenuItem[]}) => {
+const StickyTopColumnCenter = ({
+	navBarItems,
+}: {
+	navBarItems: TNavMenuItem[];
+}) => {
 	return (
 		<div className="o-header__top-column o-header__top-column--center">
 			<Navigation navBarItems={navBarItems} />
@@ -45,13 +50,14 @@ const StickyTopColumnCenter = ({navBarItems}: {navBarItems: TNavMenuItem[]}) => 
 				className="o-header__top-logo"
 				href="/"
 				title="Go to Financial Times homepage"
-				tabIndex={-1}>
+				tabIndex={-1}
+			>
 				<span className="o-header__visually-hidden">Financial Times</span>
 			</a>
 		</div>
 	);
 };
-const Navigation = ({navBarItems}: {navBarItems: TNavMenuItem[]}) => (
+const Navigation = ({ navBarItems }: { navBarItems: TNavMenuItem[] }) => (
 	<div className="o-header__top-takeover">
 		<div className="o-header__nav">
 			<ul className="o-header__nav-list o-header__nav-list--left">
@@ -60,7 +66,8 @@ const Navigation = ({navBarItems}: {navBarItems: TNavMenuItem[]}) => (
 						<a
 							className="o-header__nav-link o-header__nav-link--primary"
 							href={item.url || undefined}
-							tabIndex={-1}>
+							tabIndex={-1}
+						>
 							{item.label}
 						</a>
 					</li>
@@ -108,7 +115,8 @@ function MyFtSticky() {
 			className="o-header__top-icon-link o-header__top-icon-link--hide-s o-header__top-icon-link--myft"
 			href="/myft"
 			aria-label="My F T"
-			tabIndex={-1}>
+			tabIndex={-1}
+		>
 			<span className="o-header__visually-hidden">myFT</span>
 		</a>
 	);
@@ -119,16 +127,19 @@ const StickySearch = () => {
 			id="o-header-search-sticky"
 			className="o-header__row o-header__search o--if-js"
 			role="search"
-			data-o-header-search>
+			data-o-header-search
+		>
 			<div className="o-header__container">
 				<form
 					className="o-header__search-form"
 					action="/search"
 					role="search"
-					aria-label="Site search">
+					aria-label="Site search"
+				>
 					<label
 						className="o-header__visually-hidden"
-						htmlFor="o-header-search-term-js">
+						htmlFor="o-header-search-term-js"
+					>
 						Search the <abbr title="Financial Times">FT</abbr>
 					</label>
 					<input
@@ -145,7 +156,8 @@ const StickySearch = () => {
 						className="o-header__search-close"
 						type="button"
 						aria-controls="o-header-search-sticky"
-						title="Close search bar">
+						title="Close search bar"
+					>
 						<span className="o-header__visually-hidden">Close search bar</span>
 					</button>
 				</form>

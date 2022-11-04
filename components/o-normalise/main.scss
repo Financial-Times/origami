@@ -1,7 +1,7 @@
-@import '@financial-times/o-colors/main';
+@import "@financial-times/o-colors/main";
 
-@import 'src/scss/variables';
-@import 'src/scss/mixins';
+@import "src/scss/variables";
+@import "src/scss/mixins";
 
 /// Outputs all o-normalise styles.
 /// @param {list} $opts - A map of which normalise styles and helper classes to output.
@@ -13,56 +13,70 @@
 ///     	'body': ('font-smoothing', 'focus', 'reduce-motion')
 ///     ));
 /// @access public
-@mixin oNormalise($opts: (
-	'elements': ('forms', 'images', 'text', 'links'),
-	'body': ('font-smoothing', 'focus', 'reduce-motion'),
-	'helpers': ('clearfix', 'visually-hidden')
-)) {
+@mixin oNormalise(
+	$opts: (
+		"elements": (
+			"forms",
+			"images",
+			"text",
+			"links",
+		),
+		"body": (
+			"font-smoothing",
+			"focus",
+			"reduce-motion",
+		),
+		"helpers": (
+			"clearfix",
+			"visually-hidden",
+		),
+	)
+) {
 	// The elements to normalise.
-	$elements: map-get($opts, 'elements');
-	$links: index($elements, 'links');
-	$text: index($elements, 'text');
-	$images: index($elements, 'images');
-	$forms: index($elements, 'forms');
+	$elements: map-get($opts, "elements");
+	$links: index($elements, "links");
+	$text: index($elements, "text");
+	$images: index($elements, "images");
+	$forms: index($elements, "forms");
 
 	// The body features to normalise.
-	$body: map-get($opts, 'body');
-	$font-smoothing: index($body, 'font-smoothing');
-	$focus: index($body, 'focus');
-	$reduce-motion: index($body, 'reduce-motion');
+	$body: map-get($opts, "body");
+	$font-smoothing: index($body, "font-smoothing");
+	$focus: index($body, "focus");
+	$reduce-motion: index($body, "reduce-motion");
 
 	// The normalise classes to output.
-	$helpers: map-get($opts, 'helpers');
-	$clearfix: index($helpers, 'clearfix');
-	$visually-hidden: index($helpers, 'visually-hidden');
+	$helpers: map-get($opts, "helpers");
+	$clearfix: index($helpers, "clearfix");
+	$visually-hidden: index($helpers, "visually-hidden");
 
-	@if($body) {
+	@if ($body) {
 		@include _oNormaliseBody($font-smoothing, false, $focus, $reduce-motion);
 	}
 
-	@if($links) {
+	@if ($links) {
 		@include _oNormaliseLinks();
 	}
 
-	@if($text) {
+	@if ($text) {
 		@include _oNormaliseText();
 	}
 
-	@if($images) {
+	@if ($images) {
 		@include _oNormaliseImages();
 	}
 
-	@if($forms) {
+	@if ($forms) {
 		@include _oNormaliseForms();
 	}
 
-	@if($clearfix) {
+	@if ($clearfix) {
 		.o-normalise-clearfix {
 			@include oNormaliseClearfix;
 		}
 	}
 
-	@if($visually-hidden) {
+	@if ($visually-hidden) {
 		.o-normalise-visually-hidden {
 			@include oNormaliseVisuallyHidden;
 		}

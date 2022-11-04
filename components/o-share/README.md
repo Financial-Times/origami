@@ -25,7 +25,8 @@ Check out [how to include Origami components in your project](https://origami.ft
 The following markup is the simplest but requires JavaScript to work and does not support custom share icons or icon labels. If your project requires either of those features see the [full markup](#full-markup) section.
 
 ```html
-<div data-o-component="o-share"
+<div
+	data-o-component="o-share"
 	class="o-share"
 	data-o-share-links="{{links}}"
 	data-o-share-url="{{url}}"
@@ -33,8 +34,8 @@ The following markup is the simplest but requires JavaScript to work and does no
 	data-o-share-titleExtra="{{titleExtra}}"
 	data-o-share-summary="{{summary}}"
 	data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}"
-	data-o-share-location="{{locationOfShareComponent}}">
-</div>
+	data-o-share-location="{{locationOfShareComponent}}"
+></div>
 ```
 
 - `links`: List of lower case social networks to be added separated by a space.
@@ -67,6 +68,7 @@ Add the `o-share--small` class for smaller icons. This is useful when including 
 ### Full Markup
 
 Include the [complete markup, available in the Origami registry](https://registry.origami.ft.com/components/o-share) directly to:
+
 - Support a core experience, where JavaScript is unavailable or has failed.
 - Add [custom share actions](#custom-actions) with [text labels](#text-labels).
 
@@ -77,9 +79,11 @@ Include the [complete markup, available in the Origami registry](https://registr
 		<!-- a share to twitter action example -->
 		<!-- href tag is not shown, see the registry demos for full markup  -->
 		<li class="o-share__action">
-			<a class="o-share__icon o-share__icon--twitter"
+			<a
+				class="o-share__icon o-share__icon--twitter"
 				href="#twitter-link-here"
-				rel="noopener">
+				rel="noopener"
+			>
 				<span class="o-share__text">Twitter</span>
 			</a>
 		</li>
@@ -135,13 +139,12 @@ Form markup is allowed within the `o-share__action` label to to handle custom sh
 </div>
 ```
 
-
 The `share` icon is made available by default for custom share features as shown in the [Origami registry demos](https://registry.origami.ft.com/components/o-share).
 
 ## Sass
 
 ```scss
-@import '@financial-times/o-share/main';
+@import "@financial-times/o-share/main";
 ```
 
 The `oShare` mixin is used to output the `o-share` styles.
@@ -153,26 +156,40 @@ The `oShare` mixin is used to output the `o-share` styles.
 We recommend passing the `oShare` mixin an optional argument `$opts`, to specify styles granularly and keep your CSS bundle small.
 
 For example:
+
 ```scss
-@include oShare($opts: (
-	'sizes': ('small'), // output styles for a small variation of o-share i.e. o-share--small
-	'vertical': true, // output styles for a vertical o-share i.e. o-share--vertical
-	'icons': ('twitter', 'facebook', 'whatsapp') // output styles for select share icons
-));
+@include oShare(
+	$opts: (
+		"sizes": (
+			"small",
+		),
+		// output styles for a small variation of o-share i.e. o-share--smal
+		"vertical": true,
+		// output styles for a vertical o-share i.e. o-share--vertica
+		"icons":
+			(
+				"twitter",
+				"facebook",
+				"whatsapp",
+			)
+			// output styles for select share icon,,
+	)
+);
 ```
 
 All `$opts` options include:
+
 - `icons` (list) a list of social share icons to output. One or more of the following, or any [o-icon name](https://registry.origami.ft.com/components/o-icons):
-	- `twitter`
-	- `facebook`
-	- `linkedin`
-	- `link`
-	- `share`
-	- `mail`
-	- `pinterest`
-	- `whatsapp`
+  - `twitter`
+  - `facebook`
+  - `linkedin`
+  - `link`
+  - `share`
+  - `mail`
+  - `pinterest`
+  - `whatsapp`
 - `sizes` (list, optional) output styles for different size variants of `o-share`
-	- `small` - a variant to make o-share smaller than default, i.e. `o-share--small`
+  - `small` - a variant to make o-share smaller than default, i.e. `o-share--small`
 - `vertical` (boolean) - Whether to output styles for the vertical variant, i.e `o-share--vertical`
 - `inverse` (boolean) - Whether to output the inverse theme for dark backgrounds, i.e `o-share--inverse`
 
@@ -180,17 +197,17 @@ All `$opts` options include:
 
 `o-share` sets custom colour usecases for matching the colour of share buttons. These usecases are limited, for example they do not provide colours for the inverse variant, and not recommended for new projects (it is possible to output custom icons using the `oShare` mixin, without matching colours).
 
-Usecase | Property | Uses |
----|---|---
-`o-share/default-icon` | background, border, text | Default colours, used by icons without a state (e.g. before hover).
-`o-share/ft-icon` | background, border, text | Colours to highlight FT icon social buttons like email (e.g. on hover).
-`o-share/[social-icon-name]-icon` | background, border, text | Colours to highlight social buttons with a brand, like Twitter (e.g. `o-share/twitter-icon` on hover).
+| Usecase                           | Property                 | Uses                                                                                                   |
+| --------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `o-share/default-icon`            | background, border, text | Default colours, used by icons without a state (e.g. before hover).                                    |
+| `o-share/ft-icon`                 | background, border, text | Colours to highlight FT icon social buttons like email (e.g. on hover).                                |
+| `o-share/[social-icon-name]-icon` | background, border, text | Colours to highlight social buttons with a brand, like Twitter (e.g. `o-share/twitter-icon` on hover). |
 
 Use the [oColorsByUsecase mixin from o-colors](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=core#function-ocolorsbyusecase) to retrieve custom colour usecases set by o-share.
 
 ```scss
 .my-icon:hover {
-	background-color: oColorsByUsecase('o-share/ft-icon', 'background');
+	background-color: oColorsByUsecase("o-share/ft-icon", "background");
 }
 ```
 
@@ -199,8 +216,10 @@ Use the [oColorsByUsecase mixin from o-colors](https://registry.origami.ft.com/c
 To instantiate the JavaScript:
 
 ```javascript
-import oShare from '@financial-times/o-share';
-var oShareInstance = new oShare(document.querySelector('[data-o-component=o-share]'));
+import oShare from "@financial-times/o-share";
+var oShareInstance = new oShare(
+	document.querySelector("[data-o-component=o-share]")
+);
 ```
 
 The markup will be generated for that instance of `o-share`.
@@ -210,8 +229,8 @@ You can also instantiate all instances in your page by running `oShare.init` whi
 Alternatively, an `o.DOMContentLoaded` event can be dispatched on the `document` to run `#init()`:
 
 ```js
-document.addEventListener("DOMContentLoaded", function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+document.addEventListener("DOMContentLoaded", function () {
+	document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
 });
 ```
 
@@ -229,6 +248,7 @@ The following events are fired by o-share.
 `oShare.ready` fires when a o-share instance has been initialised.
 
 The event provides the following properties:
+
 - `detail.share` - The initialised o-share instance.
 
 #### oShare.open
@@ -236,28 +256,29 @@ The event provides the following properties:
 `oShare.open` fires when a social network share action is triggered, to open a new window.
 
 The event provides the following properties:
+
 - `detail.share` - The o-share instance.
 - `detail.action` - The kind of share i.e. "social".
 - `detail.url` - The social share url opened.
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 8 | N/A  | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-⚠ maintained | 7 | 7.6  | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-╳ deprecated | 6 | 6.5  | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.0  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.0  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.0  | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.1  | - |
-╳ deprecated | 1 | 1.7  | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       8       |        N/A         | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+| ⚠ maintained |       7       |        7.6         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ╳ deprecated |       6       |        6.5         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated |       5       |        5.0         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.0         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.0         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.1         |                           -                           |
+| ╳ deprecated |       1       |        1.7         |                           -                           |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-share/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

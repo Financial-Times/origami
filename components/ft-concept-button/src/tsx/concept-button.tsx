@@ -6,9 +6,9 @@ export interface ConceptButtonProps {
 	// descriptive label for button
 	ariaLabel?: string;
 	// button theme
-	theme?: 'standard' | 'inverse' | 'opinion' | 'monochrome';
+	theme?: "standard" | "inverse" | "opinion" | "monochrome";
 	// button type
-	type?: 'concept' | 'follow';
+	type?: "concept" | "follow";
 	// whether the button is currently pressed
 	pressed?: boolean;
 	// for props that aren't appropriate in Origami
@@ -32,14 +32,15 @@ function ConceptButton({
 	extraButtonProps,
 	pressed,
 	ariaLiveText = null,
-	type = 'concept',
+	type = "concept",
 }: ConceptButtonProps) {
 	return (
 		<div
 			className={`ft-concept-button ${
-				type == 'follow' ? 'ft-concept-button--follow' : ''
-			} ${theme ? `ft-concept-button--${theme}` : ''}`}
-			data-o-component="ft-concept-button">
+				type == "follow" ? "ft-concept-button--follow" : ""
+			} ${theme ? `ft-concept-button--${theme}` : ""}`}
+			data-o-component="ft-concept-button"
+		>
 			<div className="ft-concept-button__announcement" aria-live="assertive">
 				{ariaLiveText}
 			</div>
@@ -48,32 +49,28 @@ function ConceptButton({
 				aria-label={ariaLabel}
 				type="submit"
 				className="ft-concept-button__button"
-				{...extraButtonProps}>
+				{...extraButtonProps}
+			>
 				{label}
 			</button>
 		</div>
 	);
 }
 
-function ConceptLink({
-	label,
-	href,
-	attributes,
-	onClick
-}: ConceptLinkProps) {
+function ConceptLink({ label, href, attributes, onClick }: ConceptLinkProps) {
 	return (
-		<div
-			className="ft-concept-button">
+		<div className="ft-concept-button">
 			<a
 				className="ft-concept-button__link"
 				href={href}
 				{...attributes}
-				onClick={onClick ? event => onClick(event) : null}>
+				onClick={onClick ? event => onClick(event) : null}
+			>
 				{label}
 			</a>
 		</div>
 	);
 }
 
-export {ConceptButton, ConceptLink};
+export { ConceptButton, ConceptLink };
 export default ConceptButton;

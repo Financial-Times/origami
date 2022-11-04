@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
-import fixtures from '../../helpers/fixtures.js';
-import Stream from '../../../src/js/stream.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
+import fixtures from "../../helpers/fixtures.js";
+import Stream from "../../../src/js/stream.js";
 
-export default function displayNamePrompt () {
+export default function displayNamePrompt() {
 	beforeEach(() => {
 		fixtures.streamMarkup();
 	});
@@ -16,12 +16,16 @@ export default function displayNamePrompt () {
 	});
 
 	it("renders the display name prompt on the page", () => {
-		const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
+		const mockStreamEl = document.querySelector(
+			'[data-o-comments-article-id="id"]'
+		);
 		const stream = new Stream(mockStreamEl);
 		stream.displayNamePrompt();
 
-		document.addEventListener('oOverlay.ready', () => {
-			const displayNameForm = document.getElementById('o-comments-displayname-form');
+		document.addEventListener("oOverlay.ready", () => {
+			const displayNameForm = document.getElementById(
+				"o-comments-displayname-form"
+			);
 			proclaim.isTrue(Boolean(displayNameForm));
 		});
 	});

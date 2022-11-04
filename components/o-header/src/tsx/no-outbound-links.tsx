@@ -1,9 +1,9 @@
-import {THeaderProps} from './Props';
-import {HeaderWrapper} from './top';
-import {TopWrapper, TopColumnCenter} from './top';
-import {UserActionsNav} from './user';
-import {NavRight} from './nav';
-import {SubNavigation} from './subnavigation';
+import { THeaderProps } from "./Props";
+import { HeaderWrapper } from "./top";
+import { TopWrapper, TopColumnCenter } from "./top";
+import { UserActionsNav } from "./user";
+import { NavRight } from "./nav";
+import { SubNavigation } from "./subnavigation";
 
 export function NoOutboundLinks(props: THeaderProps) {
 	const {
@@ -14,13 +14,13 @@ export function NoOutboundLinks(props: THeaderProps) {
 		userIsLoggedIn,
 	} = props;
 	const includeUserActionsNav = showUserNavigation && !userIsLoggedIn;
-	const userNavItems = includeUserActionsNav && data['navbar-right-anon'].items;
-	const rightNavItems = data['navbar-right'].items;
+	const userNavItems = includeUserActionsNav && data["navbar-right-anon"].items;
+	const rightNavItems = data["navbar-right"].items;
 	const includeSubNavigation =
 		showSubNavigation && (data.breadcrumb || data.subsections);
 	const breadcrumb = data.breadcrumb;
 	const subsections = data.subsections;
-	const rightSubSection = data['subsections-right'];
+	const rightSubSection = data["subsections-right"];
 	return (
 		<HeaderWrapper>
 			{includeUserActionsNav && <UserActionsNav userNavItems={userNavItems} />}
@@ -31,7 +31,8 @@ export function NoOutboundLinks(props: THeaderProps) {
 				id="o-header-nav-desktop"
 				className="o-header__row o-header__nav o-header__nav--desktop"
 				role="navigation"
-				aria-label="Primary navigation">
+				aria-label="Primary navigation"
+			>
 				<div className="o-header__container">
 					<NavRight userIsLoggedIn={userIsLoggedIn} items={rightNavItems} />
 				</div>

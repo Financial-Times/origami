@@ -1,5 +1,5 @@
 @mixin _oTopperThemeElements($themes) {
-	@if index($themes, 'opinion') {
+	@if index($themes, "opinion") {
 		.o-topper__opinion-genre {
 			@include _oTopperOpinionGenre;
 		}
@@ -21,10 +21,10 @@
 @mixin _oTopperThemes($themes) {
 	@include _oTopperThemeElements($themes);
 
-	@if index($themes, 'basic') {
+	@if index($themes, "basic") {
 		.o-topper--basic {
 			@include _oTopperBasic;
-			@if index($themes, 'right-rail') {
+			@if index($themes, "right-rail") {
 				&.o-topper--right-rail {
 					@include _oTopperGridRightRail;
 				}
@@ -32,10 +32,10 @@
 		}
 	}
 
-	@if index($themes, 'branded') {
+	@if index($themes, "branded") {
 		.o-topper--branded {
 			@include _oTopperThemeBranded;
-			@if index($themes, 'right-rail') {
+			@if index($themes, "right-rail") {
 				&.o-topper--right-rail {
 					@include _oTopperGridRightRail;
 				}
@@ -43,10 +43,10 @@
 		}
 	}
 
-	@if index($themes, 'opinion') {
+	@if index($themes, "opinion") {
 		.o-topper--opinion {
 			@include _oTopperThemeOpinion;
-			@if index($themes, 'right-rail') {
+			@if index($themes, "right-rail") {
 				&.o-topper--right-rail {
 					@include _oTopperGridRightRail;
 				}
@@ -54,16 +54,16 @@
 		}
 	}
 
-	@if index($themes, 'has-headshot') {
+	@if index($themes, "has-headshot") {
 		.o-topper--has-headshot {
 			@include _oTopperHasHeadshot;
 		}
 	}
 
-	@if index($themes, 'full-bleed-offset') {
+	@if index($themes, "full-bleed-offset") {
 		.o-topper--full-bleed-offset {
 			@include _oTopperThemeFullBleedOffset;
-			@if index($themes, 'right-rail') {
+			@if index($themes, "right-rail") {
 				&.o-topper--right-rail {
 					@include _oTopperFullBleedGridRightRail;
 				}
@@ -71,34 +71,36 @@
 		}
 	}
 
-	@if index($themes, 'split-text-left') or index($themes, 'split-text-center') {
+	@if index($themes, "split-text-left") or index($themes, "split-text-center") {
 		.o-topper--split-text-left,
 		.o-topper--split-text-center {
 			@include _oTopperThemeSplitText;
 		}
 	}
 
-	@if index($themes, 'full-bleed-image-center') or index($themes, 'full-bleed-image-left') {
+	@if index($themes, "full-bleed-image-center") or
+		index($themes, "full-bleed-image-left")
+	{
 		.o-topper--full-bleed-image-center,
 		.o-topper--full-bleed-image-left {
 			@include _oTopperThemeFullBleedImage;
 		}
 	}
 
-	@if index($themes, 'package') {
+	@if index($themes, "package") {
 		.o-topper--package {
 			@include _oTopperThemePackage;
 		}
 	}
 
-	@if index($themes, 'package-extra') or index($themes, 'package-extra-wide') {
+	@if index($themes, "package-extra") or index($themes, "package-extra-wide") {
 		.o-topper--package-extra,
 		.o-topper--package-extra-wide {
 			@include _oTopperThemePackageExtra;
 		}
 	}
 
-	@if index($themes, 'package-special-report') {
+	@if index($themes, "package-special-report") {
 		.o-topper--package-special-report {
 			@include _oTopperThemePackageSpecialReport;
 		}
@@ -110,13 +112,13 @@
 	// by default should not be bothered. This is no longer
 	// in use on ft.com / app already:
 	// https://financialtimes.atlassian.net/browse/CI-944
-	@if index($themes, 'news-package') {
+	@if index($themes, "news-package") {
 		.o-topper--news-package {
 			@include _oTopperThemeNewsPackage;
 		}
 	}
 
-	@if index($themes, 'centered') {
+	@if index($themes, "centered") {
 		.o-topper--centered {
 			@include _oTopperCentered;
 		}
@@ -124,26 +126,26 @@
 }
 
 @mixin _oTopperElements($elements) {
-	@if index($elements, 'content') {
+	@if index($elements, "content") {
 		.o-topper__content {
 			@include _oTopperContent;
 		}
 	}
 
-	@if index($elements, 'visual') {
+	@if index($elements, "visual") {
 		.o-topper__visual {
 			@include _oTopperVisual;
 		}
 	}
 
-	@if index($elements, 'visual') or index($elements, 'background') {
+	@if index($elements, "visual") or index($elements, "background") {
 		.o-topper__visual,
 		.o-topper__background {
 			@include _oTopperBackground;
 		}
 	}
 
-	@if index($elements, 'headline') {
+	@if index($elements, "headline") {
 		.o-topper__headline {
 			@include oEditorialTypographyHeading($level: 1);
 			margin-bottom: oSpacingByIncrement(5);
@@ -156,67 +158,67 @@
 		}
 	}
 
-	@if index($elements, 'summary') {
+	@if index($elements, "summary") {
 		.o-topper__summary {
 			@include _oTopperSummary;
 		}
 	}
 
-	@if index($elements, 'standfirst') {
+	@if index($elements, "standfirst") {
 		.o-topper__standfirst {
 			@include _oTopperStandfirst;
 		}
 	}
 
-	@if index($elements, 'summary--body') {
+	@if index($elements, "summary--body") {
 		.o-topper__summary--body {
 			@include _oTopperSummaryBody;
 		}
 	}
 
-	@if index($elements, 'tags') {
+	@if index($elements, "tags") {
 		.o-topper__tags {
 			@include _oTopperTags;
 		}
 	}
 
-	@if index($elements, 'columnist') {
+	@if index($elements, "columnist") {
 		.o-topper__columnist {
 			@include _oTopperColumnist;
 		}
 	}
 
-	@if index($elements, 'columnist-name') {
+	@if index($elements, "columnist-name") {
 		.o-topper__columnist-name {
 			@include _oTopperColumnistName;
 		}
 	}
 
-	@if index($elements, 'brand') {
+	@if index($elements, "brand") {
 		.o-topper__brand {
 			@include _oTopperBrand;
 		}
 	}
 
-	@if index($elements, 'topic') {
+	@if index($elements, "topic") {
 		.o-topper__topic {
 			@include _oTopperTopic;
 		}
 	}
 
-	@if index($elements, 'read-next') {
+	@if index($elements, "read-next") {
 		.o-topper__read-next {
 			@include _oTopperReadNext;
 		}
 	}
 
-	@if index($elements, 'image') {
+	@if index($elements, "image") {
 		.o-topper__image {
 			@include _oTopperImage;
 		}
 	}
 
-	@if index($elements, 'image-credit') {
+	@if index($elements, "image-credit") {
 		.o-topper__image-credit {
 			@include _oTopperImageCredit;
 		}
@@ -235,8 +237,12 @@
 @mixin _oTopperColor($color-name) {
 	$background: oColorsByName($color-name);
 	$foreground: oColorsGetTextColor($background, $opacity: 100);
-	$link-text-color: oColorsByUsecase('link', 'text');
-	$link-contrasts-with-background: oColorsGetContrastRatio($background, $link-text-color) > 4.5;
+	$link-text-color: oColorsByUsecase("link", "text");
+	$link-contrasts-with-background: oColorsGetContrastRatio(
+			$background,
+			$link-text-color
+		)
+		> 4.5;
 
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
@@ -244,7 +250,6 @@
 	.o-topper__content {
 		background-color: $background;
 	}
-
 
 	.o-topper__standfirst,
 	.o-topper__summary {
@@ -294,32 +299,32 @@
 		}
 	}
 
-	@if $color-name == 'paper' or $color-name == 'wheat' {
+	@if $color-name == "paper" or $color-name == "wheat" {
 		.o-topper__opinion-genre,
 		.o-topper__topic,
 		.o-topper__columnist-name {
-			color: oColorsByUsecase('tag-link', 'text');
+			color: oColorsByUsecase("tag-link", "text");
 
 			&:hover {
-				color: oColorsByUsecase('tag-link-hover', 'text');
+				color: oColorsByUsecase("tag-link-hover", "text");
 			}
 		}
 	}
 
-	@if $color-name == 'sky' {
+	@if $color-name == "sky" {
 		.o-topper__tags,
 		.o-topper__topic,
 		.o-topper__columnist-name {
-			color: oColorsByName('oxford');
+			color: oColorsByName("oxford");
 
 			&:hover {
-				color: oColorsByName('black-80');
+				color: oColorsByName("black-80");
 			}
 		}
 	}
 
-	@if $color-name == 'matisse' {
-		.o-topper__columnist-name {			
+	@if $color-name == "matisse" {
+		.o-topper__columnist-name {
 			&:hover {
 				color: oColorsMix($foreground, $color-name, 73);
 			}
@@ -328,9 +333,21 @@
 }
 
 @mixin _oTopperAlignText($position) {
-	$mleft: ('left': 0, 'center': auto, 'right': auto);
-	$mright: ('left': auto, 'center': auto, 'right': 0);
-	$value: ('left': flex-start, 'center': center, 'right': flex-end);
+	$mleft: (
+		"left": 0,
+		"center": auto,
+		"right": auto,
+	);
+	$mright: (
+		"left": auto,
+		"center": auto,
+		"right": 0,
+	);
+	$value: (
+		"left": flex-start,
+		"center": center,
+		"right": flex-end,
+	);
 
 	.o-topper__headline--large {
 		&:after {
@@ -352,8 +369,11 @@
 @mixin _oTopperDefineOnce($label) {
 	@if not map-has-key($_o-topper-defined, $label) {
 		@content;
-		$_o-topper-defined: map-merge($_o-topper-defined, (
-			$label: true
-		)) !global;
+		$_o-topper-defined: map-merge(
+			$_o-topper-defined,
+			(
+				$label: true,
+			)
+		) !global;
 	}
 }

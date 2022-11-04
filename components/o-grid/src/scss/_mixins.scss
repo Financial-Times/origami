@@ -21,32 +21,74 @@
 /// @param {Number} $gutter-width [null] - Gutter width in px
 @mixin oGridAddLayout($layout-name, $layout-width, $gutter-width: null) {
 	$temp-layouts: ();
-	$temp-gutters: (default: oGridGutter());
+	$temp-gutters: (
+		default: oGridGutter(),
+	);
 	$current-max-width: map-get($o-grid-layouts, nth($_o-grid-layout-names, -1));
 
 	// Add the new layout in the correct position:
 	// (we want $o-grid-layouts and $o-grid-gutters to be ordered from the smallest to the largest layout)
-	@if($layout-width >= $current-max-width) {
-		$temp-layouts: map-merge($o-grid-layouts, ($layout-name: $layout-width));
-		$temp-gutters: map-merge($o-grid-gutters, ($layout-name: $gutter-width));
+	@if ($layout-width >= $current-max-width) {
+		$temp-layouts: map-merge(
+			$o-grid-layouts,
+			(
+				$layout-name: $layout-width,
+			)
+		);
+		$temp-gutters: map-merge(
+			$o-grid-gutters,
+			(
+				$layout-name: $gutter-width,
+			)
+		);
 	} @else {
 		@for $index from 1 through length($o-grid-layouts) {
-			$previous-layout-width: if($index == 1, 0, map-get($o-grid-layouts, nth($_o-grid-layout-names, $index - 1)));
+			$previous-layout-width: if(
+				$index == 1,
+				0,
+				map-get($o-grid-layouts, nth($_o-grid-layout-names, $index - 1))
+			);
 			$current-layout-name: nth($_o-grid-layout-names, $index);
 			$current-layout-width: map-get($o-grid-layouts, $current-layout-name);
 
 			$current-gutter-width: map-get($o-grid-gutters, $current-layout-name);
 
 			// Assumes all layouts use the same unit e.g. px or rem (as does the JavaScript)
-			@if not ($previous-layout-width > $layout-width or $current-layout-width < $layout-width) {
-				$temp-layouts: map-merge($temp-layouts, ($layout-name: $layout-width));
-				$temp-gutters: map-merge($temp-gutters, ($layout-name: $gutter-width));
+			@if not(
+				$previous-layout-width >
+					$layout-width or
+					$current-layout-width <
+					$layout-width
+			)
+			{
+				$temp-layouts: map-merge(
+					$temp-layouts,
+					(
+						$layout-name: $layout-width,
+					)
+				);
+				$temp-gutters: map-merge(
+					$temp-gutters,
+					(
+						$layout-name: $gutter-width,
+					)
+				);
 			}
 
-			$temp-layouts: map-merge($temp-layouts, ($current-layout-name: $current-layout-width));
+			$temp-layouts: map-merge(
+				$temp-layouts,
+				(
+					$current-layout-name: $current-layout-width,
+				)
+			);
 
 			@if $current-gutter-width {
-				$temp-gutters: map-merge($temp-gutters, ($current-layout-name: $current-gutter-width));
+				$temp-gutters: map-merge(
+					$temp-gutters,
+					(
+						$current-layout-name: $current-gutter-width,
+					)
+				);
 			}
 		}
 	}
@@ -85,8 +127,7 @@
 /// @param {String} from - one of $o-grid-layouts
 /// @param {String} until - one of $o-grid-layouts
 @mixin oGridRespondTo($from: false, $until: false) {
-
-	$grid-is-responsive: $o-grid-mode != 'fixed';
+	$grid-is-responsive: $o-grid-mode != "fixed";
 	@include mq(
 		$from: $from,
 		$until: $until,
@@ -120,11 +161,11 @@
 		flex: 1 1 0%;
 		position: relative; // Required for push and pull
 
-		@if $o-grid-mode == 'fixed' {
+		@if $o-grid-mode == "fixed" {
 			padding-left: oGridGutter($o-grid-fixed-layout);
 		} @else {
 			@each $layout-name in map-keys($o-grid-gutters) {
-				@if $layout-name == 'default' {
+				@if $layout-name == "default" {
 					padding-left: oGridGutter();
 				} @else {
 					@include oGridRespondTo($layout-name) {
@@ -157,9 +198,9 @@
 		padding-right: 0;
 	}
 
-	@if $grid-mode == 'fixed' {
+	@if $grid-mode == "fixed" {
 		// If the grid isn't fluid, we set it to a certain width
-		width: oGridGetMaxWidthForLayout($o-grid-fixed-layout, $grid-mode: 'fixed');
+		width: oGridGetMaxWidthForLayout($o-grid-fixed-layout, $grid-mode: "fixed");
 		@if not $bleed {
 			padding-left: oGridGutter($o-grid-fixed-layout);
 			padding-right: oGridGutter($o-grid-fixed-layout);
@@ -168,7 +209,7 @@
 		max-width: $_o-grid-max-width;
 
 		@each $layout-name in map-keys($o-grid-gutters) {
-			@if $layout-name == 'default' {
+			@if $layout-name == "default" {
 				@if not $bleed {
 					padding-left: oGridGutter();
 					padding-right: oGridGutter();
@@ -184,12 +225,14 @@
 		}
 
 		@each $layout-name in $_o-grid-layout-names {
-			@if index($_o-grid-layout-names, $layout-name) >= index($_o-grid-layout-names, $o-grid-start-snappy-mode-at) {
+			@if index($_o-grid-layout-names, $layout-name) >=
+				index($_o-grid-layout-names, $o-grid-start-snappy-mode-at)
+			{
 				@include oGridRespondTo($layout-name) {
-					@if $grid-mode == 'snappy' {
+					@if $grid-mode == "snappy" {
 						max-width: map-get($o-grid-layouts, $layout-name);
 					}
-					@if $grid-mode == 'fluid' {
+					@if $grid-mode == "fluid" {
 						// If the grid mode is fluid, then use a class to make a row or a set of rows snappy
 						.o-grid-snappy &,
 						&--snappy {
@@ -212,11 +255,11 @@
 		display: inherit;
 	}
 
-	@if $o-grid-mode == 'fixed' {
+	@if $o-grid-mode == "fixed" {
 		margin-left: -1 * oGridGutter($o-grid-fixed-layout);
 	} @else {
 		@each $layout-name in map-keys($o-grid-gutters) {
-			@if $layout-name == 'default' {
+			@if $layout-name == "default" {
 				margin-left: -1 * oGridGutter();
 			} @else {
 				@include oGridRespondTo($layout-name) {
@@ -231,7 +274,7 @@
 
 	&:before,
 	&:after {
-		content: '';
+		content: "";
 		display: table;
 		display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
 	}
@@ -332,7 +375,8 @@
 
 		@each $breakpoint in $_o-grid-layout-names {
 			@include oGridRespondTo($breakpoint) {
-				content: '{ "layout": "' + $breakpoint + '", "gutter": "' + oGridGutter($breakpoint) + '" }';
+				content: '{ "layout": "' + $breakpoint + '", "gutter": "' +
+					oGridGutter($breakpoint) + '" }';
 			}
 		}
 	}
@@ -366,14 +410,17 @@
 			$key: nth($keys, $ittr);
 			$value: map-get($o-grid-layouts, $key);
 
-			$combined: $combined + _oGridQuoteString($key) + ': ' + _oGridQuoteString($value);
+			$combined: $combined +
+				_oGridQuoteString($key) +
+				": " +
+				_oGridQuoteString($value);
 
 			@if $ittr < length($keys) {
 				$combined: $combined + ", ";
 			}
 		}
 
-		$combined: $combined + '}}';
+		$combined: $combined + "}}";
 
 		display: none;
 		content: $combined;
@@ -413,14 +460,25 @@
 	}
 
 	// Portions
-	@each $human-friendly-name in (full-width, one-half, one-third, two-thirds, one-quarter, three-quarters) {
+	@each $human-friendly-name
+		in (
+			full-width,
+			one-half,
+			one-third,
+			two-thirds,
+			one-quarter,
+			three-quarters
+		)
+	{
 		[data-o-grid-colspan~="#{$layout-name}#{$human-friendly-name}"] {
 			// Restore visibility from `display: none`
 			// if `data-o-grid-colspan` was set to `0` or `hide`
 			display: block;
 
 			// Define width in %
-			@include _oGridFixSafariWrap($human-friendly-name); // stylelint-disable-line order/order
+			@include _oGridFixSafariWrap(
+				$human-friendly-name
+			); // stylelint-disable-line order/order
 			min-width: oGridColspan($human-friendly-name);
 			max-width: oGridColspan($human-friendly-name);
 			width: oGridColspan($human-friendly-name);
@@ -460,12 +518,11 @@
 /// @param {Number | Map} $span
 @mixin _oGridColumnWidth($span) {
 	// Special case: the column is hidden by default
-	@if $span == 'hide' {
+	@if $span == "hide" {
 		display: none;
 	} @else {
 		// $span is a number or a keyword, so we're outputting the default width for that column
 		@if type-of($span) == number or type-of($span) == string {
-
 			// Restore visibility from `display: none`
 			// if `data-o-grid-colspan` was set to `0` or `hide`
 			display: block;
@@ -480,10 +537,10 @@
 	// $span is a map, we're looping through all of the layouts
 	@if type-of($span) == map {
 		@each $layout-name, $layout-span in $span {
-			@if $layout-name == 'default' {
+			@if $layout-name == "default" {
 				@include _oGridColumnWidth($layout-span);
 			} @else {
-				@if $layout-span == 'hide' {
+				@if $layout-span == "hide" {
 					@include oGridRespondTo($layout-name) {
 						display: none;
 					}
@@ -493,7 +550,9 @@
 						// if `data-o-grid-colspan` was set to `0` or `hide`
 						display: block;
 						// Define width in %
-						@include _oGridFixSafariWrap($layout-span); // stylelint-disable-line order/order
+						@include _oGridFixSafariWrap(
+							$layout-span
+						); // stylelint-disable-line order/order
 						min-width: oGridColspan($layout-span);
 						max-width: oGridColspan($layout-span);
 					}

@@ -1,7 +1,6 @@
-import BaseTable from './BaseTable.js';
+import BaseTable from "./BaseTable.js";
 
 class FlatTable extends BaseTable {
-
 	/**
 	 * Initialises an `o-table` component with "flat" responsive behaviour.
 	 *
@@ -15,12 +14,17 @@ class FlatTable extends BaseTable {
 	constructor(rootEl, sorter, opts = {}) {
 		super(rootEl, sorter, opts);
 		// Duplicate row headings before adding sort buttons.
-		this._tableHeadersWithoutSort = this.tableHeaders.map(header => header.cloneNode(true));
+		this._tableHeadersWithoutSort = this.tableHeaders.map(header =>
+			header.cloneNode(true)
+		);
 		// Flat table can only work given headers.
 		if (this.tableHeaders.length <= 0) {
 			// eslint-disable-next-line no-console
-			console.warn('Could not create a "flat" table as no headers were found. Ensure table headers are placed within "<thead>". Removing class "o-table--responsive-flat".', rootEl);
-			rootEl.classList.remove('o-table--responsive-flat');
+			console.warn(
+				'Could not create a "flat" table as no headers were found. Ensure table headers are placed within "<thead>". Removing class "o-table--responsive-flat".',
+				rootEl
+			);
+			rootEl.classList.remove("o-table--responsive-flat");
 		} else {
 			this._createFlatTableStructure();
 		}
@@ -51,7 +55,11 @@ class FlatTable extends BaseTable {
 	 * @access private
 	 */
 	_getLatestRowNodes() {
-		return this.tbody ? Array.from(this.tbody.querySelectorAll('tr:not(.o-table__duplicate-row)')) : [];
+		return this.tbody
+			? Array.from(
+					this.tbody.querySelectorAll("tr:not(.o-table__duplicate-row)")
+			  )
+			: [];
 	}
 
 	/**
@@ -63,24 +71,24 @@ class FlatTable extends BaseTable {
 	 */
 	_createFlatTableStructure(rows = this.tableRows) {
 		rows
-			.filter(row => !row.hasAttribute('data-o-table-flat-headings')) // only process rows once
+			.filter(row => !row.hasAttribute("data-o-table-flat-headings")) // only process rows once
 			.forEach(row => {
-				const data = Array.from(row.getElementsByTagName('td'));
-				row.setAttribute('data-o-table-flat-headings', true);
+				const data = Array.from(row.getElementsByTagName("td"));
+				row.setAttribute("data-o-table-flat-headings", true);
 				window.requestAnimationFrame(() => {
 					// Create a new table body for every row.
-					const newGroupBody = document.createElement('tbody');
-					newGroupBody.classList.add('o-table__responsive-body');
+					const newGroupBody = document.createElement("tbody");
+					newGroupBody.classList.add("o-table__responsive-body");
 					// Append all the other rows as heading / value pairs.
 					this._tableHeadersWithoutSort.forEach((header, index) => {
 						// Create the row.
-						const newRow = document.createElement('tr');
-						newRow.classList.add('o-table__duplicate-row');
+						const newRow = document.createElement("tr");
+						newRow.classList.add("o-table__duplicate-row");
 						// Duplicate the original heading cell.
 						const clonedHeader = header.cloneNode(true);
-						clonedHeader.classList.add('o-table__duplicate-heading');
-						clonedHeader.setAttribute('scope', 'row');
-						clonedHeader.setAttribute('role', 'rowheader');
+						clonedHeader.classList.add("o-table__duplicate-heading");
+						clonedHeader.setAttribute("scope", "row");
+						clonedHeader.setAttribute("role", "rowheader");
 						// Duplicate the original data cell.
 						const clonedTd = data[index].cloneNode(true);
 						// Append the header and data cell to the row.

@@ -1,12 +1,14 @@
-import OVideo from '../../src/js/video.js';
+import OVideo from "../../src/js/video.js";
 
-document.addEventListener("DOMContentLoaded", function() {
-	const video = new OVideo(document.querySelector('[data-o-component="o-video"]'));
+document.addEventListener("DOMContentLoaded", function () {
+	const video = new OVideo(
+		document.querySelector('[data-o-component="o-video"]')
+	);
 
-	const select = document.querySelector('select');
+	const select = document.querySelector("select");
 
 	if (select) {
-		select.addEventListener('change', function () {
+		select.addEventListener("change", function () {
 			video.update({ id: this.value });
 		});
 

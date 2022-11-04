@@ -1,35 +1,37 @@
 #!/usr/bin/env node
 
-import path from 'node:path'
+import path from "node:path";
 import { setTimeout } from "node:timers/promises";
-import {globby as glob} from "globby"
-import AxeBuilderPlaywright from '@axe-core/playwright'
-import playwright from 'playwright'
-import { pathToFileURL } from 'url';
-import { prettyPrintAxeReport } from 'axe-result-pretty-print';
+import { globby as glob } from "globby";
+import AxeBuilderPlaywright from "@axe-core/playwright";
+import playwright from "playwright";
+import { pathToFileURL } from "url";
+import { prettyPrintAxeReport } from "axe-result-pretty-print";
 const AxeBuilder = AxeBuilderPlaywright.default;
 
-const cwd = process.cwd()
+const cwd = process.cwd();
 
-const builtDemoHtmlFiles = await glob(path.join(cwd, '/demos/local/*.html'), {onlyFiles: true})
+const builtDemoHtmlFiles = await glob(path.join(cwd, "/demos/local/*.html"), {
+	onlyFiles: true,
+});
 
 const axeRulesToIgnore = [
-// ignoring the href="#" error
-// pa11y demos are for pa11y only and may include multiple versions
-// of a landmark component like o-footer
-'landmark-one-main',
-'landmark-no-duplicate-contentinfo',
-'landmark-unique',
-// disable https://dequeuniversity.com/rules/axe/3.5/region?application=axeAPI
-'region',
-// // disable https://dequeuniversity.com/rules/axe/3.5/bypass?application=axeAPI
-'bypass',
-// // pa11y demos are for pa11y only and do not have a heading
-'page-has-heading-one',
-// FIXME audio caption - the newspaper doesn't provide these, so either can
-//                       we. but in the future it would be good to remove this,
-//                       and provide captions.
-'audio-caption',
+	// ignoring the href="#" error
+	// pa11y demos are for pa11y only and may include multiple versions
+	// of a landmark component like o-footer
+	"landmark-one-main",
+	"landmark-no-duplicate-contentinfo",
+	"landmark-unique",
+	// disable https://dequeuniversity.com/rules/axe/3.5/region?application=axeAPI
+	"region",
+	// // disable https://dequeuniversity.com/rules/axe/3.5/bypass?application=axeAPI
+	"bypass",
+	// // pa11y demos are for pa11y only and do not have a heading
+	"page-has-heading-one",
+	// FIXME audio caption - the newspaper doesn't provide these, so either can
+	//                       we. but in the future it would be good to remove this,
+	//                       and provide captions.
+	"audio-caption",
 ];
 
 const errors = [];
@@ -45,16 +47,18 @@ for (const file of builtDemoHtmlFiles) {
 	// of the tooltip and during the animation - the contrast of the text is insufficient.
 	await setTimeout(1000);
 
-	const results = await new AxeBuilder({ page }).disableRules(axeRulesToIgnore).analyze();
+	const results = await new AxeBuilder({ page })
+		.disableRules(axeRulesToIgnore)
+		.analyze();
 	prettyPrintAxeReport({
-        violations: results.violations,
-        url: file,
-    });
+		violations: results.violations,
+		url: file,
+	});
 	errors.push(...results.violations);
 }
 await browser.close();
 
 if (errors.length) {
-	console.error(`${errors.length} accessibility errors were detected.`)
-	process.exit(1)
+	console.error(`${errors.length} accessibility errors were detected.`);
+	process.exit(1);
 }

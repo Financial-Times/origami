@@ -14,19 +14,18 @@
 	}
 
 	> ul > li {
-		margin: oSpacingByName('s2') 0;
+		margin: oSpacingByName("s2") 0;
 	}
 }
 
-
 @mixin _oTopperSummaryBody {
 	h2 {
-		@include oTypographySans(0, $weight: 'semibold');
+		@include oTypographySans(0, $weight: "semibold");
 		margin: 5px 0 0;
 	}
 
 	ul {
-		@include oTypographyList('unordered');
+		@include oTypographyList("unordered");
 		margin: 0px;
 
 		li:first-child {
@@ -34,7 +33,7 @@
 		}
 		li {
 			@include oTypographySans(1);
-			margin-top: oSpacingByName('s2');
+			margin-top: oSpacingByName("s2");
 			margin-bottom: 0;
 		}
 	}
@@ -42,11 +41,11 @@
 
 @mixin _oTopperImageCredit {
 	@include oTypographySans(-2);
-	color: oColorsByName('white');
+	color: oColorsByName("white");
 	position: absolute;
 	right: 12px;
 	bottom: 2px;
-	text-shadow: 1px 1px 1px oColorsByName('slate');
+	text-shadow: 1px 1px 1px oColorsByName("slate");
 }
 
 //IE9 support
@@ -63,7 +62,7 @@
 
 @include _oTopperDefineOnce(tag) {
 	%_o-topper__tag {
-		@include oEditorialTypographyTag($type: 'topic');
+		@include oEditorialTypographyTag($type: "topic");
 		color: unset;
 
 		@at-root a#{&} {
@@ -81,7 +80,7 @@
 }
 
 @mixin _oTopperColumnist {
-	margin-top: oSpacingByName('s4');
+	margin-top: oSpacingByName("s4");
 	text-transform: uppercase;
 }
 

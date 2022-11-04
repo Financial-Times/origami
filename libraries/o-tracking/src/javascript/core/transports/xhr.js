@@ -7,11 +7,11 @@ function xhr() {
 	const xhr = new window.XMLHttpRequest();
 
 	return {
-		name: 'xhr',
+		name: "xhr",
 		send: function (url, data) {
-			xhr.open('POST', url, true);
+			xhr.open("POST", url, true);
 			xhr.withCredentials = true;
-			xhr.setRequestHeader('Content-type', 'application/json');
+			xhr.setRequestHeader("Content-type", "application/json");
 			xhr.send(data);
 		},
 		complete: function (callback) {
@@ -22,10 +22,10 @@ function xhr() {
 				if (xhr.status >= 200 && xhr.status < 300) {
 					callback();
 				} else {
-					callback('Incorrect response: ' + xhr.status);
+					callback("Incorrect response: " + xhr.status);
 				}
 			};
-		}
+		},
 	};
 }
 

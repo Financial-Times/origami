@@ -1,5 +1,5 @@
 // Dependancies
-@import '@financial-times/math';
+@import "@financial-times/math";
 @import "@financial-times/o-spacing/main";
 @import "@financial-times/o-brand/main";
 @import "@financial-times/o-buttons/main";
@@ -29,22 +29,24 @@
 /// Outputs all features and styles available.
 /// @param {list} $opts [('responsive-overflow', 'responsive-flat', 'responsive-scroll', 'lines', 'compact', 'stripes', 'row-headings')] - Table features to output. Defaults to all table features.
 /// @access public
-@mixin oTable($opts: (
-	'responsive-overflow',
-	'responsive-flat',
-	'responsive-scroll',
-	'lines',
-	'compact',
-	'stripes',
-	'row-headings',
-)) {
-	$overflow-enabled: index($opts, 'responsive-overflow');
-	$flat-enabled: index($opts, 'responsive-flat');
-	$scroll-enabled: index($opts, 'responsive-scroll');
-	$lines-enabled: index($opts, 'lines');
-	$compact-enabled: index($opts, 'compact');
-	$stripes-enabled: index($opts, 'stripes');
-	$row-headings-enabled: index($opts, 'row-headings');
+@mixin oTable(
+	$opts: (
+		"responsive-overflow",
+		"responsive-flat",
+		"responsive-scroll",
+		"lines",
+		"compact",
+		"stripes",
+		"row-headings",
+	)
+) {
+	$overflow-enabled: index($opts, "responsive-overflow");
+	$flat-enabled: index($opts, "responsive-flat");
+	$scroll-enabled: index($opts, "responsive-scroll");
+	$lines-enabled: index($opts, "lines");
+	$compact-enabled: index($opts, "compact");
+	$stripes-enabled: index($opts, "stripes");
+	$row-headings-enabled: index($opts, "row-headings");
 
 	// Basic styles and simple utilities.
 	@include _oTableBase;
@@ -76,17 +78,17 @@
 	}
 
 	// Compact.
-	@if $compact-enabled and _oTableSupports('compact') {
+	@if $compact-enabled and _oTableSupports("compact") {
 		@include _oTableCompact;
 	}
 
 	// Stripes.
-	@if $stripes-enabled and _oTableSupports('stripes') {
+	@if $stripes-enabled and _oTableSupports("stripes") {
 		@include _oTableRowStripes;
 	}
 
 	// Row headings.
-	@if $row-headings-enabled and _oTableSupports('row-headings') {
+	@if $row-headings-enabled and _oTableSupports("row-headings") {
 		@include _oTableRowHeadings;
 	}
 }

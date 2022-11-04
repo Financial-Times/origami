@@ -1,9 +1,11 @@
 # Migration Guide
+
 ### Migrating from v3 to v4
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
 Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
+
 ## Migrating from v2 to v3
 
 ### Updated dependencies
@@ -15,6 +17,7 @@ its dependencies. See [the Bower config for these](./bower.json).
 ### Markup changes
 
 The following CSS classes have been renamed:
+
 - `o-visual-effects-shadow` is now `o-visual-effects-shadow-low`
 - `o-visual-effects-shadow--ultralow` is now `o-visual-effects-shadow-ultralow`
 - `o-visual-effects-shadow--mid` is now `o-visual-effects-shadow-mid`
@@ -23,9 +26,11 @@ The following CSS classes have been renamed:
 ### Sass changes
 
 The following Sass mixin has been renamed:
+
 - `oVisualEffectsShadowsElevation` is now `oVisualEffectsShadowContent`.
 
 The following Sass variables have been renamed:
+
 - `$o-visual-effects-transition-slide` is now `$o-visual-effects-timing-slide`
 - `$o-visual-effects-transition-expand` is now `$o-visual-effects-timing-expand`
 - `$o-visual-effects-transition-fade` is now `$o-visual-effects-timing-fade`

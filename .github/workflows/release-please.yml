@@ -17,9 +17,9 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
       - uses: actions/setup-node@v2
         with:
-          cache: 'npm'
+          cache: "npm"
           node-version: 16
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
         if: ${{ steps.release.outputs.releases_created }}
       - run: npm i -g npm@7
         if: ${{ steps.release.outputs.releases_created }}

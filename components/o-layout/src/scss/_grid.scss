@@ -11,7 +11,7 @@
 		// Apply to the body rather than o-layout to avoid
 		// obscuring the hero element, which makes use of a
 		// negative z-index at the time of writing.
-		background-color: oColorsByUsecase('page', 'background');
+		background-color: oColorsByUsecase("page", "background");
 	}
 
 	.o-layout {
@@ -23,7 +23,14 @@
 		// make the main area have a max width equal to the o-layout container
 		// size, accounting for grid gaps
 		/*! autoprefixer: ignore next */
-		grid-template-columns: minmax(0, 1fr) minmax(0, calc(#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
+		grid-template-columns:
+			minmax(0, 1fr) minmax(
+				0,
+				calc(
+					#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter}
+				)
+			)
+			minmax(0, 1fr);
 		/*! autoprefixer: ignore next */
 		grid-template-rows: auto 1fr auto;
 		/*! autoprefixer: ignore next */
@@ -43,10 +50,10 @@
 		@include oTypographySans($scale: 1);
 		z-index: 999;
 		position: absolute;
-		left: oSpacingByName('s2');
-		padding: oSpacingByName('s2') oSpacingByName('s4');
-		background-color: oColorsByName('oxford');
-		color: oColorsByName('white');
+		left: oSpacingByName("s2");
+		padding: oSpacingByName("s2") oSpacingByName("s4");
+		background-color: oColorsByName("oxford");
+		color: oColorsByName("white");
 		text-decoration: none;
 		transform: translateY(-120%);
 		@media (prefers-reduced-motion: no-preference) {
@@ -72,7 +79,6 @@
 	}
 }
 
-
 /// Grid for a landing page layout (e.g. homepage).
 /// @access private
 @mixin _oLayoutLandingGrid() {
@@ -86,7 +92,14 @@
 		grid-template-rows: auto auto 1fr auto;
 		// make the main area have a max width equal to the o-layout container
 		// size, accounting for grid gaps
-		grid-template-columns: minmax(0, 1fr)  minmax(0, calc(#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
+		grid-template-columns:
+			minmax(0, 1fr) minmax(
+				0,
+				calc(
+					#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter}
+				)
+			)
+			minmax(0, 1fr);
 	}
 }
 
@@ -110,14 +123,22 @@
 				"footer footer footer footer";
 			// make the main and sidebar area have a max width equal to the
 			// o-layout container size, accounting for grid gaps
-			grid-template-columns: minmax(0, 1fr) $_o-layout-sidebar-width minmax(0, calc(#{$_o-layout-container-max-width} - #{$_o-layout-sidebar-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
+			grid-template-columns:
+				minmax(0, 1fr) $_o-layout-sidebar-width minmax(
+					0,
+					calc(
+						#{$_o-layout-container-max-width} - #{$_o-layout-sidebar-width} - #{$column-gap-count *
+							$_o-layout-gutter}
+					)
+				)
+				minmax(0, 1fr);
 			grid-template-rows: auto 1fr auto;
 		}
 	}
 
 	.o-layout.o-layout--docs > .o-layout__main {
 		> aside {
-			margin-bottom: oSpacingByName('s6');
+			margin-bottom: oSpacingByName("s6");
 		}
 		@include oGridRespondTo($until: M) {
 			margin-top: 0;
@@ -125,18 +146,20 @@
 		@include oGridRespondTo($from: L) {
 			> * {
 				box-sizing: border-box;
-				max-width: calc(100% - #{$_o-layout-sidebar-width} - #{$_o-layout-gutter});
+				max-width: calc(
+					100% - #{$_o-layout-sidebar-width} - #{$_o-layout-gutter}
+				);
 				float: left;
 				clear: left;
 			}
 			> pre {
 				width: 100%;
-				margin: 0 0 oSpacingByName('s6');
+				margin: 0 0 oSpacingByName("s6");
 			}
 			> aside {
 				box-sizing: border-box;
 				width: $_o-layout-sidebar-width;
-				margin-bottom: oSpacingByName('m12');
+				margin-bottom: oSpacingByName("m12");
 				float: right;
 				clear: right;
 				:last-child {
@@ -151,11 +174,11 @@
 		}
 
 		.o-layout__rule-left {
-			@include _oLayoutRule('left');
+			@include _oLayoutRule("left");
 		}
 
 		.o-layout__rule-right {
-			@include _oLayoutRule('right');
+			@include _oLayoutRule("right");
 		}
 
 		.o-layout__main__full-span {
@@ -185,7 +208,9 @@
 
 		@include oGridRespondTo($from: M) {
 			grid-template-rows: auto auto 1fr auto;
-			grid-template-columns: $margin-grid-size $_o-layout-sidebar-width minmax(0, 1fr) $margin-grid-size;
+			grid-template-columns:
+				$margin-grid-size $_o-layout-sidebar-width minmax(0, 1fr)
+				$margin-grid-size;
 			grid-template-areas:
 				"header header header header"
 				". query-sidebar heading ."
@@ -202,7 +227,9 @@
 				"footer footer footer footer footer";
 			grid-template-rows: auto auto 1fr auto;
 			// fit-content makes the aside collapse with no content, so the aside bar can be optional
-			grid-template-columns: $margin-grid-size $_o-layout-sidebar-width minmax(0, 1fr) fit-content($_o-layout-sidebar-width) $margin-grid-size;
+			grid-template-columns:
+				$margin-grid-size $_o-layout-sidebar-width minmax(0, 1fr)
+				fit-content($_o-layout-sidebar-width) $margin-grid-size;
 		}
 
 		.o-layout__main {
@@ -216,9 +243,9 @@
 		.o-layout__query-sidebar {
 			margin: 0;
 			@include oGridRespondTo($from: M) {
-				border-right: 1px solid oColorsByName('slate-white-15');
+				border-right: 1px solid oColorsByName("slate-white-15");
 				padding-right: $_o-layout-gutter;
-				margin: $_o-layout-gutter 0 oSpacingByName('s4');
+				margin: $_o-layout-gutter 0 oSpacingByName("s4");
 			}
 		}
 
@@ -227,7 +254,7 @@
 				width: $_o-layout-sidebar-width; // So the sidebar can be deleted, the query area fits to content width.
 				margin: $_o-layout-gutter 0;
 				padding-left: $_o-layout-gutter;
-				border-left: 1px solid oColorsByName('slate-white-15');
+				border-left: 1px solid oColorsByName("slate-white-15");
 			}
 		}
 	}

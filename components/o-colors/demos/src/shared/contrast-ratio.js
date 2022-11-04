@@ -1,27 +1,26 @@
 function getWCAGRating(ratio, foreground, background) {
 	let wcagRating;
-	let message = 'This combination passes WCAG color contrast guidelines';
+	let message = "This combination passes WCAG color contrast guidelines";
 	const combination = `<code>${foreground}</code> on <code>${background}</code>`;
 
 	if (ratio >= 7) {
-		wcagRating = 'AAA';
+		wcagRating = "AAA";
 	} else if (ratio >= 4.5) {
-		wcagRating = 'AA';
+		wcagRating = "AA";
 	} else if (ratio >= 3) {
-		wcagRating = 'AA18';
+		wcagRating = "AA18";
 		message = `Caution: When using this combination, text should be larger than 18px to pass WCAG color contrast guidelines.`;
 	} else {
-		wcagRating = 'Fail';
+		wcagRating = "Fail";
 		message = `This combination does not pass WCAG color contrast guidelines.`;
 	}
 
 	return {
 		combination,
 		wcagRating,
-		message
+		message,
 	};
 }
-
 
 function getContrastRatio(foreground, background) {
 	const l1 = oColorsColorLuminance(foreground) + 0.05;
@@ -42,8 +41,8 @@ function preciseFloor(number, decimals = 2) {
 }
 
 function oColorsColorLuminance(hex) {
-	hex = hex.trim() === 'gray' ? '#808080' : hex; // an equal mix of black and white will always default to 'gray' instead of a hex value
-	const hexValue = hex.replace('#', '').trim();
+	hex = hex.trim() === "gray" ? "#808080" : hex; // an equal mix of black and white will always default to 'gray' instead of a hex value
+	const hexValue = hex.replace("#", "").trim();
 	const rgbPairs = hexValue.match(/.{1,2}/g);
 
 	const decimals = rgbPairs.map(pair => {
@@ -51,9 +50,9 @@ function oColorsColorLuminance(hex) {
 	});
 
 	const colors = {
-		'red': decimals[0],
-		'green': decimals[1],
-		'blue': decimals[2]
+		red: decimals[0],
+		green: decimals[1],
+		blue: decimals[2],
 	};
 
 	Object.keys(colors).forEach(color => {
@@ -65,12 +64,10 @@ function oColorsColorLuminance(hex) {
 			colors[color] = (colors[color] + 0.055) / 1.055;
 			colors[color] = Math.pow(colors[color], 2.4);
 		}
-
 	});
-	return colors['red'] * 0.2126 + colors['green'] * 0.7152 + colors['blue'] * 0.0722;
+	return (
+		colors["red"] * 0.2126 + colors["green"] * 0.7152 + colors["blue"] * 0.0722
+	);
 }
 
-export {
-	getWCAGRating,
-	getContrastRatio
-};
+export { getWCAGRating, getContrastRatio };

@@ -1,6 +1,6 @@
-@include describe('oComments mixins') {
-	@include describe('oComments') {
-		@include it('does something') {
+@include describe("oComments mixins") {
+	@include describe("oComments") {
+		@include it("does something") {
 			@include assert() {
 				@include output($selector: false) {
 					.test-mixin {
@@ -10,7 +10,7 @@
 
 				@include contains($selector: false) {
 					.test-mixin .o-comments__staging-message-container {
-						margin-bottom: oSpacingByName('s2');
+						margin-bottom: oSpacingByName("s2");
 					}
 				}
 			}

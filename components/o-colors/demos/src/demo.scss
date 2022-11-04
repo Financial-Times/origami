@@ -1,11 +1,10 @@
 // Import colors module
-@import '../../main';
+@import "../../main";
 @include oColors();
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
-
 
 body {
 	box-sizing: border-box;
@@ -20,13 +19,13 @@ body {
 }
 
 @each $color-details in oColorsGetPaletteDetails() {
-	$name: map-get($color-details, 'name');
+	$name: map-get($color-details, "name");
 	.o-colors-border-#{$name} {
 		border-width: 2px 2px 0;
 		border-style: solid;
 		border-color: oColorsByName($name);
 
-		@if $name == 'white' {
+		@if $name == "white" {
 			border-color: oColorsMix(black, white, 20);
 		}
 	}
@@ -111,7 +110,6 @@ body {
 		cursor: pointer;
 	}
 }
-
 
 .demo-wrapper--tones-mixes {
 	justify-content: space-between;

@@ -3,20 +3,20 @@ import {
 	TopWrapper,
 	TopColumnCenter,
 	TopColumnRight,
-} from './top';
-import {UserActionsNav} from './user';
-import {NavMobile, NavDesktop} from './nav';
-import { THeaderProps } from './Props';
+} from "./top";
+import { UserActionsNav } from "./user";
+import { NavMobile, NavDesktop } from "./nav";
+import { THeaderProps } from "./Props";
 export function InverseSimpleHeader({
 	userIsLoggedIn,
 	showUserNavigation,
 	data,
 }: THeaderProps) {
 	const includeUserActionsNav = showUserNavigation && !userIsLoggedIn;
-	const userNavItems = includeUserActionsNav && data['navbar-right-anon'].items;
-	const mobileNavItems = data['navbar-simple'].items;
+	const userNavItems = includeUserActionsNav && data["navbar-right-anon"].items;
+	const mobileNavItems = data["navbar-simple"].items;
 	const desktopNavItems = data.navbar.items;
-	const rightNavItems = data['navbar-right'].items;
+	const rightNavItems = data["navbar-right"].items;
 	return (
 		<HeaderWrapper additionalClassName="o-header--transparent">
 			{includeUserActionsNav && <UserActionsNav userNavItems={userNavItems} />}

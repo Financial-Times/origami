@@ -9,13 +9,13 @@ export default class FtConceptButton {
 	 */
 	constructor(element, options) {
 		this.element = element;
-		this.button = this.element.querySelector('.ft-concept-button__button');
-		this.live = this.element.querySelector('.ft-concept-button__announcement');
+		this.button = this.element.querySelector(".ft-concept-button__button");
+		this.live = this.element.querySelector(".ft-concept-button__announcement");
 		this.options = Object.assign({}, options || this.getOptionsFromDom());
 	}
 
 	get isPressed() {
-		return this.button.getAttribute('aria-pressed') === 'true';
+		return this.button.getAttribute("aria-pressed") === "true";
 	}
 
 	/**
@@ -25,7 +25,7 @@ export default class FtConceptButton {
 	 * @param {boolean} [state] the state to set
 	 */
 	set isPressed(state) {
-		this.button.setAttribute('aria-pressed', state ? 'true' : 'false');
+		this.button.setAttribute("aria-pressed", state ? "true" : "false");
 
 		if (
 			this.options.ariaLivePressedText &&
@@ -47,9 +47,11 @@ export default class FtConceptButton {
 			this.options.ariaLabelPressedText &&
 			this.options.ariaLabelUnpressedText
 		) {
-			this.button.setAttribute('aria-label', state
-				? this.options.ariaLabelPressedText
-				: this.options.ariaLabelUnpressedText
+			this.button.setAttribute(
+				"aria-label",
+				state
+					? this.options.ariaLabelPressedText
+					: this.options.ariaLabelUnpressedText
 			);
 		}
 	}
@@ -58,7 +60,7 @@ export default class FtConceptButton {
 		const options = {};
 		if (this.element instanceof HTMLElement) {
 			for (const [key, value] of Object.entries(this.element.dataset)) {
-				if (key.startsWith('ftConceptButton')) {
+				if (key.startsWith("ftConceptButton")) {
 					const option = key.replace(
 						/^ftConceptButton(\w)(\w+)$/,
 						(m, m1, m2) => m1.toLowerCase() + m2
@@ -87,7 +89,7 @@ export default class FtConceptButton {
 		if (!rootEl) {
 			rootEl = document.body;
 		}
-		if (typeof rootEl === 'string') {
+		if (typeof rootEl === "string") {
 			rootEl = document.querySelector(rootEl);
 		}
 

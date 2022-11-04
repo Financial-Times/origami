@@ -1,25 +1,25 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import * as fixtures from './helpers/fixtures.js';
+import * as fixtures from "./helpers/fixtures.js";
 
-import {SubsCard} from './../main.js';
+import { SubsCard } from "./../main.js";
 
 describe("SubsCard", () => {
-	it('is defined', () => {
-		proclaim.equal(typeof SubsCard, 'function');
+	it("is defined", () => {
+		proclaim.equal(typeof SubsCard, "function");
 	});
 
-	it('has a static init method', () => {
-		proclaim.equal(typeof SubsCard.init, 'function');
+	it("has a static init method", () => {
+		proclaim.equal(typeof SubsCard.init, "function");
 	});
 
-	it("should autoinitialize", (done) => {
-		const initSpy = sinon.spy(SubsCard, 'init');
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		setTimeout(function(){
+	it("should autoinitialize", done => {
+		const initSpy = sinon.spy(SubsCard, "init");
+		document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
+		setTimeout(function () {
 			proclaim.equal(initSpy.called, true);
 			initSpy.restore();
 			done();
@@ -27,7 +27,7 @@ describe("SubsCard", () => {
 	});
 
 	it("should not autoinitialize when the event is not dispached", () => {
-		const initSpy = sinon.spy(SubsCard, 'init');
+		const initSpy = sinon.spy(SubsCard, "init");
 		proclaim.equal(initSpy.called, false);
 	});
 
@@ -47,13 +47,12 @@ describe("SubsCard", () => {
 		});
 
 		it("single component when initialized with a root element", () => {
-			const subsCard = SubsCard.init('.o-subs-card');
+			const subsCard = SubsCard.init(".o-subs-card");
 			proclaim.equal(subsCard instanceof SubsCard, true);
 		});
 	});
 
-	describe('multiple components', () => {
-
+	describe("multiple components", () => {
 		beforeEach(() => {
 			fixtures.htmlCodeMulti();
 		});
@@ -62,14 +61,12 @@ describe("SubsCard", () => {
 			fixtures.reset();
 		});
 
-		it('will all have matching top height', () => {
-			const matchHeightsSpy = sinon.spy(SubsCard, 'matchHeights');
+		it("will all have matching top height", () => {
+			const matchHeightsSpy = sinon.spy(SubsCard, "matchHeights");
 
 			SubsCard.init();
 
 			proclaim.equal(matchHeightsSpy.called, true);
 		});
-
 	});
-
 });

@@ -2,23 +2,26 @@
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @param {Boolean} $right Whether to display checkbox to the right of text
 /// @output Styling for text inputs
-@mixin _oFormsCheckbox(
-	$disabled: null,
-	$right: null
-) {
+@mixin _oFormsCheckbox($disabled: null, $right: null) {
+	/* stylelint-disable selector-no-qualifying-type */
 	.o-forms-input--checkbox {
-		input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
+		input[type="checkbox"] {
 			@include _oFormsControlsBase($disabled);
 
-			&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-				border-color: oColorsByUsecase('focus', 'outline', $fallback: null);
-				box-shadow: 0 0 0 $_o-forms-spacing-half oColorsByUsecase('focus', 'outline', $fallback: null);
+			&:focus + .o-forms-input__label:before {
+				border-color: oColorsByUsecase("focus", "outline", $fallback: null);
+				box-shadow: 0 0 0 $_o-forms-spacing-half
+					oColorsByUsecase("focus", "outline", $fallback: null);
 				outline: none;
 			}
 
-			&:indeterminate + .o-forms-input__label:after { // stylelint-disable-line selector-no-qualifying-type
-				@include oIconsContent('minus', _oFormsGet('controls-checked-base'), $_o-forms-checkbox-radio-width);
-				background-color: _oFormsGet('controls-base');
+			&:indeterminate + .o-forms-input__label:after {
+				@include oIconsContent(
+					"minus",
+					_oFormsGet("controls-checked-base"),
+					$_o-forms-checkbox-radio-width
+				);
+				background-color: _oFormsGet("controls-base");
 				opacity: 1;
 			}
 		}
@@ -27,10 +30,10 @@
 			.o-forms-input__right {
 				display: inline-block;
 
-				input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
+				input[type="checkbox"] {
 					right: 0;
 				}
-				input[type=checkbox] ~ .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+				input[type="checkbox"] ~ .o-forms-input__label {
 					padding-left: 0;
 					padding-right: $_o-forms-spacing-controls;
 
@@ -43,7 +46,7 @@
 			}
 		}
 
-		input[type=checkbox] ~ .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+		input[type="checkbox"] ~ .o-forms-input__label {
 			display: inline-block;
 			padding: $_o-forms-spacing-half 0 0 $_o-forms-spacing-controls;
 			vertical-align: top;
@@ -51,22 +54,27 @@
 			&:before {
 				@include _oFormsControlsPseudoElements();
 				border: $_o-forms-border;
-				background-color: _oFormsGet('default-background');
+				background-color: _oFormsGet("default-background");
 			}
 
 			&:after {
 				@include _oFormsControlsPseudoElements();
-				@include oIconsContent('tick', _oFormsGet('controls-checked-base'), $_o-forms-checkbox-radio-width);
-				background-color: _oFormsGet('controls-base');
+				@include oIconsContent(
+					"tick",
+					_oFormsGet("controls-checked-base"),
+					$_o-forms-checkbox-radio-width
+				);
+				background-color: _oFormsGet("controls-base");
 				opacity: 0;
 				transition: opacity 0.1s ease;
 			}
 
 			// this handles spacing between two input__label spans for the same input element,
-			// which is necessary in the case of 'additional content'
-			& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+			// which is necessary in th
+			& + .o-forms-input__label {
 				padding-top: $_o-forms-spacing-three;
 			}
 		}
 	}
+	/* stylelint-enable selector-no-qualifying-type */
 }

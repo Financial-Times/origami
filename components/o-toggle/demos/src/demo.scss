@@ -1,20 +1,21 @@
 @import "./../../main";
 
 @include oToggle();
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
-@import '@financial-times/o-buttons/main';
+@import "@financial-times/o-buttons/main";
 @include oButtons();
-@import '@financial-times/o-spacing/main';
+@import "@financial-times/o-spacing/main";
 @include oSpacing();
 
 body {
 	margin: var(--o-spacing-s4, 1rem);
 }
 
-#demo-target { // stylelint-disable-line selector-max-id
-	font-family: if(oBrandIs('whitelabel'), Arial, MetricWeb);
+// stylelint-disable-next-line selector-max-id
+#demo-target {
+	font-family: if(oBrandIs("whitelabel"), Arial, MetricWeb);
 	margin: var(--o-spacing-s4, 1rem) 0;
 }

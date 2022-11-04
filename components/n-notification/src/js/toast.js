@@ -7,19 +7,25 @@ const isVisible = function (element) {
 };
 
 // Focus trap is an accessibility technique to keep users' focus within the toast window
-const focusTrap = function(event) {
+const focusTrap = function (event) {
 	const tabKeyCode = 9;
-	const toastFocusableElements = [].slice.call(
-		this.rootEl.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')
-	).filter(element => isVisible(element) && !element.disabled);
+	const toastFocusableElements = [].slice
+		.call(
+			this.rootEl.querySelectorAll(
+				'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+			)
+		)
+		.filter((element) => isVisible(element) && !element.disabled);
 
 	if (toastFocusableElements.length && event.keyCode === tabKeyCode) {
-		const lastElement = toastFocusableElements[toastFocusableElements.length - 1];
+		const lastElement =
+			toastFocusableElements[toastFocusableElements.length - 1];
 		// Loop focus back to the first element if focus has reached the focusable element
 		if (event.target === lastElement) {
 			toastFocusableElements[0].focus();
 			event.preventDefault();
-		} else if (event.shiftKey && event.target === toastFocusableElements[0]) { // loop to the bottom when shift+tabbing.
+		} else if (event.shiftKey && event.target === toastFocusableElements[0]) {
+			// loop to the bottom when shift+tabbing.
 			lastElement.focus();
 			event.preventDefault();
 		}

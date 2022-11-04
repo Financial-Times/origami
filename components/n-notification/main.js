@@ -1,6 +1,6 @@
 import nNotification from './src/js/n-notification';
 
-const constructAll = function() {
+const constructAll = function () {
 	nNotification.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

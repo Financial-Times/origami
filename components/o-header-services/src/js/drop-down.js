@@ -1,4 +1,4 @@
-import * as oUtils from '@financial-times/o-utils';
+import * as oUtils from "@financial-times/o-utils";
 
 class DropDown {
 	/**
@@ -8,26 +8,28 @@ class DropDown {
 	 * @param {import("./drawer")|null} drawer - The drawer that this drop down belongs to if any.
 	 */
 	constructor(headerEl, drawer = null) {
-		this.primaryNav = headerEl.querySelector('.o-header-services__primary-nav');
+		this.primaryNav = headerEl.querySelector(".o-header-services__primary-nav");
 		this.drawer = drawer;
 		this.headerEl = headerEl;
 
 		/**
 		 * @type {Element[]} - Nav items with a dropdown.
 		 */
-		this.navItems = [...headerEl.querySelectorAll('[data-o-header-services-level="1"]')].filter(item => item.querySelector('ul'));
+		this.navItems = [
+			...headerEl.querySelectorAll('[data-o-header-services-level="1"]'),
+		].filter(item => item.querySelector("ul"));
 		this.navItems.forEach(item => {
-			const button = item.querySelector('button');
+			const button = item.querySelector("button");
 			if (!button) {
 				return;
 			}
-			button.addEventListener('click', this);
+			button.addEventListener("click", this);
 		});
 
 		// the event listener is added to the body here to handle cases where a
 		// user might click anywhere else on the body to collapse open dropdowns
-		document.body.addEventListener('click', this);
-		window.addEventListener('keydown', this);
+		document.body.addEventListener("click", this);
+		window.addEventListener("keydown", this);
 
 		// When the drawer is enabled or disabled reset the dropdowns.
 		// The breakpoint the drawer is enabled is customisable with SASS,
@@ -38,9 +40,11 @@ class DropDown {
 			const resizeObserver = new ResizeObserver(this.reset.bind(this));
 			resizeObserver.observe(this.drawer.burger);
 		} else {
-			window.addEventListener('resize', oUtils.debounce(() => this.reset(), 33));
+			window.addEventListener(
+				"resize",
+				oUtils.debounce(() => this.reset(), 33)
+			);
 		}
-
 	}
 
 	/**
@@ -50,14 +54,15 @@ class DropDown {
 	 * @returns {void}
 	 */
 	handleEvent(event) {
-		if (event.key === 'Escape') {
+		if (event.key === "Escape") {
 			this.reset();
 		}
 
-		if (event.type === 'click' && event.target) {
+		if (event.type === "click" && event.target) {
 			// Close dropdown if some non-nav element on the page is clicked.
-			if (event.target.nodeName !== 'BUTTON' &&
-				event.target.nodeName !== 'A' &&
+			if (
+				event.target.nodeName !== "BUTTON" &&
+				event.target.nodeName !== "A" &&
 				event.target !== this.drawer.navList
 			) {
 				this.reset();
@@ -117,18 +122,20 @@ class DropDown {
 		// interaction. We do not want the dropdowns to transition when we are
 		// resetting them i.e. due to the drawer being enabled on a viewport
 		// change.
-		this.headerEl.classList.add('o-header-services--disable-transition');
+		this.headerEl.classList.add("o-header-services--disable-transition");
 		// In the next animation frame...
-		window.requestAnimationFrame(function () {
-			// Close all dropdowns except within the drawer only, where the
-			// dropdown for the current page should be open.
-			DropDown.collapseAll(this.navItems);
-			if (this.isDrawer()) {
-				DropDown.expandAll(DropDown.getCurrent(this.navItems));
-			}
-			// Enable transitions again, which should happen on user interaction
-			this.headerEl.classList.remove('o-header-services--disable-transition');
-		}.bind(this));
+		window.requestAnimationFrame(
+			function () {
+				// Close all dropdowns except within the drawer only, where the
+				// dropdown for the current page should be open.
+				DropDown.collapseAll(this.navItems);
+				if (this.isDrawer()) {
+					DropDown.expandAll(DropDown.getCurrent(this.navItems));
+				}
+				// Enable transitions again, which should happen on user interaction
+				this.headerEl.classList.remove("o-header-services--disable-transition");
+			}.bind(this)
+		);
 	}
 
 	/**
@@ -138,7 +145,7 @@ class DropDown {
 	 * @returns {boolean} - whether the nav menu is expanded
 	 */
 	static isExpanded(item) {
-		return item.getAttribute('aria-expanded') === 'true';
+		return item.getAttribute("aria-expanded") === "true";
 	}
 
 	/**
@@ -148,12 +155,12 @@ class DropDown {
 	 * @returns {void}
 	 */
 	static expand(item) {
-		const childList = item.querySelector('ul');
+		const childList = item.querySelector("ul");
 		requestAnimationFrame(() => {
-			childList.setAttribute('aria-hidden', false);
+			childList.setAttribute("aria-hidden", false);
 			DropDown.position(childList);
 			requestAnimationFrame(() => {
-				item.setAttribute('aria-expanded', true);
+				item.setAttribute("aria-expanded", true);
 			});
 		});
 	}
@@ -166,7 +173,7 @@ class DropDown {
 	 */
 	static position(item) {
 		if (item.getBoundingClientRect().right > window.innerWidth) {
-			item.classList.add('o-header-services__list--right');
+			item.classList.add("o-header-services__list--right");
 		}
 	}
 
@@ -177,9 +184,9 @@ class DropDown {
 	 * @returns {void}
 	 */
 	static collapse(item) {
-		const childList = item.querySelector('ul');
-		item.setAttribute('aria-expanded', false);
-		childList.setAttribute('aria-hidden', true);
+		const childList = item.querySelector("ul");
+		item.setAttribute("aria-expanded", false);
+		childList.setAttribute("aria-hidden", true);
 	}
 
 	/**
@@ -211,13 +218,13 @@ class DropDown {
 	 */
 	static getCurrent(items) {
 		return items.filter(item => {
-			const links = item.querySelectorAll('a');
+			const links = item.querySelectorAll("a");
 			const hasCurrentLink = Array.from(links).reduce((result, link) => {
 				// Check against "page" and "true" as o-header-services
 				// used "true" in its markup before switching to "page".
 				// https://www.aditus.io/aria/aria-current/#aria-current-page
-				const ariaCurrent = link.getAttribute('aria-current') ;
-				return result || (ariaCurrent === 'true' || ariaCurrent === 'page');
+				const ariaCurrent = link.getAttribute("aria-current");
+				return result || ariaCurrent === "true" || ariaCurrent === "page";
 			}, false);
 			return hasCurrentLink;
 		});

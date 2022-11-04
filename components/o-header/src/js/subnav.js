@@ -1,22 +1,23 @@
-import * as oUtils from '@financial-times/o-utils';
+import * as oUtils from "@financial-times/o-utils";
 
 function init(headerEl) {
-	const subnav = headerEl.querySelector('[data-o-header-subnav]');
+	const subnav = headerEl.querySelector("[data-o-header-subnav]");
 
 	if (subnav === null) {
 		return;
 	}
 
-	const buttons = Array.from(subnav.getElementsByTagName('button'));
-	const wrapper = subnav.querySelector('[data-o-header-subnav-wrapper]');
+	const buttons = Array.from(subnav.getElementsByTagName("button"));
+	const wrapper = subnav.querySelector("[data-o-header-subnav-wrapper]");
 
 	let scrollWidth;
 	const wrapperWidth = wrapper.clientWidth;
 
 	function checkCurrentPosition() {
-		const currentSelection = wrapper.querySelector('[aria-current]');
+		const currentSelection = wrapper.querySelector("[aria-current]");
 		if (currentSelection) {
-			const currentSelectionEnd = currentSelection.getBoundingClientRect().right;
+			const currentSelectionEnd =
+				currentSelection.getBoundingClientRect().right;
 
 			//if the current selection is wider than the end of the wrapper
 			if (currentSelectionEnd > wrapperWidth) {
@@ -39,7 +40,7 @@ function init(headerEl) {
 		scrollWidth = wrapper.scrollWidth;
 
 		buttons.forEach(button => {
-			if (direction(button) === 'left') {
+			if (direction(button) === "left") {
 				button.disabled = wrapper.scrollLeft === 0;
 			} else {
 				const remaining = scrollWidth - wrapperWidth - wrapper.scrollLeft;
@@ -52,8 +53,9 @@ function init(headerEl) {
 	function scroll(e) {
 		let distance = 100;
 
-		if (direction(e.currentTarget) === 'left') {
-			distance = (wrapper.scrollLeft > distance ? distance : wrapper.scrollLeft) * -1;
+		if (direction(e.currentTarget) === "left") {
+			distance =
+				(wrapper.scrollLeft > distance ? distance : wrapper.scrollLeft) * -1;
 		} else {
 			const remaining = scrollWidth - wrapperWidth - wrapper.scrollLeft;
 			distance = remaining > distance ? distance : remaining;
@@ -64,8 +66,8 @@ function init(headerEl) {
 		scrollable();
 	}
 
-	wrapper.addEventListener('scroll', oUtils.throttle(scrollable, 100));
-	window.addEventListener('oViewport.resize', scrollable);
+	wrapper.addEventListener("scroll", oUtils.throttle(scrollable, 100));
+	window.addEventListener("oViewport.resize", scrollable);
 
 	buttons.forEach(button => {
 		button.onclick = scroll;

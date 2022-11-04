@@ -1,33 +1,45 @@
-@import '@financial-times/o-editorial-typography/main';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-quote/main';
-@import '@financial-times/o-brand/main';
+@import "@financial-times/o-editorial-typography/main";
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-quote/main";
+@import "@financial-times/o-brand/main";
 
-@import 'src/scss/variables';
-@import 'src/scss/functions';
-@import 'src/scss/mixins';
-@import 'src/scss/placeholders';
+@import "src/scss/variables";
+@import "src/scss/functions";
+@import "src/scss/mixins";
+@import "src/scss/placeholders";
 
 /// Output All oEditorialLayout Features
-@mixin oEditorialLayout($opts: (
-	'headings': (1, 2, 3, 4, 5),
-	'body': true,
-	'wrapper': true,
-)) {
-	$headings: map-get($opts, 'headings');
+@mixin oEditorialLayout(
+	$opts: (
+		"headings": (
+			1,
+			2,
+			3,
+			4,
+			5,
+		),
+		"body": true,
+		"wrapper": true,
+	)
+) {
+	$headings: map-get($opts, "headings");
 	$headings: if($headings, $headings, ());
-	$body: map-get($opts, 'body');
-	$wrapper: map-get($opts, 'wrapper');
+	$body: map-get($opts, "body");
+	$wrapper: map-get($opts, "wrapper");
 
-	@if($headings and type-of($headings) != 'list') {
+	@if ($headings and type-of($headings) != "list") {
 		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5)`.');
 	}
 
 	// Load fonts within the primary mixin in-case silent mode is on.
 	// Don't load fonts if o-typography has output them already since
 	// `$o-editorial-layout-load-fonts` was set.
-	@if $o-editorial-layout-load-fonts == true and $o-typography-load-fonts == true {
+	@if $o-editorial-layout-load-fonts ==
+		true and
+		$o-typography-load-fonts ==
+		true
+	{
 		@include oFonts();
 		// Set to false so fonts are not output twice by o-editorial-typography.
 		$o-editorial-layout-load-fonts: false !global;
@@ -104,11 +116,17 @@
 			}
 
 			> ol {
-				@include oEditorialTypographyList('ordered', $include-base-styles: false);
+				@include oEditorialTypographyList(
+					"ordered",
+					$include-base-styles: false
+				);
 			}
 
 			> ul {
-				@include oEditorialTypographyList('unordered', $include-base-styles: false);
+				@include oEditorialTypographyList(
+					"unordered",
+					$include-base-styles: false
+				);
 			}
 
 			> footer {
@@ -143,10 +161,7 @@
 
 		.o-editorial-layout-wrapper > p strong,
 		.o-editorial-layout-wrapper > strong {
-			@include oTypographySerif(
-				$weight: 'bold',
-				$include-font-family: false
-			);
+			@include oTypographySerif($weight: "bold", $include-font-family: false);
 		}
 
 		.o-editorial-layout-wrapper > p em,
@@ -159,7 +174,6 @@
 		.o-editorial-layout-wrapper > p sup {
 			@include oTypographySuper();
 		}
-
 
 		.o-editorial-layout-wrapper > p sub {
 			@include oTypographySub();

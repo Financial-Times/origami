@@ -2,24 +2,24 @@
 
 A 12 column responsive, flexbox-based grid system for laying out documents, templates and components.
 
--   [Usage](#usage)
--   [Quick Start](#quick-start)
--   [Grid dimensions](#grid-dimensions)
-    -   [General settings](#general-settings)
-    -   [Layout sizes](#layout-sizes)
--   [Markup](#markup)
-    -   [Utility classes](#utility-classes)
-    -   [Responsive columns](#responsive-columns)
-    -   [Examples](#examples)
--   [Sass](#sass)
-    -   [Options](#options)
--   [Advanced usage](#advanced-usage)
-    -   [Utilities](#utilities)
--   [JavaScript Helpers](#javascript-helpers)
--   [Grid Bookmarklet](#grid-bookmarklet)
--   [Migration](#migration)
--   [Contact](#contact)
--   [Licence](#licence)
+- [Usage](#usage)
+- [Quick Start](#quick-start)
+- [Grid dimensions](#grid-dimensions)
+  - [General settings](#general-settings)
+  - [Layout sizes](#layout-sizes)
+- [Markup](#markup)
+  - [Utility classes](#utility-classes)
+  - [Responsive columns](#responsive-columns)
+  - [Examples](#examples)
+- [Sass](#sass)
+  - [Options](#options)
+- [Advanced usage](#advanced-usage)
+  - [Utilities](#utilities)
+- [JavaScript Helpers](#javascript-helpers)
+- [Grid Bookmarklet](#grid-bookmarklet)
+- [Migration](#migration)
+- [Contact](#contact)
+- [Licence](#licence)
 
 This component is a collection of Sass styles to build a 12 column grid system, with a few JavaScript helpers.
 
@@ -33,7 +33,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ```scss
 // your-app/main.scss
-@import '@financial-times/o-grid/main';
+@import "@financial-times/o-grid/main";
 @include oGrid();
 ```
 
@@ -41,12 +41,12 @@ Check out [how to include Origami components in your project](https://origami.ft
 // your-app/main.js
 
 // Return the current layout (e.g. default, S, M, L, XL)
-import oGrid from '@financial-times/o-grid';
+import oGrid from "@financial-times/o-grid";
 let currentLayout = oGrid.getCurrentLayout();
 console.log(currentLayout);
 
 // Return the current gutter (e.g. 10px, 20px)
-import oGrid from '@financial-times/o-grid';
+import oGrid from "@financial-times/o-grid";
 let currentGutter = oGrid.getCurrentGutter();
 console.log(currentGutter);
 ```
@@ -55,20 +55,20 @@ console.log(currentGutter);
 
 ### General settings
 
--   Minimum width: 240px
--   Maximum width: 1220px
--   Gutter widths (space between columns):
-    -   10px on small screens
-    -   20px on larger screens
--   Number of columns: 12
+- Minimum width: 240px
+- Maximum width: 1220px
+- Gutter widths (space between columns):
+  - 10px on small screens
+  - 20px on larger screens
+- Number of columns: 12
 
 ### Layout sizes
 
--   **Default** 240px - …
--   **Small (S)** 490px - 739px
--   **Medium (M)** 740px - 979px
--   **Large (L)** 980px to 1219px
--   **Extra large (XL)** 1220px
+- **Default** 240px - …
+- **Small (S)** 490px - 739px
+- **Medium (M)** 740px - 979px
+- **Large (L)** 980px to 1219px
+- **Extra large (XL)** 1220px
 
 ## Markup
 
@@ -76,11 +76,11 @@ console.log(currentGutter);
 
 ```html
 <div class="o-grid-container">
-    <div class="o-grid-row">
-        <!-- two divs, spanning a total of 12 columns -->
-        <div data-o-grid-colspan="8">A div, 8 columns wide</div>
-        <div data-o-grid-colspan="4">Another div, 4 columns wide</div>
-    </div>
+	<div class="o-grid-row">
+		<!-- two divs, spanning a total of 12 columns -->
+		<div data-o-grid-colspan="8">A div, 8 columns wide</div>
+		<div data-o-grid-colspan="4">Another div, 4 columns wide</div>
+	</div>
 </div>
 ```
 
@@ -90,14 +90,14 @@ Set a number of columns per layout:
 
 ```html
 <div class="o-grid-container">
-    <div class="o-grid-row">
-        <div data-o-grid-colspan="6 L8" class="first-column">
-            Half by default, then 8 columns wide on Large layout and up
-        </div>
-        <div data-o-grid-colspan="6 L4" class="second-column">
-            Half by default, then 4 columns wide on Large layout and up
-        </div>
-    </div>
+	<div class="o-grid-row">
+		<div data-o-grid-colspan="6 L8" class="first-column">
+			Half by default, then 8 columns wide on Large layout and up
+		</div>
+		<div data-o-grid-colspan="6 L4" class="second-column">
+			Half by default, then 4 columns wide on Large layout and up
+		</div>
+	</div>
 </div>
 ```
 
@@ -112,43 +112,67 @@ div {
 
 .first-column {
 	// Half by default, then 8 columns wide on Large layout and up
-	@include oGridColspan((default: 6, L: 8));
+	@include oGridColspan(
+		(
+			default: 6,
+			L: 8,
+		)
+	);
 }
 .second-column {
 	// Half by default, then 4 columns wide on Large layout and up
-	@include oGridColspan((default: 6, L: 4));
+	@include oGridColspan(
+		(
+			default: 6,
+			L: 4,
+		)
+	);
 }
 ```
 
 #### Using numbers
 
--   `{0-12}` - number of columns to span by default
--   `S{0-12}` - number of columns to span at the small layout and up
--   `M{0-12}` - number of columns to span at the medium layout and up
--   `L{0-12}` - number of columns to span at the large layout and up
--   `XL{0-12}` - number of columns to span at the extra large layout and up
+- `{0-12}` - number of columns to span by default
+- `S{0-12}` - number of columns to span at the small layout and up
+- `M{0-12}` - number of columns to span at the medium layout and up
+- `L{0-12}` - number of columns to span at the large layout and up
+- `XL{0-12}` - number of columns to span at the extra large layout and up
 
 ```html
 <div data-o-grid-colspan="6 L8"></div>
 ```
 
 ```scss
-div { @include oGridColspan((default: 6, L: 8)); }
+div {
+	@include oGridColspan(
+		(
+			default: 6,
+			L: 8,
+		)
+	);
+}
 ```
 
 #### Using keywords<a name="keywords"></a>
 
--   `hide`
--   `one-half`
--   `one-third`, `two-thirds`
--   `one-quarter`, `three-quarters`
+- `hide`
+- `one-half`
+- `one-third`, `two-thirds`
+- `one-quarter`, `three-quarters`
 
 ```html
 <div data-o-grid-colspan="one-half Ltwo-thirds"></div>
 ```
 
 ```scss
-div { @include oGridColspan((default: one-half, L: two-thirds)); }
+div {
+	@include oGridColspan(
+		(
+			default: one-half,
+			L: two-thirds,
+		)
+	);
+}
 ```
 
 ### Examples
@@ -160,7 +184,14 @@ A full width column for all sizes except large screens and up, where it spans on
 ```
 
 ```scss
-div { @include oGridColspan((default: full-width, L: 9)); }
+div {
+	@include oGridColspan(
+		(
+			default: full-width,
+			L: 9,
+		)
+	);
+}
 ```
 
 A half width column that becomes full-width on medium screens and up:
@@ -170,7 +201,14 @@ A half width column that becomes full-width on medium screens and up:
 ```
 
 ```scss
-div { @include oGridColspan((default: one-half, M: 12)); }
+div {
+	@include oGridColspan(
+		(
+			default: one-half,
+			M: 12,
+		)
+	);
+}
 ```
 
 A column which gradually takes up a greater portion of horizontal space as the screen gets smaller:
@@ -180,7 +218,16 @@ A column which gradually takes up a greater portion of horizontal space as the s
 ```
 
 ```scss
-div { @include oGridColspan((default: 4, M: 3, L: 2, XL: 1)); }
+div {
+	@include oGridColspan(
+		(
+			default: 4,
+			M: 3,
+			L: 2,
+			XL: 1,
+		)
+	);
+}
 ```
 
 A column which has `width: auto` on small screens, and then takes half the available space on medium screens and up:
@@ -190,7 +237,13 @@ A column which has `width: auto` on small screens, and then takes half the avail
 ```
 
 ```scss
-div { @include oGridColspan((M: 6)); }
+div {
+	@include oGridColspan(
+		(
+			M: 6,
+		)
+	);
+}
 ```
 
 ## Sass
@@ -206,13 +259,20 @@ To include all styles call the `oGrid` mixin.
 `o-grid` css may be included granularly by passing options to the `oGrid` mixin.
 
 ```scss
-@include oGrid($opts: (
-	'bleed': true,
-	'shuffle-selectors': true,
-	'friendly-selectors': true,
-	'surface': ('current-layout', 'layout-sizes'),
-	'rows': ('compact')
-));
+@include oGrid(
+	$opts: (
+		"bleed": true,
+		"shuffle-selectors": true,
+		"friendly-selectors": true,
+		"surface": (
+			"current-layout",
+			"layout-sizes",
+		),
+		"rows": (
+			"compact",
+		),
+	)
+);
 ```
 
 If you would not like to use `o-grid` markup at all, the styles for the `surface` option may be included independently to enable JavaScript features:
@@ -241,7 +301,15 @@ If you would not like to use `o-grid` markup at all, the styles for the `surface
 ```
 
 ```scss
-div { @include oGridColspan((default: hide, L: 12, XL: hide)); }
+div {
+	@include oGridColspan(
+		(
+			default: hide,
+			L: 12,
+			XL: hide,
+		)
+	);
+}
 ```
 
 #### Centering a column
@@ -284,6 +352,7 @@ div { @include oGridColspan((default: hide, L: 12, XL: hide)); }
 ```
 
 Responsively:
+
 ```html
 <div data-o-grid-colspan="L8 Lpush4"></div>
 <div data-o-grid-colspan="L4 Lpull8"></div>
@@ -292,7 +361,11 @@ Responsively:
 ```scss
 // Content is first in the source
 .content {
-	@include oGridColspan((L: 8));
+	@include oGridColspan(
+		(
+			L: 8,
+		)
+	);
 	@include oGridRespondTo(L) {
 		@include oGridPush(4); // outputs left: -33.333333333%;
 	}
@@ -300,14 +373,16 @@ Responsively:
 
 // Sidebar comes second in the source but appears first on the left
 .sidebar {
-	@include oGridColspan((L: 4));
+	@include oGridColspan(
+		(
+			L: 4,
+		)
+	);
 	@include oGridRespondTo(L) {
 		@include oGridPull(8); // outputs right: -66.666666667%;
 	}
 }
 ```
-
-
 
 #### Add space before a column
 
@@ -324,7 +399,11 @@ div {
 }
 
 div {
-	@include oGridColspan((L: 8));
+	@include oGridColspan(
+		(
+			L: 8,
+		)
+	);
 
 	@include oGridRespondTo(L) {
 		@include oGridOffset(4); // outputs margin-left: 33.333333333%;
@@ -338,11 +417,10 @@ To remove gutters from in between columns in a row, use the `o-grid-row--compact
 
 ```html
 <div class="o-grid-row o-grid-row--compact">
-    <div data-o-grid-colspan="6">Look 'ma, no gutters</div>
-    <div data-o-grid-colspan="6">Look 'pa, no gutters here either</div>
+	<div data-o-grid-colspan="6">Look 'ma, no gutters</div>
+	<div data-o-grid-colspan="6">Look 'pa, no gutters here either</div>
 </div>
 ```
-
 
 ```scss
 div {
@@ -350,25 +428,30 @@ div {
 
 	> div {
 		@include oGridRow();
-		@include oGridRowCompact('.column');
+		@include oGridRowCompact(".column");
 	}
 
 	.column {
-		@include oGridColspan((default: full-width, S: 3));
+		@include oGridColspan(
+			(
+				default: full-width,
+				S: 3,
+			)
+		);
 	}
 }
 ```
 
 #### Full bleed container
 
-To remove gutters from the left and right sides of the grid container, use the `o-grid-container--bleed` class.  Note that it is not possible to remove the outer gutters for an individual row, instead you need to start a new container.
+To remove gutters from the left and right sides of the grid container, use the `o-grid-container--bleed` class. Note that it is not possible to remove the outer gutters for an individual row, instead you need to start a new container.
 
 ```html
 <div class="o-grid-container o-grid-container--bleed">
-    <div class="o-grid-row o-grid-row--compact">
-        <div data-o-grid-colspan="6">Look 'ma, no gutters</div>
-        <div data-o-grid-colspan="6">Look 'pa, no gutters here either</div>
-    </div>
+	<div class="o-grid-row o-grid-row--compact">
+		<div data-o-grid-colspan="6">Look 'ma, no gutters</div>
+		<div data-o-grid-colspan="6">Look 'pa, no gutters here either</div>
+	</div>
 </div>
 ```
 
@@ -379,7 +462,9 @@ For simplicity, examples below don't show the output code that brings support fo
 ##### Give column properties to an element
 
 ```scss
-el { @include oGridColspan(); }
+el {
+	@include oGridColspan();
+}
 ```
 
 Outputs:
@@ -403,7 +488,9 @@ el {
 ##### Give a width to an element
 
 ```scss
-el { @include oGridColspan($span: 4); }
+el {
+	@include oGridColspan($span: 4);
+}
 ```
 
 Outputs:
@@ -432,10 +519,12 @@ el {
 
 ```scss
 el {
-	@include oGridColspan((
-		default: full-width,
-		M: 6
-	));
+	@include oGridColspan(
+		(
+			default: full-width,
+			M: 6,
+		)
+	);
 }
 ```
 
@@ -537,7 +626,7 @@ el {
 
 #### Variables
 
-Some of the variables used by the grid (see [_variables.scss](https://github.com/Financial-Times/o-grid/blob/master/src/scss/_variables.scss)) can be used to customise the grid system.
+Some of the variables used by the grid (see [\_variables.scss](https://github.com/Financial-Times/o-grid/blob/master/src/scss/_variables.scss)) can be used to customise the grid system.
 
 Here are the most useful ones:
 
@@ -546,7 +635,10 @@ Here are the most useful ones:
 $o-grid-debug-mode: true;
 
 // Gutters (distance between 2 columns), in pixels
-$o-grid-gutters: (default: 10px, M: 20px);
+$o-grid-gutters: (
+	default: 10px,
+	M: 20px,
+);
 
 // Grid mode
 // - fluid: full width up to the largest layout's width
@@ -558,9 +650,9 @@ $o-grid-mode: fluid (default) | snappy | fixed;
 
 // Default layouts
 $o-grid-layouts: (
-	S:  490px,
-	M:  740px,
-	L:  980px,
+	S: 490px,
+	M: 740px,
+	L: 980px,
 	XL: 1220px,
 );
 ```
@@ -570,13 +662,10 @@ $o-grid-layouts: (
 Products who need to add other breakpoints/layouts should use the helper `oGridAddLayout()`:
 
 ```scss
-@import '@financial-times/o-grid/main';
+@import "@financial-times/o-grid/main";
 
 // Add various layouts
-@include oGridAddLayout(
-	$layout-name: XS,
-	$layout-width: 360px
-);
+@include oGridAddLayout($layout-name: XS, $layout-width: 360px);
 @include oGridAddLayout(
 	$layout-name: P,
 	$layout-width: 600px,
@@ -604,18 +693,14 @@ The container size can snap between fixed-widths as the viewport gets larger:
 ```html
 <!-- Make the whole document snappy -->
 <body class="o-grid-snappy">
-    <div class="o-grid-container">
-        <div class="o-grid-row">
-            …
-        </div>
-    </div>
+	<div class="o-grid-container">
+		<div class="o-grid-row">…</div>
+	</div>
 </body>
 
 <!-- Make a container snappy -->
 <div class="o-grid-container o-grid-container--snappy">
-    <div class="o-grid-row">
-        …
-    </div>
+	<div class="o-grid-row">…</div>
 </div>
 ```
 
@@ -636,7 +721,7 @@ $o-grid-debug-mode: true;
 Returns the name of the layout currently displayed.
 
 ```js
-import oGrid from '@financial-times/o-grid';
+import oGrid from "@financial-times/o-grid";
 
 console.log(oGrid.getCurrentLayout());
 // > default | S | M | L | XL
@@ -649,7 +734,7 @@ CSS must be included so JavaScript can retrieve layout information. If using [Sa
 Returns the width of the gutter currently displayed.
 
 ```js
-import oGrid from '@financial-times/o-grid';
+import oGrid from "@financial-times/o-grid";
 
 console.log(oGrid.getCurrentGutter());
 // > 10px | 20px
@@ -662,7 +747,7 @@ CSS must be included so JavaScript can retrieve layout information. If using [Sa
 Returns the sizes of all grid breakpoints available.
 
 ```js
-import oGrid from '@financial-times/o-grid';
+import oGrid from "@financial-times/o-grid";
 
 console.log(oGrid.getGridBreakpoints());
 // > { "layouts": { "S": "490px", "M": "740px", "L": "980px", "XL": "1220px" } }
@@ -675,7 +760,7 @@ CSS must be included so JavaScript can retrieve layout information. If using [Sa
 Enable matchMedia queries that fire an `o-grid.layoutChange` event upon layout change.
 
 ```js
-import oGrid from '@financial-times/o-grid';
+import oGrid from "@financial-times/o-grid";
 
 oGrid.enableLayoutChangeEvents();
 ```
@@ -685,8 +770,14 @@ CSS must be included so JavaScript can retrieve layout information. If using [Sa
 ## Grid Bookmarklet
 
 1.  Create a new Bookmark with this URL:
+
     ```js
-    javascript:(function(){var s=document.createElement("script");s.src="https://unpkg.com/@financial-times/o-grid@^6.0.0/bookmarklet/bookmarklet.js";document.head.appendChild(s);}());
+    javascript: (function () {
+    	var s = document.createElement("script");
+    	s.src =
+    		"https://unpkg.com/@financial-times/o-grid@^6.0.0/bookmarklet/bookmarklet.js";
+    	document.head.appendChild(s);
+    })();
     ```
 
 2.  Load a website
@@ -695,23 +786,22 @@ CSS must be included so JavaScript can retrieve layout information. If using [Sa
 
 ![](https://cloud.githubusercontent.com/assets/85783/6125746/732fe9c0-b111-11e4-88d2-5031493cfec0.png)
 
-
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 6 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.5  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.2 | - |
-╳ deprecated | 2 | 2.4 | - |
-╳ deprecated | 1 | 1.4 | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       6       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v5-to-v6) |
+| ⚠ maintained |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.5         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.2         |                           -                           |
+| ╳ deprecated |       2       |        2.4         |                           -                           |
+| ╳ deprecated |       1       |        1.4         |                           -                           |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-grid/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

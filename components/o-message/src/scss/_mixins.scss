@@ -32,23 +32,23 @@
 @mixin _oMessageState($name, $opts, $types) {
 	$error-message: 'Cannot add o-message state "#{$name}"';
 	// get foreground colour
-	$foreground-color-arg: _oMessageGet('foreground-color', $from: $opts);
+	$foreground-color-arg: _oMessageGet("foreground-color", $from: $opts);
 	$foreground-color: if(
-		type-of($foreground-color-arg) == 'string',
+		type-of($foreground-color-arg) == "string",
 		oColorsByName($foreground-color-arg),
 		$foreground-color-arg
 	);
 	// get highlight colour
-	$highlight-color-arg: _oMessageGet('highlight-color', $from: $opts);
+	$highlight-color-arg: _oMessageGet("highlight-color", $from: $opts);
 	$highlight-color: if(
-		type-of($highlight-color-arg) == 'string',
+		type-of($highlight-color-arg) == "string",
 		oColorsByName($highlight-color-arg),
 		$highlight-color-arg
 	);
 	// get background colour
-	$background-color-arg: _oMessageGet('background-color', $from: $opts);
+	$background-color-arg: _oMessageGet("background-color", $from: $opts);
 	$background-color: if(
-		type-of($background-color-arg) == 'string',
+		type-of($background-color-arg) == "string",
 		oColorsByName($background-color-arg),
 		$background-color-arg
 	);
@@ -59,7 +59,7 @@
 			$foreground-color,
 			$background-color
 		);
-		@if($foreground-contrast < 4.5) {
+		@if ($foreground-contrast < 4.5) {
 			@error ('#{$error-message}: The foreground colour ' +
 			'"#{$foreground-color-arg}" and background colour ' +
 			'"#{$background-color-arg}" do not pass WCAG AA contrast checks.');
@@ -72,7 +72,7 @@
 			$highlight-color,
 			$background-color
 		);
-		@if($highlight-contrast < 4.5) {
+		@if ($highlight-contrast < 4.5) {
 			@error ('#{$error-message}: The highlight colour ' +
 			'"#{$highlight-color-arg}" and background colour ' +
 			'"#{$background-color-arg}" do not pass WCAG AA contrast checks.');
@@ -82,15 +82,15 @@
 	// set default foreground and background colour
 	color: $foreground-color;
 	background-color: $background-color;
-	text-align: _oMessageGet('align', $from: $opts);
+	text-align: _oMessageGet("align", $from: $opts);
 
 	// when centred with a close button match the right and left padding
 	.o-message__container {
-		justify-content: _oMessageGet('align', $from: $opts);
+		justify-content: _oMessageGet("align", $from: $opts);
 	}
 
 	&:not([data-o-message-close="false"]) .o-message__container {
-		@if _oMessageGet('align', $from: $opts) == 'center' {
+		@if _oMessageGet("align", $from: $opts) == "center" {
 			padding-left: $_o-message-close-inline-spacing;
 		}
 	}
@@ -105,9 +105,9 @@
 	.o-message__content-additional a {
 		@include oTypographyLink(
 			$theme: (
-				'base':  $foreground-color,
-				'hover':  $foreground-color,
-				'context':  $background-color
+				"base": $foreground-color,
+				"hover": $foreground-color,
+				"context": $background-color,
 			),
 			$include-base-styles: false
 		);
@@ -115,33 +115,36 @@
 
 	// action button
 	.o-message__actions__primary {
-		$button-type: _oMessageGet('button-type', $from: $opts);
-		$button-type: if($button-type, $button-type, 'secondary');
+		$button-type: _oMessageGet("button-type", $from: $opts);
+		$button-type: if($button-type, $button-type, "secondary");
 		$button-color: if($highlight-color, $highlight-color, $foreground-color);
-		@include oButtonsContent((
-			'type': $button-type,
-			'theme': (
-				'color': $button-color,
-				'context': $background-color
-			)
-		), $include-base-styles: false);
+		@include oButtonsContent(
+			(
+				"type": $button-type,
+				"theme": (
+					"color": $button-color,
+					"context": $background-color,
+				),
+			),
+			$include-base-styles: false
+		);
 	}
 
 	// action link
 	.o-message__actions__secondary {
 		@include oTypographyLink(
 			$theme: (
-				'base':  $foreground-color,
-				'hover':  $foreground-color,
-				'context':  $background-color
+				"base": $foreground-color,
+				"hover": $foreground-color,
+				"context": $background-color,
 			),
 			$include-base-styles: false
 		);
 	}
 
 	// state icon, only for alert messages
-	$state-icon: _oMessageGet('icon', $from: $opts);
-	$supports-alert-type: index($types, 'alert');
+	$state-icon: _oMessageGet("icon", $from: $opts);
+	$supports-alert-type: index($types, "alert");
 	@if ($supports-alert-type and not $state-icon) {
 		@error '#{$error-message}: To support the "alert" type include an "icon". ' +
 			'If an alert with icon is not needed update the "types" argument.';
@@ -149,12 +152,20 @@
 
 	@if $supports-alert-type and $state-icon {
 		&.o-message--alert .o-message__container:before {
-			@include oIconsContent($state-icon, $foreground-color, $_o-message-alert-icon-size);
+			@include oIconsContent(
+				$state-icon,
+				$foreground-color,
+				$_o-message-alert-icon-size
+			);
 			vertical-align: middle;
 		}
 	}
 
 	.o-message__close {
-		@include oIconsContent('cross', $foreground-color, $_o-message-close-icon-size);
+		@include oIconsContent(
+			"cross",
+			$foreground-color,
+			$_o-message-close-icon-size
+		);
 	}
 }

@@ -3,7 +3,7 @@ title: Origami Newsletter, January 2022
 description: A belated happy new year to you! The Origami team are off to a flying start. This feature includes many accessibility improvements; app team collaboration; Storybook Stories and JSX templates for components; and ongoing bower to npm migration support.
 author: Lee Moody
 tags:
-- Newsletter
+  - Newsletter
 ---
 
 <abbr title="Too long; didn't read">
@@ -23,7 +23,6 @@ Back in July 2021 we announced Origami components had moved from the Bower to np
 Teams using Bower need to migrate to npm, and teams using V2 of the Origami Build Service need to migrate to V3. Your team has scheduled migration work right? Right? If not fear not. We're continuing to reach out to teams and offer support, please let us know in the [#origami-support](https://financialtimes.slack.com/archives/C02FU5ARJ) Slack channel if you have any questions. 😊
 
 To learn more about the changes see the original [announcement and guides on how to migrate products](https://origami.ft.com/blog/2021/07/01/origami-on-npm-and-how-to-migrate/). We also have a [migration tracker](https://docs.google.com/spreadsheets/d/1Pem5e6cR0aiuKpYa7VD08AnSSynzjRtWt_VAHAoyhPQ/edit#gid=1513272952) you may use to identify whether any of your systems are affected.
-
 
 ### Accessibility audit
 

@@ -1,4 +1,11 @@
-import {broadcast, containsCircularPaths, decode, encode, findCircularPathsIn, is} from '../utils.js';
+import {
+	broadcast,
+	containsCircularPaths,
+	decode,
+	encode,
+	findCircularPathsIn,
+	is,
+} from "../utils.js";
 
 /**
  * Class for storing data
@@ -11,18 +18,16 @@ import {broadcast, containsCircularPaths, decode, encode, findCircularPathsIn, i
  * @param {string} [config.domain] - The domain that should be used to store cookies on
  */
 const Store = function (name, config = {}) {
-
 	/**
 	 * Internal Storage key prefix.
 	 */
-	const keyPrefix = 'o-tracking';
+	const keyPrefix = "o-tracking";
 
-
-	if (typeof name !== 'string' || name === '') {
-		const undefinedName = new Error('You must specify a name for the store.');
-		broadcast('oErrors', 'log', {
+	if (typeof name !== "string" || name === "") {
+		const undefinedName = new Error("You must specify a name for the store.");
+		broadcast("oErrors", "log", {
 			error: undefinedName.message,
-			info: { module: 'o-tracking' }
+			info: { module: "o-tracking" },
 		});
 		throw undefinedName;
 	}
@@ -37,7 +42,9 @@ const Store = function (name, config = {}) {
 	/**
 	 * The key/name of this store.
 	 */
-	this.storageKey = this.config.nameOverride ? this.config.nameOverride : [keyPrefix, name].join('_');
+	this.storageKey = this.config.nameOverride
+		? this.config.nameOverride
+		: [keyPrefix, name].join("_");
 
 	/**
 	 * The storage method to use.
@@ -45,7 +52,7 @@ const Store = function (name, config = {}) {
 	 * @type {object}
 	 */
 	this.storage = {
-		_type: 'localStorage',
+		_type: "localStorage",
 		load: function (name) {
 			return window.localStorage.getItem(name);
 		},
@@ -59,18 +66,18 @@ const Store = function (name, config = {}) {
 			// have been removed.
 			cookieRemove(name);
 			return window.localStorage.removeItem(name);
-		}
+		},
 	};
 
 	function cookieLoad(name) {
-		name = name + '=';
+		name = name + "=";
 
-		const cookies = window.document.cookie.split(';');
+		const cookies = window.document.cookie.split(";");
 		let i;
 		let cookie;
 
 		for (i = 0; i < cookies.length; i = i + 1) {
-			cookie = cookies[i].replace(/^\s+|\s+$/g, '');
+			cookie = cookies[i].replace(/^\s+|\s+$/g, "");
 			if (cookie.indexOf(name) === 0) {
 				return decode(cookie.substring(name.length, cookie.length));
 			}
@@ -81,20 +88,27 @@ const Store = function (name, config = {}) {
 
 	function cookieSave(name, value, expiry) {
 		let d;
-		let expires = '';
+		let expires = "";
 
-		if (is(expiry, 'number')) {
+		if (is(expiry, "number")) {
 			d = new Date();
 			d.setTime(d.getTime() + expiry);
-			expires = 'expires=' + d.toUTCString() + ';';
+			expires = "expires=" + d.toUTCString() + ";";
 		}
 
-		const cookie = encode(name) + '=' + encode(value) + ';' + expires + 'path=/;' + (config.domain ? 'domain=.' + config.domain + ';' : '');
+		const cookie =
+			encode(name) +
+			"=" +
+			encode(value) +
+			";" +
+			expires +
+			"path=/;" +
+			(config.domain ? "domain=." + config.domain + ";" : "");
 		window.document.cookie = cookie;
 	}
 
 	function cookieRemove(name) {
-		cookieSave(name, '', -1);
+		cookieSave(name, "", -1);
 	}
 
 	/**
@@ -108,9 +122,9 @@ const Store = function (name, config = {}) {
 		try {
 			this.data = JSON.parse(loadStore);
 		} catch (error) {
-			broadcast('oErrors', 'log', {
+			broadcast("oErrors", "log", {
 				error: error.message,
-				module: 'o-tracking'
+				module: "o-tracking",
 			});
 			this.data = loadStore;
 		}
@@ -121,7 +135,7 @@ const Store = function (name, config = {}) {
 	const oldCookieStoreData = cookieLoad(this.storageKey);
 	if (oldCookieStoreData) {
 		try {
-			if (this.storageKey === 'spoor-id') {
+			if (this.storageKey === "spoor-id") {
 				// spoor-id is stored directly as a string and not as an object
 				this.data = oldCookieStoreData;
 			} else {
@@ -132,15 +146,15 @@ const Store = function (name, config = {}) {
 					this.data = data;
 				}
 				for (const name of Object.keys(data)) {
-					if (name !== 'spoor-id') {
+					if (name !== "spoor-id") {
 						cookieRemove(name);
 					}
 				}
 			}
 		} catch (error) {
-			broadcast('oErrors', 'log', {
+			broadcast("oErrors", "log", {
 				error: error.message,
-				module: 'o-tracking'
+				module: "o-tracking",
 			});
 			this.data = loadStore;
 		}
@@ -169,14 +183,15 @@ Store.prototype.write = function (data) {
 	this.data = data;
 	let value;
 
-	if (typeof this.data === 'string') {
+	if (typeof this.data === "string") {
 		value = this.data;
 	} else {
 		if (containsCircularPaths(this.data)) {
-			const errorMessage = "o-tracking does not support circular references in the analytics data.\n" +
-			"Please remove the circular references in the data.\n" +
-			"Here are the paths in the data which are circular:\n" +
-			JSON.stringify(findCircularPathsIn(this.data), undefined, 4);
+			const errorMessage =
+				"o-tracking does not support circular references in the analytics data.\n" +
+				"Please remove the circular references in the data.\n" +
+				"Here are the paths in the data which are circular:\n" +
+				JSON.stringify(findCircularPathsIn(this.data), undefined, 4);
 			throw new Error(errorMessage);
 		}
 		value = JSON.stringify(this.data);

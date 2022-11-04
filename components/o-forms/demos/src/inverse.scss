@@ -2,8 +2,8 @@
 
 body {
 	background: if(
-		oBrandIs('core') or oBrandIs('internal'),
-		oColorsByName('slate'),
-		oColorsByName('black')
+		oBrandIs("core") or oBrandIs("internal"),
+		oColorsByName("slate"),
+		oColorsByName("black")
 	);
 }

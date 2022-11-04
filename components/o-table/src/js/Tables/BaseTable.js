@@ -1,4 +1,4 @@
-import Delegate from 'ftdomdelegate';
+import Delegate from "ftdomdelegate";
 
 /**
  * Append rows to table.
@@ -35,7 +35,6 @@ function prepend(tbody, rowBatch) {
 }
 
 class BaseTable {
-
 	/**
 	 * The shared functionality of all `o-table` variants.
 	 *
@@ -50,21 +49,28 @@ class BaseTable {
 		this._listeners = [];
 		this._sorter = sorter;
 		this.rootEl = rootEl;
-		this._opts = Object.assign({
-			sortable: this.rootEl.getAttribute('data-o-table-sortable') !== 'false',
-			preferredSortOrder: this.rootEl.getAttribute('data-o-table-preferred-sort-order')
-		}, opts);
-		this.thead = this.rootEl.querySelector('thead');
-		this.tbody = this.rootEl.querySelector('tbody');
-		this.tableCaption = this.rootEl.querySelector('caption');
-		this.tableHeaders = this.thead ? Array.from(
-			this.thead.querySelectorAll('tr:last-of-type > th')
-		) : [];
-		this.tableRows = this.tbody ? Array.from(this.tbody.getElementsByTagName('tr')) : [];
+		this._opts = Object.assign(
+			{
+				sortable: this.rootEl.getAttribute("data-o-table-sortable") !== "false",
+				preferredSortOrder: this.rootEl.getAttribute(
+					"data-o-table-preferred-sort-order"
+				),
+			},
+			opts
+		);
+		this.thead = this.rootEl.querySelector("thead");
+		this.tbody = this.rootEl.querySelector("tbody");
+		this.tableCaption = this.rootEl.querySelector("caption");
+		this.tableHeaders = this.thead
+			? Array.from(this.thead.querySelectorAll("tr:last-of-type > th"))
+			: [];
+		this.tableRows = this.tbody
+			? Array.from(this.tbody.getElementsByTagName("tr"))
+			: [];
 		this._filteredTableRows = [];
-		this.wrapper = this.rootEl.closest('.o-table-scroll-wrapper');
-		this.container = this.rootEl.closest('.o-table-container');
-		this.overlayWrapper = this.rootEl.closest('.o-table-overlay-wrapper');
+		this.wrapper = this.rootEl.closest(".o-table-scroll-wrapper");
+		this.container = this.rootEl.closest(".o-table-container");
+		this.overlayWrapper = this.rootEl.closest(".o-table-overlay-wrapper");
 		this.filterContainer = this.wrapper || this.container;
 		this._updateTableHeightListenerSet = false;
 
@@ -93,26 +99,36 @@ class BaseTable {
 	 * @access private
 	 */
 	_setupFilters() {
-		const tableId = this.rootEl.getAttribute('id');
+		const tableId = this.rootEl.getAttribute("id");
 		if (!tableId) {
 			return;
 		}
 		// Do nothing if no filter is found for this table.
-		const filter = window.document.querySelector(`[data-o-table-filter-id="${tableId}"]`);
+		const filter = window.document.querySelector(
+			`[data-o-table-filter-id="${tableId}"]`
+		);
 		if (!filter) {
 			return;
 		}
 		// Do not setup filter if markup is missing.
 		if (!this.filterContainer) {
 			// eslint-disable-next-line no-console
-			console.warn(`Could not setup the filter for the table "${tableId}" as markup is missing. A filterable table must be within a div with class "o-table-container".`);
+			console.warn(
+				`Could not setup the filter for the table "${tableId}" as markup is missing. A filterable table must be within a div with class "o-table-container".`
+			);
 			return;
 		}
 		// Warn if a misconfigured filter was found.
-		const filterColumn = parseInt(filter.getAttribute('data-o-table-filter-column'), 10);
+		const filterColumn = parseInt(
+			filter.getAttribute("data-o-table-filter-column"),
+			10
+		);
 		if (isNaN(filterColumn)) {
 			// eslint-disable-next-line no-console
-			console.warn(`Could not setup the filter for the table "${tableId}" as no column index was given to filter on. Add a \`data-o-table-filter-column="{columnIndex}"\` attribute to the filter.`, filter);
+			console.warn(
+				`Could not setup the filter for the table "${tableId}" as no column index was given to filter on. Add a \`data-o-table-filter-column="{columnIndex}"\` attribute to the filter.`,
+				filter
+			);
 			return;
 		}
 		// Apply the filter .
@@ -121,19 +137,30 @@ class BaseTable {
 		}
 		// Add a listener to filter the table.
 		let pendingFilterTimeout;
-		const debouncedFilterHandler = function(event) {
+		const debouncedFilterHandler = function (event) {
 			if (pendingFilterTimeout) {
 				clearTimeout(pendingFilterTimeout);
 			}
-			pendingFilterTimeout = setTimeout(function () {
-				this.filter(filterColumn, event.target.value || '');
-				pendingFilterTimeout = null;
-			}.bind(this), 33);
+			pendingFilterTimeout = setTimeout(
+				function () {
+					this.filter(filterColumn, event.target.value || "");
+					pendingFilterTimeout = null;
+				}.bind(this),
+				33
+			);
 		}.bind(this);
-		filter.addEventListener('input', debouncedFilterHandler);
-		filter.addEventListener('change', debouncedFilterHandler);
-		this._listeners.push({ element: filter, debouncedFilterHandler, type: 'input' });
-		this._listeners.push({ element: filter, debouncedFilterHandler, type: 'change' });
+		filter.addEventListener("input", debouncedFilterHandler);
+		filter.addEventListener("change", debouncedFilterHandler);
+		this._listeners.push({
+			element: filter,
+			debouncedFilterHandler,
+			type: "input",
+		});
+		this._listeners.push({
+			element: filter,
+			debouncedFilterHandler,
+			type: "change",
+		});
 	}
 
 	/**
@@ -167,7 +194,7 @@ class BaseTable {
 	 * @access private
 	 */
 	_getLatestRowNodes() {
-		return this.tbody ? Array.from(this.tbody.getElementsByTagName('tr')) : [];
+		return this.tbody ? Array.from(this.tbody.getElementsByTagName("tr")) : [];
 	}
 
 	/**
@@ -198,7 +225,10 @@ class BaseTable {
 	_updateTableHeight() {
 		if (!this.filterContainer) {
 			// eslint-disable-next-line no-console
-			console.warn(`The table has missing markup. A responsive or filterable table must be within a div with class "o-table-container".`, this.rootEl);
+			console.warn(
+				`The table has missing markup. A responsive or filterable table must be within a div with class "o-table-container".`,
+				this.rootEl
+			);
 			return;
 		}
 
@@ -208,9 +238,13 @@ class BaseTable {
 
 		const tableHeight = this._getTableHeight();
 
-		this._updateTableHeightScheduled = window.requestAnimationFrame(function () {
-			this.filterContainer.style.height = !isNaN(tableHeight) ? `${tableHeight}px` : '';
-		}.bind(this));
+		this._updateTableHeightScheduled = window.requestAnimationFrame(
+			function () {
+				this.filterContainer.style.height = !isNaN(tableHeight)
+					? `${tableHeight}px`
+					: "";
+			}.bind(this)
+		);
 
 		// If the table height has been set, it should be updated on resize,
 		// so listen to resize events.
@@ -223,14 +257,21 @@ class BaseTable {
 				if (pendingTableHeightUpdate) {
 					clearTimeout(pendingTableHeightUpdate);
 				}
-				pendingTableHeightUpdate = setTimeout(function () {
-					this._updateTableHeight();
-				}.bind(this), 33);
+				pendingTableHeightUpdate = setTimeout(
+					function () {
+						this._updateTableHeight();
+					}.bind(this),
+					33
+				);
 			}.bind(this);
 			// set the resize listener
-			window.addEventListener('resize', updateTableHeightDebounced);
+			window.addEventListener("resize", updateTableHeightDebounced);
 			// add to the listeners array so it can be removed on `.destroy`
-			this._listeners.push({ element: window, updateTableHeightDebounced, type: 'resize' });
+			this._listeners.push({
+				element: window,
+				updateTableHeightDebounced,
+				type: "resize",
+			});
 			// set a flag so the listener isn't set again, without having to
 			// loop through `this._listeners`.
 			this._updateTableHeightListenerSet = true;
@@ -244,9 +285,12 @@ class BaseTable {
 	 */
 	_getTableHeight() {
 		const tableHeight = this.rootEl.getBoundingClientRect().height;
-		const filteredRowsHeight = this._rowsToHide.reduce((accumulatedHeight, row) => {
-			return accumulatedHeight + row.getBoundingClientRect().height;
-		}, 0);
+		const filteredRowsHeight = this._rowsToHide.reduce(
+			(accumulatedHeight, row) => {
+				return accumulatedHeight + row.getBoundingClientRect().height;
+			},
+			0
+		);
 
 		return tableHeight - filteredRowsHeight;
 	}
@@ -261,11 +305,13 @@ class BaseTable {
 		}
 
 		const rowsToHide = this._rowsToHide || [];
-		this._updateRowAriaHiddenScheduled = window.requestAnimationFrame(function () {
-			this.tableRows.forEach((row) => {
-				row.setAttribute('aria-hidden', rowsToHide.indexOf(row) !== -1);
-			});
-		}.bind(this));
+		this._updateRowAriaHiddenScheduled = window.requestAnimationFrame(
+			function () {
+				this.tableRows.forEach(row => {
+					row.setAttribute("aria-hidden", rowsToHide.indexOf(row) !== -1);
+				});
+			}.bind(this)
+		);
 	}
 
 	/**
@@ -279,11 +325,16 @@ class BaseTable {
 		}
 
 		const filteredRows = this._filteredTableRows || [];
-		this._hideFilteredRowsScheduled = window.requestAnimationFrame(function () {
-			this.tableRows.forEach((row) => {
-				row.setAttribute('data-o-table-filtered', filteredRows.indexOf(row) !== -1);
-			});
-		}.bind(this));
+		this._hideFilteredRowsScheduled = window.requestAnimationFrame(
+			function () {
+				this.tableRows.forEach(row => {
+					row.setAttribute(
+						"data-o-table-filtered",
+						filteredRows.indexOf(row) !== -1
+					);
+				});
+			}.bind(this)
+		);
 	}
 
 	/**
@@ -303,15 +354,22 @@ class BaseTable {
 			return;
 		}
 
-		const nonFilteredRows = this.tableRows.filter(row => this._filteredTableRows.indexOf(row) === -1);
-		this._updateRowOrderScheduled = window.requestAnimationFrame(function () {
-			// Move all non-filtered rows to the top, with current sort order.
-			prepend(this.tbody, nonFilteredRows);
-			this._updateRowOrderFilrtedBatchScheduled = window.requestAnimationFrame(function () {
-				// Move all filtered rows to the bottom, with current sort order.
-				append(this.tbody, this._filteredTableRows);
-			}.bind(this));
-		}.bind(this));
+		const nonFilteredRows = this.tableRows.filter(
+			row => this._filteredTableRows.indexOf(row) === -1
+		);
+		this._updateRowOrderScheduled = window.requestAnimationFrame(
+			function () {
+				// Move all non-filtered rows to the top, with current sort order.
+				prepend(this.tbody, nonFilteredRows);
+				this._updateRowOrderFilrtedBatchScheduled =
+					window.requestAnimationFrame(
+						function () {
+							// Move all filtered rows to the bottom, with current sort order.
+							append(this.tbody, this._filteredTableRows);
+						}.bind(this)
+					);
+			}.bind(this)
+		);
 	}
 
 	/**
@@ -339,11 +397,14 @@ class BaseTable {
 	_filterRowsByColumn(columnIndex, filter) {
 		this._currentFilter = {
 			columnIndex,
-			filter
+			filter,
 		};
 
-		if (typeof filter !== 'string' && typeof filter !== 'function') {
-			throw new Error(`Could not filter table column "${columnIndex}". Expected the filter to a string or function.`, this);
+		if (typeof filter !== "string" && typeof filter !== "function") {
+			throw new Error(
+				`Could not filter table column "${columnIndex}". Expected the filter to a string or function.`,
+				this
+			);
 		}
 
 		// Filter column headings.
@@ -373,10 +434,12 @@ class BaseTable {
 		// - Matches against only alpha numeric characters and ".".
 		// - Case insentivie.
 		// - Whitespace insentivie.
-		if (typeof filter === 'string') {
-			const filterValue = filter.replace(/[^\w\.]+/g, '').toLowerCase();
-			filter = (cell) => {
-				const cellValue = cell.textContent.replace(/[^\w\.]+/g, '').toLowerCase();
+		if (typeof filter === "string") {
+			const filterValue = filter.replace(/[^\w\.]+/g, "").toLowerCase();
+			filter = cell => {
+				const cellValue = cell.textContent
+					.replace(/[^\w\.]+/g, "")
+					.toLowerCase();
 				return filterValue ? cellValue.indexOf(filterValue) > -1 : true;
 			};
 		}
@@ -405,7 +468,9 @@ class BaseTable {
 	getTableHeader(columnIndex) {
 		const th = this.tableHeaders[columnIndex];
 		if (!th) {
-			throw new Error(`Could not find header for column index "${columnIndex}".`);
+			throw new Error(
+				`Could not find header for column index "${columnIndex}".`
+			);
 		}
 		return th;
 	}
@@ -424,10 +489,14 @@ class BaseTable {
 		 * provide a totally custom method of sorting the table.
 		 * https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
 		 */
-		const defaultSort = this._dispatchEvent('sorting', {
-			sort: sortOrder,
-			columnIndex
-		}, { cancelable: true });
+		const defaultSort = this._dispatchEvent(
+			"sorting",
+			{
+				sort: sortOrder,
+				columnIndex,
+			},
+			{ cancelable: true }
+		);
 
 		if (defaultSort) {
 			this._sorter.sortRowsByColumn(this, columnIndex, sortOrder);
@@ -445,9 +514,9 @@ class BaseTable {
 		}
 
 		// Create buttons for each table header.
-		const tableHeaderButtons = this.tableHeaders.map((th) => {
+		const tableHeaderButtons = this.tableHeaders.map(th => {
 			// Don't add sort buttons to unsortable columns.
-			if (th.hasAttribute('data-o-table-heading-disable-sort')) {
+			if (th.hasAttribute("data-o-table-heading-disable-sort")) {
 				return null;
 			}
 			// Don't add sort buttons to columns with no headings.
@@ -458,43 +527,78 @@ class BaseTable {
 			const headingNodes = Array.from(th.childNodes);
 			const headingHTML = headingNodes.reduce((html, node) => {
 				// Maintain child elements of the heading which make sense in a button.
-				const maintainedElements = ['ABBR', 'B', 'BDI', 'BDO', 'BR', 'CODE', 'CITE', 'DATA', 'DFN', 'DEL', 'EM', 'I', 'S', 'SMALL', 'SPAN', 'STRONG', 'SUB', 'SUP', 'TIME', 'U', 'VAR', 'WBR'];
-				if (node.nodeType === Node.ELEMENT_NODE && maintainedElements.indexOf(node.nodeName) !== -1) {
+				const maintainedElements = [
+					"ABBR",
+					"B",
+					"BDI",
+					"BDO",
+					"BR",
+					"CODE",
+					"CITE",
+					"DATA",
+					"DFN",
+					"DEL",
+					"EM",
+					"I",
+					"S",
+					"SMALL",
+					"SPAN",
+					"STRONG",
+					"SUB",
+					"SUP",
+					"TIME",
+					"U",
+					"VAR",
+					"WBR",
+				];
+				if (
+					node.nodeType === Node.ELEMENT_NODE &&
+					maintainedElements.indexOf(node.nodeName) !== -1
+				) {
 					return html + node.outerHTML;
 				}
 				// Otherwise return text content.
 				if (node.nodeType === Node.ELEMENT_NODE) {
 					// eslint-disable-next-line no-console
-					console.warn(`o-table has removed the element "${node.nodeName}" from the table heading to add a sort button on the column. Please remove this element from your table heading, disable sort on this column, or contact the Origami team for help.`, th);
+					console.warn(
+						`o-table has removed the element "${node.nodeName}" from the table heading to add a sort button on the column. Please remove this element from your table heading, disable sort on this column, or contact the Origami team for help.`,
+						th
+					);
 				}
 				return html + node.textContent;
-			}, '');
+			}, "");
 
-			const sortButton = document.createElement('button');
+			const sortButton = document.createElement("button");
 			sortButton.innerHTML = headingHTML;
-			sortButton.classList.add('o-table__sort');
+			sortButton.classList.add("o-table__sort");
 			// In VoiceOver, button `aria-label` is repeated when moving from one column of tds to the next.
 			// Using `title` avoids this, but risks not being announced by other screen readers.
 			const nextSort = this._getNextSortOrder(th);
-			sortButton.setAttribute('title', `sort table by "${th.textContent}" ${nextSort}`);
+			sortButton.setAttribute(
+				"title",
+				`sort table by "${th.textContent}" ${nextSort}`
+			);
 			return sortButton;
 		});
 
 		// Add sort buttons to table headers.
-		window.requestAnimationFrame(function (){
-			this.rootEl.classList.add('o-table--sortable');
-			this.tableHeaders.forEach((th, index) => {
-				if (tableHeaderButtons[index]) {
-					th.innerHTML = '';
-					th.appendChild(tableHeaderButtons[index]);
-				}
-			});
-		}.bind(this));
+		window.requestAnimationFrame(
+			function () {
+				this.rootEl.classList.add("o-table--sortable");
+				this.tableHeaders.forEach((th, index) => {
+					if (tableHeaderButtons[index]) {
+						th.innerHTML = "";
+						th.appendChild(tableHeaderButtons[index]);
+					}
+				});
+			}.bind(this)
+		);
 
 		// Add click event to buttons.
 		const listener = this._sortButtonHandler.bind(this);
-		this._rootElDomDelegate = this._rootElDomDelegate || new Delegate(this.rootEl);
-		this._rootElDomDelegate.on('click', '.o-table__sort', listener);
+		this._rootElDomDelegate =
+			this._rootElDomDelegate || new Delegate(this.rootEl);
+		this._rootElDomDelegate.on("click", ".o-table__sort", listener);
 	}
 
 	/**
@@ -507,28 +611,33 @@ class BaseTable {
 	 */
 	sorted({ columnIndex, sortOrder }) {
 		if (isNaN(columnIndex)) {
-			throw new Error(`Expected a numerical column index but received "${columnIndex}".`);
+			throw new Error(
+				`Expected a numerical column index but received "${columnIndex}".`
+			);
 		}
 		if (!sortOrder) {
-			throw new Error(`Expected a sort order e.g. "ascending" or "descending".`);
+			throw new Error(
+				`Expected a sort order e.g. "ascending" or "descending".`
+			);
 		}
 		this._currentSort = {
 			sortOrder,
-			columnIndex
+			columnIndex,
 		};
 
 		// Update the button title to reflect the new sort.
 		const th = this.getTableHeader(columnIndex);
-		const sortButton = th.querySelector('button');
+		const sortButton = th.querySelector("button");
 		if (sortButton) {
-			let buttonTitle = sortButton.getAttribute('title');
-			buttonTitle = sortOrder === 'ascending' ?
-				buttonTitle.replace('ascending', 'descending') :
-				buttonTitle.replace('descending', 'ascending');
-			sortButton.setAttribute('title', buttonTitle);
+			let buttonTitle = sortButton.getAttribute("title");
+			buttonTitle =
+				sortOrder === "ascending"
+					? buttonTitle.replace("ascending", "descending")
+					: buttonTitle.replace("descending", "ascending");
+			sortButton.setAttribute("title", buttonTitle);
 		}
 
-		this._dispatchEvent('sorted', this._currentSort);
+		this._dispatchEvent("sorted", this._currentSort);
 	}
 
 	/**
@@ -564,7 +673,7 @@ class BaseTable {
 	 * @returns {undefined}
 	 */
 	_ready() {
-		this._dispatchEvent('ready');
+		this._dispatchEvent("ready");
 	}
 
 	/**
@@ -577,16 +686,16 @@ class BaseTable {
 	_getNextSortOrder(th) {
 		// Get the current table sort. Use the `aria-sort` attribute
 		// which may have been applied by a client or server side sort.
-		const currentSort = th.getAttribute('aria-sort');
+		const currentSort = th.getAttribute("aria-sort");
 		// If there is no existing sort use a descending sort if that has been
 		// configured as a preferred sort order for the given heading.
-		const noExistingSort = [null, 'none'].indexOf(currentSort) !== -1;
-		if (noExistingSort && this._opts.preferredSortOrder === 'descending') {
-			return 'descending';
+		const noExistingSort = [null, "none"].indexOf(currentSort) !== -1;
+		if (noExistingSort && this._opts.preferredSortOrder === "descending") {
+			return "descending";
 		}
 		// Otherwise the next sort will be ascending by default, or descending
 		// if the column is already sorted ascending.
-		return currentSort !== 'ascending' ? 'ascending' : 'descending';
+		return currentSort !== "ascending" ? "ascending" : "descending";
 	}
 
 	/**
@@ -597,7 +706,7 @@ class BaseTable {
 	 */
 	_sortButtonHandler(event) {
 		const sortButton = event.target;
-		const th = sortButton.closest('th');
+		const th = sortButton.closest("th");
 		const columnIndex = this.tableHeaders.indexOf(th);
 		if (th && !isNaN(columnIndex)) {
 			const sortOrder = this._getNextSortOrder(th);
@@ -614,13 +723,21 @@ class BaseTable {
 	 * @returns {boolean} false is cancelable and canceled, otherwise true
 	 */
 	_dispatchEvent(event, data = {}, opts = {}) {
-		Object.assign(data , {
-			instance: this
+		Object.assign(data, {
+			instance: this,
 		});
-		return this.rootEl.dispatchEvent(new CustomEvent(`oTable.${event}`, Object.assign({
-			detail: data,
-			bubbles: true
-		}, opts)));
+		return this.rootEl.dispatchEvent(
+			new CustomEvent(
+				`oTable.${event}`,
+				Object.assign(
+					{
+						detail: data,
+						bubbles: true,
+					},
+					opts
+				)
+			)
+		);
 	}
 }
 

@@ -1,6 +1,5 @@
-@include describe ('oIcons') {
-
-	@include it('includes icons and base icon styles by default') {
+@include describe("oIcons") {
+	@include it("includes icons and base icon styles by default") {
 		// Assert base styles.
 		@include assert() {
 			@include output($selector: false) {
@@ -34,10 +33,16 @@
 		}
 	}
 
-	@include it('includes only specified icons') {
+	@include it("includes only specified icons") {
 		@include assert() {
 			@include output($selector: false) {
-				@include oIcons($opts: ('icons': ('arrow-down')));
+				@include oIcons(
+					$opts: (
+						"icons": (
+							"arrow-down",
+						),
+					)
+				);
 			}
 
 			@include expect($selector: false) {
@@ -73,10 +78,16 @@
 		}
 	}
 
-	@include it('includes only base icon styles when an empty icon list is given') {
+	@include it(
+		"includes only base icon styles when an empty icon list is given"
+	) {
 		@include assert() {
 			@include output($selector: false) {
-				@include oIcons($opts: ('icons': ()));
+				@include oIcons(
+					$opts: (
+						"icons": (),
+					)
+				);
 			}
 
 			@include expect($selector: false) {

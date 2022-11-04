@@ -4,20 +4,19 @@
  * @module oErrors
  * @see Errors
  */
-import Errors from './src/js/oErrors.js';
+import Errors from "./src/js/oErrors.js";
 
 const errors = new Errors();
 
-
 function initialise() {
 	errors.init();
-	document.removeEventListener('o.DOMContentLoaded', initialise);
+	document.removeEventListener("o.DOMContentLoaded", initialise);
 }
 
 // Try and initialise on o.DOMContentLoaded. If it fails, defer to the
 // consumer of the library.
-if (typeof document !== 'undefined') {
-	document.addEventListener('o.DOMContentLoaded', initialise);
+if (typeof document !== "undefined") {
+	document.addEventListener("o.DOMContentLoaded", initialise);
 }
 
 /**

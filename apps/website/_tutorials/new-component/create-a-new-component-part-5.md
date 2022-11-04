@@ -12,6 +12,7 @@ redirect_from:
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
+
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
@@ -305,6 +306,7 @@ We can then then add CSS to `main.scss` to hide the counter element `o-example__
 ## Part Six: Storybook
 
 In part five we learnt how to make our component interactive with JavaScript, covering:
+
 - JavaScript initialisation using the `init` method.
 - JavaScript configuration using the `init` argument or namespaced data attributes.
 - How to update the <abbr title="Document Object Model">DOM</abbr> with component JavaScript.

@@ -3,7 +3,7 @@ import Toast from './toast';
 const defaults = { duration: 5000 };
 const stack = [];
 
-const eventShow = e => show(e.detail);
+const eventShow = (e) => show(e.detail);
 let isInstantiated = false;
 let container;
 
@@ -62,7 +62,7 @@ function clearToast(toast) {
 }
 
 function destroy() {
-	stack.forEach(item => item.hide());
+	stack.forEach((item) => item.hide());
 	stack.length = 0;
 	container.parentNode.removeChild(container);
 	document.removeEventListener('nNotification.show', eventShow, false);
@@ -72,5 +72,5 @@ function destroy() {
 export default {
 	init,
 	show,
-	destroy
+	destroy,
 };

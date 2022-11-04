@@ -10,12 +10,12 @@
 	border: 0;
 
 	&:hover {
-		color: _oHeaderGet('link-hover-text');
+		color: _oHeaderGet("link-hover-text");
 	}
 
 	&--highlight,
 	&[aria-current] {
-		color: _oHeaderGet('link-highlight-text');
+		color: _oHeaderGet("link-highlight-text");
 	}
 }
 
@@ -27,7 +27,7 @@
 	white-space: nowrap;
 
 	&:after {
-		content: '';
+		content: "";
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -36,12 +36,12 @@
 	}
 
 	&:hover:after {
-		background-color: _oHeaderGet('link-hover-text');
+		background-color: _oHeaderGet("link-hover-text");
 	}
 
 	&--highlight:after,
 	&[aria-current]:after {
-		background-color: _oHeaderGet('link-highlight-text');
+		background-color: _oHeaderGet("link-highlight-text");
 	}
 }
 
@@ -60,12 +60,12 @@
 	padding-left: $_o-header-padding-x;
 
 	&:before {
-		content: '';
+		content: "";
 		position: absolute;
 		top: 15%;
 		left: 0;
 		height: percentage($_o-header-item-separator-percentage-height);
-		border-left: $border-width solid _oHeaderGet('header-border');
+		border-left: $border-width solid _oHeaderGet("header-border");
 	}
 }
 
@@ -74,7 +74,13 @@
 /// @param {String} $breakpoint - XS, S, M, L or XL
 @mixin _oHeaderLogoSize($breakpoint) {
 	$image-aspect-ratio: div(25, 2);
-	$logo-heights: ('XS': 16, 'S': 20, 'M': 24, 'L': 40, 'XL': 40);
+	$logo-heights: (
+		"XS": 16,
+		"S": 20,
+		"M": 24,
+		"L": 40,
+		"XL": 40,
+	);
 	width: map-get($logo-heights, $breakpoint) * $image-aspect-ratio + 0px;
 	height: map-get($logo-heights, $breakpoint) + 0px;
 }
@@ -87,7 +93,12 @@
 @mixin _oHeaderBrandImage($logo-name, $color, $fallback-width) {
 	// Error if the global $system-code variable is not set.
 	// This is required for image service requests.
-	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+	@if (
+		global-variable-exists("system-code") ==
+			false or
+			type-of($system-code) !=
+			"string"
+	) {
 		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
 	}
 

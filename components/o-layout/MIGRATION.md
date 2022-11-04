@@ -17,8 +17,8 @@ its dependencies. See [the Bower config for these](./bower.json).
 ## Migrating from v2 to v3
 
 - `o-layout` supports the internal brand only, so your project must set its brand to the internal brand:
-	- If using SASS, set the variable `$o-brand: 'internal';` before importing any Origami component.
-	- If using the Origami Build Service, add the brand parameter to your CSS URL `?o-layout@^3.0.0&brand=internal`.
+  - If using SASS, set the variable `$o-brand: 'internal';` before importing any Origami component.
+  - If using the Origami Build Service, add the brand parameter to your CSS URL `?o-layout@^3.0.0&brand=internal`.
 
 ### Markup Changes
 
