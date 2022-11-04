@@ -10,7 +10,7 @@ interface TypeSelect extends InputProps {
 	inlineInput?: boolean;
 	multiple?: boolean;
 	onChange?: Function;
-	ref?: any /* Look up correct type */;
+	ref?: any;
 }
 interface SelectBoxProps extends TypeSelect {
 	id: string;

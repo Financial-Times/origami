@@ -4,6 +4,7 @@ export interface CheckboxesWrapperProps {
 	children: JSX.Element | JSX.Element[];
 	errorMessage?: string;
 	inlineInputs?: boolean;
+	inputType?: 'checkbox' | 'toggle';
 }
 
 export interface CheckboxProps extends InputProps {
@@ -21,13 +22,14 @@ function CheckboxesWrapper({
 	children,
 	errorMessage,
 	inlineInputs,
+	inputType,
 }: CheckboxesWrapperProps) {
 	return (
 		<span
 			className={getInputClasses({
 				errorMessage,
 				inlineInput: inlineInputs,
-				inputType: 'checkbox',
+				inputType: inputType || 'checkbox',
 			})}>
 			{children}
 			{errorMessage && <FormError errorMessage={errorMessage} />}
@@ -44,10 +46,12 @@ export function Checkboxes({
 	inlineField,
 	isVerticalCenter,
 	inlineInputs,
+	inputType,
 }: CheckboxesProps) {
 	const wrapperProps = {
 		errorMessage,
 		inlineInputs,
+		inputType,
 	};
 	const fieldsetProps = {
 		title,
