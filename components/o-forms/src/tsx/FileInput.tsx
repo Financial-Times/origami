@@ -1,5 +1,4 @@
-import uniqueId from 'lodash.uniqueid';
-import {getInputClasses} from '../utils/classBuilder';
+import {getInputClasses, uniqueId} from '../utils';
 import {FormError, InputProps, TypeFormField, FormField} from './Form';
 
 interface TypeFileInput extends InputProps {
