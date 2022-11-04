@@ -1,5 +1,4 @@
-import uniqueId from 'lodash.uniqueid';
-import {classBuilder} from '../utils/classBuilder';
+import {classBuilder, uniqueId} from '../utils';
 
 interface TypeFormProps {
 	children: JSX.Element | JSX.Element[];

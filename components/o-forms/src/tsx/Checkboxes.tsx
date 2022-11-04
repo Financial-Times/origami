@@ -1,5 +1,4 @@
-import uniqueId from 'lodash.uniqueid';
-import {getInputClasses} from '../utils/classBuilder';
+import {getInputClasses, uniqueId} from '../utils';
 import {InputProps, FormError, FormFieldset, TypeFormField} from './Form';
 export interface CheckboxesWrapperProps {
 	children: JSX.Element | JSX.Element[];

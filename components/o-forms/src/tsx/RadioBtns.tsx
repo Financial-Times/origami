@@ -1,5 +1,4 @@
-import uniqueId from 'lodash.uniqueid';
-import {classBuilder, getInputClasses} from '../utils/classBuilder';
+import {classBuilder, getInputClasses, uniqueId} from '../utils';
 import {InputProps, FormError, FormFieldset, TypeFormField} from './Form';
 export interface RadioBtnsWrapperProps {
 	children: JSX.Element | JSX.Element[];
