@@ -21,6 +21,8 @@ export default {
 		onChange: hideArg,
 		ref: hideArg,
 		children: hideArg,
+		inlineInput: hideArg,
+		value: hideArg,
 		highlightValid: {
 			if: {arg: 'errorMessage', truthy: false},
 		},

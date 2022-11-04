@@ -1,5 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
-import {classBuilder} from '../utils/classBuilder';
+import {getInputClasses} from '../utils/classBuilder';
 import {FormError, InputProps, TypeFormField, FormField} from './Form';
 
 interface TypeFileInput extends InputProps {
@@ -27,13 +27,13 @@ function PrivateFileInput({
 	capture,
 	multiple,
 }: PrivateFileInputProps) {
-	const [addClass, getClasses] = classBuilder('o-forms-input');
-	addClass('file');
-	if (highlightValid && !errorMessage) addClass('valid');
-	if (errorMessage) addClass('invalid');
-
 	return (
-		<span className={getClasses()}>
+		<span
+			className={getInputClasses({
+				highlightValid,
+				errorMessage,
+				inputType: 'file',
+			})}>
 			<input
 				id={id}
 				type="file"

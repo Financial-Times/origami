@@ -1,4 +1,4 @@
-#components/
+components/
 libraries/
 tools/*
 !tools/create-component
