@@ -1,7 +1,7 @@
-@import 'true';
-$system-code: 'test';
+@import "true";
+$system-code: "test";
 
-@import '../../main';
+@import "../../main";
 
-@import 'mixins.test';
-@import 'mixins-whitelabel.test';
+@import "mixins.test";
+@import "mixins-whitelabel.test";

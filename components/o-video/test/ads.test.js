@@ -1,17 +1,17 @@
 /* eslint-env mocha */
 /* global google */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
-import Ads from './../src/js/ads.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
+import Ads from "./../src/js/ads.js";
 
-describe('Ads', () => {
+describe("Ads", () => {
 	let ads;
 	let containerEl;
 
 	beforeEach(() => {
-		containerEl = document.createElement('div');
-		const videoEl = document.createElement('video');
+		containerEl = document.createElement("div");
+		const videoEl = document.createElement("video");
 		containerEl.appendChild(videoEl);
 		document.body.appendChild(containerEl);
 		const video = {
@@ -29,15 +29,15 @@ describe('Ads', () => {
 		document.body.removeChild(containerEl);
 	});
 
-	it('should have all ad event handlers', () => {
-		proclaim.isTypeOf(Ads.prototype.adsManagerLoadedHandler, 'function');
-		proclaim.isTypeOf(Ads.prototype.adErrorHandler, 'function');
-		proclaim.isTypeOf(Ads.prototype.adEventHandler, 'function');
-		proclaim.isTypeOf(Ads.prototype.contentPauseRequestHandler, 'function');
-		proclaim.isTypeOf(Ads.prototype.contentResumeRequestHandler, 'function');
+	it("should have all ad event handlers", () => {
+		proclaim.isTypeOf(Ads.prototype.adsManagerLoadedHandler, "function");
+		proclaim.isTypeOf(Ads.prototype.adErrorHandler, "function");
+		proclaim.isTypeOf(Ads.prototype.adEventHandler, "function");
+		proclaim.isTypeOf(Ads.prototype.contentPauseRequestHandler, "function");
+		proclaim.isTypeOf(Ads.prototype.contentResumeRequestHandler, "function");
 	});
 
-	it('should add the video advertising script if the configuration parameter is passed', () => {
+	it("should add the video advertising script if the configuration parameter is passed", () => {
 		return Ads.loadAdsLibrary().then(() => {
 			proclaim.ok(
 				document.querySelector(
@@ -47,16 +47,16 @@ describe('Ads', () => {
 		});
 	});
 
-	describe('#setUpAds', () => {
-		it('should set up ads', () => {
+	describe("#setUpAds", () => {
+		it("should set up ads", () => {
 			ads.setUpAds();
 
-			proclaim.equal(ads.adContainerEl.nodeName, 'DIV');
-			proclaim.isTypeOf(ads.adDisplayContainer, 'object');
-			proclaim.isTypeOf(ads.adsLoader, 'object');
+			proclaim.equal(ads.adContainerEl.nodeName, "DIV");
+			proclaim.isTypeOf(ads.adDisplayContainer, "object");
+			proclaim.isTypeOf(ads.adsLoader, "object");
 		});
 
-		it('should set up event handlers', () => {
+		it("should set up event handlers", () => {
 			const realAddEventListener =
 				google.ima.AdsLoader.prototype.addEventListener;
 			const addEventListenerSpy = sinon.spy();
@@ -83,8 +83,8 @@ describe('Ads', () => {
 		});
 	});
 
-	describe('#adsManagerLoadedHandler', () => {
-		it('should set up adsManager', () => {
+	describe("#adsManagerLoadedHandler", () => {
+		it("should set up adsManager", () => {
 			const adsManagerLoadedEvent = {
 				getAdsManager: sinon.stub().returns(getAdsManagerMock()),
 			};
@@ -95,12 +95,12 @@ describe('Ads', () => {
 			};
 
 			ads.adsManagerLoadedHandler(adsManagerLoadedEvent);
-			proclaim.isTypeOf(ads.adsManager, 'object');
+			proclaim.isTypeOf(ads.adsManager, "object");
 			proclaim.equal(adsManagerLoadedEvent.getAdsManager.called, true);
 		});
 	});
 
-	describe('#playAdEventHandler', () => {
+	describe("#playAdEventHandler", () => {
 		const realAdsManagerLoadedHandler = Ads.prototype.adsManagerLoadedHandler;
 		const adsManagerLoadedHandlerStub = sinon.stub();
 		const adsManagerStub = sinon.stub();
@@ -116,25 +116,25 @@ describe('Ads', () => {
 			Ads.prototype.adsManagerLoadedHandler = realAdsManagerLoadedHandler;
 		});
 
-		it('should play ad', () => {
+		it("should play ad", () => {
 			ads.playAdEventHandler();
-			proclaim.include(ads.adContainerEl.classList.toString(), 'o-video__ad');
+			proclaim.include(ads.adContainerEl.classList.toString(), "o-video__ad");
 		});
 	});
 
-	describe('#getVideoBrand', () => {
-		it('should get the brand for targeting', () => {
+	describe("#getVideoBrand", () => {
+		it("should get the brand for targeting", () => {
 			ads.video.videoData = {
 				brand: {
-					name: 'Authers Note',
+					name: "Authers Note",
 				},
 			};
-			proclaim.equal(ads.getVideoBrand(), 'Authers Note');
+			proclaim.equal(ads.getVideoBrand(), "Authers Note");
 		});
 	});
 
-	describe('#adLoadAndCompletionState', () => {
-		it('should set state correctly at different phases', () => {
+	describe("#adLoadAndCompletionState", () => {
+		it("should set state correctly at different phases", () => {
 			const realAddEventListener =
 				google.ima.AdsLoader.prototype.addEventListener;
 

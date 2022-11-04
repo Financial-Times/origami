@@ -1,17 +1,17 @@
-@import 'true';
-$system-code: 'test';
+@import "true";
+$system-code: "test";
 // Test the "master" brand is swapped for the "core" brand on import.
 $_o-brand-test-environment: true;
-$o-brand: 'master';
-@import '../../main';
+$o-brand: "master";
+@import "../../main";
 
-@include test-module('On import') {
+@include test-module("On import") {
 	@include test('Swaps the deprecated "master" brand for "core"') {
-		@include assert-true(oBrandIs('core'));
+		@include assert-true(oBrandIs("core"));
 	}
 }
 
 // Define brands before running other tests.
-@import 'fixtures';
-@import 'mixins.test';
-@import 'functions.test';
+@import "fixtures";
+@import "mixins.test";
+@import "functions.test";

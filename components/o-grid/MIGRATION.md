@@ -13,11 +13,13 @@ If you have been using Bower or the Origami Build Service, follow [the migration
 ### Sass
 
 IE8 is no longer supported, remove uses of:
+
 - `$o-grid-ie8-rules`
 - `oGridTargetIE8`
 - `oGridTargetModernBrowsers`
 
 The following Sass mixins and variables have been removed. Replace them with a single call to `oGrid` with the relevant options. See [the README](./README.md) for more details:
+
 - `oGridGenerate`
 - `$o-grid-shuffle-selectors`
 - `$o-grid-human-friendly-selectors`

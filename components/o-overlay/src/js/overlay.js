@@ -1,7 +1,7 @@
-import Delegate from 'ftdomdelegate';
-import viewport from '@financial-times/o-viewport';
-import utils from './utils.js';
-import focusable from 'focusable';
+import Delegate from "ftdomdelegate";
+import viewport from "@financial-times/o-viewport";
+import utils from "./utils.js";
+import focusable from "focusable";
 
 const overlays = {};
 
@@ -17,10 +17,10 @@ const checkOptions = function (opts) {
 	}
 
 	// Overlays should be modal and layers by default
-	if (typeof opts.modal === 'undefined') {
+	if (typeof opts.modal === "undefined") {
 		opts.modal = true;
 	}
-	if (typeof opts.layer === 'undefined') {
+	if (typeof opts.layer === "undefined") {
 		opts.layer = true;
 	}
 
@@ -38,9 +38,9 @@ const getOptionsFromTrigger = function (trigger) {
 	// Get config from data attributes set in the trigger if they haven't been passed via JS
 	if (trigger instanceof HTMLElement) {
 		Array.prototype.forEach.call(trigger.attributes, function (attr) {
-			if (attr.name.indexOf('data-o-overlay') === 0) {
+			if (attr.name.indexOf("data-o-overlay") === 0) {
 				// Remove the unnecessary part of the string the first time this is run for each attribute
-				const key = attr.name.replace('data-o-overlay-', '');
+				const key = attr.name.replace("data-o-overlay-", "");
 				opts = utils.optionsFromKey(key, attr.value, opts);
 			}
 		});
@@ -78,7 +78,7 @@ const focusTrap = function (event) {
 				element.labels && [].slice.call(element.labels).some(l => isVisible(l));
 			// When tabbing, the checked radio input of a group is focused, not each radio input.
 			const elementIsUncheckedRadio =
-				element.type === 'radio' && element.checked !== true;
+				element.type === "radio" && element.checked !== true;
 			return (
 				!element.disabled &&
 				!elementIsUncheckedRadio &&
@@ -135,14 +135,14 @@ class Overlay {
 			);
 		}
 
-		viewport.listenTo('resize');
+		viewport.listenTo("resize");
 		this.visible = false;
 		this.id = id;
 
 		try {
 			this.opts = checkOptions(opts);
 		} catch (e) {
-			this.broadcast('log', 'oErrors', {
+			this.broadcast("log", "oErrors", {
 				error: e,
 			});
 			throw e;
@@ -152,14 +152,14 @@ class Overlay {
 			const noOptError = new Error(
 				'"o-overlay error": Required options have not been set'
 			);
-			this.broadcast('log', 'oErrors', {
+			this.broadcast("log", "oErrors", {
 				error: noOptError,
 			});
 			throw noOptError;
 		}
 		if (this.opts.trigger) {
 			this.opts.trigger.addEventListener(
-				'click',
+				"click",
 				triggerClickHandler.bind(this.opts.trigger, id),
 				false
 			);
@@ -186,7 +186,7 @@ class Overlay {
 		// Prevent page scroll for open modals or fullscreen overlays.
 		if (this.opts.modal || this.opts.fullscreen) {
 			this.originalOverflow = document.documentElement.style.overflow;
-			document.documentElement.style.overflow = 'hidden';
+			document.documentElement.style.overflow = "hidden";
 		}
 
 		// A full screen overlay can look like a new page so add to history.
@@ -194,7 +194,7 @@ class Overlay {
 		if (window.history.pushState && this.opts.fullscreen) {
 			// Push overlay state to history.
 			window.history.pushState(
-				{[`o-overlay-${this.id}`]: 'fullscreen'},
+				{ [`o-overlay-${this.id}`]: "fullscreen" },
 				window.location.href
 			);
 			// When history changes check for the overlay and close it.
@@ -206,11 +206,11 @@ class Overlay {
 					this.close();
 				}
 			}.bind(this);
-			window.addEventListener('popstate', this.popstateHandler);
+			window.addEventListener("popstate", this.popstateHandler);
 		}
 
 		if (this.opts.trigger) {
-			this.opts.trigger.setAttribute('aria-pressed', 'true');
+			this.opts.trigger.setAttribute("aria-pressed", "true");
 		}
 
 		if (!this.content) {
@@ -249,14 +249,14 @@ class Overlay {
 	}
 
 	render() {
-		const wrapperEl = document.createElement('div');
-		wrapperEl.className = 'o-overlay';
-		wrapperEl.classList.add('o-overlay--' + this.id.replace(' ', '-'));
+		const wrapperEl = document.createElement("div");
+		wrapperEl.className = "o-overlay";
+		wrapperEl.classList.add("o-overlay--" + this.id.replace(" ", "-"));
 
 		// Add custom classes to the newly created overlay wrapper.
 		if (this.opts.class) {
 			try {
-				wrapperEl.classList.add(...this.opts.class.split(' '));
+				wrapperEl.classList.add(...this.opts.class.split(" "));
 			} catch (error) {
 				// eslint-disable-next-line no-console
 				console.warn(`Could not add the classes: ${this.opts.class}`);
@@ -264,51 +264,51 @@ class Overlay {
 		}
 
 		if (this.opts.fullscreen) {
-			wrapperEl.classList.add('o-overlay--full-screen');
+			wrapperEl.classList.add("o-overlay--full-screen");
 		}
 
-		wrapperEl.setAttribute('role', 'dialog');
+		wrapperEl.setAttribute("role", "dialog");
 		if (this.opts.zindex) {
 			wrapperEl.style.zIndex = this.opts.zindex;
 		}
 		this.wrapper = wrapperEl;
 
 		if (this.opts.heading) {
-			const heading = document.createElement('header');
+			const heading = document.createElement("header");
 			const headingId = this.opts.heading.title
 				.toLowerCase()
 				// replace non-ascii alphanums with hyphens
-				.replace(/[^a-z0-9-]/g, '-')
+				.replace(/[^a-z0-9-]/g, "-")
 				// replace repeated hyphens with a single hyphen
-				.replace(/[\s-]+/g, '-');
-			heading.classList.add('o-overlay__heading');
-			wrapperEl.setAttribute('aria-labelledby', headingId);
+				.replace(/[\s-]+/g, "-");
+			heading.classList.add("o-overlay__heading");
+			wrapperEl.setAttribute("aria-labelledby", headingId);
 
 			if (this.opts.heading.shaded) {
-				heading.classList.add('o-overlay__heading--shaded');
+				heading.classList.add("o-overlay__heading--shaded");
 			}
 
 			if (!this.opts.preventclosing) {
-				const button = document.createElement('button');
-				button.className = 'o-overlay__close';
-				button.setAttribute('aria-label', 'Close');
-				button.setAttribute('title', 'Close');
+				const button = document.createElement("button");
+				button.className = "o-overlay__close";
+				button.setAttribute("aria-label", "Close");
+				button.setAttribute("title", "Close");
 
 				if (!this.opts.nofocus) {
-					button.setAttribute('tabindex', '0');
+					button.setAttribute("tabindex", "0");
 				}
 				heading.appendChild(button);
 			}
 
-			const title = document.createElement('span');
-			title.setAttribute('role', 'heading');
-			title.setAttribute('aria-level', '1');
-			title.className = 'o-overlay__title';
+			const title = document.createElement("span");
+			title.setAttribute("role", "heading");
+			title.setAttribute("aria-level", "1");
+			title.className = "o-overlay__title";
 			title.innerHTML = this.opts.heading.title;
-			title.setAttribute('id', headingId);
+			title.setAttribute("id", headingId);
 
 			if (this.opts.heading.visuallyhidetitle) {
-				title.classList.add('o-overlay__title--sr-only');
+				title.classList.add("o-overlay__title--sr-only");
 			}
 
 			heading.appendChild(title);
@@ -316,28 +316,28 @@ class Overlay {
 		}
 
 		if (this.opts.tooltip) {
-			const button = document.createElement('a');
-			button.className = 'o-overlay__close';
-			button.setAttribute('role', 'button');
-			button.setAttribute('href', '#void');
-			button.setAttribute('aria-label', 'Close');
-			button.setAttribute('title', 'Close');
+			const button = document.createElement("a");
+			button.className = "o-overlay__close";
+			button.setAttribute("role", "button");
+			button.setAttribute("href", "#void");
+			button.setAttribute("aria-label", "Close");
+			button.setAttribute("title", "Close");
 			if (!this.opts.nofocus) {
-				button.setAttribute('tabindex', '0');
+				button.setAttribute("tabindex", "0");
 			}
 
 			wrapperEl.appendChild(button);
-			wrapperEl.classList.add('o-overlay--compact');
+			wrapperEl.classList.add("o-overlay--compact");
 		}
 
-		const content = document.createElement('section');
-		content.className = 'o-overlay__content';
+		const content = document.createElement("section");
+		content.className = "o-overlay__content";
 		wrapperEl.appendChild(content);
 
 		this.content = content;
 
 		if (this.opts.compact) {
-			wrapperEl.classList.add('o-overlay--compact');
+			wrapperEl.classList.add("o-overlay--compact");
 		}
 
 		this.show();
@@ -345,7 +345,7 @@ class Overlay {
 
 	_trapFocus() {
 		// Trap the focus inside the overlay so keyboard navigation doesn't escape the overlay
-		document.addEventListener('keydown', focusTrap.bind(this));
+		document.addEventListener("keydown", focusTrap.bind(this));
 	}
 
 	/**
@@ -355,9 +355,9 @@ class Overlay {
 	 */
 	show() {
 		if (this.opts.modal) {
-			this.wrapper.classList.add('o-overlay--modal');
-			const shadow = document.createElement('div');
-			shadow.className = 'o-overlay-shadow';
+			this.wrapper.classList.add("o-overlay--modal");
+			const shadow = document.createElement("div");
+			shadow.className = "o-overlay-shadow";
 			this.shadow = shadow;
 
 			if (this.opts.zindex) {
@@ -377,43 +377,43 @@ class Overlay {
 		if (!this.opts.nested) {
 			this.resizeListenerHandler = this.resizeListener.bind(this);
 			this.delegates.doc.on(
-				'oViewport.resize',
-				'body',
+				"oViewport.resize",
+				"body",
 				this.resizeListenerHandler
 			);
 
 			this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
-			this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
+			this.delegates.doc.on("keyup", this.closeOnEscapePressHandler);
 		}
 
 		if (this.opts.layer) {
 			this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
 			this.delegates.context.on(
-				'oOverlay.layerOpen',
+				"oOverlay.layerOpen",
 				this.closeOnNewLayerHandler
 			);
 
-			this.broadcast('layerOpen');
+			this.broadcast("layerOpen");
 		}
 
 		if (this.opts.heading || this.opts.tooltip || this.opts.customclose) {
-			this.delegates.wrap.on('click', '.o-overlay__close', this.closeHandler);
+			this.delegates.wrap.on("click", ".o-overlay__close", this.closeHandler);
 			this.delegates.wrap.on(
-				'touchend',
-				'.o-overlay__close',
+				"touchend",
+				".o-overlay__close",
 				this.closeHandler
 			);
 		}
 
 		this.closeOnExternalClickHandler = this.closeOnExternalClick.bind(this);
-		this.delegates.doc.on('click', 'body', this.closeOnExternalClickHandler);
-		this.delegates.doc.on('touchend', 'body', this.closeOnExternalClickHandler);
+		this.delegates.doc.on("click", "body", this.closeOnExternalClickHandler);
+		this.delegates.doc.on("touchend", "body", this.closeOnExternalClickHandler);
 
 		this.context.appendChild(this.wrapper);
 
 		// Give the overlay focus
 		if (!this.opts.nofocus) {
-			this.wrapper.setAttribute('tabindex', '0');
+			this.wrapper.setAttribute("tabindex", "0");
 			this.wrapper.style.outline = 0;
 		}
 
@@ -423,7 +423,7 @@ class Overlay {
 		window.requestAnimationFrame(
 			function () {
 				if (!this.content.innerHTML) {
-					if (typeof this.opts.html === 'string') {
+					if (typeof this.opts.html === "string") {
 						this.content.innerHTML = this.opts.html;
 					} else {
 						this.content.appendChild(this.opts.html);
@@ -446,14 +446,14 @@ class Overlay {
 				 * @type {object}
 				 * @property {Overlay} instance - the firing instance
 				 */
-				this.broadcast('ready', 'oOverlay', {
+				this.broadcast("ready", "oOverlay", {
 					instance: this,
 				});
 
 				// Add o-tracking integration
-				this.broadcast('event', 'oTracking', {
-					category: 'overlay',
-					action: 'show',
+				this.broadcast("event", "oTracking", {
+					category: "overlay",
+					action: "show",
 					overlay_id: this.id,
 				});
 
@@ -474,24 +474,24 @@ class Overlay {
 
 		// Remove fullscreen popstate handler and re-enable document scroll.
 		if (this.opts.fullscreen) {
-			window.removeEventListener('popstate', this.popstateHandler);
+			window.removeEventListener("popstate", this.popstateHandler);
 		}
 		// Remove state from history if fullscreen state is still in history.
 		// E.g.The close button was clicked directly rather than the browser back button.
 		if (
 			window.history.pushState &&
 			window.history.state &&
-			window.history.state[`o-overlay-${this.id}`] === 'fullscreen'
+			window.history.state[`o-overlay-${this.id}`] === "fullscreen"
 		) {
 			window.history.back();
 		}
 
-		viewport.stopListeningTo('resize');
+		viewport.stopListeningTo("resize");
 
-		this.broadcast('destroy');
-		this.broadcast('event', 'oTracking', {
-			category: 'overlay',
-			action: 'close',
+		this.broadcast("destroy");
+		this.broadcast("event", "oTracking", {
+			category: "overlay",
+			action: "close",
 			overlay_id: this.id,
 		});
 
@@ -503,14 +503,14 @@ class Overlay {
 		// Put focus back on the triggering element
 		if (this.opts.trigger) {
 			this.opts.trigger.focus();
-			this.opts.trigger.setAttribute('aria-pressed', 'false');
+			this.opts.trigger.setAttribute("aria-pressed", "false");
 		}
-		document.removeEventListener('keydown', focusTrap);
+		document.removeEventListener("keydown", focusTrap);
 
 		this.visible = false;
 
 		if (this.opts.layer) {
-			this.broadcast('layerClose');
+			this.broadcast("layerClose");
 		}
 
 		return false;
@@ -546,20 +546,20 @@ class Overlay {
 	}
 
 	broadcast(eventType, namespace, detail) {
-		namespace = namespace || 'oOverlay';
+		namespace = namespace || "oOverlay";
 
 		const isLayerEvent =
-			eventType === 'layerOpen' || eventType === 'layerClose';
+			eventType === "layerOpen" || eventType === "layerClose";
 		const target = isLayerEvent ? this.context : this.wrapper || document.body;
 
 		detail = detail || {};
 
-		if (namespace !== 'oTracking') {
+		if (namespace !== "oTracking") {
 			detail.el = this;
 		}
 
 		target.dispatchEvent(
-			new CustomEvent(namespace + '.' + eventType, {
+			new CustomEvent(namespace + "." + eventType, {
 				detail: detail,
 				bubbles: true,
 			})
@@ -569,14 +569,14 @@ class Overlay {
 	realign(dimension, size) {
 		// Realign both height and width according to the window by default.
 		if (!dimension && !size) {
-			this._align('width', viewport.getSize().width);
-			this._align('height', viewport.getSize().height);
+			this._align("width", viewport.getSize().width);
+			this._align("height", viewport.getSize().height);
 			return;
 		}
 
 		// For a given dimension realign according to the viewport by default.
 		if (dimension && !size) {
-			this._align(dimension, viewport.getSize()['dimension']);
+			this._align(dimension, viewport.getSize()["dimension"]);
 			return;
 		}
 
@@ -584,7 +584,7 @@ class Overlay {
 	}
 
 	_align(dimension, size) {
-		if (dimension !== 'width' && dimension !== 'height') {
+		if (dimension !== "width" && dimension !== "height") {
 			throw new Error(
 				`Can not realign the overlay for the dimension "${dimension}". "height" or "width" expected.`
 			);
@@ -596,7 +596,7 @@ class Overlay {
 			);
 		}
 
-		const edge = dimension === 'width' ? 'left' : 'top';
+		const edge = dimension === "width" ? "left" : "top";
 
 		// Update overlay size for realignment calculation.
 		// We may be realigning because the content within the overlay has changed.
@@ -605,10 +605,10 @@ class Overlay {
 
 		// E.g. viewport dimension <= overlay dimension
 		if (size <= this[dimension]) {
-			this.wrapper.classList.add('o-overlay--full-' + dimension);
-			this.wrapper.style[edge] = '0';
-			this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
-			if (dimension === 'height') {
+			this.wrapper.classList.add("o-overlay--full-" + dimension);
+			this.wrapper.style[edge] = "0";
+			this.wrapper.style["margin" + utils.capitalise(edge)] = 0;
+			if (dimension === "height") {
 				// Set the exact height that the content of the overlay will have which is the total
 				// height of the overlay minus the heading if there is one. If height = 100%, the
 				// heading is part of that 100%, so some content is truncated.
@@ -617,25 +617,25 @@ class Overlay {
 				this.content.style.height =
 					this.wrapper.offsetHeight -
 					(this.opts.heading
-						? this.wrapper.querySelector('header').offsetHeight
+						? this.wrapper.querySelector("header").offsetHeight
 						: 0) -
 					borderHeight +
-					'px';
+					"px";
 			}
 		} else {
-			if (dimension === 'height') {
+			if (dimension === "height") {
 				// Remove the property and let the overlay extend to its content
 				this.content.style.height = null;
 			}
-			this.wrapper.classList.remove('o-overlay--full-' + dimension);
-			this.wrapper.style['margin' + utils.capitalise(edge)] =
-				-(this.wrapper['offset' + utils.capitalise(dimension)] / 2) + 'px';
+			this.wrapper.classList.remove("o-overlay--full-" + dimension);
+			this.wrapper.style["margin" + utils.capitalise(edge)] =
+				-(this.wrapper["offset" + utils.capitalise(dimension)] / 2) + "px";
 
 			// Set alignment in JavaScript (not via CSS) after all other styles have been applied
 			// so that browsers compute it properly. If it's applied earlier, when the negative
 			// margin is calculated, the overlay might not fit, so it shrinks and the negative
 			// margin would be incorrect
-			this.wrapper.style[edge] = '50%';
+			this.wrapper.style[edge] = "50%";
 		}
 	}
 
@@ -644,7 +644,7 @@ class Overlay {
 	}
 
 	fills(dimension) {
-		return this.wrapper.classList.contains('o-overlay--full-' + dimension);
+		return this.wrapper.classList.contains("o-overlay--full-" + dimension);
 	}
 
 	destroy() {
@@ -652,7 +652,7 @@ class Overlay {
 			this.close();
 		}
 		if (this.opts.trigger) {
-			this.opts.trigger.removeEventListener('click', triggerClickHandler);
+			this.opts.trigger.removeEventListener("click", triggerClickHandler);
 		}
 		delete overlays[this.id];
 	}
@@ -662,7 +662,7 @@ class Overlay {
 		return (
 			this.content.scrollHeight +
 			(this.opts.heading
-				? this.wrapper.querySelector('header').offsetHeight
+				? this.wrapper.querySelector("header").offsetHeight
 				: 0) +
 			borderHeight
 		);
@@ -680,14 +680,14 @@ class Overlay {
 		if (!(el instanceof HTMLElement)) {
 			el = document.querySelector(el);
 		}
-		const triggers = el.querySelectorAll('.o-overlay-trigger');
+		const triggers = el.querySelectorAll(".o-overlay-trigger");
 		const overlaysArray = [];
 		for (let t = 0; t < triggers.length; t++) {
 			// There can only be one overlay per trigger when set declaratively, so the first trigger found for a given overlay will be the one used to create the overlay
-			if (!overlays[triggers[t].getAttribute('data-o-overlay-id')]) {
+			if (!overlays[triggers[t].getAttribute("data-o-overlay-id")]) {
 				overlaysArray.push(
 					new Overlay(
-						triggers[t].getAttribute('data-o-overlay-id'),
+						triggers[t].getAttribute("data-o-overlay-id"),
 						getOptionsFromTrigger(triggers[t])
 					)
 				);

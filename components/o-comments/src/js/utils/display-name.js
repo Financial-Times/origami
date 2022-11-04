@@ -1,4 +1,4 @@
-import Overlay from '@financial-times/o-overlay';
+import Overlay from "@financial-times/o-overlay";
 
 const form = `<form id="o-comments-displayname-form" class="o-forms o-forms o-comments__displayname-form">
 			<label for="o-comments-displayname-input" class="o-forms-field o-comments__displayname-field">
@@ -19,9 +19,9 @@ const isUnique = displayName => {
 		displayName
 	)}`;
 
-	return fetch(url, {method: 'GET'})
+	return fetch(url, { method: "GET" })
 		.then(response => response.json())
-		.then(({available}) => {
+		.then(({ available }) => {
 			return available;
 		});
 };
@@ -48,17 +48,17 @@ const findInvalidCharacters = displayName => {
 			: [];
 
 	return uniqueMatchingCharacters.length
-		? uniqueMatchingCharacters.join('')
+		? uniqueMatchingCharacters.join("")
 		: false;
 };
 
 const prompt = () => {
-	const overlay = new Overlay('displayName', {
+	const overlay = new Overlay("displayName", {
 		html: form,
-		class: 'o-comments__displayname-prompt',
+		class: "o-comments__displayname-prompt",
 		compact: true,
 		heading: {
-			title: 'Choose a commenting display name',
+			title: "Choose a commenting display name",
 		},
 	});
 
@@ -70,7 +70,7 @@ const prompt = () => {
 const validation = displayName => {
 	return new Promise((resolve, reject) => {
 		if (!displayName) {
-			return reject(new Error('Empty display name'));
+			return reject(new Error("Empty display name"));
 		}
 
 		const invalidCharacters = findInvalidCharacters(displayName);
@@ -86,7 +86,7 @@ const validation = displayName => {
 				.then(isUnique => {
 					if (!isUnique) {
 						return reject(
-							new Error('Unfortunately that display name is already taken')
+							new Error("Unfortunately that display name is already taken")
 						);
 					} else {
 						return resolve(displayName);
@@ -94,10 +94,10 @@ const validation = displayName => {
 				})
 				.catch(() => {
 					const apiError = new Error(
-						'Sorry, we are unable to update display names. Please try again later.'
+						"Sorry, we are unable to update display names. Please try again later."
 					);
 
-					apiError.name = 'CommentsApiError';
+					apiError.name = "CommentsApiError";
 
 					return reject(apiError);
 				});
@@ -110,22 +110,22 @@ const promptValidation = event => {
 
 	return new Promise(resolve => {
 		const displayNameForm = event.srcElement;
-		const input = displayNameForm.querySelector('input');
+		const input = displayNameForm.querySelector("input");
 		const displayName = input.value.trim();
 		const errorMessage = displayNameForm.querySelector(
-			'#o-comments-displayname-error'
+			"#o-comments-displayname-error"
 		);
 
-		errorMessage.innerText = '';
-		displayNameForm.classList.remove('o-forms-input--invalid');
+		errorMessage.innerText = "";
+		displayNameForm.classList.remove("o-forms-input--invalid");
 
 		return validation(displayName)
 			.then(displayName => resolve(displayName))
 			.catch(error => {
 				errorMessage.innerText = error.message;
-				displayNameForm.classList.add('o-forms-input--invalid');
+				displayNameForm.classList.add("o-forms-input--invalid");
 
-				if (error.name === 'CommentsApiError') {
+				if (error.name === "CommentsApiError") {
 					throw error;
 				}
 			});

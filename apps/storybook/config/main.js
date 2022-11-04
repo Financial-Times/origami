@@ -1,8 +1,8 @@
-const { readFile, access } = require('node:fs/promises');
-const {constants } = require('node:fs');
-const path = require('node:path');
-const process = require('node:process');
-const globby = require('globby');
+const { readFile, access } = require("node:fs/promises");
+const { constants } = require("node:fs");
+const path = require("node:path");
+const process = require("node:process");
+const globby = require("globby");
 
 const brand = process.env.ORIGAMI_STORYBOOK_BRAND || "core";
 /**
@@ -11,7 +11,7 @@ const brand = process.env.ORIGAMI_STORYBOOK_BRAND || "core";
  * fs.access will throw an error if the file does not exist.
  * @param {string} file file-system path to the file you are wanting to check exists or not
  * @returns {Promise.<boolean>} Whether the file exists
-*/
+ */
 async function fileExists(file) {
 	try {
 		await access(file, constants.R_OK);
@@ -22,51 +22,51 @@ async function fileExists(file) {
 }
 
 function readIfExists(filePath) {
-	return fileExists(filePath)
-		.then(exists => {
-			if (exists) {
-				return readFile(filePath, 'utf-8');
-			} else {
-				return undefined;
-			}
-		});
+	return fileExists(filePath).then(exists => {
+		if (exists) {
+			return readFile(filePath, "utf-8");
+		} else {
+			return undefined;
+		}
+	});
 }
 
 function requireIfExists(filePath) {
-	return readIfExists(filePath)
-		.then(file => {
-			return file ? JSON.parse(file) : undefined;
-		});
+	return readIfExists(filePath).then(file => {
+		return file ? JSON.parse(file) : undefined;
+	});
 }
 
 function getOrigamiJson(cwd) {
 	cwd = cwd || process.cwd();
-	return requireIfExists(path.join(cwd, '/origami.json'));
+	return requireIfExists(path.join(cwd, "/origami.json"));
 }
 
-
 function getComponentBrands(cwd) {
-	return getOrigamiJson(cwd)
-		.then(origamiJson => {
-			const hasBrandsDefined = origamiJson && origamiJson.brands && Array.isArray(origamiJson.brands) && origamiJson.brands.length > 0;
-			if (hasBrandsDefined) {
-				return origamiJson.brands;
-			}
-			return ['core', 'internal', 'whitelabel'];
-		});
+	return getOrigamiJson(cwd).then(origamiJson => {
+		const hasBrandsDefined =
+			origamiJson &&
+			origamiJson.brands &&
+			Array.isArray(origamiJson.brands) &&
+			origamiJson.brands.length > 0;
+		if (hasBrandsDefined) {
+			return origamiJson.brands;
+		}
+		return ["core", "internal", "whitelabel"];
+	});
 }
 
 module.exports.core = {
 	builder: "webpack5",
-}
+};
 
 module.exports.stories = (async () => {
 	const storyPaths = [
 		"../stories/**/*.stories.mdx",
-		"../stories/**/*.stories.@(js|jsx|ts|tsx)"
+		"../stories/**/*.stories.@(js|jsx|ts|tsx)",
 	];
 
-	const componentDirectories = await globby(['../../components/**'], {
+	const componentDirectories = await globby(["../../components/**"], {
 		gitignore: false,
 		expandDirectories: false,
 		onlyDirectories: true,
@@ -75,11 +75,16 @@ module.exports.stories = (async () => {
 
 	for (const componentDirectory of componentDirectories) {
 		const brands = await getComponentBrands(componentDirectory);
-		const storiesForBrand = brands.includes(brand) ? await globby([`${componentDirectory}/stories/**/*.stories.@(mdx|js|jsx|ts|tsx)`], {
-			gitignore: false,
-			expandDirectories: false,
-			deep: 1,
-		}) : [];
+		const storiesForBrand = brands.includes(brand)
+			? await globby(
+					[`${componentDirectory}/stories/**/*.stories.@(mdx|js|jsx|ts|tsx)`],
+					{
+						gitignore: false,
+						expandDirectories: false,
+						deep: 1,
+					}
+			  )
+			: [];
 		storyPaths.push(...storiesForBrand.map(storyPath => `../${storyPath}`));
 	}
 
@@ -105,7 +110,7 @@ module.exports.addons = [
 							@import "@financial-times/o-colors/main";
 							@include oColors();
 						` + content
-					)
+					);
 				},
 			},
 		},
@@ -115,7 +120,7 @@ module.exports.addons = [
 	"origami-storybook-addon-guidelines/register",
 	"origami-storybook-addon-markdown-tabs",
 	"origami-storybook-addon-background",
-]
+];
 
 module.exports.typescript = {
 	check: false,
@@ -124,7 +129,7 @@ module.exports.typescript = {
 	reactDocgenTypescriptOptions: {
 		shouldExtractLiteralValuesFromEnum: true,
 	},
-}
+};
 
 module.exports.webpackFinal = async function webpackFinal(config) {
 	// i've had to add all this because for some reason storybook doesn't
@@ -150,13 +155,12 @@ module.exports.webpackFinal = async function webpackFinal(config) {
 			},
 			require.resolve("react-docgen-typescript-loader"),
 		],
-	})
-	config.resolve.extensions.push(".ts", ".tsx")
-	return config
-}
+	});
+	config.resolve.extensions.push(".ts", ".tsx");
+	return config;
+};
 
-
-module.exports.env = (config) => ({
-    ...config,
-	ORIGAMI_STORYBOOK_BRAND: brand
-})
+module.exports.env = config => ({
+	...config,
+	ORIGAMI_STORYBOOK_BRAND: brand,
+});

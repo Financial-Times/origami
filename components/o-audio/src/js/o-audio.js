@@ -1,4 +1,4 @@
-import Tracking from './tracking.js';
+import Tracking from "./tracking.js";
 
 class OAudio {
 	/**
@@ -10,7 +10,7 @@ class OAudio {
 	constructor(oAudioEl, opts) {
 		if (!(oAudioEl instanceof HTMLAudioElement)) {
 			// eslint-disable-next-line no-console
-			console.warn('oAudioEl should be an instance of HTMLAudioElement');
+			console.warn("oAudioEl should be an instance of HTMLAudioElement");
 		}
 		this.oAudioEl = oAudioEl;
 		this.options = Object.assign(
@@ -44,7 +44,7 @@ class OAudio {
 		}
 		return Object.keys(oAudioEl.dataset).reduce((options, key) => {
 			// Ignore data-o-component
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return options;
 			}
 
@@ -82,7 +82,7 @@ class OAudio {
 		}
 		if (
 			rootEl instanceof HTMLAudioElement &&
-			rootEl.matches('[data-o-component=o-audio]')
+			rootEl.matches("[data-o-component=o-audio]")
 		) {
 			return new OAudio(rootEl, opts);
 		}

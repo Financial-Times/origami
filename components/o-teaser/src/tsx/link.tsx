@@ -1,4 +1,4 @@
-const BaseLink = ({url, attrs = {}, children}) => {
+const BaseLink = ({ url, attrs = {}, children }) => {
 	if (url) {
 		return (
 			<a href={url} {...attrs}>
@@ -14,16 +14,16 @@ interface LinkProps {
 	customElements?: any;
 	url?: string | undefined;
 	attrs?: {
-		'data-trackable'?: string;
-		'aria-label'?: string;
-		'aria-hidden'?: 'true' | 'false' | undefined;
+		"data-trackable"?: string;
+		"aria-label"?: string;
+		"aria-hidden"?: "true" | "false" | undefined;
 		className?: string;
 		tabIndex?: number;
 	};
 	children?: JSX.Element | JSX.Element[] | string;
 }
 
-export default ({customElements = {}, ...props}: LinkProps) => {
+export default ({ customElements = {}, ...props }: LinkProps) => {
 	const Link = customElements.Link || BaseLink;
 	return <Link {...props} />;
 };

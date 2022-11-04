@@ -1,4 +1,4 @@
-const className = 'o-banner';
+const className = "o-banner";
 const classNames = {
 	closed: `${className}--closed`,
 	outer: `${className}__outer`,
@@ -35,16 +35,16 @@ class Banner {
 				suppressCloseButton: false,
 				closeExistingBanners: true,
 				appendTo: document.body,
-				contentLong: '&hellip;',
+				contentLong: "&hellip;",
 				contentShort: null,
-				buttonLabel: 'OK',
-				buttonUrl: '#',
+				buttonLabel: "OK",
+				buttonUrl: "#",
 				formAction: null,
-				formEncoding: 'application/x-www-form-urlencoded',
-				formMethod: 'post',
+				formEncoding: "application/x-www-form-urlencoded",
+				formMethod: "post",
 				linkLabel: null,
-				linkUrl: '#',
-				closeButtonLabel: 'Close banner',
+				linkUrl: "#",
+				closeButtonLabel: "Close banner",
 				theme: null,
 				layout: null,
 			},
@@ -52,12 +52,12 @@ class Banner {
 		);
 
 		// Validate theme choice.
-		if (this.options.theme && typeof this.options.theme !== 'string') {
+		if (this.options.theme && typeof this.options.theme !== "string") {
 			throw new Error(`"${this.options.theme}" must be a string.`);
 		}
 
 		// Validate layout choice.
-		const validLayouts = ['small', 'compact'];
+		const validLayouts = ["small", "compact"];
 		const layout = this.options.layout;
 		if (layout && !validLayouts.includes(layout)) {
 			throw new Error(
@@ -68,12 +68,12 @@ class Banner {
 		// Find the element to append the banner to if configured.
 		try {
 			// Find by query selector.
-			if (typeof this.options.appendTo === 'string') {
+			if (typeof this.options.appendTo === "string") {
 				this.options.appendTo = document.querySelector(this.options.appendTo);
 			}
 			// Confirm a html element has been given or found.
 			if (this.options.appendTo instanceof HTMLElement !== true) {
-				throw new Error('It is not an Node instance.');
+				throw new Error("It is not an Node instance.");
 			}
 		} catch (error) {
 			throw new Error(
@@ -110,7 +110,7 @@ class Banner {
 			// If the banner element is not an HTML Element, build one
 			this.bannerElement = this.buildBannerElement();
 			this.options.appendTo.appendChild(this.bannerElement);
-		} else if (this.bannerElement.innerHTML.trim() === '') {
+		} else if (this.bannerElement.innerHTML.trim() === "") {
 			// If the banner element is empty, we construct the banner
 			this.bannerElement = this.buildBannerElement(this.bannerElement);
 		} else if (!this.bannerElement.querySelector(`.${classNames.outer}`)) {
@@ -123,7 +123,7 @@ class Banner {
 
 		// Select all the elements we need
 		this.innerElement = this.bannerElement.querySelector(
-			'[data-o-banner-inner]'
+			"[data-o-banner-inner]"
 		);
 
 		// Build the close button
@@ -140,7 +140,7 @@ class Banner {
 	 */
 	open() {
 		this.bannerElement.classList.remove(classNames.closed);
-		this.bannerElement.dispatchEvent(new CustomEvent('o.bannerOpened'));
+		this.bannerElement.dispatchEvent(new CustomEvent("o.bannerOpened"));
 	}
 
 	/**
@@ -150,7 +150,7 @@ class Banner {
 	 */
 	close() {
 		this.bannerElement.classList.add(classNames.closed);
-		this.bannerElement.dispatchEvent(new CustomEvent('o.bannerClosed'));
+		this.bannerElement.dispatchEvent(new CustomEvent("o.bannerClosed"));
 	}
 
 	/**
@@ -160,9 +160,9 @@ class Banner {
 	 * @returns {HTMLElement} Returns the new banner element
 	 */
 	buildBannerElement(bannerElement) {
-		bannerElement = bannerElement || document.createElement('div');
-		bannerElement.innerHTML = '';
-		bannerElement.setAttribute('role', 'region');
+		bannerElement = bannerElement || document.createElement("div");
+		bannerElement.innerHTML = "";
+		bannerElement.setAttribute("role", "region");
 		bannerElement.classList.add(className);
 		if (this.options.theme) {
 			bannerElement.classList.add(`${className}--${this.options.theme}`);
@@ -187,7 +187,7 @@ class Banner {
 				</div>
 			`;
 		}
-		let primaryActionHtml = '';
+		let primaryActionHtml = "";
 		if (this.options.buttonLabel) {
 			if (
 				this.options.formAction !== null &&
@@ -206,7 +206,7 @@ class Banner {
 				`;
 			}
 		}
-		let secondaryActionHtml = '';
+		let secondaryActionHtml = "";
 		if (this.options.linkLabel) {
 			secondaryActionHtml = `
 				<div class="${classNames.action} ${classNames.secondaryAction}">
@@ -237,15 +237,15 @@ class Banner {
 	 * @returns {HTMLElement} Returns the new close button element
 	 */
 	buildCloseButtonElement() {
-		const closeButton = document.createElement('button');
+		const closeButton = document.createElement("button");
 		closeButton.className = classNames.close;
-		closeButton.setAttribute('aria-label', this.options.closeButtonLabel);
+		closeButton.setAttribute("aria-label", this.options.closeButtonLabel);
 		if (this.bannerElement.id) {
-			closeButton.setAttribute('aria-controls', this.bannerElement.id);
+			closeButton.setAttribute("aria-controls", this.bannerElement.id);
 		}
 
 		// Add event listeners
-		closeButton.addEventListener('click', event => {
+		closeButton.addEventListener("click", event => {
 			this.close();
 			event.preventDefault();
 		});
@@ -266,7 +266,7 @@ class Banner {
 		}
 		return Object.keys(bannerElement.dataset).reduce((options, key) => {
 			// Ignore data-o-component
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return options;
 			}
 
@@ -319,7 +319,7 @@ class Banner {
 		// AND the rootElement has the data-o-component=o-banner then initialise just 1 banner (this one)
 		if (
 			rootElement instanceof HTMLElement &&
-			/\bo-banner\b/.test(rootElement.getAttribute('data-o-component'))
+			/\bo-banner\b/.test(rootElement.getAttribute("data-o-component"))
 		) {
 			return new Banner(rootElement, options);
 		}

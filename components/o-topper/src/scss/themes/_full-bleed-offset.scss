@@ -45,10 +45,9 @@
 
 	//Add extra 20px columns to get the space outside the content well
 	@include oGridRespondTo(L) {
-		grid-template-columns: 40px 0px 20px minmax(500px, 700px) 20px minmax(
-				0,
-				auto
-			) 300px;
+		grid-template-columns:
+			40px 0px 20px minmax(500px, 700px) 20px minmax(0, auto)
+			300px;
 
 		// .o-topper__content {
 		&.o-topper--centered {
@@ -70,10 +69,9 @@
 	}
 
 	@include oGridRespondTo(XL) {
-		grid-template-columns: 40px 40px 20px minmax(500px, 700px) 40px minmax(
-				0,
-				auto
-			) 300px;
+		grid-template-columns:
+			40px 40px 20px minmax(500px, 700px) 40px minmax(0, auto)
+			300px;
 	}
 
 	@supports (object-fit: cover) {

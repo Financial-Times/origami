@@ -1,11 +1,11 @@
-import parse from 'html-react-parser';
-import DOMPurify from 'dompurify';
+import parse from "html-react-parser";
+import DOMPurify from "dompurify";
 
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {Teaser} from '../src/tsx/teaser';
-import './teaser.scss';
+import withHtml from "origami-storybook-addon-html";
+import { withDesign } from "storybook-addon-designs";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Teaser } from "../src/tsx/teaser";
+import "./teaser.scss";
 import {
 	articleArgs,
 	contentPackageArgs,
@@ -15,16 +15,16 @@ import {
 	promotedArgs,
 	topStoryArgs,
 	videoArgs,
-} from './args';
+} from "./args";
 
-import {argTypes} from './arg-types';
+import { argTypes } from "./arg-types";
 
 argTypes.customSlot = {
-	type: 'string',
+	type: "string",
 };
 
 export default {
-	title: 'Components/o-teaser',
+	title: "Components/o-teaser",
 	component: Teaser,
 	decorators: [withDesign, withHtml],
 	parameters: {},
@@ -44,21 +44,21 @@ Article.argTypes = argTypes;
 Article.parameters = {
 	controls: {
 		exclude: [
-			'relatedLinks',
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
-			'showHeadshot',
+			"relatedLinks",
+			"video",
+			"headshot",
+			"imageLazyLoad",
+			"parentId",
+			"parentLabel",
+			"headlineTesting",
+			"promotedSuffixText",
+			"promotedPrefixText",
+			"relativeUrl",
+			"showCustomSlot",
+			"customSlot",
+			"showRelatedLinks",
+			"showVideo",
+			"showHeadshot",
 		],
 	},
 };
@@ -69,23 +69,23 @@ Podcast.argTypes = argTypes;
 Podcast.parameters = {
 	controls: {
 		exclude: [
-			'relatedLinks',
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
-			'showHeadshot',
-			'metaPrefixText',
-			'altTitle',
+			"relatedLinks",
+			"video",
+			"headshot",
+			"imageLazyLoad",
+			"parentId",
+			"parentLabel",
+			"headlineTesting",
+			"promotedSuffixText",
+			"promotedPrefixText",
+			"relativeUrl",
+			"showCustomSlot",
+			"customSlot",
+			"showRelatedLinks",
+			"showVideo",
+			"showHeadshot",
+			"metaPrefixText",
+			"altTitle",
 		],
 	},
 };
@@ -97,77 +97,77 @@ Opinion.argTypes = argTypes;
 Opinion.parameters = {
 	controls: {
 		exclude: [
-			'relatedLinks',
-			'video',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
+			"relatedLinks",
+			"video",
+			"imageLazyLoad",
+			"parentId",
+			"parentLabel",
+			"headlineTesting",
+			"promotedSuffixText",
+			"promotedPrefixText",
+			"relativeUrl",
+			"showCustomSlot",
+			"customSlot",
+			"showRelatedLinks",
+			"showVideo",
 		],
 	},
 };
 
 export const ContentPackage: ComponentStory<typeof Teaser> = Story.bind({});
-ContentPackage.storyName = 'ContentPackage';
+ContentPackage.storyName = "ContentPackage";
 ContentPackage.args = contentPackageArgs;
 ContentPackage.argTypes = argTypes;
 ContentPackage.parameters = {
 	controls: {
 		exclude: [
-			'relatedLinks',
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
-			'showHeadshot',
-			'showStandfirst',
-			'indicators',
+			"relatedLinks",
+			"video",
+			"headshot",
+			"imageLazyLoad",
+			"parentId",
+			"parentLabel",
+			"headlineTesting",
+			"promotedSuffixText",
+			"promotedPrefixText",
+			"relativeUrl",
+			"showCustomSlot",
+			"customSlot",
+			"showRelatedLinks",
+			"showVideo",
+			"showHeadshot",
+			"showStandfirst",
+			"indicators",
 		],
 	},
 };
 
 export const PackageItem: ComponentStory<typeof Teaser> = Story.bind({});
-PackageItem.storyName = 'PackageItem';
+PackageItem.storyName = "PackageItem";
 PackageItem.args = contentPackageItemArgs;
 PackageItem.argTypes = argTypes;
 PackageItem.parameters = {
 	controls: {
 		exclude: [
-			'relatedLinks',
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
-			'showHeadshot',
-			'showStandfirst',
-			'metaAltLink',
-			'altTitle',
-			'altStandfirst',
+			"relatedLinks",
+			"video",
+			"headshot",
+			"imageLazyLoad",
+			"parentId",
+			"parentLabel",
+			"headlineTesting",
+			"promotedSuffixText",
+			"promotedPrefixText",
+			"relativeUrl",
+			"showCustomSlot",
+			"customSlot",
+			"showRelatedLinks",
+			"showVideo",
+			"showHeadshot",
+			"showStandfirst",
+			"metaAltLink",
+			"altTitle",
+			"altStandfirst",
 		],
 	},
 };
@@ -178,51 +178,51 @@ Promoted.argTypes = argTypes;
 Promoted.parameters = {
 	controls: {
 		exclude: [
-			'relatedLinks',
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
-			'showHeadshot',
-			'indicators',
-			'metaPrefixText',
-			'metaSuffixText',
-			'metaLink',
-			'metaAltLink',
-			'altTitle',
-			'altStandfirst',
+			"relatedLinks",
+			"video",
+			"headshot",
+			"imageLazyLoad",
+			"parentId",
+			"parentLabel",
+			"headlineTesting",
+			"relativeUrl",
+			"showCustomSlot",
+			"customSlot",
+			"showRelatedLinks",
+			"showVideo",
+			"showHeadshot",
+			"indicators",
+			"metaPrefixText",
+			"metaSuffixText",
+			"metaLink",
+			"metaAltLink",
+			"altTitle",
+			"altStandfirst",
 		],
 	},
 };
 
 export const TopStory: ComponentStory<typeof Teaser> = Story.bind({});
-TopStory.storyName = 'TopStory';
+TopStory.storyName = "TopStory";
 TopStory.args = topStoryArgs;
 TopStory.argTypes = argTypes;
 TopStory.parameters = {
 	controls: {
 		exclude: [
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showVideo',
-			'showHeadshot',
-			'indicators',
+			"video",
+			"headshot",
+			"imageLazyLoad",
+			"parentId",
+			"parentLabel",
+			"headlineTesting",
+			"promotedSuffixText",
+			"promotedPrefixText",
+			"relativeUrl",
+			"showCustomSlot",
+			"customSlot",
+			"showVideo",
+			"showHeadshot",
+			"indicators",
 		],
 	},
 };
@@ -233,25 +233,25 @@ Video.argTypes = argTypes;
 Video.parameters = {
 	controls: {
 		exclude: [
-			'relatedLinks',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showHeadshot',
-			'showStandfirst',
-			'showStatus',
-			'showImage',
-			'indicators',
-			'altTitle',
-			'altStandfirst',
+			"relatedLinks",
+			"headshot",
+			"imageLazyLoad",
+			"parentId",
+			"parentLabel",
+			"headlineTesting",
+			"promotedSuffixText",
+			"promotedPrefixText",
+			"relativeUrl",
+			"showCustomSlot",
+			"customSlot",
+			"showRelatedLinks",
+			"showHeadshot",
+			"showStandfirst",
+			"showStatus",
+			"showImage",
+			"indicators",
+			"altTitle",
+			"altStandfirst",
 		],
 	},
 };

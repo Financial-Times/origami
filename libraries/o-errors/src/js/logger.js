@@ -18,22 +18,22 @@ function Logger(logSize, logLevel) {
 	}
 
 	const out =
-		typeof console !== 'undefined'
+		typeof console !== "undefined"
 			? console
-			: {log: noop, warn: noop, error: noop};
+			: { log: noop, warn: noop, error: noop };
 	this.out = out;
 }
 
 Logger.prototype.error = function () {
-	this._consoleLog('ERROR', this.out.error, arguments);
+	this._consoleLog("ERROR", this.out.error, arguments);
 };
 
 Logger.prototype.log = function () {
-	this._consoleLog('LOG', this.out.log, arguments);
+	this._consoleLog("LOG", this.out.log, arguments);
 };
 
 Logger.prototype.warn = function () {
-	this._consoleLog('WARN', this.out.warn, arguments);
+	this._consoleLog("WARN", this.out.warn, arguments);
 };
 
 Logger.prototype._consoleLog = function (name, consoleMethod, args) {
@@ -53,14 +53,14 @@ Logger.prototype._consoleLog = function (name, consoleMethod, args) {
 };
 
 function argsAsLogString(logName, args) {
-	let string = logName + ':';
+	let string = logName + ":";
 
 	// TODO: Improve the logging of objects.  We could 'require('util')' and
 	// use util.format (provided by browserify), but it adds 8K to the
 	// minified output, it doesn't seem worth it. Kornel suggests
 	// git.svc.ft.com/projects/LOG/repos/js-abbreviate/browse
 	for (let index = 0; index < args.length; index++) {
-		string += ' ' + args[index];
+		string += " " + args[index];
 	}
 
 	return string;
@@ -104,7 +104,7 @@ Logger.prototype.logLines = function () {
 		}
 	} while (index !== nextLogIndex);
 
-	return rolledUpLogs.join('\n');
+	return rolledUpLogs.join("\n");
 };
 
 /**
@@ -140,4 +140,4 @@ Logger.level = {
 function noop() {}
 
 export default Logger;
-export {Logger};
+export { Logger };

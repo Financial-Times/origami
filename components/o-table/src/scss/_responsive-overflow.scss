@@ -20,14 +20,14 @@
 
 		.o-table-control {
 			display: inline-block;
-			background: _oTableGet('table-background');
+			background: _oTableGet("table-background");
 			pointer-events: all;
 			transition: 1s opacity ease-in-out;
 			button {
 				@include oButtonsContent(
 					(
-						'type': 'primary',
-						'size': 'big',
+						"type": "primary",
+						"size": "big",
 					)
 				);
 			}
@@ -58,8 +58,8 @@
 		.o-table-control--forward button {
 			@include oButtonsContent(
 				(
-					'size': 'big',
-					'icon-only': true,
+					"size": "big",
+					"icon-only": true,
 				),
 				$include-base-styles: false
 			);
@@ -72,8 +72,8 @@
 			button {
 				@include oButtonsContent(
 					$opts: (
-						'type': 'primary',
-						'icon': 'arrow-left',
+						"type": "primary",
+						"icon": "arrow-left",
 					),
 					$include-base-styles: false,
 					$include-base-icon-styles: false
@@ -88,8 +88,8 @@
 			button {
 				@include oButtonsContent(
 					$opts: (
-						'type': 'primary',
-						'icon': 'arrow-right',
+						"type": "primary",
+						"icon": "arrow-right",
 					),
 					$include-base-styles: false,
 					$include-base-icon-styles: false
@@ -114,11 +114,11 @@
 		&:after,
 		&:before {
 			position: absolute;
-			content: '';
+			content: "";
 			bottom: 0;
 			height: 40px;
 			pointer-events: none;
-			border-color: oButtonsGetColor('default', 'background', $type: 'primary');
+			border-color: oButtonsGetColor("default", "background", $type: "primary");
 			border-style: solid;
 			width: 1px;
 		}
@@ -162,24 +162,24 @@
 
 	// Show horizontal fade when the table is scrolled.
 	.o-table-overflow-fade-overlay--scroll {
-		@if _oTableGet('table-background') {
+		@if _oTableGet("table-background") {
 			background: linear-gradient(
 					to right,
-					_oTableGet('table-background') 2px,
-					rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-start)
+					_oTableGet("table-background") 2px,
+					rgba(_oTableGet("table-background"), 0) var(--o-table-fade-from-start)
 				),
 				linear-gradient(
 					to left,
-					_oTableGet('table-background') 2px,
-					rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-end)
+					_oTableGet("table-background") 2px,
+					rgba(_oTableGet("table-background"), 0) var(--o-table-fade-from-end)
 				);
 		}
 	}
 
 	// Show vertical fade when the table is contracted.
 	.o-table-container--contracted .o-table-overflow-fade-overlay:after {
-		@if _oTableGet('table-background') {
-			content: '';
+		@if _oTableGet("table-background") {
+			content: "";
 			position: absolute;
 			height: 80px;
 			bottom: 0;
@@ -187,8 +187,8 @@
 			right: 0;
 			background: linear-gradient(
 				to top,
-				_oTableGet('table-background') 30px,
-				rgba(_oTableGet('table-background'), 0) 80px
+				_oTableGet("table-background") 30px,
+				rgba(_oTableGet("table-background"), 0) 80px
 			);
 			pointer-events: none;
 		}

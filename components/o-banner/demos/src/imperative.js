@@ -1,8 +1,8 @@
-import Banner from '../../main.js';
+import Banner from "../../main.js";
 
 const demoBannerConfigurations = [
 	{
-		elementId: 'banner-standard',
+		elementId: "banner-standard",
 		config: {
 			contentLong: `
 				<p>Try the new compact homepage. A list view of today's homepage with fewer images.</p>
@@ -10,12 +10,12 @@ const demoBannerConfigurations = [
 			contentShort: `
 				<p>Try the new compact homepage.</p>
 			`,
-			buttonLabel: 'Try it now',
-			linkLabel: 'Give feedback',
+			buttonLabel: "Try it now",
+			linkLabel: "Give feedback",
 		},
 	},
 	{
-		elementId: 'banner-small',
+		elementId: "banner-small",
 		config: {
 			contentLong: `
 				<p>Try the new compact homepage. A list view of today's homepage with fewer images.</p>
@@ -23,13 +23,13 @@ const demoBannerConfigurations = [
 			contentShort: `
 				<p>Try the new compact homepage.</p>
 			`,
-			buttonLabel: 'Try it now',
-			linkLabel: 'Give feedback',
-			layout: 'small',
+			buttonLabel: "Try it now",
+			linkLabel: "Give feedback",
+			layout: "small",
 		},
 	},
 	{
-		elementId: 'banner-compact',
+		elementId: "banner-compact",
 		config: {
 			contentLong: `
 				<p>Try the new compact homepage. A list view of today's homepage with fewer images.</p>
@@ -37,13 +37,13 @@ const demoBannerConfigurations = [
 			contentShort: `
 				<p>Try the new compact homepage.</p>
 			`,
-			buttonLabel: 'Try it now',
-			linkLabel: 'Give feedback',
-			layout: 'compact',
+			buttonLabel: "Try it now",
+			linkLabel: "Give feedback",
+			layout: "compact",
 		},
 	},
 	{
-		elementId: 'banner-marketing',
+		elementId: "banner-marketing",
 		config: {
 			contentLong: `
 				<header class="o-banner__heading">
@@ -61,13 +61,13 @@ const demoBannerConfigurations = [
 				<h1>You qualify for a special offer: Save 33%</h1>
 				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
 			`,
-			buttonLabel: 'Save 33% now',
-			linkLabel: 'Terms and conditions',
-			theme: 'marketing',
+			buttonLabel: "Save 33% now",
+			linkLabel: "Terms and conditions",
+			theme: "marketing",
 		},
 	},
 	{
-		elementId: 'banner-marketing-small',
+		elementId: "banner-marketing-small",
 		config: {
 			contentLong: `
 				<header class="o-banner__heading">
@@ -85,14 +85,14 @@ const demoBannerConfigurations = [
 				<h1>You qualify for a special offer: Save 33%</h1>
 				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
 			`,
-			buttonLabel: 'Save 33% now',
-			linkLabel: 'Terms and conditions',
-			layout: 'small',
-			theme: 'marketing',
+			buttonLabel: "Save 33% now",
+			linkLabel: "Terms and conditions",
+			layout: "small",
+			theme: "marketing",
 		},
 	},
 	{
-		elementId: 'banner-marketing-compact',
+		elementId: "banner-marketing-compact",
 		config: {
 			contentLong: `
 				<header class="o-banner__heading">
@@ -110,14 +110,14 @@ const demoBannerConfigurations = [
 				<h1>You qualify for a special offer: Save 33%</h1>
 				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
 			`,
-			buttonLabel: 'Save 33% now',
-			linkLabel: 'Terms and conditions',
-			layout: 'compact',
-			theme: 'marketing',
+			buttonLabel: "Save 33% now",
+			linkLabel: "Terms and conditions",
+			layout: "compact",
+			theme: "marketing",
 		},
 	},
 	{
-		elementId: 'banner-product',
+		elementId: "banner-product",
 		config: {
 			contentLong: `
 				<header class="o-banner__heading">
@@ -131,13 +131,13 @@ const demoBannerConfigurations = [
 				</header>
 				<p>Try the new compact homepage.</p>
 			`,
-			buttonLabel: 'Try it now',
-			linkLabel: 'Give feedback',
-			theme: 'product',
+			buttonLabel: "Try it now",
+			linkLabel: "Give feedback",
+			theme: "product",
 		},
 	},
 	{
-		elementId: 'banner-product-small',
+		elementId: "banner-product-small",
 		config: {
 			contentLong: `
 				<header class="o-banner__heading">
@@ -151,14 +151,14 @@ const demoBannerConfigurations = [
 				</header>
 				<p>Try the new compact homepage.</p>
 			`,
-			buttonLabel: 'Try it now',
-			linkLabel: 'Give feedback',
-			layout: 'small',
-			theme: 'product',
+			buttonLabel: "Try it now",
+			linkLabel: "Give feedback",
+			layout: "small",
+			theme: "product",
 		},
 	},
 	{
-		elementId: 'banner-product-compact',
+		elementId: "banner-product-compact",
 		config: {
 			contentLong: `
 				<header class="o-banner__heading">
@@ -172,14 +172,14 @@ const demoBannerConfigurations = [
 				</header>
 				<p>Try the new compact homepage.</p>
 			`,
-			buttonLabel: 'Try it now',
-			linkLabel: 'Give feedback',
-			layout: 'compact',
-			theme: 'product',
+			buttonLabel: "Try it now",
+			linkLabel: "Give feedback",
+			layout: "compact",
+			theme: "product",
 		},
 	},
 	{
-		elementId: 'banner-custom',
+		elementId: "banner-custom",
 		config: {
 			contentLong: `
 				<header class="o-banner__heading">
@@ -197,13 +197,13 @@ const demoBannerConfigurations = [
 				<h1>You qualify for a special offer: Save 33%</h1>
 				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
 			`,
-			buttonLabel: 'Save 33% now',
-			linkLabel: 'Terms and conditions',
-			theme: 'pikachu',
+			buttonLabel: "Save 33% now",
+			linkLabel: "Terms and conditions",
+			theme: "pikachu",
 		},
 	},
 	{
-		elementId: 'banner-custom-small',
+		elementId: "banner-custom-small",
 		config: {
 			contentLong: `
 				<header class="o-banner__heading">
@@ -221,14 +221,14 @@ const demoBannerConfigurations = [
 				<h1>You qualify for a special offer: Save 33%</h1>
 				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
 			`,
-			buttonLabel: 'Save 33% now',
-			linkLabel: 'Terms and conditions',
-			layout: 'small',
-			theme: 'pikachu',
+			buttonLabel: "Save 33% now",
+			linkLabel: "Terms and conditions",
+			layout: "small",
+			theme: "pikachu",
 		},
 	},
 	{
-		elementId: 'banner-custom-compact',
+		elementId: "banner-custom-compact",
 		config: {
 			contentLong: `
 				<header class="o-banner__heading">
@@ -246,14 +246,14 @@ const demoBannerConfigurations = [
 				<h1>You qualify for a special offer: Save 33%</h1>
 				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
 			`,
-			buttonLabel: 'Save 33% now',
-			linkLabel: 'Terms and conditions',
-			layout: 'compact',
-			theme: 'pikachu',
+			buttonLabel: "Save 33% now",
+			linkLabel: "Terms and conditions",
+			layout: "compact",
+			theme: "pikachu",
 		},
 	},
 	{
-		elementId: 'banner-form',
+		elementId: "banner-form",
 		config: {
 			contentLong: `
 				<header class="o-banner__heading">
@@ -271,20 +271,20 @@ const demoBannerConfigurations = [
 				<h1>You qualify for a special offer: Save 33%</h1>
 				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
 			`,
-			buttonLabel: 'Save 33% now',
-			linkLabel: 'Terms and conditions',
-			layout: 'small',
-			theme: 'marketing',
-			formAction: '#form-submitted',
-			formMethod: 'get',
+			buttonLabel: "Save 33% now",
+			linkLabel: "Terms and conditions",
+			layout: "small",
+			theme: "marketing",
+			formAction: "#form-submitted",
+			formMethod: "get",
 		},
 	},
 ];
 
 function initDemos() {
-	document.addEventListener('DOMContentLoaded', () => {
-		demoBannerConfigurations.forEach(({elementId, config}) => {
-			document.getElementById(elementId).addEventListener('click', () => {
+	document.addEventListener("DOMContentLoaded", () => {
+		demoBannerConfigurations.forEach(({ elementId, config }) => {
+			document.getElementById(elementId).addEventListener("click", () => {
 				new Banner(null, config);
 			});
 		});

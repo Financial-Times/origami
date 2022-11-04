@@ -1,12 +1,12 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import formFixture from './helpers/fixtures.js';
-import Input from '../src/js/input.js';
+import formFixture from "./helpers/fixtures.js";
+import Input from "../src/js/input.js";
 
-describe('Input', () => {
+describe("Input", () => {
 	let form;
 	let dispatch;
 	let parentClass;
@@ -15,27 +15,27 @@ describe('Input', () => {
 		dispatch = (event, element) => element.dispatchEvent(new Event(event));
 		parentClass = (element, validity) =>
 			element
-				.closest('.o-forms-input')
+				.closest(".o-forms-input")
 				.classList.contains(`o-forms-input--${validity}`);
 	});
 
-	it('validation ignores an input that is not required or invalid', () => {
+	it("validation ignores an input that is not required or invalid", () => {
 		document.body.innerHTML = formFixture;
 		form = document.forms[0];
-		const optionalField = form.elements['optional'];
+		const optionalField = form.elements["optional"];
 		new Input(optionalField);
 
-		proclaim.isFalse(parentClass(optionalField, 'invalid'));
-		proclaim.isFalse(parentClass(optionalField, 'valid'));
+		proclaim.isFalse(parentClass(optionalField, "invalid"));
+		proclaim.isFalse(parentClass(optionalField, "valid"));
 	});
 
-	context('validates required fields', () => {
+	context("validates required fields", () => {
 		let requiredField;
 
 		beforeEach(() => {
 			document.body.innerHTML = formFixture;
 			form = document.forms[0];
-			requiredField = form.elements['required'];
+			requiredField = form.elements["required"];
 			new Input(requiredField);
 		});
 
@@ -43,29 +43,29 @@ describe('Input', () => {
 			document.body.innerHTML = null;
 		});
 
-		it('`blur` event sets the field to invalid if required input is left empty', () => {
-			dispatch('blur', requiredField);
-			proclaim.isTrue(parentClass(requiredField, 'invalid'));
+		it("`blur` event sets the field to invalid if required input is left empty", () => {
+			dispatch("blur", requiredField);
+			proclaim.isTrue(parentClass(requiredField, "invalid"));
 		});
 
-		it('`input` event updates validity when input is given (if previously invalid)', () => {
-			dispatch('blur', requiredField);
-			proclaim.isTrue(parentClass(requiredField, 'invalid'));
+		it("`input` event updates validity when input is given (if previously invalid)", () => {
+			dispatch("blur", requiredField);
+			proclaim.isTrue(parentClass(requiredField, "invalid"));
 
-			requiredField.value = 'some text';
-			dispatch('input', requiredField);
+			requiredField.value = "some text";
+			dispatch("input", requiredField);
 
-			proclaim.isFalse(parentClass(requiredField, 'invalid'));
-			proclaim.isTrue(parentClass(requiredField, 'valid'));
+			proclaim.isFalse(parentClass(requiredField, "invalid"));
+			proclaim.isTrue(parentClass(requiredField, "valid"));
 		});
 	});
 
-	context('validates pattern-matching fields', () => {
+	context("validates pattern-matching fields", () => {
 		let dateField;
 		before(() => {
 			document.body.innerHTML = formFixture;
 			form = document.forms[0];
-			dateField = form.elements['date'][0];
+			dateField = form.elements["date"][0];
 			new Input(dateField);
 		});
 
@@ -73,27 +73,27 @@ describe('Input', () => {
 			document.body.innerHTML = null;
 		});
 
-		it('`blur` event sets the field to invalid if input does not match pattern', () => {
-			dateField.value = 'tenth';
-			dispatch('blur', dateField);
+		it("`blur` event sets the field to invalid if input does not match pattern", () => {
+			dateField.value = "tenth";
+			dispatch("blur", dateField);
 
-			proclaim.isTrue(parentClass(dateField, 'invalid'));
+			proclaim.isTrue(parentClass(dateField, "invalid"));
 		});
 
-		it('`input` event updates validity when format is corrected (if previously invalid)', () => {
-			dateField.value = 'tenth';
-			dispatch('blur', dateField);
-			proclaim.isTrue(parentClass(dateField, 'invalid'));
+		it("`input` event updates validity when format is corrected (if previously invalid)", () => {
+			dateField.value = "tenth";
+			dispatch("blur", dateField);
+			proclaim.isTrue(parentClass(dateField, "invalid"));
 
 			dateField.value = 10;
-			dispatch('input', dateField);
+			dispatch("input", dateField);
 
-			proclaim.isFalse(parentClass(dateField, 'invalid'));
-			proclaim.isTrue(parentClass(dateField, 'valid'));
+			proclaim.isFalse(parentClass(dateField, "invalid"));
+			proclaim.isTrue(parentClass(dateField, "valid"));
 		});
 	});
 
-	context('.destroy()', () => {
+	context(".destroy()", () => {
 		let fieldSpy;
 		let input;
 		let requiredField;
@@ -101,16 +101,16 @@ describe('Input', () => {
 		before(() => {
 			document.body.innerHTML = formFixture;
 			form = document.forms[0];
-			requiredField = form.elements['required'];
+			requiredField = form.elements["required"];
 		});
 
 		after(() => {
 			document.body.innerHTML = null;
 		});
 
-		it('removes all event listeners', () => {
+		it("removes all event listeners", () => {
 			input = new Input(requiredField);
-			fieldSpy = sinon.spy(requiredField, 'removeEventListener');
+			fieldSpy = sinon.spy(requiredField, "removeEventListener");
 			input.destroy();
 
 			proclaim.isTrue(fieldSpy.calledTwice);

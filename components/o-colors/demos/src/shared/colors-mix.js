@@ -1,8 +1,8 @@
 const getHexValues = (mixer, base) => {
 	const root = getComputedStyle(document.documentElement);
 	return {
-		mixer: root.getPropertyValue(`--o-colors-${mixer}`).replace(/^\s*#/, ''),
-		base: root.getPropertyValue(`--o-colors-${base}`).replace(/^\s*#/, ''),
+		mixer: root.getPropertyValue(`--o-colors-${mixer}`).replace(/^\s*#/, ""),
+		base: root.getPropertyValue(`--o-colors-${base}`).replace(/^\s*#/, ""),
 	};
 };
 
@@ -12,11 +12,11 @@ const expandHexValues = value => {
 	// Likewise, the four-digit RGB notation (#RGBA) is a shorter version of the eight-digit form (#RRGGBBAA).
 	if (value.length === 3 || value.length === 4) {
 		return value
-			.split('')
+			.split("")
 			.map(character => {
 				return character + character;
 			})
-			.join('');
+			.join("");
 	}
 	return value;
 };
@@ -31,7 +31,7 @@ const mixHexes = (mixer, base) => {
 	const percentages = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
 	return percentages.map(percent => {
-		let hexValue = '#';
+		let hexValue = "#";
 
 		for (let i = 0; i <= 5; i += 2) {
 			const mixPair = hexToDecimal(fullMixer.substr(i, 2)); // extract r, g, b pairs for mixer color
@@ -53,4 +53,4 @@ const mixHexes = (mixer, base) => {
 	});
 };
 
-export {getHexValues, mixHexes, expandHexValues};
+export { getHexValues, mixHexes, expandHexValues };

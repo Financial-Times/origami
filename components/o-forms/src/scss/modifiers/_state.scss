@@ -15,7 +15,7 @@
 
 		&:before,
 		&:after {
-			content: '';
+			content: "";
 		}
 	}
 
@@ -39,14 +39,14 @@
 			padding: 0;
 
 			&:after {
-				content: 'Saving';
+				content: "Saving";
 			}
 
 			&:before {
 				@include oLoadingContent(
 					$opts: (
-						'theme': 'dark',
-						'size': 'mini',
+						"theme": "dark",
+						"size": "mini",
 					)
 				);
 				margin: 0 $_o-forms-spacing-two 0 0;
@@ -57,19 +57,19 @@
 	// Saved status styles.
 	.o-forms-input--saved {
 		display: block;
-		color: _oFormsGet('valid-base');
+		color: _oFormsGet("valid-base");
 
 		.o-forms-input__state {
 			margin-left: -$_o-forms-spacing-one;
 
 			&:after {
-				content: 'Saved';
+				content: "Saved";
 			}
 
 			&:before {
 				@include oIconsContent(
-					'tick',
-					_oFormsGet('valid-base'),
+					"tick",
+					_oFormsGet("valid-base"),
 					$_o-forms-spacing-seven
 				);
 			}

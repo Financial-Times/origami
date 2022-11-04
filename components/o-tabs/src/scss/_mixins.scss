@@ -9,30 +9,30 @@
 	// so we don't make any content inaccessible to non-JavaScript users.
 	// The o-tabs JavaScript adds the `data-o-tabs--js` attribute
 	.o-tabs[data-o-tabs--js] {
-		&[role='tablist'] {
+		&[role="tablist"] {
 			margin: 0;
 			padding: 0;
 			text-align: left;
 		}
 
-		&.o-tabs--alignright[role='tablist'] {
+		&.o-tabs--alignright[role="tablist"] {
 			text-align: right;
 		}
 
-		[role='tab'] {
+		[role="tab"] {
 			display: inline;
 			padding: 0;
 			text-decoration: none;
 			color: inherit;
 
-			&[aria-selected='true'] {
+			&[aria-selected="true"] {
 				color: inherit;
 				font-weight: bold;
 			}
 		}
 	}
 
-	.o-tabs__tabpanel[role='tabpanel'][aria-hidden='true'] {
+	.o-tabs__tabpanel[role="tabpanel"][aria-hidden="true"] {
 		display: none;
 	}
 }

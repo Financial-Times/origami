@@ -1,13 +1,13 @@
-@import '../../main';
+@import "../../main";
 
 @include oTypography();
-@import '@financial-times/o-grid/main';
+@import "@financial-times/o-grid/main";
 @include oGrid();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 
 body {
-	background-color: oColorsByUsecase('page', 'background');
+	background-color: oColorsByUsecase("page", "background");
 	overflow-y: scroll;
 }
 
@@ -29,7 +29,7 @@ body {
 
 	.type-scale__label {
 		@include oTypographySans(1);
-		color: oColorsByName('black-60');
+		color: oColorsByName("black-60");
 		display: inline-block;
 		min-width: 1ch;
 		padding: 0 1em;

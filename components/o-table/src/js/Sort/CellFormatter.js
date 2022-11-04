@@ -8,10 +8,10 @@
  * @returns {HTMLElement} the parameter
  */
 function extractAltFromImages(cell) {
-	const images = Array.from(cell.getElementsByTagName('img'));
+	const images = Array.from(cell.getElementsByTagName("img"));
 	images.forEach(image => {
-		const contents = image.getAttribute('alt');
-		image.insertAdjacentHTML('beforebegin', contents);
+		const contents = image.getAttribute("alt");
+		image.insertAdjacentHTML("beforebegin", contents);
 		image.remove();
 	});
 
@@ -33,7 +33,7 @@ function extractAltFromImages(cell) {
  * @returns {HTMLElement} text representation of the HTML node
  */
 function extractText(cell) {
-	const time = cell.querySelector('time');
+	const time = cell.querySelector("time");
 	if (time && time.dateTime) {
 		const date = new Date(time.dateTime);
 		if (!isNaN(date.getTime())) {
@@ -43,13 +43,13 @@ function extractText(cell) {
 	let text = cell.textContent.trim();
 	// No text found, check aria labels and titles.
 	// Useful for icon-only cells.
-	if (text === '') {
-		const nodes = cell.querySelectorAll('a, span, i');
+	if (text === "") {
+		const nodes = cell.querySelectorAll("a, span, i");
 		text = Array.from(nodes).reduce((accumulator, node) => {
 			const nodeText =
-				node.getAttribute('aria-label') || node.getAttribute('title');
+				node.getAttribute("aria-label") || node.getAttribute("title");
 			return nodeText ? `${accumulator} ${nodeText}` : accumulator;
-		}, '');
+		}, "");
 	}
 	return text.trim();
 }
@@ -91,7 +91,7 @@ function expandAbbreviations(text) {
  * @returns {string} Text with digit group separators (commas) removed.
  */
 function removeDigitGroupSeparators(text) {
-	return text.replace(/,/g, '');
+	return text.replace(/,/g, "");
 }
 
 /**
@@ -112,8 +112,8 @@ function removeDigitGroupSeparators(text) {
  * @returns {string} Text with digits characters only.
  */
 function extractDigitsIfFound(text) {
-	const digitsAndRange = text.replace(/([^\d.,\-\–]+)/g, '');
-	if (digitsAndRange === '') {
+	const digitsAndRange = text.replace(/([^\d.,\-\–]+)/g, "");
+	if (digitsAndRange === "") {
 		return text;
 	}
 	return digitsAndRange;
@@ -158,18 +158,18 @@ function extractNumberFromRange(text) {
  */
 function ftDateTimeToNumber(text) {
 	const monthNames = [
-		'January',
-		'February',
-		'March',
-		'April',
-		'May',
-		'June',
-		'July',
-		'August',
-		'September',
-		'October',
-		'November',
-		'December',
+		"January",
+		"February",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December",
 	];
 	// FT style for writing dates: is June 23 2016 (no commas, month date year)
 	const date = text.match(
@@ -201,7 +201,7 @@ function ftDateTimeToNumber(text) {
 	const hour = time && time[1] ? parseInt(time[1], 10) : null;
 	const minute = time && time[2] ? parseInt(time[2], 10) : null;
 	const period = time ? time[3] : null;
-	const twentyFourHour = hour && period === 'pm' ? hour + 12 : hour;
+	const twentyFourHour = hour && period === "pm" ? hour + 12 : hour;
 	// Sort number for FT formated time.
 	if (hour && !(year && monthIndex)) {
 		return parseFloat(`${twentyFourHour}.${minute}`);
@@ -235,7 +235,7 @@ function ftDateTimeToNumber(text) {
  * @returns {string} Text without source/reference asterisk.
  */
 function removeRefereneAsterisk(text) {
-	return text.replace(/\*+$/, '');
+	return text.replace(/\*+$/, "");
 }
 
 /**
@@ -251,9 +251,9 @@ function removeRefereneAsterisk(text) {
  */
 function removeEmptyCellIndicators(text) {
 	// Remove n/a
-	text = text.replace(/^n[./]a[.]?$/i, '');
+	text = text.replace(/^n[./]a[.]?$/i, "");
 	// Remove -
-	return text === '-' ? '' : text;
+	return text === "-" ? "" : text;
 }
 
 /**
@@ -274,7 +274,7 @@ function extractNodeContent(cell) {
 	steps.forEach(step => {
 		text = step(text);
 	});
-	return typeof text === 'string' ? text : '';
+	return typeof text === "string" ? text : "";
 }
 
 /**
@@ -352,20 +352,20 @@ class CellFormatter {
 	 * @access public
 	 * @returns {string | number} A representation of cell which can be used for sorting.
 	 */
-	formatCell({cell, type = 'text'}) {
-		type = type || 'text';
-		let sortValue = cell.getAttribute('data-o-table-sort-value');
+	formatCell({ cell, type = "text" }) {
+		type = type || "text";
+		let sortValue = cell.getAttribute("data-o-table-sort-value");
 		if (sortValue === null) {
 			if (this.filters[type]) {
-				const cellClone = cell.cloneNode({deep: true});
+				const cellClone = cell.cloneNode({ deep: true });
 				sortValue = cellClone;
 				this.filters[type].forEach(fn => {
 					sortValue = fn(sortValue);
 				});
 			}
-			cell.setAttribute('data-o-table-sort-value', sortValue);
+			cell.setAttribute("data-o-table-sort-value", sortValue);
 		}
-		const sortValueIsNumber = sortValue !== '' && !isNaN(sortValue);
+		const sortValueIsNumber = sortValue !== "" && !isNaN(sortValue);
 		return sortValueIsNumber ? parseFloat(sortValue) : sortValue;
 	}
 }

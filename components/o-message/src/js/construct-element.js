@@ -6,7 +6,7 @@ export default {
 	 * @returns {HTMLElement} Returns the new message element
 	 */
 	message: opts => {
-		const messageElement = document.createElement('div');
+		const messageElement = document.createElement("div");
 		if (!opts.type) {
 			throw new Error(
 				`*** o-message error:\nMessages require a type. Available types are:\n- action\n- alert\n- notice\n***`
@@ -14,18 +14,18 @@ export default {
 		}
 
 		messageElement.classList.add(
-			'o-message',
+			"o-message",
 			`o-message--${opts.type}`,
-			'o-message--closed'
+			"o-message--closed"
 		);
 		if (!opts.close) {
 			// when close is disabled add the declarative close attribute
 			// which is used to apply style
-			messageElement.setAttribute('data-o-message-close', false);
+			messageElement.setAttribute("data-o-message-close", false);
 		}
 
 		if (opts.inner) {
-			messageElement.classList.add('o-message--inner');
+			messageElement.classList.add("o-message--inner");
 		}
 
 		if (!opts.state) {
@@ -34,11 +34,11 @@ export default {
 			messageElement.classList.add(`o-message--${opts.state}`);
 		}
 
-		opts.content.detail = opts.content.detail ? opts.content.detail : '';
+		opts.content.detail = opts.content.detail ? opts.content.detail : "";
 
-		let content = '';
-		let additionalContent = '';
-		let actions = '';
+		let content = "";
+		let additionalContent = "";
+		let actions = "";
 
 		if (opts.content.highlight) {
 			content = `
@@ -55,11 +55,11 @@ export default {
 
 		const actionEl = (config, type) =>
 			`<a href="${
-				config.url ? config.url : ''
+				config.url ? config.url : ""
 			}" class="o-message__actions__${type}" ${
 				config.openInNewWindow
 					? `target="_blank" aria-label="${config.text} (opens in new window)"`
-					: ''
+					: ""
 			}>${config.text}</a>`;
 
 		if (opts.actions) {
@@ -67,13 +67,13 @@ export default {
 				<div class="o-message__actions">
 					${
 						opts.actions.primary && opts.actions.primary.text
-							? actionEl(opts.actions.primary, 'primary')
-							: ''
+							? actionEl(opts.actions.primary, "primary")
+							: ""
 					}
 					${
 						opts.actions.secondary && opts.actions.secondary.text
-							? actionEl(opts.actions.secondary, 'secondary')
-							: ''
+							? actionEl(opts.actions.secondary, "secondary")
+							: ""
 					}
 				</div>
 			`;
@@ -99,10 +99,10 @@ export default {
 	 * @returns {HTMLElement} Returns a new element to close the message
 	 */
 	closeButton: () => {
-		const closeButton = document.createElement('button');
+		const closeButton = document.createElement("button");
 		closeButton.classList.add(`o-message__close`);
-		closeButton.setAttribute('aria-label', 'close');
-		closeButton.setAttribute('title', 'Close');
+		closeButton.setAttribute("aria-label", "close");
+		closeButton.setAttribute("title", "Close");
 
 		return closeButton;
 	},

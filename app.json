@@ -1,18 +1,18 @@
 {
-  "name": "origami-website-preview",
-  "scripts": {},
-  "env": {},
-  "formation": {},
-  "addons": [],
-  "buildpacks": [
-    {
-    "url": "https://github.com/raxod502/heroku-buildpack-git-lfs"
-    },
-    {
-      "url": "heroku/ruby"
-    },
-    {
-      "url": "heroku/nodejs"
-    }
-  ]
+	"name": "origami-website-preview",
+	"scripts": {},
+	"env": {},
+	"formation": {},
+	"addons": [],
+	"buildpacks": [
+		{
+			"url": "https://github.com/raxod502/heroku-buildpack-git-lfs"
+		},
+		{
+			"url": "heroku/ruby"
+		},
+		{
+			"url": "heroku/nodejs"
+		}
+	]
 }

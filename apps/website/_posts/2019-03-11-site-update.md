@@ -15,6 +15,7 @@ Our component registry and main site were presented as separate sites, which mad
 In addition, the content of our sites has grown organically over time as new tools, approaches, and components have come and gone. This meant some outdated content was left in place, the structure of the site became less clear, and the UI was added to as needed and not always considered as a whole.
 
 With this in mind, our aims were to:
+
 - Bring the Origami website and component registry together with a unified design.
 - Update the site structure, to help all people find the information they need.
 - Overhaul our documentation, with our principles and latest best practises in mind.

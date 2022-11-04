@@ -1,26 +1,26 @@
-$o-grid-mode: 'fixed';
+$o-grid-mode: "fixed";
 
-@include describe('oGrid - fixed') {
-	@include describe('function: oGridGetMaxWidthForLayout') {
-		@include it('gets the max width for S') {
+@include describe("oGrid - fixed") {
+	@include describe("function: oGridGetMaxWidthForLayout") {
+		@include it("gets the max width for S") {
 			@include assert-equal(oGridGetMaxWidthForLayout(S), (490px));
 		}
 
-		@include it('gets the max width for M') {
+		@include it("gets the max width for M") {
 			@include assert-equal(oGridGetMaxWidthForLayout(M), (740px));
 		}
 
-		@include it('gets the max width for L') {
+		@include it("gets the max width for L") {
 			@include assert-equal(oGridGetMaxWidthForLayout(L), (980px));
 		}
 
-		@include it('gets the max width for XL') {
+		@include it("gets the max width for XL") {
 			@include assert-equal(oGridGetMaxWidthForLayout(XL), (1220px));
 		}
 	}
 
-	@include describe('mixin: oGridColspan') {
-		@include test('sass mixin complies base column styles') {
+	@include describe("mixin: oGridColspan") {
+		@include test("sass mixin complies base column styles") {
 			@include assert() {
 				@include output($selector: false) {
 					.test-colspan {
@@ -41,8 +41,8 @@ $o-grid-mode: 'fixed';
 		}
 	}
 
-	@include describe('mixin: oGridContainer') {
-		@include test('sass mixin compiles correctly for regular container') {
+	@include describe("mixin: oGridContainer") {
+		@include test("sass mixin compiles correctly for regular container") {
 			@include assert() {
 				@include output($selector: false) {
 					.test-container {
@@ -66,7 +66,7 @@ $o-grid-mode: 'fixed';
 			}
 		}
 
-		@include test('sass mixin compiles correctly for bleed container') {
+		@include test("sass mixin compiles correctly for bleed container") {
 			@include assert() {
 				@include output($selector: false) {
 					.test-container {
@@ -91,8 +91,8 @@ $o-grid-mode: 'fixed';
 		}
 	}
 
-	@include describe('mixin: oGridRow') {
-		@include test('sass mixin complies correctly') {
+	@include describe("mixin: oGridRow") {
+		@include test("sass mixin complies correctly") {
 			@include assert() {
 				@include output($selector: false) {
 					.test-row {
@@ -117,7 +117,7 @@ $o-grid-mode: 'fixed';
 
 					.test-row:before,
 					.test-row:after {
-						content: '';
+						content: "";
 						display: table;
 						display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
 					}

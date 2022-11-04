@@ -2,7 +2,7 @@
 /// @access private
 @function _oEditorialLayoutGet($variables, $from: null) {
 	@return oBrandGet(
-		$component: 'o-editorial-layout',
+		$component: "o-editorial-layout",
 		$variables: $variables,
 		$from: $from
 	);
@@ -12,7 +12,7 @@
 /// @access private
 @function _oEditorialLayoutSupports($variant) {
 	@return oBrandSupportsVariant(
-		$component: 'o-editorial-layout',
+		$component: "o-editorial-layout",
 		$variant: $variant
 	);
 }

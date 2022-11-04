@@ -1,27 +1,27 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
-import fixtures from './helpers/fixtures.js';
-import fetchMock from 'fetch-mock';
-import Count from '../src/js/count.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
+import fixtures from "./helpers/fixtures.js";
+import fetchMock from "fetch-mock";
+import Count from "../src/js/count.js";
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,
-	prefix: '',
+	prefix: "",
 });
 
-describe('Count', () => {
-	it('is defined', () => {
+describe("Count", () => {
+	it("is defined", () => {
 		proclaim.isFunction(Count);
 		proclaim.throws(Count, TypeError);
 	});
 
-	describe('.renderCount()', () => {
-		describe('when element exists', () => {
-			describe('when initialized without staging option', () => {
+	describe(".renderCount()", () => {
+		describe("when element exists", () => {
+			describe("when initialized without staging option", () => {
 				beforeEach(() => {
-					sinon.stub(Count, 'fetchCount').withArgs('id').resolves(10);
+					sinon.stub(Count, "fetchCount").withArgs("id").resolves(10);
 					fixtures.countMarkup();
 				});
 
@@ -30,12 +30,12 @@ describe('Count', () => {
 					Count.fetchCount.restore();
 				});
 
-				it('renders the count within the element', () => {
+				it("renders the count within the element", () => {
 					const mockCountEl = document.querySelector(
 						'[data-o-comments-article-id="id"]'
 					);
 					const count = new Count(mockCountEl, {
-						articleId: 'id',
+						articleId: "id",
 					});
 
 					return count
@@ -44,9 +44,9 @@ describe('Count', () => {
 				});
 			});
 
-			describe('when the comment count is 1', () => {
+			describe("when the comment count is 1", () => {
 				beforeEach(() => {
-					sinon.stub(Count, 'fetchCount').withArgs('id').resolves(1);
+					sinon.stub(Count, "fetchCount").withArgs("id").resolves(1);
 					fixtures.countMarkup();
 				});
 
@@ -60,22 +60,22 @@ describe('Count', () => {
 						'[data-o-comments-article-id="id"]'
 					);
 					const count = new Count(mockCountEl, {
-						articleId: 'id',
+						articleId: "id",
 					});
 
 					return count.renderCount().then(() => {
-						const countLabel = count.countEl.getAttribute('aria-label');
+						const countLabel = count.countEl.getAttribute("aria-label");
 						proclaim.equal(
 							countLabel,
-							'There is 1 comment, click to go to the comment section.'
+							"There is 1 comment, click to go to the comment section."
 						);
 					});
 				});
 			});
 
-			describe('when the comment count is greater than 1', () => {
+			describe("when the comment count is greater than 1", () => {
 				beforeEach(() => {
-					sinon.stub(Count, 'fetchCount').withArgs('id').resolves(10);
+					sinon.stub(Count, "fetchCount").withArgs("id").resolves(10);
 					fixtures.countMarkup();
 				});
 
@@ -84,27 +84,27 @@ describe('Count', () => {
 					Count.fetchCount.restore();
 				});
 
-				it('pluralises the text in the aria-label', () => {
+				it("pluralises the text in the aria-label", () => {
 					const mockCountEl = document.querySelector(
 						'[data-o-comments-article-id="id"]'
 					);
 					const count = new Count(mockCountEl, {
-						articleId: 'id',
+						articleId: "id",
 					});
 
 					return count.renderCount().then(() => {
-						const countLabel = count.countEl.getAttribute('aria-label');
+						const countLabel = count.countEl.getAttribute("aria-label");
 						proclaim.equal(
 							countLabel,
-							'There are 10 comments, click to go to the comment section.'
+							"There are 10 comments, click to go to the comment section."
 						);
 					});
 				});
 			});
 
-			describe('when initialized with staging option', () => {
+			describe("when initialized with staging option", () => {
 				beforeEach(() => {
-					sinon.stub(Count, 'fetchCount').withArgs('id', true).resolves(20);
+					sinon.stub(Count, "fetchCount").withArgs("id", true).resolves(20);
 					fixtures.countMarkup();
 				});
 
@@ -113,12 +113,12 @@ describe('Count', () => {
 					Count.fetchCount.restore();
 				});
 
-				it('renders the count within the element', () => {
+				it("renders the count within the element", () => {
 					const mockCountEl = document.querySelector(
 						'[data-o-comments-article-id="id"]'
 					);
 					const count = new Count(mockCountEl, {
-						articleId: 'id',
+						articleId: "id",
 						useStagingEnvironment: true,
 					});
 
@@ -129,26 +129,26 @@ describe('Count', () => {
 			});
 		});
 
-		describe('when element does not exist', () => {
+		describe("when element does not exist", () => {
 			let mockCountEl;
 
-			it('will throw an error', () => {
+			it("will throw an error", () => {
 				const count = new Count(mockCountEl, {
-					articleId: 'id',
+					articleId: "id",
 				});
 
 				proclaim.throws(() => count.renderCount());
 			});
 		});
 
-		describe('when element does not exist in the DOM', () => {
-			it('will throw an error', () => {
-				const element = document.createElement('div');
+		describe("when element does not exist in the DOM", () => {
+			it("will throw an error", () => {
+				const element = document.createElement("div");
 				const mockCountEl = element.querySelector(
 					'[data-o-comments-article-id="id"]'
 				);
 				const count = new Count(mockCountEl, {
-					articleId: 'id',
+					articleId: "id",
 				});
 
 				proclaim.throws(() => count.renderCount());
@@ -156,62 +156,62 @@ describe('Count', () => {
 		});
 	});
 
-	describe('.fetchCount()', () => {
+	describe(".fetchCount()", () => {
 		afterEach(() => {
 			fetchMock.reset();
 		});
 
-		describe('when the API returns a valid JSON', () => {
+		describe("when the API returns a valid JSON", () => {
 			beforeEach(() => {
-				fetchMock.mock('https://comments-api.ft.com/story/count/article-id', {
+				fetchMock.mock("https://comments-api.ft.com/story/count/article-id", {
 					commentCount: 10,
 				});
 			});
 
-			it('returns the comment count', () => {
-				return Count.fetchCount('article-id').then(count =>
+			it("returns the comment count", () => {
+				return Count.fetchCount("article-id").then(count =>
 					proclaim.equal(count, 10)
 				);
 			});
 		});
 
-		describe('when the API responds with an error', () => {
+		describe("when the API responds with an error", () => {
 			beforeEach(() => {
 				fetchMock.mock(
-					'https://comments-api.ft.com/story/count/article-id',
+					"https://comments-api.ft.com/story/count/article-id",
 					500
 				);
 			});
 
-			it('will throw an error', () => {
-				return Count.fetchCount('article-id')
+			it("will throw an error", () => {
+				return Count.fetchCount("article-id")
 					.then(() => {
 						throw new Error(
-							'This should never happen, its just here to make sure the .then is never entered'
+							"This should never happen, its just here to make sure the .then is never entered"
 						);
 					})
 					.catch(error => {
 						proclaim.include(
 							error.message,
-							'Error with fetching comment count:'
+							"Error with fetching comment count:"
 						);
 					});
 			});
 		});
 
-		describe('when called for the staging environment', () => {
+		describe("when called for the staging environment", () => {
 			beforeEach(() => {
 				fetchMock.mock(
-					'https://comments-api.ft.com/story/count/article-id?staging=1',
+					"https://comments-api.ft.com/story/count/article-id?staging=1",
 					{
 						commentCount: 20,
 					}
 				);
 			});
 
-			it('returns the comment count from staging', () => {
+			it("returns the comment count from staging", () => {
 				const useStaging = true;
-				return Count.fetchCount('article-id', useStaging).then(count =>
+				return Count.fetchCount("article-id", useStaging).then(count =>
 					proclaim.equal(count, 20)
 				);
 			});

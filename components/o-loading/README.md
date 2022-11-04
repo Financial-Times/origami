@@ -26,7 +26,7 @@ In order to display a loading indicator in your product, you will need to supply
 In order to output all of the variations in theme and size of `o-loading`, you'll need to include the following:
 
 ```scss
-@import '@financial-times/o-loading/main';
+@import "@financial-times/o-loading/main";
 
 @include oLoading();
 ```
@@ -47,16 +47,16 @@ And 'sizes':
 - large
 
 ```scss
-@import '@financial-times/o-loading/main';
+@import "@financial-times/o-loading/main";
 
 @include oLoading(
 	$opts: (
-		'themes': (
-			'light',
+		"themes": (
+			"light",
 		),
-		'sizes': (
-			'medium',
-			'large',
+		"sizes": (
+			"medium",
+			"large",
 		),
 	)
 );
@@ -67,13 +67,13 @@ And 'sizes':
 If you need to build a loading spinner into a component, for example, you can use the following mixin:
 
 ```scss
-@import '@financial-times/o-loading/main';
+@import "@financial-times/o-loading/main";
 
 .my-loading-spinner {
 	@include oLoadingContent(
 		$opts: (
-			'theme': 'light',
-			'size': 'small',
+			"theme": "light",
+			"size": "small",
 		)
 	);
 }

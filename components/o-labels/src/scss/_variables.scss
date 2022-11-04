@@ -13,7 +13,7 @@ $o-labels-is-silent: true !default;
 ///
 /// @type List
 /// @access private
-$_o-labels-standard-sizes: ('big', 'small');
+$_o-labels-standard-sizes: ("big", "small");
 
 /// Standard label states
 /// A list used to loop over all standard label states.
@@ -24,25 +24,25 @@ $_o-labels-standard-sizes: ('big', 'small');
 /// @type List
 /// @access private
 $_o-labels-standard-states: (
-	'content-commercial',
-	'content-premium',
-	'lifecycle-beta',
-	'support-active',
-	'support-dead',
-	'support-deprecated',
-	'support-experimental',
-	'support-maintained',
-	'tier-bronze',
-	'tier-gold',
-	'tier-platinum',
-	'tier-silver',
-	'oxford',
-	'teal',
-	'lemon',
-	'slate',
-	'jade',
-	'crimson',
-	'mandarin'
+	"content-commercial",
+	"content-premium",
+	"lifecycle-beta",
+	"support-active",
+	"support-dead",
+	"support-deprecated",
+	"support-experimental",
+	"support-maintained",
+	"tier-bronze",
+	"tier-gold",
+	"tier-platinum",
+	"tier-silver",
+	"oxford",
+	"teal",
+	"lemon",
+	"slate",
+	"jade",
+	"crimson",
+	"mandarin"
 );
 
 /// Indicator label states
@@ -50,7 +50,7 @@ $_o-labels-standard-states: (
 ///
 /// @type List
 /// @access private
-$_o-labels-indicator-status: ('live', 'closed', 'new', 'updated');
+$_o-labels-indicator-status: ("live", "closed", "new", "updated");
 
 /// Whether or not the animation keyframes for the live indicator
 /// label has already been output.

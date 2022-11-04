@@ -1,14 +1,14 @@
-import {NavMobile, NavDesktop} from './nav';
-import {Search} from './search';
-import {THeaderProps} from './Props';
-import {UserActionsNav} from './user';
-import {SubNavigation} from './subnavigation';
+import { NavMobile, NavDesktop } from "./nav";
+import { Search } from "./search";
+import { THeaderProps } from "./Props";
+import { UserActionsNav } from "./user";
+import { SubNavigation } from "./subnavigation";
 import {
 	TopWrapper,
 	TopColumnCenter,
 	TopColumnLeft,
 	TopColumnRight,
-} from './top';
+} from "./top";
 export function Header({
 	showLogoLink,
 	showMegaNav,
@@ -22,13 +22,13 @@ export function Header({
 	const includeUserActionsNav = showUserNavigation && !userIsLoggedIn;
 	const includeSubNavigation =
 		showSubNavigation && (data.breadcrumb || data.subsections);
-	const userNavItems = includeUserActionsNav && data['navbar-right-anon'].items;
+	const userNavItems = includeUserActionsNav && data["navbar-right-anon"].items;
 	const breadcrumb = data.breadcrumb;
 	const subsections = data.subsections;
-	const rightSubSection = data['subsections-right'];
-	const mobileNavItems = data['navbar-simple'].items;
+	const rightSubSection = data["subsections-right"];
+	const mobileNavItems = data["navbar-simple"].items;
 	const desktopNavItems = data.navbar.items;
-	const rightNavItems = data['navbar-right'].items;
+	const rightNavItems = data["navbar-right"].items;
 	return (
 		<>
 			{includeUserActionsNav && <UserActionsNav userNavItems={userNavItems} />}

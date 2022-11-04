@@ -4,15 +4,15 @@ This header is for tools and services built by the Financial Times.
 
 - [Usage](#usage)
 - [Markup](#markup)
-	- [Title Section](#title-section)
-	- [Primary navigation](#primary-navigation)
-	- [Core experience of the drawer](#core-experience-of-the-drawer)
-	- [Primary navigation with drop down](#primary-navigation-with-drop-down)
-	- [Secondary navigation](#secondary-navigation)
-	- [Themes](#themes)
-	- [Bleed header](#bleed-header)
+  - [Title Section](#title-section)
+  - [Primary navigation](#primary-navigation)
+  - [Core experience of the drawer](#core-experience-of-the-drawer)
+  - [Primary navigation with drop down](#primary-navigation-with-drop-down)
+  - [Secondary navigation](#secondary-navigation)
+  - [Themes](#themes)
+  - [Bleed header](#bleed-header)
 - [Sass](#sass)
-	- [Customisation](#customisation)
+  - [Customisation](#customisation)
 - [JavaScript](#javascript)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
@@ -27,7 +27,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 An `o-header-services` header is divided into three main parts: title section **(required)**, primary navigation **(optional)**, and secondary navigation **(optional)**. Each section is placed within a `header` element:
 
 ```html
-<header class='o-header-services' data-o-component='o-header-services'>
+<header class="o-header-services" data-o-component="o-header-services">
 	<!-- Markup specific to the needs of your product. Options detailed below. -->
 </header>
 ```
@@ -70,7 +70,7 @@ For an example and markup, see the [primary navigation with drop downs in the Or
 The secondary navigation is also an **optional** addition to the header, but it makes more sense alongside the primary navigation, as it serves more complicated products.
 
 It includes two sections of navigation: 'ancestors' and 'children'.
-The 'ancestor' section  works in the form of a breadcrumb, and the children are relative to the ancestor.
+The 'ancestor' section works in the form of a breadcrumb, and the children are relative to the ancestor.
 
 At smaller viewports, it does _not_ collapse into the drawer, but becomes scrollable instead.
 
@@ -92,7 +92,9 @@ To add a theme to the header, add the appropriate class to the header element. F
 For an example and markup, see the [B2B and B2C headers in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-product-theme-b2c).
 
 ### Bleed Header
+
 If your application requires a bleed header, you'll need to add the `o-header-services--bleed` variant to your header.
+
 ```diff
 +<header class='o-header-services o-header-services--bleed' data-o-component='o-header'>
 -<header class='o-header-services' data-o-component='o-header'>
@@ -103,15 +105,17 @@ If your application requires a bleed header, you'll need to add the `o-header-se
 ## Sass
 
 In order to output every type of `o-header-services` style, you'll need to include the following:
-```scss
-	@import '@financial-times/o-header-services/main';
 
-	@include oHeaderServices();
+```scss
+@import "@financial-times/o-header-services/main";
+
+@include oHeaderServices();
 ```
 
 You can be more selective about which types you would like to output, by using an `$opts` map. It accepts the following options:
 
 **types**
+
 - `'primary-nav'`
 - `'secondary-nav'`
 - `'bleed'`
@@ -119,13 +123,15 @@ You can be more selective about which types you would like to output, by using a
 - `'b2c'`
 
 **logo**
+
 - The logo image to show in the header. The image must come from an Origami [image set](https://registry.origami.ft.com/components?imageset=true&active=true&maintained=true). Specify the image set and image name as a string `[imageset]:[image]` e.g `ftlogo-v1:origami`. Defaults to the FT logo.
 
 **drawer-breakpoint**
+
 - The breakpoint to move the primary navigation into a drawer. We recommend a `rem` value or a layout size from [o-grid](https://github.com/Financial-Times/o-grid/#layout-sizes) e.g. 'M'. Defaults to the medium grid size 'M'.
 
-
 To use a logo that is **not** the FT logo, the logo can be modified in one of two ways:
+
 - By using a logo name from the logo image set (e.g. 'origami')
 - By passing in a full url or data url that points at the SVG you want to use as a logo (e.g. `'https://www.example.com/logo.svg'`). Bear in mind that you can also run your chosen SVG through the [Image Service's URL Builder](https://www.ft.com/__origami/service/image/v2/docs/url-builder), which will optimise the image and provide a URL for it.
 
@@ -141,22 +147,30 @@ In this example we include only the styles for a [primary navigation](#primary-n
 
 	// Will output styles for a bleed header with a primary navigation and the Origami logo
 ```
+
 ### Customisation
 
 `o-header-services` provides the option to customise the `whitelabel` brand. If you are using this brand, you can modify brand-specific variables by overriding them in a map in `oHeaderServicesCustomize`.
 
 ```scss
 $o-brand: whitelabel;
-@import '@financial-times/o-header-services/main';
+@import "@financial-times/o-header-services/main";
 
-@include oHeaderServicesCustomize((
-	'nav-hover-background': hotpink // will apply to background colors on hover, where appropriate
-))
-
-@include oHeaderServices($opts: (
-	'types': ('primary-nav'),
-	'features': ('drop-down')
-));
+@include oHeaderServicesCustomize(
+		(
+			"nav-hover-background": hotpink
+				// will apply to background colors on hover, where appropriate,
+		)
+	) @include oHeaderServices(
+		$opts: (
+			"types": (
+				"primary-nav",
+			),
+			"features": (
+				"drop-down",
+			),
+		)
+	);
 ```
 
 We recommend customising the following brand variables:
@@ -190,20 +204,20 @@ You'll need to set up your header declaratively, as the JavaScript for `o-header
 The JavaScript is responsible for generating the drawer and enabling scrolling on the secondary navigation. You can implement that with the following:
 
 ```js
-import oHeaderServices from '@financial-times/o-header-services';
+import oHeaderServices from "@financial-times/o-header-services";
 
 oHeaderServices.init();
 ```
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-⚠ maintained | 4 | 4.0 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.3 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.2 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ⚠ maintained |       4       |        4.0         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.3         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.3         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.2         |                          N/A                          |
 
 ## Contact
 

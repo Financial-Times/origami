@@ -17,7 +17,7 @@
 	position: relative;
 	width: 100%;
 	text-rendering: optimizeLegibility;
-	margin-bottom: oSpacingByName('s4');
+	margin-bottom: oSpacingByName("s4");
 
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -40,14 +40,14 @@
 /// Meta area and colouring styles
 @mixin _oTeaserMeta {
 	@include oTypographySans(0, $include-font-family: false);
-	color: oColorsByUsecase('o-teaser/tag', 'text');
-	margin-bottom: oSpacingByName('s1');
+	color: oColorsByUsecase("o-teaser/tag", "text");
+	margin-bottom: oSpacingByName("s1");
 }
 
 /// Tag styling.
 /// Element should be a link, otherwise use _oTeaserMeta
 @mixin _oTeaserTag {
-	@include oTypographySans($weight: 'regular', $include-font-family: false);
+	@include oTypographySans($weight: "regular", $include-font-family: false);
 	color: inherit;
 	text-decoration: none;
 	border: 0;
@@ -64,13 +64,13 @@
 }
 
 @mixin _oTeaserTagPrefix {
-	@include oTypographySans($weight: 'semibold');
+	@include oTypographySans($weight: "semibold");
 	margin-right: 0.25em;
 }
 
 @mixin _oTeaserTagSuffix {
 	@include oTypographySans(-1, $include-font-family: false);
-	color: oColorsByName('black-60');
+	color: oColorsByName("black-60");
 }
 
 /// Styles for standfirst element
@@ -82,7 +82,7 @@
 	margin-bottom: 0;
 
 	.o-teaser__heading + & {
-		margin-top: oSpacingByName('s2');
+		margin-top: oSpacingByName("s2");
 	}
 }
 

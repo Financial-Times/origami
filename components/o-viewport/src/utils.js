@@ -1,4 +1,4 @@
-import * as Utils from '@financial-times/o-utils';
+import * as Utils from "@financial-times/o-utils";
 
 let debug;
 
@@ -13,11 +13,11 @@ function broadcast(eventType, data, target) {
 
 	if (debug) {
 		// eslint-disable-next-line no-console
-		console.log('o-viewport', eventType, data);
+		console.log("o-viewport", eventType, data);
 	}
 
 	target.dispatchEvent(
-		new CustomEvent('oViewport.' + eventType, {
+		new CustomEvent("oViewport." + eventType, {
 			detail: data,
 			bubbles: true,
 		})
@@ -97,15 +97,15 @@ function getScrollPosition() {
 function getOrientation() {
 	const orientation = window.screen.orientation;
 	if (orientation) {
-		return typeof orientation === 'string'
-			? orientation.split('-')[0]
-			: orientation.type.split('-')[0];
+		return typeof orientation === "string"
+			? orientation.split("-")[0]
+			: orientation.type.split("-")[0];
 	} else if (window.matchMedia) {
-		return window.matchMedia('(orientation: portrait)').matches
-			? 'portrait'
-			: 'landscape';
+		return window.matchMedia("(orientation: portrait)").matches
+			? "portrait"
+			: "landscape";
 	} else {
-		return getHeight() >= getWidth() ? 'portrait' : 'landscape';
+		return getHeight() >= getWidth() ? "portrait" : "landscape";
 	}
 }
 

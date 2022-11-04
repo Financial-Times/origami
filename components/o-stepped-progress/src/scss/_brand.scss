@@ -2,7 +2,7 @@
 /// @access private
 @function _oSteppedProgressGet($variables, $from: null) {
 	@return oBrandGet(
-		$component: 'o-stepped-progress',
+		$component: "o-stepped-progress",
 		$variables: $variables,
 		$from: $from
 	);
@@ -12,7 +12,7 @@
 /// @access private
 @function _oSteppedProgressSupports($variant) {
 	@return oBrandSupportsVariant(
-		$component: 'o-stepped-progress',
+		$component: "o-stepped-progress",
 		$variant: $variant
 	);
 }
@@ -24,44 +24,44 @@ $_o-stepped-progress-shared-brand-config: (
 	step-border-size: 2px,
 	label-max-width: 10em,
 	bar-weight: 2px,
-	container-background: oColorsByUsecase('page', 'background'),
-	default-color: oColorsByName('black-40'),
-	error-color: oColorsMix('crimson', $percentage: 90),
+	container-background: oColorsByUsecase("page", "background"),
+	default-color: oColorsByName("black-40"),
+	error-color: oColorsMix("crimson", $percentage: 90),
 );
 
 // Define shared core/internal brand configurations
-@if oBrandIs('core') or oBrandIs('internal') {
+@if oBrandIs("core") or oBrandIs("internal") {
 	$_o-stepped-progress-shared-brand-config: map-merge(
 		$_o-stepped-progress-shared-brand-config,
 		(
-			interacted-color: oColorsByName('slate'),
+			interacted-color: oColorsByName("slate"),
 		)
 	);
 }
 
 // Define core brand
-@if oBrandIs('core') {
+@if oBrandIs("core") {
 	@include oBrandDefine(
-		'o-stepped-progress',
-		'core',
+		"o-stepped-progress",
+		"core",
 		(
-			'variables': map-merge($_o-stepped-progress-shared-brand-config, ()),
-			'supports-variants': (),
+			"variables": map-merge($_o-stepped-progress-shared-brand-config, ()),
+			"supports-variants": (),
 		)
 	);
 }
 
 // Define internal brand
-@if oBrandIs('internal') {
+@if oBrandIs("internal") {
 	@include oBrandDefine(
-		'o-stepped-progress',
-		'internal',
+		"o-stepped-progress",
+		"internal",
 		(
-			'variables':
+			"variables":
 				map-merge(
 					$_o-stepped-progress-shared-brand-config,
 					(
-						'heavy': (
+						"heavy": (
 							font-scale: 0,
 							step-size: 26px,
 							step-border-size: 5px,
@@ -69,27 +69,27 @@ $_o-stepped-progress-shared-brand-config: (
 						),
 					)
 				),
-			'supports-variants': (
-				'heavy',
+			"supports-variants": (
+				"heavy",
 			),
 		)
 	);
 }
 
 // Define whitelabel brand
-@if oBrandIs('whitelabel') {
+@if oBrandIs("whitelabel") {
 	@include oBrandDefine(
-		'o-stepped-progress',
-		'whitelabel',
+		"o-stepped-progress",
+		"whitelabel",
 		(
-			'variables':
+			"variables":
 				map-merge(
 					$_o-stepped-progress-shared-brand-config,
 					(
-						interacted-color: oColorsByName('black'),
+						interacted-color: oColorsByName("black"),
 					)
 				),
-			'supports-variants': (),
+			"supports-variants": (),
 		)
 	);
 }

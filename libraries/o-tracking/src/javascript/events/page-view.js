@@ -1,8 +1,8 @@
-import core from '../core.js';
-import {merge, triggerPage, addEvent, isDeepEqual} from '../utils.js';
-import {set as setSetting, get as getSetting} from '../core/settings.js';
+import core from "../core.js";
+import { merge, triggerPage, addEvent, isDeepEqual } from "../utils.js";
+import { set as setSetting, get as getSetting } from "../core/settings.js";
 
-setSetting('page_has_already_been_viewed', false);
+setSetting("page_has_already_been_viewed", false);
 
 /**
  * Default properties for page tracking requests.
@@ -11,8 +11,8 @@ setSetting('page_has_already_been_viewed', false);
  */
 const defaultPageConfig = function () {
 	return {
-		category: 'page',
-		action: 'view',
+		category: "page",
+		action: "view",
 		context: {
 			url: document.URL,
 			referrer: document.referrer,
@@ -39,19 +39,19 @@ function page(config, callback) {
 	// If o-tracking events were fired before this `page` function was ever called, then the first
 	// of those events would have created a `root_id` and we want the first page view event to reuse
 	// that `root_id` so those earlier events can be related to the page view they were from.
-	if (getSetting('page_has_already_been_viewed')) {
+	if (getSetting("page_has_already_been_viewed")) {
 		core.setRootID();
 	}
-	setSetting('page_has_already_been_viewed', true);
+	setSetting("page_has_already_been_viewed", true);
 
 	// Some applications which use o-tracking have a bug where they send thousands of page-view events
 	// Instead of forwarding these errorneous events to Spoor, we ignore them.
 	// GitHub Issue: https://github.com/Financial-Times/o-tracking/issues/296
 	if (pageViewEventHasAlreadyBeenSentBefore(config)) {
-		if (getSetting('config').test) {
+		if (getSetting("config").test) {
 			// eslint-disable-next-line no-console
 			console.warn(
-				'A page event has already been sent for this page, refusing to send a duplicate page event.'
+				"A page event has already been sent for this page, refusing to send a duplicate page event."
 			);
 		}
 	} else {
@@ -97,8 +97,8 @@ function listener(e) {
 }
 
 const init = function init() {
-	addEvent(window, 'oTracking.page', listener);
+	addEvent(window, "oTracking.page", listener);
 };
 page.init = init;
 
-export {page};
+export { page };

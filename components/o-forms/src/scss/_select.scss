@@ -4,20 +4,21 @@
 /// @param {Boolean} $suffix Whether to output suffix styles
 /// @output Styling for text areas
 @mixin _oFormsSelect($disabled: null, $small: null, $suffix: null) {
+	// stylelint-disable selector-no-qualifying-type
 	.o-forms-input--select {
 		@if $small {
-			@include _oFormsInputSmall('select');
+			@include _oFormsInputSmall("select");
 		}
 
 		@if $suffix {
-			@include _oFormsInputSuffix('select');
+			@include _oFormsInputSuffix("select");
 		}
 
 		select {
 			@include _oFormsInputBase($disabled);
 			@include oIconsContent(
-				'arrow-down',
-				_oFormsGet('field-standard-text'),
+				"arrow-down",
+				_oFormsGet("field-standard-text"),
 				$size: null,
 				$include-base-styles: false
 			);
@@ -27,7 +28,7 @@
 				$_o-forms-checkbox-radio-width;
 			border-radius: 0;
 			background-clip: padding-box;
-			color: _oFormsGet('default-text');
+			color: _oFormsGet("default-text");
 			cursor: pointer;
 			outline: none;
 
@@ -38,23 +39,23 @@
 
 			// Hide stock browser arrow in IE 10+
 			&::-ms-expand {
-				color: oColorsByName('white');
+				color: oColorsByName("white");
 				display: none;
 			}
 
 			&:disabled {
 				@include oIconsContent(
-					'arrow-down',
-					_oFormsGet('disabled-text'),
+					"arrow-down",
+					_oFormsGet("disabled-text"),
 					$size: null,
 					$include-base-styles: false
 				);
 			}
 
 			&[multiple] {
-				//stylelint-disable-line selector-no-qualifying-type
 				background-image: none;
 			}
 		}
 	}
+	// stylelint-enable selector-no-qualifying-type
 }

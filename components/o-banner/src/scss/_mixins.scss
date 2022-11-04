@@ -3,15 +3,15 @@
 		@error "There is no theme '#{$theme}' available in o-banner, please use one of the following: #{$_o-banner-themes}.";
 	}
 
-	@if $theme == 'marketing' {
+	@if $theme == "marketing" {
 		.o-banner--marketing {
-			@include _oBannerTheme('marketing', $include-layout-styles);
+			@include _oBannerTheme("marketing", $include-layout-styles);
 		}
 	}
 
-	@if $theme == 'product' {
+	@if $theme == "product" {
 		.o-banner--product {
-			@include _oBannerTheme('product', $include-layout-styles);
+			@include _oBannerTheme("product", $include-layout-styles);
 		}
 	}
 }
@@ -21,13 +21,13 @@
 		@error "There is no layout '#{$layout}' available in o-banner, please use one of the following: #{$_o-banner-layouts}.";
 	}
 
-	@if $layout == 'small' {
+	@if $layout == "small" {
 		.o-banner--small {
 			@include _oBannerSmall();
 		}
 	}
 
-	@if $layout == 'compact' {
+	@if $layout == "compact" {
 		.o-banner--compact {
 			@include _oBannerCompact();
 		}
@@ -47,9 +47,9 @@
 }
 
 @mixin _oBannerOuter {
-	@include oVisualEffectsShadowContent('high');
-	background: _oBannerGet('background-color');
-	color: _oBannerGet('text-color');
+	@include oVisualEffectsShadowContent("high");
+	background: _oBannerGet("background-color");
+	color: _oBannerGet("text-color");
 }
 
 @mixin _oBannerInner {
@@ -87,9 +87,9 @@
 	h4,
 	h5,
 	h6 {
-		@include oTypographySans($scale: 3, $weight: 'semibold');
+		@include oTypographySans($scale: 3, $weight: "semibold");
 		margin-top: 0;
-		margin-bottom: oSpacingByName('s1');
+		margin-bottom: oSpacingByName("s1");
 	}
 	p {
 		margin-top: 0;
@@ -97,11 +97,11 @@
 	}
 	b,
 	strong {
-		@include oTypographySans($weight: 'semibold', $include-font-family: false);
+		@include oTypographySans($weight: "semibold", $include-font-family: false);
 	}
 	> ul {
-		@include oTypographyList('unordered');
-		margin-top: oSpacingByName('s3');
+		@include oTypographyList("unordered");
+		margin-top: oSpacingByName("s3");
 		margin-bottom: 0;
 
 		li {
@@ -142,15 +142,15 @@
 		margin-bottom: 0;
 	}
 	&:after {
-		content: '';
+		content: "";
 		display: block;
 		width: 100px;
-		margin-top: oSpacingByName('s2');
-		margin-bottom: oSpacingByName('s4');
+		margin-top: oSpacingByName("s2");
+		margin-bottom: oSpacingByName("s4");
 
 		// Color is set separately for easier overriding later
 		border-bottom: oSpacingByIncrement(2) solid;
-		border-color: _oBannerGet('heading-rule-color');
+		border-color: _oBannerGet("heading-rule-color");
 	}
 }
 
@@ -162,7 +162,7 @@
 	@include oGridRespondTo($until: S) {
 		flex-direction: column;
 		align-items: flex-start;
-		margin-top: oSpacingByName('s6');
+		margin-top: oSpacingByName("s6");
 	}
 }
 
@@ -183,11 +183,11 @@
 @mixin _oBannerButton {
 	@include oButtonsContent(
 		(
-			'size': 'big',
-			'type': 'primary',
-			'theme': (
-				'color': _oBannerGet('button-background-color'),
-				'context': _oBannerGet('background-color'),
+			"size": "big",
+			"type": "primary",
+			"theme": (
+				"color": _oBannerGet("button-background-color"),
+				"context": _oBannerGet("background-color"),
 			),
 		)
 	);
@@ -202,8 +202,8 @@
 
 @mixin _oBannerCloseButton {
 	@include oIconsContent(
-		'cross',
-		_oBannerGet('text-color'),
+		"cross",
+		_oBannerGet("text-color"),
 		$size: $_o-banner-close-button-size
 	);
 	// start: undo button styles

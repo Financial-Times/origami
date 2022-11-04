@@ -1,10 +1,10 @@
-import Link from './link';
-import { Standfirst } from './props';
+import Link from "./link";
+import { Standfirst } from "./props";
 
 interface StandfirstProps extends Standfirst {
-	headlineTesting?: boolean,
-	relativeUrl?: string,
-	url?: string,
+	headlineTesting?: boolean;
+	relativeUrl?: string;
+	url?: string;
 }
 
 export default ({
@@ -24,10 +24,11 @@ export default ({
 				{...props}
 				url={displayUrl}
 				attrs={{
-					'data-trackable': 'standfirst-link',
+					"data-trackable": "standfirst-link",
 					tabIndex: -1,
-					className: 'js-teaser-standfirst-link',
-				}}>
+					className: "js-teaser-standfirst-link",
+				}}
+			>
 				{displayStandfirst}
 			</Link>
 		</p>

@@ -6,7 +6,8 @@
 // Some temporary styles just to make this look less awful while
 // we work on it. Remove these as soon as styling work begins
 
-html, body {
+html,
+body {
 	margin: 0;
 	height: 100%;
 }
@@ -24,10 +25,13 @@ aside.no-padding {
 	padding-left: 0;
 	grid-row: span 7;
 
-	p { padding-left: 1em }
-	pre { margin: 0 }
+	p {
+		padding-left: 1em;
+	}
+	pre {
+		margin: 0;
+	}
 }
-
 
 iframe {
 	border: none;
@@ -45,7 +49,7 @@ table.o-manifest__table {
 }
 
 .o-layout__hero:before {
-	background-image: url('./images/home-page-hero.jpg');
+	background-image: url("./images/home-page-hero.jpg");
 }
 
 svg {
@@ -73,7 +77,6 @@ svg {
 		pointer-events: none;
 	}
 }
-
 
 .o-header-services__logo {
 	background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:origami?format=svg&source=origami&width=55);

@@ -79,8 +79,8 @@ All other mixins have been removed. Instead make a single `oTopper`, with releva
 - `oTopperColors`
 - `oTopperColor`
 
-
 E.g to include all styles:
+
 ```diff
 -$o-topper-is-silent: false;
 -@import 'o-topper/main';
@@ -90,6 +90,7 @@ E.g to include all styles:
 ```
 
 E.g to include only base styles and some themes:
+
 ```diff
 -.o-topper--branded {
 -	@include _oTopperThemeBranded;

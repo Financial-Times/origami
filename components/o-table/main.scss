@@ -1,52 +1,52 @@
 // Dependancies
-@import '@financial-times/math';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-brand/main';
-@import '@financial-times/o-buttons/main';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-grid/main';
-@import '@financial-times/o-icons/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-visual-effects/main';
+@import "@financial-times/math";
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-brand/main";
+@import "@financial-times/o-buttons/main";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-grid/main";
+@import "@financial-times/o-icons/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-visual-effects/main";
 
 // Branding
-@import 'src/scss/brand';
+@import "src/scss/brand";
 // Main
-@import 'src/scss/variables';
-@import 'src/scss/base';
-@import 'src/scss/borders';
-@import 'src/scss/compact';
-@import 'src/scss/container';
-@import 'src/scss/lines';
-@import 'src/scss/responsive-overflow';
-@import 'src/scss/responsive-flat';
-@import 'src/scss/responsive-scroll';
-@import 'src/scss/row-headings';
-@import 'src/scss/row-stripes';
-@import 'src/scss/sort';
-@import 'src/scss/wrapper';
+@import "src/scss/variables";
+@import "src/scss/base";
+@import "src/scss/borders";
+@import "src/scss/compact";
+@import "src/scss/container";
+@import "src/scss/lines";
+@import "src/scss/responsive-overflow";
+@import "src/scss/responsive-flat";
+@import "src/scss/responsive-scroll";
+@import "src/scss/row-headings";
+@import "src/scss/row-stripes";
+@import "src/scss/sort";
+@import "src/scss/wrapper";
 
 /// Outputs all features and styles available.
 /// @param {list} $opts [('responsive-overflow', 'responsive-flat', 'responsive-scroll', 'lines', 'compact', 'stripes', 'row-headings')] - Table features to output. Defaults to all table features.
 /// @access public
 @mixin oTable(
 	$opts: (
-		'responsive-overflow',
-		'responsive-flat',
-		'responsive-scroll',
-		'lines',
-		'compact',
-		'stripes',
-		'row-headings',
+		"responsive-overflow",
+		"responsive-flat",
+		"responsive-scroll",
+		"lines",
+		"compact",
+		"stripes",
+		"row-headings",
 	)
 ) {
-	$overflow-enabled: index($opts, 'responsive-overflow');
-	$flat-enabled: index($opts, 'responsive-flat');
-	$scroll-enabled: index($opts, 'responsive-scroll');
-	$lines-enabled: index($opts, 'lines');
-	$compact-enabled: index($opts, 'compact');
-	$stripes-enabled: index($opts, 'stripes');
-	$row-headings-enabled: index($opts, 'row-headings');
+	$overflow-enabled: index($opts, "responsive-overflow");
+	$flat-enabled: index($opts, "responsive-flat");
+	$scroll-enabled: index($opts, "responsive-scroll");
+	$lines-enabled: index($opts, "lines");
+	$compact-enabled: index($opts, "compact");
+	$stripes-enabled: index($opts, "stripes");
+	$row-headings-enabled: index($opts, "row-headings");
 
 	// Basic styles and simple utilities.
 	@include _oTableBase;
@@ -78,17 +78,17 @@
 	}
 
 	// Compact.
-	@if $compact-enabled and _oTableSupports('compact') {
+	@if $compact-enabled and _oTableSupports("compact") {
 		@include _oTableCompact;
 	}
 
 	// Stripes.
-	@if $stripes-enabled and _oTableSupports('stripes') {
+	@if $stripes-enabled and _oTableSupports("stripes") {
 		@include _oTableRowStripes;
 	}
 
 	// Row headings.
-	@if $row-headings-enabled and _oTableSupports('row-headings') {
+	@if $row-headings-enabled and _oTableSupports("row-headings") {
 		@include _oTableRowHeadings;
 	}
 }

@@ -1,5 +1,5 @@
-import {is, isUndefined, broadcast} from '../utils.js';
-import {Store} from './store.js';
+import { is, isUndefined, broadcast } from "../utils.js";
+import { Store } from "./store.js";
 
 /**
  * Class for handling a queue backed up by a store.
@@ -11,10 +11,10 @@ import {Store} from './store.js';
  */
 function Queue(name) {
 	if (isUndefined(name)) {
-		const undefinedName = new Error('You must specify a name for the queue.');
-		broadcast('oErrors', 'log', {
+		const undefinedName = new Error("You must specify a name for the queue.");
+		broadcast("oErrors", "log", {
 			error: undefinedName.message,
-			info: {module: 'o-tracking'},
+			info: { module: "o-tracking" },
 		});
 		throw undefinedName;
 	}
@@ -106,7 +106,7 @@ Queue.prototype.add = function (item) {
 		});
 	}
 
-	if (is(item, 'object') && item.constructor.toString().match(/array/i)) {
+	if (is(item, "object") && item.constructor.toString().match(/array/i)) {
 		for (i = 0; i < item.length; i = i + 1) {
 			doAdd(item[i]);
 		}
@@ -132,10 +132,10 @@ Queue.prototype.replace = function (items) {
 		return this;
 	}
 
-	const invalidArg = new Error('Argument invalid, must be an array.');
-	broadcast('oErrors', 'log', {
+	const invalidArg = new Error("Argument invalid, must be an array.");
+	broadcast("oErrors", "log", {
 		error: invalidArg.message,
-		info: {module: 'o-tracking'},
+		info: { module: "o-tracking" },
 	});
 	throw invalidArg;
 };
@@ -168,4 +168,4 @@ Queue.prototype.save = function () {
 	return this;
 };
 
-export {Queue};
+export { Queue };

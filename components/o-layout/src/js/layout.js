@@ -1,4 +1,4 @@
-import LinkedHeading from './linked-heading.js';
+import LinkedHeading from "./linked-heading.js";
 
 class Layout {
 	/**
@@ -11,16 +11,16 @@ class Layout {
 		this.layoutEl = layoutEl;
 		this.highlightedHeadingIndex = 0;
 
-		const isDocsLayout = this.layoutEl.classList.contains('o-layout--docs');
-		const isQueryLayout = this.layoutEl.classList.contains('o-layout--query');
+		const isDocsLayout = this.layoutEl.classList.contains("o-layout--docs");
+		const isQueryLayout = this.layoutEl.classList.contains("o-layout--query");
 
 		this.options = Object.assign(
 			{},
 			{
 				constructNav: isDocsLayout ? true : false,
-				navHeadingSelector: 'h1, h2, h3',
+				navHeadingSelector: "h1, h2, h3",
 				linkHeadings: true,
-				linkedHeadingSelector: 'h1, h2, h3, h4, h5, h6',
+				linkedHeadingSelector: "h1, h2, h3, h4, h5, h6",
 			},
 			options || Layout.getDataAttributes(layoutEl)
 		);
@@ -28,7 +28,7 @@ class Layout {
 		// Get linkable headings.
 		const linkableHeadings = Array.from(
 			this.layoutEl.querySelectorAll(this.options.linkedHeadingSelector)
-		).filter(heading => heading.getAttribute('id'));
+		).filter(heading => heading.getAttribute("id"));
 
 		// Construct linkable headings.
 		this.linkedHeadings = [];
@@ -41,7 +41,7 @@ class Layout {
 		// Get nav headings.
 		this.navHeadings = Array.from(
 			this.layoutEl.querySelectorAll(this.options.navHeadingSelector)
-		).filter(heading => heading.getAttribute('id'));
+		).filter(heading => heading.getAttribute("id"));
 
 		// Construct the default navigation.
 		if ((isDocsLayout || isQueryLayout) && this.options.constructNav) {
@@ -53,7 +53,7 @@ class Layout {
 			const navigation = this.layoutEl.querySelector(`.o-layout__navigation`);
 			if (navigation) {
 				/** @type {Array<HTMLAnchorElement>} */
-				this.navAnchors = Array.from(navigation.querySelectorAll('a'));
+				this.navAnchors = Array.from(navigation.querySelectorAll("a"));
 				this.highlightNavItems();
 			}
 		}
@@ -84,8 +84,8 @@ class Layout {
 		// add a property `subItems` to the parent h2 which contains an array of the following smaller headings.
 		const headingsWithHierarchy = Array.from(this.navHeadings).reduce(
 			(headings, heading) => {
-				const supportedHeadings = ['H3', 'H4', 'H5', 'H6'];
-				const parents = headings.filter(heading => heading.nodeName === 'H2');
+				const supportedHeadings = ["H3", "H4", "H5", "H6"];
+				const parents = headings.filter(heading => heading.nodeName === "H2");
 				const parent = parents ? parents[parents.length - 1] : null;
 				if (!headings.length) {
 					return [heading];
@@ -103,14 +103,14 @@ class Layout {
 		);
 
 		// Create the nav markup.
-		const nav = document.createElement('nav');
+		const nav = document.createElement("nav");
 		nav.classList.add(`o-layout__navigation`);
-		const list = document.createElement('ol');
+		const list = document.createElement("ol");
 		list.classList.add(`o-layout__unstyled-element`);
 		const listInnerHTML = Array.from(headingsWithHierarchy).reduce(
 			(html, heading) => {
 				const pageTitleClass =
-					heading.nodeName === 'H1' ? 'o-layout__navigation-title' : '';
+					heading.nodeName === "H1" ? "o-layout__navigation-title" : "";
 				return (
 					html +
 					`
@@ -129,15 +129,15 @@ class Layout {
 				heading.id
 			}">${Layout._getContentFromHeading(heading)}</a></li>`
 		);
-	}, '')}
+	}, "")}
 	</ol>
 	`
-			: ''
+			: ""
 	}
 </li>`
 				);
 			},
-			''
+			""
 		);
 		list.innerHTML = listInnerHTML;
 		nav.appendChild(list);
@@ -153,7 +153,7 @@ class Layout {
 		}
 
 		/** @type {Array<HTMLAnchorElement>} */
-		this.navAnchors = Array.from(nav.querySelectorAll('a'));
+		this.navAnchors = Array.from(nav.querySelectorAll("a"));
 		this.highlightNavItems();
 	}
 
@@ -165,13 +165,13 @@ class Layout {
 	 */
 	setupClickHandlersForNavigationSidebar() {
 		this.navAnchors.forEach((anchor, index) => {
-			anchor.addEventListener('click', () => {
+			anchor.addEventListener("click", () => {
 				for (const sidebarAnchor of this.navAnchors) {
 					if (sidebarAnchor === anchor) {
-						sidebarAnchor.setAttribute('aria-current', 'location');
+						sidebarAnchor.setAttribute("aria-current", "location");
 						this.highlightedHeadingIndex = index;
 					} else {
-						sidebarAnchor.setAttribute('aria-current', 'false');
+						sidebarAnchor.setAttribute("aria-current", "false");
 					}
 				}
 			});
@@ -186,13 +186,13 @@ class Layout {
 	 */
 	setupClickHandlersForHeadings() {
 		this.navHeadings.forEach((headingAnchor, index) => {
-			headingAnchor.addEventListener('click', () => {
+			headingAnchor.addEventListener("click", () => {
 				for (const sidebarAnchor of this.navAnchors) {
-					if (sidebarAnchor.hash === '#' + headingAnchor.id) {
-						sidebarAnchor.setAttribute('aria-current', 'location');
+					if (sidebarAnchor.hash === "#" + headingAnchor.id) {
+						sidebarAnchor.setAttribute("aria-current", "location");
 						this.highlightedHeadingIndex = index;
 					} else {
-						sidebarAnchor.setAttribute('aria-current', 'false');
+						sidebarAnchor.setAttribute("aria-current", "false");
 					}
 				}
 			});
@@ -210,12 +210,12 @@ class Layout {
 			// on page load, highlight the nav item that corresponds to the url
 			this.navAnchors.forEach((anchor, index) => {
 				const currentLocation = anchor.hash === location.hash;
-				const defaultLocation = location.hash === '' && index === 0;
+				const defaultLocation = location.hash === "" && index === 0;
 				if (currentLocation || defaultLocation) {
-					anchor.setAttribute('aria-current', 'location');
+					anchor.setAttribute("aria-current", "location");
 					this.highlightedHeadingIndex = index;
 				} else {
-					anchor.setAttribute('aria-current', 'false');
+					anchor.setAttribute("aria-current", "false");
 				}
 			});
 		}
@@ -230,13 +230,13 @@ class Layout {
 	 */
 	setupIntersectionObserversForHeadings() {
 		function getY(domRect) {
-			return Object.prototype.hasOwnProperty.call(domRect, 'y')
+			return Object.prototype.hasOwnProperty.call(domRect, "y")
 				? domRect.y
 				: domRect.top;
 		}
 
-		const mainSection = document.querySelector('.o-layout__main ');
-		let headingFontSize = '16px';
+		const mainSection = document.querySelector(".o-layout__main ");
+		let headingFontSize = "16px";
 		if (mainSection) {
 			headingFontSize = window.getComputedStyle(mainSection).fontSize;
 		}
@@ -278,9 +278,9 @@ class Layout {
 				}
 				this.navAnchors.forEach((anchor, index) => {
 					if (headingIndexToHighlight === index) {
-						anchor.setAttribute('aria-current', 'location');
+						anchor.setAttribute("aria-current", "location");
 					} else {
-						anchor.setAttribute('aria-current', 'false');
+						anchor.setAttribute("aria-current", "false");
 					}
 				});
 				this.highlightedHeadingIndex = headingIndexToHighlight;
@@ -301,9 +301,9 @@ class Layout {
 					this.highlightedHeadingIndex = this.navAnchors.length - 1;
 					this.navAnchors.forEach((anchor, index) => {
 						if (this.highlightedHeadingIndex === index) {
-							anchor.setAttribute('aria-current', 'location');
+							anchor.setAttribute("aria-current", "location");
 						} else {
-							anchor.setAttribute('aria-current', 'false');
+							anchor.setAttribute("aria-current", "false");
 						}
 					});
 				}
@@ -314,8 +314,8 @@ class Layout {
 		);
 
 		const lastElementOnPage =
-			this.layoutEl.querySelector('.o-layout__footer') ||
-			this.layoutEl.querySelector('.o-layout__main').lastElementChild;
+			this.layoutEl.querySelector(".o-layout__footer") ||
+			this.layoutEl.querySelector(".o-layout__main").lastElementChild;
 		observerbottom.observe(lastElementOnPage);
 	}
 
@@ -329,7 +329,7 @@ class Layout {
 		this.setupClickHandlersForNavigationSidebar();
 		this.setupClickHandlersForHeadings();
 		this.highlightNavigationFromLocation();
-		if (typeof self.IntersectionObserver === 'function') {
+		if (typeof self.IntersectionObserver === "function") {
 			this.setupIntersectionObserversForHeadings();
 		}
 	}
@@ -347,7 +347,7 @@ class Layout {
 		}
 		return Object.keys(layoutElement.dataset).reduce((options, key) => {
 			// Ignore data-o-component
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return options;
 			}
 
@@ -385,7 +385,7 @@ class Layout {
 		}
 		if (
 			rootEl instanceof HTMLElement &&
-			rootEl.matches('[data-o-component=o-layout]')
+			rootEl.matches("[data-o-component=o-layout]")
 		) {
 			return new Layout(rootEl, opts);
 		}

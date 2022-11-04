@@ -52,4 +52,4 @@ function throttle(func, wait) {
 	};
 }
 
-export {debounce, throttle};
+export { debounce, throttle };

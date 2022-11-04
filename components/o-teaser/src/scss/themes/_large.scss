@@ -5,7 +5,7 @@
 
 	.o-teaser__content {
 		padding: oGridGutter(M);
-		border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+		border: 1px solid oColorsByUsecase("o-teaser/base", "border");
 	}
 
 	.o-teaser__heading {
@@ -26,7 +26,7 @@
 			),
 			$include-font-family: false
 		);
-		margin-top: oSpacingByName('s6');
+		margin-top: oSpacingByName("s6");
 	}
 }
 
@@ -45,14 +45,14 @@
 			border-right: 0;
 
 			&:after {
-				content: '';
+				content: "";
 				position: absolute;
 				top: 1px;
 				right: -25%;
 				height: 100%;
 				width: 25%;
 				display: block;
-				border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+				border: 1px solid oColorsByUsecase("o-teaser/base", "border");
 				border-left: 0;
 			}
 		}
@@ -94,12 +94,12 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			content: '';
+			content: "";
 			display: block;
 			width: 100%;
 			height: 50%;
-			border-left: 1px solid oColorsByUsecase('o-teaser/base', 'border');
-			border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+			border-left: 1px solid oColorsByUsecase("o-teaser/base", "border");
+			border-bottom: 1px solid oColorsByUsecase("o-teaser/base", "border");
 		}
 
 		@include oGridRespondTo(S, L) {
@@ -145,12 +145,12 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			content: '';
+			content: "";
 			display: block;
 			width: 100%;
 			height: 50%;
-			border-left: 1px solid oColorsByUsecase('o-teaser/base', 'border');
-			border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+			border-left: 1px solid oColorsByUsecase("o-teaser/base", "border");
+			border-bottom: 1px solid oColorsByUsecase("o-teaser/base", "border");
 		}
 	}
 }
@@ -165,14 +165,14 @@
 		border-right: 0;
 
 		&:after {
-			content: '';
+			content: "";
 			position: absolute;
 			top: 1px;
 			right: -25%;
 			height: 100%;
 			width: 25%;
 			display: block;
-			border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+			border: 1px solid oColorsByUsecase("o-teaser/base", "border");
 			border-left: 0;
 		}
 	}

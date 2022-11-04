@@ -2,7 +2,7 @@
 /// @access private
 @function _oMessageGet($variables, $from: null) {
 	@return oBrandGet(
-		$component: 'o-message',
+		$component: "o-message",
 		$variables: $variables,
 		$from: $from
 	);
@@ -11,147 +11,147 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oMessageSupports($variant) {
-	@return oBrandSupportsVariant($component: 'o-message', $variant: $variant);
+	@return oBrandSupportsVariant($component: "o-message", $variant: $variant);
 }
 
 /// Shared variables between all brands
 /// @access private
 $_o-message-shared-brand-variables: (
-	'success': (
-		'foreground-color': oColorsMix('black', 'jade', $percentage: 43),
-		'background-color': oColorsMix('jade', $percentage: 20),
-		'icon': 'tick',
+	"success": (
+		"foreground-color": oColorsMix("black", "jade", $percentage: 43),
+		"background-color": oColorsMix("jade", $percentage: 20),
+		"icon": "tick",
 	),
-	'error': (
-		'foreground-color': oColorsMix('black', 'crimson', $percentage: 12.5),
-		'background-color': oColorsMix('crimson', $percentage: 10),
-		'icon': 'warning-alt',
+	"error": (
+		"foreground-color": oColorsMix("black", "crimson", $percentage: 12.5),
+		"background-color": oColorsMix("crimson", $percentage: 10),
+		"icon": "warning-alt",
 	),
 );
 
-@if oBrandIs('core') {
+@if oBrandIs("core") {
 	@include oBrandDefine(
-		'o-message',
-		'core',
+		"o-message",
+		"core",
 		(
-			'variables':
+			"variables":
 				map-merge(
 					$_o-message-shared-brand-variables,
 					(
-						'feedback': (
-							'foreground-color': oColorsByUsecase('body', 'text'),
-							'highlight-color': oColorsByName('teal'),
-							'button-type': 'primary',
-							'background-color': oColorsByName('white'),
-							'align': center,
+						"feedback": (
+							"foreground-color": oColorsByUsecase("body", "text"),
+							"highlight-color": oColorsByName("teal"),
+							"button-type": "primary",
+							"background-color": oColorsByName("white"),
+							"align": center,
 						),
-						'neutral': (
-							'foreground-color': 'black',
-							'background-color': 'white-60',
-							'icon': 'info',
+						"neutral": (
+							"foreground-color": "black",
+							"background-color": "white-60",
+							"icon": "info",
 						),
-						'inform': (
-							'foreground-color': 'black',
-							'background-color': 'wheat',
+						"inform": (
+							"foreground-color": "black",
+							"background-color": "wheat",
 						),
 					)
 				),
-			'supports-variants': (
-				'alert',
-				'error',
-				'inform',
-				'neutral',
-				'notice',
-				'success',
-				'feedback',
+			"supports-variants": (
+				"alert",
+				"error",
+				"inform",
+				"neutral",
+				"notice",
+				"success",
+				"feedback",
 			),
 		)
 	);
 }
 
-@if oBrandIs('internal') {
+@if oBrandIs("internal") {
 	@include oBrandDefine(
-		'o-message',
-		'internal',
+		"o-message",
+		"internal",
 		(
-			'variables':
+			"variables":
 				map-merge(
 					$_o-message-shared-brand-variables,
 					(
-						'feedback': (
-							'foreground-color': oColorsByUsecase('body', 'text'),
-							'highlight-color': oColorsByName('teal'),
-							'button-type': 'primary',
-							'background-color': oColorsByName('white'),
-							'align': center,
+						"feedback": (
+							"foreground-color": oColorsByUsecase("body", "text"),
+							"highlight-color": oColorsByName("teal"),
+							"button-type": "primary",
+							"background-color": oColorsByName("white"),
+							"align": center,
 						),
-						'neutral': (
-							'foreground-color': 'black',
-							'background-color': 'slate-white-15',
-							'icon': 'info',
+						"neutral": (
+							"foreground-color": "black",
+							"background-color": "slate-white-15",
+							"icon": "info",
 						),
-						'inform': (
-							'foreground-color': 'black',
-							'background-color': 'slate-white-15',
+						"inform": (
+							"foreground-color": "black",
+							"background-color": "slate-white-15",
 						),
-						'inform-inverse': (
-							'foreground-color': 'white',
-							'background-color': 'slate',
+						"inform-inverse": (
+							"foreground-color": "white",
+							"background-color": "slate",
 						),
-						'warning': (
-							'foreground-color': 'black',
-							'background-color': 'lemon',
+						"warning": (
+							"foreground-color": "black",
+							"background-color": "lemon",
 						),
-						'warning-light': (
-							'foreground-color': 'black',
-							'background-color': oColorsMix('lemon', 'white', $percentage: 60),
+						"warning-light": (
+							"foreground-color": "black",
+							"background-color": oColorsMix("lemon", "white", $percentage: 60),
 						),
 					)
 				),
-			'supports-variants': (
-				'action',
-				'alert',
-				'error',
-				'inform',
-				'inform-inverse',
-				'neutral',
-				'notice',
-				'success',
-				'warning',
-				'warning-light',
-				'feedback',
+			"supports-variants": (
+				"action",
+				"alert",
+				"error",
+				"inform",
+				"inform-inverse",
+				"neutral",
+				"notice",
+				"success",
+				"warning",
+				"warning-light",
+				"feedback",
 			),
 		)
 	);
 }
 
-@if oBrandIs('whitelabel') {
+@if oBrandIs("whitelabel") {
 	@include oBrandDefine(
-		'o-message',
-		'whitelabel',
+		"o-message",
+		"whitelabel",
 		(
-			'variables':
+			"variables":
 				map-merge(
 					$_o-message-shared-brand-variables,
 					(
-						'neutral': (
-							'foreground-color': 'black',
-							'background-color': 'white',
-							'icon': 'info',
+						"neutral": (
+							"foreground-color": "black",
+							"background-color": "white",
+							"icon": "info",
 						),
-						'inform': (
-							'foreground-color': 'black',
-							'background-color': 'white',
+						"inform": (
+							"foreground-color": "black",
+							"background-color": "white",
 						),
 					)
 				),
-			'supports-variants': (
-				'alert',
-				'notice',
-				'error',
-				'inform',
-				'neutral',
-				'success',
+			"supports-variants": (
+				"alert",
+				"notice",
+				"error",
+				"inform",
+				"neutral",
+				"success",
 			),
 		)
 	);

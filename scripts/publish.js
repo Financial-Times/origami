@@ -1,20 +1,20 @@
 #!/usr/bin/env node
-import {$} from "zx"
-import {readPackage} from "read-pkg"
-import {request} from "undici"
+import { $ } from "zx";
+import { readPackage } from "read-pkg";
+import { request } from "undici";
 
-let outputs = JSON.parse(process.argv[2])
+let outputs = JSON.parse(process.argv[2]);
 
-let {REPO_DATA_KEY, REPO_DATA_SECRET} = process.env
+let { REPO_DATA_KEY, REPO_DATA_SECRET } = process.env;
 
 for (let key in outputs) {
-	let value = outputs[key]
-	let match = key.match(/^(.*\/.*)--release_created$/)
-	if (!match || !value) continue
-	let workspace = match[1]
-	await $`npm publish -w ${workspace} --access public`
-	let pkgjson = await readPackage({cwd: workspace})
-	let {statusCode, body} = await request(
+	let value = outputs[key];
+	let match = key.match(/^(.*\/.*)--release_created$/);
+	if (!match || !value) continue;
+	let workspace = match[1];
+	await $`npm publish -w ${workspace} --access public`;
+	let pkgjson = await readPackage({ cwd: workspace });
+	let { statusCode, body } = await request(
 		"https://origami-repo-data.ft.com/v1/queue",
 		{
 			maxRedirections: 100,
@@ -30,13 +30,13 @@ for (let key in outputs) {
 				type: "npm",
 			}),
 		}
-	)
+	);
 
 	for await (let data of body) {
-		process.stdout.write(data)
+		process.stdout.write(data);
 	}
 
 	if (statusCode < 200 || statusCode >= 300) {
-		throw statusCode
+		throw statusCode;
 	}
 }

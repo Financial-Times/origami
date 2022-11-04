@@ -1,6 +1,6 @@
-@import '@financial-times/math';
-@import 'src/scss/variables';
-@import 'src/scss/functions';
+@import "@financial-times/math";
+@import "src/scss/variables";
+@import "src/scss/functions";
 
 /// Output all o-spacing features.
 /// @param {Map} $opts
@@ -11,12 +11,12 @@
 ///		));
 @mixin oSpacing(
 	$opts: (
-		'margin-bottom-utilities': true,
-		'custom-properties': true,
+		"margin-bottom-utilities": true,
+		"custom-properties": true,
 	)
 ) {
-	$custom-properties: map-get($opts, 'custom-properties');
-	$margin-bottom-utilities: map-get($opts, 'margin-bottom-utilities');
+	$custom-properties: map-get($opts, "custom-properties");
+	$margin-bottom-utilities: map-get($opts, "margin-bottom-utilities");
 
 	// Output spacing values as CSS Custom Properties.
 	@if ($custom-properties) {

@@ -15,13 +15,13 @@ class LinkedHeading {
 	 */
 	constructor(headingElement, options = {}) {
 		this.headingElement = headingElement;
-		this.id = headingElement.getAttribute('id');
+		this.id = headingElement.getAttribute("id");
 
 		this.options = Object.assign(
 			{},
 			{
-				content: '#',
-				title: 'Link directly to this section of the page',
+				content: "#",
+				title: "Link directly to this section of the page",
 			},
 			options
 		);
@@ -42,17 +42,17 @@ class LinkedHeading {
 		}
 
 		// Check for an existing link element
-		const existingAnchor = this.headingElement.querySelector('a');
+		const existingAnchor = this.headingElement.querySelector("a");
 		if (existingAnchor) {
 			return existingAnchor;
 		}
 
 		// Create heading anchor.
 		const headingText = this.headingElement.innerHTML.trim();
-		const anchor = document.createElement('a');
+		const anchor = document.createElement("a");
 		anchor.href = `#${this.id}`;
 		anchor.title = this.options.title;
-		anchor.classList.add('o-layout__linked-heading__link');
+		anchor.classList.add("o-layout__linked-heading__link");
 		anchor.innerHTML = `
 			<span class="o-layout__linked-heading__content">${headingText}</span>
 			<span class="o-layout__linked-heading__label">${this.options.content}</span>
@@ -60,8 +60,8 @@ class LinkedHeading {
 
 		window.requestAnimationFrame(
 			function () {
-				this.headingElement.innerHTML = '';
-				this.headingElement.classList.add('o-layout__linked-heading');
+				this.headingElement.innerHTML = "";
+				this.headingElement.classList.add("o-layout__linked-heading");
 				this.headingElement.appendChild(anchor);
 			}.bind(this)
 		);

@@ -1,4 +1,4 @@
-import BaseTable from './BaseTable.js';
+import BaseTable from "./BaseTable.js";
 
 class BasicTable extends BaseTable {
 	/**

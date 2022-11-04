@@ -1,9 +1,9 @@
-@import './../../main';
-@import '@financial-times/o-fonts/main';
+@import "./../../main";
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-buttons/main';
+@import "@financial-times/o-buttons/main";
 @include oButtons();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 body {
 	background: oColorsByUsecase(page, background);
@@ -17,9 +17,9 @@ body {
 .demo-inverse {
 	margin-top: 16px;
 	background-color: if(
-		oBrandIs('core') or oBrandIs('internal'),
-		oColorsByName('slate'),
-		oColorsByName('black')
+		oBrandIs("core") or oBrandIs("internal"),
+		oColorsByName("slate"),
+		oColorsByName("black")
 	);
 	padding: 10px;
 
@@ -29,23 +29,23 @@ body {
 }
 
 $custom-theme: (
-	controls-base: 'crimson',
-	controls-checked-base: 'white',
-	controls-border: 'crimson',
+	controls-base: "crimson",
+	controls-checked-base: "white",
+	controls-border: "crimson",
 );
 
-$icon-list: ('grid', 'list');
+$icon-list: ("grid", "list");
 
 @include oFormsAddCustom(
-	$input: 'pseudo-radio-link',
-	$class: 'demo-pseudo-radio-link',
+	$input: "pseudo-radio-link",
+	$class: "demo-pseudo-radio-link",
 	$icons: $icon-list,
 	$theme: $custom-theme
 );
 
 @include oFormsAddCustom(
-	$input: 'radio',
-	$class: 'demo-radio',
+	$input: "radio",
+	$class: "demo-radio",
 	$icons: $icon-list,
 	$theme: $custom-theme
 );

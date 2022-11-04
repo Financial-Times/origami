@@ -1,17 +1,17 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import {Store} from '../../src/javascript/core/store.js';
+import proclaim from "proclaim";
+import { Store } from "../../src/javascript/core/store.js";
 
-describe('Core.Store', function () {
-	describe('constructor', function () {
-		it('throws an error if not given a name for the store', function () {
+describe("Core.Store", function () {
+	describe("constructor", function () {
+		it("throws an error if not given a name for the store", function () {
 			proclaim.throws(function () {
 				new Store();
 			});
 		});
 
-		it('throws an error if name for the store is not a string', function () {
+		it("throws an error if name for the store is not a string", function () {
 			proclaim.throws(function () {
 				new Store(137);
 			});
@@ -37,75 +37,75 @@ describe('Core.Store', function () {
 			});
 		});
 
-		it('throws an error if name for the store is an empty string', function () {
+		it("throws an error if name for the store is an empty string", function () {
 			proclaim.throws(function () {
-				new Store('');
+				new Store("");
 			});
 		});
 
-		it('constructs a store if given a name which is a string', function () {
-			const store = new Store('test');
-			proclaim.equal(store.storageKey, 'o-tracking_test');
+		it("constructs a store if given a name which is a string", function () {
+			const store = new Store("test");
+			proclaim.equal(store.storageKey, "o-tracking_test");
 		});
 
-		it('can override the internal storageKey', function () {
-			const store = new Store('test', {nameOverride: '13.7'});
-			proclaim.equal(store.storageKey, '13.7');
-		});
-	});
-
-	describe('write()', function () {
-		it('should save a value', function () {
-			const store = new Store('test');
-			proclaim.equal(store.write('TESTING').read(), 'TESTING');
+		it("can override the internal storageKey", function () {
+			const store = new Store("test", { nameOverride: "13.7" });
+			proclaim.equal(store.storageKey, "13.7");
 		});
 	});
 
-	describe('read()', function () {
-		it('should retrieve a value', function () {
-			const store = new Store('test');
-			proclaim.equal(store.read(), 'TESTING');
+	describe("write()", function () {
+		it("should save a value", function () {
+			const store = new Store("test");
+			proclaim.equal(store.write("TESTING").read(), "TESTING");
 		});
 	});
 
-	describe('destroy()', function () {
-		it('should destroy the store', function () {
-			const store = new Store('test');
-			proclaim.equal(store.read(), 'TESTING');
+	describe("read()", function () {
+		it("should retrieve a value", function () {
+			const store = new Store("test");
+			proclaim.equal(store.read(), "TESTING");
+		});
+	});
+
+	describe("destroy()", function () {
+		it("should destroy the store", function () {
+			const store = new Store("test");
+			proclaim.equal(store.read(), "TESTING");
 			store.destroy();
 			proclaim.equal(store.read(), null);
 		});
 	});
 
-	describe('importing from cookies', function () {
+	describe("importing from cookies", function () {
 		function cookieSave(name, value) {
 			const yearInMilliseconds = 10 * 365 * 24 * 60 * 60 * 1000;
 			const d = new Date();
 			d.setTime(d.getTime() + yearInMilliseconds);
-			const expires = 'expires=' + d.toUTCString() + ';';
+			const expires = "expires=" + d.toUTCString() + ";";
 			const domain = location.hostname.match(/^(?:.+\.)?ft\.com$/)
-				? 'ft.com'
+				? "ft.com"
 				: null;
 
 			const cookie =
 				encodeURIComponent(name) +
-				'=' +
+				"=" +
 				encodeURIComponent(value) +
-				';' +
+				";" +
 				expires +
-				'path=/;' +
-				(domain ? 'domain=.' + domain + ';' : '');
+				"path=/;" +
+				(domain ? "domain=." + domain + ";" : "");
 			window.document.cookie = cookie;
 		}
-		it('should load data from the old cookie storage system if the cookie exists', function () {
+		it("should load data from the old cookie storage system if the cookie exists", function () {
 			cookieSave(
-				'origami',
+				"origami",
 				JSON.stringify({
 					number: 13.7,
 				})
 			);
-			const store = new Store('test', {
-				nameOverride: 'origami',
+			const store = new Store("test", {
+				nameOverride: "origami",
 			});
 
 			proclaim.deepStrictEqual(store.read(), {
@@ -113,12 +113,12 @@ describe('Core.Store', function () {
 			});
 		});
 
-		context('spoor-id migration from cookie to localstorage', function () {
-			it('should load data from the old cookie storage system if the cookie exists', function () {
-				const spoorID = 'ckmypa3l700003g6e6wb33708';
-				cookieSave('spoor-id', spoorID);
-				const store = new Store('test', {
-					nameOverride: 'spoor-id',
+		context("spoor-id migration from cookie to localstorage", function () {
+			it("should load data from the old cookie storage system if the cookie exists", function () {
+				const spoorID = "ckmypa3l700003g6e6wb33708";
+				cookieSave("spoor-id", spoorID);
+				const store = new Store("test", {
+					nameOverride: "spoor-id",
 				});
 
 				proclaim.deepStrictEqual(store.read(), spoorID);

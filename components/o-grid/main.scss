@@ -1,8 +1,8 @@
-@import '@financial-times/math';
-@import '@financial-times/sass-mq';
-@import 'src/scss/variables';
-@import 'src/scss/functions';
-@import 'src/scss/mixins';
+@import "@financial-times/math";
+@import "@financial-times/sass-mq";
+@import "src/scss/variables";
+@import "src/scss/functions";
+@import "src/scss/mixins";
 
 /// Output o-grid styles. This mixin outputs all styles by default.
 /// Pass an options argument to include styles granularly, see the
@@ -31,31 +31,31 @@
 /// @param {Map} $opts [('bleed': true, 'shuffle-selectors': true, 'friendly-selectors': true, 'surface': ('current-layout', 'layout-sizes'), 'rows': ('compact'))]
 @mixin oGrid(
 	$opts: (
-		'bleed': true,
-		'shuffle-selectors': true,
-		'friendly-selectors': true,
-		'surface': (
-			'current-layout',
-			'layout-sizes',
+		"bleed": true,
+		"shuffle-selectors": true,
+		"friendly-selectors": true,
+		"surface": (
+			"current-layout",
+			"layout-sizes",
 		),
-		'rows': (
-			'compact',
+		"rows": (
+			"compact",
 		),
 	)
 ) {
 	// Bleed styles e.g. `o-grid-container--bleed`.
-	$bleed: map-get($opts, 'bleed');
+	$bleed: map-get($opts, "bleed");
 	// Human friendly selectors, e.g. `data-o-grid-colspan="one-half"`.
-	$friendly-selectors: map-get($opts, 'friendly-selectors');
+	$friendly-selectors: map-get($opts, "friendly-selectors");
 	// Offset, push, and pull selectors, e.g. `push4`.
-	$shuffle-selectors: map-get($opts, 'shuffle-selectors');
+	$shuffle-selectors: map-get($opts, "shuffle-selectors");
 	// Compact rows, e.g. `o-grid-row--compact`.
-	$rows: map-get($opts, 'rows');
-	$compact-rows: index($rows, 'compact');
+	$rows: map-get($opts, "rows");
+	$compact-rows: index($rows, "compact");
 	// Surce layout details for JS.
-	$surface: map-get($opts, 'surface');
-	$current-layout: index($surface, 'current-layout');
-	$layout-sizes: index($surface, 'layout-sizes');
+	$surface: map-get($opts, "surface");
+	$current-layout: index($surface, "current-layout");
+	$layout-sizes: index($surface, "layout-sizes");
 
 	// Surface layouts for JS on html:after, html:before.
 	@if ($current-layout) {
@@ -99,12 +99,12 @@
 		@include oGridColspan();
 	}
 
-	[data-o-grid-colspan~='0'] {
+	[data-o-grid-colspan~="0"] {
 		display: none;
 	}
 
 	@for $colspan from 1 through $o-grid-columns {
-		[data-o-grid-colspan~='#{$colspan}'] {
+		[data-o-grid-colspan~="#{$colspan}"] {
 			@include oGridColspan($colspan, $width-only: true);
 		}
 	}
@@ -128,12 +128,12 @@
 				@include _oGridShuffleColumns($layout-name);
 			}
 
-			[data-o-grid-colspan~='#{$layout-name}0'] {
+			[data-o-grid-colspan~="#{$layout-name}0"] {
 				display: none;
 			}
 
 			@for $colspan from 1 through $o-grid-columns {
-				[data-o-grid-colspan~='#{$layout-name}#{$colspan}'] {
+				[data-o-grid-colspan~="#{$layout-name}#{$colspan}"] {
 					// Restore visibility from `display: none`
 					// if `data-o-grid-colspan` was set to `0` or `hide`
 					display: block;

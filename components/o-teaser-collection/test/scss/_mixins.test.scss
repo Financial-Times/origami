@@ -1,5 +1,5 @@
-@include test-module('oTeaserCollection') {
-	@include test('Outputs collection, heading, and items default') {
+@include test-module("oTeaserCollection") {
+	@include test("Outputs collection, heading, and items default") {
 		// collection
 		@include assert {
 			@include output($selector: false) {
@@ -34,13 +34,13 @@
 			}
 		}
 	}
-	@include test('Outputs a given collection modifer') {
+	@include test("Outputs a given collection modifer") {
 		@include assert {
 			@include output() {
 				@include oTeaserCollection(
 					$opts: (
-						'collections': (
-							'special',
+						"collections": (
+							"special",
 						),
 					)
 				);
@@ -52,13 +52,13 @@
 			}
 		}
 	}
-	@include test('Outputs a given heading modifer') {
+	@include test("Outputs a given heading modifer") {
 		@include assert {
 			@include output() {
 				@include oTeaserCollection(
 					$opts: (
-						'headings': (
-							'inverse',
+						"headings": (
+							"inverse",
 						),
 					)
 				);
@@ -70,13 +70,13 @@
 			}
 		}
 	}
-	@include test('Outputs a given items modifer') {
+	@include test("Outputs a given items modifer") {
 		@include assert {
 			@include output() {
 				@include oTeaserCollection(
 					$opts: (
-						'items': (
-							'stretched',
+						"items": (
+							"stretched",
 						),
 					)
 				);

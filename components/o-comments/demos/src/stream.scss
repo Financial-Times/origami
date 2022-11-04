@@ -1,6 +1,6 @@
-@import '../../main';
+@import "../../main";
 @include oComments;
-@import '@financial-times/o-forms/main';
+@import "@financial-times/o-forms/main";
 @include oForms();
-@import '@financial-times/o-overlay/main';
+@import "@financial-times/o-overlay/main";
 @include oOverlay();

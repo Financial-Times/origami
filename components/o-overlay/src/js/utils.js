@@ -9,20 +9,20 @@ export default {
 
 	copyContentFromElement: function (content, callback) {
 		const html =
-			content.nodeName === 'SCRIPT' ? content.innerHTML : content.outerHTML;
+			content.nodeName === "SCRIPT" ? content.innerHTML : content.outerHTML;
 		callback(html);
 	},
 
 	copyContentFromUrl: function (url, callback) {
 		const xhr = new XMLHttpRequest();
-		xhr.open('GET', url, true);
+		xhr.open("GET", url, true);
 		xhr.onload = function () {
 			// eslint complains of e not being used
 			if (xhr.readyState === 4) {
 				if (xhr.status === 200) {
 					callback(xhr.responseText);
 				} else {
-					callback('Content failed to load correctly');
+					callback("Content failed to load correctly");
 				}
 			}
 		};
@@ -30,7 +30,7 @@ export default {
 			throw new Error(
 				'"o-overlay error": Fetching content from ' +
 					url +
-					' failed with errror ' +
+					" failed with errror " +
 					e
 			);
 		};
@@ -39,7 +39,7 @@ export default {
 	},
 
 	optionsFromKey: function (key, value, opts) {
-		const dashIndex = key.indexOf('-');
+		const dashIndex = key.indexOf("-");
 		if (dashIndex === -1) {
 			try {
 				// If it's a JSON, a boolean or a number, we want it stored like that, and not as a string

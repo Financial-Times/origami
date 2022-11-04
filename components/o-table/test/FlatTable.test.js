@@ -1,40 +1,40 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
+import proclaim from "proclaim";
 
-import * as sandbox from './helpers/sandbox.js';
-import * as fixtures from './helpers/fixtures.js';
-import FlatTable from './../src/js/Tables/FlatTable.js';
-import BaseTable from './../src/js/Tables/BaseTable.js';
-import TableSorter from './../src/js/Sort/TableSorter.js';
+import * as sandbox from "./helpers/sandbox.js";
+import * as fixtures from "./helpers/fixtures.js";
+import FlatTable from "./../src/js/Tables/FlatTable.js";
+import BaseTable from "./../src/js/Tables/BaseTable.js";
+import TableSorter from "./../src/js/Sort/TableSorter.js";
 const sorter = new TableSorter();
 
-describe('FlatTable', () => {
+describe("FlatTable", () => {
 	let oTableEl;
 
 	beforeEach(() => {
 		sandbox.init();
 		sandbox.setContents(fixtures.shortTableWithContainer);
-		oTableEl = document.querySelector('[data-o-component=o-table]');
-		oTableEl.classList.add('o-table--responsive-flat');
+		oTableEl = document.querySelector("[data-o-component=o-table]");
+		oTableEl.classList.add("o-table--responsive-flat");
 	});
 
 	it('it fires an "oTable.ready" event when constructed', done => {
-		window.addEventListener('oTable.ready', function ready() {
+		window.addEventListener("oTable.ready", function ready() {
 			done();
-			window.removeEventListener('oTable.ready', ready);
+			window.removeEventListener("oTable.ready", ready);
 		});
 		new FlatTable(oTableEl, sorter);
 	});
 
-	it('it extends BaseTable', () => {
+	it("it extends BaseTable", () => {
 		const table = new FlatTable(oTableEl, sorter);
 		proclaim.isInstanceOf(table, BaseTable);
 	});
 
-	it('creates a row for each data cell with heading for the flat view (mobile version)', done => {
-		const generatedRowsClass = '.o-table__duplicate-row';
-		const generatedHeadingClass = '.o-table__duplicate-heading';
+	it("creates a row for each data cell with heading for the flat view (mobile version)", done => {
+		const generatedRowsClass = ".o-table__duplicate-row";
+		const generatedHeadingClass = ".o-table__duplicate-heading";
 		const expectedRowCount = 25;
 		const table = new FlatTable(oTableEl, sorter);
 		setTimeout(() => {
@@ -72,7 +72,7 @@ describe('FlatTable', () => {
 		}, 100); // wait for window.requestAnimationFrame
 	});
 
-	it('only includes original rows in the `tableRows` property, not those generated for the flat view (mobile version)', done => {
+	it("only includes original rows in the `tableRows` property, not those generated for the flat view (mobile version)", done => {
 		const table = new FlatTable(oTableEl, sorter);
 		setTimeout(() => {
 			try {
@@ -90,18 +90,18 @@ describe('FlatTable', () => {
 
 	it('does not add any sort button to column headers when table has "data-o-table-sortable" set to false', done => {
 		// Disable sort.
-		oTableEl.setAttribute('data-o-table-sortable', false);
+		oTableEl.setAttribute("data-o-table-sortable", false);
 		// Try to add sort buttons.
 		const table = new FlatTable(oTableEl, sorter);
 		table.addSortButtons();
 		setTimeout(() => {
 			try {
-				const thead = oTableEl.querySelector('thead');
-				const sortButtons = thead.querySelectorAll('button');
+				const thead = oTableEl.querySelector("thead");
+				const sortButtons = thead.querySelectorAll("button");
 				proclaim.equal(
 					sortButtons.length,
 					0,
-					'Expected to find no sort buttons when table has been set to non-sortable.'
+					"Expected to find no sort buttons when table has been set to non-sortable."
 				);
 			} catch (error) {
 				done(error);
@@ -111,11 +111,11 @@ describe('FlatTable', () => {
 		}, 100);
 	});
 
-	describe('updateRows', () => {
-		it('for any new rows, creates a row for each data cell for the flat view (mobile version)', done => {
+	describe("updateRows", () => {
+		it("for any new rows, creates a row for each data cell for the flat view (mobile version)", done => {
 			const trClone = oTableEl
-				.querySelector('tbody > tr')
-				.cloneNode({deep: true});
+				.querySelector("tbody > tr")
+				.cloneNode({ deep: true });
 			const table = new FlatTable(oTableEl, sorter);
 			const originalTableRowLength = table.tableRows.length;
 			setTimeout(() => {
@@ -133,8 +133,8 @@ describe('FlatTable', () => {
 							`Expected to find 1 new table row.`
 						);
 						// confirm that all rows, including the new row, have been split into multiple rows for the "flat" view
-						const generatedRowsClass = '.o-table__duplicate-row';
-						const generatedHeadingClass = '.o-table__duplicate-heading';
+						const generatedRowsClass = ".o-table__duplicate-row";
+						const generatedHeadingClass = ".o-table__duplicate-heading";
 						const expectedRowCount = 30;
 						const generatedRows =
 							table.rootEl.querySelectorAll(generatedRowsClass);

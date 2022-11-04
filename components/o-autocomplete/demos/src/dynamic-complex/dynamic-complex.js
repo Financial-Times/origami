@@ -1,6 +1,6 @@
-import Autocomplete from '../../../main.js';
-import {data} from './data.js';
-import oForms from '@financial-times/o-forms';
+import Autocomplete from "../../../main.js";
+import { data } from "./data.js";
+import oForms from "@financial-times/o-forms";
 oForms.init();
 /**
  * @typedef {object} CustomOption
@@ -60,7 +60,7 @@ new Autocomplete(
 		mapOptionToSuggestedValue,
 		onConfirm: function (option) {
 			// eslint-disable-next-line no-console
-			console.log('You chose option', option);
+			console.log("You chose option", option);
 		},
 	}
 );

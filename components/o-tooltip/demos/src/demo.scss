@@ -1,13 +1,13 @@
-@import '../../main';
+@import "../../main";
 
 @include oTooltip();
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
-@import '@financial-times/o-colors/main';
+@import "@financial-times/o-colors/main";
 @include oColors();
-@import '@financial-times/o-buttons/main';
+@import "@financial-times/o-buttons/main";
 @include oButtons();
 
 body {
@@ -20,7 +20,7 @@ body {
 	margin: 20px;
 }
 
-[data-o-component='o-tooltip'] {
+[data-o-component="o-tooltip"] {
 	display: none;
 }
 
@@ -51,9 +51,9 @@ body {
 }
 
 @include oTooltipAddTheme(
-	'demo-custom-theme',
+	"demo-custom-theme",
 	(
-		'background-color': oColorsByName('black'),
-		'foreground-color': oColorsByName('white'),
+		"background-color": oColorsByName("black"),
+		"foreground-color": oColorsByName("white"),
 	)
 );

@@ -1,4 +1,4 @@
-import construct from './construct-element.js';
+import construct from "./construct-element.js";
 
 /**
  * An object of options to configure a message instance.
@@ -64,7 +64,7 @@ class Message {
 				parentElement: null,
 				content: {
 					highlight: null,
-					detail: '&hellip;',
+					detail: "&hellip;",
 					additionalInfo: false,
 				},
 				actions: {
@@ -117,7 +117,7 @@ class Message {
 		if (this.opts.close && !closeButtonExists) {
 			this.closeButton = construct.closeButton();
 			// Add event listeners
-			this.closeButton.addEventListener('click', event => {
+			this.closeButton.addEventListener("click", event => {
 				event.preventDefault();
 				this.close();
 			});
@@ -132,8 +132,8 @@ class Message {
 	 * @returns {void}
 	 */
 	open() {
-		this.messageElement.classList.remove('o-message--closed');
-		this.messageElement.dispatchEvent(new CustomEvent('o.messageOpen'));
+		this.messageElement.classList.remove("o-message--closed");
+		this.messageElement.dispatchEvent(new CustomEvent("o.messageOpen"));
 	}
 
 	/**
@@ -142,8 +142,8 @@ class Message {
 	 * @returns {void}
 	 */
 	close() {
-		this.messageElement.classList.add('o-message--closed');
-		this.messageElement.dispatchEvent(new CustomEvent('o.messageClosed'));
+		this.messageElement.classList.add("o-message--closed");
+		this.messageElement.dispatchEvent(new CustomEvent("o.messageClosed"));
 	}
 
 	/**
@@ -159,7 +159,7 @@ class Message {
 		}
 		return Object.keys(messageElement.dataset).reduce((options, key) => {
 			// Ignore data-o-component
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return options;
 			}
 
@@ -204,7 +204,7 @@ class Message {
 
 		if (
 			rootElement instanceof HTMLElement &&
-			rootElement.matches('[data-o-component=o-message]')
+			rootElement.matches("[data-o-component=o-message]")
 		) {
 			return new Message(rootElement, opts);
 		}

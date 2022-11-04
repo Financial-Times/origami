@@ -1,7 +1,7 @@
-const nativeNonBubblers = ['error', 'blur', 'focus', 'scroll', 'resize'];
+const nativeNonBubblers = ["error", "blur", "focus", "scroll", "resize"];
 
 const fireEvent = function (el, event, data) {
-	const evt = document.createEvent('HTMLEvents');
+	const evt = document.createEvent("HTMLEvents");
 	evt.initEvent(event, !(nativeNonBubblers.indexOf(event) > -1), true); // jshint ignore:line
 	if (data) {
 		Object.keys(data).forEach(function (key) {
@@ -20,4 +20,4 @@ const fireCustomEvent = function (el, event, data) {
 	);
 };
 
-export {fireEvent, fireCustomEvent};
+export { fireEvent, fireCustomEvent };

@@ -2,7 +2,7 @@
 /// @access private
 @function _oLabelsGet($variables, $from: null) {
 	@return oBrandGet(
-		$component: 'o-labels',
+		$component: "o-labels",
 		$variables: $variables,
 		$from: $from
 	);
@@ -11,21 +11,21 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oLabelsSupports($variant) {
-	@return oBrandSupportsVariant($component: 'o-labels', $variant: $variant);
+	@return oBrandSupportsVariant($component: "o-labels", $variant: $variant);
 }
 
 // Define shared brand configurations
 $_o-labels-shared-brand-config: (
 	font-scale: -1,
-	padding-vertical: oSpacingByName('s1'),
-	padding-horizontal: oSpacingByName('s2'),
+	padding-vertical: oSpacingByName("s1"),
+	padding-horizontal: oSpacingByName("s2"),
 	border-width: 1px,
-	'big': (
+	"big": (
 		font-scale: 0,
-		padding-vertical: oSpacingByName('s2'),
-		padding-horizontal: oSpacingByName('s2'),
+		padding-vertical: oSpacingByName("s2"),
+		padding-horizontal: oSpacingByName("s2"),
 	),
-	'small': (
+	"small": (
 		font-scale: -2,
 		padding-vertical: 2px,
 		padding-horizontal: 4px,
@@ -33,155 +33,155 @@ $_o-labels-shared-brand-config: (
 );
 
 // Define core brand
-@if oBrandIs('core') {
+@if oBrandIs("core") {
 	@include oBrandDefine(
-		'o-labels',
-		'core',
+		"o-labels",
+		"core",
 		(
-			'variables':
+			"variables":
 				map-merge(
 					$_o-labels-shared-brand-config,
 					(
-						text-color: oColorsByName('black'),
-						background-color: oColorsByName('wheat'),
-						'content-commercial': (
-							background-color: oColorsByName('o-labels/commercial-content'),
+						text-color: oColorsByName("black"),
+						background-color: oColorsByName("wheat"),
+						"content-commercial": (
+							background-color: oColorsByName("o-labels/commercial-content"),
 						),
-						'content-premium': (
-							background-color: oColorsByName('black'),
+						"content-premium": (
+							background-color: oColorsByName("black"),
 						),
-						'lifecycle-beta': (
-							background-color: oColorsByName('paper'),
-							border-color: oColorsByName('black-20'),
-							text-color: oColorsByName('black-80'),
+						"lifecycle-beta": (
+							background-color: oColorsByName("paper"),
+							border-color: oColorsByName("black-20"),
+							text-color: oColorsByName("black-80"),
 							text-transform: uppercase,
-							padding-vertical: oSpacingByName('s1'),
-							padding-horizontal: oSpacingByName('s3'),
+							padding-vertical: oSpacingByName("s1"),
+							padding-horizontal: oSpacingByName("s3"),
 						),
 					)
 				),
-			'supports-variants': (
-				'indicators',
-				'timestamps',
-				'big',
-				'small',
-				'content-commercial',
-				'content-premium',
-				'lifecycle-beta',
+			"supports-variants": (
+				"indicators",
+				"timestamps",
+				"big",
+				"small",
+				"content-commercial",
+				"content-premium",
+				"lifecycle-beta",
 			),
 		)
 	);
 }
 
 // Define internal brand
-@if oBrandIs('internal') {
+@if oBrandIs("internal") {
 	@include oBrandDefine(
-		'o-labels',
-		'internal',
+		"o-labels",
+		"internal",
 		(
-			'variables':
+			"variables":
 				map-merge(
 					$_o-labels-shared-brand-config,
 					(
-						background-color: oColorsMix('black', 'white', 10),
-						'support-active': (
-							background-color: oColorsMix('jade', 'black', 70),
+						background-color: oColorsMix("black", "white", 10),
+						"support-active": (
+							background-color: oColorsMix("jade", "black", 70),
 						),
-						'support-dead': (
-							background-color: oColorsByName('black'),
+						"support-dead": (
+							background-color: oColorsByName("black"),
 						),
-						'support-deprecated': (
-							background-color: oColorsByName('crimson'),
+						"support-deprecated": (
+							background-color: oColorsByName("crimson"),
 						),
-						'support-experimental': (
-							background-color: oColorsByName('lemon'),
+						"support-experimental": (
+							background-color: oColorsByName("lemon"),
 						),
-						'support-maintained': (
-							background-color: oColorsMix('jade', 'black', 70),
+						"support-maintained": (
+							background-color: oColorsMix("jade", "black", 70),
 						),
-						'tier-bronze': (
+						"tier-bronze": (
 							// NOTE: service tiers not in o-colors yet, will be moved if another
 							// component needs to use these colours
 							background-color: #b78d83,
 						),
-						'tier-gold': (
+						"tier-gold": (
 							// NOTE: service tiers not in o-colors yet, will be moved if another
 							// component needs to use these colours
 							background-color: #b89d62,
 						),
-						'tier-platinum': (
+						"tier-platinum": (
 							// NOTE: service tiers not in o-colors yet, will be moved if another
 							// component needs to use these colours
 							background-color: #e5e4e2,
 						),
-						'tier-silver': (
+						"tier-silver": (
 							// NOTE: service tiers not in o-colors yet, will be moved if another
 							// component needs to use these colours
 							background-color: #c0c0c0,
 						),
-						'oxford': (
-							background-color: oColorsByName('oxford'),
+						"oxford": (
+							background-color: oColorsByName("oxford"),
 						),
-						'teal': (
-							background-color: oColorsByName('teal'),
+						"teal": (
+							background-color: oColorsByName("teal"),
 						),
-						'lemon': (
-							background-color: oColorsByName('lemon'),
+						"lemon": (
+							background-color: oColorsByName("lemon"),
 						),
-						'slate': (
-							background-color: oColorsByName('slate'),
+						"slate": (
+							background-color: oColorsByName("slate"),
 						),
-						'jade': (
-							background-color: oColorsByName('jade'),
+						"jade": (
+							background-color: oColorsByName("jade"),
 						),
-						'crimson': (
-							background-color: oColorsByName('crimson'),
+						"crimson": (
+							background-color: oColorsByName("crimson"),
 						),
-						'mandarin': (
-							background-color: oColorsByName('mandarin'),
+						"mandarin": (
+							background-color: oColorsByName("mandarin"),
 						),
 					)
 				),
-			'supports-variants': (
-				'big',
-				'small',
-				'support-active',
-				'support-dead',
-				'support-deprecated',
-				'support-experimental',
-				'support-maintained',
-				'tier-bronze',
-				'tier-gold',
-				'tier-platinum',
-				'tier-silver',
-				'oxford',
-				'teal',
-				'lemon',
-				'slate',
-				'jade',
-				'crimson',
-				'mandarin',
+			"supports-variants": (
+				"big",
+				"small",
+				"support-active",
+				"support-dead",
+				"support-deprecated",
+				"support-experimental",
+				"support-maintained",
+				"tier-bronze",
+				"tier-gold",
+				"tier-platinum",
+				"tier-silver",
+				"oxford",
+				"teal",
+				"lemon",
+				"slate",
+				"jade",
+				"crimson",
+				"mandarin",
 			),
 		)
 	);
 }
 
 // Define whitelabel brand
-@if oBrandIs('whitelabel') {
+@if oBrandIs("whitelabel") {
 	@include oBrandDefine(
-		'o-labels',
-		'whitelabel',
+		"o-labels",
+		"whitelabel",
 		(
-			'variables':
+			"variables":
 				map-merge(
 					$_o-labels-shared-brand-config,
 					(
-						background-color: oColorsMix('black', 'white', 10),
+						background-color: oColorsMix("black", "white", 10),
 					)
 				),
-			'supports-variants': (
-				'big',
-				'small',
+			"supports-variants": (
+				"big",
+				"small",
 			),
 		)
 	);

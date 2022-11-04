@@ -127,7 +127,7 @@
 /// @param {String} from - one of $o-grid-layouts
 /// @param {String} until - one of $o-grid-layouts
 @mixin oGridRespondTo($from: false, $until: false) {
-	$grid-is-responsive: $o-grid-mode != 'fixed';
+	$grid-is-responsive: $o-grid-mode != "fixed";
 	@include mq(
 		$from: $from,
 		$until: $until,
@@ -161,11 +161,11 @@
 		flex: 1 1 0%;
 		position: relative; // Required for push and pull
 
-		@if $o-grid-mode == 'fixed' {
+		@if $o-grid-mode == "fixed" {
 			padding-left: oGridGutter($o-grid-fixed-layout);
 		} @else {
 			@each $layout-name in map-keys($o-grid-gutters) {
-				@if $layout-name == 'default' {
+				@if $layout-name == "default" {
 					padding-left: oGridGutter();
 				} @else {
 					@include oGridRespondTo($layout-name) {
@@ -198,9 +198,9 @@
 		padding-right: 0;
 	}
 
-	@if $grid-mode == 'fixed' {
+	@if $grid-mode == "fixed" {
 		// If the grid isn't fluid, we set it to a certain width
-		width: oGridGetMaxWidthForLayout($o-grid-fixed-layout, $grid-mode: 'fixed');
+		width: oGridGetMaxWidthForLayout($o-grid-fixed-layout, $grid-mode: "fixed");
 		@if not $bleed {
 			padding-left: oGridGutter($o-grid-fixed-layout);
 			padding-right: oGridGutter($o-grid-fixed-layout);
@@ -209,7 +209,7 @@
 		max-width: $_o-grid-max-width;
 
 		@each $layout-name in map-keys($o-grid-gutters) {
-			@if $layout-name == 'default' {
+			@if $layout-name == "default" {
 				@if not $bleed {
 					padding-left: oGridGutter();
 					padding-right: oGridGutter();
@@ -229,10 +229,10 @@
 				index($_o-grid-layout-names, $o-grid-start-snappy-mode-at)
 			{
 				@include oGridRespondTo($layout-name) {
-					@if $grid-mode == 'snappy' {
+					@if $grid-mode == "snappy" {
 						max-width: map-get($o-grid-layouts, $layout-name);
 					}
-					@if $grid-mode == 'fluid' {
+					@if $grid-mode == "fluid" {
 						// If the grid mode is fluid, then use a class to make a row or a set of rows snappy
 						.o-grid-snappy &,
 						&--snappy {
@@ -255,11 +255,11 @@
 		display: inherit;
 	}
 
-	@if $o-grid-mode == 'fixed' {
+	@if $o-grid-mode == "fixed" {
 		margin-left: -1 * oGridGutter($o-grid-fixed-layout);
 	} @else {
 		@each $layout-name in map-keys($o-grid-gutters) {
-			@if $layout-name == 'default' {
+			@if $layout-name == "default" {
 				margin-left: -1 * oGridGutter();
 			} @else {
 				@include oGridRespondTo($layout-name) {
@@ -274,7 +274,7 @@
 
 	&:before,
 	&:after {
-		content: '';
+		content: "";
 		display: table;
 		display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
 	}
@@ -286,7 +286,7 @@
 /// Remove gutters from columns in a row
 ///
 /// @param {string} $column-selector ["[o-grid-colspan]"] - CSS selector for row element
-@mixin oGridRowCompact($column-selector: '[o-grid-colspan]') {
+@mixin oGridRowCompact($column-selector: "[o-grid-colspan]") {
 	margin-left: 0;
 
 	> #{unquote($column-selector)} {
@@ -412,15 +412,15 @@
 
 			$combined: $combined +
 				_oGridQuoteString($key) +
-				': ' +
+				": " +
 				_oGridQuoteString($value);
 
 			@if $ittr < length($keys) {
-				$combined: $combined + ', ';
+				$combined: $combined + ", ";
 			}
 		}
 
-		$combined: $combined + '}}';
+		$combined: $combined + "}}";
 
 		display: none;
 		content: $combined;
@@ -443,18 +443,18 @@
 ///
 /// @param {String} $layout-name [null]
 @mixin _oGridHumanFriendlyColumns($layout-name: null) {
-	[data-o-grid-colspan~='#{$layout-name}hide'] {
+	[data-o-grid-colspan~="#{$layout-name}hide"] {
 		display: none;
 	}
 
 	// Center and un-center
-	[data-o-grid-colspan~='#{$layout-name}center'] {
+	[data-o-grid-colspan~="#{$layout-name}center"] {
 		@include oGridCenter;
 	}
 	// Since writing [data-o-grid-colspan~="uncenter"] wouldn't make much sense
 	// we only allow "uncenter" combined with a layout (e.g. XLuncenter)
 	@if $layout-name != null {
-		[data-o-grid-colspan~='#{$layout-name}uncenter'] {
+		[data-o-grid-colspan~="#{$layout-name}uncenter"] {
 			@include oGridUncenter;
 		}
 	}
@@ -470,7 +470,7 @@
 			three-quarters
 		)
 	{
-		[data-o-grid-colspan~='#{$layout-name}#{$human-friendly-name}'] {
+		[data-o-grid-colspan~="#{$layout-name}#{$human-friendly-name}"] {
 			// Restore visibility from `display: none`
 			// if `data-o-grid-colspan` was set to `0` or `hide`
 			display: block;
@@ -493,13 +493,13 @@
 /// @param {String} $layout-name [null]
 @mixin _oGridShuffleColumns($layout-name: null) {
 	@for $colspan from 0 through ($o-grid-columns - 1) {
-		[data-o-grid-colspan~='#{$layout-name}push#{$colspan}'] {
+		[data-o-grid-colspan~="#{$layout-name}push#{$colspan}"] {
 			@include oGridPush($colspan);
 		}
-		[data-o-grid-colspan~='#{$layout-name}pull#{$colspan}'] {
+		[data-o-grid-colspan~="#{$layout-name}pull#{$colspan}"] {
 			@include oGridPull($colspan);
 		}
-		[data-o-grid-colspan~='#{$layout-name}offset#{$colspan}'] {
+		[data-o-grid-colspan~="#{$layout-name}offset#{$colspan}"] {
 			@include oGridOffset($colspan);
 		}
 	}
@@ -518,7 +518,7 @@
 /// @param {Number | Map} $span
 @mixin _oGridColumnWidth($span) {
 	// Special case: the column is hidden by default
-	@if $span == 'hide' {
+	@if $span == "hide" {
 		display: none;
 	} @else {
 		// $span is a number or a keyword, so we're outputting the default width for that column
@@ -537,10 +537,10 @@
 	// $span is a map, we're looping through all of the layouts
 	@if type-of($span) == map {
 		@each $layout-name, $layout-span in $span {
-			@if $layout-name == 'default' {
+			@if $layout-name == "default" {
 				@include _oGridColumnWidth($layout-span);
 			} @else {
-				@if $layout-span == 'hide' {
+				@if $layout-span == "hide" {
 					@include oGridRespondTo($layout-name) {
 						display: none;
 					}

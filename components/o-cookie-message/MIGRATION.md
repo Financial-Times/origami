@@ -42,13 +42,14 @@ To get both themes:
 The privacy policy cookie message was a temporary feature whose time is up. It
 has been completely removed in this version. If you still needed that, [contact origami](mailto:origami.support@ft.com)
 
-
 ## Migrating from v3 to v4
+
 The 4.0.0 release changes the way cookies are set for FT products. It relies on an [internal consent API](https://github.com/Financial-Times/next-consent-proxy/), and `o-cookie-message` will make a call to an endpoint within the API when consent is given.
 
 It no longer has a direct dependency on any component other than `o-banner`, which is now responsible for the construction of the cookie message.
 
 The markup has changed for the banner. When using o-cookie-message imperatively, the correct markup is:
+
 ```diff
 -<div data-o-component="o-cookie-message" class='o-cookie-message o-cookie-message--banner-centric'>
 +<div data-o-component="o-cookie-message">
@@ -56,6 +57,7 @@ The markup has changed for the banner. When using o-cookie-message imperatively,
 ```
 
 o-cookie-message events have changed to:
+
 ```diff
 -oCookieMessage.ready
 +oCookieMessage.view
@@ -63,9 +65,11 @@ o-cookie-message events have changed to:
 +oCookieMessage.act
 +oCookieMessage.close
 ```
+
 When using custom HTML, declaring `data-o-cookie-message-use-custom-html="true"` is no longer necessary.
 
 ## Migrating from v2 to v3
+
 The 3.0.0 introduces the new majors of o-colors and o-typography and a new dependency on o-normalise. Updating to this new version will mean updating any other components that you have which are using o-colors or o-typography.
 There are some design tweaks but no other breaking changes in this release.
 
@@ -89,8 +93,10 @@ The 2.0.0 release changes the default behaviour of o-cookie-message. Instead of 
 What you need now is:
 
 ```html
-<div data-o-component="o-cookie-message" class='o-cookie-message o-cookie-message--banner-centric'>
-</div>
+<div
+	data-o-component="o-cookie-message"
+	class="o-cookie-message o-cookie-message--banner-centric"
+></div>
 ```
 
 If you do not want to use the FT legal team approved cookie message (for example if you aren't running an FT site), you can opt out of it by setting the `data-o-cookie-message-use-custom-html` attribute to `"true"`. All FT sites **must** use this cookie message unless otherwise cleared by the FT's legal team.

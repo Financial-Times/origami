@@ -1,16 +1,16 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
+import proclaim from "proclaim";
 // autoinit is executed upon being imported
 // so we must import a test helper before to
 // count the times o-autoinit events are fired
-import getEventCount from './helpers/event-count.js';
-import './../main.js';
+import getEventCount from "./helpers/event-count.js";
+import "./../main.js";
 
-describe('o-autoinit', () => {
-	it('fires o.DOMContentLoaded only once by the time the page is loaded', done => {
+describe("o-autoinit", () => {
+	it("fires o.DOMContentLoaded only once by the time the page is loaded", done => {
 		const testInterval = setInterval(() => {
-			if (document.readyState === 'complete') {
+			if (document.readyState === "complete") {
 				clearInterval(testInterval);
 				try {
 					const eventCount = getEventCount();

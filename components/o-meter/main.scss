@@ -1,9 +1,9 @@
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-typography/main';
-@import 'src/scss/variables';
-@import 'src/scss/functions';
-@import 'src/scss/mixins';
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-typography/main";
+@import "src/scss/variables";
+@import "src/scss/functions";
+@import "src/scss/mixins";
 
 /// Output All oMeter Features
 @mixin oMeter() {
@@ -16,10 +16,10 @@
 		display: block;
 		width: var(--o-meter-width);
 		height: var(--o-meter-height);
-		--o-meter-background-color: #{oColorsByName('slate-white-15')};
-		--o-meter-optimum-color: #{oColorsByName('jade')};
-		--o-meter-sub-optimum-color: #{oColorsByName('mandarin')};
-		--o-meter-less-than-sub-optimum-color: #{oColorsByName('crimson')};
+		--o-meter-background-color: #{oColorsByName("slate-white-15")};
+		--o-meter-optimum-color: #{oColorsByName("jade")};
+		--o-meter-sub-optimum-color: #{oColorsByName("mandarin")};
+		--o-meter-less-than-sub-optimum-color: #{oColorsByName("crimson")};
 
 		/* Background in Firefox */
 		background: var(--o-meter-background-color);
@@ -37,22 +37,22 @@
 		@include oTypographySans($scale: -1, $line-height: 24px);
 		display: none; // we only display the value box for the browsers that support the meter tag
 		position: relative;
-		padding: 0 oSpacingByName('s1');
-		background: #{oColorsByName('black')};
-		color: #{oColorsByName('white')};
+		padding: 0 oSpacingByName("s1");
+		background: #{oColorsByName("black")};
+		color: #{oColorsByName("white")};
 		text-align: center;
 		top: 4px;
 		transform: translateX(-50%);
 
 		&::before {
-			content: '';
+			content: "";
 			transform: translateX(-50%);
 			position: absolute;
 			bottom: 100%;
 			left: 50%;
 			border: 4px solid transparent;
 			border-bottom-width: 6px;
-			border-bottom-color: #{oColorsByName('black')};
+			border-bottom-color: #{oColorsByName("black")};
 		}
 	}
 

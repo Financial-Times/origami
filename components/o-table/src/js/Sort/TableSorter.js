@@ -1,4 +1,4 @@
-import CellFormatter from './CellFormatter.js';
+import CellFormatter from "./CellFormatter.js";
 
 /**
  * Construct Intl.Collator if supported.
@@ -7,7 +7,7 @@ import CellFormatter from './CellFormatter.js';
  * @returns {Intl.Collator | undefined} The Intl.Collator object enables language-sensitive string comparison.
  */
 function getIntlCollator() {
-	if (typeof Intl !== 'undefined' && {}.hasOwnProperty.call(Intl, 'Collator')) {
+	if (typeof Intl !== "undefined" && {}.hasOwnProperty.call(Intl, "Collator")) {
 		return new Intl.Collator();
 	}
 }
@@ -23,8 +23,8 @@ function getIntlCollator() {
  */
 function ascendingSort(a, b, intlCollator) {
 	if (
-		(typeof a === 'string' || a instanceof String) &&
-		(typeof b === 'string' || b instanceof String)
+		(typeof a === "string" || a instanceof String) &&
+		(typeof b === "string" || b instanceof String)
 	) {
 		return intlCollator ? intlCollator.compare(a, b) : a.localeCompare(b);
 	} else if ((!isNaN(b) && isNaN(a)) || a < b) {
@@ -77,7 +77,7 @@ class TableSorter {
 			);
 		}
 
-		if (['ascending', 'descending'].indexOf(sortOrder) === -1) {
+		if (["ascending", "descending"].indexOf(sortOrder) === -1) {
 			throw new Error(
 				`Sort order "${sortOrder}" is not supported. Must be "ascending" or "descending".`
 			);
@@ -86,17 +86,17 @@ class TableSorter {
 		const intlCollator = getIntlCollator();
 		const cellFormatter = this._cellFormatter;
 		const type =
-			tableHeaderElement.getAttribute('data-o-table-data-type') || undefined;
+			tableHeaderElement.getAttribute("data-o-table-data-type") || undefined;
 		table.tableRows.sort((a, b) => {
-			let aCol = a.querySelectorAll('td,th:not(.o-table__duplicate-heading)')[
+			let aCol = a.querySelectorAll("td,th:not(.o-table__duplicate-heading)")[
 				columnIndex
 			];
-			let bCol = b.querySelectorAll('td,th:not(.o-table__duplicate-heading)')[
+			let bCol = b.querySelectorAll("td,th:not(.o-table__duplicate-heading)")[
 				columnIndex
 			];
-			aCol = cellFormatter.formatCell({cell: aCol, type});
-			bCol = cellFormatter.formatCell({cell: bCol, type});
-			if (sortOrder === 'ascending') {
+			aCol = cellFormatter.formatCell({ cell: aCol, type });
+			bCol = cellFormatter.formatCell({ cell: bCol, type });
+			if (sortOrder === "ascending") {
 				return ascendingSort(aCol, bCol, intlCollator);
 			} else {
 				return descendingSort(aCol, bCol, intlCollator);
@@ -115,8 +115,8 @@ class TableSorter {
 		// Update table headings.
 		window.requestAnimationFrame(() => {
 			table.tableHeaders.forEach(header => {
-				const headerSort = header === tableHeaderElement ? sortOrder : 'none';
-				header.setAttribute('aria-sort', headerSort);
+				const headerSort = header === tableHeaderElement ? sortOrder : "none";
+				header.setAttribute("aria-sort", headerSort);
 			});
 		});
 	}

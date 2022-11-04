@@ -18,11 +18,10 @@ nav_order: 15
 
 Origami components are repositories containing front end code which can be used as part of a web page. Components are intended to be reusable UI patterns or functions; examples of good use-cases for components are:
 
-  - A sortable table
-  - A cookie notice
-  - A consistent top navigation
-  - Functions to track user behaviour
-
+- A sortable table
+- A cookie notice
+- A consistent top navigation
+- Functions to track user behaviour
 
 ## Origami.json manifest
 
@@ -31,7 +30,6 @@ All Origami components **must** contain an `origami.json` file at the top of the
 <aside>
 	The <code>origamiType</code> of <code>"module"</code> is a hangover from when client-side Origami components were named "modules". It's likely to change in a later version of the specification.
 </aside>
-
 
 ## Naming conventions
 
@@ -43,14 +41,13 @@ Components **must** be named using a short descriptive term (hyphenated if neces
 
 If a component is not maintained by the Origami team, then it **may** be prefixed with a different letter than `o-`, E.g. `n-button`, `g-audio`. This practice is discouraged, it's preferred that authors specify a support contact other than Origami in the component manifest.
 
-
 ## Files and folder structure
 
 Origami components **must** include the following files:
 
-  - `main.js` **_if_** the component has JavaScript functionality
-  - `main.scss` **_if_** the component has styles
-  - `origami.json` as outlined in [Origami.json manifest](#origamijson-manifest) above
+- `main.js` **_if_** the component has JavaScript functionality
+- `main.scss` **_if_** the component has styles
+- `origami.json` as outlined in [Origami.json manifest](#origamijson-manifest) above
 
 _The rest of this section is non-normative._
 
@@ -77,7 +74,6 @@ A component's folder structure **may** be organised as follows. The following is
 └── package.json</code>
 </pre>
 
-
 ## Package management
 
 Origami components **must** be installable through at least one package manager (individual package managers detailed below).
@@ -95,19 +91,19 @@ Origami components **must** be installable through the <a href="https://bower.io
 
 As well as following the <a href="https://github.com/bower/spec/blob/master/json.md">`bower.json` specification</a>, there are additional requirements to make the component's Bower manifest conform to the Origami specification:
 
-  - It **must** include a `name` property set to the repository name, e.g. `o-typography`
-  - It **must** include a `main` property set to an array which **must**:
-    - reference the component's main JavaScript file (`main.js`) **_if_** it exists
-    - reference the component's main Sass file (`main.scss`) **_if_** it exists
-  - It **must** include a `dependencies` property set to an object **_if_** the component has any Origami dependencies. Each key/value pair **must**:
-    - reference a semver range and **not** a Git repository or URL
-    - **not** reference an unstable or beta version of a dependency
-  - It **must** include an `ignore` property set to an array, which **must**:
-    - include all files and directories in the component that are not required by consumers (see [ignored files](#bower-ignored-files) for an example configuration)
-    - **not** contain the files: `origami.json`, `README.md`, and files required to build demos
-  - It **must not** include a `version` property. This is not needed and risks being out of sync with the repository's git tags
-  - It **may** contain a `description` property set to a short description of the component
-  - It **should not** contain any additional properties
+- It **must** include a `name` property set to the repository name, e.g. `o-typography`
+- It **must** include a `main` property set to an array which **must**:
+  - reference the component's main JavaScript file (`main.js`) **_if_** it exists
+  - reference the component's main Sass file (`main.scss`) **_if_** it exists
+- It **must** include a `dependencies` property set to an object **_if_** the component has any Origami dependencies. Each key/value pair **must**:
+  - reference a semver range and **not** a Git repository or URL
+  - **not** reference an unstable or beta version of a dependency
+- It **must** include an `ignore` property set to an array, which **must**:
+  - include all files and directories in the component that are not required by consumers (see [ignored files](#bower-ignored-files) for an example configuration)
+  - **not** contain the files: `origami.json`, `README.md`, and files required to build demos
+- It **must not** include a `version` property. This is not needed and risks being out of sync with the repository's git tags
+- It **may** contain a `description` property set to a short description of the component
+- It **should not** contain any additional properties
 
 #### Bower ignored files
 
@@ -127,12 +123,11 @@ The following is the list of ignored files in most component Bower configuration
 
 Origami components **may** include a `package.json` manifest. As well as following the <a href="https://docs.npmjs.com/files/package.json">`package.json` specification</a>, there are additional requirements to make the component's npm manifest conform to the Origami specification:
 
-  - It **must not** include any of the following properties: `bin`, `bugs`, `config`, `cpu`, `dependencies` (as this would indicate that the manifest is required for consumption of the component), `engines`, `engineStrict`, `files`, `main`, `os`, `preferGlobal`, `publishConfig`
-  - It **must not** include a `version` property
-  - It **must** include a `devDependencies` property set to an object **_if_** the component has any npm dependencies required for development or testing
-  - It **should** include a `private` property set to `true`
-  - It **may** include any other standard npm-defined property
-
+- It **must not** include any of the following properties: `bin`, `bugs`, `config`, `cpu`, `dependencies` (as this would indicate that the manifest is required for consumption of the component), `engines`, `engineStrict`, `files`, `main`, `os`, `preferGlobal`, `publishConfig`
+- It **must not** include a `version` property
+- It **must** include a `devDependencies` property set to an object **_if_** the component has any npm dependencies required for development or testing
+- It **should** include a `private` property set to `true`
+- It **may** include any other standard npm-defined property
 
 ### Specifying dependencies
 
@@ -146,9 +141,9 @@ Dependencies used in a component **must** be added explicitly to the package man
 
 When listing dependencies in your `bower.json` manifest, the <a href="https://semver.org/">SemVer</a> range that you specify:
 
-  - **must** be specified in a way that allows `MINOR` and `PATCH` to automatically update. This is normally achieved by using the caret (`^`) operator
-  - **must** be greater than or equal to `1.0.0`
-  - **must not** contain a SemVer prerelease suffix, e.g. `1.0.0-beta`
+- **must** be specified in a way that allows `MINOR` and `PATCH` to automatically update. This is normally achieved by using the caret (`^`) operator
+- **must** be greater than or equal to `1.0.0`
+- **must not** contain a SemVer prerelease suffix, e.g. `1.0.0-beta`
 
 (See the example for clarification).
 
@@ -161,14 +156,13 @@ When an Origami component is a dependency of many other Origami components, it *
 
 <aside>If you want to understand more about how a SemVer expression matches specific versions, try <a href="https://semver.npmjs.com/">npm's SemVer calculator</a>.</aside>
 
-
 ## Source control
 
 Origami component code **must** reside in a Git repository which has the same name as the component ([see naming conventions](#naming-conventions)). This repository **must** be stored remotely under one of the following GitHub organisations:
 
-  - <a href="https://github.com/Financial-Times">Financial-Times</a>
-  - <a href="https://github.com/ft-interactive">FT-Interactive</a>
-  - <a href="https://github.com/ftlabs">FTLabs</a>
+- <a href="https://github.com/Financial-Times">Financial-Times</a>
+- <a href="https://github.com/ft-interactive">FT-Interactive</a>
+- <a href="https://github.com/ftlabs">FTLabs</a>
 
 Component repositories **should** be public by default, however they **may** be private if there is a compelling reason, e.g. to comply with a font license in the case of `o-fonts-assets`.
 
@@ -194,7 +188,7 @@ See the [Origami javascript specification](/specification/v1/components/javascri
 
 Origami components **may** load additional files (fonts, JSON data, images etc) from their own source. To do so safely, components **must** resolve file paths using the <a href="https://github.com/Financial-Times/o-assets">Origami assets module</a>:
 
-Without any explicit configuration, `o-assets` will assume, as we do for sub-resources in Sass, that the components are installed publicly at a URL path of `/bower_components` on the current host, and will form URLs on that basis.  Product developers are advised to reconfigure `o-assets` to accommodate their own server-side URL routing architecture.
+Without any explicit configuration, `o-assets` will assume, as we do for sub-resources in Sass, that the components are installed publicly at a URL path of `/bower_components` on the current host, and will form URLs on that basis. Product developers are advised to reconfigure `o-assets` to accommodate their own server-side URL routing architecture.
 
 Where external resources are not within Origami components, a <a href="https://www.paulirish.com/2010/the-protocol-relative-url/">protocol-relative</a> URL **must** be used (see <a href="https://github.com/Financial-Times/ft-origami/issues/173">issue 173</a>.
 
@@ -218,7 +212,6 @@ All components **must** be tested with all the browsers listed in the <a href="/
 
 The versions tested **should** be listed in the component’s documentation, so that when boundary recommendations are changed, it is still possible to determine the support that was designed into an older component.
 
-
 ## Documentation
 
 ### Github Repo
@@ -228,6 +221,7 @@ If the repository is hosted on GitHub, the Github “Website” URL **should** b
 ### README
 
 A component **should** include a `README.md` in the root of the component's codebase. The README **should**:
+
 - Include a single-line description of what the component does.
 - Give examples detailing the most common use cases.
 - Provide the licence, which **should** conform to the <a href="https://docs.google.com/document/d/1pI-qI3BrO5edFYdHcoDCH9wVbfbFvroclxSEtkXwpCw">open source release policy</a>.
@@ -251,16 +245,19 @@ All components **must** be tested with all the browsers listed in the [FT browse
 Component authors **should** provide component demos, which **must** be [defined in origami.json](/specification/v1/manifest/#demos) and built with <a href="https://www.npmjs.com/package/origami-build-tools">Origami Build Tools</a>.
 
 When deciding what demos to create, demos:
+
 - **Must** be based on realistic use cases.
 - **Should** be visually different from one another.
 - **Should not** be used to explain configuration and implementation differences, these should be explained in the component’s README.
 
 When building demos, they:
+
 - **Must** have a description explaining what they show ([see origami.json](/specification/v1/manifest/#demos)).
 - **Should** be reproducible using the [Origami Build Service](/documentation/services/#build-service) by copying the demo markup.
 - **Should not** include more than necessary to demonstrate the component, including: any headings, backgrounds, margins or other content that are not part of the component itself.
 
 Where styles need to be added specifically for a demo (e.g. to make the content of o-grid containers visible), they **must** be attached to classes with a `demo-` prefix, for example:
+
 ```
 .demo-cell {
   background-color: red;
@@ -297,7 +294,7 @@ When new versions of components are released, updates **may** be needed to other
 ### Component Feature Deprecation
 
 - Deprecated code **should** go into a private deprecated file, or, if there’s an abundance of deprecated code, to a directory called `deprecated`. This way, it will be much easier to work with the new code while maintaining legacy code. It will also be easier to delete when making a major release.
-- If separating deprecated code into its own `deprecated` file or directory is not pragmatic, modified code **must** be appended and prepended with a comment which begins ```@deprecated```, followed by text which describes the deprecation.
+- If separating deprecated code into its own `deprecated` file or directory is not pragmatic, modified code **must** be appended and prepended with a comment which begins `@deprecated`, followed by text which describes the deprecation.
 - Deprecated functions and mixins **should** log a warning stating that they are now deprecated and offering an alternative when there is one. This warning **may** also be added to the README.
 - An issue with label `type: breaking` **must** be created as a reminder to remove deprecated code upon a future major release.
 

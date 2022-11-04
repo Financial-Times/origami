@@ -1,26 +1,26 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import * as sandbox from './helpers/sandbox.js';
-import * as fixtures from './helpers/fixtures.js';
-import BaseTable from './../src/js/Tables/BaseTable.js';
-import TableSorter from './../src/js/Sort/TableSorter.js';
+import * as sandbox from "./helpers/sandbox.js";
+import * as fixtures from "./helpers/fixtures.js";
+import BaseTable from "./../src/js/Tables/BaseTable.js";
+import TableSorter from "./../src/js/Sort/TableSorter.js";
 const sorter = new TableSorter();
 
-describe('BaseTable', () => {
+describe("BaseTable", () => {
 	let oTableEl;
 	let table;
 
 	function getTableElementWithData(type, dataArray, tableId) {
 		const markup = fixtures.getTableMarkupFor(type, dataArray, tableId);
 		sandbox.setContents(markup);
-		return document.querySelector('[data-o-component=o-table]');
+		return document.querySelector("[data-o-component=o-table]");
 	}
 
 	function assertFilter(data, expectedData) {
-		const tbody = oTableEl.querySelector('tbody');
+		const tbody = oTableEl.querySelector("tbody");
 		const filterdRows = tbody.querySelectorAll('tr[aria-hidden="true"]');
 		const visibleRows = tbody.querySelectorAll('tr[aria-hidden="false"]');
 		const expectedFiltered = data.length - expectedData.length;
@@ -36,15 +36,15 @@ describe('BaseTable', () => {
 			`Expected ${expectedVisible} visible rows but found ${visibleRows.length}.`
 		);
 		proclaim.isTrue(
-			table.wrapper.style.height !== '',
+			table.wrapper.style.height !== "",
 			`Expect the table to have a set height on its parent container to hide rows visually.`
 		);
 	}
 
 	const click = element => {
-		const click = document.createEvent('MouseEvent');
+		const click = document.createEvent("MouseEvent");
 		click.initMouseEvent(
-			'click',
+			"click",
 			true,
 			true,
 			window,
@@ -71,18 +71,18 @@ describe('BaseTable', () => {
 		sinon.restore();
 	});
 
-	describe('constructor', () => {
-		it('applies declarative table filters', done => {
+	describe("constructor", () => {
+		it("applies declarative table filters", done => {
 			// Setup markup: Table + filter input.
 			const data = [
-				'Dragonfruit',
-				'Durian',
-				'Naseberry',
-				'Strawberry',
-				'Apple',
+				"Dragonfruit",
+				"Durian",
+				"Naseberry",
+				"Strawberry",
+				"Apple",
 			];
-			const tableId = 'constructor-test-table';
-			oTableEl = getTableElementWithData('', data, tableId);
+			const tableId = "constructor-test-table";
+			oTableEl = getTableElementWithData("", data, tableId);
 			sandbox.addContents(`
 				<select
 					id="filter-input"
@@ -99,7 +99,7 @@ describe('BaseTable', () => {
 			// Confirm default filter (set declaratively).
 			setTimeout(() => {
 				try {
-					assertFilter(data, ['Naseberry']);
+					assertFilter(data, ["Naseberry"]);
 					done();
 				} catch (error) {
 					done(error);
@@ -108,102 +108,102 @@ describe('BaseTable', () => {
 		});
 	});
 
-	describe('filter', () => {
-		describe('given a string filter', () => {
-			it('is case insensitive', done => {
+	describe("filter", () => {
+		describe("given a string filter", () => {
+			it("is case insensitive", done => {
 				const data = [
-					'Dragonfruit',
-					'Durian',
-					'Naseberry',
-					'Strawberry',
-					'Apple',
+					"Dragonfruit",
+					"Durian",
+					"Naseberry",
+					"Strawberry",
+					"Apple",
 				];
-				oTableEl = getTableElementWithData('', data);
+				oTableEl = getTableElementWithData("", data);
 				table = new BaseTable(oTableEl, sorter);
-				table.filter(0, 'dragonfruit');
+				table.filter(0, "dragonfruit");
 				setTimeout(() => {
 					try {
-						assertFilter(data, ['Dragonfruit']);
+						assertFilter(data, ["Dragonfruit"]);
 						done();
 					} catch (error) {
 						done(error);
 					}
 				}, 100); // wait for window.requestAnimationFrame
 			});
-			it('is whitespace insensitive', done => {
+			it("is whitespace insensitive", done => {
 				const data = [
-					'       Dragon fruit       ',
-					'Durian',
-					'Naseberry',
-					'Strawberry',
-					'Apple',
+					"       Dragon fruit       ",
+					"Durian",
+					"Naseberry",
+					"Strawberry",
+					"Apple",
 				];
-				oTableEl = getTableElementWithData('', data);
+				oTableEl = getTableElementWithData("", data);
 				table = new BaseTable(oTableEl, sorter);
-				table.filter(0, 'Dragonfruit');
+				table.filter(0, "Dragonfruit");
 				setTimeout(() => {
 					try {
-						assertFilter(data, ['Dragonfruit']);
+						assertFilter(data, ["Dragonfruit"]);
 						done();
 					} catch (error) {
 						done(error);
 					}
 				}, 100); // wait for window.requestAnimationFrame
 			});
-			it('ignores special characters', done => {
+			it("ignores special characters", done => {
 				const data = [
-					'Dragonfruit',
-					'Durian*',
-					'Naseberry',
-					'Strawberry',
-					'Apple',
+					"Dragonfruit",
+					"Durian*",
+					"Naseberry",
+					"Strawberry",
+					"Apple",
 				];
-				oTableEl = getTableElementWithData('', data);
+				oTableEl = getTableElementWithData("", data);
 				table = new BaseTable(oTableEl, sorter);
-				table.filter(0, 'Durian');
+				table.filter(0, "Durian");
 				setTimeout(() => {
 					try {
-						assertFilter(data, ['Durian']);
+						assertFilter(data, ["Durian"]);
 						done();
 					} catch (error) {
 						done(error);
 					}
 				}, 100); // wait for window.requestAnimationFrame
 			});
-			it('ignores non-breaking space characters', done => {
+			it("ignores non-breaking space characters", done => {
 				const data = [
-					'Dragonfruit',
-					'Dur ian',
-					'Naseberry',
-					'Strawberry',
-					'Apple',
+					"Dragonfruit",
+					"Dur ian",
+					"Naseberry",
+					"Strawberry",
+					"Apple",
 				];
-				oTableEl = getTableElementWithData('', data);
+				oTableEl = getTableElementWithData("", data);
 				table = new BaseTable(oTableEl, sorter);
-				table.filter(0, 'Durian');
+				table.filter(0, "Durian");
 				setTimeout(() => {
 					try {
-						assertFilter(data, ['Durian']);
+						assertFilter(data, ["Durian"]);
 						done();
 					} catch (error) {
 						done(error);
 					}
 				}, 100); // wait for window.requestAnimationFrame
 			});
-			it('filters on a partial match', done => {
+			it("filters on a partial match", done => {
 				const data = [
-					'Dragonfruit',
-					'Durian',
-					'Naseberry',
-					'Strawberry',
-					'Apple',
+					"Dragonfruit",
+					"Durian",
+					"Naseberry",
+					"Strawberry",
+					"Apple",
 				];
-				oTableEl = getTableElementWithData('', data);
+				oTableEl = getTableElementWithData("", data);
 				table = new BaseTable(oTableEl, sorter);
-				table.filter(0, 'berry');
+				table.filter(0, "berry");
 				setTimeout(() => {
 					try {
-						assertFilter(data, ['Naseberry', 'Strawberry']);
+						assertFilter(data, ["Naseberry", "Strawberry"]);
 						done();
 					} catch (error) {
 						done(error);
@@ -212,10 +212,10 @@ describe('BaseTable', () => {
 			});
 		});
 
-		describe('given a function', () => {
-			it('keeps rows where the return value is true', done => {
+		describe("given a function", () => {
+			it("keeps rows where the return value is true", done => {
 				const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-				oTableEl = getTableElementWithData('', data);
+				oTableEl = getTableElementWithData("", data);
 				table = new BaseTable(oTableEl, sorter);
 				table.filter(0, cell => {
 					return parseInt(cell.textContent, 10) > 3;
@@ -230,16 +230,16 @@ describe('BaseTable', () => {
 				}, 100); // wait for window.requestAnimationFrame
 			});
 
-			it('filters rows where the return value is false', done => {
-				const data = ['a', 'b', 'aa', 'bb'];
-				oTableEl = getTableElementWithData('', data);
+			it("filters rows where the return value is false", done => {
+				const data = ["a", "b", "aa", "bb"];
+				oTableEl = getTableElementWithData("", data);
 				table = new BaseTable(oTableEl, sorter);
 				table.filter(0, cell => {
-					return cell.textContent === 'a';
+					return cell.textContent === "a";
 				});
 				setTimeout(() => {
 					try {
-						assertFilter(data, ['a']);
+						assertFilter(data, ["a"]);
 						done();
 					} catch (error) {
 						done(error);
@@ -249,36 +249,36 @@ describe('BaseTable', () => {
 		});
 	});
 
-	describe('addSortButtons', () => {
+	describe("addSortButtons", () => {
 		beforeEach(() => {
 			sandbox.init();
 			sandbox.setContents(fixtures.shortTableWithContainer);
-			oTableEl = document.querySelector('[data-o-component=o-table]');
+			oTableEl = document.querySelector("[data-o-component=o-table]");
 			table = new BaseTable(oTableEl, sorter);
 			self.console.warn = sinon.spy();
 		});
 
-		it('adds buttons in the table column headers', done => {
+		it("adds buttons in the table column headers", done => {
 			table.addSortButtons();
 			setTimeout(() => {
 				try {
-					const thead = oTableEl.querySelector('thead');
-					const sortButtons = thead.querySelectorAll('button');
+					const thead = oTableEl.querySelector("thead");
+					const sortButtons = thead.querySelectorAll("button");
 					proclaim.equal(
 						sortButtons.length,
 						5,
-						'Expected 5 buttons, 1 within each of the 5 column headers.'
+						"Expected 5 buttons, 1 within each of the 5 column headers."
 					);
 					sortButtons.forEach(button => {
 						proclaim.include(
-							button.getAttribute('title'),
-							'sort',
+							button.getAttribute("title"),
+							"sort",
 							'Expected each header sort button to have a "title" which indicates sort. "title" is currently used over "aria-label" as "aria-label" is read in VoiceOver when moving across columns of the body.'
 						);
 						proclaim.notEqual(
 							button.textContent,
-							'',
-							'Expected each header sort button to have content.'
+							"",
+							"Expected each header sort button to have content."
 						);
 					});
 				} catch (error) {
@@ -289,27 +289,27 @@ describe('BaseTable', () => {
 			}, 100);
 		});
 
-		it('maintains heading phrasing content within generated sort buttons', done => {
+		it("maintains heading phrasing content within generated sort buttons", done => {
 			// https://html.spec.whatwg.org/#the-button-element
 			sandbox.init();
 			sandbox.setContents(fixtures.tableWithContainerAndComplexHeadings);
-			oTableEl = document.querySelector('[data-o-component=o-table]');
+			oTableEl = document.querySelector("[data-o-component=o-table]");
 			table = new BaseTable(oTableEl, sorter);
 			table.addSortButtons();
 
 			setTimeout(() => {
 				try {
-					const thead = oTableEl.querySelector('thead');
-					const sortButtons = thead.querySelectorAll('button');
+					const thead = oTableEl.querySelector("thead");
+					const sortButtons = thead.querySelectorAll("button");
 					// `abbr` has been maintained
 					proclaim.equal(
 						sortButtons[0].innerHTML,
 						'<abbr title="Fruit">F</abbr>'
 					);
 					// `b` has been maintained
-					proclaim.equal(sortButtons[1].innerHTML, '<b>Genus</b>');
+					proclaim.equal(sortButtons[1].innerHTML, "<b>Genus</b>");
 					// `div` has been removed
-					proclaim.equal(sortButtons[2].innerHTML, 'Characteristic');
+					proclaim.equal(sortButtons[2].innerHTML, "Characteristic");
 				} catch (error) {
 					done(error);
 				} finally {
@@ -319,26 +319,26 @@ describe('BaseTable', () => {
 		});
 
 		it('does not add sort button to column header with attribute "data-o-table-heading-disable-sort"', done => {
-			const thead = oTableEl.querySelector('thead');
+			const thead = oTableEl.querySelector("thead");
 			// Disable sort on first column.
-			const firstColumnHeading = thead.querySelector('th');
+			const firstColumnHeading = thead.querySelector("th");
 			firstColumnHeading.setAttribute(
-				'data-o-table-heading-disable-sort',
+				"data-o-table-heading-disable-sort",
 				true
 			);
 			// Add buttons.
 			table.addSortButtons();
 			setTimeout(() => {
 				try {
-					const sortButtons = thead.querySelectorAll('button');
+					const sortButtons = thead.querySelectorAll("button");
 					proclaim.isNull(
-						firstColumnHeading.querySelector('button'),
-						'Found a sort button within a column heading with sort disabled.'
+						firstColumnHeading.querySelector("button"),
+						"Found a sort button within a column heading with sort disabled."
 					);
 					proclaim.equal(
 						sortButtons.length,
 						4,
-						'Expected 4 buttons, 1 within each of the 5 column headers except for the first column which has sort disabled.'
+						"Expected 4 buttons, 1 within each of the 5 column headers except for the first column which has sort disabled."
 					);
 				} catch (error) {
 					done(error);
@@ -350,18 +350,18 @@ describe('BaseTable', () => {
 
 		it('does not add any sort button to column headers when table has "data-o-table-sortable" set to false', done => {
 			// Disable sort.
-			oTableEl.setAttribute('data-o-table-sortable', false);
+			oTableEl.setAttribute("data-o-table-sortable", false);
 			// Try to add sort buttons.
 			table = new BaseTable(oTableEl, sorter); // re-init table now data att is set
 			table.addSortButtons();
 			setTimeout(() => {
 				try {
-					const thead = oTableEl.querySelector('thead');
-					const sortButtons = thead.querySelectorAll('button');
+					const thead = oTableEl.querySelector("thead");
+					const sortButtons = thead.querySelectorAll("button");
 					proclaim.equal(
 						sortButtons.length,
 						0,
-						'Expected to find no sort buttons when table has been set to non-sortable.'
+						"Expected to find no sort buttons when table has been set to non-sortable."
 					);
 				} catch (error) {
 					done(error);
@@ -371,21 +371,21 @@ describe('BaseTable', () => {
 			}, 100);
 		});
 
-		it('buttons toggle column sort with header button click (ascending first)', done => {
-			const sorterSpy = sinon.spy(sorter, 'sortRowsByColumn');
+		it("buttons toggle column sort with header button click (ascending first)", done => {
+			const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
 			table.addSortButtons();
-			const buttonQuery = 'thead th button';
+			const buttonQuery = "thead th button";
 			setTimeout(() => {
 				const button = oTableEl.querySelector(buttonQuery);
 				proclaim.include(
-					button.getAttribute('title'),
-					'ascending',
+					button.getAttribute("title"),
+					"ascending",
 					'Expected the sort button to describe the next sort "ascending".'
 				);
 				try {
 					click(buttonQuery);
 					proclaim.isTrue(
-						sorterSpy.calledWith(table, 0, 'ascending'),
+						sorterSpy.calledWith(table, 0, "ascending"),
 						'Expected the table to be sorted "ascending" on first click of the header button.'
 					);
 				} catch (error) {
@@ -394,14 +394,14 @@ describe('BaseTable', () => {
 				}
 				setTimeout(() => {
 					proclaim.include(
-						button.getAttribute('title'),
-						'descending',
+						button.getAttribute("title"),
+						"descending",
 						'Expected the sort button to describe the next sort "descending".'
 					);
 					try {
 						click(buttonQuery);
 						proclaim.isTrue(
-							sorterSpy.calledWith(table, 0, 'descending'),
+							sorterSpy.calledWith(table, 0, "descending"),
 							'Expected the table to be sorted "descending" on second click of the header button.'
 						);
 					} catch (error) {
@@ -415,22 +415,22 @@ describe('BaseTable', () => {
 			}, 100);
 		});
 
-		it('buttons toggle column sort by preferred sort order with header button click (descending first)', done => {
+		it("buttons toggle column sort by preferred sort order with header button click (descending first)", done => {
 			// Set preferred sort order on first column.
 			sandbox.init();
 			sandbox.setContents(fixtures.shortTableWithContainer);
-			oTableEl = document.querySelector('[data-o-component=o-table]');
-			oTableEl.setAttribute('data-o-table-preferred-sort-order', 'descending');
+			oTableEl = document.querySelector("[data-o-component=o-table]");
+			oTableEl.setAttribute("data-o-table-preferred-sort-order", "descending");
 			table = new BaseTable(oTableEl, sorter);
 			// Add sort buttons
 			table.addSortButtons();
 			// Test sort order on click
-			const sorterSpy = sinon.spy(sorter, 'sortRowsByColumn');
+			const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
 			setTimeout(() => {
 				try {
-					click('thead th button');
+					click("thead th button");
 					proclaim.isTrue(
-						sorterSpy.calledWith(table, 0, 'descending'),
+						sorterSpy.calledWith(table, 0, "descending"),
 						'Expected the table to be sorted "descending" on first click of the header button, given a descending preferred sort order.'
 					);
 				} catch (error) {
@@ -439,9 +439,9 @@ describe('BaseTable', () => {
 				}
 				setTimeout(() => {
 					try {
-						click('thead th button');
+						click("thead th button");
 						proclaim.isTrue(
-							sorterSpy.calledWith(table, 0, 'ascending'),
+							sorterSpy.calledWith(table, 0, "ascending"),
 							'Expected the table to be sorted "ascending" on second click of the header button, given a descending preferred sort order.'
 						);
 					} catch (error) {
@@ -456,80 +456,80 @@ describe('BaseTable', () => {
 		});
 	});
 
-	describe('sortRowsByColumn', () => {
+	describe("sortRowsByColumn", () => {
 		beforeEach(() => {
 			sandbox.init();
 			sandbox.setContents(fixtures.shortTableWithContainer);
-			oTableEl = document.querySelector('[data-o-component=o-table]');
+			oTableEl = document.querySelector("[data-o-component=o-table]");
 			table = new BaseTable(oTableEl, sorter);
 		});
 
-		it('sorts a given column in descending order', () => {
+		it("sorts a given column in descending order", () => {
 			const columnIndex = 1;
-			const sortOrder = 'descending';
-			const sorterSpy = sinon.spy(sorter, 'sortRowsByColumn');
+			const sortOrder = "descending";
+			const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
 			table.sortRowsByColumn(columnIndex, sortOrder);
 			proclaim.isTrue(sorterSpy.calledWith(table, columnIndex, sortOrder));
 			sorterSpy.restore();
 		});
 
-		it('sorts a given column in ascending order', () => {
+		it("sorts a given column in ascending order", () => {
 			const columnIndex = 1;
-			const sortOrder = 'ascending';
-			const sorterSpy = sinon.spy(sorter, 'sortRowsByColumn');
+			const sortOrder = "ascending";
+			const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
 			table.sortRowsByColumn(columnIndex, sortOrder);
 			proclaim.isTrue(sorterSpy.calledWith(table, columnIndex, sortOrder));
 			sorterSpy.restore();
 		});
 
-		it('can be intercepted using the `oTable.sorting` event for a custom sort implementation', () => {
+		it("can be intercepted using the `oTable.sorting` event for a custom sort implementation", () => {
 			// Prevent sorting for custom implementation.
-			oTableEl.addEventListener('oTable.sorting', event => {
+			oTableEl.addEventListener("oTable.sorting", event => {
 				event.preventDefault();
 			});
 			// Check sort is intercepted performed.
-			const sorterSpy = sinon.spy(sorter, 'sortRowsByColumn');
-			table.sortRowsByColumn(0, 'ascending');
-			proclaim.isTrue(sorterSpy.notCalled, 'Default table sorter was called.');
+			const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
+			table.sortRowsByColumn(0, "ascending");
+			proclaim.isTrue(sorterSpy.notCalled, "Default table sorter was called.");
 			sorterSpy.restore();
 		});
 
-		it('errors if no column index is provided', () => {
+		it("errors if no column index is provided", () => {
 			proclaim.throws(() => {
-				table.sortRowsByColumn(undefined, 'descending');
+				table.sortRowsByColumn(undefined, "descending");
 			}, /Could not find header for column index/);
 		});
 
-		it('errors if an invalid column index is provided', () => {
+		it("errors if an invalid column index is provided", () => {
 			proclaim.throws(() => {
-				table.sortRowsByColumn('not a column index', 'descending');
+				table.sortRowsByColumn("not a column index", "descending");
 			}, /Could not find header for column index/);
 		});
 
-		it('errors if no sort order is provided', () => {
+		it("errors if no sort order is provided", () => {
 			proclaim.throws(() => {
 				table.sortRowsByColumn(1, undefined);
 			}, /Sort order/);
 		});
 
-		it('errors if an invalid sort order is provided', () => {
+		it("errors if an invalid sort order is provided", () => {
 			proclaim.throws(() => {
-				table.sortRowsByColumn(1, 'not a sort order');
+				table.sortRowsByColumn(1, "not a sort order");
 			}, /Sort order/);
 		});
 	});
 
-	describe('getTableHeader', () => {
+	describe("getTableHeader", () => {
 		beforeEach(() => {
 			sandbox.init();
 			sandbox.setContents(fixtures.shortTableWithContainer);
-			oTableEl = document.querySelector('[data-o-component=o-table]');
+			oTableEl = document.querySelector("[data-o-component=o-table]");
 			table = new BaseTable(oTableEl, sorter);
 		});
 
-		it('gets a th element for a given column index', () => {
-			const thead = oTableEl.querySelector('thead');
-			const tableHeaders = thead.querySelectorAll('th');
+		it("gets a th element for a given column index", () => {
+			const thead = oTableEl.querySelector("thead");
+			const tableHeaders = thead.querySelectorAll("th");
 			tableHeaders.forEach((expectedHeader, index) => {
 				const actualHeader = table.getTableHeader(index);
 				proclaim.equal(
@@ -539,31 +539,31 @@ describe('BaseTable', () => {
 				);
 			});
 		});
-		it('errors when getting a th element for a non-existent column', () => {
+		it("errors when getting a th element for a non-existent column", () => {
 			proclaim.throws(() => {
 				table.getTableHeader(1001);
 			}, /Could not find header for column index/);
 		});
 	});
 
-	describe('sorted', () => {
+	describe("sorted", () => {
 		beforeEach(() => {
 			sandbox.init();
 			sandbox.setContents(fixtures.shortTableWithContainer);
-			oTableEl = document.querySelector('[data-o-component=o-table]');
+			oTableEl = document.querySelector("[data-o-component=o-table]");
 			table = new BaseTable(oTableEl, sorter);
 		});
 
-		it('fires the oTable.sorted event with column index and sort order', done => {
+		it("fires the oTable.sorted event with column index and sort order", done => {
 			const columnIndex = 1;
-			const sortOrder = 'ascending';
+			const sortOrder = "ascending";
 			// Expecting a sorted event.
-			document.addEventListener('oTable.sorted', function sorted(event) {
+			document.addEventListener("oTable.sorted", function sorted(event) {
 				try {
 					proclaim.equal(
 						event.detail.instance,
 						table,
-						'Expected event detail to include the o-table instance which fired the event.'
+						"Expected event detail to include the o-table instance which fired the event."
 					);
 					proclaim.equal(
 						event.detail.sortOrder,
@@ -576,54 +576,54 @@ describe('BaseTable', () => {
 						`Expected event detail to include the column index.`
 					);
 					done();
-					document.removeEventListener('oTable.sorted', sorted);
+					document.removeEventListener("oTable.sorted", sorted);
 				} catch (error) {
 					done(error);
 				}
 			});
 			try {
-				table.sorted({columnIndex, sortOrder});
+				table.sorted({ columnIndex, sortOrder });
 			} catch (error) {
 				done(error);
 			}
 		});
 
-		it('errors if no column index is provided', () => {
+		it("errors if no column index is provided", () => {
 			const columnIndex = undefined;
-			const sortOrder = 'ascending';
+			const sortOrder = "ascending";
 			proclaim.throws(() => {
-				table.sorted({columnIndex, sortOrder});
+				table.sorted({ columnIndex, sortOrder });
 			}, /column index/);
 		});
 
-		it('errors if no sort order is provided', () => {
+		it("errors if no sort order is provided", () => {
 			const columnIndex = 1;
 			const sortOrder = undefined;
 			proclaim.throws(() => {
-				table.sorted({columnIndex, sortOrder});
+				table.sorted({ columnIndex, sortOrder });
 			}, /sort order/);
 		});
 	});
 
-	describe('updateRows', () => {
+	describe("updateRows", () => {
 		const headerIndex = 0;
-		const sortOrder = 'descending';
+		const sortOrder = "descending";
 		let data;
 		beforeEach(() => {
-			data = ['Apple', 'Durian', 'Naseberry', 'Strawberry', 'Dragonfruit'];
+			data = ["Apple", "Durian", "Naseberry", "Strawberry", "Dragonfruit"];
 			sandbox.init();
 			// Create table.
-			oTableEl = getTableElementWithData('', data);
+			oTableEl = getTableElementWithData("", data);
 		});
 
-		describe('when a row has been added', () => {
+		describe("when a row has been added", () => {
 			let cloneData;
 			beforeEach(done => {
 				// Clone the first "Apple" row.
 				cloneData = data[0];
 				const trClone = oTableEl
-					.querySelector('tbody > tr:first-of-type')
-					.cloneNode({deep: true});
+					.querySelector("tbody > tr:first-of-type")
+					.cloneNode({ deep: true });
 				table = new BaseTable(oTableEl, sorter);
 				// Sort.
 				table.sortRowsByColumn(headerIndex, sortOrder);
@@ -638,7 +638,7 @@ describe('BaseTable', () => {
 				}, 100); // wait for window.requestAnimationFrame
 			});
 
-			it('applies an existing filter', done => {
+			it("applies an existing filter", done => {
 				table.updateRows();
 				setTimeout(() => {
 					// The filter includes the original Apple row and the clone
@@ -648,8 +648,8 @@ describe('BaseTable', () => {
 				}, 100); // wait for window.requestAnimationFrame
 			});
 
-			it('applies an existing sort', done => {
-				const sorterSpy = sinon.spy(sorter, 'sortRowsByColumn');
+			it("applies an existing sort", done => {
+				const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
 				table.updateRows();
 				setTimeout(() => {
 					done(
@@ -659,7 +659,7 @@ describe('BaseTable', () => {
 			});
 		});
 
-		describe('when a row has been removed', () => {
+		describe("when a row has been removed", () => {
 			beforeEach(done => {
 				const index = 0;
 				const row = oTableEl.querySelector(
@@ -678,7 +678,7 @@ describe('BaseTable', () => {
 				}, 100); // wait for window.requestAnimationFrame
 			});
 
-			it('applies an existing filter', done => {
+			it("applies an existing filter", done => {
 				table.updateRows();
 				setTimeout(() => {
 					assertFilter(data, []); // We removed the only result.
@@ -686,8 +686,8 @@ describe('BaseTable', () => {
 				}, 100); // wait for window.requestAnimationFrame
 			});
 
-			it('applies an existing sort', done => {
-				const sorterSpy = sinon.spy(sorter, 'sortRowsByColumn');
+			it("applies an existing sort", done => {
+				const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
 				table.updateRows();
 				setTimeout(() => {
 					done(
@@ -697,8 +697,8 @@ describe('BaseTable', () => {
 			});
 		});
 
-		describe('when a row has updated data', () => {
-			const newCellContent = 'New Fruit';
+		describe("when a row has updated data", () => {
+			const newCellContent = "New Fruit";
 			beforeEach(done => {
 				const index = 0;
 				const cell = oTableEl.querySelector(
@@ -718,7 +718,7 @@ describe('BaseTable', () => {
 				}, 100); // wait for window.requestAnimationFrame
 			});
 
-			it('applies an existing filter', done => {
+			it("applies an existing filter", done => {
 				table.updateRows();
 				setTimeout(() => {
 					assertFilter(data, [newCellContent]);
@@ -726,8 +726,8 @@ describe('BaseTable', () => {
 				}, 100); // wait for window.requestAnimationFrame
 			});
 
-			it('applies an existing sort', done => {
-				const sorterSpy = sinon.spy(sorter, 'sortRowsByColumn');
+			it("applies an existing sort", done => {
+				const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
 				table.updateRows();
 				setTimeout(() => {
 					done(
@@ -738,15 +738,15 @@ describe('BaseTable', () => {
 		});
 	});
 
-	describe('destroy', () => {
+	describe("destroy", () => {
 		beforeEach(() => {
 			sandbox.init();
 			sandbox.setContents(fixtures.shortTableWithContainer);
-			oTableEl = document.querySelector('[data-o-component=o-table]');
+			oTableEl = document.querySelector("[data-o-component=o-table]");
 			table = new BaseTable(oTableEl, sorter);
 		});
 
-		it('removes sort button event listeners', () => {
+		it("removes sort button event listeners", () => {
 			// Mock removeEventListener
 			const realRemoveEventListener = Element.prototype.removeEventListener;
 			const removeEventListenerSpy = sinon.spy();
@@ -755,12 +755,12 @@ describe('BaseTable', () => {
 			table.destroy();
 			// Test sort button event listeners removed.
 			try {
-				const thead = document.querySelector('thead');
-				const buttons = thead.querySelectorAll('button');
+				const thead = document.querySelector("thead");
+				const buttons = thead.querySelectorAll("button");
 				buttons.forEach(button => {
 					proclaim.isTrue(
 						removeEventListenerSpy.calledOn(button),
-						'Remove event listener was not called on all heading sort buttons.'
+						"Remove event listener was not called on all heading sort buttons."
 					);
 				});
 			} finally {
@@ -769,17 +769,17 @@ describe('BaseTable', () => {
 			}
 		});
 
-		it('removes properties with DOM references', () => {
+		it("removes properties with DOM references", () => {
 			const expectedToBeRemoved = [
-				'thead',
-				'tbody',
-				'tableHeaders',
-				'tableRows',
-				'_filteredTableRows',
-				'wrapper',
-				'container',
-				'overlayWrapper',
-				'filterContainer',
+				"thead",
+				"tbody",
+				"tableHeaders",
+				"tableRows",
+				"_filteredTableRows",
+				"wrapper",
+				"container",
+				"overlayWrapper",
+				"filterContainer",
 			];
 			table.destroy();
 			expectedToBeRemoved.forEach(property => {

@@ -7,9 +7,9 @@
 /// @access private
 @mixin _oOverlayHeadingShaded {
 	.o-overlay__heading--shaded {
-		background: _oOverlayGet('shaded-heading-background');
-		color: _oOverlayGet('shaded-heading-text');
-		border-color: _oOverlayGet('shaded-heading-border');
+		background: _oOverlayGet("shaded-heading-background");
+		color: _oOverlayGet("shaded-heading-text");
+		border-color: _oOverlayGet("shaded-heading-border");
 		font-weight: normal;
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
@@ -26,14 +26,14 @@
 /// @output The output does not include a class definition, and should be wrapped in a selector.
 /// @access private
 @mixin _oOverlayHeadingShadedContentClose {
-	@include _oOverlayContentCloseIcon(_oOverlayGet('shaded-close-text'));
-	color: _oOverlayGet('shaded-close-text');
-	background-color: _oOverlayGet('shaded-close-background');
-	border-color: _oOverlayGet('shaded-close-border');
+	@include _oOverlayContentCloseIcon(_oOverlayGet("shaded-close-text"));
+	color: _oOverlayGet("shaded-close-text");
+	background-color: _oOverlayGet("shaded-close-background");
+	border-color: _oOverlayGet("shaded-close-border");
 
 	&:hover,
 	&:focus {
-		@include _oOverlayContentCloseIcon(_oOverlayGet('default-close-text'));
-		background-color: _oOverlayGet('default-close-background');
+		@include _oOverlayContentCloseIcon(_oOverlayGet("default-close-text"));
+		background-color: _oOverlayGet("default-close-background");
 	}
 }

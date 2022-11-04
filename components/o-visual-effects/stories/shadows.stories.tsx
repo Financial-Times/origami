@@ -1,11 +1,11 @@
-import {withDesign} from 'storybook-addon-designs';
-import './visual-effects.scss';
-import withHtml from 'origami-storybook-addon-html';
-import {ShadowDemo} from './shadows-demo';
+import { withDesign } from "storybook-addon-designs";
+import "./visual-effects.scss";
+import withHtml from "origami-storybook-addon-html";
+import { ShadowDemo } from "./shadows-demo";
 
 export default {
-	title: 'Components/o-visual-effects',
-    component: ShadowDemo,
+	title: "Components/o-visual-effects",
+	component: ShadowDemo,
 	decorators: [withDesign, withHtml],
 	parameters: {
 		guidelines: {},
@@ -15,5 +15,5 @@ export default {
 
 export const Shadows = ShadowDemo.bind({});
 Shadows.args = {
-    depth: 'mid'
+	depth: "mid",
 };

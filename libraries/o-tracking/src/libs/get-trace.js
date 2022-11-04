@@ -1,5 +1,5 @@
 // Trace the element and all of its parents, collecting properties as we go
-import {sanitise, assignIfUndefined} from '../javascript/utils.js';
+import { sanitise, assignIfUndefined } from "../javascript/utils.js";
 
 // For a given container element, get the number of elements that match the
 // original element (siblings); and the index of the original element (position).
@@ -16,12 +16,12 @@ const getSiblingsAndPosition = (el, originalEl, selector) => {
 };
 
 const elementPropertiesToCollect = [
-	'nodeName',
-	'className',
-	'id',
-	'href',
-	'text',
-	'role',
+	"nodeName",
+	"className",
+	"id",
+	"href",
+	"text",
+	"role",
 ];
 // Get all (sanitised) properties of a given element.
 const getAllElementProperties = element => {
@@ -32,7 +32,7 @@ const getAllElementProperties = element => {
 			element.getAttribute(property) ||
 			element.hasAttribute(property);
 		if (value !== undefined) {
-			if (typeof value === 'boolean') {
+			if (typeof value === "boolean") {
 				properties[property] = value;
 			} else {
 				properties[property] = sanitise(value);
@@ -64,7 +64,7 @@ const getContextProps = (attrs, props, isOriginalEl) => {
 	// for the original element collect properties like className, nodeName
 	if (isOriginalEl) {
 		elementPropertiesToCollect.forEach(name => {
-			if (typeof props[name] !== 'undefined' && name !== 'id') {
+			if (typeof props[name] !== "undefined" && name !== "id") {
 				customProps[name] = props[name];
 			}
 		});
@@ -74,7 +74,7 @@ const getContextProps = (attrs, props, isOriginalEl) => {
 	attrs
 		.filter(attribute => attribute.name.match(/^data-trackable-context-/i))
 		.forEach(attribute => {
-			customProps[attribute.name.replace('data-trackable-context-', '')] =
+			customProps[attribute.name.replace("data-trackable-context-", "")] =
 				attribute.value;
 		});
 
@@ -84,8 +84,8 @@ const getContextProps = (attrs, props, isOriginalEl) => {
 export function getTrace(el) {
 	const rootEl = document;
 	const originalEl = el;
-	const selector = originalEl.getAttribute('data-trackable')
-		? `[data-trackable="${originalEl.getAttribute('data-trackable')}"]`
+	const selector = originalEl.getAttribute("data-trackable")
+		? `[data-trackable="${originalEl.getAttribute("data-trackable")}"]`
 		: originalEl.nodeName;
 	const trace = [];
 	const customContext = {};
@@ -96,7 +96,7 @@ export function getTrace(el) {
 
 		// If the element happens to have a data-trackable attribute, get the siblings
 		// and position of the element (relative to the current element).
-		if (domPathProps['data-trackable']) {
+		if (domPathProps["data-trackable"]) {
 			domPathProps = Object.assign(
 				domPathProps,
 				getSiblingsAndPosition(el, originalEl, selector)
@@ -111,5 +111,5 @@ export function getTrace(el) {
 
 		el = el.parentNode;
 	}
-	return {trace, customContext};
+	return { trace, customContext };
 }

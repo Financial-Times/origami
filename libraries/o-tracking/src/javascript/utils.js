@@ -1,12 +1,12 @@
 /**
  * Shared 'internal' scope.
  */
-import {get} from './core/settings.js';
+import { get } from "./core/settings.js";
 
 /**
  * CUID Generator
  */
-import {api as cuid} from '../libs/browser-cuid.js';
+import { api as cuid } from "../libs/browser-cuid.js";
 
 /**
  * Record of callbacks to call when a page is tracked.
@@ -20,7 +20,7 @@ const page_callbacks = [];
  * @returns {void}
  */
 function log(...args) {
-	if (get('config').test && window.console) {
+	if (get("config").test && window.console) {
 		for (const arg of args) {
 			window.console.log(arg);
 		}
@@ -35,7 +35,7 @@ function log(...args) {
  *
  * @returns {boolean} - The answer for if the variable is of type.
  */
-function is(variable, type = 'undefined') {
+function is(variable, type = "undefined") {
 	return typeof variable === type;
 }
 
@@ -69,9 +69,9 @@ function merge(target, options) {
 		}
 
 		// Gets rid of missing values too
-		if (typeof copy !== 'undefined' && copy !== null) {
+		if (typeof copy !== "undefined" && copy !== null) {
 			target[name] =
-				src === Object(src) && !is(src, 'function') ? merge(src, copy) : copy;
+				src === Object(src) && !is(src, "function") ? merge(src, copy) : copy;
 		}
 	}
 	/* jshint +W089 */
@@ -120,7 +120,7 @@ function addEvent(element, event, listener) {
 	if (element.addEventListener) {
 		element.addEventListener(event, listener, false);
 	} else {
-		element.attachEvent('on' + event, listener);
+		element.attachEvent("on" + event, listener);
 	}
 }
 
@@ -136,7 +136,7 @@ function broadcast(namespace, eventType, detail) {
 	detail = detail || {};
 	try {
 		window.dispatchEvent(
-			new CustomEvent(namespace + '.' + eventType, {
+			new CustomEvent(namespace + "." + eventType, {
 				detail: detail,
 				bubbles: true,
 			})
@@ -153,7 +153,7 @@ function broadcast(namespace, eventType, detail) {
  * @returns {void}
  */
 function onPage(cb) {
-	if (is(cb, 'function') && !page_callbacks.includes(cb)) {
+	if (is(cb, "function") && !page_callbacks.includes(cb)) {
 		page_callbacks.push(cb);
 	}
 }
@@ -177,8 +177,8 @@ function triggerPage() {
  */
 function getValueFromCookie(matcher) {
 	return document.cookie.match(matcher) &&
-		RegExp.$1 !== '' &&
-		RegExp.$1 !== 'null'
+		RegExp.$1 !== "" &&
+		RegExp.$1 !== "null"
 		? RegExp.$1
 		: null;
 }
@@ -207,7 +207,7 @@ function filterProperties(objectToFilter, allowedPropertyNames) {
  * @returns {string} The trimmed string.
  */
 function sanitise(str) {
-	return typeof str === 'string' ? str.trim() : str;
+	return typeof str === "string" ? str.trim() : str;
 }
 
 /**
@@ -270,7 +270,7 @@ function findCircularPathsIn(rootObject) {
 		}
 	}
 
-	_findCircularPathsIn(rootObject, '');
+	_findCircularPathsIn(rootObject, "");
 	return circularPaths;
 }
 
@@ -331,7 +331,7 @@ function isDeepEqual(a, b) {
 		return true;
 	}
 
-	if (a && b && typeof a === 'object' && typeof b === 'object') {
+	if (a && b && typeof a === "object" && typeof b === "object") {
 		if (a.constructor !== b.constructor) {
 			return false;
 		}

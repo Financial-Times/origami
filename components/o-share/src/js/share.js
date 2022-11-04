@@ -1,4 +1,4 @@
-import DomDelegate from 'ftdomdelegate';
+import DomDelegate from "ftdomdelegate";
 
 /**
  * The `oShare.open` open event fires when a social network share action is
@@ -43,9 +43,9 @@ function Share(rootEl, config) {
 	 * @returns {void}
 	 * @private
 	 */
-	function dispatchCustomEvent(eventName, data = {}, namespace = 'oShare') {
+	function dispatchCustomEvent(eventName, data = {}, namespace = "oShare") {
 		oShare.rootEl.dispatchEvent(
-			new CustomEvent(namespace + '.' + eventName, {
+			new CustomEvent(namespace + "." + eventName, {
 				detail: data,
 				bubbles: true,
 			})
@@ -60,24 +60,24 @@ function Share(rootEl, config) {
 	 * @private
 	 */
 	function handleClick(ev) {
-		const actionEl = ev.target.closest('li.o-share__action');
+		const actionEl = ev.target.closest("li.o-share__action");
 
-		if (oShare.rootEl.contains(actionEl) && actionEl.querySelector('a[href]')) {
+		if (oShare.rootEl.contains(actionEl) && actionEl.querySelector("a[href]")) {
 			ev.preventDefault();
 			ev.stopPropagation();
 
-			const url = actionEl.querySelector('a[href]').href;
-			const shareLocation = oShare.rootEl.dataset.oShareLocation || '';
+			const url = actionEl.querySelector("a[href]").href;
+			const shareLocation = oShare.rootEl.dataset.oShareLocation || "";
 
 			dispatchCustomEvent(
-				'event',
+				"event",
 				{
-					category: 'share',
-					action: 'click',
+					category: "share",
+					action: "click",
 					button: actionEl.textContent.trim().toLowerCase(),
 					location: shareLocation,
 				},
-				'oTracking'
+				"oTracking"
 			);
 
 			shareSocial(url);
@@ -97,13 +97,13 @@ function Share(rootEl, config) {
 			if (openWindows[url] && !openWindows[url].closed) {
 				openWindows[url].focus();
 			} else {
-				openWindows[url] = window.open(url, '', 'width=646,height=436');
+				openWindows[url] = window.open(url, "", "width=646,height=436");
 				openWindows[url].opener = null;
 			}
 
-			dispatchCustomEvent('open', {
+			dispatchCustomEvent("open", {
 				share: oShare,
-				action: 'social',
+				action: "social",
 				url: url,
 			});
 		}
@@ -117,30 +117,30 @@ function Share(rootEl, config) {
 	 */
 	function render() {
 		normaliseConfig();
-		const ulElement = document.createElement('ul');
+		const ulElement = document.createElement("ul");
 		for (let i = 0; i < config.links.length; i++) {
-			const liElement = document.createElement('li');
-			const spanElement = document.createElement('span');
-			const aElement = document.createElement('a');
+			const liElement = document.createElement("li");
+			const spanElement = document.createElement("span");
+			const aElement = document.createElement("a");
 
 			liElement.classList.add(
-				'o-share__action',
+				"o-share__action",
 				`o-share__action--${config.links[i]}`
 			);
 
-			spanElement.classList.add('o-share__text');
+			spanElement.classList.add("o-share__text");
 			spanElement.innerText = generateDescriptiveLinkText(
 				config,
 				config.links[i]
 			);
 
 			aElement.classList.add(
-				'o-share__icon',
+				"o-share__icon",
 				`o-share__icon--${config.links[i]}`
 			);
 			aElement.href = generateSocialUrl(config, config.links[i]);
-			aElement.setAttribute('target', '_blank');
-			aElement.setAttribute('rel', 'noopener');
+			aElement.setAttribute("target", "_blank");
+			aElement.setAttribute("rel", "noopener");
 
 			aElement.appendChild(spanElement);
 			liElement.appendChild(aElement);
@@ -157,11 +157,11 @@ function Share(rootEl, config) {
 	 * @private
 	 */
 	function normaliseConfig() {
-		const link = document.createElement('a');
+		const link = document.createElement("a");
 		link.href = config.url;
 		config.url =
 			link.protocol +
-			'//' +
+			"//" +
 			link.host +
 			link.pathname +
 			link.search +
@@ -184,8 +184,8 @@ function Share(rootEl, config) {
 		}
 
 		const rootDelegate = new DomDelegate(rootEl);
-		rootDelegate.on('click', handleClick);
-		rootEl.setAttribute('data-o-share--js', '');
+		rootDelegate.on("click", handleClick);
+		rootEl.setAttribute("data-o-share--js", "");
 
 		oShare.rootDomDelegate = rootDelegate;
 		oShare.rootEl = rootEl;
@@ -193,21 +193,21 @@ function Share(rootEl, config) {
 		if (rootEl.children.length === 0) {
 			if (!config) {
 				config = {};
-				config.links = rootEl.hasAttribute('data-o-share-links')
-					? rootEl.getAttribute('data-o-share-links').split(' ')
+				config.links = rootEl.hasAttribute("data-o-share-links")
+					? rootEl.getAttribute("data-o-share-links").split(" ")
 					: [];
-				config.url = rootEl.getAttribute('data-o-share-url') || '';
-				config.title = rootEl.getAttribute('data-o-share-title') || '';
+				config.url = rootEl.getAttribute("data-o-share-url") || "";
+				config.title = rootEl.getAttribute("data-o-share-title") || "";
 				config.titleExtra =
-					rootEl.getAttribute('data-o-share-titleExtra') || '';
-				config.summary = rootEl.getAttribute('data-o-share-summary') || '';
+					rootEl.getAttribute("data-o-share-titleExtra") || "";
+				config.summary = rootEl.getAttribute("data-o-share-summary") || "";
 				config.relatedTwitterAccounts =
-					rootEl.getAttribute('data-o-share-relatedTwitterAccounts') || '';
+					rootEl.getAttribute("data-o-share-relatedTwitterAccounts") || "";
 			}
 			render();
 		}
 
-		dispatchCustomEvent('ready', {
+		dispatchCustomEvent("ready", {
 			share: oShare,
 		});
 	}
@@ -222,9 +222,9 @@ function Share(rootEl, config) {
  */
 Share.prototype.destroy = function () {
 	this.rootDomDelegate.destroy();
-	this.rootEl.textContent = '';
+	this.rootEl.textContent = "";
 
-	this.rootEl.removeAttribute('data-o-share--js');
+	this.rootEl.removeAttribute("data-o-share--js");
 	this.rootEl = undefined;
 };
 
@@ -240,12 +240,12 @@ Share.init = function (rootEl = document.body) {
 	}
 	if (
 		rootEl instanceof HTMLElement &&
-		rootEl.matches('[data-o-component=o-share]')
+		rootEl.matches("[data-o-component=o-share]")
 	) {
 		return new Share(rootEl);
 	}
 	return Array.from(
-		rootEl.querySelectorAll('[data-o-component=o-share]'),
+		rootEl.querySelectorAll("[data-o-component=o-share]"),
 		rootEl => new Share(rootEl)
 	);
 };

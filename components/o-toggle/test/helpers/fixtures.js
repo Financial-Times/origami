@@ -1,17 +1,17 @@
 let sandboxEl;
 
 function createSandbox() {
-	if (document.querySelector('.sandbox')) {
-		sandboxEl = document.querySelector('.sandbox');
+	if (document.querySelector(".sandbox")) {
+		sandboxEl = document.querySelector(".sandbox");
 	} else {
-		sandboxEl = document.createElement('div');
-		sandboxEl.setAttribute('class', 'sandbox');
+		sandboxEl = document.createElement("div");
+		sandboxEl.setAttribute("class", "sandbox");
 		document.body.appendChild(sandboxEl);
 	}
 }
 
 function reset() {
-	sandboxEl.innerHTML = '';
+	sandboxEl.innerHTML = "";
 }
 
 function insert(html) {
@@ -25,7 +25,7 @@ function declarativeMarkup(callback) {
 			<button
 				data-o-component="o-toggle"
 				data-o-toggle-target=".declarativeTestTarget"
-				${callback ? `data-o-toggle-callback="${callback}"` : ''}
+				${callback ? `data-o-toggle-callback="${callback}"` : ""}
 			>
 				Toggle
 			</button>

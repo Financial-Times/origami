@@ -30,8 +30,11 @@ Headings 1-6 are provided with the class `o-editorial-typography-heading-level-[
 ```
 
 Heading level 1 is suitable for most cases but for more emphasis use `o-editorial-typography-headline` instead.
+
 ```html
-<h1 class="o-editorial-typography-headline">Don&rsquo;t settle for black and white</h1>
+<h1 class="o-editorial-typography-headline">
+	Don&rsquo;t settle for black and white
+</h1>
 ```
 
 #### Body
@@ -39,7 +42,9 @@ Heading level 1 is suitable for most cases but for more emphasis use `o-editoria
 For paragraphs use the `o-editorial-typography-body` class:
 
 ```html
-<p class="o-editorial-typography-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<p class="o-editorial-typography-body">
+	Lorem ipsum dolor sit amet consectetur adipisicing elit.
+</p>
 ```
 
 #### Lists
@@ -50,21 +55,23 @@ So lists may be used in different contexts they inherit font properties such as 
 
 ```html
 <div class="o-editorial-typography-body">
-    <ul class="o-editorial-typography-list o-editorial-typography-list--unordered">
-        <li>Lorem ipsum&nbsp;adipiscing elit.</li>
-        <li>Sed feugiat turpis at massa tristique.</li>
-        <li>Curabitu r accumsan elit luctus.</li>
-    </ul>
+	<ul
+		class="o-editorial-typography-list o-editorial-typography-list--unordered"
+	>
+		<li>Lorem ipsum&nbsp;adipiscing elit.</li>
+		<li>Sed feugiat turpis at massa tristique.</li>
+		<li>Curabitu r accumsan elit luctus.</li>
+	</ul>
 </div>
 ```
 
 ```html
 <div class="o-editorial-typography-body">
-    <ol class="o-editorial-typography-list o-editorial-typography-list--ordered">
-        <li>Lorem ipsum&nbsp;adipiscing elit.</li>
-        <li>Sed feugiat turpis at massa tristique.</li>
-        <li>Curabitu r accumsan elit luctus.</li>
-    </ol>
+	<ol class="o-editorial-typography-list o-editorial-typography-list--ordered">
+		<li>Lorem ipsum&nbsp;adipiscing elit.</li>
+		<li>Sed feugiat turpis at massa tristique.</li>
+		<li>Curabitu r accumsan elit luctus.</li>
+	</ol>
 </div>
 ```
 
@@ -93,7 +100,12 @@ Style an author tag using the class `o-editorial-typography-author`. An author t
 `o-editorial-typography-timestamp` styles a timestamp. It does not set font size or family so may be used in different contexts, such as an article byline or comments section.
 
 ```html
-<time class="o-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm">October 11 2019</time>
+<time
+	class="o-editorial-typography-timestamp"
+	datetime="2019-10-11T20:51:54Z"
+	title="October 11 2019 9:51 pm"
+	>October 11 2019</time
+>
 ```
 
 #### Byline
@@ -102,9 +114,14 @@ A story byline may be styled using `o-editorial-typography-byline`. It's often u
 
 ```html
 <div class="o-editorial-typography-byline">
-    <a class="o-editorial-typography-author" href="#">Joe Doe</a>
-    in London
-    <time class="o-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm">October 11 2019</time>
+	<a class="o-editorial-typography-author" href="#">Joe Doe</a>
+	in London
+	<time
+		class="o-editorial-typography-timestamp"
+		datetime="2019-10-11T20:51:54Z"
+		title="October 11 2019 9:51 pm"
+		>October 11 2019</time
+	>
 </div>
 ```
 
@@ -114,10 +131,10 @@ Style captions using `o-editorial-typography-caption`.
 
 ```html
 <figure>
-    <img alt="" src="#">
-    <figcaption class="o-editorial-typography-caption">
-        ©Lorem John Doe
-    </figcaption>
+	<img alt="" src="#" />
+	<figcaption class="o-editorial-typography-caption">
+		©Lorem John Doe
+	</figcaption>
 </figure>
 ```
 
@@ -134,27 +151,46 @@ Include all o-editorial-typography styles by including the `oEditorialTypography
 To include just the styles you need we recommend setting the options `$opts` argument.
 
 For example to include only heading levels 1-3 and body copy styles.
+
 ```scss
-@include oEditorialTypography($opts: (
-	'body': true,
-	'headings': (1, 2, 3)
-));
+@include oEditorialTypography(
+	$opts: (
+		"body": true,
+		"headings": (
+			1,
+			2,
+			3,
+		),
+	)
+);
 ```
 
 This example shows all options:
+
 ```scss
-@include oEditorialTypography($opts: (
-	'body': true,
-	'lists': ('ordered', 'unordered'),
-	'caption': true,
-	'headline': true,
-	'headings': (1, 2, 3, 4, 5),
-	'standfirst': true,
-	'author': true,
-	'topic': true,
-	'byline': true,
-	'timestamp': true
-));
+@include oEditorialTypography(
+	$opts: (
+		"body": true,
+		"lists": (
+			"ordered",
+			"unordered",
+		),
+		"caption": true,
+		"headline": true,
+		"headings": (
+			1,
+			2,
+			3,
+			4,
+			5,
+		),
+		"standfirst": true,
+		"author": true,
+		"topic": true,
+		"byline": true,
+		"timestamp": true,
+	)
+);
 ```
 
 We recommend including styles with `oEditorialTypography` and using default markup to reduce duplicated CSS in your project. However you may also use typography mixins provided if you are unable to update your markup to `o-editorial-typography` classes. Mixins include:
@@ -170,18 +206,19 @@ We recommend including styles with `oEditorialTypography` and using default mark
 - `oEditorialTypographyTag`
 - `oEditorialTypographyDecorated`
 
-
 For example to output a heading:
+
 ```scss
 .my-h2 {
-    @include oEditorialTypographyHeading(2);
+	@include oEditorialTypographyHeading(2);
 }
 ```
 
 Or a topic tag:
+
 ```scss
 .my-topic-tag {
-    @include oEditorialTypographyTag('topic');
+	@include oEditorialTypographyTag("topic");
 }
 ```
 
@@ -195,7 +232,7 @@ Calling `oEditorialTypography` will output font faces to download custom Financi
 // configure $o-editorial-typography-load-fonts to not include fonts
 $o-editorial-typography-load-fonts: false;
 // import dependencies
-@import '@financial-times/o-editorial-typography/main';
+@import "@financial-times/o-editorial-typography/main";
 // include css for select fonts manually
 @include oFontsInclude(MetricWeb, semibold);
 @include oFontsInclude(FinancierDisplayWeb, regular);
@@ -206,10 +243,10 @@ $o-editorial-typography-load-fonts: false;
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-⚠ maintained | 1 | 1.1 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       2       |        N/A         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ⚠ maintained |       1       |        1.1         |                          N/A                          |
 
 ## Contact
 

@@ -1,31 +1,31 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import * as fixtures from './helpers/fixtures.js';
-import oCookieMessage from '../main.js';
+import * as fixtures from "./helpers/fixtures.js";
+import oCookieMessage from "../main.js";
 
-describe('oCookieMessage', () => {
+describe("oCookieMessage", () => {
 	beforeEach(() => {
-		fixtures.generateHTML('standard');
+		fixtures.generateHTML("standard");
 	});
 
 	afterEach(() => {
 		fixtures.reset();
 	});
 
-	it('is defined', () => {
+	it("is defined", () => {
 		proclaim.isFunction(oCookieMessage);
 	});
 
-	it('has a static init method', () => {
+	it("has a static init method", () => {
 		proclaim.isFunction(oCookieMessage.init);
 	});
 
-	it('should autoinitialize', done => {
-		const initSpy = sinon.spy(oCookieMessage, 'init');
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+	it("should autoinitialize", done => {
+		const initSpy = sinon.spy(oCookieMessage, "init");
+		document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
 		setTimeout(function () {
 			proclaim.isTrue(initSpy.called);
 			initSpy.restore();
@@ -33,19 +33,19 @@ describe('oCookieMessage', () => {
 		}, 100);
 	});
 
-	it('should not autoinitialize when the event is not dispached', () => {
-		const initSpy = sinon.spy(oCookieMessage, 'init');
+	it("should not autoinitialize when the event is not dispached", () => {
+		const initSpy = sinon.spy(oCookieMessage, "init");
 		proclaim.isFalse(initSpy.called);
 	});
 
-	describe('init', () => {
-		it('should create a single oCookieMessage when no element is passed in', () => {
+	describe("init", () => {
+		it("should create a single oCookieMessage when no element is passed in", () => {
 			const cookiemessage = oCookieMessage.init();
 			proclaim.isInstanceOf(cookiemessage, oCookieMessage);
 		});
 
-		it('should create an oCookieMessage for the element found within the passed in selector', () => {
-			const cookiemessage = oCookieMessage.init('.o-cookie-message');
+		it("should create an oCookieMessage for the element found within the passed in selector", () => {
+			const cookiemessage = oCookieMessage.init(".o-cookie-message");
 			proclaim.isInstanceOf(cookiemessage, oCookieMessage);
 		});
 	});

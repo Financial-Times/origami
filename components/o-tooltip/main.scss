@@ -1,12 +1,12 @@
-@import '@financial-times/o-grid/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-overlay/main';
-@import '@financial-times/o-visual-effects/main';
-@import '@financial-times/o-typography/main';
+@import "@financial-times/o-grid/main";
+@import "@financial-times/o-normalise/main";
+@import "@financial-times/o-overlay/main";
+@import "@financial-times/o-visual-effects/main";
+@import "@financial-times/o-typography/main";
 
-@import 'src/scss/variables';
-@import 'src/scss/brand';
-@import 'src/scss/mixins';
+@import "src/scss/variables";
+@import "src/scss/brand";
+@import "src/scss/mixins";
 
 /// Outputs all available features and styles for tooltips.
 ///
@@ -21,7 +21,7 @@
 	@include oGridSurfaceCurrentLayout();
 
 	.o-tooltip {
-		@include oVisualEffectsShadowContent($elevation: 'high');
+		@include oVisualEffectsShadowContent($elevation: "high");
 		@include _oTooltipThemeContent(); // Style for the default theme.
 		position: absolute;
 		z-index: 10;
@@ -38,16 +38,16 @@
 			opacity: 1;
 		}
 
-		&[data-o-tooltip-position='left']:not(.visible) {
+		&[data-o-tooltip-position="left"]:not(.visible) {
 			transform: translate(-$_o-tooltip-animation-distance, 0);
 		}
-		&[data-o-tooltip-position='right']:not(.visible) {
+		&[data-o-tooltip-position="right"]:not(.visible) {
 			transform: translate($_o-tooltip-animation-distance, 0);
 		}
-		&[data-o-tooltip-position='top']:not(.visible) {
+		&[data-o-tooltip-position="top"]:not(.visible) {
 			transform: translate(0, -$_o-tooltip-animation-distance);
 		}
-		&[data-o-tooltip-position='bottom']:not(.visible) {
+		&[data-o-tooltip-position="bottom"]:not(.visible) {
 			transform: translate(0, $_o-tooltip-animation-distance);
 		}
 	}
@@ -76,7 +76,7 @@
 	.o-tooltip--arrow-right {
 		&:before,
 		&:after {
-			content: '';
+			content: "";
 			position: absolute;
 			border: solid transparent;
 		}
@@ -188,8 +188,8 @@
 
 	.o-tooltip-close {
 		@include oIconsContent(
-			'cross',
-			_oTooltipGet('close-foreground-color'),
+			"cross",
+			_oTooltipGet("close-foreground-color"),
 			$size: 20px
 		);
 		// start: undo button styles
@@ -212,11 +212,11 @@
 		// Increase hit zone of the button around it for better usability
 		&:after {
 			position: absolute;
-			content: '';
-			top: -(oSpacingByName('s3'));
-			right: -(oSpacingByName('s3'));
-			left: -(oSpacingByName('s3'));
-			bottom: -(oSpacingByName('s3'));
+			content: "";
+			top: -(oSpacingByName("s3"));
+			right: -(oSpacingByName("s3"));
+			left: -(oSpacingByName("s3"));
+			bottom: -(oSpacingByName("s3"));
 		}
 	}
 }

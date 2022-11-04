@@ -51,16 +51,22 @@ In addition `theme` no longer accepts an array. Instead pass a single `theme` ('
 The main sass mixin, `oBanner`, no longer takes a custom class as an argument. Themes have been split into layouts ('small', 'compact') and themes ('marketing', 'product'). These are passed as part of the `$opts` map, as so:
 
 ```scss
-@include oBanner($opts: (
-	'themes': ('small'),
-	'layouts': ('compact'),
-))
+@include oBanner(
+	$opts: (
+		"themes": (
+			"small",
+		),
+		"layouts": (
+			"compact",
+		),
+	)
+);
 ```
 
 The `themes` option used to take a map or the word 'all', but as 'all' is the default, one can get that effect by not specifying anything.
 
 ```scss
-@include oBanner()
+@include oBanner();
 ```
 
 All other mixins have been removed, you'll need to update your code to use the documented `o-banner` classes.
@@ -68,6 +74,7 @@ All other mixins have been removed, you'll need to update your code to use the d
 #### Colour Usecases
 
 The following colour usecases have been removed. Please contact the Origami team if your project relied on these:
+
 - o-banner
 - o-banner-button
 - o-banner-button-active
@@ -86,7 +93,6 @@ The following colour usecases have been removed. Please contact the Origami team
 - o-banner-product-link
 - o-banner-product-close
 - o-banner-product-heading-rule
-
 
 ## Migrating from v1 to v2
 

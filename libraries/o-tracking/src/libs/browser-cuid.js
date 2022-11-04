@@ -15,7 +15,7 @@ const base = 36;
 const discreteValues = Math.pow(base, blockSize);
 
 const pad = function pad(num, size) {
-	const s = '000000000' + num;
+	const s = "000000000" + num;
 	return s.substr(s.length - size);
 };
 
@@ -33,7 +33,7 @@ const api = function cuid() {
 	// Starting with a lowercase letter makes
 	// it HTML element ID friendly.
 	// hard-coded allows for sequential access
-	const letter = 'c';
+	const letter = "c";
 
 	// timestamp
 	// warning: this exposes the exact date and time
@@ -91,4 +91,4 @@ api.fingerprint = function browserPrint() {
 	);
 };
 
-export {api};
+export { api };

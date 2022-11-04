@@ -1,14 +1,14 @@
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-brand/main';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-editorial-typography/main';
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-brand/main";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-editorial-typography/main";
 
-@import 'src/scss/colors';
-@import 'src/scss/brand';
-@import 'src/scss/variables';
-@import 'src/scss/placeholders';
-@import 'src/scss/mixins';
+@import "src/scss/colors";
+@import "src/scss/brand";
+@import "src/scss/variables";
+@import "src/scss/placeholders";
+@import "src/scss/mixins";
 
 /// Outputs all available features and styles for labels.
 ///
@@ -27,34 +27,34 @@
 /// @access public
 @mixin oLabels(
 	$opts: (
-		'sizes': $_o-labels-standard-sizes,
-		'states': $_o-labels-standard-states,
-		'indicators': (
-			'status': $_o-labels-indicator-status,
-			'inverse': true,
+		"sizes": $_o-labels-standard-sizes,
+		"states": $_o-labels-standard-states,
+		"indicators": (
+			"status": $_o-labels-indicator-status,
+			"inverse": true,
 		),
-		'timestamp': (
-			'inverse': true,
+		"timestamp": (
+			"inverse": true,
 		),
 	)
 ) {
 	// Get standard labels to include
-	$standard-label-sizes: map-get($opts, 'sizes');
-	$standard-label-states: map-get($opts, 'states');
+	$standard-label-sizes: map-get($opts, "sizes");
+	$standard-label-states: map-get($opts, "states");
 	// Get indicator labels to include
-	$indicator-label-opts: map-get($opts, 'indicators');
+	$indicator-label-opts: map-get($opts, "indicators");
 	$indicator-label-opts: if(
-		type-of($indicator-label-opts) == 'map',
+		type-of($indicator-label-opts) == "map",
 		$indicator-label-opts,
 		()
 	);
-	$indicator-label-status: map-get($indicator-label-opts, 'status');
-	$indicator-label-inverse: map-get($indicator-label-opts, 'inverse');
+	$indicator-label-status: map-get($indicator-label-opts, "status");
+	$indicator-label-inverse: map-get($indicator-label-opts, "inverse");
 	// Get whether to include the timestamp label
-	$timestamp-label: map-get($opts, 'timestamp');
+	$timestamp-label: map-get($opts, "timestamp");
 	$timestamp-label-inverse: if(
-		type-of($timestamp-label) == 'map',
-		map-get($timestamp-label, 'inverse'),
+		type-of($timestamp-label) == "map",
+		map-get($timestamp-label, "inverse"),
 		$timestamp-label
 	);
 
@@ -78,7 +78,7 @@
 	}
 
 	// Timestamp label styles
-	@if $indicator-label-status and _oLabelsSupports('timestamps') {
+	@if $indicator-label-status and _oLabelsSupports("timestamps") {
 		.o-labels-timestamp {
 			@include oLabelsTimestampContent();
 		}
@@ -91,11 +91,11 @@
 	}
 
 	// Indicator label styles
-	@if $indicator-label-status and _oLabelsSupports('indicators') {
+	@if $indicator-label-status and _oLabelsSupports("indicators") {
 		.o-labels-indicator {
 			@include oLabelsIndicatorContent(
 				$opts: (
-					'block': true,
+					"block": true,
 				)
 			);
 		}
@@ -103,7 +103,7 @@
 		.o-labels-indicator__status {
 			@include oLabelsIndicatorContent(
 				$opts: (
-					'element': 'status',
+					"element": "status",
 				)
 			);
 		}
@@ -112,8 +112,8 @@
 			.o-labels-indicator--#{$indicator-status} {
 				@include oLabelsIndicatorContent(
 					$opts: (
-						'block': true,
-						'modifier': $indicator-status,
+						"block": true,
+						"modifier": $indicator-status,
 					)
 				);
 			}

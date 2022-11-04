@@ -74,23 +74,23 @@ and is linked to from the component's README.md.
 ## HTML
 
 - A component’s markup should be contained in a root element that:
-	- Has a data-o-component attribute with value of the component’s name, or
-	- Is defined as a
-	  [customElement](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element)
-	  registered against the component’s JavaScript class
+  - Has a data-o-component attribute with value of the component’s name, or
+  - Is defined as a
+    [customElement](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element)
+    registered against the component’s JavaScript class
 - All data attributes and IDs are namespaced with the component’s name.
 
 ## JavaScript
 
 - We recommend components only modify:
-	- The component’s root element, and its children
-	- Elements passed explicitly to the component via JavaScript, and their
-	  children
-	- Elements with any other data attribute in the component’s namespace,
-  	  and their children
+  - The component’s root element, and its children
+  - Elements passed explicitly to the component via JavaScript, and their
+    children
+  - Elements with any other data attribute in the component’s namespace,
+    and their children
 - Components are configurable using data attributes
 - Events triggered by a component should be namespaced under the
-    target component’s name
+  target component’s name
 - Component JavaScript is usually annotated using JSDoc
 
 ## Sass
@@ -99,16 +99,16 @@ and is linked to from the component's README.md.
 - Sass functions, variables, mixins and placeholders defined in the global
   namespace are prefixed with the component name
 - We recommend components only style:
-	- The component’s root element and its children
-	- Elements with classes prefixed with the component’s name, and their
-	  children
-	- Elements with any other data-attribute in the component’s namespace, and
-	  their children
+  - The component’s root element and its children
+  - Elements with classes prefixed with the component’s name, and their
+    children
+  - Elements with any other data-attribute in the component’s namespace, and
+    their children
 - A component shouldn't output CSS by default when Sass is loaded (i.e. `@use`, or
   `@import`)
 - If the component is consumed via the `@import` syntax:
-	- It provides a primary mixin with a name that matches the component
-	  name (e.g. a component `o-well` provides a mixin `oWell`)
-	- The primary mixin outputs all component CSS when no arguments are
-	  given.
+  - It provides a primary mixin with a name that matches the component
+    name (e.g. a component `o-well` provides a mixin `oWell`)
+  - The primary mixin outputs all component CSS when no arguments are
+    given.
 - Sass is usually annotated with SassDoc

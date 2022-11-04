@@ -1,5 +1,5 @@
-import {mock} from '../src/javascript/core/transports/index.js';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import { mock } from "../src/javascript/core/transports/index.js";
+import sinon from "sinon/pkg/sinon-esm.js";
 
 let willError = false;
 
@@ -12,7 +12,7 @@ export function mockTransport() {
 			complete: function (callback) {
 				if (willError) {
 					willError = false;
-					callback(new Error('mock error'));
+					callback(new Error("mock error"));
 				} else {
 					callback();
 				}
@@ -21,7 +21,7 @@ export function mockTransport() {
 	};
 }
 
-export {sendSpy};
+export { sendSpy };
 
 export function unmockTransport() {
 	delete mock.transport;

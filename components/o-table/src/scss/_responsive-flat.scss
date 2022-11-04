@@ -41,7 +41,7 @@
 
 			// Add border between items
 			tbody:not(:last-child) {
-				border-bottom: 1px solid _oTableGet('table-data-color');
+				border-bottom: 1px solid _oTableGet("table-data-color");
 			}
 
 			// Remove stripes when flat.
@@ -52,11 +52,11 @@
 
 			// Alternate background colour of each item
 			tbody {
-				background-color: _oTableGet('table-background');
+				background-color: _oTableGet("table-background");
 				&:nth-child(even) {
 					background-color: _oTableGet(
-						'table-item-alternate-background',
-						'flat'
+						"table-item-alternate-background",
+						"flat"
 					);
 				}
 			}
@@ -65,8 +65,8 @@
 			&.o-table--horizontal-lines td:not(:last-of-type) {
 				// When flat, only show row border if a colour is defined.
 				// Else the browser will use a black border.
-				@if _oTableGet('table-border-color') {
-					border-bottom: 1px solid _oTableGet('table-border-color');
+				@if _oTableGet("table-border-color") {
+					border-bottom: 1px solid _oTableGet("table-border-color");
 				}
 			}
 

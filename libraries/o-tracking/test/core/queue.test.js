@@ -1,15 +1,15 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import {Queue} from '../../src/javascript/core/queue.js';
-const queue_name = 'queue_test';
+import proclaim from "proclaim";
+import { Queue } from "../../src/javascript/core/queue.js";
+const queue_name = "queue_test";
 
 // PhantomJS doesn't always create a "fresh" environment...
 new Queue(queue_name).replace([]);
 
-describe('Core.Queue', function () {
-	describe('init()', function () {
-		it('should require a name', function () {
+describe("Core.Queue", function () {
+	describe("init()", function () {
+		it("should require a name", function () {
 			proclaim.throws(function () {
 				new Queue();
 			}, /You must specify a name for the queue/);
@@ -20,73 +20,73 @@ describe('Core.Queue', function () {
 	const a_function = function () {};
 	const queue = new Queue(queue_name);
 
-	describe('add', function () {
-		it('should add a string to the queue', function () {
+	describe("add", function () {
+		it("should add a string to the queue", function () {
 			proclaim.doesNotThrow(function () {
-				queue.add('hello');
+				queue.add("hello");
 			});
 		});
 
-		it('should add an object to the queue', function () {
+		it("should add an object to the queue", function () {
 			proclaim.doesNotThrow(function () {
-				queue.add({hello: 'world'});
+				queue.add({ hello: "world" });
 			});
 		});
 
-		it('should add many items at once', function () {
+		it("should add many items at once", function () {
 			proclaim.doesNotThrow(function () {
-				queue.add(['www.example.com', a_function]);
+				queue.add(["www.example.com", a_function]);
 			});
 		});
 	});
 
-	describe('retrieve', function () {
-		it('should have the correct number of items', function () {
+	describe("retrieve", function () {
+		it("should have the correct number of items", function () {
 			proclaim.equal(queue.all().length, 4);
 		});
 
-		it('should get the first item', function () {
-			proclaim.equal(queue.first(), 'hello');
+		it("should get the first item", function () {
+			proclaim.equal(queue.first(), "hello");
 		});
 
-		it('should get the last item', function () {
+		it("should get the last item", function () {
 			proclaim.equal(queue.last(), a_function);
 		});
 	});
 
-	describe('replace', function () {
-		it('should replace the queue', function () {
+	describe("replace", function () {
+		it("should replace the queue", function () {
 			proclaim.doesNotThrow(function () {
 				queue.replace([
-					'i',
-					'am',
+					"i",
+					"am",
 					/the/,
 					function () {
-						return 'replacement';
+						return "replacement";
 					},
 				]);
 			});
 		});
 
-		it('should have the correct number of items', function () {
+		it("should have the correct number of items", function () {
 			proclaim.equal(queue.all().length, 4);
 		});
 	});
 
-	describe('shift', function () {
-		it('should shift an item off the front of the queue', function () {
+	describe("shift", function () {
+		it("should shift an item off the front of the queue", function () {
 			const pre_shift = queue.all();
 			const item = queue.shift();
 			proclaim.deepEqual(pre_shift, [item].concat(queue.all()));
 		});
 
-		it('should have the correct number of items', function () {
+		it("should have the correct number of items", function () {
 			proclaim.equal(queue.all().length, 3);
 		});
 	});
 
-	describe('saving', function () {
-		it('should persist the queue', function () {
+	describe("saving", function () {
+		it("should persist the queue", function () {
 			proclaim.doesNotThrow(function () {
 				queue.save();
 			});
@@ -94,13 +94,13 @@ describe('Core.Queue', function () {
 
 		let queue2;
 
-		it('should get the saved queue', function () {
+		it("should get the saved queue", function () {
 			proclaim.doesNotThrow(function () {
 				queue2 = new Queue(queue_name);
 			});
 		});
 
-		it('should have the correct number of items', function () {
+		it("should have the correct number of items", function () {
 			proclaim.equal(queue2.all().length, 3);
 		});
 	});

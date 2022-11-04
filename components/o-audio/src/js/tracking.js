@@ -1,5 +1,5 @@
-import Delegate from 'ftdomdelegate';
-import * as Utils from '@financial-times/o-utils';
+import Delegate from "ftdomdelegate";
+import * as Utils from "@financial-times/o-utils";
 
 function fireEvent(action, audioObject, extraDetail = {}) {
 	const error = audioObject.audio.error
@@ -11,10 +11,10 @@ function fireEvent(action, audioObject, extraDetail = {}) {
 		  }
 		: undefined;
 
-	const event = new CustomEvent('oTracking.event', {
+	const event = new CustomEvent("oTracking.event", {
 		detail: Object.assign(
 			{
-				category: 'audio',
+				category: "audio",
 				action,
 				duration: audioObject.audioLength,
 				error,
@@ -51,13 +51,13 @@ function getProgressPoint(progress) {
 }
 
 const EVENTS = [
-	{name: 'playing'},
-	{name: 'pause'},
-	{name: 'seeked', debounceEvery: 1000},
-	{name: 'timeupdate'},
-	{name: 'ended'},
-	{name: 'error'},
-	{name: 'stalled'},
+	{ name: "playing" },
+	{ name: "pause" },
+	{ name: "seeked", debounceEvery: 1000 },
+	{ name: "timeupdate" },
+	{ name: "ended" },
+	{ name: "error" },
+	{ name: "stalled" },
 ];
 
 class AudioTracking {
@@ -68,14 +68,14 @@ class AudioTracking {
 		this.lastTrackedProgressPoint = undefined;
 
 		this.delegate = new Delegate(audio);
-		this.delegate.on('loadedmetadata', this.extractMetadata.bind(this));
+		this.delegate.on("loadedmetadata", this.extractMetadata.bind(this));
 
 		this.attachListeners();
 		this.extractMetadata();
 	}
 
 	attachListeners() {
-		EVENTS.forEach(({name, debounceEvery}) => {
+		EVENTS.forEach(({ name, debounceEvery }) => {
 			let listener = this.eventListener.bind(this);
 			if (debounceEvery) {
 				listener = Utils.debounce(listener, debounceEvery);
@@ -94,8 +94,8 @@ class AudioTracking {
 			10
 		);
 
-		if (ev.type !== 'timeupdate') {
-			return fireEvent(ev.type, this, {progress});
+		if (ev.type !== "timeupdate") {
+			return fireEvent(ev.type, this, { progress });
 		}
 
 		const progressPoint = getProgressPoint(progress);
@@ -106,7 +106,7 @@ class AudioTracking {
 		) {
 			this.lastTrackedProgressPoint = progressPoint;
 			// log as 'progress' to keep consistency with o-video
-			fireEvent('progress', this, {progress: progressPoint});
+			fireEvent("progress", this, { progress: progressPoint });
 		}
 	}
 

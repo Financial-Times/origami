@@ -7,14 +7,14 @@
 	// Error if the global $system-code variable is not set.
 	// This is required for image service requests.
 	@if (
-		global-variable-exists('system-code') ==
+		global-variable-exists("system-code") ==
 			false or
 			type-of($system-code) !=
-			'string'
+			"string"
 	) {
 		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
 	}
 
-	$url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aservice-from-ft?source=#{$system-code}';
-	background-image: url($url + '?source=#{$system-code}&format=svg');
+	$url: "https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aservice-from-ft?source=#{$system-code}";
+	background-image: url($url + "?source=#{$system-code}&format=svg");
 }

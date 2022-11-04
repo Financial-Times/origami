@@ -1,17 +1,17 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
+import proclaim from "proclaim";
 
-import HeaderServices from '../../src/js/header.js';
+import HeaderServices from "../../src/js/header.js";
 
-describe('Header instance', () => {
+describe("Header instance", () => {
 	let headerEl;
 
 	beforeEach(() => {
 		document.body.innerHTML = `
 			<header class="o-header-services" data-o-component="o-header-services"></header>
 		`;
-		headerEl = document.body.querySelector('.o-header-services');
+		headerEl = document.body.querySelector(".o-header-services");
 	});
 
 	afterEach(() => {
@@ -19,7 +19,7 @@ describe('Header instance', () => {
 		headerEl = null;
 	});
 
-	it('constructor', () => {
+	it("constructor", () => {
 		const header = new HeaderServices(headerEl);
 		proclaim.isInstanceOf(header, HeaderServices);
 	});

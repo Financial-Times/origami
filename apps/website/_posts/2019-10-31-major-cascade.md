@@ -97,14 +97,12 @@ With editorial styles moved, we also made a host of other changes to simplify o-
 	</figcaption>
 </figure>
 
-
 <figure>
 	<img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-10-31-major-cascade/buttons-after.png?source=origami" />
 	<figcaption>
         o-buttons after. There is consistency between "primary" and "secondary" buttons, improved accessibility checks, and better contrast between each button state.
 	</figcaption>
 </figure>
-
 
 We worked with the design team to generate custom buttons in the same way as default Origami buttons. This simplifies maintenance, improves design consistency, and was added to the [Sketch UI Kit](https://medium.com/ft-product-technology/ft-design-basics-1-why-we-finally-built-a-ui-kit-850e98b127bf) to support future design work.
 
@@ -121,7 +119,6 @@ These are mostly developer focused updates but also remove technical debt from o
 ## Dependants
 
 Because of the major cascade, we've taken the opportunity to implement more recent Origami proposals across all our components. These include [consistent ways to customise components](https://github.com/Financial-Times/origami/issues/14), so Origami can better support products with a unique look; [removing CSS class name modification](https://github.com/Financial-Times/origami/issues/4), to encourage style reuse and faster sites; [primary Sass mixins](https://github.com/Financial-Times/origami/issues/6), so developers can work with Origami more efficiently; and [moving from CommonJS JavaScript modules to browser native ECMAScript modules](https://github.com/Financial-Times/origami-build-tools/issues/609), to support modern methods and tools of bundling up and delivering our websites and apps to customers.
-
 
 ## Release
 

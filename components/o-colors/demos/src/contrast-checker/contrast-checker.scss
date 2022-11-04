@@ -1,15 +1,15 @@
 // Import colors module
-@import '../../../main';
+@import "../../../main";
 @include oColors();
-@import '@financial-times/o-tabs/main';
+@import "@financial-times/o-tabs/main";
 @include oTabs();
-@import '@financial-times/o-forms/main';
+@import "@financial-times/o-forms/main";
 @include oForms();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
-@import '@financial-times/o-buttons/main';
+@import "@financial-times/o-buttons/main";
 @include oButtons();
-@import '@financial-times/o-overlay/main';
+@import "@financial-times/o-overlay/main";
 @include oOverlay();
 @mixin swatchStyle() {
 	appearance: none;
@@ -77,24 +77,24 @@
 		grid-area: 1 / 4 / span 3;
 		width: 320px;
 
-		.o-tabs--buttontabs[data-o-tabs--js][role='tablist'] {
+		.o-tabs--buttontabs[data-o-tabs--js][role="tablist"] {
 			border-color: black;
 
-			[role='tab'] {
+			[role="tab"] {
 				color: black;
 				border-color: black;
-				background-color: oColorsByName('white');
+				background-color: oColorsByName("white");
 			}
 
-			[role='tab'][aria-selected='true'] {
-				background-color: oColorsByName('black-10');
+			[role="tab"][aria-selected="true"] {
+				background-color: oColorsByName("black-10");
 
 				a {
 					font-weight: 600;
 				}
 			}
 
-			[role='tab'][aria-selected='false'] a {
+			[role="tab"][aria-selected="false"] a {
 				font-weight: 400;
 			}
 		}
@@ -109,17 +109,16 @@
 			}
 		}
 
-		input[type='radio'] {
-			// stylelint-disable-line selector-no-qualifying-type
+		// stylelint-disable selector-no-qualifying-type
+		input[type="radio"] {
 			@include swatchStyle();
 
-			// stylelint-disable-next-line selector-no-qualifying-type
 			&.o-overlay-trigger,
 			&.trigger-input {
-				// stylelint-disable-line selector-no-qualifying-type
-				background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1%3Aplus?source=o-colors&width=24&height=24&tint=gray');
+				background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1%3Aplus?source=o-colors&width=24&height=24&tint=gray");
 			}
 		}
+		// stylelint-enable selector-no-qualifying-type
 	}
 
 	.o-overlay__content {
@@ -130,8 +129,8 @@
 			right: 20px;
 		}
 
+		//stylelint-disable-next-line selector-max-id
 		#add-mix {
-			//stylelint-disable-line selector-max-id
 			background-image: none;
 			font-size: inherit;
 			float: none;
@@ -143,16 +142,16 @@
 			padding: 0;
 		}
 
-		input[type='radio'] {
-			// stylelint-disable-line selector-no-qualifying-type
+		// stylelint-disable selector-no-qualifying-type
+		input[type="radio"] {
 			@include swatchStyle();
 
-			&[name='range'] {
-				// stylelint-disable-line selector-no-qualifying-type
+			&[name="range"] {
 				height: 48px;
 				width: 22px;
 			}
 		}
+		// stylelint-enable selector-no-qualifying-type
 
 		.o-forms-title__main {
 			margin: 4px 0 8px;
@@ -195,15 +194,15 @@
 		.rating-result {
 			&--aaa,
 			&--aa {
-				color: oColorsMix('jade', 'black', 70);
+				color: oColorsMix("jade", "black", 70);
 			}
 
 			&--aa18 {
-				color: oColorsMix('mandarin', 'black', 70);
+				color: oColorsMix("mandarin", "black", 70);
 			}
 
 			&--fail {
-				color: oColorsByName('crimson');
+				color: oColorsByName("crimson");
 			}
 		}
 

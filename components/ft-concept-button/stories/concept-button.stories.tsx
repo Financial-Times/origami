@@ -1,17 +1,17 @@
-import {withDesign} from 'storybook-addon-designs';
-import {ConceptButton} from '../src/tsx/concept-button';
-import {useArgs} from '@storybook/client-api';
-import './concept-button.scss';
-import withHtml from 'origami-storybook-addon-html';
+import { withDesign } from "storybook-addon-designs";
+import { ConceptButton } from "../src/tsx/concept-button";
+import { useArgs } from "@storybook/client-api";
+import "./concept-button.scss";
+import withHtml from "origami-storybook-addon-html";
 
 export default {
-	title: 'Components/ft-concept-button',
+	title: "Components/ft-concept-button",
 	component: ConceptButton,
 	decorators: [withDesign, withHtml],
 	parameters: {
 		design: {
-			type: 'figma',
-			url: 'https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=0%3A915',
+			type: "figma",
+			url: "https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=0%3A915",
 		},
 		html: {},
 	},
@@ -21,7 +21,7 @@ export default {
 	argTypes: {
 		extraButtonProps: {
 			control: false,
-			table: {disable: true},
+			table: { disable: true },
 		},
 	},
 };
@@ -32,7 +32,7 @@ const Pill = args => {
 		<ConceptButton
 			extraButtonProps={{
 				onClick() {
-					updateArgs({...args, pressed: !args.pressed});
+					updateArgs({ ...args, pressed: !args.pressed });
 				},
 			}}
 			{...args}
@@ -43,37 +43,37 @@ const Pill = args => {
 export const ConceptPill = Pill.bind({});
 
 ConceptPill.args = {
-	label: 'Movies',
-	theme: 'standard',
+	label: "Movies",
+	theme: "standard",
 };
 
 export const OpinionPill = Pill.bind({});
 
 OpinionPill.args = {
-	label: 'Movies',
-	theme: 'opinion',
+	label: "Movies",
+	theme: "opinion",
 };
 
 export const InversePill = Pill.bind({});
 
 InversePill.args = {
-	label: 'Movies',
-	theme: 'inverse',
+	label: "Movies",
+	theme: "inverse",
 };
 
 InversePill.parameters = {
-	origamiBackground: 'slate',
+	origamiBackground: "slate",
 };
 
 export const MonochromePill = Pill.bind({});
 
 MonochromePill.args = {
-	label: 'Movies',
-	theme: 'monochrome',
+	label: "Movies",
+	theme: "monochrome",
 };
 
 MonochromePill.parameters = {
-	origamiBackground: 'slate',
+	origamiBackground: "slate",
 };
 
 export const SignupButton = args => {
@@ -86,7 +86,7 @@ export const SignupButton = args => {
 					updateArgs({
 						...args,
 						pressed,
-						label: pressed ? 'Signed up' : 'Sign up',
+						label: pressed ? "Signed up" : "Sign up",
 					});
 				},
 			}}
@@ -96,10 +96,10 @@ export const SignupButton = args => {
 };
 
 SignupButton.args = {
-	label: 'Sign up',
+	label: "Sign up",
 	pressed: false,
-	theme: 'standard',
-	type: 'follow',
+	theme: "standard",
+	type: "follow",
 };
 
 export const FollowButton = args => {
@@ -113,11 +113,11 @@ export const FollowButton = args => {
 						...args,
 						pressed,
 						ariaLiveText: pressed
-							? 'Now following Movies on my FT'
-							: 'No longer following movies on my FT',
+							? "Now following Movies on my FT"
+							: "No longer following movies on my FT",
 						ariaLabel: pressed
-							? 'Unfollow movies on my FT'
-							: 'Follow movies on my FT',
+							? "Unfollow movies on my FT"
+							: "Follow movies on my FT",
 					});
 				},
 			}}
@@ -127,8 +127,8 @@ export const FollowButton = args => {
 };
 
 FollowButton.args = {
-	label: 'Movies',
-	ariaLabel: 'Follow movies on my FT',
-	theme: 'standard',
-	type: 'follow',
+	label: "Movies",
+	ariaLabel: "Follow movies on my FT",
+	theme: "standard",
+	type: "follow",
 };

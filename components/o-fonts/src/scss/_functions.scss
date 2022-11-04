@@ -7,11 +7,11 @@
 /// @return {Bool}
 /// @see oFontsDefineCustomFont To register a custom font's avalible variants.
 @function oFontsVariantExists($family, $weight, $style) {
-	$weight: if($weight, $weight, 'regular'); // Handles a falsy `$weight` value.
-	$style: if($style, $style, 'normal'); // Handles a falsy `$style` value.
+	$weight: if($weight, $weight, "regular"); // Handles a falsy `$weight` value.
+	$style: if($style, $style, "normal"); // Handles a falsy `$style` value.
 	$font-properties: map-get($_o-fonts-families, $family);
 	// Font is not registered.
-	@if type-of($font-properties) != 'map' {
+	@if type-of($font-properties) != "map" {
 		@return false;
 	}
 	$font-variants: map-get($font-properties, variants);
@@ -41,8 +41,8 @@
 /// @return {Bool}
 /// @see oFonts To include fonts
 @function oFontsVariantIncluded($family, $weight, $style) {
-	$weight: if($weight, $weight, 'regular'); // Handles a falsy `$weight` value.
-	$style: if($style, $style, 'normal'); // Handles a falsy `$style` value.
+	$weight: if($weight, $weight, "regular"); // Handles a falsy `$weight` value.
+	$style: if($style, $style, "normal"); // Handles a falsy `$style` value.
 	$variant-key: _oFontsVariantKey($family, $weight, $style);
 
 	@return map-has-key($_o-fonts-families-included, $variant-key);
@@ -72,14 +72,14 @@
 /// @param {String|List} $family - Font family potentially with fallbacks.
 /// @returns {String} Font family without fallbacks.
 @function oFontsGetFontFamilyWithoutFallbacks($family) {
-	@if type-of($family) == 'list' {
+	@if type-of($family) == "list" {
 		@return nth($family, 1);
 	}
-	$index: str-index($family, ',');
+	$index: str-index($family, ",");
 	@if $index {
 		$family: str-slice($family, 0, $index - 1);
 	}
-	@return if($family, $family, '');
+	@return if($family, $family, "");
 }
 
 /// Machine-readable CSS font-weight.
@@ -103,7 +103,7 @@
 /// @param {String} $string - string to update
 /// @return {String} - the string with a capitalised first letter
 @function _oFontsStringCapitalise($string) {
-	$string: $string + unquote(''); // Make sure $string has a type of String
+	$string: $string + unquote(""); // Make sure $string has a type of String
 	$first-letter: to-upper-case(str-slice($string, 0, 1));
 	$rest-of-string: str-slice($string, 2);
 
@@ -119,7 +119,7 @@
 /// @param {String} $style [normal] - The font style.
 /// @return {String} - the key
 @function _oFontsVariantKey($family, $weight, $style) {
-	@return '#{$family}-#{$weight}-#{$style}';
+	@return "#{$family}-#{$weight}-#{$style}";
 }
 
 /// Given an o-fonts options map, return a list of variant maps e.g.
@@ -131,9 +131,9 @@
 	$all-validated-variants: ();
 	// Map of options to font name.
 	$fonts: (
-		'metric': 'MetricWeb',
-		'financier-display': 'FinancierDisplayWeb',
-		'financier-text': 'FinancierTextWeb',
+		"metric": "MetricWeb",
+		"financier-display": "FinancierDisplayWeb",
+		"financier-text": "FinancierTextWeb",
 	);
 	// Include each font variant given.
 	@each $option, $family in $fonts {
@@ -141,7 +141,7 @@
 		$variants: map-get($opts, $option);
 		$variants: if($variants, $variants, ());
 		// Merge recommended font variants if recommended fonts were requested.
-		@if map-get($opts, 'recommended') == true {
+		@if map-get($opts, "recommended") == true {
 			$recommended-variants: map-get($_o-fonts-recommended, $option);
 			@if length($variants) > 0 {
 				$variants: append($recommended-variants, $variants);
@@ -151,21 +151,21 @@
 		}
 		@each $variant in $variants {
 			// Validate that the variant style and weight is given.
-			$weight: map-get($variant, 'weight');
-			$style: map-get($variant, 'style');
-			@if (type-of($weight) != 'string') {
+			$weight: map-get($variant, "weight");
+			$style: map-get($variant, "style");
+			@if (type-of($weight) != "string") {
 				@error 'Could not include the "#{$family}" font with weight "#{inspect($weight)}". Excepted a string.';
 			}
-			@if (type-of($style) != 'string') {
+			@if (type-of($style) != "string") {
 				@error 'Could not include the "#{$family}" font with style "#{inspect($style)}". Excepted a string.';
 			}
 			// Include the font face for this variant.
 			$all-validated-variants: append(
 				$all-validated-variants,
 				(
-					'family': $family,
-					'weight': $weight,
-					'style': $style,
+					"family": $family,
+					"weight": $weight,
+					"style": $style,
 				)
 			);
 		}

@@ -3,7 +3,7 @@ title: Origami Newsletter, July 2021
 description: New introduction to Origami sessions and special thanks.
 author: Lee Moody
 tags:
-- Newsletter
+  - Newsletter
 ---
 
 <abbr title="Too long; didn't read">
@@ -59,10 +59,10 @@ A digest of other things that have happened this month:
 - MINOR: [o-table](https://github.com/Financial-Times/o-table) based on feedback we've improved the demos and documentation for filterable tables; and we've added support for sorting tables with multiple header rows (thanks for raising and helping build a fix Emma Lewis).
 - MINOR: [origami-build-service](https://github.com/Financial-Times/origami-build-service) has received a number of bug fixes and improvements since the release of v3 last month, including an improved ["url updater" migration guide](https://www.ft.com/__origami/service/build/url-updater).
 - MINOR: [polyfill-library](https://github.com/Financial-Times/polyfill-library) received a number of updates (thanks to our open source contributors!)
-    - Fixed a bug where iOS 12 and above would be detected as iOS 11 and we would over-polyfill the browser.
-    - Updated `URL.prototype.toJSON` to now serve to Safari <12 and Edge <18.17134
-    - Added `MediaQueryList.prototype.addEventListener` and `MediaQueryList.prototype.removeEventListener`.
-    - Added `Intl.DateTimeFormat.~timeZone.all` and `Intl.DateTimeFormat.~timeZone.golden`. The two polyfills can be used to load time-zone data into the `Intl` polyfills - more information can be found at [formatjs.io](https://formatjs.io/).
+  - Fixed a bug where iOS 12 and above would be detected as iOS 11 and we would over-polyfill the browser.
+  - Updated `URL.prototype.toJSON` to now serve to Safari <12 and Edge <18.17134
+  - Added `MediaQueryList.prototype.addEventListener` and `MediaQueryList.prototype.removeEventListener`.
+  - Added `Intl.DateTimeFormat.~timeZone.all` and `Intl.DateTimeFormat.~timeZone.golden`. The two polyfills can be used to load time-zone data into the `Intl` polyfills - more information can be found at [formatjs.io](https://formatjs.io/).
 - PATCH: [js-features-analyser](https://github.com/Financial-Times/js-features-analyser) fixes a bug where analysing code with destructing assignment would error (thanks to our open source contributors!)
 - PATCH: [o-colors](https://github.com/Financial-Times/o-colors), [o-forms](https://github.com/Financial-Times/o-forms), and [o-fonts](https://github.com/Financial-Times/o-fonts) have updated migration guides based on feedback.
 - PATCH: [o-tracking](https://github.com/Financial-Times/o-tracking) makes a number of small improvements but notably fixes a bug where click events were lost moving from one page which uses v2 of `o-tracking` and the next page which uses v3.

@@ -1,12 +1,12 @@
-import {withDesign} from 'storybook-addon-designs';
-import {CookieMessage} from '../src/tsx/cookie-message';
-import {useEffect} from 'react';
-import javascript from '../main';
-import './cookie-message.scss';
-import withHtml from 'origami-storybook-addon-html';
+import { withDesign } from "storybook-addon-designs";
+import { CookieMessage } from "../src/tsx/cookie-message";
+import { useEffect } from "react";
+import javascript from "../main";
+import "./cookie-message.scss";
+import withHtml from "origami-storybook-addon-html";
 
 export default {
-	title: 'Components/o-cookie-message',
+	title: "Components/o-cookie-message",
 	component: CookieMessage,
 	decorators: [withDesign, withHtml],
 	args: {},
@@ -35,31 +35,31 @@ const Story = args => {
 const Default = Story.bind({});
 Default.args = {
 	fullMarkupForDefaultContent: false,
-	heading: '',
-	copy: '',
-	redirect: '',
+	heading: "",
+	copy: "",
+	redirect: "",
 	primaryAction: {
-		copy: '',
+		copy: "",
 	},
 	secondaryAction: {
-		copy: '',
+		copy: "",
 	},
-	theme: '',
+	theme: "",
 };
 
-export {Default as CookieMessage};
+export { Default as CookieMessage };
 
 export const AlternativeDesignCookieMessage = Story.bind({});
 AlternativeDesignCookieMessage.args = {
 	fullMarkupForDefaultContent: false,
-	heading: '',
-	copy: '',
-	redirect: '',
+	heading: "",
+	copy: "",
+	redirect: "",
 	primaryAction: {
-		copy: '',
+		copy: "",
 	},
 	secondaryAction: {
-		copy: '',
+		copy: "",
 	},
-	theme: 'alternative',
+	theme: "alternative",
 };

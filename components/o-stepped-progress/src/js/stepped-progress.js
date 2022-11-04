@@ -1,4 +1,4 @@
-import SteppedProgressStep from './stepped-progress-step.js';
+import SteppedProgressStep from "./stepped-progress-step.js";
 
 /**
  * Component class names.
@@ -7,7 +7,7 @@ import SteppedProgressStep from './stepped-progress-step.js';
  * @type {object}
  */
 const classNames = {
-	step: 'o-stepped-progress__step',
+	step: "o-stepped-progress__step",
 };
 
 /**
@@ -173,7 +173,7 @@ class SteppedProgress {
 		return Object.keys(steppedProgressElement.dataset).reduce(
 			(options, key) => {
 				// Ignore data-o-component
-				if (key === 'oComponent') {
+				if (key === "oComponent") {
 					return options;
 				}
 
@@ -214,7 +214,7 @@ class SteppedProgress {
 		}
 		if (
 			rootElement instanceof HTMLElement &&
-			rootElement.matches('[data-o-component=o-stepped-progress]')
+			rootElement.matches("[data-o-component=o-stepped-progress]")
 		) {
 			return new SteppedProgress(rootElement, options);
 		}

@@ -8,23 +8,23 @@
 	}
 
 	// Get given base and border colour.
-	$base: map-get($theme, 'controls-base');
-	$base: if(type-of($base) == 'string', oColorsByName($base), $base);
-	$border: map-get($theme, 'controls-border');
-	$border: if(type-of($border) == 'string', oColorsByName($border), $border);
+	$base: map-get($theme, "controls-base");
+	$base: if(type-of($base) == "string", oColorsByName($base), $base);
+	$border: map-get($theme, "controls-border");
+	$border: if(type-of($border) == "string", oColorsByName($border), $border);
 
 	// Get given checked base colour.
-	$checked-base: map-get($theme, 'controls-checked-base');
+	$checked-base: map-get($theme, "controls-checked-base");
 	$checked-base: if(
-		type-of($checked-base) == 'string',
+		type-of($checked-base) == "string",
 		oColorsByName($checked-base),
 		$checked-base
 	);
 
 	// Get given negative checked colour.
-	$negative-background: map-get($theme, 'controls-negative-checked-background');
+	$negative-background: map-get($theme, "controls-negative-checked-background");
 	$negative-background: if(
-		type-of($negative-background) == 'string',
+		type-of($negative-background) == "string",
 		oColorsByName($negative-background),
 		$negative-background
 	);
@@ -36,29 +36,29 @@
 
 	// Return brand options which the theme is a allowed to customise.
 	@return (
-		'controls-base': $base,
-		'controls-checked-base': $checked-base,
-		'controls-negative-checked-background':
+		"controls-base": $base,
+		"controls-checked-base": $checked-base,
+		"controls-negative-checked-background":
 			if($negative-background, $negative-background, $base),
-		'default-border': $border
+		"default-border": $border
 	);
 }
 
 /// @access private
 /// Outputs base styling for custom icons
 @mixin _oFormsCustomIconBase {
+	// stylelint-disable selector-no-qualifying-type
 	.o-forms-input__label {
 		min-width: unset;
 	}
 
-	// stylelint-disable-next-line selector-no-qualifying-type
 	a.o-forms-input__link.o-forms-input__link--current,
-	input[type='radio']:checked + .o-forms-input__label {
-		// stylelint-disable-line selector-no-qualifying-type
+	input[type="radio"]:checked + .o-forms-input__label {
 		&:after {
 			display: block;
 		}
 	}
+	// stylelint-enable selector-no-qualifying-type
 }
 
 /// @access public
@@ -67,12 +67,12 @@
 /// @param {Map|null} $theme Custom theme map
 @mixin _oFormsCustomIcon($icon, $input, $theme: null) {
 	$theme: _oFormsThemeToBrandVariants($theme);
-	$element: '';
+	$element: "";
 
-	@if $input == 'radio' {
-		$element: 'label .o-forms-input__label.o-forms-input__label__#{$icon}-icon';
+	@if $input == "radio" {
+		$element: "label .o-forms-input__label.o-forms-input__label__#{$icon}-icon";
 	} @else {
-		$element: 'a.o-forms-input__link--#{$icon}-icon';
+		$element: "a.o-forms-input__link--#{$icon}-icon";
 	}
 
 	#{$element} {
@@ -82,7 +82,7 @@
 
 		&:after,
 		&:before {
-			content: '';
+			content: "";
 			background-repeat: no-repeat;
 			background-position-y: 0.175em;
 			position: absolute;
@@ -93,7 +93,7 @@
 		&:before {
 			@include oIconsContent(
 				$icon-name: $icon,
-				$color: _oFormsGet('controls-base', $from: $theme),
+				$color: _oFormsGet("controls-base", $from: $theme),
 				$size: $_o-forms-checkbox-radio-width,
 				$include-base-styles: false
 			);
@@ -102,7 +102,7 @@
 		&:after {
 			@include oIconsContent(
 				$icon-name: $icon,
-				$color: _oFormsGet('controls-checked-base', $from: $theme),
+				$color: _oFormsGet("controls-checked-base", $from: $theme),
 				$size: $_o-forms-checkbox-radio-width,
 				$include-base-styles: false
 			);
@@ -127,9 +127,9 @@
 	$theme: _oFormsThemeToBrandVariants($theme);
 
 	.o-forms-input--#{$class} {
-		@if $input == 'pseudo-radio-link' {
+		@if $input == "pseudo-radio-link" {
 			@include _oFormsPseudoRadioLinkStyles($theme);
-		} @else if $input == 'radio' {
+		} @else if $input == "radio" {
 			@include _oFormsRadioBoxInputStyles($theme);
 		} @else {
 			@error ('#{$input} inputs do not accept customisation. If you need to customise this type of input, please contact the Origami team.');

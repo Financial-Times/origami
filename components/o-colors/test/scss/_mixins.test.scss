@@ -1,6 +1,6 @@
-@include describe('oColors mixins') {
-	@include describe('oColors') {
-		@include it('outputs palette custom properties by default') {
+@include describe("oColors mixins") {
+	@include describe("oColors") {
+		@include it("outputs palette custom properties by default") {
 			@include assert() {
 				@include output($selector: false) {
 					@include oColors();
@@ -13,7 +13,7 @@
 				}
 			}
 		}
-		@include it('outputs usecase custom properties by default') {
+		@include it("outputs usecase custom properties by default") {
 			@include assert() {
 				@include output($selector: false) {
 					@include oColors();
@@ -26,7 +26,7 @@
 				}
 			}
 		}
-		@include it('outputs usecase classes by default') {
+		@include it("outputs usecase classes by default") {
 			@include assert() {
 				@include output($selector: false) {
 					@include oColors();
@@ -47,7 +47,7 @@
 				@include output($selector: false) {
 					@include oColors(
 						$opts: (
-							'palette-custom-properties': true,
+							"palette-custom-properties": true,
 						)
 					);
 				}
@@ -67,7 +67,7 @@
 				@include output($selector: false) {
 					@include oColors(
 						$opts: (
-							'usecase-custom-properties': true,
+							"usecase-custom-properties": true,
 						)
 					);
 				}
@@ -92,7 +92,7 @@
 				@include output($selector: false) {
 					@include oColors(
 						$opts: (
-							'usecase-classes': true,
+							"usecase-classes": true,
 						)
 					);
 				}
@@ -118,99 +118,99 @@
 		}
 	}
 
-	@include describe('oColorsSetColor') {
-		@include it('adds a custom palette color') {
-			@include oColorsSetColor('o-example/olive', #808000);
-			@include assert-equal(oColorsByName('o-example/olive'), (#808000));
+	@include describe("oColorsSetColor") {
+		@include it("adds a custom palette color") {
+			@include oColorsSetColor("o-example/olive", #808000);
+			@include assert-equal(oColorsByName("o-example/olive"), (#808000));
 		}
-		@include it('override a default o-colors palette color') {
-			@include oColorsSetColor('o-colors/paper', #808000);
-			@include assert-equal(oColorsByName('paper'), (#808000));
+		@include it("override a default o-colors palette color") {
+			@include oColorsSetColor("o-colors/paper", #808000);
+			@include assert-equal(oColorsByName("paper"), (#808000));
 			// reset paper color
-			@include oColorsSetColor('o-colors/paper', #fff1e5);
+			@include oColorsSetColor("o-colors/paper", #fff1e5);
 		}
-		@include it('set a custom color twice with the same value') {
+		@include it("set a custom color twice with the same value") {
 			// if a component is imported twice it may attempt
 			// to set a colour twice
-			@include oColorsSetColor('o-demo-twice/paper', hotpink);
-			@include oColorsSetColor('o-demo-twice/paper', hotpink);
+			@include oColorsSetColor("o-demo-twice/paper", hotpink);
+			@include oColorsSetColor("o-demo-twice/paper", hotpink);
 		}
 	}
 
-	@include describe('oColorSetUseCase') {
-		@include it('add a custom use case property') {
+	@include describe("oColorSetUseCase") {
+		@include it("add a custom use case property") {
 			@include oColorsSetUseCase(
-				'o-colors/test-case',
+				"o-colors/test-case",
 				(
-					'text': 'candy',
+					"text": "candy",
 				)
 			);
 			@include assert-equal(
 				oColorsByUsecase(test-case, text),
-				oColorsByName('candy')
+				oColorsByName("candy")
 			);
 		}
-		@include it('add a custom use case property for a custom colour') {
+		@include it("add a custom use case property for a custom colour") {
 			// A custom colour set by an "o-example" component.
 			$example-color: #808000;
-			@include oColorsSetColor('o-example/paper', $example-color);
+			@include oColorsSetColor("o-example/paper", $example-color);
 			// A custom usecase by an "o-example" component, using a custom colour.
 			@include oColorsSetUseCase(
-				'o-example/page',
+				"o-example/page",
 				(
-					'background': 'o-example/paper',
+					"background": "o-example/paper",
 				)
 			);
 			// Assert able to get the new "o-example" usecase.
 			@include assert-equal(
-				oColorsByUsecase('o-example/page', 'background'),
+				oColorsByUsecase("o-example/page", "background"),
 				$example-color
 			);
 		}
-		@include it('add a custom use case property for a colour mix') {
-			$mix: oColorsMix('teal', 'slate', 50);
+		@include it("add a custom use case property for a colour mix") {
+			$mix: oColorsMix("teal", "slate", 50);
 			@include oColorsSetUseCase(
-				'o-example/mix',
+				"o-example/mix",
 				(
-					'background': $mix,
+					"background": $mix,
 				)
 			);
 			// Assert able to get the new "o-example" mix usecase.
 			@include assert-equal(
-				oColorsByUsecase('o-example/mix', 'background'),
+				oColorsByUsecase("o-example/mix", "background"),
 				$mix
 			);
 		}
-		@include it('override a default o-colors custom use case property') {
+		@include it("override a default o-colors custom use case property") {
 			@include oColorsSetUseCase(
-				'o-colors/page',
+				"o-colors/page",
 				(
-					'background': 'candy',
+					"background": "candy",
 				)
 			);
 			@include assert-equal(
-				oColorsByUsecase('page', 'background'),
-				oColorsByName('candy')
+				oColorsByUsecase("page", "background"),
+				oColorsByName("candy")
 			);
 		}
-		@include it('set a usecase twice with the same value') {
+		@include it("set a usecase twice with the same value") {
 			// if a component is imported twice it may attempt
 			// to set a usecase twice
 			@include oColorsSetUseCase(
-				'o-example/page-set-twice',
+				"o-example/page-set-twice",
 				(
-					'background': 'candy',
+					"background": "candy",
 				)
 			);
 			@include oColorsSetUseCase(
-				'o-example/page-set-twice',
+				"o-example/page-set-twice",
 				(
-					'background': 'candy',
+					"background": "candy",
 				)
 			);
 			@include assert-equal(
-				oColorsByUsecase('o-example/page-set-twice', 'background'),
-				oColorsByName('candy')
+				oColorsByUsecase("o-example/page-set-twice", "background"),
+				oColorsByName("candy")
 			);
 		}
 	}

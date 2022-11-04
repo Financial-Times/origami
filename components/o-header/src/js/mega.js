@@ -6,7 +6,7 @@ const expanded = [];
 function addEvents(parent, menu) {
 	let timeout;
 
-	parent.addEventListener('mouseenter', () => {
+	parent.addEventListener("mouseenter", () => {
 		clearTimeout(timeout);
 
 		if (isOpen(menu)) {
@@ -27,16 +27,16 @@ function addEvents(parent, menu) {
 		const key = event.key || event.keyCode;
 
 		// Internet Explorer 11 incorrectly maps the escape key to `Esc` instead of `Escape`
-		if (key === 'Escape' || key === 'Esc' || key === 27) {
+		if (key === "Escape" || key === "Esc" || key === 27) {
 			if (isOpen(menu)) {
 				hide(menu);
 			}
 		}
 	};
 
-	document.addEventListener('keydown', handleKeydown);
+	document.addEventListener("keydown", handleKeydown);
 
-	parent.addEventListener('mouseleave', () => {
+	parent.addEventListener("mouseleave", () => {
 		clearTimeout(timeout);
 		timeout = setTimeout(() => isOpen(menu) && hide(menu), INTENT_LEAVE);
 	});
@@ -48,38 +48,42 @@ function isOpen(menu) {
 
 function show(menu, animate) {
 	if (animate) {
-		menu.classList.add('o-header__mega--animation');
+		menu.classList.add("o-header__mega--animation");
 	}
 
-	menu.setAttribute('aria-hidden', 'false');
-	menu.setAttribute('aria-expanded', 'true');
+	menu.setAttribute("aria-hidden", "false");
+	menu.setAttribute("aria-expanded", "true");
 
-	menu.dispatchEvent(new CustomEvent('oHeader.MegaMenuShow', {bubbles: true}));
+	menu.dispatchEvent(
+		new CustomEvent("oHeader.MegaMenuShow", { bubbles: true })
+	);
 
 	expanded.push(menu);
 }
 
 function hide(menu) {
-	menu.classList.remove('o-header__mega--animation');
-	menu.setAttribute('aria-hidden', 'true');
-	menu.setAttribute('aria-expanded', 'false');
+	menu.classList.remove("o-header__mega--animation");
+	menu.setAttribute("aria-hidden", "true");
+	menu.setAttribute("aria-expanded", "false");
 
-	menu.dispatchEvent(new CustomEvent('oHeader.MegaMenuHide', {bubbles: true}));
+	menu.dispatchEvent(
+		new CustomEvent("oHeader.MegaMenuHide", { bubbles: true })
+	);
 
 	expanded.splice(expanded.indexOf(menu), 1);
 }
 
 function init(headerEl) {
-	const menus = Array.from(headerEl.querySelectorAll('[data-o-header-mega]'));
+	const menus = Array.from(headerEl.querySelectorAll("[data-o-header-mega]"));
 	const parents = menus.map(menu => menu.parentNode);
 
 	menus.forEach(menu => {
-		menu.setAttribute('aria-hidden', 'true');
-		menu.setAttribute('aria-expanded', 'false');
+		menu.setAttribute("aria-hidden", "true");
+		menu.setAttribute("aria-expanded", "false");
 	});
 
 	parents.forEach((parent, i) => addEvents(parent, menus[i]));
 }
 
-export {init, show, hide};
-export default {init, show, hide};
+export { init, show, hide };
+export default { init, show, hide };

@@ -6,8 +6,8 @@
 /// @access private
 @mixin _oLabelsBaseContent() {
 	@include oTypographySans(
-		$scale: _oLabelsGet('font-scale'),
-		$weight: 'semibold',
+		$scale: _oLabelsGet("font-scale"),
+		$weight: "semibold",
 		$line-height: 1em
 	);
 	text-align: center;
@@ -16,12 +16,12 @@
 	margin: 0;
 	text-decoration: none;
 	padding: calc(
-			#{_oLabelsGet('padding-vertical')} - #{_oLabelsGet('border-width')}
+			#{_oLabelsGet("padding-vertical")} - #{_oLabelsGet("border-width")}
 		)
-		calc(#{_oLabelsGet('padding-horizontal')} - #{_oLabelsGet('border-width')});
-	color: _oLabelsGet('text-color');
-	background-color: _oLabelsGet('background-color');
-	border: solid _oLabelsGet('border-width') transparent;
+		calc(#{_oLabelsGet("padding-horizontal")} - #{_oLabelsGet("border-width")});
+	color: _oLabelsGet("text-color");
+	background-color: _oLabelsGet("background-color");
+	border: solid _oLabelsGet("border-width") transparent;
 }
 
 /// Size modifiers for labels.
@@ -80,9 +80,9 @@
 /// 	}
 /// @access public
 @mixin oLabelsContent($opts: ()) {
-	$base: map-get($opts, 'base');
-	$size: map-get($opts, 'size');
-	$state: map-get($opts, 'state');
+	$base: map-get($opts, "base");
+	$size: map-get($opts, "size");
+	$state: map-get($opts, "state");
 
 	@if $base {
 		@include _oLabelsBaseContent();
@@ -143,13 +143,13 @@
 /// @param {Sting|Map} $ops - the BEM element to output styles for, see example.
 /// @access public
 @mixin oLabelsIndicatorContent($opts: ()) {
-	$modifier: map-get($opts, 'modifier');
-	$element: map-get($opts, 'element');
-	$block: map-get($opts, 'block');
+	$modifier: map-get($opts, "modifier");
+	$element: map-get($opts, "element");
+	$block: map-get($opts, "block");
 	// Validate element.
 	// The timestamp element .o-labels-indicator__timestamp element
 	// currently has no styles but may do in the future.
-	$valid-elements: ('status', 'timestamp');
+	$valid-elements: ("status", "timestamp");
 	@if $element and not index($valid-elements, $element) {
 		@error 'Element must be one of "#{$valid-elements}" if set. "#{$element}" given.';
 	}
@@ -162,7 +162,7 @@
 		@include _oLabelsIndicatorStatusContent($modifier);
 	}
 	// Output status element styles i.e .o-labels-indicator__status
-	@if $element == 'status' {
+	@if $element == "status" {
 		@extend %_o-labels-indicator__status;
 	}
 }
@@ -171,7 +171,7 @@
 /// @param {Sting} $size - The label size to output styles for. The valid sizes are `big` and `small`.
 /// @access private
 @mixin _oLabelsSizeContent($size) {
-	$scale: _oLabelsGet('font-scale', $size);
+	$scale: _oLabelsGet("font-scale", $size);
 	@if $scale {
 		@include oTypographySans(
 			$scale,
@@ -180,11 +180,11 @@
 		);
 	}
 	padding: calc(
-			#{_oLabelsGet('padding-vertical', $size)} - #{_oLabelsGet('border-width')}
+			#{_oLabelsGet("padding-vertical", $size)} - #{_oLabelsGet("border-width")}
 		)
 		calc(
-			#{_oLabelsGet('padding-horizontal', $size)} - #{_oLabelsGet(
-					'border-width'
+			#{_oLabelsGet("padding-horizontal", $size)} - #{_oLabelsGet(
+					"border-width"
 				)}
 		);
 }
@@ -193,28 +193,28 @@
 /// @param {Sting|Map} $variant - An existing state name or a custom state map.
 /// @access private
 @mixin _oLabelsStandardStateContent($variant) {
-	background-color: _oLabelsGet('background-color', $variant);
-	border-color: _oLabelsGet('border-color', $variant);
-	text-transform: _oLabelsGet('text-transform', $variant);
+	background-color: _oLabelsGet("background-color", $variant);
+	border-color: _oLabelsGet("border-color", $variant);
+	text-transform: _oLabelsGet("text-transform", $variant);
 
 	// Set text colour or calculate based on background
-	@if _oLabelsGet('text-color', $variant) {
-		color: _oLabelsGet('text-color', $variant);
+	@if _oLabelsGet("text-color", $variant) {
+		color: _oLabelsGet("text-color", $variant);
 	} @else {
-		color: oColorsGetTextColor(_oLabelsGet('background-color', $variant), 100);
+		color: oColorsGetTextColor(_oLabelsGet("background-color", $variant), 100);
 	}
 
 	// Set the spacing
-	@if _oLabelsGet('padding-vertical', $variant) and
-		_oLabelsGet('padding-horizontal', $variant)
+	@if _oLabelsGet("padding-vertical", $variant) and
+		_oLabelsGet("padding-horizontal", $variant)
 	{
 		padding: calc(
-				#{_oLabelsGet('padding-vertical', $variant)} -
-					#{_oLabelsGet('border-width')}
+				#{_oLabelsGet("padding-vertical", $variant)} -
+					#{_oLabelsGet("border-width")}
 			)
 			calc(
-				#{_oLabelsGet('padding-horizontal', $variant)} -
-					#{_oLabelsGet('border-width')}
+				#{_oLabelsGet("padding-horizontal", $variant)} -
+					#{_oLabelsGet("border-width")}
 			);
 	}
 }
@@ -231,14 +231,14 @@
 	// It is not possible to customise indicator labels currently but this
 	// may be added in the future, e.g. for the internal brand:
 	// https://github.com/Financial-Times/o-labels/issues/58
-	@if $status == 'closed' {
+	@if $status == "closed" {
 		@extend %_o-labels-indicator-closed-color;
 	} @else {
 		@extend %_o-labels-indicator-live-color;
 	}
 	@extend %_o-labels-timestamp-typography;
 
-	@if ($status == 'live') {
+	@if ($status == "live") {
 		& > %_o-labels-indicator__status:before {
 			animation: _o-labels-live-pulse 1.2s ease-in-out infinite;
 			// Prevent animation of the live label if the reader has indicated
@@ -253,7 +253,7 @@
 		}
 
 		// output keyframes once when live status is output
-		@if ($status == 'live' and $_o-labels-indicator-live-pulse-output: false) {
+		@if ($status == "live" and $_o-labels-indicator-live-pulse-output: false) {
 			$_o-labels-indicator-live-pulse-output: true !global;
 			@keyframes _o-labels-live-pulse {
 				0% {

@@ -1,13 +1,13 @@
-import Toggle from '@financial-times/o-toggle';
-import layout from './layout.js';
+import Toggle from "@financial-times/o-toggle";
+import layout from "./layout.js";
 
-const COLLAPSIBLE_BREAKPOINTS = ['default', 'XS', 'S'];
+const COLLAPSIBLE_BREAKPOINTS = ["default", "XS", "S"];
 
 class Footer {
 	constructor(footerEl) {
 		if (!footerEl) {
 			footerEl = document.querySelector('[data-o-component="o-footer"]');
-		} else if (typeof footerEl === 'string') {
+		} else if (typeof footerEl === "string") {
 			footerEl = document.querySelector(footerEl);
 		}
 
@@ -25,22 +25,22 @@ class Footer {
 			}
 		});
 
-		this.footerEl.removeAttribute('data-o-footer--no-js');
-		this.footerEl.setAttribute('data-o-footer--js', '');
+		this.footerEl.removeAttribute("data-o-footer--no-js");
+		this.footerEl.setAttribute("data-o-footer--js", "");
 	}
 
 	setup() {
 		this._toggles = [];
 
-		const toggleEls = this.footerEl.querySelectorAll('[aria-controls]');
+		const toggleEls = this.footerEl.querySelectorAll("[aria-controls]");
 
 		Array.prototype.forEach.call(toggleEls, toggleEl => {
 			const target = document.getElementById(
-				toggleEl.getAttribute('aria-controls')
+				toggleEl.getAttribute("aria-controls")
 			);
-			toggleEl.setAttribute('role', 'button');
-			toggleEl.setAttribute('tabindex', '0');
-			this._toggles.push(new Toggle(toggleEl, {target}));
+			toggleEl.setAttribute("role", "button");
+			toggleEl.setAttribute("tabindex", "0");
+			this._toggles.push(new Toggle(toggleEl, { target }));
 		});
 	}
 
@@ -60,7 +60,7 @@ class Footer {
 	static init(rootEl) {
 		if (!rootEl) {
 			rootEl = document.body;
-		} else if (typeof rootEl === 'string') {
+		} else if (typeof rootEl === "string") {
 			rootEl = document.querySelector(rootEl);
 		}
 

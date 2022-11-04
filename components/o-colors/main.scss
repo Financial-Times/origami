@@ -1,11 +1,11 @@
-@import '@financial-times/math';
-@import '@financial-times/o-brand/main';
+@import "@financial-times/math";
+@import "@financial-times/o-brand/main";
 
-@import 'src/scss/variables';
-@import 'src/scss/palette';
-@import 'src/scss/use-cases';
-@import 'src/scss/functions';
-@import 'src/scss/mixins';
+@import "src/scss/variables";
+@import "src/scss/palette";
+@import "src/scss/use-cases";
+@import "src/scss/functions";
+@import "src/scss/mixins";
 
 // Set the palette colors programatically
 // NOTE: Only do this once as this partial will be included by many other components
@@ -38,14 +38,14 @@
 /// @param {Map} $opts - The o-colors features to output. See the [readme](https://registry.origami.ft.com/components/o-colors) for a full list of options.
 @mixin oColors(
 	$opts: (
-		'palette-custom-properties': true,
-		'usecase-custom-properties': true,
-		'usecase-classes': true,
+		"palette-custom-properties": true,
+		"usecase-custom-properties": true,
+		"usecase-classes": true,
 	)
 ) {
-	$palette-properties: map-get($opts, 'palette-custom-properties');
-	$usecase-properties: map-get($opts, 'usecase-custom-properties');
-	$usecase-classes: map-get($opts, 'usecase-classes');
+	$palette-properties: map-get($opts, "palette-custom-properties");
+	$usecase-properties: map-get($opts, "usecase-custom-properties");
+	$usecase-classes: map-get($opts, "usecase-classes");
 
 	// Output CSS classes for a limited number of usecases.
 	// E.g. .o-colors-page-background { background: #fff1e5; }
@@ -56,23 +56,23 @@
 		@each $usecase,
 			$property
 				in (
-					'page': (
-						'background',
+					"page": (
+						"background",
 					),
-					'box': (
-						'background',
+					"box": (
+						"background",
 					),
-					'body': (
-						'text',
+					"body": (
+						"text",
 					),
-					'muted': (
-						'text',
+					"muted": (
+						"text",
 					)
 				)
 		{
 			.o-colors-#{$usecase}-#{$property} {
 				$color-value: oColorsByUsecase($usecase, $property, $fallback: null);
-				$css-property: if($property == 'text', 'color', $property);
+				$css-property: if($property == "text", "color", $property);
 				#{$css-property}: $color-value;
 			}
 		}
@@ -86,23 +86,23 @@
 			@each $usecase,
 				$property
 					in (
-						'page': (
-							'background',
+						"page": (
+							"background",
 						),
-						'box': (
-							'background',
+						"box": (
+							"background",
 						),
-						'body': (
-							'text',
+						"body": (
+							"text",
 						),
-						'muted': (
-							'text',
+						"muted": (
+							"text",
 						),
-						'link': (
-							'text',
+						"link": (
+							"text",
 						),
-						'link-hover': (
-							'text',
+						"link-hover": (
+							"text",
 						)
 					)
 			{
@@ -116,7 +116,7 @@
 		// Output CSS Custom Properties for all palette colours.
 		@if $palette-properties {
 			@each $color-map in oColorsGetPaletteDetails() {
-				$name: map-get($color-map, 'name');
+				$name: map-get($color-map, "name");
 				#{--o-colors-}#{$name}: oColorsByName($name);
 			}
 		}

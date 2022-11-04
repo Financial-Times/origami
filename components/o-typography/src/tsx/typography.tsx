@@ -4,13 +4,13 @@ export interface HeadingProps {
 }
 
 interface BodyVariants {
-	weight?: 'normal' | 'bold';
-	style?: 'regular' | 'italic';
+	weight?: "normal" | "bold";
+	style?: "regular" | "italic";
 }
 
 export interface BodyProps extends BodyVariants {
-	children: JSX.Element | string | (JSX.Element|string)[];
-};
+	children: JSX.Element | string | (JSX.Element | string)[];
+}
 
 export interface BodyVariantProps extends BodyVariants {
 	children: string;
@@ -29,230 +29,189 @@ export interface SubScriptProps {
 export interface SuperScriptProps {
 	copy: string;
 }
-export type StrongProps = Omit<BodyVariantProps, 'weight'>;
+export type StrongProps = Omit<BodyVariantProps, "weight">;
 
-export type EmphasisProps = Omit<BodyVariantProps, 'style'>;
+export type EmphasisProps = Omit<BodyVariantProps, "style">;
 
 export interface CaptionProps {
-	children: JSX.Element | string | (JSX.Element|string)[];
+	children: JSX.Element | string | (JSX.Element | string)[];
 }
 export interface FooterProps {
 	copy: string;
 }
 export interface ListItemProps {
-	children: JSX.Element | string | (JSX.Element|string)[];
+	children: JSX.Element | string | (JSX.Element | string)[];
 }
 export interface ListProps {
 	children: ListItemProps[];
-    ordered?: boolean;
+	ordered?: boolean;
 }
 export interface WrapperProps {
 	children: JSX.Element[];
 }
 
-export function Wrapper({
-	children = []
-}: WrapperProps) {
-	return (
-        <div className='o-typography-wrapper'>
-            {children}
-        </div>
-	);
+export function Wrapper({ children = [] }: WrapperProps) {
+	return <div className="o-typography-wrapper">{children}</div>;
 }
 
-export function Heading({
-	level = 1,
-	copy = ''
-}: HeadingProps) {
-    const HeadingTag = `h${level}`;
+export function Heading({ level = 1, copy = "" }: HeadingProps) {
+	const HeadingTag = `h${level}`;
 	return (
-        <HeadingTag className={`o-typography-heading-level-${level}`}>
-            {copy}
-        </HeadingTag>
+		<HeadingTag className={`o-typography-heading-level-${level}`}>
+			{copy}
+		</HeadingTag>
 	);
 }
 
 export function Link({
-	children = '',
-	href = '#',
+	children = "",
+	href = "#",
 	openInNewWindow = false,
-	attributes = {
-	},
+	attributes = {},
 }: LinkProps) {
-	const classNames = ['o-typography-link'];
+	const classNames = ["o-typography-link"];
 
-	if(openInNewWindow) {
-		Object.assign(attributes,  {
+	if (openInNewWindow) {
+		Object.assign(attributes, {
 			rel: "noreferrer noopener",
-			target: "_blank"
+			target: "_blank",
 		});
 	}
 
 	return (
-        <a href={href} className={classNames.join(' ')} {...attributes}>{children}</a>
+		<a href={href} className={classNames.join(" ")} {...attributes}>
+			{children}
+		</a>
 	);
 }
 
 export function P({
 	children = [],
-	weight = 'normal',
-	style = 'regular'
+	weight = "normal",
+	style = "regular",
 }: BodyProps) {
-	const classNames = ['o-typography-body'];
+	const classNames = ["o-typography-body"];
 
-	if(weight == 'bold') {
-		classNames.push('o-typography-bold');
+	if (weight == "bold") {
+		classNames.push("o-typography-bold");
 	}
 
-	if(style == 'italic') {
-		classNames.push('o-typography-italic');
+	if (style == "italic") {
+		classNames.push("o-typography-italic");
 	}
 
-	return (
-        <p className={classNames.join(' ')}>{children}</p>
-	);
+	return <p className={classNames.join(" ")}>{children}</p>;
 }
 
 export function Body({
 	children = [],
-	weight = 'normal',
-	style = 'regular'
+	weight = "normal",
+	style = "regular",
 }: BodyProps) {
-	const classNames = ['o-typography-body'];
+	const classNames = ["o-typography-body"];
 
-	if(weight == 'bold') {
-		classNames.push('o-typography-bold');
+	if (weight == "bold") {
+		classNames.push("o-typography-bold");
 	}
 
-	if(style == 'italic') {
-		classNames.push('o-typography-italic');
+	if (style == "italic") {
+		classNames.push("o-typography-italic");
 	}
 
-	return (
-        <div className={classNames.join(' ')}>{children}</div>
-	);
+	return <div className={classNames.join(" ")}>{children}</div>;
 }
 
 export function Span({
-	children = '',
-	weight = 'normal',
-	style = 'regular',
+	children = "",
+	weight = "normal",
+	style = "regular",
 }: BodyVariantProps) {
 	const classNames = [];
 
-	if(weight == 'bold') {
-		classNames.push('o-typography-bold');
+	if (weight == "bold") {
+		classNames.push("o-typography-bold");
 	}
 
-	if(style == 'italic') {
-		classNames.push('o-typography-italic');
+	if (style == "italic") {
+		classNames.push("o-typography-italic");
 	}
 
-	return (
-        <span className={classNames.join(' ')}>{children}</span>
-	);
+	return <span className={classNames.join(" ")}>{children}</span>;
 }
 
 export function Sup({
-	children = '',
-	weight = 'normal',
-	style = 'regular',
+	children = "",
+	weight = "normal",
+	style = "regular",
 }: BodyVariantProps) {
-	const classNames = ['o-typography-sup'];
+	const classNames = ["o-typography-sup"];
 
-	if(weight == 'bold') {
-		classNames.push('o-typography-bold');
+	if (weight == "bold") {
+		classNames.push("o-typography-bold");
 	}
 
-	if(style == 'italic') {
-		classNames.push('o-typography-italic');
+	if (style == "italic") {
+		classNames.push("o-typography-italic");
 	}
 
-	return (
-        <span className={classNames.join(' ')}>{children}</span>
-	);
+	return <span className={classNames.join(" ")}>{children}</span>;
 }
 
 export function Sub({
-	children = '',
-	weight = 'normal',
-	style = 'regular',
+	children = "",
+	weight = "normal",
+	style = "regular",
 }: BodyVariantProps) {
-	const classNames = ['o-typography-sub'];
+	const classNames = ["o-typography-sub"];
 
-	if(weight == 'bold') {
-		classNames.push('o-typography-bold');
+	if (weight == "bold") {
+		classNames.push("o-typography-bold");
 	}
 
-	if(style == 'italic') {
-		classNames.push('o-typography-italic');
+	if (style == "italic") {
+		classNames.push("o-typography-italic");
 	}
 
-	return (
-        <span className={classNames.join(' ')}>{children}</span>
-	);
+	return <span className={classNames.join(" ")}>{children}</span>;
 }
 
-export function Strong({
-	children = '',
-	style = 'regular',
-}: StrongProps) {
-	const classNames = ['o-typography-bold'];
+export function Strong({ children = "", style = "regular" }: StrongProps) {
+	const classNames = ["o-typography-bold"];
 
-	if(style == 'italic') {
-		classNames.push('o-typography-italic');
+	if (style == "italic") {
+		classNames.push("o-typography-italic");
 	}
 
-	return (
-        <strong className={classNames.join(' ')}>{children}</strong>
-	);
+	return <strong className={classNames.join(" ")}>{children}</strong>;
 }
 
-export function Em({
-	children = '',
-	weight = 'normal',
-}: EmphasisProps) {
-	const classNames = ['o-typography-italic'];
+export function Em({ children = "", weight = "normal" }: EmphasisProps) {
+	const classNames = ["o-typography-italic"];
 
-	if(weight == 'bold') {
-		classNames.push('o-typography-bold');
+	if (weight == "bold") {
+		classNames.push("o-typography-bold");
 	}
 
-	return (
-        <strong className={classNames.join(' ')}>{children}</strong>
-	);
+	return <strong className={classNames.join(" ")}>{children}</strong>;
 }
 
-export function Footer({
-	children = ''
-}: EmphasisProps) {
-	return <footer className='o-typography-footer'>{children}</footer>;
+export function Footer({ children = "" }: EmphasisProps) {
+	return <footer className="o-typography-footer">{children}</footer>;
 }
 
-export function FigCaption({
-	children = ''
-}: CaptionProps) {
-	return <figcaption className='o-typography-caption'>{children}</figcaption>;
+export function FigCaption({ children = "" }: CaptionProps) {
+	return <figcaption className="o-typography-caption">{children}</figcaption>;
 }
 
-export function List({
-	children = [],
-    ordered = false
-}: ListProps) {
-	const classNames = ['o-typography-list'];
+export function List({ children = [], ordered = false }: ListProps) {
+	const classNames = ["o-typography-list"];
 
-	const ListTag = ordered ? 'ol' : 'ul';
-	classNames.push(`o-typography-list--${ordered ? 'ordered' : 'unordered'}`);
+	const ListTag = ordered ? "ol" : "ul";
+	classNames.push(`o-typography-list--${ordered ? "ordered" : "unordered"}`);
 
-	return <ListTag className={classNames.join(' ')}>
-		{children}
-	</ListTag>;
+	return <ListTag className={classNames.join(" ")}>{children}</ListTag>;
 }
 
-export function ListItem({
-	children = []
-}: ListItemProps) {
-	return <li>
-		{children}
-	</li>;
+export function ListItem({ children = [] }: ListItemProps) {
+	return <li>{children}</li>;
 }

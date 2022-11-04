@@ -23,6 +23,7 @@ The following mixins have been removed or made private. Replace them with a sing
 - `oNormaliseForms`: add 'forms' to the 'elements' option.
 
 E.g.
+
 ```diff
 - @include oNormaliseHTML();
 - @include oNormaliseForms();
@@ -38,6 +39,6 @@ v2 introduces a `reduce-motion` option which removes transition duration, animat
 
 #### Removed Variables
 
-- `$o-normalise-focus-color` has been removed. Use the [o-colors](https://github.com/Financial-Times/o-colors) instead  `oColorsByUsecase('focus', 'outline')`.
+- `$o-normalise-focus-color` has been removed. Use the [o-colors](https://github.com/Financial-Times/o-colors) instead `oColorsByUsecase('focus', 'outline')`.
 - `$o-normalise-grid-gutters` has been removed. Use [$o-grid-gutters](https://github.com/Financial-Times/o-grid#variables) instead.
 - `$o-normalise-border-radius` has been removed. It was set to `0` so the border radius may be removed instead.

@@ -1,6 +1,6 @@
-import Drawer from './drawer.js';
-import DropDown from './drop-down.js';
-import Scroll from './scroll.js';
+import Drawer from "./drawer.js";
+import DropDown from "./drop-down.js";
+import Scroll from "./scroll.js";
 
 class HeaderServices {
 	/**
@@ -12,7 +12,7 @@ class HeaderServices {
 		const drawer = new Drawer(headerEl);
 		new DropDown(headerEl, drawer);
 		new Scroll(headerEl);
-		headerEl.setAttribute('data-o-header-services-js', true);
+		headerEl.setAttribute("data-o-header-services-js", true);
 	}
 
 	/**
@@ -31,7 +31,7 @@ class HeaderServices {
 		}
 		if (
 			rootElement instanceof HTMLElement &&
-			rootElement.matches('[data-o-component=o-header-services]')
+			rootElement.matches("[data-o-component=o-header-services]")
 		) {
 			return new HeaderServices(rootElement, options);
 		}

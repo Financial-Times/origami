@@ -23,6 +23,7 @@ All mixins have been replaced with `oFooterServices`, except `oFooterServicesLin
 Multiple `o-footer-services` mixin calls should be replaced with one call to `oFooterServices` with the options required by your project.
 
 - `oFooterServicesBase` may be replaced by setting the `oFooterServices` `$opts` argument with the icons your footer uses as links:
+
 ```diff
 - @include oFooterServicesBase();
 + @include oFooterServices($opts: (
@@ -31,6 +32,7 @@ Multiple `o-footer-services` mixin calls should be replaced with one call to `oF
 ```
 
 - `oFooterServicesWithLogo` has been removed. Instead pass a `logo` option to `oFooterServices`, which includes the image set `ftlogo-v1` to get the logo from (also specify the icons your footer uses as links):
+
 ```diff
 - @include oFooterServicesWithLogo($logo: 'origami');
 + @include oFooterServices($opts: (
@@ -40,6 +42,7 @@ Multiple `o-footer-services` mixin calls should be replaced with one call to `oF
 ```
 
 - `oFooterServicesIcons` has been removed. Instead add to the `oFooterServices` `icons` option and update your markup to use the `o-footer-services` class (`o-footer-services__icon-link--[icon-name]`):
+
 ```diff
 - .my-custom-share-icon-link {
 -     @include oFooterServicesIcons('share');
@@ -49,6 +52,7 @@ Multiple `o-footer-services` mixin calls should be replaced with one call to `oF
 + 	'icons': ('slack', 'github','share')
 + ));
 ```
+
 ```diff
 - <a class="o-footer-services__icon-link my-custom-share-icon-link" href="#">share</a>
 + <a class="o-footer-services__icon-link o-footer-services__icon-link--share" href="#">share</a>

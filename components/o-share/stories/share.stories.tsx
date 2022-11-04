@@ -1,29 +1,29 @@
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {withDesign} from 'storybook-addon-designs';
-import withHtml from 'origami-storybook-addon-html';
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { withDesign } from "storybook-addon-designs";
+import withHtml from "origami-storybook-addon-html";
 
-import {Share} from '../src/tsx/share';
-import {useEffect} from 'react';
-import javascript from '../main';
-import './share.scss';
+import { Share } from "../src/tsx/share";
+import { useEffect } from "react";
+import javascript from "../main";
+import "./share.scss";
 
 export default {
-	title: 'Components/o-share',
+	title: "Components/o-share",
 	component: Share,
 	decorators: [withDesign, withHtml],
 	args: {
-		title: 'US drags',
+		title: "US drags",
 		socialNetworks: [
-			'twitter',
-			'facebook',
-			'linkedin',
-			'whatsapp',
-			'pinterest',
+			"twitter",
+			"facebook",
+			"linkedin",
+			"whatsapp",
+			"pinterest",
 		],
-		url: 'http://on.ft.com/1mUdgA2',
-		titleExtra: 'FT.com | Pharmaceuticals',
-		summary: 'US drugs group vows to maintain big British presence',
-		relatedTwitterAccounts: 'ftcompanies',
+		url: "http://on.ft.com/1mUdgA2",
+		titleExtra: "FT.com | Pharmaceuticals",
+		summary: "US drugs group vows to maintain big British presence",
+		relatedTwitterAccounts: "ftcompanies",
 		small: false,
 		inverse: false,
 		vertical: false,
@@ -46,7 +46,7 @@ Inverse.args = {
 	inverse: true,
 };
 Inverse.parameters = {
-	origamiBackground: 'slate',
+	origamiBackground: "slate",
 };
 export const Vertical: ComponentStory<typeof Share> = Story.bind({});
 Vertical.args = {

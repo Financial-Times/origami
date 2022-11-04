@@ -1,24 +1,24 @@
-import '@financial-times/o-autoinit';
-import {getContrastRatio} from '../shared/contrast-ratio.js';
-import {getHexValues, mixHexes} from '../shared/colors-mix.js';
+import "@financial-times/o-autoinit";
+import { getContrastRatio } from "../shared/contrast-ratio.js";
+import { getHexValues, mixHexes } from "../shared/colors-mix.js";
 
-document.addEventListener('DOMContentLoaded', function () {
-	const form = document.getElementById('color-mix-form');
-	const mixer = form['mixer'];
-	const base = form['base'];
+document.addEventListener("DOMContentLoaded", function () {
+	const form = document.getElementById("color-mix-form");
+	const mixer = form["mixer"];
+	const base = form["base"];
 
-	form.addEventListener('change', () => {
+	form.addEventListener("change", () => {
 		mixColors(mixer.value, base.value);
 
-		const hex = document.querySelector('input[type=radio]:checked');
-		const percent = hex.nextElementSibling.innerText.replace('%', '');
+		const hex = document.querySelector("input[type=radio]:checked");
+		const percent = hex.nextElementSibling.innerText.replace("%", "");
 		fillCodeSnippets(hex.value, mixer.value, base.value, percent);
 	});
 
 	mixColors(mixer.value, base.value);
 
 	//set visible hex value and sass function to default values of mixColors
-	form['range'][5].checked = true;
+	form["range"][5].checked = true;
 	const defaultHex = getComputedStyle(
 		document.documentElement
 	).getPropertyValue(`--o-colors-${mixer.value}-50`);
@@ -27,22 +27,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const checkTextContrast = background => {
 	const root = document.documentElement;
-	const text = getComputedStyle(root).getPropertyValue('--color');
+	const text = getComputedStyle(root).getPropertyValue("--color");
 
-	let textColor = text === '#000000' ? '#000000' : '#f3f3f3';
+	let textColor = text === "#000000" ? "#000000" : "#f3f3f3";
 	const ratio = getContrastRatio(textColor, background);
 
 	if (ratio <= 3) {
 		// if it fails accessbility, change text colour
-		textColor = textColor === '#000000' ? '#f3f3f3' : '#000000';
-		root.style.setProperty('--color', textColor);
+		textColor = textColor === "#000000" ? "#f3f3f3" : "#000000";
+		root.style.setProperty("--color", textColor);
 	}
 };
 
-const mixColors = (mixer = 'black', base = 'paper') => {
+const mixColors = (mixer = "black", base = "paper") => {
 	const root = document.documentElement;
 	const hexes = getHexValues(mixer, base);
-	root.style.setProperty('--background', `#${hexes.base}`);
+	root.style.setProperty("--background", `#${hexes.base}`);
 
 	const hexArray = mixHexes(hexes.mixer, hexes.base);
 	fillSwatches(hexArray, mixer, base);
@@ -50,20 +50,20 @@ const mixColors = (mixer = 'black', base = 'paper') => {
 };
 
 const fillSwatches = (hexes, mixer, base) => {
-	const range = document.forms[0]['range'];
+	const range = document.forms[0]["range"];
 	hexes.forEach((hex, index) => {
 		const swatch = range[index];
 		swatch.style.backgroundColor = swatch.value = hex;
 
-		swatch.addEventListener('click', e =>
+		swatch.addEventListener("click", e =>
 			fillCodeSnippets(e.target.value, mixer, base, index * 10)
 		);
 	});
 };
 
 const fillCodeSnippets = (hex, mixer, base, index) => {
-	document.getElementById('hex-value').innerText = hex.trim();
+	document.getElementById("hex-value").innerText = hex.trim();
 	document.getElementById(
-		'code-snippet'
+		"code-snippet"
 	).innerText = `oColorsMix(${mixer}, ${base}, ${index})`;
 };

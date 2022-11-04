@@ -20,26 +20,35 @@ export function Meter({
 	valueBox = false,
 }: MeterProps) {
 	const MeterElement = () => {
-		return <meter
-		className="o-meter"
-		aria-label={label}
-		data-o-component="o-meter"
-		min={min}
-		max={max}
-		low={low}
-		high={high}
-		optimum={optimum}
-		value={value}>
-		{value}
-		</meter>;
-	}
+		return (
+			<meter
+				className="o-meter"
+				aria-label={label}
+				data-o-component="o-meter"
+				min={min}
+				max={max}
+				low={low}
+				high={high}
+				optimum={optimum}
+				value={value}
+			>
+				{value}
+			</meter>
+		);
+	};
 
-	if(valueBox){
-		const boxValueIndentation = (value / max) * 100 + '%';
+	if (valueBox) {
+		const boxValueIndentation = (value / max) * 100 + "%";
 		return (
 			<div className="o-meter-container">
 				<MeterElement />
-				<span className="o-meter-value" aria-hidden="true" style={{left: boxValueIndentation}}>{value}</span>
+				<span
+					className="o-meter-value"
+					aria-hidden="true"
+					style={{ left: boxValueIndentation }}
+				>
+					{value}
+				</span>
 			</div>
 		);
 	}

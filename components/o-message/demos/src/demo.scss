@@ -1,12 +1,12 @@
-@import '../../main';
+@import "../../main";
 @include oMessage();
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 
 body {
-	background: oColorsByUsecase('page', 'background');
+	background: oColorsByUsecase("page", "background");
 }
 
 .o-message {
@@ -21,7 +21,7 @@ body {
 .demo-button {
 	@include oButtonsContent(
 		(
-			'type': 'secondary',
+			"type": "secondary",
 		)
 	);
 	margin: 10px;
@@ -33,16 +33,16 @@ body {
 	max-width: 400px;
 }
 
-@if oBrandIs('core') or oBrandIs('internal') {
+@if oBrandIs("core") or oBrandIs("internal") {
 	@include oMessageAddState(
-		'pikachu',
+		"pikachu",
 		(
-			'foreground-color': 'white',
-			'background-color': 'slate',
-			'highlight-color': 'lemon',
-			'button-type': 'primary',
-			'icon': 'user',
+			"foreground-color": "white",
+			"background-color": "slate",
+			"highlight-color": "lemon",
+			"button-type": "primary",
+			"icon": "user",
 		),
-		$types: ('notice', 'alert')
+		$types: ("notice", "alert")
 	);
 }

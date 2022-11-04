@@ -15,7 +15,7 @@
 			// Add responsive border.
 			&.o-table--horizontal-lines .o-table__duplicate-row:not(:last-child) {
 				td {
-					border-bottom: 1px solid _oTableGet('table-border-color');
+					border-bottom: 1px solid _oTableGet("table-border-color");
 				}
 			}
 
@@ -30,20 +30,20 @@
 			th {
 				position: sticky;
 				left: 0;
-				background-color: _oTableGet('table-background');
+				background-color: _oTableGet("table-background");
 				&:after {
-					content: '';
+					content: "";
 					position: absolute;
 					top: 0;
 					right: 0;
 					bottom: 0;
 					left: 0;
-					border-right: 2px solid _oTableGet('table-data-color');
+					border-right: 2px solid _oTableGet("table-data-color");
 				}
 			}
 
 			// Whilst scrollable, remove all hidden cells.
-			td[aria-hidden='true'] {
+			td[aria-hidden="true"] {
 				// stylelint-disable-line selector-no-qualifying-type
 				display: none;
 			}

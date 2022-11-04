@@ -1,13 +1,13 @@
-@include describe('oTypographyGetFontFamily') {
-	@include it('Returns the font family for a type of typography') {
+@include describe("oTypographyGetFontFamily") {
+	@include it("Returns the font family for a type of typography") {
 		@include assert-equal(
-			oTypographyGetFontFamily('sans'),
-			'MetricWeb, sans-serif'
+			oTypographyGetFontFamily("sans"),
+			"MetricWeb, sans-serif"
 		);
-		@include assert-equal(oTypographyGetFontFamily('serif'), 'Georgia, serif');
+		@include assert-equal(oTypographyGetFontFamily("serif"), "Georgia, serif");
 		@include assert-equal(
-			oTypographyGetFontFamily('display'),
-			'FinancierDisplayWeb, serif'
+			oTypographyGetFontFamily("display"),
+			"FinancierDisplayWeb, serif"
 		);
 	}
 }

@@ -58,4 +58,4 @@ export default {
 	"@financial-times/o-utils": "1.1.7",
 	"@financial-times/o-viewport": "4.0.5",
 	"@financial-times/o-visual-effects": "3.0.6",
-}
+};

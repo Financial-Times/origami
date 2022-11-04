@@ -15,7 +15,8 @@ These are some of the bigger things we've worked on or released over the last mo
 ### o-forms
 
 This month we released a new version of `o-forms@^7.0.0` with some major improvements:
-- We've reduced the minified bundle size by *30%* &#x1F389;.
+
+- We've reduced the minified bundle size by _30%_ &#x1F389;.
 - Markup has been simplified, and has become more flexible — we've reduced the amount of wrapper elements, and inputs may be used independently of a form element more easily.
 - We've included a new markdown document about form accessibility.
 - We've included a new interactive error summary alongside built-in form validation.

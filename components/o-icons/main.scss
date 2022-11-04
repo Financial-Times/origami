@@ -1,6 +1,6 @@
-@import 'src/scss/variables';
-@import 'src/scss/mixins';
-@import 'src/scss/icon-list';
+@import "src/scss/variables";
+@import "src/scss/mixins";
+@import "src/scss/icon-list";
 
 /// @access public
 /// @param {Map} $opts [('icons': ('arrow-down', 'audio', 'book'))] A map of o-icons options, including all icons to include (defaults to all icons, see the README for a full list).
@@ -10,7 +10,7 @@
 ///		@include oIcons($opts: ('icons': ('arrow-down', 'arrow-up')));
 @mixin oIcons(
 	$opts: (
-		'icons': $o-icons-list,
+		"icons": $o-icons-list,
 	)
 ) {
 	.o-icons-icon {

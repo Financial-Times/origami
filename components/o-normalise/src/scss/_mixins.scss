@@ -20,7 +20,7 @@
 
 	&:before,
 	&:after {
-		content: '';
+		content: "";
 		display: table;
 		display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
 	}
@@ -301,9 +301,9 @@
 
 	// Change the cursor in all browsers (opinionated).
 	button,
-	[type='button'],
-	[type='reset'],
-	[type='submit'] {
+	[type="button"],
+	[type="reset"],
+	[type="submit"] {
 		cursor: pointer;
 	}
 

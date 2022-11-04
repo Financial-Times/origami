@@ -1,11 +1,11 @@
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-icons/main';
-@import '@financial-times/o-grid/main';
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-icons/main";
+@import "@financial-times/o-grid/main";
 
-@import 'src/scss/variables';
-@import 'src/scss/mixins';
+@import "src/scss/variables";
+@import "src/scss/mixins";
 
 /// Output all o-teaser-collection styles. Accepts an options map to include features granularly.
 /// See the [README](https://registry.origami.ft.com/components/o-teaser-collection/readme) for more details of all available options.
@@ -21,31 +21,31 @@
 /// @param {Map} $opts [('collections': ('horizontal', 'special', 'numbered', 'big-story', 'assassination', 'assassination-related', 'mid-slice', 'stream', 'top-standalone'), 'headings': ('inverse', 'full-width', 'half-width', 'small'), 'items': ('stretched'))]
 @mixin oTeaserCollection(
 	$opts: (
-		'collections': (
-			'horizontal',
-			'special',
-			'numbered',
-			'big-story',
-			'assassination',
-			'assassination-related',
-			'mid-slice',
-			'stream',
-			'top-standalone',
+		"collections": (
+			"horizontal",
+			"special",
+			"numbered",
+			"big-story",
+			"assassination",
+			"assassination-related",
+			"mid-slice",
+			"stream",
+			"top-standalone",
 		),
-		'headings': (
-			'inverse',
-			'full-width',
-			'half-width',
-			'small',
+		"headings": (
+			"inverse",
+			"full-width",
+			"half-width",
+			"small",
 		),
-		'items': (
-			'stretched',
+		"items": (
+			"stretched",
 		),
 	)
 ) {
-	$collections: map-get($opts, 'collections');
-	$headings: map-get($opts, 'headings');
-	$items: map-get($opts, 'items');
+	$collections: map-get($opts, "collections");
+	$headings: map-get($opts, "headings");
+	$items: map-get($opts, "items");
 
 	// Base collection styles.
 	.o-teaser-collection {
@@ -55,9 +55,9 @@
 	.o-teaser-collection__heading {
 		@include oTeaserCollectionContentHeading(
 			$opts: (
-				'anchor': true,
-				'divider': true,
-				'sizes': $headings,
+				"anchor": true,
+				"divider": true,
+				"sizes": $headings,
 			)
 		);
 	}
@@ -73,7 +73,7 @@
 	}
 
 	// Heading modifiers.
-	@if (index($headings, 'inverse')) {
+	@if (index($headings, "inverse")) {
 		.o-teaser-collection__heading--inverse {
 			color: $_o-teaser-collection-color-assassination-heading;
 			&:before,
@@ -82,7 +82,7 @@
 			}
 			a:after {
 				@include oIconsContent(
-					'arrow-right',
+					"arrow-right",
 					$_o-teaser-collection-color-assassination-heading,
 					$size: 30
 				);
@@ -91,14 +91,14 @@
 	}
 
 	// Items modifiers.
-	@if (index($items, 'stretched')) {
+	@if (index($items, "stretched")) {
 		.o-teaser-collection__item--stretched {
 			display: flex;
 		}
 	}
 
 	// Collection modifiers.
-	@if (index($collections, 'stream')) {
+	@if (index($collections, "stream")) {
 		.o-teaser-collection--stream {
 			margin: 20px 0 50px;
 			.o-teaser-collection__list {
@@ -115,7 +115,7 @@
 		}
 	}
 
-	@if (index($collections, 'top-standalone')) {
+	@if (index($collections, "top-standalone")) {
 		.o-teaser-collection--top-standalone {
 			border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
 			.o-teaser {
@@ -131,7 +131,7 @@
 		}
 	}
 
-	@if (index($collections, 'mid-slice')) {
+	@if (index($collections, "mid-slice")) {
 		.o-teaser-collection--mid-slice {
 			border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
 			border-top: 1px solid $_o-teaser-collection-color-thin-border;
@@ -139,13 +139,13 @@
 		}
 	}
 
-	@if (index($collections, 'numbered')) {
+	@if (index($collections, "numbered")) {
 		.o-teaser-collection--numbered {
 			@include _oTeaserCollectionNumbered();
 		}
 	}
 
-	@if (index($collections, 'special')) {
+	@if (index($collections, "special")) {
 		.o-teaser-collection--special {
 			@include _oTeaserCollectionSpecial(
 				$_o-teaser-collection-color-special-bg
@@ -153,7 +153,7 @@
 		}
 	}
 
-	@if (index($collections, 'horizontal')) {
+	@if (index($collections, "horizontal")) {
 		.o-teaser-collection--horizontal {
 			// Change flex direction from column
 			.o-teaser-collection__items {
@@ -171,7 +171,7 @@
 		}
 	}
 
-	@if (index($collections, 'big-story')) {
+	@if (index($collections, "big-story")) {
 		.o-teaser-collection--big-story {
 			@include _oTeaserCollectionSpecial(
 				$_o-teaser-collection-color-special-bg
@@ -180,7 +180,7 @@
 		}
 	}
 
-	@if (index($collections, 'assassination')) {
+	@if (index($collections, "assassination")) {
 		.o-teaser-collection--assassination {
 			@include _oTeaserCollectionSpecial(
 				$_o-teaser-collection-color-assassination-bg
@@ -189,9 +189,9 @@
 		}
 	}
 
-	@if (index($collections, 'assassination-related')) {
+	@if (index($collections, "assassination-related")) {
 		.o-teaser-collection--assassination-related {
-			@include _oTeaserCollectionSpecial(oColorsMix('white', 'slate', 3));
+			@include _oTeaserCollectionSpecial(oColorsMix("white", "slate", 3));
 			z-index: 1;
 			margin-bottom: 0;
 			padding-left: 10px;
@@ -207,12 +207,12 @@
 			// modifies borders when stacked(S) and horizontal(M+)
 			.o-teaser-collection__item {
 				margin: 0;
-				border-bottom: 1px solid rgba(oColorsByName('white'), 0.2);
+				border-bottom: 1px solid rgba(oColorsByName("white"), 0.2);
 				padding: 15px 0;
 
 				@include oGridRespondTo(M) {
 					margin: 20px 0;
-					border-right: 1px solid rgba(oColorsByName('white'), 0.2);
+					border-right: 1px solid rgba(oColorsByName("white"), 0.2);
 					border-bottom: 0;
 					padding: 0 10px;
 				}

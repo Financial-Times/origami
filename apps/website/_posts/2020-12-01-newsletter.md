@@ -41,7 +41,8 @@ Working with the design team we released a minor update to [o-message](https://r
 In response we offered to [help update how projects use o-message](https://github.com/Financial-Times/next-article/pull/4055) to fix the problem. In addition, Xuan and the [#design-ops](https://app.slack.com/client/T025C95MN/C01481FKWA2) team are auditing our on-site messaging currently so we can update `o-message` and other Origami components to meet our current needs consistently, without the use of overrides.
 
 Overriding component styles with CSS can be problematic for a few reasons. It introduces design inconsistency, code complexity, and fragility (overrides are liable to break without warning when components are updated, as happened in this case). Instead it’s better to:
--  Work with the design team to decide whether a component really needs a unique modification (see the [#design-ops](https://app.slack.com/client/T025C95MN/C01481FKWA2) Slack channel).
+
+- Work with the design team to decide whether a component really needs a unique modification (see the [#design-ops](https://app.slack.com/client/T025C95MN/C01481FKWA2) Slack channel).
 - Update the component to include the new style.
 - Add new Sass options so the component can be customised.
 - Or, if you're after quite different features or a whole new look, build from scratch.

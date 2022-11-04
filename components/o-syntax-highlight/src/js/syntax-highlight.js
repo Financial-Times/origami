@@ -1,16 +1,16 @@
-import throwError from './helpers.js';
+import throwError from "./helpers.js";
 
-import 'prismjs/components/prism-core.js';
+import "prismjs/components/prism-core.js";
 // // Adds to Prism global object which we remove https://github.com/PrismJS/prism/blob/v1.15.0/prism.js#L6
-import 'prismjs/components/prism-markup.js';
-import 'prismjs/components/prism-css.js';
-import 'prismjs/components/prism-clike.js';
-import 'prismjs/components/prism-javascript.js';
-import 'prismjs/components/prism-bash.js';
-import 'prismjs/components/prism-json.js';
-import 'prismjs/components/prism-scss.js';
-import 'prismjs/components/prism-yaml.js';
-import diff from './languages/prism-diff.js';
+import "prismjs/components/prism-markup.js";
+import "prismjs/components/prism-css.js";
+import "prismjs/components/prism-clike.js";
+import "prismjs/components/prism-javascript.js";
+import "prismjs/components/prism-bash.js";
+import "prismjs/components/prism-json.js";
+import "prismjs/components/prism-scss.js";
+import "prismjs/components/prism-yaml.js";
+import diff from "./languages/prism-diff.js";
 const prism = window.Prism;
 delete window.Prism;
 prism.languages.diff = diff; // Assign custom diff language
@@ -28,13 +28,13 @@ class SyntaxHighlight {
 		this.syntaxElement = syntaxEl;
 		this.opts = Object.assign(
 			{
-				language: '',
-				syntaxString: '',
+				language: "",
+				syntaxString: "",
 			},
 			options
 		);
 
-		if (typeof this.syntaxElement === 'string') {
+		if (typeof this.syntaxElement === "string") {
 			this._setLanguage();
 		} else {
 			this._tokeniseCodeBlocks();
@@ -49,7 +49,7 @@ class SyntaxHighlight {
 			this.opts.syntaxString = this.syntaxElement;
 			this._checkLanguage();
 		} else {
-			throwError('A language must be defined in the options object');
+			throwError("A language must be defined in the options object");
 		}
 	}
 
@@ -61,7 +61,7 @@ class SyntaxHighlight {
 	 */
 	_getLanguage(element) {
 		const highlightClassNames = [...element.classList].filter(c =>
-			c.includes('o-syntax-highlight--')
+			c.includes("o-syntax-highlight--")
 		);
 		const highlightClassName = highlightClassNames
 			? highlightClassNames[0]
@@ -79,7 +79,7 @@ class SyntaxHighlight {
 			return null;
 		}
 
-		this.opts.language = highlightClassName.replace('o-syntax-highlight--', '');
+		this.opts.language = highlightClassName.replace("o-syntax-highlight--", "");
 
 		this._checkLanguage();
 
@@ -104,9 +104,9 @@ class SyntaxHighlight {
 	 * Fetch and tokenise every <code> tag's content under the syntaxEl
 	 */
 	_tokeniseCodeBlocks() {
-		const codeBlocks = Array.from(this.syntaxElement.querySelectorAll('PRE'))
+		const codeBlocks = Array.from(this.syntaxElement.querySelectorAll("PRE"))
 			.filter(
-				pre => pre.firstElementChild && pre.firstElementChild.tagName === 'CODE'
+				pre => pre.firstElementChild && pre.firstElementChild.tagName === "CODE"
 			)
 			.map(pre => pre.firstElementChild);
 
@@ -156,7 +156,7 @@ class SyntaxHighlight {
 
 		if (
 			rootElement instanceof HTMLElement &&
-			rootElement.matches('[data-o-component=o-syntax-highlight]')
+			rootElement.matches("[data-o-component=o-syntax-highlight]")
 		) {
 			return new SyntaxHighlight(rootElement, options);
 		}

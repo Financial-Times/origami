@@ -1,7 +1,7 @@
 class CookieMessage {
 	constructor(cookieMessageElement, options) {
 		if (cookieMessageElement === null || cookieMessageElement === undefined) {
-			cookieMessageElement = document.createElement('div');
+			cookieMessageElement = document.createElement("div");
 			document.body.append(cookieMessageElement);
 		}
 
@@ -20,7 +20,7 @@ class CookieMessage {
 		// Set cookie message options
 		this.options = Object.assign({}, options);
 
-		this.options.theme = this.options.theme ? 'alternative' : null;
+		this.options.theme = this.options.theme ? "alternative" : null;
 
 		this.cookieInfo = this.getCookieInfo();
 
@@ -39,25 +39,25 @@ class CookieMessage {
 				return this.removeCookieMessage();
 			}
 		};
-		window.addEventListener('pageshow', pageshowListener);
+		window.addEventListener("pageshow", pageshowListener);
 		this._eventListeners.push({
 			target: window,
-			type: 'pageshow',
+			type: "pageshow",
 			listener: pageshowListener,
 		});
 	}
 
 	getCookieInfo() {
-		let domain = 'ft.com';
-		let manageCookiesPath = 'preferences/manage-cookies';
+		let domain = "ft.com";
+		let manageCookiesPath = "preferences/manage-cookies";
 
 		if (!/\.ft\.com$/i.test(window.location.hostname)) {
 			// replace www or subdomain
-			domain = window.location.hostname.replace(/^(.*?)\./, '');
-			manageCookiesPath = 'preferences/cookies';
+			domain = window.location.hostname.replace(/^(.*?)\./, "");
+			manageCookiesPath = "preferences/cookies";
 		}
 
-		if (typeof this.options.manageCookiesPath === 'string') {
+		if (typeof this.options.manageCookiesPath === "string") {
 			manageCookiesPath = this.options.manageCookiesPath;
 		}
 
@@ -66,7 +66,7 @@ class CookieMessage {
 			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie?cookieDomain=.${domain}`,
 			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
 			manageCookiesUrl: `https://cookies.${domain}/${manageCookiesPath}?redirect=${redirect}&cookieDomain=.${domain}`,
-			consentCookieName: 'FTCookieConsentGDPR',
+			consentCookieName: "FTCookieConsentGDPR",
 		};
 	}
 
@@ -92,8 +92,8 @@ class CookieMessage {
 	</div>
 </div>`;
 
-		const labelId = 'o-cookie-message-label';
-		const descriptionId = 'o-cookie-message-description';
+		const labelId = "o-cookie-message-label";
+		const descriptionId = "o-cookie-message-description";
 		const defaultContent = `
 <div class="o-cookie-message__heading">
 	<h2 id="${labelId}">Cookies on the FT</h2>
@@ -104,15 +104,15 @@ class CookieMessage {
 
 		const child = this.cookieMessageElement.firstElementChild;
 		const html = this.cookieMessageElement.innerHTML;
-		if (child && child.classList.contains('o-cookie-message__outer')) {
+		if (child && child.classList.contains("o-cookie-message__outer")) {
 			// full custom html, leave it alone
-		} else if (html.trim() === '') {
+		} else if (html.trim() === "") {
 			// empty, provide default content
 			this.cookieMessageElement.innerHTML = wrapContent(defaultContent);
 			// with default content ids we can setup a labeled dialog role
-			this.cookieMessageElement.setAttribute('role', 'dialog');
-			this.cookieMessageElement.setAttribute('aria-labelledby', labelId);
-			this.cookieMessageElement.setAttribute('aria-describedby', descriptionId);
+			this.cookieMessageElement.setAttribute("role", "dialog");
+			this.cookieMessageElement.setAttribute("aria-labelledby", labelId);
+			this.cookieMessageElement.setAttribute("aria-describedby", descriptionId);
 		} else {
 			// some custom html, wrap it up
 			this.cookieMessageElement.innerHTML = wrapContent(html);
@@ -130,17 +130,17 @@ class CookieMessage {
 		if (button) {
 			const clickListener = e => {
 				e.preventDefault();
-				this.dispatchEvent('oCookieMessage.act');
+				this.dispatchEvent("oCookieMessage.act");
 				this.removeCookieMessage();
 				return fetch(this.cookieInfo.acceptUrl, {
-					method: 'get',
-					credentials: 'include',
+					method: "get",
+					credentials: "include",
 				});
 			};
-			button.addEventListener('click', clickListener);
+			button.addEventListener("click", clickListener);
 			this._eventListeners.push({
 				target: button,
-				type: 'click',
+				type: "click",
 				listener: clickListener,
 			});
 		}
@@ -162,8 +162,8 @@ class CookieMessage {
 	 */
 	showCookieMessage() {
 		this.cookieMessageElement.classList.add(
-			'o-cookie-message',
-			'o-cookie-message--active'
+			"o-cookie-message",
+			"o-cookie-message--active"
 		);
 
 		if (this.options.theme) {
@@ -172,7 +172,7 @@ class CookieMessage {
 			);
 		}
 
-		this.dispatchEvent('oCookieMessage.view');
+		this.dispatchEvent("oCookieMessage.view");
 		this.updateConsent();
 	}
 
@@ -182,7 +182,7 @@ class CookieMessage {
 	 * @returns {void}
 	 */
 	removeCookieMessage() {
-		this.dispatchEvent('oCookieMessage.close');
+		this.dispatchEvent("oCookieMessage.close");
 
 		try {
 			this.cookieMessageElement.parentNode.removeChild(
@@ -203,13 +203,13 @@ class CookieMessage {
 			`o-cookie-message--${this.options.theme}`
 		);
 		this._eventListeners.forEach(eventListener => {
-			const {target, type, listener} = eventListener;
+			const { target, type, listener } = eventListener;
 			target.removeEventListener(type, listener);
 		});
 	}
 
 	dispatchEvent(eventName) {
-		const e = new CustomEvent(eventName, {bubbles: true});
+		const e = new CustomEvent(eventName, { bubbles: true });
 		this.cookieMessageElement.dispatchEvent(e);
 	}
 
@@ -226,7 +226,7 @@ class CookieMessage {
 		}
 		return Object.keys(cookieMessageElement.dataset).reduce((options, key) => {
 			// Ignore data-o-component
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return options;
 			}
 
@@ -269,7 +269,7 @@ class CookieMessage {
 		// AND the rootElement has the data-o-component=o-cookie-message then initialise just 1 cookie message (this one)
 		if (
 			rootElement instanceof HTMLElement &&
-			/\bo-cookie-message\b/.test(rootElement.getAttribute('data-o-component'))
+			/\bo-cookie-message\b/.test(rootElement.getAttribute("data-o-component"))
 		) {
 			return new CookieMessage(rootElement, options);
 		}

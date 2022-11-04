@@ -4,7 +4,7 @@
 		grid-template-columns: 1fr min-content 1fr;
 		align-items: center;
 		gap: $_o-header-column-item-margin-s;
-		@include oGridRespondTo('XL') {
+		@include oGridRespondTo("XL") {
 			gap: $_o-header-column-item-margin-l;
 		}
 	}
@@ -15,7 +15,7 @@
 		align-items: center;
 		white-space: nowrap;
 		gap: $_o-header-column-item-margin-s;
-		@include oGridRespondTo('XL') {
+		@include oGridRespondTo("XL") {
 			gap: $_o-header-column-item-margin-l;
 		}
 	}
@@ -38,7 +38,7 @@
 	.o-header__top-takeover {
 		display: none;
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oGridRespondTo("oHeaderL") {
 			display: block;
 
 			& ~ * {
@@ -62,19 +62,19 @@
 		margin-top: 4px;
 		margin-bottom: 4px;
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oGridRespondTo("oHeaderL") {
 			margin-top: 30px;
 			margin-bottom: 30px;
 		}
 
-		@include oGridRespondTo('M') {
+		@include oGridRespondTo("M") {
 			margin-top: 24px;
 			margin-bottom: 24px;
 		}
 
 		&:before {
 			@include oIconsContentBaseStyles();
-			content: ' ';
+			content: " ";
 			width: #{$_o-header-icon-size-large}px;
 			height: #{$_o-header-icon-size-large}px;
 		}
@@ -83,7 +83,7 @@
 	.o-header__top-icon-link.o-header__top-icon-link--hide-s,
 	.o-header__top-button.o-header__top-button--hide-s,
 	.o-header__top-link.o-header__top-link--hide-s {
-		@include oGridRespondTo($until: 'S') {
+		@include oGridRespondTo($until: "S") {
 			display: none;
 		}
 	}
@@ -91,13 +91,13 @@
 	.o-header__top-icon-link.o-header__top-icon-link--hide-m,
 	.o-header__top-button.o-header__top-button--hide-m,
 	.o-header__top-link.o-header__top-link--hide-m {
-		@include oGridRespondTo($until: 'M') {
+		@include oGridRespondTo($until: "M") {
 			display: none;
 		}
 	}
 
 	.o-header__top-icon-link.o-header__top-icon-link--show-m {
-		@include oGridRespondTo($from: 'M') {
+		@include oGridRespondTo($from: "M") {
 			display: none;
 		}
 	}
@@ -111,8 +111,8 @@
 			// container size (24) is only included for the fallback image.
 			// IE8 has a static stylesheet generated for the L breakpoint.
 			@include oIconsContent(
-				'hamburger',
-				_oHeaderGet('header-icon'),
+				"hamburger",
+				_oHeaderGet("header-icon"),
 				$size: null,
 				$include-base-styles: false
 			);
@@ -122,8 +122,8 @@
 	.o-header__top-icon-link--search {
 		&:before {
 			@include oIconsContent(
-				'search',
-				_oHeaderGet('header-icon'),
+				"search",
+				_oHeaderGet("header-icon"),
 				$size: null,
 				$include-base-styles: false
 			);
@@ -131,7 +131,7 @@
 
 		// when used in tandem with the menu toggle, hide this on smaller screen sizes
 		.o-header__top-icon-link--menu + & {
-			@include oGridRespondTo($until: 'L') {
+			@include oGridRespondTo($until: "L") {
 				display: none;
 			}
 		}
@@ -139,17 +139,17 @@
 
 	.o-header__top-icon-link--myft {
 		&:before {
-			@include _oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon'), 52);
+			@include _oHeaderBrandImage("brand-myft", _oHeaderGet("header-icon"), 52);
 			// this is not a very square icon
 			width: 35px;
 			// Remove the negative margin added for new icons which have additional padding
 			margin-top: 0;
 
-			@include oGridRespondTo('M') {
+			@include oGridRespondTo("M") {
 				width: 44px;
 			}
 
-			@include oGridRespondTo('oHeaderL') {
+			@include oGridRespondTo("oHeaderL") {
 				width: 52px;
 			}
 		}
@@ -161,11 +161,11 @@
 
 	.o-header__top-logo {
 		@include _oHeaderBrandImage(
-			'brand-ft-masthead',
-			_oHeaderGet('header-icon'),
+			"brand-ft-masthead",
+			_oHeaderGet("header-icon"),
 			500
 		);
-		@include _oHeaderLogoSize('XS');
+		@include _oHeaderLogoSize("XS");
 
 		display: block;
 		border: 0;
@@ -174,18 +174,18 @@
 		background-position: 50%;
 		background-repeat: no-repeat;
 
-		@include oGridRespondTo('S') {
-			@include _oHeaderLogoSize('S');
+		@include oGridRespondTo("S") {
+			@include _oHeaderLogoSize("S");
 		}
 
-		@include oGridRespondTo('M') {
-			@include _oHeaderLogoSize('M');
+		@include oGridRespondTo("M") {
+			@include _oHeaderLogoSize("M");
 			margin-top: 24px;
 			margin-bottom: 24px;
 		}
 
-		@include oGridRespondTo('oHeaderL') {
-			@include _oHeaderLogoSize('L');
+		@include oGridRespondTo("oHeaderL") {
+			@include _oHeaderLogoSize("L");
 			margin-top: 30px;
 			margin-bottom: 30px;
 		}

@@ -1,4 +1,4 @@
-@import '../../main';
+@import "../../main";
 
 @include oIcons();
 
@@ -25,13 +25,13 @@ body {
 }
 
 .demo-icon-custom {
-	@include oIconsContent('lock');
+	@include oIconsContent("lock");
 }
 
 .demo-icon-custom-color {
-	@include oIconsContent('lock', $color: #0000ff);
+	@include oIconsContent("lock", $color: #0000ff);
 }
 
 .demo-icon-custom-color-resized {
-	@include oIconsContent('lock', #0000ff, 40);
+	@include oIconsContent("lock", #0000ff, 40);
 }

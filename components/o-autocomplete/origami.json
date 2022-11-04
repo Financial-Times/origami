@@ -1,10 +1,7 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands": [
-	  "core",
-	  "internal"
-	],
+	"brands": ["core", "internal"],
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-autocomplete,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",

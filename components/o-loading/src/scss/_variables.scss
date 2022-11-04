@@ -18,28 +18,28 @@ $_o-loading-animation-keyframes: false !default;
 /// @access private
 /// @type Map
 $_o-loading-themes: (
-	'light': _oLoadingGet('default-color', $from: 'light'),
-	'dark': _oLoadingGet('default-color', $from: 'dark'),
+	"light": _oLoadingGet("default-color", $from: "light"),
+	"dark": _oLoadingGet("default-color", $from: "dark"),
 );
 
 /// Predefined sizes
 /// @access private
 /// @type Map
 $_o-loading-sizes: (
-	'mini': (
-		'size': 12px,
-		'border': 2px,
+	"mini": (
+		"size": 12px,
+		"border": 2px,
 	),
-	'small': (
-		'size': 20px,
-		'border': 3px,
+	"small": (
+		"size": 20px,
+		"border": 3px,
 	),
-	'medium': (
-		'size': 28px,
-		'border': 4px,
+	"medium": (
+		"size": 28px,
+		"border": 4px,
 	),
-	'large': (
-		'size': 36px,
-		'border': 5px,
+	"large": (
+		"size": 36px,
+		"border": 5px,
 	),
 );

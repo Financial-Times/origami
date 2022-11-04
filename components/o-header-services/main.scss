@@ -1,23 +1,23 @@
-@import '@financial-times/math';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-brand/main';
-@import '@financial-times/o-buttons/main';
-@import '@financial-times/o-icons/main';
-@import '@financial-times/o-grid/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-visual-effects/main';
+@import "@financial-times/math";
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-brand/main";
+@import "@financial-times/o-buttons/main";
+@import "@financial-times/o-icons/main";
+@import "@financial-times/o-grid/main";
+@import "@financial-times/o-normalise/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-visual-effects/main";
 
-@import 'src/scss/brand';
-@import 'src/scss/base';
-@import 'src/scss/variables';
-@import 'src/scss/drawer';
-@import 'src/scss/drop-down';
-@import 'src/scss/functions';
-@import 'src/scss/top';
-@import 'src/scss/theme';
-@import 'src/scss/primary-nav';
-@import 'src/scss/secondary-nav';
+@import "src/scss/brand";
+@import "src/scss/base";
+@import "src/scss/variables";
+@import "src/scss/drawer";
+@import "src/scss/drop-down";
+@import "src/scss/functions";
+@import "src/scss/top";
+@import "src/scss/theme";
+@import "src/scss/primary-nav";
+@import "src/scss/secondary-nav";
 
 /// Outputs all features and styles available to o-header-services
 /// @param {Map} $opts ['types':('primary-nav', 'secondary-nav', 'b2b', 'b2c'), 'features': ('bleed', 'drop-down'), 'drawer-breakpoint': 'M', 'logo': default to ft-logo depending on brand (pink or white)]
@@ -37,31 +37,31 @@
 ///		))
 @mixin oHeaderServices(
 	$opts: (
-		'types': (
-			'primary-nav',
-			'secondary-nav',
-			'b2b',
-			'b2c',
+		"types": (
+			"primary-nav",
+			"secondary-nav",
+			"b2b",
+			"b2c",
 		),
-		'features': (
-			'bleed',
-			'drop-down',
+		"features": (
+			"bleed",
+			"drop-down",
 		),
-		'logo': _oHeaderServicesGet('logo'),
-		'drawer-breakpoint': 'M',
+		"logo": _oHeaderServicesGet("logo"),
+		"drawer-breakpoint": "M",
 	)
 ) {
-	$types: map-get($opts, 'types');
-	$features: map-get($opts, 'features');
-	$logo: map-get($opts, 'logo');
+	$types: map-get($opts, "types");
+	$features: map-get($opts, "features");
+	$logo: map-get($opts, "logo");
 	$drawer-breakpoint: if(
-		map-get($opts, 'drawer-breakpoint'),
-		map-get($opts, 'drawer-breakpoint'),
-		'M'
+		map-get($opts, "drawer-breakpoint"),
+		map-get($opts, "drawer-breakpoint"),
+		"M"
 	);
 
-	$bleed: index($features, 'bleed');
-	$drop-down: index($features, 'drop-down');
+	$bleed: index($features, "bleed");
+	$drop-down: index($features, "drop-down");
 
 	/// Base styles for a header
 	@include _oHeaderServicesBase($bleed);
@@ -70,20 +70,20 @@
 	/// if other features aren't added.
 	@include _oHeaderServicesTop($logo, $drawer-breakpoint);
 
-	@if index($types, 'primary-nav') {
+	@if index($types, "primary-nav") {
 		@include _oHeaderServicesPrimaryNav($drawer-breakpoint, $drop-down);
 	}
 
-	@if index($types, 'secondary-nav') {
+	@if index($types, "secondary-nav") {
 		@include _oHeaderServicesSecondaryNav($drawer-breakpoint);
 	}
 
-	@if index($types, 'b2b') and _oHeaderSupports('b2b') {
-		@include _oHeaderServicesTheme($theme: 'b2b');
+	@if index($types, "b2b") and _oHeaderSupports("b2b") {
+		@include _oHeaderServicesTheme($theme: "b2b");
 	}
 
-	@if index($types, 'b2c') and _oHeaderSupports('b2b') {
-		@include _oHeaderServicesTheme($theme: 'b2c');
+	@if index($types, "b2c") and _oHeaderSupports("b2b") {
+		@include _oHeaderServicesTheme($theme: "b2c");
 	}
 
 	@if $drop-down {

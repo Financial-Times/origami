@@ -1,9 +1,9 @@
-import FlatTable from './Tables/FlatTable.js';
-import ScrollTable from './Tables/ScrollTable.js';
-import OverflowTable from './Tables/OverflowTable.js';
-import BasicTable from './Tables/BasicTable.js';
+import FlatTable from "./Tables/FlatTable.js";
+import ScrollTable from "./Tables/ScrollTable.js";
+import OverflowTable from "./Tables/OverflowTable.js";
+import BasicTable from "./Tables/BasicTable.js";
 
-import TableSorter from './Sort/TableSorter.js';
+import TableSorter from "./Sort/TableSorter.js";
 const sorter = new TableSorter();
 
 /**
@@ -24,16 +24,16 @@ class OTable {
 	 * @returns {FlatTable | ScrollTable | OverflowTable | BasicTable} - A table instance.
 	 */
 	constructor(rootEl, opts = {}) {
-		const tableType = rootEl.getAttribute('data-o-table-responsive');
+		const tableType = rootEl.getAttribute("data-o-table-responsive");
 		let Table;
 		switch (tableType) {
-			case 'flat':
+			case "flat":
 				Table = FlatTable;
 				break;
-			case 'scroll':
+			case "scroll":
 				Table = ScrollTable;
 				break;
-			case 'overflow':
+			case "overflow":
 				Table = OverflowTable;
 				break;
 			default:
@@ -55,7 +55,7 @@ class OTable {
 		if (!(el instanceof HTMLElement)) {
 			el = document.querySelector(el);
 		}
-		if (/\bo-table\b/.test(el.getAttribute('data-o-component'))) {
+		if (/\bo-table\b/.test(el.getAttribute("data-o-component"))) {
 			return new OTable(el, opts);
 		}
 		const tableEls = Array.from(

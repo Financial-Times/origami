@@ -1,4 +1,4 @@
-import FontFaceObserver from 'fontfaceobserver/fontfaceobserver.standalone.js';
+import FontFaceObserver from "fontfaceobserver/fontfaceobserver.standalone.js";
 
 class Typography {
 	/**
@@ -10,13 +10,13 @@ class Typography {
 	constructor(typographyEl, opts) {
 		this.typographyEl = typographyEl;
 
-		this.fontLoadingPrefix = 'o-typography--loading-';
+		this.fontLoadingPrefix = "o-typography--loading-";
 
 		this.opts = opts || Typography.getOptions(typographyEl);
-		if (typeof this.opts.loadOnInit === 'undefined') {
+		if (typeof this.opts.loadOnInit === "undefined") {
 			this.opts.loadOnInit = true;
 		}
-		if (typeof this.opts.rejectOnFontLoadFailure === 'undefined') {
+		if (typeof this.opts.rejectOnFontLoadFailure === "undefined") {
 			this.opts.rejectOnFontLoadFailure = false;
 		}
 		this.opts = Typography.checkOptions(this.opts);
@@ -24,24 +24,24 @@ class Typography {
 
 		this.fontConfigs = [
 			{
-				family: 'FinancierDisplayWeb',
-				weight: 'normal',
-				label: 'display',
+				family: "FinancierDisplayWeb",
+				weight: "normal",
+				label: "display",
 			},
 			{
-				family: 'MetricWeb',
-				weight: 'normal',
-				label: 'sans',
+				family: "MetricWeb",
+				weight: "normal",
+				label: "sans",
 			},
 			{
-				family: 'MetricWeb',
+				family: "MetricWeb",
 				weight: 600,
-				label: 'sans-bold',
+				label: "sans-bold",
 			},
 			{
-				family: 'FinancierDisplayWeb',
+				family: "FinancierDisplayWeb",
 				weight: 700,
-				label: 'display-bold',
+				label: "display-bold",
 			},
 		];
 		if (this.opts.loadOnInit) {
@@ -61,7 +61,7 @@ class Typography {
 		const dataset = Object(typographyEl.dataset);
 		return Object.keys(dataset).reduce((col, key) => {
 			// Phantom doesn't like Object.entries :sob:
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return col; // Bail on data-o-component
 			}
 			const shortKey = key.replace(
@@ -87,7 +87,7 @@ class Typography {
 	 */
 	static checkOptions(opts) {
 		if (!opts.fontLoadedCookieName) {
-			opts.fontLoadedCookieName = 'o-typography-fonts-loaded';
+			opts.fontLoadedCookieName = "o-typography-fonts-loaded";
 		}
 
 		return opts;
@@ -101,7 +101,7 @@ class Typography {
 
 	setCookie() {
 		const domain = /.ft.com$/.test(location.hostname)
-			? '.ft.com'
+			? ".ft.com"
 			: location.hostname;
 		// set cookie for a week
 		// TODO - use RUM to work out what a good value for this would actually be
@@ -170,7 +170,7 @@ class Typography {
 		}
 		if (
 			rootElement instanceof HTMLElement &&
-			rootElement.matches('[data-o-component=o-typography]')
+			rootElement.matches("[data-o-component=o-typography]")
 		) {
 			return new Typography(rootElement, options);
 		}

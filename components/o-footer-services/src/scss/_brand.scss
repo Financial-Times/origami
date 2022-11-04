@@ -2,7 +2,7 @@
 /// @access private
 @function _oFooterServicesGet($variables, $from: null) {
 	@return oBrandGet(
-		$component: 'o-footer-services',
+		$component: "o-footer-services",
 		$variables: $variables,
 		$from: $from
 	);
@@ -12,7 +12,7 @@
 /// @access private
 @function _oFooterServicesSupports($variant) {
 	@return oBrandSupportsVariant(
-		$component: 'o-footer-services',
+		$component: "o-footer-services",
 		$variant: $variant
 	);
 }
@@ -33,73 +33,73 @@
 ///     	'brand-foreground-color': oColorsByName('white'),
 ///     ));
 @mixin oFooterServicesCustomize($variables) {
-	@include oBrandCustomize('o-footer-services', $variables);
+	@include oBrandCustomize("o-footer-services", $variables);
 }
 
 $_o-footer-services-shared-brand-config: (
-	text-color: oColorsByName('black'),
-	background-color: oColorsByName('black-5'),
-	border-color: oColorsByName('black-20'),
-	link-color: oColorsByName('black-80'),
-	link-hover-color: oColorsByName('black-60'),
-	legal-text-color: oColorsByName('black-60'),
-	brand-background-color: oColorsByName('black'),
+	text-color: oColorsByName("black"),
+	background-color: oColorsByName("black-5"),
+	border-color: oColorsByName("black-20"),
+	link-color: oColorsByName("black-80"),
+	link-hover-color: oColorsByName("black-60"),
+	legal-text-color: oColorsByName("black-60"),
+	brand-background-color: oColorsByName("black"),
 );
 
-@if oBrandIs('core') {
+@if oBrandIs("core") {
 	@include oBrandDefine(
-		'o-footer-services',
-		'core',
+		"o-footer-services",
+		"core",
 		(
-			'variables':
+			"variables":
 				map-merge(
 					$_o-footer-services-shared-brand-config,
 					(
-						brand-background-color: oColorsByName('black-20'),
-						'dark': (
-							text-color: oColorsByName('white'),
-							background-color: oColorsByName('slate'),
-							border-color: oColorsMix('white', 'slate', 20),
-							link-color: oColorsByName('white'),
-							link-hover-color: oColorsByName('white'),
-							legal-text-color: oColorsMix('white', 'slate', 60),
-							brand-background-color: oColorsByName('black'),
+						brand-background-color: oColorsByName("black-20"),
+						"dark": (
+							text-color: oColorsByName("white"),
+							background-color: oColorsByName("slate"),
+							border-color: oColorsMix("white", "slate", 20),
+							link-color: oColorsByName("white"),
+							link-hover-color: oColorsByName("white"),
+							legal-text-color: oColorsMix("white", "slate", 60),
+							brand-background-color: oColorsByName("black"),
 						),
 					)
 				),
-			'supports-variants': (
-				'dark',
+			"supports-variants": (
+				"dark",
 			),
 		)
 	);
 }
 
-@if oBrandIs('internal') {
+@if oBrandIs("internal") {
 	@include oBrandDefine(
-		'o-footer-services',
-		'internal',
+		"o-footer-services",
+		"internal",
 		(
-			'variables':
+			"variables":
 				map-merge(
 					$_o-footer-services-shared-brand-config,
 					(
-						'background-color': oColorsByName('slate-white-5'),
-						'border-color': oColorsByName('slate-white-15'),
-						'brand-background-color': oColorsByName('slate'),
+						"background-color": oColorsByName("slate-white-5"),
+						"border-color": oColorsByName("slate-white-15"),
+						"brand-background-color": oColorsByName("slate"),
 					)
 				),
-			'supports-variants': (),
+			"supports-variants": (),
 		)
 	);
 }
 
-@if oBrandIs('whitelabel') {
+@if oBrandIs("whitelabel") {
 	@include oBrandDefine(
-		'o-footer-services',
-		'whitelabel',
+		"o-footer-services",
+		"whitelabel",
 		(
-			'variables': $_o-footer-services-shared-brand-config,
-			'supports-variants': (),
+			"variables": $_o-footer-services-shared-brand-config,
+			"supports-variants": (),
 		)
 	);
 }

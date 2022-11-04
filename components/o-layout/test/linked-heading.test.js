@@ -1,28 +1,28 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import LinkedHeading from '../src/js/linked-heading.js';
+import LinkedHeading from "../src/js/linked-heading.js";
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,
-	prefix: '',
+	prefix: "",
 });
 
-describe('LinkedHeading', () => {
+describe("LinkedHeading", () => {
 	let testArea;
 
 	beforeEach(() => {
 		document.body.innerHTML = `<div id="test-area"></div>`;
-		testArea = document.querySelector('#test-area');
+		testArea = document.querySelector("#test-area");
 	});
 
 	afterEach(() => {
-		document.body.innerHTML = '';
+		document.body.innerHTML = "";
 	});
 
-	describe('new LinkedHeading(element)', () => {
+	describe("new LinkedHeading(element)", () => {
 		let headingElement;
 		let instance;
 		let originalConstructLinkElement;
@@ -31,10 +31,10 @@ describe('LinkedHeading', () => {
 			originalConstructLinkElement =
 				LinkedHeading.prototype.constructLinkElement;
 			sinon
-				.stub(LinkedHeading.prototype, 'constructLinkElement')
-				.returns('mock-link-element');
+				.stub(LinkedHeading.prototype, "constructLinkElement")
+				.returns("mock-link-element");
 			testArea.innerHTML = '<h2 id="mock-id">Mock Content</h2>';
-			headingElement = testArea.querySelector('h2');
+			headingElement = testArea.querySelector("h2");
 			instance = new LinkedHeading(headingElement);
 		});
 
@@ -42,37 +42,37 @@ describe('LinkedHeading', () => {
 			LinkedHeading.prototype.constructLinkElement.restore();
 		});
 
-		it('has a `headingElement` property set to the passed in element', () => {
+		it("has a `headingElement` property set to the passed in element", () => {
 			proclaim.strictEqual(instance.headingElement, headingElement);
 		});
 
-		it('has an `id` property set to the heading element ID', () => {
-			proclaim.strictEqual(instance.id, 'mock-id');
+		it("has an `id` property set to the heading element ID", () => {
+			proclaim.strictEqual(instance.id, "mock-id");
 		});
 
-		it('has an `options` property set to the default options', () => {
+		it("has an `options` property set to the default options", () => {
 			proclaim.deepEqual(instance.options, {
-				content: '#',
-				title: 'Link directly to this section of the page',
+				content: "#",
+				title: "Link directly to this section of the page",
 			});
 		});
 
-		it('has a `linkElement` property set to a constructed link element', () => {
+		it("has a `linkElement` property set to a constructed link element", () => {
 			proclaim.calledOnce(LinkedHeading.prototype.constructLinkElement);
 			proclaim.calledWithExactly(LinkedHeading.prototype.constructLinkElement);
-			proclaim.strictEqual(instance.linkElement, 'mock-link-element');
+			proclaim.strictEqual(instance.linkElement, "mock-link-element");
 		});
 
-		describe('.constructLinkElement()', () => {
+		describe(".constructLinkElement()", () => {
 			let returnValue;
 
 			beforeEach(() => {
-				instance.options.content = 'mock-content-option';
-				instance.options.title = 'mock-title-option';
+				instance.options.content = "mock-content-option";
+				instance.options.title = "mock-title-option";
 				returnValue = originalConstructLinkElement.call(instance);
 			});
 
-			it('sets the heading element HTML', done => {
+			it("sets the heading element HTML", done => {
 				const expectedHtml = `
 					<h2 id="mock-id" class="o-layout__linked-heading">
 						<a href="#mock-id" title="mock-title-option" class="o-layout__linked-heading__link">
@@ -80,71 +80,71 @@ describe('LinkedHeading', () => {
 							<span class="o-layout__linked-heading__label">mock-content-option</span>
 						</a>
 					</h2>
-				`.replace(/\s+/g, '');
+				`.replace(/\s+/g, "");
 
 				// allow for request animation frame
 				setTimeout(() => {
-					const actualHtml = headingElement.outerHTML.replace(/\s+/g, '');
+					const actualHtml = headingElement.outerHTML.replace(/\s+/g, "");
 					proclaim.strictEqual(actualHtml, expectedHtml);
 					done();
 				}, 100);
 			});
 
-			it('returns the created link element', done => {
+			it("returns the created link element", done => {
 				// allow for request animation frame
 				setTimeout(() => {
-					proclaim.strictEqual(returnValue, headingElement.querySelector('a'));
+					proclaim.strictEqual(returnValue, headingElement.querySelector("a"));
 					done();
 				}, 100);
 			});
 
-			describe('when the heading does not have an ID', () => {
+			describe("when the heading does not have an ID", () => {
 				beforeEach(() => {
 					delete instance.id;
 					returnValue = originalConstructLinkElement.call(instance);
 				});
 
-				it('returns `null`', () => {
+				it("returns `null`", () => {
 					proclaim.isNull(returnValue);
 				});
 			});
 
-			describe('when the heading already contains a link element', () => {
+			describe("when the heading already contains a link element", () => {
 				let expectedHtml;
 				let existingLinkElement;
 
 				beforeEach(() => {
 					expectedHtml = '<a href="/mock-url">Mock Content</a>';
 					headingElement.innerHTML = expectedHtml;
-					existingLinkElement = headingElement.querySelector('a');
+					existingLinkElement = headingElement.querySelector("a");
 					returnValue = originalConstructLinkElement.call(instance);
 				});
 
-				it('returns the existing link element', () => {
+				it("returns the existing link element", () => {
 					proclaim.strictEqual(returnValue, existingLinkElement);
 				});
 
-				it('does nothing to the DOM', () => {
+				it("does nothing to the DOM", () => {
 					proclaim.strictEqual(headingElement.innerHTML, expectedHtml);
 				});
 			});
 		});
 	});
 
-	describe('new LinkedHeading(element, options)', () => {
+	describe("new LinkedHeading(element, options)", () => {
 		let headingElement;
 		let instance;
 		let options;
 
 		beforeEach(() => {
 			sinon
-				.stub(LinkedHeading.prototype, 'constructLinkElement')
-				.returns('mock-link-element');
+				.stub(LinkedHeading.prototype, "constructLinkElement")
+				.returns("mock-link-element");
 			testArea.innerHTML = '<h2 id="mock-id">Mock Content</h2>';
-			headingElement = testArea.querySelector('h2');
+			headingElement = testArea.querySelector("h2");
 			options = {
-				content: 'mock-content-option',
-				title: 'mock-title-option',
+				content: "mock-content-option",
+				title: "mock-title-option",
 			};
 			instance = new LinkedHeading(headingElement, options);
 		});
@@ -153,7 +153,7 @@ describe('LinkedHeading', () => {
 			LinkedHeading.prototype.constructLinkElement.restore();
 		});
 
-		it('has an `options` property set to the given options', () => {
+		it("has an `options` property set to the given options", () => {
 			proclaim.deepEqual(instance.options, options);
 			proclaim.notStrictEqual(instance.options, options);
 		});

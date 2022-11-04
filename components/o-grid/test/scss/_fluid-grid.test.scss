@@ -1,24 +1,24 @@
-@include describe('oGrid — fluid') {
-	@include describe('function: oGridGetMaxWidthForLayout') {
-		@include it('gets the max width for S') {
+@include describe("oGrid — fluid") {
+	@include describe("function: oGridGetMaxWidthForLayout") {
+		@include it("gets the max width for S") {
 			@include assert-equal(oGridGetMaxWidthForLayout(S), (740px));
 		}
 
-		@include it('gets the max width for M') {
+		@include it("gets the max width for M") {
 			@include assert-equal(oGridGetMaxWidthForLayout(M), (980px));
 		}
 
-		@include it('gets the max width for L') {
+		@include it("gets the max width for L") {
 			@include assert-equal(oGridGetMaxWidthForLayout(L), (1220px));
 		}
 
-		@include it('gets the max width for XL') {
+		@include it("gets the max width for XL") {
 			@include assert-equal(oGridGetMaxWidthForLayout(XL), (1220px));
 		}
 	}
 
-	@include describe('mixin: oGridRespondTo') {
-		@include test('sass mixin complies correct media query for <S') {
+	@include describe("mixin: oGridRespondTo") {
+		@include test("sass mixin complies correct media query for <S") {
 			@include assert() {
 				@include output {
 					@include oGridRespondTo($until: S) {
@@ -34,7 +34,7 @@
 			}
 		}
 
-		@include test('sass mixin complies correct media query for S<') {
+		@include test("sass mixin complies correct media query for S<") {
 			@include assert() {
 				@include output {
 					@include oGridRespondTo(S) {
@@ -50,7 +50,7 @@
 			}
 		}
 
-		@include test('sass mixin complies correct media query S< >M') {
+		@include test("sass mixin complies correct media query S< >M") {
 			@include assert() {
 				@include output {
 					@include oGridRespondTo($from: S, $until: M) {
@@ -66,7 +66,7 @@
 			}
 		}
 
-		@include test('sass mixin complies correct media query S< >M') {
+		@include test("sass mixin complies correct media query S< >M") {
 			@include assert() {
 				@include output {
 					@include oGridRespondTo($from: S, $until: M) {
@@ -82,7 +82,7 @@
 			}
 		}
 
-		@include test('sass mixin complies correct media query >M') {
+		@include test("sass mixin complies correct media query >M") {
 			@include assert() {
 				@include output {
 					@include oGridRespondTo($until: M) {
@@ -98,7 +98,7 @@
 			}
 		}
 
-		@include test('sass mixin complies correct media query M< >L') {
+		@include test("sass mixin complies correct media query M< >L") {
 			@include assert() {
 				@include output {
 					@include oGridRespondTo($from: M, $until: L) {
@@ -114,7 +114,7 @@
 			}
 		}
 
-		@include test('sass mixin complies correct media query >L') {
+		@include test("sass mixin complies correct media query >L") {
 			@include assert() {
 				@include output {
 					@include oGridRespondTo(L) {
@@ -130,7 +130,7 @@
 			}
 		}
 
-		@include test('sass mixin complies correct media query L< >XL') {
+		@include test("sass mixin complies correct media query L< >XL") {
 			@include assert() {
 				@include output {
 					@include oGridRespondTo($from: L, $until: XL) {
@@ -146,7 +146,7 @@
 			}
 		}
 
-		@include test('sass mixin complies correct media query XL<') {
+		@include test("sass mixin complies correct media query XL<") {
 			@include assert() {
 				@include output {
 					@include oGridRespondTo(XL) {
@@ -163,8 +163,8 @@
 		}
 	}
 
-	@include describe('mixin: oGridColspan') {
-		@include test('sass mixin complies base column styles') {
+	@include describe("mixin: oGridColspan") {
+		@include test("sass mixin complies base column styles") {
 			@include assert() {
 				@include output($selector: false) {
 					.test-colspan {
@@ -190,7 +190,7 @@
 			}
 		}
 
-		@include test('sass mixin complies for a column span of 3 and width only') {
+		@include test("sass mixin complies for a column span of 3 and width only") {
 			@include assert() {
 				@include output($selector: false) {
 					.test-colspan {
@@ -210,8 +210,8 @@
 		}
 	}
 
-	@include describe('mixin: oGridContainer') {
-		@include test('sass mixin compiles correctly for regular container') {
+	@include describe("mixin: oGridContainer") {
+		@include test("sass mixin compiles correctly for regular container") {
 			@include assert() {
 				@include output($selector: false) {
 					.test-container {
@@ -263,7 +263,7 @@
 			}
 		}
 
-		@include test('sass mixin compiles correctly for bleed container') {
+		@include test("sass mixin compiles correctly for bleed container") {
 			@include assert() {
 				@include output($selector: false) {
 					.test-container {
@@ -309,8 +309,8 @@
 		}
 	}
 
-	@include describe('mixin: oGridRow') {
-		@include test('sass mixin complies correctly') {
+	@include describe("mixin: oGridRow") {
+		@include test("sass mixin complies correctly") {
 			@include assert() {
 				@include output($selector: false) {
 					.test-row {
@@ -341,7 +341,7 @@
 
 					.test-row:before,
 					.test-row:after {
-						content: '';
+						content: "";
 						display: table;
 						display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
 					}

@@ -17,6 +17,6 @@ export default {
 	// Match "different" lines (prefixed with "!") in context diff.
 	diff: {
 		pattern: /^!(?!!).+$/m,
-		alias: 'important',
+		alias: "important",
 	},
 };

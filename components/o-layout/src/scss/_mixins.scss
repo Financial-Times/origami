@@ -2,9 +2,9 @@
 ///
 ///@param {String} $side — left or right rule to be styled
 /// @access private
-@mixin _oLayoutRule($side: 'left') {
-	border-#{$side}: 2px solid oColorsByName('teal');
-	padding-#{$side}: oSpacingByName('s3');
+@mixin _oLayoutRule($side: "left") {
+	border-#{$side}: 2px solid oColorsByName("teal");
+	padding-#{$side}: oSpacingByName("s3");
 }
 
 /// Base styling for the layout content
@@ -60,7 +60,7 @@
 		}
 
 		aside:not(.o-layout__unstyled-element) {
-			@include _oLayoutRule('left');
+			@include _oLayoutRule("left");
 			align-self: flex-start;
 		}
 
@@ -70,11 +70,11 @@
 		}
 
 		ul:not(.o-layout__unstyled-element) {
-			@include oTypographyList($type: 'unordered', $include-base-styles: false);
+			@include oTypographyList($type: "unordered", $include-base-styles: false);
 		}
 
 		ol:not(.o-layout__unstyled-element) {
-			@include oTypographyList($type: 'ordered', $include-base-styles: false);
+			@include oTypographyList($type: "ordered", $include-base-styles: false);
 		}
 
 		blockquote:not(.o-layout__unstyled-element) {
@@ -95,7 +95,7 @@
 
 		figure,
 		table {
-			margin: 0 0 oSpacingByName('s4');
+			margin: 0 0 oSpacingByName("s4");
 		}
 	}
 }
@@ -135,9 +135,9 @@
 		}
 
 		li {
-			&:not(.o-layout__navigation-title) [aria-current='location'] {
-				color: oColorsByName('teal-30');
-				background: oColorsMix('teal', 'white', 20);
+			&:not(.o-layout__navigation-title) [aria-current="location"] {
+				color: oColorsByName("teal-30");
+				background: oColorsMix("teal", "white", 20);
 			}
 
 			a {
@@ -154,7 +154,7 @@
 				@supports (overflow-wrap: anywhere) {
 					word-break: normal;
 				}
-				border-color: oColorsByName('teal');
+				border-color: oColorsByName("teal");
 				border-left: 2px solid;
 				@include oGridRespondTo($from: M) {
 					border-left: 0 solid;
@@ -171,10 +171,10 @@
 				text-decoration: none;
 			}
 
+			// stylelint-disable-next-line selector-no-qualifying-type
 			&.o-layout__navigation-title a {
-				// stylelint-disable-line selector-no-qualifying-type
 				@include oTypographySans(
-					$weight: 'semibold',
+					$weight: "semibold",
 					$include-font-family: false
 				);
 				@include oGridRespondTo($from: M) {
@@ -194,7 +194,7 @@
 	// Style sub-nav items.
 	.o-layout__navigation ul li:not(.o-layout__navigation-title) ul a,
 	.o-layout__navigation ol li:not(.o-layout__navigation-title) ol a {
-		border-color: rgba(oColorsByName('teal'), 0.4);
+		border-color: rgba(oColorsByName("teal"), 0.4);
 	}
 
 	@if $query-layout {
@@ -254,7 +254,7 @@
 
 	@keyframes o-layout-linked-heading-fade {
 		0% {
-			background-color: oColorsMix('teal', 'white', 15);
+			background-color: oColorsMix("teal", "white", 15);
 		}
 		100% {
 			background-color: transparent;

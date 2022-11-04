@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import userEvent from '@testing-library/user-event';
-import mega from '../src/js/mega.js';
+import proclaim from "proclaim";
+import userEvent from "@testing-library/user-event";
+import mega from "../src/js/mega.js";
 
 function dispatch(target, type) {
-	target.dispatchEvent(new Event(type, {bubbles: true}));
+	target.dispatchEvent(new Event(type, { bubbles: true }));
 }
 
 function waitFor(target, events) {
@@ -16,11 +16,11 @@ function waitFor(target, events) {
 	return Promise.all(promises);
 }
 
-describe('Mega', () => {
+describe("Mega", () => {
 	let containerEl;
 
 	beforeEach(() => {
-		containerEl = document.createElement('div');
+		containerEl = document.createElement("div");
 		containerEl.innerHTML = `
 			<ul>
 				<li>
@@ -39,68 +39,68 @@ describe('Mega', () => {
 	});
 
 	afterEach(() => {
-		containerEl.innerHTML = '';
+		containerEl.innerHTML = "";
 		containerEl = null;
 	});
 
-	it('shows the menu on mouseenter', () => {
-		const parent = containerEl.querySelector('li');
-		const menu = containerEl.querySelector('div');
+	it("shows the menu on mouseenter", () => {
+		const parent = containerEl.querySelector("li");
+		const menu = containerEl.querySelector("div");
 
-		dispatch(parent, 'mouseenter');
+		dispatch(parent, "mouseenter");
 
-		return waitFor(containerEl, ['oHeader.MegaMenuShow']).then(() => {
-			proclaim.equal(menu.getAttribute('aria-hidden'), 'false');
-			proclaim.equal(menu.getAttribute('aria-expanded'), 'true');
+		return waitFor(containerEl, ["oHeader.MegaMenuShow"]).then(() => {
+			proclaim.equal(menu.getAttribute("aria-hidden"), "false");
+			proclaim.equal(menu.getAttribute("aria-expanded"), "true");
 			proclaim.equal(
-				menu.classList.contains('o-header__mega--animation'),
+				menu.classList.contains("o-header__mega--animation"),
 				true
 			);
 		});
 	});
 
-	it('hides the menu on mouseleave', () => {
-		const parent = containerEl.querySelector('li');
-		const menu = containerEl.querySelector('div');
+	it("hides the menu on mouseleave", () => {
+		const parent = containerEl.querySelector("li");
+		const menu = containerEl.querySelector("div");
 
 		mega.show(menu, true);
-		dispatch(parent, 'mouseleave');
+		dispatch(parent, "mouseleave");
 
-		return waitFor(containerEl, ['oHeader.MegaMenuHide']).then(() => {
-			proclaim.equal(menu.getAttribute('aria-hidden'), 'true');
-			proclaim.equal(menu.getAttribute('aria-expanded'), 'false');
+		return waitFor(containerEl, ["oHeader.MegaMenuHide"]).then(() => {
+			proclaim.equal(menu.getAttribute("aria-hidden"), "true");
+			proclaim.equal(menu.getAttribute("aria-expanded"), "false");
 
 			proclaim.equal(
-				menu.classList.contains('o-header__mega--animation'),
+				menu.classList.contains("o-header__mega--animation"),
 				false
 			);
 		});
 	});
 
-	it('hides the menu when escape key is pressed', () => {
-		const menu = containerEl.querySelector('div');
+	it("hides the menu when escape key is pressed", () => {
+		const menu = containerEl.querySelector("div");
 		mega.show(menu, true);
-		userEvent.keyboard('{esc}');
-		proclaim.equal(menu.getAttribute('aria-hidden'), 'true');
-		proclaim.equal(menu.getAttribute('aria-expanded'), 'false');
-		proclaim.equal(menu.classList.contains('o-header__mega--animation'), false);
+		userEvent.keyboard("{esc}");
+		proclaim.equal(menu.getAttribute("aria-hidden"), "true");
+		proclaim.equal(menu.getAttribute("aria-expanded"), "false");
+		proclaim.equal(menu.classList.contains("o-header__mega--animation"), false);
 	});
 
-	it('skips animation when switching menus', () => {
-		const parents = containerEl.querySelectorAll('li');
-		const menus = containerEl.querySelectorAll('div');
+	it("skips animation when switching menus", () => {
+		const parents = containerEl.querySelectorAll("li");
+		const menus = containerEl.querySelectorAll("div");
 
 		mega.show(menus[0]);
 
-		dispatch(parents[0], 'mouseleave');
-		dispatch(parents[1], 'mouseenter');
+		dispatch(parents[0], "mouseleave");
+		dispatch(parents[1], "mouseenter");
 
 		return waitFor(containerEl, [
-			'oHeader.MegaMenuShow',
-			'oHeader.MegaMenuHide',
+			"oHeader.MegaMenuShow",
+			"oHeader.MegaMenuHide",
 		]).then(() => {
 			proclaim.equal(
-				menus[1].classList.contains('o-header__mega--animation'),
+				menus[1].classList.contains("o-header__mega--animation"),
 				false
 			);
 		});

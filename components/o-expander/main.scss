@@ -1,10 +1,10 @@
-@import '@financial-times/o-icons/main';
-@import 'src/scss/variables';
+@import "@financial-times/o-icons/main";
+@import "src/scss/variables";
 
 /// @outputs All o-expander CSS, including the expander content area and toggle.
 @mixin oExpander() {
 	// Hide content when aria-hidden is applied.
-	.o-expander__content[aria-hidden='true'] {
+	.o-expander__content[aria-hidden="true"] {
 		display: none;
 	}
 
@@ -46,13 +46,13 @@
 		}
 
 		&:after {
-			@include oIconsContent('arrow-down', $icon-color, $size: 15);
-			content: '';
+			@include oIconsContent("arrow-down", $icon-color, $size: 15);
+			content: "";
 			padding: 0 3px;
 			vertical-align: middle;
 		}
 
-		&[aria-expanded='true']:after {
+		&[aria-expanded="true"]:after {
 			// Rotate the icon rather than downloading another one
 			// I call this the "Matt Hinchliffe manouvre"
 			transform: rotate(180deg);

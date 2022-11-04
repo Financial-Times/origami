@@ -5,8 +5,8 @@
 @mixin _oHeaderServicesTop($logo, $draw-breakpoint) {
 	.o-header-services__top {
 		@include oGridContainer;
-		background-color: _oHeaderServicesGet('top-background');
-		color: _oHeaderServicesGet('top-text');
+		background-color: _oHeaderServicesGet("top-background");
+		color: _oHeaderServicesGet("top-text");
 		display: flex;
 		overflow: hidden;
 
@@ -35,7 +35,7 @@
 			}
 
 			@include oGridRespondTo($draw-breakpoint) {
-				margin: oSpacingByName('s2');
+				margin: oSpacingByName("s2");
 			}
 
 			@include oGridRespondTo(M) {
@@ -58,8 +58,8 @@
 
 	.o-header-services__hamburger-icon {
 		@include oIconsContent(
-			$icon-name: 'hamburger',
-			$color: _oHeaderServicesGet('top-text'),
+			$icon-name: "hamburger",
+			$color: _oHeaderServicesGet("top-text"),
 			$size: $_o-header-services-top-icon-size
 		);
 		height: $_o-header-services-top-bar-short;
@@ -73,7 +73,7 @@
 				default: 2,
 				M: 4,
 			),
-			$weight: 'semibold'
+			$weight: "semibold"
 		);
 		text-overflow: ellipsis;
 	}
@@ -95,20 +95,20 @@
 		@include oGridRespondTo($from: $draw-breakpoint) {
 			display: flex;
 			margin: 0 0 0 auto;
-			padding: div(oSpacingByName('s3'), 2) $_o-header-services-padding;
+			padding: div(oSpacingByName("s3"), 2) $_o-header-services-padding;
 		}
 
 		li {
-			background-color: _oHeaderServicesGet('top-background');
+			background-color: _oHeaderServicesGet("top-background");
 
 			a {
 				@include oTypographySans(
-					$weight: 'semibold',
+					$weight: "semibold",
 					$include-font-family: false
 				);
-				color: _oHeaderServicesGet('top-text');
+				color: _oHeaderServicesGet("top-text");
 				display: inline-block;
-				padding: $_o-header-services-padding oSpacingByName('s3');
+				padding: $_o-header-services-padding oSpacingByName("s3");
 				margin: 0;
 
 				&:hover {

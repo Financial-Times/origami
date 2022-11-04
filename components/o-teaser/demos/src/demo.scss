@@ -1,10 +1,10 @@
-@import '../../main';
+@import "../../main";
 
 @include oTeaser();
 @include oFonts();
 
 body {
-	background-color: oColorsByName('paper');
+	background-color: oColorsByName("paper");
 }
 
 .demo-container {
@@ -37,7 +37,7 @@ body {
 	}
 
 	&--inverse {
-		background-color: oColorsByName('black');
+		background-color: oColorsByName("black");
 	}
 
 	&--stretched {
@@ -47,7 +47,7 @@ body {
 	&--big-story {
 		margin: 20px 0;
 		padding: 0 40px;
-		background-color: oColorsByName('wheat');
+		background-color: oColorsByName("wheat");
 	}
 }
 
@@ -58,5 +58,5 @@ body {
 }
 
 .demo-image {
-	background-color: oColorsByName('white');
+	background-color: oColorsByName("white");
 }

@@ -1,7 +1,7 @@
-import '../../main.js';
+import "../../main.js";
 
-document.addEventListener('DOMContentLoaded', function () {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+document.addEventListener("DOMContentLoaded", function () {
+	document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
 });
 
 const extraContentInput = document.querySelector("input[name='extra']");

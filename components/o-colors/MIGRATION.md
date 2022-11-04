@@ -68,6 +68,7 @@ The following colours have been removed from the palette:
 - `inherit`. Replace `oColorsGetPaletteColor('inherit');` with `inherit`.
 
 Deprecated internal and whitelabel brand palette colours were removed. Please contact Origami if your product has a usecase for one of the removed colours:
+
 - Internal brand: candy, wasabi, org-b2c, org-b2c-dark, org-b2c-light, paper, wheat, sky, velvet, claret.
 - Whitelabel brand: all colours except black and white have been removed.
 
@@ -82,14 +83,17 @@ The following mixins have changed:
 - [oColorsSetUseCase](#oColorsSetUseCase) has updated arguments.
 
 The following mixins have been removed:
+
 - [oColorsFor](#oColorsFor)
 
 #### Sass Functions
 
 The following functions have changed:
+
 - [oColorsGetTextColor](#oColorsGetTextColor)
 
 The following functions have been removed:
+
 - [oColorsGetTint](#oColorsGetTint)
 - [oColorsGetPaletteColor](#oColorsGetPaletteColor)
 - [oColorsGetUseCase](#oColorsGetUseCase)
@@ -128,17 +132,20 @@ The name of the first argument of `oColorsGetTextColor` has changed. It was `$ba
 ```
 
 `oColorsGetTextColor` now errors if the contrast between the given background and text colour does not pass WCAG 2.1 level AA for [normal text](https://www.w3.org/TR/WCAG21/#contrast-minimum). Previously it would only throw a warning provided the contrast check passed for [large text](https://www.w3.org/TR/WCAG21/#dfn-large-scale). Accordingly, the third `$warnings` argument is now `$minimum-contrast`. This can be set to one of `aa-normal` (default), `aa-large`, `aaa-normal`, `aaa-large`, or `null` to remove the contrast check. To migrate update the third `$warnings` argument of `oColorsGetTextColor` to `$minimum-contrast`:
+
 - **not set**: no changes are needed unless contrast errors are thrown. If an error is thrown set `$minimum-contrast` to `aa-large` if creating a colour for [large text](https://www.w3.org/TR/WCAG21/#dfn-large-scale), or `null` to ignore the contrast of the resulting text colour. Only ignore contrast errors for [incidental or logo text](https://www.w3.org/TR/WCAG21/#contrast-minimum), otherwise your project may be inaccessible.
 - **true**: remove the argument, it's optional and checks contrast for [normal text](https://www.w3.org/TR/WCAG21/#contrast-minimum) by default. If a contrast error is thrown refer to the point "not set" above.
 - **false**: set to `null` instead.
 
 E.g. If generating a colour for [large text](https://www.w3.org/TR/WCAG21/#dfn-large-scale), error if the contrast between the background `paper` is lower than 3:1 (see [WCAG 2.1](https://www.w3.org/TR/WCAG21/#contrast-minimum))
+
 ```diff
 -	color: oColorsGetTextColor('paper', 80, $warnings: false);
 +	color: oColorsGetTextColor('paper', 80, $minimum-contrast: 'aa-large');
 ```
 
 Or set to `null` to never error, e.g. for [incidental or logo text](https://www.w3.org/TR/WCAG21/#contrast-minimum), regardless of the contrast between the given background `paper` and the result:
+
 ```diff
 -	color: oColorsGetTextColor($backgroundd: 'paper', $warnings: false);
 +	color: oColorsGetTextColor($background': paper', $minimum-contrast: null);
@@ -158,12 +165,14 @@ The mixin `oColorsGetUseCase` returns a colour name. It has been removed and the
 `oColorsGetPaletteColor` is now `oColorsByName`. The `$name` argument has been renamed `$color-name`.
 
 To fetch a default `o-colors` colour.
+
 ```diff
 -color: oColorsGetPaletteColor('paper');
 +color: oColorsByName('paper');
 ```
 
 To fetch a colour set by a component or project other that `o-colors` include the namespace followed by a forward slash.
+
 ```diff
 // Fetch the colour 'stormy' from the component 'o-example'.
 -color: oColorsGetPaletteColor('o-example-story');
@@ -171,6 +180,7 @@ To fetch a colour set by a component or project other that `o-colors` include th
 ```
 
 Or with argument names:
+
 ```diff
 // Fetch the colour 'stormy' from the component 'o-example'.
 -color: oColorsGetPaletteColor($name: 'o-example-story');
@@ -183,6 +193,7 @@ Or with argument names:
 - It errors when overriding an existing palette colour which was not set by o-colors.
 
 A namespace, for your project or component, must now be given with a forward slash:
+
 ```diff
 // Setting a custom colour 'pink' within a component 'o-example'.
 - @include oColorsSetColor('o-example-pink', #ff69b4);
@@ -190,6 +201,7 @@ A namespace, for your project or component, must now be given with a forward sla
 ```
 
 The color name argument no longer accepts a list to deprecate colours. Instead use the new `$opts` argument.
+
 ```diff
 // Setting a  custom colour 'pink', which is deprecated.
 - @include oColorsSetColor('o-example-pink', (#ff69b4, _deprecated));
@@ -218,6 +230,7 @@ And properties are given with a map:
 ```
 
 To deprecate a usecase pass a second options argument:
+
 ```diff
 -@include oColorsSetUseCase('o-example-stripe', 'text', 'white');
 -@include oColorsSetUseCase('o-example-stripe', 'background', 'black');
@@ -235,12 +248,14 @@ To deprecate a usecase pass a second options argument:
 `oColorsFor` has been removed and should be replaced with separate calls to `oColorsByUsecase` for each property. By default `oColorsByUsecase` errors if a usecase isn't found, unless a `$fallback` colour has been given (which may be `null`). If the usecase doesn't exist and an error is thrown remove the property.
 
 E.g. setting the page background colour from o-colors. In this example no properties have been given to the second argument of `oColorsFor`, so we replace with calls to `oColorsByUsecase` for all properties the usecase supports.
+
 ```diff
 -@include oColorsFor(page);
 +background: oColorsByUsecase('page', 'background');
 ```
 
 E.g. setting multiple colour properties to match a 'row-stripe' from an example component o-example.
+
 ```diff
 -@include oColorsFor(o-example-row-stripe, background border);
 +background: oColorsByUsecase('o-example/row-stripe', 'background');
@@ -252,18 +267,21 @@ E.g. setting multiple colour properties to match a 'row-stripe' from an example 
 `oColorsGetColorFor` has been removed and should be replaced with a call to `oColorsByUsecase`. By default `oColorsByUsecase` now errors if a usecase isn't found, unless a `$fallback` colour has been given (which may be `null`). If the usecase doesn't exist and an error is thrown remove the property.
 
 E.g. when requesting the page background from o-colors:
+
 ```diff
 -background: oColorsGetColorFor('page', 'background');
 +background: oColorsByUsecase('page', 'background');
 ```
 
 E.g. if no property is requested by `oColorsGetColorFor` explicitly choose one when migrating to `oColorsByUsecase` (one of 'text', 'background', 'border', or 'outline'):
+
 ```diff
 -color: oColorsGetColorFor('section-life-arts');
 +color: oColorsByUsecase('section-life-arts', 'text');
 ```
 
 E.g. set fallback colours using `$fallback`:
+
 ```diff
 -background-color: oColorsGetColorFor('page', 'background', $options: ('default': 'white'));
 +background-color: oColorsByUsecase('page', 'background', $fallback: 'white');
@@ -315,67 +333,67 @@ The `product-brand` use case has been removed.
 
 To migrate from v3.x.x to use v4.x.x you will need to update the palette colors you are requesting using `oColorsFor`, `oColorsSetUseCase`, and `oColorsGetPaletteColor`. To work out which color names you need to update, see the following table:
 
-| Old name              | Switch to                        |
-| --------------------- |----------------------------------|
-| pink                  | paper                            |
-| blue                  | oxford                           |
-| dark-blue             | oxford-60                        |
-| orange                | mandarin                         |
-| grey-tint1            | black-30                         |
-| grey-tint2            | black-40                         |
-| grey-tint3            | black-50                         |
-| grey-tint4            | black-70                         |
-| grey-tint5            | black-80                         |
-| pink-tint1            | black-5                          |
-| pink-tint2            | black-10                         |
-| pink-tint3            | black-20                         |
-| pink-tint4            | black-30                         |
-| pink-tint5            | black-50                         |
-| red                   | crimson                          |
-| green                 | jade                             |
-| orange-tint1          | _consult a designer_             |
-| brown-tint1           | _consult a designer_             |
-| yellow-tint1          | _consult a designer_             |
-| green-tint1           | _consult a designer_             |
-| bluegreen-tint1       | _consult a designer_             |
-| silver-tint1          | _consult a designer_             |
-| purple-tint1          | _consult a designer_             |
-| purple-tint2          | black-50 (_consult a designer_)  |
-| red-tint1             | _consult a designer_             |
-| red-tint2             | _consult a designer_             |
-| red-tint3             | _consult a designer_             |
-| red-tint4             | _consult a designer_             |
-| red-tint5             | _consult a designer_             |
-| blue-tint1            | _consult a designer_             |
-| blue-tint2            | _consult a designer_             |
-| blue-tint3            | _consult a designer_             |
-| blue-tint4            | _consult a designer_             |
-| blue-tint5            | _consult a designer_             |
-| section-purple        | velvet                           |
-| section-light-purple  | _consult a designer_             |
-| section-blue          | blue-80                          |
-| section-light-blue    | sky                              |
-| section-green         | use `oColorsGetTint('jade', 65)` |
-| section-light-green   | _consult a designer_             |
-| section-red           | crimson                          |
-| warm-1                | wheat                            |
-| warm-2                | black-5                          |
-| warm-3                | black-20                         |
-| warm-4                | black-90                         |
-| warm-5                | white-60                         |
-| warm-6                | black-80 (_consult a designer_)  |
-| cold-1                | black-70                         |
-| cold-2                | black-80                         |
-| cold-3                | black-90                         |
-| blue-1                | oxford-30                        |
-| blue-2                | _consult a designer_             |
-| purple-1              | velvet                           |
-| purple-2              | _consult a designer_             |
-| teal-1                | teal-40                          |
-| teal-2                | teal-80                          |
-| claret-1              | claret                           |
-| claret-2              | candy                            |
-| claret-inverse        | claret-30                        |
-| org-b2b               | org-b2c                          |
-| org-b2c-dark          | org-b2c-dark                     |
-| org-b2c-light         | org-b2c-light                    |
+| Old name             | Switch to                        |
+| -------------------- | -------------------------------- |
+| pink                 | paper                            |
+| blue                 | oxford                           |
+| dark-blue            | oxford-60                        |
+| orange               | mandarin                         |
+| grey-tint1           | black-30                         |
+| grey-tint2           | black-40                         |
+| grey-tint3           | black-50                         |
+| grey-tint4           | black-70                         |
+| grey-tint5           | black-80                         |
+| pink-tint1           | black-5                          |
+| pink-tint2           | black-10                         |
+| pink-tint3           | black-20                         |
+| pink-tint4           | black-30                         |
+| pink-tint5           | black-50                         |
+| red                  | crimson                          |
+| green                | jade                             |
+| orange-tint1         | _consult a designer_             |
+| brown-tint1          | _consult a designer_             |
+| yellow-tint1         | _consult a designer_             |
+| green-tint1          | _consult a designer_             |
+| bluegreen-tint1      | _consult a designer_             |
+| silver-tint1         | _consult a designer_             |
+| purple-tint1         | _consult a designer_             |
+| purple-tint2         | black-50 (_consult a designer_)  |
+| red-tint1            | _consult a designer_             |
+| red-tint2            | _consult a designer_             |
+| red-tint3            | _consult a designer_             |
+| red-tint4            | _consult a designer_             |
+| red-tint5            | _consult a designer_             |
+| blue-tint1           | _consult a designer_             |
+| blue-tint2           | _consult a designer_             |
+| blue-tint3           | _consult a designer_             |
+| blue-tint4           | _consult a designer_             |
+| blue-tint5           | _consult a designer_             |
+| section-purple       | velvet                           |
+| section-light-purple | _consult a designer_             |
+| section-blue         | blue-80                          |
+| section-light-blue   | sky                              |
+| section-green        | use `oColorsGetTint('jade', 65)` |
+| section-light-green  | _consult a designer_             |
+| section-red          | crimson                          |
+| warm-1               | wheat                            |
+| warm-2               | black-5                          |
+| warm-3               | black-20                         |
+| warm-4               | black-90                         |
+| warm-5               | white-60                         |
+| warm-6               | black-80 (_consult a designer_)  |
+| cold-1               | black-70                         |
+| cold-2               | black-80                         |
+| cold-3               | black-90                         |
+| blue-1               | oxford-30                        |
+| blue-2               | _consult a designer_             |
+| purple-1             | velvet                           |
+| purple-2             | _consult a designer_             |
+| teal-1               | teal-40                          |
+| teal-2               | teal-80                          |
+| claret-1             | claret                           |
+| claret-2             | candy                            |
+| claret-inverse       | claret-30                        |
+| org-b2b              | org-b2c                          |
+| org-b2c-dark         | org-b2c-dark                     |
+| org-b2c-light        | org-b2c-light                    |

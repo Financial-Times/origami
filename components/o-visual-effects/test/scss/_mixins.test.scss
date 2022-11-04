@@ -1,6 +1,6 @@
-@include test-module('oVisualEffects') {
+@include test-module("oVisualEffects") {
 	@include test(
-		'Outputs timing css custom properties and shadow classes by default'
+		"Outputs timing css custom properties and shadow classes by default"
 	) {
 		// css custom properties for timing functions by default
 		@include assert {
@@ -28,7 +28,7 @@
 			}
 		}
 	}
-	@include test('Outputs nothing with an empty options map') {
+	@include test("Outputs nothing with an empty options map") {
 		@include assert {
 			@include output() {
 				@include oVisualEffects($opts: ());

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import {globby as glob} from "globby"
-import {HtmlValidate, formatterFactory} from "html-validate"
+import { globby as glob } from "globby";
+import { HtmlValidate, formatterFactory } from "html-validate";
 
-const demoHtmlFiles = await glob("./demos/local/*.html")
-const reportFormatter = formatterFactory("codeframe")
+const demoHtmlFiles = await glob("./demos/local/*.html");
+const reportFormatter = formatterFactory("codeframe");
 const validator = new HtmlValidate({
 	root: true,
 	extends: ["html-validate:standard"],
@@ -29,24 +29,24 @@ const validator = new HtmlValidate({
 			},
 		},
 	],
-})
+});
 
-console.log("validate-component-demo-html: Checking demos for HTML errors.")
-const reportsWithErrors = []
+console.log("validate-component-demo-html: Checking demos for HTML errors.");
+const reportsWithErrors = [];
 for (const file of demoHtmlFiles) {
-	const report = validator.validateFile(file)
+	const report = validator.validateFile(file);
 	if (report.errorCount) {
-		reportsWithErrors.push(report)
+		reportsWithErrors.push(report);
 	}
 }
 
 if (reportsWithErrors.length > 0) {
-	console.log("validate-component-demo-html: HTML errors found.")
+	console.log("validate-component-demo-html: HTML errors found.");
 	const formattedErrorReports = reportsWithErrors.map(report =>
 		reportFormatter(report.results)
-	)
-	console.log(...formattedErrorReports)
-	process.exit(1)
+	);
+	console.log(...formattedErrorReports);
+	process.exit(1);
 }
 
-console.log("validate-component-demo-html: No demo HTML errors found.")
+console.log("validate-component-demo-html: No demo HTML errors found.");

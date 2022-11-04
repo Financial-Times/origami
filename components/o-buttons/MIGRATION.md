@@ -19,12 +19,14 @@ its dependencies. See [the Bower config for these](./bower.json).
 ### Markup
 
 If using the `o-buttons--b2c` theme class add a class for the button type also `o-buttons--primary`.
+
 ```diff
 -<button class="o-buttons o-buttons--b2c">B2C theme</button>
 +<button class="o-buttons o-buttons--primary o-buttons--b2c">B2C theme</button>
 ```
 
 Buttons no longer default to the secondary type, the type modifier class `o-buttons--secondary` is required. There is no change required for the primary button:
+
 ```diff
 <button class="o-buttons o-buttons--primary">Primary</button>
 <button class="o-buttons o-buttons--primary o-buttons--inverse">Primary Inverse</button>
@@ -34,6 +36,7 @@ Buttons no longer default to the secondary type, the type modifier class `o-butt
 -<button class="o-buttons o-buttons--inverse">Secondary Inverse</button>
 +<button class="o-buttons o-buttons--secondary o-buttons--inverse">Secondary Inverse</button>
 ```
+
 ### Colour Usecases
 
 All deprecated [colour usecases](https://github.com/Financial-Times/o-buttons/blob/v5.15.1/scss/_deprecated.scss#L98) have been removed. If your project needs to match the colour of a button use the `oButtonsGetColor` function instead.
@@ -77,6 +80,7 @@ If your project is unable to modify its markup to use default o-button classes r
 ```
 
 The following mixins have been removed. Replace with a single `oButtons` call with the options you need and update your markup to use default o-buttons classes. Alternatively use `oButtonsContent` if markup changes are not possible:
+
 - `oButtonsSize`
 - `oButtonsTheme`
 - `oButtonsCustomTheme`
@@ -87,6 +91,7 @@ The following mixins have been removed. Replace with a single `oButtons` call wi
 - `oButtonsIconBaseStyles`
 
 Replace calls for the following mixins with a single `oButtons` call with the options you need, and update your markup to use default o-buttons classes:
+
 - `oButtonsGroup`
 - `oButtonsPagination`
 
@@ -95,12 +100,14 @@ Replace `oButtonsIconButtonLabel` with the o-normalise mixin [oNormaliseVisually
 #### Themes
 
 When adding a custom theme using mixins, the theme configuration has changed:
+
 - `accent` is now `color`. This is the main button colour.
 - `hover` has been removed. This is likely being used to replicate a primary button more closely and should no longer be needed, as the colour of the hover state is now calculated the same for custom and default buttons.
 - `background` becomes `context` (optional). It signifies the background colour behind the button. It defaults to the page background (paper for the master brand, white otherwise).
 - `colorizer` is no longer used. It is replaced by by specifying the button types the theme should support.
 
 E.g. a custom theme using o-buttons markup (recommended):
+
 ```diff
 -.my-button--my-primary-claret-theme {
 -    @include oButtonsTheme($theme: (
@@ -127,6 +134,7 @@ E.g. a custom theme using o-buttons markup (recommended):
 ```
 
 E.g. a custom theme using custom markup (where o-buttons css classes can't be used):
+
 ```diff
 .my-button--my-claret-theme {
 -    @include oButtonsTheme($theme: (
@@ -153,6 +161,7 @@ The `oButtonsGetColor` function has updated parameters to accept type and theme 
 ### Variables
 
 The following variables are now removed or private and must not be used:
+
 - `o-buttons-class` (class names are no longer customisable, unless using `oButtonsContent`)
 - `o-buttons-font-family` (please contact Origami if you would like to customise the o-button font family)
 - `o-buttons-font-weight` (please contact Origami if you would like to customise o-button weights)

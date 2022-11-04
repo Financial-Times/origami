@@ -1,9 +1,9 @@
 // Base cookie message styles
 @mixin _oCookieMessageBase() {
 	$link-theme: (
-		'base': 'teal',
-		'hover': 'teal',
-		'context': 'white',
+		"base": "teal",
+		"hover": "teal",
+		"context": "white",
 	);
 
 	.o-cookie-message {
@@ -44,13 +44,13 @@
 	}
 
 	.o-cookie-message__outer {
-		@include oVisualEffectsShadowContent('high');
-		background: oColorsByName('white');
-		color: oColorsByName('black');
+		@include oVisualEffectsShadowContent("high");
+		background: oColorsByName("white");
+		color: oColorsByName("black");
 	}
 
 	.o-cookie-message__inner {
-		@include oVisualEffectsShadowContent('high');
+		@include oVisualEffectsShadowContent("high");
 		@include oTypographySans($scale: 0);
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
@@ -88,13 +88,13 @@
 		padding-right: $_o-cookie-message-spacing;
 
 		&:after {
-			content: '';
+			content: "";
 			display: block;
 			width: 60px;
-			margin-top: oSpacingByName('s2');
-			margin-bottom: oSpacingByName('s3');
+			margin-top: oSpacingByName("s2");
+			margin-bottom: oSpacingByName("s3");
 			border-bottom: oSpacingByIncrement(1) solid;
-			border-color: oColorsByName('teal');
+			border-color: oColorsByName("teal");
 		}
 	}
 
@@ -105,10 +105,10 @@
 	.o-cookie-message__heading h2 {
 		@include oTypographySans(
 			$scale: (
-				'default': 2,
-				'M': 3,
+				"default": 2,
+				"M": 3,
 			),
-			$weight: 'semibold'
+			$weight: "semibold"
 		);
 		margin: 0;
 	}
@@ -117,7 +117,7 @@
 		@include oTypographySans($scale: 2);
 		display: flex;
 		align-items: center;
-		margin-top: oSpacingByName('s6');
+		margin-top: oSpacingByName("s6");
 		flex-direction: row-reverse;
 		justify-content: space-between;
 
@@ -130,7 +130,7 @@
 
 				.o-cookie-message__button {
 					width: 100%;
-					margin-top: oSpacingByName('s6');
+					margin-top: oSpacingByName("s6");
 				}
 			}
 		}
@@ -149,8 +149,8 @@
 	.o-cookie-message__button {
 		@include oButtonsContent(
 			(
-				'size': 'big',
-				'type': 'primary',
+				"size": "big",
+				"type": "primary",
 			)
 		);
 		white-space: nowrap;
@@ -166,19 +166,19 @@
 // Alternative cookie message styles (for whitelabel/specialist titles)
 @mixin _oCookieMessageAlternative() {
 	$link-theme: (
-		'base': 'black',
-		'hover': 'black',
-		'context': 'white',
+		"base": "black",
+		"hover": "black",
+		"context": "white",
 	);
 
 	.o-cookie-message.o-cookie-message--alternative {
 		.o-cookie-message__button {
 			@include oButtonsContent(
 				(
-					'type': 'primary',
-					'theme': (
-						'color': oColorsMix('jade', 'black', 89),
-						'context': 'white',
+					"type": "primary",
+					"theme": (
+						"color": oColorsMix("jade", "black", 89),
+						"context": "white",
 					),
 				),
 				$include-base-styles: false
@@ -186,7 +186,7 @@
 		}
 
 		.o-cookie-message__heading:after {
-			border-color: oColorsByName('jade');
+			border-color: oColorsByName("jade");
 		}
 
 		.o-cookie-message__link {

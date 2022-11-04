@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 
-import * as fixtures from './helpers/fixtures.js';
-import Autocomplete from '../../main.js';
-import {screen, getByRole} from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
-import {assert} from '@open-wc/testing';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import * as fixtures from "./helpers/fixtures.js";
+import Autocomplete from "../../main.js";
+import { screen, getByRole } from "@testing-library/dom";
+import userEvent from "@testing-library/user-event";
+import { assert } from "@open-wc/testing";
+import sinon from "sinon/pkg/sinon-esm.js";
 
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
@@ -15,14 +15,14 @@ function isHidden(el) {
 	return el.offsetParent === null;
 }
 
-describe('Autocomplete', function () {
+describe("Autocomplete", function () {
 	this.timeout(5000);
-	it('is defined', () => {
+	it("is defined", () => {
 		assert.isFunction(Autocomplete);
 	});
-	it('should autoinitialize', done => {
-		const initSpy = sinon.spy(Autocomplete, 'init');
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+	it("should autoinitialize", done => {
+		const initSpy = sinon.spy(Autocomplete, "init");
+		document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
 		setTimeout(function () {
 			assert.isTrue(initSpy.called);
 			initSpy.restore();
@@ -30,17 +30,17 @@ describe('Autocomplete', function () {
 		}, 100);
 	});
 
-	it('should not autoinitialize when the event is not dispached', () => {
-		const initSpy = sinon.spy(Autocomplete, 'init');
+	it("should not autoinitialize when the event is not dispached", () => {
+		const initSpy = sinon.spy(Autocomplete, "init");
 		assert.isFalse(initSpy.called);
 	});
 
-	context('static init method', () => {
-		it('has a static init method', () => {
+	context("static init method", () => {
+		it("has a static init method", () => {
 			assert.isFunction(Autocomplete.init);
 		});
 
-		describe('should create a new o-autocomplete', () => {
+		describe("should create a new o-autocomplete", () => {
 			beforeEach(() => {
 				fixtures.htmlSelectCode();
 			});
@@ -49,13 +49,13 @@ describe('Autocomplete', function () {
 				fixtures.reset();
 			});
 
-			it('component array when initialized', () => {
+			it("component array when initialized", () => {
 				const boilerplate = Autocomplete.init();
 				assert.isArray(boilerplate);
 				assert.instanceOf(boilerplate[0], Autocomplete);
 			});
 
-			it('single component when initialized with a root my-autocomplete', () => {
+			it("single component when initialized with a root my-autocomplete", () => {
 				const boilerplate = Autocomplete.init(
 					'[data-o-component="o-autocomplete"]'
 				);
@@ -64,8 +64,8 @@ describe('Autocomplete', function () {
 		});
 	});
 
-	context('constructor', () => {
-		describe('when provided with no options', () => {
+	context("constructor", () => {
+		describe("when provided with no options", () => {
 			let autocomplete;
 
 			beforeEach(() => {
@@ -79,7 +79,7 @@ describe('Autocomplete', function () {
 				fixtures.reset();
 			});
 
-			it('constructs an instance with the default options', () => {
+			it("constructs an instance with the default options", () => {
 				assert.instanceOf(autocomplete, Autocomplete);
 				assert.deepEqual(
 					autocomplete.autocompleteEl,
@@ -87,15 +87,15 @@ describe('Autocomplete', function () {
 				);
 			});
 
-			it('preserves attributes from the unenhanced select element', () => {
-				const input = screen.getByRole('combobox');
+			it("preserves attributes from the unenhanced select element", () => {
+				const input = screen.getByRole("combobox");
 				assert.equal(input instanceof HTMLInputElement, true);
-				assert.equal(input.getAttribute('name'), 'country');
-				assert.equal(input.hasAttribute('required'), true);
+				assert.equal(input.getAttribute("name"), "country");
+				assert.equal(input.hasAttribute("required"), true);
 			});
 		});
 
-		describe('only assigns options which are supported by o-autocomplete', () => {
+		describe("only assigns options which are supported by o-autocomplete", () => {
 			beforeEach(() => {
 				fixtures.htmlSelectCode();
 			});
@@ -103,15 +103,15 @@ describe('Autocomplete', function () {
 			afterEach(() => {
 				fixtures.reset();
 			});
-			it('the unsupported options are not set on this.options', () => {
+			it("the unsupported options are not set on this.options", () => {
 				const autocomplete = new Autocomplete(
 					document.querySelector('[data-o-component="o-autocomplete"]'),
 					{
-						placeholder: 'Placeholder Text',
-						cssNamespace: 'custom-autocomplete',
-						displayMenu: 'whimsical',
-						showNoOptionsFound: 'sometimes',
-						id: 'hello',
+						placeholder: "Placeholder Text",
+						cssNamespace: "custom-autocomplete",
+						displayMenu: "whimsical",
+						showNoOptionsFound: "sometimes",
+						id: "hello",
 					}
 				);
 				assert.instanceOf(autocomplete, Autocomplete);
@@ -120,7 +120,7 @@ describe('Autocomplete', function () {
 			});
 		});
 
-		describe('when provided select element has no id attribute set', () => {
+		describe("when provided select element has no id attribute set", () => {
 			beforeEach(() => {
 				fixtures.invalidHtmlSelectCode();
 			});
@@ -128,20 +128,20 @@ describe('Autocomplete', function () {
 			afterEach(() => {
 				fixtures.reset();
 			});
-			it('throws an error', () => {
+			it("throws an error", () => {
 				assert.throws(
 					() =>
 						new Autocomplete(
 							document.querySelector('[data-o-component="o-autocomplete"]')
 						),
-					'Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.'
+					"Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features."
 				);
 			});
 		});
 	});
 
-	describe('enhanced select element', () => {
-		describe('when no select element is provided', () => {
+	describe("enhanced select element", () => {
+		describe("when no select element is provided", () => {
 			beforeEach(() => {
 				fixtures.invalidHtmlInputCode();
 			});
@@ -149,18 +149,18 @@ describe('Autocomplete', function () {
 			afterEach(() => {
 				fixtures.reset();
 			});
-			it('throws an error', () => {
+			it("throws an error", () => {
 				assert.throws(
 					() =>
 						new Autocomplete(
 							document.querySelector('[data-o-component="o-autocomplete"]')
 						),
-					'Could not find a source for auto-completion options. Add a `select` element to your markup, or configure a `source` function to fetch autocomplete options.'
+					"Could not find a source for auto-completion options. Add a `select` element to your markup, or configure a `source` function to fetch autocomplete options."
 				);
 			});
 		});
 
-		describe('when provided select element has no id attribute set', () => {
+		describe("when provided select element has no id attribute set", () => {
 			beforeEach(() => {
 				fixtures.invalidHtmlSelectCode();
 			});
@@ -168,18 +168,18 @@ describe('Autocomplete', function () {
 			afterEach(() => {
 				fixtures.reset();
 			});
-			it('throws an error', () => {
+			it("throws an error", () => {
 				assert.throws(
 					() =>
 						new Autocomplete(
 							document.querySelector('[data-o-component="o-autocomplete"]')
 						),
-					'Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.'
+					"Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features."
 				);
 			});
 		});
 
-		context('input matches a single suggestion', () => {
+		context("input matches a single suggestion", () => {
 			beforeEach(() => {
 				fixtures.htmlSelectCode();
 			});
@@ -187,181 +187,181 @@ describe('Autocomplete', function () {
 			afterEach(() => {
 				fixtures.reset();
 			});
-			it('shows a clear button when text has been input by the user', () => {
+			it("shows a clear button when text has been input by the user", () => {
 				const autocomplete = new Autocomplete(
 					document.querySelector('[data-o-component="o-autocomplete"]')
 				);
 				assert.instanceOf(autocomplete, Autocomplete);
-				const input = screen.getByRole('combobox', {
+				const input = screen.getByRole("combobox", {
 					name: /select your country/i,
 				});
-				userEvent.type(input, 'Af');
-				const clearButton = screen.getByRole('button', {
+				userEvent.type(input, "Af");
+				const clearButton = screen.getByRole("button", {
 					name: /clear input/i,
 				});
 				assert.exists(clearButton);
 				// Check that the button is associated with the correct input
 				assert.equal(
-					clearButton.getAttribute('aria-controls'),
-					'my-autocomplete'
+					clearButton.getAttribute("aria-controls"),
+					"my-autocomplete"
 				);
 			});
 
-			it('shows the suggestion box with the filtered options', async () => {
+			it("shows the suggestion box with the filtered options", async () => {
 				const autocomplete = new Autocomplete(
 					document.querySelector('[data-o-component="o-autocomplete"]')
 				);
 				assert.instanceOf(autocomplete, Autocomplete);
-				const input = screen.getByRole('combobox', {
+				const input = screen.getByRole("combobox", {
 					name: /select your country/i,
 				});
-				userEvent.type(input, 'Af');
+				userEvent.type(input, "Af");
 				// The sleep is required because accessible-autocomplete renders asynchronously
 				await sleep(100);
-				const list = screen.getByRole('listbox');
+				const list = screen.getByRole("listbox");
 				assert.equal(list.childElementCount, 1);
-				const option = getByRole(list, 'option');
-				assert.equal(option.textContent, 'Afghanistan');
+				const option = getByRole(list, "option");
+				assert.equal(option.textContent, "Afghanistan");
 			});
 
-			context('clicking the clear button', () => {
+			context("clicking the clear button", () => {
 				it("clears the input's value", async () => {
 					const autocomplete = new Autocomplete(
 						document.querySelector('[data-o-component="o-autocomplete"]')
 					);
 					assert.instanceOf(autocomplete, Autocomplete);
-					const input = screen.getByRole('combobox', {
+					const input = screen.getByRole("combobox", {
 						name: /select your country/i,
 					});
-					userEvent.type(input, 'Af');
+					userEvent.type(input, "Af");
 					// The sleep is required because accessible-autocomplete renders asynchronously
 					await sleep(100);
-					assert.equal(input.value, 'Af');
-					const clearButton = screen.getByRole('button', {
+					assert.equal(input.value, "Af");
+					const clearButton = screen.getByRole("button", {
 						name: /clear input/i,
 					});
 					userEvent.click(clearButton);
-					assert.equal(input.value, '');
+					assert.equal(input.value, "");
 				});
 			});
 
-			context('tabbing to the clear button and pressing enter', () => {
+			context("tabbing to the clear button and pressing enter", () => {
 				it("clears the input's value", async () => {
 					const autocomplete = new Autocomplete(
 						document.querySelector('[data-o-component="o-autocomplete"]')
 					);
 					assert.instanceOf(autocomplete, Autocomplete);
-					const input = screen.getByRole('combobox', {
+					const input = screen.getByRole("combobox", {
 						name: /select your country/i,
 					});
-					userEvent.type(input, 'Af');
+					userEvent.type(input, "Af");
 					// The sleep is required because accessible-autocomplete renders asynchronously
 					await sleep(100);
-					assert.equal(input.value, 'Af');
+					assert.equal(input.value, "Af");
 					userEvent.tab();
 					await sleep(100);
-					const clearButton = screen.getByRole('button', {
+					const clearButton = screen.getByRole("button", {
 						name: /clear input/i,
 					});
 					const activeElement = document.activeElement;
 					// The suggestion should now be the active element - the one with focus
 					assert.equal(clearButton, activeElement);
-					userEvent.type(clearButton, '{enter}');
-					assert.equal(input.value, '');
+					userEvent.type(clearButton, "{enter}");
+					assert.equal(input.value, "");
 				});
 			});
 
-			context('pressing Escape key after typing into the input', () => {
-				it('hides the suggestion box', async () => {
+			context("pressing Escape key after typing into the input", () => {
+				it("hides the suggestion box", async () => {
 					const autocomplete = new Autocomplete(
 						document.querySelector('[data-o-component="o-autocomplete"]')
 					);
 					assert.instanceOf(autocomplete, Autocomplete);
-					const input = screen.getByRole('combobox', {
+					const input = screen.getByRole("combobox", {
 						name: /select your country/i,
 					});
-					userEvent.type(input, 'Af');
+					userEvent.type(input, "Af");
 					// The sleeps are required because accessible-autocomplete renders asynchronously
 					await sleep(100);
-					const list = screen.getByRole('listbox');
+					const list = screen.getByRole("listbox");
 					assert.isFalse(isHidden(list));
-					userEvent.type(input, '{esc}');
+					userEvent.type(input, "{esc}");
 					await sleep(100);
 					assert.isTrue(isHidden(list));
 				});
 			});
 
-			context('clicking a suggestion', () => {
-				it('updates the input with the selected suggestion', async () => {
+			context("clicking a suggestion", () => {
+				it("updates the input with the selected suggestion", async () => {
 					const autocomplete = new Autocomplete(
 						document.querySelector('[data-o-component="o-autocomplete"]')
 					);
 					assert.instanceOf(autocomplete, Autocomplete);
-					const input = screen.getByRole('combobox', {
+					const input = screen.getByRole("combobox", {
 						name: /select your country/i,
 					});
-					userEvent.type(input, 'Af');
+					userEvent.type(input, "Af");
 					// The sleep is required because accessible-autocomplete renders asynchronously
 					await sleep(100);
-					const list = screen.getByRole('listbox');
+					const list = screen.getByRole("listbox");
 					assert.equal(list.childElementCount, 1);
-					const option = getByRole(list, 'option');
+					const option = getByRole(list, "option");
 					userEvent.click(option);
-					assert.equal(input.value, 'Afghanistan');
+					assert.equal(input.value, "Afghanistan");
 				});
 			});
 			context(
-				'keyboard navigating to a suggestion and pressing enter on it',
+				"keyboard navigating to a suggestion and pressing enter on it",
 				() => {
-					it('updates the input with the selected suggestion', async () => {
+					it("updates the input with the selected suggestion", async () => {
 						const autocomplete = new Autocomplete(
 							document.querySelector('[data-o-component="o-autocomplete"]')
 						);
 						assert.instanceOf(autocomplete, Autocomplete);
-						const input = screen.getByRole('combobox', {
+						const input = screen.getByRole("combobox", {
 							name: /select your country/i,
 						});
-						userEvent.type(input, 'Af');
+						userEvent.type(input, "Af");
 						// The sleeps are required because accessible-autocomplete renders asynchronously
 						await sleep(100);
-						userEvent.type(input, '{arrowdown}');
+						userEvent.type(input, "{arrowdown}");
 						await sleep(100);
 						const activeElement = document.activeElement;
-						const list = screen.getByRole('listbox');
-						const option = getByRole(list, 'option');
+						const list = screen.getByRole("listbox");
+						const option = getByRole(list, "option");
 						// The suggestion should now be the active element - the one with focus
 						assert.equal(option, activeElement);
 						// Pressing enter whilst a suggestion is in focus should update the input's value with the suggestion
-						userEvent.type(activeElement, '{enter}');
+						userEvent.type(activeElement, "{enter}");
 						await sleep(100);
-						assert.equal(input.value, 'Afghanistan');
+						assert.equal(input.value, "Afghanistan");
 					});
 				}
 			);
 			context(
-				'keyboard navigating to a suggestion and pressing tab on it',
+				"keyboard navigating to a suggestion and pressing tab on it",
 				() => {
-					it('updates the input with the selected suggestion and focus the clear button', async () => {
+					it("updates the input with the selected suggestion and focus the clear button", async () => {
 						const autocomplete = new Autocomplete(
 							document.querySelector('[data-o-component="o-autocomplete"]')
 						);
 						assert.instanceOf(autocomplete, Autocomplete);
-						const input = screen.getByRole('combobox', {
+						const input = screen.getByRole("combobox", {
 							name: /select your country/i,
 						});
-						userEvent.type(input, 'Af');
+						userEvent.type(input, "Af");
 						// The sleeps are required because accessible-autocomplete renders asynchronously
 						await sleep(100);
-						userEvent.type(input, '{arrowdown}');
+						userEvent.type(input, "{arrowdown}");
 						await sleep(100);
 						// The suggestion should now be the active element - the one with focus
 						userEvent.tab();
 						// Pressing tab whilst a suggestion is in focus should update the input's value with the suggestion
 						// and then focus the suggestion
 						await sleep(100);
-						assert.equal(input.value, 'Afghanistan');
+						assert.equal(input.value, "Afghanistan");
 						const activeElement = document.activeElement;
-						const clearButton = screen.getByRole('button', {
+						const clearButton = screen.getByRole("button", {
 							name: /clear input/i,
 						});
 						assert.equal(clearButton, activeElement);
@@ -370,34 +370,34 @@ describe('Autocomplete', function () {
 			);
 
 			context(
-				'onConfirm function is defined and an option is selected by the user',
+				"onConfirm function is defined and an option is selected by the user",
 				() => {
-					it('calls the onConfirm function with the selected option', async () => {
+					it("calls the onConfirm function with the selected option", async () => {
 						const onConfirm = sinon.spy();
 						new Autocomplete(
 							document.querySelector('[data-o-component="o-autocomplete"]'),
-							{onConfirm}
+							{ onConfirm }
 						);
-						const input = screen.getByRole('combobox', {
+						const input = screen.getByRole("combobox", {
 							name: /select your country/i,
 						});
-						userEvent.type(input, 'Af');
+						userEvent.type(input, "Af");
 						// The sleeps are required because accessible-autocomplete renders asynchronously
 						await sleep(100);
-						const list = screen.getByRole('listbox');
+						const list = screen.getByRole("listbox");
 						assert.equal(list.childElementCount, 1);
-						const option = getByRole(list, 'option');
+						const option = getByRole(list, "option");
 						userEvent.click(option);
-						assert.equal(input.value, 'Afghanistan');
-						assert.isTrue(onConfirm.calledWith('Afghanistan'));
+						assert.equal(input.value, "Afghanistan");
+						assert.isTrue(onConfirm.calledWith("Afghanistan"));
 					});
 				}
 			);
 		});
 	});
 
-	describe('dynamic suggestions', () => {
-		describe('only assigns options which are supported by o-autocomplete', () => {
+	describe("dynamic suggestions", () => {
+		describe("only assigns options which are supported by o-autocomplete", () => {
 			let autocomplete;
 
 			beforeEach(() => {
@@ -406,13 +406,13 @@ describe('Autocomplete', function () {
 				autocomplete = new Autocomplete(
 					document.querySelector('[data-o-component="o-autocomplete"]'),
 					{
-						placeholder: 'Placeholder Text',
-						cssNamespace: 'custom-autocomplete',
-						displayMenu: 'whimsical',
-						showNoOptionsFound: 'sometimes',
-						id: 'hello',
+						placeholder: "Placeholder Text",
+						cssNamespace: "custom-autocomplete",
+						displayMenu: "whimsical",
+						showNoOptionsFound: "sometimes",
+						id: "hello",
 						source: function customSuggestions(query, populateResults) {
-							const suggestions = ['Origami'];
+							const suggestions = ["Origami"];
 
 							if (!query) {
 								populateResults([]);
@@ -436,25 +436,25 @@ describe('Autocomplete', function () {
 				fixtures.reset();
 			});
 
-			it('the unsupported options are not set on this.options', () => {
+			it("the unsupported options are not set on this.options", () => {
 				assert.instanceOf(autocomplete, Autocomplete);
-				assert.deepEqual(Object.keys(autocomplete.options), ['source']);
+				assert.deepEqual(Object.keys(autocomplete.options), ["source"]);
 				assert.isFunction(autocomplete.options.source);
 			});
 
-			it('preserves attributes from the unenhanced input element', () => {
-				const input = screen.getByRole('combobox');
+			it("preserves attributes from the unenhanced input element", () => {
+				const input = screen.getByRole("combobox");
 				assert.equal(input instanceof HTMLInputElement, true);
-				assert.equal(input.getAttribute('name'), 'country');
+				assert.equal(input.getAttribute("name"), "country");
 				assert.equal(
-					input.getAttribute('placeholder'),
-					'Please enter a country'
+					input.getAttribute("placeholder"),
+					"Please enter a country"
 				);
-				assert.equal(input.hasAttribute('required'), true);
+				assert.equal(input.hasAttribute("required"), true);
 			});
 		});
 
-		context('synchronous source function', () => {
+		context("synchronous source function", () => {
 			beforeEach(() => {
 				fixtures.htmlInputCode();
 			});
@@ -462,12 +462,12 @@ describe('Autocomplete', function () {
 			afterEach(() => {
 				fixtures.reset();
 			});
-			it('shows the suggestion box with the filtered options', async () => {
+			it("shows the suggestion box with the filtered options", async () => {
 				const autocomplete = new Autocomplete(
 					document.querySelector('[data-o-component="o-autocomplete"]'),
 					{
 						source: function customSuggestions(query, populateOptions) {
-							const suggestions = ['Origami'];
+							const suggestions = ["Origami"];
 
 							if (!query) {
 								populateOptions([]);
@@ -486,20 +486,20 @@ describe('Autocomplete', function () {
 					}
 				);
 				assert.instanceOf(autocomplete, Autocomplete);
-				const input = screen.getByRole('combobox', {
+				const input = screen.getByRole("combobox", {
 					name: /select your team/i,
 				});
-				userEvent.type(input, 'o');
+				userEvent.type(input, "o");
 				// The sleep is required because accessible-autocomplete renders asynchronously
 				await sleep(100);
-				const list = screen.getByRole('listbox');
+				const list = screen.getByRole("listbox");
 				assert.equal(list.childElementCount, 1);
-				const option = getByRole(list, 'option');
-				assert.equal(option.textContent, 'Origami');
+				const option = getByRole(list, "option");
+				assert.equal(option.textContent, "Origami");
 			});
 		});
 
-		context('asynchronous source function', () => {
+		context("asynchronous source function", () => {
 			beforeEach(() => {
 				fixtures.htmlInputCode();
 			});
@@ -507,14 +507,14 @@ describe('Autocomplete', function () {
 			afterEach(() => {
 				fixtures.reset();
 			});
-			it('shows the suggestion box with the filtered options', async () => {
+			it("shows the suggestion box with the filtered options", async () => {
 				let suggestionTimeoutId;
 				const autocomplete = new Autocomplete(
 					document.querySelector('[data-o-component="o-autocomplete"]'),
 					{
 						source: function customSuggestions(query, populateOptions) {
 							clearTimeout(suggestionTimeoutId);
-							const suggestions = ['Origami'];
+							const suggestions = ["Origami"];
 
 							if (!query) {
 								populateOptions([]);
@@ -537,21 +537,21 @@ describe('Autocomplete', function () {
 					}
 				);
 				assert.instanceOf(autocomplete, Autocomplete);
-				const input = screen.getByRole('combobox', {
+				const input = screen.getByRole("combobox", {
 					name: /select your team/i,
 				});
-				userEvent.type(input, 'o');
+				userEvent.type(input, "o");
 				// The sleep is required because the suggestions are being returned asynchronously as part of the test
 				await sleep(1100);
-				const list = screen.getByRole('listbox');
+				const list = screen.getByRole("listbox");
 				assert.equal(list.childElementCount, 1);
-				const option = getByRole(list, 'option');
-				assert.equal(option.textContent, 'Origami');
+				const option = getByRole(list, "option");
+				assert.equal(option.textContent, "Origami");
 			});
 		});
 
 		context(
-			'custom source and mapOptionToSuggestedValue functions defined',
+			"custom source and mapOptionToSuggestedValue functions defined",
 			() => {
 				let onConfirm;
 				let source;
@@ -564,17 +564,17 @@ describe('Autocomplete', function () {
 						populateOptions
 					) {
 						const suggestions = [
-							{team: 'Infrastructure Delivery'},
-							{team: 'Infrastructure & Data Hosting'},
-							{team: 'API Gateway'},
-							{team: 'Cloud Enablement'},
-							{team: 'Cyber Security Engineering'},
-							{team: 'Foundation Services'},
-							{team: 'Infrastructure Management'},
-							{team: 'Microsites Team'},
-							{team: 'Operations Support'},
-							{team: 'Origami team'},
-							{team: 'Reliability Engineering'},
+							{ team: "Infrastructure Delivery" },
+							{ team: "Infrastructure & Data Hosting" },
+							{ team: "API Gateway" },
+							{ team: "Cloud Enablement" },
+							{ team: "Cyber Security Engineering" },
+							{ team: "Foundation Services" },
+							{ team: "Infrastructure Management" },
+							{ team: "Microsites Team" },
+							{ team: "Operations Support" },
+							{ team: "Origami team" },
+							{ team: "Reliability Engineering" },
 						];
 
 						if (!query) {
@@ -604,7 +604,7 @@ describe('Autocomplete', function () {
 					onConfirm.resetHistory();
 					mapOptionToSuggestedValue.resetHistory();
 				});
-				it('applies the mapOptionToSuggestedValue function on each suggestion supplied by the source function', async () => {
+				it("applies the mapOptionToSuggestedValue function on each suggestion supplied by the source function", async () => {
 					const autocomplete = new Autocomplete(
 						document.querySelector('[data-o-component="o-autocomplete"]'),
 						{
@@ -613,30 +613,30 @@ describe('Autocomplete', function () {
 						}
 					);
 					assert.instanceOf(autocomplete, Autocomplete);
-					const input = screen.getByRole('combobox', {
+					const input = screen.getByRole("combobox", {
 						name: /select your team/i,
 					});
-					userEvent.type(input, 'o');
+					userEvent.type(input, "o");
 					// The sleep is required because the suggestions are being returned asynchronously as part of the test
 					await sleep(1100);
 					assert.isTrue(
-						mapOptionToSuggestedValue.calledWith({team: 'Operations Support'})
+						mapOptionToSuggestedValue.calledWith({ team: "Operations Support" })
 					);
 					assert.isTrue(
-						mapOptionToSuggestedValue.calledWith({team: 'Origami team'})
+						mapOptionToSuggestedValue.calledWith({ team: "Origami team" })
 					);
-					const list = screen.getByRole('listbox');
+					const list = screen.getByRole("listbox");
 					assert.equal(list.childElementCount, 2);
 					const option = list.firstElementChild;
 					userEvent.click(option);
 					await sleep(1100);
-					assert.equal(input.value, 'Operations Support');
+					assert.equal(input.value, "Operations Support");
 				});
 
 				context(
-					'onConfirm function is defined and an option is selected by the user',
+					"onConfirm function is defined and an option is selected by the user",
 					() => {
-						it('calls the onConfirm function with the selected option', async () => {
+						it("calls the onConfirm function with the selected option", async () => {
 							new Autocomplete(
 								document.querySelector('[data-o-component="o-autocomplete"]'),
 								{
@@ -645,18 +645,20 @@ describe('Autocomplete', function () {
 									onConfirm,
 								}
 							);
-							const input = screen.getByRole('combobox', {
+							const input = screen.getByRole("combobox", {
 								name: /select your team/i,
 							});
-							userEvent.type(input, 'o');
+							userEvent.type(input, "o");
 							// The sleep is required because the suggestions are being returned asynchronously as part of the test
 							await sleep(1100);
-							const list = screen.getByRole('listbox');
+							const list = screen.getByRole("listbox");
 							assert.equal(list.childElementCount, 2);
 							const option = list.firstElementChild;
 							userEvent.click(option);
 							await sleep(1100);
-							assert.isTrue(onConfirm.calledWith({team: 'Operations Support'}));
+							assert.isTrue(
+								onConfirm.calledWith({ team: "Operations Support" })
+							);
 						});
 					}
 				);
@@ -664,7 +666,7 @@ describe('Autocomplete', function () {
 		);
 
 		context(
-			'custom source where the options are not strings and no mapOptionToSuggestedValue function is defined',
+			"custom source where the options are not strings and no mapOptionToSuggestedValue function is defined",
 			() => {
 				beforeEach(() => {
 					fixtures.htmlInputCode();
@@ -673,17 +675,17 @@ describe('Autocomplete', function () {
 						{
 							source: function customSuggestions(query, populateOptions) {
 								const suggestions = [
-									{team: 'Infrastructure Delivery'},
-									{team: 'Infrastructure & Data Hosting'},
-									{team: 'API Gateway'},
-									{team: 'Cloud Enablement'},
-									{team: 'Cyber Security Engineering'},
-									{team: 'Foundation Services'},
-									{team: 'Infrastructure Management'},
-									{team: 'Microsites Team'},
-									{team: 'Operations Support'},
-									{team: 'Origami team'},
-									{team: 'Reliability Engineering'},
+									{ team: "Infrastructure Delivery" },
+									{ team: "Infrastructure & Data Hosting" },
+									{ team: "API Gateway" },
+									{ team: "Cloud Enablement" },
+									{ team: "Cyber Security Engineering" },
+									{ team: "Foundation Services" },
+									{ team: "Infrastructure Management" },
+									{ team: "Microsites Team" },
+									{ team: "Operations Support" },
+									{ team: "Origami team" },
+									{ team: "Reliability Engineering" },
 								];
 								if (!query) {
 									populateOptions([]);
@@ -704,8 +706,8 @@ describe('Autocomplete', function () {
 						}
 					);
 				});
-				it('throws an error indicating that a mapOptionToSuggestedValue needs to be defined in order to convert the options into strings', async () => {
-					const input = screen.getByRole('combobox', {
+				it("throws an error indicating that a mapOptionToSuggestedValue needs to be defined in order to convert the options into strings", async () => {
+					const input = screen.getByRole("combobox", {
 						name: /select your team/i,
 					});
 					// The error is thrown when o-autocomplete attempts to render the suggestions to the page using Accessible-autocomplete.
@@ -719,7 +721,7 @@ describe('Autocomplete', function () {
 						);
 						event.preventDefault();
 					};
-					userEvent.type(input, 'o');
+					userEvent.type(input, "o");
 					await sleep(1100);
 				});
 			}

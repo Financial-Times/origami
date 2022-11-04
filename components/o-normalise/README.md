@@ -25,19 +25,30 @@ To output all default `o-normalise` styles call the mixin `oNormalise`:
 To include features of `o-normalise` granularly, pass an `$opts` map. E.g. to output all styles except for the css helper classes `o-normalise-visually-hidden` and `o-normalise-clearfix`:
 
 ```scss
-@include oNormalise($opts: (
-	'elements': ('forms', 'images', 'text', 'links'),
-	'body': ('font-smoothing', 'focus', 'reduce-motion')
-));
+@include oNormalise(
+	$opts: (
+		"elements": (
+			"forms",
+			"images",
+			"text",
+			"links",
+		),
+		"body": (
+			"font-smoothing",
+			"focus",
+			"reduce-motion",
+		),
+	)
+);
 ```
 
 Options include:
 
-| Feature             | Description                                                                                                         | Values                                  |
-|---------------------|---------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| elements            | Element types to apply normalising styles to.                                                                       | 'forms', 'images', 'text', 'links'      |
-| body                | Features which apply to `html`, `body`, `main` elements and all elements with a `:focus` state.                     | 'font-smoothing', 'focus' |
-| helpers             | Classes which may be applied to elements manually.                                                                  | 'clearfix', 'visually-hidden'           |
+| Feature  | Description                                                                                     | Values                             |
+| -------- | ----------------------------------------------------------------------------------------------- | ---------------------------------- |
+| elements | Element types to apply normalising styles to.                                                   | 'forms', 'images', 'text', 'links' |
+| body     | Features which apply to `html`, `body`, `main` elements and all elements with a `:focus` state. | 'font-smoothing', 'focus'          |
+| helpers  | Classes which may be applied to elements manually.                                              | 'clearfix', 'visually-hidden'      |
 
 _Note: if using the "focus" option in your project also include the `:focus-visible` polyfill. See [Focus States](#focus-states)._
 
@@ -63,18 +74,17 @@ If you think of any JavaScript functions or utilities that would be useful to ha
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-⚠ maintained | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.7 | N/A |
-
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       3       |        N/A         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ⚠ maintained |       2       |        2.0         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.7         |                          N/A                          |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-normalise/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

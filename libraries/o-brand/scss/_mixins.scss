@@ -6,18 +6,18 @@
 /// @param {map} $config
 @mixin oBrandDefine($component, $brand, $config) {
 	// @deprecated, map the deprecated "master" brand name to the core brand.
-	@if $brand == 'master' {
-		$brand: 'core';
+	@if $brand == "master" {
+		$brand: "core";
 	}
 	// Validate brand name.
 	$validated-brand-name: _oBrandValidateName(
-		'Brand',
+		"Brand",
 		$brand,
 		'Cannot define brand "#{$brand}" for component "#{$component}"'
 	);
 	// Validate component name.
 	$validated-component-name: _oBrandValidateName(
-		'Component',
+		"Component",
 		$component,
 		'Cannot define brand "#{$brand}" for component "#{$component}"'
 	);
@@ -41,11 +41,11 @@
 /// @param {map} $variables
 @mixin oBrandCustomize($component, $variables) {
 	@if $o-brand-debug {
-		@debug 'Customising the "#{_oBrandGetCurrentValidBrand()}" brand version of the "#{$component}" component.'; // stylelint-disable-line at-rule-blacklist
+		@debug 'Customising the "#{_oBrandGetCurrentValidBrand()}" brand version of the "#{$component}" component.'; // stylelint-disable-next-line at-rule-blacklist
 	}
 	// Validate component.
 	$validated-component-name: _oBrandValidateName(
-		'Component',
+		"Component",
 		$component,
 		'Cannot customise component "#{$component}"'
 	);
@@ -53,14 +53,14 @@
 		$component,
 		_oBrandGetCurrentValidBrand()
 	);
-	@if type-of($existing-brand-config) != 'map' {
+	@if type-of($existing-brand-config) != "map" {
 		@error 'Could not customise brand "#{_oBrandGetCurrentValidBrand()}" of the "#{$component}" component. Make sure that component supports the "#{_oBrandGetCurrentValidBrand()}" brand.';
 	}
 	// Variables.
-	@if type-of($variables) != 'map' {
+	@if type-of($variables) != "map" {
 		@error 'Could not customise "#{$component}". oBrandCustomize expects variables of type map but found "#{type-of($variables)}".';
 	}
-	@if map-get($variables, 'supports-variants') {
+	@if map-get($variables, "supports-variants") {
 		@error 'Could not customise "#{$component}". oBrandCustomize expects a map of brand variables to customise variants. It is not possible to add or remove support for variants.';
 	}
 	// Update config.
@@ -69,7 +69,7 @@
 		(
 			$component: (
 				_oBrandGetCurrentValidBrand(): (
-					'variables': $variables,
+					"variables": $variables,
 				),
 			),
 		)

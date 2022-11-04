@@ -1,20 +1,20 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import Banner from './../main.js';
-import {default as BannerSrc} from './../src/js/banner.js';
+import Banner from "./../main.js";
+import { default as BannerSrc } from "./../src/js/banner.js";
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,
-	prefix: '',
+	prefix: "",
 });
 
-describe('main', () => {
+describe("main", () => {
 	beforeEach(() => {
-		sinon.stub(Banner, 'init');
-		sinon.spy(document, 'removeEventListener');
+		sinon.stub(Banner, "init");
+		sinon.spy(document, "removeEventListener");
 	});
 
 	afterEach(() => {
@@ -22,19 +22,19 @@ describe('main', () => {
 		document.removeEventListener.restore();
 	});
 
-	it('exports the Banner class', () => {
+	it("exports the Banner class", () => {
 		proclaim.isFunction(Banner);
 		proclaim.strictEqual(Banner, BannerSrc);
 	});
 
-	it('should auto-initialize banners', done => {
-		document.addEventListener('o.DOMContentLoaded', () => {
+	it("should auto-initialize banners", done => {
+		document.addEventListener("o.DOMContentLoaded", () => {
 			proclaim.calledOnce(Banner.init);
 			proclaim.calledWithExactly(Banner.init);
 			proclaim.calledOnce(document.removeEventListener);
-			proclaim.calledWith(document.removeEventListener, 'o.DOMContentLoaded');
+			proclaim.calledWith(document.removeEventListener, "o.DOMContentLoaded");
 			done();
 		});
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+		document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
 	});
 });

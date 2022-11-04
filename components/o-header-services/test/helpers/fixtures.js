@@ -87,4 +87,4 @@ const withPrimaryNav = `
 
 </header>`;
 
-export {withPrimaryNav};
+export { withPrimaryNav };

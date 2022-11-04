@@ -1,8 +1,8 @@
-import {addAndRun} from './core/send.js';
-import {userID} from './core/user.js';
-import {session} from './core/session.js';
-import {get} from './core/settings.js';
-import {guid, getValueFromCookie, merge, log} from './utils.js';
+import { addAndRun } from "./core/send.js";
+import { userID } from "./core/user.js";
+import { session } from "./core/session.js";
+import { get } from "./core/settings.js";
+import { guid, getValueFromCookie, merge, log } from "./utils.js";
 
 let rootID;
 
@@ -65,7 +65,7 @@ function track(
 	};
 
 	// Override any context, user, and device values with object-wide settings
-	const settingsConfig = get('config') || {};
+	const settingsConfig = get("config") || {};
 	if (settingsConfig.context) {
 		merge(request.context, settingsConfig.context);
 	}
@@ -79,7 +79,7 @@ function track(
 	// Update the base config with the parameter-supplied config
 	merge(request, config);
 
-	log('Core.Track', request);
+	log("Core.Track", request);
 
 	// Send it.
 	addAndRun(request);

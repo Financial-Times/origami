@@ -22,9 +22,7 @@ How you choose to include Origami components in your project will depend on your
 
 The Build service is best for quick projects or static sites or things where performance is less of a concern. This build method will fetch the Origami <abbr title="Cascading Style Sheets">CSS</abbr> and JavaScript as external files for your webpage. Be aware that this will indiscriminately fetch all stylistic variations of a component, which will increase your file size.
 
-
 If you would like help with this, you can visit the [Origami Build Service tutorial](/documentation/tutorials/build-service/).
-
 
 ## Package Manager (npm)
 

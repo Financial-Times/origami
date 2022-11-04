@@ -1,7 +1,7 @@
-@import 'true';
-$system-code: 'test';
-@import '../../main';
+@import "true";
+$system-code: "test";
+@import "../../main";
 
 $_test-environment: true;
 
-@import 'mixins.test';
+@import "mixins.test";

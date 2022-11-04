@@ -3,7 +3,7 @@ title: Origami Newsletter, February 2021
 description: This issue is a big one. It covers our progress toward the recently announced npm migration; a new Origami Image Service placeholder image feature; a new Origami Build Service feature to help teams keep components up to date; and a whole bunch more.
 author: Lee Moody
 tags:
-- Newsletter
+  - Newsletter
 ---
 
 <abbr title="Too long; didn't read">
@@ -22,7 +22,6 @@ We've been making excellent progress towards migrating Origami components from B
 
 With the release of npm7 [we think now is a good time to drop Bower support](/blog/2020/10/28/newsletter/#new-proposal-to-drop-bower-support). To find out what it means for your team, and what benefits we hope to achieve, see [last month's announcement](/blog/2021/01/18/deprecating-bower-and-origami-via-npm/).
 
-
 ### Placeholder Images
 
 The [Origami Image Service](https://www.ft.com/__origami/service/image/v2/) can now generate placeholder images at specified dimensions and quality. It's a super useful feature to support prototypes and testing. 🎉
@@ -34,8 +33,6 @@ https://www.ft.com/__origami/service/image/v2/images/placeholder/?width=500&heig
 ```
 
 ![A placeholder image which displays the width, height, format, and quality of the image requested as text within the image.](https://www.ft.com/__origami/service/image/v2/images/placeholder/?width=500&height=500&quality=lossless&source=test)
-
-
 
 ### Build Service Updater
 
@@ -62,20 +59,19 @@ A digest of other things that have happened since our last issue:
 - MINOR: [origami-labels](https://github.com/Financial-Times/origami-labels) adds support for beta releases (when working on an Origami component you can now add a `release: beta` github label to release a beta version on merge).
 - MINOR: [origami-specialist-title-logos](https://github.com/Financial-Times/origami-specialist-title-logos) adds FT Forums logos.
 - MINOR: [Polyfill Service](https://github.com/Financial-Times/polyfill-library) has seen a number of improvements since our last update.
-   - Improvements in CI: Dramatically reduced the time it takes to complete by only testing the polyfills which have changed. Updated to test against the latest versions of all browsers.
-   - New polyfills: `Element.prototype.getAttributeNames`, `HTMLSelectElement.prototype.selectedOptions`, `URL.prototype.toJSON`
+  - Improvements in CI: Dramatically reduced the time it takes to complete by only testing the polyfills which have changed. Updated to test against the latest versions of all browsers.
+  - New polyfills: `Element.prototype.getAttributeNames`, `HTMLSelectElement.prototype.selectedOptions`, `URL.prototype.toJSON`
 - PATCH: [o-colors](https://github.com/Financial-Times/o-colors) ensures saturation and luminance values are percentages to stop Sass deprecation warnings from being emitted.
 - PATCH: [o-cookie-message](https://github.com/Financial-Times/o-cookie-message) prevents [back/forward cache](https://web.dev/bfcache/) from showing the cookie message after a reader has already accepted or rejected cookies (credit to Oliver, nice!)
-- PATCH: [o-grid](https://github.com/Financial-Times/o-grid) is less annoying. Did this Sass warning get you down?  "WARNING: The 'snappy' grid mode is deprecated and will be removed in the next major version of o-grid..." We've removed the warning since the snappy grid is still used on the stream and article pages of ft.com, with no immediate plans to redesign them for the default, fluid grid which new projects use. Warnings should be useful, not frustrating.
+- PATCH: [o-grid](https://github.com/Financial-Times/o-grid) is less annoying. Did this Sass warning get you down? "WARNING: The 'snappy' grid mode is deprecated and will be removed in the next major version of o-grid..." We've removed the warning since the snappy grid is still used on the stream and article pages of ft.com, with no immediate plans to redesign them for the default, fluid grid which new projects use. Warnings should be useful, not frustrating.
 - PATCH: [o-layout](https://github.com/Financial-Times/o-layout) fixes overflow on viewports smaller than the max container width, where content may wrap or scroll instead.
 - PATCH: [o-topper](https://github.com/Financial-Times/o-topper) has received a number of visual improvements and bug fixes. Thanks Keran (😭🇨🇦), Gus, and Nick for your work on that.
 - PATCH: [o-video](https://github.com/Financial-Times/o-video) fixes a bug which caused video playback to hang when ads failed to load (thanks again to Gus for that one).
 - To support the switch to npm more Origami tools and services have been updated or received major/beta releases, including:
-   - [create-origami-component](https://github.com/Financial-Times/create-origami-component)
-   - [origami-build-tools](https://github.com/Financial-Times/origami-build-tools)
-   - [origami-bundle-size-cli](https://github.com/Financial-Times/origami-bundle-size-cli)
-   - [origami-ci-tools](https://github.com/Financial-Times/origami-ci-tools)
-   - [origami-percy](https://github.com/Financial-Times/origami-percy), Origami's visual regression tester
-   - [origami-version](https://github.com/Financial-Times/origami-version)
-   - [remark-preset-lint-origami-component](https://github.com/Financial-Times/remark-preset-lint-origami-component)
-
+  - [create-origami-component](https://github.com/Financial-Times/create-origami-component)
+  - [origami-build-tools](https://github.com/Financial-Times/origami-build-tools)
+  - [origami-bundle-size-cli](https://github.com/Financial-Times/origami-bundle-size-cli)
+  - [origami-ci-tools](https://github.com/Financial-Times/origami-ci-tools)
+  - [origami-percy](https://github.com/Financial-Times/origami-percy), Origami's visual regression tester
+  - [origami-version](https://github.com/Financial-Times/origami-version)
+  - [remark-preset-lint-origami-component](https://github.com/Financial-Times/remark-preset-lint-origami-component)

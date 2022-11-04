@@ -48,7 +48,6 @@ But [o-header-services](https://registry.origami.ft.com/components/o-header-serv
 	</figcaption>
 </figure>
 
-
 Our sidebar has a fixed width and the main content area is flexible to fill the remaining space in our grid container. In the current [Candidate Recommendation](https://www.w3.org/2019/Process-20190301/#candidate-rec) of the CSS Grid specification our header overflow does not increase the width of the main area. In the draft version of the CSS Grid specification, the main area grows to match the width of our spanning header element and overflows the grid container also. For `o-layout` this caused a wide, misaligned grid with horizontal page scroll.
 
 <figure>

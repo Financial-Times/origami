@@ -1,7 +1,7 @@
-@import '../../main';
-@import '@financial-times/o-fonts/main';
+@import "../../main";
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 
 .demo {
@@ -14,14 +14,14 @@ body {
 
 @include oFooterServices(
 	$opts: (
-		'logo': 'ftlogo-v1:origami',
-		'icons': (
-			'slack',
-			'github',
+		"logo": "ftlogo-v1:origami",
+		"icons": (
+			"slack",
+			"github",
 		),
-		'brand-strip': true,
-		'themes': (
-			'dark',
+		"brand-strip": true,
+		"themes": (
+			"dark",
 		),
 	)
 );

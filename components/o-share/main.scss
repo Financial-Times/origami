@@ -1,15 +1,15 @@
-@import '@financial-times/math';
-@import '@financial-times/o-brand/main';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-grid/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-typography/main';
+@import "@financial-times/math";
+@import "@financial-times/o-brand/main";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-grid/main";
+@import "@financial-times/o-normalise/main";
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-typography/main";
 
-@import 'src/scss/variables';
-@import 'src/scss/color-use-cases';
-@import 'src/scss/brand';
-@import 'src/scss/mixins';
+@import "src/scss/variables";
+@import "src/scss/color-use-cases";
+@import "src/scss/brand";
+@import "src/scss/mixins";
 
 /// Output all o-share styles.
 ///
@@ -27,29 +27,29 @@
 ///   ));
 @mixin oShare(
 	$opts: (
-		'icons': $_o-share-icons,
-		'sizes': (
-			'small',
+		"icons": $_o-share-icons,
+		"sizes": (
+			"small",
 		),
-		'vertical': true,
-		'inverse': true,
+		"vertical": true,
+		"inverse": true,
 	)
 ) {
-	$vertical-enabled: map-get($opts, 'vertical');
-	$inverse-enabled: map-get($opts, 'inverse');
+	$vertical-enabled: map-get($opts, "vertical");
+	$inverse-enabled: map-get($opts, "inverse");
 	// Default to an empty list if no icons are given.
-	$icons: map-get($opts, 'icons');
+	$icons: map-get($opts, "icons");
 	$icons: if($icons, $icons, ());
 	// Default to an empty list if no sizes are given.
-	$sizes: map-get($opts, 'sizes');
+	$sizes: map-get($opts, "sizes");
 	$sizes: if($sizes, $sizes, ());
 
 	// Error if the global $system-code variable is not set.
 	@if (
-		global-variable-exists('system-code') ==
+		global-variable-exists("system-code") ==
 			false or
 			type-of($system-code) !=
-			'string'
+			"string"
 	) {
 		@error 'A global "$system-code" Sass variable must be set to a valid Bizops system code (\e]8;;https://biz-ops.in.ft.com/list/Systems\e\\https://biz-ops.in.ft.com/list/Systems\e]8;;\e\\).';
 	}
@@ -84,9 +84,9 @@
 		background-color: transparent;
 		background-repeat: no-repeat;
 		border: $o-share-border-size $o-share-border-style
-			oColorsByUsecase('o-share/default-icon', 'border');
+			oColorsByUsecase("o-share/default-icon", "border");
 		// undo browser default anchor tag styles
-		color: oColorsByUsecase('o-share/default-icon', 'text');
+		color: oColorsByUsecase("o-share/default-icon", "text");
 		text-decoration: none;
 		// add z-index on hover or focus so the border of the icon is
 		// always displayed over the border of the next icon
@@ -97,7 +97,7 @@
 
 		// Used for the icon background
 		&:before {
-			content: '';
+			content: "";
 			display: inline-block;
 			background-repeat: no-repeat;
 			background-position: center;
@@ -107,7 +107,7 @@
 		&:after {
 			position: absolute;
 			display: block;
-			content: '';
+			content: "";
 		}
 	}
 
@@ -122,15 +122,15 @@
 		@include oNormaliseVisuallyHidden();
 	}
 
-	@if index($sizes, 'small') != null {
+	@if index($sizes, "small") != null {
 		.o-share--small {
-			@include _oShareSize('small', $vertical-enabled);
+			@include _oShareSize("small", $vertical-enabled);
 		}
 	}
 
 	@if $inverse-enabled {
 		.o-share--inverse {
-			@include _oShareTheme('inverse', $icons);
+			@include _oShareTheme("inverse", $icons);
 		}
 	}
 

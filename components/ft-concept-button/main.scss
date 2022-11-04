@@ -1,39 +1,39 @@
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-normalise/main";
 
 /// @access private
 $_ftConceptButtonThemes: (
 	standard: (
-		background: oColorsByName('claret'),
-		text: oColorsByName('white'),
-		highlight: oColorsByName('claret-50'),
-		pressed-highlight: rgba(oColorsByName('black'), 0.05),
-		disabled: rgba(oColorsByName('black'), 0.5),
-		focus-outline: oColorsByUsecase('focus', 'outline', $fallback: null),
+		background: oColorsByName("claret"),
+		text: oColorsByName("white"),
+		highlight: oColorsByName("claret-50"),
+		pressed-highlight: rgba(oColorsByName("black"), 0.05),
+		disabled: rgba(oColorsByName("black"), 0.5),
+		focus-outline: oColorsByUsecase("focus", "outline", $fallback: null),
 	),
 	inverse: (
-		background: oColorsByName('white'),
-		text: oColorsByName('claret'),
+		background: oColorsByName("white"),
+		text: oColorsByName("claret"),
 		highlight: rgba(white, 0.8),
 		pressed-highlight: rgba(white, 0.2),
-		disabled: rgba(oColorsByName('white'), 0.5),
-		focus-outline: oColorsByName('white'),
+		disabled: rgba(oColorsByName("white"), 0.5),
+		focus-outline: oColorsByName("white"),
 	),
 	opinion: (
-		background: oColorsByName('oxford-40'),
-		text: oColorsByName('white'),
-		highlight: oColorsByName('oxford-30'),
-		pressed-highlight: rgba(oColorsByName('oxford-40'), 0.2),
-		disabled: rgba(oColorsByName('black'), 0.5),
-		focus-outline: oColorsByUsecase('focus', 'outline', $fallback: null),
+		background: oColorsByName("oxford-40"),
+		text: oColorsByName("white"),
+		highlight: oColorsByName("oxford-30"),
+		pressed-highlight: rgba(oColorsByName("oxford-40"), 0.2),
+		disabled: rgba(oColorsByName("black"), 0.5),
+		focus-outline: oColorsByUsecase("focus", "outline", $fallback: null),
 	),
 	monochrome: (
-		background: oColorsByName('white'),
-		text: oColorsByName('black'),
-		highlight: oColorsByName('white-80'),
-		pressed-highlight: rgba(oColorsByName('white'), 0.2),
-		disabled: rgba(oColorsByName('white'), 0.5),
-		focus-outline: oColorsByName('white'),
+		background: oColorsByName("white"),
+		text: oColorsByName("black"),
+		highlight: oColorsByName("white-80"),
+		pressed-highlight: rgba(oColorsByName("white"), 0.2),
+		disabled: rgba(oColorsByName("white"), 0.5),
+		focus-outline: oColorsByName("white"),
 	),
 );
 
@@ -42,7 +42,7 @@ $_ftConceptButtonThemes: (
 }
 
 @mixin _ftConceptButtonWithTheme($theme) {
-	@if type-of($theme) == 'map' {
+	@if type-of($theme) == "map" {
 		$theme-map: $theme !global;
 	} @else {
 		$theme-map: map-get($_ftConceptButtonThemes, $theme) !global;
@@ -61,17 +61,17 @@ $_ftConceptButtonThemes: (
 		$color: $color,
 		$iconset-version: 1
 	);
-	content: '';
+	content: "";
 }
 
 @mixin _ftConceptButtonPlusIcon($color) {
-	@include _ftConceptButtonGetIcon('plus', $color);
+	@include _ftConceptButtonGetIcon("plus", $color);
 	background-size: 25px;
 	margin: 0 6px -1px 0;
 }
 
 @mixin _ftConceptButtonTickIcon($color) {
-	@include _ftConceptButtonGetIcon('tick', $color);
+	@include _ftConceptButtonGetIcon("tick", $color);
 	background-size: 21px;
 }
 
@@ -83,7 +83,7 @@ $_ftConceptButtonThemes: (
 			);
 		}
 
-		&[aria-pressed='true'] {
+		&[aria-pressed="true"] {
 			&::before {
 				@include _ftConceptButtonTickIcon(_ftConceptButtonGetThemeColor(text));
 			}
@@ -100,7 +100,7 @@ $_ftConceptButtonThemes: (
 				opacity: 0.5;
 			}
 
-			&[aria-pressed='true']::before {
+			&[aria-pressed="true"]::before {
 				@include _ftConceptButtonTickIcon(
 					_ftConceptButtonGetThemeColor(disabled)
 				);
@@ -133,7 +133,7 @@ $_ftConceptButtonThemes: (
 			color: _ftConceptButtonGetThemeColor(background);
 		}
 
-		&[aria-pressed='true'] {
+		&[aria-pressed="true"] {
 			background-color: _ftConceptButtonGetThemeColor(background);
 			border: 1px solid _ftConceptButtonGetThemeColor(background);
 			color: _ftConceptButtonGetThemeColor(text);
@@ -156,7 +156,7 @@ $_ftConceptButtonThemes: (
 }
 
 @mixin _ftConceptButtonBase() {
-	@include oTypographySans($weight: 'semibold', $scale: -1);
+	@include oTypographySans($weight: "semibold", $scale: -1);
 	border-radius: 100px;
 	box-sizing: content-box;
 	display: block;
@@ -172,10 +172,10 @@ $_ftConceptButtonThemes: (
 
 @mixin ftConceptButton(
 	$themes: (
-		'standard',
-		'opinion',
-		'inverse',
-		'monochrome',
+		"standard",
+		"opinion",
+		"inverse",
+		"monochrome",
 	)
 ) {
 	.ft-concept-button__button {

@@ -3,9 +3,9 @@
 	display: inline-block;
 	width: 110px;
 	padding: 5px 0 0 10px;
-	margin-top: oSpacingByName('s8');
-	border-top: 1px solid oColorsByUsecase('link', 'text');
-	border-left: 1px solid oColorsByUsecase('link', 'text');
+	margin-top: oSpacingByName("s8");
+	border-top: 1px solid oColorsByUsecase("link", "text");
+	border-left: 1px solid oColorsByUsecase("link", "text");
 	border-bottom-width: 0;
 	white-space: nowrap;
 	overflow: visible;
@@ -16,11 +16,11 @@
 
 	&:after {
 		@include oIconsContent(
-			'arrow-down',
-			oColorsByUsecase('link', 'text'),
+			"arrow-down",
+			oColorsByUsecase("link", "text"),
 			$size: 20
 		);
-		content: '';
+		content: "";
 		display: block;
 		position: relative;
 		top: 4px;
@@ -48,24 +48,24 @@
 @mixin _oTopperThemePackageExtra {
 	.o-topper__package-sequence-id,
 	&.o-topper--package .o-topper__headline {
-		color: oColorsByName('lemon');
+		color: oColorsByName("lemon");
 	}
 
 	.o-topper__anchor-link {
-		color: oColorsByName('lemon');
-		border-color: oColorsByName('lemon');
+		color: oColorsByName("lemon");
+		border-color: oColorsByName("lemon");
 
 		&:after {
 			@include oIconsContent(
-				'arrow-down',
-				oColorsByName('lemon'),
+				"arrow-down",
+				oColorsByName("lemon"),
 				$size: null,
 				$include-base-styles: false
 			);
 		}
 
 		&:hover {
-			color: darken(oColorsByName('lemon'), 20%);
+			color: darken(oColorsByName("lemon"), 20%);
 		}
 	}
 }
@@ -76,20 +76,20 @@
 	}
 
 	.o-topper__anchor-link {
-		border-color: oColorsByName('white');
-		color: oColorsByName('white');
+		border-color: oColorsByName("white");
+		color: oColorsByName("white");
 
 		&:after {
 			@include oIconsContent(
-				'arrow-down',
-				oColorsByName('lemon'),
+				"arrow-down",
+				oColorsByName("lemon"),
 				$size: null,
 				$include-base-styles: false
 			);
 		}
 
 		&:hover {
-			color: darken(oColorsByName('white'), 20%);
+			color: darken(oColorsByName("white"), 20%);
 		}
 	}
 }

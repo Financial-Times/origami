@@ -1,8 +1,8 @@
-import Raven from 'raven-js';
-import Logger from './logger.js';
+import Raven from "raven-js";
+import Logger from "./logger.js";
 
 function isFunction(fn) {
-	return typeof fn === 'function';
+	return typeof fn === "function";
 }
 
 function throwLater(error) {
@@ -156,7 +156,7 @@ Errors.prototype.init = function (options, raven) {
 
 	if (!options.sentryEndpoint) {
 		throw new Error(
-			'Could not initialise o-errors: Sentry endpoint and auth configuration missing.'
+			"Could not initialise o-errors: Sentry endpoint and auth configuration missing."
 		);
 	}
 
@@ -174,7 +174,7 @@ Errors.prototype.init = function (options, raven) {
 		};
 	}
 
-	document.addEventListener('oErrors.log', this._logEventHandler);
+	document.addEventListener("oErrors.log", this._logEventHandler);
 
 	this.initialised = true;
 
@@ -411,7 +411,7 @@ Errors.prototype.destroy = function () {
 	if (!this.initialised) {
 		return;
 	}
-	document.removeEventListener('oErrors.log', this._logEventHandler);
+	document.removeEventListener("oErrors.log", this._logEventHandler);
 	this.ravenClient.uninstall();
 };
 
@@ -425,30 +425,30 @@ Errors.prototype.handleLogEvent = function (ev) {
 	const context = {
 		info: ev.detail.info || {},
 		extra: {
-			'context:dom': this._getEventPath(ev).reduceRight(function (builder, el) {
+			"context:dom": this._getEventPath(ev).reduceRight(function (builder, el) {
 				const classList = Array.prototype.slice.call(el.classList || []);
 
 				if (!el.nodeName) {
-					return builder + ' - ' + el.constructor.name + '\n';
+					return builder + " - " + el.constructor.name + "\n";
 				}
 
 				const nodeName = el.nodeName.toLowerCase();
 
-				if (nodeName.indexOf('#') === 0) {
-					return builder + '<' + nodeName + '>\n';
+				if (nodeName.indexOf("#") === 0) {
+					return builder + "<" + nodeName + ">\n";
 				}
 
 				return (
 					builder +
-					'<' +
+					"<" +
 					el.nodeName.toLowerCase() +
 					" class='" +
-					classList.join(' ') +
+					classList.join(" ") +
 					"' id='" +
-					(el.id || '') +
+					(el.id || "") +
 					"'>\n"
 				);
-			}, ''),
+			}, ""),
 		},
 	};
 	this.report(ev.detail.error, context);
@@ -486,7 +486,7 @@ Errors.prototype._getEventPath = function (event) {
  */
 Errors.prototype._updatePayloadBeforeSend = function (data) {
 	if (this.logger.enabled) {
-		data.extra['context:log'] = this.logger.logLines();
+		data.extra["context:log"] = this.logger.logLines();
 	}
 	return data;
 };
@@ -509,7 +509,7 @@ Errors.prototype._hasDeclarativeConfig = function () {
  */
 Errors.prototype._getDeclarativeConfig = function () {
 	if (!this._declarativeConfigString) {
-		const config = document.querySelector('script[data-o-errors-config]');
+		const config = document.querySelector("script[data-o-errors-config]");
 		if (config) {
 			this._declarativeConfigString =
 				config.textContent || config.innerText || config.innerHTML;
@@ -561,4 +561,4 @@ Errors.prototype._initialiseDeclaratively = function (options) {
 };
 
 export default Errors;
-export {Errors};
+export { Errors };

@@ -1,25 +1,25 @@
 export interface ButtonProps {
 	label: string;
-	type: 'primary' | 'secondary' | 'ghost';
-	size?: 'big' | '';
-	theme?: 'inverse' | 'mono' | '';
+	type: "primary" | "secondary" | "ghost";
+	size?: "big" | "";
+	theme?: "inverse" | "mono" | "";
 	icon?:
-		| 'arrow-left'
-		| 'arrow-right'
-		| 'upload'
-		| 'tick'
-		| 'plus'
-		| 'warning'
-		| 'arrow-down'
-		| 'arrow-up'
-		| 'grid'
-		| 'list'
-		| 'edit'
-		| 'download'
-		| 'search'
-		| 'refresh'
-		| 'cross'
-		| '';
+		| "arrow-left"
+		| "arrow-right"
+		| "upload"
+		| "tick"
+		| "plus"
+		| "warning"
+		| "arrow-down"
+		| "arrow-up"
+		| "grid"
+		| "list"
+		| "edit"
+		| "download"
+		| "search"
+		| "refresh"
+		| "cross"
+		| "";
 	iconOnly?: boolean;
 	attributes?: {
 		[attribute: string]: string | boolean;
@@ -31,8 +31,8 @@ interface LinkButtonProps extends ButtonProps {
 	href: string;
 }
 
-function makeClassNames({type, size, theme, icon, iconOnly}) {
-	const classNames = ['o-buttons', `o-buttons--${type}`];
+function makeClassNames({ type, size, theme, icon, iconOnly }) {
+	const classNames = ["o-buttons", `o-buttons--${type}`];
 
 	if (size) {
 		classNames.push(`o-buttons--${size}`);
@@ -47,15 +47,15 @@ function makeClassNames({type, size, theme, icon, iconOnly}) {
 	}
 
 	if (iconOnly) {
-		classNames.push('o-buttons-icon--icon-only');
+		classNames.push("o-buttons-icon--icon-only");
 	}
-	return classNames.join(' ');
+	return classNames.join(" ");
 }
 
 export function Button({
 	label,
-	type = 'secondary',
-	size = '',
+	type = "secondary",
+	size = "",
 	theme,
 	icon,
 	iconOnly = false,
@@ -65,8 +65,9 @@ export function Button({
 	return (
 		<button
 			onClick={onClick ? event => onClick(event) : null}
-			className={makeClassNames({type, size, theme, icon, iconOnly})}
-			{...attributes}>
+			className={makeClassNames({ type, size, theme, icon, iconOnly })}
+			{...attributes}
+		>
 			{icon && iconOnly ? (
 				<span className="o-buttons-icon__label">{label}</span>
 			) : (
@@ -78,8 +79,8 @@ export function Button({
 
 export function LinkButton({
 	label,
-	type = 'secondary',
-	size = '',
+	type = "secondary",
+	size = "",
 	theme,
 	icon,
 	iconOnly = false,
@@ -91,8 +92,9 @@ export function LinkButton({
 		<a
 			href={href}
 			onClick={onClick ? event => onClick(event) : null}
-			className={makeClassNames({type, size, theme, icon, iconOnly})}
-			{...attributes}>
+			className={makeClassNames({ type, size, theme, icon, iconOnly })}
+			{...attributes}
+		>
 			{icon && iconOnly ? (
 				<span className="o-buttons-icon__label">{label}</span>
 			) : (

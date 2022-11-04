@@ -1,13 +1,13 @@
-import {set, get, destroy as destroySetting} from './core/settings.js';
-import {setUser, init as initUser} from './core/user.js';
-import {init as initSession} from './core/session.js';
-import {init as initSend} from './core/send.js';
-import {event} from './events/custom.js';
-import {page} from './events/page-view.js';
-import {click} from './events/click.js';
-import core from './core.js';
-import {merge, broadcast} from './utils.js';
-import {view} from './events/component-view.js';
+import { set, get, destroy as destroySetting } from "./core/settings.js";
+import { setUser, init as initUser } from "./core/user.js";
+import { init as initSession } from "./core/session.js";
+import { init as initSend } from "./core/send.js";
+import { event } from "./events/custom.js";
+import { page } from "./events/page-view.js";
+import { click } from "./events/click.js";
+import core from "./core.js";
+import { merge, broadcast } from "./utils.js";
+import { view } from "./events/component-view.js";
 
 const initEvent = event.init;
 const initPage = page.init;
@@ -17,14 +17,14 @@ const initPage = page.init;
  *
  * @type {string}
  */
-const version = '4.0.1';
+const version = "4.0.1";
 
 /**
  * The source of this event.
  *
  * @type {string}
  */
-const source = 'o-tracking';
+const source = "o-tracking";
 
 /**
  * Update the tracking configuration with any state changes. The supplied
@@ -35,10 +35,10 @@ const source = 'o-tracking';
  * @returns {void}
  */
 function updateConfig(newConfig) {
-	let config = get('config') || {};
+	let config = get("config") || {};
 
 	config = merge(config, newConfig);
-	set('config', config);
+	set("config", config);
 
 	if (config.user && config.user.user_id) {
 		setUser(config.user.user_id);
@@ -53,8 +53,8 @@ function updateConfig(newConfig) {
 function destroy() {
 	tracking.initialised = false;
 
-	destroySetting('config');
-	destroySetting('page_sent');
+	destroySetting("config");
+	destroySetting("page_sent");
 }
 /**
  * Overload toString method to show the version.
@@ -62,7 +62,7 @@ function destroy() {
  * @returns {string} The module's version.
  */
 function toString() {
-	return 'oTracking version ' + version;
+	return "oTracking version " + version;
 }
 
 /**
@@ -112,15 +112,15 @@ function init(config = {}) {
 		return null;
 	}
 
-	set('version', version);
-	set('source', source);
+	set("version", version);
+	set("source", source);
 
-	set('page_sent', false);
+	set("page_sent", false);
 
-	const cookieDomain = config ? config.cookieDomain : '';
+	const cookieDomain = config ? config.cookieDomain : "";
 
 	// Set up the user from stored - may later be updated by config
-	initUser('', cookieDomain);
+	initUser("", cookieDomain);
 	updateConfig(config);
 
 	// Session
@@ -142,7 +142,7 @@ function init(config = {}) {
  * @returns {HTMLElement|null} - Returns the <script> element if found otherwise returns null.
  */
 function getDeclarativeConfigElement() {
-	return document.querySelector('script[data-o-tracking-config]');
+	return document.querySelector("script[data-o-tracking-config]");
 }
 
 /**
@@ -173,9 +173,9 @@ function getDeclarativeConfig(options) {
 				e.message +
 				'"'
 		);
-		broadcast('oErrors', 'log', {
+		broadcast("oErrors", "log", {
 			error: configError.message,
-			info: {module: 'o-tracking'},
+			info: { module: "o-tracking" },
 		});
 		throw configError;
 	}

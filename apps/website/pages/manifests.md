@@ -16,7 +16,6 @@ nav_display: true
 nav_label: Manifests
 ---
 
-
 # {{page.title}}
 
 Origami manifest files are used to describe and configure Origami projects.

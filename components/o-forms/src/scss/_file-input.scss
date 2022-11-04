@@ -4,9 +4,9 @@
 	.o-forms-input--file ::file-selector-button {
 		@include oButtonsContent(
 			$opts: (
-				'type': 'primary',
+				"type": "primary",
 			)
 		);
-		margin-right: oSpacingByName('s1');
+		margin-right: oSpacingByName("s1");
 	}
 }

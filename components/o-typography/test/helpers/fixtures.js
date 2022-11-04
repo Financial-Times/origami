@@ -1,20 +1,20 @@
 let sandboxEl;
 
 function createSandbox() {
-	if (document.querySelector('.sandbox')) {
-		sandboxEl = document.querySelector('.sandbox');
+	if (document.querySelector(".sandbox")) {
+		sandboxEl = document.querySelector(".sandbox");
 	} else {
-		sandboxEl = document.createElement('div');
-		sandboxEl.setAttribute('class', 'sandbox');
+		sandboxEl = document.createElement("div");
+		sandboxEl.setAttribute("class", "sandbox");
 		document.body.appendChild(sandboxEl);
 	}
 
 	// oTypography should be run on the HTML element only
-	document.documentElement.setAttribute('data-o-component', 'o-typography');
+	document.documentElement.setAttribute("data-o-component", "o-typography");
 }
 
 function reset() {
-	sandboxEl.innerHTML = '';
+	sandboxEl.innerHTML = "";
 }
 
 function insert(html) {
@@ -31,4 +31,4 @@ function htmlCode() {
 	insert(html);
 }
 
-export {htmlCode, reset};
+export { htmlCode, reset };

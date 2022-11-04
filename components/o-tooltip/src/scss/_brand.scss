@@ -2,7 +2,7 @@
 /// @access private
 @function _oTooltipGet($variables, $from: null) {
 	@return oBrandGet(
-		$component: 'o-tooltip',
+		$component: "o-tooltip",
 		$variables: $variables,
 		$from: $from
 	);
@@ -11,53 +11,53 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oTooltipSupports($variant) {
-	@return oBrandSupportsVariant($component: 'o-tooltip', $variant: $variant);
+	@return oBrandSupportsVariant($component: "o-tooltip", $variant: $variant);
 }
 
-@if oBrandIs('core') {
+@if oBrandIs("core") {
 	@include oBrandDefine(
-		'o-tooltip',
-		'core',
+		"o-tooltip",
+		"core",
 		(
-			'variables': (
-				'background-color': oColorsByName('white'),
-				'foreground-color': null,
+			"variables": (
+				"background-color": oColorsByName("white"),
+				"foreground-color": null,
 				// inherit by default
-				'close-foreground-color': oColorsByName('black-60'),
+				"close-foreground-color": oColorsByName("black-60"),
 			),
-			'supports-variants': (),
+			"supports-variants": (),
 		)
 	);
 }
 
-@if oBrandIs('internal') {
+@if oBrandIs("internal") {
 	@include oBrandDefine(
-		'o-tooltip',
-		'internal',
+		"o-tooltip",
+		"internal",
 		(
-			'variables': (
-				'background-color': oColorsByName('white'),
-				'foreground-color': null,
+			"variables": (
+				"background-color": oColorsByName("white"),
+				"foreground-color": null,
 				// inherit by default
-				'close-foreground-color': oColorsByName('black-60'),
+				"close-foreground-color": oColorsByName("black-60"),
 			),
-			'supports-variants': (),
+			"supports-variants": (),
 		)
 	);
 }
 
-@if oBrandIs('whitelabel') {
+@if oBrandIs("whitelabel") {
 	@include oBrandDefine(
-		'o-tooltip',
-		'whitelabel',
+		"o-tooltip",
+		"whitelabel",
 		(
-			'variables': (
-				'background-color': oColorsByName('white'),
-				'foreground-color': null,
+			"variables": (
+				"background-color": oColorsByName("white"),
+				"foreground-color": null,
 				// inherit by default,
-				'close-foreground-color': oColorsByName('black'),
+				"close-foreground-color": oColorsByName("black"),
 			),
-			'supports-variants': (),
+			"supports-variants": (),
 		)
 	);
 }

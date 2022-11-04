@@ -1,16 +1,18 @@
 # Migration Guide
+
 ## Migrating from v9 to v10
 
 o-header v10 includes markup changes. Use demo markup to update your project. Changes to be aware of include:
+
 - Deprecated markup for the old style of edition switcher has changed. The following classes no longer exist `.o-header__drawer-editions` and `.o-header__drawer-editions-link`. Check the markup of the header drawer is correct.
 - Add "icon" to classes `o-header__top-link o-header__top-link--[icon]`, where `[icon]` is "menu", "search", or "myft". E.g. `o-header__top-link o-header__top-link--menu` becomes `o-header__top-icon-link o-header__top-icon-link--[icon]`.
 - Add signup and subscribe links to `o-header__top-column--right`.
+
 ## Migrating from v8 to v9
 
 v9 drops support for Bower and version 2 of the Origami Build Service.
 
 Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 
 ## Migrating from v7 to v8
 
@@ -31,6 +33,7 @@ its dependencies. See [the Bower config for these](./bower.json).
 Origami components now require a `$system-code` Sass variable is set by the project, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).
 
 The following Sass variables have been removed:
+
 - `$o-header-image-service-version`
 - `$o-header-image-base-url`
 
@@ -57,6 +60,7 @@ The following Sass mixins have been removed and should be replaced with a single
 - `oHeaderTransparent`: 'transparent' feature
 
 E.g. to output the header with select features:
+
 ```diff
 -@include oHeaderBase;
 -@include oHeaderTop;
@@ -66,6 +70,7 @@ E.g. to output the header with select features:
 ```
 
 Or to output only base styles:
+
 ```diff
 -@include oHeaderBase;
 -@include oHeaderTop;
@@ -73,6 +78,7 @@ Or to output only base styles:
 ```
 
 Or to output only extra features without the base styles required by all features:
+
 ```diff
 -@include _oHeaderDrawer;
 -@include _oHeaderSticky;
@@ -80,6 +86,7 @@ Or to output only extra features without the base styles required by all feature
 ```
 
 There is no direct replacement for the following mixins. Please contact the Origami team if you have a usecase for these:
+
 - `oHeaderLink`
 - `oHeaderFancyLink`
 - `oHeaderItemSeparator`

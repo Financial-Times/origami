@@ -30,8 +30,14 @@ The component no longer uses `ul` and `li` elements and instead uses `div` and `
 E.G.
 
 This is the old html:
+
 ```html
-<ul data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
+<ul
+	data-o-component="o-tabs"
+	class="o-tabs"
+	role="tablist"
+	data-o-tabs-update-url
+>
 	<li role="tab"><a href="#tabContent1">Tab 1</a></li>
 	<li role="tab"><a href="#tabContent2">Tab 2</a></li>
 	<li role="tab"><a href="#tabContent3">Tab 3</a></li>
@@ -39,8 +45,14 @@ This is the old html:
 ```
 
 And this is the new html:
+
 ```html
-<div data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
+<div
+	data-o-component="o-tabs"
+	class="o-tabs"
+	role="tablist"
+	data-o-tabs-update-url
+>
 	<a role="tab" href="#tabContent1">Tab 1</a>
 	<a role="tab" href="#tabContent2">Tab 2</a>
 	<a role="tab" href="#tabContent3">Tab 3</a>

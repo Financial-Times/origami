@@ -8,27 +8,27 @@
 ///
 @function _oBrandValidateConfig($component, $brand, $config) {
 	$error-message: '"#{$component}" configuration for brand "#{$brand}" is invalid';
-	$error-message-link: 'Example brand configuration can be seen in the readme: #{$_o-brand-define-readme}';
-	@if type-of($config) != 'map' {
+	$error-message-link: "Example brand configuration can be seen in the readme: #{$_o-brand-define-readme}";
+	@if type-of($config) != "map" {
 		@return _oBrandError(
-			'#{$error-message}. Its configuration must be a map. #{$error-message-link}'
+			"#{$error-message}. Its configuration must be a map. #{$error-message-link}"
 		);
 	}
 
 	// Validate variables key (an empty map is of type list).
-	$variables: map-get($config, 'variables');
+	$variables: map-get($config, "variables");
 	@if not $variables {
 		// @breaking Change to an error.
 		@warn '#{$error-message}. Config key "variables" is missing. #{$error-message-link}';
 	}
-	$supports-variants: map-get($config, 'supports-variants');
+	$supports-variants: map-get($config, "supports-variants");
 	@if not $supports-variants {
 		@return _oBrandError(
 			'#{$error-message}. Config key "supports-variants" is missing. #{$error-message-link}'
 		);
 	}
 	@if $variables and
-		(type-of($variables) != 'map' and type-of($variables) != 'list')
+		(type-of($variables) != "map" and type-of($variables) != "list")
 	{
 		@return _oBrandError(
 			'#{$error-message}. Config key "variables" should be a map but is of type #{type-of($variables)}. #{$error-message-link}'
@@ -36,11 +36,11 @@
 	}
 
 	// Validate default variable names.
-	@if type-of($variables) == 'map' {
+	@if type-of($variables) == "map" {
 		@each $variable-name, $value in $variables {
-			@if type-of($value) != 'map' {
+			@if type-of($value) != "map" {
 				$validated-default-variables: _oBrandValidateName(
-					'Variable',
+					"Variable",
 					$variable-name,
 					'Cannot set variable(s) "#{$variable-name}" of component "#{$component}" for brand "#{$brand}"'
 				);
@@ -50,9 +50,9 @@
 
 	// Validate variant names.
 	@each $variant-name, $variant-variables in $variables {
-		@if type-of($variant-variables) == 'map' {
+		@if type-of($variant-variables) == "map" {
 			$validated-variant-name: _oBrandValidateName(
-				'Variant',
+				"Variant",
 				$variant-name,
 				'Cannot set variables for variant "#{$variant-name}" of component "#{$component}" for brand "#{$brand}"'
 			);
@@ -60,7 +60,7 @@
 			// Validate variant variable names.
 			@each $variable-name, $variant-variables in $variant-variables {
 				$validated-variant-variables: _oBrandValidateName(
-					'Variable',
+					"Variable",
 					$variable-name,
 					'Cannot set variable "#{$variable-name}" for variant "#{$variant-name}" of component "#{$component}" and brand "#{$brand}"'
 				);
@@ -71,9 +71,9 @@
 	// Validate supports variants key.
 	@if $supports-variants and
 		type-of($supports-variants) !=
-		'list' and
+		"list" and
 		type-of($supports-variants) !=
-		'string'
+		"string"
 	{
 		@return _oBrandError(
 			'#{$error-message}. Config key "#{$supports-variants}" should be a list but is of type #{type-of($supports-variants)}. #{$error-message-link}'
@@ -83,7 +83,7 @@
 	// Check variant names within supports variants.
 	@each $variant-name in $supports-variants {
 		$validated: _oBrandValidateName(
-			'Variant',
+			"Variant",
 			$variant-name,
 			'Cannot set supported variants for component "#{$component}" and brand "#{$brand}"'
 		);
@@ -102,7 +102,7 @@
 	// Get config for the brand.
 	$component-brands: map-get($_o-brands, $component);
 	$component-brands: if(
-		type-of($component-brands) == 'map',
+		type-of($component-brands) == "map",
 		$component-brands,
 		()
 	);
@@ -162,60 +162,60 @@
 /// @param {string} $thing E.g. "Component", "Brand", "Variant"
 /// @param {string} $name The name to validate
 /// @param {string} $error-context E.g. "Unable to define brand"
-@function _oBrandValidateName($thing, $name, $error-context: '') {
+@function _oBrandValidateName($thing, $name, $error-context: "") {
 	// Strings only.
-	@if type-of($name) != 'string' {
+	@if type-of($name) != "string" {
 		@error '#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names must be a string.';
 	}
 
 	// No empty strings.
-	@if $name == '' {
+	@if $name == "" {
 		@error '#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can not be an empty string.';
 	}
 
 	// Valid characters only.
 	$valid-characters: (
-		'-',
-		'0',
-		'1',
-		'2',
-		'3',
-		'4',
-		'5',
-		'6',
-		'7',
-		'8',
-		'9',
-		'a',
-		'b',
-		'c',
-		'd',
-		'e',
-		'f',
-		'g',
-		'h',
-		'i',
-		'j',
-		'k',
-		'l',
-		'm',
-		'n',
-		'o',
-		'p',
-		'q',
-		'r',
-		's',
-		't',
-		'u',
-		'v',
-		'w',
-		'x',
-		'y',
-		'z'
+		"-",
+		"0",
+		"1",
+		"2",
+		"3",
+		"4",
+		"5",
+		"6",
+		"7",
+		"8",
+		"9",
+		"a",
+		"b",
+		"c",
+		"d",
+		"e",
+		"f",
+		"g",
+		"h",
+		"i",
+		"j",
+		"k",
+		"l",
+		"m",
+		"n",
+		"o",
+		"p",
+		"q",
+		"r",
+		"s",
+		"t",
+		"u",
+		"v",
+		"w",
+		"x",
+		"y",
+		"z"
 	);
 	@for $character-index from 1 through str-length($name) {
 		$character: str-slice($name, $character-index, $character-index);
-		@if $character == ' ' {
+		@if $character == " " {
 			@return _oBrandError(
 				'#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can not contain spaces.'
 			);
@@ -237,7 +237,7 @@
 /// @param {boolean} $override whether or not to output an error or a string to compare against
 @function _oBrandError($message, $override: $_o-brand-test-environment) {
 	@if $override {
-		@return 'o-brand error: #{$message}';
+		@return "o-brand error: #{$message}";
 	}
 
 	@error ('#{$message}');

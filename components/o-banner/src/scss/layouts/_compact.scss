@@ -29,9 +29,9 @@
 }
 
 @mixin _oBannerCompactInner {
-	@include oVisualEffectsShadowContent('high');
+	@include oVisualEffectsShadowContent("high");
 	@include oTypographySans($scale: 0);
-	background: _oBannerGet('background-color');
+	background: _oBannerGet("background-color");
 	display: block;
 	padding: $_o-banner-spacing;
 	padding-top: oSpacingByIncrement(7);
@@ -74,7 +74,7 @@
 	h4,
 	h5,
 	h6 {
-		@include oTypographySans($scale: 3, $weight: 'semibold');
+		@include oTypographySans($scale: 3, $weight: "semibold");
 	}
 	@include oGridRespondTo($until: M) {
 		&,
@@ -88,8 +88,8 @@
 		}
 	}
 	&:after {
-		margin-top: oSpacingByName('s2');
-		margin-bottom: oSpacingByName('s3');
+		margin-top: oSpacingByName("s2");
+		margin-bottom: oSpacingByName("s3");
 		width: 60px;
 		border-bottom-width: oSpacingByIncrement(1);
 	}

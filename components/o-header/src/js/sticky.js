@@ -1,7 +1,7 @@
-import {debounce} from '@financial-times/o-utils';
+import { debounce } from "@financial-times/o-utils";
 
 function init(headerEl) {
-	if (!headerEl.hasAttribute('data-o-header--sticky')) {
+	if (!headerEl.hasAttribute("data-o-header--sticky")) {
 		return;
 	}
 
@@ -16,12 +16,15 @@ function init(headerEl) {
 		const scrollDepth = window.pageYOffset || window.scrollY;
 		const isActive = scrollDepth > viewportOffset;
 
-		headerEl.classList.toggle('o-header--sticky-active', isActive);
+		headerEl.classList.toggle("o-header--sticky-active", isActive);
 
 		if (isActive !== lastStickyState) {
 			lastStickyState = isActive;
 			headerEl.dispatchEvent(
-				new CustomEvent('oHeader.Sticky', {bubbles: true, detail: {isActive}})
+				new CustomEvent("oHeader.Sticky", {
+					bubbles: true,
+					detail: { isActive },
+				})
 			);
 		}
 
@@ -29,11 +32,11 @@ function init(headerEl) {
 		if (Math.abs(scrollDepth - lastScrollDepth) > 20) {
 			const isScrollingDown = lastScrollDepth < scrollDepth;
 			headerEl.classList.toggle(
-				'o-header--sticky-scroll-down',
+				"o-header--sticky-scroll-down",
 				isActive && isScrollingDown
 			);
 			headerEl.classList.toggle(
-				'o-header--sticky-scroll-up',
+				"o-header--sticky-scroll-up",
 				isActive && !isScrollingDown
 			);
 		}
@@ -57,23 +60,23 @@ function init(headerEl) {
 	}
 
 	function scrollStart() {
-		window.removeEventListener('scroll', scrollStart);
-		window.addEventListener('scroll', debouncedScrollEnd);
+		window.removeEventListener("scroll", scrollStart);
+		window.addEventListener("scroll", debouncedScrollEnd);
 		startLoop();
 	}
 
 	function scrollEnd() {
 		stopLoop();
-		window.removeEventListener('scroll', debouncedScrollEnd);
-		window.addEventListener('scroll', scrollStart);
+		window.removeEventListener("scroll", debouncedScrollEnd);
+		window.addEventListener("scroll", scrollStart);
 	}
 
 	const debouncedScrollEnd = debounce(scrollEnd, 300);
 
-	window.addEventListener('scroll', scrollStart);
+	window.addEventListener("scroll", scrollStart);
 
 	handleFrame();
 }
 
-export {init};
-export default {init};
+export { init };
+export default { init };

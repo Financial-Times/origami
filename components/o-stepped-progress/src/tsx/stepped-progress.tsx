@@ -1,8 +1,8 @@
-import {statusTexts, classNames} from '../js/stepped-progress-step';
+import { statusTexts, classNames } from "../js/stepped-progress-step";
 
 export interface SteppedProgressStep {
 	label: string;
-	state?: 'complete' | 'error' | 'current';
+	state?: "complete" | "error" | "current";
 	url?: string;
 }
 
@@ -10,11 +10,11 @@ export interface SteppedProgressProps {
 	steps: SteppedProgressStep[];
 }
 
-export function SteppedProgress({steps}: SteppedProgressProps) {
+export function SteppedProgress({ steps }: SteppedProgressProps) {
 	return (
 		<div className="o-stepped-progress" data-o-component="o-stepped-progress">
 			<ol className="o-stepped-progress__steps">
-				{steps.map(({label, state, url}, index) => {
+				{steps.map(({ label, state, url }, index) => {
 					const labelElement = (
 						<span className="o-stepped-progress__label">
 							{label}
@@ -23,7 +23,7 @@ export function SteppedProgress({steps}: SteppedProgressProps) {
 									{statusTexts[state]}
 								</span>
 							) : (
-								''
+								""
 							)}
 						</span>
 					);

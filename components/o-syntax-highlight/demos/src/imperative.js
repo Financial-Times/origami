@@ -1,10 +1,10 @@
-import SyntaxHighlight from '../../main.js';
+import SyntaxHighlight from "../../main.js";
 
 const highlighter = new SyntaxHighlight(
 	'<div>There is a <a href="#">link</a>here.</div>',
 	{
-		language: 'html',
+		language: "html",
 	}
 );
 
-document.querySelector('.demo').innerHTML = highlighter.tokenise();
+document.querySelector(".demo").innerHTML = highlighter.tokenise();

@@ -1,6 +1,6 @@
-@include describe('oAudio mixins') {
-	@include describe('oAudio') {
-		@include it('does something') {
+@include describe("oAudio mixins") {
+	@include describe("oAudio") {
+		@include it("does something") {
 			@include assert() {
 				@include output($selector: false) {
 					.test-mixin {

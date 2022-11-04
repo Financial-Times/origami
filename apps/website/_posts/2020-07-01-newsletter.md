@@ -77,4 +77,3 @@ A digest of other things that have happened since our last update:
 - [Financial-Times/polyfill-service-url-builder](https://github.com/repos/Financial-Times/polyfill-service-url-builder) can now read multiple JS files to generate the correct polyfill.io url for all of them
 
 - [Financial-Times/o-toggle](https://github.com/repos/Financial-Times/o-toggle) now works with the spacebar for triggering the toggle
-

@@ -1,6 +1,7 @@
 # o-topper
 
 This component is used for styling the topper sections of an article.
+
 - [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
@@ -21,12 +22,17 @@ The basic markup structure for a topper will look something like this:
 <div class="o-topper o-topper--basic o-topper--color-paper">
 	<div class="o-topper__content">
 		<div class="o-topper__tags">
-			<a href="https://www.ft.com/german-election" class="o-topper__topic">German election</a>
+			<a href="https://www.ft.com/german-election" class="o-topper__topic"
+				>German election</a
+			>
 		</div>
 		<h1 class="o-topper__headline">
 			Merkel reaches ‘grand coalition’ breakthrough with Social Democrats
 		</h1>
-		<div class="o-topper__standfirst">Move raises hopes of end to political deadlock that has gripped Germany since September</div>
+		<div class="o-topper__standfirst">
+			Move raises hopes of end to political deadlock that has gripped Germany
+			since September
+		</div>
 	</div>
 
 	<div class="o-topper__background"></div>
@@ -38,7 +44,7 @@ Toppers support a wide array of [elements](#supported-elements) and can be custo
 ### Supported elements
 
 | Element                     | Use case                                                                                           |
-|-----------------------------|----------------------------------------------------------------------------------------------------|
+| --------------------------- | -------------------------------------------------------------------------------------------------- |
 | `.o-topper__content`        | Main content area of topper. Required parent of all elements except `__visual` and `__background`. |
 | `.o-topper__tags`           | Wrapper element for the article concept tag elements `__brand`, `__topic` and `__opinion-genre`.   |
 | `.o-topper__brand`          | A concept tag that represents a brand, e.g. "The Big Read".                                        |
@@ -89,60 +95,70 @@ These colors affect the background of the `.o-topper__background` and `.o-topper
 To include all o-topper CSS include `oTopper`:
 
 ```scss
-@import '@financial-times/o-topper/main';
+@import "@financial-times/o-topper/main";
 @include oTopper();
 ```
 
 To include o-topper styles granularly specify which elements, themes, and colours to output styles for using the options `$opts` argument:
 
 ```scss
-@include oTopper($opts: (
-	'themes': (
-		'branded', // .o-topper--branded
-		'opinion', // .o-topper--opinion
-		'has-headshot', // .o-topper--has-headshot
-		'full-bleed-offset',
-		'split-text-left',
-		'split-text-center',
-		'full-bleed-image-center',
-		'full-bleed-image-left',
-		'package',
-		'package-extra',
-		'package-extra-wide',
-		'package-special-report',
-		'right-rail',
-		'centered',
-	),
-	'elements': (
-		'content', // .o-topper__content
-		'visual', // .o-topper__visual
-		'background', // .o-topper__background
-		'headline',
-		'headline--large',
-		'summary',
-		'standfirst',
-		'summary--body',
-		'tags',
-		'columnist',
-		'columnist-name',
-		'brand',
-		'topic',
-		'read-next',
-		'image',
-		'image-credit',
-	),
-	'colors': (
-		'white', // .o-topper--color-white
-		'black', // .o-topper--color-black
-		'claret',
-		'oxford',
-		'paper',
-		'slate',
-		'wheat',
-		'crimson',
-		'sky',
+@include oTopper(
+	$opts: (
+		"themes": (
+			"branded",
+			 // .o-topper--brande
+			"opinion",
+			 // .o-topper--opinio
+			"has-headshot",
+			 // .o-topper--has-headsho
+			"full-bleed-offset",
+			"split-text-left",
+			"split-text-center",
+			"full-bleed-image-center",
+			"full-bleed-image-left",
+			"package",
+			"package-extra",
+			"package-extra-wide",
+			"package-special-report",
+			"right-rail",
+			"centered",
+		),
+		"elements": (
+			"content",
+			 // .o-topper__conten
+			"visual",
+			 // .o-topper__visua
+			"background",
+			 // .o-topper__backgroun
+			"headline",
+			"headline--large",
+			"summary",
+			"standfirst",
+			"summary--body",
+			"tags",
+			"columnist",
+			"columnist-name",
+			"brand",
+			"topic",
+			"read-next",
+			"image",
+			"image-credit",
+		),
+		"colors": (
+			"white",
+			 // .o-topper--color-whit
+			"black",
+			 // .o-topper--color-blac
+			"claret",
+			"oxford",
+			"paper",
+			"slate",
+			"wheat",
+			"crimson",
+			"sky",
+		),
 	)
-));
+);
 ```
 
 ## JavaScript
@@ -154,20 +170,20 @@ This component exports a JavaScript helper from [`n-map-content-to-topper`](http
 **Note:** This helper is deeply tied to the FT.com content store, and includes hardcoded UUIDs and business logic.
 
 ```js
-import { mapContentToTopper } from '@financial-times/o-topper';
+import { mapContentToTopper } from "@financial-times/o-topper";
 
 const topper = mapContentToTopper(ftArticle, flags);
 ```
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 5 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-⚠ maintained | 4 | 4.0  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-⚠ maintained | 3 | 3.1  | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.7  | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.2  | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ⚠ maintained |       4       |        4.0         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ⚠ maintained |       3       |        3.1         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.7         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.2         |                           -                           |
 
 ## Contact
 

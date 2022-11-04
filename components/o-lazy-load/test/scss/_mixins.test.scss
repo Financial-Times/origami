@@ -1,5 +1,5 @@
-@include describe('oLazyLoad') {
-	@include it('outputs styles for image elements with a transition') {
+@include describe("oLazyLoad") {
+	@include it("outputs styles for image elements with a transition") {
 		@include assert() {
 			@include output() {
 				@include oLazyLoad();
@@ -16,7 +16,7 @@
 			}
 		}
 	}
-	@include it('outputs styles for placeholder elements') {
+	@include it("outputs styles for placeholder elements") {
 		@include assert() {
 			@include output() {
 				@include oLazyLoad();
@@ -53,13 +53,13 @@
 			}
 		}
 	}
-	@include it('outputs custom placeholder ratios') {
+	@include it("outputs custom placeholder ratios") {
 		@include assert() {
 			@include output() {
 				@include oLazyLoad(
 					$opts: (
-						'placeholder': true,
-						'placeholder-ratios': (
+						"placeholder": true,
+						"placeholder-ratios": (
 							(32, 9),
 							(4, 3),
 						),

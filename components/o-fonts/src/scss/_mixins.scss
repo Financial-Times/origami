@@ -26,13 +26,13 @@
 @mixin oFontsDefineCustomFont($font-family, $variants) {
 	// Validate variants.
 	@each $variant in $variants {
-		$weight: map-get($variant, 'weight');
-		$style: map-get($variant, 'style');
-		@if type-of($weight) != 'string' and map-has-key($_o-fonts-weights, $weight)
+		$weight: map-get($variant, "weight");
+		$style: map-get($variant, "style");
+		@if type-of($weight) != "string" and map-has-key($_o-fonts-weights, $weight)
 		{
 			@error 'Could not include custom font "#{$font-family}". All variants must specify a weight, one of "#{$_o-fonts-weights}".';
 		}
-		@if type-of($style) != 'string' {
+		@if type-of($style) != "string" {
 			@error 'Could not include custom font "#{$font-family}". All variants must specify a style, e.g. "normal", "italic".';
 		}
 	}
@@ -40,9 +40,9 @@
 	$_o-fonts-families: map-merge(
 		(
 			$font-key: (
-				'font-family': $font-family,
-				'variants': $variants,
-				'custom': true,
+				"font-family": $font-family,
+				"variants": $variants,
+				"custom": true,
 			),
 		),
 		$_o-fonts-families
@@ -91,9 +91,9 @@
 	$variants: _oFontsOptionsToVariants($opts);
 
 	@each $variant in $variants {
-		$family: map-get($variant, 'family');
-		$weight: map-get($variant, 'weight');
-		$style: map-get($variant, 'style');
+		$family: map-get($variant, "family");
+		$weight: map-get($variant, "weight");
+		$style: map-get($variant, "style");
 		@include _oFontsVariantIncluded($family, $weight, $style);
 	}
 }
@@ -120,7 +120,7 @@
 	// Check the font is an Origami font, not a custom font.
 	@if map-has-key($_o-fonts-families, $family) {
 		$font-family-config: map-get($_o-fonts-families, $family);
-		@if map-get($font-family-config, 'custom') {
+		@if map-get($font-family-config, "custom") {
 			@error 'Can not include a custom font "#{$family}". Include your custom font manually.';
 		}
 	}
@@ -148,34 +148,34 @@
 
 		// By default, suffix is the weight
 		$font-suffix: _oFontsStringCapitalise($weight);
-		@if ($style != 'normal') {
+		@if ($style != "normal") {
 			$capitalised-weight: _oFontsStringCapitalise($weight);
 			$capitalised-style: _oFontsStringCapitalise($style);
 			$font-suffix: #{$capitalised-weight}#{$capitalised-style};
 		}
 
-		$font-file: '#{$family}-#{$font-suffix}';
+		$font-file: "#{$family}-#{$font-suffix}";
 		// set path for self hosted font
 		$self-host-path: $o-fonts-self-host-path + $font-file;
 		// set path using existing o-fonts-path variable, for font hosted on Build Service api implementation
 		$build-service-path: $o-fonts-build-service-path +
-			'&font_name=#{$font-file}&system_code=origami';
+			"&font_name=#{$font-file}&system_code=origami";
 
 		// use $o-fonts-self-host-path if set, $o-fonts-build-service-path otherwise
 		$font-url-woff: if(
-			$o-fonts-self-host-path == '',
-			'#{$build-service-path}&font_format=woff',
-			'#{$self-host-path}.woff'
+			$o-fonts-self-host-path == "",
+			"#{$build-service-path}&font_format=woff",
+			"#{$self-host-path}.woff"
 		);
 		$font-url-woff2: if(
-			$o-fonts-self-host-path == '',
-			'#{$build-service-path}&font_format=woff2',
-			'#{$self-host-path}.woff2'
+			$o-fonts-self-host-path == "",
+			"#{$build-service-path}&font_format=woff2",
+			"#{$self-host-path}.woff2"
 		);
 
 		@font-face {
-			src: url($font-url-woff2) format('woff2'),
-				url($font-url-woff) format('woff');
+			src: url($font-url-woff2) format("woff2"),
+				url($font-url-woff) format("woff");
 			font-family: $family;
 			font-weight: oFontsWeight($weight);
 			font-style: unquote($style);

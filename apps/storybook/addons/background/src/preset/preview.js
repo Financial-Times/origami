@@ -1,6 +1,6 @@
-import {withOrigamiBackground} from "../withOrigamiBackground"
+import { withOrigamiBackground } from "../withOrigamiBackground";
 
-export const decorators = [withOrigamiBackground]
+export const decorators = [withOrigamiBackground];
 
 export const globalTypes = {
 	origamiBackground: {
@@ -21,4 +21,4 @@ export const globalTypes = {
 			showName: false,
 		},
 	},
-}
+};

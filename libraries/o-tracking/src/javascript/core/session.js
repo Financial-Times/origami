@@ -1,5 +1,5 @@
-import {is, merge, isUndefined, guid} from '../utils.js';
-import {Store} from './store.js';
+import { is, merge, isUndefined, guid } from "../utils.js";
+import { Store } from "./store.js";
 
 /**
  * @typedef {object} Session
@@ -9,8 +9,8 @@ import {Store} from './store.js';
 
 let store;
 const defaultSessionConfig = {
-	storage: 'best',
-	name: 'session',
+	storage: "best",
+	name: "session",
 	expires: 30 * 60 * 1000, // 30 minutes
 };
 
@@ -72,8 +72,8 @@ function getSession() {
  * @returns {Session} - The session
  */
 function init(config) {
-	if (is(config, 'string')) {
-		config = {name: config};
+	if (is(config, "string")) {
+		config = { name: config };
 	}
 
 	if (isUndefined(config)) {
@@ -83,7 +83,7 @@ function init(config) {
 	const c = merge(defaultSessionConfig, config);
 
 	// config.name is important here, means the user has specifically asked for a cookie name.
-	if (c.storage === 'cookie' && config.name) {
+	if (c.storage === "cookie" && config.name) {
 		c.nameOverride = c.name;
 	}
 
@@ -92,4 +92,4 @@ function init(config) {
 	return getSession();
 }
 
-export {getSession as session, init};
+export { getSession as session, init };

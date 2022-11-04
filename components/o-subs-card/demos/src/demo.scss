@@ -1,12 +1,12 @@
 $o-subs-card-is-silent: false;
-@import '../../main';
-@import '@financial-times/o-fonts/main';
+@import "../../main";
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-grid/main';
+@import "@financial-times/o-grid/main";
 @include oGrid();
-@import '@financial-times/o-colors/main';
+@import "@financial-times/o-colors/main";
 @include oColors();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 
 body {

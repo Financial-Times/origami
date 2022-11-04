@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import fixtures from '../../helpers/fixtures.js';
-import Stream from '../../../src/js/stream.js';
+import proclaim from "proclaim";
+import fixtures from "../../helpers/fixtures.js";
+import Stream from "../../../src/js/stream.js";
 
 export default function renderComments() {
 	beforeEach(() => {
@@ -13,7 +13,7 @@ export default function renderComments() {
 		fixtures.reset();
 	});
 
-	it('creates a script tag for production environment', () => {
+	it("creates a script tag for production environment", () => {
 		const mockStreamEl = document.querySelector(
 			'[data-o-comments-article-id="id"]'
 		);
@@ -28,11 +28,11 @@ export default function renderComments() {
 		proclaim.isTrue(Boolean(scriptTag));
 	});
 
-	it('creates a script tag for staging environment', () => {
+	it("creates a script tag for staging environment", () => {
 		const mockStreamEl = document.querySelector(
 			'[data-o-comments-article-id="id"]'
 		);
-		const stream = new Stream(mockStreamEl, {useStagingEnvironment: true});
+		const stream = new Stream(mockStreamEl, { useStagingEnvironment: true });
 
 		stream.renderComments();
 

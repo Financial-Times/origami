@@ -1,23 +1,23 @@
-import {ImageSizes} from './concerns/constants';
-import imageService from './concerns/image-service';
-import Link from './link';
-import {Image} from './props';
+import { ImageSizes } from "./concerns/constants";
+import imageService from "./concerns/image-service";
+import Link from "./link";
+import { Image } from "./props";
 
-const aspectRatio = ({width, height}: {width: number; height: number}) => {
-	if (typeof width === 'number' && typeof height === 'number') {
+const aspectRatio = ({ width, height }: { width: number; height: number }) => {
+	if (typeof width === "number" && typeof height === "number") {
 		const ratio = (100 / width) * height;
-		return ratio.toFixed(4) + '%';
+		return ratio.toFixed(4) + "%";
 	}
 
 	return 0;
 };
 
-const NormalImage = ({src}) => (
+const NormalImage = ({ src }) => (
 	<img className="o-teaser__image" src={src} alt="" />
 );
 
-const LazyImage = ({src, lazyLoad}) => {
-	const lazyClassName = typeof lazyLoad === 'string' ? lazyLoad : '';
+const LazyImage = ({ src, lazyLoad }) => {
+	const lazyClassName = typeof lazyLoad === "string" ? lazyLoad : "";
 	return (
 		<img className={`o-teaser__image ${lazyClassName}`} data-src={src} alt="" />
 	);
@@ -46,10 +46,10 @@ export default ({
 	}
 	const displayUrl = relativeUrl || url;
 	const useImageService = !(
-		image.url.startsWith('data:') || image.url.startsWith('blob:')
+		image.url.startsWith("data:") || image.url.startsWith("blob:")
 	);
 	const options =
-		imageSize === 'XXL' && imageHighestQuality ? {quality: 'highest'} : {};
+		imageSize === "XXL" && imageHighestQuality ? { quality: "highest" } : {};
 	const imageSrc =
 		useImageService && imageSize
 			? imageService(image.url, ImageSizes[imageSize], options)
@@ -62,13 +62,15 @@ export default ({
 				{...props}
 				url={displayUrl}
 				attrs={{
-					'data-trackable': 'image-link',
+					"data-trackable": "image-link",
 					tabIndex: -1,
-					'aria-hidden': 'true',
-				}}>
+					"aria-hidden": "true",
+				}}
+			>
 				<div
 					className="o-teaser__image-placeholder"
-					style={{paddingBottom: aspectRatio(image)}}>
+					style={{ paddingBottom: aspectRatio(image) }}
+				>
 					<ImageComponent src={imageSrc} lazyLoad={imageLazyLoad} />
 				</div>
 			</Link>

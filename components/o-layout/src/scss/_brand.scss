@@ -2,7 +2,7 @@
 /// @access private
 @function _oLayoutGet($variables, $from: null) {
 	@return oBrandGet(
-		$component: 'o-layout',
+		$component: "o-layout",
 		$variables: $variables,
 		$from: $from
 	);
@@ -11,36 +11,36 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oLayoutSupports($variant) {
-	@return oBrandSupportsVariant($component: 'o-layout', $variant: $variant);
+	@return oBrandSupportsVariant($component: "o-layout", $variant: $variant);
 }
 
-@if oBrandIs('core') {
+@if oBrandIs("core") {
 	@include oBrandDefine(
-		'o-layout',
-		'core',
+		"o-layout",
+		"core",
 		(
-			'variables': (),
-			'supports-variants': (
-				'default',
-				'bleed',
-				'documentation',
+			"variables": (),
+			"supports-variants": (
+				"default",
+				"bleed",
+				"documentation",
 			),
 		)
 	);
 }
 
-@if oBrandIs('internal') {
+@if oBrandIs("internal") {
 	@include oBrandDefine(
-		'o-layout',
-		'internal',
+		"o-layout",
+		"internal",
 		(
-			'variables': (),
-			'supports-variants': (
-				'default',
-				'bleed',
-				'documentation',
-				'landing',
-				'query',
+			"variables": (),
+			"supports-variants": (
+				"default",
+				"bleed",
+				"documentation",
+				"landing",
+				"query",
 			),
 		)
 	);

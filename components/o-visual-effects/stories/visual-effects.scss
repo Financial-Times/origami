@@ -1,10 +1,10 @@
-@import '@financial-times/o-visual-effects/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-buttons/main';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-fonts/main';
-@import '@financial-times/o-colors/main';
+@import "@financial-times/o-visual-effects/main";
+@import "@financial-times/o-normalise/main";
+@import "@financial-times/o-buttons/main";
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-fonts/main";
+@import "@financial-times/o-colors/main";
 
 @include oNormalise();
 @include oFonts();
@@ -13,18 +13,18 @@
 .demo-button {
 	@include oButtonsContent(
 		(
-			'size': 'big',
-			'type': 'primary',
+			"size": "big",
+			"type": "primary",
 		)
 	);
-	margin-right: oSpacingByName('s8');
+	margin-right: oSpacingByName("s8");
 	float: left;
 }
 
 .demo-transition {
 	--demo-size: min(50vh, 50vw);
-	background-color: oColorsByName('teal-100');
-	border: 3px dashed oColorsByName('slate');
+	background-color: oColorsByName("teal-100");
+	border: 3px dashed oColorsByName("slate");
 	width: var(--demo-size);
 	height: var(--demo-size);
 	transition: all var(--demo-transition-duration)
@@ -63,7 +63,7 @@
 	background: white;
 	width: 10rem;
 	height: 10rem;
-	margin: oSpacingByName('s3');
+	margin: oSpacingByName("s3");
 	justify-content: center;
 	align-items: center;
 }

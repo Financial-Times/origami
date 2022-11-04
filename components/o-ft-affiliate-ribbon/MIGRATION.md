@@ -13,10 +13,12 @@ Origami components now require a `$system-code` Sass variable is set by the proj
 v4 removes the mixin `oFtAffiliateRibbonVisuallyHidden`. Replace with the o-normalise mixin [oNormaliseVisuallyHidden](https://registry.origami.ft.com/components/o-normalise/sassdoc). The mixin `oFtAffiliateRibbonBrandImage` has also been removed, there is no replacement, please contact the Origami team if your project has a usecase for this mixin.
 
 Custom colours and colour usecases have also been removed from the palette and should not be used. Please contact Origami if your project does have a usecase for these however:
+
 - removed colour: affiliate-ribbon-text
 - removed usecases: ribbon-background, ribbon-text, ribbon-logo
 
 The following Sass variables were unused and removed. Do not set these in your project:
+
 - o-ft-affiliate-ribbon-image-base-url
 - o-ft-affiliate-ribbon-image-service-version
 

@@ -29,6 +29,7 @@ If you are interested in creating a component please take a look. We are availab
 ### Automated Readme Review
 
 Another change we've made to help Origami contributors and Origami users is to verify README documentation of a component. The latest version of [Origami Build Tools](https://github.com/Financial-Times/origami-build-tools) checks for:
+
 - A title which matches the component name.
 - A short description of the component.
 - A table of contents with matching heading levels.
@@ -60,7 +61,7 @@ A digest of other things that have happened since our last update:
 
 - NEW: [remark-preset-lint-origami-component](https://github.com/Financial-Times/remark-preset-lint-origami-component): A tool used by Origami Build Tools to verify component readme.
 - MINOR: [origami-build-tools](https://github.com/Financial-Times/origami-build-tools) has a fix to allow for custom `.eslintrc.js` configuration; does not load JavaScript in demos for core experience browsers; and now lints the readme as discussed previously.
-- MINOR: [create-origami-component](https://github.com/Financial-Times/create-origami-component) has been updated with fixes and improvements to support the creation of new Origami components (see the tutorial discussed previously). 
+- MINOR: [create-origami-component](https://github.com/Financial-Times/create-origami-component) has been updated with fixes and improvements to support the creation of new Origami components (see the tutorial discussed previously).
 - MINOR: [Polyfill Service](https://github.com/Financial-Times/polyfill-service) now includes a security policy.
 - MINOR: [polyfill-library](https://github.com/Financial-Times/polyfill-library) improves the message when no polyfills are required to be served to the requesting browser, fixes a `Promise.prototype.finally` support for Chrome 63, fixes a `Map` bug (thanks to external contributions from Github users joshsalverda and rmja).
 - MINOR: [o-date](https://github.com/Financial-Times/o-date) can now output multiple formats within one `time` element.

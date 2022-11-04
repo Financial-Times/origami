@@ -2,7 +2,7 @@
 /// @access private
 @function _oQuoteGet($variables, $from: null) {
 	@return oBrandGet(
-		$component: 'o-quote',
+		$component: "o-quote",
 		$variables: $variables,
 		$from: $from
 	);
@@ -11,44 +11,44 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oQuoteSupports($variant) {
-	@return oBrandSupportsVariant($component: 'o-quote', $variant: $variant);
+	@return oBrandSupportsVariant($component: "o-quote", $variant: $variant);
 }
 
-@if oBrandIs('core') {
+@if oBrandIs("core") {
 	@include oBrandDefine(
-		'o-quote',
-		'core',
+		"o-quote",
+		"core",
 		(
-			'variables': (),
-			'supports-variants': (
-				'editorial',
-				'standard',
+			"variables": (),
+			"supports-variants": (
+				"editorial",
+				"standard",
 			),
 		)
 	);
 }
 
-@if oBrandIs('internal') {
+@if oBrandIs("internal") {
 	@include oBrandDefine(
-		'o-quote',
-		'internal',
+		"o-quote",
+		"internal",
 		(
-			'variables': (),
-			'supports-variants': (
-				'standard',
+			"variables": (),
+			"supports-variants": (
+				"standard",
 			),
 		)
 	);
 }
 
-@if oBrandIs('whitelabel') {
+@if oBrandIs("whitelabel") {
 	@include oBrandDefine(
-		'o-quote',
-		'whitelabel',
+		"o-quote",
+		"whitelabel",
 		(
-			'variables': (),
-			'supports-variants': (
-				'standard',
+			"variables": (),
+			"supports-variants": (
+				"standard",
 			),
 		)
 	);

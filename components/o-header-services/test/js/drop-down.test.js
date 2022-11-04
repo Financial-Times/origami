@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
+import proclaim from "proclaim";
 
-import HeaderServices from '../../src/js/header.js';
-import * as fixtures from '../helpers/fixtures.js';
+import HeaderServices from "../../src/js/header.js";
+import * as fixtures from "../helpers/fixtures.js";
 
-describe('Dropdown', () => {
+describe("Dropdown", () => {
 	let attribute;
 	let click;
 	let headerEl;
@@ -13,16 +13,16 @@ describe('Dropdown', () => {
 	let sandbox;
 
 	beforeEach(() => {
-		sandbox = document.createElement('div');
+		sandbox = document.createElement("div");
 		sandbox.innerHTML = fixtures.withPrimaryNav;
 		document.body.appendChild(sandbox);
-		headerEl = document.body.querySelector('.o-header-services');
+		headerEl = document.body.querySelector(".o-header-services");
 		new HeaderServices(headerEl);
 		navItems = document.querySelectorAll(
 			'li[data-o-header-services-level="1"]'
 		);
 		click = (parent, element) =>
-			parent.querySelector(element).dispatchEvent(new Event('click'));
+			parent.querySelector(element).dispatchEvent(new Event("click"));
 	});
 
 	afterEach(() => {
@@ -30,11 +30,11 @@ describe('Dropdown', () => {
 		headerEl = null;
 	});
 
-	describe('toggles drop down menu via `aria-expanded`', () => {
-		it('open on click', done => {
-			click(navItems[0], 'button');
+	describe("toggles drop down menu via `aria-expanded`", () => {
+		it("open on click", done => {
+			click(navItems[0], "button");
 			setTimeout(() => {
-				attribute = navItems[0].getAttribute('aria-expanded') === 'true';
+				attribute = navItems[0].getAttribute("aria-expanded") === "true";
 				try {
 					proclaim.isTrue(attribute);
 					done();
@@ -44,42 +44,42 @@ describe('Dropdown', () => {
 			}, 100);
 		});
 
-		it('hides on double click', () => {
-			click(navItems[0], 'button');
-			click(navItems[0], 'button');
-			attribute = navItems[0].getAttribute('aria-expanded') === 'false';
+		it("hides on double click", () => {
+			click(navItems[0], "button");
+			click(navItems[0], "button");
+			attribute = navItems[0].getAttribute("aria-expanded") === "false";
 			proclaim.isTrue(attribute);
 		});
 
-		it('hides when the hidden button at the end of a menu is clicked', () => {
+		it("hides when the hidden button at the end of a menu is clicked", () => {
 			// open with main button
 			const navItem = navItems[0];
-			click(navItem, 'button');
+			click(navItem, "button");
 			// close with button at end of menu
 			const navItemDropdown = navItem.querySelector(
 				'[data-o-header-services-level="2"]'
 			);
-			click(navItemDropdown, 'button');
-			attribute = navItem.getAttribute('aria-expanded') === 'false';
+			click(navItemDropdown, "button");
+			attribute = navItem.getAttribute("aria-expanded") === "false";
 			proclaim.isTrue(attribute);
 		});
 
-		it('hides open dropdowns when different nav item is toggled', done => {
-			click(navItems[0], 'button');
+		it("hides open dropdowns when different nav item is toggled", done => {
+			click(navItems[0], "button");
 			setTimeout(() => {
-				attribute = navItems[0].getAttribute('aria-expanded') === 'true';
+				attribute = navItems[0].getAttribute("aria-expanded") === "true";
 				try {
 					proclaim.isTrue(attribute);
 				} catch (error) {
 					done(error);
 					return;
 				}
-				click(navItems[1], 'button');
+				click(navItems[1], "button");
 				setTimeout(() => {
 					try {
-						attribute = navItems[0].getAttribute('aria-expanded') === 'false';
+						attribute = navItems[0].getAttribute("aria-expanded") === "false";
 						proclaim.isTrue(attribute);
-						attribute = navItems[1].getAttribute('aria-expanded') === 'true';
+						attribute = navItems[1].getAttribute("aria-expanded") === "true";
 						proclaim.isTrue(attribute);
 						done();
 					} catch (error) {
@@ -89,17 +89,17 @@ describe('Dropdown', () => {
 			}, 100);
 		});
 
-		it('hides all menus if click outside of nav items', done => {
-			click(navItems[0], 'button');
+		it("hides all menus if click outside of nav items", done => {
+			click(navItems[0], "button");
 			setTimeout(() => {
 				// Assert expanded dropdown
-				attribute = navItems[0].getAttribute('aria-expanded') === 'true';
+				attribute = navItems[0].getAttribute("aria-expanded") === "true";
 				proclaim.isTrue(attribute);
 				// Click on body
-				click(document, 'body');
+				click(document, "body");
 				setTimeout(() => {
 					// Assert collapsed dropdown
-					attribute = navItems[0].getAttribute('aria-expanded') === 'false';
+					attribute = navItems[0].getAttribute("aria-expanded") === "false";
 					proclaim.isTrue(attribute);
 					done();
 				}, 100); // allow time for requestAnimationFrame
@@ -107,16 +107,16 @@ describe('Dropdown', () => {
 		});
 	});
 
-	describe('toggles drop down menu via `aria-expanded`', () => {
-		it('repositions dropdown menu if it doesnt fit to the right of the window but can fit to the left', done => {
-			const subItem = navItems[1].querySelector('li');
-			navItems[1].style['margin-left'] = window.innerWidth / 2 + 'px';
-			subItem.style['width'] = window.innerWidth / 2 + 'px';
-			click(navItems[1], 'button');
+	describe("toggles drop down menu via `aria-expanded`", () => {
+		it("repositions dropdown menu if it doesnt fit to the right of the window but can fit to the left", done => {
+			const subItem = navItems[1].querySelector("li");
+			navItems[1].style["margin-left"] = window.innerWidth / 2 + "px";
+			subItem.style["width"] = window.innerWidth / 2 + "px";
+			click(navItems[1], "button");
 			setTimeout(() => {
 				proclaim.isTrue(
 					navItems[1].lastElementChild.classList.contains(
-						'o-header-services__list--right'
+						"o-header-services__list--right"
 					)
 				);
 				done();

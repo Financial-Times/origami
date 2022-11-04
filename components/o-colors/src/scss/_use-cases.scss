@@ -1,263 +1,263 @@
 // Core brand usecases.
-@if oBrandIs('core') {
+@if oBrandIs("core") {
 	$_o-colors-default-usecases: (
 		(
-			'focus',
+			"focus",
 			(
-				'outline': 'black-50',
+				"outline": "black-50",
 			)
 		),
 		(
-			'page',
+			"page",
 			(
-				'background': 'paper',
+				"background": "paper",
 			)
 		),
 		(
-			'box',
+			"box",
 			(
-				'background': 'wheat',
+				"background": "wheat",
 			)
 		),
 		(
-			'link',
+			"link",
 			(
-				'text': 'teal',
+				"text": "teal",
 			)
 		),
 		(
-			'link-hover',
+			"link-hover",
 			(
-				'text': 'teal-30',
+				"text": "teal-30",
 			)
 		),
 		(
-			'link-title',
+			"link-title",
 			(
-				'text': 'black-80',
+				"text": "black-80",
 			)
 		),
 		(
-			'link-title-hover',
+			"link-title-hover",
 			(
-				'text': 'black-70',
+				"text": "black-70",
 			)
 		),
 		(
-			'tag-link',
+			"tag-link",
 			(
-				'text': 'claret',
+				"text": "claret",
 			)
 		),
 		(
-			'tag-link-hover',
+			"tag-link-hover",
 			(
-				'text': 'claret-30',
+				"text": "claret-30",
 			)
 		),
 		(
-			'opinion-tag-link',
+			"opinion-tag-link",
 			(
-				'text': 'oxford',
+				"text": "oxford",
 			)
 		),
 		(
-			'opinion-tag-link-hover',
+			"opinion-tag-link-hover",
 			(
-				'text': 'oxford-30',
+				"text": "oxford-30",
 			)
 		),
 		(
-			'title',
+			"title",
 			(
-				'text': 'black',
+				"text": "black",
 			)
 		),
 		(
-			'body',
+			"body",
 			(
-				'text': 'black-80',
+				"text": "black-80",
 			)
 		),
 		(
-			'muted',
+			"muted",
 			(
-				'text': 'black-20',
+				"text": "black-20",
 			)
 		),
 		(
-			'opinion',
+			"opinion",
 			(
-				'background': 'sky',
+				"background": "sky",
 			)
 		),
 		(
-			'hero',
+			"hero",
 			(
-				'background': 'wheat',
+				"background": "wheat",
 			)
 		),
 		(
-			'hero-opinion',
+			"hero-opinion",
 			(
-				'background': 'oxford',
+				"background": "oxford",
 			)
 		),
 		(
-			'hero-highlight',
+			"hero-highlight",
 			(
-				'background': 'claret',
+				"background": "claret",
 			)
 		),
 		// Section colors
 		(
-				'section-life-arts',
+				"section-life-arts",
 				(
-					'text': 'velvet',
-					'background': 'velvet',
-					'border': 'velvet',
-					'outline': 'velvet',
+					"text": "velvet",
+					"background": "velvet",
+					"border": "velvet",
+					"outline": "velvet",
 				)
 			),
 		(
-			'section-life-arts-alt',
+			"section-life-arts-alt",
 			(
-				'text': 'candy',
-				'background': 'candy',
-				'border': 'candy',
-				'outline': 'candy',
+				"text": "candy",
+				"background": "candy",
+				"border": "candy",
+				"outline": "candy",
 			)
 		),
 		(
-			'section-magazine',
+			"section-magazine",
 			(
-				'text': 'oxford',
-				'background': 'oxford',
-				'border': 'oxford',
-				'outline': 'oxford',
+				"text": "oxford",
+				"background": "oxford",
+				"border": "oxford",
+				"outline": "oxford",
 			)
 		),
 		(
-			'section-magazine-alt',
+			"section-magazine-alt",
 			(
-				'text': 'sky',
-				'background': 'sky',
-				'border': 'sky',
-				'outline': 'sky',
+				"text": "sky",
+				"background": "sky",
+				"border": "sky",
+				"outline": "sky",
 			)
 		),
 		(
-			'section-house-home',
+			"section-house-home",
 			(
-				'text': 'jade',
-				'background': 'jade',
-				'border': 'jade',
-				'outline': 'jade',
+				"text": "jade",
+				"background": "jade",
+				"border": "jade",
+				"outline": "jade",
 			)
 		),
 		(
-			'section-house-home-alt',
+			"section-house-home-alt",
 			(
-				'text': 'wasabi',
-				'background': 'wasabi',
-				'border': 'wasabi',
-				'outline': 'wasabi',
+				"text": "wasabi",
+				"background": "wasabi",
+				"border": "wasabi",
+				"outline": "wasabi",
 			)
 		),
 		(
-			'section-money',
+			"section-money",
 			(
-				'text': 'crimson',
-				'background': 'crimson',
-				'border': 'crimson',
-				'outline': 'crimson',
+				"text": "crimson",
+				"background": "crimson",
+				"border": "crimson",
+				"outline": "crimson",
 			)
 		),
 		(
-			'section-money-alt',
+			"section-money-alt",
 			(
-				'text': 'white',
-				'background': 'white',
-				'border': 'white',
-				'outline': 'white',
+				"text": "white",
+				"background": "white",
+				"border": "white",
+				"outline": "white",
 			)
 		)
 	);
 }
 
 // Internal brand usecases.
-@if oBrandIs('internal') {
+@if oBrandIs("internal") {
 	$_o-colors-default-usecases: (
 		(
-			'focus',
+			"focus",
 			(
-				'outline': 'oxford-80',
+				"outline": "oxford-80",
 			)
 		),
 		(
-			'page',
+			"page",
 			(
-				'background': 'white',
+				"background": "white",
 			)
 		),
 		(
-			'box',
+			"box",
 			(
-				'background': 'slate-white-5',
+				"background": "slate-white-5",
 			)
 		),
 		(
-			'link',
+			"link",
 			(
-				'text': 'teal',
+				"text": "teal",
 			)
 		),
 		(
-			'link-hover',
+			"link-hover",
 			(
-				'text': 'teal-30',
+				"text": "teal-30",
 			)
 		),
 		(
-			'link-title',
+			"link-title",
 			(
-				'text': 'slate-white-15',
+				"text": "slate-white-15",
 			)
 		),
 		(
-			'link-title-hover',
+			"link-title-hover",
 			(
-				'text': 'slate-white-15',
+				"text": "slate-white-15",
 			)
 		),
 		(
-			'title',
+			"title",
 			(
-				'text': 'slate',
+				"text": "slate",
 			)
 		),
 		(
-			'body',
+			"body",
 			(
-				'text': 'slate',
+				"text": "slate",
 			)
 		),
 		(
-			'muted',
+			"muted",
 			(
-				'text': 'black-20',
+				"text": "black-20",
 			)
 		)
 	);
 }
 
 // Whitelabel brand usecases.
-@if oBrandIs('whitelabel') {
+@if oBrandIs("whitelabel") {
 	$_o-colors-default-usecases: (
 		(
-			'page',
+			"page",
 			(
-				'background': 'white',
+				"background": "white",
 			)
 		)
 	);

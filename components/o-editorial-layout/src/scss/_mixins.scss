@@ -2,14 +2,14 @@
 /// A placeholder is used, which may effect the source order of your CSS.
 /// @param {number} $level - The heading level 1-5.
 @mixin oEditorialLayoutHeading($level) {
-	@if type-of($level) != 'number' or $level < 1 or $level > 5 {
+	@if type-of($level) != "number" or $level < 1 or $level > 5 {
 		@error 'Heading levels must be a number between 1 and 5.';
 	}
+	@extend %_o-editorial-layout-heading-#{$level};
 	// Do not include typography styles within the placeholder, as `@extend`
 	// interleaves selectors unnecessarily for the progressive font fallback.
 	// This may cause large selectors.
-	@include oEditorialTypographyHeading($level, $opts: ('margin-reset': false));
-	@extend %_o-editorial-layout-heading-#{$level};
+	@include oEditorialTypographyHeading($level, $opts: ("margin-reset": false));
 }
 
 /// Body typography and margin.
@@ -19,7 +19,7 @@
 	// This may cause large selectors.
 	@include oEditorialTypographyBody(
 		$opts: (
-			'margin-reset': false,
+			"margin-reset": false,
 		)
 	);
 	@extend %_o-editorial-layout-body;

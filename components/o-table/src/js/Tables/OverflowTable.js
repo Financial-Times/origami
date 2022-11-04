@@ -1,4 +1,4 @@
-import BaseTable from './BaseTable.js';
+import BaseTable from "./BaseTable.js";
 
 class OverflowTable extends BaseTable {
 	/**
@@ -17,11 +17,11 @@ class OverflowTable extends BaseTable {
 		super(rootEl, sorter, opts);
 		this._opts = Object.assign(
 			{
-				expanded: this.rootEl.hasAttribute('data-o-table-expanded')
-					? this.rootEl.getAttribute('data-o-table-expanded') !== 'false'
+				expanded: this.rootEl.hasAttribute("data-o-table-expanded")
+					? this.rootEl.getAttribute("data-o-table-expanded") !== "false"
 					: null,
 				minimumRowCount: this.rootEl.getAttribute(
-					'data-o-table-minimum-row-count'
+					"data-o-table-minimum-row-count"
 				),
 			},
 			this._opts
@@ -85,7 +85,7 @@ class OverflowTable extends BaseTable {
 	 */
 	canExpand() {
 		return (
-			typeof this._opts.expanded === 'boolean' &&
+			typeof this._opts.expanded === "boolean" &&
 			this._minimumRowCount <
 				this.tableRows.length - this._filteredTableRows.length
 		);
@@ -105,7 +105,7 @@ class OverflowTable extends BaseTable {
 	}
 
 	_updateExpander() {
-		if (typeof this._opts.expanded !== 'boolean' || !this.controls) {
+		if (typeof this._opts.expanded !== "boolean" || !this.controls) {
 			return;
 		}
 
@@ -117,7 +117,7 @@ class OverflowTable extends BaseTable {
 		const contract = this.isContracted();
 		const canExpand = expand || contract;
 		const expanderButtonContainer = this.controls.expanderButton;
-		const expanderButton = expanderButtonContainer.querySelector('button');
+		const expanderButton = expanderButtonContainer.querySelector("button");
 
 		this._updateTableHeight();
 		this._updateRowAriaHidden();
@@ -125,26 +125,26 @@ class OverflowTable extends BaseTable {
 
 		this._expanderUpdateScheduled = window.requestAnimationFrame(
 			function () {
-				this.rootEl.setAttribute('data-o-table-expanded', Boolean(expand));
-				this.container.classList.toggle('o-table-container--expanded', expand);
+				this.rootEl.setAttribute("data-o-table-expanded", Boolean(expand));
+				this.container.classList.toggle("o-table-container--expanded", expand);
 				this.container.classList.toggle(
-					'o-table-container--contracted',
+					"o-table-container--contracted",
 					contract
 				);
-				expanderButton.style.display = canExpand ? '' : 'none';
+				expanderButton.style.display = canExpand ? "" : "none";
 
 				if (!canExpand) {
-					this.rootEl.removeAttribute('aria-expanded');
+					this.rootEl.removeAttribute("aria-expanded");
 				}
 
 				if (expand) {
-					expanderButton.textContent = 'Show fewer';
-					this.rootEl.setAttribute('aria-expanded', true);
+					expanderButton.textContent = "Show fewer";
+					this.rootEl.setAttribute("aria-expanded", true);
 				}
 
 				if (contract) {
-					expanderButton.textContent = 'Show more';
-					this.rootEl.setAttribute('aria-expanded', false);
+					expanderButton.textContent = "Show more";
+					this.rootEl.setAttribute("aria-expanded", false);
 				}
 			}.bind(this)
 		);
@@ -226,7 +226,7 @@ class OverflowTable extends BaseTable {
 						? `
 					<div class="o-table-overflow-fade-overlay"></div>
 				`
-						: ''
+						: ""
 				}
 				<div class="o-table-overflow-control-overlay">
 					${
@@ -236,7 +236,7 @@ class OverflowTable extends BaseTable {
 							<button aria-label="visually scroll table back" disabled="true" class="o-buttons o-buttons--primary o-buttons--big o-buttons-icon o-buttons-icon--icon-only o-buttons-icon--arrow-left"></button>
 						</div>
 					`
-							: ''
+							: ""
 					}
 
 					${
@@ -246,17 +246,17 @@ class OverflowTable extends BaseTable {
 							<button aria-label="visually scroll table forward" disabled="true" class="o-buttons o-buttons--primary o-buttons--big o-buttons-icon o-buttons-icon--icon-only o-buttons-icon--arrow-right"></button>
 						</div>
 					`
-							: ''
+							: ""
 					}
 
 					${
-						typeof this._opts.expanded === 'boolean'
+						typeof this._opts.expanded === "boolean"
 							? `
 						<div class="o-table-control o-table-control--expander">
 							<button class="o-buttons o-buttons--primary o-buttons--big">Show fewer</button>
 						</div>
 					`
-							: ''
+							: ""
 					}
 				</div>
 			`;
@@ -268,18 +268,18 @@ class OverflowTable extends BaseTable {
 
 			this.controls = {
 				controlsOverlay: overlayFragment.querySelector(
-					'.o-table-overflow-control-overlay'
+					".o-table-overflow-control-overlay"
 				),
 				fadeOverlay: overlayFragment.querySelector(
-					'.o-table-overflow-fade-overlay'
+					".o-table-overflow-fade-overlay"
 				),
 				expanderButton: overlayFragment.querySelector(
-					'.o-table-control--expander'
+					".o-table-control--expander"
 				),
 				forwardButton: overlayFragment.querySelector(
-					'.o-table-control--forward'
+					".o-table-control--forward"
 				),
-				backButton: overlayFragment.querySelector('.o-table-control--back'),
+				backButton: overlayFragment.querySelector(".o-table-control--back"),
 			};
 
 			// Add controls to the dom.
@@ -301,7 +301,7 @@ class OverflowTable extends BaseTable {
 			: 0;
 		window.requestAnimationFrame(
 			function () {
-				this.controls.controlsOverlay.style['top'] = `${
+				this.controls.controlsOverlay.style["top"] = `${
 					theadHeight + captionHeight
 				}px`;
 			}.bind(this)
@@ -320,8 +320,8 @@ class OverflowTable extends BaseTable {
 			// eslint-disable-next-line no-console
 			console.warn(
 				'Controls to scroll table left/right could not be added to "o-table" as it is missing markup. ' +
-					'Please add the container and wrapper elements according to the documentation https://registry.origami.ft.com/components/o-table.',
-				{table: this.rootEl}
+					"Please add the container and wrapper elements according to the documentation https://registry.origami.ft.com/components/o-table.",
+				{ table: this.rootEl }
 			);
 		}
 
@@ -340,14 +340,14 @@ class OverflowTable extends BaseTable {
 			const scrollForward = function () {
 				this.wrapper.scrollBy({
 					left: document.body.clientWidth / 2,
-					behavior: 'smooth',
+					behavior: "smooth",
 				});
 			}.bind(this);
-			this.controls.forwardButton.addEventListener('click', scrollForward);
+			this.controls.forwardButton.addEventListener("click", scrollForward);
 			this._listeners.push({
 				element: this.controls.forwardButton,
 				scrollForward,
-				type: 'click',
+				type: "click",
 			});
 		}
 
@@ -356,14 +356,14 @@ class OverflowTable extends BaseTable {
 			const scrollBackward = function () {
 				this.wrapper.scrollBy({
 					left: -(document.body.clientWidth / 2),
-					behavior: 'smooth',
+					behavior: "smooth",
 				});
 			}.bind(this);
-			this.controls.backButton.addEventListener('click', scrollBackward);
+			this.controls.backButton.addEventListener("click", scrollBackward);
 			this._listeners.push({
 				element: this.controls.backButton,
 				scrollBackward,
-				type: 'click',
+				type: "click",
 			});
 		}
 
@@ -394,12 +394,12 @@ class OverflowTable extends BaseTable {
 			const arrowFadeObserverConfig = {
 				root: this.controls.controlsOverlay,
 				threshold: 1.0,
-				rootMargin: `-20px 0px ${this.canExpand() ? '0px' : '-20px'} 0px`,
+				rootMargin: `-20px 0px ${this.canExpand() ? "0px" : "-20px"} 0px`,
 			};
 			const arrowFadeObserver = new IntersectionObserver(function (entries) {
 				entries.forEach(function (entry) {
 					entry.target.setAttribute(
-						'data-o-table-intersection',
+						"data-o-table-intersection",
 						entry.intersectionRatio !== 1
 					);
 					updateScroll();
@@ -414,12 +414,16 @@ class OverflowTable extends BaseTable {
 		}
 
 		// Add other event listeners to update controls.
-		this.wrapper.addEventListener('scroll', updateScroll);
-		window.addEventListener('resize', updateScroll);
-		window.addEventListener('load', updateScroll);
-		this._listeners.push({element: this.wrapper, updateScroll, type: 'scroll'});
-		this._listeners.push({element: window, updateScroll, type: 'resize'});
-		this._listeners.push({element: window, updateScroll, type: 'load'});
+		this.wrapper.addEventListener("scroll", updateScroll);
+		window.addEventListener("resize", updateScroll);
+		window.addEventListener("load", updateScroll);
+		this._listeners.push({
+			element: this.wrapper,
+			updateScroll,
+			type: "scroll",
+		});
+		this._listeners.push({ element: window, updateScroll, type: "resize" });
+		this._listeners.push({ element: window, updateScroll, type: "load" });
 	}
 
 	/**
@@ -428,14 +432,14 @@ class OverflowTable extends BaseTable {
 	 * @returns {undefined}
 	 */
 	_setupExpander() {
-		if (typeof this._opts.expanded !== 'boolean') {
+		if (typeof this._opts.expanded !== "boolean") {
 			return;
 		}
 
 		if (!this.container || !this.overlayWrapper || !this.wrapper) {
 			throw new Error(
 				'Controls to expand/contract the table could not be added to "o-table" as it is missing markup.' +
-					'Please add the container and wrapper element according to the documentation https://registry.origami.ft.com/components/o-table.'
+					"Please add the container and wrapper element according to the documentation https://registry.origami.ft.com/components/o-table."
 			);
 		}
 
@@ -462,11 +466,11 @@ class OverflowTable extends BaseTable {
 					this.expandTable();
 				}
 			}.bind(this);
-			this.controls.expanderButton.addEventListener('click', toggleExpanded);
+			this.controls.expanderButton.addEventListener("click", toggleExpanded);
 			this._listeners.push({
 				element: this.controls.expanderButton,
 				toggleExpanded,
-				type: 'click',
+				type: "click",
 			});
 		}
 
@@ -489,15 +493,15 @@ class OverflowTable extends BaseTable {
 		window.requestAnimationFrame(
 			function () {
 				this.controls.fadeOverlay.classList.toggle(
-					'o-table-overflow-fade-overlay--scroll',
+					"o-table-overflow-fade-overlay--scroll",
 					canScrollTable
 				);
 				this.controls.fadeOverlay.style.setProperty(
-					'--o-table-fade-from-end',
+					"--o-table-fade-from-end",
 					`${Math.min(this._fromEnd, 10)}px`
 				);
 				this.controls.fadeOverlay.style.setProperty(
-					'--o-table-fade-from-start',
+					"--o-table-fade-from-start",
 					`${Math.min(this._fromStart, 10)}px`
 				);
 			}.bind(this)
@@ -508,7 +512,7 @@ class OverflowTable extends BaseTable {
 		window.requestAnimationFrame(
 			function () {
 				this.controls.controlsOverlay.classList.toggle(
-					'o-table-overflow-control-overlay--arrow-dock',
+					"o-table-overflow-control-overlay--arrow-dock",
 					showArrowDock
 				);
 			}.bind(this)
@@ -542,30 +546,30 @@ class OverflowTable extends BaseTable {
 			(!this._stickyArrows ||
 				(this._stickyArrows && !this._canScrollPastTable));
 		const outsideTable =
-			element.getAttribute('data-o-table-intersection') === 'true';
-		const elementButton = element.querySelector('button');
+			element.getAttribute("data-o-table-intersection") === "true";
+		const elementButton = element.querySelector("button");
 		window.requestAnimationFrame(() => {
 			// Show scroll control if the table does not fit within the viewport.
-			element.style.display = canScrollTable ? '' : 'none';
+			element.style.display = canScrollTable ? "" : "none";
 			// Make arrows sticky if table is tall and can be scrolled past.
-			element.classList.toggle('o-table-control--sticky', showStickyArrows);
+			element.classList.toggle("o-table-control--sticky", showStickyArrows);
 			// Place the arrows in the dock if they are not sticky.
-			element.classList.toggle('o-table-control--dock', arrowsDocked);
+			element.classList.toggle("o-table-control--dock", arrowsDocked);
 			// Hide scroll control if they are outside the table boundry.
 			// E.g. the table has been scrolled past.
 			if (outsideTable) {
-				elementButton.setAttribute('disabled', true);
-				element.classList.add('o-table-control--hide');
+				elementButton.setAttribute("disabled", true);
+				element.classList.add("o-table-control--hide");
 			}
 			// Show scroll control if they are inside the table and the table is scrollable.
 			if (!scrolledToBoundary && !outsideTable) {
-				elementButton.removeAttribute('disabled');
-				element.classList.remove('o-table-control--hide');
+				elementButton.removeAttribute("disabled");
+				element.classList.remove("o-table-control--hide");
 			}
 			// Disable scroll control if it is inside the table but scrolled to the end horizontally.
 			if (scrolledToBoundary && !outsideTable) {
-				elementButton.setAttribute('disabled', true);
-				element.classList.toggle('o-table-control--hide', hideAtBoundary);
+				elementButton.setAttribute("disabled", true);
+				element.classList.toggle("o-table-control--hide", hideAtBoundary);
 			}
 		});
 	}
@@ -675,9 +679,9 @@ class OverflowTable extends BaseTable {
 	 */
 	static _supportsArrows() {
 		return (
-			typeof CSS !== 'undefined' &&
-			(CSS.supports('position', 'sticky') ||
-				CSS.supports('position', '-webkit-sticky'))
+			typeof CSS !== "undefined" &&
+			(CSS.supports("position", "sticky") ||
+				CSS.supports("position", "-webkit-sticky"))
 		);
 	}
 }

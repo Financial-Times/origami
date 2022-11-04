@@ -6,15 +6,15 @@ class OTrackingCollector {
 
 	start() {
 		if (!this.listener) {
-			this.listener = ({detail}) => this.events.push(detail);
-			document.body.addEventListener('oTracking.event', this.listener);
+			this.listener = ({ detail }) => this.events.push(detail);
+			document.body.addEventListener("oTracking.event", this.listener);
 		}
 		this.events = [];
 		return this.events;
 	}
 
 	stop() {
-		document.body.removeEventListener('oTracking.event', this.listener);
+		document.body.removeEventListener("oTracking.event", this.listener);
 	}
 }
 

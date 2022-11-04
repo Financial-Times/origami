@@ -4,14 +4,13 @@ description: When releasing major versions of low level components such as o-typ
 cta: Read more about Major Cascades
 
 collection_listing_display: false
-
 ---
 
 # Major Cascade
 
 Major releases of low level components such as o-typography, o-colors, or o-buttons affect many projects and teams across different Financial Times groups. That's because a major release of one project requires a major release of dependent projects that use them, and projects that use those projects, and so on. This is what we call the Major Cascade.
 
-This page explores what we mean by a  Major Cascade in more detail and notes areas to consider when releasing major versions of low level components.
+This page explores what we mean by a Major Cascade in more detail and notes areas to consider when releasing major versions of low level components.
 
 ## Definition
 
@@ -39,7 +38,6 @@ Dependencies on o-table, a high level dependency, are a small portion of the ove
 
 <img alt="" src="/assets/images/2019-10-31-major-cascade/table-graph.svg" />
 
-
 When we talk about "The Major Cascade" we are referring to the process of organising and rolling out new major component releases through the graph step-by-step. Starting with other components, through intermediary projects, until end products are on the latest version.
 
 ## Things To Consider
@@ -53,6 +51,7 @@ To upgrade Customer Products projects first they had to figure out what projects
 ### Order
 
 The reason we have to upgrade step by step through dependent projects is that two versions of the same component cannot be used at the same time. In other words we enforce a flat dependency tree, because:
+
 - Design consistency (e.g. if o-colors removes a colour usecase, we should stop using it not include two versions of o-colors).
 - Performance (e.g. only one version of a component should be downloaded / parsed by a client).
 - We don't support otherwise (e.g. it's likely to cause errors if two versions of a component are initialised on a page).

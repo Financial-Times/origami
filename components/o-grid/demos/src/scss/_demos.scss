@@ -13,7 +13,7 @@ body:before {
 	font-family: inherit;
 }
 .test body:after {
-	content: '';
+	content: "";
 	background-color: #fcf8e3;
 	border-bottom: 1px solid #fbeed5;
 	border-left: 1px solid #fbeed5;
@@ -64,7 +64,7 @@ body:before {
 	}
 }
 
-[class*='error'] .demo-cell {
+[class*="error"] .demo-cell {
 	background-color: #c00d00;
 }
 

@@ -2,6 +2,7 @@
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @output styles for toggle based on a checkbox input
 @mixin _oFormsToggle($disabled: null) {
+	// stylelint-disable selector-no-qualifying-type
 	.o-forms-input--toggle {
 		$toggle-width: $_o-forms-spacing-ten;
 		> label {
@@ -17,7 +18,7 @@
 
 			&:before,
 			&:after {
-				content: '';
+				content: "";
 				cursor: pointer;
 				position: absolute;
 				top: 0;
@@ -25,7 +26,7 @@
 			}
 
 			&:before {
-				background-color: _oFormsGet('toggle');
+				background-color: _oFormsGet("toggle");
 				border-radius: $_o-forms-spacing-ten;
 				height: $_o-forms-checkbox-radio-width;
 				width: $toggle-width;
@@ -33,8 +34,8 @@
 
 			&:after {
 				@include oIconsContent(
-					'cross',
-					$color: _oFormsGet('default-text'),
+					"cross",
+					$color: _oFormsGet("default-text"),
 					$size: null
 				);
 				background-color: oColorsByUsecase(page, background);
@@ -43,7 +44,7 @@
 					--o-forms-toggle-handle-color,
 					#{oColorsByUsecase(page, background)}
 				);
-				border: $_o-forms-spacing-half solid _oFormsGet('default-text');
+				border: $_o-forms-spacing-half solid _oFormsGet("default-text");
 				border-radius: 50%;
 				box-sizing: border-box;
 				height: $_o-forms-checkbox-radio-width;
@@ -52,56 +53,51 @@
 			}
 		}
 
-		input[type='checkbox'] {
-			// stylelint-disable-line selector-no-qualifying-type
+		input[type="checkbox"] {
 			&:checked + .o-forms-input__label {
-				// stylelint-disable-line selector-no-qualifying-type
 				&:before {
-					background-color: _oFormsGet('toggle-selected');
+					background-color: _oFormsGet("toggle-selected");
 				}
 				&:after {
 					@include oIconsContent(
-						'tick',
+						"tick",
 						$size: null,
-						$color: _oFormsGet('toggle-selected'),
+						$color: _oFormsGet("toggle-selected"),
 						$include-base-styles: false
 					);
 					left: $_o-forms-spacing-four;
-					border-color: _oFormsGet('toggle-selected');
+					border-color: _oFormsGet("toggle-selected");
 				}
 			}
 
 			&:invalid:not(:disabled) + .o-forms-input__label:after {
-				// stylelint-disable-line selector-no-qualifying-type
 				border-color: inherit;
 			}
 		}
 
 		@if $disabled {
-			input[type='checkbox']:disabled + .o-forms-input__label {
-				// stylelint-disable-line selector-no-qualifying-type
-				color: _oFormsGet('disabled-text');
+			input[type="checkbox"]:disabled + .o-forms-input__label {
+				color: _oFormsGet("disabled-text");
 
 				&:after {
 					@include oIconsContent(
-						'cross',
+						"cross",
 						$size: null,
 						$color: black,
 						$include-base-styles: false
 					);
-					border-color: _oFormsGet('toggle-disabled');
-					background-color: _oFormsGet('toggle-knob-disabled');
+					border-color: _oFormsGet("toggle-disabled");
+					background-color: _oFormsGet("toggle-knob-disabled");
 				}
 
 				&:before {
-					background-color: _oFormsGet('toggle-disabled');
+					background-color: _oFormsGet("toggle-disabled");
 				}
 			}
-			input[type='checkbox']:disabled:checked + .o-forms-input__label {
-				// stylelint-disable-line selector-no-qualifying-type
+			input[type="checkbox"]:disabled:checked + .o-forms-input__label {
 				&:after {
 					@include oIconsContent(
-						'tick',
+						"tick",
 						$size: null,
 						$color: black,
 						$include-base-styles: false
@@ -110,4 +106,5 @@
 			}
 		}
 	}
+	// stylelint-enable selector-no-qualifying-type
 }

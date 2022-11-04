@@ -1,3 +1,3 @@
-import Share from '../../main.js';
+import Share from "../../main.js";
 
 Share.init();

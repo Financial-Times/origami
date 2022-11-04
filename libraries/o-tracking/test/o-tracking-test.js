@@ -1,3 +1,3 @@
-import oTracking from '../main.js';
+import oTracking from "../main.js";
 
 window.oTracking = oTracking;

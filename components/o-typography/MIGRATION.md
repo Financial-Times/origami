@@ -26,6 +26,7 @@ The class `o-typography--loading-sansBold` is now `o-typography--loading-sans-bo
 ##### Editorial Markup (Master Brand Only)
 
 The following editorial style css classes have been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
+
 - `o-typography-topic` is now `o-editorial-typography-topic`
 - `o-typography-author` is now `o-editorial-typography-author`
 - `o-typography-standfirst` is now `o-editorial-typography-standfirst`
@@ -35,10 +36,12 @@ The following editorial style css classes have been moved to [o-editorial-typogr
 The previous default wrapper `o-typography-wrapper` has been removed. Consider using [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout) and [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography) classes, or contact the Origami team to discuss this feature. No changes are required by internal or whitelabel brand products.
 
 The product wrapper is now the default wrapper:
+
 - `o-typography-wrapper--product` is now `o-typography-wrapper`
 - the wrapper no longer styles blockquotes, instead use [o-quote](https://github.com/Financial-Times/o-quote/)
 
 For master brand products, the previous default headings have been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
+
 - `o-typography-headline--large` is now `o-editorial-typography-headline`
 - `o-typography-heading-level-1--large` is now `o-editorial-typography-headline`
 - `o-typography-headline` is now `o-editorial-typography-heading-level-1`
@@ -49,6 +52,7 @@ For master brand products, the previous default headings have been moved to [o-e
 - `o-typography-heading-level-5` is now `o-editorial-typography-heading-level-5`
 
 For master brand products, the "product" headings are now the default o-typography heading. Note the size and weight of these headings have changed, so you may wish to choose a different heading level:
+
 - `o-typography-product-heading-level-1` is now `o-typography-heading-level-1`
 - `o-typography-product-heading-level-2` is now `o-typography-heading-level-2`
 - `o-typography-product-heading-level-3` is now `o-typography-heading-level-3`
@@ -76,6 +80,7 @@ The font family variables `$o-typography-sans`, `$o-typography-serif`, `$o-typog
 ##### Colour Usecases
 
 The following colour usecases have been removed. Replace the `o-typography-body` usecase with the default o-colors usecase `body`. If your project requires any other usecase please contact the Origami team:
+
 - `o-typography-timestamp`
 - `o-typography-headline`
 - `o-typography-body` (replace with the default o-colors `body` usecase)
@@ -103,7 +108,7 @@ Replace with the one of the standard `oTypographySans`, `oTypographySerif`, or `
 
 ##### oTypographyBold
 
-If `oTypographyBold` has been used along with `oTypographySans` add `$weight: 'semibold'` to `oTypographySans` and remove  `oTypographyBold`. If used alongside `oTypographySerif` or `oTypographyDisplay` do the same but set `$weight: 'bold'`.
+If `oTypographyBold` has been used along with `oTypographySans` add `$weight: 'semibold'` to `oTypographySans` and remove `oTypographyBold`. If used alongside `oTypographySerif` or `oTypographyDisplay` do the same but set `$weight: 'bold'`.
 
 ```diff
 - @include oTypographySans();
@@ -179,18 +184,21 @@ Note: If it aids your projects migration you may swap oTypographyItalic for the 
 Different fonts may have different scales. Instead of `oTypographySize` use one of the type mixins `oTypographySans`, `oTypographySerif`, or `oTypographyDisplay` instead. Set `$include-font-family: false` to avoid repeating the font-family property.
 
 To scale a sans font:
+
 ```diff
 - @include oTypographySize($scale: 4);
 + @include oTypographySans($scale: 4, $include-font-family: false);
 ```
 
 To scale a serif font:
+
 ```diff
 - @include oTypographySize($scale: 4);
 + @include oTypographySerif($scale: 4, $include-font-family: false);
 ```
 
 To scale a display font:
+
 ```diff
 - @include oTypographySize($scale: 4);
 + @include oTypographyDisplay($scale: 4, $include-font-family: false);
@@ -201,6 +209,7 @@ To scale a display font:
 Replace `oTypographyLinkCustom` with `oTypographyLink` and a `$theme` map. The theme map accepts an o-colors palette colour name.
 
 The arguments of `oTypographyLinkCustom` map to `$theme` keys:
+
 - `$baseColor` becomes a `base` key
 - `$hoverColor` becomes a `hover` key
 - `$outlineColor` is removed, do not customise the focus outline colour. Contact the Origami team if this is required by your project.
@@ -324,6 +333,7 @@ For master brand products, the previous default headings have been moved to [o-e
 _Note: `o-editorial-typography` does not apply margin as it makes no assumption about where the editorial typography is being used -- it could be a page, another component, or email for example. Include margin as required by your project or, for article and article-like pages, use [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout) instead._
 
 For master brand products, the "product" headings are now the default o-typography heading. Note the size and weight of these headings have changed, so you may wish to choose a different heading level:
+
 - `oTypographyProductHeadingLevel1` becomes `oTypographyHeading($level: 1)`
 - `oTypographyProductHeadingLevel2` becomes `oTypographyHeading($level: 2)`
 - `oTypographyProductHeadingLevel3` becomes `oTypographyHeading($level: 3)`
@@ -471,50 +481,50 @@ v5 introduces several changes to the CSS classes that are available. Whether usi
 
 If you are unsure about any of the suggested replacements, either speak to a designer or contact the Origami team.
 
-| V4 Mixin | V4 size | V4 font-size (px) | V4 line-height (px) | V5 mixin | V5 scale size | V5 font-size (px) | V5 line-height (px) |
-|--------- |--------- |---------:|---------:|--------- |--------- |---------:|---------:|
-| oTypographySansData | xs	 | 11 | 13 | oTypographySans | -2 | 12 | 12 |
-|  | s	 | 12 | 14 |  | -2 | 12 | 12 |
-|  | m	 | 14 | 16 |  | -1 | 14 | 16 |
-|  | l	 | 21 | 24 |  | 2 | 20 | 24 |
-|  | xl	 | 28 | 32 |  | 4 | 28 | 32 |
-| oTypographySansDataBold | xs	 | 11 | 13 | oTypographySansBold | -2 | 12 | 12 |
-|  | s	 | 12 | 14 |  | -2 | 12 | 12 |
-|  | m	 | 14 | 16 |  | -1 | 14 | 16 |
-|  | l	 | 21 | 24 |  | 2 | 20 | 24 |
-|  | xl	 | 28 | 32 |  | 4 | 28 | 32 |
-| oTypographySansDataItalic | xs	 | 11 | 13 | oTypographySansItalic | -2 | 12 | 12 |
-|  | s	 | 12 | 14 |  | -2 | 12 | 12 |
-|  | m	 | 14 | 16 |  | -1 | 14 | 16 |
-|  | l	 | 21 | 24 |  | 2 | 20 | 24 |
-|  | xl	 | 28 | 32 |  | 4 | 28 | 32 |
-| oTypographySerifDisplay | xs	 | 11 | 12 | oTypographyDisplay | -2 | 12 | 12 |
-|  | s	 | 16 | 19 |  | 0 | 16 | 24 |
-|  | m	 | 20 | 24 |  | 2 | 20 | 24 |
-|  | l	 | 26 | 31 |  | 3/4 | 24/28 | 28/32 |
-|  | xl	 | 40 | 40 |  | 6 | 40 | 40 |
-| oTypographySerifDisplayBold | xs	 | 11 | 12 | oTypographyDisplayBold | -2 | 12 | 12 |
-|  | s	 | 16 | 19 |  | 0 | 16 | 24 |
-|  | m	 | 20 | 24 |  | 2 | 20 | 24 |
-|  | l	 | 26 | 31 |  | 3/4 | 24/28 | 28/32 |
-|  | xl	 | 40 | 40 |  | 6 | 40 | 40 |
-| oTypographySerifDisplayItalic | xs	 | 11 | 12 | oTypographyDisplayItalic | -2 | 12 | 12 |
-|  | s	 | 15 | 17 |  | 0 | 16 | 24 |
-|  | m	 | 22 | 22 |  | 2/3 | 20/24 | 24/28 |
-|  | l	 | 26 | 27 |  | 3/4 | 24/28 | 28/32 |
-|  | xl	 | 40 | 40 |  | 6 | 40 | 40 |
-| oTypographySerif | xs	 | 12 | 12 | oTypographySerif | -2 | 12 | 12 |
-|  | s	 | 16 | 19 |  | 0 | 16 | 24 |
-|  | m	 | 20 | 24 |  | 2 | 20 | 24 |
-|  | l	 | 26 | 31 |  | 3/4 | 24/28 | 28/32 |
-|  | xl	 | 40 | 40 |  | 6 | 40 | 40 |
-| oTypographySerifBold | xs	 | 12 | 12 | oTypographySerifBold | -2 | 12 | 12 |
-|  | s	 | 16 | 19 |  | 0 | 16 | 24 |
-|  | m	 | 20 | 24 |  | 2 | 20 | 24 |
-|  | l	 | 26 | 31 |  | 3/4 | 24/28 | 28/32 |
-|  | xl	 | 40 | 40 |  | 6 | 40 | 40 |
-| oTypographySerifItalic | xs	 | 11 | 12 | oTypographySerifItalic | -2 | 12 | 12 |
-|  | s	 | 15 | 17 |  | 0 | 16 | 24 |
-|  | m	 | 22 | 22 |  | 2/3 | 20/24 | 24/28 |
-|  | l	 | 26 | 27 |  | 3/4 | 24/28 | 28/32 |
-|  | xl	 | 40 | 40 |  | 6 | 40 | 40 |
+| V4 Mixin                      | V4 size | V4 font-size (px) | V4 line-height (px) | V5 mixin                 | V5 scale size | V5 font-size (px) | V5 line-height (px) |
+| ----------------------------- | ------- | ----------------: | ------------------: | ------------------------ | ------------- | ----------------: | ------------------: |
+| oTypographySansData           | xs      |                11 |                  13 | oTypographySans          | -2            |                12 |                  12 |
+|                               | s       |                12 |                  14 |                          | -2            |                12 |                  12 |
+|                               | m       |                14 |                  16 |                          | -1            |                14 |                  16 |
+|                               | l       |                21 |                  24 |                          | 2             |                20 |                  24 |
+|                               | xl      |                28 |                  32 |                          | 4             |                28 |                  32 |
+| oTypographySansDataBold       | xs      |                11 |                  13 | oTypographySansBold      | -2            |                12 |                  12 |
+|                               | s       |                12 |                  14 |                          | -2            |                12 |                  12 |
+|                               | m       |                14 |                  16 |                          | -1            |                14 |                  16 |
+|                               | l       |                21 |                  24 |                          | 2             |                20 |                  24 |
+|                               | xl      |                28 |                  32 |                          | 4             |                28 |                  32 |
+| oTypographySansDataItalic     | xs      |                11 |                  13 | oTypographySansItalic    | -2            |                12 |                  12 |
+|                               | s       |                12 |                  14 |                          | -2            |                12 |                  12 |
+|                               | m       |                14 |                  16 |                          | -1            |                14 |                  16 |
+|                               | l       |                21 |                  24 |                          | 2             |                20 |                  24 |
+|                               | xl      |                28 |                  32 |                          | 4             |                28 |                  32 |
+| oTypographySerifDisplay       | xs      |                11 |                  12 | oTypographyDisplay       | -2            |                12 |                  12 |
+|                               | s       |                16 |                  19 |                          | 0             |                16 |                  24 |
+|                               | m       |                20 |                  24 |                          | 2             |                20 |                  24 |
+|                               | l       |                26 |                  31 |                          | 3/4           |             24/28 |               28/32 |
+|                               | xl      |                40 |                  40 |                          | 6             |                40 |                  40 |
+| oTypographySerifDisplayBold   | xs      |                11 |                  12 | oTypographyDisplayBold   | -2            |                12 |                  12 |
+|                               | s       |                16 |                  19 |                          | 0             |                16 |                  24 |
+|                               | m       |                20 |                  24 |                          | 2             |                20 |                  24 |
+|                               | l       |                26 |                  31 |                          | 3/4           |             24/28 |               28/32 |
+|                               | xl      |                40 |                  40 |                          | 6             |                40 |                  40 |
+| oTypographySerifDisplayItalic | xs      |                11 |                  12 | oTypographyDisplayItalic | -2            |                12 |                  12 |
+|                               | s       |                15 |                  17 |                          | 0             |                16 |                  24 |
+|                               | m       |                22 |                  22 |                          | 2/3           |             20/24 |               24/28 |
+|                               | l       |                26 |                  27 |                          | 3/4           |             24/28 |               28/32 |
+|                               | xl      |                40 |                  40 |                          | 6             |                40 |                  40 |
+| oTypographySerif              | xs      |                12 |                  12 | oTypographySerif         | -2            |                12 |                  12 |
+|                               | s       |                16 |                  19 |                          | 0             |                16 |                  24 |
+|                               | m       |                20 |                  24 |                          | 2             |                20 |                  24 |
+|                               | l       |                26 |                  31 |                          | 3/4           |             24/28 |               28/32 |
+|                               | xl      |                40 |                  40 |                          | 6             |                40 |                  40 |
+| oTypographySerifBold          | xs      |                12 |                  12 | oTypographySerifBold     | -2            |                12 |                  12 |
+|                               | s       |                16 |                  19 |                          | 0             |                16 |                  24 |
+|                               | m       |                20 |                  24 |                          | 2             |                20 |                  24 |
+|                               | l       |                26 |                  31 |                          | 3/4           |             24/28 |               28/32 |
+|                               | xl      |                40 |                  40 |                          | 6             |                40 |                  40 |
+| oTypographySerifItalic        | xs      |                11 |                  12 | oTypographySerifItalic   | -2            |                12 |                  12 |
+|                               | s       |                15 |                  17 |                          | 0             |                16 |                  24 |
+|                               | m       |                22 |                  22 |                          | 2/3           |             20/24 |               24/28 |
+|                               | l       |                26 |                  27 |                          | 3/4           |             24/28 |               28/32 |
+|                               | xl      |                40 |                  40 |                          | 6             |                40 |                  40 |

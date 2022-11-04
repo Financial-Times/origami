@@ -1,30 +1,30 @@
-@include describe('oLabels mixins') {
-	@include describe('_oLabelsBaseContent') {
-		@include it('subtracts border width from the padding values') {
+@include describe("oLabels mixins") {
+	@include describe("_oLabelsBaseContent") {
+		@include it("subtracts border width from the padding values") {
 			@include assert() {
 				@include output() {
 					@include _oLabelsBaseContent;
 				}
 				@include contains() {
-					$expected-vertical-padding: calc(#{oSpacingByName('s1')} - #{1px});
-					$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
+					$expected-vertical-padding: calc(#{oSpacingByName("s1")} - #{1px});
+					$expected-horizontal-padding: calc(#{oSpacingByName("s2")} - #{1px});
 					padding: $expected-vertical-padding $expected-horizontal-padding;
 				}
 			}
 		}
 	}
 
-	@include describe('_oLabelsSize') {
+	@include describe("_oLabelsSize") {
 		@include describe('with $size set to "big"') {
-			@include it('subtracts border width from the padding values') {
+			@include it("subtracts border width from the padding values") {
 				@include assert() {
 					@include output($selector: false) {
-						@include _oLabelsSize('big');
+						@include _oLabelsSize("big");
 					}
 					@include contains($selector: false) {
-						$expected-vertical-padding: calc(#{oSpacingByName('s2')} - #{1px});
+						$expected-vertical-padding: calc(#{oSpacingByName("s2")} - #{1px});
 						$expected-horizontal-padding: calc(
-							#{oSpacingByName('s2')} - #{1px}
+							#{oSpacingByName("s2")} - #{1px}
 						);
 						.o-labels--big {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
@@ -35,12 +35,12 @@
 		}
 	}
 
-	@include describe('_oLabelsSize') {
+	@include describe("_oLabelsSize") {
 		@include describe('with $size set to "small"') {
-			@include it('subtracts border width from the padding values') {
+			@include it("subtracts border width from the padding values") {
 				@include assert() {
 					@include output($selector: false) {
-						@include _oLabelsSize('small');
+						@include _oLabelsSize("small");
 					}
 					@include contains($selector: false) {
 						$expected-vertical-padding: calc(#{2px} - #{1px});
@@ -54,15 +54,15 @@
 		}
 	}
 
-	@include describe('oLabelsContent') {
+	@include describe("oLabelsContent") {
 		@include describe('with "size" and no "state"') {
-			@include it('outputs label dimentions only') {
+			@include it("outputs label dimentions only") {
 				@include assert() {
 					@include output($selector: false) {
 						.o-example-label {
 							@include oLabelsContent(
 								$opts: (
-									'size': 'small',
+									"size": "small",
 								)
 							);
 						}
@@ -81,13 +81,13 @@
 			}
 		}
 		@include describe('with "state" and no "size"') {
-			@include it('outputs state styles only') {
+			@include it("outputs state styles only") {
 				@include assert() {
 					@include output() {
 						.o-example-label {
 							@include oLabelsContent(
 								$opts: (
-									'state': 'content-commercial',
+									"state": "content-commercial",
 								)
 							);
 						}
@@ -102,14 +102,14 @@
 			}
 		}
 		@include describe('with a custom "state" and no "size"') {
-			@include it('outputs custom state styles only') {
+			@include it("outputs custom state styles only") {
 				@include assert() {
 					@include output() {
 						.o-example-label {
 							@include oLabelsContent(
 								$opts: (
-									'state': (
-										'background-color': hotpink,
+									"state": (
+										"background-color": hotpink,
 									),
 								)
 							);
@@ -125,14 +125,14 @@
 			}
 		}
 		@include describe('with "state" and "size"') {
-			@include it('outputs state and size styles') {
+			@include it("outputs state and size styles") {
 				@include assert() {
 					@include output($selector: false) {
 						.o-example-label {
 							@include oLabelsContent(
 								$opts: (
-									'size': 'small',
-									'state': 'content-commercial',
+									"size": "small",
+									"state": "content-commercial",
 								)
 							);
 						}
@@ -154,12 +154,12 @@
 			}
 		}
 		@include describe('with "base"') {
-			@include it('outputs fundamental label styles required by all labels') {
+			@include it("outputs fundamental label styles required by all labels") {
 				@include assert() {
 					@include output() {
 						@include oLabelsContent(
 							$opts: (
-								'base': true,
+								"base": true,
 							)
 						);
 					}

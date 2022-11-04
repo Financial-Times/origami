@@ -1,12 +1,12 @@
-import gAudio from "./src/js/audio.js"
+import gAudio from "./src/js/audio.js";
 
 const constructAll = function () {
-	gAudio.init()
-	document.removeEventListener("o.DOMContentLoaded", constructAll)
-}
+	gAudio.init();
+	document.removeEventListener("o.DOMContentLoaded", constructAll);
+};
 
 if (typeof document !== "undefined") {
-	document.addEventListener("o.DOMContentLoaded", constructAll)
+	document.addEventListener("o.DOMContentLoaded", constructAll);
 }
 
-export default gAudio
+export default gAudio;

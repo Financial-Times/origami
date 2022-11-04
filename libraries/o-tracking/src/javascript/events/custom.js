@@ -1,5 +1,5 @@
-import core from '../core.js';
-import {is, broadcast, merge, addEvent} from '../utils.js';
+import core from "../core.js";
+import { is, broadcast, merge, addEvent } from "../utils.js";
 
 /**
  * Default properties for events.
@@ -9,8 +9,8 @@ import {is, broadcast, merge, addEvent} from '../utils.js';
  */
 const defaultEventConfig = function () {
 	return {
-		category: 'event',
-		action: 'generic',
+		category: "event",
+		action: "generic",
 		context: {},
 	};
 };
@@ -30,10 +30,10 @@ const defaultEventConfig = function () {
  */
 function event(trackingEvent, callback) {
 	if (is(trackingEvent.detail.category) || is(trackingEvent.detail.action)) {
-		const noCategoryActionVals = 'Missing category or action values';
-		broadcast('oErrors', 'log', {
+		const noCategoryActionVals = "Missing category or action values";
+		broadcast("oErrors", "log", {
 			error: noCategoryActionVals,
-			info: {module: 'o-tracking'},
+			info: { module: "o-tracking" },
 		});
 		throw noCategoryActionVals;
 	}
@@ -50,7 +50,7 @@ function event(trackingEvent, callback) {
 	const origamiElement = getOrigamiEventTarget(trackingEvent);
 	if (origamiElement) {
 		config.context.component_name =
-			origamiElement.getAttribute('data-o-component');
+			origamiElement.getAttribute("data-o-component");
 		config.context.component_id =
 			config.context.component_id || getComponentId(origamiElement);
 	}
@@ -69,7 +69,7 @@ function getOrigamiEventTarget(event) {
 	// `event.target`
 	const element = event.target || event.srcElement;
 
-	if (element && element.getAttribute('data-o-component')) {
+	if (element && element.getAttribute("data-o-component")) {
 		return element;
 	}
 }
@@ -84,7 +84,7 @@ function getOrigamiEventTarget(event) {
 function getComponentId(element) {
 	const path = _getElementPath(element);
 
-	if (typeof path === 'undefined') {
+	if (typeof path === "undefined") {
 		return;
 	}
 
@@ -112,22 +112,22 @@ function getComponentId(element) {
 	// Generate a normalised string (normalising browser quirks) from the sequence of elements
 	const normalisedStringPath = path.reduceRight(function (builder, el) {
 		if (!el.nodeName) {
-			return builder + ' - ' + el.constructor.name + '\n';
+			return builder + " - " + el.constructor.name + "\n";
 		}
 
 		const nodeName = el.nodeName.toLowerCase();
 
 		// In some browsers, document is prepended with a '#'
-		if (nodeName.indexOf('#') === 0) {
-			return builder + '<' + nodeName + '>';
+		if (nodeName.indexOf("#") === 0) {
+			return builder + "<" + nodeName + ">";
 		}
 
 		// Replace this stuff with stuff that makes each node unique - without including styling detail (as this may change depending on animation state etc, position)
-		return builder + '<' + nodeName + ' id="' + (el.id || '') + '">';
-	}, '');
+		return builder + "<" + nodeName + ' id="' + (el.id || "") + '">';
+	}, "");
 
 	// Append a sibling index to the string and use some simple, off the shelf string hashing algorithm.
-	return _generateHash(normalisedStringPath + '_siblingIndex=' + siblingIndex);
+	return _generateHash(normalisedStringPath + "_siblingIndex=" + siblingIndex);
 }
 
 /**
@@ -224,8 +224,8 @@ function _generateHash(str) {
 }
 
 const init = function init() {
-	addEvent(window, 'oTracking.event', event);
+	addEvent(window, "oTracking.event", event);
 };
 event.init = init;
 
-export {event};
+export { event };

@@ -40,7 +40,6 @@ Moving to GitHub Actions has helped us manage all our repositories by making it 
 
 As part of this work we've also made a [GitHub Action for the Operations & Reliability Change API](https://github.com/Financial-Times/change-api-action/).
 
-
 ## Special Thanks
 
 This months special thanks goes to all the people who filled in our first survey. You all are helping to improve Origami, thank you.
@@ -67,4 +66,3 @@ polyfill-library also added `Object.fromEntries` support in Internet Explorer
 polyfill-library fixed a bug in `HTMLCanvasElement.prototype.toBlob` for Edge
 
 polyfill-library added `URLSearchParams.sort` and `CSS.Supports` support for all browsers
-

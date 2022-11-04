@@ -34,7 +34,11 @@ By default classes are provided to preserve space for content with either a 16:9
 
 ```html
 <div class="o-lazy-load-placeholder o-lazy-load-placeholder--16x9">
-	<img class="o-lazy-load o-lazy-load--transition" data-src="path/to/image.jpg" alt="">
+	<img
+		class="o-lazy-load o-lazy-load--transition"
+		data-src="path/to/image.jpg"
+		alt=""
+	/>
 </div>
 ```
 
@@ -44,7 +48,11 @@ If you are using the Build Service, or are calculating aspect ratios dynamically
 <div class="o-lazy-load-placeholder">
 	<!-- Create custom 16:9 placeholder -->
 	<div style="padding-bottom: 56.25%;"></div>
-	<img class="o-lazy-load o-lazy-load--transition" data-src="path/to/image.jpg" alt="">
+	<img
+		class="o-lazy-load o-lazy-load--transition"
+		data-src="path/to/image.jpg"
+		alt=""
+	/>
 </div>
 ```
 
@@ -52,9 +60,15 @@ To lazy load a `<picture>` element add the `o-lazy-load` class and prefix the `s
 
 ```html
 <picture class="o-lazy-load o-lazy-load--transition">
-	<source data-srcset="path/to/image-small.jpg" media="screen and (max-width: 480px)">
-	<source data-srcset="path/to/image-medium.jpg" media="screen and (max-width: 800px)">
-	<img data-src="path/to/image-large.jpg" alt="">
+	<source
+		data-srcset="path/to/image-small.jpg"
+		media="screen and (max-width: 480px)"
+	/>
+	<source
+		data-srcset="path/to/image-medium.jpg"
+		media="screen and (max-width: 800px)"
+	/>
+	<img data-src="path/to/image-large.jpg" alt="" />
 </picture>
 ```
 
@@ -72,7 +86,7 @@ _Note: If the o-lazy-load root is set to the `<html>` or `<body>` element o-lazy
 To initialise o-lazy-load programmatically you can import the `oLazyLoad` class into your script:
 
 ```js
-import LazyLoad from 'o-lazy-load';
+import LazyLoad from "o-lazy-load";
 
 const root = document.documentElement;
 const options = {};
@@ -95,7 +109,8 @@ To use o-lazy-load declaratively you must start by declaring the `root` element 
 <div
 	class="scrollable-area"
 	data-o-component="o-lazy-load"
-	data-o-lazy-load-selector=".js-target">
+	data-o-lazy-load-selector=".js-target"
+>
 	<div class="js-target">…</div>
 	<div class="js-target">…</div>
 	<div class="js-target">…</div>
@@ -105,8 +120,8 @@ To use o-lazy-load declaratively you must start by declaring the `root` element 
 In your JavaScript you can then dispatch the `o.DOMContentLoaded` event:
 
 ```js
-document.addEventListener('DOMContentLoaded', function () {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+document.addEventListener("DOMContentLoaded", function () {
+	document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
 });
 ```
 
@@ -115,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
 If you are loading new or extra content into your document, for example using AJAX or building a single-page application, you may need to update the elements being observed. To do this you can call the `.observe()` method on the o-lazy-load instance you have previously constructed.
 
 ```js
-import LazyLoad from 'o-lazy-load';
+import LazyLoad from "o-lazy-load";
 
 const lazyLoader = new LazyLoad(document.documentElement);
 
@@ -141,28 +156,36 @@ o-lazy-load features may be included granularly using an options `$opts` map:
 - `placeholder-ratios`: Outputs modifier classes for placeholder elements to match the loaded elements aspect ratio.
 
 ```scss
-@include oLazyLoad($opts: (
-	'placeholder': true, // .o-lazy-load-placeholder
-	'placeholder-ratios': ((16, 9), (1, 1)), // e.g. .o-lazy-load-placeholder--16x9
-	'transition': true // .o-lazy-load--transition
-));
+@include oLazyLoad(
+	$opts: (
+		"placeholder": true,
+		 // .o-lazy-load-placeholde
+		"placeholder-ratios":
+			(
+				(16, 9),
+				(1, 1),
+			),
+		 // e.g. .o-lazy-load-placeholder--16x
+		"transition": true  // .o-lazy-load--transitio,
+	)
+);
 ```
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-⚠ maintained | 2 | 2.0.7 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.0 | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       3       |        N/A         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ⚠ maintained |       2       |       2.0.7        | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.0         |                           -                           |
 
-***
+---
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-lazy-load/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

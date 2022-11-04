@@ -1,27 +1,27 @@
-import core from '../core.js';
-import {getTrace} from '../../libs/get-trace.js';
-import {assignIfUndefined, filterProperties} from '../utils.js';
+import core from "../core.js";
+import { getTrace } from "../../libs/get-trace.js";
+import { assignIfUndefined, filterProperties } from "../utils.js";
 
 const TRACKING_ATTRIBUTES = [
-	'componentContentId',
-	'type',
-	'subtype',
-	'component',
+	"componentContentId",
+	"type",
+	"subtype",
+	"component",
 ];
 
 const decorateEventData = (eventData, viewedEl, opts) => {
-	const {trace, customContext} = getTrace(viewedEl);
+	const { trace, customContext } = getTrace(viewedEl);
 	let context;
 
 	if (opts.getContextData) {
-		if (typeof opts.getContextData !== 'function') {
-			throw new Error('opts.getContextData is not a function');
+		if (typeof opts.getContextData !== "function") {
+			throw new Error("opts.getContextData is not a function");
 		}
 
 		const contextData = opts.getContextData(viewedEl);
 
-		if (typeof contextData !== 'object') {
-			throw new Error('opts.getContextData function should return {object}');
+		if (typeof contextData !== "object") {
+			throw new Error("opts.getContextData function should return {object}");
 		}
 
 		context = filterProperties(contextData, TRACKING_ATTRIBUTES);
@@ -53,7 +53,7 @@ const init = (opts = {}) => {
 		return;
 	}
 
-	const selector = opts.selector || '[data-o-tracking-view]';
+	const selector = opts.selector || "[data-o-tracking-view]";
 	const elementsToTrack = [...document.querySelectorAll(selector)];
 
 	if (!elementsToTrack.length) {
@@ -64,8 +64,8 @@ const init = (opts = {}) => {
 		changes.forEach(change => {
 			if (change.isIntersecting || change.intersectionRatio > 0) {
 				const eventData = {
-					action: opts.action || 'view',
-					category: opts.category || 'component',
+					action: opts.action || "view",
+					category: opts.category || "component",
 				};
 				const viewedEl = change.target;
 
@@ -76,7 +76,7 @@ const init = (opts = {}) => {
 		});
 	}
 
-	const observer = new IntersectionObserver(onChange, {threshold: [1.0]});
+	const observer = new IntersectionObserver(onChange, { threshold: [1.0] });
 
 	elementsToTrack.forEach(el => observer.observe(el));
 };
@@ -85,4 +85,4 @@ const view = {
 	init,
 };
 
-export {view};
+export { view };

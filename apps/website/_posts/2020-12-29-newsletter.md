@@ -3,13 +3,12 @@ title: Origami Newsletter, December 2020
 description: false
 author: chee
 tags:
-- Newsletter
+  - Newsletter
 ---
 
 ## Top things
 
 Some of the bigger Origami news from the last month:
-
 
 ### Mission and Vision Statements
 
@@ -37,7 +36,6 @@ Right now our focus is on making Origami feel like a project owned by everyone, 
 
 We're still some ways off, but we're looking forward.
 
-
 ### An end-of-year clean up
 
 This month we closed around 700 issues on Origami projects on GitHub. It's the first time we've had fewer than 300 things on our team todo list. We'll continue to reduce that number, making it easier to plan our time.
@@ -46,13 +44,11 @@ This month we closed around 700 issues on Origami projects on GitHub. It's the f
 
 We have also archived the project `o-gallery`, which was no longer in use and had not received updates in some time. We hope to replace it with a new [carousel component](https://github.com/Financial-Times/origami/issues/23) in the coming year.
 
-
 ### A plan for the year ahead
 
 Work continues on the proposal to modernise Origami by dropping support for [bower](https://bower.io/) and shipping our components only via [npm](https://www.npmjs.com/).
 
 Our current roadmap has us deprecating our bower components at the end of Q2, and putting them in maintenance mode for a year.
-
 
 ## Special thanks
 
@@ -64,392 +60,392 @@ Thank-you everyone for helping each other make it through this year.
 
 A digest of other things that have happened this month:
 
-
 - [Financial-Times/polyfill-service](https://github.com/Financial-Times/polyfill-service)
 
-   - RangeError: Malformed unicode_language_subtag on Intl polyfill
+  - RangeError: Malformed unicode_language_subtag on Intl polyfill
 
-   - Add Intl.Locale and other Intl.* Polyfills
+  - Add Intl.Locale and other Intl.\* Polyfills
 
-   - [Bug] Chrome/49 - Cannot redefine property: hasInstance
+  - [Bug] Chrome/49 - Cannot redefine property: hasInstance
 
-   - [feature] missing String.replaceAll polyfill
+  - [feature] missing String.replaceAll polyfill
 
-   - [Bug] Chrome/49 - Cannot redefine property: isConcatSpreadable
+  - [Bug] Chrome/49 - Cannot redefine property: isConcatSpreadable
 
-   - Feature Request: list popular polyfills
+  - Feature Request: list popular polyfills
 
-   - Enable The 'unicorn/no-reduce' rule
+  - Enable The 'unicorn/no-reduce' rule
 
-   - enable unicorn/no-reduce
+  - enable unicorn/no-reduce
 
 - [Financial-Times/polyfill-library](https://github.com/Financial-Times/polyfill-library)
 
-   - Update smoothscroll detect logic
+  - Update smoothscroll detect logic
 
-   - Allow getters and setters to be set to undefined and not throw an error
+  - Allow getters and setters to be set to undefined and not throw an error
 
-   - fix test polyfill timeout
+  - fix test polyfill timeout
 
-   - compress test server responses and add test matrix with partial retries
+  - compress test server responses and add test matrix with partial retries
 
-   - fix linter errors
+  - fix linter errors
 
-   - TypedArray polyfills are included for every browser target
+  - TypedArray polyfills are included for every browser target
 
-   - Update targeting for TypedArray polyfills
+  - Update targeting for TypedArray polyfills
 
-   - Update yaku version to v1.0.0
+  - Update yaku version to v1.0.0
 
-   - Feature Request: Navigator.permissions API polyfill?
+  - Feature Request: Navigator.permissions API polyfill?
 
-   - make sure errors contain useful messages
+  - make sure errors contain useful messages
 
-   - Add ability to generate sourcemaps
+  - Add ability to generate sourcemaps
 
-   - rel=preload support?
+  - rel=preload support?
 
-   - Feature Request - Add Dialog polyfill
+  - Feature Request - Add Dialog polyfill
 
-   - [feature-request] lazy loading support
+  - [feature-request] lazy loading support
 
-   - [feature-request] Proxy polyfill
+  - [feature-request] Proxy polyfill
 
-   - [Feature Request] Given a browser matrix, output the suite of polyfills per browser for every version that satisfies the matrix
+  - [Feature Request] Given a browser matrix, output the suite of polyfills per browser for every version that satisfies the matrix
 
-   - add "es2015" to the aliases of String.fromCodePoint
+  - add "es2015" to the aliases of String.fromCodePoint
 
-   - update polyfill configs for edge 79 + a few corrections
+  - update polyfill configs for edge 79 + a few corrections
 
-   - fix Symbol.prototype.description
+  - fix Symbol.prototype.description
 
-   - Fetch polyfill is no longer specification compliant
+  - Fetch polyfill is no longer specification compliant
 
-   - Reflect fixes
+  - Reflect fixes
 
-   - Array fixes
+  - Array fixes
 
-   - isolate test runs with and without polyfill combinations
+  - isolate test runs with and without polyfill combinations
 
-   - fix URL polyfill by no longer overwriting it in the Blob polyfill
+  - fix URL polyfill by no longer overwriting it in the Blob polyfill
 
-   - fix StringIndexOf
+  - fix StringIndexOf
 
-   - Object fixes
+  - Object fixes
 
-   - WeakMap fixes
+  - WeakMap fixes
 
-   - fix unterminated polyfills.
+  - fix unterminated polyfills.
 
-   - Serve DOMRect polyfill to Edge versions < 79
+  - Serve DOMRect polyfill to Edge versions < 79
 
 - [Financial-Times/origami-image-service](https://github.com/Financial-Times/origami-image-service)
 
-   - Update troubleshooting section for SVGs to mention it applies to all SVG requests
+  - Update troubleshooting section for SVGs to mention it applies to all SVG requests
 
-   - Custom schemes (not including ftcms) should use cloudinary upload instead of fetch
+  - Custom schemes (not including ftcms) should use cloudinary upload instead of fetch
 
-   - Consider using quality:auto
+  - Consider using quality:auto
 
-   - Use the explicit API to clear the cache
+  - Use the explicit API to clear the cache
 
-   - Missing source attribute in prefilled form without image url
+  - Missing source attribute in prefilled form without image url
 
-   - only delete formData.source if we set it
+  - only delete formData.source if we set it
 
-   - Make the purging endpoint also purge from cloudinary
+  - Make the purging endpoint also purge from cloudinary
 
 - [Financial-Times/polyfill-library-node](https://github.com/Financial-Times/polyfill-library-node)
 
-   - Add missing Origami GH Actions and labels
+  - Add missing Origami GH Actions and labels
 
-   - Add codeowners, issue template and publishing step
+  - Add codeowners, issue template and publishing step
 
 - [Financial-Times/origami-build-service](https://github.com/Financial-Times/origami-build-service)
 
-   - Error if no brand query parameter
+  - Error if no brand query parameter
 
-   - Backport conflicts work to Build Service v2
+  - Backport conflicts work to Build Service v2
 
-   - Feature: add support for specification v2 origami components
+  - Feature: add support for specification v2 origami components
 
-   - Issue: ESM module support
+  - Issue: ESM module support
 
-   - Error if no source query parameter
+  - Error if no source query parameter
 
-   - Disable adding Babel polyfills by default
+  - Disable adding Babel polyfills by default
 
-   - Add v3/files endpoint
+  - Add v3/files endpoint
 
-   - Do not crash the app if the NPM cache fails to prime.
+  - Do not crash the app if the NPM cache fails to prime.
 
-   - Error page for conflicts is hard to read
+  - Error page for conflicts is hard to read
 
-   - Wrap error messages in `pre` instead of `p`
+  - Wrap error messages in `pre` instead of `p`
 
-   - Add middleware to ensure all requested Origami modules are built using the same Origami Specification version
+  - Add middleware to ensure all requested Origami modules are built using the same Origami Specification version
 
-   - Update website to use o-layout and add v3 endpoints for bundling
+  - Update website to use o-layout and add v3 endpoints for bundling
 
 - [Financial-Times/origami-imageset-data](https://github.com/Financial-Times/origami-imageset-data)
 
-   - Migrate from CircleCI to GitHub Workflows
+  - Migrate from CircleCI to GitHub Workflows
 
 - [Financial-Times/origami-labels](https://github.com/Financial-Times/origami-labels)
 
-   - turn off github-label-sync action's deletion of unknown labels
+  - turn off github-label-sync action's deletion of unknown labels
 
-   - Allow arbitrary labels to be added
+  - Allow arbitrary labels to be added
 
-   - proposal: add an accessibility label
+  - proposal: add an accessibility label
 
-   - add an accessibility label
+  - add an accessibility label
 
 - [Financial-Times/origami-website](https://github.com/Financial-Times/origami-website)
 
-   - Add the mission and vision statements to the front page
+  - Add the mission and vision statements to the front page
 
-   - Add mission and vision statements to the homepage
+  - Add mission and vision statements to the homepage
 
-   - Add Origami type
+  - Add Origami type
 
-   - Avoid "we"/"let's" in tutorials?
+  - Avoid "we"/"let's" in tutorials?
 
 - [Financial-Times/origami-build-tools](https://github.com/Financial-Times/origami-build-tools)
 
-   - Bump remark-preset-lint-origami-component version
+  - Bump remark-preset-lint-origami-component version
 
-   - Tidy up test output
+  - Tidy up test output
 
-   - Automatically run verify before test
+  - Automatically run verify before test
 
-   - Require component lint configuration
+  - Require component lint configuration
 
-   -  Only lint files if the component itself contains linting config for those file types
+  - Only lint files if the component itself contains linting config for those file types
 
-   - pass through the ignore bower flag when building the pa11y demo
+  - pass through the ignore bower flag when building the pa11y demo
 
 - [Financial-Times/remark-preset-lint-origami-component](https://github.com/Financial-Times/remark-preset-lint-origami-component)
 
-   - Remove whitespace from action name
+  - Remove whitespace from action name
 
-   - Correct package.json version.
+  - Correct package.json version.
 
-   - Add publish to npm workflow
+  - Add publish to npm workflow
 
 - [Financial-Times/polyfill-useragent-normaliser](https://github.com/Financial-Times/polyfill-useragent-normaliser)
 
-   - move to github actions
+  - move to github actions
 
-   - Move the circleci jobs into github workflows
+  - Move the circleci jobs into github workflows
 
 - [Financial-Times/origami-registry-ui](https://github.com/Financial-Times/origami-registry-ui)
 
-   - Update to npm 7
+  - Update to npm 7
 
-   - fails to deploy to staging due to a dart-sass shell bug
+  - fails to deploy to staging due to a dart-sass shell bug
 
-   - Improve Origami service discoverability
+  - Improve Origami service discoverability
 
-   - Replace origamiType checkboxes with radio buttons
+  - Replace origamiType checkboxes with radio buttons
 
-   - Show radio buttons for origamiType instead of checkboxes
+  - Show radio buttons for origamiType instead of checkboxes
 
-   - Work out how we display whether a version of a component builds or not
+  - Work out how we display whether a version of a component builds or not
 
-   - Investigate unreliable demo iframe resizing
+  - Investigate unreliable demo iframe resizing
 
-   - include services in the default search filter
+  - include services in the default search filter
 
 - [Financial-Times/o-fonts](https://github.com/Financial-Times/o-fonts)
 
-   - Map the `light` font weight to `300`
+  - Map the `light` font weight to `300`
 
-   - Map a "light" font weight to `300 instead of `200`
+  - Map a "light" font weight to `300 instead of `200`
 
 - [Financial-Times/origami-brand-images](https://github.com/Financial-Times/origami-brand-images)
 
-   - Can we deprecate this?
+  - Can we deprecate this?
 
-   - Deprecate the image set as it is not being used anymore
+  - Deprecate the image set as it is not being used anymore
 
 - [Financial-Times/o-gallery](https://github.com/Financial-Times/o-gallery)
 
-   - Is not silent mode by default (scss)
+  - Is not silent mode by default (scss)
 
-   - Component redesign
+  - Component redesign
 
 - [Financial-Times/js-features-analyser](https://github.com/Financial-Times/js-features-analyser)
 
-   - How to use with browserlist and a polyfill library
+  - How to use with browserlist and a polyfill library
 
-   - Data source of global-static-instance.json
+  - Data source of global-static-instance.json
 
 - [Financial-Times/o-buttons](https://github.com/Financial-Times/o-buttons)
 
-   - Right align button icons
+  - Right align button icons
 
 - [Financial-Times/o-editorial-layout](https://github.com/Financial-Times/o-editorial-layout)
 
-   - style nested `strong`, `em`, `sup`, `sub` tags within `p` tags.
+  - style nested `strong`, `em`, `sup`, `sub` tags within `p` tags.
 
-   - Improve adoption of `o-editorial-layout`.
+  - Improve adoption of `o-editorial-layout`.
 
 - [Financial-Times/o-teaser-collection](https://github.com/Financial-Times/o-teaser-collection)
 
-   - o-teaser-collection
+  - o-teaser-collection
 
 - [Financial-Times/origami-navigation-data](https://github.com/Financial-Times/origami-navigation-data)
 
-   - ACC-764 Revert "Revert "ACC-764 add Contact Us to footer""
+  - ACC-764 Revert "Revert "ACC-764 add Contact Us to footer""
 
-   - Revert "ACC-764 add Contact Us to footer"
+  - Revert "ACC-764 add Contact Us to footer"
 
-   - ACC-764 add Contact Us to footer
+  - ACC-764 add Contact Us to footer
 
-   - Add Work & Careers in place of Graphics
+  - Add Work & Careers in place of Graphics
 
-   - remove graphics link from top level navigation
+  - remove graphics link from top level navigation
 
 - [Financial-Times/o-ads-embed](https://github.com/Financial-Times/o-ads-embed)
 
-   - Remove unnecessary heavy ads monitoring
+  - Remove unnecessary heavy ads monitoring
 
-   - Attempt to monitor heavy ad interventions by Chrome
+  - Attempt to monitor heavy ad interventions by Chrome
 
 - [Financial-Times/origami-specialist-title-logos](https://github.com/Financial-Times/origami-specialist-title-logos)
 
-   - Deprecate `brand-live-ft-logo`
+  - Deprecate `brand-live-ft-logo`
 
-   - Deprecate brand-live-ft-logo
+  - Deprecate brand-live-ft-logo
 
 - [Financial-Times/origami-image-set-tools](https://github.com/Financial-Times/origami-image-set-tools)
 
-   - test on node 10, 12 and 14
+  - test on node 10, 12 and 14
 
 - [Financial-Times/o-topper](https://github.com/Financial-Times/o-topper)
 
-   - Stop changing background wheat to `oColorsMix($color: 'wheat', $percentage: 40)`
+  - Stop changing background wheat to `oColorsMix($color: 'wheat', $percentage: 40)`
 
-   - Currently fails pa11y tests
+  - Currently fails pa11y tests
 
 - [Financial-Times/github-label-sync](https://github.com/Financial-Times/github-label-sync)
 
-   - Add an option to run for all repositories in a user or organisation
+  - Add an option to run for all repositories in a user or organisation
 
-   - Merging labels doesn't seem to work
+  - Merging labels doesn't seem to work
 
 - [Financial-Times/o-video](https://github.com/Financial-Times/o-video)
 
-   - oVideo to support slot level override of config (mix and match global + data attribute config)
+  - oVideo to support slot level override of config (mix and match global + data attribute config)
 
-   - We should track buffering events
+  - We should track buffering events
 
-   - Track `waiting` event
+  - Track `waiting` event
 
-   - iOS doesn't like firing progress events
+  - iOS doesn't like firing progress events
 
-   - Move o-video advertising code to o-ads
+  - Move o-video advertising code to o-ads
 
 - [Financial-Times/o-icons](https://github.com/Financial-Times/o-icons)
 
-   - Add o-icon-small-icon classes
+  - Add o-icon-small-icon classes
 
 - [Financial-Times/o-forms](https://github.com/Financial-Times/o-forms)
 
-   - Add better error styles for whitelabel brand in inverse mode
+  - Add better error styles for whitelabel brand in inverse mode
 
-   - Add support for inverse form fields and error messaging
+  - Add support for inverse form fields and error messaging
 
-   - Add inverse form support for radios, checkboxes and error states and summaries
+  - Add inverse form support for radios, checkboxes and error states and summaries
 
-   - Improve radio box input given long labels
+  - Improve radio box input given long labels
 
 - [Financial-Times/o-overlay](https://github.com/Financial-Times/o-overlay)
 
-   - Expose the overlay instance on the `oOverlay.ready` event
+  - Expose the overlay instance on the `oOverlay.ready` event
 
-   - Expose overlay on the ready event detail
+  - Expose overlay on the ready event detail
 
-   - Remove any characters that aren't valid when generating a heading id.
+  - Remove any characters that aren't valid when generating a heading id.
 
-   - Remove non-ascii alphanumericals when generating heading id
+  - Remove non-ascii alphanumericals when generating heading id
 
-   - Jumping around on iPad
+  - Jumping around on iPad
 
 - [Financial-Times/o-tracking](https://github.com/Financial-Times/o-tracking)
 
-   - Question - use of data-trackable with <a> where target is blank
+  - Question - use of data-trackable with <a> where target is blank
 
 - [Financial-Times/o-share](https://github.com/Financial-Times/o-share)
 
-   - Possible to include sticky behaviour
+  - Possible to include sticky behaviour
 
-   - fix the demos so they compile for the internal brand
+  - fix the demos so they compile for the internal brand
 
 - [Financial-Times/o-tooltip](https://github.com/Financial-Times/o-tooltip)
 
-   - Add an option to hide when leaving hover
+  - Add an option to hide when leaving hover
 
 - [Financial-Times/origami](https://github.com/Financial-Times/origami)
 
-   - Enforce accessibility best practices by making some parameters mandatory
+  - Enforce accessibility best practices by making some parameters mandatory
 
-   - Expose current release number to the component's own code
+  - Expose current release number to the component's own code
 
-   - A Carousel component
+  - A Carousel component
 
-   - Provide a way to express that a component is safe to be used with any brand.
+  - Provide a way to express that a component is safe to be used with any brand.
 
-   - Review how we manage and deploy component specifc assets
+  - Review how we manage and deploy component specifc assets
 
-   - Make our whitelabel components easier to theme for build service users
+  - Make our whitelabel components easier to theme for build service users
 
-   - Autocomplete
+  - Autocomplete
 
-   - New Component: Tag Input
+  - New Component: Tag Input
 
-   - feedback component
+  - feedback component
 
-   - A slider component
+  - A slider component
 
-   - Opting elements into dark mode via a parent selector
+  - Opting elements into dark mode via a parent selector
 
-   - Proposal: perform a review of the Origami specification
+  - Proposal: perform a review of the Origami specification
 
-   - Proposal: npm-only origami components
+  - Proposal: npm-only origami components
 
 - [Financial-Times/origami-repo-data](https://github.com/Financial-Times/origami-repo-data)
 
-   - Support NPM(only) Components
+  - Support NPM(only) Components
 
-   - Add an `origamiVersion` filter to the repos endpoint.
+  - Add an `origamiVersion` filter to the repos endpoint.
 
-   - Add origami version to version entity
+  - Add origami version to version entity
 
-   - Update test expectations for a peer dependency
+  - Update test expectations for a peer dependency
 
-   - Add `isPeer` to the Dependency Entity.
+  - Add `isPeer` to the Dependency Entity.
 
 - [Financial-Times/o-toggle](https://github.com/Financial-Times/o-toggle)
 
-   - Provide the ability to switch the button text at the same time as the display
+  - Provide the ability to switch the button text at the same time as the display
 
 - [Financial-Times/o-message](https://github.com/Financial-Times/o-message)
 
-   - Correct access annotation
+  - Correct access annotation
 
 - [Financial-Times/o-meter](https://github.com/Financial-Times/o-meter)
 
-   - Add pa11y demo to tested demos
+  - Add pa11y demo to tested demos
 
-   - Fix pa11y demo
+  - Fix pa11y demo
 
-   - Add back the pa11y demo
+  - Add back the pa11y demo
 
 - [Financial-Times/origami-ci-tools](https://github.com/Financial-Times/origami-ci-tools)
 
-   - Run pa11y against all supported brands
+  - Run pa11y against all supported brands
 
-   - Stop building the pa11y demo separately as obt test builds the pa11y demo now
+  - Stop building the pa11y demo separately as obt test builds the pa11y demo now
+
 - Make getDataAttributes ignore data attributes which are not in the component's namespace

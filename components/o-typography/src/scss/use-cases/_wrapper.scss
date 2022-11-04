@@ -43,12 +43,12 @@
 
 	> ol {
 		// Output list styles unique to an ordered list.
-		@include oTypographyList($type: 'ordered', $include-base-styles: false);
+		@include oTypographyList($type: "ordered", $include-base-styles: false);
 	}
 
 	> ul {
 		// Output list styles unique to an unordered list.
-		@include oTypographyList($type: 'unordered', $include-base-styles: false);
+		@include oTypographyList($type: "unordered", $include-base-styles: false);
 	}
 
 	> footer {
@@ -56,7 +56,7 @@
 	}
 
 	> strong {
-		@include oTypographySans($weight: 'semibold', $include-font-family: false);
+		@include oTypographySans($weight: "semibold", $include-font-family: false);
 	}
 
 	> em {

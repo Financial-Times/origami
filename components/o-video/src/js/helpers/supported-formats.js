@@ -9,7 +9,7 @@ const formats = {
 };
 
 function supportedFormats() {
-	const testEl = document.createElement('video');
+	const testEl = document.createElement("video");
 	const supported = [];
 
 	try {

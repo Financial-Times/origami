@@ -1,29 +1,29 @@
-@import '@financial-times/o-brand/main';
-@import '@financial-times/o-colors/main';
+@import "@financial-times/o-brand/main";
+@import "@financial-times/o-colors/main";
 
-@import 'src/scss/brand';
-@import 'src/scss/variables';
-@import 'src/scss/mixins';
+@import "src/scss/brand";
+@import "src/scss/variables";
+@import "src/scss/mixins";
 
 /// @param {Map} $opts ['themes': ('light', 'dark'), 'sizes': ('mini', 'small', 'medium', 'large')
 /// @access public
 // Outputs all loading styles
 @mixin oLoading(
 	$opts: (
-		'themes': (
-			'light',
-			'dark',
+		"themes": (
+			"light",
+			"dark",
 		),
-		'sizes': (
-			'mini',
-			'small',
-			'medium',
-			'large',
+		"sizes": (
+			"mini",
+			"small",
+			"medium",
+			"large",
 		),
 	)
 ) {
-	$themes: map-get($opts, 'themes');
-	$sizes: map-get($opts, 'sizes');
+	$themes: map-get($opts, "themes");
+	$sizes: map-get($opts, "sizes");
 
 	@include _oLoadingAnimationKeyframes();
 

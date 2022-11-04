@@ -22,39 +22,39 @@ type TextContentPropType = {
 };
 
 interface AlertMessageProps extends MessageProps {
-	state: 'success' | 'neutral' | 'error';
+	state: "success" | "neutral" | "error";
 	inner?: boolean;
 }
 
 interface NoticeMessageProps extends MessageProps {
-	state: 'inform' | 'feedback' | 'warning' | 'warning-light';
+	state: "inform" | "feedback" | "warning" | "warning-light";
 	inner?: boolean;
 }
 
 interface ActionMessageProps extends MessageProps {
-	state: 'inform' | 'inform-inverse';
+	state: "inform" | "inform-inverse";
 }
 
 export function AlertMessage({
-	state = 'success',
+	state = "success",
 	content = {
-		detail: 'The quick brown fox jumped over the lazy dogs!',
-		highlight: 'Hooray!',
-		additionalInfo: '',
+		detail: "The quick brown fox jumped over the lazy dogs!",
+		highlight: "Hooray!",
+		additionalInfo: "",
 	},
 	primaryAction = {
-		url: '#',
-		text: 'Button',
+		url: "#",
+		text: "Button",
 	},
 	secondaryAction = {
-		url: '#',
-		text: 'Text link',
+		url: "#",
+		text: "Text link",
 	},
 	inner = false,
 	showCloseButton = true,
 }: AlertMessageProps) {
 	return message(
-		'alert',
+		"alert",
 		state,
 		showCloseButton,
 		content,
@@ -65,11 +65,11 @@ export function AlertMessage({
 }
 
 export function NoticeMessage({
-	state = 'inform',
+	state = "inform",
 	content = {
-		detail: 'The quick brown fox jumped over the lazy dogs!',
-		highlight: 'Hooray!',
-		additionalInfo: '',
+		detail: "The quick brown fox jumped over the lazy dogs!",
+		highlight: "Hooray!",
+		additionalInfo: "",
 	},
 	primaryAction,
 	secondaryAction,
@@ -77,7 +77,7 @@ export function NoticeMessage({
 	showCloseButton = true,
 }: NoticeMessageProps) {
 	return message(
-		'notice',
+		"notice",
 		state,
 		showCloseButton,
 		content,
@@ -88,18 +88,18 @@ export function NoticeMessage({
 }
 
 export function ActionMessage({
-	state = 'inform',
+	state = "inform",
 	content = {
-		detail: 'The quick brown fox jumped over the lazy dogs!',
-		highlight: 'Hooray!',
-		additionalInfo: '',
+		detail: "The quick brown fox jumped over the lazy dogs!",
+		highlight: "Hooray!",
+		additionalInfo: "",
 	},
 	primaryAction,
 	secondaryAction,
 	showCloseButton = true,
 }: ActionMessageProps) {
 	return message(
-		'notice',
+		"notice",
 		state,
 		showCloseButton,
 		content,
@@ -120,10 +120,11 @@ function message(
 	return (
 		<div
 			className={`o-message o-message--${type} o-message--${state} ${
-				inner ? 'o-message--inner' : ''
+				inner ? "o-message--inner" : ""
 			}`}
 			data-o-message-close={showCloseButton.toString()}
-			data-o-component="o-message">
+			data-o-component="o-message"
+		>
 			<div className="o-message__container">
 				<div className="o-message__content">
 					<p className="o-message__content-main">
@@ -140,11 +141,11 @@ function message(
 	);
 }
 
-const AdditionalInfo = ({text}: TextContentPropType) => {
+const AdditionalInfo = ({ text }: TextContentPropType) => {
 	return <p className="o-message__content-additional">{text}</p>;
 };
 
-const Highlight = ({text}: TextContentPropType) => {
+const Highlight = ({ text }: TextContentPropType) => {
 	return <span className="o-message__content-highlight"> {text} </span>;
 };
 
@@ -161,7 +162,8 @@ const Actions = (
 				<a
 					href={primaryAction.url}
 					className="o-message__actions__primary"
-					target={primaryAction.openInNewWindow ? '_blank' : '_self'}>
+					target={primaryAction.openInNewWindow ? "_blank" : "_self"}
+				>
 					{primaryAction.text}
 				</a>
 			)}
@@ -169,7 +171,8 @@ const Actions = (
 				<a
 					href={secondaryAction.url}
 					className="o-message__actions__secondary"
-					target={secondaryAction.openInNewWindow ? '_blank' : '_self'}>
+					target={secondaryAction.openInNewWindow ? "_blank" : "_self"}
+				>
 					{secondaryAction.text}
 				</a>
 			)}

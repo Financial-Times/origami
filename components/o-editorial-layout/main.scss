@@ -1,34 +1,34 @@
-@import '@financial-times/o-editorial-typography/main';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-quote/main';
-@import '@financial-times/o-brand/main';
+@import "@financial-times/o-editorial-typography/main";
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-quote/main";
+@import "@financial-times/o-brand/main";
 
-@import 'src/scss/variables';
-@import 'src/scss/functions';
-@import 'src/scss/mixins';
-@import 'src/scss/placeholders';
+@import "src/scss/variables";
+@import "src/scss/functions";
+@import "src/scss/mixins";
+@import "src/scss/placeholders";
 
 /// Output All oEditorialLayout Features
 @mixin oEditorialLayout(
 	$opts: (
-		'headings': (
+		"headings": (
 			1,
 			2,
 			3,
 			4,
 			5,
 		),
-		'body': true,
-		'wrapper': true,
+		"body": true,
+		"wrapper": true,
 	)
 ) {
-	$headings: map-get($opts, 'headings');
+	$headings: map-get($opts, "headings");
 	$headings: if($headings, $headings, ());
-	$body: map-get($opts, 'body');
-	$wrapper: map-get($opts, 'wrapper');
+	$body: map-get($opts, "body");
+	$wrapper: map-get($opts, "wrapper");
 
-	@if ($headings and type-of($headings) != 'list') {
+	@if ($headings and type-of($headings) != "list") {
 		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5)`.');
 	}
 
@@ -117,14 +117,14 @@
 
 			> ol {
 				@include oEditorialTypographyList(
-					'ordered',
+					"ordered",
 					$include-base-styles: false
 				);
 			}
 
 			> ul {
 				@include oEditorialTypographyList(
-					'unordered',
+					"unordered",
 					$include-base-styles: false
 				);
 			}
@@ -161,7 +161,7 @@
 
 		.o-editorial-layout-wrapper > p strong,
 		.o-editorial-layout-wrapper > strong {
-			@include oTypographySerif($weight: 'bold', $include-font-family: false);
+			@include oTypographySerif($weight: "bold", $include-font-family: false);
 		}
 
 		.o-editorial-layout-wrapper > p em,

@@ -1,15 +1,15 @@
-@import '@financial-times/math';
-@import 'src/scss/variables';
+@import "@financial-times/math";
+@import "src/scss/variables";
 
 @mixin oLazyLoad(
 	$opts: (
-		'placeholder': true,
-		'placeholder-ratios': $_o-lazy-load-placholder-ratios,
-		'transition': true,
+		"placeholder": true,
+		"placeholder-ratios": $_o-lazy-load-placholder-ratios,
+		"transition": true,
 	)
 ) {
 	/// Add a fade-in transition effect, works best for <img> or <picture> elements
-	@if map-get($opts, 'transition') {
+	@if map-get($opts, "transition") {
 		.o-lazy-load--transition {
 			opacity: 0;
 			transition: opacity 0.25s;
@@ -22,7 +22,7 @@
 	}
 
 	/// Creates a placeholder to preserve space for lazy loaded content
-	@if map-get($opts, 'placeholder') {
+	@if map-get($opts, "placeholder") {
 		.o-lazy-load-placeholder {
 			position: relative;
 
@@ -38,12 +38,12 @@
 			}
 
 			&:after {
-				content: '';
+				content: "";
 				display: block;
 			}
 		}
 
-		$ratios: map-get($opts, 'placeholder-ratios');
+		$ratios: map-get($opts, "placeholder-ratios");
 		$ratios: if($ratios, $ratios, ());
 		@each $ratio in $ratios {
 			$ratioX: nth($ratio, 1);

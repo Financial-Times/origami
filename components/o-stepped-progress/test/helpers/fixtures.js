@@ -40,4 +40,4 @@ const testMarkup = {
 	`,
 };
 
-export {testMarkup};
+export { testMarkup };

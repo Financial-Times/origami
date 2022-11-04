@@ -1,6 +1,6 @@
 // sass-lint:disable no-vendor-prefixes,no-duplicate-properties
-@include describe('oButtons') {
-	@include it('outputs big modifier by default') {
+@include describe("oButtons") {
+	@include it("outputs big modifier by default") {
 		@include assert() {
 			@include output($selector: false) {
 				@include oButtons();
@@ -14,7 +14,7 @@
 		}
 	}
 
-	@include it('outputs types by default') {
+	@include it("outputs types by default") {
 		@include assert() {
 			@include output($selector: false) {
 				@include oButtons();
@@ -29,7 +29,7 @@
 		}
 	}
 
-	@include it('outputs themes by default') {
+	@include it("outputs themes by default") {
 		@include assert() {
 			@include output($selector: false) {
 				@include oButtons();
@@ -44,7 +44,7 @@
 		}
 	}
 
-	@include it('outputs icons by default') {
+	@include it("outputs icons by default") {
 		@include assert() {
 			@include output($selector: false) {
 				@include oButtons();
@@ -53,13 +53,13 @@
 			// arrow-left is an example of an icon
 			@include contains($selector: false) {
 				.o-buttons--secondary.o-buttons-icon--arrow-left {
-					background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%230D7680,%230D7680&format=svg');
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%230D7680,%230D7680&format=svg");
 				}
 			}
 		}
 	}
 
-	@include it('outputs pagination styles default') {
+	@include it("outputs pagination styles default") {
 		@include assert() {
 			@include output($selector: false) {
 				@include oButtons();
@@ -73,7 +73,7 @@
 		}
 	}
 
-	@include it('outputs group styles default') {
+	@include it("outputs group styles default") {
 		@include assert() {
 			@include output($selector: false) {
 				@include oButtons();
@@ -87,7 +87,7 @@
 		}
 	}
 
-	@include it('outputs only base styles when an empty options map is given') {
+	@include it("outputs only base styles when an empty options map is given") {
 		@include assert() {
 			@include output($selector: false) {
 				@include oButtons($opts: ());
@@ -144,16 +144,16 @@
 	}
 }
 
-@include describe('oButtonsContent') {
-	@include it('outputs a button of type, theme, size, and with an icon') {
+@include describe("oButtonsContent") {
+	@include it("outputs a button of type, theme, size, and with an icon") {
 		@include assert() {
 			@include output() {
 				@include oButtonsContent(
 					$opts: (
-						'type': 'primary',
-						'theme': 'mono',
-						'size': 'big',
-						'icon': 'arrow-left',
+						"type": "primary",
+						"theme": "mono",
+						"size": "big",
+						"icon": "arrow-left",
 					)
 				);
 			}
@@ -194,7 +194,7 @@
 					background-repeat: no-repeat;
 					background-position: 3px;
 					padding-left: 40px;
-					background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg');
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg");
 				}
 
 				.o-typography--loading-sans & {
@@ -221,9 +221,9 @@
 					border-color: transparent;
 				}
 
-				&[aria-selected='true'],
+				&[aria-selected="true"],
 				&[aria-current],
-				&[aria-pressed='true'],
+				&[aria-pressed="true"],
 				&:active {
 					background-color: #727071;
 					color: white;
@@ -232,24 +232,24 @@
 
 				@media screen and (-ms-high-contrast: active) {
 					& {
-						background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg');
+						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg");
 					}
 				}
 
 				@media screen and (-ms-high-contrast: black-on-white) {
 					& {
-						background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23000000,%23000000&format=svg');
+						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23000000,%23000000&format=svg");
 					}
 				}
 			}
 		}
 	}
-	@include it('outputs only a type with base styles disabled') {
+	@include it("outputs only a type with base styles disabled") {
 		@include assert() {
 			@include output() {
 				@include oButtonsContent(
 					$opts: (
-						'type': 'primary',
+						"type": "primary",
 					),
 					$include-base-styles: false,
 					$include-base-icon-styles: false
@@ -277,9 +277,9 @@
 					border-color: transparent;
 				}
 
-				&[aria-selected='true'],
+				&[aria-selected="true"],
 				&[aria-current],
-				&[aria-pressed='true'],
+				&[aria-pressed="true"],
 				&:active {
 					background-color: #052f33;
 					color: white;
@@ -288,12 +288,12 @@
 			}
 		}
 	}
-	@include it('outputs only a size with base styles disabled') {
+	@include it("outputs only a size with base styles disabled") {
 		@include assert() {
 			@include output() {
 				@include oButtonsContent(
 					$opts: (
-						'size': 'big',
+						"size": "big",
 					),
 					$include-base-styles: false,
 					$include-base-icon-styles: false
@@ -320,19 +320,19 @@
 	}
 }
 
-@include describe('oButtonsAddTheme') {
-	@include it('outputs a theme for given colour names') {
+@include describe("oButtonsAddTheme") {
+	@include it("outputs a theme for given colour names") {
 		@include assert() {
 			@include output($selector: false) {
 				@include oButtonsAddTheme(
-					$name: 'test-named-theme-colors',
+					$name: "test-named-theme-colors",
 					$opts: (
-						'color': 'teal-90',
-						'context': 'slate',
+						"color": "teal-90",
+						"context": "slate",
 					),
 					$types: (
-						'primary',
-						'secondary',
+						"primary",
+						"secondary",
 					),
 					$icons: null
 				);
@@ -348,18 +348,18 @@
 		}
 	}
 
-	@include it('outputs a theme for a colour mix') {
+	@include it("outputs a theme for a colour mix") {
 		@include assert() {
 			@include output($selector: false) {
 				@include oButtonsAddTheme(
-					$name: 'test-mixed-theme-colors',
+					$name: "test-mixed-theme-colors",
 					$opts: (
-						'color': oColorsMix('black', 'jade', $percentage: 43),
-						'context': oColorsMix('jade', $percentage: 20),
+						"color": oColorsMix("black", "jade", $percentage: 43),
+						"context": oColorsMix("jade", $percentage: 20),
 					),
 					$types: (
-						'primary',
-						'secondary',
+						"primary",
+						"secondary",
 					),
 					$icons: null
 				);
@@ -376,19 +376,19 @@
 	}
 
 	@include it(
-		'outputs a theme for given colour hexes which are in the colour palette'
+		"outputs a theme for given colour hexes which are in the colour palette"
 	) {
 		@include assert() {
 			@include output($selector: false) {
 				@include oButtonsAddTheme(
-					$name: 'test-hex-theme-colors',
+					$name: "test-hex-theme-colors",
 					$opts: (
-						'color': oColorsByName('teal-90'),
-						'context': oColorsByName('slate'),
+						"color": oColorsByName("teal-90"),
+						"context": oColorsByName("slate"),
 					),
 					$types: (
-						'primary',
-						'secondary',
+						"primary",
+						"secondary",
 					),
 					$icons: null
 				);

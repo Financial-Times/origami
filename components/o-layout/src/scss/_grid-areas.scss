@@ -23,14 +23,14 @@
 /// Outputs hero area
 /// @param {String} $hero-image - An image for the "hero" area background.
 /// @access private
-@mixin _oLayoutAreaHero($hero-image: '') {
+@mixin _oLayoutAreaHero($hero-image: "") {
 	.o-layout__hero {
 		position: relative;
 		grid-area: hero;
 		padding: $_o-layout-gutter * 2 $_o-layout-gutter;
 		text-align: center;
 		min-height: 30vh;
-		margin: 0 0 oSpacingByName('s4');
+		margin: 0 0 oSpacingByName("s4");
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -39,19 +39,19 @@
 		justify-content: center;
 		// The background image is inherited by the pseudo element.
 		// This is to make it easier for a build service users to modify the background image.
-		@if type-of($hero-image) == 'string' and str-length($hero-image) > 0 {
+		@if type-of($hero-image) == "string" and str-length($hero-image) > 0 {
 			background-image: url($hero-image);
 		}
 		background-size: 0 0;
 		&::before {
 			position: absolute;
-			content: '';
+			content: "";
 			width: 100vw;
 			top: 0;
 			bottom: 0;
 			left: 50%;
 			margin-left: -50vw;
-			background-color: oColorsByName('slate-white-5');
+			background-color: oColorsByName("slate-white-5");
 			background-size: cover;
 			background-image: inherit;
 			z-index: -1;
@@ -114,7 +114,7 @@
 			display: grid;
 			/*! autoprefixer: ignore next */
 			grid-template-rows: 1fr min-content;
-			background-color: oColorsByName('slate-white-5');
+			background-color: oColorsByName("slate-white-5");
 			padding: $_o-layout-gutter;
 		}
 
@@ -140,8 +140,8 @@
 
 	.o-layout__listing__item {
 		@include oTypographySans($scale: 1, $line-height: 1.4);
-		color: oColorsByUsecase('body', 'text', $fallback: null);
-		margin: 0 0 oSpacingByName('s6');
+		color: oColorsByUsecase("body", "text", $fallback: null);
+		margin: 0 0 oSpacingByName("s6");
 		max-width: 60ch;
 	}
 
@@ -151,11 +151,11 @@
 
 	.o-layout__listing__item__title {
 		@include oTypographyHeading($level: 2);
-		margin: 0 0 oSpacingByName('s2') 0;
+		margin: 0 0 oSpacingByName("s2") 0;
 	}
 
 	.o-layout__listing__item__description {
-		margin: 0 0 oSpacingByName('s1') 0;
+		margin: 0 0 oSpacingByName("s1") 0;
 	}
 
 	.o-layout__listing__item__meta {

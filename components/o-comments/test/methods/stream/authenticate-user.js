@@ -1,23 +1,23 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
-import fixtures from '../../helpers/fixtures.js';
-import Stream from '../../../src/js/stream.js';
-import auth from '../../../src/js/utils/auth.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
+import fixtures from "../../helpers/fixtures.js";
+import Stream from "../../../src/js/stream.js";
+import auth from "../../../src/js/utils/auth.js";
 
 let fetchJWTStub;
 
 export default function authenticateUser() {
-	it('is a function', () => {
+	it("is a function", () => {
 		proclaim.isFunction(new Stream().authenticateUser);
 	});
 
-	describe('comments api options', () => {
+	describe("comments api options", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
 			fetchJWTStub = sinon.stub();
-			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
+			sinon.stub(auth, "fetchJsonWebToken").get(() => fetchJWTStub);
 			fetchJWTStub.rejects();
 		});
 
@@ -26,18 +26,18 @@ export default function authenticateUser() {
 			sinon.restore();
 		});
 
-		it('displayName option is passed to fetchJsonWebToken', () => {
+		it("displayName option is passed to fetchJsonWebToken", () => {
 			fetchJWTStub.resolves({});
 
 			const stream = new Stream();
 
-			return stream.authenticateUser('Glynn').then(() => {
+			return stream.authenticateUser("Glynn").then(() => {
 				const options = fetchJWTStub.getCall(0).args[0];
-				proclaim.equal(options.displayName, 'Glynn');
+				proclaim.equal(options.displayName, "Glynn");
 			});
 		});
 
-		it('displayName option is not used if undefined', () => {
+		it("displayName option is not used if undefined", () => {
 			fetchJWTStub.resolves({});
 
 			const stream = new Stream();
@@ -48,7 +48,7 @@ export default function authenticateUser() {
 			});
 		});
 
-		it('staging option is passed to fetchJsonWebToken', () => {
+		it("staging option is passed to fetchJsonWebToken", () => {
 			fetchJWTStub.resolves({});
 
 			const stream = new Stream(null, {
@@ -62,11 +62,11 @@ export default function authenticateUser() {
 		});
 	});
 
-	describe('fetchJsonWebToken returns a token', () => {
+	describe("fetchJsonWebToken returns a token", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
 			fetchJWTStub = sinon.stub();
-			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
+			sinon.stub(auth, "fetchJsonWebToken").get(() => fetchJWTStub);
 		});
 
 		afterEach(() => {
@@ -74,24 +74,24 @@ export default function authenticateUser() {
 			sinon.restore();
 		});
 
-		it('sets this.authenticationToken to the token', () => {
+		it("sets this.authenticationToken to the token", () => {
 			fetchJWTStub.resolves({
-				token: 'fake-jwt',
+				token: "fake-jwt",
 			});
 
 			const stream = new Stream();
 
 			return stream.authenticateUser().then(() => {
-				proclaim.equal(stream.authenticationToken, 'fake-jwt');
+				proclaim.equal(stream.authenticationToken, "fake-jwt");
 			});
 		});
 	});
 
-	describe('fetchJsonWebToken returns a displayName', () => {
+	describe("fetchJsonWebToken returns a displayName", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
 			fetchJWTStub = sinon.stub();
-			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
+			sinon.stub(auth, "fetchJsonWebToken").get(() => fetchJWTStub);
 		});
 
 		afterEach(() => {
@@ -99,24 +99,24 @@ export default function authenticateUser() {
 			sinon.restore();
 		});
 
-		it('sets this.displayName to the display name', () => {
+		it("sets this.displayName to the display name", () => {
 			fetchJWTStub.resolves({
-				displayName: 'fake-display-name',
+				displayName: "fake-display-name",
 			});
 
 			const stream = new Stream();
 
 			return stream.authenticateUser().then(() => {
-				proclaim.equal(stream.displayName, 'fake-display-name');
+				proclaim.equal(stream.displayName, "fake-display-name");
 			});
 		});
 	});
 
-	describe('fetchJsonWebToken returns userHasValidSession', () => {
+	describe("fetchJsonWebToken returns userHasValidSession", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
 			fetchJWTStub = sinon.stub();
-			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
+			sinon.stub(auth, "fetchJsonWebToken").get(() => fetchJWTStub);
 		});
 
 		afterEach(() => {
@@ -124,8 +124,8 @@ export default function authenticateUser() {
 			sinon.restore();
 		});
 
-		describe('userHasValidSession is true', () => {
-			it('sets this.userHasValidSession to true', () => {
+		describe("userHasValidSession is true", () => {
+			it("sets this.userHasValidSession to true", () => {
 				fetchJWTStub.resolves({
 					userHasValidSession: true,
 				});
@@ -137,8 +137,8 @@ export default function authenticateUser() {
 			});
 		});
 
-		describe('userHasValidSession is false', () => {
-			it('sets this.userHasValidSession to false', () => {
+		describe("userHasValidSession is false", () => {
+			it("sets this.userHasValidSession to false", () => {
 				fetchJWTStub.resolves({
 					userHasValidSession: false,
 				});

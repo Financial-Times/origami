@@ -1,10 +1,10 @@
-import oViewport from '@financial-times/o-viewport';
+import oViewport from "@financial-times/o-viewport";
 
-import getRendition from './helpers/get-rendition.js';
-import VideoAds from './ads.js';
-import VideoInfo from './info.js';
-import Playlist from './playlist.js';
-import Guidance from './guidance.js';
+import getRendition from "./helpers/get-rendition.js";
+import VideoAds from "./ads.js";
+import VideoInfo from "./info.js";
+import Playlist from "./playlist.js";
+import Guidance from "./guidance.js";
 
 function listenOnce(el, eventName, fn) {
 	const wrappedFn = function (...args) {
@@ -31,7 +31,7 @@ function eventListener(video, ev) {
 	}
 
 	// Dispatch progress event at around 25%, 50%, 75% and 100%
-	if (ev.type === 'progress' && !shouldDispatch(video)) {
+	if (ev.type === "progress" && !shouldDispatch(video)) {
 		return;
 	}
 
@@ -43,10 +43,10 @@ function eventListener(video, ev) {
 }
 
 function fireEvent(action, video, extraDetail = {}) {
-	const event = new CustomEvent('oTracking.event', {
+	const event = new CustomEvent("oTracking.event", {
 		detail: Object.assign(
 			{
-				category: 'video',
+				category: "video",
 				action,
 				advertising: video.opts.advertising,
 				contentId: video.opts.id,
@@ -109,10 +109,10 @@ function getOptionsFromDataAttributes(attributes) {
 	const opts = {};
 	// Try to get config set declaratively on the element
 	Array.prototype.forEach.call(attributes, attr => {
-		if (attr.name.indexOf('data-o-video') === 0) {
+		if (attr.name.indexOf("data-o-video") === 0) {
 			// Remove the prefix part of the data attribute name and hyphen-case to camelCase
 			const key = attr.name
-				.replace('data-o-video-', '')
+				.replace("data-o-video-", "")
 				.replace(/-([a-z])/g, (m, w) => {
 					return w.toUpperCase();
 				});
@@ -123,7 +123,7 @@ function getOptionsFromDataAttributes(attributes) {
 				// For legacy o-video embeds, we'll need to check for placeHolderInfo attributes
 				// as they typically pass data in with single quotes, which won't parse:
 				// data-o-video-placeholder-info="['title', 'description']"
-				if (key === 'placeholderInfo') {
+				if (key === "placeholderInfo") {
 					opts[key] = JSON.parse(attr.value.replace(/\'/g, '"'));
 				} else {
 					opts[key] = JSON.parse(attr.value);
@@ -138,7 +138,7 @@ function getOptionsFromDataAttributes(attributes) {
 
 function unloadListener() {
 	this.updateAmountWatched();
-	fireEvent('watched', this, {
+	fireEvent("watched", this, {
 		amount: this.getAmountWatched(0),
 		amountPercentage: this.getAmountWatchedPercentage(0),
 	});
@@ -152,7 +152,7 @@ function visibilityListener(ev) {
 	}
 }
 
-const unloadEventName = 'onbeforeunload' in window ? 'beforeunload' : 'unload';
+const unloadEventName = "onbeforeunload" in window ? "beforeunload" : "unload";
 
 const defaultOpts = {
 	advertising: false,
@@ -161,8 +161,8 @@ const defaultOpts = {
 	classes: [],
 	optimumwidth: null,
 	placeholder: false,
-	placeholderInfo: ['title'],
-	placeholderHint: '',
+	placeholderInfo: ["title"],
+	placeholderHint: "",
 	playsinline: false,
 	showCaptions: true,
 	showGuidance: true,
@@ -185,24 +185,24 @@ class Video {
 			getOptionsFromDataAttributes(this.containerEl.attributes)
 		);
 
-		if (typeof this.opts.systemcode !== 'string') {
+		if (typeof this.opts.systemcode !== "string") {
 			throw new Error(
 				'o-video requires "systemcode" is configured using the "data-o-video-systemcode" data attribute, or configured with the `opts` constructor argument. It must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).'
 			);
 		}
 
-		if (typeof this.opts.classes === 'string') {
-			this.opts.classes = this.opts.classes.split(' ');
+		if (typeof this.opts.classes === "string") {
+			this.opts.classes = this.opts.classes.split(" ");
 		}
 
-		if (this.opts.classes.indexOf('o-video__video') === -1) {
-			this.opts.classes.push('o-video__video');
+		if (this.opts.classes.indexOf("o-video__video") === -1) {
+			this.opts.classes.push("o-video__video");
 		}
 
 		this.targeting = {
-			site: '/5887/ft.com',
-			position: 'video',
-			sizes: '592x333|400x225',
+			site: "/5887/ft.com",
+			position: "video",
+			sizes: "592x333|400x225",
 			videoId: this.opts.id,
 		};
 
@@ -210,7 +210,7 @@ class Video {
 			this.videoAds = new VideoAds(this);
 		}
 
-		this.containerEl.setAttribute('data-o-video-js', '');
+		this.containerEl.setAttribute("data-o-video-js", "");
 
 		if (this.opts.autorender === true) {
 			this.init();
@@ -230,11 +230,11 @@ class Video {
 							return response.json();
 						} else {
 							throw Error(
-								'Next Media API responded with a ' +
+								"Next Media API responded with a " +
 									response.status +
-									' (' +
+									" (" +
 									response.statusText +
-									') for id ' +
+									") for id " +
 									this.opts.id
 							);
 						}
@@ -277,24 +277,24 @@ class Video {
 	}
 
 	addVideo() {
-		this.liveRegionEl = document.createElement('div');
-		this.liveRegionEl.setAttribute('aria-live', 'assertive');
-		this.liveRegionEl.classList.add('o-video__live-region');
-		this.videoEl = document.createElement('video');
+		this.liveRegionEl = document.createElement("div");
+		this.liveRegionEl.setAttribute("aria-live", "assertive");
+		this.liveRegionEl.classList.add("o-video__live-region");
+		this.videoEl = document.createElement("video");
 		this.videoEl.controls = true;
 		this.videoEl.className = Array.isArray(this.opts.classes)
-			? this.opts.classes.join(' ')
+			? this.opts.classes.join(" ")
 			: this.opts.classes;
-		this.containerEl.classList.add('o-video--player');
+		this.containerEl.classList.add("o-video--player");
 
 		if (this.opts.playsinline) {
-			this.videoEl.setAttribute('playsinline', 'true');
-			this.videoEl.setAttribute('webkit-playsinline', 'true');
+			this.videoEl.setAttribute("playsinline", "true");
+			this.videoEl.setAttribute("webkit-playsinline", "true");
 		}
 
 		// disable download button in Chrome 58+
 		if (this.videoEl.controlsList) {
-			this.videoEl.controlsList.add('nodownload');
+			this.videoEl.controlsList.add("nodownload");
 		}
 
 		this.updateVideo();
@@ -307,24 +307,24 @@ class Video {
 		this.containerEl.appendChild(this.videoEl);
 
 		addEvents(this, [
-			'playing',
-			'pause',
-			'ended',
-			'progress',
-			'seeked',
-			'error',
-			'stalled',
-			'waiting',
+			"playing",
+			"pause",
+			"ended",
+			"progress",
+			"seeked",
+			"error",
+			"stalled",
+			"waiting",
 		]);
-		this.videoEl.addEventListener('playing', this.pauseOtherVideos.bind(this));
-		this.videoEl.addEventListener('playing', this.markPlayStart.bind(this));
-		this.videoEl.addEventListener('pause', this.updateAmountWatched.bind(this));
+		this.videoEl.addEventListener("playing", this.pauseOtherVideos.bind(this));
+		this.videoEl.addEventListener("playing", this.markPlayStart.bind(this));
+		this.videoEl.addEventListener("pause", this.updateAmountWatched.bind(this));
 		this.videoEl.addEventListener(
-			'suspend',
+			"suspend",
 			this.clearCurrentlyPlaying.bind(this)
 		);
 		this.videoEl.addEventListener(
-			'ended',
+			"ended",
 			this.clearCurrentlyPlaying.bind(this)
 		);
 
@@ -334,9 +334,9 @@ class Video {
 
 		// send 'watched' event on page unload,
 		window.addEventListener(unloadEventName, this.fireWatchedEvent);
-		oViewport.listenTo('visibility');
+		oViewport.listenTo("visibility");
 		// pause 'watching' the video if the tab is hidden
-		window.addEventListener('oViewport.visibility', this.visibilityListener);
+		window.addEventListener("oViewport.visibility", this.visibilityListener);
 	}
 
 	addCaptions() {
@@ -344,26 +344,26 @@ class Video {
 			return;
 		}
 
-		if (typeof this.videoData === 'undefined') {
+		if (typeof this.videoData === "undefined") {
 			throw new Error(
-				'Please call `getData()` before calling `addCaptions()` directly.'
+				"Please call `getData()` before calling `addCaptions()` directly."
 			);
 		}
 
-		const existingTrackEl = this.videoEl.querySelector('track');
+		const existingTrackEl = this.videoEl.querySelector("track");
 		if (existingTrackEl) {
 			this.videoEl.removeChild(existingTrackEl);
 		}
 
 		if (this.videoData.captionsUrl) {
 			// FIXME this is all hardcoded as English captions at the moment
-			const trackEl = document.createElement('track');
-			trackEl.setAttribute('label', 'English');
-			trackEl.setAttribute('kind', 'captions');
-			trackEl.setAttribute('srclang', 'en');
-			trackEl.setAttribute('src', this.videoData.captionsUrl);
-			trackEl.setAttribute('crossorigin', 'true');
-			this.videoEl.setAttribute('crossorigin', 'true');
+			const trackEl = document.createElement("track");
+			trackEl.setAttribute("label", "English");
+			trackEl.setAttribute("kind", "captions");
+			trackEl.setAttribute("srclang", "en");
+			trackEl.setAttribute("src", this.videoData.captionsUrl);
+			trackEl.setAttribute("crossorigin", "true");
+			this.videoEl.setAttribute("crossorigin", "true");
 			this.videoEl.appendChild(trackEl);
 		}
 	}
@@ -372,26 +372,26 @@ class Video {
 		if (this.posterImage) {
 			this.videoEl.poster = this.posterImage;
 		} else {
-			this.videoEl.removeAttribute('poster');
+			this.videoEl.removeAttribute("poster");
 		}
 
 		this.videoEl.src = this.rendition && this.rendition.url;
 		if (this.guidance) {
 			this.guidance.removeBanner();
 		}
-		listenOnce(this.videoEl, 'playing', this.showGuidanceBanner.bind(this));
+		listenOnce(this.videoEl, "playing", this.showGuidanceBanner.bind(this));
 
 		this.addCaptions();
 	}
 
 	addPlaceholder() {
-		this.placeholderEl = document.createElement('div');
-		this.placeholderEl.className = 'o-video__placeholder';
+		this.placeholderEl = document.createElement("div");
+		this.placeholderEl.className = "o-video__placeholder";
 
-		this.placeholderImageEl = document.createElement('img');
-		this.placeholderImageEl.className = 'o-video__placeholder-image';
-		this.placeholderImageEl.setAttribute('role', 'presentation');
-		this.placeholderImageEl.setAttribute('alt', '');
+		this.placeholderImageEl = document.createElement("img");
+		this.placeholderImageEl.className = "o-video__placeholder-image";
+		this.placeholderImageEl.setAttribute("role", "presentation");
+		this.placeholderImageEl.setAttribute("alt", "");
 
 		this.placeholderEl.appendChild(this.placeholderImageEl);
 
@@ -401,26 +401,26 @@ class Video {
 		}
 
 		// play button
-		const playCTA = document.createElement('div');
+		const playCTA = document.createElement("div");
 		playCTA.className = `o-video__play-cta ${
 			this.opts.placeholderHint
-				? 'o-video__play-cta--with-hint'
-				: 'o-video__play-cta--without-hint'
+				? "o-video__play-cta--with-hint"
+				: "o-video__play-cta--without-hint"
 		}`;
 
-		this.playButtonElContainer = document.createElement('div');
-		this.playButtonElContainer.className = 'o-video__play-button-container';
-		this.playButtonEl = document.createElement('button');
-		this.playButtonEl.className = 'o-video__play-button';
+		this.playButtonElContainer = document.createElement("div");
+		this.playButtonElContainer.className = "o-video__play-button-container";
+		this.playButtonEl = document.createElement("button");
+		this.playButtonEl.className = "o-video__play-button";
 		this.playButtonElContainer.appendChild(this.playButtonEl);
 
-		const playButtonIconEl = document.createElement('span');
-		playButtonIconEl.className = 'o-video__play-button-icon';
+		const playButtonIconEl = document.createElement("span");
+		playButtonIconEl.className = "o-video__play-button-icon";
 		playButtonIconEl.textContent = this.opts.placeholderHint;
 
 		playCTA.appendChild(playButtonIconEl);
 
-		const {captionsUrl} = this.videoData || {};
+		const { captionsUrl } = this.videoData || {};
 		if (!captionsUrl && this.guidance) {
 			this.playButtonElContainer.appendChild(this.guidance.createPlaceholder());
 		}
@@ -428,7 +428,7 @@ class Video {
 
 		this.placeholderEl.appendChild(this.playButtonElContainer);
 
-		this.placeholderEl.addEventListener('click', () => {
+		this.placeholderEl.addEventListener("click", () => {
 			this.didUserPressPlay = true;
 			this.play();
 		});
@@ -467,7 +467,7 @@ class Video {
 
 		if (this.playButtonEl) {
 			this.playButtonEl.setAttribute(
-				'aria-label',
+				"aria-label",
 				`Play video ${this.videoData.title}`
 			);
 		}
@@ -481,7 +481,7 @@ class Video {
 
 		this.didUserPressPlay = false;
 
-		this.opts = Object.assign(this.opts, {data: null}, newOpts);
+		this.opts = Object.assign(this.opts, { data: null }, newOpts);
 
 		if (!this.videoEl && !this.placeholderEl) {
 			return this.init();
@@ -562,7 +562,7 @@ class Video {
 	}
 
 	showGuidanceBanner() {
-		const {captionsUrl} = this.videoData || {};
+		const { captionsUrl } = this.videoData || {};
 		if (!this.didUserPressPlay && !captionsUrl && this.guidance) {
 			this.containerEl.appendChild(this.guidance.createBanner());
 		}
@@ -571,14 +571,14 @@ class Video {
 	destroy() {
 		// remove listeners
 		window.removeEventListener(unloadEventName, this.fireWatchedEvent);
-		window.removeEventListener('oViewport.visibility', this.visibilityListener);
+		window.removeEventListener("oViewport.visibility", this.visibilityListener);
 	}
 
 	static init(rootEl, config) {
 		const videos = [];
 		if (!rootEl) {
 			rootEl = document.body;
-		} else if (typeof rootEl === 'string') {
+		} else if (typeof rootEl === "string") {
 			rootEl = document.querySelector(rootEl);
 		}
 

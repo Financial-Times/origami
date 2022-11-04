@@ -30,11 +30,19 @@ Replace `oLazyLoadTransition` and `oLazyLoadPlaceholder` with a single call to `
 Use the options `$opts` map to include lazy load features granularly, including placeholder ratios:
 
 ```scss
-@include oLazyLoad($opts: (
-    'placeholder': true, // e.g. .o-lazy-load-placeholder
-    'placeholder-ratios': ((16, 9), (1, 1)), // e.g. .o-lazy-load-placeholder--16x9
-    'transition': true
-));
+@include oLazyLoad(
+	$opts: (
+		"placeholder": true,
+		 // e.g. .o-lazy-load-placeholde
+		"placeholder-ratios":
+			(
+				(16, 9),
+				(1, 1),
+			),
+		 // e.g. .o-lazy-load-placeholder--16x
+		"transition": true,
+	)
+);
 ```
 
 `$o-lazy-load-placeholder-ratios` is now private and must not be used, instead use the `oLazyLoad` option map above.

@@ -1,11 +1,11 @@
-import {Header} from './header-default';
-import {THeaderProps} from './Props';
-import {HeaderWrapper} from './top';
+import { Header } from "./header-default";
+import { THeaderProps } from "./Props";
+import { HeaderWrapper } from "./top";
 // import {Drawer} from './drawer';
-import {StickyHeader} from './sticky';
-import {LogoOnlyHeader} from './logo-only';
-import {NoOutboundLinks} from './no-outbound-links';
-import {InverseSimpleHeader} from './inverse-header';
+import { StickyHeader } from "./sticky";
+import { LogoOnlyHeader } from "./logo-only";
+import { NoOutboundLinks } from "./no-outbound-links";
+import { InverseSimpleHeader } from "./inverse-header";
 
 export function MainHeader(props: THeaderProps) {
 	const {
@@ -51,7 +51,6 @@ export function MainHeader(props: THeaderProps) {
 				<Header {...defaultHeaderProps} />
 			</HeaderWrapper>
 			{showStickyHeader && <StickyHeader {...stickyHeaderProps} />}
-			
 		</>
 	);
 }

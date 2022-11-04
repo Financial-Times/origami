@@ -1,18 +1,18 @@
-import search from './search.js';
-import mega from './mega.js';
-import drawer from './drawer.js';
-import subnav from './subnav.js';
-import sticky from './sticky.js';
+import search from "./search.js";
+import mega from "./mega.js";
+import drawer from "./drawer.js";
+import subnav from "./subnav.js";
+import sticky from "./sticky.js";
 
 class Header {
 	constructor(headerEl) {
 		if (!headerEl) {
 			headerEl = document.querySelector('[data-o-component="o-header"]');
-		} else if (typeof headerEl === 'string') {
+		} else if (typeof headerEl === "string") {
 			headerEl = document.querySelector(headerEl);
 		}
 
-		if (headerEl.hasAttribute('data-o-header--js')) {
+		if (headerEl.hasAttribute("data-o-header--js")) {
 			return;
 		}
 
@@ -24,8 +24,8 @@ class Header {
 		subnav.init(this.headerEl);
 		sticky.init(this.headerEl);
 
-		this.headerEl.removeAttribute('data-o-header--no-js');
-		this.headerEl.setAttribute('data-o-header--js', '');
+		this.headerEl.removeAttribute("data-o-header--no-js");
+		this.headerEl.setAttribute("data-o-header--js", "");
 	}
 
 	static init(rootEl) {
@@ -35,13 +35,13 @@ class Header {
 		if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		if (/\bo-header\b/.test(rootEl.getAttribute('data-o-component'))) {
+		if (/\bo-header\b/.test(rootEl.getAttribute("data-o-component"))) {
 			return new Header(rootEl);
 		}
 
 		return [].map
 			.call(rootEl.querySelectorAll('[data-o-component="o-header"]'), el => {
-				if (!el.hasAttribute('data-o-header--js')) {
+				if (!el.hasAttribute("data-o-header--js")) {
 					return new Header(el);
 				}
 			})

@@ -23,7 +23,7 @@ class Count {
 		}
 
 		if (!this.countEl) {
-			throw new Error('Element must be a HTMLElement');
+			throw new Error("Element must be a HTMLElement");
 		}
 
 		return Count.fetchCount(this.articleId, this.useStagingEnvironment).then(
@@ -31,7 +31,7 @@ class Count {
 				this.countEl.textContent = count;
 
 				const countLabel = Count.getCountLabel(count);
-				this.countEl.setAttribute('aria-label', countLabel);
+				this.countEl.setAttribute("aria-label", countLabel);
 			}
 		);
 	}
@@ -44,7 +44,7 @@ class Count {
 	 */
 	static getCountLabel(count) {
 		if (count === 1) {
-			return 'There is 1 comment, click to go to the comment section.';
+			return "There is 1 comment, click to go to the comment section.";
 		} else {
 			return `There are ${count} comments, click to go to the comment section.`;
 		}
@@ -53,7 +53,7 @@ class Count {
 	static fetchCount(id, useStaging) {
 		const url =
 			`https://comments-api.ft.com/story/count/${id}` +
-			(useStaging ? '?staging=1' : '');
+			(useStaging ? "?staging=1" : "");
 
 		return fetch(url)
 			.then(res => res.json())

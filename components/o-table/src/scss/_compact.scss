@@ -10,7 +10,7 @@
 
 		th {
 			@include oTypographySans(
-				$weight: 'semibold',
+				$weight: "semibold",
 				$include-font-family: false
 			);
 		}

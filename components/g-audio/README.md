@@ -19,7 +19,7 @@ npm install @financial-times/g-audio
 Load the JS:
 
 ```js
-import GAudio from '@financial-times/g-audio';
+import GAudio from "@financial-times/g-audio";
 
 GAudio.init();
 ```
@@ -27,7 +27,7 @@ GAudio.init();
 Load the CSS:
 
 ```scss
-@import '@financial-times/g-audio/main';
+@import "@financial-times/g-audio/main";
 
 @include gAudio();
 ```
@@ -38,10 +38,10 @@ To create an audio player inline with text:
 
 ```html
 <span class="g-audio">
-  Bring to the table win-win survival
-  <audio controls>
-    <source src="demo.mp3" type="audio/mpeg">
-  </audio>
+	Bring to the table win-win survival
+	<audio controls>
+		<source src="demo.mp3" type="audio/mpeg" />
+	</audio>
 </span>
 ```
 
@@ -49,19 +49,19 @@ To create an audio player between paragraphs of text (in development):
 
 ```html
 <span class="g-audio g-audio--block">
-  Podcasting operational change management
-  <audio controls>
-    <source src="demo2.mp3" type="audio/mpeg">
-  </audio>
+	Podcasting operational change management
+	<audio controls>
+		<source src="demo2.mp3" type="audio/mpeg" />
+	</audio>
 </span>
 ```
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-⚠ maintained | 1 | 1.0.7 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       2       |        N/A         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ⚠ maintained |       1       |       1.0.7        |                          N/A                          |
 
 ## Licence
 

@@ -8,7 +8,7 @@
 		width: 100%;
 
 		thead {
-			border-bottom: 2px solid _oTableGet('table-data-color');
+			border-bottom: 2px solid _oTableGet("table-data-color");
 		}
 
 		th,
@@ -17,18 +17,18 @@
 			padding: 10px;
 			text-align: left;
 			vertical-align: top;
-			color: _oTableGet('table-data-color');
+			color: _oTableGet("table-data-color");
 			min-width: 3ch; // helps prevent some layout updates
 			box-sizing: border-box;
 		}
 
 		th {
 			@include oTypographySans(
-				$weight: 'semibold',
+				$weight: "semibold",
 				$include-font-family: false
 			);
-			background-color: _oTableGet('header-background');
-			&:not([scope='row']) {
+			background-color: _oTableGet("header-background");
+			&:not([scope="row"]) {
 				vertical-align: bottom;
 			}
 		}
@@ -36,8 +36,8 @@
 		td {
 			scroll-snap-align: none center;
 			&:empty:before {
-				@include oIconsContent('minus', $size: 15);
-				content: '';
+				@include oIconsContent("minus", $size: 15);
+				content: "";
 				vertical-align: middle;
 			}
 		}
@@ -52,7 +52,7 @@
 
 		.o-table__cell--numeric {
 			text-align: right;
-			font-feature-settings: 'tnum' 1;
+			font-feature-settings: "tnum" 1;
 		}
 
 		.o-table__cell--content-secondary {
@@ -79,8 +79,8 @@
 	// `display: none` is not used as o-table relies on row being rendered to get their height.
 	// `visibility: collaposed` is not used due to inconsistent browser support.
 	//stylelint-disable selector-no-qualifying-type
-	tr[aria-hidden='true'],
-	tr[data-o-table-filtered='true'] {
+	tr[aria-hidden="true"],
+	tr[data-o-table-filtered="true"] {
 		visibility: hidden;
 	}
 	//stylelint-enable selector-no-qualifying-type

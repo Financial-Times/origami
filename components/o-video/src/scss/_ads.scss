@@ -33,19 +33,19 @@
 	.o-video__loading-state {
 		display: block;
 		height: 100%;
-		background: oColorsByName('black');
+		background: oColorsByName("black");
 		// HACK: to avoid stray half pixels peeking out when the viewport is resized
-		outline: 2px solid oColorsByName('black');
+		outline: 2px solid oColorsByName("black");
 
 		&:after {
 			@include oLoadingContent(
 				$opts: (
-					'theme': 'light',
-					'size': 'small',
+					"theme": "light",
+					"size": "small",
 				)
 			);
 
-			content: '';
+			content: "";
 			position: absolute;
 			top: 50%;
 			left: 50%;

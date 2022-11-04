@@ -1,6 +1,6 @@
-@import '../../main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-forms/main';
+@import "../../main";
+@import "@financial-times/o-normalise/main";
+@import "@financial-times/o-forms/main";
 
 @include oNormalise();
 @include oForms();

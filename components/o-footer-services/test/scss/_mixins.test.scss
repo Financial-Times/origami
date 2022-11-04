@@ -1,5 +1,5 @@
-@include test-module('oFooterServices') {
-	@include test('Outputs base styles and default icons by default.') {
+@include test-module("oFooterServices") {
+	@include test("Outputs base styles and default icons by default.") {
 		@include assert {
 			@include output($selector: false) {
 				@include oFooterServices();
@@ -19,37 +19,37 @@
 			// o-footer-services__icon-link--github icon styles
 			@include contains($selector: false) {
 				.o-footer-services .o-footer-services__icon-link--github:before {
-					background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Agithub?source=#{$system-code}&tint=000000&format=svg');
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Agithub?source=#{$system-code}&tint=000000&format=svg");
 				}
 			}
 		}
 	}
 
-	@include test('Outputs a given logo.') {
+	@include test("Outputs a given logo.") {
 		@include assert {
 			@include output($selector: false) {
 				@include oFooterServices(
 					$opts: (
-						'logo': 'ftlogo-v1:origami',
+						"logo": "ftlogo-v1:origami",
 					)
 				);
 			}
 			// o-footer-service__container base styles
 			@include contains($selector: false) {
 				.o-footer-services__logo:before {
-					background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=#{$system-code}');
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=#{$system-code}");
 				}
 			}
 		}
 	}
 
-	@include test('Outputs a given icon.') {
+	@include test("Outputs a given icon.") {
 		@include assert {
 			@include output($selector: false) {
 				@include oFooterServices(
 					$opts: (
-						'icons': (
-							'whatsapp',
+						"icons": (
+							"whatsapp",
 						),
 					)
 				);
@@ -57,13 +57,13 @@
 			// o-footer-service__container base styles
 			@include contains($selector: false) {
 				.o-footer-services .o-footer-services__icon-link--whatsapp:before {
-					background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Awhatsapp?source=#{$system-code}&tint=000000&format=svg');
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Awhatsapp?source=#{$system-code}&tint=000000&format=svg");
 				}
 			}
 		}
 	}
 
-	@include test('Does not output base styles if turned off.') {
+	@include test("Does not output base styles if turned off.") {
 		@include assert {
 			@include output() {
 				@include oFooterServices($opts: (), $include-base-styles: false);

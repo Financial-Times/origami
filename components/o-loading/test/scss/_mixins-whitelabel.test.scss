@@ -1,17 +1,17 @@
 // Set o-brand to whitelabel for `oLoadingCustomize` test.
 $o-brand-stash: $o-brand;
-$o-brand: 'whitelabel' !global;
-@import '../../main';
+$o-brand: "whitelabel" !global;
+@import "../../main";
 
-@include describe('oLoadingCustomize') {
-	@include it('sets the light and dark variant colours') {
+@include describe("oLoadingCustomize") {
+	@include it("sets the light and dark variant colours") {
 		// Customise o-loading.
 		@include oLoadingCustomize(
 			(
-				'light': (
+				"light": (
 					default-color: hotpink,
 				),
-				'dark': (
+				"dark": (
 					default-color: black,
 				),
 			)

@@ -1,6 +1,6 @@
-import {addons} from "@storybook/addons"
-import {create} from "@storybook/theming"
-import "./theme.css"
+import { addons } from "@storybook/addons";
+import { create } from "@storybook/theming";
+import "./theme.css";
 
 addons.setConfig({
 	previewTabs: {
@@ -40,4 +40,4 @@ addons.setConfig({
 		inputTextColor: "black",
 		inputBorderRadius: 10,
 	}),
-})
+});

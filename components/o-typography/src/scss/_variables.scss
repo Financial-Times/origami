@@ -31,11 +31,11 @@ $o-typography-baseline-unit: 4;
 /// Prefix for the class used when loading fonts
 /// @access private
 /// @type String
-$_o-typography-loading-prefix: 'o-typography--loading' !default;
+$_o-typography-loading-prefix: "o-typography--loading" !default;
 
 /// The "types" of fonts o-typography supports.
 /// @access private
-$_o-typography-types: ('sans', 'serif', 'display');
+$_o-typography-types: ("sans", "serif", "display");
 
 /// Font scale of font-sizes and line-heights.
 /// Currently the default scale `$_o-typography-font-scale` is used for all
@@ -52,30 +52,30 @@ $_o-typography-font-scale-by-font: () !default;
 /// @type Map
 $_o-typography-progressive-font-fallbacks: (
 	(
-		label: 'sans',
-		family: 'MetricWeb',
+		label: "sans",
+		family: "MetricWeb",
 		fallback: sans-serif,
 		fallback-scale: 0.87,
 	),
 	(
-		label: 'sans-bold',
-		family: 'MetricWeb',
+		label: "sans-bold",
+		family: "MetricWeb",
 		weight: (
-			'bold',
-			'semibold',
+			"bold",
+			"semibold",
 		),
 		fallback: sans-serif,
 		fallback-scale: 0.83,
 	),
 	(
-		label: 'display',
-		family: 'FinancierDisplayWeb',
+		label: "display",
+		family: "FinancierDisplayWeb",
 		fallback: serif,
 		fallback-scale: 0.9,
 	),
 	(
-		label: 'display-bold',
-		family: 'FinancierDisplayWeb',
+		label: "display-bold",
+		family: "FinancierDisplayWeb",
 		weight: bold,
 		fallback: serif,
 		fallback-scale: 0.9,

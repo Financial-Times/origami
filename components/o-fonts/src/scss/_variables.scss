@@ -7,7 +7,7 @@ $o-fonts-is-silent: true !default;
 ///
 /// @deprecated - Use "$o-fonts-build-service-path" or "$o-fonts-self-host-path" instead.
 /// @type String
-$o-fonts-path: 'https://www.ft.com/__origami/service/build/v3/font?version=1.12' !default;
+$o-fonts-path: "https://www.ft.com/__origami/service/build/v3/font?version=1.12" !default;
 
 /// Origami Build Service path to font files.
 ///
@@ -20,7 +20,7 @@ $o-fonts-build-service-path: $o-fonts-path !default;
 ///
 /// @see $o-fonts-build-service-path - If not set the Origami Build Service is used to host fonts.
 /// @type String
-$o-fonts-self-host-path: '' !default;
+$o-fonts-self-host-path: "" !default;
 
 /// The default `font-display` property of included font faces.
 /// https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display
@@ -33,43 +33,43 @@ $o-fonts-display: swap !default;
 /// @access private
 $_o-fonts-all-metric-variants: (
 	(
-		weight: 'thin',
+		weight: "thin",
 		style: normal,
 	),
 	(
-		weight: 'light',
+		weight: "light",
 		style: normal,
 	),
 	(
-		weight: 'light',
+		weight: "light",
 		style: italic,
 	),
 	(
-		weight: 'regular',
+		weight: "regular",
 		style: normal,
 	),
 	(
-		weight: 'regular',
+		weight: "regular",
 		style: italic,
 	),
 	(
-		weight: 'medium',
+		weight: "medium",
 		style: normal,
 	),
 	(
-		weight: 'semibold',
+		weight: "semibold",
 		style: normal,
 	),
 	(
-		weight: 'bold',
+		weight: "bold",
 		style: normal,
 	),
 	(
-		weight: 'bold',
+		weight: "bold",
 		style: italic,
 	),
 	(
-		weight: 'black',
+		weight: "black",
 		style: normal,
 	)
 );
@@ -79,43 +79,43 @@ $_o-fonts-all-metric-variants: (
 /// @access private
 $_o-fonts-all-financier-display-variants: (
 	(
-		weight: 'light',
+		weight: "light",
 		style: normal,
 	),
 	(
-		weight: 'light',
+		weight: "light",
 		style: italic,
 	),
 	(
-		weight: 'regular',
+		weight: "regular",
 		style: normal,
 	),
 	(
-		weight: 'regular',
+		weight: "regular",
 		style: italic,
 	),
 	(
-		weight: 'medium',
+		weight: "medium",
 		style: italic,
 	),
 	(
-		weight: 'medium',
+		weight: "medium",
 		style: normal,
 	),
 	(
-		weight: 'semibold',
+		weight: "semibold",
 		style: normal,
 	),
 	(
-		weight: 'semibold',
+		weight: "semibold",
 		style: italic,
 	),
 	(
-		weight: 'bold',
+		weight: "bold",
 		style: normal,
 	),
 	(
-		weight: 'black',
+		weight: "black",
 		style: normal,
 	)
 );
@@ -125,23 +125,23 @@ $_o-fonts-all-financier-display-variants: (
 /// @access private
 $_o-fonts-all-financier-text-variants: (
 	(
-		weight: 'regular',
+		weight: "regular",
 		style: italic,
 	),
 	(
-		weight: 'regular',
+		weight: "regular",
 		style: normal,
 	),
 	(
-		weight: 'medium',
+		weight: "medium",
 		style: normal,
 	),
 	(
-		weight: 'bold',
+		weight: "bold",
 		style: normal,
 	),
 	(
-		weight: 'black',
+		weight: "black",
 		style: normal,
 	)
 );
@@ -151,17 +151,17 @@ $_o-fonts-all-financier-text-variants: (
 /// @access private
 $_o-fonts-default: ();
 
-@if oBrandIs('core') {
+@if oBrandIs("core") {
 	$_o-fonts-default: (
-		'metric': $_o-fonts-all-metric-variants,
-		'financier-display': $_o-fonts-all-financier-display-variants,
+		"metric": $_o-fonts-all-metric-variants,
+		"financier-display": $_o-fonts-all-financier-display-variants,
 	) !global;
 }
 
-@if oBrandIs('internal') {
+@if oBrandIs("internal") {
 	$_o-fonts-default: (
-		'metric': $_o-fonts-all-metric-variants,
-		'financier-display': (),
+		"metric": $_o-fonts-all-metric-variants,
+		"financier-display": (),
 	) !global;
 }
 
@@ -169,14 +169,14 @@ $_o-fonts-default: ();
 /// @see oFonts
 /// @access private
 $_o-fonts-recommended: (
-	'metric': (),
-	'financier-display': (),
-	'financier-text': (),
+	"metric": (),
+	"financier-display": (),
+	"financier-text": (),
 );
 
-@if oBrandIs('core') {
+@if oBrandIs("core") {
 	$_o-fonts-recommended: (
-		'metric': (
+		"metric": (
 			(
 				weight: regular,
 				style: normal,
@@ -186,7 +186,7 @@ $_o-fonts-recommended: (
 				style: normal,
 			),
 		),
-		'financier-display': (
+		"financier-display": (
 			(
 				weight: medium,
 				style: normal,
@@ -196,13 +196,13 @@ $_o-fonts-recommended: (
 				style: normal,
 			),
 		),
-		'financier-text': (),
+		"financier-text": (),
 	);
 }
 
-@if oBrandIs('internal') {
+@if oBrandIs("internal") {
 	$_o-fonts-recommended: (
-		'metric': (
+		"metric": (
 			(
 				weight: regular,
 				style: normal,
@@ -212,8 +212,8 @@ $_o-fonts-recommended: (
 				style: normal,
 			),
 		),
-		'financier-display': (),
-		'financier-text': (),
+		"financier-display": (),
+		"financier-text": (),
 	);
 }
 
@@ -223,15 +223,15 @@ $_o-fonts-recommended: (
 /// @access private
 $_o-fonts-families: (
 	MetricWeb: (
-		font-family: 'MetricWeb, sans-serif',
+		font-family: "MetricWeb, sans-serif",
 		variants: $_o-fonts-all-metric-variants,
 	),
 	FinancierDisplayWeb: (
-		font-family: 'FinancierDisplayWeb, serif',
+		font-family: "FinancierDisplayWeb, serif",
 		variants: $_o-fonts-all-financier-display-variants,
 	),
 	FinancierTextWeb: (
-		font-family: 'FinancierTextWeb, serif',
+		font-family: "FinancierTextWeb, serif",
 		variants: $_o-fonts-all-financier-text-variants,
 	),
 ) !default;
@@ -241,14 +241,14 @@ $_o-fonts-families: (
 /// @type Map
 /// @access private
 $_o-fonts-weights: (
-	'thin': 100,
-	'light': 300,
-	'regular': 400,
-	'normal': 400,
-	'medium': 500,
-	'semibold': 600,
-	'bold': 700,
-	'black': 900,
+	"thin": 100,
+	"light": 300,
+	"regular": 400,
+	"normal": 400,
+	"medium": 500,
+	"semibold": 600,
+	"bold": 700,
+	"black": 900,
 ) !default;
 
 /// Map of families and styles which have already been included

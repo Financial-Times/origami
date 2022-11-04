@@ -1,4 +1,4 @@
-import ExpanderUtility from './expander-utility.js';
+import ExpanderUtility from "./expander-utility.js";
 
 class Expander extends ExpanderUtility {
 	/**
@@ -22,16 +22,16 @@ class Expander extends ExpanderUtility {
 			oExpanderElement,
 			Object.assign(userOptions, {
 				selectors: {
-					toggle: '.o-expander__toggle',
-					content: '.o-expander__content',
-					item: userOptions.itemSelector || 'li',
+					toggle: ".o-expander__toggle",
+					content: ".o-expander__content",
+					item: userOptions.itemSelector || "li",
 				},
 				classnames: {
-					initialized: 'o-expander--initialized',
-					inactive: 'o-expander--inactive',
-					expanded: 'o-expander__content--expanded',
-					collapsed: 'o-expander__content--collapsed',
-					collapsibleItem: 'o-expander__collapsible-item',
+					initialized: "o-expander--initialized",
+					inactive: "o-expander--inactive",
+					expanded: "o-expander__content--expanded",
+					collapsed: "o-expander__content--collapsed",
+					collapsibleItem: "o-expander__collapsible-item",
 				},
 			})
 		);
@@ -66,7 +66,7 @@ class Expander extends ExpanderUtility {
 		}
 		if (
 			rootEl instanceof HTMLElement &&
-			rootEl.matches('[data-o-component=o-expander]')
+			rootEl.matches("[data-o-component=o-expander]")
 		) {
 			return new Expander(rootEl, opts);
 		}
@@ -90,7 +90,7 @@ class Expander extends ExpanderUtility {
 		}
 		return Object.keys(oExpanderElement.dataset).reduce((options, key) => {
 			// Ignore data-o-component
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return options;
 			}
 			// Build a concise key and get the option value

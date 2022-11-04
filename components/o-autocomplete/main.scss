@@ -1,16 +1,16 @@
-@import '@financial-times/math';
-@import '@financial-times/o-brand/main';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-grid/main';
-@import '@financial-times/o-icons/main';
-@import '@financial-times/o-loading/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-visual-effects/main';
+@import "@financial-times/math";
+@import "@financial-times/o-brand/main";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-grid/main";
+@import "@financial-times/o-icons/main";
+@import "@financial-times/o-loading/main";
+@import "@financial-times/o-normalise/main";
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-visual-effects/main";
 
-@import 'src/scss/variables';
-@import 'src/scss/brand';
+@import "src/scss/variables";
+@import "src/scss/brand";
 
 /// Output all oAutocomplete features
 /// @param {Map} $opts [()] - A map of options to configure the output
@@ -38,8 +38,8 @@
 
 	.o-autocomplete__clear {
 		@include oIconsContent(
-			'cross',
-			_oAutocompleteGet('search-close'),
+			"cross",
+			_oAutocompleteGet("search-close"),
 			$size: $_o-autocomplete-icon-size
 		);
 		border: 0;
@@ -76,18 +76,18 @@
 	}
 
 	.o-autocomplete__menu {
-		@include oVisualEffectsShadowContent('high');
-		top: oSpacingByName('s1');
-		background-color: oColorsByName('white');
+		@include oVisualEffectsShadowContent("high");
+		top: oSpacingByName("s1");
+		background-color: oColorsByName("white");
 		border-top: 0;
-		color: oColorsByName('black');
+		color: oColorsByName("black");
 		margin: 0;
 		max-height: 200px; // Make this configurable as it decides how many rows to show
 		overflow-x: hidden;
-		padding-left: oSpacingByName('s2');
-		padding-right: oSpacingByName('s2');
-		padding-top: oSpacingByName('s4');
-		padding-bottom: oSpacingByName('s4');
+		padding-left: oSpacingByName("s2");
+		padding-right: oSpacingByName("s2");
+		padding-top: oSpacingByName("s4");
+		padding-bottom: oSpacingByName("s4");
 		width: 100%;
 	}
 
@@ -104,7 +104,7 @@
 	}
 
 	.o-autocomplete__menu--overlay {
-		@include oVisualEffectsShadowContent('high');
+		@include oVisualEffectsShadowContent("high");
 		box-sizing: border-box;
 	}
 
@@ -118,10 +118,10 @@
 		cursor: pointer;
 		display: block;
 		position: relative;
-		padding-left: oSpacingByName('s1');
-		padding-right: oSpacingByName('s1');
-		padding-top: oSpacingByName('s2');
-		padding-bottom: oSpacingByName('s2');
+		padding-left: oSpacingByName("s1");
+		padding-right: oSpacingByName("s1");
+		padding-top: oSpacingByName("s2");
+		padding-bottom: oSpacingByName("s2");
 	}
 
 	.o-autocomplete__option > * {
@@ -138,9 +138,9 @@
 
 	.o-autocomplete__option--focused,
 	.o-autocomplete__option:hover {
-		background-color: oColorsByName('teal');
-		border-color: oColorsByName('teal');
-		color: oColorsByName('white');
+		background-color: oColorsByName("teal");
+		border-color: oColorsByName("teal");
+		color: oColorsByName("white");
 		outline: none;
 	}
 
@@ -148,7 +148,7 @@
 		background-color: oColorsMix(white, black, 98); // #fafafa
 		color: oColorsGetTextColor(
 			oColorsMix(white, black, 98),
-			$minimum-contrast: 'aa-normal'
+			$minimum-contrast: "aa-normal"
 		);
 		cursor: not-allowed;
 	}
@@ -160,8 +160,8 @@
 	.o-autocomplete__menu-loading {
 		@include oLoadingContent(
 			$opts: (
-				size: 'mini',
-				theme: 'dark',
+				size: "mini",
+				theme: "dark",
 			)
 		);
 	}
@@ -175,20 +175,20 @@
 		grid-row: 2;
 	}
 	.o-autocomplete__menu-loading-container {
-		@include oVisualEffectsShadowContent('high');
+		@include oVisualEffectsShadowContent("high");
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: oSpacingByName('s2');
+		padding: oSpacingByName("s2");
 		box-sizing: border-box;
 		min-height: 40px;
-		background-color: oColorsByName('white');
+		background-color: oColorsByName("white");
 	}
 
 	.o-autocomplete__menu-loading-container,
 	.o-autocomplete__menu--overlay {
 		position: absolute;
-		top: calc(100% + #{oSpacingByName('s1')});
+		top: calc(100% + #{oSpacingByName("s1")});
 		left: 0;
 		right: 0;
 		z-index: 100;

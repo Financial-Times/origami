@@ -1,18 +1,18 @@
-@import '../../main';
+@import "../../main";
 
 @include oTabs();
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 
 body {
 	margin: 1rem;
 }
 
-@if oBrandIs('core') or oBrandIs('internal') {
+@if oBrandIs("core") or oBrandIs("internal") {
 	.demo-inverse {
-		color: oColorsByName('white');
-		background: oColorsByName('slate');
+		color: oColorsByName("white");
+		background: oColorsByName("slate");
 	}
 }

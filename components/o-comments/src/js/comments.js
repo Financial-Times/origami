@@ -1,5 +1,5 @@
-import Stream from './stream.js';
-import Count from './count.js';
+import Stream from "./stream.js";
+import Count from "./count.js";
 
 class Comments {
 	constructor(rootEl, opts) {
@@ -8,23 +8,23 @@ class Comments {
 			{},
 			opts || Comments.getDataAttributes(rootEl)
 		);
-		const isCount = rootEl.getAttribute('data-o-comments-count') === 'true';
+		const isCount = rootEl.getAttribute("data-o-comments-count") === "true";
 		if (!this.options.articleId) {
 			// eslint-disable-next-line no-console
 			console.error(
-				'Missing required configuration option: `articleId`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments'
+				"Missing required configuration option: `articleId`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments"
 			);
 		}
 		if (!this.options.articleUrl) {
 			// eslint-disable-next-line no-console
 			console.error(
-				'Missing required configuration option: `articleUrl`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments'
+				"Missing required configuration option: `articleUrl`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments"
 			);
 		}
 		if (!this.options.title) {
 			// eslint-disable-next-line no-console
 			console.error(
-				'Missing required configuration option: `title`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments'
+				"Missing required configuration option: `title`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments"
 			);
 		}
 
@@ -58,7 +58,7 @@ class Comments {
 		}
 		return Object.keys(rootEl.dataset).reduce((options, key) => {
 			// Ignore data-o-component
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return options;
 			}
 
@@ -96,7 +96,7 @@ class Comments {
 		}
 		if (
 			rootEl instanceof HTMLElement &&
-			rootEl.matches('[data-o-component=o-comments]')
+			rootEl.matches("[data-o-component=o-comments]")
 		) {
 			return new Comments(rootEl, opts);
 		}

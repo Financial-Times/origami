@@ -1,13 +1,13 @@
-@import '@financial-times/o-brand/main';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-icons/main';
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-brand/main";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-icons/main";
+@import "@financial-times/o-normalise/main";
 
-@import './src/scss/brand';
-@import './src/scss/variables';
-@import './src/scss/functions';
-@import './src/scss/mixins';
+@import "./src/scss/brand";
+@import "./src/scss/variables";
+@import "./src/scss/functions";
+@import "./src/scss/mixins";
 
 /// Output o-buttons classes.
 ///
@@ -37,24 +37,24 @@
 /// @param {List} $opts
 @mixin oButtons(
 	$opts: (
-		'sizes': $_o-buttons-sizes,
-		'types': $_o-buttons-types,
-		'themes': $_o-buttons-themes,
-		'icons': $_o-buttons-icons,
-		'pagination': true,
-		'groups': true,
+		"sizes": $_o-buttons-sizes,
+		"types": $_o-buttons-types,
+		"themes": $_o-buttons-themes,
+		"icons": $_o-buttons-icons,
+		"pagination": true,
+		"groups": true,
 	)
 ) {
-	$types: map-get($opts, 'types');
+	$types: map-get($opts, "types");
 	$types: if($types, $types, ());
-	$sizes: map-get($opts, 'sizes');
+	$sizes: map-get($opts, "sizes");
 	$sizes: if($sizes, $sizes, ());
-	$themes: map-get($opts, 'themes');
+	$themes: map-get($opts, "themes");
 	$themes: if($themes, $themes, ());
-	$icons: map-get($opts, 'icons');
+	$icons: map-get($opts, "icons");
 	$icons: if($icons, $icons, ());
-	$pagination-enabled: map-get($opts, 'pagination');
-	$groups-enabled: map-get($opts, 'groups');
+	$pagination-enabled: map-get($opts, "pagination");
+	$groups-enabled: map-get($opts, "groups");
 
 	// Base button class.
 	.o-buttons {
@@ -87,9 +87,9 @@
 					// IE11 renders the background image at a very small size if you do not
 					// double-up the background size here, declaring a width _and_ height.
 					// See https://thatemil.com/blog/2015/03/15/sizing-svg-background-images-in-internet-explorer/
-					background-size: _oButtonsGet('background-size', $size)
-						_oButtonsGet('background-size', $size);
-					padding-left: _oButtonsGet('icon-padding', $size);
+					background-size: _oButtonsGet("background-size", $size)
+						_oButtonsGet("background-size", $size);
+					padding-left: _oButtonsGet("icon-padding", $size);
 				}
 			}
 		}
@@ -110,7 +110,7 @@
 			@include _oButtonsAdd($type: $type, $icons: $icons);
 		}
 		@each $theme in $themes {
-			@if _oButtonsSupports('#{$type}-#{$theme}') {
+			@if _oButtonsSupports("#{$type}-#{$theme}") {
 				@include _oButtonsAdd($type, $theme, $icons);
 			}
 		}
@@ -151,7 +151,7 @@
 
 			// Any child element preceded by another sibling element.
 			> * + * {
-				margin: 0 0 0 oSpacingByName('s1');
+				margin: 0 0 0 oSpacingByName("s1");
 			}
 		}
 	}

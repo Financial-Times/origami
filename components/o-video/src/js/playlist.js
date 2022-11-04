@@ -14,7 +14,7 @@ class Playlist {
 
 		if (this.opts.autoplay) {
 			this.opts.player.containerEl.addEventListener(
-				'ended',
+				"ended",
 				this.next.bind(this),
 				true
 			);

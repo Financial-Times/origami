@@ -1,29 +1,29 @@
 const defaults = {
-	selector: '.o-lazy-load',
+	selector: ".o-lazy-load",
 };
 
-const flag = 'data-o-lazy-load';
+const flag = "data-o-lazy-load";
 
 function loadContent(element) {
-	if (element.nodeName.toLowerCase() === 'picture') {
+	if (element.nodeName.toLowerCase() === "picture") {
 		// NOTE: element.children returns a live HTMLCollection
 		// but element.childNodes includes non-element children
 		Array.from(element.children).forEach(loadContent);
 	}
 
-	if (element.hasAttribute('data-src')) {
-		element.src = element.getAttribute('data-src');
-		element.removeAttribute('data-src');
+	if (element.hasAttribute("data-src")) {
+		element.src = element.getAttribute("data-src");
+		element.removeAttribute("data-src");
 	}
 
-	if (element.hasAttribute('data-srcset')) {
-		element.srcset = element.getAttribute('data-srcset');
-		element.removeAttribute('data-srcset');
+	if (element.hasAttribute("data-srcset")) {
+		element.srcset = element.getAttribute("data-srcset");
+		element.removeAttribute("data-srcset");
 	}
 
-	if (element.hasAttribute('data-toggle-class')) {
-		element.classList.toggle(element.getAttribute('data-toggle-class'));
-		element.removeAttribute('data-toggle-class');
+	if (element.hasAttribute("data-toggle-class")) {
+		element.classList.toggle(element.getAttribute("data-toggle-class"));
+		element.removeAttribute("data-toggle-class");
 	}
 
 	element.setAttribute(flag, true);
@@ -47,7 +47,7 @@ function callback(entries, observer) {
 			if (!isLoaded(target)) {
 				loadContent(target);
 
-				if (typeof this.options.callback === 'function') {
+				if (typeof this.options.callback === "function") {
 					this.options.callback(target);
 				}
 			}
@@ -108,7 +108,7 @@ class LazyLoad {
 
 		return Object.keys(rootEl.dataset).reduce((options, key) => {
 			// Ignore data-o-component
-			if (key === 'oComponent') {
+			if (key === "oComponent") {
 				return options;
 			}
 

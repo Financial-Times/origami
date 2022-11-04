@@ -1,12 +1,12 @@
-@import '../../main';
+@import "../../main";
 @include oCookieMessage();
-@import '@financial-times/o-fonts/main';
+@import "@financial-times/o-fonts/main";
 @include oFonts();
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-normalise/main";
 @include oNormalise();
 
 body {
 	font-family: MetricWeb;
 	min-height: 350px;
-	background-color: oColorsByUsecase('page', 'background');
+	background-color: oColorsByUsecase("page", "background");
 }

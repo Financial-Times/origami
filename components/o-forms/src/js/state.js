@@ -10,9 +10,9 @@ class State {
 		const radioInputs = inputs instanceof RadioNodeList;
 		if (radioInputs) {
 			this.inputs = inputs;
-			this.parent = this.inputs[0].closest('.o-forms-input');
+			this.parent = this.inputs[0].closest(".o-forms-input");
 		} else {
-			throw new Error('State can only be applied to `radio` type inputs.');
+			throw new Error("State can only be applied to `radio` type inputs.");
 		}
 
 		this._verify();
@@ -24,8 +24,8 @@ class State {
 		);
 
 		this.className = {
-			saving: 'o-forms-input--saving',
-			saved: 'o-forms-input--saved',
+			saving: "o-forms-input--saving",
+			saved: "o-forms-input--saved",
 		};
 	}
 
@@ -35,10 +35,10 @@ class State {
 	 * @access private
 	 */
 	_generateStateEl() {
-		this.stateEl = document.createElement('span');
+		this.stateEl = document.createElement("span");
 		const classNames = this.opts.iconOnly
-			? ['o-forms-input__state', 'o-forms-input__state--icon-only']
-			: ['o-forms-input__state'];
+			? ["o-forms-input__state", "o-forms-input__state--icon-only"]
+			: ["o-forms-input__state"];
 		this.stateEl.classList.add(...classNames);
 		this.parent.append(this.stateEl);
 	}
@@ -54,11 +54,11 @@ class State {
 			this._generateStateEl();
 		}
 
-		if (state === 'saving') {
+		if (state === "saving") {
 			this._saving(label);
-		} else if (state === 'saved') {
+		} else if (state === "saved") {
 			this._saved(label);
-		} else if (state === 'none') {
+		} else if (state === "none") {
 			this._remove();
 		} else {
 			throw new Error(
@@ -81,13 +81,13 @@ class State {
 		// Add custom state label if given.
 		// Default label copy is added via the CSS `content` attribute.
 		this.stateEl.classList.toggle(
-			'o-forms-input__state--custom',
+			"o-forms-input__state--custom",
 			Boolean(label)
 		);
-		this.stateEl.textContent = label && !this.opts.iconOnly ? label : '';
+		this.stateEl.textContent = label && !this.opts.iconOnly ? label : "";
 		// When icon-only is set there is no copy when given a custom label so
 		// add an aria label.
-		this.stateEl.setAttribute('aria-label', label || 'Saving');
+		this.stateEl.setAttribute("aria-label", label || "Saving");
 	}
 
 	/**
@@ -104,13 +104,13 @@ class State {
 		// Add custom state label if given.
 		// Default label copy is added via the CSS `content` attribute.
 		this.stateEl.classList.toggle(
-			'o-forms-input__state--custom',
+			"o-forms-input__state--custom",
 			Boolean(label)
 		);
-		this.stateEl.textContent = label && !this.opts.iconOnly ? label : '';
+		this.stateEl.textContent = label && !this.opts.iconOnly ? label : "";
 		// When icon-only is set there is no copy when given a custom label so
 		// add an aria label.
-		this.stateEl.setAttribute('aria-label', label || 'Saved');
+		this.stateEl.setAttribute("aria-label", label || "Saved");
 	}
 
 	/**
@@ -131,12 +131,12 @@ class State {
 	 * @access private
 	 */
 	_verify() {
-		if (!this.parent.classList.contains('o-forms-input--radio-box')) {
+		if (!this.parent.classList.contains("o-forms-input--radio-box")) {
 			throw new Error(
-				'State can only be set on radio inputs with a box style (o-forms-input--radio-box).'
+				"State can only be set on radio inputs with a box style (o-forms-input--radio-box)."
 			);
-		} else if (this.parent.classList.contains('.o-forms--input-invalid')) {
-			throw new Error('State cannot be set on an invalid input field.');
+		} else if (this.parent.classList.contains(".o-forms--input-invalid")) {
+			throw new Error("State cannot be set on an invalid input field.");
 		}
 	}
 }

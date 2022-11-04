@@ -1,17 +1,17 @@
 @mixin oSubsCardB2B {
 	.o-subs-card__top {
-		background: oColorsByName('slate');
-		color: oColorsByName('white');
+		background: oColorsByName("slate");
+		color: oColorsByName("white");
 	}
 
 	.o-subs-card__copy-benefits {
-		background: oColorsByName('slate');
-		color: oColorsByName('white');
+		background: oColorsByName("slate");
+		color: oColorsByName("white");
 	}
 
 	.o-subs-card__copy-title:first-child {
-		margin-bottom: oSpacingByName('s1');
-		padding-top: oSpacingByName('s6');
+		margin-bottom: oSpacingByName("s1");
+		padding-top: oSpacingByName("s6");
 		padding-right: $o-subs-card-horizontal-padding;
 		padding-left: $o-subs-card-horizontal-padding;
 	}
@@ -19,10 +19,10 @@
 	.o-subs-card__select-button {
 		@include oButtonsContent(
 			$opts: (
-				'type': 'secondary',
-				'size': 'big',
-				'theme': (
-					'inverse',
+				"type": "secondary",
+				"size": "big",
+				"theme": (
+					"inverse",
 				),
 			)
 		);
@@ -31,7 +31,7 @@
 
 @mixin oSubsCardDiscount {
 	.o-subs-card__copy-title {
-		margin-bottom: oSpacingByName('s4');
+		margin-bottom: oSpacingByName("s4");
 	}
 
 	.o-subs-card__copy-offer {
@@ -39,23 +39,23 @@
 		padding-top: oSpacingByIncrement(5);
 		//overwrite oTypography line-height for, well, height.
 		line-height: 1;
-		color: oColorsByName('claret-80');
+		color: oColorsByName("claret-80");
 	}
 
 	.o-subs-card__select-button {
 		@include oButtonsContent(
 			$opts: (
-				'type': 'primary',
-				'size': 'big',
-				'theme': (
-					color: 'claret-80',
-					context: 'white',
+				"type": "primary",
+				"size": "big",
+				"theme": (
+					color: "claret-80",
+					context: "white",
 				),
 			)
 		);
 	}
 
 	.o-subs-card__charge__value {
-		color: oColorsByName('claret-80');
+		color: oColorsByName("claret-80");
 	}
 }

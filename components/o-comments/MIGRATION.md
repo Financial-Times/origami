@@ -23,31 +23,29 @@ Dependencies have all been updated to the latest major versions. If you have any
 
 In version 6 the commenting provider has been updated from Livefyre to [Coral Talk](https://coralproject.net/talk/) and as a result version 6 is a complete rewrite.
 
-
 #### Event naming
 
 In v6 the naming of events has changed and all events use a dot notation.
 
 The table below shows the mapping of old events to new.
 
-| Old event              | New event                   |
-| ---------------------- | --------------------------- |
-| error.init             | Not mapped yet              |
-| error.widget           | Not mapped yet              |
-| error.livefyreJs       | Deprecated                  |
-| data.init              | Not mapped yet              |
-| data.auth              | Not mapped yet              |
-| widget.timeout         | Not mapped yet              |
-| widget.ready           | Deprecation candidate       |
-| widget.load            | Deprecation candidate       |
-| widget.renderComplete  | oComments.ready             |
-| tracking.postComment   | oComments.postComment       |
-| tracking.likeComment   | ocomments.likeComment       |
-| tracking.shareComment  | Deprecation candidate       |
-| tracking.socialMention | Deprecated                  |
-| auth.login             | Not mapped yet              |
-| auth.loginRequired     | Not mapped yet              |
-
+| Old event              | New event             |
+| ---------------------- | --------------------- |
+| error.init             | Not mapped yet        |
+| error.widget           | Not mapped yet        |
+| error.livefyreJs       | Deprecated            |
+| data.init              | Not mapped yet        |
+| data.auth              | Not mapped yet        |
+| widget.timeout         | Not mapped yet        |
+| widget.ready           | Deprecation candidate |
+| widget.load            | Deprecation candidate |
+| widget.renderComplete  | oComments.ready       |
+| tracking.postComment   | oComments.postComment |
+| tracking.likeComment   | ocomments.likeComment |
+| tracking.shareComment  | Deprecation candidate |
+| tracking.socialMention | Deprecated            |
+| auth.login             | Not mapped yet        |
+| auth.loginRequired     | Not mapped yet        |
 
 ### Migrating from v4 to v5
 

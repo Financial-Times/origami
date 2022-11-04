@@ -1,4 +1,4 @@
-import BaseTable from './BaseTable.js';
+import BaseTable from "./BaseTable.js";
 
 class ScrollTable extends BaseTable {
 	/**
@@ -64,7 +64,7 @@ class ScrollTable extends BaseTable {
 	_getLatestRowNodes() {
 		return this.tbody
 			? Array.from(
-					this.tbody.querySelectorAll('tr:not(.o-table__duplicate-row)')
+					this.tbody.querySelectorAll("tr:not(.o-table__duplicate-row)")
 			  )
 			: [];
 	}
@@ -80,21 +80,21 @@ class ScrollTable extends BaseTable {
 	_createScrollTableStructure() {
 		// Clone headings and data into new rows.
 		const clonedRows = this._tableHeadersWithoutSort.map((header, index) => {
-			const headerRow = document.createElement('tr');
-			headerRow.classList.add('o-table__duplicate-row');
+			const headerRow = document.createElement("tr");
+			headerRow.classList.add("o-table__duplicate-row");
 			// Clone column heading and turn into a row heading.
 			const clonedHeader = header.cloneNode(true);
-			clonedHeader.setAttribute('scope', 'row');
-			clonedHeader.setAttribute('role', 'rowheader');
+			clonedHeader.setAttribute("scope", "row");
+			clonedHeader.setAttribute("role", "rowheader");
 			headerRow.appendChild(clonedHeader);
 			// Clone data for the column into the new row.
 			this.tableRows.forEach(row => {
-				const cell = row.querySelectorAll('td')[index];
+				const cell = row.querySelectorAll("td")[index];
 				if (cell) {
 					const cellClone = cell.cloneNode(true);
 					const filteredData = this._filteredTableRows.indexOf(row) !== -1;
-					cellClone.setAttribute('data-o-table-filtered', filteredData);
-					cellClone.setAttribute('aria-hidden', filteredData);
+					cellClone.setAttribute("data-o-table-filtered", filteredData);
+					cellClone.setAttribute("aria-hidden", filteredData);
 					headerRow.appendChild(cellClone);
 				}
 			});
@@ -105,7 +105,7 @@ class ScrollTable extends BaseTable {
 		window.requestAnimationFrame(
 			function () {
 				const rowHeadingRows = Array.from(
-					this.tbody.querySelectorAll('.o-table__duplicate-row')
+					this.tbody.querySelectorAll(".o-table__duplicate-row")
 				);
 				rowHeadingRows.forEach(row => this.tbody.removeChild(row));
 				if (this.tbody.prepend) {

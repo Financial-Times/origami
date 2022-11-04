@@ -18,12 +18,14 @@ Since Origami is largely open source, we welcome contributions from all of our u
 The <a href="https://registry.origami.ft.com/components/">Origami registry</a> houses components that the Origami team maintains, as well as components that other teams are responsible for.
 
 ### Make a proposal
+
 For the Origami team to oversee a component's maintenance, a proposal needs to be made.
 You can find information about that process in the <a href="https://github.com/Financial-Times/origami/blob/master/.github/CONTRIBUTING.md">origami</a> project board, where all proposals are logged.
 
 After the team have reviewed and accepted the proposal, according to the project guidelines, we will take responsibility for this component and help build and maintain it.
 
 ### Build an independent component
+
 As mentioned, not all Origami components are maintained by the Origami team. Anybody can create and share an Origami component. If you would like to build your own component see the [Create A New Origami Component tutorial](https://origami.ft.com/documentation/tutorials/create-a-new-component-part-1/). Before you get started, it’s a good idea to discuss your new component with the Origami team first. The team will be able to make sure there’s not an existing component or component proposal that fulfils the same purpose, and will be available to answer any questions.
 
 ## Updating existing components

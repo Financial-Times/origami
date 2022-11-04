@@ -1,11 +1,11 @@
-@import '@financial-times/o-fonts/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-grid/main';
+@import "@financial-times/o-fonts/main";
+@import "@financial-times/o-normalise/main";
+@import "@financial-times/o-grid/main";
 @include oFonts();
 @include oNormalise();
 @include oGrid();
 
-@import '@financial-times/o-header/main';
+@import "@financial-times/o-header/main";
 @include oHeader();
 
 .demo-sticky-message {
@@ -25,6 +25,6 @@
 
 	&:before,
 	&:after {
-		content: '▼';
+		content: "▼";
 	}
 }

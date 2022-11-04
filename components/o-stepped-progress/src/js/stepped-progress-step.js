@@ -4,11 +4,11 @@
  * @access private
  */
 export const classNames = {
-	complete: 'o-stepped-progress__step--complete',
-	current: 'o-stepped-progress__step--current',
-	error: 'o-stepped-progress__step--error',
-	label: 'o-stepped-progress__label',
-	status: 'o-stepped-progress__status',
+	complete: "o-stepped-progress__step--complete",
+	current: "o-stepped-progress__step--current",
+	error: "o-stepped-progress__step--error",
+	label: "o-stepped-progress__label",
+	status: "o-stepped-progress__status",
 };
 
 /**
@@ -17,9 +17,9 @@ export const classNames = {
  * @access private
  */
 export const statusTexts = {
-	complete: '(completed)',
-	current: '(current step)',
-	error: '(error)',
+	complete: "(completed)",
+	current: "(current step)",
+	error: "(error)",
 };
 
 /**
@@ -159,7 +159,7 @@ class SteppedProgressStep {
 	_selectStatusElement() {
 		let statusElement = this.stepElement.querySelector(`.${classNames.status}`);
 		if (!statusElement) {
-			statusElement = document.createElement('span');
+			statusElement = document.createElement("span");
 			statusElement.classList.add(classNames.status);
 			this.labelElement.appendChild(statusElement);
 		}
@@ -173,7 +173,7 @@ class SteppedProgressStep {
 	 * @param {string} [statusText=''] - The text to set.
 	 * @returns {void}
 	 */
-	_setStatusText(statusText = '') {
+	_setStatusText(statusText = "") {
 		this.statusElement.innerHTML = statusText;
 	}
 

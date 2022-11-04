@@ -10,21 +10,21 @@
 /// 	));
 /// @access public
 @mixin oTooltipAddTheme($name, $opts) {
-	@if type-of($name) != 'string' {
+	@if type-of($name) != "string" {
 		@error 'Expected a custom tooltip name as a string.';
 	}
 
-	@if type-of($opts) != 'map' {
+	@if type-of($opts) != "map" {
 		@error 'Expected a map of tooltip theme options.';
 	}
 
-	@if type-of(map-get($opts, 'background-color')) != 'color' {
+	@if type-of(map-get($opts, "background-color")) != "color" {
 		@error 'Could not add custom tooltip theme "#{$name}". Expected a ' +
 			'a "color" `background-colour` option. Found type ' +
 			'"#{type-of(map-get($opts, 'background-color'))}".';
 	}
 
-	@if type-of(map-get($opts, 'foreground-color')) != 'color' {
+	@if type-of(map-get($opts, "foreground-color")) != "color" {
 		@error 'Could not add custom tooltip theme "#{$name}". Expected a ' +
 			'a "color" `foreground-colour` option. Found type ' +
 			'"#{type-of(map-get($opts, 'foreground-color'))}".';
@@ -51,34 +51,34 @@
 @mixin _oTooltipThemeContent($theme: null) {
 	// Default theme values.
 	$close-foreground-color: if(
-		_oTooltipGet('close-foreground-color', $theme),
-		_oTooltipGet('close-foreground-color', $theme),
-		_oTooltipGet('foreground-color', $theme)
+		_oTooltipGet("close-foreground-color", $theme),
+		_oTooltipGet("close-foreground-color", $theme),
+		_oTooltipGet("foreground-color", $theme)
 	);
 
 	// Output theme CSS.
-	background: _oTooltipGet('background-color', $theme);
+	background: _oTooltipGet("background-color", $theme);
 
 	&.o-tooltip--arrow-left:after {
-		border-right-color: _oTooltipGet('background-color', $theme);
+		border-right-color: _oTooltipGet("background-color", $theme);
 	}
 	&.o-tooltip--arrow-right:after {
-		border-left-color: _oTooltipGet('background-color', $theme);
+		border-left-color: _oTooltipGet("background-color", $theme);
 	}
 	&.o-tooltip--arrow-above:after {
-		border-bottom-color: _oTooltipGet('background-color', $theme);
+		border-bottom-color: _oTooltipGet("background-color", $theme);
 	}
 	&.o-tooltip--arrow-below:after {
-		border-top-color: _oTooltipGet('background-color', $theme);
+		border-top-color: _oTooltipGet("background-color", $theme);
 	}
 
 	.o-tooltip-content {
-		color: _oTooltipGet('foreground-color', $theme);
+		color: _oTooltipGet("foreground-color", $theme);
 	}
 
 	.o-tooltip-close {
 		@include oIconsContent(
-			'cross',
+			"cross",
 			$close-foreground-color,
 			$size: 20px,
 			$include-base-styles: false

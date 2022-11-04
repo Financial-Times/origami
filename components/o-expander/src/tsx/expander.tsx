@@ -24,19 +24,21 @@ export interface ExpanderProps {
 	expandedText?: string;
 }
 
-export function Expander({header = null, children, expanded}: ExpanderProps) {
+export function Expander({ header = null, children, expanded }: ExpanderProps) {
 	return (
 		<div
 			data-o-component="o-expander"
 			className="o-expander"
-			data-o-expander-shrink-to="hidden">
+			data-o-expander-shrink-to="hidden"
+		>
 			{header}
 			<button className="o-expander__toggle">
-				{expanded ? 'hide' : 'show'}
+				{expanded ? "hide" : "show"}
 			</button>
 			<div
 				className="o-expander__content"
-				aria-hidden={expanded ? 'false' : 'true'}>
+				aria-hidden={expanded ? "false" : "true"}
+			>
 				{children}
 			</div>
 		</div>

@@ -3,7 +3,7 @@ title: Origami Newsletter, September 2021
 description: We made a monorepo, and gained a delivery manager
 author: chee
 tags:
-- Newsletter
+  - Newsletter
 ---
 
 <abbr title="Too long; didn't read">
@@ -15,7 +15,6 @@ TL;DR:
 ## Top things
 
 Some of the bigger Origami news from the last month:
-
 
 ### The Origami Component System
 
@@ -45,20 +44,13 @@ This change won't affect you yet, but the work we're going to build on top of th
 
 The sites that depend on Origami have a bright future of performing better and being more accessible.
 
-
-
-
 ### Origami has a new team member
-
 
 Since we last spoke, the team has grown!
 
 We're very happy to welcome aboard Kamran Muniree who is now serving as Origami's delivery manager. He's already made a big difference, and the team are very excited about the future.
 
 We're also still hiring for an engineering role, so make sure you apply if you've ever wanted to work on Origami. There has never been a better time to be part of the team.
-
-
-
 
 ### Origami Office Hours
 
@@ -68,11 +60,9 @@ If you ever have any questions that you'd prefer talking through in person, you 
 
 Thanks to Kamran Muniree it is now available in the P&T calendar.
 
-
 ## Special thanks
 
 leaf rogers 🍃 for helping out Jake in an emergency when an unexpected large video found its way into the image service and ate all the memory and it crashed
-
 
 ## Broader update
 

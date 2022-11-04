@@ -1,5 +1,5 @@
-@include test-module('oNormalise') {
-	@include test('Outputs elements, body, helpers by default') {
+@include test-module("oNormalise") {
+	@include test("Outputs elements, body, helpers by default") {
 		// the main element is included as part of "body" styles by default
 		@include assert {
 			@include output($selector: false) {
@@ -35,7 +35,7 @@
 			}
 		}
 	}
-	@include test('Outputs nothing with an empty options map') {
+	@include test("Outputs nothing with an empty options map") {
 		@include assert {
 			@include output() {
 				@include oNormalise($opts: ());

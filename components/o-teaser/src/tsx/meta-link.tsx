@@ -1,4 +1,4 @@
-import {Meta} from './props';
+import { Meta } from "./props";
 
 const sameId = (context: Context | undefined, id: string | undefined) => {
 	return id && context && context.parentId && id === context.parentId;
@@ -25,7 +25,7 @@ type DisplayLink = {
 	relativeUrl?: string;
 	url?: string;
 	prefLabel?: string;
-}
+};
 export default ({
 	metaPrefixText,
 	metaLink,
@@ -50,7 +50,8 @@ export default ({
 					className="o-teaser__tag"
 					data-trackable="teaser-tag"
 					href={displayLink.relativeUrl || displayLink.url}
-					aria-label={`Category: ${displayLink.prefLabel}`}>
+					aria-label={`Category: ${displayLink.prefLabel}`}
+				>
 					{displayLink.prefLabel}
 				</a>
 			) : null}

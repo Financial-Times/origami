@@ -1,21 +1,21 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import * as fixtures from './helpers/fixtures.js';
+import * as fixtures from "./helpers/fixtures.js";
 
-import Expander from './../main.js';
+import Expander from "./../main.js";
 
-describe('Expander', () => {
+describe("Expander", () => {
 	let collapseSpy;
 	let expandSpy;
 
 	before(() => {
 		fixtures.simple();
 		Expander.init();
-		collapseSpy = sinon.spy(Expander.prototype, 'collapse');
-		expandSpy = sinon.spy(Expander.prototype, 'expand');
+		collapseSpy = sinon.spy(Expander.prototype, "collapse");
+		expandSpy = sinon.spy(Expander.prototype, "expand");
 	});
 
 	after(() => {
@@ -24,7 +24,7 @@ describe('Expander', () => {
 	});
 
 	it('should toggle when "more" is clicked', done => {
-		document.querySelector('.click-for-testing').click();
+		document.querySelector(".click-for-testing").click();
 		setTimeout(function () {
 			proclaim.isTrue(expandSpy.calledWith());
 			done();
@@ -32,7 +32,7 @@ describe('Expander', () => {
 	});
 
 	it('should toggle when "less" is clicked', done => {
-		document.querySelector('.click-for-testing').click();
+		document.querySelector(".click-for-testing").click();
 		setTimeout(function () {
 			proclaim.isTrue(collapseSpy.calledWith());
 			done();

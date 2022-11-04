@@ -21,8 +21,8 @@ class Target {
 	}
 
 	open() {
-		this.targetEl.setAttribute('aria-hidden', 'false');
-		this.targetEl.classList.add('o-toggle--active');
+		this.targetEl.setAttribute("aria-hidden", "false");
+		this.targetEl.classList.add("o-toggle--active");
 		// Set every toggle that controls this target to be open
 		this.toggles.forEach(toggle => {
 			toggle.open();
@@ -30,8 +30,8 @@ class Target {
 	}
 
 	close() {
-		this.targetEl.setAttribute('aria-hidden', 'true');
-		this.targetEl.classList.remove('o-toggle--active');
+		this.targetEl.setAttribute("aria-hidden", "true");
+		this.targetEl.classList.remove("o-toggle--active");
 
 		// Set every toggle that controls this target to be closed
 		this.toggles.forEach(toggle => {
@@ -48,7 +48,7 @@ class Target {
 	}
 
 	isOpen() {
-		return this.targetEl.classList.contains('o-toggle--active');
+		return this.targetEl.classList.contains("o-toggle--active");
 	}
 }
 

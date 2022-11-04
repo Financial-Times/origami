@@ -1,4 +1,4 @@
-import Delegate from 'ftdomdelegate';
+import Delegate from "ftdomdelegate";
 
 /**
  * Append rows to table.
@@ -51,26 +51,26 @@ class BaseTable {
 		this.rootEl = rootEl;
 		this._opts = Object.assign(
 			{
-				sortable: this.rootEl.getAttribute('data-o-table-sortable') !== 'false',
+				sortable: this.rootEl.getAttribute("data-o-table-sortable") !== "false",
 				preferredSortOrder: this.rootEl.getAttribute(
-					'data-o-table-preferred-sort-order'
+					"data-o-table-preferred-sort-order"
 				),
 			},
 			opts
 		);
-		this.thead = this.rootEl.querySelector('thead');
-		this.tbody = this.rootEl.querySelector('tbody');
-		this.tableCaption = this.rootEl.querySelector('caption');
+		this.thead = this.rootEl.querySelector("thead");
+		this.tbody = this.rootEl.querySelector("tbody");
+		this.tableCaption = this.rootEl.querySelector("caption");
 		this.tableHeaders = this.thead
-			? Array.from(this.thead.querySelectorAll('tr:last-of-type > th'))
+			? Array.from(this.thead.querySelectorAll("tr:last-of-type > th"))
 			: [];
 		this.tableRows = this.tbody
-			? Array.from(this.tbody.getElementsByTagName('tr'))
+			? Array.from(this.tbody.getElementsByTagName("tr"))
 			: [];
 		this._filteredTableRows = [];
-		this.wrapper = this.rootEl.closest('.o-table-scroll-wrapper');
-		this.container = this.rootEl.closest('.o-table-container');
-		this.overlayWrapper = this.rootEl.closest('.o-table-overlay-wrapper');
+		this.wrapper = this.rootEl.closest(".o-table-scroll-wrapper");
+		this.container = this.rootEl.closest(".o-table-container");
+		this.overlayWrapper = this.rootEl.closest(".o-table-overlay-wrapper");
 		this.filterContainer = this.wrapper || this.container;
 		this._updateTableHeightListenerSet = false;
 
@@ -99,7 +99,7 @@ class BaseTable {
 	 * @access private
 	 */
 	_setupFilters() {
-		const tableId = this.rootEl.getAttribute('id');
+		const tableId = this.rootEl.getAttribute("id");
 		if (!tableId) {
 			return;
 		}
@@ -120,7 +120,7 @@ class BaseTable {
 		}
 		// Warn if a misconfigured filter was found.
 		const filterColumn = parseInt(
-			filter.getAttribute('data-o-table-filter-column'),
+			filter.getAttribute("data-o-table-filter-column"),
 			10
 		);
 		if (isNaN(filterColumn)) {
@@ -143,23 +143,23 @@ class BaseTable {
 			}
 			pendingFilterTimeout = setTimeout(
 				function () {
-					this.filter(filterColumn, event.target.value || '');
+					this.filter(filterColumn, event.target.value || "");
 					pendingFilterTimeout = null;
 				}.bind(this),
 				33
 			);
 		}.bind(this);
-		filter.addEventListener('input', debouncedFilterHandler);
-		filter.addEventListener('change', debouncedFilterHandler);
+		filter.addEventListener("input", debouncedFilterHandler);
+		filter.addEventListener("change", debouncedFilterHandler);
 		this._listeners.push({
 			element: filter,
 			debouncedFilterHandler,
-			type: 'input',
+			type: "input",
 		});
 		this._listeners.push({
 			element: filter,
 			debouncedFilterHandler,
-			type: 'change',
+			type: "change",
 		});
 	}
 
@@ -175,12 +175,12 @@ class BaseTable {
 		this.tableRows = rows;
 		// Re-apply sort.
 		if (this._currentSort) {
-			const {columnIndex, sortOrder} = this._currentSort;
+			const { columnIndex, sortOrder } = this._currentSort;
 			this.sortRowsByColumn(columnIndex, sortOrder);
 		}
 		// Re-apply filter.
 		if (this._currentFilter) {
-			const {columnIndex, filter} = this._currentFilter;
+			const { columnIndex, filter } = this._currentFilter;
 			this._filterRowsByColumn(columnIndex, filter);
 		}
 		// Render rows.
@@ -194,7 +194,7 @@ class BaseTable {
 	 * @access private
 	 */
 	_getLatestRowNodes() {
-		return this.tbody ? Array.from(this.tbody.getElementsByTagName('tr')) : [];
+		return this.tbody ? Array.from(this.tbody.getElementsByTagName("tr")) : [];
 	}
 
 	/**
@@ -242,7 +242,7 @@ class BaseTable {
 			function () {
 				this.filterContainer.style.height = !isNaN(tableHeight)
 					? `${tableHeight}px`
-					: '';
+					: "";
 			}.bind(this)
 		);
 
@@ -265,12 +265,12 @@ class BaseTable {
 				);
 			}.bind(this);
 			// set the resize listener
-			window.addEventListener('resize', updateTableHeightDebounced);
+			window.addEventListener("resize", updateTableHeightDebounced);
 			// add to the listeners array so it can be removed on `.destroy`
 			this._listeners.push({
 				element: window,
 				updateTableHeightDebounced,
-				type: 'resize',
+				type: "resize",
 			});
 			// set a flag so the listener isn't set again, without having to
 			// loop through `this._listeners`.
@@ -308,7 +308,7 @@ class BaseTable {
 		this._updateRowAriaHiddenScheduled = window.requestAnimationFrame(
 			function () {
 				this.tableRows.forEach(row => {
-					row.setAttribute('aria-hidden', rowsToHide.indexOf(row) !== -1);
+					row.setAttribute("aria-hidden", rowsToHide.indexOf(row) !== -1);
 				});
 			}.bind(this)
 		);
@@ -329,7 +329,7 @@ class BaseTable {
 			function () {
 				this.tableRows.forEach(row => {
 					row.setAttribute(
-						'data-o-table-filtered',
+						"data-o-table-filtered",
 						filteredRows.indexOf(row) !== -1
 					);
 				});
@@ -400,7 +400,7 @@ class BaseTable {
 			filter,
 		};
 
-		if (typeof filter !== 'string' && typeof filter !== 'function') {
+		if (typeof filter !== "string" && typeof filter !== "function") {
 			throw new Error(
 				`Could not filter table column "${columnIndex}". Expected the filter to a string or function.`,
 				this
@@ -434,11 +434,11 @@ class BaseTable {
 		// - Matches against only alpha numeric characters and ".".
 		// - Case insentivie.
 		// - Whitespace insentivie.
-		if (typeof filter === 'string') {
-			const filterValue = filter.replace(/[^\w\.]+/g, '').toLowerCase();
+		if (typeof filter === "string") {
+			const filterValue = filter.replace(/[^\w\.]+/g, "").toLowerCase();
 			filter = cell => {
 				const cellValue = cell.textContent
-					.replace(/[^\w\.]+/g, '')
+					.replace(/[^\w\.]+/g, "")
 					.toLowerCase();
 				return filterValue ? cellValue.indexOf(filterValue) > -1 : true;
 			};
@@ -490,12 +490,12 @@ class BaseTable {
 		 * https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
 		 */
 		const defaultSort = this._dispatchEvent(
-			'sorting',
+			"sorting",
 			{
 				sort: sortOrder,
 				columnIndex,
 			},
-			{cancelable: true}
+			{ cancelable: true }
 		);
 
 		if (defaultSort) {
@@ -516,7 +516,7 @@ class BaseTable {
 		// Create buttons for each table header.
 		const tableHeaderButtons = this.tableHeaders.map(th => {
 			// Don't add sort buttons to unsortable columns.
-			if (th.hasAttribute('data-o-table-heading-disable-sort')) {
+			if (th.hasAttribute("data-o-table-heading-disable-sort")) {
 				return null;
 			}
 			// Don't add sort buttons to columns with no headings.
@@ -528,28 +528,28 @@ class BaseTable {
 			const headingHTML = headingNodes.reduce((html, node) => {
 				// Maintain child elements of the heading which make sense in a button.
 				const maintainedElements = [
-					'ABBR',
-					'B',
-					'BDI',
-					'BDO',
-					'BR',
-					'CODE',
-					'CITE',
-					'DATA',
-					'DFN',
-					'DEL',
-					'EM',
-					'I',
-					'S',
-					'SMALL',
-					'SPAN',
-					'STRONG',
-					'SUB',
-					'SUP',
-					'TIME',
-					'U',
-					'VAR',
-					'WBR',
+					"ABBR",
+					"B",
+					"BDI",
+					"BDO",
+					"BR",
+					"CODE",
+					"CITE",
+					"DATA",
+					"DFN",
+					"DEL",
+					"EM",
+					"I",
+					"S",
+					"SMALL",
+					"SPAN",
+					"STRONG",
+					"SUB",
+					"SUP",
+					"TIME",
+					"U",
+					"VAR",
+					"WBR",
 				];
 				if (
 					node.nodeType === Node.ELEMENT_NODE &&
@@ -566,16 +566,16 @@ class BaseTable {
 					);
 				}
 				return html + node.textContent;
-			}, '');
+			}, "");
 
-			const sortButton = document.createElement('button');
+			const sortButton = document.createElement("button");
 			sortButton.innerHTML = headingHTML;
-			sortButton.classList.add('o-table__sort');
+			sortButton.classList.add("o-table__sort");
 			// In VoiceOver, button `aria-label` is repeated when moving from one column of tds to the next.
 			// Using `title` avoids this, but risks not being announced by other screen readers.
 			const nextSort = this._getNextSortOrder(th);
 			sortButton.setAttribute(
-				'title',
+				"title",
 				`sort table by "${th.textContent}" ${nextSort}`
 			);
 			return sortButton;
@@ -584,10 +584,10 @@ class BaseTable {
 		// Add sort buttons to table headers.
 		window.requestAnimationFrame(
 			function () {
-				this.rootEl.classList.add('o-table--sortable');
+				this.rootEl.classList.add("o-table--sortable");
 				this.tableHeaders.forEach((th, index) => {
 					if (tableHeaderButtons[index]) {
-						th.innerHTML = '';
+						th.innerHTML = "";
 						th.appendChild(tableHeaderButtons[index]);
 					}
 				});
@@ -598,7 +598,7 @@ class BaseTable {
 		const listener = this._sortButtonHandler.bind(this);
 		this._rootElDomDelegate =
 			this._rootElDomDelegate || new Delegate(this.rootEl);
-		this._rootElDomDelegate.on('click', '.o-table__sort', listener);
+		this._rootElDomDelegate.on("click", ".o-table__sort", listener);
 	}
 
 	/**
@@ -609,7 +609,7 @@ class BaseTable {
 	 * @param {number | null} sortDetails.columnIndex - The index of the currently sorted column.
 	 * @param {string | null} sortDetails.sortOrder - The type of sort, "ascending" or "descending"
 	 */
-	sorted({columnIndex, sortOrder}) {
+	sorted({ columnIndex, sortOrder }) {
 		if (isNaN(columnIndex)) {
 			throw new Error(
 				`Expected a numerical column index but received "${columnIndex}".`
@@ -627,17 +627,17 @@ class BaseTable {
 
 		// Update the button title to reflect the new sort.
 		const th = this.getTableHeader(columnIndex);
-		const sortButton = th.querySelector('button');
+		const sortButton = th.querySelector("button");
 		if (sortButton) {
-			let buttonTitle = sortButton.getAttribute('title');
+			let buttonTitle = sortButton.getAttribute("title");
 			buttonTitle =
-				sortOrder === 'ascending'
-					? buttonTitle.replace('ascending', 'descending')
-					: buttonTitle.replace('descending', 'ascending');
-			sortButton.setAttribute('title', buttonTitle);
+				sortOrder === "ascending"
+					? buttonTitle.replace("ascending", "descending")
+					: buttonTitle.replace("descending", "ascending");
+			sortButton.setAttribute("title", buttonTitle);
 		}
 
-		this._dispatchEvent('sorted', this._currentSort);
+		this._dispatchEvent("sorted", this._currentSort);
 	}
 
 	/**
@@ -651,7 +651,7 @@ class BaseTable {
 		if (this._rootElDomDelegate) {
 			this._rootElDomDelegate.destroy();
 		}
-		this._listeners.forEach(({type, listener, element}) => {
+		this._listeners.forEach(({ type, listener, element }) => {
 			element.removeEventListener(type, listener);
 		});
 
@@ -673,7 +673,7 @@ class BaseTable {
 	 * @returns {undefined}
 	 */
 	_ready() {
-		this._dispatchEvent('ready');
+		this._dispatchEvent("ready");
 	}
 
 	/**
@@ -686,16 +686,16 @@ class BaseTable {
 	_getNextSortOrder(th) {
 		// Get the current table sort. Use the `aria-sort` attribute
 		// which may have been applied by a client or server side sort.
-		const currentSort = th.getAttribute('aria-sort');
+		const currentSort = th.getAttribute("aria-sort");
 		// If there is no existing sort use a descending sort if that has been
 		// configured as a preferred sort order for the given heading.
-		const noExistingSort = [null, 'none'].indexOf(currentSort) !== -1;
-		if (noExistingSort && this._opts.preferredSortOrder === 'descending') {
-			return 'descending';
+		const noExistingSort = [null, "none"].indexOf(currentSort) !== -1;
+		if (noExistingSort && this._opts.preferredSortOrder === "descending") {
+			return "descending";
 		}
 		// Otherwise the next sort will be ascending by default, or descending
 		// if the column is already sorted ascending.
-		return currentSort !== 'ascending' ? 'ascending' : 'descending';
+		return currentSort !== "ascending" ? "ascending" : "descending";
 	}
 
 	/**
@@ -706,7 +706,7 @@ class BaseTable {
 	 */
 	_sortButtonHandler(event) {
 		const sortButton = event.target;
-		const th = sortButton.closest('th');
+		const th = sortButton.closest("th");
 		const columnIndex = this.tableHeaders.indexOf(th);
 		if (th && !isNaN(columnIndex)) {
 			const sortOrder = this._getNextSortOrder(th);

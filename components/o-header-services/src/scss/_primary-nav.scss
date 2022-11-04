@@ -6,18 +6,18 @@
 	@include _oHeaderServicesDrawer($drawer-breakpoint, $drop-down);
 	.o-header-services__primary-nav {
 		position: relative;
-		background-color: _oHeaderServicesGet('nav-background');
+		background-color: _oHeaderServicesGet("nav-background");
 		@if (
-			_oHeaderServicesGet('nav-background') ==
-				_oHeaderServicesGet('top-background')
+			_oHeaderServicesGet("nav-background") ==
+				_oHeaderServicesGet("top-background")
 		) {
-			border-top: 1px solid _oHeaderServicesGet('nav-border');
+			border-top: 1px solid _oHeaderServicesGet("nav-border");
 		}
 	}
 
 	.o-header-services__primary-nav-list {
 		@include oGridContainer();
-		background-color: _oHeaderServicesGet('nav-background');
+		background-color: _oHeaderServicesGet("nav-background");
 		display: flex;
 		flex-wrap: wrap;
 		margin: auto;
@@ -27,10 +27,10 @@
 		@include oGridRespondTo(S) {
 			padding: 0
 				if(
-					_oHeaderServicesGet('primary-nav-item-horizontal-padding'),
+					_oHeaderServicesGet("primary-nav-item-horizontal-padding"),
 					calc(
-						#{map-get($o-grid-gutters, 'M')} - #{_oHeaderServicesGet(
-								'primary-nav-item-horizontal-padding'
+						#{map-get($o-grid-gutters, "M")} - #{_oHeaderServicesGet(
+								"primary-nav-item-horizontal-padding"
 							)}
 					),
 					0
@@ -43,17 +43,17 @@
 
 		> li a {
 			@include oTypographySans(
-				$weight: 'semibold',
+				$weight: "semibold",
 				$include-font-family: false
 			);
 			position: relative;
-			color: _oHeaderServicesGet('nav-text');
+			color: _oHeaderServicesGet("nav-text");
 			display: inline-block;
 			margin: 0;
 			padding: $_o-header-services-padding
 				if(
-					_oHeaderServicesGet('primary-nav-item-horizontal-padding'),
-					_oHeaderServicesGet('primary-nav-item-horizontal-padding'),
+					_oHeaderServicesGet("primary-nav-item-horizontal-padding"),
+					_oHeaderServicesGet("primary-nav-item-horizontal-padding"),
 					oSpacingByIncrement(5)
 				);
 			text-transform: uppercase;
@@ -63,21 +63,21 @@
 			}
 
 			&:hover {
-				color: _oHeaderServicesGet('text-hover-color');
+				color: _oHeaderServicesGet("text-hover-color");
 			}
 
 			&:hover, // stylelint-disable-line selector-no-qualifying-type
 			&[aria-current] {
 				// stylelint-disable-line selector-no-qualifying-type
-				background-color: _oHeaderServicesGet('nav-hover-background');
+				background-color: _oHeaderServicesGet("nav-hover-background");
 			}
 		}
 
 		> li:not(:last-child) {
-			border-right: 1px solid _oHeaderServicesGet('nav-border');
+			border-right: 1px solid _oHeaderServicesGet("nav-border");
 		}
 
-		[data-o-header-services-level='2'] {
+		[data-o-header-services-level="2"] {
 			max-width: 50vw;
 			overflow: hidden;
 			white-space: nowrap;

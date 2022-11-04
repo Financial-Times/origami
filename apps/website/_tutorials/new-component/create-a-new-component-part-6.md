@@ -12,6 +12,7 @@ redirect_from:
 # {{page.title}}
 
 The "Create A New Origami Component" tutorial is split into eight parts and is intended to be followed sequentially from start to finish:
+
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
@@ -34,6 +35,7 @@ To demonstrate how these projects are used to test components we will add a new 
 JavaScript tests are located under the `tests/js` directory. The file `example.test.js` already has boilerplate tests, which use component markup defined in `tests/js/helpers/fixtures.js` to confirm the `init` method works as expected.
 
 Our first step will be to update the `htmlCode` method in `tests/js/helpers/fixtures.js` with our latest component markup. We'll add an id `id="element"` which we can use in our tests:
+
 <pre><code class="o-syntax-highlight--js">// tests/js/helpers/fixtures.js
 
 function htmlCode () {
@@ -51,6 +53,7 @@ function htmlCode () {
 </code></pre>
 
 Next we can append our new tests within the main `describe("Example", () => {})` block:
+
 <pre><code class="o-syntax-highlight--js">// tests/js/example.test.js
 
 describe("with a button", () => {
@@ -160,6 +163,7 @@ _Don't worry if you are unfamiliar with Github and pull request labels. Later, w
 ## Part Seven: Documentation
 
 Our component is working well and is almost complete. In this tutorial we learned:
+
 - That `obt test` runs Sass, JavaScript, and limited accessibility tests.
 - That `obt verify` analyses our component for potential errors.
 - How to write Sass tests for the `obt test` command.

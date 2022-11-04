@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 
-import path from "node:path"
-import {setTimeout} from "node:timers/promises"
-import {globby as glob} from "globby"
-import AxeBuilderPlaywright from "@axe-core/playwright"
-import playwright from "playwright"
-import {pathToFileURL} from "url"
-import {prettyPrintAxeReport} from "axe-result-pretty-print"
-const AxeBuilder = AxeBuilderPlaywright.default
+import path from "node:path";
+import { setTimeout } from "node:timers/promises";
+import { globby as glob } from "globby";
+import AxeBuilderPlaywright from "@axe-core/playwright";
+import playwright from "playwright";
+import { pathToFileURL } from "url";
+import { prettyPrintAxeReport } from "axe-result-pretty-print";
+const AxeBuilder = AxeBuilderPlaywright.default;
 
-const cwd = process.cwd()
+const cwd = process.cwd();
 
 const builtDemoHtmlFiles = await glob(path.join(cwd, "/demos/local/*.html"), {
 	onlyFiles: true,
-})
+});
 
 const axeRulesToIgnore = [
 	// ignoring the href="#" error
@@ -32,33 +32,33 @@ const axeRulesToIgnore = [
 	//                       we. but in the future it would be good to remove this,
 	//                       and provide captions.
 	"audio-caption",
-]
+];
 
-const errors = []
+const errors = [];
 
-const browser = await playwright.chromium.launch()
+const browser = await playwright.chromium.launch();
 for (const file of builtDemoHtmlFiles) {
-	const context = await browser.newContext()
-	const page = await context.newPage()
-	await page.goto(pathToFileURL(file).toString())
+	const context = await browser.newContext();
+	const page = await context.newPage();
+	await page.goto(pathToFileURL(file).toString());
 
 	// We sleep for 1-second to allow for short animations to finish running
 	// This is useful specifically for o-tooltip's demos which animate the opacity
 	// of the tooltip and during the animation - the contrast of the text is insufficient.
-	await setTimeout(1000)
+	await setTimeout(1000);
 
-	const results = await new AxeBuilder({page})
+	const results = await new AxeBuilder({ page })
 		.disableRules(axeRulesToIgnore)
-		.analyze()
+		.analyze();
 	prettyPrintAxeReport({
 		violations: results.violations,
 		url: file,
-	})
-	errors.push(...results.violations)
+	});
+	errors.push(...results.violations);
 }
-await browser.close()
+await browser.close();
 
 if (errors.length) {
-	console.error(`${errors.length} accessibility errors were detected.`)
-	process.exit(1)
+	console.error(`${errors.length} accessibility errors were detected.`);
+	process.exit(1);
 }

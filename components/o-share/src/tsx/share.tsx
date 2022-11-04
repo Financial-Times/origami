@@ -1,14 +1,14 @@
-import {generateSocialUrl, generateDescriptiveLinkText} from '../js/share';
+import { generateSocialUrl, generateDescriptiveLinkText } from "../js/share";
 
 type SocialNetworkType =
-	| 'twitter'
-	| 'facebook'
-	| 'linkedin'
-	| 'link'
-	| 'share'
-	| 'mail'
-	| 'pinterest'
-	| 'whatsapp';
+	| "twitter"
+	| "facebook"
+	| "linkedin"
+	| "link"
+	| "share"
+	| "mail"
+	| "pinterest"
+	| "whatsapp";
 
 type ShareProps = {
 	socialNetworks: SocialNetworkType[];
@@ -24,19 +24,19 @@ type ShareProps = {
 
 export function Share({
 	socialNetworks,
-	url = '',
-	title = '',
-	titleExtra = '',
-	summary = '',
-	relatedTwitterAccounts = '',
+	url = "",
+	title = "",
+	titleExtra = "",
+	summary = "",
+	relatedTwitterAccounts = "",
 	small,
 	vertical,
 	inverse,
 }: ShareProps) {
-	let className = '';
-	if (small) className = ' o-share--small';
-	if (vertical) className = ' o-share--vertical';
-	if (inverse) className += ' o-share--inverse';
+	let className = "";
+	if (small) className = " o-share--small";
+	if (vertical) className = " o-share--vertical";
+	if (inverse) className += " o-share--inverse";
 	return (
 		<div data-o-component="o-share" className={`o-share${className}`}>
 			<ul>
@@ -45,12 +45,13 @@ export function Share({
 						<a
 							className={`o-share__icon o-share__icon--${socialNetwork}`}
 							href={generateSocialUrl(
-								{url, title, titleExtra, summary, relatedTwitterAccounts},
+								{ url, title, titleExtra, summary, relatedTwitterAccounts },
 								socialNetwork
 							)}
-							rel="noopener">
+							rel="noopener"
+						>
 							<span className="o-share__text">
-								{generateDescriptiveLinkText({title}, socialNetwork)}
+								{generateDescriptiveLinkText({ title }, socialNetwork)}
 							</span>
 						</a>
 					</li>

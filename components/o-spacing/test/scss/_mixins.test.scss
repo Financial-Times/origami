@@ -1,31 +1,31 @@
-@include describe('oSpacing mixins') {
-	@include describe('oSpacingByName') {
-		@include it('returns a px value for a named space') {
-			@include assert-equal(oSpacingByName('s1'), 4px);
+@include describe("oSpacing mixins") {
+	@include describe("oSpacingByName") {
+		@include it("returns a px value for a named space") {
+			@include assert-equal(oSpacingByName("s1"), 4px);
 
-			@include assert-equal(oSpacingByName('l24'), 96px);
+			@include assert-equal(oSpacingByName("l24"), 96px);
 		}
 
 		@include it(
-			'returns a rem value for a named space when relative units are enabled'
+			"returns a rem value for a named space when relative units are enabled"
 		) {
 			$o-spacing-relative-units: true !global;
-			@include assert-equal(oSpacingByName('s1'), 0.25rem);
+			@include assert-equal(oSpacingByName("s1"), 0.25rem);
 
-			@include assert-equal(oSpacingByName('l24'), 6rem);
+			@include assert-equal(oSpacingByName("l24"), 6rem);
 			$o-spacing-relative-units: false !global;
 		}
 	}
 
-	@include describe('oSpacingByIncrement') {
-		@include it('returns a px value based on the baseline') {
+	@include describe("oSpacingByIncrement") {
+		@include it("returns a px value based on the baseline") {
 			@include assert-equal(oSpacingByIncrement(1), 4px);
 
 			@include assert-equal(oSpacingByIncrement(100), 400px);
 		}
 
 		@include it(
-			'returns a rem value based on the baseline when relative units are enabled'
+			"returns a rem value based on the baseline when relative units are enabled"
 		) {
 			$o-spacing-relative-units: true !global;
 			@include assert-equal(oSpacingByIncrement(1), 0.25rem);
@@ -35,7 +35,7 @@
 		}
 	}
 
-	@include describe('oSpacing') {
+	@include describe("oSpacing") {
 		@include it(
 			'outputs only CSS custom properties when "custom-properties" is the only option enabled'
 		) {
@@ -43,7 +43,7 @@
 				@include output($selector: false) {
 					@include oSpacing(
 						$opts: (
-							'custom-properties': true,
+							"custom-properties": true,
 						)
 					);
 				}
@@ -72,7 +72,7 @@
 				@include output($selector: false) {
 					@include oSpacing(
 						$opts: (
-							'margin-bottom-utilities': true,
+							"margin-bottom-utilities": true,
 						)
 					);
 				}
@@ -112,7 +112,7 @@
 			}
 		}
 		@include it(
-			'outputs CSS Custom Properties and utility classes by default'
+			"outputs CSS Custom Properties and utility classes by default"
 		) {
 			@include assert() {
 				@include output($selector: false) {

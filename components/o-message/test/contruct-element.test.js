@@ -1,55 +1,55 @@
 /* eslint-env mocha */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import proclaim from "proclaim";
+import sinon from "sinon/pkg/sinon-esm.js";
 
-import construct from '../src/js/construct-element.js';
-import fixtures from './helpers/fixtures.js';
+import construct from "../src/js/construct-element.js";
+import fixtures from "./helpers/fixtures.js";
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,
-	prefix: '',
+	prefix: "",
 });
 
-const flatten = string => string.replace(/\s/g, '');
+const flatten = string => string.replace(/\s/g, "");
 
-describe('constructElement', () => {
+describe("constructElement", () => {
 	let mockObj;
 	beforeEach(() => {
 		mockObj = {
 			opts: {
-				type: 'alert',
-				state: 'success',
+				type: "alert",
+				state: "success",
 				content: {
-					highlight: 'Important',
+					highlight: "Important",
 				},
 				actions: {
 					primary: {
-						text: 'a button',
-						url: '#',
+						text: "a button",
+						url: "#",
 					},
 					secondary: {
-						text: 'a link',
-						url: '#',
+						text: "a link",
+						url: "#",
 					},
 				},
 			},
 		};
 	});
 
-	describe('.message (inner + additional info)', () => {
-		it('returns an HTML element', () => {
+	describe(".message (inner + additional info)", () => {
+		it("returns an HTML element", () => {
 			proclaim.instanceOf(construct.message(mockObj.opts), HTMLElement);
 		});
 
-		it('builds a message component based on the provided theme', () => {
+		it("builds a message component based on the provided theme", () => {
 			proclaim.strictEqual(
 				flatten(construct.message(mockObj.opts).innerHTML),
 				flatten(fixtures.alert)
 			);
 		});
 
-		it('includes the close data attribute when configured as non-dismissible', () => {
+		it("includes the close data attribute when configured as non-dismissible", () => {
 			const opts = Object.assign({}, mockObj.opts, {
 				close: false,
 			});
@@ -59,35 +59,35 @@ describe('constructElement', () => {
 			);
 		});
 
-		it('throws an error if no type is defined', () => {
+		it("throws an error if no type is defined", () => {
 			mockObj.opts.type = null;
 
 			const error =
-				'*** o-message error:\nMessages require a type. Available types are:\n- action\n- alert\n- notice\n***';
+				"*** o-message error:\nMessages require a type. Available types are:\n- action\n- alert\n- notice\n***";
 			proclaim.throws(() => construct.message(mockObj.opts), error);
 		});
 
-		it('throws an error if no state is defined', () => {
+		it("throws an error if no state is defined", () => {
 			mockObj.opts.state = null;
 
-			const error = '*** o-message error:\nMessages require a state.\n***';
+			const error = "*** o-message error:\nMessages require a state.\n***";
 			proclaim.throws(() => construct.message(mockObj.opts), error);
 		});
 
-		describe('builds an inner version of component if an inner option is true', () => {
+		describe("builds an inner version of component if an inner option is true", () => {
 			beforeEach(() => {
 				mockObj.opts.inner = true;
 			});
 
-			it('if additional info is provided', () => {
-				mockObj.opts.content.additionalInfo = 'Additional info';
+			it("if additional info is provided", () => {
+				mockObj.opts.content.additionalInfo = "Additional info";
 				proclaim.strictEqual(
 					flatten(construct.message(mockObj.opts).innerHTML),
 					flatten(fixtures.innerAlert)
 				);
 			});
 
-			it('if additional info is not provided', () => {
+			it("if additional info is not provided", () => {
 				mockObj.opts.content.additionalInfo = false;
 				proclaim.strictEqual(
 					flatten(construct.message(mockObj.opts).innerHTML),
@@ -97,54 +97,54 @@ describe('constructElement', () => {
 		});
 	});
 
-	describe('.message (notice)', () => {
+	describe(".message (notice)", () => {
 		beforeEach(() => {
 			mockObj = {
 				opts: {
-					type: 'notice',
-					state: 'inform',
+					type: "notice",
+					state: "inform",
 					content: {
-						detail: 'Many things are here to be said about this message',
+						detail: "Many things are here to be said about this message",
 					},
 					actions: {
 						primary: {
-							text: 'a button',
-							url: '#',
+							text: "a button",
+							url: "#",
 						},
 						secondary: {
-							text: 'a link',
-							url: '#',
+							text: "a link",
+							url: "#",
 						},
 					},
 				},
 			};
 		});
 
-		it('returns an HTML element', () => {
+		it("returns an HTML element", () => {
 			proclaim.instanceOf(construct.message(mockObj.opts), HTMLElement);
 		});
 
-		it('builds a message component based on the provided messageClass and theme', () => {
+		it("builds a message component based on the provided messageClass and theme", () => {
 			proclaim.strictEqual(
 				flatten(construct.message(mockObj.opts).innerHTML),
 				flatten(fixtures.notice)
 			);
 		});
 
-		it('throws an error if no state is defined', () => {
+		it("throws an error if no state is defined", () => {
 			mockObj.opts.state = null;
 
-			const error = '*** o-message error:\nMessages require a state.\n***';
+			const error = "*** o-message error:\nMessages require a state.\n***";
 			proclaim.throws(() => construct.message(mockObj.opts), error);
 		});
 	});
 
-	describe('.closeButton', () => {
-		it('returns an HTML element', () => {
+	describe(".closeButton", () => {
+		it("returns an HTML element", () => {
 			proclaim.instanceOf(construct.closeButton(), HTMLElement);
 		});
 
-		it('builds a close button component', () => {
+		it("builds a close button component", () => {
 			proclaim.strictEqual(
 				flatten(construct.closeButton().outerHTML),
 				flatten(fixtures.closeButton)
