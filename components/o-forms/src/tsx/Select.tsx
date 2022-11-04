@@ -1,5 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
-import {classBuilder} from '../utils/classBuilder';
+import {getInputClasses} from '../utils/classBuilder';
 import {FormError, InputProps, TypeFormField, FormField} from './Form';
 
 interface TypeSelect extends InputProps {
@@ -34,16 +34,16 @@ function SelectBox({
 	children,
 	inlineInput,
 }: SelectBoxProps) {
-	const [addClass, getClasses] = classBuilder('o-forms-input');
-	addClass('select');
-	if (highlight) addClass(highlight);
-	if (errorMessage) addClass('invalid');
-	if (isSmall) addClass('small');
-	if (inlineInput) addClass('inline');
-	if (suffix) addClass('suffix');
-
 	return (
-		<span className={getClasses()}>
+		<span
+			className={getInputClasses({
+				inputType: 'select',
+				highlight,
+				errorMessage,
+				isSmall,
+				inlineInput,
+				hasSuffix: suffix && true,
+			})}>
 			<select
 				id={id}
 				name={name}

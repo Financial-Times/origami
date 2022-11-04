@@ -59,5 +59,4 @@ InvalidEntry.args = {
 InlineDateInput.args = {
 	title: 'Inline file input: ',
 	inlineField: true,
-	isVerticalCenter: true,
 };

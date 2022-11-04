@@ -1,5 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
-import {classBuilder} from '../utils/classBuilder';
+import {getInputClasses} from '../utils/classBuilder';
 import {InputProps, FormError, FormFieldset, TypeFormField} from './Form';
 
 type onChange = {
@@ -50,12 +50,14 @@ export function DateInput({
 	const dayId = uniqueId('day_');
 	const monthId = uniqueId('month_');
 	const yearId = uniqueId('year_');
-	const [addClass, getClasses] = classBuilder('o-forms-input');
-	if (errorMessage) addClass('invalid');
-	if (inlineField) addClass('inline'); /* I dont think fits other inputs  */
 	return (
 		<FormFieldset {...fieldProps}>
-			<span className={`o-forms-input--date ${getClasses()}`}>
+			<span
+				className={getInputClasses({
+					errorMessage,
+					inlineInput: inlineField,
+					inputType: 'date',
+				})}>
 				<label htmlFor={dayId}>
 					<input
 						id={dayId}

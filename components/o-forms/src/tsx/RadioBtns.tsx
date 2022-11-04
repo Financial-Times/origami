@@ -1,5 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
-import {classBuilder} from '../utils/classBuilder';
+import {classBuilder, getInputClasses} from '../utils/classBuilder';
 import {InputProps, FormError, FormFieldset, TypeFormField} from './Form';
 
 export interface RadioBtnsWrapperProps {
@@ -29,12 +29,13 @@ function RadioBtnsWrapper({
 	type,
 	inlineInputs,
 }: RadioBtnsWrapperProps) {
-	const [addClass, getClasses] = classBuilder('o-forms-input');
-	if (state) addClass(state);
-	if (errorMessage) addClass('invalid');
-	if (inlineInputs) addClass('inline');
 	return (
-		<span className={`${getClasses()} o-forms-input--radio-${type}`}>
+		<span
+			className={`${getInputClasses({
+				state,
+				errorMessage,
+				inlineInput: inlineInputs,
+			})} o-forms-input--radio-${type}`}>
 			{type === 'box' ? (
 				<span className={'o-forms-input--radio-box__container'}>
 					{children}

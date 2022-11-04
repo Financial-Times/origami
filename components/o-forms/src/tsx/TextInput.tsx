@@ -1,5 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
-import {classBuilder} from '../utils/classBuilder';
+import {getInputClasses} from '../utils/classBuilder';
 import {FormError, InputProps, TypeFormField, FormField} from './Form';
 
 export type TextInputType = 'text' | 'password' | 'email' | 'textarea';
@@ -38,16 +38,17 @@ function PrivateTextInput({
 }: PrivateTextInputProps) {
 	const InputComponent = type !== 'textarea' ? 'input' : 'textarea';
 	const inputType = !type || type === 'email' ? 'text' : type;
-	const [addClass, getClasses] = classBuilder('o-forms-input');
-	addClass(inputType);
-	if (highlightValid && !errorMessage) addClass('valid');
-	if (errorMessage) addClass('invalid');
-	if (isSmall) addClass('small');
-	if (inlineInput) addClass('inline');
-	if ((hasSuffix || children) && hasSuffix !== false) addClass('suffix');
-
 	return (
-		<span className={getClasses()}>
+		<span
+			className={getInputClasses({
+				highlightValid,
+				errorMessage,
+				isSmall,
+				inlineInput,
+				hasSuffix,
+				hasChildren: children && true,
+				inputType,
+			})}>
 			<InputComponent
 				id={id}
 				type={type}
