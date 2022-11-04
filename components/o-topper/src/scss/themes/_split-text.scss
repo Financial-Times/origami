@@ -23,6 +23,12 @@
 		.o-topper__visual {
 			min-height: 350px;
 		}
+		.o-topper__picture {
+			position: relative;
+			width: 100%;
+			height: 350px;
+			float: right;
+		}
 	}
 
 	@include oGridRespondTo(M) {
@@ -70,6 +76,12 @@
 				height: 600px;
 			}
 		}
+	}
+
+	.o-topper__image-credit {
+		position: absolute;
+		width:100%;
+		bottom:0;
 	}
 
 }
