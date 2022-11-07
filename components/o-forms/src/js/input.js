@@ -24,7 +24,7 @@ class Input {
 	 */
 	handleEvent(event) {
 		if (event.type === 'blur' || event.type === 'input') {
-			this.validate(event.target);
+			this.validate(event);
 		}
 	}
 
@@ -32,19 +32,17 @@ class Input {
 	 * Input validation
 	 * Conditions for input validation
 	 *
+	 * @param event [] - The event which has caused re-validation.
 	 * @returns {boolean} - is the input valid?
 	 */
-	validate() {
+	validate(event) {
 		if (!this.parent) {
 			return;
 		}
 
 		// validate date input
-		// Date input is a special case as it contains 3 input elements and needs to be validated as a group
-		// Which is not responsibility of input element itself but not make braking changes to o-forms
-		// input class will handle date input validation
 		if (this.parent.classList.contains('o-forms-input--date')) {
-			return this._validateDate();
+			return this._validateDate(event);
 		}
 
 		if (!this.input.validity.valid) {
@@ -59,30 +57,34 @@ class Input {
 	}
 
 
-	_validateDate() {
-		const elements = this.parent.querySelectorAll('input');
+	_validateDate(event) {
+		const day = this.parent.querySelector('input.o-forms-input__day-part');
+		const month = this.parent.querySelector('input.o-forms-input__month-part');
+		const year = this.parent.querySelector('input.o-forms-input__year-part');
 
-		if (!elements.length > 0 ) {
-			return console.error("Make sure 'o-forms-input--date' element contains input elements for date, month and year.");
+		const dateInputs = [day, month, year].filter(Boolean);
+
+		const activeElement = event && event.relatedTarget ? event.relatedTarget : document.activeElement;
+		const focusOnDateInput = dateInputs.includes(activeElement);
+
+		const invalidDateInputAttempt = dateInputs.find(input => {
+			return (!focusOnDateInput && !input.validity.valid);
+		});
+
+		const entireDateValid = dateInputs.every(input => input.validity.valid);
+		if(entireDateValid) {
+			this._toggleParentClasses("valid");
+			return true;
 		}
-		const [date, month, year] = Array.from(elements).map(element => element.value);
-		const dateObj = Date.parse(`${year}/${month}/${date}`);
-		if (isNaN(dateObj)) {
+
+		// Do not set validity classes before the user
+		// has moved on from the date field.
+		if (invalidDateInputAttempt) {
 			this._toggleParentClasses("invalid");
 			return false;
 		}
 
-		const isDateInputValid = /(0[1-9]|1[0-9]|2[0-9]|3[01])/.test(date);
-		const isMonthInputValid = /(0[1-9]|1[012])/.test(month);
-		const isYearInputValid = /[0-9]{4}/.test(year);
-		const dateFormatIsInvalid = !isDateInputValid || !isMonthInputValid || !isYearInputValid;
-		if (dateFormatIsInvalid) {
-			this._toggleParentClasses("invalid");
-			return false;
-		}
-
-		this._toggleParentClasses("valid");
-		return true;
+		return false;
 	}
 
 	_toggleParentClasses(state) {
