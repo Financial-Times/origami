@@ -443,15 +443,15 @@ To create our date input use a [multiple input](#multiple-input-fields) field st
 
 	<span class="o-forms-input o-forms-input--date">
 		<label for="date">
-			<input id="date" class="o-forms-input__day-part" type="text" inputmode="numeric" name="my-date" aria-label="Day (DD)"/>
+			<input id="date" class="o-forms-input__day-part" type="text" inputmode="numeric" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])" name="my-date" aria-label="Day (DD)"/>
 			<span class="o-forms-input__label">DD</span>
 		</label>
 		<label for="month">
-			<input id="month" class="o-forms-input__month-part" type="text" inputmode="numeric" name="my-date" aria-label="Month (MM)"/>
+			<input id="month" class="o-forms-input__month-part" type="text" inputmode="numeric" pattern="(0[1-9]|1[012])" name="my-date" aria-label="Month (MM)"/>
 			<span class="o-forms-input__label">MM</span>
 		</label>
 		<label for="year">
-			<input id="year" class="o-forms-input__year-part" type="text" inputmode="numeric" name="my-date" aria-label="Year (YYYY)"/>
+			<input id="year" class="o-forms-input__year-part" type="text" inputmode="numeric" pattern="[0-9]{4}" name="my-date" aria-label="Year (YYYY)"/>
 			<span class="o-forms-input__label">YYYY</span>
 		</label>
 	</span>
