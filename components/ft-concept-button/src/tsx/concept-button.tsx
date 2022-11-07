@@ -14,6 +14,16 @@ export interface ConceptButtonProps {
 	// for props that aren't appropriate in Origami
 	extraButtonProps: any;
 }
+export interface ConceptLinkProps {
+	// link text
+	label: string;
+	href: string;
+	// for attributes which aren't appropriate in Origami
+	attributes?: {
+		[attribute: string]: string | boolean;
+	};
+	onClick?: Function;
+}
 
 function ConceptButton({
 	label,
@@ -45,5 +55,25 @@ function ConceptButton({
 	);
 }
 
-export {ConceptButton};
+function ConceptLink({
+	label,
+	href,
+	attributes,
+	onClick
+}: ConceptLinkProps) {
+	return (
+		<div
+			className="ft-concept-button">
+			<a
+				className="ft-concept-button__link"
+				href={href}
+				{...attributes}
+				onClick={onClick ? event => onClick(event) : null}>
+				{label}
+			</a>
+		</div>
+	);
+}
+
+export {ConceptButton, ConceptLink};
 export default ConceptButton;

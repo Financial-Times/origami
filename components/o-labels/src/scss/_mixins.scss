@@ -217,38 +217,11 @@
 		@extend %_o-labels-indicator-live-color;
 	}
 	@extend %_o-labels-timestamp-typography;
+}
 
-	@if($status == 'live') {
-		& > %_o-labels-indicator__status:before {
-			animation: _o-labels-live-pulse 1.2s ease-in-out infinite;
-			// Prevent animation of the live label if the reader has indicated
-			// that they prefer reduced motion. This may be conservative but
-			// as the live indicator is presented alongside content (including
-			// the front page at the time of writing) we do not want to risk
-			// severely distracting some readers.
-			// https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html
-			@media (prefers-reduced-motion) {
-				animation: none;
-			}
-		}
 
-		// output keyframes once when live status is output
-		@if($status == 'live' and $_o-labels-indicator-live-pulse-output: false) {
-			$_o-labels-indicator-live-pulse-output: true !global;
-			@keyframes _o-labels-live-pulse {
-				0% {
-					opacity: 1;
-				}
-				30% {
-					opacity: 0.4;
-				}
-				70% {
-					opacity: 0.4;
-				}
-				100% {
-					opacity: 1;
-				}
-			}
-		}
-	}
+@mixin _oLabelIndicatorBadge ($color) {
+	background: oColorsByName($color);
+	padding: oSpacingByName('s1') oSpacingByName('s2');
+	font-weight: oFontsWeight('bold');
 }
