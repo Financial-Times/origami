@@ -9,7 +9,7 @@ export default `
 		<span class="o-forms-input o-forms-input--date">
 			<label for="date">
 				<span class="o-forms-input__label">DD</span>
-				<input class="o-forms-input__day-part" id="date" type="text" name="date" value="" required pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])>
+				<input class="o-forms-input__day-part" id="date" type="text" name="date" value="" required pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])">
 			</label>
 			<label for="date1">
 				<span class="o-forms-input__label">MM</span>
@@ -17,7 +17,7 @@ export default `
 			</label>
 			<label for="date2">
 				<span class="o-forms-input__label">YYYY</span>
-				<input class="o-forms-input__year-part" id="date2" type="text" name="date" value="" required pattern="[0-9]{4}>
+				<input class="o-forms-input__year-part" id="date2" type="text" name="date" value="" required pattern="[0-9]{4}">
 			</label>
 		</span>
 	</div>

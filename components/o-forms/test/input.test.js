@@ -57,17 +57,19 @@ describe('Input', () => {
 		});
 	});
 
-	context('validates pattern-matching fields', () => {
-		let dateField;
+	context('validates pattern-matching date fields', () => {
+		let dayField;
 		let monthField;
 		let yearField;
 		before(() => {
 			document.body.innerHTML = formFixture;
 			form = document.forms[0];
-			dateField = form.elements['date'][0];
-			monthField = form.elements['date'][1];
-			yearField = form.elements['date'][2];
-			new Input(dateField);
+			dayField = form.elements['date'][0];
+			new Input(dayField);
+			monthField = form.elements['date1'];
+			new Input(monthField);
+			yearField = form.elements['date2'];
+			new Input(yearField);
 		});
 
 		after(() => {
@@ -75,24 +77,27 @@ describe('Input', () => {
 		});
 
 		it('`blur` event sets the field to invalid if input does not match pattern', () => {
-			dateField.value = "tenth";
-			dispatch('blur', dateField);
+			dayField.value = "tenth";
+			dispatch('blur', dayField);
 
-			proclaim.isTrue(parentClass(dateField, 'invalid'));
+			proclaim.isTrue(parentClass(dayField, 'invalid'));
 		});
 
 		it('`input` event updates validity when format is corrected (if previously invalid)', () => {
-			dateField.value = 'tenth';
-			dispatch('blur', dateField);
-			proclaim.isTrue(parentClass(dateField, 'invalid'));
+			dayField.value = 'tenth';
+			dispatch('blur', dayField);
+			proclaim.isTrue(parentClass(dayField, 'invalid'));
 
-			dateField.value = 10;
-			monthField.value = 10;
-			yearField.value = 2022;
-			dispatch('blur', dateField);
+			dayField.focus();
+			dayField.value = '10';
+			monthField.focus();
+			monthField.value = '10';
+			yearField.focus();
+			yearField.value = '2022';
+			dispatch('input', yearField);
 
-			proclaim.isFalse(parentClass(dateField, 'invalid'));
-			proclaim.isTrue(parentClass(dateField, 'valid'));
+			proclaim.isFalse(parentClass(dayField, 'invalid'), 'invalid class is not removed');
+			proclaim.isTrue(parentClass(dayField, 'valid'), 'valid class was not added');
 		});
 	});
 
