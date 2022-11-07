@@ -40,6 +40,9 @@ class Input {
 		}
 
 		// validate date input
+		// Date input is a special case as it contains 3 input elements and needs to be validated as a group
+		// Which is not responsibility of input element itself but not make braking changes to o-forms
+		// input class will handle date input validation
 		if (this.parent.classList.contains('o-forms-input--date')) {
 			return this._validateDate();
 		}
