@@ -84,6 +84,9 @@
 		position: relative;
 		width: calc(100% - 21px);
 		float: right;
+		@include oGridRespondTo(L) {
+			width: calc(100% - 29px);
+		}
 	}
 
 }

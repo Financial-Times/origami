@@ -97,20 +97,17 @@
 	}
 	.o-topper__image-credit {
 		text-align: left;
-		@include oGridRespondTo($from: L,$until: XL) { 
+		@include oGridRespondTo(L) { 
 			position: absolute;
 			-webkit-transform: translateY(100%);
 			transform: translate(calc(100% - 300px), 100%);
 			bottom: 0;
 			right: 0;
+			padding-left: 0px;
 			width: 300px;
 		}
 		@include oGridRespondTo($from: XL) { 
-			position: absolute;
-			-webkit-transform: translateY(100%);
 			transform: translate(calc(100% - 340px), 100%);
-			bottom: 0;
-			right: 0;
 			width: calc(50vw - 280px );
 		}
 		

@@ -42,7 +42,10 @@
 
 @mixin _oTopperImageCredit {
 	@include oTypographySans(-1);
-	padding: 3px 7px;
+	padding: 10px 11px 0px 11px;
+	@include oGridRespondTo(L) {
+		padding-left:18px;
+	}
 }
 
 //IE9 support
