@@ -63,7 +63,7 @@ class Input {
 			return console.error("Make sure 'o-forms-input--date' element contains input elements for date, month and year.");
 		}
 		const [date, month, year] = Array.from(elements).map(element => element.value);
-		const dateObj = Date.parse(`${month}/${date}/${year}`);
+		const dateObj = Date.parse(`${year}/${month}/${date}`);
 		if (isNaN(dateObj)) {
 			this._toggleParentClasses("invalid");
 			return false;
