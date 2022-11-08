@@ -23,6 +23,6 @@ die() {
 trap die INT
 
 # we use rg --files, it will not rebuild for any .gitignore'd files
-rg --files | entr npm run build &
+rg ../../components ../../libraries --files | entr npm run build &
 
 serve demos/local/
