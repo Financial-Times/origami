@@ -2,46 +2,44 @@
 
 FT-branded styles for form elements.
 
-- [o-forms ![MIT licensed](#licence)](#o-forms-)
-	- [Usage](#usage)
-	- [Markup](#markup)
-		- [Single input fields](#single-input-fields)
-			- [Text input](#text-input)
-			- [File input](#file-input)
-			- [Password input](#password-input)
-			- [Textarea input](#textarea-input)
-			- [Select Input](#select-input)
-			- [Other single inputs](#other-single-inputs)
-		- [Multiple input fields](#multiple-input-fields)
-			- [Radio inputs](#radio-inputs)
-				- [Round radio inputs](#round-radio-inputs)
-				- [Box radio inputs](#box-radio-inputs)
-				- [Pseudo box radio inputs](#pseudo-box-radio-inputs)
-			- [Checkbox inputs](#checkbox-inputs)
-				- [Square checkbox inputs](#square-checkbox-inputs)
-				- [Toggle checkbox inputs](#toggle-checkbox-inputs)
-				- [Checkbox inputs with description](#checkbox-inputs-with-description)
-			- [Date inputs](#date-inputs)
-		- [Prompt Text](#prompt-text)
-		- [Optional](#optional)
-		- [Suffix](#suffix)
-		- [Small](#small)
-		- [Inline](#inline)
-			- [Inline Field](#inline-field)
-			- [Inline Inputs](#inline-inputs)
-		- [Validity](#validity)
-			- [Error Summary](#error-summary)
-	- [Sass](#sass)
-		- [Options](#options)
-		- [Customisation](#customisation)
-	- [JavaScript](#javascript)
-		- [Form Instance](#form-instance)
-		- [Individual Inputs](#individual-inputs)
-		- [State](#state)
-	- [Migration guide](#migration-guide)
-	- [Contact](#contact)
-	- [Licence](#licence)
-
+- [Usage](#usage)
+- [Markup](#markup)
+	- [Single input fields](#single-input-fields)
+		- [Text input](#text-input)
+		- [File input](#file-input)
+		- [Password input](#password-input)
+		- [Textarea input](#textarea-input)
+		- [Select Input](#select-input)
+		- [Other single inputs](#other-single-inputs)
+	- [Multiple input fields](#multiple-input-fields)
+		- [Radio inputs](#radio-inputs)
+			- [Round radio inputs](#round-radio-inputs)
+			- [Box radio inputs](#box-radio-inputs)
+			- [Pseudo box radio inputs](#pseudo-box-radio-inputs)
+		- [Checkbox inputs](#checkbox-inputs)
+			- [Square checkbox inputs](#square-checkbox-inputs)
+			- [Toggle checkbox inputs](#toggle-checkbox-inputs)
+			- [Checkbox inputs with description](#checkbox-inputs-with-description)
+		- [Date inputs](#date-inputs)
+	- [Prompt Text](#prompt-text)
+	- [Optional](#optional)
+	- [Suffix](#suffix)
+	- [Small](#small)
+	- [Inline](#inline)
+		- [Inline Field](#inline-field)
+		- [Inline Inputs](#inline-inputs)
+	- [Validity](#validity)
+		- [Error Summary](#error-summary)
+- [Sass](#sass)
+	- [Options](#options)
+	- [Customisation](#customisation)
+- [JavaScript](#javascript)
+	- [Form Instance](#form-instance)
+	- [Individual Inputs](#individual-inputs)
+	- [State](#state)
+- [Migration guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
 
 ## Usage
 
@@ -295,7 +293,7 @@ For a box-like, rectangular radio button replace the `o-forms-input--radio-round
 
 Box radio buttons may also, optionally represent a negative choose by applying the `o-forms-input__label--negative` modifier class to its label. This is useful for a yes/no input.
 
-Loading states are also supported by box radio buttons. We recommend using [`o-forms` JavaScript](#javascript) to add states to an existing form. However to add a state manually add an additional `o-forms-input__state` element with `role=status` and `aria-label="[STATE]"` attributes. In addition, add a state modifier class to the `o-forms-input` element, `o-forms-input--saving` or `o-forms-input--saved`. 
+Loading states are also supported by box radio buttons. We recommend using [`o-forms` JavaScript](#javascript) to add states to an existing form. However to add a state manually add an additional `o-forms-input__state` element with `role=status` and `aria-label="[STATE]"` attributes. In addition, add a state modifier class to the `o-forms-input` element, `o-forms-input--saving` or `o-forms-input--saved`.
 
 The below example shows a box style radio button with a positive "yes" and negative "no" option. The "no" option is checked and a saved state is shown.
 
@@ -443,11 +441,11 @@ To create our date input use a [multiple input](#multiple-input-fields) field st
 
 	<span class="o-forms-input o-forms-input--date">
 		<label for="date">
-			<input id="date" class="o-forms-input__day-part" type="text" inputmode="numeric" pattern="0[1-9]|[12]\d|3[01]" name="my-date" aria-label="Day (DD)"/>
+			<input id="date" class="o-forms-input__day-part" type="text" inputmode="numeric" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])" name="my-date" aria-label="Day (DD)"/>
 			<span class="o-forms-input__label">DD</span>
 		</label>
 		<label for="month">
-			<input id="month" class="o-forms-input__month-part" type="text" inputmode="numeric" pattern="0?[1-9]|1[012]" name="my-date" aria-label="Month (MM)"/>
+			<input id="month" class="o-forms-input__month-part" type="text" inputmode="numeric" pattern="(0[1-9]|1[012])" name="my-date" aria-label="Month (MM)"/>
 			<span class="o-forms-input__label">MM</span>
 		</label>
 		<label for="year">
