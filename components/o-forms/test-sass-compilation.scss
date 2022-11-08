@@ -154,6 +154,6 @@ $system-code: "origami-build-tools";$o-brand: internal;@import '@financial-times
 	$o-forms-is-silent: true !global;
 }
 @if not mixin-exists('oForms') {
-    @error 'OBT_NO_PRIMARY-MIXIN-oForms'
+	@error 'OBT_NO_PRIMARY-MIXIN-oForms';
 }
-@include oForms()
+@include oForms();

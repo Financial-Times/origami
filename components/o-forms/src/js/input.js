@@ -32,7 +32,7 @@ class Input {
 	 * Input validation
 	 * Conditions for input validation
 	 *
-	 * @param event [] - The event which has caused re-validation.
+	 * @param {FocusEvent} event [] - The event which has caused re-validation.
 	 * @returns {boolean} - is the input valid?
 	 */
 	validate(event) {
@@ -57,6 +57,12 @@ class Input {
 	}
 
 
+	/**
+	 * Date input validation
+	 *
+	 * @param {FocusEvent} event [] - The event which has caused re-validation.
+	 * @returns {boolean} - is the input valid?
+	 */
 	_validateDate(event) {
 		const day = this.parent.querySelector('input.o-forms-input__day-part');
 		const month = this.parent.querySelector('input.o-forms-input__month-part');
