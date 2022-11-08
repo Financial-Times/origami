@@ -1,6 +1,19 @@
 // sass-lint:disable mixins-before-declarations
 
 @mixin _oTopperThemeFullBleedOffset {
+	&.o-topper--right-rail {
+		
+		.o-topper__image-credit {
+			@include oGridRespondTo(L) {
+				width: calc( 50vw - 185px);
+    			transform: translate(calc(50vw - 470px),100%);
+			}
+			@include oGridRespondTo(XL) {
+				transform: translate(calc(100% - 435px),100%);
+				width: calc(50vw - 140px);
+			}
+		}
+	}
 	display: flex;
 	flex-direction: column;
 	
@@ -73,6 +86,7 @@
 			left: 0px;
 			margin-left:0px;
 			width: inherit;
+			overflow: visible;
 		}
 		.o-topper__picture{
 			position: absolute;
