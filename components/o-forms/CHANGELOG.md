@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.4.3](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.2...o-forms-v9.4.3) (2022-11-08)
+
+
+### Bug Fixes
+
+* improve o-forms date input error handling ([cc4c149](https://www.github.com/Financial-Times/origami/commit/cc4c14901fb8eaf67450a439ee0e57c9c93846e3)), closes [#536](https://www.github.com/Financial-Times/origami/issues/536)
+
 ### [9.4.2](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.1...o-forms-v9.4.2) (2022-10-18)
 
 
