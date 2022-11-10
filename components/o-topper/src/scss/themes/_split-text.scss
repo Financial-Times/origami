@@ -94,11 +94,9 @@
 		background-color: transparent;
 		color: oColorsByName("black-70");;
 		position: relative;
-		width: calc(100% - 21px);
+		width: 100%;
 		float: right;
-		@include oGridRespondTo(L) {
-			width: calc(100% - 29px);
-		}
+		box-sizing: border-box;
 	}
 
 }
