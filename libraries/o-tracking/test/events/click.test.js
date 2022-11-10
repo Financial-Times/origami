@@ -235,6 +235,82 @@ describe('click', function () {
 
 	});
 
+	it('should track nested JSON-like properties and send through in the context', (done) => {
+
+		click.init("blah", '#anchorB');
+
+		const aLinkToGoogle = document.createElement('a');
+
+		aLinkToGoogle.href = "http://www.google.com";
+		aLinkToGoogle.text = "A link to Google's website";
+		aLinkToGoogle.id = "anchorB";
+		aLinkToGoogle.setAttribute('data-trackable-context-component', `{"type": "test-component"}`);
+
+		aLinkToGoogle.addEventListener('click', function(e){
+			e.preventDefault();
+		}); //we don't want the browser to follow click in test
+
+		const event = new MouseEvent('click', {
+			'view': window,
+			'bubbles': true,
+			'cancelable': true
+		});
+
+		document.body.appendChild(aLinkToGoogle);
+		aLinkToGoogle.dispatchEvent(event, true);
+
+		setTimeout(() => {
+			try {
+				proclaim.isObject(core.track.getCall(0).args[0].context.component);
+				proclaim.equal(core.track.getCall(0).args[0].context.component.type, 'test-component');
+
+
+				done();
+			} catch (error) {
+				done(error);
+			}
+		}, 10);
+
+	});
+
+	it('should track nested non-JSON-like properties as string in the context', (done) => {
+
+		click.init("blah", '#anchorB');
+
+		const aLinkToGoogle = document.createElement('a');
+
+		aLinkToGoogle.href = "http://www.google.com";
+		aLinkToGoogle.text = "A link to Google's website";
+		aLinkToGoogle.id = "anchorB";
+		aLinkToGoogle.setAttribute('data-trackable-context-component', `{type: 'test-component'}`);
+
+		aLinkToGoogle.addEventListener('click', function(e){
+			e.preventDefault();
+		}); //we don't want the browser to follow click in test
+
+		const event = new MouseEvent('click', {
+			'view': window,
+			'bubbles': true,
+			'cancelable': true
+		});
+
+		document.body.appendChild(aLinkToGoogle);
+		aLinkToGoogle.dispatchEvent(event, true);
+
+		setTimeout(() => {
+			try {
+				proclaim.isString(core.track.getCall(0).args[0].context.component);
+				proclaim.equal(core.track.getCall(0).args[0].context.component, `{type: 'test-component'}`);
+
+
+				done();
+			} catch (error) {
+				done(error);
+			}
+		}, 10);
+
+	});
+
 	it('should not track an event for a securedrop click', function (done) {
 
 		click.init("blah", '#anchorC');
