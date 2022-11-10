@@ -14,6 +14,7 @@
 			}
 		}
 	}
+	padding: 0px;
 	display: flex;
 	flex-direction: column;
 	
@@ -48,7 +49,7 @@
 	@include oGridRespondTo(M) {
 		display: grid;
 		grid-template-columns: auto;
-		grid-template-rows: 20px min-content 60px min-content;
+		grid-template-rows: 20px 520px 60px min-content;
 
 		.o-topper__content {
 			grid-column: 1;
@@ -57,7 +58,7 @@
 
 		.o-topper__visual {
 			grid-column: 1;
-			grid-row: 1 / span 3;
+			grid-row: 1 / span 4;
 			
 		}
 	}
@@ -65,7 +66,7 @@
 
 	//Add extra 20px columns to get the space outside the content well
 	@include oGridRespondTo(L) {
-		grid-template-columns: 40px 40px 20px minmax(500px, 700px) 40px minmax(0, auto) 300px;
+		grid-template-columns: 40px 0px 20px minmax(500px, 700px) 20px minmax(0, auto) 300px;
 
 		// .o-topper__content {
 		&.o-topper--centered {
@@ -89,12 +90,17 @@
 			overflow: visible;
 		}
 		.o-topper__picture{
-			position: absolute;
+			position: relative;
 			width: 100vw;
 			margin-left:-50vw;
 			left:50%;
-			height:100%;
+			height: 600px;
+			display: block;
 		}
+	}
+	@include oGridRespondTo(XL){
+				grid-template-columns: 40px 40px 20px minmax(500px, 700px) 40px minmax(0, auto) 300px;
+
 	}
 
 	@supports (object-fit: cover) {
@@ -102,7 +108,7 @@
 			height: auto;
 
 			@include oGridRespondTo(L) {
-				height: 600px;
+				//height: 600px;
 			}
 		}
 	}
@@ -112,17 +118,17 @@
 	.o-topper__image-credit {
 		text-align: left;
 		@include oGridRespondTo(L) { 
-			position: absolute;
-			-webkit-transform: translateY(100%);
-			transform: translate(calc(100% - 300px), 100%);
+			box-sizing: border-box;
 			bottom: 0;
 			right: 0;
 			padding-left: 0px;
-			width: 300px;
+			min-width: 300px;
+			width: calc(100vw - 780px);
+			float:right;
 		}
 		@include oGridRespondTo($from: XL) { 
-			transform: translate(calc(100% - 340px), 100%);
-			width: calc(50vw - 280px );
+			transform: translate(calc(100% - 380px), 0);
+			width: calc(50vw - 230px);
 		}
 		
 	}
