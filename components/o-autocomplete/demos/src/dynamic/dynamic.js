@@ -289,6 +289,3 @@ window.customSuggestions = function customSuggestions(query, populateOptions) {
 	populateOptions(filteredOptions);
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});

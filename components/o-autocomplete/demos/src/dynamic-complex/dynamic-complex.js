@@ -1,7 +1,6 @@
 import Autocomplete from '../../../main.js';
 import {data} from './data.js';
 import oForms from '@financial-times/o-forms';
-oForms.init();
 /**
  * @typedef {object} CustomOption
  * @property {string} Continent_Code - 2 letter continent code
@@ -68,3 +67,5 @@ new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), 
 		console.log('You chose option', option);
 	}
 });
+
+oForms.init();

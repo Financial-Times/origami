@@ -296,6 +296,3 @@ function customSuggestions(query, populateOptions) {
 
 window.customSuggestions = debounce(customSuggestions, 100);
 
-document.addEventListener('DOMContentLoaded', function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
