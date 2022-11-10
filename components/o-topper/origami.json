@@ -55,6 +55,12 @@
 			"description": "This is a theme that editorial can choose, which comes through the API"
 		},
 		{
+			"name": "Full Bleed Offset Right Rail",
+			"title": "Offset Full-Bleed Image Topper",
+			"template": "/demos/src/full-bleed-offset-right-rail.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API"
+		},
+		{
 			"name": "Split Text Left",
 			"title": "Left-Aligned Split Text Topper",
 			"template": "/demos/src/split-text-left.mustache",
