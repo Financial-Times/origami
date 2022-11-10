@@ -5,12 +5,11 @@
 		
 		.o-topper__image-credit {
 			@include oGridRespondTo(L) {
-				width: calc( 50vw - 185px);
-    			transform: translate(calc(50vw - 470px),100%);
+				width: calc(100vw - 720px);
 			}
 			@include oGridRespondTo(XL) {
-				transform: translate(calc(100% - 435px),100%);
-				width: calc(50vw - 140px);
+				transform: translate(calc(100% - 500px),0%);
+				width: calc(50vw - 110px);
 			}
 		}
 	}
