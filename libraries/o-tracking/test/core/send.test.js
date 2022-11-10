@@ -228,17 +228,8 @@ describe('Core.Send', function () {
 
 			server.respondWith([500, { "Content-Type": "plain/text", "Content-Length": 5 }, "NOT OK"]);
 
-			addAndRun(request);
-
-			server.respond();
-			// Respond again for Image fallback
-			server.respondWith([500, { "Content-Type": "plain/text", "Content-Length": 5 }, "NOT OK"]);
-			server.respond();
-
-			// Wait for localStorage
-			setTimeout(() => {
+			const checkRequestsQueue = () => {
 				// console.log((new Queue('requests')).all());
-
 				try {
 					proclaim.ok(new Queue('requests').last().queueTime);
 					navigator.sendBeacon = b;
@@ -246,8 +237,20 @@ describe('Core.Send', function () {
 					done();
 				} catch (error) {
 					done(error);
+				} finally {
+					window.removeEventListener('storage', checkRequestsQueue);
 				}
-			}, 100);
+			}
+
+			// We need to wait for the storage to be updated and then check for the requests queue
+			window.addEventListener('storage', checkRequestsQueue)
+			
+			addAndRun(request);
+
+			server.respond();
+			// Respond again for Image fallback
+			server.respondWith([500, { "Content-Type": "plain/text", "Content-Length": 5 }, "NOT OK"]);
+			server.respond();
 		});
 	});
 
