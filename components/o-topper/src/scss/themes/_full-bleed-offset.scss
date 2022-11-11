@@ -103,10 +103,6 @@
 	@supports (object-fit: cover) {
 		.o-topper__visual {
 			height: auto;
-
-			@include oGridRespondTo(L) {
-				//height: 600px;
-			}
 		}
 	}
 	@include oGridRespondTo( $from: M , $until: L ) {
