@@ -8,7 +8,6 @@
 				width: calc(100vw - 720px);
 			}
 			@include oGridRespondTo(XL) {
-				transform: translate(calc(100% - 500px),0%);
 				width: calc(50vw - 110px);
 			}
 		}
