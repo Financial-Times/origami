@@ -13,7 +13,6 @@
 			}
 		}
 	}
-	padding: 0px;
 	display: flex;
 	flex-direction: column;
 	
@@ -121,13 +120,14 @@
 			bottom: 0;
 			right: 0;
 			padding-left: 0px;
-			min-width: 300px;
-			width: calc(100vw - 780px);
+			min-width: 320px;
+			transform: translate(20px, 0);
+			width: calc(100vw - 800px);
 			float:right;
 		}
 		@include oGridRespondTo($from: XL) { 
-			transform: translate(calc(100% - 380px), 0);
-			width: calc(50vw - 230px);
+			transform: translate(calc(50vw - 590px), 0);
+   			width: calc(50vw - 250px);
 		}
 		
 	}
