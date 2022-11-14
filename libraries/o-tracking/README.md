@@ -297,6 +297,36 @@ For example, when the below anchor element is clicked, it will add extra event f
 	data-trackable-context-article_source="FINANCIAL TIMES">
 ```
 
+**Nested properties**
+
+If you need to add nested property to the context of the events using the `data-trackable-context-*` custom attribute, you just need to specify the string representation of the value in a JSON-like format.
+
+For example, when the below anchor element is clicked:
+
+```html
+<a href="https://www.ft.com/content/1234-1234-1234-1234"
+	data-trackable="view-original-article"
+  data-trackable-context-plain_property="plain-property-value"
+	data-trackable-context-nested_property='{ "type": "nested", "value": "nested-property-test" }'>
+```
+The event context will be provided with the properties: `plain_property` and `nested_property`, as shown in the fragment below:
+
+```json
+{
+  "category": "link",
+  "action": "click",
+  "system": {
+    "source": "o-tracking",
+  },
+  "context": {
+    "plain_property": "plain-property-value",
+    "nested_property": {
+      "type": "nested",
+      "value": "nested-property-test"
+    }
+  }
+}
+```
 
 ## How to view the data
 
