@@ -13,6 +13,7 @@
 
 	@include oGridRespondTo($until: M) {
 		padding: 0;
+
 		.o-topper__content {
 			display: flex;
 			flex-direction: column;
@@ -23,6 +24,7 @@
 		.o-topper__visual {
 			min-height: 350px;
 		}
+
 		.o-topper__picture {
 			position: relative;
 			width: 100%;
@@ -34,7 +36,7 @@
 	@include oGridRespondTo(M) {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: minmax(0,480px) 1fr;
+		grid-template-rows: minmax(0, 480px) 1fr;
 
 		.o-topper__content {
 			grid-column: 1 / span 2;
@@ -44,10 +46,11 @@
 			align-self: center;
 			padding-right: 20px;
 		}
-		.o-topper__background{
-			grid-row: 1;
 
+		.o-topper__background {
+			grid-row: 1;
 		}
+
 		.o-topper__visual {
 			grid-row: 1/span 2;
 		}
@@ -66,8 +69,8 @@
 		}
 	}
 
-	@include oGridRespondTo(L){
-		grid-template-rows: minmax(0,600px) 1fr;
+	@include oGridRespondTo(L) {
+		grid-template-rows: minmax(0, 600px) 1fr;
 
 	}
 
@@ -75,24 +78,25 @@
 		.o-topper__image {
 			position: absolute;
 		}
-		
+
 		.o-topper__visual {
 			@include oGridRespondTo(M) {
 				.o-topper__picture {
-				height: 480px;
+					height: 480px;
 				}
 			}
+
 			@include oGridRespondTo(L) {
 				.o-topper__picture {
-				height: 600px;
+					height: 600px;
 				}
 			}
 		}
 	}
-	
+
 	.o-topper__image-credit {
 		background-color: transparent;
-		color: oColorsByName("black-70");;
+		color: oColorsByName("black-70");
 		position: relative;
 		width: 100%;
 		float: right;

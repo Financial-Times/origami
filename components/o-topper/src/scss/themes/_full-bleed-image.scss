@@ -53,19 +53,16 @@
 		.o-topper__visual {
 			height: auto;
 			@include oGridRespondTo(M) {
-			.o-topper__image {
-				height: 480px;
-			}
+				.o-topper__image {
+					height: 480px;
+				}
 			}
 			@include oGridRespondTo(L) {
 				.o-topper__image {
 					height: 600px;
 				}
 			}
-			
-			
 		}
-		
 	}
 
 	.o-topper__image-credit {
