@@ -299,7 +299,7 @@ For example, when the below anchor element is clicked, it will add extra event f
 
 **Nested properties**
 
-If you need to add nested property to the context of the events using the `data-trackable-context-*` custom attribute, you just need to specify the string representation of the value in a JSON-like format.
+To add a nested property to the context of events using the `data-trackable-context-*` custom attribute, specify the string representation of the value in a JSON-like format.
 
 For example, when the below anchor element is clicked:
 
