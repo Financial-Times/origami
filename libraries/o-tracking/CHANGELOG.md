@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.5.0](https://www.github.com/Financial-Times/origami/compare/o-tracking-v4.4.0...o-tracking-v4.5.0) (2022-11-14)
+
+
+### Features
+
+* publish o-tracking support for nested JSON-like property values via data-trackable-context-* ([#886](https://www.github.com/Financial-Times/origami/issues/886)) ([daf2eb9](https://www.github.com/Financial-Times/origami/commit/daf2eb9abd0576ae74cd5f17f1f98a527c2955a2))
+
 ## [4.4.0](https://www.github.com/Financial-Times/origami/compare/o-tracking-v4.3.2...o-tracking-v4.4.0) (2022-07-12)
 
 
