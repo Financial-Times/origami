@@ -3,8 +3,10 @@
 @mixin _oTopperThemeFullBleedOffset {
 	&.o-topper--right-rail {
 		.o-topper__image-credit {
-			@include oGridRespondTo(L) {
-				width: calc(100vw - 720px);
+			@if $o-grid-mode != 'snappy' {
+				@include oGridRespondTo(L) {
+					width: calc(100vw - 720px);
+				}
 			}
 			@include oGridRespondTo(XL) {
 				width: calc(50vw - 110px);
