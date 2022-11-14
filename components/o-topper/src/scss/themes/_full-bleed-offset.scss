@@ -112,8 +112,6 @@
 		text-align: left;
 		@include oGridRespondTo(L) { 
 			box-sizing: border-box;
-			bottom: 0;
-			right: 0;
 			padding-left: 0px;
 			min-width: 320px;
 			transform: translate(20px, 0);
@@ -122,7 +120,13 @@
 		}
 		@include oGridRespondTo($from: XL) { 
 			transform: translate(calc(50vw - 590px), 0);
-   			width: calc(50vw - 250px);
+			width: calc(50vw - 250px);
+		}
+		@if $o-grid-mode == 'snappy' {
+			@include oGridRespondTo($from: L, $until: XL) {
+				transform: translate(calc(50vw - 470px), 0);
+				width: calc(50vw - 170px);
+			}
 		}
 		
 	}
