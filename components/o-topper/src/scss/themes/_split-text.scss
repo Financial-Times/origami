@@ -71,7 +71,6 @@
 
 	@include oGridRespondTo(L) {
 		grid-template-rows: minmax(0, 600px) 1fr;
-
 	}
 
 	@supports (object-fit: cover) {
@@ -103,5 +102,4 @@
 		box-sizing: border-box;
 		margin-bottom: -20px;
 	}
-
 }

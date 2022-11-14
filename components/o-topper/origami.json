@@ -61,6 +61,22 @@
 			"description": "This is a theme that editorial can choose, which comes through the API"
 		},
 		{
+			"name": "Full Bleed Offset Snappy Grid",
+			"title": "Offset Full-Bleed Image Topper",
+			"template": "/demos/src/full-bleed-offset.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API",
+			"sass":"demos/src/demo-snappy.scss",
+			"hidden": true
+		},
+		{
+			"name": "Full Bleed Offset Right Rail Snappy Grid",
+			"title": "Offset Full-Bleed Image Topper",
+			"template": "/demos/src/full-bleed-offset-right-rail.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API",
+			"sass":"demos/src/demo-snappy.scss",
+			"hidden": true
+		},
+		{
 			"name": "Split Text Left",
 			"title": "Left-Aligned Split Text Topper",
 			"template": "/demos/src/split-text-left.mustache",
