@@ -1,5 +1,9 @@
 /// @prop {Boolean}
 /// @access public
+$o-topper-snappy: if($o-grid-mode == 'snappy' , true, false) !default;
+
+/// @prop {Boolean}
+/// @access public
 $o-topper-is-silent: true !default;
 
 /// When adding a new colour update the README
