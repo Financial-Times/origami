@@ -5,7 +5,12 @@
 	.o-topper__read-next {
 		display: none;
 	}
-
+	.o-topper__background {
+		grid-row: 1;
+	}
+	.o-topper__visual {
+		grid-row: 1 /span 2;
+	}
 	&.o-topper--full-bleed-image-center {
 		@include oGridRespondTo(S) {
 			@include _oTopperAlignText(center);
@@ -26,7 +31,7 @@
 	@include oGridRespondTo(M) {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr;
+		grid-template-rows: minmax(auto, 480px) 1fr;
 
 		.o-topper__content {
 			grid-row: 1;
@@ -38,20 +43,31 @@
 			background: transparent;
 		}
 
-		.o-topper__visual {
-			grid-row: 1;
-		}
+		
+	}
+	@include oGridRespondTo(L) {
+		grid-template-rows: minmax(auto, 600px) 1fr;
 	}
 
 	@supports (object-fit: cover) {
 		.o-topper__visual {
 			height: auto;
-			max-height: 480px;
-
+			@include oGridRespondTo(M) {
+				.o-topper__image {
+					height: 480px;
+				}
+			}
 			@include oGridRespondTo(L) {
-				height: 600px;
-				max-height: 600px;
+				.o-topper__image {
+					height: 600px;
+				}
 			}
 		}
+	}
+
+	.o-topper__image-credit {
+		background-color: transparent;
+		color: oColorsByName("black-70");
+		margin-bottom: -20px;
 	}
 }
