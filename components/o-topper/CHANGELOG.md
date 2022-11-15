@@ -5,15 +5,7 @@
 
 ### Features
 
-* add snappy demos ([c013b5c](https://www.github.com/Financial-Times/origami/commit/c013b5c18be7f44ac2a1af13c7569190d8e97b97))
-
-
-### Bug Fixes
-
-* fix lint errors ([464dbad](https://www.github.com/Financial-Times/origami/commit/464dbada6c261105f142b5a7c62c62f0ec3da205))
-* formatt files and remove some unnecesary rules ([9097c85](https://www.github.com/Financial-Times/origami/commit/9097c8537d01a6cb9456b1bbe23dcc704736ab0e))
-* make caption o-topper behave well with grid snappy mode ([285114c](https://www.github.com/Financial-Times/origami/commit/285114cd458c61f7d0f16a664eb3447db58a028e))
-* righ-rail on snappy mode ([8c2b390](https://www.github.com/Financial-Times/origami/commit/8c2b390023b5778af9673a2f5b68dd8610dc6fa4))
+* Updates caption position for improved contrast. Adds additional demos to the registry which were previously missing. [pr 877](https://github.com/Financial-Times/origami/pull/877)
 
 ### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.3.0...o-topper-v5.3.1) (2022-09-01)
 
