@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.4.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.3.1...o-topper-v5.4.0) (2022-11-15)
+
+
+### Features
+
+* Updates caption position for improved contrast. Adds additional demos to the registry which were previously missing. [pr 877](https://github.com/Financial-Times/origami/pull/877)
+
 ### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.3.0...o-topper-v5.3.1) (2022-09-01)
 
 
