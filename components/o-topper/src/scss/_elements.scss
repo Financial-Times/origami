@@ -42,9 +42,9 @@
 
 @mixin _oTopperImageCredit {
 	@include oTypographySans(-1);
-	padding: 10px 11px 0px 11px;
+	padding: 10px 11px 0px;
 	@include oGridRespondTo(L) {
-		padding-left:18px;
+		padding-left: 18px;
 	}
 }
 

@@ -8,8 +8,8 @@
 	.o-topper__background {
 		grid-row: 1;
 	}
-	.o-topper__visual{
-		grid-row: 1 /span 2
+	.o-topper__visual {
+		grid-row: 1 /span 2;
 	}
 	&.o-topper--full-bleed-image-center {
 		@include oGridRespondTo(S) {

@@ -240,7 +240,8 @@
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
 	.o-topper__background,
-	.o-topper__content, .o-topper__image-credit {
+	.o-topper__content,
+	.o-topper__image-credit {
 		background-color: $background;
 	}
 
@@ -294,7 +295,7 @@
 	}
 	
 	.o-topper__image-credit {
-		color:oColorsMix($foreground, $color-name, 73);
+		color: oColorsMix($foreground, $color-name, 73);
 	}
 
 	@if $color-name == 'paper' or $color-name == 'wheat' {
