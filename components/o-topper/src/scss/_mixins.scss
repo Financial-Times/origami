@@ -240,8 +240,7 @@
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
 	.o-topper__background,
-	.o-topper__content,
-	.o-topper__image-credit {
+	.o-topper__content {
 		background-color: $background;
 	}
 
