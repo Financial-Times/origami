@@ -3,7 +3,7 @@
 @mixin _oTopperThemeFullBleedOffset {
 	&.o-topper--right-rail {
 		.o-topper__image-credit {
-			@if $o-grid-mode != 'snappy' {
+			@if not $o-topper-snappy {
 				@include oGridRespondTo(L) {
 					width: calc(100vw - 720px);
 				}
@@ -124,7 +124,7 @@
 			transform: translate(calc(50vw - 590px), 0);
 			width: calc(50vw - 250px);
 		}
-		@if $o-grid-mode == 'snappy' {
+		@if $o-topper-snappy {
 			@include oGridRespondTo($from: L, $until: XL) {
 				transform: translate(calc(50vw - 470px), 0);
 				width: calc(50vw - 170px);
