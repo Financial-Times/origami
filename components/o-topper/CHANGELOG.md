@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.4.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.4.0...o-topper-v5.4.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* support o-topper within a snappy grid container ([6c6f20a](https://www.github.com/Financial-Times/origami/commit/6c6f20a78916f447820380af93161fd1414b794c))
+
 ## [5.4.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.3.1...o-topper-v5.4.0) (2022-11-15)
 
 
