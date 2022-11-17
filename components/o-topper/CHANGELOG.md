@@ -1,5 +1,26 @@
 # Changelog
 
+### [5.4.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.4.1...o-topper-v5.4.2) (2022-11-16)
+
+
+### Bug Fixes
+
+* remove background from figcaption on toppers ([df93a9a](https://www.github.com/Financial-Times/origami/commit/df93a9a61aee25339a737c959df87d30cb29d4b9))
+
+### [5.4.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.4.0...o-topper-v5.4.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* support o-topper within a snappy grid container ([6c6f20a](https://www.github.com/Financial-Times/origami/commit/6c6f20a78916f447820380af93161fd1414b794c))
+
+## [5.4.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.3.1...o-topper-v5.4.0) (2022-11-15)
+
+
+### Features
+
+* Updates caption position for improved contrast. Adds additional demos to the registry which were previously missing. [pr 877](https://github.com/Financial-Times/origami/pull/877)
+
 ### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.3.0...o-topper-v5.3.1) (2022-09-01)
 
 

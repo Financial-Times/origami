@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.5.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.4.0...o-icons-v7.5.0) (2022-11-14)
+
+
+### Features
+
+* publish o-icons tsx templates to npm ([#884](https://www.github.com/Financial-Times/origami/issues/884)) ([3fac77c](https://www.github.com/Financial-Times/origami/commit/3fac77c43dfa3e0d133230404a4d577ccd03d981))
+
 ## [7.4.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.3.0...o-icons-v7.4.0) (2022-05-30)
 
 
