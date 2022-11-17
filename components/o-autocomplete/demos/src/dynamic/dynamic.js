@@ -1,6 +1,6 @@
 import '../../../main.js';
-import oForms from '@financial-times/o-forms';
-oForms.init();
+import '@financial-times/o-forms';
+
 /**
  * @typedef {Function} PopulateOptions
  * @property {Array<string>} options - The options which match the rext which was typed into the autocomplete by the user
@@ -289,3 +289,6 @@ window.customSuggestions = function customSuggestions(query, populateOptions) {
 	populateOptions(filteredOptions);
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});

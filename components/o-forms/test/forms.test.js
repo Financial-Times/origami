@@ -188,6 +188,46 @@ describe('Forms', () => {
 		});
 	});
 
+	context('formInputs', () => {
+		let form;
+
+		before(() => {
+			document.body.innerHTML = formFixture;
+			formEl = document.forms[0];
+			form = new Forms(formEl);
+		});
+
+		after(() => {
+			document.body.innerHTML = null;
+		});
+		it('removing input element should return correct number of formInputs elements', () => {
+			const originalFormInputsLength = formEl.querySelectorAll('input').length;
+			const fieldElement = formEl.querySelector('.o-forms-field');
+			const numberOfInputElements = fieldElement.querySelectorAll('input').length;
+			fieldElement.remove();
+			const formInputsLength = form.formInputs.length;
+			proclaim.equal(formInputsLength, originalFormInputsLength - numberOfInputElements);
+		});
+
+		it('adding input element should return correct number of formInputs elements', () => {
+			const originalFormInputsLength = formEl.querySelectorAll('input').length;
+			const newFieldElement = `<label class="o-forms-field" for="new-text">
+					<span class="o-forms-title">
+						<span class="o-forms-title__main">Required text input</span>
+					</span>
+
+					<span class="o-forms-input o-forms-input--text">
+						<input id="new-text" type="text" name="required" value="" required>
+					</span>
+				</label>`;
+			const fieldEl = document.createElement('div');
+			fieldEl.innerHTML = newFieldElement;
+			formEl.appendChild(fieldEl);
+			const formInputsLength = form.formInputs.length;
+			proclaim.equal(formInputsLength, originalFormInputsLength + 1);
+		});
+	});
+
 	context('.setState()', () => {
 		let form;
 		let name;
@@ -239,7 +279,6 @@ describe('Forms', () => {
 
 		it('removes all references to Forms, Inputs and State', () => {
 			proclaim.isInstanceOf(form, Forms);
-
 			form.destroy();
 			proclaim.isNull(form.form);
 			proclaim.isNull(form.opts);
