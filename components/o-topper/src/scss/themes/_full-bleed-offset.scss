@@ -2,7 +2,7 @@
 
 @mixin _oTopperThemeFullBleedOffset {
 	&.o-topper--right-rail {
-		.o-topper__image-credit {
+		.o-topper__image-caption {
 			@if not $o-topper-snappy {
 				@include oGridRespondTo(L) {
 					width: calc(100vw - 720px);
@@ -110,7 +110,7 @@
 		display: flex;
 	}
 
-	.o-topper__image-credit {
+	.o-topper__image-caption {
 		text-align: left;
 		@include oGridRespondTo(L) { 
 			box-sizing: border-box;

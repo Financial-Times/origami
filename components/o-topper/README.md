@@ -131,6 +131,7 @@ To include o-topper styles granularly specify which elements, themes, and colour
 		'read-next',
 		'image',
 		'image-credit',
+		'image-caption'
 	),
 	'colors': (
 		'white', // .o-topper--color-white
