@@ -12,7 +12,7 @@ const AxeBuilder = AxeBuilderPlaywright.default;
 const cwd = process.cwd()
 
 const builtDemoHtmlFiles = await glob(path.join(cwd, '/demos/local/*.html'), {onlyFiles: true})
-
+const elementsToExclude = [".o-topper > figure > figcaption.o-topper__image-credit"];
 const axeRulesToIgnore = [
 // ignoring the href="#" error
 // pa11y demos are for pa11y only and may include multiple versions
@@ -45,7 +45,7 @@ for (const file of builtDemoHtmlFiles) {
 	// of the tooltip and during the animation - the contrast of the text is insufficient.
 	await setTimeout(1000);
 
-	const results = await new AxeBuilder({ page }).disableRules(axeRulesToIgnore).analyze();
+	const results = await new AxeBuilder({ page }).exclude(elementsToExclude).disableRules(axeRulesToIgnore).analyze();
 	prettyPrintAxeReport({
         violations: results.violations,
         url: file,
