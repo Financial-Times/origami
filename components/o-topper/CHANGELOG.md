@@ -1,5 +1,19 @@
 # Changelog
 
+## [5.5.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.4.2...o-topper-v5.5.0) (2022-11-23)
+
+
+### Features
+
+* add element image-caption replacing  image-credit behaviour and modify image-credit to be on top of the image ([2bb7988](https://www.github.com/Financial-Times/origami/commit/2bb79886b7db19920883e61a192cccef926d8af2))
+
+
+### Bug Fixes
+
+* add credit to example ([005e3b4](https://www.github.com/Financial-Times/origami/commit/005e3b4c90cd30d95bce8e188b84d1d7980a5fe4))
+* fix pa11y error on demos only one figcaption is alowed ([d71c350](https://www.github.com/Financial-Times/origami/commit/d71c350805a0823cafca734a4345b94bc067fec6))
+* update README ([09f7cec](https://www.github.com/Financial-Times/origami/commit/09f7cec15a57491c52a0423c89ea373f8f02c61b))
+
 ### [5.4.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.4.1...o-topper-v5.4.2) (2022-11-16)
 
 
