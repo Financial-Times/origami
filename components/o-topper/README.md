@@ -52,7 +52,7 @@ Toppers support a wide array of [elements](#supported-elements) and can be custo
 | `.o-topper__visual`         | Wrapper for the visual elements `__picture` and `__image`. Should be a `<figure>` tag.             |
 | `.o-topper__picture`        | A `<picture>` tag visual element.                                                                  |
 | `.o-topper__image`          | An `<img>` tag visual element, usually used as fallback for a `<picture>`.                         |
-| `.o-topper__image-credit`   | Element showing credit/copyright for the `__picture` or `__image`. Should be a `<figcaption>` tag. |
+| `.o-topper__image-credit`   | Element showing credit/copyright for the `__picture` or `__image`, where no image caption is given. If an image caption is provided alongside credit/copyright information use `.o-topper__image-caption` instead. Should be a `<figcaption>` tag. |
 | `.o-topper__image-caption`   | Element showing caption and credit/copyright together for the `__picture` or `__image`. Should be a `<figcaption>` tag. |
 
 ### Themes
