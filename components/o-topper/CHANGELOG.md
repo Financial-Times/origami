@@ -5,7 +5,7 @@
 
 ### Features
 
-* add element image-caption replacing  image-credit behaviour and modify image-credit to be on top of the image ([2bb7988](https://www.github.com/Financial-Times/origami/commit/2bb79886b7db19920883e61a192cccef926d8af2))
+* Introduce an image caption element, to compliment the existing credit element. Only use the credit element when there is a credit to display and no image caption. Otherwise use the image caption element to display both caption and any credit. ([2bb7988](https://www.github.com/Financial-Times/origami/commit/2bb79886b7db19920883e61a192cccef926d8af2))
 
 
 ### Bug Fixes
