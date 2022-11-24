@@ -150,6 +150,12 @@
 			"title": "Portrait Top",
 			"template": "demos/src/portrait-top.mustache",
 			"description": "This is a theme that editorial can choose, which comes through the API"
+		},
+		{
+			"name": "Portrait Bottom",
+			"title": "Portrait Bottom",
+			"template": "demos/src/portrait-bottom.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API"
 		}
 	]
 }

@@ -133,6 +133,12 @@
 			@include _oTopperThemePortraitTop;
 		}
 	}
+
+	@if index($themes, 'portrait-bottom') {
+		.o-topper--portrait-bottom {
+			@include _oTopperThemePortraitBottom;
+		}
+	}
 }
 
 @mixin _oTopperElements($elements) {
