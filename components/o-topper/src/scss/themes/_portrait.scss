@@ -1,0 +1,113 @@
+// sass-lint:disable mixins-before-declarations
+
+@mixin _oTopperThemePortrait {
+	.o-topper__read-next {
+		display: none;
+	}
+
+	&.o-topper--split-text-center {
+		@include oGridRespondTo(S) {
+			@include _oTopperAlignText(center);
+		}
+	}
+
+	@include oGridRespondTo($until: M) {
+		padding: 0;
+
+		.o-topper__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 20px 10px;
+		}
+
+		.o-topper__visual {
+			min-height: 350px;
+		}
+
+		.o-topper__picture {
+			position: relative;
+			width: 100%;
+			height: 350px;
+			float: right;
+		}
+	}
+
+	@include oGridRespondTo(M) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: minmax(0, 480px) 1fr;
+
+		.o-topper__content {
+			grid-column: 1 / span 2;
+			grid-row: 1;
+			width: 55%;
+			box-sizing: border-box;
+			align-self: center;
+			padding-right: 20px;
+		}
+
+		.o-topper__background {
+			grid-row: 1;
+		}
+
+		.o-topper__visual {
+			grid-row: 1/span 2;
+		}
+
+		.o-topper__picture {
+			width: 45%;
+			float: right;
+			height: auto;
+			position: relative;
+		}
+
+		.o-topper__image {
+			@include oGridRespondTo($until: M) {
+				max-height: 480px;
+			}
+		}
+	}
+
+	@include oGridRespondTo(L) {
+		grid-template-rows: minmax(0, 600px) 1fr;
+	}
+
+	@supports (object-fit: cover) {
+		.o-topper__image {
+			position: absolute;
+		}
+
+		.o-topper__visual {
+			@include oGridRespondTo(M) {
+				.o-topper__picture {
+					height: 480px;
+				}
+			}
+
+			@include oGridRespondTo(L) {
+				.o-topper__picture {
+					height: 600px;
+				}
+			}
+		}
+	}
+
+	.o-topper__image-credit {
+		color: oColorsByName("black-70");
+		position: relative;
+		width: 100%;
+		float: right;
+		box-sizing: border-box;
+		margin-bottom: -20px;
+	}
+}
+@mixin _oTopperThemePortraitCenter {
+	@include _oTopperThemePortrait;
+}
+@mixin _oTopperThemePortraitTop {
+	@include _oTopperThemePortrait;
+}
+@mixin _oTopperThemePortraitBottom {
+	@include _oTopperThemePortrait;
+}

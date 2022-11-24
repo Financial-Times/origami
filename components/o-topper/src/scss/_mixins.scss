@@ -121,6 +121,12 @@
 			@include _oTopperCentered;
 		}
 	}
+	
+	@if index($themes, 'portrait-center') {
+		.o-topper--portrait-center {
+			@include _oTopperThemePortraitCenter;
+		}
+	}
 }
 
 @mixin _oTopperElements($elements) {

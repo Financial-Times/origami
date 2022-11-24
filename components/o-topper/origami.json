@@ -138,6 +138,12 @@
 			"template": "/demos/src/live-blog-package.mustache",
 			"description": "Topper used in live blog packages",
 			"hidden": true
+		},
+		{
+			"name": "Portrait Center",
+			"title": "Portrait Center",
+			"template": "demos/src/portrait-center.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API"
 		}
 	]
 }
