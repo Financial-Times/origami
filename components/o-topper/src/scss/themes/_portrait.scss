@@ -107,6 +107,13 @@
 }
 @mixin _oTopperThemePortraitTop {
 	@include _oTopperThemePortrait;
+
+	@include oGridRespondTo($from: M) {
+		.o-topper__content {
+			padding-top: 20px;
+			align-self: flex-start;
+		}
+	}
 }
 @mixin _oTopperThemePortraitBottom {
 	@include _oTopperThemePortrait;

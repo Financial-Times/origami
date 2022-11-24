@@ -127,6 +127,12 @@
 			@include _oTopperThemePortraitCenter;
 		}
 	}
+
+	@if index($themes, 'portrait-top') {
+		.o-topper--portrait-top {
+			@include _oTopperThemePortraitTop;
+		}
+	}
 }
 
 @mixin _oTopperElements($elements) {
