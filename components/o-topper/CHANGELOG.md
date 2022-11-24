@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.5.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.5.0...o-topper-v5.5.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* move to the left  position of the  credit element ([6749a5f](https://www.github.com/Financial-Times/origami/commit/6749a5f155126143f738bae7adee981225ce6c3a))
+
 ## [5.5.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.4.2...o-topper-v5.5.0) (2022-11-23)
 
 
