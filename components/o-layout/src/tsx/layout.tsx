@@ -1,3 +1,4 @@
+import {Hero} from './landingPartials';
 type ChildrenType = JSX.Element | JSX.Element[];
 
 type SideBarProps = {
@@ -10,15 +11,21 @@ type OverviewSectionItemProps = {
 	actionElement?: ChildrenType;
 };
 
-type OverviewSectionsProps = {
+export type OverviewSectionsProps = {
 	sections: OverviewSectionItemProps[];
 	hasAction?: boolean;
 	consistentColumns?: boolean;
 };
 
-type HeroProps = {
+export type HeroProps = {
 	heroContent?: ChildrenType;
 	muted?: boolean;
+};
+export type ArticleListProps = {
+	title: string;
+	description: string;
+	meta: ChildrenType;
+	url: string;
 };
 
 type LayoutProps = {
@@ -28,8 +35,8 @@ type LayoutProps = {
 	overviewSections: OverviewSectionsProps;
 	hero?: HeroProps;
 	sidebar?: SideBarProps;
-	children: ChildrenType;
 	footer: ChildrenType;
+	displayArticleList?: boolean;
 };
 
 export function Layout({
@@ -39,6 +46,7 @@ export function Layout({
 	hero,
 	sidebar,
 	footer,
+	displayArticleList,
 }: LayoutProps) {
 	const classNames =
 		layoutType === 'default' ? 'o-layout' : `o-layout o-layout--${layoutType}`;
@@ -54,7 +62,9 @@ export function Layout({
 			{layoutType === 'landing' && hero && (
 				<Hero {...hero}>{hero.heroContent}</Hero>
 			)}
-			<MainContent>{mainContent}</MainContent>
+			<MainContent displayArticleList={displayArticleList}>
+				{mainContent}
+			</MainContent>
 			<Footer>{footer}</Footer>
 		</div>
 	);
@@ -64,8 +74,17 @@ function Header({children}: {children: ChildrenType}) {
 	return <div className="o-layout__header">{children}</div>;
 }
 
-function MainContent({children}: {children: ChildrenType}) {
-	return <div className="o-layout__main o-layout-typography">{children}</div>;
+function MainContent({
+	displayArticleList,
+	children,
+}: {
+	displayArticleList?: boolean;
+	children: ChildrenType;
+}) {
+	const classNames = displayArticleList
+		? 'o-layout__main'
+		: 'o-layout__main o-layout-typography';
+	return <div className={classNames}>{children}</div>;
 }
 
 function Footer({children}: {children: ChildrenType}) {
@@ -76,33 +95,44 @@ function SideBar({customNavigation}: SideBarProps) {
 	return <div className="o-layout__sidebar">{customNavigation}</div>;
 }
 
-function Hero({muted, heroContent}: HeroProps) {
-	console.log({muted, heroContent});
-	const classNames = ["o-layout__hero o-layout-typography"];
-	muted && classNames.push('o-layout__hero--muted')
-	return <div className={classNames.join(' ')}>{heroContent}</div>;
+export type QueryLayoutProps = {
+	header: ChildrenType;
+	mainContent: ChildrenType;
+	querySideBar: ChildrenType;
+	footer: ChildrenType;
+	queryHeading: ChildrenType;
+	asideSideBar?: ChildrenType;
+};
+
+export function QueryLayout({
+	header,
+	queryHeading,
+	querySideBar,
+	mainContent,
+	asideSideBar,
+	footer,
+}: QueryLayoutProps) {
+	return (
+		<div
+			className="o-layout o-layout--query"
+			data-o-component="o-layout"
+			data-o-layout-construct-nav={querySideBar && 'true'}>
+			<Header>{header}</Header>
+			<QueryHeading>{queryHeading}</QueryHeading>
+			<div className="o-layout__query-sidebar o-layout-typography">
+				{querySideBar}
+			</div>
+			<MainContent>{mainContent}</MainContent>
+			<div className="o-layout__aside-sidebar o-layout-typography">
+				{asideSideBar}
+			</div>
+			<Footer>{footer}</Footer>
+		</div>
+	);
 }
 
-export function OverviewSections({
-	sections,
-	hasAction,
-	consistentColumns,
-}: OverviewSectionsProps) {
-	const classNames = ['o-layout__overview'];
-	hasAction && classNames.push('o-layout__overview--actions')
-	consistentColumns && classNames.push('o-layout__overview--consistent-columns')
+function QueryHeading({children}: {children: ChildrenType}) {
 	return (
-		<div className={classNames.join(' ')}>
-			{sections.map((el, i) => {
-				return (
-					<div className="o-layout-item" key={i}>
-						<div className="o-layout-item__content">{el.element}</div>
-						{el?.actionElement && (
-							<div className="o-layout-item__footer">{el.actionElement}</div>
-						)}
-					</div>
-				);
-			})}
-		</div>
+		<div className="o-layout__heading o-layout-typography">{children}</div>
 	);
 }
