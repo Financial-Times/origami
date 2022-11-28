@@ -37,8 +37,8 @@ function DrawerTools({current}: {current: TNavEdition}) {
 				type="button"
 				className="o-header__drawer-tools-close"
 				aria-controls="o-header-drawer"
-				title="Close drawer menu">
-				<span className="o-header__visually-hidden">Close drawer menu</span>
+				title="Close side navigation menu">
+				<span className="o-header__visually-hidden">Close side navigation menu</span>
 			</button>
 			{current && (
 				<p className="o-header__drawer-current-edition">
