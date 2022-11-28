@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Ticker from "./Ticker.svelte";
 	import Bars from "./Bars.svelte"
 	import {
 		xMax,
@@ -24,6 +25,7 @@
 	$: isEnabled = currentKeyframe < keyframeCount
 	$: frameIndex = Math.min(currentKeyframe, keyframeCount - 1)
 	$: frame = data[frameIndex]
+	$: keyframeDate = frame[0];
 	$: keyframeData = frame[1]
 	$: currentData = labels
 		.map(name => ({
@@ -32,14 +34,16 @@
 		.filter(d => d.name)
 
 	$: xMax.set(Math.max(...keyframeData.map(d => d.value)))
+	$: console.log($height)
 </script>
 
 
 {#if data}
 	<div bind:offsetWidth={$svgWidth} bind:offsetHeight={$height}>
-		<svg height={$height}>
+		<svg height="50vh">
 			<Bars {currentData} />
 		</svg>
+		<Ticker date={keyframeDate} />
 	</div>
 {:else}
 	<p>loading...</p>
@@ -48,6 +52,8 @@
 <style>
 	div,
 	svg {
+		position: relative;
 		width: 100%;
+		min-height: 600px;
 	}
 </style>

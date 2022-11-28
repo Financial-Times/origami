@@ -18,6 +18,6 @@
 
 <style>
 	g {
-		transition: transform 1500ms linear;
+		transition: transform 1000ms;
 	}
 </style>

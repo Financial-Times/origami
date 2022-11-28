@@ -19195,7 +19195,8 @@
     ],
     "languages": [
       "js",
-      "scss"
+      "scss",
+      "tsx"
     ],
     "peerDependencies": {
       "@financial-times/o-brand": "^4.1.0",

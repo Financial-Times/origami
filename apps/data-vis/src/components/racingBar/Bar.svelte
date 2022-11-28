@@ -14,10 +14,10 @@
 	$: scaledValue = scale(value)
 </script>
 
-<g transform={`translate(0 ${rank * $barHeight})`}>
-	<rect height={$barHeight} {x} {y} width={4} {fill} />
+<g transform={`translate(0 ${rank * ($barHeight)})`}>
+	<rect height={$barHeight - 5} {x} {y} width={4} {fill} />
 	<rect
-		height={$barHeight}
+		height={$barHeight - 5}
 		{x}
 		{y}
 		width={scaledValue}
@@ -25,14 +25,14 @@
 		fill-opacity={0.6}
 	/>
 	<Label {value} {scaledValue} {label}/>
-
 </g>
+
 
 <style lang="scss">
 	g {
-		transition: transform 1500ms linear;
+		transition: transform 700ms;
 	}
 	rect {
-		transition: width 1500ms;
+		transition: width 1000ms;
 	}
 </style>
