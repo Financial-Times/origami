@@ -5,12 +5,6 @@
 		display: none;
 	}
 
-	&.o-topper--split-text-center {
-		@include oGridRespondTo(S) {
-			@include _oTopperAlignText(center);
-		}
-	}
-
 	@include oGridRespondTo($until: M) {
 		padding: 0;
 
