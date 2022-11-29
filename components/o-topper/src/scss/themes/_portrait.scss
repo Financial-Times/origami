@@ -1,6 +1,6 @@
 // sass-lint:disable mixins-before-declarations
 
-@mixin _oTopperThemePortrait {
+@mixin _oTopperThemePortraitCenter {
 	.o-topper__read-next {
 		display: none;
 	}
@@ -94,28 +94,5 @@
 		float: right;
 		box-sizing: border-box;
 		margin-bottom: -20px;
-	}
-}
-@mixin _oTopperThemePortraitCenter {
-	@include _oTopperThemePortrait;
-}
-@mixin _oTopperThemePortraitTop {
-	@include _oTopperThemePortrait;
-
-	@include oGridRespondTo($from: M) {
-		.o-topper__content {
-			padding-top: 20px;
-			align-self: flex-start;
-		}
-	}
-}
-@mixin _oTopperThemePortraitBottom {
-	@include _oTopperThemePortrait;
-
-	@include oGridRespondTo($from: M) {
-		.o-topper__content {
-			padding-bottom: 20px;
-			align-self: flex-end;
-		}
 	}
 }
