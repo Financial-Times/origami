@@ -159,9 +159,9 @@
 		</nav>
 		{{/editions}}
 
+		{{#nav}}
 		<nav class="o-header__drawer-menu o-header__drawer-menu--primary">
-			<ul class="o-header__drawer-menu-list">
-				{{#nav}}
+			<ul class="o-header__drawer-menu-list" {{#heading}}aria-label="{{heading.name}}"{{/heading}}>
 						{{#heading}}
 						<li class="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{{name}}</li>
 						{{/heading}}
@@ -187,9 +187,9 @@
 							{{/hasChildren}}
 						</li>
 						{{/items}}
-				{{/nav}}
 			</ul>
 		</nav>
+		{{/nav}}
 
 		<nav class="o-header__drawer-menu o-header__drawer-menu--user">
 			<ul class="o-header__drawer-menu-list">
