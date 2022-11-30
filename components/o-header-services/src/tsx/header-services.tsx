@@ -1,12 +1,19 @@
-type HeaderServicesProps = {
+import {PrimaryNav, SecondaryNav, SecondaryNavProps, NavItem, ListItem} from './navs';
+
+type TitleProps = {
 	title: string;
 	tagline?: string;
 	titleUrl?: string;
-	relatedContent?: JSX.Element[] | JSX.Element;
+	relatedContent?: ListItem[];
 	primaryNav?: boolean;
 	secondaryNav?: boolean;
-	dropdown?: boolean;
-	modifier?: string;
+}
+
+interface HeaderServicesProps extends TitleProps {
+	primaryNavData?: NavItem[];
+	secondaryNavData?: SecondaryNavProps;
+	modifier?: 'b2b' | 'b2c' | 'default';
+	bleeedHeader?: boolean;
 };
 
 export function HeaderServices({
@@ -14,10 +21,18 @@ export function HeaderServices({
 	tagline,
 	titleUrl,
 	relatedContent,
+	primaryNav,
+	primaryNavData,
+	secondaryNav,
+	secondaryNavData,
 	modifier,
+	bleeedHeader,
 }: HeaderServicesProps) {
 	const classNames = ['o-header-services'];
-	modifier && classNames.push(`o-header-services--${modifier}`);
+	modifier &&
+		modifier !== 'default' &&
+		classNames.push(`o-header-services--${modifier}`);
+	bleeedHeader && classNames.push('o-header-services--bleed');
 	return (
 		<header
 			className={classNames.join(' ')}
@@ -27,26 +42,40 @@ export function HeaderServices({
 				tagline={tagline}
 				titleUrl={titleUrl}
 				relatedContent={relatedContent}
+				primaryNav={primaryNav}
+				secondaryNav={secondaryNav}
 			/>
+			{primaryNav && <PrimaryNav navItems={primaryNavData} />}
+			{secondaryNav && <SecondaryNav {...secondaryNavData} />}
 		</header>
 	);
 }
 
-function Title({title, tagline, titleUrl, relatedContent}) {
+function Title({
+	title,
+	tagline,
+	titleUrl,
+	relatedContent,
+	primaryNav,
+	secondaryNav,
+}: TitleProps) {
 	const homeUrl = titleUrl || '/';
+	const hasHamburgerMenu =
+		relatedContent?.length > 0 || primaryNav || secondaryNav;
 	return (
 		<div className="o-header-services__top">
-			{/* Link to a fallback nav for the core experience when using a drawer and hamburger icon. */}
-			<div className="o-header-services__hamburger">
-				<a
-					className="o-header-services__hamburger-icon"
-					href="#core-nav-fallback"
-					role="button">
-					<span className="o-header-services__visually-hidden">
-						Open primary navigation
-					</span>
-				</a>
-			</div>
+			{hasHamburgerMenu && (
+				<div className="o-header-services__hamburger">
+					<a
+						className="o-header-services__hamburger-icon"
+						href="#core-nav-fallback"
+						role="button">
+						<span className="o-header-services__visually-hidden">
+							Open primary navigation
+						</span>
+					</a>
+				</div>
+			)}
 			<div className="o-header-services__logo"></div>
 			<div className="o-header-services__title">
 				<a className="o-header-services__product-name" href={homeUrl}>
@@ -59,7 +88,7 @@ function Title({title, tagline, titleUrl, relatedContent}) {
 			{relatedContent && (
 				<ul className="o-header-services__related-content">
 					{relatedContent.map((element, i) => (
-						<li key={i}>{element}</li>
+						<li key={i}><a href={element.label}>{element.label}</a></li>
 					))}
 				</ul>
 			)}

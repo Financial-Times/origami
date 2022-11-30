@@ -3,5 +3,16 @@
 @include oFonts();
 @include oNormalise();
 
-@import "@financial-times/o-header-services/main";
+@import '@financial-times/o-header-services/main';
 @include oHeaderServices();
+
+.dummy-text {
+	@include oTypographySans(1);
+	max-width: 800px;
+	margin: auto;
+	padding: 0 20px;
+
+	a {
+		@include oTypographyLink();
+	}
+}
