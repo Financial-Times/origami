@@ -122,9 +122,9 @@
 		}
 	}
 	
-	@if index($themes, 'portrait-center') {
-		.o-topper--portrait-center {
-			@include _oTopperThemePortraitCenter;
+	@if index($themes, 'split-text-portrait-left') {
+		.o-topper--split-text-portrait-left {
+			@include _oTopperThemeSplitTextPortraitLeft;
 		}
 	}
 }

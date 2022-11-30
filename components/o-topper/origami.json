@@ -140,9 +140,9 @@
 			"hidden": true
 		},
 		{
-			"name": "Portrait Center",
-			"title": "Portrait Center",
-			"template": "demos/src/portrait-center.mustache",
+			"name": "Split Text Portrait Left",
+			"title": "Split Text Portrait Left",
+			"template": "demos/src/split-text-portrait-left.mustache",
 			"description": "This is a theme that editorial can choose, which comes through the API"
 		}
 	]
