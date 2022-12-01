@@ -281,7 +281,7 @@ export const DemoHero = (
 	</>
 );
 
-export const QueryLayout: = {
+export const QueryLayout = {
 	header: (
 		<header className="o-header-services" data-o-component="o-header-services">
 			<div className="o-header-services__top">
