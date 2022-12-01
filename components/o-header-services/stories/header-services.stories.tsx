@@ -18,7 +18,9 @@ export default {
 	title: 'Components/o-header-services',
 	component: HeaderServices,
 	decorators: [withDesign, withHtml],
-	parameters: {},
+	parameters: {
+		layout: 'fullscreen'
+	},
 	args: {
 		bleeedHeader: false,
 	},
