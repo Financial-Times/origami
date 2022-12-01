@@ -97,7 +97,7 @@
 			}
 
 			// Expanded first level nav item.
-			li[data-o-header-services-level][aria-expanded=true] {
+			li[data-o-header-services-level][dropdown-open=true] {
 				[data-o-header-services-level="2"] { // stylelint-disable-line selector-no-qualifying-type
 					position: relative;
 					opacity: 1;

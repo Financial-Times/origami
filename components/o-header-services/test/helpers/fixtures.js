@@ -25,7 +25,7 @@ const withPrimaryNav = `
 		<ul class="o-header-services__primary-nav-list">
 			<li data-o-header-services-level="1">
 				<a aria-current="page" href="">Fruit</a><!--
-				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-label="Toggle dropdown menu"></button>
+				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-controls="fruits-dropdown" aria-label="Toggle fruits dropdown menu"></button>
 				<ul data-o-header-services-level="2" aria-hidden="true">
                     <li>
                         <a href="#">Fruit</a>
@@ -56,7 +56,7 @@ const withPrimaryNav = `
 			</li>
 			<li data-o-header-services-level="1">
 				<a href="">Vegetables</a><!--
-				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-label="Toggle dropdown menu"></button>
+				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-controls="vegetables-dropdown" aria-label="Toggle vegetables dropdown menu"></button>
 				<ul data-o-header-services-level="2" aria-hidden="true">
                     <li>
                         <a href="#">Vegetables</a>
