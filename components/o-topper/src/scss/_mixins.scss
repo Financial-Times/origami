@@ -121,6 +121,12 @@
 			@include _oTopperCentered;
 		}
 	}
+	
+	@if index($themes, 'split-text-portrait-left') {
+		.o-topper--split-text-portrait-left {
+			@include _oTopperThemeSplitTextPortraitLeft;
+		}
+	}
 }
 
 @mixin _oTopperElements($elements) {
