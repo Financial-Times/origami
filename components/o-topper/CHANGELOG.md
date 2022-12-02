@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.6.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.5.1...o-topper-v5.6.0) (2022-12-02)
+
+
+### Features
+
+* Add new topper, split-text-portrait-left. ([a8197da](https://www.github.com/Financial-Times/origami/commit/a8197da3850193971db9b200e5ac9b979014fdcc))
+
 ### [5.5.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.5.0...o-topper-v5.5.1) (2022-11-24)
 
 

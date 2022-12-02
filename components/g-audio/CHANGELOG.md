@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://www.github.com/Financial-Times/origami/compare/g-audio-v2.0.2...g-audio-v2.1.0) (2022-12-02)
+
+
+### Features
+
+* Add new topper, split-text-portrait-left. ([a8197da](https://www.github.com/Financial-Times/origami/commit/a8197da3850193971db9b200e5ac9b979014fdcc))
+
 ### [2.0.2](https://www.github.com/Financial-Times/origami/compare/g-audio-v2.0.1...g-audio-v2.0.2) (2022-04-21)
 
 
