@@ -86,8 +86,18 @@
 			}
 		}
 	}
-
+	
 	.o-topper__image-credit {
+		top: 350px;
+		@include oGridRespondTo(M) {
+			top: 480px;
+		}
+		@include oGridRespondTo(L) {
+			top: 600px;
+		}
+	}
+	
+	.o-topper__image-caption {
 		color: oColorsByName("black-70");
 		position: relative;
 		width: 100%;
