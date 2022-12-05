@@ -5,7 +5,6 @@ export type ListItem = {
 };
 
 export interface NavItem extends ListItem {
-	dropDown?: boolean;
 	dropDownItems?: ListItem[];
 }
 
@@ -15,19 +14,19 @@ export function PrimaryNav({navItems}: {navItems: NavItem[]}) {
 			<ul className="o-header-services__primary-nav-list">
 				{navItems.map((item, i) => {
 					const classNames = ['o-header-services__primary-nav-item'];
-					item.dropDown &&
+					item.dropDownItems &&
 						classNames.push('o-header-services__primary-nav-item--dropdown');
 
 					return (
 						<li
 							key={i}
-							data-o-header-services-level={item.dropDown ? 1 : undefined}>
+							data-o-header-services-level={item.dropDownItems ? 1 : undefined}>
 							<a
 								href={item.url}
 								aria-current={item.current ? 'page' : undefined}>
 								{item.label}
 							</a>
-							{item.dropDown && (
+							{item.dropDownItems && (
 								<DropDown
 									dropdownItems={item.dropDownItems}
 									parentName={item.label}

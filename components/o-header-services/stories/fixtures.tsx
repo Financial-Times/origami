@@ -40,7 +40,6 @@ export const primaryNavData: NavItem[] = [
 		label: 'Documentation',
 		url: '/Documentation',
 		current: true,
-		dropDown: true,
 		dropDownItems: [
 			{
 				label: 'Principles',
@@ -65,7 +64,6 @@ export const primaryNavData: NavItem[] = [
 	{
 		label: 'Specifications',
 		url: '/Specifications',
-		dropDown: true,
 		dropDownItems: [
 			{
 				label: 'Condensed Specification',
@@ -92,7 +90,6 @@ export const primaryNavData: NavItem[] = [
 	{
 		label: 'Registry',
 		url: '/Registry',
-		dropDown: false,
 	},
 ];
 
