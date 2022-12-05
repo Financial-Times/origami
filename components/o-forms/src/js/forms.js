@@ -47,7 +47,7 @@ class Forms {
 			];
 			return this._formInputsCache;
 		}
-		return null;
+		return [];
 	}
 
 
