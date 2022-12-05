@@ -58,7 +58,7 @@ export function SecondaryNav({ancestors, children}: SecondaryNavProps) {
 				<ol
 					className="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors"
 					aria-label="Ancestor sections">
-					{ancestors.map((ancestor, i) => (
+					{ancestors?.map((ancestor, i) => (
 						<li key={i}>
 							<a
 								aria-current={ancestor.current ? 'page' : undefined}
@@ -72,7 +72,7 @@ export function SecondaryNav({ancestors, children}: SecondaryNavProps) {
 				<ul
 					className="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children"
 					aria-label="Child sections">
-					{children.map((child, i) => (
+					{children?.map((child, i) => (
 						<li key={i}>
 							<a
 								aria-current={child.current ? 'page' : undefined}

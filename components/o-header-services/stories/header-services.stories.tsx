@@ -34,7 +34,7 @@ export default {
 				labels: {
 					b2b: 'B2B',
 					b2c: 'B2C',
-					default: 'Default',
+					'': 'Default',
 				},
 			},
 		},
@@ -61,9 +61,7 @@ HeaderWithPrimaryAndSecondaryNavigation.args = {
 	tagline: 'The world’s leading global business publication',
 	titleUrl: 'https://www.ft.com',
 	relatedContent,
-	primaryNav: true,
 	primaryNavData,
-	secondaryNav: true,
 	secondaryNavData,
 };
 
@@ -88,28 +86,4 @@ HeaderWithTitleSection.argTypes = {
 			disable: true
 		}
 	},
-	primaryNav: {
-		table: {
-			disable: true
-		}
-	},
-	secondaryNav: {
-		table: {
-			disable: true
-		}
-	},
 }
-
-// export const HeaderWithPrimaryNavigation: ComponentStory<
-// 	typeof HeaderServices
-// > = HeaderServicesStory.bind({});
-
-// HeaderWithPrimaryNavigation.args = {
-// 	title: 'Financial Times',
-// 	tagline: 'The world’s leading global business publication',
-// 	titleUrl: 'https://www.ft.com',
-// 	relatedContent,
-// 	primaryNav: true,
-// 	primaryNavData,
-// };
-

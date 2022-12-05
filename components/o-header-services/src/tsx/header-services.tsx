@@ -5,14 +5,12 @@ type TitleProps = {
 	tagline?: string;
 	titleUrl?: string;
 	relatedContent?: ListItem[];
-	primaryNav?: boolean;
-	secondaryNav?: boolean;
+	primaryNavData?: NavItem[];
 }
 
 interface HeaderServicesProps extends TitleProps {
-	primaryNavData?: NavItem[];
 	secondaryNavData?: SecondaryNavProps;
-	modifier?: 'b2b' | 'b2c' | 'default';
+	modifier?: 'b2b' | 'b2c' | '';
 	bleeedHeader?: boolean;
 };
 
@@ -21,17 +19,13 @@ export function HeaderServices({
 	tagline,
 	titleUrl,
 	relatedContent,
-	primaryNav,
 	primaryNavData,
-	secondaryNav,
 	secondaryNavData,
 	modifier,
 	bleeedHeader,
 }: HeaderServicesProps) {
 	const classNames = ['o-header-services'];
-	modifier &&
-		modifier !== 'default' &&
-		classNames.push(`o-header-services--${modifier}`);
+	modifier && classNames.push(`o-header-services--${modifier}`);
 	bleeedHeader && classNames.push('o-header-services--bleed');
 	return (
 		<header
@@ -42,11 +36,10 @@ export function HeaderServices({
 				tagline={tagline}
 				titleUrl={titleUrl}
 				relatedContent={relatedContent}
-				primaryNav={primaryNav}
-				secondaryNav={secondaryNav}
+				primaryNavData={primaryNavData}
 			/>
-			{primaryNav && <PrimaryNav navItems={primaryNavData} />}
-			{secondaryNav && <SecondaryNav {...secondaryNavData} />}
+			{primaryNavData && <PrimaryNav navItems={primaryNavData} />}
+			{secondaryNavData && <SecondaryNav {...secondaryNavData} />}
 		</header>
 	);
 }
@@ -56,12 +49,11 @@ function Title({
 	tagline,
 	titleUrl,
 	relatedContent,
-	primaryNav,
-	secondaryNav,
+	primaryNavData,
 }: TitleProps) {
 	const homeUrl = titleUrl || '/';
 	const hasHamburgerMenu =
-		relatedContent?.length > 0 || primaryNav || secondaryNav;
+		relatedContent?.length > 0 || primaryNavData;
 	return (
 		<div className="o-header-services__top">
 			{hasHamburgerMenu && (
