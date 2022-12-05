@@ -121,6 +121,12 @@
 			@include _oTopperCentered;
 		}
 	}
+	
+	@if index($themes, 'split-text-portrait-left') {
+		.o-topper--split-text-portrait-left {
+			@include _oTopperThemeSplitTextPortraitLeft;
+		}
+	}
 }
 
 @mixin _oTopperElements($elements) {
@@ -221,6 +227,12 @@
 			@include _oTopperImageCredit;
 		}
 	}
+
+	@if index($elements, 'image-caption') {
+		.o-topper__image-caption {
+			@include _oTopperImageCaption;
+		}
+	}
 }
 
 @mixin _oTopperColors($colors) {
@@ -293,7 +305,7 @@
 		}
 	}
 	
-	.o-topper__image-credit {
+	.o-topper__image-caption {
 		color: oColorsMix($foreground, $color-name, 73);
 	}
 

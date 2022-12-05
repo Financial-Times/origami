@@ -22,6 +22,14 @@ class DropDown {
 				return;
 			}
 			button.addEventListener('click', this);
+			const parentElement = item.parentElement;
+			// Moving focus out of the navigation region also closes an open dropdown.
+			parentElement.addEventListener('focusout', (event) => {
+				const menuContainsFocus = parentElement.contains(event.relatedTarget);
+				if (!menuContainsFocus) {
+					DropDown.collapse(item);
+				}
+			});
 		});
 
 		// the event listener is added to the body here to handle cases where a
@@ -138,7 +146,7 @@ class DropDown {
 	 * @returns {boolean} - whether the nav menu is expanded
 	 */
 	static isExpanded(item) {
-		return item.getAttribute('aria-expanded') === 'true';
+		return item.getAttribute('dropdown-open') === 'true';
 	}
 
 	/**
@@ -153,7 +161,8 @@ class DropDown {
 			childList.setAttribute('aria-hidden', false);
 			DropDown.position(childList);
 			requestAnimationFrame(() => {
-				item.setAttribute('aria-expanded', true);
+				item.setAttribute('dropdown-open', true);
+				item.querySelector('button').setAttribute('aria-expanded', true);
 			});
 		});
 	}
@@ -178,7 +187,8 @@ class DropDown {
 	 */
 	static collapse(item) {
 		const childList = item.querySelector('ul');
-		item.setAttribute('aria-expanded', false);
+		item.setAttribute('dropdown-open', false);
+		item.querySelector('button').setAttribute('aria-expanded', false);
 		childList.setAttribute('aria-hidden', true);
 	}
 

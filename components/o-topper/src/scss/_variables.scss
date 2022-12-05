@@ -42,6 +42,7 @@ $_o-topper-themes: (
 	'news-package', // @deprecated
 	'right-rail',
 	'centered',
+	'split-text-portrait-left'
 );
 
 /// When adding a new element update the README
@@ -63,7 +64,8 @@ $_o-topper-elements: (
 	'topic',
 	'read-next',
 	'image',
-	'image-credit'
+	'image-credit',
+	'image-caption'
 );
 
 /// @access private

@@ -1,14 +1,8 @@
 // sass-lint:disable mixins-before-declarations
 
-@mixin _oTopperThemeSplitText {
+@mixin _oTopperThemeSplitTextPortraitLeft {
 	.o-topper__read-next {
 		display: none;
-	}
-
-	&.o-topper--split-text-center {
-		@include oGridRespondTo(S) {
-			@include _oTopperAlignText(center);
-		}
 	}
 
 	@include oGridRespondTo($until: M) {
@@ -41,7 +35,7 @@
 		.o-topper__content {
 			grid-column: 1 / span 2;
 			grid-row: 1;
-			width: 50%;
+			width: 60%;
 			box-sizing: border-box;
 			align-self: center;
 			padding-right: 20px;
@@ -56,7 +50,7 @@
 		}
 
 		.o-topper__picture {
-			width: 50%;
+			width: 40%;
 			float: right;
 			height: auto;
 			position: relative;
@@ -92,6 +86,7 @@
 			}
 		}
 	}
+	
 	.o-topper__image-credit {
 		top: 350px;
 		@include oGridRespondTo(M) {
@@ -101,6 +96,7 @@
 			top: 600px;
 		}
 	}
+	
 	.o-topper__image-caption {
 		color: oColorsByName("black-70");
 		position: relative;
