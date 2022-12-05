@@ -200,7 +200,8 @@ class Forms {
 		}
 		this.form = null;
 		this._formInputsCache.forEach(input => input.destroy());
-		this._formInputsCache = [];
+		this._formInputsCache = null;
+		this.formInputs = null;
 		this.stateElements = null;
 		this.opts = null;
 	}
