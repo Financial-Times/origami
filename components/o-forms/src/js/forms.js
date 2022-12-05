@@ -36,18 +36,18 @@ class Forms {
 		}
 	}
 	get formInputs() {
-		if (this.form) {
-			const formElements = Array.from(this.form.elements);
-			const inputsToRemove = this._formInputsCache.filter(input => !formElements.includes(input.input));
-			const elementsToAdd = formElements.filter(element => !this._formInputsCache.find((input) => input.input === element));
-			inputsToRemove.forEach(input => input.destroy());
-			this._formInputsCache = [
-				...this._formInputsCache.filter(input => !inputsToRemove.includes(input)),
-				...elementsToAdd.map(element => new Input(element))
-			];
-			return this._formInputsCache;
+		if(!this.form) {
+			return [];
 		}
-		return [];
+		const formElements = Array.from(this.form.elements);
+		const inputsToRemove = this._formInputsCache.filter(input => !formElements.includes(input.input));
+		const elementsToAdd = formElements.filter(element => !this._formInputsCache.find((input) => input.input === element));
+		inputsToRemove.forEach(input => input.destroy());
+		this._formInputsCache = [
+			...this._formInputsCache.filter(input => !inputsToRemove.includes(input)),
+			...elementsToAdd.map(element => new Input(element))
+		];
+		return this._formInputsCache;
 	}
 
 
