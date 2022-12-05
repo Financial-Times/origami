@@ -10,7 +10,7 @@ type TitleProps = {
 
 interface HeaderServicesProps extends TitleProps {
 	secondaryNavData?: SecondaryNavProps;
-	modifier?: 'b2b' | 'b2c' | '';
+	theme?: 'b2b' | 'b2c' | '';
 	bleeedHeader?: boolean;
 };
 
@@ -21,11 +21,11 @@ export function HeaderServices({
 	relatedContent,
 	primaryNavData,
 	secondaryNavData,
-	modifier,
+	theme,
 	bleeedHeader,
 }: HeaderServicesProps) {
 	const classNames = ['o-header-services'];
-	modifier && classNames.push(`o-header-services--${modifier}`);
+	theme && classNames.push(`o-header-services--${theme}`);
 	bleeedHeader && classNames.push('o-header-services--bleed');
 	return (
 		<header

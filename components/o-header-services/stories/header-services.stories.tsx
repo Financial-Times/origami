@@ -25,7 +25,7 @@ export default {
 		bleeedHeader: false,
 	},
 	argTypes: {
-		modifier: {
+		theme: {
 			table: {
 				disable: Brand !== 'core' && true,
 			},
