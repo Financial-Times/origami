@@ -138,6 +138,12 @@
 			"template": "/demos/src/live-blog-package.mustache",
 			"description": "Topper used in live blog packages",
 			"hidden": true
+		},
+		{
+			"name": "Split Text Portrait Left",
+			"title": "Split Text Portrait Left",
+			"template": "demos/src/split-text-portrait-left.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API"
 		}
 	]
 }

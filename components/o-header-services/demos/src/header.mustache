@@ -1,5 +1,5 @@
 
-<header class="o-header-services {{#modifier}}o-header-services--{{modifier}}{{/modifier}}" data-o-component="o-header-services">
+<header class="o-header-services {{#theme}}o-header-services--{{theme}}{{/theme}}" data-o-component="o-header-services">
 	<div class="o-header-services__top">
 		<!-- Link to a fallback nav for the core experience when using a drawer and hamburger icon. -->
 		<div class="o-header-services__hamburger">
@@ -27,8 +27,8 @@
 		<ul class="o-header-services__primary-nav-list">
 			<li {{#drop-down}}data-o-header-services-level="1"{{/drop-down}}>
 				<a {{^drop-down}}aria-current="page"{{/drop-down}} href="{{href}}">Documentation</a>{{#drop-down}}<!--
-				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-label="Toggle dropdown menu"></button>
-				<ul data-o-header-services-level="2" aria-hidden="true">
+				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-controls="documentation-dropdown" aria-label="Toggle documentation dropdown menu"></button>
+				<ul id="documentation-dropdown" data-o-header-services-level="2" aria-hidden="true">
 					<li>
 						<a href="{{href}}">Principles</a>
 					</li>
@@ -41,15 +41,12 @@
 					<li>
 						<a aria-current="page" href="{{href}}">Tutorials</a>
 					</li>
-					<li>
-						<button class="o-header-services__visually-hidden" type="button" name="button">Close dropdown menu</button>
-					</li>
 				</ul>{{/drop-down}}
 			</li>
 			<li {{#drop-down}}data-o-header-services-level="1"{{/drop-down}}>
 				<a href="{{href}}">Specifications</a>{{#drop-down}}<!--
-				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-label="Toggle dropdown menu"></button>
-				<ul data-o-header-services-level="2" aria-hidden="true">
+				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-controls="specification-dropdown" aria-label="Toggle specifications dropdown menu"></button>
+				<ul id="specification-dropdown" data-o-header-services-level="2" aria-hidden="true">
 					<li>
 						<a href="{{href}}">Condensed Specification</a>
 					</li>
@@ -64,9 +61,6 @@
 					</li>
 					<li>
 						<a href="{{href}}">Manifest</a>
-					</li>
-					<li>
-						<button class="o-header-services__visually-hidden" type="button" name="button">Close dropdown menu</button>
 					</li>
 				</ul>{{/drop-down}}
 			</li>

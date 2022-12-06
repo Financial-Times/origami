@@ -17,6 +17,9 @@ import {Drawer} from '../src/tsx/drawer';
 export default {
 	title: 'Components/o-header',
 	component: MainHeader,
+	parameters: {
+		layout: 'fullscreen'
+	},
 	args: {
 		currentPath: '/',
 	},
