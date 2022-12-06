@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.2.5...o-header-services-v5.3.0) (2022-12-06)
+
+
+### Features
+
+* publish o-header-services tsx ([#911](https://www.github.com/Financial-Times/origami/issues/911)) ([eee5c5e](https://www.github.com/Financial-Times/origami/commit/eee5c5eccf1a01665fa77bc39bf97cdfd346c51c))
+
 ### [5.2.5](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.2.4...o-header-services-v5.2.5) (2022-12-02)
 
 
