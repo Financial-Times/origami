@@ -105,9 +105,9 @@ export interface ConceptButtonProps {
 	// descriptive label for button
 	ariaLabel?: string;
 	// button theme
-	theme?: 'standard' | 'inverse' | 'opinion' | 'monochrome';
+	theme?: "standard" | "inverse" | "opinion" | "monochrome";
 	// button type (the follow type has an icon)
-	type?: 'concept' | 'follow';
+	type?: "concept" | "follow";
 	// whether the button is currently pressed
 	pressed?: boolean;
 	// for props that aren't appropriate in Origami

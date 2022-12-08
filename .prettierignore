@@ -1,4 +1,5 @@
-components/
+components/*
+!components/ft-concept-button
 libraries/
 tools/*
 !tools/create-component
