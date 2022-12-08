@@ -42,7 +42,6 @@ export default {
 
 const HeaderServicesStory = args => {
 	useEffect(() => void js.init(document.body), []);
-	console.log(args);
 	return (
 		<>
 			<HeaderServices {...args} />
