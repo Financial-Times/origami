@@ -1,16 +1,34 @@
+const StatusMapping = {
+	None: '',
+	'Coming soon': 'comingsoon',
+	'In progress': 'inprogress',
+	Closed: 'closed',
+};
+
+const ThemeMapping = {
+	None: '',
+	'Extra Article': 'extra-article',
+	Highlight: 'highlight',
+};
+
+const ModifierMapping = {
+	None: '',
+	'Small stacked': 'stacked',
+	'Small image on right': 'image-on-right',
+	'Large portrait': 'large-portrait',
+	'Large landscape': 'large-landscape',
+	'Hero centre': 'centre',
+	'Hero image': 'hero-image',
+	'Top story landscape': 'landscape',
+	'Top story big': 'big-story',
+};
+
 export const argTypes = {
 	status: {
 		name: 'Live Blog Status',
-		options: ['', 'comingsoon', 'inprogress', 'closed'],
-		control: {
-			type: 'select',
-			labels: {
-				'': 'None',
-				comingsoon: 'Coming soon',
-				inprogress: 'In progress',
-				closed: 'Closed',
-			},
-		},
+		options: Object.keys(StatusMapping),
+		mapping: StatusMapping,
+		control: 'select',
 	},
 	imageSize: {
 		name: 'Image Size',
@@ -34,57 +52,23 @@ export const argTypes = {
 	},
 	theme: {
 		name: 'Theme',
-		options: ['', 'extra-article', 'highlight'],
-		control: {
-			type: 'select',
-			labels: {
-				'': 'None',
-				'extra-article': 'Extra',
-				highlight: 'Special Report',
-			},
-		},
+		options: Object.keys(ThemeMapping),
+		mapping: ThemeMapping,
+		control: 'select',
 	},
 	parentTheme: {
 		name: 'Parent Theme',
-		options: ['', 'extra-article', 'highlight'],
-		control: {
-			type: 'select',
-			labels: {
-				'': 'None',
-				'extra-article': 'Extra',
-				highlight: 'Special Report',
-			},
-		},
+		options: Object.keys(ThemeMapping),
+		mapping: ThemeMapping,
+		control: 'select',
 	},
 	modifiers: {
 		name: 'Modifiers',
-		options: [
-			'',
-			'stacked',
-			'image-on-right',
-			'large-portrait',
-			'large-landscape',
-			'centre',
-			'hero-image',
-			'landscape',
-			'big-story',
-		],
-		control: {
-			type: 'select',
-			labels: {
-				'': 'None',
-				stacked: 'Small stacked',
-				'image-on-right': 'Small image on right',
-				'large-portrait': 'Large portrait',
-				'large-landscape': 'Large landscape',
-				centre: 'Hero centre',
-				'hero-image': 'Hero image',
-				landscape: 'Top story landscape',
-				'big-story': 'Top story big',
-			},
-		},
+		options: Object.keys(ModifierMapping),
+		mapping: ModifierMapping,
+		control: 'select',
 	},
 	publishedDate: {name: 'Published Date', control: 'date'},
 	firstPublishedDate: {name: 'First Published Date', control: 'date'},
-	customSlot: {}
+	customSlot: {},
 };
