@@ -10,6 +10,18 @@ import './syntax-highlight.scss';
 import javascript from '../main';
 import {langTemplates} from './fixtures.js';
 
+const LanguageMapping = {
+	HTML: 'html',
+	Javascript: 'js',
+	CSS: 'css',
+	'Inline Code': '',
+	JSON: 'json',
+	YAML: 'yaml',
+	SCSS: 'scss',
+	Diff: 'diff',
+	Bash: 'bash',
+};
+
 export default {
 	title: 'Components/o-syntax-highlight',
 	component: SyntaxHighlightBlock,
@@ -18,31 +30,9 @@ export default {
 	args: {},
 	argTypes: {
 		language: {
-			control: {
-				type: 'select',
-				labels: {
-					html: 'HTML',
-					js: 'Javascript',
-					css: 'CSS',
-					'': 'Inline Code',
-					json: 'JSON',
-					yaml: 'YAML',
-					scss: 'SCSS',
-					diff: 'Diff',
-					bash: 'Bash',
-				},
-			},
-			options: [
-				'html',
-				'js',
-				'css',
-				'',
-				'json',
-				'yaml',
-				'scss',
-				'diff',
-				'bash',
-			],
+			control: 'select',
+			options: Object.keys(LanguageMapping),
+			mapping: LanguageMapping,
 		},
 	},
 } as ComponentMeta<typeof SyntaxHighlightBlock>;

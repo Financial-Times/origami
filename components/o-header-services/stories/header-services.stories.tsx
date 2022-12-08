@@ -13,13 +13,17 @@ import js from '../main';
 import {useEffect} from 'react';
 
 const Brand = process.env.ORIGAMI_STORYBOOK_BRAND;
-
+const ThemeMapping = {
+	B2B: 'b2b',
+	B2C: 'b2c',
+	Default: undefined,
+};
 export default {
 	title: 'Components/o-header-services',
 	component: HeaderServices,
 	decorators: [withDesign, withHtml],
 	parameters: {
-		layout: 'fullscreen'
+		layout: 'fullscreen',
 	},
 	args: {
 		bleeedHeader: false,
@@ -29,14 +33,9 @@ export default {
 			table: {
 				disable: Brand !== 'core' && true,
 			},
-			control: {
-				type: 'select',
-				labels: {
-					b2b: 'B2B',
-					b2c: 'B2C',
-					'': 'Default',
-				},
-			},
+			options: Object.keys(ThemeMapping),
+			mapping: ThemeMapping,
+			control: 'select',
 		},
 	},
 } as ComponentMeta<typeof HeaderServices>;
@@ -50,7 +49,6 @@ const HeaderServicesStory = args => {
 		</>
 	);
 };
-
 
 export const HeaderWithPrimaryAndSecondaryNavigation: ComponentStory<
 	typeof HeaderServices
@@ -78,12 +76,12 @@ HeaderWithTitleSection.args = {
 HeaderWithTitleSection.argTypes = {
 	primaryNavData: {
 		table: {
-			disable: true
-		}
+			disable: true,
+		},
 	},
 	secondaryNavData: {
 		table: {
-			disable: true
-		}
+			disable: true,
+		},
 	},
-}
+};
