@@ -1,4 +1,10 @@
-import {PrimaryNav, SecondaryNav, SecondaryNavProps, NavItem, ListItem} from './navs';
+import {
+	PrimaryNav,
+	SecondaryNav,
+	SecondaryNavProps,
+	NavItem,
+	ListItem,
+} from './navs';
 
 type TitleProps = {
 	title: string;
@@ -6,13 +12,13 @@ type TitleProps = {
 	titleUrl?: string;
 	relatedContent?: ListItem[];
 	primaryNavData?: NavItem[];
-}
+};
 
 interface HeaderServicesProps extends TitleProps {
 	secondaryNavData?: SecondaryNavProps;
-	theme?: 'b2b' | 'b2c' | '';
+	theme?: 'b2b' | 'b2c';
 	bleeedHeader?: boolean;
-};
+}
 
 export function HeaderServices({
 	title,
@@ -52,8 +58,7 @@ function Title({
 	primaryNavData,
 }: TitleProps) {
 	const homeUrl = titleUrl || '/';
-	const hasHamburgerMenu =
-		relatedContent?.length > 0 || primaryNavData;
+	const hasHamburgerMenu = relatedContent?.length > 0 || primaryNavData;
 	return (
 		<div className="o-header-services__top">
 			{hasHamburgerMenu && (
@@ -80,7 +85,9 @@ function Title({
 			{relatedContent && (
 				<ul className="o-header-services__related-content">
 					{relatedContent.map((element, i) => (
-						<li key={i}><a href={element.label}>{element.label}</a></li>
+						<li key={i}>
+							<a href={element.label}>{element.label}</a>
+						</li>
 					))}
 				</ul>
 			)}

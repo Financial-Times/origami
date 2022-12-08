@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.4.4](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.3...o-forms-v9.4.4) (2022-12-08)
+
+
+### Bug Fixes
+
+* handle dynamic input changes when validating forms ([69ac478](https://www.github.com/Financial-Times/origami/commit/69ac4780922aded1dd4ce9b62b8437c454f0adba))
+
 ### [9.4.3](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.2...o-forms-v9.4.3) (2022-11-08)
 
 

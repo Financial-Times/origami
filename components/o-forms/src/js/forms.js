@@ -15,7 +15,7 @@ class Forms {
 		}
 
 		this.form = formElement;
-		this.formInputs = Array.from(this.form.elements, element => new Input(element));
+		this._formInputsCache = Array.from(this.form.elements, element => new Input(element));
 		this.stateElements = [];
 
 		this.opts = Object.assign({
@@ -35,6 +35,21 @@ class Forms {
 			});
 		}
 	}
+	get formInputs() {
+		if(!this.form) {
+			return [];
+		}
+		const formElements = Array.from(this.form.elements);
+		const inputsToRemove = this._formInputsCache.filter(input => !formElements.includes(input.input));
+		const elementsToAdd = formElements.filter(element => !this._formInputsCache.find((input) => input.input === element));
+		inputsToRemove.forEach(input => input.destroy());
+		this._formInputsCache = [
+			...this._formInputsCache.filter(input => !inputsToRemove.includes(input)),
+			...elementsToAdd.map(element => new Input(element))
+		];
+		return this._formInputsCache;
+	}
+
 
 	/**
 	 * Get the data attributes from the formElement. If the form is being set up
@@ -184,8 +199,8 @@ class Forms {
 			});
 		}
 		this.form = null;
-		this.formInputs.forEach(input => input.destroy());
-		this.formInputs = null;
+		this._formInputsCache.forEach(input => input.destroy());
+		this._formInputsCache = [];
 		this.stateElements = null;
 		this.opts = null;
 	}
