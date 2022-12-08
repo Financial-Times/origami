@@ -282,7 +282,7 @@ describe('Forms', () => {
 			form.destroy();
 			proclaim.isNull(form.form);
 			proclaim.isNull(form.opts);
-			proclaim.isNull(form._formInputsCache);
+			proclaim.deepEqual(form._formInputsCache, []);
 			proclaim.equal(form.formInputs.length, 0);
 			proclaim.isNull(form.stateElements);
 		});
