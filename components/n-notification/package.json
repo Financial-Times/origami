@@ -1,38 +1,38 @@
 {
-  "name": "@financial-times/n-notification",
-  "engines": {
-    "npm": "^7 || ^8"
-  },
-  "type": "module",
-  "description": "Component for showing notifications to users",
-  "keywords": [
-    "notification"
-  ],
-  "browser": "main.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Financial-Times/origami.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=n-notification,components"
-  },
-  "homepage": "https://github.com/Financial-Times/origami/components/n-notification",
-  "version": "8.2.2",
-  "peerDependencies": {
-    "@financial-times/o-colors": "^6.1.1",
-    "@financial-times/o-typography": "^7.0.3"
-  },
-  "devDependencies": {
-    "@financial-times/o-fonts": "^5.2.0",
-    "@financial-times/o-buttons": "^7.2.0",
-    "@financial-times/o-normalise": "^3.2.0"
-  },
-  "scripts": {
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "percy": true,
-  "private": false
+	"name": "@financial-times/n-notification",
+	"engines": {
+		"npm": "^7 || ^8"
+	},
+	"type": "module",
+	"description": "Component for showing notifications to users",
+	"keywords": [
+		"notification"
+	],
+	"browser": "main.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Financial-Times/origami.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=n-notification,components"
+	},
+	"homepage": "https://github.com/Financial-Times/origami/components/n-notification",
+	"version": "8.2.2",
+	"peerDependencies": {
+		"@financial-times/o-colors": "^6.1.1",
+		"@financial-times/o-typography": "^7.0.3"
+	},
+	"devDependencies": {
+		"@financial-times/o-fonts": "^5.2.0",
+		"@financial-times/o-buttons": "^7.2.0",
+		"@financial-times/o-normalise": "^3.2.0"
+	},
+	"scripts": {
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"percy": true,
+	"private": false
 }
