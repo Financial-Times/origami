@@ -1,6 +1,5 @@
 .env
 .gitignore
-.npmignore
 .eslintrc.cjs
 .remarkrc.cjs
 .stylelintrc.cjs

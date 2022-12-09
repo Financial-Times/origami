@@ -4,10 +4,11 @@ import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {Layout} from '../src/tsx/layout';
 import './layout.scss';
 import javascript from '../main.js';
+import {HeaderWithTitleSection} from '@financial-times/o-header-services/stories/header-services.stories';
 import Table from '@financial-times/o-table/main';
 import SyntaxHighlight from '@financial-times/o-syntax-highlight/main';
 import Tabs from '@financial-times/o-tabs/main';
-import HeaderServices from '@financial-times/o-header-services/main';
+// import HeaderServicesJS from '@financial-times/o-header-services/main';
 import Forms from '@financial-times/o-forms/main';
 import {useEffect} from 'react';
 import {DemoHeader, DemoFooter, DemoMainContent} from './fixtures';
@@ -30,24 +31,27 @@ export default {
 	},
 } as ComponentMeta<typeof Layout>;
 
-const LayoutStory = args => {
+const LayoutStory: ComponentStory<typeof Layout> = args => {
 	useEffect(() => {
 		Table.init();
 		SyntaxHighlight.init();
 		Tabs.init();
-		HeaderServices.init();
+		// HeaderServicesJS.init();
 		Forms.init();
 		javascript.init();
 	});
+	args.header = <HeaderWithTitleSection {...args.headerControls} />;
 	return <Layout {...args} />;
 };
+
 export const DefaultLayout: ComponentStory<typeof Layout> = LayoutStory.bind(
 	{}
 );
 
 DefaultLayout.args = {
 	layoutType: 'default',
-	header: <DemoHeader />,
+	// header: <HeaderWithTitleSection {...HeaderWithTitleSection.args} title='def' />,
+	headerControls: {...HeaderWithTitleSection.args},
 	mainContent: <DemoMainContent />,
 	footer: <DemoFooter />,
 };
