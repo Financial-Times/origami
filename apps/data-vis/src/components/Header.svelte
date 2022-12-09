@@ -1,39 +1,88 @@
 <script lang="ts">
-	import {calculateGridPos} from "../utils/index"
-	const paths = {
-		g: "M0 0,C50 50 50 100 0 100,C-50 100 -50 50 0 0",
-		pg: "M-35 0,C-25 25 25 25 35 0,C50 25 25 75 0 100,C-25 75 -50 25 -35 0",
-		pg13: "M0 0,C50 40 50 70 20 100,L0 85,L-20 100,C-50 70 -50 40 0 0",
-		r: "M0 0,C50 25 50 75 0 100,C-50 75 -50 25 0 0",
-	}
+	import {onMount} from "svelte"
+	import oHeaderServices from "@financial-times/o-header-services/main"
+	onMount(() => {
+		oHeaderServices.init()
+	})
+	// $: if (headerService) {
+	// 	oHeaderServices.init()
+	// }
+
+	const primaryNav: {label: string; url: string}[] = [
+		{
+			label: "Home",
+			url: "https://origami.ft.com/",
+		},
+		{
+			label: "Documentation",
+			url: "https://origami.ft.com/documentation/",
+		},
+		{
+			label: "Registry",
+			url: "https://registry.origami.ft.com/components/",
+		},
+		{
+			label: "Storybook",
+			url: "https://origami.ft.com/storybook/",
+		},
+		{
+			label: "Blog",
+			url: "https://origami.ft.com/blog/",
+		},
+	]
 </script>
 
-<svg width={1000} height={300}>
-	<g transform={`translate(${calculateGridPos(0, 4, 120)})`}>
-		<path d={paths.g} />
-		<text>P</text>
-	</g>
-	<g transform={`translate(${calculateGridPos(1, 4, 120)})`}>
-		<path d={paths.pg} />
-		<text>PG</text>
-	</g>
-	<g transform={`translate(${calculateGridPos(2, 4, 120)})`}>
-		<path d={paths.pg13} />
-		<text>PG-13</text>
-	</g>
-	<g transform={`translate(${calculateGridPos(3, 4, 120)})`}>
-		<path d={paths.r} />
-		<text>R</text>
-	</g>
-</svg>
+<header
+	class="o-header-services o-header-services--bleed"
+	data-o-component="o-header-services"
+>
+	<div class="o-header-services__top">
+		<!-- Link to a fallback nav for the core experience when using a drawer and hamburger icon. -->
+		<div class="o-header-services__hamburger">
+			<a
+				class="o-header-services__hamburger-icon"
+				href="#core-nav-fallback"
+				role="button"
+			>
+				<span class="o-header-services__visually-hidden">
+					Open primary navigation
+				</span>
+			</a>
+		</div>
+		<div class="o-header-services__logo" />
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/"> Origami </a>
+			<span class="o-header-services__product-tagline"
+				>Frontend Components & Services</span
+			>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			{#each primaryNav as { label, url }}
+				<li>
+					<a href={url}>{label}</a>
+				</li>
+			{/each}
+			<li>
+				<a aria-current="page" href="https://origami.ft.com/graphs/">Graphs</a>
+			</li>
+		</ul>
+	</nav>
+</header>
 
 <style lang="scss">
-	svg {
-		@include oTypographyBody();
-	}
-	path {
-		fill: none;
-		stroke: oColorsByName("black-70");
-		stroke-width: 4;
-	}
+	@import "@financial-times/o-header-services/main";
+
+	@include oHeaderServices(
+		$opts: (
+			"types": (
+				"primary-nav",
+				"bleed"
+			),
+			"logo":
+				"https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:origami?source=origami-registry-ui&format=svg&width=55"
+		)
+	);
 </style>

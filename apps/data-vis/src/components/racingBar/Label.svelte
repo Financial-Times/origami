@@ -1,5 +1,5 @@
 <script>
-	import {barHeight} from './store'
+	import {barHeight} from "./store"
 
 	export let value
 	export let label
@@ -15,8 +15,10 @@
 	</text>
 </g>
 
-
-<style>
+<style lang="scss">
+	text {
+		@include oTypographyBody();
+	}
 	g {
 		transition: transform 1000ms;
 	}

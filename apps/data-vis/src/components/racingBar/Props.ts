@@ -1,6 +1,9 @@
-export type RacingBarData = {
-	date: string;
+export type RacingBarData = [string, {
 	name: string;
 	value: number;
-	rank?: number;
+	rank: number;
+}[]]
+
+export type RacingBarProps = {
+
 }

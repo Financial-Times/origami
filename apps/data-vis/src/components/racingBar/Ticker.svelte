@@ -27,8 +27,9 @@
 	</p>
 {/if}
 
-<style>
+<style lang="scss">
 	p {
+		@include oTypographyBody();
 		position: absolute;
 		bottom: 20px;
 		right: 20px;

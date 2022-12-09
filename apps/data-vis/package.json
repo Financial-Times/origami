@@ -37,6 +37,8 @@
 		"vite": "^3.0.7"
 	},
 	"peerDependencies": {
+		"@financial-times/o-header-services": "^5.2.4",
+		"@financial-times/o-layout": "^5.2.4",
 		"@financial-times/o-spacing": "^3.2.1",
 		"@financial-times/o-typography": "^7.3.2"
 	}

@@ -1,57 +1,41 @@
 <script lang="ts">
-	import {descending} from "d3-array"
+	import oLayout from "@financial-times/o-layout/main.js"
+	import {onMount} from "svelte"
 	import RacingBars from "./components/racingBar/RacingBars.svelte"
 	import compnentData from "./data/component-data.json"
+	import Header from "./components/Header.svelte"
+	import Footer from "./components/Footer.svelte"
 
-	let formatedData = []
-	let names = []
-
-	compnentData.forEach(component => {
-		names.push(component.name)
-		const orderedReleases = component.releases.sort((a, b) =>
-			new Date(a.published_at) < new Date(b.published_at) ? -1 : 1
-		)
-		const releaseDates = orderedReleases.map((release, i) => {
-			return {date: release.published_at, name: component.name, value: i + 1}
-		})
-		formatedData = [...formatedData, ...releaseDates]
+	onMount(() => {
+		oLayout.init()
 	})
-
-	formatedData.sort((a, b) => (new Date(a.date) < new Date(b.date) ? -1 : 1))
-	const dates = [...new Set(formatedData.map(item => item.date))]
-	let releaseVersions = {}
-	names.forEach(name => (releaseVersions[name] = 0))
-
-	const dataByDate = []
-	dates.forEach(date => {
-		const dateData = formatedData.filter(item => item.date === date)
-		dateData.forEach(data => {
-			releaseVersions[data.name] += 1
-			releaseVersions = releaseVersions
-		})
-		const componentsWithReleaseValues = names.map(name => {
-			return {name, value: releaseVersions[name]}
-		})
-
-		dataByDate.push([date, rank(componentsWithReleaseValues)])
-	})
-
-	function rank(components) {
-		return components
-			.sort((a, b) => descending(a.value, b.value))
-			.map((d, i) => {
-				return {...d, rank: i}
-			})
-	}
 </script>
 
-<div>
-	<RacingBars data={dataByDate} labels={names} />
+<div class="o-layout o-layout--landing" data-o-component="o-layout">
+	<div class="o-layout__header">
+		<Header />
+	</div>
+	<div class="o-layout__main o-layout-typography">
+		<RacingBars {compnentData} />
+	</div>
+	<footer class="o-layout__footer">
+		<Footer />
+	</footer>
 </div>
 
-<style>
-	div {
-		width: 80%;
-		margin: 0 auto;
+<style lang="scss">
+	@import "@financial-times/o-layout/main";
+	@include oLayout(
+		$opts: (
+			"layouts": (
+				"landing"
+			),
+			"features": (
+				"typography"
+			)
+		)
+	);
+	h1 {
+		@include oTypographyHeading($level: 1);
 	}
 </style>
