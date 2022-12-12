@@ -64,7 +64,7 @@
 			"title": "Product theme: B2B",
 			"description": "B2B theme for this header component. If you're creating a product that isn't within B2B or B2C please contact Origami.",
 			"data": {
-				"modifier": "b2b",
+				"theme": "b2b",
 				"primary-navigation": true,
 				"sub-navigation": true
 			},

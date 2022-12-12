@@ -27,11 +27,11 @@ describe('Dropdown', () => {
 		headerEl = null;
 	});
 
-	describe('toggles drop down menu via `aria-expanded`', () => {
+	describe('toggles drop down menu via `dropdown-open`', () => {
 		it('open on click', (done) => {
 			click(navItems[0], 'button');
 			setTimeout(() => {
-				attribute = navItems[0].getAttribute('aria-expanded') === 'true';
+				attribute = navItems[0].getAttribute('dropdown-open') === 'true';
 				try {
 					proclaim.isTrue(attribute);
 					done();
@@ -44,7 +44,7 @@ describe('Dropdown', () => {
 		it('hides on double click', () => {
 			click(navItems[0], 'button');
 			click(navItems[0], 'button');
-			attribute = navItems[0].getAttribute('aria-expanded') === 'false';
+			attribute = navItems[0].getAttribute('dropdown-open') === 'false';
 			proclaim.isTrue(attribute);
 		});
 
@@ -55,14 +55,14 @@ describe('Dropdown', () => {
 			// close with button at end of menu
 			const navItemDropdown = navItem.querySelector('[data-o-header-services-level="2"]');
 			click(navItemDropdown, 'button');
-			attribute = navItem.getAttribute('aria-expanded') === 'false';
+			attribute = navItem.getAttribute('dropdown-open') === 'false';
 			proclaim.isTrue(attribute);
 		});
 
 		it('hides open dropdowns when different nav item is toggled', (done) => {
 			click(navItems[0], 'button');
 			setTimeout(() => {
-				attribute = navItems[0].getAttribute('aria-expanded') === 'true';
+				attribute = navItems[0].getAttribute('dropdown-open') === 'true';
 				try {
 					proclaim.isTrue(attribute);
 				} catch (error) {
@@ -72,9 +72,9 @@ describe('Dropdown', () => {
 				click(navItems[1], 'button');
 				setTimeout(() => {
 					try {
-						attribute = navItems[0].getAttribute('aria-expanded') === 'false';
+						attribute = navItems[0].getAttribute('dropdown-open') === 'false';
 						proclaim.isTrue(attribute);
-						attribute = navItems[1].getAttribute('aria-expanded') === 'true';
+						attribute = navItems[1].getAttribute('dropdown-open') === 'true';
 						proclaim.isTrue(attribute);
 						done();
 					} catch (error) {
@@ -88,13 +88,13 @@ describe('Dropdown', () => {
 			click(navItems[0], 'button');
 			setTimeout(() => {
 				// Assert expanded dropdown
-				attribute = navItems[0].getAttribute('aria-expanded') === 'true';
+				attribute = navItems[0].getAttribute('dropdown-open') === 'true';
 				proclaim.isTrue(attribute);
 				// Click on body
 				click(document, 'body');
 				setTimeout(() => {
 					// Assert collapsed dropdown
-					attribute = navItems[0].getAttribute('aria-expanded') === 'false';
+					attribute = navItems[0].getAttribute('dropdown-open') === 'false';
 					proclaim.isTrue(attribute);
 					done();
 				}, 100); // allow time for requestAnimationFrame
@@ -102,7 +102,7 @@ describe('Dropdown', () => {
 		});
 	});
 
-	describe('toggles drop down menu via `aria-expanded`', () => {
+	describe('toggles drop down menu via `dropdown-open`', () => {
 		it('repositions dropdown menu if it doesnt fit to the right of the window but can fit to the left', (done) => {
 			const subItem = navItems[1].querySelector('li');
 			navItems[1].style['margin-left'] = window.innerWidth / 2 + 'px';

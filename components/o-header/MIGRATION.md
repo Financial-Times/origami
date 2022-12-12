@@ -1,4 +1,6 @@
 # Migration Guide
+
+## Migrating from v10 to v11
 ## Migrating from v9 to v10
 
 o-header v10 includes markup changes. Use demo markup to update your project. Changes to be aware of include:
