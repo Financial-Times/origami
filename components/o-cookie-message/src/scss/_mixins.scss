@@ -63,6 +63,8 @@
 		padding: $_o-cookie-message-spacing;
 		padding-top: oSpacingByIncrement(7);
 		max-width: none;
+		max-height: 50vh;
+		overflow-y: auto;
 	}
 
 	.o-cookie-message__content {

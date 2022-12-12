@@ -8,6 +8,18 @@ export default {
 	title: 'Components/ft-concept-button',
 	component: ConceptButton,
 	decorators: [withDesign, withHtml],
+	// @deprecated The concept pill is a candidate for deprecation.
+	// They were only ever intended as use as links button use a 
+	// `button` element` in the template. The concept pill style
+	// is only used in one place via n-myft-ui, in a dubious way.
+	// We would prefer the teal style of `ft-concept-button_link`
+	// going forward.
+	excludeStories: [
+		'ConceptPill',
+		'OpinionPill',
+		'InversePill',
+		'MonochromePill'
+	],
 	parameters: {
 		design: {
 			type: 'figma',

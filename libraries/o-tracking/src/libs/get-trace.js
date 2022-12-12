@@ -40,6 +40,24 @@ const getAllElementProperties = element => {
 	return properties;
 };
 
+const parseRawValue = (rawValue) => {
+	try {
+		const parsedValue = JSON.parse(rawValue);
+		const type = Object.prototype.toString.call(parsedValue);
+		const isJSON = type === '[object Object]' || type === '[object Array]';
+
+		return [isJSON, parsedValue];
+	} catch (error) {
+		return [false, null];
+	}
+}
+
+const getAttributeValue = (rawValue) => {
+	const [isJSON, value] = parseRawValue(rawValue);
+
+	return isJSON ? value : rawValue;
+}
+
 // Get some properties of a given element.
 const getDomPathProps = (attrs, props) => {
 
@@ -71,7 +89,7 @@ const getContextProps = (attrs, props, isOriginalEl) => {
 	attrs
 		.filter(attribute => attribute.name.match(/^data-trackable-context-/i))
 		.forEach(attribute => {
-			customProps[attribute.name.replace('data-trackable-context-', '')] = attribute.value;
+			customProps[attribute.name.replace('data-trackable-context-', '')] = getAttributeValue(attribute.value);
 		});
 
 	return customProps;

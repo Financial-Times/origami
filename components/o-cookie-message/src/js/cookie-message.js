@@ -82,7 +82,7 @@ class CookieMessage {
 
 			<div class="o-cookie-message__action">
 				<a href="${this.cookieInfo.acceptUrlFallback}" class="o-cookie-message__button">
-					Accept &amp; continue
+					Accept cookies
 				</a>
 			</div>
 		</div>

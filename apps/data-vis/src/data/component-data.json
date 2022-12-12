@@ -2,7 +2,7 @@
   {
     "name": "ft-concept-button",
     "description": "ft concept button (includes the ft follow button)",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "brands": [
       "core"
     ],
@@ -16,6 +16,15 @@
       "@financial-times/o-normalise": "^3.2.2"
     },
     "releases": [
+      {
+        "release": {
+          "major": "1",
+          "minor": "1",
+          "patch": "0"
+        },
+        "version": "1.1.0",
+        "published_at": "2022-11-03"
+      },
       {
         "release": {
           "major": "1",
@@ -819,7 +828,7 @@
     "name": "o-autocomplete",
     "url": "https://registry.origami.ft.com/components/o-autocomplete",
     "description": "An origami component for autocomplete inputs",
-    "version": "1.7.0",
+    "version": "1.7.1",
     "brands": [
       "core",
       "internal"
@@ -849,6 +858,15 @@
       "@financial-times/accessible-autocomplete": "^2.1.2"
     },
     "releases": [
+      {
+        "release": {
+          "major": "1",
+          "minor": "7",
+          "patch": "1"
+        },
+        "version": "1.7.1",
+        "published_at": "2022-12-08"
+      },
       {
         "release": {
           "major": "1",
@@ -5822,7 +5840,7 @@
     "name": "o-cookie-message",
     "url": "https://registry.origami.ft.com/components/o-cookie-message",
     "description": "The cookie message and behaviour approved by the FT's legal team. All FT websites must have a cookie message. Using o-cookie-message will ensure your site is compliant according to EU regulatory law.",
-    "version": "6.4.3",
+    "version": "6.5.0",
     "brands": [
       "core"
     ],
@@ -5847,6 +5865,15 @@
       "superstore-sync": "^2.1.1"
     },
     "releases": [
+      {
+        "release": {
+          "major": "6",
+          "minor": "5",
+          "patch": "0"
+        },
+        "version": "6.5.0",
+        "published_at": "2022-10-31"
+      },
       {
         "release": {
           "major": "6",
@@ -10111,7 +10138,7 @@
     "name": "o-forms",
     "url": "https://registry.origami.ft.com/components/o-forms",
     "description": "This component provides responsive styling for form fields and inputs. It provides validation and error handling for forms, as well.",
-    "version": "9.4.2",
+    "version": "9.4.4",
     "brands": [
       "core",
       "internal",
@@ -10139,6 +10166,24 @@
       "@financial-times/o-normalise": "^3.2.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "9",
+          "minor": "4",
+          "patch": "4"
+        },
+        "version": "9.4.4",
+        "published_at": "2022-12-08"
+      },
+      {
+        "release": {
+          "major": "9",
+          "minor": "4",
+          "patch": "3"
+        },
+        "version": "9.4.3",
+        "published_at": "2022-11-08"
+      },
       {
         "release": {
           "major": "9",
@@ -14909,7 +14954,7 @@
     "name": "o-header-services",
     "url": "https://registry.origami.ft.com/components/o-header-services",
     "description": "Responsive page header for sites with minimal or customised branding, including internal products, customer facing tools, and specialist titles.",
-    "version": "5.2.4",
+    "version": "5.3.0",
     "brands": [
       "core",
       "internal",
@@ -14917,7 +14962,8 @@
     ],
     "languages": [
       "js",
-      "scss"
+      "scss",
+      "tsx"
     ],
     "peerDependencies": {
       "@financial-times/math": "^1.0.0",
@@ -14937,6 +14983,24 @@
       "@financial-times/o-normalise": "^3.2.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "5",
+          "minor": "3",
+          "patch": "0"
+        },
+        "version": "5.3.0",
+        "published_at": "2022-12-06"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "2",
+          "patch": "5"
+        },
+        "version": "5.2.5",
+        "published_at": "2022-12-02"
+      },
       {
         "release": {
           "major": "5",
@@ -15681,7 +15745,7 @@
     "name": "o-icons",
     "url": "https://registry.origami.ft.com/components/o-icons",
     "description": "Helper SCSS tool for using the FT's icons. For a full list of available icons please see the fticons image set",
-    "version": "7.4.0",
+    "version": "7.5.0",
     "brands": [
       "core",
       "internal",
@@ -15695,6 +15759,15 @@
       "@financial-times/fticons": "^1.23.1"
     },
     "releases": [
+      {
+        "release": {
+          "major": "7",
+          "minor": "5",
+          "patch": "0"
+        },
+        "version": "7.5.0",
+        "published_at": "2022-11-14"
+      },
       {
         "release": {
           "major": "7",
@@ -16250,7 +16323,7 @@
     "name": "o-labels",
     "url": "https://registry.origami.ft.com/components/o-labels",
     "description": "Labels for content classification or to emphasise a value. Provides customisation options with the FT colour palette.",
-    "version": "6.5.0",
+    "version": "6.5.2",
     "brands": [
       "core",
       "internal",
@@ -16272,6 +16345,24 @@
       "@financial-times/o-normalise": "^3.2.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "6",
+          "minor": "5",
+          "patch": "2"
+        },
+        "version": "6.5.2",
+        "published_at": "2022-12-06"
+      },
+      {
+        "release": {
+          "major": "6",
+          "minor": "5",
+          "patch": "1"
+        },
+        "version": "6.5.1",
+        "published_at": "2022-10-31"
+      },
       {
         "release": {
           "major": "6",
@@ -26818,7 +26909,7 @@
     "name": "o-topper",
     "url": "https://registry.origami.ft.com/components/o-topper",
     "description": "Article header styling",
-    "version": "5.3.1",
+    "version": "5.6.0",
     "brands": [
       "core"
     ],
@@ -26840,9 +26931,63 @@
       "@financial-times/o-typography": "^7.2.0"
     },
     "dependencies": {
-      "@financial-times/n-map-content-to-topper": "^2.1.0"
+      "@financial-times/n-map-content-to-topper": "^2.2.2"
     },
     "releases": [
+      {
+        "release": {
+          "major": "5",
+          "minor": "6",
+          "patch": "0"
+        },
+        "version": "5.6.0",
+        "published_at": "2022-12-02"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "5",
+          "patch": "1"
+        },
+        "version": "5.5.1",
+        "published_at": "2022-11-24"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "5",
+          "patch": "0"
+        },
+        "version": "5.5.0",
+        "published_at": "2022-11-23"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "4",
+          "patch": "2"
+        },
+        "version": "5.4.2",
+        "published_at": "2022-11-16"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "4",
+          "patch": "1"
+        },
+        "version": "5.4.1",
+        "published_at": "2022-11-16"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "4",
+          "patch": "0"
+        },
+        "version": "5.4.0",
+        "published_at": "2022-11-15"
+      },
       {
         "release": {
           "major": "5",

@@ -121,6 +121,12 @@
 			@include _oTopperCentered;
 		}
 	}
+	
+	@if index($themes, 'split-text-portrait-left') {
+		.o-topper--split-text-portrait-left {
+			@include _oTopperThemeSplitTextPortraitLeft;
+		}
+	}
 }
 
 @mixin _oTopperElements($elements) {
@@ -221,6 +227,12 @@
 			@include _oTopperImageCredit;
 		}
 	}
+
+	@if index($elements, 'image-caption') {
+		.o-topper__image-caption {
+			@include _oTopperImageCaption;
+		}
+	}
 }
 
 @mixin _oTopperColors($colors) {
@@ -237,7 +249,6 @@
 	$foreground: oColorsGetTextColor($background, $opacity: 100);
 	$link-text-color: oColorsByUsecase('link', 'text');
 	$link-contrasts-with-background: oColorsGetContrastRatio($background, $link-text-color) > 4.5;
-
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
 	.o-topper__background,
@@ -292,6 +303,10 @@
 		&:hover {
 			color: oColorsMix($foreground, $color-name, 73);
 		}
+	}
+	
+	.o-topper__image-caption {
+		color: oColorsMix($foreground, $color-name, 73);
 	}
 
 	@if $color-name == 'paper' or $color-name == 'wheat' {

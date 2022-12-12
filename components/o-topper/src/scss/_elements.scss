@@ -44,9 +44,22 @@
 	@include oTypographySans(-2);
 	color: oColorsByName('white');
 	position: absolute;
-	right: 12px;
-	bottom: 2px;
 	text-shadow: 1px 1px 1px oColorsByName('slate');
+	text-align: right;
+	width: 100vw;
+	margin-left: 50%;
+	left: -50vw;
+	box-sizing: border-box;
+	padding: 5px 10px;
+	transform: translate(0, -100%);
+}
+
+@mixin _oTopperImageCaption {
+	@include oTypographySans(-1);
+	padding: 10px 11px 0px;
+	@include oGridRespondTo(L) {
+		padding-left: 18px;
+	}
 }
 
 //IE9 support

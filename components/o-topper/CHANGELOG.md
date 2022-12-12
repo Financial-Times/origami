@@ -1,5 +1,54 @@
 # Changelog
 
+## [5.6.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.5.1...o-topper-v5.6.0) (2022-12-02)
+
+
+### Features
+
+* Add new topper, split-text-portrait-left. ([a8197da](https://www.github.com/Financial-Times/origami/commit/a8197da3850193971db9b200e5ac9b979014fdcc))
+
+### [5.5.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.5.0...o-topper-v5.5.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* move to the left  position of the  credit element ([6749a5f](https://www.github.com/Financial-Times/origami/commit/6749a5f155126143f738bae7adee981225ce6c3a))
+
+## [5.5.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.4.2...o-topper-v5.5.0) (2022-11-23)
+
+
+### Features
+
+* Introduce an image caption element, to compliment the existing credit element. Only use the credit element when there is a credit to display and no image caption. Otherwise use the image caption element to display both caption and any credit. ([2bb7988](https://www.github.com/Financial-Times/origami/commit/2bb79886b7db19920883e61a192cccef926d8af2))
+
+
+### Bug Fixes
+
+* add credit to example ([005e3b4](https://www.github.com/Financial-Times/origami/commit/005e3b4c90cd30d95bce8e188b84d1d7980a5fe4))
+* fix pa11y error on demos only one figcaption is alowed ([d71c350](https://www.github.com/Financial-Times/origami/commit/d71c350805a0823cafca734a4345b94bc067fec6))
+* update README ([09f7cec](https://www.github.com/Financial-Times/origami/commit/09f7cec15a57491c52a0423c89ea373f8f02c61b))
+
+### [5.4.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.4.1...o-topper-v5.4.2) (2022-11-16)
+
+
+### Bug Fixes
+
+* remove background from figcaption on toppers ([df93a9a](https://www.github.com/Financial-Times/origami/commit/df93a9a61aee25339a737c959df87d30cb29d4b9))
+
+### [5.4.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.4.0...o-topper-v5.4.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* support o-topper within a snappy grid container ([6c6f20a](https://www.github.com/Financial-Times/origami/commit/6c6f20a78916f447820380af93161fd1414b794c))
+
+## [5.4.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.3.1...o-topper-v5.4.0) (2022-11-15)
+
+
+### Features
+
+* Updates caption position for improved contrast. Adds additional demos to the registry which were previously missing. [pr 877](https://github.com/Financial-Times/origami/pull/877)
+
 ### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.3.0...o-topper-v5.3.1) (2022-09-01)
 
 

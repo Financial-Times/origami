@@ -1,5 +1,9 @@
 /// @prop {Boolean}
 /// @access public
+$o-topper-snappy: if($o-grid-mode == 'snappy' , true, false) !default;
+
+/// @prop {Boolean}
+/// @access public
 $o-topper-is-silent: true !default;
 
 /// When adding a new colour update the README
@@ -38,6 +42,7 @@ $_o-topper-themes: (
 	'news-package', // @deprecated
 	'right-rail',
 	'centered',
+	'split-text-portrait-left'
 );
 
 /// When adding a new element update the README
@@ -59,7 +64,8 @@ $_o-topper-elements: (
 	'topic',
 	'read-next',
 	'image',
-	'image-credit'
+	'image-credit',
+	'image-caption'
 );
 
 /// @access private

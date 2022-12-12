@@ -173,5 +173,4 @@ module.exports.env = config => ({
 
 module.exports.features = {
 	buildStoriesJson: true,
-	storyStoreV7: true,
 }
