@@ -157,88 +157,10 @@
 				);
 			}
 
-			@include expect() {
-				& {
-					font-family: MetricWeb, sans-serif;
-					font-weight: 600;
-					font-family: MetricWeb, sans-serif; // stylelint-disable-line declaration-block-no-duplicate-properties
-					font-size: 16px;
-					line-height: 20px;
-					line-height: 16px; // stylelint-disable-line declaration-block-no-duplicate-properties
-					background-size: 40px 40px;
-					min-height: 40px;
-					min-width: 80px;
-					padding: 11px 20px;
-					display: inline-block;
-					box-sizing: border-box;
-					vertical-align: middle;
-					margin: 0;
-					border-style: solid;
-					text-align: center;
-					text-decoration: none;
-					cursor: pointer;
-					transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
-					user-select: none;
-					background-clip: border-box;
-					border-width: 1px;
-					-webkit-font-smoothing: antialiased;
-					-moz-osx-font-smoothing: grayscale;
-					-moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
-					-webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
-					border-radius: 0;
-					background-color: #262a33;
-					color: white;
-					border-color: transparent;
-					background-repeat: no-repeat;
-					background-position: 3px;
-					padding-left: 40px;
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg");
-				}
-
-				.o-typography--loading-sans & {
-					font-size: 13.92px;
-					font-family: sans-serif;
-				}
-
-				&[disabled] {
-					pointer-events: none;
-					opacity: 0.4;
-					cursor: default;
-				}
-
-				&:hover {
-					background-color: #515257;
-					color: white;
-					border-color: transparent;
-					text-decoration: none;
-				}
-
-				&:focus {
-					background-color: #515257;
-					color: white;
-					border-color: transparent;
-				}
-
-				&[aria-selected=true],
-				&[aria-current],
-				&[aria-pressed=true],
-				&:active {
-					background-color: #727071;
-					color: white;
-					border-color: transparent;
-				}
-
-				@media screen and (-ms-high-contrast: active) {
-					& {
-						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg");
-					}
-				}
-
-				@media screen and (-ms-high-contrast: black-on-white) {
-					& {
-						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23000000,%23000000&format=svg");
-					}
-				}
+			@include contains() {
+				background-color: #262a33;
+				min-height: 40px;
+				background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg");
 			}
 		}
 	}
@@ -254,32 +176,12 @@
 				);
 			}
 
-			// expect nothing is output
-			@include expect() {
-				& {
+			@include contains($selector: false) {
+				// only outputs theme related styles,
+				// not base styles shared across buttons
+				// of different themes
+				.test-output {
 					background-color: #0d7680;
-					color: white;
-					border-color: transparent;
-				}
-
-				&:hover {
-					background-color: #095259;
-					color: white;
-					border-color: transparent;
-					text-decoration: none;
-				}
-
-				&:focus {
-					background-color: #095259;
-					color: white;
-					border-color: transparent;
-				}
-
-				&[aria-selected=true],
-				&[aria-current],
-				&[aria-pressed=true],
-				&:active {
-					background-color: #052f33;
 					color: white;
 					border-color: transparent;
 				}
