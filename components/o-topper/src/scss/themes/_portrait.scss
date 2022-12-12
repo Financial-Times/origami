@@ -36,6 +36,7 @@
 					$background: oColorsByName($color-name);
 					$foreground: oColorsGetTextColor($background, $opacity: 100);
 					color: oColorsMix($foreground, $color-name, 73);
+					background-color: $background;
 				}
 			}
 		}
@@ -89,6 +90,9 @@
 
 		.o-topper__image-caption {
 			margin-bottom: 0;
+			margin-top: 10px;
+			border-top: solid 1px oColorsGetTextColor($background: black, $opacity: 50);
+			color: oColorsByName("black-70"); 
 		}
 	}
 
@@ -122,7 +126,6 @@
 	}
 	
 	.o-topper__image-caption {
-		color: oColorsByName("black-70");
 		position: relative;
 		width: 100%;
 		float: right;
