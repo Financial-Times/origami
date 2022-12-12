@@ -58,8 +58,8 @@
 			<a class="o-header__drawer-tools-logo" href="/">
 				<span class="o-header__visually-hidden">Financial Times</span>
 			</a>
-			<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer" title="Close drawer menu">
-				<span class="o-header__visually-hidden">Close drawer menu</span>
+			<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer" title="Close side navigation menu">
+				<span class="o-header__visually-hidden">Close side navigation menu</span>
 			</button>
 			{{#editions}}
 			<p class="o-header__drawer-current-edition">{{editions.current.name}} Edition</p>
@@ -89,8 +89,8 @@
 		{{/editions}}
 
 		<nav class="o-header__drawer-menu o-header__drawer-menu--primary">
-			<ul class="o-header__drawer-menu-list">
-				{{#nav}}
+		{{#nav}}
+			<ul class="o-header__drawer-menu-list" {{#heading}}aria-label="{{heading.name}}"{{/heading}}>
 						{{#heading}}
 						<li class="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{{name}}</li>
 						{{/heading}}
@@ -116,8 +116,8 @@
 							{{/hasChildren}}
 						</li>
 						{{/items}}
-				{{/nav}}
 			</ul>
+		{{/nav}}
 		</nav>
 
 		<nav class="o-header__drawer-menu o-header__drawer-menu--user">
