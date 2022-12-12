@@ -47,7 +47,7 @@
 	// Output chosen elements, colours, and themes.
 	@include _oTopperElements($elements);
 	@include _oTopperColors($colors);
-	@include _oTopperThemes($themes);
+	@include _oTopperThemes($themes,$colors);
 }
 
 @if ($o-topper-is-silent == false) {

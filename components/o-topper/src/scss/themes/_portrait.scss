@@ -1,6 +1,6 @@
 // sass-lint:disable mixins-before-declarations
 
-@mixin _oTopperThemeSplitTextPortraitLeft {
+@mixin _oTopperThemeSplitTextPortraitLeft($colors) {
 	.o-topper__read-next {
 		display: none;
 	}
@@ -30,7 +30,7 @@
 			grid-row: 1 / span 2; 
 		}
 
-		@each $color-name in $_o-topper-colors {
+		@each $color-name in $colors {
 			&.o-topper--color-#{$color-name} {
 				.o-topper__image-caption {
 					$background: oColorsByName($color-name);
