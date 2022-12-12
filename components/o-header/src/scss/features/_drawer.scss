@@ -239,6 +239,8 @@
 	}
 
 	.o-header__drawer-menu-item--heading {
+		margin-bottom: 0px;
+		font-size: 16px;
 		background-color: _oHeaderGet('drawer-menu-item-background');
 		padding: (div($_o-header-drawer-padding-x, 2)) $_o-header-drawer-padding-x;
 		font-weight: 600;

@@ -163,10 +163,10 @@
 
 		<nav class="o-header__drawer-menu o-header__drawer-menu--primary">
 		{{#nav}}
-			<ul class="o-header__drawer-menu-list" {{#heading}}aria-label="{{heading.name}}"{{/heading}}>
-						{{#heading}}
-						<li class="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{{name}}</li>
-						{{/heading}}
+			{{#heading}}
+			<h2 class="o-header__drawer-menu-item o-header__drawer-menu-item--heading" id="{{name}}">{{name}}</h2>
+			{{/heading}}
+			<ul class="o-header__drawer-menu-list" {{#heading}}aria-labelledby="{{heading.name}}"{{/heading}}>
 						{{#items}}
 						<li class="o-header__drawer-menu-item {{#divide}}o-header__drawer-menu-item--divide{{/divide}}">
 							{{#hasChildren}}
