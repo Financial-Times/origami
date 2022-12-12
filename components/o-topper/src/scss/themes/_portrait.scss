@@ -6,23 +6,38 @@
 	}
 
 	@include oGridRespondTo($until: M) {
+		display:grid;
+		grid-template-rows: 1fr 1fr auto;
 		padding: 0;
-
+		
 		.o-topper__content {
 			order: 3;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			padding: 20px 10px;
+			grid-row: 3 / span 1;
 		}
 
 		.o-topper__background {
 			order: 2;
+			grid-row: 2 / span 2;
 		}
 
 		.o-topper__visual {
 			order: 1;
 			min-height: 350px;
+			grid-row: 1 / span 2; 
+		}
+
+		@each $color-name in $_o-topper-colors {
+			&.o-topper--color-#{$color-name} {
+				.o-topper__image-caption {
+					$background: oColorsByName($color-name);
+					$foreground: oColorsGetTextColor($background, $opacity: 100);
+					color: oColorsMix($foreground, $color-name, 73);
+				}
+			}
 		}
 
 		.o-topper__picture {
