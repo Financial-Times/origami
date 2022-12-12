@@ -56,7 +56,7 @@
 	@include oGridRespondTo(M) {
 		display: grid;
 		grid-template-columns: 1fr 1fr; 
-		grid-template-rows: minmax(0, 100%) 1fr;
+		grid-template-rows: 100% 1fr;
 
 		.o-topper__content {
 			grid-column: 1 / span 2;
@@ -96,20 +96,17 @@
 		}
 	}
 
-	@include oGridRespondTo(L) {
-		grid-template-rows: minmax(0, 100%) 1fr;
-	}
-
 	@supports (object-fit: cover) {
 		.o-topper__image {
 			position: absolute;
 		}
 
-		.o-topper__visual {
+		@include oGridRespondTo(M) {
 
-			@include oGridRespondTo(M) {
+			.o-topper__visual {
+				height: 66vw;
 				.o-topper__picture {
-					aspect-ratio: 2 / 3;
+					height: 66vw;
 				}
 			}
 		}
