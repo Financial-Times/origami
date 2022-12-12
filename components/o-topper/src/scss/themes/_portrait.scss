@@ -116,13 +116,7 @@
 	}
 	
 	.o-topper__image-credit {
-		top: 350px;
-		@include oGridRespondTo(M) {
-			top: 480px;
-		}
-		@include oGridRespondTo(L) {
-			top: 600px;
-		}
+		top: 100%;
 	}
 	
 	.o-topper__image-caption {
