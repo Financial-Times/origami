@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-autocomplete",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "An origami component for autocomplete inputs",
   "keywords": [
     "autocomplete",
@@ -22,6 +22,7 @@
   "scripts": {
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },

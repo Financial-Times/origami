@@ -74,7 +74,7 @@ class Input {
 		const focusOnDateInput = dateInputs.includes(activeElement);
 
 		const invalidDateInputAttempt = dateInputs.find(input => {
-			return (!focusOnDateInput && !input.validity.valid);
+			return !focusOnDateInput && !input.validity.valid;
 		});
 
 		const entireDateValid = dateInputs.every(input => input.validity.valid);
