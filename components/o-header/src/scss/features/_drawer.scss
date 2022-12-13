@@ -282,6 +282,11 @@
 			outline: 0;
 		}
 
+		&:focus {
+			// Ensure focus outline remains above sibling buttons.
+			z-index: 1;
+		}
+
 		[data-o-header-drawer--no-js] & {
 			display: none;
 		}

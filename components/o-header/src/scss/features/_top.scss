@@ -78,6 +78,10 @@
 			width: #{$_o-header-icon-size-large}px;
 			height: #{$_o-header-icon-size-large}px;
 		}
+
+		@include oNormaliseFocusApply() {
+			@include oNormaliseFocusContent();
+		};
 	}
 
 	.o-header__top-icon-link.o-header__top-icon-link--hide-s,
