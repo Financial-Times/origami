@@ -56,7 +56,7 @@
 	@include oGridRespondTo(M) {
 		display: grid;
 		grid-template-columns: 1fr 1fr; 
-		grid-template-rows: 100% 1fr;
+		grid-template-rows: 66vw 1fr;
 
 		.o-topper__content {
 			grid-column: 1 / span 2;
@@ -104,7 +104,6 @@
 		@include oGridRespondTo(M) {
 
 			.o-topper__visual {
-				height: 66vw;
 				.o-topper__picture {
 					height: 66vw;
 				}
