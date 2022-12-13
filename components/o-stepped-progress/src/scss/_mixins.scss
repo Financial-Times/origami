@@ -35,13 +35,12 @@
 ///   @include _oSteppedProgressBase();
 /// @access private
 @mixin _oSteppedProgressBase() {
-
 	.o-stepped-progress {
 		@include oTypographySans(_oSteppedProgressGet('font-scale'));
 		display: block;
 		position: relative;
 
-		a:not(.o-typography-link) {
+		a {
 			color: inherit;
 			text-decoration: underline;
 			border-bottom: 0;
@@ -55,7 +54,7 @@
 		width: 100%;
 		height: _oSteppedProgressGet('bar-weight');
 		position: absolute;
-		top: (div(_oSteppedProgressGet('step-size'), 2)) - (div(_oSteppedProgressGet('bar-weight'), 2));
+		top: calc(#{(div(_oSteppedProgressGet('step-size'), 2)) - (div(_oSteppedProgressGet('bar-weight'), 2))} + #{$_o-stepped-progress-block-padding});
 		background-color: _oSteppedProgressGet('default-color');
 	}
 
@@ -64,6 +63,8 @@
 		padding-left: 0;
 		margin-top: 0;
 		margin-bottom: 0;
+		padding-top: $_o-stepped-progress-block-padding;
+		padding-bottom: $_o-stepped-progress-block-padding;
 		display: flex;
 		justify-content: space-between;
 		position: relative;
@@ -98,6 +99,11 @@
 
 		// Sensible line length but also fixes a flex bug in IE 11
 		max-width: _oSteppedProgressGet('label-max-width');
+
+		@include oNormaliseFocusApply() {
+			@include oNormaliseFocusContent();
+			text-decoration: none;
+		}
 
 		// The first and last step must be aligned differently:
 		// the first is aligned left and the last is aligned right
@@ -241,7 +247,7 @@
 		// Progress bars
 		&::before {
 			height: _oSteppedProgressGet('bar-weight', $variant);
-			top: (div(_oSteppedProgressGet('step-size', $variant), 2)) - (div(_oSteppedProgressGet('bar-weight', $variant), 2));
+			top: calc(#{(div(_oSteppedProgressGet('step-size', $variant), 2)) - (div(_oSteppedProgressGet('bar-weight', $variant), 2))} + #{$_o-stepped-progress-block-padding});
 		}
 		.o-stepped-progress__step--complete,
 		.o-stepped-progress__step--current,
@@ -273,7 +279,7 @@
 				);
 				background-color: _oSteppedProgressGet('container-background');
 				background-size: 160%;
-				background-position: 35% 35%;
+				background-position: 46% 39%;
 				background-origin: content-box;
 				border-color: _oSteppedProgressGet('interacted-color');
 			}
