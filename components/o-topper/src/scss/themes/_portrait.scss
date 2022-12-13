@@ -6,8 +6,8 @@
 	}
 
 	@include oGridRespondTo($until: M) {
-		display:grid;
-		grid-template-rows: 1fr 1fr auto;
+		display:flex;
+		flex-direction: column;
 		padding: 0;
 		
 		.o-topper__content {
@@ -16,18 +16,15 @@
 			flex-direction: column;
 			justify-content: center;
 			padding: 20px 10px;
-			grid-row: 3 / span 1;
 		}
 
 		.o-topper__background {
 			order: 2;
-			grid-row: 2 / span 2;
 		}
 
 		.o-topper__visual {
 			order: 1;
 			min-height: 350px;
-			grid-row: 1 / span 2; 
 		}
 
 		@each $color-name in $colors {
@@ -42,10 +39,9 @@
 		}
 
 		.o-topper__picture {
-			position: relative;
-			width: 100%;
-			height: 350px;
-			float: right;
+			img {
+				position : relative;
+			}
 		}
 
 		.o-topper__image-caption {
@@ -97,9 +93,7 @@
 	}
 
 	@supports (object-fit: cover) {
-		.o-topper__image {
-			position: absolute;
-		}
+		
 
 		@include oGridRespondTo(M) {
 
