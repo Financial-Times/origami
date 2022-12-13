@@ -12,6 +12,12 @@
 
 		a {
 			color: inherit;
+			&:focus {
+				// Ensure the focus outline is not obscured by adjacent elements.
+				position: relative;
+				z-index: 1;
+				outline-color: inherit;
+			}
 		}
 	}
 
