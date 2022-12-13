@@ -36,12 +36,7 @@
 		// fill!
 		min-width: 50%;
 		flex-grow: 1;
-
-		&:focus {
-			//also, overriden by o-normalise
-			outline: none;
-			border-color: _oHeaderGet('search-border');
-		}
+		border: 1px solid oColorsByName('black-50');
 	}
 
 	.o-header__search-submit {
@@ -59,8 +54,7 @@
 		margin-left: $_o-header-padding-x;
 		vertical-align: middle;
 		// Match the search button's hover/focus state.
-		&:hover,
-		&:focus {
+		&:hover {
 			opacity: 0.75;
 		}
 
