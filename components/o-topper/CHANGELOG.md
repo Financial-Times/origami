@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.6.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.0...o-topper-v5.6.1) (2022-12-14)
+
+
+### Features
+
+* Improve the design of the split-text-portrait-left topper (also known as deep portrait). ([https://github.com/Financial-Times/origami/pull/920](https://github.com/Financial-Times/origami/pull/920))
+
 ## [5.6.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.5.1...o-topper-v5.6.0) (2022-12-02)
 
 
