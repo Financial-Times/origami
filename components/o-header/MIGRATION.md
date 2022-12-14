@@ -1,6 +1,32 @@
 # Migration Guide
 
 ## Migrating from v10 to v11
+o-header v11 includes markup changes in drawer menu. v10 drawer menu used to render all list items under one tag:
+```html
+<nav>
+	<ul>
+	<!-- more list items without heading -->
+	</ul>
+</nav>
+```
+But drawer menu can display visually grouped items within the nav. so we updated markup to use semantically correct html. This approach also improves the accessibility of the drawer menu and users who use screen readers will get the same structure, information, and relationships between content as sighted users are provided with visual styling. v11 uses multiple `ul` tags inside nav tag and for heading we use `h2` tags which is used to describe list groupings for assistive technologies. v11 markup:
+
+```html
+<nav>
+	<h2 id="o-header-drawer-top-sections" id='top-sections'>Top sections</h2>
+	<ul aria-labelledby="top-sections">
+	    <!-- list items -->
+	</ul>
+	<h2 id="o-header-drawer-top-sections" id='ft-recommends'>FT recommends</h2>
+	<ul aria-labelledby="ft-recommends">
+	    <!-- list items -->
+	</ul>
+	<!-- more list items without heading -->
+	<ul>
+	<!-- more list items without heading -->
+	</ul>
+</nav>
+```
 ## Migrating from v9 to v10
 
 o-header v10 includes markup changes. Use demo markup to update your project. Changes to be aware of include:
