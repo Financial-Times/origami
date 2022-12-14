@@ -27,6 +27,9 @@ But drawer menu can display visually grouped items within the nav. so we updated
 	</ul>
 </nav>
 ```
+We also renamed css class `o-header__drawer-menu-item--divide` from to `o-header__drawer-menu-list--divide` and now it applies on `ul` inside our `nav` tag instead of applying it on separate list items.
+
+
 ## Migrating from v9 to v10
 
 o-header v10 includes markup changes. Use demo markup to update your project. Changes to be aware of include:

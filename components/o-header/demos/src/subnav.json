@@ -440,12 +440,12 @@
 				]
 			},
 			{
+				"divide": true,
 				"items": [
 					{
 						"name": "xx xx",
 						"href": "#",
 						"variation": "secondary",
-						"divide": true,
 						"index": 0
 					},
 					{
