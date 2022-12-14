@@ -122,8 +122,8 @@
 		}
 	}
 	
-	@if index($themes, 'split-text-portrait-left') {
-		.o-topper--split-text-portrait-left {
+	@if index($themes, 'deep-portrait') {
+		.o-topper--deep-portrait {
 			@include _oTopperThemeSplitTextPortraitLeft($colors);
 		}
 	}

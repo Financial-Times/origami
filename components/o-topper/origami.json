@@ -140,9 +140,9 @@
 			"hidden": true
 		},
 		{
-			"name": "Split Text Portrait Left",
-			"title": "Split Text Portrait Left",
-			"template": "demos/src/split-text-portrait-left.mustache",
+			"name": "Deep Portrait",
+			"title": "Deep Portrait",
+			"template": "demos/src/deep-portrait.mustache",
 			"description": "This is a theme that editorial can choose, which comes through the API"
 		}
 	]
