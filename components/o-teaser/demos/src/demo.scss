@@ -1,7 +1,8 @@
 @import '../../main';
 
-@include oTeaser();
+@include oNormalise();
 @include oFonts();
+@include oTeaser();
 
 body {
 	background-color: oColorsByName('paper');
