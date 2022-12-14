@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.6.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.1...o-topper-v5.6.2) (2022-12-14)
+
+
+### Bug Fixes
+
+* topper name changed ([78e5da8](https://www.github.com/Financial-Times/origami/commit/78e5da879465029caa11dd2f3d256f7f89b34857))
+
 ## [5.6.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.0...o-topper-v5.6.1) (2022-12-14)
 
 
