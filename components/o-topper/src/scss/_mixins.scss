@@ -18,7 +18,7 @@
 	}
 }
 
-@mixin _oTopperThemes($themes) {
+@mixin _oTopperThemes($themes,$colors) {
 	@include _oTopperThemeElements($themes);
 
 	@if index($themes, 'basic') {
@@ -124,7 +124,7 @@
 	
 	@if index($themes, 'split-text-portrait-left') {
 		.o-topper--split-text-portrait-left {
-			@include _oTopperThemeSplitTextPortraitLeft;
+			@include _oTopperThemeSplitTextPortraitLeft($colors);
 		}
 	}
 }
