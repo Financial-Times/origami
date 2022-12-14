@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 
-* topper name changed ([78e5da8](https://www.github.com/Financial-Times/origami/commit/78e5da879465029caa11dd2f3d256f7f89b34857))
+* Rename `o-topper--split-text-portrait-left` to `o-topper--deep-portrait` – this is [technically a breaking change but is being treated as a minor release](https://github.com/Financial-Times/origami/pull/923#pullrequestreview-1217595762) in this case ([78e5da8](https://www.github.com/Financial-Times/origami/commit/78e5da879465029caa11dd2f3d256f7f89b34857))
 
 ## [5.6.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.0...o-topper-v5.6.1) (2022-12-14)
 
