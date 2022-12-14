@@ -91,9 +91,9 @@
 		<nav class="o-header__drawer-menu o-header__drawer-menu--primary">
 		{{#nav}}
 			{{#heading}}
-			<h2 class="o-header__drawer-menu-item o-header__drawer-menu-item--heading" id="{{name}}">{{name}}</h2>
+			<h2 class="o-header__drawer-menu-item o-header__drawer-menu-item--heading" id="{{id}}">{{name}}</h2>
 			{{/heading}}
-			<ul class="o-header__drawer-menu-list" {{#heading}}aria-labelledby="{{heading.name}}"{{/heading}}>
+			<ul class="o-header__drawer-menu-list" {{#heading}}aria-labelledby="{{id}}"{{/heading}}>
 						{{#items}}
 						<li class="o-header__drawer-menu-item {{#divide}}o-header__drawer-menu-item--divide{{/divide}}">
 							{{#hasChildren}}

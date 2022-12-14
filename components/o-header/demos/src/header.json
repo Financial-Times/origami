@@ -87,7 +87,8 @@
         "nav": [
             {
                 "heading": {
-                    "name": "xxx xxxxxxxx"
+                    "name": "xxx xxxxxxxx",
+										"id": "xxx-xxxxxxxx"
                 },
                 "items": [
                     {
@@ -397,7 +398,8 @@
             },
             {
                 "heading": {
-                    "name": "xx xxxxxxxxxx"
+                    "name": "xx xxxxxxxxxx",
+                    "id": "xx-xxxxxxxxxx"
                 },
                 "items": [
                     {
