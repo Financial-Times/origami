@@ -133,11 +133,19 @@ npm run watch -w components/o-example
 #### Test
 
 Run tests for a given component with the npm `test` script.
+
 ```shell
 npm run test -w components/o-example
 ```
 
+Run JavaScript tests in a browser using the `debug:js` script.
+
+```shell
+npm run debug:js -w components/o-example
+```
+
 Lint the code of a given component with the npm `lint` script.
+
 ```shell
 npm run lint -w components/o-example
 ```

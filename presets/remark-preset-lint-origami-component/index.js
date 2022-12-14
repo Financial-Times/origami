@@ -31,7 +31,7 @@ module.exports.plugins = [
 	[require("remark-lint-emphasis-marker"), "_"],
 	[require("remark-lint-heading-style"), "atx"],
 	[require("remark-lint-link-title-style"), '"'],
-	[require("remark-lint-rule-style"), "***"],
+	[require("remark-lint-rule-style"), "---"],
 	[require("remark-lint-strong-marker"), "*"],
 
 	/// Overrides
