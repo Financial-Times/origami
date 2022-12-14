@@ -161,8 +161,8 @@ exports[`Component template files Root ejs files expect origami.json ejsRenderer
 	\\"supportStatus\\": \\"experimental\\",
 	\\"browserFeatures\\": {},
 	\\"demosDefaults\\": {
-		\\"sass\\": \\"demos/src/demo.scss\\",
-		\\"js\\": \\"demos/src/demo.js\\",
+		\\"sass\\": \\"demos/src/demo.scss\\", 
+		\\"js\\": \\"demos/src/demo.js\\", 
 		\\"template\\": \\"demos/src/demo.mustache\\",
 		\\"documentClasses\\": \\"\\",
 		\\"dependencies\\": []
