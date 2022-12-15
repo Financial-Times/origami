@@ -31,7 +31,7 @@
 	@include oGridRespondTo(M) {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: minmax(auto, 480px) 1fr;
+		grid-template-rows: 66vw 1fr;
 
 		.o-topper__content {
 			grid-row: 1;
@@ -42,31 +42,20 @@
 			padding-right: 20px;
 			background: transparent;
 		}
-	}
-	
-	@include oGridRespondTo(L) {
-		grid-template-rows: minmax(auto, 600px) 1fr;
+		.o-topper__image{
+			height:66vw;
+		}
 	}
 
 	@supports (object-fit: cover) {
 		.o-topper__visual {
 			height: auto;
-			@include oGridRespondTo(M) {
-				.o-topper__image {
-					height: 480px;
-				}
-			}
-			@include oGridRespondTo(L) {
-				.o-topper__image {
-					height: 600px;
-				}
-			}
+			
 		}
 	}
 
 	.o-topper__image-caption {
 		background-color: transparent;
 		color: oColorsByName("black-70");
-		margin-bottom: -20px;
 	}
 }

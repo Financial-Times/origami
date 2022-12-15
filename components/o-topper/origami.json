@@ -144,6 +144,12 @@
 			"title": "Deep Portrait",
 			"template": "demos/src/deep-portrait.mustache",
 			"description": "This is a theme that editorial can choose, which comes through the API"
+		},
+		{
+			"name": "Deep Landscape",
+			"title": "Deep Landscape",
+			"template": "demos/src/deep-landscape-left.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API"
 		}
 	]
 }
