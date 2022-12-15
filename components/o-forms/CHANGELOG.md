@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.4.5](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.4...o-forms-v9.4.5) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-forms, do not style invalid inputs outside `.o-forms-input` ([f9e1f96](https://www.github.com/Financial-Times/origami/commit/f9e1f969873bc60957f53913c8f6b7e0329af2bc))
+
 ### [9.4.4](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.3...o-forms-v9.4.4) (2022-12-08)
 
 
