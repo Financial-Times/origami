@@ -1,6 +1,20 @@
 // sass-lint:disable mixins-before-declarations
 
 @mixin _oTopperThemeDeepLandscape {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 150vw 1fr;
+
+	.o-topper__image{
+		height:150vw;
+	}
+	.o-topper__content {
+		display:inline-block;
+		grid-row: 1;
+		box-sizing: border-box;
+		align-self: center;
+		background: transparent;
+	}
 
 	.o-topper__read-next {
 		display: none;
@@ -17,30 +31,37 @@
 		}
 	}
 
-	@include oGridRespondTo($until: M) {
-		padding: 0;
+	
+	@include oGridRespondTo( $until:S) {
 		.o-topper__content {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			padding: 20px;
-			min-height: 90%;
+			width:100%;
+			align-self: end;
+			grid-column: 1 / span 2;
+			padding:20px;
+		}
+	}
+	
+	@include oGridRespondTo($from:S , $until:M) {
+		.o-topper__content {
+			width:75%;
+			grid-column: 1/span 2;
+			margin: auto auto auto 10%;
+		}
+	}
+	@include oGridRespondTo($from:M , $until:L) {
+		.o-topper__content {
+			width:50%;
+			grid-column: 1/span 2;
+			margin: auto auto auto 10%;
 		}
 	}
 
-	@include oGridRespondTo(M) {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+	@include oGridRespondTo(L) {
 		grid-template-rows: 66vw 1fr;
 
 		.o-topper__content {
-			grid-row: 1;
-			grid-column: 1 / span 2;
-			width: 50%;
-			box-sizing: border-box;
-			align-self: center;
-			padding-right: 20px;
-			background: transparent;
+			grid-column: 1;
+			margin: auto;
 		}
 		.o-topper__image{
 			height:66vw;
@@ -50,7 +71,6 @@
 	@supports (object-fit: cover) {
 		.o-topper__visual {
 			height: auto;
-			
 		}
 	}
 
