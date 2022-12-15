@@ -1,4 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2022-12-15T11:28:01+00:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, March 2022</title><link href="https://origami.ft.com/blog/2022/03/30/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, March 2022" /><published>2022-03-30T00:00:00+01:00</published><updated>2022-03-30T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2022/03/30/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2022/03/30/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2022-12-15T13:03:35+00:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Updated Focus Styles</title><link href="https://origami.ft.com/blog/2022/12/14/focus-styles/" rel="alternate" type="text/html" title="Updated Focus Styles" /><published>2022-12-14T00:00:00+00:00</published><updated>2022-12-14T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2022/12/14/focus-styles</id><content type="html" xml:base="https://origami.ft.com/blog/2022/12/14/focus-styles/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+&lt;strong&gt;
+TL;DR:
+&lt;/strong&gt;
+&lt;/abbr&gt; We’ve released new focus styles to improve the accessibility of FT Group products which use Origami. These changes will roll out gradually as teams &lt;a href=&quot;#upgrade-your-project&quot;&gt;pull in the latest Origami component releases&lt;/a&gt;. We’re treating this as a minor release and there should be no code changes required to upgrade. However, this is a broad, global change and we encourage teams to &lt;a href=&quot;#upgrade-your-project&quot;&gt;test focus states&lt;/a&gt; within their projects – the Origami team are here to help if you have any questions, or spot any issues.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-are-focus-styles&quot;&gt;What are focus styles?&lt;/h2&gt;
+
+&lt;p&gt;People browse the web in a number of different ways depending on their preference and access needs. For example some people do not use a mouse but instead use only their keyboard, or other input devices. Focus styles allow people to know which element they’re on when moving around a page. &lt;a href=&quot;https://www.sarasoueidan.com/blog/focus-indicators/#what-exactly-is-a-focus-indicator%3F&quot;&gt;Sara Soueidan’s guide to focus indicators&lt;/a&gt; explains this well and includes a screen recording of focus states in action if you would like to learn more.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-are-focus-styles-being-updated&quot;&gt;Why are focus styles being updated?&lt;/h2&gt;
+
+&lt;p&gt;In a number of places our focus state styles lack contrast and are difficult to see; particularly when the focused element has a dark background colour, or is on a dark page background. This makes FT Group products difficult to use in places and is a particular barrier to users with certain disabilities.&lt;/p&gt;
+
+&lt;p&gt;This issue was highlighted through an audit provided by the &lt;a href=&quot;https://digitalaccessibilitycentre.org/&quot;&gt;Digital Accessibility Centre&lt;/a&gt; and must be fixed in order for ft.com to be accredited accessible as outlined in &lt;a href=&quot;https://www.ft.com/accessibility&quot;&gt;the FT’s accessibility commitments&lt;/a&gt; – however both user facing products as well as internal tools and documentation are affected.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-do-the-new-styles-look-like&quot;&gt;What do the new styles look like?&lt;/h2&gt;
+
+&lt;p&gt;Buttons and inputs will now display a new 2 band outline when focused. One band is near-black (&lt;a href=&quot;https://registry.origami.ft.com/components/o-colors&quot;&gt;black-70&lt;/a&gt;) and the other white, ensuring that at least one band provides sufficient contrast. Focus state styles for other elements, including links, will remain unchanged as the new approach breaks down when applied to multi-line text, as shown below.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img alt=&quot;Checkboxes from the o-forms component. One has a focus state but it's not very obvious which.&quot; src=&quot;/assets/images/2022-12-14-focus-styles/focus-checkbox-before.png&quot; /&gt;
+    &lt;img alt=&quot;Checkboxes from the o-forms component with the new double border focus styles. The second, focused checkbox is distinctly highlighted using a 2 band outline of near-black and white.&quot; src=&quot;/assets/images/2022-12-14-focus-styles/focus-checkbox-after.png&quot; /&gt;
+    &lt;figcaption&gt;Checkboxes from the o-forms component, before / after. In the before screenshot it's not clear that the second checkbox is the one with focus (note the small outline).&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img alt=&quot;Primary buttons from the o-buttons component, with the inverse theme applied for use on a dark background. When the second button is focused it looks a lot like the 4th button shown, which is disabled and not interactive.&quot; src=&quot;/assets/images/2022-12-14-focus-styles/focus-button-inverse-before.png&quot; /&gt;
+    &lt;img alt=&quot;Primary buttons from the o-buttons component, with the inverse theme applied for use on a dark background. The second, focused button is more visibility highlighted using a 2 band outline of white and near-black – the bands are inverse to account for a light element on a dark background.&quot; src=&quot;/assets/images/2022-12-14-focus-styles/focus-button-inverse-after.png&quot; /&gt;
+    &lt;figcaption&gt;Primary buttons from the o-buttons component with the &quot;inverse&quot; theme applied, for use on a dark background, before / after. In the before screenshot the second button is focused but it looks a lot like the 4th button shown, which is disabled and not interactive. This is somewhat improved with the new double-band focus style for buttons.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img alt=&quot;The o-cookie-message component with the accept button focused. Again it's not super clear which element is focused.&quot; src=&quot;/assets/images/2022-12-14-focus-styles/focus-cookie-message-before.png&quot; /&gt;
+    &lt;img alt=&quot;The o-cookie-message component with the accept button focused. A new 2 band focus outline of near-black and white makes it easier to see that the accept button is focused.&quot; src=&quot;/assets/images/2022-12-14-focus-styles/focus-cookie-message-after.png&quot; /&gt;
+    &lt;figcaption&gt;The o-cookie-message component, before/after. The &quot;accept cookies&quot; button has focus. In the first image the focus outline is hard to see against the colour of the button. It is much more apparent which element has focus in the second image, which shows the new focus state styles.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img alt=&quot;&quot; src=&quot;/assets/images/2022-12-14-focus-styles/focus-teaser-no-good.png&quot; /&gt;
+    &lt;img alt=&quot;&quot; src=&quot;/assets/images/2022-12-14-focus-styles/focus-teaser-no-change.png&quot; /&gt;
+    &lt;figcaption&gt;The o-teaser component, experiment/after. We chose to keep the existing style by default including for links. Links do not suffer the same contrast issues highlighted above and the new double ring outline breaks down when used on multi-line text elements. Note how the first image shows how the new focus style would have obscured multi-line text.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;upgrade-your-project&quot;&gt;Upgrade Your Project&lt;/h2&gt;
+
+&lt;p&gt;We’re treating this as a minor release and there should be no code changes required to upgrade. To pull the changes into your project make sure you’re using the latest version of Origami components.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;npm: If your project uses npm to install Origami components via a &lt;a href=&quot;https://semver.org/&quot;&gt;semver range, such as a caret (^)&lt;/a&gt;, run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm update&lt;/code&gt; to update your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt;. If you request a specific version of a component in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package.json&lt;/code&gt;, rather than a semver range, or are a major release behind, you can run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm outdated&lt;/code&gt; to identify out of date packages which need to be updated – including Origami components.&lt;/li&gt;
+  &lt;li&gt;Origami Build Service: If you include components using an Origami Build Service url, use the &lt;a href=&quot;https://www.ft.com/__origami/service/build/url-updater&quot;&gt;URL Updater&lt;/a&gt; to check it’s up to date.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Since this is a broad, global change we recommend that you also test focus states within your project. Do this by browsing your project using the tab key on your keyboard (&lt;a href=&quot;https://www.a11yproject.com/posts/macos-browser-keyboard-navigation/&quot;&gt;Browser keyboard navigation in macOS&lt;/a&gt;) or by browsing with a screen-reader such as &lt;a href=&quot;https://webaim.org/articles/voiceover/&quot;&gt;VoiceOver on MacOS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finally, Origami is no longer enhanced by the &lt;a href=&quot;https://github.com/WICG/focus-visible&quot;&gt;focus-visible polyfill&lt;/a&gt;. If using, aim to remove the focus-visible polyfill from your project as the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible&quot;&gt;:focus-visible CSS selector&lt;/a&gt; now has wide browser support.&lt;/p&gt;
+
+&lt;p&gt;If you need any help or find any issue the Origami team are here to help, contact us in the &lt;a href=&quot;https://financialtimes.slack.com/messages/origami-support/&quot;&gt;#origami-support Slack channel&lt;/a&gt; or email &lt;a href=&quot;mailto:origami-support@ft.com&quot;&gt;origami-support@ft.com&lt;/a&gt;. 😊&lt;/p&gt;
+
+&lt;h2 id=&quot;technical-notes&quot;&gt;Technical Notes&lt;/h2&gt;
+
+&lt;p&gt;Hello, you’re still here!? Lovely. For the curious, here’re a couple of technical notes:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;The double outline of the new focus style is achieved using the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow&quot;&gt;box-shadow CSS property&lt;/a&gt;, rather than the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/outline&quot;&gt;outline CSS property&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We no longer depend on the &lt;a href=&quot;https://github.com/WICG/focus-visible&quot;&gt;focus-visible&lt;/a&gt; polyfill. The &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible&quot;&gt;:focus-visible CSS selector&lt;/a&gt; now has wide browser support. We provide a &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/:focus&quot;&gt;:focus&lt;/a&gt; fallback for the minority of browsers in the FT’s browser support policy which do not support the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:focus-visible&lt;/code&gt; selector. We’ll let the Customer Products Platforms team know that can be dropped from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dotcom-page-kit&lt;/code&gt; to simplify our tech and keep ft.com performant for readers 🙌&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sadly (for me) the FT supports older versions of IOS which does not understand the &lt;a href=&quot;https://css-tricks.com/supports-selector/&quot;&gt;@supports selector&lt;/a&gt; syntax, so we apply a &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/:focus&quot;&gt;:focus&lt;/a&gt; style by default and remove it later if &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible&quot;&gt;:focus-visible&lt;/a&gt; is supported (rather than applying &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:focus&lt;/code&gt; if &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:focus-visible&lt;/code&gt; is not supported). This is a bit more complicated and introduces a little more CSS, which we always aim to reduce for performance reasons.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+    Focus styles are applied by default with the &lt;a href=&quot;https://registry.origami.ft.com/components/o-normalise&quot;&gt;o-normalise component&lt;/a&gt;, but if you would like to manually apply a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:focus-visible&lt;/code&gt; style with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:focus&lt;/code&gt; fallback to a component checkout the new &lt;a href=&quot;https://registry.origami.ft.com/components/o-normalise/sassdoc&quot;&gt;o-normalise Sass mixins&lt;/a&gt;. E.g.
+
+    &lt;div data-o-component=&quot;o-syntax-highlight&quot;&gt;
+
+  &lt;pre tabindex=&quot;0&quot;&gt;&lt;code class=&quot;o-syntax-highlight--scss&quot;&gt;.my-element {
+    // Style `.my-element:focus-visible` with
+    // `.my-element:focus` fallback.
+    @include oNormaliseFocusApply() {
+            // Use the &amp;quot;inverse&amp;quot; focus ring,
+            // where the dark and light bands are switched.
+            @include oNormaliseFocusContentInverse();
+            // Make the colour hotpink when focus is applied,
+            // because I have a serious and unreasonable disregard
+            // for brand guidelines.
+            color: hotpink;
+    };
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Lee Moody</name></author><summary type="html">TL;DR: We’ve released new focus styles to improve the accessibility of FT Group products which use Origami. These changes will roll out gradually as teams pull in the latest Origami component releases. We’re treating this as a minor release and there should be no code changes required to upgrade. However, this is a broad, global change and we encourage teams to test focus states within their projects – the Origami team are here to help if you have any questions, or spot any issues.</summary></entry><entry><title type="html">Origami Newsletter, March 2022</title><link href="https://origami.ft.com/blog/2022/03/30/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, March 2022" /><published>2022-03-30T00:00:00+01:00</published><updated>2022-03-30T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2022/03/30/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2022/03/30/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
 &lt;strong&gt;
 TL;DR:
 &lt;/strong&gt;
@@ -1110,79 +1205,4 @@ TL;DR:
       &lt;li&gt;Make the new corporate icon from fticons available in o-share&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Jake Champion</name></author><category term="Newsletter" /><summary type="html">TL;DR: Updated Origami workshops. Work has begun to migrate Origami to npm. Reminder, we deprecate FT’s Bower Registry in July. 2021 and plan to decomission in July 2022.</summary></entry><entry><title type="html">Origami Newsletter, February 2021</title><link href="https://origami.ft.com/blog/2021/03/02/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, February 2021" /><published>2021-03-02T00:00:00+00:00</published><updated>2021-03-02T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2021/03/02/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/03/02/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
-&lt;strong&gt;
-TL;DR:
-&lt;/strong&gt;
-&lt;/abbr&gt; This issue is a big one. It covers our progress toward the recently announced npm migration; a new Origami Image Service placeholder image feature; a new Origami Build Service feature to help teams keep components up to date; and a whole bunch more.&lt;/p&gt;
-
-&lt;h2 id=&quot;top-things&quot;&gt;Top Things&lt;/h2&gt;
-
-&lt;p&gt;Some of the bigger Origami news since our last issue:&lt;/p&gt;
-
-&lt;h3 id=&quot;dropping-bower-support&quot;&gt;Dropping Bower Support&lt;/h3&gt;
-
-&lt;p&gt;We’ve been making excellent progress towards migrating Origami components from Bower to the npmjs registry. Origami tooling has been updated, and services such as the Origami Build Service are almost ready too.&lt;/p&gt;
-
-&lt;p&gt;With the release of npm7 &lt;a href=&quot;/blog/2020/10/28/newsletter/#new-proposal-to-drop-bower-support&quot;&gt;we think now is a good time to drop Bower support&lt;/a&gt;. To find out what it means for your team, and what benefits we hope to achieve, see &lt;a href=&quot;/blog/2021/01/18/deprecating-bower-and-origami-via-npm/&quot;&gt;last month’s announcement&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;placeholder-images&quot;&gt;Placeholder Images&lt;/h3&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://www.ft.com/__origami/service/image/v2/&quot;&gt;Origami Image Service&lt;/a&gt; can now generate placeholder images at specified dimensions and quality. It’s a super useful feature to support prototypes and testing. 🎉&lt;/p&gt;
-
-&lt;p&gt;Here’s an example placeholder request, for an image that’s 500px square, of maximum quality:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://www.ft.com/__origami/service/image/v2/images/placeholder/?width=500&amp;amp;height=500&amp;amp;quality=lossless&amp;amp;source=test
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://www.ft.com/__origami/service/image/v2/images/placeholder/?width=500&amp;amp;height=500&amp;amp;quality=lossless&amp;amp;source=test&quot; alt=&quot;A placeholder image which displays the width, height, format, and quality of the image requested as text within the image.&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;build-service-updater&quot;&gt;Build Service Updater&lt;/h3&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://www.ft.com/__origami/service/build/&quot;&gt;Origami Build Service&lt;/a&gt; helps teams include &lt;a href=&quot;https://registry.origami.ft.com/components&quot;&gt;components&lt;/a&gt; in projects quickly, without having to worry about setting up potentially complicated build steps. However it can be tricky to know when a Build Service request is out of date, and including old versions of components which could be upgraded. Now the Build Service has a &lt;a href=&quot;https://www.ft.com/__origami/service/build/url-updater&quot;&gt;URL updater page&lt;/a&gt; which can check a Build Service URL and let you know which of your components are out of date.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2021-03-02-newsletter/build-service-updater.png?quality=highest&amp;amp;source=origami&quot; alt=&quot;The Build Service updater. For a given Build Service URL it displays a table of requested components which shows the requested version, the latest version, whether it is out of date or not, and where to find migration guides to upgrade as required.&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;special-thanks&quot;&gt;Special Thanks&lt;/h2&gt;
-
-&lt;p&gt;Huge thanks to Erin Ferguson for helping us write &lt;a href=&quot;/blog/2021/01/18/deprecating-bower-and-origami-via-npm/&quot;&gt;last month’s announcement&lt;/a&gt; and for organising training for the team, we can’t wait and look forward to sharing what we learn!&lt;/p&gt;
-
-&lt;h2 id=&quot;broader-update&quot;&gt;Broader Update&lt;/h2&gt;
-
-&lt;p&gt;A digest of other things that have happened since our last issue:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;DEPRECATED: &lt;a href=&quot;https://github.com/Financial-Times/o-assets&quot;&gt;o-assets&lt;/a&gt; has been deprecated since it is not used widely and will no longer work for npm only components. There is a new &lt;a href=&quot;https://github.com/Financial-Times/origami/pull/102&quot;&gt;proposal for how we could build with unique component assets&lt;/a&gt; in the future.&lt;/li&gt;
-  &lt;li&gt;MAJOR: &lt;a href=&quot;https://github.com/Financial-Times/o-test-component&quot;&gt;o-test-component&lt;/a&gt; has been updated to follow V2 of the Origami Specification, which drops support for Bower. It will support the testing of Origami tools and services as we migrate.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-footer-services&quot;&gt;o-footer-services&lt;/a&gt; adds “a Nikkei company” brand strip, similar to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-footer&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-icons&quot;&gt;o-icons&lt;/a&gt; adds a label, label outline, and restore icon.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-share&quot;&gt;o-share&lt;/a&gt; adds a new “corporate” share icon to support an experimental enterprise feature, super-gifting.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-tracking&quot;&gt;o-tracking&lt;/a&gt; improves efficiency when multiple calls are made to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;oTracking.click.init&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/origami-build-service&quot;&gt;origami-build-service&lt;/a&gt; has had some significant updates. First, we identified and fixed a &lt;a href=&quot;https://owasp.org/www-community/attacks/xss/&quot;&gt;cross site scripting&lt;/a&gt; vulnerability in the demos endpoint — did you know &lt;a href=&quot;https://git-scm.com/book/id/v2/GitHub-Maintaining-a-Project&quot;&gt;Github adds references for forked pull requests to your repository&lt;/a&gt;? Second, we have an experimental V3 api (a work in progress) which will support &lt;a href=&quot;/blog/2021/01/18/deprecating-bower-and-origami-via-npm/&quot;&gt;npm only Origami components&lt;/a&gt; and drop features we no longer require. Third, we added the URL Updater discussed above.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/origami-image-service&quot;&gt;origami-image-service&lt;/a&gt; adds a new placeholder feature, as discussed above.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/origami-labels&quot;&gt;origami-labels&lt;/a&gt; adds support for beta releases (when working on an Origami component you can now add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;release: beta&lt;/code&gt; github label to release a beta version on merge).&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/origami-specialist-title-logos&quot;&gt;origami-specialist-title-logos&lt;/a&gt; adds FT Forums logos.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/polyfill-library&quot;&gt;Polyfill Service&lt;/a&gt; has seen a number of improvements since our last update.
-    &lt;ul&gt;
-      &lt;li&gt;Improvements in CI: Dramatically reduced the time it takes to complete by only testing the polyfills which have changed. Updated to test against the latest versions of all browsers.&lt;/li&gt;
-      &lt;li&gt;New polyfills: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Element.prototype.getAttributeNames&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HTMLSelectElement.prototype.selectedOptions&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URL.prototype.toJSON&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-colors&quot;&gt;o-colors&lt;/a&gt; ensures saturation and luminance values are percentages to stop Sass deprecation warnings from being emitted.&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-cookie-message&quot;&gt;o-cookie-message&lt;/a&gt; prevents &lt;a href=&quot;https://web.dev/bfcache/&quot;&gt;back/forward cache&lt;/a&gt; from showing the cookie message after a reader has already accepted or rejected cookies (credit to Oliver, nice!)&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-grid&quot;&gt;o-grid&lt;/a&gt; is less annoying. Did this Sass warning get you down?  “WARNING: The ‘snappy’ grid mode is deprecated and will be removed in the next major version of o-grid…” We’ve removed the warning since the snappy grid is still used on the stream and article pages of ft.com, with no immediate plans to redesign them for the default, fluid grid which new projects use. Warnings should be useful, not frustrating.&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-layout&quot;&gt;o-layout&lt;/a&gt; fixes overflow on viewports smaller than the max container width, where content may wrap or scroll instead.&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-topper&quot;&gt;o-topper&lt;/a&gt; has received a number of visual improvements and bug fixes. Thanks Keran (😭🇨🇦), Gus, and Nick for your work on that.&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-video&quot;&gt;o-video&lt;/a&gt; fixes a bug which caused video playback to hang when ads failed to load (thanks again to Gus for that one).&lt;/li&gt;
-  &lt;li&gt;To support the switch to npm more Origami tools and services have been updated or received major/beta releases, including:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/create-origami-component&quot;&gt;create-origami-component&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami-build-tools&quot;&gt;origami-build-tools&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami-bundle-size-cli&quot;&gt;origami-bundle-size-cli&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami-ci-tools&quot;&gt;origami-ci-tools&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami-percy&quot;&gt;origami-percy&lt;/a&gt;, Origami’s visual regression tester&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami-version&quot;&gt;origami-version&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/remark-preset-lint-origami-component&quot;&gt;remark-preset-lint-origami-component&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Lee Moody</name></author><category term="Newsletter" /><summary type="html">TL;DR: This issue is a big one. It covers our progress toward the recently announced npm migration; a new Origami Image Service placeholder image feature; a new Origami Build Service feature to help teams keep components up to date; and a whole bunch more.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Jake Champion</name></author><category term="Newsletter" /><summary type="html">TL;DR: Updated Origami workshops. Work has begun to migrate Origami to npm. Reminder, we deprecate FT’s Bower Registry in July. 2021 and plan to decomission in July 2022.</summary></entry></feed>

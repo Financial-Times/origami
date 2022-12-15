@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Updated Focus Styles</title>
+	<meta name="description" content="We've released new focus styles to improve the accessibility of FT Group products which use Origami." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/blog/2022/12/14/focus-styles/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-normalise@^3.0.3,o-typography@^7.0.3,o-layout@^5.0.6,o-header-services@^5.1.0,o-footer-services@^4.0.3,o-syntax-highlight@^4.0.1,o-message@^5.1.0,o-table@^9.0.3,o-autoinit@^3.0.1&brand=internal&system_code=origami" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v3/bundles/js?components=o-normalise@^3.1.0,o-typography@^7.1.0,o-layout@^5.1.0,o-header-services@^5.1.0,o-footer-services@^4.1.0,o-syntax-highlight@^4.1.0,o-message@^5.1.0,o-table@^9.1.0,o-autoinit@^3.0.1&system_code=origami'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/documentation/" >
+					Documentation
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/storybook/" >
+					Storybook
+				</li>
+			</a>
+		</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+</header>
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="updated-focus-styles">Updated Focus Styles</h1>
+
+<p>
+	Posted on <time datetime="2022-12-14T00:00:00Z">14 December 2022</time>
+	by Lee Moody.
+	
+</p>
+
+<p><abbr title="Too long; didn't read">
+<strong>
+TL;DR:
+</strong>
+</abbr> We’ve released new focus styles to improve the accessibility of FT Group products which use Origami. These changes will roll out gradually as teams <a href="#upgrade-your-project">pull in the latest Origami component releases</a>. We’re treating this as a minor release and there should be no code changes required to upgrade. However, this is a broad, global change and we encourage teams to <a href="#upgrade-your-project">test focus states</a> within their projects – the Origami team are here to help if you have any questions, or spot any issues.</p>
+
+<h2 id="what-are-focus-styles">What are focus styles?</h2>
+
+<p>People browse the web in a number of different ways depending on their preference and access needs. For example some people do not use a mouse but instead use only their keyboard, or other input devices. Focus styles allow people to know which element they’re on when moving around a page. <a href="https://www.sarasoueidan.com/blog/focus-indicators/#what-exactly-is-a-focus-indicator%3F">Sara Soueidan’s guide to focus indicators</a> explains this well and includes a screen recording of focus states in action if you would like to learn more.</p>
+
+<h2 id="why-are-focus-styles-being-updated">Why are focus styles being updated?</h2>
+
+<p>In a number of places our focus state styles lack contrast and are difficult to see; particularly when the focused element has a dark background colour, or is on a dark page background. This makes FT Group products difficult to use in places and is a particular barrier to users with certain disabilities.</p>
+
+<p>This issue was highlighted through an audit provided by the <a href="https://digitalaccessibilitycentre.org/">Digital Accessibility Centre</a> and must be fixed in order for ft.com to be accredited accessible as outlined in <a href="https://www.ft.com/accessibility">the FT’s accessibility commitments</a> – however both user facing products as well as internal tools and documentation are affected.</p>
+
+<h2 id="what-do-the-new-styles-look-like">What do the new styles look like?</h2>
+
+<p>Buttons and inputs will now display a new 2 band outline when focused. One band is near-black (<a href="https://registry.origami.ft.com/components/o-colors">black-70</a>) and the other white, ensuring that at least one band provides sufficient contrast. Focus state styles for other elements, including links, will remain unchanged as the new approach breaks down when applied to multi-line text, as shown below.</p>
+
+<figure>
+    <img alt="Checkboxes from the o-forms component. One has a focus state but it's not very obvious which." src="/assets/images/2022-12-14-focus-styles/focus-checkbox-before.png" />
+    <img alt="Checkboxes from the o-forms component with the new double border focus styles. The second, focused checkbox is distinctly highlighted using a 2 band outline of near-black and white." src="/assets/images/2022-12-14-focus-styles/focus-checkbox-after.png" />
+    <figcaption>Checkboxes from the o-forms component, before / after. In the before screenshot it's not clear that the second checkbox is the one with focus (note the small outline).</figcaption>
+</figure>
+
+<figure>
+    <img alt="Primary buttons from the o-buttons component, with the inverse theme applied for use on a dark background. When the second button is focused it looks a lot like the 4th button shown, which is disabled and not interactive." src="/assets/images/2022-12-14-focus-styles/focus-button-inverse-before.png" />
+    <img alt="Primary buttons from the o-buttons component, with the inverse theme applied for use on a dark background. The second, focused button is more visibility highlighted using a 2 band outline of white and near-black – the bands are inverse to account for a light element on a dark background." src="/assets/images/2022-12-14-focus-styles/focus-button-inverse-after.png" />
+    <figcaption>Primary buttons from the o-buttons component with the "inverse" theme applied, for use on a dark background, before / after. In the before screenshot the second button is focused but it looks a lot like the 4th button shown, which is disabled and not interactive. This is somewhat improved with the new double-band focus style for buttons.</figcaption>
+</figure>
+
+<figure>
+    <img alt="The o-cookie-message component with the accept button focused. Again it's not super clear which element is focused." src="/assets/images/2022-12-14-focus-styles/focus-cookie-message-before.png" />
+    <img alt="The o-cookie-message component with the accept button focused. A new 2 band focus outline of near-black and white makes it easier to see that the accept button is focused." src="/assets/images/2022-12-14-focus-styles/focus-cookie-message-after.png" />
+    <figcaption>The o-cookie-message component, before/after. The "accept cookies" button has focus. In the first image the focus outline is hard to see against the colour of the button. It is much more apparent which element has focus in the second image, which shows the new focus state styles.</figcaption>
+</figure>
+
+<figure>
+    <img alt="" src="/assets/images/2022-12-14-focus-styles/focus-teaser-no-good.png" />
+    <img alt="" src="/assets/images/2022-12-14-focus-styles/focus-teaser-no-change.png" />
+    <figcaption>The o-teaser component, experiment/after. We chose to keep the existing style by default including for links. Links do not suffer the same contrast issues highlighted above and the new double ring outline breaks down when used on multi-line text elements. Note how the first image shows how the new focus style would have obscured multi-line text.</figcaption>
+</figure>
+
+<h2 id="upgrade-your-project">Upgrade Your Project</h2>
+
+<p>We’re treating this as a minor release and there should be no code changes required to upgrade. To pull the changes into your project make sure you’re using the latest version of Origami components.</p>
+
+<ul>
+  <li>npm: If your project uses npm to install Origami components via a <a href="https://semver.org/">semver range, such as a caret (^)</a>, run <code class="language-plaintext highlighter-rouge">npm update</code> to update your <code class="language-plaintext highlighter-rouge">package-lock.json</code>. If you request a specific version of a component in your <code class="language-plaintext highlighter-rouge">package.json</code>, rather than a semver range, or are a major release behind, you can run <code class="language-plaintext highlighter-rouge">npm outdated</code> to identify out of date packages which need to be updated – including Origami components.</li>
+  <li>Origami Build Service: If you include components using an Origami Build Service url, use the <a href="https://www.ft.com/__origami/service/build/url-updater">URL Updater</a> to check it’s up to date.</li>
+</ul>
+
+<p>Since this is a broad, global change we recommend that you also test focus states within your project. Do this by browsing your project using the tab key on your keyboard (<a href="https://www.a11yproject.com/posts/macos-browser-keyboard-navigation/">Browser keyboard navigation in macOS</a>) or by browsing with a screen-reader such as <a href="https://webaim.org/articles/voiceover/">VoiceOver on MacOS</a>.</p>
+
+<p>Finally, Origami is no longer enhanced by the <a href="https://github.com/WICG/focus-visible">focus-visible polyfill</a>. If using, aim to remove the focus-visible polyfill from your project as the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible CSS selector</a> now has wide browser support.</p>
+
+<p>If you need any help or find any issue the Origami team are here to help, contact us in the <a href="https://financialtimes.slack.com/messages/origami-support/">#origami-support Slack channel</a> or email <a href="mailto:origami-support@ft.com">origami-support@ft.com</a>. 😊</p>
+
+<h2 id="technical-notes">Technical Notes</h2>
+
+<p>Hello, you’re still here!? Lovely. For the curious, here’re a couple of technical notes:</p>
+
+<ol>
+  <li>
+    <p>The double outline of the new focus style is achieved using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow">box-shadow CSS property</a>, rather than the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/outline">outline CSS property</a>.</p>
+  </li>
+  <li>
+    <p>We no longer depend on the <a href="https://github.com/WICG/focus-visible">focus-visible</a> polyfill. The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible CSS selector</a> now has wide browser support. We provide a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus">:focus</a> fallback for the minority of browsers in the FT’s browser support policy which do not support the <code class="language-plaintext highlighter-rouge">:focus-visible</code> selector. We’ll let the Customer Products Platforms team know that can be dropped from <code class="language-plaintext highlighter-rouge">dotcom-page-kit</code> to simplify our tech and keep ft.com performant for readers 🙌</p>
+  </li>
+  <li>
+    <p>Sadly (for me) the FT supports older versions of IOS which does not understand the <a href="https://css-tricks.com/supports-selector/">@supports selector</a> syntax, so we apply a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus">:focus</a> style by default and remove it later if <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible</a> is supported (rather than applying <code class="language-plaintext highlighter-rouge">:focus</code> if <code class="language-plaintext highlighter-rouge">:focus-visible</code> is not supported). This is a bit more complicated and introduces a little more CSS, which we always aim to reduce for performance reasons.</p>
+  </li>
+  <li>
+    <p>
+    Focus styles are applied by default with the <a href="https://registry.origami.ft.com/components/o-normalise">o-normalise component</a>, but if you would like to manually apply a <code class="language-plaintext highlighter-rouge">:focus-visible</code> style with <code class="language-plaintext highlighter-rouge">:focus</code> fallback to a component checkout the new <a href="https://registry.origami.ft.com/components/o-normalise/sassdoc">o-normalise Sass mixins</a>. E.g.
+
+    <div data-o-component="o-syntax-highlight">
+
+  <pre tabindex="0"><code class="o-syntax-highlight--scss">.my-element {
+    // Style `.my-element:focus-visible` with
+    // `.my-element:focus` fallback.
+    @include oNormaliseFocusApply() {
+            // Use the &quot;inverse&quot; focus ring,
+            // where the dark and light bands are switched.
+            @include oNormaliseFocusContentInverse();
+            // Make the colour hotpink when focus is applied,
+            // because I have a serious and unreasonable disregard
+            // for brand guidelines.
+            color: hotpink;
+    };
+}</code></pre>
+</div>
+</p>
+  </li>
+</ol>
+
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a href='https://github.com/Financial-Times/origami/edit/main/apps/website/_posts/2022-12-14-focus-styles.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="https://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="https://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="https://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="https://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+			<a href="https://help.ft.com/legal-privacy/copyright-policy/">Slavery Statement & Policies</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2022.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>
