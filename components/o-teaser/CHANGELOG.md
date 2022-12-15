@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.2.3](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.2...o-teaser-v6.2.3) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-teaser, update demos to show focus states ([c0b0454](https://www.github.com/Financial-Times/origami/commit/c0b045475dbac8a2b89a4b496d9785b06bc74ebf))
+
 ### [6.2.2](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.1...o-teaser-v6.2.2) (2022-01-13)
 
 
