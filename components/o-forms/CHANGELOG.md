@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.4.6](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.5...o-forms-v9.4.6) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-forms, update input focus style with a double ring ([a8a37d9](https://www.github.com/Financial-Times/origami/commit/a8a37d9e62af85672093780691b5d510c0d741a1))
+
 ### [9.4.5](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.4...o-forms-v9.4.5) (2022-12-15)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.7.2](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.7.1...o-buttons-v7.7.2) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-buttons, update focus style with double ring ([e2c7e02](https://www.github.com/Financial-Times/origami/commit/e2c7e02e2ca0b50420c942627814edba5ed41e14))
+
 ### [7.7.1](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.7.0...o-buttons-v7.7.1) (2022-08-17)
 
 

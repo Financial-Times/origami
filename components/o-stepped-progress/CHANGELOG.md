@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.0.4](https://www.github.com/Financial-Times/origami/compare/o-stepped-progress-v4.0.3...o-stepped-progress-v4.0.4) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-stepped-progress, update input focus style with a double ring ([6bc9d1d](https://www.github.com/Financial-Times/origami/commit/6bc9d1d2e72e56245770fab80feae8f5d41bbb46))
+
 ### [4.0.3](https://www.github.com/Financial-Times/origami/compare/o-stepped-progress-v4.0.2...o-stepped-progress-v4.0.3) (2022-04-21)
 
 

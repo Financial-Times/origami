@@ -1,4 +1,11 @@
 # Changelog
+### [10.1.1](https://www.github.com/Financial-Times/origami/compare/o-header-v10.1.0...o-header-v10.1.1) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-header, update input focus style with a double ring ([649a9e8](https://www.github.com/Financial-Times/origami/commit/649a9e82ae21650ac1129cf07a211f6883cfd1a2))
+
 ## [10.1.0](https://www.github.com/Financial-Times/origami/compare/o-header-v10.0.1...o-header-v10.1.0) (2022-08-17)
 
 
