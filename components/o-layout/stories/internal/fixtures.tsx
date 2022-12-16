@@ -1,22 +1,4 @@
 import {ArticleListProps} from '../../src/tsx/layout';
-export function DemoHeader() {
-	return (
-		<header className="o-header-services" data-o-component="o-header-services">
-			<div className="o-header-services__top">
-				<div className="o-header-services__logo"></div>
-
-				<div className="o-header-services__title">
-					<span className="o-header-services__product-name">
-						<a href="/">Layout Demos</a>
-					</span>
-					<span className="o-header-services__product-tagline">
-						Documentation Layout
-					</span>
-				</div>
-			</div>
-		</header>
-	);
-}
 
 export const overviewActionElements = [
 	{
@@ -282,22 +264,6 @@ export const DemoHero = (
 );
 
 export const QueryLayout = {
-	header: (
-		<header className="o-header-services" data-o-component="o-header-services">
-			<div className="o-header-services__top">
-				<div className="o-header-services__logo"></div>
-
-				<div className="o-header-services__title">
-					<span className="o-header-services__product-name">
-						<a href="/">Layout Demos</a>
-					</span>
-					<span className="o-header-services__product-tagline">
-						Query Layout
-					</span>
-				</div>
-			</div>
-		</header>
-	),
 	queryHeading: (
 		<>
 			<h1 id="searchable-things">Searchable Things</h1>

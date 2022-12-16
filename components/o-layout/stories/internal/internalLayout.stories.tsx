@@ -1,56 +1,59 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {Layout, QueryLayout} from '../../src/tsx/layout';
-import {OverviewSections, ArticleList} from '../../src/tsx/landingPartials';
-import '../layout.scss';
-import javascript from '../../main.js';
-import Table from '@financial-times/o-table/main';
-import SyntaxHighlight from '@financial-times/o-syntax-highlight/main';
-import Tabs from '@financial-times/o-tabs/main';
-import HeaderServices from '@financial-times/o-header-services/main';
-import Forms from '@financial-times/o-forms/main';
-import {useEffect} from 'react';
+import withHtml from "origami-storybook-addon-html";
+import { withDesign } from "storybook-addon-designs";
+import { ComponentMeta, Story } from "@storybook/react";
 import {
-	DemoHeader,
+	DefaultLayout as Layout,
+	LandingLayout,
+	QueryLayout,
+} from "../../src/tsx/layout";
+import { HeaderWithTitleSection } from "@financial-times/o-header-services/stories/header-services.stories";
+import { OverviewSections, ArticleList } from "../../src/tsx/landingPartials";
+import "../layout.scss";
+import javascript from "../../main.js";
+import Table from "@financial-times/o-table/main";
+import SyntaxHighlight from "@financial-times/o-syntax-highlight/main";
+import Tabs from "@financial-times/o-tabs/main";
+import Forms from "@financial-times/o-forms/main";
+import { useEffect, ComponentProps } from "react";
+import {
 	DemoFooter,
 	overviewActionElements,
 	overviewElements,
 	articleList,
 	DemoHero,
 	QueryLayout as QueryLayoutData,
-} from './fixtures';
+} from "./fixtures";
+import { AdditionalSbProps } from "../layout.stories";
+
+type LandingStoryProps = ComponentProps<typeof LandingLayout> &
+	AdditionalSbProps;
+type QueryStoryProps = ComponentProps<typeof QueryLayout> & AdditionalSbProps;
 
 export default {
-	title: 'Components/o-layout',
+	title: "Components/o-layout",
 	component: Layout,
 	decorators: [withDesign, withHtml],
 	parameters: {},
-	args: {},
-	argTypes: {
-		layoutType: {
-			options: ['default', 'bleed', 'docs', 'landing', 'query'],
-		},
+	args: {
+		headerControls: HeaderWithTitleSection.args,
 	},
-};
+} as ComponentMeta<typeof Layout>;
 
-const LayoutStory = args => {
+const LandingLayoutStory: Story<LandingStoryProps> = args => {
 	useEffect(() => {
 		Table.init();
 		SyntaxHighlight.init();
 		Tabs.init();
-		HeaderServices.init();
 		Forms.init();
 		javascript.init();
 	});
-	return <Layout {...args} />;
+	args.header = <HeaderWithTitleSection {...args.headerControls} />;
+	return <LandingLayout {...args} />;
 };
 
-export const LandingLayoutWithHero: ComponentStory<typeof Layout> =
-	LayoutStory.bind({});
+export const LandingLayoutWithHero: Story<LandingStoryProps> =
+	LandingLayoutStory.bind({});
 LandingLayoutWithHero.args = {
-	layoutType: 'landing',
-	header: <DemoHeader />,
 	mainContent: (
 		<div data-o-component="o-syntax-highlight">
 			<h2>Some Information</h2>
@@ -79,25 +82,13 @@ LandingLayoutWithHero.args = {
 	},
 };
 
-LandingLayoutWithHero.argTypes = {
-	overviewSections: {
-		control: false,
-	},
-	displayArticleList: {
-		control: false,
-	},
-	sidebar: {
-		control: false,
-	},
-};
 
-export const LandingLayoutWithArticleList: ComponentStory<typeof Layout> =
-	LayoutStory.bind({});
+
+export const LandingLayoutWithArticleList: Story<LandingStoryProps> =
+	LandingLayoutStory.bind({});
 
 LandingLayoutWithArticleList.args = {
-	layoutType: 'landing',
 	displayArticleList: true,
-	header: <DemoHeader />,
 	mainContent: (
 		<div data-o-component="o-syntax-highlight">
 			<ArticleList articles={articleList} />
@@ -115,58 +106,21 @@ LandingLayoutWithArticleList.args = {
 	},
 };
 
-LandingLayoutWithArticleList.argTypes = {
-	overviewSections: {
-		table: {disable: true},
-	},
-	sidebar: {
-		table: {disable: true},
-	},
-};
 
-export const QueryLayoutDemo = args => {
+export const QueryLayoutDemo: Story<QueryStoryProps> = args => {
 	useEffect(() => {
 		Table.init();
 		SyntaxHighlight.init();
 		Tabs.init();
-		HeaderServices.init();
 		Forms.init();
 		javascript.init();
 	});
-
+	args.header = <HeaderWithTitleSection {...args.headerControls} />;
 	return <QueryLayout {...args} />;
 };
 
-QueryLayoutDemo.storyName = 'Query Layout';
+QueryLayoutDemo.storyName = "Query Layout";
 QueryLayoutDemo.args = {
 	...QueryLayoutData,
 	footer: <DemoFooter />,
-};
-
-QueryLayoutDemo.argTypes = {
-	layoutType: {
-		table: {
-			disable: true,
-		},
-	},
-	overviewSections: {
-		table: {
-			disable: true,
-		},
-	},
-	hero: {
-		table: {
-			disable: true,
-		},
-	},
-	sidebar: {
-		table: {
-			disable: true,
-		},
-	},
-	displayArticleList: {
-		table: {
-			disable: true,
-		},
-	},
 };

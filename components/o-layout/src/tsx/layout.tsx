@@ -1,4 +1,4 @@
-import {Hero} from './landingPartials';
+import { Hero } from "./landingPartials";
 type ChildrenType = JSX.Element | JSX.Element[];
 
 type SideBarProps = {
@@ -28,73 +28,6 @@ export type ArticleListProps = {
 	url: string;
 };
 
-type LayoutProps = {
-	layoutType: 'default' | 'bleed' | 'docs' | 'landing' | 'query';
-	header: ChildrenType;
-	mainContent: ChildrenType;
-	overviewSections: OverviewSectionsProps;
-	hero?: HeroProps;
-	sidebar?: SideBarProps;
-	footer: ChildrenType;
-	displayArticleList?: boolean;
-};
-
-export function Layout({
-	layoutType,
-	header,
-	mainContent,
-	hero,
-	sidebar,
-	footer,
-	displayArticleList,
-}: LayoutProps) {
-	const classNames =
-		layoutType === 'default' ? 'o-layout' : `o-layout o-layout--${layoutType}`;
-	const isSidebarVisible = layoutType === 'docs' || layoutType === 'query';
-	return (
-		<div
-			className={classNames}
-			data-o-component="o-layout"
-			data-o-layout-nav-heading-selector={sidebar?.customNavHeadingSelector}
-			data-o-layout-construct-nav={sidebar?.customNavigation && 'false'}>
-			<Header>{header}</Header>
-			{isSidebarVisible && <SideBar {...sidebar} />}
-			{layoutType === 'landing' && hero && (
-				<Hero {...hero}>{hero.heroContent}</Hero>
-			)}
-			<MainContent displayArticleList={displayArticleList}>
-				{mainContent}
-			</MainContent>
-			<Footer>{footer}</Footer>
-		</div>
-	);
-}
-
-function Header({children}: {children: ChildrenType}) {
-	return <div className="o-layout__header">{children}</div>;
-}
-
-function MainContent({
-	displayArticleList,
-	children,
-}: {
-	displayArticleList?: boolean;
-	children: ChildrenType;
-}) {
-	const classNames = displayArticleList
-		? 'o-layout__main'
-		: 'o-layout__main o-layout-typography';
-	return <div className={classNames}>{children}</div>;
-}
-
-function Footer({children}: {children: ChildrenType}) {
-	return <div className="o-layout__footer">{children}</div>;
-}
-
-function SideBar({customNavigation}: SideBarProps) {
-	return <div className="o-layout__sidebar">{customNavigation}</div>;
-}
-
 export type QueryLayoutProps = {
 	header: ChildrenType;
 	mainContent: ChildrenType;
@@ -104,6 +37,77 @@ export type QueryLayoutProps = {
 	asideSideBar?: ChildrenType;
 };
 
+export type DefaultLayoutProps = {
+	header: ChildrenType;
+	mainContent: ChildrenType;
+	footer: ChildrenType;
+	bleed?: boolean;
+};
+
+export function DefaultLayout({
+	bleed,
+	header,
+	mainContent,
+	footer,
+}: DefaultLayoutProps) {
+	const classNames = bleed ? "o-layout o-layout--bleed" : `o-layout`;
+	return (
+		<div className={classNames} data-o-component="o-layout">
+			<Header>{header}</Header>
+			<MainContent>{mainContent}</MainContent>
+			<Footer>{footer}</Footer>
+		</div>
+	);
+}
+
+export function BleedLayout({
+	header,
+	mainContent,
+	footer,
+}: DefaultLayoutProps) {
+	return (
+		<div className="o-layout o-layout--bleed" data-o-component="o-layout">
+			<Header>{header}</Header>
+			<MainContent>{mainContent}</MainContent>
+			<Footer>{footer}</Footer>
+		</div>
+	);
+}
+
+export function DocsLayout({ header, mainContent, sidebar, footer }) {
+	return (
+		<div
+			className="o-layout o-layout--docs"
+			data-o-component="o-layout"
+			data-o-layout-nav-heading-selector={sidebar?.customNavHeadingSelector}
+			data-o-layout-construct-nav={sidebar?.customNavigation && "false"}
+		>
+			<Header>{header}</Header>
+			<SideBar {...sidebar} />
+			<MainContent>{mainContent}</MainContent>
+			<Footer>{footer}</Footer>
+		</div>
+	);
+}
+
+export function LandingLayout({
+	header,
+	mainContent,
+	hero,
+	footer,
+	displayArticleList,
+}) {
+	return (
+		<div className="o-layout o-layout--landing" data-o-component="o-layout">
+			<Header>{header}</Header>
+			{hero && <Hero {...hero}>{hero.heroContent}</Hero>}
+			<MainContent displayArticleList={displayArticleList}>
+				{mainContent}
+			</MainContent>
+			<Footer>{footer}</Footer>
+		</div>
+	);
+}
 export function QueryLayout({
 	header,
 	queryHeading,
@@ -116,7 +120,8 @@ export function QueryLayout({
 		<div
 			className="o-layout o-layout--query"
 			data-o-component="o-layout"
-			data-o-layout-construct-nav={querySideBar && 'true'}>
+			data-o-layout-construct-nav={querySideBar && "true"}
+		>
 			<Header>{header}</Header>
 			<QueryHeading>{queryHeading}</QueryHeading>
 			<div className="o-layout__query-sidebar o-layout-typography">
@@ -131,7 +136,32 @@ export function QueryLayout({
 	);
 }
 
-function QueryHeading({children}: {children: ChildrenType}) {
+function Header({ children }: { children: ChildrenType }) {
+	return <div className="o-layout__header">{children}</div>;
+}
+
+function MainContent({
+	displayArticleList,
+	children,
+}: {
+	displayArticleList?: boolean;
+	children: ChildrenType;
+}) {
+	const classNames = displayArticleList
+		? "o-layout__main"
+		: "o-layout__main o-layout-typography";
+	return <div className={classNames}>{children}</div>;
+}
+
+function Footer({ children }: { children: ChildrenType }) {
+	return <div className="o-layout__footer">{children}</div>;
+}
+
+function SideBar({ customNavigation }: SideBarProps) {
+	return <div className="o-layout__sidebar">{customNavigation}</div>;
+}
+
+function QueryHeading({ children }: { children: ChildrenType }) {
 	return (
 		<div className="o-layout__heading o-layout-typography">{children}</div>
 	);
