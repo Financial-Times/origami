@@ -28,21 +28,26 @@ export type ArticleListProps = {
 	url: string;
 };
 
-export type QueryLayoutProps = {
+type SharedLayoutProps = {
 	header: ChildrenType;
 	mainContent: ChildrenType;
-	querySideBar: ChildrenType;
 	footer: ChildrenType;
-	queryHeading: ChildrenType;
-	asideSideBar?: ChildrenType;
 };
-
-export type DefaultLayoutProps = {
-	header: ChildrenType;
-	mainContent: ChildrenType;
-	footer: ChildrenType;
+interface DefaultLayoutProps extends SharedLayoutProps {
 	bleed?: boolean;
 };
+interface DocsLayoutProps extends SharedLayoutProps {
+	sidebar: SideBarProps;
+}
+interface LandingLayoutProps extends SharedLayoutProps {
+	hero?: HeroProps;
+	displayArticleList?: boolean;
+}
+interface QueryLayoutProps extends SharedLayoutProps {
+	querySideBar: ChildrenType;
+	queryHeading: ChildrenType;
+	asideSideBar?: ChildrenType;
+}
 
 export function DefaultLayout({
 	bleed,
@@ -60,21 +65,7 @@ export function DefaultLayout({
 	);
 }
 
-export function BleedLayout({
-	header,
-	mainContent,
-	footer,
-}: DefaultLayoutProps) {
-	return (
-		<div className="o-layout o-layout--bleed" data-o-component="o-layout">
-			<Header>{header}</Header>
-			<MainContent>{mainContent}</MainContent>
-			<Footer>{footer}</Footer>
-		</div>
-	);
-}
-
-export function DocsLayout({ header, mainContent, sidebar, footer }) {
+export function DocsLayout({ header, mainContent, sidebar, footer }: DocsLayoutProps) {
 	return (
 		<div
 			className="o-layout o-layout--docs"
@@ -96,7 +87,7 @@ export function LandingLayout({
 	hero,
 	footer,
 	displayArticleList,
-}) {
+}: LandingLayoutProps) {
 	return (
 		<div className="o-layout o-layout--landing" data-o-component="o-layout">
 			<Header>{header}</Header>
