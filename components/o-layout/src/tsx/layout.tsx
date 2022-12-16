@@ -32,7 +32,7 @@ interface DefaultLayoutProps extends SharedLayoutProps {
 	bleed?: boolean;
 }
 interface DocsLayoutProps extends SharedLayoutProps {
-	sidebar?: boolean;
+	constructNav?: boolean;
 	customNavHeadingSelector?: string;
 	children?: ChildrenType;
 }
@@ -66,7 +66,7 @@ export function DocsLayout({
 	header,
 	mainContent,
 	footer,
-	sidebar = true,
+	constructNav = true,
 	customNavHeadingSelector,
 	children,
 }: DocsLayoutProps) {
@@ -85,7 +85,7 @@ export function DocsLayout({
 			{...dataAttributes}
 		>
 			<Header>{header}</Header>
-			{sidebar && <SideBar>{children}</SideBar>}
+			{constructNav && <SideBar>{children}</SideBar>}
 			<MainContent>{mainContent}</MainContent>
 			<Footer>{footer}</Footer>
 		</div>

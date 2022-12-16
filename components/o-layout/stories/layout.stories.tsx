@@ -72,6 +72,6 @@ export const DocumentationLayout: Story<DocsLayoutStoryProps> = args => {
 	);
 };
 DocumentationLayout.args = {
-	sidebar: true,
+	constructNav: true,
 	customNavHeadingSelector: "",
 };
