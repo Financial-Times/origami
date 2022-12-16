@@ -1,11 +1,6 @@
 import { Hero } from "./landingPartials";
 type ChildrenType = JSX.Element | JSX.Element[];
 
-type SideBarProps = {
-	customNavHeadingSelector?: string;
-	customNavigation?: JSX.Element | JSX.Element[];
-};
-
 type OverviewSectionItemProps = {
 	element: ChildrenType;
 	actionElement?: ChildrenType;
@@ -35,9 +30,11 @@ type SharedLayoutProps = {
 };
 interface DefaultLayoutProps extends SharedLayoutProps {
 	bleed?: boolean;
-};
+}
 interface DocsLayoutProps extends SharedLayoutProps {
-	sidebar: SideBarProps;
+	sidebar?: boolean;
+	customNavHeadingSelector?: string;
+	children?: ChildrenType;
 }
 interface LandingLayoutProps extends SharedLayoutProps {
 	hero?: HeroProps;
@@ -65,16 +62,30 @@ export function DefaultLayout({
 	);
 }
 
-export function DocsLayout({ header, mainContent, sidebar, footer }: DocsLayoutProps) {
+export function DocsLayout({
+	header,
+	mainContent,
+	footer,
+	sidebar = true,
+	customNavHeadingSelector,
+	children,
+}: DocsLayoutProps) {
+	const dataAttributes = {};
+	if (customNavHeadingSelector) {
+		dataAttributes["data-o-layout-nav-heading-selector"] =
+			customNavHeadingSelector;
+	}
+	if (children) {
+		dataAttributes["data-o-layout-construct-nav"] = "false";
+	}
 	return (
 		<div
 			className="o-layout o-layout--docs"
 			data-o-component="o-layout"
-			data-o-layout-nav-heading-selector={sidebar?.customNavHeadingSelector}
-			data-o-layout-construct-nav={sidebar?.customNavigation && "false"}
+			{...dataAttributes}
 		>
 			<Header>{header}</Header>
-			<SideBar {...sidebar} />
+			{sidebar && <SideBar>{children}</SideBar>}
 			<MainContent>{mainContent}</MainContent>
 			<Footer>{footer}</Footer>
 		</div>
@@ -148,8 +159,12 @@ function Footer({ children }: { children: ChildrenType }) {
 	return <div className="o-layout__footer">{children}</div>;
 }
 
-function SideBar({ customNavigation }: SideBarProps) {
-	return <div className="o-layout__sidebar">{customNavigation}</div>;
+function SideBar(props) {
+	return (
+		<div className="o-layout__sidebar">
+			{props.children && <nav className="o-layout__navigation">{props.children}</nav>}
+		</div>
+	);
 }
 
 function QueryHeading({ children }: { children: ChildrenType }) {
