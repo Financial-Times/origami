@@ -36,7 +36,7 @@
     "@financial-times/o-typography": "^7.2.0"
   },
   "dependencies": {
-    "@financial-times/n-map-content-to-topper": "^2.2.2"
+    "@financial-times/n-map-content-to-topper": "^3.2.0"
   },
   "engines": {
     "npm": "^7 || ^8"
