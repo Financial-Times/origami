@@ -67,7 +67,7 @@ These themes affect the layout and visual style of all elements. See the [demos]
 .o-topper--full-bleed-offset
 .o-topper--split-text-left
 .o-topper--split-text-center
-.o-topper--deep-landscape-text-left
+.o-topper--deep-landscape
 ```
 
 ### Colors
