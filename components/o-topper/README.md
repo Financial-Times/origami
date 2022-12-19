@@ -115,7 +115,7 @@ To include o-topper styles granularly specify which elements, themes, and colour
 		'package-special-report',
 		'right-rail',
 		'centered',
-		'deep-landscape-text-left',
+		'deep-landscape',
 	),
 	'elements': (
 		'content', // .o-topper__content
