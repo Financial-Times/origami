@@ -82,8 +82,6 @@ LandingLayoutWithHero.args = {
 	},
 };
 
-
-
 export const LandingLayoutWithArticleList: Story<LandingStoryProps> =
 	LandingLayoutStory.bind({});
 
@@ -106,15 +104,18 @@ LandingLayoutWithArticleList.args = {
 	},
 };
 
-
 export const QueryLayoutDemo: Story<QueryStoryProps> = args => {
 	useEffect(() => {
 		Table.init();
 		SyntaxHighlight.init();
 		Tabs.init();
 		Forms.init();
-		javascript.init();
-	});
+		let layouts = javascript.init();
+		return function cleanup() {
+			layouts = Array.isArray(layouts) ? layouts : [layouts];
+			layouts.forEach(layout => layout.destroy());
+		};
+	}, [args.constructNav]);
 	args.header = <HeaderWithTitleSection {...args.headerControls} />;
 	return <QueryLayout {...args} />;
 };
@@ -122,5 +123,6 @@ export const QueryLayoutDemo: Story<QueryStoryProps> = args => {
 QueryLayoutDemo.storyName = "Query Layout";
 QueryLayoutDemo.args = {
 	...QueryLayoutData,
+	constructNav: false, // toggling this on and off will not cause the constructed nav to dismount from dom.
 	footer: <DemoFooter />,
 };

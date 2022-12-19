@@ -56,7 +56,11 @@ export const DocumentationLayout: Story<DocsLayoutStoryProps> = args => {
 		SyntaxHighlight.init();
 		Tabs.init();
 		Forms.init();
-		javascript.init();
+		let layouts = javascript.init();
+		return function cleanup() {
+			layouts = Array.isArray(layouts) ? layouts : [layouts];
+			layouts.forEach(layout => layout.destroy());
+		};
 	});
 	args.header = <HeaderWithTitleSection {...args.headerControls} />;
 	return (

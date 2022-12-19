@@ -41,6 +41,7 @@ interface LandingLayoutProps extends SharedLayoutProps {
 	displayArticleList?: boolean;
 }
 interface QueryLayoutProps extends SharedLayoutProps {
+	constructNav?: boolean;
 	querySideBar: ChildrenType;
 	queryHeading: ChildrenType;
 	asideSideBar?: ChildrenType;
@@ -117,12 +118,17 @@ export function QueryLayout({
 	mainContent,
 	asideSideBar,
 	footer,
+	constructNav = false,
 }: QueryLayoutProps) {
+	const dataAttributes = {};
+	if (constructNav) {
+		dataAttributes["data-o-layout-construct-nav"] = "true";
+	}
 	return (
 		<div
 			className="o-layout o-layout--query"
 			data-o-component="o-layout"
-			data-o-layout-construct-nav={querySideBar && "true"}
+			{...dataAttributes}
 		>
 			<Header>{header}</Header>
 			<QueryHeading>{queryHeading}</QueryHeading>
@@ -159,10 +165,10 @@ function Footer({ children }: { children: ChildrenType }) {
 	return <div className="o-layout__footer">{children}</div>;
 }
 
-function SideBar(props) {
+function SideBar({ children }: { children: ChildrenType }) {
 	return (
 		<div className="o-layout__sidebar">
-			{props.children && <nav className="o-layout__navigation">{props.children}</nav>}
+			{children && <nav className="o-layout__navigation">{children}</nav>}
 		</div>
 	);
 }
