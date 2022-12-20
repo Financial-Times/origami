@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.6.3](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.2...o-topper-v5.6.3) (2022-12-20)
+
+
+### Bug Fixes
+
+* update n-map-content-to-topper to 3.2.0 ([a1c6cb3](https://www.github.com/Financial-Times/origami/commit/a1c6cb36a7a6bb5b4a8ba96ab45b68f6f800dd59))
+
 ### [5.6.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.1...o-topper-v5.6.2) (2022-12-14)
 
 
