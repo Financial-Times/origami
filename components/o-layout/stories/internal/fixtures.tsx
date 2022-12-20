@@ -2,7 +2,7 @@ import { ArticleListProps } from "../../src/tsx/layout";
 
 export const overviewActionElements = [
 	{
-		element: (
+		content: (
 			<>
 				<h3>Here&apos;s A Thing</h3>
 				<p>
@@ -28,7 +28,7 @@ export const overviewActionElements = [
 		),
 	},
 	{
-		element: (
+		content: (
 			<>
 				<h3>And Another</h3>
 				<p>
@@ -53,7 +53,7 @@ export const overviewActionElements = [
 		),
 	},
 	{
-		element: (
+		content: (
 			<>
 				<h3>And More Choices</h3>
 				<p>
@@ -78,7 +78,7 @@ export const overviewActionElements = [
 		),
 	},
 	{
-		element: (
+		content: (
 			<>
 				<h3>What To Do</h3>
 				<p>
@@ -105,7 +105,7 @@ export const overviewActionElements = [
 ];
 export const overviewElements = [
 	{
-		element: (
+		content: (
 			<>
 				<h3>Great For This</h3>
 				<p>
@@ -123,7 +123,7 @@ export const overviewElements = [
 		),
 	},
 	{
-		element: (
+		content: (
 			<>
 				<h3>Good For That</h3>
 				<p>
@@ -140,7 +140,7 @@ export const overviewElements = [
 		),
 	},
 	{
-		element: (
+		content: (
 			<>
 				<h3>And More</h3>
 				<p>

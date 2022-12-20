@@ -2,13 +2,12 @@ import { Hero } from "./landingPartials";
 type ChildrenType = JSX.Element | JSX.Element[];
 
 type OverviewSectionItemProps = {
-	element: ChildrenType;
+	content: ChildrenType;
 	actionElement?: ChildrenType;
 };
 
 export type OverviewSectionsProps = {
 	sections: OverviewSectionItemProps[];
-	hasAction?: boolean;
 	consistentColumns?: boolean;
 };
 

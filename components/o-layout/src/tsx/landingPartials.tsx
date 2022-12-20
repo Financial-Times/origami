@@ -11,7 +11,7 @@ export function OverviewSections({
 	consistentColumns,
 }: OverviewSectionsProps) {
 	const classNames = ["o-layout__overview"];
-	const hasAction = sections.find(section => section.actionElement)
+	const hasAction = sections.find(section => section.actionElement);
 	hasAction && classNames.push("o-layout__overview--actions");
 	consistentColumns &&
 		classNames.push("o-layout__overview--consistent-columns");
@@ -20,7 +20,7 @@ export function OverviewSections({
 			{sections.map((el, i) => {
 				return (
 					<div className="o-layout-item" key={i}>
-						<div className="o-layout-item__content">{el.element}</div>
+						<div className="o-layout-item__content">{el.content}</div>
 						{el?.actionElement && (
 							<div className="o-layout-item__footer">{el.actionElement}</div>
 						)}
