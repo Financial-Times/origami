@@ -91,9 +91,6 @@
 
 	.o-footer__matrix-title,
 	.o-footer__matrix-link__copy {
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
 		display: block;
 	}
 
@@ -168,8 +165,11 @@
 	}
 
 	.o-footer__matrix-link--more {
-		display: flex;
-
+		white-space: nowrap;
+		> .o-footer__matrix-link__copy {
+			display: inline;
+			white-space: normal;
+		}
 		&:after {
 			@include oIconsContent(
 				$icon-name: 'arrow-right',
@@ -178,7 +178,10 @@
 				$include-base-styles: true
 			);
 			content: '';
-			align-self: center;
+			// Undo in-built icon whitespace.
+			position: relative;
+			margin: calc(#{$_o-footer-icon-size}px / -4);
+			vertical-align: baseline;
 		}
 	}
 }
