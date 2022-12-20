@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@financial-times/o-fonts": "^5",
-    "@financial-times/o-normalise": "^3"
+    "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
     "npm": "^7 || ^8"
