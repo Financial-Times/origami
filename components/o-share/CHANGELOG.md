@@ -1,5 +1,12 @@
 # Changelog
 
+### [8.3.1](https://www.github.com/Financial-Times/origami/compare/o-share-v8.3.0...o-share-v8.3.1) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-share, update input focus style with a double ring ([ae600b6](https://www.github.com/Financial-Times/origami/commit/ae600b6fa3a06d0edc8d3c565e41ef4737c60aa2))
+
 ## [8.3.0](https://www.github.com/Financial-Times/origami/compare/o-share-v8.2.2...o-share-v8.3.0) (2022-06-21)
 
 

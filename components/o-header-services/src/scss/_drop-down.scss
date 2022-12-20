@@ -25,6 +25,11 @@
 				}
 			}
 		}
+
+		&:focus {
+			position: relative;
+			z-index: 1;
+		}
 	}
 
 	// Current drop down button.

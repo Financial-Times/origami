@@ -9,40 +9,35 @@ $_ftConceptButtonThemes: (
 		text: oColorsByName('white'),
 		highlight: oColorsByUsecase('link-hover', 'text'),
 		pressed-highlight: rgba(oColorsByUsecase('link-hover', 'text'), 0.05),
-		disabled: rgba(oColorsByName('black'), 0.5),
-		focus-outline: oColorsByUsecase('focus', 'outline', $fallback: null),
+		disabled: rgba(oColorsByName('black'), 0.5)
 	),
 	standard: (
 		background: oColorsByName('claret'),
 		text: oColorsByName('white'),
 		highlight: oColorsByName('claret-50'),
 		pressed-highlight: rgba(oColorsByName('black'), 0.05),
-		disabled: rgba(oColorsByName('black'), 0.5),
-		focus-outline: oColorsByUsecase('focus', 'outline', $fallback: null),
+		disabled: rgba(oColorsByName('black'), 0.5)
 	),
 	inverse: (
 		background: oColorsByName('white'),
 		text: oColorsByName('claret'),
 		highlight: rgba(white, 0.8),
 		pressed-highlight: rgba(white, 0.2),
-		disabled: rgba(oColorsByName('white'), 0.5),
-		focus-outline: oColorsByName('white'),
+		disabled: rgba(oColorsByName('white'), 0.5)
 	),
 	opinion: (
 		background: oColorsByName('oxford-40'),
 		text: oColorsByName('white'),
 		highlight: oColorsByName('oxford-30'),
 		pressed-highlight: rgba(oColorsByName('oxford-40'), 0.2),
-		disabled: rgba(oColorsByName('black'), 0.5),
-		focus-outline: oColorsByUsecase('focus', 'outline', $fallback: null),
+		disabled: rgba(oColorsByName('black'), 0.5)
 	),
 	monochrome: (
 		background: oColorsByName('white'),
 		text: oColorsByName('black'),
 		highlight: oColorsByName('white-80'),
 		pressed-highlight: rgba(oColorsByName('white'), 0.2),
-		disabled: rgba(oColorsByName('white'), 0.5),
-		focus-outline: oColorsByName('white'),
+		disabled: rgba(oColorsByName('white'), 0.5)
 	)
 );
 
@@ -118,22 +113,17 @@ $_ftConceptButtonThemes: (
 	}
 }
 
-@mixin _ftConceptButtonFocusOutlineColor($focus-color) {
-	&:focus,
-	&.focus-visible {
-		outline-color: $focus-color;
-	}
-}
-
 @mixin _ftConceptButtonTheme($theme: standard, $with-toggle-icon: false) {
 	@include _ftConceptButtonWithTheme($theme) {
+		@include oNormaliseFocusApply() {
+			@include oNormaliseFocusContentForElementColour(
+				_ftConceptButtonGetThemeColor(background)
+			);
+		};
+
 		background-color: transparent;
 		border: 1px solid _ftConceptButtonGetThemeColor(background);
 		color: _ftConceptButtonGetThemeColor(background);
-
-		@include _ftConceptButtonFocusOutlineColor(
-			_ftConceptButtonGetThemeColor(focus-outline)
-		);
 
 		&:hover,
 		&:focus {

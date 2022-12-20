@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://www.github.com/Financial-Times/origami/compare/o-normalise-v3.2.2...o-normalise-v3.3.0) (2022-12-15)
+
+
+### Features
+
+* o-normalise, add double focus ring by default for inputs. ([e1c6c49](https://www.github.com/Financial-Times/origami/commit/e1c6c49c32124cf89eb94c4a5c1501f07dab911a))
+
 ### [3.2.2](https://www.github.com/Financial-Times/origami/compare/o-normalise-v3.2.1...o-normalise-v3.2.2) (2022-01-13)
 
 

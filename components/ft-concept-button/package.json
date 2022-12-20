@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/ft-concept-button",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "ft concept button (includes the ft follow button)",
   "keywords": [
     "button",
@@ -19,8 +19,8 @@
     "watch": "bash ../../scripts/component/watch.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-typography": "^7.2.2",
-    "@financial-times/o-normalise": "^3.2.2"
+    "@financial-times/o-normalise": "^3.3.0",
+    "@financial-times/o-typography": "^7.2.2"
   },
   "engines": {
     "npm": "^7 || ^8"

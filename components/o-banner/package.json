@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-banner",
-  "version": "4.4.6",
+  "version": "4.4.7",
   "description": "Provides styling for product messaging which could include feature promotion, education, feedback, and legal information.",
   "keywords": [
     "banner",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@financial-times/o-fonts": "^5",
-    "@financial-times/o-normalise": "^3"
+    "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
     "npm": "^7 || ^8"

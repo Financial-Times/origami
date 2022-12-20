@@ -10,10 +10,28 @@
 		input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
 			@include _oFormsControlsBase($disabled);
 
-			&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-				border-color: oColorsByUsecase('focus', 'outline', $fallback: null);
-				box-shadow: 0 0 0 $_o-forms-spacing-half oColorsByUsecase('focus', 'outline', $fallback: null);
-				outline: none;
+			&:focus {
+				@include oNormaliseFocusUnsetContent();
+				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+					@include oNormaliseFocusContent();
+				}
+			}
+
+			// Unset :focus styles where :focus-visible is supported.
+			// Ideally we would set `:focus-visible` by default and use
+			// `@supports not selector(:focus-visible)` to provide a
+			// `:focus` fallback, however some of our supported browsers
+			// do not understand `@supports: selector()`.
+			@supports selector(:focus-visible) {
+				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+					@include oNormaliseFocusUnsetContent();
+				}
+
+				&:focus-visible {
+					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+						@include oNormaliseFocusContent();
+					}
+				}
 			}
 
 			&:indeterminate + .o-forms-input__label:after { // stylelint-disable-line selector-no-qualifying-type
