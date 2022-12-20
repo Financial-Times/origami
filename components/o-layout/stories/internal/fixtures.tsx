@@ -192,56 +192,6 @@ export const articleList: ArticleListProps[] = [
 	},
 ];
 
-export function DemoFooter() {
-	return (
-		<footer className="o-footer-services">
-			<div className="o-footer-services__container">
-				<div className="o-footer-services__wrapper o-footer-services__wrapper--top">
-					<a
-						className="o-footer-services__icon-link o-footer-services__icon-link--github"
-						href="http://github.com/financial-times/o-footer-services">
-						View project on GitHub
-					</a>
-					<a
-						className="o-footer-services__icon-link o-footer-services__icon-link--slack"
-						href="https://slack.com/messages/[id]/">
-						#slack-channel
-					</a>
-					<p className="o-footer-services__content">
-						Help or advice can be found here
-						<a href="mailto:an.email@someplace.com">an.email@someplace.com</a>
-						and there are other places,
-						<a href="/somewhere">like this one</a>.
-					</p>
-				</div>
-			</div>
-			<div className="o-footer-services__container">
-				<div className="o-footer-services__wrapper o-footer-services__wrapper--legal">
-					<div className="o-footer-services__links">
-						<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
-						<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">
-							Copyright
-						</a>
-						<a
-							href="http://help.ft.com/help/legal-privacy/privacy/"
-							className="o-footer-services__bulletted-link">
-							Privacy
-						</a>
-						<a href="http://help.ft.com/help/legal-privacy/terms-conditions">
-							Terms &amp; Conditions
-						</a>
-					</div>
-					<p>
-						<span>&#xA9; THE FINANCIAL TIMES LTD 2020.</span> FT and
-						&apos;Financial Times&apos; are trademarks of The Financial Times
-						Ltd.
-					</p>
-				</div>
-			</div>
-		</footer>
-	);
-}
-
 export const DemoHero = (
 	<>
 		<h1>An Example Landing Page</h1>

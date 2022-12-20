@@ -1,9 +1,9 @@
 import {HeroProps, OverviewSectionsProps, ArticleListProps} from './layout';
 
-export function Hero({muted, heroContent}: HeroProps) {
+export function Hero({muted, children}: HeroProps) {
 	const classNames = ['o-layout__hero o-layout-typography'];
 	muted && classNames.push('o-layout__hero--muted');
-	return <div className={classNames.join(' ')}>{heroContent}</div>;
+	return <div className={classNames.join(' ')}>{children}</div>;
 }
 
 export function OverviewSections({

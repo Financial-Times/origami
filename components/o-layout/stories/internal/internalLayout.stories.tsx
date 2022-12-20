@@ -16,14 +16,13 @@ import Tabs from "@financial-times/o-tabs/main";
 import Forms from "@financial-times/o-forms/main";
 import { useEffect, ComponentProps } from "react";
 import {
-	DemoFooter,
 	overviewActionElements,
 	overviewElements,
 	articleList,
 	DemoHero,
 	QueryLayout as QueryLayoutData,
 } from "./fixtures";
-import { AdditionalSbProps } from "../layout.stories";
+import { AdditionalSbProps, defaultControlsToProps } from "../layout.stories";
 
 type LandingStoryProps = ComponentProps<typeof LandingLayout> &
 	AdditionalSbProps;
@@ -36,25 +35,19 @@ export default {
 	parameters: {},
 	args: {
 		headerControls: HeaderWithTitleSection.args,
+		mainControls: "",
+		footerControls: "", // TODO: replace this with footer story args once we have footer tsx template
 	},
 } as ComponentMeta<typeof Layout>;
 
-const LandingLayoutStory: Story<LandingStoryProps> = args => {
-	useEffect(() => {
-		Table.init();
-		SyntaxHighlight.init();
-		Tabs.init();
-		Forms.init();
-		javascript.init();
-	});
-	args.header = <HeaderWithTitleSection {...args.headerControls} />;
-	return <LandingLayout {...args} />;
-};
-
-export const LandingLayoutWithHero: Story<LandingStoryProps> =
-	LandingLayoutStory.bind({});
-LandingLayoutWithHero.args = {
-	mainContent: (
+function convertControlsToProps(args, displayArticleListDemo) {
+	console.log({displayArticleListDemo})
+	const ArticleListDemo = () => (
+		<div>
+			<ArticleList articles={articleList} />
+		</div>
+	);
+	const OverviewSectionsDemo = () => (
 		<div data-o-component="o-syntax-highlight">
 			<h2>Some Information</h2>
 			<OverviewSections sections={overviewElements} consistentColumns={true} />
@@ -74,34 +67,58 @@ LandingLayoutWithHero.args = {
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, sapiente.
 			</p>
 		</div>
-	),
-	footer: <DemoFooter />,
-	hero: {
-		muted: false,
-		heroContent: DemoHero,
-	},
+	);
+	args = defaultControlsToProps(args);
+	args.mainContent = args.mainControls ? (
+		<>{args.mainControls}</>
+	) : displayArticleListDemo ? (
+		<ArticleListDemo />
+	) : (
+		<OverviewSectionsDemo />
+	);
+	const heroDemo = args.heroControls ? (
+		args.heroControls
+	) : args.heroMuted ? (
+		<>
+			<h1>An Example Landing Page</h1>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+		</>
+	) : (
+		DemoHero
+	);
+	args.hero = {
+		muted: args.heroMuted,
+		children: heroDemo,
+	};
+	args.styleMainContent = displayArticleListDemo && false
+	return args;
+}
+
+const LandingLayoutStory: Story<LandingStoryProps> = args => {
+	useEffect(() => {
+		Table.init();
+		SyntaxHighlight.init();
+		Tabs.init();
+		Forms.init();
+		javascript.init();
+	});
+	args = convertControlsToProps(args, args.displayArticleListDemo);
+	return <LandingLayout {...args} />;
+};
+
+export const LandingLayoutWithHero: Story<LandingStoryProps> =
+	LandingLayoutStory.bind({});
+LandingLayoutWithHero.args = {
+	heroMuted: false,
+	heroControls: ''
 };
 
 export const LandingLayoutWithArticleList: Story<LandingStoryProps> =
 	LandingLayoutStory.bind({});
 
 LandingLayoutWithArticleList.args = {
-	displayArticleList: true,
-	mainContent: (
-		<div data-o-component="o-syntax-highlight">
-			<ArticleList articles={articleList} />
-		</div>
-	),
-	footer: <DemoFooter />,
-	hero: {
-		muted: true,
-		heroContent: (
-			<>
-				<h1>An Example Landing Page</h1>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-			</>
-		),
-	},
+	displayArticleListDemo: true,
+	heroMuted: true,
 };
 
 export const QueryLayoutDemo: Story<QueryStoryProps> = args => {
@@ -116,13 +133,12 @@ export const QueryLayoutDemo: Story<QueryStoryProps> = args => {
 			layouts.forEach(layout => layout.destroy());
 		};
 	}, [args.constructNav]);
-	args.header = <HeaderWithTitleSection {...args.headerControls} />;
+	args = defaultControlsToProps(args);
 	return <QueryLayout {...args} />;
 };
 
 QueryLayoutDemo.storyName = "Query Layout";
 QueryLayoutDemo.args = {
 	...QueryLayoutData,
-	constructNav: false, // toggling this on and off will not cause the constructed nav to dismount from dom.
-	footer: <DemoFooter />,
+	constructNav: false,
 };

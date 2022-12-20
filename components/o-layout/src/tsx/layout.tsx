@@ -13,8 +13,8 @@ export type OverviewSectionsProps = {
 };
 
 export type HeroProps = {
-	heroContent?: ChildrenType;
 	muted?: boolean;
+	children?: ChildrenType;
 };
 export type ArticleListProps = {
 	title: string;
@@ -38,7 +38,7 @@ interface DocsLayoutProps extends SharedLayoutProps {
 }
 interface LandingLayoutProps extends SharedLayoutProps {
 	hero?: HeroProps;
-	displayArticleList?: boolean;
+	styleMainContent?: boolean;
 }
 interface QueryLayoutProps extends SharedLayoutProps {
 	constructNav?: boolean;
@@ -98,13 +98,14 @@ export function LandingLayout({
 	mainContent,
 	hero,
 	footer,
-	displayArticleList,
+	styleMainContent,
 }: LandingLayoutProps) {
+	console.log({hero})
 	return (
 		<div className="o-layout o-layout--landing" data-o-component="o-layout">
 			<Header>{header}</Header>
-			{hero && <Hero {...hero}>{hero.heroContent}</Hero>}
-			<MainContent displayArticleList={displayArticleList}>
+			{hero && <Hero muted={hero.muted}>{hero.children}</Hero>}
+			<MainContent styleMainContent={styleMainContent}>
 				{mainContent}
 			</MainContent>
 			<Footer>{footer}</Footer>
@@ -149,15 +150,16 @@ function Header({ children }: { children: ChildrenType }) {
 }
 
 function MainContent({
-	displayArticleList,
+	styleMainContent = true,
 	children,
 }: {
-	displayArticleList?: boolean;
+	styleMainContent?: boolean;
 	children: ChildrenType;
 }) {
-	const classNames = displayArticleList
-		? "o-layout__main"
-		: "o-layout__main o-layout-typography";
+	const classNames = styleMainContent
+	? "o-layout__main o-layout-typography"
+	: "o-layout__main";
+	console.log(`🚀 ~ classNames`, classNames);
 	return <div className={classNames}>{children}</div>;
 }
 
