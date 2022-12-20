@@ -120,8 +120,19 @@
 			pointer-events: auto;
 		}
 
+		.o-teaser__tag-suffix {
+			color: inherit;
+		}
+
 		.o-teaser__meta:after {
 			border-bottom-color: oColorsByName('white');
+		}
+
+
+		.o-teaser__tag:hover,
+		.o-teaser__tag:focus {
+			color: inherit;
+			outline-color: inherit;
 		}
 	}
 }
