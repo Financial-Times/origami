@@ -35,9 +35,6 @@
     "@financial-times/o-normalise": "^3.2.0",
     "@financial-times/o-typography": "^7.2.0"
   },
-  "dependencies": {
-    "@financial-times/n-map-content-to-topper": "^2.2.2"
-  },
   "engines": {
     "npm": "^7 || ^8"
   },
@@ -46,5 +43,8 @@
     "npm": "7.11.1"
   },
   "percy": true,
-  "private": false
+  "private": false,
+  "dependencies": {
+    "@financial-times/n-map-content-to-topper": "^3.2.0"
+  }
 }
