@@ -1,9 +1,9 @@
-import {HeroProps, OverviewSectionsProps, ArticleListProps} from './layout';
+import { HeroProps, OverviewSectionsProps, ArticleListProps } from "./layout";
 
-export function Hero({muted, children}: HeroProps) {
-	const classNames = ['o-layout__hero o-layout-typography'];
-	muted && classNames.push('o-layout__hero--muted');
-	return <div className={classNames.join(' ')}>{children}</div>;
+export function Hero({ muted, children }: HeroProps) {
+	const classNames = ["o-layout__hero o-layout-typography"];
+	muted && classNames.push("o-layout__hero--muted");
+	return <div className={classNames.join(" ")}>{children}</div>;
 }
 
 export function OverviewSections({
@@ -11,12 +11,12 @@ export function OverviewSections({
 	hasAction,
 	consistentColumns,
 }: OverviewSectionsProps) {
-	const classNames = ['o-layout__overview'];
-	hasAction && classNames.push('o-layout__overview--actions');
+	const classNames = ["o-layout__overview"];
+	hasAction && classNames.push("o-layout__overview--actions");
 	consistentColumns &&
-		classNames.push('o-layout__overview--consistent-columns');
+		classNames.push("o-layout__overview--consistent-columns");
 	return (
-		<div className={classNames.join(' ')}>
+		<div className={classNames.join(" ")}>
 			{sections.map((el, i) => {
 				return (
 					<div className="o-layout-item" key={i}>
@@ -31,7 +31,7 @@ export function OverviewSections({
 	);
 }
 
-export function ArticleList({articles}: {articles: ArticleListProps[]}) {
+export function ArticleList({ articles }: { articles: ArticleListProps[] }) {
 	return (
 		<ul className="o-layout__listing">
 			{articles.map((article, i) => {

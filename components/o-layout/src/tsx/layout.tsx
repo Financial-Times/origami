@@ -100,7 +100,6 @@ export function LandingLayout({
 	footer,
 	styleMainContent,
 }: LandingLayoutProps) {
-	console.log({hero})
 	return (
 		<div className="o-layout o-layout--landing" data-o-component="o-layout">
 			<Header>{header}</Header>
@@ -157,9 +156,8 @@ function MainContent({
 	children: ChildrenType;
 }) {
 	const classNames = styleMainContent
-	? "o-layout__main o-layout-typography"
-	: "o-layout__main";
-	console.log(`🚀 ~ classNames`, classNames);
+		? "o-layout__main o-layout-typography"
+		: "o-layout__main";
 	return <div className={classNames}>{children}</div>;
 }
 

@@ -22,6 +22,7 @@ import {
 	DemoHero,
 	QueryLayout as QueryLayoutData,
 } from "./fixtures";
+import { DemoFooter } from "../fixtures";
 import { AdditionalSbProps, defaultControlsToProps } from "../layout.stories";
 
 type LandingStoryProps = ComponentProps<typeof LandingLayout> &
@@ -34,65 +35,46 @@ export default {
 	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {
+		footer: <DemoFooter />,
 		headerControls: HeaderWithTitleSection.args,
-		mainControls: "",
-		footerControls: "", // TODO: replace this with footer story args once we have footer tsx template
+	},
+	argTypes: {
+		mainContent: { control: { disable: true } },
+		footer: { control: { disable: true } },
+		header: { control: { disable: true } },
+		bleed: { control: { disable: true } },
+		queryHeading: { control: { disable: true } },
+		querySideBar: { control: { disable: true } },
+		asideSideBar: { control: { disable: true } },
 	},
 } as ComponentMeta<typeof Layout>;
 
-function convertControlsToProps(args, displayArticleListDemo) {
-	console.log({displayArticleListDemo})
-	const ArticleListDemo = () => (
-		<div>
-			<ArticleList articles={articleList} />
-		</div>
-	);
-	const OverviewSectionsDemo = () => (
-		<div data-o-component="o-syntax-highlight">
-			<h2>Some Information</h2>
-			<OverviewSections sections={overviewElements} consistentColumns={true} />
-			<h2>Some Choices To Make</h2>
+const ArticleListDemo = () => (
+	<div>
+		<ArticleList articles={articleList} />
+	</div>
+);
+const OverviewSectionsDemo = () => (
+	<div data-o-component="o-syntax-highlight">
+		<h2>Some Information</h2>
+		<OverviewSections sections={overviewElements} consistentColumns={true} />
+		<h2>Some Choices To Make</h2>
 
-			<OverviewSections
-				sections={overviewActionElements}
-				hasAction={true}
-				consistentColumns={true}
-			/>
-			<p>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum quam
-				iure quas velit animi sunt aliquid quos esse ea, dolor eaque non
-				repellendus commodi id inventore quae, dicta ducimus? Similique.
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, sapiente.
-			</p>
-		</div>
-	);
-	args = defaultControlsToProps(args);
-	args.mainContent = args.mainControls ? (
-		<>{args.mainControls}</>
-	) : displayArticleListDemo ? (
-		<ArticleListDemo />
-	) : (
-		<OverviewSectionsDemo />
-	);
-	const heroDemo = args.heroControls ? (
-		args.heroControls
-	) : args.heroMuted ? (
-		<>
-			<h1>An Example Landing Page</h1>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-		</>
-	) : (
-		DemoHero
-	);
-	args.hero = {
-		muted: args.heroMuted,
-		children: heroDemo,
-	};
-	args.styleMainContent = displayArticleListDemo && false
-	return args;
-}
+		<OverviewSections
+			sections={overviewActionElements}
+			hasAction={true}
+			consistentColumns={true}
+		/>
+		<p>
+			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum quam iure
+			quas velit animi sunt aliquid quos esse ea, dolor eaque non repellendus
+			commodi id inventore quae, dicta ducimus? Similique.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, sapiente.
+		</p>
+	</div>
+);
 
 const LandingLayoutStory: Story<LandingStoryProps> = args => {
 	useEffect(() => {
@@ -102,23 +84,35 @@ const LandingLayoutStory: Story<LandingStoryProps> = args => {
 		Forms.init();
 		javascript.init();
 	});
-	args = convertControlsToProps(args, args.displayArticleListDemo);
+	args = defaultControlsToProps(args);
 	return <LandingLayout {...args} />;
 };
 
 export const LandingLayoutWithHero: Story<LandingStoryProps> =
 	LandingLayoutStory.bind({});
 LandingLayoutWithHero.args = {
-	heroMuted: false,
-	heroControls: ''
+	mainContent: <OverviewSectionsDemo />,
+	hero: {
+		muted: false,
+		children: DemoHero,
+	},
 };
 
 export const LandingLayoutWithArticleList: Story<LandingStoryProps> =
 	LandingLayoutStory.bind({});
 
 LandingLayoutWithArticleList.args = {
-	displayArticleListDemo: true,
-	heroMuted: true,
+	styleMainContent: false,
+	mainContent: <ArticleListDemo />,
+	hero: {
+		muted: true,
+		children: (
+			<>
+				<h1>An Example Landing Page</h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			</>
+		),
+	},
 };
 
 export const QueryLayoutDemo: Story<QueryStoryProps> = args => {

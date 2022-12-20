@@ -33,31 +33,21 @@ export default {
 	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {
+		mainContent: <DemoMainContent />,
+		footer: <DemoFooter />,
 		headerControls: HeaderWithTitleSection.args,
-		mainControls: "",
-		footerControls: "", // TODO: replace this with footer story args once we have footer tsx template
+	},
+	argTypes: {
+		mainContent: { control: { disable: true } },
+		footer: { control: { disable: true } },
+		header: { control: { disable: true } },
 	},
 	excludeStories: ["defaultControlsToProps"],
 } as ComponentMeta<typeof Layout>;
 
 export function defaultControlsToProps(args) {
 	args.header = <HeaderWithTitleSection {...args.headerControls} />;
-	args.footer = args.footerControls ? (
-		<>{args.footerControls}</>
-	) : (
-		<DemoFooter />
-	);
 	return args;
-}
-
-function additionalControlsToProps(args) {
-	args = defaultControlsToProps(args);
-	args.mainContent = args.mainControls ? (
-		<>{args.mainControls}</>
-	) : (
-		<DemoMainContent />
-	);
-	return args
 }
 
 export const DefaultLayout: Story<LayoutStoryProps> = args => {
@@ -68,7 +58,7 @@ export const DefaultLayout: Story<LayoutStoryProps> = args => {
 		Forms.init();
 		javascript.init();
 	});
-	args = additionalControlsToProps(args);
+	args = defaultControlsToProps(args);
 	return <Layout {...args} />;
 };
 
@@ -88,7 +78,7 @@ export const DocumentationLayout: Story<DocsLayoutStoryProps> = args => {
 			layouts.forEach(layout => layout.destroy());
 		};
 	});
-	args = additionalControlsToProps(args);
+	args = defaultControlsToProps(args);
 	return (
 		<DocsLayout {...args}>
 			{/* Passing children to Docs layout will render custom sidebar instead of the default one. Custom sidebar can be an <ol> or a <ul> */}

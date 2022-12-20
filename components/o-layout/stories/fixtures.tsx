@@ -5,7 +5,7 @@ export function DemoMainContent() {
 			<h2 id="sidebar-navigation">Sidebar Navigation</h2>
 			<p>
 				<code className="o-syntax-highlight--html">o-layout</code> can generate
-				a sidebar navigation, find out more in the{' '}
+				a sidebar navigation, find out more in the{" "}
 				<a href="https://registry.origami.ft.com/components/o-layout/readme">
 					readme
 				</a>
@@ -96,7 +96,8 @@ export function DemoMainContent() {
 							<table
 								className="o-table o-table--horizontal-lines o-table--responsive-overflow"
 								data-o-component="o-table"
-								data-o-table-responsive="overflow">
+								data-o-table-responsive="overflow"
+							>
 								<thead>
 									<tr>
 										<th scope="col" role="columnheader">
@@ -112,14 +113,16 @@ export function DemoMainContent() {
 											scope="col"
 											role="columnheader"
 											data-o-table-data-type="numeric"
-											className="o-table__cell--numeric">
+											className="o-table__cell--numeric"
+										>
 											Cost&#xA0;(GBP)
 										</th>
 										<th
 											scope="col"
 											role="columnheader"
 											data-o-table-data-type="numeric"
-											className="o-table__cell--numeric">
+											className="o-table__cell--numeric"
+										>
 											Cost&#xA0;(EUR)
 										</th>
 									</tr>
@@ -176,12 +179,14 @@ export function DemoFooter() {
 				<div className="o-footer-services__wrapper o-footer-services__wrapper--top">
 					<a
 						className="o-footer-services__icon-link o-footer-services__icon-link--github"
-						href="http://github.com/financial-times/o-footer-services">
+						href="http://github.com/financial-times/o-footer-services"
+					>
 						View project on GitHub
 					</a>
 					<a
 						className="o-footer-services__icon-link o-footer-services__icon-link--slack"
-						href="https://slack.com/messages/[id]/">
+						href="https://slack.com/messages/[id]/"
+					>
 						#slack-channel
 					</a>
 					<p className="o-footer-services__content">
@@ -201,7 +206,8 @@ export function DemoFooter() {
 						</a>
 						<a
 							href="http://help.ft.com/help/legal-privacy/privacy/"
-							className="o-footer-services__bulletted-link">
+							className="o-footer-services__bulletted-link"
+						>
 							Privacy
 						</a>
 						<a href="http://help.ft.com/help/legal-privacy/terms-conditions">

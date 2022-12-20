@@ -1,4 +1,4 @@
-import {ArticleListProps} from '../../src/tsx/layout';
+import { ArticleListProps } from "../../src/tsx/layout";
 
 export const overviewActionElements = [
 	{
@@ -21,7 +21,8 @@ export const overviewActionElements = [
 		actionElement: (
 			<a
 				className="o-layout__unstyled-element o-buttons o-buttons--big o-buttons--primary"
-				href="#">
+				href="#"
+			>
 				Take An Action
 			</a>
 		),
@@ -45,7 +46,8 @@ export const overviewActionElements = [
 		actionElement: (
 			<a
 				className="o-layout__unstyled-element o-buttons o-buttons--big o-buttons--primary"
-				href="#">
+				href="#"
+			>
 				Do A Thing
 			</a>
 		),
@@ -69,7 +71,8 @@ export const overviewActionElements = [
 		actionElement: (
 			<a
 				className="o-layout__unstyled-element o-buttons o-buttons--big o-buttons--primary"
-				href="#">
+				href="#"
+			>
 				Do A Different Thing
 			</a>
 		),
@@ -93,7 +96,8 @@ export const overviewActionElements = [
 		actionElement: (
 			<a
 				className="o-layout__unstyled-element o-buttons o-buttons--big o-buttons--primary"
-				href="#">
+				href="#"
+			>
 				Learn More
 			</a>
 		),
@@ -155,10 +159,10 @@ export const overviewElements = [
 ];
 export const articleList: ArticleListProps[] = [
 	{
-		title: 'Some Example Article',
-		url: '#',
+		title: "Some Example Article",
+		url: "#",
 		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsum suscipit dolorum inventore ipsam perferendis omnis animi quo corrupti ad.',
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsum suscipit dolorum inventore ipsam perferendis omnis animi quo corrupti ad.",
 		meta: (
 			<>
 				Posted <time dateTime="2020-10-28T00:00:00Z">20 November 2020</time> by
@@ -167,10 +171,10 @@ export const articleList: ArticleListProps[] = [
 		),
 	},
 	{
-		title: 'Another Example Article',
-		url: '#',
+		title: "Another Example Article",
+		url: "#",
 		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima culpa optio consequuntur dolorem, ab incidunt saepe quibusdam quae velit explicabo.',
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima culpa optio consequuntur dolorem, ab incidunt saepe quibusdam quae velit explicabo.",
 		meta: (
 			<>
 				Posted <time dateTime="2020-10-28T00:00:00Z">04 December 2019</time> by
@@ -179,10 +183,10 @@ export const articleList: ArticleListProps[] = [
 		),
 	},
 	{
-		title: 'Yet Another Example Article',
-		url: '#',
+		title: "Yet Another Example Article",
+		url: "#",
 		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima culpa optio consequuntur dolorem, ab incidunt saepe quibusdam quae velit explicabo.',
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima culpa optio consequuntur dolorem, ab incidunt saepe quibusdam quae velit explicabo.",
 		meta: (
 			<>
 				Posted <time dateTime="2020-10-28T00:00:00Z">20 June 2019</time> by Name
@@ -200,13 +204,15 @@ export const DemoHero = (
 			<a
 				key={1}
 				className="o-layout__unstyled-element demo-button o-buttons o-buttons--big o-buttons--mono o-buttons--primary"
-				href="#">
+				href="#"
+			>
 				Do A Thing
 			</a>
 			<a
 				key={2}
 				className="o-layout__unstyled-element demo-button o-buttons o-buttons--big o-buttons--mono o-buttons--secondary"
-				href="#">
+				href="#"
+			>
 				Learn More
 			</a>
 		</div>
@@ -233,12 +239,14 @@ export const QueryLayout = {
 			method="get"
 			className="registry__form registry__container__sticky"
 			data-o-component="o-filter-form"
-			data-o-filter-form-browser-history="true">
+			data-o-filter-form-browser-history="true"
+		>
 			<div
 				className="o-forms-field"
 				role="group"
 				aria-labelledby="filter-type-title"
-				aria-describedby="filter-type-info">
+				aria-describedby="filter-type-info"
+			>
 				<span className="o-forms-title">
 					<span className="o-forms-title__main" id="filter-type-title">
 						Types
@@ -293,7 +301,8 @@ export const QueryLayout = {
 				className="o-forms-field"
 				role="group"
 				aria-labelledby="filter-status-title"
-				aria-describedby="filter-status-info">
+				aria-describedby="filter-status-info"
+			>
 				<span className="o-forms-title">
 					<span className="o-forms-title__main" id="filter-status-title">
 						Status
@@ -417,7 +426,7 @@ export const QueryLayout = {
 	asideSideBar: (
 		<div className="o-layout-sticky-sidebar-container">
 			<p>
-				Aside Sidebar: Lorem ipsum, dolor sit amet consectetur adipisicing{' '}
+				Aside Sidebar: Lorem ipsum, dolor sit amet consectetur adipisicing{" "}
 				<code className="o-syntax-highlight--html">o-layout</code> elit.
 				Pariatur beatae, tempora deleniti inventore impedit minus corrupti omnis
 				esse assumenda perspiciatis?
