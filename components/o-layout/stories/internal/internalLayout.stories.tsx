@@ -62,7 +62,6 @@ const OverviewSectionsDemo = () => (
 
 		<OverviewSections
 			sections={overviewActionElements}
-			hasAction={true}
 			consistentColumns={true}
 		/>
 		<p>

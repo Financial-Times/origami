@@ -8,10 +8,10 @@ export function Hero({ muted, children }: HeroProps) {
 
 export function OverviewSections({
 	sections,
-	hasAction,
 	consistentColumns,
 }: OverviewSectionsProps) {
 	const classNames = ["o-layout__overview"];
+	const hasAction = sections.find(section => section.actionElement)
 	hasAction && classNames.push("o-layout__overview--actions");
 	consistentColumns &&
 		classNames.push("o-layout__overview--consistent-columns");
