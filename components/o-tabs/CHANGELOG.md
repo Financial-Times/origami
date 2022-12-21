@@ -1,5 +1,12 @@
 # Changelog
 
+### [8.1.2](https://www.github.com/Financial-Times/origami/compare/o-tabs-v8.1.1...o-tabs-v8.1.2) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
 ### [8.1.1](https://www.github.com/Financial-Times/origami/compare/o-tabs-v8.1.0...o-tabs-v8.1.1) (2022-04-21)
 
 

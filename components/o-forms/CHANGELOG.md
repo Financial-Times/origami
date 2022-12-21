@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.4.7](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.6...o-forms-v9.4.7) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
 ### [9.4.6](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.5...o-forms-v9.4.6) (2022-12-15)
 
 

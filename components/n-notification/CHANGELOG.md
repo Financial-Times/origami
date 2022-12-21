@@ -1,5 +1,12 @@
 # Changelog
 
+### [8.2.3](https://www.github.com/Financial-Times/origami/compare/n-notification-v8.2.2...n-notification-v8.2.3) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
 ### [8.2.2](https://www.github.com/Financial-Times/origami/compare/n-notification-v8.2.1...n-notification-v8.2.2) (2022-04-21)
 
 
