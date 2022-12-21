@@ -130,7 +130,7 @@
 
 	@if index($themes, 'deep-landscape') {
 		.o-topper--deep-landscape {
-			@include _oTopperThemeDeepLandscape;
+			@include _oTopperThemeDeepLandscape($colors);
 		}
 	}
 }

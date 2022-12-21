@@ -1,6 +1,6 @@
 // sass-lint:disable mixins-before-declarations
 
-@mixin _oTopperThemeDeepLandscape {
+@mixin _oTopperThemeDeepLandscape($colors) {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 150vw 1fr;
@@ -14,6 +14,19 @@
 		box-sizing: border-box;
 		align-self: center;
 		background: transparent;
+	}
+
+	@each $color-name in $colors {
+		&.o-topper--color-#{$color-name} {
+			.o-topper__content {
+				&.o-topper__text-shadow{
+					$background: oColorsByName($color-name);
+					$foreground: oColorsGetTextColor($background, $opacity: 100);
+					$shadowColor : if($foreground == white, rgb(18,18,18,0.4), rgb(255,255,255,0.4));
+					text-shadow: 2px 3px 4px $shadowColor;
+				}
+			}
+		}
 	}
 
 	.o-topper__read-next {
