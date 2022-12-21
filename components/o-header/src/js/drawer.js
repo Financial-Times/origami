@@ -100,7 +100,12 @@ function addDrawerToggles (drawerEl, allFocusable) {
 			handleClose.removeEvents();
 
 			openingControl.focus();
+
+			// set drawer display to hidden with ‘display:none;’, otherwise it can prevent screen reader users from interacting with the page.
+			drawerEl.style.display = 'none';
 		} else {
+			drawerEl.style.display = 'block';
+
 			toggleTabbing(drawerEl, true, allFocusable);
 
 			// don't capture the initial click or accidental double taps etc.
