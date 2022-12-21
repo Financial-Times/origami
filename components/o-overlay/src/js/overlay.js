@@ -270,6 +270,7 @@ class Overlay {
 		}
 
 		wrapperEl.setAttribute('role', 'dialog');
+		wrapperEl.setAttribute('aria-modal', 'true');
 		if (this.opts.zindex) {
 			wrapperEl.style.zIndex = this.opts.zindex;
 		}
@@ -356,6 +357,7 @@ class Overlay {
 	 * @fires oOverlay#ready
 	 */
 	show() {
+		this.wrapper.style.display = 'block';
 		if (this.opts.modal) {
 			this.wrapper.classList.add('o-overlay--modal');
 			const shadow = document.createElement('div');
@@ -511,6 +513,7 @@ class Overlay {
 		if (this.opts.layer) {
 			this.broadcast('layerClose');
 		}
+		this.wrapper.style.display = 'none';
 
 		return false;
 	}
