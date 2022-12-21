@@ -127,7 +127,7 @@
 </header>
 
 {{#drawer}}
-<div class="o-header__drawer" id="o-header-drawer" role="navigation" aria-label="Drawer menu" data-o-header-drawer data-o-header-drawer--no-js>
+<div class="o-header__drawer" id="o-header-drawer" aria-modal=true role="dialog" aria-label="Drawer menu" data-o-header-drawer data-o-header-drawer--no-js>
 	<div class="o-header__drawer-inner">
 
 		<div class="o-header__drawer-tools">
@@ -229,3 +229,130 @@
 	</div>
 </div>
 {{/drawer}}
+<header class="o-header{{#variants}} o-header--{{.}}{{/variants}}" data-o-component="o-header" data-o-header--no-js>
+
+	{{#anon}}
+	<div class="o-header__row o-header__anon">
+		<ul class="o-header__anon-list">
+			<li class="o-header__anon-item">
+				<a class="o-header__anon-link" href="#">Subscribe</a>
+			</li>
+			<li class="o-header__anon-item">
+				<a class="o-header__anon-link" href="#">Sign In</a>
+			</li>
+		</ul>
+	</div>
+	{{/anon}}
+
+	{{#top}}
+	<div class="o-header__row o-header__top">
+		<div class="o-header__container">
+			<div class="o-header__top-wrapper">
+				<div class="o-header__top-column o-header__top-column--left">
+					{{#drawer}}
+					<a href="#o-header-drawer" class="o-header__top-icon-link o-header__top-icon-link--menu" aria-controls="o-header-drawer" title="Open side navigation menu">
+						<span class="o-header__top-link-label">Open side navigation menu</span>
+					</a>
+					{{/drawer}}
+					{{#hasSearch}}
+					<a href="#o-header-search" class="o-header__top-icon-link o-header__top-icon-link--search" aria-controls="o-header-search-js" title="Open search bar">
+						<span class="o-header__top-link-label">Open search bar</span>
+					</a>
+					{{/hasSearch}}
+				</div>
+				<div class="o-header__top-column o-header__top-column--center">
+					<a class="o-header__top-logo" href="/" title="Go to Financial Times homepage">
+						<span class="o-header__visually-hidden">Financial Times</span>
+					</a>
+				</div>
+
+				<div class="o-header__top-column o-header__top-column--right">
+					{{#anon}}
+					<a class="o-header__top-button o-header__top-button--hide-m">Subscribe</a>
+					<a class="o-header__top-link o-header__top-link--hide-m">Sign in</a>
+					{{/anon}}
+					{{#anon?}}
+					<a class="o-header__top-icon-link o-header__top-icon-link--myft o-header__top-icon-link--hide-m">
+						<span class="o-header__visually-hidden">myFT</span>
+					</a>
+					{{/anon?}}
+				</div>
+
+			</div>
+		</div>
+	</div>
+	{{/top}}
+
+	{{#search}}
+	<!-- To support both core and enhanced, duplicating the search row is necessary to avoid it flashing in enhanced -->
+	<!-- Pick only one of the two <div> if you don't need to support both core and enhanced -->
+	<div id="o-header-search" class="o-header__row o-header__search o--if-no-js" role="search">
+		<div class="o-header__container">
+			<form class="o-header__search-form" action="/search" role="search" aria-label="Site search">
+				<label class="o-header__visually-hidden" for="o-header-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
+				<input class="o-header__search-term" id="o-header-search-term" name="q" type="text" placeholder="Search the FT">
+				<button class="o-header__search-submit" type="submit">
+					Search
+				</button>
+			</form>
+		</div>
+	</div>
+	<div id="o-header-search-js" class="o-header__row o-header__search" role="search" data-o-header-search>
+		<div class="o-header__container">
+			<form class="o-header__search-form" action="/search" role="search" aria-label="Site search">
+				<label class="o-header__visually-hidden" for="o-header-search-term-js">Search the <abbr title="Financial Times">FT</abbr></label>
+				<input class="o-header__search-term" id="o-header-search-term-js" name="q" type="text" placeholder="Search the FT">
+				<button class="o-header__search-submit" type="submit">
+					Search
+				</button>
+				<button class="o-header__search-close o--if-js" type="button" aria-controls="o-header-search-js" title="Close search bar">
+					<span class="o-header__visually-hidden">Close search bar</span>
+				</button>
+			</form>
+		</div>
+	</div>
+	{{/search}}
+
+	{{#nav}}
+	<nav id="o-header-nav-mobile" class="o-header__row o-header__nav o-header__nav--mobile" role="navigation" aria-label="Main navigation">
+		<ul class="o-header__nav-list">
+			{{#mobile}}
+			<li class="o-header__nav-item">
+				<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>{{name}}</a>
+			</li>
+			{{/mobile}}
+		</ul>
+	</nav>
+
+	<nav id="o-header-nav-desktop" class="o-header__row o-header__nav o-header__nav--desktop" role="navigation" aria-label="Main navigation">
+		<div class="o-header__container">
+			<ul class="o-header__nav-list o-header__nav-list--left">
+				{{#desktop}}
+				<li class="o-header__nav-item">
+					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}} id="o-header-link-{{index}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
+				</li>
+				{{/desktop}}
+			</ul>
+			<ul class="o-header__nav-list o-header__nav-list--right">
+				{{#isSignedIn}}
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="https://markets.ft.com/data/portfolio/dashboard">Portfolio</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="https://myaccount.ft.com/details/core/view">My Account</a>
+					</li>
+				{{/isSignedIn}}
+				{{^isSignedIn}}
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="/login">Sign In</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-button" href="/products">Subscribe</a>
+					</li>
+				{{/isSignedIn}}
+			</ul>
+		</div>
+	</nav>
+	{{/nav}}
+
+</header>
