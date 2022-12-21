@@ -18,7 +18,7 @@ Before:
 	<!-- more list items without heading -->
 	</ul>
 </nav>
-\```
+```
 
 After:
 ```html
@@ -36,7 +36,7 @@ After:
 	<!-- more list items without heading -->
 	</ul>
 </nav>
-\```
+```
 
 ### Markup drawer divider
 
