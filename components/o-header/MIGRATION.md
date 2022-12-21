@@ -1,16 +1,26 @@
 # Migration Guide
 
 ## Migrating from v10 to v11
-o-header v11 includes markup changes in drawer menu. v10 drawer menu used to render all list items under one tag:
+o-header v11 includes markup changes in the drawer menu. Update your markup as described below or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx).
+
+### Markup visual drawer headings
+
+Update your drawer markup to semantically represent visually grouped navigation items. This approach improves the experience for users of assistive technologies.
+
+1. Split the drawer `ul` into multiple lists.
+2. Add a `h2` tag to describe each list.
+3. Associate both elements with the `aria-labelledby` attribute.
+
+Before:
 ```html
 <nav>
 	<ul>
 	<!-- more list items without heading -->
 	</ul>
 </nav>
-```
-But drawer menu can display visually grouped items within the nav. so we updated markup to use semantically correct html. This approach also improves the accessibility of the drawer menu and users who use screen readers will get the same structure, information, and relationships between content as sighted users are provided with visual styling. v11 uses multiple `ul` tags inside nav tag and for heading we use `h2` tags which is used to describe list groupings for assistive technologies. v11 markup:
+\```
 
+After:
 ```html
 <nav>
 	<h2 id="o-header-drawer-top-sections" id='top-sections'>Top sections</h2>
@@ -26,10 +36,11 @@ But drawer menu can display visually grouped items within the nav. so we updated
 	<!-- more list items without heading -->
 	</ul>
 </nav>
-```
-We also renamed css class `o-header__drawer-menu-item--divide` from to `o-header__drawer-menu-list--divide` and now it applies on `ul` inside our `nav` tag instead of applying it on separate list items.
+\```
 
+### Markup drawer divider
 
+Remove the CSS class `o-header__drawer-menu-item--divide` from the last list item of a drawer menu and instead apply `o-header__drawer-menu-list--divide` to the menu list itself.
 ## Migrating from v9 to v10
 
 o-header v10 includes markup changes. Use demo markup to update your project. Changes to be aware of include:
