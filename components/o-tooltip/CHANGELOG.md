@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.5](https://www.github.com/Financial-Times/origami/compare/o-tooltip-v5.2.4...o-tooltip-v5.2.5) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
 ### [5.2.4](https://www.github.com/Financial-Times/origami/compare/o-tooltip-v5.2.3...o-tooltip-v5.2.4) (2022-06-15)
 
 
