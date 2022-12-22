@@ -65,16 +65,36 @@ const isVisible = function (element) {
 	return Boolean(element.offsetHeight);
 };
 
-const focusTrap = function (event ) {
+const filterFocusableElements = function (element) {
+	const elementVisible = isVisible(element);
+	// Inputs for radio and checkboxes are visually hidden,
+	// so check the label visibility of inputs too when determining
+	// whether to trap focus.
+	const elementLabelVisible =
+		element.labels && [].slice.call(element.labels).some(l => isVisible(l));
+	// When tabbing, the checked radio input of a group is focused, not each radio input.
+	const elementIsUncheckedRadio =
+		element.type === 'radio' && element.checked !== true;
+	return (
+		!element.disabled &&
+		!elementIsUncheckedRadio &&
+		(elementVisible || elementLabelVisible)
+	);
+}
+
+const focusTrap = function (event) {
 	const tabKeyCode = 9;
-		if (this.overlayFocusableElements.length && event.keyCode === tabKeyCode) {
+	const overlayFocusableElements = [].slice
+	.call(this.wrapper.querySelectorAll(focusable))
+	.filter(element => filterFocusableElements(element));
+	if (overlayFocusableElements.length && event.keyCode === tabKeyCode) {
 		const lastElement =
-			this.overlayFocusableElements[this.overlayFocusableElements.length - 1];
+			overlayFocusableElements[overlayFocusableElements.length - 1];
 		// Loop focus back to the first element if focus has reached the focusable element
 		if (event.target === lastElement) {
-			this.overlayFocusableElements[0].focus();
+			overlayFocusableElements[0].focus();
 			event.preventDefault();
-		} else if (event.shiftKey && event.target === this.overlayFocusableElements[0]) {
+		} else if (event.shiftKey && event.target === overlayFocusableElements[0]) {
 			// loop to the bottom when shift+tabbing.
 			lastElement.focus();
 			event.preventDefault();
@@ -326,27 +346,9 @@ class Overlay {
 	}
 
 	_trapFocus() {
-		this.overlayFocusableElements = [].slice
-			.call(
-				this.wrapper.querySelectorAll(focusable)
-			)
-			.filter(element => {
-				const elementVisible = isVisible(element);
-				// Inputs for radio and checkboxes are visually hidden,
-				// so check the label visibility of inputs too when determining
-				// whether to trap focus.
-				const elementLabelVisible =
-					element.labels && [].slice.call(element.labels).some(l => isVisible(l));
-				// When tabbing, the checked radio input of a group is focused, not each radio input.
-				const elementIsUncheckedRadio =
-					element.type === 'radio' && element.checked !== true;
-				return (
-					!element.disabled &&
-					!elementIsUncheckedRadio &&
-					(elementVisible || elementLabelVisible)
-				);
-		});
-		this.overlayFocusableElements[0].focus();
+		const allFocusableNodes = Array.from(this.wrapper.querySelectorAll(focusable))
+			.filter(element => filterFocusableElements(element))
+			allFocusableNodes[0].focus();
 		// Trap the focus inside the overlay so keyboard navigation doesn't escape the overlay
 		document.addEventListener('keydown', focusTrap.bind(this));
 	}
