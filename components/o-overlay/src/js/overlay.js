@@ -348,7 +348,9 @@ class Overlay {
 	_trapFocus() {
 		const allFocusableNodes = Array.from(this.wrapper.querySelectorAll(focusable))
 			.filter(element => filterFocusableElements(element))
-			allFocusableNodes[0].focus();
+			if (allFocusableNodes.length) {
+				allFocusableNodes[0].focus();
+			}
 		// Trap the focus inside the overlay so keyboard navigation doesn't escape the overlay
 		document.addEventListener('keydown', focusTrap.bind(this));
 	}
