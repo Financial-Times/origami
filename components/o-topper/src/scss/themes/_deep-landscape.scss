@@ -19,7 +19,7 @@
 	@each $color-name in $colors {
 		&.o-topper--color-#{$color-name} {
 			.o-topper__content {
-				&.o-topper__text-shadow{
+				&.o-topper__content--text-shadow{
 					$background: oColorsByName($color-name);
 					$foreground: oColorsGetTextColor($background, $opacity: 100);
 					$shadowColor : if($foreground == white, rgb(18,18,18,0.4), rgb(255,255,255,0.4));
