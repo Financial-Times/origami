@@ -38,7 +38,9 @@ function DrawerTools({current}: {current: TNavEdition}) {
 				className="o-header__drawer-tools-close"
 				aria-controls="o-header-drawer"
 				title="Close side navigation menu">
-				<span className="o-header__visually-hidden">Close side navigation menu</span>
+				<span className="o-header__visually-hidden">
+					Close side navigation menu
+				</span>
 			</button>
 			{current && (
 				<p className="o-header__drawer-current-edition">
@@ -115,31 +117,41 @@ function DrawerEditionSwitcher({
 function DrawerMenu({navItems}: {navItems: TNavMenuItem[]}) {
 	return (
 		<nav className="o-header__drawer-menu o-header__drawer-menu--primary">
-			<ul className="o-header__drawer-menu-list">
-				{navItems.map(({label, submenu}, i) => {
-					const menuItemClass = label ? 'heading' : 'divide';
-
-					const navigationItems = submenu?.items.map((item, j) => {
-						return (
-							<DrawerNavItem
-								navItem={item}
-								index={`${i}-${j}`}
-								hasHeading={!!label}
-								key={`submenu-${i}-${j}`}
-							/>
-						);
-					});
-					const menuItem = [
-						<li
-							className={`o-header__drawer-menu-item o-header__drawer-menu-item--${menuItemClass}`}
-							key={i}>
+			{navItems.map(({label, submenu}, i) => {
+				const hasDivider = !label;
+				const labelId = label
+					? label.replace(' ', '-').toLowerCase()
+					: undefined;
+				const navigationItems = submenu?.items.map((item, j) => {
+					return (
+						<DrawerNavItem
+							navItem={item}
+							index={`${i}-${j}`}
+							hasHeading={!!label}
+							key={`submenu-${i}-${j}`}
+						/>
+					);
+				});
+				const classNames = ['o-header__drawer-menu-list'];
+				hasDivider && classNames.push('o-header__drawer-menu-list--divide');
+				const menuItem = [
+					label && (
+						<h2
+							className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
+							id={labelId}
+							key={`heading-${i}`}>
 							{label}
-						</li>,
-						navigationItems,
-					];
-					return menuItem;
-				})}
-			</ul>
+						</h2>
+					),
+					<ul
+						className={classNames.join(' ')}
+						aria-labelledby={labelId}
+						key={`drawer-list-${i}`}>
+						{navigationItems}
+					</ul>,
+				];
+				return menuItem;
+			})}
 		</nav>
 	);
 }
@@ -249,16 +261,17 @@ function DrawerSubMenu({
 			<ul
 				className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
 				id={`o-header-drawer-child-${idSuffix}`}>
-				{submenu && submenu.map((item, i) => (
-					<li className="o-header__drawer-menu-item" key={item.url + i}>
-						<AnchorElement
-							url={item.url}
-							label={item.label}
-							selected={item.selected}
-							additionalClasses={childAnchorClass}
-						/>
-					</li>
-				))}
+				{submenu &&
+					submenu.map((item, i) => (
+						<li className="o-header__drawer-menu-item" key={item.url + i}>
+							<AnchorElement
+								url={item.url}
+								label={item.label}
+								selected={item.selected}
+								additionalClasses={childAnchorClass}
+							/>
+						</li>
+					))}
 			</ul>
 		</li>
 	);
