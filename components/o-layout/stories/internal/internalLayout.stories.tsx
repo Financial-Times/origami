@@ -108,7 +108,7 @@ export const LandingLayoutWithArticleList: Story<LandingStoryProps> =
 	LandingLayoutStory.bind({});
 
 LandingLayoutWithArticleList.args = {
-	styleMainContent: false,
+	addTypographyStyling: false,
 	mainContent: <ArticleListDemo />,
 	hero: {
 		muted: true,

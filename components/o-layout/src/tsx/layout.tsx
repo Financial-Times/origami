@@ -37,7 +37,7 @@ interface DocsLayoutProps extends SharedLayoutProps {
 }
 interface LandingLayoutProps extends SharedLayoutProps {
 	hero?: HeroProps;
-	styleMainContent?: boolean;
+	addTypographyStyling?: boolean;
 }
 interface QueryLayoutProps extends SharedLayoutProps {
 	constructNav?: boolean;
@@ -97,13 +97,13 @@ export function LandingLayout({
 	mainContent,
 	hero,
 	footer,
-	styleMainContent,
+	addTypographyStyling,
 }: LandingLayoutProps) {
 	return (
 		<div className="o-layout o-layout--landing" data-o-component="o-layout">
 			<Header>{header}</Header>
 			{hero && <Hero muted={hero.muted}>{hero.children}</Hero>}
-			<MainContent styleMainContent={styleMainContent}>
+			<MainContent addTypographyStyling={addTypographyStyling}>
 				{mainContent}
 			</MainContent>
 			<Footer>{footer}</Footer>
@@ -148,13 +148,13 @@ function Header({ children }: { children: ChildrenType }) {
 }
 
 function MainContent({
-	styleMainContent = true,
+	addTypographyStyling = true,
 	children,
 }: {
-	styleMainContent?: boolean;
+	addTypographyStyling?: boolean;
 	children: ChildrenType;
 }) {
-	const classNames = styleMainContent
+	const classNames = addTypographyStyling
 		? "o-layout__main o-layout-typography"
 		: "o-layout__main";
 	return <div className={classNames}>{children}</div>;
