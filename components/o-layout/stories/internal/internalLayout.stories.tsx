@@ -97,6 +97,13 @@ LandingLayoutWithHero.args = {
 	},
 };
 
+LandingLayoutWithHero.parameters = {
+	controls: {
+		include: ['headerControls']
+	},
+	layout: 'fullscreen',
+}
+
 export const LandingLayoutWithArticleList: Story<LandingStoryProps> =
 	LandingLayoutStory.bind({});
 
@@ -113,6 +120,13 @@ LandingLayoutWithArticleList.args = {
 		),
 	},
 };
+
+LandingLayoutWithArticleList.parameters = {
+	controls: {
+		include: ['headerControls']
+	},
+	layout: 'fullscreen',
+}
 
 export const QueryLayoutDemo: Story<QueryStoryProps> = args => {
 	useEffect(() => {
@@ -135,3 +149,10 @@ QueryLayoutDemo.args = {
 	...QueryLayoutData,
 	constructNav: false,
 };
+
+QueryLayoutDemo.parameters = {
+	controls: {
+		include: ['headerControls', 'constructNav']
+	}
+}
+

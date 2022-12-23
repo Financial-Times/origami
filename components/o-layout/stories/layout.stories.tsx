@@ -66,6 +66,12 @@ DefaultLayout.args = {
 	bleed: false,
 };
 
+DefaultLayout.parameters = {
+	controls: {
+		include: ['headerControls', 'bleed']
+	}
+}
+
 export const DocumentationLayout: Story<DocsLayoutStoryProps> = args => {
 	useEffect(() => {
 		Table.init();
@@ -95,3 +101,9 @@ DocumentationLayout.args = {
 	constructNav: true,
 	customNavHeadingSelector: "",
 };
+
+DocumentationLayout.parameters = {
+	controls: {
+		include: ['headerControls', 'constructNav']
+	}
+}
