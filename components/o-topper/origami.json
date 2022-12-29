@@ -69,6 +69,12 @@
 			"hidden": true
 		},
 		{
+			"name": "Full Bleed Offset Video",
+			"title": "Offset Full-Bleed Image Topper with Video",
+			"template": "/demos/src/full-bleed-offset-video.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API"
+		},
+		{
 			"name": "Full Bleed Offset Right Rail Snappy Grid",
 			"title": "Offset Full-Bleed Image Topper",
 			"template": "/demos/src/full-bleed-offset-right-rail.mustache",
@@ -86,6 +92,12 @@
 			"name": "Split Text Center",
 			"title": "Center-Aligned Split Text Topper",
 			"template": "/demos/src/split-text-center.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API. It also has a selection of background colours that can be chosen"
+		},
+		{
+			"name": "Split Text Center Video",
+			"title": "Center-Aligned Split Text Topper with Video",
+			"template": "/demos/src/split-text-center-video.mustache",
 			"description": "This is a theme that editorial can choose, which comes through the API. It also has a selection of background colours that can be chosen"
 		},
 		{
@@ -149,6 +161,12 @@
 			"name": "Deep Landscape",
 			"title": "Deep Landscape",
 			"template": "demos/src/deep-landscape-left.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API"
+		},
+		{
+			"name": "Video Landscape",
+			"title": "Video Landscape",
+			"template": "demos/src/video-landscape.mustache",
 			"description": "This is a theme that editorial can choose, which comes through the API"
 		}
 	]

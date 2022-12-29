@@ -44,6 +44,7 @@ $_o-topper-themes: (
 	'centered',
 	'deep-portrait',
 	'deep-landscape',
+	'video-landscape'
 );
 
 /// When adding a new element update the README
@@ -66,7 +67,9 @@ $_o-topper-elements: (
 	'read-next',
 	'image',
 	'image-credit',
-	'image-caption'
+	'image-caption',
+	'video',
+	'progress'
 );
 
 /// @access private

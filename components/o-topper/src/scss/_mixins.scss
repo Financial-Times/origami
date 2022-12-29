@@ -133,6 +133,12 @@
 			@include _oTopperThemeDeepLandscape($colors);
 		}
 	}
+
+	@if index($themes, 'video-landscape') {
+		.o-topper--video-landscape {
+			@include _oTopperThemeVideoLandscape($colors);
+		}
+	}
 }
 
 @mixin _oTopperElements($elements) {
