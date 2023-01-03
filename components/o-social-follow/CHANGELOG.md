@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.1...o-social-follow-v1.0.2) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
 ### [1.0.1](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.0...o-social-follow-v1.0.1) (2022-12-15)
 
 
