@@ -56,6 +56,13 @@ function handleCloseEvents (scope, callback, allFocusable) {
 		}
 	};
 
+	const handleTransitionEnd = () => {
+		const isClosed = !scope.classList.contains('o-header__drawer--open');
+		if (isClosed) {
+			scope.style.display = 'none';
+		}
+	};
+
 	const removeEvents = () => {
 		clearTimeout(timeout);
 
@@ -82,24 +89,11 @@ function handleCloseEvents (scope, callback, allFocusable) {
 		document.addEventListener('focusout', handleFocus);
 
 		scope.addEventListener('keydown', handleTab);
+		scope.addEventListener('transitionend', handleTransitionEnd);
 	};
 
 	return { addEvents, removeEvents, handleMouseleave };
 }
-
-// set drawer's children display to hidden with ‘display:none;’
-// otherwise it can prevent screen reader users from interacting with the page.
-// We are setting display to none on the children of the drawer
-// because 'transitionend' event won't run after element is set to `display:none`;
-const setChildrenDisplayPropertyToNone = (element) => {
-	const state = element.classList.contains('o-header__drawer--closing') ? 'close' : 'open';
-	const drawerChildrenElements = Array.from(element.children);
-	if (state === 'close') {
-		drawerChildrenElements.forEach(child => {
-			child.style.display = 'none';
-		});
-	}
-};
 
 function addDrawerToggles (drawerEl, allFocusable) {
 	const controls = Array.from(document.body.querySelectorAll(`[aria-controls="${drawerEl.id}"]`));
@@ -112,13 +106,8 @@ function addDrawerToggles (drawerEl, allFocusable) {
 			toggleTabbing(drawerEl, false, allFocusable);
 			handleClose.removeEvents();
 			openingControl.focus();
+			drawerEl.classList.remove('o-header__drawer--open');
 		} else {
-			// undo the display:none; set in setChildrenDisplayPropertyToNone
-			// to allow transitions to work smoothly
-			const drawerChildrenElements = Array.from(drawerEl.children);
-			drawerChildrenElements.forEach(child => {
-				child.style.removeProperty('display');
-			});
 			toggleTabbing(drawerEl, true, allFocusable);
 
 			// don't capture the initial click or accidental double taps etc.
@@ -143,9 +132,10 @@ function addDrawerToggles (drawerEl, allFocusable) {
 				}
 			});
 		}
-
-		drawerEl.classList.toggle('o-header__drawer--closing', state === 'close');
-		drawerEl.classList.toggle('o-header__drawer--opening', state === 'open');
+		if (state === 'open') {
+			drawerEl.style.display = 'block';
+			setTimeout(() => drawerEl.classList.add('o-header__drawer--open'), 0); // Without the zero-second timeout, the browser will render the box immediately with no transition.
+		}
 	}
 
 	controls.forEach((control) => {
@@ -200,7 +190,6 @@ function toggleTabbing (drawerEl, isEnabled, allFocusable) {
 
 function init () {
 	const drawerEl = document.body.querySelector('[data-o-header-drawer]');
-	drawerEl.addEventListener('transitionend', () => setChildrenDisplayPropertyToNone(drawerEl));
 	if (!drawerEl) {
 		return;
 	}
