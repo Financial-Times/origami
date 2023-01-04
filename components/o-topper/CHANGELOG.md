@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.7.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.4...o-topper-v5.7.0) (2023-01-04)
+
+
+### Features
+
+* o-topper, add a `deep-landscape` topper ([91cccfe](https://www.github.com/Financial-Times/origami/commit/91cccfe68c9b0fc7c8ba1805c2f904d6680c8bd3))
+
 ### [5.6.4](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.3...o-topper-v5.6.4) (2022-12-21)
 
 
