@@ -1,6 +1,6 @@
 # Changelog
 
-### [5.3.2](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.1...o-header-services-v5.3.2) (2022-12-21)
+## [5.3.2](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.1...o-header-services-v5.3.2) (2022-12-21)
 
 
 ### Bug Fixes
