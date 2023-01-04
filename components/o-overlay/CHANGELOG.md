@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.2.6](https://www.github.com/Financial-Times/origami/compare/o-overlay-v4.2.5...o-overlay-v4.2.6) (2023-01-04)
+
+
+### Bug Fixes
+
+* o-overlay, trap focus in overlay for screen reader users ([#940](https://www.github.com/Financial-Times/origami/issues/940)) ([87d149f](https://www.github.com/Financial-Times/origami/commit/87d149f3b3df30f75675c9273015872c79f50d34))
+
 ### [4.2.5](https://www.github.com/Financial-Times/origami/compare/o-overlay-v4.2.4...o-overlay-v4.2.5) (2022-12-21)
 
 
