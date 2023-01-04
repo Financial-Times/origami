@@ -3,11 +3,12 @@ import {InputProps, FormError, FormFieldset, TypeFormField} from './Form';
 export interface RadioBtnsWrapperProps {
 	children: JSX.Element | JSX.Element[];
 	errorMessage?: string;
-	type?: 'box' | 'round';
+	inlineInputs?: boolean;
+}
+export interface RadioBtnsBoxWrapperProps extends RadioBtnsWrapperProps {
 	state?: 'saving' | 'saved';
 	hideStateText?: boolean;
 	customStateText?: string;
-	inlineInputs?: boolean;
 }
 
 export interface RadioBtnProps extends InputProps {
@@ -18,29 +19,26 @@ export interface RadioBtnProps extends InputProps {
 
 export interface RadioBtnsProps extends RadioBtnsWrapperProps, TypeFormField {}
 
-function RadioBtnsWrapper({
+export interface RadioBtnsBoxProps extends RadioBtnsBoxWrapperProps, TypeFormField {}
+
+function RadioBtnsBoxWrapper({
 	children,
 	errorMessage,
 	state,
 	customStateText,
 	hideStateText,
-	type,
 	inlineInputs,
-}: RadioBtnsWrapperProps) {
+}: RadioBtnsBoxWrapperProps) {
 	return (
 		<span
 			className={`${getInputClasses({
 				state,
 				errorMessage,
 				inlineInput: inlineInputs,
-			})} o-forms-input--radio-${type}`}>
-			{type === 'box' ? (
-				<span className={'o-forms-input--radio-box__container'}>
-					{children}
-				</span>
-			) : (
-				<>{children}</>
-			)}
+			})} o-forms-input--radio-box`}>
+			<span className={'o-forms-input--radio-box__container'}>
+				{children}
+			</span>
 			{errorMessage && <FormError errorMessage={errorMessage} />}
 			{state && (
 				<span
@@ -56,7 +54,25 @@ function RadioBtnsWrapper({
 	);
 }
 
-export function RadioBtns({
+function RadioBtnsWrapper({
+	children,
+	errorMessage,
+	hideStateText,
+	inlineInputs,
+}: RadioBtnsWrapperProps) {
+	return (
+		<span
+			className={`${getInputClasses({
+				errorMessage,
+				inlineInput: inlineInputs,
+			})} o-forms-input--radio-round`}>
+			{children}
+			{errorMessage && <FormError errorMessage={errorMessage} />}
+		</span>
+	);
+}
+
+export function RadioBtnsBox({
 	children,
 	errorMessage,
 	state,
@@ -67,15 +83,13 @@ export function RadioBtns({
 	isOptional,
 	inlineField,
 	isVerticalCenter,
-	type,
 	inlineInputs,
-}: RadioBtnsProps) {
+}: RadioBtnsBoxProps) {
 	const wrapperProps = {
 		errorMessage,
 		state,
 		customStateText,
 		hideStateText,
-		type,
 		inlineInputs,
 	};
 	const fieldsetProps = {
@@ -88,6 +102,36 @@ export function RadioBtns({
 	if (!wrapperProps.type) {
 		wrapperProps.type = 'round';
 	}
+	return (
+		<FormFieldset {...fieldsetProps}>
+			<RadioBtnsBoxWrapper {...wrapperProps}>{children}</RadioBtnsBoxWrapper>
+		</FormFieldset>
+	);
+}
+
+export function RadioBtns({
+	children,
+	errorMessage,
+	hideStateText,
+	title,
+	description,
+	isOptional,
+	inlineField,
+	isVerticalCenter,
+	inlineInputs,
+}: RadioBtnsProps) {
+	const wrapperProps = {
+		errorMessage,
+		hideStateText,
+		inlineInputs,
+	};
+	const fieldsetProps = {
+		title,
+		description,
+		isOptional,
+		inlineField,
+		isVerticalCenter,
+	};
 	return (
 		<FormFieldset {...fieldsetProps}>
 			<RadioBtnsWrapper {...wrapperProps}>{children}</RadioBtnsWrapper>
