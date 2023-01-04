@@ -127,6 +127,12 @@
 			@include _oTopperThemeSplitTextPortraitLeft($colors);
 		}
 	}
+
+	@if index($themes, 'deep-landscape') {
+		.o-topper--deep-landscape {
+			@include _oTopperThemeDeepLandscape($colors);
+		}
+	}
 }
 
 @mixin _oTopperElements($elements) {
