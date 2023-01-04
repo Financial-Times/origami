@@ -1,5 +1,5 @@
 import {Form} from './Form';
-import {RadioBtns, RadioBtn} from './RadioBtns';
+import {RadioBtnsBox, RadioBtns, RadioBtn} from './RadioBtns';
 import {RadioBoxLinks, RadioBoxLink} from './RadioBoxLinks';
 import {TextInput} from './TextInput';
 import {Select} from './Select';
@@ -14,6 +14,7 @@ export {
 	DateInput,
 	RadioBtn,
 	RadioBtns,
+	RadioBtnsBox,
 	RadioBoxLinks,
 	RadioBoxLink,
 	Select,
