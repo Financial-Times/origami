@@ -1,41 +1,63 @@
 // sass-lint:disable mixins-before-declarations
 
-@mixin _oTopperThemeSplitTextPortraitLeft {
+@mixin _oTopperThemeSplitTextPortraitLeft($colors) {
 	.o-topper__read-next {
 		display: none;
 	}
 
 	@include oGridRespondTo($until: M) {
+		display:flex;
+		flex-direction: column;
 		padding: 0;
-
+		
 		.o-topper__content {
+			order: 3;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			padding: 20px 10px;
 		}
 
+		.o-topper__background {
+			order: 2;
+		}
+
 		.o-topper__visual {
+			order: 1;
 			min-height: 350px;
 		}
 
+		@each $color-name in $colors {
+			&.o-topper--color-#{$color-name} {
+				.o-topper__image-caption {
+					$background: oColorsByName($color-name);
+					$foreground: oColorsGetTextColor($background, $opacity: 100);
+					color: oColorsMix($foreground, $color-name, 73);
+					background-color: $background;
+				}
+			}
+		}
+
 		.o-topper__picture {
-			position: relative;
-			width: 100%;
-			height: 350px;
-			float: right;
+			img {
+				position : relative;
+			}
+		}
+
+		.o-topper__image-caption {
+			padding-bottom: 10px;
 		}
 	}
 
 	@include oGridRespondTo(M) {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: minmax(0, 480px) 1fr;
+		grid-template-columns: 1fr 1fr; 
+		grid-template-rows: 66vw 1fr;
 
 		.o-topper__content {
 			grid-column: 1 / span 2;
 			grid-row: 1;
-			width: 60%;
+			width: 55%;
 			box-sizing: border-box;
 			align-self: center;
 			padding-right: 20px;
@@ -50,9 +72,9 @@
 		}
 
 		.o-topper__picture {
-			width: 40%;
+			width: 45%;
 			float: right;
-			height: auto;
+			height: 100%;
 			position: relative;
 		}
 
@@ -61,48 +83,36 @@
 				max-height: 480px;
 			}
 		}
-	}
 
-	@include oGridRespondTo(L) {
-		grid-template-rows: minmax(0, 600px) 1fr;
+		.o-topper__image-caption {
+			margin-bottom: 0;
+			margin-top: 10px;
+			border-top: solid 1px oColorsGetTextColor($background: black, $opacity: 50);
+			color: oColorsByName("black-70"); 
+		}
 	}
 
 	@supports (object-fit: cover) {
-		.o-topper__image {
-			position: absolute;
-		}
+		
 
-		.o-topper__visual {
-			@include oGridRespondTo(M) {
-				.o-topper__picture {
-					height: 480px;
-				}
-			}
+		@include oGridRespondTo(M) {
 
-			@include oGridRespondTo(L) {
+			.o-topper__visual {
 				.o-topper__picture {
-					height: 600px;
+					height: 66vw;
 				}
 			}
 		}
 	}
 	
 	.o-topper__image-credit {
-		top: 350px;
-		@include oGridRespondTo(M) {
-			top: 480px;
-		}
-		@include oGridRespondTo(L) {
-			top: 600px;
-		}
+		top: 100%;
 	}
 	
 	.o-topper__image-caption {
-		color: oColorsByName("black-70");
 		position: relative;
 		width: 100%;
 		float: right;
 		box-sizing: border-box;
-		margin-bottom: -20px;
 	}
 }

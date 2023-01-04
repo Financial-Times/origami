@@ -1,5 +1,19 @@
 # Changelog
 
+### [1.1.2](https://www.github.com/Financial-Times/origami/compare/ft-concept-button-v1.1.1...ft-concept-button-v1.1.2) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
+### [1.1.1](https://www.github.com/Financial-Times/origami/compare/ft-concept-button-v1.1.0...ft-concept-button-v1.1.1) (2022-12-15)
+
+
+### Bug Fixes
+
+* ft-concept-button, update input focus style with a double ring ([dcc2bb6](https://www.github.com/Financial-Times/origami/commit/dcc2bb673293f19e491fc30aa815cf7d6ad05a38))
+
 ## [1.1.0](https://www.github.com/Financial-Times/origami/compare/ft-concept-button-v1.0.2...ft-concept-button-v1.1.0) (2022-11-03)
 
 

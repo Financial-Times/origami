@@ -243,11 +243,15 @@
 		text-decoration: none;
 	}
 
-	&:focus {
+	@include oNormaliseFocusApply() {
+		@include oNormaliseFocusContentForElementColour(map-get($button-colors-map, 'focus-background'));
 		background-color: map-get($button-colors-map, 'focus-background');
 		color: map-get($button-colors-map, 'focus-color');
 		border-color: map-get($button-colors-map, 'focus-border');
-	}
+		// Ensure that the focus ring of a button is not hidden by
+		// adjacent buttons, e.g. in tabs or pagination contexts.
+		z-index: 1;
+	};
 
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed

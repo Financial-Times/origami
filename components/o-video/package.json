@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-video",
-  "version": "7.2.3",
+  "version": "7.2.4",
   "description": "Creates a video player and attaches analytics. Also supports pre roll ads.",
   "keywords": [
     "videos",
@@ -19,6 +19,7 @@
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
@@ -32,7 +33,7 @@
   },
   "devDependencies": {
     "@financial-times/o-fonts": "^5.2.0",
-    "@financial-times/o-normalise": "^3.2.0"
+    "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
     "npm": "^7 || ^8"

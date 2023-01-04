@@ -1,4 +1,10 @@
-import {PrimaryNav, SecondaryNav, SecondaryNavProps, NavItem, ListItem} from './navs';
+import {
+	PrimaryNav,
+	SecondaryNav,
+	SecondaryNavProps,
+	NavItem,
+	ListItem,
+} from "./navs";
 
 type TitleProps = {
 	title: string;
@@ -6,13 +12,13 @@ type TitleProps = {
 	titleUrl?: string;
 	relatedContent?: ListItem[];
 	primaryNavData?: NavItem[];
-}
+};
 
 interface HeaderServicesProps extends TitleProps {
 	secondaryNavData?: SecondaryNavProps;
-	theme?: 'b2b' | 'b2c' | '';
+	theme?: "b2b" | "b2c";
 	bleeedHeader?: boolean;
-};
+}
 
 export function HeaderServices({
 	title,
@@ -24,13 +30,14 @@ export function HeaderServices({
 	theme,
 	bleeedHeader,
 }: HeaderServicesProps) {
-	const classNames = ['o-header-services'];
+	const classNames = ["o-header-services"];
 	theme && classNames.push(`o-header-services--${theme}`);
-	bleeedHeader && classNames.push('o-header-services--bleed');
+	bleeedHeader && classNames.push("o-header-services--bleed");
 	return (
 		<header
-			className={classNames.join(' ')}
-			data-o-component="o-header-services">
+			className={classNames.join(" ")}
+			data-o-component="o-header-services"
+		>
 			<Title
 				title={title}
 				tagline={tagline}
@@ -51,9 +58,8 @@ function Title({
 	relatedContent,
 	primaryNavData,
 }: TitleProps) {
-	const homeUrl = titleUrl || '/';
-	const hasHamburgerMenu =
-		relatedContent?.length > 0 || primaryNavData;
+	const homeUrl = titleUrl || "/";
+	const hasHamburgerMenu = relatedContent?.length > 0 || primaryNavData;
 	return (
 		<div className="o-header-services__top">
 			{hasHamburgerMenu && (
@@ -61,7 +67,8 @@ function Title({
 					<a
 						className="o-header-services__hamburger-icon"
 						href="#core-nav-fallback"
-						role="button">
+						role="button"
+					>
 						<span className="o-header-services__visually-hidden">
 							Open primary navigation
 						</span>
@@ -80,7 +87,9 @@ function Title({
 			{relatedContent && (
 				<ul className="o-header-services__related-content">
 					{relatedContent.map((element, i) => (
-						<li key={i}><a href={element.label}>{element.label}</a></li>
+						<li key={i}>
+							<a href={element.label}>{element.label}</a>
+						</li>
 					))}
 				</ul>
 			)}

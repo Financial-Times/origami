@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-normalise",
-  "version": "3.2.2",
+  "version": "3.3.0",
   "description": "Provides base styles and resets for stylesheets. Includes standardised utilities, such as visually hiding components or adding a consistent focus state.",
   "keywords": [
     "normalise",
@@ -20,6 +20,7 @@
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },

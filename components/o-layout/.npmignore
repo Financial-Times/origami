@@ -1,6 +1,5 @@
 .env
 .gitignore
-.npmignore
 .eslintrc.cjs
 .remarkrc.cjs
 .stylelintrc.cjs
@@ -8,7 +7,6 @@
 .eslintignore
 .stylelintignore
 stories/
-src/tsx/
 .github/
 test/
 demos/local/

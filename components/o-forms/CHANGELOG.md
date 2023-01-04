@@ -1,5 +1,38 @@
 # Changelog
 
+### [9.4.8](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.7...o-forms-v9.4.8) (2023-01-04)
+
+### Bug Fixes
+
+* show focus state on invalid input elements ([470957a](https://www.github.com/Financial-Times/origami/commit/470957ad60fc9688541c13be5607a21ee5286d96))
+
+### [9.4.7](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.6...o-forms-v9.4.7) (2022-12-21)
+
+### Bug Fixes
+
+* require o-normalise 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
+### [9.4.6](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.5...o-forms-v9.4.6) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-forms, update input focus style with a double ring ([a8a37d9](https://www.github.com/Financial-Times/origami/commit/a8a37d9e62af85672093780691b5d510c0d741a1))
+
+### [9.4.5](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.4...o-forms-v9.4.5) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-forms, do not style invalid inputs outside `.o-forms-input` ([f9e1f96](https://www.github.com/Financial-Times/origami/commit/f9e1f969873bc60957f53913c8f6b7e0329af2bc))
+
+### [9.4.4](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.3...o-forms-v9.4.4) (2022-12-08)
+
+
+### Bug Fixes
+
+* handle dynamic input changes when validating forms ([69ac478](https://www.github.com/Financial-Times/origami/commit/69ac4780922aded1dd4ce9b62b8437c454f0adba))
+
 ### [9.4.3](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.2...o-forms-v9.4.3) (2022-11-08)
 
 

@@ -1,0 +1,26 @@
+@import '@financial-times/o-fonts/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-table/main';
+@import '@financial-times/o-syntax-highlight/main';
+@import '@financial-times/o-tabs/main';
+@import '@financial-times/o-header-services/main';
+@import '@financial-times/o-footer-services/main';
+@import '@financial-times/o-buttons/main';
+@import '@financial-times/o-forms/main';
+
+@include oFonts();
+@include oNormalise();
+@include oTable();
+@include oSyntaxHighlight();
+@include oTabs();
+@include oHeaderServices();
+@include oFooterServices();
+@include oButtons();
+@include oForms();
+
+@import '@financial-times/o-layout/main';
+@include oLayout();
+
+.demo-button:not(:last-of-type) {
+	margin-right: 0.5rem;
+}

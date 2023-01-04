@@ -24,6 +24,38 @@
 			background-color: _oFormsGet('toggle-inverse-knob');
 		}
 
+		input {
+			@include oNormaliseFocusApply() {
+				@include oNormaliseFocusContentInverse();
+			};
+		}
+
+		input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
+			&:focus {
+				@include oNormaliseFocusUnsetContent();
+				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+					@include oNormaliseFocusContentInverse();
+				}
+			}
+
+			// Unset :focus styles where :focus-visible is supported.
+			// Ideally we would set `:focus-visible` by default and use
+			// `@supports not selector(:focus-visible)` to provide a
+			// `:focus` fallback, however some of our supported browsers
+			// do not understand `@supports: selector()`.
+			@supports selector(:focus-visible) {
+				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+					@include oNormaliseFocusUnsetContent();
+				}
+
+				&:focus-visible {
+					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+						@include oNormaliseFocusContentInverse();
+					}
+				}
+			}
+		}
+
 		input[type=checkbox]:checked { // stylelint-disable-line selector-no-qualifying-type
 			+ .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
 				background-color: _oFormsGet('toggle-inverse-selected');
@@ -60,6 +92,32 @@
 			.o-forms-input--radio-box__container {
 				background-color: oColorsByName('white');
 			}
+
+			.o-forms-input--radio-box input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
+				&:focus {
+					@include oNormaliseFocusUnsetContent();
+					& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+						@include oNormaliseFocusContentInverse();
+					}
+				}
+
+				// Unset :focus styles where :focus-visible is supported.
+				// Ideally we would set `:focus-visible` by default and use
+				// `@supports not selector(:focus-visible)` to provide a
+				// `:focus` fallback, however some of our supported browsers
+				// do not understand `@supports: selector()`.
+				@supports selector(:focus-visible) {
+					&:focus + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+						@include oNormaliseFocusUnsetContent();
+					}
+
+					&:focus-visible {
+						& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+							@include oNormaliseFocusContentInverse();
+						}
+					}
+				}
+			}
 		}
 
 		@if $file {
@@ -89,6 +147,11 @@
 				a {
 					color: oColorsByName('white');
 					border-bottom: 1px solid _oFormsGet('invalid-base-inverse');
+				}
+
+				a:focus,
+				a:focus-visible {
+					outline-color: inherit;
 				}
 			}
 		}

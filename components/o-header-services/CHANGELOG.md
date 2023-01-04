@@ -1,5 +1,26 @@
 # Changelog
 
+## [5.3.2](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.1...o-header-services-v5.3.2) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
+### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.0...o-header-services-v5.3.1) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-header-services, update input focus style with a double ring ([fc8d4cd](https://www.github.com/Financial-Times/origami/commit/fc8d4cdc94a0c93b576af597102c7dec2ab1fed5))
+
+## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.2.5...o-header-services-v5.3.0) (2022-12-06)
+
+
+### Features
+
+* publish o-header-services tsx ([#911](https://www.github.com/Financial-Times/origami/issues/911)) ([eee5c5e](https://www.github.com/Financial-Times/origami/commit/eee5c5eccf1a01665fa77bc39bf97cdfd346c51c))
+
 ### [5.2.5](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.2.4...o-header-services-v5.2.5) (2022-12-02)
 
 

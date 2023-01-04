@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-stepped-progress",
-  "version": "4.0.3",
+  "version": "4.0.5",
   "description": "Track progress through a multi-step process, such as a form",
   "keywords": [
     "indicator",
@@ -20,6 +20,7 @@
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
@@ -34,7 +35,7 @@
   "devDependencies": {
     "@financial-times/o-fonts": "^5.2.0",
     "@financial-times/o-icons": "^7.2.0",
-    "@financial-times/o-normalise": "^3.2.0"
+    "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
     "npm": "^7 || ^8"

@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-spacing",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Maintain consistent spaces across components and projects in accordance to our baseline grid and design guidelines.",
   "keywords": [
     "whitespace",
@@ -18,13 +18,14 @@
   },
   "devDependencies": {
     "@financial-times/o-colors": "^6.4.0",
-    "@financial-times/o-normalise": "^3.2.0",
+    "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-typography": "^7.2.0"
   },
   "scripts": {
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },

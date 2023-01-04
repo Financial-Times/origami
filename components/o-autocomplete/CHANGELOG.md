@@ -1,5 +1,19 @@
 # Changelog
 
+### [1.7.2](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.1...o-autocomplete-v1.7.2) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
+### [1.7.1](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.0...o-autocomplete-v1.7.1) (2022-12-08)
+
+
+### Bug Fixes
+
+* handle dynamic input changes when validating forms ([69ac478](https://www.github.com/Financial-Times/origami/commit/69ac4780922aded1dd4ce9b62b8437c454f0adba))
+
 ## [1.7.0](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.6.2...o-autocomplete-v1.7.0) (2022-09-14)
 
 

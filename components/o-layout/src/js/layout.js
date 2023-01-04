@@ -78,7 +78,7 @@ class Layout {
 				return [heading];
 			}
 			if (parent && supportedHeadings.includes(heading.nodeName)) {
-				parent.subItems = parent.subItems ? [...parent.subItems, heading] : [heading];
+				parent.subItems = parent.subItems && !parent.subItems.includes(heading) ? [...parent.subItems, heading] : [heading];
 				return headings;
 			}
 			headings.push(heading);
@@ -93,11 +93,11 @@ class Layout {
 		const listInnerHTML = Array.from(headingsWithHierarchy).reduce((html, heading) => {
 			const pageTitleClass = heading.nodeName === 'H1' ? 'o-layout__navigation-title' : '';
 			return html + `
-<li class="o-layout__unstyled-element ${pageTitleClass}">
-	<a class="o-layout__unstyled-element" href='#${heading.id}'>${Layout._getContentFromHeading(heading)}</a>
-	${heading.subItems ? `
-	<ol>
-	${heading.subItems.reduce((html, heading) => {
+			<li class="o-layout__unstyled-element ${pageTitleClass}">
+			<a class="o-layout__unstyled-element" href='#${heading.id}'>${Layout._getContentFromHeading(heading)}</a>
+			${heading.subItems ? `
+			<ol>
+			${heading.subItems.reduce((html, heading) => {
 		return html + `<li><a class="o-layout__unstyled-element" href="#${heading.id}">${Layout._getContentFromHeading(heading)}</a></li>`;
 	}, '')}
 	</ol>
@@ -114,12 +114,20 @@ class Layout {
 				sidebar.append(nav);
 			});
 		}
-
 		/** @type {Array<HTMLAnchorElement>} */
 		this.navAnchors = Array.from(nav.querySelectorAll('a'));
 		this.highlightNavItems();
 	}
 
+	/**
+	 * Unmount the sideBarNavigation.
+	 */
+	destroy() {
+		const constructedNav = this.layoutEl.querySelector(`.o-layout__navigation`);
+		if(constructedNav) {
+			constructedNav.remove();
+		}
+	}
 	/**
 	 * Add aria-current to the navigation link that was clicked
 	 *

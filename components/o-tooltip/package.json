@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-tooltip",
-  "version": "5.2.4",
+  "version": "5.2.5",
   "description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
   "keywords": [
     "tooltip",
@@ -22,6 +22,7 @@
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
@@ -42,7 +43,7 @@
     "@financial-times/o-buttons": "^7",
     "@financial-times/o-colors": "^6",
     "@financial-times/o-fonts": "^5",
-    "@financial-times/o-normalise": "^3"
+    "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
     "npm": "^7 || ^8"

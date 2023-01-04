@@ -1,5 +1,19 @@
 # Changelog
 
+### [6.5.3](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.5.2...o-labels-v6.5.3) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
+### [6.5.2](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.5.1...o-labels-v6.5.2) (2022-12-06)
+
+
+### Bug Fixes
+
+* revert "remove blinking animation from live label" ([#908](https://www.github.com/Financial-Times/origami/issues/908)) ([1ad2768](https://www.github.com/Financial-Times/origami/commit/1ad2768834dd74117367ab1b21d5fec604eb9b92))
+
 ### [6.5.1](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.5.0...o-labels-v6.5.1) (2022-10-31)
 
 

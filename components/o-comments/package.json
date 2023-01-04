@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-comments",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "description": "A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content.",
   "keywords": [
     "comments",
@@ -18,7 +18,8 @@
   "scripts": {
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash || bash ../../scripts/component/test.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
@@ -27,7 +28,7 @@
     "@financial-times/o-colors": "^6.0.1",
     "@financial-times/o-editorial-typography": "^2.0.1",
     "@financial-times/o-forms": "^9.2.0",
-    "@financial-times/o-normalise": "^3.0.0",
+    "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-overlay": "^4.2.1",
     "@financial-times/o-spacing": "^3.0.0",
     "@financial-times/o-typography": "^7.0.1"

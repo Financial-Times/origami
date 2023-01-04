@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-topper",
-  "version": "5.6.0",
+  "version": "5.7.0",
   "description": "Article header styling",
   "keywords": [
     "topper",
@@ -18,6 +18,7 @@
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
@@ -31,11 +32,11 @@
   },
   "devDependencies": {
     "@financial-times/o-fonts": "^5.2.0",
-    "@financial-times/o-normalise": "^3.2.0",
+    "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-typography": "^7.2.0"
   },
   "dependencies": {
-    "@financial-times/n-map-content-to-topper": "^2.2.2"
+    "@financial-times/n-map-content-to-topper": "^3.2.0"
   },
   "engines": {
     "npm": "^7 || ^8"
