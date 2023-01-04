@@ -46,6 +46,15 @@ Remove the CSS class `o-header__drawer-menu-item--divide` from the last list ite
 
 For consistency and accessibility label for drawer's close button is `Close side navigation menu`. Changes can be observed in this [PR](https://github.com/Financial-Times/origami/pull/903). You might need to update your markup accordingly.
 
+### Update ARIA attributes
+
+To update the `.o-header__drawer` element for improved accessibility:
+
+1. Add the `aria-modal` attribute with a value of "true".
+2. Update the `role` attribute to have a value of "modal" instead of "navigation".
+
+Make sure to include [these updates](https://github.com/Financial-Times/origami/pull/939) in any instances of the .o-header__drawer element in your project. This will ensure that the element is properly understood by assistive technologies and provides a better experience for users who rely on these technologies.
+
 ## Migrating from v9 to v10
 
 o-header v10 includes markup changes. Use demo markup to update your project. Changes to be aware of include:
