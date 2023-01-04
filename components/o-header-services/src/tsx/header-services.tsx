@@ -4,7 +4,7 @@ import {
 	SecondaryNavProps,
 	NavItem,
 	ListItem,
-} from './navs';
+} from "./navs";
 
 type TitleProps = {
 	title: string;
@@ -16,7 +16,7 @@ type TitleProps = {
 
 interface HeaderServicesProps extends TitleProps {
 	secondaryNavData?: SecondaryNavProps;
-	theme?: 'b2b' | 'b2c';
+	theme?: "b2b" | "b2c";
 	bleeedHeader?: boolean;
 }
 
@@ -30,13 +30,14 @@ export function HeaderServices({
 	theme,
 	bleeedHeader,
 }: HeaderServicesProps) {
-	const classNames = ['o-header-services'];
+	const classNames = ["o-header-services"];
 	theme && classNames.push(`o-header-services--${theme}`);
-	bleeedHeader && classNames.push('o-header-services--bleed');
+	bleeedHeader && classNames.push("o-header-services--bleed");
 	return (
 		<header
-			className={classNames.join(' ')}
-			data-o-component="o-header-services">
+			className={classNames.join(" ")}
+			data-o-component="o-header-services"
+		>
 			<Title
 				title={title}
 				tagline={tagline}
@@ -57,7 +58,7 @@ function Title({
 	relatedContent,
 	primaryNavData,
 }: TitleProps) {
-	const homeUrl = titleUrl || '/';
+	const homeUrl = titleUrl || "/";
 	const hasHamburgerMenu = relatedContent?.length > 0 || primaryNavData;
 	return (
 		<div className="o-header-services__top">
@@ -66,7 +67,8 @@ function Title({
 					<a
 						className="o-header-services__hamburger-icon"
 						href="#core-nav-fallback"
-						role="button">
+						role="button"
+					>
 						<span className="o-header-services__visually-hidden">
 							Open primary navigation
 						</span>
