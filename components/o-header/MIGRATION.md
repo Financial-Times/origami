@@ -1,6 +1,51 @@
 # Migration Guide
 
 ## Migrating from v10 to v11
+o-header v11 includes markup changes in the drawer menu. Update your markup as described below or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx).
+
+### Markup visual drawer headings
+
+Update your drawer markup to semantically represent visually grouped navigation items. This approach improves the experience for users of assistive technologies.
+
+1. Split the drawer `ul` into multiple lists.
+2. Add a `h2` tag to describe each list.
+3. Associate both elements with the `aria-labelledby` attribute.
+
+Before:
+```html
+<nav>
+	<ul>
+	<!-- more list items without heading -->
+	</ul>
+</nav>
+```
+
+After:
+```html
+<nav>
+	<h2 id="o-header-drawer-top-sections" id='top-sections'>Top sections</h2>
+	<ul aria-labelledby="top-sections">
+	    <!-- list items -->
+	</ul>
+	<h2 id="o-header-drawer-top-sections" id='ft-recommends'>FT recommends</h2>
+	<ul aria-labelledby="ft-recommends">
+	    <!-- list items -->
+	</ul>
+	<!-- more list items without heading -->
+	<ul>
+	<!-- more list items without heading -->
+	</ul>
+</nav>
+```
+
+### Markup drawer divider
+
+Remove the CSS class `o-header__drawer-menu-item--divide` from the last list item of a drawer menu and instead apply `o-header__drawer-menu-list--divide` to the menu list itself.
+
+### Update labels for drawers
+
+For consistency and accessibility label for drawer's close button is `Close side navigation menu`. Changes can be observed in this [PR](https://github.com/Financial-Times/origami/pull/903). You might need to update your markup accordingly.
+
 ## Migrating from v9 to v10
 
 o-header v10 includes markup changes. Use demo markup to update your project. Changes to be aware of include:
