@@ -1,10 +1,31 @@
 {
 	"socialNetworks": [
-		{"name": "Twitter", "className": "twitter", "link": "https://twitter.com/intent/tweet?url=http%3A%2F%2Fon.ft.com%2F1mUdgA2&text=US%20drugs&related=ftcompanies&via=FT"},
-		{"name": "Facebook", "className": "facebook", "link": "http://www.facebook.com/sharer.php?u=http%3A%2F%2Fon.ft.com%2F1mUdgA2"},
-		{"name": "LinkedIn", "className": "linkedin", "link": "http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fon.ft.com%2F1mUdgA2&title=US%20drugs+%7C+FT.com%20%7C%20Pharmaceuticals&summary=US%20drugs%20group%20vows%20to%20maintain%20big%20British%20presence&source=Financial+Times"},
-		{"name": "Whatsapp", "className": "whatsapp", "link": "whatsapp://send?text=US%20drugs%20(FT.com%20%7C%20Pharmaceuticals)%20-%20http%3A%2F%2Fon.ft.com%2F1mUdgA2"},
-		{"name": "Pinterest", "className": "pinterest", "link": "http://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fon.ft.com%2F1mUdgA2&description=US%20drugs"}],
+		{
+			"name": "Twitter",
+			"className": "twitter",
+			"link": "https://twitter.com/intent/tweet?url=http%3A%2F%2Fon.ft.com%2F1mUdgA2&text=US%20drugs&related=ftcompanies&via=FT"
+		},
+		{
+			"name": "Facebook",
+			"className": "facebook",
+			"link": "http://www.facebook.com/sharer.php?u=http%3A%2F%2Fon.ft.com%2F1mUdgA2"
+		},
+		{
+			"name": "LinkedIn",
+			"className": "linkedin",
+			"link": "http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fon.ft.com%2F1mUdgA2&title=US%20drugs+%7C+FT.com%20%7C%20Pharmaceuticals&summary=US%20drugs%20group%20vows%20to%20maintain%20big%20British%20presence&source=Financial+Times"
+		},
+		{
+			"name": "Whatsapp",
+			"className": "whatsapp",
+			"link": "whatsapp://send?text=US%20drugs%20(FT.com%20%7C%20Pharmaceuticals)%20-%20http%3A%2F%2Fon.ft.com%2F1mUdgA2"
+		},
+		{
+			"name": "Pinterest",
+			"className": "pinterest",
+			"link": "http://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fon.ft.com%2F1mUdgA2&description=US%20drugs"
+		}
+	],
 	"title": "US drugs",
 	"url": "http://on.ft.com/1mUdgA2",
 	"titleExtra": "FT.com | Pharmaceuticals",
