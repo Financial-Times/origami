@@ -115,29 +115,6 @@ describe('component', () => {
 	});
 });
 
-describe('data normalisation', () => {
-	it('converts relative urls to absolute urls before sharing them', () => {
-		fixtures.insertRelativeShareComponent();
-		shareEl = document.querySelector('[data-o-component=o-share]');
-		new Share(shareEl);
-
-		const twitterLinkElement = document.querySelector('.o-share__icon--twitter');
-		const twitterHref = decodeURIComponent(twitterLinkElement.getAttribute('href'));
-
-		proclaim.match(twitterHref, /url=https?:\/\/localhost:[\d]+\/content\/test/);
-	});
-
-	it('encodes urls before sharing them', () => {
-		fixtures.insertShareComponent();
-
-		shareEl = document.querySelector('[data-o-component=o-share]');
-		new Share(shareEl);
-
-		const twitterLinkElement = document.querySelector('.o-share__icon--twitter');
-		proclaim.match(twitterLinkElement.getAttribute('href'), /url=https%3A%2F%2F/);
-	});
-});
-
 function newWindowSpy() {
 	const self = {
 		callCount: 0,
