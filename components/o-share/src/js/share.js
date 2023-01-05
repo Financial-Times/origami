@@ -112,10 +112,13 @@ function Share(rootEl, config) {
 	function render() {
 		normaliseConfig();
 		const ulElement = document.createElement('ul');
+		const isInverse = oShare.rootEl.classList.contains('o-share--inverse');
+		const tint = isInverse ? 'FFFFFF' : '000000';
 		for (let i = 0; i < config.links.length; i++) {
 			const liElement = document.createElement('li');
 			const spanElement = document.createElement('span');
 			const aElement = document.createElement('a');
+			const imgElement = document.createElement('img');
 
 			liElement.classList.add('o-share__action', `o-share__action--${config.links[i]}`);
 
@@ -127,7 +130,12 @@ function Share(rootEl, config) {
 			aElement.setAttribute('target', '_blank');
 			aElement.setAttribute('rel', 'noopener');
 
+			imgElement.src = `https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:${config.links[i]}?source=origami-build-tools&format=svg&tint=${tint}`;
+			imgElement.alt = `${config.links[i]} icon`;
+			imgElement.classList.add('o-share__icon__img')
+
 			aElement.appendChild(spanElement);
+			aElement.appendChild(imgElement);
 			liElement.appendChild(aElement);
 			ulElement.appendChild(liElement);
 		}
