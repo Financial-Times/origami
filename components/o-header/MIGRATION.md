@@ -1,8 +1,13 @@
 # Migration Guide
 
 ## Migrating from v10 to v11
+
 o-header v11 includes markup changes in the drawer menu. Update your markup as described below or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx).
 
+In addition the `subbrand` variant has been removed, as it appears to no longer be used. Ensure there is no use of the `subbrand` variant in your project:
+- Check there is no `o-header__subbrand` class reference in your markup.
+- Check that the `subbrand` feature is not specifically included with the `oHeader` Sass mixin.
+Remove the `subbrand` variant from your project if possible, else contact the Origami team if you still need this feature.
 ### Markup visual drawer headings
 
 Update your drawer markup to semantically represent visually grouped navigation items. This approach improves the experience for users of assistive technologies.

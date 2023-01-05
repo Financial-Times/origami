@@ -8,7 +8,6 @@ import navbarSimple from './navbarSimple'
 import navbarUK from './navbarUK'
 import subNavigation from './subNavigationUK'
 import user from './user'
-import subbrand from './subbrand'
 
 import { THeaderProps } from '../../src/tsx/Props'
 const breadcrumb = subNavigation.ancestors.concat(subNavigation.item)
