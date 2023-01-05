@@ -86,13 +86,6 @@
 			"description": "Sticky variation of the simple header. Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
 		},
 		{
-			"name": "subbranded-header",
-			"title": "Subbranded header",
-			"data": "demos/src/subbrand.json",
-			"template": "demos/src/subbrand.mustache",
-			"description": "For Subbrands of the FT, eg Alphaville or Life&Arts, a subheader can be added to mark out their subbrandness. Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
-		},
-		{
 			"name": "grid-demo",
 			"title": "Grid demo",
 			"template": "demos/src/grid-demo.mustache",

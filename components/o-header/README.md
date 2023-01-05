@@ -71,9 +71,8 @@ The list of options is as follows:
 - `search`: The search bar that appears when a user presses the search icon.
 - `anon`: Styles for the row that appears when a user is not logged in.
 - `sticky`: Styles that make the header stick to the top of the page when scrolling down.
-- `simple`: Styles for the reduced slimmer header for article pages and subbrand pages.
+- `simple`: Styles for the reduced slimmer header for article pages.
 - `transparent`: Styles for an "inverse" header with no background colour and white text and logos. For use on dark backgrounds only. Does not support the navigation drawer currently (speak to Origami if you would like to use a drawer with this variant).
-- `subbrand`: Styles for the subbranded section of the header (eg Life&Arts).
 - `megamenu`: Styles for the mega-menu that appears when users hover over a nav item.
 - `drawer`: Styles for the drawer menu which is used as the primary navigation on small screens.
 

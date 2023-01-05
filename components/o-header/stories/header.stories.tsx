@@ -61,8 +61,7 @@ HeaderPrimary.parameters = {
 			'data',
 			'variant',
 			'userIsAnonymous',
-			'extraHeaderProps',
-			'showSubbrand',
+			'extraHeaderProps'
 		],
 	},
 };
@@ -194,33 +193,6 @@ InverseSimpleHeader.parameters = {
 			'showLogoLink',
 			'showStickyHeader',
 			'userIsSubscribed',
-			'userIsAnonymous',
-			'extraHeaderProps',
-		],
-	},
-};
-
-export const SubbrandedHeader: ComponentStory<typeof InverseHeader> = args => {
-	useEffect(() => void javascript.init(), []);
-	return <MainHeader {...args} />;
-};
-SubbrandedHeader.args = {
-	...storyData,
-	showSubNavigation: true,
-	showUserNavigation: true,
-	userIsLoggedIn: false,
-	showLogoLink: false,
-};
-SubbrandedHeader.parameters = {
-	controls: {
-		exclude: [
-			'data',
-			'currentPath',
-			'variant',
-			'showSubNavigation',
-			'showMegaNav',
-			'userIsSubscribed',
-			'showStickyHeader',
 			'userIsAnonymous',
 			'extraHeaderProps',
 		],
