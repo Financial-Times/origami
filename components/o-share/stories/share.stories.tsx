@@ -12,7 +12,7 @@ export default {
 	component: Share,
 	decorators: [withDesign, withHtml],
 	args: {
-		title: 'US drags',
+		title: 'US drugs',
 		socialNetworks: [
 			'twitter',
 			'facebook',

@@ -25,6 +25,7 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
+		"data": "demos/src/data.json",
 		"documentClasses": "demo"
 	},
 	"demos": [
