@@ -1,59 +1,17 @@
 <div data-o-component="o-share" class="o-share o-share--small">
   <ul>
-    <li class="o-share__action">
-      <a
-        class="o-share__icon o-share__icon--twitter"
-        href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fon.ft.com%2F1mUdgA2&text=US%20drags&related=ftcompanies&via=FT"
-        rel="noopener"
-      >
-        <span class="o-share__text">
-          Share US drags on Twitter (opens a new window)
-        </span>
-      </a>
+    {{#socialNetworks}}
+		<li class="o-share__action">
+			<a
+				class="o-share__icon o-share__icon--{{name}}"
+				href="{{link}}"
+				rel="noopener"
+			>
+				<span class="o-share__text">
+					Share {{title}} on {{name}} (opens a new window)
+				</span>
+			</a>
     </li>
-    <li class="o-share__action">
-      <a
-        class="o-share__icon o-share__icon--facebook"
-        href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fon.ft.com%2F1mUdgA2"
-        rel="noopener"
-      >
-        <span class="o-share__text">
-          Share US drags on Facebook (opens a new window)
-        </span>
-      </a>
-    </li>
-    <li class="o-share__action">
-      <a
-        class="o-share__icon o-share__icon--linkedin"
-        href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fon.ft.com%2F1mUdgA2&title=US%20drags+%7C+FT.com%20%7C%20Pharmaceuticals&summary=US%20drugs%20group%20vows%20to%20maintain%20big%20British%20presence&source=Financial+Times"
-        rel="noopener"
-      >
-        <span class="o-share__text">
-          Share US drags on LinkedIn (opens a new window)
-        </span>
-      </a>
-    </li>
-    <li class="o-share__action">
-      <a
-        class="o-share__icon o-share__icon--whatsapp"
-        href="whatsapp://send?text=US%20drags%20(FT.com%20%7C%20Pharmaceuticals)%20-%20http%3A%2F%2Fon.ft.com%2F1mUdgA2"
-        rel="noopener"
-      >
-        <span class="o-share__text">
-          Share US drags on Whatsapp (opens a new window)
-        </span>
-      </a>
-    </li>
-    <li class="o-share__action">
-      <a
-        class="o-share__icon o-share__icon--pinterest"
-        href="http://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fon.ft.com%2F1mUdgA2&description=US%20drags"
-        rel="noopener"
-      >
-        <span class="o-share__text">
-          Share US drags on Pinterest (opens a new window)
-        </span>
-      </a>
-    </li>
+		{{/socialNetworks}}
   </ul>
 </div>
