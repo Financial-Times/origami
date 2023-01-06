@@ -85,14 +85,6 @@
 			z-index: 1;
 		}
 
-		// Used for the icon background
-		&:before {
-			content: '';
-			display: inline-block;
-			background-repeat: no-repeat;
-			background-position: center;
-		}
-
 		// Used as an overlay to increase the hit target for accessibility
 		&:after {
 			position: absolute;

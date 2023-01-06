@@ -16,6 +16,10 @@
 		}
 	}
 
+	.o-share__icon__image {
+		fill: currentColor
+	}
+
 	// Output themed icons.
 	@each $icon-name in $icons {
 		$is-ft-icon: index($o-share-ft-icons-names, $icon-name);
@@ -26,10 +30,6 @@
 		$query: "?source=#{$system-code}";
 		$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
 
-		.o-share__icon--#{$icon-name}:before {
-			background-image: url($service-url + $query + "&format=svg&tint=#{$color-encoded}");
-		}
-
 		.o-share__icon--#{$icon-name}:hover,
 		.o-share__icon--#{$icon-name}:focus {
 			// The border and background colour of icons varies depending on
@@ -39,10 +39,10 @@
 			border-color: oColorsByUsecase($usecase, 'border');
 			background-color: oColorsByUsecase($usecase, 'background');
 			color: oColorsByUsecase($usecase, 'text');
-			&:before {
-				$color-usecase-encoded: str-slice(ie-hex-str(oColorsByUsecase($usecase, 'text')), 4);
-				background-image: url($service-url + $query + "&format=svg&tint=#{$color-usecase-encoded}");
-			}
+			// &:before {
+				// $color-usecase-encoded: str-slice(ie-hex-str(oColorsByUsecase($usecase, 'text')), 4);
+				// background-image: url($service-url + $query + "&format=svg&tint=#{$color-usecase-encoded}");
+			// }
 		}
 
 		// Windows high contrast mode removes background images,
@@ -52,16 +52,15 @@
 			@media screen and (-ms-high-contrast: active) {
 				background-color: oColorsByName('black');
 				color: oColorsByName('white');
-				&:before {
-					background-image: url($service-url + $query + "&format=svg&tint=%23ffffff");
-				}
 			}
 			@media screen and (-ms-high-contrast: black-on-white) {
 				background-color: oColorsByName('white');
 				color: oColorsByName('black');
-				&:before {
-					background-image: url($service-url + $query + "&format=svg&tint=%23000000");
-				}
+			}
+
+			@media screen and (forced-colors: active) {
+				background-color: oColorsByName('black');
+				color: oColorsByName('white');
 			}
 		}
 		// sass-lint:enable no-vendor-prefixes
@@ -86,7 +85,7 @@
 		margin-right: $icon-whitespace;
 	}
 
-	.o-share__icon:before {
+	.o-share__icon__image {
 		width: $size - ($o-share-border-size * 2);
 		height: $size - ($o-share-border-size * 2);
 		background-size: $size $size;
