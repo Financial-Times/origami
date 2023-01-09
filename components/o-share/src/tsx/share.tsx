@@ -99,13 +99,7 @@ function IconWithOutLabel({
 			)}
 			rel="noopener"
 		>
-			<svg
-				className="o-share__icon__image"
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 1024 1024"
-			>
-				{svgPaths && svgPaths.map((path, i) => <path key={i} d={path}></path>)}
-			</svg>
+			<InlineIcon svgPaths={svgPaths} />
 			<span className="o-share__text">
 				{generateDescriptiveLinkText(title, name)}
 			</span>
@@ -123,19 +117,22 @@ function IconWithLabel({ icon, title, summary }) {
 				title={title}
 				aria-label={summary}
 			>
-				<svg
-					className="o-share__icon__image"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 1024 1024"
-				>
-					{svgPaths &&
-						svgPaths.map((path, i) => <path key={i} d={path}></path>)}
-				</svg>
+				<InlineIcon svgPaths={svgPaths} />
 				<span className="o-share__text" data-variant-label>
 					{name}
 				</span>
 			</button>
 		</form>
+	);
+}
+
+function InlineIcon({ svgPaths }) {
+	return (
+		<div className="o-share__icon__image">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+				{svgPaths && svgPaths.map((path, i) => <path key={i} d={path}></path>)}
+			</svg>
+		</div>
 	);
 }
 
