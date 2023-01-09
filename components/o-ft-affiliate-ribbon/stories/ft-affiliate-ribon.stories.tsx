@@ -13,12 +13,12 @@ export default {
 	decorators: [withDesign, withHtml],
 } as ComponentMeta<typeof FtAffiliateRibbon>;
 
-export const StoryFtAffiliateRibbon: ComponentStory<typeof FtAffiliateRibbon> = () => {
+export const FtAffiliateRibbonStory: ComponentStory<typeof FtAffiliateRibbon> = () => {
 	return (
 		<FtAffiliateRibbon />
 	);
 };
-StoryFtAffiliateRibbon.storyName = 'Default FT Affiliate Ribbon';
+FtAffiliateRibbonStory.storyName = 'Default FT Affiliate Ribbon';
 
 const FtAffiliateRibbon = () => {
 	return (
