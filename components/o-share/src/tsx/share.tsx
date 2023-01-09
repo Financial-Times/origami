@@ -1,12 +1,19 @@
-type SocialNetworkType =
-	| 'twitter'
-	| 'facebook'
-	| 'linkedin'
-	| 'link'
-	| 'share'
-	| 'mail'
-	| 'pinterest'
-	| 'whatsapp';
+type SocialNetworkName =
+	| "Twitter"
+	| "Facebook"
+	| "LinkedIn"
+	| "Link"
+	| "Share"
+	| "Mail"
+	| "Pinterest"
+	| "Whatsapp";
+
+type SocialNetworkType = { name: SocialNetworkName } & {
+	iconUrl: string;
+	svgPaths: string[];
+	showLabel?: boolean;
+	customAction?: string;
+};
 
 type ShareProps = {
 	socialNetworks: SocialNetworkType[];
@@ -18,48 +25,124 @@ type ShareProps = {
 	small?: boolean;
 	vertical?: boolean;
 	inverse?: boolean;
+	children?: JSX.Element | JSX.Element[];
 };
 
 export function Share({
 	socialNetworks,
-	url = '',
-	title = '',
-	titleExtra = '',
-	summary = '',
-	relatedTwitterAccounts = '',
+	url = "",
+	title = "",
+	titleExtra = "",
+	summary = "",
+	relatedTwitterAccounts = "",
 	small,
 	vertical,
 	inverse,
+	children,
 }: ShareProps) {
-	let className = '';
-	if (small) className = ' o-share--small';
-	if (vertical) className = ' o-share--vertical';
-	if (inverse) className += ' o-share--inverse';
+	let className = "";
+	if (small) className = " o-share--small";
+	if (vertical) className = " o-share--vertical";
+	if (inverse) className += " o-share--inverse";
 	return (
 		<div data-o-component="o-share" className={`o-share${className}`}>
 			<ul>
-				{socialNetworks.map((socialNetwork, i) => (
-					<li className="o-share__action" key={i + socialNetwork}>
-						<a
-							className={`o-share__icon o-share__icon--${socialNetwork}`}
-							href={generateSocialUrl(
-								{url, title, titleExtra, summary, relatedTwitterAccounts},
-								socialNetwork
+				{socialNetworks.map((icon, i) => {
+					const listItemClassNames = icon.showLabel
+						? "o-share__action o-share__action--labelled"
+						: "o-share__action";
+					const props = {
+						icon,
+						url,
+						title,
+						titleExtra,
+						summary,
+						relatedTwitterAccounts,
+					};
+					return (
+						<li className={listItemClassNames} key={i + icon.name}>
+							{icon.showLabel ? (
+								<IconWithLabel {...props} />
+							) : (
+								<IconWithOutLabel {...props} />
 							)}
-							rel="noopener">
-							<span className="o-share__text">
-								{generateDescriptiveLinkText(title, socialNetwork)}
-							</span>
-						</a>
-					</li>
-				))}
+						</li>
+					);
+				})}
+				{children}
 			</ul>
 		</div>
 	);
 }
 
+function IconWithOutLabel({
+	icon,
+	url,
+	title,
+	titleExtra,
+	summary,
+	relatedTwitterAccounts,
+}) {
+	const { name, svgPaths } = icon;
+	return (
+		<a
+			className={`o-share__icon o-share__icon--${name.toLowerCase()}`}
+			href={generateSocialUrl(
+				{
+					url,
+					title,
+					titleExtra,
+					summary,
+					relatedTwitterAccounts,
+				},
+				name
+			)}
+			rel="noopener"
+		>
+			<svg
+				className="o-share__icon__image"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 1024 1024"
+			>
+				{svgPaths && svgPaths.map((path, i) => <path key={i} d={path}></path>)}
+			</svg>
+			<span className="o-share__text">
+				{generateDescriptiveLinkText(title, name)}
+			</span>
+		</a>
+	);
+}
 
-function generateDescriptiveLinkText (title: string, socialNetwork: SocialNetworkType) {
+function IconWithLabel({ icon, title, summary }) {
+	const { name, svgPaths, customAction } = icon;
+	return (
+		<form method="post" action={customAction}>
+			<button
+				type="submit"
+				className={`o-share__icon o-share__icon--${name.toLowerCase()}`}
+				title={title}
+				aria-label={summary}
+			>
+				<svg
+					className="o-share__icon__image"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 1024 1024"
+				>
+					{svgPaths &&
+						svgPaths.map((path, i) => <path key={i} d={path}></path>)}
+				</svg>
+				<span className="o-share__text" data-variant-label>
+					{name}
+				</span>
+			</button>
+		</form>
+	);
+}
+
+function generateDescriptiveLinkText(
+	title: string,
+	socialNetwork: SocialNetworkName
+) {
 	const descriptiveLinkText = {
 		twitter: `Share ${title} on Twitter (opens a new window)`,
 		facebook: `Share ${title} on Facebook (opens a new window)`,
@@ -72,12 +155,17 @@ function generateDescriptiveLinkText (title: string, socialNetwork: SocialNetwor
 	return descriptiveLinkText[socialNetwork];
 }
 
-function generateSocialUrl(config: Record<string, string>, socialNetwork: SocialNetworkType) {
+function generateSocialUrl(
+	config: Record<string, string>,
+	socialNetwork: SocialNetworkName
+) {
 	const url = encodeURIComponent(config.url);
 	const title = encodeURIComponent(config.title);
 	const titleExtra = encodeURIComponent(config.titleExtra);
 	const summary = encodeURIComponent(config.summary);
-	const relatedTwitterAccounts = encodeURIComponent(config.relatedTwitterAccounts);
+	const relatedTwitterAccounts = encodeURIComponent(
+		config.relatedTwitterAccounts
+	);
 	const socialUrls = {
 		twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}&related=${relatedTwitterAccounts}&via=FT`,
 		facebook: `http://www.facebook.com/sharer.php?u=${url}`,
