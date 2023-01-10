@@ -6,9 +6,9 @@ Version 9 has markup changes and component API got updated as well. New version 
 
 1. The icons are now inlined inside the templates, since this was our only known option to [fix accessibility issue](https://github.com/Financial-Times/origami/issues/930) on high contrast mode devices.
 2. Share link MUST be written in full markup instead of using js to automatically generate share.
-3. Our TSX template now supports custom share links.
+3. Our TSX template is published and now it supports custom share links.
 
-New markup can be copied from our registry or we recommend using our [storyBook demos](http://localhost:6969/?path=/story/components-o-share--horizontal) that also provides html markup that can be copied from `HTML` tab.
+New markup can be copied from Origami [registry](https://registry.origami.ft.com/components/o-share) or Build service users can use [storyBook demos](http://localhost:6969/?path=/story/components-o-share--horizontal) to generate markup based on storybook controls, that can be copied from `HTML` tab.
 
 ### Inlined SVG icons
 
