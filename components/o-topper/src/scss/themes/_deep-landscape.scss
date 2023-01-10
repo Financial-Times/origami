@@ -22,7 +22,7 @@
 			$foreground: oColorsGetTextColor($background, $opacity: 100);
 			.o-topper__content--text-shadow{
 				@if $foreground == white{
-					text-shadow: 2px 3px 4px rgb(18,18,18,0.4);
+					text-shadow: 2px 3px 4px rgba(18,18,18,0.4);
 				}
 			}
 		}
