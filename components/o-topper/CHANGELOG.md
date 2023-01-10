@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.7.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.0...o-topper-v5.7.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* Use `rgba` for `rgba` value ([b3562e2](https://www.github.com/Financial-Times/origami/commit/b3562e20582a211704ca67495d89af3bb2576e97))
+
 ## [5.7.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.4...o-topper-v5.7.0) (2023-01-04)
 
 
