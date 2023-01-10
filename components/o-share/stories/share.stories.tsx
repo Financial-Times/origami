@@ -1,9 +1,10 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Story, ComponentMeta } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 import withHtml from "origami-storybook-addon-html";
 
 import { Share } from "../src/tsx/share";
-import { useEffect, useState } from "react";
+import { ShareIcon, UrlProps } from "../src/tsx/shareIcon";
+import { useEffect, ComponentProps } from "react";
 import javascript from "../main";
 import "./share.scss";
 
@@ -13,40 +14,6 @@ export default {
 	decorators: [withDesign, withHtml],
 	args: {
 		title: "US drugs",
-		socialNetworks: [
-			{
-				name: "Twitter",
-				iconUrl:
-					"https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:twitter?source=origami-build-service&format=svg",
-			},
-			{
-				name: "Facebook",
-				iconUrl:
-					"https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:facebook?source=origami-build-service&format=svg",
-			},
-			{
-				name: "LinkedIn",
-				iconUrl:
-					"https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:linkedin?source=origami-build-service&format=svg",
-			},
-			{
-				name: "Whatsapp",
-				iconUrl:
-					"https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:whatsapp?source=origami-build-service&format=svg",
-			},
-			{
-				name: "Pinterest",
-				iconUrl:
-					"https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:pinterest?source=origami-build-service&format=svg",
-			},
-			{
-				name: "Share",
-				showLabel: true,
-				customAction: '#',
-				iconUrl:
-					"https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-service&format=svg",
-			},
-		],
 		url: "http://on.ft.com/1mUdgA2",
 		titleExtra: "FT.com | Pharmaceuticals",
 		summary: "US drugs group vows to maintain big British presence",
@@ -57,47 +24,52 @@ export default {
 	},
 } as ComponentMeta<typeof Share>;
 
-function extractPathValues(svg: string): string[] {
-	// Create a new DOMParser to parse the SVG string
-	const parser = new DOMParser();
-	const svgDoc = parser.parseFromString(svg, "image/svg+xml");
+type ShareProps = ComponentProps<typeof Share> & UrlProps;
 
-	const pathElements = svgDoc.getElementsByTagName("path");
-	return Array.from(pathElements).map(pathElement =>
-		pathElement.getAttribute("d")
+const StoryTemplate: Story<ShareProps> = args => {
+	useEffect(() => void javascript.init(), []);
+	const shareProps = {
+		small: args.small,
+		vertical: args.vertical,
+		inverse: args.inverse,
+	};
+	const shareIconProps = {
+		url: args.url,
+		title: args.title,
+		titleExtra: args.titleExtra,
+		summary: args.summary,
+		relatedTwitterAccounts: args.relatedTwitterAccounts,
+	};
+	return (
+		<Share {...shareProps}>
+			<ShareIcon icon="twitter" urlProps={shareIconProps} />
+			<ShareIcon icon="facebook" urlProps={shareIconProps} />
+			<ShareIcon icon="linkedin" urlProps={shareIconProps} />
+			<ShareIcon icon="whatsapp" urlProps={shareIconProps} />
+			<ShareIcon
+				icon="share"
+				showLabel={true}
+				label="Share"
+				customAction="#"
+				urlProps={shareIconProps}
+			/>
+			<ShareIcon
+				icon="bookmark-outline"
+				showLabel={true}
+				label="Save"
+				customAction="#"
+				urlProps={shareIconProps}
+			/>
+		</Share>
 	);
-}
-
-async function fetchSvgCode(iconUrl: string) {
-	const response = await fetch(iconUrl);
-	const data = await response.text();
-	return extractPathValues(data);
-}
-
-const Story: ComponentStory<typeof Share> = args => {
-	const [socialNetworks, setSocialNetworks] = useState([]);
-	useEffect(() => {
-		async function extractSvgPaths() {
-			const response = await Promise.all(
-				args.socialNetworks.map(async ({ name, iconUrl, showLabel }) => {
-					const paths = await fetchSvgCode(iconUrl);
-					return { name, svgPaths: paths, showLabel };
-				})
-			);
-			setSocialNetworks(response);
-		}
-		extractSvgPaths();
-		void javascript.init();
-	}, []);
-	return <Share {...args} socialNetworks={socialNetworks} />;
 };
 
-export const Horizontal: ComponentStory<typeof Share> = Story.bind({});
-export const Small: ComponentStory<typeof Share> = Story.bind({});
+export const Horizontal: Story<ShareProps> = StoryTemplate.bind({});
+export const Small: Story<ShareProps> = StoryTemplate.bind({});
 Small.args = {
 	small: true,
 };
-export const Inverse: ComponentStory<typeof Share> = Story.bind({});
+export const Inverse: Story<ShareProps> = StoryTemplate.bind({});
 
 Inverse.args = {
 	inverse: true,
@@ -105,7 +77,7 @@ Inverse.args = {
 Inverse.parameters = {
 	origamiBackground: "slate",
 };
-export const Vertical: ComponentStory<typeof Share> = Story.bind({});
+export const Vertical: Story<ShareProps> = StoryTemplate.bind({});
 Vertical.args = {
 	vertical: true,
 };
