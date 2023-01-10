@@ -230,13 +230,41 @@ The event provides the following properties:
 - `detail.url` - The social share url opened.
 
 ## TSX Template
+
 `o-share` component publishes TSX templates to NPM and can be consumed by importing tsx template from our source directory:
 
 ```jsx
 import { Share } from "@financial-times/o-share/src/tsx/share";
+import { ShareIcon } from "@financial-times/o-share/src/tsx/shareIcon";
 
-<Share {...props} />
+<Share {...ShareProps}>
+ <ShareIcon {...ShareIconProps}>
+</Share>
 
+```
+
+The prop Types for each component:
+
+```ts
+ShareProps = {
+ small?: boolean;
+ vertical?: boolean;
+ inverse?: boolean;
+}
+
+ShareIconProps = {
+ icon: "twitter" | "facebook" | "linkedin" | "whatsapp" | "share" | "bookmark-outline";
+ urlProps: {
+  url: string;
+  title: string;
+  titleExtra: string;
+  summary: string;
+  relatedTwitterAccounts: string;
+ };
+ showLabel?: boolean;
+ label?: string;
+ customAction?: string;
+}
 ```
 
 TSX template doesn't import styles and doesn't initialise javaScript by itself. For implementation examples we recommend to look at our [storybook code](stories/share.stories.tsx).

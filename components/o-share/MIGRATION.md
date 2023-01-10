@@ -6,7 +6,7 @@ Version 9 has markup changes and component API got updated as well. New version 
 
 1. The icons are now inlined inside the templates, since this was our only known option to [fix accessibility issue](https://github.com/Financial-Times/origami/issues/930) on high contrast mode devices.
 2. Share link MUST be written in full markup instead of using js to automatically generate share.
-3. Our TSX template is published and now it supports custom share links.
+3. New TSX template requires social icons to be passed as children.
 
 New markup can be copied from Origami [registry](https://registry.origami.ft.com/components/o-share) or Build service users can use [storyBook demos](http://localhost:6969/?path=/story/components-o-share--horizontal) to generate markup based on storybook controls, that can be copied from `HTML` tab.
 
@@ -68,17 +68,24 @@ Instead use full markup of the component:
 </div>
 ```
 
-### Custom share links for TSX template
+### TSX template
 
-`<Share />` component props remain the same but prop `socialNetworks` must be updated to current API. This prop is now an array of objects with following structure:
+`<Share />` component now must have each icon as children. To render icons you must use `<ShareIcon>` component and provide correct props:
 
-```ts
- name: string; // name of the social network
- iconUrl?: string; // url of the icon
- svgPaths: string[]; // array of svg paths that define icon
- showLabel?: boolean; // show or hide the label
- customAction?: string; // custom action that can be used to trigger a custom event
+```jsx
+<Share {...shareProps}>
+   <ShareIcon icon="twitter" urlProps={shareIconProps} />
+   <ShareIcon
+    icon="share"
+    showLabel={true}
+    label="Share"
+    customAction="#"
+    urlProps={shareIconProps}
+   />
+  </Share>
 ```
+
+This example should render twitter social share icon and custom share button. More details about the props that you must pass down to each compnent can be found in our [readme](README.md#tsx-template).
 
 We recommend that you look at our [storybook code implementation](stories/share.stories.tsx) to see how to use this new API.
 
