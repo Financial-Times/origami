@@ -10,7 +10,7 @@
 	// Error when the color name is not found.
 	// Get the namespaced color name.
 	@if (not _oColorsNameExists($color-name)) {
-		@return _oColorsError('The color "#{inspect($color-name)}" does not exist.');
+		@return _oColorsError('The color #{inspect($color-name)} does not exist.');
 	}
 
 	// Get color details.
@@ -21,7 +21,7 @@
 	// Output any deprecation notice.
 	$deprecated: map-get($meta, 'deprecated');
 	$already-warned: index($_o-colors-deprecation-warnings-output, $color-name) != null;
-	@if $deprecated and not $already-warned {
+	@if not $_o-colors-mixin-output and $deprecated and not $already-warned {
 		$deprecation-message: 'The color "#{$color-name}" is deprecated for your brand\'s palette, and will be removed in the next major.';
 		// Append any custom deprecation message.
 		$deprecation-message: if(type-of($deprecated) != 'string', $deprecation-message, $deprecation-message + ' ' + $deprecated);
@@ -66,7 +66,7 @@
 	$opts: if($config, map-get($config, 'opts'), ());
 	$deprecated: if(type-of($opts) == 'map', map-get($opts, 'deprecated'), null);
 	$deprecated-key: 'usecase-#{$usecase}-#{$property}';
-	@if(not index($_o-colors-deprecation-warnings-output, $deprecated-key)) {
+	@if(not $_o-colors-mixin-output and not index($_o-colors-deprecation-warnings-output, $deprecated-key)) {
 		@if (type-of($deprecated) == 'string') {
 			@warn 'Color usecase "#{inspect($usecase)}" is deprecated ' +
 				'(property "#{inspect($property)}" was requested): #{inspect($deprecated)}';
