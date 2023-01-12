@@ -64,3 +64,12 @@ $_o-colors-deprecation-warnings-output: ();
 /// @access private
 /// @type Bool
 $_o-colors-test-environment: false !default;
+
+/// Is the current execution context the oColors primary mixin?
+/// This can be helpful to know internally to provide alternate
+/// behaviour, e.g. reduce warning noise if a user is outputting
+/// all available styles – including deprecated styles – without
+/// necessarily using them directly.
+/// @access private
+/// @type Bool
+$_o-colors-mixin-output: false !default;
