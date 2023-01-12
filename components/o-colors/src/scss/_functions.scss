@@ -194,6 +194,10 @@
 		@return _oColorsError("'#{inspect($color)}' is not a valid mixing color.");
 	}
 
+	@if (unitless($percentage)) {
+		@return mix($mixer, $base, $percentage * 1%);
+	}
+
 	@return mix($mixer, $base, $percentage);
 }
 
