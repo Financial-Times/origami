@@ -5,8 +5,6 @@ type IconType =
 	| "facebook"
 	| "linkedin"
 	| "whatsapp"
-	| "share"
-	| "bookmark-outline";
 
 export type UrlProps = {
 	url: string;
