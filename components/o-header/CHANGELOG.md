@@ -4,11 +4,10 @@
 
 ### ⚠ BREAKING CHANGES
 
-* o-header, tweak readme, triggar major release
+* Update markup to make a number of accessibility fixes ([cc0c80a](https://github.com/Financial-Times/origami/pull/912))
+* Remove the sub-brand variant([cc0c80a](https://github.com/Financial-Times/origami/pull/950))
 
-### Features
-
-* o-header, tweak readme, triggar major release ([cc0c80a](https://www.github.com/Financial-Times/origami/commit/cc0c80ad7ba2a405ab23d91a1db5691ace76560f))
+[See the o-header v10 to v11 migration guide for more details](https://github.com/Financial-Times/origami/blob/main/components/o-header/MIGRATION.md#migrating-from-v10-to-v11).
 
 ### [10.1.2](https://www.github.com/Financial-Times/origami/compare/o-header-v10.1.1...o-header-v10.1.2) (2022-12-21)
 
