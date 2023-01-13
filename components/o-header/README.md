@@ -71,9 +71,8 @@ The list of options is as follows:
 - `search`: The search bar that appears when a user presses the search icon.
 - `anon`: Styles for the row that appears when a user is not logged in.
 - `sticky`: Styles that make the header stick to the top of the page when scrolling down.
-- `simple`: Styles for the reduced slimmer header for article pages and subbrand pages.
+- `simple`: Styles for the reduced slimmer header for article pages.
 - `transparent`: Styles for an "inverse" header with no background colour and white text and logos. For use on dark backgrounds only. Does not support the navigation drawer currently (speak to Origami if you would like to use a drawer with this variant).
-- `subbrand`: Styles for the subbranded section of the header (eg Life&Arts).
 - `megamenu`: Styles for the mega-menu that appears when users hover over a nav item.
 - `drawer`: Styles for the drawer menu which is used as the primary navigation on small screens.
 
@@ -93,9 +92,10 @@ To use `o-header` setup a [core and enhanced experience](https://origami.ft.com/
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 10 | N/A | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
-⚠ maintained | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-⚠ maintained | 8 | 8.6 | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+✨ active | 11 | N/A | [migrate to v11](MIGRATION.md#migrating-from-v10-to-v11) |
+⚠ maintained | 10 | N/A | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
+╳ deprecated | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
+╳ deprecated | 8 | 8.6 | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
 ╳ deprecated | 7 | 7.8 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
 ╳ deprecated | 6 | 6.14 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
 ╳ deprecated | 5 | 5.0 | - |

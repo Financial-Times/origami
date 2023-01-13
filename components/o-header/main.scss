@@ -19,7 +19,6 @@
 @import 'src/scss/features/nav';
 @import 'src/scss/features/subnav';
 @import 'src/scss/features/megamenu';
-@import 'src/scss/features/subbrand';
 @import 'src/scss/features/simple';
 @import 'src/scss/features/transparent';
 @import 'src/scss/features/sticky';
@@ -29,7 +28,7 @@
 /// Can be passed a list of one or more features to output.
 /// By default, will output all styles.
 ///
-/// @param {List} $opts [('top', 'subnav', 'search', 'nav', 'anon', 'drawer', 'megamenu', 'sticky', 'simple', 'subbrand', 'transparent')]
+/// @param {List} $opts [('top', 'subnav', 'search', 'nav', 'anon', 'drawer', 'megamenu', 'sticky', 'simple', 'transparent')]
 /// @param {Boolean} $include-base-styles [true]
 @mixin oHeader($opts: $_o-header-features, $include-base-styles: true) {
 
@@ -96,10 +95,6 @@
 
 		@if $feature == 'simple' and _oHeaderSupports($feature) {
 			@include _oHeaderSimple;
-		}
-
-		@if $feature == 'subbrand' and _oHeaderSupports($feature) {
-			@include _oHeaderSubbrand;
 		}
 
 		@if $feature == 'transparent' and _oHeaderSupports($feature) {
