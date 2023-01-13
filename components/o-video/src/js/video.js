@@ -60,7 +60,7 @@ function shouldDispatch(video) {
 		23, 24, 25, 26, 27,
 		48, 49, 50, 51, 52,
 		73, 74, 75, 76, 77,
-		100
+		99,100
 	];
 
 	// Initialise dispatched progress store
