@@ -1,4 +1,15 @@
 # Changelog
+## [11.0.0](https://www.github.com/Financial-Times/origami/compare/o-header-v10.1.2...o-header-v11.0.0) (2023-01-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* o-header, tweak readme, triggar major release
+
+### Features
+
+* o-header, tweak readme, triggar major release ([cc0c80a](https://www.github.com/Financial-Times/origami/commit/cc0c80ad7ba2a405ab23d91a1db5691ace76560f))
+
 ### [10.1.2](https://www.github.com/Financial-Times/origami/compare/o-header-v10.1.1...o-header-v10.1.2) (2022-12-21)
 
 
