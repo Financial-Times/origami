@@ -34,26 +34,6 @@
 			background-color: oColorsByUsecase($usecase, 'background');
 			color: oColorsByUsecase($usecase, 'text');
 		}
-
-		// Windows high contrast mode removes background images,
-		// unless they are specifically added for high contrast mode.
-		// sass-lint:disable no-vendor-prefixes
-		.o-share__icon--#{$icon-name} {
-			@media screen and (-ms-high-contrast: active) {
-				background-color: oColorsByName('black');
-				color: oColorsByName('white');
-			}
-			@media screen and (-ms-high-contrast: black-on-white) {
-				background-color: oColorsByName('white');
-				color: oColorsByName('black');
-			}
-
-			@media screen and (forced-colors: active) {
-				background-color: oColorsByName('black');
-				color: oColorsByName('white');
-			}
-		}
-		// sass-lint:enable no-vendor-prefixes
 	}
 }
 
