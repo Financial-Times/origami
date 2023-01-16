@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 
-* o-video track comment ([9ebbba2](https://www.github.com/Financial-Times/origami/commit/9ebbba297a6685bdbf345fd5fe8c6c712c7284b3))
+* o-video track 99% watch progress ([9ebbba2](https://www.github.com/Financial-Times/origami/commit/9ebbba297a6685bdbf345fd5fe8c6c712c7284b3))
 
 ### [7.2.4](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.3...o-video-v7.2.4) (2022-12-21)
 
