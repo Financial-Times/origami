@@ -1,4 +1,11 @@
 # Changelog
+### [11.0.1](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.0...o-header-v11.0.1) (2023-01-16)
+
+
+### Bug Fixes
+
+* o-header, bundle tsx in release ([9a6f908](https://www.github.com/Financial-Times/origami/commit/9a6f9084ae4b306902da844a17782a54ef149964))
+
 ## [11.0.0](https://www.github.com/Financial-Times/origami/compare/o-header-v10.1.2...o-header-v11.0.0) (2023-01-13)
 
 
