@@ -253,7 +253,7 @@ ShareProps = {
 }
 
 ShareIconProps = {
- icon: "twitter" | "facebook" | "linkedin" | "whatsapp" | "share" | "bookmark-outline";
+ icon: "twitter" | "facebook" | "linkedin" | "whatsapp";
  urlProps: {
   url: string;
   title: string;
