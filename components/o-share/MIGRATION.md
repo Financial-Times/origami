@@ -5,7 +5,7 @@
 o-share v9 incudes a number of changes to improve accessibility and the flexibility of its TSX templates. To migrate follow these steps and see below for more details:
 
 1. If your project uses o-share TSX templates, migrate to the new template interface.
-2. o-share no longer provides client side JavaScript to generate markup. If your project does not use o-share TSX templates ensure you output o-share markup in full. 
+2. o-share no longer provides client side JavaScript to generate markup. If your project does not use o-share TSX templates ensure you output o-share markup in full.
 
 New markup can be copied from the [Origami registry](https://registry.origami.ft.com/components/o-share) or [StoryBook](https://origami.ft.com/storybook/) via the `HTML` tab.
 
@@ -33,7 +33,7 @@ Icons in version 9 use inline SVGs. In order to use them with `o-share`, we reco
 
 ### Deprecate autogenerate share links
 
-Before version 9 users could automatically generate share links with following markup. But this requires JavaScript and from our lates DAC audit we determined that this approach could be deprecated.
+Usage of `o-share` with client side Javascript initialisation is now deprecated. Projects that use this will no longer work:
 
 ```html
 <div data-o-component="o-share"
