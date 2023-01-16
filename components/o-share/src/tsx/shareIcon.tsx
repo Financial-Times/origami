@@ -130,8 +130,16 @@ function generateDescriptiveLinkText(title: string, socialNetwork: IconType) {
 	return descriptiveLinkText[socialNetwork];
 }
 
+interface GenerateSocialUrlConfig {
+	url: string,
+	title: string,
+	titleExtra:string
+	summary: string,
+	relatedTwitterAccounts: string
+
+}
 function generateSocialUrl(
-	config: Record<string, string>,
+	config: GenerateSocialUrlConfig,
 	socialNetwork: IconType
 ) {
 	const url = encodeURIComponent(config.url);
