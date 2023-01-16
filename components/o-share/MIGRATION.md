@@ -2,11 +2,10 @@
 
 ## Migrating from v8 to v9
 
-Version 9 has markup changes and component API got updated as well. New version relies less on javaScript and improves accessibility on high contrast mode. The most important updates are:
+o-share v9 incudes a number of changes to improve accessibility and the flexibility of its TSX templates. To migrate follow these steps and see below for more details:
 
-1. The icons are now inlined inside the templates, since this was our only known option to [fix accessibility issue](https://github.com/Financial-Times/origami/issues/930) on high contrast mode devices.
-2. Share link MUST be written in full markup instead of using js to automatically generate share.
-3. New TSX template requires social icons to be passed as children.
+1. If your project uses o-share TSX templates, migrate to the new template interface.
+2. o-share no longer provides client side JavaScript to generate markup. If your project does not use o-share TSX templates ensure you output o-share markup in full. 
 
 New markup can be copied from the [Origami registry](https://registry.origami.ft.com/components/o-share) or [StoryBook](https://origami.ft.com/storybook/) via the `HTML` tab.
 
