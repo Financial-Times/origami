@@ -76,16 +76,13 @@ Instead use full markup of the component:
 <Share {...shareProps}>
    <ShareIcon icon="twitter" urlProps={shareIconProps} />
    <ShareIcon
-    icon="share"
-    showLabel={true}
-    label="Share"
-    customAction="#"
+    icon="facebook"
     urlProps={shareIconProps}
    />
   </Share>
 ```
 
-This example should render twitter social share icon and custom share button. More details about the props that you must pass down to each compnent can be found in our [readme](README.md#tsx-template).
+This example should render Twitter social share icon and Facebook social share button. More details about the props that you must pass down to each component can be found in our [readme](README.md#tsx-template).
 
 We recommend that you look at our [storybook code implementation](stories/share.stories.tsx) to see how to use this new API.
 

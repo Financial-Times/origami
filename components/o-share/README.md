@@ -167,11 +167,11 @@ All `$opts` options include:
 
 `o-share` sets custom colour usecases for matching the colour of share buttons. These usecases are limited, for example they do not provide colours for the inverse variant, and not recommended for new projects (it is possible to output custom icons using the `oShare` mixin, without matching colours).
 
-Usecase | Property | Uses |
----|---|---
-`o-share/default-icon` | background, border, text | Default colours, used by icons without a state (e.g. before hover).
-`o-share/ft-icon` | background, border, text | Colours to highlight FT icon social buttons like email (e.g. on hover).
-`o-share/[social-icon-name]-icon` | background, border, text | Colours to highlight social buttons with a brand, like Twitter (e.g. `o-share/twitter-icon` on hover).
+| Usecase                           | Property                 | Uses                                                                                                   |
+|-----------------------------------|--------------------------|--------------------------------------------------------------------------------------------------------|
+| `o-share/default-icon`            | background, border, text | Default colours, used by icons without a state (e.g. before hover).                                    |
+| `o-share/ft-icon`                 | background, border, text | Colours to highlight FT icon social buttons like email (e.g. on hover).                                |
+| `o-share/[social-icon-name]-icon` | background, border, text | Colours to highlight social buttons with a brand, like Twitter (e.g. `o-share/twitter-icon` on hover). |
 
 Use the [oColorsByUsecase mixin from o-colors](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=core#function-ocolorsbyusecase) to retrieve custom colour usecases set by o-share.
 
@@ -238,7 +238,7 @@ import { Share } from "@financial-times/o-share/src/tsx/share";
 import { ShareIcon } from "@financial-times/o-share/src/tsx/shareIcon";
 
 <Share {...ShareProps}>
- <ShareIcon {...ShareIconProps}>
+ <ShareIcon {...ShareIconProps} />
 </Share>
 
 ```
@@ -246,13 +246,13 @@ import { ShareIcon } from "@financial-times/o-share/src/tsx/shareIcon";
 The prop Types for each component:
 
 ```ts
-ShareProps = {
+interface ShareProps {
  small?: boolean;
  vertical?: boolean;
  inverse?: boolean;
 }
 
-ShareIconProps = {
+interface ShareIconProps {
  icon: "twitter" | "facebook" | "linkedin" | "whatsapp";
  urlProps: {
   url: string;
@@ -263,7 +263,6 @@ ShareIconProps = {
  };
  showLabel?: boolean;
  label?: string;
- customAction?: string;
 }
 ```
 
@@ -271,17 +270,17 @@ TSX template doesn't import styles and doesn't initialise javaScript by itself. 
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 9 | N/A  | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-⚠ maintained | 8 | N/A  | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-X maintained | 7 | 7.6  | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-╳ deprecated | 6 | 6.5  | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.0  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.0  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.0  | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.1  | - |
-╳ deprecated | 1 | 1.7  | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+|:------------:|:-------------:|:------------------:|:-----------------------------------------------------:|
+|   ✨ active   |       9       |        N/A         | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
+| ⚠ maintained |       8       |        N/A         | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+| X maintained |       7       |        7.6         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ╳ deprecated |       6       |        6.5         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated |       5       |        5.0         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.0         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.0         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.1         |                           -                           |
+| ╳ deprecated |       1       |        1.7         |                           -                           |
 
 ## Contact
 

@@ -1,4 +1,4 @@
-import { iconMap } from "./svgComponents";
+import {iconMap} from "./svgComponents";
 
 type IconType =
 	| "twitter"
@@ -18,27 +18,21 @@ type ShareIconProps = {
 	urlProps: UrlProps;
 	showLabel?: boolean;
 	label?: string;
-	customAction?: string;
 };
 
 export function ShareIcon({
-	icon,
-	showLabel,
-	label,
-	customAction,
-	urlProps,
-}: ShareIconProps) {
+							  icon,
+							  showLabel,
+							  label,
+							  urlProps,
+						  }: ShareIconProps) {
 	const listItemClassNames = showLabel
 		? "o-share__action o-share__action--labelled"
 		: "o-share__action";
-	const iconProps = { icon, showLabel, label, customAction };
+	const iconProps = {icon, showLabel, label};
 	return (
 		<li className={listItemClassNames}>
-			{customAction ? (
-				<CustomIcon {...urlProps} {...iconProps} />
-			) : (
-				<SocialIcon {...urlProps} {...iconProps} />
-			)}
+			<SocialIcon {...urlProps} {...iconProps} />
 		</li>
 	);
 }
@@ -54,13 +48,13 @@ type SocialIconProps = {
 };
 
 function SocialIcon({
-	icon,
-	url,
-	title,
-	titleExtra,
-	summary,
-	relatedTwitterAccounts,
-}: SocialIconProps) {
+						icon,
+						url,
+						title,
+						titleExtra,
+						summary,
+						relatedTwitterAccounts,
+					}: SocialIconProps) {
 	return (
 		<a
 			className={`o-share__icon o-share__icon--${icon}`}
@@ -84,38 +78,6 @@ function SocialIcon({
 	);
 }
 
-type CustomIconProps = {
-	icon: IconType;
-	label: string;
-	customAction: string;
-	title: string;
-	summary: string;
-};
-
-function CustomIcon({
-	icon,
-	label,
-	customAction,
-	title,
-	summary,
-}: CustomIconProps) {
-	return (
-		<form method="post" action={customAction}>
-			<button
-				type="submit"
-				className={`o-share__icon o-share__icon--${icon}`}
-				title={title}
-				aria-label={summary}
-			>
-				<div className="o-share__icon__image">{iconMap[icon]}</div>
-				<span className="o-share__text" data-variant-label>
-					{label}
-				</span>
-			</button>
-		</form>
-	);
-}
-
 function generateDescriptiveLinkText(title: string, socialNetwork: IconType) {
 	// It seems like next article is not using pinterest and not sure how link or enterprise sharing is used and we might want to add something for the save button
 	const descriptiveLinkText = {
@@ -133,11 +95,12 @@ function generateDescriptiveLinkText(title: string, socialNetwork: IconType) {
 interface GenerateSocialUrlConfig {
 	url: string,
 	title: string,
-	titleExtra:string
+	titleExtra: string
 	summary: string,
 	relatedTwitterAccounts: string
 
 }
+
 function generateSocialUrl(
 	config: GenerateSocialUrlConfig,
 	socialNetwork: IconType
