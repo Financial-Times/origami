@@ -1,27 +1,27 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {useEffect} from 'react';
+import withHtml from "origami-storybook-addon-html";
+import { withDesign } from "storybook-addon-designs";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { useEffect } from "react";
 import {
 	MainHeader,
 	LogoOnly,
 	NoOutboundLinksHeader,
 	InverseHeader,
-} from '../src/tsx/header';
-import javascript from '../main';
-import './header.scss';
-import storyData from './storybook-data';
-import profileStoryData from './storybook-data/profile';
-import {argTypes} from './arg-types';
-import {Drawer} from '../src/tsx/drawer';
+} from "../src/tsx/header";
+import javascript from "../main";
+import "./header.scss";
+import storyData from "./storybook-data";
+import profileStoryData from "./storybook-data/profile";
+import { argTypes } from "./arg-types";
+import { Drawer } from "../src/tsx/drawer";
 export default {
-	title: 'Components/o-header',
+	title: "Components/o-header",
 	component: MainHeader,
 	parameters: {
-		layout: 'fullscreen'
+		layout: "fullscreen",
 	},
 	args: {
-		currentPath: '/',
+		currentPath: "/",
 	},
 	argTypes,
 	decorators: [withDesign, withHtml],
@@ -43,10 +43,10 @@ export const HeaderPrimary: ComponentStory<typeof MainHeader> = args => {
 		</>
 	);
 };
-HeaderPrimary.storyName = 'Default header with drawer and sticky header';
+HeaderPrimary.storyName = "Default header with drawer and sticky header";
 HeaderPrimary.args = {
 	...storyData,
-	variant: 'simple',
+	variant: "simple",
 	showSubNavigation: true,
 	showMegaNav: true,
 	showUserNavigation: true,
@@ -57,12 +57,7 @@ HeaderPrimary.args = {
 };
 HeaderPrimary.parameters = {
 	controls: {
-		exclude: [
-			'data',
-			'variant',
-			'userIsAnonymous',
-			'extraHeaderProps'
-		],
+		exclude: ["data", "variant", "userIsAnonymous", "extraHeaderProps"],
 	},
 };
 
@@ -82,7 +77,7 @@ export const DefaultHeaderWithRightAlignedSubnav: ComponentStory<
 	);
 };
 DefaultHeaderWithRightAlignedSubnav.storyName =
-	'Default header with right aligned subnav';
+	"Default header with right aligned subnav";
 DefaultHeaderWithRightAlignedSubnav.args = {
 	...profileStoryData,
 	showSubNavigation: true,
@@ -94,11 +89,11 @@ DefaultHeaderWithRightAlignedSubnav.args = {
 DefaultHeaderWithRightAlignedSubnav.parameters = {
 	controls: {
 		exclude: [
-			'data',
-			'variant',
-			'userIsSubscribed',
-			'userIsAnonymous',
-			'extraHeaderProps',
+			"data",
+			"variant",
+			"userIsSubscribed",
+			"userIsAnonymous",
+			"extraHeaderProps",
 		],
 	},
 };
@@ -108,31 +103,31 @@ export const LogoOnlyHeader: ComponentStory<typeof LogoOnly> = args => {
 	return <LogoOnly {...args} />;
 };
 LogoOnlyHeader.args = {
-	variant: 'simple',
+	variant: "simple",
 	showLogoLink: false,
 };
 LogoOnlyHeader.argTypes = {
 	variant: {
 		control: {
-			type: 'radio',
-			options: {default: 'simple', large: 'large'},
+			type: "radio",
+			options: { default: "simple", large: "large" },
 		},
 	},
 };
 LogoOnlyHeader.parameters = {
 	controls: {
 		exclude: [
-			'data',
-			'currentPath',
-			'userIsLoggedIn',
-			'showSubNavigation',
-			'showUserNavigation',
-			'showMegaNav',
-			'userIsSubscribed',
-			'showStickyHeader',
-			'userIsAnonymous',
-			'extraHeaderProps',
-			'data',
+			"data",
+			"currentPath",
+			"userIsLoggedIn",
+			"showSubNavigation",
+			"showUserNavigation",
+			"showMegaNav",
+			"userIsSubscribed",
+			"showStickyHeader",
+			"userIsAnonymous",
+			"extraHeaderProps",
+			"data",
 		],
 	},
 };
@@ -144,7 +139,7 @@ export const NoOutboundLinks: ComponentStory<
 	return <NoOutboundLinksHeader {...args} />;
 };
 
-NoOutboundLinks.storyName = 'No Outbound links';
+NoOutboundLinks.storyName = "No Outbound links";
 NoOutboundLinks.args = {
 	...storyData,
 	showSubNavigation: true,
@@ -156,15 +151,15 @@ NoOutboundLinks.args = {
 NoOutboundLinks.parameters = {
 	controls: {
 		exclude: [
-			'data',
-			'currentPath',
-			'variant',
-			'showMegaNav',
-			'userIsSubscribed',
-			'showStickyHeader',
-			'userIsAnonymous',
-			'extraHeaderProps',
-			'data',
+			"data",
+			"currentPath",
+			"variant",
+			"showMegaNav",
+			"userIsSubscribed",
+			"showStickyHeader",
+			"userIsAnonymous",
+			"extraHeaderProps",
+			"data",
 		],
 	},
 };
@@ -175,26 +170,26 @@ export const InverseSimpleHeader: ComponentStory<
 	useEffect(() => void javascript.init(), []);
 	return <InverseHeader {...args} />;
 };
-InverseSimpleHeader.storyName = 'Simple transparent (inverse) header';
+InverseSimpleHeader.storyName = "Simple transparent (inverse) header";
 InverseSimpleHeader.args = {
 	...storyData,
 	showUserNavigation: true,
 	userIsLoggedIn: false,
 };
 InverseSimpleHeader.parameters = {
-	origamiBackground: 'slate',
+	origamiBackground: "slate",
 	controls: {
 		exclude: [
-			'data',
-			'currentPath',
-			'variant',
-			'showMegaNav',
-			'showSubNavigation',
-			'showLogoLink',
-			'showStickyHeader',
-			'userIsSubscribed',
-			'userIsAnonymous',
-			'extraHeaderProps',
+			"data",
+			"currentPath",
+			"variant",
+			"showMegaNav",
+			"showSubNavigation",
+			"showLogoLink",
+			"showStickyHeader",
+			"userIsSubscribed",
+			"userIsAnonymous",
+			"extraHeaderProps",
 		],
 	},
 };
