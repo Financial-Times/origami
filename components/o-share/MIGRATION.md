@@ -12,7 +12,8 @@ New markup can be copied from the [Origami registry](https://registry.origami.ft
 
 ### Inlined SVG icons
 
-Version 8 was utilising `:before` selector and icon url was dynamically set using scss. This approach was not working on high contrast mode devices. We have decided to inline SVG icons instead. This is a breaking change since we have removed `:before` pseudo element and in version 9 we use following structure for `o-share` items:
+
+Icons in version 9 use inline SVGs. In order to use them with `o-share`, we recommend using the following structure:
 
 ```html
 <li class="o-share__action">
