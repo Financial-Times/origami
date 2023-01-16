@@ -46,20 +46,6 @@ const StoryTemplate: Story<ShareProps> = args => {
 			<ShareIcon icon="facebook" urlProps={shareIconProps} />
 			<ShareIcon icon="linkedin" urlProps={shareIconProps} />
 			<ShareIcon icon="whatsapp" urlProps={shareIconProps} />
-			<ShareIcon
-				icon="share"
-				showLabel={true}
-				label="Share"
-				customAction="#"
-				urlProps={shareIconProps}
-			/>
-			<ShareIcon
-				icon="bookmark-outline"
-				showLabel={true}
-				label="Save"
-				customAction="#"
-				urlProps={shareIconProps}
-			/>
 		</Share>
 	);
 };
