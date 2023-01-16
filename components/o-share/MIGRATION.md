@@ -8,7 +8,7 @@ Version 9 has markup changes and component API got updated as well. New version 
 2. Share link MUST be written in full markup instead of using js to automatically generate share.
 3. New TSX template requires social icons to be passed as children.
 
-New markup can be copied from Origami [registry](https://registry.origami.ft.com/components/o-share) or Build service users can use [storyBook demos](http://localhost:6969/?path=/story/components-o-share--horizontal) to generate markup based on storybook controls, that can be copied from `HTML` tab.
+New markup can be copied from the [Origami registry](https://registry.origami.ft.com/components/o-share) or [StoryBook](https://origami.ft.com/storybook/) via the `HTML` tab.
 
 ### Inlined SVG icons
 
