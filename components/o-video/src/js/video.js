@@ -55,6 +55,7 @@ const dispatchedProgress = {};
 function shouldDispatch(video) {
 	const progress = video.getProgress();
 	const id = video.opts.id;
+	//100% progress doesn't seem to be lunch in chrome
 	const relevantProgressPoints = [
 		8, 9, 10, 11, 12,
 		23, 24, 25, 26, 27,
