@@ -1,4 +1,11 @@
 # Changelog
+### [11.0.2](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.1...o-header-v11.0.2) (2023-01-16)
+
+
+### Bug Fixes
+
+* o-header, fix tsx errors ([545435d](https://www.github.com/Financial-Times/origami/commit/545435de2f60a69e7d7d30c48a591c285dfcd2fd))
+
 ### [11.0.1](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.0...o-header-v11.0.1) (2023-01-16)
 
 
