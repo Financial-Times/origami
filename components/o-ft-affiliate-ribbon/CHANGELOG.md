@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.0](https://www.github.com/Financial-Times/origami/compare/o-ft-affiliate-ribbon-v5.1.2...o-ft-affiliate-ribbon-v5.2.0) (2023-01-10)
+
+
+### Features
+
+* publish o-ft-affliate-ribbon tsx component ([8a66f9e](https://www.github.com/Financial-Times/origami/commit/8a66f9e19a5559f7170fc41ebf8b89b978a0c9fb))
+
 ### [5.1.2](https://www.github.com/Financial-Times/origami/compare/o-ft-affiliate-ribbon-v5.1.1...o-ft-affiliate-ribbon-v5.1.2) (2022-12-21)
 
 

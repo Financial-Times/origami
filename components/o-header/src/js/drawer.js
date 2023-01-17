@@ -56,6 +56,13 @@ function handleCloseEvents (scope, callback, allFocusable) {
 		}
 	};
 
+	const handleTransitionEnd = () => {
+		const isClosed = !scope.classList.contains('o-header__drawer--open');
+		if (isClosed) {
+			scope.style.display = 'none';
+		}
+	};
+
 	const removeEvents = () => {
 		clearTimeout(timeout);
 
@@ -82,6 +89,7 @@ function handleCloseEvents (scope, callback, allFocusable) {
 		document.addEventListener('focusout', handleFocus);
 
 		scope.addEventListener('keydown', handleTab);
+		scope.addEventListener('transitionend', handleTransitionEnd);
 	};
 
 	return { addEvents, removeEvents, handleMouseleave };
@@ -96,10 +104,9 @@ function addDrawerToggles (drawerEl, allFocusable) {
 	function toggleCallback (state, e) {
 		if (state === 'close') {
 			toggleTabbing(drawerEl, false, allFocusable);
-
 			handleClose.removeEvents();
-
 			openingControl.focus();
+			drawerEl.classList.remove('o-header__drawer--open');
 		} else {
 			toggleTabbing(drawerEl, true, allFocusable);
 
@@ -125,9 +132,10 @@ function addDrawerToggles (drawerEl, allFocusable) {
 				}
 			});
 		}
-
-		drawerEl.classList.toggle('o-header__drawer--closing', state === 'close');
-		drawerEl.classList.toggle('o-header__drawer--opening', state === 'open');
+		if (state === 'open') {
+			drawerEl.style.display = 'block';
+			setTimeout(() => drawerEl.classList.add('o-header__drawer--open'), 0); // Without the zero-second timeout, the browser will render the box immediately with no transition.
+		}
 	}
 
 	controls.forEach((control) => {

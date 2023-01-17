@@ -4,8 +4,11 @@
 		@include oTypographySans();
 		background-color: _oHeaderGet('drawer-background');
 		box-sizing: content-box;
+		transition: transform 0.5s cubic-bezier(1, 0, 0.5, 1.2);
 
 		&[data-o-header-drawer--js] {
+			@include oVisualEffectsShadowContent('low');
+			display: none;
 			position: fixed;
 			top: 0;
 			bottom: 0;
@@ -20,19 +23,17 @@
 			// this is literally the specification example for will-change
 			will-change: transform;
 
+			// because the transition is slightly bouncy it will reveal some of the background
+			border-left: 30px solid transparent;
+			margin-left: -30px;
+
 			@include oGridRespondTo('M') {
 				width: $_o-header-drawer-width;
 			}
 
-			&[aria-hidden] {
-				@include oVisualEffectsShadowContent('low');
 
-				// because the transition is slightly bouncy it will reveal some of the background
-				border-left: 30px solid transparent;
-				margin-left: -30px;
-			}
 
-			&[aria-hidden="false"] {
+			&.o-header__drawer--open {
 				// use a 2D transform because 3D are unsupported by IE9
 				transform: translateX(0);
 				transform: translate3d(0, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
@@ -40,11 +41,6 @@
 		}
 	}
 
-	// Supports different transitions for opening and closing
-	.o-header__drawer--opening,
-	.o-header__drawer--closing {
-		transition: transform 0.5s cubic-bezier(1, 0, 0.5, 1.2);
-	}
 
 	.o-header__drawer-inner {
 		[data-o-header-drawer--js] & {
@@ -206,6 +202,10 @@
 		overflow: hidden;
 	}
 
+	.o-header__drawer-menu-list--divide {
+		border-top: 2px solid _oHeaderGet('drawer-menu-border');
+	}
+
 	.o-header__drawer-menu-list--child {
 		[data-o-header-drawer--no-js] & {
 			display: none;
@@ -234,11 +234,10 @@
 		margin-top: 1px;
 	}
 
-	.o-header__drawer-menu-item--divide {
-		border-top: 2px solid _oHeaderGet('drawer-menu-border');
-	}
 
 	.o-header__drawer-menu-item--heading {
+		margin-bottom: 0px;
+		font-size: 16px;
 		background-color: _oHeaderGet('drawer-menu-item-background');
 		padding: (div($_o-header-drawer-padding-x, 2)) $_o-header-drawer-padding-x;
 		font-weight: 600;

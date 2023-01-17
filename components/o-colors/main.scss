@@ -41,6 +41,7 @@
 	'usecase-custom-properties': true,
 	'usecase-classes': true,
 )) {
+	$_o-colors-mixin-output: true !global;
 	$palette-properties: map-get($opts, 'palette-custom-properties');
 	$usecase-properties: map-get($opts, 'usecase-custom-properties');
 	$usecase-classes: map-get($opts, 'usecase-classes');
@@ -93,6 +94,7 @@
 			}
 		}
 	}
+	$_o-colors-mixin-output: false !global;
 }
 
 // If noisy, output helper classes for use cases and palette colors

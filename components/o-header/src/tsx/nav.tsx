@@ -1,13 +1,14 @@
-import {MegaNav} from './mega-nav';
-import {TNavMenuItem} from './Props';
+import { MegaNav } from "./mega-nav";
+import { TNavMenuItem } from "./Props";
 
-export function NavMobile({navItems}: {navItems: TNavMenuItem[]}) {
+export function NavMobile({ navItems }: { navItems: TNavMenuItem[] }) {
 	return (
 		<nav
 			id="o-header-nav-mobile"
 			className="o-header__row o-header__nav o-header__nav--mobile"
 			role="navigation"
-			aria-label="Primary navigation">
+			aria-label="Primary navigation"
+		>
 			<NavList navItems={navItems} mobile={true} />
 		</nav>
 	);
@@ -31,7 +32,8 @@ export function NavDesktop({
 			id="o-header-nav-desktop"
 			className="o-header__row o-header__nav o-header__nav--desktop"
 			role="navigation"
-			aria-label="Primary navigation">
+			aria-label="Primary navigation"
+		>
 			<div className="o-header__container">
 				{navItems && <NavList navItems={navItems} showMegaNav={showMegaNav} />}
 				{showUserNavigation && rightNavItems && (
@@ -52,24 +54,26 @@ function NavList({
 	showMegaNav?: boolean;
 }) {
 	const wrapperClassName = mobile
-		? 'o-header__nav-list'
-		: 'o-header__nav-list o-header__nav-list--left';
+		? "o-header__nav-list"
+		: "o-header__nav-list o-header__nav-list--left";
 	return (
 		<ul className={wrapperClassName}>
 			{navItems.map((navItem, i) => {
-				const {label, selected, index, url, meganav} = navItem;
-				const ariaLabel = selected ? label + ', current page' : undefined;
-				const ariaCurrent = selected ? 'page' : undefined;
-				const ariaControls = !selected ? 'o-header-mega-' + index : undefined;
+				const { label, selected, url, meganav } = navItem;
+				const index = navItem.index || i;
+				const ariaLabel = selected ? label + ", current page" : undefined;
+				const ariaCurrent = selected ? "page" : undefined;
+				const ariaControls = !selected ? "o-header-mega-" + index : undefined;
 				return (
-					<li className="o-header__nav-item" key={'nav-item' + i}>
+					<li className="o-header__nav-item" key={"nav-item" + i}>
 						<a
 							className="o-header__nav-link o-header__nav-link--primary"
 							href={url || undefined}
 							aria-label={ariaLabel}
 							aria-current={ariaCurrent}
 							aria-controls={ariaControls}
-							id={`o-header-link-${index}`}>
+							id={`o-header-link-${index}`}
+						>
 							{label}
 						</a>
 						{showMegaNav && meganav && (

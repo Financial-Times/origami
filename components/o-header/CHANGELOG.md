@@ -1,4 +1,28 @@
 # Changelog
+### [11.0.2](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.1...o-header-v11.0.2) (2023-01-16)
+
+
+### Bug Fixes
+
+* o-header, fix tsx errors ([545435d](https://www.github.com/Financial-Times/origami/commit/545435de2f60a69e7d7d30c48a591c285dfcd2fd))
+
+### [11.0.1](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.0...o-header-v11.0.1) (2023-01-16)
+
+
+### Bug Fixes
+
+* o-header, bundle tsx in release ([9a6f908](https://www.github.com/Financial-Times/origami/commit/9a6f9084ae4b306902da844a17782a54ef149964))
+
+## [11.0.0](https://www.github.com/Financial-Times/origami/compare/o-header-v10.1.2...o-header-v11.0.0) (2023-01-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update markup to make a number of accessibility fixes ([cc0c80a](https://github.com/Financial-Times/origami/pull/912))
+* Remove the sub-brand variant([cc0c80a](https://github.com/Financial-Times/origami/pull/950))
+
+[See the o-header v10 to v11 migration guide for more details](https://github.com/Financial-Times/origami/blob/main/components/o-header/MIGRATION.md#migrating-from-v10-to-v11).
+
 ### [10.1.2](https://www.github.com/Financial-Times/origami/compare/o-header-v10.1.1...o-header-v10.1.2) (2022-12-21)
 
 
