@@ -14,16 +14,6 @@ Version 9 has markup changes and component API got updated as well. New version 
 2. Share link MUST be written in full markup instead of using js to automatically generate share.
 3. New TSX template requires social icons to be passed as children.
 
-### Features
-
-* inline SVGs and remove refernce to :before selectors ([8b5a9e6](https://www.github.com/Financial-Times/origami/commit/8b5a9e682d2bd582f9f74f8e067c0cc68dd65861))
-* introduce GenerateSocialUrlConfig interface ([43e1aff](https://www.github.com/Financial-Times/origami/commit/43e1affca61370c97bbe8e82f0cf7287a18b8a1e))
-* remove backgorund-image property and use img tag to set icon images ([88e601a](https://www.github.com/Financial-Times/origami/commit/88e601a505ae7dcb229e1d3c9f464ec846734728))
-* remove custom icon tsx, reformat README.md ([cec1f96](https://www.github.com/Financial-Times/origami/commit/cec1f965924e250b9a18d4b1ffdebcb077240720))
-* remove share, bookmark outline SVGs ([b24cdbf](https://www.github.com/Financial-Times/origami/commit/b24cdbfd76bfc1d143da4ae145edc3c66e697be1))
-* remove unecessary o-share SCSS code ([061a9b4](https://www.github.com/Financial-Times/origami/commit/061a9b4bc2343592febdd96210cdcfa16727507f))
-* rewrite templates to favour one way of using the component ([bbd5438](https://www.github.com/Financial-Times/origami/commit/bbd543821da403d0af6285baf87f12e7d257cd5a))
-
 ### [8.3.2](https://www.github.com/Financial-Times/origami/compare/o-share-v8.3.1...o-share-v8.3.2) (2022-12-21)
 
 
