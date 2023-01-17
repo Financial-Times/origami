@@ -2,15 +2,11 @@
 
 ## Migrating from v8 to v9
 
-o-share v9 incudes a number of changes to improve accessibility and the flexibility of its TSX templates. To migrate follow these steps and see below for more details:
+o-share v9 incudes a number of changes to improve accessibility. To migrate follow these steps and see below for more details:
 
-1. If your project uses o-share TSX templates, migrate to the new template interface.
-2. o-share no longer provides client side JavaScript to generate markup. If your project does not use o-share TSX templates ensure you output o-share markup in full.
-
-New markup can be copied from the [Origami registry](https://registry.origami.ft.com/components/o-share) or [StoryBook](https://origami.ft.com/storybook/) via the `HTML` tab.
+* o-share no longer provides client side JavaScript to generate markup. New markup can be copied from the [Origami registry](https://registry.origami.ft.com/components/o-share) or [StoryBook](https://origami.ft.com/storybook/) via the `HTML` tab.
 
 ### Inlined SVG icons
-
 
 Icons in version 9 use inline SVGs. In order to use them with `o-share`, we recommend using the following structure:
 
@@ -67,24 +63,6 @@ Instead use full markup of the component:
  </ul>
 </div>
 ```
-
-### TSX template
-
-`<Share />` component now must have each icon as children. To render icons you must use `<ShareIcon>` component and provide correct props:
-
-```jsx
-<Share {...shareProps}>
-   <ShareIcon icon="twitter" urlProps={shareIconProps} />
-   <ShareIcon
-    icon="facebook"
-    urlProps={shareIconProps}
-   />
-  </Share>
-```
-
-This example should render Twitter social share icon and Facebook social share button. More details about the props that you must pass down to each component can be found in our [readme](README.md#tsx-template).
-
-We recommend that you look at our [storybook code implementation](stories/share.stories.tsx) to see how to use this new API.
 
 ## Migrating from v7 to v8
 
