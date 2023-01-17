@@ -5,7 +5,14 @@
 
 ### ⚠ BREAKING CHANGES
 
-* introduce GenerateSocialUrlConfig interface
+* remove javascript-initialised `o-share` component.
+* replace `o-share` background-image icons with SVGs. We recommend following the [Migration Guide](https://github.com/Financial-Times/origami/blob/main/components/o-share/MIGRATION.md) to upgrade.
+
+
+Version 9 has markup changes and component API got updated as well. New version relies less on javaScript and improves accessibility on high contrast mode. The most important updates are:
+1. The icons are now inlined inside the templates, since this was our only known option to [fix an accessibility issue](https://github.com/Financial-Times/origami/issues/930) on high contrast mode devices.
+2. Share link MUST be written in full markup instead of using js to automatically generate share.
+3. New TSX template requires social icons to be passed as children.
 
 ### Features
 
