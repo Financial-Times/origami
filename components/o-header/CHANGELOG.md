@@ -1,4 +1,11 @@
 # Changelog
+### [11.0.3](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.2...o-header-v11.0.3) (2023-01-18)
+
+
+### Bug Fixes
+
+* o-header tsx, use correct drawer markup ([7a95985](https://www.github.com/Financial-Times/origami/commit/7a959858ce5f199393ab89196b384398f52caccf))
+
 ### [11.0.2](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.1...o-header-v11.0.2) (2023-01-16)
 
 
