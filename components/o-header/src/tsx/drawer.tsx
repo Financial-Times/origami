@@ -13,7 +13,8 @@ export function Drawer({
 		<div
 			className="o-header__drawer"
 			id="o-header-drawer"
-			role="navigation"
+			role="dialog"
+			aria-modal="true"
 			aria-label="Drawer menu"
 			data-o-header-drawer
 			data-o-header-drawer--no-js
