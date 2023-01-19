@@ -6,17 +6,19 @@ import {RadioBtn, RadioBtnsBox} from '../src/tsx/o-forms';
 import './forms.scss';
 import javascript from '../main.js';
 
+const hideArg = {
+	table: {
+		disable: true
+	}
+};
+
 export default {
 	title: 'Components/o-forms/box-radio-buttons',
 	component: RadioBtnsBox,
 	decorators: [withDesign, withHtml],
 	args: {},
 	argTypes: {
-		children: {
-			table: {
-				disable: true
-			}
-		}
+		children: hideArg
 	}
 } as ComponentMeta<typeof RadioBtnsBox>;
 
@@ -88,6 +90,6 @@ StateBoxRadioButton.args = {
 		<RadioBtn name="default" value="Weekly"/>,
 	],
 	title: 'Stateful Box Button',
-	description: 'Also availble with icon only',
+	description: 'Also available with icon only',
 	state: 'saving'
 };
