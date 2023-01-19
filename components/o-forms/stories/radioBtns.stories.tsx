@@ -6,10 +6,19 @@ import {RadioBtn, RadioBtns} from '../src/tsx/o-forms';
 import './forms.scss';
 import javascript from '../main.js';
 
+const hideArg = {
+	table: {
+		disable: true
+	}
+}
+
 export default {
 	title: 'Components/o-forms/radio-buttons',
 	component: RadioBtns,
 	decorators: [withDesign, withHtml],
+	argTypes: {
+		children: hideArg
+	}
 } as ComponentMeta<typeof RadioBtns>;
 
 const Template: ComponentStory<typeof RadioBtns> = args => {
@@ -32,8 +41,8 @@ export const InlineFieldAndInputs = Template.bind({});
 
 RadioButton.args = {
 	children: [
-		<RadioBtn name="default" value="Daily" checked />,
-		<RadioBtn name="default" value="Weekly" />,
+		<RadioBtn name="default" value="Daily" checked/>,
+		<RadioBtn name="default" value="Weekly"/>,
 	],
 	title: 'Box style radio buttons',
 	description: 'Optional description text',
@@ -42,9 +51,9 @@ RadioButton.args = {
 
 MultipleInlineRadioButton.args = {
 	children: [
-		<RadioBtn name="default" value="Daily" />,
-		<RadioBtn name="default" value="Weekly" checked />,
-		<RadioBtn name="default" value="Monthly" />,
+		<RadioBtn name="default" value="Daily"/>,
+		<RadioBtn name="default" value="Weekly" checked/>,
+		<RadioBtn name="default" value="Monthly"/>,
 	],
 	title: 'Inline round-style radio buttons',
 	inlineInputs: true,
@@ -52,15 +61,15 @@ MultipleInlineRadioButton.args = {
 
 DisabledRadioButton.args = {
 	children: [
-		<RadioBtn name="default" value="Daily" checked disabled />,
-		<RadioBtn name="default" value="Weekly" checked disabled />,
+		<RadioBtn name="default" value="Daily" checked disabled/>,
+		<RadioBtn name="default" value="Weekly" checked disabled/>,
 	],
 	title: 'Disabled radio buttons',
 };
 ErrorRadioButton.args = {
 	children: [
-		<RadioBtn name="default" value="Yes" />,
-		<RadioBtn name="default" value="No" />,
+		<RadioBtn name="default" value="Yes"/>,
+		<RadioBtn name="default" value="No"/>,
 	],
 	title: 'Error round-style radio buttons',
 	errorMessage: 'An example error. Try again.',
@@ -68,9 +77,9 @@ ErrorRadioButton.args = {
 
 InlineField.args = {
 	children: [
-		<RadioBtn name="default" value="Daily" />,
-		<RadioBtn name="default" value="Weekly" checked />,
-		<RadioBtn name="default" value="Monthly" />,
+		<RadioBtn name="default" value="Daily"/>,
+		<RadioBtn name="default" value="Weekly" checked/>,
+		<RadioBtn name="default" value="Monthly"/>,
 	],
 	title: 'Inline field',
 	inlineField: true,
@@ -79,8 +88,8 @@ InlineField.args = {
 
 InlineFieldAndInputs.args = {
 	children: [
-		<RadioBtn name="default" value="Daily" checked />,
-		<RadioBtn name="default" value="Weekly" />,
+		<RadioBtn name="default" value="Daily" checked/>,
+		<RadioBtn name="default" value="Weekly"/>,
 	],
 	title: 'Box style radio buttons:',
 	inlineInputs: true,
