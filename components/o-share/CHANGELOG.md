@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.0.1](https://www.github.com/Financial-Times/origami/compare/o-share-v9.0.0...o-share-v9.0.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
 ## [9.0.0](https://www.github.com/Financial-Times/origami/compare/o-share-v8.3.2...o-share-v9.0.0) (2023-01-17)
 
 

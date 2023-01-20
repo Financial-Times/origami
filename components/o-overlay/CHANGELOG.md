@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.2.7](https://www.github.com/Financial-Times/origami/compare/o-overlay-v4.2.6...o-overlay-v4.2.7) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
 ### [4.2.6](https://www.github.com/Financial-Times/origami/compare/o-overlay-v4.2.5...o-overlay-v4.2.6) (2023-01-04)
 
 

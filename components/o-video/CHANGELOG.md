@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.2.6](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.5...o-video-v7.2.6) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
 ### [7.2.5](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.4...o-video-v7.2.5) (2023-01-16)
 
 

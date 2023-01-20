@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.2.5](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.4...o-teaser-v6.2.5) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
 ### [6.2.4](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.3...o-teaser-v6.2.4) (2022-12-21)
 
 

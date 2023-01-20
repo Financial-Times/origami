@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.2.6](https://www.github.com/Financial-Times/origami/compare/o-footer-v9.2.5...o-footer-v9.2.6) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
 ### [9.2.5](https://www.github.com/Financial-Times/origami/compare/o-footer-v9.2.4...o-footer-v9.2.5) (2022-12-21)
 
 

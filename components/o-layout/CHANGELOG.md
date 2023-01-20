@@ -3,6 +3,13 @@
 
 * Add skip link for screen reader users
 
+### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.3.0...o-layout-v5.3.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
 ## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.2.5...o-layout-v5.3.0) (2023-01-04)
 
 

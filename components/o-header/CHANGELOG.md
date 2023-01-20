@@ -1,4 +1,11 @@
 # Changelog
+### [11.0.4](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.3...o-header-v11.0.4) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
 ### [11.0.3](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.2...o-header-v11.0.3) (2023-01-18)
 
 
