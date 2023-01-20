@@ -6,10 +6,18 @@ import {Checkbox, Checkboxes} from '../src/tsx/o-forms';
 import './forms.scss';
 import javascript from '../main.js';
 
+const hideArg = {
+	table: {
+		disable: true,
+	},
+};
 export default {
 	title: 'Components/o-forms/toggle-checkboxes',
 	component: Checkboxes,
 	decorators: [withDesign, withHtml],
+	argTypes: {
+		children: hideArg
+	}
 } as ComponentMeta<typeof Checkboxes>;
 
 const Template: ComponentStory<typeof Checkboxes> = args => {
