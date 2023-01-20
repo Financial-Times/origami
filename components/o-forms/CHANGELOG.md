@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.4.9](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.8...o-forms-v9.4.9) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
 ### [9.4.8](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.7...o-forms-v9.4.8) (2023-01-04)
 
 ### Bug Fixes

@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.3.3](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.2...o-header-services-v5.3.3) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
 ## [5.3.2](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.1...o-header-services-v5.3.2) (2022-12-21)
 
 

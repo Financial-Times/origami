@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.7.3](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.2...o-autocomplete-v1.7.3) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
 ### [1.7.2](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.1...o-autocomplete-v1.7.2) (2022-12-21)
 
 
