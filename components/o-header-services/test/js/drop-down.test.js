@@ -12,7 +12,7 @@ describe('Dropdown', () => {
 	let navItems;
 	let sandbox;
 
-	beforeEach(() => {
+	beforeEach((done) => {
 		sandbox = document.createElement('div');
 		sandbox.innerHTML = fixtures.withPrimaryNav;
 		document.body.appendChild(sandbox);
@@ -20,6 +20,10 @@ describe('Dropdown', () => {
 		new HeaderServices(headerEl);
 		navItems = document.querySelectorAll('li[data-o-header-services-level="1"]');
 		click = (parent, element) => parent.querySelector(element).dispatchEvent(new Event('click'));
+		// A small delay between initialising the component and running tests
+		// ensures click events behave as expected, more investigation is needed
+		// to understand why.
+		setTimeout(done,  100);
 	});
 
 	afterEach(() => {
