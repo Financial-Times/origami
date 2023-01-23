@@ -17,7 +17,6 @@ export default {
 	component: FileInput,
 	decorators: [withDesign, withHtml],
 	argTypes: {
-		ref: hideArg,
 		value: hideArg,
 	},
 } as ComponentMeta<typeof FileInput>;
