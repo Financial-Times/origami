@@ -19,7 +19,6 @@ export default {
 	decorators: [withDesign, withHtml],
 	argTypes: {
 		onChange: hideArg,
-		ref: hideArg,
 		children: hideArg,
 		inlineInput: hideArg,
 		value: hideArg,

@@ -18,7 +18,6 @@ export default {
 	decorators: [withDesign, withHtml],
 	argTypes: {
 		onChange: hideArg,
-		ref: hideArg,
 		values: hideArg,
 	},
 } as ComponentMeta<typeof DateInput>;

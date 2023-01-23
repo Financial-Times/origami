@@ -1,10 +1,10 @@
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import './forms.scss';
 import javascript from '../main.js';
-import {Select} from '../src/tsx/o-forms';
+import {Select} from '../src/tsx/Select';
 import {Button} from '../../o-buttons/src/tsx/button';
 
 const hideArg = {
@@ -19,7 +19,6 @@ export default {
 	decorators: [withDesign, withHtml],
 	argTypes: {
 		onChange: hideArg,
-		ref: hideArg,
 		suffix: hideArg,
 		children: hideArg,
 		inlineInput: hideArg,
