@@ -10,7 +10,7 @@ interface TypeSelect extends InputProps {
 	inlineInput?: boolean;
 	multiple?: boolean;
 	onChange?: Function;
-	ref?: any;
+	additionalAttributes?: Record<string, string | boolean>;
 }
 interface SelectBoxProps extends TypeSelect {
 	id: string;
@@ -22,7 +22,6 @@ function SelectBox({
 	value,
 	name,
 	onChange,
-	ref,
 	highlight,
 	errorMessage,
 	isSmall,
@@ -32,6 +31,7 @@ function SelectBox({
 	suffix,
 	children,
 	inlineInput,
+	additionalAttributes
 }: SelectBoxProps) {
 	return (
 		<span
@@ -48,10 +48,10 @@ function SelectBox({
 				name={name}
 				value={value}
 				onChange={onChange ? event => onChange(event) : null}
-				ref={ref}
 				required={required}
 				disabled={disabled}
-				multiple={multiple}>
+				multiple={multiple}
+				{...additionalAttributes}>
 				{children}
 			</select>
 			{errorMessage && <FormError errorMessage={errorMessage} />}
@@ -69,7 +69,6 @@ export function Select({
 	value,
 	name,
 	onChange,
-	ref,
 	highlight,
 	errorMessage,
 	isSmall,
@@ -78,6 +77,7 @@ export function Select({
 	suffix,
 	inlineInput,
 	multiple,
+	additionalAttributes,
 	children,
 }: SelectProps) {
 	const id = uniqueId('labelledby_');
@@ -86,7 +86,6 @@ export function Select({
 		value,
 		name,
 		onChange,
-		ref,
 		highlight,
 		errorMessage,
 		isSmall,
@@ -95,6 +94,7 @@ export function Select({
 		suffix,
 		inlineInput,
 		multiple,
+		additionalAttributes
 	};
 	const fieldProps = {
 		id,
