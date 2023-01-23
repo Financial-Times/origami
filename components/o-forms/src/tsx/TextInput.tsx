@@ -12,29 +12,32 @@ interface TypeTextInput extends InputProps {
 	children?: JSX.Element;
 	inlineInput?: boolean;
 	onChange?: Function;
-	ref?: any /* Look up correct type */;
+	additionalAttributes?: Record<string, string | boolean>;
 }
-export interface TextInputProps extends TypeTextInput, TypeFormField {}
+
+export interface TextInputProps extends TypeTextInput, TypeFormField {
+}
+
 interface PrivateTextInputProps extends TypeTextInput {
 	id: string;
 }
 
 function PrivateTextInput({
-	id,
-	value,
-	type,
-	name,
-	onChange,
-	ref,
-	highlightValid,
-	errorMessage,
-	isSmall,
-	required,
-	disabled,
-	hasSuffix,
-	children,
-	inlineInput,
-}: PrivateTextInputProps) {
+							  id,
+							  value,
+							  type,
+							  name,
+							  onChange,
+							  highlightValid,
+							  errorMessage,
+							  isSmall,
+							  required,
+							  disabled,
+							  hasSuffix,
+							  children,
+							  inlineInput,
+							  additionalAttributes,
+						  }: PrivateTextInputProps) {
 	const InputComponent = type !== 'textarea' ? 'input' : 'textarea';
 	const inputType = !type || type === 'email' ? 'text' : type;
 	return (
@@ -54,36 +57,36 @@ function PrivateTextInput({
 				name={name}
 				value={value}
 				onChange={onChange ? event => onChange(event) : null}
-				ref={ref}
 				required={required}
 				disabled={disabled}
+				{...additionalAttributes}
 			/>
 			{children}
-			{errorMessage && <FormError errorMessage={errorMessage} />}
+			{errorMessage && <FormError errorMessage={errorMessage}/>}
 		</span>
 	);
 }
 
 export function TextInput({
-	title,
-	description,
-	isOptional,
-	inlineField,
-	isVerticalCenter,
-	value,
-	type,
-	name,
-	onChange,
-	ref,
-	highlightValid,
-	errorMessage,
-	isSmall,
-	required,
-	disabled,
-	hasSuffix,
-	inlineInput,
-	children,
-}: TextInputProps) {
+							  title,
+							  description,
+							  isOptional,
+							  inlineField,
+							  isVerticalCenter,
+							  value,
+							  type,
+							  name,
+							  onChange,
+							  highlightValid,
+							  errorMessage,
+							  isSmall,
+							  required,
+							  disabled,
+							  hasSuffix,
+							  inlineInput,
+							  children,
+							  additionalAttributes
+						  }: TextInputProps) {
 	const id = uniqueId('labelledby_');
 	const inputProps = {
 		id,
@@ -91,7 +94,6 @@ export function TextInput({
 		type,
 		name,
 		onChange,
-		ref,
 		highlightValid,
 		errorMessage,
 		isSmall,
@@ -99,6 +101,7 @@ export function TextInput({
 		disabled,
 		hasSuffix,
 		inlineInput,
+		...additionalAttributes
 	};
 	const fieldProps = {
 		id,
