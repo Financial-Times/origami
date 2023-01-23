@@ -42,7 +42,7 @@ const Template: ComponentStory<typeof TextInput> = args => {
 			form.forEach(element => element.destroy());
 		};
 	}, []);
-	return <TextInput {...args} value={value} onChange={onChange} />;
+	return <TextInput {...args} value={value} onChange={onChange}/>;
 };
 
 export const OptionalText = Template.bind({});
@@ -94,7 +94,7 @@ SmallTextInput.args = {
 InputWithSuffix.args = {
 	title: 'Text input with suffix',
 	isOptional: true,
-	children: <Button label="Submit" type="secondary" size="big" />,
+	children: <Button label="Submit" type="secondary" size="big"/>,
 };
 
 InlineWithShrunkenTitle.args = {
@@ -107,7 +107,7 @@ InlineWithShrunkenTitle.args = {
 SmallInputWithSuffix.args = {
 	title: 'Small text input with suffix',
 	isSmall: true,
-	children: <Button label="Submit" type="secondary" />,
+	children: <Button label="Submit" type="secondary"/>,
 };
 
 PasswordInput.args = {
