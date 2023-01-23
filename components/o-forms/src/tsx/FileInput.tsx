@@ -9,21 +9,23 @@ interface TypeFileInput extends InputProps {
 	multiple?: boolean;
 	additionalAttributes?: Record<string, string | boolean>;
 }
-export interface FileInputProps extends TypeFileInput, TypeFormField {}
+
+export interface FileInputProps extends TypeFileInput, TypeFormField {
+}
 
 export function FileInput({
-	title,
-	description,
-	isOptional,
-	inlineField,
-	isVerticalCenter,
-	name,
-	highlightValid,
-	errorMessage,
-	required,
-	disabled,
-	additionalAttributes,
-}: FileInputProps) {
+							  title,
+							  description,
+							  isOptional,
+							  inlineField,
+							  isVerticalCenter,
+							  name,
+							  highlightValid,
+							  errorMessage,
+							  required,
+							  disabled,
+							  additionalAttributes,
+						  }: FileInputProps) {
 	const id = uniqueId('labelledby_');
 	const inputProps = {
 		id,
@@ -84,7 +86,7 @@ function PrivateFileInput({
 				multiple={multiple}
 				{...additionalAttributes}
 			/>
-			{errorMessage && <FormError errorMessage={errorMessage} />}
+			{errorMessage && <FormError errorMessage={errorMessage}/>}
 		</span>
 	);
 }
