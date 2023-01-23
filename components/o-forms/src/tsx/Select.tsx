@@ -6,7 +6,7 @@ interface TypeSelect extends InputProps {
 	errorMessage?: string;
 	suffix?: JSX.Element;
 	isSmall?: boolean;
-	children?: JSX.Element[];
+	children?: JSX.Element | JSX.Element[];
 	inlineInput?: boolean;
 	multiple?: boolean;
 	onChange?: Function;
