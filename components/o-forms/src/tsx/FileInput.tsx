@@ -10,44 +10,6 @@ interface TypeFileInput extends InputProps {
 	additionalAttributes?: Record<string, string | boolean>;
 }
 export interface FileInputProps extends TypeFileInput, TypeFormField {}
-interface PrivateFileInputProps extends TypeFileInput {
-	id: string;
-}
-
-function PrivateFileInput({
-	id,
-	name,
-	highlightValid,
-	errorMessage,
-	required,
-	disabled,
-	accept,
-	capture,
-	multiple,
-	additionalAttributes
-}: PrivateFileInputProps) {
-	return (
-		<span
-			className={getInputClasses({
-				highlightValid,
-				errorMessage,
-				inputType: 'file',
-			})}>
-			<input
-				id={id}
-				type="file"
-				name={name}
-				required={required}
-				disabled={disabled}
-				accept={accept}
-				capture={capture}
-				multiple={multiple}
-				{...additionalAttributes}
-			/>
-			{errorMessage && <FormError errorMessage={errorMessage} />}
-		</span>
-	);
-}
 
 export function FileInput({
 	title,
@@ -85,5 +47,44 @@ export function FileInput({
 		<FormField {...fieldProps}>
 			<PrivateFileInput {...inputProps} />
 		</FormField>
+	);
+}
+
+interface PrivateFileInputProps extends TypeFileInput {
+	id: string;
+}
+
+function PrivateFileInput({
+							  id,
+							  name,
+							  highlightValid,
+							  errorMessage,
+							  required,
+							  disabled,
+							  accept,
+							  capture,
+							  multiple,
+							  additionalAttributes
+						  }: PrivateFileInputProps) {
+	return (
+		<span
+			className={getInputClasses({
+				highlightValid,
+				errorMessage,
+				inputType: 'file',
+			})}>
+			<input
+				id={id}
+				type="file"
+				name={name}
+				required={required}
+				disabled={disabled}
+				accept={accept}
+				capture={capture}
+				multiple={multiple}
+				{...additionalAttributes}
+			/>
+			{errorMessage && <FormError errorMessage={errorMessage} />}
+		</span>
 	);
 }
