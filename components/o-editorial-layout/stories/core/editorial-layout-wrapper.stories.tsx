@@ -1,7 +1,7 @@
 import {withDesign} from "storybook-addon-designs";
 import withHtml from 'origami-storybook-addon-html';
 import {ComponentMeta} from "@storybook/react";
-import {EditorialLayoutWrapper} from "../src/tsx/editorial-layout-wrapper";
+import {EditorialLayoutWrapper} from "../../src/tsx/editorial-layout-wrapper";
 import './editorialLayout.scss';
 
 export default {
@@ -16,7 +16,7 @@ const Template = () => {
 			<h1>heading 1</h1>
 			<h2>heading 2</h2>
 
-			<p><a href="#">Lorem ipsum dolor sit amet consectetur</a> adipisicing elit.</p>
+			<p><a href="components/o-editorial-layout/stories#">Lorem ipsum dolor sit amet consectetur</a> adipisicing elit.</p>
 
 			<blockquote>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, quaerat!</p>
