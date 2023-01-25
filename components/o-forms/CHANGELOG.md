@@ -5,11 +5,15 @@
 
 ### Features
 
-* order based on depth ([12c98ce](https://www.github.com/Financial-Times/origami/commit/12c98ce8a36d62147e372205f9ca024ca3ae3be6))
-* pass additionalAttributes to select ([81b5aaf](https://www.github.com/Financial-Times/origami/commit/81b5aafb2198ab8cc8839d9497ca48c2f6b3d040))
-* pass additionalAttributes to TextInput ([99bc2e0](https://www.github.com/Financial-Times/origami/commit/99bc2e086d1bf3cb7cab3070eb8e89f58313fa53))
-* pass react attributes inside object ([2584dd7](https://www.github.com/Financial-Times/origami/commit/2584dd76c5b1fba23886c770b2e3db3e377f2a06))
-* Storybook/o forms: created box radio button stories ([41386de](https://www.github.com/Financial-Times/origami/commit/41386de0aa015e5c6377808d1e833a6a77e69ce3))
+* introduces o-forms TSX components:
+	- Checkboxes
+	- DateInput
+	- FileInput
+	- Form
+	- RadioBoxLinks
+	- RadioBtns
+	- Select
+	- TextInput
 
 
 ### Bug Fixes
