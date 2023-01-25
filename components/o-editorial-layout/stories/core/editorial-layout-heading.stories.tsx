@@ -12,7 +12,7 @@ export default {
 
 const Template = args => {
 	return (
-		<EditorialLayoutHeading {...args}>Documentation Heading</EditorialLayoutHeading>
+		<EditorialLayoutHeading {...args}>US, Germany to send main battle tanks to Ukraine</EditorialLayoutHeading>
 	);
 };
 
