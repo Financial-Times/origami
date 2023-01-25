@@ -5,7 +5,7 @@ import {EditorialLayoutHeading} from "../src/tsx/editorialLayoutHeading";
 import './editorialLayout.scss';
 
 export default {
-	title: 'Components/o-editorial-layout/heading',
+	title: 'Components/o-editorial-layout',
 	component: EditorialLayoutHeading,
 	decorators: [withDesign, withHtml],
 } as ComponentMeta<typeof EditorialLayoutHeading>;
