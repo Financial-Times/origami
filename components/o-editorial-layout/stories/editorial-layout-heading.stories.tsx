@@ -16,7 +16,7 @@ const Template = args => {
 	);
 };
 
-export const EditorialLayoutHeadingStory = Template.bind({});
-EditorialLayoutHeadingStory.args = {
+export const Heading = Template.bind({});
+Heading.args = {
 	headingLevel: '1'
 }

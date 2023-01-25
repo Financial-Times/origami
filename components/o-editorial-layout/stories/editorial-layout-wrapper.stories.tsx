@@ -10,7 +10,7 @@ export default {
 	decorators: [withDesign, withHtml],
 } as ComponentMeta<typeof EditorialLayoutWrapper>;
 
-const Template = args => {
+const Template = () => {
 	return (
 		<EditorialLayoutWrapper>
 			<h1>heading 1</h1>
@@ -36,4 +36,4 @@ const Template = args => {
 	);
 };
 
-export const EditorialLayoutWrapperWithChildren = Template.bind({});
+export const WrapperWithChildren = Template.bind({});
