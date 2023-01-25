@@ -1,7 +1,7 @@
 import {withDesign} from "storybook-addon-designs";
 import withHtml from 'origami-storybook-addon-html';
 import {ComponentMeta} from "@storybook/react";
-import {EditorialLayoutHeading} from "../src/tsx/editorialLayoutHeading";
+import {EditorialLayoutHeading} from "../src/tsx/editorial-layout-heading";
 import './editorialLayout.scss';
 
 export default {
