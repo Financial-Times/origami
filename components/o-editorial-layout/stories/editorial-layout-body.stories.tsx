@@ -5,7 +5,7 @@ import './editorialLayout.scss';
 import {EditorialLayoutBody} from "../src/tsx/editorialLayoutBody";
 
 export default {
-	title: 'Components/o-editorial-layout/body',
+	title: 'Components/o-editorial-layout',
 	component: EditorialLayoutBody,
 	decorators: [withDesign, withHtml],
 } as ComponentMeta<typeof EditorialLayoutBody>;
@@ -16,4 +16,4 @@ const Template = args => {
 	);
 };
 
-export const BodyWithText = Template.bind({});
+export const Body = Template.bind({});

@@ -5,7 +5,7 @@ import {EditorialLayoutWrapper} from "../src/tsx/editorialLayoutWrapper";
 import './editorialLayout.scss';
 
 export default {
-	title: 'Components/o-editorial-layout/wrapper',
+	title: 'Components/o-editorial-layout',
 	component: EditorialLayoutWrapper,
 	decorators: [withDesign, withHtml],
 } as ComponentMeta<typeof EditorialLayoutWrapper>;
@@ -36,4 +36,4 @@ const Template = () => {
 	);
 };
 
-export const WrapperWithChildren = Template.bind({});
+export const Wrapper = Template.bind({});
