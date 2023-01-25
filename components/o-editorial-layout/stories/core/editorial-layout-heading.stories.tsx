@@ -8,11 +8,15 @@ export default {
 	title: 'Components/o-editorial-layout',
 	component: EditorialLayoutHeading,
 	decorators: [withDesign, withHtml],
+	args: {
+		title: 'US, Germany to send main battle tanks to Ukraine'
+	}
 } as ComponentMeta<typeof EditorialLayoutHeading>;
 
 const Template = args => {
+	const {title,  ...headingArgs} = args
 	return (
-		<EditorialLayoutHeading {...args}>US, Germany to send main battle tanks to Ukraine</EditorialLayoutHeading>
+		<EditorialLayoutHeading {...headingArgs}>{title}</EditorialLayoutHeading>
 	);
 };
 
