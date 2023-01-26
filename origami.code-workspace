@@ -237,5 +237,8 @@
 		{
 			"path": "apps/website"
 		},
+		{
+			"path": "./components/o-multi-select"
+		}
 	]
 }
