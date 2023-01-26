@@ -1,0 +1,10 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oMultiSelectGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-multi-select', $variables: $variables, $from: $from);
+}
+/// Helper for `o-brand` function.
+/// @access private
+@function _oMultiSelectSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-multi-select', $variant: $variant);
+}

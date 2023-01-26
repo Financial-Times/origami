@@ -31,6 +31,7 @@
 		"components/o-loading": {},
 		"components/o-message": {},
 		"components/o-meter": {},
+		"components/o-multi-select": {},
 		"components/o-normalise": {},
 		"components/o-overlay": {},
 		"components/o-quote": {},
