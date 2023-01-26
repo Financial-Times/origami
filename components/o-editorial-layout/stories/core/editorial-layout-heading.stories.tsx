@@ -9,7 +9,7 @@ export default {
 	component: EditorialLayoutHeading,
 	decorators: [withDesign, withHtml],
 	args: {
-		title: 'US, Germany to send main battle tanks to Ukraine'
+		title: 'What I learnt in my days on the mountain in Davos'
 	}
 } as ComponentMeta<typeof EditorialLayoutHeading>;
 
