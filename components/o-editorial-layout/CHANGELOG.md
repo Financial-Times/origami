@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.4.0](https://www.github.com/Financial-Times/origami/compare/o-editorial-layout-v2.3.2...o-editorial-layout-v2.4.0) (2023-01-26)
+
+
+### Features
+
+* introduce editorial layout body ([eb169d9](https://www.github.com/Financial-Times/origami/commit/eb169d9cf39b563cc7fcd5cde80a6e4de79a8e86))
+* introduce editorial layout heading ([3eff4c5](https://www.github.com/Financial-Times/origami/commit/3eff4c55349d177ddc37b5045add8418a4ca5661))
+* introduce editorial layout wrapper tsx and story ([51a0e55](https://www.github.com/Financial-Times/origami/commit/51a0e5504447c3aac7099273cfa0272568eb1467))
+* use editorial content example heading ([6d06fd8](https://www.github.com/Financial-Times/origami/commit/6d06fd8a5958af77860b117a81ae6a80b4707818))
+
+
+### Bug Fixes
+
+* move stories to core/ directory ([ecaf643](https://www.github.com/Financial-Times/origami/commit/ecaf6432596afc9af03091aad5b4de14b111674d))
+* use kebab case for tsx files in o-editorial-layout ([156d69e](https://www.github.com/Financial-Times/origami/commit/156d69e4ca6c5e7b5f507ebdc73f6580ddd8986e))
+
 ### [2.3.2](https://www.github.com/Financial-Times/origami/compare/o-editorial-layout-v2.3.1...o-editorial-layout-v2.3.2) (2022-12-21)
 
 
