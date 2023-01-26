@@ -122,6 +122,20 @@ npm run build -w components/o-example
 npm run start -w components/o-example
 ```
 
+This will generate demos for all brands that the component is configured to be a part of.
+
+Storybook can be run locally with the `storybook` command.
+
+```shell
+npm run storybook
+```
+
+To view components in other brands in Storybook, set the `ORIGAMI_STORYBOOK_BRAND` environment variable with the brand.
+
+```shell
+ORIGAMI_STORYBOOK_BRAND=internal npm run storybook
+```
+
 ##### Watch demos
 
 To serve the demos, and have them automatically rebuild when the code changes you can use the `watch` command.
