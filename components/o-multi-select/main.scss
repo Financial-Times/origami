@@ -9,10 +9,8 @@
 ///		@include oMultiSelect($opts: (
 ///			// your opts here
 ///		))
-@mixin oMultiSelect ($opts: ()) {
-	// content of primary mixin
-	.o-multi-select {
-		display: block;
+@mixin oMultiSelect($opts: ()) {
+	.o-multi-select_enhanced {
+		display: none;
 	}
 }
-

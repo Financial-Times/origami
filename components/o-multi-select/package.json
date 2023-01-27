@@ -2,7 +2,11 @@
   "name": "@financial-times/o-multi-select",
   "version": "0.0.0",
   "description": "Multi select component",
-  "keywords": ["multi","select","multi-select"],
+  "keywords": [
+    "multi",
+    "select",
+    "multi-select"
+  ],
   "homepage": "https://registry.origami.ft.com/components/o-multi-select",
   "bugs": {
     "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-multi-select,components",
@@ -19,10 +23,9 @@
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
-	"peerDependencies": {
-			"@financial-times/o-brand": "^4.1.0"
-	},
-	  "devDependencies": {},
+  "peerDependencies": {
+    "@financial-times/o-brand": "^4.1.0"
+  },
   "engines": {
     "npm": "^7 || ^8"
   },
