@@ -130,6 +130,10 @@ This will generate demos for all brands that the component is configured to be a
 
 To serve the demos, and have them automatically rebuild when the code changes you can use the `watch` command.
 
+```shell
+npm run watch -w components/o-example
+```
+
 ##### Storybook
 
 Storybook can be run locally with the `storybook` command.
