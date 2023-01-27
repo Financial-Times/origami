@@ -4,14 +4,14 @@
 	"brands": ["core"],
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-multi-select,components",
 	"supportContact": {
-		"email":  "origami.support@ft.com",
+		"email": "origami.support@ft.com",
 		"slack": "#origami-support"
 	},
 	"supportStatus": "experimental",
 	"browserFeatures": {},
 	"demosDefaults": {
-		"sass": "demos/src/demo.scss", 
-		"js": "demos/src/demo.js", 
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
 		"template": "demos/src/demo.mustache",
 		"documentClasses": "",
 		"dependencies": []
@@ -21,7 +21,22 @@
 			"title": "A Useful Demo",
 			"name": "demo",
 			"template": "demos/src/demo.mustache",
-			"description": "Description of the demo"
+			"description": "Description of the demo",
+			"data": {
+				"multiSelectOptions": [
+					"Apple",
+					"Banana",
+					"Blueberry",
+					"Boysenberry",
+					"Cherry",
+					"Durian",
+					"Eggplant",
+					"Fig",
+					"Grape",
+					"Guava",
+					"Huckleberry"
+				]
+			}
 		}
 	]
 }
