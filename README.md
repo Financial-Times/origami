@@ -148,9 +148,33 @@ To view components in other brands in Storybook, set the `ORIGAMI_STORYBOOK_BRAN
 ORIGAMI_STORYBOOK_BRAND=internal npm run storybook
 ```
 
-```shell
-npm run watch -w components/o-example
+#### Setting brands
+
+Some components you create may only be part of one brand. We recommend you follow these guidelines when contributing branded components:
+
+##### Registry
+
+Origami Registry components are branded through the `origami.json` in the component's root directory. You can find how to use this file in the [Origami documentation](https://origami.ft.com/documentation/manifests/origami-json/#brands).
+
+##### Storybook
+
+Storybook components can be branded by introducing a brand sub-directory within the `stories` folder, and placing brand-specific stories within it. e.g:
+
 ```
+o-labels/
+    demos/
+    src/
+    stories/
+       core/
+           // Core brand stories go in this directory.
+           labels.stories.tsx
+           labels.scss
+       //Unbranded stories can be placed in the root of stories/
+       labels.stories.tsx
+       labels.scss
+```
+
+[o-labels](https://github.com/Financial-Times/origami/tree/main/components/o-labels/stories) provides a good example of this.
 
 #### Test
 
