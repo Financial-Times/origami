@@ -10,19 +10,24 @@ class MultiSelect {
 		this.clearCore();
 
 		this.inputEl = multiSelectEl.querySelector('input');
-		this.inputEl.addEventListener('click', () => {
-			const dropDown = this.multiSelectEl.querySelector(
-				'.o-multi-select-dropdown'
-			);
-			dropDown.style.display = 'block';
-		});
 		this.listboxEl = multiSelectEl.querySelector('[role=listbox]');
+
 		// data
 		this.idBase = this.inputEl.id;
 
 		// state
 		this.activeIndex = 0;
 		this.open = false;
+
+		this.inputEl.addEventListener('click', () => {
+			if (!this.open) {
+				this.listboxEl.style.display = 'block';
+				this.open = true;
+				return;
+			}
+			this.listboxEl.style.display = 'none';
+			this.open = false;
+		});
 
 		this.options = Object.assign(
 			{},
