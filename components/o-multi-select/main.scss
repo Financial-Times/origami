@@ -20,4 +20,8 @@
 	.o-multi-select-remove {
 		display: none;
 	}
+
+	.o-multi-select__selected-options {
+		position: absolute;
+	}
 }
