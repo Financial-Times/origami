@@ -15,7 +15,7 @@
 ///			// your opts here
 ///		))
 @mixin oMultiSelect($opts: ()) {
-	@include _oMultiSelectBase();
+	// @include _oMultiSelectBase();
 	.o-multi-select_enhanced,
 	.o-multi-select-remove,
 	.o-multi-select-dropdown {

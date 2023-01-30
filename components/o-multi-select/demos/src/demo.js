@@ -1,4 +1,6 @@
 import MultiSelect from '../../src/js/multi-select.js';
+import oForms from '@financial-times/o-forms';
+oForms.init();
 
 const constructAll = () => {
 	MultiSelect.init(null, {
