@@ -37,5 +37,9 @@
     "npm": "7.11.1"
   },
   "percy": true,
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "@financial-times/o-forms": "^9.5.0",
+    "@financial-times/o-normalise": "*"
+  }
 }

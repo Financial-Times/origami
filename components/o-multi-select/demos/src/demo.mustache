@@ -1,33 +1,36 @@
 <div class="o-multi-select" data-o-component="o-multi-select">
-	<div class="o-multi-select_core o-multi-select-field">
-		<label
-			for="options"
-			id="o-multi-select-label"
-			class="o-multi-select-title__main"
-		>
-			Multi-select Combobox Example core
-		</label>
-		<select
-			class="o-multi-select-input"
-			name="options"
-			id="multiSelect"
-			multiple
-		>
-			{{#multiSelectOptions}}
-			<option value="{{.}}">{{.}}</option>
-			{{/multiSelectOptions}}
-		</select>
+	<div class="o-form o-multi-select_core">
+		<span class="o-forms-field">
+			<span class="o-forms-title">
+				<label class="o-forms-title__main" for="multiple"
+					>Multiple select box</label
+				>
+			</span>
+
+			<span class="o-forms-input o-forms-input--select">
+				<select name="multiple" id="multiple" multiple>
+					{{#multiSelectOptions}}
+					<option value="{{.}}">{{.}}</option>
+					{{/multiSelectOptions}}
+				</select>
+			</span>
+		</span>
 	</div>
-	<div class="o-multi-select-field o-multi-select_enhanced">
-		<label id="o-multi-select-label" class="o-multi-select-title__main">
-			Multi-select Combobox Example enhanced
-		</label>
-		<span class="o-multi-select-remove" id="o-multi-select-remove">remove</span>
-		<ul
-			class="o-multi-select__selected-options"
-			id="o-multi-select-selected"
-		></ul>
-		<div class="o-multi-select-input">
+	<div class="o-form o-multi-select_enhanced">
+		<span class="o-forms-field">
+			<span class="o-forms-title">
+				<label class="o-forms-title__main" for="multiple" id="o-multi-select-label"
+					>Multiple select box</label
+				>
+			</span>
+			<span class="o-multi-select-remove" id="o-multi-select-remove">remove</span>
+			<ul
+				class="o-multi-select__selected-options"
+				id="o-multi-select-selected"
+			></ul>
+		</span>
+
+		<div class="o-forms-input o-forms-input--text o-forms-input--select">
 			<input
 				aria-activedescendant=""
 				aria-autocomplete="none"
@@ -47,4 +50,5 @@
 			></div>
 		</div>
 	</div>
+
 </div>
