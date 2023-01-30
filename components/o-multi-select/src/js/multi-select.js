@@ -1,6 +1,7 @@
 class MultiSelect {
 	/**
 	 * Class constructor.
+	 *
 	 * @param {HTMLElement} [multiSelectEl] - The component element in the DOM
 	 * @param {Object} [options={}] - An options object for configuring the component
 	 */

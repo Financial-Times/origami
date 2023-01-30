@@ -1,0 +1,38 @@
+@mixin _oMultiSelectBase() {
+	.o-multi-select-field,
+	.o-multi-select-title,
+	.o-multi-select-input {
+		@include oTypographySans(0);
+	}
+
+	.o-multi-select-field {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: $_o-multi-select-spacing-six;
+		position: relative;
+
+		label {
+			display: block;
+			margin: 0 0 $_o-multi-select-spacing-three;
+			position: relative;
+		}
+
+		label:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	.o-multi-select-title__main {
+		@include oTypographySans($weight: 'semibold', $include-font-family: false);
+		display: block;
+	}
+
+	.o-multi-select-input {
+		margin-top: $_o-multi-select-spacing-three;
+		// remove default browser styles
+		input {
+			border-radius: 0;
+			appearance: none;
+		}
+	}
+}
