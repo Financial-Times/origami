@@ -85,6 +85,7 @@ class Stream {
 							rootURL: rootUrl,
 							autoRender: true,
 							bodyClassName: 'o-comments-coral-talk-container',
+							containerClassName: 'o-comments-coral-talk-container',
 							events: (events) => {
 								events.onAny((name, data) => {
 									this.publishEvent({name, data});
