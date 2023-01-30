@@ -8,6 +8,10 @@
 body {
 	background: oColorsByUsecase(page, background);
 }
+// o-normalise sets select elements on overflow: visible;
+.o-forms-input--select select {
+	overflow: scroll;
+}
 
 .o-multi-select {
 	margin: 12px;
