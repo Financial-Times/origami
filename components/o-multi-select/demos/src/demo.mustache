@@ -1,42 +1,49 @@
-<div
-	class="o-multi-select"
-	data-o-component="o-multi-select"
->
-	<div class="o-multi-select_core">
-		<label for="options" id="combo-label" className="combo-label">
+<div class="o-multi-select" data-o-component="o-multi-select">
+	<div class="o-multi-select_core o-multi-select-field">
+		<label
+			for="options"
+			id="o-multi-select-label"
+			class="o-multi-select-title__main"
+		>
 			Multi-select Combobox Example core
 		</label>
-		<select name="options" id="multiSelect" multiple>
+		<select
+			class="o-multi-select-input"
+			name="options"
+			id="multiSelect"
+			multiple
+		>
 			{{#multiSelectOptions}}
 			<option value="{{.}}">{{.}}</option>
 			{{/multiSelectOptions}}
 		</select>
 	</div>
-	<div class="o-multi-select_enhanced">
-		<label id="combo-label" className="combo-label">
+	<div class="o-multi-select-field o-multi-select_enhanced">
+		<label id="o-multi-select-label" class="o-multi-select-title__main">
 			Multi-select Combobox Example enhanced
 		</label>
-		<span id="combo-remove" style="display: none">remove</span>
-		<ul className="selected-options" id="combo-selected"></ul>
-		<div className="combo js-multiselect">
-			<input
-				aria-activedescendant=""
-				aria-autocomplete="none"
-				aria-controls="listbox3"
-				aria-expanded="false"
-				aria-haspopup="listbox"
-				aria-labelledby="combo-label combo-selected"
-				id="combo"
-				className="combo-input"
-				role="combobox"
-				type="text"
-			/>
-			<div
-				className="combo-menu"
-				role="listbox"
-				id="listbox3"
-				aria-label="multi select options"
-			></div>
-		</div>
+		<span class="o-multi-select-remove" id="o-multi-select-remove">remove</span>
+		<ul
+			class="o-multi-select__selected-options"
+			id="o-multi-select-selected"
+		></ul>
+		<input
+			aria-activedescendant=""
+			aria-autocomplete="none"
+			aria-controls="o-multi-select-listbox"
+			aria-expanded="false"
+			aria-haspopup="listbox"
+			aria-labelledby="o-multi-select-label o-multi-select-selected"
+			id="o-multi-select-listbox"
+			class="o-multi-select-input"
+			role="combobox"
+			type="text"
+		/>
+		<div
+			class="o-multi-select-dropdown"
+			role="listbox"
+			id="o-multi-select-listbox"
+			aria-label="multi select options"
+		></div>
 	</div>
 </div>
