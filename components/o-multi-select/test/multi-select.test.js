@@ -23,7 +23,7 @@ describe("MultiSelect", () => {
 		}, 100);
 	});
 
-	it("should not autoinitialize when the event is not dispached", () => {
+	it("should not autoinitialize when the event is not dispatched", () => {
 		const initSpy = sinon.spy(MultiSelect, 'init');
 		proclaim.equal(initSpy.called, false);
 	});
