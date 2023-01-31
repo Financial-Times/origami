@@ -9,11 +9,9 @@
 @import 'src/scss/mixins';
 @import 'src/scss/coral-talk-iframe/main';
 
-//#coral {
 @if ($o-comments-is-silent == false) {
 	@include oComments();
 
 	// Set to silent again to avoid being output twice
 	$o-comments-is-silent: true !global;
 }
-//}

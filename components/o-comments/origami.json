@@ -32,11 +32,11 @@
 			"description": "Comments stream on an article page"
 		},
 		{
-			"title": "Comments Stream v7",
-			"name": "comments-stream-v7",
-			"template": "demos/src/stream-v7.mustache",
+			"title": "Comments Stream Staging",
+			"name": "comments-stream-staging",
+			"template": "demos/src/stream-staging.mustache",
 			"sass": "demos/src/stream.scss",
-			"description": "Comments stream on an article page Coral Version 7"
+			"description": "Comments stream on an article page Coral Staging"
 		},
 		{
 			"title": "Comments Count",

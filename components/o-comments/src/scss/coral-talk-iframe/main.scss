@@ -12,7 +12,7 @@
 
 // stylelint-disable selector-class-pattern, declaration-no-important
 @mixin _oCommentsTalkIframe {
-	.o-comments-coral-talk-container, #coral {
+	#coral {
 		--font-family-primary: #{inspect(oTypographyGetFontFamily('sans'))};
 		--font-family-secondary: #{inspect(oTypographyGetFontFamily('sans'))};
 		--font-weight-primary-bold: 600;
