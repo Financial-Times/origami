@@ -10,7 +10,7 @@ body {
 }
 // o-normalise sets select elements on overflow: visible;
 .o-forms-input--select select {
-	overflow: scroll;
+	overflow: auto;
 }
 
 .o-multi-select {
