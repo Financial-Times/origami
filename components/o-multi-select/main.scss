@@ -33,4 +33,15 @@
 		cursor: pointer;
 		background-position: right 8px center;
 	}
+
+	.o-multi-select-dropdown {
+		background-color: oColorsByName('white');
+		padding: 8px;
+		border: 1px solid oColorsByName('black-70');
+
+		[role|='option'] {
+			color: oColorsByName('black-80');
+			cursor: pointer;
+		}
+	}
 }

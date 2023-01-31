@@ -19,6 +19,15 @@ class MultiSelect {
 		this.activeIndex = 0;
 		this.open = false;
 
+		document.addEventListener('click', e => {
+			if (
+				!e.target.classList.contains('o-multi-select-option') &&
+				e.target !== this.inputEl
+			) {
+				this.listboxEl.style.display = 'none';
+				this.open = false;
+			}
+		});
 		this.inputEl.addEventListener('click', () => {
 			if (!this.open) {
 				this.listboxEl.style.display = 'block';
@@ -41,7 +50,9 @@ class MultiSelect {
 			optionEl.setAttribute('role', 'option');
 			optionEl.id = `${this.idBase}-${index}`;
 			optionEl.className =
-				index === 0 ? 'combo-option option-current' : 'combo-option';
+				index === 0
+					? 'o-multi-select-option o-multi-select-option__current'
+					: 'o-multi-select-option';
 			optionEl.setAttribute('aria-selected', `${index === 0}`);
 			optionEl.innerText = option;
 
