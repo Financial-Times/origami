@@ -48,10 +48,6 @@
 		@include _oNormaliseText();
 	}
 
-	@if($images) {
-		@include _oNormaliseImages();
-	}
-
 	@if($forms) {
 		@include _oNormaliseForms();
 	}
