@@ -1,5 +1,3 @@
-import {classBuilder} from "@financial-times/o-forms/src/utils";
-
 export const Table = ({children}) => {
 	return <table className="o-table o-table--horizontal-lines" data-o-component="o-table">{children}</table>;
 };
@@ -21,32 +19,32 @@ export const TableRow = args => {
 	return <tr {...args}/>
 }
 
-interface TableDataType {
-	dataType?: 'text' | 'date' | 'number' | 'percent' | 'currency' | 'numeric';
-}
 
-interface TableHeadingProps extends TableDataType {
-	children?: string;
+interface TableHeadingProps {
+children?: string | JSX.Element | JSX.Element[];
 }
 
 export const TableHeading = (args: TableHeadingProps) => {
-	return <th {...args}/>
+	return <th scope="col" role="columnheader" {...args}/>
 }
 
-interface TableDataProps extends TableDataType {
-	children?: string;
+export const NumericTableHeading = (args: TableHeadingProps) => {
+	return <TableHeading className='o-table__cell--numeric' data-o-table-data-type="numeric"{...args}/>
+}
+
+interface TableDataProps {
+	children?: string | JSX.Element | JSX.Element[];
+	className?: string;
 }
 
 export const TableData = (args: TableDataProps) => {
-	const {dataType, ...childArgs} = args;
-	const [addProperty, getClasses] = classBuilder('o-table__cell', false)
-	if (dataType === 'numeric') {
-		addProperty('numeric')
-	}
-	return <td className={getClasses()} data-o-table-data-type={dataType} {...childArgs}/>
+	return <td {...args}/>
 }
 
 export const TableFootnote = args => {
 	return <TableData className='o-table-footnote' {...args} />
 }
 
+export const NumericTableData = (args: TableDataProps) => {
+	return <TableData className='o-table__cell--numeric' {...args}/>
+}
