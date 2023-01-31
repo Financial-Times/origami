@@ -25,4 +25,12 @@
 	.o-multi-select__selected-options {
 		position: absolute;
 	}
+
+	.o-multi-select-input {
+		background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-service&format=svg);
+		background-repeat: no-repeat;
+		background-size: 24px 24px;
+		cursor: pointer;
+		background-position: right 8px center;
+	}
 }
