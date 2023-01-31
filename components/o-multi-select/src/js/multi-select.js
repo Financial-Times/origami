@@ -32,6 +32,7 @@ class MultiSelect {
 			if (!this.open) {
 				this.listboxEl.style.display = 'block';
 				this.open = true;
+				this.inputEl.placeholder = 'Select options below';
 				return;
 			}
 			this.listboxEl.style.display = 'none';

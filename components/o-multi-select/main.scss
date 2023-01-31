@@ -42,6 +42,10 @@
 		[role|='option'] {
 			color: oColorsByName('black-80');
 			cursor: pointer;
+			&:hover {
+				background-color: #F5F5F5;
+				color: initial;
+			}
 		}
 	}
 }
