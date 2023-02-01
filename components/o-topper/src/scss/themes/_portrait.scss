@@ -5,6 +5,15 @@
 		display: none;
 	}
 
+	.o-topper__headline {
+	  &::after {
+		border-bottom: 0px;
+		@include oGridRespondTo($from: L) {
+		  border-bottom-width: 0px;
+		}
+	  }
+	}
+
 	@include oGridRespondTo($until: M) {
 		display:flex;
 		flex-direction: column;

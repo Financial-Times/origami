@@ -121,7 +121,7 @@
 			@include _oTopperCentered;
 		}
 	}
-	
+
 	@if index($themes, 'deep-portrait') {
 		.o-topper--deep-portrait {
 			@include _oTopperThemeSplitTextPortraitLeft($colors);
@@ -310,7 +310,7 @@
 			color: oColorsMix($foreground, $color-name, 73);
 		}
 	}
-	
+
 	.o-topper__image-caption {
 		color: oColorsMix($foreground, $color-name, 73);
 	}
@@ -340,7 +340,7 @@
 	}
 
 	@if $color-name == 'matisse' {
-		.o-topper__columnist-name {			
+		.o-topper__columnist-name {
 			&:hover {
 				color: oColorsMix($foreground, $color-name, 73);
 			}
