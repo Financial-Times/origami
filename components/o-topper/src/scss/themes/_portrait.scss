@@ -7,10 +7,7 @@
 
 	.o-topper__headline {
 	  &::after {
-		border-bottom: 0px;
-		@include oGridRespondTo($from: L) {
-		  border-bottom-width: 0px;
-		}
+		content: none;
 	  }
 	}
 
