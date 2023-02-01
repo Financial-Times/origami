@@ -53,10 +53,7 @@ class MultiSelect {
 			const optionEl = document.createElement('div');
 			optionEl.setAttribute('role', 'option');
 			optionEl.id = `${this.idBase}-${index}`;
-			optionEl.className =
-				index === 0
-					? 'o-multi-select-option o-multi-select-option__current'
-					: 'o-multi-select-option';
+			optionEl.className = 'o-multi-select-option';
 			optionEl.setAttribute('aria-selected', `${index === 0}`);
 			optionEl.innerText = option;
 
@@ -81,11 +78,22 @@ class MultiSelect {
 	}
 
 	onOptionClick(optionEl, option, index) {
+		if (optionEl.classList.contains('o-multi-select-option__selected')) {
+			optionEl.classList.remove('o-multi-select-option__selected');
+			const button = this.selectedOptions.querySelector(`#${option + index}`);
+			button.parentElement.remove();
+			console.log({sP: this.selectedOptions.children});
+			if (this.selectedOptions.children.length === 0) {
+				this.selectedOptions.style.display = 'none';
+			}
+			return;
+		}
 		this.selectedOptions.style.display = 'block';
-		optionEl.classList.add('highlighted');
+		optionEl.classList.add('o-multi-select-option__selected');
 		// create a button with remove icon
 		const li = document.createElement('li');
 		const button = document.createElement('button');
+		button.id = option + index;
 		button.className = 'o-multi-select__selected-options-button';
 		button.type = 'button';
 		button.innerText = option;

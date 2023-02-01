@@ -73,13 +73,17 @@
 			position: absolute;
 			left: 0;
 
-			[role|='option'] {
+			[role='option'] {
 				color: oColorsByName('black-80');
 				cursor: pointer;
 				&:hover {
 					background-color: #f5f5f5;
 					color: initial;
 				}
+			}
+			.o-multi-select-option__selected {
+				background-color: #f5f5f5;
+				color: initial;
 			}
 		}
 	}
