@@ -22,20 +22,46 @@
 		display: none;
 	}
 
-	.o-multi-select__selected-options {
-		position: absolute;
-	}
-
 	.o-multi-select-input {
 		background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-service&format=svg);
 		background-repeat: no-repeat;
 		background-size: 24px 24px;
 		cursor: pointer;
-		background-position: right 8px center;
+		background-position: right center;
 	}
 
 	.o-multi-select-input-wrapper {
 		position: relative;
+		background-color: oColorsByName('white');
+		border: 1px solid oColorsByName('black-70');
+		padding: 0px 14px;
+
+		.o-multi-select__selected-options {
+			display: none;
+			list-style-type: none;
+			margin: 0;
+			max-width: 90%;
+			padding: 10px 0px;
+
+			li {
+				display: inline-block;
+				margin-bottom: 0;
+				.o-multi-select__selected-options-button {
+					border: none;
+					background-color: oColorsByName('wheat');
+					color: oColorsByName('black-80');
+					font-weight: bold;
+					margin-bottom: 6px;
+					margin-right: 6px;
+					padding: 0.25em 1.75em 0.25em 0.25em;
+					position: relative;
+				}
+			}
+		}
+		.o-multi-select-input {
+			border: none;
+			padding: 0;
+		}
 		.o-multi-select-dropdown {
 			width: 100%;
 			background-color: oColorsByName('white');
@@ -45,6 +71,7 @@
 			-webkit-box-sizing: border-box;
 			box-sizing: border-box;
 			position: absolute;
+			left: 0;
 
 			[role|='option'] {
 				color: oColorsByName('black-80');

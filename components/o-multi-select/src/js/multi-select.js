@@ -11,6 +11,9 @@ class MultiSelect {
 
 		this.inputEl = multiSelectEl.querySelector('input');
 		this.listboxEl = multiSelectEl.querySelector('[role=listbox]');
+		this.selectedOptions = multiSelectEl.querySelector(
+			'.o-multi-select__selected-options'
+		);
 
 		// data
 		this.idBase = this.inputEl.id;
@@ -57,9 +60,9 @@ class MultiSelect {
 			optionEl.setAttribute('aria-selected', `${index === 0}`);
 			optionEl.innerText = option;
 
-			// optionEl.addEventListener('click', () => {
-			// 	this.onOptionClick(index);
-			// });
+			optionEl.addEventListener('click', () => {
+				this.onOptionClick(optionEl, option, index);
+			});
 			// optionEl.addEventListener('mousedown', this.onOptionMouseDown.bind(this));
 
 			this.listboxEl.appendChild(optionEl);
@@ -75,6 +78,19 @@ class MultiSelect {
 			'.o-multi-select_enhanced'
 		);
 		enhancedWrapper.style.display = 'block';
+	}
+
+	onOptionClick(optionEl, option, index) {
+		this.selectedOptions.style.display = 'block';
+		optionEl.classList.add('highlighted');
+		// create a button with remove icon
+		const li = document.createElement('li');
+		const button = document.createElement('button');
+		button.className = 'o-multi-select__selected-options-button';
+		button.type = 'button';
+		button.innerText = option;
+		li.appendChild(button);
+		this.selectedOptions.appendChild(li);
 	}
 
 	/**
