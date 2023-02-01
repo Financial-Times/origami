@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 
-* reduce headline box size of topper ([1ab5323](https://www.github.com/Financial-Times/origami/commit/1ab53239653a88bc6898f1af6784b8976d44dd1d))
+* Improve the headline positioning of the deep-portrait variant ([1ab5323](https://www.github.com/Financial-Times/origami/commit/1ab53239653a88bc6898f1af6784b8976d44dd1d))
 
 ### [5.7.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.0...o-topper-v5.7.1) (2023-01-04)
 
