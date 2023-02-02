@@ -72,7 +72,6 @@ class Stream {
 				const rootUrl = this.useStagingEnvironment
 					? 'https://ft.staging.coral.coralproject.net'
 					: 'https://ft.coral.coralproject.net';
-
 				const scriptElement = document.createElement('script');
 				scriptElement.src = `${rootUrl}/assets/js/embed.js?${cacheBuster}`;
 
@@ -85,6 +84,7 @@ class Stream {
 							rootURL: rootUrl,
 							autoRender: true,
 							bodyClassName: 'o-comments-coral-talk-container',
+							containerClassName: 'o-comments-coral-talk-container',
 							events: (events) => {
 								events.onAny((name, data) => {
 									this.publishEvent({name, data});
