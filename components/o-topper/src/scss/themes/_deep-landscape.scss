@@ -14,6 +14,24 @@
 		box-sizing: border-box;
 		align-self: center;
 		background: transparent;
+		position: absolute;
+		left: 10px;
+		bottom: 72px;
+	}
+  	.o-topper__topic {
+	  	color: black !important;
+	}
+  	.n-myft-follow-button {
+		color: black !important;
+		border: 1px solid black !important;
+		&::before {
+		  	background-image:url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?format=svg&source=next-article&tint=%23000000%2C%23FFFFFF)
+		}
+	}
+	.o-topper__headline {
+		&::after {
+		  	content: none;
+		}
 	}
 
 	@each $color-name in $colors {
@@ -43,7 +61,7 @@
 		}
 	}
 
-	
+
 	@include oGridRespondTo( $until:S) {
 		.o-topper__content {
 			width:100%;
@@ -52,7 +70,7 @@
 			padding:20px;
 		}
 	}
-	
+
 	@include oGridRespondTo($from:S , $until:M) {
 		.o-topper__content {
 			width:75%;
