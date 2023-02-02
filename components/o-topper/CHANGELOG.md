@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.7.3](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.2...o-topper-v5.7.3) (2023-02-01)
+
+
+### Bug Fixes
+
+* o-topper: remove the headline underline from the deep portrait variant ([#988](https://www.github.com/Financial-Times/origami/issues/988)) ([be44f05](https://www.github.com/Financial-Times/origami/commit/be44f054a60500d1429dddc5cd581f3d48bd6ed0))
+
 ### [5.7.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.1...o-topper-v5.7.2) (2023-01-31)
 
 
