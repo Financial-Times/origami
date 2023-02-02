@@ -1,5 +1,16 @@
 # Changelog
 
+## [10.0.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v9.0.2...o-comments-v10.0.0) (2023-02-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* o-comments, migrate to coral v7
+
+### Features
+
+* o-comments, migrate to coral v7 ([7889059](https://www.github.com/Financial-Times/origami/commit/78890594d07734d3bac8602e62629b47a92d6bb2))
+
 ### [9.0.2](https://www.github.com/Financial-Times/origami/compare/o-comments-v9.0.1...o-comments-v9.0.2) (2022-12-21)
 
 
