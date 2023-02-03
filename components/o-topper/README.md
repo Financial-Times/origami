@@ -67,6 +67,7 @@ These themes affect the layout and visual style of all elements. See the [demos]
 .o-topper--full-bleed-offset
 .o-topper--split-text-left
 .o-topper--split-text-center
+.o-topper--deep-landscape
 ```
 
 ### Colors
@@ -114,6 +115,7 @@ To include o-topper styles granularly specify which elements, themes, and colour
 		'package-special-report',
 		'right-rail',
 		'centered',
+		'deep-landscape',
 	),
 	'elements': (
 		'content', // .o-topper__content

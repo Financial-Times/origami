@@ -39,8 +39,6 @@ Options include:
 | body                | Features which apply to `html`, `body`, `main` elements and all elements with a `:focus` state.                     | 'font-smoothing', 'focus' |
 | helpers             | Classes which may be applied to elements manually.                                                                  | 'clearfix', 'visually-hidden'           |
 
-_Note: if using the "focus" option in your project also include the `:focus-visible` polyfill. See [Focus States](#focus-states)._
-
 ### Other Mixins
 
 - `oNormaliseVisuallyHidden` - provides styles to [visually hide an element while remaining accessible to screen reader](https://snook.ca/archives/html_and_css/hiding-content-for-accessibility).
@@ -51,9 +49,7 @@ _Note: if using the "focus" option in your project also include the `:focus-visi
 
 `o-normalise` provides default focus states using the `:focus-visible` pseudo-class. This applies while an element matches the `:focus` pseudo-class and the user-agent determines that the focus should be specially indicated.
 
-No browser supports `:focus-visible` right now (31st Jan 2018) but there is [a polyfill](https://github.com/WICG/focus-visible) which roughly mimics the behaviour by adding a class `.focus-visible` to an element if it should have `:focus-visible` applied to it. Integrate [the polyfill](https://github.com/WICG/focus-visible) at v4 or v5 with your project to apply these focus styles.
-
-`:focus` is used as a fallback in `core` mode.
+Browser support is now good so we no longer recommend the [focus-visible polyfill](https://github.com/WICG/focus-visible), this should be removed from your project. `:focus` is used as a fallback where needed in older browsers.
 
 ## Contributing
 

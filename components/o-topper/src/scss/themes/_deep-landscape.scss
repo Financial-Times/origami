@@ -1,0 +1,93 @@
+// sass-lint:disable mixins-before-declarations
+
+@mixin _oTopperThemeDeepLandscape($colors) {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 150vw 1fr;
+
+	.o-topper__image{
+		height:150vw;
+	}
+	.o-topper__content {
+		display:inline-block;
+		grid-row: 1;
+		box-sizing: border-box;
+		align-self: center;
+		background: transparent;
+	}
+
+	@each $color-name in $colors {
+		&.o-topper--color-#{$color-name} {
+			$background: oColorsByName($color-name);
+			$foreground: oColorsGetTextColor($background, $opacity: 100);
+			.o-topper__content--text-shadow{
+				@if $foreground == white{
+					text-shadow: 2px 3px 4px rgba(18,18,18,0.4);
+				}
+			}
+		}
+	}
+
+	.o-topper__read-next {
+		display: none;
+	}
+	.o-topper__background {
+		grid-row: 1;
+	}
+	.o-topper__visual {
+		grid-row: 1 /span 2;
+	}
+	&.o-topper--full-bleed-image-center {
+		@include oGridRespondTo(S) {
+			@include _oTopperAlignText(center);
+		}
+	}
+
+	
+	@include oGridRespondTo( $until:S) {
+		.o-topper__content {
+			width:100%;
+			align-self: end;
+			grid-column: 1 / span 2;
+			padding:20px;
+		}
+	}
+	
+	@include oGridRespondTo($from:S , $until:M) {
+		.o-topper__content {
+			width:75%;
+			grid-column: 1/span 2;
+			margin: auto auto auto 10%;
+		}
+	}
+	@include oGridRespondTo($from:M , $until:L) {
+		.o-topper__content {
+			width:50%;
+			grid-column: 1/span 2;
+			margin: auto auto auto 10%;
+		}
+	}
+
+	@include oGridRespondTo(L) {
+		grid-template-rows: 66vw 1fr;
+
+		.o-topper__content {
+			grid-column: 1;
+			margin: auto;
+		}
+		.o-topper__image{
+			height:66vw;
+		}
+	}
+
+	@supports (object-fit: cover) {
+		.o-topper__visual {
+			height: auto;
+		}
+	}
+
+	.o-topper__image-caption {
+		background-color: transparent;
+		color: oColorsByName("black-70");
+	}
+}

@@ -196,6 +196,10 @@
 	@include oTypographyLink();
 	@include oTypographySans($scale: 0);
 	white-space: nowrap;
+	&:focus,
+	&:focus-visible {
+		outline-color: inherit;
+	}
 }
 
 @mixin _oBannerCloseButton {

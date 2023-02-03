@@ -1,4 +1,56 @@
 # Changelog
+### [11.0.4](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.3...o-header-v11.0.4) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
+### [11.0.3](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.2...o-header-v11.0.3) (2023-01-18)
+
+
+### Bug Fixes
+
+* o-header tsx, use correct drawer markup ([7a95985](https://www.github.com/Financial-Times/origami/commit/7a959858ce5f199393ab89196b384398f52caccf))
+
+### [11.0.2](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.1...o-header-v11.0.2) (2023-01-16)
+
+
+### Bug Fixes
+
+* o-header, fix tsx errors ([545435d](https://www.github.com/Financial-Times/origami/commit/545435de2f60a69e7d7d30c48a591c285dfcd2fd))
+
+### [11.0.1](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.0...o-header-v11.0.1) (2023-01-16)
+
+
+### Bug Fixes
+
+* o-header, bundle tsx in release ([9a6f908](https://www.github.com/Financial-Times/origami/commit/9a6f9084ae4b306902da844a17782a54ef149964))
+
+## [11.0.0](https://www.github.com/Financial-Times/origami/compare/o-header-v10.1.2...o-header-v11.0.0) (2023-01-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update markup to make a number of accessibility fixes ([cc0c80a](https://github.com/Financial-Times/origami/pull/912))
+* Remove the sub-brand variant([cc0c80a](https://github.com/Financial-Times/origami/pull/950))
+
+[See the o-header v10 to v11 migration guide for more details](https://github.com/Financial-Times/origami/blob/main/components/o-header/MIGRATION.md#migrating-from-v10-to-v11).
+
+### [10.1.2](https://www.github.com/Financial-Times/origami/compare/o-header-v10.1.1...o-header-v10.1.2) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
+### [10.1.1](https://www.github.com/Financial-Times/origami/compare/o-header-v10.1.0...o-header-v10.1.1) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-header, update input focus style with a double ring ([649a9e8](https://www.github.com/Financial-Times/origami/commit/649a9e82ae21650ac1129cf07a211f6883cfd1a2))
+
 ## [10.1.0](https://www.github.com/Financial-Times/origami/compare/o-header-v10.0.1...o-header-v10.1.0) (2022-08-17)
 
 

@@ -68,6 +68,10 @@
 		&:focus {
 			--o-social-follow-icon-color: white;
 		}
+
+		@include oNormaliseFocusApply() {
+			@include oNormaliseFocusContent();
+		}
 	}
 
 	@if $standalone {
@@ -79,6 +83,9 @@
 	@if index($themes, 'inverse') {
 		.o-social-follow-icon--inverse {
 			--o-social-follow-icon-color: white;
+			@include oNormaliseFocusApply() {
+				@include oNormaliseFocusContentInverse();
+			}
 		}
 	}
 

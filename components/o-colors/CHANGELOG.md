@@ -1,5 +1,19 @@
 # Changelog
 
+### [6.4.4](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.4.3...o-colors-v6.4.4) (2023-01-13)
+
+
+### Bug Fixes
+
+* o-colors, reduce warnings ([6f8686f](https://www.github.com/Financial-Times/origami/commit/6f8686f8a415b868fe5ef702e4f3f5330d803034))
+
+### [6.4.3](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.4.2...o-colors-v6.4.3) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
 ### [6.4.2](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.4.1...o-colors-v6.4.2) (2022-01-13)
 
 

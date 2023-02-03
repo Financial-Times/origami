@@ -1,5 +1,19 @@
 # Changelog
 
+### [4.4.8](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.7...o-banner-v4.4.8) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
+### [4.4.7](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.6...o-banner-v4.4.7) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-banner, update input focus style with a double ring ([e577a23](https://www.github.com/Financial-Times/origami/commit/e577a23523f25ee212aa487c5295eb6c6104a953))
+
 ### [4.4.6](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.5...o-banner-v4.4.6) (2022-10-07)
 
 

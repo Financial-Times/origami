@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-expander",
-  "version": "6.2.4",
+  "version": "6.2.6",
   "description": "Content-aware helper for expanding and collapsing content or lists.",
   "keywords": [
     "accordion",
@@ -23,16 +23,17 @@
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
   "peerDependencies": {
     "@financial-times/o-icons": "^7.0.0",
-    "@financial-times/o-viewport": "^5.0.0",
-    "@financial-times/o-normalise": "^3.2.0"
+    "@financial-times/o-normalise": "^3.3.0",
+    "@financial-times/o-viewport": "^5.0.0"
   },
   "devDependencies": {
-    "@financial-times/o-normalise": "^3.2.0"
+    "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
     "npm": "^7 || ^8"

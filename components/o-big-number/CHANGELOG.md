@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.2.0](https://www.github.com/Financial-Times/origami/compare/o-big-number-v3.1.2...o-big-number-v3.2.0) (2023-01-31)
+
+
+### Features
+
+* allow big-number's tsx to be used ([c80d2ff](https://www.github.com/Financial-Times/origami/commit/c80d2ff7f91fc15ae7df4af3f3d3d979e8f4d148))
+
+### [3.1.2](https://www.github.com/Financial-Times/origami/compare/o-big-number-v3.1.1...o-big-number-v3.1.2) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
 ### [3.1.1](https://www.github.com/Financial-Times/origami/compare/o-big-number-v3.1.0...o-big-number-v3.1.1) (2022-01-13)
 
 

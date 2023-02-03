@@ -65,29 +65,28 @@ const isVisible = function (element) {
 	return Boolean(element.offsetHeight);
 };
 
+const filterFocusableElements = function (element) {
+	const elementVisible = isVisible(element);
+	// Inputs for radio and checkboxes are visually hidden,
+	// so check the label visibility of inputs too when determining
+	// whether to trap focus.
+	const elementLabelVisible =
+		element.labels && [].slice.call(element.labels).some(l => isVisible(l));
+	// When tabbing, the checked radio input of a group is focused, not each radio input.
+	const elementIsUncheckedRadio =
+		element.type === 'radio' && element.checked !== true;
+	return (
+		!element.disabled &&
+		!elementIsUncheckedRadio &&
+		(elementVisible || elementLabelVisible)
+	);
+}
+
 const focusTrap = function (event) {
 	const tabKeyCode = 9;
 	const overlayFocusableElements = [].slice
-		.call(
-			this.wrapper.querySelectorAll(focusable)
-		)
-		.filter(element => {
-			const elementVisible = isVisible(element);
-			// Inputs for radio and checkboxes are visually hidden,
-			// so check the label visibility of inputs too when determining
-			// whether to trap focus.
-			const elementLabelVisible =
-				element.labels && [].slice.call(element.labels).some(l => isVisible(l));
-			// When tabbing, the checked radio input of a group is focused, not each radio input.
-			const elementIsUncheckedRadio =
-				element.type === 'radio' && element.checked !== true;
-			return (
-				!element.disabled &&
-				!elementIsUncheckedRadio &&
-				(elementVisible || elementLabelVisible)
-			);
-		});
-
+	.call(this.wrapper.querySelectorAll(focusable))
+	.filter(element => filterFocusableElements(element));
 	if (overlayFocusableElements.length && event.keyCode === tabKeyCode) {
 		const lastElement =
 			overlayFocusableElements[overlayFocusableElements.length - 1];
@@ -270,6 +269,7 @@ class Overlay {
 		}
 
 		wrapperEl.setAttribute('role', 'dialog');
+		wrapperEl.setAttribute('aria-modal', 'true');
 		if (this.opts.zindex) {
 			wrapperEl.style.zIndex = this.opts.zindex;
 		}
@@ -346,6 +346,11 @@ class Overlay {
 	}
 
 	_trapFocus() {
+		const allFocusableNodes = Array.from(this.wrapper.querySelectorAll(focusable))
+			.filter(element => filterFocusableElements(element))
+			if (allFocusableNodes.length) {
+				allFocusableNodes[0].focus();
+			}
 		// Trap the focus inside the overlay so keyboard navigation doesn't escape the overlay
 		document.addEventListener('keydown', focusTrap.bind(this));
 	}
@@ -356,6 +361,7 @@ class Overlay {
 	 * @fires oOverlay#ready
 	 */
 	show() {
+		this.wrapper.style.display = 'block';
 		if (this.opts.modal) {
 			this.wrapper.classList.add('o-overlay--modal');
 			const shadow = document.createElement('div');
@@ -417,7 +423,7 @@ class Overlay {
 		}
 
 		// Renders content after overlay has been added so css is applied before that
-		// Thay way if an element has autofocus, the window won't scroll to the bottom
+		// This way if an element has autofocus, the window won't scroll to the bottom
 		// in Safari as the overlay is already in position
 		window.requestAnimationFrame(
 			function () {
@@ -455,7 +461,6 @@ class Overlay {
 					action: 'show',
 					overlay_id: this.id,
 				});
-
 				this._trapFocus();
 			}.bind(this)
 		);
@@ -511,6 +516,7 @@ class Overlay {
 		if (this.opts.layer) {
 			this.broadcast('layerClose');
 		}
+		this.wrapper.style.display = 'none';
 
 		return false;
 	}

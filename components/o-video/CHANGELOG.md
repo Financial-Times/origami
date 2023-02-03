@@ -1,5 +1,26 @@
 # Changelog
 
+### [7.2.6](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.5...o-video-v7.2.6) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
+### [7.2.5](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.4...o-video-v7.2.5) (2023-01-16)
+
+
+### Bug Fixes
+
+* o-video track 99% watch progress ([9ebbba2](https://www.github.com/Financial-Times/origami/commit/9ebbba297a6685bdbf345fd5fe8c6c712c7284b3))
+
+### [7.2.4](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.3...o-video-v7.2.4) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
 ### [7.2.3](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.2...o-video-v7.2.3) (2022-04-21)
 
 

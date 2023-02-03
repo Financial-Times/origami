@@ -1,10 +1,20 @@
-<div
-	data-o-component="o-share"
-	class="o-share o-share--small"
-	data-o-share-links="twitter facebook linkedin whatsapp pinterest"
-	data-o-share-url="http://on.ft.com/1mUdgA2"
-	data-o-share-titleExtra="FT.com | Pharmaceuticals"
-	data-o-share-summary="US drugs group vows to maintain big British presence"
-	data-o-share-relatedTwitterAccounts="ftcompanies"
->
+<div data-o-component="o-share" class="o-share o-share--small">
+  <ul>
+    {{#socialNetworks}}
+		<li class="o-share__action">
+			<a
+				class="o-share__icon o-share__icon--{{className}}"
+				href="{{link}}"
+				rel="noopener"
+			>
+				<div class="o-share__icon__image">
+				{{{svg}}}
+				</div>
+				<span class="o-share__text">
+					Share {{title}} on {{name}} (opens a new window)
+				</span>
+			</a>
+    </li>
+		{{/socialNetworks}}
+  </ul>
 </div>

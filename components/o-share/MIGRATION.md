@@ -1,6 +1,70 @@
 # Migration guide
 
-### Migrating from v7 to v8
+## Migrating from v8 to v9
+
+o-share v9 incudes a number of changes to improve accessibility. To migrate follow these steps and see below for more details:
+
+* o-share no longer provides client side JavaScript to generate markup. New markup can be copied from the [Origami registry](https://registry.origami.ft.com/components/o-share) or [StoryBook](https://origami.ft.com/storybook/) via the `HTML` tab.
+
+### Inlined SVG icons
+
+Icons in version 9 use inline SVGs. In order to use them with `o-share`, we recommend using the following structure:
+
+```html
+<li class="o-share__action">
+   <a
+    class="o-share__icon o-share__icon--{{className}}"
+    href="{{link}}"
+    rel="noopener"
+   >
+    <div class="o-share__icon__image">
+    <!-- SVG code -->
+    </div>
+    <span class="o-share__text">
+     Share {{title}} on {{name}} (opens a new window)
+    </span>
+   </a>
+</li>
+```
+
+### Deprecate autogenerate share links
+
+Usage of `o-share` with client side Javascript initialisation is now deprecated. Projects that use this will no longer work:
+
+```html
+<div data-o-component="o-share"
+ class="o-share"
+ data-o-share-links="{{links}}"
+ data-o-share-url="{{url}}"
+ data-o-share-title="{{title}}"
+ data-o-share-titleExtra="{{titleExtra}}"
+ data-o-share-summary="{{summary}}"
+ data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}"
+ data-o-share-location="{{locationOfShareComponent}}">
+</div>
+```
+
+Instead use full markup of the component:
+
+```html
+<!-- see the registry demos for full markup -->
+<div data-o-component="o-share" class="o-share">
+ <ul>
+  <!-- a share to twitter action example -->
+  <!-- href tag is not shown, see the registry demos for full markup  -->
+  <li class="o-share__action">
+   <a class="o-share__icon o-share__icon--twitter"
+    href="#twitter-link-here"
+    rel="noopener">
+    <span class="o-share__text">Twitter</span>
+   </a>
+  </li>
+  <!-- more o-share actions -->
+ </ul>
+</div>
+```
+
+## Migrating from v7 to v8
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
@@ -17,6 +81,7 @@ its dependencies. See [the Bower config for these](./bower.json).
 ### Palette Colours
 
 Social palette colours have been renamed:
+
 - `o-share-color-twitter` is now `o-share/twitter`.
 - `o-share-color-facebook` is now `o-share/facebook`.
 - `o-share-color-linkedin` is now `o-share/linkedin`.
@@ -31,12 +96,14 @@ Social palette colours have been renamed:
 ### Colour Usecases
 
 The `tooltip` colour usecases have been removed. If used replace with `white` for text and `black-80` for backgrounds, e.g:
+
 ```diff
 -$color: oColorsGetColorFor('tooltip', background);
 +$color: oColorsByName('black-80');
 ```
 
 The colour usecases for social icons have been renamed:
+
 - `o-share-twitter-color` is now `o-share/twitter-icon`.
 - `o-share-facebook-color` is now `o-share/facebook-icon`.
 - `o-share-linkedin-color` is now `o-share/linkedin-icon`.
@@ -52,6 +119,7 @@ The colour usecases for social icons have been renamed:
 ```
 
 The following usecases have been removed. Please contact the Origami Team if your project requires these:
+
 - `o-share-button-inverse`
 - `o-share-button-hover`
 
@@ -86,11 +154,11 @@ It may help to look at the [changes made to the demo markup](https://github.com/
 
 ```diff
 <a href="#">
--	<i>
-+	<span class="o-share__text">
-		Share on Twitter
--	</i>
-+	</span>
+- <i>
++ <span class="o-share__text">
+  Share on Twitter
+- </i>
++ </span>
 </a>
 ```
 
@@ -102,9 +170,9 @@ It may help to look at the [changes made to the demo markup](https://github.com/
 -class="o-share__action--icon"
 +class="o-share__icon o-share__icon--twitter"
 href="#">
-	<span class="o-share__text">
-		Share on Twitter
-	</span>
+ <span class="o-share__text">
+  Share on Twitter
+ </span>
 </a>
 ```
 
@@ -113,22 +181,23 @@ href="#">
 -class="o-share__action--icon"
 +class="o-share__icon o-share__icon--mail"
 >
-	<span class="o-share__text">
-		Share via Email
-	</span>
+ <span class="o-share__text">
+  Share via Email
+ </span>
 </button>
 ```
+
 - The BEM modifier used to vary the social platform type has been removed from the element with the `o-share__action` class.
 
 ```diff
 <li class="o-share__action
 -o-share__action--twitter
 ">
-	<a class="o-share__icon o-share__icon--twitter" href="#">
-    	<span class="o-share__text">
-        	Share on Twitter
-    	</span>
-	</a>
+ <a class="o-share__icon o-share__icon--twitter" href="#">
+     <span class="o-share__text">
+         Share on Twitter
+     </span>
+ </a>
 </li>
 ```
 
@@ -137,6 +206,7 @@ href="#">
 o-share v5 introduces a breaking change that you may need to update in your product:
 
 - buttons and anchor elements require an extra class (`o-share__action--icon`) to avoid specificity issues with other components that use `o-icons`
+
 ```diff
 <a
 +class="o-share__action--icon"
@@ -150,14 +220,13 @@ href="#"><i>Icon</i></a>
 
 o-share v4 introduces a few breaking changes that you may need to update in your product:
 
-  - V4 introduces the new major version of `o-colors`. Updating to this new version will mean updating any other components that you have which are using `o-colors`
-  - the link share option has been removed
+- V4 introduces the new major version of `o-colors`. Updating to this new version will mean updating any other components that you have which are using `o-colors`
+- the link share option has been removed
 
 ## Migrating from v2 to v3
 
 o-share v3 introduces a few breaking changes that you may need to update in your product:
 
-
-  - button size has increased from 36px to 40px which might effect the surrounding elements of your design
-  - the Reddit share option has been removed
-  - the URL share option has been renamed from `o-share__action--url` to `o-share__action--link`
+- button size has increased from 36px to 40px which might effect the surrounding elements of your design
+- the Reddit share option has been removed
+- the URL share option has been renamed from `o-share__action--url` to `o-share__action--link`

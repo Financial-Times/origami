@@ -3,6 +3,27 @@
 
 * Add skip link for screen reader users
 
+### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.3.0...o-layout-v5.3.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
+## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.2.5...o-layout-v5.3.0) (2023-01-04)
+
+
+### Features
+
+* add o-layout tsx and storybok demos ([#898](https://www.github.com/Financial-Times/origami/issues/898)) ([862300f](https://www.github.com/Financial-Times/origami/commit/862300fcde17520e63e8d98b4f1510ed4e54da01))
+
+### [5.2.5](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.2.4...o-layout-v5.2.5) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
 ### [5.2.3](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.2.2...o-layout-v5.2.3) (2022-04-21)
 
 

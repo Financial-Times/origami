@@ -1,5 +1,40 @@
 # Changelog
 
+### [9.0.1](https://www.github.com/Financial-Times/origami/compare/o-share-v9.0.0...o-share-v9.0.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
+## [9.0.0](https://www.github.com/Financial-Times/origami/compare/o-share-v8.3.2...o-share-v9.0.0) (2023-01-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove javascript-initialised `o-share` component.
+* replace `o-share` background-image icons with SVGs. We recommend following the [Migration Guide](https://github.com/Financial-Times/origami/blob/main/components/o-share/MIGRATION.md) to upgrade.
+
+
+Version 9 has markup changes and component API got updated as well. New version relies less on javaScript and improves accessibility on high contrast mode. The most important updates are:
+1. The icons are now inlined inside the templates, since this was our only known option to [fix an accessibility issue](https://github.com/Financial-Times/origami/issues/930) on high contrast mode devices.
+2. Share link MUST be written in full markup instead of using js to automatically generate share.
+3. New TSX template requires social icons to be passed as children.
+
+### [8.3.2](https://www.github.com/Financial-Times/origami/compare/o-share-v8.3.1...o-share-v8.3.2) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
+### [8.3.1](https://www.github.com/Financial-Times/origami/compare/o-share-v8.3.0...o-share-v8.3.1) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-share, update input focus style with a double ring ([ae600b6](https://www.github.com/Financial-Times/origami/commit/ae600b6fa3a06d0edc8d3c565e41ef4737c60aa2))
+
 ## [8.3.0](https://www.github.com/Financial-Times/origami/compare/o-share-v8.2.2...o-share-v8.3.0) (2022-06-21)
 
 

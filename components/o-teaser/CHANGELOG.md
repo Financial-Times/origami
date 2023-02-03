@@ -1,5 +1,27 @@
 # Changelog
 
+### [6.2.5](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.4...o-teaser-v6.2.5) (2023-01-20)
+
+
+### Bug Fixes
+
+* ensure components depend on the latest o-normalise version ([e910236](https://www.github.com/Financial-Times/origami/commit/e910236454318ce1bf198a06da7e76c0893c9142))
+
+### [6.2.4](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.3...o-teaser-v6.2.4) (2022-12-21)
+
+
+### Bug Fixes
+
+* o-teaser, image hero meta contrast ([6b39c4e](https://www.github.com/Financial-Times/origami/commit/6b39c4e2ef3e2765510468bd37d6ad6b26a56908))
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
+### [6.2.3](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.2...o-teaser-v6.2.3) (2022-12-15)
+
+
+### Bug Fixes
+
+* o-teaser, update demos to show focus states ([c0b0454](https://www.github.com/Financial-Times/origami/commit/c0b045475dbac8a2b89a4b496d9785b06bc74ebf))
+
 ### [6.2.2](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.1...o-teaser-v6.2.2) (2022-01-13)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-editorial-layout",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "description": "Layout for editorial content. Including margins for editorial typography.",
   "keywords": [],
   "homepage": "https://registry.origami.ft.com/components/o-editorial-layout",
@@ -14,6 +14,7 @@
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
@@ -27,7 +28,7 @@
   "devDependencies": {
     "@financial-times/o-colors": "^6.4.0",
     "@financial-times/o-grid": "^6.1.1",
-    "@financial-times/o-normalise": "^3.2.0"
+    "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
     "npm": "^7 || ^8"

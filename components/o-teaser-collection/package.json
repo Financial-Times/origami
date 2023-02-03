@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-teaser-collection",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "Provides styles to layout out multiple teasers in one section.",
   "keywords": [
     "article",
@@ -21,6 +21,7 @@
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
     "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
@@ -34,7 +35,7 @@
   "devDependencies": {
     "@financial-times/o-fonts": "^5.2.0",
     "@financial-times/o-grid": "^6.1.1",
-    "@financial-times/o-normalise": "^3.2.0"
+    "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
     "npm": "^7 || ^8"

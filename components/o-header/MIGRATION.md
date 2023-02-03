@@ -1,4 +1,71 @@
 # Migration Guide
+
+## Migrating from v10 to v11
+
+o-header v11 includes markup changes in the drawer menu. Update your markup as described below or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx).
+
+In addition the `subbrand` variant has been removed, as it appears to no longer be used. Ensure there is no use of the `subbrand` variant in your project:
+- Check there is no `o-header__subbrand` class reference in your markup.
+- Check that the `subbrand` feature is not specifically included with the `oHeader` Sass mixin.
+Remove the `subbrand` variant from your project if possible, else contact the Origami team if you still need this feature.
+### Markup visual drawer headings
+
+Update your drawer markup to semantically represent visually grouped navigation items. This approach improves the experience for users of assistive technologies.
+
+1. Split the drawer `ul` into multiple lists.
+2. Add a `h2` tag to describe each list.
+3. Associate both elements with the `aria-labelledby` attribute.
+
+Before:
+```html
+<nav>
+	<ul>
+	<!-- more list items without heading -->
+	</ul>
+</nav>
+```
+
+After:
+```html
+<nav>
+	<h2 id="o-header-drawer-top-sections" id='top-sections'>Top sections</h2>
+	<ul aria-labelledby="top-sections">
+	    <!-- list items -->
+	</ul>
+	<h2 id="o-header-drawer-top-sections" id='ft-recommends'>FT recommends</h2>
+	<ul aria-labelledby="ft-recommends">
+	    <!-- list items -->
+	</ul>
+	<!-- more list items without heading -->
+	<ul>
+	<!-- more list items without heading -->
+	</ul>
+</nav>
+```
+
+### Markup drawer divider
+
+Remove the CSS class `o-header__drawer-menu-item--divide` from the last list item of a drawer menu and instead apply `o-header__drawer-menu-list--divide` to the menu list itself.
+
+### Update labels for drawers
+
+For consistency and accessibility ensure the drawer's close button is labelled `Close side navigation menu` and `Open side navigation menu`, respective of whether the drawer is open or closed.
+
+```diff
++<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer" title="Close side navigation menu">
+-<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer" title="Close drawer menu">
++<span class="o-header__visually-hidden">Close side navigation menu</span>
+-<span class="o-header__visually-hidden">Close drawer menu</span>
+</button>
+```
+
+### Update ARIA attributes
+
+Update the `.o-header__drawer` element for improved accessibility:
+
+1. Add the `aria-modal` attribute with a value of "true".
+2. Update the `role` attribute to have a value of "modal" instead of "navigation".
+
 ## Migrating from v9 to v10
 
 o-header v10 includes markup changes. Use demo markup to update your project. Changes to be aware of include:

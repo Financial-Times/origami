@@ -1,3 +1,4 @@
+// sass-lint:disable selector-no-qualifying-type
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @output styles for toggle based on a checkbox input
@@ -60,14 +61,35 @@
 			&:invalid:not(:disabled) + .o-forms-input__label:after { // stylelint-disable-line selector-no-qualifying-type
 				border-color: inherit;
 			}
+
+			// Undo focus styles applied to the checkbox input,
+			// we style the label instead.
+			&:focus,
 			&:focus-visible {
-				outline: none;
-				box-shadow: none;
+				@include oNormaliseFocusUnsetContent();
 			}
 
-			&:focus + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
-				&:before {
-					outline: 4px solid oColorsByUsecase('focus', 'outline', $fallback: null);
+			&:focus {
+				@include oNormaliseFocusUnsetContent();
+				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+					@include oNormaliseFocusContent();
+				}
+			}
+
+			// Unset :focus styles where :focus-visible is supported.
+			// Ideally we would set `:focus-visible` by default and use
+			// `@supports not selector(:focus-visible)` to provide a
+			// `:focus` fallback, however some of our supported browsers
+			// do not understand `@supports: selector()`.
+			@supports selector(:focus-visible) {
+				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+					@include oNormaliseFocusUnsetContent();
+				}
+
+				&:focus-visible {
+					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+						@include oNormaliseFocusContent();
+					}
 				}
 			}
 		}

@@ -1,5 +1,61 @@
 # Changelog
 
+### [5.7.3](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.2...o-topper-v5.7.3) (2023-02-01)
+
+
+### Bug Fixes
+
+* o-topper: remove the headline underline from the deep portrait variant ([#988](https://www.github.com/Financial-Times/origami/issues/988)) ([be44f05](https://www.github.com/Financial-Times/origami/commit/be44f054a60500d1429dddc5cd581f3d48bd6ed0))
+
+### [5.7.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.1...o-topper-v5.7.2) (2023-01-31)
+
+
+### Bug Fixes
+
+* Improve the headline positioning of the deep-portrait variant ([1ab5323](https://www.github.com/Financial-Times/origami/commit/1ab53239653a88bc6898f1af6784b8976d44dd1d))
+
+### [5.7.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.0...o-topper-v5.7.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* Use `rgba` for `rgba` value ([b3562e2](https://www.github.com/Financial-Times/origami/commit/b3562e20582a211704ca67495d89af3bb2576e97))
+
+## [5.7.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.4...o-topper-v5.7.0) (2023-01-04)
+
+
+### Features
+
+* o-topper, add a `deep-landscape` topper ([91cccfe](https://www.github.com/Financial-Times/origami/commit/91cccfe68c9b0fc7c8ba1805c2f904d6680c8bd3))
+
+### [5.6.4](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.3...o-topper-v5.6.4) (2022-12-21)
+
+
+### Bug Fixes
+
+* require 3.3.0 or higher ([fc180c6](https://www.github.com/Financial-Times/origami/commit/fc180c619755daa1b7bfe65509f354cf0de113bf))
+
+### [5.6.3](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.2...o-topper-v5.6.3) (2022-12-20)
+
+
+### Bug Fixes
+
+* update n-map-content-to-topper to 3.2.0 ([a1c6cb3](https://www.github.com/Financial-Times/origami/commit/a1c6cb36a7a6bb5b4a8ba96ab45b68f6f800dd59))
+
+### [5.6.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.1...o-topper-v5.6.2) (2022-12-14)
+
+
+### Bug Fixes
+
+* Rename `o-topper--split-text-portrait-left` to `o-topper--deep-portrait` – this is [technically a breaking change but is being treated as a minor release](https://github.com/Financial-Times/origami/pull/923#pullrequestreview-1217595762) in this case ([78e5da8](https://www.github.com/Financial-Times/origami/commit/78e5da879465029caa11dd2f3d256f7f89b34857))
+
+## [5.6.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.6.0...o-topper-v5.6.1) (2022-12-14)
+
+
+### Features
+
+* Improve the design of the split-text-portrait-left topper (also known as deep portrait). ([https://github.com/Financial-Times/origami/pull/920](https://github.com/Financial-Times/origami/pull/920))
+
 ## [5.6.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.5.1...o-topper-v5.6.0) (2022-12-02)
 
 

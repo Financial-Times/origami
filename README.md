@@ -114,6 +114,8 @@ Follow the [quick start guide](#quick-start) to get started developing component
 
 #### Preview demos
 
+##### Registry
+
 Components that have not yet been migrated to Storybook still have their old demos as shown in the registry.
 You can view these using the build and start commands.
 
@@ -122,9 +124,25 @@ npm run build -w components/o-example
 npm run start -w components/o-example
 ```
 
-##### Watch demos
+This will generate demos for all brands that the component is configured to be a part of.
+
+###### Watch demos
 
 To serve the demos, and have them automatically rebuild when the code changes you can use the `watch` command.
+
+##### Storybook
+
+Storybook can be run locally with the `storybook` command.
+
+```shell
+npm run storybook
+```
+
+To view components in other brands in Storybook, set the `ORIGAMI_STORYBOOK_BRAND` environment variable with the brand.
+
+```shell
+ORIGAMI_STORYBOOK_BRAND=internal npm run storybook
+```
 
 ```shell
 npm run watch -w components/o-example
@@ -133,11 +151,19 @@ npm run watch -w components/o-example
 #### Test
 
 Run tests for a given component with the npm `test` script.
+
 ```shell
 npm run test -w components/o-example
 ```
 
+Run JavaScript tests in a browser using the `debug:js` script.
+
+```shell
+npm run debug:js -w components/o-example
+```
+
 Lint the code of a given component with the npm `lint` script.
+
 ```shell
 npm run lint -w components/o-example
 ```
