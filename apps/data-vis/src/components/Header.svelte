@@ -4,10 +4,6 @@
 	onMount(() => {
 		oHeaderServices.init()
 	})
-	// $: if (headerService) {
-	// 	oHeaderServices.init()
-	// }
-
 	const primaryNav: {label: string; url: string}[] = [
 		{
 			label: "Home",
@@ -73,16 +69,17 @@
 </header>
 
 <style lang="scss">
-	@import "@financial-times/o-header-services/main";
-
-	@include oHeaderServices(
-		$opts: (
-			"types": (
-				"primary-nav",
-				"bleed"
-			),
-			"logo":
-				"https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:origami?source=origami-registry-ui&format=svg&width=55"
-		)
-	);
+	:global {
+		@import "@financial-times/o-header-services/main";
+		@include oHeaderServices(
+			$opts: (
+				"types": (
+					"primary-nav",
+					"bleed"
+				),
+				"logo":
+					"https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:origami?source=origami-registry-ui&format=svg&width=55"
+			)
+		);
+	}
 </style>

@@ -1,5 +1,4 @@
 <script lang="ts">
-
 </script>
 
 <footer class="o-layout__footer">

@@ -1,24 +1,24 @@
 <script>
-	  import { slide } from 'svelte/transition'
+	import {slide} from "svelte/transition"
 
-	export let date;
+	export let date
 	const months = [
-		'Jan',
-		'Feb',
-		'Mar',
-		'Apr',
-		'May',
-		'Jun',
-		'Jul',
-		'Aug',
-		'Sep',
-		'Oct',
-		'Nov',
-		'Dec',
+		"Jan",
+		"Feb",
+		"Mar",
+		"Apr",
+		"May",
+		"Jun",
+		"Jul",
+		"Aug",
+		"Sep",
+		"Oct",
+		"Nov",
+		"Dec",
 	]
 	$: dateContrtuct = new Date(date)
-  $: year = dateContrtuct.getFullYear();
-  $: month = months[dateContrtuct.getMonth()]
+	$: year = dateContrtuct.getFullYear()
+	$: month = months[dateContrtuct.getMonth()]
 </script>
 
 {#if date}
