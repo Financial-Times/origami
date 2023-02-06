@@ -22,14 +22,9 @@ class MultiSelect {
 		this.activeIndex = 0;
 		this.open = false;
 
-		document.addEventListener('click', e => {
-			if (
-				!e.target.classList.contains('o-multi-select-option') &&
-				e.target !== this.inputEl
-			) {
-				this.listboxEl.style.display = 'none';
-				this.open = false;
-			}
+		this.inputEl.parentElement.addEventListener('mouseleave', () => {
+			this.listboxEl.style.display = 'none';
+			this.open = false;
 		});
 		this.inputEl.addEventListener('click', () => {
 			if (!this.open) {
