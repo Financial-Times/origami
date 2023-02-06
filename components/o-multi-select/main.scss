@@ -2,6 +2,7 @@
 @import '@financial-times/o-spacing/main';
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-typography/main';
+@import '@financial-times/o-icons/main';
 
 @import './src/scss/variables';
 @import 'src/scss/brand';
@@ -50,11 +51,18 @@
 					border: none;
 					background-color: oColorsByName('wheat');
 					color: oColorsByName('black-80');
-					font-weight: bold;
 					margin-bottom: 6px;
 					margin-right: 6px;
-					padding: 0.25em 1.75em 0.25em 0.25em;
-					position: relative;
+					font-size: 16px;
+					padding: 3px 6px;
+					span {
+						@include oIconsContent(
+							$icon-name: 'cross',
+							$color: oColorsByName('black-80'),
+							$size: 20
+						);
+						vertical-align: middle; // override default style from oIconsContent mixin
+					}
 				}
 			}
 		}

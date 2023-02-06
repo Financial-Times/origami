@@ -82,8 +82,7 @@ class MultiSelect {
 			optionEl.classList.remove('o-multi-select-option__selected');
 			const button = this.selectedOptions.querySelector(`#${option + index}`);
 			button.parentElement.remove();
-			console.log({sP: this.selectedOptions.children});
-			if (this.selectedOptions.children.length === 0) {
+			if (this.selectedOptions.children.length < 1) {
 				this.selectedOptions.style.display = 'none';
 			}
 			return;
@@ -97,8 +96,18 @@ class MultiSelect {
 		button.className = 'o-multi-select__selected-options-button';
 		button.type = 'button';
 		button.innerText = option;
+		const span = document.createElement('span');
+		span.classList = 'o-icons-icon o-icons-icon--cross';
+		button.appendChild(span);
 		li.appendChild(button);
 		this.selectedOptions.appendChild(li);
+		button.addEventListener('click', () => {
+			li.remove();
+			optionEl.classList.remove('o-multi-select-option__selected');
+			if (this.selectedOptions.children.length < 1) {
+				this.selectedOptions.style.display = 'none';
+			}
+		});
 	}
 
 	/**
