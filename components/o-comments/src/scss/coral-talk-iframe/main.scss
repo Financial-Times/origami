@@ -10,9 +10,9 @@
 * This is not a normal use case of Origami styles.
 */
 
-// stylelint-disable selector-class-pattern, declaration-no-important
+// stylelint-disable selector-class-pattern, declaration-no-important, selector-max-id
 @mixin _oCommentsTalkIframe {
-	.o-comments-coral-talk-container {
+	.o-comments-coral-talk-container, #coral {
 		--font-family-primary: #{inspect(oTypographyGetFontFamily('sans'))};
 		--font-family-secondary: #{inspect(oTypographyGetFontFamily('sans'))};
 		--font-weight-primary-bold: 600;
