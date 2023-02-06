@@ -12,21 +12,12 @@
 		display:inline-block;
 		grid-row: 1;
 		box-sizing: border-box;
-		align-self: center;
+		align-self: end;
 		background: transparent;
-		position: absolute;
-		left: 10px;
-		bottom: 72px;
+	  	margin: 0 0 48px 12px;
 	}
-  	.o-topper__topic {
-	  	color: black !important;
-	}
-  	.n-myft-follow-button {
-		color: black !important;
-		border: 1px solid black !important;
-		&::before {
-		  	background-image:url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?format=svg&source=next-article&tint=%23000000%2C%23FFFFFF)
-		}
+	.o-topper--deep-landscape .o-topper__topic {
+	  color: black;
 	}
 	.o-topper__headline {
 		&::after {
@@ -91,7 +82,6 @@
 
 		.o-topper__content {
 			grid-column: 1 span/2;
-			margin: auto;
 		}
 		.o-topper__image{
 			height:66vw;
