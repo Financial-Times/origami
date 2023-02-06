@@ -28,14 +28,13 @@
 		background-repeat: no-repeat;
 		background-size: 24px 24px;
 		cursor: pointer;
-		background-position: right center;
+		background-position: right 8px center;
 	}
 
 	.o-multi-select-input-wrapper {
 		position: relative;
 		background-color: oColorsByName('white');
 		border: 1px solid oColorsByName('black-70');
-		padding: 0px 14px;
 
 		.o-multi-select__selected-options {
 			display: none;
@@ -43,6 +42,7 @@
 			margin: 0;
 			max-width: 90%;
 			padding: 10px 0px;
+			margin: 0px 14px;
 
 			li {
 				display: inline-block;
@@ -68,7 +68,7 @@
 		}
 		.o-multi-select-input {
 			border: none;
-			padding: 0;
+			padding: 0 14px;
 		}
 		.o-multi-select-dropdown {
 			width: 100%;
