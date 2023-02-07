@@ -3,6 +3,7 @@
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-icons/main';
+@import '@financial-times/o-forms/main';
 
 @import './src/scss/variables';
 @import 'src/scss/brand';
@@ -16,11 +17,22 @@
 ///			// your opts here
 ///		))
 @mixin oMultiSelect($opts: ()) {
-	// @include _oMultiSelectBase();
+	@include oForms(
+		$opts: (
+			'elements': (
+				'text',
+				'select',
+			),
+		)
+	);
+
 	.o-multi-select_enhanced,
 	.o-multi-select-remove,
 	.o-multi-select-dropdown {
 		display: none;
+	}
+	.o-multi-select_enhanced {
+		position: relative;
 	}
 
 	.o-multi-select-input {
@@ -34,10 +46,11 @@
 	.o-multi-select__selected-options {
 		display: none;
 		list-style-type: none;
-		margin: 0;
 		max-width: 90%;
-		padding: 10px 0px;
-		margin: 0px 14px;
+		padding: 0px 14px;
+		margin: 0;
+		position: absolute;
+		z-index: 2;
 
 		li {
 			display: inline-block;
@@ -46,10 +59,11 @@
 				border: none;
 				background-color: oColorsByName('wheat');
 				color: oColorsByName('black-80');
-				margin-bottom: 6px;
-				margin-right: 6px;
+				margin-right: 8px;
 				font-size: 16px;
-				padding: 3px 6px;
+				padding: 4px 8px;
+				height: 22px;
+
 				span {
 					@include oIconsContent(
 						$icon-name: 'cross',
