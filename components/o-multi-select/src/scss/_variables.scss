@@ -1,2 +1,18 @@
-$_o-multi-select-spacing-three: oSpacingByIncrement(3); // 12px
-$_o-multi-select-spacing-six: oSpacingByIncrement(6); // 24px
+$_o-multi-select-border: $_o-forms-border;
+
+// $_o-multi-select-spacing-half: $_o-forms-spacing-half; //2px
+$_o-multi-select-spacing-one: $_o-forms-spacing-one; // 4px
+$_o-multi-select-spacing-two: $_o-forms-spacing-two; // 8px
+// $_o-multi-select-spacing-three: $_o-forms-spacing-three; // 12px
+// $_o-multi-select-spacing-four: $_o-forms-spacing-four; // 16px
+// $_o-multi-select-spacing-five: $_o-forms-spacing-five; // 20px
+// $_o-multi-select-spacing-six: $_o-forms-spacing-six; // 24px
+// $_o-multi-select-spacing-seven: $_o-forms-spacing-seven; // 28px
+// $_o-multi-select-spacing-eight: $_o-forms-spacing-eight; // 32px
+// $_o-multi-select-spacing-nine: $_o-forms-spacing-nine; // 36px
+// $_o-multi-select-spacing-ten: $_o-forms-spacing-ten; // 40px
+
+// $_o-multi-select-checkbox-radio-width: $_o-forms-checkbox-radio-width;
+// $_o-multi-select-spacing-controls: $_o-forms-spacing-controls;
+
+$_o-multi-select-padding: 0px $_o-forms-spacing-four
