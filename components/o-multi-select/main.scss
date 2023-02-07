@@ -43,14 +43,20 @@
 		background-position: right 8px center;
 	}
 
+	.o-multi-select__visually-hidden {
+		@include oNormaliseVisuallyHidden;
+	}
+
 	.o-multi-select__selected-options {
 		display: none;
 		list-style-type: none;
-		max-width: 90%;
+		width: 100%;
 		padding: $_o-multi-select-padding;
 		margin: 0;
 		position: absolute;
-		bottom: calc((40px - $_o-multi-select-button-height) / 2); // 40px is hight of the input element
+		bottom: calc(
+			(40px - $_o-multi-select-button-height) / 2
+		); // 40px is hight of the input element
 		z-index: 1;
 
 		li {
@@ -87,13 +93,11 @@
 			padding: $_o-multi-select-padding;
 		}
 		.o-multi-select-dropdown {
+			@include oNormaliseBoxSizing();
 			width: 100%;
 			background-color: oColorsByName('white');
 			padding: $_o-multi-select-spacing-two;
 			border: $_o-multi-select-border;
-			-moz-box-sizing: border-box;
-			-webkit-box-sizing: border-box;
-			box-sizing: border-box;
 			position: absolute;
 			left: 0;
 

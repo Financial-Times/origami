@@ -19,22 +19,24 @@ class MultiSelect {
 		this.idBase = this.inputEl.id;
 
 		// state
+		this.numberOfSelectedOptions = 0;
 		this.activeIndex = 0;
 		this.open = false;
 
 		this.inputEl.parentElement.addEventListener('mouseleave', () => {
 			this.listboxEl.style.display = 'none';
 			this.open = false;
+			this._updateInputState();
 		});
 		this.inputEl.addEventListener('click', () => {
 			if (!this.open) {
 				this.listboxEl.style.display = 'block';
 				this.open = true;
-				this.inputEl.placeholder = 'Select options below';
-				return;
+			} else {
+				this.listboxEl.style.display = 'none';
+				this.open = false;
 			}
-			this.listboxEl.style.display = 'none';
-			this.open = false;
+			this._updateInputState();
 		});
 
 		this.options = Object.assign(
@@ -55,10 +57,30 @@ class MultiSelect {
 			optionEl.addEventListener('click', () => {
 				this.onOptionClick(optionEl, option, index);
 			});
-			// optionEl.addEventListener('mousedown', this.onOptionMouseDown.bind(this));
-
 			this.listboxEl.appendChild(optionEl);
 		});
+	}
+
+	_updateInputState() {
+		if (this.numberOfSelectedOptions) {
+			this.inputEl.placeholder = '';
+			this.selectedOptions.style.display = 'block';
+			const selectedOptionsWidth = this.selectedOptions.offsetWidth;
+			const inputElWidth = this.inputEl.offsetWidth * 9 / 10; // this needs to change and take clear button into account
+			if (selectedOptionsWidth > inputElWidth) {
+				this.selectedOptions.classList.add('o-multi-select__visually-hidden');
+				this.inputEl.placeholder = this.numberOfSelectedOptions + ' options selected';
+			} else {
+				this.selectedOptions.classList.remove('o-multi-select__visually-hidden');
+			}
+		} else {
+			this.selectedOptions.style.display = 'none';
+			if (this.open) {
+				this.inputEl.placeholder = 'Select options below';
+			} else {
+				this.inputEl.placeholder = 'Click to select options';
+			}
+		}
 	}
 
 	clearCore() {
@@ -75,14 +97,14 @@ class MultiSelect {
 	onOptionClick(optionEl, option, index) {
 		if (optionEl.classList.contains('o-multi-select-option__selected')) {
 			optionEl.classList.remove('o-multi-select-option__selected');
+			this.numberOfSelectedOptions--;
 			const button = this.selectedOptions.querySelector(`#${option + index}`);
 			button.parentElement.remove();
-			if (this.selectedOptions.children.length < 1) {
-				this.selectedOptions.style.display = 'none';
-			}
+			this._updateInputState();
 			return;
 		}
-		this.selectedOptions.style.display = 'block';
+
+		this.numberOfSelectedOptions++;
 		optionEl.classList.add('o-multi-select-option__selected');
 		// create a button with remove icon
 		const li = document.createElement('li');
@@ -96,12 +118,13 @@ class MultiSelect {
 		button.appendChild(span);
 		li.appendChild(button);
 		this.selectedOptions.appendChild(li);
+		this._updateInputState();
+
 		button.addEventListener('click', () => {
 			li.remove();
 			optionEl.classList.remove('o-multi-select-option__selected');
-			if (this.selectedOptions.children.length < 1) {
-				this.selectedOptions.style.display = 'none';
-			}
+			this.numberOfSelectedOptions--;
+			this._updateInputState();
 		});
 	}
 
