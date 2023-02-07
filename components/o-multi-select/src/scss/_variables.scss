@@ -1,6 +1,6 @@
 $_o-multi-select-border: $_o-forms-border;
 
-// $_o-multi-select-spacing-half: $_o-forms-spacing-half; //2px
+$_o-multi-select-spacing-half: $_o-forms-spacing-half; //2px
 $_o-multi-select-spacing-one: $_o-forms-spacing-one; // 4px
 $_o-multi-select-spacing-two: $_o-forms-spacing-two; // 8px
 // $_o-multi-select-spacing-three: $_o-forms-spacing-three; // 12px
@@ -15,4 +15,8 @@ $_o-multi-select-spacing-two: $_o-forms-spacing-two; // 8px
 // $_o-multi-select-checkbox-radio-width: $_o-forms-checkbox-radio-width;
 // $_o-multi-select-spacing-controls: $_o-forms-spacing-controls;
 
-$_o-multi-select-padding: 0px $_o-forms-spacing-four
+$_o-multi-select-padding: 0px $_o-forms-spacing-four;
+$_o-multi-select-icon-size: 20px;
+$_o-multi-select-button-top-padding: $_o-forms-spacing-half;
+$_o-multi-select-button-height: $_o-multi-select-icon-size +
+	($_o-multi-select-button-top-padding * 2);
