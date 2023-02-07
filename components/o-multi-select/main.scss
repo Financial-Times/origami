@@ -31,41 +31,42 @@
 		background-position: right 8px center;
 	}
 
+	.o-multi-select__selected-options {
+		display: none;
+		list-style-type: none;
+		margin: 0;
+		max-width: 90%;
+		padding: 10px 0px;
+		margin: 0px 14px;
+
+		li {
+			display: inline-block;
+			margin-bottom: 0;
+			.o-multi-select__selected-options-button {
+				border: none;
+				background-color: oColorsByName('wheat');
+				color: oColorsByName('black-80');
+				margin-bottom: 6px;
+				margin-right: 6px;
+				font-size: 16px;
+				padding: 3px 6px;
+				span {
+					@include oIconsContent(
+						$icon-name: 'cross',
+						$color: oColorsByName('black-80'),
+						$size: 20
+					);
+					vertical-align: middle; // override default style from oIconsContent mixin
+				}
+			}
+		}
+	}
+
 	.o-multi-select-input-wrapper {
 		position: relative;
 		background-color: oColorsByName('white');
 		border: 1px solid oColorsByName('black-70');
 
-		.o-multi-select__selected-options {
-			display: none;
-			list-style-type: none;
-			margin: 0;
-			max-width: 90%;
-			padding: 10px 0px;
-			margin: 0px 14px;
-
-			li {
-				display: inline-block;
-				margin-bottom: 0;
-				.o-multi-select__selected-options-button {
-					border: none;
-					background-color: oColorsByName('wheat');
-					color: oColorsByName('black-80');
-					margin-bottom: 6px;
-					margin-right: 6px;
-					font-size: 16px;
-					padding: 3px 6px;
-					span {
-						@include oIconsContent(
-							$icon-name: 'cross',
-							$color: oColorsByName('black-80'),
-							$size: 20
-						);
-						vertical-align: middle; // override default style from oIconsContent mixin
-					}
-				}
-			}
-		}
 		.o-multi-select-input {
 			border: none;
 			padding: 0 14px;
