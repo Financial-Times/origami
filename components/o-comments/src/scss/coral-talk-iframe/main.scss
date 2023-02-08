@@ -12,6 +12,13 @@
 
 // stylelint-disable selector-class-pattern, declaration-no-important, selector-max-id
 @mixin _oCommentsTalkIframe {
+	.o-comments-coral-talk-container {
+		--ft-magnify: 1.0666666667;
+	}
+	#coral {
+		--ft-magnify: 1.31282;
+		// --ft-magnify: 1.0666666667;
+	}
 	.o-comments-coral-talk-container, #coral {
 		--font-family-primary: #{inspect(oTypographyGetFontFamily('sans'))};
 		--font-family-secondary: #{inspect(oTypographyGetFontFamily('sans'))};
@@ -35,8 +42,6 @@
 		--palette-primary-500: #{inspect(oColorsByName('teal-50'))};
 		--palette-primary-600: #{inspect(oColorsByName('teal-50'))};
 		--palette-primary-700: #{inspect(oColorsByName('teal-50'))};
-
-		--ft-magnify: 1.0666666667;
 
 		--font-size-1: calc(0.75rem * var(--ft-magnify));
 		--font-size-2: calc(0.875rem * var(--ft-magnify));
