@@ -15,7 +15,7 @@
 		box-sizing: border-box;
 		align-self: end;
 		background: transparent;
-	  	margin: 0 0 48px 12px;
+	  	margin: 0 0 72px 10%;
 	}
 	.o-topper__headline {
 		&::after {
@@ -54,7 +54,8 @@
 	@include oGridRespondTo( $until:S) {
 		.o-topper__content {
 			width:100%;
-		  	margin: 0 0 36px 12px
+		  	margin: 0;
+		  	padding: 20px;
 		}
 	}
 
@@ -73,7 +74,8 @@
 		grid-template-rows: 66vw 1fr;
 
 		.o-topper__content {
-		  grid-column: 1;
+		  	grid-column: 1;
+		  	margin: 0 0 72px 0;
 		}
 		.o-topper__image{
 			height:66vw;
