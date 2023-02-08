@@ -65,13 +65,25 @@ class MultiSelect {
 		if (this.numberOfSelectedOptions) {
 			this.inputEl.placeholder = '';
 			this.selectedOptions.style.display = 'block';
-			const selectedOptionsWidth = this.selectedOptions.offsetWidth;
-			const inputElWidth = this.inputEl.offsetWidth * 9 / 10; // this needs to change and take clear button into account
-			if (selectedOptionsWidth > inputElWidth) {
+			const inputElWidth = this.inputEl.offsetWidth; // this needs to change and take clear button into account
+			const selectedOptionsComputedStyles = getComputedStyle(
+				this.selectedOptions
+			);
+			const {paddingLeft, paddingRight} = selectedOptionsComputedStyles;
+			const sumOfChildrenWidthInitialValue =
+				parseInt(paddingLeft, 10) + parseInt(paddingRight, 10);
+			const sumOfChildrenWidth = [...this.selectedOptions.children]
+				.map(el => el.offsetWidth)
+				.reduce((prev, curr) => prev + curr, sumOfChildrenWidthInitialValue);
+
+			if (sumOfChildrenWidth > inputElWidth * 0.9) {
 				this.selectedOptions.classList.add('o-multi-select__visually-hidden');
-				this.inputEl.placeholder = this.numberOfSelectedOptions + ' options selected';
+				this.inputEl.placeholder =
+					this.numberOfSelectedOptions + ' options selected';
 			} else {
-				this.selectedOptions.classList.remove('o-multi-select__visually-hidden');
+				this.selectedOptions.classList.remove(
+					'o-multi-select__visually-hidden'
+				);
 			}
 		} else {
 			this.selectedOptions.style.display = 'none';
