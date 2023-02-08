@@ -14,6 +14,15 @@ class MultiSelect {
 		this.selectedOptions = multiSelectEl.querySelector(
 			'.o-multi-select__selected-options'
 		);
+		this.clearButton = multiSelectEl.querySelector('.o-multi-select__clear');
+		this.clearButton.addEventListener('click', () => {
+			this.numberOfSelectedOptions = 0;
+			[...this.selectedOptions.children].forEach(el => el.remove());
+			[
+				...document.querySelectorAll('.o-multi-select-option__selected'),
+			].forEach(el => el.classList.remove('o-multi-select-option__selected'));
+			this._updateInputState();
+		});
 
 		// data
 		this.idBase = this.inputEl.id;
@@ -25,6 +34,7 @@ class MultiSelect {
 
 		this.inputEl.parentElement.addEventListener('mouseleave', () => {
 			this.listboxEl.style.display = 'none';
+			this.clearButton.style.display = 'none';
 			this.open = false;
 			this._updateInputState();
 		});
@@ -63,6 +73,9 @@ class MultiSelect {
 
 	_updateInputState() {
 		if (this.numberOfSelectedOptions) {
+			if (this.open) {
+				this.clearButton.style.display = 'block';
+			}
 			this.inputEl.placeholder = '';
 			this.selectedOptions.style.display = 'block';
 			const inputElWidth = this.inputEl.offsetWidth; // this needs to change and take clear button into account
@@ -87,6 +100,7 @@ class MultiSelect {
 			}
 		} else {
 			this.selectedOptions.style.display = 'none';
+			this.clearButton.style.display = 'none';
 			if (this.open) {
 				this.inputEl.placeholder = 'Select options below';
 			} else {
