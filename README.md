@@ -154,11 +154,11 @@ Some components you create may only be part of one brand. We recommend you follo
 
 ##### Registry
 
-Origami Registry components are branded through the `origami.json` in the component's root directory. You can find how to use this file in the [Origami documentation](https://origami.ft.com/documentation/manifests/origami-json/#brands).
+Origami Registry component demos are branded through the `origami.json` manifest in the component's root directory. You can find how to use this file in the [Origami documentation](https://origami.ft.com/documentation/manifests/origami-json/#brands).
 
 ##### Storybook
 
-Storybook components can be branded by introducing a brand sub-directory within the `stories` folder, and placing brand-specific stories within it. e.g:
+Storybook component demos can be branded by introducing a brand sub-directory within the `stories` folder, and placing brand-specific stories within it. e.g:
 
 ```
 o-labels/
