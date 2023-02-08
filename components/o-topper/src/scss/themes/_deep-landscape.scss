@@ -54,7 +54,7 @@
 	@include oGridRespondTo( $until:S) {
 		.o-topper__content {
 			width:100%;
-			padding:20px 20px 0 20px;
+		  	margin: 0 0 36px 12px
 		}
 	}
 
@@ -72,6 +72,9 @@
 	@include oGridRespondTo(L) {
 		grid-template-rows: 66vw 1fr;
 
+		.o-topper__content {
+		  grid-column: 1;
+		}
 		.o-topper__image{
 			height:66vw;
 		}
