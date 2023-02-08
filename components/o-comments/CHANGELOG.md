@@ -1,5 +1,12 @@
 # Changelog
 
+### [10.0.1](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.0.0...o-comments-v10.0.1) (2023-02-08)
+
+
+### Bug Fixes
+
+* o-comments, handle font size difference between Coral 6 & 7 ([#995](https://www.github.com/Financial-Times/origami/issues/995)) ([2c4e306](https://www.github.com/Financial-Times/origami/commit/2c4e306750864a8b5ad3b19592f38da3526b5dc3))
+
 ## [10.0.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v9.0.2...o-comments-v10.0.0) (2023-02-02)
 
 
