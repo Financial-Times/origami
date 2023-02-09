@@ -14,9 +14,17 @@
 @mixin _oCommentsTalkIframe {
 	.o-comments-coral-talk-container {
 		--ft-magnify: 1.0666666667;
+		.coral-comment-content {
+            		font-size: 1rem;
+            		line-height: 1.45rem;
+        	}
 	}
 	#coral {
 		--ft-magnify: 1.31282;
+		.coral-comment-content {
+            		font-size: 1.23077rem;
+			line-height: 1.784rem;
+        	}
 	}
 	.o-comments-coral-talk-container, #coral {
 		--font-family-primary: #{inspect(oTypographyGetFontFamily('sans'))};
@@ -56,8 +64,6 @@
 			font-family: var(--font-family-primary);
 			font-style: normal;
 			font-weight: var(--font-weight-primary-regular);
-			font-size: 1rem;
-			line-height: 1.45rem;
 			color: var(--palette-text-900);
 			word-wrap: break-word;
 		}
