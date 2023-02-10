@@ -22,6 +22,12 @@
 		  	content: none;
 		}
 	}
+	.o-topper__topic {
+		color: black;
+		&:hover {
+		  	color: #413c38;
+		}
+	}
 
 	@each $color-name in $colors {
 		&.o-topper--color-#{$color-name} {
