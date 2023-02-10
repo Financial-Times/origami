@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.7.4](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.3...o-topper-v5.7.4) (2023-02-08)
+
+
+### Bug Fixes
+
+* o-topper, reposition deep landscape copy  ([#992](https://www.github.com/Financial-Times/origami/issues/992)) ([4f9db10](https://www.github.com/Financial-Times/origami/commit/4f9db1079da6cba254975eacb14e231815f32e30))
+
 ### [5.7.3](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.2...o-topper-v5.7.3) (2023-02-01)
 
 
