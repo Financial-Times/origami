@@ -145,6 +145,26 @@ function visibilityListener(ev) {
 	}
 }
 
+function observe (viewport, target) {
+	let options = {
+		root: viewport || document.querySelector('.n-layout'),
+		rootMargin: '0px',
+		threshold: 1.0
+	  }
+	  
+	let observer = new IntersectionObserver(withinViewportCallback, options);
+
+	observer.observe(target);
+}
+
+const withinViewportCallback = (entries, observer) => {
+	entries.forEach((entry) => {
+		if(entry.isIntersecting){
+			this.play();
+		}
+	});
+};
+
 const unloadEventName = 'onbeforeunload' in window ? 'beforeunload' : 'unload';
 
 const defaultOpts = {
@@ -157,12 +177,13 @@ const defaultOpts = {
 	placeholderInfo: ['title'],
 	placeholderHint: '',
 	playsinline: false,
-	autoplayWhenInViewport: false,
 	loop: null,
 	showControls: true,
 	showCaptions: true,
 	showGuidance: true,
-	data: null
+	data: null,
+	autoplayWhenInViewport: false,
+	viewPort: null
 };
 
 class Video {
@@ -276,6 +297,10 @@ class Video {
 
 		if (this.placeholderEl && !this.opts.advertising) {
 			this.videoEl.autoplay = this.videoEl.autostart = true;
+		}
+
+		if (this.opts.autoplayWhenInViewport && viewPort) {
+			this.observe(viewPort, this.videoEl);
 		}
 
 		this.containerEl.appendChild(this.liveRegionEl);
