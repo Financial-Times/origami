@@ -157,6 +157,9 @@ const defaultOpts = {
 	placeholderInfo: ['title'],
 	placeholderHint: '',
 	playsinline: false,
+	autoplayWhenInViewport: false,
+	loop: null,
+	showControls: true,
 	showCaptions: true,
 	showGuidance: true,
 	data: null
@@ -251,7 +254,7 @@ class Video {
 		this.liveRegionEl.setAttribute('aria-live','assertive');
 		this.liveRegionEl.classList.add('o-video__live-region');
 		this.videoEl = document.createElement('video');
-		this.videoEl.controls = true;
+		this.videoEl.controls = this.opts.showControls;
 		this.videoEl.className = Array.isArray(this.opts.classes) ? this.opts.classes.join(' ') : this.opts.classes;
 		this.containerEl.classList.add('o-video--player');
 
@@ -263,6 +266,10 @@ class Video {
 		// disable download button in Chrome 58+
 		if (this.videoEl.controlsList) {
 			this.videoEl.controlsList.add('nodownload');
+		}
+
+		if (typeof this.opts.loop !== null) {
+			this.videoEl.loop = this.opts.loop;
 		}
 
 		this.updateVideo();
