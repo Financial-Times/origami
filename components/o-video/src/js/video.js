@@ -289,7 +289,7 @@ class Video {
 			this.videoEl.controlsList.add('nodownload');
 		}
 
-		if (typeof this.opts.loop !== null) {
+		if (typeof this.opts.loop !== "null") {
 			this.videoEl.loop = this.opts.loop;
 		}
 
@@ -299,8 +299,8 @@ class Video {
 			this.videoEl.autoplay = this.videoEl.autostart = true;
 		}
 
-		if (this.opts.autoplayWhenInViewport && viewPort) {
-			this.observe(viewPort, this.videoEl);
+		if (this.opts.autoplayWhenInViewport && this.opts.viewPort) {
+			observe(this.opts.viewPort, this.videoEl);
 		}
 
 		this.containerEl.appendChild(this.liveRegionEl);
