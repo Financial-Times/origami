@@ -66,4 +66,4 @@ A digest list of some other things that have happened in January:
 
 - [o-topper](https://registry.origami.ft.com/components/o-topper): We supported the dynamic storytelling team to release two new toppers for articles: Deep Landscape and Deep Portrait, as featured in the recent product release announcement. Shout out to Alberto Cubero, Juan Sanchez, and Phil Hunt for their work on the o-topper Origami component!
 
-- [o-video](https://registry.origami.ft.com/components/o-video): Thanks to Juan Sanchez for contributing to o-topper component that now track progress of video on 99% since 100% is not sent on chrome.
+- [o-video](https://registry.origami.ft.com/components/o-video): Thanks to Juan Sanchez for contributing to o-video component that now tracks that progress of video playback at 99%, since 100% is not sent by Chrome.
