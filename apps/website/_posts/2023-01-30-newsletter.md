@@ -54,7 +54,7 @@ A digest list of some other things that have happened in January:
 
 - [o-ft-affiliate-ribbon](https://registry.origami.ft.com/components/o-ft-affiliate-ribbon): now has [storybook demo](https://origami.ft.com/storybook/brands/core/?path=/story/components-o-ft-affiliate-ribbon--ft-affiliate-ribbon-story) and TSX templates are also published to NPM.
 
-- [o-colors](https://registry.origami.ft.com/components/o-colors): only warns users of colour deprecations via Sass when they explicitly request a colour or colour use-case.
+- [o-colors](https://registry.origami.ft.com/components/o-colors): only warns users of colour deprecations via Sass when they explicitly request a colour or colour use-case, reducing noise so engineers can focus on true issues.
 
 - [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout): has TSX templates and a [storybook demo](https://origami.ft.com/storybook/brands/core/?path=/story/components-o-editorial-layout--body).
 
