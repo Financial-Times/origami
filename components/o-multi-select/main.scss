@@ -28,8 +28,7 @@
 
 	.o-multi-select_enhanced,
 	.o-multi-select-remove,
-	.o-multi-select-dropdown,
-	.o-multi-select__clear {
+	.o-multi-select-dropdown {
 		display: none;
 	}
 	.o-multi-select_enhanced {
@@ -78,14 +77,7 @@
 			border: none;
 			padding: $_o-multi-select-padding;
 		}
-		.o-multi-select__clear {
-			@include _oMultiSelectButton;
-			background-color: $_gray-background-color;
-			position: absolute;
-			right: 0;
-			top: 50%;
-			transform: translateY(-50%);
-		}
+
 		.o-multi-select-dropdown {
 			@include oNormaliseBoxSizing();
 			width: 100%;
