@@ -64,6 +64,6 @@ A digest list of some other things that have happened in January:
 
 - [o-comments](https://registry.origami.ft.com/components/o-comments): got migrated to Coral V7.
 
-- [o-topper](https://registry.origami.ft.com/components/o-topper): Thanks to Phil Hunt for updating o-topper element. Now o-topper element has reduced the headline box size and removes a line from the deep portrait.
+- [o-topper](https://registry.origami.ft.com/components/o-topper): We supported the dynamic storytelling team to release two new toppers for articles: Deep Landscape and Deep Portrait, as featured in the recent product release announcement. Shout out to Alberto Cubero, Juan Sanchez, and Phil Hunt for their work on the o-topper Origami component!
 
 - [o-video](https://registry.origami.ft.com/components/o-video): Thanks to Juan Sanchez for contributing to o-topper component that now track progress of video on 99% since 100% is not sent on chrome.
