@@ -26,16 +26,16 @@
 		)
 	);
 
-	.o-multi-select_enhanced,
+	.o-multi-select--enhanced,
 	.o-multi-select-remove,
-	.o-multi-select-dropdown {
+	.o-multi-select__dropdown {
 		display: none;
 	}
 	.o-multi-select_enhanced {
 		position: relative;
 	}
 
-	.o-multi-select-input {
+	.o-multi-select__input {
 		background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-service&format=svg);
 		background-repeat: no-repeat;
 		background-size: $_o-multi-select-icon-size $_o-multi-select-icon-size;
@@ -68,17 +68,17 @@
 		}
 	}
 
-	.o-multi-select-input-wrapper {
+	.o-multi-select__input-wrapper {
 		position: relative;
 		background-color: oColorsByName('white');
 		border: $_o-multi-select-border;
 
-		.o-multi-select-input {
+		.o-multi-select__input {
 			border: none;
 			padding: $_o-multi-select-padding;
 		}
 
-		.o-multi-select-dropdown {
+		.o-multi-select__dropdown {
 			@include oNormaliseBoxSizing();
 			width: 100%;
 			background-color: oColorsByName('white');

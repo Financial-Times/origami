@@ -96,11 +96,11 @@ class MultiSelect {
 
 	clearCore() {
 		const coreWrapper = this.multiSelectEl.querySelector(
-			'.o-multi-select_core'
+			'.o-multi-select--core'
 		);
 		coreWrapper.style.display = 'none';
 		const enhancedWrapper = this.multiSelectEl.querySelector(
-			'.o-multi-select_enhanced'
+			'.o-multi-select--enhanced'
 		);
 		enhancedWrapper.style.display = 'block';
 	}
