@@ -32,6 +32,11 @@
 					text-shadow: 2px 3px 4px rgba(18,18,18,0.4);
 				}
 			}
+			&.o-topper__content--box-shadow{
+					padding:20px;
+					text-shadow: none;
+					background-color: if($foreground == white, rgb(18,18,18,0.4), rgb(255,255,255,0.4));
+			}
 		}
 	}
 
