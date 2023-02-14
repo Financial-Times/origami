@@ -1,13 +1,14 @@
 @mixin _oMultiSelectButton() {
 	border: none;
-	color: oColorsByName('black-80');
+	color: _oMultiSelectGet('button-text-color');
+	background-color: _oMultiSelectGet('button-bg-color');
 	margin-right: $_o-multi-select-spacing-two;
 	font-size: inherit;
 	padding: $_o-multi-select-button-top-padding $_o-multi-select-spacing-two;
 	span {
 		@include oIconsContent(
 			$icon-name: 'cross',
-			$color: oColorsByName('black-80'),
+			$color: _oMultiSelectGet('button-text-color'),
 			$size: $_o-multi-select-icon-size
 		);
 		vertical-align: middle; // override default style from oIconsContent mixin

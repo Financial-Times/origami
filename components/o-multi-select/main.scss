@@ -27,11 +27,10 @@
 	);
 
 	.o-multi-select--enhanced,
-	.o-multi-select-remove,
 	.o-multi-select__dropdown {
 		display: none;
 	}
-	.o-multi-select_enhanced {
+	.o-multi-select--enhanced {
 		position: relative;
 	}
 
@@ -63,7 +62,6 @@
 			margin-bottom: 0;
 			.o-multi-select__selected-options-button {
 				@include _oMultiSelectButton;
-				background-color: oColorsByName('wheat');
 			}
 		}
 	}
