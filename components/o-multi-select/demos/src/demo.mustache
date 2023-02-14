@@ -34,16 +34,15 @@
 		></ul>
 		<div
 			class="o-forms-input o-forms-input--text o-forms-input--select o-multi-select__input-wrapper"
+			role="combobox"
+			aria-haspopup="listbox"
+			aria-expanded="false"
+			aria-owns="o-multi-select-listbox"
 		>
 			<input
 				aria-activedescendant=""
 				aria-autocomplete="none"
-				aria-controls="o-multi-select-listbox"
-				aria-expanded="false"
-				aria-haspopup="listbox"
 				aria-labelledby="o-multi-select-label o-multi-select-selected"
-				id="o-multi-select-listbox"
-				role="combobox"
 				type="text"
 				name="multiple-enhanced"
 				class="o-multi-select__input"
@@ -54,6 +53,7 @@
 				role="listbox"
 				id="o-multi-select-listbox"
 				aria-label="multi select options"
+				aria-multiselectable="true"
 			></div>
 		</div>
 	</div>

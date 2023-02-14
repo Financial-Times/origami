@@ -1,3 +1,5 @@
+import {onInputKeyDown} from './utils';
+
 class MultiSelect {
 	/**
 	 * Class constructor.
@@ -9,7 +11,10 @@ class MultiSelect {
 		this.multiSelectEl = multiSelectEl;
 		this.clearCore();
 
-		this.inputEl = multiSelectEl.querySelector('input');
+		this.comboEl = multiSelectEl.querySelector('[role=combobox]');
+		this.inputEl = multiSelectEl.querySelector('.o-multi-select__input');
+		this.inputEl.addEventListener('keydown', onInputKeyDown.bind(this));
+
 		this.listboxEl = multiSelectEl.querySelector('[role=listbox]');
 		this.selectedOptions = multiSelectEl.querySelector(
 			'.o-multi-select__selected-options'
@@ -22,11 +27,11 @@ class MultiSelect {
 		this.activeIndex = 0;
 		this.open = false;
 
-		this.inputEl.parentElement.addEventListener('mouseleave', () => {
-			this.listboxEl.style.display = 'none';
-			this.open = false;
-			this._updateInputState();
-		});
+		// this.inputEl.parentElement.addEventListener('mouseleave', () => {
+		// 	this.listboxEl.style.display = 'none';
+		// 	this.open = false;
+		// 	this._updateInputState();
+		// });
 		this.inputEl.addEventListener('click', () => {
 			if (!this.open) {
 				this.listboxEl.style.display = 'block';
@@ -35,6 +40,7 @@ class MultiSelect {
 				this.listboxEl.style.display = 'none';
 				this.open = false;
 			}
+			this.comboEl.setAttribute('aria-expanded', `${this.open}`);
 			this._updateInputState();
 		});
 
