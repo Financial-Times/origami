@@ -143,24 +143,34 @@ function visibilityListener(ev) {
 	} else if (!this.videoEl.paused) {
 		this.markPlayStart();
 	}
+
+	if(this.opts.autoplayWhenInViewport){
+		this.videoEl.muted="muted"
+		this.play();
+	}
 }
 
-function observe (viewport, target) {
-	let options = {
-		root: viewport || document.querySelector('.n-layout'),
+function observe (viewport, target, threshold = 0.5) {
+	const options = {
+		root: viewport,
 		rootMargin: '0px',
-		threshold: 1.0
-	  }
+		threshold
+	}
+
 	  
-	let observer = new IntersectionObserver(withinViewportCallback, options);
+	const observer = new IntersectionObserver(withinViewportCallback, options);
 
 	observer.observe(target);
 }
 
-const withinViewportCallback = (entries, observer) => {
+function withinViewportCallback (entries, observer) {
 	entries.forEach((entry) => {
 		if(entry.isIntersecting){
-			this.play();
+			entry.target.muted="muted"
+			entry.target.play();
+			console.log("Now playing")
+		} else {
+			entry.target.pause();
 		}
 	});
 };
@@ -194,6 +204,7 @@ class Video {
 		this.fireWatchedEvent = unloadListener.bind(this);
 		this.visibilityListener = visibilityListener.bind(this);
 		this.didUserPressPlay = false;
+		this.viewportObserver = observe.bind(this);
 
 		this.opts = Object.assign({}, defaultOpts, opts, getOptionsFromDataAttributes(this.containerEl.attributes));
 
@@ -258,6 +269,12 @@ class Video {
 				this.addVideo();
 			}
 		}
+
+		if (this.opts.autoplayWhenInViewport) {
+			console.log("Should start autoplaying when in viewport")
+			// this.play();
+			this.viewportObserver.observe(this.opts.viewPort, this.videoEl);
+		}
 	}
 
 	init() {
@@ -297,10 +314,6 @@ class Video {
 
 		if (this.placeholderEl && !this.opts.advertising) {
 			this.videoEl.autoplay = this.videoEl.autostart = true;
-		}
-
-		if (this.opts.autoplayWhenInViewport && this.opts.viewPort) {
-			observe(this.opts.viewPort, this.videoEl);
 		}
 
 		this.containerEl.appendChild(this.liveRegionEl);
