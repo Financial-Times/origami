@@ -2,35 +2,35 @@
  * Helper constants and functions
  */
 
-const Keys = {
-	Backspace: 'Backspace',
-	Clear: 'Clear',
-	Down: 'ArrowDown',
-	End: 'End',
-	Enter: 'Enter',
-	Escape: 'Escape',
-	Home: 'Home',
-	Left: 'ArrowLeft',
-	PageDown: 'PageDown',
-	PageUp: 'PageUp',
-	Right: 'ArrowRight',
-	Space: ' ',
-	Tab: 'Tab',
-	Up: 'ArrowUp',
-};
+// const Keys = {
+// 	Backspace: 'Backspace',
+// 	Clear: 'Clear',
+// 	Down: 'ArrowDown',
+// 	End: 'End',
+// 	Enter: 'Enter',
+// 	Escape: 'Escape',
+// 	Home: 'Home',
+// 	Left: 'ArrowLeft',
+// 	PageDown: 'PageDown',
+// 	PageUp: 'PageUp',
+// 	Right: 'ArrowRight',
+// 	Space: ' ',
+// 	Tab: 'Tab',
+// 	Up: 'ArrowUp',
+// };
 
-const MenuActions = {
-	Close: 0,
-	CloseSelect: 1,
-	First: 2,
-	Last: 3,
-	Next: 4,
-	Open: 5,
-	Previous: 6,
-	Select: 7,
-	Space: 8,
-	Type: 9,
-};
+// const MenuActions = {
+// 	Close: 0,
+// 	CloseSelect: 1,
+// 	First: 2,
+// 	Last: 3,
+// 	Next: 4,
+// 	Open: 5,
+// 	Previous: 6,
+// 	Select: 7,
+// 	Space: 8,
+// 	Type: 9,
+// };
 
 // filter an array of options against an input string
 // returns an array of options that begin with the filter string, case-independent
@@ -55,37 +55,46 @@ const MenuActions = {
 // }
 
 // return combobox action from key press
-function getActionFromKey(key, menuOpen) {
-	// handle opening when closed
-	if (!menuOpen && key === Keys.Down) {
-		return MenuActions.Open;
-	}
+// function getActionFromKey(key, menuOpen) {
+// 	// handle opening when closed
+// 	if (!menuOpen) {
+// 		if (
+// 			key === Keys.Down ||
+// 			key === Keys.Up ||
+// 			key === Keys.Enter ||
+// 			key === Keys.Space
+// 		) {
+// 			console.log('open');
+// 			return MenuActions.Open;
+// 		}
+// 		return;
+// 	}
 
-	// handle keys when open
-	if (key === Keys.Down) {
-		return MenuActions.Next;
-	} else if (key === Keys.Up) {
-		return MenuActions.Previous;
-	} else if (key === Keys.Home) {
-		return MenuActions.First;
-	} else if (key === Keys.End) {
-		return MenuActions.Last;
-	} else if (key === Keys.Escape) {
-		return MenuActions.Close;
-	} else if (key === Keys.Enter) {
-		return MenuActions.CloseSelect;
-	} else if (key === Keys.Backspace || key === Keys.Clear || key.length === 1) {
-		return MenuActions.Type;
-	}
-}
+// 	// handle keys when open
+// 	if (key === Keys.Down) {
+// 		return MenuActions.Next;
+// 	} else if (key === Keys.Up) {
+// 		return MenuActions.Previous;
+// 	} else if (key === Keys.Home) {
+// 		return MenuActions.First;
+// 	} else if (key === Keys.End) {
+// 		return MenuActions.Last;
+// 	} else if (key === Keys.Escape) {
+// 		return MenuActions.Close;
+// 	} else if (key === Keys.Enter) {
+// 		return MenuActions.CloseSelect;
+// 	} else if (key === Keys.Backspace || key === Keys.Clear || key.length === 1) {
+// 		return MenuActions.Type;
+// 	}
+// }
 
-// get index of option that matches a string
+// // get index of option that matches a string
 // function getIndexByLetter(options, filter) {
 // 	const firstMatch = filterOptions(options, filter)[0];
 // 	return firstMatch ? options.indexOf(firstMatch) : -1;
 // }
 
-// get updated option index
+// // get updated option index
 // function getUpdatedIndex(current, max, action) {
 // 	switch (action) {
 // 		case MenuActions.First:
@@ -198,37 +207,72 @@ function getActionFromKey(key, menuOpen) {
 // 	}
 // };
 
+export function handleDropdownMenuOpen() {
+	if (!this.open) {
+		this.listboxEl.style.display = 'block';
+		this.open = true;
+	} else {
+		this.listboxEl.style.display = 'none';
+		this.open = false;
+	}
+	this.comboEl.setAttribute('aria-expanded', `${this.open}`);
+	this._updateState();
+}
+
 export function onInputKeyDown(event) {
 	const {key} = event;
+	const numberOfOptions = this.totalNumberOfOptions;
 
-	const max = this.selectedOptions.length - 1;
-	const current = this.activeIndex;
+	// handle opening when closed
+	if (!this.open) {
+		if (
+			key === 'ArrowDown' ||
+			key === 'ArrowUp' ||
+			key === 'Enter' ||
+			key === 'Space'
+		) {
+			return this.handleListBoxOpen();
+		}
+	}
 
-	const action = getActionFromKey(key, this.open);
-
-	switch (action) {
-		case MenuActions.First:
-			event.preventDefault();
-			return 0;
-		case MenuActions.Last:
-			event.preventDefault();
-			return max;
-		case MenuActions.Previous:
-			event.preventDefault();
-			return Math.max(0, current - 1);
-		case MenuActions.Next:
-			event.preventDefault();
-			return Math.min(max, current + 1);
-		case MenuActions.CloseSelect:
-			event.preventDefault();
-			return this.updateOption(this.activeIndex);
-		case MenuActions.Close:
-			event.preventDefault();
-			return this._updateInputState();
-		case MenuActions.Open:
-			return this._updateInputState();
-		default:
-			return current;
+	if (event.altKey && key === 'ArrowUp' && this.open) {
+		return this.handleListBoxOpen();
+	} else if (key === 'ArrowUp') {
+		if (this.activeIndex !== 0) {
+			this.activeIndex--;
+		}
+	} else if (key === 'ArrowDown') {
+		if (this.activeIndex !== numberOfOptions - 1) {
+			this.activeIndex++;
+		}
+	} else if (key === 'PageDown') {
+		if (this.activeIndex + 10 > numberOfOptions) {
+			this.activeIndex = numberOfOptions - 1;
+			return;
+		}
+		this.activeIndex += 10;
+	} else if (key === 'PageUp') {
+		if (this.activeIndex - 10 < 0) {
+			this.activeIndex = 0;
+			return;
+		}
+		this.activeIndex -= 10;
+	} else if (key === 'Home') {
+		this.activeIndex = 0;
+	} else if (key === 'End') {
+		this.activeIndex = numberOfOptions - 1;
+	} else if (key === 'Escape' && this.open) {
+		return this.handleListBoxOpen();
+	} else if (key === 'Tab' && this.open) {
+		return this.handleListBoxOpen();
+	} else if (key === 'Enter' || key === 'Space') {
+		event.preventDefault();
+		// add current index element in selected items
+		const optionEl = this.multiSelectEl.querySelector(
+			`#${this.idBase}-${this.activeIndex}`
+		);
+		const option = this.options.multiSelectOptions[this.activeIndex];
+		this.handleOptionSelect(optionEl, option, this.activeIndex);
 	}
 }
 

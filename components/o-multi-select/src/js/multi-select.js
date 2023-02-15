@@ -1,4 +1,6 @@
-import {onInputKeyDown} from './utils';
+import {onInputKeyDown, handleDropdownMenuOpen} from './utils.js';
+import {updateState} from './state.js';
+import {handleOptionSelect, createOption} from './multi-select-options.js';
 
 class MultiSelect {
 	/**
@@ -9,40 +11,7 @@ class MultiSelect {
 	 */
 	constructor(multiSelectEl, options) {
 		this.multiSelectEl = multiSelectEl;
-		this.clearCore();
-
-		this.comboEl = multiSelectEl.querySelector('[role=combobox]');
-		this.inputEl = multiSelectEl.querySelector('.o-multi-select__input');
-		this.inputEl.addEventListener('keydown', onInputKeyDown.bind(this));
-
-		this.listboxEl = multiSelectEl.querySelector('[role=listbox]');
-		this.selectedOptions = multiSelectEl.querySelector(
-			'.o-multi-select__selected-options'
-		);
-		// data
-		this.idBase = this.inputEl.id;
-
-		// state
-		this.numberOfSelectedOptions = 0;
-		this.activeIndex = 0;
-		this.open = false;
-
-		// this.inputEl.parentElement.addEventListener('mouseleave', () => {
-		// 	this.listboxEl.style.display = 'none';
-		// 	this.open = false;
-		// 	this._updateInputState();
-		// });
-		this.inputEl.addEventListener('click', () => {
-			if (!this.open) {
-				this.listboxEl.style.display = 'block';
-				this.open = true;
-			} else {
-				this.listboxEl.style.display = 'none';
-				this.open = false;
-			}
-			this.comboEl.setAttribute('aria-expanded', `${this.open}`);
-			this._updateInputState();
-		});
+		this._clearCore();
 
 		this.options = Object.assign(
 			{},
@@ -51,56 +20,44 @@ class MultiSelect {
 				multiSelectOptions: MultiSelect.getDataAttributes(multiSelectEl),
 			}
 		);
-		this.options.multiSelectOptions.forEach((option, index) => {
-			const optionEl = document.createElement('div');
-			optionEl.setAttribute('role', 'option');
-			optionEl.id = `${this.idBase}-${index}`;
-			optionEl.className = 'o-multi-select-option';
-			optionEl.setAttribute('aria-selected', `${index === 0}`);
-			optionEl.innerText = option;
 
+		this.comboEl = multiSelectEl.querySelector('[role=combobox]');
+		this.inputEl = multiSelectEl.querySelector('.o-multi-select__input');
+		this.listboxEl = multiSelectEl.querySelector('[role=listbox]');
+		this.selectedOptions = multiSelectEl.querySelector(
+			'.o-multi-select__selected-options'
+		);
+		// data
+		this.idBase = this.inputEl.id;
+		this.totalNumberOfOptions = this.options.multiSelectOptions.length;
+
+		// state
+		this.numberOfSelectedOptions = 0;
+		this.activeIndex = 0;
+		this.open = false;
+
+		this.options.multiSelectOptions.forEach((option, index) => {
+			const optionEl = createOption(this.idBase, option, index);
 			optionEl.addEventListener('click', () => {
-				this.onOptionClick(optionEl, option, index);
+				this.handleOptionSelect(optionEl, option, index);
 			});
 			this.listboxEl.appendChild(optionEl);
 		});
+
+		this._bindHelperFunctionsAndEventListeners();
 	}
 
-	_updateInputState() {
-		if (this.numberOfSelectedOptions) {
-			this.inputEl.placeholder = '';
-			this.selectedOptions.style.display = 'block';
-			const inputElWidth = this.inputEl.offsetWidth; // this needs to change and take clear button into account
-			const selectedOptionsComputedStyles = getComputedStyle(
-				this.selectedOptions
-			);
-			const {paddingLeft, paddingRight} = selectedOptionsComputedStyles;
-			const sumOfChildrenWidthInitialValue =
-				parseInt(paddingLeft, 10) + parseInt(paddingRight, 10);
-			const sumOfChildrenWidth = [...this.selectedOptions.children]
-				.map(el => el.offsetWidth)
-				.reduce((prev, curr) => prev + curr, sumOfChildrenWidthInitialValue);
-
-			if (sumOfChildrenWidth > inputElWidth * 0.9) {
-				this.selectedOptions.classList.add('o-multi-select__visually-hidden');
-				this.inputEl.placeholder =
-					this.numberOfSelectedOptions + ' options selected';
-			} else {
-				this.selectedOptions.classList.remove(
-					'o-multi-select__visually-hidden'
-				);
-			}
-		} else {
-			this.selectedOptions.style.display = 'none';
-			if (this.open) {
-				this.inputEl.placeholder = 'Select options below';
-			} else {
-				this.inputEl.placeholder = 'Click to select options';
-			}
-		}
+	_bindHelperFunctionsAndEventListeners() {
+		this.inputEl.addEventListener('click', () => {
+			this.handleListBoxOpen();
+		});
+		this.inputEl.addEventListener('keydown', onInputKeyDown.bind(this));
+		this.handleOptionSelect = handleOptionSelect.bind(this);
+		this.handleListBoxOpen = handleDropdownMenuOpen.bind(this);
+		this._updateState = updateState.bind(this);
 	}
 
-	clearCore() {
+	_clearCore() {
 		const coreWrapper = this.multiSelectEl.querySelector(
 			'.o-multi-select--core'
 		);
@@ -109,40 +66,6 @@ class MultiSelect {
 			'.o-multi-select--enhanced'
 		);
 		enhancedWrapper.style.display = 'block';
-	}
-
-	onOptionClick(optionEl, option, index) {
-		if (optionEl.classList.contains('o-multi-select-option__selected')) {
-			optionEl.classList.remove('o-multi-select-option__selected');
-			this.numberOfSelectedOptions--;
-			const button = this.selectedOptions.querySelector(`#${option + index}`);
-			button.parentElement.remove();
-			this._updateInputState();
-			return;
-		}
-
-		this.numberOfSelectedOptions++;
-		optionEl.classList.add('o-multi-select-option__selected');
-		// create a button with remove icon
-		const li = document.createElement('li');
-		const button = document.createElement('button');
-		button.id = option + index;
-		button.className = 'o-multi-select__selected-options-button';
-		button.type = 'button';
-		button.innerText = option;
-		const span = document.createElement('span');
-		span.classList = 'o-icons-icon o-icons-icon--cross';
-		button.appendChild(span);
-		li.appendChild(button);
-		this.selectedOptions.appendChild(li);
-		this._updateInputState();
-
-		button.addEventListener('click', () => {
-			li.remove();
-			optionEl.classList.remove('o-multi-select-option__selected');
-			this.numberOfSelectedOptions--;
-			this._updateInputState();
-		});
 	}
 
 	/**

@@ -27,7 +27,7 @@
 	);
 
 	.o-multi-select--enhanced,
-	.o-multi-select__dropdown {
+	.o-multi-select__dropdown-menu {
 		display: none;
 	}
 	.o-multi-select--enhanced {
@@ -73,11 +73,11 @@
 
 		.o-multi-select__input {
 			border: none;
-			// height: 40px;
+			height: 40px;
 			padding: $_o-multi-select-padding;
 		}
 
-		.o-multi-select__dropdown {
+		.o-multi-select__dropdown-menu {
 			@include oNormaliseBoxSizing();
 			width: 100%;
 			background-color: oColorsByName('white');
