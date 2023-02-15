@@ -229,15 +229,19 @@ export function onInputKeyDown(event) {
 			key === 'ArrowDown' ||
 			key === 'ArrowUp' ||
 			key === 'Enter' ||
-			key === 'Space'
+			key === ' '
 		) {
 			return this.handleListBoxOpen();
 		}
 	}
 
 	if (event.altKey && key === 'ArrowUp' && this.open) {
-		return this.handleListBoxOpen();
-	} else if (key === 'ArrowUp') {
+		addOptionToList.call(this);
+		this.handleListBoxOpen();
+		return;
+	}
+
+	if (key === 'ArrowUp') {
 		if (this.activeIndex !== 0) {
 			this.activeIndex--;
 		}
@@ -248,32 +252,38 @@ export function onInputKeyDown(event) {
 	} else if (key === 'PageDown') {
 		if (this.activeIndex + 10 > numberOfOptions) {
 			this.activeIndex = numberOfOptions - 1;
-			return;
+		} else {
+			this.activeIndex += 10;
 		}
-		this.activeIndex += 10;
 	} else if (key === 'PageUp') {
 		if (this.activeIndex - 10 < 0) {
 			this.activeIndex = 0;
-			return;
+		} else {
+			this.activeIndex -= 10;
 		}
-		this.activeIndex -= 10;
 	} else if (key === 'Home') {
 		this.activeIndex = 0;
 	} else if (key === 'End') {
 		this.activeIndex = numberOfOptions - 1;
-	} else if (key === 'Escape' && this.open) {
-		return this.handleListBoxOpen();
-	} else if (key === 'Tab' && this.open) {
-		return this.handleListBoxOpen();
-	} else if (key === 'Enter' || key === 'Space') {
-		event.preventDefault();
-		// add current index element in selected items
-		const optionEl = this.multiSelectEl.querySelector(
-			`#${this.idBase}-${this.activeIndex}`
-		);
-		const option = this.options.multiSelectOptions[this.activeIndex];
-		this.handleOptionSelect(optionEl, option, this.activeIndex);
 	}
+
+	if (key === 'Escape' && this.open) {
+		this.handleListBoxOpen();
+	} else if (key === 'Tab' && this.open) {
+		this.handleListBoxOpen();
+	} else if (key === 'Enter' || key === ' ') {
+		event.preventDefault();
+		addOptionToList.call(this);
+	}
+}
+
+// add current index element in selected items
+function addOptionToList() {
+	const optionEl = this.multiSelectEl.querySelector(
+		`#${this.idBase}-${this.activeIndex}`
+	);
+	const option = this.options.multiSelectOptions[this.activeIndex];
+	this.handleOptionSelect(optionEl, option, this.activeIndex);
 }
 
 // MultiselectButtons.prototype.onInputKeyDown = function (event) {

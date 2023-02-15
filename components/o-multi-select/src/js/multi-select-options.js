@@ -1,5 +1,4 @@
 export function handleOptionSelect(optionEl, option, index) {
-	console.log({this: this});
 	if (optionEl.classList.contains('o-multi-select-option__selected')) {
 		optionEl.classList.remove('o-multi-select-option__selected');
 		this.numberOfSelectedOptions--;
