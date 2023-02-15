@@ -231,10 +231,7 @@ export function onInputKeyDown(event) {
 			key === 'Enter' ||
 			key === ' '
 		) {
-			this.inputEl.setAttribute(
-				'aria-activedescendant',
-				`${this.idBase}-${this.activeIndex}`
-			);
+			updateCurrentElement.call(this);
 			return this.handleListBoxOpen();
 		}
 	}
@@ -279,10 +276,7 @@ export function onInputKeyDown(event) {
 		event.preventDefault();
 		addOptionToList.call(this);
 	}
-	this.inputEl.setAttribute(
-		'aria-activedescendant',
-		`${this.idBase}-${this.activeIndex}`
-	);
+	updateCurrentElement.call(this);
 }
 
 // add current index element in selected items
@@ -292,6 +286,19 @@ function addOptionToList() {
 	);
 	const option = this.options.multiSelectOptions[this.activeIndex];
 	this.handleOptionSelect(optionEl, option, this.activeIndex);
+}
+
+function updateCurrentElement() {
+	this.inputEl.setAttribute(
+		'aria-activedescendant',
+		`${this.idBase}-${this.activeIndex}`
+	);
+
+	const options = this.multiSelectEl.querySelectorAll('[role=option]');
+	[...options].forEach(optionEl => {
+		optionEl.classList.remove('o-multi-select-option__current');
+	});
+	options[this.activeIndex].classList.add('o-multi-select-option__current');
 }
 
 // MultiselectButtons.prototype.onInputKeyDown = function (event) {

@@ -98,6 +98,10 @@
 				background-color: $_gray-background-color;
 				color: initial;
 			}
+			.o-multi-select-option__current {
+				background-color: oColorsMix(black, white, 20);
+				color: initial;
+			}
 		}
 	}
 }
