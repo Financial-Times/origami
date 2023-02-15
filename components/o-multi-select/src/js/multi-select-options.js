@@ -28,6 +28,7 @@ function createOptionButton(option, index) {
 	const li = document.createElement('li');
 	const button = document.createElement('button');
 	button.id = option + index;
+	button.setAttribute('aria-label', `remove ${option} from selected list`);
 	button.className = 'o-multi-select__selected-options-button';
 	button.type = 'button';
 	button.innerText = option;
