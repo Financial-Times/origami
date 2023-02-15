@@ -231,6 +231,10 @@ export function onInputKeyDown(event) {
 			key === 'Enter' ||
 			key === ' '
 		) {
+			this.inputEl.setAttribute(
+				'aria-activedescendant',
+				`${this.idBase}-${this.activeIndex}`
+			);
 			return this.handleListBoxOpen();
 		}
 	}
@@ -275,6 +279,10 @@ export function onInputKeyDown(event) {
 		event.preventDefault();
 		addOptionToList.call(this);
 	}
+	this.inputEl.setAttribute(
+		'aria-activedescendant',
+		`${this.idBase}-${this.activeIndex}`
+	);
 }
 
 // add current index element in selected items
