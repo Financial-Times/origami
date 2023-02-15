@@ -2,7 +2,7 @@
 
 Welcome to Origami!
 
-This is the repository for the Origami components, libraries and apps that make
+This is the repository for the Origami components, libraries, and apps that make
 up the Origami Component System.
 
 ## Proposals
