@@ -1,6 +1,7 @@
 export function handleOptionSelect(optionEl, option, index) {
 	if (optionEl.classList.contains('o-multi-select-option__selected')) {
 		optionEl.classList.remove('o-multi-select-option__selected');
+		optionEl.setAttribute('aria-selected', 'false');
 		this.numberOfSelectedOptions--;
 		const button = this.selectedOptions.querySelector(`#${option + index}`);
 		button.parentElement.remove();
@@ -10,6 +11,7 @@ export function handleOptionSelect(optionEl, option, index) {
 
 	this.numberOfSelectedOptions++;
 	optionEl.classList.add('o-multi-select-option__selected');
+	optionEl.setAttribute('aria-selected', 'true');
 	const {li, button} = createOptionButton(option, index);
 	this.selectedOptions.appendChild(li);
 	this._updateState();
