@@ -83,6 +83,7 @@ module.exports.stories = (async () => {
 					[
 						`${componentDirectory}/stories/*.stories.@(mdx|js|jsx|ts|tsx)`,
 						`${componentDirectory}/stories/${brand}/*.stories.@(mdx|js|jsx|ts|tsx)`,
+						`../../pages/*.stories.@(mdx|js|jsx|ts|tsx)`
 					],
 					{
 						gitignore: false,

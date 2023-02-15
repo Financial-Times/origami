@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta
+	title="Style Guide"
+/>
+
+[Accessibility](#accessibility "Link directly to this section of the page")
+=============================================================================
+
+Accessibility is an important aspect of web development at the Financial Times and within Origami. The FT website has an AA level WCAG accessibility accreditation. This means that we have met certain criteria to make our website more accessible to people with disabilities, according to the [WCAG conformance standards](https://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html).
+
+You can find more information about our accreditation [on the FT website](https://www.ft.com/accessibility)
+
+Since FT.com uses Origami extensively, it is also our responsibility to uphold the standards of accessibility that the company has been accredited with. In order to do that, we follow a few essential guidelines when building our components.
+
+[Base Guidelines](#base-guidelines "Link directly to this section of the page")
+---------------------------------------------------------------------------------
+
+*   We maintain tools and implement processes to help build accessible experiences. Among them are a [contrast ratio checker](https://registry.origami.ft.com/components/o-colors#demo-contrast-ratio-checker) that uses our colour palette, and SASS testing to error if there have been stylistic violations.
+*   We test our work with screen readers, to assess how well our disabled users interact with our components.
+*   We use `pa11y`, an [open source tool](http://pa11y.org/) that enables us to test the validity and accessibility of our markup.
+*   We aim to use [semantic markup](https://www.w3.org/TR/WCAG20-TECHS/G115.html) where possible. This means that the elements we use in our components reflect their actual meaning.
+*   We avoid using JavaScript to generate content where possible, and provide text content to describe visual elements in our components—we want our work to be machine readable.
+
+The [WCAG 2.0](https://www.w3.org/TR/WCAG20/) covers all of the details regarding accessibility, including implementation and more detailed guidelines. We recommend you look through these when buildling something new. If you need help, please get in touch with us via [Slack](https://financialtimes.slack.com/messages/origami-support) or [Email](origami.support@ft.com).
