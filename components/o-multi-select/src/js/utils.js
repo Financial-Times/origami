@@ -2,7 +2,6 @@ export function handleDropdownMenuOpen() {
 	if (!this.open) {
 		this.listboxEl.style.display = 'block';
 		this.open = true;
-		updateCurrentElement.call(this);
 	} else {
 		this.listboxEl.style.display = 'none';
 		this.open = false;
