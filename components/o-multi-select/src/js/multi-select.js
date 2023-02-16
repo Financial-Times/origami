@@ -1,4 +1,9 @@
-import {onInputKeyDown, handleDropdownMenuOpen} from './utils.js';
+import {
+	onInputKeyDown,
+	handleDropdownMenuOpen,
+	onOptionMouseDown,
+	onInputBlur,
+} from './utils.js';
 import {updateState} from './state.js';
 import {handleOptionSelect, createOption} from './multi-select-options.js';
 
@@ -41,6 +46,7 @@ class MultiSelect {
 			optionEl.addEventListener('click', () => {
 				this.handleOptionSelect(optionEl, option, index);
 			});
+			optionEl.addEventListener('mousedown', onOptionMouseDown.bind(this));
 			this.listboxEl.appendChild(optionEl);
 		});
 
@@ -52,6 +58,7 @@ class MultiSelect {
 			this.handleListBoxOpen();
 		});
 		this.inputEl.addEventListener('keydown', onInputKeyDown.bind(this));
+		this.inputEl.addEventListener('blur', onInputBlur.bind(this));
 		this.handleOptionSelect = handleOptionSelect.bind(this);
 		this.handleListBoxOpen = handleDropdownMenuOpen.bind(this);
 		this._updateState = updateState.bind(this);
