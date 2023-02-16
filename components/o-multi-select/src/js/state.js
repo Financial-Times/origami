@@ -1,3 +1,13 @@
+/**
+ * Updates the state of the multi-select component based on the current number of selected options.
+ * Updates the text of the inputText element and the visibility of the selectedOptions element.
+ *
+ * @function
+ * @name updateState
+ * @memberof module:multiSelect
+ * @instance
+ * @returns {void}
+ */
 export function updateState() {
 	if (this.numberOfSelectedOptions) {
 		this.inputText.innerText = '';
@@ -18,9 +28,7 @@ export function updateState() {
 			this.inputText.innerText =
 				this.numberOfSelectedOptions + ' options selected';
 		} else {
-			this.selectedOptions.classList.remove(
-				'o-multi-select__visually-hidden'
-			);
+			this.selectedOptions.classList.remove('o-multi-select__visually-hidden');
 		}
 	} else {
 		this.selectedOptions.style.display = 'none';

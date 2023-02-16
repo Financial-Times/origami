@@ -54,6 +54,11 @@ class MultiSelect {
 		this._bindHelperFunctionsAndEventListeners();
 	}
 
+	/**
+	 * Binds the helper functions and event listeners for the MultiSelect instance and its children.
+	 *
+	 * @private
+	 */
 	_bindHelperFunctionsAndEventListeners() {
 		this.inputEl.addEventListener('click', () => {
 			this.handleListBoxOpen();
@@ -65,6 +70,11 @@ class MultiSelect {
 		this._updateState = updateState.bind(this);
 	}
 
+	/**
+	 * Clears the core element of the MultiSelect instance.
+	 *
+	 * @private
+	 */
 	_clearCore() {
 		const coreWrapper = this.multiSelectEl.querySelector(
 			'.o-multi-select--core'
@@ -109,7 +119,8 @@ class MultiSelect {
 	}
 	/**
 	 * Initialise o-multi-select component/s.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
+	 *
+	 * @param {(HTMLElement|string)} rootElement - The root element to initialise the component in, or a CSS selector for the root element
 	 * @param {Object} [options={}] - An options object for configuring the component
 	 * @returns {MultiSelect|MultiSelect[]} The newly constructed MultiSelect components
 	 */

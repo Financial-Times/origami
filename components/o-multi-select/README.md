@@ -18,7 +18,7 @@ _Instructions for the component. We've broken this down by Markup, JavaScript, S
 
 ## Usage
 
-You will need to pass multi select options as data attribute (`data-o-multi-select-options`) or passing it down to init function (`{multiSelectOptions: ['a','b']}`).
+You will need to pass multi select options as data attribute (`data-o-multi-select-options`) or passing it down to init function (`{multiSelectOptions: ['Apple','banana']}`).
 Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-components-in-your-project) to get started with `o-multi-select`.
 
 ## Behaviour

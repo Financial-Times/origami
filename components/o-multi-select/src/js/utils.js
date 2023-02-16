@@ -1,3 +1,11 @@
+/**
+ * Handles opening and closing the dropdown menu for the multi-select component.
+ * When the menu is opened, it sets the display property of the listbox element to 'block'.
+ * When the menu is closed, it sets the display property of the listbox element to 'none'.
+ * It also updates the 'aria-expanded' attribute of the combo box element.
+ *
+ * @returns {void}
+ */
 export function handleDropdownMenuOpen() {
 	if (!this.open) {
 		this.listboxEl.style.display = 'block';
@@ -9,11 +17,21 @@ export function handleDropdownMenuOpen() {
 	this.comboEl.setAttribute('aria-expanded', `${this.open}`);
 	this._updateState();
 }
-
+/**
+ * Handles the 'mousedown' event for multi-select options.
+ * Sets 'ignoreBlur' property to true.
+ */
 export function onOptionMouseDown() {
 	this.ignoreBlur = true;
 }
 
+/**
+ * Handles the 'blur' event for the input element of the multi-select component.
+ * If the 'ignoreBlur' property is true, it sets 'ignoreBlur' back to false and returns.
+ * If the component is open, it calls 'handleDropdownMenuOpen' to close it.
+ *
+ * @returns {void}
+ */
 export function onInputBlur() {
 	if (this.ignoreBlur) {
 		this.ignoreBlur = false;
@@ -25,6 +43,19 @@ export function onInputBlur() {
 	}
 }
 
+/**
+ * Handles the 'keydown' event for the input element of the multi-select component.
+ * If the component is closed, it handles opening the menu if the key pressed is 'ArrowDown', 'ArrowUp', 'Enter', or ' '.
+ * If the component is open and 'Alt' and 'ArrowUp' keys are pressed, it calls 'addOptionToList' and then opens the menu.
+ * If any other key is pressed, it updates the active index of the listbox options based on the key pressed.
+ * If the key pressed is 'Escape', it closes the menu.
+ * If the key pressed is 'Tab' and the menu is open, it closes the menu.
+ * If the key pressed is 'Enter' or ' ', it calls 'addOptionToList'.
+ * Finally, it calls 'updateCurrentElement' to update the active descendant and current listbox option.
+ *
+ * @param {KeyboardEvent} event - The keyboard event.
+ * @returns {void}
+ */
 export function onInputKeyDown(event) {
 	const {key} = event;
 	const numberOfOptions = this.totalNumberOfOptions;
@@ -85,7 +116,11 @@ export function onInputKeyDown(event) {
 	updateCurrentElement.call(this);
 }
 
-// add current index element in selected items
+/**
+ * Adds the currently selected listbox option to the selected items list of the multi-select component.
+ *
+ * @returns {void}
+ */
 function addOptionToList() {
 	const optionEl = this.multiSelectEl.querySelector(
 		`#${this.idBase}-${this.activeIndex}`
@@ -94,6 +129,11 @@ function addOptionToList() {
 	this.handleOptionSelect(optionEl, option, this.activeIndex);
 }
 
+/**
+ * Updates the currently active descendant and current listbox option of the multi-select component.
+ *
+ * @returns {void}
+ */
 function updateCurrentElement() {
 	this.inputEl.setAttribute(
 		'aria-activedescendant',

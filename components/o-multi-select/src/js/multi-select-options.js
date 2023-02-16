@@ -1,3 +1,11 @@
+/**
+ * adds or removes the selection of a multi-select option in selected list.
+ *
+ * @param {HTMLElement} optionEl - The option element that was selected.
+ * @param {string} option - The text content of the option that was selected.
+ * @param {number} index - The index of the option that was selected.
+ * @returns {void}
+ */
 export function handleOptionSelect(optionEl, option, index) {
 	if (optionEl.classList.contains('o-multi-select-option__selected')) {
 		removeOption.call(this, optionEl, option, index);
@@ -6,6 +14,15 @@ export function handleOptionSelect(optionEl, option, index) {
 	}
 }
 
+/**
+ * Removes selected item from a multi-select selected list.
+ *
+ * @private
+ * @param {HTMLElement} optionEl - The option element to remove.
+ * @param {string} option - The text content of the option to remove.
+ * @param {number} index - The index of the option to remove.
+ * @returns {void}
+ */
 function removeOption(optionEl, option, index) {
 	optionEl.classList.remove('o-multi-select-option__selected');
 	optionEl.setAttribute('aria-selected', 'false');
@@ -15,6 +32,15 @@ function removeOption(optionEl, option, index) {
 	this._updateState();
 }
 
+/**
+ * adds a item in a multi-select selected list.
+ *
+ * @private
+ * @param {HTMLElement} optionEl - The option element to remove.
+ * @param {string} option - The text content of the option to remove.
+ * @param {number} index - The index of the option to remove.
+ * @returns {void}
+ */
 function addOption(optionEl, option, index) {
 	this.numberOfSelectedOptions++;
 	optionEl.classList.add('o-multi-select-option__selected');
@@ -31,6 +57,14 @@ function addOption(optionEl, option, index) {
 	});
 }
 
+/**
+ * Creates a button for a multi-select option.
+ *
+ * @private
+ * @param {string} option - The text content of the option.
+ * @param {number} index - The index of the option.
+ * @returns {{ li: HTMLElement, button: HTMLElement }} An object containing the newly created <li> and <button> elements.
+ */
 function createOptionButton(option, index) {
 	const li = document.createElement('li');
 	const button = document.createElement('button');
@@ -47,6 +81,14 @@ function createOptionButton(option, index) {
 	return {li, button};
 }
 
+/**
+ * Creates an option element for a multi-select.
+ *
+ * @param {string} idBase - The base ID to use for the option element.
+ * @param {string} option - The text content of the option.
+ * @param {number} index - The index of the option.
+ * @returns {HTMLElement} The newly created option element.
+ */
 export function createOption(idBase, option, index) {
 	const optionEl = document.createElement('div');
 	optionEl.setAttribute('role', 'option');
