@@ -74,7 +74,17 @@
 			background-size: $_o-multi-select-icon-size $_o-multi-select-icon-size;
 			cursor: pointer;
 			background-position: right 8px center;
-			align-items: center
+			align-items: center;
+
+			&:focus {
+				@include oNormaliseFocusUnsetContent();
+			}
+
+			@supports selector(:focus-visible) {
+				&:focus-visible {
+					@include oNormaliseFocusContent();
+				}
+			}
 		}
 	}
 	.o-multi-select__dropdown-menu {
@@ -95,6 +105,7 @@
 				color: initial;
 			}
 		}
+
 		.o-multi-select-option__selected {
 			background-color: $_gray-background-color;
 			color: initial;
