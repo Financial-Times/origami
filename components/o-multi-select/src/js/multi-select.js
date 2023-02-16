@@ -28,6 +28,7 @@ class MultiSelect {
 
 		this.comboEl = multiSelectEl.querySelector('[role=combobox]');
 		this.inputEl = multiSelectEl.querySelector('.o-multi-select__input');
+		this.inputText = multiSelectEl.querySelector('.o-multi-select__input-text');
 		this.listboxEl = multiSelectEl.querySelector('[role=listbox]');
 		this.selectedOptions = multiSelectEl.querySelector(
 			'.o-multi-select__selected-options'

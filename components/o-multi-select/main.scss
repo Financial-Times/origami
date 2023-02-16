@@ -34,14 +34,6 @@
 		position: relative;
 	}
 
-	.o-multi-select__input {
-		background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-service&format=svg);
-		background-repeat: no-repeat;
-		background-size: $_o-multi-select-icon-size $_o-multi-select-icon-size;
-		cursor: pointer;
-		background-position: right 8px center;
-	}
-
 	.o-multi-select__visually-hidden {
 		@include oNormaliseVisuallyHidden;
 	}
@@ -67,14 +59,22 @@
 	}
 
 	.o-multi-select__input-wrapper {
+		@include oTypographySans(0);
 		position: relative;
 		background-color: oColorsByName('white');
 		border: $_o-multi-select-border;
 
 		.o-multi-select__input {
+			display: flex;
 			border: none;
 			height: 40px;
 			padding: $_o-multi-select-padding;
+			background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-service&format=svg);
+			background-repeat: no-repeat;
+			background-size: $_o-multi-select-icon-size $_o-multi-select-icon-size;
+			cursor: pointer;
+			background-position: right 8px center;
+			align-items: center
 		}
 	}
 	.o-multi-select__dropdown-menu {

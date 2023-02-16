@@ -32,29 +32,29 @@
 			class="o-multi-select__selected-options"
 			id="o-multi-select-selected"
 		></ul>
-		<div
-			class="o-forms-input o-forms-input--text o-forms-input--select o-multi-select__input-wrapper"
-			role="combobox"
-			aria-haspopup="listbox"
-			aria-expanded="false"
-			aria-owns="o-multi-select-listbox"
-		>
-			<input
-				aria-activedescendant=""
-				aria-labelledby="o-multi-select-label o-multi-select-selected"
-				type="text"
-				name="multiple-enhanced"
+		<div class="o-multi-select__input-wrapper">
+			<div
 				class="o-multi-select__input"
 				id="o-multi-select__input"
-				placeholder="Click to select options"
-			/>
+				name="multiple-enhanced"
+				role="combobox"
+				aria-activedescendant=""
+				aria-labelledby="o-multi-select-label o-multi-select-selected"
+				aria-haspopup="listbox"
+				aria-expanded="false"
+				aria-owns="o-multi-select-listbox"
+				tabindex="0"
+			>
+				<span class="o-multi-select__input-text"> Click to select options </span>
+			</div>
 		</div>
 		<div
 			class="o-multi-select__dropdown-menu"
-			role="listbox"
 			id="o-multi-select-listbox"
+			role="listbox"
 			aria-label="multi select options"
 			aria-multiselectable="true"
+			tabindex="-1"
 		></div>
 	</div>
 </div>

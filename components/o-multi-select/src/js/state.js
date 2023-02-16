@@ -1,6 +1,6 @@
 export function updateState() {
 	if (this.numberOfSelectedOptions) {
-		this.inputEl.placeholder = '';
+		this.inputText.innerText = '';
 		this.selectedOptions.style.display = 'block';
 		const inputElWidth = this.inputEl.offsetWidth;
 		const selectedOptionsComputedStyles = getComputedStyle(
@@ -15,7 +15,7 @@ export function updateState() {
 
 		if (sumOfChildrenWidth > inputElWidth * 0.9) {
 			this.selectedOptions.classList.add('o-multi-select__visually-hidden');
-			this.inputEl.placeholder =
+			this.inputText.innerText =
 				this.numberOfSelectedOptions + ' options selected';
 		} else {
 			this.selectedOptions.classList.remove(
@@ -25,9 +25,9 @@ export function updateState() {
 	} else {
 		this.selectedOptions.style.display = 'none';
 		if (this.open) {
-			this.inputEl.placeholder = 'Select options below';
+			this.inputText.innerText = 'Select options below';
 		} else {
-			this.inputEl.placeholder = 'Click to select options';
+			this.inputText.innerText = 'Click to select options';
 		}
 	}
 }
