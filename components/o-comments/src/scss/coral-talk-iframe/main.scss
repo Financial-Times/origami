@@ -26,6 +26,13 @@
 			line-height: 1.784rem;
         	}
 	}
+	#coral.o-comments-app {
+		--ft-magnify: 1.0666666667;
+		.coral-comment-content {
+            		font-size: 1rem;
+            		line-height: 1.45rem;
+        	}
+	}
 	.o-comments-coral-talk-container, #coral {
 		--font-family-primary: #{inspect(oTypographyGetFontFamily('sans'))};
 		--font-family-secondary: #{inspect(oTypographyGetFontFamily('sans'))};
