@@ -5,3 +5,13 @@
 
 @import "@financial-times/o-multi-select/main";
 @include oMultiSelect();
+
+// o-normalise sets select elements on overflow: visible;
+.o-forms-input--select select {
+	overflow: auto;
+}
+
+.o-multi-select {
+	margin: 12px;
+	max-width: 500px;
+}

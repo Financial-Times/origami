@@ -26,9 +26,9 @@ const MultiSelectStory = args => {
 };
 export const DefaultMultiSelect: ComponentStory<typeof MultiSelect> =
 	MultiSelectStory.bind({});
-
+	DefaultMultiSelect.storyName = "Multi Select";
 DefaultMultiSelect.args = {
-	options: [
+	multiSelectOptions: [
 		'Apple',
 		'Banana',
 		'Blueberry',
