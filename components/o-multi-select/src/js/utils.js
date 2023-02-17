@@ -73,12 +73,6 @@ export function onInputKeyDown(event) {
 		}
 	}
 
-	if (event.altKey && key === 'ArrowUp' && this.open) {
-		addOptionToList.call(this);
-		this.handleListBoxOpen();
-		return;
-	}
-
 	if (key === 'ArrowUp') {
 		if (this.activeIndex !== 0) {
 			this.activeIndex--;

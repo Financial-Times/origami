@@ -6,15 +6,15 @@ _A short description of what the component does._
 	- [Usage](#usage)
 	- [Behaviour](#behaviour)
 	- [Markup](#markup)
+		- [Core support](#core-support)
 	- [Sass](#sass)
 	- [JavaScript](#javascript)
-	- [Troubleshooting](#troubleshooting)
-	- [Contributing](#contributing)
+	- [Keyboard Support](#keyboard-support)
+		- [When focus is within the text input and the suggestions menu is closed](#when-focus-is-within-the-text-input-and-the-suggestions-menu-is-closed)
+		- [When focus is within the suggestions menu](#when-focus-is-within-the-suggestions-menu)
 	- [Migration](#migration)
 	- [Contact](#contact)
 	- [Licence](#licence)
-
-_Instructions for the component. We've broken this down by Markup, JavaScript, Sass, etc. You may add more sections as needed._
 
 ## Usage
 
@@ -27,19 +27,91 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ## Markup
 
-_Markup documentation for the component. Including css classes, data attributes, and tags for variations of the component._
-_Demo markup is also shown in the registry. For complex markup it can be useful to describe the markup and link to the registry demos for a full example._
-_Remember to start your codeblocks with three backticks and "html" so your markup is syntax highlighted correctly._
+<!--
+- talk about core and enhanced versions of the component
+- explain different accessibility features and what each data-attribute means
+- Providing options as comma separated values
+ -->
 
 ```html
-<div data-o-component="o-multi-select" class="o-multi-select"></div>
+<div data-o-component="o-multi-select" class="o-multi-select">
+	<!-- Code for Core experience -->
+	<div class="o-form o-multi-select o-multi-select--enhanced">
+		<span class="o-forms-field">
+			<span class="o-forms-title">
+				<label
+					class="o-forms-title__main"
+					for="multiple-enhanced"
+					id="o-multi-select-label"
+				>
+					Multiple select box
+				</label>
+			</span>
+		</span>
+
+		<ul
+			class="o-multi-select__selected-options"
+			id="o-multi-select-selected"
+		></ul>
+		<div class="o-multi-select__input-wrapper">
+			<div
+				class="o-multi-select__input"
+				id="o-multi-select__input"
+				name="multiple-enhanced"
+				role="combobox"
+				aria-activedescendant=""
+				aria-labelledby="o-multi-select-label o-multi-select-selected"
+				aria-haspopup="listbox"
+				aria-expanded="false"
+				aria-owns="o-multi-select-listbox"
+				tabindex="0"
+			>
+				<span class="o-multi-select__input-text">
+					Click to select options
+				</span>
+			</div>
+		</div>
+		<div
+			class="o-multi-select__dropdown-menu"
+			id="o-multi-select-listbox"
+			role="listbox"
+			aria-label="multi select options"
+			aria-multiselectable="true"
+			tabindex="-1"
+		></div>
+	</div>
+</div>
+```
+
+### Core support
+
+To add support for browsers without JavaScript use multi-select element from `o-forms` component with `o-multi-select--core` class. This will help users with screen readers to select multiple options.
+
+```html
+<div class="o-multi-select" data-o-component="o-multi-select">
+	<div class="o-form o-multi-select o-multi-select--core">
+		<span class="o-forms-field">
+			<span class="o-forms-title">
+				<label class="o-forms-title__main" for="multiple">
+					Multiple select box
+				</label>
+			</span>
+
+			<span class="o-forms-input o-forms-input--select">
+				<select name="multiple" id="multiple" multiple>
+					<option value="Apple">Apple</option>
+					<option value="Banana">BAnana</option>
+					<!-- More options -->
+				</select>
+			</span>
+		</span>
+	</div>
+
+	<!-- Code for enhanced experiance -->
+</div>
 ```
 
 ## Sass
-
-_Sass documentation. With instructions to include styles with a primary mixin, what options are available, brand support where applicable._
-_For complex components it may be helpful to document apis with SassDoc and link to the components SassDoc in the Origami Registry._
-_Remember to start your codeblocks with three backticks and "scss" so your markup is syntax highlighted correctly._
 
 Use `@include oMultiSelect()` to include styles for all `o-multi-select` features.
 
@@ -51,13 +123,9 @@ Use `@include oMultiSelect()` to include styles for all `o-multi-select` feature
 
 ## JavaScript
 
-_JavaScript documentation. Including how to initialise the component, available options, and common usecases._
-_For complex components it may be helpful to document apis with JSDoc and link to the components JSDocs in the Origami Registry._
-_Remember to start your codeblocks with three backticks and "js" so your js is syntax highlighted correctly._
+JavaScript is initialised automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/v2/) users.
 
-JavaScript is initialised automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/v2/) users. If your project is using a manual build process, [initialise `o-multi-select` manually](https://origami.ft.com/docs/tutorials/manual-build/).
-
-For example call the `init` method to initialise all `o-multi-select` instances in the document:
+If your project is using a manual build process, [initialise `o-multi-select` manually](https://origami.ft.com/docs/tutorials/manual-build/). For example call the `init` method to initialise all `o-multi-select` instances in the document:
 
 ```js
 import oMultiSelect from 'o-multi-select';
@@ -74,29 +142,33 @@ const oMultiSelectElement = document.getElementById(
 oMultiSelect.init(oMultiSelectElement);
 ```
 
-## Troubleshooting
+## Keyboard Support
 
-_Answers to questions or problems that come up repeatedly._
-_It's likely you can delete this section for now. Remember to remove it from the table of contents._
+### When focus is within the text input and the suggestions menu is closed
 
-## Contributing
+| Key                                  | Function                                                                                                                         |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| Enter, Space, Up Arrow or Down Arrow | All these keys will expand the suggestions menu, and focus will be on the first option, or the most recently highlighted option. |
 
-_Contributing documentation for non typical components._
-_It's likely you can delete this section if your component conforms with other components._
-_Remember to update the table of contents is you remove this section._
+### When focus is within the suggestions menu
+
+| Key        | Function                                                                                                                                                                                                |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Enter      | <ul><li>Sets the text input value to the content of the focused option in the suggestions menu.</li><li>Prevents form submission.</li><li>Creates selected option as button with remove icon.</li></ul> |
+| Space      | <ul><li>Sets the text input value to the content of the focused option in the suggestions menu.</li><li>Creates selected option as button with remove icon.</li></ul>                                   |
+| Tab        | <ul><li>Closes the suggestions menu.</li><li>Focus moves to next focusable element</li></ul>                                                                                                            |
+| Up Arrow   | moves focus to the previous option, if one exists. If focus is already on the first option, it will not move.                                                                                           |
+| Down Arrow | moves focus to the next option, if one exists. If focus is already on the last option, it will not move.                                                                                                |
+| PageUp     | Jumps visual focus up 10 options (or to first option).                                                                                                                                                  |
+| PageDown   | Jumps visual focus down 10 options (or to last option).                                                                                                                                                 |
+| Home/End   | moves focus to the first or last option.                                                                                                                                                                |
+| Escape     | <ul><li>Returns focus to the input element</li> <li>closes the dropdown without modifying the selected options.</li></ul>                                                                               |
 
 ## Migration
 
-_Guides to upgrade from one major version of a component to another._
-_This section includes a table of major versions with links to `MIGRATION.md`._
-_`MIGRATION.md` would provide upgrade instructions, but since this is a new component there is no `MIGRATION.md`._
-_Delete this section, including from the table of contents, until there is a second major version of this component._
-
-|    State     | Major Version | Last Minor Release |                    Migration guide                    |
-| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
-|  ✨ active   |       3       |        N/A         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-| ⚠ maintained |       2       |        2.0         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-| ╳ deprecated |       1       |        1.0         |                          N/A                          |
+|   State   | Major Version | Last Minor Release | Migration guide |
+| :-------: | :-----------: | :----------------: | :-------------: |
+| ✨ active |       1       |        1.0         |       N/A       |
 
 ## Contact
 
