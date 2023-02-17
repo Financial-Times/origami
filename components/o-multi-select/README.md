@@ -27,11 +27,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ## Markup
 
-<!--
-- talk about core and enhanced versions of the component
-- explain different accessibility features and what each data-attribute means
-- Providing options as comma separated values
- -->
+We use `o-forms` component to apply styles to some parts of multi-select component. This is a custom implementation and markup is very different from native `<select multiselect=true>` element, but using correct aria labels, roles and attributes we can make it accessible and behave like a native `select` element.
 
 ```html
 <div data-o-component="o-multi-select" class="o-multi-select">
