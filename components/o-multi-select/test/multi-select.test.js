@@ -5,7 +5,6 @@ import * as fixtures from './helpers/fixtures.js';
 import MultiSelect from '../main.js';
 
 describe('MultiSelect', () => {
-	this.timeout(5000);
 	it('is defined', () => {
 		assert.isFunction(MultiSelect);
 	});
