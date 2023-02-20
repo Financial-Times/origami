@@ -23,6 +23,6 @@ jobs:
           issuetype: Support Request
           summary: "Github Issue: ${{ github.context.payload.issue.title }}"
           description: ${{ github.context.payload.issue.url }}
-          fields: '{"labels": "test"}'
+          fields: '{"labels": ["test"]}'
       - name: Log created ticket
         run: echo "Ticket ${{ steps.create.outputs.issue }} was created"
