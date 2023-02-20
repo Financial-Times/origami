@@ -101,14 +101,34 @@
 			color: oColorsByName('black-80');
 			cursor: pointer;
 			&:hover {
-				background-color: $_gray-background-color;
+				background-color: oColorsMix(black, white, 10);
+				color: initial;
+			}
+		}
+		.o-multi-select-option {
+			padding: 8px 4px;
+			position: relative;
+			&:hover {
+				background-color: oColorsMix(black, white, 20);
 				color: initial;
 			}
 		}
 
 		.o-multi-select-option__selected {
-			background-color: $_gray-background-color;
 			color: initial;
+			span {
+				@include oIconsContent(
+					$icon-name: 'tick',
+					$color: _oMultiSelectGet('button-text-color'),
+					$size: 32,
+					$include-base-styles: false
+				);
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				vertical-align: middle;
+			}
 		}
 		.o-multi-select-option__current {
 			background-color: oColorsMix(black, white, 20);
