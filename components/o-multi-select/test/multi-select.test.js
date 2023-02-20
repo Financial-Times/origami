@@ -1,35 +1,35 @@
 /* eslint-env mocha */
-import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon-esm.js';
+import {assert} from '@open-wc/testing';
 import * as fixtures from './helpers/fixtures.js';
 import MultiSelect from '../main.js';
 
-describe("MultiSelect", () => {
+describe('MultiSelect', () => {
+	this.timeout(5000);
 	it('is defined', () => {
-		proclaim.equal(typeof MultiSelect, 'function');
+		assert.isFunction(MultiSelect);
 	});
 
 	it('has a static init method', () => {
-		proclaim.equal(typeof MultiSelect.init, 'function');
+		assert.isFunction(MultiSelect.init);
 	});
 
-	it("should autoinitialize", (done) => {
+	it('should autoinitialize', done => {
 		const initSpy = sinon.spy(MultiSelect, 'init');
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		setTimeout(function(){
-			proclaim.equal(initSpy.called, true);
+		setTimeout(function () {
+			assert.isTrue(initSpy.called);
 			initSpy.restore();
 			done();
 		}, 100);
 	});
 
-	it("should not autoinitialize when the event is not dispatched", () => {
+	it('should not autoinitialize when the event is not dispatched', () => {
 		const initSpy = sinon.spy(MultiSelect, 'init');
-		proclaim.equal(initSpy.called, false);
+		assert.isFalse(initSpy.called);
 	});
 
-	describe("should create a new o-multi-select", () => {
-
+	describe('should create a new o-multi-select', () => {
 		beforeEach(() => {
 			fixtures.htmlCode();
 		});
@@ -38,15 +38,85 @@ describe("MultiSelect", () => {
 			fixtures.reset();
 		});
 
-		it("component array when initialized", () => {
+		it('component array when initialized', () => {
 			const boilerplate = MultiSelect.init();
-			proclaim.equal(boilerplate instanceof Array, true);
-			proclaim.equal(boilerplate[0] instanceof MultiSelect, true);
+			assert.isArray(boilerplate);
+			assert.instanceOf(boilerplate[0], MultiSelect);
 		});
 
-		it("single component when initialized with a root element", () => {
-			const boilerplate = MultiSelect.init('#element');
-			proclaim.equal(boilerplate instanceof MultiSelect, true);
+		it('single component when initialized with a root my-autocomplete', () => {
+			const boilerplate = MultiSelect.init(
+				'[data-o-component="o-autocomplete"]'
+			);
+			assert.instanceOf(boilerplate, MultiSelect);
+		});
+	});
+
+	context('constructor', () => {
+		it('Hides core select element', () => {});
+		it('Creates a new select element from data attributes', () => {});
+		it('Creates a new select element from options provided in init method', () => {});
+		it('Does not construct if no options are provided', () => {});
+	});
+
+	describe('enhanced multi-select element', () => {
+		describe('when no multi select element is provided', () => {
+			it('throws an error', () => {});
+		});
+
+		describe('when multi select element is provided', () => {});
+		describe('clicking on the multi select dropdown list', () => {
+			it('adds options in selected items list', () => {});
+			it('removes options in selected items list if already selected', () => {});
+		});
+		describe('clicking on the selected items list', () => {
+			it('removes options in selected items list', () => {});
+			it('unselects option from the dropdown', () => {});
+		});
+		context('keyboard navigation', () => {
+			describe('Dropdown closed', () => {
+				it('Enter opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {});
+				it('Space opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {});
+				it('Up Arrow opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {});
+				it('Down Arrow opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {});
+			});
+			describe('Dropdown open', () => {
+				describe('enter', () => {
+					it('selects the focused option', () => {});
+					it('prevents the default action', () => {});
+					it('adds a button in selected list with remove icon', () => {});
+				});
+				describe('space', () => {
+					it('selects the focused option', () => {});
+					it('adds a button in selected list with remove icon', () => {});
+				});
+				describe('tab', () => {
+					it('closes the dropdown', () => {});
+					it('moves focus to the next focusable element', () => {});
+				});
+				describe('esc', () => {
+					it('closes the dropdown', () => {});
+					it('returns focus to the multi select input element', () => {});
+				});
+				describe('down arrow', () => {
+					it('moves focus to the next option', () => {});
+					it('stops on the last option', () => {});
+				});
+				describe('up arrow', () => {
+					it('moves focus to the previous option', () => {});
+					it('stops on the first option', () => {});
+				});
+				describe('page down', () => {
+					it('Jumps visual focus down 10 options', () => {});
+					it('stops on the last option', () => {});
+				});
+				describe('page up', () => {
+					it('Jumps visual focus up 10 options', () => {});
+					it('stops on the first option', () => {});
+				});
+				it('home moves focus to the first element', () => {});
+				it('end moves focus to the last element', () => {});
+			});
 		});
 	});
 });
