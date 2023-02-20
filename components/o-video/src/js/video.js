@@ -5,6 +5,7 @@ import VideoAds from './ads.js';
 import VideoInfo from './info.js';
 import Playlist from './playlist.js';
 import Guidance from './guidance.js';
+import startObserving from './helpers/intersection-observer.js';
 
 function listenOnce(el, eventName, fn) {
 	const wrappedFn = function(...args) {
@@ -144,36 +145,7 @@ function visibilityListener(ev) {
 		this.markPlayStart();
 	}
 
-	if(this.opts.autoplayWhenInViewport){
-		this.videoEl.muted="muted"
-		this.play();
-	}
 }
-
-function observe (viewport, target, threshold = 0.5) {
-	const options = {
-		root: viewport,
-		rootMargin: '0px',
-		threshold
-	}
-
-	  
-	const observer = new IntersectionObserver(withinViewportCallback, options);
-
-	observer.observe(target);
-}
-
-function withinViewportCallback (entries, observer) {
-	entries.forEach((entry) => {
-		if(entry.isIntersecting){
-			entry.target.muted="muted"
-			entry.target.play();
-			console.log("Now playing")
-		} else {
-			entry.target.pause();
-		}
-	});
-};
 
 const unloadEventName = 'onbeforeunload' in window ? 'beforeunload' : 'unload';
 
@@ -204,7 +176,6 @@ class Video {
 		this.fireWatchedEvent = unloadListener.bind(this);
 		this.visibilityListener = visibilityListener.bind(this);
 		this.didUserPressPlay = false;
-		this.viewportObserver = observe.bind(this);
 
 		this.opts = Object.assign({}, defaultOpts, opts, getOptionsFromDataAttributes(this.containerEl.attributes));
 
@@ -272,8 +243,13 @@ class Video {
 
 		if (this.opts.autoplayWhenInViewport) {
 			console.log("Should start autoplaying when in viewport")
-			// this.play();
-			this.viewportObserver.observe(this.opts.viewPort, this.videoEl);
+			
+			// Trigger first play click to remove placeholder image
+			if (this.opts.placeholder) {
+				this.play();
+			}
+			
+			startObserving(this.opts.viewport, this.videoEl, 0.5, this.play);
 		}
 	}
 
