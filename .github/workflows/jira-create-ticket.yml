@@ -8,22 +8,21 @@ jobs:
   create-jira-ticket:
     name: Jira Ticket
     runs-on: ubuntu-latest
-    name: Jira Example
     steps:
-    - name: Login
-      uses: atlassian/gajira-login@v3
-      env:
-        JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
-        JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
-        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-    - name: Create
-      id: create
-      uses: atlassian/gajira-create@v3
-      with:
-        project: OR
-        issuetype: Support Request
-        summary: "Github Issue: ${{ github.context.payload.issue.title }}"
-        description: ${{ github.context.payload.issue.url }}
-        fields: '{"labels": "test"}'
-    - name: Log created ticket
-      run: echo "Ticket ${{ steps.create.outputs.issue }} was created"
+      - name: Login
+        uses: atlassian/gajira-login@v3
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+      - name: Create
+        id: create
+        uses: atlassian/gajira-create@v3
+        with:
+          project: OR
+          issuetype: Support Request
+          summary: "Github Issue: ${{ github.context.payload.issue.title }}"
+          description: ${{ github.context.payload.issue.url }}
+          fields: '{"labels": "test"}'
+      - name: Log created ticket
+        run: echo "Ticket ${{ steps.create.outputs.issue }} was created"
