@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/Financial-Times/origami/compare/ft-concept-button-v1.1.2...ft-concept-button-v1.2.0) (2023-02-20)
+
+
+### Features
+
+* ft-concept-button, add inverse monochrome variant ([#1009](https://www.github.com/Financial-Times/origami/issues/1009)) ([d46cbcf](https://www.github.com/Financial-Times/origami/commit/d46cbcf7a2b892e9402242b5206aa237cda77a8c))
+
 ### [1.1.2](https://www.github.com/Financial-Times/origami/compare/ft-concept-button-v1.1.1...ft-concept-button-v1.1.2) (2022-12-21)
 
 
