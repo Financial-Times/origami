@@ -36,9 +36,9 @@ function removeOption(optionEl, option, index) {
  * adds a item in a multi-select selected list.
  *
  * @private
- * @param {HTMLElement} optionEl - The option element to remove.
- * @param {string} option - The text content of the option to remove.
- * @param {number} index - The index of the option to remove.
+ * @param {HTMLElement} optionEl - The option element to add.
+ * @param {string} option - The text content of the option to add.
+ * @param {number} index - The index of the option to add.
  * @returns {void}
  */
 function addOption(optionEl, option, index) {
