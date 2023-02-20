@@ -150,8 +150,8 @@ oMultiSelect.init(oMultiSelectElement);
 
 | Key        | Function                                                                                                                                                                                                |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Enter      | <ul><li>Sets the text input value to the content of the focused option in the suggestions menu.</li><li>Prevents form submission.</li><li>Creates selected option as button with remove icon.</li></ul> |
-| Space      | <ul><li>Sets the text input value to the content of the focused option in the suggestions menu.</li><li>Creates selected option as button with remove icon.</li></ul>                                   |
+| Enter      | <ul><li>Selects content of the focused option in the suggestions menu.</li><li>Prevents form submission.</li><li>Creates selected option as button with remove icon.</li></ul> |
+| Space      | <ul><li>Selects content of the focused option in the suggestions menu.</li><li>Creates selected option as button with remove icon.</li></ul>                                   |
 | Tab        | <ul><li>Closes the suggestions menu.</li><li>Focus moves to next focusable element</li></ul>                                                                                                            |
 | Up Arrow   | moves focus to the previous option, if one exists. If focus is already on the first option, it will not move.                                                                                           |
 | Down Arrow | moves focus to the next option, if one exists. If focus is already on the last option, it will not move.                                                                                                |
