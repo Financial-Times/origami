@@ -38,6 +38,13 @@ $_ftConceptButtonThemes: (
 		highlight: oColorsByName('white-80'),
 		pressed-highlight: rgba(oColorsByName('white'), 0.2),
 		disabled: rgba(oColorsByName('white'), 0.5)
+	),
+	inverse-monochrome: (
+		background: oColorsByName('black'),
+		text: oColorsByName('white'),
+		highlight: oColorsByName('black-80'),
+		pressed-highlight: rgba(oColorsByName('black'), 0.2),
+		disabled: rgba(oColorsByName('black'), 0.5)
 	)
 );
 

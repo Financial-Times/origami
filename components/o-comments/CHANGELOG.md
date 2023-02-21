@@ -1,5 +1,17 @@
 # Changelog
 
+## [10.1.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.0.2...o-comments-v10.1.0) (2023-02-20)
+
+
+### Features
+
+* add option to set an additional class on shadow dom for o-comments ([537bbb6](https://www.github.com/Financial-Times/origami/commit/537bbb64b75525598a9639eead0788f63a68473d))
+
+
+### Bug Fixes
+
+* change classname o-comments-app to o-comments-root-font-size-1 ([2ec576b](https://www.github.com/Financial-Times/origami/commit/2ec576b2751caa50f345c4a6db177ffe0c9e893a))
+
 ### [10.0.2](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.0.1...o-comments-v10.0.2) (2023-02-09)
 
 
