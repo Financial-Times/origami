@@ -1,57 +1,57 @@
 const visibleVideos = new Set();
 
-let previouslyVisibleVideos = null;
-
 let videoObserver;
 
 export default function startObserving(viewPort, target, threshold = 0.5, playAction) {
   const observedArea = viewPort // || document.querySelector("main");
-
+  
   const observerOptions = {
     root: observedArea,
     rootMargin: "0px",
     threshold
   };
-
+  
   console.log("Starting observer with the following options", observerOptions, target);
-
+  
   videoObserver = new IntersectionObserver((entries, observer) => intersectionCallback(entries, observer, playAction), observerOptions);
-
-  observeVideo(target);
-
+  
+  if(target) observeVideo(target);
+  
   // Only play when the window/tab is visible
   // document.addEventListener("visibilitychange", handleVisibilityChange);
 }
 
+function compareRatio (currentPlayer) {
+  return (videoPlayer) => { 
+    if(videoPlayer.prevRatio < currentPlayer.prevRatio){
+      videoPlayer.pause();
+    }
+  };
+}
 
-function intersectionCallback(allObservedVideoElements, observer, action) {
-    console.log(allObservedVideoElements)
 
-    allObservedVideoElements.forEach((videoBox) => {
-        console.log(videoBox);
+function intersectionCallback(observedVideoElement, observer, action) {
+    observedVideoElement.forEach((videoBox) => {
         const videoPlayer = videoBox.target;
   
         if (videoBox.isIntersecting) {
-            console.log("Now playing")
-			videoPlayer.muted="muted"
-			action();
+            // Add video to set of visible videos
+            visibleVideos.add(videoPlayer);
 
-            if (videoBox.intersectionRatio > prevRatio) {
-                console.log("This is coming more into view")
-                action();
-            } else {
-                console.log("This is going out of view")
-                videoPlayer.pause();
-            }
+            // Play the video
+			      videoPlayer.muted="muted";
+            videoPlayer.play();
+
+            // Track the ratios of those showing by adding property to the element
+            videoPlayer.prevRatio = videoBox.intersectionRatio;
+
+            const shouldItPlay = compareRatio(videoPlayer);
+
+            // Stop playing any other visible videos with a lower intersection ratio than the current video
+            visibleVideos.forEach(shouldItPlay)
             
-            prevRatio = videoBox.intersectionRatio;
-
-            if (videoBox.intersectionRatio >= 0.75) {
-                visibleVideos.add(videoPlayer);
-            }
         } else {
-            console.log("Now pausing")
-			videoPlayer.pause();
+            videoPlayer.pause();
             visibleVideos.delete(videoPlayer);
         }
     });

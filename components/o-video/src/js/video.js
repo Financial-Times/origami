@@ -245,11 +245,13 @@ class Video {
 			console.log("Should start autoplaying when in viewport")
 			
 			// Trigger first play click to remove placeholder image
-			if (this.opts.placeholder) {
+			if (this.opts.placeholder && this.placeholderEl) {
 				this.play();
 			}
 			
-			startObserving(this.opts.viewport, this.videoEl, 0.5, this.play);
+			if(this.videoEl) {
+				startObserving(this.opts.viewPort, this.videoEl, 0.5, this.play);
+			}
 		}
 	}
 
