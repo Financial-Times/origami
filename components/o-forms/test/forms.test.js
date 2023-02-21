@@ -239,7 +239,6 @@ describe('Forms', () => {
 
 	context('on `submit` of a valid form', () => {
 		let submit;
-		let summary;
 		let formSubmitSpy;
 
 		beforeEach(() => {

@@ -5,18 +5,18 @@ import ErrorSummary from './error-summary.js';
 class Forms {
 
 	/**
- 	* @typedef {Object} FormsOptions - An options object for configuring the form.
-	* @property {boolean} [errorSummary=true] - Display an error summary at the top of the form as part of `o-forms` validation.
- 	* @property {boolean} [preventSubmit=false] - Prevent form submission after `o-froms` validation – see the `oForms.submit` event to manually submit the form after validation. This does not apply when `useBrowserValidation` is true.
-	* @property {boolean} [useBrowserValidation=false] - Do not use `o-forms` validation, rely on the browser's built-in validation instead.
- 	*/
+	 * @typedef {Object} FormsOptions - An options object for configuring the form.
+	 * @property {boolean} [errorSummary=true] - Display an error summary at the top of the form as part of `o-forms` validation.
+	 * @property {boolean} [preventSubmit=false] - Prevent form submission after `o-froms` validation – see the `oForms.submit` event to manually submit the form after validation. This does not apply when `useBrowserValidation` is true.
+	 * @property {boolean} [useBrowserValidation=false] - Do not use `o-forms` validation, rely on the browser's built-in validation instead.
+	 */
 
 	/**
- 	* @typedef {Event} FormsSubmitEvent - An event emitted when the form is submitted by the userand `o-forms` has completed validation.
-	* @property {object} detail - The event detail.
-	* @property {object} detail.instance  - The instance of `o-forms`.
-	* @property {boolean} detail.valid  - The validity of the `o-forms` instance.
- 	*/
+	 * @typedef {Event} FormsSubmitEvent - An event emitted when the form is submitted by the userand `o-forms` has completed validation.
+	 * @property {object} detail - The event detail.
+	 * @property {object} detail.instance  - The instance of `o-forms`.
+	 * @property {boolean} detail.valid  - The validity of the `o-forms` instance.
+	 */
 
 	/**
 	 * Class constructor.
@@ -147,7 +147,7 @@ class Forms {
 
 			/**
 			 * @type {FormsSubmitEvent}
-			 **/
+			 */
 			const oFormsSubmitEvent = new CustomEvent('oForms.submit', {
 				detail: {
 					instance: this,
