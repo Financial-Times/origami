@@ -58,6 +58,30 @@ describe('MultiSelect', () => {
 		it('Does not construct if no options are provided', () => {});
 	});
 
+	describe('Dropdown', () => {
+		it('closes on blur event', () => {});
+		it('opens on click event if closed', () => {});
+		it('closes on click event if open', () => {});
+		it('ignores blur event if it is on dropdown', () => {});
+	});
+
+	describe('Update state', () => {
+		describe('if nothing selected', () => {
+			it('and dropdown closed, the input inner text is "Click to select options"', () => {});
+			it('and dropdown open, the input inner text is "Select options below" ', () => {});
+		});
+		describe('if something selected', () => {
+			it('input inner text is empty', () => {});
+			it('and selected options width is less than 90% of input element width, the selected options are visible', () => {});
+			it(`and selected options width is more than 90% of input element width, the selected options are hidden and the input inner text is "${'numOpTions'} options selected"`, () => {});
+		});
+	});
+
+	describe('Option select', () => {
+		it('and not already selected, adds option to selected list', () => {});
+		it('and already selected, removes option from selected list', () => {});
+	});
+
 	describe('enhanced multi-select element', () => {
 		describe('when no multi select element is provided', () => {
 			it('throws an error', () => {});
