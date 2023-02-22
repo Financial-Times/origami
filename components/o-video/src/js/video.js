@@ -242,7 +242,6 @@ class Video {
 		}
 
 		if (this.opts.autoplayWhenInViewport) {
-			console.log("Should start autoplaying when in viewport")
 			
 			// Trigger first play click to remove placeholder image
 			if (this.opts.placeholder && this.placeholderEl) {
@@ -284,7 +283,7 @@ class Video {
 			this.videoEl.controlsList.add('nodownload');
 		}
 
-		if (typeof this.opts.loop !== "null") {
+		if (this.opts.loop !== null) {
 			this.videoEl.loop = this.opts.loop;
 		}
 
