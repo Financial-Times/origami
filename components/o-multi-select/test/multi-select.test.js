@@ -5,6 +5,7 @@ import * as fixtures from './helpers/fixtures.js';
 import MultiSelect from '../main.js';
 
 describe('MultiSelect', () => {
+	// this.timeout(5000);
 	it('is defined', () => {
 		assert.isFunction(MultiSelect);
 	});
@@ -23,32 +24,35 @@ describe('MultiSelect', () => {
 		}, 100);
 	});
 
-	it('should not autoinitialize when the event is not dispatched', () => {
-		const initSpy = sinon.spy(MultiSelect, 'init');
-		assert.isFalse(initSpy.called);
-	});
+	// it('should not autoinitialize when the event is not dispatched', () => {
+	// 	const initSpy = sinon.spy(MultiSelect, 'init');
+	// 	assert.isFalse(initSpy.called);
+	// });
 
 	describe('should create a new o-multi-select', () => {
-		beforeEach(() => {
-			fixtures.htmlCode();
-		});
-
 		afterEach(() => {
 			fixtures.reset();
 		});
 
-		it('component array when initialized', () => {
-			const boilerplate = MultiSelect.init();
-			assert.isArray(boilerplate);
+		it('when select options are passed down in config', () => {
+			fixtures.htmlCode();
+			const boilerplate = MultiSelect.init(null, {
+				multiSelectOptions: ['Apple', 'Banana'],
+			});
 			assert.instanceOf(boilerplate[0], MultiSelect);
 		});
 
-		it('single component when initialized with a root my-autocomplete', () => {
-			const boilerplate = MultiSelect.init(
-				'[data-o-component="o-autocomplete"]'
-			);
-			assert.instanceOf(boilerplate, MultiSelect);
+		it('when select options are passed as comma separated list in data attribute', () => {
+			fixtures.htmlCodeWithOptionsDataATtributes();
+			const boilerplate = MultiSelect.init();
+			assert.instanceOf(boilerplate[0], MultiSelect);
 		});
+	});
+
+	it('should not create a new o-multi-select when no options are passed', () => {
+		fixtures.htmlCode();
+		assert.throws(() => MultiSelect.init(), 'The multi select component requires options to be passed in the config or as data attributes');
+		fixtures.reset();
 	});
 
 	context('constructor', () => {

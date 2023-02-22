@@ -25,7 +25,11 @@ class MultiSelect {
 				multiSelectOptions: MultiSelect.getDataAttributes(multiSelectEl),
 			}
 		);
-
+		if (!this.options.multiSelectOptions.length > 0) {
+			throw new Error(
+				'The multi select component requires options to be passed in the config or as data attributes'
+			);
+		}
 		this.comboEl = multiSelectEl.querySelector('[role=combobox]');
 		this.inputEl = multiSelectEl.querySelector('.o-multi-select__input');
 		this.inputText = multiSelectEl.querySelector('.o-multi-select__input-text');
