@@ -234,7 +234,7 @@ class Video {
 
 	renderVideo() {
 		if (this.rendition) {
-			if (this.opts.placeholder) {
+			if (this.opts.placeholder && !this.opts.autoplayWhenInViewport) {
 				this.addPlaceholder();
 			} else {
 				this.addVideo();
@@ -242,11 +242,6 @@ class Video {
 		}
 
 		if (this.opts.autoplayWhenInViewport) {
-			
-			// Trigger first play click to remove placeholder image
-			if (this.opts.placeholder && this.placeholderEl) {
-				this.play();
-			}
 			
 			if(this.videoEl) {
 				startObserving(this.opts.viewPort, this.videoEl, 0.5, this.play);
