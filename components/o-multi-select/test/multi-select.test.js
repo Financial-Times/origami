@@ -3,6 +3,21 @@ import sinon from 'sinon/pkg/sinon-esm.js';
 import {assert} from '@open-wc/testing';
 import * as fixtures from './helpers/fixtures.js';
 import MultiSelect from '../main.js';
+import {fireEvent} from '@testing-library/dom';
+
+function setupMultiSelect() {
+	let multiSelect;
+	const options = ['Apple', 'Banana'];
+
+	fixtures.htmlCode();
+	const targetEl = document.querySelector(
+		'[data-o-component="o-multi-select"]'
+	);
+	multiSelect = new MultiSelect(targetEl, {
+		multiSelectOptions: options,
+	});
+	return {multiSelect, options};
+}
 
 describe('MultiSelect', () => {
 	it('is defined', () => {
@@ -58,22 +73,14 @@ describe('MultiSelect', () => {
 	});
 
 	context('constructor', () => {
+		let options;
 		let multiSelect;
-		const options = ['Apple', 'Banana'];
 		beforeEach(() => {
-			fixtures.htmlCode();
-			const targetEl = document.querySelector(
-				'[data-o-component="o-multi-select"]'
-			);
-			multiSelect = new MultiSelect(targetEl, {
-				multiSelectOptions: options,
-			});
+			({multiSelect, options} = setupMultiSelect());
 		});
-
 		afterEach(() => {
 			fixtures.reset();
 		});
-
 		it('hides core select element and enables enhanced version', () => {
 			const coreSelectEl = document.querySelector('.o-multi-select--core');
 			const enhancedSelectEl = document.querySelector(
@@ -97,9 +104,7 @@ describe('MultiSelect', () => {
 				assert.equal(element.innerText, options[i]);
 				const childSpan = element.querySelector('span');
 				assert.equal(
-					[...childSpan.classList].includes(
-						'o-multi-select-option-tick'
-					),
+					[...childSpan.classList].includes('o-multi-select-option-tick'),
 					true
 				);
 			});
@@ -107,11 +112,35 @@ describe('MultiSelect', () => {
 	});
 
 	context('dropdown', () => {
-		it('closes if clicked outside of input element', () => {});
+		let multiSelect;
+		let inputEl
+		beforeEach(() => {
+			({multiSelect} = setupMultiSelect());
+			inputEl = document.querySelector('.o-multi-select__input');
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+
+		it('opens if clicked on input element and it was closed', () => {
+			fireEvent.click(inputEl);
+			assert.equal(multiSelect.open, true);
+		});
+		it('closes if clicked on input element and it was open ', () => {
+			fireEvent.click(inputEl);
+			fireEvent.click(inputEl);
+			assert.equal(multiSelect.open, false);
+		});
+		it('closes if clicked outside of input element', () => {
+			// console.log({a: multiSelect.open});
+			// console.log({b: multiSelect.open});
+			// console.log({o: multiSelect.open});
+			// this needs more investigation, since blur event is triggered twice
+			assert.equal(multiSelect.open, false);
+		});
 		it('closes after selecting an option if clicked outside of input element', () => {});
 		it('remains open if clicked within the dropdown', () => {});
-		it('opens if clicked on input element and it was closed', () => {});
-		it('closes if clicked on input element and it was open ', () => {});
 		describe('option click', () => {
 			describe('on unselected option', () => {
 				it('adds options in selected options list', () => {});

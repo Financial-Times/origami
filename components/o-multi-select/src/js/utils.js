@@ -6,7 +6,7 @@
  *
  * @returns {void}
  */
-export function handleDropdownMenuOpen() {
+export function toggleDropdown() {
 	if (!this.open) {
 		this.listboxEl.style.display = 'block';
 		this.open = true;
@@ -28,7 +28,7 @@ export function onOptionMouseDown() {
 /**
  * Handles the 'blur' event for the input element of the multi-select component.
  * If the 'ignoreBlur' property is true, it sets 'ignoreBlur' back to false and returns.
- * If the component is open, it calls 'handleDropdownMenuOpen' to close it.
+ * If the component is open, it calls 'toggleDropdown' to close it.
  *
  * @returns {void}
  */
@@ -39,7 +39,7 @@ export function onInputBlur() {
 	}
 
 	if (this.open) {
-		handleDropdownMenuOpen.call(this);
+		toggleDropdown.call(this);
 	}
 }
 

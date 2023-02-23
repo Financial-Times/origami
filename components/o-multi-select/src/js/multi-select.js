@@ -1,6 +1,6 @@
 import {
 	onInputKeyDown,
-	handleDropdownMenuOpen,
+	toggleDropdown,
 	onOptionMouseDown,
 	onInputBlur,
 } from './utils.js';
@@ -64,13 +64,11 @@ class MultiSelect {
 	 * @private
 	 */
 	_bindHelperFunctionsAndEventListeners() {
-		this.inputEl.addEventListener('click', () => {
-			this.handleListBoxOpen();
-		});
+		this.inputEl.addEventListener('click', toggleDropdown.bind(this));
 		this.inputEl.addEventListener('keydown', onInputKeyDown.bind(this));
 		this.inputEl.addEventListener('blur', onInputBlur.bind(this));
+		this.listboxEl.addEventListener('blur', onInputBlur.bind(this));
 		this.handleOptionSelect = handleOptionSelect.bind(this);
-		this.handleListBoxOpen = handleDropdownMenuOpen.bind(this);
 		this._updateState = updateState.bind(this);
 	}
 
