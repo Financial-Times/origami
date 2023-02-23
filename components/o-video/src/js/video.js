@@ -165,6 +165,7 @@ const defaultOpts = {
 	showGuidance: true,
 	data: null,
 	autoplayWhenInViewport: false,
+	autoplayThreshold: 0.6, 
 	viewPort: null
 };
 
@@ -244,7 +245,7 @@ class Video {
 		if (this.opts.autoplayWhenInViewport) {
 			
 			if(this.videoEl) {
-				startObserving(this.opts.viewPort, this.videoEl, 0.5, this.play);
+				startObserving(this.opts.viewPort, this.videoEl, this.opts.autoplayThreshold);
 			}
 		}
 	}

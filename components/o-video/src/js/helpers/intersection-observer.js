@@ -2,7 +2,7 @@ const visibleVideos = new Set();
 
 let videoObserver;
 
-export default function startObserving(viewPort, target, threshold = 0.5, playAction) {
+export default function startObserving(viewPort, target, threshold = 0.5) {
   const observedArea = viewPort // || document.querySelector("main");
   
   const observerOptions = {
