@@ -42,10 +42,10 @@ function intersectionCallback(observedVideoElement) {
             // Track the ratios of those showing by adding property to the element
             videoPlayer.prevRatio = videoBox.intersectionRatio;
 
-            const shouldItPlay = compareRatio(videoPlayer);
+            // const shouldItPlay = compareRatio(videoPlayer);
 
             // Stop playing any other visible videos with a lower intersection ratio than the current video
-            visibleVideos.forEach(shouldItPlay)
+            // visibleVideos.forEach(shouldItPlay)
             
         } else {
             videoPlayer.pause();
