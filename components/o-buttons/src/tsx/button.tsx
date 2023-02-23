@@ -19,7 +19,8 @@ export interface ButtonProps {
 		| "search"
 		| "refresh"
 		| "cross"
-		| string;
+		| ""
+		| (string & Record<never, never>);
 	iconOnly?: boolean;
 	attributes?: {
 		[attribute: string]: string | boolean;

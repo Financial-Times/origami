@@ -100,7 +100,7 @@ GhostButton.args = {
 export const ButtonWithIcon = ButtonStory.bind({});
 ButtonWithIcon.args = {
 	label: "Upload",
-	icon: "",
+	icon: "upload",
 };
 
 export const IconOnlyButton = ButtonStory.bind({});
