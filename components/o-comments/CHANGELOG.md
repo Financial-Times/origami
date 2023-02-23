@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.2.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.1.0...o-comments-v10.2.0) (2023-02-23)
+
+
+### Features
+
+* add scrollContainer option on o-comments ([e291596](https://www.github.com/Financial-Times/origami/commit/e291596ae7b1e325c18850eb1cc77adb281a13e1))
+
 ## [10.1.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.0.2...o-comments-v10.1.0) (2023-02-20)
 
 
