@@ -3,7 +3,7 @@ import {withDesign} from 'storybook-addon-designs';
 import './table.scss';
 import {
 	NumericTableData,
-	NumericTableHeading,
+	NumericTableHeading, ResponsiveOverflowTable,
 	Table,
 	TableBody, TableCaption,
 	TableData, TableFoot, TableFootnote,
@@ -11,6 +11,8 @@ import {
 	TableHeading,
 	TableRow
 } from "../src/tsx/table";
+import javascript from '../main';
+import {useEffect} from "react";
 
 export default {
 	title: 'Components/o-table',
@@ -38,6 +40,13 @@ export const BasicTableWithCaptionAndFootnote = (args) => {
 			</TableRow>
 		</TableFoot>
 	</Table>
+}
+
+export const TableWithResponsiveOverflow = (args) => {
+	useEffect(()=> {
+		javascript.init();
+	})
+	return <ResponsiveOverflowTable {...args}>{baseTableContents}</ResponsiveOverflowTable>
 }
 
 
