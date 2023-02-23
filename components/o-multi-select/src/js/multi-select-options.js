@@ -27,7 +27,7 @@ function removeOption(optionEl, option, index) {
 	optionEl.classList.remove('o-multi-select-option__selected');
 	optionEl.setAttribute('aria-selected', 'false');
 	this.numberOfSelectedOptions--;
-	const button = this.selectedOptions.querySelector(`#${option + index}`);
+	const button = this.selectedOptions.querySelector(`#${option}-${index}`);
 	button.parentElement.remove();
 	this._updateState();
 }
@@ -68,7 +68,7 @@ function addOption(optionEl, option, index) {
 function createOptionButton(option, index) {
 	const li = document.createElement('li');
 	const button = document.createElement('button');
-	button.id = option + index;
+	button.id = `${option}-${index}`;
 	button.setAttribute('aria-label', ` remove ${option} `);
 	button.className = 'o-multi-select__selected-options-button';
 	button.type = 'button';

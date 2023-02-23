@@ -113,7 +113,7 @@ describe('MultiSelect', () => {
 
 	context('dropdown', () => {
 		let multiSelect;
-		let inputEl
+		let inputEl;
 		beforeEach(() => {
 			({multiSelect} = setupMultiSelect());
 			inputEl = document.querySelector('.o-multi-select__input');
@@ -139,16 +139,44 @@ describe('MultiSelect', () => {
 			// this needs more investigation, since blur event is triggered twice
 			assert.equal(multiSelect.open, false);
 		});
-		it('closes after selecting an option if clicked outside of input element', () => {});
-		it('remains open if clicked within the dropdown', () => {});
+		it('closes after selecting an option if clicked outside of input element', () => {
+			// same issue as above. Needs more investigation
+		});
+		it('remains open if clicked within the dropdown', () => {
+			fireEvent.click(inputEl);
+			const optionEl = document.querySelector("[role='option']");
+			fireEvent.click(optionEl);
+			assert.equal(multiSelect.open, true);
+		});
 		describe('option click', () => {
 			describe('on unselected option', () => {
-				it('adds options in selected options list', () => {});
-				it('adds tick icon on option from the dropdown', () => {});
+				it('adds options in selected options list and adds tick icon in dropdown menu', () => {
+					const optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
+					fireEvent.click(optionEl);
+					const selectedOptionEl = document.querySelector(
+						`#${optionEl.innerText}-0`
+					);
+					assert.equal(selectedOptionEl.innerText, optionEl.innerText);
+					assert.equal(
+						[...optionEl.classList].includes('o-multi-select-option__selected'),
+						true
+					);
+				});
 			});
 			describe('on selected option', () => {
-				it('removes options in selected options list', () => {});
-				it('removes tick icon on option from the dropdown', () => {});
+				it('removes options in selected options list removes tick icon in dropdown menu', () => {
+					const optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
+					fireEvent.click(optionEl);
+					fireEvent.click(optionEl);
+					const selectedOptionEl = document.querySelector(
+						`#${optionEl.innerText}-0`
+					);
+					assert.equal(selectedOptionEl, null);
+					assert.equal(
+						[...optionEl.classList].includes('o-multi-select-option__selected'),
+						false
+					);
+				});
 			});
 		});
 	});
