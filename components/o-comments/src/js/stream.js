@@ -78,6 +78,7 @@ class Stream {
 				if(this.options.addClass){
 					containerClassName.push(this.options.addClass);
 				}
+				const customScrollContainer = document.querySelector(this.options.scrollContainer);
 				scriptElement.onload = () => {
 					this.embed = Coral.createStreamEmbed(
 						{
@@ -88,6 +89,7 @@ class Stream {
 							autoRender: true,
 							bodyClassName: 'o-comments-coral-talk-container',
 							containerClassName,
+							customScrollContainer,
 							events: (events) => {
 								events.onAny((name, data) => {
 									this.publishEvent({name, data});
