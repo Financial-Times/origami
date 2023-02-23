@@ -58,10 +58,52 @@ describe('MultiSelect', () => {
 	});
 
 	context('constructor', () => {
-		it('Hides core select element', () => {});
-		it('Creates a new select element from data attributes', () => {});
-		it('Creates a new select element from options provided in init method', () => {});
-		it('Does not construct if no options are provided', () => {});
+		let multiSelect;
+		const options = ['Apple', 'Banana'];
+		beforeEach(() => {
+			fixtures.htmlCode();
+			const targetEl = document.querySelector(
+				'[data-o-component="o-multi-select"]'
+			);
+			multiSelect = new MultiSelect(targetEl, {
+				multiSelectOptions: options,
+			});
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+
+		it('hides core select element and enables enhanced version', () => {
+			const coreSelectEl = document.querySelector('.o-multi-select--core');
+			const enhancedSelectEl = document.querySelector(
+				'.o-multi-select--enhanced'
+			);
+			assert.equal(coreSelectEl.style.display, 'none');
+			assert.equal(enhancedSelectEl.style.display, 'block');
+		});
+
+		it('creates a dropdown options list with correct options and correct attributes', () => {
+			const elements = document.querySelectorAll("[role='option']");
+			assert.equal(elements.length, options.length);
+
+			Array.from(elements).forEach((element, i) => {
+				assert.equal(element.id, `${multiSelect.idBase}-${i}`);
+				assert.equal(element.getAttribute('aria-selected'), 'false');
+				assert.equal(
+					[...element.classList].includes('o-multi-select-option'),
+					true
+				);
+				assert.equal(element.innerText, options[i]);
+				const childSpan = element.querySelector('span');
+				assert.equal(
+					[...childSpan.classList].includes(
+						'o-multi-select-option-tick'
+					),
+					true
+				);
+			});
+		});
 	});
 
 	context('dropdown', () => {

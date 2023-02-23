@@ -97,7 +97,7 @@ export function createOption(idBase, option, index) {
 	optionEl.setAttribute('aria-selected', 'false');
 	optionEl.innerText = option;
 	const tickSpan = document.createElement('span');
-	tickSpan.className = 'o-multi-select-option__selected-tick';
+	tickSpan.className = 'o-multi-select-option-tick';
 	optionEl.appendChild(tickSpan);
 
 	return optionEl;

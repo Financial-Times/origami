@@ -1,0 +1,142 @@
+$system-code: "origami-build-tools";$o-brand: internal;@import '@financial-times/o-brand/main';
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-forms/main';
+
+@import './src/scss/variables';
+@import 'src/scss/brand';
+@import 'src/scss/base';
+
+/// Output all oMultiSelect features
+/// @param {Map} $opts [()] - A map of options to configure the output
+/// @access public
+/// @example scss
+///		@include oMultiSelect($opts: (
+///			// your opts here
+///		))
+@mixin oMultiSelect($opts: ()) {
+	@include oForms(
+		$opts: (
+			'elements': (
+				'text',
+				'select',
+			),
+		)
+	);
+
+	.o-multi-select--enhanced,
+	.o-multi-select__dropdown-menu {
+		display: none;
+	}
+	.o-multi-select--enhanced {
+		position: relative;
+	}
+
+	.o-multi-select__visually-hidden {
+		@include oNormaliseVisuallyHidden;
+	}
+
+	.o-multi-select__selected-options {
+		display: none;
+		list-style-type: none;
+		padding: $_o-multi-select-padding;
+		margin: 0;
+		position: absolute;
+		bottom: calc(
+			(40px - $_o-multi-select-button-height) / 2
+		); // 40px is hight of the input element
+		z-index: 1;
+
+		li {
+			display: inline-block;
+			margin-bottom: 0;
+			.o-multi-select__selected-options-button {
+				@include _oMultiSelectButton;
+			}
+		}
+	}
+
+	.o-multi-select__input-wrapper {
+		@include oTypographySans(0);
+		position: relative;
+		background-color: oColorsByName('white');
+		border: $_o-multi-select-border;
+
+		.o-multi-select__input {
+			display: flex;
+			border: none;
+			height: 40px;
+			padding: $_o-multi-select-padding;
+			background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-service&format=svg);
+			background-repeat: no-repeat;
+			background-size: $_o-multi-select-icon-size $_o-multi-select-icon-size;
+			cursor: pointer;
+			background-position: right 8px center;
+			align-items: center;
+
+			&:focus {
+				@include oNormaliseFocusUnsetContent();
+			}
+
+			@supports selector(:focus-visible) {
+				&:focus-visible {
+					@include oNormaliseFocusContent();
+				}
+			}
+		}
+	}
+	.o-multi-select__dropdown-menu {
+		@include oNormaliseBoxSizing();
+		@include oTypographySans(0);
+		width: 100%;
+		background-color: oColorsByName('white');
+		padding: $_o-multi-select-spacing-two;
+		border: $_o-multi-select-border;
+		position: absolute;
+		left: 0;
+
+		[role='option'] {
+			color: oColorsByName('black-80');
+			cursor: pointer;
+			&:hover {
+				background-color: oColorsMix(black, white, 10);
+				color: initial;
+			}
+		}
+		.o-multi-select-option {
+			padding: 8px 4px;
+			position: relative;
+			&:hover {
+				background-color: oColorsMix(black, white, 20);
+				color: initial;
+			}
+		}
+
+		.o-multi-select-option__selected {
+			color: initial;
+			span {
+				@include oIconsContent(
+					$icon-name: 'tick',
+					$color: _oMultiSelectGet('button-text-color'),
+					$size: 32,
+					$include-base-styles: false
+				);
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				vertical-align: middle;
+			}
+		}
+		.o-multi-select-option__current {
+			background-color: oColorsMix(black, white, 20);
+			color: initial;
+		}
+	}
+}
+@if not mixin-exists('oMultiSelect') {
+    @error 'OBT_NO_PRIMARY-MIXIN-oMultiSelect'
+}
+@include oMultiSelect()
