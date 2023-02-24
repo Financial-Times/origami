@@ -779,7 +779,7 @@ The JavaScript for this component is primarily responsible for individual input 
 
 If you would like to use an input without a form element, you can still apply validation to it with the `o-forms` [individual `Input` API](#individual-inputs).
 
-### Form Instance
+### Initialise
 
 The main `o-forms` JavaScript has been written to identify and run on a `<form>` element. You'll need to set up your form and include the data attribute `data-o-component="o-forms"`:
 ```html
@@ -793,6 +793,7 @@ By default, `o-forms` is initialised with validation logic. It will generate an 
 import oForms from '@financial-times/o-forms';
 oForms.init()
 ```
+### Customise behaviour
 
 The default behaviour of `o-forms` can be changed by configuring the options object. For example, set `preventSubmit: true` to prevent the user from submitting the form. You may then run your own logic before submitting the form by listening for the `oForms.submit` event.
 ```js
