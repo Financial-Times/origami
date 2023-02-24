@@ -20,7 +20,7 @@ export interface ButtonProps {
 		| "refresh"
 		| "cross"
 		| ""
-		| (string & Record<never, never>);
+		| (string & Record<never, never>); // Support IDE autocomplete whilst allowing any string https://github.com/microsoft/TypeScript/issues/29729#issuecomment-1331857805
 	iconOnly?: boolean;
 	attributes?: {
 		[attribute: string]: string | boolean;
