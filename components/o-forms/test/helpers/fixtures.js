@@ -1,4 +1,23 @@
-export default `
+const validForm = `
+<form action="" data-o-component="o-forms">
+
+	<span class="o-forms-field o-forms-field--optional">
+		<span class="o-forms-title">
+			<label for="optional" class="o-forms-title__main">Optional text input</label>
+		</span>
+
+		<span class="o-forms-input o-forms-input--text">
+			<input id="optional" type="text" name="optional" value="">
+		</span>
+	</span>
+
+	<input id="hidden-demo" name="hidden-demo" type="hidden" value="123">
+
+	<input class="o-buttons o-buttons--secondary" type="submit">
+</form>
+`;
+
+const invalidForm = `
 <form action="" data-o-component="o-forms">
 
 	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
@@ -66,3 +85,9 @@ export default `
 	<input class="o-buttons o-buttons--secondary" type="submit">
 </form>
 `;
+
+
+export { validForm, invalidForm};
+
+
+export default invalidForm;
