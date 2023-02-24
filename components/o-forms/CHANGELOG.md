@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.6.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.5.0...o-forms-v9.6.0) (2023-02-24)
+
+
+### Features
+
+* o-forms, allow submit events to be intercepted ([#1025](https://www.github.com/Financial-Times/origami/issues/1025)) ([3e4e93a](https://www.github.com/Financial-Times/origami/commit/3e4e93a4425f262685e589249c7f66a6a1d1cbd2))
+
 ## [9.5.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.4.9...o-forms-v9.5.0) (2023-01-24)
 
 
