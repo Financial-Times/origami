@@ -2,17 +2,19 @@ import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import './table.scss';
 import {
-	NumericTableData,
-	NumericTableHeading, ResponsiveOverflowTable,
-	Table,
-	TableBody, TableCaption,
-	TableData, TableFoot, TableFootnote,
-	TableHead,
-	TableHeading,
-	TableRow
+	ResponsiveOverflowTable,
+	Table
 } from "../src/tsx/table";
 import javascript from '../main';
 import {useEffect} from "react";
+import {
+	NumericTableData,
+	NumericTableHeading, TableBody,
+	TableCaption,
+	TableData, TableFoot,
+	TableFootnote, TableHead,
+	TableHeading, TableRow
+} from "../src/tsx/components";
 
 export default {
 	title: 'Components/o-table',
