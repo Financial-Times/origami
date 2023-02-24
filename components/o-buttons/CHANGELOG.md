@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.7.5](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.7.4...o-buttons-v7.7.5) (2023-02-24)
+
+
+### Bug Fixes
+
+* o-buttons, update the TSX template to support for any o-icons button icon  ([#1024](https://www.github.com/Financial-Times/origami/issues/1024)) ([a2be9f0](https://www.github.com/Financial-Times/origami/commit/a2be9f057ab8991a1298b7d7df8268ba351409b5))
+
 ### [7.7.4](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.7.3...o-buttons-v7.7.4) (2023-01-20)
 
 
