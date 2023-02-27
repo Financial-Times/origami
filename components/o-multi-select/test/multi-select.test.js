@@ -232,13 +232,34 @@ describe('MultiSelect', () => {
 	});
 
 	describe('selected options list', () => {
+		let multiSelect;
+		let optionEl;
+		let selectedOptionEl;
+		beforeEach(() => {
+			({multiSelect} = setupMultiSelect());
+			optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
+			fireEvent.click(optionEl);
+			selectedOptionEl = document.querySelector(`#${optionEl.innerText}-0`);
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
 		describe('clicking on the selected option or remove icon', () => {
-			it('removes options in selected options list', () => {});
-			it('removes tick icon on option from the dropdown', () => {});
+			it('removes options in selected options list', () => {
+				const selectedOptions = document.querySelector(
+					'.o-multi-select__selected-options'
+				);
+				fireEvent.click(selectedOptionEl);
+				assert.equal(selectedOptions.children.length, 0);
+			});
+			it('unselects the option from the dropdown', () => {
+				fireEvent.click(selectedOptionEl);
+				assert.equal(optionEl.classList.contains('o-multi-select-option__selected'), false);
+			});
 		});
 	});
 
-	describe('markup has correct aria-labels', () => {});
 
 	context('keyboard navigation', () => {
 		describe('if dropdown is closed, pressing', () => {
