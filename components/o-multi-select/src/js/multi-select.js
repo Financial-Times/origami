@@ -3,6 +3,7 @@ import {
 	toggleDropdown,
 	onOptionMouseDown,
 	onInputBlur,
+	updateCurrentElement
 } from './utils.js';
 import {updateState} from './state.js';
 import {handleOptionSelect, createOption} from './multi-select-options.js';
@@ -69,6 +70,7 @@ class MultiSelect {
 		this.inputEl.addEventListener('blur', onInputBlur.bind(this));
 		this.listboxEl.addEventListener('blur', onInputBlur.bind(this));
 		this.handleOptionSelect = handleOptionSelect.bind(this);
+		this.updateCurrentElement = updateCurrentElement.bind(this);
 		this._updateState = updateState.bind(this);
 	}
 

@@ -264,13 +264,56 @@ describe('MultiSelect', () => {
 	});
 
 	context('keyboard navigation', () => {
-		describe('if dropdown is closed, pressing', () => {
-			it('Enter opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {});
-			it('Space opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {});
-			it('Up Arrow opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {});
-			it('Down Arrow opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {});
+		let multiSelect;
+		let inputEl;
+
+		beforeEach(() => {
+			({multiSelect} = setupMultiSelect());
+			inputEl = document.querySelector('.o-multi-select__input');
 		});
-		describe('if dropdown is open hitting', () => {
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+		describe('when dropdown is closed, pressing', () => {
+			function testKeydown(key) {
+				fireEvent.keyDown(inputEl, {key});
+				assert.equal(multiSelect.open, true);
+				const currentOption = document.querySelector(
+					'.o-multi-select-option__current'
+				);
+				assert.equal(
+					currentOption.id,
+					inputEl.getAttribute('aria-activedescendant')
+				);
+				// move to next item and close dropdown
+				fireEvent.keyDown(inputEl, {key: 'ArrowDown'});
+				fireEvent.keyDown(inputEl, {key: 'Escape'});
+
+				// reopen dropdown and check if focus is on  the last active option
+				fireEvent.keyDown(inputEl, {key});
+				const lastActiveOption = document.querySelector(
+					'.o-multi-select-option__current'
+				);
+				assert.equal(
+					lastActiveOption.id,
+					inputEl.getAttribute('aria-activedescendant')
+				);
+			}
+			it('Enter opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {
+				testKeydown('Enter');
+			});
+			it('Space opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {
+				testKeydown(' ');
+			});
+			it('Up Arrow opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {
+				testKeydown('ArrowUp');
+			});
+			it('Down Arrow opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {
+				testKeydown('ArrowDown');
+			});
+		});
+		describe('when dropdown is open hitting', () => {
 			describe('enter', () => {
 				it('selects the focused option', () => {});
 				it('prevents the default action', () => {});

@@ -68,8 +68,8 @@ export function onInputKeyDown(event) {
 			key === 'Enter' ||
 			key === ' '
 		) {
-			updateCurrentElement.call(this);
-			return this.handleListBoxOpen();
+			this.updateCurrentElement();
+			return toggleDropdown.call(this);
 		}
 	}
 
@@ -100,14 +100,14 @@ export function onInputKeyDown(event) {
 	}
 
 	if (key === 'Escape' && this.open) {
-		this.handleListBoxOpen();
+		toggleDropdown.call(this);
 	} else if (key === 'Tab' && this.open) {
-		this.handleListBoxOpen();
+		toggleDropdown.call(this);
 	} else if (key === 'Enter' || key === ' ') {
 		event.preventDefault();
 		addOptionToList.call(this);
 	}
-	updateCurrentElement.call(this);
+	this.updateCurrentElement();
 }
 
 /**
@@ -128,7 +128,7 @@ function addOptionToList() {
  *
  * @returns {void}
  */
-function updateCurrentElement() {
+export function updateCurrentElement() {
 	this.inputEl.setAttribute(
 		'aria-activedescendant',
 		`${this.idBase}-${this.activeIndex}`

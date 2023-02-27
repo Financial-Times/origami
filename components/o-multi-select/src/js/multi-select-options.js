@@ -12,6 +12,8 @@ export function handleOptionSelect(optionEl, option, index) {
 	} else {
 		addOption.call(this, optionEl, option, index);
 	}
+	this.activeIndex = index;
+	this.updateCurrentElement();
 }
 
 /**
