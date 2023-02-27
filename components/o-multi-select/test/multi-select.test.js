@@ -255,11 +255,13 @@ describe('MultiSelect', () => {
 			});
 			it('unselects the option from the dropdown', () => {
 				fireEvent.click(selectedOptionEl);
-				assert.equal(optionEl.classList.contains('o-multi-select-option__selected'), false);
+				assert.equal(
+					optionEl.classList.contains('o-multi-select-option__selected'),
+					false
+				);
 			});
 		});
 	});
-
 
 	context('keyboard navigation', () => {
 		describe('if dropdown is closed, pressing', () => {
