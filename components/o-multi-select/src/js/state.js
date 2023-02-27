@@ -13,16 +13,9 @@ export function updateState() {
 		this.inputText.innerText = '';
 		this.selectedOptions.style.display = 'block';
 		const inputElWidth = this.inputEl.offsetWidth;
-		const selectedOptionsComputedStyles = getComputedStyle(
+		const sumOfChildrenWidth = calculateSumOfChildrenWidth(
 			this.selectedOptions
 		);
-		const {paddingLeft, paddingRight} = selectedOptionsComputedStyles;
-		const sumOfChildrenWidthInitialValue =
-			parseInt(paddingLeft, 10) + parseInt(paddingRight, 10);
-		const sumOfChildrenWidth = [...this.selectedOptions.children]
-			.map(el => el.offsetWidth)
-			.reduce((prev, curr) => prev + curr, sumOfChildrenWidthInitialValue);
-
 		if (sumOfChildrenWidth > inputElWidth * 0.9) {
 			this.selectedOptions.classList.add('o-multi-select__visually-hidden');
 			this.inputText.innerText =
@@ -38,4 +31,15 @@ export function updateState() {
 			this.inputText.innerText = 'Click to select options';
 		}
 	}
+}
+
+function calculateSumOfChildrenWidth(parentElement) {
+	const selectedOptionsComputedStyles = getComputedStyle(parentElement);
+	const {paddingLeft, paddingRight} = selectedOptionsComputedStyles;
+	const sumOfChildrenWidthInitialValue =
+		parseInt(paddingLeft, 10) + parseInt(paddingRight, 10);
+	const sumOfChildrenWidth = [...parentElement.children]
+		.map(el => el.offsetWidth)
+		.reduce((prev, curr) => prev + curr, sumOfChildrenWidthInitialValue);
+	return sumOfChildrenWidth;
 }

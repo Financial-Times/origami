@@ -5,15 +5,14 @@ import * as fixtures from './helpers/fixtures.js';
 import MultiSelect from '../main.js';
 import {fireEvent} from '@testing-library/dom';
 
-function setupMultiSelect() {
-	let multiSelect;
-	const options = ['Apple', 'Banana'];
+function setupMultiSelect(multiSelectOptions) {
+	const options = multiSelectOptions || ['Apple', 'Banana'];
 
 	fixtures.htmlCode();
 	const targetEl = document.querySelector(
 		'[data-o-component="o-multi-select"]'
 	);
-	multiSelect = new MultiSelect(targetEl, {
+	const multiSelect = new MultiSelect(targetEl, {
 		multiSelectOptions: options,
 	});
 	return {multiSelect, options};
@@ -181,20 +180,59 @@ describe('MultiSelect', () => {
 		});
 	});
 
-	context('state updates', () => {
-		describe('and nothing is selected', () => {
-			it('and dropdown closed, the input inner text is "Click to select options"', () => {});
-			it('and dropdown open, the input inner text is "Select options below" ', () => {});
+	context('state', () => {
+		let multiSelect;
+		let inputEl;
+		beforeEach(() => {
+			({multiSelect} = setupMultiSelect());
+			inputEl = document.querySelector('.o-multi-select__input');
 		});
-		describe('and something is selected', () => {
-			it('input inner text is empty', () => {});
-			it('and selected options width is less than 90% of input element width, the selected options are visible', () => {});
-			it(`and selected options width is more than 90% of input element width, the selected options are hidden and the input inner text is "${'numOpTions'} options selected"`, () => {});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+		describe('when nothing is selected', () => {
+			it('and dropdown closed, the input inner text is "Click to select options"', () => {
+				assert.equal(inputEl.innerText, 'Click to select options');
+			});
+			it('and dropdown open, the input inner text is "Select options below" ', () => {
+				fireEvent.click(inputEl);
+				assert.equal(inputEl.innerText, 'Select options below');
+			});
+		});
+		describe('when something is selected', () => {
+			it('input inner text is empty', () => {
+				const optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
+				fireEvent.click(optionEl);
+				assert.equal(inputEl.innerText, '');
+			});
+			it(`and if selected options width is more than 90% of input element width, the selected options are hidden and the input inner text is "X options selected"`, () => {
+				const multiSelectOptions = [
+					'apple',
+					'banana',
+					'orange',
+					'pineapple',
+					'mango',
+					'grapes',
+					'watermelon',
+					'papaya',
+					'guava',
+					'kiwi',
+				];
+				multiSelect = setupMultiSelect(multiSelectOptions);
+				const optionsToSelect = document.querySelectorAll('[role="option"]');
+				inputEl = document.querySelector('.o-multi-select__input');
+				optionsToSelect.forEach(option => fireEvent.click(option));
+				assert.equal(
+					inputEl.innerText,
+					`${multiSelectOptions.length} options selected`
+				);
+			});
 		});
 	});
 
 	describe('selected options list', () => {
-		describe('clicking on the option or remove icon', () => {
+		describe('clicking on the selected option or remove icon', () => {
 			it('removes options in selected options list', () => {});
 			it('removes tick icon on option from the dropdown', () => {});
 		});
@@ -203,7 +241,7 @@ describe('MultiSelect', () => {
 	describe('markup has correct aria-labels', () => {});
 
 	context('keyboard navigation', () => {
-		describe('if dropdown is closed hitting', () => {
+		describe('if dropdown is closed, pressing', () => {
 			it('Enter opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {});
 			it('Space opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {});
 			it('Up Arrow opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {});
