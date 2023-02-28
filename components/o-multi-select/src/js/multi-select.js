@@ -1,4 +1,8 @@
-import {onComboBoxKeyDown, toggleDropdown, updateCurrentElement} from './utils.js';
+import {
+	onComboBoxKeyDown,
+	toggleDropdown,
+	updateCurrentElement,
+} from './utils.js';
 import {updateState} from './state.js';
 import {handleOptionSelect, createOption} from './multi-select-options.js';
 
@@ -68,14 +72,14 @@ class MultiSelect {
 		this.comboEl.addEventListener('blur', () => {
 			requestAnimationFrame(() => {
 				if (!this.listboxEl.contains(document.activeElement)) {
-					this.toggleDropdown();
+					this.toggleDropdown(false);
 				}
 			});
 		});
 		this.listboxEl.addEventListener('blur', () => {
 			requestAnimationFrame(() => {
 				if (this.comboEl !== document.activeElement) {
-					this.toggleDropdown();
+					this.toggleDropdown(false);
 				}
 			});
 		});

@@ -90,7 +90,7 @@ function htmlCode() {
 	insert(html);
 }
 
-function htmlCodeWithOptionsDataATtributes() {
+function htmlCodeWithOptionsDataAttributes() {
 	const html = `<div class="o-multi-select" data-o-component="o-multi-select" data-o-multi-select-options="apple, banana">
 	${coreHtml}
 	${enhancedHtml}
@@ -99,4 +99,4 @@ function htmlCodeWithOptionsDataATtributes() {
 	insert(html);
 }
 
-export {htmlCode, htmlCodeWithOptionsDataATtributes, reset};
+export {htmlCode, htmlCodeWithOptionsDataAttributes, reset};

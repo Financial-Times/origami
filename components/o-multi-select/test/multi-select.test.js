@@ -69,7 +69,7 @@ describe('MultiSelect', () => {
 		});
 
 		it('when select options are passed as comma separated list in data attribute', () => {
-			fixtures.htmlCodeWithOptionsDataATtributes();
+			fixtures.htmlCodeWithOptionsDataAttributes();
 			const boilerplate = MultiSelect.init();
 			assert.instanceOf(boilerplate[0], MultiSelect);
 		});
@@ -321,7 +321,7 @@ describe('MultiSelect', () => {
 				testKeydown('ArrowDown');
 			});
 		});
-		describe('when dropdown is open hitting', () => {
+		describe('when dropdown is open pressing', () => {
 			function selectFirstOption(key) {
 				fireEvent.click(comboEl);
 				fireEvent.keyDown(comboEl, {key});
@@ -355,10 +355,16 @@ describe('MultiSelect', () => {
 					checkAddedSelectedElement(' ');
 				});
 			});
-			describe('tab', () => {
-				it('closes the dropdown', () => {});
-				it('moves focus to the next focusable element', () => {});
+
+			it('tab closes the dropdown and moves focus to the next focusable element', async () => {
+				// const inputEl = document.createElement('input');
+				// document.body.appendChild(inputEl);
+				// fireEvent.keyDown(comboEl, {key: 'Enter'});
+				// fireEvent.keyDown(comboEl, {key: 'Tab'});
+				// await sleep(100);
+				// assert.equal(multiSelect.open, false);
 			});
+
 			describe('esc', () => {
 				it('closes the dropdown', () => {});
 				it('returns focus to the multi select input element', () => {});
