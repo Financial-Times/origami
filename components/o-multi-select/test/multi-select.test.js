@@ -112,10 +112,10 @@ describe('MultiSelect', () => {
 
 	context('dropdown', () => {
 		let multiSelect;
-		let inputEl;
+		let comboEl;
 		beforeEach(() => {
 			({multiSelect} = setupMultiSelect());
-			inputEl = document.querySelector('.o-multi-select__input');
+			comboEl = document.querySelector('.o-multi-select__input');
 		});
 
 		afterEach(() => {
@@ -123,12 +123,12 @@ describe('MultiSelect', () => {
 		});
 
 		it('opens if clicked on input element and it was closed', () => {
-			fireEvent.click(inputEl);
+			fireEvent.click(comboEl);
 			assert.equal(multiSelect.open, true);
 		});
 		it('closes if clicked on input element and it was open ', () => {
-			fireEvent.click(inputEl);
-			fireEvent.click(inputEl);
+			fireEvent.click(comboEl);
+			fireEvent.click(comboEl);
 			assert.equal(multiSelect.open, false);
 		});
 		it('closes if clicked outside of input element', () => {
@@ -142,7 +142,7 @@ describe('MultiSelect', () => {
 			// same issue as above. Needs more investigation
 		});
 		it('remains open if clicked within the dropdown', () => {
-			fireEvent.click(inputEl);
+			fireEvent.click(comboEl);
 			const optionEl = document.querySelector("[role='option']");
 			fireEvent.click(optionEl);
 			assert.equal(multiSelect.open, true);
@@ -182,10 +182,10 @@ describe('MultiSelect', () => {
 
 	context('state', () => {
 		let multiSelect;
-		let inputEl;
+		let comboEl;
 		beforeEach(() => {
 			({multiSelect} = setupMultiSelect());
-			inputEl = document.querySelector('.o-multi-select__input');
+			comboEl = document.querySelector('.o-multi-select__input');
 		});
 
 		afterEach(() => {
@@ -193,18 +193,18 @@ describe('MultiSelect', () => {
 		});
 		describe('when nothing is selected', () => {
 			it('and dropdown closed, the input inner text is "Click to select options"', () => {
-				assert.equal(inputEl.innerText, 'Click to select options');
+				assert.equal(comboEl.innerText, 'Click to select options');
 			});
 			it('and dropdown open, the input inner text is "Select options below" ', () => {
-				fireEvent.click(inputEl);
-				assert.equal(inputEl.innerText, 'Select options below');
+				fireEvent.click(comboEl);
+				assert.equal(comboEl.innerText, 'Select options below');
 			});
 		});
 		describe('when something is selected', () => {
 			it('input inner text is empty', () => {
 				const optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
 				fireEvent.click(optionEl);
-				assert.equal(inputEl.innerText, '');
+				assert.equal(comboEl.innerText, '');
 			});
 			it(`and if selected options width is more than 90% of input element width, the selected options are hidden and the input inner text is "X options selected"`, () => {
 				const multiSelectOptions = [
@@ -221,10 +221,10 @@ describe('MultiSelect', () => {
 				];
 				multiSelect = setupMultiSelect(multiSelectOptions);
 				const optionsToSelect = document.querySelectorAll('[role="option"]');
-				inputEl = document.querySelector('.o-multi-select__input');
+				comboEl = document.querySelector('.o-multi-select__input');
 				optionsToSelect.forEach(option => fireEvent.click(option));
 				assert.equal(
-					inputEl.innerText,
+					comboEl.innerText,
 					`${multiSelectOptions.length} options selected`
 				);
 			});
@@ -265,11 +265,11 @@ describe('MultiSelect', () => {
 
 	context('keyboard navigation', () => {
 		let multiSelect;
-		let inputEl;
+		let comboEl;
 
 		beforeEach(() => {
 			({multiSelect} = setupMultiSelect());
-			inputEl = document.querySelector('.o-multi-select__input');
+			comboEl = document.querySelector('.o-multi-select__input');
 		});
 
 		afterEach(() => {
@@ -277,27 +277,27 @@ describe('MultiSelect', () => {
 		});
 		describe('when dropdown is closed, pressing', () => {
 			function testKeydown(key) {
-				fireEvent.keyDown(inputEl, {key});
+				fireEvent.keyDown(comboEl, {key});
 				assert.equal(multiSelect.open, true);
 				const currentOption = document.querySelector(
 					'.o-multi-select-option__current'
 				);
 				assert.equal(
 					currentOption.id,
-					inputEl.getAttribute('aria-activedescendant')
+					comboEl.getAttribute('aria-activedescendant')
 				);
 				// move to next item and close dropdown
-				fireEvent.keyDown(inputEl, {key: 'ArrowDown'});
-				fireEvent.keyDown(inputEl, {key: 'Escape'});
+				fireEvent.keyDown(comboEl, {key: 'ArrowDown'});
+				fireEvent.keyDown(comboEl, {key: 'Escape'});
 
 				// reopen dropdown and check if focus is on  the last active option
-				fireEvent.keyDown(inputEl, {key});
+				fireEvent.keyDown(comboEl, {key});
 				const lastActiveOption = document.querySelector(
 					'.o-multi-select-option__current'
 				);
 				assert.equal(
 					lastActiveOption.id,
-					inputEl.getAttribute('aria-activedescendant')
+					comboEl.getAttribute('aria-activedescendant')
 				);
 			}
 			it('Enter opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {
