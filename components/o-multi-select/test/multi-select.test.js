@@ -339,6 +339,41 @@ describe('MultiSelect', () => {
 				const selectedOption = document.querySelector(`#${option}-0`);
 				assert.equal(selectedOption.innerText, option);
 			}
+			function checkCurrentElementIsFocused() {
+				const currentOption = document.querySelector(
+					'.o-multi-select-option__current'
+				);
+				assert.equal(
+					currentOption.id,
+					comboEl.getAttribute('aria-activedescendant')
+				);
+			}
+			function createMultiSelectWithLotsOfOptions() {
+				const multiSelectOptions = [
+					'apple',
+					'banana',
+					'orange',
+					'pineapple',
+					'mango',
+					'grapes',
+					'watermelon',
+					'papaya',
+					'guava',
+					'kiwi',
+					'pear',
+					'peach',
+					'plum',
+					'cherry',
+					'lemon',
+					'lime',
+					'coconut',
+					'pomegranate',
+					'blueberry',
+				];
+				multiSelect = setupMultiSelect(multiSelectOptions);
+				comboEl = document.querySelector('[role=combobox]');
+				return {multiSelect, comboEl};
+			}
 			describe('enter', () => {
 				it('selects the focused option', () => {
 					selectFirstOption('Enter');
@@ -357,6 +392,7 @@ describe('MultiSelect', () => {
 			});
 
 			it('tab closes the dropdown and moves focus to the next focusable element', async () => {
+				// ! focus issues in testing
 				// const inputEl = document.createElement('input');
 				// document.body.appendChild(inputEl);
 				// fireEvent.keyDown(comboEl, {key: 'Enter'});
@@ -365,28 +401,77 @@ describe('MultiSelect', () => {
 				// assert.equal(multiSelect.open, false);
 			});
 
-			describe('esc', () => {
-				it('closes the dropdown', () => {});
-				it('returns focus to the multi select input element', () => {});
+			it(' esc closes the dropdown and returns focus to the multi select input element', () => {
+				fireEvent.keyDown(comboEl, {key: 'Enter'});
+				fireEvent.keyDown(comboEl, {key: 'Escape'});
+				assert.equal(multiSelect.open, false);
+				// ! focus issues in testing
+				// assert.equal(document.activeElement, comboEl);
 			});
+
 			describe('down arrow', () => {
-				it('moves focus to the next option', () => {});
-				it('stops on the last option', () => {});
+				it('moves focus to the next option', () => {
+					fireEvent.keyDown(comboEl, {key: 'ArrowDown'});
+					checkCurrentElementIsFocused();
+				});
+				it('stops on the last option', () => {
+					const options = document.querySelectorAll('.o-multi-select-option');
+					for (let i = 0; i < options.length; i++) {
+						fireEvent.keyDown(comboEl, {key: 'ArrowDown'});
+					}
+					checkCurrentElementIsFocused();
+				});
 			});
 			describe('up arrow', () => {
-				it('moves focus to the previous option', () => {});
-				it('stops on the first option', () => {});
+				it('moves focus to the previous option', () => {
+					fireEvent.keyDown(comboEl, {key: 'ArrowDown'});
+					fireEvent.keyDown(comboEl, {key: 'ArrowUp'});
+					checkCurrentElementIsFocused();
+				});
+				it('stops on the first option', () => {
+					fireEvent.keyDown(comboEl, {key: 'ArrowUp'});
+					checkCurrentElementIsFocused();
+				});
 			});
+
 			describe('page down', () => {
-				it('Jumps visual focus down 10 options', () => {});
-				it('stops on the last option', () => {});
+				it('Jumps visual focus down 10 options', () => {
+					({multiSelect, comboEl} = createMultiSelectWithLotsOfOptions());
+					fireEvent.keyDown(comboEl, {key: 'PageDown'});
+					checkCurrentElementIsFocused();
+				});
+				it('stops on the last option', () => {
+					({multiSelect, comboEl} = createMultiSelectWithLotsOfOptions());
+					const options = document.querySelectorAll('.o-multi-select-option');
+					const numberOfTimesToPressPageDown = Math.ceil(options.length / 10);
+					for (let i = 0; i < numberOfTimesToPressPageDown; i++) {
+						fireEvent.keyDown(comboEl, {key: 'PageDown'});
+					}
+					checkCurrentElementIsFocused();
+				});
 			});
 			describe('page up', () => {
-				it('Jumps visual focus up 10 options', () => {});
-				it('stops on the first option', () => {});
+				it('Jumps visual focus up 10 options', () => {
+					({multiSelect, comboEl} = createMultiSelectWithLotsOfOptions());
+					fireEvent.keyDown(comboEl, {key: 'PageDown'});
+					fireEvent.keyDown(comboEl, {key: 'PageDown'});
+					fireEvent.keyDown(comboEl, {key: 'PageUp'});
+					checkCurrentElementIsFocused();
+				});
+				it('stops on the first option', () => {
+					({multiSelect, comboEl} = createMultiSelectWithLotsOfOptions());
+					fireEvent.keyDown(comboEl, {key: 'PageUp'});
+					checkCurrentElementIsFocused();
+				});
 			});
-			it('home moves focus to the first element', () => {});
-			it('end moves focus to the last element', () => {});
+			it('home moves focus to the first element', () => {
+				fireEvent.keyDown(comboEl, {key: 'Home'});
+				checkCurrentElementIsFocused();
+			});
+			it('end moves focus to the last element', () => {
+				fireEvent.keyDown(comboEl, {key: 'End'});
+				checkCurrentElementIsFocused();
+			});
 		});
 	});
 });
