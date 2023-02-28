@@ -4,19 +4,23 @@ interface TableProps {
 	horizontalLines?: boolean;
 
 	className?: string;
+	sortable?: boolean;
 }
 
-export const Table = ({children, compact, horizontalLines = true, className, ...args}: TableProps) => {
+export const Table = ({children, compact, horizontalLines = true, className, sortable, ...args}: TableProps) => {
 	const classNames = ['o-table', className && className.split(' ')];
+	const attributes: Record<string, any> = {};
 
-
+	if(!sortable) {
+		attributes['data-o-table-sortable'] = false;
+	}
 	if (compact) {
 		classNames.push('o-table--compact');
 	}
 	if (horizontalLines) {
 		classNames.push('o-table--horizontal-lines');
 	}
-	return <table className={classNames.join(' ')} data-o-component="o-table" {...args}>{children}</table>;
+	return <table className={classNames.join(' ')} data-o-component="o-table" {...attributes} {...args}>{children}</table>;
 };
 
 interface ResponsiveTableProps extends TableProps {
