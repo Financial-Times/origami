@@ -101,7 +101,7 @@ function addOptionToList() {
  * @returns {void}
  */
 export function updateCurrentElement() {
-	this.inputEl.setAttribute(
+	this.comboEl.setAttribute(
 		'aria-activedescendant',
 		`${this.idBase}-${this.activeIndex}`
 	);

@@ -26,14 +26,13 @@ class MultiSelect {
 			);
 		}
 		this.comboEl = multiSelectEl.querySelector('[role=combobox]');
-		this.inputEl = multiSelectEl.querySelector('.o-multi-select__input');
-		this.inputText = multiSelectEl.querySelector('.o-multi-select__input-text');
+		this.comboBoxText = multiSelectEl.querySelector('.o-multi-select__input-text');
 		this.listboxEl = multiSelectEl.querySelector('[role=listbox]');
 		this.selectedOptions = multiSelectEl.querySelector(
 			'.o-multi-select__selected-options'
 		);
 		// data
-		this.idBase = this.inputEl.id;
+		this.idBase = this.comboEl.id;
 		this.totalNumberOfOptions = this.options.multiSelectOptions.length;
 
 		// state
@@ -62,9 +61,9 @@ class MultiSelect {
 		this.handleOptionSelect = handleOptionSelect.bind(this);
 		this.updateCurrentElement = updateCurrentElement.bind(this);
 		this._updateState = updateState.bind(this);
-		this.inputEl.addEventListener('click', () => this.toggleDropdown());
-		this.inputEl.addEventListener('keydown', onInputKeyDown.bind(this));
-		this.inputEl.addEventListener('blur', () => {
+		this.comboEl.addEventListener('click', () => this.toggleDropdown());
+		this.comboEl.addEventListener('keydown', onInputKeyDown.bind(this));
+		this.comboEl.addEventListener('blur', () => {
 			requestAnimationFrame(() => {
 				if (!this.listboxEl.contains(document.activeElement)) {
 					this.toggleDropdown();
@@ -73,7 +72,7 @@ class MultiSelect {
 		});
 		this.listboxEl.addEventListener('blur', () => {
 			requestAnimationFrame(() => {
-				if (this.inputEl !== document.activeElement) {
+				if (this.comboEl !== document.activeElement) {
 					this.toggleDropdown();
 				}
 			});

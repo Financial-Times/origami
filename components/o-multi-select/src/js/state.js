@@ -1,6 +1,6 @@
 /**
  * Updates the state of the multi-select component based on the current number of selected options.
- * Updates the text of the inputText element and the visibility of the selectedOptions element.
+ * Updates the text of the comboBoxText element and the visibility of the selectedOptions element.
  *
  * @function
  * @name updateState
@@ -10,15 +10,15 @@
  */
 export function updateState() {
 	if (this.numberOfSelectedOptions) {
-		this.inputText.innerText = '';
+		this.comboBoxText.innerText = '';
 		this.selectedOptions.style.display = 'block';
-		const inputElWidth = this.inputEl.offsetWidth;
+		const comboElWidth = this.comboEl.offsetWidth;
 		const sumOfChildrenWidth = calculateSumOfChildrenWidth(
 			this.selectedOptions
 		);
-		if (sumOfChildrenWidth > inputElWidth * 0.9) {
+		if (sumOfChildrenWidth > comboElWidth * 0.9) {
 			this.selectedOptions.classList.add('o-multi-select__visually-hidden');
-			this.inputText.innerText =
+			this.comboBoxText.innerText =
 				this.numberOfSelectedOptions + ' options selected';
 		} else {
 			this.selectedOptions.classList.remove('o-multi-select__visually-hidden');
@@ -26,9 +26,9 @@ export function updateState() {
 	} else {
 		this.selectedOptions.style.display = 'none';
 		if (this.open) {
-			this.inputText.innerText = 'Select options below';
+			this.comboBoxText.innerText = 'Select options below';
 		} else {
-			this.inputText.innerText = 'Click to select options';
+			this.comboBoxText.innerText = 'Click to select options';
 		}
 	}
 }
