@@ -17,31 +17,6 @@ export function toggleDropdown() {
 	this.comboEl.setAttribute('aria-expanded', `${this.open}`);
 	this._updateState();
 }
-/**
- * Handles the 'mousedown' event for multi-select options.
- * Sets 'ignoreBlur' property to true.
- */
-export function onOptionMouseDown() {
-	this.ignoreBlur = true;
-}
-
-/**
- * Handles the 'blur' event for the input element of the multi-select component.
- * If the 'ignoreBlur' property is true, it sets 'ignoreBlur' back to false and returns.
- * If the component is open, it calls 'toggleDropdown' to close it.
- *
- * @returns {void}
- */
-export function onInputBlur() {
-	if (this.ignoreBlur) {
-		this.ignoreBlur = false;
-		return;
-	}
-
-	if (this.open) {
-		toggleDropdown.call(this);
-	}
-}
 
 /**
  * Handles the 'keydown' event for the input element of the multi-select component.
@@ -49,7 +24,6 @@ export function onInputBlur() {
  * If the component is open and 'Alt' and 'ArrowUp' keys are pressed, it calls 'addOptionToList' and then opens the menu.
  * If any other key is pressed, it updates the active index of the listbox options based on the key pressed.
  * If the key pressed is 'Escape', it closes the menu.
- * If the key pressed is 'Tab' and the menu is open, it closes the menu.
  * If the key pressed is 'Enter' or ' ', it calls 'addOptionToList'.
  * Finally, it calls 'updateCurrentElement' to update the active descendant and current listbox option.
  *
@@ -69,7 +43,7 @@ export function onInputKeyDown(event) {
 			key === ' '
 		) {
 			this.updateCurrentElement();
-			return toggleDropdown.call(this);
+			return this.toggleDropdown();
 		}
 	}
 
@@ -100,9 +74,7 @@ export function onInputKeyDown(event) {
 	}
 
 	if (key === 'Escape' && this.open) {
-		toggleDropdown.call(this);
-	} else if (key === 'Tab' && this.open) {
-		toggleDropdown.call(this);
+		this.toggleDropdown();
 	} else if (key === 'Enter' || key === ' ') {
 		event.preventDefault();
 		addOptionToList.call(this);

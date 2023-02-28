@@ -1,10 +1,4 @@
-import {
-	onInputKeyDown,
-	toggleDropdown,
-	onOptionMouseDown,
-	onInputBlur,
-	updateCurrentElement
-} from './utils.js';
+import {onInputKeyDown, toggleDropdown, updateCurrentElement} from './utils.js';
 import {updateState} from './state.js';
 import {handleOptionSelect, createOption} from './multi-select-options.js';
 
@@ -52,7 +46,6 @@ class MultiSelect {
 			optionEl.addEventListener('click', () => {
 				this.handleOptionSelect(optionEl, option, index);
 			});
-			optionEl.addEventListener('mousedown', onOptionMouseDown.bind(this));
 			this.listboxEl.appendChild(optionEl);
 		});
 
@@ -65,13 +58,26 @@ class MultiSelect {
 	 * @private
 	 */
 	_bindHelperFunctionsAndEventListeners() {
-		this.inputEl.addEventListener('click', toggleDropdown.bind(this));
-		this.inputEl.addEventListener('keydown', onInputKeyDown.bind(this));
-		this.inputEl.addEventListener('blur', onInputBlur.bind(this));
-		this.listboxEl.addEventListener('blur', onInputBlur.bind(this));
+		this.toggleDropdown = toggleDropdown.bind(this);
 		this.handleOptionSelect = handleOptionSelect.bind(this);
 		this.updateCurrentElement = updateCurrentElement.bind(this);
 		this._updateState = updateState.bind(this);
+		this.inputEl.addEventListener('click', () => this.toggleDropdown());
+		this.inputEl.addEventListener('keydown', onInputKeyDown.bind(this));
+		this.inputEl.addEventListener('blur', () => {
+			requestAnimationFrame(() => {
+				if (!this.listboxEl.contains(document.activeElement)) {
+					this.toggleDropdown();
+				}
+			});
+		});
+		this.listboxEl.addEventListener('blur', () => {
+			requestAnimationFrame(() => {
+				if (this.inputEl !== document.activeElement) {
+					this.toggleDropdown();
+				}
+			});
+		});
 	}
 
 	/**
