@@ -26,7 +26,9 @@ class MultiSelect {
 			);
 		}
 		this.comboEl = multiSelectEl.querySelector('[role=combobox]');
-		this.comboBoxText = multiSelectEl.querySelector('.o-multi-select__input-text');
+		this.comboBoxText = multiSelectEl.querySelector(
+			'.o-multi-select__input-text'
+		);
 		this.listboxEl = multiSelectEl.querySelector('[role=listbox]');
 		this.selectedOptions = multiSelectEl.querySelector(
 			'.o-multi-select__selected-options'
@@ -64,7 +66,6 @@ class MultiSelect {
 		this.comboEl.addEventListener('click', () => this.toggleDropdown());
 		this.comboEl.addEventListener('keydown', onInputKeyDown.bind(this));
 		this.comboEl.addEventListener('blur', () => {
-			console.log('comboEl blur')
 			requestAnimationFrame(() => {
 				if (!this.listboxEl.contains(document.activeElement)) {
 					this.toggleDropdown();
@@ -72,8 +73,6 @@ class MultiSelect {
 			});
 		});
 		this.listboxEl.addEventListener('blur', () => {
-			console.log('listbox blur')
-
 			requestAnimationFrame(() => {
 				if (this.comboEl !== document.activeElement) {
 					this.toggleDropdown();

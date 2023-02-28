@@ -322,14 +322,38 @@ describe('MultiSelect', () => {
 			});
 		});
 		describe('when dropdown is open hitting', () => {
+			function selectFirstOption(key) {
+				fireEvent.click(comboEl);
+				fireEvent.keyDown(comboEl, {key});
+				const selectedOption = document.querySelector(
+					`#${multiSelect.idBase}-0`
+				);
+				assert.equal(
+					selectedOption.classList.contains('o-multi-select-option__selected'),
+					true
+				);
+				return selectedOption.innerText;
+			}
+			function checkAddedSelectedElement(key) {
+				const option = selectFirstOption(key);
+				const selectedOption = document.querySelector(`#${option}-0`);
+				assert.equal(selectedOption.innerText, option);
+			}
 			describe('enter', () => {
-				it('selects the focused option', () => {});
-				it('prevents the default action', () => {});
-				it('adds a button in selected list with remove icon', () => {});
+				it('selects the focused option', () => {
+					selectFirstOption('Enter');
+				});
+				it('adds selected options in a list', () => {
+					checkAddedSelectedElement('Enter');
+				});
 			});
 			describe('space', () => {
-				it('selects the focused option', () => {});
-				it('adds a button in selected list with remove icon', () => {});
+				it('selects the focused option', () => {
+					selectFirstOption(' ');
+				});
+				it('adds selected options in a list', () => {
+					checkAddedSelectedElement(' ');
+				});
 			});
 			describe('tab', () => {
 				it('closes the dropdown', () => {});
