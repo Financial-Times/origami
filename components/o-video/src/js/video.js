@@ -5,7 +5,6 @@ import VideoAds from './ads.js';
 import VideoInfo from './info.js';
 import Playlist from './playlist.js';
 import Guidance from './guidance.js';
-import startObserving from './helpers/intersection-observer.js';
 
 function listenOnce(el, eventName, fn) {
 	const wrappedFn = function(...args) {
@@ -163,10 +162,7 @@ const defaultOpts = {
 	showControls: true,
 	showCaptions: true,
 	showGuidance: true,
-	data: null,
-	autoplayWhenInViewport: false,
-	autoplayThreshold: 0.6, 
-	viewPort: null
+	data: null
 };
 
 class Video {
@@ -235,17 +231,10 @@ class Video {
 
 	renderVideo() {
 		if (this.rendition) {
-			if (this.opts.placeholder && !this.opts.autoplayWhenInViewport) {
+			if (this.opts.placeholder) {
 				this.addPlaceholder();
 			} else {
 				this.addVideo();
-			}
-		}
-
-		if (this.opts.autoplayWhenInViewport) {
-			
-			if(this.videoEl) {
-				startObserving(this.opts.viewPort, this.videoEl, this.opts.autoplayThreshold);
 			}
 		}
 	}
