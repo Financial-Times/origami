@@ -4,6 +4,8 @@ import './table.scss';
 import {Table} from "../src/tsx/table";
 import {TableCaption, TableFoot, TableFootnote, TableRow} from "../src/tsx/components";
 import {baseTableContents} from "./baseTableContents";
+import {useEffect} from "react";
+import javascript from '../main';
 
 export default {
 	title: 'Components/o-table/Basic',
@@ -12,6 +14,9 @@ export default {
 };
 
 const Template = (args) => {
+	useEffect(() => {
+		javascript.init();
+	});
 
 	return <Table {...args}>
 		{baseTableContents}
@@ -20,9 +25,13 @@ const Template = (args) => {
 export const BasicTable = Template.bind({});
 
 export const BasicTableWithCaptionAndFootnote = (args) => {
+	useEffect(() => {
+		javascript.init();
+	});
+
 	return <Table {...args}>
 		<TableCaption>
-			<h2 className="o-typography-heading-level-2">Table Caption</h2>
+			<h2 className="o-typography-heading-level-2">Origami Team's Favourite Fruit</h2>
 		</TableCaption>
 		{baseTableContents}
 		<TableFoot>
