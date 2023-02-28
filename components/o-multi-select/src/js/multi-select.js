@@ -1,4 +1,4 @@
-import {onInputKeyDown, toggleDropdown, updateCurrentElement} from './utils.js';
+import {onComboBoxKeyDown, toggleDropdown, updateCurrentElement} from './utils.js';
 import {updateState} from './state.js';
 import {handleOptionSelect, createOption} from './multi-select-options.js';
 
@@ -64,7 +64,7 @@ class MultiSelect {
 		this.updateCurrentElement = updateCurrentElement.bind(this);
 		this._updateState = updateState.bind(this);
 		this.comboEl.addEventListener('click', () => this.toggleDropdown());
-		this.comboEl.addEventListener('keydown', onInputKeyDown.bind(this));
+		this.comboEl.addEventListener('keydown', onComboBoxKeyDown.bind(this));
 		this.comboEl.addEventListener('blur', () => {
 			requestAnimationFrame(() => {
 				if (!this.listboxEl.contains(document.activeElement)) {

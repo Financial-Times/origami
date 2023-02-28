@@ -30,7 +30,7 @@ export function toggleDropdown() {
  * @param {KeyboardEvent} event - The keyboard event.
  * @returns {void}
  */
-export function onInputKeyDown(event) {
+export function onComboBoxKeyDown(event) {
 	const {key} = event;
 	const numberOfOptions = this.totalNumberOfOptions;
 
