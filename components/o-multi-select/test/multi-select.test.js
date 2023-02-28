@@ -5,6 +5,10 @@ import * as fixtures from './helpers/fixtures.js';
 import MultiSelect from '../main.js';
 import {fireEvent} from '@testing-library/dom';
 
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function setupMultiSelect(multiSelectOptions) {
 	const options = multiSelectOptions || ['Apple', 'Banana'];
 
@@ -115,7 +119,7 @@ describe('MultiSelect', () => {
 		let comboEl;
 		beforeEach(() => {
 			({multiSelect} = setupMultiSelect());
-			comboEl = document.querySelector('.o-multi-select__input');
+			comboEl = document.querySelector('[role=combobox]');
 		});
 
 		afterEach(() => {
@@ -131,15 +135,19 @@ describe('MultiSelect', () => {
 			fireEvent.click(comboEl);
 			assert.equal(multiSelect.open, false);
 		});
-		it('closes if clicked outside of input element', () => {
-			// console.log({a: multiSelect.open});
-			// console.log({b: multiSelect.open});
-			// console.log({o: multiSelect.open});
-			// this needs more investigation, since blur event is triggered twice
+		it('closes if input element lost focus', async () => {
+			fireEvent.click(comboEl);
+			fireEvent.blur(comboEl);
+			await sleep(100);
 			assert.equal(multiSelect.open, false);
 		});
-		it('closes after selecting an option if clicked outside of input element', () => {
-			// same issue as above. Needs more investigation
+		it('closes if listbox losses focus', async () => {
+			fireEvent.click(comboEl);
+			fireEvent.click(document.querySelector(`#${multiSelect.idBase}-0`));
+			const listboxEl = document.querySelector('[role=listbox]');
+			fireEvent.blur(listboxEl);
+			await sleep(100);
+			assert.equal(multiSelect.open, false);
 		});
 		it('remains open if clicked within the dropdown', () => {
 			fireEvent.click(comboEl);
@@ -185,7 +193,7 @@ describe('MultiSelect', () => {
 		let comboEl;
 		beforeEach(() => {
 			({multiSelect} = setupMultiSelect());
-			comboEl = document.querySelector('.o-multi-select__input');
+			comboEl = document.querySelector('[role=combobox]');
 		});
 
 		afterEach(() => {
@@ -221,7 +229,7 @@ describe('MultiSelect', () => {
 				];
 				multiSelect = setupMultiSelect(multiSelectOptions);
 				const optionsToSelect = document.querySelectorAll('[role="option"]');
-				comboEl = document.querySelector('.o-multi-select__input');
+				comboEl = document.querySelector('[role=combobox]');
 				optionsToSelect.forEach(option => fireEvent.click(option));
 				assert.equal(
 					comboEl.innerText,
@@ -269,7 +277,7 @@ describe('MultiSelect', () => {
 
 		beforeEach(() => {
 			({multiSelect} = setupMultiSelect());
-			comboEl = document.querySelector('.o-multi-select__input');
+			comboEl = document.querySelector('[role=combobox]');
 		});
 
 		afterEach(() => {

@@ -64,6 +64,7 @@ class MultiSelect {
 		this.comboEl.addEventListener('click', () => this.toggleDropdown());
 		this.comboEl.addEventListener('keydown', onInputKeyDown.bind(this));
 		this.comboEl.addEventListener('blur', () => {
+			console.log('comboEl blur')
 			requestAnimationFrame(() => {
 				if (!this.listboxEl.contains(document.activeElement)) {
 					this.toggleDropdown();
@@ -71,6 +72,8 @@ class MultiSelect {
 			});
 		});
 		this.listboxEl.addEventListener('blur', () => {
+			console.log('listbox blur')
+
 			requestAnimationFrame(() => {
 				if (this.comboEl !== document.activeElement) {
 					this.toggleDropdown();
