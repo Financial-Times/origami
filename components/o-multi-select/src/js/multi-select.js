@@ -2,6 +2,7 @@ import {
 	onComboBoxKeyDown,
 	toggleDropdown,
 	updateCurrentElement,
+	_removeCurrentClass,
 } from './utils.js';
 import {updateState} from './state.js';
 import {handleOptionSelect, createOption} from './multi-select-options.js';
@@ -67,7 +68,12 @@ class MultiSelect {
 		this.handleOptionSelect = handleOptionSelect.bind(this);
 		this.updateCurrentElement = updateCurrentElement.bind(this);
 		this._updateState = updateState.bind(this);
-		this.comboEl.addEventListener('click', () => this.toggleDropdown());
+		this.comboEl.addEventListener('click', () => {
+			this.toggleDropdown();
+			if (this.open) {
+				_removeCurrentClass(this.multiSelectEl);
+			}
+		});
 		this.comboEl.addEventListener('keydown', onComboBoxKeyDown.bind(this));
 		this.comboEl.addEventListener('blur', () => {
 			requestAnimationFrame(() => {

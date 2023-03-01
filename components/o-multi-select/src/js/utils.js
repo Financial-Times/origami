@@ -110,9 +110,21 @@ export function updateCurrentElement() {
 		`${this.idBase}-${this.activeIndex}`
 	);
 
-	const options = this.multiSelectEl.querySelectorAll('[role=option]');
+	const options = _removeCurrentClass(this.multiSelectEl);
+	options[this.activeIndex].classList.add('o-multi-select-option__current');
+}
+
+/**
+ * Removes the 'o-multi-select-option__current' class from all listbox options.
+ *
+ * @param {HTMLElement} element - The multi-select element.
+ * @returns {NodeListOf<HTMLElement>} - The listbox options.
+ */
+
+export function _removeCurrentClass(element) {
+	const options = element.querySelectorAll('[role=option]');
 	[...options].forEach(optionEl => {
 		optionEl.classList.remove('o-multi-select-option__current');
 	});
-	options[this.activeIndex].classList.add('o-multi-select-option__current');
+	return options;
 }
