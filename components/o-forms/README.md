@@ -779,7 +779,7 @@ The JavaScript for this component is primarily responsible for individual input 
 
 If you would like to use an input without a form element, you can still apply validation to it with the `o-forms` [individual `Input` API](#individual-inputs).
 
-### Form Instance
+### Initialise
 
 The main `o-forms` JavaScript has been written to identify and run on a `<form>` element. You'll need to set up your form and include the data attribute `data-o-component="o-forms"`:
 ```html
@@ -788,19 +788,43 @@ The main `o-forms` JavaScript has been written to identify and run on a `<form>`
 </form>
 ```
 
-By default, `o-forms` is initialised _without_ native browser validation, and with an error summary for invalid elements when the form is submitted. In order to use the default behaviour, you'll need to do the following:
+By default, `o-forms` is initialised with validation logic. It will generate an error summary for invalid elements when the form is submitted:
 ```js
 import oForms from '@financial-times/o-forms';
 oForms.init()
 ```
-The default behaviour can be changed by configuring the options object:
+### Customise behaviour
+
+The default behaviour of `o-forms` can be changed by configuring the options object. For example, set `preventSubmit: true` to prevent the user from submitting the form. You may then run your own logic before submitting the form by listening for the `oForms.submit` event.
+```js
+oForms.init(null, {
+	preventSubmit: true
+})
+
+window.addEventListener('oForms.submit', (e) => {
+	console.log(`A user would like to submit a form, it is ${e.detail.valid ? 'valid' : 'invalid'}.`);
+	if(e.detail.valid) {
+		e.detail.instance.form.submit();
+	}
+});
+```
+
+The error summary may also be prevented by setting `errorSummary: false`. Though we do not recommend this as an error summary can be helpful for users to discover and navigate a form with errors – this is particularly true for users of some assistive technologies.
+```js
+oForms.init(null, {
+	errorSummary: false
+})
+```
+
+In order to use default browser validation set `useBrowserValidation: true`:
 ```js
 oForms.init(null, {
 	useBrowserValidation: true,
 	errorSummary: false
 })
 ```
-You can also set these values to the data attributes `data-o-forms-use-browser-validation` and `data-o-forms-error-summary` on the `<form>` element if you are not initialising the `oForms` instance in your product.
+
+You can also set these values to the data attributes e.g. `data-o-forms-prevent-submit`, `data-o-forms-use-browser-validation`, and `data-o-forms-error-summary` on the `<form>` element.
 
 ### Individual Inputs
 

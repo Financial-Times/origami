@@ -5,11 +5,17 @@
 		display: none;
 	}
 
+	.o-topper__headline {
+	  &::after {
+		content: none;
+	  }
+	}
+
 	@include oGridRespondTo($until: M) {
 		display:flex;
 		flex-direction: column;
 		padding: 0;
-		
+
 		.o-topper__content {
 			order: 3;
 			display: flex;
@@ -51,16 +57,14 @@
 
 	@include oGridRespondTo(M) {
 		display: grid;
-		grid-template-columns: 1fr 1fr; 
+		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 66vw 1fr;
 
 		.o-topper__content {
-			grid-column: 1 / span 2;
+			grid-column: 1 / span 1;
 			grid-row: 1;
-			width: 55%;
 			box-sizing: border-box;
 			align-self: center;
-			padding-right: 20px;
 		}
 
 		.o-topper__background {
@@ -88,12 +92,12 @@
 			margin-bottom: 0;
 			margin-top: 10px;
 			border-top: solid 1px oColorsGetTextColor($background: black, $opacity: 50);
-			color: oColorsByName("black-70"); 
+			color: oColorsByName("black-70");
 		}
 	}
 
 	@supports (object-fit: cover) {
-		
+
 
 		@include oGridRespondTo(M) {
 
@@ -104,11 +108,11 @@
 			}
 		}
 	}
-	
+
 	.o-topper__image-credit {
 		top: 100%;
 	}
-	
+
 	.o-topper__image-caption {
 		position: relative;
 		width: 100%;

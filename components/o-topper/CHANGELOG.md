@@ -1,5 +1,26 @@
 # Changelog
 
+### [5.7.4](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.3...o-topper-v5.7.4) (2023-02-08)
+
+
+### Bug Fixes
+
+* o-topper, reposition deep landscape copy  ([#992](https://www.github.com/Financial-Times/origami/issues/992)) ([4f9db10](https://www.github.com/Financial-Times/origami/commit/4f9db1079da6cba254975eacb14e231815f32e30))
+
+### [5.7.3](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.2...o-topper-v5.7.3) (2023-02-01)
+
+
+### Bug Fixes
+
+* o-topper: remove the headline underline from the deep portrait variant ([#988](https://www.github.com/Financial-Times/origami/issues/988)) ([be44f05](https://www.github.com/Financial-Times/origami/commit/be44f054a60500d1429dddc5cd581f3d48bd6ed0))
+
+### [5.7.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.1...o-topper-v5.7.2) (2023-01-31)
+
+
+### Bug Fixes
+
+* Improve the headline positioning of the deep-portrait variant ([1ab5323](https://www.github.com/Financial-Times/origami/commit/1ab53239653a88bc6898f1af6784b8976d44dd1d))
+
 ### [5.7.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.0...o-topper-v5.7.1) (2023-01-04)
 
 

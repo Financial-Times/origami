@@ -3,14 +3,29 @@ import State from './state.js';
 import ErrorSummary from './error-summary.js';
 
 class Forms {
+
+	/**
+	 * @typedef {Object} FormsOptions - An options object for configuring the form.
+	 * @property {boolean} [errorSummary=true] - Display an error summary at the top of the form as part of `o-forms` validation.
+	 * @property {boolean} [preventSubmit=false] - Prevent form submission after `o-froms` validation – see the `oForms.submit` event to manually submit the form after validation. This does not apply when `useBrowserValidation` is true.
+	 * @property {boolean} [useBrowserValidation=false] - Do not use `o-forms` validation, rely on the browser's built-in validation instead.
+	 */
+
+	/**
+	 * @typedef {Event} FormsSubmitEvent - An event emitted when the form is submitted by the userand `o-forms` has completed validation.
+	 * @property {object} detail - The event detail.
+	 * @property {object} detail.instance  - The instance of `o-forms`.
+	 * @property {boolean} detail.valid  - The validity of the `o-forms` instance.
+	 */
+
 	/**
 	 * Class constructor.
 	 *
-	 * @param {HTMLElement} [formElement] - The form element in the DOM
-	 * @param {object} [options={}] - An options object for configuring the form
+	 * @param {HTMLFormElement} [formElement] - The form element in the DOM
+	 * @param {FormsOptions} [options={}] - An options object for configuring the form
 	 */
 	constructor(formElement, options) {
-		if (formElement.nodeName !== 'FORM') {
+		if (!formElement || formElement.nodeName !== 'FORM') {
 			throw new Error(`[data-o-component="o-forms"] must be set on a form element. It is currently set on a '${formElement.nodeName.toLowerCase()}'.`);
 		}
 
@@ -20,12 +35,22 @@ class Forms {
 
 		this.opts = Object.assign({
 			useBrowserValidation: false,
+			preventSubmit: false,
 			errorSummary: true
 		}, options || Forms.getDataAttributes(formElement));
 
+		if(this.opts.useBrowserValidation && this.opts.preventSubmit) {
+			throw new Error('The o-forms `preventSubmit` option only applies when the `useBrowserValidation` option is `false`.');
+		}
+
 		if (!this.opts.useBrowserValidation) {
-			this.form.setAttribute('novalidate', true);
+			this.form.setAttribute('novalidate', '');
 			this.form.addEventListener('submit', this);
+			this.form.addEventListener('oForms.submit', (e) => {
+				if(e.detail.valid && !this.opts.preventSubmit) {
+					this.form.submit();
+				}
+			});
 		} else {
 			this.form.removeAttribute('novalidate');
 			this.submits = this.form.querySelectorAll('[type=submit]');
@@ -101,8 +126,10 @@ class Forms {
 		if (event.type === 'submit') {
 			event.preventDefault();
 			const checkedElements = this.validateFormInputs();
+			const formInvalid = checkedElements.some(input => input.valid === false);
 
-			if (checkedElements.some(input => input.valid === false)) {
+			if (formInvalid) {
+				// Display error summary.
 				if (this.opts.errorSummary) {
 					if (this.summary) {
 						const newSummary = new ErrorSummary(checkedElements, this.opts.errorSummaryMessage);
@@ -116,11 +143,20 @@ class Forms {
 						firstErrorAnchor.focus();
 					}
 				}
-
-				return;
 			}
 
-			event.target.submit();
+			/**
+			 * @type {FormsSubmitEvent}
+			 */
+			const oFormsSubmitEvent = new CustomEvent('oForms.submit', {
+				detail: {
+					instance: this,
+					valid: !formInvalid
+				},
+				cancelable: true,
+				bubbles: true
+			});
+			this.form.dispatchEvent(oFormsSubmitEvent);
 		}
 	}
 

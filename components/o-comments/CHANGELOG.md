@@ -1,5 +1,49 @@
 # Changelog
 
+## [10.2.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.1.0...o-comments-v10.2.0) (2023-02-23)
+
+
+### Features
+
+* add scrollContainer option on o-comments ([e291596](https://www.github.com/Financial-Times/origami/commit/e291596ae7b1e325c18850eb1cc77adb281a13e1))
+
+## [10.1.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.0.2...o-comments-v10.1.0) (2023-02-20)
+
+
+### Features
+
+* add option to set an additional class on shadow dom for o-comments ([537bbb6](https://www.github.com/Financial-Times/origami/commit/537bbb64b75525598a9639eead0788f63a68473d))
+
+
+### Bug Fixes
+
+* change classname o-comments-app to o-comments-root-font-size-1 ([2ec576b](https://www.github.com/Financial-Times/origami/commit/2ec576b2751caa50f345c4a6db177ffe0c9e893a))
+
+### [10.0.2](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.0.1...o-comments-v10.0.2) (2023-02-09)
+
+
+### Bug Fixes
+
+* coral font size for content ([676c8b0](https://www.github.com/Financial-Times/origami/commit/676c8b067c94356fa500e52b93d4a535bece16f9))
+
+### [10.0.1](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.0.0...o-comments-v10.0.1) (2023-02-08)
+
+
+### Bug Fixes
+
+* o-comments, handle font size difference between Coral 6 & 7 ([#995](https://www.github.com/Financial-Times/origami/issues/995)) ([2c4e306](https://www.github.com/Financial-Times/origami/commit/2c4e306750864a8b5ad3b19592f38da3526b5dc3))
+
+## [10.0.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v9.0.2...o-comments-v10.0.0) (2023-02-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* o-comments, migrate to coral v7
+
+### Features
+
+* o-comments, migrate to coral v7 ([7889059](https://www.github.com/Financial-Times/origami/commit/78890594d07734d3bac8602e62629b47a92d6bb2))
+
 ### [9.0.2](https://www.github.com/Financial-Times/origami/compare/o-comments-v9.0.1...o-comments-v9.0.2) (2022-12-21)
 
 

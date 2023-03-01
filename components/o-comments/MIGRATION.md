@@ -1,5 +1,8 @@
 ## Migration
 
+### Migrating from v9 to v10
+To migrate you need to have the coral API in version 7 and change the urls to fetch fonts and styles on coral API admin to fetch styles from this version . See more in (documentation)[https://docs.coralproject.net/migrating-6-to-7#after-coral-has-been-updated-to-v7]
+
 ### Migrating from v8 to v9
 
 To migrate update your projects use of the `oComments` sass mixin. Set its `coral-talk-iframe` option to `false`.

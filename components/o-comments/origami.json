@@ -32,6 +32,13 @@
 			"description": "Comments stream on an article page"
 		},
 		{
+			"title": "Comments Stream Staging",
+			"name": "comments-stream-staging",
+			"template": "demos/src/stream-staging.mustache",
+			"sass": "demos/src/stream.scss",
+			"description": "Comments stream on an article page Coral Staging"
+		},
+		{
 			"title": "Comments Count",
 			"name": "comments-count",
 			"template": "demos/src/count.mustache",
