@@ -96,6 +96,8 @@
 		border: $_o-multi-select-border;
 		position: absolute;
 		left: 0;
+		max-height: 50vh;
+		overflow-y: auto;
 
 		[role='option'] {
 			color: oColorsByName('black-80');
