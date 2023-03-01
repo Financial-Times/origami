@@ -32,7 +32,7 @@ class MultiSelect {
 		}
 		this.comboEl = multiSelectEl.querySelector('[role=combobox]');
 		this.comboBoxText = multiSelectEl.querySelector(
-			'.o-multi-select__input-text'
+			'.o-multi-select__combobox-text'
 		);
 		this.listboxEl = multiSelectEl.querySelector('[role=listbox]');
 		this.selectedOptions = multiSelectEl.querySelector(

@@ -27,7 +27,7 @@ const coreHtml = `<div class="o-form o-multi-select o-multi-select--core">
 		>
 	</span>
 
-	<span class="o-forms-input o-forms-input--select">
+	<span class="o-forms-combobox o-forms-combobox--select">
 		<select name="multiple" id="multiple" multiple>
 			<option value="apple">apple</option>
 			<option value="banana">banana</option>
@@ -36,7 +36,7 @@ const coreHtml = `<div class="o-form o-multi-select o-multi-select--core">
 </span>
 </div>`;
 
-const inputHtml = `<span class="o-forms-field">
+const comboboxHtml = `<span class="o-forms-field">
 <span class="o-forms-title">
 	<label
 		class="o-forms-title__main"
@@ -50,9 +50,9 @@ const selectedOptionsHtml = `<ul
 class="o-multi-select__selected-options"
 id="o-multi-select-selected"
 ></ul>`;
-const multiselecInput = `<div
-class="o-multi-select__input"
-id="o-multi-select__input"
+const multiseleccombobox = `<div
+class="o-multi-select__combobox"
+id="o-multi-select__combobox"
 name="multiple-enhanced"
 role="combobox"
 aria-activedescendant=""
@@ -62,7 +62,7 @@ aria-expanded="false"
 aria-owns="o-multi-select-listbox"
 tabindex="0"
 >
-<span class="o-multi-select__input-text"> Click to select options </span>
+<span class="o-multi-select__combobox-text"> Click to select options </span>
 </div>`;
 const multiselecListBox = `<div
 class="o-multi-select__dropdown-menu"
@@ -73,10 +73,10 @@ aria-multiselectable="true"
 tabindex="-1"
 ></div>`;
 const enhancedHtml = `<div class="o-form o-multi-select o-multi-select--enhanced">
-${inputHtml}
+${comboboxHtml}
 ${selectedOptionsHtml}
-<div class="o-multi-select__input-wrapper">
-	${multiselecInput}
+<div class="o-multi-select__combobox-wrapper">
+	${multiseleccombobox}
 </div>
 ${multiselecListBox}
 </div>`;

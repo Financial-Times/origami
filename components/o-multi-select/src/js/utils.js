@@ -23,7 +23,7 @@ export function toggleDropdown(open) {
 }
 
 /**
- * Handles the 'keydown' event for the input element of the multi-select component.
+ * Handles the 'keydown' event for the combobox element of the multi-select component.
  * If the component is closed, it handles opening the menu if the key pressed is 'ArrowDown', 'ArrowUp', 'Enter', or ' '.
  * If the component is open and 'Alt' and 'ArrowUp' keys are pressed, it calls 'addOptionToList' and then opens the menu.
  * If any other key is pressed, it updates the active index of the listbox options based on the key pressed.

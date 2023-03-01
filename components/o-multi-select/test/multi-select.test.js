@@ -127,16 +127,16 @@ describe('MultiSelect', () => {
 			fixtures.reset();
 		});
 
-		it('opens if clicked on input element and it was closed', () => {
+		it('opens if clicked on combobox element and it was closed', () => {
 			userEvent.click(comboEl);
 			assert.equal(multiSelect.open, true);
 		});
-		it('closes if clicked on input element and it was open ', () => {
+		it('closes if clicked on combobox element and it was open ', () => {
 			userEvent.click(comboEl);
 			userEvent.click(comboEl);
 			assert.equal(multiSelect.open, false);
 		});
-		it('closes if input element lost focus', async () => {
+		it('closes if combobox element lost focus', async () => {
 			userEvent.click(comboEl);
 			fireEvent.blur(comboEl);
 			await sleep(100);
@@ -201,21 +201,21 @@ describe('MultiSelect', () => {
 			fixtures.reset();
 		});
 		describe('when nothing is selected', () => {
-			it('and dropdown closed, the input inner text is "Click to select options"', () => {
+			it('and dropdown closed, the combobox inner text is "Click to select options"', () => {
 				assert.equal(comboEl.innerText, 'Click to select options');
 			});
-			it('and dropdown open, the input inner text is "Select options below" ', () => {
+			it('and dropdown open, the combobox inner text is "Select options below" ', () => {
 				userEvent.click(comboEl);
 				assert.equal(comboEl.innerText, 'Select options below');
 			});
 		});
 		describe('when something is selected', () => {
-			it('input inner text is empty', () => {
+			it('combobox inner text is empty', () => {
 				const optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
 				userEvent.click(optionEl);
 				assert.equal(comboEl.innerText, '');
 			});
-			it(`and if selected options width is more than 90% of input element width, the selected options are hidden and the input inner text is "X options selected"`, () => {
+			it(`and if selected options width is more than 90% of combobox element width, the selected options are hidden and the combobox inner text is "X options selected"`, () => {
 				const multiSelectOptions = [
 					'apple',
 					'banana',
@@ -402,7 +402,7 @@ describe('MultiSelect', () => {
 				document.body.removeChild(inputEl);
 			});
 
-			it('esc closes the dropdown and returns focus to the multi select input element', () => {
+			it('esc closes the dropdown and returns focus to the multi select combobox element', () => {
 				comboEl.focus();
 				userEvent.keyboard('{Enter}{Escape}');
 				assert.equal(multiSelect.open, false);

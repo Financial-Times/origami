@@ -10,7 +10,7 @@ _A short description of what the component does._
 	- [Sass](#sass)
 	- [JavaScript](#javascript)
 	- [Keyboard Support](#keyboard-support)
-		- [When focus is within the text input and the suggestions menu is closed](#when-focus-is-within-the-text-input-and-the-suggestions-menu-is-closed)
+		- [When focus is within the combobox input and the suggestions menu is closed](#when-focus-is-within-the-combobox-input-and-the-suggestions-menu-is-closed)
 		- [When focus is within the suggestions menu](#when-focus-is-within-the-suggestions-menu)
 	- [Migration](#migration)
 	- [Contact](#contact)
@@ -49,10 +49,10 @@ We use `o-forms` component to apply styles to some parts of multi-select compone
 			class="o-multi-select__selected-options"
 			id="o-multi-select-selected"
 		></ul>
-		<div class="o-multi-select__input-wrapper">
+		<div class="o-multi-select__combobox-wrapper">
 			<div
-				class="o-multi-select__input"
-				id="o-multi-select__input"
+				class="o-multi-select__combobox"
+				id="o-multi-select__combobox"
 				name="multiple-enhanced"
 				role="combobox"
 				aria-activedescendant=""
@@ -62,7 +62,7 @@ We use `o-forms` component to apply styles to some parts of multi-select compone
 				aria-owns="o-multi-select-listbox"
 				tabindex="0"
 			>
-				<span class="o-multi-select__input-text">
+				<span class="o-multi-select__combobox-text">
 					Click to select options
 				</span>
 			</div>
@@ -93,7 +93,7 @@ To add support for browsers without JavaScript use multi-select element from `o-
 				</label>
 			</span>
 
-			<span class="o-forms-input o-forms-input--select">
+			<span class="o-forms-combobox o-forms-combobox--select">
 				<select name="multiple" id="multiple" multiple>
 					<option value="Apple">Apple</option>
 					<option value="Banana">BAnana</option>
@@ -140,7 +140,7 @@ oMultiSelect.init(oMultiSelectElement);
 
 ## Keyboard Support
 
-### When focus is within the text input and the suggestions menu is closed
+### When focus is within the combobox input and the suggestions menu is closed
 
 | Key                                  | Function                                                                                                                         |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -158,7 +158,7 @@ oMultiSelect.init(oMultiSelectElement);
 | PageUp     | Jumps visual focus up 10 options (or to first option).                                                                                                                                                  |
 | PageDown   | Jumps visual focus down 10 options (or to last option).                                                                                                                                                 |
 | Home/End   | moves focus to the first or last option.                                                                                                                                                                |
-| Escape     | <ul><li>Returns focus to the input element</li> <li>closes the dropdown without modifying the selected options.</li></ul>                                                                               |
+| Escape     | <ul><li>Returns focus to the combobox element</li> <li>closes the dropdown without modifying the selected options.</li></ul>                                                                               |
 
 ## Migration
 

@@ -13,7 +13,7 @@ export function MultiSelect({
 						</label>
 					</span>
 
-					<span className="o-forms-input o-forms-input--select">
+					<span className="o-forms-combobox o-forms-combobox--select">
 						<select name="multiple" id="multiple" multiple>
 							{multiSelectOptions.map(option => {
 								<option value={option}>{option}</option>;
@@ -34,10 +34,10 @@ export function MultiSelect({
 				<ul
 					className="o-multi-select__selected-options"
 					id="o-multi-select-selected"></ul>
-				<div className="o-multi-select__input-wrapper">
+				<div className="o-multi-select__combobox-wrapper">
 					<div
-						className="o-multi-select__input"
-						id="o-multi-select__input"
+						className="o-multi-select__combobox"
+						id="o-multi-select__combobox"
 						role="combobox"
 						aria-activedescendant=""
 						aria-labelledby="o-multi-select-label o-multi-select-selected"
@@ -45,7 +45,7 @@ export function MultiSelect({
 						aria-expanded="false"
 						aria-owns="o-multi-select-listbox"
 						tabIndex={0}>
-						<span className="o-multi-select__input-text">
+						<span className="o-multi-select__combobox-text">
 							{' '}
 							Click to select options{' '}
 						</span>

@@ -46,7 +46,7 @@
 		position: absolute;
 		bottom: calc(
 			(40px - $_o-multi-select-button-height) / 2
-		); // 40px is hight of the input element
+		); // 40px is hight of the combobox element
 		z-index: 1;
 
 		li {
@@ -58,13 +58,13 @@
 		}
 	}
 
-	.o-multi-select__input-wrapper {
+	.o-multi-select__combobox-wrapper {
 		@include oTypographySans(0);
 		position: relative;
 		background-color: oColorsByName('white');
 		border: $_o-multi-select-border;
 
-		.o-multi-select__input {
+		.o-multi-select__combobox {
 			display: flex;
 			border: none;
 			height: 40px;
