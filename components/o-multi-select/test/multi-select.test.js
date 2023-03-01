@@ -128,39 +128,39 @@ describe('MultiSelect', () => {
 		});
 
 		it('opens if clicked on input element and it was closed', () => {
-			fireEvent.click(comboEl);
+			userEvent.click(comboEl);
 			assert.equal(multiSelect.open, true);
 		});
 		it('closes if clicked on input element and it was open ', () => {
-			fireEvent.click(comboEl);
-			fireEvent.click(comboEl);
+			userEvent.click(comboEl);
+			userEvent.click(comboEl);
 			assert.equal(multiSelect.open, false);
 		});
 		it('closes if input element lost focus', async () => {
-			fireEvent.click(comboEl);
+			userEvent.click(comboEl);
 			fireEvent.blur(comboEl);
 			await sleep(100);
 			assert.equal(multiSelect.open, false);
 		});
 		it('closes if listbox losses focus', async () => {
-			fireEvent.click(comboEl);
-			fireEvent.click(document.querySelector(`#${multiSelect.idBase}-0`));
+			userEvent.click(comboEl);
+			userEvent.click(document.querySelector(`#${multiSelect.idBase}-0`));
 			const listboxEl = document.querySelector('[role=listbox]');
 			fireEvent.blur(listboxEl);
 			await sleep(100);
 			assert.equal(multiSelect.open, false);
 		});
 		it('remains open if clicked within the dropdown', () => {
-			fireEvent.click(comboEl);
+			userEvent.click(comboEl);
 			const optionEl = document.querySelector("[role='option']");
-			fireEvent.click(optionEl);
+			userEvent.click(optionEl);
 			assert.equal(multiSelect.open, true);
 		});
 		describe('option click', () => {
 			describe('on unselected option', () => {
 				it('adds options in selected options list and adds tick icon in dropdown menu', () => {
 					const optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
-					fireEvent.click(optionEl);
+					userEvent.click(optionEl);
 					const selectedOptionEl = document.querySelector(
 						`#${optionEl.innerText}-0`
 					);
@@ -174,8 +174,8 @@ describe('MultiSelect', () => {
 			describe('on selected option', () => {
 				it('removes options in selected options list removes tick icon in dropdown menu', () => {
 					const optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
-					fireEvent.click(optionEl);
-					fireEvent.click(optionEl);
+					userEvent.click(optionEl);
+					userEvent.click(optionEl);
 					const selectedOptionEl = document.querySelector(
 						`#${optionEl.innerText}-0`
 					);
@@ -205,14 +205,14 @@ describe('MultiSelect', () => {
 				assert.equal(comboEl.innerText, 'Click to select options');
 			});
 			it('and dropdown open, the input inner text is "Select options below" ', () => {
-				fireEvent.click(comboEl);
+				userEvent.click(comboEl);
 				assert.equal(comboEl.innerText, 'Select options below');
 			});
 		});
 		describe('when something is selected', () => {
 			it('input inner text is empty', () => {
 				const optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
-				fireEvent.click(optionEl);
+				userEvent.click(optionEl);
 				assert.equal(comboEl.innerText, '');
 			});
 			it(`and if selected options width is more than 90% of input element width, the selected options are hidden and the input inner text is "X options selected"`, () => {
@@ -231,7 +231,7 @@ describe('MultiSelect', () => {
 				multiSelect = setupMultiSelect(multiSelectOptions);
 				const optionsToSelect = document.querySelectorAll('[role="option"]');
 				comboEl = document.querySelector('[role=combobox]');
-				optionsToSelect.forEach(option => fireEvent.click(option));
+				optionsToSelect.forEach(option => userEvent.click(option));
 				assert.equal(
 					comboEl.innerText,
 					`${multiSelectOptions.length} options selected`
@@ -247,7 +247,7 @@ describe('MultiSelect', () => {
 		beforeEach(() => {
 			({multiSelect} = setupMultiSelect());
 			optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
-			fireEvent.click(optionEl);
+			userEvent.click(optionEl);
 			selectedOptionEl = document.querySelector(`#${optionEl.innerText}-0`);
 		});
 
@@ -259,11 +259,11 @@ describe('MultiSelect', () => {
 				const selectedOptions = document.querySelector(
 					'.o-multi-select__selected-options'
 				);
-				fireEvent.click(selectedOptionEl);
+				userEvent.click(selectedOptionEl);
 				assert.equal(selectedOptions.children.length, 0);
 			});
 			it('unselects the option from the dropdown', () => {
-				fireEvent.click(selectedOptionEl);
+				userEvent.click(selectedOptionEl);
 				assert.equal(
 					optionEl.classList.contains('o-multi-select-option__selected'),
 					false
@@ -286,7 +286,8 @@ describe('MultiSelect', () => {
 		});
 		describe('when dropdown is closed, pressing', () => {
 			function testKeydown(key) {
-				fireEvent.keyDown(comboEl, {key});
+				comboEl.focus();
+				userEvent.keyboard(`{${key}}`);
 				assert.equal(multiSelect.open, true);
 				const currentOption = document.querySelector(
 					'.o-multi-select-option__current'
@@ -296,11 +297,10 @@ describe('MultiSelect', () => {
 					comboEl.getAttribute('aria-activedescendant')
 				);
 				// move to next item and close dropdown
-				fireEvent.keyDown(comboEl, {key: 'ArrowDown'});
-				fireEvent.keyDown(comboEl, {key: 'Escape'});
+				userEvent.keyboard('{ArrowDown}{Escape}');
 
 				// reopen dropdown and check if focus is on  the last active option
-				fireEvent.keyDown(comboEl, {key});
+				userEvent.keyboard(`{${key}}`);
 				const lastActiveOption = document.querySelector(
 					'.o-multi-select-option__current'
 				);
@@ -313,7 +313,7 @@ describe('MultiSelect', () => {
 				testKeydown('Enter');
 			});
 			it('Space opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {
-				testKeydown(' ');
+				testKeydown('space');
 			});
 			it('Up Arrow opens the dropdown and focus will be on the first option, or the most recently highlighted option.', () => {
 				testKeydown('ArrowUp');
@@ -324,8 +324,8 @@ describe('MultiSelect', () => {
 		});
 		describe('when dropdown is open pressing', () => {
 			function selectFirstOption(key) {
-				fireEvent.click(comboEl);
-				fireEvent.keyDown(comboEl, {key});
+				userEvent.click(comboEl);
+				userEvent.keyboard(`{${key}}`);
 				const selectedOption = document.querySelector(
 					`#${multiSelect.idBase}-0`
 				);
@@ -385,17 +385,17 @@ describe('MultiSelect', () => {
 			});
 			describe('space', () => {
 				it('selects the focused option', () => {
-					selectFirstOption(' ');
+					selectFirstOption('space');
 				});
 				it('adds selected options in a list', () => {
-					checkAddedSelectedElement(' ');
+					checkAddedSelectedElement('space');
 				});
 			});
 			it('tab closes the dropdown and moves focus to the next focusable element', async () => {
 				const inputEl = document.createElement('input');
 				document.body.appendChild(inputEl);
 				comboEl.focus();
-				fireEvent.keyDown(comboEl, {key: 'Enter'});
+				userEvent.keyboard('{Enter}');
 				userEvent.tab();
 				await sleep(100);
 				assert.equal(multiSelect.open, false);
@@ -403,33 +403,36 @@ describe('MultiSelect', () => {
 			});
 
 			it('esc closes the dropdown and returns focus to the multi select input element', () => {
-				fireEvent.keyDown(comboEl, {key: 'Enter'});
-				fireEvent.keyDown(comboEl, {key: 'Escape'});
+				comboEl.focus();
+				userEvent.keyboard('{Enter}{Escape}');
 				assert.equal(multiSelect.open, false);
 				assert.equal(document.activeElement, comboEl);
 			});
 
 			describe('down arrow', () => {
 				it('moves focus to the next option', () => {
-					fireEvent.keyDown(comboEl, {key: 'ArrowDown'});
+					comboEl.focus();
+					userEvent.keyboard('{ArrowDown}');
 					checkCurrentElementIsFocused();
 				});
 				it('stops on the last option', () => {
+					comboEl.focus();
 					const options = document.querySelectorAll('.o-multi-select-option');
 					for (let i = 0; i < options.length; i++) {
-						fireEvent.keyDown(comboEl, {key: 'ArrowDown'});
+						userEvent.keyboard('{ArrowDown}');
 					}
 					checkCurrentElementIsFocused();
 				});
 			});
 			describe('up arrow', () => {
 				it('moves focus to the previous option', () => {
-					fireEvent.keyDown(comboEl, {key: 'ArrowDown'});
-					fireEvent.keyDown(comboEl, {key: 'ArrowUp'});
+					comboEl.focus();
+					userEvent.keyboard('{ArrowDown}{ArrowUp}');
 					checkCurrentElementIsFocused();
 				});
 				it('stops on the first option', () => {
-					fireEvent.keyDown(comboEl, {key: 'ArrowUp'});
+					comboEl.focus();
+					userEvent.keyboard('{ArrowUp}');
 					checkCurrentElementIsFocused();
 				});
 			});
@@ -437,15 +440,17 @@ describe('MultiSelect', () => {
 			describe('page down', () => {
 				it('Jumps visual focus down 10 options', () => {
 					({multiSelect, comboEl} = createMultiSelectWithLotsOfOptions());
-					fireEvent.keyDown(comboEl, {key: 'PageDown'});
+					comboEl.focus();
+					userEvent.keyboard('{PageDown}');
 					checkCurrentElementIsFocused();
 				});
 				it('stops on the last option', () => {
 					({multiSelect, comboEl} = createMultiSelectWithLotsOfOptions());
+					comboEl.focus();
 					const options = document.querySelectorAll('.o-multi-select-option');
 					const numberOfTimesToPressPageDown = Math.ceil(options.length / 10);
 					for (let i = 0; i < numberOfTimesToPressPageDown; i++) {
-						fireEvent.keyDown(comboEl, {key: 'PageDown'});
+						userEvent.keyboard('{PageDown}');
 					}
 					checkCurrentElementIsFocused();
 				});
@@ -453,23 +458,25 @@ describe('MultiSelect', () => {
 			describe('page up', () => {
 				it('Jumps visual focus up 10 options', () => {
 					({multiSelect, comboEl} = createMultiSelectWithLotsOfOptions());
-					fireEvent.keyDown(comboEl, {key: 'PageDown'});
-					fireEvent.keyDown(comboEl, {key: 'PageDown'});
-					fireEvent.keyDown(comboEl, {key: 'PageUp'});
+					comboEl.focus();
+					userEvent.keyboard('{PageDown}{PageDown}{PageUp}');
 					checkCurrentElementIsFocused();
 				});
 				it('stops on the first option', () => {
 					({multiSelect, comboEl} = createMultiSelectWithLotsOfOptions());
-					fireEvent.keyDown(comboEl, {key: 'PageUp'});
+					comboEl.focus();
+					userEvent.keyboard('{PageUp}');
 					checkCurrentElementIsFocused();
 				});
 			});
 			it('home moves focus to the first element', () => {
-				fireEvent.keyDown(comboEl, {key: 'Home'});
+				comboEl.focus();
+				userEvent.keyboard('{Home}');
 				checkCurrentElementIsFocused();
 			});
 			it('end moves focus to the last element', () => {
-				fireEvent.keyDown(comboEl, {key: 'End'});
+				comboEl.focus();
+				userEvent.keyboard('{End}');
 				checkCurrentElementIsFocused();
 			});
 		});
