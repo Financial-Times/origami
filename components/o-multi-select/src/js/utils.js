@@ -79,6 +79,7 @@ export function onComboBoxKeyDown(event) {
 
 	if (key === 'Escape' && this.open) {
 		this.toggleDropdown();
+		this.comboEl.focus();
 	} else if (key === 'Enter' || key === ' ') {
 		event.preventDefault();
 		addOptionToList.call(this);

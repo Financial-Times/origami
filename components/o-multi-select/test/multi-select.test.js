@@ -4,6 +4,7 @@ import {assert} from '@open-wc/testing';
 import * as fixtures from './helpers/fixtures.js';
 import MultiSelect from '../main.js';
 import {fireEvent} from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
 
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
@@ -390,23 +391,22 @@ describe('MultiSelect', () => {
 					checkAddedSelectedElement(' ');
 				});
 			});
-
 			it('tab closes the dropdown and moves focus to the next focusable element', async () => {
-				// ! focus issues in testing
-				// const inputEl = document.createElement('input');
-				// document.body.appendChild(inputEl);
-				// fireEvent.keyDown(comboEl, {key: 'Enter'});
-				// fireEvent.keyDown(comboEl, {key: 'Tab'});
-				// await sleep(100);
-				// assert.equal(multiSelect.open, false);
+				const inputEl = document.createElement('input');
+				document.body.appendChild(inputEl);
+				comboEl.focus();
+				fireEvent.keyDown(comboEl, {key: 'Enter'});
+				userEvent.tab();
+				await sleep(100);
+				assert.equal(multiSelect.open, false);
+				document.body.removeChild(inputEl);
 			});
 
-			it(' esc closes the dropdown and returns focus to the multi select input element', () => {
+			it('esc closes the dropdown and returns focus to the multi select input element', () => {
 				fireEvent.keyDown(comboEl, {key: 'Enter'});
 				fireEvent.keyDown(comboEl, {key: 'Escape'});
 				assert.equal(multiSelect.open, false);
-				// ! focus issues in testing
-				// assert.equal(document.activeElement, comboEl);
+				assert.equal(document.activeElement, comboEl);
 			});
 
 			describe('down arrow', () => {
