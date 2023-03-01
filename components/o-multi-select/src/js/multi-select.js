@@ -12,7 +12,7 @@ class MultiSelect {
 	 * Class constructor.
 	 *
 	 * @param {HTMLElement} [multiSelectEl] - The component element in the DOM
-	 * @param {Object} [options={}] - An options object for configuring the component
+	 * @param {Object} options - An options object for configuring the component ({multiselectOptions: ['option1', 'option2']})
 	 */
 	constructor(multiSelectEl, options) {
 		this.multiSelectEl = multiSelectEl;
@@ -141,7 +141,7 @@ class MultiSelect {
 	 * Initialise o-multi-select component/s.
 	 *
 	 * @param {(HTMLElement|string)} rootElement - The root element to initialise the component in, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring the component
+	 * @param {Object} options - An options object for configuring the component ({multiselectOptions: ['option1', 'option2']})
 	 * @returns {MultiSelect|MultiSelect[]} The newly constructed MultiSelect components
 	 */
 	static init(rootElement, options) {

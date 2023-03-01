@@ -4,7 +4,7 @@
  * When the menu is closed, it sets the display property of the listbox element to 'none'.
  * It also updates the 'aria-expanded' attribute of the combo box element.
  *
- * @param {boolean} open - If passed, it will force the menu to open or close.
+ * @param {boolean} [open] - If passed, it will force the menu to open or close.
  * @returns {void}
  */
 export function toggleDropdown(open) {
