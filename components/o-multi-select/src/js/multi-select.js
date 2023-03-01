@@ -20,7 +20,6 @@ class MultiSelect {
 
 		this.options = Object.assign(
 			{},
-			{},
 			options || {
 				multiSelectOptions: MultiSelect.getDataAttributes(multiSelectEl),
 			}
