@@ -119,7 +119,7 @@ export function updateCurrentElement() {
  * Removes the 'o-multi-select-option__current' class from all listbox options.
  *
  * @param {HTMLElement} element - The multi-select element.
- * @returns {NodeListOf<HTMLElement>} - The listbox options.
+ * @returns {HTMLElement[]} - The listbox options.
  */
 
 export function _removeCurrentClass(element) {
