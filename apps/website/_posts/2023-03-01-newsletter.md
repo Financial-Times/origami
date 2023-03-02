@@ -1,5 +1,5 @@
 ---
-title: Origami Newsletter, March 2023
+title: Origami Newsletter, February 2023
 description: Origami updates on its new components and work exploring options for a Multi-brand design system
 author: Ben Freshwater
 tags:
