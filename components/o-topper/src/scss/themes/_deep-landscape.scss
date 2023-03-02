@@ -32,11 +32,18 @@
 					text-shadow: 2px 3px 4px rgba(18,18,18,0.4);
 				}
 			}
-			.o-topper__content--box-shadow {
-					padding: oSpacingByName('s4');
-					margin-bottom: oSpacingByName('s6');
-					background-color: if($foreground == white, rgb(18,18,18,0.4), rgb(255,255,255,0.4));
-			}
+		}
+	}
+
+	$background-box-colors: (
+		'light',
+		'dark'
+	);
+	@each $background-box-color in $background-box-colors {
+		.o-topper__content.o-topper__content--background-box-#{$background-box-color} {
+			padding: oSpacingByName('s4');
+			margin-bottom: oSpacingByName('s6');
+			background-color: if($background-box-color == 'dark', rgb(18,18,18,0.4), rgb(255,255,255,0.4));
 		}
 	}
 
