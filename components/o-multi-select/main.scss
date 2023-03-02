@@ -99,25 +99,24 @@
 		max-height: 50vh;
 		overflow-y: auto;
 
-		[role='option'] {
+
+		.o-multi-select-option {
 			color: oColorsByName('black-80');
 			cursor: pointer;
-			&:hover {
-				background-color: oColorsMix(black, white, 10);
-				color: initial;
-			}
-		}
-		.o-multi-select-option {
 			padding: 8px 4px;
 			position: relative;
 			&:hover {
-				background-color: oColorsMix(black, white, 20);
+				background-color: oColorsMix(black, white, 25);
 				color: initial;
+			}
+			@media (max-width: 690px) {
+				padding: 12px 4px;
 			}
 		}
 
 		.o-multi-select-option__selected {
 			color: initial;
+			background-color: oColorsMix(black, white, 15);
 			span {
 				@include oIconsContent(
 					$icon-name: 'tick',
@@ -133,7 +132,7 @@
 			}
 		}
 		.o-multi-select-option__current {
-			background-color: oColorsMix(black, white, 20);
+			background-color: oColorsMix(black, white, 25);
 			color: initial;
 		}
 	}

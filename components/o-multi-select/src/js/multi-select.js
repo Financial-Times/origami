@@ -50,6 +50,7 @@ class MultiSelect {
 			const optionEl = createOption(this.idBase, option, index);
 			optionEl.addEventListener('click', () => {
 				this.handleOptionSelect(optionEl, option, index);
+				optionEl.classList.remove('o-multi-select-option__current');
 			});
 			this.listboxEl.appendChild(optionEl);
 		});
