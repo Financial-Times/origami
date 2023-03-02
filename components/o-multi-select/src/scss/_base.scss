@@ -1,5 +1,5 @@
 @mixin _oMultiSelectButton() {
-	border: none;
+	border-style: none;
 	color: _oMultiSelectGet('button-text-color');
 	background-color: _oMultiSelectGet('button-bg-color');
 	margin-right: $_o-multi-select-spacing-two;
