@@ -1,8 +1,6 @@
-# @financial-times/o-multi-select
+# o-multi-select
 
-_A short description of what the component does._
-
-- [@financial-times/o-multi-select](#financial-timeso-multi-select)
+- [o-multi-select](#o-multi-select)
 	- [Usage](#usage)
 	- [Behaviour](#behaviour)
 	- [Markup](#markup)
@@ -31,51 +29,51 @@ We use `o-forms` component to apply styles to some parts of multi-select compone
 
 ```html
 <div data-o-component="o-multi-select" class="o-multi-select">
-	<!-- Code for Core experience -->
-	<div class="o-form o-multi-select o-multi-select--enhanced">
-		<span class="o-forms-field">
-			<span class="o-forms-title">
-				<label
-					class="o-forms-title__main"
-					for="multiple-enhanced"
-					id="o-multi-select-label"
-				>
-					Multiple select box
-				</label>
-			</span>
-		</span>
+ <!-- Code for Core experience -->
+ <div class="o-form o-multi-select o-multi-select--enhanced">
+  <span class="o-forms-field">
+   <span class="o-forms-title">
+    <label
+     class="o-forms-title__main"
+     for="multiple-enhanced"
+     id="o-multi-select-label"
+    >
+     Multiple select box
+    </label>
+   </span>
+  </span>
 
-		<ul
-			class="o-multi-select__selected-options"
-			id="o-multi-select-selected"
-		></ul>
-		<div class="o-multi-select__combobox-wrapper">
-			<div
-				class="o-multi-select__combobox"
-				id="o-multi-select__combobox"
-				name="multiple-enhanced"
-				role="combobox"
-				aria-activedescendant=""
-				aria-labelledby="o-multi-select-label o-multi-select-selected"
-				aria-haspopup="listbox"
-				aria-expanded="false"
-				aria-owns="o-multi-select-listbox"
-				tabindex="0"
-			>
-				<span class="o-multi-select__combobox-text">
-					Click to select options
-				</span>
-			</div>
-		</div>
-		<div
-			class="o-multi-select__dropdown-menu"
-			id="o-multi-select-listbox"
-			role="listbox"
-			aria-label="multi select options"
-			aria-multiselectable="true"
-			tabindex="-1"
-		></div>
-	</div>
+  <ul
+   class="o-multi-select__selected-options"
+   id="o-multi-select-selected"
+  ></ul>
+  <div class="o-multi-select__combobox-wrapper">
+   <div
+    class="o-multi-select__combobox"
+    id="o-multi-select__combobox"
+    name="multiple-enhanced"
+    role="combobox"
+    aria-activedescendant=""
+    aria-labelledby="o-multi-select-label o-multi-select-selected"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-owns="o-multi-select-listbox"
+    tabindex="0"
+   >
+    <span class="o-multi-select__combobox-text">
+     Click to select options
+    </span>
+   </div>
+  </div>
+  <div
+   class="o-multi-select__dropdown-menu"
+   id="o-multi-select-listbox"
+   role="listbox"
+   aria-label="multi select options"
+   aria-multiselectable="true"
+   tabindex="-1"
+  ></div>
+ </div>
 </div>
 ```
 
@@ -85,25 +83,25 @@ To add support for browsers without JavaScript use multi-select element from `o-
 
 ```html
 <div class="o-multi-select" data-o-component="o-multi-select">
-	<div class="o-form o-multi-select o-multi-select--core">
-		<span class="o-forms-field">
-			<span class="o-forms-title">
-				<label class="o-forms-title__main" for="multiple">
-					Multiple select box
-				</label>
-			</span>
+ <div class="o-form o-multi-select o-multi-select--core">
+  <span class="o-forms-field">
+   <span class="o-forms-title">
+    <label class="o-forms-title__main" for="multiple">
+     Multiple select box
+    </label>
+   </span>
 
-			<span class="o-forms-combobox o-forms-combobox--select">
-				<select name="multiple" id="multiple" multiple>
-					<option value="Apple">Apple</option>
-					<option value="Banana">BAnana</option>
-					<!-- More options -->
-				</select>
-			</span>
-		</span>
-	</div>
+   <span class="o-forms-combobox o-forms-combobox--select">
+    <select name="multiple" id="multiple" multiple>
+     <option value="Apple">Apple</option>
+     <option value="Banana">BAnana</option>
+     <!-- More options -->
+    </select>
+   </span>
+  </span>
+ </div>
 
-	<!-- Code for enhanced experiance -->
+ <!-- Code for enhanced experiance -->
 </div>
 ```
 
@@ -133,7 +131,7 @@ Or pass an element to initialise a specific `o-multi-select` instance:
 ```js
 import oMultiSelect from 'o-multi-select';
 const oMultiSelectElement = document.getElementById(
-	'#my-o-multi-select-element'
+ '#my-o-multi-select-element'
 );
 oMultiSelect.init(oMultiSelectElement);
 ```

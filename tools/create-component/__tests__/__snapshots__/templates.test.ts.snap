@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component template files Root ejs files expect README.md ejsRenderer fn output to match snapshot 1`] = `
-"# @financial-times/o-test-name
+"# o-test-name
 
 _A short description of what the component does._
 
