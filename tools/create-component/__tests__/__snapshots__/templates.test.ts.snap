@@ -459,7 +459,7 @@ describe(\\"TestName\\", () => {
 		}, 100);
 	});
 
-	it(\\"should not autoinitialize when the event is not dispached\\", () => {
+	it(\\"should not autoinitialize when the event is not dispatched\\", () => {
 		const initSpy = sinon.spy(TestName, 'init');
 		proclaim.equal(initSpy.called, false);
 	});
