@@ -24,11 +24,11 @@ o-multi-select is near completion and will ship with TSX templates. It is planne
 
 ### Multi-brand exploration
 
-As Origami's user base grows, it will naturally end up supporting more components. Specifically, more variations of existing components. This can sometimes end up with component fragmentation with teams copy/pasting existing components and styling to their needs. Fortunately, there are tools which can enable components to support multiple brands and styles whilst being sourced from a single curated repository.
+As Origami's user base grows, it will naturally end up supporting more components. Specifically, more variations of existing components. This can sometimes end up with component fragmentation with teams copy/pasting existing components and styling to their needs.
 
-The Origami team has been exploring this, and a number of options are available. Enabling multi brand capability will help bring more brands to the design system and continue to reduce duplication of components throughout the FT. Greater consistency between Design and Engineers can also be achieved through tooling and pipelines that distribute brand tokens between both teams.
+Origami already supports multiple brands with ft-core, internal, and whitelabel branding. With Origaming planning support for the FT Professional brand, we have been exploring ways in which we can scale the rollout of new brands. Fortunately, there are tools which can help us spin up new brands quicker, introduce more variations of existing components. enable components to support multiple brands and styles, and source them from a single curated repository. Another key question for us is how can we provide design tooling to match engineering tooling.
 
-Exploration will continue with a proof of concept being delivered next.
+Origami has been exploring some of the options in February. Exploration will continue with a proof of concept being delivered next.
 
 ## Special Thanks
 
