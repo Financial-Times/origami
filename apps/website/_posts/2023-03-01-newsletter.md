@@ -20,7 +20,7 @@ Some of the bigger Origami news since our last update:
 
 Akaki has been working with Designers to introduce a new component – o-multi-select. This component allows users to filter and select multiple options from a list. Potential usage for this includes filtering content based on large lists of items such as by country or language.
 
-o-multi-select is near completion and will ship with both mustache and Typescript support. It is planned to be released in the upcoming month.
+o-multi-select is near completion and will ship with TSX templates. It is planned to be released in the upcoming month.
 
 ### Multi-brand exploration
 
