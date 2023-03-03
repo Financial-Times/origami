@@ -2,7 +2,7 @@
   {
     "name": "ft-concept-button",
     "description": "ft concept button (includes the ft follow button)",
-    "version": "1.1.0",
+    "version": "1.1.2",
     "brands": [
       "core"
     ],
@@ -12,10 +12,28 @@
       "tsx"
     ],
     "peerDependencies": {
-      "@financial-times/o-typography": "^7.2.2",
-      "@financial-times/o-normalise": "^3.2.2"
+      "@financial-times/o-normalise": "^3.3.0",
+      "@financial-times/o-typography": "^7.2.2"
     },
     "releases": [
+      {
+        "release": {
+          "major": "1",
+          "minor": "1",
+          "patch": "2"
+        },
+        "version": "1.1.2",
+        "published_at": "2022-12-21"
+      },
+      {
+        "release": {
+          "major": "1",
+          "minor": "1",
+          "patch": "1"
+        },
+        "version": "1.1.1",
+        "published_at": "2022-12-15"
+      },
       {
         "release": {
           "major": "1",
@@ -153,7 +171,7 @@
     "name": "n-notification",
     "url": "https://github.com/Financial-Times/origami/components/n-notification",
     "description": "Component for showing notifications to users",
-    "version": "8.2.2",
+    "version": "8.2.3",
     "brands": [
       "core"
     ],
@@ -166,11 +184,20 @@
       "@financial-times/o-typography": "^7.0.3"
     },
     "devDependencies": {
-      "@financial-times/o-fonts": "^5.2.0",
       "@financial-times/o-buttons": "^7.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-fonts": "^5.2.0",
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "8",
+          "minor": "2",
+          "patch": "3"
+        },
+        "version": "8.2.3",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "8",
@@ -828,7 +855,7 @@
     "name": "o-autocomplete",
     "url": "https://registry.origami.ft.com/components/o-autocomplete",
     "description": "An origami component for autocomplete inputs",
-    "version": "1.7.1",
+    "version": "1.7.3",
     "brands": [
       "core",
       "internal"
@@ -844,20 +871,38 @@
       "@financial-times/o-grid": "^6.0.0",
       "@financial-times/o-icons": "^7.0.1",
       "@financial-times/o-loading": "^5.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-spacing": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1",
       "@financial-times/o-visual-effects": "^4.0.1"
     },
     "devDependencies": {
       "@financial-times/o-forms": "^9.2.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-utils": "^2.1.0"
     },
     "dependencies": {
       "@financial-times/accessible-autocomplete": "^2.1.2"
     },
     "releases": [
+      {
+        "release": {
+          "major": "1",
+          "minor": "7",
+          "patch": "3"
+        },
+        "version": "1.7.3",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "1",
+          "minor": "7",
+          "patch": "2"
+        },
+        "version": "1.7.2",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "1",
@@ -1026,7 +1071,7 @@
     "name": "o-banner",
     "url": "https://registry.origami.ft.com/components/o-banner",
     "description": "Provides styling for product messaging which could include feature promotion, education, feedback, and legal information.",
-    "version": "4.4.6",
+    "version": "4.4.8",
     "brands": [
       "core"
     ],
@@ -1047,9 +1092,27 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5",
-      "@financial-times/o-normalise": "^3"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "4",
+          "minor": "4",
+          "patch": "8"
+        },
+        "version": "4.4.8",
+        "published_at": "2022-12-21"
+      },
+      {
+        "release": {
+          "major": "4",
+          "minor": "4",
+          "patch": "7"
+        },
+        "version": "4.4.7",
+        "published_at": "2022-12-15"
+      },
       {
         "release": {
           "major": "4",
@@ -1515,7 +1578,7 @@
     "name": "o-big-number",
     "url": "https://registry.origami.ft.com/components/o-big-number",
     "description": "Typographical styles to highlight a big number.",
-    "version": "3.1.1",
+    "version": "3.2.0",
     "brands": [
       "core",
       "internal",
@@ -1532,9 +1595,27 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "3",
+          "minor": "2",
+          "patch": "0"
+        },
+        "version": "3.2.0",
+        "published_at": "2023-01-31"
+      },
+      {
+        "release": {
+          "major": "3",
+          "minor": "1",
+          "patch": "2"
+        },
+        "version": "3.1.2",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "3",
@@ -1694,7 +1775,7 @@
     "name": "o-buttons",
     "url": "https://registry.origami.ft.com/components/o-buttons",
     "description": "FT buttons styles. Provides customisation options with the FT colour palette.",
-    "version": "7.7.1",
+    "version": "7.7.4",
     "brands": [
       "core",
       "internal",
@@ -1708,14 +1789,41 @@
       "@financial-times/o-brand": "^4.1.0",
       "@financial-times/o-colors": "^6.0.1",
       "@financial-times/o-icons": "^7.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-typography": "^7.0.1"
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "7",
+          "minor": "7",
+          "patch": "4"
+        },
+        "version": "7.7.4",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "7",
+          "minor": "7",
+          "patch": "3"
+        },
+        "version": "7.7.3",
+        "published_at": "2022-12-21"
+      },
+      {
+        "release": {
+          "major": "7",
+          "minor": "7",
+          "patch": "2"
+        },
+        "version": "7.7.2",
+        "published_at": "2022-12-15"
+      },
       {
         "release": {
           "major": "7",
@@ -3216,7 +3324,7 @@
     "name": "o-colors",
     "url": "https://registry.origami.ft.com/components/o-colors",
     "description": "The default colour palette for all FT products. The palette supports colour contrast checking, colour mixing and toneing.",
-    "version": "6.4.2",
+    "version": "6.4.4",
     "brands": [
       "core",
       "internal",
@@ -3234,12 +3342,30 @@
       "@financial-times/o-buttons": "^7.2.0",
       "@financial-times/o-fonts": "^5.2.0",
       "@financial-times/o-forms": "^9.2.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-overlay": "^4.2.1",
       "@financial-times/o-syntax-highlight": "^4.2.0",
       "@financial-times/o-tabs": "^8.0.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "6",
+          "minor": "4",
+          "patch": "4"
+        },
+        "version": "6.4.4",
+        "published_at": "2023-01-13"
+      },
+      {
+        "release": {
+          "major": "6",
+          "minor": "4",
+          "patch": "3"
+        },
+        "version": "6.4.3",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "6",
@@ -4740,7 +4866,7 @@
     "name": "o-comments",
     "url": "https://registry.origami.ft.com/components/o-comments",
     "description": "A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content.",
-    "version": "9.0.1",
+    "version": "10.0.0",
     "brands": [
       "core"
     ],
@@ -4753,7 +4879,7 @@
       "@financial-times/o-colors": "^6.0.1",
       "@financial-times/o-editorial-typography": "^2.0.1",
       "@financial-times/o-forms": "^9.2.0",
-      "@financial-times/o-normalise": "^3.0.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-overlay": "^4.2.1",
       "@financial-times/o-spacing": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1"
@@ -4763,6 +4889,24 @@
       "@financial-times/o-overlay": "^4.2.1"
     },
     "releases": [
+      {
+        "release": {
+          "major": "10",
+          "minor": "0",
+          "patch": "0"
+        },
+        "version": "10.0.0",
+        "published_at": "2023-02-02"
+      },
+      {
+        "release": {
+          "major": "9",
+          "minor": "0",
+          "patch": "2"
+        },
+        "version": "9.0.2",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "9",
@@ -5840,7 +5984,7 @@
     "name": "o-cookie-message",
     "url": "https://registry.origami.ft.com/components/o-cookie-message",
     "description": "The cookie message and behaviour approved by the FT's legal team. All FT websites must have a cookie message. Using o-cookie-message will ensure your site is compliant according to EU regulatory law.",
-    "version": "6.5.0",
+    "version": "6.5.1",
     "brands": [
       "core"
     ],
@@ -5859,12 +6003,21 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "dependencies": {
       "superstore-sync": "^2.1.1"
     },
     "releases": [
+      {
+        "release": {
+          "major": "6",
+          "minor": "5",
+          "patch": "1"
+        },
+        "version": "6.5.1",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "6",
@@ -7106,12 +7259,13 @@
     "name": "o-editorial-layout",
     "url": "https://registry.origami.ft.com/components/o-editorial-layout",
     "description": "Layout for editorial content. Including margins for editorial typography.",
-    "version": "2.3.1",
+    "version": "2.4.0",
     "brands": [
       "core"
     ],
     "languages": [
-      "scss"
+      "scss",
+      "tsx"
     ],
     "peerDependencies": {
       "@financial-times/o-brand": "^4.1.0",
@@ -7123,9 +7277,27 @@
     "devDependencies": {
       "@financial-times/o-colors": "^6.4.0",
       "@financial-times/o-grid": "^6.1.1",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "2",
+          "minor": "4",
+          "patch": "0"
+        },
+        "version": "2.4.0",
+        "published_at": "2023-01-26"
+      },
+      {
+        "release": {
+          "major": "2",
+          "minor": "3",
+          "patch": "2"
+        },
+        "version": "2.3.2",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "2",
@@ -7330,7 +7502,7 @@
     "name": "o-editorial-typography",
     "url": "https://registry.origami.ft.com/components/o-editorial-typography",
     "description": "Typography styles for editorial content.",
-    "version": "2.3.2",
+    "version": "2.3.3",
     "brands": [
       "core"
     ],
@@ -7344,9 +7516,18 @@
       "@financial-times/o-typography": "^7.0.1"
     },
     "devDependencies": {
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "2",
+          "minor": "3",
+          "patch": "3"
+        },
+        "version": "2.3.3",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "2",
@@ -7551,7 +7732,7 @@
     "name": "o-expander",
     "url": "https://registry.origami.ft.com/components/o-expander",
     "description": "Content-aware helper for expanding and collapsing content or lists.",
-    "version": "6.2.4",
+    "version": "6.2.6",
     "brands": [
       "core",
       "internal",
@@ -7564,13 +7745,31 @@
     ],
     "peerDependencies": {
       "@financial-times/o-icons": "^7.0.0",
-      "@financial-times/o-viewport": "^5.0.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0",
+      "@financial-times/o-viewport": "^5.0.0"
     },
     "devDependencies": {
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "6",
+          "minor": "2",
+          "patch": "6"
+        },
+        "version": "6.2.6",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "6",
+          "minor": "2",
+          "patch": "5"
+        },
+        "version": "6.2.5",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "6",
@@ -8910,7 +9109,7 @@
     "name": "o-footer",
     "url": "https://registry.origami.ft.com/components/o-footer",
     "description": "Responsive footer for all FT.com pages. Includes legally approved links.",
-    "version": "9.2.4",
+    "version": "9.2.6",
     "brands": [
       "core"
     ],
@@ -8925,7 +9124,7 @@
       "@financial-times/o-grid": "^6.0.0",
       "@financial-times/o-icons": "^7.0.0",
       "@financial-times/o-loading": "^5.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-spacing": "^3.0.0",
       "@financial-times/o-toggle": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1",
@@ -8933,9 +9132,27 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "9",
+          "minor": "2",
+          "patch": "6"
+        },
+        "version": "9.2.6",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "9",
+          "minor": "2",
+          "patch": "5"
+        },
+        "version": "9.2.5",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "9",
@@ -9824,7 +10041,7 @@
     "name": "o-footer-services",
     "url": "https://registry.origami.ft.com/components/o-footer-services",
     "description": "This is a legally approved footer component for internal products, tooling and customer products",
-    "version": "4.2.4",
+    "version": "4.2.5",
     "brands": [
       "core",
       "internal",
@@ -9841,9 +10058,18 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "4",
+          "minor": "2",
+          "patch": "5"
+        },
+        "version": "4.2.5",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "4",
@@ -10138,7 +10364,7 @@
     "name": "o-forms",
     "url": "https://registry.origami.ft.com/components/o-forms",
     "description": "This component provides responsive styling for form fields and inputs. It provides validation and error handling for forms, as well.",
-    "version": "9.4.4",
+    "version": "9.5.0",
     "brands": [
       "core",
       "internal",
@@ -10146,7 +10372,8 @@
     ],
     "languages": [
       "js",
-      "scss"
+      "scss",
+      "tsx"
     ],
     "peerDependencies": {
       "@financial-times/math": "^1.0.0",
@@ -10156,16 +10383,74 @@
       "@financial-times/o-grid": "^6.0.0",
       "@financial-times/o-icons": "^7.0.0",
       "@financial-times/o-loading": "^5.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-spacing": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1"
     },
     "devDependencies": {
       "@financial-times/o-buttons": "^7.2.0",
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
+    },
+    "dependencies": {
+      "@types/lodash.uniqueid": "^4.0.7",
+      "lodash.uniqueid": "^4.0.1"
     },
     "releases": [
+      {
+        "release": {
+          "major": "9",
+          "minor": "5",
+          "patch": "0"
+        },
+        "version": "9.5.0",
+        "published_at": "2023-01-24"
+      },
+      {
+        "release": {
+          "major": "9",
+          "minor": "4",
+          "patch": "9"
+        },
+        "version": "9.4.9",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "9",
+          "minor": "4",
+          "patch": "8"
+        },
+        "version": "9.4.8",
+        "published_at": "2023-01-04"
+      },
+      {
+        "release": {
+          "major": "9",
+          "minor": "4",
+          "patch": "7"
+        },
+        "version": "9.4.7",
+        "published_at": "2022-12-21"
+      },
+      {
+        "release": {
+          "major": "9",
+          "minor": "4",
+          "patch": "6"
+        },
+        "version": "9.4.6",
+        "published_at": "2022-12-15"
+      },
+      {
+        "release": {
+          "major": "9",
+          "minor": "4",
+          "patch": "5"
+        },
+        "version": "9.4.5",
+        "published_at": "2022-12-15"
+      },
       {
         "release": {
           "major": "9",
@@ -11792,16 +12077,35 @@
     "name": "o-ft-affiliate-ribbon",
     "url": "https://registry.origami.ft.com/components/o-ft-affiliate-ribbon",
     "description": "A ribbon denoting affiliation with the FT. This ribbon should be used in products that are owned by the Financial Times but have a separate brand identity to the company.",
-    "version": "5.1.1",
+    "version": "5.2.0",
     "languages": [
-      "scss"
+      "scss",
+      "tsx"
     ],
     "peerDependencies": {
       "@financial-times/o-colors": "^6.0.1",
       "@financial-times/o-grid": "^6.0.0",
-      "@financial-times/o-normalise": "^3.0.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "5",
+          "minor": "2",
+          "patch": "0"
+        },
+        "version": "5.2.0",
+        "published_at": "2023-01-10"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "1",
+          "patch": "2"
+        },
+        "version": "5.1.2",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "5",
@@ -13066,7 +13370,7 @@
     "name": "o-header",
     "url": "https://registry.origami.ft.com/components/o-header",
     "description": "Responsive Financial Times page header with primary and secondary navigation, a drop down mega menu, and a collapsible drawer",
-    "version": "10.1.0",
+    "version": "11.0.4",
     "brands": [
       "core"
     ],
@@ -13082,7 +13386,7 @@
       "@financial-times/o-colors": "^6.0.1",
       "@financial-times/o-grid": "^6.1.1",
       "@financial-times/o-icons": "^7.0.1",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-toggle": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1",
       "@financial-times/o-utils": "^2.0.0",
@@ -13091,9 +13395,72 @@
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
       "@financial-times/o-grid": "^6.1.1",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "11",
+          "minor": "0",
+          "patch": "4"
+        },
+        "version": "11.0.4",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "11",
+          "minor": "0",
+          "patch": "3"
+        },
+        "version": "11.0.3",
+        "published_at": "2023-01-18"
+      },
+      {
+        "release": {
+          "major": "11",
+          "minor": "0",
+          "patch": "2"
+        },
+        "version": "11.0.2",
+        "published_at": "2023-01-16"
+      },
+      {
+        "release": {
+          "major": "11",
+          "minor": "0",
+          "patch": "1"
+        },
+        "version": "11.0.1",
+        "published_at": "2023-01-16"
+      },
+      {
+        "release": {
+          "major": "11",
+          "minor": "0",
+          "patch": "0"
+        },
+        "version": "11.0.0",
+        "published_at": "2023-01-13"
+      },
+      {
+        "release": {
+          "major": "10",
+          "minor": "1",
+          "patch": "2"
+        },
+        "version": "10.1.2",
+        "published_at": "2022-12-21"
+      },
+      {
+        "release": {
+          "major": "10",
+          "minor": "1",
+          "patch": "1"
+        },
+        "version": "10.1.1",
+        "published_at": "2022-12-15"
+      },
       {
         "release": {
           "major": "10",
@@ -14954,7 +15321,7 @@
     "name": "o-header-services",
     "url": "https://registry.origami.ft.com/components/o-header-services",
     "description": "Responsive page header for sites with minimal or customised branding, including internal products, customer facing tools, and specialist titles.",
-    "version": "5.3.0",
+    "version": "5.3.3",
     "brands": [
       "core",
       "internal",
@@ -14972,7 +15339,7 @@
       "@financial-times/o-colors": "^6.0.1",
       "@financial-times/o-grid": "^6.0.0",
       "@financial-times/o-icons": "^7.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-spacing": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1",
       "@financial-times/o-utils": "^2.0.0",
@@ -14980,9 +15347,36 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "5",
+          "minor": "3",
+          "patch": "3"
+        },
+        "version": "5.3.3",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "3",
+          "patch": "2"
+        },
+        "version": "5.3.2",
+        "published_at": "2022-12-21"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "3",
+          "patch": "1"
+        },
+        "version": "5.3.1",
+        "published_at": "2022-12-15"
+      },
       {
         "release": {
           "major": "5",
@@ -16323,7 +16717,7 @@
     "name": "o-labels",
     "url": "https://registry.origami.ft.com/components/o-labels",
     "description": "Labels for content classification or to emphasise a value. Provides customisation options with the FT colour palette.",
-    "version": "6.5.2",
+    "version": "6.5.3",
     "brands": [
       "core",
       "internal",
@@ -16342,9 +16736,18 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "6",
+          "minor": "5",
+          "patch": "3"
+        },
+        "version": "6.5.3",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "6",
@@ -16891,21 +17294,22 @@
     "name": "o-layout",
     "url": "https://registry.origami.ft.com/components/o-layout",
     "description": "Provides page layouts and typography as a starting point to create internal tools or products.",
-    "version": "5.2.4",
+    "version": "5.3.1",
     "brands": [
       "core",
       "internal"
     ],
     "languages": [
       "js",
-      "scss"
+      "scss",
+      "tsx"
     ],
     "peerDependencies": {
       "@financial-times/o-brand": "^4.1.0",
       "@financial-times/o-colors": "^6.0.1",
       "@financial-times/o-fonts": "^5.0.0",
       "@financial-times/o-grid": "^6.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-quote": "^5.0.1",
       "@financial-times/o-spacing": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1",
@@ -16916,12 +17320,39 @@
       "@financial-times/o-footer-services": "^4.2.0",
       "@financial-times/o-forms": "^9.2.0",
       "@financial-times/o-header-services": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-syntax-highlight": "^4.2.0",
       "@financial-times/o-table": "^9.2.0",
       "@financial-times/o-tabs": "^6.2.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "5",
+          "minor": "3",
+          "patch": "1"
+        },
+        "version": "5.3.1",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "3",
+          "patch": "0"
+        },
+        "version": "5.3.0",
+        "published_at": "2023-01-04"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "2",
+          "patch": "5"
+        },
+        "version": "5.2.5",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "5",
@@ -18171,7 +18602,7 @@
     "name": "o-message",
     "url": "https://registry.origami.ft.com/components/o-message",
     "description": "Provides message elements for alerting, informing or making calls to action.",
-    "version": "5.4.0",
+    "version": "5.4.1",
     "brands": [
       "core",
       "internal",
@@ -18194,9 +18625,18 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5",
-      "@financial-times/o-normalise": "^3"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "5",
+          "minor": "4",
+          "patch": "1"
+        },
+        "version": "5.4.1",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "5",
@@ -18770,7 +19210,7 @@
     "name": "o-meter",
     "url": "https://registry.origami.ft.com/components/o-meter",
     "description": "Provides customization for meter tag",
-    "version": "3.2.0",
+    "version": "3.2.1",
     "brands": [
       "internal"
     ],
@@ -18785,10 +19225,19 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-typography": "^7.2.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "3",
+          "minor": "2",
+          "patch": "1"
+        },
+        "version": "3.2.1",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "3",
@@ -18921,7 +19370,7 @@
     "name": "o-normalise",
     "url": "https://registry.origami.ft.com/components/o-normalise",
     "description": "Provides base styles and resets for stylesheets. Includes standardised utilities, such as visually hiding components or adding a consistent focus state.",
-    "version": "3.2.2",
+    "version": "3.3.0",
     "brands": [
       "core",
       "internal",
@@ -18939,6 +19388,15 @@
       "@financial-times/o-colors": "^6.4.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "3",
+          "minor": "3",
+          "patch": "0"
+        },
+        "version": "3.3.0",
+        "published_at": "2022-12-15"
+      },
       {
         "release": {
           "major": "3",
@@ -19278,7 +19736,7 @@
     "name": "o-overlay",
     "url": "https://registry.origami.ft.com/components/o-overlay",
     "description": "Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens",
-    "version": "4.2.4",
+    "version": "4.2.7",
     "brands": [
       "core",
       "internal",
@@ -19293,7 +19751,7 @@
       "@financial-times/o-brand": "^4.1.0",
       "@financial-times/o-colors": "^6.0.1",
       "@financial-times/o-icons": "^7.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-spacing": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1",
       "@financial-times/o-viewport": "^5.0.0",
@@ -19302,13 +19760,40 @@
     "devDependencies": {
       "@financial-times/o-buttons": "^7.2.0",
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "dependencies": {
       "focusable": "^2.3.0",
       "ftdomdelegate": "^4.0.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "4",
+          "minor": "2",
+          "patch": "7"
+        },
+        "version": "4.2.7",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "4",
+          "minor": "2",
+          "patch": "6"
+        },
+        "version": "4.2.6",
+        "published_at": "2023-01-04"
+      },
+      {
+        "release": {
+          "major": "4",
+          "minor": "2",
+          "patch": "5"
+        },
+        "version": "4.2.5",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "4",
@@ -20332,7 +20817,7 @@
     "name": "o-quote",
     "url": "https://registry.origami.ft.com/components/o-quote",
     "description": "Styling for blockquotes, pull-quotes and any other types of quote",
-    "version": "5.3.0",
+    "version": "5.3.1",
     "brands": [
       "core",
       "internal",
@@ -20351,9 +20836,18 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "5",
+          "minor": "3",
+          "patch": "1"
+        },
+        "version": "5.3.1",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "5",
@@ -20684,7 +21178,7 @@
     "name": "o-share",
     "url": "https://registry.origami.ft.com/components/o-share",
     "description": "Provides styling for social media sharing links",
-    "version": "8.3.0",
+    "version": "9.0.1",
     "brands": [
       "core",
       "internal"
@@ -20699,18 +21193,54 @@
       "@financial-times/o-brand": "^4.1.0",
       "@financial-times/o-colors": "^6.0.1",
       "@financial-times/o-grid": "^6.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-spacing": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1"
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "dependencies": {
       "ftdomdelegate": "^4.0.6"
     },
     "releases": [
+      {
+        "release": {
+          "major": "9",
+          "minor": "0",
+          "patch": "1"
+        },
+        "version": "9.0.1",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "9",
+          "minor": "0",
+          "patch": "0"
+        },
+        "version": "9.0.0",
+        "published_at": "2023-01-17"
+      },
+      {
+        "release": {
+          "major": "8",
+          "minor": "3",
+          "patch": "2"
+        },
+        "version": "8.3.2",
+        "published_at": "2022-12-21"
+      },
+      {
+        "release": {
+          "major": "8",
+          "minor": "3",
+          "patch": "1"
+        },
+        "version": "8.3.1",
+        "published_at": "2022-12-15"
+      },
       {
         "release": {
           "major": "8",
@@ -21653,7 +22183,7 @@
     "name": "o-social-follow",
     "url": "https://registry.origami.ft.com/components/o-social-follow",
     "description": "Provides styling for social media sharing links",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "brands": [
       "core",
       "internal",
@@ -21668,16 +22198,42 @@
       "@financial-times/o-brand": "^4.1.0",
       "@financial-times/o-colors": "^6.0.1",
       "@financial-times/o-grid": "^6.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-spacing": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1"
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
-    "dependencies": {},
     "releases": [
+      {
+        "release": {
+          "major": "1",
+          "minor": "0",
+          "patch": "3"
+        },
+        "version": "1.0.3",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "1",
+          "minor": "0",
+          "patch": "2"
+        },
+        "version": "1.0.2",
+        "published_at": "2022-12-21"
+      },
+      {
+        "release": {
+          "major": "1",
+          "minor": "0",
+          "patch": "1"
+        },
+        "version": "1.0.1",
+        "published_at": "2022-12-15"
+      },
       {
         "release": {
           "major": "1",
@@ -21693,7 +22249,7 @@
     "name": "o-spacing",
     "url": "https://registry.origami.ft.com/components/o-spacing",
     "description": "Maintain consistent spaces across components and projects in accordance to our baseline grid and design guidelines.",
-    "version": "3.2.1",
+    "version": "3.2.2",
     "brands": [
       "core",
       "internal",
@@ -21707,10 +22263,19 @@
     },
     "devDependencies": {
       "@financial-times/o-colors": "^6.4.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-typography": "^7.2.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "3",
+          "minor": "2",
+          "patch": "2"
+        },
+        "version": "3.2.2",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "3",
@@ -21852,7 +22417,7 @@
     "name": "o-stepped-progress",
     "url": "https://registry.origami.ft.com/components/o-stepped-progress",
     "description": "Track progress through a multi-step process, such as a form",
-    "version": "4.0.3",
+    "version": "4.0.6",
     "brands": [
       "core",
       "internal",
@@ -21867,16 +22432,43 @@
       "@financial-times/math": "^1.0.0",
       "@financial-times/o-colors": "^6.0.1",
       "@financial-times/o-icons": "^7.2.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-spacing": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1"
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
       "@financial-times/o-icons": "^7.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "4",
+          "minor": "0",
+          "patch": "6"
+        },
+        "version": "4.0.6",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "4",
+          "minor": "0",
+          "patch": "5"
+        },
+        "version": "4.0.5",
+        "published_at": "2022-12-21"
+      },
+      {
+        "release": {
+          "major": "4",
+          "minor": "0",
+          "patch": "4"
+        },
+        "version": "4.0.4",
+        "published_at": "2022-12-15"
+      },
       {
         "release": {
           "major": "4",
@@ -22099,7 +22691,7 @@
     "name": "o-subs-card",
     "url": "https://registry.origami.ft.com/components/o-subs-card",
     "description": "A card for showing different subscription packages offered by the Financial Times",
-    "version": "6.2.2",
+    "version": "6.2.3",
     "brands": [
       "core"
     ],
@@ -22121,9 +22713,18 @@
       "@financial-times/o-colors": "^6.4.0",
       "@financial-times/o-fonts": "^5.2.0",
       "@financial-times/o-grid": "^6.1.1",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "6",
+          "minor": "2",
+          "patch": "3"
+        },
+        "version": "6.2.3",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "6",
@@ -22783,7 +23384,7 @@
     "name": "o-table",
     "url": "https://registry.origami.ft.com/components/o-table",
     "description": "Provides styling and behvaiour for tables across FT products.",
-    "version": "9.2.6",
+    "version": "9.2.7",
     "brands": [
       "core",
       "internal",
@@ -22808,13 +23409,22 @@
       "@financial-times/o-buttons": "^7",
       "@financial-times/o-fonts": "^5",
       "@financial-times/o-forms": "^9",
-      "@financial-times/o-normalise": "^3",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-typography": "^7"
     },
     "dependencies": {
       "ftdomdelegate": "^4.0.6"
     },
     "releases": [
+      {
+        "release": {
+          "major": "9",
+          "minor": "2",
+          "patch": "7"
+        },
+        "version": "9.2.7",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "9",
@@ -23838,7 +24448,7 @@
     "name": "o-tabs",
     "url": "https://registry.origami.ft.com/components/o-tabs",
     "description": "Tabs component for dividing content into meaningful sections.",
-    "version": "8.1.1",
+    "version": "8.1.2",
     "brands": [
       "core",
       "internal",
@@ -23856,9 +24466,18 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5",
-      "@financial-times/o-normalise": "^3"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "8",
+          "minor": "1",
+          "patch": "2"
+        },
+        "version": "8.1.2",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "8",
@@ -24567,7 +25186,7 @@
     "name": "o-teaser",
     "url": "https://registry.origami.ft.com/components/o-teaser",
     "description": "Provides styling for teaser elements, which contain information about an article and link through to it",
-    "version": "6.2.2",
+    "version": "6.2.5",
     "brands": [
       "core"
     ],
@@ -24580,13 +25199,13 @@
       "@financial-times/o-grid": "^6.0.0",
       "@financial-times/o-icons": "^7.0.1",
       "@financial-times/o-labels": "^6.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-spacing": "^3.0.0",
       "@financial-times/o-typography": "^7.0.1"
     },
     "devDependencies": {
       "@financial-times/o-date": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "dependencies": {
       "date-fns": "^1.29.0",
@@ -24595,6 +25214,33 @@
       "html-react-parser": "^3.0.1"
     },
     "releases": [
+      {
+        "release": {
+          "major": "6",
+          "minor": "2",
+          "patch": "5"
+        },
+        "version": "6.2.5",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "6",
+          "minor": "2",
+          "patch": "4"
+        },
+        "version": "6.2.4",
+        "published_at": "2022-12-21"
+      },
+      {
+        "release": {
+          "major": "6",
+          "minor": "2",
+          "patch": "3"
+        },
+        "version": "6.2.3",
+        "published_at": "2022-12-15"
+      },
       {
         "release": {
           "major": "6",
@@ -25726,7 +26372,7 @@
     "name": "o-teaser-collection",
     "url": "https://registry.origami.ft.com/components/o-teaser-collection",
     "description": "Provides styles to layout out multiple teasers in one section.",
-    "version": "4.2.1",
+    "version": "4.2.2",
     "brands": [
       "core"
     ],
@@ -25743,9 +26389,18 @@
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
       "@financial-times/o-grid": "^6.1.1",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "4",
+          "minor": "2",
+          "patch": "2"
+        },
+        "version": "4.2.2",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "4",
@@ -26076,7 +26731,7 @@
     "name": "o-toggle",
     "url": "https://registry.origami.ft.com/components/o-toggle",
     "description": "Utility that provides toggle (show/hide) behaviour to a <button> or <a> tag and a target.",
-    "version": "3.2.3",
+    "version": "3.2.4",
     "brands": [
       "core",
       "internal",
@@ -26089,10 +26744,19 @@
     "devDependencies": {
       "@financial-times/o-buttons": "^7.2.0",
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-spacing": "^3.2.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "3",
+          "minor": "2",
+          "patch": "4"
+        },
+        "version": "3.2.4",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "3",
@@ -26378,7 +27042,7 @@
     "name": "o-tooltip",
     "url": "https://registry.origami.ft.com/components/o-tooltip",
     "description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
-    "version": "5.2.4",
+    "version": "5.2.5",
     "brands": [
       "core",
       "internal",
@@ -26402,12 +27066,21 @@
       "@financial-times/o-buttons": "^7",
       "@financial-times/o-colors": "^6",
       "@financial-times/o-fonts": "^5",
-      "@financial-times/o-normalise": "^3"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "dependencies": {
       "ftdomdelegate": "^4.0.6"
     },
     "releases": [
+      {
+        "release": {
+          "major": "5",
+          "minor": "2",
+          "patch": "5"
+        },
+        "version": "5.2.5",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "5",
@@ -26909,7 +27582,7 @@
     "name": "o-topper",
     "url": "https://registry.origami.ft.com/components/o-topper",
     "description": "Article header styling",
-    "version": "5.6.0",
+    "version": "5.7.3",
     "brands": [
       "core"
     ],
@@ -26927,13 +27600,85 @@
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-typography": "^7.2.0"
     },
     "dependencies": {
-      "@financial-times/n-map-content-to-topper": "^2.2.2"
+      "@financial-times/n-map-content-to-topper": "^3.2.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "5",
+          "minor": "7",
+          "patch": "3"
+        },
+        "version": "5.7.3",
+        "published_at": "2023-02-01"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "7",
+          "patch": "2"
+        },
+        "version": "5.7.2",
+        "published_at": "2023-01-31"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "7",
+          "patch": "1"
+        },
+        "version": "5.7.1",
+        "published_at": "2023-01-04"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "7",
+          "patch": "0"
+        },
+        "version": "5.7.0",
+        "published_at": "2023-01-04"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "6",
+          "patch": "4"
+        },
+        "version": "5.6.4",
+        "published_at": "2022-12-21"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "6",
+          "patch": "3"
+        },
+        "version": "5.6.3",
+        "published_at": "2022-12-20"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "6",
+          "patch": "2"
+        },
+        "version": "5.6.2",
+        "published_at": "2022-12-14"
+      },
+      {
+        "release": {
+          "major": "5",
+          "minor": "6",
+          "patch": "1"
+        },
+        "version": "5.6.1",
+        "published_at": "2022-12-14"
+      },
       {
         "release": {
           "major": "5",
@@ -27408,7 +28153,7 @@
     "name": "o-typography",
     "url": "https://registry.origami.ft.com/components/o-typography",
     "description": "Typographical styles for FT branded sites. Including typographical fundamentals such as font scales, vertical rhythm, and font fallbacks; plus styles for UI including links, headings, and titles. Other components build on o-typography to provide for more specific usecases.",
-    "version": "7.3.2",
+    "version": "7.3.4",
     "brands": [
       "core",
       "internal",
@@ -27425,17 +28170,35 @@
       "@financial-times/o-fonts": "^5.0.0",
       "@financial-times/o-grid": "^6.1.1",
       "@financial-times/o-icons": "^7.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-spacing": "^3.0.0"
     },
     "devDependencies": {
       "@financial-times/o-grid": "^6.1.1",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "dependencies": {
       "fontfaceobserver": "^2.0.9"
     },
     "releases": [
+      {
+        "release": {
+          "major": "7",
+          "minor": "3",
+          "patch": "4"
+        },
+        "version": "7.3.4",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "7",
+          "minor": "3",
+          "patch": "3"
+        },
+        "version": "7.3.3",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "7",
@@ -28792,7 +29555,7 @@
     "name": "o-video",
     "url": "https://registry.origami.ft.com/components/o-video",
     "description": "Creates a video player and attaches analytics. Also supports pre roll ads.",
-    "version": "7.2.3",
+    "version": "7.2.6",
     "brands": [
       "core"
     ],
@@ -28804,15 +29567,42 @@
       "@financial-times/o-colors": "^6.0.1",
       "@financial-times/o-icons": "^7.0.0",
       "@financial-times/o-loading": "^5.0.0",
-      "@financial-times/o-normalise": "^3.2.0",
+      "@financial-times/o-normalise": "^3.3.0",
       "@financial-times/o-typography": "^7.0.1",
       "@financial-times/o-viewport": "^5.0.0"
     },
     "devDependencies": {
       "@financial-times/o-fonts": "^5.2.0",
-      "@financial-times/o-normalise": "^3.2.0"
+      "@financial-times/o-normalise": "^3.3.0"
     },
     "releases": [
+      {
+        "release": {
+          "major": "7",
+          "minor": "2",
+          "patch": "6"
+        },
+        "version": "7.2.6",
+        "published_at": "2023-01-20"
+      },
+      {
+        "release": {
+          "major": "7",
+          "minor": "2",
+          "patch": "5"
+        },
+        "version": "7.2.5",
+        "published_at": "2023-01-16"
+      },
+      {
+        "release": {
+          "major": "7",
+          "minor": "2",
+          "patch": "4"
+        },
+        "version": "7.2.4",
+        "published_at": "2022-12-21"
+      },
       {
         "release": {
           "major": "7",
