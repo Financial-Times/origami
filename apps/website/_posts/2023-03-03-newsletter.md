@@ -34,7 +34,9 @@ Origami has been exploring some of the options in February. Exploration will con
 
 ### Jira
 
-We have begun tracking work on JIRA.
+As an enablement team, we collaborate with a lot of multi-disciplinary teams across the FT Group. We want to ensure our shared tracked work is visible across all disciplines in Product and Technology, and our current board for tracking, GitHub, is less familiar to people outside of engineering. In light of this, we have begun using Jira to track our shared work so that our collaborators have better visibility on what we do.
+
+Our new board can be accessed through [Jira](https://financialtimes.atlassian.net/jira/software/c/projects/OR/boards/1658).
 
 ## Special Thanks
 
