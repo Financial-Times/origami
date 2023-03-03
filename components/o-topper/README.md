@@ -88,6 +88,13 @@ These colors affect the background of the `.o-topper__background` and `.o-topper
 .o-topper--color-matisse
 ```
 
+### Modifiers
+
+| Modifier                                | Use case                                                                                           |
+|-----------------------------------------|----------------------------------------------------------------------------------------------------|
+| `.o-topper__content--background-box`    | Create a background box around the element `.o-topper__content`. The background colour of the box  |
+|                                         | will be defined based on the background of the topper                                              |
+
 ## Sass
 
 To include all o-topper CSS include `oTopper`:
