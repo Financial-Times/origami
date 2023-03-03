@@ -8,7 +8,7 @@
 	span {
 		@include oIconsContent(
 			$icon-name: 'cross',
-			$color: _oMultiSelectGet('text-color'),
+			$color: _oMultiSelectGet('button-text-color'),
 			$size: $_o-multi-select-icon-size
 		);
 		vertical-align: middle; // override default style from oIconsContent mixin

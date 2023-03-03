@@ -100,7 +100,7 @@
 
 
 		.o-multi-select-option {
-			color: _oMultiSelectGet('text-color');
+			color: oColorsByName('black-80');
 			cursor: pointer;
 			padding: 8px 4px;
 			position: relative;
@@ -119,7 +119,7 @@
 			span {
 				@include oIconsContent(
 					$icon-name: 'tick',
-					$color: _oMultiSelectGet('text-color'),
+					$color: _oMultiSelectGet('button-text-color'),
 					$size: 32,
 					$include-base-styles: false
 				);
