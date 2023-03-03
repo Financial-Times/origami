@@ -1,8 +1,8 @@
 # o-multi-select
 
+An Origami component for selecting multiple options.
 - [o-multi-select](#o-multi-select)
 	- [Usage](#usage)
-	- [Behaviour](#behaviour)
 	- [Markup](#markup)
 		- [Core support](#core-support)
 	- [Sass](#sass)
@@ -18,10 +18,6 @@
 
 You will need to pass multi select options as data attribute (`data-o-multi-select-options`) or passing it down to init function (`{multiSelectOptions: ['Apple','banana']}`).
 Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-components-in-your-project) to get started with `o-multi-select`.
-
-## Behaviour
-
-`o-multi-select` Behaviour description.
 
 ## Markup
 
@@ -79,7 +75,7 @@ We use `o-forms` component to apply styles to some parts of multi-select compone
 
 ### Core support
 
-To add support for browsers without JavaScript use multi-select element from `o-forms` component with `o-multi-select--core` class. This will help users with screen readers to select multiple options.
+To add support for browsers without JavaScript or users who have it disabled, use multi-select element from `o-forms` component with `o-multi-select--core` class. This will help users with screen readers to select multiple options.
 
 ```html
 <div class="o-multi-select" data-o-component="o-multi-select">
@@ -101,7 +97,7 @@ To add support for browsers without JavaScript use multi-select element from `o-
   </span>
  </div>
 
- <!-- Code for enhanced experiance -->
+ <!-- Code for enhanced experience -->
 </div>
 ```
 
