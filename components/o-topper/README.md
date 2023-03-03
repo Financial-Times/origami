@@ -68,6 +68,7 @@ These themes affect the layout and visual style of all elements. See the [demos]
 .o-topper--split-text-left
 .o-topper--split-text-center
 .o-topper--deep-landscape
+.o-topper--deep-portrait
 ```
 
 ### Colors
