@@ -32,7 +32,7 @@ Exploration will continue with a proof of concept being delivered next.
 
 ## Special Thanks
 
-Special thanks to; Akaki Mikaia and Will Renny for their contributions to o-multi-select; Juan Sanchez, Alberto Cubero Navas, Phil Hunt, for their contributions throughout February.
+Special thanks to; Will Renny for their contributions to o-multi-select; Juan Sanchez, Alberto Cubero Navas, Phil Hunt, for their contributions throughout February.
 
 ## Broader update
 
