@@ -25,11 +25,16 @@ export const NumericTableHeading = (args: TableHeadingProps) => {
 
 interface TableDataProps {
 	children?: string | JSX.Element | JSX.Element[];
+	verticallyCenter?: boolean;
 	className?: string;
 }
 
-export const TableData = (args: TableDataProps) => {
-	return <td {...args}/>
+export const TableData = ({verticallyCenter, className, ...args}: TableDataProps) => {
+	const classNames = [];
+	if(verticallyCenter) {
+		classNames.push('o-table__cell--vertically-center')
+	}
+	return <td className={`${className} {classNames.join(' ')}`}{...args}/>
 }
 export const TableFootnote = args => {
 	return <TableData className='o-table-footnote' {...args} />
