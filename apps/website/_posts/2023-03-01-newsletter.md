@@ -18,7 +18,7 @@ Some of the bigger Origami news since our last update:
 
 ### New component – o-multi-select
 
-Akaki has been working with Designers to introduce a new component – o-multi-select. This component allows users to filter and select multiple options from a list. Potential usage for this includes filtering content based on large lists of items such as by country or language.
+Akaki has been working with Designers to introduce a new component – o-multi-select. This component allows users to select multiple options from a list, building upon the browser's native multi select capability. Will Renny has collaborated with us to provide guidance on design.
 
 o-multi-select is near completion and will ship with TSX templates. It is planned to be released in the upcoming month.
 
