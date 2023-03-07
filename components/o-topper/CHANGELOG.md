@@ -1,5 +1,16 @@
 # Changelog
 
+## [6.0.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.8.0...o-topper-v6.0.0) (2023-03-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* o-topper, remove JS including `n-map-content-to-topper` dependency. (#1031)
+
+### Features
+
+* o-topper, remove JS including `n-map-content-to-topper` dependency. ([#1031](https://www.github.com/Financial-Times/origami/issues/1031)) ([a7aa280](https://www.github.com/Financial-Times/origami/commit/a7aa280a363dad91e959903eb36ed7286ffac203))
+
 ## [5.8.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.4...o-topper-v5.8.0) (2023-03-06)
 
 
