@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2023-03-07T09:48:00+00:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, January 2023</title><link href="https://origami.ft.com/blog/2023/01/30/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, January 2023" /><published>2023-01-30T00:00:00+00:00</published><updated>2023-01-30T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2023/01/30/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2023/01/30/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2023-03-07T10:29:41+00:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, February 2023</title><link href="https://origami.ft.com/blog/2023/03/03/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, February 2023" /><published>2023-03-03T00:00:00+00:00</published><updated>2023-03-03T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2023/03/03/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2023/03/03/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+&lt;strong&gt;
+TL;DR:
+&lt;/strong&gt;
+&lt;/abbr&gt; Origami updates on its new components and work exploring options for a Multi-brand design system&lt;/p&gt;
+
+&lt;h2 id=&quot;top-things&quot;&gt;Top things&lt;/h2&gt;
+
+&lt;p&gt;Some of the bigger Origami news since our last update:&lt;/p&gt;
+
+&lt;h3 id=&quot;new-component--o-multi-select&quot;&gt;New component – o-multi-select&lt;/h3&gt;
+
+&lt;p&gt;Akaki has been working with Designers to introduce a new component – o-multi-select. This component allows users to select multiple options from a list, building upon the browser’s native multi select capability. Will Renny has collaborated with us to provide guidance on design.&lt;/p&gt;
+
+&lt;p&gt;o-multi-select is near completion and will ship with TSX templates. It is planned to be released in the upcoming month.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2023-03-03-newsletter/o-multi-select.png?width=500&amp;amp;quality=highest&amp;amp;source=origami&quot; alt=&quot;the o-multi-select component&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;multi-brand-exploration&quot;&gt;Multi-brand exploration&lt;/h3&gt;
+
+&lt;p&gt;As Origami’s user base grows, it will naturally end up supporting more components. Specifically, more variations of existing components. This can sometimes end up with component fragmentation with teams copy/pasting existing components and styling to their needs.&lt;/p&gt;
+
+&lt;p&gt;Origami already supports multiple brands with ft-core, internal, and whitelabel branding. With the Origami team planning support for the FT Professional brand, we have been exploring ways in which we can scale the rollout of new brands. Fortunately, there are tools which can help us spin up new brands quicker and introduce more variations of existing components. Another key question for us is how can we provide design tooling to match engineering tooling.&lt;/p&gt;
+
+&lt;p&gt;The Origami team has been exploring some of the options in February. Exploration will continue with a proof of concept being delivered next.&lt;/p&gt;
+
+&lt;h3 id=&quot;jira&quot;&gt;Jira&lt;/h3&gt;
+
+&lt;p&gt;As an enablement team, we collaborate with a lot of multi-disciplinary teams across the FT Group. We want to ensure our shared tracked work is visible across all disciplines in Product and Technology, and our current board for tracking, GitHub, is less familiar to people outside of engineering. In light of this, we have begun using Jira to track our shared work so that our collaborators have better visibility on what we do.&lt;/p&gt;
+
+&lt;p&gt;Our new board can be accessed through &lt;a href=&quot;https://financialtimes.atlassian.net/jira/software/c/projects/OR/boards/1658&quot;&gt;Jira&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;special-thanks&quot;&gt;Special Thanks&lt;/h2&gt;
+
+&lt;p&gt;Special thanks to; Will Renny for their contributions to o-multi-select; Juan Sanchez, Alberto Cubero Navas, Phil Hunt, for their contributions throughout February.&lt;/p&gt;
+
+&lt;h2 id=&quot;broader-update&quot;&gt;Broader update&lt;/h2&gt;
+
+&lt;p&gt;A digest list of some other things that have happened in February:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-forms&quot;&gt;o-forms&lt;/a&gt;: has been updated to allow submit events to be intercepted. This helps the Acquisition team use reCaptcha on the sign-up page.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-buttons&quot;&gt;o-buttons&lt;/a&gt;: now supports any string as an icon parameter, also preserves the default set as inputs to help TypeScript users.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-comments&quot;&gt;o-comments&lt;/a&gt;: upgrades to support Coral v7, introduces a custom scroll container option, introduces ability to set additional classes on shadow dom, various styling changes. This will enable the Storytelling team to upgrade Coral.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-ft-concept-button&quot;&gt;o-ft-concept-button&lt;/a&gt;: introduces inverse monochrome variant as requested by the Storytelling team.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.origami.ft.com/components/o-topper&quot;&gt;o-topper&lt;/a&gt;: change styling for deep landscape, various other styling changes.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Ben Freshwater</name></author><category term="Newsletter" /><summary type="html">TL;DR: Origami updates on its new components and work exploring options for a Multi-brand design system</summary></entry><entry><title type="html">Origami Newsletter, January 2023</title><link href="https://origami.ft.com/blog/2023/01/30/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, January 2023" /><published>2023-01-30T00:00:00+00:00</published><updated>2023-01-30T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2023/01/30/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2023/01/30/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
 &lt;strong&gt;
 TL;DR:
 &lt;/strong&gt;
@@ -1038,75 +1084,4 @@ TL;DR:
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/polyfill-library&quot;&gt;Polyfill Library&lt;/a&gt;’s internationalisation polyfills have been updated to include more timezones&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Origami team</name></author><category term="Newsletter" /><summary type="html">TL;DR: Origami via Bower is deprecated, please migrate to the npm versions. A new autocomplete component has been built and is ready for use.</summary></entry><entry><title type="html">Origami Newsletter, May 2021</title><link href="https://origami.ft.com/blog/2021/06/01/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, May 2021" /><published>2021-06-01T00:00:00+01:00</published><updated>2021-06-01T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2021/06/01/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/06/01/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
-&lt;strong&gt;
-TL;DR:
-&lt;/strong&gt;
-&lt;/abbr&gt; The Origami specification is no more&lt;/p&gt;
-
-&lt;h2 id=&quot;top-things&quot;&gt;Top things&lt;/h2&gt;
-
-&lt;p&gt;Some of the bigger Origami news from the last month:&lt;/p&gt;
-
-&lt;h3 id=&quot;the-origami-specification-is-no-more&quot;&gt;The Origami specification is no more&lt;/h3&gt;
-
-&lt;p&gt;The team spent most of the month revisiting the &lt;a href=&quot;https://origami.ft.com/specification/v1/&quot;&gt;Origami Specification&lt;/a&gt;. The specification is a formal document detailing the rules of how an Origami project, such as a component, must be built. We were trying to separate the parts of it that were developer advice from the parts that were relied on by our tools and services. After reducing the specification from 35 pages to 3, we had one last meeting in which we ultimately decided to retire the specification entirely.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-do-people-mean-when-they-say-origami&quot;&gt;What do people mean when they say Origami?&lt;/h3&gt;
-
-&lt;p&gt;When other teams say Origami, they tend to mean either the FT’s design or our team.&lt;/p&gt;
-
-&lt;p&gt;When we say Origami we tend to mean our reference implementation of the brand guidelines.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-is-the-benefit-of-the-specification&quot;&gt;What is the benefit of the specification?&lt;/h3&gt;
-
-&lt;p&gt;Origami was originally conceived as a series of specifications for components and services. There was an expectation that people all over the company and at external agencies would be building new Origami components and services all the time. In that context, a shared contract made a lot of sense.&lt;/p&gt;
-
-&lt;p&gt;But that’s not how it ended up. Origami components are mostly built by our team, and we’re always in the loop when other teams build Origami components. &lt;/p&gt;
-
-&lt;p&gt;Teams don’t trust the specification, they trust &lt;strong&gt;us&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;The specification wasn’t what kept our components working in all the environments they were used in: we did!&lt;/p&gt;
-
-&lt;p&gt;We’ve always been vigilant about not breaking things for people, and that will never change. Breaking changes will &lt;em&gt;always&lt;/em&gt; happen in major versions.&lt;/p&gt;
-
-&lt;p&gt;Retiring the specification gives us the opportunity to create better, faster, more modern components and to make sure that Design are a leading part of the process.&lt;/p&gt;
-
-&lt;p&gt;We’ll be going into a lot more detail about our plans in a blog post at the end of Q2.&lt;/p&gt;
-
-&lt;h2 id=&quot;special-thanks&quot;&gt;Special thanks&lt;/h2&gt;
-
-&lt;p&gt;This issues special thanks goes to Nick Ramsbottom! Nick worked with us on a component update to support New Product Development work, and enthusiastically got involved in the development. Together we were able to avoid project-specific overrides for a more reliable, consistent user interface.&lt;/p&gt;
-
-&lt;p&gt;If your team are looking to customise an Origami component for a project, checkout our &lt;a href=&quot;https://origami.ft.com/documentation/components/customisation/&quot;&gt;guide to component customisation&lt;/a&gt; or contact the team for support.&lt;/p&gt;
-
-&lt;h2 id=&quot;broader-update&quot;&gt;Broader update&lt;/h2&gt;
-
-&lt;p&gt;A digest of other things that have happened since our last update:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;DEPRECATED: &lt;a href=&quot;https://github.com/Financial-Times/podcast-logos&quot;&gt;podcast-logos&lt;/a&gt;, podcast logos are no longer updated in Origami, refer to Acast, the podcast hosting system we use.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-colors&quot;&gt;o-colors&lt;/a&gt; adds a new “matisse” colour, which is used by partner content.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-forms&quot;&gt;o-forms&lt;/a&gt; provide styling for a file upload input &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;input[type=&quot;file&quot;]&lt;/code&gt; 🎉, and fixes the low contrast of valid form fields for the whitelabel brand.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-labels&quot;&gt;o-labels&lt;/a&gt; adds a wider selection of labels for the internal brand, using colours from our palette.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-layout&quot;&gt;o-layout&lt;/a&gt; fixes an issue where the “muted hero” area was obscured by the page background colour.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-tooltip&quot;&gt;o-tooltip&lt;/a&gt; adds Sass customisation options, including foreground and background colours. Thanks again, Nick Ramsbottom!&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/polyfill-library&quot;&gt;polyfill-library&lt;/a&gt; adds a polyfill for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HTMLInputElement.prototype.valueAsDate&lt;/code&gt;, fix a &lt;a href=&quot;https://github.com/Financial-Times/polyfill-library/issues/1048&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URLSearchParams&lt;/code&gt; bug&lt;/a&gt;, and more (&lt;a href=&quot;https://github.com/Financial-Times/polyfill-library/releases&quot;&gt;polyfill-library releases&lt;/a&gt;).&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/change-api-action&quot;&gt;change-api-action&lt;/a&gt; only adds &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;githubname&lt;/code&gt; to the change api payload if the action was triggered by a github user, this fixes the action when trigged at set intervals by a cron for example.&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-grid&quot;&gt;o-grid&lt;/a&gt; fixes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-grid.layoutChange&lt;/code&gt; events given custom layouts (breakpoints). Thanks for your help with that, Eray Baskin!&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-table&quot;&gt;o-table&lt;/a&gt; fixes the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;updateRows&lt;/code&gt; method to account for removed or changed rows. Thanks Emma Lewis for your work investigating that one!&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/origami-percy&quot;&gt;origami-percy&lt;/a&gt; is used for component visual regression testing, it’s now more reliable and will not error if no component demos are found for a supported brand. In addition it runs automatically for each component now and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;percy&lt;/code&gt; Github label, which used to trigger tests, has been removed.&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/useragent_parser&quot;&gt;useragent_parser&lt;/a&gt; updates the detection logic for more accurate reporting of ios 11 and newer versions.&lt;/li&gt;
-  &lt;li&gt;The &lt;a href=&quot;https://registry.origami.ft.com/components&quot;&gt;Origami Registry&lt;/a&gt; now shows stable releases of components by default. Use the version switcher in the right-hand sidebar to preview upcoming beta releases.&lt;/li&gt;
-  &lt;li&gt;The following projects have had additional updates to support the &lt;a href=&quot;https://origami.ft.com/blog/2021/01/18/deprecating-bower-and-origami-via-npm/&quot;&gt;migration from bower to NPM&lt;/a&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami-repo-data&quot;&gt;origami-repo-data&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami-website&quot;&gt;origami-website&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-test-component&quot;&gt;o-test-component&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami-build-tools&quot;&gt;origami-build-tools&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami-build-service&quot;&gt;origami-build-service&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/create-origami-component&quot;&gt;create-origami-component&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/remark-preset-lint-origami-component&quot;&gt;remark-preset-lint-origami-component&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>chee rabbits, lee moody</name></author><category term="Newsletter" /><summary type="html">TL;DR: The Origami specification is no more</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Origami team</name></author><category term="Newsletter" /><summary type="html">TL;DR: Origami via Bower is deprecated, please migrate to the npm versions. A new autocomplete component has been built and is ready for use.</summary></entry></feed>
