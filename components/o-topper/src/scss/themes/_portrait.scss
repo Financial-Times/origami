@@ -91,7 +91,6 @@
 		.o-topper__image-caption {
 			margin-bottom: 0;
 			margin-top: 10px;
-			border-top: solid 1px oColorsGetTextColor($background: black, $opacity: 50);
 			color: oColorsByName("black-70");
 		}
 	}
