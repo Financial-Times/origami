@@ -5,16 +5,7 @@
 
 ### Features
 
-* box shadow support in deep landscape ([452ba8e](https://www.github.com/Financial-Times/origami/commit/452ba8e77f34750ce39ad909176b755eaa561a81))
-* use oSpacing for margin ([5aa1d7f](https://www.github.com/Financial-Times/origami/commit/5aa1d7f75ea389219197787ae2b4544c591b6740))
-
-
-### Bug Fixes
-
-* add margin on mobile resolution increasing specificity, adapt naming to new field name background box ([b2cd6e7](https://www.github.com/Financial-Times/origami/commit/b2cd6e78d073a848ba889c3ea4de644acdba8c0a))
-* change demo deep-landscape ([63f722e](https://www.github.com/Financial-Times/origami/commit/63f722e7e72c0b76960f1b946e1bebe35b416e0e))
-* remove demo example ([fe4ffcc](https://www.github.com/Financial-Times/origami/commit/fe4ffccdab211197eb2ad1b38c60e6a54133b382))
-* revert to use single classname and background color for text ([f2b20a0](https://www.github.com/Financial-Times/origami/commit/f2b20a06ce1ab91e1f13097c226db06a472e6aae))
+* Add a "deep landscape" o-topper variant with a background box behind content, for use on complex backgrounds where legibility is reduced.
 
 ### [5.7.4](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.3...o-topper-v5.7.4) (2023-02-08)
 
