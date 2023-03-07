@@ -22,6 +22,10 @@
 		  	content: none;
 		}
 	}
+	.o-topper__standfirst{
+		opacity: 1;
+	}
+	
 
 	@each $color-name in $colors {
 		&.o-topper--color-#{$color-name} {
