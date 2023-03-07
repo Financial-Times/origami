@@ -11,9 +11,16 @@
 	.o-topper__content {
 		display:inline-block;
 		grid-row: 1;
+	  	grid-column: 1 / span 2;
 		box-sizing: border-box;
-		align-self: center;
+		align-self: end;
 		background: transparent;
+	  	margin: 0 0 72px 10%;
+	}
+	.o-topper__headline {
+		&::after {
+		  	content: none;
+		}
 	}
 
 	@each $color-name in $colors {
@@ -24,6 +31,11 @@
 				@if $foreground == white{
 					text-shadow: 2px 3px 4px rgba(18,18,18,0.4);
 				}
+			}
+			.o-topper__content--background-box {
+				padding: oSpacingByName('s4');
+				margin-bottom: oSpacingByName('s6');
+				background-color: if($foreground == white, rgb(18,18,18,0.4), rgb(255,255,255,0.4));
 			}
 		}
 	}
@@ -43,28 +55,23 @@
 		}
 	}
 
-	
+
 	@include oGridRespondTo( $until:S) {
 		.o-topper__content {
 			width:100%;
-			align-self: end;
-			grid-column: 1 / span 2;
-			padding:20px;
+		  	margin: 0;
+		  	padding: 20px;
 		}
 	}
-	
+
 	@include oGridRespondTo($from:S , $until:M) {
 		.o-topper__content {
 			width:75%;
-			grid-column: 1/span 2;
-			margin: auto auto auto 10%;
 		}
 	}
 	@include oGridRespondTo($from:M , $until:L) {
 		.o-topper__content {
 			width:50%;
-			grid-column: 1/span 2;
-			margin: auto auto auto 10%;
 		}
 	}
 
@@ -72,8 +79,8 @@
 		grid-template-rows: 66vw 1fr;
 
 		.o-topper__content {
-			grid-column: 1;
-			margin: auto;
+		  	grid-column: 1;
+		  	margin: 0 0 72px;
 		}
 		.o-topper__image{
 			height:66vw;
