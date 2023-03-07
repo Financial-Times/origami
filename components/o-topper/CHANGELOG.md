@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.8.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.4...o-topper-v5.8.0) (2023-03-06)
+
+
+### Features
+
+* Add a "deep landscape" o-topper variant with a background box behind content, for use on complex backgrounds where legibility is reduced.
+
 ### [5.7.4](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.7.3...o-topper-v5.7.4) (2023-02-08)
 
 
