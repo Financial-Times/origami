@@ -1,5 +1,14 @@
 # Changelog
 
+### [6.0.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.0...o-topper-v6.0.1) (2023-03-08)
+
+
+### Bug Fixes
+
+* remove opacity standfirst ([b1a7bf7](https://www.github.com/Financial-Times/origami/commit/b1a7bf73f4a7ebd163622f749c847a9daf52e5f9))
+* remove top border on caption deep-portrait ([dfe8598](https://www.github.com/Financial-Times/origami/commit/dfe8598ec137040efb977050490183ca9c81d3b4))
+* rename file portrait to deep-portrait ([4fc706a](https://www.github.com/Financial-Times/origami/commit/4fc706ab7a240cef09b264db52413e328cd38b44))
+
 ## [6.0.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.8.0...o-topper-v6.0.0) (2023-03-07)
 
 
