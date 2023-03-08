@@ -1,3 +1,5 @@
+import {Select} from "@financial-times/o-forms/src/tsx/o-forms";
+
 export const TableHead = args => {
 	return <thead {...args}/>
 }
@@ -44,4 +46,10 @@ export const TableCaption = ({children}) => {
 }
 export const NumericTableData = (args: TableDataProps) => {
 	return <TableData className='o-table__cell--numeric' {...args}/>
+}
+
+export const SelectFilter = () => {
+	return <>
+		<Select name='Test' title='test' isOptional={false} inlineField={true}></Select>
+	</>
 }

@@ -2,7 +2,6 @@ import {useEffect} from "react";
 import {ResponsiveTable, Table} from "../src/tsx/table";
 import withHtml from 'origami-storybook-addon-html';
 import javascript from '../main';
-import {baseTableContents} from "./baseTableContents";
 import {withDesign} from "storybook-addon-designs";
 import {
 	NumericTableData,
@@ -13,6 +12,7 @@ import {
 	TableHeading,
 	TableRow
 } from "../src/tsx/components";
+import {baseTableContents} from "./baseTableContents";
 
 export default {
 	title: 'Components/o-table/Responsive',

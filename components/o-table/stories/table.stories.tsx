@@ -3,9 +3,10 @@ import {withDesign} from 'storybook-addon-designs';
 import './table.scss';
 import {Table} from "../src/tsx/table";
 import {TableCaption, TableFoot, TableFootnote, TableRow} from "../src/tsx/components";
-import {baseTableContents} from "./baseTableContents";
+
 import {useEffect} from "react";
 import javascript from '../main';
+import {baseTableContents} from "./baseTableContents";
 
 export default {
 	title: 'Components/o-table/Basic',
