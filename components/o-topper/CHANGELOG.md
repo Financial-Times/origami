@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.0.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.1...o-topper-v6.0.2) (2023-03-08)
+
+
+### Bug Fixes
+
+* remove unnecesary margin deep-portrait ([aa80b54](https://www.github.com/Financial-Times/origami/commit/aa80b542cd34d0a33d2e518cf52bf09591587ad4))
+
 ### [6.0.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.0...o-topper-v6.0.1) (2023-03-08)
 
 
