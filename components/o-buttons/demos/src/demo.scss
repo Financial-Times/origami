@@ -52,7 +52,9 @@ p {
 	'themes': (
 		'inverse',
 		'mono',
-		'b2c'
+		'b2c',
+		'professional',
+		'professional-inverse',
 	),
 	'icons': join($_o-buttons-icons, ('book')), // Also include the book icon, which is not in the defaut set.
 	'pagination': true,
