@@ -96,15 +96,54 @@ class MultiSelect {
 	 *
 	 * @private
 	 */
-	_clearCore() {
-		const coreWrapper = this.multiSelectEl.querySelector(
-			'.o-multi-select--core'
+	 _clearCore() {
+		const coreWrapper = this.multiSelectEl.querySelectorAll(
+			"select"
 		);
-		coreWrapper.style.display = 'none';
-		const enhancedWrapper = this.multiSelectEl.querySelector(
-			'.o-multi-select--enhanced'
-		);
-		enhancedWrapper.style.display = 'block';
+		if (coreWrapper.length > 1) {
+			throw new Error('Only one select element must be provided for o-multi-select');
+		}if (coreWrapper.length === 0) {
+			throw new Error('A select element must be provided in o-multi-select');
+		}
+
+		const selectName = coreWrapper[0].attributes.getNamedItem('name');
+		const selectId = coreWrapper[0].attributes.getNamedItem('id');
+		if(!selectName || !selectId) {
+			throw new Error('Select element must have attributes name and id defined.');
+		}
+
+		coreWrapper[0].insertAdjacentHTML('afterend', `<div class="o-multi-select__enhanced">
+    <ul
+            class="o-multi-select__selected-options"
+            id="o-multi-select-selected"
+    ></ul>
+    <div class="o-multi-select__combobox-wrapper">
+        <div
+                class="o-multi-select__combobox"
+                id="${selectId}"
+                name=${selectName}
+                role="combobox"
+                aria-activedescendant=""
+                aria-labelledby="o-multi-select-label o-multi-select-selected"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-owns="o-multi-select-listbox"
+                tabindex="0"
+        >
+            <span class="o-multi-select__combobox-text"> Click to select options </span>
+        </div>
+    </div>
+    <div
+            class="o-multi-select__dropdown-menu"
+            id="o-multi-select-listbox"
+            role="listbox"
+            aria-label="multi select options"
+            aria-multiselectable="true"
+            tabindex="-1"
+    ></div>
+</div>
+`);
+		coreWrapper[0].remove();
 	}
 
 	/**
