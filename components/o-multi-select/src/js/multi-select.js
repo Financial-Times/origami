@@ -16,14 +16,16 @@ class MultiSelect {
 	 */
 	constructor(multiSelectEl, options) {
 		this.multiSelectEl = multiSelectEl;
-		this._clearCore();
-
+		this.coreWrapper = this._getCoreWrapper();
 		this.options = Object.assign(
 			{},
 			options || {
-				multiSelectOptions: MultiSelect.getDataAttributes(multiSelectEl),
+				multiSelectOptions: this._getCoreOptions()
 			}
 		);
+
+		this._clearCore();
+
 		if (!this.options.multiSelectOptions.length > 0) {
 			throw new Error(
 				'The multi select component requires options to be passed in the config or as data attributes'
@@ -96,23 +98,14 @@ class MultiSelect {
 	 *
 	 * @private
 	 */
-	 _clearCore() {
-		const coreWrapper = this.multiSelectEl.querySelectorAll(
-			"select"
-		);
-		if (coreWrapper.length > 1) {
-			throw new Error('Only one select element must be provided for o-multi-select');
-		}if (coreWrapper.length === 0) {
-			throw new Error('A select element must be provided in o-multi-select');
-		}
-
-		const selectName = coreWrapper[0].attributes.getNamedItem('name');
-		const selectId = coreWrapper[0].attributes.getNamedItem('id');
-		if(!selectName || !selectId) {
+	_clearCore() {
+		const selectName = this.coreWrapper.attributes.getNamedItem('name');
+		const selectId = this.coreWrapper.attributes.getNamedItem('id');
+		if (!selectName || !selectId) {
 			throw new Error('Select element must have attributes name and id defined.');
 		}
 
-		coreWrapper[0].insertAdjacentHTML('afterend', `<div class="o-multi-select__enhanced">
+		this.coreWrapper.insertAdjacentHTML('afterend', `<div class="o-multi-select__enhanced">
     <ul
             class="o-multi-select__selected-options"
             id="o-multi-select-selected"
@@ -143,7 +136,26 @@ class MultiSelect {
     ></div>
 </div>
 `);
-		coreWrapper[0].remove();
+		this.coreWrapper.remove();
+	}
+
+	/**
+	 * Returns the core select element from the multi select element.
+	 *
+	 * @private
+	 * @returns {HTMLElement} The core wrapper HTML Element.
+	 */
+	_getCoreWrapper() {
+		const coreWrapper = this.multiSelectEl.querySelectorAll(
+			"select"
+		);
+		if (coreWrapper.length > 1) {
+			throw new Error('Only one select element must be provided for o-multi-select');
+		}
+		if (coreWrapper.length === 0) {
+			throw new Error('A select element must be provided in o-multi-select');
+		}
+		return coreWrapper[0];
 	}
 
 	/**
@@ -177,6 +189,7 @@ class MultiSelect {
 			return options.options.split(',');
 		}, {});
 	}
+
 	/**
 	 * Initialise o-multi-select component/s.
 	 *
@@ -202,6 +215,19 @@ class MultiSelect {
 			rootEl => new MultiSelect(rootEl, options)
 		);
 	}
+
+	/**
+	 * Returns the options from the core select component.
+	 *
+	 * @private
+	 * @returns {string[]} Array of multi-select options.
+	 */
+	_getCoreOptions() {
+		const options = this.coreWrapper.querySelectorAll('option');
+
+		return [...options].map((option) => option.getAttribute('value'));
+	}
+
 }
 
 export default MultiSelect;
