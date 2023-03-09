@@ -6,6 +6,7 @@ import {
 } from './utils.js';
 import {updateState} from './state.js';
 import {handleOptionSelect, createOption} from './multi-select-options.js';
+import {uniqueId} from "../utils/uniqueId.js";
 
 class MultiSelect {
 	/**
@@ -101,14 +102,18 @@ class MultiSelect {
 	_clearCore() {
 		const selectName = this.coreWrapper.attributes.getNamedItem('name');
 		const selectId = this.coreWrapper.attributes.getNamedItem('id');
+
 		if (!selectName || !selectId) {
 			throw new Error('Select element must have attributes name and id defined.');
 		}
 
+		const labelId = uniqueId('selected');
+		const labels = [...this.coreWrapper.labels].map((label) => label.id).join(' ');
+
 		this.coreWrapper.insertAdjacentHTML('afterend', `<div class="o-multi-select__enhanced">
     <ul
             class="o-multi-select__selected-options"
-            id="o-multi-select-selected"
+            id="labelId"
     ></ul>
     <div class="o-multi-select__combobox-wrapper">
         <div
@@ -117,7 +122,7 @@ class MultiSelect {
                 name=${selectName}
                 role="combobox"
                 aria-activedescendant=""
-                aria-labelledby="o-multi-select-label o-multi-select-selected"
+                aria-labelledby="${labels} ${labelId}"
                 aria-haspopup="listbox"
                 aria-expanded="false"
                 aria-owns="o-multi-select-listbox"
