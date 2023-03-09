@@ -1,60 +1,16 @@
-<div class="o-multi-select" data-o-component="o-multi-select">
-	<div class="o-form o-multi-select o-multi-select--core">
+<div class="o-multi-select o-multi-select--core" data-o-component="o-multi-select">
 		<span class="o-forms-field">
 			<span class="o-forms-title">
 				<label class="o-forms-title__main" for="multiple"
-					>Multiple select box</label
+				>Multiple select box</label
 				>
 			</span>
 
-			<span class="o-forms-combobox o-forms-combobox--select">
-				<select name="multiple" id="multiple" multiple>
-					{{#multiSelectOptions}}
+			<select name="multiple" id="multiple" multiple>
+				{{#multiSelectOptions}}
 					<option value="{{.}}">{{.}}</option>
-					{{/multiSelectOptions}}
-				</select>
-			</span>
+				{{/multiSelectOptions}}
+			</select>
 		</span>
-	</div>
-	<div class="o-form o-multi-select o-multi-select--enhanced">
-		<span class="o-forms-field">
-			<span class="o-forms-title">
-				<label
-					class="o-forms-title__main"
-					for="multiple-enhanced"
-					id="o-multi-select-label"
-					>Multiple select box</label
-				>
-			</span>
-		</span>
-
-		<ul
-			class="o-multi-select__selected-options"
-			id="o-multi-select-selected"
-		></ul>
-		<div class="o-multi-select__combobox-wrapper">
-			<div
-				class="o-multi-select__combobox"
-				id="o-multi-select__combobox"
-				name="multiple-enhanced"
-				role="combobox"
-				aria-activedescendant=""
-				aria-labelledby="o-multi-select-label o-multi-select-selected"
-				aria-haspopup="listbox"
-				aria-expanded="false"
-				aria-owns="o-multi-select-listbox"
-				tabindex="0"
-			>
-				<span class="o-multi-select__combobox-text"> Click to select options </span>
-			</div>
-		</div>
-		<div
-			class="o-multi-select__dropdown-menu"
-			id="o-multi-select-listbox"
-			role="listbox"
-			aria-label="multi select options"
-			aria-multiselectable="true"
-			tabindex="-1"
-		></div>
-	</div>
 </div>
+
