@@ -164,7 +164,7 @@
 		.o-topper__headline--large {
 			@include oEditorialTypographyHeadline();
 			position: relative; //so it appears above the full width background
-			margin-bottom: oSpacingByIncrement(7);
+			margin-bottom: oSpacingByIncrement(4);
 		}
 	}
 
