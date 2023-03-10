@@ -1,5 +1,7 @@
-import {getInputClasses, uniqueId} from '../utils';
+import {getInputClasses} from '../utils';
 import {FormError, InputProps, TypeFormField, FormField} from './Form';
+import {uidBuilder} from "@financial-times/o-utils/uniqueid";
+const uniqueId = uidBuilder('o-forms');
 
 interface TypeSelect extends InputProps {
 	highlight?: 'valid' | 'invalid';

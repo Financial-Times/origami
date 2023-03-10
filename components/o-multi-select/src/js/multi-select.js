@@ -6,7 +6,8 @@ import {
 } from './utils.js';
 import {updateState} from './state.js';
 import {handleOptionSelect, createOption} from './multi-select-options.js';
-import {uniqueId} from "../utils/uniqueId.js";
+import {uidBuilder} from "@financial-times/o-utils/uniqueid.js";
+const uniqueId = uidBuilder('o-multi-select');
 
 class MultiSelect {
 	/**

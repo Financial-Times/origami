@@ -1,4 +1,6 @@
-import {classBuilder, uniqueId} from '../utils';
+import {classBuilder} from '../utils';
+import {uidBuilder} from "@financial-times/o-utils/uniqueid";
+const uniqueId = uidBuilder('o-forms');
 
 interface TypeFormProps {
 	children: JSX.Element | JSX.Element[];
