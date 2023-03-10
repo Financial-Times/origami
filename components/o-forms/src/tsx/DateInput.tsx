@@ -1,5 +1,7 @@
-import {getInputClasses, uniqueId} from '../utils';
+import {getInputClasses} from '../utils';
 import {InputProps, FormError, FormFieldset, TypeFormField} from './Form';
+import {uidBuilder} from "@financial-times/o-utils/uniqueid";
+const uniqueId = uidBuilder('o-forms');
 
 type onChange = {
 	days: Function;
