@@ -1,6 +1,6 @@
 import {classBuilder, getInputClasses} from '../utils';
 import {InputProps, FormError, FormFieldset, TypeFormField} from './Form';
-import {uidBuilder} from "@financial-times/o-utils/uniqueid";
+import {uidBuilder} from "@financial-times/o-utils";
 const uniqueId = uidBuilder('o-forms');
 
 export interface RadioBtnsWrapperProps {

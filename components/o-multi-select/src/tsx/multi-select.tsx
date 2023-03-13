@@ -1,64 +1,16 @@
 export function MultiSelect({
-	multiSelectOptions,
-}: {
+								multiSelectOptions, id
+							}: {
 	multiSelectOptions: string[];
+	label: string;
+	id?: string;
 }) {
+
 	return (
-		<div className="o-multi-select" data-o-component="o-multi-select" data-o-multi-select-options={multiSelectOptions}>
-			<div className="o-form o-multi-select o-multi-select--core">
-				<span className="o-forms-field">
-					<span className="o-forms-title">
-						<label className="o-forms-title__main" htmlFor="multiple">
-							Multiple select box
-						</label>
-					</span>
-
-					<span className="o-forms-combobox o-forms-combobox--select">
-						<select name="multiple" id="multiple" multiple>
-							{multiSelectOptions.map(option => {
-								<option value={option}>{option}</option>;
-							})}
-						</select>
-					</span>
-				</span>
-			</div>
-			<div className="o-form o-multi-select o-multi-select--enhanced">
-				<span className="o-forms-field">
-					<span className="o-forms-title">
-						<label className="o-forms-title__main" id="o-multi-select-label">
-							Multiple select box
-						</label>
-					</span>
-				</span>
-
-				<ul
-					className="o-multi-select__selected-options"
-					id="o-multi-select-selected"></ul>
-				<div className="o-multi-select__combobox-wrapper">
-					<div
-						className="o-multi-select__combobox"
-						id="o-multi-select__combobox"
-						role="combobox"
-						aria-activedescendant=""
-						aria-labelledby="o-multi-select-label o-multi-select-selected"
-						aria-haspopup="listbox"
-						aria-expanded="false"
-						aria-owns="o-multi-select-listbox"
-						tabIndex={0}>
-						<span className="o-multi-select__combobox-text">
-							{' '}
-							Click to select options{' '}
-						</span>
-					</div>
-				</div>
-				<div
-					className="o-multi-select__dropdown-menu"
-					id="o-multi-select-listbox"
-					role="listbox"
-					aria-label="multi select options"
-					aria-multiselectable="true"
-					tabIndex={-1}></div>
-			</div>
+		<div className="o-multi-select o-multi-select--core" data-o-component="o-multi-select">
+			<select name="multiple" id={id} multiple>
+				{multiSelectOptions.map(option => <option value={option}>{option}</option>)}
+			</select>
 		</div>
 	);
 }
