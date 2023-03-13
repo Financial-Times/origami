@@ -4,7 +4,6 @@ This component is used for styling the topper sections of an article.
 - [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
-- [JavaScript](#javascript)
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -68,6 +67,7 @@ These themes affect the layout and visual style of all elements. See the [demos]
 .o-topper--split-text-left
 .o-topper--split-text-center
 .o-topper--deep-landscape
+.o-topper--deep-portrait
 ```
 
 ### Colors
@@ -86,6 +86,13 @@ These colors affect the background of the `.o-topper__background` and `.o-topper
 .o-topper--color-sky
 .o-topper--color-matisse
 ```
+
+### Modifiers
+
+| Modifier                                | Use case                                                                                           |
+|-----------------------------------------|----------------------------------------------------------------------------------------------------|
+| `.o-topper__content--background-box`    | Create a background box around the element `.o-topper__content`. The background colour of the box  |
+|                                         | will be defined based on the background of the topper                                              |
 
 ## Sass
 
@@ -149,28 +156,14 @@ To include o-topper styles granularly specify which elements, themes, and colour
 	)
 ));
 ```
-
-## JavaScript
-
-### Mapping Content to Topper
-
-This component exports a JavaScript helper from [`n-map-content-to-topper`](https://github.com/Financial-Times/n-map-content-to-topper). Use this helper to select the correct topper for an article given a JSON-formatteed FT article and flags.
-
-**Note:** This helper is deeply tied to the FT.com content store, and includes hardcoded UUIDs and business logic.
-
-```js
-import { mapContentToTopper } from '@financial-times/o-topper';
-
-const topper = mapContentToTopper(ftArticle, flags);
-```
-
 ## Migration
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 5 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-⚠ maintained | 4 | 4.0  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-⚠ maintained | 3 | 3.1  | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+✨ active | 6 | N/A  | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+⚠ maintained | 5 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+╳ deprecated | 4 | 4.0  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ deprecated | 3 | 3.1  | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
 ╳ deprecated | 2 | 2.7  | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 ╳ deprecated | 1 | 1.2  | - |
 

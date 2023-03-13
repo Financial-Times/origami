@@ -22,6 +22,10 @@
 		  	content: none;
 		}
 	}
+	.o-topper__standfirst{
+		opacity: 1;
+	}
+	
 
 	@each $color-name in $colors {
 		&.o-topper--color-#{$color-name} {
@@ -31,6 +35,11 @@
 				@if $foreground == white{
 					text-shadow: 2px 3px 4px rgba(18,18,18,0.4);
 				}
+			}
+			.o-topper__content--background-box {
+				padding: oSpacingByName('s4');
+				margin-bottom: oSpacingByName('s6');
+				background-color: if($foreground == white, rgb(18,18,18,0.4), rgb(255,255,255,0.4));
 			}
 		}
 	}
