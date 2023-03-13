@@ -115,7 +115,7 @@ class MultiSelect {
 		this.coreWrapper.insertAdjacentHTML('afterend', `<div class="o-multi-select__enhanced">
     <ul
             class="o-multi-select__selected-options"
-            id="labelId"
+            id=${labelId}
     ></ul>
     <div class="o-multi-select__combobox-wrapper">
         <div
@@ -156,6 +156,7 @@ class MultiSelect {
 		const coreWrapper = this.multiSelectEl.querySelectorAll(
 			"select"
 		);
+
 		if (coreWrapper.length > 1) {
 			throw new Error('Only one select element must be provided for o-multi-select');
 		}
