@@ -62,7 +62,7 @@
 	@include oGridRespondTo( $until:S) {
 		.o-topper__content {
 			width:100%;
-		  	margin: 0 0 24px;
+		  	margin: 0 0 oSpacingByName('s6');
 		  	padding: 20px;
 		}
 	}
