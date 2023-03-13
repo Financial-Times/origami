@@ -1,5 +1,5 @@
 import {classBuilder} from '../utils';
-import {uidBuilder} from "@financial-times/o-utils/uniqueid";
+import {uidBuilder} from "@financial-times/o-utils";
 const uniqueId = uidBuilder('o-forms');
 
 interface TypeFormProps {

@@ -6,7 +6,8 @@ import {
 } from './utils.js';
 import {updateState} from './state.js';
 import {handleOptionSelect, createOption} from './multi-select-options.js';
-import {uidBuilder} from "@financial-times/o-utils/uniqueid.js";
+import {uidBuilder} from "@financial-times/o-utils";
+
 const uniqueId = uidBuilder('o-multi-select');
 
 class MultiSelect {
@@ -21,7 +22,7 @@ class MultiSelect {
 		this.coreWrapper = this._getCoreWrapper();
 		this.options = Object.assign(
 			{},
-			options || {
+			options, {
 				multiSelectOptions: this._getCoreOptions()
 			}
 		);
@@ -30,7 +31,7 @@ class MultiSelect {
 
 		if (!this.options.multiSelectOptions.length > 0) {
 			throw new Error(
-				'The multi select component requires options to be passed in the config or as data attributes'
+				'The multi select component requires option elements to be defined in the <select> tag.'
 			);
 		}
 		this.comboEl = multiSelectEl.querySelector('[role=combobox]');

@@ -1,6 +1,6 @@
 import {getInputClasses} from '../utils';
 import {FormError, InputProps, TypeFormField, FormField} from './Form';
-import {uidBuilder} from "@financial-times/o-utils/uniqueid";
+import {uidBuilder} from "@financial-times/o-utils";
 const uniqueId = uidBuilder('o-forms');
 
 interface TypeSelect extends InputProps {
