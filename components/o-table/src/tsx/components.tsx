@@ -33,7 +33,7 @@ interface TableDataProps {
 
 export const TableData = ({verticallyCenter, className, ...args}: TableDataProps) => {
 	const classNames = [];
-	if(verticallyCenter) {
+	if (verticallyCenter) {
 		classNames.push('o-table__cell--vertically-center')
 	}
 	return <td className={`${className} {classNames.join(' ')}`}{...args}/>
@@ -48,8 +48,24 @@ export const NumericTableData = (args: TableDataProps) => {
 	return <TableData className='o-table__cell--numeric' {...args}/>
 }
 
-export const SelectFilter = () => {
+
+interface SelectFilterProps {
+	label: string;
+	id: string;
+	filterId: string;
+	filterColumn: string;
+	children: JSX.Element | JSX.Element[];
+}
+
+export const SelectFilter = ({label, id, filterId, filterColumn, children}: SelectFilterProps) => {
 	return <>
-		<Select name='Test' title='test' isOptional={false} inlineField={true}></Select>
+		<Select name='Test' title={label} isOptional={false} inlineField={true} isVerticalCenter={true}
+				additionalAttributes={{
+					'data-o-table-filter-id': filterId,
+					'data-o-table-filter-column': filterColumn,
+					id
+				}}>
+			{children}
+		</Select>
 	</>
 }
