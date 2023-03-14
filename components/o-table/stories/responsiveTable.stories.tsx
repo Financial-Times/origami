@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {ResponsiveTable, Table} from "../src/tsx/table";
+import {ResponsiveFlatTable, ResponsiveOverflowTable, ResponsiveScrollTable} from "../src/tsx/table";
 import withHtml from 'origami-storybook-addon-html';
 import javascript from '../main';
 import {withDesign} from "storybook-addon-designs";
@@ -16,7 +16,7 @@ import {baseTableContents} from "./baseTableContents";
 
 export default {
 	title: 'Components/o-table/Responsive',
-	component: Table,
+	component: ResponsiveScrollTable,
 	decorators: [withDesign, withHtml]
 };
 
@@ -24,19 +24,24 @@ export const TableWithResponsiveOverflow = (args) => {
 	useEffect(() => {
 		javascript.init();
 	})
-	return <ResponsiveTable behaviour='overflow' {...args}>{baseTableContents}</ResponsiveTable>
+	return <ResponsiveOverflowTable {...args}>{baseTableContents}</ResponsiveOverflowTable>
 }
 export const TableWithResponsiveScroll = (args) => {
 	useEffect(() => {
 		javascript.init();
 	})
-	return <ResponsiveTable behaviour='scroll' {...args}>{baseTableContents}</ResponsiveTable>
+	return <ResponsiveScrollTable {...args}>{baseTableContents}</ResponsiveScrollTable>
 }
 export const TableWithResponsiveFlat = (args) => {
 	useEffect(() => {
 		javascript.init();
 	})
-	return <ResponsiveTable behaviour='flat' {...args}>{baseTableContents}</ResponsiveTable>
+	return <ResponsiveFlatTable {...args}>{baseTableContents}</ResponsiveFlatTable>
+}
+TableWithResponsiveFlat.bind({});
+TableWithResponsiveFlat.args = {
+	expanded: false,
+	minimumRows: 5
 }
 
 export const ExpandingTable = (args) => {
@@ -44,7 +49,7 @@ export const ExpandingTable = (args) => {
 		javascript.init();
 	});
 
-	return <ResponsiveTable behaviour='overflow' minimumRows={args.minimumRows} {...args}>
+	return <ResponsiveOverflowTable minimumRows={args.minimumRows} {...args}>
 		<TableHead className='example'>
 			<TableRow>
 				<TableHeading>Fruit</TableHeading>
@@ -109,7 +114,7 @@ export const ExpandingTable = (args) => {
 				<NumericTableData>2.03</NumericTableData>
 			</TableRow>
 		</TableBody>
-	</ResponsiveTable>
+	</ResponsiveOverflowTable>
 }
 ExpandingTable.args = {
 	minimumRows: 2,
