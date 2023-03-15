@@ -1,5 +1,7 @@
 import {Select} from "@financial-times/o-forms/src/tsx/o-forms";
 
+type AllowAnyString = (string & Record<never, never>);
+
 export const TableHead = args => {
 	return <thead {...args}/>
 }
@@ -15,7 +17,7 @@ export const TableRow = args => {
 
 interface TableHeadingProps {
 	children?: string | JSX.Element | JSX.Element[];
-	dataType?: 'text' | 'date' | 'number' | 'percent' | 'currency' | 'numeric';
+	dataType?: 'text' | 'date' | 'number' | 'percent' | 'currency' | 'numeric' | AllowAnyString;
 }
 
 export const TableHeading = (args: TableHeadingProps) => {
@@ -25,16 +27,21 @@ export const TableHeading = (args: TableHeadingProps) => {
 interface TableDataProps {
 	children?: string | JSX.Element | JSX.Element[];
 	verticallyCenter?: boolean;
-	dataType?: 'text' | 'date' | 'number' | 'percent' | 'currency' | 'numeric';
+	dataType?: 'text' | 'date' | 'number' | 'percent' | 'currency' | 'numeric' | AllowAnyString;
+	dataValue: any;
 
 }
 
-export const TableData = ({verticallyCenter, ...args}: TableDataProps) => {
+export const TableData = ({verticallyCenter, dataValue,  ...args}: TableDataProps) => {
 	const classNames = [];
+	const attributes = {};
+	if(dataValue) {
+		attributes['data-o-table-sort-value'] = dataValue
+	}
 	if (verticallyCenter) {
 		classNames.push('o-table__cell--vertically-center')
 	}
-	return <td className={`${classNames.join(' ')}`}{...args}/>
+	return <td className={`${classNames.join(' ')}`} {...attributes} {...args}/>
 }
 export const TableFootnote = args => {
 	return <td className='o-table-footnote' {...args} />
