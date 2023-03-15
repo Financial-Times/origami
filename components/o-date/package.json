@@ -27,7 +27,7 @@
     "watch": "bash ../../scripts/component/watch.bash"
   },
   "dependencies": {
-    "@financial-times/ft-date-format": "^2.1.0"
+    "@financial-times/ft-date-format": "^3.0.0"
   },
   "volta": {
     "node": "14.16.1",
