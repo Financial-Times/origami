@@ -1,5 +1,27 @@
 # Changelog
 
+### [6.0.3](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.2...o-topper-v6.0.3) (2023-03-13)
+
+
+### Bug Fixes
+
+* set new margin bottom deep-landscape ([d95bec9](https://www.github.com/Financial-Times/origami/commit/d95bec9c8e98d769d62dd88bd7a196c598cd6141))
+
+### [6.0.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.1...o-topper-v6.0.2) (2023-03-08)
+
+
+### Bug Fixes
+
+* remove unnecesary margin deep-portrait ([aa80b54](https://www.github.com/Financial-Times/origami/commit/aa80b542cd34d0a33d2e518cf52bf09591587ad4))
+
+### [6.0.1](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.0...o-topper-v6.0.1) (2023-03-08)
+
+
+### Bug Fixes
+
+* Remove standfirst opacity from the deep-landscape topper variant. ([b1a7bf7](https://www.github.com/Financial-Times/origami/commit/b1a7bf73f4a7ebd163622f749c847a9daf52e5f9))
+* Remove the caption boarder from the deep-portrait topper variant. ([dfe8598](https://www.github.com/Financial-Times/origami/commit/dfe8598ec137040efb977050490183ca9c81d3b4))
+
 ## [6.0.0](https://www.github.com/Financial-Times/origami/compare/o-topper-v5.8.0...o-topper-v6.0.0) (2023-03-07)
 
 

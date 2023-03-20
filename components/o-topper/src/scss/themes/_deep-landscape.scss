@@ -22,6 +22,10 @@
 		  	content: none;
 		}
 	}
+	.o-topper__standfirst{
+		opacity: 1;
+	}
+	
 
 	@each $color-name in $colors {
 		&.o-topper--color-#{$color-name} {
@@ -34,7 +38,6 @@
 			}
 			.o-topper__content--background-box {
 				padding: oSpacingByName('s4');
-				margin-bottom: oSpacingByName('s6');
 				background-color: if($foreground == white, rgb(18,18,18,0.4), rgb(255,255,255,0.4));
 			}
 		}
@@ -59,7 +62,7 @@
 	@include oGridRespondTo( $until:S) {
 		.o-topper__content {
 			width:100%;
-		  	margin: 0;
+		  	margin: 0 0 oSpacingByName('s6');
 		  	padding: 20px;
 		}
 	}
