@@ -3,21 +3,7 @@ import oForms from '@financial-times/o-forms';
 oForms.init();
 
 const constructAll = () => {
-	MultiSelect.init(null, {
-		multiSelectOptions: [
-			'Apple',
-			'Banana',
-			'Blueberry',
-			'Boysenberry',
-			'Cherry',
-			'Durian',
-			'Eggplant',
-			'Fig',
-			'Grape',
-			'Guava',
-			'Huckleberry',
-		],
-	});
+	MultiSelect.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
