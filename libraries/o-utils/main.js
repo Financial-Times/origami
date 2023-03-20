@@ -52,6 +52,19 @@ function throttle(func, wait) {
 	};
 }
 
+/**
+ * Generates a unique ID string by concatenating the given component name, prefix, and a random number.
+ *
+ * @param {string} componentName - The name of the component to be included in the ID string.
+ * @returns {function} A function that takes a prefix string and returns a unique ID string.
+ *
+ * @example
+ *
+ * const generateId = uidBuilder('myComponent');
+ * const id = generateId('prefix');
+ * console.log(id); // 'myComponent-prefix1234567890'
+ */
+
 const uidBuilder = (componentName) => prefix => {
 	const uid = String(Math.random()).split('.')[1];
 	return `${componentName}-${prefix}${uid}`;
