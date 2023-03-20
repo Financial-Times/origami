@@ -111,8 +111,7 @@ class MultiSelect {
 
 		const labelId = uniqueId('selected');
 		const labels = [...this.coreWrapper.labels].map((label) => label.id).join(' ');
-
-		this.coreWrapper.insertAdjacentHTML('afterend', `<div class="o-multi-select__enhanced">
+		this.multiSelectEl.insertAdjacentHTML('beforeend', `<div class="o-multi-select__enhanced">
     <ul
             class="o-multi-select__selected-options"
             id=${labelId}
