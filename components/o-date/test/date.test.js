@@ -123,6 +123,7 @@ describe('o-date', () => {
 			proclaim.strictEqual(oDate.format(date, 'm mm'), '7 07');
 			proclaim.strictEqual(oDate.format(date, 'a'), 'am');
 			proclaim.strictEqual(oDate.format(date, 'This is \\a co\\mmon string mm'), 'This is a common string 07');
+			proclaim.strictEqual(oDate.format(date, 't'), '6:07am')
 		});
 
 		it('returns an unpadded 12hour clock value for `h` format', () => {

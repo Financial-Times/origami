@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.0.3](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.2...o-topper-v6.0.3) (2023-03-13)
+
+
+### Bug Fixes
+
+* set new margin bottom deep-landscape ([d95bec9](https://www.github.com/Financial-Times/origami/commit/d95bec9c8e98d769d62dd88bd7a196c598cd6141))
+
 ### [6.0.2](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.1...o-topper-v6.0.2) (2023-03-08)
 
 
