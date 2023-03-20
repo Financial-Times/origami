@@ -1,6 +1,4 @@
 import {
-	NumericTableData,
-	NumericTableHeading,
 	TableBody,
 	TableData,
 	TableHead,
@@ -15,12 +13,12 @@ export const baseTableContents = (
 				<TableHeading>Fruit</TableHeading>
 				<TableHeading>Genus</TableHeading>
 				<TableHeading>Characteristic</TableHeading>
-				<NumericTableHeading>
+				<TableHeading dataType='numeric'>
 					Cost&#xA0;(GBP)
-				</NumericTableHeading>
-				<NumericTableHeading>
+				</TableHeading>
+				<TableHeading dataType='numeric'>
 					Cost&#xA0;(EUR)
-				</NumericTableHeading>
+				</TableHeading>
 			</TableRow>
 		</TableHead>
 		<TableBody>
@@ -28,36 +26,36 @@ export const baseTableContents = (
 				<TableData>Dragonfruit</TableData>
 				<TableData>Stenocereus</TableData>
 				<TableData>Juicy</TableData>
-				<NumericTableData>3</NumericTableData>
-				<NumericTableData>2.72</NumericTableData>
+				<TableData dataType='numeric'>3</TableData>
+				<TableData dataType='numeric'>2.72</TableData>
 			</TableRow>
 			<TableRow>
 				<TableData>Durian</TableData>
 				<TableData>Durio</TableData>
 				<TableData>Smelly</TableData>
-				<NumericTableData>1.75</NumericTableData>
-				<NumericTableData>1.33</NumericTableData>
+				<TableData dataType='numeric'>1.75</TableData>
+				<TableData dataType='numeric'>1.33</TableData>
 			</TableRow>
 			<TableRow>
 				<TableData>Naseberry</TableData>
 				<TableData>Manilkara</TableData>
 				<TableData>Chewy</TableData>
-				<NumericTableData>2</NumericTableData>
-				<NumericTableData>1.85</NumericTableData>
+				<TableData dataType='numeric'>2</TableData>
+				<TableData dataType='numeric'>1.85</TableData>
 			</TableRow>
 			<TableRow>
 				<TableData>Strawberry</TableData>
 				<TableData>Fragaria</TableData>
 				<TableData>Sweet</TableData>
-				<NumericTableData>1.5</NumericTableData>
-				<NumericTableData>1.69</NumericTableData>
+				<TableData dataType='numeric'>1.5</TableData>
+				<TableData dataType='numeric'>1.69</TableData>
 			</TableRow>
 			<TableRow>
 				<TableData>Apple</TableData>
 				<TableData>Malus</TableData>
 				<TableData>Crunchy</TableData>
-				<NumericTableData>0.5</NumericTableData>
-				<NumericTableData>0.56</NumericTableData>
+				<TableData dataType='numeric'>0.5</TableData>
+				<TableData dataType='numeric'>0.56</TableData>
 			</TableRow>
 		</TableBody>
 	</>)

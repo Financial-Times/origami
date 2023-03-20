@@ -28,7 +28,7 @@ interface TableDataProps {
 	children?: string | JSX.Element | JSX.Element[];
 	verticallyCenter?: boolean;
 	dataType?: 'text' | 'date' | 'number' | 'percent' | 'currency' | 'numeric' | AllowAnyString;
-	dataValue: any;
+	dataValue?: any;
 
 }
 
