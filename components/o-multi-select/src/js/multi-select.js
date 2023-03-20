@@ -9,6 +9,7 @@ import {handleOptionSelect, createOption} from './multi-select-options.js';
 import {uidBuilder} from "@financial-times/o-utils";
 
 const uniqueId = uidBuilder('o-multi-select');
+console.log(`🚀 ~ uniqueId:`, uniqueId);
 
 class MultiSelect {
 	/**
