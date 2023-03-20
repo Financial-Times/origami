@@ -167,38 +167,6 @@ class MultiSelect {
 	}
 
 	/**
-	 * Get the data attributes from the MultiSelectElement. If the element is being set up
-	 * declaratively, this method is used to extract the data attributes from the DOM.
-	 *
-	 * @param {HTMLElement} multiSelectEl - The component element in the DOM
-	 * @returns {Object} An options object which can be used for configuring the component
-	 */
-	static getDataAttributes(multiSelectEl) {
-		if (!(multiSelectEl instanceof HTMLElement)) {
-			return {};
-		}
-		return Object.keys(multiSelectEl.dataset).reduce((options, key) => {
-			// Ignore keys which are not in the component's namespace
-			if (!key.match(/^oMultiSelect(\w)(\w+)$/)) {
-				return options;
-			}
-			// Build a concise key and get the option value
-			const shortKey = key.replace(
-				/^oMultiSelect(\w)(\w+)$/,
-				(m, m1, m2) => m1.toLowerCase() + m2
-			);
-			const value = multiSelectEl.dataset[key];
-			// Try parsing the value as JSON, otherwise just set it as a string
-			try {
-				options[shortKey] = JSON.parse(value.replace(/'/g, '"'));
-			} catch (error) {
-				options[shortKey] = value;
-			}
-			return options.options.split(',');
-		}, {});
-	}
-
-	/**
 	 * Initialise o-multi-select component/s.
 	 *
 	 * @param {(HTMLElement|string)} rootElement - The root element to initialise the component in, or a CSS selector for the root element
