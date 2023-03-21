@@ -13,13 +13,11 @@ function sleep(ms) {
 function setupMultiSelect(multiSelectOptions) {
 	const options = multiSelectOptions || ['Apple', 'Banana'];
 
-	fixtures.htmlCode();
+	fixtures.htmlCode(options);
 	const targetEl = document.querySelector(
 		'[data-o-component="o-multi-select"]'
 	);
-	const multiSelect = new MultiSelect(targetEl, {
-		multiSelectOptions: options,
-	});
+	const multiSelect = new MultiSelect(targetEl, {});
 	return {multiSelect, options};
 }
 
@@ -48,32 +46,12 @@ describe('MultiSelect', () => {
 	});
 
 	it('should not create a new o-multi-select when no options are passed', () => {
-		fixtures.htmlCode();
+		fixtures.htmlCode([]);
 		assert.throws(
 			() => MultiSelect.init(),
-			'The multi select component requires options to be passed in the config or as data attributes'
+			'The multi select component requires option elements to be defined in the <select> tag.'
 		);
 		fixtures.reset();
-	});
-
-	describe('should create a new o-multi-select', () => {
-		afterEach(() => {
-			fixtures.reset();
-		});
-
-		it('when select options are passed down in config', () => {
-			fixtures.htmlCode();
-			const boilerplate = MultiSelect.init(null, {
-				multiSelectOptions: ['Apple', 'Banana'],
-			});
-			assert.instanceOf(boilerplate[0], MultiSelect);
-		});
-
-		it('when select options are passed as comma separated list in data attribute', () => {
-			fixtures.htmlCodeWithOptionsDataAttributes();
-			const boilerplate = MultiSelect.init();
-			assert.instanceOf(boilerplate[0], MultiSelect);
-		});
 	});
 
 	context('constructor', () => {
@@ -84,14 +62,6 @@ describe('MultiSelect', () => {
 		});
 		afterEach(() => {
 			fixtures.reset();
-		});
-		it('hides core select element and enables enhanced version', () => {
-			const coreSelectEl = document.querySelector('.o-multi-select--core');
-			const enhancedSelectEl = document.querySelector(
-				'.o-multi-select--enhanced'
-			);
-			assert.equal(coreSelectEl.style.display, 'none');
-			assert.equal(enhancedSelectEl.style.display, 'block');
 		});
 
 		it('creates a dropdown options list with correct options and correct attributes', () => {

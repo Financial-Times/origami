@@ -37,13 +37,11 @@ To add support for browsers without JavaScript or users who have it disabled, we
     </label>
    </span>
 
-   <span class="o-forms-combobox o-forms-combobox--select">
-    <select name="multiple" id="multiple" multiple>
-     <option value="Apple">Apple</option>
-     <option value="Banana">Banana</option>
-     <!-- More options -->
-    </select>
-   </span>
+  <select name="multiple" id="multiple" multiple>
+    <option value="Apple">Apple</option>
+    <option value="Banana">Banana</option>
+    <!-- More options -->
+  </select>
   </span>
  </div>
 </div>

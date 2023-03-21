@@ -102,8 +102,8 @@ class MultiSelect {
 	 * @private
 	 */
 	_clearCore() {
-		const selectName = this.coreWrapper.attributes.getNamedItem('name');
-		const selectId = this.coreWrapper.attributes.getNamedItem('id');
+		const selectName = this.coreWrapper.attributes.getNamedItem('name').value;
+		const selectId = this.coreWrapper.attributes.getNamedItem('id').value;
 
 		if (!selectName || !selectId) {
 			throw new Error('Select element must have attributes name and id defined.');
