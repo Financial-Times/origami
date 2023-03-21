@@ -6,6 +6,8 @@ We have introduced a `t` format symbol that renders a full ft-style time 10:43pm
 
 Custom formats which use the string 't' will no longer render as a string literal "t". 
 
+To add the literal 't' update the custom date format string from `t` to `\t`. 
+
 **Before** 
 
 ```
