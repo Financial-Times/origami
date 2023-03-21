@@ -10,22 +10,10 @@
 @import 'src/scss/base';
 
 /// Output all oMultiSelect features
-/// @param {Map} $opts [()] - A map of options to configure the output
 /// @access public
 /// @example scss
-///		@include oMultiSelect($opts: (
-///			// your opts here
-///		))
-@mixin oMultiSelect($opts: ()) {
-	@include oForms(
-		$opts: (
-			'elements': (
-				'text',
-				'select',
-			),
-		)
-	);
-
+///		@include oMultiSelect()
+@mixin oMultiSelect() {
 	.o-multi-select__dropdown-menu {
 		display: none;
 	}
@@ -96,7 +84,6 @@
 		left: 0;
 		max-height: 50vh;
 		overflow-y: auto;
-
 
 		.o-multi-select-option {
 			color: oColorsByUsecase('body', 'text');

@@ -1,19 +1,12 @@
 @import '../../main';
 @import '@financial-times/o-normalise/main';
+@import '@financial-times/o-forms/main';
 
 @include oNormalise();
+@include oForms();
 
 body {
 	background: oColorsByUsecase(page, background);
-}
-// o-normalise sets select elements on overflow: visible;
-.o-forms-input--select select {
-	overflow: auto;
-}
-
-.o-multi-select {
-	margin: 12px;
-	max-width: 500px;
 }
 
 @include oMultiSelect();

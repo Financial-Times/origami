@@ -21,7 +21,7 @@ function insert(html) {
 
 function htmlCode(multiSelectOptions) {
 	const options = multiSelectOptions.map(option => `<option value="${option}">${option}</option>`);
-	const html = `<div class="o-multi-select o-multi-select--core" data-o-component="o-multi-select">
+	const html = `<div class="o-multi-select" data-o-component="o-multi-select">
 	<span class="o-forms-field">
 		<span class="o-forms-title">
 			<label class="o-forms-title__main" for="multiple"

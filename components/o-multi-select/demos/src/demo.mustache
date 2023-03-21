@@ -1,16 +1,24 @@
-<div class="o-multi-select o-multi-select--core" data-o-component="o-multi-select">
-		<span class="o-forms-field">
-			<span class="o-forms-title">
-				<label class="o-forms-title__main" id="multi-select-label" for="multiple"
-				>Multiple select box</label
-				>
-			</span>
-
-			<select name="multiple" id="multiple" multiple>
-				{{#multiSelectOptions}}
-					<option value="{{.}}">{{.}}</option>
-				{{/multiSelectOptions}}
-			</select>
-		</span>
-</div>
-
+<form data-o-component="o-forms">
+  <label for="fruits" class="o-forms-field">
+    <span class="o-forms-title">
+      <span class="o-forms-title__main">Select multiple options</span>
+    </span>
+  </label>
+  <div class="o-forms-input">
+    <div class="o-multi-select" data-o-component="o-multi-select">
+      <select name="multiple" id="fruits" multiple>
+        <option value="Apple">Apple</option>
+        <option value="Banana">Banana</option>
+        <option value="Blueberry">Blueberry</option>
+        <option value="Boysenberry">Boysenberry</option>
+        <option value="Cherry">Cherry</option>
+        <option value="Durian">Durian</option>
+        <option value="Eggplant">Eggplant</option>
+        <option value="Fig">Fig</option>
+        <option value="Grape">Grape</option>
+        <option value="Guava">Guava</option>
+        <option value="Huckleberry">Huckleberry</option>
+      </select>
+    </div>
+  </div>
+</form>

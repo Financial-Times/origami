@@ -146,3 +146,16 @@ export function FormError({errorMessage}) {
 		</span>
 	);
 }
+
+
+export function FormTemplate(props) {
+	const {children, ...rest} = props;
+	return (
+		<Form>
+			<FormField {...rest} />
+				<div className="o-forms-input">
+					{props.children}
+				</div>
+		</Form>
+	)
+}

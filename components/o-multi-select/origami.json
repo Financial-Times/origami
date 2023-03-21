@@ -18,25 +18,9 @@
 	},
 	"demos": [
 		{
-			"title": "A Useful Demo",
+			"title": "Multi select",
 			"name": "demo",
-			"template": "demos/src/demo.mustache",
-			"description": "Description of the demo",
-			"data": {
-				"multiSelectOptions": [
-					"Apple",
-					"Banana",
-					"Blueberry",
-					"Boysenberry",
-					"Cherry",
-					"Durian",
-					"Eggplant",
-					"Fig",
-					"Grape",
-					"Guava",
-					"Huckleberry"
-				]
-			}
+			"template": "demos/src/demo.mustache"
 		}
 	]
 }

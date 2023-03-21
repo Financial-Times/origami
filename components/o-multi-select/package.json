@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "description": "Multi select component",
   "keywords": [
+		"form",
+		"multiple",
     "multi",
     "select",
     "multi-select"
