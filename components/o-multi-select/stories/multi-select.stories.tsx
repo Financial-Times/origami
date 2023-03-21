@@ -16,18 +16,17 @@ export default {
 } as ComponentMeta<typeof MultiSelect>;
 
 export const MultiSelectDefault = args => {
-	const {label, id} = args;
 	useEffect(() => {
-		javascript.init()
-	})
+		javascript.init();
+	});
 
 	return (
-		<FormTemplate id={args.id} title="Select multiple options:">
+		<FormTemplate id={args.id} title={args.title}>
 			<MultiSelect {...args} />
 		</FormTemplate>
-	)
-}
-MultiSelectDefault.storyName = 'Multi Select'
+	);
+};
+MultiSelectDefault.storyName = 'Multi Select';
 MultiSelectDefault.args = {
 	multiSelectOptions: [
 		'Apple',
@@ -42,5 +41,6 @@ MultiSelectDefault.args = {
 		'Guava',
 		'Huckleberry',
 	],
-	id: 'fruits'
+	id: 'fruits',
+	title: 'Select multiple options:',
 };

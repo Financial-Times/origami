@@ -40,6 +40,8 @@ interface FormTitleProps {
 	describedbyId?: string;
 }
 
+interface FormTemplate extends TypeFormProps, FormFieldProps {}
+
 export function Form({children, action, method, onSubmit}: TypeFormProps) {
 	return (
 		<form
@@ -148,7 +150,7 @@ export function FormError({errorMessage}) {
 }
 
 
-export function FormTemplate(props) {
+export function FormTemplate(props: FormTemplate ) {
 	const {children, ...rest} = props;
 	return (
 		<Form>
