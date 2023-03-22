@@ -1,6 +1,6 @@
 import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
+import {ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
 import {MultiSelect} from '../src/tsx/multi-select';
 import './multi-select.scss';
@@ -17,8 +17,14 @@ export default {
 
 export const MultiSelectDefault = args => {
 	useEffect(() => {
-		javascript.init();
-	});
+		let multiSelect = javascript.init();
+		console.log(`🚀 ~ multiSelect:`, multiSelect);
+		return function cleanup() {
+			multiSelect = Array.isArray(multiSelect) ? multiSelect : [multiSelect];
+			multiSelect.forEach(multiSelect => multiSelect.destroy());
+			console.log({multiSelect})
+		};
+	}, [args.id, args.title]);
 
 	return (
 		<FormTemplate id={args.id} title={args.title}>

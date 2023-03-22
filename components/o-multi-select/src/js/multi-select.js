@@ -208,12 +208,15 @@ class MultiSelect {
 
 	/**
 	 * Destroys multiselect component and remove window event listeners.
+	 *
+	 * @returns {void}
 	 */
 	destroy() {
-		this.multiSelectEl.destroy();
-		window.removeEventListener('resize');
+		if(this.multiSelectEl) {
+			this.multiSelectEl.remove();
+			window.removeEventListener('resize', this._updateState);
+		}
 	}
-
 }
 
 export default MultiSelect;
