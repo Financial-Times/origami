@@ -94,6 +94,9 @@ class MultiSelect {
 				}
 			});
 		});
+		window.addEventListener('resize', () => {
+			this._updateState();
+		});
 	}
 
 	/**
