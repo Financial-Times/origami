@@ -5,7 +5,7 @@ An Origami component for selecting multiple options.
 - [o-multi-select](#o-multi-select)
 	- [Usage](#usage)
 	- [Markup](#markup)
-		- [Core support](#core-support)
+		- [Using TSX templates](#using-tsx-templates)
 	- [Sass](#sass)
 	- [JavaScript](#javascript)
 	- [Keyboard Support](#keyboard-support)
@@ -17,70 +17,82 @@ An Origami component for selecting multiple options.
 
 ## Usage
 
-`o-multi-select` expects options to be provided in the `<select>` tag. This will make the component accessible for users with screen readers and users with JavaScript disabled. The component will automatically enhance the experience for users with JavaScript enabled. More about this in [Markup](#markup) section.
+Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-multi-select`.
 
 ## Markup
 
-We recommend to use  `o-forms` component to apply styles to some parts of multi-select component. This will make sure the component consistent with other form elements.
-
-### Core support
-
-To add support for browsers without JavaScript or users who have it disabled, we use multi-select element from `o-forms`. This will help users with screen readers to select multiple options.
+`o-multi-select` expects options to be provided in the `<select>` tag. This will make the component accessible for users with screen readers and users with JavaScript disabled. The component will automatically enhance the experience for users with JavaScript enabled.
 
 ```html
 <div class="o-multi-select" data-o-component="o-multi-select">
- <div class="o-form o-multi-select o-multi-select__core">
-  <span class="o-forms-field">
-   <span class="o-forms-title">
-    <label class="o-forms-title__main" for="multiple">
-     Multiple select box
-    </label>
-   </span>
-
-  <select name="multiple" id="multiple" multiple>
+  <select name="multiple" id="fruits" multiple>
     <option value="Apple">Apple</option>
     <option value="Banana">Banana</option>
-    <!-- More options -->
+    <!--More options -->
   </select>
-  </span>
- </div>
 </div>
 ```
 
-The above markup is only required markup for the multi-select component to work. As mentioned the component automatically will enhance the experience for users with JavaScript enabled.
+The above markup is the only required markup for the multi-select component to work. As mentioned the component automatically will enhance the experience for users with JavaScript enabled.
 
-To enhance the experience we needed to have custom implementation and bellow markup is for reference only. The markup is very different from native `<select multiselect=true>` element, but using correct aria labels, roles and attributes we can make it accessible and behave like a native `select` element.
+To have styling for labels, you will need to use [o-forms](https://registry.origami.ft.com/components/o-forms) as part of the multi-select implementation. This is Origami's recommended way of using o-multi-select component.
+
+Below is an example of how to combine o-forms and o-multi-select components together. Note the `label` and `select` element are connected using `for` and `id` attributes.
 
 ```html
-<div class="o-multi-select__enhanced">
- <ul class="o-multi-select__selected-options" id="${labelId}"></ul>
- <div class="o-multi-select__combobox-wrapper">
-  <div
-   class="o-multi-select__combobox"
-   id="${selectId}"
-   name="${selectName}"
-   role="combobox"
-   aria-activedescendant=""
-   aria-labelledby="${labels} ${labelId}"
-   aria-haspopup="listbox"
-   aria-expanded="false"
-   aria-owns="o-multi-select-listbox"
-   tabindex="0"
-  >
-   <span class="o-multi-select__combobox-text">
-    Click to select options
-   </span>
+<form data-o-component="o-forms">
+  <label for="fruits" class="o-forms-field">
+    <span class="o-forms-title">
+      <span class="o-forms-title__main">Select multiple options</span>
+    </span>
+  </label>
+  <div class="o-forms-input">
+    <div class="o-multi-select" data-o-component="o-multi-select">
+      <select name="multiple" id="fruits" multiple>
+        <option value="Apple">Apple</option>
+        <option value="Banana">Banana</option>
+        <!--More options -->
+      </select>
+    </div>
   </div>
- </div>
- <div
-  class="o-multi-select__dropdown-menu"
-  id="o-multi-select-listbox"
-  role="listbox"
-  aria-label="multi select options"
-  aria-multiselectable="true"
-  tabindex="-1"
- ></div>
-</div>
+</form>
+```
+
+### Using TSX templates
+
+If you are using TSX templates we recommend that you also import `FormTemplate` from `o-forms`. This will style labels and options for your TSX component.
+
+```jsx
+import {FormTemplate} from '@financial-times/o-forms/src/tsx/Form';
+import {MultiSelect} from '@financial-times/o-multi-select/src/tsx/multi-select';
+
+export const MultiSelectDefault = args => {
+ return (
+  <FormTemplate id={args.id} title={args.title}>
+   <MultiSelect {...args} />
+  </FormTemplate>
+ );
+};
+```
+
+Everything to work you will need to initialise javaScript for o-multi-select. If you are using `React` we recommend to do this in useEffect hook
+
+```jsx
+import javascript from '@financial-times/o-multi-select/main.js';
+
+export const MultiSelectDefault = args => {
+ useEffect(() => {
+  let multiSelect = javascript.init();
+  return function cleanup() {
+   multiSelect = Array.isArray(multiSelect) ? multiSelect : [multiSelect];
+   multiSelect.forEach(multiSelect => multiSelect.destroy());
+  };
+ }, [args.id, args.title]);
+
+ return (
+  // MULTI SELECT COMPONENT CODE
+ );
+};
 ```
 
 ## Sass

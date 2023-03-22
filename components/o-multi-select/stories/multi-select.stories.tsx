@@ -18,11 +18,9 @@ export default {
 export const MultiSelectDefault = args => {
 	useEffect(() => {
 		let multiSelect = javascript.init();
-		console.log(`🚀 ~ multiSelect:`, multiSelect);
 		return function cleanup() {
 			multiSelect = Array.isArray(multiSelect) ? multiSelect : [multiSelect];
 			multiSelect.forEach(multiSelect => multiSelect.destroy());
-			console.log({multiSelect})
 		};
 	}, [args.id, args.title]);
 
