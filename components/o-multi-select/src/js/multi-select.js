@@ -206,6 +206,9 @@ class MultiSelect {
 		return [...options].map((option) => option.getAttribute('value'));
 	}
 
+	/**
+	 * Destroys multiselect component and remove window event listeners.
+	 */
 	destroy() {
 		this.multiSelectEl.destroy();
 		window.removeEventListener('resize');

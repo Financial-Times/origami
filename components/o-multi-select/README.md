@@ -17,11 +17,11 @@ An Origami component for selecting multiple options.
 
 ## Usage
 
-`o-multi-select` expects options to be provided in the `<select>` tag.This will make the component accessible for users with screen readers and users with JavaScript disabled. The component will automatically enhance the experience for users with JavaScript enabled. More about this in [Markup](#markup) section.
+`o-multi-select` expects options to be provided in the `<select>` tag. This will make the component accessible for users with screen readers and users with JavaScript disabled. The component will automatically enhance the experience for users with JavaScript enabled. More about this in [Markup](#markup) section.
 
 ## Markup
 
-We use `o-forms` component to apply styles to some parts of multi-select component. This is to make sure that the component is consistent with other form elements.
+We recommend to use  `o-forms` component to apply styles to some parts of multi-select component. This will make sure the component consistent with other form elements.
 
 ### Core support
 
@@ -49,7 +49,7 @@ To add support for browsers without JavaScript or users who have it disabled, we
 
 The above markup is only required markup for the multi-select component to work. As mentioned the component automatically will enhance the experience for users with JavaScript enabled.
 
-To enhance the experience we needed to have custom implementation and bellow markup is for reference only. THe markup is very different from native `<select multiselect=true>` element, but using correct aria labels, roles and attributes we can make it accessible and behave like a native `select` element.
+To enhance the experience we needed to have custom implementation and bellow markup is for reference only. The markup is very different from native `<select multiselect=true>` element, but using correct aria labels, roles and attributes we can make it accessible and behave like a native `select` element.
 
 ```html
 <div class="o-multi-select__enhanced">
