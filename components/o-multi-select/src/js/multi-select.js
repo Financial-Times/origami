@@ -206,6 +206,11 @@ class MultiSelect {
 		return [...options].map((option) => option.getAttribute('value'));
 	}
 
+	destroy() {
+		this.multiSelectEl.destroy();
+		window.removeEventListener('resize');
+	}
+
 }
 
 export default MultiSelect;
