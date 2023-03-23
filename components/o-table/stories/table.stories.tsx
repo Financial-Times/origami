@@ -2,7 +2,15 @@ import withHtml from 'origami-storybook-addon-html';
 import {withDesign} from 'storybook-addon-designs';
 import './table.scss';
 import {Table} from "../src/tsx/table";
-import {TableCaption, TableFoot, TableFootnote, TableRow} from "../src/tsx/components";
+import {
+	TableBody,
+	TableCaption, TableData,
+	TableFoot,
+	TableFootnote,
+	TableHead,
+	TableHeading,
+	TableRow
+} from "../src/tsx/components";
 
 import {useEffect} from "react";
 import javascript from '../main';
@@ -41,6 +49,65 @@ export const BasicTableWithCaptionAndFootnote = (args) => {
 			</TableRow>
 		</TableFoot>
 	</Table>
+}
+
+export const BasicTableWithLinks = (args) => {
+	useEffect(() => {
+		javascript.init();
+	});
+
+	return <Table {...args}>
+			<TableHead className='example'>
+				<TableRow>
+					<TableHeading>Fruit</TableHeading>
+					<TableHeading>Genus</TableHeading>
+					<TableHeading>Characteristic</TableHeading>
+					<TableHeading dataType='numeric'>
+						Cost&#xA0;(GBP)
+					</TableHeading>
+					<TableHeading dataType='numeric'>
+						Cost&#xA0;(EUR)
+					</TableHeading>
+				</TableRow>
+			</TableHead>
+			<TableBody>
+				<TableRow>
+					<TableData><a className="o-typography-link"  href='https://en.wikipedia.org/wiki/Pitaya'>Dragonfruit</a></TableData>
+					<TableData>Stenocereus</TableData>
+					<TableData>Juicy</TableData>
+					<TableData dataType='numeric'>3</TableData>
+					<TableData dataType='numeric'>2.72</TableData>
+				</TableRow>
+				<TableRow>
+					<TableData><a className="o-typography-link"  href='https://en.wikipedia.org/wiki/Durian'>Durian</a></TableData>
+					<TableData>Durio</TableData>
+					<TableData>Smelly</TableData>
+					<TableData dataType='numeric'>1.75</TableData>
+					<TableData dataType='numeric'>1.33</TableData>
+				</TableRow>
+				<TableRow>
+					<TableData><a className="o-typography-link"  href='https://en.wikipedia.org/wiki/Manilkara_zapota'>Naseberry</a></TableData>
+					<TableData>Manilkara</TableData>
+					<TableData>Chewy</TableData>
+					<TableData dataType='numeric'>2</TableData>
+					<TableData dataType='numeric'>1.85</TableData>
+				</TableRow>
+				<TableRow>
+					<TableData><a className="o-typography-link"  href='https://en.wikipedia.org/wiki/Strawberry'>Strawberry</a></TableData>
+					<TableData>Fragaria</TableData>
+					<TableData>Sweet</TableData>
+					<TableData dataType='numeric'>1.5</TableData>
+					<TableData dataType='numeric'>1.69</TableData>
+				</TableRow>
+				<TableRow>
+					<TableData><a className="o-typography-link"  href='https://en.wikipedia.org/wiki/Apple'>Apple</a></TableData>
+					<TableData>Malus</TableData>
+					<TableData>Crunchy</TableData>
+					<TableData dataType='numeric'>0.5</TableData>
+					<TableData dataType='numeric'>0.56</TableData>
+				</TableRow>
+			</TableBody>
+	</Table>;
 }
 
 
