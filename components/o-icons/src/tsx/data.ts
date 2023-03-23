@@ -42,6 +42,7 @@ export const icons = [
 	'play',
 	'plus',
 	'podcast',
+	'preferences',
 	'print',
 	'refresh',
 	'restore',
@@ -65,8 +66,6 @@ export const icons = [
 	'warning-alt',
 	'warning',
 	'written-text',
-	'eye-open',
-	'eye-closed',
 ] as const;
 
 export type IconName = typeof icons[number];
