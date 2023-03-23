@@ -37,7 +37,7 @@ export const BasicTableWithCaptionAndFootnote = (args) => {
 		{baseTableContents}
 		<TableFoot>
 			<TableRow>
-				<TableFootnote>Source: The Origami team&apos;s love of fruit.</TableFootnote>
+				<TableFootnote colspan="5">Source: The Origami team&apos;s love of fruit.</TableFootnote>
 			</TableRow>
 		</TableFoot>
 	</Table>
