@@ -543,6 +543,10 @@
 				text-decoration: none;
 				cursor: pointer;
 				border-bottom: 0.25ex solid;
+				&[target="_blank"] {
+					position: relative;
+				}
+
 				&[target="_blank"]:after {
 					position: absolute;
 					clip: rect(0 0 0 0);
@@ -586,6 +590,10 @@
 				), $include-base-styles: false);
 			}
 			@include expect {
+				&[target="_blank"] {
+					position: relative;
+				}
+
 				&[target="_blank"]:after {
 					position: absolute;
 					clip: rect(0 0 0 0);
@@ -622,6 +630,10 @@
 				), $include-base-styles: false);
 			}
 			@include expect {
+				&[target="_blank"] {
+					position: relative;
+				}
+
 				&[target="_blank"]:after {
 					position: absolute;
 					clip: rect(0 0 0 0);

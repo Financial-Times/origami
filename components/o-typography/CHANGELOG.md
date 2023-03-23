@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.3.5](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.3.4...o-typography-v7.3.5) (2023-03-23)
+
+
+### Bug Fixes
+
+* o-typography, position visually hiddent anchor content relatively [OR-148] ([#1047](https://www.github.com/Financial-Times/origami/issues/1047)) ([1d4ebc6](https://www.github.com/Financial-Times/origami/commit/1d4ebc65fb722278ef25f162350d17cdfbc8405a))
+
 ### [7.3.4](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.3.3...o-typography-v7.3.4) (2023-01-20)
 
 

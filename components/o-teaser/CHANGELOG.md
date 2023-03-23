@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.2.6](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.5...o-teaser-v6.2.6) (2023-03-23)
+
+
+### Bug Fixes
+
+* o-teaser, update demo o-date dependnecy ([47cdd03](https://www.github.com/Financial-Times/origami/commit/47cdd033b5c311aeadf9e9744d7e25982a7a7a0c))
+
 ### [6.2.5](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.4...o-teaser-v6.2.5) (2023-01-20)
 
 
