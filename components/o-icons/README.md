@@ -2,14 +2,17 @@
 
 Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons) image set.
 
--   [Usage](#usage)
--   [Summary](#summary)
--   [Markup](#markup)
--   [Sass](#sass)
--   [Contributing](#contributing)
--   [Migration](#migration)
--   [Contact](#contact)
--   [Licence](#licence)
+- [o-icons](#o-icons)
+	- [Usage](#usage)
+	- [Summary](#summary)
+	- [Markup](#markup)
+	- [Sass](#sass)
+		- [Includes icons of different sizes and colors](#includes-icons-of-different-sizes-and-colors)
+		- [Using the default CSS helper classes](#using-the-default-css-helper-classes)
+	- [Contributing](#contributing)
+	- [Migration](#migration)
+	- [Contact](#contact)
+	- [Licence](#licence)
 
 ## Usage
 
@@ -116,7 +119,9 @@ To avoid including all icon [helper classes](#markup), `oIcons` mixin also accep
 
 ## Contributing
 
-`o-icons` is some Sass mixins and helpers for using the fticons image set. To add a new icon you need to add it to the fticons set. There are instructions in the [fticons README](http://github.com/financial-times/fticon). When the icon is in fticons, run `node ./scripts/build-icon-list.js` to update `o-icons` Sass with the new icon automatically.
+`o-icons` is some Sass mixins and helpers for using the fticons image set. To add a new icon you need to add it to the fticons set. There are instructions in the [origami-image-service README](https://github.com/Financial-Times/origami-image-service#adding-images). When the icon is in fticons, run `node ./scripts/build-icon-list.js NAME_OF_THE_NEW_ICON` to update `o-icons` Sass with the new icon automatically.
+
+If you need to remove an icon from `o-icons` you run `node ./scripts/build-icon-list.js NAME_OF_THE_NEW_ICON remove`.
 
 ## Migration
 
