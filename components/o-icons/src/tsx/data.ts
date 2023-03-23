@@ -16,6 +16,8 @@ export const icons = [
 	'dollar',
 	'download',
 	'edit',
+	'eye-closed',
+	'eye-open',
 	'first',
 	'gift',
 	'grid',
