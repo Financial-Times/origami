@@ -7,7 +7,7 @@ interface TableProps {
 }
 
 export const Table = (args: TableProps) => {
-	const {children, ...otherArgs } = args;
+	const {children, ...otherArgs} = args;
 	return <PrivateTable {...otherArgs}>{children}</PrivateTable>
 }
 
@@ -26,11 +26,11 @@ export const ResponsiveScrollTable = ({
 }
 
 export const ResponsiveFlatTable = ({
-										  children,
-										  compact,
-										  horizontalLines = true,
-										  ...args
-									  }: TableProps) => {
+										children,
+										compact,
+										horizontalLines = true,
+										...args
+									}: TableProps) => {
 	return (
 		<ResponsiveTable compact={compact} horizontalLines={horizontalLines}
 						 behaviour='scroll' {...args}
@@ -45,12 +45,12 @@ interface ResponsiveOverflowTableProps extends TableProps {
 }
 
 export const ResponsiveOverflowTable = ({
-										children,
-										compact,
-										horizontalLines = true,
-										minimumRows,
-										...args
-									}: ResponsiveOverflowTableProps) => {
+											children,
+											compact,
+											horizontalLines = true,
+											minimumRows,
+											...args
+										}: ResponsiveOverflowTableProps) => {
 	const attributes: Record<string, any> = {};
 
 	if (minimumRows) {
@@ -64,6 +64,7 @@ export const ResponsiveOverflowTable = ({
 
 	)
 }
+
 interface PrivateTableProps extends TableProps {
 	className?: string;
 }
@@ -92,8 +93,12 @@ const PrivateTable = ({
 	if (stripes) {
 		classNames.push('o-table--row-stripes');
 	}
-	return <table className={classNames.join(' ')}
-				  data-o-component="o-table" {...attributes} {...args}>{children}</table>;
+	return (
+		<div className='o-table-container'>
+			<table className={classNames.join(' ')}
+				   data-o-component="o-table" {...attributes} {...args}>{children}</table>
+		</div>
+	);
 };
 
 

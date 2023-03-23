@@ -30,11 +30,9 @@ export const TableWithSelectFilter = (_args) => {
 					<option value="Crunchy">Crunchy</option>
 				</SelectFilter>
 			</div>
-			<div className='o-table-container'>
-				<Table id='fruit-filter' aria-describedby='demo-table-caption'>
-					{baseTableContents}
-				</Table>
-			</div>
+			<Table id='fruit-filter' aria-describedby='demo-table-caption'>
+				{baseTableContents}
+			</Table>
 		</>
 	)
 }
@@ -51,11 +49,9 @@ export const TableWithTextInput = (_args) => {
 				<TextInputFilter label='Filter by characteristic:' id='fruity-filter' filterId='fruit-filter'
 								 filterColumn='2'/>
 			</div>
-			<div className='o-table-container'>
-				<Table id='fruit-filter' aria-describedby='demo-table-caption'>
-					{baseTableContents}
-				</Table>
-			</div>
+			<Table id='fruit-filter' aria-describedby='demo-table-caption'>
+				{baseTableContents}
+			</Table>
 		</>
 	)
 }
