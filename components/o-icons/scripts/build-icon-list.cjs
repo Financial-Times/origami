@@ -31,7 +31,9 @@ function writeDemoData(icons, filePath) {
 
 
 function writeCjsModule(icons, filePath) {
-	const cjs = `module.exports = ${JSON.stringify(icons)};\n`;
+	const cjs = `module.exports = [\n\t'${icons.join(
+		"',\n\t'"
+	)}',\n]\n`;
 	writeFile(filePath, cjs);
 }
 
