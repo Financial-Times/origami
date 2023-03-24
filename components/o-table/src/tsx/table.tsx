@@ -1,5 +1,6 @@
 interface TableProps {
 	horizontalLines?: boolean;
+	id: string;
 	stripes?: boolean;
 	sortable?: boolean;
 	children: string | JSX.Element | JSX.Element[];

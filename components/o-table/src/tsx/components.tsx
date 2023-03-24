@@ -1,5 +1,3 @@
-import {Select} from "@financial-times/o-forms/src/tsx/o-forms";
-
 type AllowAnyString = (string & Record<never, never>);
 
 export const TableHead = args => {
@@ -52,41 +50,15 @@ export const TableCaption = ({children}) => {
 
 
 interface FilterProps {
-	label: string;
+	filterComponent: JSX.Element | JSX.Element[];
 	id: string;
 	filterId: string;
 	filterColumn: string;
 }
 
-interface SelectFilterProps extends FilterProps {
-	children: JSX.Element | JSX.Element[];
-
-}
-
-export const SelectFilter = ({label, id, filterId, filterColumn, children}: SelectFilterProps) => {
+export const Filter = ({filterComponent, filterId, filterColumn}: FilterProps) => {
 	return (
-		<Select name='Test' title={label} isOptional={false} inlineField={true} isVerticalCenter={true}
-				additionalAttributes={{
-					'data-o-table-filter-id': filterId,
-					'data-o-table-filter-column': filterColumn,
-					id
-				}}>
-			{children}
-		</Select>
-	)
-}
-export const TextInputFilter = ({id, label, filterId, filterColumn}: FilterProps) => {
-	return (
-		<label className="o-forms-field o-forms-field--inline o--if-js o-forms-field--demo">
-        	<span className="o-forms-title o-forms-title--vertical-center o-forms-title--shrink">
-          		<span className="o-forms-title__main">{label}</span>
-        	</span>
-
-			<span className="o-forms-input o-forms-input--text o-forms-input--invalid">
-				<input type="text" data-o-table-filter-id={filterId} data-o-table-filter-column={filterColumn}
-					   id={id}
-					   className="o-forms__text"/>
-        	</span>
-		</label>
-	)
+		<div data-o-table-filter-id={filterId} data-o-table-filter-column={filterColumn}>
+			{filterComponent}
+		</div>)
 }
