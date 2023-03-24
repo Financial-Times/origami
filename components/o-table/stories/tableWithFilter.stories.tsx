@@ -6,12 +6,18 @@ import {useEffect} from "react";
 import javascript from '../main';
 import {Filter} from "../src/tsx/components";
 import {Select} from "@financial-times/o-forms/src/tsx/Select";
+import {ComponentMeta} from "@storybook/react";
 
 export default {
 	title: 'Components/o-table/Table with Filter',
 	component: Table,
-	decorators: [withDesign, withHtml]
-};
+	decorators: [withDesign, withHtml],
+	args: {
+		horizontalLines: true,
+		compact: false,
+		stripes: false
+	}
+} as ComponentMeta<typeof Table>;
 
 const selectFilter =
 	<Select name='Test' title='Filter by characteristic:' isOptional={false} inlineField={true} isVerticalCenter={true}>

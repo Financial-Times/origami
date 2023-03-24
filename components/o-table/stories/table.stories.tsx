@@ -15,12 +15,18 @@ import {
 import {useEffect} from "react";
 import javascript from '../main';
 import {baseTableContents} from "./baseTableContents";
+import {ComponentMeta} from "@storybook/react";
 
 export default {
 	title: 'Components/o-table/Basic',
 	component: Table,
-	decorators: [withDesign, withHtml]
-};
+	decorators: [withDesign, withHtml],
+	args: {
+		horizontalLines: true,
+		compact: false,
+		stripes: false
+	}
+} as ComponentMeta<typeof Table>;
 
 const Template = (args) => {
 	useEffect(() => {
@@ -57,56 +63,60 @@ export const BasicTableWithLinks = (args) => {
 	});
 
 	return <Table {...args}>
-			<TableHead className='example'>
-				<TableRow>
-					<TableHeading>Fruit</TableHeading>
-					<TableHeading>Genus</TableHeading>
-					<TableHeading>Characteristic</TableHeading>
-					<TableHeading dataType='numeric'>
-						Cost&#xA0;(GBP)
-					</TableHeading>
-					<TableHeading dataType='numeric'>
-						Cost&#xA0;(EUR)
-					</TableHeading>
-				</TableRow>
-			</TableHead>
-			<TableBody>
-				<TableRow>
-					<TableData><a className="o-typography-link"  href='https://en.wikipedia.org/wiki/Pitaya'>Dragonfruit</a></TableData>
-					<TableData>Stenocereus</TableData>
-					<TableData>Juicy</TableData>
-					<TableData dataType='numeric'>3</TableData>
-					<TableData dataType='numeric'>2.72</TableData>
-				</TableRow>
-				<TableRow>
-					<TableData><a className="o-typography-link"  href='https://en.wikipedia.org/wiki/Durian'>Durian</a></TableData>
-					<TableData>Durio</TableData>
-					<TableData>Smelly</TableData>
-					<TableData dataType='numeric'>1.75</TableData>
-					<TableData dataType='numeric'>1.33</TableData>
-				</TableRow>
-				<TableRow>
-					<TableData><a className="o-typography-link"  href='https://en.wikipedia.org/wiki/Manilkara_zapota'>Naseberry</a></TableData>
-					<TableData>Manilkara</TableData>
-					<TableData>Chewy</TableData>
-					<TableData dataType='numeric'>2</TableData>
-					<TableData dataType='numeric'>1.85</TableData>
-				</TableRow>
-				<TableRow>
-					<TableData><a className="o-typography-link"  href='https://en.wikipedia.org/wiki/Strawberry'>Strawberry</a></TableData>
-					<TableData>Fragaria</TableData>
-					<TableData>Sweet</TableData>
-					<TableData dataType='numeric'>1.5</TableData>
-					<TableData dataType='numeric'>1.69</TableData>
-				</TableRow>
-				<TableRow>
-					<TableData><a className="o-typography-link"  href='https://en.wikipedia.org/wiki/Apple'>Apple</a></TableData>
-					<TableData>Malus</TableData>
-					<TableData>Crunchy</TableData>
-					<TableData dataType='numeric'>0.5</TableData>
-					<TableData dataType='numeric'>0.56</TableData>
-				</TableRow>
-			</TableBody>
+		<TableHead className='example'>
+			<TableRow>
+				<TableHeading>Fruit</TableHeading>
+				<TableHeading>Genus</TableHeading>
+				<TableHeading>Characteristic</TableHeading>
+				<TableHeading dataType='numeric'>
+					Cost&#xA0;(GBP)
+				</TableHeading>
+				<TableHeading dataType='numeric'>
+					Cost&#xA0;(EUR)
+				</TableHeading>
+			</TableRow>
+		</TableHead>
+		<TableBody>
+			<TableRow>
+				<TableData><a className="o-typography-link" href='https://en.wikipedia.org/wiki/Pitaya'>Dragonfruit</a></TableData>
+				<TableData>Stenocereus</TableData>
+				<TableData>Juicy</TableData>
+				<TableData dataType='numeric'>3</TableData>
+				<TableData dataType='numeric'>2.72</TableData>
+			</TableRow>
+			<TableRow>
+				<TableData><a className="o-typography-link"
+							  href='https://en.wikipedia.org/wiki/Durian'>Durian</a></TableData>
+				<TableData>Durio</TableData>
+				<TableData>Smelly</TableData>
+				<TableData dataType='numeric'>1.75</TableData>
+				<TableData dataType='numeric'>1.33</TableData>
+			</TableRow>
+			<TableRow>
+				<TableData><a className="o-typography-link"
+							  href='https://en.wikipedia.org/wiki/Manilkara_zapota'>Naseberry</a></TableData>
+				<TableData>Manilkara</TableData>
+				<TableData>Chewy</TableData>
+				<TableData dataType='numeric'>2</TableData>
+				<TableData dataType='numeric'>1.85</TableData>
+			</TableRow>
+			<TableRow>
+				<TableData><a className="o-typography-link"
+							  href='https://en.wikipedia.org/wiki/Strawberry'>Strawberry</a></TableData>
+				<TableData>Fragaria</TableData>
+				<TableData>Sweet</TableData>
+				<TableData dataType='numeric'>1.5</TableData>
+				<TableData dataType='numeric'>1.69</TableData>
+			</TableRow>
+			<TableRow>
+				<TableData><a className="o-typography-link"
+							  href='https://en.wikipedia.org/wiki/Apple'>Apple</a></TableData>
+				<TableData>Malus</TableData>
+				<TableData>Crunchy</TableData>
+				<TableData dataType='numeric'>0.5</TableData>
+				<TableData dataType='numeric'>0.56</TableData>
+			</TableRow>
+		</TableBody>
 	</Table>;
 }
 

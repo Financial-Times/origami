@@ -1,22 +1,22 @@
 import {useEffect} from "react";
-import {ResponsiveFlatTable, ResponsiveOverflowTable, ResponsiveScrollTable} from "../src/tsx/table";
-import withHtml from 'origami-storybook-addon-html';
-import javascript from '../main';
-import {withDesign} from "storybook-addon-designs";
-import {
-	TableBody,
-	TableData,
-	TableHead,
-	TableHeading,
-	TableRow
-} from "../src/tsx/components";
+import {ResponsiveOverflowTable} from "../src/tsx/table";
 import {baseTableContents} from "./baseTableContents";
+import javascript from '../main';
+import withHtml from 'origami-storybook-addon-html';
+import {ComponentMeta} from "@storybook/react";
+import {withDesign} from "storybook-addon-designs";
+import {TableBody, TableData, TableHead, TableHeading, TableRow} from "../src/tsx/components";
 
 export default {
 	title: 'Components/o-table/Responsive',
-	component: ResponsiveScrollTable,
-	decorators: [withDesign, withHtml]
-};
+	component: ResponsiveOverflowTable,
+	decorators: [withDesign, withHtml],
+	args: {
+		horizontalLines: true,
+		compact: false,
+		stripes: false
+	}
+} as ComponentMeta<typeof ResponsiveOverflowTable>;
 
 export const TableWithResponsiveOverflow = (args) => {
 	useEffect(() => {
@@ -24,24 +24,6 @@ export const TableWithResponsiveOverflow = (args) => {
 	})
 	return <ResponsiveOverflowTable {...args}>{baseTableContents}</ResponsiveOverflowTable>
 }
-export const TableWithResponsiveScroll = (args) => {
-	useEffect(() => {
-		javascript.init();
-	})
-	return <ResponsiveScrollTable {...args}>{baseTableContents}</ResponsiveScrollTable>
-}
-export const TableWithResponsiveFlat = (args) => {
-	useEffect(() => {
-		javascript.init();
-	})
-	return <ResponsiveFlatTable {...args}>{baseTableContents}</ResponsiveFlatTable>
-}
-TableWithResponsiveFlat.bind({});
-TableWithResponsiveFlat.args = {
-	expanded: false,
-	minimumRows: 5
-}
-
 export const ExpandingTable = (args) => {
 	useEffect(() => {
 		javascript.init();

@@ -34,7 +34,7 @@ export const ResponsiveFlatTable = ({
 									}: TableProps) => {
 	return (
 		<ResponsiveTable compact={compact} horizontalLines={horizontalLines}
-						 behaviour='scroll' {...args}
+						 behaviour='flat' {...args}
 						 className={`o-table--responsive-flat`}>{children}</ResponsiveTable>
 
 	)
