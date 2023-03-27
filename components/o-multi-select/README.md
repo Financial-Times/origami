@@ -33,9 +33,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 </div>
 ```
 
-The above markup is the only required markup for the multi-select component to work. As mentioned the component automatically will enhance the experience for users with JavaScript enabled.
-
-To have styling for labels, you will need to use [o-forms](https://registry.origami.ft.com/components/o-forms) as part of the multi-select implementation. This is Origami's recommended way of using o-multi-select component.
+To style form labels, we recommend using [o-forms](https://registry.origami.ft.com/components/o-forms).
 
 Below is an example of how to combine o-forms and o-multi-select components together. Note the `label` and `select` element are connected using `for` and `id` attributes.
 
@@ -71,26 +69,6 @@ export const MultiSelectDefault = args => {
   <FormTemplate id={args.id} title={args.title}>
    <MultiSelect {...args} />
   </FormTemplate>
- );
-};
-```
-
-Everything to work you will need to initialise javaScript for o-multi-select. If you are using `React` we recommend to do this in useEffect hook
-
-```jsx
-import javascript from '@financial-times/o-multi-select/main.js';
-
-export const MultiSelectDefault = args => {
- useEffect(() => {
-  let multiSelect = javascript.init();
-  return function cleanup() {
-   multiSelect = Array.isArray(multiSelect) ? multiSelect : [multiSelect];
-   multiSelect.forEach(multiSelect => multiSelect.destroy());
-  };
- }, [args.id, args.title]);
-
- return (
-  // MULTI SELECT COMPONENT CODE
  );
 };
 ```
