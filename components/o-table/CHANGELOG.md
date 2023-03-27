@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.3.0](https://www.github.com/Financial-Times/origami/compare/o-table-v9.2.7...o-table-v9.3.0) (2023-03-27)
+
+
+### Features
+
+* introduce o-table typescript templates and Storybook demos ([#1028](https://www.github.com/Financial-Times/origami/issues/1028)) ([c0107ba](https://www.github.com/Financial-Times/origami/commit/c0107bacd0d2a06961339d63f25e968f3cbc95f0))
+
 ### [9.2.7](https://www.github.com/Financial-Times/origami/compare/o-table-v9.2.6...o-table-v9.2.7) (2022-12-21)
 
 
