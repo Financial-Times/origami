@@ -3,7 +3,6 @@
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-icons/main';
-@import '@financial-times/o-forms/main';
 
 @import './src/scss/variables';
 @import 'src/scss/brand';
@@ -31,9 +30,6 @@
 		padding: $_o-multi-select-padding;
 		margin: 0;
 		position: absolute;
-		bottom: calc(
-			(40px - $_o-multi-select-button-height) / 2
-		); // 40px is hight of the combobox element
 		z-index: 1;
 
 		li {
@@ -53,7 +49,8 @@
 
 		.o-multi-select__combobox {
 			display: flex;
-			height: 40px;
+			height: $_o-multi-select-height;
+			box-sizing: border-box;
 			padding: $_o-multi-select-padding;
 			background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-service&format=svg);
 			background-repeat: no-repeat;
@@ -78,7 +75,7 @@
 		@include oTypographySans(0);
 		width: 100%;
 		background-color: oColorsByName('white');
-		padding: $_o-multi-select-spacing-two;
+		padding: $_o-multi-select-padding;
 		border: $_o-multi-select-border;
 		position: absolute;
 		left: 0;

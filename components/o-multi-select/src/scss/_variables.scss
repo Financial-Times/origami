@@ -1,11 +1,5 @@
-$_o-multi-select-border: $_o-forms-border;
+$_o-multi-select-border: 1px solid oColorsByName('black-50');
 
-$_o-multi-select-spacing-half: $_o-forms-spacing-half; //2px
-$_o-multi-select-spacing-one: $_o-forms-spacing-one; // 4px
-$_o-multi-select-spacing-two: $_o-forms-spacing-two; // 8px
-
-$_o-multi-select-padding: 0px $_o-forms-spacing-four;
+$_o-multi-select-padding: oSpacingByIncrement(2);
 $_o-multi-select-icon-size: 20px;
-$_o-multi-select-button-top-padding: $_o-forms-spacing-half;
-$_o-multi-select-button-height: $_o-multi-select-icon-size +
-	($_o-multi-select-button-top-padding * 2);
+$_o-multi-select-height: oSpacingByIncrement(10); // 40px to match o-forms, o-buttons. Scale with spacing when relative spacing/type enabled.
