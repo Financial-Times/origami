@@ -14,7 +14,8 @@ export function handleOptionSelect(optionEl, option, index) {
 	}
 	this.activeIndex = index;
 	this.updateCurrentElement();
-	handleOptionSelectionForSubmission.call(this);
+	const coreOption = this.coreOptions[index];
+	coreOption.selected = !coreOption.selected;
 }
 
 /**
@@ -104,18 +105,4 @@ export function createOption(idBase, option, index) {
 	optionEl.appendChild(tickSpan);
 
 	return optionEl;
-}
-
-function handleOptionSelectionForSubmission() {
-	const selectedOptions = Array.from(
-		this.selectedOptions.querySelectorAll('li')
-	).map(li => li.textContent);
-
-	this.coreWrapper.querySelectorAll('option').forEach(option => {
-		if (selectedOptions.includes(option.textContent)) {
-			option.selected = true;
-		} else {
-			option.selected = false;
-		}
-	});
 }

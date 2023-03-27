@@ -129,3 +129,18 @@ export function _removeCurrentClass(element) {
 	});
 	return options;
 }
+
+
+// function that checks for duplicate options and warn in the console if any are found
+export function checkForDuplicates(options) {
+	const uniqueOptions = [];
+	options.forEach(option => {
+		if (uniqueOptions.includes(option)) {
+			console.warn(
+				`Duplicate option found: ${option}.`
+			);
+		} else {
+			uniqueOptions.push(option);
+		}
+	});
+}

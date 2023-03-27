@@ -3,6 +3,7 @@ import {
 	toggleDropdown,
 	updateCurrentElement,
 	_removeCurrentClass,
+	checkForDuplicates
 } from './utils.js';
 import {updateState} from './state.js';
 import {handleOptionSelect, createOption} from './multi-select-options.js';
@@ -28,6 +29,7 @@ class MultiSelect {
 		);
 
 		this._clearCore();
+		checkForDuplicates(this.options.multiSelectOptions);
 
 		if (!this.options.multiSelectOptions.length > 0) {
 			throw new Error(
@@ -104,8 +106,8 @@ class MultiSelect {
 	 * @private
 	 */
 	_clearCore() {
-		const selectName = this.coreWrapper.attributes.getNamedItem('name').value;
-		const selectId = this.coreWrapper.attributes.getNamedItem('id').value;
+		const selectName = `${this.coreWrapper.attributes.getNamedItem('name').value}-enhanced`;
+		const selectId = `${this.coreWrapper.attributes.getNamedItem('id').value}-enhanced`;
 
 		if (!selectName || !selectId) {
 			throw new Error('Select element must have attributes name and id defined.');
@@ -201,8 +203,8 @@ class MultiSelect {
 	 */
 	_getCoreOptions() {
 		const options = this.coreWrapper.querySelectorAll('option');
-
-		return [...options].map((option) => option.getAttribute('value'));
+		this.coreOptions = options;
+		return [...options].map((option) => option.innerText);
 	}
 
 	/**
