@@ -25,7 +25,3 @@ export const TableWithResponsiveFlat = (args) => {
 	return <ResponsiveFlatTable {...args}>{baseTableContents}</ResponsiveFlatTable>
 }
 TableWithResponsiveFlat.bind({});
-TableWithResponsiveFlat.args = {
-	expanded: false,
-	minimumRows: 5
-}
