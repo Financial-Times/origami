@@ -21,9 +21,6 @@
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
-  "peerDependencies": {
-    "@financial-times/fticons": "^1.23.1"
-  },
   "engines": {
     "npm": "^7 || ^8"
   },

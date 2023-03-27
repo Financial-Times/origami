@@ -1,4 +1,4 @@
-export const icons = [
+module.exports = [
 	'arrow-down',
 	'arrow-left',
 	'arrow-right',
@@ -68,6 +68,4 @@ export const icons = [
 	'warning-alt',
 	'warning',
 	'written-text',
-] as const;
-
-export type IconName = typeof icons[number];
+]
