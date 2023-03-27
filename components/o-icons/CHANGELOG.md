@@ -5,7 +5,7 @@
 
 ### Features
 
-* update how o-icons generate new icons ([67a09d3](https://www.github.com/Financial-Times/origami/commit/67a09d35e3b134577b422f686258d15543fa9b54))
+* Add new preferences icon.
 
 ## [7.5.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.4.0...o-icons-v7.5.0) (2022-11-14)
 
