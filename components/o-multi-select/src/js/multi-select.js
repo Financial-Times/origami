@@ -144,7 +144,7 @@ class MultiSelect {
     ></div>
 </div>
 `);
-		this.coreWrapper.remove();
+		this.coreWrapper.style.display = 'none';
 	}
 
 	/**
