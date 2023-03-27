@@ -94,9 +94,8 @@ class MultiSelect {
 				}
 			});
 		});
-		window.addEventListener('resize', () => {
-			this._updateState();
-		});
+		this.windowResizelistener = this._updateState.bind(this);
+		window.addEventListener('resize', this.windowResizelistener);
 	}
 
 	/**
@@ -207,15 +206,12 @@ class MultiSelect {
 	}
 
 	/**
-	 * Destroys multiselect component and remove window event listeners.
+	 * Remove window event listeners.
 	 *
 	 * @returns {void}
 	 */
 	destroy() {
-		if(this.multiSelectEl) {
-			this.multiSelectEl.remove();
-			window.removeEventListener('resize', this._updateState);
-		}
+		window.removeEventListener('resize', this.windowResizelistener);
 	}
 }
 
