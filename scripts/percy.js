@@ -17,6 +17,7 @@ const isPullRequest = context.payload.pull_request
 async function shouldPercyRun() {
 	const isDefaultBranch = context.ref.endsWith("/main")
 	console.log({context})
+	console.log({pull_request: context.payload.pull_request})
 	if (isDefaultBranch) {
 		core.notice('This is a commit on the default branch, we need to run Percy to update the baseline images.')
 		return true;
@@ -27,6 +28,7 @@ async function shouldPercyRun() {
 		let commits = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef}`;
 		$.verbose = true
 		let messages = commits.stdout.split('\n');
+		console.log({messages, commits})
 		for (const message of messages) {
 			if (message.startsWith('fix:') || message.startsWith('fix!:') || message.startsWith('feat:') || message.startsWith('feat!:')) {
 				$.verbose = false
