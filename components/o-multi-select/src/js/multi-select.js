@@ -16,50 +16,44 @@ class MultiSelect {
 	 * Class constructor.
 	 *
 	 * @param {HTMLElement} [multiSelectEl] - The component element in the DOM
-	 * @param {Object} options - An options object for configuring the component ({multiselectOptions: ['option1', 'option2']})
 	 */
-	constructor(multiSelectEl, options) {
+	constructor(multiSelectEl) {
 		this.multiSelectEl = multiSelectEl;
-		this.coreWrapper = this._getCoreWrapper();
-		this.options = Object.assign(
-			{},
-			options, {
-				multiSelectOptions: this._getCoreOptions()
-			}
-		);
+		this._coreWrapper = this._getCoreWrapper();
+		this._options = this._getCoreOptions();
 
 		this._clearCore();
-		checkForDuplicates(this.options.multiSelectOptions);
+		checkForDuplicates(this._options);
 
-		if (!this.options.multiSelectOptions.length > 0) {
+		if (!this._options.length > 0) {
 			throw new Error(
 				'The multi select component requires option elements to be defined in the <select> tag.'
 			);
 		}
-		this.comboEl = this.multiSelectEl.querySelector('[role=combobox]');
-		this.comboBoxText = this.multiSelectEl.querySelector(
+		this._comboEl = this.multiSelectEl.querySelector('[role=combobox]');
+		this._comboBoxText = this.multiSelectEl.querySelector(
 			'.o-multi-select__combobox-text'
 		);
-		this.listboxEl = this.multiSelectEl.querySelector('[role=listbox]');
-		this.selectedOptions = this.multiSelectEl.querySelector(
+		this._listboxEl = this.multiSelectEl.querySelector('[role=listbox]');
+		this._selectedOptions = this.multiSelectEl.querySelector(
 			'.o-multi-select__selected-options'
 		);
 		// data
-		this.idBase = this.comboEl.id;
-		this.totalNumberOfOptions = this.options.multiSelectOptions.length;
+		this._idBase = this._comboEl.id;
+		this._totalNumberOfOptions = this._options.length;
 
 		// state
-		this.numberOfSelectedOptions = 0;
-		this.activeIndex = 0;
-		this.open = false;
+		this._numberOfSelectedOptions = 0;
+		this._activeIndex = 0;
+		this._open = false;
 
-		this.options.multiSelectOptions.forEach((option, index) => {
-			const optionEl = createOption(this.idBase, option, index);
+		this._options.forEach((option, index) => {
+			const optionEl = createOption(this._idBase, option, index);
 			optionEl.addEventListener('click', () => {
 				this._handleOptionSelect(optionEl, option, index);
 				optionEl.classList.remove('o-multi-select-option__current');
 			});
-			this.listboxEl.appendChild(optionEl);
+			this._listboxEl.appendChild(optionEl);
 		});
 
 		this._bindHelperFunctionsAndEventListeners();
@@ -71,28 +65,28 @@ class MultiSelect {
 	 * @private
 	 */
 	_bindHelperFunctionsAndEventListeners() {
-		this.toggleDropdown = toggleDropdown.bind(this);
+		this._toggleDropdown = toggleDropdown.bind(this);
 		this._handleOptionSelect = handleOptionSelect.bind(this);
 		this._updateCurrentElement = updateCurrentElement.bind(this);
 		this._updateState = updateState.bind(this);
-		this.comboEl.addEventListener('click', () => {
-			this.toggleDropdown();
-			if (this.open) {
+		this._comboEl.addEventListener('click', () => {
+			this._toggleDropdown();
+			if (this._open) {
 				_removeCurrentClass(this.multiSelectEl);
 			}
 		});
-		this.comboEl.addEventListener('keydown', onComboBoxKeyDown.bind(this));
-		this.comboEl.addEventListener('blur', () => {
+		this._comboEl.addEventListener('keydown', onComboBoxKeyDown.bind(this));
+		this._comboEl.addEventListener('blur', () => {
 			requestAnimationFrame(() => {
-				if (!this.listboxEl.contains(document.activeElement)) {
-					this.toggleDropdown(false);
+				if (!this._listboxEl.contains(document.activeElement)) {
+					this._toggleDropdown(false);
 				}
 			});
 		});
-		this.listboxEl.addEventListener('blur', () => {
+		this._listboxEl.addEventListener('blur', () => {
 			requestAnimationFrame(() => {
-				if (this.comboEl !== document.activeElement) {
-					this.toggleDropdown(false);
+				if (this._comboEl !== document.activeElement) {
+					this._toggleDropdown(false);
 				}
 			});
 		});
@@ -106,17 +100,17 @@ class MultiSelect {
 	 * @private
 	 */
 	_clearCore() {
-		const selectName = this.coreWrapper.attributes.getNamedItem('name').value;
-		const selectId = this.coreWrapper.attributes.getNamedItem('id').value;
+		const selectName = this._coreWrapper.attributes.getNamedItem('name').value;
+		const selectId = this._coreWrapper.attributes.getNamedItem('id').value;
 		if (!selectName || !selectId) {
 			throw new Error('Select element must have attributes name and id defined.');
 		}
 
 		// change ID of native select element so enhanced select element does not have same ID
-		this.coreWrapper.id = `${selectId}-core`;
+		this._coreWrapper.id = `${selectId}-core`;
 
 		const labelId = uniqueId('selected');
-		const labels = [...this.coreWrapper.labels].map((label) => label.id).join(' ');
+		const labels = [...this._coreWrapper.labels].map((label) => label.id).join(' ');
 		this.multiSelectEl.insertAdjacentHTML('beforeend', `<div class="o-multi-select__enhanced">
     <ul
             class="o-multi-select__selected-options"
@@ -148,7 +142,7 @@ class MultiSelect {
     ></div>
 </div>
 `);
-		this.coreWrapper.style.display = 'none';
+		this._coreWrapper.style.display = 'none';
 	}
 
 	/**
@@ -204,7 +198,7 @@ class MultiSelect {
 	 * @returns {string[]} Array of multi-select options.
 	 */
 	_getCoreOptions() {
-		const options = this.coreWrapper.querySelectorAll('option');
+		const options = this._coreWrapper.querySelectorAll('option');
 		this._coreOptions = options;
 		return [...options].map((option) => option.innerText);
 	}

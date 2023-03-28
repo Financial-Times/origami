@@ -69,7 +69,7 @@ describe('MultiSelect', () => {
 			assert.equal(elements.length, options.length);
 
 			Array.from(elements).forEach((element, i) => {
-				assert.equal(element.id, `${multiSelect.idBase}-${i}`);
+				assert.equal(element.id, `${multiSelect._idBase}-${i}`);
 				assert.equal(element.getAttribute('aria-selected'), 'false');
 				assert.equal(
 					[...element.classList].includes('o-multi-select-option'),
@@ -99,37 +99,37 @@ describe('MultiSelect', () => {
 
 		it('opens if clicked on combobox element and it was closed', () => {
 			userEvent.click(comboEl);
-			assert.equal(multiSelect.open, true);
+			assert.equal(multiSelect._open, true);
 		});
 		it('closes if clicked on combobox element and it was open ', () => {
 			userEvent.click(comboEl);
 			userEvent.click(comboEl);
-			assert.equal(multiSelect.open, false);
+			assert.equal(multiSelect._open, false);
 		});
 		it('closes if combobox element lost focus', async () => {
 			userEvent.click(comboEl);
 			fireEvent.blur(comboEl);
 			await sleep(100);
-			assert.equal(multiSelect.open, false);
+			assert.equal(multiSelect._open, false);
 		});
 		it('closes if listbox losses focus', async () => {
 			userEvent.click(comboEl);
-			userEvent.click(document.querySelector(`#${multiSelect.idBase}-0`));
+			userEvent.click(document.querySelector(`#${multiSelect._idBase}-0`));
 			const listboxEl = document.querySelector('[role=listbox]');
 			fireEvent.blur(listboxEl);
 			await sleep(100);
-			assert.equal(multiSelect.open, false);
+			assert.equal(multiSelect._open, false);
 		});
 		it('remains open if clicked within the dropdown', () => {
 			userEvent.click(comboEl);
 			const optionEl = document.querySelector("[role='option']");
 			userEvent.click(optionEl);
-			assert.equal(multiSelect.open, true);
+			assert.equal(multiSelect._open, true);
 		});
 		describe('option click', () => {
 			describe('on unselected option', () => {
 				it('adds options in selected options list and adds tick icon in dropdown menu', () => {
-					const optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
+					const optionEl = document.querySelector(`#${multiSelect._idBase}-0`);
 					userEvent.click(optionEl);
 					const selectedOptionEl = document.querySelector(
 						`#${optionEl.innerText}-0`
@@ -143,7 +143,7 @@ describe('MultiSelect', () => {
 			});
 			describe('on selected option', () => {
 				it('removes options in selected options list removes tick icon in dropdown menu', () => {
-					const optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
+					const optionEl = document.querySelector(`#${multiSelect._idBase}-0`);
 					userEvent.click(optionEl);
 					userEvent.click(optionEl);
 					const selectedOptionEl = document.querySelector(
@@ -181,7 +181,7 @@ describe('MultiSelect', () => {
 		});
 		describe('when something is selected', () => {
 			it('combobox inner text is empty', () => {
-				const optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
+				const optionEl = document.querySelector(`#${multiSelect._idBase}-0`);
 				userEvent.click(optionEl);
 				assert.equal(comboEl.innerText, '');
 			});
@@ -216,7 +216,7 @@ describe('MultiSelect', () => {
 		let selectedOptionEl;
 		beforeEach(() => {
 			({multiSelect} = setupMultiSelect());
-			optionEl = document.querySelector(`#${multiSelect.idBase}-0`);
+			optionEl = document.querySelector(`#${multiSelect._idBase}-0`);
 			userEvent.click(optionEl);
 			selectedOptionEl = document.querySelector(`#${optionEl.innerText}-0`);
 		});
@@ -258,7 +258,7 @@ describe('MultiSelect', () => {
 			function testKeydown(key) {
 				comboEl.focus();
 				userEvent.keyboard(`{${key}}`);
-				assert.equal(multiSelect.open, true);
+				assert.equal(multiSelect._open, true);
 				const currentOption = document.querySelector(
 					'.o-multi-select-option__current'
 				);
@@ -297,7 +297,7 @@ describe('MultiSelect', () => {
 				userEvent.click(comboEl);
 				userEvent.keyboard(`{${key}}`);
 				const selectedOption = document.querySelector(
-					`#${multiSelect.idBase}-0`
+					`#${multiSelect._idBase}-0`
 				);
 				assert.equal(
 					selectedOption.classList.contains('o-multi-select-option__selected'),
@@ -368,14 +368,14 @@ describe('MultiSelect', () => {
 				userEvent.keyboard('{Enter}');
 				userEvent.tab();
 				await sleep(100);
-				assert.equal(multiSelect.open, false);
+				assert.equal(multiSelect._open, false);
 				document.body.removeChild(inputEl);
 			});
 
 			it('esc closes the dropdown and returns focus to the multi select combobox element', () => {
 				comboEl.focus();
 				userEvent.keyboard('{Enter}{Escape}');
-				assert.equal(multiSelect.open, false);
+				assert.equal(multiSelect._open, false);
 				assert.equal(document.activeElement, comboEl);
 			});
 

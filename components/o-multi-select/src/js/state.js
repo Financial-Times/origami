@@ -9,26 +9,26 @@
  * @returns {void}
  */
 export function updateState() {
-	if (this.numberOfSelectedOptions) {
-		this.comboBoxText.innerText = '';
-		this.selectedOptions.style.display = 'block';
-		const comboElWidth = this.comboEl.offsetWidth;
+	if (this._numberOfSelectedOptions) {
+		this._comboBoxText.innerText = '';
+		this._selectedOptions.style.display = 'block';
+		const comboElWidth = this._comboEl.offsetWidth;
 		const sumOfChildrenWidth = calculateSumOfChildrenWidth(
-			this.selectedOptions
+			this._selectedOptions
 		);
 		if (sumOfChildrenWidth > comboElWidth * 0.9) {
-			this.selectedOptions.classList.add('o-multi-select__visually-hidden');
-			this.comboBoxText.innerText =
-				this.numberOfSelectedOptions + ' options selected';
+			this._selectedOptions.classList.add('o-multi-select__visually-hidden');
+			this._comboBoxText.innerText =
+				this._numberOfSelectedOptions + ' options selected';
 		} else {
-			this.selectedOptions.classList.remove('o-multi-select__visually-hidden');
+			this._selectedOptions.classList.remove('o-multi-select__visually-hidden');
 		}
 	} else {
-		this.selectedOptions.style.display = 'none';
-		if (this.open) {
-			this.comboBoxText.innerText = 'Select options below';
+		this._selectedOptions.style.display = 'none';
+		if (this._open) {
+			this._comboBoxText.innerText = 'Select options below';
 		} else {
-			this.comboBoxText.innerText = 'Click to select options';
+			this._comboBoxText.innerText = 'Click to select options';
 		}
 	}
 }

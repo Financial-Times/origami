@@ -12,7 +12,7 @@ export function handleOptionSelect(optionEl, option, index) {
 	} else {
 		addOption.call(this, optionEl, option, index);
 	}
-	this.activeIndex = index;
+	this._activeIndex = index;
 	this._updateCurrentElement();
 	const coreOption = this._coreOptions[index];
 	coreOption.selected = !coreOption.selected;
@@ -30,8 +30,8 @@ export function handleOptionSelect(optionEl, option, index) {
 function removeOption(optionEl, option, index) {
 	optionEl.classList.remove('o-multi-select-option__selected');
 	optionEl.setAttribute('aria-selected', 'false');
-	this.numberOfSelectedOptions--;
-	const button = this.selectedOptions.querySelector(`#${option}-${index}`);
+	this._numberOfSelectedOptions--;
+	const button = this._selectedOptions.querySelector(`#${option}-${index}`);
 	button.parentElement.remove();
 	this._updateState();
 }
@@ -46,17 +46,17 @@ function removeOption(optionEl, option, index) {
  * @returns {void}
  */
 function addOption(optionEl, option, index) {
-	this.numberOfSelectedOptions++;
+	this._numberOfSelectedOptions++;
 	optionEl.classList.add('o-multi-select-option__selected');
 	optionEl.setAttribute('aria-selected', 'true');
 	const {li, button} = createOptionButton(option, index);
-	this.selectedOptions.appendChild(li);
+	this._selectedOptions.appendChild(li);
 	this._updateState();
 
 	button.addEventListener('click', () => {
 		li.remove();
 		optionEl.classList.remove('o-multi-select-option__selected');
-		this.numberOfSelectedOptions--;
+		this._numberOfSelectedOptions--;
 		this._updateState();
 	});
 }

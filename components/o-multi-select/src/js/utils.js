@@ -9,16 +9,16 @@
  */
 export function toggleDropdown(open) {
 	if (typeof open === 'boolean') {
-		this.open = open;
-		this.listboxEl.style.display = open ? 'block' : 'none';
-	} else if (!this.open) {
-		this.listboxEl.style.display = 'block';
-		this.open = true;
+		this._open = open;
+		this._listboxEl.style.display = open ? 'block' : 'none';
+	} else if (!this._open) {
+		this._listboxEl.style.display = 'block';
+		this._open = true;
 	} else {
-		this.listboxEl.style.display = 'none';
-		this.open = false;
+		this._listboxEl.style.display = 'none';
+		this._open = false;
 	}
-	this.comboEl.setAttribute('aria-expanded', `${this.open}`);
+	this._comboEl.setAttribute('aria-expanded', `${this._open}`);
 	this._updateState();
 }
 
@@ -36,10 +36,10 @@ export function toggleDropdown(open) {
  */
 export function onComboBoxKeyDown(event) {
 	const {key} = event;
-	const numberOfOptions = this.totalNumberOfOptions;
+	const numberOfOptions = this._totalNumberOfOptions;
 
 	// handle opening when closed
-	if (!this.open) {
+	if (!this._open) {
 		if (
 			key === 'ArrowDown' ||
 			key === 'ArrowUp' ||
@@ -47,39 +47,39 @@ export function onComboBoxKeyDown(event) {
 			key === ' '
 		) {
 			this._updateCurrentElement();
-			return this.toggleDropdown();
+			return this._toggleDropdown();
 		}
 	}
 
 	if (key === 'ArrowUp') {
-		if (this.activeIndex !== 0) {
-			this.activeIndex--;
+		if (this._activeIndex !== 0) {
+			this._activeIndex--;
 		}
 	} else if (key === 'ArrowDown') {
-		if (this.activeIndex !== numberOfOptions - 1) {
-			this.activeIndex++;
+		if (this._activeIndex !== numberOfOptions - 1) {
+			this._activeIndex++;
 		}
 	} else if (key === 'PageDown') {
-		if (this.activeIndex + 10 > numberOfOptions) {
-			this.activeIndex = numberOfOptions - 1;
+		if (this._activeIndex + 10 > numberOfOptions) {
+			this._activeIndex = numberOfOptions - 1;
 		} else {
-			this.activeIndex += 10;
+			this._activeIndex += 10;
 		}
 	} else if (key === 'PageUp') {
-		if (this.activeIndex - 10 < 0) {
-			this.activeIndex = 0;
+		if (this._activeIndex - 10 < 0) {
+			this._activeIndex = 0;
 		} else {
-			this.activeIndex -= 10;
+			this._activeIndex -= 10;
 		}
 	} else if (key === 'Home') {
-		this.activeIndex = 0;
+		this._activeIndex = 0;
 	} else if (key === 'End') {
-		this.activeIndex = numberOfOptions - 1;
+		this._activeIndex = numberOfOptions - 1;
 	}
 
-	if (key === 'Escape' && this.open) {
-		this.toggleDropdown();
-		this.comboEl.focus();
+	if (key === 'Escape' && this._open) {
+		this._toggleDropdown();
+		this._comboEl.focus();
 	} else if (key === 'Enter' || key === ' ') {
 		event.preventDefault();
 		addOptionToList.call(this);
@@ -94,10 +94,10 @@ export function onComboBoxKeyDown(event) {
  */
 function addOptionToList() {
 	const optionEl = this.multiSelectEl.querySelector(
-		`#${this.idBase}-${this.activeIndex}`
+		`#${this._idBase}-${this._activeIndex}`
 	);
-	const option = this.options.multiSelectOptions[this.activeIndex];
-	this._handleOptionSelect(optionEl, option, this.activeIndex);
+	const option = this._options[this._activeIndex];
+	this._handleOptionSelect(optionEl, option, this._activeIndex);
 }
 
 /**
@@ -106,13 +106,13 @@ function addOptionToList() {
  * @returns {void}
  */
 export function updateCurrentElement() {
-	this.comboEl.setAttribute(
+	this._comboEl.setAttribute(
 		'aria-activedescendant',
-		`${this.idBase}-${this.activeIndex}`
+		`${this._idBase}-${this._activeIndex}`
 	);
 
 	const options = _removeCurrentClass(this.multiSelectEl);
-	options[this.activeIndex].classList.add('o-multi-select-option__current');
+	options[this._activeIndex].classList.add('o-multi-select-option__current');
 }
 
 /**
