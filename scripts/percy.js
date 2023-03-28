@@ -16,6 +16,7 @@ const isPullRequest = context.payload.pull_request
 
 async function shouldPercyRun() {
 	const isDefaultBranch = context.ref.endsWith("/main")
+	console.log({context})
 	if (isDefaultBranch) {
 		core.notice('This is a commit on the default branch, we need to run Percy to update the baseline images.')
 		return true;
@@ -37,7 +38,7 @@ async function shouldPercyRun() {
 						const filePathParts = file.split('/');
 						if (filePathParts.length > 1) {
 							// We swallow errors because not every file in the monorepo is contained in a folder
-							// or does not contain a package.json 
+							// or does not contain a package.json
 							try {
 								const path = join(__dirname, '../', filePathParts[0], filePathParts[1])
 								const pkg = await readPackage({cwd:path})
