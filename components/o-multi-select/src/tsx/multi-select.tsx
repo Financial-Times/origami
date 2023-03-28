@@ -7,7 +7,7 @@ export function MultiSelect({
 }) {
 	return (
 		<div className="o-multi-select" data-o-component="o-multi-select">
-			<select name="multiple" id={id} multiple>
+			<select name={id} id={id} multiple>
 				{multiSelectOptions.map(option => (
 					<option key={option} value={option}>
 						{option}

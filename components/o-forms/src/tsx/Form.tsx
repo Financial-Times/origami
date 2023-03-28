@@ -18,7 +18,7 @@ export interface TypeFormField {
 
 export interface FormFieldProps extends TypeFormField {
 	id: string;
-	children: JSX.Element;
+	children?: JSX.Element;
 }
 export interface FormFieldsetProps extends TypeFormField {
 	children: JSX.Element;
@@ -40,7 +40,10 @@ interface FormTitleProps {
 	describedbyId?: string;
 }
 
-interface FormTemplate extends TypeFormProps, FormFieldProps {}
+interface GenericInputProps extends TypeFormProps {
+	id: string;
+	title: string;
+}
 
 export function Form({children, action, method, onSubmit}: TypeFormProps) {
 	return (
@@ -150,14 +153,14 @@ export function FormError({errorMessage}) {
 }
 
 
-export function FormTemplate(props: FormTemplate ) {
+export function GenericInput(props: GenericInputProps ) {
 	const {children, ...rest} = props;
 	return (
-		<Form>
+		<>
 			<FormField {...rest} />
 				<div className="o-forms-input">
 					{props.children}
 				</div>
-		</Form>
+		</>
 	)
 }

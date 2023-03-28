@@ -5,7 +5,7 @@ import {useEffect} from 'react';
 import {MultiSelect} from '../src/tsx/multi-select';
 import './multi-select.scss';
 import javascript from '../main.js';
-import {FormTemplate} from '@financial-times/o-forms/src/tsx/Form';
+import {Form, GenericInput} from '@financial-times/o-forms/src/tsx/Form';
 
 export default {
 	title: 'Components/o-multi-select',
@@ -25,9 +25,11 @@ export const MultiSelectDefault = args => {
 	}, [args.id, args.title]);
 
 	return (
-		<FormTemplate id={args.id} title={args.title}>
-			<MultiSelect {...args} />
-		</FormTemplate>
+		<Form>
+			<GenericInput id={args.id} title={args.title}>
+				<MultiSelect {...args} />
+			</GenericInput>
+		</Form>
 	);
 };
 MultiSelectDefault.storyName = 'Multi Select';
