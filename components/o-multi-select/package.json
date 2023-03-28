@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "Multi select component",
   "keywords": [
-		"form",
-		"forms",
-		"multiple",
+    "form",
+    "forms",
+    "multiple",
     "multi",
     "select",
     "multi-select",
@@ -34,7 +34,8 @@
     "@financial-times/o-icons": "^7.5.0",
     "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-spacing": "^3.2.2",
-    "@financial-times/o-typography": "^7.3.4"
+    "@financial-times/o-typography": "^7.3.4",
+    "@financial-times/o-utils": "^2.1.1"
   },
   "engines": {
     "npm": "^7 || ^8"

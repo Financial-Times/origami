@@ -37,7 +37,8 @@
     "@financial-times/o-loading": "^5.0.0",
     "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1"
+    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-utils": "^2.1.1"
   },
   "devDependencies": {
     "@financial-times/o-buttons": "^7.2.0",
