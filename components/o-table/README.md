@@ -32,7 +32,6 @@ Styling for tables.
 
 ## Usage
 
-
 Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-table`.
 
 ## Markup
