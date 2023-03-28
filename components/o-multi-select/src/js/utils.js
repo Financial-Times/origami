@@ -46,7 +46,7 @@ export function onComboBoxKeyDown(event) {
 			key === 'Enter' ||
 			key === ' '
 		) {
-			this.updateCurrentElement();
+			this._updateCurrentElement();
 			return this.toggleDropdown();
 		}
 	}
@@ -84,7 +84,7 @@ export function onComboBoxKeyDown(event) {
 		event.preventDefault();
 		addOptionToList.call(this);
 	}
-	this.updateCurrentElement();
+	this._updateCurrentElement();
 }
 
 /**
@@ -97,7 +97,7 @@ function addOptionToList() {
 		`#${this.idBase}-${this.activeIndex}`
 	);
 	const option = this.options.multiSelectOptions[this.activeIndex];
-	this.handleOptionSelect(optionEl, option, this.activeIndex);
+	this._handleOptionSelect(optionEl, option, this.activeIndex);
 }
 
 /**

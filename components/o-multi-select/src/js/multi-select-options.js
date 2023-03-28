@@ -13,8 +13,8 @@ export function handleOptionSelect(optionEl, option, index) {
 		addOption.call(this, optionEl, option, index);
 	}
 	this.activeIndex = index;
-	this.updateCurrentElement();
-	const coreOption = this.coreOptions[index];
+	this._updateCurrentElement();
+	const coreOption = this._coreOptions[index];
 	coreOption.selected = !coreOption.selected;
 }
 
