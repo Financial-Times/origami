@@ -114,7 +114,6 @@ class MultiSelect {
 
 		// change ID of native select element so enhanced select element does not have same ID
 		this.coreWrapper.id = `${selectId}-core`;
-		this.coreWrapper.name = `${selectName}-core`;
 
 		const labelId = uniqueId('selected');
 		const labels = [...this.coreWrapper.labels].map((label) => label.id).join(' ');
