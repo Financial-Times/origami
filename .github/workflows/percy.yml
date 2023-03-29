@@ -23,6 +23,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -42,6 +49,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -61,6 +75,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -80,6 +101,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -99,6 +127,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -118,6 +153,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -137,6 +179,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -156,6 +205,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -175,6 +231,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -194,6 +257,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -213,6 +283,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -232,6 +309,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -251,6 +335,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -270,6 +361,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -289,6 +387,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -308,6 +413,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -327,6 +439,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -346,6 +465,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -365,6 +491,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -384,6 +517,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -403,6 +543,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -422,6 +569,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -441,6 +595,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -460,6 +621,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -479,6 +647,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -498,6 +673,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -517,6 +699,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -536,6 +725,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -555,6 +751,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -574,6 +777,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -593,6 +803,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -612,6 +829,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -631,6 +855,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -650,6 +881,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -669,6 +907,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -688,6 +933,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -707,6 +959,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -726,6 +985,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -745,6 +1011,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -764,6 +1037,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -783,6 +1063,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -802,6 +1089,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -821,6 +1115,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -840,6 +1141,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -859,6 +1167,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -878,6 +1193,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -897,6 +1219,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -916,6 +1245,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -935,6 +1271,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
@@ -954,6 +1297,13 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        running-workflow-name: test
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:
