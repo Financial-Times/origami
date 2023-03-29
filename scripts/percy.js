@@ -33,8 +33,8 @@ async function shouldPercyRun() {
 				let {stdout: changedFiles} = await $`git diff --name-only origin/${baseRef}...origin/${headRef}`;
 				$.verbose = true
 				const arrayOfChangeFiles = changedFiles.split('\n')
-				console.log(`🚀 ~ changedFiles:`, changedFiles);
 				const effectingFiles = changedFileEffectsPercy(arrayOfChangeFiles)
+				console.log(`🚀 ~ changedFiles:`, arrayOfChangeFiles, effectingFiles);
 				if (!effectingFiles) {
 					core.notice('We are not running percy because the files that changed do not effect percy.')
 					return false
