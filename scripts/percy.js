@@ -32,6 +32,7 @@ async function shouldPercyRun() {
 				$.verbose = false
 				let {stdout: changedFiles} = await $`git diff --name-only origin/${baseRef}...origin/${headRef}`;
 				$.verbose = true
+				console.log(`🚀 ~ changedFiles:`, changedFiles);
 				const changedPackages = new Set;
 				for (const file of changedFiles.split('\n')) {
 					if (file) {
