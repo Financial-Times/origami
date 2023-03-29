@@ -27,7 +27,6 @@ async function shouldPercyRun() {
 		let commits = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef}`;
 		$.verbose = true
 		let messages = commits.stdout.split('\n');
-		console.log({messages, commits})
 		for (const message of messages) {
 			if (message.startsWith('fix:') || message.startsWith('fix!:') || message.startsWith('feat:') || message.startsWith('feat!:')) {
 				$.verbose = false
