@@ -157,10 +157,11 @@ export function GenericInput(props: GenericInputProps ) {
 	const {children, ...rest} = props;
 	return (
 		<>
-			<FormField {...rest} />
+			<FormField {...rest}>
 				<div className="o-forms-input">
 					{props.children}
 				</div>
+			</FormField>
 		</>
 	)
 }
