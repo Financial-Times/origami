@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.0.4](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.3...o-topper-v6.0.4) (2023-03-29)
+
+
+### Bug Fixes
+
+* change opacity background box ([946e6a6](https://www.github.com/Financial-Times/origami/commit/946e6a6c312a1fcf706ec3c79359699c73597e94))
+
 ### [6.0.3](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.2...o-topper-v6.0.3) (2023-03-13)
 
 
