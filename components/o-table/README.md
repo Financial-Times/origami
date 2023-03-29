@@ -42,7 +42,7 @@ Add an `o-table` class to any table you wish to apply the styles to:
 
 ```html
 <table class="o-table" data-o-component="o-table">
-	...
+ ...
 </table>
 ```
 
@@ -50,19 +50,19 @@ Where table headings (`th`) are used as row headings, `scope="row"` attributes m
 
 ```html
 <table class="o-table" data-o-component="o-table">
-	<tbody>
-		<tr>
-			<th scope="row" role="rowheader">Item</th>
-			<td>Holiday</td>
-			<td>Lunch</td>
-		</tr>
-		<tr>
-			<th scope="row" role="rowheader">Cost</th>
-			<td>£123.45</td>
-			<td>£7</td>
-		</tr>
-	</tbody>
-	...
+ <tbody>
+  <tr>
+   <th scope="row" role="rowheader">Item</th>
+   <td>Holiday</td>
+   <td>Lunch</td>
+  </tr>
+  <tr>
+   <th scope="row" role="rowheader">Cost</th>
+   <td>£123.45</td>
+   <td>£7</td>
+  </tr>
+ </tbody>
+ ...
 </table>
 ```
 
@@ -70,16 +70,16 @@ The table's `caption` element should include a header of the appropriate level a
 
 ```html
 <table class="o-table" data-o-component="o-table">
-	<caption class="o-table__caption">
-		<h2>My Table Caption</h2>
-	</caption>
-	<thead>
-		...
-	</thead>
-	<tbody>
-		...
-	</tbody>
-	...
+ <caption class="o-table__caption">
+  <h2>My Table Caption</h2>
+ </caption>
+ <thead>
+  ...
+ </thead>
+ <tbody>
+  ...
+ </tbody>
+ ...
 </table>
 ```
 
@@ -87,19 +87,19 @@ The table's footer `tfoot` element may use the helper class `o-table-footnote` t
 
 ```html
 <table class="o-table" data-o-component="o-table">
-	<thead>
-		...
-	</thead>
-	<tbody>
-		...
-	</tbody>
-	<tfoot>
-		<tr>
-			<td colspan=2 class="o-table-footnote">
-				Source: The Origami team.
-			</td>
-		</tr>
-	</tfoot>
+ <thead>
+  ...
+ </thead>
+ <tbody>
+  ...
+ </tbody>
+ <tfoot>
+  <tr>
+   <td colspan=2 class="o-table-footnote">
+    Source: The Origami team.
+   </td>
+  </tr>
+ </tfoot>
 </table>
 ```
 
@@ -115,27 +115,29 @@ When a sortable table column is clicked an ascending sort is applied by default.
 ### Disable sort
 
 Table columns are sortable by default but may be disabled by adding `data-o-table-sortable="false"` to the table.
+
 ```html
 <table class="o-table" data-o-component="o-table" data-o-table-sortable="false">
 </table>
 ```
 
 Or to disable sort per table column, add `data-o-table-heading-disable-sort` to the column's `th` element.
+
 ```html
 <table class="o-table" data-o-component="o-table">
-	<thead>
-		<tr>
-			<th>Heading One</th>
-			<!-- do not show the actions column as sortable -->
-			<th data-o-table-heading-disable-sort>Actions</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Item One</td>
-			<td><a href="#edit">edit</a></td>
-		</tr>
-	</tbody>
+ <thead>
+  <tr>
+   <th>Heading One</th>
+   <!-- do not show the actions column as sortable -->
+   <th data-o-table-heading-disable-sort>Actions</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td>Item One</td>
+   <td><a href="#edit">edit</a></td>
+  </tr>
+ </tbody>
 </table>
 ```
 
@@ -151,19 +153,19 @@ To enable these set `data-o-table-responsive` to the type of responsive table de
 
 ```html
 <div class="o-table-container">
-	<div class="o-table-overlay-wrapper">
-		<div class="o-table-scroll-wrapper">
-			<table class="o-table o-table--horizontal-lines o-table--responsive-overflow"
-			data-o-component="o-table"
-			data-o-table-responsive="overflow">
-				...
-			</table>
-		</div>
-	</div>
+ <div class="o-table-overlay-wrapper">
+  <div class="o-table-scroll-wrapper">
+   <table class="o-table o-table--horizontal-lines o-table--responsive-overflow"
+   data-o-component="o-table"
+   data-o-table-responsive="overflow">
+    ...
+   </table>
+  </div>
+ </div>
 </div>
 ```
 
-If your project does not use the build service, you may need to specify an [extra Sass option](#sass) for responsive features and initialise [o-table JavaScript](#JavaScript).
+If your project does not use the build service, you may need to specify an [extra Sass option](#sass) for responsive features and initialise [o-table JavaScript](#javascript).
 More examples are available in [the registry](https://registry.origami.ft.com/components/o-table).
 
 ### Expander
@@ -172,37 +174,39 @@ The "overflow" style of responsive table ([see above](#responsive-options)) supp
 
 ```html
 <div class="o-table-container">
-	<div class="o-table-overlay-wrapper">
-		<div class="o-table-scroll--wrapper">
-			<table class="o-table o-table--horizontal-lines o-table--responsive-overflow"
-			data-o-component="o-table"
-			data-o-table-responsive="overflow"
-			data-o-table-expanded="false"
-			data-o-table-minimum-row-count="10">
-				...
-			</table>
-		</div>
-	</div>
+ <div class="o-table-overlay-wrapper">
+  <div class="o-table-scroll--wrapper">
+   <table class="o-table o-table--horizontal-lines o-table--responsive-overflow"
+   data-o-component="o-table"
+   data-o-table-responsive="overflow"
+   data-o-table-expanded="false"
+   data-o-table-minimum-row-count="10">
+    ...
+   </table>
+  </div>
+ </div>
 </div>
 ```
 
 To add a footnote to an expandable table, for example with disclaimers or sources, add the footnote within the container and link to the table with an id and the `aria-describedby` attribute. If not working on an expandable table, [use the `tfoot` element instead](#basic-table).
+
 ```diff
 <div class="o-table-container">
-	<div class="o-table-overlay-wrapper">
-		<div class="o-table-scroll--wrapper">
-+			<table aria-describedby="demo-footnote">
-				...
-			</table>
-		</div>
-	</div>
-+	<div id="demo-footnode" class="o-table-footnote">
-+		Source: The Origami team's love of fruit.
-+	</div>
+ <div class="o-table-overlay-wrapper">
+  <div class="o-table-scroll--wrapper">
++   <table aria-describedby="demo-footnote">
+    ...
+   </table>
+  </div>
+ </div>
++ <div id="demo-footnode" class="o-table-footnote">
++  Source: The Origami team's love of fruit.
++ </div>
 </div>
 ```
 
 ### Additional markup
+
 - `o-table--compact` - Apply to the table for smaller typography and padding.
 - `o-table--row-stripes` - Apply to the table for alternating stripes on the table rows.
 - `o-table-footnote` - Style a `tfoot` element subtily for sources, disclaimers, etc.
@@ -216,15 +220,17 @@ See more in the registry: [o-table demos](https://registry.origami.ft.com/compon
 Use `@include oTable()` to include styles for all table features. Alternatively styles may be included granularly with an `$opts` map.
 
 Include all table features:
+
 ```scss
 @include oTable();
 ```
 
 Alternatively include base styles with only selected optional features. E.g. to include only the "overflow" responsive table and styles for table lines:
+
 ```scss
 @include oTable($opts: (
-	'responsive-overflow',
-	'lines'
+ 'responsive-overflow',
+ 'lines'
 ));
 ```
 
@@ -246,7 +252,9 @@ To manually instantiate `o-table`:
 import OTable from '@financial-times/o-table';
 OTable.init();
 ```
+
 or
+
 ``` js
 import OTable from '@financial-times/o-table';
 oTable = new OTable(document.body);
@@ -259,10 +267,10 @@ Instantiation will add column sorting to all tables. It will also add scroll con
 ``` js
 import OTable from '@financial-times/o-table';
 OTable.init(document.body, {
-	sortable: true,
-	expanded: true,
-	preferredSortOrder: 'ascending',
-	minimumRowCount: 10,
+ sortable: true,
+ expanded: true,
+ preferredSortOrder: 'ascending',
+ minimumRowCount: 10,
 });
 ```
 
@@ -279,38 +287,40 @@ Declarative filters are case insensitive and perform partial matches, e.g. a fil
 To enable declarative table filtering add the `data-o-table-filter-id` and `data-o-table-filter-column` to a form input. Where `data-o-table-filter-id` matches the `id` of the table to filter and `data-o-table-filter-column` is the numerical index of the column to filter (starting at 0).
 
 For example, to filter a table based on a users selected option:
-```html
-	<label>Filter the table by country:</label>
-	<!-- the filter input specifies the table id in "data-o-table-filter-id" -->
-	<select data-o-table-filter-id="example-table" data-o-table-filter-column="0">
-		<option value="" selected>All</option>
-		<option value="​Austria">​Austria</option>
-		<option value="​Belgium">​Belgium</option>
-		<!-- more options  -->
-	</select>
 
-	<!-- the table markup, this may be a responsive table -->
-	<div class="o-table-container">
-		<!-- the table element with an id -->
-		<table id="example-table">
-			<!-- ... -->
-		</table>
-	</div>
+```html
+ <label>Filter the table by country:</label>
+ <!-- the filter input specifies the table id in "data-o-table-filter-id" -->
+ <select data-o-table-filter-id="example-table" data-o-table-filter-column="0">
+  <option value="" selected>All</option>
+  <option value="​Austria">​Austria</option>
+  <option value="​Belgium">​Belgium</option>
+  <!-- more options  -->
+ </select>
+
+ <!-- the table markup, this may be a responsive table -->
+ <div class="o-table-container">
+  <!-- the table element with an id -->
+  <table id="example-table">
+   <!-- ... -->
+  </table>
+ </div>
 ```
 
 Or to filter a table based on a users selected option:
-```html
-	<label>Filter the table by country:</label>
-	<!-- the filter input specifies the table id in "data-o-table-filter-id" -->
-	<input type="text" data-o-table-filter-id="example-table" data-o-table-filter-column="0"/>
 
-	<!-- the table markup, this may be a responsive table -->
-	<div class="o-table-container">
-		<!-- the table element with an id -->
-		<table id="example-table">
-			<!-- ... -->
-		</table>
-	</div>
+```html
+ <label>Filter the table by country:</label>
+ <!-- the filter input specifies the table id in "data-o-table-filter-id" -->
+ <input type="text" data-o-table-filter-id="example-table" data-o-table-filter-column="0"/>
+
+ <!-- the table markup, this may be a responsive table -->
+ <div class="o-table-container">
+  <!-- the table element with an id -->
+  <table id="example-table">
+   <!-- ... -->
+  </table>
+ </div>
 ```
 
 #### Filter (imperative)
@@ -318,17 +328,17 @@ Or to filter a table based on a users selected option:
 The table's `filter` method may also be used to filter the table. Call it with the column index to filter and the filter to apply. The filter may be a string, which acts like a declarative filter (i.e. is case insensitive and performs a partial match):
 
 ```js
-	const table = new OTable(tableElement);
-	table.filter(0, 'United Kingdom'); // Filter the first table column by "United Kingdom".
+ const table = new OTable(tableElement);
+ table.filter(0, 'United Kingdom'); // Filter the first table column by "United Kingdom".
 ```
 
 Alternatively a callback function may be given. The callback should accept a table cell element and return a boolean value:
 
 ```js
-	const table = new OTable(tableElement);
-	table.filter(0, (cell) => {
-		return parseInt(cell.textContent, 10) > 3;
-	}); // Filter the first table column. Keep rows with a value more than 3.
+ const table = new OTable(tableElement);
+ table.filter(0, (cell) => {
+  return parseInt(cell.textContent, 10) > 3;
+ }); // Filter the first table column. Keep rows with a value more than 3.
 ```
 
 ### Sorting
@@ -358,44 +368,45 @@ For example to support a custom date format set `data-o-table-sort-value` to its
 
 ``` html
 <table class="o-table" data-o-component="o-table">
-	<thead>
-		<tr>
-			<th data-o-table-data-type="date">Custom Date Formats</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td data-o-table-sort-value="1533081600">Wednesday, 1 August 2018</td>
-		</tr>
-		<tr>
-			<td data-o-table-sort-value="1483228800">Jan 2017</td>
-		</tr>
-		<tr>
-			<td data-o-table-sort-value="723168000">1st December 1992</td>
-		</tr>
-	</tbody>
+ <thead>
+  <tr>
+   <th data-o-table-data-type="date">Custom Date Formats</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td data-o-table-sort-value="1533081600">Wednesday, 1 August 2018</td>
+  </tr>
+  <tr>
+   <td data-o-table-sort-value="1483228800">Jan 2017</td>
+  </tr>
+  <tr>
+   <td data-o-table-sort-value="723168000">1st December 1992</td>
+  </tr>
+ </tbody>
 </table>
 ```
 
 Or to provide an arbitrary sort order:
+
 ``` html
 <table class="o-table" data-o-component="o-table">
-	<thead>
-		<tr>
-			<th>Things</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td data-o-table-sort-value=2>snowman</td>
-		</tr>
-		<tr>
-			<td data-o-table-sort-value=3>42</td>
-		</tr>
-		<tr>
-			<td data-o-table-sort-value=1>pangea</td>
-		</tr>
-	</tbody>
+ <thead>
+  <tr>
+   <th>Things</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td data-o-table-sort-value=2>snowman</td>
+  </tr>
+  <tr>
+   <td data-o-table-sort-value=3>42</td>
+  </tr>
+  <tr>
+   <td data-o-table-sort-value=1>pangea</td>
+  </tr>
+ </tbody>
 </table>
 ```
 
@@ -407,25 +418,25 @@ For example we could add support for a custom data type `emoji-time`.
 
 ``` html
 <table class="o-table" data-o-component="o-table">
-	<thead>
-		<tr>
-			<th data-o-table-data-type="emoji-time">Emoji Time</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>🌑</td>
-		</tr>
-		<tr>
-			<td>🌤️️</td>
-		</tr>
-		<tr>
-			<td>🌑</td>
-		</tr>
-		<tr>
-			<td>🌤️️</td>
-		</tr>
-	</tbody>
+ <thead>
+  <tr>
+   <th data-o-table-data-type="emoji-time">Emoji Time</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td>🌑</td>
+  </tr>
+  <tr>
+   <td>🌤️️</td>
+  </tr>
+  <tr>
+   <td>🌑</td>
+  </tr>
+  <tr>
+   <td>🌤️️</td>
+  </tr>
+ </tbody>
 </table>
 ```
 
@@ -438,14 +449,14 @@ import OTable from '@financial-times/o-table';
 // Set a filter for custom data type "emoji-time".
 // The return value may be a string or number.
 OTable.setSortFormatterForType('emoji-time', (cell) => {
-	const text = cell.textContent.trim();
-	if (text === '🌑') {
-		return 1;
-	}
-	if (text === '🌤️️') {
-		return 2;
-	}
-	return 0;
+ const text = cell.textContent.trim();
+ if (text === '🌑') {
+  return 1;
+ }
+ if (text === '🌤️️') {
+  return 2;
+ }
+ return 0;
 });
 OTable.init();
 ```
@@ -454,25 +465,25 @@ Which for an ascending sort, will result in:
 
 ```html
 <table class="o-table" data-o-component="o-table">
-	<thead>
-		<tr>
-			<th data-o-table-data-type="emoji-time" aria-sort="ascending">Emoji Time</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td data-o-table-sort-value=1>🌑</td>
-		</tr>
-		<tr>
-			<td data-o-table-sort-value=1>🌑</td>
-		</tr>
-		<tr>
-			<td data-o-table-sort-value=2>🌤️️</td>
-		</tr>
-		<tr>
-			<td data-o-table-sort-value=2>🌤️️</td>
-		</tr>
-	</tbody>
+ <thead>
+  <tr>
+   <th data-o-table-data-type="emoji-time" aria-sort="ascending">Emoji Time</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td data-o-table-sort-value=1>🌑</td>
+  </tr>
+  <tr>
+   <td data-o-table-sort-value=1>🌑</td>
+  </tr>
+  <tr>
+   <td data-o-table-sort-value=2>🌤️️</td>
+  </tr>
+  <tr>
+   <td data-o-table-sort-value=2>🌤️️</td>
+  </tr>
+ </tbody>
 </table>
 ```
 
@@ -493,6 +504,7 @@ The following events are fired by `o-table`.
 `oTable.ready` fires when the table has been initialised.
 
 The event provides the following properties:
+
 - `detail.instance` - The initialised `o-table` instance _(FlatTable | ScrollTable | OverflowTable | BasicTable)_.
 
 #### oTable.sorted
@@ -500,13 +512,14 @@ The event provides the following properties:
 `oTable.sorted` indicates a table has finished sorting. It includes details of the current sort status of the table.
 
 The event provides the following properties:
+
 - `detail.sortOrder` - The sort order e.g. "ascending" _(String)_.
 - `detail.columnIndex` - The index of the sorted column heading _(Number)_.
 - `detail.instance` - The effected `o-table` instance _(FlatTable | ScrollTable | OverflowTable | BasicTable)_.
 
 ```js
 document.addEventListener('oTable.sorted', (event) => {
-	console.log(`The target table was just sorted by column "${event.detail.columnIndex}" in an "${event.detail.sortOrder}" order.`);
+ console.log(`The target table was just sorted by column "${event.detail.columnIndex}" in an "${event.detail.sortOrder}" order.`);
 });
 ```
 
@@ -515,6 +528,7 @@ document.addEventListener('oTable.sorted', (event) => {
 This event is fired just before a table sorts based on user interaction. It may be prevented to implement custom sort functionality. This may be useful to sort a paginated table server-side.
 
 The event provides the following properties:
+
 - `detail.sort` - The sort requested e.g. "ascending" _(String)_.
 - `detail.columnIndex` - The index of the column heading which will be sorted _(Number)_.
 - `detail.instance` - The effected `o-table` instance _(FlatTable | ScrollTable | OverflowTable | BasicTable)_.
@@ -523,15 +537,15 @@ When intercepting the default sort the `sorted` method must be called with relev
 
 ```js
 document.addEventListener('oTable.sorting', (event) => {
-	// Prevent default sorting.
-	event.preventDefault();
-	// Update the table with a custom sort.
-	console.log(`Update the table with sorted data here.`);
-	// Fire the sorted event, passing along the column index and sort.
-	event.detail.instance.sorted({
-		columnIndex: event.detail.columnIndex,
-		sortOrder: event.detail.sort
-	});
+ // Prevent default sorting.
+ event.preventDefault();
+ // Update the table with a custom sort.
+ console.log(`Update the table with sorted data here.`);
+ // Fire the sorted event, passing along the column index and sort.
+ event.detail.instance.sorted({
+  columnIndex: event.detail.columnIndex,
+  sortOrder: event.detail.sort
+ });
 });
 ```
 
@@ -541,16 +555,17 @@ document.addEventListener('oTable.sorting', (event) => {
 
 ```js
 document.addEventListener('oTable.sorting', (event) => {
-	const table = event.detail.instance;
-	const columnIndex = event.detail.columnIndex;
-	// Get the table header from the column index.
-	console.log(table.getTableHeader(columnIndex));
+ const table = event.detail.instance;
+ const columnIndex = event.detail.columnIndex;
+ // Get the table header from the column index.
+ console.log(table.getTableHeader(columnIndex));
 });
 ```
 
 ## Troubleshooting
 
 Known issues:
+
 - IE11 and below need the [polyfill service](https://polyfill.io/)
 
 ## Migration
