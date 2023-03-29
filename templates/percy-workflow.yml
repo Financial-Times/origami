@@ -4,8 +4,21 @@ concurrency:
   group: ${{ github.head_ref }}-${{ github.workflow }}
   cancel-in-progress: true
 
+# on:
+#   pull_request:
+#     types:
+#       - opened
+#       - reopened
+#       - synchronize
+#   push:
+#     branches: main
+#     paths:
+#       - "package.json"
+#       - "package-lock.json"
+#       - "components/**"
 on:
-  pull_request:
+  workflow_run:
+    workflows: ["test"]
     types:
       - opened
       - reopened
