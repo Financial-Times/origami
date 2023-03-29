@@ -32,9 +32,15 @@ async function shouldPercyRun() {
 				$.verbose = false
 				let {stdout: changedFiles} = await $`git diff --name-only origin/${baseRef}...origin/${headRef}`;
 				$.verbose = true
+				const arrayOfChangeFiles = changedFiles.split('\n')
 				console.log(`🚀 ~ changedFiles:`, changedFiles);
+				const effectingFiles = changedFileEffectsPercy(arrayOfChangeFiles)
+				if (!effectingFiles) {
+					core.notice('We are not running percy because the files that changed do not effect percy.')
+					return false
+				}
 				const changedPackages = new Set;
-				for (const file of changedFiles.split('\n')) {
+				for (const file of arrayOfChangeFiles) {
 					if (file) {
 						const filePathParts = file.split('/');
 						if (filePathParts.length > 1) {
@@ -128,4 +134,10 @@ async function generatePercySnapshots() {
 	let npxPath = await io.which("npx", true)
 	let outputDir = `${workspace}/demos/local/`
 	await $`"${npxPath}" percy snapshot ${outputDir}`
+}
+
+function changedFileEffectsPercy(files) {
+	// any file under components that ends with .js or .scss extension
+	const regex = /components.*((\.js)|(\.scss))/gm
+	return files.find(file => regex.test(file))
 }
