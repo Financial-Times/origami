@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.6.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.5.0...o-icons-v7.6.0) (2023-03-27)
+
+
+### Features
+
+* Add new preferences icon.
+
 ## [7.5.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.4.0...o-icons-v7.5.0) (2022-11-14)
 
 
