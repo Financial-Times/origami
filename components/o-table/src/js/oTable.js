@@ -7,7 +7,7 @@ import TableSorter from './Sort/TableSorter.js';
 const sorter = new TableSorter();
 
 /**
-
+ * Table options.
  *
  * @typedef {object} OTableOptions - Table options.
  * @property {boolean} sortable [true] - Disable the table's sort feature.
