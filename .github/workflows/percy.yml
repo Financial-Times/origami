@@ -4,11 +4,9 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
+  workflow_run:
+    workflows: [test]
+    types: [completed]
   push:
     branches: main
     paths:
@@ -19,6 +17,7 @@ on:
 jobs:
   percy-components-ft-concept-button:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -39,6 +38,7 @@ jobs:
         WORKSPACE: components/ft-concept-button
   percy-components-g-audio:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -59,6 +59,7 @@ jobs:
         WORKSPACE: components/g-audio
   percy-components-n-notification:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -79,6 +80,7 @@ jobs:
         WORKSPACE: components/n-notification
   percy-components-o-audio:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -99,6 +101,7 @@ jobs:
         WORKSPACE: components/o-audio
   percy-components-o-autocomplete:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -119,6 +122,7 @@ jobs:
         WORKSPACE: components/o-autocomplete
   percy-components-o-banner:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -139,6 +143,7 @@ jobs:
         WORKSPACE: components/o-banner
   percy-components-o-big-number:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -159,6 +164,7 @@ jobs:
         WORKSPACE: components/o-big-number
   percy-components-o-buttons:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -179,6 +185,7 @@ jobs:
         WORKSPACE: components/o-buttons
   percy-components-o-colors:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -199,6 +206,7 @@ jobs:
         WORKSPACE: components/o-colors
   percy-components-o-comments:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -219,6 +227,7 @@ jobs:
         WORKSPACE: components/o-comments
   percy-components-o-cookie-message:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -239,6 +248,7 @@ jobs:
         WORKSPACE: components/o-cookie-message
   percy-components-o-date:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -259,6 +269,7 @@ jobs:
         WORKSPACE: components/o-date
   percy-components-o-editorial-layout:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -279,6 +290,7 @@ jobs:
         WORKSPACE: components/o-editorial-layout
   percy-components-o-editorial-typography:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -299,6 +311,7 @@ jobs:
         WORKSPACE: components/o-editorial-typography
   percy-components-o-expander:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -319,6 +332,7 @@ jobs:
         WORKSPACE: components/o-expander
   percy-components-o-fonts:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -339,6 +353,7 @@ jobs:
         WORKSPACE: components/o-fonts
   percy-components-o-footer:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -359,6 +374,7 @@ jobs:
         WORKSPACE: components/o-footer
   percy-components-o-footer-services:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -379,6 +395,7 @@ jobs:
         WORKSPACE: components/o-footer-services
   percy-components-o-forms:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -399,6 +416,7 @@ jobs:
         WORKSPACE: components/o-forms
   percy-components-o-ft-affiliate-ribbon:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -419,6 +437,7 @@ jobs:
         WORKSPACE: components/o-ft-affiliate-ribbon
   percy-components-o-grid:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -439,6 +458,7 @@ jobs:
         WORKSPACE: components/o-grid
   percy-components-o-header:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -459,6 +479,7 @@ jobs:
         WORKSPACE: components/o-header
   percy-components-o-header-services:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -479,6 +500,7 @@ jobs:
         WORKSPACE: components/o-header-services
   percy-components-o-icons:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -499,6 +521,7 @@ jobs:
         WORKSPACE: components/o-icons
   percy-components-o-labels:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -519,6 +542,7 @@ jobs:
         WORKSPACE: components/o-labels
   percy-components-o-layout:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -539,6 +563,7 @@ jobs:
         WORKSPACE: components/o-layout
   percy-components-o-lazy-load:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -559,6 +584,7 @@ jobs:
         WORKSPACE: components/o-lazy-load
   percy-components-o-loading:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -579,6 +605,7 @@ jobs:
         WORKSPACE: components/o-loading
   percy-components-o-message:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -599,6 +626,7 @@ jobs:
         WORKSPACE: components/o-message
   percy-components-o-meter:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -639,6 +667,7 @@ jobs:
         WORKSPACE: components/o-multi-select
   percy-components-o-normalise:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -659,6 +688,7 @@ jobs:
         WORKSPACE: components/o-normalise
   percy-components-o-overlay:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -679,6 +709,7 @@ jobs:
         WORKSPACE: components/o-overlay
   percy-components-o-quote:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -699,6 +730,7 @@ jobs:
         WORKSPACE: components/o-quote
   percy-components-o-share:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -719,6 +751,7 @@ jobs:
         WORKSPACE: components/o-share
   percy-components-o-social-follow:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -739,6 +772,7 @@ jobs:
         WORKSPACE: components/o-social-follow
   percy-components-o-spacing:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -759,6 +793,7 @@ jobs:
         WORKSPACE: components/o-spacing
   percy-components-o-stepped-progress:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -779,6 +814,7 @@ jobs:
         WORKSPACE: components/o-stepped-progress
   percy-components-o-subs-card:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -799,6 +835,7 @@ jobs:
         WORKSPACE: components/o-subs-card
   percy-components-o-syntax-highlight:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -819,6 +856,7 @@ jobs:
         WORKSPACE: components/o-syntax-highlight
   percy-components-o-table:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -839,6 +877,7 @@ jobs:
         WORKSPACE: components/o-table
   percy-components-o-tabs:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -859,6 +898,7 @@ jobs:
         WORKSPACE: components/o-tabs
   percy-components-o-teaser:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -879,6 +919,7 @@ jobs:
         WORKSPACE: components/o-teaser
   percy-components-o-teaser-collection:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -899,6 +940,7 @@ jobs:
         WORKSPACE: components/o-teaser-collection
   percy-components-o-toggle:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -919,6 +961,7 @@ jobs:
         WORKSPACE: components/o-toggle
   percy-components-o-tooltip:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -939,6 +982,7 @@ jobs:
         WORKSPACE: components/o-tooltip
   percy-components-o-topper:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -959,6 +1003,7 @@ jobs:
         WORKSPACE: components/o-topper
   percy-components-o-typography:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -979,6 +1024,7 @@ jobs:
         WORKSPACE: components/o-typography
   percy-components-o-video:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -999,6 +1045,7 @@ jobs:
         WORKSPACE: components/o-video
   percy-components-o-viewport:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -1019,6 +1066,7 @@ jobs:
         WORKSPACE: components/o-viewport
   percy-components-o-visual-effects:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
