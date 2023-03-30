@@ -1,5 +1,13 @@
 # Changelog
 
+### [9.3.1](https://www.github.com/Financial-Times/origami/compare/o-table-v9.3.0...o-table-v9.3.1) (2023-03-30)
+
+
+### Bug Fixes
+
+* percy and try to triger table fix ([91af46d](https://www.github.com/Financial-Times/origami/commit/91af46df14af599f386da6d545089c0cc2c7e8e7))
+* test fix comit in js file will triger percy ([fba7372](https://www.github.com/Financial-Times/origami/commit/fba7372f4a8cbd1731d0ac80a1a9bff6c7bff24d))
+
 ## [9.3.0](https://www.github.com/Financial-Times/origami/compare/o-table-v9.2.7...o-table-v9.3.0) (2023-03-27)
 
 
