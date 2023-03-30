@@ -51,29 +51,26 @@ function event(trackingEvent, callback) {
 	delete config.context.category;
 	delete config.context.action;
 
-	const origamiElement = getOrigamiEventTarget(trackingEvent);
-	if (origamiElement) {
-		config.context.component_name = origamiElement.getAttribute('data-o-component');
-		config.context.component_id = config.context.component_id || getComponentId(origamiElement);
+	// IE backwards compatibility (get the actual target). If not IE, uses
+	// `event.target`
+	const element = trackingEvent.target || trackingEvent.srcElement;
+
+	if (isOrigamiComponent(element)) {
+		config.context.component_name = element.getAttribute('data-o-component');
+		config.context.component_id = config.context.component_id || getComponentId(element);
 	}
 
 	core.track(config, callback);
 }
 
 /**
- * Helper function that gets the target of an event if it's an Origami component
+ * Helper function that returns if an element is an Origami component
  *
  * @param  {Event} event - The event triggered.
- * @returns {HTMLElement|undefined} - Returns the HTML element if an Origami component, else undefined.
+ * @returns boolean - Returns the whether the HTML element if an Origami component.
  */
-function getOrigamiEventTarget(event) {
-	// IE backwards compatibility (get the actual target). If not IE, uses
-	// `event.target`
-	const element = event.target || event.srcElement;
-
-	if (element && element.getAttribute('data-o-component')) {
-		return element;
-	}
+function isOrigamiComponent(element) {
+	return element && element.getAttribute('data-o-component')
 }
 
 /**
