@@ -1,0 +1,45 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oMultiSelectGet($variables, $from: null) {
+	@return oBrandGet(
+		$component: 'o-multi-select',
+		$variables: $variables,
+		$from: $from
+	);
+}
+/// Helper for `o-brand` function.
+/// @access private
+@function _oMultiSelectSupports($variant) {
+	@return oBrandSupportsVariant(
+		$component: 'o-multi-select',
+		$variant: $variant
+	);
+}
+
+@if oBrandIs('core') {
+	@include oBrandDefine(
+		'o-multi-select',
+		'core',
+		(
+			'variables': (
+				button-bg-color: oColorsByName('wheat'),
+				button-text-color: oColorsByName('black-80'),
+			),
+			'supports-variants': (),
+		)
+	);
+}
+
+@if oBrandIs('internal') {
+	@include oBrandDefine(
+		'o-multi-select',
+		'internal',
+		(
+			'variables': (
+				button-bg-color: oColorsByName('slate'),
+				button-text-color: oColorsByName('white'),
+			),
+			'supports-variants': (),
+		)
+	);
+}

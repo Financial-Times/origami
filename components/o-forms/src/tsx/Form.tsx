@@ -1,4 +1,6 @@
-import {classBuilder, uniqueId} from '../utils';
+import {classBuilder} from '../utils';
+import {uidBuilder} from "@financial-times/o-utils";
+const uniqueId = uidBuilder('o-forms');
 
 interface TypeFormProps {
 	children: JSX.Element | JSX.Element[];
@@ -16,7 +18,7 @@ export interface TypeFormField {
 
 export interface FormFieldProps extends TypeFormField {
 	id: string;
-	children: JSX.Element;
+	children?: JSX.Element;
 }
 export interface FormFieldsetProps extends TypeFormField {
 	children: JSX.Element;
@@ -36,6 +38,11 @@ interface FormTitleProps {
 	title: string;
 	description?: string;
 	describedbyId?: string;
+}
+
+interface GenericInputProps extends TypeFormProps {
+	id: string;
+	title: string;
 }
 
 export function Form({children, action, method, onSubmit}: TypeFormProps) {
@@ -143,4 +150,18 @@ export function FormError({errorMessage}) {
 			{errorMessage}
 		</span>
 	);
+}
+
+
+export function GenericInput(props: GenericInputProps ) {
+	const {children, ...rest} = props;
+	return (
+		<>
+			<FormField {...rest}>
+				<span className="o-forms-input">
+					{props.children}
+				</span>
+			</FormField>
+		</>
+	)
 }
