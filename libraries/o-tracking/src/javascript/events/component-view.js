@@ -53,15 +53,30 @@ const init = (opts = {}) => {
 	}
 
 	const selector = opts.selector || '[data-o-tracking-view]';
-	const elementsToTrack = [...document.querySelectorAll(selector)];
 
-	if (!elementsToTrack.length) {
-		return;
+
+	const interactionObserver = new IntersectionObserver(onIntersectionChange, {threshold: [1.0]});
+
+	for (const element of [...document.querySelectorAll(selector)]) {
+		interactionObserver.observe(element);
 	}
 
-	function onChange (changes) {
+	if (window.MutationObserver) {
+		const mutationObserver = new MutationObserver(onMutationChange);
+
+		mutationObserver.observe(document.body, {
+			attributes: false,
+			childList: true,
+			subtree: true
+		});
+	} else {
+		// eslint-disable-next-line no-console
+		console.warn('o-tracking: Unable to track component view events for added/removed components as "window.MutationObserver" is not supported.');
+	}
+
+	function onIntersectionChange(changes) {
 		changes.forEach(change => {
-			if(change.isIntersecting || change.intersectionRatio > 0) {
+			if (change.isIntersecting || change.intersectionRatio > 0) {
 				const eventData = {
 					action: opts.action || 'view',
 					category: opts.category || 'component'
@@ -70,14 +85,27 @@ const init = (opts = {}) => {
 
 				decorateEventData(eventData, viewedEl, opts);
 				core.track(eventData);
-				observer.unobserve(viewedEl);
+				interactionObserver.unobserve(viewedEl);
 			}
 		});
 	}
 
-	const observer = new IntersectionObserver(onChange, { threshold: [ 1.0 ] });
-
-	elementsToTrack.forEach(el => observer.observe(el));
+	function onMutationChange(mutationsList) {
+		for (const mutation of mutationsList) {
+			if (mutation.type === 'childList') {
+				for (const node of mutation.addedNodes) {
+					if (node.nodeType === Node.ELEMENT_NODE && node.matches(selector)) {
+						interactionObserver.observe(node);
+					}
+				}
+				for (const node of mutation.removedNodes) {
+					if (node.nodeType === Node.ELEMENT_NODE && node.matches(selector)) {
+						interactionObserver.unobserve(node);
+					}
+				}
+			}
+		}
+	}
 };
 
 const view = {

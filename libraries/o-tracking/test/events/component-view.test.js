@@ -19,6 +19,7 @@ const config = {
 	},
 };
 
+let mutationCallback;
 let targetComponent;
 let errorThrown;
 
@@ -58,6 +59,16 @@ function setMockIntersectionObserver (observeSpy, unobserveSpy) {
 	window.IntersectionObserver = mockIntersectionObserver;
 }
 
+function setMockMutationObserver () {
+	function MockMutationObserver(callback) {
+		mutationCallback = callback;
+	}
+
+	MockMutationObserver.prototype.observe = () => false;
+
+	window.MutationObserver = MockMutationObserver;
+}
+
 
 describe('component:view', () => {
 
@@ -69,6 +80,7 @@ describe('component:view', () => {
 		initSend();
 		set('config', config);
 		setMockIntersectionObserver(observeSpy, unobserveSpy);
+		setMockMutationObserver();
 		sinon.spy(core, 'track');
 	});
 
@@ -97,6 +109,54 @@ describe('component:view', () => {
 			proclaim.equal(errorThrown, undefined);
 			proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
 			proclaim.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
+		});
+	});
+
+	context('when elements are added after initialisation', () => {
+		beforeEach(() => {
+			const attributes = [{ key: 'data-o-tracking-view', value: true }];
+			const text = 'component:view target for default props';
+
+			view.init();
+			createTargetComponent(attributes, text);
+			mutationCallback([
+				{
+					type: 'childList',
+					addedNodes: [targetComponent],
+					removedNodes: []
+				}
+			]);
+			viewed(targetComponent);
+		});
+
+		it('should still track an event for a component view ', () => {
+			proclaim.equal(errorThrown, undefined);
+			proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
+			proclaim.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
+		});
+	});
+
+	context('when elements are removed after initialisation', () => {
+		beforeEach(() => {
+			const attributes = [{ key: 'data-o-tracking-view', value: true }];
+			const text = 'component:view target for default props';
+
+			createTargetComponent(attributes, text);
+			view.init();
+			mutationCallback([
+				{
+					type: 'childList',
+					addedNodes: [],
+					removedNodes: [targetComponent],
+				}
+			]);
+			viewed(targetComponent);
+		});
+
+		it('should not track an event for a component view ', () => {
+			proclaim.equal(errorThrown, undefined);
+			proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
+			proclaim.equal(unobserveSpy.calledOnce, false, 'IntersectionObserver unobserved target');
 		});
 	});
 
