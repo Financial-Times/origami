@@ -1,5 +1,16 @@
 # Changelog
 
+## [10.0.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.6.0...o-forms-v10.0.0) (2023-03-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* swap out div tags to span tags since it is not semanticly allowed inside a label tag
+
+### Features
+
+* swap out div tags to span tags since it is not semanticly allowed inside a label tag ([c83857b](https://www.github.com/Financial-Times/origami/commit/c83857b2ee38ca75ee004436e09908ec2362fe61))
+
 ## [9.6.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.5.0...o-forms-v9.6.0) (2023-02-24)
 
 
