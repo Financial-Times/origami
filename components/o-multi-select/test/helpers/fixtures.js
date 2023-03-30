@@ -26,13 +26,13 @@ function htmlCode(multiSelectOptions) {
     <span class="o-forms-title">
       <span class="o-forms-title__main">Select multiple options</span>
     </span>
-		<div class="o-forms-input">
-			<div class="o-multi-select" data-o-component="o-multi-select">
+		<span class="o-forms-input">
+			<span class="o-multi-select" data-o-component="o-multi-select">
 				<select name="fruits" id="fruits" multiple>
 					${options.join('')}
 				</select>
-			</div>
-		</div>
+			</span>
+		</span>
   </label>
 </form>`;
 
