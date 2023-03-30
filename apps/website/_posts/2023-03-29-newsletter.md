@@ -26,10 +26,12 @@ As part of that work Thomas Moody has been designing Professional themed Origami
   <summary>
     Latest o-buttons updates to our Figma UI Kit.
   </summary>
+    <ul>
     <li>We replaced the boolean "Primary" variant with a "Type" variant which can be “Primary”, “Secondary”, or “Ghost” button types. This aligns design tooling with the Origami component engineers pull into production applications.</li>
     <li>We deleted the separate ghost button Figma component, now that we can switch the type of button as above.</li>
     <li>We deleted a “custom” theme. It's possible to use o-buttons to generate buttons for a custom colour, but what was this specific example in design tooling for? We don’t want to encourage use of that particular theme do we..?</li>
     <li>We fixed the inverse focus state of buttons so designs more accurately reflect what an engineer will produce with Origami's o-buttons component.</li>
+    </ul>
 </details>
 
 It was fun pairing with Tom on that and picking up a few more Figma tricks as an engineer: designers and engineers unite!
