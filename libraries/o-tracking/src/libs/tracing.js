@@ -95,7 +95,7 @@ const getContextProps = (attrs, props, isOriginalEl) => {
 	return customProps;
 };
 
-export function getTrace (el) {
+function getTrace (el) {
 	const rootEl = document;
 	const originalEl = el;
 	const selector = originalEl.getAttribute('data-trackable') ? `[data-trackable="${originalEl.getAttribute('data-trackable')}"]` : originalEl.nodeName;
@@ -125,3 +125,7 @@ export function getTrace (el) {
 	}
 	return { trace, customContext };
 }
+
+export default {
+	getTrace
+};

@@ -1,5 +1,5 @@
 import core from '../core.js';
-import {getTrace} from '../../libs/get-trace.js';
+import tracing from '../../libs/tracing.js';
 import {assignIfUndefined, filterProperties} from '../utils.js';
 
 const TRACKING_ATTRIBUTES = [
@@ -11,7 +11,7 @@ const TRACKING_ATTRIBUTES = [
 
 const decorateEventData = (eventData, viewedEl, opts) => {
 
-	const { trace, customContext } = getTrace(viewedEl);
+	const { trace, customContext } = tracing.getTrace(viewedEl);
 	let context;
 
 	if (opts.getContextData) {

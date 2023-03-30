@@ -1,9 +1,9 @@
 import Delegate from 'ftdomdelegate';
 import core from '../core.js';
-import {sanitise, assignIfUndefined, merge } from '../utils.js';
+import {assignIfUndefined, merge, sanitise} from '../utils.js';
 import {get as getSetting} from '../core/settings.js';
-import {getTrace} from '../../libs/get-trace.js';
-import { Queue } from '../core/queue.js';
+import tracing from '../../libs/tracing.js';
+import {Queue} from '../core/queue.js';
 
 let delegate;
 
@@ -37,7 +37,7 @@ const handleClickEvent = eventData => (clickEvent, clickElement) => {
 	//we don't want to track clicks to anonymous services like securedrop
 	if (clickElement.getAttribute("data-o-tracking-do-not-track") === "true") {return;}
 	const context = getEventProperties(clickEvent);
-	const { trace, customContext} = getTrace(clickElement);
+	const { trace, customContext} = tracing.getTrace(clickElement);
 	context.domPathTokens = trace;
 	context.url = window.document.location.href || null;
 	// source_id is a field that is currently being used in some data analytics
