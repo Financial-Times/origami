@@ -109,12 +109,15 @@ class MultiSelect {
 		// change ID of native select element so enhanced select element does not have same ID
 		this._coreWrapper.id = `${selectId}-core`;
 
-		const labelId = uniqueId('selected');
-		const labels = [...this._coreWrapper.labels].map((label) => label.id).join(' ');
+		const selectedWrapperId = uniqueId('selected');
+		const labelId = uniqueId('label');
+		const label = document.querySelector(`[for=${selectId}]`);
+		label.id = labelId;
+
 		this.multiSelectEl.insertAdjacentHTML('beforeend', `<div class="o-multi-select__enhanced">
     <ul
             class="o-multi-select__selected-options"
-            id=${labelId}
+            id=${selectedWrapperId}
     ></ul>
     <div class="o-multi-select__combobox-wrapper">
         <div
@@ -123,7 +126,7 @@ class MultiSelect {
 								name=${selectName}
                 role="combobox"
                 aria-activedescendant=""
-                aria-labelledby="${labels} ${labelId}"
+                aria-labelledby="${labelId} ${selectedWrapperId}"
                 aria-haspopup="listbox"
                 aria-expanded="false"
                 aria-owns="o-multi-select-listbox"
