@@ -5,10 +5,11 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  workflow_run:
-    workflows: ["test"]
+  pull_request:
     types:
-      - completed
+      - opened
+      - reopened
+      - synchronize
   push:
     branches: main
     paths:
@@ -20,7 +21,6 @@ jobs:
   <%#projects%>
   percy-<%& workspaceFilename %>:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -34,6 +34,13 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
+    - name: Wait for tests to succeed
+      uses: lewagon/wait-on-check-action@v1.3.1
+      with:
+        ref: ${{ github.ref }}
+        check-name: 'test'
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
