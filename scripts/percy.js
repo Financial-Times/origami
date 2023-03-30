@@ -16,6 +16,7 @@ const isPullRequest = context.payload.pull_request
 
 async function shouldPercyRun() {
 	const isDefaultBranch = context.ref.endsWith("/main")
+	console.log(`🚀 ~ context.ref:`, context.ref);
 	const isChoreRelease = isPullRequest && context.payload.pull_request.title == 'chore: release main'
 	if (isDefaultBranch && !isChoreRelease) {
 		core.notice('This is a commit on the default branch, we need to run Percy to update the baseline images.')
