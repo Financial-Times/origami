@@ -5,11 +5,9 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
+  workflow_run:
+    workflows: [test]
+    types: [completed]
   push:
     branches: main
     paths:
@@ -21,6 +19,7 @@ jobs:
   <%#projects%>
   percy-<%& workspaceFilename %>:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
       with:
