@@ -158,9 +158,9 @@ export function GenericInput(props: GenericInputProps ) {
 	return (
 		<>
 			<FormField {...rest}>
-				<div className="o-forms-input">
+				<span className="o-forms-input">
 					{props.children}
-				</div>
+				</span>
 			</FormField>
 		</>
 	)

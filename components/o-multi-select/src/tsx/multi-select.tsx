@@ -6,7 +6,7 @@ export function MultiSelect({
 	id?: string;
 }) {
 	return (
-		<div className="o-multi-select" data-o-component="o-multi-select">
+		<span className="o-multi-select" data-o-component="o-multi-select">
 			<select name={id} id={id} multiple>
 				{multiSelectOptions.map(option => (
 					<option key={option} value={option}>
@@ -14,6 +14,6 @@ export function MultiSelect({
 					</option>
 				))}
 			</select>
-		</div>
+		</span>
 	);
 }
