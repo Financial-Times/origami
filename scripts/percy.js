@@ -138,6 +138,6 @@ async function generatePercySnapshots() {
 
 function changedFileEffectsPercy(files) {
 	// any file under components that ends with .js or .scss extension
-	const regex = /components.*((\.js)|(\.scss))/gm
+	const regex = /components.*((\.js)|(\.scss)|(\.moustache)|(\.json))/gm
 	return files.find(file => regex.test(file))
 }
