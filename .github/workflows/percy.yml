@@ -32,13 +32,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -59,13 +52,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -86,13 +72,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -113,13 +92,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -140,13 +112,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -167,13 +132,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -194,13 +152,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -221,13 +172,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -248,13 +192,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -275,13 +212,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -302,13 +232,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -329,13 +252,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -356,13 +272,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -383,13 +292,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -410,13 +312,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -437,13 +332,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -464,13 +352,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -491,13 +372,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -518,13 +392,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -545,13 +412,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -572,13 +432,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -599,13 +452,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -626,13 +472,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -653,13 +492,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -680,13 +512,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -707,13 +532,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -734,13 +552,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -761,13 +572,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -788,13 +592,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -815,13 +612,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -862,13 +652,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -889,13 +672,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -916,13 +692,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -943,13 +712,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -970,13 +732,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -997,13 +752,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1024,13 +772,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1051,13 +792,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1078,13 +812,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1105,13 +832,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1132,13 +852,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1159,13 +872,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1186,13 +892,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1213,13 +912,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1240,13 +932,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1267,13 +952,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1294,13 +972,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1321,13 +992,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1348,13 +1012,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
@@ -1375,13 +1032,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.3.1
-      with:
-        ref: ${{ github.ref }}
-        check-name: 'test'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allowed-conclusions: success,skipped,cancelled
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
