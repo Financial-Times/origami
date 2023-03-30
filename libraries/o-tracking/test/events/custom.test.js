@@ -8,6 +8,7 @@ import {destroy} from '../../src/javascript/core/settings.js';
 import {init as initSend} from '../../src/javascript/core/send.js';
 import {init as initSession} from '../../src/javascript/core/session.js';
 import {event as trackEvent} from '../../src/javascript/events/custom.js';
+import tracing from '../../src/libs/tracing.js';
 
 describe('event', function () {
 
@@ -15,11 +16,13 @@ describe('event', function () {
 	before(function () {
 		initSession();
 		initSend(); // Init the sender.
+		sinon.stub(tracing, 'getTrace');
 	});
 
 	after(function () {
 		new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
 		destroy('config'); // Empty settings.
+		tracing.getTrace.restore();
 	});
 
 	it('should track an event, adds custom component_id', function () {
@@ -35,12 +38,16 @@ describe('event', function () {
 				component_name: 'custom-o-tracking'
 			}
 		}), callback);
+		tracing.getTrace.returns({
+			trace: [],
+			customContext: {}
+		});
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
 		const sent_data = callback.getCall(0).thisValue;
 
-		proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+		proclaim.deepEqual(Object.keys(sent_data), ["system", "context", "user", "device", "category", "action"]);
 
 		// Event
 		proclaim.equal(sent_data.category, "slideshow");
@@ -60,9 +67,13 @@ describe('event', function () {
 				value: 51234
 			}
 		});
+		tracing.getTrace.returns({
+			trace: [],
+			customContext: {}
+		});
 
 		document.body.setAttribute('data-o-component', 'o-tracking');
-		document.body.addEventListener('oTracking.event', function(e) {
+		document.body.addEventListener('oTracking.event', function (e) {
 
 			const callback = sinon.spy();
 
@@ -86,9 +97,57 @@ describe('event', function () {
 		document.body.dispatchEvent(event);
 	});
 
+	it('should listen to a dom event and use the trace and custom context', function () {
+
+		const event = new CustomEvent('oTracking.event', {
+			detail: {
+				category: 'video',
+				action: 'play',
+				key: 'id',
+				value: 51234
+			}
+		});
+		tracing.getTrace.returns({
+			trace: ['foo', 'bar'],
+			customContext: {
+				customKey: 'customValue'
+			}
+		});
+
+		document.body.addEventListener('oTracking.event', function (e) {
+
+			const callback = sinon.spy();
+
+			trackEvent(e, callback);
+			proclaim.ok(callback.called, 'Callback not called.');
+
+			const sent_data = callback.getCall(0).thisValue;
+
+			proclaim.deepEqual(Object.keys(sent_data), ["system", "context", "user", "device", "category", "action"]);
+
+			// Event
+			proclaim.equal(sent_data.category, "video");
+			proclaim.equal(sent_data.action, "play");
+			proclaim.equal(sent_data.context.key, 'id');
+			proclaim.equal(sent_data.context.value, 51234);
+			proclaim.equal(sent_data.context.customKey, 'customValue');
+			proclaim.equal(sent_data.context.domPathTokens.length, 2);
+			proclaim.equal(sent_data.context.domPathTokens[0], 'foo');
+			proclaim.equal(sent_data.context.domPathTokens[1], 'bar');
+			proclaim.equal(typeof sent_data.context.component_id, "number");
+
+		});
+
+		document.body.dispatchEvent(event);
+	});
+
 	it('should throw custom error message if the tracking event object contains circular references', function () {
 
 		const callback = sinon.spy();
+		tracing.getTrace.returns({
+			trace: [],
+			customContext: {}
+		});
 
 		const customTrackingData = {ohh: 'ahh'};
 		customTrackingData.circular = customTrackingData;

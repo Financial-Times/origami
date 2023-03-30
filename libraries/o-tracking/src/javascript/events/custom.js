@@ -1,9 +1,6 @@
 import core from '../core.js';
-import {
-	is,
-	broadcast,
-	merge,
-	addEvent} from '../utils.js';
+import tracing from "../../libs/tracing.js";
+import {addEvent, assignIfUndefined, broadcast, is, merge} from '../utils.js';
 
 /**
  * Default properties for events.
@@ -55,6 +52,14 @@ function event(trackingEvent, callback) {
 	// `event.target`
 	const element = trackingEvent.target || trackingEvent.srcElement;
 
+	if (element) {
+		const {trace, customContext} = tracing.getTrace(element);
+		config.context.domPathTokens = trace;
+		assignIfUndefined(customContext, config.context);
+	}
+
+	config.context.url = window.document.location.href || null;
+
 	if (isOrigamiComponent(element)) {
 		config.context.component_name = element.getAttribute('data-o-component');
 		config.context.component_id = config.context.component_id || getComponentId(element);
@@ -66,11 +71,11 @@ function event(trackingEvent, callback) {
 /**
  * Helper function that returns if an element is an Origami component
  *
- * @param  {Event} event - The event triggered.
- * @returns boolean - Returns the whether the HTML element if an Origami component.
+ * @param  {Element} element - The event triggered.
+ * @returns boolean - Returns true if the HTML element if an Origami component, else false.
  */
 function isOrigamiComponent(element) {
-	return element && element.getAttribute('data-o-component')
+	return element && element.getAttribute('data-o-component');
 }
 
 /**
