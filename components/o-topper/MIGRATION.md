@@ -1,5 +1,15 @@
 # Migration guide
+## Migrating from v5 to v6
 
+`o-topper` no longer includes JavaScript to select the correct topper for JSON-formatted FT articles and flags. This helper was deeply tied to the FT.com content store, and included hardcoded UUIDs and business logic beyond the scope of Origami. Origami components focus on providing reusable user interfaces – without business logic assumptions which could limit their use outside specific groups or use-cases.
+
+To migrate, replace `o-topper` JavaScript with [`n-map-content-to-topper`](https://github.com/Financial-Times/n-map-content-to-topper).
+
+```diff
+-import { mapContentToTopper } from '@financial-times/o-topper';
++import mapContentToTopper from '@financial-times/n-map-content-to-topper';
+const topper = mapContentToTopper(ftArticle, flags);
+```
 ## Migrating from v4 to v5
 
 The velvet topper (previously used to indicate life and arts) has been removed.

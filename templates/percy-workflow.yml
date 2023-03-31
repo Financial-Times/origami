@@ -10,12 +10,18 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "components/**"
+      - "!components/**/*.md"
   push:
     branches: main
     paths:
       - "package.json"
       - "package-lock.json"
       - "components/**"
+      - "!components/**/*.md"
 
 jobs:
   <%#projects%>
@@ -25,6 +31,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+
     - uses: volta-cli/action@v4
     - uses: actions/cache@v2
       with:

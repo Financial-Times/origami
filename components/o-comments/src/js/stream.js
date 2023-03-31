@@ -74,7 +74,11 @@ class Stream {
 					: 'https://ft.coral.coralproject.net';
 				const scriptElement = document.createElement('script');
 				scriptElement.src = `${rootUrl}/assets/js/embed.js?${cacheBuster}`;
-
+				const containerClassName = ['o-comments-coral-talk-container'];
+				if(this.options.addClass){
+					containerClassName.push(this.options.addClass);
+				}
+				const customScrollContainer = document.querySelector(this.options.scrollContainer);
 				scriptElement.onload = () => {
 					this.embed = Coral.createStreamEmbed(
 						{
@@ -84,7 +88,8 @@ class Stream {
 							rootURL: rootUrl,
 							autoRender: true,
 							bodyClassName: 'o-comments-coral-talk-container',
-							containerClassName: 'o-comments-coral-talk-container',
+							containerClassName,
+							customScrollContainer,
 							events: (events) => {
 								events.onAny((name, data) => {
 									this.publishEvent({name, data});

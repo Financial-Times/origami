@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component template files Root ejs files expect README.md ejsRenderer fn output to match snapshot 1`] = `
-"# @financial-times/o-test-name
+"# o-test-name
 
 _A short description of what the component does._
 
@@ -459,7 +459,7 @@ describe(\\"TestName\\", () => {
 		}, 100);
 	});
 
-	it(\\"should not autoinitialize when the event is not dispached\\", () => {
+	it(\\"should not autoinitialize when the event is not dispatched\\", () => {
 		const initSpy = sinon.spy(TestName, 'init');
 		proclaim.equal(initSpy.called, false);
 	});

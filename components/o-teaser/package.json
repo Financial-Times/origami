@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-teaser",
-  "version": "6.2.5",
+  "version": "6.2.6",
   "description": "Provides styling for teaser elements, which contain information about an article and link through to it",
   "keywords": [
     "article",
@@ -33,7 +33,7 @@
     "@financial-times/o-typography": "^7.0.1"
   },
   "devDependencies": {
-    "@financial-times/o-date": "^5.2.0",
+    "@financial-times/o-date": "^6.0.0",
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {

@@ -3,7 +3,10 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon-esm.js';
 
-import formFixture from './helpers/fixtures.js';
+import {
+	invalidForm as invalidFormFixture,
+	validForm as validFormFixture
+} from './helpers/fixtures.js';
 import Forms from './../main.js';
 
 describe('Forms', () => {
@@ -16,15 +19,17 @@ describe('Forms', () => {
 		parentClass = (element, modifier) => element.closest('.o-forms-input').classList.contains(`o-forms-input--${modifier}`);
 	});
 
-	context('on `submit`', () => {
+	context('on `submit` of an invalid form', () => {
 		let submit;
 		let summary;
-		let formSpy;
+		let formAddEventListenerSpy;
+		let formSubmitSpy;
 
 		beforeEach(() => {
-			document.body.innerHTML = formFixture;
+			document.body.innerHTML = invalidFormFixture;
 			formEl = document.forms[0];
-			formSpy = sinon.spy(formEl, 'addEventListener');
+			formAddEventListenerSpy = sinon.spy(formEl, 'addEventListener');
+			formSubmitSpy = sinon.spy(formEl, 'submit');
 
 			dateFields = formEl.elements['date'];
 			requiredTextField = formEl.elements['required'];
@@ -35,23 +40,67 @@ describe('Forms', () => {
 			document.body.innerHTML = null;
 		});
 
-		it('`opts.useBrowserValidation = true` relays form validation to browser on all invalid form inputs', () => {
-			new Forms(formEl, { useBrowserValidation: true });
-			submit.click();
+		context('`opts.useBrowserValidation = true`', () => {
+			it('relays form validation to browser on all invalid form inputs', () => {
+				new Forms(formEl, { useBrowserValidation: true });
+				submit.click();
 
-			proclaim.isTrue(formSpy.withArgs('submit').notCalled);
-			proclaim.isTrue(parentClass(dateFields[0], 'invalid'));
-			proclaim.isTrue(parentClass(requiredTextField, 'invalid'));
+				proclaim.isTrue(formAddEventListenerSpy.withArgs('submit').notCalled);
+				proclaim.isTrue(parentClass(dateFields[0], 'invalid'));
+				proclaim.isTrue(parentClass(requiredTextField, 'invalid'));
+			});
+
+			it('throws an error when the `preventSubmit` option is also true', () => {
+				proclaim.throws(() => {
+					new Forms(formEl, {
+						useBrowserValidation: true,
+						preventSubmit: true
+					});
+				}, Error)
+			});
 		});
 
-		it('`opts.useBrowserValidation = false` manually validates form inputs', () => {
-			new Forms(formEl);
-			submit.click();
+		context('`opts.useBrowserValidation = false`', () => {
+			it('`uses o-forms form validation', () => {
+				new Forms(formEl, {
+					useBrowserValidation: false
+				});
+				submit.click();
 
-			proclaim.isTrue(formSpy.withArgs('submit').calledOnce);
-			proclaim.isTrue(parentClass(dateFields[0], 'invalid'));
-			proclaim.isTrue(parentClass(requiredTextField, 'invalid'));
+				proclaim.isTrue(formAddEventListenerSpy.withArgs('submit').calledOnce);
+				proclaim.isTrue(parentClass(dateFields[0], 'invalid'));
+				proclaim.isTrue(parentClass(requiredTextField, 'invalid'));
+			});
+
+			context('`opts.preventSubmit = true`', () => {
+				it('prevents form submission after `o-forms` has validated the form', () => {
+					new Forms(formEl, {
+						useBrowserValidation: false,
+						preventSubmit: true
+					});
+					submit.click();
+
+					proclaim.isTrue(formSubmitSpy.notCalled);
+					proclaim.isTrue(parentClass(dateFields[0], 'invalid'));
+					proclaim.isTrue(parentClass(requiredTextField, 'invalid'));
+				});
+
+				it('fires `oForms.submit`', (done) => {
+					const oFormsInstance = new Forms(formEl, {
+						useBrowserValidation: false,
+						preventSubmit: true
+					});
+					formEl.addEventListener('oForms.submit', (e) => {
+						proclaim.equal(e.detail.instance, oFormsInstance);
+						proclaim.equal(e.detail.valid, false);
+						done();
+					});
+					submit.click();
+				});
+			});
 		});
+
+
 
 		context('`opts.errorSummary = true`', () => {
 			let listItems;
@@ -146,14 +195,14 @@ describe('Forms', () => {
 			const secondFormEl = document.getElementById('second-initialised-form');
 			// initialise the first form
 			const form = new Forms(formEl);
-			const formSpy = sinon.spy(form, 'validateFormInputs');
+			const formAddEventListenerSpy = sinon.spy(form, 'validateFormInputs');
 			// initialise the second form
 			const secondForm = new Forms(secondFormEl);
 			const secondFormSpy = sinon.spy(secondForm, 'validateFormInputs');
 			// submit the first form
 			submit.click();
 			// the first form is validated, the second is not
-			proclaim.isTrue(formSpy.called, 'The first form was submitted but not validated.');
+			proclaim.isTrue(formAddEventListenerSpy.called, 'The first form was submitted but not validated.');
 			proclaim.isTrue(secondFormSpy.notCalled, 'The second form was not submitted but was validated.');
 		});
 
@@ -180,11 +229,49 @@ describe('Forms', () => {
 			const secondFormSubmitEl = secondFormEl.querySelector('[type="submit"]');
 			// initialise the first form only
 			const form = new Forms(formEl);
-			const formSpy = sinon.spy(form, 'validateFormInputs');
+			const formAddEventListenerSpy = sinon.spy(form, 'validateFormInputs');
 			// submit the second form
 			secondFormSubmitEl.click();
 			// the first form is not validated
-			proclaim.isTrue(formSpy.notCalled, 'The first form was validated even though it was not submitted.');
+			proclaim.isTrue(formAddEventListenerSpy.notCalled, 'The first form was validated even though it was not submitted.');
+		});
+	});
+
+	context('on `submit` of a valid form', () => {
+		let submit;
+		let formSubmitSpy;
+
+		beforeEach(() => {
+			document.body.innerHTML = validFormFixture;
+			formEl = document.forms[0];
+			formSubmitSpy = sinon.spy(formEl, 'submit');
+
+			dateFields = formEl.elements['date'];
+			requiredTextField = formEl.elements['required'];
+			submit = formEl.elements[formEl.elements.length - 1];
+		});
+
+		afterEach(() => {
+			document.body.innerHTML = null;
+		});
+
+		context('`opts.useBrowserValidation = false`', () => {
+			context('`opts.preventSubmit = true`', () => {
+				it('prevents form submission after `o-forms` has validated the form', (done) => {
+					new Forms(formEl, {
+						useBrowserValidation: false,
+						preventSubmit: true
+					});
+
+					formEl.addEventListener('oForms.submit', (e) => {
+						proclaim.isTrue(e.detail.valid);
+						proclaim.isTrue(formSubmitSpy.notCalled);
+						done();
+					});
+
+					submit.click();
+				});
+			});
 		});
 	});
 
@@ -192,7 +279,7 @@ describe('Forms', () => {
 		let form;
 
 		before(() => {
-			document.body.innerHTML = formFixture;
+			document.body.innerHTML = invalidFormFixture;
 			formEl = document.forms[0];
 			form = new Forms(formEl);
 		});
@@ -234,7 +321,7 @@ describe('Forms', () => {
 		let radioInputs;
 
 		before(() => {
-			document.body.innerHTML = formFixture;
+			document.body.innerHTML = invalidFormFixture;
 			formEl = document.forms[0];
 			name = 'radioBox';
 			radioInputs = formEl.elements[name];
@@ -266,9 +353,9 @@ describe('Forms', () => {
 
 	context('.destroy()', () => {
 		let form;
-		let formSpy;
+		let formAddEventListenerSpy;
 		beforeEach(() => {
-			document.body.innerHTML = formFixture;
+			document.body.innerHTML = invalidFormFixture;
 			formEl = document.forms[0];
 			form = new Forms(formEl);
 		});
@@ -288,11 +375,11 @@ describe('Forms', () => {
 		});
 
 		it('removes all event listeners', () => {
-			formSpy = sinon.spy(formEl, 'removeEventListener');
+			formAddEventListenerSpy = sinon.spy(formEl, 'removeEventListener');
 
 			form.destroy();
 
-			proclaim.isTrue(formSpy.calledOnce);
+			proclaim.isTrue(formAddEventListenerSpy.calledOnce);
 		});
 	});
 });

@@ -76,6 +76,8 @@ o-message:
   - components/o-message/**/*
 o-meter:
   - components/o-meter/**/*
+o-multi-select:
+  - components/o-multi-select/**/*
 o-normalise:
   - components/o-normalise/**/*
 o-overlay:

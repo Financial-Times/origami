@@ -16,6 +16,12 @@ const isPullRequest = context.payload.pull_request
 
 async function shouldPercyRun() {
 	const isDefaultBranch = context.ref.endsWith("/main")
+	const isChoreRelease = isPullRequest && context.payload.pull_request.title == 'chore: release main'
+	console.log(`🚀 ~ context.ref:`, context.ref, {isChoreRelease});
+	if (isChoreRelease) {
+		core.notice("This is a chore: release, we don't need to run Percy to update the baseline images.")
+		return false;
+	}
 	if (isDefaultBranch) {
 		core.notice('This is a commit on the default branch, we need to run Percy to update the baseline images.')
 		return true;
@@ -31,13 +37,20 @@ async function shouldPercyRun() {
 				$.verbose = false
 				let {stdout: changedFiles} = await $`git diff --name-only origin/${baseRef}...origin/${headRef}`;
 				$.verbose = true
+				const arrayOfChangeFiles = changedFiles.split('\n')
+				const effectingFiles = changedFileEffectsPercy(arrayOfChangeFiles)
+				console.log(`🚀 ~ changedFiles:`, arrayOfChangeFiles, effectingFiles);
+				if (!effectingFiles) {
+					core.notice('We are not running percy because the files that changed do not effect percy.')
+					return false
+				}
 				const changedPackages = new Set;
-				for (const file of changedFiles.split('\n')) {
+				for (const file of arrayOfChangeFiles) {
 					if (file) {
 						const filePathParts = file.split('/');
 						if (filePathParts.length > 1) {
 							// We swallow errors because not every file in the monorepo is contained in a folder
-							// or does not contain a package.json 
+							// or does not contain a package.json
 							try {
 								const path = join(__dirname, '../', filePathParts[0], filePathParts[1])
 								const pkg = await readPackage({cwd:path})
@@ -126,4 +139,10 @@ async function generatePercySnapshots() {
 	let npxPath = await io.which("npx", true)
 	let outputDir = `${workspace}/demos/local/`
 	await $`"${npxPath}" percy snapshot ${outputDir}`
+}
+
+function changedFileEffectsPercy(files) {
+	// any file under components that ends with .js or .scss extension
+	const regex = /components.*((\.js)|(\.scss)|(\.moustache)|(\.json))/gm
+	return files.find(file => regex.test(file))
 }
