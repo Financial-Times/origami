@@ -6,7 +6,10 @@
   "description": "Provides JS helper functions, such as throttling and debouncing",
   "keywords": [
     "debounce",
-    "throttle"
+    "throttle",
+    "uid",
+    "unique",
+    "id"
   ],
   "homepage": "https://registry.origami.ft.com/components/o-utils",
   "bugs": {
