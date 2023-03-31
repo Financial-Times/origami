@@ -5,7 +5,7 @@
 
 ### Features
 
-* triggar o-utils release ([7f8fbfc](https://www.github.com/Financial-Times/origami/commit/7f8fbfc20dfa62f15fb9f292dcf34ff1f4f3f502))
+* Add new function `uidBuilder` to generate a unique id for a given component name ([7f8fbfc](https://www.github.com/Financial-Times/origami/commit/7f8fbfc20dfa62f15fb9f292dcf34ff1f4f3f502))
 
 ### [2.1.1](https://www.github.com/Financial-Times/origami/compare/o-utils-v2.1.0...o-utils-v2.1.1) (2022-01-13)
 
