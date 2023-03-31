@@ -2,3 +2,4 @@ components/
 libraries/
 tools/*
 !tools/create-component
+apps/website/_emails/
