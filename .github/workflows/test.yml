@@ -6,6 +6,15 @@ concurrency:
 on:
   pull_request:
     branches: [ main ]
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "components/**"
+      - "libraries/**"
+      - "tools/**"
+      - "apps/**"
+      - "presets/**"
+      - "!**.md"
 
 jobs:
   test-components-ft-concept-button:
