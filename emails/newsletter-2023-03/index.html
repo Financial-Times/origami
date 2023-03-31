@@ -409,7 +409,9 @@ improvements at the same time.</p>
 </details>
 
 <p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">It was fun pairing with Tom on that and picking up a few more Figma tricks as an
-engineer: designers and engineers unite! These changes are aimed at increasing
+engineer: designers and engineers unite!</p>
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">These changes are aimed at increasing
 design team efficiency and improving designer/engineer hand over by aligning our
 design tooling and implementation. We have a lot more to do here, as many
 components are missing or difficult to work with design side. An engineer can’t
@@ -594,60 +596,18 @@ list of some other things that have happened in March:</p>
 
 
 
+
 <ul style="padding-left: 30px;">
-  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>NEW
-<a target="_blank" href="https://registry.origami.ft.com/components/o-multi-select@1.0.0">o-multi-select</a>:
-As promised in our <a target="_blank" href="https://origami.ft.com/blog/2023/03/03/newsletter/#new-component--o-multi-select">previous newsletter for
-February</a>,
-we have released a new new component, o-multi-select! Thanks Will Renny for your
-proposal and design work on that, we’re looking forward to seeing this rollout
-in Spark first 👏 Note that we’ve released this component experimentally for now
-as we await an accessibility review by a Digital Accessibility Centre (DAC)
-representative, but we’ve done our own research and you should feel free to use
-now – with the caveat that we may need to make changes depending on DAC’s
-feedback. - MAJOR
-<a target="_blank" href="https://registry.origami.ft.com/components/ft-date-format@3.0.0/readme">ft-date-format</a>:
-Introduces <code class="language-plaintext highlighter-rouge">t</code> symbol support for formatting for time following FT’s Editorial
-style. - MAJOR
-<a target="_blank" href="https://registry.origami.ft.com/components/o-date@6.0.0">o-date</a>: Introduces
-the latest version of <code class="language-plaintext highlighter-rouge">ft-date-format</code> to support formatting time following FT’s
-Editorial style. To upgrade see the <a target="_blank" href="https://github.com/Financial-Times/origami/blob/main/components/o-date/MIGRATION.md#migrating-from-v5-to-v6">o-date migration
-guide</a>
-– nice one, Chee Rabbits and Leigh-Ann Gant! - MAJOR
-<a target="_blank" href="https://registry.origami.ft.com/components/o-topper@6.0.3">o-topper</a>: o-topper
-no longer includes JavaScript to select the correct topper for JSON-formatted FT
-articles and flags. This helper was deeply tied to the FT.com content store, and
-included hardcoded UUIDs and business logic beyond the scope of Origami. Origami
-components focus on providing reusable user interfaces – without business logic
-assumptions which could limit their use outside specific groups or use-cases.
-Juan Sanchez and the StoryTelling team have also since updated the Deep Portrait
-topper style for improved readability 🎉 To upgrade see <a target="_blank" href="https://github.com/Financial-Times/origami/blob/main/components/o-topper/MIGRATION.md#migrating-from-v5-to-v6">o-topper migration
-guide</a>.</span></li>
-  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MINOR <a target="_blank" href="https://registry.origami.ft.com/components/o-forms@9.7.0">o-forms</a>:
-Adds a <code class="language-plaintext highlighter-rouge">GenericInput</code> TSX template, to use custom form inputs within an o-forms
-field – which includes label and related layout styles. - MINOR
-<a target="_blank" href="https://registry.origami.ft.com/components/o-table@9.3.0">o-table</a>: As
-mentioned, o-table includes TSX templates and <a target="_blank" href="https://origami.ft.com/storybook/brands/core/?path=/story/components-o-table-responsive--table-with-responsive-scroll">interactive Storybook
-demos</a>.</span></li>
-  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MINOR
-<a target="_blank" href="https://registry.origami.ft.com/components/github-label-sync@2.3.1/readme">github-label-sync</a>
-we accepted a couple of <a target="_blank" href="https://github.com/Financial-Times/github-label-sync/releases">Open Source
-contributions</a>
-for github-label-sync this month. These improve Github label name and
-description validation as well as add an optional “delete” flag which allows
-managed Github labels to be deleted. - MINOR
-<a target="_blank" href="https://registry.origami.ft.com/components/o-icons@7.6.0">o-icons</a>: adds a new
-preferences (/filter) icon, another shout out to Thomas Moody for that
-contribution 🔥 - PATCH
-<a target="_blank" href="https://registry.origami.ft.com/components/o-typography@7.3.5">o-typography</a>:
-o-typography links which open in a new window/tab no longer cause unwanted
-overflow, <a target="_blank" href="https://financialtimes.slack.com/archives/CSH1XFM5W/p1678978026106699">this was a fun problem which caused a whole bunch of excess
-whitespace</a>
-at the bottom of our “FT 1000: the seventh annual ranking of Europe’s
-fastest-growing companies”. Hey Storytelling! When you have time, pull in the
-latest version of o-typography to fix that ☺️ - PATCH
-<a target="_blank" href="https://registry.origami.ft.com/components/o-teaser@6.2.6">o-teaser</a>: Nothing
-much, just uses the latest version of o-date in its demos.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>NEW <a target="_blank" href="https://registry.origami.ft.com/components/o-multi-select@1.0.0">o-multi-select</a>: As promised in our <a target="_blank" href="https://origami.ft.com/blog/2023/03/03/newsletter/#new-component--o-multi-select">previous newsletter for February</a>, we have released a new new component, o-multi-select! Thanks Will Renny for your proposal and design work on that, we’re looking forward to seeing this rollout in Spark first 👏 Note that we’ve released this component experimentally for now as we await an accessibility review by a Digital Accessibility Centre (DAC) representative, but we’ve done our own research and you should feel free to use now – with the caveat that we may need to make changes depending on DAC’s feedback.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MAJOR <a target="_blank" href="https://registry.origami.ft.com/components/ft-date-format@3.0.0/readme">ft-date-format</a>: Introduces <code class="language-plaintext highlighter-rouge">t</code> symbol support for formatting for time following FT’s Editorial style.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MAJOR <a target="_blank" href="https://registry.origami.ft.com/components/o-date@6.0.0">o-date</a>: Introduces the latest version of <code class="language-plaintext highlighter-rouge">ft-date-format</code> to support formatting time following FT’s Editorial style. To upgrade see the <a target="_blank" href="https://github.com/Financial-Times/origami/blob/main/components/o-date/MIGRATION.md#migrating-from-v5-to-v6">o-date migration guide</a> – nice one, Chee Rabbits and Leigh-Ann Gant!</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MAJOR <a target="_blank" href="https://registry.origami.ft.com/components/o-topper@6.0.3">o-topper</a>: o-topper no longer includes JavaScript to select the correct topper for JSON-formatted FT articles and flags. This helper was deeply tied to the FT.com content store, and included hardcoded UUIDs and business logic beyond the scope of Origami. Origami components focus on providing reusable user interfaces – without business logic assumptions which could limit their use outside specific groups or use-cases. Juan Sanchez and the StoryTelling team have also since updated the Deep Portrait topper style for improved readability 🎉 To upgrade see <a target="_blank" href="https://github.com/Financial-Times/origami/blob/main/components/o-topper/MIGRATION.md#migrating-from-v5-to-v6">o-topper migration guide</a>.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MINOR <a target="_blank" href="https://registry.origami.ft.com/components/o-forms@9.7.0">o-forms</a>: Adds a <code class="language-plaintext highlighter-rouge">GenericInput</code> TSX template, to use custom form inputs within an o-forms field – which includes label and related layout styles.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MINOR <a target="_blank" href="https://registry.origami.ft.com/components/o-table@9.3.0">o-table</a>: As mentioned, o-table includes TSX templates and <a target="_blank" href="https://origami.ft.com/storybook/brands/core/?path=/story/components-o-table-responsive--table-with-responsive-scroll">interactive Storybook demos</a>.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MINOR <a target="_blank" href="https://registry.origami.ft.com/components/github-label-sync@2.3.1/readme">github-label-sync</a> we accepted a couple of <a target="_blank" href="https://github.com/Financial-Times/github-label-sync/releases">Open Source contributions</a> for github-label-sync this month. These improve Github label name and description validation as well as add an optional “delete” flag which allows managed Github labels to be deleted.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MINOR <a target="_blank" href="https://registry.origami.ft.com/components/o-icons@7.6.0">o-icons</a>: adds a new preferences (/filter) icon, another shout out to Thomas Moody for that contribution 🔥</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>PATCH <a target="_blank" href="https://registry.origami.ft.com/components/o-typography@7.3.5">o-typography</a>: o-typography links which open in a new window/tab no longer cause unwanted overflow, <a target="_blank" href="https://financialtimes.slack.com/archives/CSH1XFM5W/p1678978026106699">this was a fun problem which caused a whole bunch of excess whitespace</a> at the bottom of our “FT 1000: the seventh annual ranking of Europe’s fastest-growing companies”. Hey Storytelling! When you have time, pull in the latest version of o-typography to fix that ☺️</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>PATCH <a target="_blank" href="https://registry.origami.ft.com/components/o-teaser@6.2.6">o-teaser</a>: Nothing much, just uses the latest version of o-date in its demos.</span></li>
 </ul>
 
 
