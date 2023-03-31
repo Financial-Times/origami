@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.7.1](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.7.0...o-forms-v9.7.1) (2023-03-31)
+
+
+### Bug Fixes
+
+* require correct o-utils version ([5a18f37](https://www.github.com/Financial-Times/origami/commit/5a18f377ede852ed0b0c35707f69bfdb9537763c))
+
 ## [9.7.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.6.0...o-forms-v9.7.0) (2023-03-30)
 
 ### Features
