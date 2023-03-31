@@ -10,12 +10,18 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "components/**"
+      - "!components/**/*.md"
   push:
     branches: main
     paths:
       - "package.json"
       - "package-lock.json"
       - "components/**"
+      - "!components/**/*.md"
 
 jobs:
   <%#projects%>
