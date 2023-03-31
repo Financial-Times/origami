@@ -58,17 +58,19 @@ Below is an example of how to combine o-forms and o-multi-select components toge
 
 ### Using TSX templates
 
-If you are using TSX templates we recommend that you also import `FormTemplate` from `o-forms`. This will style labels and options for your TSX component.
+If you are using TSX templates we recommend that you also import `GenericInput` and `Form` from `o-forms`. This will style labels and options for your TSX component. And you will also need to initialise component javascript in correct lifecycle of your competent. Bellow is an example for react users.
 
 ```jsx
-import {FormTemplate} from '@financial-times/o-forms/src/tsx/Form';
+import {Form, GenericInput} from '@financial-times/o-forms/src/tsx/Form';
 import {MultiSelect} from '@financial-times/o-multi-select/src/tsx/multi-select';
 
 export const MultiSelectDefault = args => {
  return (
-  <FormTemplate id={args.id} title={args.title}>
-   <MultiSelect {...args} />
-  </FormTemplate>
+  <Form>
+    <GenericInput id={args.id} title={args.title}>
+      <MultiSelect {...args} />
+    </GenericInput>
+  </Form>
  );
 };
 ```
