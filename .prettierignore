@@ -1,4 +1,5 @@
-# components/
+components/*
 libraries/
 tools/*
 !tools/create-component
+!apps/data-vis/src/components

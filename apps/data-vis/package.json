@@ -10,9 +10,6 @@
 		"preview": "npm run generate-data && vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json"
 	},
-	"peer-dependencies": {
-		"@financial-times/o-colors": "^6.4.2"
-	},
 	"devDependencies": {
 		"@sveltejs/vite-plugin-svelte": "^1.0.1",
 		"@tsconfig/svelte": "^3.0.0",
@@ -41,6 +38,8 @@
 		"@financial-times/o-header-services": "^5.2.4",
 		"@financial-times/o-layout": "^5.2.4",
 		"@financial-times/o-spacing": "^3.2.1",
-		"@financial-times/o-typography": "^7.3.2"
+		"@financial-times/o-typography": "^7.3.2",
+		"@financial-times/o-colors": "^6.4.2"
+
 	}
 }
