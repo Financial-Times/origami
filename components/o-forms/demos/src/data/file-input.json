@@ -17,7 +17,7 @@
 			},
 			"input": {
 				"type": "file",
-				"modifiers": [ "valid" ],
+				"modifiers": [ ],
 				"id": "valid"
 			}
 		},
