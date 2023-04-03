@@ -646,8 +646,6 @@ For example to create a required text field with a custom error message, whilst 
 </label>
 ```
 
-To visually highlight an inputs validity without using [`o-forms` JavaScript](#javascript) add the `o-forms-input--valid` class on a valid `o-forms-input` element or `o-forms-input--invalid` on an invalid element. This is useful if rendering a form server-side for example.
-
 For example to render an invalid field without [`o-forms` JavaScript](#javascript):
 
 ```diff

@@ -19,7 +19,7 @@
 			},
 			"input": {
 				"type": "textarea",
-				"modifiers": [ "valid" ],
+				"modifiers": [ ],
 				"value": "Yup!",
 				"id": "textarea-valid"
 			}

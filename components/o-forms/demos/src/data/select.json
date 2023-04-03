@@ -23,7 +23,7 @@
 				"type": "select",
 				"selected": "Option 1",
 				"options": [ "Option 2", "Option 3", "Option 4" ],
-				"modifiers": ["valid"],
+				"modifiers": [],
 				"id": "valid"
 			}
 		},
