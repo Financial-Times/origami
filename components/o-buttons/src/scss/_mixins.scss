@@ -291,6 +291,7 @@
 			// If whitespace is included in the pseudo element Safari does not
 			// do this: https://github.com/Financial-Times/o-buttons/issues/250
 			content: ' ';
+			white-space: initial;
 		}
 	}
 
