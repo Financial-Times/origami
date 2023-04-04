@@ -15,7 +15,6 @@ function listenOnce(el, eventName, fn) {
 }
 
 function eventListener(video, ev) {
-
 	// On some platforms (eg iOS), the Google advert library will use the main <video> element
 	// used by o-video to also play a pre-roll advert; as the advert plays, this will trigger
 	// the normal <video> event listeners.  Discard events that we can identify as coming
@@ -55,13 +54,14 @@ const dispatchedProgress = {};
 function shouldDispatch(video) {
 	const progress = video.getProgress();
 	const id = video.opts.id;
+
 	//100% progress doesn't seem to be launched in chrome
 	const relevantProgressPoints = [
 		8, 9, 10, 11, 12,
 		23, 24, 25, 26, 27,
 		48, 49, 50, 51, 52,
 		73, 74, 75, 76, 77,
-		99,100
+		96, 97, 98, 99, 100
 	];
 
 	// Initialise dispatched progress store
