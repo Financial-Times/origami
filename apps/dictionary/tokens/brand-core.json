@@ -1,0 +1,32 @@
+{
+  "color": {
+    "background": {
+      "button": {
+        "primary": {
+          "description": "",
+          "type": "color",
+          "value": "#000000",
+          "blendMode": "normal"
+        },
+        "inverse": {
+          "description": "",
+          "type": "color",
+          "value": "#ffffffff",
+          "blendMode": "normal"
+        },
+        "mono": {
+          "description": "",
+          "type": "color",
+          "value": "#262a33",
+          "blendMode": "normal"
+        },
+        "b2c": {
+          "description": "",
+          "type": "color",
+          "value": "#3a70af",
+          "blendMode": "normal"
+        }
+      }
+    }
+  }
+}
