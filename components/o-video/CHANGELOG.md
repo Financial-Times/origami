@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.2.7](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.6...o-video-v7.2.7) (2023-04-05)
+
+
+### Bug Fixes
+
+* increase range of points to capture video progress at the end of a video ([5c29017](https://www.github.com/Financial-Times/origami/commit/5c29017633f3cdc3b776fb7d543539814fa8f0c6))
+
 ### [7.2.6](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.5...o-video-v7.2.6) (2023-01-20)
 
 
