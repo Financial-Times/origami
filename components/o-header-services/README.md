@@ -63,8 +63,29 @@ The primary navigation can also handle dropdown menus. These menus are hidden be
 
 Drop down menus also get pulled into the drawer on smaller viewports.
 
-For an example and markup, see the [primary navigation with drop downs in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-primary-navigation-and-drop-down-menus).
+For an example and markup, see the [primary navigation with drop downs in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-header-with-primary-navigation-and-drop-down-menus).
 
+If copying markup from the above example, update the following attributes of dropdown navigation items:
+- `aria-label`: include the title of your navigation item in the label for your dropdown button.
+- `aria-controls`: link your dropdown button to the `id` of the `ul` navigation list which it controls
+
+The following example shows the correct markup for a "Documentation" dropdown:
+```html
+<li data-o-header-services-level="1">
+	<a href>Documentation</a><!--
+	--><button
+		class="o-header-services__drop-down-button"
+		aria-controls="documentation-dropdown"
+		aria-label="Toggle documentation dropdown menu">
+	</button>
+	<ul
+		id="documentation-dropdown"
+		data-o-header-services-level="2"
+		aria-hidden="true">
+		<!-- dropdown navigation list items -->
+	</ul>
+</li>
+```
 ### Secondary Navigation
 
 The secondary navigation is also an **optional** addition to the header, but it makes more sense alongside the primary navigation, as it serves more complicated products.
