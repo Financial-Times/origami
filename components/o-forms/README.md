@@ -322,7 +322,9 @@ To show a state label with no text set the modifier class `o-forms-input__state-
 
 ##### Pseudo box radio inputs
 
-Its possible to achieve the look of box style radio inputs with anchor elements instead of actual radio inputs, we call these pseudo box radio inputs. They are useful, for example, as a control to toggle between two versions of a page.
+**Deprecated, we no longer recommend pseudo box radio inputs. These will be removed in a future major version:**
+
+Its possible to achieve the look of box style radio inputs with anchor elements instead of actual radio inputs, we call these pseudo box radio inputs. This is no longer recommended and should not be used in new projects.
 
 ```html
 <div class="o-forms-input o-forms-input--pseudo-radio-link">
@@ -331,6 +333,7 @@ Its possible to achieve the look of box style radio inputs with anchor elements 
 </div>
 ```
 
+Links which look like form inputs may be confusing for some users of assistive technologies, as they may be accessed or behave differently than expected. Further, unlike true o-forms radio inputs, there is no fieldset with legend to group the links. For most cases, use standard [box radio inputs](#box-radio-inputs) instead.
 #### Checkbox inputs
 
 ##### Square checkbox inputs
