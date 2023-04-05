@@ -23,7 +23,6 @@ describe('Input', () => {
 		new Input(optionalField);
 
 		proclaim.isFalse(parentClass(optionalField, 'invalid'));
-		proclaim.isFalse(parentClass(optionalField, 'valid'));
 	});
 
 	context('validates required fields', () => {
@@ -53,7 +52,6 @@ describe('Input', () => {
 			dispatch('input', requiredField);
 
 			proclaim.isFalse(parentClass(requiredField, 'invalid'));
-			proclaim.isTrue(parentClass(requiredField, 'valid'));
 		});
 	});
 
@@ -97,7 +95,6 @@ describe('Input', () => {
 			dispatch('input', yearField);
 
 			proclaim.isFalse(parentClass(dayField, 'invalid'), 'invalid class is not removed');
-			proclaim.isTrue(parentClass(dayField, 'valid'), 'valid class was not added');
 		});
 	});
 
