@@ -1,9 +1,9 @@
 const StyleDictionaryPackage = require('style-dictionary');
-const fs = require('fs').promises;
+const glob = require('glob');
 
 const getStyleDictionaryBrandConfig = (brand) => (
 	{
-		"source": [`tokens/brands/${brand.tokens}`],
+		"source": [`tokens/${brand.tokens}`],
 		"platforms": {
 			"css": {
 				"transformGroup": "css",
@@ -17,16 +17,19 @@ const getStyleDictionaryBrandConfig = (brand) => (
 	}
 )
 const getBrands = async () => {
-	let brandDirectories;
+	let brandFiles;
 	try {
-		brandDirectories = await fs.readdir('./tokens/brands/', {withFileTypes: true});
+		brandFiles = await glob('tokens/brand-*.json', {nodir: true});
 	} catch (err) {
 		throw new Error(`Error reading file system: ${err}`);
 	}
-	return brandDirectories.filter((dirent) => dirent.isDirectory()).map(directory => ({
-		name: directory.name,
-		tokens: directory.name + '/tokens.json'
-	}));
+	return brandFiles.map(file => {
+		const [fileNameExcludingPrefix, extension] = file.split('brand-')[1].split('.');
+		return {
+			name: fileNameExcludingPrefix,
+			tokens: `brand-${fileNameExcludingPrefix}.${extension}`
+		};
+	});
 }
 
 (async () => {
