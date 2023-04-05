@@ -3,9 +3,9 @@
     "color",
     "font",
     "typography",
-    "internal",
-    "core",
-    "whitelabel",
-    "professional"
+    "brand-internal",
+    "brand-core",
+    "brand-whitelabel",
+    "brand-professional"
   ]
 }
