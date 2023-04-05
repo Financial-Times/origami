@@ -78,6 +78,18 @@
 			]
 		},
 		{
+			"name": "core-professional-palette",
+			"title": "FT Professional Palette",
+			"data": "demos/src/palettes/core-palette.json",
+			"template": "demos/src/professional-palette.mustache",
+			"description": "Colours for use exclusively by the FT Professional sub-brand.",
+			"display_html": false,
+			"brands": [
+				"core"
+			],
+			"hidden": true
+		},
+		{
 			"name": "core-b2c-palette",
 			"title": "B2C Palette",
 			"data": "demos/src/palettes/core-palette.json",

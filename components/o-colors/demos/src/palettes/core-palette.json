@@ -25,6 +25,9 @@
 		{ "name": "lemon" },
 		{ "name": "sky" }
 	],
+	"professional": [
+		{ "name": "mint" }
+	],
 	"b2c": [
 		{ "name": "org-b2c" },
 		{ "name": "org-b2c-dark" },
