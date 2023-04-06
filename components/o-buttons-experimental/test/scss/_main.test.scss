@@ -1,0 +1,18 @@
+@include describe('oButtonsExperimental mixins') {
+	@include describe('oButtonsExperimental') {
+		@include it('does something') {
+			@include assert() {
+				@include output($selector: false) {
+					.test-mixin {
+						@include oButtonsExperimental();
+					}
+				}
+				@include expect($selector: false) {
+					.test-mixin .o-buttons-experimental {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oButtonsExperimentalGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-buttons-experimental', $variables: $variables, $from: $from);
+}
+/// Helper for `o-brand` function.
+/// @access private
+@function _oButtonsExperimentalSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-buttons-experimental', $variant: $variant);
+}

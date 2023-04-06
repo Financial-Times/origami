@@ -1,0 +1,28 @@
+@import '@financial-times/o-brand/main';
+
+@import './src/scss/variables';
+@import 'src/scss/brand';
+/// Output all oButtonsExperimental features
+/// @param {Map} $opts [()] - A map of options to configure the output
+/// @access public
+/// @example scss
+///		@include oButtonsExperimental($opts: (
+///			// your opts here
+///		))
+
+@if oBrandIs('core') {
+  @import '../../../apps/dictionary/build/css/brands/core/_variables.css';
+}
+@if oBrandIs('whitelabel') {
+  @import '../../../apps/dictionary/build/css/brands/whitelabel/_variables.css';
+}
+@if oBrandIs('internal') {
+  @import '../../../apps/dictionary/build/css/brands/internal/_variables.css';
+}
+@mixin oButtonsExperimental ($opts: ()) {
+	// content of primary mixin
+	.o-buttons-experimental {
+		display: block;
+	}
+}
+
