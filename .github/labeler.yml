@@ -32,6 +32,8 @@ o-big-number:
   - components/o-big-number/**/*
 o-buttons:
   - components/o-buttons/**/*
+o-buttons-experimental:
+  - components/o-buttons-experimental/**/*
 o-colors:
   - components/o-colors/**/*
 o-comments:
@@ -170,6 +172,8 @@ html:
   - apps/storybook/addons/html/**/*
 markdown-tabs:
   - apps/storybook/addons/markdown-tabs/**/*
+dictionary:
+  - apps/dictionary/**/*
 storybook:
   - apps/storybook/**/*
 website:
