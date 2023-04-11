@@ -4,7 +4,7 @@
       "button": {
         "primary": {
           "type": "color",
-          "value": "#000000",
+          "value": "#bc0909",
           "blendMode": "normal"
         },
         "inverse": {
