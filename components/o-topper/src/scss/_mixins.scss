@@ -345,6 +345,9 @@
 				color: oColorsMix($foreground, $color-name, 73);
 			}
 		}
+		:focus-visible {
+			outline: 2px solid oColorsByName('white');
+		}
 	}
 }
 
