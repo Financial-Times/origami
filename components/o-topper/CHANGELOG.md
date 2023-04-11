@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.0.5](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.4...o-topper-v6.0.5) (2023-04-11)
+
+
+### Bug Fixes
+
+* change outline color for focus links under matisse theme ([7e5b1be](https://www.github.com/Financial-Times/origami/commit/7e5b1be95e1f49be53b511f3478f187dd86121c8))
+
 ### [6.0.4](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.3...o-topper-v6.0.4) (2023-03-29)
 
 
