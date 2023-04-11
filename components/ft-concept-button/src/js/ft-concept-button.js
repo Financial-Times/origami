@@ -12,6 +12,14 @@ export default class FtConceptButton {
 		this.button = this.element.querySelector('.ft-concept-button__button');
 		this.live = this.element.querySelector('.ft-concept-button__announcement');
 		this.options = Object.assign({}, options || this.getOptionsFromDom());
+
+		// Set the correct initial state of the button
+		this._initializeState();
+	}
+
+	_initializeState() {
+		const state = this.isPressed;
+		this.isPressed = state;
 	}
 
 	get isPressed() {
