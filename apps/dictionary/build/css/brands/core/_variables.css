@@ -1,11 +1,15 @@
 /**
  * Do not edit directly
- * Generated on Wed, 05 Apr 2023 15:57:23 GMT
+ * Generated on Tue, 11 Apr 2023 12:28:04 GMT
  */
 
 :root {
-  --color-background-button-primary: #000000;
+  --color-background-button-primary-active: #0d7680;
+  --color-background-button-primary-hover: #095259;
   --color-background-button-inverse: #ffffff;
   --color-background-button-mono: #262a33;
   --color-background-button-b2c: #3a70af;
+  --color-button-primary-active: #ffffff;
+  --color-button-primary-hover: #ffffff;
+  --border-button-primary: [object Object];
 }

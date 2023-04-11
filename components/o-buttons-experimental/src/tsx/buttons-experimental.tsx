@@ -33,22 +33,22 @@ interface LinkButtonProps extends ButtonProps {
 }
 
 function makeClassNames({ type, size, theme, icon, iconOnly }) {
-	const classNames = ["o-buttons", `o-buttons--${type}`];
+	const classNames = ["o-buttons-experimental", `o-buttons-experimental--${type}`];
 
 	if (size) {
-		classNames.push(`o-buttons--${size}`);
+		classNames.push(`o-buttons-experimental--${size}`);
 	}
 
 	if (theme) {
-		classNames.push(`o-buttons--${theme}`);
+		classNames.push(`o-buttons-experimental--${theme}`);
 	}
 
 	if (icon) {
-		classNames.push(`o-buttons-icon o-buttons-icon--${icon}`);
+		classNames.push(`o-buttons-experimental-icon o-buttons-experimental-icon--${icon}`);
 	}
 
 	if (iconOnly) {
-		classNames.push("o-buttons-icon--icon-only");
+		classNames.push("o-buttons-experimental-icon--icon-only");
 	}
 	return classNames.join(" ");
 }
@@ -70,7 +70,7 @@ export function Button({
 			{...attributes}
 		>
 			{icon && iconOnly ? (
-				<span className="o-buttons-icon__label">{label}</span>
+				<span className="o-buttons-experimental-icon__label">{label}</span>
 			) : (
 				label
 			)}
@@ -97,7 +97,7 @@ export function LinkButton({
 			{...attributes}
 		>
 			{icon && iconOnly ? (
-				<span className="o-buttons-icon__label">{label}</span>
+				<span className="o-buttons-experimental-icon__label">{label}</span>
 			) : (
 				label
 			)}

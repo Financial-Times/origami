@@ -57,55 +57,8 @@ PrimaryButton.args = {
 	type: "primary",
 };
 
-export const SecondaryButton = ButtonStory.bind({});
-SecondaryButton.args = {
-	label: "Press button",
-	type: "secondary",
-};
-
-export const LinkAsButton = LinkButtonStory.bind({});
-LinkAsButton.args = {
-	label: "Link button",
-	type: "secondary",
-	href: "#",
-};
-
-export const BigButton = ButtonStory.bind({});
-BigButton.args = {
-	size: "big",
-	label: "Press button",
-};
-
-export const InverseButton = ButtonStory.bind({});
-InverseButton.args = {
-	label: "Press button",
-	theme: "inverse",
-};
-InverseButton.parameters = {
-	origamiBackground: "slate",
-};
-
-export const MonoButton = ButtonStory.bind({});
-MonoButton.args = {
-	label: "Press button",
-	theme: "mono",
-};
-
-export const GhostButton = ButtonStory.bind({});
-GhostButton.args = {
-	label: "Press button",
-	type: "ghost",
-};
-
-export const ButtonWithIcon = ButtonStory.bind({});
-ButtonWithIcon.args = {
-	label: "Upload",
-	icon: "upload",
-};
-
-export const IconOnlyButton = ButtonStory.bind({});
-IconOnlyButton.args = {
-	label: "Next",
-	icon: "arrow-right",
-	iconOnly: true,
-};
+// export const SecondaryButton = ButtonStory.bind({});
+// SecondaryButton.args = {
+// 	label: "Press button",
+// 	type: "secondary",
+// };
