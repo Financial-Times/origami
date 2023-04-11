@@ -346,7 +346,7 @@
 			}
 		}
 		:focus-visible {
-			outline: 2px solid oColorsByName('white');
+			outline-color: oColorsByName('white');
 		}
 	}
 }
