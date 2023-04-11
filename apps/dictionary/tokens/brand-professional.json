@@ -20,6 +20,18 @@
           "blendMode": "normal"
         }
       }
+    },
+    "button": {
+      "primary": {
+        "active": {
+          "value": "#FFFFFF",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#FFFFFF",
+          "type": "color"
+        }
+      }
     }
   }
 }

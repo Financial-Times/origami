@@ -23,8 +23,14 @@
     },
     "button": {
       "primary": {
-        "value": "#ffffff",
-        "type": "color"
+        "active": {
+          "value": "#FFFFFF",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#FFFFFF",
+          "type": "color"
+        }
       }
     }
   }

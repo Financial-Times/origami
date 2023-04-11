@@ -35,8 +35,14 @@
     },
     "button": {
       "primary": {
-        "value": "#FFFFFF",
-        "type": "color"
+        "active": {
+          "value": "#FFFFFF",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#FFFFFF",
+          "type": "color"
+        }
       }
     }
   }
