@@ -3,10 +3,15 @@
     "background": {
       "button": {
         "primary": {
-          "description": "",
-          "type": "color",
-          "value": "#0d7680ff",
-          "blendMode": "normal"
+          "active": {
+            "type": "color",
+            "value": "#0d7680ff",
+            "blendMode": "normal"
+          },
+          "hover": {
+            "value": "#095259",
+            "type": "color"
+          }
         },
         "inverse": {
           "description": "",
