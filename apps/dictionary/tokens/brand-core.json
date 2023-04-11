@@ -5,7 +5,7 @@
         "primary": {
           "description": "",
           "type": "color",
-          "value": "#000000",
+          "value": "#0d7680ff",
           "blendMode": "normal"
         },
         "inverse": {
