@@ -38,8 +38,8 @@ A theme may be applied to a button to change its appearance. o-buttons provides 
 
 | Theme   | Selector            | Works With Types   | Brand Support  |
 | ------- | ------------------- | ------------------ | -------------- |
-| inverse | .o-buttons--inverse | primary, secondary | core, internal |
-| mono    | .o-buttons--mono    | primary, secondary | core, internal |
+| inverse | .o-buttons--inverse | primary, secondary, ghost | core, internal |
+| mono    | .o-buttons--mono    | primary, secondary, ghost | core, internal |
 | b2c     | .o-buttons--b2c     | primary            | core           |
 | professional     | .o-buttons--professional     | primary, secondary, ghost            | core           |
 | professional-inverse     | .o-buttons--professional-inverse     | primary, secondary, ghost            | core           |
