@@ -27,6 +27,12 @@
           "blendMode": "normal"
         }
       }
+    },
+    "button": {
+      "primary": {
+        "value": "#FFFFFF",
+        "type": "color"
+      }
     }
   }
 }
