@@ -3,9 +3,8 @@
     "background": {
       "button": {
         "primary": {
-          "description": "",
           "type": "color",
-          "value": "#0d7680ff",
+          "value": "#000000",
           "blendMode": "normal"
         },
         "inverse": {
@@ -18,7 +17,7 @@
     },
     "button": {
       "primary": {
-        "value": "#000000",
+        "value": "#ffffff",
         "type": "color"
       }
     }
