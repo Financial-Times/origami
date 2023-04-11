@@ -34,5 +34,16 @@
         "type": "color"
       }
     }
+  },
+  "border": {
+    "button": {
+      "primary": {
+        "value": {
+          "color": "transparent",
+          "width": "1px"
+        },
+        "type": "border"
+      }
+    }
   }
 }
