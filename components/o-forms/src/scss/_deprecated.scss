@@ -1,6 +1,6 @@
 /// @access private
 /// @output Styling for anchor 'controls'
-
+/// @deprecated Remove in a future major version. https://github.com/Financial-Times/origami/issues/535
 @mixin _oFormsPseudoRadioLink {
 	.o-forms-input--pseudo-radio-link {
 		@include _oFormsControlsBoxContainer();
@@ -12,6 +12,7 @@
 /// @access private
 /// @param {Map|null} $theme Custom theme map
 /// Outpus styling for box-styled anchors
+/// @deprecated Remove in a future major version. https://github.com/Financial-Times/origami/issues/535
 @mixin _oFormsPseudoRadioLinkStyles($theme: null) {
 	border-color: _oFormsGet('default-border', $from: $theme);
 

@@ -1,5 +1,13 @@
 # Changelog
 
+### [9.7.2](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.7.1...o-forms-v9.7.2) (2023-04-11)
+
+
+### Bug Fixes
+
+* o-forms, deprecate pseudo-radio-link. ([fa297c4](https://www.github.com/Financial-Times/origami/commit/fa297c4ca746d397075245f71e36c41c1fdefacf))
+* o-forms, remove valid state ([7ea9884](https://www.github.com/Financial-Times/origami/commit/7ea9884c0db7ba285b5589d4a2f4adbe509a17fe))
+
 ### [9.7.1](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.7.0...o-forms-v9.7.1) (2023-03-31)
 
 
