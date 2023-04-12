@@ -25,6 +25,9 @@
 		{ "name": "lemon" },
 		{ "name": "sky" }
 	],
+	"professional": [
+		{ "name": "mint" }
+	],
 	"b2c": [
 		{ "name": "org-b2c" },
 		{ "name": "org-b2c-dark" },
@@ -37,7 +40,8 @@
 		{ "name": "claret", "values": [30, 40, 50, 60, 70, 80, 90, 100] },
 		{ "name": "oxford", "values": [30, 40, 50, 60, 70, 80, 90, 100] },
 		{ "name": "teal",   "values": [20, 30, 40, 50, 60, 70, 80, 90, 100] },
-		{ "name": "wheat", "values": [100] }
+		{ "name": "wheat", "values": [100] },
+		{ "name": "mint", "values": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100] }
 	],
 	"mixes": [
 		{ "name": "black",  "values": [5, 10, 20, 30, 40, 50, 60, 70, 80, 90] },

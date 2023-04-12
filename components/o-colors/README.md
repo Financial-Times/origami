@@ -106,6 +106,7 @@ ft-grey | core
 org-b2c | core
 org-b2c-dark | core
 org-b2c-light | core
+mint | core
 
 There are additional colours in the palette by default including tones and mixes. [See the registry demos](https://registry.origami.ft.com/components/o-colors) for a full list.
 
