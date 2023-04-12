@@ -122,6 +122,7 @@ export function RadioBtns({
 	inlineField,
 	isVerticalCenter,
 	inlineInputs,
+	theme,
 }: RadioBtnsProps) {
 	const wrapperProps = {
 		errorMessage,
@@ -134,6 +135,7 @@ export function RadioBtns({
 		isOptional,
 		inlineField,
 		isVerticalCenter,
+		theme
 	};
 	return (
 		<FormFieldset {...fieldsetProps}>

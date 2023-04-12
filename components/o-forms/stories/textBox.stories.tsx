@@ -25,6 +25,7 @@ export default {
 		highlightValid: {
 			if: {arg: 'errorMessage', truthy: false},
 		},
+		theme: hideArg
 	},
 } as ComponentMeta<typeof TextInput>;
 

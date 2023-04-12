@@ -19,6 +19,7 @@ export default {
 	decorators: [withDesign, withHtml],
 	argTypes: {
 		children: hideArg,
+    theme: hideArg,
 		...demoArgs,
 	},
 } as ComponentMeta<typeof RadioBoxLinks>;

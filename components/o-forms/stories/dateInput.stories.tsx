@@ -19,6 +19,7 @@ export default {
 	argTypes: {
 		onChange: hideArg,
 		values: hideArg,
+    theme: hideArg
 	},
 } as ComponentMeta<typeof DateInput>;
 
