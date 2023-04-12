@@ -38,9 +38,11 @@ A theme may be applied to a button to change its appearance. o-buttons provides 
 
 | Theme   | Selector            | Works With Types   | Brand Support  |
 | ------- | ------------------- | ------------------ | -------------- |
-| inverse | .o-buttons--inverse | primary, secondary | core, internal |
-| mono    | .o-buttons--mono    | primary, secondary | core, internal |
+| inverse | .o-buttons--inverse | primary, secondary, ghost | core, internal |
+| mono    | .o-buttons--mono    | primary, secondary, ghost | core, internal |
 | b2c     | .o-buttons--b2c     | primary            | core           |
+| professional     | .o-buttons--professional     | primary, secondary, ghost            | core           |
+| professional-inverse     | .o-buttons--professional-inverse     | primary, secondary, ghost            | core           |
 
 ```html
 <button class="o-buttons o-buttons--primary o-buttons--inverse">Submit</button>
@@ -193,7 +195,7 @@ To output default o-buttons CSS make a single call to the primary mixin `oButton
 @include oButtons($opts: (
 	'sizes': ('big'), // e.g .o-buttons--big
 	'types': ('primary', 'secondary', 'ghost'), // e.g .o-buttons--primary
-	'themes': ('mono', 'inverse', 'b2c'), // e.g .o-buttons--inverse
+	'themes': ('mono', 'inverse', 'b2c', 'professional', 'professional-inverse'), // e.g .o-buttons--inverse
 	'icons': ('arrow-left', 'arrow-right', 'search'), // any fticons, e.g .o-buttons-icons.o-buttons-icons--search
 	'pagination': true, // .o-buttons-pagination
 	'groups': true // .o-buttons-group
