@@ -17,7 +17,11 @@ export default {
 	component: RadioBtns,
 	decorators: [withDesign, withHtml],
 	argTypes: {
-		children: hideArg
+		children: hideArg,
+		theme: {
+			control: 'radio',
+      options: ['professional', 'professional-inverse'],
+		}
 	}
 } as ComponentMeta<typeof RadioBtns>;
 
