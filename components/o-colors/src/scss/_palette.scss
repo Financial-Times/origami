@@ -35,6 +35,9 @@ $_o-colors-default-palette-colors: join((
 		('lemon', #ffec1a),
 		('sky', #cce6ff),
 
+		//professional
+		('mint', #c0efd8, ('allow-tones': true)),
+
 		//b2c palette
 		('org-b2c', #4e96eb),
 		('org-b2c-dark', #3a70af),
@@ -85,6 +88,7 @@ $_o-colors-default-palette-colors: join((
 		'claret': (30, 40, 50, 60, 70, 80, 90, 100),
 		'oxford': (30, 40, 50, 60, 70, 80, 90, 100),
 		'teal': (20, 30, 40, 50, 60, 70, 80, 90, 100),
+		'mint': (10, 20, 30, 40, 50, 60, 70, 80, 90, 100),
 		'wheat': (100)
 	), $_o-colors-default-palette-tones);
 }
