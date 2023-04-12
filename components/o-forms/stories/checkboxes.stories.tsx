@@ -18,7 +18,8 @@ export default {
 	component: Checkboxes,
 	decorators: [withDesign, withHtml],
 	argTypes: {
-		children: hideArg
+		children: hideArg,
+    theme: hideArg
 	}
 } as ComponentMeta<typeof Checkboxes>;
 

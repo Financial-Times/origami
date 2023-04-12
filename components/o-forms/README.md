@@ -287,6 +287,10 @@ To create a radio input use a [multiple input](#multiple-input-fields) field str
  </span>
 </div>
 ```
+Round radio inputs support 2 themes.
+
+- **professional**: For a round radio with professional theme set `o-forms-field--professional` on the field element.
+- **professional-inverse**: For round radio with inverse professional theme Set `o-forms-field--professional-inverse` on the field element.
 
 [_See radio buttons in the registry_](https://registry.origami.ft.com/components/o-forms#demo-round-styled-radio-inputs)
 

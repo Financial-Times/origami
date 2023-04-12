@@ -28,6 +28,25 @@
 	},
 	"demos": [
 		{
+			"name": "professional-theme",
+			"title": "Professional theme",
+			"template": "/demos/src/professional.mustache",
+			"description": "Professional theme",
+			"brands": [
+				"core"
+			]
+		},
+		{
+			"name": "professional-inverse-theme",
+			"title": "Professional inverse theme",
+			"template": "/demos/src/professional-inverse.mustache",
+			"description": "Professional inverse theme",
+			"sass": "demos/src/inverse.scss",
+			"brands": [
+				"core"
+			]
+		},
+		{
 			"name": "inverse-form",
 			"title": "Inverse Form",
 			"template": "/demos/src/inverse-form.mustache",

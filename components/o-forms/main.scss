@@ -7,6 +7,7 @@
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-typography/main';
 
+@import './src/scss/mixins';
 @import 'src/scss/main';
 
 /// @access public
@@ -44,6 +45,8 @@
 	'themes': (
 		'inverse',
 		'white',
+		'professional',
+		'professional-inverse'
 	)
 )) {
 	$elements: map-get($opts, 'elements');
@@ -56,6 +59,7 @@
 	$inverse-theme: index($features, 'inverse') or index($themes, 'inverse');
 	// For use on a white background (as oppose to another background, e.g. paper for the core brand)
 	$white-theme: index($themes, 'white');
+
 	$error-summary: index($features, 'error-summary');
 	$right: index($features, 'right');
 	$small: index($features, 'small');
@@ -140,6 +144,12 @@
 	@if $white-theme {
 		.o-forms-field--white {
 			--o-forms-toggle-handle-color: #{oColorsByName('white')};
+		}
+	}
+
+	@each $theme in $themes {
+		@if _oFormsSupports('#{$theme}') {
+			@include _oFormsAdd($theme);
 		}
 	}
 

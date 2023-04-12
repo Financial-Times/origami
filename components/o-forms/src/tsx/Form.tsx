@@ -14,6 +14,7 @@ export interface TypeFormField {
 	isOptional?: boolean;
 	inlineField?: boolean;
 	isVerticalCenter?: boolean;
+	theme?: 'inverse' | 'white' | 'professional' | 'professional-inverse';
 }
 
 export interface FormFieldProps extends TypeFormField {
@@ -117,6 +118,7 @@ export function FormFieldset({
 	isOptional,
 	inlineField,
 	isVerticalCenter,
+	theme,
 	children,
 }: FormFieldsetProps) {
 	const labelId = uniqueId('labelledby_');
@@ -124,6 +126,7 @@ export function FormFieldset({
 	const [addClass, getClasses] = classBuilder('o-forms-field');
 	if (inlineField) addClass('inline');
 	if (isOptional) addClass('optional');
+	if (theme) addClass(theme);
 
 	return (
 		<div
