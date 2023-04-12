@@ -57,8 +57,8 @@ PrimaryButton.args = {
 	type: "primary",
 };
 
-// export const SecondaryButton = ButtonStory.bind({});
-// SecondaryButton.args = {
-// 	label: "Press button",
-// 	type: "secondary",
-// };
+export const SecondaryButton = ButtonStory.bind({});
+SecondaryButton.args = {
+	label: "Press button",
+	type: "secondary",
+};

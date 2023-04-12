@@ -147,8 +147,8 @@
 	$button-colors: _oButtonsGetColors($type, $theme);
 	// Create CSS selectors.
 	$theme-name: if(type-of($theme) == 'map', map-get($theme, 'name'), $theme);
-	$type-selector: '.o-buttons--#{$type}';
-	$theme-selector: if($theme-name, '.o-buttons--#{$theme-name}', '');
+	$type-selector: '.o-buttons-experimental--#{$type}';
+	$theme-selector: if($theme-name, '.o-buttons-experimental--#{$theme-name}', '');
 	// Output variant styles.
 	#{$type-selector}#{$theme-selector} {
 		@include _oButtonsStateContent($type, $button-colors);
