@@ -13,6 +13,17 @@
             "type": "color"
           }
         },
+        "secondary": {
+          "active": {
+            "type": "color",
+            "value": "#ffffff00",
+            "blendMode": "normal"
+          },
+          "hover": {
+            "value": "rgba(13,118,128,0.1)",
+            "type": "color"
+          }
+        },
         "inverse": {
           "description": "",
           "type": "color",
@@ -43,6 +54,22 @@
           "value": "#FFFFFF",
           "type": "color"
         }
+      },
+      "secondary": {
+        "active": {
+          "value": "{color.background.button.primary.active}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "{color.background.button.primary.active}",
+          "type": "color"
+        }
+      }
+    },
+    "border": {
+      "secondary": {
+        "value": "{color.background.button.primary.active}",
+        "type": "color"
       }
     }
   },
