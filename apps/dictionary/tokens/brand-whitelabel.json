@@ -1,64 +1,66 @@
 {
-  "color": {
-    "background": {
-      "button": {
-        "primary": {
-          "active": {
-            "type": "color",
-            "value": "#000000ff",
-            "blendMode": "normal"
-          },
-          "hover": {
-            "value": "#333",
-            "type": "color"
-          }
-        },
-        "inverse": {
-          "description": "",
-          "type": "color",
-          "value": "#ffffffff",
-          "blendMode": "normal"
-        },
-        "secondary": {
-          "active": {
-            "type": "color",
-            "value": "#ffffff00",
-            "blendMode": "normal"
-          },
-          "hover": {
-            "value": "rgba(13,118,128,0.1)",
-            "type": "color"
-          }
-        }
-      }
-    },
-    "button": {
-      "primary": {
-        "active": {
-          "value": "#FFFFFF",
-          "type": "color"
-        },
-        "hover": {
-          "value": "#FFFFFF",
-          "type": "color"
-        }
-      },
-      "secondary": {
-        "active": {
-          "value": "{color.background.button.primary.active}",
-          "type": "color"
-        },
-        "hover": {
-          "value": "{color.background.button.primary.active}",
-          "type": "color"
-        }
-      }
-    },
-    "border": {
-      "secondary": {
-        "value": "{color.background.button.primary.active}",
-        "type": "color"
-      }
-    }
+  "whitelabel": {
+	"color": {
+	  "background": {
+		"button": {
+		  "primary": {
+			"active": {
+			  "type": "color",
+			  "value": "#000000ff",
+			  "blendMode": "normal"
+			},
+			"hover": {
+			  "value": "#333",
+			  "type": "color"
+			}
+		  },
+		  "inverse": {
+			"description": "",
+			"type": "color",
+			"value": "#ffffffff",
+			"blendMode": "normal"
+		  },
+		  "secondary": {
+			"active": {
+			  "type": "color",
+			  "value": "#ffffff00",
+			  "blendMode": "normal"
+			},
+			"hover": {
+			  "value": "rgba(13,118,128,0.1)",
+			  "type": "color"
+			}
+		  }
+		}
+	  },
+	  "button": {
+		"primary": {
+		  "active": {
+			"value": "#FFFFFF",
+			"type": "color"
+		  },
+		  "hover": {
+			"value": "#FFFFFF",
+			"type": "color"
+		  }
+		},
+		"secondary": {
+		  "active": {
+			"value": "{color.background.button.primary.active}",
+			"type": "color"
+		  },
+		  "hover": {
+			"value": "{color.background.button.primary.active}",
+			"type": "color"
+		  }
+		}
+	  },
+	  "border": {
+		"secondary": {
+		  "value": "{color.background.button.primary.active}",
+		  "type": "color"
+		}
+	  }
+	}
   }
 }
