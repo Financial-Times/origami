@@ -58,18 +58,18 @@
 		},
 		"secondary": {
 		  "active": {
-			"value": "{color.background.button.primary.active}",
+			"value": "{internal.color.background.button.primary.active}",
 			"type": "color"
 		  },
 		  "hover": {
-			"value": "{color.background.button.primary.active}",
+			"value": "{internal.color.background.button.primary.active}",
 			"type": "color"
 		  }
 		}
 	  },
 	  "border": {
 		"secondary": {
-		  "value": "{color.background.button.primary.active}",
+		  "value": "{internal.color.background.button.primary.active}",
 		  "type": "color"
 		}
 	  }
