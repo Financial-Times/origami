@@ -1,10 +1,10 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {useEffect} from 'react';
-import {Checkbox, Checkboxes} from '../src/tsx/o-forms';
-import './forms.scss';
-import javascript from '../main.js';
+import withHtml from "origami-storybook-addon-html";
+import { withDesign } from "storybook-addon-designs";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { useEffect } from "react";
+import { Checkbox, Checkboxes } from "../src/tsx/o-forms";
+import "./forms.scss";
+import javascript from "../main.js";
 
 const hideArg = {
 	table: {
@@ -12,15 +12,30 @@ const hideArg = {
 	},
 };
 
+const Brand = process.env.ORIGAMI_STORYBOOK_BRAND;
+const themeControl =
+	Brand === "core"
+		? {
+				control: {
+					type: "select",
+					labels: {
+						"": "default",
+						professional: "professional",
+					},
+				},
+				options: ["", "professional"],
+		  }
+		: hideArg;
+
 
 export default {
-	title: 'Components/o-forms/checkboxes',
+	title: "Components/o-forms/checkboxes",
 	component: Checkboxes,
 	decorators: [withDesign, withHtml],
 	argTypes: {
 		children: hideArg,
-    theme: hideArg
-	}
+		theme: themeControl,
+	},
 } as ComponentMeta<typeof Checkboxes>;
 
 const Template: ComponentStory<typeof Checkboxes> = args => {
@@ -48,8 +63,8 @@ CheckboxesStacked.args = {
 		<Checkbox name="default" value="Weekly" />,
 		<Checkbox name="default" value="Monthly" checked />,
 	],
-	title: 'Stacked checkboxes',
-	description: 'Optional description text',
+	title: "Stacked checkboxes",
+	description: "Optional description text",
 	isOptional: true,
 };
 CheckboxesWithDescription.args = {
@@ -66,8 +81,8 @@ CheckboxesWithDescription.args = {
 			description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam numquam aspernatur error voluptas dolorem ab."
 		/>,
 	],
-	title: 'Checkbox inputs with description',
-	description: 'Optional description text',
+	title: "Checkbox inputs with description",
+	description: "Optional description text",
 };
 
 DisabledCheckboxes.args = {
@@ -75,15 +90,15 @@ DisabledCheckboxes.args = {
 		<Checkbox name="default" value="Daily" checked disabled />,
 		<Checkbox name="default" value="Weekly" disabled />,
 	],
-	title: 'Disabled checkboxes',
+	title: "Disabled checkboxes",
 };
 ErrorCheckboxes.args = {
 	children: [
 		<Checkbox name="default" value="Yes" />,
 		<Checkbox name="default" value="No" />,
 	],
-	title: 'Error checkboxes',
-	errorMessage: 'An example error. Try again.',
+	title: "Error checkboxes",
+	errorMessage: "An example error. Try again.",
 };
 
 InlineField.args = {
@@ -92,14 +107,14 @@ InlineField.args = {
 		<Checkbox name="default" value="Weekly" checked />,
 		<Checkbox name="default" value="Monthly" />,
 	],
-	title: 'Inline field: ',
+	title: "Inline field: ",
 	inlineField: true,
-	description: 'with stacked radio buttons',
+	description: "with stacked radio buttons",
 };
 
 LabelFirst.args = {
 	children: [<Checkbox name="default" value="Show Password" labelFirst />],
-	title: 'Label first checkbox',
+	title: "Label first checkbox",
 };
 
 InlineFieldAndInputs.args = {
@@ -107,7 +122,7 @@ InlineFieldAndInputs.args = {
 		<Checkbox name="default" value="Daily" checked />,
 		<Checkbox name="default" value="Weekly" />,
 	],
-	title: 'Inline field and checkboxes: ',
+	title: "Inline field and checkboxes: ",
 	inlineInputs: true,
 	inlineField: true,
 };
