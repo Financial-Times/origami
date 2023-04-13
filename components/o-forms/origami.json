@@ -28,7 +28,7 @@
 	},
 	"demos": [
 		{
-			"name": "professional-theme",
+			"name": "professional",
 			"title": "Professional theme",
 			"template": "/demos/src/professional.mustache",
 			"description": "Professional theme",
@@ -37,7 +37,7 @@
 			]
 		},
 		{
-			"name": "professional-inverse-theme",
+			"name": "professional-inverse",
 			"title": "Professional inverse theme",
 			"template": "/demos/src/professional-inverse.mustache",
 			"description": "Professional inverse theme",
