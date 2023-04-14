@@ -1,0 +1,78 @@
+{
+  "internal": {
+    "color": {
+      "background": {
+        "button": {
+          "primary": {
+            "active": {
+              "type": "color",
+              "value": "#0d7680ff",
+              "blendMode": "normal"
+            },
+            "hover": {
+              "value": "#095259",
+              "type": "color"
+            }
+          },
+          "inverse": {
+            "description": "",
+            "type": "color",
+            "value": "#ffffffff",
+            "blendMode": "normal"
+          },
+          "mono": {
+            "description": "",
+            "type": "color",
+            "value": "#262a33",
+            "blendMode": "normal"
+          },
+          "b2c": {
+            "description": "",
+            "type": "color",
+            "value": "#3a70af",
+            "blendMode": "normal"
+          },
+          "secondary": {
+            "active": {
+              "type": "color",
+              "value": "#ffffff00",
+              "blendMode": "normal"
+            },
+            "hover": {
+              "value": "rgba(13,118,128,0.1)",
+              "type": "color"
+            }
+          }
+        }
+      },
+      "button": {
+        "primary": {
+          "active": {
+            "value": "#FFFFFF",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "type": "color"
+          }
+        },
+        "secondary": {
+          "active": {
+            "value": "{internal.color.background.button.primary.active}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{internal.color.background.button.primary.active}",
+            "type": "color"
+          }
+        }
+      },
+      "border": {
+        "secondary": {
+          "value": "{internal.color.background.button.primary.active}",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

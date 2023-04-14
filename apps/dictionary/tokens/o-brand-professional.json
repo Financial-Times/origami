@@ -1,0 +1,66 @@
+{
+  "o-brand-professional": {
+    "color": {
+      "background": {
+        "button": {
+          "primary": {
+            "active": {
+              "type": "color",
+              "value": "#8bdee6",
+              "blendMode": "normal"
+            },
+            "hover": {
+              "value": "#095259",
+              "type": "color"
+            }
+          },
+          "inverse": {
+            "description": "",
+            "type": "color",
+            "value": "#ffffffff",
+            "blendMode": "normal"
+          },
+          "secondary": {
+            "active": {
+              "type": "color",
+              "value": "#ffffff00",
+              "blendMode": "normal"
+            },
+            "hover": {
+              "value": "rgba(13,118,128,0.1)",
+              "type": "color"
+            }
+          }
+        }
+      },
+      "button": {
+        "primary": {
+          "active": {
+            "value": "#FFFFFF",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "type": "color"
+          }
+        },
+        "secondary": {
+          "active": {
+            "value": "{professional.color.background.button.primary.active}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{professional.color.background.button.primary.active}",
+            "type": "color"
+          }
+        }
+      },
+      "border": {
+        "secondary": {
+          "value": "{professional.color.background.button.primary.active}",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

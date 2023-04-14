@@ -6,7 +6,10 @@
       "color": "enabled",
       "font": "enabled",
       "typography": "enabled",
-      "brand-professional": "enabled"
+      "o-brand-professional": "enabled",
+      "o-brand-whitelabel": "disabled",
+      "o-brand-core": "disabled",
+      "o-brand-internal": "disabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -17,7 +20,10 @@
       "color": "enabled",
       "font": "enabled",
       "typography": "enabled",
-      "brand-whitelabel": "enabled"
+      "o-brand-professional": "disabled",
+      "o-brand-whitelabel": "enabled",
+      "o-brand-core": "disabled",
+      "o-brand-internal": "disabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -28,7 +34,10 @@
       "color": "enabled",
       "font": "enabled",
       "typography": "enabled",
-      "brand-core": "enabled"
+      "o-brand-professional": "disabled",
+      "o-brand-whitelabel": "disabled",
+      "o-brand-core": "enabled",
+      "o-brand-internal": "disabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -39,7 +48,10 @@
       "color": "enabled",
       "font": "enabled",
       "typography": "enabled",
-      "brand-internal": "enabled"
+      "o-brand-professional": "disabled",
+      "o-brand-whitelabel": "disabled",
+      "o-brand-core": "disabled",
+      "o-brand-internal": "enabled"
     },
     "$figmaStyleReferences": {}
   }
