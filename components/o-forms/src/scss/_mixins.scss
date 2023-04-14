@@ -55,6 +55,24 @@
 		}
 	}
 
+	.o-forms-input--checkbox {
+		input[type=checkbox] {// stylelint-disable-line selector-no-qualifying-type
+			&:indeterminate + .o-forms-input__label:after {// stylelint-disable-line selector-no-qualifying-type
+				background-color: _oFormsGet('controls-base', $theme);
+			}
+		}
+
+		input[type=checkbox] ~ .o-forms-input__label {// stylelint-disable-line selector-no-qualifying-type
+			&:before {
+				border: 1px solid _oFormsGet("default-border", $theme);
+			}
+
+			&:after {
+				background-color: _oFormsGet("controls-base", $theme);
+			}
+		}
+	}
+
 	@if $theme == "professional-inverse" {
 		.o-forms-title {
 			.o-forms-title__main:after,
@@ -68,12 +86,10 @@
 			}
 		}
 
-		input[type="radio"] {
-			// stylelint-disable-line selector-no-qualifying-type
+		input[type="radio"] {// stylelint-disable-line selector-no-qualifying-type
 			&:focus {
 				@include oNormaliseFocusUnsetContent();
-				& + .o-forms-input__label:before {
-					// stylelint-disable-line selector-no-qualifying-type
+				& + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
 					@include oNormaliseFocusContentInverse();
 				}
 			}
@@ -84,14 +100,12 @@
 			// `:focus` fallback, however some of our supported browsers
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
-				&:focus + .o-forms-input__label:before {
-					// stylelint-disable-line selector-no-qualifying-type
+				&:focus + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
 					@include oNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
-					& + .o-forms-input__label:before {
-						// stylelint-disable-line selector-no-qualifying-type
+					& + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
 						@include oNormaliseFocusContentInverse();
 					}
 				}

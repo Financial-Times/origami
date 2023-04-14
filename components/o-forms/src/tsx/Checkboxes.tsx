@@ -49,6 +49,7 @@ export function Checkboxes({
 	isVerticalCenter,
 	inlineInputs,
 	inputType,
+	theme
 }: CheckboxesProps) {
 	const wrapperProps = {
 		errorMessage,
@@ -61,6 +62,7 @@ export function Checkboxes({
 		isOptional,
 		inlineField,
 		isVerticalCenter,
+		theme
 	};
 	return (
 		<FormFieldset {...fieldsetProps}>
