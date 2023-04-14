@@ -28,7 +28,13 @@
 			}
 		}
 		.o-forms-input__label {
-			@include _updateColorThemes($theme);
+			&:before {
+				border: 1px solid _oFormsGet("default-border", $theme);
+			}
+
+			&:after {
+				background-color: _oFormsGet("controls-base", $theme);
+			}
 		}
 
 		.o-forms-input__label--invalid {
@@ -57,7 +63,13 @@
 		}
 
 		input[type=checkbox] ~ .o-forms-input__label {// stylelint-disable-line selector-no-qualifying-type
-			@include _updateColorThemes($theme);
+			&:before {
+				border: 1px solid _oFormsGet("default-border", $theme);
+			}
+
+			&:after {
+				background-color: _oFormsGet("controls-base", $theme);
+			}
 		}
 	}
 
@@ -99,18 +111,5 @@
 				}
 			}
 		}
-	}
-}
-
-/// @access private
-/// @param {String} $theme - either 'professional' or 'professional-inverse'
-/// @output colors for for professional and professional-inverse themes
-@mixin _updateColorThemes($theme) {
-	&:before {
-		border: 1px solid _oFormsGet("default-border", $theme);
-	}
-
-	&:after {
-		background-color: _oFormsGet("controls-base", $theme);
 	}
 }
