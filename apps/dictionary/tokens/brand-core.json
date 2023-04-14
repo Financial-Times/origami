@@ -6,7 +6,7 @@
 		"primary": {
 		  "active": {
 			"type": "color",
-			"value": "{secondary.teal}",
+			"value": "#0d7680ff",
 			"blendMode": "normal"
 		  },
 		  "hover": {

@@ -1,17 +1,17 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Apr 2023 10:16:02 GMT
+ * Generated on Fri, 14 Apr 2023 09:44:57 GMT
  */
 
-:root {
-  --color-background-button-primary-active: #8bdee6;
-  --color-background-button-primary-hover: #095259;
-  --color-background-button-inverse: #ffffff;
-  --color-background-button-secondary-active: rgba(255, 255, 255, 0);
-  --color-background-button-secondary-hover: rgba(13, 118, 128, 0.1);
-  --color-button-primary-active: #ffffff;
-  --color-button-primary-hover: #ffffff;
-  --color-button-secondary-active: #8bdee6;
-  --color-button-secondary-hover: #8bdee6;
-  --color-border-secondary: #8bdee6;
-}
+.o-brand-professional {
+  --professional-color-background-button-primary-active: #8bdee6;
+  --professional-color-background-button-primary-hover: #095259;
+  --professional-color-background-button-inverse: #ffffffff;
+  --professional-color-background-button-secondary-active: #ffffff00;
+  --professional-color-background-button-secondary-hover: rgba(13,118,128,0.1);
+  --professional-color-button-primary-active: #FFFFFF;
+  --professional-color-button-primary-hover: #FFFFFF;
+  --professional-color-button-secondary-active: #8bdee6;
+  --professional-color-button-secondary-hover: #8bdee6;
+  --professional-color-border-secondary: #8bdee6;
+ }

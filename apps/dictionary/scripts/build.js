@@ -1,5 +1,9 @@
 const StyleDictionaryPackage = require('style-dictionary');
 const glob = require('glob');
+const {registerTransforms} = require("@tokens-studio/sd-transforms");
+const { brandClasses } = require('./formatters/css/brand-classes')
+
+StyleDictionaryPackage.registerFormat({name: 'css/brandClasses', formatter: brandClasses});
 
 const getStyleDictionaryBrandConfig = (brand) => (
 	{
@@ -7,11 +11,20 @@ const getStyleDictionaryBrandConfig = (brand) => (
 		"platforms": {
 			"css": {
 				"transformGroup": "css",
+				"transforms": [
+					'ts/descriptionToComment',
+					'ts/typography/css/shorthand',
+					'ts/border/css/shorthand',
+					'ts/shadow/css/shorthand',
+					'ts/color/css/hexrgba',
+					'ts/color/modifiers',
+					'name/cti/kebab'
+				],
 				"buildPath": `build/css/brands/${brand.name}/`,
 				"files": [{
 					"destination": "_variables.css",
-					"format": "css/variables"
-				}]
+					"format": "css/brandClasses"
+				}],
 			}
 		}
 	}
@@ -34,6 +47,7 @@ const getBrands = async () => {
 
 (async () => {
 	const brands = await getBrands();
+	registerTransforms(StyleDictionaryPackage);
 
 	brands.forEach((brand) => {
 		const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryBrandConfig(brand));
