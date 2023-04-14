@@ -380,6 +380,9 @@ To align the checkbox to the **right** of its `label`, add the `o-forms-input__r
  </span>
 ...
 ```
+Square checkboxes also support an additional theme:
+
+- **professional**: To add the professional theme to a square checkbox, add the `o-forms-field--professional` modifier class to the field element.
 
 ##### Toggle checkbox inputs
 
