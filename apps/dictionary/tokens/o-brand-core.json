@@ -1,12 +1,12 @@
 {
-  "core": {
+  "o-brand-core": {
     "color": {
       "background": {
         "button": {
           "primary": {
             "active": {
               "type": "color",
-              "value": "{secondary.teal}",
+              "value": "{pallette-color.secondary.teal}",
               "blendMode": "normal"
             },
             "hover": {
@@ -58,18 +58,18 @@
         },
         "secondary": {
           "active": {
-            "value": "{core.color.background.button.primary.active}",
+            "value": "{o-brand-core.color.background.button.primary.active}",
             "type": "color"
           },
           "hover": {
-            "value": "{core.color.background.button.primary.active}",
+            "value": "{o-brand-core.color.background.button.primary.active}",
             "type": "color"
           }
         }
       },
       "border": {
         "secondary": {
-          "value": "{core.color.background.button.primary.active}",
+          "value": "{o-brand-core.color.background.button.primary.active}",
           "type": "color"
         }
       }
