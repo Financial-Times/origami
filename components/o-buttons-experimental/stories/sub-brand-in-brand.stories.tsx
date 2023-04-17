@@ -1,6 +1,6 @@
 import {withDesign} from "storybook-addon-designs";
 import {Button, LinkButton} from "../src/tsx/buttons-experimental";
-import "./buttons-experimental-professional.scss";
+import "./buttons-experimental.scss";
 import withHtml from "origami-storybook-addon-html";
 import {Sub} from "@financial-times/o-typography/src/tsx/typography";
 
@@ -52,18 +52,18 @@ export default {
 const SubBrandWithinBrand = args => (
 		<>
 			<h1>Brands</h1>
-			<div className='o-brand-core'>
+			<div className='o-brand-core o-buttons-container'>
 				<h2>Core Brand</h2>
 				<Button label='Primary' type='primary'/>
 				<Button label='Secondary' type='secondary'/>
 				<Button label='Ghost' type='ghost'/>
-				<div className='o-brand-professional'>
+				<div className='o-brand-professional o-buttons-container'>
 					<h2>Professional Sub Brand</h2>
 					<Button label='Primary' type='primary'/>
 					<Button label='Secondary' type='secondary'/>
 					<Button label='Ghost' type='ghost'/>
 				</div>
-				<div className='o-brand-whitelabel'>
+				<div className='o-brand-whitelabel o-buttons-container'>
 					<h2>Whitelabel</h2>
 					<Button label='Primary' type='primary'/>
 					<Button label='Secondary' type='secondary'/>

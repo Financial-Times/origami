@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 17 Apr 2023 13:07:07 GMT
+ * Generated on Mon, 17 Apr 2023 16:18:22 GMT
  */
 
 .o-brand-internal {
@@ -11,11 +11,17 @@
   --color-background-button-b2c: #3a70af;
   --color-background-button-secondary-active: #ffffff00;
   --color-background-button-secondary-hover: rgba(13,118,128,0.1);
+  --color-background-button-ghost-active: #ffffff00;
+  --color-background-button-ghost-hover: rgba(13,118,128,0.1);
   --color-button-primary-active: #FFFFFF;
   --color-button-primary-hover: #FFFFFF;
   --color-button-secondary-active: var(--color-background-button-primary-active);
   --color-button-secondary-hover: var(--color-background-button-primary-active);
-  --color-border-secondary: var(--color-background-button-primary-active);
+  --border-button-primary: 1px solid var(--color-background-button-primary-active);
+  --border-button-secondary: 1px solid var(--color-background-button-ghost-active);
+  --background-color-root: var(--pallette-color-primary-white);
+  --color-background-button-ghost-active: #ffffff00;
+  --color-background-button-ghost-hover: rgba(13,118,128,0.1);
   --pallette-color-primary-ft-pink: #fcd0b1af;
   --pallette-color-primary-ft-grey: #333333ff;
   --pallette-color-primary-white: #ffffffff;

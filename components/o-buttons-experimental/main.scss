@@ -14,7 +14,9 @@
 @import '../../../apps/dictionary/build/css/brands/whitelabel/_variables.css';
 @import '../../../apps/dictionary/build/css/brands/internal/_variables.css';
 
-
+.o-buttons-container {
+  background-color: var(--background-color-root);
+}
 /// Output o-buttons classes.
 ///
 /// @example All default o-buttons styles.
@@ -59,7 +61,6 @@
   $icons: if($icons, $icons, ());
   $pagination-enabled: map-get($opts, 'pagination');
   $groups-enabled: map-get($opts, 'groups');
-
   // Base button class.
   .o-buttons-experimental {
 	@include _oButtonsBaseContent();
@@ -101,6 +102,21 @@
 	  text-decoration: none;
 	}
   }
+
+  .o-buttons-experimental--ghost {
+	background-color: var(--color-background-button-ghost-active);
+	color: var(--color-button-ghost-active);
+	border: var(--border-button-ghost);
+
+	&:hover {
+	  //next up, define colours for all of these
+	  background-color: var(--color-background-button-ghost-hover);
+	  color: var(--color-button-ghost-hover);
+	  border: var(--border-button-ghost);
+	  text-decoration: none;
+	}
+  }
+
   // Helper class to hide disabled buttons.
   .o-buttons--hide-disabled[disabled] {
 	visibility: hidden;
@@ -110,6 +126,7 @@
 	@include oNormaliseVisuallyHidden();
   }
 }
+
 @if ($o-buttons-is-silent == false) {
   @include oButtonsExperimental();
 
