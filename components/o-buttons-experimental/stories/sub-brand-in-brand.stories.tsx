@@ -56,15 +56,18 @@ const SubBrandWithinBrand = args => (
 				<h2>Core Brand</h2>
 				<Button label='Primary' type='primary'/>
 				<Button label='Secondary' type='secondary'/>
+				<Button label='Ghost' type='ghost'/>
 				<div className='o-brand-professional'>
 					<h2>Professional Sub Brand</h2>
 					<Button label='Primary' type='primary'/>
 					<Button label='Secondary' type='secondary'/>
+					<Button label='Ghost' type='ghost'/>
 				</div>
 				<div className='o-brand-whitelabel'>
 					<h2>Whitelabel</h2>
 					<Button label='Primary' type='primary'/>
 					<Button label='Secondary' type='secondary'/>
+					<Button label='Ghost' type='ghost'/>
 				</div>
 			</div>
 		</>
