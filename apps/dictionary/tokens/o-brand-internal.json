@@ -93,6 +93,14 @@
           "type": "border"
         }
       }
+    },
+    "background": {
+      "color": {
+        "root": {
+          "value": "{pallette-color.primary.white}",
+          "type": "color"
+        }
+      }
     }
   },
   "o-brand-whitelabel": {

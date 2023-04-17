@@ -108,6 +108,14 @@
           }
         }
       }
+    },
+    "background": {
+      "color": {
+        "root": {
+          "value": "{pallette-color.primary.ft pink}",
+          "type": "color"
+        }
+      }
     }
   }
 }
