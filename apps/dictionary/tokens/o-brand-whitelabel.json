@@ -30,6 +30,17 @@
               "value": "rgba(13,118,128,0.1)",
               "type": "color"
             }
+          },
+          "ghost": {
+            "active": {
+              "type": "color",
+              "value": "#ffffff00",
+              "blendMode": "normal"
+            },
+            "hover": {
+              "value": "rgba(13,118,128,0.1)",
+              "type": "color"
+            }
           }
         }
       },
@@ -57,7 +68,7 @@
       },
       "border": {
         "secondary": {
-          "value": "{o-brand-whitelabel.color.background.button.primary.active}",
+          "value": "{o-brand-professional.color.background.button.primary.active}",
           "type": "color"
         }
       }
@@ -72,7 +83,7 @@
           },
           "type": "border"
         },
-        "secondary": {
+        "whitelabel": {
           "value": {
             "color": "{o-brand-whitelabel.color.button.secondary.active}",
             "width": "1px",
