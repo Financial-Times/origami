@@ -7,7 +7,7 @@ StyleDictionaryPackage.registerFormat({name: 'css/brandClasses', formatter: bran
 
 const getStyleDictionaryBrandConfig = (brand) => (
 	{
-		"source": [`tokens/${brand.tokens}`],
+		"source": [`tokens/${brand.tokens}`, 'tokens/color.json'],
 		"platforms": {
 			"css": {
 				"transformGroup": "css",
@@ -23,7 +23,10 @@ const getStyleDictionaryBrandConfig = (brand) => (
 				"buildPath": `build/css/brands/${brand.name}/`,
 				"files": [{
 					"destination": "_variables.css",
-					"format": "css/brandClasses"
+					"format": "css/brandClasses",
+					"options": {
+						"outputReferences": true
+					}
 				}],
 			}
 		}
@@ -32,7 +35,7 @@ const getStyleDictionaryBrandConfig = (brand) => (
 const getBrands = async () => {
 	let brandFiles;
 	try {
-		brandFiles = await glob('tokens/brand-*.json', {nodir: true});
+		brandFiles = await glob('tokens/o-brand-*.json', {nodir: true});
 	} catch (err) {
 		throw new Error(`Error reading file system: ${err}`);
 	}
@@ -40,7 +43,7 @@ const getBrands = async () => {
 		const [fileNameExcludingPrefix, extension] = file.split('brand-')[1].split('.');
 		return {
 			name: fileNameExcludingPrefix,
-			tokens: `brand-${fileNameExcludingPrefix}.${extension}`
+			tokens: `o-brand-${fileNameExcludingPrefix}.${extension}`
 		};
 	});
 }

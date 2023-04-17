@@ -1,17 +1,79 @@
 /**
  * Do not edit directly
- * Generated on Fri, 14 Apr 2023 09:44:57 GMT
+ * Generated on Mon, 17 Apr 2023 13:07:07 GMT
  */
 
 .o-brand-whitelabel {
-  --whitelabel-color-background-button-primary-active: #000000ff;
-  --whitelabel-color-background-button-primary-hover: #333;
-  --whitelabel-color-background-button-inverse: #ffffffff;
-  --whitelabel-color-background-button-secondary-active: #ffffff00;
-  --whitelabel-color-background-button-secondary-hover: rgba(13,118,128,0.1);
-  --whitelabel-color-button-primary-active: #FFFFFF;
-  --whitelabel-color-button-primary-hover: #FFFFFF;
-  --whitelabel-color-button-secondary-active: #000000ff;
-  --whitelabel-color-button-secondary-hover: #000000ff;
-  --whitelabel-color-border-secondary: #000000ff;
- }
+  --color-background-button-primary-active: #000000ff;
+  --color-background-button-primary-hover: #333;
+  --color-background-button-inverse: #ffffffff;
+  --color-background-button-secondary-active: #ffffff00;
+  --color-background-button-secondary-hover: rgba(13,118,128,0.1);
+  --color-button-primary-active: #FFFFFF;
+  --color-button-primary-hover: #FFFFFF;
+  --color-button-secondary-active: var(--color-background-button-primary-active);
+  --color-button-secondary-hover: var(--color-background-button-primary-active);
+  --color-border-secondary: var(--color-background-button-primary-active);
+  --pallette-color-primary-ft-pink: #fcd0b1af;
+  --pallette-color-primary-ft-grey: #333333ff;
+  --pallette-color-primary-white: #ffffffff;
+  --pallette-color-primary-black: #000000ff;
+  --pallette-color-secondary-claret: #990f3dff;
+  --pallette-color-secondary-teal: #0d7680ff;
+  --pallette-color-secondary-oxford: #0f5499ff;
+  --pallette-color-secondary-slate: #262a33ff;
+  --pallette-color-secondary-paper: #fff1e5ff;
+  --pallette-color-tertiary-mandarin: #ff8833ff;
+  --pallette-color-tertiary-light-blue: #00a0ddff;
+  --pallette-color-tertiary-crimson: #cc0000ff;
+  --pallette-color-tertiary-graphics-dark-blue: #006f9bff;
+  --pallette-color-tertiary-wheat: #f2dfceff;
+  --pallette-color-tertiary-candy: #ff7faaff;
+  --pallette-color-tertiary-wasabi: #96cc28ff;
+  --pallette-color-tertiary-jade: #00994dff;
+  --pallette-color-tertiary-velvet: #593380ff;
+  --pallette-color-tertiary-lemon: #ffec1aff;
+  --pallette-color-tertiary-sky: #cce6ffff;
+  --pallette-color-partner-content-matisse-blue: #355778ff;
+  --pallette-color-black-tints-black-5: #f2e5daff;
+  --pallette-color-black-tints-black-10: #e6d9ceff;
+  --pallette-color-black-tints-black-20: #ccc1b7ff;
+  --pallette-color-black-tints-black-30: #b3a9a0ff;
+  --pallette-color-black-tints-black-40: #999189ff;
+  --pallette-color-black-tints-black-50: #807973ff;
+  --pallette-color-black-tints-black-60: #66605cff;
+  --pallette-color-black-tints-black-70: #4d4845ff;
+  --pallette-color-black-tints-black-80: #33302eff;
+  --pallette-color-black-tints-black-90: #1a1817ff;
+  --pallette-color-white-tints-white-10: #fff2e8ff;
+  --pallette-color-white-tints-white-20: #fff4eaff;
+  --pallette-color-white-tints-white-40: #fff7efff;
+  --pallette-color-white-tints-white-60: #fff9f5ff;
+  --pallette-color-white-tints-white-80: #fffcfaff;
+  --pallette-color-oxford-tints-oxford-30: #082a4dff;
+  --pallette-color-oxford-tints-oxford-40: #0a3866ff;
+  --pallette-color-oxford-tints-oxford-50: #0d4680ff;
+  --pallette-color-oxford-tints-oxford-60: #0f5499ff;
+  --pallette-color-oxford-tints-oxford-70: #1262b3ff;
+  --pallette-color-oxford-tints-oxford-80: #1470ccff;
+  --pallette-color-oxford-tints-oxford-90: #177ee6ff;
+  --pallette-color-oxford-tints-oxford-100: #1a8cffff;
+  --pallette-color-teal-tints-teal-20: #052f33ff;
+  --pallette-color-teal-tints-teal-30: #08474dff;
+  --pallette-color-teal-tints-teal-40: #0a5e66ff;
+  --pallette-color-teal-tints-teal-50: #0d7680ff;
+  --pallette-color-teal-tints-teal-60: #0f8e99ff;
+  --pallette-color-teal-tints-teal-70: #12a5b3ff;
+  --pallette-color-teal-tints-teal-80: #14bdccff;
+  --pallette-color-teal-tints-teal-90: #17d4e6ff;
+  --pallette-color-teal-tints-teal-100: #1aecffff;
+  --pallette-color-claret-tints-claret-30: #4d081fff;
+  --pallette-color-claret-tints-claret-40: #660a29ff;
+  --pallette-color-claret-tints-claret-50: #800d33ff;
+  --pallette-color-claret-tints-claret-60: #990f3dff;
+  --pallette-color-claret-tints-claret-70: #b31247ff;
+  --pallette-color-claret-tints-claret-80: #cc1452ff;
+  --pallette-color-claret-tints-claret-90: #e6175cff;
+  --pallette-color-claret-tints-claret-100: #ff1a66ff;
+  --pallette-color-wheat-tints-wheat-100: #ffebd9ff;
+}

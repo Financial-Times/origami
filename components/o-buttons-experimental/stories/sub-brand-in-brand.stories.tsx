@@ -1,10 +1,11 @@
-import { withDesign } from "storybook-addon-designs";
-import { Button, LinkButton } from "../src/tsx/buttons-experimental";
+import {withDesign} from "storybook-addon-designs";
+import {Button, LinkButton} from "../src/tsx/buttons-experimental";
 import "./buttons-experimental-professional.scss";
 import withHtml from "origami-storybook-addon-html";
+import {Sub} from "@financial-times/o-typography/src/tsx/typography";
 
 export default {
-	title: "Components/o-tokens-experimental/professional",
+	title: "Components/o-tokens-experimental",
 	component: Button,
 	decorators: [withDesign, withHtml],
 	args: {
@@ -48,11 +49,31 @@ export default {
 	},
 };
 
-const ButtonStory = args => (<div className='o-brand-professional'><Button {...args} /></div>);
+const SubBrandWithinBrand = args => (
+		<>
+			<h1>Brands</h1>
+			<div className='o-brand-core'>
+				<h2>Core Brand</h2>
+				<Button label='Primary' type='primary'/>
+				<Button label='Secondary' type='secondary'/>
+				<div className='o-brand-professional'>
+					<h2>Professional Sub Brand</h2>
+					<Button label='Primary' type='primary'/>
+					<Button label='Secondary' type='secondary'/>
+				</div>
+				<div className='o-brand-whitelabel'>
+					<h2>Whitelabel</h2>
+					<Button label='Primary' type='primary'/>
+					<Button label='Secondary' type='secondary'/>
+				</div>
+			</div>
+		</>
+	)
+;
 const LinkButtonStory = args => <LinkButton {...args} />;
 
-export const PrimaryButton = ButtonStory.bind({});
-PrimaryButton.args = {
+export const SubBrand = SubBrandWithinBrand.bind({});
+SubBrand.args = {
 	label: "Press button",
 	type: "primary",
 };

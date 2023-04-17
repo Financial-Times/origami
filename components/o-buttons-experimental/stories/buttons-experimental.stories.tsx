@@ -4,7 +4,7 @@ import "./buttons-experimental.scss";
 import withHtml from "origami-storybook-addon-html";
 
 export default {
-	title: "Components/o-buttons-experimental",
+	title: "Components/o-tokens-experimental",
 	component: Button,
 	decorators: [withDesign, withHtml],
 	args: {
