@@ -78,8 +78,17 @@
       "button": {
         "primary": {
           "value": {
-            "color": "transparent",
-            "width": "1px"
+            "color": "{o-brand-core.color.background.button.primary.active}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        },
+        "secondary": {
+          "value": {
+            "color": "{o-brand-core.color.button.secondary.active}",
+            "width": "1px",
+            "style": "solid"
           },
           "type": "border"
         }
