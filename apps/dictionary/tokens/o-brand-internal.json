@@ -94,5 +94,24 @@
         }
       }
     }
+  },
+  "o-brand-whitelabel": {
+    "color": {
+      "background": {
+        "button": {
+          "ghost": {
+            "active": {
+              "type": "color",
+              "value": "#ffffff00",
+              "blendMode": "normal"
+            },
+            "hover": {
+              "value": "rgba(13,118,128,0.1)",
+              "type": "color"
+            }
+          }
+        }
+      }
+    }
   }
 }
