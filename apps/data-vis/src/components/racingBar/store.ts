@@ -1,5 +1,5 @@
 import {tweened} from "svelte/motion"
-import {writable, derived} from "svelte/store"
+import {writable} from "svelte/store"
 
 export const barCount = writable(10)
 export const barHeight = writable(60)

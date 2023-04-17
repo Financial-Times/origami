@@ -1,32 +1,48 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import {createEventDispatcher} from "svelte"
+	export let label
 	export let filters
-	const dispatch = createEventDispatcher();
-
+	export let currentlyActive
+	const dispatch = createEventDispatcher()
 
 	function handleClick(e) {
-		dispatch('toggle', {
-			value: e.target.innerText
-		});
+		dispatch("toggle", {
+			value: e.target.value,
+		})
 	}
-
 </script>
 
-<div>
-	{#each filters as filter}
-		<button on:click={handleClick}>{filter}</button>
-	{/each}
+<div class="o-forms-field" aria-labelledby="data-type-filters" role="group">
+	<span class="o-forms-title">
+		<span class="o-forms-title__main" id="data-type-filters">{label}</span>
+	</span>
+	<span class="o-forms-input o-forms-input--radio-box">
+		<span class="o-forms-input--radio-box__container">
+			{#each filters as filter}
+				<label for="radio-{filter}">
+					<input
+						on:change={handleClick}
+						id="radio-{filter}"
+						type="radio"
+						name="positive"
+						value={filter}
+						checked={currentlyActive === filter}
+					/>
+					<span class="o-forms-input__label">{filter}</span>
+				</label>
+			{/each}
+		</span>
+	</span>
 </div>
 
 <style lang="scss">
-	button {
-		&:first-child {
-			border-right: none;
-			border-radius: 50px 0 0 50px;
-		}
-		&:last-child {
-			border-left: none;
-			border-radius: 0 50px 50px 0;
-		}
-	}
+	@import "@financial-times/o-forms/main";
+
+	@include oForms(
+		$opts: (
+			"elements": (
+				"radio-box"
+			)
+		)
+	);
 </style>

@@ -7,7 +7,7 @@
 </script>
 
 <g transform={`translate(${scaledValue - 20} ${$barHeight / 2})`}>
-	<text dominant-baseline="middle" text-anchor="end" dy={-8}>
+	<text font-weight="bold" dominant-baseline="middle" text-anchor="end" dy={-8}>
 		{label}:
 	</text>
 	<text dominant-baseline="middle" text-anchor="end" dy={8}>

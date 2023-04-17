@@ -1,9 +1,7 @@
 <script>
 	// TODO: comeback to animation again
-	// import {fly, slide} from "svelte/transition"
-
 	export let date
-
+	export let dataType
 	const months = [
 		"Jan",
 		"Feb",
@@ -18,38 +16,34 @@
 		"Nov",
 		"Dec",
 	]
-	$: dateContrtuct = new Date(date)
-	$: year = dateContrtuct.getFullYear()
-	$: month = months[dateContrtuct.getMonth()]
+	$: dateConstruct = new Date(date)
+	$: year = dateConstruct.getFullYear()
+	$: month = months[dateConstruct.getMonth()]
+	$: quarter = Math.floor(dateConstruct.getMonth() / 3) + 1
 
-	// const flyIn = {y: 30, duration: 2000}
-	// const flyOut = {y: -30, duration: 2000}
 </script>
 
 {#if date}
 	<div class="wrapper">
-		<p>
-			{month}, {year}
-			<!-- {#key month}<span in:fly={flyIn} out:fly={flyOut}>{month}</span>{/key}
-			{#key year}<span in:fly={flyIn} out:fly={flyOut}>{year}</span>{/key} -->
-		</p>
+		{#if dataType == "Quarterly"}
+			{#key quarter}<span>Q{quarter}</span>{/key}
+		{:else}
+			{#key month}<span>{month}</span>{/key}
+		{/if}
+		<span>,</span>
+		{#key year}<span>{year}</span>{/key}
 	</div>
 {/if}
 
 <style lang="scss">
 	.wrapper {
-		@include oTypographyBody();
 		position: absolute;
 		bottom: 20px;
 		right: 20px;
-		p {
+		height: 50px;
+		span {
 			min-width: 100px;
-			height: 50px;
 			font-size: 42px;
-			margin: 0;
-			// span {
-			// 	position: absolute;
-			// }
 		}
 	}
 </style>
