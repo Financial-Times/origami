@@ -61,6 +61,26 @@
           "type": "color"
         }
       }
+    },
+    "border": {
+      "button": {
+        "primary": {
+          "value": {
+            "color": "{o-brand-whitelabel.color.background.button.primary.active}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        },
+        "secondary": {
+          "value": {
+            "color": "{o-brand-whitelabel.color.button.secondary.active}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        }
+      }
     }
   }
 }
