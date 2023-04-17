@@ -94,6 +94,14 @@
           "type": "border"
         }
       }
+    },
+    "background": {
+      "color": {
+        "root": {
+          "value": "{pallette-color.teal tints.teal -30}",
+          "type": "color"
+        }
+      }
     }
   }
 }
