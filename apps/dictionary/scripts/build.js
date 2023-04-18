@@ -1,7 +1,7 @@
 const StyleDictionaryPackage = require('style-dictionary');
 const glob = require('glob');
 const {registerTransforms} = require("@tokens-studio/sd-transforms");
-const { brandClasses } = require('./formatters/css/brand-classes')
+const {brandClasses} = require('./formatters/css/brand-classes')
 
 StyleDictionaryPackage.registerFormat({name: 'css/brandClasses', formatter: brandClasses});
 
@@ -53,8 +53,35 @@ const getBrands = async () => {
 	registerTransforms(StyleDictionaryPackage);
 
 	brands.forEach((brand) => {
-		const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryBrandConfig(brand));
-
+		const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryBrandConfig(brand))
 		StyleDictionary.buildPlatform('css');
 	});
-})();
+
+	const StyleDictionaryPallette = StyleDictionaryPackage.extend({
+		"source": ['tokens/color.json'],
+		"platforms": {
+			"css": {
+				"transformGroup": "css",
+				"transforms": [
+					'ts/descriptionToComment',
+					'ts/typography/css/shorthand',
+					'ts/border/css/shorthand',
+					'ts/shadow/css/shorthand',
+					'ts/color/css/hexrgba',
+					'ts/color/modifiers',
+					'name/cti/kebab'
+				],
+				"buildPath": `build/css/pallette/`,
+				"files": [{
+					"destination": "_variables.css",
+					"format": "css/variables",
+					"options": {
+						"outputReferences": true
+					}
+				}],
+			}
+		}
+	});
+
+	StyleDictionaryPallette.buildPlatform('css');
+	})();

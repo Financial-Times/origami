@@ -12,24 +12,17 @@ function brandClasses({dictionary, file, options}) {
 	});
 
 	const brandPrefix = /o-brand-[A-Za-z0-9]*-/
-	let brandTokens = [];
-	let palletteTokens = [];
+	const brandTokens = [];
 
-	// Split out the branded tokens from the pallette tokens.
-	// The pallette tokens exist in this scope so that the brands can reference them.
-	// A better future solution may be to not include the pallette tokens in this brand file and instead export them separately.
+	//Extract brand tokens only.
 	dictionary.allTokens.forEach((token) => {
 		if( token.filePath.match('o-brand-') ) {
 			token.name = token.name.replace(brandPrefix, '');
 			brandTokens.push(formatProperty(token));
-		} else {
-			palletteTokens.push(formatProperty(token));
 		}
-
 	})
 
 	return `${fileHeader({file})}` +
-		`:root {\n${palletteTokens.join('\n')}\n}\n\n` +
 		`${className} {\n` +
 		`${brandTokens.join('\n')}\n}`
 }
