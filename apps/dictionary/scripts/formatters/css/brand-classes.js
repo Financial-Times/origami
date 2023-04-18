@@ -1,5 +1,5 @@
 const StyleDictionary = require('style-dictionary');
-const {fileHeader, formattedVariables, createPropertyFormatter} = StyleDictionary.formatHelpers;
+const {fileHeader, createPropertyFormatter} = StyleDictionary.formatHelpers;
 
 function brandClasses({dictionary, file, options}) {
 	const brand = Object.keys(dictionary.properties).filter((brand) => brand.match('o-brand'))[0];
@@ -12,15 +12,26 @@ function brandClasses({dictionary, file, options}) {
 	});
 
 	const brandPrefix = /o-brand-[A-Za-z0-9]*-/
-	const tokens = dictionary.allTokens.map((token) => {
-		token.name = token.name.match(brandPrefix) ? token.name.replace(brandPrefix, '') : token.name;
-		const form = formatProperty(token)
-		return form;
-	});
+	let brandTokens = [];
+	let palletteTokens = [];
+
+	// Split out the branded tokens from the pallette tokens.
+	// The pallette tokens exist in this scope so that the brands can reference them.
+	// A better future solution may be to not include the pallette tokens in this brand file and instead export them separately.
+	dictionary.allTokens.forEach((token) => {
+		if( token.name.match(brandPrefix) ) {
+			token.name.replace(brandPrefix, '');
+			brandTokens.push(formatProperty(token));
+		} else {
+			palletteTokens.push(formatProperty(token));
+		}
+
+	})
 
 	return `${fileHeader({file})}` +
+		`:root {\n${palletteTokens.join('\n')}\n}\n\n` +
 		`${className} {\n` +
-		`${tokens.join('\n')}\n}`
+		`${brandTokens.join('\n')}\n}`
 }
 
 
