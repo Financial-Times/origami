@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 18 Apr 2023 10:09:20 GMT
+ * Generated on Tue, 18 Apr 2023 10:31:49 GMT
  */
 
 :root {
@@ -13,6 +13,7 @@
   --pallette-color-secondary-oxford: #0f5499ff;
   --pallette-color-secondary-slate: #262a33ff;
   --pallette-color-secondary-paper: #fff1e5ff;
+  --pallette-color-secondary-transparrent: #ffffff00;
   --pallette-color-tertiary-mandarin: #ff8833ff;
   --pallette-color-tertiary-light-blue: #00a0ddff;
   --pallette-color-tertiary-crimson: #cc0000ff;
