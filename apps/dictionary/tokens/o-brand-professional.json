@@ -79,14 +79,6 @@
         },
         "secondary": {
           "value": {
-            "color": "{o-brand-professional.color.button.secondary.active}",
-            "width": "1px",
-            "style": "solid"
-          },
-          "type": "border"
-        },
-        "secondary": {
-          "value": {
             "color": "{o-brand-professional.color.background.button.ghost.active}",
             "width": "1px",
             "style": "solid"

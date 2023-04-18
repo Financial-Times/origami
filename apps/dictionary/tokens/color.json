@@ -110,6 +110,10 @@
             "exportKey": "color"
           }
         }
+      },
+      "transparrent": {
+        "value": "#ffffff00",
+        "type": "color"
       }
     },
     "tertiary": {

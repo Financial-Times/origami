@@ -10,14 +10,14 @@
               "blendMode": "normal"
             },
             "hover": {
-              "value": "#095259",
+              "value": "{pallette-color.teal tints.teal -30}",
               "type": "color"
             }
           },
           "secondary": {
             "active": {
               "type": "color",
-              "value": "#ffffff00",
+              "value": "{pallette-color.secondary.transparrent}",
               "blendMode": "normal"
             },
             "hover": {
@@ -59,11 +59,11 @@
       "button": {
         "primary": {
           "active": {
-            "value": "#FFFFFF",
+            "value": "{pallette-color.primary.white}",
             "type": "color"
           },
           "hover": {
-            "value": "#FFFFFF",
+            "value": "{pallette-color.primary.white}",
             "type": "color"
           }
         },
@@ -85,16 +85,6 @@
           "active": {
             "value": {
               "color": "{o-brand-core.color.background.button.primary.active}",
-              "width": "1px",
-              "style": "solid"
-            },
-            "type": "border"
-          }
-        },
-        "secondary": {
-          "active": {
-            "value": {
-              "color": "{o-brand-core.color.button.secondary.active}",
               "width": "1px",
               "style": "solid"
             },
