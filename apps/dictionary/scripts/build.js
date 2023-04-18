@@ -3,7 +3,7 @@ const glob = require('glob');
 const {registerTransforms} = require("@tokens-studio/sd-transforms");
 const {brandClasses} = require('./formatters/css/brand-classes')
 
-StyleDictionaryPackage.registerFormat({name: 'css/brandClasses', formatter: brandClasses});
+StyleDictionaryPackage.registerFormat({name: 'css/brand/classes', formatter: brandClasses});
 
 const getStyleDictionaryBrandConfig = (brand) => (
 	{
@@ -23,9 +23,10 @@ const getStyleDictionaryBrandConfig = (brand) => (
 				"buildPath": `build/css/brands/${brand.name}/`,
 				"files": [{
 					"destination": "_variables.css",
-					"format": "css/brandClasses",
+					"format": "css/brand/classes",
 					"options": {
-						"outputReferences": true
+						"outputReferences": true,
+						"className": `o-brand-${brand.name}`
 					}
 				}],
 			}

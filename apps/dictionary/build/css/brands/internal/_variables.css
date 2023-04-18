@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 18 Apr 2023 13:56:03 GMT
+ * Generated on Tue, 18 Apr 2023 14:10:26 GMT
  */
 
 .o-brand-internal {
@@ -20,6 +20,4 @@
   --border-button-primary: 1px solid var(--color-background-button-primary-active);
   --border-button-secondary: 1px solid var(--color-background-button-ghost-active);
   --background-color-root: var(--pallette-color-primary-white);
-  --color-background-button-ghost-active: #ffffff00;
-  --color-background-button-ghost-hover: rgba(13,118,128,0.1);
 }
