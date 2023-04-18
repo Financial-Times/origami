@@ -1,97 +1,103 @@
 {
-    "color": {
-      "background": {
-        "button": {
-          "primary": {
-            "active": {
-              "type": "color",
-              "value": "#639ba0",
-              "blendMode": "normal"
-            },
-            "hover": {
-              "value": "#095259",
-              "type": "color"
-            }
-          },
-          "inverse": {
-            "description": "",
+  "color": {
+    "background": {
+      "button": {
+        "primary": {
+          "active": {
             "type": "color",
-            "value": "#ffffffff",
+            "value": "#639ba0",
             "blendMode": "normal"
           },
-          "secondary": {
-            "active": {
-              "type": "color",
-              "value": "#ffffff00",
-              "blendMode": "normal"
-            },
-            "hover": {
-              "value": "rgba(13,118,128,0.1)",
-              "type": "color"
-            }
-          },
-          "ghost": {
-            "active": {
-              "type": "color",
-              "value": "#ffffff00",
-              "blendMode": "normal"
-            },
-            "hover": {
-              "value": "rgba(13,118,128,0.1)",
-              "type": "color"
-            }
+          "hover": {
+            "value": "#095259",
+            "type": "color"
           }
+        },
+        "inverse": {
+          "description": "",
+          "type": "color",
+          "value": "#ffffffff",
+          "blendMode": "normal"
+        },
+        "secondary": {
+          "active": {
+            "type": "color",
+            "value": "#ffffff00",
+            "blendMode": "normal"
+          },
+          "hover": {
+            "value": "rgba(13,118,128,0.1)",
+            "type": "color"
+          }
+        },
+        "ghost": {
+          "active": {
+            "type": "color",
+            "value": "#ffffff00",
+            "blendMode": "normal"
+          },
+          "hover": {
+            "value": "rgba(13,118,128,0.1)",
+            "type": "color"
+          }
+        }
+      }
+    },
+    "button": {
+      "primary": {
+        "active": {
+          "value": "#FFFFFF",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#FFFFFF",
+          "type": "color"
         }
       },
-      "button": {
-        "primary": {
-          "active": {
-            "value": "#FFFFFF",
-            "type": "color"
-          },
-          "hover": {
-            "value": "#FFFFFF",
-            "type": "color"
-          }
+      "secondary": {
+        "active": {
+          "value": "{color.background.button.primary.active}",
+          "type": "color"
         },
-        "secondary": {
-          "active": {
-            "value": "{color.background.button.primary.active}",
-            "type": "color"
-          },
-          "hover": {
-            "value": "{color.background.button.primary.active}",
-            "type": "color"
-          }
-        }
-      }
-    },
-    "border": {
-      "button": {
-        "primary": {
-          "value": {
-            "color": "{color.background.button.primary.active}",
-            "width": "1px",
-            "style": "solid"
-          },
-          "type": "border"
-        },
-        "secondary": {
-          "value": {
-            "color": "{color.background.button.ghost.active}",
-            "width": "1px",
-            "style": "solid"
-          },
-          "type": "border"
-        }
-      }
-    },
-    "background": {
-      "color": {
-        "root": {
-          "value": "{pallette-color.teal tints.teal -30}",
+        "hover": {
+          "value": "{color.background.button.primary.active}",
           "type": "color"
         }
       }
+    },
+    "text": {
+      "default": {
+        "value": "{pallette-color.primary.white}",
+        "type": "color"
+      }
     }
+  },
+  "border": {
+    "button": {
+      "primary": {
+        "value": {
+          "color": "{color.background.button.primary.active}",
+          "width": "1px",
+          "style": "solid"
+        },
+        "type": "border"
+      },
+      "secondary": {
+        "value": {
+          "color": "{color.background.button.ghost.active}",
+          "width": "1px",
+          "style": "solid"
+        },
+        "type": "border"
+      }
+    }
+  },
+  "background": {
+    "color": {
+      "root": {
+        "value": "{pallette-color.teal tints.teal -30}",
+        "type": "color"
+      }
+    }
+  }
 }
