@@ -20,7 +20,7 @@ function brandClasses({dictionary, file, options}) {
 	// A better future solution may be to not include the pallette tokens in this brand file and instead export them separately.
 	dictionary.allTokens.forEach((token) => {
 		if( token.name.match(brandPrefix) ) {
-			token.name.replace(brandPrefix, '');
+			token.name = token.name.replace(brandPrefix, '');
 			brandTokens.push(formatProperty(token));
 		} else {
 			palletteTokens.push(formatProperty(token));

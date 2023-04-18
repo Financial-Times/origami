@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 18 Apr 2023 09:56:53 GMT
+ * Generated on Tue, 18 Apr 2023 10:07:01 GMT
  */
 
 :root {
@@ -69,22 +69,22 @@
 }
 
 .o-brand-internal {
-  --o-brand-internal-color-background-button-primary-active: #0d7680ff;
-  --o-brand-internal-color-background-button-primary-hover: #095259;
-  --o-brand-internal-color-background-button-inverse: #ffffffff;
-  --o-brand-internal-color-background-button-mono: #262a33;
-  --o-brand-internal-color-background-button-b2c: #3a70af;
-  --o-brand-internal-color-background-button-secondary-active: #ffffff00;
-  --o-brand-internal-color-background-button-secondary-hover: rgba(13,118,128,0.1);
-  --o-brand-internal-color-background-button-ghost-active: #ffffff00;
-  --o-brand-internal-color-background-button-ghost-hover: rgba(13,118,128,0.1);
-  --o-brand-internal-color-button-primary-active: #FFFFFF;
-  --o-brand-internal-color-button-primary-hover: #FFFFFF;
-  --o-brand-internal-color-button-secondary-active: var(--o-brand-internal-color-background-button-primary-active);
-  --o-brand-internal-color-button-secondary-hover: var(--o-brand-internal-color-background-button-primary-active);
-  --o-brand-internal-border-button-primary: 1px solid var(--o-brand-internal-color-background-button-primary-active);
-  --o-brand-internal-border-button-secondary: 1px solid var(--o-brand-internal-color-background-button-ghost-active);
-  --o-brand-internal-background-color-root: var(--pallette-color-primary-white);
-  --o-brand-whitelabel-color-background-button-ghost-active: #ffffff00;
-  --o-brand-whitelabel-color-background-button-ghost-hover: rgba(13,118,128,0.1);
+  --color-background-button-primary-active: #0d7680ff;
+  --color-background-button-primary-hover: #095259;
+  --color-background-button-inverse: #ffffffff;
+  --color-background-button-mono: #262a33;
+  --color-background-button-b2c: #3a70af;
+  --color-background-button-secondary-active: #ffffff00;
+  --color-background-button-secondary-hover: rgba(13,118,128,0.1);
+  --color-background-button-ghost-active: #ffffff00;
+  --color-background-button-ghost-hover: rgba(13,118,128,0.1);
+  --color-button-primary-active: #FFFFFF;
+  --color-button-primary-hover: #FFFFFF;
+  --color-button-secondary-active: var(--color-background-button-primary-active);
+  --color-button-secondary-hover: var(--color-background-button-primary-active);
+  --border-button-primary: 1px solid var(--color-background-button-primary-active);
+  --border-button-secondary: 1px solid var(--color-background-button-ghost-active);
+  --background-color-root: var(--pallette-color-primary-white);
+  --color-background-button-ghost-active: #ffffff00;
+  --color-background-button-ghost-hover: rgba(13,118,128,0.1);
 }

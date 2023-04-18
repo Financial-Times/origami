@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 18 Apr 2023 09:56:53 GMT
+ * Generated on Tue, 18 Apr 2023 10:07:01 GMT
  */
 
 :root {
@@ -70,18 +70,18 @@
 }
 
 .o-brand-whitelabel {
-  --o-brand-whitelabel-color-background-button-primary-active: #000000ff;
-  --o-brand-whitelabel-color-background-button-primary-hover: #333;
-  --o-brand-whitelabel-color-background-button-inverse: #ffffffff;
-  --o-brand-whitelabel-color-background-button-secondary-active: #ffffff00;
-  --o-brand-whitelabel-color-background-button-secondary-hover: rgba(13,118,128,0.1);
-  --o-brand-whitelabel-color-background-button-ghost-active: #ffffff00;
-  --o-brand-whitelabel-color-background-button-ghost-hover: rgba(13,118,128,0.1);
-  --o-brand-whitelabel-color-button-primary-active: #FFFFFF;
-  --o-brand-whitelabel-color-button-primary-hover: #FFFFFF;
-  --o-brand-whitelabel-color-button-secondary-active: var(--o-brand-whitelabel-color-background-button-primary-active);
-  --o-brand-whitelabel-color-button-secondary-hover: var(--o-brand-whitelabel-color-background-button-primary-active);
-  --o-brand-whitelabel-border-button-primary: 1px solid var(--o-brand-whitelabel-color-background-button-primary-active);
-  --o-brand-whitelabel-border-button-secondary: 1px solid var(--o-brand-whitelabel-color-button-secondary-active);
-  --o-brand-whitelabel-border-button-ghost: 1px solid var(--o-brand-whitelabel-color-background-button-ghost-active);
+  --color-background-button-primary-active: #000000ff;
+  --color-background-button-primary-hover: #333;
+  --color-background-button-inverse: #ffffffff;
+  --color-background-button-secondary-active: #ffffff00;
+  --color-background-button-secondary-hover: rgba(13,118,128,0.1);
+  --color-background-button-ghost-active: #ffffff00;
+  --color-background-button-ghost-hover: rgba(13,118,128,0.1);
+  --color-button-primary-active: #FFFFFF;
+  --color-button-primary-hover: #FFFFFF;
+  --color-button-secondary-active: var(--color-background-button-primary-active);
+  --color-button-secondary-hover: var(--color-background-button-primary-active);
+  --border-button-primary: 1px solid var(--color-background-button-primary-active);
+  --border-button-secondary: 1px solid var(--color-button-secondary-active);
+  --border-button-ghost: 1px solid var(--color-background-button-ghost-active);
 }

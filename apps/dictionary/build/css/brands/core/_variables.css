@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 18 Apr 2023 09:56:53 GMT
+ * Generated on Tue, 18 Apr 2023 10:07:01 GMT
  */
 
 :root {
@@ -69,20 +69,20 @@
 }
 
 .o-brand-core {
-  --o-brand-core-color-background-button-primary-active: var(--pallette-color-secondary-teal);
-  --o-brand-core-color-background-button-primary-hover: #095259;
-  --o-brand-core-color-background-button-secondary-active: #ffffff00;
-  --o-brand-core-color-background-button-secondary-hover: rgba(13,118,128,0.1);
-  --o-brand-core-color-background-button-inverse: #ffffffff;
-  --o-brand-core-color-background-button-mono: #262a33;
-  --o-brand-core-color-background-button-b2c: #3a70af;
-  --o-brand-core-color-background-button-ghost-active: #ffffff00;
-  --o-brand-core-color-background-button-ghost-hover: rgba(13,118,128,0.1);
-  --o-brand-core-color-button-primary-active: #FFFFFF;
-  --o-brand-core-color-button-primary-hover: #FFFFFF;
-  --o-brand-core-color-button-secondary-active: var(--o-brand-core-color-background-button-primary-active);
-  --o-brand-core-color-button-secondary-hover: var(--o-brand-core-color-background-button-primary-active);
-  --o-brand-core-border-button-primary-active: 1px solid var(--o-brand-core-color-background-button-primary-active);
-  --o-brand-core-border-button-secondary-active: 1px solid var(--o-brand-core-color-background-button-ghost-active);
-  --o-brand-core-background-color-root: var(--pallette-color-primary-ft-pink);
+  --color-background-button-primary-active: var(--pallette-color-secondary-teal);
+  --color-background-button-primary-hover: #095259;
+  --color-background-button-secondary-active: #ffffff00;
+  --color-background-button-secondary-hover: rgba(13,118,128,0.1);
+  --color-background-button-inverse: #ffffffff;
+  --color-background-button-mono: #262a33;
+  --color-background-button-b2c: #3a70af;
+  --color-background-button-ghost-active: #ffffff00;
+  --color-background-button-ghost-hover: rgba(13,118,128,0.1);
+  --color-button-primary-active: #FFFFFF;
+  --color-button-primary-hover: #FFFFFF;
+  --color-button-secondary-active: var(--color-background-button-primary-active);
+  --color-button-secondary-hover: var(--color-background-button-primary-active);
+  --border-button-primary-active: 1px solid var(--color-background-button-primary-active);
+  --border-button-secondary-active: 1px solid var(--color-background-button-ghost-active);
+  --background-color-root: var(--pallette-color-primary-ft-pink);
 }
