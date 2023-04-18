@@ -19,7 +19,7 @@ function brandClasses({dictionary, file, options}) {
 	// The pallette tokens exist in this scope so that the brands can reference them.
 	// A better future solution may be to not include the pallette tokens in this brand file and instead export them separately.
 	dictionary.allTokens.forEach((token) => {
-		if( token.name.match(brandPrefix) ) {
+		if( token.filePath.match('o-brand-') ) {
 			token.name = token.name.replace(brandPrefix, '');
 			brandTokens.push(formatProperty(token));
 		} else {
