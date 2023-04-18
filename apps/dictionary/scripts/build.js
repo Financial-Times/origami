@@ -7,7 +7,8 @@ StyleDictionaryPackage.registerFormat({name: 'css/brand/classes', formatter: bra
 
 const getStyleDictionaryBrandConfig = (brand) => (
 	{
-		"source": [`tokens/${brand.tokens}`, 'tokens/color.json'],
+		"source": [`tokens/${brand.tokens}`],
+		"include": ['tokens/color.json'],
 		"platforms": {
 			"css": {
 				"transformGroup": "css",
