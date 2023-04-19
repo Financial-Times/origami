@@ -75,20 +75,24 @@
   "border": {
     "button": {
       "primary": {
-        "value": {
-          "color": "{color.background.button.primary.active}",
-          "width": "1px",
-          "style": "solid"
-        },
-        "type": "border"
+        "active": {
+          "value": {
+            "color": "{color.background.button.primary.active}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        }
       },
       "secondary": {
-        "value": {
-          "color": "{color.background.button.primary.active}",
-          "width": "1px",
-          "style": "solid"
-        },
-        "type": "border"
+        "active": {
+          "value": {
+            "color": "{color.background.button.primary.active}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        }
       }
     }
   },
