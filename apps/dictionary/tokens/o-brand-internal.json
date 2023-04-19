@@ -70,10 +70,6 @@
         "active": {
           "value": "{color.background.button.primary.active}",
           "type": "color"
-        },
-        "hover": {
-          "value": "{color.background.button.primary.active}",
-          "type": "color"
         }
       }
     },
@@ -87,21 +83,25 @@
   "border": {
     "button": {
       "primary": {
-        "value": {
-          "color": "{color.background.button.primary.active}",
-          "width": "1px",
-          "style": "solid"
-        },
-        "type": "border"
+		"active": {
+		  "value": {
+			"color": "{color.background.button.primary.active}",
+			"width": "1px",
+			"style": "solid"
+		  },
+		  "type": "border"
+		}
       },
       "secondary": {
-        "value": {
-          "color": "{color.background.button.ghost.active}",
-          "width": "1px",
-          "style": "solid"
-        },
-        "type": "border"
-      }
+		"active": {
+		  "value": {
+			"color": "{color.background.button.ghost.active}",
+			"width": "1px",
+			"style": "solid"
+		  },
+		  "type": "border"
+		}
+	  }
     }
   },
   "background": {

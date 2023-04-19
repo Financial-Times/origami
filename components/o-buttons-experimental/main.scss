@@ -64,39 +64,28 @@
 	@include _oButtonsBaseContent();
 
 	background-color: var(--color-background-button-primary-active);
-	color: var(--color-button-secondary-active);
+	color: var(--color-button-primary-active);
 	border: var(--border-button-primary-active);
 	//
 	&:hover {
 	  //next up, define colours for all of these
 	  background-color: var(--color-background-button-primary-hover);
 	  color: var(--color-button-primary-hover);
-	  border: var(--border-button-primary-active);
+	  border: var(--border-button-primary-hover);
 	  text-decoration: none;
 	}
-
-	// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
-	// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
-	//&[aria-selected=true], // e.g. A selected tab or page number in pagination.
-	//&[aria-current], // e.g. A selected tab or page number in pagination (for links only).
-	//&[aria-pressed=true], // e.g. A "follow" button that is pressed.
-	//&:active {
-	//  background-color: map-get($button-colors-map, 'active-background');
-	//  color: map-get($button-colors-map, 'active-color');
-	//  border-color: map-get($button-colors-map, 'active-border');
-	//}
   }
 
   .o-buttons-experimental--secondary {
 	background-color: var(--color-background-button-secondary-active);
 	color: var(--color-button-secondary-active);
-	border: var(--border-button-secondary);
+	border: var(--border-button-secondary-active);
 
 	&:hover {
 	  //next up, define colours for all of these
 	  background-color: var(--color-background-button-secondary-hover);
 	  color: var(--color-button-secondary-hover);
-	  border: var(--border-button-secondary);
+	  border: var(--border-button-secondary-active);
 	  text-decoration: none;
 	}
   }
