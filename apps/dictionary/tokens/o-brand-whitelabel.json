@@ -29,17 +29,6 @@
 			"value": "rgba(13,118,128,0.1)",
 			"type": "color"
 		  }
-		},
-		"ghost": {
-		  "active": {
-			"type": "color",
-			"value": "#ffffff00",
-			"blendMode": "normal"
-		  },
-		  "hover": {
-			"value": "rgba(13,118,128,0.1)",
-			"type": "color"
-		  }
 		}
 	  }
 	},
@@ -96,16 +85,6 @@
 		"active": {
 		  "value": {
 			"color": "{color.background.button.primary.active}",
-			"width": "1px",
-			"style": "solid"
-		  },
-		  "type": "border"
-		}
-	  },
-	  "ghost": {
-		"active": {
-		  "value": {
-			"color": "{color.background.button.ghost.active}",
 			"width": "1px",
 			"style": "solid"
 		  },

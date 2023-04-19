@@ -60,6 +60,7 @@ const SubBrandWithinBrand = args => (
 			</div>
 			<div className='o-brand-whitelabel o-buttons-container'>
 				<h2>Whitelabel</h2>
+				<p>Not a descendant of any other brands. Will not be affected by core brand variables.</p>
 				<Button label='Primary' type='primary'/>
 				<Button label='Secondary' type='secondary'/>
 				<Button label='Ghost' type='ghost'/>

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 19 Apr 2023 15:57:46 GMT
+ * Generated on Wed, 19 Apr 2023 16:07:44 GMT
  */
 
 .o-brand-whitelabel {
@@ -9,8 +9,6 @@
   --color-background-button-inverse: #ffffffff;
   --color-background-button-secondary-active: #ffffff00;
   --color-background-button-secondary-hover: rgba(13,118,128,0.1);
-  --color-background-button-ghost-active: #ffffff00;
-  --color-background-button-ghost-hover: rgba(13,118,128,0.1);
   --color-button-primary-active: #FFFFFF;
   --color-button-primary-hover: #FFFFFF;
   --color-button-secondary-active: var(--color-background-button-primary-active);
@@ -19,6 +17,5 @@
   --border-button-primary-active: 1px solid var(--color-background-button-primary-active);
   --border-button-primary-hover: 1px solid var(--color-background-button-primary-active);
   --border-button-secondary-active: 1px solid var(--color-background-button-primary-active);
-  --border-button-ghost-active: 1px solid var(--color-background-button-ghost-active);
   --background-color-root: var(--pallette-color-primary-white);
 }
