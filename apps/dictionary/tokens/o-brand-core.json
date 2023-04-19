@@ -99,7 +99,7 @@
       "secondary": {
         "active": {
           "value": {
-            "color": "{color.background.button.ghost.active}",
+            "color": "{color.button.secondary.active}",
             "width": "1px",
             "style": "solid"
           },
