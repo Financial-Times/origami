@@ -50,15 +50,16 @@ export default {
 };
 
 const SubBrandWithinBrand = args => (
-		<>
+		<div>
 			<h1>Brands</h1>
 			<div className='o-brand-core o-buttons-container'>
 				<h2>Core Brand</h2>
 				<Button label='Primary' type='primary'/>
 				<Button label='Secondary' type='secondary'/>
 				<Button label='Ghost' type='ghost'/>
-				<div className='o-brand-professional o-buttons-container'>
+				<div className='o-brand-professional professional-container o-buttons-container'>
 					<h2>Professional Sub Brand</h2>
+					<p>Descendant of core brand div. CSS Variables are overidden by new style.</p>
 					<Button label='Primary' type='primary'/>
 					<Button label='Secondary' type='secondary'/>
 					<Button label='Ghost' type='ghost'/>
@@ -70,7 +71,7 @@ const SubBrandWithinBrand = args => (
 					<Button label='Ghost' type='ghost'/>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 ;
 const LinkButtonStory = args => <LinkButton {...args} />;

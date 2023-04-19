@@ -27,7 +27,7 @@
         "inverse": {
           "description": "",
           "type": "color",
-          "value": "#ffffffff",
+          "value": "{pallette-color.primary.white}",
           "blendMode": "normal"
         },
         "mono": {

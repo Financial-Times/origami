@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 18 Apr 2023 14:16:59 GMT
+ * Generated on Wed, 19 Apr 2023 09:35:04 GMT
  */
 
 .o-brand-professional {
@@ -15,6 +15,7 @@
   --color-button-primary-hover: #FFFFFF;
   --color-button-secondary-active: var(--color-background-button-primary-active);
   --color-button-secondary-hover: var(--color-background-button-primary-active);
+  --color-text-default: var(--pallette-color-primary-white);
   --border-button-primary: 1px solid var(--color-background-button-primary-active);
   --border-button-secondary: 1px solid var(--color-background-button-ghost-active);
   --background-color-root: var(--pallette-color-teal-tints-teal-30);
