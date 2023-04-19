@@ -5,11 +5,11 @@
 		"primary": {
 		  "active": {
 			"type": "color",
-			"value": "{pallette-color.secondary.mint}",
+			"value": "{pallette-color.secondary.slate}",
 			"blendMode": "normal"
 		  },
 		  "hover": {
-			"value": "#095259",
+			"value": "#515257",
 			"type": "color"
 		  }
 		},
@@ -26,7 +26,7 @@
 			"blendMode": "normal"
 		  },
 		  "hover": {
-			"value": "rgba(13,118,128,0.1)",
+			"value": "#DED3CA",
 			"type": "color"
 		  }
 		},
@@ -37,7 +37,7 @@
 			"blendMode": "normal"
 		  },
 		  "hover": {
-			"value": "rgba(13,118,128,0.1)",
+			"value": "#DED3CAaa",
 			"type": "color"
 		  }
 		}
@@ -46,7 +46,7 @@
 	"button": {
 	  "primary": {
 		"active": {
-		  "value": "{pallette-color.black tints.black 70}",
+		  "value": "{pallette-color.primary.white}",
 		  "type": "color"
 		},
 		"hover": {
