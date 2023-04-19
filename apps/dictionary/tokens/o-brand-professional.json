@@ -46,7 +46,7 @@
     "button": {
       "primary": {
         "active": {
-          "value": "#FFFFFF",
+          "value": "{pallette-color.black tints.black 70}",
           "type": "color"
         },
         "hover": {
