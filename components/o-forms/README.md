@@ -381,6 +381,8 @@ Square checkboxes also support an additional theme:
 
 - **professional**: To add the professional theme to a square checkbox, add the `o-forms-field--professional` modifier class to the field element.
 
+- **professional-inverse**: To add the professional inverse theme to a square checkbox, add the `o-forms-field--professional-inverse` modifier class to the field element.
+
 ##### Toggle checkbox inputs
 
 For a toggle checkbox, replace the `o-forms-input--checkbox` modifier class with `o-forms-input--toggle`.

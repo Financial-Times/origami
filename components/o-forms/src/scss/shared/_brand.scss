@@ -51,11 +51,13 @@ $_o-forms-shared-brand-config: (
 				default-text: oColorsByName('black-80'),
 				controls-base: oColorsByName('slate'),
 				default-border: oColorsByName('black-50'),
+				controls-checked-base: oColorsByName('white'),
 			),
 			'professional-inverse': (
 				default-text: oColorsByName('white'),
 				controls-base: oColorsByName('mint'),
 				default-border: oColorsByName('mint'),
+				controls-checked-base: oColorsByName('slate'),
 			),
 		)),
 		'supports-variants': (
