@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 19 Apr 2023 09:35:04 GMT
+ * Generated on Wed, 19 Apr 2023 09:50:03 GMT
  */
 
 .o-brand-core {
@@ -19,6 +19,6 @@
   --color-button-secondary-hover: var(--color-background-button-primary-active);
   --color-text-default: var(--pallette-color-black-tints-black-90);
   --border-button-primary-active: 1px solid var(--color-background-button-primary-active);
-  --border-button-secondary-active: 1px solid var(--color-background-button-ghost-active);
+  --border-button-secondary-active: 1px solid var(--color-button-secondary-active);
   --background-color-root: var(--pallette-color-primary-ft-pink);
 }

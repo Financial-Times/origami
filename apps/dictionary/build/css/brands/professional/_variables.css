@@ -1,10 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Wed, 19 Apr 2023 09:35:04 GMT
+ * Generated on Wed, 19 Apr 2023 09:50:03 GMT
  */
 
 .o-brand-professional {
-  --color-background-button-primary-active: #639ba0;
+  --color-background-button-primary-active: var(--pallette-color-secondary-mint);
   --color-background-button-primary-hover: #095259;
   --color-background-button-inverse: #ffffffff;
   --color-background-button-secondary-active: #ffffff00;
@@ -17,6 +17,6 @@
   --color-button-secondary-hover: var(--color-background-button-primary-active);
   --color-text-default: var(--pallette-color-primary-white);
   --border-button-primary: 1px solid var(--color-background-button-primary-active);
-  --border-button-secondary: 1px solid var(--color-background-button-ghost-active);
+  --border-button-secondary: 1px solid var(--color-background-button-primary-active);
   --background-color-root: var(--pallette-color-teal-tints-teal-30);
 }

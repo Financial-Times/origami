@@ -5,7 +5,7 @@
         "primary": {
           "active": {
             "type": "color",
-            "value": "#639ba0",
+            "value": "{pallette-color.secondary.mint}",
             "blendMode": "normal"
           },
           "hover": {
@@ -84,7 +84,7 @@
       },
       "secondary": {
         "value": {
-          "color": "{color.background.button.ghost.active}",
+          "color": "{color.background.button.primary.active}",
           "width": "1px",
           "style": "solid"
         },
