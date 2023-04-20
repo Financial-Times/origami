@@ -2,44 +2,46 @@
 
 FT-branded styles for form elements.
 
-- [Usage](#usage)
-- [Markup](#markup)
-	- [Single input fields](#single-input-fields)
-		- [Text input](#text-input)
-		- [File input](#file-input)
-		- [Password input](#password-input)
-		- [Textarea input](#textarea-input)
-		- [Select Input](#select-input)
-		- [Other single inputs](#other-single-inputs)
-	- [Multiple input fields](#multiple-input-fields)
-		- [Radio inputs](#radio-inputs)
-			- [Round radio inputs](#round-radio-inputs)
-			- [Box radio inputs](#box-radio-inputs)
-			- [Pseudo box radio inputs](#pseudo-box-radio-inputs)
-		- [Checkbox inputs](#checkbox-inputs)
-			- [Square checkbox inputs](#square-checkbox-inputs)
-			- [Toggle checkbox inputs](#toggle-checkbox-inputs)
-			- [Checkbox inputs with description](#checkbox-inputs-with-description)
-		- [Date inputs](#date-inputs)
-	- [Prompt Text](#prompt-text)
-	- [Optional](#optional)
-	- [Suffix](#suffix)
-	- [Small](#small)
-	- [Inline](#inline)
-		- [Inline Field](#inline-field)
-		- [Inline Inputs](#inline-inputs)
-	- [Validity](#validity)
-		- [Error Summary](#error-summary)
-- [Sass](#sass)
-	- [Options](#options)
-	- [Customisation](#customisation)
-- [JavaScript](#javascript)
-	- [Form Instance](#form-instance)
-	- [Individual Inputs](#individual-inputs)
-	- [State](#state)
-- [Migration guide](#migration-guide)
-- [Contact](#contact)
-- [Licence](#licence)
+- [o-forms ](#o-forms-)
+	- [Usage](#usage)
+	- [Markup](#markup)
+		- [Single input fields](#single-input-fields)
+			- [Text input](#text-input)
+			- [File input](#file-input)
+			- [Password input](#password-input)
+			- [Textarea input](#textarea-input)
+			- [Select Input](#select-input)
+			- [Other single inputs](#other-single-inputs)
+		- [Multiple input fields](#multiple-input-fields)
+			- [Radio inputs](#radio-inputs)
+				- [Round radio inputs](#round-radio-inputs)
+				- [Box radio inputs](#box-radio-inputs)
+				- [Pseudo box radio inputs](#pseudo-box-radio-inputs)
+			- [Checkbox inputs](#checkbox-inputs)
+				- [Square checkbox inputs](#square-checkbox-inputs)
+				- [Toggle checkbox inputs](#toggle-checkbox-inputs)
+				- [Checkbox inputs with description](#checkbox-inputs-with-description)
+			- [Date inputs](#date-inputs)
+		- [Prompt Text](#prompt-text)
+		- [Optional](#optional)
+		- [Suffix](#suffix)
+		- [Small](#small)
+		- [Inline](#inline)
+			- [Inline Field](#inline-field)
+			- [Inline Inputs](#inline-inputs)
+		- [Validity](#validity)
+			- [Error Summary](#error-summary)
+	- [Sass](#sass)
+		- [Options](#options)
+		- [Customisation](#customisation)
+	- [JavaScript](#javascript)
+		- [Initialise](#initialise)
+		- [Customise behaviour](#customise-behaviour)
+		- [Individual Inputs](#individual-inputs)
+		- [State](#state)
+	- [Migration guide](#migration-guide)
+	- [Contact](#contact)
+	- [Licence](#licence)
 
 ## Usage
 
@@ -50,6 +52,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 `o-forms` has "field" elements which hold an input and information about that input, e.g. its label text. Use unique ids to associate form inputs and their labels. This is required as [some assistive technologies do not support implicit labels](https://a11ysupport.io/tests/html_label_element_implicit), such as Dragon Naturally Speaking.
 
 All form fields follow the same structure:
+
 ```
 ┌— field container (.o-forms-field) —————┐
 |      (one of div or label)             |
@@ -78,13 +81,13 @@ The following example shows a text input:
 
 ```html
 <label for="text" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--text">
-		<input id="text" type="text" name="text-example">
-	</span>
+ <span class="o-forms-input o-forms-input--text">
+  <input id="text" type="text" name="text-example">
+ </span>
 </label>
 ```
 
@@ -92,15 +95,15 @@ For a different single input, update the input element within `o-forms-input` an
 
 ```diff
 <label for="text-example" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
--	<span class="o-forms-input o-forms-input--text">
-+	<span class="o-forms-input o-forms-input--textarea">
--		<input id="text-example"  type="text" name="text-example">
-+		<textarea id="text-example" name="text-example"></textarea>
-	</span>
+- <span class="o-forms-input o-forms-input--text">
++ <span class="o-forms-input o-forms-input--textarea">
+-  <input id="text-example"  type="text" name="text-example">
++  <textarea id="text-example" name="text-example"></textarea>
+ </span>
 </label>
 ```
 
@@ -110,13 +113,13 @@ To create a text input use a [single input](#single-input-fields) field structur
 
 ```html
 <label for="text-example" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--text">
-		<input id="text-example" type="text" name="text-example" value>
-	</span>
+ <span class="o-forms-input o-forms-input--text">
+  <input id="text-example" type="text" name="text-example" value>
+ </span>
 </label>
 ```
 
@@ -126,13 +129,13 @@ To create a file input use a [single input](#single-input-fields) field structur
 
 ```html
 <label for="text-example" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--file">
-		<input id="text-example" type="file" name="file-example" value>
-	</span>
+ <span class="o-forms-input o-forms-input--file">
+  <input id="text-example" type="file" name="file-example" value>
+ </span>
 </label>
 ```
 
@@ -142,13 +145,13 @@ To create a password input use a [single input](#single-input-fields) field stru
 
 ```html
 <label for="password-example" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--password">
-		<input id="password-example" type="password" name="password-example" value>
-	</span>
+ <span class="o-forms-input o-forms-input--password">
+  <input id="password-example" type="password" name="password-example" value>
+ </span>
 </label>
 ```
 
@@ -158,13 +161,13 @@ To create a textarea input use a [single input](#single-input-fields) field stru
 
 ```html
 <label for="textarea-example" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--textarea">
-		<textarea id="textarea-example"></textarea>
-	</span>
+ <span class="o-forms-input o-forms-input--textarea">
+  <textarea id="textarea-example"></textarea>
+ </span>
 </label>
 ```
 
@@ -174,16 +177,16 @@ To create a select input use a [single input](#single-input-fields) field struct
 
 ```html
 <label for="select-example" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--select">
-		<select id="select-example">
-			<option>Option 1</option>
-			<!-- further options -->
-		</select>
-	</span>
+ <span class="o-forms-input o-forms-input--select">
+  <select id="select-example">
+   <option>Option 1</option>
+   <!-- further options -->
+  </select>
+ </span>
 </label>
 ```
 
@@ -195,13 +198,13 @@ E.g. to create an email input use a [single input](#single-input-fields) field s
 
 ```html
 <label for="email-example" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--text">
-		<input id="email-example" type="email" name="email-example" value>
-	</span>
+ <span class="o-forms-input o-forms-input--text">
+  <input id="email-example" type="email" name="email-example" value>
+ </span>
 </label>
 ```
 
@@ -213,50 +216,50 @@ For example to for a group of radio buttons:
 
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title" role="group">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main" id="example-group-title">Group Title</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--radio-round">
-		<label for="radio-1">
-			<input id="radio-1" type="radio" name="radio-1" value="Radio 1" checked>
-			<span class="o-forms-input__label">Radio 1</span>
-		</label>
-		<label for="radio-2">
-			<input id="radio-2" type="radio" name="radio-2" value="Radio 2" checked>
-			<span class="o-forms-input__label">Radio 2</span>
-		</label>
-	</span>
+ <span class="o-forms-input o-forms-input--radio-round">
+  <label for="radio-1">
+   <input id="radio-1" type="radio" name="radio-1" value="Radio 1" checked>
+   <span class="o-forms-input__label">Radio 1</span>
+  </label>
+  <label for="radio-2">
+   <input id="radio-2" type="radio" name="radio-2" value="Radio 2" checked>
+   <span class="o-forms-input__label">Radio 2</span>
+  </label>
+ </span>
 </div>
 ```
 
 Note that to associate the field title to the group of inputs we should use a [fieldset and legend element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend). However `o-forms` instead relies on a `role="group"` attribute along with an `aria-labelledby` attribute and associated `id`, `example-group-title` in the label above.
 
-_We chose not to work with a fieldset because they are [especially difficult to style consistently](https://thatemil.com/blog/2015/01/03/reset-your-fieldset/) _and_ we wanted to provide visual flexibility for our users._
+_We chose not to work with a fieldset because they are [especially difficult to style consistently](https://thatemil.com/blog/2015/01/03/reset-your-fieldset/)_and_we wanted to provide visual flexibility for our users._
 
 Other fields which use multiple input elements follow the same structure. E.g. for a group of [`checkbox` inputs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox):
 
 ```diff
 <div class="o-forms-field" aria-labelledby="example-group-title">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main" id="example-group-title">Group Title</span>
+ </span>
 
--	<span class="o-forms-input o-forms-input--radio-round">
-+	<span class="o-forms-input o-forms-input--checkbox">
-		<label for="checkbox-1">
--			<input id="checkbox-1" type="radio" name="example-radio"/>
--			<span class="o-forms-input__label">Radio 1</span>
-+			<input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
-+			<span class="o-forms-input__label">Checkbox 1</span>
-		</label>
-		<label for="checkbox-2">
--			<input id="checkbox-2" type="radio" name="example-radio"/>
--			<span class="o-forms-input__label">Radio 2</span>
-+			<input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
-+			<span class="o-forms-input__label">Checkbox 2</span>
-		</label>
-	</span>
+- <span class="o-forms-input o-forms-input--radio-round">
++ <span class="o-forms-input o-forms-input--checkbox">
+  <label for="checkbox-1">
+-   <input id="checkbox-1" type="radio" name="example-radio"/>
+-   <span class="o-forms-input__label">Radio 1</span>
++   <input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
++   <span class="o-forms-input__label">Checkbox 1</span>
+  </label>
+  <label for="checkbox-2">
+-   <input id="checkbox-2" type="radio" name="example-radio"/>
+-   <span class="o-forms-input__label">Radio 2</span>
++   <input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
++   <span class="o-forms-input__label">Checkbox 2</span>
+  </label>
+ </span>
 </div>
 ```
 
@@ -268,20 +271,20 @@ To create a radio input use a [multiple input](#multiple-input-fields) field str
 
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title" role="group">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main" id="example-group-title">Group Title</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--radio-round">
-		<label for="radio-1">
-			<input id="radio-1" type="radio" name="radio-1" value="Radio 1" checked>
-			<span class="o-forms-input__label">Radio 1</span>
-		</label>
-		<label for="radio-2">
-			<input id="radio-2" type="radio" name="radio-2" value="Radio 2">
-			<span class="o-forms-input__label">Radio 2</span>
-		</label>
-	</span>
+ <span class="o-forms-input o-forms-input--radio-round">
+  <label for="radio-1">
+   <input id="radio-1" type="radio" name="radio-1" value="Radio 1" checked>
+   <span class="o-forms-input__label">Radio 1</span>
+  </label>
+  <label for="radio-2">
+   <input id="radio-2" type="radio" name="radio-2" value="Radio 2">
+   <span class="o-forms-input__label">Radio 2</span>
+  </label>
+ </span>
 </div>
 ```
 
@@ -299,22 +302,22 @@ The below example shows a box style radio button with a positive "yes" and negat
 
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title" role="group">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main" id="example-group-title">Group Title</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--radio-round o-forms-input--saved">
-		<label for="radio-yes">
-			<input id="radio-yes" type="radio" name="positive" value="Yes">
-			<span class="o-forms-input__label">Yes</span>
-		</label>
-		<label for="radio-no">
-			<input id="radio-no" type="radio" name="negative" value="No" checked>
-			<span class="o-forms-input__label o-forms-input__label--negative">No</span>
-		</label>
+ <span class="o-forms-input o-forms-input--radio-round o-forms-input--saved">
+  <label for="radio-yes">
+   <input id="radio-yes" type="radio" name="positive" value="Yes">
+   <span class="o-forms-input__label">Yes</span>
+  </label>
+  <label for="radio-no">
+   <input id="radio-no" type="radio" name="negative" value="No" checked>
+   <span class="o-forms-input__label o-forms-input__label--negative">No</span>
+  </label>
 
-		<span role="status" class="o-forms-input__state"></span>
-	</span>
+  <span role="status" class="o-forms-input__state"></span>
+ </span>
 </div>
 ```
 
@@ -328,12 +331,13 @@ Its possible to achieve the look of box style radio inputs with anchor elements 
 
 ```html
 <div class="o-forms-input o-forms-input--pseudo-radio-link">
-	<a class="o-forms-input__link o-forms-input__link--current" href="/category">Category View</a>
-	<a class="o-forms-input__link" href="/timeline">Timeline View</a>
+ <a class="o-forms-input__link o-forms-input__link--current" href="/category">Category View</a>
+ <a class="o-forms-input__link" href="/timeline">Timeline View</a>
 </div>
 ```
 
 Links which look like form inputs may be confusing for some users of assistive technologies, as they may be accessed or behave differently than expected. Further, unlike true o-forms radio inputs, there is no fieldset with legend to group the links. For most cases, use standard [box radio inputs](#box-radio-inputs) instead.
+
 #### Checkbox inputs
 
 ##### Square checkbox inputs
@@ -342,33 +346,34 @@ To create a checkbox input use a [multiple input](#multiple-input-fields) field 
 
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main" id="example-group-title">Group Title</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--checkbox">
-		<label for="checkbox-1">
-			<input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
-			<span class="o-forms-input__label">Checkbox 1</span>
-		</label>
-		<label for="checkbox-2">
-			<input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
-			<span class="o-forms-input__label">Checkbox 2</span>
-		</label>
-	</span>
+ <span class="o-forms-input o-forms-input--checkbox">
+  <label for="checkbox-1">
+   <input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
+   <span class="o-forms-input__label">Checkbox 1</span>
+  </label>
+  <label for="checkbox-2">
+   <input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
+   <span class="o-forms-input__label">Checkbox 2</span>
+  </label>
+ </span>
 </div>
 ```
 
 To align the checkbox to the **right** of its `label`, add the `o-forms-input__right` class to the `label` element:
+
 ```diff
 ...
 <span class="o-forms-input o-forms-input--checkbox">
--		<label for="my-checkbox">
-+		<label for="my-checkbox"class="o-forms-input__right">
-			<input id="my-checkbox" type="checkbox" name="my-checkbox"/>
-			<span class="o-forms-input__label">Checkbox 1</span>
-		</label>
-	</span>
+-  <label for="my-checkbox">
++  <label for="my-checkbox"class="o-forms-input__right">
+   <input id="my-checkbox" type="checkbox" name="my-checkbox"/>
+   <span class="o-forms-input__label">Checkbox 1</span>
+  </label>
+ </span>
 ...
 ```
 
@@ -378,24 +383,25 @@ For a toggle checkbox, replace the `o-forms-input--checkbox` modifier class with
 
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main" id="example-group-title">Group Title</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--toggle">
-		<label for="checkbox-1">
-			<input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
-			<span class="o-forms-input__label">Checkbox 1</span>
-		</label>
-		<label for="checkbox-2">
-			<input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
-			<span class="o-forms-input__label">Checkbox 2</span>
-		</label>
-	</span>
+ <span class="o-forms-input o-forms-input--toggle">
+  <label for="checkbox-1">
+   <input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
+   <span class="o-forms-input__label">Checkbox 1</span>
+  </label>
+  <label for="checkbox-2">
+   <input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
+   <span class="o-forms-input__label">Checkbox 2</span>
+  </label>
+ </span>
 </div>
 ```
 
 Toggles support 2 themes.
+
 - inverse: For a toggle on a dark background. Set `o-forms-field--inverse` on the field element.
 - white: For a toggle on a white background. Set `o-forms-field--white` on the field element.
 
@@ -406,26 +412,26 @@ Add descriptions to toggles / checkboxes by adding `o-forms-input__label__main` 
 ```html
 <div class="o-forms-field" role="group" aria-labelledby="[your-title-id]" aria-describedby="[your-description-id]">
 
-	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="[your-title-id]">Toggle inputs with description</span>
-		<span class="o-forms-title__prompt" id="[your-description-id]">Optional prompt text</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main" id="[your-title-id]">Toggle inputs with description</span>
+  <span class="o-forms-title__prompt" id="[your-description-id]">Optional prompt text</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--toggle">
+ <span class="o-forms-input o-forms-input--toggle">
 
-		<label for="checkbox-example">
-			<input id="checkbox-example" type="checkbox" name="default" value="Lorem ipsum dolor sit amet" checked="" aria-labelledby="[your-checkbox-label-id]" aria-describedby="[your-checkbox-description-id]" required="">
-			<span class="o-forms-input__label">
-				<span id="[your-checkbox-label-id]" class="o-forms-input__label__main">
-					Lorem ipsum dolor sit amet
-				</span>
-				<span id="[your-checkbox-description-id]" class="o-forms-input__label__prompt">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad earum magnam vel possimus harum suscipit.
-				</span>
-			</span>
-		</label>
+  <label for="checkbox-example">
+   <input id="checkbox-example" type="checkbox" name="default" value="Lorem ipsum dolor sit amet" checked="" aria-labelledby="[your-checkbox-label-id]" aria-describedby="[your-checkbox-description-id]" required="">
+   <span class="o-forms-input__label">
+    <span id="[your-checkbox-label-id]" class="o-forms-input__label__main">
+     Lorem ipsum dolor sit amet
+    </span>
+    <span id="[your-checkbox-description-id]" class="o-forms-input__label__prompt">
+     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad earum magnam vel possimus harum suscipit.
+    </span>
+   </span>
+  </label>
 
-	</span>
+ </span>
 
 </div>
 ```
@@ -438,24 +444,24 @@ To create our date input use a [multiple input](#multiple-input-fields) field st
 
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main" id="example-group-title">Group Title</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--date">
-		<label for="date">
-			<input id="date" class="o-forms-input__day-part" type="text" inputmode="numeric" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])" name="my-date" aria-label="Day (DD)"/>
-			<span class="o-forms-input__label">DD</span>
-		</label>
-		<label for="month">
-			<input id="month" class="o-forms-input__month-part" type="text" inputmode="numeric" pattern="(0[1-9]|1[012])" name="my-date" aria-label="Month (MM)"/>
-			<span class="o-forms-input__label">MM</span>
-		</label>
-		<label for="year">
-			<input id="year" class="o-forms-input__year-part" type="text" inputmode="numeric" pattern="[0-9]{4}" name="my-date" aria-label="Year (YYYY)"/>
-			<span class="o-forms-input__label">YYYY</span>
-		</label>
-	</span>
+ <span class="o-forms-input o-forms-input--date">
+  <label for="date">
+   <input id="date" class="o-forms-input__day-part" type="text" inputmode="numeric" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])" name="my-date" aria-label="Day (DD)"/>
+   <span class="o-forms-input__label">DD</span>
+  </label>
+  <label for="month">
+   <input id="month" class="o-forms-input__month-part" type="text" inputmode="numeric" pattern="(0[1-9]|1[012])" name="my-date" aria-label="Month (MM)"/>
+   <span class="o-forms-input__label">MM</span>
+  </label>
+  <label for="year">
+   <input id="year" class="o-forms-input__year-part" type="text" inputmode="numeric" pattern="[0-9]{4}" name="my-date" aria-label="Year (YYYY)"/>
+   <span class="o-forms-input__label">YYYY</span>
+  </label>
+ </span>
 </div>
 ```
 
@@ -466,54 +472,57 @@ _We avoid `type="number"` here for a number of reasons related to accessibility 
 To add additional, contextual information to an input label add a title element with class `o-forms-title__prompt`. When adding a prompt to a multiple input field, such as a checkbox or radio button group, give the prompt element an `id` and associated `aria-describedby` label on the field.
 
 For a single input field, such as a text input:
+
 ```diff
 <span class="o-forms-field">
-	<span class="o-forms-title">
-		<label for="text-example" class="o-forms-title__main">Label for input here</label>
-+		<span class="o-forms-title__prompt">Extra context for the input</span>
-	</span>
+ <span class="o-forms-title">
+  <label for="text-example" class="o-forms-title__main">Label for input here</label>
++  <span class="o-forms-title__prompt">Extra context for the input</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--text">
-		<input id="text-example" type="text" name="text-example" value>
-	</span>
+ <span class="o-forms-input o-forms-input--text">
+  <input id="text-example" type="text" name="text-example" value>
+ </span>
 </span>
 ```
 
 For a multiple input field, such as a checkbox group:
+
 ```diff
 -<div class="o-forms-field" aria-labelledby="example-group-title">
 +<div class="o-forms-field" aria-labelledby="example-group-title" aria-describedby="example-group-prompt">
-	<span class="o-forms-title">
-		<span id="example-group-title" class="o-forms-title__main">Group Title</span>
-+		<span id="example-group-prompt" class="o-forms-title__prompt">Extra context for the input</span>
-	</span>
+ <span class="o-forms-title">
+  <span id="example-group-title" class="o-forms-title__main">Group Title</span>
++  <span id="example-group-prompt" class="o-forms-title__prompt">Extra context for the input</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--checkbox">
-		<label for="checkbox-1">
-			<input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
-			<span class="o-forms-input__label">Checkbox 1</span>
-		</label>
-		<label for="checkbox-2">
-			<input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
-			<span class="o-forms-input__label">Checkbox 2</span>
-		</label>
-	</span>
+ <span class="o-forms-input o-forms-input--checkbox">
+  <label for="checkbox-1">
+   <input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
+   <span class="o-forms-input__label">Checkbox 1</span>
+  </label>
+  <label for="checkbox-2">
+   <input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
+   <span class="o-forms-input__label">Checkbox 2</span>
+  </label>
+ </span>
 </div>
 ```
 
 ### Optional
 
 Add the `o-forms-field--optional` class to indicate that a field is optional. For example to mark a text field as optional:
+
 ```diff
 -<label for="text-example" class="o-forms-field">
 +<label for="text-example" class="o-forms-field o-forms-field--optional">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--text">
-		<input id="text-example" type="text" name="text-example" value>
-	</span>
+ <span class="o-forms-input o-forms-input--text">
+  <input id="text-example" type="text" name="text-example" value>
+ </span>
 </label>
 ```
 
@@ -523,15 +532,15 @@ To inline an element, such as a button, after an input add the class `o-forms-in
 
 ```diff
 <label for="text-example" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Search for an example thing</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Search for an example thing</span>
+ </span>
 
--	<span class="o-forms-input o-forms-input--text">
-+	<span class="o-forms-input o-forms-input--text o-forms-input--suffix">
-		<input id="text-example type="text" name="text-example" value>
-+		<button class="o-buttons o-buttons--secondary o-buttons--big">Search</button>
-	</span>
+- <span class="o-forms-input o-forms-input--text">
++ <span class="o-forms-input o-forms-input--text o-forms-input--suffix">
+  <input id="text-example type="text" name="text-example" value>
++  <button class="o-buttons o-buttons--secondary o-buttons--big">Search</button>
+ </span>
 </label>
 ```
 
@@ -541,14 +550,14 @@ Add the class `o-forms-input--small` on the `o-forms-input` element to reduce th
 
 ```diff
 <label for="text-example" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
--	<span class="o-forms-input o-forms-input--text">
-+	<span class="o-forms-input o-forms-input--text o-forms-input--small">
-		<input id="text-example" type="text" name="text-example" value>
-	</span>
+- <span class="o-forms-input o-forms-input--text">
++ <span class="o-forms-input o-forms-input--text o-forms-input--small">
+  <input id="text-example" type="text" name="text-example" value>
+ </span>
 </label>
 ```
 
@@ -561,13 +570,13 @@ To display an input next to its label, rather than below, set `o-forms-field--in
 ```diff
 -<label for="text-example" class="o-forms-field">
 +<label for="text-example" class="o-forms-field o-forms-field--inline">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--text">
-		<input id="text-example" type="text" name="text-example" value>
-	</span>
+ <span class="o-forms-input o-forms-input--text">
+  <input id="text-example" type="text" name="text-example" value>
+ </span>
 </label>
 ```
 
@@ -576,14 +585,14 @@ If the label of an inlined field is short the class `o-forms-title--vertical-cen
 ```diff
 -<label for="text-example" class="o-forms-field">
 +<label for="text-example" class="o-forms-field o-forms-field--inline">
--	<span class="o-forms-title">
-+	<span class="o-forms-title o-forms-title--vertical-center">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+- <span class="o-forms-title">
++ <span class="o-forms-title o-forms-title--vertical-center">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--text">
-		<input id="text-example"  type="text" name="text-example" value>
-	</span>
+ <span class="o-forms-input o-forms-input--text">
+  <input id="text-example"  type="text" name="text-example" value>
+ </span>
 </label>
 ```
 
@@ -592,14 +601,14 @@ By default the inline label and input will be a set width to ensure multiple inl
 ```diff
 -<label for="text-example" class="o-forms-field">
 +<label for="text-example" class="o-forms-field o-forms-field--inline">
--	<span class="o-forms-title o-forms-title--shrink">
-+	<span class="o-forms-title o-forms-title--shrink">
-		<span class="o-forms-title__main">short label</span>
-	</span>
+- <span class="o-forms-title o-forms-title--shrink">
++ <span class="o-forms-title o-forms-title--shrink">
+  <span class="o-forms-title__main">short label</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--text">
-		<input id="text-example"  type="text" name="text-example" value>
-	</span>
+ <span class="o-forms-input o-forms-input--text">
+  <input id="text-example"  type="text" name="text-example" value>
+ </span>
 </label>
 ```
 
@@ -609,21 +618,21 @@ Add the class `o-forms-input--inline` to the `o-forms-input` element to display 
 
 ```diff
 <div class="o-forms-field" aria-labelledby="example-group-title">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main" id="example-group-title">Group Title</span>
+ </span>
 
--	<span class="o-forms-input o-forms-input--checkbox">
-+	<span class="o-forms-input o-forms-input--checkbox o-forms-input--inline">
-		<label for="checkbox-1">
-			<input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
-			<span class="o-forms-input__label">Checkbox 1</span>
-		</label>
-		<label for="checkbox-2">
-			<input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
-			<span class="o-forms-input__label">Checkbox 2</span>
-		</label>
-	</span>
+- <span class="o-forms-input o-forms-input--checkbox">
++ <span class="o-forms-input o-forms-input--checkbox o-forms-input--inline">
+  <label for="checkbox-1">
+   <input id="checkbox-1" type="checkbox" name="checkbox-1" value="1">
+   <span class="o-forms-input__label">Checkbox 1</span>
+  </label>
+  <label for="checkbox-2">
+   <input id="checkbox-2" type="checkbox" name="checkbox-2" value="2">
+   <span class="o-forms-input__label">Checkbox 2</span>
+  </label>
+ </span>
 </div>
 ```
 
@@ -637,15 +646,15 @@ For example to create a required text field with a custom error message, whilst 
 
 ```diff
 <label for="required-text" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
-	<span class="o-forms-input o-forms-input--text">
--		<input id="required-text" type="text" name="required-text-example">
-+		<input id="required-text" type="text" name="required-text-example" required>
-+		<span role="alert" class="o-forms-input__error>Error message here for a required input</span>
-	</span>
+ <span class="o-forms-input o-forms-input--text">
+-  <input id="required-text" type="text" name="required-text-example">
++  <input id="required-text" type="text" name="required-text-example" required>
++  <span role="alert" class="o-forms-input__error>Error message here for a required input</span>
+ </span>
 </label>
 ```
 
@@ -653,20 +662,21 @@ For example to render an invalid field without [`o-forms` JavaScript](#javascrip
 
 ```diff
 <label for="required-text" class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title__main">Label for input here</span>
-	</span>
+ <span class="o-forms-title">
+  <span class="o-forms-title__main">Label for input here</span>
+ </span>
 
--	<span class="o-forms-input o-forms-input--text">
-+	<span class="o-forms-input o-forms-input--text o-forms-input--invalid">
--		<input id="required-text" type="text" name="required-text-example">
-+		<input id="required-text" type="text" name="required-text-example" required>
-+		<span role="alert" class="o-forms-input__error>Error message here for a required input</span>
-	</span>
+- <span class="o-forms-input o-forms-input--text">
++ <span class="o-forms-input o-forms-input--text o-forms-input--invalid">
+-  <input id="required-text" type="text" name="required-text-example">
++  <input id="required-text" type="text" name="required-text-example" required>
++  <span role="alert" class="o-forms-input__error>Error message here for a required input</span>
+ </span>
 </label>
 ```
 
 #### Error Summary
+
 `o-forms` also generates an error message element when a form is submitted and invalid inputs are recognised. Inputs must have a unique id and a field title element to show in the error summary.
 
 This feature will collect the custom messages of the invalid fields if they are present in the markup, or will default to the browsers native error message if they aren't. It will associate the message to the title of the input that is invalid, generate a list of links at the top of the form, and focus on the first link.
@@ -678,97 +688,102 @@ If you are not using `o-forms` JavaScript you may manually create the error summ
 ```html
 <!-- error summary, `labelledby` the error heading  -->
 <div class="o-forms__error-summary" aria-labelledby="my-error-summary" role="alert">
-	<h4 id="my-error-summary" class="o-forms__error-summary__heading">There is a problem</h4>
-	<ul class="o-forms__error-summary__list">
-		<li class="o-forms__error-summary__item">
-			<!-- link to the invalid input -->
-			<a href="#my-date-input">
-				<!-- the name of the invalid input -->
-				<span class="o-forms__error-summary__item-overview">My date input</span>:
-				<!-- a description of what is wrong and how to fix it -->
-				<span class="o-forms__error-summary__item-detail">
-					Please use the format (DD/MM/YYYY)
-				</span>
-			</a>
-		</li>
-	</ul>
+ <h4 id="my-error-summary" class="o-forms__error-summary__heading">There is a problem</h4>
+ <ul class="o-forms__error-summary__list">
+  <li class="o-forms__error-summary__item">
+   <!-- link to the invalid input -->
+   <a href="#my-date-input">
+    <!-- the name of the invalid input -->
+    <span class="o-forms__error-summary__item-overview">My date input</span>:
+    <!-- a description of what is wrong and how to fix it -->
+    <span class="o-forms__error-summary__item-detail">
+     Please use the format (DD/MM/YYYY)
+    </span>
+   </a>
+  </li>
+ </ul>
 </div>
 ```
 
 ## Sass
+
 `o-forms` has a primary mixin; `oForms()`.
 
 You can include styles for every input type and feature by calling that mixin:
+
 ```scss
 @import '@financial-times/o-forms/main';
 @include oForms();
 ```
 
 If you would like to be more specific about what aspects of the styles get output, then you'll need to provide the primary mixin with an `$opts` map. For example, in order to output styles for text inputs and checkboxes, and add the ability to inlne them, you would use the following:
+
 ```scss
 @import '@financial-times/o-forms/main';
 @include oForms($opts: (
-	'elements': ('text', 'checkbox'),
-	'features': ('inline')
+ 'elements': ('text', 'checkbox'),
+ 'features': ('inline')
 ));
 ```
 
 ### Options
+
 `o-forms` has many options due to its comprehensive nature.
 The `$opts` map accepts two lists with the following options:
+
 - `'elements'`:
-	- `'checkbox'`
-	- `'date'`
-	- `'file'`
-	- `'password'`
-	- `'pseudo-radio-link'`
-	- `'radio-round'`
-	- `'radio-box'`
-	- `'select'`
-	- `'textarea'`
-	- `'text'`
-	- `'toggle'`
+  - `'checkbox'`
+  - `'date'`
+  - `'file'`
+  - `'password'`
+  - `'pseudo-radio-link'`
+  - `'radio-round'`
+  - `'radio-box'`
+  - `'select'`
+  - `'textarea'`
+  - `'text'`
+  - `'toggle'`
 - `'features'`:
-	- `'disabled'`
-	- `'inline'`
-	- `'right'`
-	- `'inverse'` (deprecated, see the 'themes' option)
-	- `'small'`
-	- `'state'`
-	- `'suffix'`
-	- `error-summary`
+  - `'disabled'`
+  - `'inline'`
+  - `'right'`
+  - `'inverse'` (deprecated, see the 'themes' option)
+  - `'small'`
+  - `'state'`
+  - `'suffix'`
+  - `error-summary`
 - `'themes'`
-	- `'inverse'`
-	- `'white'`
+  - `'inverse'`
+  - `'white'`
 
 _Note 1: `valid` and `invalid` styles are output with the base of `o-forms` so there is no need to include them in the list above._
 
 _Note 2: It's important to remember that not all features will apply to all input types. If there are any features you would like to see added to an input, please [get in touch with the team](#contact)._
 
-
 ### Customisation
 
 There is one public mixin to customise two types of input: [pseudo radio links](#pseudo-radio-links) and [box-styled `input[type=radio]`](#inputttyperadio-box).
 It accepts four arguments:
+
 - `$input`: (required) either `'pseudo-radio-link'` or `'radio'`
 - `$modifier`: (required) this will name the modifier to add to the input container class list
 - `$icons`: (optional) accepts an icon or a list of icons to output according to the custom theme
 - `$theme`: (required) a map of the colors that define the custom theme:
-	- `'controls-base'`: the base color of the theme
-	- `'controls-checked-base'`: the background color of a checked input
-	- `'controls-negative-checked-background'`: the background color for a 'negative' checked input
-	- `'controls-border'`: the colour of the border around the controls
+  - `'controls-base'`: the base color of the theme
+  - `'controls-checked-base'`: the background color of a checked input
+  - `'controls-negative-checked-background'`: the background color for a 'negative' checked input
+  - `'controls-border'`: the colour of the border around the controls
 
 ```scss
 @include oFormsAddCustom((
-	$input: 'radio',
-	$modifier: 'my-theme', // outputs the class 'o-forms-input--my-theme',
-	$icons: 'burger'
-	$theme: (
-		controls-base: 'claret',
-		controls-checked-base: 'white',
-		controls-negative-checked-background: 'claret-30'
-	)
+ $input: 'radio',
+ $modifier: 'my-theme', // outputs the class 'o-forms-input--my-theme',
+ $icons: 'burger'
+ $theme: (
+  controls-base: 'claret',
+  controls-checked-base: 'white',
+  controls-negative-checked-background: 'claret-30'
+ )
 ));
 ```
 
@@ -783,45 +798,51 @@ If you would like to use an input without a form element, you can still apply va
 ### Initialise
 
 The main `o-forms` JavaScript has been written to identify and run on a `<form>` element. You'll need to set up your form and include the data attribute `data-o-component="o-forms"`:
+
 ```html
 <form data-o-component="o-forms">
-	<!-- form elements as demonstrated in the markup section above  -->
+ <!-- form elements as demonstrated in the markup section above  -->
 </form>
 ```
 
 By default, `o-forms` is initialised with validation logic. It will generate an error summary for invalid elements when the form is submitted:
+
 ```js
 import oForms from '@financial-times/o-forms';
 oForms.init()
 ```
+
 ### Customise behaviour
 
 The default behaviour of `o-forms` can be changed by configuring the options object. For example, set `preventSubmit: true` to prevent the user from submitting the form. You may then run your own logic before submitting the form by listening for the `oForms.submit` event.
+
 ```js
 oForms.init(null, {
-	preventSubmit: true
+ preventSubmit: true
 })
 
 window.addEventListener('oForms.submit', (e) => {
-	console.log(`A user would like to submit a form, it is ${e.detail.valid ? 'valid' : 'invalid'}.`);
-	if(e.detail.valid) {
-		e.detail.instance.form.submit();
-	}
+ console.log(`A user would like to submit a form, it is ${e.detail.valid ? 'valid' : 'invalid'}.`);
+ if(e.detail.valid) {
+  e.detail.instance.form.submit();
+ }
 });
 ```
 
 The error summary may also be prevented by setting `errorSummary: false`. Though we do not recommend this as an error summary can be helpful for users to discover and navigate a form with errors – this is particularly true for users of some assistive technologies.
+
 ```js
 oForms.init(null, {
-	errorSummary: false
+ errorSummary: false
 })
 ```
 
 In order to use default browser validation set `useBrowserValidation: true`:
+
 ```js
 oForms.init(null, {
-	useBrowserValidation: true,
-	errorSummary: false
+ useBrowserValidation: true,
+ errorSummary: false
 })
 ```
 
@@ -830,12 +851,14 @@ You can also set these values to the data attributes e.g. `data-o-forms-prevent-
 ### Individual Inputs
 
 In the case where a single input is enough for a product but requires validation, you can initialise an `Input` instance:
+
 ```js
 import Input from '@financial-times/o-forms/src/js/input';
 new Input(myInputEl);
 ```
 
 ### State
+
 `o-forms` offers the ability to display a 'saving' or 'saved' state. However, currently the only input that accepts state is the [box-styled `input[type=radio]`](#inputtyperadio-box). If you would like to apply state to any other input, please [get in touch with the team](#contact).
 
 `o-forms` has no opinion about the timing of the states—it doesn't know when to change from 'saving' to 'saved', but it has a public method `setState` that allows the project to control this.
@@ -844,16 +867,16 @@ The `setState` method accepts three arguments: the state, name, and label. State
 
 ```html
 <form data-o-component="o-forms">
-	...
-		<label for="daily">
-			<span class="o-forms-input__label">Daily</span>
-			<input id="daily" type="radio" name="my-radio-box"/>
-		</label>
-			<label for="weekly">
-			<span class="o-forms-input__label">Weekly</span>
-			<input id="weekly" type="radio" name="my-radio-box"/>
-		</label>
-	...
+ ...
+  <label for="daily">
+   <span class="o-forms-input__label">Daily</span>
+   <input id="daily" type="radio" name="my-radio-box"/>
+  </label>
+   <label for="weekly">
+   <span class="o-forms-input__label">Weekly</span>
+   <input id="weekly" type="radio" name="my-radio-box"/>
+  </label>
+ ...
 </form>
 ```
 
@@ -869,7 +892,7 @@ To change the saving label pass a third argument, e.g. to update the label from 
 ```diff
 -myForm.setState('saving', 'my-radio-box');
 +myForm.setState('saving', 'my-radio-box', {
-+	iconLabel: 'Sending'
++ iconLabel: 'Sending'
 +});
 ```
 
@@ -877,7 +900,7 @@ You also have the option of displaying state as an icon without text. In order t
 
 ```js
 myForm.setState('saving', 'my-radio-box', {
-	iconOnly: true
+ iconOnly: true
 });
 ```
 

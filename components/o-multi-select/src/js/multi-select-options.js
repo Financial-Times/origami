@@ -12,6 +12,7 @@ export function handleOptionSelect(optionEl, option, index) {
 	} else {
 		addOption.call(this, optionEl, option, index);
 	}
+
 	this._activeIndex = index;
 	this._updateCurrentElement();
 	const coreOption = this._coreOptions[index];
