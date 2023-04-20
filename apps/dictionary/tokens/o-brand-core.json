@@ -111,7 +111,7 @@
   "background": {
     "color": {
       "root": {
-        "value": "{pallette-color.primary.ft pink}",
+        "value": "{pallette-color.wheat tints.wheat -100}",
         "type": "color"
       }
     }

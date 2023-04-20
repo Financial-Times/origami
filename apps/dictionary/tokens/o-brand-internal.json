@@ -83,25 +83,25 @@
   "border": {
     "button": {
       "primary": {
-		"active": {
-		  "value": {
-			"color": "{color.background.button.primary.active}",
-			"width": "1px",
-			"style": "solid"
-		  },
-		  "type": "border"
-		}
+        "active": {
+          "value": {
+            "color": "{color.background.button.primary.active}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        }
       },
       "secondary": {
-		"active": {
-		  "value": {
-			"color": "{color.background.button.ghost.active}",
-			"width": "1px",
-			"style": "solid"
-		  },
-		  "type": "border"
-		}
-	  }
+        "active": {
+          "value": {
+            "color": "{color.background.button.ghost.active}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        }
+      }
     }
   },
   "background": {

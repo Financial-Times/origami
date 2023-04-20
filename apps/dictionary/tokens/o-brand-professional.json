@@ -1,101 +1,101 @@
 {
   "color": {
-	"background": {
-	  "button": {
-		"primary": {
-		  "active": {
-			"type": "color",
-			"value": "{pallette-color.secondary.slate}",
-			"blendMode": "normal"
-		  },
-		  "hover": {
-			"value": "#515257",
-			"type": "color"
-		  }
-		},
-		"inverse": {
-		  "description": "",
-		  "type": "color",
-		  "value": "#ffffffff",
-		  "blendMode": "normal"
-		},
-		"secondary": {
-		  "active": {
-			"type": "color",
-			"value": "#ffffff00",
-			"blendMode": "normal"
-		  },
-		  "hover": {
-			"value": "#DED3CA",
-			"type": "color"
-		  }
-		},
-		"ghost": {
-		  "active": {
-			"type": "color",
-			"value": "#ffffff00",
-			"blendMode": "normal"
-		  },
-		  "hover": {
-			"value": "#DED3CAaa",
-			"type": "color"
-		  }
-		}
-	  }
-	},
-	"button": {
-	  "primary": {
-		"active": {
-		  "value": "{pallette-color.primary.white}",
-		  "type": "color"
-		},
-		"hover": {
-		  "value": "#FFFFFF",
-		  "type": "color"
-		}
-	  },
-	  "secondary": {
-		"active": {
-		  "value": "{color.background.button.primary.active}",
-		  "type": "color"
-		},
-		"hover": {
-		  "value": "{color.background.button.primary.active}",
-		  "type": "color"
-		}
-	  }
-	}
+    "background": {
+      "button": {
+        "primary": {
+          "active": {
+            "type": "color",
+            "value": "{pallette-color.secondary.slate}",
+            "blendMode": "normal"
+          },
+          "hover": {
+            "value": "#515257",
+            "type": "color"
+          }
+        },
+        "inverse": {
+          "description": "",
+          "type": "color",
+          "value": "#ffffffff",
+          "blendMode": "normal"
+        },
+        "secondary": {
+          "active": {
+            "type": "color",
+            "value": "#ffffff00",
+            "blendMode": "normal"
+          },
+          "hover": {
+            "value": "#DED3CA",
+            "type": "color"
+          }
+        },
+        "ghost": {
+          "active": {
+            "type": "color",
+            "value": "#ffffff00",
+            "blendMode": "normal"
+          },
+          "hover": {
+            "value": "#DED3CAaa",
+            "type": "color"
+          }
+        }
+      }
+    },
+    "button": {
+      "primary": {
+        "active": {
+          "value": "{pallette-color.primary.white}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#FFFFFF",
+          "type": "color"
+        }
+      },
+      "secondary": {
+        "active": {
+          "value": "{color.background.button.primary.active}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "{color.background.button.primary.active}",
+          "type": "color"
+        }
+      }
+    }
   },
   "border": {
-	"button": {
-	  "primary": {
-		"active": {
-		  "value": {
-			"color": "{color.background.button.primary.active}",
-			"width": "1px",
-			"style": "solid"
-		  },
-		  "type": "border"
-		},
-		"hover": {
-		  "value": {
-			"color": "{color.background.button.secondary.active}",
-			"width": "1px",
-			"style": "solid"
-		  },
-		  "type": "border"
-		}
-	  },
-	  "secondary": {
-		"active": {
-		  "value": {
-			"color": "{color.background.button.primary.active}",
-			"width": "1px",
-			"style": "solid"
-		  },
-		  "type": "border"
-		}
-	  }
-	}
+    "button": {
+      "primary": {
+        "active": {
+          "value": {
+            "color": "{color.background.button.primary.active}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        },
+        "hover": {
+          "value": {
+            "color": "{color.background.button.secondary.active}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        }
+      },
+      "secondary": {
+        "active": {
+          "value": {
+            "color": "{color.background.button.primary.active}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        }
+      }
+    }
   }
 }
