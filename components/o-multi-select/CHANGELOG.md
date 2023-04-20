@@ -5,7 +5,7 @@
 
 ### Features
 
-* fake commit to publish tsx templates but also fixes markdown violations for o-forms readme ([32fbea1](https://www.github.com/Financial-Times/origami/commit/32fbea121920d943f62f0ae3f6707bc9832bd3e6))
+* publish tsx templates ([32fbea1](https://www.github.com/Financial-Times/origami/commit/32fbea121920d943f62f0ae3f6707bc9832bd3e6))
 
 ### [1.0.1](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v1.0.0...o-multi-select-v1.0.1) (2023-03-31)
 
