@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v1.0.1...o-multi-select-v1.1.0) (2023-04-20)
+
+
+### Features
+
+* publish tsx templates ([32fbea1](https://www.github.com/Financial-Times/origami/commit/32fbea121920d943f62f0ae3f6707bc9832bd3e6))
+
 ### [1.0.1](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v1.0.0...o-multi-select-v1.0.1) (2023-03-31)
 
 

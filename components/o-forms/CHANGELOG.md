@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.8.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.7.2...o-forms-v9.8.0) (2023-04-20)
+
+
+### Features
+
+* publish tsx templates ([551dcc8](https://www.github.com/Financial-Times/origami/commit/551dcc8d1e98750a343d2a2b320d09f16507afa1))
+
 ### [9.7.2](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.7.1...o-forms-v9.7.2) (2023-04-11)
 
 
