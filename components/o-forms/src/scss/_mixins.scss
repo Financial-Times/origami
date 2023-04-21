@@ -55,6 +55,9 @@
 				@include oIconsContent('tick', _oFormsGet('controls-checked-base', $theme), $_o-forms-checkbox-radio-width);
 				background-color: _oFormsGet("controls-base", $theme);
 			}
+			.o-forms-input__label__prompt {
+				color: _oFormsGet("default-text", $theme);
+			}
 		}
 	}
 

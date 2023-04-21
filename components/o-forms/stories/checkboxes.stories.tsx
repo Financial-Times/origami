@@ -21,9 +21,10 @@ const themeControl =
 					labels: {
 						"": "default",
 						professional: "professional",
+						'professional-inverse': "professional-inverse",
 					},
 				},
-				options: ["", "professional"],
+				options: ["", "professional", "professional-inverse"],
 		  }
 		: hideArg;
 
