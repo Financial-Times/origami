@@ -10,7 +10,7 @@ export function handleOptionSelect(optionEl, option, index) {
 	if (optionEl.classList.contains('o-multi-select-option__selected')) {
 		removeOption.call(this, optionEl, option, index);
 	} else {
-		addOption.call(this, optionEl, option, index);
+		addSelectedOption.call(this, optionEl, option, index);
 	}
 
 	this._activeIndex = index;
@@ -46,7 +46,7 @@ function removeOption(optionEl, option, index) {
  * @param {number} index - The index of the option to add.
  * @returns {void}
  */
-function addOption(optionEl, option, index) {
+export function addSelectedOption(optionEl, option, index) {
 	this._numberOfSelectedOptions++;
 	optionEl.classList.add('o-multi-select-option__selected');
 	optionEl.setAttribute('aria-selected', 'true');
@@ -92,14 +92,15 @@ function createOptionButton(option, index) {
  * @param {string} idBase - The base ID to use for the option element.
  * @param {string} option - The text content of the option.
  * @param {number} index - The index of the option.
+ * @param {boolean} [selected=false] - Whether the option should be selected.
  * @returns {HTMLElement} The newly created option element.
  */
-export function createOption(idBase, option, index) {
+export function createOption(idBase, option, index, selected = false) {
 	const optionEl = document.createElement('div');
 	optionEl.setAttribute('role', 'option');
 	optionEl.id = `${idBase}-${index}`;
 	optionEl.className = 'o-multi-select-option';
-	optionEl.setAttribute('aria-selected', 'false');
+	optionEl.setAttribute('aria-selected', selected);
 	optionEl.innerText = option;
 	const tickSpan = document.createElement('span');
 	tickSpan.className = 'o-multi-select-option-tick';

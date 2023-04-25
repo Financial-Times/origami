@@ -6,7 +6,7 @@ import {
 	checkForDuplicates
 } from './utils.js';
 import {updateState} from './state.js';
-import {handleOptionSelect, createOption} from './multi-select-options.js';
+import {handleOptionSelect, createOption, addSelectedOption} from './multi-select-options.js';
 import {uidBuilder} from "@financial-times/o-utils";
 
 const uniqueId = uidBuilder('o-multi-select');
@@ -47,16 +47,20 @@ class MultiSelect {
 		this._activeIndex = 0;
 		this._open = false;
 
+		this._bindHelperFunctionsAndEventListeners();
+
 		this._options.forEach((option, index) => {
-			const optionEl = createOption(this._idBase, option, index);
+			const selected = this._coreOptions[index].selected;
+			const optionEl = createOption(this._idBase, option, index, selected);
 			optionEl.addEventListener('click', () => {
 				this._handleOptionSelect(optionEl, option, index);
 				optionEl.classList.remove('o-multi-select-option__current');
 			});
 			this._listboxEl.appendChild(optionEl);
+			if (selected) {
+				addSelectedOption.call(this, optionEl, option, index);
+			}
 		});
-
-		this._bindHelperFunctionsAndEventListeners();
 	}
 
 	/**
