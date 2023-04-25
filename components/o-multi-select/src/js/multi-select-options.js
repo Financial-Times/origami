@@ -16,7 +16,11 @@ export function handleOptionSelect(optionEl, option, index) {
 	this._activeIndex = index;
 	this._updateCurrentElement();
 	const coreOption = this._coreOptions[index];
-	coreOption.selected = !coreOption.selected;
+	if (coreOption.selected) {
+		coreOption.removeAttribute('selected');
+	} else {
+		coreOption.setAttribute('selected', '');
+	}
 }
 
 /**
@@ -95,7 +99,7 @@ function createOptionButton(option, index) {
  * @param {boolean} [selected=false] - Whether the option should be selected.
  * @returns {HTMLElement} The newly created option element.
  */
-export function createOption(idBase, option, index, selected = false) {
+export function createOption(idBase, option, index, selected) {
 	const optionEl = document.createElement('div');
 	optionEl.setAttribute('role', 'option');
 	optionEl.id = `${idBase}-${index}`;

@@ -11,7 +11,10 @@ function sleep(ms) {
 }
 
 function setupMultiSelect(multiSelectOptions) {
-	const options = multiSelectOptions || ['Apple', 'Banana'];
+	const options = multiSelectOptions || [
+		{label: 'Apple', selected: false},
+		{label: 'Banana', selected: false},
+	];
 
 	fixtures.htmlCode(options);
 	const targetEl = document.querySelector(
@@ -57,6 +60,7 @@ describe('MultiSelect', () => {
 	context('constructor', () => {
 		let options;
 		let multiSelect;
+
 		beforeEach(() => {
 			({multiSelect, options} = setupMultiSelect());
 		});
@@ -75,13 +79,52 @@ describe('MultiSelect', () => {
 					[...element.classList].includes('o-multi-select-option'),
 					true
 				);
-				assert.equal(element.innerText, options[i]);
+				assert.equal(element.innerText, options[i].label);
 				const childSpan = element.querySelector('span');
 				assert.equal(
 					[...childSpan.classList].includes('o-multi-select-option-tick'),
 					true
 				);
 			});
+		});
+
+		it('creates a component with pre-selected options', () => {
+			const multiSelectOptions = [
+				{label: 'apple', selected: true},
+				{label: 'banana', selected: false},
+				{label: 'orange', selected: true},
+				{label: 'pineapple', selected: false},
+			];
+			multiSelect = setupMultiSelect(multiSelectOptions).multiSelect;
+
+			// gets first element in the options
+			const optionElements = document.querySelectorAll("[role='option']");
+
+			// get indexes of selected options multiSelectOptions
+			const selectedOptionsIndexes = multiSelectOptions
+				.map((option, i) => (option.selected ? i : null))
+				.filter(option => option !== null);
+
+			optionElements.forEach((optionEl, i) => {
+				if (selectedOptionsIndexes.includes(i)) {
+					assert.equal(optionEl.getAttribute('aria-selected'), 'true');
+				} else {
+					assert.equal(optionEl.getAttribute('aria-selected'), 'false');
+				}
+			});
+
+			const selectedOptions = document.querySelectorAll(
+				'.o-multi-select-option__selected'
+			);
+			assert.equal(selectedOptions.length, selectedOptionsIndexes.length);
+
+			const selectedOptionsAsButtons = document.querySelector(
+				'.o-multi-select__selected-options'
+			).children;
+			assert.equal(
+				selectedOptionsAsButtons.length,
+				selectedOptionsIndexes.length
+			);
 		});
 	});
 
@@ -140,6 +183,12 @@ describe('MultiSelect', () => {
 						true
 					);
 				});
+				it('adds selected attribute on core option element', () => {
+					const optionEl = document.querySelector(`#${multiSelect._idBase}-0`);
+					userEvent.click(optionEl);
+					const coreOptionEl = document.querySelector('option');
+					assert.equal(coreOptionEl.getAttribute('selected'), '');
+				});
 			});
 			describe('on selected option', () => {
 				it('removes options in selected options list removes tick icon in dropdown menu', () => {
@@ -154,6 +203,13 @@ describe('MultiSelect', () => {
 						[...optionEl.classList].includes('o-multi-select-option__selected'),
 						false
 					);
+				});
+				it('removes selected attribute on core option element', () => {
+					const optionEl = document.querySelector(`#${multiSelect._idBase}-0`);
+					userEvent.click(optionEl);
+					userEvent.click(optionEl);
+					const coreOptionEl = document.querySelector('option');
+					assert.equal(coreOptionEl.getAttribute('selected'), null);
 				});
 			});
 		});
@@ -187,16 +243,16 @@ describe('MultiSelect', () => {
 			});
 			it(`and if selected options width is more than 90% of combobox element width, the selected options are hidden and the combobox inner text is "X options selected"`, () => {
 				const multiSelectOptions = [
-					'apple',
-					'banana',
-					'orange',
-					'pineapple',
-					'mango',
-					'grapes',
-					'watermelon',
-					'papaya',
-					'guava',
-					'kiwi',
+					{label: 'apple', selected: false},
+					{label: 'banana', selected: false},
+					{label: 'orange', selected: false},
+					{label: 'pineapple', selected: false},
+					{label: 'mango', selected: false},
+					{label: 'grapes', selected: false},
+					{label: 'watermelon', selected: false},
+					{label: 'papaya', selected: false},
+					{label: 'guava', selected: false},
+					{label: 'kiwi', selected: false},
 				];
 				multiSelect = setupMultiSelect(multiSelectOptions);
 				const optionsToSelect = document.querySelectorAll('[role="option"]');
@@ -321,25 +377,25 @@ describe('MultiSelect', () => {
 			}
 			function createMultiSelectWithLotsOfOptions() {
 				const multiSelectOptions = [
-					'apple',
-					'banana',
-					'orange',
-					'pineapple',
-					'mango',
-					'grapes',
-					'watermelon',
-					'papaya',
-					'guava',
-					'kiwi',
-					'pear',
-					'peach',
-					'plum',
-					'cherry',
-					'lemon',
-					'lime',
-					'coconut',
-					'pomegranate',
-					'blueberry',
+					{label: 'apple', selected: false},
+					{label: 'banana', selected: false},
+					{label: 'orange', selected: false},
+					{label: 'pineapple', selected: false},
+					{label: 'mango', selected: false},
+					{label: 'grapes', selected: false},
+					{label: 'watermelon', selected: false},
+					{label: 'papaya', selected: false},
+					{label: 'guava', selected: false},
+					{label: 'kiwi', selected: false},
+					{label: 'pear', selected: false},
+					{label: 'peach', selected: false},
+					{label: 'plum', selected: false},
+					{label: 'cherry', selected: false},
+					{label: 'lemon', selected: false},
+					{label: 'lime', selected: false},
+					{label: 'coconut', selected: false},
+					{label: 'pomegranate', selected: false},
+					{label: 'blueberry', selected: false},
 				];
 				multiSelect = setupMultiSelect(multiSelectOptions);
 				comboEl = document.querySelector('[role=combobox]');

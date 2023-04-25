@@ -20,7 +20,7 @@ function insert(html) {
 }
 
 function htmlCode(multiSelectOptions) {
-	const options = multiSelectOptions.map(option => `<option value="${option}">${option}</option>`);
+	const options = multiSelectOptions.map(option => `<option value="${option.label}" ${option.selected && "selected"}>${option.label}</option>`);
 	const html = `<form data-o-component="o-forms">
   <label for="fruits" class="o-forms-field">
     <span class="o-forms-title">
