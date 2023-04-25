@@ -132,7 +132,8 @@ oMultiSelect.init(oMultiSelectElement);
 
 |   State   | Major Version | Last Minor Release | Migration guide |
 | :-------: | :-----------: | :----------------: | :-------------: |
-| ✨ active |       1       |        1.0         |       N/A       |
+|✨ active | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ⚠ maintained |       1       |        1.0         |       N/A       |
 
 ## Contact
 
