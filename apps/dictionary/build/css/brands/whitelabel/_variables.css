@@ -1,21 +1,21 @@
 /**
  * Do not edit directly
- * Generated on Tue, 25 Apr 2023 10:05:37 GMT
+ * Generated on Tue, 25 Apr 2023 15:43:10 GMT
  */
 
 .o-brand-whitelabel {
-  --color-background-button-primary-active: #000000ff;
-  --color-background-button-primary-hover: #333;
-  --color-background-button-inverse: #ffffffff;
-  --color-background-button-secondary-active: #ffffff00;
-  --color-background-button-secondary-hover: rgba(13,118,128,0.1);
-  --color-button-primary-active: #FFFFFF;
-  --color-button-primary-hover: #FFFFFF;
-  --color-button-secondary-active: var(--color-background-button-primary-active);
-  --color-button-secondary-hover: var(--color-background-button-primary-active);
-  --color-text-default: var(--pallette-color-black-tints-black-90);
-  --border-button-primary-active: 1px solid var(--color-background-button-primary-active);
-  --border-button-primary-hover: 1px solid var(--color-background-button-primary-active);
-  --border-button-secondary-active: 1px solid var(--color-background-button-primary-active);
-  --background-color-root: var(--pallette-color-primary-white);
+  --o-color-background-button-primary-active: #000000ff;
+  --o-color-background-button-primary-hover: #333;
+  --o-color-background-button-inverse: #ffffffff;
+  --o-color-background-button-secondary-active: #ffffff00;
+  --o-color-background-button-secondary-hover: rgba(13,118,128,0.1);
+  --o-color-button-primary-active: #FFFFFF;
+  --o-color-button-primary-hover: #FFFFFF;
+  --o-color-button-secondary-active: --o-color-background-button-primary-active;
+  --o-color-button-secondary-hover: --o-color-background-button-primary-active;
+  --o-color-text-default: --o-pallette-color-black-tints-black-90;
+  --o-border-button-primary-active: 1px solid --o-color-background-button-primary-active;
+  --o-border-button-primary-hover: 1px solid --o-color-background-button-primary-active;
+  --o-border-button-secondary-active: 1px solid --o-color-background-button-primary-active;
+  --o-background-color-root: --o-pallette-color-primary-white;
 }

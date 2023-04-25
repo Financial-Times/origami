@@ -1,23 +1,23 @@
 /**
  * Do not edit directly
- * Generated on Tue, 25 Apr 2023 10:05:37 GMT
+ * Generated on Tue, 25 Apr 2023 15:43:10 GMT
  */
 
 .o-brand-internal {
-  --color-background-button-primary-active: var(--pallette-color-secondary-teal);
-  --color-background-button-primary-hover: #095259;
-  --color-background-button-inverse: #ffffffff;
-  --color-background-button-mono: #262a33;
-  --color-background-button-b2c: #3a70af;
-  --color-background-button-secondary-active: #ffffff00;
-  --color-background-button-secondary-hover: rgba(13,118,128,0.1);
-  --color-background-button-ghost-active: #ffffff00;
-  --color-background-button-ghost-hover: rgba(13,118,128,0.1);
-  --color-button-primary-active: #FFFFFF;
-  --color-button-primary-hover: #FFFFFF;
-  --color-button-secondary-active: var(--color-background-button-primary-active);
-  --color-text-default: var(--pallette-color-black-tints-black-90);
-  --border-button-primary-active: 1px solid var(--color-background-button-primary-active);
-  --border-button-secondary-active: 1px solid var(--color-background-button-ghost-active);
-  --background-color-root: var(--pallette-color-primary-white);
+  --o-color-background-button-primary-active: --o-pallette-color-secondary-teal;
+  --o-color-background-button-primary-hover: #095259;
+  --o-color-background-button-inverse: #ffffffff;
+  --o-color-background-button-mono: #262a33;
+  --o-color-background-button-b2c: #3a70af;
+  --o-color-background-button-secondary-active: #ffffff00;
+  --o-color-background-button-secondary-hover: rgba(13,118,128,0.1);
+  --o-color-background-button-ghost-active: #ffffff00;
+  --o-color-background-button-ghost-hover: rgba(13,118,128,0.1);
+  --o-color-button-primary-active: #FFFFFF;
+  --o-color-button-primary-hover: #FFFFFF;
+  --o-color-button-secondary-active: --o-color-background-button-primary-active;
+  --o-color-text-default: --o-pallette-color-black-tints-black-90;
+  --o-border-button-primary-active: 1px solid --o-color-background-button-primary-active;
+  --o-border-button-secondary-active: 1px solid --o-color-background-button-ghost-active;
+  --o-background-color-root: --o-pallette-color-primary-white;
 }

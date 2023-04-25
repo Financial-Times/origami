@@ -27,7 +27,8 @@ const getStyleDictionaryBrandConfig = (brand) => (
 					"format": "css/brand/classes",
 					"options": {
 						"outputReferences": true,
-						"className": `o-brand-${brand.name}`
+						"className": `o-brand-${brand.name}`,
+						"cssVarPrefix": 'o-'
 					}
 				}],
 			}
