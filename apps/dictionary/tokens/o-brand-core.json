@@ -5,7 +5,7 @@
         "primary": {
           "active": {
             "type": "color",
-            "value": "{pallette-color.secondary.teal}",
+            "value": "{pallette-color.secondary.mint}",
             "blendMode": "normal"
           },
           "hover": {
@@ -58,7 +58,7 @@
     "button": {
       "primary": {
         "active": {
-          "value": "{pallette-color.primary.white}",
+          "value": "{pallette-color.primary.ft grey}",
           "type": "color"
         },
         "hover": {

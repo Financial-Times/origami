@@ -54,7 +54,7 @@ const SubBrandWithinBrand = args => (
 			<h1>Brands</h1>
 			<div className='o-brand-core o-buttons-container'>
 				<h2>Core Brand</h2>
-				<Button label='Primary' type='primary'/>
+				<Button label='Primary' type='primary' theme='mono'/>
 				<Button label='Secondary' type='secondary'/>
 				<Button label='Ghost' type='ghost'/>
 				<div className='o-brand-professional sub-container'>
