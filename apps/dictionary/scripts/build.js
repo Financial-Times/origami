@@ -24,7 +24,7 @@ const getStyleDictionaryBrandConfig = (brand) => (
 					'name/origamiPrefix',
 					'name/cti/kebab',
 				],
-				"buildPath": `build/css/brands/${brand.name}/`,
+				"buildPath": `build/css/usecase/${brand.name}/`,
 				"files": [{
 					"destination": "_variables.css",
 					"format": "css/brand/classes",
@@ -78,7 +78,7 @@ const getBrands = async () => {
 					'name/origamiPrefix',
 					'name/cti/kebab',
 				],
-				"buildPath": `build/css/pallette/`,
+				"buildPath": `build/css/base/color/`,
 				"files": [{
 					"destination": "_variables.css",
 					"format": "css/variables",

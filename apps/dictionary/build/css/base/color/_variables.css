@@ -1,0 +1,71 @@
+/**
+ * Do not edit directly
+ * Generated on Wed, 26 Apr 2023 15:15:47 GMT
+ */
+
+:root {
+  --o-color-base-wheat-tints-wheat-100: #ffebd9ff;
+  --o-color-base-claret-tints-claret-100: #ff1a66ff;
+  --o-color-base-claret-tints-claret-90: #e6175cff;
+  --o-color-base-claret-tints-claret-80: #cc1452ff;
+  --o-color-base-claret-tints-claret-70: #b31247ff;
+  --o-color-base-claret-tints-claret-60: #990f3dff;
+  --o-color-base-claret-tints-claret-50: #800d33ff;
+  --o-color-base-claret-tints-claret-40: #660a29ff;
+  --o-color-base-claret-tints-claret-30: #4d081fff;
+  --o-color-base-teal-tints-teal-100: #1aecffff;
+  --o-color-base-teal-tints-teal-90: #17d4e6ff;
+  --o-color-base-teal-tints-teal-80: #14bdccff;
+  --o-color-base-teal-tints-teal-70: #12a5b3ff;
+  --o-color-base-teal-tints-teal-60: #0f8e99ff;
+  --o-color-base-teal-tints-teal-50: #0d7680ff;
+  --o-color-base-teal-tints-teal-40: #0a5e66ff;
+  --o-color-base-teal-tints-teal-30: #08474dff;
+  --o-color-base-teal-tints-teal-20: #052f33ff;
+  --o-color-base-oxford-tints-oxford-100: #1a8cffff;
+  --o-color-base-oxford-tints-oxford-90: #177ee6ff;
+  --o-color-base-oxford-tints-oxford-80: #1470ccff;
+  --o-color-base-oxford-tints-oxford-70: #1262b3ff;
+  --o-color-base-oxford-tints-oxford-60: #0f5499ff;
+  --o-color-base-oxford-tints-oxford-50: #0d4680ff;
+  --o-color-base-oxford-tints-oxford-40: #0a3866ff;
+  --o-color-base-oxford-tints-oxford-30: #082a4dff;
+  --o-color-base-white-tints-white-80: #fffcfaff;
+  --o-color-base-white-tints-white-60: #fff9f5ff;
+  --o-color-base-white-tints-white-40: #fff7efff;
+  --o-color-base-white-tints-white-20: #fff4eaff;
+  --o-color-base-white-tints-white-10: #fff2e8ff;
+  --o-color-base-black-tints-black-90: #1a1817ff;
+  --o-color-base-black-tints-black-80: #33302eff;
+  --o-color-base-black-tints-black-70: #4d4845ff;
+  --o-color-base-black-tints-black-60: #66605cff;
+  --o-color-base-black-tints-black-50: #807973ff;
+  --o-color-base-black-tints-black-40: #999189ff;
+  --o-color-base-black-tints-black-30: #b3a9a0ff;
+  --o-color-base-black-tints-black-20: #ccc1b7ff;
+  --o-color-base-black-tints-black-10: #e6d9ceff;
+  --o-color-base-black-tints-black-5: #f2e5daff;
+  --o-color-base-partner-content-matisse-blue: #355778ff;
+  --o-color-base-tertiary-sky: #cce6ffff;
+  --o-color-base-tertiary-lemon: #ffec1aff;
+  --o-color-base-tertiary-velvet: #593380ff;
+  --o-color-base-tertiary-jade: #00994dff;
+  --o-color-base-tertiary-wasabi: #96cc28ff;
+  --o-color-base-tertiary-candy: #ff7faaff;
+  --o-color-base-tertiary-wheat: #f2dfceff;
+  --o-color-base-tertiary-graphics-dark-blue: #006f9bff;
+  --o-color-base-tertiary-crimson: #cc0000ff;
+  --o-color-base-tertiary-light-blue: #00a0ddff;
+  --o-color-base-tertiary-mandarin: #ff8833ff;
+  --o-color-base-secondary-mint: #c0efd8;
+  --o-color-base-secondary-transparrent: #ffffff00;
+  --o-color-base-secondary-paper: #fff1e5ff;
+  --o-color-base-secondary-slate: #262a33ff;
+  --o-color-base-secondary-oxford: #0f5499ff;
+  --o-color-base-secondary-teal: #0d7680ff;
+  --o-color-base-secondary-claret: #990f3dff;
+  --o-color-base-primary-black: #000000ff;
+  --o-color-base-primary-white: #ffffffff;
+  --o-color-base-primary-ft-grey: #333333ff;
+  --o-color-base-primary-ft-pink: #fcd0b1af;
+}

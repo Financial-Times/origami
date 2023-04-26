@@ -1,11 +1,11 @@
 {
-  "color": {
+  "color-usecase": {
     "background": {
       "button": {
         "primary": {
           "active": {
             "type": "color",
-            "value": "{pallette-color.secondary.teal}",
+            "value": "{color-base.secondary.teal}",
             "blendMode": "normal"
           },
           "hover": {
@@ -68,14 +68,14 @@
       },
       "secondary": {
         "active": {
-          "value": "{color.background.button.primary.active}",
+          "value": "{color-usecase.background.button.primary.active}",
           "type": "color"
         }
       }
     },
     "text": {
       "default": {
-        "value": "{pallette-color.black tints.black 90}",
+        "value": "{color-base.black tints.black 90}",
         "type": "color"
       }
     }
@@ -85,7 +85,7 @@
       "primary": {
         "active": {
           "value": {
-            "color": "{color.background.button.primary.active}",
+            "color": "{color-usecase.background.button.primary.active}",
             "width": "1px",
             "style": "solid"
           },
@@ -95,7 +95,7 @@
       "secondary": {
         "active": {
           "value": {
-            "color": "{color.background.button.ghost.active}",
+            "color": "{color-usecase.background.button.ghost.active}",
             "width": "1px",
             "style": "solid"
           },
@@ -107,7 +107,7 @@
   "background": {
     "color": {
       "root": {
-        "value": "{pallette-color.primary.white}",
+        "value": "{color-base.primary.white}",
         "type": "color"
       }
     }

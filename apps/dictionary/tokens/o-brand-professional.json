@@ -1,11 +1,11 @@
 {
-  "color": {
+  "color-usecase": {
     "background": {
       "button": {
         "primary": {
           "active": {
             "type": "color",
-            "value": "{pallette-color.secondary.slate}",
+            "value": "{color-base.secondary.slate}",
             "blendMode": "normal"
           },
           "hover": {
@@ -46,7 +46,7 @@
     "button": {
       "primary": {
         "active": {
-          "value": "{pallette-color.primary.white}",
+          "value": "{color-base.primary.white}",
           "type": "color"
         },
         "hover": {
@@ -56,11 +56,11 @@
       },
       "secondary": {
         "active": {
-          "value": "{color.background.button.primary.active}",
+          "value": "{color-usecase.background.button.primary.active}",
           "type": "color"
         },
         "hover": {
-          "value": "{color.background.button.primary.active}",
+          "value": "{color-usecase.background.button.primary.active}",
           "type": "color"
         }
       }
@@ -71,7 +71,7 @@
       "primary": {
         "active": {
           "value": {
-            "color": "{color.background.button.primary.active}",
+            "color": "{color-usecase.background.button.primary.active}",
             "width": "1px",
             "style": "solid"
           },
@@ -79,7 +79,7 @@
         },
         "hover": {
           "value": {
-            "color": "{color.background.button.secondary.active}",
+            "color": "{color-usecase.background.button.secondary.active}",
             "width": "1px",
             "style": "solid"
           },
@@ -89,7 +89,7 @@
       "secondary": {
         "active": {
           "value": {
-            "color": "{color.background.button.primary.active}",
+            "color": "{color-usecase.background.button.primary.active}",
             "width": "1px",
             "style": "solid"
           },

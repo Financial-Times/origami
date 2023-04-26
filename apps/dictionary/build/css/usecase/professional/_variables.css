@@ -1,0 +1,21 @@
+/**
+ * Do not edit directly
+ * Generated on Wed, 26 Apr 2023 15:15:47 GMT
+ */
+
+.o-brand-professional {
+  --o-color-usecase-background-button-primary-active: var(--o-color-base-secondary-slate);
+  --o-color-usecase-background-button-primary-hover: #515257;
+  --o-color-usecase-background-button-inverse: #ffffffff;
+  --o-color-usecase-background-button-secondary-active: #ffffff00;
+  --o-color-usecase-background-button-secondary-hover: #DED3CA;
+  --o-color-usecase-background-button-ghost-active: #ffffff00;
+  --o-color-usecase-background-button-ghost-hover: #DED3CAaa;
+  --o-color-usecase-button-primary-active: var(--o-color-base-primary-white);
+  --o-color-usecase-button-primary-hover: #FFFFFF;
+  --o-color-usecase-button-secondary-active: var(--o-color-usecase-background-button-primary-active);
+  --o-color-usecase-button-secondary-hover: var(--o-color-usecase-background-button-primary-active);
+  --o-border-button-primary-active: 1px solid var(--o-color-usecase-background-button-primary-active);
+  --o-border-button-primary-hover: 1px solid var(--o-color-usecase-background-button-secondary-active);
+  --o-border-button-secondary-active: 1px solid var(--o-color-usecase-background-button-primary-active);
+}
