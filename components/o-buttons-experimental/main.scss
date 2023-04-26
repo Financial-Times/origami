@@ -63,43 +63,43 @@
   .o-buttons-experimental {
 	@include _oButtonsBaseContent();
 
-	background-color: var(--color-background-button-primary-active);
-	color: var(--color-button-primary-active);
-	border: var(--border-button-primary-active);
+	background-color: var(--o-color-background-button-primary-active);
+	color: var(--o-color-button-primary-active);
+	border: var(--o-border-button-primary-active);
 	//
 	&:hover {
 	  //next up, define colours for all of these
-	  background-color: var(--color-background-button-primary-hover);
-	  color: var(--color-button-primary-hover);
-	  border: var(--border-button-primary-hover);
+	  background-color: var(--o-color-background-button-primary-hover);
+	  color: var(--o-color-button-primary-hover);
+	  border: var(--o-border-button-primary-hover);
 	  text-decoration: none;
 	}
   }
 
   .o-buttons-experimental--secondary {
-	background-color: var(--color-background-button-secondary-active);
-	color: var(--color-button-secondary-active);
-	border: var(--border-button-secondary-active);
+	background-color: var(--o-color-background-button-secondary-active);
+	color: var(--o-color-button-secondary-active);
+	border: var(--o-border-button-secondary-active);
 
 	&:hover {
 	  //next up, define colours for all of these
-	  background-color: var(--color-background-button-secondary-hover);
-	  color: var(--color-button-secondary-hover);
-	  border: var(--border-button-secondary-active);
+	  background-color: var(--o-color-background-button-secondary-hover);
+	  color: var(--o-color-button-secondary-hover);
+	  border: var(--o-border-button-secondary-active);
 	  text-decoration: none;
 	}
   }
 
   .o-buttons-experimental--ghost {
-	background-color: var(--color-background-button-ghost-active);
-	color: var(--color-button-ghost-active);
-	border: var(--border-button-ghost);
+	background-color: var(--o-color-background-button-ghost-active);
+	color: var(--o-color-button-ghost-active);
+	border: var(--o-border-button-ghost);
 
 	&:hover {
 	  //next up, define colours for all of these
-	  background-color: var(--color-background-button-ghost-hover);
-	  color: var(--color-button-ghost-hover);
-	  border: var(--border-button-ghost);
+	  background-color: var(--o-color-background-button-ghost-hover);
+	  color: var(--o-color-button-ghost-hover);
+	  border: var(--o-border-button-ghost);
 	  text-decoration: none;
 	}
   }

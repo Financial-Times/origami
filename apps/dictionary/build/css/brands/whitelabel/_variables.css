@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 25 Apr 2023 15:43:10 GMT
+ * Generated on Wed, 26 Apr 2023 14:07:24 GMT
  */
 
 .o-brand-whitelabel {
@@ -11,11 +11,11 @@
   --o-color-background-button-secondary-hover: rgba(13,118,128,0.1);
   --o-color-button-primary-active: #FFFFFF;
   --o-color-button-primary-hover: #FFFFFF;
-  --o-color-button-secondary-active: --o-color-background-button-primary-active;
-  --o-color-button-secondary-hover: --o-color-background-button-primary-active;
-  --o-color-text-default: --o-pallette-color-black-tints-black-90;
-  --o-border-button-primary-active: 1px solid --o-color-background-button-primary-active;
-  --o-border-button-primary-hover: 1px solid --o-color-background-button-primary-active;
-  --o-border-button-secondary-active: 1px solid --o-color-background-button-primary-active;
-  --o-background-color-root: --o-pallette-color-primary-white;
+  --o-color-button-secondary-active: var(--o-color-background-button-primary-active);
+  --o-color-button-secondary-hover: var(--o-color-background-button-primary-active);
+  --o-color-text-default: var(--o-pallette-color-black-tints-black-90);
+  --o-border-button-primary-active: 1px solid var(--o-color-background-button-primary-active);
+  --o-border-button-primary-hover: 1px solid var(--o-color-background-button-primary-active);
+  --o-border-button-secondary-active: 1px solid var(--o-color-background-button-primary-active);
+  --o-background-color-root: var(--o-pallette-color-primary-white);
 }

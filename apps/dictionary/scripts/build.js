@@ -1,9 +1,11 @@
 const StyleDictionaryPackage = require('style-dictionary');
 const glob = require('glob');
 const {registerTransforms} = require("@tokens-studio/sd-transforms");
-const {brandClasses} = require('./formatters/css/brand-classes')
+const {brandClasses} = require('./formatters/css/brand-classes');
+const {nameOrigamiPrefix} = require('./transforms/nameOrigamiPrefix');
 
 StyleDictionaryPackage.registerFormat({name: 'css/brand/classes', formatter: brandClasses});
+StyleDictionaryPackage.registerTransform({name: 'name/origamiPrefix', type: 'name', transformer: nameOrigamiPrefix, transitive: true})
 
 const getStyleDictionaryBrandConfig = (brand) => (
 	{
@@ -19,7 +21,8 @@ const getStyleDictionaryBrandConfig = (brand) => (
 					'ts/shadow/css/shorthand',
 					'ts/color/css/hexrgba',
 					'ts/color/modifiers',
-					'name/cti/kebab'
+					'name/origamiPrefix',
+					'name/cti/kebab',
 				],
 				"buildPath": `build/css/brands/${brand.name}/`,
 				"files": [{
@@ -72,7 +75,8 @@ const getBrands = async () => {
 					'ts/shadow/css/shorthand',
 					'ts/color/css/hexrgba',
 					'ts/color/modifiers',
-					'name/cti/kebab'
+					'name/origamiPrefix',
+					'name/cti/kebab',
 				],
 				"buildPath": `build/css/pallette/`,
 				"files": [{
@@ -87,4 +91,4 @@ const getBrands = async () => {
 	});
 
 	StyleDictionaryPallette.buildPlatform('css');
-	})();
+})();
