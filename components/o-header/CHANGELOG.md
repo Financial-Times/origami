@@ -1,4 +1,11 @@
 # Changelog
+### [11.0.5](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.4...o-header-v11.0.5) (2023-04-27)
+
+
+### Bug Fixes
+
+* o-header, subnav, improve scroll button behaviour. ([#1095](https://www.github.com/Financial-Times/origami/issues/1095)) ([b6d9fdd](https://www.github.com/Financial-Times/origami/commit/b6d9fdd86c2cb994a5b9a42646e870633c01f695))
+
 ### [11.0.4](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.3...o-header-v11.0.4) (2023-01-20)
 
 
