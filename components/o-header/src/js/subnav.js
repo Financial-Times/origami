@@ -1,3 +1,4 @@
+import viewport from '@financial-times/o-viewport';
 import * as oUtils from '@financial-times/o-utils';
 
 function init(headerEl) {
@@ -7,13 +8,15 @@ function init(headerEl) {
 		return;
 	}
 
+	// Looks like we can't remove this on destroy,
+	// as another component may be using it.
+	viewport.listenTo('resize');
+
 	const buttons = Array.from(subnav.getElementsByTagName('button'));
 	const wrapper = subnav.querySelector('[data-o-header-subnav-wrapper]');
 
-	let scrollWidth;
-	const wrapperWidth = wrapper.clientWidth;
-
 	function checkCurrentPosition() {
+		const wrapperWidth = wrapper.clientWidth;
 		const currentSelection = wrapper.querySelector('[aria-current]');
 		if (currentSelection) {
 			const currentSelectionEnd = currentSelection.getBoundingClientRect().right;
@@ -36,7 +39,8 @@ function init(headerEl) {
 	}
 
 	function scrollable() {
-		scrollWidth = wrapper.scrollWidth;
+		const scrollWidth = wrapper.scrollWidth;
+		const wrapperWidth = wrapper.clientWidth;
 
 		buttons.forEach(button => {
 			if (direction(button) === 'left') {
@@ -51,6 +55,8 @@ function init(headerEl) {
 
 	function scroll(e) {
 		let distance = 100;
+		const scrollWidth = wrapper.scrollWidth;
+		const wrapperWidth = wrapper.clientWidth;
 
 		if (direction(e.currentTarget) === 'left') {
 			distance = (wrapper.scrollLeft > distance ? distance : wrapper.scrollLeft) * -1;
@@ -66,6 +72,13 @@ function init(headerEl) {
 
 	wrapper.addEventListener('scroll', oUtils.throttle(scrollable, 100));
 	window.addEventListener('oViewport.resize', scrollable);
+
+	const observer = new MutationObserver(checkCurrentPosition);
+	observer.observe(wrapper, {
+		attributes: false,
+		childList: true,
+		subtree: true
+	});
 
 	buttons.forEach(button => {
 		button.onclick = scroll;
