@@ -23,7 +23,7 @@
     "watch": "bash ../../scripts/component/watch.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-colors": "^6.0.1"
+    "@financial-times/o-colors": "^6.5.0"
   },
   "engines": {
     "npm": "^7 || ^8"
