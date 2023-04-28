@@ -1,0 +1,10 @@
+{
+  "color": {
+	"primary": {
+	  "active": {
+		"value": "{color-usecase.background.button.primary.active}",
+		"type": "color"
+	  }
+	}
+  }
+}

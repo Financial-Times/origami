@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 26 Apr 2023 15:15:47 GMT
+ * Generated on Fri, 28 Apr 2023 09:53:12 GMT
  */
 
 .o-brand-whitelabel {
@@ -9,13 +9,13 @@
   --o-color-usecase-background-button-inverse: #ffffffff;
   --o-color-usecase-background-button-secondary-active: #ffffff00;
   --o-color-usecase-background-button-secondary-hover: rgba(13,118,128,0.1);
+  --o-color-usecase-background-root: var(--o-color-base-primary-white);
   --o-color-usecase-button-primary-active: #FFFFFF;
   --o-color-usecase-button-primary-hover: #FFFFFF;
   --o-color-usecase-button-secondary-active: var(--o-color-usecase-background-button-primary-active);
   --o-color-usecase-button-secondary-hover: var(--o-color-usecase-background-button-primary-active);
   --o-color-usecase-text-default: var(--o-color-base-black-tints-black-90);
-  --o-border-button-primary-active: 1px solid var(--o-color-usecase-background-button-primary-active);
-  --o-border-button-primary-hover: 1px solid var(--o-color-usecase-background-button-primary-active);
-  --o-border-button-secondary-active: 1px solid var(--o-color-usecase-background-button-primary-active);
-  --o-background-color-root: var(--o-color-base-primary-white);
+  --o-border-usecase-button-primary-active: 1px solid var(--o-color-usecase-background-button-primary-active);
+  --o-border-usecase-button-primary-hover: 1px solid var(--o-color-usecase-background-button-primary-active);
+  --o-border-usecase-button-secondary-active: 1px solid var(--o-color-usecase-background-button-primary-active);
 }

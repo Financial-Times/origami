@@ -1,8 +1,8 @@
 const StyleDictionaryPackage = require('style-dictionary');
 const glob = require('glob');
 const {registerTransforms} = require("@tokens-studio/sd-transforms");
-const {brandClasses} = require('./formatters/css/brand-classes');
-const {nameOrigamiPrefix} = require('./transforms/nameOrigamiPrefix');
+const {brandClasses} = require('../formatters/css/brand-classes');
+const {nameOrigamiPrefix} = require('../transforms/nameOrigamiPrefix');
 
 StyleDictionaryPackage.registerFormat({name: 'css/brand/classes', formatter: brandClasses});
 StyleDictionaryPackage.registerTransform({name: 'name/origamiPrefix', type: 'name', transformer: nameOrigamiPrefix, transitive: true})
@@ -31,7 +31,7 @@ const getStyleDictionaryBrandConfig = (brand) => (
 					"options": {
 						"outputReferences": true,
 						"className": `o-brand-${brand.name}`,
-						"cssVarPrefix": 'o-'
+						"excludePrefix": ['o-color-base']
 					}
 				}],
 			}

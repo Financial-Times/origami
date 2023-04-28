@@ -3,4 +3,9 @@ function nameOrigamiPrefix(token) {
 	return token.path.join('-');
 }
 
-module.exports = { nameOrigamiPrefix }
+function nameOrigamiPrivatePrefix(token) {
+	token.path.unshift('_o');
+	return token.path.join('-');
+}
+
+module.exports = { nameOrigamiPrefix, nameOrigamiPrivatePrefix }

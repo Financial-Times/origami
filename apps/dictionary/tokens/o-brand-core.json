@@ -53,7 +53,11 @@
             "type": "color"
           }
         }
-      }
+      },
+	  "root": {
+		"value": "{color-base.wheat tints.wheat -100}",
+		"type": "color"
+	  }
     },
     "button": {
       "primary": {
@@ -84,7 +88,7 @@
       }
     }
   },
-  "border": {
+  "border-usecase": {
     "button": {
       "primary": {
         "active": {
@@ -105,14 +109,6 @@
           },
           "type": "border"
         }
-      }
-    }
-  },
-  "background": {
-    "color": {
-      "root": {
-        "value": "{color-base.wheat tints.wheat -100}",
-        "type": "color"
       }
     }
   }

@@ -1,115 +1,111 @@
 {
   "color-usecase": {
-    "background": {
-      "button": {
-        "primary": {
-          "active": {
-            "type": "color",
-            "value": "{color-base.secondary.teal}",
-            "blendMode": "normal"
-          },
-          "hover": {
-            "value": "#095259",
-            "type": "color"
-          }
-        },
-        "inverse": {
-          "description": "",
-          "type": "color",
-          "value": "#ffffffff",
-          "blendMode": "normal"
-        },
-        "mono": {
-          "description": "",
-          "type": "color",
-          "value": "#262a33",
-          "blendMode": "normal"
-        },
-        "b2c": {
-          "description": "",
-          "type": "color",
-          "value": "#3a70af",
-          "blendMode": "normal"
-        },
-        "secondary": {
-          "active": {
-            "type": "color",
-            "value": "#ffffff00",
-            "blendMode": "normal"
-          },
-          "hover": {
-            "value": "rgba(13,118,128,0.1)",
-            "type": "color"
-          }
-        },
-        "ghost": {
-          "active": {
-            "type": "color",
-            "value": "#ffffff00",
-            "blendMode": "normal"
-          },
-          "hover": {
-            "value": "rgba(13,118,128,0.1)",
-            "type": "color"
-          }
-        }
-      }
-    },
-    "button": {
-      "primary": {
-        "active": {
-          "value": "#FFFFFF",
-          "type": "color"
-        },
-        "hover": {
-          "value": "#FFFFFF",
-          "type": "color"
-        }
-      },
-      "secondary": {
-        "active": {
-          "value": "{color-usecase.background.button.primary.active}",
-          "type": "color"
-        }
-      }
-    },
-    "text": {
-      "default": {
-        "value": "{color-base.black tints.black 90}",
-        "type": "color"
-      }
-    }
+	"background": {
+	  "button": {
+		"primary": {
+		  "active": {
+			"type": "color",
+			"value": "{color-base.secondary.teal}",
+			"blendMode": "normal"
+		  },
+		  "hover": {
+			"value": "#095259",
+			"type": "color"
+		  }
+		},
+		"inverse": {
+		  "description": "",
+		  "type": "color",
+		  "value": "#ffffffff",
+		  "blendMode": "normal"
+		},
+		"mono": {
+		  "description": "",
+		  "type": "color",
+		  "value": "#262a33",
+		  "blendMode": "normal"
+		},
+		"b2c": {
+		  "description": "",
+		  "type": "color",
+		  "value": "#3a70af",
+		  "blendMode": "normal"
+		},
+		"secondary": {
+		  "active": {
+			"type": "color",
+			"value": "#ffffff00",
+			"blendMode": "normal"
+		  },
+		  "hover": {
+			"value": "rgba(13,118,128,0.1)",
+			"type": "color"
+		  }
+		},
+		"ghost": {
+		  "active": {
+			"type": "color",
+			"value": "#ffffff00",
+			"blendMode": "normal"
+		  },
+		  "hover": {
+			"value": "rgba(13,118,128,0.1)",
+			"type": "color"
+		  }
+		},
+		"root": {
+		  "value": "{color-base.primary.white}",
+		  "type": "color"
+		}
+	  },
+	  "button": {
+		"primary": {
+		  "active": {
+			"value": "#FFFFFF",
+			"type": "color"
+		  },
+		  "hover": {
+			"value": "#FFFFFF",
+			"type": "color"
+		  }
+		},
+		"secondary": {
+		  "active": {
+			"value": "{color-usecase.background.button.primary.active}",
+			"type": "color"
+		  }
+		}
+	  },
+	  "text": {
+		"default": {
+		  "value": "{color-base.black tints.black 90}",
+		  "type": "color"
+		}
+	  }
+	}
   },
-  "border": {
-    "button": {
-      "primary": {
-        "active": {
-          "value": {
-            "color": "{color-usecase.background.button.primary.active}",
-            "width": "1px",
-            "style": "solid"
-          },
-          "type": "border"
-        }
-      },
-      "secondary": {
-        "active": {
-          "value": {
-            "color": "{color-usecase.background.button.ghost.active}",
-            "width": "1px",
-            "style": "solid"
-          },
-          "type": "border"
-        }
-      }
-    }
-  },
-  "background": {
-    "color": {
-      "root": {
-        "value": "{color-base.primary.white}",
-        "type": "color"
-      }
-    }
+  "border-usecase": {
+	"button": {
+	  "primary": {
+		"active": {
+		  "value": {
+			"color": "{color-usecase.background.button.primary.active}",
+			"width": "1px",
+			"style": "solid"
+		  },
+		  "type": "border"
+		}
+	  },
+	  "secondary": {
+		"active": {
+		  "value": {
+			"color": "{color-usecase.background.button.secondary.active}",
+			"width": "1px",
+			"style": "solid"
+		  },
+		  "type": "border"
+		}
+	  }
+	}
   }
 }

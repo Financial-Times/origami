@@ -2,7 +2,10 @@
   "name": "@financial-times/o-buttons-experimental",
   "version": "0.0.0",
   "description": "o-buttons with design tokens",
-  "keywords": ["buttons","design-tokens"],
+  "keywords": [
+    "buttons",
+    "design-tokens"
+  ],
   "homepage": "https://registry.origami.ft.com/components/o-buttons-experimental",
   "bugs": {
     "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-buttons-experimental,components",
@@ -14,20 +17,21 @@
   "scripts": {
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
+    "build-tokens": "bash ../../scripts/component/build-tokens.bash o-buttons-experimental",
     "test": "bash ../../scripts/component/test.bash",
     "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
-	"peerDependencies": {
-			"@financial-times/o-brand": "^4.1.0"
-	},
-	  "devDependencies": {},
+  "peerDependencies": {
+    "@financial-times/o-brand": "^4.1.0"
+  },
+  "devDependencies": {},
   "engines": {
     "npm": "^7 || ^8"
   },
   "volta": {
-    "node": "14.16.1",
+    "node": "16.19.0",
     "npm": "7.11.1"
   },
   "percy": true,

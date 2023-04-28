@@ -2,7 +2,11 @@ const StyleDictionary = require('style-dictionary');
 const {fileHeader, createPropertyFormatter} = StyleDictionary.formatHelpers;
 
 function brandClasses({dictionary, file, options}) {
-	const {outputReferences, cssVarPrefix, className} = options;
+	const {outputReferences, excludePrefix, className} = options;
+	if(excludePrefix && !Array.isArray(excludePrefix)) {
+		throw new Error('excludeFiles must be array');
+	}
+
 	const outputClassName = `.${className}`
 	const formatProperty = createPropertyFormatter({
 		outputReferences,
@@ -14,9 +18,14 @@ function brandClasses({dictionary, file, options}) {
 
 	//Extract brand tokens only.
 	dictionary.allTokens.forEach((token) => {
-		if (token.filePath.match('o-brand-')) {
-			brandTokens.push(formatProperty(token));
+		if (excludePrefix) {
+			const excludePattern = new RegExp(`(${excludePrefix.join('|')})`, 'g');
+
+			if (token.name.match(excludePattern)) {
+				return;
+			}
 		}
+		brandTokens.push(formatProperty(token));
 	})
 
 	return `${fileHeader({file})}` +
