@@ -1,5 +1,14 @@
 # Changelog
 
+## [9.9.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.8.0...o-forms-v9.9.0) (2023-04-28)
+
+
+### Features
+
+* add professional inverse theme for chekcboxes ([#1091](https://www.github.com/Financial-Times/origami/issues/1091)) ([4bd9a3e](https://www.github.com/Financial-Times/origami/commit/4bd9a3ee993577a8a46f861235a208545329c678))
+* add professional theme for checkboxes ([#1089](https://www.github.com/Financial-Times/origami/issues/1089)) ([2848c27](https://www.github.com/Financial-Times/origami/commit/2848c27a4fdc9e2f8e624c9938009991192ae9a6))
+* o-forms, add FT Professional themes for round radio buttons ([a2ec0ec](https://www.github.com/Financial-Times/origami/commit/a2ec0ecbb21fbe6c8ab788d05cb02e1e54c099fa))
+
 ## [9.8.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.7.2...o-forms-v9.8.0) (2023-04-20)
 
 

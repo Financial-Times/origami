@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.8.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.7.5...o-buttons-v7.8.0) (2023-04-28)
+
+
+### Features
+
+* o-buttons, add themes for the FT Professional sub-brand ([ca5432a](https://www.github.com/Financial-Times/origami/commit/ca5432aafa70dd9bdb47d4412d9b2225336585ef))
+
 ### [7.7.5](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.7.4...o-buttons-v7.7.5) (2023-02-24)
 
 
