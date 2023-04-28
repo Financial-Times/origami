@@ -77,7 +77,7 @@
 			"description": "Secondary/default \"monochrome\" theme."
 		},
 		{
-			"name": "Professional",
+			"name": "professional",
 			"title": "Professional theme",
 			"brands": [
 				"core"
@@ -86,8 +86,8 @@
 			"description": "Professional themed buttons."
 		},
 		{
-			"name": "Inverse Professional",
-			"title": "Inverse Professional theme",
+			"name": "professional-inverse",
+			"title": "Professional Inverse theme",
 			"brands": [
 				"core"
 			],
