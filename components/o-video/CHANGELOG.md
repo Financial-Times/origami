@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.2.8](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.7...o-video-v7.2.8) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [7.2.7](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.6...o-video-v7.2.7) (2023-04-05)
 
 

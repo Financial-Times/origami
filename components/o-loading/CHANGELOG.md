@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.2](https://www.github.com/Financial-Times/origami/compare/o-loading-v5.2.1...o-loading-v5.2.2) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [5.2.1](https://www.github.com/Financial-Times/origami/compare/o-loading-v5.2.0...o-loading-v5.2.1) (2022-01-13)
 
 

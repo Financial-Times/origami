@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.2.1](https://www.github.com/Financial-Times/origami/compare/o-big-number-v3.2.0...o-big-number-v3.2.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ## [3.2.0](https://www.github.com/Financial-Times/origami/compare/o-big-number-v3.1.2...o-big-number-v3.2.0) (2023-01-31)
 
 

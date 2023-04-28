@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.5.4](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.5.3...o-labels-v6.5.4) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [6.5.3](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.5.2...o-labels-v6.5.3) (2022-12-21)
 
 

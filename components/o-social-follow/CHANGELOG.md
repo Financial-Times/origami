@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.4](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.3...o-social-follow-v1.0.4) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [1.0.3](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.2...o-social-follow-v1.0.3) (2023-01-20)
 
 

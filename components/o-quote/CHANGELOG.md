@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.3.2](https://www.github.com/Financial-Times/origami/compare/o-quote-v5.3.1...o-quote-v5.3.2) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-quote-v5.3.0...o-quote-v5.3.1) (2022-12-21)
 
 
