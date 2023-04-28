@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.5.0](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.4.4...o-colors-v6.5.0) (2023-04-28)
+
+
+### Features
+
+* o-colors, add mint for the FT Professional sub-brand ([ba2f3c4](https://www.github.com/Financial-Times/origami/commit/ba2f3c4fa7952d7545e24d560dd3a8b3d6d90306))
+
 ### [6.4.4](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.4.3...o-colors-v6.4.4) (2023-01-13)
 
 
