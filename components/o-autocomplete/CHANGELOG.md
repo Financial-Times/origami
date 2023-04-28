@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.7.4](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.3...o-autocomplete-v1.7.4) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [1.7.3](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.2...o-autocomplete-v1.7.3) (2023-01-20)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.9.1](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.9.0...o-forms-v9.9.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ## [9.9.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.8.0...o-forms-v9.9.0) (2023-04-28)
 
 
