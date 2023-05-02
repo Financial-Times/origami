@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v1.1.1...o-multi-select-v2.0.0) (2023-05-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* render pre-selected elements
+
+### Features
+
+* options can be rendered as already selected ([d0aef88](https://www.github.com/Financial-Times/origami/commit/d0aef88a222516661819bd70a17b871ea14f12bb))
+* render pre-selected elements ([c9d83cd](https://www.github.com/Financial-Times/origami/commit/c9d83cd7c3dd86d6b67fa92a9acaee5c958865f3))
+
 ### [1.1.1](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v1.1.0...o-multi-select-v1.1.1) (2023-04-28)
 
 
