@@ -21,6 +21,12 @@ export function handleOptionSelect(optionEl, option, index) {
 	} else {
 		coreOption.setAttribute('selected', '');
 	}
+
+	const optionClickEvent = new CustomEvent("o.MultiSelectOptionClick", { bubbles: true, detail: {optionClickedOn: coreOption.value}});
+	console.log(this);
+	document.dispatchEvent(optionClickEvent);
+	document.addEventListener('o.MultiSelectOptionClick', (e) => console.log(e.detail));
+
 }
 
 /**
