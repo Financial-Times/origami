@@ -14,9 +14,9 @@ StyleDictionaryPackage.registerTransform({
 });
 registerTransforms(StyleDictionaryPackage);
 
-const config = {
+const getComponentConfig = (brand) => ({
 	"source": [
-		`${componentPath}/tokens/**/*.json`
+		`${brand.path}/**/*.json`
 	],
 	"include": [
 		"tokens/color.json",
@@ -37,19 +37,27 @@ const config = {
 			"buildPath": "./",
 			"files": [
 				{
-					"destination": `${componentPath}/_variables.css`,
+					"destination": `${componentPath}/src/css/${brand.name}/_variables.css`,
 					"format": "css/brand/classes",
 					"options": {
 						"outputReferences": true,
-						"className": component,
+						"classNames": [ `o-brand-${brand.name}`, `${component}`],
 						"excludePrefix": ['color-base', 'usecase']
 					}
 				}
 			]
 		}
 	}
-}
+});
 
-const StyleDictionary = StyleDictionaryPackage.extend(config);
-
-StyleDictionary.buildAllPlatforms();
+//TODO: this is not ideal for supporting multi components, not all components support all brands. May need to glob to understand what directories exist.
+const brands = [
+	{name: 'core', path: `${componentPath}/tokens/core`},
+	// {name: 'core-professional', path: `${componentPath}/tokens/core/professional`},
+	// {name: 'internal', path: `${componentPath}/tokens/internal`},
+	{name: 'whitelabel', path: `${componentPath}/tokens/whitelabel`},
+]
+brands.forEach((brand) => {
+	const StyleDictionary = StyleDictionaryPackage.extend(getComponentConfig(brand));
+	StyleDictionary.buildAllPlatforms();
+});

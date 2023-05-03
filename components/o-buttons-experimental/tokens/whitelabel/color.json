@@ -2,7 +2,7 @@
   "primary": {
 	"active": {
 	  "background-color": {
-		"value": "{color-usecase.background.button.primary.active}",
+		"value": "orange",
 		"type": "color"
 	  },
 	  "color": {
@@ -24,7 +24,7 @@
   "secondary": {
 	"active": {
 	  "background-color": {
-		"value": "{color-usecase.background.button.secondary.active}",
+		"value": "green",
 		"type": "color"
 	  },
 	  "color": {

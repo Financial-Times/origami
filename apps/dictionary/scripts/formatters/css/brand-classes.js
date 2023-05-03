@@ -2,12 +2,12 @@ const StyleDictionary = require('style-dictionary');
 const {fileHeader, createPropertyFormatter} = StyleDictionary.formatHelpers;
 
 function brandClasses({dictionary, file, options}) {
-	const {outputReferences, excludePrefix, className} = options;
+	const {outputReferences, excludePrefix, classNames} = options;
 	if(excludePrefix && !Array.isArray(excludePrefix)) {
 		throw new Error('excludeFiles must be array');
 	}
 
-	const outputClassName = `.${className}`
+	const outputClassName = classNames.reduce((acc, className) => acc + ' .' +  className, '');
 	const formatProperty = createPropertyFormatter({
 		outputReferences,
 		dictionary,
@@ -28,7 +28,7 @@ function brandClasses({dictionary, file, options}) {
 		brandTokens.push(formatProperty(token));
 	})
 
-	return `${fileHeader({file})}` +
+	return `${fileHeader({file})}\n` +
 		`${outputClassName} {\n` +
 		`${brandTokens.join('\n')}\n}\n`
 }

@@ -1,15 +1,17 @@
 {
-  "border": {
-	"primary": {
-	  "active": {
+  "primary": {
+	"active": {
+	  "border": {
 		"value": {
 		  "color": "{color-usecase.background.button.primary.active}",
 		  "width": "1px",
 		  "style": "solid"
 		},
 		"type": "border"
-	  },
-	  "hover": {
+	  }
+	},
+	"hover": {
+	  "border": {
 		"value": {
 		  "color": "{color-usecase.background.button.primary.hover}",
 		  "width": "1px",
@@ -17,17 +19,11 @@
 		},
 		"type": "border"
 	  }
-	},
-	"secondary": {
-	  "active": {
-		"value": {
-		  "color": "{color-usecase.background.button.primary.active}",
-		  "width": "1px",
-		  "style": "solid"
-		},
-		"type": "border"
-	  },
-	  "hover": {
+	}
+  },
+  "secondary": {
+	"active": {
+	  "border": {
 		"value": {
 		  "color": "{color-usecase.background.button.primary.active}",
 		  "width": "1px",
@@ -36,12 +32,26 @@
 		"type": "border"
 	  }
 	},
-	"ghost": {
-	  "active": {
+	"hover": {
+	  "border": {
+		"value": {
+		  "color": "{color-usecase.background.button.primary.active}",
+		  "width": "1px",
+		  "style": "solid"
+		},
+		"type": "border"
+	  }
+	}
+  },
+  "ghost": {
+	"active": {
+	  "border": {
 		"value": "none",
 		"type": "border"
-	  },
-	  "hover": {
+	  }
+	},
+	"hover": {
+	  "border": {
 		"value": "none",
 		"type": "border"
 	  }
