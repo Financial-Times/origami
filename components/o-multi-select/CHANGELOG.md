@@ -6,7 +6,6 @@
 ### Features
 
 * add custom event dispatcher ([86a7512](https://www.github.com/Financial-Times/origami/commit/86a7512250ca0148a59302b681ed6ac4981a2206))
-* omit events from options elements ([d075dd1](https://www.github.com/Financial-Times/origami/commit/d075dd168a23951a3a678d4c008e2e0783bf9380))
 
 ## [2.0.0](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v1.1.1...o-multi-select-v2.0.0) (2023-05-02)
 
