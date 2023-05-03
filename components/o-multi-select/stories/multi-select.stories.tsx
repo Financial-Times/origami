@@ -49,4 +49,5 @@ MultiSelectDefault.args = {
 	],
 	id: 'fruits',
 	title: 'Select multiple options:',
+	required: true,
 };

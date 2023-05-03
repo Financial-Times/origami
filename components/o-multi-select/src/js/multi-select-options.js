@@ -7,11 +7,16 @@
  * @returns {void}
  */
 export function handleOptionSelect(optionEl, option, index) {
-	if (optionEl.classList.contains('o-multi-select-option__selected')) {
+	let alreadySelected = optionEl.classList.contains(
+		'o-multi-select-option__selected'
+	);
+	if (alreadySelected) {
 		removeOption.call(this, optionEl, option, index);
 	} else {
 		addSelectedOption.call(this, optionEl, option, index);
 	}
+
+	handleCustomEvent.call(this, optionEl, option, !alreadySelected, index);
 
 	this._activeIndex = index;
 	this._updateCurrentElement();
@@ -21,12 +26,29 @@ export function handleOptionSelect(optionEl, option, index) {
 	} else {
 		coreOption.setAttribute('selected', '');
 	}
+}
 
-	const optionClickEvent = new CustomEvent("o.MultiSelectOptionClick", { bubbles: true, detail: {optionClickedOn: coreOption.value}});
-	console.log(this);
-	document.dispatchEvent(optionClickEvent);
-	document.addEventListener('o.MultiSelectOptionClick', (e) => console.log(e.detail));
-
+/**
+ * Dispatches custom event with important details.
+ *
+ * @param {HTMLElement} optionEl - The option element that was selected.
+ * @param {string} option - The text content of the option that was selected.
+ * @param {boolean} selected - Determines if the element is selected or not.
+ * @param {number} index - The index of the option that was selected.
+ * @returns {void}
+ */
+function handleCustomEvent(optionEl, option, selected, index) {
+	const optionClickEvent = new CustomEvent('oMultiSelect.OptionChange', {
+		bubbles: true,
+		detail: {
+			optionElement: optionEl,
+			value: option,
+			selected: selected,
+			index,
+			instance: this,
+		},
+	});
+	this.multiSelectEl.dispatchEvent(optionClickEvent);
 }
 
 /**
@@ -69,6 +91,7 @@ export function addSelectedOption(optionEl, option, index) {
 		optionEl.classList.remove('o-multi-select-option__selected');
 		this._numberOfSelectedOptions--;
 		this._updateState();
+		handleCustomEvent.call(this, optionEl, option, false, index);
 	});
 }
 

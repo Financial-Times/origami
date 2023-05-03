@@ -189,6 +189,28 @@ describe('MultiSelect', () => {
 					const coreOptionEl = document.querySelector('option');
 					assert.equal(coreOptionEl.getAttribute('selected'), '');
 				});
+				it('dispatches oMultiSelect.OptionChange custom event with `e.detail.selected: true`', done => {
+					const optionEl = document.querySelector(`#${multiSelect._idBase}-0`);
+					const timeout = setTimeout(() => {
+						done(new Error('Event not dispatched or timed out'));
+					}, 1000);
+					document.addEventListener(
+						'oMultiSelect.OptionChange',
+						function handleEvent(e) {
+							assert.equal(e.type, 'oMultiSelect.OptionChange');
+							assert.equal(e.bubbles, true);
+							assert.equal(e.detail.selected, true);
+							assert.equal(e.detail.optionElement, optionEl);
+							assert.equal(e.detail.value, 'Apple');
+							assert.equal(e.detail.index, 0);
+							assert.equal(e.detail.instance, multiSelect);
+							clearTimeout(timeout);
+							done();
+						},
+						{once: true}
+					);
+					userEvent.click(optionEl);
+				});
 			});
 			describe('on selected option', () => {
 				it('removes options in selected options list removes tick icon in dropdown menu', () => {
@@ -210,6 +232,29 @@ describe('MultiSelect', () => {
 					userEvent.click(optionEl);
 					const coreOptionEl = document.querySelector('option');
 					assert.equal(coreOptionEl.getAttribute('selected'), null);
+				});
+				it('dispatches oMultiSelect.OptionChange custom event with `e.detail.selected: false`', done => {
+					const optionEl = document.querySelector(`#${multiSelect._idBase}-0`);
+					userEvent.click(optionEl);
+					const timeout = setTimeout(() => {
+						done(new Error('Event not dispatched or timed out'));
+					}, 1000);
+					document.addEventListener(
+						'oMultiSelect.OptionChange',
+						function handleEvent(e) {
+							assert.equal(e.type, 'oMultiSelect.OptionChange');
+							assert.equal(e.bubbles, true);
+							assert.equal(e.detail.selected, false);
+							assert.equal(e.detail.optionElement, optionEl);
+							assert.equal(e.detail.value, 'Apple');
+							assert.equal(e.detail.index, 0);
+							assert.equal(e.detail.instance, multiSelect);
+							clearTimeout(timeout);
+							done();
+						},
+						{once: true}
+					);
+					userEvent.click(optionEl);
 				});
 			});
 		});
@@ -294,6 +339,28 @@ describe('MultiSelect', () => {
 					optionEl.classList.contains('o-multi-select-option__selected'),
 					false
 				);
+			});
+
+			it('dispatches oMultiSelect.OptionChange custom event with correct details', done => {
+				const timeout = setTimeout(() => {
+					done(new Error('Event not dispatched or timed out'));
+				}, 1000);
+				document.addEventListener(
+					'oMultiSelect.OptionChange',
+					function handleEvent(e) {
+						assert.equal(e.type, 'oMultiSelect.OptionChange');
+						assert.equal(e.bubbles, true);
+						assert.equal(e.detail.selected, false);
+						assert.equal(e.detail.optionElement, optionEl);
+						assert.equal(e.detail.value, 'Apple');
+						assert.equal(e.detail.index, 0);
+						assert.equal(e.detail.instance, multiSelect);
+						clearTimeout(timeout);
+						done();
+					},
+					{once: true}
+				);
+				userEvent.click(selectedOptionEl);
 			});
 		});
 	});
