@@ -106,7 +106,9 @@ const oMultiSelectElement = document.getElementById(
 oMultiSelect.init(oMultiSelectElement);
 ```
 
-`o-multi-select` also dispatches custom event `oMultiSelect.OptionChange` that bubbles and gets triggered when option gets selected or removed. The event data has following interface:
+### Events 
+
+`o-multi-select` dispatches a custom event `oMultiSelect.OptionChange` that bubbles. It is triggered when an option gets selected or removed. The event data has the following interface:
 
 ```js
 detail: {
