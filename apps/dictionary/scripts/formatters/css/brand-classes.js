@@ -30,7 +30,7 @@ function brandClasses({dictionary, file, options}) {
 
 	return `${fileHeader({file})}` +
 		`${outputClassName} {\n` +
-		`${brandTokens.join('\n')}\n}`
+		`${brandTokens.join('\n')}\n}\n`
 }
 
 

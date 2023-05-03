@@ -10,8 +10,7 @@ StyleDictionaryPackage.registerFormat({name: 'css/brand/classes', formatter: bra
 StyleDictionaryPackage.registerTransform({
 	name: 'name/origamiPrivatePrefix',
 	type: 'name',
-	transformer: nameOrigamiPrivatePrefix,
-	transitive: true
+	transformer: nameOrigamiPrivatePrefix
 });
 registerTransforms(StyleDictionaryPackage);
 
@@ -34,7 +33,6 @@ const config = {
 				"ts/color/css/hexrgba",
 				"ts/color/modifiers",
 				"name/origamiPrivatePrefix",
-				"name/cti/kebab"
 			],
 			"buildPath": "./",
 			"files": [
