@@ -114,8 +114,8 @@
 			}
 		}
 		.o-multi-select-option__current {
-			background-color: oColorsMix(black, white, 25);
-			color: initial;
+			@include oNormaliseFocusContent();
+			z-index: 2;
 		}
 	}
 }
