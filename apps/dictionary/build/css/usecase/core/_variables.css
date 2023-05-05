@@ -1,9 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Fri, 28 Apr 2023 09:53:12 GMT
+ * Generated on Fri, 05 May 2023 08:42:07 GMT
  */
 
-.o-brand-core {
+
+ .o-brand-core {
   --o-color-usecase-background-button-primary-active: var(--o-color-base-secondary-mint);
   --o-color-usecase-background-button-primary-hover: var(--o-color-base-teal-tints-teal-30);
   --o-color-usecase-background-button-secondary-active: var(--o-color-base-secondary-transparrent);
@@ -14,7 +15,7 @@
   --o-color-usecase-background-button-ghost-active: #ffffff00;
   --o-color-usecase-background-button-ghost-hover: rgba(13,118,128,0.1);
   --o-color-usecase-background-root: var(--o-color-base-wheat-tints-wheat-100);
-  --o-color-usecase-button-primary-active: var(--o-color-base-primary-ft-grey);
+  --o-color-usecase-button-primary-active: #e28743;
   --o-color-usecase-button-primary-hover: var(--o-color-base-primary-white);
   --o-color-usecase-button-secondary-active: var(--o-color-usecase-background-button-primary-active);
   --o-color-usecase-button-secondary-hover: var(--o-color-usecase-background-button-primary-active);
