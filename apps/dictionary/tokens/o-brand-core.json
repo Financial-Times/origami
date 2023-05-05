@@ -54,10 +54,10 @@
           }
         }
       },
-	  "root": {
-		"value": "{color-base.wheat tints.wheat -100}",
-		"type": "color"
-	  }
+      "root": {
+        "value": "{color-base.wheat tints.wheat -100}",
+        "type": "color"
+      }
     },
     "button": {
       "primary": {

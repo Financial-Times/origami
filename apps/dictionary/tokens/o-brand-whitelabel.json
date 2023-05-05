@@ -31,10 +31,10 @@
           }
         }
       },
-	  "root": {
-		"value": "{color-base.primary.white}",
-		"type": "color"
-	  }
+      "root": {
+        "value": "{color-base.primary.white}",
+        "type": "color"
+      }
     },
     "button": {
       "primary": {
