@@ -51,7 +51,7 @@
 )) {
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
-	$themes: map-get($opts, 'themes');
+	$themes: if(map-has-key($opts, 'themes'), map-get($opts, 'themes'), ());
 
 	$disabled: index($features, 'disabled');
 	$inline: index($features, 'inline');
