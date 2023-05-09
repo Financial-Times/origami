@@ -62,7 +62,7 @@
     "button": {
       "primary": {
         "active": {
-          "value": "#e28743",
+          "value": "{color-base.primary.black}",
           "type": "color"
         },
         "hover": {
