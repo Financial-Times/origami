@@ -64,7 +64,7 @@ const getBrands = async () => {
 	});
 
 	const StyleDictionaryPallette = StyleDictionaryPackage.extend({
-		"source": ['tokens/color.json'],
+		"source": ['tokens/base/color.json'],
 		"platforms": {
 			"css": {
 				"transformGroup": "css",
