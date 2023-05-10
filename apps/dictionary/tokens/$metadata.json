@@ -1,11 +1,15 @@
 {
   "tokenSetOrder": [
-    "color",
-    "font",
-    "typography",
-    "o-brand-internal",
-    "o-brand-core",
-    "o-brand-professional",
-    "o-brand-whitelabel"
+    "base/color",
+    "base/font",
+    "base/typography",
+    "components/o-buttons/core/border",
+    "components/o-buttons/core/color",
+    "components/o-buttons/whitelabel/border",
+    "components/o-buttons/whitelabel/color",
+    "use-case/o-brand-core",
+    "use-case/o-brand-internal",
+    "use-case/o-brand-professional",
+    "use-case/o-brand-whitelabel"
   ]
 }
