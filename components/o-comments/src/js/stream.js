@@ -78,7 +78,7 @@ class Stream {
 				if(this.options.addClass){
 					containerClassName.push(this.options.addClass);
 				}
-				const customScrollContainer = document.querySelector(this.options.scrollContainer);
+				const customScrollContainer = this.streamEl.closest(this.options.scrollContainer);
 				scriptElement.onload = () => {
 					this.embed = Coral.createStreamEmbed(
 						{
