@@ -9,8 +9,8 @@ StyleDictionaryPackage.registerTransform({name: 'name/origamiPrefix', type: 'nam
 
 const getStyleDictionaryBrandConfig = (brand) => (
 	{
-		"source": [`tokens/${brand.tokens}`],
-		"include": ['tokens/color.json'],
+		"source": [`tokens/use-case/${brand.tokens}`],
+		"include": ['tokens/base/color.json'],
 		"platforms": {
 			"css": {
 				"transformGroup": "css",
@@ -41,7 +41,7 @@ const getStyleDictionaryBrandConfig = (brand) => (
 const getBrands = async () => {
 	let brandFiles;
 	try {
-		brandFiles = await glob('tokens/o-brand-*.json', {nodir: true});
+		brandFiles = await glob('tokens/use-case/o-brand-*.json', {nodir: true});
 	} catch (err) {
 		throw new Error(`Error reading file system: ${err}`);
 	}
