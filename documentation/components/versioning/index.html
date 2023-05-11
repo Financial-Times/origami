@@ -249,13 +249,12 @@
 <h2 id="how-components-are-versioned">How components are versioned</h2>
 
 <p>The version numbers are in the following format: <code class="language-plaintext highlighter-rouge">1.2.3</code>, which is representative of <code class="language-plaintext highlighter-rouge">MAJOR.MINOR.PATCH</code>.</p>
+
 <ul>
   <li><code class="language-plaintext highlighter-rouge">MAJOR</code>: When a major is released, we refer to it as a breaking change. This usually means that we have made a drastic visual change, or a change that breaks backwards compatibility. When this changes, we will communicate the change and offer help with migration.</li>
   <li><code class="language-plaintext highlighter-rouge">MINOR</code>: When this number changes , we’ll have made an improvement, added a feature or made a noticeable design tweak, for example.</li>
   <li><code class="language-plaintext highlighter-rouge">PATCH</code>: When we release patches, we are usually releasing a bug fix that does not affect the components overall functionality.</li>
 </ul>
-
-<p><em>When a new <code class="language-plaintext highlighter-rouge">MAJOR</code> release affects many dependent components and projects we call this a <a href="/documentation/components/major-cascade/">major cascade</a>. It may require <a href="/documentation/components/major-cascade/">extra consideration and support</a> before release.</em></p>
 
 <h2 id="how-to-request-a-versioned-component">How to request a versioned component</h2>
 
@@ -302,6 +301,68 @@
 <p>If the <code class="language-plaintext highlighter-rouge">o-typography</code> dependency required <code class="language-plaintext highlighter-rouge">o-colors@^1.2.3</code>, any version above and including <code class="language-plaintext highlighter-rouge">o-colors@2.0.0</code> won’t be compatible with the direct <code class="language-plaintext highlighter-rouge">o-colors</code> dependency (which is <code class="language-plaintext highlighter-rouge">v2.3.4</code> and above), and will cause a conflict.</p>
 
 <p>The only way to fix these conflicts is to ensure that the dependencies and the dependencies within those dependencies are all requiring the <strong>same ranges</strong>.</p>
+
+<h2 id="releasing">Releasing</h2>
+
+<h3 id="plan-for-and-communicate-a-release">Plan for and communicate a release</h3>
+
+<p>Releasing a new version of a component impacts other projects and teams, as updates may be needed to projects which consume the component .</p>
+
+<p>Before releasing a new major version of a component, notify maintainers of dependent projects. This allows time for feedback and for teams to plan for the migration from one major version to another. This <a href="/documentation/components/major-cascade/">migration process can be complex</a>, especially when making a major change to a component which is widely used across many other components and end products. It is therefore important to plan for a release and communicate with stakeholders ahead of time.</p>
+
+<p>For minor or patch releases, notify maintainers of dependent projects to encourage adoption of the new fix or feature. A Slack message, blog post, or newsletter is a good way to do this.</p>
+
+<h3 id="decide-what-version-to-release">Decide what version to release</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">MAJOR</code>:
+    <ul>
+      <li>Breaking change (i.e. API change which is not backward compatible).</li>
+      <li>Significant visual change which may require action from dependent teams.</li>
+      <li>A new peer dependency or new major version of an existing peer dependency, unless the semver range includes the previous major release (e.g. &gt;=1.2.3 &lt;3).</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">MINOR</code>:
+    <ul>
+      <li>A new feature.</li>
+      <li>A noticeable design change.</li>
+      <li>A minor version bump for a peer dependency.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">PATCH</code>:
+    <ul>
+      <li>A bug fix that does not affect the components overall functionality.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>When a new <code class="language-plaintext highlighter-rouge">MAJOR</code> release affects many dependent components and projects we call this a <a href="/documentation/components/major-cascade/">major cascade</a>. It may require <a href="/documentation/components/major-cascade/">extra consideration and support</a> before release.</p>
+
+<h3 id="deprecate-a-component">Deprecate a component</h3>
+
+<p>Follow these steps to deprecate an existing component:</p>
+
+<ol>
+  <li>Plan for and communicate a deprecation with users, as outlined above.</li>
+  <li>Collaborate with design to ensure design tooling is also updated, where a representation of the component exists.</li>
+  <li>Modify the component’s <code class="language-plaintext highlighter-rouge">origami.json</code>, change its <a href="/documentation/manifests/origami-json/#supportstatus">supportStatus</a> to either “dead” or “deprecated” – see the <a href="/documentation/manifests/origami-json/#supportstatus">origami.json manifest specification</a> for a definition of each status.</li>
+  <li>Update the component’s <code class="language-plaintext highlighter-rouge">README.md</code> to include a paragraph at the top, outlining the component’s deprecation status. Explain what any remaining users should do. Link to any replacement.</li>
+  <li>Make a patch release so Origami services and tooling picks up the updated status and readme.</li>
+  <li>Disable the Github Issues functionality from the deprecated component’s repository.</li>
+  <li>Update the Github URL to point towards the replacement’s repository on GitHub, if it exists.</li>
+  <li>If the component is “dead”, either delete the component’s directory in a mono-repo context or archive the component’s individual Github Repository.</li>
+</ol>
+
+<h3 id="deprecate-a-component-feature">Deprecate a component feature</h3>
+
+<ul>
+  <li>Plan for and communicate a feature deprecation with users, as outlined above.</li>
+  <li>Collaborate with the design team to ensure the deprecated feature is aligned in design tooling (Figma).</li>
+  <li>Where practical, move deprecated code into its own file or to a directory called “deprecated”. This way, it will be much easier to work with the new code while maintaining legacy code. It will also be easier to delete when making a future major release. If separating deprecated code into its own deprecated file or directory is not pragmatic, modified code must be appended and prepended with a comment which begins <code class="language-plaintext highlighter-rouge">@deprecated</code>, followed by text which describes the deprecation.</li>
+  <li>Deprecated features should log a warning when used by an engineer, stating is deprecated and offering an alternative when there is one. However, only output a warning if the user can take an action to prevent it. Do not log a warning from a component’s main entry point (e.g. primary Sass mixin), as this may log an error even if the user is not using the deprecated feature.</li>
+  <li>Note deprecations in the component’s README file.</li>
+  <li>Create a Jira ticket or Github issue to remember to remove the deprecated feature in a future major release. Label the ticket/issue with the component name.</li>
+</ul>
 
 </div>
 
