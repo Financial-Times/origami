@@ -510,7 +510,7 @@ Unless you're using the Build Service no JS will run automatically. You must eit
 **Constructing o-typography**
 
 ```js
-import oTypography from 'o-typography';
+import oTypography from '@financial-times/o-typography';
 
 const otypography = new oTypography();
 ```
