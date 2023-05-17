@@ -1,63 +1,62 @@
 {
   "o-buttons": {
-	"primary": {
-	  "active": {
-		"border": {
-		  "value": {
-			"color": "orange",
-			"width": "1px",
-			"style": "solid"
-		  },
-		  "type": "border"
-		}
-	  },
-	  "hover": {
-		"border": {
-		  "value": {
-			"color": "{color-usecase.background.button.primary.hover}",
-			"width": "1px",
-			"style": "solid"
-		  },
-		  "type": "border"
-		}
-	  }
-	},
-	"secondary": {
-	  "active": {
-		"border": {
-		  "value": {
-			"color": "green",
-			"width": "1px",
-			"style": "solid"
-		  },
-		  "type": "border"
-		}
-	  },
-	  "hover": {
-		"border": {
-		  "value": {
-			"color": "{color-usecase.background.button.primary.active}",
-			"width": "1px",
-			"style": "solid"
-		  },
-		  "type": "border"
-		}
-	  }
-	},
-	"ghost": {
-	  "active": {
-		"border": {
-		  "value": "none",
-		  "type": "border"
-		}
-	  },
-	  "hover": {
-		"border": {
-		  "value": "none",
-		  "type": "border"
-		}
-	  }
-	}
+    "primary": {
+      "active": {
+        "border": {
+          "value": {
+            "color": "orange",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        }
+      },
+      "hover": {
+        "border": {
+          "value": {
+            "color": "{color-usecase.background.button.primary.hover}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        }
+      }
+    },
+    "secondary": {
+      "active": {
+        "border": {
+          "value": {
+            "color": "green",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        }
+      },
+      "hover": {
+        "border": {
+          "value": {
+            "color": "{color-usecase.background.button.primary.active}",
+            "width": "1px",
+            "style": "solid"
+          },
+          "type": "border"
+        }
+      }
+    },
+    "ghost": {
+      "active": {
+        "border": {
+          "value": "none",
+          "type": "border"
+        }
+      },
+      "hover": {
+        "border": {
+          "value": "none",
+          "type": "border"
+        }
+      }
+    }
   }
 }
-
