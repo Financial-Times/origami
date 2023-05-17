@@ -1,11 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Wed, 17 May 2023 08:58:49 GMT
+ * Generated on Wed, 17 May 2023 15:11:09 GMT
  */
 
 
  .o-brand-core {
-  --o-color-usecase-background-button-primary-active: #6e965d;
+  --o-color-usecase-background-button-primary-active: #FF69B4;
   --o-color-usecase-background-button-primary-hover: var(--o-color-base-teal-tints-teal-30);
   --o-color-usecase-background-button-secondary-active: var(--o-color-base-secondary-transparrent);
   --o-color-usecase-background-button-secondary-hover: rgba(13,118,128,0.1);
