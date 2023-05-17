@@ -5,7 +5,7 @@
         "primary": {
           "active": {
             "type": "color",
-            "value": "{color-base.secondary.mint}",
+            "value": "#6e965d",
             "blendMode": "normal"
           },
           "hover": {
