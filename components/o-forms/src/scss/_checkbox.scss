@@ -1,6 +1,7 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @param {Boolean} $right Whether to display checkbox to the right of text
+/// @param {List} $themes List of themes to output.
 /// @output Styling for text inputs
 @mixin _oFormsCheckbox(
 	$disabled: null,
@@ -91,44 +92,51 @@
 
 	@each $theme in $themes {
 		@if _oFormsSupports('#{$theme}') {
-		.o-forms-field--#{$theme} {
-			.o-forms-input--checkbox {
-				input[type=checkbox] {// stylelint-disable-line selector-no-qualifying-type
-					&:indeterminate + .o-forms-input__label:after {// stylelint-disable-line selector-no-qualifying-type
-						@include oIconsContent('minus', _oFormsGet('controls-checked-base', $theme), $_o-forms-checkbox-radio-width);
-						background-color: _oFormsGet('controls-base', $theme);
-					}
-				}
-
-				input[type=checkbox] ~ .o-forms-input__label {// stylelint-disable-line selector-no-qualifying-type
-					&:before {
-						border: 1px solid _oFormsGet("default-border", $theme);
-					}
-
-					&:after {
-						@include oIconsContent('tick', _oFormsGet('controls-checked-base', $theme), $_o-forms-checkbox-radio-width);
-						background-color: _oFormsGet("controls-base", $theme);
-					}
-					.o-forms-input__label__prompt {// stylelint-disable-line selector-no-qualifying-type
-						color: _oFormsGet("default-text", $theme);
-					}
-				}
-			}
-
-			@if $theme == "professional-inverse" {
-				.o-forms-title {
-					.o-forms-title__main:after,
-					.o-forms-title__prompt {
-						color: rgba(_oFormsGet("default-text", $theme), 0.7);
-					}
-				}
-				input {
-					@include oNormaliseFocusApply() {
-						@include oNormaliseFocusContentInverse();
-					}
-				}
+			.o-forms-field--#{$theme} {
+				@include _oFormsCheckboxThemeContent($theme);
 			}
 		}
+	}
+}
+
+/// Output styles required to set a checkbox theme.
+/// @param {String} $theme Theme to output
+@mixin _oFormsCheckboxThemeContent($theme) {
+
+	.o-forms-input--checkbox {
+		input[type=checkbox] {// stylelint-disable-line selector-no-qualifying-type
+			&:indeterminate + .o-forms-input__label:after {// stylelint-disable-line selector-no-qualifying-type
+				@include oIconsContent('minus', _oFormsGet('controls-checked-base', $theme), $_o-forms-checkbox-radio-width);
+				background-color: _oFormsGet('controls-base', $theme);
+			}
+		}
+
+		input[type=checkbox] ~ .o-forms-input__label {// stylelint-disable-line selector-no-qualifying-type
+			&:before {
+				border: 1px solid _oFormsGet("default-border", $theme);
+			}
+
+			&:after {
+				@include oIconsContent('tick', _oFormsGet('controls-checked-base', $theme), $_o-forms-checkbox-radio-width);
+				background-color: _oFormsGet("controls-base", $theme);
+			}
+			.o-forms-input__label__prompt {// stylelint-disable-line selector-no-qualifying-type
+				color: _oFormsGet("default-text", $theme);
+			}
+		}
+	}
+
+	@if $theme == "professional-inverse" {
+		.o-forms-title {
+			.o-forms-title__main:after,
+			.o-forms-title__prompt {
+				color: rgba(_oFormsGet("default-text", $theme), 0.7);
+			}
+		}
+		input {
+			@include oNormaliseFocusApply() {
+				@include oNormaliseFocusContentInverse();
+			}
 		}
 	}
 }
