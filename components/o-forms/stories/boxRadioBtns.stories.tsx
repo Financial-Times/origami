@@ -18,8 +18,7 @@ export default {
 	decorators: [withDesign, withHtml],
 	args: {},
 	argTypes: {
-		children: hideArg,
-		theme: hideArg
+		children: hideArg
 	}
 } as ComponentMeta<typeof RadioBtnsBox>;
 
