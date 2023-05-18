@@ -30,23 +30,6 @@
 			]
 		},
 		{
-			"anchor": true,
-			"modifiers": [ "demo-pseudo-radio-link" ],
-			"inputs": [
-				{
-					"value": "Anchor Link A",
-					"href": "#",
-					"current": true,
-					"id": "anchor-link-a"
-				},
-				{
-					"value": "Anchor Link B",
-					"href": "#",
-					"id": "anchor-link-b"
-				}
-			]
-		},
-		{
 			"radioBox": true,
 			"field": {
 				"type": "radio-box",
@@ -75,25 +58,6 @@
 					"icon": "list",
 					"checked": true,
 					"id": "list"
-				}
-			]
-		},
-		{
-			"anchor": true,
-			"modifiers": [ "demo-pseudo-radio-link" ],
-			"inputs": [
-				{
-					"value": "Grid Link",
-					"href": "#",
-					"current": true,
-					"icon": "grid",
-					"id": "grid-link"
-				},
-				{
-					"value": "List Link",
-					"href": "#",
-					"icon": "list",
-					"id": "list-link"
 				}
 			]
 		}
