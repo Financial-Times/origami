@@ -98,7 +98,7 @@
         "active": {
           "value": {
             "color": "{color-usecase.background.button.primary.active}",
-            "width": "40",
+            "width": "1px",
             "style": "solid"
           },
           "type": "border"
