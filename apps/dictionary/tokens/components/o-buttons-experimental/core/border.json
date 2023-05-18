@@ -1,10 +1,9 @@
 {
-  "o-buttons": {
     "primary": {
       "active": {
         "border": {
           "value": {
-            "color": "orange",
+            "color": "{color-usecase.background.button.primary.active}",
             "width": "1px",
             "style": "solid"
           },
@@ -26,7 +25,7 @@
       "active": {
         "border": {
           "value": {
-            "color": "green",
+            "color": "{color-usecase.background.button.primary.active}",
             "width": "1px",
             "style": "solid"
           },
@@ -58,5 +57,4 @@
         }
       }
     }
-  }
 }

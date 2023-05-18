@@ -1,26 +1,26 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 May 2023 15:18:11 GMT
+ * Generated on Thu, 18 May 2023 15:12:17 GMT
  */
 
 
- .o-brand-whitelabel .o-buttons-experimental {
-  --_o-primary-active-border: 1px solid orange;
+.o-brand-whitelabel .o-buttons-experimental {
   --_o-primary-active-background-color: orange;
   --_o-primary-active-color: var(--o-color-usecase-button-primary-active);
-  --_o-primary-hover-border: 1px solid var(--o-color-usecase-background-button-primary-hover);
+  --_o-primary-active-border: 1px solid orange;
   --_o-primary-hover-background-color: var(--o-color-usecase-background-button-primary-hover);
   --_o-primary-hover-color: var(--o-color-usecase-button-primary-hover);
-  --_o-secondary-active-border: 1px solid green;
+  --_o-primary-hover-border: 1px solid var(--o-color-usecase-background-button-primary-hover);
   --_o-secondary-active-background-color: green;
   --_o-secondary-active-color: var(--o-color-usecase-button-secondary-active);
-  --_o-secondary-hover-border: 1px solid var(--o-color-usecase-background-button-primary-active);
+  --_o-secondary-active-border: 1px solid green;
   --_o-secondary-hover-background-color: var(--o-color-usecase-background-button-secondary-hover);
   --_o-secondary-hover-color: var(--o-color-usecase-button-secondary-hover);
-  --_o-ghost-active-border: none;
+  --_o-secondary-hover-border: 1px solid var(--o-color-usecase-background-button-primary-active);
   --_o-ghost-active-background-color: var(--o-color-usecase-background-button-secondary-active);
   --_o-ghost-active-color: var(--o-color-usecase-button-secondary-active);
-  --_o-ghost-hover-border: none;
+  --_o-ghost-active-border: none;
   --_o-ghost-hover-background-color: var(--o-color-usecase-background-button-secondary-hover);
   --_o-ghost-hover-color: var(--o-color-usecase-button-secondary-hover);
+  --_o-ghost-hover-border: none;
 }

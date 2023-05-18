@@ -7,7 +7,7 @@ function brandClasses({dictionary, file, options}) {
 		throw new Error('excludeFiles must be array');
 	}
 
-	const outputClassName = classNames.reduce((acc, className) => acc + ' .' +  className, '');
+	const outputClassName = classNames.reduce((acc, className) => `${acc}.${className} `, '');
 	const formatProperty = createPropertyFormatter({
 		outputReferences,
 		dictionary,
@@ -29,7 +29,7 @@ function brandClasses({dictionary, file, options}) {
 	})
 
 	return `${fileHeader({file})}\n` +
-		`${outputClassName} {\n` +
+		`${outputClassName}{\n` +
 		`${brandTokens.join('\n')}\n}\n`
 }
 
