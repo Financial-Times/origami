@@ -50,6 +50,8 @@ $_o-forms-shared-brand-config: (
 			'professional': (
 				default-text: oColorsByName('black-80'),
 				controls-base: oColorsByName('slate'),
+				controls-negative-checked-background: oColorsByName('slate'),
+				radio-background: oColorsByName('slate'),
 				default-border: oColorsByName('black-50'),
 				controls-checked-base: oColorsByName('white'),
 			),

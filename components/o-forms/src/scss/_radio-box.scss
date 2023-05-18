@@ -3,7 +3,8 @@
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @output Styling for box-styled radio inputs
 @mixin _oFormsRadioBox(
-	$disabled: null
+	$disabled: null,
+	$themes,
 ) {
 	.o-forms-input--radio-box {
 		@include _oFormsRadioBoxInputStyles();
@@ -63,6 +64,14 @@
 		.o-forms-input__state {
 			position: relative;
 			margin-bottom: -($_o-forms-spacing-five + $_o-forms-spacing-half);
+		}
+	}
+
+	@each $theme in $themes {
+		@if _oFormsSupports('#{$theme}') {
+			.o-forms-field--#{$theme} .o-forms-input--radio-box {
+				@include _oFormsRadioBoxInputStyles($theme);
+			}
 		}
 	}
 }

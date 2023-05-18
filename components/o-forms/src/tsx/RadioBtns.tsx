@@ -87,6 +87,7 @@ export function RadioBtnsBox({
 	inlineField,
 	isVerticalCenter,
 	inlineInputs,
+	theme
 }: RadioBtnsBoxProps) {
 	const wrapperProps = {
 		errorMessage,
@@ -101,6 +102,7 @@ export function RadioBtnsBox({
 		isOptional,
 		inlineField,
 		isVerticalCenter,
+		theme
 	};
 	if (!wrapperProps.type) {
 		wrapperProps.type = 'round';

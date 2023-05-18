@@ -99,9 +99,7 @@
 	}
 
 	@if $radio-box {
-		@include _oFormsRadioBox(
-			$disabled
-		);
+		@include _oFormsRadioBox($disabled, $themes);
 	}
 
 	@if index($elements, 'select') {
