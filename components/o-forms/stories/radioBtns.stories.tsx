@@ -6,27 +6,36 @@ import { RadioBtn, RadioBtns } from "../src/tsx/o-forms";
 import "./forms.scss";
 import javascript from "../main.js";
 
-const Brand = process.env.ORIGAMI_STORYBOOK_BRAND;
-
 const hideArg = {
 	table: {
 		disable: true,
 	},
 };
 
-const argTypes = {
-	children: hideArg
-}
-
-if(Brand !== "core" ) {
-	argTypes.theme = hideArg
-}
+const Brand = process.env.ORIGAMI_STORYBOOK_BRAND;
+const themeControl =
+	Brand === "core"
+		? {
+				control: {
+					type: "select",
+					labels: {
+						"": "default",
+						professional: "professional",
+						'professional-inverse': "professional-inverse",
+					},
+				},
+				options: ["", "professional", "professional-inverse"],
+		  }
+		: hideArg;
 
 export default {
 	title: "Components/o-forms/radio-buttons",
 	component: RadioBtns,
 	decorators: [withDesign, withHtml],
-	argTypes,
+	argTypes: {
+		children: hideArg,
+		theme: themeControl,
+	},
 } as ComponentMeta<typeof RadioBtns>;
 
 const Template: ComponentStory<typeof RadioBtns> = args => {
