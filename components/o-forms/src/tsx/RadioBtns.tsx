@@ -20,9 +20,13 @@ export interface RadioBtnProps extends InputProps {
 	children?: JSX.Element | string;
 }
 
-export interface RadioBtnsProps extends RadioBtnsWrapperProps, TypeFormField {}
+export interface RadioBtnsProps extends RadioBtnsWrapperProps, TypeFormField {
+	theme?: 'professional' | 'professional-inverse';
+}
 
-export interface RadioBtnsBoxProps extends RadioBtnsBoxWrapperProps, TypeFormField {}
+export interface RadioBtnsBoxProps extends RadioBtnsBoxWrapperProps, TypeFormField {
+	theme?: 'professional' | 'professional-inverse';
+}
 
 function RadioBtnsBoxWrapper({
 	children,
