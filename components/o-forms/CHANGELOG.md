@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.10.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.9.2...o-forms-v9.10.0) (2023-05-18)
+
+
+### Features
+
+* o-forms box style radio, add professional themes ([b205f7e](https://www.github.com/Financial-Times/origami/commit/b205f7ecfca1e7166d3b04ba54c674f162ea6a70))
+
 ### [9.9.2](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.9.1...o-forms-v9.9.2) (2023-05-09)
 
 
