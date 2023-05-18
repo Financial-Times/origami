@@ -237,6 +237,12 @@ describe("Tooltip", () => {
 			proclaim.strictEqual(opts.position, 'below');
 		});
 
+		it("sets a opts.theme when a theme is specified", ()=>{
+			const opts = Tooltip.checkOptions({"target": "#el", "theme": "professional"});
+			proclaim.isFalse(throwStub.called);
+			proclaim.strictEqual(opts.theme, 'professional');
+		});
+
 		it("does not error if position is `top`, `bottom`, `left`, `right` or falsey", () => {
 			["above", "left", "right", "below", undefined].forEach((value) => {
 				Tooltip.checkOptions({"target": "#el", "position": value});
@@ -289,6 +295,18 @@ describe("Tooltip", () => {
 
 			tooltip.render();
 			proclaim.strictEqual(tooltipEl.style.zIndex, fakeZ);
+		});
+
+		it("sets a theme class if the theme option is set", () => {
+			const parent = document.getElementById('demo-tooltip-theme-test-1');
+			sinon.stub(parent, 'appendChild');
+			const tooltip = new Tooltip(stubEl, {
+				target: 'demo-tooltip-insertion-test-1-target',
+				content: 'content',
+				theme: 'professional'
+			});
+			proclaim.include(tooltip.tooltipEl.getAttribute('class'), 'o-tooltip');
+			proclaim.include(tooltip.tooltipEl.getAttribute('class'), 'o-tooltip--professional');
 		});
 
 		it("adds a close button with an aria label, role and title when opts.showOnConstruction is set to true", () => {

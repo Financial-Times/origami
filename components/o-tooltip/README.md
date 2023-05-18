@@ -57,6 +57,8 @@ Attributes can be set declaratively, or passed in on instantiation in an options
 - `data-o-tooltip-z-index`: Optional. The z-index for the tooltip.
 - `data-o-tooltip-animation-distance`: Optional. String with `px` suffix. Distance away from target to start and end animation. Defaults to '10px'.
 - `data-o-tooltip-append-to-body`: Optional. Append the tooltip to the `body` element so it is positioned and sized according to the body rather than a parent element. By default the tooltip is appended as a sibling of the tooltip target. Defaults to `false`.
+- `data-o-tooltip-theme`: Optional. For applying a theme when creating a tooltip imperatively, otherwise if copying tooltip markup use the theme class as described below. Defaults to `undefined`.
+
 #### Themes
 
 To apply a theme declaratively add the class `o-tooltip o-tooltip--[theme name]` to your markup. E.g. to output a tooltip for the professional theme:
@@ -77,6 +79,8 @@ To apply a theme declaratively add the class `o-tooltip o-tooltip--[theme name]`
 	</div>
 </div>
 ```
+
+You may also set a theme imperatively using the JavaScript API.
 ### JavaScript
 
 No code will run automatically unless you are using the Build Service.
