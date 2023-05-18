@@ -134,6 +134,12 @@ function declarativeCode () {
 				</div>
 			</div>
 
+			<div id="demo-tooltip-theme-test-1">
+				<div class='tooltip-target' id="demo-tooltip-theme-test-1-target">
+					Thing to point the tooltip at.
+				</div>
+			</div>
+
 		</div>
 
 	`;
