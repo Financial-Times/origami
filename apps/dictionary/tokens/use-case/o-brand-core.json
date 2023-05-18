@@ -7,26 +7,25 @@
             "type": "color",
             "value": "#FF69B4",
             "blendMode": "normal",
-			"description": "Background colour for components with primary actions in active state"
+            "description": "Background colour for components with primary actions in active state"
           },
           "hover": {
             "value": "{color-base.teal tints.teal -30}",
             "type": "color",
-			"description": "Background colour for components with primary actions in hover state"
-
-		  }
+            "description": "Background colour for components with primary actions in hover state"
+          }
         },
         "secondary": {
           "active": {
             "type": "color",
             "value": "{color-base.secondary.transparrent}",
             "blendMode": "normal",
-			"description": "Background colour for components with secondary actions in active state"
+            "description": "Background colour for components with secondary actions in active state"
           },
           "hover": {
             "value": "rgba(13,118,128,0.1)",
             "type": "color",
-			"description": "Background colour for components with secondary actions in hover state"
+            "description": "Background colour for components with secondary actions in hover state"
           }
         },
         "inverse": {
