@@ -327,6 +327,10 @@ The below example shows a box style radio button with a positive "yes" and negat
 
 To show a state label with no text set the modifier class `o-forms-input__state--icon-only` on the `o-forms-input__state` state element. Or to use custom copy for the saving and saved states add the modifier class `o-forms-input__state--custom` and put your copy within the state element. However, as mentioned previously, we recommend setting a custom label using the [setState JavaScript method](#state) instead of adding this markup manually.
 
+Box radio inputs support 2 themes.
+
+- **professional**: For a box radio with professional theme set `o-forms-field--professional` on the field element.
+- **professional-inverse**: For box radio with inverse professional theme set `o-forms-field--professional-inverse` on the field element.
 ##### Pseudo box radio inputs
 
 **Deprecated, we no longer recommend pseudo box radio inputs. These will be removed in a future major version:**
@@ -763,6 +767,8 @@ The `$opts` map accepts two lists with the following options:
   - `error-summary`
 - `'themes'`
   - `'inverse'`
+  - `'professional'`
+  - `'professional-inverse'`
   - `'white'`
 
 _Note 1: `valid` and `invalid` styles are output with the base of `o-forms` so there is no need to include them in the list above._
