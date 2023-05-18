@@ -1,14 +1,14 @@
 /**
  * Do not edit directly
- * Generated on Wed, 17 May 2023 15:11:09 GMT
+ * Generated on Thu, 18 May 2023 08:48:02 GMT
  */
 
 
  .o-brand-core {
-  --o-color-usecase-background-button-primary-active: #FF69B4;
-  --o-color-usecase-background-button-primary-hover: var(--o-color-base-teal-tints-teal-30);
-  --o-color-usecase-background-button-secondary-active: var(--o-color-base-secondary-transparrent);
-  --o-color-usecase-background-button-secondary-hover: rgba(13,118,128,0.1);
+  --o-color-usecase-background-button-primary-active: #FF69B4; /* Background colour for components with primary actions in active state */
+  --o-color-usecase-background-button-primary-hover: var(--o-color-base-teal-tints-teal-30); /* Background colour for components with primary actions in hover state */
+  --o-color-usecase-background-button-secondary-active: var(--o-color-base-secondary-transparrent); /* Background colour for components with secondary actions in active state */
+  --o-color-usecase-background-button-secondary-hover: rgba(13,118,128,0.1); /* Background colour for components with secondary actions in hover state */
   --o-color-usecase-background-button-inverse: var(--o-color-base-primary-white);
   --o-color-usecase-background-button-mono: #262a33;
   --o-color-usecase-background-button-b2c: #3a70af;
