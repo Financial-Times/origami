@@ -13,8 +13,14 @@
 /// @output The output includes the `.o-tooltip` class definition.
 /// @example scss - All tooltip styles
 ///   @include oTooltip();
+/// @example scss -  Tooltip styles without extra themes such as for ft professional
+///   @include oTooltip($opts: ());
 /// @access public
-@mixin oTooltip() {
+@mixin oTooltip($opts: (
+	'themes': ('professional')
+)) {
+	$themes: if(map-has-key($opts, 'themes'), map-get($opts, 'themes'), ());
+
 	// Tooltip relies on the o-grid layout sizes being defined.
 	// This is still specification-compliant, as these mixins only output
 	// element selectors – nothing prefixed with o-grid
@@ -217,6 +223,14 @@
 			right: -(oSpacingByName('s3'));
 			left: -(oSpacingByName('s3'));
 			bottom: -(oSpacingByName('s3'));
+		}
+	}
+
+	@each $theme in $themes {
+		@if _oTooltipSupports($theme) {
+			.o-tooltip.o-tooltip--#{$theme} {
+				@include _oTooltipThemeContent($theme);
+			}
 		}
 	}
 }

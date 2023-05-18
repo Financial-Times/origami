@@ -15,9 +15,16 @@
 		'variables': (
 			'background-color': oColorsByName('white'),
 			'foreground-color': null, // inherit by default
-			'close-foreground-color': oColorsByName('black-60')
+			'close-foreground-color': oColorsByName('black-60'),
+			'professional': (
+				'background-color': oColorsByName('slate'),
+				'foreground-color': oColorsByName('white'),
+				'close-foreground-color': oColorsByName('white')
+			)
 		),
-		'supports-variants': ()
+		'supports-variants': (
+			'professional'
+		)
 	));
 }
 

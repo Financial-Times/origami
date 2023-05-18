@@ -26,6 +26,12 @@
 			"description": "Basic demo"
 		},
 		{
+			"title": "Professional Demo",
+			"name": "professional-demo",
+			"template": "demos/src/professional-demo.mustache",
+			"description": "A basic demo using the FT Professional sub-brand theme."
+		},
+		{
 			"title": "Hover",
 			"name": "hover",
 			"template": "demos/src/hover.mustache",
