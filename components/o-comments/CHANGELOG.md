@@ -1,5 +1,11 @@
 # Changelog
 
+### [10.2.3](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.2.1...o-comments-v10.2.3) (2023-05-19)
+
+### Bug Fixes
+
+* fix comment overflow in Safari, a temporary workaround for an issue with Coral's CSS ([#1116](https://github.com/Financial-Times/origami/pull/1116))
+
 ### [10.2.2](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.2.1...o-comments-v10.2.2) (2023-05-10)
 
 
