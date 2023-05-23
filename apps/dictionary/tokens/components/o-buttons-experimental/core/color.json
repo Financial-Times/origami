@@ -2,7 +2,7 @@
   "primary": {
 	"active": {
 	  "background-color": {
-		"value": "{color-usecase.background.button.primary.active}",
+		"value": "red",
 		"type": "color"
 	  },
 	  "color": {
