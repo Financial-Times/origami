@@ -5,7 +5,7 @@
         "primary": {
           "active": {
             "type": "color",
-            "value": "#FF69B4",
+            "value": "red",
             "blendMode": "normal",
             "description": "Background colour for components with primary actions in active state"
           },
