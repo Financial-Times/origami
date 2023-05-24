@@ -49,6 +49,7 @@
 	margin: 0 0 oSpacingByName('s6');
 	$variant: if($theme, 'body-#{$theme}', 'body');
 	color: _oTypographyGet('color', $variant);
+	// stylelint-disable-next-line declaration-block-no-duplicate-properties -- to provide a css custom property fallback
 	color: var(--_o-typography-body-color);
 }
 
@@ -110,6 +111,7 @@
 /// @param {Map|String|Null} $theme [null] - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the core brand, white otherwise).
 /// @param {Boolean} $include-base-styles [true] - If set to false standard link styles will not be output, only additional styles required by a custom theme.
 @mixin oTypographyLink($external: false, $theme: null, $include-base-styles: true) {
+	// stylelint-disable declaration-block-no-duplicate-properties -- to provide a css custom property fallback
 	// Default link colours.
 	// These may be `null` if the usecase is not set, i.e. for the whitelabel brand.
 	$theme: if($theme, $theme, 'link');
@@ -219,6 +221,7 @@
 			color: var(--_o-typography-link-color-hover, #{$hover-color});
 		}
 	}
+	// stylelint-enable declaration-block-no-duplicate-properties -- to provide a css custom property fallback
 }
 
 /// Output styles for lists.
