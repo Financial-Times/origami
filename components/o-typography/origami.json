@@ -50,6 +50,29 @@
 			"description": ""
 		},
 		{
+			"name": "links-inverse",
+			"title": "Inverse Links",
+			"template": "demos/src/links-inverse.mustache",
+			"description": "Link styles for use on dark backgrounds.",
+			"documentClasses": "o-grid-container o-typography--loading-display o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display-bold demo-inverse",
+			"brands": ["core"]
+		},
+		{
+			"name": "professional-links",
+			"title": "Professional Links",
+			"template": "demos/src/professional-links.mustache",
+			"description": "Link styles for the FT Professional sub-brand.",
+			"brands": ["core"]
+		},
+		{
+			"name": "professional-links-inverse",
+			"title": "Inverse Professional Links",
+			"template": "demos/src/professional-links-inverse.mustache",
+			"description": "Link styles for the FT Professional sub-brand.",
+			"documentClasses": "o-grid-container o-typography--loading-display o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display-bold demo-inverse",
+			"brands": ["core"]
+		},
+		{
 			"name": "body",
 			"title": "Body",
 			"template": "demos/src/body.mustache",
