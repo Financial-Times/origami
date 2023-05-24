@@ -19,7 +19,8 @@
 /// @access private
 /// @output Shared disabled state styles for inputs.
 @mixin _oFormsInputDisabled {
-	&:disabled {
+	&:disabled,
+	&:read-only {
 		cursor: default;
 		color: _oFormsGet('disabled-text');
 		background-color: _oFormsGet('disabled-base');
