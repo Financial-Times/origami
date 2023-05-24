@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.4.0](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.3.6...o-typography-v7.4.0) (2023-05-24)
+
+
+### Features
+
+* o-typography, introduce themes for body and links ([c85f10e](https://www.github.com/Financial-Times/origami/commit/c85f10ecb9f4ba88ce9b0995802961381eb1ced4))
+
 ### [7.3.6](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.3.5...o-typography-v7.3.6) (2023-04-28)
 
 
