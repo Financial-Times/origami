@@ -120,6 +120,10 @@ $_o-typography-font-scale: (
 			'body-inverse': (
 				'color': oColorsByUsecase('body-inverse', 'text', $fallback: null),
 			),
+			'link': (
+				'base': oColorsByUsecase('link', 'text'),
+				'hover': oColorsByUsecase('link-hover', 'text'),
+			),
 			'link-inverse': (
 				'base': oColorsByName('white'),
 				'base-decoration': oColorsByName('white'),
@@ -176,6 +180,10 @@ $_o-typography-font-scale: (
 
 	@include oBrandDefine('o-typography', 'internal', (
 		'variables': (
+			'link': (
+				'base': oColorsByUsecase('link', 'text'),
+				'hover': oColorsByUsecase('link-hover', 'text'),
+			),
 			'heading-level-one': (
 				'scale': 5,
 				'weight': 'semibold'
