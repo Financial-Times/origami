@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.4.1](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.4.0...o-typography-v7.4.1) (2023-05-24)
+
+
+### Bug Fixes
+
+* o-typography, restore default link colour ([d3fe364](https://www.github.com/Financial-Times/origami/commit/d3fe364750b3207d2afb2a4610c9eb5f8a1e113b))
+
 ## [7.4.0](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.3.6...o-typography-v7.4.0) (2023-05-24)
 
 
