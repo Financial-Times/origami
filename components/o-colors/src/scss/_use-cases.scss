@@ -3,6 +3,7 @@
 	$_o-colors-default-usecases: (
 		('focus', ('outline': 'black-50')),
 		('page', ('background': 'paper')),
+		('page-inverse', ('background': 'slate')),
 		('box', ('background': 'wheat')),
 		('link', ('text': 'teal')),
 		('link-hover', ('text': 'teal-30')),
@@ -14,6 +15,7 @@
 		('opinion-tag-link-hover', ('text': 'oxford-30')),
 		('title', ('text': 'black')),
 		('body', ('text': 'black-80')),
+		('body-inverse', ('text': 'white')),
 		('muted', ('text': 'black-20')),
 		('opinion', ('background': 'sky')),
 		('hero', ('background': 'wheat')),
@@ -77,6 +79,7 @@
 	$_o-colors-default-usecases: (
 		('focus', ('outline': 'oxford-80')),
 		('page', ('background': 'white')),
+		('page-inverse', ('background': 'slate')),
 		('box', ('background': 'slate-white-5')),
 		('link', ('text': 'teal')),
 		('link-hover', ('text': 'teal-30')),
@@ -84,6 +87,7 @@
 		('link-title-hover', ('text': 'slate-white-15')),
 		('title', ('text': 'slate')),
 		('body', ('text': 'slate')),
+		('body-inverse', ('text': 'white')),
 		('muted', ('text': 'black-20')),
 	);
 }
@@ -92,5 +96,8 @@
 @if oBrandIs('whitelabel') {
 	$_o-colors-default-usecases: (
 		('page', ('background': 'white')),
+		('page-inverse', ('background': 'black')),
+		('body', ('text': 'black')),
+		('body-inverse', ('text': 'white')),
 	);
 }
