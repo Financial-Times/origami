@@ -68,7 +68,7 @@
 		}
 
 		.o-forms-input--invalid {
-			*:invalid:not(:disabled) {
+			*:invalid:not(:disabled, :read-only) {
 				color: _oFormsGet('invalid-base-color-inverse');
 				border-color: _oFormsGet('invalid-base-border-inverse');
 
