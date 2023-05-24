@@ -5,6 +5,7 @@
 @include oGrid();
 @import '@financial-times/o-normalise/main';
 @include oNormalise();
+@import '@financial-times/o-colors/main';
 
 
 body {
@@ -22,6 +23,10 @@ body {
 	figure {
 		margin: 0 0 28px;
 	}
+}
+
+.demo-inverse body {
+	background-color: oColorsByUsecase('page-inverse', 'background');
 }
 
 .type-scale {
