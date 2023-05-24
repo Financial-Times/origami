@@ -4,29 +4,28 @@ concurrency:
   cancel-in-progress: true
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        lfs: true
-    - name: use node javascript
-      uses: actions/setup-node@v2
-      with:
-        node-version: 16.x
-        cache: 'npm'
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7.6
-        bundler-cache: true
-    - run: npm i -g npm@7
-    - run: npm ci
-    - run: bash ./scripts/build-website.bash
-    - name: deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@v4.2.2
-      with:
-        branch: origami.ft.com
-        folder: origami.ft.com
+      - uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: use node javascript
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+          cache: "npm"
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.6
+          bundler-cache: true
+      - run: npm ci
+      - run: bash ./scripts/build-website.bash
+      - name: deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        with:
+          branch: origami.ft.com
+          folder: origami.ft.com
