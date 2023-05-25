@@ -157,6 +157,7 @@ If the `source` function is returning an array of strings which are already suit
 
 The most common scenario which requires having to define a `mapOptionToSuggestedValue` function is when the `source` function is returning an array of objects, where one of the properties in the object should be used as the suggestion.
 
+
 #### Example
 
 ```js
@@ -190,6 +191,88 @@ new oAutocomplete(oAutocompleteElement, {
 | Param | Type | Description |
 | --- | --- | --- |
 | option | <code>\*</code> | The option to transform into a suggestion string |
+
+### onConfirm
+
+This function is called when the user selects an option and is called with the option the user selected.
+
+#### Example
+
+```js
+import oAutocomplete from 'o-autocomplete';
+
+async function customSuggestions(query, populateOptions) {
+	const suggestions = await getSuggestions(query);
+	populateOptions(suggestions);
+}
+
+/**
+ * @param {{"suggestionText": string}} option - The option to transform into a suggestion string
+ * @returns {string} The string to display as the suggestions for this option
+*/
+function mapOptionToSuggestedValue(option) {
+	return option.suggestionText;
+}
+
+/**
+ * @param {{"suggestionText": string}} option - The option the user selected
+*/
+function onConfirm(option) {
+    console.log('You selected option: ', option);
+}
+
+const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
+new oAutocomplete(oAutocompleteElement, {
+    onConfirm
+    mapOptionToSuggestedValue,
+    source: customSuggestions,
+});
+```
+
+
+### suggestionTemplate
+
+This function is used to override the default rendering of suggestion items, with a function that returns a custom HTML string for the given option.
+
+It is typically used when wanting to provide additional context or styling for each suggestion item.
+
+#### Example
+
+```js
+import oAutocomplete from 'o-autocomplete';
+
+async function customSuggestions(query, populateOptions) {
+	const suggestions = await getSuggestions(query);
+	populateOptions(suggestions);
+}
+
+/**
+ * @param {{"name": string, "role": string}} option - The option to transform into a suggestion
+ * @returns {string} The HTML to render in the suggestion list*/
+function suggestionTemplate(option) {
+	return `
+		<div>
+			<strong>${option.name}</strong>
+			<em>${option.role}</em>
+		</div>
+	`;
+}
+
+const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
+new oAutocomplete(oAutocompleteElement, {
+    suggestionTemplate,
+    source: customSuggestions,
+});
+```
+
+<a name="SuggestionTemplate"></a>
+
+#### SuggestionTemplate ⇒ <code>string</code>
+**Returns**: <code>string</code> - The HTML string to render as the suggestion for this option
+
+| Param | Type | Description |
+| --- | --- | --- |
+| option | <code>\*</code> | The option to transform into a suggestio  |
 
 ### onConfirm
 

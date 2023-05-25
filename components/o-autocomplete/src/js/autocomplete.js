@@ -172,11 +172,18 @@ function initClearButton(instance) {
  */
 
 /**
+ * @callback SuggestionTemplate
+ * @param {*} option - The option to render
+ * @returns {string} The html string to render for this suggestion.
+ */
+
+/**
  * @typedef {object} AutocompleteOptions
  * @property {string} [defaultValue] - Specify a string to prefill the autocomplete with
  * @property {Source} [source] - The function which retrieves the suggestions to display
- * @property {MapOptionToSuggestedValue} [mapOptionToSuggestedValue] - Function which transforms a suggestion before rendering
+ * @property {MapOptionToSuggestedValue} [mapOptionToSuggestedValue] - Function which transforms a suggestion before rendering.
  * @property {onConfirm} [onConfirm] - Function which is called when the user selects an option
+ * @property {SuggestionTemplate} [suggestionTemplate] - Function to override how a suggestion item is rendered.
  */
 
 class Autocomplete {
@@ -200,6 +207,9 @@ class Autocomplete {
 		}
 		if (opts.onConfirm) {
 			this.options.onConfirm = opts.onConfirm;
+		}
+		if (opts.suggestionTemplate) {
+			this.options.suggestionTemplate = opts.suggestionTemplate;
 		}
 
 		const container = document.createElement('div');
@@ -279,6 +289,11 @@ class Autocomplete {
 					 * @returns {string|undefined} HTML string to represent a single suggestion.
 					 */
 					suggestion: (option) => {
+						// If the suggestionTemplate override option is provided,
+						// use that to render the suggestion.
+						if(typeof this.options.suggestionTemplate === 'function') {
+							return this.options.suggestionTemplate(option);
+						}
 						if (typeof option === 'object') {
 							// If the `mapOptionToSuggestedValue` function is defined
 							// Apply the function to the option. This is a way for the
