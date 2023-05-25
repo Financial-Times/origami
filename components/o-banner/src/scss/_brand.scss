@@ -30,11 +30,19 @@
 				'heading-rule-color': oColorsByName('white'),
 				'link-text-color': oColorsByName('white'),
 				'button-background-color': oColorsByName('white')
+			),
+			'professional': (
+				'background-color': oColorsByName('slate'),
+				'text-color': oColorsByName('white'),
+				'heading-rule-color': oColorsByName('mint'),
+				'brand-border': oColorsByName('mint'),
+				'button-background-color': oColorsByName('mint')
 			)
 		),
 		'supports-variants': (
 			'marketing',
-			'product'
+			'product',
+			'professional'
 		))
 	);
 }

@@ -15,6 +15,7 @@
 	$button-type: if($button-type, $button-type, 'primary');
 	$heading-rule-color: _oBannerGet('heading-rule-color', $from: $theme);
 	$heading-rule-color: if($heading-rule-color, $heading-rule-color, $text-color);
+	$brand-border: _oBannerGet('brand-border', $from: $theme);
 
 	// Get and default background image theme properties
 	$background-image: _oBannerGet('background-image', $from: $theme);
@@ -38,6 +39,7 @@
 		}
 		background-color: $background-color;
 		color: $text-color;
+		border-bottom-color: $brand-border;
 	}
 	.o-banner__content {
 		a {
@@ -64,11 +66,14 @@
 		));
 	}
 	.o-banner__link {
-		@include oTypographyLink($theme: (
+		$theme-name-to-link-theme: ('professional': 'professional-inverse');
+		$link-theme-name: map-get($theme-name-to-link-theme, $theme);
+		$link-theme: if($link-theme-name, $link-theme-name, (
 			'base': $link-text-color,
 			'hover': $link-text-color,
 			'context': $background-color
 		));
+		@include oTypographyLink($theme: $link-theme);
 	}
 	.o-banner__close {
 		@include oIconsContent('cross', $text-color, $size: $_o-banner-close-button-size);
