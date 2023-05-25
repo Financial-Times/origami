@@ -1,0 +1,33 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands": ["core"],
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-top-banner,components",
+	"supportContact": {
+		"email":  "origami.support@ft.com",
+		"slack": "#origami-support"
+	},
+	"supportStatus": "experimental",
+	"browserFeatures": {},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+
+		"template": "demos/src/demo.mustache",
+		"documentClasses": "",
+		"dependencies": []
+	},
+	"demos": [
+		{
+			"title": "Professional",
+			"name": "professional-inverse",
+			"template": "demos/src/professional-inverse.mustache",
+			"description": "A top banner to advertise FT Professional"
+		},
+		{
+			"title": "New World",
+			"name": "new-world",
+			"template": "demos/src/new-world.mustache",
+			"description": "The New World style top banner"
+		}
+	]
+}

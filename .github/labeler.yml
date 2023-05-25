@@ -108,6 +108,8 @@ o-toggle:
   - components/o-toggle/**/*
 o-tooltip:
   - components/o-tooltip/**/*
+o-top-banner:
+  - components/o-top-banner/**/*
 o-topper:
   - components/o-topper/**/*
 o-typography:

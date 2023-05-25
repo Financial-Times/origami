@@ -754,6 +754,22 @@ jobs:
     - run: npm run -w components/o-tooltip lint --if-present
     - run: npm run -w components/o-tooltip build --if-present
     - run: npm run -w components/o-tooltip test --if-present
+  test-components-o-top-banner:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: volta-cli/action@v4
+    - uses: actions/cache@v2
+      with:
+        volta-version: "1.0.8"
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: npm run -w components/o-top-banner lint --if-present
+    - run: npm run -w components/o-top-banner build --if-present
+    - run: npm run -w components/o-top-banner test --if-present
   test-components-o-topper:
     runs-on: ubuntu-latest
     steps:

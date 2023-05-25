@@ -943,6 +943,26 @@ jobs:
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TOOLTIP }}
         WORKSPACE: components/o-tooltip
+  percy-components-o-top-banner:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - uses: volta-cli/action@v4
+    - uses: actions/cache@v2
+      with:
+        volta-version: "1.0.8"
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: node ./scripts/percy.js
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TOP_BANNER }}
+        WORKSPACE: components/o-top-banner
   percy-components-o-topper:
     runs-on: ubuntu-latest
     steps:

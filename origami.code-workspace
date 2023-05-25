@@ -239,6 +239,9 @@
 		},
 		{
 			"path": "./components/o-multi-select"
+		},
+		{
+			"path": "./components/o-top-banner"
 		}
 	]
 }
