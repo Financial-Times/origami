@@ -18,13 +18,8 @@ const themeControl =
 		? {
 				control: {
 					type: "select",
-					labels: {
-						"": "default",
-						professional: "professional",
-						'professional-inverse': "professional-inverse",
-					},
 				},
-				options: ["", "professional", "professional-inverse"],
+				options: [undefined, "professional", "professional-inverse"],
 		  }
 		: hideArg;
 
