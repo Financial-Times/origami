@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v2.0.0...o-multi-select-v2.1.0) (2023-05-03)
+
+
+### Features
+
+* add custom event dispatcher ([86a7512](https://www.github.com/Financial-Times/origami/commit/86a7512250ca0148a59302b681ed6ac4981a2206))
+
 ## [2.0.0](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v1.1.1...o-multi-select-v2.0.0) (2023-05-02)
 
 

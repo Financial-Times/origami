@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.6.0](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.5.1...o-colors-v6.6.0) (2023-05-24)
+
+
+### Features
+
+* o-colors, add page-inverse and base-inverse colour usecases ([56a92d4](https://www.github.com/Financial-Times/origami/commit/56a92d4ef9080a146ee592d6a99fddb778de00bf))
+
 ### [6.5.1](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.5.0...o-colors-v6.5.1) (2023-04-28)
 
 

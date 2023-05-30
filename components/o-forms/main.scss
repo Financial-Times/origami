@@ -7,7 +7,6 @@
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-typography/main';
 
-@import './src/scss/mixins';
 @import 'src/scss/main';
 
 /// @access public
@@ -51,7 +50,7 @@
 )) {
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
-	$themes: map-get($opts, 'themes');
+	$themes: if(map-has-key($opts, 'themes'), map-get($opts, 'themes'), ());
 
 	$disabled: index($features, 'disabled');
 	$inline: index($features, 'inline');
@@ -76,10 +75,7 @@
 	}
 
 	@if index($elements, 'checkbox') {
-		@include _oFormsCheckbox(
-			$disabled,
-			$right
-		);
+		@include _oFormsCheckbox($disabled, $right, $themes);
 	}
 
 	@if index($elements, 'date') {
@@ -93,15 +89,11 @@
 	}
 
 	@if $radio-round {
-		@include _oFormsRadioRound(
-			$disabled
-		);
+		@include _oFormsRadioRound($disabled, $themes);
 	}
 
 	@if $radio-box {
-		@include _oFormsRadioBox(
-			$disabled
-		);
+		@include _oFormsRadioBox($disabled, $themes);
 	}
 
 	@if index($elements, 'select') {
@@ -144,12 +136,6 @@
 	@if $white-theme {
 		.o-forms-field--white {
 			--o-forms-toggle-handle-color: #{oColorsByName('white')};
-		}
-	}
-
-	@each $theme in $themes {
-		@if _oFormsSupports('#{$theme}') {
-			@include _oFormsAdd($theme);
 		}
 	}
 

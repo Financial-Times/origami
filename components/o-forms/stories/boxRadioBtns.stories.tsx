@@ -8,9 +8,20 @@ import javascript from '../main.js';
 
 const hideArg = {
 	table: {
-		disable: true
-	}
+		disable: true,
+	},
 };
+
+const Brand = process.env.ORIGAMI_STORYBOOK_BRAND;
+const themeControl =
+	Brand === "core"
+		? {
+				control: {
+					type: "select",
+				},
+				options: [undefined, "professional", "professional-inverse"],
+		  }
+		: hideArg;
 
 export default {
 	title: 'Components/o-forms/box-radio-buttons',
@@ -19,8 +30,8 @@ export default {
 	args: {},
 	argTypes: {
 		children: hideArg,
-		theme: hideArg
-	}
+		theme: themeControl,
+	},
 } as ComponentMeta<typeof RadioBtnsBox>;
 
 const Template: ComponentStory<typeof RadioBtnsBox> = args => {

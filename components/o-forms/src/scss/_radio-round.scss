@@ -3,7 +3,8 @@
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @output Styling for box-styled radio inputs
 @mixin _oFormsRadioRound(
-	$disabled: null
+	$disabled: null,
+	$themes: (),
 ) {
 	.o-forms-input--radio-round {
 		.o-forms-input__label {
@@ -62,6 +63,78 @@
 				&:focus-visible {
 					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
 						@include oNormaliseFocusContent();
+					}
+				}
+			}
+		}
+	}
+
+
+	@each $theme in $themes {
+		@if _oFormsSupports('#{$theme}') {
+			.o-forms-field--#{$theme} {
+				@include _oFormsRadioRoundThemeContent($theme)
+			}
+		}
+	}
+}
+
+/// Output styles required to set a checkbox theme.
+/// @param {String} $theme Theme to output
+@mixin _oFormsRadioRoundThemeContent($theme) {
+	color: _oFormsGet("default-text", $theme);
+
+	.o-forms-input--radio-round {
+		input[type="radio"] {// stylelint-disable-line selector-no-qualifying-type
+			&:checked + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
+				border-color: _oFormsGet("controls-base", $theme);
+			}
+		}
+		.o-forms-input__label {
+			&:before {
+				border: 1px solid _oFormsGet("default-border", $theme);
+			}
+
+			&:after {
+				background-color: _oFormsGet("controls-base", $theme);
+			}
+		}
+	}
+
+	@if $theme == "professional-inverse" {
+		.o-forms-title {
+			.o-forms-title__main:after,
+			.o-forms-title__prompt {
+				color: rgba(_oFormsGet("default-text", $theme), 0.7);
+			}
+		}
+		input {
+			@include oNormaliseFocusApply() {
+				@include oNormaliseFocusContentInverse();
+			}
+		}
+
+		input[type="radio"] {// stylelint-disable-line selector-no-qualifying-type
+			&:focus {
+				@include oNormaliseFocusUnsetContent();
+				& + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
+					@include oNormaliseFocusContentInverse();
+				}
+			}
+
+			// Unset :focus styles where :focus-visible is supported.
+			// Ideally we would set `:focus-visible` by default and use
+			// `@supports not selector(:focus-visible)` to provide a
+			// `:focus` fallback, however some of our supported browsers
+			// do not understand `@supports: selector()`.
+			@supports selector(:focus-visible) {
+				&:focus + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
+					@include oNormaliseFocusUnsetContent();
+				}
+
+				&:focus-visible {
+					& + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
+						@include oNormaliseFocusContentInverse();
 					}
 				}
 			}

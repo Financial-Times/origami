@@ -1,5 +1,18 @@
 # Changelog
 
+### [10.2.3](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.2.1...o-comments-v10.2.3) (2023-05-19)
+
+### Bug Fixes
+
+* fix comment overflow in Safari, a temporary workaround for an issue with Coral's CSS ([#1116](https://github.com/Financial-Times/origami/pull/1116))
+
+### [10.2.2](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.2.1...o-comments-v10.2.2) (2023-05-10)
+
+
+### Bug Fixes
+
+* way obtain scrollContainer element ([69c072a](https://www.github.com/Financial-Times/origami/commit/69c072aefee3b9a0cda6064f0fac86ec49733177))
+
 ### [10.2.1](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.2.0...o-comments-v10.2.1) (2023-04-28)
 
 

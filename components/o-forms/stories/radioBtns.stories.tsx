@@ -11,19 +11,15 @@ const hideArg = {
 		disable: true,
 	},
 };
+
 const Brand = process.env.ORIGAMI_STORYBOOK_BRAND;
 const themeControl =
 	Brand === "core"
 		? {
 				control: {
 					type: "select",
-					labels: {
-						"": "default",
-						professional: "professional",
-						"professional-inverse": "professional-inverse",
-					},
 				},
-				options: ["", "professional", "professional-inverse"],
+				options: [undefined, "professional", "professional-inverse"],
 		  }
 		: hideArg;
 
