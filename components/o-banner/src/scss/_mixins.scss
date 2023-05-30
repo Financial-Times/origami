@@ -3,15 +3,9 @@
 		@error "There is no theme '#{$theme}' available in o-banner, please use one of the following: #{$_o-banner-themes}.";
 	}
 
-	@if $theme == 'marketing' {
-		.o-banner--marketing {
-			@include _oBannerTheme('marketing', $include-layout-styles);
-		}
-	}
-
-	@if $theme == 'product' {
-		.o-banner--product {
-			@include _oBannerTheme('product', $include-layout-styles);
+	@if index($_o-banner-themes, $theme) {
+		.o-banner--#{$theme} {
+			@include _oBannerTheme($theme, $include-layout-styles);
 		}
 	}
 }
@@ -50,6 +44,7 @@
 	@include oVisualEffectsShadowContent('high');
 	background: _oBannerGet('background-color');
 	color: _oBannerGet('text-color');
+	border-bottom: $_o-banner-brand-border solid transparent;
 }
 
 @mixin _oBannerInner {
@@ -62,12 +57,14 @@
 	max-width: map-get($o-grid-layouts, XL);
 	margin: 0 auto;
 	padding: $_o-banner-spacing 0;
+	padding-bottom: $_o-banner-spacing - $_o-banner-brand-border;
 	box-sizing: border-box;
 
 	@include oGridRespondTo($until: S) {
 		@include oTypographySans($scale: 0);
 		display: block;
 		padding: $_o-banner-spacing;
+		padding-bottom: $_o-banner-spacing - $_o-banner-brand-border;
 		padding-top: oSpacingByIncrement(7);
 	}
 }

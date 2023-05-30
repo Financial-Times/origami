@@ -20,7 +20,7 @@ export interface BannerProps {
 	closeButtonLabel?: string;
 	primaryAction?: BannerLink | BannerSubmitButton;
 	secondaryAction?: BannerLink
-	theme: 'product' | 'marketing' | '';
+	theme: 'product' | 'marketing' | 'professional-inverse' | '';
 	layout: 'small' | 'compact' | '';
 }
 
