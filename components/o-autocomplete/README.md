@@ -236,6 +236,8 @@ This function is used to override the default rendering of suggestion items, wit
 
 It is typically used when wanting to provide additional context or styling for each suggestion item.
 
+:warning: **Caution:** because this function allows you to output arbitrary HTML, you should [make sure it's trusted](https://en.wikipedia.org/wiki/Cross-site_scripting), and accessible. The HTML will be output within listbox options, so [ensure all descendants are presentational](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/option_role#all_descendants_are_presentational).
+
 #### Example
 
 ```js
