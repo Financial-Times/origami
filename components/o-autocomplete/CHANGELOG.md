@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.4...o-autocomplete-v1.8.0) (2023-05-30)
+
+
+### Features
+
+* autocomplete, add a suggestionTemplate override option ([23e1397](https://www.github.com/Financial-Times/origami/commit/23e1397deb29034faaf009c16e41ab169dcc3a42))
+
 ### [1.7.4](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.3...o-autocomplete-v1.7.4) (2023-04-28)
 
 
