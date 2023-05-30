@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.5.0](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.9...o-banner-v4.5.0) (2023-05-30)
+
+
+### Features
+
+* o-banner, add a new `inverse-professional` theme  ([f96f3a2](https://www.github.com/Financial-Times/origami/commit/f96f3a21d6ee2c71f3be79d1891316d9d39cc6ac))
+
 ### [4.4.9](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.8...o-banner-v4.4.9) (2023-04-28)
 
 
