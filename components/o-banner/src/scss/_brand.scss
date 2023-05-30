@@ -31,7 +31,7 @@
 				'link-text-color': oColorsByName('white'),
 				'button-background-color': oColorsByName('white')
 			),
-			'professional': (
+			'professional-inverse': (
 				'background-color': oColorsByName('slate'),
 				'text-color': oColorsByName('white'),
 				'heading-rule-color': oColorsByName('mint'),
@@ -42,7 +42,7 @@
 		'supports-variants': (
 			'marketing',
 			'product',
-			'professional'
+			'professional-inverse'
 		))
 	);
 }

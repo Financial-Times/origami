@@ -66,8 +66,8 @@
 		));
 	}
 	.o-banner__link {
-		$theme-name-to-link-theme: ('professional': 'professional-inverse');
-		$link-theme-name: map-get($theme-name-to-link-theme, $theme);
+		$banner-to-link-theme: ('professional-inverse': 'professional-inverse');
+		$link-theme-name: map-get($banner-to-link-theme, $theme);
 		$link-theme: if($link-theme-name, $link-theme-name, (
 			'base': $link-text-color,
 			'hover': $link-text-color,

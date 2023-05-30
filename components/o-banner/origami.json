@@ -36,9 +36,9 @@
 			"description": "Compact banner theme"
 		},
 		{
-			"title": "Professional",
-			"name": "professional",
-			"template": "demos/src/professional.mustache",
+			"title": "Inverse Professional",
+			"name": "professional-inverse",
+			"template": "demos/src/professional-inverse.mustache",
 			"description": "Banner theme for the FT Professional Sub-brand"
 		},
 		{
