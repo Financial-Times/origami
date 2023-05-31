@@ -24,7 +24,7 @@ export function TopBanner({
 			<div className="o-top-banner__container">
 				<div className="o-top-banner__content">
 					<h2 className="o-top-banner__heading">{heading}</h2>
-					<h2 className="o-top-banner__copy">{content}</h2>
+					<p className="o-top-banner__copy">{content}</p>
 				</div>
 
 				<div className="o-top-banner__actions">
