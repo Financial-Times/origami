@@ -18,7 +18,7 @@ Some of the bigger Origami news since our last update:
 
 ## Upcoming talks and workshops
 
-Mark your calendars! We have two engaging talks lined up for the upcoming month:
+Mark your calendars! We have two engaging talks lined up for the upcoming month. Talks are engineer oriented but anyone who want to deepen their Origami knowledge is welcome:
 
 1. Introduction to Origami: Lee will be delivering an insightful session that provides a high-level overview of Origami. Whether you work in Product or Technology, this talk is for you! Discover why Origami exists and how it can benefit you in your work.
 
