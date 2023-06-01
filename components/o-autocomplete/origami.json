@@ -54,6 +54,14 @@
 			"hidden": true
 		},
 		{
+			"title": "Autocomplete with custom suggestion items",
+			"name": "dynamic-custom-suggestions",
+			"template": "demos/src/dynamic-custom-suggestion/dynamic-custom-suggestion.mustache",
+			"description": "The source function returns objects and the suggestionTemplate transforms the objects into custom HTML suggestions",
+			"js": "demos/src/dynamic-custom-suggestion/dynamic-custom-suggestion.js",
+			"hidden": true
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
