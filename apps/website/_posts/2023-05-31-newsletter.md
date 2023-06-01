@@ -18,11 +18,13 @@ Some of the bigger Origami news since our last update:
 
 ## Upcoming talks and workshops
 
-Mark your calendars! We have two engaging talks lined up for the upcoming month. Talks are engineer oriented but anyone who want to deepen their Origami knowledge is welcome:
+Mark your calendars! We have two engaging talks lined up for the upcoming month.
 
 1. [Introduction to Origami](https://financialtimes.learn.link/content/62f4125979e7860012a64e2e/): Lee will be delivering an insightful session that provides a high-level overview of Origami. Whether you work in Product or Technology, this talk is for you! Discover why Origami exists and how it can benefit you in your work.
 
 2. [Origami Foundations](https://financialtimes.learn.link/content/6478b3546da1c4001190511a): Join Ako as he explores the fundamentals of Origami components. This talk will delve into the usage, advantages, and practical implementation of key components such as o-normalise, o-fonts, o-spacing, o-colors, o-typography, and a glimpse into o-grid.
+
+***Note:*** This talk is engineer oriented but anyone who want to deepen their Origami knowledge is definitely welcome.
 
 ## FT Professional
 
