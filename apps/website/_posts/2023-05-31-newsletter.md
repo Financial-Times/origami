@@ -64,4 +64,4 @@ A digest list of some other things that have happened in April and May:
 - Minor [o-typography](https://registry.origami.ft.com/components/o-typography): added `professional` themes for body and links.
 - Minor [o-autocomplete](https://registry.origami.ft.com/components/o-autocomplete): added a `suggestionTemplate` override option. This function is used to override the default rendering of suggestion items in autocomplete, with a function that returns a custom HTML string for the given option. It is typically used when wanting to provide additional context or styling for each suggestion item.
 - Minor [o-banner](https://registry.origami.ft.com/components/o-banner): added a new `inverse-professional` themes.
-- Patch [o-header](https://registry.origami.ft.com/components/o-header): We improved scroll buttons behaviors on o-header subnav.
+- Patch [o-header](https://registry.origami.ft.com/components/o-header): We improved scroll button behaviour in the o-header subnav.
