@@ -26,7 +26,7 @@ Mark your calendars! We have two engaging talks lined up for the upcoming month:
 
 ## FT Professional
 
-Last months Origami has been working with FT Professional to gather requirements and identify which Origami components require a new professional theme, this quarter we managed to release more themes than we promised and we will release few more before Q2 finishes.
+Last months Origami has been working with FT Professional to gather requirements and identify which Origami components require a new FT Professional theme, this quarter we managed to release more themes than we promised and we will release a few more before Q2 finishes.
 
 Currently we support `o-banner`, `o-forms`, `o-tooltip`, `o-typography` and `o-buttons` component themes and variations.
 
