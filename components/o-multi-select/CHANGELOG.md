@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.2.0](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v2.1.0...o-multi-select-v2.2.0) (2023-06-01)
+
+
+### Features
+
+* add focus rings for active elements ([b79344d](https://www.github.com/Financial-Times/origami/commit/b79344dffb464001ef7e9582b3ccf05a96770112))
+* if sleceted options are hidden they should not be tabbable ([72e7c43](https://www.github.com/Financial-Times/origami/commit/72e7c4357030b3e5c2fc6ee0bfec7208dfb72db5))
+* scroll in small viewport for keyboard users ([1e448a1](https://www.github.com/Financial-Times/origami/commit/1e448a18c394116f13caf4e67882c7acda2f828a))
+
 ## [2.1.0](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v2.0.0...o-multi-select-v2.1.0) (2023-05-03)
 
 
