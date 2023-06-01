@@ -40,7 +40,7 @@ We encourage everyone to actively participate in this project, offering feedback
 
 ## Knowledge sharing with other organisations
 
-We started talking to other organisations to share knowledge about design systems. We had a meeting with the design system team from the Lego and Washington Post. Next month we have a meeting scheduled with Conde Nast and we are all excited to share our knowledge and learn from each other.
+We've been talking with other organisations to share knowledge about design systems. We had a meeting with the design system team from the Lego, Washington Post, and Compare The Market. Next month we have a meeting scheduled with Conde Nast and we are all excited to share our knowledge and learn from each other.
 
 ## Special Thanks
 
