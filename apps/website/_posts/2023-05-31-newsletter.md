@@ -56,7 +56,7 @@ A digest list of some other things that have happened in April and May:
 
 - Major [o-multi-select](https://registry.origami.ft.com/components/o-multi-select): After some feedback from Spark we improved `o-multi-select` functionality and now component can be initialised with a selected values. We also added custom event `OptionChange` to enable users to track interactions to multi-select component. We also published TSX templates for multi select.
 - Minor [o-forms](https://registry.origami.ft.com/components/o-forms): `o-forms` had few minor releases in the last two months. We removed "green" valid state from `o-forms`. Deprecated pseudo-radio-links. `o-forms` now also has TSX templates published and can be used by other TSX projects. We also released FT Professional themes for `o-forms` elements. `o-forms` does not error any more when no themes given for primary mixin. Now we apply invalid input styles to inputs without browser validation.
-- Minor [o-topper](https://registry.origami.ft.com/components/o-topper): We changed outline color for focus links under matisse theme.
+- Minor [o-topper](https://registry.origami.ft.com/components/o-topper): To improve accessibility, we changed the outline colour for focus links in some cases.
 - Minor [ft-concept-button](https://registry.origami.ft.com/components/ft-concept-button): Now `ft-concept-button` sets aria-label on initialise.
 - Minor [o-buttons](https://registry.origami.ft.com/components/o-buttons): Now o-buttons supports `professional` themes.
 - Minor [o-colors](https://registry.origami.ft.com/components/o-colors): Professional color Mint is now part of o-colors pallet. We added `page-inverse` and `base-inverse` colour usecases.
