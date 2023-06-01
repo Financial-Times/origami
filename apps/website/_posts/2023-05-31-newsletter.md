@@ -50,6 +50,7 @@ Special thanks to Anna Bebb for deprecating  the `n-sliding-popup` component –
 
 We had new contributors who helped us to improve Origami components. Thanks to Marlon Bucley for helping us to improve `o-multi-select` component and thanks to Ed Gargan for helping us to improve `o-forms` component.
 
+And a final thankyou to Arjun Gadhia who contributed a new customisation feature to o-autocomplete to support the TagMe rewrite. This was a most [excellent pull request](https://github.com/Financial-Times/origami/pull/1127) which included problem context, screenshots, documentation, and demos – making it very easy for the team to review and approve.
 ## Broader update
 
 A digest list of some other things that have happened in April and May:
