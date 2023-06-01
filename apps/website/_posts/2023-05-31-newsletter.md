@@ -59,7 +59,7 @@ A digest list of some other things that have happened in April and May:
 - Minor [o-topper](https://registry.origami.ft.com/components/o-topper): We changed outline color for focus links under matisse theme.
 - Minor [ft-concept-button](https://registry.origami.ft.com/components/ft-concept-button): Now `ft-concept-button` sets aria-label on initialise.
 - Minor [o-buttons](https://registry.origami.ft.com/components/o-buttons): Now o-buttons supports `professional` themes.
-- Minor [o-colors](https://registry.origami.ft.com/components/o-colors): Professional color Mint is not part of o-colors pallet. We added `page-inverse` and `base-inverse` colour usecases.
+- Minor [o-colors](https://registry.origami.ft.com/components/o-colors): Professional color Mint is now part of o-colors pallet. We added `page-inverse` and `base-inverse` colour usecases.
 - Minor [o-tooltip](https://registry.origami.ft.com/components/o-tooltip): added `professional` themes and now it supports setting themes imperatively.
 - Minor [o-typography](https://registry.origami.ft.com/components/o-typography): added `professional` themes for body and links.
 - Minor [o-autocomplete](https://registry.origami.ft.com/components/o-autocomplete): added a `suggestionTemplate` override option. This function is used to override the default rendering of suggestion items in autocomplete, with a function that returns a custom HTML string for the given option. It is typically used when wanting to provide additional context or styling for each suggestion item.
