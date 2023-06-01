@@ -54,7 +54,7 @@ We had new contributors who helped us to improve Origami components. Thanks to M
 
 A digest list of some other things that have happened in April and May:
 
-- Major [o-multi-select](https://registry.origami.ft.com/components/o-multi-select): After some feedback from Spark we improved `o-multi-select` functionality and now component can be initialised with a selected values. We also added custom event `OptionChange` to enable users to track interactions to multi-select component. We also published TSX templates for multi select.
+- Major [o-multi-select](https://registry.origami.ft.com/components/o-multi-select): After some feedback from Spark we improved `o-multi-select` functionality and now it can be initialised with a selected value. We also added a custom event `OptionChange` to enable users to track interactions to o-multi-select. We also published TSX templates.
 - Minor [o-forms](https://registry.origami.ft.com/components/o-forms): `o-forms` had a few minor releases in the last two months. We removed the "green" valid state from `o-forms`. Deprecated pseudo-radio-links. `o-forms` now also has TSX templates published and can be used by other TSX projects. We also released FT Professional themes for `o-forms` elements. Now we apply invalid input styles to inputs with custom validation, as well as those which use default browser validation.
 - Minor [o-topper](https://registry.origami.ft.com/components/o-topper): To improve accessibility, we changed the outline colour for focus links in some cases.
 - Minor [ft-concept-button](https://registry.origami.ft.com/components/ft-concept-button): Now `ft-concept-button` sets aria-label on initialise.
