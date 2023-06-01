@@ -1,6 +1,6 @@
 ---
 title: Origami Newsletter, April 2023 - May 2023
-description: Origami is preparing two talks in upcoming month. We released FT Professional themes for o-buttons and o-forms. We started working on Origami For Everyone(O3) and we started talking to other organisations to share knowledge about design systems.
+description: Origami is preparing two talks for June. We released FT Professional themes for a bunch of components. We started working on Origami For Everyone(O3) and we started talking to other organisations to share knowledge about design systems.
 author: Akaki Mikaia
 tags:
   - Newsletter
