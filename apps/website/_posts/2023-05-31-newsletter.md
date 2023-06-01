@@ -44,7 +44,7 @@ We've been talking with other organisations to share knowledge about design syst
 
 ## Special Thanks
 
-We had few contributors who helped us to improve Origami components and we want to thank them for their contributions. Thanks to Juan Sanchez Alcala for contributing to `o-topper`, `o-video` and `o-comments` components.
+We had a few contributors who helped us to improve Origami components and we want to thank them for their contributions. Thanks to Juan Sanchez Alcala for contributing to `o-topper`, `o-video` and `o-comments` components.
 
 Special thanks to Anna Bebb for deprecating  the `n-sliding-popup` component – that prompted us to write some docs on how to do deprecate Origami components. Now we have a [guide on how to deprecate Origami components](https://origami.ft.com/documentation/components/versioning/#deprecate-a-component)
 
