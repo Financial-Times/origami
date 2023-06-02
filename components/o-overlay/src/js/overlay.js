@@ -457,8 +457,8 @@ class Overlay {
 
 				// Add o-tracking integration
 				this.broadcast('event', 'oTracking', {
-					category: 'overlay',
-					action: 'show',
+					category: 'component',
+					action: 'view',
 					overlay_id: this.id,
 				});
 				this._trapFocus();
@@ -494,8 +494,8 @@ class Overlay {
 
 		this.broadcast('destroy');
 		this.broadcast('event', 'oTracking', {
-			category: 'overlay',
-			action: 'close',
+			category: 'component/cta',
+			action: 'click',
 			overlay_id: this.id,
 		});
 
