@@ -10,9 +10,11 @@
 /// Output all oTopBanner features
 /// @param {Map} $opts [()] - A map of options to configure the output
 /// @access public
-/// @example scss
+/// @example scss - Include styles for all top banners.
+///		@include oTopBanner();
+/// @example scss - Include styles for specific top banners only.
 ///		@include oTopBanner($opts: (
-///			// your opts here
+///			'themes': ('new-world', 'professional-inverse')
 ///		))
 @mixin oTopBanner ($opts: (
 	'themes': ('new-world', 'professional-inverse')
