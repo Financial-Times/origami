@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2023-06-05T14:44:33+01:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, March 2023</title><link href="https://origami.ft.com/blog/2023/03/29/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, March 2023" /><published>2023-03-29T00:00:00+01:00</published><updated>2023-03-29T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2023/03/29/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2023/03/29/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2023-06-05T15:18:53+01:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, April 2023 - May 2023</title><link href="https://origami.ft.com/blog/2023/05/31/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, April 2023 - May 2023" /><published>2023-05-31T00:00:00+01:00</published><updated>2023-05-31T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2023/05/31/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2023/05/31/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+&lt;strong&gt;
+TL;DR:
+&lt;/strong&gt;
+&lt;/abbr&gt; Origami is preparing two talks for June. We released FT Professional themes for a bunch of components. We started working on Origami For Everyone(O3) and we started talking to other organisations to share knowledge about design systems.&lt;/p&gt;
+
+&lt;h2 id=&quot;top-things&quot;&gt;Top things&lt;/h2&gt;
+
+&lt;p&gt;Some of the bigger Origami news since our last update:&lt;/p&gt;
+
+&lt;h2 id=&quot;upcoming-talks-and-workshops&quot;&gt;Upcoming talks and workshops&lt;/h2&gt;
+
+&lt;p&gt;Mark your calendars! We have two engaging talks lined up for the upcoming month.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://financialtimes.learn.link/content/62f4125979e7860012a64e2e/&quot;&gt;Introduction to Origami&lt;/a&gt;: Lee will be delivering an insightful session that provides a high-level overview of Origami. Whether you work in Product or Technology, this talk is for you! Discover why Origami exists and how it can benefit you in your work.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://financialtimes.learn.link/content/6478b3546da1c4001190511a&quot;&gt;Origami Foundations&lt;/a&gt;: Join Ako as he explores the fundamentals of Origami components. This talk will delve into the usage, advantages, and practical implementation of key components such as o-normalise, o-fonts, o-spacing, o-colors, o-typography, and a glimpse into o-grid.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt; This talk is engineer oriented but anyone who want to deepen their Origami knowledge is definitely welcome.&lt;/p&gt;
+
+&lt;h2 id=&quot;ft-professional&quot;&gt;FT Professional&lt;/h2&gt;
+
+&lt;p&gt;Last months Origami has been working with FT Professional to gather requirements and identify which Origami components require a new FT Professional theme, this quarter we managed to release more themes than we promised and we will release a few more before Q2 finishes.&lt;/p&gt;
+
+&lt;p&gt;Currently we support &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-banner&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-forms&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-tooltip&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-typography&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-buttons&lt;/code&gt; component themes and variations.&lt;/p&gt;
+
+&lt;h2 id=&quot;origami-for-everyone&quot;&gt;Origami for everyone&lt;/h2&gt;
+
+&lt;p&gt;We’re excited about &lt;a href=&quot;https://financialtimes.atlassian.net/wiki/spaces/OR/blog/2023/05/18/8064925807/Introducing+Origami+for+Everyone&quot;&gt;Origami for Everyone&lt;/a&gt; as creating differentiated products targeting different audiences is a central theme of the &lt;a href=&quot;https://inside.ft.com/home/knowledge-base/Product-strategy-2023&quot;&gt;FT’s product and growth strategy&lt;/a&gt;. Origami for Everyone will allow Origami to scale to support more brands, designer-developer collaboration, and multi-platform compatibility.&lt;/p&gt;
+
+&lt;p&gt;To achieve these vision, we’ll need to make some fundamental changes in the existing Origami implementation. We’ve already started recruiting a new designer to lead on the design side of Origami, and we’ve been conducting research into design tokens, which will form the backbone of the new implementation of Origami. Ben already did a demo for new design tokens system and we got some initial positive feedback from our potential users. You can read more about this on our blogpost &lt;a href=&quot;https://financialtimes.atlassian.net/wiki/spaces/OR/blog/2023/04/20/8047034476/Origami+Team+Trials+Design+Tokens&quot;&gt;Origami Team Trials Design Tokens&lt;/a&gt; and if you want to know more of a technical decisions made along the way check out &lt;a href=&quot;https://financialtimes.atlassian.net/wiki/spaces/OR/blog/2023/04/26/8049524875/Conventions+for+Origami+Design+Tokens&quot;&gt;Conventions for origami Design Tokens&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We encourage everyone to actively participate in this project, offering feedback and sharing proposals for the new Origami architecture. Together, we can shape a future where the Origami design system works seamlessly with every product we deliver.&lt;/p&gt;
+
+&lt;h2 id=&quot;knowledge-sharing-with-other-organisations&quot;&gt;Knowledge sharing with other organisations&lt;/h2&gt;
+
+&lt;p&gt;We’ve been talking with other organisations to share knowledge about design systems. We had a meeting with the design system team from the Lego, Washington Post, and Compare The Market. Next month we have a meeting scheduled with Conde Nast and we are all excited to share our knowledge and learn from each other.&lt;/p&gt;
+
+&lt;h2 id=&quot;special-thanks&quot;&gt;Special Thanks&lt;/h2&gt;
+
+&lt;p&gt;We had a few contributors who helped us to improve Origami components and we want to thank them for their contributions. Thanks to Juan Sanchez Alcala for contributing to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-topper&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-video&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-comments&lt;/code&gt; components.&lt;/p&gt;
+
+&lt;p&gt;Special thanks to Anna Bebb for deprecating  the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n-sliding-popup&lt;/code&gt; component – that prompted us to write some docs on how to do deprecate Origami components. Now we have a &lt;a href=&quot;https://origami.ft.com/documentation/components/versioning/#deprecate-a-component&quot;&gt;guide on how to deprecate Origami components&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We had new contributors who helped us to improve Origami components. Thanks to Marlon Bucley for helping us to improve &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-multi-select&lt;/code&gt; component and thanks to Ed Gargan for helping us to improve &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-forms&lt;/code&gt; component.&lt;/p&gt;
+
+&lt;p&gt;And a final thankyou to Arjun Gadhia who contributed a new customisation feature to o-autocomplete to support the TagMe rewrite. This was a most &lt;a href=&quot;https://github.com/Financial-Times/origami/pull/1127&quot;&gt;excellent pull request&lt;/a&gt; which included problem context, screenshots, documentation, and demos – making it very easy for the team to review and approve.&lt;/p&gt;
+&lt;h2 id=&quot;broader-update&quot;&gt;Broader update&lt;/h2&gt;
+
+&lt;p&gt;A digest list of some other things that have happened in April and May:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Major &lt;a href=&quot;https://registry.origami.ft.com/components/o-multi-select&quot;&gt;o-multi-select&lt;/a&gt;: After some feedback from Spark we improved &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-multi-select&lt;/code&gt; functionality and now it can be initialised with a selected value. We also added a custom event &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OptionChange&lt;/code&gt; to enable users to track interactions to o-multi-select. We also published TSX templates.&lt;/li&gt;
+  &lt;li&gt;Minor &lt;a href=&quot;https://registry.origami.ft.com/components/o-forms&quot;&gt;o-forms&lt;/a&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-forms&lt;/code&gt; had a few minor releases in the last two months. We removed the “green” valid state from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-forms&lt;/code&gt;. Deprecated pseudo-radio-links. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-forms&lt;/code&gt; now also has TSX templates published and can be used by other TSX projects. We also released FT Professional themes for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-forms&lt;/code&gt; elements. Now we apply invalid input styles to inputs with custom validation, as well as those which use default browser validation.&lt;/li&gt;
+  &lt;li&gt;Minor &lt;a href=&quot;https://registry.origami.ft.com/components/o-topper&quot;&gt;o-topper&lt;/a&gt;: To improve accessibility, we changed the outline colour for focus links in some cases.&lt;/li&gt;
+  &lt;li&gt;Minor &lt;a href=&quot;https://registry.origami.ft.com/components/ft-concept-button&quot;&gt;ft-concept-button&lt;/a&gt;: Now &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ft-concept-button&lt;/code&gt; sets aria-label on initialise.&lt;/li&gt;
+  &lt;li&gt;Minor &lt;a href=&quot;https://registry.origami.ft.com/components/o-buttons&quot;&gt;o-buttons&lt;/a&gt;: Now o-buttons supports &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;professional&lt;/code&gt; themes.&lt;/li&gt;
+  &lt;li&gt;Minor &lt;a href=&quot;https://registry.origami.ft.com/components/o-colors&quot;&gt;o-colors&lt;/a&gt;: Professional color Mint is now part of o-colors pallet. We added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page-inverse&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;base-inverse&lt;/code&gt; colour usecases.&lt;/li&gt;
+  &lt;li&gt;Minor &lt;a href=&quot;https://registry.origami.ft.com/components/o-tooltip&quot;&gt;o-tooltip&lt;/a&gt;: added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;professional&lt;/code&gt; themes and now it supports setting themes imperatively.&lt;/li&gt;
+  &lt;li&gt;Minor &lt;a href=&quot;https://registry.origami.ft.com/components/o-typography&quot;&gt;o-typography&lt;/a&gt;: added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;professional&lt;/code&gt; themes for body and links.&lt;/li&gt;
+  &lt;li&gt;Minor &lt;a href=&quot;https://registry.origami.ft.com/components/o-autocomplete&quot;&gt;o-autocomplete&lt;/a&gt;: added a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;suggestionTemplate&lt;/code&gt; override option. This function is used to override the default rendering of suggestion items in autocomplete, with a function that returns a custom HTML string for the given option. It is typically used when wanting to provide additional context or styling for each suggestion item.&lt;/li&gt;
+  &lt;li&gt;Minor &lt;a href=&quot;https://registry.origami.ft.com/components/o-banner&quot;&gt;o-banner&lt;/a&gt;: added a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;inverse-professional&lt;/code&gt; themes.&lt;/li&gt;
+  &lt;li&gt;Patch &lt;a href=&quot;https://registry.origami.ft.com/components/o-header&quot;&gt;o-header&lt;/a&gt;: We improved scroll button behaviour in the o-header subnav.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Akaki Mikaia</name></author><category term="Newsletter" /><summary type="html">TL;DR: Origami is preparing two talks for June. We released FT Professional themes for a bunch of components. We started working on Origami For Everyone(O3) and we started talking to other organisations to share knowledge about design systems.</summary></entry><entry><title type="html">Origami Newsletter, March 2023</title><link href="https://origami.ft.com/blog/2023/03/29/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, March 2023" /><published>2023-03-29T00:00:00+01:00</published><updated>2023-03-29T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2023/03/29/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2023/03/29/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
 &lt;strong&gt;
 TL;DR:
 &lt;/strong&gt;
@@ -656,445 +724,4 @@ TL;DR:
   &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/js-features-analyser&quot;&gt;js-features-analyser&lt;/a&gt; fixes a bug where analysing code with destructing assignment would error (thanks to our open source contributors!)&lt;/li&gt;
   &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-colors&quot;&gt;o-colors&lt;/a&gt;, &lt;a href=&quot;https://github.com/Financial-Times/o-forms&quot;&gt;o-forms&lt;/a&gt;, and &lt;a href=&quot;https://github.com/Financial-Times/o-fonts&quot;&gt;o-fonts&lt;/a&gt; have updated migration guides based on feedback.&lt;/li&gt;
   &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-tracking&quot;&gt;o-tracking&lt;/a&gt; makes a number of small improvements but notably fixes a bug where click events were lost moving from one page which uses v2 of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-tracking&lt;/code&gt; and the next page which uses v3.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Lee Moody</name></author><category term="Newsletter" /><summary type="html">TL;DR: New introduction to Origami sessions and special thanks.</summary></entry><entry><title type="html">Origami npm announcement and guides on how to migrate products</title><link href="https://origami.ft.com/blog/2021/07/01/origami-on-npm-and-how-to-migrate/" rel="alternate" type="text/html" title="Origami npm announcement and guides on how to migrate products" /><published>2021-07-01T00:00:00+01:00</published><updated>2021-07-01T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2021/07/01/origami-on-npm-and-how-to-migrate</id><content type="html" xml:base="https://origami.ft.com/blog/2021/07/01/origami-on-npm-and-how-to-migrate/">&lt;p&gt;We have completed our migration of Origami components from Bower to the &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;NPM registry&lt;/a&gt; (see &lt;a href=&quot;/blog/2021/01/18/deprecating-bower-and-origami-via-npm/&quot;&gt;January’s announcement&lt;/a&gt;). Component releases on Bower are now deprecated and we recommend all products migrate to the new implementation to keep up-to-date with future releases to Origami.&lt;/p&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://origami-bower-registry.ft.com/&quot;&gt;FT Bower Registry&lt;/a&gt; has now been placed into a maintenance only mode for 12 months, until 1st July 2022, when we will look to decommission the service completely.&lt;/p&gt;
-
-&lt;p&gt;Moving Origami from Bower to NPM provides many benefits, such as:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Aligning our front-end practices with those now most commonly used across the company and the wider industry, which should help the onboarding of new software engineering hires.&lt;/li&gt;
-  &lt;li&gt;Origami components can now make use of the 1.6 million packages which are on the NPM registry.&lt;/li&gt;
-  &lt;li&gt;Origami components will be able to use modern tooling instead of the Origami team having to build bespoke tooling ourselves.&lt;/li&gt;
-  &lt;li&gt;Services such as Snyk, Dependabot, and Renovate will be able to work for the Origami dependencies a project has.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We’re already seeing the benefits with our work on a new autocomplete Origami component, which has been requested by several different FT products. By making this an npm-only component, we’ve been able to benefit from autocomplete packages which already exist on NPM, such as the one made by Gov UK named &lt;a href=&quot;https://github.com/alphagov/accessible-autocomplete&quot;&gt;accessible-autocomplete&lt;/a&gt;. This has greatly reduced the amount of code we would have had to write ourselves and meant we could create a prototype for products to trial in a shorter turnaround then previously possible.&lt;/p&gt;
-
-&lt;h2 id=&quot;what-has-changed-for-origami-users&quot;&gt;What has changed for Origami users?&lt;/h2&gt;
-
-&lt;p&gt;The code for Origami components has remained largely the same, aiming to make the migration simpler for our users. The one change we had to make was making the package name for all components now start with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@financial-times/&lt;/code&gt;, as they are published under the financial-times namespace on npm. This change means that when importing the javascript and/or sass of a component, you will need to prepend &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@financial-times/&lt;/code&gt; to the imported package name.&lt;/p&gt;
-
-&lt;p&gt;If using Origami components via NPM, it is required to use NPM version 7, this is because version 7 ensures that Origami components are only installed once and no conflicting versions are installed. Origami components do not support using older versions of NPM.&lt;/p&gt;
-
-&lt;p&gt;Those changes don’t affect projects which include Origami components using the Origami Build Service, but there is a new version of the Origami Build Service projects must upgrade to.&lt;/p&gt;
-
-&lt;p&gt;See the below migration guides for more details.&lt;/p&gt;
-
-&lt;h2 id=&quot;migration-guides&quot;&gt;Migration Guides&lt;/h2&gt;
-
-&lt;p&gt;The following 3 guides show how to migrate to the new npm-only Origami component releases depending on how your project currently includes components:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#using-origami-via-origami-build-service&quot;&gt;Origami Build Service&lt;/a&gt;: Follow this guide if your project uses the Origami Build Service.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#using-origami-via-bower&quot;&gt;Bower&lt;/a&gt;: Follow this guide if your project installs components with Bower.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#using-origami-via-beta-npm&quot;&gt;Beta NPM&lt;/a&gt;: Follow this guide if your project already installs Origami components via NPM, these were experimental releases which were published to Bower and NPM.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;using-origami-via-origami-build-service&quot;&gt;Using Origami via Origami Build Service&lt;/h3&gt;
-
-&lt;p&gt;Use the &lt;a href=&quot;https://www.ft.com/__origami/service/build/url-updater&quot;&gt;Origami Build Service URL Updater&lt;/a&gt; to guide you through the following process.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Run your project locally in its current state and confirm it is still working correctly.&lt;/li&gt;
-  &lt;li&gt;Check your Origami Build Service URL requests the &lt;a href=&quot;#last-bower-releases&quot;&gt;latest major Bower release&lt;/a&gt; of each component:
-    &lt;ul&gt;
-      &lt;li&gt;If your project already requests the latest Bower release of each component no code changes are required. Otherwise;&lt;/li&gt;
-      &lt;li&gt;If your project is using outdated component releases, follow the &lt;a href=&quot;#last-bower-releases&quot;&gt;component migration guides&lt;/a&gt; to update to the latest major Bower release.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Run your project locally and confirm it is still working correctly. Now you’re ready to do the NPM migration.&lt;/li&gt;
-  &lt;li&gt;Update your Origami Build Service urls to use the &lt;a href=&quot;https://www.ft.com/__origami/service/build/v3/docs/api&quot;&gt;Origami Build Service v3 API&lt;/a&gt; instead of v2.&lt;/li&gt;
-  &lt;li&gt;Run your project locally and confirm it is still working correctly.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;aside&gt;
-&lt;p&gt;Use the &lt;a href=&quot;https://www.ft.com/__origami/service/build/url-updater&quot;&gt;Origami Build Service URL Updater&lt;/a&gt; to guide you through the migration process in more detail.&lt;/p&gt;
-&lt;/aside&gt;
-
-&lt;p&gt;Your migration to npm Origami components is finished! 🎉&lt;/p&gt;
-
-&lt;h3 id=&quot;using-origami-via-bower&quot;&gt;Using Origami via Bower&lt;/h3&gt;
-
-&lt;aside&gt;
-This guide used to give a choice between updating Sass include paths ( &lt;code&gt;@import o-icons/main';&lt;/code&gt; becomes &lt;code&gt;@import '@financial-times/o-icons/main';&lt;/code&gt;) or adding &lt;code&gt;node_modules/@financial-times&lt;/code&gt; to your compiler's &lt;code&gt;includePath&lt;/code&gt; configuration. It has since been updated to require the former and discourage the latter outside a specific circumstance.
-&lt;/aside&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Run the project locally in its current state.&lt;/li&gt;
-  &lt;li&gt;Check your project installs the &lt;a href=&quot;#last-bower-releases&quot;&gt;latest major Bower release&lt;/a&gt; of each component. If your project is using outdated component releases, follow the &lt;a href=&quot;#last-bower-releases&quot;&gt;component migration guides&lt;/a&gt; to update to the latest major Bower release.&lt;/li&gt;
-  &lt;li&gt;Check your project builds Sass using &lt;a href=&quot;https://www.npmjs.com/package/sass&quot;&gt;Dart Sass&lt;/a&gt;, the canonical version of Sass, which is now required by Origami components – &lt;a href=&quot;https://sass-lang.com/blog/libsass-is-deprecated&quot;&gt;LibSass and Node Sass were deprecated&lt;/a&gt; in 2020.&lt;/li&gt;
-  &lt;li&gt;Now you’re ready to do the NPM migration.&lt;/li&gt;
-  &lt;li&gt;If the project is not using NPM version 7:
-    &lt;ol&gt;
-      &lt;li&gt;Clean the directory of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules&lt;/code&gt; and any built artefacts&lt;/li&gt;
-      &lt;li&gt;Switch to NPM version 7 and install the dependencies&lt;/li&gt;
-      &lt;li&gt;Confirm the project is still working correctly - If it is not working, try deleting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; and/or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm-shrinkwrap.json&lt;/code&gt; files and run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm install&lt;/code&gt; again. There is a known issue with upgrading to NPM version 7 and those files becoming corrupted.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Clean the directory of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules&lt;/code&gt; and any built artefacts&lt;/li&gt;
-  &lt;li&gt;Install all origami dependencies as npm dependencies and remove them from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bower.json&lt;/code&gt; file. All the components are under the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@financialt-times&lt;/code&gt; namespace on NPM. I.E. To install o-table, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm install @financial-times/o-table&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;If there are still dependencies declared in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bower.json&lt;/code&gt; file, try and find the corresponding package on the NPM registry.&lt;/li&gt;
-  &lt;li&gt;Remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bower.json&lt;/code&gt; file and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bowerrc&lt;/code&gt; file if it exists. E.G. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rm -f .bowerrc bower.json&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bower_components&lt;/code&gt; directory. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rm -rf bower_components&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Remove &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bower&lt;/code&gt; from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package.json&lt;/code&gt; file. E.G. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm uninstall bower&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Update the Sass compiler’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;includePath&lt;/code&gt; configuration to include &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules&lt;/code&gt; and remove &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bower_components&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Update the Origami Sass imports to include the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@financial-times&lt;/code&gt; namespace. E.G. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@import 'o-icons/main';&lt;/code&gt; becomes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@import '@financial-times/o-icons/main';&lt;/code&gt;
-    &lt;ol&gt;
-      &lt;li&gt;Note: Although we don’t recommend it, you may also add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules/@financial-times&lt;/code&gt; to your compiler’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;includePath&lt;/code&gt; configuration. This will resolve Sass published under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@financial-times&lt;/code&gt; without specifying a namespace. We don’t recommend this because it will require all dependent projects do the same. However, this step is required temporarily if your team is not updating to the latest version of Origami components on npm.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Update your Origami JavaScript imports to include the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@financial-times&lt;/code&gt; namespace. E.G. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;import oTracking from 'o-tracking';&lt;/code&gt; becomes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;import oTracking from '@financial-times/o-tracking';&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;import 'o-layout';&lt;/code&gt; becomes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;import '@financial-times/o-layout';&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Run the project locally and confirm it is still working correctly&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Your migration to npm Origami components is finished! 🎉&lt;/p&gt;
-
-&lt;h3 id=&quot;using-origami-via-beta-npm&quot;&gt;Using Origami via beta NPM&lt;/h3&gt;
-
-&lt;p&gt;If your project already installs Origami components via NPM, these were experimental releases which were published to Bower and NPM.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Run your project locally in its current state and confirm it is still working correctly&lt;/li&gt;
-  &lt;li&gt;Check your project installs the &lt;a href=&quot;#last-bower-releases&quot;&gt;latest major version that was released to Bower&lt;/a&gt; of each component. If your project is using outdated component releases, follow the &lt;a href=&quot;#last-bower-releases&quot;&gt;component migration guides&lt;/a&gt; to update to the latest major release that was Bower-compatible.&lt;/li&gt;
-  &lt;li&gt;If your project is not using NPM version 7:
-    &lt;ol&gt;
-      &lt;li&gt;Clean the directory of node_modules and any built artefacts&lt;/li&gt;
-      &lt;li&gt;Switch to NPM version 7 and install the dependencies
-        &lt;ol&gt;
-          &lt;li&gt;Confirm your project is still working correctly - If it is not working, try deleting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; and/or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm-shrinkwrap.json&lt;/code&gt; files and run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm install&lt;/code&gt; again. There is a known issue with upgrading to NPM version 7 and those files becoming corrupted.&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Clean the directory of node_modules and any built artefacts&lt;/li&gt;
-  &lt;li&gt;Upgrade to the latest major versions of any Origami components you are using&lt;/li&gt;
-  &lt;li&gt;If using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lockspot&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;is-origami-flat&lt;/code&gt;, these should be removed as they are no longer needed when using NPM version 7. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm uninstall lockspot is-origami-flat&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Run your project locally and confirm it is still working correctly&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Your migration to npm Origami components is finished! 🎉&lt;/p&gt;
-
-&lt;h2 id=&quot;tracking-migrations&quot;&gt;Tracking migrations&lt;/h2&gt;
-
-&lt;p&gt;We can detect when the relevant repos have been updated to remove Bower. Using that data, we will update:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;This &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1Pem5e6cR0aiuKpYa7VD08AnSSynzjRtWt_VAHAoyhPQ/edit#gid=0&quot;&gt;google spreadsheet&lt;/a&gt;, which contains your projects that are using Origami via Bower.&lt;/li&gt;
-  &lt;li&gt;The associated &lt;a href=&quot;https://biz-ops.in.ft.com/Risk/origami-components-via-bower&quot;&gt;entry in the Risk Register&lt;/a&gt; which is linked to all the affected systems that we know of.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Below is a breakdown of how many systems and repositories will need to be migrated, split by group:&lt;/p&gt;
-
-&lt;div class=&quot;o-layout__main__single-span&quot;&gt;
-    &lt;table class=&quot;o-table o-table--row-headings o-table--horizontal-lines&quot; data-o-component=&quot;o-table&quot;&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-        &lt;th&gt;Group&lt;/th&gt;
-        &lt;th&gt;Systems to migrate&lt;/th&gt;
-        &lt;th&gt;Repositories to migrate&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-        &lt;td&gt;Customer Products&lt;/td&gt;
-        &lt;td&gt;25&lt;/td&gt;
-        &lt;td&gt;74&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        &lt;td&gt;FT Core&lt;/td&gt;
-        &lt;td&gt;2&lt;/td&gt;
-        &lt;td&gt;10&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        &lt;td&gt;FT Professional&lt;/td&gt;
-        &lt;td&gt;4&lt;/td&gt;
-        &lt;td&gt;6&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        &lt;td&gt;Internal Products&lt;/td&gt;
-        &lt;td&gt;4&lt;/td&gt;
-        &lt;td&gt;2&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        &lt;td&gt;Operations &amp;amp; Reliability&lt;/td&gt;
-        &lt;td&gt;3&lt;/td&gt;
-        &lt;td&gt;41&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;last-bower-releases&quot;&gt;Last Bower Releases&lt;/h2&gt;
-
-&lt;p&gt;Make sure your project has upgraded to the latest component released to Bower before attempting to migrate to the NPM-only releases. Here is a table of Bower component releases for reference:&lt;/p&gt;
-
-&lt;div class=&quot;o-layout__main__single-span&quot;&gt;
-	&lt;table class=&quot;o-table o-table--row-headings o-table--vertical-lines o-table--horizontal-lines&quot; data-o-component=&quot;o-table&quot;&gt;
-		&lt;thead&gt;
-			&lt;tr&gt;
-			&lt;th&gt;Project&lt;/th&gt;
-			&lt;th&gt;Last Major Bower Release&lt;/th&gt;
-			&lt;th&gt;Migration Guide&lt;/th&gt;
-			&lt;/tr&gt;
-		&lt;/thead&gt;
-		&lt;tbody&gt;
-			&lt;tr&gt;
-			&lt;td&gt;n-notification&lt;/td&gt;
-			&lt;td&gt;7.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-autoinit&lt;/td&gt;
-			&lt;td&gt;2.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-autoinit/blob/v2.0.0/MIGRATION.md&quot;&gt;o-autoinit migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-banner&lt;/td&gt;
-			&lt;td&gt;3.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-banner/blob/v3.0.0/MIGRATION.md&quot;&gt;o-banner migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-big-number&lt;/td&gt;
-			&lt;td&gt;2.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-big-number/blob/v2.0.0/MIGRATION.md&quot;&gt;o-big-number migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-brand&lt;/td&gt;
-			&lt;td&gt;3.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-brand/blob/v3.0.0/MIGRATION.md&quot;&gt;o-brand migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-buttons&lt;/td&gt;
-			&lt;td&gt;6.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-buttons/blob/v6.0.0/MIGRATION.md&quot;&gt;o-buttons migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-colors&lt;/td&gt;
-			&lt;td&gt;5.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-colors/blob/v5.0.0/MIGRATION.md&quot;&gt;o-colors migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-cookie-message&lt;/td&gt;
-			&lt;td&gt;5.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-cookie-message/blob/v5.0.0/MIGRATION.md&quot;&gt;o-cookie-message migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-date&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-date/blob/v4.0.0/MIGRATION.md&quot;&gt;o-date migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-editorial-layout&lt;/td&gt;
-			&lt;td&gt;1.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-editorial-layout/blob/v1.0.0/MIGRATION.md&quot;&gt;o-editorial-layout migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-editorial-typography&lt;/td&gt;
-			&lt;td&gt;1.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-editorial-typography/blob/v1.0.0/MIGRATION.md&quot;&gt;o-editorial-typography migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-errors&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-errors/blob/v4.0.0/MIGRATION.md&quot;&gt;o-errors migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-expander&lt;/td&gt;
-			&lt;td&gt;5.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-expander/blob/v5.0.0/MIGRATION.md&quot;&gt;o-expander migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-fonts&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-fonts/blob/v4.0.0/MIGRATION.md&quot;&gt;o-fonts migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-fonts-assets&lt;/td&gt;
-			&lt;td&gt;1.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-fonts-assets/blob/v1.0.0/MIGRATION.md&quot;&gt;o-fonts-assets migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-footer&lt;/td&gt;
-			&lt;td&gt;9.0.1-bower&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-footer/blob/v7.0.0/MIGRATION.md&quot;&gt;o-footer migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-footer-services&lt;/td&gt;
-			&lt;td&gt;3.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-footer-services/blob/v3.0.0/MIGRATION.md&quot;&gt;o-footer-services migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-forms&lt;/td&gt;
-			&lt;td&gt;8.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-forms/blob/v8.0.0/MIGRATION.md&quot;&gt;o-forms migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-ft-affiliate-ribbon&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-ft-affiliate-ribbon/blob/v4.0.0/MIGRATION.md&quot;&gt;o-ft-affiliate-ribbon migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;ftdomdelegate&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/ftdomdelegate/blob/v4.0.0/MIGRATION.md&quot;&gt;ftdomdelegate migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-grid&lt;/td&gt;
-			&lt;td&gt;5.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-grid/blob/v5.0.0/MIGRATION.md&quot;&gt;o-grid migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-header&lt;/td&gt;
-			&lt;td&gt;8.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-header/blob/v8.0.0/MIGRATION.md&quot;&gt;o-header migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-header-services&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-header-services/blob/v4.0.0/MIGRATION.md&quot;&gt;o-header-services migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-icons&lt;/td&gt;
-			&lt;td&gt;6.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-icons/blob/v6.0.0/MIGRATION.md&quot;&gt;o-icons migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-labels&lt;/td&gt;
-			&lt;td&gt;5.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-labels/blob/v5.0.0/MIGRATION.md&quot;&gt;o-labels migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-layers&lt;/td&gt;
-			&lt;td&gt;2.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-layers/blob/v2.0.0/MIGRATION.md&quot;&gt;o-layers migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-layout&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;
-			&lt;a href=&quot;https://github.com/Financial-Times/o-layout/blob/v4.0.0/MIGRATION.md&quot;&gt;o-layout migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-lazy-load&lt;/td&gt;
-			&lt;td&gt;2.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-lazy-load/blob/v2.0.0/MIGRATION.md&quot;&gt;o-lazy-load migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-loading&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-loading/blob/v4.0.0/MIGRATION.md&quot;&gt;o-loading migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-message&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-message/blob/v4.0.0/MIGRATION.md&quot;&gt;o-message migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-meter&lt;/td&gt;
-			&lt;td&gt;2.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-meter/blob/v2.0.0/MIGRATION.md&quot;&gt;o-meter migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-normalise&lt;/td&gt;
-			&lt;td&gt;2.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-normalise/blob/v2.0.0/MIGRATION.md&quot;&gt;o-normalise migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-overlay&lt;/td&gt;
-			&lt;td&gt;3.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-overlay/blob/v3.0.0/MIGRATION.md&quot;&gt;o-overlay migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-quote&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-quote/blob/v4.0.0/MIGRATION.md&quot;&gt;o-quote migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-share&lt;/td&gt;
-			&lt;td&gt;7.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-share/blob/v7.0.0/MIGRATION.md&quot;&gt;o-share migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-spacing&lt;/td&gt;
-			&lt;td&gt;2.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-spacing/blob/v2.0.0/MIGRATION.md&quot;&gt;o-spacing migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-stepped-progress&lt;/td&gt;
-			&lt;td&gt;2.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-stepped-progress/blob/v2.0.0/MIGRATION.md&quot;&gt;o-stepped-progress migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-subs-card&lt;/td&gt;
-			&lt;td&gt;6.0.0-bower&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-subs-card/blob/v6.0.0/MIGRATION.md&quot;&gt;o-subs-card progress migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-syntax-highlight&lt;/td&gt;
-			&lt;td&gt;3.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-syntax-highlight/blob/v3.0.0/MIGRATION.md&quot;&gt;o-syntax-highlight migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-table&lt;/td&gt;
-			&lt;td&gt;8.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-table/blob/v8.0.0/MIGRATION.md&quot;&gt;o-table migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-tabs&lt;/td&gt;
-			&lt;td&gt;5.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-tabs/blob/v5.0.0/MIGRATION.md&quot;&gt;o-tabs migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-teaser&lt;/td&gt;
-			&lt;td&gt;5.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-teaser/blob/v5.0.0/MIGRATION.md&quot;&gt;o-teaser migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-teaser-collection&lt;/td&gt;
-			&lt;td&gt;3.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-teaser-collection/blob/v3.0.0/MIGRATION.md&quot;&gt;o-teaser-collection migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-toggle&lt;/td&gt;
-			&lt;td&gt;2.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-toggle/blob/v2.0.0/MIGRATION.md&quot;&gt;o-toggle migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-tooltip&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-tooltip/blob/v4.0.0/MIGRATION.md&quot;&gt;o-tooltip migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-topper&lt;/td&gt;
-			&lt;td&gt;3.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-topper/blob/v3.0.0/MIGRATION.md&quot;&gt;o-topper migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-tracking&lt;/td&gt;
-			&lt;td&gt;3.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-tracking/blob/v3.0.0/MIGRATION.md&quot;&gt;o-tracking migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-typography&lt;/td&gt;
-			&lt;td&gt;6.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-typography/blob/v6.0.0/MIGRATION.md&quot;&gt;o-typography migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-utils&lt;/td&gt;
-			&lt;td&gt;1.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-utils/blob/v1.0.0/MIGRATION.md&quot;&gt;o-utils migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-viewport&lt;/td&gt;
-			&lt;td&gt;4.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-viewport/blob/v4.0.0/MIGRATION.md&quot;&gt;o-viewport migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-			&lt;td&gt;o-visual-effects&lt;/td&gt;
-			&lt;td&gt;3.x.x&lt;/td&gt;
-			&lt;td&gt;&lt;a href=&quot;https://github.com/Financial-Times/o-visual-effects/blob/v3.0.0/MIGRATION.md&quot;&gt;o-visual-effects migration guide&lt;/a&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-		&lt;/tbody&gt;
-	&lt;/table&gt;
-&lt;/div&gt;</content><author><name>Origami</name></author><summary type="html">We have completed our migration of Origami components from Bower to the NPM registry (see January’s announcement). Component releases on Bower are now deprecated and we recommend all products migrate to the new implementation to keep up-to-date with future releases to Origami.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Lee Moody</name></author><category term="Newsletter" /><summary type="html">TL;DR: New introduction to Origami sessions and special thanks.</summary></entry></feed>
