@@ -6,7 +6,7 @@
 	"scripts": {
 		"generate-data": "node scripts/generate-data.js",
 		"dev": "npm run generate-data && vite",
-		"build": "npm run generate-data && vite build",
+		"build": "npm run generate-data && vite build --emptyOutDir",
 		"preview": "npm run generate-data && vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json"
 	},

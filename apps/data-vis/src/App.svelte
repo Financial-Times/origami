@@ -11,7 +11,7 @@
 	onMount(() => {
 		oLayout.init()
 	})
-	let dataType = "Quarterly"
+	let dataType = "Total"
 	$: data = dataType === "Quarterly" ? quarterlyData : totalData
 	$: barCount.set(dataType === "Quarterly" ? 5 : 10)
 	function handleToggle(e) {

@@ -7,4 +7,5 @@ export default defineConfig({
 	build: {
 		outDir: "../../origami.ft.com/data-vis",
 	},
+	base: './'
 })

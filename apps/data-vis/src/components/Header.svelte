@@ -62,7 +62,7 @@
 				</li>
 			{/each}
 			<li>
-				<a aria-current="page" href="https://origami.ft.com/graphs/">Graphs</a>
+				<a aria-current="page" href="https://origami.ft.com/graphs/">Origami in Graphs</a>
 			</li>
 		</ul>
 	</nav>
