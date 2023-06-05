@@ -16,12 +16,26 @@ export function updateState() {
 		const sumOfChildrenWidth = calculateSumOfChildrenWidth(
 			this._selectedOptions
 		);
+
 		if (sumOfChildrenWidth > comboElWidth * 0.9) {
 			this._selectedOptions.classList.add('o-multi-select__visually-hidden');
 			this._comboBoxText.innerText =
 				this._numberOfSelectedOptions + ' options selected';
+
+			// Set tabindex to -1 for all children of the selectedOptions element
+			// to prevent them from being focusable when the selectedOptions element
+			// is visually hidden.
+			[...this._selectedOptions.children].forEach(element => {
+				element.children[0].setAttribute('tabindex', '-1');
+			});
 		} else {
 			this._selectedOptions.classList.remove('o-multi-select__visually-hidden');
+
+			// Remove tabindex from all children of the selectedOptions element
+			// to make them focusable when the selectedOptions element is visible.
+			[...this._selectedOptions.children].forEach(element => {
+				element.children[0].removeAttribute('tabindex');
+			});
 		}
 	} else {
 		this._selectedOptions.style.display = 'none';

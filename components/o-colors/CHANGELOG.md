@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.6.1](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.6.0...o-colors-v6.6.1) (2023-06-02)
+
+
+### Bug Fixes
+
+* o-colors, show professional palette seperately from other colours ([310fc89](https://www.github.com/Financial-Times/origami/commit/310fc89005a4e83185eb35c6bea096abff335630))
+
 ## [6.6.0](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.5.1...o-colors-v6.6.0) (2023-05-24)
 
 
