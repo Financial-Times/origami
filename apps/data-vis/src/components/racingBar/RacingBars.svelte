@@ -66,7 +66,7 @@
 
 {#if data}
 	<div class="wrapper" style="min-height: {$barCount * 60}px;" bind:offsetWidth={$svgWidth} bind:offsetHeight={$height}>
-		<svg height="50vh">
+		<svg height="{$barCount * 60}px">
 			<Bars {currentData} />
 		</svg>
 		<Ticker date={keyframeDate} {dataType} />
