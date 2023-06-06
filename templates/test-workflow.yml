@@ -7,16 +7,6 @@ concurrency:
 on:
   pull_request:
     branches: [ main ]
-    paths:
-      - "package.json"
-      - "package-lock.json"
-      - "components/**"
-      - "libraries/**"
-      - "tools/**"
-      - "apps/**"
-      - "!apps/website/**"
-      - "presets/**"
-      - "!**.md"
 
 jobs:
   <%#projects%>
