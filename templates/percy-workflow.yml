@@ -10,6 +10,7 @@ on:
       - opened
       - reopened
       - synchronize
+      - labeled
     paths:
       - "package.json"
       - "package-lock.json"
@@ -26,7 +27,7 @@ on:
 jobs:
   <%#projects%>
   percy-<%& workspaceFilename %>:
-    if: ${{ github.event.label.name == 'Run Percy' }}
+    if: ${{ github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
