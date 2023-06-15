@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/Financial-Times/origami/compare/o-top-banner-v1.0.1...o-top-banner-v1.0.2) (2023-06-15)
+
+
+### Bug Fixes
+
+* fix failing test ([30c2620](https://www.github.com/Financial-Times/origami/commit/30c2620be4ab2b8e54b4413e244420b163748195))
+
 ### [1.0.1](https://www.github.com/Financial-Times/origami/compare/o-top-banner-v1.0.0...o-top-banner-v1.0.1) (2023-06-15)
 
 
