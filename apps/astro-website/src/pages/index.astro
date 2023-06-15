@@ -1,0 +1,195 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import HeroImage from "/hero-image.svg?raw"
+
+const title = "Origami"
+const contact = {email: "origami.support@ft.com", slack: "origami-support"}
+---
+
+<Layout>
+	<div class="o-layout__hero o-layout-typography o-website__hero--home">
+		<Fragment set:html={HeroImage} />
+		<div class="o-website__hero--text">
+			<h1>{title}</h1>
+			<p>
+				Origami is a group of services, components, and tools used to help
+				design & build digital products for FT brands.
+			</p>
+		</div>
+	</div>
+
+	<div class="o-layout__main o-layout-typography">
+		<div class="o-layout__overview">
+			<div class="o-layout-item">
+				<h2>About</h2>
+				<p>
+					Origami is a collaborative project by and for the FT which includes
+					services, components, and tools used to help design & build digital
+					products for FT brands.
+				</p>
+				<p>
+					<a href="/documentation/principles/vision-and-mission/"
+						>Origami Project Mission & Vision Statements</a
+					>
+				</p>
+			</div>
+
+			<div class="o-layout-item">
+				<h2>Designers</h2>
+				<p>
+					You can browse live demos and documentation for Origami components in <a
+						href="https://registry.origami.ft.com/components"
+						>the component registry</a
+					>.
+				</p>
+				<p>
+					The Customer Products design team own complimentary
+					tooling/documentation for Newsroom products.
+				</p>
+				<p>
+					This includes further <a
+						href="https://www.notion.so/prd-newsroom/Design-System-35c1fc00fc9d404c8a31a374e2b8c8e4"
+						>design system documentation</a
+					> and a <a
+						href="https://www.figma.com/files/938480807921629744/team/938730024138282825/Design-Systems?fuid=840167457508775739"
+						>figma library</a
+					>.
+				</p>
+			</div>
+
+			<div class="o-layout-item">
+				<h2>Developers</h2>
+				<p>
+					To jump straight in and include Origami components in your project,
+					see our <a href="/documentation/tutorials/">tutorials page</a>.
+				</p>
+				<p>
+					If you would like to learn about Origami components in more detail see
+					our <a href="/documentation/components/">component documentation</a>.
+				</p>
+				<p>
+					For an overview of all the tools and services we offer see our <a
+						href="/documentation/">documentation page</a
+					>.
+				</p>
+			</div>
+
+			<div class="o-layout-item">
+				<h2>Contact</h2>
+				<p>If you have questions or feedback about Origami:</p>
+				<ul>
+					<li>
+						There is a community Slack channel named <a
+							href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}"
+							target="_blank">#{contact.slack}</a
+						>
+					</li>
+					<li>
+						There is a <a href="mailto:{contact.email}">mailing list</a> for contacting
+						the Origami Core Team
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style lang="scss">
+	@import "@financial-times/o-layout/main";
+
+	@include oLayout();
+	html,
+	body {
+		margin: 0;
+		height: 100%;
+	}
+
+	abbr {
+		text-decoration: none;
+		border-bottom: 1px dotted black;
+	}
+
+	.no-wrap {
+		white-space: nowrap;
+	}
+
+	aside.no-padding {
+		padding-left: 0;
+		grid-row: span 7;
+
+		p {
+			padding-left: 1em;
+		}
+		pre {
+			margin: 0;
+		}
+	}
+
+	iframe {
+		border: none;
+		margin-bottom: 1em;
+		width: 100%;
+	}
+
+	img {
+		display: inline-block;
+		max-width: 100%;
+	}
+
+	table.o-manifest__table {
+		width: auto;
+	}
+
+	.o-layout__hero:before {
+		background-image: url("/images/home-page-hero.jpg");
+	}
+
+	svg {
+		display: none;
+	}
+
+	@media (prefers-reduced-motion: no-preference) and (min-width: 490px) {
+		.o-website__hero--home {
+			padding: 0;
+
+			&.o-layout__hero:before {
+				content: none;
+			}
+
+			svg {
+				position: absolute;
+				display: block;
+				width: 100vw;
+				height: 100%;
+			}
+		}
+
+		.o-website__hero--text {
+			position: absolute;
+			pointer-events: none;
+		}
+	}
+
+	.o-header-services__logo {
+		background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:origami?format=svg&source=origami&width=55);
+	}
+
+	strong {
+		font-weight: 600;
+	}
+
+	// Charts
+
+	.chart {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+
+	.chart-grid {
+		display: flex;
+		flex-wrap: wrap;
+		.chart {
+			width: 50%;
+		}
+	}
+</style>

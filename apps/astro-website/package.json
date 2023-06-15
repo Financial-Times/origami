@@ -1,0 +1,30 @@
+{
+	"name": "astro-website",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"author": "",
+	"license": "ISC",
+	"volta": {
+		"node": "18.16.0",
+		"npm": "9.7.1"
+	},
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@financial-times/o-header-services": "^5.3.4",
+		"@financial-times/o-layout": "^5.3.2",
+		"astro": "^2.6.4",
+		"sass": "^1.63.4"
+	},
+	"peerDependencies": {
+		"@financial-times/o-fonts": "^5.3.4",
+		"@financial-times/o-footer-services": "^4.2.6",
+		"@financial-times/o-normalise": "^3.3.1"
+	}
+}
