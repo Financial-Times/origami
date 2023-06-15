@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/Financial-Times/origami/compare/o-top-banner-v1.0.0...o-top-banner-v1.0.1) (2023-06-15)
+
+
+### Bug Fixes
+
+* o-top-banner, add missing dependencies, correct support status ([#1142](https://www.github.com/Financial-Times/origami/issues/1142)) ([d72ed38](https://www.github.com/Financial-Times/origami/commit/d72ed38a296d219b72bcf006455f1417a131303b))
+
 ## [1.0.0](https://www.github.com/Financial-Times/origami/compare/o-top-banner-v0.0.0...o-top-banner-v1.0.0) (2023-06-08)
 
 
