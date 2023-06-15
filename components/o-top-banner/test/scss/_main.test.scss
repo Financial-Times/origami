@@ -7,9 +7,11 @@
 						@include oTopBanner();
 					}
 				}
-				@include expect($selector: false) {
+				@include contains($selector: false) {
 					.test-mixin .o-top-banner {
-						display: block;
+						display: flex;
+						justify-content: center;
+						border-bottom: oSpacingByName('s2') solid transparent;
 					}
 				}
 			}
