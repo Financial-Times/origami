@@ -92,7 +92,7 @@ class Stream {
 							customScrollContainer,
 							events: (events) => {
 								events.onAny((name, data) => {
-									this.publishEvent({name, data});
+									this.publishEvent({ name, data: { ...data, content: { uuid: this.options.articleId }}});
 								});
 							}
 						}
@@ -191,14 +191,23 @@ class Stream {
 				const oCommentsEvent = new CustomEvent(mappedEvent.oComments, oCommentsEventOptions);
 				this.streamEl.dispatchEvent(oCommentsEvent);
 
+				// Refactor defaultDetail to add a 'content' block before dispatching the event
+				const defaultDetailWithContentAdded =  { 			
+					category: 'comment',
+					action: mappedEvent.oTracking,
+					coral: true,
+					isWithheld: status === 'SYSTEM_WITHHELD',
+					content : {
+						asset_type: this.options.assetType,
+						uuid: this.options.articleId,
+					}
+				}
+
 				if (mappedEvent.oTracking && !this.options.disableOTracking) {
 					const oTrackingEventOptions = {
 						bubbles: true,
 						detail: {
-							category: 'comment',
-							action: mappedEvent.oTracking,
-							coral: true,
-							isWithheld: status === 'SYSTEM_WITHHELD'
+							...defaultDetailWithContentAdded
 						}
 					};
 
