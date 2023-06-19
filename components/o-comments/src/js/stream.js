@@ -92,7 +92,7 @@ class Stream {
 							customScrollContainer,
 							events: (events) => {
 								events.onAny((name, data) => {
-									this.publishEvent({ name, data: { ...data, content: { uuid: this.options.articleId }}});
+									this.publishEvent({ name, data });
 								});
 							}
 						}
