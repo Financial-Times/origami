@@ -1,4 +1,291 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2023-06-20T15:35:23+01:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, April 2023 - May 2023</title><link href="https://origami.ft.com/blog/2023/05/31/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, April 2023 - May 2023" /><published>2023-05-31T00:00:00+01:00</published><updated>2023-05-31T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2023/05/31/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2023/05/31/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2023-06-26T10:38:49+01:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Goodbye Sass?</title><link href="https://origami.ft.com/blog/2023/06/21/sass/" rel="alternate" type="text/html" title="Goodbye Sass?" /><published>2023-06-21T00:00:00+01:00</published><updated>2023-06-21T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2023/06/21/sass</id><content type="html" xml:base="https://origami.ft.com/blog/2023/06/21/sass/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+&lt;strong&gt;
+TL;DR:
+&lt;/strong&gt;
+&lt;/abbr&gt; There’s a bunch of reasons it would be desirable to drop Sass. Though there are some complexities and caveats to think through, I think now could be the time. Starting with Origami. Please send your thoughts and feedback, and keep an eye on future TGG (technical governance group) proposals.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-sass&quot;&gt;What is Sass&lt;/h2&gt;
+
+&lt;p&gt;Sass is a stylesheet language that’s compiled to CSS, this is what gives a web based project its style, layout, brand.&lt;/p&gt;
+
+&lt;p&gt;I use the term “style authors” throughout this post to refer to engineers, designers, and anyone who might be working with CSS. At the FT this predominantly means engineers.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-try-to-drop-sass&quot;&gt;Why try to drop Sass&lt;/h2&gt;
+
+&lt;p&gt;Sass is a compiled language. There’s a build step to transpile Sass to CSS, so the client (browser) can understand and render our product.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transpilation slows a CSS author’s feedback loop, reducing productivity.&lt;/li&gt;
+  &lt;li&gt;It also makes publishing projects a little slower.&lt;/li&gt;
+  &lt;li&gt;Sass adds language features for CSS authors to learn, increasing training and onboarding costs.&lt;/li&gt;
+  &lt;li&gt;CSS is introducing native nesting, which works differently to Sass nesting. Therefore, Sass will no longer be a superset of CSS. Meaning a person could write the exact same Sass as CSS and get different results. This is confusing as authors must understand the distinction and shift mental models depending on the project at hand.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Until recently it was easier to argue that Sass’ benefits outweighed its costs. That’s a more difficult argument to make today as CSS natively has a solution for many Sass features.&lt;/p&gt;
+
+&lt;h2 id=&quot;variables&quot;&gt;Variables&lt;/h2&gt;
+
+&lt;p&gt;Sass variables allowed us to share and reuse values, such as the hex code for FT Pink:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--scss&quot;&gt;$ft-pink: #fcd0b1;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As the FT has finally, &lt;em&gt;finally&lt;/em&gt;, dropped support for Internet Explorer we can use CSS Custom Properties now:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--css&quot;&gt;--ft-pink: #fcd0b1;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These are actually way more interesting than Sass variables because, &lt;a href=&quot;https://css-tricks.com/difference-between-types-of-css-variables/&quot;&gt;unlike Sass variables, CSS Custom Properties work with the CSS cascade&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;functions&quot;&gt;Functions&lt;/h2&gt;
+
+&lt;p&gt;Sass provides a number of functions which return a value and may take arguments.&lt;/p&gt;
+
+&lt;p&gt;I’ve struggled to find an example in Origami which couldn’t be replaced by a CSS Custom Property (&lt;a href=&quot;https://registry.origami.ft.com/components/o-spacing@3.2.3/sassdoc?brand=core#function-ospacingbyname&quot;&gt;oSpacingByName&lt;/a&gt;) or which couldn’t be handled by other tooling more effectively (&lt;a href=&quot;https://registry.origami.ft.com/components/o-colors@6.6.1/sassdoc?brand=core#function-ocolorsgetcontrastratio&quot;&gt;oColorsGetContrastRatio&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Sass also provides helpful built in functions such as to manipulate colour. For example, to darken a colour:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--scss&quot;&gt;.example {
+	$paper: #fff1e5;
+	background: darken($paper, 10%);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We could achieve the same thing using CSS’ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hsl&lt;/code&gt; function, but would have to publish hue and saturation CSS Custom Properties for all colours in our palette. And it’s not exactly pretty. Still this isn’t a common task:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--css&quot;&gt;.example {
+	--paper-hue: 27.69deg;
+	--paper-saturation: 100%;
+	--paper-lightness: 94.9%;
+	background: hsl(
+		var(--paper-hue),
+		var(--paper-saturation),
+		calc(var(--paper-lightness) - 10%)
+	);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Are there any Sass functions we just must have? I can’t think of any.&lt;/p&gt;
+
+&lt;h2 id=&quot;mixins&quot;&gt;Mixins&lt;/h2&gt;
+
+&lt;p&gt;Sass mixins allow us to share chunks of CSS. We can even pass arguments to a mixin to control its output. For example a link mixin which accepts a theme to customise a link’s colour:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--scss&quot;&gt;@mixin link($base-color: black, $hover-color: teal) {
+	color: $base-color;
+	text-decoration-line: underline;
+	text-decoration-thickness: 3px;
+	&amp;amp;:hover {
+		color: $hover-color;
+	}
+}
+
+.link {
+	@include link();
+}
+
+.link.link--my-fancy-link {
+	@include link($base-color: hotpink, $hover-color: mediumvioletred);
+}
+
+.link.link--another-lovely-link {
+	@include link($base-color: turquoise, $hover-color: cadetblue);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There is no CSS equivalent but maybe this isn’t so necessary now. With CSS Custom Properties and the CSS cascade we can achieve the same affect as this example, in fewer lines of code and with less repetition in the final CSS output:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--scss&quot;&gt;.link {
+	--link-color: var(--base-color, black);
+	color: var(--link-color);
+	text-decoration-line: underline;
+	text-decoration-thickness: 3px;
+	&amp;amp;:hover {
+		--link-color: var(--hover-color, teal);
+	}
+}
+
+.link.link--my-fancy-link {
+	--base-color: hotpink;
+	--hover-color: mediumvioletred;
+}
+
+.link.link--another-lovely-link {
+	--base-color: turquoise;
+	--hover-color: cadetblue;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A more complex example of an Origami Sass mixin is &lt;a href=&quot;https://registry.origami.ft.com/components/o-buttons@7.8.1/sassdoc?brand=core#mixin-obuttonsaddtheme&quot;&gt;oButtonsAddTheme&lt;/a&gt;. Now this is pretty cool. You can basically say “give me a hotpink button” and it’ll go away and follow pre-determined FT design rules to generate every state for you (hover, focus, pressed, disabled, etc.) and check for accessibility at the same time. Writing this in Sass was wildly complex though. It’s really quite hard to reason about or modify. It wouldn’t scale to support more brands with their own rules. And, it’s not used all that much – we have a limited set of buttons for a reason! Sass is the wrong tool for that job.&lt;/p&gt;
+
+&lt;h2 id=&quot;nesting&quot;&gt;Nesting&lt;/h2&gt;
+
+&lt;p&gt;Sass allows nesting of selectors. For example this Sass:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--scss&quot;&gt;.example {
+	.example__content {
+		h1 {
+			// declarations
+		}
+
+		a {
+			// declarations
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Becomes this CSS:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--css&quot;&gt;.example .example__content h1 {
+	// declarations
+}
+.example .example__content a {
+	// declarations
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It might not look like much from this simple example, but nesting makes authoring CSS so much more efficient and, by grouping selectors, easier to read too.&lt;/p&gt;
+
+&lt;p&gt;There is now a &lt;a href=&quot;https://www.w3.org/TR/css-nesting-1/&quot;&gt;CSS Nesting Module specification (W3C Working Draft)&lt;/a&gt; to bring native nesting to CSS. This has been shipped in major browsers including Chrome, Edge, Safari, and (very soon, behind a flag) to Firefox.&lt;/p&gt;
+
+&lt;p&gt;Woo! But, the awkward news is that this &lt;a href=&quot;https://kilianvalkhof.com/2023/css-html/the-gotchas-of-css-nesting/&quot;&gt;works differently to Sass’ implementation&lt;/a&gt;. Under the hood, CSS nesting uses the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/:is&quot;&gt;:is pseudo-class&lt;/a&gt; so that:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--css&quot;&gt;main,
+#intro {
+	&amp;amp; div {
+		...;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Is interpreted by the client (browser) as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--css&quot;&gt;:is(main, #intro) div {
+	// declarations
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In Sass, the same code would transpile to the following CSS:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--css&quot;&gt;main div,
+#intro div {
+	// declarations
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Since &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:is&lt;/code&gt; takes the specificity of the highest selector, these two interpretations (Sass vs. native CSS nesting) have different specificities, and could therefore apply differently. I’ll leave Kilian’s blog post, &lt;a href=&quot;https://kilianvalkhof.com/2023/css-html/the-gotchas-of-css-nesting/&quot;&gt;the gotchas of CSS Nesting&lt;/a&gt; (where I stole this example from), to demonstrate this in more detail.&lt;/p&gt;
+
+&lt;p&gt;My take: Yikes! Sass have &lt;a href=&quot;https://sass-lang.com/blog/sass-and-native-nesting&quot;&gt;committed to aligning with native CSS nesting&lt;/a&gt; by switching to outputting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:is&lt;/code&gt;, but not until it’s supported by 98% of the global browser market share. The new CSS native syntax will be actively taught and used long before then, causing confusion for those new to Sass or switching between Sass/CSS projects in the meantime.&lt;/p&gt;
+
+&lt;p&gt;Also important to note is that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;amp;&lt;/code&gt; symbol in Sass supports the parent selector to append additional text:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--scss&quot;&gt;.accordion {
+	&amp;amp;__copy {
+		// declarations
+	}
+
+	&amp;amp;--open {
+		// declarations
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Which transpiles to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--scss&quot;&gt;.accordion__copy {
+	// declarations
+}
+
+.accordion--open {
+	// declarations
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This isn’t supported by the native CSS &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;amp;&lt;/code&gt; syntax. The Sass team do not plan to align what &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;amp;&lt;/code&gt; means in Sass and CSS because “this behavior [sic] is too important to existing Sass users”. It shouldn’t be, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;amp;-suffix&lt;/code&gt; just makes debugging hard, because it’s difficult to locate where a selector has been defined in a large project. Type a few extra characters, don’t use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;amp;-suffix&lt;/code&gt; syntax in Sass.&lt;/p&gt;
+
+&lt;p&gt;Now Sass is no longer a CSS superset, it’s a compelling time to switch to the upcoming native CSS syntax. To support older browsers we can use PostCSS with &lt;a href=&quot;https://www.npmjs.com/package/postcss-nesting&quot;&gt;postcss-nesting&lt;/a&gt; and &lt;a href=&quot;https://www.npmjs.com/package/@csstools/postcss-is-pseudo-class&quot;&gt;postcss-is-pseudo-class&lt;/a&gt;, though there are some &lt;a href=&quot;https://www.npmjs.com/package/@csstools/postcss-is-pseudo-class#user-content-specificity&quot;&gt;manageable caveats&lt;/a&gt; there too.&lt;/p&gt;
+
+&lt;h2 id=&quot;import&quot;&gt;Import&lt;/h2&gt;
+
+&lt;p&gt;Sass also helps us organise our CSS into manageable files using &lt;a href=&quot;https://sass-lang.com/documentation/at-rules/import&quot;&gt;Sass’ @import&lt;/a&gt;, which is being replaced by &lt;a href=&quot;https://sass-lang.com/documentation/at-rules/use&quot;&gt;@use&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Using Sass we can write two Sass files to separate our button and link styles, then combine them into a single file later:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--scss&quot;&gt;@use 'buttons';
+@use 'links';
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;CSS can do this too with &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/@import&quot;&gt;the native @import&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;o-syntax-highlight--css&quot;&gt;@import 'buttons.css';
+@import 'links.css';
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://csswizardry.com/2018/11/css-and-network-performance/#avoid-import-in-css-files&quot;&gt;CSS’ @import isn’t performant&lt;/a&gt;, as the browser needs to download one CSS file before it can discover and download any subsequent imports it contains. This creates a waterfall of requests rather than downloading them at the same time, in parallel. We’ve previously found &lt;a href=&quot;https://medium.com/ft-product-technology/a-faster-ft-com-10e7c077dc1c&quot;&gt;site performance has a direct impact on engagement&lt;/a&gt;, so this is something we should avoid.&lt;/p&gt;
+
+&lt;p&gt;Again we can overcome this with PostCSS, by using &lt;a href=&quot;https://github.com/postcss/postcss-import&quot;&gt;postcss-import&lt;/a&gt; to resolve &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@import&lt;/code&gt; for us before publishing our CSS.&lt;/p&gt;
+
+&lt;h2 id=&quot;performance&quot;&gt;Performance&lt;/h2&gt;
+
+&lt;p&gt;If we need to rely on PostCSS with multiple plugins to support nesting and support for older browsers, will we see any performance gain? Yep! Seems so.&lt;/p&gt;
+
+&lt;p&gt;I created 2 test projects to compare performance, using a real world complex component. For the Sass version I included Origami’s o-buttons Sass, whilst for the native CSS test I copied its compiled CSS in full. To both I added nesting examples as above. This ensures both tests transpile a large amount of CSS (o-buttons CSS output is way bigger than it needs to be) and also shows a real life example in terms of Sass complexity. Both projects used Vite to build, an average of 5:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The Sass version: 3.78 seconds.&lt;/li&gt;
+  &lt;li&gt;The CSS + PostCSS version: 0.25 seconds.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is a little unfair to Sass. o-buttons includes some really wild Sass and PostCSS had relatively few nest transformations to make. However, as this uses a real life component, it’s indicative of the code Sass enables and its potential performance impact.&lt;/p&gt;
+
+&lt;p&gt;Style authors are always making changes quickly, iteratively, and checking back to see the results of their changes. It’s easy to make hundreds of changes through the course of a day. This time adds up. Imagine working on a feature and checking in on your progress every 5 minutes (conservative). Across 30 people that’s 12 hours wasted each week, just waiting for a project to build.&lt;/p&gt;
+
+&lt;p&gt;Also, it’s very easy to get distracted whilst waiting… &lt;em&gt;doom scrolls&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;We can actually boost this further because a CSS author won’t need to run the PostCSS plugins at all to preview their work in a modern browser.&lt;/p&gt;
+
+&lt;h2 id=&quot;choice&quot;&gt;Choice&lt;/h2&gt;
+
+&lt;p&gt;Origami components currently force teams to use Sass, unless they’re using the Origami Build Service which takes away control and customisation regarding a product’s build.&lt;/p&gt;
+
+&lt;p&gt;Other than Sass, Origami is based on web standards. Teams can choose the best language or framework for their team and project, Origami is flexible. We see this manifest with external parties using Vue.JS to build ft.com pages; the apps team using Preact; and others using vanilla JS too. Sass is an exception for the team. It would be great to give teams more control regarding how they author their styles with Origami – whether that’s sticking with Sass or not.&lt;/p&gt;
+
+&lt;p&gt;Though we should work on consistency of approach across teams for a bunch of reasons, Origami shouldn’t get in the way of trailing new approaches. Favouring web standards helps.&lt;/p&gt;
+
+&lt;h2 id=&quot;documentation&quot;&gt;Documentation&lt;/h2&gt;
+
+&lt;p&gt;There’re a bunch of tools for documenting Sass, notably for Origami:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A curated README (&lt;a href=&quot;https://registry.origami.ft.com/components/o-buttons@7.8.1/readme?brand=core#sass&quot;&gt;o-buttons README&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sassdoc.com/&quot;&gt;SassDoc&lt;/a&gt; for style authors to reference (&lt;a href=&quot;https://registry.origami.ft.com/components/o-buttons@7.8.1/sassdoc?brand=core&quot;&gt;o-buttons SassDoc&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;Limited autocompletion is available in a style authors editor (&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss&quot;&gt;VS Code SCSS IntelliSense Plugin&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Sass also supports &lt;a href=&quot;https://sass-lang.com/documentation/at-rules/warn&quot;&gt;@warn&lt;/a&gt;, which we use to log messages to a style author’s terminal (e.g. to inform of deprecations).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Moving away from Sass poses some new challenges for documentation and code completion. However I think we can drop Sass and still get to a better place, where a designer can hand off to an engineer much more effectively, using the same language and Origami components or variables.&lt;/p&gt;
+
+&lt;p&gt;Whether we continue to use Sass or not, it’s very likely we’ll adopt &lt;a href=&quot;https://design-tokens.github.io/community-group/format/&quot;&gt;Design Tokens&lt;/a&gt; to manage support for multiple brands and themes. Ben already wrote about Origami’s most recent design token trials in &lt;a href=&quot;https://financialtimes.atlassian.net/wiki/spaces/OR/blog/2023/04/20/8047034476/Origami+Team+Trials+Design+Tokens&quot;&gt;Origami Team Trials Design Tokens (Confluence, behind a login)&lt;/a&gt;. These tokens represent design decisions such as colour, typographic style, spacing, etc. We may store meta data against them including documentation. We will then be able to surface these in Figma, READMEs, and elsewhere – awesome! It will reduce a lot of friction between designer and engineer during hand over and provide better documentation for both.&lt;/p&gt;
+
+&lt;p&gt;Moving away from Sass’ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@warn&lt;/code&gt; feature doesn’t seem so bad, either. Sass logs get mixed up with warnings from a bunch of complex tooling and is easy to ignore. We’ve seen in recent years more teams building multiple entry points (multiple separate Sass files) which duplicates warnings. They become annoying, hard to parse, and even easier to ignore. Using Design Token meta data again we can document deprecation warnings for everyone to see across design and engineering tooling.&lt;/p&gt;
+
+&lt;p&gt;I expect code editor tooling and autocompletion to be on par. &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss&quot;&gt;VS Code’s SCSS IntelliSense Plugin&lt;/a&gt; is super helpful for local development, but less helpful at working with dependencies. I couldn’t get it to make suggestions for Origami Sass installed via npm, but may have got there by fiddling with settings.&lt;/p&gt;
+
+&lt;p&gt;Do you think we have any documentation or tooling around Sass that is irreplaceable?&lt;/p&gt;
+
+&lt;h2 id=&quot;support&quot;&gt;Support&lt;/h2&gt;
+
+&lt;p&gt;We already have teams at the FT who don’t use Sass. Sass will &lt;em&gt;eventually&lt;/em&gt; release a major change to better align with native CSS nesting behaviour. Whether we stick with Sass now or not, we will end up in the position of some teams/projects using the current Sass nesting behaviour and some not. Origami is a good, collective project to guide us through this transition.&lt;/p&gt;
+
+&lt;p&gt;If we do choose to drop Sass, Origami would publish plain CSS already transpiled by PostCSS and ready to ship. Therefore style authors using Origami components wouldn’t need to worry about what tools were used to create them. Moving from Sass and when, if at all, would be up to individual teams. Meanwhile, the Origami team would be able to offer dedicated support for contributors and provide training for others who are interested in moving away from Sass.&lt;/p&gt;
+
+&lt;p&gt;(Oh my, there’s so many cool things happening in the world of CSS that I want to discuss and share and learn about with you fellow CSS authors).&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I started writing about how I’d love to switch away from Sass within the FT but how we just can’t yet. Through writing this and exploring the limitations of PostCSS plugins some more, I’ve come to think we can and should. Starting with Origami.&lt;/p&gt;
+
+&lt;p&gt;What do you think?&lt;/p&gt;</content><author><name>Lee Moody</name></author><category term="Sass" /><summary type="html">TL;DR: There’s a bunch of reasons it would be desirable to drop Sass. Though there are some complexities and caveats to think through, I think now could be the time. Starting with Origami. Please send your thoughts and feedback, and keep an eye on future TGG (technical governance group) proposals.</summary></entry><entry><title type="html">Origami Newsletter, April 2023 - May 2023</title><link href="https://origami.ft.com/blog/2023/05/31/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, April 2023 - May 2023" /><published>2023-05-31T00:00:00+01:00</published><updated>2023-05-31T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2023/05/31/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2023/05/31/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
 &lt;strong&gt;
 TL;DR:
 &lt;/strong&gt;
@@ -656,72 +943,4 @@ TL;DR:
   &lt;li&gt;Updated the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package.json&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;origami.json&lt;/code&gt; urls to point at the monorepo&lt;/li&gt;
   &lt;li&gt;Added homepage, bugs and support email to the package.json of every component&lt;/li&gt;
   &lt;li&gt;Increased the bottom margin of h2 and h3 editorial headings&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>chee</name></author><category term="Newsletter" /><summary type="html">TL;DR: We made a monorepo, and gained a delivery manager</summary></entry><entry><title type="html">Origami Newsletter, July 2021</title><link href="https://origami.ft.com/blog/2021/08/09/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, July 2021" /><published>2021-08-09T00:00:00+01:00</published><updated>2021-08-09T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2021/08/09/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/08/09/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
-	&lt;strong&gt;
-	TL;DR:
-	&lt;/strong&gt;
-&lt;/abbr&gt; New introduction to Origami sessions and special thanks.&lt;/p&gt;
-
-&lt;h2 id=&quot;top-things&quot;&gt;Top Things&lt;/h2&gt;
-
-&lt;p&gt;Here’s a belated July update for you – it’s the holiday season! ☀️&lt;/p&gt;
-
-&lt;p&gt;We’re reaching the end of our &lt;a href=&quot;https://origami.ft.com/blog/2021/01/18/deprecating-bower-and-origami-via-npm/&quot;&gt;move from Bower to npm&lt;/a&gt;, a significant piece of work. Our focus now is on loose ends, bug fixes, and &lt;a href=&quot;https://origami.ft.com/blog/2021/07/01/origami-on-npm-and-how-to-migrate/&quot;&gt;supporting teams across the organisation through the migration guide&lt;/a&gt;. But we’re also working on proposals for our next big project(s) – focused on reducing technical complexity, increasing cross-group collaboration, and supporting new product development (super exciting, watch this space).&lt;/p&gt;
-
-&lt;p&gt;If you have any feedback or questions about the Bower to npm migration please let us know in our &lt;a href=&quot;https://financialtimes.slack.com/messages/origami-support&quot;&gt;#origami-support&lt;/a&gt; Slack channel or with an email to origami.support@ft.com.&lt;/p&gt;
-
-&lt;h3 id=&quot;new-introduction-to-origami-sessions&quot;&gt;New Introduction To Origami Sessions&lt;/h3&gt;
-
-&lt;p&gt;We’ve scheduled new Introduction To Origami Sessions ✨&lt;/p&gt;
-
-&lt;p&gt;The first session is useful for anyone who works in Product and Technology – we cover things at a high level rather than diving into too many technical details. Come along if you’d like to learn more about Origami projects, their goal, the team, and how to get involved.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Origami History&lt;/li&gt;
-  &lt;li&gt;Origami Components&lt;/li&gt;
-  &lt;li&gt;Origami Services&lt;/li&gt;
-  &lt;li&gt;Origami Collaboration&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A second session explores components in more depth and includes technical details. It will be of particular interest to engineers and designers, although anyone is welcome:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Documentation&lt;/li&gt;
-  &lt;li&gt;Languages &amp;amp; Tools&lt;/li&gt;
-  &lt;li&gt;Structure&lt;/li&gt;
-  &lt;li&gt;Versioning&lt;/li&gt;
-  &lt;li&gt;Origami Build Service / Manual Build&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you’d like to hang back at the end to put some of what we learn into practice there will be an opportunity to run through a practical tutorial with some of the team on hand to answer any questions (optional)&lt;/p&gt;
-
-&lt;p&gt;We’ll be running the sessions Tuesday, 17th August from 10:30am (London time). Ask for an invite in the &lt;a href=&quot;https://financialtimes.slack.com/messages/origami-support&quot;&gt;#origami-support&lt;/a&gt; Slack channel or with an email to origami.support@ft.com. 🙌&lt;/p&gt;
-
-&lt;h2 id=&quot;special-thanks&quot;&gt;Special Thanks&lt;/h2&gt;
-
-&lt;p&gt;Our special thanks this week goes to the Operations &amp;amp; Reliability team! The team have been working through the &lt;a href=&quot;https://origami.ft.com/blog/2021/07/01/origami-on-npm-and-how-to-migrate/&quot;&gt;Bower to NPM / Build Service v3 migration&lt;/a&gt; and have been very helpful by asking questions, raising any issues, and giving feedback along the way. Thanks for helping us improve the migration experience for other teams 🎉&lt;/p&gt;
-
-&lt;h2 id=&quot;broader-update&quot;&gt;Broader Update&lt;/h2&gt;
-
-&lt;p&gt;A digest of other things that have happened this month:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;DEPRECATED: &lt;a href=&quot;https://github.com/Financial-Times/o-layers&quot;&gt;o-layers&lt;/a&gt; was not widely used and therefore did not meet its aim of managing the z-index between components and projects. There is no direct replacement for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-layers&lt;/code&gt;. Instead fire component specific events to indicate that a new “layer” such as an overlay has been opened.&lt;/li&gt;
-  &lt;li&gt;DEPRECATED: &lt;a href=&quot;https://github.com/Financial-Times/origami-navigation-data&quot;&gt;origami-navigation-data&lt;/a&gt; has been merged with &lt;a href=&quot;https://github.com/Financial-Times/origami-navigation-service&quot;&gt;origami-navigation-service&lt;/a&gt; to reduce the complexity of our technical estate and speed up the release of changes to ft.com’s navigation.&lt;/li&gt;
-  &lt;li&gt;DEPRECATED: &lt;a href=&quot;https://github.com/Financial-Times/scrumple&quot;&gt;scrumple&lt;/a&gt; was helpful when we needed to build bower components, but those days are now behind us. We recommend trying &lt;a href=&quot;https://esbuild.github.io/&quot;&gt;esbuild&lt;/a&gt; instead.&lt;/li&gt;
-  &lt;li&gt;MAJOR: &lt;a href=&quot;https://github.com/Financial-Times/o-footer&quot;&gt;o-footer&lt;/a&gt; introduces a new layout to support new Community &amp;amp; Events links (thanks for your work on this Ahmad Youssef and Max Bladen-Clark).&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-autocomplete&quot;&gt;o-autocomplete&lt;/a&gt; has had a number of features enabled to support suggestions with more complex data structures and provide a callback function to action a users selection (thanks for the feedback and review Oliver Turner).&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-table&quot;&gt;o-table&lt;/a&gt; based on feedback we’ve improved the demos and documentation for filterable tables; and we’ve added support for sorting tables with multiple header rows (thanks for raising and helping build a fix Emma Lewis).&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/origami-build-service&quot;&gt;origami-build-service&lt;/a&gt; has received a number of bug fixes and improvements since the release of v3 last month, including an improved &lt;a href=&quot;https://www.ft.com/__origami/service/build/url-updater&quot;&gt;“url updater” migration guide&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/polyfill-library&quot;&gt;polyfill-library&lt;/a&gt; received a number of updates (thanks to our open source contributors!)
-    &lt;ul&gt;
-      &lt;li&gt;Fixed a bug where iOS 12 and above would be detected as iOS 11 and we would over-polyfill the browser.&lt;/li&gt;
-      &lt;li&gt;Updated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URL.prototype.toJSON&lt;/code&gt; to now serve to Safari &amp;lt;12 and Edge &amp;lt;18.17134&lt;/li&gt;
-      &lt;li&gt;Added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MediaQueryList.prototype.addEventListener&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MediaQueryList.prototype.removeEventListener&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;Added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intl.DateTimeFormat.~timeZone.all&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intl.DateTimeFormat.~timeZone.golden&lt;/code&gt;. The two polyfills can be used to load time-zone data into the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intl&lt;/code&gt; polyfills - more information can be found at &lt;a href=&quot;https://formatjs.io/&quot;&gt;formatjs.io&lt;/a&gt;.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/js-features-analyser&quot;&gt;js-features-analyser&lt;/a&gt; fixes a bug where analysing code with destructing assignment would error (thanks to our open source contributors!)&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-colors&quot;&gt;o-colors&lt;/a&gt;, &lt;a href=&quot;https://github.com/Financial-Times/o-forms&quot;&gt;o-forms&lt;/a&gt;, and &lt;a href=&quot;https://github.com/Financial-Times/o-fonts&quot;&gt;o-fonts&lt;/a&gt; have updated migration guides based on feedback.&lt;/li&gt;
-  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-tracking&quot;&gt;o-tracking&lt;/a&gt; makes a number of small improvements but notably fixes a bug where click events were lost moving from one page which uses v2 of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-tracking&lt;/code&gt; and the next page which uses v3.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Lee Moody</name></author><category term="Newsletter" /><summary type="html">TL;DR: New introduction to Origami sessions and special thanks.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>chee</name></author><category term="Newsletter" /><summary type="html">TL;DR: We made a monorepo, and gained a delivery manager</summary></entry></feed>
