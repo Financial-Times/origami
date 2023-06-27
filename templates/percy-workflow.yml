@@ -1,8 +1,5 @@
 {{=<% %>=}}
 name: percy
-concurrency:
-  group: ${{ github.head_ref }}-${{ github.workflow }}
-  cancel-in-progress: true
 
 on:
   pull_request:
@@ -16,13 +13,13 @@ on:
 #      - "package-lock.json"
 #      - "components/**"
 #      - "!components/**/*.md"
-  push:
-    branches: main
-    paths:
-      - "package.json"
-      - "package-lock.json"
-      - "components/**"
-      - "!components/**/*.md"
+#  push:
+#    branches: main
+#    paths:
+#      - "package.json"
+#      - "package-lock.json"
+#      - "components/**"
+#      - "!components/**/*.md"
 
 jobs:
   percy-snapshots:
