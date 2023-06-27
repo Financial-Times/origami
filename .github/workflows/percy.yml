@@ -15,6 +15,7 @@ on:
 
 jobs:
   percy-snapshots:
+    if: contains(github.event.pull_request.labels.*.name, 'percy')
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,20 +28,20 @@ jobs:
           - workspace: components/g-audio
             percyToken: PERCY_TOKEN_COMPONENTS_G_AUDIO
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: node ./scripts/percy.js
-      env:
-        PERCY_TOKEN: ${{ secrets[matrix.percyToken] }}
-        WORKSPACE: ${{ matrix.workspace }}
+      - uses: volta-cli/action@v4
+      - uses: actions/cache@v2
+        with:
+          volta-version: "1.0.8"
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      - run: node ./scripts/percy.js
+        env:
+          PERCY_TOKEN: ${{ secrets[matrix.percyToken] }}
+          WORKSPACE: ${{ matrix.workspace }}
