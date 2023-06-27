@@ -27,7 +27,7 @@ on:
 jobs:
   <%#projects%>
   percy-<%& workspaceFilename %>:
-    if: ${{ github.event.label.name == 'percy' }}
+    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
