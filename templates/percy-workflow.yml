@@ -25,26 +25,35 @@ on:
       - "!components/**/*.md"
 
 jobs:
-  <%#projects%>
-  percy-<%& workspaceFilename %>:
+  percy-snapshots:
     if: ${{ github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        workspace:
+          <%#projects%>
+            - <%& workspace %>
+          <%/projects%>
+        include:
+          <%#projects%>
+            - workspace: <%& workspace %>
+              percyToken: PERCY_TOKEN_<% percyTokenName %>
+          <%/projects%>
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: node ./scripts/percy.js
-      env:
-        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_<% percyTokenName %> }}
-        WORKSPACE: <%& workspace %>
-  <%/projects%>
+      - uses: volta-cli/action@v4
+      - uses: actions/cache@v2
+        with:
+          volta-version: "1.0.8"
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      - run: node ./scripts/percy.js
+        env:
+          PERCY_TOKEN: ${{ secrets[matrix.percyToken] }}
+          WORKSPACE: ${{ matrix.workspace }}
