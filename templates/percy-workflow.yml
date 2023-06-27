@@ -22,7 +22,7 @@ on:
 #      - "!components/**/*.md"
 
 jobs:
-  percy-snapshots:
+  percy-snapshotss:
     if: ${{ github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     strategy:
