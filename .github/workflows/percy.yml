@@ -22,6 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        - workspace:
+          - components/ft-concept-button
+          - components/g-audio
+      include:
         - workspace: components/ft-concept-button
           percyToken: ${{ secrets.PERCY_TOKEN_COMPONENTS_FT_CONCEPT_BUTTON }}
         - workspace: components/g-audio
