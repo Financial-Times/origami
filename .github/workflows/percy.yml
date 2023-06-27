@@ -27,9 +27,9 @@ jobs:
           - components/g-audio
         include:
           - workspace: components/ft-concept-button
-            percyToken: ${{ secrets.PERCY_TOKEN_COMPONENTS_FT_CONCEPT_BUTTON }}
+            percyToken: PERCY_TOKEN_COMPONENTS_FT_CONCEPT_BUTTON
           - workspace: components/g-audio
-            percyToken: ${{ secrets.PERCY_TOKEN_COMPONENTS_G_AUDIO }}
+            percyToken: PERCY_TOKEN_COMPONENTS_G_AUDIO
     steps:
     - uses: actions/checkout@v2
       with:
@@ -46,5 +46,5 @@ jobs:
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
-        PERCY_TOKEN: ${{ matrix.percyToken }}
+        PERCY_TOKEN: ${{ secrets[matrix.percyToken] }}
         WORKSPACE: ${{ matrix.workspace }}
