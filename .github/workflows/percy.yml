@@ -20,10 +20,6 @@ jobs:
   percy-snapshots:
     if: ${{ github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
-    stragegy:
-      matrix:
-        - workspace: components/ft-concept-button
-          percyToken: ${{ secrets.PERCY_TOKEN_COMPONENTS_FT_CONCEPT_BUTTON }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -40,5 +36,5 @@ jobs:
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
-        PERCY_TOKEN: ${{ matrix.percyToken }}
-        WORKSPACE: ${{ matrix.workspace }}
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_FT_CONCEPT_BUTTON }}
+        WORKSPACE:  components/ft-concept-button
