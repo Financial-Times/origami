@@ -64,8 +64,17 @@ let percyFile = Mustache.render(percyTemplate,  {
 	projects: percyProjects
 })
 await writeFile(
-	`.github/workflows/percy.yml`,
+	`.github/workflows/percy-pull-request.yml`,
 	percyFile
+)
+
+let percyFileMain = Mustache.render(percyTemplate,  {
+	projects: percyProjects,
+	mainBranch: true
+})
+await writeFile(
+	`.github/workflows/percy-main.yml`,
+	percyFileMain
 )
 
 await writeFile(

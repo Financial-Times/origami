@@ -7,21 +7,14 @@ on:
       - reopened
       - synchronize
       - labeled
-#    paths:
-#      - "package.json"
-#      - "package-lock.json"
-#      - "components/**"
-#      - "!components/**/*.md"
-#  push:
-#    branches: main
-#    paths:
-#      - "package.json"
-#      - "package-lock.json"
-#      - "components/**"
-#      - "!components/**/*.md"
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "components/**"
+      - "!components/**/*.md"
 
 jobs:
-  percy-snapshotss:
+  percy-snapshots:
     if: contains(github.event.pull_request.labels.*.name, 'percy')
     runs-on: ubuntu-latest
     strategy:
