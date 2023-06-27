@@ -1,4 +1,7 @@
 name: percy
+concurrency:
+  group: ${{ github.head_ref }}-${{ github.workflow }}
+  cancel-in-progress: true
 
 on:
   pull_request:
@@ -7,11 +10,18 @@ on:
       - reopened
       - synchronize
       - labeled
-#    paths:
-#      - "package.json"
-#      - "package-lock.json"
-#      - "components/**"
-#      - "!components/**/*.md"
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "components/**"
+      - "!components/**/*.md"
+  push:
+    branches: main
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "components/**"
+      - "!components/**/*.md"
 
 jobs:
   percy-snapshots:
@@ -20,13 +30,163 @@ jobs:
     strategy:
       matrix:
         workspace:
-          - components/ft-concept-button
-          - components/g-audio
+            - components/ft-concept-button
+            - components/g-audio
+            - components/n-notification
+            - components/o-audio
+            - components/o-autocomplete
+            - components/o-banner
+            - components/o-big-number
+            - components/o-buttons
+            - components/o-colors
+            - components/o-comments
+            - components/o-cookie-message
+            - components/o-date
+            - components/o-editorial-layout
+            - components/o-editorial-typography
+            - components/o-expander
+            - components/o-fonts
+            - components/o-footer
+            - components/o-footer-services
+            - components/o-forms
+            - components/o-ft-affiliate-ribbon
+            - components/o-grid
+            - components/o-header
+            - components/o-header-services
+            - components/o-icons
+            - components/o-labels
+            - components/o-layout
+            - components/o-lazy-load
+            - components/o-loading
+            - components/o-message
+            - components/o-meter
+            - components/o-multi-select
+            - components/o-normalise
+            - components/o-overlay
+            - components/o-quote
+            - components/o-share
+            - components/o-social-follow
+            - components/o-spacing
+            - components/o-stepped-progress
+            - components/o-subs-card
+            - components/o-syntax-highlight
+            - components/o-table
+            - components/o-tabs
+            - components/o-teaser
+            - components/o-teaser-collection
+            - components/o-toggle
+            - components/o-tooltip
+            - components/o-top-banner
+            - components/o-topper
+            - components/o-typography
+            - components/o-video
+            - components/o-viewport
+            - components/o-visual-effects
         include:
-          - workspace: components/ft-concept-button
-            percyToken: PERCY_TOKEN_COMPONENTS_FT_CONCEPT_BUTTON
-          - workspace: components/g-audio
-            percyToken: PERCY_TOKEN_COMPONENTS_G_AUDIO
+            - workspace: components/ft-concept-button
+              percyToken: PERCY_TOKEN_COMPONENTS_FT_CONCEPT_BUTTON
+            - workspace: components/g-audio
+              percyToken: PERCY_TOKEN_COMPONENTS_G_AUDIO
+            - workspace: components/n-notification
+              percyToken: PERCY_TOKEN_COMPONENTS_N_NOTIFICATION
+            - workspace: components/o-audio
+              percyToken: PERCY_TOKEN_COMPONENTS_O_AUDIO
+            - workspace: components/o-autocomplete
+              percyToken: PERCY_TOKEN_COMPONENTS_O_AUTOCOMPLETE
+            - workspace: components/o-banner
+              percyToken: PERCY_TOKEN_COMPONENTS_O_BANNER
+            - workspace: components/o-big-number
+              percyToken: PERCY_TOKEN_COMPONENTS_O_BIG_NUMBER
+            - workspace: components/o-buttons
+              percyToken: PERCY_TOKEN_COMPONENTS_O_BUTTONS
+            - workspace: components/o-colors
+              percyToken: PERCY_TOKEN_COMPONENTS_O_COLORS
+            - workspace: components/o-comments
+              percyToken: PERCY_TOKEN_COMPONENTS_O_COMMENTS
+            - workspace: components/o-cookie-message
+              percyToken: PERCY_TOKEN_COMPONENTS_O_COOKIE_MESSAGE
+            - workspace: components/o-date
+              percyToken: PERCY_TOKEN_COMPONENTS_O_DATE
+            - workspace: components/o-editorial-layout
+              percyToken: PERCY_TOKEN_COMPONENTS_O_EDITORIAL_LAYOUT
+            - workspace: components/o-editorial-typography
+              percyToken: PERCY_TOKEN_COMPONENTS_O_EDITORIAL_TYPOGRAPHY
+            - workspace: components/o-expander
+              percyToken: PERCY_TOKEN_COMPONENTS_O_EXPANDER
+            - workspace: components/o-fonts
+              percyToken: PERCY_TOKEN_COMPONENTS_O_FONTS
+            - workspace: components/o-footer
+              percyToken: PERCY_TOKEN_COMPONENTS_O_FOOTER
+            - workspace: components/o-footer-services
+              percyToken: PERCY_TOKEN_COMPONENTS_O_FOOTER_SERVICES
+            - workspace: components/o-forms
+              percyToken: PERCY_TOKEN_COMPONENTS_O_FORMS
+            - workspace: components/o-ft-affiliate-ribbon
+              percyToken: PERCY_TOKEN_COMPONENTS_O_FT_AFFILIATE_RIBBON
+            - workspace: components/o-grid
+              percyToken: PERCY_TOKEN_COMPONENTS_O_GRID
+            - workspace: components/o-header
+              percyToken: PERCY_TOKEN_COMPONENTS_O_HEADER
+            - workspace: components/o-header-services
+              percyToken: PERCY_TOKEN_COMPONENTS_O_HEADER_SERVICES
+            - workspace: components/o-icons
+              percyToken: PERCY_TOKEN_COMPONENTS_O_ICONS
+            - workspace: components/o-labels
+              percyToken: PERCY_TOKEN_COMPONENTS_O_LABELS
+            - workspace: components/o-layout
+              percyToken: PERCY_TOKEN_COMPONENTS_O_LAYOUT
+            - workspace: components/o-lazy-load
+              percyToken: PERCY_TOKEN_COMPONENTS_O_LAZY_LOAD
+            - workspace: components/o-loading
+              percyToken: PERCY_TOKEN_COMPONENTS_O_LOADING
+            - workspace: components/o-message
+              percyToken: PERCY_TOKEN_COMPONENTS_O_MESSAGE
+            - workspace: components/o-meter
+              percyToken: PERCY_TOKEN_COMPONENTS_O_METER
+            - workspace: components/o-multi-select
+              percyToken: PERCY_TOKEN_COMPONENTS_O_MULTI_SELECT
+            - workspace: components/o-normalise
+              percyToken: PERCY_TOKEN_COMPONENTS_O_NORMALISE
+            - workspace: components/o-overlay
+              percyToken: PERCY_TOKEN_COMPONENTS_O_OVERLAY
+            - workspace: components/o-quote
+              percyToken: PERCY_TOKEN_COMPONENTS_O_QUOTE
+            - workspace: components/o-share
+              percyToken: PERCY_TOKEN_COMPONENTS_O_SHARE
+            - workspace: components/o-social-follow
+              percyToken: PERCY_TOKEN_COMPONENTS_O_SOCIAL_FOLLOW
+            - workspace: components/o-spacing
+              percyToken: PERCY_TOKEN_COMPONENTS_O_SPACING
+            - workspace: components/o-stepped-progress
+              percyToken: PERCY_TOKEN_COMPONENTS_O_STEPPED_PROGRESS
+            - workspace: components/o-subs-card
+              percyToken: PERCY_TOKEN_COMPONENTS_O_SUBS_CARD
+            - workspace: components/o-syntax-highlight
+              percyToken: PERCY_TOKEN_COMPONENTS_O_SYNTAX_HIGHLIGHT
+            - workspace: components/o-table
+              percyToken: PERCY_TOKEN_COMPONENTS_O_TABLE
+            - workspace: components/o-tabs
+              percyToken: PERCY_TOKEN_COMPONENTS_O_TABS
+            - workspace: components/o-teaser
+              percyToken: PERCY_TOKEN_COMPONENTS_O_TEASER
+            - workspace: components/o-teaser-collection
+              percyToken: PERCY_TOKEN_COMPONENTS_O_TEASER_COLLECTION
+            - workspace: components/o-toggle
+              percyToken: PERCY_TOKEN_COMPONENTS_O_TOGGLE
+            - workspace: components/o-tooltip
+              percyToken: PERCY_TOKEN_COMPONENTS_O_TOOLTIP
+            - workspace: components/o-top-banner
+              percyToken: PERCY_TOKEN_COMPONENTS_O_TOP_BANNER
+            - workspace: components/o-topper
+              percyToken: PERCY_TOKEN_COMPONENTS_O_TOPPER
+            - workspace: components/o-typography
+              percyToken: PERCY_TOKEN_COMPONENTS_O_TYPOGRAPHY
+            - workspace: components/o-video
+              percyToken: PERCY_TOKEN_COMPONENTS_O_VIDEO
+            - workspace: components/o-viewport
+              percyToken: PERCY_TOKEN_COMPONENTS_O_VIEWPORT
+            - workspace: components/o-visual-effects
+              percyToken: PERCY_TOKEN_COMPONENTS_O_VISUAL_EFFECTS
     steps:
       - uses: actions/checkout@v2
         with:
