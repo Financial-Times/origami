@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        - workspace:
+        workspace:
           - components/ft-concept-button
           - components/g-audio
       include:
