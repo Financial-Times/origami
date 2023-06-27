@@ -11,11 +11,11 @@ on:
       - reopened
       - synchronize
       - labeled
-    paths:
-      - "package.json"
-      - "package-lock.json"
-      - "components/**"
-      - "!components/**/*.md"
+#    paths:
+#      - "package.json"
+#      - "package-lock.json"
+#      - "components/**"
+#      - "!components/**/*.md"
   push:
     branches: main
     paths:
