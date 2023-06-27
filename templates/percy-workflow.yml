@@ -27,7 +27,9 @@ on:
 
 jobs:
   percy-snapshots:
+    <%^mainBranch%>
     if: contains(github.event.pull_request.labels.*.name, 'percy')
+    <%/mainBranch%>
     runs-on: ubuntu-latest
     strategy:
       matrix:

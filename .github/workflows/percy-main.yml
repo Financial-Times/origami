@@ -11,7 +11,6 @@ on:
 
 jobs:
   percy-snapshots:
-    if: contains(github.event.pull_request.labels.*.name, 'percy')
     runs-on: ubuntu-latest
     strategy:
       matrix:
