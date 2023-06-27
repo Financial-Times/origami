@@ -25,11 +25,11 @@ jobs:
         workspace:
           - components/ft-concept-button
           - components/g-audio
-      include:
-        - workspace: components/ft-concept-button
-          percyToken: ${{ secrets.PERCY_TOKEN_COMPONENTS_FT_CONCEPT_BUTTON }}
-        - workspace: components/g-audio
-          percyToken: ${{ secrets.PERCY_TOKEN_COMPONENTS_G_AUDIO }}
+        include:
+          - workspace: components/ft-concept-button
+            percyToken: ${{ secrets.PERCY_TOKEN_COMPONENTS_FT_CONCEPT_BUTTON }}
+          - workspace: components/g-audio
+            percyToken: ${{ secrets.PERCY_TOKEN_COMPONENTS_G_AUDIO }}
     steps:
     - uses: actions/checkout@v2
       with:
