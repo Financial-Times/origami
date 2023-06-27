@@ -3,11 +3,9 @@ import * as workspaces from "./lib/workspaces.js"
 import {readPackage} from "read-pkg"
 import {readFile, writeFile} from "fs/promises"
 import Mustache from "mustache"
-import {basename} from "path"
 import del from "del"
 
 let testTemplate = await readFile("templates/test-workflow.yml", "utf-8")
-let percyTemplate = await readFile("templates/percy-workflow.yml", "utf-8")
 let labelerTemplate = await readFile("templates/labeler.yml", "utf-8")
 
 let workspacePaths = await workspaces.paths()
@@ -60,13 +58,6 @@ let testFile = Mustache.render(testTemplate, {
 
 await writeFile(`.github/workflows/test.yml`, testFile)
 
-let percyFile = Mustache.render(percyTemplate,  {
-	projects: percyProjects
-})
-await writeFile(
-	`.github/workflows/percy.yml`,
-	percyFile
-)
 
 await writeFile(
 	".release-please-manifest.json",
