@@ -20,10 +20,12 @@ jobs:
   percy-snapshots:
     if: ${{ github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
-    stragegy:
+    strategy:
       matrix:
         - workspace: components/ft-concept-button
           percyToken: ${{ secrets.PERCY_TOKEN_COMPONENTS_FT_CONCEPT_BUTTON }}
+        - workspace: components/g-audio
+          percyToken: ${{ secrets.PERCY_TOKEN_COMPONENTS_G_AUDIO }}
     steps:
     - uses: actions/checkout@v2
       with:
