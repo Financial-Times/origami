@@ -21,8 +21,8 @@ on:
 #      - "!components/**/*.md"
 
 jobs:
-  percy-snapshots:
-    if: ${{ github.event.label.name == 'percy' }}
+  percy-snapshotss:
+    if: contains(github.event.pull_request.labels.*.name, 'percy')
     runs-on: ubuntu-latest
     strategy:
       matrix:

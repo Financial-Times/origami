@@ -23,7 +23,7 @@ on:
 
 jobs:
   percy-snapshotss:
-    if: ${{ github.event.label.name == 'percy' }}
+    if: contains(github.event.pull_request.labels.*.name, 'percy')
     runs-on: ubuntu-latest
     strategy:
       matrix:
