@@ -1,10 +1,25 @@
 $g-audio-is-silent: true !default;
 
-$g-audio-horz-padding-inline: 5px;
+$g-audio-horz-margin: 5px;
+
+$g-audio-horz-padding-inline: 6px;
 $g-audio-vert-padding-inline: 3px;
 
 $g-audio-horz-padding-block: 15px;
 $g-audio-vert-padding-block: 10px;
 
-$g-audio-button-background: #9e2f50;
-$g-audio-button-color: #f6e9d8;
+// Teal theme
+$g-audio-teal-button-background: #0D7680;
+$g-audio-teal-button-background-hover: #08474D;
+$g-audio-teal-button-color: #FFFFFF;
+
+$g-audio-teal-content-background: rgba(13, 118, 128, 0.10);
+$g-audio-teal-content-color: #08474D;
+
+// Pink theme
+$g-audio-pink-button-background: #E6175C;
+$g-audio-pink-button-background-hover: #800D33;
+$g-audio-pink-button-color: #FFFFFF;
+
+$g-audio-pink-content-background: rgba(230, 23, 92, 0.10);
+$g-audio-pink-content-color: #33302E;

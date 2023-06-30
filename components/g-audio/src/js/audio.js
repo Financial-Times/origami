@@ -84,7 +84,7 @@ class AudioPlayer {
 		// initialize player
 		// turns on audio player styles
 		this.targetObject.classList.add('g-audio--initialized');
-		this.targetObject.innerHTML = `<span class='g-audio-content'>${this.targetObject.innerHTML}</span>`;
+		this.targetObject.innerHTML = `<span class='g-audio-content'>${this.targetObject.innerHTML}<span class="g-audio-content-progressbar"></span></span>`;
 
 		// hide HTML audio player controls
 		this.targetObject.getElementsByTagName('audio')[0].removeAttribute('controls');
@@ -208,8 +208,8 @@ class AudioPlayer {
 		const percentPlayed = Math.ceil(timeStamp*100 / totalDuration);
 		// console.log(timeStamp, totalDuration, percentPlayed)
 
-		const progressBar = this.targetObject.getElementsByClassName('g-audio-content')[0];
-		progressBar.setAttribute('style', `background : -webkit-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : -moz-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : -o-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : linear-gradient(to right, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); `);
+		const progressBar = this.targetObject.getElementsByClassName('g-audio-content-progressbar')[0];
+		progressBar.setAttribute('style', `width : ${percentPlayed}%;`);
 	}
 
 	updateAmountListened() {
