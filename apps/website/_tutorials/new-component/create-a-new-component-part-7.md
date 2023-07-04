@@ -122,7 +122,7 @@ Now run `npm run test -w components/o-example`. You should see our new tests are
 
 To check all component demos for any visual bugs that may have been introduced accidentally as part of a change may be rather taxing as a manual piece of work. To help, demos may be run through [percy.io](https://percy.io/) to highlight visual differences between two versions of a component automatically.
 
-We can't run Percy yet as we haven't released a version of our component to compare changes against. But later, when we have released our component, [percy.io](https://percy.io/) we can run Percy tests by applying `Run Percy` label on your pull request.
+We can't run Percy yet as we haven't released a version of our component to compare changes against. But later, when we have released our component, [percy.io](https://percy.io/) we can run Percy tests by applying `Percy` label on your pull request.
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-21-tests.png" />
