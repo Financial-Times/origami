@@ -25,7 +25,7 @@ on:
 
 jobs:
   percy-components-ft-concept-button:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -46,7 +46,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_FT_CONCEPT_BUTTON }}
         WORKSPACE: components/ft-concept-button
   percy-components-g-audio:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -67,7 +67,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_G_AUDIO }}
         WORKSPACE: components/g-audio
   percy-components-n-notification:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -88,7 +88,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_N_NOTIFICATION }}
         WORKSPACE: components/n-notification
   percy-components-o-audio:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -109,7 +109,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_AUDIO }}
         WORKSPACE: components/o-audio
   percy-components-o-autocomplete:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -130,7 +130,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_AUTOCOMPLETE }}
         WORKSPACE: components/o-autocomplete
   percy-components-o-banner:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -151,7 +151,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_BANNER }}
         WORKSPACE: components/o-banner
   percy-components-o-big-number:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -172,7 +172,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_BIG_NUMBER }}
         WORKSPACE: components/o-big-number
   percy-components-o-buttons:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -193,7 +193,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_BUTTONS }}
         WORKSPACE: components/o-buttons
   percy-components-o-colors:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -214,7 +214,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_COLORS }}
         WORKSPACE: components/o-colors
   percy-components-o-comments:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -235,7 +235,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_COMMENTS }}
         WORKSPACE: components/o-comments
   percy-components-o-cookie-message:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -256,7 +256,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_COOKIE_MESSAGE }}
         WORKSPACE: components/o-cookie-message
   percy-components-o-date:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -277,7 +277,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_DATE }}
         WORKSPACE: components/o-date
   percy-components-o-editorial-layout:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -298,7 +298,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_EDITORIAL_LAYOUT }}
         WORKSPACE: components/o-editorial-layout
   percy-components-o-editorial-typography:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -319,7 +319,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_EDITORIAL_TYPOGRAPHY }}
         WORKSPACE: components/o-editorial-typography
   percy-components-o-expander:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -340,7 +340,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_EXPANDER }}
         WORKSPACE: components/o-expander
   percy-components-o-fonts:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -361,7 +361,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_FONTS }}
         WORKSPACE: components/o-fonts
   percy-components-o-footer:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -382,7 +382,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_FOOTER }}
         WORKSPACE: components/o-footer
   percy-components-o-footer-services:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -403,7 +403,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_FOOTER_SERVICES }}
         WORKSPACE: components/o-footer-services
   percy-components-o-forms:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -424,7 +424,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_FORMS }}
         WORKSPACE: components/o-forms
   percy-components-o-ft-affiliate-ribbon:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -445,7 +445,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_FT_AFFILIATE_RIBBON }}
         WORKSPACE: components/o-ft-affiliate-ribbon
   percy-components-o-grid:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -466,7 +466,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_GRID }}
         WORKSPACE: components/o-grid
   percy-components-o-header:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -487,7 +487,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_HEADER }}
         WORKSPACE: components/o-header
   percy-components-o-header-services:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -508,7 +508,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_HEADER_SERVICES }}
         WORKSPACE: components/o-header-services
   percy-components-o-icons:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -529,7 +529,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_ICONS }}
         WORKSPACE: components/o-icons
   percy-components-o-labels:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -550,7 +550,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_LABELS }}
         WORKSPACE: components/o-labels
   percy-components-o-layout:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -571,7 +571,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_LAYOUT }}
         WORKSPACE: components/o-layout
   percy-components-o-lazy-load:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -592,7 +592,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_LAZY_LOAD }}
         WORKSPACE: components/o-lazy-load
   percy-components-o-loading:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -613,7 +613,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_LOADING }}
         WORKSPACE: components/o-loading
   percy-components-o-message:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -634,7 +634,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_MESSAGE }}
         WORKSPACE: components/o-message
   percy-components-o-meter:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -655,7 +655,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_METER }}
         WORKSPACE: components/o-meter
   percy-components-o-multi-select:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -676,7 +676,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_MULTI_SELECT }}
         WORKSPACE: components/o-multi-select
   percy-components-o-normalise:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -697,7 +697,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_NORMALISE }}
         WORKSPACE: components/o-normalise
   percy-components-o-overlay:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -718,7 +718,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_OVERLAY }}
         WORKSPACE: components/o-overlay
   percy-components-o-quote:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -739,7 +739,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_QUOTE }}
         WORKSPACE: components/o-quote
   percy-components-o-share:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -760,7 +760,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_SHARE }}
         WORKSPACE: components/o-share
   percy-components-o-social-follow:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -781,7 +781,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_SOCIAL_FOLLOW }}
         WORKSPACE: components/o-social-follow
   percy-components-o-spacing:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -802,7 +802,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_SPACING }}
         WORKSPACE: components/o-spacing
   percy-components-o-stepped-progress:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -823,7 +823,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_STEPPED_PROGRESS }}
         WORKSPACE: components/o-stepped-progress
   percy-components-o-subs-card:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -844,7 +844,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_SUBS_CARD }}
         WORKSPACE: components/o-subs-card
   percy-components-o-syntax-highlight:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -865,7 +865,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_SYNTAX_HIGHLIGHT }}
         WORKSPACE: components/o-syntax-highlight
   percy-components-o-table:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -886,7 +886,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TABLE }}
         WORKSPACE: components/o-table
   percy-components-o-tabs:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -907,7 +907,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TABS }}
         WORKSPACE: components/o-tabs
   percy-components-o-teaser:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -928,7 +928,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TEASER }}
         WORKSPACE: components/o-teaser
   percy-components-o-teaser-collection:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -949,7 +949,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TEASER_COLLECTION }}
         WORKSPACE: components/o-teaser-collection
   percy-components-o-toggle:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -970,7 +970,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TOGGLE }}
         WORKSPACE: components/o-toggle
   percy-components-o-tooltip:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -991,7 +991,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TOOLTIP }}
         WORKSPACE: components/o-tooltip
   percy-components-o-top-banner:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -1012,7 +1012,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TOP_BANNER }}
         WORKSPACE: components/o-top-banner
   percy-components-o-topper:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -1033,7 +1033,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TOPPER }}
         WORKSPACE: components/o-topper
   percy-components-o-typography:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -1054,7 +1054,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TYPOGRAPHY }}
         WORKSPACE: components/o-typography
   percy-components-o-video:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -1075,7 +1075,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_VIDEO }}
         WORKSPACE: components/o-video
   percy-components-o-viewport:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -1096,7 +1096,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_VIEWPORT }}
         WORKSPACE: components/o-viewport
   percy-components-o-visual-effects:
-    if: ${{ github.ref = 'refs/heads/main' || github.event.label.name == 'percy' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
