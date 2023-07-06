@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/Financial-Times/origami/compare/o-top-banner-v1.0.2...o-top-banner-v1.0.3) (2023-07-06)
+
+
+### Bug Fixes
+
+* correct lint errors ([2958469](https://www.github.com/Financial-Times/origami/commit/2958469f2c002fb9286d2a4cd6612faf2f9758cd))
+* use correct 'regular' font weight on professional-inverse themed o-top-banner component ([17f5457](https://www.github.com/Financial-Times/origami/commit/17f54573ff12715f6e34fe0c1606fb7faed95b00))
+
 ### [1.0.2](https://www.github.com/Financial-Times/origami/compare/o-top-banner-v1.0.1...o-top-banner-v1.0.2) (2023-06-20)
 
 
