@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.2.9](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.8...o-video-v7.2.9) (2023-07-06)
+
+
+### Bug Fixes
+
+* Remove deprecated $external parameter from otypographylink call ([dcf61a1](https://www.github.com/Financial-Times/origami/commit/dcf61a15053618c13f22392bddcef58d71f7aa5e))
+
 ### [7.2.8](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.7...o-video-v7.2.8) (2023-04-28)
 
 
