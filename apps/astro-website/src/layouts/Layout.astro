@@ -3,6 +3,17 @@ import Header from "@/components/Header.astro"
 import Footer from "@/components/Footer.astro"
 ---
 
-<Header />
-<slot />
-<Footer />
+<style lang="scss" is:global>
+	@import "@financial-times/o-layout/main";
+	@include oLayout();
+</style>
+
+<div class="o-layout o-layout--landing">
+	<div class="o-layout__header">
+		<Header />
+	</div>
+	<slot />
+	<div class="o-layout__footer">
+		<Footer />
+	</div>
+</div>
