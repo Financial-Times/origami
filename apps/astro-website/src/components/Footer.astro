@@ -1,60 +1,33 @@
+---
+import {EMAIL, SLACK, GITHUB_REPOSITORY_URL} from '@/helpers/variables'
+const today = new Date()
+const pagePath = Astro.url.pathname
+---
+
 <style lang="scss" is:global>
 	@import "@financial-times/o-footer-services/main";
 	@include oFooterServices();
 </style>
 
-<script>
-	import oFooterServices from "@financial-times/o-header-services/main.js"
-
-	oFooterServices.init(null)
-</script>
-
 <footer class="o-footer-services">
 	<div class="o-footer-services__container">
 		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
-			<p class="o-footer-services__logo">Origami</p>
-			<a
-				class="o-footer-services__icon-link o-footer-services__icon-link--github"
-				href="http://github.com/financial-times/o-footer-services"
-				>View project on GitHub</a
-			>
-			<a
-				class="o-footer-services__icon-link o-footer-services__icon-link--slack"
-				href="https://slack.com/messages/[id]/">#slack-channel</a
-			>
-			<p class="o-footer-services__content">
-				Help or advice can be found here
-				<a href="mailto:origami.support@ft.com">origami.support@ft.com</a>
-				and there are other places,
-				<a href="/somewhere">like this one</a>.
-			</p>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href={GITHUB_REPOSITORY_URL}>View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href={`${GITHUB_REPOSITORY_URL}/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc`}>View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href={`https://financialtimes.slack.com/messages/${SLACK}`}>#{SLACK}</a>
+			<p class="o-footer-services__content">Get in touch at <a href={`mailto:${EMAIL}`}>{EMAIL}</a> for help or advice. Feel free to
+				<a href={`${GITHUB_REPOSITORY_URL}/edit/main/apps/website/src/pages${pagePath}`}>suggest an edit to this page</a>.</p>
 		</div>
 	</div>
 	<div class="o-footer-services__container">
 		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
 			<div class="o-footer-services__links">
-				<a href="https://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
-				<a
-					href="https://help.ft.com/help/legal-privacy/copyright/copyright-policy/"
-					>Copyright</a
-				>
-				<a href="https://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
-				<a href="https://help.ft.com/help/legal-privacy/terms-conditions"
-					>Terms &amp; Conditions</a
-				>
-				<a href="https://help.ft.com/legal-privacy/copyright-policy/"
-					>Slavery Statement &amp; Policies</a
-				>
-			</div>
-			<p>
-				<span>&#xA9; THE FINANCIAL TIMES LTD 2023.</span> FT and &apos;Financial
-				Times&apos; are trademarks of The Financial Times Ltd.
-			</p>
+			<a href="https://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="https://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="https://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="https://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+			<a href="https://help.ft.com/legal-privacy/copyright-policy/">Slavery Statement & Policies</a>
 		</div>
-	</div>
-	<div class="o-footer-services__container o-footer-services__container--brand">
-		<div class="o-footer-services__wrapper">
-			<div class="o-footer-services__brand-logo"></div>
-		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD {today.getFullYear()}.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
 	</div>
 </footer>

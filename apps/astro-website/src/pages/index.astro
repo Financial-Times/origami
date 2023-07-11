@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-import HeroImage from "/hero-image.svg?raw"
+import HeroImage from "@/components/hero-image.astro"
 
 const title = "Origami"
 const contact = {email: "origami.support@ft.com", slack: "origami-support"}
@@ -8,7 +8,7 @@ const contact = {email: "origami.support@ft.com", slack: "origami-support"}
 
 <Layout>
 	<div class="o-layout__hero o-layout-typography o-website__hero--home">
-		<Fragment set:html={HeroImage} />
+		<HeroImage />
 		<div class="o-website__hero--text">
 			<h1>{title}</h1>
 			<p>
@@ -94,10 +94,11 @@ const contact = {email: "origami.support@ft.com", slack: "origami-support"}
 	</div>
 </Layout>
 
-<style lang="scss">
-	@import "@financial-times/o-layout/main";
+<style lang="scss" is:global>
+// NOTE
+// Some temporary styles just to make this look less awful while
+// we work on it. Remove these as soon as styling work begins
 
-	@include oLayout();
 	html,
 	body {
 		margin: 0;
