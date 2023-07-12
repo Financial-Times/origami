@@ -1,0 +1,98 @@
+---
+import NavItem from "./NavItem.astro"
+
+const currentPage = Astro.url.pathname
+
+const paths = currentPage.split("/").filter(x => x)
+const ancestors = generateAncestors(paths)
+const children = []
+
+const allPages = await Astro.glob("@/pages/**")
+const urls = allPages
+	.map(page => page.url)
+	.filter(url => url && !url.includes("[slug]"))
+
+urls
+	.filter(x => x.includes(currentPage))
+	.forEach(breadCrumb => {
+		const breadCrumbsArray = breadCrumb
+			.split(currentPage)[1]
+			.split("/")
+			.filter(x => x)
+		if (breadCrumbsArray.length != 1) {
+			return
+		}
+		const url = `${breadCrumb}`
+		children.push({
+			label: capitaliseFirstLetter(breadCrumbsArray[0].replace(/[-_]/g, " ")),
+			url,
+			"aria-current": Astro.url.pathname === url ? "page" : undefined,
+		})
+	})
+
+function generateAncestors(paths) {
+	const urls = []
+	paths.forEach((breadCrumb, i) => {
+		const url = `/${paths.slice(0, i + 1).join("/")}`
+		const label = breadCrumb.replace(/[-_]/g, " ")
+		urls.push({
+			label,
+			url,
+			"aria-current": Astro.url.pathname === url ? "page" : undefined,
+		})
+	})
+	return urls
+}
+
+function capitaliseFirstLetter(string) {
+	const firstLetter = string.charAt(0).toUpperCase()
+	const remainingLetters = string.substring(1)
+	return firstLetter + remainingLetters
+}
+
+const renderSecondaryNav = ancestors.length > 0 && children.length > 0
+---
+
+{
+	renderSecondaryNav && (
+		<nav
+			class="o-header-services__secondary-nav"
+			aria-label="secondary"
+			data-o-header-services-nav="">
+			<div
+				class="o-header-services__secondary-nav-content"
+				data-o-header-services-nav-list="">
+				{ancestors && (
+					<ol
+						class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors"
+						aria-label="Ancestor sections">
+						{ancestors.map(nav => (
+							<NavItem nav={nav} />
+						))}
+					</ol>
+				)}
+				{children && (
+					<ul
+						class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children"
+						aria-label="Child sections">
+						{children.map(nav => (
+							<NavItem nav={nav} />
+						))}
+					</ul>
+				)}
+			</div>
+			<button
+				class="o-header-services__scroll-button o-header-services__scroll-button--left"
+				title="scroll left"
+				aria-hidden="true"
+				disabled
+			/>
+			<button
+				class="o-header-services__scroll-button o-header-services__scroll-button--right"
+				title="scroll right"
+				aria-hidden="true"
+				disabled
+			/>
+		</nav>
+	)
+}
