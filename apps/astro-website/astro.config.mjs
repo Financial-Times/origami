@@ -7,6 +7,7 @@ const __dirname = dirname(__filename)
 
 // https://astro.build/config
 export default defineConfig({
+	outDir: "../../origami.ft.com",
 	vite: {
 		resolve: {
 			alias: {
