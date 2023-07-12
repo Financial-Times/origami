@@ -25,7 +25,7 @@ export const DummyText = (
 		</p>
 	</div>
 );
-export const relatedContent: ListItem[] = [
+export const relatedContent: (ListItem | JSX.Element)[] = [
 	{
 		label: 'XXXXX',
 		url: '/xxxx',
@@ -34,6 +34,7 @@ export const relatedContent: ListItem[] = [
 		label: 'Sign in',
 		url: '/login',
 	},
+		<button onClick={() => window.alert('Hello')}>Say Hello</button>,
 ];
 export const primaryNavData: NavItem[] = [
 	{
