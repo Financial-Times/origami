@@ -1,12 +1,19 @@
 ---
+import SecondaryNav from "./SecondaryNav.astro"
+import NavItem from "./NavItem.astro"
+
+const currentPage = Astro.url.pathname
+
 const primaryNav = [
 	{
 		label: "Home",
 		url: "/",
+		"aria-current": currentPage === "/" ? "page" : undefined,
 	},
 	{
 		label: "Documentation",
 		url: "/documentation",
+		"aria-current": currentPage === "/documentation" ? "page" : undefined,
 	},
 	{
 		label: "Registry",
@@ -15,10 +22,12 @@ const primaryNav = [
 	{
 		label: "Storybook",
 		url: "/storybook",
+		"aria-current": currentPage === "/storybook" ? "page" : undefined,
 	},
 	{
 		label: "Blog",
 		url: "/blog",
+		"aria-current": currentPage === "/blog" ? "page" : undefined,
 	},
 ]
 ---
@@ -45,38 +54,29 @@ const primaryNav = [
 
 <header class="o-header-services" data-o-component="o-header-services">
 	<div class="o-header-services__top">
-		<!-- Link to a fallback nav for the core experience when using a drawer and hamburger icon. -->
 		<div class="o-header-services__hamburger">
-			<a
-				class="o-header-services__hamburger-icon"
-				href="#core-nav-fallback"
-				role="button"
-			>
+			<a class="o-header-services__hamburger-icon" href="#" role="button">
 				<span class="o-header-services__visually-hidden"
 					>Open primary navigation</span
 				>
 			</a>
 		</div>
-		<div class="o-header-services__logo"></div>
+		<a href="/" class="o-header-services__logo"
+			><span class="o-header-services__visually-hidden">To homepage</span></a
+		>
 		<div class="o-header-services__title">
 			<a class="o-header-services__product-name" href="/">Origami</a>
-			<span class="o-header-services__product-tagline">
-				Frontend Components & Services</span
+			<span class="o-header-services__product-tagline"
+				>Frontend Components &amp; Services</span
 			>
 		</div>
 	</div>
 
 	<nav class="o-header-services__primary-nav" aria-label="primary">
 		<ul class="o-header-services__primary-nav-list">
-			{
-				primaryNav.map(nav => (
-					<li>
-						<a aria-current="page" href={nav.url}>
-							{nav.label}
-						</a>
-					</li>
-				))
-			}
+			{primaryNav.map(nav => <NavItem nav={nav} />)}
 		</ul>
 	</nav>
+
+	<SecondaryNav />
 </header>
