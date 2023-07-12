@@ -10,7 +10,7 @@ const primaryNav = [
 	},
 	{
 		label: "Registry",
-		url: "/registry",
+		url: "https://registry.origami.ft.com/components",
 	},
 	{
 		label: "Storybook",
@@ -25,7 +25,16 @@ const primaryNav = [
 
 <style lang="scss" is:global>
 	@import "@financial-times/o-header-services/main";
-	@include oHeaderServices();
+	@include oHeaderServices(
+		$opts: (
+			"types": (
+				"primary-nav",
+				"secondary-nav",
+				"bleed",
+			),
+			"logo": "ftlogo-v1:origami",
+		)
+	);
 </style>
 
 <script>
@@ -50,11 +59,9 @@ const primaryNav = [
 		</div>
 		<div class="o-header-services__logo"></div>
 		<div class="o-header-services__title">
-			<a class="o-header-services__product-name" href="/"
-				>Tool or Service name</a
-			>
-			<span class="o-header-services__product-tagline"
-				>Tagline to explain the product here</span
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">
+				Frontend Components & Services</span
 			>
 		</div>
 	</div>
