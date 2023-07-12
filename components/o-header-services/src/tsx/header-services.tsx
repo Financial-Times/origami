@@ -10,7 +10,7 @@ type TitleProps = {
 	title: string;
 	tagline?: string;
 	titleUrl?: string;
-	relatedContent?: ListItem[];
+	relatedContent?: (ListItem | JSX.Element)[];
 	primaryNavData?: NavItem[];
 };
 
@@ -86,11 +86,13 @@ function Title({
 			</div>
 			{relatedContent && (
 				<ul className="o-header-services__related-content">
-					{relatedContent.map((element, i) => (
-						<li key={i}>
-							<a href={element.label}>{element.label}</a>
+					{relatedContent.map((element, i) => {
+						if ("url" in element && "label" in element) {
+						return <li key={i}>
+							<a href={element.url}>{element.label}</a>
 						</li>
-					))}
+						} else return element;
+					})}
 				</ul>
 			)}
 		</div>
