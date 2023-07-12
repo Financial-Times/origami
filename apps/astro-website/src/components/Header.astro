@@ -1,0 +1,75 @@
+---
+const primaryNav = [
+	{
+		label: "Home",
+		url: "/",
+	},
+	{
+		label: "Documentation",
+		url: "/documentation",
+	},
+	{
+		label: "Registry",
+		url: "/registry",
+	},
+	{
+		label: "Storybook",
+		url: "/storybook",
+	},
+	{
+		label: "Blog",
+		url: "/blog",
+	},
+]
+---
+
+<style lang="scss" is:global>
+	@import "@financial-times/o-header-services/main";
+	@include oHeaderServices();
+</style>
+
+<script>
+	import oHeaderServices from "@financial-times/o-header-services/main.js"
+
+	oHeaderServices.init(null)
+</script>
+
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+		<!-- Link to a fallback nav for the core experience when using a drawer and hamburger icon. -->
+		<div class="o-header-services__hamburger">
+			<a
+				class="o-header-services__hamburger-icon"
+				href="#core-nav-fallback"
+				role="button"
+			>
+				<span class="o-header-services__visually-hidden"
+					>Open primary navigation</span
+				>
+			</a>
+		</div>
+		<div class="o-header-services__logo"></div>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/"
+				>Tool or Service name</a
+			>
+			<span class="o-header-services__product-tagline"
+				>Tagline to explain the product here</span
+			>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			{
+				primaryNav.map(nav => (
+					<li>
+						<a aria-current="page" href={nav.url}>
+							{nav.label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</header>
