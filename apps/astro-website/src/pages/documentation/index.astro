@@ -26,8 +26,6 @@ const serviceDocuments = await Astro.glob("@/pages/documentation/services/*.md")
 const tutorialDocuments = await Astro.glob(
 	"@/pages/documentation/tutorials/**/*.md"
 )
-
-console.log(serviceDocuments.map(service => service.url))
 ---
 
 <Layout>
