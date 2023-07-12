@@ -38,6 +38,10 @@
 			@include assert-equal(oColorsMix('claret', 'wheat', 50), (#c67786));
 			@include assert-equal(oColorsMix('black', 'transparent', 50), rgba(0, 0, 0, 0.5));
 		}
+
+		@include it('mixes FT colours, not web colours, when a string is not explicitly passed') {
+			@include assert-equal(oColorsMix(paper, wheat, 30), (#f6e4d5));
+		}
 	}
 
 	@include describe('oColorsByUsecase') {

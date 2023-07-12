@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.6.2](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.6.1...o-colors-v6.6.2) (2023-07-04)
+
+
+### Bug Fixes
+
+* o-colors, always mix with FT colours, not web colours ([d656e76](https://www.github.com/Financial-Times/origami/commit/d656e763d8803ca81ea56d72b17bf695d5376ba4))
+
 ### [6.6.1](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.6.0...o-colors-v6.6.1) (2023-06-02)
 
 

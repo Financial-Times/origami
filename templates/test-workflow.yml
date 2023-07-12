@@ -7,10 +7,31 @@ concurrency:
 on:
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - '**.md'
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+    <%#projects%>
+      <%& workspaceFilename %>: ${{ steps.filter.outputs.<%& workspaceFilename %> }}
+    <%/projects%>
+    steps:
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+        <%#projects%>
+          <%& workspaceFilename %>:
+            - '<%& workspace %>/**'
+        <%/projects%>
   <%#projects%>
   test-<%& workspaceFilename %>:
+    needs: changes
+    if: ${{ needs.changes.outputs.<%& workspaceFilename %> == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2

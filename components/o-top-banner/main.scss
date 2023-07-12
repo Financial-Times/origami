@@ -109,6 +109,7 @@
 	$button-color: _oTopBannerGet('button-background-color', $theme);
 	$copy-color: _oTopBannerGet('copy-color', $theme);
 	$heading-color: _oTopBannerGet('heading-color', $theme);
+	$heading-font-weight: _oTopBannerGet('heading-font-weight', $theme);
 	$background-color: _oTopBannerGet('background-color', $theme);
 	$brand-border-color: _oTopBannerGet('brand-border-color', $theme);
 
@@ -116,9 +117,17 @@
 	color: $copy-color;
 	border-color: $brand-border-color;
 
-	@if($heading-color) {
+	@if($heading-color or $heading-font-weight) {
 		.o-top-banner__heading {
-			color: $heading-color;
+			@if ($heading-color) {
+				color: $heading-color;
+			}
+			@if ($heading-font-weight) {
+				@include oTypographySans(
+					$scale: ('default': 2, 'S': 3),
+					$weight: $heading-font-weight
+				);
+			}
 		}
 	}
 

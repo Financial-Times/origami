@@ -1,5 +1,19 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/Financial-Times/origami/compare/o-top-banner-v1.0.2...o-top-banner-v1.0.3) (2023-07-06)
+
+
+### Bug Fixes
+
+* use correct 'regular' font weight on professional-inverse themed o-top-banner component ([17f5457](https://www.github.com/Financial-Times/origami/commit/17f54573ff12715f6e34fe0c1606fb7faed95b00))
+
+### [1.0.2](https://www.github.com/Financial-Times/origami/compare/o-top-banner-v1.0.1...o-top-banner-v1.0.2) (2023-06-20)
+
+
+### Bug Fixes
+
+* fix failing test ([30c2620](https://www.github.com/Financial-Times/origami/commit/30c2620be4ab2b8e54b4413e244420b163748195))
+
 ### [1.0.1](https://www.github.com/Financial-Times/origami/compare/o-top-banner-v1.0.0...o-top-banner-v1.0.1) (2023-06-15)
 
 

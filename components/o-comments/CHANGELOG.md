@@ -1,5 +1,20 @@
 # Changelog
 
+### [10.3.1](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.3.0...o-comments-v10.3.1) (2023-06-29)
+
+
+### Bug Fixes
+
+* display as block so comment box takes all available space without breaking out of the grid ([12684fa](https://www.github.com/Financial-Times/origami/commit/12684fa90a64de55e394d7457cd795ba3484085d))
+* make comment box full-width of layout ([070e759](https://www.github.com/Financial-Times/origami/commit/070e7594284c6060c986b2bd13b2a85b408eaadc))
+
+## [10.3.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.2.3...o-comments-v10.3.0) (2023-06-20)
+
+
+### Features
+
+* o-comments, add an extra content block to record article_id and asset_type for spoor tracking ([d64302f](https://www.github.com/Financial-Times/origami/commit/d64302f3b0004c09a1dcd7551987ac4ef331e1e9))
+
 ### [10.2.3](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.2.1...o-comments-v10.2.3) (2023-05-19)
 
 ### Bug Fixes

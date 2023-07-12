@@ -183,8 +183,14 @@
 /// @param {String|Color} $background [paper] - palette name of background color
 /// @param {Number} $percentage [60] - percentage opacity of the foreground color over the background
 @function oColorsMix($color: 'black', $background: oColorsByUsecase('page', 'background'), $percentage: 80) {
-	$base: if(type-of($background) == 'string', oColorsByName($background), $background);
-	$mixer: if(type-of($color) == 'string', oColorsByName($color), $color);
+	// Cast colour arguments to string before checking if they exist in our pallet.
+	// If colour names are passed without quotes they will be of type `color`.
+	// We want both of these to be equivalent:
+	// oColorsMix('paper', 'wheat', 30);
+	// oColorsMix(paper, wheat, 30);
+	// https://www.w3.org/wiki/CSS/Properties/color/keywords
+	$base: if(_oColorsNameExists(#{$background}), oColorsByName(#{$background}), $background);
+	$mixer: if(_oColorsNameExists(#{$color}), oColorsByName(#{$color}), $color);
 
 	@if type-of($base) != color {
 		@return _oColorsError("'#{inspect($background)}' is not a valid base color.");
