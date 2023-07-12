@@ -33,7 +33,7 @@ export const relatedContent: ListItem[] = [
 	{
 		label: 'Sign in',
 		url: '/login',
-	}
+	},
 ];
 export const primaryNavData: NavItem[] = [
 	{
