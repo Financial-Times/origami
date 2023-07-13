@@ -22,5 +22,6 @@ export default defineConfig({
 		},
 	},
 	site: "https://origami.ft.com/",
-	compressHTML: true
+	compressHTML: true,
+	outDir: '../../origami.ft.com'
 })
