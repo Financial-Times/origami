@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.4.0](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.4...o-header-services-v5.4.0) (2023-07-12)
+
+
+### Features
+
+* o-header-services, allow JSX Elements to be passed in as relatedContent ([#1169](https://www.github.com/Financial-Times/origami/issues/1169)) ([7fc577d](https://www.github.com/Financial-Times/origami/commit/7fc577dbd26fa969d2d4264bdf0fbb6c98ccffdf))
+
 ### [5.3.4](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.3...o-header-services-v5.3.4) (2023-04-28)
 
 
