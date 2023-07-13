@@ -14,23 +14,45 @@ o-buttons provides Sass mixins and variables to create buttons.
 
 Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-buttons`.
 
+Buttons allow users to interact with the page or product. Each page or product area (a form, modal, within an article) should not have more than 1 primary button, any remaining CTA's should be displayed as secondary or ghost buttons.
+
+Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:
+
+- Dialogs
+- Modal windows
+- Forms
+- Cards
+- Toolbars
+
+### When not to use
+
+If an action a user takes is navigational, e.g. going back, a button should not be used.
+
+### Accessibility
+
+- **It is advisable to use colour combinations provided by the implementation.** These combinations are ensured to comply with WCAG AA requirements. When customising colours, refer to [colour guidelines](https://www.w3.org/TR/WCAG21/#non-text-contrast) to ensure accessibility.
+- In most cases, prefer using normal size buttons over small buttons. Default sized buttons are easier for users to notice and press.
+
 ## Markup
 
-There are two types of buttons, primary buttons and secondary buttons.
+There are three types of buttons, primary, secondary, and ghost.
 
-| Type      | Selector              | Brand Support                |
-|-----------|-----------------------|------------------------------|
-| primary   | .o-buttons--primary      | core, internal, whitelabel |
-| secondary | .o-buttons--secondary | core, internal, whitelabel |
-| ghost | .o-buttons--ghost | core, internal, whitelabel |
+| Type      | Selector              | Brand Support                | Purpose  |
+|-----------|-----------------------|------------------------------|----------|
+| primary   | .o-buttons--primary      | core, internal, whitelabel |For principal calls to action on the page. Primary buttons should only appear once per product area (not including the application header, modal dialog, onsite messaging or side panel).|
+| secondary | .o-buttons--secondary | core, internal, whitelabel |For secondary actions on each page or used in conjunction with a primary button. As part of a pair, the secondary button’s function is to perform the negative action of the set, such as “Cancel” or “Back”. |
+| ghost | .o-buttons--ghost | core, internal, whitelabel |For the least pronounced actions; often used in conjunction with a primary button. In a situation such as a progress flow, a ghost button may be paired with a primary and secondary button set, where the primary button is for ‘Save and continue’ the ghost button would be ‘Skip’.|
 
 
 ```html
 <button class="o-buttons o-buttons--primary">Submit</button>
 <button class="o-buttons o-buttons--secondary">Cancel</button>
+<button class="o-buttons o-buttons--ghost">Options</button>
 ```
 
 o-buttons CSS will work on `<button>` or `<a>` elements. It is important for accessibility that if you intend to style an `<a>` as a button, you give it the correct [aria role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role).
+
+The copy inside buttons should be concise and confirm the action a user is taking.
 
 ### Themes
 
