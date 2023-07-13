@@ -1,5 +1,12 @@
 # Changelog
 
+### [7.8.2](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.8.1...o-buttons-v7.8.2) (2023-07-13)
+
+
+### Bug Fixes
+
+* introduce designer guidelines to o-buttons readme ([276dc0d](https://www.github.com/Financial-Times/origami/commit/276dc0d41b2774ed3a4e1dd071d6d6b1fac042bc))
+
 ### [7.8.1](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.8.0...o-buttons-v7.8.1) (2023-04-28)
 
 
