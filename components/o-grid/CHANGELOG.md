@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.1.6](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.5...o-grid-v6.1.6) (2023-07-13)
+
+
+### Bug Fixes
+
+* o-grid, introduce designer-specific notes from archived designer docs ([#1165](https://www.github.com/Financial-Times/origami/issues/1165)) ([6c19b7c](https://www.github.com/Financial-Times/origami/commit/6c19b7c21055f7fc39a53d58b2b7af29515f1f94))
+
 ### [6.1.5](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.4...o-grid-v6.1.5) (2022-01-24)
 
 
