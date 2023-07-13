@@ -89,7 +89,7 @@ class Banner {
 			this.open();
 		} else {
 			this.close();
-		}
+		} // random comment to see if it works
 	}
 
 	/**
