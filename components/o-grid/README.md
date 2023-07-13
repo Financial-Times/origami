@@ -25,10 +25,10 @@ A 12 column responsive, flexbox-based grid system for laying out documents, temp
 This component is a collection of Sass styles to build a 12 column grid system, with a few JavaScript helpers.
 
 Our grid consists of:
--	12 columns, of equal size
--	5 layouts (breakpoints) to support devices of various sizes
--   gutters of variable width, that adjust according to the current layout
--   a maximum page width of 1220px, by default
+-    12 columns, of equal size.
+-    5 layouts (breakpoints) to support devices of various sizes.
+-    Gutters of variable width, that adjust according to the current layout.
+-    A maximum page width of 1220px, by default.
 
 
 [![Grid system](https://raw.githubusercontent.com/Financial-Times/origami/main/components/o-grid/img/grid-system.png)](https://raw.githubusercontent.com/Financial-Times/origami/main/components/o-grid/img/grid-system.png)
