@@ -173,6 +173,40 @@ To create a textarea input use a [single input](#single-input-fields) field stru
 
 #### Select Input
 
+##### Usage
+
+✅ Do - Use inside a form where users are selecting from a list of options and submitting data.
+
+❌ Don't - Use for filtering or sorting content on a page.
+
+
+By default, dropdowns open downward. A dropdown can open up or down depending on its position on the screen???? (is this the case for FT.com) For example, if the dropdown appears at the bottom and close to the edge of the interface, the menu expands upward to avoid being cropped.
+
+##### Behaviour
+
+- By default, the dropdown displays placeholder text in the field when closed.
+- Clicking on a closed field opens a menu of options.
+
+##### States
+
+- valid
+- error
+- disabled
+
+##### Variants
+
+- small
+- with button
+- standard
+
+##### Accessibility
+
+-    Avoid very long option names to facilitate understandability and perceivability.
+-    Do not use the same word or phrase at the beginning of a set of options.
+-    Use a unique id for each option.
+
+#### Markup
+
 To create a select input use a [single input](#single-input-fields) field structure, with an `o-forms-input--select` modifier class on the `o-forms-input` element and a [`select` input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
 
 ```html
@@ -335,7 +369,7 @@ Box radio inputs support 2 themes.
 
 **Deprecated, we no longer recommend pseudo box radio inputs. These will be removed in a future major version:**
 
-Its possible to achieve the look of box style radio inputs with anchor elements instead of actual radio inputs, we call these pseudo box radio inputs. This is no longer recommended and should not be used in new projects.
+It's possible to achieve the look of box style radio inputs with anchor elements instead of actual radio inputs, we call these pseudo box radio inputs. This is no longer recommended and should not be used in new projects.
 
 ```html
 <div class="o-forms-input o-forms-input--pseudo-radio-link">
@@ -353,7 +387,7 @@ Links which look like form inputs may be confusing for some users of assistive t
 -    Forms - Can be used in all forms to capture data, agree on any terms and show/hide form data.
 -    Filtering - Can be used to filter information or execute a group actions.
 
-###### Do
+**Do**
 
 ✅ Use when the choice is binary (one or the other) then use radio buttons.
 
@@ -361,11 +395,11 @@ Links which look like form inputs may be confusing for some users of assistive t
 
 ✅ Start all checkbox labels with a capital letter
 
-###### Don't
+**Don't**
 
 ❌ Include punctuation after checkbox labels
 
-#### Behaviour
+##### Behaviour
 
 Checkboxes are able to:
 
@@ -373,7 +407,7 @@ Checkboxes are able to:
 -    Sit in-line with each other
 -    Appear on the right-side of the label
 
-#### States
+##### States
 
 By default, a checkbox input includes a selected and unselected state.
 
@@ -387,7 +421,7 @@ Checkboxes can be:
 
 *It is possible to have multiple states enabled at once. e.g. Selected and disabled*
 
-#### Accessibility
+##### Accessibility
 
 Users can trigger a state change on the keyboard by pressing `Space` while the checkbox input has focus.
 
