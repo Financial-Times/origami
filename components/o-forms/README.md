@@ -321,6 +321,16 @@ Other fields which use multiple input elements follow the same structure. E.g. f
 
 #### Radio inputs
 
+##### Usage
+
+Use radio buttons when the user needs to see all available options before confirming their choice, for example in forms.
+
+Radio buttons may not be appropriate if there are more than four available options. If more text/information needs to be included in the button label use large radio button component. If the user has the option to select more than one option.
+
+**Negative highlight**
+
+Some box styled radio inputs will be preselected with negative selection or will be shown when a user confirms a negative selection, for example selecting 'no' when asked to subscribe to specific emails.
+
 ##### Round radio inputs
 
 To create a radio input use a [multiple input](#multiple-input-fields) field structure, with an `o-forms-input--radio-round` modifier class on the `o-forms-input` element and child [radio input elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) within labels. The `id` attribute of the input element must match the `for` attribute of the label element and they must be unique within the form.
