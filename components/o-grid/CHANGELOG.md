@@ -1,5 +1,14 @@
 # Changelog
 
+### [6.1.7](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.6...o-grid-v6.1.7) (2023-07-13)
+
+
+### Bug Fixes
+
+* fix indentation issues ([662a2f2](https://www.github.com/Financial-Times/origami/commit/662a2f281116781a1a2c1b8e83f2beb684889921))
+* move paragraph above list ([09f60a8](https://www.github.com/Financial-Times/origami/commit/09f60a8fb1f86cfb6eacbdc9fd979e4afb2891ec))
+* re order lists so that the contents are correctly removed when displayed on the registry ([c51e82a](https://www.github.com/Financial-Times/origami/commit/c51e82a7bb1874020456c049d6d332b9fe6c4f49))
+
 ### [6.1.6](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.5...o-grid-v6.1.6) (2023-07-13)
 
 
