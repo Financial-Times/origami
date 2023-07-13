@@ -2,12 +2,6 @@
 
 A 12 column responsive, flexbox-based grid system for laying out documents, templates and components.
 
-Our grid consists of:
-- 12 columns, of equal size
-- 5 layouts (breakpoints) to support devices of various sizes
-- gutters of variable width, that adjust according to the current layout
-- a maximum page width of 1220px, by default
-
 -   [Usage](#usage)
 -   [Quick Start](#quick-start)
 -   [Grid dimensions](#grid-dimensions)
@@ -27,6 +21,12 @@ Our grid consists of:
 -   [Migration](#migration)
 -   [Contact](#contact)
 -   [Licence](#licence)
+
+Our grid consists of:
+-	12 columns, of equal size
+-	5 layouts (breakpoints) to support devices of various sizes
+-   gutters of variable width, that adjust according to the current layout
+-   a maximum page width of 1220px, by default
 
 This component is a collection of Sass styles to build a 12 column grid system, with a few JavaScript helpers.
 
