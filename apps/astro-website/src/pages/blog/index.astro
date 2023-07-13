@@ -1,0 +1,67 @@
+---
+import Layout from "@/layouts/Layout.astro"
+
+const title = "Origami Blog"
+const description =
+	"A blog for announcements relating to the Origami team, components, and services."
+
+const posts = await Astro.glob("@/pages/blog/**/*.md")
+const sortedPosts = posts.sort((a, b) => {
+	const aDate = a.file.split("/").at(-1).split("-").slice(0, 3)
+	const bDate = b.file.split("/").at(-1).split("-").slice(0, 3)
+	return (
+		new Date(+bDate[0], +bDate[1] - 1, +bDate[2]) -
+		new Date(+aDate[0], +aDate[1] - 1, +aDate[2])
+	)
+})
+
+console.log(posts[0].url)
+---
+
+<Layout>
+	<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
+		<h1>{title}</h1>
+		<p>
+			A blog for announcements relating to the Origami team, components, and
+			services.
+			<a href="/feed.xml">Subscribe to our feed for updates</a>.
+		</p>
+	</div>
+	<div class="o-layout__main">
+		<ul class="o-layout__listing">
+			{
+				sortedPosts.map(post => {
+					const date = post.file.split("/").at(-1).split("-").slice(0, 3)
+					//+ change a string type to number type as it moaning about it being a string
+					const formattedDate = new Date(
+						+date[0],
+						+date[1] - 1,
+						+date[2]
+					).toLocaleDateString("en-GB", {
+						year: "numeric",
+						month: "long",
+						day: "numeric",
+					})
+					return (
+						<li class="o-layout__listing__item">
+							<h2 class="o-layout__listing__item__title">
+								<a href={post.url}>{post.frontmatter.title}</a>
+							</h2>
+							{post.frontmatter.description.length !== 0 && (
+								<p class="o-layout__listing__item__description">
+									{post.frontmatter.description}
+								</p>
+							)}
+							<p class="o-layout__listing__item__meta">
+								Posted {formattedDate} by {post.frontmatter.author}.
+								{post.frontmatter.tags && (
+									<span> Tagged {post.frontmatter.tags}.</span>
+								)}
+							</p>
+						</li>
+					)
+				})
+			}
+		</ul>
+	</div>
+</Layout>
