@@ -1,0 +1,46 @@
+---
+import Layout from "@/layouts/Layout.astro"
+
+const title = "Origami Blog"
+const description =
+	"A blog for announcements relating to the Origami team, components, and services."
+
+const posts = await Astro.glob("@/pages/blog/**/*.md")
+
+
+const time=posts.map(post => post.file.split("/").at(-1).split("-").slice(0, 3))
+console.log(time)
+---
+
+<Layout>
+	<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
+		<h1>{title}</h1>
+		<p>
+			A blog for announcements relating to the Origami team, components, and
+			services.
+			<a href="/feed.xml">Subscribe to our feed for updates</a>.
+		</p>
+	</div>
+	<div class="o-layout__main">
+		<ul class="o-layout__listing">
+			{
+				posts.map(post => (
+					<li class="o-layout__listing__item">
+						<h2 class="o-layout__listing__item__title">
+							<a href={post.frontmatter.title}>{post.frontmatter.title}</a>
+						</h2>
+						{post.frontmatter.description.length !== 0 && (
+							<p class="o-layout__listing__item__description">
+								{post.frontmatter.description}
+							</p>
+							<p class="o-layout__listing__item__meta">
+								Posted
+								
+							</p>
+						)}
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</Layout>
