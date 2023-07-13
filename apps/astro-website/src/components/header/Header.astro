@@ -1,6 +1,9 @@
 ---
+import {styles} from "@/helpers/getStyles"
 import SecondaryNav from "./SecondaryNav.astro"
 import NavItem from "./NavItem.astro"
+
+const style = styles["@financial-times/o-header-services"]
 
 const currentPage = Astro.url.pathname
 
@@ -32,19 +35,7 @@ const primaryNav = [
 ]
 ---
 
-<style lang="scss" is:global>
-	@import "@financial-times/o-header-services/main";
-	@include oHeaderServices(
-		$opts: (
-			"types": (
-				"primary-nav",
-				"secondary-nav",
-				"bleed",
-			),
-			"logo": "ftlogo-v1:origami",
-		)
-	);
-</style>
+<Fragment set:html={style} />
 
 <script>
 	import oHeaderServices from "@financial-times/o-header-services/main.js"

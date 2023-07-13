@@ -13,15 +13,8 @@ export default defineConfig({
 				"@": `${path.resolve(__dirname, "src")}/`,
 			},
 		},
-		css: {
-			preprocessorOptions: {
-				scss: {
-					additionalData: `@import "@/styles/global.scss";`,
-				},
-			},
-		},
 	},
 	site: "https://origami.ft.com/",
 	compressHTML: true,
-	outDir: '../../origami.ft.com'
+	outDir: "../../origami.ft.com",
 })

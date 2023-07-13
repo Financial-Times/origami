@@ -1,12 +1,16 @@
 ---
 import Header from "@/components/header/Header.astro"
 import Footer from "@/components/Footer.astro"
+
+import {styles} from "@/helpers/getStyles"
+const layout = styles["@financial-times/o-layout"]
+const fonts = styles["@financial-times/o-fonts"]
+const normalise = styles["@financial-times/o-normalise"]
 ---
 
-<style lang="scss" is:global>
-	@import "@financial-times/o-layout/main";
-	@include oLayout();
-</style>
+<Fragment set:html={layout} />
+<Fragment set:html={fonts} />
+<Fragment set:html={normalise} />
 
 <div class="o-layout o-layout--landing">
 	<div class="o-layout__header">
