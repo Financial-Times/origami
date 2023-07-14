@@ -14,9 +14,7 @@ jobs:
     permissions:
       pull-requests: read
     outputs:
-    <%#projects%>
-      <%& workspaceFilename %>: ${{ steps.filter.outputs.<%& workspaceFilename %> }}
-    <%/projects%>
+      components: ${{ steps.filter.outputs.changes }}
     steps:
     - uses: dorny/paths-filter@v2
       id: filter
@@ -26,10 +24,10 @@ jobs:
           <%& workspaceFilename %>:
             - '<%& workspace %>/**'
         <%/projects%>
-  <%#projects%>
-  test-<%& workspaceFilename %>:
+  test:
     needs: changes
-    if: ${{ needs.changes.outputs.<%& workspaceFilename %> == 'true' }}
+    strategy:
+      matrix: ${{ fromJson(needs.changes.outputs.components) }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -45,4 +43,3 @@ jobs:
     - run: npm run -w <%& workspace %> lint --if-present
     - run: npm run -w <%& workspace %> build --if-present
     - run: npm run -w <%& workspace %> test --if-present
-  <%/projects%>
