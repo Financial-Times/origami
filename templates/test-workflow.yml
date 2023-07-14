@@ -14,7 +14,7 @@ jobs:
     permissions:
       pull-requests: read
     outputs:
-      components: ${{ steps.filter.outputs.changes }}
+      components: ${{ steps.construct.outputs.components }}
     steps:
     - uses: dorny/paths-filter@v2
       id: filter
@@ -24,6 +24,21 @@ jobs:
           <%& workspaceFilename %>:
             - '<%& workspace %>/**'
         <%/projects%>
+    - run:
+        name: Construct component paths from changed files
+        id: construct
+        shell: bash
+        run: |
+            input=("${{ steps.filter.outputs.changes }}")
+
+
+            # Loop through each string in the array
+            for ((i=0; i<${#input[@]}; i++))
+            do
+            input[$i]=${input[$i]/-//}
+            done
+            output=$(printf ",\"%s\"" "${input[@]}")
+            echo "::set-output name=components::[${output:1}]"
   test:
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
@@ -42,6 +57,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm ci
-      - run: npm run -w components/${{ matrix.component }} lint --if-present
-      - run: npm run -w components/${{ matrix.component }} build --if-present
-      - run: npm run -w components/${{ matrix.component }} test --if-present
+      - run: npm run -w ${{ matrix.component }} lint --if-present
+      - run: npm run -w ${{ matrix.component }} build --if-present
+      - run: npm run -w ${{ matrix.component }} test --if-present
