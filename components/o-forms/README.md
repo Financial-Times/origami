@@ -507,7 +507,7 @@ When using multiple date rows, place the format label above the input fields.
 
 ❌ Don't - Place labels inside input fields, this is bad for accessibility.
 
-See example on [Figma](https://www.figma.com/file/rIWBCOOiVoBZA7EBqnlmpB?embed_host=notion&kind=&node-id=665%3A535&viewer=1).
+See example on [Figma](https://www.figma.com/file/rIWBCOOiVoBZA7EBqnlmpB?embed_host=notion&kind=&node-id=665%3A537&viewer=1).
 
 #### Markup
 
