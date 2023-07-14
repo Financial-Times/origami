@@ -183,12 +183,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       env:
-        COMPONENTS: ${{ needs.changes.outputs.components }}
+        COMPONENTS: ${{ fromJson(needs.changes.outputs.components) }}
       run: echo $COMPONENTS
   test:
     needs: changes
-    strategy:
-      matrix: ${{ fromJson(needs.changes.outputs.components) }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
