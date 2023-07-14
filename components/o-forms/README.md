@@ -109,28 +109,6 @@ For a different single input, update the input element within `o-forms-input` an
 
 #### Text input
 
-Use when the expected user input is a single line of text, as opposed to a paragraph.
-
-##### States
-
-- Small
-- Valid
-- Error
-- Disabled
-
-##### Variants
-
-- Standard
-- With button
-
-##### Accessibility
-
--    Provide labels and instructions that are clear and concise.
--    Provide instructions for completing the field. For example, passwords must contain at least 8 letters and/or numbers.
--    Use a validation message for input errors.
-
-##### Markup
-
 To create a text input use a [single input](#single-input-fields) field structure, with an `o-forms-input--text` modifier class on the `o-forms-input` element and an input type of `type="text"`.
 
 ```html
