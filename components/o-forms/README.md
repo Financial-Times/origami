@@ -495,22 +495,6 @@ Add descriptions to toggles / checkboxes by adding `o-forms-input__label__main` 
 
 #### Date inputs
 
-##### Usage
-
-Always use **DD/MM/YYYY** format for date inputs.
-
-###### Multiple Rows
-
-When using multiple date rows, place the format label above the input fields.
-
-✅ Do - use labels outside of input fields.
-
-❌ Don't - Place labels inside input fields, this is bad for accessibility.
-
-See example on [Figma](https://www.figma.com/file/rIWBCOOiVoBZA7EBqnlmpB?embed_host=notion&kind=&node-id=665%3A537&viewer=1).
-
-#### Markup
-
 We do not use `input[type=date]`, but instead combine three `input[type=text]` inputs. We use `inputmode="numeric"` to show a numeric keyboard in mobile browsers which support the attribute. And use a `pattern` attribute for basic client side date validation.
 
 To create our date input use a [multiple input](#multiple-input-fields) field structure, with an `o-forms-input--date` modifier class on the `o-forms-input` element, containing inputs as shown:
