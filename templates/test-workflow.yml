@@ -24,21 +24,6 @@ jobs:
           <%& workspaceFilename %>:
             - '<%& workspace %>/**'
         <%/projects%>
-    - run:
-        name: Construct component paths from changed files
-        id: construct
-        shell: bash
-        run: |
-            input=("${{ steps.filter.outputs.changes }}")
-
-
-            # Loop through each string in the array
-            for ((i=0; i<${#input[@]}; i++))
-            do
-            input[$i]=${input[$i]/-//}
-            done
-            output=$(printf ",\"%s\"" "${input[@]}")
-            echo "::set-output name=components::[${output:1}]"
   test:
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
@@ -46,6 +31,11 @@ jobs:
     strategy:
       matrix:
         component: ${{ fromJson(needs.changes.outputs.components) }}
+        include:
+        <%#projects%>
+          - <%& workspaceFilename %>:
+            path: <%& workspace %>
+        <%/projects%>
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v4
@@ -57,6 +47,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm ci
-      - run: npm run -w ${{ matrix.component }} lint --if-present
-      - run: npm run -w ${{ matrix.component }} build --if-present
-      - run: npm run -w ${{ matrix.component }} test --if-present
+      - run: npm run -w ${{ matrix.path }} lint --if-present
+      - run: npm run -w ${{ matrix.path }} build --if-present
+      - run: npm run -w ${{ matrix.path }} test --if-present
