@@ -189,6 +189,9 @@ jobs:
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        component: ${{ fromJson(needs.changes.outputs.components) }}
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v4
@@ -200,6 +203,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm ci
-      - run: npm run -w  lint --if-present
-      - run: npm run -w  build --if-present
-      - run: npm run -w  test --if-present
+      - run: npm run -w components/${{ matrix.component }} lint --if-present
+      - run: npm run -w components/${{ matrix.component }} build --if-present
+      - run: npm run -w components/${{ matrix.component }} test --if-present
