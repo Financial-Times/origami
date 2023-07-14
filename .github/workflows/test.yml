@@ -179,7 +179,12 @@ jobs:
             - 'apps/storybook/**'
           apps-website:
             - 'apps/website/**'
-    - run: echo ${{ fromJson(needs.changes.outputs.components) }}
+  test-changes:
+    runs-on: ubuntu-latest
+    steps:
+      env:
+        COMPONENTS: ${{ needs.changes.outputs.components }}
+      run: echo $COMPONENTS
   test:
     needs: changes
     strategy:
