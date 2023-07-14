@@ -10,12 +10,6 @@ Labels for content classification, to emphasise a value, or highlight a status.
 - [Contact](#contact)
 - [Licence](#licence)
 
-Labels allow users to:
-
-- Differentiate between content types.
-- Create urgency for time-sensitive content.
-- Understand that a product is still in an experimental stage.
-
 ## Usage
 
 Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-labels`.
@@ -31,11 +25,6 @@ There are three types of label:
 
 The standard label is used for content classification or to emphasise a value. For example to highlight commercial or premium content for the core brand, or to highlight a service tier in internal products. Custom labels may be created.
 
-#### Usage
-
-✅  Do: Place underneath the headline ([Figma](https://www.figma.com/file/rIWBCOOiVoBZA7EBqnlmpB?embed_host=notion&kind=&node-id=56%3A46&viewer=1))
-
-❌  Don't: Place at the end of headline, as it breaks alignment and reduces ability to scan. ([Figma](https://www.figma.com/file/rIWBCOOiVoBZA7EBqnlmpB?embed_host=notion&kind=&node-id=85%3A114&viewer=1))
 #### Standard Label Sizes
 
 This table outlines the possible standard label sizes.
@@ -74,20 +63,6 @@ This table outlines the possible standard label states. Custom states may also b
 ### Indicator Label
 
 The indicator label is used to show story status with new, updated, and live variants. The indicator label only supports the core brand but [internal brand support is under consideration](https://github.com/Financial-Times/o-labels/issues/58).
-
-#### Usage
-
-This can be used for a number of use cases:
-
-a. to indicate relative time of publishing
-
-✅  Do: Place after stand-first (or title if stand-first doesn't exist). ([Figma](https://www.figma.com/file/rIWBCOOiVoBZA7EBqnlmpB?embed_host=notion&kind=&node-id=85%3A60&viewer=1))
-
-❌  Don't: Place alongside topic tag, as the hierarchy and colours create visual conflict. ([Figma](https://www.figma.com/file/rIWBCOOiVoBZA7EBqnlmpB?embed_host=notion&kind=&node-id=85%3A148&viewer=1))
-
-b. to create urgency on time sensitive content ([Figma](https://www.figma.com/file/rIWBCOOiVoBZA7EBqnlmpB?embed_host=notion&kind=&node-id=85%3A1&viewer=1))
-
-
 #### Indicator Label Status
 
 This table outlines the possible indicator label statuses:
@@ -368,14 +343,14 @@ As styles for the indicator label apply to multiple html elements, the `oLabelsI
 
 ## Migration guide
 
-|     State     | Major Version | Last Minor Release | Migration guide |
-|:-------------:| :---: | :---: | :---:|
-|   ✨ active    | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-|   ✨ active    | 5 | 5.2 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-| ⚠ maintained  | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-| ╳ deprecated  | 3 | 3.1.1 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-| ╳ deprecated  | 2 | 2.1.0 | N/A |
-|  ╳ deprecated | 1 | 1.0.6 | N/A |
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+✨ active | 5 | 5.2 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+⚠ maintained | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ deprecated | 3 | 3.1.1 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+╳ deprecated | 2 | 2.1.0 | N/A |
+╳ deprecated | 1 | 1.0.6 | N/A |
 
 
 ## Contact
