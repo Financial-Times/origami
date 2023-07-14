@@ -24,12 +24,6 @@ jobs:
           <%& workspaceFilename %>:
             - '<%& workspace %>/**'
         <%/projects%>
-  test-changes:
-    needs: changes
-    if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{needs.changes.outputs.components }}
   test:
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
