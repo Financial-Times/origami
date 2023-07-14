@@ -348,6 +348,50 @@ Links which look like form inputs may be confusing for some users of assistive t
 
 #### Checkbox inputs
 
+##### Usage
+
+-    Forms - Can be used in all forms to capture data, agree on any terms and show/hide form data.
+-    Filtering - Can be used to filter information or execute a group actions.
+
+###### Do
+
+✅ Use when the choice is binary (one or the other) then use radio buttons.
+
+✅ Keep checkbox labels short and descriptive
+
+✅ Start all checkbox labels with a capital letter
+
+###### Don't
+
+❌ Include punctuation after checkbox labels
+
+#### Behaviour
+
+Checkboxes are able to:
+
+-    Stack on top of each other
+-    Sit in-line with each other
+-    Appear on the right-side of the label
+
+#### States
+
+By default, a checkbox input includes a selected and unselected state.
+
+Checkboxes can be:
+
+- unselected
+- selected
+- indeterminate
+- disabled
+- invalid
+
+*It is possible to have multiple states enabled at once. e.g. Selected and disabled*
+
+#### Accessibility
+
+Users can trigger a state change on the keyboard by pressing `Space` while the checkbox input has focus.
+
+Users can navigate between checkbox inputs by pressing `Tab` or `Shift-Tab`.
 ##### Square checkbox inputs
 
 To create a checkbox input use a [multiple input](#multiple-input-fields) field structure, with an `o-forms-input--checkbox` modifier class on the `o-forms-input` element and child [checkbox input elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) within labels.
