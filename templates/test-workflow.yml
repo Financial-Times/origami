@@ -24,6 +24,7 @@ jobs:
           <%& workspaceFilename %>:
             - '<%& workspace %>/**'
         <%/projects%>
+    - run: echo ${{ fromJson(needs.changes.outputs.components) }}
   test:
     needs: changes
     strategy:

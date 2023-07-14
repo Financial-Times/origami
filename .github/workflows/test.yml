@@ -179,6 +179,7 @@ jobs:
             - 'apps/storybook/**'
           apps-website:
             - 'apps/website/**'
+    - run: echo ${{ fromJson(needs.changes.outputs.components) }}
   test:
     needs: changes
     strategy:
