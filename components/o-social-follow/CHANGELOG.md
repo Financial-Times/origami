@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.5](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.4...o-social-follow-v1.0.5) (2023-07-14)
+
+
+### Bug Fixes
+
+* migrate social links designer docs to readme ([5a743f1](https://www.github.com/Financial-Times/origami/commit/5a743f101c09d4ec892bc398c82c6834e7cfa1e8))
+
 ### [1.0.4](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.3...o-social-follow-v1.0.4) (2023-04-28)
 
 
