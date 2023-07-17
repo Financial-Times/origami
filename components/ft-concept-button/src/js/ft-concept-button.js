@@ -7,6 +7,7 @@ export default class FtConceptButton {
 	 * @property {HTMLElement} element The component element in the DOM
 	 * @property {object} options The merged options
 	 */
+	//thhis will trigger tests
 	constructor(element, options) {
 		this.element = element;
 		this.button = this.element.querySelector('.ft-concept-button__button');
