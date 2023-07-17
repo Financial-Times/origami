@@ -2,12 +2,14 @@
 import Header from "@/components/header/Header.astro"
 import Footer from "@/components/Footer.astro"
 
-import {getStyles} from "@/helpers/getStyles"
-const styles = getStyles(["o-layout", "o-fonts", "o-normalise"])
 ---
 
-<Fragment set:html={styles} />
-
+<head>
+	<link
+		rel="stylesheet"
+		href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-layout@^5.3.2,o-fonts@^5.3.4,o-normalise@^3.3.1,o-header-services@^5.3.4,o-footer-services@^4.2.6&brand=internal&system_code=origami-website"
+	/>
+</head>
 <div class="o-layout o-layout--landing">
 	<div class="o-layout__header">
 		<Header />

@@ -1,9 +1,6 @@
 ---
-import {getStyles} from "@/helpers/getStyles"
 import SecondaryNav from "./SecondaryNav.astro"
 import NavItem from "./NavItem.astro"
-
-const styles = getStyles(["o-header-services"])
 
 const currentPage = Astro.url.pathname
 
@@ -34,8 +31,6 @@ const primaryNav = [
 	},
 ]
 ---
-
-<Fragment set:html={styles} />
 
 <script>
 	import oHeaderServices from "@financial-times/o-header-services/main.js"

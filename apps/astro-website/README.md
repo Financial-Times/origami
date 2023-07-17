@@ -14,16 +14,7 @@ Providing `index.astro` file in each directory also helps us to generate seconda
 
 ### Styles
 
-For styling the site we are using [Origami build service](https://www.ft.com/__origami/service/build/v3/). Astro supports using SCSS out of the box but we had performance issues while hot reload updating on local development server. Using build service allows us to use bundled CSS for components, that has better performance and improves developer experience.
-
-To use origami component styles on the site you just need to install it as a normal dependency and import it in your component using Astro's `Fragment` component. For example:
-
-```jsx
-import {getStyles} from "@/helpers/getStyles"  // helper script that generates html string for build service styles
-const styles = getStyles(["o-footer-services", "o-header-services"]) // use the array of component names without "@financial-times/" prefix
-
-<Fragment set:html={styles} /> // This will inject the CSS for the component in the head of the page.
-```
+For styling the site we are using [Origami build service](https://www.ft.com/__origami/service/build/v3/). Astro supports using SCSS out of the box but we had performance issues while hot reload updating on local development server. Using build service allows us to use bundled CSS for components, that has better performance and improves developer experience. All the bundled styles are loaded in the [Layout.astro](src/layouts/Layout.astro) file.
 
 ### Technical documentation pages
 
