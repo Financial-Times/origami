@@ -16,7 +16,7 @@ describe('AudioPlayer API', () => {
 		const initSpy = sinon.spy(AudioPlayer, 'init');
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 		setTimeout(function(){
-			proclaim.equal(initSpy.called, true);
+			proclaim.equal(false, true);
 			initSpy.restore();
 			done();
 		}, 100);
