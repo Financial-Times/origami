@@ -1,17 +1,17 @@
 ---
 import Header from "@/components/header/Header.astro"
 import Footer from "@/components/Footer.astro"
+import Head from "./Head.astro"
 ---
+
+<Head />
 
 <script>
 	import oLayout from "@financial-times/o-layout/main"
+	import oSyntaxHighlight from "@financial-times/o-syntax-highlight/main"
 	oLayout.init(null)
+	oSyntaxHighlight.init(null)
 </script>
-
-<style lang="scss" is:global>
-	@import "@financial-times/o-layout/main";
-	@include oLayout();
-</style>
 
 <div class="o-layout o-layout--docs" data-o-component="o-layout">
 	<div class="o-layout__header">
@@ -19,7 +19,10 @@ import Footer from "@/components/Footer.astro"
 	</div>
 
 	<div class="o-layout__sidebar"></div>
-	<div class="o-layout__main o-layout-typography">
+	<div
+		class="o-layout__main o-layout-typography"
+		data-o-component="o-syntax-highlight"
+	>
 		<slot />
 	</div>
 	<div class="o-layout__footer">
