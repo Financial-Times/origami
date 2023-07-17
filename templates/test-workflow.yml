@@ -33,7 +33,7 @@ jobs:
         component: ${{ fromJson(needs.changes.outputs.components) }}
         include:
         <%#projects%>
-          - <%& workspaceFilename %>:
+          - component: <%& workspaceFilename %>
             path: <%& workspace %>
         <%/projects%>
     steps:

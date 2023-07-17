@@ -187,165 +187,165 @@ jobs:
       matrix:
         component: ${{ fromJson(needs.changes.outputs.components) }}
         include:
-          - components-ft-concept-button:
+          - component: components-ft-concept-button
             path: components/ft-concept-button
-          - components-g-audio:
+          - component: components-g-audio
             path: components/g-audio
-          - components-n-notification:
+          - component: components-n-notification
             path: components/n-notification
-          - components-o-audio:
+          - component: components-o-audio
             path: components/o-audio
-          - components-o-autocomplete:
+          - component: components-o-autocomplete
             path: components/o-autocomplete
-          - components-o-banner:
+          - component: components-o-banner
             path: components/o-banner
-          - components-o-big-number:
+          - component: components-o-big-number
             path: components/o-big-number
-          - components-o-buttons:
+          - component: components-o-buttons
             path: components/o-buttons
-          - components-o-colors:
+          - component: components-o-colors
             path: components/o-colors
-          - components-o-comments:
+          - component: components-o-comments
             path: components/o-comments
-          - components-o-cookie-message:
+          - component: components-o-cookie-message
             path: components/o-cookie-message
-          - components-o-date:
+          - component: components-o-date
             path: components/o-date
-          - components-o-editorial-layout:
+          - component: components-o-editorial-layout
             path: components/o-editorial-layout
-          - components-o-editorial-typography:
+          - component: components-o-editorial-typography
             path: components/o-editorial-typography
-          - components-o-expander:
+          - component: components-o-expander
             path: components/o-expander
-          - components-o-fonts:
+          - component: components-o-fonts
             path: components/o-fonts
-          - components-o-footer:
+          - component: components-o-footer
             path: components/o-footer
-          - components-o-footer-services:
+          - component: components-o-footer-services
             path: components/o-footer-services
-          - components-o-forms:
+          - component: components-o-forms
             path: components/o-forms
-          - components-o-ft-affiliate-ribbon:
+          - component: components-o-ft-affiliate-ribbon
             path: components/o-ft-affiliate-ribbon
-          - components-o-grid:
+          - component: components-o-grid
             path: components/o-grid
-          - components-o-header:
+          - component: components-o-header
             path: components/o-header
-          - components-o-header-services:
+          - component: components-o-header-services
             path: components/o-header-services
-          - components-o-icons:
+          - component: components-o-icons
             path: components/o-icons
-          - components-o-labels:
+          - component: components-o-labels
             path: components/o-labels
-          - components-o-layout:
+          - component: components-o-layout
             path: components/o-layout
-          - components-o-lazy-load:
+          - component: components-o-lazy-load
             path: components/o-lazy-load
-          - components-o-loading:
+          - component: components-o-loading
             path: components/o-loading
-          - components-o-message:
+          - component: components-o-message
             path: components/o-message
-          - components-o-meter:
+          - component: components-o-meter
             path: components/o-meter
-          - components-o-multi-select:
+          - component: components-o-multi-select
             path: components/o-multi-select
-          - components-o-normalise:
+          - component: components-o-normalise
             path: components/o-normalise
-          - components-o-overlay:
+          - component: components-o-overlay
             path: components/o-overlay
-          - components-o-quote:
+          - component: components-o-quote
             path: components/o-quote
-          - components-o-share:
+          - component: components-o-share
             path: components/o-share
-          - components-o-social-follow:
+          - component: components-o-social-follow
             path: components/o-social-follow
-          - components-o-spacing:
+          - component: components-o-spacing
             path: components/o-spacing
-          - components-o-stepped-progress:
+          - component: components-o-stepped-progress
             path: components/o-stepped-progress
-          - components-o-subs-card:
+          - component: components-o-subs-card
             path: components/o-subs-card
-          - components-o-syntax-highlight:
+          - component: components-o-syntax-highlight
             path: components/o-syntax-highlight
-          - components-o-table:
+          - component: components-o-table
             path: components/o-table
-          - components-o-tabs:
+          - component: components-o-tabs
             path: components/o-tabs
-          - components-o-teaser:
+          - component: components-o-teaser
             path: components/o-teaser
-          - components-o-teaser-collection:
+          - component: components-o-teaser-collection
             path: components/o-teaser-collection
-          - components-o-toggle:
+          - component: components-o-toggle
             path: components/o-toggle
-          - components-o-tooltip:
+          - component: components-o-tooltip
             path: components/o-tooltip
-          - components-o-top-banner:
+          - component: components-o-top-banner
             path: components/o-top-banner
-          - components-o-topper:
+          - component: components-o-topper
             path: components/o-topper
-          - components-o-typography:
+          - component: components-o-typography
             path: components/o-typography
-          - components-o-video:
+          - component: components-o-video
             path: components/o-video
-          - components-o-viewport:
+          - component: components-o-viewport
             path: components/o-viewport
-          - components-o-visual-effects:
+          - component: components-o-visual-effects
             path: components/o-visual-effects
-          - libraries-ftdomdelegate:
+          - component: libraries-ftdomdelegate
             path: libraries/ftdomdelegate
-          - libraries-math:
+          - component: libraries-math
             path: libraries/math
-          - libraries-o-autoinit:
+          - component: libraries-o-autoinit
             path: libraries/o-autoinit
-          - libraries-o-brand:
+          - component: libraries-o-brand
             path: libraries/o-brand
-          - libraries-o-errors:
+          - component: libraries-o-errors
             path: libraries/o-errors
-          - libraries-o-tracking:
+          - component: libraries-o-tracking
             path: libraries/o-tracking
-          - libraries-o-utils:
+          - component: libraries-o-utils
             path: libraries/o-utils
-          - libraries-sass-mq:
+          - component: libraries-sass-mq
             path: libraries/sass-mq
-          - presets-eslint-config-origami-component:
+          - component: presets-eslint-config-origami-component
             path: presets/eslint-config-origami-component
-          - presets-remark-preset-lint-origami-component:
+          - component: presets-remark-preset-lint-origami-component
             path: presets/remark-preset-lint-origami-component
-          - presets-stylelint-config-origami-component:
+          - component: presets-stylelint-config-origami-component
             path: presets/stylelint-config-origami-component
-          - tools-a11y:
+          - component: tools-a11y
             path: tools/a11y
-          - tools-create-component:
+          - component: tools-create-component
             path: tools/create-component
-          - tools-demo-build:
+          - component: tools-demo-build
             path: tools/demo-build
-          - tools-origami-bower-safe-version-supervisor:
+          - component: tools-origami-bower-safe-version-supervisor
             path: tools/origami-bower-safe-version-supervisor
-          - tools-origami-tools-helpers:
+          - component: tools-origami-tools-helpers
             path: tools/origami-tools-helpers
-          - tools-sass-compilation:
+          - component: tools-sass-compilation
             path: tools/sass-compilation
-          - tools-test-javascript:
+          - component: tools-test-javascript
             path: tools/test-javascript
-          - tools-test-sass:
+          - component: tools-test-sass
             path: tools/test-sass
-          - tools-validate-component-demo-html:
+          - component: tools-validate-component-demo-html
             path: tools/validate-component-demo-html
-          - tools-verify-origami-json:
+          - component: tools-verify-origami-json
             path: tools/verify-origami-json
-          - tools-verify-package-json:
+          - component: tools-verify-package-json
             path: tools/verify-package-json
-          - apps-storybook-addons-background:
+          - component: apps-storybook-addons-background
             path: apps/storybook/addons/background
-          - apps-storybook-addons-guidelines:
+          - component: apps-storybook-addons-guidelines
             path: apps/storybook/addons/guidelines
-          - apps-storybook-addons-html:
+          - component: apps-storybook-addons-html
             path: apps/storybook/addons/html
-          - apps-storybook-addons-markdown-tabs:
+          - component: apps-storybook-addons-markdown-tabs
             path: apps/storybook/addons/markdown-tabs
-          - apps-storybook:
+          - component: apps-storybook
             path: apps/storybook
-          - apps-website:
+          - component: apps-website
             path: apps/website
     steps:
       - uses: actions/checkout@v2
