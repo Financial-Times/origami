@@ -1,4 +1,5 @@
 ---
+layout: ../../../layouts/DocLayout.astro
 title: Contributing
 description: Guidelines on how Origami users can help us improve our components and services.
 cta: Learn how you can help
@@ -9,7 +10,7 @@ nav_label: Contributing
 nav_order: 30
 ---
 
-# {{ page.title }}
+# Contributing
 
 Since Origami is largely open source, we welcome contributions from all of our users. There are a number of ways that you can contribute, and we provide tooling and processes to help you do that.
 

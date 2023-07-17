@@ -1,0 +1,28 @@
+---
+import Header from "@/components/header/Header.astro"
+import Footer from "@/components/Footer.astro"
+---
+
+<script>
+	import oLayout from "@financial-times/o-layout/main"
+	oLayout.init(null)
+</script>
+
+<style lang="scss" is:global>
+	@import "@financial-times/o-layout/main";
+	@include oLayout();
+</style>
+
+<div class="o-layout o-layout--docs" data-o-component="o-layout">
+	<div class="o-layout__header">
+		<Header />
+	</div>
+
+	<div class="o-layout__sidebar"></div>
+	<div class="o-layout__main o-layout-typography">
+		<slot />
+	</div>
+	<div class="o-layout__footer">
+		<Footer />
+	</div>
+</div>

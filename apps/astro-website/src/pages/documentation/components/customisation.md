@@ -1,4 +1,5 @@
 ---
+layout: ../../../layouts/DocLayout.astro
 title: Component Customisation
 description: Decide if you should customise a component for your project, learn the ways a component may be customised, and avoid other approaches which may be unreliable.
 cta: Read more about how to customise components
@@ -13,7 +14,7 @@ nav_label: Customisation
 nav_order: 11
 ---
 
-# {{ page.title }}
+# Component Customisation
 
 Origami aims to improve design consistency and reduce the time teams spend repeating work. Providing component APIs for customisation helps achieve those aims by allowing components to be used across different contexts and different brands, and to provide flexibility for novel projects which may introduce a more unique style.
 
