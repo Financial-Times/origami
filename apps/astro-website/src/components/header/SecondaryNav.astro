@@ -1,4 +1,5 @@
 ---
+import {capitaliseFirstLetter} from "@/helpers/utils"
 import NavItem from "./NavItem.astro"
 
 const currentPage = Astro.url.pathname
@@ -42,12 +43,6 @@ function generateAncestors(paths) {
 		})
 	})
 	return urls
-}
-
-function capitaliseFirstLetter(string) {
-	const firstLetter = string.charAt(0).toUpperCase()
-	const remainingLetters = string.substring(1)
-	return firstLetter + remainingLetters
 }
 
 const renderSecondaryNav = ancestors.length > 0 && children.length > 0

@@ -12,6 +12,10 @@ Pages live in the [`pages` folder](src/pages). We store them in this folder to a
 
 Providing `index.astro` file in each directory also helps us to generate secondary navigations where needed. We automatically detect ancestor and children navigation items based on the directory structure and pathname of urls to generate breadcrumb navigation.
 
+### Styles
+
+For styling the site we are using [Origami build service](https://www.ft.com/__origami/service/build/v3/). Astro supports using SCSS out of the box but we had performance issues while hot reload updating on local development server. Using build service allows us to use bundled CSS for components, that has better performance and improves developer experience. All the bundled styles are loaded in the [Layout.astro](src/layouts/Layout.astro) file.
+
 ### Technical documentation pages
 
 The actual documentation for Origami lives in the [`pages/documentation`](src/pages/documentation/) folder and it includes [`components`](src/pages/documentation/components), [`services`](src/pages/documentation/services), [`principles`](src/pages/documentation/principles), and [`tutorials`](src/pages/documentation/tutorials) folders. This should contain an easier-to-digest version of the Origami specification as well as in depth guides on how to use Origami.
@@ -40,9 +44,8 @@ The process:
 
 1. Branch off `main` and create the required files. The format for the newsletter is strict, and you should probably copy an older newsletter to make sure it's correct. You need to create two files in this repo, replacing the date as appropriate (set to the expected published date):
 
-
-    - `_posts/YYYY-MM-DD-newsletter.md`: for the blog post on the website
-    - `_emails/newsletter-YYYY-MM.html`: for the email we distribute
+   - `_posts/YYYY-MM-DD-newsletter.md`: for the blog post on the website
+   - `_emails/newsletter-YYYY-MM.html`: for the email we distribute
 
 2. Write the newsletter. This is best done in the blog post, as this is standard Markdown. The email newsletter relies on some pretty gross Liquid templating to ensure that we avoid copy/paste errors in the HTML. Sorry. The email also has required front-matter: a `title` which becomes the subject of the email, and `companion_post_url` which is used to link to the blog post and should be the full URL. (when writing the newsletter, see the script `./scripts/project-board-summary.js` to help fill out the broader update section of the newsletter).
 
