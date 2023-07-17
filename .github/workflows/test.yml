@@ -357,6 +357,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - run: echo "${{ toJson(matrix) }}"
       - run: npm ci
       - run: npm run -w ${{ matrix.path }} lint --if-present
       - run: npm run -w ${{ matrix.path }} build --if-present
