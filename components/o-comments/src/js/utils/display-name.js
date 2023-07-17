@@ -13,7 +13,7 @@ const form = `<form id="o-comments-displayname-form" class="o-forms o-forms o-co
 			<span id="o-comments-displayname-error" class="o-forms-input__error o-comments__displayname-error" aria-live="assertive"></span>
 	</form>
 </form>`;
-// random comment to trigger tests
+
 const isUnique = (displayName) => {
 	const url = `https://comments-api.ft.com/displayname/isavailable/${encodeURIComponent(displayName)}`;
 

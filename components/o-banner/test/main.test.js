@@ -33,7 +33,7 @@ describe('main', () => {
 			proclaim.calledOnce(Banner.init);
 			proclaim.calledWithExactly(Banner.init);
 			proclaim.calledOnce(document.removeEventListener);
-			proclaim.calledWith(false, 'o.DOMContentLoaded');
+			proclaim.calledWith(document.removeEventListener, 'o.DOMContentLoaded');
 			done();
 		});
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
