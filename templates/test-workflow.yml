@@ -21,7 +21,7 @@ jobs:
       with:
         filters: |
         <%#projects%>
-          <%& workspaceFilename %>:
+          <%& workspace %>:
             - '<%& workspace %>/**'
         <%/projects%>
   test:
@@ -31,11 +31,6 @@ jobs:
     strategy:
       matrix:
         component: ${{ fromJson(needs.changes.outputs.components) }}
-        include:
-        <%#projects%>
-          - component: <%& workspaceFilename %>
-            path: <%& workspace %>
-        <%/projects%>
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v4
@@ -48,6 +43,6 @@ jobs:
             ${{ runner.os }}-node-
       - run: echo "${{ toJson(matrix) }}"
       - run: npm ci
-      - run: npm run -w ${{ matrix.path }} lint --if-present
-      - run: npm run -w ${{ matrix.path }} build --if-present
-      - run: npm run -w ${{ matrix.path }} test --if-present
+      - run: npm run -w ${{ matrix.component }} lint --if-present
+      - run: npm run -w ${{ matrix.component }} build --if-present
+      - run: npm run -w ${{ matrix.component }} test --if-present
