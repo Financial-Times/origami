@@ -53,6 +53,7 @@ jobs:
             fi
           done
           set -e
+          echo "Changes:";
           echo "$changes";
-          echo "CHANGES=$changes" >> $GITHUB_OUTPUT;
+          echo "CHANGES=$changes" >> "$GITHUB_OUTPUT";
 
