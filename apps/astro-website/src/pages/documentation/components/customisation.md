@@ -33,7 +33,7 @@ TL;DR:
 ## Check Customisation Is Appropriate
 
 The first step before customising an Origami component is to ask:
-1. Is there an existing style which could work already? After searching the [Origami Registry](https://registry.origami.ft.com/components) it's worth double checking in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel, to reduce duplicated effort and to help maintain a consistent user interface across FT Group projects.
+1. Is there an existing style which could work already? After searching the [Origami Registry](https://registry.origami.ft.com/components) it's worth double checking in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{contact.slack}}</a> Slack channel, to reduce duplicated effort and to help maintain a consistent user interface across FT Group projects.
 2. Would your customisation be useful for other teams/projects? Maybe a component should be updated for your usecase, so other teams benefit from your work. A new component might be more appropriate if your design diverges significantly.
 
 A good place to start is to ask for feedback in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel. The core Origami team, along with the design team, can help identify similar existing styles or help make any relevant component updates to support your usecase without customisation.
@@ -50,14 +50,24 @@ Origami maintained brands include:
 - whitelabel: Base, structural styles only to build on and customise.
 
 Taking `o-table` as an example, the "core" brand version offers a "row stripes" feature, which uses "core" brand colours such as "paper" and "wheat":
-{% include demo.html component="o-table" version="^9.1.1" demo="row-stripes" brand="core" height="242px" %}
+<iframe
+    title="The 'row-stripes' o-table demo for the core brand."
+	src="https://www.ft.com/__origami/service/build/v3/demo?component=o-table@^9.1.1&demo=row-stripes&brand=core&system_code=origami"
+    style="min-height: 242px;"
+></iframe>
 
 The "internal" brand version also supports "row stripes" but uses a different colour palette:
-{% include demo.html component="o-table" version="^9.1.1" demo="row-stripes" brand="internal" height="242px" %}
-
+<iframe
+    title="The 'row-stripes' o-table demo for the core brand."
+	src="https://www.ft.com/__origami/service/build/v3/demo?component=o-table@^9.1.1&demo=row-stripes&brand=internal&system_code=origami"
+    style="min-height: 242px;"
+></iframe>
 The "whitelabel" brand does not support "row stripes" and therefore outputs no styles to support that feature:
-{% include demo.html component="o-table" version="^9.1.1" demo="basic" brand="whitelabel" height="256px" %}
-
+<iframe
+    title="The 'basic' o-table demo for the core brand."
+	src="https://www.ft.com/__origami/service/build/v3/demo?component=o-table@^9.1.1&demo=basic&brand=whitelabel&system_code=origami"
+    style="min-height: 256px;"
+></iframe>
 _Note: The "core" brand used to be known as the "master" brand. You may find references to "master" instead of "core" in older projects._
 
 ### Choose A Brand
