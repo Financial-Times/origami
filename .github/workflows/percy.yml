@@ -139,4 +139,4 @@ jobs:
               - 'components/o-viewport/**'
             components/o-visual-effects:
               - 'components/o-visual-effects/**'
-      - run: echo '${{ steps.filter.outputs.changes }}'
+      - run: node ./scripts/should-percy-run.js '${{ steps.filter.outputs.changes }}'
