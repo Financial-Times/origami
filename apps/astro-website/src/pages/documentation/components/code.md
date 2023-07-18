@@ -1,4 +1,5 @@
 ---
+layout: ../../../layouts/DocLayout.astro
 title: Code Structure & Languages
 description: An overview of Origami component code structure, languages, and conventions.
 cta: Learn more about component code
@@ -9,7 +10,7 @@ nav_label: Code
 nav_order: 12
 ---
 
-# {{page.title}}
+# Code Structure & Languages
 
 The <a href="https://origami.ft.com/blog/2021/06/01/newsletter/#the-origami-specification-is-no-more">Origami component specification is now deprecated</a>. How Origami components are built is under active development and may change as Origami tooling and services are updated too. This is a non-normative reference for contributing to or creating new components.
 

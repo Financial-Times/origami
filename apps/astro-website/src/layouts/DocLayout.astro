@@ -1,0 +1,31 @@
+---
+import Header from "@/components/header/Header.astro"
+import Footer from "@/components/Footer.astro"
+import Head from "./Head.astro"
+---
+
+<Head />
+
+<script>
+	import oLayout from "@financial-times/o-layout/main"
+	import oSyntaxHighlight from "@financial-times/o-syntax-highlight/main"
+	oLayout.init(null)
+	oSyntaxHighlight.init(null)
+</script>
+
+<div class="o-layout o-layout--docs" data-o-component="o-layout">
+	<div class="o-layout__header">
+		<Header />
+	</div>
+
+	<div class="o-layout__sidebar"></div>
+	<div
+		class="o-layout__main o-layout-typography"
+		data-o-component="o-syntax-highlight"
+	>
+		<slot />
+	</div>
+	<div class="o-layout__footer">
+		<Footer />
+	</div>
+</div>
