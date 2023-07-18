@@ -40,4 +40,4 @@ jobs:
             <%& workspace %>:
               - '<%& workspace %>/**'
           <%/projects%>
-      - run: echo '${{ steps.filter.outputs.changes }}'
+      - run: node ./scripts/should-percy-run.js '${{ steps.filter.outputs.changes }}'
