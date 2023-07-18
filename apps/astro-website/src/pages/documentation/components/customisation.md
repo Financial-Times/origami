@@ -35,7 +35,7 @@ TL;DR:
 ## Check Customisation Is Appropriate
 
 The first step before customising an Origami component is to ask:
-1. Is there an existing style which could work already? After searching the [Origami Registry](https://registry.origami.ft.com/components) it's worth double checking in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{contact.slack}}</a> Slack channel, to reduce duplicated effort and to help maintain a consistent user interface across FT Group projects.
+1. Is there an existing style which could work already? After searching the [Origami Registry](https://registry.origami.ft.com/components) it's worth double checking in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel, to reduce duplicated effort and to help maintain a consistent user interface across FT Group projects.
 2. Would your customisation be useful for other teams/projects? Maybe a component should be updated for your usecase, so other teams benefit from your work. A new component might be more appropriate if your design diverges significantly.
 
 A good place to start is to ask for feedback in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel. The core Origami team, along with the design team, can help identify similar existing styles or help make any relevant component updates to support your usecase without customisation.
@@ -64,12 +64,14 @@ The "internal" brand version also supports "row stripes" but uses a different co
 	src="https://www.ft.com/__origami/service/build/v3/demo?component=o-table@^9.1.1&demo=row-stripes&brand=internal&system_code=origami"
     style="min-height: 242px;"
 ></iframe>
+
 The "whitelabel" brand does not support "row stripes" and therefore outputs no styles to support that feature:
 <iframe
     title="The 'basic' o-table demo for the core brand."
 	src="https://www.ft.com/__origami/service/build/v3/demo?component=o-table@^9.1.1&demo=basic&brand=whitelabel&system_code=origami"
     style="min-height: 256px;"
 ></iframe>
+
 _Note: The "core" brand used to be known as the "master" brand. You may find references to "master" instead of "core" in older projects._
 
 ### Choose A Brand
@@ -109,13 +111,12 @@ $o-brand: 'whitelabel';
 ));
 </code></pre>
 
-
+<img alt="" src="../../src/assets/images/component-customisation/whitelabel-customisation.png" />
 <figure>
-	<img alt="" src="/assets/images/component-customisation/whitelabel-customisation.png" />
 	<figcaption>
         An example project which builds on the whitelabel brand. The font has been customised with `o-typography` Sass (oooh! Comic Sans). It affects all components which use `o-typography`, including the other components on the page, `o-table` and `o-header-services`. `o-header-services` has also been customised using Sass to have a unique highlight colour (oooh! hotpink!)
 	</figcaption>
-</figure>
+  </figure>
 
 This is great to create a distinct brand, where a customisation should affect all instances of a component across a project.
 
@@ -137,7 +138,7 @@ For instance, at the time of writing, the `o-banner` component has an [`oBannerA
 <aside>If your project is using the <a href="/documentation/tutorials/build-service/">Origami Build Service</a>, you do not have access to the component's Sass API, as such it is not currently possible to create custom component variants. It may be possible in the future using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">Custom CSS Properties (CSS Variables)</a>, when projects no longer support older browsers such as Internet Explorer.</aside>
 
 <figure>
-	<img alt="" src="/assets/images/component-customisation/pikachu-banner.png" />
+	<img alt="" src="../../src/assets/images/component-customisation/pikachu-banner.png" />
 	<figcaption>
         A custom banner variant featuring a Pikachu background (this is a fun example but a bad one because Pikachu's ear obscures some text).
 	</figcaption>
