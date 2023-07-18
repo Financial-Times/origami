@@ -44,10 +44,11 @@ jobs:
       - run: |
           changes=()
           for component in components/*/; do
-            WORKSPACE=components/$component/ node ./scripts/percy.js
+            WORKSPACE=components/$component/ node ./scripts/should-percy-run.js
             if [[ $? -eq 0 ]]; then
               changes+=("$component")
             fi
           done
+          echo "$changes";
           echo "CHANGES=$changes" >> $GITHUB_OUTPUT;
 
