@@ -46,12 +46,14 @@ jobs:
           git fetch
           git branch
           changes=()
+          set +e
           for component in components/*/; do
             WORKSPACE=$component node ./scripts/should-percy-run.js
             if [[ $? -eq 0 ]]; then
               changes+=("$component")
             fi
           done
+          set -e
           echo "$changes";
           echo "CHANGES=$changes" >> $GITHUB_OUTPUT;
 
