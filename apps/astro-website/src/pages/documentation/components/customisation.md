@@ -111,7 +111,7 @@ $o-brand: 'whitelabel';
 ));
 </code></pre>
 
-<img alt="" src="../../src/assets/images/component-customisation/whitelabel-customisation.png" />
+<img alt="" src="../../public/assets/images/component-customisation/whitelabel-customisation.png" />
 <figure>
 	<figcaption>
         An example project which builds on the whitelabel brand. The font has been customised with `o-typography` Sass (oooh! Comic Sans). It affects all components which use `o-typography`, including the other components on the page, `o-table` and `o-header-services`. `o-header-services` has also been customised using Sass to have a unique highlight colour (oooh! hotpink!)
@@ -138,7 +138,7 @@ For instance, at the time of writing, the `o-banner` component has an [`oBannerA
 <aside>If your project is using the <a href="/documentation/tutorials/build-service/">Origami Build Service</a>, you do not have access to the component's Sass API, as such it is not currently possible to create custom component variants. It may be possible in the future using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">Custom CSS Properties (CSS Variables)</a>, when projects no longer support older browsers such as Internet Explorer.</aside>
 
 <figure>
-	<img alt="" src="../../src/assets/images/component-customisation/pikachu-banner.png" />
+	<img alt="" src="../../public/assets/images/component-customisation/pikachu-banner.png" />
 	<figcaption>
         A custom banner variant featuring a Pikachu background (this is a fun example but a bad one because Pikachu's ear obscures some text).
 	</figcaption>

@@ -1,11 +1,20 @@
 ---
-import Layout from "@/layouts/Layout.astro"
-
+import Doclayout from "@/layouts/Doclayout.astro"
 const title="Origami Components"
+const discription=""
+const componentsDocs=  await Astro.glob(
+	"@/pages/documentation/components/components.md"
+)
+console.log(componentsDocs[0])
 ---
 
-<Layout>
-	
-	<h1>{title}</h1>
-	
-</Layout>
+<Doclayout>
+		<div class="o-layout__main o-layout-typography data-o-component="o-syntax-highlight>
+		<h1 id="origami-components" class="o-layout__linked-heading">
+			<a href="#origami-components" title="Link directly to this section of the page" class="o-layout__linked-heading__link">
+			<span class="o-layout__linked-heading__content">Origami Components</span>
+			<span class="o-layout__linked-heading__label">#</span>
+			</a>
+		</h1>
+	</div>
+</Doclayout>
