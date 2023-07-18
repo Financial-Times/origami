@@ -25,6 +25,8 @@ This document aims to help you decide if you should customise a component for yo
 TL;DR:
 </strong>
 </abbr>
+
+
 - Double check customisation is appropriate. Reusing an existing pattern or updating a component to support and share your usecase is preferable.
 - Specify a brand which suits your type of project.
 - Customise component's using their Sass API.
