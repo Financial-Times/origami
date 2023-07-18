@@ -7,8 +7,6 @@ tags:
   - Newsletter
 ---
 
-**TL;DR:** This issue features improvements to the image service, a new table filtering feature, and two new browser polyfills.
-
 ## Top three things
 
 These are some of the bigger things we've worked on or released over the last month.

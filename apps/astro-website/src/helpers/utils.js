@@ -26,3 +26,9 @@ export function formatDateString(date) {
 	const day = newDate.getDate()
 	return `${day} ${month} ${year}`
 }
+
+export function convertToSlug(Text) {
+	return Text.toLowerCase()
+		.replace(/ /g, "-")
+		.replace(/[^\w-]+/g, "")
+}

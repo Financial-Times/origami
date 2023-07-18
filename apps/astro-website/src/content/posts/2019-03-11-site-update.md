@@ -3,9 +3,8 @@ title: Origami Site Update
 description: We re-launched the Origami website and Origami component registry.
 publishDate: 2019-03-11
 author: Lee Moody
+tldr: We re-launched the [Origami website](/) and [Origami component registry](https://registry.origami.ft.com/components) with a unified design; overhauled documentation; refined specifications; and a new site structure to bring it all together.
 ---
-
-**TL;DR:** We re-launched the [Origami website](/) and [Origami component registry](https://registry.origami.ft.com/components) with a unified design; overhauled documentation; refined specifications; and a new site structure to bring it all together.
 
 ## Motivation &amp; Goals
 

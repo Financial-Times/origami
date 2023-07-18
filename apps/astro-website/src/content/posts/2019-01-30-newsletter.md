@@ -5,12 +5,10 @@ author: Rowan Manning
 publishDate: 2019-01-30
 tags:
   - Newsletter
+tldr: This issue features a new component named o-stepped-progress, for tracking user progress through a multi-step process; a new beta for o-header-services, including new features and a lot of code improvements; and the release of the Polyfill Service v3, which is faster and more maintainable than ever before.
 ---
 
 _Welcome to the first issue of the Origami Newsletter! We'll be sending out an email like this at the end of each month, keeping people in Product and Technology up-to-date with what we're working on._
-
-**TL;DR:** This issue features a new component named o-stepped-progress, for tracking user progress through a multi-step process; a new beta for o-header-services, including new features and a lot of code improvements; and the release of the Polyfill Service v3, which is faster and more maintainable than ever before.
-
 
 ## Top three things
 

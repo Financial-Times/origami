@@ -28,9 +28,7 @@ The formal Origami specification lives in the [`_specification-v1` folder](_spec
 
 ### Blog posts
 
-[TODO]
-
-Blog posts live in the [`_posts` folder](_posts) and the file names are prefixed with the post date. Posts can include an `author` frontmatter value to signify who wrote the post, and an array of `tags` which are displayed alongside the post. The `description` frontmatter is particularly important for blog posts as it is displayed as a preview on the blog listing.
+Blog posts live in the [`posts` folder](src/content/posts) and the file names are prefixed with the post date. Posts can include an `author` frontmatter value to signify who wrote the post, and an array of `tags` which are displayed alongside the post. The `description` frontmatter is particularly important for blog posts as it is displayed as a preview on the blog listing. The `publishDate` frontmatter for a date that newsletter was published. And `tldr` frontmatter is used to display a summary of the post before the main content. If it is omitted the description will be used instead.
 
 Newsletter blog posts must have an accompanying email, this is outlined in the section ["Authoring and sending a newsletter"](#authoring-and-sending-a-newsletter).
 
@@ -44,8 +42,8 @@ The process:
 
 1. Branch off `main` and create the required files. The format for the newsletter is strict, and you should probably copy an older newsletter to make sure it's correct. You need to create two files in this repo, replacing the date as appropriate (set to the expected published date):
 
-   - `_posts/YYYY-MM-DD-newsletter.md`: for the blog post on the website
-   - `_emails/newsletter-YYYY-MM.html`: for the email we distribute
+   - `src/content/posts/YYYY-MM-DD-newsletter.md`: for the blog post on the website
+   - `src/content/emails/newsletter-YYYY-MM.html`: for the email we distribute
 
 2. Write the newsletter. This is best done in the blog post, as this is standard Markdown. The email newsletter relies on some pretty gross Liquid templating to ensure that we avoid copy/paste errors in the HTML. Sorry. The email also has required front-matter: a `title` which becomes the subject of the email, and `companion_post_url` which is used to link to the blog post and should be the full URL. (when writing the newsletter, see the script `./scripts/project-board-summary.js` to help fill out the broader update section of the newsletter).
 

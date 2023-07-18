@@ -3,13 +3,8 @@ title: Updated Focus Styles
 description: We've released new focus styles to improve the accessibility of FT Group products which use Origami.
 author: Lee Moody
 publishDate: 2022-12-14
+tldr: We've released new focus styles to improve the accessibility of FT Group products which use Origami. These changes will roll out gradually as teams [pull in the latest Origami component releases](#upgrade-your-project). We're treating this as a minor release and there should be no code changes required to upgrade. However, this is a broad, global change and we encourage teams to [test focus states](#upgrade-your-project) within their projects – the Origami team are here to help if you have any questions, or spot any issues.
 ---
-
-<abbr title="Too long; didn't read">
-<strong>
-TL;DR:
-</strong>
-</abbr> We've released new focus styles to improve the accessibility of FT Group products which use Origami. These changes will roll out gradually as teams [pull in the latest Origami component releases](#upgrade-your-project). We're treating this as a minor release and there should be no code changes required to upgrade. However, this is a broad, global change and we encourage teams to [test focus states](#upgrade-your-project) within their projects – the Origami team are here to help if you have any questions, or spot any issues.
 
 ## What are focus styles?
 
