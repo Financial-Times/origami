@@ -55,7 +55,7 @@ jobs:
           done
           set -e
           echo "Changes:";
-          echo "$changes";
-          jq . <<< "$changes";
-          echo "CHANGES=$changes" >> "$GITHUB_OUTPUT";
+          json_array=$(echo "${!directories_to_add[@]}" | jq -R . | jq -s .)
+          echo "$json_array";
+          echo "CHANGES=$json_array" >> "$GITHUB_OUTPUT";
 
