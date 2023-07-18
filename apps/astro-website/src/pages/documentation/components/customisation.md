@@ -1,4 +1,5 @@
 ---
+layout: ../../../layouts/DocLayout.astro
 title: Component Customisation
 description: Decide if you should customise a component for your project, learn the ways a component may be customised, and avoid other approaches which may be unreliable.
 cta: Read more about how to customise components
@@ -13,7 +14,7 @@ nav_label: Customisation
 nav_order: 11
 ---
 
-# {{ page.title }}
+# Component Customisation
 
 Origami aims to improve design consistency and reduce the time teams spend repeating work. Providing component APIs for customisation helps achieve those aims by allowing components to be used across different contexts and different brands, and to provide flexibility for novel projects which may introduce a more unique style.
 
@@ -24,6 +25,8 @@ This document aims to help you decide if you should customise a component for yo
 TL;DR:
 </strong>
 </abbr>
+
+
 - Double check customisation is appropriate. Reusing an existing pattern or updating a component to support and share your usecase is preferable.
 - Specify a brand which suits your type of project.
 - Customise component's using their Sass API.
@@ -49,13 +52,25 @@ Origami maintained brands include:
 - whitelabel: Base, structural styles only to build on and customise.
 
 Taking `o-table` as an example, the "core" brand version offers a "row stripes" feature, which uses "core" brand colours such as "paper" and "wheat":
-{% include demo.html component="o-table" version="^9.1.1" demo="row-stripes" brand="core" height="242px" %}
+<iframe
+    title="The 'row-stripes' o-table demo for the core brand."
+	src="https://www.ft.com/__origami/service/build/v3/demo?component=o-table@^9.1.1&demo=row-stripes&brand=core&system_code=origami"
+    style="min-height: 242px;"
+></iframe>
 
 The "internal" brand version also supports "row stripes" but uses a different colour palette:
-{% include demo.html component="o-table" version="^9.1.1" demo="row-stripes" brand="internal" height="242px" %}
+<iframe
+    title="The 'row-stripes' o-table demo for the core brand."
+	src="https://www.ft.com/__origami/service/build/v3/demo?component=o-table@^9.1.1&demo=row-stripes&brand=internal&system_code=origami"
+    style="min-height: 242px;"
+></iframe>
 
 The "whitelabel" brand does not support "row stripes" and therefore outputs no styles to support that feature:
-{% include demo.html component="o-table" version="^9.1.1" demo="basic" brand="whitelabel" height="256px" %}
+<iframe
+    title="The 'basic' o-table demo for the core brand."
+	src="https://www.ft.com/__origami/service/build/v3/demo?component=o-table@^9.1.1&demo=basic&brand=whitelabel&system_code=origami"
+    style="min-height: 256px;"
+></iframe>
 
 _Note: The "core" brand used to be known as the "master" brand. You may find references to "master" instead of "core" in older projects._
 
@@ -96,13 +111,12 @@ $o-brand: 'whitelabel';
 ));
 </code></pre>
 
-
+<img alt="" src="../../public/assets/images/component-customisation/whitelabel-customisation.png" />
 <figure>
-	<img alt="" src="/assets/images/component-customisation/whitelabel-customisation.png" />
 	<figcaption>
         An example project which builds on the whitelabel brand. The font has been customised with `o-typography` Sass (oooh! Comic Sans). It affects all components which use `o-typography`, including the other components on the page, `o-table` and `o-header-services`. `o-header-services` has also been customised using Sass to have a unique highlight colour (oooh! hotpink!)
 	</figcaption>
-</figure>
+  </figure>
 
 This is great to create a distinct brand, where a customisation should affect all instances of a component across a project.
 
@@ -124,7 +138,7 @@ For instance, at the time of writing, the `o-banner` component has an [`oBannerA
 <aside>If your project is using the <a href="/documentation/tutorials/build-service/">Origami Build Service</a>, you do not have access to the component's Sass API, as such it is not currently possible to create custom component variants. It may be possible in the future using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">Custom CSS Properties (CSS Variables)</a>, when projects no longer support older browsers such as Internet Explorer.</aside>
 
 <figure>
-	<img alt="" src="/assets/images/component-customisation/pikachu-banner.png" />
+	<img alt="" src="../../public/assets/images/component-customisation/pikachu-banner.png" />
 	<figcaption>
         A custom banner variant featuring a Pikachu background (this is a fun example but a bad one because Pikachu's ear obscures some text).
 	</figcaption>

@@ -1,4 +1,5 @@
 ---
+layout: ../../../layouts/DocLayout.astro
 title: Including Components In Your Project
 description: How you choose to include Origami components in your project will depend on your projects' requirements. There are two options, the Origami Build Service or the npm package manager.
 cta: Get started using Origami components in your project.
@@ -14,7 +15,7 @@ nav_label: Getting Started
 nav_order: 10
 ---
 
-# {{ page.title }}
+# Including Components In Your Project
 
 How you choose to include Origami components in your project will depend on your projects' requirements:
 

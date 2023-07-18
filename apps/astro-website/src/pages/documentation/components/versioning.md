@@ -1,4 +1,5 @@
 ---
+layout: ../../../layouts/DocLayout.astro
 title: Component versioning
 description: An explanation of how Origami components are versioned, how to request different versions and resolve conflicts.
 cta: Read more about component versioning
@@ -13,7 +14,7 @@ nav_label: Versioning
 nav_order: 20
 ---
 
-# {{ page.title }}
+# Component versioning
 
 The Origami team maintains and improves the components regularly. This means that we release new versions of the components frequently, and a component's new version numbers follow the <abbr title="Semantic Versioning">semver</abbr> specification.
 
