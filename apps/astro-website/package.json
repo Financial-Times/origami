@@ -15,6 +15,8 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
+		"email-generate": ".src/helpers/email-newsletter.js",
+		"email-generate-and-send": "./src/helpers/email-newsletter.js --send",
 		"astro": "astro"
 	},
 	"dependencies": {
