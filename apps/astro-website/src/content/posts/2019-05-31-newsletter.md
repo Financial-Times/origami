@@ -7,8 +7,6 @@ tags:
   - Newsletter
 ---
 
-**TL;DR:** This issue features a new and improved version of o-forms, a new component o-spacing, and fancy new features to our colour contrast checker.
-
 ## Top three things
 
 These are some of the bigger things we've worked on or released over the last month.

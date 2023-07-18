@@ -7,11 +7,7 @@ tags:
   - Newsletter
 ---
 
-<abbr title="Too long; didn't read">
-	<strong>
-	TL;DR:
-	</strong>
-</abbr> {{page.description}}
+
 
 ## Top three things
 

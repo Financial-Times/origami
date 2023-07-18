@@ -1,6 +1,8 @@
 ---
-import DocLayout from "@/layouts/DocLayout.astro"
 import {getCollection} from "astro:content"
+import DocLayout from "@/layouts/DocLayout.astro"
+
+import {convertToSlug, formatDateString} from "@/helpers/utils"
 
 export async function getStaticPaths() {
 	const postEntries = await getCollection("posts")
@@ -12,9 +14,42 @@ export async function getStaticPaths() {
 
 const {entry} = Astro.props
 const {Content} = await entry.render()
+const slugifiedName = convertToSlug(entry.data.title)
+const formatedDateString = formatDateString(entry.data.publishDate)
+const tags = entry.data.tags.length > 0 && entry.data.tags.join(",")
+
 ---
 
 <DocLayout>
-	<h1>{entry.data.title}</h1>
+	<h1 id={slugifiedName} class="o-layout__linked-heading">
+		<a
+			href={`#${slugifiedName}`}
+			title="Link directly to this section of the page"
+			class="o-layout__linked-heading__link"
+		>
+			<span class="o-layout__linked-heading__content">{entry.data.title}</span>
+			<span class="o-layout__linked-heading__label">#</span>
+		</a>
+	</h1>
+	<p>
+		Posted on <time datetime={entry.data.datePublished}
+			>{formatedDateString}</time
+		>
+		by {entry.data.author}.
+		{
+			tags && (
+				<>
+					<br />
+					Tagged with <span>{tags}</span>
+				</>
+			)
+		}
+	</p>
+	{}
+	<p>
+		<abbr title="Too long; didn't read">
+			<strong>TL;DR: </strong>
+		</abbr>{entry.data.tldr || entry.data.description}
+	</p>
 	<Content />
 </DocLayout>
