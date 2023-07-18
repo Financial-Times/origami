@@ -44,7 +44,7 @@ jobs:
       - run: |
           changes=()
           for component in components/*/; do
-            WORKSPACE=components/$component/ node ./scripts/should-percy-run.js
+            WORKSPACE=$component node ./scripts/should-percy-run.js
             if [[ $? -eq 0 ]]; then
               changes+=("$component")
             fi
