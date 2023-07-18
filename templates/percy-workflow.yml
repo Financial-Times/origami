@@ -25,26 +25,19 @@ on:
       - "!components/**/*.md"
 
 jobs:
-  <%#projects%>
-  percy-<%& workspaceFilename %>:
-    if: ${{ github.ref == 'refs/heads/main' || github.event.label.name == 'percy' }}
+  changes:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      components: ${{ steps.filter.outputs.changes }}
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: node ./scripts/percy.js
-      env:
-        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_<% percyTokenName %> }}
-        WORKSPACE: <%& workspace %>
-  <%/projects%>
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+          <%#projects%>
+            <%& workspace %>:
+              - '<%& workspace %>/**'
+          <%/projects%>
+      - run: echo '${{ steps.filter.outputs.changes }}'
