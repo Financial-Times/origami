@@ -16,7 +16,8 @@ const {entry} = Astro.props
 const {Content} = await entry.render()
 const slugifiedName = convertToSlug(entry.data.title)
 const formatedDateString = formatDateString(entry.data.publishDate)
-const tags = entry.data.tags.length > 0 && entry.data.tags.join(",")
+const tags = entry.data?.tags?.length > 0 && entry.data.tags.join(",")
+const hasCharts = entry.data.hasCharts
 
 ---
 
@@ -48,8 +49,22 @@ const tags = entry.data.tags.length > 0 && entry.data.tags.join(",")
 	{}
 	<p>
 		<abbr title="Too long; didn't read">
-			<strong>TL;DR: </strong>
+			<strong>TL;DR:</strong>
 		</abbr>{entry.data.tldr || entry.data.description}
 	</p>
 	<Content />
 </DocLayout>
+
+{
+	hasCharts && (
+		<>
+			<script
+				src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"
+				integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI="
+				crossorigin="anonymous"
+				defer
+			/>
+			<script src="/assets/charts.js" defer />
+		</>
+	)
+}
