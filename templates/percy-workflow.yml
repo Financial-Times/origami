@@ -43,6 +43,7 @@ jobs:
             ${{ runner.os }}-node-
       - run: npm ci
       - run: |
+          git fetch
           git branch
           changes=()
           for component in components/*/; do
