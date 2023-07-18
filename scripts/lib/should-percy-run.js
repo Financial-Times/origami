@@ -5,6 +5,8 @@ import {join} from "node:path";
 import {readPackage} from "read-pkg";
 import * as workspaces from "./workspaces.js";
 
+const isPullRequest = context.payload.pull_request
+
 export async function shouldPercyRun(dirname, workspace) {
 	const isDefaultBranch = context.ref.endsWith("/main")
 	const isChoreRelease = isPullRequest && context.payload.pull_request.title == 'chore: release main'
@@ -91,3 +93,10 @@ export async function shouldPercyRun(dirname, workspace) {
 		return false;
 	}
 }
+
+function changedFileEffectsPercy(files) {
+	// any file under components that ends with .js or .scss extension
+	const regex = /components.*((\.js)|(\.scss)|(\.moustache)|(\.json))/gm
+	return files.find(file => regex.test(file))
+}
+
