@@ -32,12 +32,23 @@ jobs:
     outputs:
       components: ${{ steps.filter.outputs.changes }}
     steps:
-      - uses: dorny/paths-filter@v2
-        id: filter
+      - uses: actions/checkout@v2
+      - uses: volta-cli/action@v4
+      - uses: actions/cache@v2
         with:
-          filters: |
-          <%#projects%>
-            <%& workspace %>:
-              - '<%& workspace %>/**'
-          <%/projects%>
-      - run: node ./scripts/should-percy-run.js '${{ steps.filter.outputs.changes }}'
+          volta-version: "1.0.8"
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      - run: |
+          changes=()
+          for component in components/*/; do
+            WORKSPACE=components/$component/ node ./scripts/percy.js
+            if [[ $? -eq 0 ]]; then
+              changes+=("$component")
+            fi
+          done
+          echo "CHANGES=$changes" >> $GITHUB_OUTPUT;
+
