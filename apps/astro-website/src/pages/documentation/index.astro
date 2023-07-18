@@ -28,7 +28,7 @@ const tutorialDocuments = await Astro.glob(
 )
 ---
 
-<Layout>
+<Layout title={title} description={description}>
 	<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
 		<h1>{title}</h1>
 		<p>

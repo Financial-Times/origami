@@ -1,7 +1,106 @@
+---
+const {title, description} = Astro.props
+const namePath = Astro.url.pathname
+---
+
 <head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>{title}</title>
+	<meta name="description" content={description} />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard =
+			"querySelector" in document &&
+			"localStorage" in window &&
+			"addEventListener" in window
+		if (cutsTheMustard) {
+			document.documentElement.className =
+				document.documentElement.className.replace(/\bcore\b/g, "enhanced")
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link
+		rel="icon"
+		type="image/svg+xml"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg"
+		sizes="any"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png"
+		sizes="16x16"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png"
+		sizes="32x32"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png"
+		sizes="96x96"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png"
+		sizes="128x128"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png"
+		sizes="196x196"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png"
+		sizes="310x310"
+	/>
+
+	<!-- Site links -->
+	<link
+		rel="sitemap"
+		type="application/xml"
+		href="/sitemap.xml"
+		title="Sitemap"
+	/>
+	<link rel="canonical" href={`https://origami.ft.com${namePath}`} />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector("html")
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ["sans", "sans-bold", "display", "display-bold"]
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace(
+					"o-typography--loading-" + fontLabels[i],
+					""
+				)
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
 	<link
 		rel="stylesheet"
 		href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-syntax-highlight@^4.2.4,o-layout@^5.3.2,o-fonts@^5.3.4,o-normalise@^3.3.1,o-header-services@^5.3.4,o-footer-services@^4.2.6&brand=internal&system_code=origami-website"
 	/>
-</head>
 
+</head>
