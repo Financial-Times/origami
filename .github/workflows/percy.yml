@@ -61,9 +61,9 @@ jobs:
       - name: Set Matrix
         id: set-matrix
         run: |
-          CHANGES_AS_JSON_ARRAY=$(echo '${{ steps.percy-changes.outputs.changes }}'  | jq 'map({component: .})')
-          MATRIX=$(echo "{}" | jq --argjson changes "${CHANGES_AS_JSON_ARRAY}" '. + {include: $changes}' | tr '\n' ' ')
-          echo "CHANGES=$MATRIX" >> "$GITHUB_OUTPUT";
+          CHANGES_AS_JSON_ARRAY=$(echo '${{ steps.percy-changes.outputs.changes }}'  | jq 'map({component: .})' | tr '\n' ' ')
+          MATRIX=$(echo "{}" | jq --argjson changes "${CHANGES_AS_JSON_ARRAY}" '. + {include: $changes}' )
+          echo "CHANGES=$(echo "$CHANGES_AS_JSON_ARRAY")" >> "$GITHUB_OUTPUT";
   run-percy:
       if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
       needs: changes
