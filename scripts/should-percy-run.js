@@ -10,7 +10,7 @@ const workspace = "./" + process.env.WORKSPACE
 try {
 	const run = await shouldPercyRun(__dirname, workspace);
 	console.log(workspace, '\nResult:', run, '/n');
-	run ? process.exit(): process.exit(8);
+	run ? console.log('-RESULT:true') : console.log('-RESULT:false');
 } catch (error) {
 	console.log(error);
 	core.setFailed(error.message)
