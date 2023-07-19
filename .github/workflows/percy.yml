@@ -29,7 +29,7 @@ jobs:
     permissions:
       pull-requests: read
     outputs:
-      components: ${{ steps.filter.outputs.changes }}
+      components: ${{ steps.percy-changes.outputs.changes }}
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v4
@@ -41,7 +41,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm ci
-      - run: |
+      - name: Find components affected by changes
+        id: percy-changes
+        run: |
           git fetch
           git branch
           changes=()
@@ -57,3 +59,15 @@ jobs:
           echo "$json_array";
           echo "CHANGES=$(echo ${json_array})'" >> "$GITHUB_OUTPUT";
 
+
+  run-percy:
+      if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
+      needs: changes
+      runs-on: ubuntu-latest
+      strategy:
+        fail-fast: false
+        matrix:
+          component: ${{ fromJson(needs.changes.outputs.components) }}
+      steps:
+        - run: |
+            echo "Running percy for ${{ matrix.component }}"
