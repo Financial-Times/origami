@@ -16,7 +16,6 @@ on:
       - "components/**"
       - "!components/**/*.md"
   push:
-    branches: main
     paths:
       - "package.json"
       - "package-lock.json"
