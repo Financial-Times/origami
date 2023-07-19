@@ -15,11 +15,12 @@ const documentsCollection = defineCollection({
 	type: "content",
 	schema: z.object({
 		title: z.string(),
-		description: z.string(),
-		cta: z.string(),
-		nav_display: z.boolean(),
-		nav_label: z.string(),
-		nav_order: z.number(),
+		description: z.string().optional(),
+		cta: z.string().optional(),
+		nav_display: z.boolean().optional(),
+		nav_label: z.string().optional(),
+		nav_order: z.number().optional(),
+		collection_listing_display: z.boolean().optional(),
 	}),
 })
 
