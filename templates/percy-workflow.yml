@@ -56,5 +56,5 @@ jobs:
           echo "Changes:";
           json_array=$(echo "${changes[@]}" | jq -R . | jq -s .)
           echo "$json_array";
-          echo "CHANGES=$json_array" >> "$GITHUB_OUTPUT";
+          echo "CHANGES=$(echo ${json_array})'" >> "$GITHUB_OUTPUT";
 
