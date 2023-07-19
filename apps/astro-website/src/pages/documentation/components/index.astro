@@ -1,14 +1,13 @@
 ---
-import Doclayout from "@/layouts/Doclayout.astro"
+import DocLayout from "@/layouts/DocLayout.astro"
 const title="Origami Components"
 const discription=""
 const componentsDocs=  await Astro.glob(
 	"@/pages/documentation/components/components.md"
 )
-console.log(componentsDocs[0])
 ---
 
-<Doclayout>
+<DocLayout>
 		<div class="o-layout__main o-layout-typography data-o-component="o-syntax-highlight>
 		<h1 id="origami-components" class="o-layout__linked-heading">
 			<a href="#origami-components" title="Link directly to this section of the page" class="o-layout__linked-heading__link">
@@ -17,4 +16,4 @@ console.log(componentsDocs[0])
 			</a>
 		</h1>
 	</div>
-</Doclayout>
+</DocLayout>

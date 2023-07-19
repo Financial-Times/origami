@@ -7,7 +7,7 @@ export async function getStaticPaths() {
 		id.startsWith("principles/")
 	)
 	return entries.map(entry => ({
-		params: {slug: entry.slug},
+		params: {slug: entry.slug.split("/")[1]},
 		props: {entry},
 	}))
 }
@@ -16,6 +16,6 @@ const {Content} = await entry.render()
 ---
 
 <DocLayout>
-	<h1>{entry.data.title}</h1>
+	<h1 id={entry.data.title}>{entry.data.title}</h1>
 	<Content />
 </DocLayout>
