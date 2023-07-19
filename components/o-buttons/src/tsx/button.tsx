@@ -3,7 +3,7 @@ export interface ButtonProps {
 	type: "primary" | "secondary" | "ghost";
 	size?: "big" | "";
 	theme?: "inverse" | "mono" | "professional" | "professional-inverse";
-	icon?://new feature wow
+	icon?:
 		| "arrow-left"
 		| "arrow-right"
 		| "upload"
