@@ -64,7 +64,7 @@ jobs:
         run: |
           CHANGES_AS_JSON_ARRAY=$(echo '${{ steps.percy-changes.outputs.changes }}'  | jq 'map({component: .})')
           MATRIX=$(echo "{}" | jq --argjson changes "${CHANGES_AS_JSON_ARRAY}" '. + {include: $changes}')
-          echo "CHANGES=$MATRIX" >> "$GITHUB_OUTPUT";
+          echo "CHANGES='$MATRIX'" >> "$GITHUB_OUTPUT";
   run-percy:
       if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
       needs: changes
