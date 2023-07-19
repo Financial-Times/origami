@@ -56,7 +56,7 @@ jobs:
             fi
           done
           echo "Changes:";
-          json_array=$(jq -ncR '[inputs]' <<< $changes);
+          json_array=$(jo -a ${changes[@]};
           echo "$json_array";
           echo "CHANGES=$(echo ${json_array})" >> "$GITHUB_OUTPUT";
       - name: Set Matrix
