@@ -30,7 +30,7 @@ jobs:
     permissions:
       pull-requests: read
     outputs:
-      components: ${{ steps.percy-changes.outputs.changes }}
+      components: ${{ steps.set-matrix.outputs.changes }}
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v4
@@ -59,8 +59,12 @@ jobs:
           json_array=$(echo "${changes[@]}" | jq -R . | jq -s .)
           echo "$json_array";
           echo "CHANGES=$(echo ${json_array})'" >> "$GITHUB_OUTPUT";
-
-
+      - name: Set Matrix
+        id: set-matrix
+        run: |
+          CHANGES_AS_JSON_ARRAY=$(echo '${{ steps.percy-changes.outputs.changes }}' | jq 'map({component: .})')
+          MATRIX=$(echo "{}" | jq --argjson changes "${CHANGES_AS_JSON_ARRAY}" '. + {include: $changes}')
+          echo "CHANGES=$MATRIX" >> "$GITHUB_OUTPUT";
   run-percy:
       if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
       needs: changes
