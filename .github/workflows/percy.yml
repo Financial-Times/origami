@@ -48,14 +48,15 @@ jobs:
           set +e
           for component in components/*/; do
             WORKSPACE=$component node ./scripts/should-percy-run.js
-            if [[ $? -eq 0 ]]; then
-              echo "bang";
+            RESULT=$?
+            echo "$component: $RESULT"
+            if [[ $RESULT -eq 0 ]]; then
               changes+=("$component")
             fi
           done
           set -e
           echo "Changes:";
-          json_array=$(echo "${!directories_to_add[@]}" | jq -R . | jq -s .)
+          json_array=$(echo "${!changes[@]}" | jq -R . | jq -s .)
           echo "$json_array";
           echo "CHANGES=$json_array" >> "$GITHUB_OUTPUT";
 

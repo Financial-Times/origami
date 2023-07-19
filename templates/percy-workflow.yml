@@ -49,8 +49,9 @@ jobs:
           set +e
           for component in components/*/; do
             WORKSPACE=$component node ./scripts/should-percy-run.js
-            if [[ $? -eq 0 ]]; then
-              echo "bang";
+            RESULT=$?
+            echo "$component: $RESULT"
+            if [[ $RESULT -eq 0 ]]; then
               changes+=("$component")
             fi
           done
