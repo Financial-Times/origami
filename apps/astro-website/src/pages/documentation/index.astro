@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro"
+import {getCollection} from "astro:content"
 
 const title = "Origami Documentation"
 const description =
@@ -22,7 +23,9 @@ const sortedComponentDocuments = componentDocuments.sort((a, b) => {
 	return 0
 })
 
-const serviceDocuments = await Astro.glob("@/pages/documentation/services/*.md")
+const allServices = await getCollection("documents", ({id}) =>
+	id.startsWith("services/")
+)
 const tutorialDocuments = await Astro.glob(
 	"@/pages/documentation/tutorials/**/*.md"
 )
@@ -87,14 +90,13 @@ const tutorialDocuments = await Astro.glob(
 
 				<ul>
 					{
-						serviceDocuments.map(
-							service =>
-								service.frontmatter.collection_listing_display !== false && (
-									<li>
-										<a href={service.url}>{service.frontmatter.title}</a>
-									</li>
-								)
-						)
+						allServices.map(service => (
+							<li>
+								<a href={`/documentation/${service.slug}`}>
+									{service.data.title}
+								</a>
+							</li>
+						))
 					}
 				</ul>
 			</div>

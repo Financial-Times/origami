@@ -11,6 +11,19 @@ const postsCollection = defineCollection({
 	}),
 })
 
+const documentsCollection = defineCollection({
+	type: "content",
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		cta: z.string(),
+		nav_display: z.boolean(),
+		nav_label: z.string(),
+		nav_order: z.number(),
+	}),
+})
+
 export const collections = {
 	posts: postsCollection,
+	documents: documentsCollection,
 }
