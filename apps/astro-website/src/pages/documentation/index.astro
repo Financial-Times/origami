@@ -1,12 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro"
+import {getCollection} from "astro:content"
 
 const title = "Origami Documentation"
 const description =
 	"Documentation on how to use Origami's components and services to help your team deliver products for the FT."
 
-const principleDocuments = await Astro.glob(
-	"@/pages/documentation/principles/*.md"
+const allPrinciples = await getCollection("documents", ({id}) =>
+	id.startsWith("principles/")
 )
 
 const componentDocuments = await Astro.glob(
@@ -48,9 +49,9 @@ const tutorialDocuments = await Astro.glob(
 				</p>
 				<ul>
 					{
-						principleDocuments.map(principle => (
+						allPrinciples.map(principle => (
 							<li>
-								<a href={principle.url}>{principle.frontmatter.title}</a>
+								<a href={`/documentation/${principle.slug}`}>{principle.data.title}</a>
 							</li>
 						))
 					}

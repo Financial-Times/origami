@@ -1,7 +1,30 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import {getCollection} from "astro:content"
+import DocLayout from "@/layouts/DocLayout.astro"
+
+const allPrinciples = await getCollection("documents", ({id}) =>
+	id.startsWith("principles/")
+)
 ---
 
-<Layout>
-	<h1>Priciples</h1>
-</Layout>
+<DocLayout>
+	<ul class="o-layout__listing">
+		{
+			allPrinciples.map(principle => {
+				console.log(principle)
+				return (
+					<li class="o-layout__listing__item">
+						<h2 class="o-layout__listing__item__title">
+							<a href={principle.slug}>{principle.data.title}</a>
+						</h2>
+						{principle.data.description.length !== 0 && (
+							<p class="o-layout__listing__item__description">
+								{principle.data.description}
+							</p>
+						)}
+					</li>
+				)
+			})
+		}
+	</ul>
+</DocLayout>
