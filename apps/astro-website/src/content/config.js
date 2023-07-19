@@ -11,7 +11,7 @@ const postsCollection = defineCollection({
 	}),
 })
 
-const principlesCollection = defineCollection({
+const documentsCollection = defineCollection({
 	type: "content",
 	schema: z.object({
 		title: z.string(),
@@ -25,5 +25,5 @@ const principlesCollection = defineCollection({
 
 export const collections = {
 	posts: postsCollection,
-	documents: principlesCollection,
+	documents: documentsCollection,
 }
