@@ -51,7 +51,8 @@ jobs:
           for component in components/*/; do
             RESULT=$(WORKSPACE=$component node ./scripts/should-percy-run.js | grep "\-RESULT:" | cut -d ":" -f 2)
             echo "RESULT=$RESULT"
-            if [[ $RESULT -eq 'true' ]]; then
+            if [[ $RESULT = 'true' ]]; then
+              echo "Adding $component to changes"
               changes+=("$component")
             fi
           done
