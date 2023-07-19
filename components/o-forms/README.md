@@ -331,6 +331,7 @@ Box radio inputs support 2 themes.
 
 - **professional**: For a box radio with professional theme set `o-forms-field--professional` on the field element.
 - **professional-inverse**: For box radio with inverse professional theme set `o-forms-field--professional-inverse` on the field element.
+
 ##### Pseudo box radio inputs
 
 **Deprecated, we no longer recommend pseudo box radio inputs. These will be removed in a future major version:**
