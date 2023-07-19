@@ -8,23 +8,51 @@ const allPrinciples = await getCollection("documents", ({id}) =>
 ---
 
 <DocLayout>
-	<ul class="o-layout__listing">
+	<div
+		class="o-layout__main o-layout-typography data-o-component="
+		o-syntax-highlight
+	>
+		<h1 id="origami-principles" class="o-layout__linked-heading">
+			<a
+				href="#origami-principles"
+				title="Link directly to this section of the page"
+				class="o-layout__linked-heading__link"
+			>
+				<span class="o-layout__linked-heading__content">Origami Principles</span
+				>
+				<span class="o-layout__linked-heading__label">#</span>
+			</a>
+		</h1>
+		<p>
+			Origami follows a set of guiding principles when developing products for
+			the FT. This section of the documentation is for people who are authoring
+			components or services, either as a member of the Origami team, or as
+			somebody trying to transfer their code to be maintained by the team.
+		</p>
 		{
 			allPrinciples.map(principle => {
-				console.log(principle)
 				return (
-					<li class="o-layout__listing__item">
-						<h2 class="o-layout__listing__item__title">
-							<a href={principle.slug}>{principle.data.title}</a>
+					<>
+						<h2 id={principle.data.title} class="o-layout__linked-heading">
+							<a
+								href={`#${principle.data.title}`}
+								title="Link directly to this section of the page"
+								class="o-layout__linked-heading__link">
+								<span class="o-layout__linked-heading__content">
+									{principle.data.title}
+								</span>
+								<span class="o-layout__linked-heading__label">#</span>
+							</a>
 						</h2>
-						{principle.data.description.length !== 0 && (
-							<p class="o-layout__listing__item__description">
-								{principle.data.description}
-							</p>
-						)}
-					</li>
+						<p>
+							{principle.data.description}
+							<a href={principle.slug.split("/")[1]}>
+								{" " + principle.data.cta}
+							</a>
+						</p>
+					</>
 				)
 			})
 		}
-	</ul>
+	</div>
 </DocLayout>
