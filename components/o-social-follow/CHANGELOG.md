@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.6](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.5...o-social-follow-v1.0.6) (2023-07-14)
+
+
+### Bug Fixes
+
+* preserve o-social-follow docs ([1d4c7e6](https://www.github.com/Financial-Times/origami/commit/1d4c7e66536ca80836a1aae53c7b37c0003e1306))
+
 ### [1.0.5](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.4...o-social-follow-v1.0.5) (2023-07-14)
 
 
