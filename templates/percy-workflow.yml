@@ -33,6 +33,8 @@ jobs:
       components: ${{ steps.set-matrix.outputs.changes }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: volta-cli/action@v4
       - uses: actions/cache@v2
         with:
@@ -45,7 +47,6 @@ jobs:
       - name: Find components affected by changes
         id: percy-changes
         run: |
-          git fetch
           changes=()
 
           for component in components/*/; do
