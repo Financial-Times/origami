@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.7](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.6...o-social-follow-v1.0.7) (2023-07-20)
+
+
+### Bug Fixes
+
+* ensure o-social-follow design guidelines remain published to registry ([ccd9d3c](https://www.github.com/Financial-Times/origami/commit/ccd9d3cf4192aa582071b12dfc61de43cc06c2d3))
+
 ### [1.0.6](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.5...o-social-follow-v1.0.6) (2023-07-14)
 
 

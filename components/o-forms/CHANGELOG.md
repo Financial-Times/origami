@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.11.2](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.11.1...o-forms-v9.11.2) (2023-07-20)
+
+
+### Bug Fixes
+
+* trigger release to rollback o-forms docs ([258d573](https://www.github.com/Financial-Times/origami/commit/258d5736452f9802691733175e0d1254cab36409))
+
 ### [9.11.1](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.11.0...o-forms-v9.11.1) (2023-07-14)
 
 
