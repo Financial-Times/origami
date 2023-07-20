@@ -1,7 +1,10 @@
 ---
 title: Build Service
----
 
+# Navigation config
+nav_display: true
+nav_label: Build Service
+---
 
 The Origami Build Service is used to bundle component JavaScript and Sass on the fly, allowing a development team to include a `<script>` and `<style>` block in their page to quickly get started with Origami.
 

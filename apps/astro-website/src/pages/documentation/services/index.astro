@@ -1,7 +1,55 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import {getCollection} from "astro:content"
+import DocLayout from "@/layouts/DocLayout.astro"
+const allServices = await getCollection("documents", ({id}) =>
+	id.startsWith("services/")
+)
 ---
 
-<Layout>
-	<h1>services</h1>
-</Layout>
+<DocLayout>
+	<div
+		class="o-layout__main o-layout-typography data-o-component="
+		o-syntax-highlight
+	>
+		<h1 id="origami-services" class="o-layout__linked-heading">
+			<a
+				href="#origami-services"
+				title="Link directly to this section of the page"
+				class="o-layout__linked-heading__link"
+			>
+				<span class="o-layout__linked-heading__content">Origami Services</span>
+				<span class="o-layout__linked-heading__label">#</span>
+			</a>
+		</h1>
+		<p>
+			As well as <a href="/documentation/components">front end components</a>,
+			Origami maintain several services for use by development teams at the <abbr
+				title="Financial Times">FT</abbr
+			>. Each service is self-documenting, but here we outline what each of them
+			does.
+		</p>
+
+		{
+			allServices.map(service => {
+				return (
+					<>
+						<h2
+							id={service.data.title.toLowerCase().replace(/ /g, "_")}
+							class="o-layout__linked-heading">
+							<a
+								href={`#${service.data.title.toLowerCase().replace(/ /g, "_")}`}
+								title="Link directly to this section of the page"
+								class="o-layout__linked-heading__link">
+								<span class="o-layout__linked-heading__content">
+									{service.data.title}
+								</span>
+								<span class="o-layout__linked-heading__label">#</span>
+							</a>
+						</h2>
+						<p>{service.body}</p>
+					</>
+				)
+			})
+		}
+	</div>
+</DocLayout>
