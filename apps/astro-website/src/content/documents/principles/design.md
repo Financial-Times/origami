@@ -12,9 +12,6 @@ nav_display: true
 nav_label: Design
 nav_order: 30
 ---
-
-# {{ page.title }}
-
 Origami components are designed for more than one <abbr title="Financial Times">FT</abbr> product. We have a 'branding solar system' that focuses on the <abbr title="Financial Times">FT</abbr> website, but that is flexible enough to accommodate other products as they move further and further away from the standard <abbr title="Financial Times">FT</abbr> brand.
 
 Because our products are for customers and for internal use, we want to provide a consistent brand experience where a product can always be identified as belonging to the Financial Times to some degree.
