@@ -1,4 +1,11 @@
 # Changelog
+## [6.6.0](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.5.2...o-cookie-message-v6.6.0) (2023-07-20)
+
+
+### Features
+
+* o-cookie-message, publish tsx template ([#1199](https://www.github.com/Financial-Times/origami/issues/1199)) ([7052fe3](https://www.github.com/Financial-Times/origami/commit/7052fe34bef7f96ed867dc79409522fb29a22017))
+
 ### [6.5.2](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.5.1...o-cookie-message-v6.5.2) (2023-04-28)
 
 
