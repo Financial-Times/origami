@@ -6,6 +6,7 @@
 	"main": "index.js",
 	"author": "",
 	"license": "ISC",
+	"type": "module",
 	"volta": {
 		"node": "18.16.0",
 		"npm": "9.7.1"
@@ -19,14 +20,18 @@
 	},
 	"dependencies": {
 		"astro": "^2.6.4",
-		"sass": "^1.63.4"
+		"cheerio": "^1.0.0-rc.12",
+		"sass": "^1.63.4",
+		"axios": "^1.4.0",
+		"html-to-text": "^9.0.5",
+		"jsdom": "^22.1.0"
 	},
 	"peerDependencies": {
-		"@financial-times/o-syntax-highlight": "^4.2.4",
 		"@financial-times/o-fonts": "^5.3.4",
 		"@financial-times/o-footer-services": "^4.2.6",
 		"@financial-times/o-header-services": "^5.3.4",
 		"@financial-times/o-layout": "^5.3.2",
-		"@financial-times/o-normalise": "^3.3.1"
+		"@financial-times/o-normalise": "^3.3.1",
+		"@financial-times/o-syntax-highlight": "^4.2.4"
 	}
 }
