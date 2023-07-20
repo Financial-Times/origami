@@ -5,8 +5,7 @@
 
 ### Bug Fixes
 
-* ensure o-social-follow docs remain published to registry ([ccd9d3c](https://www.github.com/Financial-Times/origami/commit/ccd9d3cf4192aa582071b12dfc61de43cc06c2d3))
-* preserve o-social-follow docs ([e6a3341](https://www.github.com/Financial-Times/origami/commit/e6a3341a6abb982683e25c092d3b7aaac9a48eda))
+* ensure o-social-follow design guidelines remain published to registry ([ccd9d3c](https://www.github.com/Financial-Times/origami/commit/ccd9d3cf4192aa582071b12dfc61de43cc06c2d3))
 
 ### [1.0.6](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.5...o-social-follow-v1.0.6) (2023-07-14)
 
