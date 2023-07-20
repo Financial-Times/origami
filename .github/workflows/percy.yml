@@ -45,25 +45,26 @@ jobs:
         id: percy-changes
         run: |
           git fetch
-          git branch
           changes=()
+
           for component in components/*/; do
             RESULT=$(WORKSPACE=$component node ./scripts/should-percy-run.js | grep "\-RESULT:" | cut -d ":" -f 2)
             echo "RESULT=$RESULT"
-            if [[ $RESULT -eq 'true' ]]; then
+            if [[ $RESULT = 'true' ]]; then
+              echo "$component is affected changes, adding to percy run list."
               changes+=("$component")
             fi
           done
-          echo "Changes:";
+
           json_array=$(jq -n '$ARGS.positional' --args "${changes[@]}");
-          echo "$json_array";
+          echo "Changes:\n$json_array:";
+
           echo "CHANGES=$(echo ${json_array})" >> "$GITHUB_OUTPUT";
       - name: Set Matrix
         id: set-matrix
         run: |
-          CHANGES_AS_JSON_ARRAY=$(echo '${{ steps.percy-changes.outputs.changes }}'  | jq 'map({component: .})' | tr '\n' ' ')
-          MATRIX=$(echo "{}" | jq --argjson changes "${CHANGES_AS_JSON_ARRAY}" '. + {include: $changes}' )
-          echo "CHANGES=$(echo "$CHANGES_AS_JSON_ARRAY")" >> "$GITHUB_OUTPUT";
+          MATRIX=$(echo '${{ steps.percy-changes.outputs.changes }}'  | jq 'map({component: .})' | tr '\n' ' ')
+          echo "CHANGES=$(echo "$MATRIX")" >> "$GITHUB_OUTPUT";
   run-percy:
       if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
       needs: changes
