@@ -64,8 +64,8 @@ jobs:
       - name: Set Matrix
         id: set-matrix
         run: |
-          MATRIX=$(echo $JSON  | jq 'map({component: .), token_name: (.) | sub("(/|-)"; "_"; "g"))})' | tr '\n' ' ')
-
+          MATRIX=$(echo '${{ steps.percy-changes.outputs.changes }}'  | jq 'map({component: ., token_name: ("PERCY_TOKEN_" + (. | ascii_upcase | sub("(/|-)"; "_"; "g")))})' | tr '\n' ' ')
+          echo "MATRIX=$(echo "$MATRIX")";
           echo "CHANGES=$(echo "$MATRIX")" >> "$GITHUB_OUTPUT";
   run-percy:
       if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
@@ -73,8 +73,8 @@ jobs:
       runs-on: ubuntu-latest
       strategy:
         fail-fast: false
-        matrix:
-          component: ${{ fromJson(needs.changes.outputs.components) }}
+        matrix: ${{ fromJson(needs.changes.outputs.components) }}
       steps:
         - run: |
             echo "Running percy for ${{ matrix.component }}"
+            echo "Search for component: ${{ matrix.token_name }}"
