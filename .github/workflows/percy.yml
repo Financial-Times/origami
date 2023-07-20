@@ -50,9 +50,10 @@ jobs:
 
           for component in components/*/; do
             RESULT=$(WORKSPACE=$component node ./scripts/should-percy-run.js | grep "\-RESULT:" | cut -d ":" -f 2)
+            component_trimmed=$(echo $component | sed 's/\/$//g')
             if [[ $RESULT = 'true' ]]; then
-              echo "$component is affected changes, adding to percy run list."
-              changes+=("$component")
+              echo "$component_trimmed is affected changes, adding to percy run list."
+              changes+=("$component_trimmed")
             fi
           done
 
@@ -63,7 +64,8 @@ jobs:
       - name: Set Matrix
         id: set-matrix
         run: |
-          MATRIX=$(echo '${{ steps.percy-changes.outputs.changes }}'  | jq 'map({component: .})' | tr '\n' ' ')
+          MATRIX=$(echo $JSON  | jq 'map({component: .), token_name: (.) | sub("(/|-)"; "_"; "g"))})' | tr '\n' ' ')
+
           echo "CHANGES=$(echo "$MATRIX")" >> "$GITHUB_OUTPUT";
   run-percy:
       if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
