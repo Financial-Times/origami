@@ -2,12 +2,14 @@
 import {getCollection} from "astro:content"
 import DocLayout from "@/layouts/DocLayout.astro"
 
-import {convertToSlug, formatDateString} from "@/helpers/utils"
+import {convertToSlug, formatDateString, generateBlogPostURL} from "@/helpers/utils"
 
 export async function getStaticPaths() {
 	const postEntries = await getCollection("posts")
 	return postEntries.map(entry => ({
-		params: {slug: entry.slug},
+		params: {
+			slug: generateBlogPostURL(entry.slug),
+		},
 		props: {entry},
 	}))
 }
@@ -17,7 +19,6 @@ const {Content} = await entry.render()
 const slugifiedName = convertToSlug(entry.data.title)
 const formatedDateString = formatDateString(entry.data.publishDate)
 const tags = entry.data.tags.length > 0 && entry.data.tags.join(",")
-
 ---
 
 <DocLayout>
@@ -48,7 +49,7 @@ const tags = entry.data.tags.length > 0 && entry.data.tags.join(",")
 	{}
 	<p>
 		<abbr title="Too long; didn't read">
-			<strong>TL;DR: </strong>
+			<strong>TL;DR:</strong>
 		</abbr>{entry.data.tldr || entry.data.description}
 	</p>
 	<Content />
