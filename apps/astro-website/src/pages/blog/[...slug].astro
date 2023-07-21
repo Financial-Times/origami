@@ -2,12 +2,14 @@
 import {getCollection} from "astro:content"
 import DocLayout from "@/layouts/DocLayout.astro"
 
-import {convertToSlug, formatDateString} from "@/helpers/utils"
+import {convertToSlug, formatDateString, generateBlogPostURL} from "@/helpers/utils"
 
 export async function getStaticPaths() {
 	const postEntries = await getCollection("posts")
 	return postEntries.map(entry => ({
-		params: {slug: entry.slug},
+		params: {
+			slug: generateBlogPostURL(entry.slug),
+		},
 		props: {entry},
 	}))
 }

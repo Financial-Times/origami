@@ -1,6 +1,6 @@
 ---
 import {getCollection} from "astro:content"
-import {formatDateString} from "@/helpers/utils"
+import {formatDateString, generateBlogPostURL} from "@/helpers/utils"
 import Layout from "@/layouts/Layout.astro"
 
 const title = "Origami Blog"
@@ -29,7 +29,7 @@ const sortedPosts = allPosts.sort(
 					return (
 						<li class="o-layout__listing__item">
 							<h2 class="o-layout__listing__item__title">
-								<a href={post.slug}>{post.data.title}</a>
+								<a href={"blog/" + generateBlogPostURL(post.slug)}>{post.data.title}</a>
 							</h2>
 							{post.data.description.length !== 0 && (
 								<p class="o-layout__listing__item__description">

@@ -8,9 +8,6 @@ nav_display: true
 nav_label: Vision and Mission Statements
 nav_order: 30
 ---
-
-# {{ page.title }}
-
 ## Mission
 
 Unifying and documenting the style and experience across the digital products of every FT brand, leveraging the web platform to provide an implementation of the brand guidelines.
