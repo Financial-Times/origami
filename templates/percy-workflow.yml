@@ -87,7 +87,7 @@
         - run: npm ci
         - name: Start Percy check
           env:
-            PERCY_TOKEN: ${{ secrets.${{ matrix.token_name }} }}
+            PERCY_TOKEN: ${{ secrets[matrix.token_name] }}
             WORKSPACE: ${{ matrix.component }}
           run: |
             echo "Running percy for ${{ matrix.component }}"
