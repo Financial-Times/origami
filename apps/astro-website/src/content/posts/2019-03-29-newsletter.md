@@ -5,9 +5,9 @@ author: Gabrielle von Koss
 publishDate: 2019-03-29
 tags:
   - Newsletter
+tldr: This issue features the new Origami website with a new design and new documentation, a highlight of the improved service that the Polyfill Service provides, and an explanation of how ECMAScript Modules broke our components.
 ---
 
-**TL;DR:** This issue features the new Origami website with a new design and new documentation, a highlight of the improved service that the Polyfill Service provides, and an explanation of how ECMAScript Modules broke our components.
 
 ## Top three things
 

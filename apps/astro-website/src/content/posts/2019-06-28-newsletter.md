@@ -7,8 +7,6 @@ tags:
   - Newsletter
 ---
 
-**TL;DR:** This issue announces a new team member, covers improvements to our operational documentation, and some projects that we built in our 10% time.
-
 ## Top three things
 
 These are some of the bigger things we've done over the last month.

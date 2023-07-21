@@ -5,10 +5,8 @@ author: Lee Moody
 publishDate: 2019-02-28
 tags:
   - Newsletter
+tldr: This issue features Origami components on npm; the release of o-layout v3, which includes two new layouts to help build internal tools and products; and the release of o-header-services v3, which includes new features, customisation, and a lot of code improvements.
 ---
-
-**TL;DR:** This issue features Origami components on npm; the release of o-layout v3, which includes two new layouts to help build internal tools and products; and the release of o-header-services v3, which includes new features, customisation, and a lot of code improvements.
-
 
 ## Top three things
 

@@ -26,3 +26,16 @@ export function formatDateString(date) {
 	const day = newDate.getDate()
 	return `${day} ${month} ${year}`
 }
+
+export function convertToSlug(Text) {
+	return Text.toLowerCase()
+		.replace(/ /g, "-")
+		.replace(/[^\w-]+/g, "")
+}
+
+export function generateBlogPostURL(slug) {
+	return slug.replace(
+		/([\d]{4})-([\d]{2})-([\d]{2})-(.*)/g,
+		"$1/$2/$3/$4"
+	)
+}
