@@ -15,10 +15,10 @@ jobs:
     outputs:
       components: ${{ steps.filter.outputs.changes }}
     steps:
-    - uses: dorny/paths-filter@v2
-      id: filter
-      with:
-        filters: |
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
           components/ft-concept-button:
             - 'components/ft-concept-button/**'
           components/g-audio:
@@ -179,14 +179,8 @@ jobs:
             - 'apps/storybook/**'
           apps/website:
             - 'apps/website/**'
-  test:
+  check-out-and-install:
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
-    needs: changes
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        component: ${{ fromJson(needs.changes.outputs.components) }}
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v4
@@ -198,6 +192,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm ci
+  test:
+    if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
+    needs: [ changes, check-out-and-install ]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        component: ${{ fromJson(needs.changes.outputs.components) }}
+    steps:
       - run: npm run -w ${{ matrix.component }} lint --if-present
       - run: npm run -w ${{ matrix.component }} build --if-present
       - run: npm run -w ${{ matrix.component }} test --if-present
