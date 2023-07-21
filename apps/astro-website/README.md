@@ -34,26 +34,23 @@ Newsletter blog posts must have an accompanying email, this is outlined in the s
 
 ## Authoring and sending a newsletter
 
-[TODO]
-
-Writing the Origami monthly newsletter extends the instructions for blog posts, as we also publish an email to the FT's Product and Technology department. The guide here won't cover the content of the newsletter, [see the original proposal for that](https://docs.google.com/document/d/1qFXWl3xcx3MUL7FHGa7eA90TjGxDdLFTItizILKHZ2k/edit).
+Writing the Origami monthly newsletter extends the instructions for blog posts, as we also publish an email to the FT's Product and Technology department.
 
 The process:
 
 1. Branch off `main` and create the required files. The format for the newsletter is strict, and you should probably copy an older newsletter to make sure it's correct. You need to create two files in this repo, replacing the date as appropriate (set to the expected published date):
 
    - `src/content/posts/YYYY-MM-DD-newsletter.md`: for the blog post on the website
-   - `src/content/emails/newsletter-YYYY-MM.html`: for the email we distribute
 
-2. Write the newsletter. This is best done in the blog post, as this is standard Markdown. The email newsletter relies on some pretty gross Liquid templating to ensure that we avoid copy/paste errors in the HTML. Sorry. The email also has required front-matter: a `title` which becomes the subject of the email, and `companion_post_url` which is used to link to the blog post and should be the full URL. (when writing the newsletter, see the script `./scripts/project-board-summary.js` to help fill out the broader update section of the newsletter).
+2. Write the newsletter. This is best done in the blog post, as this is standard Markdown.
 
 3. Open a pull-request on this repo, and get it approved by another member of the team. Once approved, merge into master. This must be done _on_ or _after_ the publish date indicated by the post file name. The blog post is now published, check it on the live site.
 
-4. Now you'll need to review and publish the email, this is done in a locally cloned copy of the repo (this step may be automated later when we have confidence in the email format). You'll need to have npm dependencies installed: `npm install`
+4. Now you'll need send the newsletter as an email. This is done from your machines CLI. The email newsletter relies on some pretty gross Liquid templating to ensure that we avoid copy/paste errors in the HTML we created [email page template](src/pages/emails/[slug].astro) in Astro. The email also has required front-matter: a `title` which becomes the subject of the email.
 
-5. Run the following command: `EMAIL_SOURCE_HTML=YYYY-MM make email-generate`, where `YYYY` and `MM` correspond to the year and month of the newsletter. This will output details of the email that is to be sent including links to review the conent. **It is very important to review these files, the HTML in-browser and the plain text in a text editor**. If you want to test the newsletter email prior to publishing, you can use the a `EMAIL_LOCAL=true` environment variable, though it is not possible to actually _send_ an email with this variable added.
+5. Run the following command: `EMAIL_SOURCE_HTML=YYYY-MM npm run send-newsletter`, where `YYYY` and `MM` correspond to the year and month of the newsletter. **It is very important to review the email before sending it**. To review you can visit `emails/newsletter-YYYY-MM` locally (you will need to add EMAIL_LOCAL=true and you will also need to be running local development server on localhost:3000) or on [deployed site](https://origami.ft.com/). If you want to test the newsletter email prior to publishing, you can send email with `EMAIL_RECIPIENTS` variable defined. This will send email to all origami team members. If you are still developing email locally and want to see received just by you you can use your personal email for `EMAIL_RECIPIENTS` variable.
 
-6. Once reviewed, run the following command to send the email: `EMAIL_SOURCE_HTML=YYYY-MM EMAIL_RECIPIENTS=XX@XX EMAIL_API_KEY=XXXXXX make email-generate-and-send`, where `YYYY` and `MM` correspond to the year and month of the newsletter, `XX@XX` is the recipient email, and `XXXXXX` is an email platform API key (you can find this in the Origami vault).
+6. Once reviewed, run the following command to send the email: `EMAIL_SOURCE_HTML=YYYY-MM EMAIL_RECIPIENTS=XX@XX EMAIL_API_KEY=XXXXXX npm run send-newsletter`, where `YYYY` and `MM` correspond to the year and month of the newsletter, `XX@XX` is the recipient email, and `XXXXXX` is an email platform API key (you can find this in the Origami vault).
 
 7. The email is sent! Enjoy
 

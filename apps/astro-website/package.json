@@ -16,7 +16,8 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"send-newsletter": "node src/helpers/email-newsletter.js"
 	},
 	"dependencies": {
 		"astro": "^2.6.4",

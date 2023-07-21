@@ -1,26 +1,18 @@
 #!/usr/bin/env node
 "use strict"
 
+import fs from "fs"
+import path from "path"
 import * as htmlToText from "html-to-text"
 import {JSDOM} from "jsdom"
 import axios from "axios"
 
-console.log({
-	recipients: process.env.EMAIL_RECIPIENTS
-		? process.env.EMAIL_RECIPIENTS.split(",").map(recipient => recipient.trim())
-		: ["akaki.mikaia@ft.com"],
-	accessKey: process.env.EMAIL_API_KEY,
-	newsletter: process.env.EMAIL_SOURCE_HTML,
-	send: process.argv.includes("--send"),
-	local: Boolean(process.env.EMAIL_LOCAL),
-})
 sendNewsletter({
 	recipients: process.env.EMAIL_RECIPIENTS
 		? process.env.EMAIL_RECIPIENTS.split(",").map(recipient => recipient.trim())
-		: ["akaki.mikaia@ft.com"],
+		: ["origami.support@ft.com"],
 	accessKey: process.env.EMAIL_API_KEY,
 	newsletter: process.env.EMAIL_SOURCE_HTML,
-	send: process.argv.includes("--send"),
 	local: Boolean(process.env.EMAIL_LOCAL),
 })
 
@@ -33,7 +25,6 @@ async function sendNewsletter(options) {
 
 	// Fetch the HTML content from the live URL
 	let htmlContent
-	console.log(`🚀 ~ schemeAndHost:`, htmlUri)
 	try {
 		const response = await axios.get(htmlUri)
 		htmlContent = response.data
@@ -55,6 +46,15 @@ async function sendNewsletter(options) {
 	const images = imgManipulationJsdom.window.document.querySelectorAll("img")
 	images.forEach(i => (i.style["max-width"] = "100%"))
 	htmlContent = imgManipulationJsdom.serialize()
+	const __dirname = path.resolve()
+	const emailStyles = fs.readFileSync(
+		path.join(__dirname, "public/styles/email.css"),
+		"utf8"
+	)
+	htmlContent = htmlContent.replace(
+		'<link rel="stylesheet" href="/styles/email.css">',
+		`<style type="text/css">${emailStyles}</style>`
+	)
 
 	// Generate the plain text content
 	const plainTextContent = htmlToText.convert(htmlContent, {
@@ -75,46 +75,6 @@ async function sendNewsletter(options) {
 		htmlContent,
 		plainTextContent,
 	})
-
-	// If we're not sending the email...
-	// if (!options.send) {
-	// 	// Save files for review
-	// 	const htmlReviewFile = path.resolve(
-	// 		`${__dirname}/../.email-review/html-email.html`
-	// 	)
-	// 	const plainTextReviewFile = path.resolve(
-	// 		`${__dirname}/../.email-review/plain-text-email.txt`
-	// 	)
-	// 	await fs.mkdirs(`${__dirname}/../.email-review`)
-	// 	await fs.writeFile(htmlReviewFile, htmlContent)
-	// 	await fs.writeFile(plainTextReviewFile, plainTextContent)
-
-	// 	// Output the review details
-	// 	console.log("")
-	// 	console.log("Email generated and ready for review")
-	// 	console.log("====================================")
-	// 	console.log("")
-	// 	console.log(`Recipients:    ${body.to.address.join(", ")}`)
-	// 	console.log(`Reply-To:      ${body.replyTo}`)
-	// 	console.log(`Subject line:  ${body.subject}`)
-	// 	console.log("")
-	// 	console.log("Review the generated plain text:")
-	// 	console.log(`file://${plainTextReviewFile}`)
-	// 	console.log("")
-	// 	console.log("Review the generated HTML:")
-	// 	console.log(`file://${htmlReviewFile}`)
-	// 	console.log("")
-	// 	return
-	// }
-
-	// if (options.local) {
-	// 	console.error("")
-	// 	console.error("It is not possible to send an email using local")
-	// 	console.error("HTML as a source. Remove the `EMAIL_LOCAL`")
-	// 	console.error("environment variable and test again to send.")
-	// 	console.error("")
-	// 	process.exit(1)
-	// }
 
 	if (!options.accessKey) {
 		console.error("")
