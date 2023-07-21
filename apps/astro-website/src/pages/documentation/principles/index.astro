@@ -30,12 +30,15 @@ const allPrinciples = await getCollection("documents", ({id}) =>
 			somebody trying to transfer their code to be maintained by the team.
 		</p>
 		{
+			// this is inside the principles page that shows the nav and the description
 			allPrinciples.map(principle => {
 				return (
 					<>
 						<h2 id={principle.data.title} class="o-layout__linked-heading">
 							<a
-								href={`#${principle.data.title}`}
+								href={`#${principle.data.title
+									.toLowerCase()
+									.replace(/ /g, "_")}`}
 								title="Link directly to this section of the page"
 								class="o-layout__linked-heading__link">
 								<span class="o-layout__linked-heading__content">
@@ -46,7 +49,7 @@ const allPrinciples = await getCollection("documents", ({id}) =>
 						</h2>
 						<p>
 							{principle.data.description}
-							<a href={principle.slug.split("/")[1]}>
+							<a href={principle.slug.split("/")[1] + "/"}>
 								{" " + principle.data.cta}
 							</a>
 						</p>

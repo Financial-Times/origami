@@ -48,10 +48,13 @@ const tutorialDocuments = await Astro.glob(
 					when developing components and services:
 				</p>
 				<ul>
+					<!-- this is for main page of documentation-principles-->
 					{
 						allPrinciples.map(principle => (
 							<li>
-								<a href={`/documentation/${principle.slug}`}>{principle.data.title}</a>
+								<a href={`/documentation/${principle.slug}/`}>
+									{principle.data.title}
+								</a>
 							</li>
 						))
 					}
