@@ -46,7 +46,7 @@ The process:
 
 3. Open a pull-request on this repo, and get it approved by another member of the team. Once approved, merge into master. This must be done _on_ or _after_ the publish date indicated by the post file name. The blog post is now published, check it on the live site.
 
-4. Now you'll need send the newsletter as an email. This is done from your machines CLI. The email newsletter relies on some pretty gross Liquid templating to ensure that we avoid copy/paste errors in the HTML we created [email page template](src/pages/emails/[slug].astro) in Astro. The email also has required front-matter: a `title` which becomes the subject of the email.
+4. Now you'll need send the newsletter as an email. This is done from your machines CLI. To avoid copy/paste errors in the HTML we created [email page template](src/pages/emails/[slug].astro) in Astro. The email also has required front-matter: a `title` which becomes the subject of the email.
 
 5. Run the following command: `EMAIL_SOURCE_HTML=YYYY-MM npm run send-newsletter`, where `YYYY` and `MM` correspond to the year and month of the newsletter. **It is very important to review the email before sending it**. To review you can visit `emails/newsletter-YYYY-MM` locally (you will need to add EMAIL_LOCAL=true and you will also need to be running local development server on localhost:3000) or on [deployed site](https://origami.ft.com/). If you want to test the newsletter email prior to publishing, you can send email with `EMAIL_RECIPIENTS` variable defined. This will send email to all origami team members. If you are still developing email locally and want to see received just by you you can use your personal email for `EMAIL_RECIPIENTS` variable.
 

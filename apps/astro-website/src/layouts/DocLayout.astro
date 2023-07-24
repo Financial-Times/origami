@@ -12,27 +12,28 @@ const {title, description} = Astro.props
 	data-o-component="o-typography"
 >
 	<Head title={title} description={description} />
-	<script>
-		import oLayout from "@financial-times/o-layout/main"
-		import oSyntaxHighlight from "@financial-times/o-syntax-highlight/main"
-		oLayout.init(null)
-		oSyntaxHighlight.init(null)
-	</script>
+	<body>
+		<div class="o-layout o-layout--docs" data-o-component="o-layout">
+			<div class="o-layout__header">
+				<Header />
+			</div>
 
-	<div class="o-layout o-layout--docs" data-o-component="o-layout">
-		<div class="o-layout__header">
-			<Header />
+			<div class="o-layout__sidebar"></div>
+			<div
+				class="o-layout__main o-layout-typography"
+				data-o-component="o-syntax-highlight"
+			>
+				<slot />
+			</div>
+			<div class="o-layout__footer">
+				<Footer />
+			</div>
 		</div>
-
-		<div class="o-layout__sidebar"></div>
-		<div
-			class="o-layout__main o-layout-typography"
-			data-o-component="o-syntax-highlight"
-		>
-			<slot />
-		</div>
-		<div class="o-layout__footer">
-			<Footer />
-		</div>
-	</div>
+		<script>
+			import oLayout from "@financial-times/o-layout/main"
+			import oSyntaxHighlight from "@financial-times/o-syntax-highlight/main"
+			oLayout.init(null)
+			oSyntaxHighlight.init(null)
+		</script>
+	</body>
 </html>

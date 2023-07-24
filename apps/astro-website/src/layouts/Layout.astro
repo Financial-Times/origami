@@ -13,13 +13,15 @@ const {title, description} = Astro.props
 	data-o-component="o-typography"
 >
 	<Head title={title} description={description} />
-	<div class="o-layout o-layout--landing">
-		<div class="o-layout__header">
-			<Header />
+	<body>
+		<div class="o-layout o-layout--landing">
+			<div class="o-layout__header">
+				<Header />
+			</div>
+			<slot />
+			<div class="o-layout__footer">
+				<Footer />
+			</div>
 		</div>
-		<slot />
-		<div class="o-layout__footer">
-			<Footer />
-		</div>
-	</div>
+	</body>
 </html>

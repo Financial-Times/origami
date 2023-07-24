@@ -11,7 +11,7 @@ const children = []
 const allPages = await Astro.glob("@/pages/**")
 const urls = allPages
 	.map(page => page.url)
-	.filter(url => url && !url.includes("[slug]"))
+	.filter(url => url && !url.includes("[slug]") && !url.includes("[...slug]"))
 
 urls
 	.filter(x => x.includes(currentPage))

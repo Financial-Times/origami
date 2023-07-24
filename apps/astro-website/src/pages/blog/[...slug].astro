@@ -19,11 +19,11 @@ const {Content} = await entry.render()
 const slugifiedName = convertToSlug(entry.data.title)
 const formatedDateString = formatDateString(entry.data.publishDate)
 const tags = entry.data?.tags?.length > 0 && entry.data.tags.join(",")
-const hasCharts = entry.data.hasCharts
+
 
 ---
 
-<DocLayout>
+<DocLayout title={entry.data.title} description={entry.data.description}>
 	<h1 id={slugifiedName} class="o-layout__linked-heading">
 		<a
 			href={`#${slugifiedName}`}
@@ -56,17 +56,3 @@ const hasCharts = entry.data.hasCharts
 	</p>
 	<Content />
 </DocLayout>
-
-{
-	hasCharts && (
-		<>
-			<script
-				src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"
-				integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI="
-				crossorigin="anonymous"
-				defer
-			/>
-			<script src="/assets/charts.js" defer />
-		</>
-	)
-}

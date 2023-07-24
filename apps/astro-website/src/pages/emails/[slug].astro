@@ -27,8 +27,7 @@ const {title, description} = entry.data
 const tldr = entry.data.tldr ? entry.data.tldr : description
 const splitSlug = entry.slug.split("-")
 const dateSlug = splitSlug.slice(0, 3).join("/")
-const stringName = splitSlug.slice(3, splitSlug.length).join("-").toLowerCase()
-const companionPostUrl = `https://origami.ft.com/blog/${dateSlug}/${stringName}/`
+const companionPostUrl = `https://origami.ft.com/blog/${dateSlug}/newsletter/`
 
 const MarkdownFiles = await Astro.glob("@/content/posts/*.md")
 const currentMarkdown = MarkdownFiles.filter(md =>
@@ -36,6 +35,10 @@ const currentMarkdown = MarkdownFiles.filter(md =>
 )[0]
 const currentMdContent = currentMarkdown.compiledContent()
 const $ = cheerio.load(currentMdContent)
+
+const $img = $("img")
+$img.prop("style", "max-width: 100%;")
+
 const $p = $("p")
 $p.prop(
 	"style",
@@ -108,7 +111,6 @@ $figcaption.prop(
 		</o:OfficeDocumentSettings>
 		</xml>
 	<![endif]-->
-
 
 	<link rel="stylesheet" href="/styles/email.css" />
 	<!-- Font fallback for clients that do no support webfonts -->

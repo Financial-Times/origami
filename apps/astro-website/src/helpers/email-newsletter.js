@@ -2,10 +2,11 @@
 "use strict"
 
 import fs from "fs"
+import readline from "readline/promises"
 import path from "path"
 import * as htmlToText from "html-to-text"
-import {JSDOM} from "jsdom"
 import axios from "axios"
+import * as cheerio from "cheerio"
 
 sendNewsletter({
 	recipients: process.env.EMAIL_RECIPIENTS
@@ -14,6 +15,7 @@ sendNewsletter({
 	accessKey: process.env.EMAIL_API_KEY,
 	newsletter: process.env.EMAIL_SOURCE_HTML,
 	local: Boolean(process.env.EMAIL_LOCAL),
+	send: Boolean(process.env.EMAIL_SEND),
 })
 
 // Generate and send the Origami newsletter
@@ -41,11 +43,6 @@ async function sendNewsletter(options) {
 		process.exit(1)
 	}
 
-	// Add a max width to all images
-	const imgManipulationJsdom = new JSDOM(htmlContent)
-	const images = imgManipulationJsdom.window.document.querySelectorAll("img")
-	images.forEach(i => (i.style["max-width"] = "100%"))
-	htmlContent = imgManipulationJsdom.serialize()
 	const __dirname = path.resolve()
 	const emailStyles = fs.readFileSync(
 		path.join(__dirname, "public/styles/email.css"),
@@ -63,10 +60,51 @@ async function sendNewsletter(options) {
 		baseElement: ["div.email-body", "div.footer"],
 	})
 
+	const reviewReplies = {}
+	if (options.send) {
+		const rl = readline.createInterface({
+			input: process.stdin,
+			output: process.stdout,
+		})
+
+		console.log("")
+		console.log("Review plain text and HTML before sending the newsletter")
+		console.log("==============================")
+		console.log("")
+		console.log(plainTextContent)
+		console.log("==============================")
+		console.log("")
+		console.log("==============================")
+		console.log(`To review HTML go to ${htmlUri}.`)
+		console.log("==============================")
+		console.log("")
+
+		// rd.question("Does plain text look as expected? (yes/no)", answer => {
+		// 	reviewReplies.plainText = answer
+		// 	rd.close()
+		// })
+
+		// rd.question("Does HTML look as expected? (yes/no)", answer => {
+		// 	reviewReplies.html = answer
+		// 	rd.close()
+		// })
+
+		const answer1 = await rl.question(
+			"Does plain text look as expected? (yes/no)"
+		)
+		reviewReplies.plainText = answer1
+
+		const answer2 = await rl.question("Does HTML look as expected? (yes/no)")
+		reviewReplies.html = answer2
+
+		rl.close()
+	}
+
+	const $ = cheerio.load(htmlContent)
+	const $title = $("title").text()
+
 	// Get the subject line
-	const subject = new JSDOM(htmlContent).window.document.querySelector(
-		"title"
-	).textContent
+	const subject = $title
 
 	// Compose the email
 	const body = composeEmail({
@@ -81,6 +119,19 @@ async function sendNewsletter(options) {
 		console.error("Please specify an access key for the email platform")
 		console.error("using an `EMAIL_API_KEY` environment variable.")
 		console.error("")
+		process.exit(1)
+	}
+	if (!options.send) {
+		console.error("")
+		console.error(
+			"Please an `EMAIL_SEND=true` environment variable to send the newsletter."
+		)
+		console.error("")
+		process.exit(1)
+	}
+
+	if (reviewReplies.plainText.toLowerCase() !== 'yes'  || reviewReplies.html.toLowerCase() !== 'yes') {
+		console.log("Review and confirm that plain text and HTML look as expected before sending them to users.")
 		process.exit(1)
 	}
 
