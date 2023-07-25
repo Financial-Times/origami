@@ -38,7 +38,7 @@ const allPrinciples = await getCollection("documents", ({id}) =>
 							<a
 								href={`#${principle.data.title
 									.toLowerCase()
-									.replace(/ /g, "_")}`}
+									.replace(/ /g, "-")}`}
 								title="Link directly to this section of the page"
 								class="o-layout__linked-heading__link">
 								<span class="o-layout__linked-heading__content">
@@ -49,7 +49,7 @@ const allPrinciples = await getCollection("documents", ({id}) =>
 						</h2>
 						<p>
 							{principle.data.description}
-							<a href={principle.slug.split("/")[1] + "/"}>
+							<a href={"principles/" + principle.slug.split("/")[1]}>
 								{" " + principle.data.cta}
 							</a>
 						</p>
