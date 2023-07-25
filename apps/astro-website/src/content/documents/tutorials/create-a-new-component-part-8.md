@@ -3,15 +3,12 @@ title: Create A New Origami Component - Part 8 Documentation
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
 collection_listing_display: false
-
-# Redirect from legacy URLs
-redirect_from:
-  - /docs/tutorials/create-a-new-component-part-7/
 ---
 
-# {{page.title}}
+# Create A New Origami Component - Part 8 Documentation
 
 The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
+
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
@@ -35,6 +32,7 @@ Read more on the [tone & language principles page](/documentation/principles/ton
 ## Where Components Are Documented
 
 Origami components are documented in four key ways. We have already seen some examples of these:
+
 - The `README.md` file.
 - The `origami.json` manifest file.
 - SassDoc comments (for components with Sass).
@@ -48,22 +46,26 @@ Lets review each of these types of documentation for our `o-example` component.
 Perhaps the most important part of component documentation is the `README.md` file, found in the root directory. This is presented in the Origami Registry for each component, for example see the [o-table readme](https://registry.origami.ft.com/components/o-table/readme).
 
 In our `o-example` component there is already a `README.md` with boilerplate content. The readme includes basic component information such as:
+
 - name
 - description
 - intended usecase
 - intended behaviour
 
 The readme goes on to provide technical details of how to use the component:
+
 - Markup - [e.g. how to apply themes](https://registry.origami.ft.com/components/o-buttons@6.0.15/readme?brand=core#themes).
 - JavaScript - e.g. what [options are available](https://registry.origami.ft.com/components/o-table@8.1.2/readme?brand=core#javascript), and how to [perform common tasks](https://registry.origami.ft.com/components/o-forms@8.3.10/readme?brand=core#state).
 - Sass - e.g. where and why to use [Sass mixins](https://registry.origami.ft.com/components/o-typography@6.4.3/readme?brand=core#sass)
 
 The readme should also contain information about hot to do:
+
 - Troubleshooting
 - Contributing
 - Migration
 
 And concludes with general information:
+
 - Contact
 - Licence
 

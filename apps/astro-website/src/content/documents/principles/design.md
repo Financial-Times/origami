@@ -3,10 +3,6 @@ title: Design
 description: Information on how Origami components are designed, and how we try to accomodate multiple use-cases.
 cta: Read more about Origami and design
 
-# Redirect from legacy URLs
-redirect_from:
-  - /docs/syntax/design-guidelines/
-
 # Navigation config
 nav_display: true
 nav_label: Design

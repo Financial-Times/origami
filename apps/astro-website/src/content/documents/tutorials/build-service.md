@@ -2,14 +2,9 @@
 title: Include Components Using the Origami Build Service
 description: A step-by-step tutorial which teaches you how to use Origami components via the Origami Build Service.
 cta: Learn how to build web pages using the Origami Build Service
-
-# Redirect from legacy URLs
-redirect_from:
-  - /docs/developer-guide/modules/build-service/
-  - /docs/tutorials/build-service/
 ---
 
-# {{page.title}}
+# Include Components Using the Origami Build Service
 
 Using the Origami Build Service is the quickest way of getting Origami components to work in your product. The service bundles together the <abbr title="Cascading Style Sheets">CSS</abbr> and the JavaScript for all Origami components on a central server. You can then access specific component bundles by using a `link` or `script` tag.
 
@@ -17,8 +12,8 @@ Using the Origami Build Service is the quickest way of getting Origami component
 
 Below is a step by step walkthrough for building a page for an article about fruit, with FT.com colors and fonts, and we'll include a few Origami components to do so.
 
-
 ## Setting up your sandbox
+
 For this tutorial, we recommend you follow along by setting up your project in <a href="https://codepen.io/">CodePen</a>, or <a href="https://jsbin.com/">JSBin</a>.
 
 There are usually three three parts to an Origami component; <abbr title="Hypertext Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr> and JavaScript. We're going implement one at a time to put together our page.
@@ -28,6 +23,7 @@ There are usually three three parts to an Origami component; <abbr title="Hypert
 Let's begin.
 
 ## Boilerplate <abbr title="Hypertext Markup Language">HTML</abbr>
+
 We'll need to start with some boilerplate markup.
 
 There are three things we want on a <abbr title="Financial Times">FT</abbr>-like article page: a <a href="https://registry.origami.ft.com/components/o-grid">grid</a>, consistent <a href="https://registry.origami.ft.com/components/o-typography">typography</a> and a background <a href="https://registry.origami.ft.com/components/o-colors">color</a>.
@@ -55,6 +51,7 @@ You won't see anything yet, but the classes and the data attribute will be worki
 For now, let's finish putting together the content of our page.
 
 ## Component <abbr title="Hypertext Markup Language">HTML</abbr>
+
 With the exception of JavaScript-only components, all of Origami's components rely on markup. This markup, combined with the styling and the functionality, is what determines how a component will look and behave on a page.
 
 <aside>A single component can have many variations, and all the variations for all components can be found in the <a href="https://registry.origami.ft.com/components">Origami Registry</a>.</aside>
@@ -71,7 +68,6 @@ First, we're going to add some content for our article, so lets add a heading an
 &lt;h2>Naseberry, aka Sapodilla&lt;/h2>
 &lt;p>The sapodilla tree supplies the building blocks for a number of products utilized by humans.  Long ago, the Mayas and Aztecs would boil its ‘chicle’ sap, mold it into thick blocks and cut them into small pieces to chew. They were making the first chewing gum!&lt;/p></code></pre>
 
-
 Finally, we want to showcase the popularity of each fruit in a sortable table. To do that, we're going to use the `o-table` component.
 
 All of the markup that comes with an Origami component is available on the components' page in the Origami registry.
@@ -86,15 +82,15 @@ Now we come to the second step in putting our page together, and a big part of w
 
 The Origami Build Service will perform a number of build steps to compile and bundle up the <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> that most Origami component styles are written in. Since it is all bundled for us to pick and choose from, let's begin by styling our grid. This means we'll have to add a `link` tag to our `<head>` tag.
 
-<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^{{site.data.components.o-grid.version}}&brand=core&system_code=$$$-no-bizops-system-code-$$$"/></code></pre>
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^6.0.0&brand=core&system_code=$$$-no-bizops-system-code-$$$"/></code></pre>
 
 The `href` attribute references the Origami Build Service endpoint that serves a <abbr title="Cascading Style Sheets">CSS</abbr> bundle. The most important parts of this url are the `components`, `brand`, and `system_code` query parameters.
 
 The system code is the <a href="https://biz-ops.in.ft.com/list/Systems">bizops system code</a> for the FT system which is making the Origami build service request. A valid system code is important for usage attribution and technical support, but for the purposes of this tutorial we'll use a placeholder value `$$$-no-bizops-system-code-$$$`.
 
-The component query parameter is used to specify what components and which version we want to include. In the above we request `o-grid@^{{site.data.components.o-grid.version}}`.
+The component query parameter is used to specify what components and which version we want to include. In the above we request `o-grid@^6.0.0`.
 
-The brand query parameter will affect the appearance of included components, its value depends on what kind of project we are building  – more on this later.
+The brand query parameter will affect the appearance of included components, its value depends on what kind of project we are building – more on this later.
 
 <aside><a href="https://codepen.io/ft-origami/pen/ajazYj" rel="noreferrer noopener" target="_blank" class="o-typography-link">Show me the CodePen</a></aside>
 Now, you should see all of your content snap to the center of the page. This means that we've successfully fetched the `o-grid` <abbr title="Cascading Style Sheets">CSS</abbr> bundle from the Origami Build Service.
@@ -105,11 +101,10 @@ It is important to highlight that you only need **one** link tag per page, regar
 
 So in order to add the styling for all of our other components, we need to add a few components (and versions!) to the query parameter of our original url:
 
-<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^{{site.data.components.o-grid.version}},o-colors@^{{site.data.components.o-colors.version}},o-typography@^{{site.data.components.o-typography.version}},o-table@^{{site.data.components.o-table.version}}&brand=core&system_code=$$$-no-bizops-system-code-$$$"/></code></pre>
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^6.0.0,o-colors@^6.0.8,o-typography@^7.0.2,o-table@^9.0.2&brand=core&system_code=$$$-no-bizops-system-code-$$$"/></code></pre>
 <aside><a href="https://codepen.io/ft-origami/pen/LBJErq" rel="noreferrer noopener" target="_blank" class="o-typography-link">Show me the CodePen</a></aside>
 
 And now, when we look at our page, we should have a styled table, different typography and a type of grid in place.
-
 
 ### Selecting A Brand
 
@@ -117,7 +112,7 @@ Public facing, ft.com product are known as "core brand" products, by setting the
 
 For example we could set the brand to `internal`.
 
-<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^{{site.data.components.o-grid.version}},o-colors@^{{site.data.components.o-colors.version}},o-typography@^{{site.data.components.o-typography.version}},o-table@^{{site.data.components.o-table.version}}&brand=internal&system_code=$$$-no-bizops-system-code-$$$"/></code></pre>
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^6.0.0,o-colors@^6.0.8,o-typography@^7.0.2,o-table@^9.0.2&brand=internal&system_code=$$$-no-bizops-system-code-$$$"/></code></pre>
 <aside><a href="https://codepen.io/ft-origami/pen/VENXyQ" rel="noreferrer noopener" target="_blank" class="o-typography-link">Show me the CodePen</a></aside>
 
 As the colour palette for the "internal" brand does not include "paper" (FT pink), the background we set with `o-colors` classes has changed, as have the stripes of `o-table`. Our typography set with `o-typography` classes has also changed.
@@ -136,7 +131,7 @@ In addition to the `o-table` component we also request `o-autoinit`, which will 
 
 For now though, let's add the following to our `<head>`:
 
-<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;script src="https://www.ft.com/__origami/service/build/v3/bundles/js?components=o-table@^{{site.data.components.o-table.version}},o-autoinit@^{{site.data.components.o-autoinit.version}}&system_code=$$$-no-bizops-system-code-$$$" defer>&lt;/script></code></pre>
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;script src="https://www.ft.com/__origami/service/build/v3/bundles/js?components=o-table@^9.0.2,o-autoinit@^3.0.0&system_code=$$$-no-bizops-system-code-$$$" defer>&lt;/script></code></pre>
 <aside><a href="https://codepen.io/ft-origami/pen/ejLNNL" rel="noreferrer noopener" target="_blank" class="o-typography-link">Show me the CodePen</a></aside>
 
 Now you can scroll down to your table, and sort fruit alphabetically by name or characteristic, or numerically by popularity.

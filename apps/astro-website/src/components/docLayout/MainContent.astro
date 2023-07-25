@@ -1,11 +1,11 @@
 ---
+import path from "path"
 import {getCollection} from "astro:content"
 
 import {convertToSlug, filterAndSortNavbars} from "@/helpers/utils"
 
 const {title, description, collectionName, collectionFilterCallback} =
 	Astro.props
-const c = await getCollection("documents", collectionFilterCallback)
 const components = await getCollection(collectionName, collectionFilterCallback)
 const componentsToRender = filterAndSortNavbars(components)
 const pathname = Astro.url.pathname
@@ -45,7 +45,7 @@ const pathname = Astro.url.pathname
 				) : (
 					<p>
 						{ctx.data.description}
-						<a href={pathname + "/" + ctx.slug.split("/")[1]}>
+						<a href={path.join(pathname, ctx.slug.split("/")[1])}>
 							{" " + ctx.data.cta}
 						</a>
 					</p>

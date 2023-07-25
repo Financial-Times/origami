@@ -18,8 +18,8 @@ const allServices = await getCollection("documents", ({id}) =>
 	id.startsWith("services/")
 )
 
-const tutorialDocuments = await Astro.glob(
-	"@/pages/documentation/tutorials/**/*.md"
+const allTutorials = await getCollection("documents", ({id}) =>
+	id.startsWith("tutorials/")
 )
 ---
 
@@ -82,7 +82,12 @@ const tutorialDocuments = await Astro.glob(
 					{
 						filterAndSortNavbars(allServices).map(service => (
 							<li>
-								<a href={`/documentation/services/#${service.slug.split('/')[1]}`}>{service.data.title}</a>
+								<a
+									href={`/documentation/services/#${
+										service.slug.split("/")[1]
+									}`}>
+									{service.data.title}
+								</a>
 							</li>
 						))
 					}
@@ -98,14 +103,13 @@ const tutorialDocuments = await Astro.glob(
 
 				<ul>
 					{
-						tutorialDocuments.map(
-							tutorial =>
-								tutorial.frontmatter.collection_listing_display !== false && (
-									<li>
-										<a href={tutorial.url}>{tutorial.frontmatter.title}</a>
-									</li>
-								)
-						)
+						filterAndSortNavbars(allTutorials).map(tutorial => (
+							<li>
+								<a href={`/documentation/${tutorial.slug}`}>
+									{tutorial.data.title}
+								</a>
+							</li>
+						))
 					}
 				</ul>
 			</div>

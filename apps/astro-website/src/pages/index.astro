@@ -4,9 +4,11 @@ import Layout from "@/layouts/Layout.astro"
 import HeroImage from "@/components/hero-image.astro"
 
 const title = "Origami"
+const description =
+	"Origami is a group of services, components, and tools used to help design & build digital products for FT brands."
 ---
 
-<Layout>
+<Layout title={title} description={description}>
 	<div class="o-layout__hero o-layout-typography o-website__hero--home">
 		<HeroImage />
 		<div class="o-website__hero--text">

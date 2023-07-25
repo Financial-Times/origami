@@ -38,7 +38,7 @@ export function generateBlogPostURL(slug) {
 
 export function filterAndSortNavbars(components) {
 	return components
-		.filter(ctx => !ctx.data.deprecate)
+		.filter(ctx => ctx.data.collection_listing_display !== false)
 		.sort((a, b) => {
 			return a.data.nav_order < b.data.nav_order ? -1 : 1
 		})

@@ -3,11 +3,6 @@ title: Compatibility
 description: Documentation about how Origami ensures compatibility across different browsers and devices, and how you can write code in a way that supports this.
 cta: Read more about Origami's compatibility
 
-# Redirect from legacy URLs
-redirect_from:
-  - /docs/developer-guide/modules/core-vs-enhanced-experience/
-  - /docs/developer-guide/modules/using-the-polyfill-service/
-
 # Navigation config
 nav_display: true
 nav_label: Compatibility

@@ -3,13 +3,9 @@ title: Create A New Origami Component - Part 9 Component Lifecycle
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
 collection_listing_display: false
-
-# Redirect from legacy URLs
-redirect_from:
-  - /docs/tutorials/create-a-new-component-part-9/
 ---
 
-# {{page.title}}
+# Create A New Origami Component - Part 9 Component Lifecycle
 
 The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
@@ -73,4 +69,4 @@ If you have followed along this far congratulations!
 
 We hope this step-by-step tutorial has helped make you feel more able to contribute to Origami. Both in terms of creating new components, maintaining existing components, and influencing the direction of Origami as a whole.
 
-If you have any questions, bug reports, or feature requests please contact the Origami team &#x1F603;. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}" target="_blank">#{{site.data.contact.slack}}</a>.
+If you have any questions, bug reports, or feature requests please contact the Origami team &#x1F603;. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/origami-support" target="_blank">#origami-support</a>.

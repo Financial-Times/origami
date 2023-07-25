@@ -1,6 +1,6 @@
 ---
 title: Polyfill.io
-deprecate: true
+collection_listing_display: false
 ---
 
 

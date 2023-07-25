@@ -3,11 +3,6 @@ title: Including Components In Your Project
 description: How you choose to include Origami components in your project will depend on your projects' requirements. There are two options, the Origami Build Service or the npm package manager.
 cta: Get started using Origami components in your project.
 
-# Redirect from legacy URLs
-redirect_from:
-  - /docs/developer-guide/modules/initialising-modules/
-  - /docs/components/initialising/
-
 # Navigation config
 nav_display: true
 nav_label: Getting Started

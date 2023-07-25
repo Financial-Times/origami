@@ -21,7 +21,7 @@ const documentsCollection = defineCollection({
 		nav_display: z.boolean().optional(),
 		nav_label: z.string().optional(),
 		nav_order: z.number().optional(),
-		deprecate: z.boolean().optional(),
+		collection_listing_display: z.boolean().optional(),
 	}),
 })
 

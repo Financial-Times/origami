@@ -1,6 +1,6 @@
 ---
 title: Bower Registry
-deprecate: true
+collection_listing_display: false
 ---
 
 The Origami Bower Registry is decommissioned. Migrate to npm. For details refer to the blog post: [Origami npm announcement and guides on how to migrate products](https://origami.ft.com/blog/2021/07/01/origami-on-npm-and-how-to-migrate/).

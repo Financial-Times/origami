@@ -3,10 +3,6 @@ title: Component Customisation
 description: Decide if you should customise a component for your project, learn the ways a component may be customised, and avoid other approaches which may be unreliable.
 cta: Read more about how to customise components
 
-# Redirect from previous branding page
-redirect_from:
-  - /docs/components/branding/
-
 # Navigation config
 nav_display: true
 nav_label: Customisation
@@ -34,10 +30,10 @@ TL;DR:
 ## Check Customisation Is Appropriate
 
 The first step before customising an Origami component is to ask:
-1. Is there an existing style which could work already? After searching the [Origami Registry](https://registry.origami.ft.com/components) it's worth double checking in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel, to reduce duplicated effort and to help maintain a consistent user interface across FT Group projects.
+1. Is there an existing style which could work already? After searching the [Origami Registry](https://registry.origami.ft.com/components) it's worth double checking in the <a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a> Slack channel, to reduce duplicated effort and to help maintain a consistent user interface across FT Group projects.
 2. Would your customisation be useful for other teams/projects? Maybe a component should be updated for your usecase, so other teams benefit from your work. A new component might be more appropriate if your design diverges significantly.
 
-A good place to start is to ask for feedback in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel. The core Origami team, along with the design team, can help identify similar existing styles or help make any relevant component updates to support your usecase without customisation.
+A good place to start is to ask for feedback in the <a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a> Slack channel. The core Origami team, along with the design team, can help identify similar existing styles or help make any relevant component updates to support your usecase without customisation.
 
 ## Brands
 
@@ -87,7 +83,7 @@ To select a brand within your project, see the tutorial for your method of inclu
 If your project has access to a component's Sass API (see the [package manager (npm) tutorial](/documentation/tutorials/manual-build/#selecting-a-brand)) it is possible to customise your chosen brand. For example, at the time of writing, the [`oTypographySetFont`](https://registry.origami.ft.com/components/o-typography@6.4.5/sassdoc?brand=core#mixin-otypographysetfont) mixin can be used to customise component fonts. This customises the font used by all components included in your project.
 
 <aside>
-Not all components support brand customisation but the Origami team are happy for support to be added as needed. Ask the core Origami team about new features in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel.
+Not all components support brand customisation but the Origami team are happy for support to be added as needed. Ask the core Origami team about new features in the <a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a> Slack channel.
 </aside>
 
 <pre><code class="o-syntax-highlight--scss">// Incomplete example for demo purposes only
@@ -148,7 +144,7 @@ For instance, at the time of writing, the `o-banner` component has an [`oBannerA
 Another way to customise components is by applying additional CSS styles within your project. This is **not recommended** and should be avoided. Applying styles on top of a components style is unreliable and should be avoided as component CSS may change in future minor releases in a way that conflicts with your overrides.
 
 <aside>
-The Origami team are available to support you in removing CSS overrides, and reduce the complexity of your project (say hello in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel).
+The Origami team are available to support you in removing CSS overrides, and reduce the complexity of your project (say hello in the <a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a> Slack channel).
 </aside>
 
 For instance, given a component `o-example-component` with the following code:
@@ -215,4 +211,4 @@ The core Origami team, along with the design team, can help identify any existin
 
 When customisation does make sense use a component's Sass API. Usually this means using Sass to create additional variants for use alongside existing component styles. Alternatively, you can customise your chosen brand to affect all instances of an existing component variant. Avoid CSS overrides as these are unsupported and likely to break.
 
-If you have any questions about customising components, or feature requests, ask them in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel, the core Origami team are here to help 😊
+If you have any questions about customising components, or feature requests, ask them in the <a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a> Slack channel, the core Origami team are here to help 😊
