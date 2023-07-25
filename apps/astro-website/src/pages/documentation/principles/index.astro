@@ -1,58 +1,21 @@
 ---
-import {getCollection} from "astro:content"
 import DocLayout from "@/layouts/DocLayout.astro"
+import MainContent from "@/components/docLayout/MainContent.astro"
 
-const allPrinciples = await getCollection("documents", ({id}) =>
-	id.startsWith("principles/")
-)
+const title = "Origami Principles"
+const description = `Origami follows a set of guiding principles when developing products for
+	the FT. This section of the documentation is for people who are authoring
+	components or services, either as a member of the Origami team, or as
+	somebody trying to transfer their code to be maintained by the team.`
+const collectionName = "documents"
+const collectionFilterCallback = ({id}) => id.startsWith("principles/")
 ---
 
-<DocLayout>
-	<div
-		class="o-layout__main o-layout-typography data-o-component="
-		o-syntax-highlight
-	>
-		<h1 id="origami-principles" class="o-layout__linked-heading">
-			<a
-				href="#origami-principles"
-				title="Link directly to this section of the page"
-				class="o-layout__linked-heading__link"
-			>
-				<span class="o-layout__linked-heading__content">Origami Principles</span
-				>
-				<span class="o-layout__linked-heading__label">#</span>
-			</a>
-		</h1>
-		<p>
-			Origami follows a set of guiding principles when developing products for
-			the FT. This section of the documentation is for people who are authoring
-			components or services, either as a member of the Origami team, or as
-			somebody trying to transfer their code to be maintained by the team.
-		</p>
-		{
-			allPrinciples.map(principle => {
-				return (
-					<>
-						<h2 id={principle.data.title} class="o-layout__linked-heading">
-							<a
-								href={`#${principle.data.title}`}
-								title="Link directly to this section of the page"
-								class="o-layout__linked-heading__link">
-								<span class="o-layout__linked-heading__content">
-									{principle.data.title}
-								</span>
-								<span class="o-layout__linked-heading__label">#</span>
-							</a>
-						</h2>
-						<p>
-							{principle.data.description}
-							<a href={principle.slug.split("/")[1]}>
-								{" " + principle.data.cta}
-							</a>
-						</p>
-					</>
-				)
-			})
-		}
-	</div>
+<DocLayout title={title} description={description}>
+	<MainContent
+		title={title}
+		description={description}
+		collectionName={collectionName}
+		collectionFilterCallback={collectionFilterCallback}
+	/>
 </DocLayout>

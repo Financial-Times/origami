@@ -1,0 +1,19 @@
+---
+import DocLayout from "@/layouts/DocLayout.astro"
+import MainContent from "@/components/docLayout/MainContent.astro"
+
+const title = "Origami Manifests"
+const description =
+	"Origami manifest files are used to describe and configure Origami projects."
+const collectionName = "documents"
+const collectionFilterCallback = ({id}) => id.startsWith("manifests/")
+---
+
+<DocLayout title={title} description={description}>
+	<MainContent
+		title={title}
+		description={description}
+		collectionName={collectionName}
+		collectionFilterCallback={collectionFilterCallback}
+	/>
+</DocLayout>

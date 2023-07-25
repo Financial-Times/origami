@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro"
 import {getCollection} from "astro:content"
+import {filterAndSortNavbars} from "@/helpers/utils"
 
 const title = "Origami Documentation"
 const description =
@@ -13,32 +14,19 @@ const allPrinciples = await getCollection("documents", ({id}) =>
 const allComponents = await getCollection("documents", ({id}) =>
 	id.startsWith("components/")
 )
+const allServices = await getCollection("documents", ({id}) =>
+	id.startsWith("services/")
+)
 
-const sortedComponentDocuments = allComponents
-	.filter(c => !c.data.deprecate)
-	.sort((a, b) => {
-		if (a.data.nav_order < b.data.nav_order) {
-			return -1
-		}
-		if (a.data.nav_order > b.data.nav_order) {
-			return 1
-		}
-		return 0
-	})
-
-const serviceDocuments = await Astro.glob("@/pages/documentation/services/*.md")
 const tutorialDocuments = await Astro.glob(
 	"@/pages/documentation/tutorials/**/*.md"
 )
 ---
 
-<Layout>
+<Layout title={title} description={description}>
 	<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
 		<h1>{title}</h1>
-		<p>
-			Documentation on how to use Origami's components and services to help your
-			team deliver products for the FT.
-		</p>
+		<p>{description}</p>
 	</div>
 	<div class="o-layout__main o-layout-typography">
 		<div class="o-layout__overview">
@@ -52,7 +40,7 @@ const tutorialDocuments = await Astro.glob(
 				</p>
 				<ul>
 					{
-						allPrinciples.map(principle => (
+						filterAndSortNavbars(allPrinciples).map(principle => (
 							<li>
 								<a href={`/documentation/${principle.slug}`}>
 									{principle.data.title}
@@ -73,7 +61,7 @@ const tutorialDocuments = await Astro.glob(
 
 				<ul>
 					{
-						sortedComponentDocuments.map(component => (
+						filterAndSortNavbars(allComponents).map(component => (
 							<li>
 								<a href={`/documentation/${component.slug}`}>
 									{component.data.title}
@@ -92,14 +80,11 @@ const tutorialDocuments = await Astro.glob(
 
 				<ul>
 					{
-						serviceDocuments.map(
-							service =>
-								service.frontmatter.collection_listing_display !== false && (
-									<li>
-										<a href={service.url}>{service.frontmatter.title}</a>
-									</li>
-								)
-						)
+						filterAndSortNavbars(allServices).map(service => (
+							<li>
+								<a href={`/documentation/services/#${service.slug.split('/')[1]}`}>{service.data.title}</a>
+							</li>
+						))
 					}
 				</ul>
 			</div>

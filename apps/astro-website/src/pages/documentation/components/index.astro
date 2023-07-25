@@ -1,65 +1,24 @@
 ---
-import {getCollection} from "astro:content"
 import DocLayout from "@/layouts/DocLayout.astro"
-
-import {convertToSlug} from "@/helpers/utils"
+import MainContent from "@/components/docLayout/MainContent.astro"
 
 const title = "Origami Components"
 const description =
-	"Documentation on how to use Origami components, which provide reusable HTML, SCSS, and JavaScript for FT web pages."
-
-const components = await getCollection("documents", ({id}) =>
-	id.startsWith("components/")
-)
-
-const componentsToRender = components
-	.filter(ctx => !ctx.data.deprecate)
-	.sort((a, b) => {
-		return a.data.nav_order < b.data.nav_order ? -1 : 1
-	})
-
+	`An Origami component is a collection of styles and functionality. They
+	provide reusable <abbr title="Hypertext Markup Language">HTML</abbr>, <abbr
+		title="Sassy Cascading Style Sheets">SCSS</abbr
+	> and JavaScript for a multitude of different products under the <abbr
+		title="Financial Times">FT</abbr
+	> umbrella.`
+const collectionName = "documents"
+const collectionFilterCallback = ({id}) => id.startsWith("components/")
 ---
 
 <DocLayout title={title} description={description}>
-	<h1 id="origami-components" class="o-layout__linked-heading">
-		<a
-			href="#origami-components"
-			title="Link directly to this section of the page"
-			class="o-layout__linked-heading__link"
-		>
-			<span class="o-layout__linked-heading__content">Origami Components</span>
-			<span class="o-layout__linked-heading__label">#</span>
-		</a>
-	</h1>
-	<p>
-		An Origami component is a collection of styles and functionality. They
-		provide reusable <abbr title="Hypertext Markup Language">HTML</abbr>, <abbr
-			title="Sassy Cascading Style Sheets">SCSS</abbr
-		> and JavaScript for a multitude of different products under the <abbr
-			title="Financial Times">FT</abbr
-		> umbrella.
-	</p>
-	{
-		componentsToRender.map(ctx => {
-			return (
-				<>
-					<h2 id={convertToSlug(ctx.data.title)} class="o-layout__linked-heading">
-						<a
-							href={`#${convertToSlug(ctx.data.title)}`}
-							title="Link directly to this section of the page"
-							class="o-layout__linked-heading__link">
-							<span class="o-layout__linked-heading__content">
-								{ctx.data.title}
-							</span>
-							<span class="o-layout__linked-heading__label">#</span>
-						</a>
-					</h2>
-					<p>
-						{ctx.data.description}
-						<a href={"components/" + ctx.slug.split("/")[1]}>{" " + ctx.data.cta}</a>
-					</p>
-				</>
-			)
-		})
-	}
+	<MainContent
+		title={title}
+		description={description}
+		collectionName={collectionName}
+		collectionFilterCallback={collectionFilterCallback}
+	/>
 </DocLayout>

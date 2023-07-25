@@ -1,0 +1,22 @@
+---
+import DocLayout from "@/layouts/DocLayout.astro"
+import MainContent from "@/components/docLayout/MainContent.astro"
+
+const title = "Origami Services"
+const description = `As well as <a href="/documentation/components">front end components</a>,
+			Origami maintain several services for use by development teams at the <abbr
+				title="Financial Times">FT</abbr
+			>. Each service is self-documenting, but here we outline what each of them
+			does.`
+const collectionName = "documents"
+const collectionFilterCallback = ({id}) => id.startsWith("services/")
+---
+
+<DocLayout title={title} description={description}>
+	<MainContent
+		title={title}
+		description={description}
+		collectionName={collectionName}
+		collectionFilterCallback={collectionFilterCallback}
+	/>
+</DocLayout>
