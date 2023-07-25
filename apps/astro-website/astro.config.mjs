@@ -1,7 +1,7 @@
 import {defineConfig} from "astro/config"
 import {fileURLToPath} from "url"
 import path, {dirname} from "path"
-
+import {redirects} from "./redirects"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
@@ -17,4 +17,5 @@ export default defineConfig({
 	site: "https://origami.ft.com/",
 	compressHTML: true,
 	outDir: "../../origami.ft.com",
+	redirects: redirects,
 })

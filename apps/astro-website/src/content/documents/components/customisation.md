@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/DocLayout.astro
 title: Component Customisation
 description: Decide if you should customise a component for your project, learn the ways a component may be customised, and avoid other approaches which may be unreliable.
 cta: Read more about how to customise components

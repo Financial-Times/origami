@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/DocLayout.astro
 title: Code Structure & Languages
 description: An overview of Origami component code structure, languages, and conventions.
 cta: Learn more about component code

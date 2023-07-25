@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/DocLayout.astro
 title: Component versioning
 description: An explanation of how Origami components are versioned, how to request different versions and resolve conflicts.
 cta: Read more about component versioning

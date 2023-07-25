@@ -18,7 +18,7 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^2.6.4",
+		"astro": "^2.9.0",
 		"sass": "^1.63.4"
 	},
 	"peerDependencies": {

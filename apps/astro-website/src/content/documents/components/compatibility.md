@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/DocLayout.astro
 title: Compatibility
 description: Documentation about how Origami ensures compatibility across different browsers and devices, and how you can write code in a way that supports this.
 cta: Read more about Origami's compatibility
@@ -14,8 +13,8 @@ nav_display: true
 nav_label: Compatibility
 nav_order: 30
 ---
-# Compatibility
 
+# Compatibility
 
 ## Core & enhanced experiences
 

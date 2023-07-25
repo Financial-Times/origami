@@ -3,7 +3,7 @@ title: Silent mode
 description: Documentation on how to use Origami component's deprecated 'silent mode'. This allows you to control the CSS output of a component.
 cta: Learn about silent mode
 
-collection_listing_display: false
+deprecate: true
 
 # Navigation config
 nav_display: false

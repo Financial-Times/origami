@@ -3,7 +3,7 @@ title: Major Cascade
 description: When releasing major versions of low level components such as o-typography, o-colors, or o-buttons many projects and teams across different Financial Times groups are affected. This we call a Major Cascade. This page explores what we mean by a  Major Cascade in more detail and notes areas to consider when releasing major versions of low level components.
 cta: Read more about Major Cascades
 
-collection_listing_display: false
+deprecate: true
 
 ---
 
