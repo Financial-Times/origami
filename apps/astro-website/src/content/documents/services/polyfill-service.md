@@ -1,5 +1,6 @@
 ---
 title: Polyfill.io
+deprecated: true
 ---
 
 

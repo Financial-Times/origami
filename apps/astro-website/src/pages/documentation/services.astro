@@ -1,8 +1,8 @@
 ---
 import {getCollection} from "astro:content"
 import DocLayout from "@/layouts/DocLayout.astro"
-const allServices = await getCollection("documents", ({id}) =>
-	id.startsWith("services/")
+const allServices = await getCollection("documents", ({id, data}) =>
+	id.startsWith("services/") && !data.deprecated
 )
 ---
 
@@ -30,7 +30,8 @@ const allServices = await getCollection("documents", ({id}) =>
 		</p>
 
 		{
-			allServices.map(service => {
+			allServices.map(async (service, i) => {
+				const {Content} = await service.render()
 				return (
 					<>
 						<h2
@@ -46,7 +47,9 @@ const allServices = await getCollection("documents", ({id}) =>
 								<span class="o-layout__linked-heading__label">#</span>
 							</a>
 						</h2>
-						<p>{service.body}</p>
+						<p>
+							<Content />
+						</p>
 					</>
 				)
 			})
