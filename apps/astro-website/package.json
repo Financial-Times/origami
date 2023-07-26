@@ -21,10 +21,14 @@
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^0.19.7",
+		"@astrojs/rss": "^2.4.3",
+		"@astrojs/sitemap": "^2.0.1",
 		"astro": "^2.9.0",
 		"axios": "^1.4.0",
 		"cheerio": "^1.0.0-rc.12",
 		"html-to-text": "^9.0.5",
+		"markdown-it": "^13.0.1",
+		"sanitize-html": "^2.11.0",
 		"sass": "^1.63.4"
 	},
 	"peerDependencies": {

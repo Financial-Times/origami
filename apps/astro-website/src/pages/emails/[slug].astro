@@ -31,7 +31,7 @@ const companionPostUrl = `https://origami.ft.com/blog/${dateSlug}/newsletter/`
 
 const MarkdownFiles = await Astro.glob("@/content/posts/*.md")
 const currentMarkdown = MarkdownFiles.filter(md =>
-	md.file?.includes(entry.id)
+	md.frontmatter?.tags?.includes("Newsletter")
 )[0]
 const currentMdContent = currentMarkdown.compiledContent()
 const $ = cheerio.load(currentMdContent)
