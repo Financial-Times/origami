@@ -79,16 +79,6 @@ async function sendNewsletter(options) {
 		console.log("==============================")
 		console.log("")
 
-		// rd.question("Does plain text look as expected? (yes/no)", answer => {
-		// 	reviewReplies.plainText = answer
-		// 	rd.close()
-		// })
-
-		// rd.question("Does HTML look as expected? (yes/no)", answer => {
-		// 	reviewReplies.html = answer
-		// 	rd.close()
-		// })
-
 		const answer1 = await rl.question(
 			"Does plain text look as expected? (yes/no)"
 		)
@@ -130,8 +120,13 @@ async function sendNewsletter(options) {
 		process.exit(1)
 	}
 
-	if (reviewReplies.plainText.toLowerCase() !== 'yes'  || reviewReplies.html.toLowerCase() !== 'yes') {
-		console.log("Review and confirm that plain text and HTML look as expected before sending them to users.")
+	if (
+		reviewReplies.plainText.toLowerCase() !== "yes" ||
+		reviewReplies.html.toLowerCase() !== "yes"
+	) {
+		console.log(
+			"Review and confirm that plain text and HTML look as expected before sending them to users."
+		)
 		process.exit(1)
 	}
 
