@@ -18,10 +18,12 @@ const {entry} = Astro.props
 const {Content} = await entry.render()
 const slugifiedName = convertToSlug(entry.data.title)
 const formatedDateString = formatDateString(entry.data.publishDate)
-const tags = entry.data.tags.length > 0 && entry.data.tags.join(",")
+const tags = entry.data?.tags?.length > 0 && entry.data.tags.join(",")
+
+
 ---
 
-<DocLayout>
+<DocLayout title={entry.data.title} description={entry.data.description}>
 	<h1 id={slugifiedName} class="o-layout__linked-heading">
 		<a
 			href={`#${slugifiedName}`}
