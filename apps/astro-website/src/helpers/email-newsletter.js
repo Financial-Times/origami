@@ -114,7 +114,7 @@ async function sendNewsletter(options) {
 	if (!options.send) {
 		console.error("")
 		console.error(
-			"Please an `EMAIL_SEND=true` environment variable to send the newsletter."
+			"Please set an `EMAIL_SEND=true` environment variable to send the newsletter."
 		)
 		console.error("")
 		process.exit(1)
