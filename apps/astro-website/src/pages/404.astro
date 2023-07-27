@@ -1,4 +1,6 @@
 ---
+import {EMAIL, SLACK} from "@/helpers/variables"
+
 import DocLayout from "@/layouts/DocLayout.astro"
 const title = "404: Page not found"
 ---
@@ -27,7 +29,10 @@ const title = "404: Page not found"
 		</li>
 		<li>
 			As a last resort, if you think there’s something wrong with this website,
-			then <a href="/contact/">please contact Origami</a>
+			then please contact Origami on community Slack channel named <a
+			href={`https://financialtimes.slack.com/messages/${SLACK}`}
+			target="_blank">#{SLACK}</a> or there is a <a href={`mailto:${EMAIL}`}>mailing list</a> for contacting
+			the Origami Core Team.
 		</li>
 	</ul>
 </DocLayout>
