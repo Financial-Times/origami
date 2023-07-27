@@ -3,13 +3,9 @@ title: Create A New Origami Component - Part 7 Testing
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
 collection_listing_display: false
-
-# Redirect from legacy URLs
-redirect_from:
-  - /docs/tutorials/create-a-new-component-part-6/
 ---
 
-# {{page.title}}
+# Create A New Origami Component - Part 7 Testing
 
 The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)

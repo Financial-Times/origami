@@ -2,15 +2,12 @@
 title: Create A New Origami Component
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
-
-# Redirect from legacy URLs
-redirect_from:
-  - /docs/tutorials/create-a-new-component-part-1/
 ---
 
-# {{page.title}}
+# Create A New Origami Component
 
 The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
+
 1. Intro & Boilerplate
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
@@ -33,12 +30,13 @@ Before you get started, it's a good idea to discuss your new component with the 
 
 This tutorial assumes some knowledge. For example we introduce a number of tools and libraries such as [git](https://git-scm.com/), [Sass](https://sass-lang.com/), [storybook](https://storybook.js.org/), etc. We do not cover these in depth but attempt to include brief descriptions and links to relevant documentation so that you may learn separately about the parts which are new to you.
 
-If you have any questions please contact the Origami team to help make this tutorial better &#x1F603;. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}" target="_blank">#{{site.data.contact.slack}}</a>.
+If you have any questions please contact the Origami team to help make this tutorial better &#x1F603;. You can find the team on Slack in <a href="https://financialtimes.slack.com/messages/origami-support" target="_blank">#origami-support</a>.
 
 ### Requirements
 
 There is some software you'll need on your computer in order to work with this
 repository.
+
 #### Node.js & npm
 
 [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/get-npm) are required to develop Origami components.
@@ -46,10 +44,12 @@ repository.
 Check the version of Node.js and npm installed on your local machine matches the `engines` property of [package.json](https://github.com/Financial-Times/origami/blob/main/package.json).
 
 We recommend using [volta](https://docs.volta.sh/guide/getting-started) to manage which version of Node.js and npm is used on your machine across multiple projects.
+
 #### git-lfs
 
 To keep the repo speedy, we use [git-lfs](https://git-lfs.github.com/) to store
 binary files like the images on the website.
+
 <pre><code class="o-syntax-highlight--bash">brew install git-lfs
 git lfs install
 </code></pre>
@@ -59,21 +59,26 @@ git lfs install
 [entr](https://eradman.com/entrproject/) is used in the component `watch` command for watching files
 
 <pre><code class="o-syntax-highlight--bash">brew install entr</code></pre>
+
 #### rg
+
 [ripgrep](https://github.com/BurntSushi/ripgrep) is used in the component `watch` command for quickly choosing the files to watch for changes.
+
 <pre><code class="o-syntax-highlight--bash">brew install rg</code></pre>
+
 ## Getting Started
 
 ### Clone the Origami repository
+
 <pre><code class="o-syntax-highlight--bash">git clone git@github.com:Financial-Times/origami.git
 cd origami</code></pre>
 
 ### Install dependencies
+
 <pre><code class="o-syntax-highlight--bash">npm install</code></pre>
 
 This will install all the components into the root `node_modules` directory, and allow all the components to [find one another](https://nodejs.org/api/modules.html#loading-from-node_modules-folders).
 In addition this tutorial introduces a number of tools and libraries such as [git](https://git-scm.com/), [Sass](https://sass-lang.com/), [sinon.js](https://sinonjs.org/), [storybook](https://storybook.js.org/) etc. We do not cover these in depth but attempt to include brief descriptions and links to relevant documentation so that you may learn separately about the parts which are new to you.
-
 
 ## The Origami Specification
 
@@ -82,7 +87,6 @@ The [Origami Specification](/specification/v1/) is deprecated, new components ma
 <aside>
 See our <a href='https://origami.ft.com/blog/2021/06/01/newsletter/#the-origami-specification-is-no-more'>blogpost on why the Origami specification is deprecated</a>.
 </aside>
-
 
 ## Boilerplate
 
@@ -99,6 +103,7 @@ Before we run `create-component`, let's discuss some of those questions.
 The first thing we will be asked is to decide a component name. Usually Origami components start with `o-`, and only contain lowercase letters or hyphens. See the [component naming convention](/specification/v1/components/#naming-conventions) for more details.
 
 For this tutorial we will name our component `o-example`.
+
 ### Supported Brands
 
 Component brands facilitate [component customisation](/specification/v1/components/sass/#customisation). Brands change the appearance of component elements globally, e.g. change the appearance of all “primary” buttons, including where they are used by other components. Brands include `core` (think, ft.com pink), `internal` for internal tools and products, and `whitelabel` for a striped-back un-opinionated style. Origami components may support one or more brands. We'll discuss brands more later, for now select the `core`, `internal`, and `whitelabel` brand when prompted by `create-component`.
@@ -234,6 +239,7 @@ The `div` tag in our demo may be any HTML tag provided there is a `data-o-compon
 ## Part Two: Base Styles
 
 In part one we learnt:
+
 - The [Origami specification](/specification/v1/) is deprecated, but some sections provide a useful reference to create components compatible with Origami tools and services whilst they are updated.
 - Specifically, we learnt about the `npm run create-component` command to generate a component to work from when developing a new component.
 - Origami components are generated inside `components` directory and are stored remotely on Github.

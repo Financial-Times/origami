@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/DocLayout.astro
 title: Contributing
 description: Guidelines on how Origami users can help us improve our components and services.
 cta: Learn how you can help

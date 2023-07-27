@@ -2,7 +2,11 @@
 import {getCollection} from "astro:content"
 import DocLayout from "@/layouts/DocLayout.astro"
 
-import {convertToSlug, formatDateString, generateBlogPostURL} from "@/helpers/utils"
+import {
+	convertToSlug,
+	formatDateString,
+	generateBlogPostURL,
+} from "@/helpers/utils"
 
 export async function getStaticPaths() {
 	const postEntries = await getCollection("posts")
@@ -18,12 +22,11 @@ const {entry} = Astro.props
 const {Content} = await entry.render()
 const slugifiedName = convertToSlug(entry.data.title)
 const formatedDateString = formatDateString(entry.data.publishDate)
-const tags = entry.data?.tags?.length > 0 && entry.data.tags.join(",")
-
-
+const tags = entry.data.tags?.length > 0 && entry.data.tags.join(",")
+const {title, description} = entry.data
 ---
 
-<DocLayout title={entry.data.title} description={entry.data.description}>
+<DocLayout title={title} description={description}>
 	<h1 id={slugifiedName} class="o-layout__linked-heading">
 		<a
 			href={`#${slugifiedName}`}

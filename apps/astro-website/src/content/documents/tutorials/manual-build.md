@@ -2,14 +2,9 @@
 title: Include Components Using a Package Manager (npm)
 description: A step-by-step tutorial which teaches you how to use Origami components via a package manager, compiling them on your local machine.
 cta: Learn how to build web pages with locally-installed Origami components
-
-# Redirect from legacy URLs
-redirect_from:
-  - /docs/developer-guide/modules/building-modules/
-  - /docs/tutorials/build-service/manual-build
 ---
 
-# {{page.title}}
+# Include Components Using a Package Manager (npm)
 
 Installing Origami components with a package manager (manual build) gives you more granular control over their styling and their behaviour within your project. It requires more set up though, compared to [using the Origami Build Service](/documentation/tutorials/build-service/), so we're providing an in-depth walkthrough for building a page for an article about fruit.
 
@@ -126,10 +121,10 @@ And your `package.json` should now look something like this:
 <pre><code class="o-syntax-highlight--json">{
   "name": "o-fruit-demo",
   "peerDependencies": {
-    "@financial-times/o-grid": "^{{site.data.components.o-grid.version}}",
-    "@financial-times/o-typography": "^{{site.data.components.o-typography.version}}",
-    "@financial-times/o-colors": "^{{site.data.components.o-colors.version}}",
-    "@financial-times/o-table": "^{{site.data.components.o-table.version}}"
+    "@financial-times/o-grid": "^6.0.0",
+    "@financial-times/o-typography": "^7.0.2",
+    "@financial-times/o-colors": "^6.0.8",
+    "@financial-times/o-table": "^9.0.2"
   }
 }</code>
 </pre>

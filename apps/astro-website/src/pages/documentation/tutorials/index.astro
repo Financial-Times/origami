@@ -1,7 +1,18 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import DocLayout from "@/layouts/DocLayout.astro"
+import MainContent from "@/components/docLayout/MainContent.astro"
+
+const title = "Origami Tutorials"
+const description = `This section of the site offers step-by-step tutorials for people who are learning to use Origami. We also run through some of these in the Origami Workshop, if you’re new to the FT or have been here a while but could use a recap, then please contact the team.`
+const collectionName = "documents"
+const collectionFilterCallback = ({id}) => id.startsWith("tutorials/")
 ---
 
-<Layout>
-	<h1>tutorials</h1>
-</Layout>
+<DocLayout title={title} description={description}>
+	<MainContent
+		title={title}
+		description={description}
+		collectionName={collectionName}
+		collectionFilterCallback={collectionFilterCallback}
+	/>
+</DocLayout>

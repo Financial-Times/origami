@@ -9,6 +9,8 @@ nav_label: Accessibility
 nav_order: 30
 ---
 
+# Accessibility
+
 Accessibility is an important aspect of web development at the Financial Times and within Origami. The <abbr title="Financial Times">FT</abbr> website has an AA level <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> accessibility accreditation. This means that we have met certain criteria to make our website more accessible to people with disabilities, according to the <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html"><abbr title="Web Content Accessibility Guidelines">WCAG</abbr> conformance standards</a>.
 
 <aside> You can find more information about our accreditation <a href="https://www.ft.com/accessibility">on the <abbr title="Financial Times">FT</abbr> website</a></aside>

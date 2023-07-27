@@ -3,15 +3,12 @@ title: Create A New Origami Component - Part 6 Storybook
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
 collection_listing_display: false
-
-# Redirect from legacy URLs
-redirect_from:
-  - /docs/tutorials/create-a-new-component-part-storybook/
 ---
 
-# {{page.title}}
+# Create A New Origami Component - Part 6 Storybook
 
 The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
+
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
@@ -31,6 +28,7 @@ We are aiming to replace the Origami Registry that is currently used to view dem
 Our TSX (JSX + [typeScript](https://www.typescriptlang.org/)) templates don't use React specific imports in them and we are leveraging [JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) which enables us to use JSX without importing React and therefore making it somewhat framework agnostic.
 
 To run storybook locally run `npm run storybook` from your root directory. This will start a localhost server automatically.
+
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-23-storybook.png" />
 	<figcaption>
@@ -45,7 +43,9 @@ Once the storybook dev server is running we notice that some styles are already 
 ## Brands
 
 When we were working on [implementing brand](/documentation/tutorials/create-a-new-component-part-3/#component-brands) variants for our component we noticed that our build server generated different `html` files for us and we could swap between them. In storybook we will need to restart our dev server and provide an environment variable. To start internal component demos in storybook you will need to run `ORIGAMI_STORYBOOK_BRAND=internal npm run storybook` and similarly for whitelababel you can run `ORIGAMI_STORYBOOK_BRAND=whitelabel npm run storybook`.
+
 ## TSX template
+
 `npm run create-component` generated a TSX ([JSX](https://reactjs.org/docs/jsx-in-depth.html) + [typeScript](https://www.typescriptlang.org/docs/handbook/basic-types.html)) boilerplate template as well.
 
 The code in `example.tsx` will be very similar to what we have in `demo.mustache` but with different syntax:
@@ -71,6 +71,7 @@ export function Example({theme}: {theme: ExampleProps}) {
 </code></pre>
 
 But let's break this down a bit and compare it to the `demo.mustache` file.
+
 1. First thing we notice is `ExampleProps` [type declaration](https://www.typescriptlang.org/docs/handbook/basic-types.html) for our [component props](https://reactjs.org/docs/components-and-props.html). This type declaration is used to make sure that our component is given an object argument with a `theme` property of type string.
 2. Second thing we notice is that we are using the [JSX syntax](https://reactjs.org/docs/jsx-in-depth.html) to write our component and return it from the `Example` function.
 3. Syntax for [JSX](https://reactjs.org/docs/jsx-in-depth.html) and Mustache are slightly different. In [JSX](https://reactjs.org/docs/jsx-in-depth.html) we use `className` instead of `class` and we are passing theme prop to our JSX using literal string (`${theme}`) syntax.
@@ -89,6 +90,7 @@ While working with different brands you might encounter examples where certain v
 `stories/shared/.tsx` - exports stories for re-export to support multiple specific brands (no .stories extension)
 
 If your component supports only one brand you don't need a brand specific `stories` directory structure for this, since `origami.json` will make our storybook configuration aware that there is only one brand and it will skip builds for other brands.
+
 ## Adding button
 
 Our demo is missing the count button and it's related sentence. When we discussed [browser support](/documentation/tutorials/create-a-new-component-part-5/#browser-support) we decided to display count functionality if JS was enabled. In this case we have written a TSX template but never initialised components javascript. To do so we will need to update our `example.stories.tsx` file by adding the following code:
@@ -179,11 +181,10 @@ Implementing the above code should give us an option to choose between themes an
 	</figcaption>
 </figure>
 
-
-
 ## Part six: Storybook
 
 In part six we learnt how to make a storybook demo for `o-example` component, covering:
+
 - How to start storybook server for development for different brands.
 - What are TSX template and how to write them.
 - Initialising component JavaScript in React.

@@ -11,7 +11,7 @@ nav_label: Silent mode
 nav_order: 40
 ---
 
-# {{ page.title }}
+# Silent mode
 
 Some styled Origami components come with a 'silent mode' [Sass](https://sass-lang.com/) variable, which is used to control when the component outputs CSS. However, this is now deprecated in favour of including a [Sass](https://sass-lang.com/) mixin to control CSS output.
 

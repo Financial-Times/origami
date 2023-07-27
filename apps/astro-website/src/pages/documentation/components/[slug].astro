@@ -4,7 +4,7 @@ import DocLayout from "@/layouts/DocLayout.astro"
 
 export async function getStaticPaths() {
 	const entries = await getCollection("documents", ({id}) =>
-		id.startsWith("principles/")
+		id.startsWith("components/")
 	)
 	return entries.map(entry => ({
 		params: {slug: entry.slug.split("/")[1]},

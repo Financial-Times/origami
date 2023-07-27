@@ -29,7 +29,9 @@ const sortedPosts = allPosts.sort(
 					return (
 						<li class="o-layout__listing__item">
 							<h2 class="o-layout__listing__item__title">
-								<a href={"blog/" + generateBlogPostURL(post.slug)}>{post.data.title}</a>
+								<a href={"blog/" + generateBlogPostURL(post.slug)}>
+									{post.data.title}
+								</a>
 							</h2>
 							{post.data.description.length !== 0 && (
 								<p class="o-layout__listing__item__description">

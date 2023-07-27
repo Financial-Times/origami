@@ -1,19 +1,24 @@
 ---
 import DocLayout from "@/layouts/DocLayout.astro"
-const title="Origami Components"
-const discription=""
-const componentsDocs=  await Astro.glob(
-	"@/pages/documentation/components/components.md"
-)
+import MainContent from "@/components/docLayout/MainContent.astro"
+
+const title = "Origami Components"
+const description =
+	`An Origami component is a collection of styles and functionality. They
+	provide reusable <abbr title="Hypertext Markup Language">HTML</abbr>, <abbr
+		title="Sassy Cascading Style Sheets">SCSS</abbr
+	> and JavaScript for a multitude of different products under the <abbr
+		title="Financial Times">FT</abbr
+	> umbrella.`
+const collectionName = "documents"
+const collectionFilterCallback = ({id}) => id.startsWith("components/")
 ---
 
-<DocLayout>
-		<div class="o-layout__main o-layout-typography data-o-component="o-syntax-highlight>
-		<h1 id="origami-components" class="o-layout__linked-heading">
-			<a href="#origami-components" title="Link directly to this section of the page" class="o-layout__linked-heading__link">
-			<span class="o-layout__linked-heading__content">Origami Components</span>
-			<span class="o-layout__linked-heading__label">#</span>
-			</a>
-		</h1>
-	</div>
+<DocLayout title={title} description={description}>
+	<MainContent
+		title={title}
+		description={description}
+		collectionName={collectionName}
+		collectionFilterCallback={collectionFilterCallback}
+	/>
 </DocLayout>

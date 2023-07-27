@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro"
 import {getCollection} from "astro:content"
+import {filterAndSortNavbars} from "@/helpers/utils"
 
 const title = "Origami Documentation"
 const description =
@@ -10,32 +11,22 @@ const allPrinciples = await getCollection("documents", ({id}) =>
 	id.startsWith("principles/")
 )
 
-const componentDocuments = await Astro.glob(
-	"@/pages/documentation/components/*.md"
+const allComponents = await getCollection("documents", ({id}) =>
+	id.startsWith("components/")
 )
-const sortedComponentDocuments = componentDocuments.sort((a, b) => {
-	if (a.frontmatter.nav_order < b.frontmatter.nav_order) {
-		return -1
-	}
-	if (a.frontmatter.nav_order > b.frontmatter.nav_order) {
-		return 1
-	}
-	return 0
-})
+const allServices = await getCollection("documents", ({id}) =>
+	id.startsWith("services/")
+)
 
-const serviceDocuments = await Astro.glob("@/pages/documentation/services/*.md")
-const tutorialDocuments = await Astro.glob(
-	"@/pages/documentation/tutorials/**/*.md"
+const allTutorials = await getCollection("documents", ({id}) =>
+	id.startsWith("tutorials/")
 )
 ---
 
 <Layout title={title} description={description}>
 	<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
 		<h1>{title}</h1>
-		<p>
-			Documentation on how to use Origami's components and services to help your
-			team deliver products for the FT.
-		</p>
+		<p>{description}</p>
 	</div>
 	<div class="o-layout__main o-layout-typography">
 		<div class="o-layout__overview">
@@ -50,9 +41,9 @@ const tutorialDocuments = await Astro.glob(
 				<ul>
 					<!-- this is for main page of documentation-principles-->
 					{
-						allPrinciples.map(principle => (
+						filterAndSortNavbars(allPrinciples).map(principle => (
 							<li>
-								<a href={`/documentation/${principle.slug}/`}>
+								<a href={`/documentation/${principle.slug}`}>
 									{principle.data.title}
 								</a>
 							</li>
@@ -71,14 +62,13 @@ const tutorialDocuments = await Astro.glob(
 
 				<ul>
 					{
-						sortedComponentDocuments.map(
-							component =>
-								component.frontmatter.collection_listing_display !== false && (
-									<li>
-										<a href={component.url}>{component.frontmatter.title}</a>
-									</li>
-								)
-						)
+						filterAndSortNavbars(allComponents).map(component => (
+							<li>
+								<a href={`/documentation/${component.slug}`}>
+									{component.data.title}
+								</a>
+							</li>
+						))
 					}
 				</ul>
 			</div>
@@ -91,14 +81,16 @@ const tutorialDocuments = await Astro.glob(
 
 				<ul>
 					{
-						serviceDocuments.map(
-							service =>
-								service.frontmatter.collection_listing_display !== false && (
-									<li>
-										<a href={service.url}>{service.frontmatter.title}</a>
-									</li>
-								)
-						)
+						filterAndSortNavbars(allServices).map(service => (
+							<li>
+								<a
+									href={`/documentation/services/#${
+										service.slug.split("/")[1]
+									}`}>
+									{service.data.title}
+								</a>
+							</li>
+						))
 					}
 				</ul>
 			</div>
@@ -112,14 +104,13 @@ const tutorialDocuments = await Astro.glob(
 
 				<ul>
 					{
-						tutorialDocuments.map(
-							tutorial =>
-								tutorial.frontmatter.collection_listing_display !== false && (
-									<li>
-										<a href={tutorial.url}>{tutorial.frontmatter.title}</a>
-									</li>
-								)
-						)
+						filterAndSortNavbars(allTutorials).map(tutorial => (
+							<li>
+								<a href={`/documentation/${tutorial.slug}`}>
+									{tutorial.data.title}
+								</a>
+							</li>
+						))
 					}
 				</ul>
 			</div>

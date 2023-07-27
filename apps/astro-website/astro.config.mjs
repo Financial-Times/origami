@@ -1,6 +1,7 @@
 import {defineConfig} from "astro/config"
 import {fileURLToPath} from "url"
 import path, {dirname} from "path"
+import {redirects} from "./redirects"
 import mdx from '@astrojs/mdx';
 
 const __filename = fileURLToPath(import.meta.url)
@@ -18,5 +19,6 @@ export default defineConfig({
 	site: "https://origami.ft.com/",
 	compressHTML: true,
 	outDir: "../../origami.ft.com",
+	redirects: redirects,
 	integrations: [mdx()]
 })

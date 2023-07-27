@@ -1,12 +1,7 @@
 ---
-layout: ../../../layouts/DocLayout.astro
 title: Component versioning
 description: An explanation of how Origami components are versioned, how to request different versions and resolve conflicts.
 cta: Read more about component versioning
-
-# Redirect from legacy URLs
-redirect_from:
-  - /docs/developer-guide/modules/module-versioning/
 
 # Navigation config
 nav_display: true
