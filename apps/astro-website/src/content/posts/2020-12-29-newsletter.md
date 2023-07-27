@@ -3,6 +3,7 @@ title: Origami Newsletter, December 2020
 description: Origami's new mission
 author: chee
 publishDate: 2020-12-29
+tldr: This issue features a new vision statement for Origami, an end-of-year clean up, and a plan for the next one.
 tags:
 - Newsletter
 ---

@@ -5,6 +5,9 @@ author: Jake Champion
 publishDate: 2020-05-01
 tags:
   - Newsletter
+
+custom_email_slug: 2020-04-01-newsletter
+
 ---
 
 

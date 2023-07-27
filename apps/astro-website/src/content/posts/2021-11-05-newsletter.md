@@ -5,6 +5,9 @@ author: lee & chee
 publishDate: 2021-11-05
 tags:
 - Newsletter
+
+custom_email_slug: 2021-10-01-newsletter
+
 ---
 
 ## Top things

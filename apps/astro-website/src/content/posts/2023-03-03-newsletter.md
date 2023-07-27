@@ -5,6 +5,7 @@ author: Ben Freshwater
 publishDate: 2023-03-03
 tags:
   - Newsletter
+custom_email_slug: 2023-02-01-newsletter
 ---
 
 

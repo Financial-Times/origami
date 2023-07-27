@@ -5,9 +5,11 @@ import {getCollection} from "astro:content"
 import {EMAIL, SLACK} from "@/helpers/variables"
 
 export async function getStaticPaths() {
-	const postEntries = await getCollection("posts")
+	let postEntries = await getCollection("posts")
+	postEntries = postEntries.filter(post => post.data.tags?.includes('Newsletter'))
 	return postEntries.map(entry => {
-		const splitSlug = entry.slug.split("-")
+		const slug = entry.data.custom_email_slug || entry.slug
+		const splitSlug = slug.split("-")
 		const year = splitSlug[0]
 		const date = splitSlug[1]
 		const stringName = splitSlug
@@ -27,13 +29,14 @@ const {title, description} = entry.data
 const tldr = entry.data.tldr ? entry.data.tldr : description
 const splitSlug = entry.slug.split("-")
 const dateSlug = splitSlug.slice(0, 3).join("/")
-const companionPostUrl = `https://origami.ft.com/blog/${dateSlug}/newsletter/`
+const stringName = splitSlug.slice(3, splitSlug.length).join("-").toLowerCase()
+const companionPostUrl = `https://origami.ft.com/blog/${dateSlug}/${stringName}/`
 
 const MarkdownFiles = await Astro.glob("@/content/posts/*.md")
 const currentMarkdown = MarkdownFiles.filter(md =>
-	md.frontmatter?.tags?.includes("Newsletter")
+	md.file?.includes(entry.id)
 )[0]
-const currentMdContent = currentMarkdown.compiledContent()
+const currentMdContent = currentMarkdown?.compiledContent()
 const $ = cheerio.load(currentMdContent)
 
 const $img = $("img")

@@ -40,7 +40,10 @@ export const redirects = {
 	"/docs/developer-guide/modules/module-versioning/":
 		"/documentation/components/versioning",
 	"/docs/tutorials/npm/": "/blog/2021/07/01/origami-on-npm-and-how-to-migrate",
-  "/documentation/tutorials/npm/": "/blog/2021/07/01/origami-on-npm-and-how-to-migrate",
-  "/docs/tutorials/bower-to-npm/": "/blog/2021/07/01/origami-on-npm-and-how-to-migrate",
-  "/documentation/tutorials/bower-to-npm/": "/blog/2021/07/01/origami-on-npm-and-how-to-migrate",
+	"/documentation/tutorials/npm/":
+		"/blog/2021/07/01/origami-on-npm-and-how-to-migrate",
+	"/docs/tutorials/bower-to-npm/":
+		"/blog/2021/07/01/origami-on-npm-and-how-to-migrate",
+	"/documentation/tutorials/bower-to-npm/":
+		"/blog/2021/07/01/origami-on-npm-and-how-to-migrate",
 }

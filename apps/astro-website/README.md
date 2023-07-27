@@ -38,7 +38,7 @@ Writing the Origami monthly newsletter extends the instructions for blog posts, 
 
 The process:
 
-1. Branch off `main` and create the required files. The format for the newsletter is strict, and you should probably copy an older newsletter to make sure it's correct. You need to create two files in this repo, replacing the date as appropriate (set to the expected published date):
+1. Branch off `main` and create the required files. The format for the newsletter is strict, and you should probably copy an older newsletter to make sure it's correct. You need a file in this repo, replacing the date as appropriate (set to the expected published date):
 
    - `src/content/posts/YYYY-MM-DD-newsletter.md`: for the blog post on the website
 

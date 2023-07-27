@@ -5,6 +5,7 @@ author: Chee Rabbits
 publishDate: 2020-03-02
 tags:
   - Newsletter
+custom_email_slug: 2020-02-01-newsletter
 ---
 
 

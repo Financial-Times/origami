@@ -5,6 +5,9 @@ author: Lee Moody
 publishDate: 2021-03-02
 tags:
 - Newsletter
+
+custom_email_slug: 2021-01-01-newsletter
+
 ---
 
 ## Top Things
