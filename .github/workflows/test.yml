@@ -93,8 +93,8 @@ jobs:
       apps-storybook-addons-guidelines: ${{ steps.filter.outputs.apps-storybook-addons-guidelines }}
       apps-storybook-addons-html: ${{ steps.filter.outputs.apps-storybook-addons-html }}
       apps-storybook-addons-markdown-tabs: ${{ steps.filter.outputs.apps-storybook-addons-markdown-tabs }}
+      apps-astro-website: ${{ steps.filter.outputs.apps-astro-website }}
       apps-storybook: ${{ steps.filter.outputs.apps-storybook }}
-      apps-website: ${{ steps.filter.outputs.apps-website }}
     steps:
     - uses: dorny/paths-filter@v2
       id: filter
@@ -256,10 +256,10 @@ jobs:
             - 'apps/storybook/addons/html/**'
           apps-storybook-addons-markdown-tabs:
             - 'apps/storybook/addons/markdown-tabs/**'
+          apps-astro-website:
+            - 'apps/astro-website/**'
           apps-storybook:
             - 'apps/storybook/**'
-          apps-website:
-            - 'apps/website/**'
   test-components-ft-concept-button:
     needs: changes
     if: ${{ needs.changes.outputs.components-ft-concept-button == 'true' }}
@@ -1664,6 +1664,24 @@ jobs:
     - run: npm run -w apps/storybook/addons/markdown-tabs lint --if-present
     - run: npm run -w apps/storybook/addons/markdown-tabs build --if-present
     - run: npm run -w apps/storybook/addons/markdown-tabs test --if-present
+  test-apps-astro-website:
+    needs: changes
+    if: ${{ needs.changes.outputs.apps-astro-website == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: volta-cli/action@v4
+    - uses: actions/cache@v2
+      with:
+        volta-version: "1.0.8"
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: npm run -w apps/astro-website lint --if-present
+    - run: npm run -w apps/astro-website build --if-present
+    - run: npm run -w apps/astro-website test --if-present
   test-apps-storybook:
     needs: changes
     if: ${{ needs.changes.outputs.apps-storybook == 'true' }}
@@ -1682,21 +1700,3 @@ jobs:
     - run: npm run -w apps/storybook lint --if-present
     - run: npm run -w apps/storybook build --if-present
     - run: npm run -w apps/storybook test --if-present
-  test-apps-website:
-    needs: changes
-    if: ${{ needs.changes.outputs.apps-website == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w apps/website lint --if-present
-    - run: npm run -w apps/website build --if-present
-    - run: npm run -w apps/website test --if-present
