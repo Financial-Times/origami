@@ -1,35 +1,42 @@
 ---
-import {capitaliseFirstLetter} from "@/helpers/utils"
+import {getCollection} from "astro:content"
+import {createSecondaryNavBarChildren, filterAndSortNavbars} from "@/helpers/utils"
 import NavItem from "./NavItem.astro"
 
 const currentPage = Astro.url.pathname
 
 const paths = currentPage.split("/").filter(x => x)
 const ancestors = generateAncestors(paths)
-const children = []
 
-const allPages = await Astro.glob("@/pages/**")
-const urls = allPages
-	.map(page => page.url)
-	.filter(url => url && !url.includes("[slug]") && !url.includes("[...slug]"))
+const {secondaryNav} = Astro.props
+const {subNavPages, renderSecondaryNav, collectionName, subDirectory,	collectionFilterCallback, lastChildrenDepth} = secondaryNav || {}
 
-urls
-	.filter(x => x.includes(currentPage))
-	.forEach(breadCrumb => {
-		const breadCrumbsArray = breadCrumb
-			.split(currentPage)[1]
-			.split("/")
-			.filter(x => x)
-		if (breadCrumbsArray.length != 1) {
-			return
-		}
-		const url = `${breadCrumb}`
-		children.push({
-			label: capitaliseFirstLetter(breadCrumbsArray[0].replace(/[-_]/g, " ")),
+let secondaryNavChildren = []
+
+if (subNavPages?.length > 0) {
+	secondaryNavChildren = createSecondaryNavBarChildren(subNavPages,currentPage)
+} else if (lastChildrenDepth) {
+	if (collectionName) {
+		const documentCollections = await getCollection(collectionName, ({id}) => id.startsWith(subDirectory) )
+		secondaryNavChildren = formatContentForSubNav(documentCollections)
+	}
+	ancestors.pop()
+}
+ else if (collectionName && collectionFilterCallback) {
+	const documentCollections = await getCollection(collectionName, collectionFilterCallback )
+	secondaryNavChildren = formatContentForSubNav(documentCollections)
+}
+
+function formatContentForSubNav(contentArray) {
+	return filterAndSortNavbars(contentArray).map(d => {
+		const url = `/${collectionName}/${d.slug}`
+		return {
+			label: d.data.nav_label,
 			url,
-			"aria-current": Astro.url.pathname === url ? "page" : undefined,
-		})
-	})
+			"aria-current": currentPage === url ? "page" : undefined,
+		}
+	});
+}
 
 function generateAncestors(paths) {
 	const urls = []
@@ -39,13 +46,12 @@ function generateAncestors(paths) {
 		urls.push({
 			label,
 			url,
-			"aria-current": Astro.url.pathname === url ? "page" : undefined,
+			"aria-current": currentPage === url ? "page" : undefined,
 		})
 	})
-	return urls
+	return urls.length > 0 ? urls : undefined
 }
 
-const renderSecondaryNav = ancestors.length > 0 && children.length > 0
 ---
 
 {
@@ -66,11 +72,11 @@ const renderSecondaryNav = ancestors.length > 0 && children.length > 0
 						))}
 					</ol>
 				)}
-				{children && (
+				{secondaryNavChildren && (
 					<ul
 						class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children"
 						aria-label="Child sections">
-						{children.map(nav => (
+						{secondaryNavChildren.map(nav => (
 							<NavItem nav={nav} />
 						))}
 					</ul>

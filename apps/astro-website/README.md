@@ -20,12 +20,6 @@ For styling the site we are using [Origami build service](https://www.ft.com/__o
 
 The actual documentation for Origami lives in the [`pages/documentation`](src/pages/documentation/) folder and it includes [`components`](src/pages/documentation/components), [`services`](src/pages/documentation/services), [`principles`](src/pages/documentation/principles), and [`tutorials`](src/pages/documentation/tutorials) folders. This should contain an easier-to-digest version of the Origami specification as well as in depth guides on how to use Origami.
 
-### Specification pages
-
-[TODO]
-
-The formal Origami specification lives in the [`_specification-v1` folder](_specification-v1).
-
 ### Blog posts
 
 Blog posts live in the [`posts` folder](src/content/posts) and the file names are prefixed with the post date. Posts can include an `author` frontmatter value to signify who wrote the post, and an array of `tags` which are displayed alongside the post. The `description` frontmatter is particularly important for blog posts as it is displayed as a preview on the blog listing. The `publishDate` frontmatter for a date that newsletter was published. And `tldr` frontmatter is used to display a summary of the post before the main content. If it is omitted the description will be used instead.

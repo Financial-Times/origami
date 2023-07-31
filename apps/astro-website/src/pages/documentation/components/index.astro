@@ -10,11 +10,12 @@ const description =
 	> and JavaScript for a multitude of different products under the <abbr
 		title="Financial Times">FT</abbr
 	> umbrella.`
-const collectionName = "documents"
+const collectionName = "documentation"
 const collectionFilterCallback = ({id}) => id.startsWith("components/")
 ---
 
-<DocLayout title={title} description={description}>
+<DocLayout
+	title={title} description={description} secondaryNav={{renderSecondaryNav: true, collectionName, collectionFilterCallback}}>
 	<MainContent
 		title={title}
 		description={description}

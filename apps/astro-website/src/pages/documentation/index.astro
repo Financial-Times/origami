@@ -7,23 +7,29 @@ const title = "Origami Documentation"
 const description =
 	"Documentation on how to use Origami's components and services to help your team deliver products for the FT."
 
-const allPrinciples = await getCollection("documents", ({id}) =>
-	id.startsWith("principles/")
-)
+const subNavPages = [
+	"principles",
+	"components",
+	"services",
+	"manifests",
+	"tutorials",
+]
 
-const allComponents = await getCollection("documents", ({id}) =>
-	id.startsWith("components/")
-)
-const allServices = await getCollection("documents", ({id}) =>
-	id.startsWith("services/")
-)
-
-const allTutorials = await getCollection("documents", ({id}) =>
-	id.startsWith("tutorials/")
-)
+const [allPrinciples, allComponents, allServices, manifests, allTutorials] =
+	await Promise.all(
+		subNavPages.map(async collection => {
+			return await getCollection("documentation", ({id}) =>
+				id.startsWith(`${collection}/`)
+			)
+		})
+	)
 ---
 
-<Layout title={title} description={description}>
+<Layout
+	title={title}
+	description={description}
+	secondaryNav={{renderSecondaryNav: true, subNavPages}}
+>
 	<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
 		<h1>{title}</h1>
 		<p>{description}</p>

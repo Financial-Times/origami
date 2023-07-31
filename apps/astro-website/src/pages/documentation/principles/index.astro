@@ -1,17 +1,24 @@
 ---
 import DocLayout from "@/layouts/DocLayout.astro"
 import MainContent from "@/components/docLayout/MainContent.astro"
-
 const title = "Origami Principles"
 const description = `Origami follows a set of guiding principles when developing products for
 	the FT. This section of the documentation is for people who are authoring
 	components or services, either as a member of the Origami team, or as
 	somebody trying to transfer their code to be maintained by the team.`
-const collectionName = "documents"
+const collectionName = "documentation"
 const collectionFilterCallback = ({id}) => id.startsWith("principles/")
 ---
 
-<DocLayout title={title} description={description}>
+<DocLayout
+	title={title}
+	description={description}
+	secondaryNav={{
+		renderSecondaryNav: true,
+		collectionName,
+		collectionFilterCallback,
+	}}
+>
 	<MainContent
 		title={title}
 		description={description}

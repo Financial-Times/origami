@@ -46,4 +46,6 @@ export const redirects = {
 		"/blog/2021/07/01/origami-on-npm-and-how-to-migrate",
 	"/documentation/tutorials/bower-to-npm/":
 		"/blog/2021/07/01/origami-on-npm-and-how-to-migrate",
+	"/docs/": "/documentation",
+	"/docs/developer-guide/": "/documentation",
 }

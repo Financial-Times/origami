@@ -43,3 +43,12 @@ export function filterAndSortNavbars(components) {
 			return a.data.nav_order < b.data.nav_order ? -1 : 1
 		})
 }
+
+export function createSecondaryNavBarChildren(childrenArray, path) {
+	return childrenArray?.map(child => {
+		return {
+			label: capitaliseFirstLetter(child),
+			url: `${path}/${child}`,
+		}
+	})
+}

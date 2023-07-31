@@ -3,7 +3,7 @@ import {getCollection} from "astro:content"
 import DocLayout from "@/layouts/DocLayout.astro"
 
 export async function getStaticPaths() {
-	const entries = await getCollection("documents", ({id}) =>
+	const entries = await getCollection("documentation", ({id}) =>
 		id.startsWith("tutorials/")
 	)
 	return entries.map(entry => ({
@@ -16,6 +16,10 @@ const {Content} = await entry.render()
 const {title, description} = entry.data
 ---
 
-<DocLayout title={title} description={description}>
+<DocLayout
+	title={title}
+	description={description}
+	secondaryNav={{renderSecondaryNav: true, lastChildrenDepth: true}}
+>
 	<Content />
 </DocLayout>
