@@ -5,6 +5,8 @@ author: Lee Moody
 publishDate: 2021-08-09
 tags:
 - Newsletter
+
+custom_email_slug: 2021-07-01-newsletter
 ---
 
 

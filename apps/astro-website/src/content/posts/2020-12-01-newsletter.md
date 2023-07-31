@@ -5,6 +5,8 @@ author: Lee Moody
 publishDate: 2020-12-01
 tags:
   - Newsletter
+
+custom_email_slug: 2020-11-01-newsletter
 ---
 
 

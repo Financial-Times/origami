@@ -8,10 +8,6 @@ const namePath = Astro.url.pathname
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>{title}</title>
 	<meta name="description" content={description} />
-	<link
-		rel="stylesheet"
-		href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-syntax-highlight@^4.2.4,o-layout@^5.3.2,o-typography@^7.4.1,o-normalise@^3.3.1,o-header-services@^5.3.4,o-footer-services@^4.2.6,o-message@^5.4.2,o-table@^9.3.1&brand=internal&system_code=origami-website"
-	/>
 	<!-- Cuts the mustard test -->
 	<script>
 		var cutsTheMustard =
@@ -72,7 +68,7 @@ const namePath = Astro.url.pathname
 	<link
 		rel="sitemap"
 		type="application/xml"
-		href="/sitemap.xml"
+		href="/sitemap-index.xml"
 		title="Sitemap"
 	/>
 	<link rel="canonical" href={`https://origami.ft.com${namePath}`} />
@@ -94,6 +90,10 @@ const namePath = Astro.url.pathname
 
 	<!-- Styles -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link
+		rel="stylesheet"
+		href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-syntax-highlight@^4.2.4,o-layout@^5.3.2,o-typography@^7.4.1,o-normalise@^3.3.1,o-header-services@^5.3.4,o-footer-services@^4.2.6,o-message@^5.4.2,o-table@^9.3.1,o-autoinit@^3.1.3&brand=internal&system_code=origami-website"
+	/>
 	<style>
 		/* Hide any enhanced experience content when in core mode, and vice versa. */
 		.core .o--if-js,
@@ -101,5 +101,8 @@ const namePath = Astro.url.pathname
 			display: none !important;
 		}
 	</style>
+
+	<!-- JS -->
+	<script defer src="https://www.ft.com/__origami/service/build/v3/bundles/js?components=o-syntax-highlight@^4.2.4,o-layout@^5.3.2,o-typography@^7.4.1,o-normalise@^3.3.1,o-header-services@^5.3.4,o-footer-services@^4.2.6,o-message@^5.4.2,o-table@^9.3.1,o-autoinit@^3.1.3&system_code=origami"></script>
 
 </head>

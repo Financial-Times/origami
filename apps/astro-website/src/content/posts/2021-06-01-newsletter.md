@@ -5,6 +5,8 @@ author: chee rabbits, lee moody
 publishDate: 2021-06-01
 tags:
 - Newsletter
+custom_email_slug: 2021-05-01-newsletter
+
 ---
 
 ## Top things

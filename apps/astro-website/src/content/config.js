@@ -9,6 +9,7 @@ const postsCollection = defineCollection({
 		author: z.string(),
 		tags: z.array(z.string()).optional(),
 		tldr: z.string().optional(),
+		custom_email_slug: z.string().optional(),
 	}),
 })
 
