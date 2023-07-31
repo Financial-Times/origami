@@ -1,0 +1,12 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import RacingBars from "@/components/racingBarChart/RacingBars.svelte"
+
+const title = "Origami data visualisation"
+const description =
+	"Racing bar charts that tell a story of Origami component development over time"
+---
+
+<Layout title={title} description={description}>
+	<RacingBars {title} />
+</Layout>

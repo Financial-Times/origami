@@ -4,6 +4,8 @@ import path, {dirname} from "path"
 import {redirects} from "./redirects"
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import svelte from '@astrojs/svelte';
+
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -21,5 +23,5 @@ export default defineConfig({
 	compressHTML: true,
 	outDir: "../../origami.ft.com",
 	redirects: redirects,
-	integrations: [mdx(), sitemap()]
+	integrations: [ mdx(), sitemap(), svelte()]
 })
