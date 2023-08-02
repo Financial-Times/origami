@@ -1,35 +1,34 @@
 ---
-import {getCollection} from "astro:content"
-import {createSecondaryNavBarChildren, filterAndSortNavbars} from "@/helpers/utils"
+import {filterAndSortNavbars,} from "@/helpers/utils"
 import NavItem from "./NavItem.astro"
+
+import { getEntryBySlug } from 'astro:content';
+
+
+const {secondaryNav, primaryNav} = Astro.props
+const {children, lastChildrenDepth} = secondaryNav || {}
 
 const currentPage = Astro.url.pathname
 
-const paths = currentPage.split("/").filter(x => x)
-const ancestors = generateAncestors(paths)
+const paths = currentPage.split('/').filter(x => x)
+const ancestors = secondaryNav && await generateAncestors(paths)
 
-const {secondaryNav} = Astro.props
-const {subNavPages, renderSecondaryNav, collectionName, subDirectory,	collectionFilterCallback, lastChildrenDepth} = secondaryNav || {}
 
+let renderSecondaryNav = false
 let secondaryNavChildren = []
 
-if (subNavPages?.length > 0) {
-	secondaryNavChildren = createSecondaryNavBarChildren(subNavPages,currentPage)
-} else if (lastChildrenDepth) {
-	if (collectionName) {
-		const documentCollections = await getCollection(collectionName, ({id}) => id.startsWith(subDirectory) )
-		secondaryNavChildren = formatContentForSubNav(documentCollections)
-	}
-	ancestors.pop()
+if (children) {
+	secondaryNavChildren = formatContentForSubNav(filterAndSortNavbars(children))
+	renderSecondaryNav = true
 }
- else if (collectionName && collectionFilterCallback) {
-	const documentCollections = await getCollection(collectionName, collectionFilterCallback )
-	secondaryNavChildren = formatContentForSubNav(documentCollections)
+
+if (lastChildrenDepth && ancestors) {
+	ancestors.pop()
 }
 
 function formatContentForSubNav(contentArray) {
-	return filterAndSortNavbars(contentArray).map(d => {
-		const url = `/${collectionName}/${d.slug}`
+	return contentArray && contentArray.map(d => {
+		const url = `/${d.collection}/${d.slug}`
 		return {
 			label: d.data.nav_label,
 			url,
@@ -38,17 +37,22 @@ function formatContentForSubNav(contentArray) {
 	});
 }
 
-function generateAncestors(paths) {
-	const urls = []
-	paths.forEach((breadCrumb, i) => {
-		const url = `/${paths.slice(0, i + 1).join("/")}`
-		const label = breadCrumb.replace(/[-_]/g, " ")
+async function generateAncestors(paths) {
+	// This assumes that for secondary nav first item will be always be the collection name
+	const collectionName = paths[0]
+	const urls = primaryNav.filter(p => p.url === `/${collectionName}`)
+	await Promise.all(paths.map(async (path, i) => {
+		if (i == 0 ) return
+		const slugPath = paths.slice(1, i + 1).join("/")
+		const entry = await getEntryBySlug(collectionName, slugPath)
+		const url = `/${collectionName}/${slugPath}`
+		const label = entry.data.nav_label
 		urls.push({
 			label,
 			url,
 			"aria-current": currentPage === url ? "page" : undefined,
 		})
-	})
+	}))
 	return urls.length > 0 ? urls : undefined
 }
 

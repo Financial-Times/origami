@@ -23,6 +23,7 @@ const documentsCollection = defineCollection({
 		nav_label: z.string().optional(),
 		nav_order: z.number().optional(),
 		collection_listing_display: z.boolean().optional(),
+		collection_id: z.string().optional(),
 	}),
 })
 

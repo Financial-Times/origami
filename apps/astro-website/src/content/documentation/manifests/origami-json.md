@@ -7,6 +7,7 @@ cta: Read more about the origami.json manifest.
 nav_display: true
 nav_label: origami.json
 nav_order: 20
+collection_id: manifests
 ---
 
 # origami.json

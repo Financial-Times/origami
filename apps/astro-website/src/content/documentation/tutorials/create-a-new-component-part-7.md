@@ -3,11 +3,13 @@ title: Create A New Origami Component - Part 7 Testing
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
 collection_listing_display: false
+collection_id: tutorials
 ---
 
 # Create A New Origami Component - Part 7 Testing
 
 The "Create A New Origami Component" tutorial is split into nine parts and is intended to be followed sequentially from start to finish:
+
 1. [Intro & Boilerplate](/documentation/tutorials/create-a-new-component-part-1/)
 2. [Base Styles](/documentation/tutorials/create-a-new-component-part-2/)
 3. [Themes & Brands](/documentation/tutorials/create-a-new-component-part-3/)
@@ -62,6 +64,7 @@ To demonstrate how these projects are used to test components we will add a new 
 JavaScript tests are located under the `test` directory. The file `example.test.js` already has boilerplate tests, which use component markup defined in `tests/js/helpers/fixtures.js` to confirm the `init` method works as expected.
 
 Our first step will be to update the `htmlCode` method in `tests/js/helpers/fixtures.js` with our latest component markup. We'll add an id `id="element"` which we can use in our tests:
+
 <pre><code class="o-syntax-highlight--js">// tests/js/helpers/fixtures.js
 
 function htmlCode () {
@@ -79,6 +82,7 @@ function htmlCode () {
 </code></pre>
 
 Next we can append our new tests within the main `describe("Example", () => {})` block:
+
 <pre><code class="o-syntax-highlight--js">// tests/js/example.test.js
 
 describe("with a button", () => {
@@ -109,7 +113,6 @@ describe("with a button", () => {
 
 Now run `npm run test -w components/o-example`. You should see our new tests are run and pass.
 
-
 ## Accessibility Tests
 
 `npm run test -w components/o-example` also runs some accessibility checks. Whilst this will catch some common causes of accessibility issues, such as invalid html or low contrast between text and background, it is not a comprehensive test of component accessibility. For help testing the accessibility of your component see the [Origami's accessibility principles](/documentation/principles/accessibility/) page, or reach out to the Financial Times [#accessibility Slack channel](https://app.slack.com/client/T025C95MN/C2LMEKC6S).
@@ -134,10 +137,10 @@ We can't run Percy yet as we haven't released a version of our component to comp
 	</figcaption>
 </figure>
 
-
 ## Part Seven: Documentation
 
 Our component is working well and is almost complete. In this tutorial we learned:
+
 - That `npm run test -w components/o-example` runs Sass, JavaScript, and limited accessibility tests.
 - That `npm run lint -w components/o-example` analyses our component for potential errors.
 - How to write Sass tests for the `npm run test -w components/o-example` command.

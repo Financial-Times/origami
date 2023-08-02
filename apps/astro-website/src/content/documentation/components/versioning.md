@@ -7,6 +7,7 @@ cta: Read more about component versioning
 nav_display: true
 nav_label: Versioning
 nav_order: 20
+collection_id: components
 ---
 
 # Component versioning

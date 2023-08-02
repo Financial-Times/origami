@@ -4,7 +4,7 @@ description: When releasing major versions of low level components such as o-typ
 cta: Read more about Major Cascades
 
 collection_listing_display: false
-
+collection_id: components
 ---
 
 # Major Cascade

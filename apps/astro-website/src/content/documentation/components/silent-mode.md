@@ -9,6 +9,7 @@ collection_listing_display: false
 nav_display: false
 nav_label: Silent mode
 nav_order: 40
+collection_id: components
 ---
 
 # Silent mode

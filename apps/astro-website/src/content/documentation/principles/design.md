@@ -7,6 +7,7 @@ cta: Read more about Origami and design
 nav_display: true
 nav_label: Design
 nav_order: 30
+collection_id: principles
 ---
 
 # Design

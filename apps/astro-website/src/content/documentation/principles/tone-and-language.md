@@ -7,10 +7,10 @@ cta: Read our tone and language guide
 nav_display: true
 nav_label: Tone & Language
 nav_order: 30
+collection_id: principles
 ---
 
 # Tone & language
-
 
 Origami is designed to serve users from a number of different backgrounds, working with a variety of different projects.
 As all people come with different experiences and types of understanding, we try to consider all of our communication very carefully.

@@ -2,6 +2,7 @@
 title: Create A New Origami Component
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
+collection_id: tutorials
 ---
 
 # Create A New Origami Component

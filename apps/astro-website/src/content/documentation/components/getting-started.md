@@ -7,6 +7,7 @@ cta: Get started using Origami components in your project.
 nav_display: true
 nav_label: Getting Started
 nav_order: 10
+collection_id: components
 ---
 
 # Including Components In Your Project

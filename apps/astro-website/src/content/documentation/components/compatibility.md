@@ -7,6 +7,7 @@ cta: Read more about Origami's compatibility
 nav_display: true
 nav_label: Compatibility
 nav_order: 30
+collection_id: components
 ---
 
 # Compatibility

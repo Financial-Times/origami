@@ -3,6 +3,7 @@ title: Create A New Origami Component - Part 2 Base Styles
 description: A step-by-step tutorial which teaches you how to build and deploy a new Origami component.
 cta: Learn how to create an Origami component
 collection_listing_display: false
+collection_id: tutorials
 ---
 
 # Create A New Origami Component - Part 2 Base Styles

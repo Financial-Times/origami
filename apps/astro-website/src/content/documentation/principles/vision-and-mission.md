@@ -7,9 +7,11 @@ cta: Read the vision and mission statements
 nav_display: true
 nav_label: Vision and Mission Statements
 nav_order: 30
+collection_id: principles
 ---
 
 # Vision and Mission Statements
+
 ## Mission
 
 Unifying and documenting the style and experience across the digital products of every FT brand, leveraging the web platform to provide an implementation of the brand guidelines.

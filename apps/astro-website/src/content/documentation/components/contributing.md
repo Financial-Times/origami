@@ -7,6 +7,7 @@ cta: Learn how you can help
 nav_display: true
 nav_label: Contributing
 nav_order: 30
+collection_id: components
 ---
 
 # Contributing

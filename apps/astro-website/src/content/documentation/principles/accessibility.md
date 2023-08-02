@@ -7,6 +7,7 @@ cta: Read more about Origami's accessibility guidelines
 nav_display: true
 nav_label: Accessibility
 nav_order: 30
+collection_id: principles
 ---
 
 # Accessibility

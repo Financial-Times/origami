@@ -7,6 +7,7 @@ cta: Learn more about component code
 nav_display: true
 nav_label: Code
 nav_order: 12
+collection_id: components
 ---
 
 # Code Structure & Languages
