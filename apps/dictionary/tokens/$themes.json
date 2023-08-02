@@ -6,7 +6,8 @@
       "base/color": "source",
       "base/font": "source",
       "base/typography": "source",
-      "use-case/o-brand-internal": "enabled"
+      "use-case/o-brand-internal": "enabled",
+      "components/o-something/core": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:deead98cf6a1ab2d928367ae5efb5006b4c501b3,",
@@ -86,7 +87,8 @@
       "base/color": "source",
       "base/font": "source",
       "base/typography": "source",
-      "use-case/o-brand-core": "enabled"
+      "use-case/o-brand-core": "enabled",
+      "components/o-something/core": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -189,9 +191,8 @@
       "base/color": "source",
       "base/font": "source",
       "base/typography": "source",
-      "components/o-buttons/core/border": "enabled",
-      "components/o-buttons/core/color": "enabled",
-      "use-case/o-brand-professional": "enabled"
+      "use-case/o-brand-professional": "enabled",
+      "components/o-something/core": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -278,7 +279,8 @@
       "base/color": "source",
       "base/font": "source",
       "base/typography": "source",
-      "use-case/o-brand-whitelabel": "enabled"
+      "use-case/o-brand-whitelabel": "enabled",
+      "components/o-something/core": "disabled"
     },
     "$figmaStyleReferences": {}
   }

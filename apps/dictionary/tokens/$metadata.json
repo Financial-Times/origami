@@ -3,13 +3,14 @@
     "base/color",
     "base/font",
     "base/typography",
-    "components/o-buttons/core/border",
-    "components/o-buttons/core/color",
-    "components/o-buttons/whitelabel/border",
-    "components/o-buttons/whitelabel/color",
     "use-case/o-brand-core",
     "use-case/o-brand-internal",
     "use-case/o-brand-professional",
-    "use-case/o-brand-whitelabel"
+    "use-case/o-brand-whitelabel",
+    "components/o-buttons-experimental/core/border",
+    "components/o-buttons-experimental/core/color",
+    "components/o-buttons-experimental/whitelabel/border",
+    "components/o-buttons-experimental/whitelabel/color",
+    "components/o-something/core"
   ]
 }
