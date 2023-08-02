@@ -12,10 +12,11 @@
 		"npm": "9.7.1"
 	},
 	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
+		"generate-bar-chart-data": "node src/helpers/generate-bar-chart-data.js",
+		"dev": "npm run generate-bar-chart-data && astro dev",
+		"start": "npm run generate-bar-chart-data && astro dev",
+		"build": "npm run generate-bar-chart-data && astro build",
+		"preview": "npm run generate-bar-chart-data && astro preview",
 		"astro": "astro",
 		"send-newsletter": "node src/helpers/email-newsletter.js"
 	},
@@ -27,9 +28,14 @@
 		"astro": "^2.9.0",
 		"axios": "^1.4.0",
 		"cheerio": "^1.0.0-rc.12",
+		"d3-array": "^3.2.4",
+		"d3-scale": "^4.0.2",
 		"html-to-text": "^9.0.5",
 		"markdown-it": "^13.0.1",
 		"sanitize-html": "^2.11.0",
 		"sass": "^1.63.4"
+	},
+	"devDependencies": {
+		"fs-jetpack": "^5.1.0"
 	}
 }
