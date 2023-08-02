@@ -10,7 +10,6 @@
 	export let version
 	export let value
 	export let rank
-	console.log(`🚀 ~ rank:`, rank);
 	// scale width using d3
 	$: scale = scaleLinear().domain([0, $xMax]).range([0, $svgWidth])
 	$: scaledValue = scale(value)

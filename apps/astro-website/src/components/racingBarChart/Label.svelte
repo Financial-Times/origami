@@ -11,7 +11,7 @@
 		{label}:
 	</text>
 	<text dominant-baseline="middle" text-anchor="end" dy={8}>
-		{version}
+		v{version}
 	</text>
 </g>
 

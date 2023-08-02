@@ -17,7 +17,7 @@ components.forEach(async dir => {
 	const componentName = localJsonData.name.split("/")[1]
 
 	const archivedReleases =
-		jetpack.read(`src/content/archived-releases/${componentName}.json`, "json") ||
+		jetpack.read(`src/content/barchart-data/archived-releases/${componentName}.json`, "json") ||
 		[]
 	const changeLogPath = jetpack.path(componentsPath, dir, "CHANGELOG.md")
 	const changeLogData = jetpack
@@ -60,9 +60,7 @@ components.forEach(async dir => {
 })
 
 const hotnessData = getComponentHotnessSorted()
-console.log(`🚀 ~ hotnessData:`, hotnessData);
-jetpack.write("src/content/bar-data.json", hotnessData)
-jetpack.write("src/content/component-data.json", newJsonData)
+jetpack.write("src/content/barchart-data/component-data.json", hotnessData)
 
 function findSupportedLanguages(componentSrcPath) {
 	const jsPath =
