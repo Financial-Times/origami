@@ -92,6 +92,12 @@
 	.o-header-services__related-content {
 		display: none;
 
+		&.o-header-services__related-content--always-visible {
+			display: flex;
+			margin: 0 0 0 auto;
+			padding: div(oSpacingByName('s3'), 2) $_o-header-services-padding;
+		}
+
 		@include oGridRespondTo($from: $draw-breakpoint) {
 			display: flex;
 			margin: 0 0 0 auto;
