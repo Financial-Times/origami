@@ -1,8 +1,7 @@
 {
   "color-base": {
     "primary": {
-      "ft pink": {
-        "description": "",
+      "ft pinks": {
         "type": "color",
         "value": "brown",
         "blendMode": "normal",
