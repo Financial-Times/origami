@@ -761,7 +761,7 @@
       "wheat -100": {
         "description": "",
         "type": "color",
-        "value": "#ffebd9ff",
+        "value": "green",
         "blendMode": "normal",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
