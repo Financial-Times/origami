@@ -84,5 +84,6 @@
 		display: flex;
 		align-items: center;
 		border: 1px solid var(--o-colors-slate);
+		margin-bottom: var(--o-spacing-s8);
 	}
 </style>
