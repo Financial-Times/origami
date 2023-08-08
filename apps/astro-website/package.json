@@ -13,10 +13,10 @@
 	},
 	"scripts": {
 		"generate-bar-chart-data": "node src/helpers/generate-bar-chart-data.js",
-		"dev": "npm run generate-bar-chart-data && astro dev",
-		"start": "npm run generate-bar-chart-data && astro dev",
-		"build": "npm run generate-bar-chart-data && astro build",
-		"preview": "npm run generate-bar-chart-data && astro preview",
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
 		"astro": "astro",
 		"send-newsletter": "node src/helpers/email-newsletter.js"
 	},
