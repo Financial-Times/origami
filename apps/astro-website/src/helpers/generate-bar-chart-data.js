@@ -1,28 +1,31 @@
-import jetpack from "fs-jetpack"
+#!/usr/bin/env node
+import {readdirSync, existsSync, readFileSync, writeFileSync} from "fs"
+import path from "path"
 import {descending} from "d3-array"
 
-const componentsPath = jetpack.path("..", "..", "components")
-const components = jetpack.cwd(componentsPath).find({
-	matching: "*",
-	directories: true,
-	recursive: false,
-	files: false,
-})
+const __dirname = path.resolve()
+const componentsPath = path.join(__dirname, "..", "..", "components")
+
+const components = readdirSync(componentsPath, {withFileTypes: true})
+	.filter(dirent => dirent.isDirectory())
+	.map(dirent => dirent.name)
 const newJsonData = []
 components.forEach(async dir => {
-	const jsonPath = jetpack.path(componentsPath, dir, "package.json")
-	const origamiJsonPath = jetpack.path(componentsPath, dir, "origami.json")
-	const localJsonData = jetpack.read(jsonPath, "json")
-	const localOrigamiJsonData = jetpack.read(origamiJsonPath, "json")
+	const jsonPath = path.join(componentsPath, dir, "package.json")
+	const origamiJsonPath = path.join(componentsPath, dir, "origami.json")
+	const localJsonData = JSON.parse(readFileSync(jsonPath, "utf8"))
+	const localOrigamiJsonData = JSON.parse(readFileSync(origamiJsonPath, "utf8"))
 	const componentName = localJsonData.name.split("/")[1]
 
-	const archivedReleases =
-		jetpack.read(`src/content/barchart-data/archived-releases/${componentName}.json`, "json") ||
-		[]
-	const changeLogPath = jetpack.path(componentsPath, dir, "CHANGELOG.md")
-	const changeLogData = jetpack
-		.read(changeLogPath, "utf8")
-		.match(/(\[\d+\.\d+\.\d+\])|(\(\d{4}-\d{2}-\d{2}\))/g)
+	const archivedReleasesPath = `src/content/barchart-data/archived-releases/${componentName}.json`
+	const archivedReleasesExists = existsSync(archivedReleasesPath)
+	const archivedReleases = archivedReleasesExists
+		? JSON.parse(readFileSync(archivedReleasesPath, "utf8"))
+		: []
+	const changeLogPath = path.join(componentsPath, dir, "CHANGELOG.md")
+	const changeLogData = readFileSync(changeLogPath, "utf8").match(
+		/(\[\d+\.\d+\.\d+\])|(\(\d{4}-\d{2}-\d{2}\))/g
+	)
 	const newReleaseData = []
 	for (let i = 0; i < changeLogData.length; i += 2) {
 		const version = changeLogData[i].replace(/[\[\]]/g, "")
@@ -50,7 +53,7 @@ components.forEach(async dir => {
 		description: localJsonData.description,
 		version: localJsonData.version,
 		brands: localOrigamiJsonData.brands,
-		languages: findSupportedLanguages(jetpack.path(componentsPath, dir)),
+		languages: findSupportedLanguages(path.join(componentsPath, dir)),
 		peerDependencies: localJsonData.peerDependencies,
 		devDependencies: localJsonData.devDependencies,
 		dependencies: localJsonData.dependencies,
@@ -60,15 +63,13 @@ components.forEach(async dir => {
 })
 
 const hotnessData = getComponentHotnessSorted()
-jetpack.write("src/content/barchart-data/component-data.json", hotnessData)
+writeFileSync("src/content/barchart-data/component-data.json", JSON.stringify(hotnessData, null, 2))
 
 function findSupportedLanguages(componentSrcPath) {
-	const jsPath =
-		jetpack.exists(jetpack.path(componentSrcPath, "main.js")) && "js"
+	const jsPath = existsSync(path.join(componentSrcPath, "main.js")) && "js"
 	const scssPath =
-		jetpack.exists(jetpack.path(componentSrcPath, "main.scss")) && "scss"
-	const tsxPath =
-		jetpack.exists(jetpack.path(componentSrcPath, "src", "tsx")) && "tsx"
+		existsSync(path.join(componentSrcPath, "main.scss")) && "scss"
+	const tsxPath = existsSync(path.join(componentSrcPath, "src", "tsx")) && "tsx"
 	return [jsPath, scssPath, tsxPath].filter(Boolean)
 }
 

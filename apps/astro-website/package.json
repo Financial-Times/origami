@@ -34,8 +34,5 @@
 		"markdown-it": "^13.0.1",
 		"sanitize-html": "^2.11.0",
 		"sass": "^1.63.4"
-	},
-	"devDependencies": {
-		"fs-jetpack": "^5.1.0"
 	}
 }
