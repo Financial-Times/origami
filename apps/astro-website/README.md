@@ -20,6 +20,10 @@ For styling the site we are using [Origami build service](https://www.ft.com/__o
 
 The actual documentation for Origami lives in the [`pages/documentation`](src/pages/documentation/) folder and it includes [`components`](src/pages/documentation/components), [`services`](src/pages/documentation/services), [`principles`](src/pages/documentation/principles), and [`tutorials`](src/pages/documentation/tutorials) folders. This should contain an easier-to-digest version of the Origami specification as well as in depth guides on how to use Origami.
 
+### Racing bar charts
+
+For Origami's ten year anniversary we created a racing bar chart to show the growth of Origami components over time. The data for this chart is stored in the [racing-bar-chart-data.json](src/content/barchart-data/component-data.json) file. The chart is rendered in the [RacingBarChart.astro](src/content/posts/2023-08-02-data-vis.mdx) blog post. The data for racing bar chart does not update manually and if you want to have fresh data for next deployment you will need to run `npm run generate-bar-chart-data` command.
+
 ### Specification pages
 
 [TODO]

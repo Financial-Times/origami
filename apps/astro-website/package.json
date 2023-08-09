@@ -12,6 +12,7 @@
 		"npm": "9.7.1"
 	},
 	"scripts": {
+		"generate-bar-chart-data": "node src/helpers/generate-bar-chart-data.js",
 		"dev": "astro dev",
 		"start": "astro dev",
 		"build": "astro build",
@@ -23,9 +24,12 @@
 		"@astrojs/mdx": "^0.19.7",
 		"@astrojs/rss": "^2.4.3",
 		"@astrojs/sitemap": "^2.0.1",
+		"@astrojs/svelte": "^3.1.0",
 		"astro": "^2.9.0",
 		"axios": "^1.4.0",
 		"cheerio": "^1.0.0-rc.12",
+		"d3-array": "^3.2.4",
+		"d3-scale": "^4.0.2",
 		"html-to-text": "^9.0.5",
 		"markdown-it": "^13.0.1",
 		"sanitize-html": "^2.11.0",
