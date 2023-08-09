@@ -10,7 +10,7 @@
   "dependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
-    "@web/dev-server-esbuild": "^0.2.16",
+    "@web/dev-server-esbuild": "^0.4.1",
     "@web/test-runner": "^0.13.21",
     "camelcase": "^6.2.0",
     "del": "^6.0.0",
