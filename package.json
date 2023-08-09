@@ -83,7 +83,7 @@
 		"@actions/exec": "^1.0.4",
 		"@actions/github": "^4.0.0",
 		"@actions/io": "^1.0.2",
-		"@percy/cli": "^1.0.5",
+		"@percy/cli": "^1.26.2",
 		"autoprefixer": "^10.4.2",
 		"del": "^6.0.0",
 		"fast-glob": "^3.2.7",
