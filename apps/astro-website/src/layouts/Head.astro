@@ -1,6 +1,34 @@
 ---
 const {title, description} = Astro.props
 const namePath = Astro.url.pathname
+
+const jsAndCss = [
+	{name: "o-syntax-highlight", version: "@^4.2.4"},
+	{name: "o-layout", version: "@^5.3.2"},
+	{name: "o-typography", version: "@^7.4.1"},
+	{name: "o-normalise", version: "@^3.3.1"},
+	{name: "o-header-services", version: "@^5.3.4"},
+	{name: "o-footer-services", version: "@^4.2.6"},
+	{name: "o-message", version: "@^5.4.2"},
+	{name: "o-table", version: "@^9.3.1"},
+	{name: "o-autoinit", version: "@^3.1.3"},
+	{name: "o-forms", version: "@^9.11.2"},
+]
+const origamiStyles = [
+	...jsAndCss,
+	{
+		name: "o-colors",
+		version: "@^6.6.2",
+	},
+	{
+		name: "o-spacing",
+		version: "@^3.2.3",
+	},
+]
+	.map(styles => styles.name + styles.version)
+	.join(",")
+
+const origamiJs = [...jsAndCss].map(js => js.name + js.version).join(",")
 ---
 
 <head>
@@ -92,7 +120,7 @@ const namePath = Astro.url.pathname
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link
 		rel="stylesheet"
-		href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-syntax-highlight@^4.2.4,o-layout@^5.3.2,o-typography@^7.4.1,o-normalise@^3.3.1,o-header-services@^5.3.4,o-footer-services@^4.2.6,o-message@^5.4.2,o-table@^9.3.1,o-autoinit@^3.1.3&brand=internal&system_code=origami-website"
+		href=`https://www.ft.com/__origami/service/build/v3/bundles/css?components=${origamiStyles}&brand=internal&system_code=origami-website`
 	/>
 	<style>
 		/* Hide any enhanced experience content when in core mode, and vice versa. */
@@ -103,6 +131,8 @@ const namePath = Astro.url.pathname
 	</style>
 
 	<!-- JS -->
-	<script defer src="https://www.ft.com/__origami/service/build/v3/bundles/js?components=o-syntax-highlight@^4.2.4,o-layout@^5.3.2,o-typography@^7.4.1,o-normalise@^3.3.1,o-header-services@^5.3.4,o-footer-services@^4.2.6,o-message@^5.4.2,o-table@^9.3.1,o-autoinit@^3.1.3&system_code=origami"></script>
-
+	<script
+		defer
+		src=`https://www.ft.com/__origami/service/build/v3/bundles/js?components=${origamiJs}&system_code=origami-website`
+	></script>
 </head>
