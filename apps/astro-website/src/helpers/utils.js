@@ -1,8 +1,4 @@
-export function capitaliseFirstLetter(string) {
-	const firstLetter = string.charAt(0).toUpperCase()
-	const remainingLetters = string.substring(1)
-	return firstLetter + remainingLetters
-}
+import {getCollection} from "astro:content"
 
 export function formatDateString(date) {
 	const months = [
@@ -42,4 +38,16 @@ export function filterAndSortNavbars(components) {
 		.sort((a, b) => {
 			return a.data.nav_order < b.data.nav_order ? -1 : 1
 		})
+}
+
+export async function getComponentDataFromContent(
+	collectionName,
+	collectionFilterCallback
+) {
+	const components = await getCollection(
+		collectionName,
+		collectionFilterCallback
+	)
+	const componentsToRender = filterAndSortNavbars(components)
+	return componentsToRender
 }

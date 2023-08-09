@@ -1,8 +1,8 @@
 ---
 import SecondaryNav from "./SecondaryNav.astro"
 import NavItem from "./NavItem.astro"
-
 const currentPage = Astro.url.pathname
+const {secondaryNav} = Astro.props
 
 const primaryNav = [
 	{
@@ -30,6 +30,7 @@ const primaryNav = [
 		"aria-current": currentPage === "/blog" ? "page" : undefined,
 	}
 ]
+
 ---
 
 <header class="o-header-services" data-o-component="o-header-services">
@@ -57,6 +58,5 @@ const primaryNav = [
 			{primaryNav.map(nav => <NavItem nav={nav} />)}
 		</ul>
 	</nav>
-
-	<SecondaryNav />
+	<SecondaryNav secondaryNav={secondaryNav} {primaryNav}/>
 </header>

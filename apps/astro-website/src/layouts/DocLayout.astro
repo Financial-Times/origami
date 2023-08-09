@@ -2,7 +2,7 @@
 import Header from "@/components/header/Header.astro"
 import Footer from "@/components/Footer.astro"
 import Head from "./Head.astro"
-const {title, description} = Astro.props
+const {title, description, secondaryNav} = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ const {title, description} = Astro.props
 	<body>
 		<div class="o-layout o-layout--docs" data-o-component="o-layout">
 			<div class="o-layout__header">
-				<Header />
+				<Header secondaryNav={secondaryNav}/>
 			</div>
 
 			<div class="o-layout__sidebar"></div>

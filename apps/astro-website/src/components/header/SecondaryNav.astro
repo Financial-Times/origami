@@ -1,51 +1,61 @@
 ---
-import {capitaliseFirstLetter} from "@/helpers/utils"
+import {filterAndSortNavbars,} from "@/helpers/utils"
 import NavItem from "./NavItem.astro"
+
+import { getEntryBySlug } from 'astro:content';
+
+
+const {secondaryNav, primaryNav} = Astro.props
+const {children, lastChildrenDepth} = secondaryNav || {}
 
 const currentPage = Astro.url.pathname
 
-const paths = currentPage.split("/").filter(x => x)
-const ancestors = generateAncestors(paths)
-const children = []
+const paths = currentPage.split('/').filter(x => x)
+const ancestors = secondaryNav && await generateAncestors(paths)
 
-const allPages = await Astro.glob("@/pages/**")
-const urls = allPages
-	.map(page => page.url)
-	.filter(url => url && !url.includes("[slug]") && !url.includes("[...slug]"))
 
-urls
-	.filter(x => x.includes(currentPage))
-	.forEach(breadCrumb => {
-		const breadCrumbsArray = breadCrumb
-			.split(currentPage)[1]
-			.split("/")
-			.filter(x => x)
-		if (breadCrumbsArray.length != 1) {
-			return
-		}
-		const url = `${breadCrumb}`
-		children.push({
-			label: capitaliseFirstLetter(breadCrumbsArray[0].replace(/[-_]/g, " ")),
+let renderSecondaryNav = false
+let secondaryNavChildren = []
+
+if (children) {
+	secondaryNavChildren = formatContentForSubNav(filterAndSortNavbars(children))
+	renderSecondaryNav = true
+}
+
+if (lastChildrenDepth && ancestors) {
+	ancestors.pop()
+}
+
+function formatContentForSubNav(contentArray) {
+	return contentArray && contentArray.map(d => {
+		const url = `/${d.collection}/${d.slug}`
+		return {
+			label: d.data.nav_label,
 			url,
-			"aria-current": Astro.url.pathname === url ? "page" : undefined,
-		})
-	})
+			"aria-current": currentPage === url ? "page" : undefined,
+		}
+	});
+}
 
-function generateAncestors(paths) {
-	const urls = []
-	paths.forEach((breadCrumb, i) => {
-		const url = `/${paths.slice(0, i + 1).join("/")}`
-		const label = breadCrumb.replace(/[-_]/g, " ")
+async function generateAncestors(paths) {
+	// This assumes that for secondary nav first item will be always be the collection name
+	const collectionName = paths[0]
+	const urls = primaryNav.filter(p => p.url === `/${collectionName}`)
+	await Promise.all(paths.map(async (path, i) => {
+		if (i == 0 ) return
+		const slugPath = paths.slice(1, i + 1).join("/")
+		const entry = await getEntryBySlug(collectionName, slugPath)
+		const url = `/${collectionName}/${slugPath}`
+		const label = entry.data.nav_label
 		urls.push({
 			label,
 			url,
-			"aria-current": Astro.url.pathname === url ? "page" : undefined,
+			"aria-current": currentPage === url ? "page" : undefined,
 		})
-	})
-	return urls
+	}))
+	return urls.length > 0 ? urls : undefined
 }
 
-const renderSecondaryNav = ancestors.length > 0 && children.length > 0
 ---
 
 {
@@ -66,11 +76,11 @@ const renderSecondaryNav = ancestors.length > 0 && children.length > 0
 						))}
 					</ol>
 				)}
-				{children && (
+				{secondaryNavChildren && (
 					<ul
 						class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children"
 						aria-label="Child sections">
-						{children.map(nav => (
+						{secondaryNavChildren.map(nav => (
 							<NavItem nav={nav} />
 						))}
 					</ul>
