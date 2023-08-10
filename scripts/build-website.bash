@@ -4,7 +4,7 @@
 
 set -e
 cd apps/astro-website/
-npm run build
+npm run astro build
 cd ../storybook/
 npm run build-storybook
 cd ../../
