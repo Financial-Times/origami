@@ -1,0 +1,8 @@
+{
+  "icons": {
+    "social-button": {
+      "value": "{icons.icons.whatsapp}",
+      "type": "asset"
+    }
+  }
+}

@@ -9,6 +9,7 @@
     "use-case/o-brand-whitelabel",
     "components/o-buttons-experimental/core/border",
     "components/o-buttons-experimental/core/color",
+    "components/o-buttons-experimental/icons",
     "components/o-buttons-experimental/whitelabel/border",
     "components/o-buttons-experimental/whitelabel/color",
     "components/o-something/core",
