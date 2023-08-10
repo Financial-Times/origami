@@ -1,13 +1,10 @@
 ---
 import path from "path"
-import {getCollection} from "astro:content"
 
-import {convertToSlug, filterAndSortNavbars} from "@/helpers/utils"
+import {convertToSlug} from "@/helpers/utils"
 
-const {title, description, collectionName, collectionFilterCallback} =
+const {title, description, componentsToRender} =
 	Astro.props
-const components = await getCollection(collectionName, collectionFilterCallback)
-const componentsToRender = filterAndSortNavbars(components)
 const pathname = Astro.url.pathname
 ---
 

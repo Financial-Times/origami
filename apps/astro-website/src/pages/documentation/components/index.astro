@@ -1,6 +1,7 @@
 ---
 import DocLayout from "@/layouts/DocLayout.astro"
 import MainContent from "@/components/docLayout/MainContent.astro"
+import {getComponentDataFromContent} from "@/helpers/utils"
 
 const title = "Origami Components"
 const description =
@@ -10,15 +11,22 @@ const description =
 	> and JavaScript for a multitude of different products under the <abbr
 		title="Financial Times">FT</abbr
 	> umbrella.`
-const collectionName = "documents"
-const collectionFilterCallback = ({id}) => id.startsWith("components/")
+const collectionName = "documentation"
+const collectionFilterCallback = ({data}) => data.collection_id === "components"
+const componentsToRender = await getComponentDataFromContent(collectionName, collectionFilterCallback)
+
 ---
 
-<DocLayout title={title} description={description}>
+<DocLayout
+	title={title}
+	description={description}
+	secondaryNav={{
+		children: componentsToRender,
+	}}
+>
 	<MainContent
 		title={title}
 		description={description}
-		collectionName={collectionName}
-		collectionFilterCallback={collectionFilterCallback}
+		componentsToRender={componentsToRender}
 	/>
 </DocLayout>
