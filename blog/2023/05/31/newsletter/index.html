@@ -1,252 +1,54 @@
-<!DOCTYPE html>
-<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
-<head>
-
-	<!-- Page meta-information -->
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Origami Newsletter, April 2023 - May 2023</title>
-	<meta name="description" content="Origami is preparing two talks for June. We released FT Professional themes for a bunch of components. We started working on Origami For Everyone(O3) and we started talking to other organisations to share knowledge about design systems." />
-
-	<!-- Cuts the mustard test -->
-	<script>
-		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
-		if (cutsTheMustard) {
-			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
-		}
-	</script>
-
-	<!-- Favicons -->
-	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
-	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
-	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
-	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
-	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
-	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
-	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
-
-	<!-- Site links -->
-	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
-	<link rel="canonical" href="https://origami.ft.com/blog/2023/05/31/newsletter/" />
-
-	<!-- Feed -->
-	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
-
-	<!-- Progressive Font Loading -->
-	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
-	<script>
-		var rootElement = document.querySelector('html')
-		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
-			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
-			for (var i = 0; i < fontLabels.length; i++) {
-				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
-			}
-		}
-	</script>
-
-	<!-- Styles -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<style>
-		/* Hide any enhanced experience content when in core mode, and vice versa. */
-		.core .o--if-js,
-		.enhanced .o--if-no-js {
-			display: none !important;
-		}
-	</style>
-	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-normalise@^3.0.3,o-typography@^7.0.3,o-layout@^5.0.6,o-header-services@^5.1.0,o-footer-services@^4.0.3,o-syntax-highlight@^4.0.1,o-message@^5.1.0,o-table@^9.0.3,o-autoinit@^3.0.1&brand=internal&system_code=origami" />
-	<link rel="stylesheet" href="/assets/main.css" />
-
-	<!-- JS -->
-	<script>
-		(function(src) {
-			if (cutsTheMustard) {
-				var o = document.createElement('script');
-				o.async = o.defer = true;
-				o.src = src;
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(o, s);
-			}
-		}('https://www.ft.com/__origami/service/build/v3/bundles/js?components=o-normalise@^3.1.0,o-typography@^7.1.0,o-layout@^5.1.0,o-header-services@^5.1.0,o-footer-services@^4.1.0,o-syntax-highlight@^4.1.0,o-message@^5.1.0,o-table@^9.1.0,o-autoinit@^3.0.1&system_code=origami'));
-	</script>
-</head>
-<body>
-	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
-		
-		<div class="o-layout__header">
-			
-<header class="o-header-services" data-o-component="o-header-services">
-	<div class="o-header-services__top">
-			<div class="o-header-services__hamburger">
-				<a class="o-header-services__hamburger-icon" href="#" role="button">
-					<span class="o-header-services__visually-hidden">Open primary navigation</span>
-				</a>
-			</div>
-		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
-		<div class="o-header-services__title">
-			<a class="o-header-services__product-name" href="/">Origami</a>
-			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
-		</div>
-	</div>
-
-	<nav class="o-header-services__primary-nav" aria-label="primary">
-		<ul class="o-header-services__primary-nav-list">
-			<li>
-				<a href="/" >
-					Home
-				</a>
-			</li>
-			<li>
-				<a href="/documentation/" >
-					Documentation
-				</a>
-			</li>
-			<li>
-				<a href="https://registry.origami.ft.com/components"> Registry</a>
-			</li>
-			<li>
-				<a href="/storybook/" >
-					Storybook
-				</li>
-			</a>
-		</li>
-			<li>
-				<a href="/blog/" >
-					Blog
-				</a>
-			</li>
-		</ul>
-	</nav>
-
-
-
-	
-
-	
-</header>
-
-		</div>
-		
-
-		<div class="o-layout__sidebar"></div>
-
-<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
-	<h1 id="origami-newsletter-april-2023-may-2023">Origami Newsletter, April 2023 - May 2023</h1>
-
-<p>
-	Posted on <time datetime="2023-05-31T00:00:00Z">31 May 2023</time>
-	by Akaki Mikaia.
-	
-		<br/>Tagged with
-		
-			<span>Newsletter</span>.
-		
-	
-</p>
-
-<p><abbr title="Too long; didn't read">
-<strong>
-TL;DR:
-</strong>
-</abbr> Origami is preparing two talks for June. We released FT Professional themes for a bunch of components. We started working on Origami For Everyone(O3) and we started talking to other organisations to share knowledge about design systems.</p>
-
-<h2 id="top-things">Top things</h2>
-
+<!DOCTYPE html><html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Origami Newsletter, April 2023 - May 2023</title><meta name="description" content="Origami is preparing two talks for June. We released FT Professional themes for a bunch of components. We started working on Origami For Everyone(O3) and we started talking to other organisations to share knowledge about design systems."><!-- Cuts the mustard test --><!-- Favicons --><link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any"><link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16"><link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32"><link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96"><link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128"><link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196"><link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310"><!-- Site links --><link rel="sitemap" type="application/xml" href="/sitemap-index.xml" title="Sitemap"><link rel="canonical" href="https://origami.ft.com/blog/2023/05/31/newsletter/"><!-- Progressive Font Loading --><!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading --><!-- Styles --><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-syntax-highlight@^4.2.4,o-layout@^5.3.2,o-typography@^7.4.1,o-normalise@^3.3.1,o-header-services@^5.3.4,o-footer-services@^4.2.6,o-message@^5.4.2,o-table@^9.3.1,o-autoinit@^3.1.3,o-forms@^9.11.2,o-colors@^6.6.2,o-spacing@^3.2.3&#38;brand=internal&#38;system_code=origami-website"><!-- JS --><script defer src="https://www.ft.com/__origami/service/build/v3/bundles/js?components=o-syntax-highlight@^4.2.4,o-layout@^5.3.2,o-typography@^7.4.1,o-normalise@^3.3.1,o-header-services@^5.3.4,o-footer-services@^4.2.6,o-message@^5.4.2,o-table@^9.3.1,o-autoinit@^3.1.3,o-forms@^9.11.2&#38;system_code=origami-website"></script><link rel="stylesheet" href="/_astro/404.6d02cfd1.css" />
+<link rel="stylesheet" href="/_astro/RacingBars.0a6fad8c.css" /><script type="module">var o=document.querySelector("html");if(/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie))for(var a=["sans","sans-bold","display","display-bold"],e=0;e<a.length;e++)o.className=o.className.replace("o-typography--loading-"+a[e],"");var t="querySelector"in document&&"localStorage"in window&&"addEventListener"in window;t&&(document.documentElement.className=document.documentElement.className.replace(/\bcore\b/g,"enhanced"));
+</script></head><body><div class="o-layout o-layout--docs" data-o-component="o-layout"><div class="o-layout__header"><header class="o-header-services" data-o-component="o-header-services"><div class="o-header-services__top"><div class="o-header-services__hamburger"><a class="o-header-services__hamburger-icon" href="#" role="button"><span class="o-header-services__visually-hidden">Open primary navigation</span></a></div><a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a><div class="o-header-services__title"><a class="o-header-services__product-name" href="/">Origami</a><span class="o-header-services__product-tagline">Frontend Components &amp; Services</span></div></div><nav class="o-header-services__primary-nav" aria-label="primary"><ul class="o-header-services__primary-nav-list"><li><a href="/">Home</a></li><li><a href="/documentation">Documentation</a></li><li><a href="https://registry.origami.ft.com/components">Registry</a></li><li><a href="/storybook">Storybook</a></li><li><a href="/blog">Blog</a></li></ul></nav></header></div><div class="o-layout__sidebar"></div><div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight"><h1 id="origami-newsletter-april-2023---may-2023" class="o-layout__linked-heading"><a href="#origami-newsletter-april-2023---may-2023" title="Link directly to this section of the page" class="o-layout__linked-heading__link"><span class="o-layout__linked-heading__content">Origami Newsletter, April 2023 - May 2023</span><span class="o-layout__linked-heading__label">#</span></a></h1><p>
+Posted on <time>31 May 2023</time>
+by Akaki Mikaia.
+<br>
+Tagged with <span>Newsletter</span></p><p><abbr title="Too long; didn't read"><strong>TL;DR: </strong></abbr>Origami is preparing two talks for June. We released FT Professional themes for a bunch of components. We started working on Origami For Everyone(O3) and we started talking to other organisations to share knowledge about design systems.</p><h2 id="top-things">Top things</h2>
 <p>Some of the bigger Origami news since our last update:</p>
-
 <h2 id="upcoming-talks-and-workshops">Upcoming talks and workshops</h2>
-
 <p>Mark your calendars! We have two engaging talks lined up for the upcoming month.</p>
-
 <ol>
-  <li>
-    <p><a href="https://financialtimes.learn.link/content/62f4125979e7860012a64e2e/">Introduction to Origami</a>: Lee will be delivering an insightful session that provides a high-level overview of Origami. Whether you work in Product or Technology, this talk is for you! Discover why Origami exists and how it can benefit you in your work.</p>
-  </li>
-  <li>
-    <p><a href="https://financialtimes.learn.link/content/6478b3546da1c4001190511a">Origami Foundations</a>: Join Ako as he explores the fundamentals of Origami components. This talk will delve into the usage, advantages, and practical implementation of key components such as o-normalise, o-fonts, o-spacing, o-colors, o-typography, and a glimpse into o-grid.</p>
-  </li>
+<li>
+<p><a href="https://financialtimes.learn.link/content/62f4125979e7860012a64e2e/">Introduction to Origami</a>: Lee will be delivering an insightful session that provides a high-level overview of Origami. Whether you work in Product or Technology, this talk is for you! Discover why Origami exists and how it can benefit you in your work.</p>
+</li>
+<li>
+<p><a href="https://financialtimes.learn.link/content/6478b3546da1c4001190511a">Origami Foundations</a>: Join Ako as he explores the fundamentals of Origami components. This talk will delve into the usage, advantages, and practical implementation of key components such as o-normalise, o-fonts, o-spacing, o-colors, o-typography, and a glimpse into o-grid.</p>
+</li>
 </ol>
-
-<p><strong><em>Note:</em></strong> This talk is engineer oriented but anyone who want to deepen their Origami knowledge is definitely welcome.</p>
-
+<p><em><strong>Note:</strong></em> This talk is engineer oriented but anyone who want to deepen their Origami knowledge is definitely welcome.</p>
 <h2 id="ft-professional">FT Professional</h2>
-
 <p>Last months Origami has been working with FT Professional to gather requirements and identify which Origami components require a new FT Professional theme, this quarter we managed to release more themes than we promised and we will release a few more before Q2 finishes.</p>
-
-<p>Currently we support <code class="language-plaintext highlighter-rouge">o-banner</code>, <code class="language-plaintext highlighter-rouge">o-forms</code>, <code class="language-plaintext highlighter-rouge">o-tooltip</code>, <code class="language-plaintext highlighter-rouge">o-typography</code> and <code class="language-plaintext highlighter-rouge">o-buttons</code> component themes and variations.</p>
-
+<p>Currently we support <code>o-banner</code>, <code>o-forms</code>, <code>o-tooltip</code>, <code>o-typography</code> and <code>o-buttons</code> component themes and variations.</p>
 <h2 id="origami-for-everyone">Origami for everyone</h2>
-
 <p>We’re excited about <a href="https://financialtimes.atlassian.net/wiki/spaces/OR/blog/2023/05/18/8064925807/Introducing+Origami+for+Everyone">Origami for Everyone</a> as creating differentiated products targeting different audiences is a central theme of the <a href="https://inside.ft.com/home/knowledge-base/Product-strategy-2023">FT’s product and growth strategy</a>. Origami for Everyone will allow Origami to scale to support more brands, designer-developer collaboration, and multi-platform compatibility.</p>
-
 <p>To achieve these vision, we’ll need to make some fundamental changes in the existing Origami implementation. We’ve already started recruiting a new designer to lead on the design side of Origami, and we’ve been conducting research into design tokens, which will form the backbone of the new implementation of Origami. Ben already did a demo for new design tokens system and we got some initial positive feedback from our potential users. You can read more about this on our blogpost <a href="https://financialtimes.atlassian.net/wiki/spaces/OR/blog/2023/04/20/8047034476/Origami+Team+Trials+Design+Tokens">Origami Team Trials Design Tokens</a> and if you want to know more of a technical decisions made along the way check out <a href="https://financialtimes.atlassian.net/wiki/spaces/OR/blog/2023/04/26/8049524875/Conventions+for+Origami+Design+Tokens">Conventions for origami Design Tokens</a>.</p>
-
 <p>We encourage everyone to actively participate in this project, offering feedback and sharing proposals for the new Origami architecture. Together, we can shape a future where the Origami design system works seamlessly with every product we deliver.</p>
-
 <h2 id="knowledge-sharing-with-other-organisations">Knowledge sharing with other organisations</h2>
-
 <p>We’ve been talking with other organisations to share knowledge about design systems. We had a meeting with the design system team from the Lego, Washington Post, and Compare The Market. Next month we have a meeting scheduled with Conde Nast and we are all excited to share our knowledge and learn from each other.</p>
-
 <h2 id="special-thanks">Special Thanks</h2>
-
-<p>We had a few contributors who helped us to improve Origami components and we want to thank them for their contributions. Thanks to Juan Sanchez Alcala for contributing to <code class="language-plaintext highlighter-rouge">o-topper</code>, <code class="language-plaintext highlighter-rouge">o-video</code> and <code class="language-plaintext highlighter-rouge">o-comments</code> components.</p>
-
-<p>Special thanks to Anna Bebb for deprecating  the <code class="language-plaintext highlighter-rouge">n-sliding-popup</code> component – that prompted us to write some docs on how to do deprecate Origami components. Now we have a <a href="https://origami.ft.com/documentation/components/versioning/#deprecate-a-component">guide on how to deprecate Origami components</a></p>
-
-<p>We had new contributors who helped us to improve Origami components. Thanks to Marlon Bucley for helping us to improve <code class="language-plaintext highlighter-rouge">o-multi-select</code> component and thanks to Ed Gargan for helping us to improve <code class="language-plaintext highlighter-rouge">o-forms</code> component.</p>
-
+<p>We had a few contributors who helped us to improve Origami components and we want to thank them for their contributions. Thanks to Juan Sanchez Alcala for contributing to <code>o-topper</code>, <code>o-video</code> and <code>o-comments</code> components.</p>
+<p>Special thanks to Anna Bebb for deprecating  the <code>n-sliding-popup</code> component – that prompted us to write some docs on how to do deprecate Origami components. Now we have a <a href="https://origami.ft.com/documentation/components/versioning/#deprecate-a-component">guide on how to deprecate Origami components</a></p>
+<p>We had new contributors who helped us to improve Origami components. Thanks to Marlon Bucley for helping us to improve <code>o-multi-select</code> component and thanks to Ed Gargan for helping us to improve <code>o-forms</code> component.</p>
 <p>And a final thankyou to Arjun Gadhia who contributed a new customisation feature to o-autocomplete to support the TagMe rewrite. This was a most <a href="https://github.com/Financial-Times/origami/pull/1127">excellent pull request</a> which included problem context, screenshots, documentation, and demos – making it very easy for the team to review and approve.</p>
 <h2 id="broader-update">Broader update</h2>
-
 <p>A digest list of some other things that have happened in April and May:</p>
-
 <ul>
-  <li>Major <a href="https://registry.origami.ft.com/components/o-multi-select">o-multi-select</a>: After some feedback from Spark we improved <code class="language-plaintext highlighter-rouge">o-multi-select</code> functionality and now it can be initialised with a selected value. We also added a custom event <code class="language-plaintext highlighter-rouge">OptionChange</code> to enable users to track interactions to o-multi-select. We also published TSX templates.</li>
-  <li>Minor <a href="https://registry.origami.ft.com/components/o-forms">o-forms</a>: <code class="language-plaintext highlighter-rouge">o-forms</code> had a few minor releases in the last two months. We removed the “green” valid state from <code class="language-plaintext highlighter-rouge">o-forms</code>. Deprecated pseudo-radio-links. <code class="language-plaintext highlighter-rouge">o-forms</code> now also has TSX templates published and can be used by other TSX projects. We also released FT Professional themes for <code class="language-plaintext highlighter-rouge">o-forms</code> elements. Now we apply invalid input styles to inputs with custom validation, as well as those which use default browser validation.</li>
-  <li>Minor <a href="https://registry.origami.ft.com/components/o-topper">o-topper</a>: To improve accessibility, we changed the outline colour for focus links in some cases.</li>
-  <li>Minor <a href="https://registry.origami.ft.com/components/ft-concept-button">ft-concept-button</a>: Now <code class="language-plaintext highlighter-rouge">ft-concept-button</code> sets aria-label on initialise.</li>
-  <li>Minor <a href="https://registry.origami.ft.com/components/o-buttons">o-buttons</a>: Now o-buttons supports <code class="language-plaintext highlighter-rouge">professional</code> themes.</li>
-  <li>Minor <a href="https://registry.origami.ft.com/components/o-colors">o-colors</a>: Professional color Mint is now part of o-colors pallet. We added <code class="language-plaintext highlighter-rouge">page-inverse</code> and <code class="language-plaintext highlighter-rouge">base-inverse</code> colour usecases.</li>
-  <li>Minor <a href="https://registry.origami.ft.com/components/o-tooltip">o-tooltip</a>: added <code class="language-plaintext highlighter-rouge">professional</code> themes and now it supports setting themes imperatively.</li>
-  <li>Minor <a href="https://registry.origami.ft.com/components/o-typography">o-typography</a>: added <code class="language-plaintext highlighter-rouge">professional</code> themes for body and links.</li>
-  <li>Minor <a href="https://registry.origami.ft.com/components/o-autocomplete">o-autocomplete</a>: added a <code class="language-plaintext highlighter-rouge">suggestionTemplate</code> override option. This function is used to override the default rendering of suggestion items in autocomplete, with a function that returns a custom HTML string for the given option. It is typically used when wanting to provide additional context or styling for each suggestion item.</li>
-  <li>Minor <a href="https://registry.origami.ft.com/components/o-banner">o-banner</a>: added a new <code class="language-plaintext highlighter-rouge">inverse-professional</code> themes.</li>
-  <li>Patch <a href="https://registry.origami.ft.com/components/o-header">o-header</a>: We improved scroll button behaviour in the o-header subnav.</li>
-</ul>
-
-
-</div>
-
-
-		
-		<div class="o-layout__footer">
-			<footer class="o-footer-services">
-	<div class="o-footer-services__container">
-		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
-			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
-			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
-			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
-			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
-				<a href='https://github.com/Financial-Times/origami/edit/main/apps/website/_posts/2023-05-31-newsletter.md'>suggest an edit to this page</a>.</p>
-		</div>
-	</div>
-	<div class="o-footer-services__container">
-		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
-			<div class="o-footer-services__links">
-			<a href="https://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
-			<a href="https://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
-			<a href="https://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
-			<a href="https://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
-			<a href="https://help.ft.com/legal-privacy/copyright-policy/">Slavery Statement & Policies</a>
-		</div>
-		<p><span>&copy; THE FINANCIAL TIMES LTD 2023.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
-	</div>
-</footer>
-
-		</div>
-		
-	</div>
-
-	
-
-</body>
-</html>
+<li>Major <a href="https://registry.origami.ft.com/components/o-multi-select">o-multi-select</a>: After some feedback from Spark we improved <code>o-multi-select</code> functionality and now it can be initialised with a selected value. We also added a custom event <code>OptionChange</code> to enable users to track interactions to o-multi-select. We also published TSX templates.</li>
+<li>Minor <a href="https://registry.origami.ft.com/components/o-forms">o-forms</a>: <code>o-forms</code> had a few minor releases in the last two months. We removed the “green” valid state from <code>o-forms</code>. Deprecated pseudo-radio-links. <code>o-forms</code> now also has TSX templates published and can be used by other TSX projects. We also released FT Professional themes for <code>o-forms</code> elements. Now we apply invalid input styles to inputs with custom validation, as well as those which use default browser validation.</li>
+<li>Minor <a href="https://registry.origami.ft.com/components/o-topper">o-topper</a>: To improve accessibility, we changed the outline colour for focus links in some cases.</li>
+<li>Minor <a href="https://registry.origami.ft.com/components/ft-concept-button">ft-concept-button</a>: Now <code>ft-concept-button</code> sets aria-label on initialise.</li>
+<li>Minor <a href="https://registry.origami.ft.com/components/o-buttons">o-buttons</a>: Now o-buttons supports <code>professional</code> themes.</li>
+<li>Minor <a href="https://registry.origami.ft.com/components/o-colors">o-colors</a>: Professional color Mint is now part of o-colors pallet. We added <code>page-inverse</code> and <code>base-inverse</code> colour usecases.</li>
+<li>Minor <a href="https://registry.origami.ft.com/components/o-tooltip">o-tooltip</a>: added <code>professional</code> themes and now it supports setting themes imperatively.</li>
+<li>Minor <a href="https://registry.origami.ft.com/components/o-typography">o-typography</a>: added <code>professional</code> themes for body and links.</li>
+<li>Minor <a href="https://registry.origami.ft.com/components/o-autocomplete">o-autocomplete</a>: added a <code>suggestionTemplate</code> override option. This function is used to override the default rendering of suggestion items in autocomplete, with a function that returns a custom HTML string for the given option. It is typically used when wanting to provide additional context or styling for each suggestion item.</li>
+<li>Minor <a href="https://registry.origami.ft.com/components/o-banner">o-banner</a>: added a new <code>inverse-professional</code> themes.</li>
+<li>Patch <a href="https://registry.origami.ft.com/components/o-header">o-header</a>: We improved scroll button behaviour in the o-header subnav.</li>
+</ul></div><div class="o-layout__footer"><footer class="o-footer-services"><div class="o-footer-services__container"><div class="o-footer-services__wrapper o-footer-services__wrapper--top"><a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a><a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a><a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a><p class="o-footer-services__content">
+Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice.
+				Feel free to
+<a href="https://github.com/Financial-Times/origami/edit/main/apps/website/src/pages/blog/2023/05/31/newsletter/">suggest an edit to this page</a>.
+</p></div></div><div class="o-footer-services__container"><div class="o-footer-services__wrapper o-footer-services__wrapper--legal"><div class="o-footer-services__links"><a href="https://help.ft.com/help/legal-privacy/cookies/">Cookies</a><a href="https://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a><a href="https://help.ft.com/help/legal-privacy/privacy/">Privacy</a><a href="https://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a><a href="https://help.ft.com/legal-privacy/copyright-policy/">Slavery Statement & Policies</a></div><p><span>&copy; THE FINANCIAL TIMES LTD 2023.</span> FT and
+				'Financial Times' are trademarks of The Financial Times Ltd.
+</p></div></div></footer></div></div></body></html>
