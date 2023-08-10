@@ -18,10 +18,6 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7.6
-        bundler-cache: true
     - run: npm i -g npm@7
     - run: npm ci
     - run: bash ./scripts/build-website.bash

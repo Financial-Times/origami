@@ -175,10 +175,10 @@ jobs:
             - 'apps/storybook/addons/html/**'
           apps/storybook/addons/markdown-tabs:
             - 'apps/storybook/addons/markdown-tabs/**'
+          apps/astro-website:
+            - 'apps/astro-website/**'
           apps/storybook:
             - 'apps/storybook/**'
-          apps/website:
-            - 'apps/website/**'
   test:
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
