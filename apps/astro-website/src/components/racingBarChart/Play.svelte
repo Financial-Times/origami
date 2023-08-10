@@ -9,18 +9,18 @@
 	}
 </script>
 
-<span
+<button
+	aria-label="{showPlayButton ? 'Play' : 'Stop'} racing bar chart"
 	on:click={handlePlay}
-	class="icon"
 	class:play-icon={showPlayButton}
 	class:stop-icon={!showPlayButton}
 />
 
 <style>
-	.icon {
-		cursor: pointer;
+	button {
 		width: 80px;
 		height: 80px;
+		background: none;
 	}
 	.play-icon {
 		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1%3Aplay?source=origami-website&width=100&tint=%230d7680");
