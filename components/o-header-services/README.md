@@ -49,7 +49,7 @@ The primary navigation is an **optional** addition to the title section. It's mo
 
 This section of the header has specific behaviour, as it turns into a drawer at smaller viewport sizes (740px down). It requires the addition an extra element in the title section to support the hamburger button.
 
-If you are using extra content (such as a 'Sign in' link), that will be pulled into the drawer, as well.
+If you are using extra content (such as a 'Sign in' link), that will be pulled into the drawer, as well. (This behaviour can be supressed by adding the class `.o-header-services__related-content--always-visible`)
 
 For an example and markup, see the [primary navigation in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-primary-navigation).
 

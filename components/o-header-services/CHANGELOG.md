@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.5.0](https://github.com/Financial-Times/origami/compare/o-header-services-v5.4.0...o-header-services-v5.5.0) (2023-08-07)
+
+
+### Features
+
+* option to keep related content visible in header-services ([232b529](https://github.com/Financial-Times/origami/commit/232b52910afa6fbcd3f6a68b2cc633178a8ae94f))
+
 ## [5.4.0](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.4...o-header-services-v5.4.0) (2023-07-12)
 
 
