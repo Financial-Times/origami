@@ -1,5 +1,16 @@
 # Changelog
 
+## [8.0.0](https://github.com/Financial-Times/origami/compare/o-icons-v7.6.0...o-icons-v8.0.0) (2023-08-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* create o-multi-select component
+
+### Features
+
+* create o-multi-select component ([5730a3a](https://github.com/Financial-Times/origami/commit/5730a3a13399b2caec6bf1dffdb9f8d7c2b35ada))
+
 ## [7.6.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.5.0...o-icons-v7.6.0) (2023-03-27)
 
 
