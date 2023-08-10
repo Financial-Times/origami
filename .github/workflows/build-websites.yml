@@ -21,6 +21,7 @@ jobs:
     - run: npm i -g npm@7
     - run: npm ci
     - run: bash ./scripts/build-website.bash
+    - run: touch ./origami.ft.com/.nojekyll
     - name: deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4.2.2
       with:
