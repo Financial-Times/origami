@@ -8,7 +8,7 @@ The dictionary uses [Tokens Studio](https://tokens.studio/) and [Style Dictionar
 
 ### Developers and Desingers
 
-* Ensure you have been given a Tokens Studio account, the Origami team lead can provide this.
+* Ensure you have been given a Tokens Studio account, the #origami-support Slack channel can help with this.
 * Follow the steps on the [token's studio docs](https://docs.tokens.studio/sync/github) to sync the dictionary with Tokens Studio in Figma.
   * On step 4, ensure you use the following details:
     * Add your GitHub repository `Financial-Times/origami`.
