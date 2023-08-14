@@ -7,7 +7,6 @@ export async function getStaticPaths() {
 		"documentation",
 		({data}) => data.collection_id === "manifests"
 	)
-	console.log(`🚀 ~ entries:`, entries[0].slug)
 	return entries.map(entry => ({
 		params: {slug: entry.slug.split("/")[1]},
 		props: {entry},
