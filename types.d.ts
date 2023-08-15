@@ -740,6 +740,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"2023-08-14-origami-for-everyone.md": {
+	id: "2023-08-14-origami-for-everyone.md";
+  slug: "2023-08-14-origami-for-everyone";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 };
 
 	};
