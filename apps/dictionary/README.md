@@ -21,7 +21,7 @@ The dictionary uses [Tokens Studio](https://tokens.studio/) and [Style Dictionar
 * Ensure you have been added to the Origami team on GitHub.
 * Clone the repository
 ```bash
-git@github.com:Financial-Times/origami.git
+git clone git@github.com:Financial-Times/origami.git
 ```
 * Install the dependencies
 
