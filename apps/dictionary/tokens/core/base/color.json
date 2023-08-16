@@ -748,6 +748,10 @@
               "exportKey": "color"
             }
           }
+        },
+        "mint": {
+          "value": "{DO-NOT-USE}",
+          "type": "color"
         }
       }
     }

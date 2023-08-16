@@ -16,6 +16,7 @@
     "core/base/color",
     "core/use-case/color",
     "core/professional/use-case/color",
-    "core/professional/base/color"
+    "core/professional/base/color",
+    "utility-tokens"
   ]
 }
