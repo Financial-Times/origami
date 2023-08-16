@@ -29,7 +29,7 @@ const sortedPosts = allPosts.sort(
 					return (
 						<li class="o-layout__listing__item">
 							<h2 class="o-layout__listing__item__title">
-								<a href={generateBlogPostURL(post.slug)}>
+								<a href={"/blog/" + generateBlogPostURL(post.slug)}>
 									{post.data.title}
 								</a>
 							</h2>

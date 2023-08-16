@@ -28,7 +28,7 @@ if (lastChildrenDepth && ancestors) {
 
 function formatContentForSubNav(contentArray) {
 	return contentArray && contentArray.map(d => {
-		const url = `/${d.collection}/${d.slug}`
+		const url = `/${d.collection}/${d.slug}/`
 		return {
 			label: d.data.nav_label,
 			url,
@@ -40,12 +40,12 @@ function formatContentForSubNav(contentArray) {
 async function generateAncestors(paths) {
 	// This assumes that for secondary nav first item will be always be the collection name
 	const collectionName = paths[0]
-	const urls = primaryNav.filter(p => p.url === `/${collectionName}`)
+	const urls = primaryNav.filter(p => p.url === `/${collectionName}/`)
 	await Promise.all(paths.map(async (path, i) => {
 		if (i == 0 ) return
 		const slugPath = paths.slice(1, i + 1).join("/")
 		const entry = await getEntryBySlug(collectionName, slugPath)
-		const url = `/${collectionName}/${slugPath}`
+		const url = `/${collectionName}/${slugPath}/`
 		const label = entry.data.nav_label
 		urls.push({
 			label,
