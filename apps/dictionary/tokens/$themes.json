@@ -3,21 +3,10 @@
     "id": "79c5181adfa8d96c53d99c2ca6b9a82ea7d97a1f",
     "name": "internal",
     "selectedTokenSets": {
-      "core/use-case/color": "disabled",
       "archive/base/color": "source",
       "archive/base/font": "source",
       "archive/base/typography": "source",
-      "archive/use-case/o-brand-core": "disabled",
-      "archive/use-case/o-brand-internal": "enabled",
-      "archive/use-case/o-brand-professional": "disabled",
-      "archive/use-case/o-brand-whitelabel": "disabled",
-      "archive/components/o-buttons-experimental/core/border": "disabled",
-      "archive/components/o-buttons-experimental/core/color": "disabled",
-      "archive/components/o-buttons-experimental/icons": "disabled",
-      "archive/components/o-buttons-experimental/whitelabel/border": "disabled",
-      "archive/components/o-buttons-experimental/whitelabel/color": "disabled",
-      "archive/components/o-something/core": "disabled",
-      "core/professional/use-case/color": "disabled"
+      "archive/use-case/o-brand-internal": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:deead98cf6a1ab2d928367ae5efb5006b4c501b3,",
@@ -103,10 +92,6 @@
     "name": "core",
     "selectedTokenSets": {
       "core/use-case/color": "enabled",
-      "archive/base/color": "source",
-      "archive/base/font": "source",
-      "archive/base/typography": "source",
-      "archive/use-case/o-brand-core": "enabled",
       "core/base/color": "enabled"
     },
     "$figmaStyleReferences": {
@@ -227,11 +212,6 @@
     "id": "81b69fd146e906716402c7d9955fc36ba8b4b651",
     "name": "professional",
     "selectedTokenSets": {
-      "archive/base/color": "source",
-      "archive/base/font": "source",
-      "archive/base/typography": "source",
-      "archive/use-case/o-brand-core": "enabled",
-      "archive/use-case/o-brand-professional": "enabled",
       "core/professional/use-case/color": "enabled",
       "core/base/color": "enabled"
     },
@@ -333,21 +313,10 @@
     "id": "b43bde84ae1502d2efaede82069a94c36b3ed6da",
     "name": "whitelabel",
     "selectedTokenSets": {
-      "core/use-case/color": "disabled",
       "archive/base/color": "source",
       "archive/base/font": "source",
       "archive/base/typography": "source",
-      "archive/use-case/o-brand-core": "disabled",
-      "archive/use-case/o-brand-internal": "disabled",
-      "archive/use-case/o-brand-professional": "disabled",
-      "archive/use-case/o-brand-whitelabel": "enabled",
-      "archive/components/o-buttons-experimental/core/border": "disabled",
-      "archive/components/o-buttons-experimental/core/color": "disabled",
-      "archive/components/o-buttons-experimental/icons": "disabled",
-      "archive/components/o-buttons-experimental/whitelabel/border": "disabled",
-      "archive/components/o-buttons-experimental/whitelabel/color": "disabled",
-      "archive/components/o-something/core": "disabled",
-      "core/professional/use-case/color": "disabled"
+      "archive/use-case/o-brand-whitelabel": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaCollectionId": "VariableCollectionId:3284:41",
