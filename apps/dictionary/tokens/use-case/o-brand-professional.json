@@ -5,7 +5,7 @@
         "primary": {
           "active": {
             "type": "color",
-            "value": "{color-base.secondary.slate}",
+            "value": "{color-base.secondary.mint}",
             "blendMode": "normal"
           },
           "hover": {
@@ -41,6 +41,10 @@
             "type": "color"
           }
         }
+      },
+      "root": {
+        "value": "#",
+        "type": "color"
       }
     },
     "button": {

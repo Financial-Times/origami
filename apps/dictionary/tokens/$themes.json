@@ -207,7 +207,8 @@
       "color-usecase.button.secondary.active": "e9ef572031571ecbb54acd6449aed8f4d0cad659",
       "color-usecase.button.secondary.hover": "31c4336273b6858b7ef7a621f670b769611d104a",
       "color-usecase.text.default": "970d7a60e4b447b0f3b6959e3bffb88c953e1b3f"
-    }
+    },
+    "group": "core"
   },
   {
     "id": "81b69fd146e906716402c7d9955fc36ba8b4b651",
@@ -309,7 +310,8 @@
       "color-usecase.button.primary.hover": "6e1a966fb79111fe0264c4e3b2de13417ccf12a9",
       "color-usecase.button.secondary.active": "44a37a4693ffbbf7ebb0667aa63d90c5e979f759",
       "color-usecase.button.secondary.hover": "432df2c521b3eb31f55914e95c5eca7378d9feac"
-    }
+    },
+    "group": "core"
   },
   {
     "id": "b43bde84ae1502d2efaede82069a94c36b3ed6da",
