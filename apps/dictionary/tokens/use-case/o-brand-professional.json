@@ -41,10 +41,6 @@
             "type": "color"
           }
         }
-      },
-      "root": {
-        "value": "#",
-        "type": "color"
       }
     },
     "button": {

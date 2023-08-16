@@ -13,6 +13,7 @@
     "components/o-buttons-experimental/whitelabel/border",
     "components/o-buttons-experimental/whitelabel/color",
     "components/o-something/core",
-    "icons"
+    "icons",
+    "core/base/color"
   ]
 }
