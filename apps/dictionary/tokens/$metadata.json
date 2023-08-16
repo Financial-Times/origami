@@ -18,6 +18,6 @@
     "core/professional/use-case/color",
     "core/professional/base/color",
     "utility-tokens",
-    "icons"
+    "icons/icons"
   ]
 }
