@@ -1,0 +1,7 @@
+{
+  "facebook": {
+    "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"41\" height=\"40\" viewBox=\"0 0 41 40\" fill=\"none\">\n  <path d=\"M21.6604 30V20.8768H24.6353L25.0775 17.3233H21.6604V15.0521C21.6604 14.0247 21.9376 13.3217 23.3689 13.3217H25.1974V10.139C24.8826 10.0927 23.796 10 22.5371 10C19.8994 10 18.1009 11.6609 18.1009 14.7045V17.331H15.1184V20.8845H18.1009V30H21.6604Z\" fill=\"black\"/>\n</svg>",
+    "type": "asset",
+    "description": "Facebook icon for FT brands"
+  }
+}
