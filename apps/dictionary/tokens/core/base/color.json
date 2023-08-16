@@ -1,7 +1,7 @@
 {
   "o3": {
-    "pallette": {
-      "ft pink": {
+    "palette": {
+      "ft-pink": {
         "type": "color",
         "value": "brown",
         "blendMode": "normal",
@@ -12,7 +12,7 @@
           }
         }
       },
-      "ft grey": {
+      "ft-grey": {
         "description": "",
         "type": "color",
         "value": "#333333ff",
@@ -128,7 +128,7 @@
           }
         }
       },
-      "light blue": {
+      "light-blue": {
         "description": "",
         "type": "color",
         "value": "#00a0ddff",
@@ -152,7 +152,7 @@
           }
         }
       },
-      "graphics dark blue": {
+      "graphics-dark-blue": {
         "description": "",
         "type": "color",
         "value": "#006f9bff",
@@ -248,7 +248,7 @@
           }
         }
       },
-      "matisse blue": {
+      "matisse-blue": {
         "description": "",
         "type": "color",
         "value": "#355778ff",
@@ -260,7 +260,7 @@
           }
         }
       },
-      "black 5": {
+      "black-5": {
         "description": "",
         "type": "color",
         "value": "#f2e5daff",
@@ -272,7 +272,7 @@
           }
         }
       },
-      "black 10": {
+      "black-10": {
         "description": "",
         "type": "color",
         "value": "#e6d9ceff",
@@ -284,7 +284,7 @@
           }
         }
       },
-      "black 20": {
+      "black-20": {
         "description": "",
         "type": "color",
         "value": "#ccc1b7ff",
@@ -296,7 +296,7 @@
           }
         }
       },
-      "black 30": {
+      "black-30": {
         "description": "",
         "type": "color",
         "value": "#b3a9a0ff",
@@ -308,7 +308,7 @@
           }
         }
       },
-      "black 40": {
+      "black-40": {
         "description": "",
         "type": "color",
         "value": "#999189ff",
@@ -320,7 +320,7 @@
           }
         }
       },
-      "black 50": {
+      "black-50": {
         "description": "",
         "type": "color",
         "value": "#807973ff",
@@ -332,7 +332,7 @@
           }
         }
       },
-      "black 60": {
+      "black-60": {
         "description": "",
         "type": "color",
         "value": "#66605cff",
@@ -344,7 +344,7 @@
           }
         }
       },
-      "black 70": {
+      "black-70": {
         "description": "",
         "type": "color",
         "value": "#4d4845ff",
@@ -356,7 +356,7 @@
           }
         }
       },
-      "black 80": {
+      "black-80": {
         "description": "",
         "type": "color",
         "value": "#33302eff",
@@ -368,7 +368,7 @@
           }
         }
       },
-      "black 90": {
+      "black-90": {
         "description": "",
         "type": "color",
         "value": "#1a1817ff",
@@ -380,7 +380,7 @@
           }
         }
       },
-      "white 10": {
+      "white-10": {
         "description": "",
         "type": "color",
         "value": "#fff2e8ff",
@@ -392,7 +392,7 @@
           }
         }
       },
-      "white 20": {
+      "white-20": {
         "description": "",
         "type": "color",
         "value": "#fff4eaff",
@@ -404,7 +404,7 @@
           }
         }
       },
-      "white 40": {
+      "white-40": {
         "description": "",
         "type": "color",
         "value": "#fff7efff",
@@ -416,7 +416,7 @@
           }
         }
       },
-      "white 60": {
+      "white-60": {
         "description": "",
         "type": "color",
         "value": "#fff9f5ff",
@@ -428,7 +428,7 @@
           }
         }
       },
-      "white 80": {
+      "white-80": {
         "description": "",
         "type": "color",
         "value": "#fffcfaff",
@@ -440,7 +440,7 @@
           }
         }
       },
-      "oxford -30": {
+      "oxford-30": {
         "description": "",
         "type": "color",
         "value": "#082a4dff",
@@ -452,7 +452,7 @@
           }
         }
       },
-      "oxford -40": {
+      "oxford-40": {
         "description": "",
         "type": "color",
         "value": "#0a3866ff",
@@ -464,7 +464,7 @@
           }
         }
       },
-      "oxford -50": {
+      "oxford-50": {
         "description": "",
         "type": "color",
         "value": "#0d4680ff",
@@ -476,7 +476,7 @@
           }
         }
       },
-      "oxford -60": {
+      "oxford-60": {
         "description": "",
         "type": "color",
         "value": "#0f5499ff",
@@ -488,7 +488,7 @@
           }
         }
       },
-      "oxford -70": {
+      "oxford-70": {
         "description": "",
         "type": "color",
         "value": "#1262b3ff",
@@ -500,7 +500,7 @@
           }
         }
       },
-      "oxford -80": {
+      "oxford-80": {
         "description": "",
         "type": "color",
         "value": "#1470ccff",
@@ -512,7 +512,7 @@
           }
         }
       },
-      "oxford -90": {
+      "oxford-90": {
         "description": "",
         "type": "color",
         "value": "#177ee6ff",
@@ -524,7 +524,7 @@
           }
         }
       },
-      "oxford -100": {
+      "oxford-100": {
         "description": "",
         "type": "color",
         "value": "#1a8cffff",
@@ -536,7 +536,7 @@
           }
         }
       },
-      "teal -20": {
+      "teal-20": {
         "description": "",
         "type": "color",
         "value": "#052f33ff",
@@ -548,7 +548,7 @@
           }
         }
       },
-      "teal -30": {
+      "teal-30": {
         "description": "",
         "type": "color",
         "value": "#08474dff",
@@ -560,7 +560,7 @@
           }
         }
       },
-      "teal -40": {
+      "teal-40": {
         "description": "",
         "type": "color",
         "value": "#0a5e66ff",
@@ -572,7 +572,7 @@
           }
         }
       },
-      "teal -50": {
+      "teal-50": {
         "description": "",
         "type": "color",
         "value": "#0d7680ff",
@@ -584,7 +584,7 @@
           }
         }
       },
-      "teal -60": {
+      "teal-60": {
         "description": "",
         "type": "color",
         "value": "#0f8e99ff",
@@ -596,7 +596,7 @@
           }
         }
       },
-      "teal -70": {
+      "teal-70": {
         "description": "",
         "type": "color",
         "value": "#12a5b3ff",
@@ -608,7 +608,7 @@
           }
         }
       },
-      "teal -80": {
+      "teal-80": {
         "description": "",
         "type": "color",
         "value": "#14bdccff",
@@ -620,7 +620,7 @@
           }
         }
       },
-      "teal -90": {
+      "teal-90": {
         "description": "",
         "type": "color",
         "value": "#17d4e6ff",
@@ -632,7 +632,7 @@
           }
         }
       },
-      "teal -100": {
+      "teal-100": {
         "description": "",
         "type": "color",
         "value": "#1aecffff",
@@ -644,7 +644,7 @@
           }
         }
       },
-      "claret -30": {
+      "claret-30": {
         "description": "",
         "type": "color",
         "value": "#4d081fff",
@@ -656,7 +656,7 @@
           }
         }
       },
-      "claret -40": {
+      "claret-40": {
         "description": "",
         "type": "color",
         "value": "#660a29ff",
@@ -668,7 +668,7 @@
           }
         }
       },
-      "claret -50": {
+      "claret-50": {
         "description": "",
         "type": "color",
         "value": "#800d33ff",
@@ -680,7 +680,7 @@
           }
         }
       },
-      "claret -60": {
+      "claret-60": {
         "description": "",
         "type": "color",
         "value": "#990f3dff",
@@ -692,7 +692,7 @@
           }
         }
       },
-      "claret -70": {
+      "claret-70": {
         "description": "",
         "type": "color",
         "value": "#b31247ff",
@@ -704,7 +704,7 @@
           }
         }
       },
-      "claret -80": {
+      "claret-80": {
         "description": "",
         "type": "color",
         "value": "#cc1452ff",
@@ -716,7 +716,7 @@
           }
         }
       },
-      "claret -90": {
+      "claret-90": {
         "description": "",
         "type": "color",
         "value": "#e6175cff",
@@ -728,7 +728,7 @@
           }
         }
       },
-      "claret -100": {
+      "claret-100": {
         "description": "",
         "type": "color",
         "value": "#ff1a66ff",
@@ -740,7 +740,7 @@
           }
         }
       },
-      "wheat -100": {
+      "wheat-100": {
         "description": "",
         "type": "color",
         "value": "green",
