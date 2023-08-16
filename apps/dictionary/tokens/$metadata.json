@@ -1,19 +1,20 @@
 {
   "tokenSetOrder": [
-    "base/color",
-    "base/font",
-    "base/typography",
-    "use-case/o-brand-core",
-    "use-case/o-brand-internal",
-    "use-case/o-brand-professional",
-    "use-case/o-brand-whitelabel",
-    "components/o-buttons-experimental/core/border",
-    "components/o-buttons-experimental/core/color",
-    "components/o-buttons-experimental/icons",
-    "components/o-buttons-experimental/whitelabel/border",
-    "components/o-buttons-experimental/whitelabel/color",
-    "components/o-something/core",
-    "icons",
-    "core/base/color"
+    "archive/base/color",
+    "archive/base/font",
+    "archive/base/typography",
+    "archive/use-case/o-brand-core",
+    "archive/use-case/o-brand-internal",
+    "archive/use-case/o-brand-professional",
+    "archive/use-case/o-brand-whitelabel",
+    "archive/components/o-buttons-experimental/core/border",
+    "archive/components/o-buttons-experimental/core/color",
+    "archive/components/o-buttons-experimental/icons",
+    "archive/components/o-buttons-experimental/whitelabel/border",
+    "archive/components/o-buttons-experimental/whitelabel/color",
+    "archive/components/o-something/core",
+    "core/base/color",
+    "core/use-case/color",
+    "core/professional/use-case/color"
   ]
 }

@@ -1,0 +1,10 @@
+{
+  "o3": {
+    "color": {
+      "link": {
+        "value": "{o3.color.palette.teal}",
+        "type": "color"
+      }
+    }
+  }
+}
