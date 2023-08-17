@@ -4,18 +4,6 @@
       "link": {
         "value": "{o3.color.palette.mint}",
         "type": "color"
-      },
-      "background": {
-        "root": {
-          "value": "{o3.color.palette.slate}",
-          "type": "color",
-          "description": "Use on background for full pages."
-        }
-      },
-      "copy": {
-        "value": "{o3.color.palette.white}",
-        "type": "color",
-        "description": "Use on primary information. Headings, paragraphs etc.."
       }
     }
   }
