@@ -62,3 +62,10 @@ SecondaryButton.args = {
 	label: "Press button",
 	type: "secondary",
 };
+
+export const ButtonWithIcon = ButtonStory.bind({});
+ButtonWithIcon.args = {
+	label: "Facebook",
+	iconOnly: true,
+	icon: "facebook",
+};

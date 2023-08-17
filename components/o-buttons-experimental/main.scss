@@ -12,6 +12,7 @@
 @import '../src/css/whitelabel/_variables.css';
 
 @import '../../../apps/dictionary/build/css/base/color/_variables.css';
+@import '../../../apps/dictionary/build/css/icons/_variables.css';
 @import '../../../apps/dictionary/build/css/usecase/core/_variables.css';
 @import '../../../apps/dictionary/build/css/usecase/professional/_variables.css';
 @import '../../../apps/dictionary/build/css/usecase/whitelabel/_variables.css';
@@ -77,6 +78,13 @@
 	  text-decoration: none;
 	}
   }
+
+	.o-buttons-experimental-icon--facebook {
+		background-image: var(--o-icons-facebook);
+		background-repeat: no-repeat;
+		width: 100px;
+		width: 100px;
+	}
 
   .o-buttons-experimental--secondary {
 	background-color: var(--_o-secondary-active-background-color);
