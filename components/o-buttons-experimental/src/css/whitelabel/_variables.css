@@ -1,11 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Thu, 17 Aug 2023 11:02:31 GMT
+ * Generated on Thu, 17 Aug 2023 16:54:50 GMT
  */
 
 
 .o-brand-whitelabel .o-buttons-experimental {
-  --o-icons-facebook: url( "data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2241%22%20height=%2240%22%20viewBox=%220%200%2041%2040%22%20fill=%22none%22%3E%0A%20%20%3Cpath%20d=%22M21.6604%2030V20.8768H24.6353L25.0775%2017.3233H21.6604V15.0521C21.6604%2014.0247%2021.9376%2013.3217%2023.3689%2013.3217H25.1974V10.139C24.8826%2010.0927%2023.796%2010%2022.5371%2010C19.8994%2010%2018.1009%2011.6609%2018.1009%2014.7045V17.331H15.1184V20.8845H18.1009V30H21.6604Z%22%20fill=%22black%22/%3E%0A%3C/svg%3E");
   --_o-primary-active-background-color: orange;
   --_o-primary-active-color: var(--o-color-usecase-button-primary-active);
   --_o-primary-active-border: 1px solid orange;

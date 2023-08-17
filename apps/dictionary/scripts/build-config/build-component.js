@@ -87,6 +87,7 @@ const getComponentBrands = async () => {
 	try {
 		componentTokenPaths = await glob(`./tokens/archive/components/**/*.json`, {
 			nodir: true,
+			ignore: "**/icons.json",
 		})
 	} catch (err) {
 		throw new Error(`Error reading file system: ${err}`)
@@ -95,8 +96,27 @@ const getComponentBrands = async () => {
 	return tokenPathsToTreeObject(componentTokenPaths)
 }
 
-const getIconConfig = (componentName) => ({
-	source: [`tokens/archive/${componentName}/icons.json`],
+const getIcons = async () => {
+	let componentTokenPaths
+	try {
+		componentTokenPaths = await glob(
+			`./tokens/archive/components/**/icons.json`,
+			{
+				nodir: true,
+			}
+		)
+	} catch (err) {
+		throw new Error(`Error reading file system: ${err}`)
+	}
+	return tokenPathsToTreeObject(componentTokenPaths)
+}
+
+const getIconConfig = component => ({
+	source: component.sources,
+	include: [
+		`tokens/icons/icons.json`
+	],
+	source: [],
 	platforms: {
 		css: {
 			transformGroup: "css",
@@ -108,7 +128,7 @@ const getIconConfig = (componentName) => ({
 			buildPath: "./",
 			files: [
 				{
-					destination: `../../components/${componentName}/src/css/_variables.css`,
+					destination: `../../components/${component.name}/src/css/icons/_variables.css`,
 					format: "css/variables",
 					options: {
 						outputReferences: true,
@@ -122,11 +142,13 @@ const getIconConfig = (componentName) => ({
 
 ;(async () => {
 	const components = await getComponentBrands()
-	Object.entries(components).forEach(([_, component]) => {
+	const icons = await getIcons()
+	Object.entries(icons.components).forEach(([_, component]) => {
 		const iconConfig = getIconConfig(component)
 		const StyleDictionary = StyleDictionaryPackage.extend(iconConfig)
 		StyleDictionary.buildAllPlatforms()
-
+	})
+	Object.entries(components).forEach(([_, component]) => {
 		Object.entries(component).forEach(([_, brand]) => {
 			const componentConfig = getComponentConfig(brand)
 			const StyleDictionary = StyleDictionaryPackage.extend(componentConfig)
