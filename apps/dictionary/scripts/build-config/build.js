@@ -2,7 +2,6 @@ const StyleDictionaryPackage = require("style-dictionary")
 const glob = require("glob")
 const {registerTransforms} = require("@tokens-studio/sd-transforms")
 const {brandClasses} = require("../formatters/css/brand-classes")
-const {nameOrigamiPrefix} = require("../transforms/nameOrigamiPrefix")
 const {transformSVG} = require("../transforms/transformSVG")
 
 const themes = require("../../tokens/$themes.json")
@@ -11,12 +10,7 @@ StyleDictionaryPackage.registerFormat({
 	name: "css/brand/classes",
 	formatter: brandClasses,
 })
-StyleDictionaryPackage.registerTransform({
-	name: "name/origamiPrefix",
-	type: "name",
-	transformer: nameOrigamiPrefix,
-	transitive: true,
-})
+
 StyleDictionaryPackage.registerTransform({
 	name: "value/transformSVG",
 	type: "value",
@@ -37,7 +31,6 @@ const getStyleDictionaryBrandConfig = brand => ({
 				"ts/shadow/css/shorthand",
 				"ts/color/css/hexrgba",
 				"ts/color/modifiers",
-				"name/origamiPrefix",
 				"name/cti/kebab",
 			],
 			buildPath: `build/css/usecase/${brand.name}/`,
@@ -86,7 +79,6 @@ const getBrands = () => {
 					"ts/shadow/css/shorthand",
 					"ts/color/css/hexrgba",
 					"ts/color/modifiers",
-					"name/origamiPrefix",
 					"name/cti/kebab",
 				],
 				buildPath: `build/css/base/color/`,
@@ -109,7 +101,6 @@ const getBrands = () => {
 				transformGroup: "css",
 				transforms: [
 					"ts/descriptionToComment",
-					"name/origamiPrefix",
 					"name/cti/kebab",
 					"value/transformSVG"
 				],

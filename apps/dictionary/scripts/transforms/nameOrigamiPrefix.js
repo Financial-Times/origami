@@ -1,7 +1,3 @@
-function nameOrigamiPrefix(token) {
-	token.path.unshift('o');
-	return token.path.join('-');
-}
 
 function nameOrigamiPrivatePrefix(token) {
 	if (token.isSource) {
@@ -12,4 +8,4 @@ function nameOrigamiPrivatePrefix(token) {
 	return token.path.join('-');
 }
 
-module.exports = { nameOrigamiPrefix, nameOrigamiPrivatePrefix }
+module.exports = { nameOrigamiPrivatePrefix }
