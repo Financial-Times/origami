@@ -1,8 +1,18 @@
 {
   "icons": {
-    "social-button": {
-      "value": "{icons.facebook}",
-      "type": "asset"
+    "ft-social": {
+      "facebook": {
+        "value": "{icons.facebook}",
+        "type": "asset",
+        "description": "Facebook icon"
+      }
+    },
+    "ft-icon": {
+      "arrow-left": {
+        "value": "{icons.arrow-left}",
+        "type": "asset",
+        "description": "Left arrow"
+      }
     }
   }
 }
