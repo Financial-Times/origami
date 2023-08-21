@@ -329,5 +329,17 @@
       "o3.color.palette.wheat-100": "92aa212d808b2e779db66c0af846dee88db6a68c"
     },
     "group": "core"
+  },
+  {
+    "id": "a2f70789c7452c19ef3ae7872137a48fe9d947a5",
+    "name": "internal",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "archive/components/o-buttons-experimental/icons": "enabled",
+      "core/base/color": "enabled",
+      "core/use-case/color": "enabled",
+      "icons/icons": "enabled"
+    },
+    "group": "internal"
   }
 ]
