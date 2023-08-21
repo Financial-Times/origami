@@ -5,6 +5,8 @@ const {brandClasses} = require("../formatters/css/brand-classes")
 const {nameOrigamiPrefix} = require("../transforms/nameOrigamiPrefix")
 const {transformSVG} = require("../transforms/transformSVG")
 
+const themes = require("../../tokens/$themes.json")
+
 StyleDictionaryPackage.registerFormat({
 	name: "css/brand/classes",
 	formatter: brandClasses,
@@ -24,8 +26,7 @@ StyleDictionaryPackage.registerTransform({
 })
 
 const getStyleDictionaryBrandConfig = brand => ({
-	source: [`tokens/use-case/${brand.tokens}`],
-	include: ["tokens/base/color.json"],
+	source: brand.sources,
 	platforms: {
 		css: {
 			transformGroup: "css",
@@ -54,26 +55,16 @@ const getStyleDictionaryBrandConfig = brand => ({
 		},
 	},
 })
-const getBrands = async () => {
-	let brandFiles
-	try {
-		brandFiles = await glob("tokens/use-case/o-brand-*.json", {nodir: true})
-	} catch (err) {
-		throw new Error(`Error reading file system: ${err}`)
-	}
-	return brandFiles.map(file => {
-		const [fileNameExcludingPrefix, extension] = file
-			.split("brand-")[1]
-			.split(".")
-		return {
-			name: fileNameExcludingPrefix,
-			tokens: `o-brand-${fileNameExcludingPrefix}.${extension}`,
-		}
-	})
-}
+const getBrands = () => {
 
-;(async () => {
-	const brands = await getBrands()
+	return themes.map(theme => ({
+		name: theme.name,
+		sources: Object.keys(theme.selectedTokenSets).map(tokenSet => `tokens/${tokenSet}.json`),
+	}));
+};
+
+(async () => {
+	const brands = getBrands()
 	registerTransforms(StyleDictionaryPackage)
 
 	brands.forEach(brand => {

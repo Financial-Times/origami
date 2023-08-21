@@ -1,25 +1,74 @@
 /**
  * Do not edit directly
- * Generated on Thu, 18 May 2023 08:48:02 GMT
+ * Generated on Mon, 21 Aug 2023 14:45:07 GMT
  */
 
 
- .o-brand-core {
-  --o-color-usecase-background-button-primary-active: #FF69B4; /* Background colour for components with primary actions in active state */
-  --o-color-usecase-background-button-primary-hover: var(--o-color-base-teal-tints-teal-30); /* Background colour for components with primary actions in hover state */
-  --o-color-usecase-background-button-secondary-active: var(--o-color-base-secondary-transparrent); /* Background colour for components with secondary actions in active state */
-  --o-color-usecase-background-button-secondary-hover: rgba(13,118,128,0.1); /* Background colour for components with secondary actions in hover state */
-  --o-color-usecase-background-button-inverse: var(--o-color-base-primary-white);
-  --o-color-usecase-background-button-mono: #262a33;
-  --o-color-usecase-background-button-b2c: #3a70af;
-  --o-color-usecase-background-button-ghost-active: #ffffff00;
-  --o-color-usecase-background-button-ghost-hover: rgba(13,118,128,0.1);
-  --o-color-usecase-background-root: var(--o-color-base-wheat-tints-wheat-100);
-  --o-color-usecase-button-primary-active: var(--o-color-base-primary-black);
-  --o-color-usecase-button-primary-hover: var(--o-color-base-primary-white);
-  --o-color-usecase-button-secondary-active: var(--o-color-usecase-background-button-primary-active);
-  --o-color-usecase-button-secondary-hover: var(--o-color-usecase-background-button-primary-active);
-  --o-color-usecase-text-default: var(--o-color-base-black-tints-black-90);
-  --o-border-usecase-button-primary-active: 1px solid var(--o-color-usecase-background-button-primary-active);
-  --o-border-usecase-button-secondary-active: 1px solid var(--o-color-usecase-button-secondary-active);
+.o-brand-core {
+  --o-o3-color-link: var(--o-o3-color-palette-teal);
+  --o-o3-color-palette-ft-pink: #FCD0B1;
+  --o-o3-color-palette-ft-grey: #333333ff;
+  --o-o3-color-palette-white: #ffffffff;
+  --o-o3-color-palette-black: #000000ff;
+  --o-o3-color-palette-claret: #990f3dff;
+  --o-o3-color-palette-teal: #0d7680ff;
+  --o-o3-color-palette-oxford: #0f5499ff;
+  --o-o3-color-palette-slate: #262a33ff;
+  --o-o3-color-palette-paper: #fff1e5ff;
+  --o-o3-color-palette-transparrent: #ffffff00;
+  --o-o3-color-palette-mandarin: #ff8833ff;
+  --o-o3-color-palette-light-blue: #00a0ddff;
+  --o-o3-color-palette-crimson: #cc0000ff;
+  --o-o3-color-palette-graphics-dark-blue: #006f9bff;
+  --o-o3-color-palette-wheat: #f2dfceff;
+  --o-o3-color-palette-candy: #ff7faaff;
+  --o-o3-color-palette-wasabi: #96cc28ff;
+  --o-o3-color-palette-jade: #00994dff;
+  --o-o3-color-palette-velvet: #593380ff;
+  --o-o3-color-palette-lemon: #ffec1aff;
+  --o-o3-color-palette-sky: #cce6ffff;
+  --o-o3-color-palette-matisse-blue: #355778ff;
+  --o-o3-color-palette-black-5: #f2e5daff;
+  --o-o3-color-palette-black-10: #e6d9ceff;
+  --o-o3-color-palette-black-20: #ccc1b7ff;
+  --o-o3-color-palette-black-30: #b3a9a0ff;
+  --o-o3-color-palette-black-40: #999189ff;
+  --o-o3-color-palette-black-50: #807973ff;
+  --o-o3-color-palette-black-60: #66605cff;
+  --o-o3-color-palette-black-70: #4d4845ff;
+  --o-o3-color-palette-black-80: #33302eff;
+  --o-o3-color-palette-black-90: #1a1817ff;
+  --o-o3-color-palette-white-10: #fff2e8ff;
+  --o-o3-color-palette-white-20: #fff4eaff;
+  --o-o3-color-palette-white-40: #fff7efff;
+  --o-o3-color-palette-white-60: #fff9f5ff;
+  --o-o3-color-palette-white-80: #fffcfaff;
+  --o-o3-color-palette-oxford-30: #082a4dff;
+  --o-o3-color-palette-oxford-40: #0a3866ff;
+  --o-o3-color-palette-oxford-50: #0d4680ff;
+  --o-o3-color-palette-oxford-60: #0f5499ff;
+  --o-o3-color-palette-oxford-70: #1262b3ff;
+  --o-o3-color-palette-oxford-80: #1470ccff;
+  --o-o3-color-palette-oxford-90: #177ee6ff;
+  --o-o3-color-palette-oxford-100: #1a8cffff;
+  --o-o3-color-palette-teal-20: #052f33ff;
+  --o-o3-color-palette-teal-30: #08474dff;
+  --o-o3-color-palette-teal-40: #0a5e66ff;
+  --o-o3-color-palette-teal-50: #0d7680ff;
+  --o-o3-color-palette-teal-60: #0f8e99ff;
+  --o-o3-color-palette-teal-70: #12a5b3ff;
+  --o-o3-color-palette-teal-80: #14bdccff;
+  --o-o3-color-palette-teal-90: #17d4e6ff;
+  --o-o3-color-palette-teal-100: #1aecffff;
+  --o-o3-color-palette-claret-30: #4d081fff;
+  --o-o3-color-palette-claret-40: #660a29ff;
+  --o-o3-color-palette-claret-50: #800d33ff;
+  --o-o3-color-palette-claret-60: #990f3dff;
+  --o-o3-color-palette-claret-70: #b31247ff;
+  --o-o3-color-palette-claret-80: #cc1452ff;
+  --o-o3-color-palette-claret-90: #e6175cff;
+  --o-o3-color-palette-claret-100: #ff1a66ff;
+  --o-o3-color-palette-wheat-100: green;
+  --o-o3-color-palette-mint: var(--o-do-not-use);
+  --o-do-not-use: rgba(0,0,0,0);
 }
