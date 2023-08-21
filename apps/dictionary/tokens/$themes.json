@@ -335,10 +335,8 @@
     "name": "internal",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
-      "archive/components/o-buttons-experimental/icons": "enabled",
       "core/base/color": "enabled",
       "core/use-case/color": "enabled",
-      "icons/icons": "enabled",
       "utility-tokens": "enabled"
     },
     "group": "internal"
