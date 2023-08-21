@@ -12,6 +12,10 @@
         "value": "{icons.arrow-left}",
         "type": "asset",
         "description": "Left arrow"
+      },
+      "audio": {
+        "value": "{icons.audio}",
+        "type": "asset"
       }
     }
   }
