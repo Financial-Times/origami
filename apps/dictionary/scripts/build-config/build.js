@@ -49,17 +49,17 @@ const getStyleDictionaryBrandConfig = brand => ({
 	},
 })
 const getBrands = () => {
-
 	return themes.map(theme => ({
 		name: theme.name,
-		sources: Object.keys(theme.selectedTokenSets).map(tokenSet => `tokens/${tokenSet}.json`),
-	}));
-};
+		sources: Object.keys(theme.selectedTokenSets).map(
+			tokenSet => `tokens/${tokenSet}.json`
+		),
+	}))
+}
 
-(async () => {
+;(async () => {
 	const brands = getBrands()
 	registerTransforms(StyleDictionaryPackage)
-
 	brands.forEach(brand => {
 		const StyleDictionary = StyleDictionaryPackage.extend(
 			getStyleDictionaryBrandConfig(brand)
@@ -67,33 +67,6 @@ const getBrands = () => {
 		StyleDictionary.buildPlatform("css")
 	})
 
-	const StyleDictionaryPallette = StyleDictionaryPackage.extend({
-		source: ["tokens/base/color.json"],
-		platforms: {
-			css: {
-				transformGroup: "css",
-				transforms: [
-					"ts/descriptionToComment",
-					"ts/typography/css/shorthand",
-					"ts/border/css/shorthand",
-					"ts/shadow/css/shorthand",
-					"ts/color/css/hexrgba",
-					"ts/color/modifiers",
-					"name/cti/kebab",
-				],
-				buildPath: `build/css/base/color/`,
-				files: [
-					{
-						destination: "_variables.css",
-						format: "css/variables",
-						options: {
-							outputReferences: true,
-						},
-					},
-				],
-			},
-		},
-	})
 	const StyleDictionaryIcons = StyleDictionaryPackage.extend({
 		source: ["tokens/icons/icons.json"],
 		platforms: {
@@ -102,7 +75,7 @@ const getBrands = () => {
 				transforms: [
 					"ts/descriptionToComment",
 					"name/cti/kebab",
-					"value/transformSVG"
+					"value/transformSVG",
 				],
 				buildPath: `build/css/icons/`,
 				files: [
@@ -118,6 +91,5 @@ const getBrands = () => {
 		},
 	})
 
-	StyleDictionaryPallette.buildPlatform("css")
 	StyleDictionaryIcons.buildPlatform("css")
 })()
