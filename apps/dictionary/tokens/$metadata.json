@@ -14,6 +14,7 @@
     "archive/components/o-buttons-experimental/whitelabel/color",
     "archive/components/o-something/core",
     "core/base/color",
+    "core/base/spacing",
     "core/use-case/color",
     "core/professional/use-case/color",
     "core/professional/base/color",
