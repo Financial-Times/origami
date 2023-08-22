@@ -1,5 +1,4 @@
 const StyleDictionaryPackage = require("style-dictionary")
-const glob = require("glob")
 const {registerTransforms} = require("@tokens-studio/sd-transforms")
 const {brandClasses} = require("../formatters/css/brand-classes")
 const {transformSVG} = require("../transforms/transformSVG")
@@ -41,7 +40,6 @@ const getStyleDictionaryBrandConfig = brand => ({
 					options: {
 						outputReferences: true,
 						classNames: [`o-brand-${brand.name}`],
-						excludePrefix: ["o-color-base"],
 					},
 				},
 			],
