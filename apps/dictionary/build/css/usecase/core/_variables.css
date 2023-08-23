@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 22 Aug 2023 13:30:17 GMT
+ * Generated on Wed, 23 Aug 2023 11:00:25 GMT
  */
 
 
@@ -69,6 +69,4 @@
   --o3-color-palette-claret-90: #e6175cff;
   --o3-color-palette-claret-100: #ff1a66ff;
   --o3-color-palette-wheat-100: green;
-  --o3-color-palette-mint: var(--do-not-use);
-  --do-not-use: rgba(0,0,0,0);
 }

@@ -2,7 +2,6 @@ const StyleDictionaryPackage = require("style-dictionary")
 const {registerTransforms} = require("@tokens-studio/sd-transforms")
 const {brandClasses} = require("../formatters/css/brand-classes")
 const {transformSVG} = require("../transforms/transformSVG")
-
 const themes = require("../../tokens/$themes.json")
 
 StyleDictionaryPackage.registerFormat({
@@ -16,6 +15,12 @@ StyleDictionaryPackage.registerTransform({
 	transformer: transformSVG,
 	matcher: token => token.type === "asset",
 	transitive: true,
+})
+
+StyleDictionaryPackage.registerFilter({
+	name: "filter/doNotUse",
+	matcher: token =>
+		token.original.value !== "{DO-NOT-USE}" && token.path[0] !== "DO-NOT-USE",
 })
 
 const getStyleDictionaryBrandConfig = brand => ({
@@ -35,6 +40,7 @@ const getStyleDictionaryBrandConfig = brand => ({
 			buildPath: `build/css/usecase/${brand.name}/`,
 			files: [
 				{
+					filter: "filter/doNotUse",
 					destination: "_variables.css",
 					format: "css/brand/classes",
 					options: {
