@@ -3,7 +3,6 @@ const {registerTransforms} = require("@tokens-studio/sd-transforms")
 const {brandClasses} = require("../formatters/css/brand-classes")
 const {transformSVG} = require("../transforms/transformSVG")
 const tokenStudioThemes = require("../../tokens/$themes.json")
-const {ConfigBuilder} = require("./configBuilder")
 
 StyleDictionaryPackage.registerFormat({
 	name: "css/brand/classes",
@@ -131,7 +130,7 @@ function buildBrandTokens() {
 				format: "css/brand/classes",
 				options: {
 					outputReferences: true,
-					classNames: [`o-brand-${brand.name}`],
+					classNames: [`o-brand-${brand.name.split("/").slice(-1)}`],
 				},
 			},
 		]
