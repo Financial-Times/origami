@@ -2,7 +2,7 @@ const StyleDictionaryPackage = require("style-dictionary")
 const {registerTransforms} = require("@tokens-studio/sd-transforms")
 const {brandClasses} = require("../formatters/css/brand-classes")
 const {transformSVG} = require("../transforms/transformSVG")
-const themes = require("../../tokens/$themes.json")
+const tokenStudioThemes = require("../../tokens/$themes.json")
 const {ConfigBuilder} = require("./configBuilder")
 
 StyleDictionaryPackage.registerFormat({
@@ -103,7 +103,7 @@ class ConfigBuilder {
 }
 
 function buildBrandTokens() {
-	const brands = themes.map(theme => {
+	const brands = tokenStudioThemes.map(theme => {
 		const brandName =
 			theme.group != theme.name ? `${theme.group}/${theme.name}` : theme.group
 		return {
