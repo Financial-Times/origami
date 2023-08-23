@@ -5,8 +5,7 @@
     "selectedTokenSets": {
       "core/use-case/color": "enabled",
       "core/base/color": "enabled",
-      "utility-tokens": "enabled",
-      "core/base/typography": "disabled"
+      "utility-tokens": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -180,8 +179,7 @@
       "core/professional/use-case/color": "enabled",
       "core/base/color": "enabled",
       "core/professional/base/color": "enabled",
-      "utility-tokens": "enabled",
-      "core/base/typography": "disabled"
+      "utility-tokens": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -339,8 +337,7 @@
     "selectedTokenSets": {
       "core/base/color": "enabled",
       "core/use-case/color": "enabled",
-      "utility-tokens": "enabled",
-      "core/base/typography": "disabled"
+      "utility-tokens": "enabled"
     },
     "group": "internal"
   }
