@@ -53,12 +53,16 @@ const getStyleDictionaryBrandConfig = brand => ({
 	},
 })
 const getBrands = () => {
-	return themes.map(theme => ({
-		name: theme.name,
-		sources: Object.keys(theme.selectedTokenSets).map(
-			tokenSet => `tokens/${tokenSet}.json`
-		),
-	}))
+	return themes.map(theme => {
+		const brandName =
+			theme.group != theme.name ? `${theme.group}/${theme.name}` : theme.group
+		return {
+			name: brandName,
+			sources: Object.keys(theme.selectedTokenSets).map(
+				tokenSet => `tokens/${tokenSet}.json`
+			),
+		}
+	})
 }
 
 ;(async () => {
