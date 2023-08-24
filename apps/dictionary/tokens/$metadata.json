@@ -19,6 +19,7 @@
     "core/professional/use-case/color",
     "core/professional/base/color",
     "utility-tokens",
-    "icons/icons"
+    "icons/icons",
+    "components/o-buttons/tokens"
   ]
 }
