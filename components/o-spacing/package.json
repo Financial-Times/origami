@@ -19,7 +19,7 @@
   "devDependencies": {
     "@financial-times/o-colors": "^6.5.0",
     "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-typography": "^7.2.0"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "scripts": {
     "start": "npx serve ./demos/local",
