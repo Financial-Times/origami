@@ -80,7 +80,7 @@ Social share actions open in the same frame, but you may add `target="_blank"` t
 
 #### Text Labels
 
-Add the `o-share__action--labelled` class to any share action to display the action text alongside the icon. This is recommended for [custom actions](#custom-actions) which are less recognisable compared with big social media brands, as shown below.
+Add the `o-share__action--labelled` class to any share action to display the action text alongside the icon. We recommend this for [custom actions](#custom-actions) which are less recognisable compared with big social media brands, as shown below.
 
 ```diff
 -<li class="o-share__action">
