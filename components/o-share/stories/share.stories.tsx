@@ -17,7 +17,7 @@ export default {
 		url: "http://on.ft.com/1mUdgA2",
 		titleExtra: "FT.com | Pharmaceuticals",
 		summary: "US drugs group vows to maintain big British presence",
-		relatedTwitterAccounts: "ftcompanies",
+		relatedXAccounts: "ftcompanies",
 		small: false,
 		inverse: false,
 		vertical: false,
@@ -38,11 +38,11 @@ const StoryTemplate: Story<ShareProps> = args => {
 		title: args.title,
 		titleExtra: args.titleExtra,
 		summary: args.summary,
-		relatedTwitterAccounts: args.relatedTwitterAccounts,
+		relatedXAccounts: args.relatedXAccounts,
 	};
 	return (
 		<Share {...shareProps}>
-			<ShareIcon icon="twitter" urlProps={shareIconProps} />
+			<ShareIcon icon="x" urlProps={shareIconProps} />
 			<ShareIcon icon="facebook" urlProps={shareIconProps} />
 			<ShareIcon icon="linkedin" urlProps={shareIconProps} />
 			<ShareIcon icon="whatsapp" urlProps={shareIconProps} />
