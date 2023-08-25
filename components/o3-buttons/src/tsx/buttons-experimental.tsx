@@ -33,7 +33,7 @@ interface LinkButtonProps extends ButtonProps {
 }
 
 function makeClassNames({ type, size, theme, icon, iconOnly }) {
-	const classNames = ["o-buttons-experimental", `o-buttons-experimental--${type}`];
+	const classNames = ["o3-buttons", `o3-buttons--${type}`];
 
 	if (size) {
 		classNames.push(`o-buttons-experimental--${size}`);

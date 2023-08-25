@@ -1,0 +1,9 @@
+.o3-buttons {
+	--o3-red: red
+}
+
+
+.o3-buttons,
+.o3-buttons--primary {
+	color: var(--o3-red);
+}

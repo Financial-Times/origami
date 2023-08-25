@@ -4,17 +4,18 @@
 @include oFonts();
 @include oNormalise();
 
-@import "@financial-times/o-buttons-experimental/main";
 
-@include oButtonsExperimental();
+@import '../main.css';
 
-
-.o-buttons-container {
-  background-color: var(--o-background-color-root);
-  color: var(--o-color-button-primary-active);
+.o3-buttons, .o3-buttons--primary {
+  // background-color: var(--o-background-color-root);
+  // color: var(--o-color-button-primary-active);
+	color: var(--o3-red)
 }
 
 .sub-container {
   background-color: var(--o-background-color-root);
   margin: 16px;
 }
+
+

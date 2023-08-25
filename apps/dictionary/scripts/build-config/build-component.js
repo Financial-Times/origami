@@ -17,12 +17,6 @@ StyleDictionaryPackage.registerTransform({
 	transformer: nameOrigamiPrivatePrefix,
 })
 
-StyleDictionaryPackage.registerTransform({
-	name: "value/transformSVG",
-	type: "value",
-	transformer: transformSVG,
-	matcher: token => token.type === "asset",
-})
 registerTransforms(StyleDictionaryPackage)
 
 const getComponentConfig = brand => ({
