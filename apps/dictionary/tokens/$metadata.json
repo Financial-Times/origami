@@ -1,17 +1,5 @@
 {
   "tokenSetOrder": [
-    "archive/base/color",
-    "archive/base/font",
-    "archive/base/typography",
-    "archive/use-case/o-brand-core",
-    "archive/use-case/o-brand-internal",
-    "archive/use-case/o-brand-professional",
-    "archive/use-case/o-brand-whitelabel",
-    "archive/components/o-buttons-experimental/core/border",
-    "archive/components/o-buttons-experimental/core/color",
-    "archive/components/o-buttons-experimental/whitelabel/border",
-    "archive/components/o-buttons-experimental/whitelabel/color",
-    "archive/components/o-something/core",
     "core/base/color",
     "core/base/spacing",
     "core/base/typography",
