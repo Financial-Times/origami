@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.2](https://github.com/Financial-Times/origami/compare/o-big-number-v3.2.1...o-big-number-v3.2.2) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [3.2.1](https://www.github.com/Financial-Times/origami/compare/o-big-number-v3.2.0...o-big-number-v3.2.1) (2023-04-28)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.5](https://github.com/Financial-Times/origami/compare/o-editorial-typography-v2.3.4...o-editorial-typography-v2.3.5) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [2.3.4](https://www.github.com/Financial-Times/origami/compare/o-editorial-typography-v2.3.3...o-editorial-typography-v2.3.4) (2023-04-28)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.2.8](https://github.com/Financial-Times/origami/compare/o-footer-v9.2.7...o-footer-v9.2.8) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [9.2.7](https://www.github.com/Financial-Times/origami/compare/o-footer-v9.2.6...o-footer-v9.2.7) (2023-04-28)
 
 

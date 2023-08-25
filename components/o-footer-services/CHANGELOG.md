@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.7](https://github.com/Financial-Times/origami/compare/o-footer-services-v4.2.6...o-footer-services-v4.2.7) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [4.2.6](https://www.github.com/Financial-Times/origami/compare/o-footer-services-v4.2.5...o-footer-services-v4.2.6) (2023-04-28)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.6.1](https://github.com/Financial-Times/origami/compare/o-icons-v7.6.0...o-icons-v7.6.1) (2023-08-25)
+
+
+### Miscellaneous Chores
+
+* o-icons, update support matrix ([#1243](https://github.com/Financial-Times/origami/issues/1243)) ([27e32c3](https://github.com/Financial-Times/origami/commit/27e32c393eed4070d21760cbfe9563cae4c94566))
+
 ## [7.6.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.5.0...o-icons-v7.6.0) (2023-03-27)
 
 

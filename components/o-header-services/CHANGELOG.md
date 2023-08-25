@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.5.1](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.0...o-header-services-v5.5.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [5.5.0](https://github.com/Financial-Times/origami/compare/o-header-services-v5.4.0...o-header-services-v5.5.0) (2023-08-07)
 
 

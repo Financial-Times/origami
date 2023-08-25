@@ -1,4 +1,11 @@
 # Changelog
+## [6.6.1](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.6.0...o-cookie-message-v6.6.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [6.6.0](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.5.2...o-cookie-message-v6.6.0) (2023-07-20)
 
 
