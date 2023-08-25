@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.8.3](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.2...o-buttons-v7.8.3) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [7.8.2](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.8.1...o-buttons-v7.8.2) (2023-07-13)
 
 

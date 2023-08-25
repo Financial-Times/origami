@@ -1,4 +1,11 @@
 # Changelog
+## [11.0.7](https://github.com/Financial-Times/origami/compare/o-header-v11.0.6...o-header-v11.0.7) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [11.0.6](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.5...o-header-v11.0.6) (2023-04-28)
 
 

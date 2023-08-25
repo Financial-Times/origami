@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.0...o-multi-select-v2.2.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [2.2.0](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v2.1.0...o-multi-select-v2.2.0) (2023-06-01)
 
 

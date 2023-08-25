@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.8.0...o-autocomplete-v1.8.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [1.8.0](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.4...o-autocomplete-v1.8.0) (2023-05-30)
 
 
