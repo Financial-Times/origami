@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.11.3](https://github.com/Financial-Times/origami/compare/o-forms-v9.11.2...o-forms-v9.11.3) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [9.11.2](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.11.1...o-forms-v9.11.2) (2023-07-20)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.1](https://github.com/Financial-Times/origami/compare/o-tooltip-v5.3.0...o-tooltip-v5.3.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-tooltip-v5.2.6...o-tooltip-v5.3.0) (2023-05-18)
 
 

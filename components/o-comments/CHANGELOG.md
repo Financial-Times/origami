@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.3.2](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.1...o-comments-v10.3.2) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [10.3.1](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.3.0...o-comments-v10.3.1) (2023-06-29)
 
 
