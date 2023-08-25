@@ -180,8 +180,7 @@
       "core/professional/use-case/color": "enabled",
       "core/base/color": "enabled",
       "core/professional/base/color": "enabled",
-      "utility-tokens": "enabled",
-      "components/o-buttons/tokens": "source"
+      "utility-tokens": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -339,8 +338,7 @@
     "selectedTokenSets": {
       "core/base/color": "enabled",
       "core/use-case/color": "enabled",
-      "utility-tokens": "enabled",
-      "components/o-buttons/tokens": "enabled"
+      "utility-tokens": "enabled"
     },
     "group": "internal"
   }
