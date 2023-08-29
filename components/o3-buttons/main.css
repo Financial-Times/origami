@@ -1,3 +1,5 @@
+@import '../../app/dictionary/build/css/usecase/core/_variables.css';
+
 .o3-buttons {
 	--o3-red: red
 }

@@ -88,19 +88,7 @@ export class ConfigBuilder {
 	}
 }
 
-
 const loadJSON = path =>
 	JSON.parse(fs.readFileSync(new URL(path, import.meta.url)))
-const tokenStudioThemes = loadJSON("../../tokens/$themes.json")
-export function getBrands() {
-	return tokenStudioThemes.map(theme => {
-		const brandName =
-			theme.group != theme.name ? `${theme.group}/${theme.name}` : theme.group
-		return {
-			name: brandName,
-			sources: Object.keys(theme.selectedTokenSets).map(
-				tokenSet => `tokens/${tokenSet}.json`
-			),
-		}
-	})
-}
+export const tokenStudioThemes = loadJSON("../../tokens/$themes.json")
+

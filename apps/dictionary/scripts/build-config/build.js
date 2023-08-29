@@ -2,7 +2,7 @@ import StyleDictionaryPackage from "style-dictionary"
 import {registerTransforms} from "@tokens-studio/sd-transforms"
 import {brandClasses} from "../formatters/css/brand-classes.js"
 import {transformSVG} from "../transforms/transformSVG.js"
-import {ConfigBuilder, getBrands} from "./utils.js"
+import {ConfigBuilder, tokenStudioThemes} from "./utils.js"
 
 
 StyleDictionaryPackage.registerFormat({
@@ -23,6 +23,19 @@ StyleDictionaryPackage.registerFilter({
 	matcher: token =>
 		token.original.value !== "{DO-NOT-USE}" && token.path[0] !== "DO-NOT-USE",
 })
+
+function getBrands() {
+	return tokenStudioThemes.map(theme => {
+		const brandName =
+			theme.group != theme.name ? `${theme.group}/${theme.name}` : theme.group
+		return {
+			name: brandName,
+			sources: Object.keys(theme.selectedTokenSets)
+				.filter(tokenSet => !tokenSet.startsWith("components/"))
+				.map(tokenSet => `tokens/${tokenSet}.json`),
+		}
+	})
+}
 
 function buildBrandTokens() {
 	const brands = getBrands()
