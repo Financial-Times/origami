@@ -8,6 +8,6 @@
     "core/professional/base/color",
     "utility-tokens",
     "icons/icons",
-    "components/o-buttons/tokens"
+    "components/o3-buttons/tokens"
   ]
 }
