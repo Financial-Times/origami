@@ -32,7 +32,6 @@ export async function shouldPercyRun(dirname, workspace) {
 				$.verbose = true
 				const arrayOfChangeFiles = changedFiles.split('\n')
 				const effectingFiles = changedFileEffectsPercy(arrayOfChangeFiles)
-				console.log(`🚀 ~ changedFiles:`, arrayOfChangeFiles, effectingFiles);
 				if (!effectingFiles) {
 					core.notice('We are not running percy because the files that changed do not effect percy.')
 					return false
