@@ -52,7 +52,7 @@ jobs:
             RESULT=$(WORKSPACE=$component node ./scripts/should-percy-run.js | grep "\-RESULT:" | cut -d ":" -f 2)
             component_trimmed=$(echo $component | sed 's/\/$//g')
             if [[ $RESULT = 'true' ]]; then
-              echo "$component_trimmed is affected changes, adding to percy run list."
+              echo "$component_trimmed is affected by changes, adding to percy run list."
               changes+=("$component_trimmed")
             fi
           done
@@ -89,6 +89,4 @@ jobs:
           PERCY_TOKEN: ${{ secrets[matrix.token_name] }}
           WORKSPACE: ${{ matrix.component }}
         run: |
-          echo "Running percy for ${{ matrix.component }}"
-          echo "Search for component: ${{ matrix.token_name }}"
           node ./scripts/percy.js
