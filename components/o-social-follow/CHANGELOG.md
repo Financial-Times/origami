@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.9](https://github.com/Financial-Times/origami/compare/o-social-follow-v1.0.8...o-social-follow-v1.0.9) (2023-08-30)
+
+
+### Bug Fixes
+
+* o-social-follow, update Twitter branding to X [OR-296] ([#1246](https://github.com/Financial-Times/origami/issues/1246)) ([024d706](https://github.com/Financial-Times/origami/commit/024d706410a50f4c8bbd5b912c943911d7296fcf))
+
 ## [1.0.8](https://github.com/Financial-Times/origami/compare/o-social-follow-v1.0.7...o-social-follow-v1.0.8) (2023-08-25)
 
 
