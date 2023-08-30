@@ -10,7 +10,7 @@ class Count {
 		this.articleId = opts.articleId;
 		this.useStagingEnvironment = Boolean(opts.useStagingEnvironment);
 	}
-// trigger a build
+
 	/**
 	 * Render a comment count instance.
 	 *
