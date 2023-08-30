@@ -90,5 +90,4 @@ jobs:
           PERCY_TOKEN: ${{ secrets[matrix.token_name] }}
           WORKSPACE: ${{ matrix.component }}
         run: |
-          echo "Running percy for ${{ matrix.component }}"
           node ./scripts/percy.js
