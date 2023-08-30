@@ -10,7 +10,6 @@
   "license": "ISC",
   "devDependencies": {
     "@tokens-studio/sd-transforms": "^0.6.0",
-    "glob": "^9.3.4",
     "style-dictionary": "^3.7.2"
   }
 }

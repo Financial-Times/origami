@@ -1,11 +1,10 @@
 import {withDesign} from "storybook-addon-designs";
-import {Button, LinkButton} from "../src/tsx/buttons-experimental";
-import "./buttons-experimental.scss";
+import {Button, LinkButton} from "../src/tsx/buttons";
+import "./buttons.scss";
 import withHtml from "origami-storybook-addon-html";
-import {Sub} from "@financial-times/o-typography/src/tsx/typography";
 
 export default {
-	title: "Components/o-tokens-experimental",
+	title: "Components/o3-buttons",
 	component: Button,
 	decorators: [withDesign, withHtml],
 	args: {

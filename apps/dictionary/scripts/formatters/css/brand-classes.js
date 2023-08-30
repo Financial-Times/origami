@@ -2,9 +2,9 @@ import StyleDictionary from "style-dictionary"
 const {fileHeader, createPropertyFormatter} = StyleDictionary.formatHelpers
 
 export function brandClasses({dictionary, file, options}) {
-	const {outputReferences, excludePrefix, classNames} = options
-	if (excludePrefix && !Array.isArray(excludePrefix)) {
-		throw new Error("excludeFiles must be array")
+	const {outputReferences, includePrefix, classNames} = options
+	if (includePrefix && !Array.isArray(includePrefix)) {
+		throw new Error("includeFiles must be array")
 	}
 
 	const outputClassName = classNames.reduce(
@@ -21,10 +21,10 @@ export function brandClasses({dictionary, file, options}) {
 
 	//Extract brand tokens only.
 	dictionary.allTokens.forEach(token => {
-		if (excludePrefix) {
-			const excludePattern = new RegExp(`(${excludePrefix.join("|")})`, "g")
+		if (includePrefix) {
+			const includePattern = new RegExp(`^_?(${includePrefix.join("|")})`, "g")
 
-			if (token.name.match(excludePattern)) {
+			if (!token.name.match(includePattern)) {
 				return
 			}
 		}

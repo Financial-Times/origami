@@ -36,19 +36,19 @@ function makeClassNames({ type, size, theme, icon, iconOnly }) {
 	const classNames = ["o3-buttons", `o3-buttons--${type}`];
 
 	if (size) {
-		classNames.push(`o-buttons-experimental--${size}`);
+		classNames.push(`o3-buttons--${size}`);
 	}
 
 	if (theme) {
-		classNames.push(`o-buttons-experimental--${theme}`);
+		classNames.push(`o3-buttons--${theme}`);
 	}
 
 	if (icon) {
-		classNames.push(`o-buttons-experimental-icon o-buttons-experimental-icon--${icon}`);
+		classNames.push(`o3-buttons-icon o3-buttons-icon--${icon}`);
 	}
 
 	if (iconOnly) {
-		classNames.push("o-buttons-experimental-icon--icon-only");
+		classNames.push("o3-buttons-icon--icon-only");
 	}
 	return classNames.join(" ");
 }

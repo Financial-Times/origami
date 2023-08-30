@@ -1,11 +1,30 @@
-@import '../../app/dictionary/build/css/usecase/core/_variables.css';
+@import '../../apps/dictionary/build/css/usecase/core/_variables.css';
+@import '../../apps/dictionary/build/css/usecase/core/professional/_variables.css';
+@import './src/css/core/o3-buttons/_variables.css';
+@import './src/css/core/professional/o3-buttons/_variables.css';
 
-.o3-buttons {
-	--o3-red: red
+.o3-buttons.o3-buttons--primary {
+	color: var(--_o3-buttons-primary-standard-color);
+	background-color: var(--_o3-buttons-primary-standard-background);
+	border-color: var(--_o3-buttons-primary-standard-border);
+	padding: 10px 26px;
 }
 
-
-.o3-buttons,
-.o3-buttons--primary {
-	color: var(--o3-red);
+.o3-buttons.o3-buttons--primary:hover {
+	color: var(--_o3-buttons-primary-standard-hover-color);
+	background-color: var(--_o3-buttons-primary-standard-hover-background);
+	border-color: var(--_o3-buttons-primary-standard-hover-border);
 }
+
+.o3-buttons.o3-buttons--primary:focus {
+	color: var(--_o3-buttons-primary-standard-focus-color);
+	background-color: var(--_o3-buttons-primary-standard-focus-background);
+	border-color: var(--_o3-buttons-primary-standard-focus-border);
+}
+
+.o3-buttons.o3-buttons--primary:active {
+	color: var(--_o3-buttons-primary-standard-active-color);
+	background-color: var(--_o3-buttons-primary-standard-active-background);
+	border-color: var(--_o3-buttons-primary-standard-active-border);
+}
+

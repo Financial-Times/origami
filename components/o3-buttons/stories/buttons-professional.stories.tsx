@@ -1,10 +1,10 @@
 import { withDesign } from "storybook-addon-designs";
-import { Button, LinkButton } from "../src/tsx/buttons-experimental";
-import "./buttons-experimental.scss";
+import { Button, LinkButton } from "../src/tsx/buttons";
+import "./buttons-professional.scss";
 import withHtml from "origami-storybook-addon-html";
 
 export default {
-	title: "Components/o-tokens-experimental",
+	title: "Components/o3-buttons/professional",
 	component: Button,
 	decorators: [withDesign, withHtml],
 	args: {
@@ -48,7 +48,7 @@ export default {
 	},
 };
 
-const ButtonStory = args => <Button {...args} />;
+const ButtonStory = args => (<div className='o-brand-professional'><Button {...args} /></div>);
 const LinkButtonStory = args => <LinkButton {...args} />;
 
 export const PrimaryButton = ButtonStory.bind({});
@@ -57,15 +57,8 @@ PrimaryButton.args = {
 	type: "primary",
 };
 
-export const SecondaryButton = ButtonStory.bind({});
-SecondaryButton.args = {
-	label: "Press button",
-	type: "secondary",
-};
-
-export const ButtonWithIcon = ButtonStory.bind({});
-ButtonWithIcon.args = {
-	label: "Facebook",
-	iconOnly: true,
-	icon: "facebook",
-};
+// export const SecondaryButton = ButtonStory.bind({});
+// SecondaryButton.args = {
+// 	label: "Press button",
+// 	type: "secondary",
+// };
