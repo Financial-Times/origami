@@ -172,7 +172,7 @@ html:
   - apps/storybook/addons/html/**/*
 markdown-tabs:
   - apps/storybook/addons/markdown-tabs/**/*
+astro-website:
+  - apps/astro-website/**/*
 storybook:
   - apps/storybook/**/*
-website:
-  - apps/website/**/*

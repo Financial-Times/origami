@@ -1,0 +1,26 @@
+---
+import {getCollection} from "astro:content"
+import DocLayout from "@/layouts/DocLayout.astro"
+
+export async function getStaticPaths() {
+	const entries = await getCollection(
+		"documentation",
+		({data}) => data.collection_id === "tutorials"
+	)
+	return entries.map(entry => ({
+		params: {slug: entry.slug.split("/")[1]},
+		props: {entry},
+	}))
+}
+const {entry} = Astro.props
+const {Content} = await entry.render()
+const {title, description} = entry.data
+---
+
+<DocLayout
+	title={title}
+	description={description}
+	secondaryNav={{children: [], lastChildrenDepth: true}}
+>
+	<Content />
+</DocLayout>

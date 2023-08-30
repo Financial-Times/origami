@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.4.3](https://github.com/Financial-Times/origami/compare/o-message-v5.4.2...o-message-v5.4.3) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [5.4.2](https://www.github.com/Financial-Times/origami/compare/o-message-v5.4.1...o-message-v5.4.2) (2023-04-28)
 
 

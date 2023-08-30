@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-labels",
-  "version": "6.5.5",
+  "version": "6.5.7",
   "description": "Labels for content classification or to emphasise a value. Provides customisation options with the FT colour palette.",
   "keywords": [
     "label",
@@ -26,7 +26,7 @@
     "@financial-times/o-colors": "^6.5.0",
     "@financial-times/o-editorial-typography": "^2.0.1",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "devDependencies": {
     "@financial-times/o-fonts": "^5.2.0",

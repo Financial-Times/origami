@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.8](https://github.com/Financial-Times/origami/compare/o-social-follow-v1.0.7...o-social-follow-v1.0.8) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+### [1.0.7](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.6...o-social-follow-v1.0.7) (2023-07-20)
+
+
+### Bug Fixes
+
+* ensure o-social-follow design guidelines remain published to registry ([ccd9d3c](https://www.github.com/Financial-Times/origami/commit/ccd9d3cf4192aa582071b12dfc61de43cc06c2d3))
+
 ### [1.0.6](https://www.github.com/Financial-Times/origami/compare/o-social-follow-v1.0.5...o-social-follow-v1.0.6) (2023-07-14)
 
 

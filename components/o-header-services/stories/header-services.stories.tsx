@@ -34,6 +34,7 @@ export default {
 	},
 	args: {
 		bleeedHeader: false,
+		relatedContentAlwaysVisible: false
 	},
 	argTypes: {
 		theme: {

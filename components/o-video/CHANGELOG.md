@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.2.10](https://github.com/Financial-Times/origami/compare/o-video-v7.2.9...o-video-v7.2.10) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [7.2.9](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.8...o-video-v7.2.9) (2023-07-06)
 
 

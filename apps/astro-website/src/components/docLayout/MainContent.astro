@@ -1,0 +1,53 @@
+---
+import path from "path"
+
+import {convertToSlug} from "@/helpers/utils"
+
+const {title, description, componentsToRender} =
+	Astro.props
+const pathname = Astro.url.pathname
+---
+
+<h1 id={convertToSlug(title)} class="o-layout__linked-heading">
+	<a
+		href={`#${convertToSlug(title)}`}
+		title="Link directly to this section of the page"
+		class="o-layout__linked-heading__link"
+	>
+		<span class="o-layout__linked-heading__content">{title}</span>
+		<span class="o-layout__linked-heading__label">#</span>
+	</a>
+</h1>
+<p>
+	<Fragment set:html={description} />
+</p>
+{
+	componentsToRender.map(async ctx => {
+		const {Content} = !ctx.data.description && (await ctx.render())
+		return (
+			<>
+				<h2 id={convertToSlug(ctx.data.title)} class="o-layout__linked-heading">
+					<a
+						href={`#${convertToSlug(ctx.data.title)}`}
+						title="Link directly to this section of the page"
+						class="o-layout__linked-heading__link">
+						<span class="o-layout__linked-heading__content">
+							{ctx.data.title}
+						</span>
+						<span class="o-layout__linked-heading__label">#</span>
+					</a>
+				</h2>
+				{!ctx.data.description ? (
+					<Content />
+				) : (
+					<p>
+						{ctx.data.description}
+						<a href={path.join(pathname, ctx.slug.split("/")[1])}>
+							{" " + ctx.data.cta}
+						</a>
+					</p>
+				)}
+			</>
+		)
+	})
+}

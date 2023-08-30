@@ -1,5 +1,19 @@
 # Changelog
 
+## [6.5.7](https://github.com/Financial-Times/origami/compare/o-labels-v6.5.6...o-labels-v6.5.7) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+### [6.5.6](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.5.5...o-labels-v6.5.6) (2023-07-20)
+
+
+### Bug Fixes
+
+* correct table syntax ([86ff070](https://www.github.com/Financial-Times/origami/commit/86ff070848b001751bf36b67b83b5d1c4567a6f8))
+
 ### [6.5.5](https://www.github.com/Financial-Times/origami/compare/o-labels-v6.5.4...o-labels-v6.5.5) (2023-07-14)
 
 
