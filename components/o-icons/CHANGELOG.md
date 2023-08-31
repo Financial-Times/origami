@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.7.0](https://github.com/Financial-Times/origami/compare/o-icons-v7.6.1...o-icons-v7.7.0) (2023-08-30)
+
+
+### Features
+
+* o-icons, add icons closed-captions-off, closed-captions-on, and media-description ([#1250](https://github.com/Financial-Times/origami/issues/1250)) ([f857ffe](https://github.com/Financial-Times/origami/commit/f857ffefdadacf26bcfc5ee938e658484437c5cb))
+
 ## [7.6.1](https://github.com/Financial-Times/origami/compare/o-icons-v7.6.0...o-icons-v7.6.1) (2023-08-25)
 
 
