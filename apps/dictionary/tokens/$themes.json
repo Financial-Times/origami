@@ -6,7 +6,8 @@
       "core/use-case/color": "enabled",
       "core/base/color": "enabled",
       "utility-tokens": "enabled",
-      "components/o3-buttons/tokens": "enabled"
+      "components/o3-buttons/tokens": "enabled",
+      "core/base/spacing": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -340,7 +341,8 @@
       "core/base/color": "enabled",
       "core/use-case/color": "enabled",
       "utility-tokens": "enabled",
-      "components/o3-buttons/tokens": "enabled"
+      "components/o3-buttons/tokens": "enabled",
+      "core/base/spacing": "enabled"
     },
     "group": "internal"
   }
