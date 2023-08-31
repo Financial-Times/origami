@@ -1,3 +1,4 @@
+// change buttons
 export interface ButtonProps {
 	label: string;
 	type: "primary" | "secondary" | "ghost";
