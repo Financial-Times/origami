@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 29 Aug 2023 14:18:21 GMT
+ * Generated on Thu, 31 Aug 2023 14:55:38 GMT
  */
 
 
@@ -69,4 +69,14 @@
   --o3-color-palette-claret-90: #e6175cff;
   --o3-color-palette-claret-100: #ff1a66ff;
   --o3-color-palette-wheat-100: green;
+  --o3-spacing-3xs: 4px;
+  --o3-spacing-2xs: 8;
+  --o3-spacing-xs: 12;
+  --o3-spacing-s: 16;
+  --o3-spacing-m: 24;
+  --o3-spacing-l: 32;
+  --o3-spacing-xl: 48;
+  --o3-spacing-2xl: 64;
+  --o3-spacing-3xl: 72;
+  --o3-spacing-4xl: 96;
 }

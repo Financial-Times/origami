@@ -55,14 +55,12 @@ const SubBrandWithinBrand = args => (
 				<h2>Core Brand</h2>
 				<Button label='Primary' type='primary'/>
 				<Button label='Secondary' type='secondary'/>
-				<Button label='Ghost' type='ghost'/>
 			</div>
-			<div className='o-brand-whitelabel o-buttons-container'>
-				<h2>Whitelabel</h2>
+			<div className='o-brand-professional o-buttons-container'>
+				<h2>Professional</h2>
 				<p>Not a descendant of any other brands. Will not be affected by core brand variables.</p>
 				<Button label='Primary' type='primary'/>
 				<Button label='Secondary' type='secondary'/>
-				<Button label='Ghost' type='ghost'/>
 			</div>
 		</div>
 	)

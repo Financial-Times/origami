@@ -49,7 +49,6 @@ export default {
 };
 
 const ButtonStory = args => (<div className='o-brand-core'><Button {...args} /></div>);
-const LinkButtonStory = args => <LinkButton {...args} />;
 
 export const PrimaryButton = ButtonStory.bind({});
 PrimaryButton.args = {
@@ -65,7 +64,13 @@ SecondaryButton.args = {
 
 export const ButtonWithIcon = ButtonStory.bind({});
 ButtonWithIcon.args = {
-	label: "Facebook",
+	label: "Cross",
 	iconOnly: true,
-	icon: "facebook",
+	icon: "cross",
+};
+
+export const ButtonWithIconAndLabel = ButtonStory.bind({});
+ButtonWithIconAndLabel.args = {
+	label: "Cross",
+	icon: "cross",
 };

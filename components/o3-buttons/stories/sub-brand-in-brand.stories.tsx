@@ -1,5 +1,5 @@
 import {withDesign} from "storybook-addon-designs";
-import {Button, LinkButton} from "../src/tsx/buttons";
+import {Button} from "../src/tsx/buttons";
 import "./buttons.scss";
 import withHtml from "origami-storybook-addon-html";
 
@@ -55,26 +55,16 @@ const SubBrandWithinBrand = args => (
 				<h2>Core Brand</h2>
 				<Button label='Primary' type='primary' theme='mono'/>
 				<Button label='Secondary' type='secondary'/>
-				<Button label='Ghost' type='ghost'/>
 				<div className='o-brand-professional sub-container'>
 					<h2>Professional Sub Brand</h2>
 					<p>Descendant of core brand div. CSS Variables are overidden by new style.</p>
 					<Button label='Primary' type='primary'/>
 					<Button label='Secondary' type='secondary'/>
-					<Button label='Ghost' type='ghost'/>
-				</div>
-				<div className='o-brand-whitelabel sub-container'>
-					<h2>Whitelabel</h2>
-					<p>Descendant of core brand div. CSS Variables are overidden by new style.</p>
-					<Button label='Primary' type='primary'/>
-					<Button label='Secondary' type='secondary'/>
-					<Button label='Ghost' type='ghost'/>
 				</div>
 			</div>
 		</div>
 	)
 ;
-const LinkButtonStory = args => <LinkButton {...args} />;
 
 export const SubBrand = SubBrandWithinBrand.bind({});
 SubBrand.args = {
