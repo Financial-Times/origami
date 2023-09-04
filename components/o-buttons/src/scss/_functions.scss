@@ -121,7 +121,9 @@
 			}
 		}
 	}
-
+	@debug $type;
+	@debug $theme;
+	@debug $color-map;
 	@return $color-map;
 }
 
