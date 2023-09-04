@@ -1,6 +1,6 @@
 {
 	"o3": {
-		"buttons": {
+		"button": {
 			"primary": {
 				"standard": {
 					"color": {"value": "#ffffff", "type": "color"},
