@@ -5,11 +5,13 @@
     "core/base/spacing",
     "core/base/typography",
     "core/use-case/color",
+    "core/professional/components/o3-button",
     "core/professional/use-case/color",
     "core/professional/base/color",
     "utility-tokens",
     "icons/icons",
     "whitelabel/base/color",
-    "whitelabel/components/o3-button"
+    "whitelabel/components/o3-button",
+    "internal/components/o3-button"
   ]
 }
