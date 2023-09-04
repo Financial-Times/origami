@@ -1,1 +1,33 @@
-{}
+primary
+standard
+("color": white, "background": #000000, "border": transparent, "hover-background": #333333, "hover-color": white, "focus-background": #333333, "focus-color": white, "active-background": #595959, "active-color": white, "hover-border": transparent, "focus-border": transparent, "active-border": transparent)
+primary
+("color": #ffffff)
+("color": black, "background": #ffffff, "border": transparent, "hover-background": #cccccc, "hover-color": black, "focus-background": #cccccc, "focus-color": black, "active-background": #a6a6a6, "active-color": black, "hover-border": transparent, "focus-border": transparent, "active-border": transparent)
+primary
+("color": #ffffff)
+("color": black, "background": #ffffff, "border": transparent, "hover-background": #cccccc, "hover-color": black, "focus-background": #cccccc, "focus-color": black, "active-background": #a6a6a6, "active-color": black, "hover-border": transparent, "focus-border": transparent, "active-border": transparent)
+primary
+("color": #ffffff)
+("color": black, "background": #ffffff, "border": transparent, "hover-background": #cccccc, "hover-color": black, "focus-background": #cccccc, "focus-color": black, "active-background": #a6a6a6, "active-color": black, "hover-border": transparent, "focus-border": transparent, "active-border": transparent)
+primary
+inverse
+("color": black, "background": #ffffff, "border": transparent, "hover-background": #cccccc, "hover-color": black, "focus-background": #cccccc, "focus-color": black, "active-background": #a6a6a6, "active-color": black, "hover-border": transparent, "focus-border": transparent, "active-border": transparent)
+primary
+standard
+("color": white, "background": #000000, "border": transparent, "hover-background": #333333, "hover-color": white, "focus-background": #333333, "focus-color": white, "active-background": #595959, "active-color": white, "hover-border": transparent, "focus-border": transparent, "active-border": transparent)
+primary
+inverse
+("color": black, "background": #ffffff, "border": transparent, "hover-background": #cccccc, "hover-color": black, "focus-background": #cccccc, "focus-color": black, "active-background": #a6a6a6, "active-color": black, "hover-border": transparent, "focus-border": transparent, "active-border": transparent)
+secondary
+standard
+("color": #000000, "background": transparent, "border": #000000, "hover-background": rgba(0, 0, 0, 0.15), "hover-color": black, "focus-background": rgba(0, 0, 0, 0.15), "focus-color": black, "active-background": #000000, "active-color": white, "hover-border": #000000, "focus-border": #000000, "active-border": #000000)
+secondary
+inverse
+("color": #ffffff, "background": transparent, "border": #ffffff, "hover-background": rgba(255, 255, 255, 0.15), "hover-color": white, "focus-background": rgba(255, 255, 255, 0.15), "focus-color": white, "active-background": #ffffff, "active-color": black, "hover-border": #ffffff, "focus-border": #ffffff, "active-border": #ffffff)
+ghost
+standard
+("color": #000000, "background": transparent, "border": transparent, "hover-background": rgba(0, 0, 0, 0.15), "hover-color": black, "focus-background": rgba(0, 0, 0, 0.15), "focus-color": black, "active-background": #000000, "active-color": white, "hover-border": transparent, "focus-border": transparent, "active-border": transparent)
+ghost
+inverse
+("color": #ffffff, "background": transparent, "border": transparent, "hover-background": rgba(255, 255, 255, 0.15), "hover-color": white, "focus-background": rgba(255, 255, 255, 0.15), "focus-color": white, "active-background": #ffffff, "active-color": black, "hover-border": transparent, "focus-border": transparent, "active-border": transparent)
