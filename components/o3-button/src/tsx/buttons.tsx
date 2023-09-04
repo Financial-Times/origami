@@ -33,21 +33,21 @@ interface LinkButtonProps extends ButtonProps {
 }
 
 function makeClassNames({type, size, theme, icon, iconOnly}) {
-	const classNames = ['o3-buttons', `o3-buttons--${type}`];
+	const classNames = ['o3-button', `o3-button--${type}`];
 	if (size) {
-		classNames.push(`o3-buttons--${size}`);
+		classNames.push(`o3-button--${size}`);
 	}
 
 	if (theme) {
-		classNames.push(`o3-buttons--${theme}`);
+		classNames.push(`o3-button--${theme}`);
 	}
 
 	if (icon) {
-		classNames.push(`o3-buttons-icon o3-buttons-icon--${icon}`);
+		classNames.push(`o3-button-icon o3-button-icon--${icon}`);
 	}
 
 	if (iconOnly) {
-		classNames.push('o3-buttons-icon--icon-only');
+		classNames.push('o3-button-icon--icon-only');
 	}
 
 	return classNames.join(' ');
@@ -69,7 +69,7 @@ export function Button({
 			className={makeClassNames({type, size, theme, icon, iconOnly})}
 			{...attributes}>
 			{icon && iconOnly ? (
-				<span className="o3-buttons-icon__label">{label}</span>
+				<span className="o3-button-icon__label">{label}</span>
 			) : (
 				label
 			)}

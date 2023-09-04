@@ -4,7 +4,7 @@ import "./buttons.scss";
 import withHtml from "origami-storybook-addon-html";
 
 export default {
-	title: "Components/o3-buttons",
+	title: "Components/o3-button",
 	component: Button,
 	decorators: [withDesign, withHtml],
 	args: {
@@ -53,21 +53,21 @@ const SubBrandWithinBrand = args => (
 			<h1>Brands</h1>
 			<div className='o-brand-core o-buttons-container'>
 				<h2>Core Brand</h2>
-				<Button label='Primary' type='primary'/>
+				<Button label='Primary' type='primary' theme='mono'/>
 				<Button label='Secondary' type='secondary'/>
-			</div>
-			<div className='o-brand-professional o-buttons-container'>
-				<h2>Professional</h2>
-				<p>Not a descendant of any other brands. Will not be affected by core brand variables.</p>
-				<Button label='Primary' type='primary'/>
-				<Button label='Secondary' type='secondary'/>
+				<div className='o-brand-professional sub-container'>
+					<h2>Professional Sub Brand</h2>
+					<p>Descendant of core brand div. CSS Variables are overidden by new style.</p>
+					<Button label='Primary' type='primary'/>
+					<Button label='Secondary' type='secondary'/>
+				</div>
 			</div>
 		</div>
 	)
 ;
 
-export const ParallelBrand = SubBrandWithinBrand.bind({});
-ParallelBrand.args = {
+export const SubBrand = SubBrandWithinBrand.bind({});
+SubBrand.args = {
 	label: "Press button",
 	type: "primary",
 };

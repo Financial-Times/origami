@@ -1,14 +1,14 @@
 {
-  "name": "@financial-times/o3-buttons",
+  "name": "@financial-times/o3-button",
   "version": "0.0.0",
   "description": "Origami buttons with design tokens",
   "keywords": [
     "buttons",
     "design-tokens"
   ],
-  "homepage": "https://registry.origami.ft.com/components/o3-buttons",
+  "homepage": "https://registry.origami.ft.com/components/o3-button",
   "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-buttons,components",
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-button,components",
     "email": "origami.support@ft.com"
   },
   "license": "MIT",
@@ -17,7 +17,7 @@
   "scripts": {
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
-    "build-tokens": "bash ../../scripts/component/build-tokens.bash o3-buttons",
+    "build-tokens": "bash ../../scripts/component/build-tokens.bash o3-button",
     "test": "bash ../../scripts/component/test.bash",
     "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
