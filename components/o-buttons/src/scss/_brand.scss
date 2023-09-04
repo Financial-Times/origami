@@ -35,7 +35,6 @@ $_o-buttons-shared-brand-config: (
 );
 
 @if oBrandIs('core') {
-	@debug 'o-buttons: Using core brand config';
 	@include oBrandDefine('o-buttons', 'core', (
 		'variables': map-merge($_o-buttons-shared-brand-config, (
 			'color': 'teal',
@@ -66,7 +65,6 @@ $_o-buttons-shared-brand-config: (
 }
 
 @if oBrandIs('internal') {
-	@debug 'o-buttons: Using internal brand config';
 	@include oBrandDefine('o-buttons', 'internal', (
 		'variables': map-merge($_o-buttons-shared-brand-config, (
 			'color': 'teal',
@@ -93,7 +91,6 @@ $_o-buttons-shared-brand-config: (
 }
 
 @if oBrandIs('whitelabel') {
-	@debug 'o-buttons: Using whitelabel brand config';
 	@include oBrandDefine('o-buttons', 'whitelabel', (
 		'variables': map-merge($_o-buttons-shared-brand-config, (
 			'color': 'black',

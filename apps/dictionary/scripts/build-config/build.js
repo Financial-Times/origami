@@ -27,11 +27,11 @@ StyleDictionaryPackage.registerFilter({
 function getBrands() {
 	return tokenStudioThemes.map(theme => {
 		const brandName =
-			theme.group != theme.name ? `${theme.group}/${theme.name}` : theme.group
+		theme.group != theme.name ? `${theme.group}/${theme.name}` : theme.group
 		return {
 			name: brandName,
 			sources: Object.keys(theme.selectedTokenSets)
-				.filter(tokenSet => !tokenSet.startsWith("components/"))
+				.filter(tokenSet => !tokenSet.startsWith(`${brandName}/components/`))
 				.map(tokenSet => `tokens/${tokenSet}.json`),
 		}
 	})

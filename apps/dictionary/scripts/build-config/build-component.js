@@ -21,7 +21,7 @@ StyleDictionaryPackage.registerFilter({
 
 function buildComponentTokens() {
 	const componentName = process.argv[2]
-	const sources = [`tokens/components/${componentName}/tokens.json`]
+	// const sources = [`tokens/components/${componentName}/tokens.json`]
 	const includeTokens = ["tokens/core/base/color.json", "tokens/utility-tokens.json"]
 
 	const transformers = [
@@ -46,15 +46,11 @@ function buildComponentTokens() {
 	]
 
 	tokenStudioThemes
-		.filter(
-			theme =>
-				theme.selectedTokenSets[`components/${componentName}/tokens`] ==
-				"enabled"
-		)
 		.forEach(theme => {
 			const brandName =
 				theme.group != theme.name ? `${theme.group}/${theme.name}` : theme.group
 			includeTokens.push(`tokens/${brandName}/**.json`)
+			const sources = [`tokens/${brandName}/components/${componentName}.json`]
 			const exportPath = `../../components/${componentName}/src/css/${brandName}/${componentName}/_variables.css`
 			filesConfig[0].destination = exportPath
 			filesConfig[0].options.classNames = [
