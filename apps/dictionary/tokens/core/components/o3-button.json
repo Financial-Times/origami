@@ -340,6 +340,12 @@
             }
           }
         }
+      },
+      "ghost": {
+        "standard": {
+          "value": "#fff",
+          "type": "color"
+        }
       }
     }
   }
