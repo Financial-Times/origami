@@ -1,5 +1,6 @@
 {
   "tokenSetOrder": [
+    "core/components/o3-button",
     "core/base/color",
     "core/base/spacing",
     "core/base/typography",
@@ -8,6 +9,7 @@
     "core/professional/base/color",
     "utility-tokens",
     "icons/icons",
-    "components/o3-buttons/tokens"
+    "whitelabel/base/color",
+    "whitelabel/components/o3-button"
   ]
 }
