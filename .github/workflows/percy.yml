@@ -183,26 +183,6 @@ jobs:
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_BUTTONS }}
         WORKSPACE: components/o-buttons
-  percy-components-o-buttons-experimental:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: node ./scripts/percy.js
-      env:
-        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_BUTTONS_EXPERIMENTAL }}
-        WORKSPACE: components/o-buttons-experimental
   percy-components-o-colors:
     runs-on: ubuntu-latest
     steps:
@@ -1063,3 +1043,23 @@ jobs:
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_VISUAL_EFFECTS }}
         WORKSPACE: components/o-visual-effects
+  percy-components-o3-button:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - uses: volta-cli/action@v4
+    - uses: actions/cache@v2
+      with:
+        volta-version: "1.0.8"
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: node ./scripts/percy.js
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O3_BUTTON }}
+        WORKSPACE: components/o3-button

@@ -1,0 +1,15 @@
+@import '@financial-times/o-normalise/main';
+@include oNormalise();
+
+
+@import '../core.css';
+@import '../internal.css';
+
+
+
+
+.sub-container {
+  background-color: var(--o-background-color-root);
+  margin: 16px;
+}
+
