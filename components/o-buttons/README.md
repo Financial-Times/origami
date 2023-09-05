@@ -31,7 +31,7 @@ If an action a user takes is navigational, e.g. going back, a button should not 
 ### Accessibility
 
 - **It is advisable to use colour combinations provided by the implementation.** These combinations are ensured to comply with WCAG AA requirements. When customising colours, refer to [colour guidelines](https://www.w3.org/TR/WCAG21/#non-text-contrast) to ensure accessibility.
-- In most cases, prefer using normal size buttons over small buttons. Default sized buttons are easier for users to notice and press.
+- In most cases, prefer using default size buttons over small buttons. Default sized buttons are easier for users to notice and press.
 
 ## Markup
 
