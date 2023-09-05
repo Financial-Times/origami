@@ -47,6 +47,18 @@
         "black-60": {
           "value": "#666",
           "type": "color"
+        },
+        "black-70": {
+          "value": "#4d4d4d",
+          "type": "color"
+        },
+        "black-80": {
+          "value": "#333",
+          "type": "color"
+        },
+        "black-90": {
+          "value": "#1a1a1a",
+          "type": "color"
         }
       }
     }
