@@ -1,6 +1,6 @@
 import { withDesign } from "storybook-addon-designs";
 import { Button } from "../src/tsx/buttons";
-import "./buttons-professional.scss";
+import "./buttons.scss";
 import withHtml from "origami-storybook-addon-html";
 
 export default {
