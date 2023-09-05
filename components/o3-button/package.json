@@ -15,8 +15,6 @@
   "type": "module",
   "browser": "main.js",
   "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
     "build-tokens": "bash ../../scripts/component/build-tokens.bash o3-button",
     "test": "bash ../../scripts/component/test.bash",
     "debug:js": "bash ../../scripts/component/debug-js.bash",
@@ -24,16 +22,14 @@
     "watch": "bash ../../scripts/component/watch.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-brand": "^4.1.0"
+    "@financial-times/o-normalise": "^3.3.0"
   },
-  "devDependencies": {},
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": "^8 || ^9"
   },
   "volta": {
-    "node": "16.19.0",
-    "npm": "7.11.1"
+    "node": "18.17.1"
   },
-  "percy": true,
+  "percy": false,
   "private": false
 }

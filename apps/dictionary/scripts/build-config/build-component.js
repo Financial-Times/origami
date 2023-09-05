@@ -21,7 +21,6 @@ StyleDictionaryPackage.registerFilter({
 
 function buildComponentTokens() {
 	const componentName = process.argv[2]
-	// const sources = [`tokens/components/${componentName}/tokens.json`]
 	const includeTokens = ["tokens/core/base/color.json", "tokens/utility-tokens.json"]
 
 	const transformers = [
