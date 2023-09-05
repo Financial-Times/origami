@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.9.0](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.3...o-buttons-v7.9.0) (2023-09-05)
+
+
+### Features
+
+* new feature wow ([960db04](https://github.com/Financial-Times/origami/commit/960db046796d9ab425b66e93f8e98fc5a5ec1d8c))
+
 ## [7.8.3](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.2...o-buttons-v7.8.3) (2023-08-25)
 
 
