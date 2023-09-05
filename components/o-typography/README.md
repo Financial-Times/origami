@@ -84,6 +84,21 @@ Example:
 
 See the [demos](http://registry.origami.ft.com/components/o-typography) for a full list of the classes provided and their effects.
 
+#### Theme Class
+
+`o-typography` also provides wrapper classes for theming.
+
+- `o-typography-inverse` - Make body copy and links white, for use on a dark background.
+- `o-typography-professional` - Change link colours for the FT Professional sub-brand (core brand only)
+- `o-typography-professional o-typography-inverse` - A version of the inverse theme for use with the FT Professional sub-brand (core brand only)
+
+E.g:
+```html
+<div class="o-typography-professional">
+	<a class="o-typography-link" href="#">Some link using FT Professional branding.</a>
+</div>
+```
+
 ### Progressive Loading Web Fonts
 
 One of the drawbacks of using web fonts is some browsers hide the text while the font is downloading (Flash of Invisible Text, aka FOIT). The [font-display](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) property may be used within font faces to show a system font fallback initially. Then either swap immediately when the font has loaded or on the next page load.
@@ -234,6 +249,13 @@ p {
 }
 ```
 
+You may also output body styles for use on a dark background using the `inverse` theme:
+```scss
+p {
+	@include oTypographyBody($theme: 'inverse');
+}
+```
+
 #### oTypographyLink
 
 Use `oTypographyLink` to output styles for links.
@@ -244,7 +266,18 @@ a {
 }
 ```
 
-To create a custom link style set the `$theme` argument. Where `$theme` is a map of configuration including:
+You may also output link styles for a given theme:
+- `inverse`
+- `professional` (core brand only)
+- `professional-inverse` (core brand only)
+
+```scss
+a {
+	@include oTypographyLink($theme: 'professional');
+}
+```
+
+To create a custom link style set the `$theme` argument to a map:
 
 - **base**: an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour for the link
 - **hover**: an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour for link on hover
@@ -477,7 +510,7 @@ Unless you're using the Build Service no JS will run automatically. You must eit
 **Constructing o-typography**
 
 ```js
-import oTypography from 'o-typography';
+import oTypography from '@financial-times/o-typography';
 
 const otypography = new oTypography();
 ```

@@ -23,6 +23,7 @@ export default {
 		children: hideArg,
 		inlineInput: hideArg,
 		value: hideArg,
+		theme: hideArg
 	},
 } as ComponentMeta<typeof Select>;
 

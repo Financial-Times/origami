@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-forms",
-  "version": "9.7.1",
+  "version": "9.11.3",
   "description": "This component provides responsive styling for form fields and inputs. It provides validation and error handling for forms, as well.",
   "keywords": [
     "form",
@@ -31,17 +31,17 @@
     "@financial-times/math": "^1.0.0",
     "@financial-times/o-brand": "^4.1.0",
     "@financial-times/o-buttons": "^7.2.0",
-    "@financial-times/o-colors": "^6.4.1",
+    "@financial-times/o-colors": "^6.5.0",
     "@financial-times/o-grid": "^6.0.0",
     "@financial-times/o-icons": "^7.0.0",
     "@financial-times/o-loading": "^5.0.0",
     "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-typography": "^7.4.1",
     "@financial-times/o-utils": "^2.2.0"
   },
   "devDependencies": {
-    "@financial-times/o-buttons": "^7.2.0",
+    "@financial-times/o-buttons": "^7.8.0",
     "@financial-times/o-fonts": "^5.2.0",
     "@financial-times/o-normalise": "^3.3.0"
   },

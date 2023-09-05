@@ -1,5 +1,33 @@
 # Changelog
 
+## [7.8.3](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.2...o-buttons-v7.8.3) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+### [7.8.2](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.8.1...o-buttons-v7.8.2) (2023-07-13)
+
+
+### Bug Fixes
+
+* introduce designer guidelines to o-buttons readme ([276dc0d](https://www.github.com/Financial-Times/origami/commit/276dc0d41b2774ed3a4e1dd071d6d6b1fac042bc))
+
+### [7.8.1](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.8.0...o-buttons-v7.8.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
+## [7.8.0](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.7.5...o-buttons-v7.8.0) (2023-04-28)
+
+
+### Features
+
+* o-buttons, add themes for the FT Professional sub-brand ([ca5432a](https://www.github.com/Financial-Times/origami/commit/ca5432aafa70dd9bdb47d4412d9b2225336585ef))
+
 ### [7.7.5](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.7.4...o-buttons-v7.7.5) (2023-02-24)
 
 

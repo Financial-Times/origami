@@ -202,7 +202,7 @@ To output styles only for the variants of `o-banner` your project uses, the "pri
 ```scss
 @include oBanner($opts: (
 	'layouts': ('small', 'compact'),
-	'themes': ('marketing', 'product')
+	'themes': ('marketing', 'product', 'professional-inverse')
 ));
 ```
 
@@ -241,6 +241,7 @@ o-banner is themeable which may be used in combination with a [layout](#layouts)
 
 - `product`: Use the product colours for the banner
 - `marketing`: Use the marketing colours for the banner
+- `professional-inverse`: Create a banner for the FT Professional sub-brand
 
 In the markup, these can be applied as classes alongside the `o-banner` class. They are exposed as modifiers:
 

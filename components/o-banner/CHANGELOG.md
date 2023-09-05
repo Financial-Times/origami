@@ -1,5 +1,26 @@
 # Changelog
 
+## [4.5.1](https://github.com/Financial-Times/origami/compare/o-banner-v4.5.0...o-banner-v4.5.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+## [4.5.0](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.9...o-banner-v4.5.0) (2023-05-30)
+
+
+### Features
+
+* o-banner, add a new `inverse-professional` theme  ([f96f3a2](https://www.github.com/Financial-Times/origami/commit/f96f3a21d6ee2c71f3be79d1891316d9d39cc6ac))
+
+### [4.4.9](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.8...o-banner-v4.4.9) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [4.4.8](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.7...o-banner-v4.4.8) (2022-12-21)
 
 

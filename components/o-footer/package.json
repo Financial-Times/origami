@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-footer",
-  "version": "9.2.6",
+  "version": "9.2.8",
   "description": "Responsive footer for all FT.com pages. Includes legally approved links.",
   "keywords": [
     "footer",
@@ -27,14 +27,14 @@
   "peerDependencies": {
     "@financial-times/math": "^1.0.0",
     "@financial-times/o-brand": "^4.1.0",
-    "@financial-times/o-colors": "^6.0.1",
+    "@financial-times/o-colors": "^6.5.0",
     "@financial-times/o-grid": "^6.0.0",
     "@financial-times/o-icons": "^7.0.0",
     "@financial-times/o-loading": "^5.0.0",
     "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-spacing": "^3.0.0",
     "@financial-times/o-toggle": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-typography": "^7.4.1",
     "@financial-times/o-viewport": "^5.0.0"
   },
   "devDependencies": {

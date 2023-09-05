@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-normalise",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "Provides base styles and resets for stylesheets. Includes standardised utilities, such as visually hiding components or adding a consistent focus state.",
   "keywords": [
     "normalise",
@@ -29,8 +29,8 @@
     "@financial-times/sass-mq": "^5.0.2"
   },
   "devDependencies": {
-    "@financial-times/o-buttons": "^7.2.0",
-    "@financial-times/o-colors": "^6.4.0"
+    "@financial-times/o-buttons": "^7.8.0",
+    "@financial-times/o-colors": "^6.5.0"
   },
   "engines": {
     "npm": "^7 || ^8"

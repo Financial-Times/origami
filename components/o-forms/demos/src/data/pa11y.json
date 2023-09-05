@@ -381,9 +381,7 @@
 				},
 				"input": {
 					"type": "text",
-					"modifiers": [
-						"valid"
-					],
+					"modifiers": [],
 					"value": "Valid Input",
 					"id": "valid-text-input"
 				}

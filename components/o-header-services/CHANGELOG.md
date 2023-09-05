@@ -1,5 +1,33 @@
 # Changelog
 
+## [5.5.1](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.0...o-header-services-v5.5.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+## [5.5.0](https://github.com/Financial-Times/origami/compare/o-header-services-v5.4.0...o-header-services-v5.5.0) (2023-08-07)
+
+
+### Features
+
+* option to keep related content visible in header-services ([232b529](https://github.com/Financial-Times/origami/commit/232b52910afa6fbcd3f6a68b2cc633178a8ae94f))
+
+## [5.4.0](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.4...o-header-services-v5.4.0) (2023-07-12)
+
+
+### Features
+
+* o-header-services, allow JSX Elements to be passed in as relatedContent ([#1169](https://www.github.com/Financial-Times/origami/issues/1169)) ([7fc577d](https://www.github.com/Financial-Times/origami/commit/7fc577dbd26fa969d2d4264bdf0fbb6c98ccffdf))
+
+### [5.3.4](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.3...o-header-services-v5.3.4) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [5.3.3](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.2...o-header-services-v5.3.3) (2023-01-20)
 
 

@@ -3,6 +3,20 @@
 
 * Add skip link for screen reader users
 
+## [5.3.3](https://github.com/Financial-Times/origami/compare/o-layout-v5.3.2...o-layout-v5.3.3) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+### [5.3.2](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.3.1...o-layout-v5.3.2) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [5.3.1](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.3.0...o-layout-v5.3.1) (2023-01-20)
 
 

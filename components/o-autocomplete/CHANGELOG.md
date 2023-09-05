@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.8.1](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.8.0...o-autocomplete-v1.8.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+## [1.8.0](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.4...o-autocomplete-v1.8.0) (2023-05-30)
+
+
+### Features
+
+* autocomplete, add a suggestionTemplate override option ([23e1397](https://www.github.com/Financial-Times/origami/commit/23e1397deb29034faaf009c16e41ab169dcc3a42))
+
+### [1.7.4](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.3...o-autocomplete-v1.7.4) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [1.7.3](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.2...o-autocomplete-v1.7.3) (2023-01-20)
 
 

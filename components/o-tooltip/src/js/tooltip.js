@@ -139,6 +139,9 @@ class Tooltip {
 		const element = document.createElement('div');
 		targetEl.setAttribute('id', opts.target);
 		element.setAttribute('data-o-component', 'o-tooltip');
+		if(typeof opts.theme === 'string') {
+			element.setAttribute('class', `o-tooltip o-tooltip--${opts.theme}`);
+		}
 		element.insertAdjacentHTML('afterbegin', `<div class='o-tooltip-content'>${opts.content}</div>`);
 		return element;
 	}

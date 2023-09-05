@@ -12,8 +12,7 @@ class Input {
 		this.input.addEventListener('input', this);
 
 		this.className = {
-			invalid: 'o-forms-input--invalid',
-			valid: 'o-forms-input--valid'
+			invalid: 'o-forms-input--invalid'
 		};
 	}
 
@@ -46,11 +45,11 @@ class Input {
 		}
 
 		if (!this.input.validity.valid) {
-			this._toggleParentClasses("invalid");
+			this.parent.classList.toggle(this.className.invalid, true);
 			return false;
 
 		} else if (this.input.validity.valid && this.parent.classList.contains(this.className.invalid)) {
-			this._toggleParentClasses("valid");
+			this.parent.classList.toggle(this.className.invalid, false);
 		}
 
 		return true;
@@ -79,28 +78,18 @@ class Input {
 
 		const entireDateValid = dateInputs.every(input => input.validity.valid);
 		if(entireDateValid) {
-			this._toggleParentClasses("valid");
+			this.parent.classList.toggle(this.className.invalid, false);
 			return true;
 		}
 
 		// Do not set validity classes before the user
 		// has moved on from the date field.
 		if (invalidDateInputAttempt) {
-			this._toggleParentClasses("invalid");
+			this.parent.classList.toggle(this.className.invalid, true);
 			return false;
 		}
 
 		return false;
-	}
-
-	_toggleParentClasses(state) {
-		if (state === "valid" ) {
-			this.parent.classList.remove(this.className.invalid);
-			this.parent.classList.add(this.className.valid);
-		} else {
-			this.parent.classList.remove(this.className.valid);
-			this.parent.classList.add(this.className.invalid);
-		}
 	}
 
 	destroy() {

@@ -1,4 +1,25 @@
 # Changelog
+## [6.6.1](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.6.0...o-cookie-message-v6.6.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+## [6.6.0](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.5.2...o-cookie-message-v6.6.0) (2023-07-20)
+
+
+### Features
+
+* o-cookie-message, publish tsx template ([#1199](https://www.github.com/Financial-Times/origami/issues/1199)) ([7052fe3](https://www.github.com/Financial-Times/origami/commit/7052fe34bef7f96ed867dc79409522fb29a22017))
+
+### [6.5.2](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.5.1...o-cookie-message-v6.5.2) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [6.5.1](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.5.0...o-cookie-message-v6.5.1) (2022-12-21)
 
 

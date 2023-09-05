@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-video",
-  "version": "7.2.7",
+  "version": "7.2.10",
   "description": "Creates a video player and attaches analytics. Also supports pre roll ads.",
   "keywords": [
     "videos",
@@ -24,11 +24,11 @@
     "watch": "bash ../../scripts/component/watch.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-colors": "^6.0.1",
+    "@financial-times/o-colors": "^6.5.0",
     "@financial-times/o-icons": "^7.0.0",
     "@financial-times/o-loading": "^5.0.0",
     "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-typography": "^7.4.1",
     "@financial-times/o-viewport": "^5.0.0"
   },
   "devDependencies": {

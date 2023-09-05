@@ -1,5 +1,26 @@
 # Changelog
 
+## [7.2.10](https://github.com/Financial-Times/origami/compare/o-video-v7.2.9...o-video-v7.2.10) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+### [7.2.9](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.8...o-video-v7.2.9) (2023-07-06)
+
+
+### Bug Fixes
+
+* Remove deprecated $external parameter from otypographylink call ([dcf61a1](https://www.github.com/Financial-Times/origami/commit/dcf61a15053618c13f22392bddcef58d71f7aa5e))
+
+### [7.2.8](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.7...o-video-v7.2.8) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ### [7.2.7](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.6...o-video-v7.2.7) (2023-04-05)
 
 

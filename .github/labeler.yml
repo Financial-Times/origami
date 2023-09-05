@@ -108,6 +108,8 @@ o-toggle:
   - components/o-toggle/**/*
 o-tooltip:
   - components/o-tooltip/**/*
+o-top-banner:
+  - components/o-top-banner/**/*
 o-topper:
   - components/o-topper/**/*
 o-typography:
@@ -172,9 +174,9 @@ html:
   - apps/storybook/addons/html/**/*
 markdown-tabs:
   - apps/storybook/addons/markdown-tabs/**/*
+astro-website:
+  - apps/astro-website/**/*
 dictionary:
   - apps/dictionary/**/*
 storybook:
   - apps/storybook/**/*
-website:
-  - apps/website/**/*

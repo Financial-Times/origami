@@ -85,6 +85,12 @@ export function onComboBoxKeyDown(event) {
 		addOptionToList.call(this);
 	}
 	this._updateCurrentElement();
+	if (this._open && isScrollable(this._listboxEl)) {
+		const currentOption = this._listboxEl.querySelector(
+			'.o-multi-select-option__current'
+		);
+		maintainScrollVisibility(currentOption, this._listboxEl);
+	}
 }
 
 /**
@@ -130,17 +136,48 @@ export function _removeCurrentClass(element) {
 	return options;
 }
 
-
 // function that checks for duplicate options and warn in the console if any are found
 export function checkForDuplicates(options) {
 	const uniqueOptions = [];
 	options.forEach(option => {
 		if (uniqueOptions.includes(option)) {
-			console.warn(
-				`Duplicate option found: ${option}.`
-			);
+			console.warn(`Duplicate option found: ${option}.`);
 		} else {
 			uniqueOptions.push(option);
 		}
 	});
+}
+
+/**
+ * Checks if the element is scrollable.
+ *
+ * @param {HTMLElement} element - The element to check.
+ * @returns {boolean} - Whether the element is scrollable.
+ */
+
+function isScrollable(element) {
+	return element && element.clientHeight < element.scrollHeight;
+}
+
+
+/**
+ * Maintains scroll visibility for an active element.
+ *
+ * @param {HTMLElement} activeElement - element that currently has focus
+ * @param {HTMLElement} scrollParent - element that is being scrolled.
+ * @returns {void}
+ */
+
+function maintainScrollVisibility(activeElement, scrollParent) {
+	const {offsetHeight, offsetTop} = activeElement;
+	const {offsetHeight: parentOffsetHeight, scrollTop} = scrollParent;
+
+	const isAbove = offsetTop < scrollTop;
+	const isBelow = offsetTop + offsetHeight > scrollTop + parentOffsetHeight;
+
+	if (isAbove) {
+		scrollParent.scrollTo(0, offsetTop);
+	} else if (isBelow) {
+		scrollParent.scrollTo(0, offsetTop - parentOffsetHeight + offsetHeight);
+	}
 }

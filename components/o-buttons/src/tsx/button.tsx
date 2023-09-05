@@ -2,7 +2,7 @@ export interface ButtonProps {
 	label: string;
 	type: "primary" | "secondary" | "ghost";
 	size?: "big" | "";
-	theme?: "inverse" | "mono" | "";
+	theme?: "inverse" | "mono" | "professional" | "professional-inverse";
 	icon?:
 		| "arrow-left"
 		| "arrow-right"

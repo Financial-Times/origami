@@ -1,0 +1,40 @@
+/// @access private
+/// @output Styling for anchor 'controls'
+/// @deprecated Remove in a future major version. https://github.com/Financial-Times/origami/issues/535
+@mixin _oFormsPseudoRadioLink {
+	.o-forms-input--pseudo-radio-link {
+		@include _oFormsControlsBoxContainer();
+		@include _oFormsPseudoRadioLinkStyles();
+		margin-top: 0;
+	}
+}
+
+/// @access private
+/// @param {Map|null} $theme Custom theme map
+/// Outpus styling for box-styled anchors
+/// @deprecated Remove in a future major version. https://github.com/Financial-Times/origami/issues/535
+@mixin _oFormsPseudoRadioLinkStyles($theme: null) {
+	border-color: _oFormsGet('default-border', $from: $theme);
+
+	a {
+		@include _oFormsControlsBoxBase();
+		box-sizing: border-box;
+		color: _oFormsGet('controls-base', $from: $theme);
+		padding: ($_o-forms-spacing-one + $_o-forms-spacing-half) $_o-forms-spacing-two;
+		position: relative;
+		text-decoration: none;
+
+		&:hover {
+			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
+		}
+
+		&.o-forms-input__link--current { //stylelint-disable-line selector-no-qualifying-type
+			background-color: _oFormsGet('controls-base', $from: $theme);
+			color: _oFormsGet('controls-checked-base', $from: $theme);
+		}
+
+		&:not(:first-of-type) {
+			border-color: _oFormsGet('default-border', $from: $theme);
+		}
+	}
+}

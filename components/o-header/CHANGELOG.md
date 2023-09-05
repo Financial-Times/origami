@@ -1,4 +1,25 @@
 # Changelog
+## [11.0.7](https://github.com/Financial-Times/origami/compare/o-header-v11.0.6...o-header-v11.0.7) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+### [11.0.6](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.5...o-header-v11.0.6) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
+### [11.0.5](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.4...o-header-v11.0.5) (2023-04-27)
+
+
+### Bug Fixes
+
+* o-header, subnav, improve scroll button behaviour. ([#1095](https://www.github.com/Financial-Times/origami/issues/1095)) ([b6d9fdd](https://www.github.com/Financial-Times/origami/commit/b6d9fdd86c2cb994a5b9a42646e870633c01f695))
+
 ### [11.0.4](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.3...o-header-v11.0.4) (2023-01-20)
 
 

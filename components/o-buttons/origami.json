@@ -77,6 +77,25 @@
 			"description": "Secondary/default \"monochrome\" theme."
 		},
 		{
+			"name": "professional",
+			"title": "Professional theme",
+			"brands": [
+				"core"
+			],
+			"template": "/demos/src/professional.mustache",
+			"description": "Professional themed buttons."
+		},
+		{
+			"name": "professional-inverse",
+			"title": "Professional Inverse theme",
+			"brands": [
+				"core"
+			],
+			"bodyClasses": "demo-inverse",
+			"template": "/demos/src/professional-inverse.mustache",
+			"description": "Inverse Professional themed buttons."
+		},
+		{
 			"name": "B2C",
 			"title": "B2C theme",
 			"brands": [

@@ -1,0 +1,30 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oTopBannerGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-top-banner', $variables: $variables, $from: $from);
+}
+/// Helper for `o-brand` function.
+/// @access private
+@function _oTopBannerSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-top-banner', $variant: $variant);
+}
+
+@if oBrandIs('core') {
+	@include oBrandDefine('o-top-banner', 'core', (
+		'variables': (
+			'new-world': (
+				'background-color': oColorsByName('slate'),
+				'button-background-color': oColorsByName('ft-pink'),
+				'heading-color': oColorsByName('ft-pink'),
+				'copy-color': oColorsByName('white')
+			),
+			'professional-inverse': (
+				'background-color': oColorsByName('slate'),
+				'copy-color': oColorsByName('white'),
+				'brand-border-color': oColorsByName('mint-70'),
+				'heading-font-weight': regular
+			)
+		),
+		'supports-variants': ())
+	);
+}

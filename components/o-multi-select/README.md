@@ -106,6 +106,20 @@ const oMultiSelectElement = document.getElementById(
 oMultiSelect.init(oMultiSelectElement);
 ```
 
+### Events 
+
+`o-multi-select` dispatches a custom event `oMultiSelect.OptionChange` that bubbles. It is triggered when an option gets selected or removed. The event data has the following interface:
+
+```js
+detail: {
+  optionElement: HTMLelement, // The elements that was selected or deselected
+  value: string, // Value of selected/deselected option
+  selected: boolean, // If element is selected or not
+  index: number, // Index of option in the array of options
+  instance, // Instance of multiselect element
+}
+```
+
 ## Keyboard Support
 
 ### When focus is within the combobox input and the suggestions menu is closed
@@ -132,7 +146,8 @@ oMultiSelect.init(oMultiSelectElement);
 
 |   State   | Major Version | Last Minor Release | Migration guide |
 | :-------: | :-----------: | :----------------: | :-------------: |
-| ✨ active |       1       |        1.0         |       N/A       |
+|✨ active | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ⚠ maintained |       1       |        1.0         |       N/A       |
 
 ## Contact
 

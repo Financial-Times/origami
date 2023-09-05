@@ -1,5 +1,47 @@
 # Changelog
 
+## [10.3.2](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.1...o-comments-v10.3.2) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+### [10.3.1](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.3.0...o-comments-v10.3.1) (2023-06-29)
+
+
+### Bug Fixes
+
+* display as block so comment box takes all available space without breaking out of the grid ([12684fa](https://www.github.com/Financial-Times/origami/commit/12684fa90a64de55e394d7457cd795ba3484085d))
+* make comment box full-width of layout ([070e759](https://www.github.com/Financial-Times/origami/commit/070e7594284c6060c986b2bd13b2a85b408eaadc))
+
+## [10.3.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.2.3...o-comments-v10.3.0) (2023-06-20)
+
+
+### Features
+
+* o-comments, add an extra content block to record article_id and asset_type for spoor tracking ([d64302f](https://www.github.com/Financial-Times/origami/commit/d64302f3b0004c09a1dcd7551987ac4ef331e1e9))
+
+### [10.2.3](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.2.1...o-comments-v10.2.3) (2023-05-19)
+
+### Bug Fixes
+
+* fix comment overflow in Safari, a temporary workaround for an issue with Coral's CSS ([#1116](https://github.com/Financial-Times/origami/pull/1116))
+
+### [10.2.2](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.2.1...o-comments-v10.2.2) (2023-05-10)
+
+
+### Bug Fixes
+
+* way obtain scrollContainer element ([69c072a](https://www.github.com/Financial-Times/origami/commit/69c072aefee3b9a0cda6064f0fac86ec49733177))
+
+### [10.2.1](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.2.0...o-comments-v10.2.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://www.github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://www.github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+
 ## [10.2.0](https://www.github.com/Financial-Times/origami/compare/o-comments-v10.1.0...o-comments-v10.2.0) (2023-02-23)
 
 

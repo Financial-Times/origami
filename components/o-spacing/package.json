@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-spacing",
-  "version": "3.2.2",
+  "version": "3.2.4",
   "description": "Maintain consistent spaces across components and projects in accordance to our baseline grid and design guidelines.",
   "keywords": [
     "whitespace",
@@ -17,9 +17,9 @@
     "@financial-times/math": "^1.0.0"
   },
   "devDependencies": {
-    "@financial-times/o-colors": "^6.4.0",
+    "@financial-times/o-colors": "^6.5.0",
     "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-typography": "^7.2.0"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "scripts": {
     "start": "npx serve ./demos/local",

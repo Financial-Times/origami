@@ -47,8 +47,25 @@ $_o-forms-shared-brand-config: (
 			invalid-base-border-inverse: oColorsByName('claret-100'),
 			error-summary-background-inverse: rgba(oColorsByName('claret-100'), 0.11),
 			error-summary-border-inverse: oColorsByName('claret-100'),
+			'professional': (
+				default-text: oColorsByName('black-80'),
+				controls-base: oColorsByName('slate'),
+				controls-negative-checked-background: oColorsByName('slate'),
+				radio-background: oColorsByName('slate'),
+				default-border: oColorsByName('black-50'),
+				controls-checked-base: oColorsByName('white'),
+			),
+			'professional-inverse': (
+				default-text: oColorsByName('white'),
+				controls-base: oColorsByName('mint'),
+				default-border: oColorsByName('mint'),
+				controls-checked-base: oColorsByName('slate'),
+			),
 		)),
-		'supports-variants': ()
+		'supports-variants': (
+			'professional',
+			'professional-inverse'
+		)
 	));
 }
 

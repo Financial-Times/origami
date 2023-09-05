@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.2](https://github.com/Financial-Times/origami/compare/ft-concept-button-v1.2.1...ft-concept-button-v1.2.2) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+### [1.2.1](https://www.github.com/Financial-Times/origami/compare/ft-concept-button-v1.2.0...ft-concept-button-v1.2.1) (2023-04-12)
+
+
+### Bug Fixes
+
+* **concept-button:** sets aria-label on initialise ([bca12d6](https://www.github.com/Financial-Times/origami/commit/bca12d6e348bdde07501dc6f9846fdec4cca2a53))
+
 ## [1.2.0](https://www.github.com/Financial-Times/origami/compare/ft-concept-button-v1.1.2...ft-concept-button-v1.2.0) (2023-02-20)
 
 

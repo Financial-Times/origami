@@ -10,13 +10,13 @@ Follow on social media links. For social share buttons see [o-share](https://reg
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Overview
-
-Provides links to follow an account on social media. This is different to [o-share](https://registry.origami.ft.com/components/o-share) which prompts a user to share content to their followers.
-
 ## Usage
 
 Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-social-follow`.
+
+Social follow can be used when wanting to give more freedom for users when choosing how they engage with our content adding social media platform links to easily allow users to follow us on specific platforms.
+
+It should not be used to re-share content, for this use [o-share](https://registry.origami.ft.com/components/o-share).
 
 ## Socials
 
@@ -47,7 +47,7 @@ The next example shows multiple social media links.
 ```html
 <section class="o-social-follow" aria-label="Follow on social media">
 	<a href="#" class="o-social-follow-icon o-social-follow-icon--twitter">
-		<span class="o-social-follow-icon__label">on twitter</span>
+		<span class="o-social-follow-icon__label">on X, formerly know as Twitter</span>
 	</a>
 	<a href="#" class="o-social-follow-icon o-social-follow-icon--facebook">
 		<span class="o-social-follow-icon__label">on facebook</span>

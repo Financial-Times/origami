@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-overlay",
-  "version": "4.2.7",
+  "version": "4.2.9",
   "description": "Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens",
   "keywords": [
     "overlay",
@@ -33,16 +33,16 @@
   },
   "peerDependencies": {
     "@financial-times/o-brand": "^4.1.0",
-    "@financial-times/o-colors": "^6.0.1",
+    "@financial-times/o-colors": "^6.5.0",
     "@financial-times/o-icons": "^7.0.0",
     "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-typography": "^7.4.1",
     "@financial-times/o-viewport": "^5.0.0",
     "@financial-times/o-visual-effects": "^4.0.1"
   },
   "devDependencies": {
-    "@financial-times/o-buttons": "^7.2.0",
+    "@financial-times/o-buttons": "^7.8.0",
     "@financial-times/o-fonts": "^5.2.0",
     "@financial-times/o-normalise": "^3.3.0"
   },

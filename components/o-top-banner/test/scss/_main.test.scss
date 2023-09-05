@@ -1,0 +1,20 @@
+@include describe('oTopBanner mixins') {
+	@include describe('oTopBanner') {
+		@include it('does something') {
+			@include assert() {
+				@include output($selector: false) {
+					.test-mixin {
+						@include oTopBanner();
+					}
+				}
+				@include contains($selector: false) {
+					.test-mixin .o-top-banner {
+						display: flex;
+						justify-content: center;
+						border-bottom: oSpacingByName('s2') solid transparent;
+					}
+				}
+			}
+		}
+	}
+}

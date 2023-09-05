@@ -28,6 +28,25 @@
 	},
 	"demos": [
 		{
+			"name": "professional",
+			"title": "Professional theme",
+			"template": "/demos/src/professional.mustache",
+			"description": "Professional theme",
+			"brands": [
+				"core"
+			]
+		},
+		{
+			"name": "professional-inverse",
+			"title": "Professional inverse theme",
+			"template": "/demos/src/professional-inverse.mustache",
+			"description": "Professional inverse theme",
+			"sass": "demos/src/inverse.scss",
+			"brands": [
+				"core"
+			]
+		},
+		{
 			"name": "inverse-form",
 			"title": "Inverse Form",
 			"template": "/demos/src/inverse-form.mustache",
@@ -50,10 +69,11 @@
 		},
 		{
 			"name": "pseudo-radio-links",
-			"title": "Pseudo Radio Links",
+			"title": "Pseudo Radio Links (Deprecated)",
 			"template": "/demos/src/multiple-input-field.mustache",
 			"description": "Anchor elements that imitate box-style radio inputs",
-			"data": "/demos/src/data/pseudo-radio-links.json"
+			"data": "/demos/src/data/pseudo-radio-links.json",
+			"hidden": true
 		},
 		{
 			"name": "checkboxes",

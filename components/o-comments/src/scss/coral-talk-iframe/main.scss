@@ -21,6 +21,9 @@
 	}
 	#coral {
 		--ft-magnify: 1.31282;
+                 // See https://financialtimes.atlassian.net/jira/software/c/projects/CI/boards/1653?view=detail&selectedIssue=CI-1725
+		display: inline-block !important;
+		width:100%;
 		.coral-comment-content {
             		font-size: 1.23077rem;
 			line-height: 1.784rem;
@@ -137,6 +140,12 @@
 		.coral-tabBar-comments div i,
 		.coral-tabBar-myProfile div i {
 			display: none;
+		}
+
+		// comment textarea
+		.coral-createComment {
+			display: inline-block;
+			width:100%;
 		}
 
 		// post comment buttons

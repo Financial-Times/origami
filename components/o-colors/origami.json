@@ -78,6 +78,17 @@
 			]
 		},
 		{
+			"name": "core-professional-palette",
+			"title": "FT Professional Palette",
+			"data": "demos/src/palettes/core-professional-palette.json",
+			"template": "demos/src/primary-palette.mustache",
+			"description": "Colours for use exclusively by the FT Professional sub-brand.",
+			"display_html": false,
+			"brands": [
+				"core"
+			]
+		},
+		{
 			"name": "core-b2c-palette",
 			"title": "B2C Palette",
 			"data": "demos/src/palettes/core-palette.json",
@@ -106,6 +117,17 @@
 			"data": "demos/src/palettes/core-palette.json",
 			"template": "demos/src/tones-mixes.mustache",
 			"description": "Tones (colours with modified brightness using the HSB colour space) can be used to produce a broad spectrum of lighter and darker variations of palette colours for creating scale and depth to your designs. To reduce our number of colour combinations not all colours may be toned, but mixes of black/white may be used instead.",
+			"display_html": false,
+			"brands": [
+				"core"
+			]
+		},
+		{
+			"name": "core-professional-tones",
+			"title": "FT Professional Tones and Mixes",
+			"data": "demos/src/palettes/core-professional-palette.json",
+			"template": "demos/src/tones-mixes.mustache",
+			"description": "Colours for use exclusively by the FT Professional sub-brand.",
 			"display_html": false,
 			"brands": [
 				"core"

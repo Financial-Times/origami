@@ -10,14 +10,16 @@ type TitleProps = {
 	title: string;
 	tagline?: string;
 	titleUrl?: string;
-	relatedContent?: ListItem[];
+	relatedContent?: (ListItem | JSX.Element)[];
 	primaryNavData?: NavItem[];
+	relatedContentAlwaysVisible?: boolean;
 };
 
 interface HeaderServicesProps extends TitleProps {
 	secondaryNavData?: SecondaryNavProps;
 	theme?: "b2b" | "b2c";
 	bleeedHeader?: boolean;
+	relatedContentAlwaysVisible?: boolean;
 }
 
 export function HeaderServices({
@@ -29,6 +31,7 @@ export function HeaderServices({
 	secondaryNavData,
 	theme,
 	bleeedHeader,
+	relatedContentAlwaysVisible,
 }: HeaderServicesProps) {
 	const classNames = ["o-header-services"];
 	theme && classNames.push(`o-header-services--${theme}`);
@@ -44,6 +47,7 @@ export function HeaderServices({
 				titleUrl={titleUrl}
 				relatedContent={relatedContent}
 				primaryNavData={primaryNavData}
+				relatedContentAlwaysVisible={relatedContentAlwaysVisible}
 			/>
 			{primaryNavData && <PrimaryNav navItems={primaryNavData} />}
 			{secondaryNavData && <SecondaryNav {...secondaryNavData} />}
@@ -57,9 +61,12 @@ function Title({
 	titleUrl,
 	relatedContent,
 	primaryNavData,
+	relatedContentAlwaysVisible
 }: TitleProps) {
 	const homeUrl = titleUrl || "/";
 	const hasHamburgerMenu = relatedContent?.length > 0 || primaryNavData;
+	const relatedClassNames = ['o-header-services__related-content']
+	relatedContentAlwaysVisible && relatedClassNames.push('o-header-services__related-content--always-visible')
 	return (
 		<div className="o-header-services__top">
 			{hasHamburgerMenu && (
@@ -85,12 +92,14 @@ function Title({
 				)}
 			</div>
 			{relatedContent && (
-				<ul className="o-header-services__related-content">
-					{relatedContent.map((element, i) => (
-						<li key={i}>
-							<a href={element.label}>{element.label}</a>
+				<ul className={relatedClassNames.join(" ")}>
+					{relatedContent.map((element, i) => {
+						if ("url" in element && "label" in element) {
+						return <li key={i}>
+							<a href={element.url}>{element.label}</a>
 						</li>
-					))}
+						} else return element;
+					})}
 				</ul>
 			)}
 		</div>
