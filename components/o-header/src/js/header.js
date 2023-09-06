@@ -6,7 +6,13 @@ import sticky from './sticky.js';
 
 class Header {
 
-	constructor (headerEl) {
+	/**
+	 *
+	 * @param {HTMLElement|string} headerEl - The header element or query to find it.
+	 * @param {Object} [options] - Options to configure the header.
+	 * @param {string} [options.searchState] - The initial state of the search UI, 'open' or 'close'.
+	 */
+	constructor (headerEl, {searchState = undefined} = {}) {
 		if (!headerEl) {
 			headerEl = document.querySelector('[data-o-component="o-header"]');
 		} else if (typeof headerEl === 'string') {
@@ -17,9 +23,14 @@ class Header {
 			return;
 		}
 
+		searchState = searchState || headerEl.getAttribute('data-o-header-search-state')
+		if(searchState && !['open', 'close'].includes(searchState)) {
+			throw new Error(`o-header: when set, search state must be either 'open' or 'close'`);
+		}
+
 		this.headerEl = headerEl;
 
-		search.init(this.headerEl);
+		search.init(this.headerEl, {searchState});
 		mega.init(this.headerEl);
 		drawer.init(this.headerEl);
 		subnav.init(this.headerEl);
@@ -29,7 +40,7 @@ class Header {
 		this.headerEl.setAttribute('data-o-header--js', '');
 	}
 
-	static init (rootEl) {
+	static init (rootEl, options) {
 		if (!rootEl) {
 			rootEl = document.body;
 		}
@@ -37,12 +48,12 @@ class Header {
 			rootEl = document.querySelector(rootEl);
 		}
 		if (/\bo-header\b/.test(rootEl.getAttribute('data-o-component'))) {
-			return new Header(rootEl);
+			return new Header(rootEl, options);
 		}
 
 		return [].map.call(rootEl.querySelectorAll('[data-o-component="o-header"]'), el => {
 			if (!el.hasAttribute('data-o-header--js')) {
-				return new Header(el);
+				return new Header(el, options);
 			}
 		}).filter((header) => {
 			return header !== undefined;
