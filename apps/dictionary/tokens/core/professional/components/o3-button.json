@@ -201,7 +201,10 @@
             "value": {
               "fontWeight": "{o3.font.weight.medium}",
               "fontSize": "{o3.font.size.2}",
-              "lineHeight": "{o3.font.lineheight.2}"
+              "lineHeight": "{o3.font.lineheight.2}",
+              "letterSpacing": "26",
+              "paragraphSpacing": "12",
+              "textDecoration": "none"
             },
             "type": "typography"
           },
