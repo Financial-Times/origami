@@ -1,0 +1,22 @@
+{
+  "o3": {
+    "border-radius": {
+      "2xs": {
+        "value": "4",
+        "type": "borderRadius"
+      },
+      "xs": {
+        "value": "6",
+        "type": "borderRadius"
+      },
+      "s": {
+        "value": "8",
+        "type": "borderRadius"
+      },
+      "m": {
+        "value": "16",
+        "type": "borderRadius"
+      }
+    }
+  }
+}

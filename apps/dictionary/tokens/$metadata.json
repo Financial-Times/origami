@@ -11,6 +11,7 @@
     "utility-tokens",
     "icons/icons",
     "whitelabel/base/color",
+    "whitelabel/base/border-radius",
     "whitelabel/components/o3-button",
     "internal/components/o3-button",
     "internal/base/color"
