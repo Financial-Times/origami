@@ -28,7 +28,7 @@ export default {
 } as ComponentMeta<typeof MainHeader>;
 
 export const HeaderPrimary: ComponentStory<typeof MainHeader> = args => {
-	useEffect(() => void javascript.init(), []);
+	useEffect(() => void javascript.init(undefined, { searchBarOpen: true }), []);
 	return (
 		<>
 			<MainHeader {...args} />

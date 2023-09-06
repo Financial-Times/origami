@@ -94,7 +94,12 @@ class Toggle {
 		}
 
 		this.target.addToggle(this);
-		this.target.close();
+
+		if (config.isOpen) {
+			this.target.open();
+		} else {
+			this.target.close();
+		}
 	}
 
 	open() {

@@ -1,6 +1,6 @@
 import Toggle from '@financial-times/o-toggle';
 
-function init (headerEl) {
+function init (headerEl, { searchBarOpen: isOpen } = {}) {
 	const target = headerEl.querySelector('[data-o-header-search]');
 	const controls = target && headerEl.querySelectorAll(`[aria-controls="${target.id}"]`);
 
@@ -24,7 +24,7 @@ function init (headerEl) {
 	};
 
 	for (let i = 0, len = controls.length; i < len; i++) {
-		new Toggle(controls[i], { target, callback });
+		new Toggle(controls[i], { target, callback, isOpen });
 	}
 }
 
