@@ -103,7 +103,12 @@
 		&:focus {
 			@include oNormaliseFocusUnsetContent();
 			& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
-				@include oNormaliseFocusContent();
+				$default-text: _oFormsGet("default-text", $theme);
+				@if $default-text and oColorsColorBrightness($default-text) > 65% {
+					@include oNormaliseFocusContentInverse();
+				} @else {
+					@include oNormaliseFocusContent();
+				}
 			}
 		}
 
@@ -119,7 +124,12 @@
 
 			&:focus-visible {
 				& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
-					@include oNormaliseFocusContent();
+					$default-text: _oFormsGet("default-text", $theme);
+					@if $default-text and oColorsColorBrightness($default-text) > 65% {
+						@include oNormaliseFocusContentInverse();
+					} @else {
+						@include oNormaliseFocusContent();
+					}
 				}
 			}
 		}

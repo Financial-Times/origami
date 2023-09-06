@@ -49,6 +49,10 @@ $_o-buttons-shared-brand-config: (
 				'color': 'slate',
 				'context': 'paper'
 			),
+			'community': (
+				'color': 'ft-pink',
+				'context': 'slate'
+			),
 			'professional-inverse': (
 				'color': 'mint',
 				'context': 'slate'
@@ -62,12 +66,14 @@ $_o-buttons-shared-brand-config: (
 			'secondary',
 			'primary-b2c',
 			'primary-professional',
+			'primary-community',
 			'primary-professional-inverse',
 			'primary-inverse',
 			'primary-mono',
 			'secondary-inverse',
 			'secondary-mono',
 			'secondary-professional',
+			'secondary-community',
 			'secondary-professional-inverse',
 			'ghost',
 			'ghost-inverse',

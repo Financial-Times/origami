@@ -42,6 +42,7 @@
 		'suffix'
 	),
 	'themes': (
+		'community',
 		'inverse',
 		'white',
 		'professional',
@@ -69,6 +70,26 @@
 	$file: index($elements, 'file');
 
 	@include _oFormsBase();
+
+	@if $themes {
+		@each $theme in $themes {
+			$default-text-color: _oFormsGet("default-text", $theme);
+			@if $default-text-color and oColorsColorBrightness($default-text-color) > 65% {
+				@debug $theme, $default-text-color, oColorsColorBrightness($default-text-color);
+				.o-forms-field--#{$theme} .o-forms-title {
+					.o-forms-title__main:after,
+					.o-forms-title__prompt {
+						color: rgba(_oFormsGet("default-text", $theme), 0.7);
+					}
+				}
+				.o-forms-field--#{$theme} input {
+					@include oNormaliseFocusApply() {
+						@include oNormaliseFocusContentInverse();
+					}
+				}
+			}
+		}
+	}
 
 	@if index($elements, 'pseudo-radio-link') {
 		@include _oFormsPseudoRadioLink();

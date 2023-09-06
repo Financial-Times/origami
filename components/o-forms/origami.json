@@ -37,6 +37,16 @@
 			]
 		},
 		{
+			"name": "community",
+			"title": "Community theme",
+			"template": "/demos/src/community.mustache",
+			"description": "Community theme",
+			"sass": "demos/src/inverse.scss",
+			"brands": [
+				"core"
+			]
+		},
+		{
 			"name": "professional-inverse",
 			"title": "Professional inverse theme",
 			"template": "/demos/src/professional-inverse.mustache",
