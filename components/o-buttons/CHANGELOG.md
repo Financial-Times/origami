@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.8.4](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.3...o-buttons-v7.8.4) (2023-09-06)
+
+
+### Features
+
+* new feature wow ([960db04](https://github.com/Financial-Times/origami/commit/960db046796d9ab425b66e93f8e98fc5a5ec1d8c))
+
+
+### Miscellaneous Chores
+
+* use consistent language in o-button accessibility readme. ([592d32b](https://github.com/Financial-Times/origami/commit/592d32b0c638557a248ab6f2fd5a139fb21ddf6e))
+
 ## [7.8.3](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.2...o-buttons-v7.8.3) (2023-08-25)
 
 
