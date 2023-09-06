@@ -289,7 +289,11 @@
       "core/base/color": "enabled",
       "core/professional/base/color": "enabled",
       "utility-tokens": "enabled",
-      "core/professional/components/o3-button": "enabled"
+      "core/professional/components/o3-button": "enabled",
+      "core/base/spacing": "enabled",
+      "core/base/typography": "enabled",
+      "core/base/border-radius": "enabled",
+      "core/use-case/color": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -590,7 +594,8 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "utility-tokens": "enabled",
-      "internal/components/o3-button": "enabled"
+      "internal/components/o3-button": "enabled",
+      "internal/base/color": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:3284:8",
     "$figmaModeId": "3284:0",
