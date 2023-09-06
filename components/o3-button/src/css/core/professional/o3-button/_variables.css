@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 04 Sep 2023 16:40:50 GMT
+ * Generated on Wed, 06 Sep 2023 15:23:54 GMT
  */
 
 
@@ -41,6 +41,24 @@
   --_o3-button-primary-mono-active-background: #727071;
   --_o3-button-primary-mono-active-color: #ffffff;
   --_o3-button-primary-mono-active-border: #ffffff00;
+  --_o3-button-primary-hypo-hover-background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A3520df36-8c20-11e6-8cb7-e7ada1d123b1?source=image-url-builder");
+  --_o3-button-primary-hypo-hover-background: var(--o3-color-palette-sky);
+  --_o3-button-primary-hypo-hover-color: #ffffff;
+  --_o3-button-primary-hypo-hover-border: #ffffff00;
+  --_o3-button-primary-hypo-width: 156px;
+  --_o3-button-primary-hypo-height: 64px;
+  --_o3-button-primary-hypo-typography-fontWeight: var(--o3-font-weight-medium);
+  --_o3-button-primary-hypo-typography-fontSize: var(--o3-font-size-2);
+  --_o3-button-primary-hypo-typography-lineHeight: var(--o3-font-lineheight-2);
+  --_o3-button-primary-hypo-color: #ffffff;
+  --_o3-button-primary-hypo-background: var(--o3-color-palette-oxford-80);
+  --_o3-button-primary-hypo-border: #ffffff00;
+  --_o3-button-primary-hypo-focus-background: var(--o3-color-palette-oxford-60);
+  --_o3-button-primary-hypo-focus-color: #ffffff;
+  --_o3-button-primary-hypo-focus-border: #ffffff00;
+  --_o3-button-primary-hypo-active-background: var(--o3-color-palette-oxford-40);
+  --_o3-button-primary-hypo-active-color: #ffffff;
+  --_o3-button-primary-hypo-active-border: #ffffff00;
   --_o3-button-secondary-standard-color: #0d7680;
   --_o3-button-secondary-standard-background: #ffffff00;
   --_o3-button-secondary-standard-border: #0d7680;

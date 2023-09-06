@@ -61,3 +61,10 @@ SecondaryButton.args = {
 	label: "Press button",
 	type: "secondary",
 };
+
+export const HypoButton = ButtonStory.bind({});
+HypoButton.args = {
+	label: "Hypo button",
+	type: "primary",
+};
+

@@ -1,3 +1,35 @@
 @import '../../apps/dictionary/build/css/usecase/core/professional/_variables.css';
 @import './src/css/core/professional/o3-button/_variables.css';
-@import './main.css'
+@import './main.css';
+
+
+.o-brand-professional .o3-button.o3-button--primary {
+	width: var(--_o3-button-primary-hypo-width);
+	height: var(--_o3-button-primary-hypo-height);
+	font-weight: var(--_o3-button-primary-hypo-typography-fontWeight);
+	font-size: var(--_o3-button-primary-hypo-typography-fontSize);
+	line-height: var(--_o3-button-primary-hypo-typography-lineHeight);
+	color: var(--_o3-button-primary-hypo-color);
+	background-color: var(--_o3-button-primary-hypo-background);
+	border-color: var(--_o3-button-primary-hypo-border);
+}
+
+
+.o-brand-professional .o3-button.o3-button--primary:hover {
+	background-image: var(--_o3-button-primary-hypo-hover-background-image);
+	background-size: cover;
+	color: var(--_o3-button-primary-hypo-hover-color);
+	border-color: var(--_o3-button-primary-hypo-hover-border);
+}
+
+.o-brand-professional .o3-button.o3-button--primary:focus {
+	background-color: var(--_o3-button-primary-hypo-focus-background);
+	color: var(--_o3-button-primary-hypo-focus-color);
+	border-color: var(--_o3-button-primary-hypo-focus-border);
+}
+
+.o-brand-professional .o3-button.o3-button--primary:active {
+	background-color: var(--_o3-button-primary-hypo-active-background);
+	color: var(--_o3-button-primary-hypo-active-color);
+	border-color: var(--_o3-button-primary-hypo-active-border);
+}
