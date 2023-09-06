@@ -175,6 +175,18 @@
             "background-image": {
               "value": "https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A3520df36-8c20-11e6-8cb7-e7ada1d123b1?source=image-url-builder",
               "type": "asset"
+            },
+            "background": {
+              "value": "{o3.color.palette.sky}",
+              "type": "color"
+            },
+            "color": {
+              "value": "#ffffff",
+              "type": "color"
+            },
+            "border": {
+              "value": "#ffffff00",
+              "type": "color"
             }
           },
           "width": {
@@ -192,6 +204,46 @@
               "lineHeight": "{o3.font.lineheight.2}"
             },
             "type": "typography"
+          },
+          "color": {
+            "value": "#ffffff",
+            "type": "color"
+          },
+          "background": {
+            "value": "{o3.color.palette.oxford-80}",
+            "type": "color"
+          },
+          "border": {
+            "value": "#ffffff00",
+            "type": "color"
+          },
+          "focus": {
+            "background": {
+              "value": "{o3.color.palette.oxford-60}",
+              "type": "color"
+            },
+            "color": {
+              "value": "#ffffff",
+              "type": "color"
+            },
+            "border": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          },
+          "active": {
+            "background": {
+              "value": "{o3.color.palette.oxford-40}",
+              "type": "color"
+            },
+            "color": {
+              "value": "#ffffff",
+              "type": "color"
+            },
+            "border": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
           }
         }
       },
@@ -386,176 +438,6 @@
             },
             "color": {
               "value": "#0c707a",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "focus": {
-            "background": {
-              "value": "rgba(13, 118, 128, 0.1)",
-              "type": "color"
-            },
-            "color": {
-              "value": "#0c707a",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "active": {
-            "background": {
-              "value": "#0d7680",
-              "type": "color"
-            },
-            "color": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          }
-        },
-        "inverse": {
-          "color": {
-            "value": "#ffffff",
-            "type": "color"
-          },
-          "background": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "border": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "hover": {
-            "background": {
-              "value": "rgba(255, 255, 255, 0.15)",
-              "type": "color"
-            },
-            "color": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "focus": {
-            "background": {
-              "value": "rgba(255, 255, 255, 0.15)",
-              "type": "color"
-            },
-            "color": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "active": {
-            "background": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "color": {
-              "value": "#000000",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          }
-        },
-        "mono": {
-          "color": {
-            "value": "#262a33",
-            "type": "color"
-          },
-          "background": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "border": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "hover": {
-            "background": {
-              "value": "rgba(38, 42, 51, 0.15)",
-              "type": "color"
-            },
-            "color": {
-              "value": "#262a33",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "focus": {
-            "background": {
-              "value": "rgba(38, 42, 51, 0.15)",
-              "type": "color"
-            },
-            "color": {
-              "value": "#262a33",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "active": {
-            "background": {
-              "value": "#262a33",
-              "type": "color"
-            },
-            "color": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          }
-        }
-      },
-      "hypo": {
-        "standard": {
-          "color": {
-            "value": "{o3.color.palette.oxford-80}",
-            "type": "color"
-          },
-          "background": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "border": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "hover": {
-            "background": {
-              "value": "rgba(13, 118, 128, 0.1)",
-              "type": "color"
-            },
-            "color": {
-              "value": "{o3.color.palette.oxford-80}",
               "type": "color"
             },
             "border": {
