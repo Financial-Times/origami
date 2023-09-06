@@ -93,6 +93,23 @@ const toggle = new Toggle(toggleEl, {
 	});
 ```
 
+Or, you can have the target opened by default 
+```js
+import Toggle from '@financial-times/o-toggle';
+const toggleEl = document.querySelector('.o-toggle');
+const toggle = new Toggle(toggleEl, {
+		target: '.my-target',
+		isOpen: true,
+		callback: function(state, event) {
+			if (state === 'open') {
+				console.log('Target opened');
+			} else if (state === 'close') {
+				console.log('Target closed');
+			}
+		}
+	});
+```
+
 A second parameter can be passed to the oToggle constructor or to the `.init()` function with a config object that has the following options:
 
 -   _target_: HTMLElement or selector of the element that will be toggled

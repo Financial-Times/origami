@@ -42,6 +42,14 @@ const headerEl = document.querySelector('.o-header');
 const header = new oHeader(headerEl);
 ```
 
+you can have the search-bar open by default 
+
+```js
+import Header from '@financial-times/o-header';
+const headerEl = document.querySelector('.o-header');
+const header = new oHeader(headerEl, { searchBarOpen: true });
+```
+
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the document to auto-construct an o-header object for each element with a `data-o-component="o-header"` attribute:
 
 ```js
