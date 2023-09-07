@@ -1,0 +1,30 @@
+{
+  "o3": {
+    "border-radius": {
+      "s": {
+        "value": "8",
+        "type": "borderRadius"
+      },
+      "2xs": {
+        "value": "4",
+        "type": "borderRadius"
+      },
+      "xs": {
+        "value": "6",
+        "type": "borderRadius"
+      },
+      "m": {
+        "value": "16",
+        "type": "borderRadius"
+      },
+      "l": {
+        "value": "24",
+        "type": "borderRadius"
+      },
+      "xl": {
+        "value": "48",
+        "type": "borderRadius"
+      }
+    }
+  }
+}

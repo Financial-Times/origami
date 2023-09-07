@@ -13,23 +13,23 @@
       },
       "weight": {
         "light": {
-          "value": "light",
+          "value": "Light",
           "type": "fontWeights"
         },
         "regular": {
-          "value": "regular",
+          "value": "Regular",
           "type": "fontWeights"
         },
         "medium": {
-          "value": "medium",
+          "value": "Medium",
           "type": "fontWeights"
         },
         "semibold": {
-          "value": "semibold",
+          "value": "Semibold",
           "type": "fontWeights"
         },
         "bold": {
-          "value": "bold",
+          "value": "Bold",
           "type": "fontWeights"
         }
       },

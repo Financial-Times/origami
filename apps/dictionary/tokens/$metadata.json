@@ -4,6 +4,7 @@
     "core/base/color",
     "core/base/spacing",
     "core/base/typography",
+    "core/base/border-radius",
     "core/use-case/color",
     "core/professional/components/o3-button",
     "core/professional/use-case/color",
@@ -11,6 +12,7 @@
     "utility-tokens",
     "icons/icons",
     "whitelabel/base/color",
+    "whitelabel/base/border-radius",
     "whitelabel/components/o3-button",
     "internal/components/o3-button",
     "internal/base/color"
