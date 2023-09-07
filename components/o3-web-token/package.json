@@ -13,7 +13,6 @@
   },
   "license": "MIT",
   "type": "module",
-  "browser": "main.js",
   "scripts": {
     "build-tokens": "node ../../apps/dictionary/scripts/build-config/build.js"
   },
@@ -21,7 +20,7 @@
     "npm": "^8 || ^9"
   },
   "volta": {
-    "node": "18.17.1"
+    "node": "20.6.0"
   },
   "percy": false,
   "private": false
