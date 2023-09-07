@@ -30,6 +30,7 @@ Some elements inside the header require specific data attributes so the JavaScri
 - data-o-header-drawer: Applied to the root `<div>` of the drawer
 - data-o-header-subnav: Applied to the root `div` of the subnav menu
 - data-o-header-subnav-wrapper: Applied to the inner wrapper `div` of the subnav menu so the JS can handle the scrolling
+- data-o-header-search-state: Optional, may be "open" or "close" to indicate the default visibility of the search bar.
 
 
 ## JavaScript
@@ -37,9 +38,19 @@ Some elements inside the header require specific data attributes so the JavaScri
 An o-header object must be constructed for every `<header>` you have on your page that uses this component.
 
 ```js
-import Header from '@financial-times/o-header';
+import oHeader from '@financial-times/o-header';
 const headerEl = document.querySelector('.o-header');
 const header = new oHeader(headerEl);
+```
+
+The o-header constructor accepts an optional options object, used to control certain behaviors:
+
+- `searchState`: may be "open" or "close" to determine whether the header's search bar is immediately visible. By default, the search bar is hidden.
+
+```js
+import oHeader from '@financial-times/o-header';
+const headerEl = document.querySelector('.o-header');
+const header = new oHeader(headerEl, { searchBarOpen: true });
 ```
 
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the document to auto-construct an o-header object for each element with a `data-o-component="o-header"` attribute:
