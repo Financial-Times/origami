@@ -9,10 +9,15 @@ const isPullRequest = context.payload.pull_request
 
 export async function shouldPercyRun(dirname, workspace) {
 	const isDefaultBranch = context.ref.endsWith("/main")
-	const isChoreRelease = isPullRequest && context.payload.pull_request.title.includes('chore: release main')
+	const isReleaseCommit = context.payload.head_commit.message.includes('chore: release main')
 
-	if (isDefaultBranch && isChoreRelease) {
-		core.notice("This is a release commit, we need to run Percy to update the baseline images.")
+	if (isDefaultBranch && isReleaseCommit) {
+		core.notice("This is a release commit, we do not need to run Percy again, as this should not make any visible changes.")
+		return false;
+	}
+
+	if (isDefaultBranch && !isReleaseCommit) {
+		core.notice("This is a commit to main, we need to run Percy to update the baseline images.")
 		return true;
 	}
 
