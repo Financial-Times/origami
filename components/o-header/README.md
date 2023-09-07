@@ -37,15 +37,17 @@ Some elements inside the header require specific data attributes so the JavaScri
 An o-header object must be constructed for every `<header>` you have on your page that uses this component.
 
 ```js
-import Header from '@financial-times/o-header';
+import oHeader from '@financial-times/o-header';
 const headerEl = document.querySelector('.o-header');
 const header = new oHeader(headerEl);
 ```
 
-you can have the search-bar open by default 
+The oHeader constructor accepts an optional options object, used to control certain behaviors:
+
+- searchBarOpen determines whether the header's search bar is immediately visible. Defaults to false.
 
 ```js
-import Header from '@financial-times/o-header';
+import oHeader from '@financial-times/o-header';
 const headerEl = document.querySelector('.o-header');
 const header = new oHeader(headerEl, { searchBarOpen: true });
 ```

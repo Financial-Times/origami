@@ -93,7 +93,7 @@ const toggle = new Toggle(toggleEl, {
 	});
 ```
 
-Or, you can have the target opened by default 
+Toggle can determines whether the target immediately in open state using isOpen. Defaults to false.
 ```js
 import Toggle from '@financial-times/o-toggle';
 const toggleEl = document.querySelector('.o-toggle');

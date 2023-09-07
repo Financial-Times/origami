@@ -6,7 +6,7 @@ import sticky from './sticky.js';
 
 class Header {
 
-	constructor (headerEl, config = {}) {
+	constructor (headerEl, options = {}) {
 		if (!headerEl) {
 			headerEl = document.querySelector('[data-o-component="o-header"]');
 		} else if (typeof headerEl === 'string') {
@@ -19,7 +19,7 @@ class Header {
 
 		this.headerEl = headerEl;
 
-		search.init(this.headerEl, config);
+		search.init(this.headerEl, options);
 		mega.init(this.headerEl);
 		drawer.init(this.headerEl);
 		subnav.init(this.headerEl);
@@ -29,7 +29,7 @@ class Header {
 		this.headerEl.setAttribute('data-o-header--js', '');
 	}
 
-	static init (rootEl, config = {}) {
+	static init (rootEl, options = {}) {
 		if (!rootEl) {
 			rootEl = document.body;
 		}
@@ -37,12 +37,12 @@ class Header {
 			rootEl = document.querySelector(rootEl);
 		}
 		if (/\bo-header\b/.test(rootEl.getAttribute('data-o-component'))) {
-			return new Header(rootEl, config);
+			return new Header(rootEl, options);
 		}
 
 		return [].map.call(rootEl.querySelectorAll('[data-o-component="o-header"]'), el => {
 			if (!el.hasAttribute('data-o-header--js')) {
-				return new Header(el, config);
+				return new Header(el, options);
 			}
 		}).filter((header) => {
 			return header !== undefined;
