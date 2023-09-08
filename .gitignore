@@ -37,3 +37,4 @@ Icon?
 .lsp/
 .log/
 .nova/
+!apps/dictionary/**/icons/

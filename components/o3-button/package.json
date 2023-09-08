@@ -21,9 +21,6 @@
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
-  "peerDependencies": {
-    "@financial-times/o-normalise": "^3.3.0"
-  },
   "engines": {
     "npm": "^8 || ^9"
   },
