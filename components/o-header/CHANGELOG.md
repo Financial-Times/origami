@@ -1,4 +1,11 @@
 # Changelog
+## [11.1.0](https://github.com/Financial-Times/origami/compare/o-header-v11.0.7...o-header-v11.1.0) (2023-09-07)
+
+
+### Features
+
+* o-header, add option to reveal the search bar by default. ([#1265](https://github.com/Financial-Times/origami/issues/1265)) ([0f44111](https://github.com/Financial-Times/origami/commit/0f44111a9091a1d3f1b5e999b2394b81b89bf895))
+
 ## [11.0.7](https://github.com/Financial-Times/origami/compare/o-header-v11.0.6...o-header-v11.0.7) (2023-08-25)
 
 
