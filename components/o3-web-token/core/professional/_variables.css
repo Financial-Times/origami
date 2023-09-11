@@ -1,10 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Mon, 04 Sep 2023 16:36:52 GMT
+ * Generated on Mon, 11 Sep 2023 10:00:45 GMT
  */
 
 
-.o-brand-core {
+.o-brand-professional {
   --o3-color-link: var(--o3-color-palette-teal);
   --o3-color-palette-ft-pink: #FCD0B1;
   --o3-color-palette-ft-grey: #333333ff;
@@ -69,4 +69,54 @@
   --o3-color-palette-claret-90: #e6175cff;
   --o3-color-palette-claret-100: #ff1a66ff;
   --o3-color-palette-wheat-100: green;
+  --o3-color-palette-mint: #c0efd8;
+  --o3-spacing-3xs: 4px;
+  --o3-spacing-2xs: 8;
+  --o3-spacing-xs: 12;
+  --o3-spacing-s: 16;
+  --o3-spacing-m: 24;
+  --o3-spacing-l: 32;
+  --o3-spacing-xl: 48;
+  --o3-spacing-2xl: 64;
+  --o3-spacing-3xl: 72;
+  --o3-spacing-4xl: 96;
+  --o3-font-family-metric: 1;
+  --o3-font-family-financier-display: 2;
+  --o3-font-weight-light: Light;
+  --o3-font-weight-regular: Regular;
+  --o3-font-weight-medium: Medium;
+  --o3-font-weight-semibold: Semibold;
+  --o3-font-weight-bold: Bold;
+  --o3-font-lineheight-0: 20;
+  --o3-font-lineheight-1: 20;
+  --o3-font-lineheight-2: 24;
+  --o3-font-lineheight-3: 28;
+  --o3-font-lineheight-4: 32;
+  --o3-font-lineheight-5: 32;
+  --o3-font-lineheight-6: 40;
+  --o3-font-lineheight-7: 48;
+  --o3-font-lineheight-8: 56;
+  --o3-font-lineheight-9: 72;
+  --o3-font-lineheight-10: 84;
+  --o3-font-lineheight-negative-2: 16;
+  --o3-font-lineheight-negative-1: 16;
+  --o3-font-size-0: 16;
+  --o3-font-size-1: 18;
+  --o3-font-size-2: 20;
+  --o3-font-size-3: 24;
+  --o3-font-size-4: 28;
+  --o3-font-size-5: 32;
+  --o3-font-size-6: 40;
+  --o3-font-size-7: 48;
+  --o3-font-size-8: 56;
+  --o3-font-size-9: 72;
+  --o3-font-size-10: 84;
+  --o3-font-size-negative-2: 12;
+  --o3-font-size-negative-1: 14;
+  --o3-border-radius-s: 8;
+  --o3-border-radius-2xs: 4;
+  --o3-border-radius-xs: 6;
+  --o3-border-radius-m: 16;
+  --o3-border-radius-l: 24;
+  --o3-border-radius-xl: 48;
 }

@@ -1,4 +1,4 @@
-@import '../../apps/dictionary/build/css/icons/_variables.css';
+@import '~@financial-times/o3-web-token/icons/_variables.css';
 
 .o3-button {
 	min-height: 28px;
