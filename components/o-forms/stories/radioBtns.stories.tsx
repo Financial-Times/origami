@@ -19,7 +19,7 @@ const themeControl =
 				control: {
 					type: "select",
 				},
-				options: [undefined, "professional", "professional-inverse"],
+				options: [undefined, "professional", "professional-inverse", "ft-live"],
 		  }
 		: hideArg;
 
