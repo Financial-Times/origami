@@ -124,19 +124,34 @@
 				color: _oFormsGet("default-text", $theme);
 			}
 		}
+
+		@if $theme and oColorsColorBrightness(_oFormsGet("default-text", $theme)) > 65% {
+		input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
+			&:focus {
+				@include oNormaliseFocusUnsetContent();
+				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+					@include oNormaliseFocusContentInverse();
+				}
+			}
+
+			// Unset :focus styles where :focus-visible is supported.
+			// Ideally we would set `:focus-visible` by default and use
+			// `@supports not selector(:focus-visible)` to provide a
+			// `:focus` fallback, however some of our supported browsers
+			// do not understand `@supports: selector()`.
+			@supports selector(:focus-visible) {
+				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+					@include oNormaliseFocusUnsetContent();
+				}
+
+				&:focus-visible {
+					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+						@include oNormaliseFocusContentInverse();
+					}
+				}
+			}
+		}
+		}
 	}
 
-	@if $theme == "professional-inverse" {
-		.o-forms-title {
-			.o-forms-title__main:after,
-			.o-forms-title__prompt {
-				color: rgba(_oFormsGet("default-text", $theme), 0.7);
-			}
-		}
-		input {
-			@include oNormaliseFocusApply() {
-				@include oNormaliseFocusContentInverse();
-			}
-		}
-	}
 }
