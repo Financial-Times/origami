@@ -5,7 +5,7 @@
 
 ### Features
 
-* add autoselect option to o-autocomplete ([c414db4](https://github.com/Financial-Times/origami/commit/c414db4780e8f74bffb25e9a04004c4d450077f4))
+* Add an `autoselect` option ([c414db4](https://github.com/Financial-Times/origami/commit/c414db4780e8f74bffb25e9a04004c4d450077f4))
 
 ## [1.8.1](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.8.0...o-autocomplete-v1.8.1) (2023-08-25)
 
