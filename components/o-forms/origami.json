@@ -47,6 +47,16 @@
 			]
 		},
 		{
+			"name": "ft-live",
+			"title": "FT Live inverse theme",
+			"template": "/demos/src/ft-live.mustache",
+			"description": "FT Live theme",
+			"sass": "demos/src/inverse.scss",
+			"brands": [
+				"core"
+			]
+		},
+		{
 			"name": "inverse-form",
 			"title": "Inverse Form",
 			"template": "/demos/src/inverse-form.mustache",
