@@ -78,11 +78,11 @@
           "value": "84",
           "type": "lineHeights"
         },
-        "-2": {
+        "negative-2": {
           "value": "16",
           "type": "lineHeights"
         },
-        "-1": {
+        "negative-1": {
           "value": "16",
           "type": "lineHeights"
         }
@@ -132,11 +132,11 @@
           "value": "84",
           "type": "fontSizes"
         },
-        "-2": {
+        "negative-2": {
           "value": "12",
           "type": "fontSizes"
         },
-        "-1": {
+        "negative-1": {
           "value": "14",
           "type": "fontSizes"
         }
