@@ -185,14 +185,6 @@
               "type": "color"
             }
           },
-          "width": {
-            "value": "156",
-            "type": "sizing"
-          },
-          "height": {
-            "value": "64",
-            "type": "sizing"
-          },
           "color": {
             "value": "#ffffff",
             "type": "color"
