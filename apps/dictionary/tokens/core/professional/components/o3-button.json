@@ -516,17 +516,17 @@
             }
           }
         }
-      }
-    },
-    "typography": {
-      "hypo": {
-        "value": {
-          "fontWeight": "500",
-          "lineHeight": "25",
-          "fontSize": "20",
-          "letterSpacing": "18"
-        },
-        "type": "typography"
+      },
+      "typography": {
+        "hypo": {
+          "value": {
+            "fontWeight": "500",
+            "lineHeight": "25",
+            "fontSize": "20",
+            "letterSpacing": "18"
+          },
+          "type": "typography"
+        }
       }
     }
   }
