@@ -169,62 +169,6 @@
               "type": "color"
             }
           }
-        },
-        "hypo": {
-          "hover": {
-            "background": {
-              "value": "{o3.color.palette.sky}",
-              "type": "color"
-            },
-            "color": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "color": {
-            "value": "#ffffff",
-            "type": "color"
-          },
-          "background": {
-            "value": "{o3.color.palette.oxford-80}",
-            "type": "color"
-          },
-          "border": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "focus": {
-            "background": {
-              "value": "{o3.color.palette.oxford-60}",
-              "type": "color"
-            },
-            "color": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "active": {
-            "background": {
-              "value": "{o3.color.palette.oxford-40}",
-              "type": "color"
-            },
-            "color": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          }
         }
       },
       "secondary": {
