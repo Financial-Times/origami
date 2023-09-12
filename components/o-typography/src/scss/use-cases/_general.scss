@@ -124,6 +124,7 @@
 	$theme: if($theme == 'inverse', 'link-inverse', $theme);
 	$theme: if($theme == 'professional', 'link-professional', $theme);
 	$theme: if($theme == 'professional-inverse', 'link-professional-inverse', $theme);
+	$theme: if($theme == 'ft-live', 'link-ft-live', $theme);
 
 	// Get custom base colour.
 	$theme-base: _oTypographyGet('base', $theme);

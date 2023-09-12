@@ -127,6 +127,15 @@
 				--_o-typography-link-decoration-color-hover: #{_oTypographyGet('hover-decoration', 'link-professional-inverse')};
 			}
 		}
+
+		@if _oTypographySupports('ft-live') {
+			.o-typography-ft-live {
+				--_o-typography-link-color: #{_oTypographyGet('base', 'link-ft-live')};
+				--_o-typography-link-decoration-color: #{_oTypographyGet('base-decoration', 'link-ft-live')};
+				--_o-typography-link-color-hover: #{_oTypographyGet('hover', 'link-ft-live')};
+				--_o-typography-link-decoration-color-hover: #{_oTypographyGet('hover-decoration', 'link-ft-live')};
+			}
+		}
 	}
 
 	// Lists
