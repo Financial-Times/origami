@@ -2,7 +2,16 @@ import fs from "fs"
 
 export class ConfigBuilder {
 	constructor(StyleDictionaryPackage) {
+		StyleDictionaryPackage.registerFileHeader({
+			name: "customFileHeader",
+			fileHeader: defaultMessage => {
+				// the fileHeader function should return an array of strings
+				// which will be formatted in the proper comment style for a given format
+				return [defaultMessage[0]] // This will remove timestamp from file headers but will leave a comment not to edit files directly
+			},
+		})
 		this.config = {
+			showFileHeader: false,
 			platforms: {
 				css: {
 					transformGroup: "css",
@@ -58,9 +67,15 @@ export class ConfigBuilder {
 	 * @param {object} config[].options - options for token file
 	 * @param {boolean} config[].options.outputReferences - output references for token file
 	 * @param {string[]} [config[].options.classNames] - class names for token file
+	 * @param {string} [config[].options.fileHeader] - class names for token file
 	 * */
 	setFilesConfig(config) {
-		this.config.platforms.css.files = config
+		this.config.platforms.css.files = config.map(item => {
+			if (!item.options.fileHeader) {
+				item.options.fileHeader = "customFileHeader"
+			}
+			return item
+		})
 		return this
 	}
 
@@ -89,6 +104,5 @@ export class ConfigBuilder {
 }
 
 const loadJSON = path =>
-	JSON.parse(fs.readFileSync(new URL(path, import.meta.url)))
+	JSON.parse(fs.readFileSync(new URL(path, import.meta.url)).toString())
 export const tokenStudioThemes = loadJSON("../../tokens/$themes.json")
-
