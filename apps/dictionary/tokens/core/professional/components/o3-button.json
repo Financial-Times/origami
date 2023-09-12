@@ -169,12 +169,6 @@
               "type": "color"
             }
           }
-        },
-        "hypo": {
-          "color": {
-            "value": "blue",
-            "type": "color"
-          }
         }
       },
       "secondary": {
@@ -515,17 +509,6 @@
               "type": "color"
             }
           }
-        }
-      },
-      "typography": {
-        "hypo": {
-          "value": {
-            "fontWeight": "500",
-            "lineHeight": "25",
-            "fontSize": "20",
-            "letterSpacing": "18"
-          },
-          "type": "typography"
         }
       }
     }
