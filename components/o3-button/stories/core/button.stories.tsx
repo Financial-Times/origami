@@ -1,8 +1,8 @@
-import { Button } from "../src/tsx/buttons";
-import "./button.css";
+import { Button } from "../../src/tsx/buttons";
+import "../button.css";
 
 export default {
-	title: "Components/o3-button",
+	title: "Core/o3-button",
 	component: Button,
 	args: {
 	},

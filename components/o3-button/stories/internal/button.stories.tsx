@@ -1,14 +1,14 @@
-import { Button } from "../src/tsx/buttons";
-import "./button.css";
+import { Button } from "../../src/tsx/buttons";
+import "../button.css";
 
 export default {
-	title: "Components/o3-button",
+	title: "Internal/o3-button",
 	component: Button,
 	args: {
 	},
 };
 
-const ButtonStory = args => (<div className='o-brand-core'><Button {...args} /></div>);
+const ButtonStory = args => (<div className='o-brand-internal'><Button {...args} /></div>);
 
 export const PrimaryButton = ButtonStory.bind({});
 PrimaryButton.args = {
