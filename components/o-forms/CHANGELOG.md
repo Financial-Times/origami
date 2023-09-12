@@ -1,5 +1,13 @@
 # Changelog
 
+## [9.12.0](https://github.com/Financial-Times/origami/compare/o-forms-v9.11.3...o-forms-v9.12.0) (2023-09-12)
+
+
+### Features
+
+* o-forms, add ft-live subbrand to o-forms ([f2ae032](https://github.com/Financial-Times/origami/commit/f2ae03292819f738aabc61b52d1a18287da7ea4d))
+* o-forms, fix focus state for professional-inverse ([1446d63](https://github.com/Financial-Times/origami/commit/1446d63d1b8190bc739920c81eb7e04a81a47d5d))
+
 ## [9.11.3](https://github.com/Financial-Times/origami/compare/o-forms-v9.11.2...o-forms-v9.11.3) (2023-08-25)
 
 
