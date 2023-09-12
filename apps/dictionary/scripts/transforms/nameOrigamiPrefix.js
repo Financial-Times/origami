@@ -1,8 +1,9 @@
 
 export function nameOrigamiPrivatePrefix(token) {
-	let joinedToken = token.path.join('-')
+	let tokenName = token.name
+	console.log(`🚀 ~ joinedToken:`, {token, tokenName});
 	if (token.isSource) {
-		joinedToken = '_' + joinedToken;
+		tokenName = '_' + tokenName;
 	}
-	return joinedToken;
+	return tokenName;
 }

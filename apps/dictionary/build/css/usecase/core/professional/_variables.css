@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 06 Sep 2023 11:33:51 GMT
+ * Generated on Tue, 12 Sep 2023 10:36:00 GMT
  */
 
 
@@ -82,11 +82,11 @@
   --o3-spacing-4xl: 96;
   --o3-font-family-metric: 1;
   --o3-font-family-financier-display: 2;
-  --o3-font-weight-light: light;
-  --o3-font-weight-regular: regular;
+  --o3-font-weight-light: Light;
+  --o3-font-weight-regular: Regular;
   --o3-font-weight-medium: Medium;
-  --o3-font-weight-semibold: semibold;
-  --o3-font-weight-bold: bold;
+  --o3-font-weight-semibold: Semibold;
+  --o3-font-weight-bold: Bold;
   --o3-font-lineheight-0: 20;
   --o3-font-lineheight-1: 20;
   --o3-font-lineheight-2: 24;
