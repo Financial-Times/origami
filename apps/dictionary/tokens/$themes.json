@@ -6,8 +6,7 @@
       "core/use-case/color": "enabled",
       "core/base/color": "enabled",
       "utility-tokens": "enabled",
-      "core/components/o3-button": "enabled",
-      "whitelabel/base/border-radius": "disabled"
+      "core/components/o3-button": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -294,8 +293,7 @@
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
       "core/base/border-radius": "enabled",
-      "core/use-case/color": "enabled",
-      "whitelabel/base/border-radius": "disabled"
+      "core/use-case/color": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -488,42 +486,6 @@
       "o3.button.ghost.mono.active.background": "e77015c41f8b7579bb90a8d0b416399c296ab2b8",
       "o3.button.ghost.mono.active.color": "862b3d3e1ea52b3c78d37ad7ebfd0019fdbe9dd0",
       "o3.button.ghost.mono.active.border": "4b9b3407e87a83ff1d748ccb3883fb8fbc50edc5",
-      "o3.button.hypo.standard.color": "60845c31cdcb783e5299fd8acf4b7a35e72b03aa",
-      "o3.button.hypo.standard.background": "f36c362a0bd5ccbf45e4562e2b2490e208b05116",
-      "o3.button.hypo.standard.border": "13b940398fdb72411f4c1af4cdbbbfd96c6d6187",
-      "o3.button.hypo.standard.hover.background": "9d6e61332943d6292f5b669a5ca75e9cc6796d91",
-      "o3.button.hypo.standard.hover.color": "f4b65b7eef4579a9f8e83b61ea75a167f9a09eed",
-      "o3.button.hypo.standard.hover.border": "4a8971dfe481d54c5e030759693e2817a3a2bbdb",
-      "o3.button.hypo.standard.focus.background": "9d09031c225b4df7629edf6a09a214e5a71d6654",
-      "o3.button.hypo.standard.focus.color": "3c6bb0f1ed5116255a5590e49666e396adce25e2",
-      "o3.button.hypo.standard.focus.border": "fdc741f26a71167481d6d38b23f4ca6e53aa892e",
-      "o3.button.hypo.standard.active.background": "e298548224e7601f4c4b620c3d6c9af369c2577f",
-      "o3.button.hypo.standard.active.color": "78633b501ce9dda8da6abaac55247e7ce962c379",
-      "o3.button.hypo.standard.active.border": "ea4fc1f5e7c4b22b9e7d27997ad07685ee64ad7d",
-      "o3.button.hypo.inverse.color": "df9002aac50d56f2a5daf08a734ceb4b4b46c686",
-      "o3.button.hypo.inverse.background": "5b91c7d870a09e5400f6f87d3cf45f7a0f7b49c6",
-      "o3.button.hypo.inverse.border": "a5507801d1a78477b6845ad2284c14c2bdccebaa",
-      "o3.button.hypo.inverse.hover.background": "3be5a7c92fcc243723facb0df612b0efddd2d643",
-      "o3.button.hypo.inverse.hover.color": "9fdceb546dae3dd2c591788022759261926ca383",
-      "o3.button.hypo.inverse.hover.border": "6c75715c66e332789ae9536e28bbc90aae558ad9",
-      "o3.button.hypo.inverse.focus.background": "a15e9271b3480e007f927a7402400c0160227309",
-      "o3.button.hypo.inverse.focus.color": "6380b00b2c69126920aaa1568e9c75467119a129",
-      "o3.button.hypo.inverse.focus.border": "578080ed7a508f6dd9972cf344e0546f17fbfcbe",
-      "o3.button.hypo.inverse.active.background": "c14107d835f633022c96416a28ec14627d00eb2e",
-      "o3.button.hypo.inverse.active.color": "db5ecf715f6ae2ea1258a748429076b12df20436",
-      "o3.button.hypo.inverse.active.border": "6dc79aadfe2d1bfeaede07d0d4d47d2372614b71",
-      "o3.button.hypo.mono.color": "0de4f352ebe4293ae12c99c799e2ba82d25dae25",
-      "o3.button.hypo.mono.background": "ed0a48ec2a42d13a8cc2da4b6ed9365dd2951a18",
-      "o3.button.hypo.mono.border": "fe565f0f313cbb91e98be98873c693a24abb8373",
-      "o3.button.hypo.mono.hover.background": "9d578fda6e2e1e2cab1a631d88c5ac3a98b5f29f",
-      "o3.button.hypo.mono.hover.color": "be885ce7239278ad734b8ff477b9c18741fc3813",
-      "o3.button.hypo.mono.hover.border": "6e220291b8acbc8a147fbcb37db5159da94cff8d",
-      "o3.button.hypo.mono.focus.background": "3e94e7b2fd87da4cef7941083592d738de41b27a",
-      "o3.button.hypo.mono.focus.color": "099db5910d450a1600754b9e2061990a306aa589",
-      "o3.button.hypo.mono.focus.border": "8bad800932aaf8571558a43ca215192f3f2be0b1",
-      "o3.button.hypo.mono.active.background": "5d12fd56019e8e34f922ad4a51b5f442969b3591",
-      "o3.button.hypo.mono.active.color": "f15f9d9f3ce31897c83cce3548307b266cfa544c",
-      "o3.button.hypo.mono.active.border": "661ff891e651d997a0569351436145cb661683ab",
       "o3.color.palette.ft-pink": "3ba8c54c5181c039ca07c804a8715e1316f21bbd",
       "o3.color.palette.ft-grey": "6c1946fbe7fbb54941e1f55f91ff7ab5faa657d1",
       "o3.color.palette.white": "6adfb0fe07cd1ef9ffae95e0184565171d295f8f",
@@ -597,8 +559,7 @@
     "selectedTokenSets": {
       "utility-tokens": "enabled",
       "internal/components/o3-button": "enabled",
-      "internal/base/color": "enabled",
-      "whitelabel/base/border-radius": "disabled"
+      "internal/base/color": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:3284:8",
     "$figmaModeId": "3284:0",
@@ -722,8 +683,7 @@
     "selectedTokenSets": {
       "utility-tokens": "enabled",
       "whitelabel/base/color": "enabled",
-      "whitelabel/components/o3-button": "enabled",
-      "whitelabel/base/border-radius": "disabled"
+      "whitelabel/components/o3-button": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:3284:41",
     "$figmaModeId": "3284:3",

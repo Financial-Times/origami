@@ -1,11 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Mon, 04 Sep 2023 16:36:52 GMT
+ * Generated on Tue, 12 Sep 2023 10:41:15 GMT
  */
 
 
-.o-brand-professional {
-  --o3-color-link: var(--o3-color-palette-mint);
+.o-brand-core {
+  --o3-color-link: var(--o3-color-palette-teal);
   --o3-color-palette-ft-pink: #FCD0B1;
   --o3-color-palette-ft-grey: #333333ff;
   --o3-color-palette-white: #ffffffff;
@@ -69,5 +69,4 @@
   --o3-color-palette-claret-90: #e6175cff;
   --o3-color-palette-claret-100: #ff1a66ff;
   --o3-color-palette-wheat-100: green;
-  --o3-color-palette-mint: #c0efd8;
 }

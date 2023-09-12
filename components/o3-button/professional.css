@@ -1,3 +1,3 @@
-@import '../../apps/dictionary/build/css/usecase/core/professional/_variables.css';
+@import '~@financial-times/o3-web-token/core/professional/_variables.css';
 @import './src/css/core/professional/o3-button/_variables.css';
-@import './main.css'
+@import './main.css';

@@ -1,0 +1,27 @@
+{
+  "name": "@financial-times/o3-web-token",
+  "version": "0.1.0",
+  "description": "Origami web-tokens with design tokens",
+  "keywords": [
+    "web-token",
+    "design-tokens"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o3-web-token",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-web-token,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build-tokens": "node ../../apps/dictionary/scripts/build-config/build.js"
+  },
+  "engines": {
+    "npm": "^8 || ^9"
+  },
+  "volta": {
+    "node": "20.6.0"
+  },
+  "percy": false,
+  "private": false
+}

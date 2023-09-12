@@ -3,13 +3,10 @@
   "version": "1.0.0",
   "description": "",
 	"type": "module",
-  "scripts": {
-    "build": "node scripts/build-config/build.js"
-  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@tokens-studio/sd-transforms": "^0.6.0",
+    "@tokens-studio/sd-transforms": "^0.11.0",
     "style-dictionary": "^3.7.2"
   }
 }
