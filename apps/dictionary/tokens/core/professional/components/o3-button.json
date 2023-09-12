@@ -172,10 +172,6 @@
         },
         "hypo": {
           "hover": {
-            "background-image": {
-              "value": "https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A3520df36-8c20-11e6-8cb7-e7ada1d123b1?source=image-url-builder",
-              "type": "asset"
-            },
             "background": {
               "value": "{o3.color.palette.sky}",
               "type": "color"
@@ -196,14 +192,6 @@
           "height": {
             "value": "64",
             "type": "sizing"
-          },
-          "typography": {
-            "value": {
-              "fontWeight": "{o3.font.weight.medium}",
-              "fontSize": "{o3.font.size.2}",
-              "lineHeight": "{o3.font.lineheight.2}"
-            },
-            "type": "typography"
           },
           "color": {
             "value": "#ffffff",
