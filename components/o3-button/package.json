@@ -22,7 +22,8 @@
     "watch": "bash ../../scripts/component/watch.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-normalise": "^3.3.0"
+    "@financial-times/o-normalise": "^3.3.0",
+    "@financial-times/o3-web-token": "file:../o3-web-token"
   },
   "engines": {
     "npm": "^8 || ^9"

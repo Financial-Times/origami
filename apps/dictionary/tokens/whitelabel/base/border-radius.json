@@ -1,8 +1,8 @@
 {
   "o3": {
     "border-radius": {
-      "s": {
-        "value": "8",
+      "16": {
+        "value": "m",
         "type": "borderRadius"
       },
       "2xs": {
@@ -13,8 +13,8 @@
         "value": "6",
         "type": "borderRadius"
       },
-      "m": {
-        "value": "16",
+      "s": {
+        "value": "8",
         "type": "borderRadius"
       },
       "l": {
