@@ -11,7 +11,6 @@ export class ConfigBuilder {
 			},
 		})
 		this.config = {
-			showFileHeader: false,
 			platforms: {
 				css: {
 					transformGroup: "css",
