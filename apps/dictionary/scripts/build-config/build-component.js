@@ -18,18 +18,34 @@ StyleDictionaryPackage.registerFilter({
 	matcher: token =>
 		token.original.value !== "{DO-NOT-USE}" && token.path[0] !== "DO-NOT-USE",
 })
+StyleDictionaryPackage.registerTransform({
+	name: "value/transformAssetUrls",
+	type: "value",
+	transformer: token => (token.value = `url("${token.value}")`),
+	matcher: token => token.type === "asset",
+	transitive: true,
+})
 
 function buildComponentTokens() {
 	const componentName = process.argv[2]
-	const includeTokens = ["tokens/core/base/color.json", "tokens/utility-tokens.json"]
+	const includeTokens = [
+		"tokens/core/base/color.json",
+		"tokens/core/base/border-radius.json",
+		"tokens/core/base/spacing.json",
+		"tokens/core/base/typography.json",
+		"tokens/utility-tokens.json",
+	]
 
 	const transformers = [
+		"ts/size/px",
 		"ts/descriptionToComment",
 		"ts/typography/css/shorthand",
 		"ts/border/css/shorthand",
 		"ts/shadow/css/shorthand",
 		"ts/color/css/hexrgba",
 		"ts/color/modifiers",
+		"name/cti/kebab",
+		"value/transformAssetUrls",
 		"name/origamiPrivatePrefix",
 	]
 
@@ -44,27 +60,31 @@ function buildComponentTokens() {
 		},
 	]
 
-	tokenStudioThemes
-		.forEach(theme => {
-			const brandName =
-				theme.group != theme.name ? `${theme.group}/${theme.name}` : theme.group
-			includeTokens.push(`tokens/${brandName}/**.json`)
-			const sources = [`tokens/${brandName}/components/${componentName}.json`]
-			const exportPath = `../../components/${componentName}/src/css/${brandName}/${componentName}/_variables.css`
-			filesConfig[0].destination = exportPath
-			filesConfig[0].options.classNames = [
-				`o-brand-${brandName.split("/").slice(-1)}`,
-				`${componentName}`,
-			]
+	tokenStudioThemes.forEach(theme => {
+		const brandName =
+			theme.group != theme.name ? `${theme.group}/${theme.name}` : theme.group
+		includeTokens.push(`tokens/${brandName}/**.json`)
+		const sources = [`tokens/${brandName}/components/${componentName}.json`]
+		const exportPath = `../../components/${componentName}/src/css/${brandName}/${componentName}/_variables.css`
+		filesConfig[0].destination = exportPath
+		filesConfig[0].options.classNames = [
+			`o-brand-${brandName.split("/").slice(-1)}`,
+			`${componentName}`,
+		]
 
-			new ConfigBuilder(StyleDictionaryPackage)
-				.setSources(sources)
-				.setIncludeFiles(includeTokens)
-				.setTransforms(transformers)
-				.setBuildPath(`./`)
-				.setFilesConfig(filesConfig)
-				.buildDictionary()
-		})
+		new ConfigBuilder(StyleDictionaryPackage)
+			.setSources(sources)
+			.setIncludeFiles(includeTokens)
+			.setTransforms(transformers)
+			.setBuildPath(`./`)
+			.setFilesConfig(filesConfig)
+			.buildDictionary()
+	})
 }
-registerTransforms(StyleDictionaryPackage)
+
+registerTransforms(StyleDictionaryPackage, {
+	expand: {
+		typography: true,
+	},
+})
 buildComponentTokens()
