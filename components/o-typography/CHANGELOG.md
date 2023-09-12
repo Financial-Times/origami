@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.5.0](https://github.com/Financial-Times/origami/compare/o-typography-v7.4.1...o-typography-v7.5.0) (2023-09-12)
+
+
+### Features
+
+* o-typography, add ft-live sub-brand support for links ([#1277](https://github.com/Financial-Times/origami/issues/1277)) ([55f6086](https://github.com/Financial-Times/origami/commit/55f60864a31568c8b465287aa75e84aaa053fc2a))
+
 ### [7.4.1](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.4.0...o-typography-v7.4.1) (2023-05-24)
 
 
