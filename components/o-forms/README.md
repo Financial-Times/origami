@@ -291,7 +291,7 @@ Round radio inputs support 3 themes.
 
 - **professional**: For a round radios with the FT Professional theme, set `o-forms-field--professional` on the field element.
 - **professional-inverse**: For round radios with the inverse FT Professional theme, set `o-forms-field--professional-inverse` on the field element.
-- **ft-live**: For round radios with the FT Live theme, add `o-forms-field--professional-inverse` on the field element.
+- **ft-live**: For round radios with the FT Live theme, add `o-forms-field--ft-live` on the field element.
 
 [_See radio buttons in the registry_](https://registry.origami.ft.com/components/o-forms#demo-round-styled-radio-inputs)
 
