@@ -1,24 +1,28 @@
-import { Button } from "../../src/tsx/buttons";
-import "../button.css";
+import {Button} from '../../src/tsx/button';
+import * as ButtonStories from '../storyTemplates';
+
+import '../button.css';
 
 export default {
-	title: "Whitelabel/o3-button",
+	title: 'Whitelabel/o3-button',
 	component: Button,
-	args: {
-	},
+	decorators: [
+		Story => (
+			<div className="o-brand-whitelabel">
+				<Story />
+			</div>
+		),
+	],
+	args: {},
 };
 
-const ButtonStory = args => (<div className='o-brand-whitelabel'><Button {...args} /></div>);
-
-export const PrimaryButton = ButtonStory.bind({});
-PrimaryButton.args = {
-	label: "Press button",
-	type: "primary",
-};
-
-
-export const SecondaryButton = ButtonStory.bind({});
-SecondaryButton.args = {
-	label: "Press button",
-	type: "secondary",
-};
+export const PrimaryButton = ButtonStories.PrimaryButton;
+export const SecondaryButton = ButtonStories.SecondaryButton;
+export const GhostButton = ButtonStories.GhostButton;
+export const BigButton = ButtonStories.BigButton;
+export const InverseButton = ButtonStories.InverseButton;
+export const MonoButton = ButtonStories.MonoButton;
+export const ButtonWithIconOnly = ButtonStories.IconOnlyButton;
+export const ButtonWithIcon = ButtonStories.ButtonWithIcon;
+export const LinkAsButton = ButtonStories.LinkAsButton;
+export const GroupedButtons = ButtonStories.GroupedButtons;

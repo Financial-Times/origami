@@ -1,7 +1,7 @@
-export interface ButtonGroupProps {
+export type ButtonGroupProps = {
 	children: JSX.Element[];
 }
 
 export function ButtonGroup({children = []}: ButtonGroupProps) {
-	return <div className="o-button-group">{children}</div>;
+	return <div className="o3-button-group">{children}</div>;
 }

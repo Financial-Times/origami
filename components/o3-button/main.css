@@ -181,6 +181,29 @@
 	border-color: var(--_o3-button-secondary-mono-active-border);
 }
 
+/* BIG BUTTON STYLES */
+/* WE MIGHT NEED SPECIFIC TOKENS FOR THIS */
+
+.o3-button.o3-button--big {
+	font-size: 16px;
+	line-height: 16px;
+	background-size: 40px 40px;
+	min-height: 40px;
+	min-width: 80px;
+	padding: 11px 20px;
+}
+
+.o3-button--big.o3-button-icon {
+	background-size: 40px 40px;
+	padding-left: 40px;
+}
+
+.o3-button-pagination > .o3-button--big {
+	padding-left: 9px;
+	padding-right: 9px;
+	min-width: 36px;
+}
+
 /* ICON BUTTON STYLES */
 
 .o3-button-icon::before {
