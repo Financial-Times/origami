@@ -1,16 +1,4 @@
-@import '@financial-times/o-normalise/main';
-@include oNormalise();
-
-
 @import '../core.css';
 @import '../internal.css';
 @import '../whitelabel.css';
 @import '../professional.css';
-
-
-
-
-.sub-container {
-  margin: 16px;
-}
-

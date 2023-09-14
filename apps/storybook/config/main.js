@@ -69,12 +69,15 @@ module.exports.stories = (async () => {
 		"../stories/**/*.stories.@(js|jsx|ts|tsx)",
 	]
 
-	const componentDirectories = await globby(["../../components/**"], {
-		gitignore: false,
-		expandDirectories: false,
-		onlyDirectories: true,
-		deep: 1,
-	})
+	let componentDirectories = await globby(
+		["../../components/**", "!../../components/o3-*/**"],
+		{
+			gitignore: false,
+			expandDirectories: false,
+			onlyDirectories: true,
+			deep: 1,
+		}
+	)
 
 	for (const componentDirectory of componentDirectories) {
 		const brands = await getComponentBrands(componentDirectory)
