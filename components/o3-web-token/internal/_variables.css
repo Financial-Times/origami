@@ -42,4 +42,15 @@
   --o3-color-palette-teal-80: #15BCCC;
   --o3-color-palette-teal-90: #17D4E6;
   --o3-color-palette-teal-100: #1AEBFF;
+  --o3-color-link: var(--o3-color-palette-teal);
+  --o3-spacing-3xs: 4px;
+  --o3-spacing-2xs: 8px;
+  --o3-spacing-xs: 12px;
+  --o3-spacing-s: 16px;
+  --o3-spacing-m: 24px;
+  --o3-spacing-l: 32px;
+  --o3-spacing-xl: 48px;
+  --o3-spacing-2xl: 64px;
+  --o3-spacing-3xl: 72px;
+  --o3-spacing-4xl: 96px;
 }

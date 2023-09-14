@@ -1,6 +1,6 @@
 .o3-button.o3-button--big {
-	font-size: 16px;
-	line-height: 16px;
+	font-size: var(--o3-spacing-s);
+	line-height: var(--o3-spacing-s);
 	background-size: 40px 40px;
 	min-height: 40px;
 	min-width: 80px;

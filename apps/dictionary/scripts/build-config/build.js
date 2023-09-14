@@ -50,6 +50,7 @@ function buildBrandTokens() {
 	const brands = getBrands()
 
 	const brandTransforms = [
+		"ts/size/px",
 		"ts/descriptionToComment",
 		"ts/typography/css/shorthand",
 		"ts/border/css/shorthand",

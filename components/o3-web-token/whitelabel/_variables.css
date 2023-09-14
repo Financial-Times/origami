@@ -18,4 +18,20 @@
   --o3-color-palette-black-70: #4d4d4d;
   --o3-color-palette-black-80: #333;
   --o3-color-palette-black-90: #1a1a1a;
+  --o3-spacing-3xs: 4px;
+  --o3-spacing-2xs: 8px;
+  --o3-spacing-xs: 12px;
+  --o3-spacing-s: 16px;
+  --o3-spacing-m: 24px;
+  --o3-spacing-l: 32px;
+  --o3-spacing-xl: 48px;
+  --o3-spacing-2xl: 64px;
+  --o3-spacing-3xl: 72px;
+  --o3-spacing-4xl: 96px;
+  --o3-border-radius-16: m;
+  --o3-border-radius-2xs: 4px;
+  --o3-border-radius-xs: 6px;
+  --o3-border-radius-s: 8px;
+  --o3-border-radius-l: 24px;
+  --o3-border-radius-xl: 48px;
 }
