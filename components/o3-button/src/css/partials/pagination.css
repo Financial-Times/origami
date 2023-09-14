@@ -1,0 +1,33 @@
+.o3-button-pagination {
+	display: flex;
+}
+.o3-button-pagination > .o3-button {
+	padding-left: 5px;
+	padding-right: 5px;
+	min-width: 24px;
+}
+.o3-button-pagination > .o3-button[disabled] {
+	visibility: hidden;
+}
+.o3-button-pagination > .o3-button--big {
+	padding-left: 9px;
+	padding-right: 9px;
+	min-width: 36px;
+}
+.o3-button-pagination > .o3-button-pagination__ellipsis {
+	font-size: 18px;
+	line-height: 20px;
+	display: inline-block;
+	text-align: center;
+	min-width: 24px;
+}
+
+.o3-button-pagination > .o3-button-pagination__ellipsis--big {
+	font-size: 24px;
+	line-height: 28px;
+	min-width: 36px;
+}
+
+.o3-button-pagination > .o3-button {
+	margin: 0 0 0 4px;
+}

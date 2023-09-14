@@ -1,5 +1,6 @@
 import {Button} from '../../src/tsx/button';
 import * as ButtonStories from '../storyTemplates';
+import {Pagination as PaginationTemplate} from '../paginationTemplate';
 
 import '../button.css';
 
@@ -26,3 +27,4 @@ export const ButtonWithIconOnly = ButtonStories.IconOnlyButton;
 export const ButtonWithIcon = ButtonStories.ButtonWithIcon;
 export const LinkAsButton = ButtonStories.LinkAsButton;
 export const GroupedButtons = ButtonStories.GroupedButtons;
+export const Pagination = PaginationTemplate;

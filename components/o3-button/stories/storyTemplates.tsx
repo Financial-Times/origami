@@ -5,7 +5,6 @@ import {
 	LinkButtonProps,
 } from '../src/tsx/button';
 import {ButtonGroup, ButtonGroupProps} from '../src/tsx/group';
-import {ButtonPagination, ButtonPaginationProps} from '../src/tsx/pagination';
 
 type ButtonArgTypes = {
 	args: ButtonProps;
@@ -47,16 +46,10 @@ const ButtonGroupTemplate = {
 		return (
 			<ButtonGroup>
 				{buttons.map((buttonProps, index) => (
-					<Button {...buttonProps} key={index}/>
+					<Button {...buttonProps} key={index} />
 				))}
 			</ButtonGroup>
 		);
-	},
-};
-
-const ButtonPaginationTemplate = {
-	render: (args: ButtonPaginationProps) => {
-		return <ButtonPagination {...args} />;
 	},
 };
 
@@ -132,15 +125,18 @@ export const IconOnlyButton: ButtonArgTypes = {
 	},
 };
 
-export const GroupedButtons: {args: ButtonGroupProps} = {
-	...ButtonGroupTemplate,
-};
-
 export const LinkAsButton: {args: LinkButtonProps} = {
 	...LinkButtonTemplate,
 	args: {
 		label: 'Link button',
 		type: 'secondary',
 		href: '#',
+	},
+};
+
+export const GroupedButtons: {args: ButtonGroupProps} = {
+	...ButtonGroupTemplate,
+	args: {
+		children: null,
 	},
 };
