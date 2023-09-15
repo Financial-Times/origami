@@ -6,13 +6,13 @@ cta: Read more about how to customise components
 # Navigation config
 nav_display: true
 nav_label: Customisation
-nav_order: 11
+nav_order: 12
 collection_id: components
 ---
 
 # Component Customisation
 
-Origami aims to improve design consistency and reduce the time teams spend repeating work. Providing component APIs for customisation helps achieve those aims by allowing components to be used across different contexts and different brands, and to provide flexibility for novel projects which may introduce a more unique style.
+Origami aims to improve design consistency and reduce the time teams spend repeating work. Providing component APIs for customisation helps achieve those aims by allowing components to be used across different contexts and different brands, and to provide flexibility for novel projects which may introduce a more unique style (see [Brands & Theme Definitions](/documentation/components/brand-definitions/)).
 
 This document aims to help you decide if you should customise a component for your project, show the ways a component may be customised, and demonstrate why other approaches should be avoided.
 
