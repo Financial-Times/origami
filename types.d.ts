@@ -206,6 +206,13 @@ declare module 'astro:content' {
   collection: "documentation";
   data: InferEntrySchema<"documentation">
 } & { render(): Render[".md"] };
+"components/brand-definitions.md": {
+	id: "components/brand-definitions.md";
+  slug: "components/brand-definitions";
+  body: string;
+  collection: "documentation";
+  data: InferEntrySchema<"documentation">
+} & { render(): Render[".md"] };
 "components/code.md": {
 	id: "components/code.md";
   slug: "components/code";
