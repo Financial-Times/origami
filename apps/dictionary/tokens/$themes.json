@@ -10,7 +10,7 @@
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
       "core/base/border-radius": "enabled",
-      "internal/base/spacing": "disabled"
+      "internal/base/typography": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -297,7 +297,8 @@
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
       "core/base/border-radius": "enabled",
-      "core/use-case/color": "enabled"
+      "core/use-case/color": "enabled",
+      "internal/base/typography": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -565,7 +566,8 @@
       "internal/components/o3-button": "enabled",
       "internal/base/color": "enabled",
       "internal/base/spacing": "enabled",
-      "core/use-case/color": "enabled"
+      "core/use-case/color": "enabled",
+      "internal/base/typography": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:3284:8",
     "$figmaModeId": "3284:0",
