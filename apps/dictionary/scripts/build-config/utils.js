@@ -52,7 +52,7 @@ export class ConfigBuilder {
 			type: "value",
 			transitive: true,
 			matcher: token => {
-				const types = ["spacing", "fontSizes", "borderRadius"]
+				const types = ["spacing", "fontSizes", "borderRadius", "lineHeights"]
 				return types.includes(token.type)
 			},
 			transformer: token => {
