@@ -738,9 +738,8 @@
           }
         },
         "wheat-100": {
-          "description": "",
           "type": "color",
-          "value": "green",
+          "value": "#FFEBD9",
           "blendMode": "normal",
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
