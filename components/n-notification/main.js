@@ -9,4 +9,8 @@ if (typeof document !== 'undefined') {
 	document.addEventListener('o.DOMContentLoaded', constructAll);
 }
 
+export function show() {
+	return nNotification.show;
+}
+
 export default nNotification;
