@@ -294,7 +294,6 @@
       "core/professional/components/o3-button": "enabled",
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
-      "core/base/border-radius": "enabled",
       "core/use-case/color": "enabled"
     },
     "$figmaStyleReferences": {
@@ -689,8 +688,7 @@
       "utility-tokens": "enabled",
       "whitelabel/base/color": "enabled",
       "whitelabel/components/o3-button": "enabled",
-      "whitelabel/base/spacing": "enabled",
-      "whitelabel/base/border-radius": "enabled"
+      "whitelabel/base/spacing": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:3284:41",
     "$figmaModeId": "3284:3",
