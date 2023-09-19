@@ -139,7 +139,7 @@ Wrap buttons in a container with `.o3-button-group` to group them together:
 
 ### Pagination
 
-For a pagination style wrap your buttons in `.o3-button-pagination`. Most pagination usecases use an anchor `a` tags for links which look like buttons instead of a `button` tag. When using an anchor tag in pagination do not use the `aria-selected` data attribute. Instead use `aria-current="page"` to indicate the current page, this will highlight the button for the current page visually and to screen readers.
+For a pagination style wrap your buttons in a container with `.o3-button-pagination`. Most pagination usecases use anchor `a` tags for links which look like buttons instead of a `button` tag. When using an anchor tag in pagination, do not use the `aria-selected` data attribute. Instead, use `aria-current="page"` to indicate the current page, this will highlight the button for the current page visually and to screen readers.
 
 The following markup example shows pagination for 20 pages, where the 14th page is the current page. Following the [pagination rules](#pagination-rules) we recommend displaying no more than 7 pages and using the ellipsis element to show hidden results.
 
