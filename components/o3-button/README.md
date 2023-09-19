@@ -125,7 +125,7 @@ If you would like your button to display only an icon, add the class `o3-button-
 
 ### Groups
 
-Wrap buttons with `.o3-button-group` to group them together:
+Wrap buttons in a container with `.o3-button-group` to group them together:
 
 ```html
 <div class="o3-button-group">
