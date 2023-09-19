@@ -1,4 +1,4 @@
-export type ButtonGroupProps = {
+export interface ButtonGroupProps {
 	children: JSX.Element[];
 }
 

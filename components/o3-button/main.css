@@ -10,6 +10,7 @@
 
 .o3-button {
 	--_o3-button-border-size: 1px;
+	--_o3-icon-size: 20px;
 	min-width: var(--_o3-button-min-width, 60px);
 	min-height: var(--_o3-button-min-height, 28px);
 	padding: 6px 8px;
@@ -275,11 +276,9 @@
 .o3-button.o3-button--big {
 	--_o3-button-min-width: 80px;
 	--_o3-button-min-height: 40px;
-}
-.o3-button.o3-button--big {
 	font-size: var(--o3-font-size-0);
 	line-height: var(--o3-font-lineheight-negative-1);
-	padding: 11px 20px;
+	padding: var(--o3-spacing-xs) 20px;
 }
 
 /* PAGINATION */
@@ -288,16 +287,16 @@
 	display: flex;
 }
 .o3-button-pagination > .o3-button {
-	padding-left: 5px;
-	padding-right: 5px;
+	padding-left: var(--o3-spacing-3xs);
+	padding-right: var(--o3-spacing-3xs);
 	min-width: 24px;
 }
 .o3-button-pagination > .o3-button[disabled] {
 	visibility: hidden;
 }
 .o3-button-pagination > .o3-button--big {
-	padding-left: 9px;
-	padding-right: 9px;
+	padding-left: var(--o3-spacing-2xs);
+	padding-right: var(--o3-spacing-2xs);
 	min-width: 36px;
 }
 .o3-button-pagination > .o3-button-pagination__ellipsis {
@@ -319,8 +318,8 @@
 }
 
 .o3-button-pagination > .o3-button--big {
-	padding-left: 9px;
-	padding-right: 9px;
+	padding-left: var(--o3-spacing-2xs);
+	padding-right: var(--o3-spacing-2xs);
 	min-width: 36px;
 }
 
@@ -341,12 +340,9 @@
 
 .o3-button-icon::before {
 	content: '';
-	width: 21px;
-	height: 21px;
-	/* -webkit-mask-image: var(--o3-button-icon); */
+	width: var(--_o3-icon-size);
+	height: var(--_o3-icon-size);
 	mask-image: var(--o3-button-icon);
-	/* -webkit-mask-repeat: no-repeat;
-	-webkit-mask-size: contain; */
 	mask-repeat: no-repeat;
 	mask-size: contain;
 	display: inline-block;
