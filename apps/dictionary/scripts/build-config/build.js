@@ -1,7 +1,6 @@
 import path from "path"
 import {fileURLToPath} from "url"
 import StyleDictionaryPackage from "style-dictionary"
-import {registerTransforms} from "@tokens-studio/sd-transforms"
 import {brandClasses} from "../formatters/css/brand-classes.js"
 import {transformSVG} from "../transforms/transformSVG.js"
 import {ConfigBuilder, tokenStudioThemes} from "./utils.js"
@@ -48,17 +47,6 @@ function getBrands() {
 
 function buildBrandTokens() {
 	const brands = getBrands()
-
-	const brandTransforms = [
-		"ts/size/px",
-		"ts/descriptionToComment",
-		"ts/typography/css/shorthand",
-		"ts/border/css/shorthand",
-		"ts/shadow/css/shorthand",
-		"ts/color/css/hexrgba",
-		"ts/color/modifiers",
-		"name/cti/kebab",
-	]
 	brands.forEach(brand => {
 		const filesConfig = [
 			{
@@ -74,18 +62,13 @@ function buildBrandTokens() {
 		brand.sources = brand.sources.map(source => path.join(basePath, source))
 		new ConfigBuilder(StyleDictionaryPackage)
 			.setSources(brand.sources)
-			.setTransforms(brandTransforms)
 			.setBuildPath(`${brand.name}/`)
 			.setFilesConfig(filesConfig)
 			.buildDictionary()
 	})
 }
 function buildIconTokens() {
-	const iconTransformers = [
-		"ts/descriptionToComment",
-		"name/cti/kebab",
-		"value/transformSVG",
-	]
+	const iconTransformers = ["value/transformSVG"]
 	const iconsFileConfig = [
 		{
 			destination: "_variables.css",
@@ -104,6 +87,5 @@ function buildIconTokens() {
 		.buildDictionary()
 }
 
-registerTransforms(StyleDictionaryPackage)
 buildBrandTokens()
 buildIconTokens()

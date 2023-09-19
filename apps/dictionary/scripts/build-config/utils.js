@@ -1,12 +1,26 @@
 import fs from "fs"
+import {registerTransforms} from "@tokens-studio/sd-transforms"
 
 export class ConfigBuilder {
 	constructor(StyleDictionaryPackage) {
 		StyleDictionaryPackage.registerFileHeader(this._setFileHeaderConfig())
+		StyleDictionaryPackage.registerTransform(this._registerPxToRem())
 		this.config = {
 			platforms: {
 				css: {
 					transformGroup: "css",
+					transforms: [
+						"Origami/pxToRem",
+						"ts/size/px",
+						"ts/size/lineheight",
+						"ts/descriptionToComment",
+						"ts/typography/css/shorthand",
+						"ts/border/css/shorthand",
+						"ts/shadow/css/shorthand",
+						"ts/color/css/hexrgba",
+						"ts/color/modifiers",
+						"name/cti/kebab",
+					],
 				},
 			},
 		}
@@ -27,6 +41,32 @@ export class ConfigBuilder {
 			},
 		}
 	}
+
+	/**
+	 * register px to rem transform
+	 * @returns {object} - transform config
+	 * */
+	_registerPxToRem() {
+		return {
+			name: "Origami/pxToRem",
+			type: "value",
+			transitive: true,
+			matcher: token => {
+				const types = ["spacing", "fontSizes", "borderRadius"]
+				return types.includes(token.type)
+			},
+			transformer: token => {
+				const defaultWebFontSize = 16
+				let tokenValue = token.value
+				if (tokenValue.includes("px")) {
+					tokenValue = tokenValue.replace("px", "")
+				}
+				tokenValue = `${tokenValue / defaultWebFontSize}rem`
+				return tokenValue
+			},
+		}
+	}
+
 	/**
 	 * set source files
 	 * @param {string[]} sources - array of source files
@@ -47,10 +87,14 @@ export class ConfigBuilder {
 
 	/**
 	 * set transforms
-	 * @param {string[]} transforms - array of token transformers
+	 * @param {string[]} [transforms] - array of token transformers
 	 * */
 	setTransforms(transforms) {
-		this.config.platforms.css.transforms = transforms
+		const additionalTransforms = transforms || []
+		this.config.platforms.css.transforms = [
+			...this.config.platforms.css.transforms,
+			...additionalTransforms,
+		]
 		return this
 	}
 
@@ -103,6 +147,11 @@ export class ConfigBuilder {
 
 	// build dictionary
 	buildDictionary() {
+		registerTransforms(this.StyleDictionaryPackage, {
+			expand: {
+				typography: true,
+			},
+		})
 		this.validateConfig()
 		const StyleDictionary = this.StyleDictionaryPackage.extend(this.config)
 		StyleDictionary.buildAllPlatforms(this.config)
