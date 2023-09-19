@@ -82,7 +82,7 @@ Any button may be made larger using the `o3-button--big` modifier class.
 
 To add an icon to your button add the class `o3-button-icon` and `o3-button-icon--{icon-name}` to your button.
 
-Limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller, but if you need an icon button that we don't currently support then please contact the Origami team:
+A limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller, but if you need an icon button that we don't currently support, please contact the Origami team:
 
 - arrow-left
 - arrow-right
