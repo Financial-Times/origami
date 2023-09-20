@@ -20,17 +20,19 @@ export interface ButtonPaginationPager {
 	onClick?: any;
 }
 
-const Ellipsis = () => (
+const Ellipsis = ({size}: Pick<ButtonProps, 'size'>) => {
+	let classNames = 'o3-button-pagination__ellipsis';
+	if (size === 'big') {
+		classNames += ' o3-button-pagination__ellipsis--big';
+	}
+	return (
 	<span
-		className="
-o3-button-pagination__ellipsis o3-button-pagination__ellipsis--big
-">
+		className={classNames}>
 		...
 	</span>
-);
+)};
 
-function splitPages(pages) {
-	const currentPage = pages.find(page => page.current);
+function splitPages(pages, currentPage) {
 	const nextPage = currentPage.number + 1;
 	const previousPage = currentPage.number - 1;
 
@@ -47,7 +49,8 @@ function splitPages(pages) {
 		return pages.filter(page => page.number === pageNumber);
 	};
 
-	if (pages.length <= 7) {
+	const numberOfPagesToShowAtaTime = 7;
+	if (pages.length <= numberOfPagesToShowAtaTime) {
 		return [pages];
 	}
 
@@ -98,7 +101,7 @@ export function ButtonPagination({
 	const NextTag = nextPager.href ? LinkButton : Button;
 	const PreviousTag = previousPager.href ? LinkButton : Button;
 	const currentPage = pages.find(page => page.current);
-	const pagesToDisplayInGroups = splitPages(pages);
+	const pagesToDisplayInGroups = splitPages(pages, currentPage);
 	const lastPageIsSelected = currentPage === pages[pages.length - 1];
 	const firstPageIsSelected = currentPage === pages[0];
 	const pageElementsInGroups = pagesToDisplayInGroups.map(pageGroup =>
@@ -147,7 +150,7 @@ export function ButtonPagination({
 			{pageElementsInGroups.flatMap((pageElementGroup, pageGroupIndex) => {
 				const elementGroup = [];
 				if (pageGroupIndex > 0) {
-					elementGroup.push(<Ellipsis key={pageGroupIndex}></Ellipsis>);
+					elementGroup.push(<Ellipsis size={size} key={pageGroupIndex}></Ellipsis>);
 				}
 				elementGroup.push(pageElementGroup);
 				return elementGroup;

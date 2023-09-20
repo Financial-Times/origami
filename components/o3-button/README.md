@@ -180,6 +180,14 @@ The number of pages to display is not enforced by Origami. However we recommend 
   - The 3rd from last page is selected show 2 pages, the ellipsis, and 4 more pages.
   - The selected page is more than 3 from the first and last page show the first page, ellipsis, three pages, ellipsis, and the last page.
 
+| Selected Page    | Ellipse position |
+| -------- | ------- |
+| less than 3  |  1️⃣2️⃣3️⃣...8️⃣9️⃣🔟  |
+| One of the last two pages | 1️⃣2️⃣3️⃣...8️⃣9️⃣🔟 |
+| 3rd page    | 1️⃣2️⃣3️⃣4️⃣...9️⃣🔟   |
+| 3rd page from last page   | 1️⃣2️⃣...7️⃣8️⃣9️⃣🔟    |
+| more than 3 from the first and last page  | 1️⃣...4️⃣5️⃣6️⃣...🔟   |
+
 For an example see the [pagination demos in the Origami registry](https://registry.origami.ft.com/components/o3-button@6.0.19#demo-pagination-layout).
 
 #### Pagination Theme
