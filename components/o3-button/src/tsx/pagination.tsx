@@ -29,6 +29,7 @@ const Ellipsis = () => {
 	</span>
 )};
 
+
 function splitPages(pages, currentPage) {
 	const nextPage = currentPage.number + 1;
 	const previousPage = currentPage.number - 1;
@@ -46,8 +47,8 @@ function splitPages(pages, currentPage) {
 		return pages.filter(page => page.number === pageNumber);
 	};
 
-	const numberOfPagesToShowAtaTime = 7;
-	if (pages.length <= numberOfPagesToShowAtaTime) {
+	const numberOfPagesToShowAtATime = 7;
+	if (pages.length <= numberOfPagesToShowAtATime) {
 		return [pages];
 	}
 

@@ -34,7 +34,8 @@
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
-	transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
+	transition: 0.3s background-color, 0.15s color ease-out,
+		0.15s border-color ease-out;
 	appearance: none;
 }
 
@@ -43,7 +44,6 @@
 	opacity: 0.4;
 	cursor: default;
 }
-
 
 /* PRIMARY */
 
@@ -65,7 +65,10 @@
 	border-color: var(--_o3-button-primary-standard-focus-border);
 }
 
-.o3-button.o3-button--primary:active {
+.o3-button.o3-button--primary:active,
+.o3-button--primary[aria-selected='true'],
+.o3-button--primary[aria-current],
+.o3-button--primary[aria-pressed='true'] {
 	color: var(--_o3-button-primary-standard-active-color);
 	background-color: var(--_o3-button-primary-standard-active-background);
 	border-color: var(--_o3-button-primary-standard-active-border);
@@ -90,7 +93,10 @@
 	border-color: var(--_o3-button-primary-inverse-focus-border);
 }
 
-.o3-button.o3-button--primary.o3-button--inverse:active {
+.o3-button.o3-button--primary.o3-button--inverse:active,
+.o3-button--primary.o3-button--inverse[aria-selected='true'],
+.o3-button--primary.o3-button--inverse[aria-current],
+.o3-button--primary.o3-button--inverse[aria-pressed='true'] {
 	color: var(--_o3-button-primary-inverse-active-color);
 	background-color: var(--_o3-button-primary-inverse-active-background);
 	border-color: var(--_o3-button-primary-inverse-active-border);
@@ -116,12 +122,14 @@
 	border-color: var(--_o3-button-primary-mono-focus-border);
 }
 
-.o3-button.o3-button--primary.o3-button--mono:active {
+.o3-button.o3-button--primary.o3-button--mono:active,
+.o3-button--primary.o3-button--mono[aria-selected='true'],
+.o3-button--primary.o3-button--mono[aria-current],
+.o3-button--primary.o3-button--mono[aria-pressed='true'] {
 	color: var(--_o3-button-primary-mono-active-color);
 	background-color: var(--_o3-button-primary-mono-active-background);
 	border-color: var(--_o3-button-primary-mono-active-border);
 }
-
 
 /* SECONDARY */
 .o3-button.o3-button--secondary {
@@ -142,7 +150,10 @@
 	border-color: var(--_o3-button-secondary-standard-focus-border);
 }
 
-.o3-button.o3-button--secondary:active {
+.o3-button.o3-button--secondary:active,
+.o3-button--secondary[aria-selected='true'],
+.o3-button--secondary[aria-current],
+.o3-button--secondary[aria-pressed='true'] {
 	color: var(--_o3-button-secondary-standard-active-color);
 	background-color: var(--_o3-button-secondary-standard-active-background);
 	border-color: var(--_o3-button-secondary-standard-active-border);
@@ -168,7 +179,10 @@
 	border-color: var(--_o3-button-secondary-inverse-focus-border);
 }
 
-.o3-button.o3-button--secondary.o3-button--inverse:active {
+.o3-button.o3-button--secondary.o3-button--inverse:active,
+.o3-button--secondary.o3-button--inverse[aria-selected='true'],
+.o3-button--secondary.o3-button--inverse[aria-current],
+.o3-button--secondary.o3-button--inverse[aria-pressed='true'] {
 	color: var(--_o3-button-secondary-inverse-active-color);
 	background-color: var(--_o3-button-secondary-inverse-active-background);
 	border-color: var(--_o3-button-secondary-inverse-active-border);
@@ -194,14 +208,16 @@
 	border-color: var(--_o3-button-secondary-mono-focus-border);
 }
 
-.o3-button.o3-button--secondary.o3-button--mono:active {
+.o3-button.o3-button--secondary.o3-button--mono:active,
+.o3-button--secondary.o3-button--mono[aria-selected='true'],
+.o3-button--secondary.o3-button--mono[aria-current],
+.o3-button--secondary.o3-button--mono[aria-pressed='true'] {
 	color: var(--_o3-button-secondary-mono-active-color);
 	background-color: var(--_o3-button-secondary-mono-active-background);
 	border-color: var(--_o3-button-secondary-mono-active-border);
 }
 
 /* GHOST */
-
 
 .o3-button.o3-button--ghost {
 	color: var(--_o3-button-ghost-standard-color);
@@ -279,7 +295,6 @@
 	border-color: var(--_o3-button-ghost-mono-active-border);
 }
 
-
 /* BIG BUTTON */
 
 .o3-button.o3-button--big {
@@ -338,7 +353,6 @@
 .o3-button-group > .o3-button + .o3-button {
 	margin-left: calc(var(--_o3-button-border-size) * -1);
 }
-
 
 /* BUTTON ICON  */
 
