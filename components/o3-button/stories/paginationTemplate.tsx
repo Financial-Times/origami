@@ -3,11 +3,17 @@ import type {TemplateType} from './storyTemplates';
 import {useState} from 'react';
 import {ButtonPagination, ButtonPaginationProps} from '../src/tsx/pagination';
 
+import {TemplateSBConfig} from './storyTemplates';
 type PaginationStory = Omit<StoryObj, 'args'> & {
 	args: ButtonPaginationProps;
 };
 
+
 const ButtonPaginationTemplate: TemplateType = {
+	...TemplateSBConfig,
+	parameters: {
+    controls: { include: ['type', 'size', 'theme'] },
+  },
 	render: args => {
 		const configuredCurrentPage = args.pages.find(page => page.current);
 		const [currentPageSelection, setCurrentPageSelection] = useState(

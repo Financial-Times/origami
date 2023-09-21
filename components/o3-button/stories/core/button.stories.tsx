@@ -13,7 +13,7 @@ export default {
 			</div>
 		),
 	],
-	args: {},
+	args: {}
 };
 
 export const PrimaryButton = ButtonStories.PrimaryButton;

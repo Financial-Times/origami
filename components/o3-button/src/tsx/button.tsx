@@ -35,11 +35,11 @@ export interface LinkButtonProps extends ButtonProps {
 function makeClassNames({ type, size, theme, icon, iconOnly }) {
 	const classNames = ["o3-button", `o3-button--${type}`];
 
-	if (size) {
+	if (size && size !== "standard") {
 		classNames.push(`o3-button--${size}`);
 	}
 
-	if (theme) {
+	if (theme && theme !== "standard") {
 		classNames.push(`o3-button--${theme}`);
 	}
 

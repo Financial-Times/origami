@@ -24,20 +24,51 @@ export type TemplateType = StoryObj & {
 	render: (args) => JSX.Element;
 };
 
+export const TemplateSBConfig = {
+	argTypes: {
+		theme: {
+			control: {
+				type: 'radio',
+				labels: {
+					inverse: 'Inverse',
+					mono: 'Mono',
+					standard: 'Standard',
+				},
+			},
+			options: ['inverse', 'mono', 'standard'],
+		},
+		size: {
+			control: {
+				type: 'radio',
+				labels: {
+					big: 'Big',
+					standard: 'Standard',
+				},
+			},
+			options: ['big', 'standard'],
+		},
+	},
+	parameters: {
+		controls: {exclude: ['attributes', 'onClick']},
+	},
+};
 
 const ButtonTemplate: TemplateType = {
+	...TemplateSBConfig,
 	render: args => {
 		return <Button {...args} />;
 	},
 };
 
 const LinkButtonTemplate: TemplateType = {
+	...TemplateSBConfig,
 	render: args => {
 		return <LinkButton {...args} />;
 	},
 };
 
 const ButtonGroupTemplate: TemplateType = {
+	...TemplateSBConfig,
 	render: args => {
 		return (
 			<ButtonGroup>
