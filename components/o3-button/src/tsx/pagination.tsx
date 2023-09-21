@@ -20,7 +20,7 @@ export interface ButtonPaginationPager {
 	onClick?: any;
 }
 
-const Ellipsis = ({}: Pick<ButtonProps, 'size'>) => {
+const Ellipsis = () => {
 	let classNames = 'o3-button-pagination__ellipsis';
 	return (
 	<span
