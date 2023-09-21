@@ -27,6 +27,62 @@
             "border": {
               "value": "#ffffff00",
               "type": "color"
+            },
+            "inverse": {
+              "color": {
+                "value": "#ffffff",
+                "type": "color"
+              },
+              "background": {
+                "value": "#ffffff",
+                "type": "color"
+              },
+              "border": {
+                "value": "#ffffff00",
+                "type": "color"
+              },
+              "hover": {
+                "background": {
+                  "value": "#cccccc",
+                  "type": "color"
+                },
+                "color": {
+                  "value": "#ffffff",
+                  "type": "color"
+                },
+                "border": {
+                  "value": "#ffffff00",
+                  "type": "color"
+                }
+              },
+              "focus": {
+                "background": {
+                  "value": "#cccccc",
+                  "type": "color"
+                },
+                "color": {
+                  "value": "#ffffff",
+                  "type": "color"
+                },
+                "border": {
+                  "value": "#ffffff00",
+                  "type": "color"
+                }
+              },
+              "active": {
+                "background": {
+                  "value": "#a6a6a6",
+                  "type": "color"
+                },
+                "color": {
+                  "value": "#ffffff",
+                  "type": "color"
+                },
+                "border": {
+                  "value": "#ffffff00",
+                  "type": "color"
+                }
+              }
             }
           },
           "focus": {
@@ -57,62 +113,6 @@
               "type": "color"
             }
           }
-        },
-        "inverse": {
-          "color": {
-            "value": "#000000",
-            "type": "color"
-          },
-          "background": {
-            "value": "#ffffff",
-            "type": "color"
-          },
-          "border": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "hover": {
-            "background": {
-              "value": "#cccccc",
-              "type": "color"
-            },
-            "color": {
-              "value": "#000000",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "focus": {
-            "background": {
-              "value": "#cccccc",
-              "type": "color"
-            },
-            "color": {
-              "value": "#000000",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "active": {
-            "background": {
-              "value": "#a6a6a6",
-              "type": "color"
-            },
-            "color": {
-              "value": "#000000",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          }
         }
       },
       "secondary": {
@@ -135,7 +135,7 @@
               "type": "color"
             },
             "color": {
-              "value": "#000000",
+              "value": "#ffffff",
               "type": "color"
             },
             "border": {
@@ -149,7 +149,7 @@
               "type": "color"
             },
             "color": {
-              "value": "#000000",
+              "value": "#ffffff",
               "type": "color"
             },
             "border": {
@@ -219,7 +219,7 @@
               "type": "color"
             },
             "color": {
-              "value": "#000000",
+              "value": "#ffffff",
               "type": "color"
             },
             "border": {
@@ -249,7 +249,7 @@
               "type": "color"
             },
             "color": {
-              "value": "#000000",
+              "value": "#ffffff",
               "type": "color"
             },
             "border": {
@@ -263,7 +263,7 @@
               "type": "color"
             },
             "color": {
-              "value": "#000000",
+              "value": "#ffffff",
               "type": "color"
             },
             "border": {
@@ -333,7 +333,7 @@
               "type": "color"
             },
             "color": {
-              "value": "#000000",
+              "value": "#ffffff",
               "type": "color"
             },
             "border": {
