@@ -1,3 +1,4 @@
+import type {StoryObj} from '@storybook/react';
 import {
 	Button,
 	LinkButton,
@@ -7,26 +8,36 @@ import {
 
 import {ButtonGroup} from '../src/tsx/group';
 
-type ButtonArgTypes = {
+type ButtonStory = Omit<StoryObj, 'args'> & {
 	args: ButtonProps;
-	parameters?: {
-		origamiBackground: string;
+};
+type LinkButtonStory = Omit<StoryObj, 'args'> & {
+	args: LinkButtonProps;
+};
+type ButtonGroupStory = Omit<StoryObj, 'args'> & {
+	args: {
+		buttons: ButtonProps[];
 	};
 };
 
-const ButtonTemplate = {
-	render: (args: ButtonProps) => {
+export type TemplateType = StoryObj & {
+	render: (args) => JSX.Element;
+};
+
+
+const ButtonTemplate: TemplateType = {
+	render: args => {
 		return <Button {...args} />;
 	},
 };
 
-const LinkButtonTemplate = {
-	render: (args: LinkButtonProps) => {
+const LinkButtonTemplate: TemplateType = {
+	render: args => {
 		return <LinkButton {...args} />;
 	},
 };
 
-const ButtonGroupTemplate = {
+const ButtonGroupTemplate: TemplateType = {
 	render: args => {
 		return (
 			<ButtonGroup>
@@ -38,14 +49,14 @@ const ButtonGroupTemplate = {
 	},
 };
 
-export const PrimaryButton: ButtonArgTypes = {
+export const PrimaryButton: ButtonStory = {
 	...ButtonTemplate,
 	args: {
 		label: 'Press button',
 		type: 'primary',
 	},
 };
-export const SecondaryButton: ButtonArgTypes = {
+export const SecondaryButton: ButtonStory = {
 	...ButtonTemplate,
 	args: {
 		label: 'Press button',
@@ -53,7 +64,7 @@ export const SecondaryButton: ButtonArgTypes = {
 	},
 };
 
-export const GhostButton: ButtonArgTypes = {
+export const GhostButton: ButtonStory = {
 	...ButtonTemplate,
 	args: {
 		label: 'Press button',
@@ -61,7 +72,7 @@ export const GhostButton: ButtonArgTypes = {
 	},
 };
 
-export const BigButton: ButtonArgTypes = {
+export const BigButton: ButtonStory = {
 	...ButtonTemplate,
 	args: {
 		label: 'Press button',
@@ -70,7 +81,7 @@ export const BigButton: ButtonArgTypes = {
 	},
 };
 
-export const InverseButton: ButtonArgTypes = {
+export const InverseButton: ButtonStory = {
 	...ButtonTemplate,
 	args: {
 		label: 'Press button',
@@ -82,7 +93,7 @@ export const InverseButton: ButtonArgTypes = {
 	},
 };
 
-export const MonoButton: ButtonArgTypes = {
+export const MonoButton: ButtonStory = {
 	...ButtonTemplate,
 	args: {
 		label: 'Press button',
@@ -91,7 +102,7 @@ export const MonoButton: ButtonArgTypes = {
 	},
 };
 
-export const ButtonWithIcon: ButtonArgTypes = {
+export const ButtonWithIcon: ButtonStory = {
 	...ButtonTemplate,
 	args: {
 		label: 'Cross',
@@ -100,7 +111,7 @@ export const ButtonWithIcon: ButtonArgTypes = {
 	},
 };
 
-export const IconOnlyButton: ButtonArgTypes = {
+export const IconOnlyButton: ButtonStory = {
 	...ButtonTemplate,
 	args: {
 		label: 'Cross',
@@ -110,7 +121,7 @@ export const IconOnlyButton: ButtonArgTypes = {
 	},
 };
 
-export const LinkAsButton: {args: LinkButtonProps} = {
+export const LinkAsButton: LinkButtonStory = {
 	...LinkButtonTemplate,
 	args: {
 		label: 'Link button',
@@ -119,7 +130,7 @@ export const LinkAsButton: {args: LinkButtonProps} = {
 	},
 };
 
-export const GroupedButtons = {
+export const GroupedButtons: ButtonGroupStory = {
 	...ButtonGroupTemplate,
 	args: {
 		buttons: [

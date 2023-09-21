@@ -1,9 +1,14 @@
+import type {StoryObj} from '@storybook/react';
+import type {TemplateType} from './storyTemplates';
 import {useState} from 'react';
-
 import {ButtonPagination, ButtonPaginationProps} from '../src/tsx/pagination';
 
-const ButtonPaginationTemplate = {
-	render: (args: ButtonPaginationProps) => {
+type PaginationStory = Omit<StoryObj, 'args'> & {
+	args: ButtonPaginationProps;
+};
+
+const ButtonPaginationTemplate: TemplateType = {
+	render: args => {
 		const configuredCurrentPage = args.pages.find(page => page.current);
 		const [currentPageSelection, setCurrentPageSelection] = useState(
 			configuredCurrentPage ? configuredCurrentPage.number : 0
@@ -34,7 +39,7 @@ const ButtonPaginationTemplate = {
 	},
 };
 
-export const Pagination: {args: ButtonPaginationProps} = {
+export const Pagination: PaginationStory = {
 	...ButtonPaginationTemplate,
 	args: {
 		type: 'secondary',
