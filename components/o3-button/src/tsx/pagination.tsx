@@ -25,12 +25,8 @@ const Ellipsis = ({size}: Pick<ButtonProps, 'size'>) => {
 	if (size === 'big') {
 		classNames += ' o3-button-pagination__ellipsis--big';
 	}
-	return (
-	<span
-		className={classNames}>
-		...
-	</span>
-)};
+	return <span className={classNames}>...</span>;
+};
 
 function splitPages(pages, currentPage) {
 	const nextPage = currentPage.number + 1;
@@ -49,8 +45,8 @@ function splitPages(pages, currentPage) {
 		return pages.filter(page => page.number === pageNumber);
 	};
 
-	const numberOfPagesToShowAtaTime = 7;
-	if (pages.length <= numberOfPagesToShowAtaTime) {
+	const numberOfPagesToShowAtATime = 7;
+	if (pages.length <= numberOfPagesToShowAtATime) {
 		return [pages];
 	}
 
@@ -150,7 +146,9 @@ export function ButtonPagination({
 			{pageElementsInGroups.flatMap((pageElementGroup, pageGroupIndex) => {
 				const elementGroup = [];
 				if (pageGroupIndex > 0) {
-					elementGroup.push(<Ellipsis size={size} key={pageGroupIndex}></Ellipsis>);
+					elementGroup.push(
+						<Ellipsis size={size} key={pageGroupIndex}></Ellipsis>
+					);
 				}
 				elementGroup.push(pageElementGroup);
 				return elementGroup;

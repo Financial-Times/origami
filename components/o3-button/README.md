@@ -174,19 +174,14 @@ The following markup example shows pagination for 20 pages, where the 14th page 
 The number of pages to display is not enforced by Origami. However we recommend the following:
 
 - Show no more than 7 pages at a time. When there are more than 7 pages, hide more pages behind the pagination ellipsis in the following way. Given:
-  - The selected page is below 3 show ellipsis with 3 pages either side.
-  - The selected page is one of the last 2 pages show ellipsis with 3 pages either side.
-  - The 3rd page is selected show 4 pages, the ellipsis, and 2 more pages.
-  - The 3rd from last page is selected show 2 pages, the ellipsis, and 4 more pages.
-  - The selected page is more than 3 from the first and last page show the first page, ellipsis, three pages, ellipsis, and the last page.
 
-| Selected Page    | Ellipse position |
-| -------- | ------- |
-| less than 3  |  1️⃣2️⃣3️⃣...8️⃣9️⃣🔟  |
-| One of the last two pages | 1️⃣2️⃣3️⃣...8️⃣9️⃣🔟 |
-| 3rd page    | 1️⃣2️⃣3️⃣4️⃣...9️⃣🔟   |
-| 3rd page from last page   | 1️⃣2️⃣...7️⃣8️⃣9️⃣🔟    |
-| more than 3 from the first and last page  | 1️⃣...4️⃣5️⃣6️⃣...🔟   |
+| Selected Page                            | Ellipse position |
+| ---------------------------------------- | ---------------- |
+| less than 3                              | 1️⃣2️⃣3️⃣...8️⃣9️⃣🔟  |
+| One of the last two pages                | 1️⃣2️⃣3️⃣...8️⃣9️⃣🔟  |
+| 3rd page                                 | 1️⃣2️⃣3️⃣4️⃣...9️⃣🔟  |
+| 3rd page from last page                  | 1️⃣2️⃣...7️⃣8️⃣9️⃣🔟  |
+| more than 3 from the first and last page | 1️⃣...4️⃣5️⃣6️⃣...🔟 |
 
 For an example see the [pagination demos in the Origami registry](https://registry.origami.ft.com/components/o3-button@6.0.19#demo-pagination-layout).
 

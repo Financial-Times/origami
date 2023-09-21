@@ -4,7 +4,8 @@ import {
 	ButtonProps,
 	LinkButtonProps,
 } from '../src/tsx/button';
-import {ButtonGroup, ButtonGroupProps} from '../src/tsx/group';
+
+import {ButtonGroup} from '../src/tsx/group';
 
 type ButtonArgTypes = {
 	args: ButtonProps;
@@ -26,26 +27,10 @@ const LinkButtonTemplate = {
 };
 
 const ButtonGroupTemplate = {
-	render: (args: ButtonGroupProps) => {
-		const buttons = args?.children
-			? args.children
-			: [
-					{
-						label: 'button one',
-						type: 'secondary',
-					},
-					{
-						label: 'button two',
-						type: 'secondary',
-					},
-					{
-						label: 'button three',
-						type: 'secondary',
-					},
-			  ];
+	render: args => {
 		return (
 			<ButtonGroup>
-				{buttons.map((buttonProps, index) => (
+				{args.buttons.map((buttonProps, index) => (
 					<Button {...buttonProps} key={index} />
 				))}
 			</ButtonGroup>
@@ -134,9 +119,25 @@ export const LinkAsButton: {args: LinkButtonProps} = {
 	},
 };
 
-export const GroupedButtons: {args: ButtonGroupProps} = {
+export const GroupedButtons = {
 	...ButtonGroupTemplate,
 	args: {
-		children: null,
+		buttons: [
+			{
+				label: 'button one',
+				type: 'secondary',
+			},
+			{
+				label: 'button two',
+				type: 'secondary',
+			},
+			{
+				label: 'button three',
+				type: 'secondary',
+			},
+		],
+	},
+	parameters: {
+		controls: {include: ['buttons']},
 	},
 };
