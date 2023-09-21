@@ -1,28 +1,35 @@
 @import '@financial-times/o3-web-token/icons/_variables.css';
 
 @font-face {
-	src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2')
-		format('woff2');
-	font-family: 'Metric2-VF';
-	font-weight: 600;
+	src: url("https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2") format("woff2");
+	font-family: "Metric2-VF";
+	font-weight: 450;
 	font-style: normal;
 	font-display: swap;
 }
 
 .o3-button {
+	--_o3-button-font-size: var(--o3-font-size-negative-2);
+	--_o3-button-lineheight: var(--o3-font-lineheight-negative-2);
+
+	--_o3-button-inline-padding: var(--o3-spacing-2xs);
+	--_o3-button-block-padding: var(--o3-spacing-3xs);
+
 	--_o3-button-border-size: 1px;
-	--_o3-icon-size: 20px;
+	--_o3-icon-size: 1.25rem;
+
 	min-width: var(--_o3-button-min-width, 60px);
 	min-height: var(--_o3-button-min-height, 28px);
-	padding: 6px 8px;
+	padding: var(--_o3-button-block-padding) var(--_o3-button-inline-padding);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	box-sizing: border-box;
 	vertical-align: middle;
-	line-height: 14px;
-	font-weight: 600;
-	font-family: 'Metric2-VF', sans-serif;
+	font-size: var(--_o3-button-font-size);
+	line-height: var(--_o3-button-lineheight);
+	font-weight: 450;
+	font-family: "Metric2-VF", sans-serif;
 	border: var(--_o3-button-border-size) solid transparent;
 	text-align: center;
 	text-decoration: none;
@@ -31,6 +38,7 @@
 		0.15s border-color ease-out;
 	appearance: none;
 }
+
 .o3-button[disabled] {
 	pointer-events: none;
 	opacity: 0.4;
@@ -301,51 +309,47 @@
 .o3-button.o3-button--big {
 	--_o3-button-min-width: 80px;
 	--_o3-button-min-height: 40px;
-	font-size: var(--o3-font-size-0);
-	line-height: var(--o3-font-lineheight-negative-1);
-	padding: var(--o3-spacing-xs) 20px;
+
+	--_o3-icon-size: var(--_o3-button-min-height);
+
+	--_o3-button-inline-padding: var(--o3-spacing-s);
+	--_o3-button-block-padding: var(--o3-spacing-2xs);
+
+	--_o3-button-font-size: var(--o3-font-size-negative-1);
+	--_o3-button-lineheight: var(--o3-font-lineheight-negative-1);
 }
 
 /* PAGINATION */
 
 .o3-button-pagination {
 	display: flex;
+	gap: var(--o3-spacing-3xs);
 }
-.o3-button-pagination > .o3-button {
-	padding-left: var(--o3-spacing-3xs);
-	padding-right: var(--o3-spacing-3xs);
-	min-width: 24px;
+
+.o3-button-pagination,
+.o3-button-pagination > .o3-button,
+.o3-button-pagination > .o3-button.o3-button-icon--icon-only {
+	--_o3-button-min-width: 24px;
 }
+
+.o3-button-pagination--big,
+.o3-button-pagination--big > .o3-button.o3-button--big,
+.o3-button-pagination--big > .o3-button.o3-button-icon--icon-only {
+	--_o3-button-min-width: 36px;
+}
+
+.o3-button-pagination__ellipsis {
+	font-size: var(--o3-font-size-1);
+	text-align: center;
+	min-width: var(--_o3-button-min-width);
+}
+
+.o3-button-pagination--big .o3-button-pagination__ellipsis {
+	font-size: var(--o3-font-size-3);
+}
+
 .o3-button-pagination > .o3-button[disabled] {
 	visibility: hidden;
-}
-.o3-button-pagination > .o3-button--big {
-	padding-left: var(--o3-spacing-2xs);
-	padding-right: var(--o3-spacing-2xs);
-	min-width: 36px;
-}
-.o3-button-pagination > .o3-button-pagination__ellipsis {
-	font-size: var(--o3-font-size-1);
-	line-height: var(--o3-font-lineheight-0);
-	display: inline-block;
-	text-align: center;
-	min-width: 24px;
-}
-
-.o3-button-pagination > .o3-button-pagination__ellipsis--big {
-	font-size: var(--o3-font-size-3);
-	line-height: var(--o3-font-lineheight-3);
-	min-width: 36px;
-}
-
-.o3-button-pagination > .o3-button {
-	margin: 0 0 0 var(--o3-spacing-3xs);
-}
-
-.o3-button-pagination > .o3-button--big {
-	padding-left: var(--o3-spacing-2xs);
-	padding-right: var(--o3-spacing-2xs);
-	min-width: 36px;
 }
 
 /* Grouped buttons */
@@ -362,6 +366,7 @@
 /* BUTTON ICON  */
 
 .o3-button-icon::before {
+	--_o3-button-negative-icon-offset: calc(var(--_o3-icon-size) / -4);
 	content: '';
 	width: var(--_o3-icon-size);
 	height: var(--_o3-icon-size);
@@ -370,17 +375,17 @@
 	mask-size: contain;
 	display: inline-block;
 	background-color: currentColor;
-	margin: -5.25px; /* to offset icon spacing */
-	padding-right: 6px;
+	margin: var(--_o3-button-negative-icon-offset);
+}
+
+.o3-button-icon:not(.o3-button-icon--icon-only)::before {
+	margin-right: calc(var(--_o3-button-negative-icon-offset, 0) + var(--o3-spacing-2xs));
 }
 
 .o3-button-icon.o3-button-icon--icon-only {
 	--_o3-button-min-width: 40px;
-}
-
-.o3-button-icon.o3-button-icon--icon-only::before {
-	padding-right: 0;
-	padding-left: 0;
+	--_o3-button-inline-padding: 0;
+	--_o3-button-block-padding: 0;
 }
 
 .o3-button-icon__label {

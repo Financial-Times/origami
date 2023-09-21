@@ -20,13 +20,15 @@ export interface ButtonPaginationPager {
 	onClick?: any;
 }
 
-const Ellipsis = ({size}: Pick<ButtonProps, 'size'>) => {
+const Ellipsis = () => {
 	let classNames = 'o3-button-pagination__ellipsis';
-	if (size === 'big') {
-		classNames += ' o3-button-pagination__ellipsis--big';
-	}
-	return <span className={classNames}>...</span>;
-};
+	return (
+	<span
+		className={classNames}>
+		...
+	</span>
+)};
+
 
 function splitPages(pages, currentPage) {
 	const nextPage = currentPage.number + 1;
@@ -127,9 +129,14 @@ export function ButtonPagination({
 			);
 		})
 	);
+	const classNames = ['o3-button-pagination'];
+	if (size === 'big') {
+		classNames.push(' o3-button-pagination--big');
+	}
 
 	return (
-		<div className="o3-button-pagination">
+
+		<div className={classNames.join(' ')}>
 			<PreviousTag
 				attributes={
 					firstPageIsSelected
@@ -146,9 +153,7 @@ export function ButtonPagination({
 			{pageElementsInGroups.flatMap((pageElementGroup, pageGroupIndex) => {
 				const elementGroup = [];
 				if (pageGroupIndex > 0) {
-					elementGroup.push(
-						<Ellipsis size={size} key={pageGroupIndex}></Ellipsis>
-					);
+					elementGroup.push(<Ellipsis key={pageGroupIndex}></Ellipsis>);
 				}
 				elementGroup.push(pageElementGroup);
 				return elementGroup;

@@ -12,26 +12,6 @@ o3-button provides CSS custom properties and styling to create buttons.
 ## Usage
 
 Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o3-button`.
-
-Buttons allow users to interact with the page or product. Each page or product area (a form, modal, within an article) should not have more than 1 primary button, any remaining CTA's should be displayed as secondary or ghost buttons.
-
-Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:
-
-- Dialogs
-- Modal windows
-- Forms
-- Cards
-- Toolbars
-
-### When not to use
-
-If an action a user takes is navigational, e.g. going back, a button should not be used.
-
-### Accessibility
-
-- **It is advisable to use colour combinations provided by the implementation.** These combinations are ensured to comply with WCAG AA requirements. When customising colours, refer to [colour guidelines](https://www.w3.org/TR/WCAG21/#non-text-contrast) to ensure accessibility.
-- In most cases, prefer using normal size buttons over small buttons. Default sized buttons are easier for users to notice and press.
-
 ## Markup
 
 There are three types of buttons, primary, secondary, and ghost.
