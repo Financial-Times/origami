@@ -1,16 +1,52 @@
 {
   "icons": {
     "ft-icon": {
-      "chevron-left": {
-        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" fill=\"none\">\n  <path d=\"M23.5758 29.7437L25.9899 27.3297L18.7477 20.0875L25.9899 12.8453L23.5758 10.4312L13.9196 20.0875L23.5758 29.7437Z\" fill=\"black\"/>\n</svg>",
+      "arrow-left": {
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M16 4L8 12L16 20\" stroke=\"black\" stroke-width=\"2\"/>\n</svg>",
         "type": "asset"
       },
-      "chevron-right": {
-        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" fill=\"none\">\n  <path d=\"M16.3336 10.3313L13.9196 12.7453L21.1617 19.9875L13.9196 27.2297L16.3336 29.6438L25.9899 19.9875L16.3336 10.3313Z\" fill=\"black\"/>\n</svg>",
+      "arrow-right": {
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M8 4L16 12L8 20\" stroke=\"black\" stroke-width=\"2\"/>\n</svg>",
+        "type": "asset"
+      },
+      "arrow-down": {
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M20 8L12 16L4 8\" stroke=\"black\" stroke-width=\"2\"/>\n</svg>",
+        "type": "asset"
+      },
+      "arrow-up": {
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M20 16L12 8L4 16\" stroke=\"black\" stroke-width=\"2\"/>\n</svg>",
         "type": "asset"
       },
       "cross": {
-        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" fill=\"none\">\n  <path d=\"M27.2297 29.6438L29.6438 27.2297L22.4016 19.9875L29.6438 12.7453L27.2297 10.3313L19.9875 17.5734L12.7454 10.3313L10.3313 12.7453L17.5735 19.9875L10.3313 27.2297L12.7454 29.6438L19.9875 22.4016L27.2297 29.6438Z\" fill=\"black\"/>\n</svg>",
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M4.92893 17.6569L6.34315 19.0711L12 13.4142L17.6569 19.0711L19.0711 17.6569L13.4142 12L19.0711 6.34315L17.6569 4.92893L12 10.5858L6.34315 4.92894L4.92893 6.34315L10.5858 12L4.92893 17.6569Z\" fill=\"black\"/>\n</svg>",
+        "type": "asset"
+      },
+      "download": {
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11 4V13.4962L8.6585 11.4474L7.3415 12.9526L11.3415 16.4526L12 17.0288L12.6585 16.4526L16.6585 12.9526L15.3415 11.4474L13 13.4962V4H11ZM4 19V21H20V19H4Z\" fill=\"black\"/>\n</svg>",
+        "type": "asset"
+      },
+      "grid": {
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M11 5H5V11H11V5Z\" fill=\"black\"/>\n  <path d=\"M19 5H13V11H19V5Z\" fill=\"black\"/>\n  <path d=\"M5 13H11V19H5V13Z\" fill=\"black\"/>\n  <path d=\"M19 13H13V19H19V13Z\" fill=\"black\"/>\n</svg>",
+        "type": "asset"
+      },
+      "list": {
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M4 7H6V9H4V7Z\" fill=\"black\"/>\n  <path d=\"M20 7H8V9H20V7Z\" fill=\"black\"/>\n  <path d=\"M6 11H4V13H6V11Z\" fill=\"black\"/>\n  <path d=\"M4 15H6V17H4V15Z\" fill=\"black\"/>\n  <path d=\"M8 11H20V13H8V11Z\" fill=\"black\"/>\n  <path d=\"M20 15H8V17H20V15Z\" fill=\"black\"/>\n</svg>",
+        "type": "asset"
+      },
+      "plus": {
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M11 13V20H13V13H20V11H13V4H11V11H4V13H11Z\" fill=\"black\"/>\n</svg>",
+        "type": "asset"
+      },
+      "search": {
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C11.2958 16 12.4957 15.5892 13.4765 14.8907L18.2929 19.7071L19.7071 18.2929L14.8907 13.4765C15.5892 12.4957 16 11.2958 16 10C16 6.68629 13.3137 4 10 4ZM6 10C6 7.79086 7.79086 6 10 6C12.2091 6 14 7.79086 14 10C14 12.2091 12.2091 14 10 14C7.79086 14 6 12.2091 6 10Z\" fill=\"black\"/>\n</svg>",
+        "type": "asset"
+      },
+      "tick": {
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M4 13L8 17L19 6\" stroke=\"black\" stroke-width=\"2\"/>\n</svg>",
+        "type": "asset"
+      },
+      "upload": {
+        "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M13 17V7.50377L15.3415 9.55257L16.6585 8.04742L12.6585 4.54742L12 3.97123L11.3415 4.54742L7.3415 8.04742L8.6585 9.55257L11 7.50377V17H13ZM4 19V21H20V19H4Z\" fill=\"black\"/>\n</svg>",
         "type": "asset"
       }
     },
