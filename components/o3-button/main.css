@@ -420,12 +420,7 @@
 .o3-button-icon.o3-button-icon--plus::before {
 	--o3-button-icon: var(--icons-ft-icon-plus);
 }
-.o3-button-icon.o3-button-icon--list::before {
-	--o3-button-icon: var(--icons-ft-icon-list);
-}
-.o3-button-icon.o3-button-icon--grid::before {
-	--o3-button-icon: var(--icons-ft-icon-grid);
-}
+
 .o3-button-icon.o3-button-icon--download::before {
 	--o3-button-icon: var(--icons-ft-icon-download);
 }

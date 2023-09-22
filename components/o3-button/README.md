@@ -2,16 +2,28 @@
 
 o3-button provides CSS custom properties and styling to create buttons.
 
-- [Usage](#usage)
-- [Markup](#markup)
-- [References](#references)
-- [Migration](#migration)
-- [Contact](#contact)
-- [Licence](#licence)
+- [o3-button](#o3-button)
+	- [Usage](#usage)
+	- [Markup](#markup)
+		- [Themes](#themes)
+		- [Sizes](#sizes)
+		- [Icons](#icons)
+		- [Groups](#groups)
+		- [Pagination](#pagination)
+			- [Pagination Rules](#pagination-rules)
+			- [Pagination Theme](#pagination-theme)
+			- [Pagination Size](#pagination-size)
+		- [Disabled](#disabled)
+		- [Custom Themes](#custom-themes)
+	- [References](#references)
+	- [Migration](#migration)
+	- [Contact](#contact)
+	- [Licence](#licence)
 
 ## Usage
 
 Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o3-button`.
+
 ## Markup
 
 There are three types of buttons, primary, secondary, and ghost.
@@ -36,17 +48,15 @@ The copy inside buttons should be concise and confirm the action a user is takin
 
 A theme may be applied to a button to change its appearance. o3-button provides some themes by default:
 
-| Theme                | Selector                         | Works With Types          | Brand Support  |
+| Theme                | Selector                         | Works With Types          | Brand/sub-brand Support  |
 | -------------------- | -------------------------------- | ------------------------- | -------------- |
-| inverse              | .o3-button--inverse              | primary, secondary, ghost | core, internal |
-| mono                 | .o3-button--mono                 | primary, secondary, ghost | core, internal |
-| professional         | .o3-button--professional         | primary, secondary, ghost | core           |
-| professional-inverse | .o3-button--professional-inverse | primary, secondary, ghost | core           |
+| inverse              | .o3-button--inverse              | primary, secondary, ghost | core, professional, internal |
+| mono                 | .o3-button--mono                 | primary, secondary, ghost | core, professional, internal |
 
 ```html
 <button class="o3-button o3-button--primary o3-button--inverse">Submit</button>
 <button class="o3-button o3-button--secondary o3-button--inverse">
-	Cancel
+ Cancel
 </button>
 ```
 
@@ -72,8 +82,6 @@ A limited number of button icons are available. Limiting the number of icons kee
 - warning
 - arrow-down
 - arrow-up
-- grid
-- list
 - edit
 - download
 - search
@@ -82,14 +90,14 @@ A limited number of button icons are available. Limiting the number of icons kee
 
 ```html
 <button
-	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down"
+ class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down"
 >
-	Down Arrow
+ Down Arrow
 </button>
 <button
-	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--download"
+ class="o3-button o3-button--secondary o3-button-icon o3-button-icon--download"
 >
-	Download
+ Download
 </button>
 ```
 
@@ -97,10 +105,18 @@ If you would like your button to display only an icon, add the class `o3-button-
 
 ```html
 <button
-	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down o3-button-icon--icon-only"
+ class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down o3-button-icon--icon-only"
 >
-	<span class="o3-button-icon__label"> Down Arrow </span>
+ <span class="o3-button-icon__label"> Down Arrow </span>
 </button>
+```
+
+If you want to use icons not in the o3-button supported icons list talk to Origami team and we will direct you to existing icon or help you to adopt the new icon. But if you are sure this icon is not in UI library and just want to use your custom icon you can use the `--o3-button-icon` custom property. An example of using custom icons will be something like this:
+
+```css
+.o3-button..o3-button-icon::before {
+ --o3-button-icon: url("data:image/svg+xml,[ENCODED_SVG_STRING]");
+}
 ```
 
 ### Groups
@@ -109,11 +125,11 @@ Wrap buttons in a container with `.o3-button-group` to group them together:
 
 ```html
 <div class="o3-button-group">
-	<button class="o3-button o3-button--secondary" aria-selected="true">
-		One
-	</button>
-	<button class="o3-button o3-button--secondary">Two</button>
-	<button class="o3-button o3-button--secondary">Three</button>
+ <button class="o3-button o3-button--secondary" aria-selected="true">
+  One
+ </button>
+ <button class="o3-button o3-button--secondary">Two</button>
+ <button class="o3-button o3-button--secondary">Three</button>
 </div>
 ```
 
@@ -125,27 +141,27 @@ The following markup example shows pagination for 20 pages, where the 14th page 
 
 ```html
 <div class="o3-button-pagination">
-	<a
-		href="#"
-		class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
-	>
-		<span class="o3-button-icon__label">Previous results</span>
-	</a>
+ <a
+  href="#"
+  class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
+ >
+  <span class="o3-button-icon__label">Previous results</span>
+ </a>
 
-	<a href="#" class="o3-button o3-button--secondary">1</a>
-	<span class="o3-button-pagination__ellipsis">...</span>
-	<a href="#" class="o3-button o3-button--secondary">13</a>
-	<a href="#" class="o3-button o3-button--secondary" aria-current="page">14</a>
-	<a href="#" class="o3-button o3-button--secondary">15</a>
-	<span class="o3-button-pagination__ellipsis">...</span>
-	<a href="#" class="o3-button o3-button--secondary">20</a>
+ <a href="#" class="o3-button o3-button--secondary">1</a>
+ <span class="o3-button-pagination__ellipsis">...</span>
+ <a href="#" class="o3-button o3-button--secondary">13</a>
+ <a href="#" class="o3-button o3-button--secondary" aria-current="page">14</a>
+ <a href="#" class="o3-button o3-button--secondary">15</a>
+ <span class="o3-button-pagination__ellipsis">...</span>
+ <a href="#" class="o3-button o3-button--secondary">20</a>
 
-	<a
-		href="#"
-		class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
-	>
-		<span class="o3-button-icon__label">Next results</span>
-	</a>
+ <a
+  href="#"
+  class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
+ >
+  <span class="o3-button-icon__label">Next results</span>
+ </a>
 </div>
 ```
 
@@ -175,36 +191,36 @@ Big buttons may also be used in a pagination style. Add the `o3-button--big` mod
 
 ```html
 <div class="o3-button-pagination">
-	<a
-		href="#"
-		class="o3-button o3-button--big o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
-		disabled
-	>
-		<span class="o3-button-icon__label">Previous results</span>
-	</a>
+ <a
+  href="#"
+  class="o3-button o3-button--big o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
+  disabled
+ >
+  <span class="o3-button-icon__label">Previous results</span>
+ </a>
 
-	<a
-		href="#"
-		class="o3-button o3-button--big o3-button--secondary"
-		aria-current="page"
-		>1</a
-	>
-	<a href="#" class="o3-button o3-button--big o3-button--secondary">2</a>
-	<a href="#" class="o3-button o3-button--big o3-button--secondary">3</a>
-	<span
-		class="o3-button-pagination__ellipsis o3-button-pagination__ellipsis--big"
-		>...</span
-	>
-	<a href="#" class="o3-button o3-button--big o3-button--secondary">18</a>
-	<a href="#" class="o3-button o3-button--big o3-button--secondary">19</a>
-	<a href="#" class="o3-button o3-button--big o3-button--secondary">20</a>
+ <a
+  href="#"
+  class="o3-button o3-button--big o3-button--secondary"
+  aria-current="page"
+  >1</a
+ >
+ <a href="#" class="o3-button o3-button--big o3-button--secondary">2</a>
+ <a href="#" class="o3-button o3-button--big o3-button--secondary">3</a>
+ <span
+  class="o3-button-pagination__ellipsis o3-button-pagination__ellipsis--big"
+  >...</span
+ >
+ <a href="#" class="o3-button o3-button--big o3-button--secondary">18</a>
+ <a href="#" class="o3-button o3-button--big o3-button--secondary">19</a>
+ <a href="#" class="o3-button o3-button--big o3-button--secondary">20</a>
 
-	<a
-		href="#"
-		class="o3-button o3-button--big o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
-	>
-		<span class="o3-button-icon__label">Next results</span>
-	</a>
+ <a
+  href="#"
+  class="o3-button o3-button--big o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
+ >
+  <span class="o3-button-icon__label">Next results</span>
+ </a>
 </div>
 ```
 
