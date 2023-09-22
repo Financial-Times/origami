@@ -57,62 +57,6 @@
               "type": "color"
             }
           }
-        },
-        "inverse": {
-          "color": {
-            "value": "#000000",
-            "type": "color"
-          },
-          "background": {
-            "value": "#ffffff",
-            "type": "color"
-          },
-          "border": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "hover": {
-            "background": {
-              "value": "#cccccc",
-              "type": "color"
-            },
-            "color": {
-              "value": "#000000",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "focus": {
-            "background": {
-              "value": "#cccccc",
-              "type": "color"
-            },
-            "color": {
-              "value": "#000000",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "active": {
-            "background": {
-              "value": "#a6a6a6",
-              "type": "color"
-            },
-            "color": {
-              "value": "#000000",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          }
         }
       },
       "secondary": {
@@ -171,62 +115,6 @@
               "type": "color"
             }
           }
-        },
-        "inverse": {
-          "color": {
-            "value": "#ffffff",
-            "type": "color"
-          },
-          "background": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "border": {
-            "value": "#ffffff",
-            "type": "color"
-          },
-          "hover": {
-            "background": {
-              "value": "rgba(255, 255, 255, 0.15)",
-              "type": "color"
-            },
-            "color": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff",
-              "type": "color"
-            }
-          },
-          "focus": {
-            "background": {
-              "value": "rgba(255, 255, 255, 0.15)",
-              "type": "color"
-            },
-            "color": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff",
-              "type": "color"
-            }
-          },
-          "active": {
-            "background": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "color": {
-              "value": "#000000",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff",
-              "type": "color"
-            }
-          }
         }
       },
       "ghost": {
@@ -281,62 +169,6 @@
               "type": "color"
             },
             "active": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          }
-        },
-        "inverse": {
-          "color": {
-            "value": "#ffffff",
-            "type": "color"
-          },
-          "background": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "border": {
-            "value": "#ffffff00",
-            "type": "color"
-          },
-          "hover": {
-            "background": {
-              "value": "rgba(255, 255, 255, 0.15)",
-              "type": "color"
-            },
-            "color": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "focus": {
-            "background": {
-              "value": "rgba(255, 255, 255, 0.15)",
-              "type": "color"
-            },
-            "color": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "border": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          },
-          "active": {
-            "background": {
-              "value": "#ffffff",
-              "type": "color"
-            },
-            "color": {
-              "value": "#000000",
-              "type": "color"
-            },
-            "border": {
               "value": "#ffffff00",
               "type": "color"
             }
