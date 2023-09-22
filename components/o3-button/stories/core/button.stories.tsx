@@ -1,7 +1,7 @@
 import {Button} from '../../src/tsx/button';
-import * as ButtonStories from '../storyTemplates';
-import {Pagination as PaginationTemplate} from '../paginationTemplate';
-import '../button.css';
+import * as ButtonStories from '../story-templates';
+import {Pagination as PaginationTemplate} from '../pagination-template';
+import '../../core.css';
 
 export default {
 	title: 'Core/o3-button',

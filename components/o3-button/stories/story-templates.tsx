@@ -5,8 +5,9 @@ import {
 	ButtonProps,
 	LinkButtonProps,
 } from '../src/tsx/button';
-
 import {ButtonGroup} from '../src/tsx/group';
+
+import {TemplateSBConfig} from './sb-story-config';
 
 type ButtonStory = Omit<StoryObj, 'args'> & {
 	args: ButtonProps;
@@ -22,35 +23,6 @@ type ButtonGroupStory = Omit<StoryObj, 'args'> & {
 
 export type TemplateType = StoryObj & {
 	render: (args) => JSX.Element;
-};
-
-export const TemplateSBConfig = {
-	argTypes: {
-		theme: {
-			control: {
-				type: 'radio',
-				labels: {
-					inverse: 'Inverse',
-					mono: 'Mono',
-					standard: 'Standard',
-				},
-			},
-			options: ['inverse', 'mono', 'standard'],
-		},
-		size: {
-			control: {
-				type: 'radio',
-				labels: {
-					big: 'Big',
-					standard: 'Standard',
-				},
-			},
-			options: ['big', 'standard'],
-		},
-	},
-	parameters: {
-		controls: {exclude: ['attributes', 'onClick']},
-	},
 };
 
 const ButtonTemplate: TemplateType = {

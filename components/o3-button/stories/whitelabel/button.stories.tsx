@@ -1,8 +1,8 @@
 import {Button} from '../../src/tsx/button';
-import * as ButtonStories from '../storyTemplates';
-import {Pagination as PaginationTemplate} from '../paginationTemplate';
+import * as ButtonStories from '../story-templates';
+import {Pagination as PaginationTemplate} from '../pagination-template';
 
-import '../button.css';
+import '../../whitelabel.css';
 
 export default {
 	title: 'Whitelabel/o3-button',
