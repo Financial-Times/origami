@@ -1,4 +1,5 @@
-import {Button} from '../../src/tsx/button';
+import type {Meta} from '@storybook/react';
+import {Button as ButtonTsx} from '../../src/tsx/button';
 import * as ButtonStories from '../story-templates';
 import {Pagination as PaginationTemplate} from '../pagination-template';
 
@@ -6,7 +7,7 @@ import '../../whitelabel.css';
 
 export default {
 	title: 'Whitelabel/o3-button',
-	component: Button,
+	component: ButtonTsx,
 	decorators: [
 		Story => (
 			<div className="o-brand-whitelabel">
@@ -15,16 +16,12 @@ export default {
 		),
 	],
 	args: {},
-};
+	parameters: {
+		controls: {include: ['label', 'type', 'size', 'icon', 'iconOnly']},
+	},
+} as Meta;
 
-export const PrimaryButton = ButtonStories.PrimaryButton;
-export const SecondaryButton = ButtonStories.SecondaryButton;
-export const GhostButton = ButtonStories.GhostButton;
-export const BigButton = ButtonStories.BigButton;
-export const InverseButton = ButtonStories.InverseButton;
-export const MonoButton = ButtonStories.MonoButton;
-export const ButtonWithIconOnly = ButtonStories.IconOnlyButton;
-export const ButtonWithIcon = ButtonStories.ButtonWithIcon;
+export const Button = ButtonStories.Button;
 export const LinkAsButton = ButtonStories.LinkAsButton;
 export const GroupedButtons = ButtonStories.GroupedButtons;
 export const Pagination = PaginationTemplate;

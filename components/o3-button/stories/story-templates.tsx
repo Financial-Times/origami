@@ -1,6 +1,6 @@
 import type {StoryObj} from '@storybook/react';
 import {
-	Button,
+	Button as ButtonTsx,
 	LinkButton,
 	ButtonProps,
 	LinkButtonProps,
@@ -28,7 +28,7 @@ export type TemplateType = StoryObj & {
 const ButtonTemplate: TemplateType = {
 	...TemplateSBConfig,
 	render: args => {
-		return <Button {...args} />;
+		return <ButtonTsx {...args} />;
 	},
 };
 
@@ -45,82 +45,18 @@ const ButtonGroupTemplate: TemplateType = {
 		return (
 			<ButtonGroup>
 				{args.buttons.map((buttonProps, index) => (
-					<Button {...buttonProps} key={index} />
+					<ButtonTsx {...buttonProps} key={index} />
 				))}
 			</ButtonGroup>
 		);
 	},
 };
 
-export const PrimaryButton: ButtonStory = {
+export const Button: ButtonStory = {
 	...ButtonTemplate,
 	args: {
 		label: 'Press button',
 		type: 'primary',
-	},
-};
-export const SecondaryButton: ButtonStory = {
-	...ButtonTemplate,
-	args: {
-		label: 'Press button',
-		type: 'secondary',
-	},
-};
-
-export const GhostButton: ButtonStory = {
-	...ButtonTemplate,
-	args: {
-		label: 'Press button',
-		type: 'ghost',
-	},
-};
-
-export const BigButton: ButtonStory = {
-	...ButtonTemplate,
-	args: {
-		label: 'Press button',
-		type: 'secondary',
-		size: 'big',
-	},
-};
-
-export const InverseButton: ButtonStory = {
-	...ButtonTemplate,
-	args: {
-		label: 'Press button',
-		type: 'secondary',
-		theme: 'inverse',
-	},
-	parameters: {
-		origamiBackground: 'slate',
-	},
-};
-
-export const MonoButton: ButtonStory = {
-	...ButtonTemplate,
-	args: {
-		label: 'Press button',
-		type: 'secondary',
-		theme: 'mono',
-	},
-};
-
-export const ButtonWithIcon: ButtonStory = {
-	...ButtonTemplate,
-	args: {
-		label: 'Cross',
-		type: 'secondary',
-		icon: 'cross',
-	},
-};
-
-export const IconOnlyButton: ButtonStory = {
-	...ButtonTemplate,
-	args: {
-		label: 'Cross',
-		type: 'secondary',
-		icon: 'cross',
-		iconOnly: true,
 	},
 };
 
