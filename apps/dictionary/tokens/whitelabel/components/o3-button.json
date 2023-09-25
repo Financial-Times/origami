@@ -60,7 +60,7 @@
         },
         "inverse": {
           "color": {
-            "value": "#ffffff",
+            "value": "#000000",
             "type": "color"
           },
           "background": {
@@ -219,7 +219,7 @@
               "type": "color"
             },
             "color": {
-              "value": "#ffffff",
+              "value": "#000000",
               "type": "color"
             },
             "border": {
