@@ -1,7 +1,6 @@
 import StyleDictionaryPackage from "style-dictionary"
 import {brandClasses} from "../formatters/css/brand-classes.js"
 import {nameOrigamiPrivatePrefix} from "../transforms/nameOrigamiPrefix.js"
-import {registerTransforms} from "@tokens-studio/sd-transforms"
 import {tokenStudioThemes, ConfigBuilder} from "./utils.js"
 
 StyleDictionaryPackage.registerFormat({
@@ -36,18 +35,7 @@ function buildComponentTokens() {
 		"tokens/utility-tokens.json",
 	]
 
-	const transformers = [
-		"ts/size/px",
-		"ts/descriptionToComment",
-		"ts/typography/css/shorthand",
-		"ts/border/css/shorthand",
-		"ts/shadow/css/shorthand",
-		"ts/color/css/hexrgba",
-		"ts/color/modifiers",
-		"name/cti/kebab",
-		"value/transformAssetUrls",
-		"name/origamiPrivatePrefix",
-	]
+	const transformers = ["value/transformAssetUrls", "name/origamiPrivatePrefix"]
 
 	const filesConfig = [
 		{
@@ -81,10 +69,4 @@ function buildComponentTokens() {
 			.buildDictionary()
 	})
 }
-
-registerTransforms(StyleDictionaryPackage, {
-	expand: {
-		typography: true,
-	},
-})
 buildComponentTokens()

@@ -1,21 +1,21 @@
 import type {Meta} from '@storybook/react';
-import {Button as ButtonTsx} from '../../src/tsx/button';
-import * as ButtonStories from '../story-templates';
-import {Pagination as PaginationTemplate} from '../pagination-template';
+import {Button as ButtonTsx} from '../../../src/tsx/button';
+import * as ButtonStories from '../../story-templates';
+import {Pagination as PaginationTemplate} from '../../pagination-template';
 
-import '../../internal.css';
+import '../../../professional.css';
 
 export default {
-	title: 'Internal/o3-button',
+	title: 'Core/Professional/o3-button',
 	component: ButtonTsx,
 	decorators: [
 		Story => (
-			<div className="o-brand-internal">
+			<div className="o-brand-professional">
 				<Story />
 			</div>
 		),
 	],
-	args: {},
+	args: {}
 } as Meta;
 
 export const Button = ButtonStories.Button;

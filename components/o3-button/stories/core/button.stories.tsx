@@ -1,24 +1,23 @@
-import { Button } from "../../src/tsx/buttons";
-import "../button.css";
+import type {Meta} from '@storybook/react';
+import {Button as ButtonTsx} from '../../src/tsx/button';
+import * as ButtonStories from '../story-templates';
+import {Pagination as PaginationTemplate} from '../pagination-template';
+import '../../core.css';
 
 export default {
-	title: "Core/o3-button",
-	component: Button,
-	args: {
-	},
-};
+	title: 'Core/o3-button',
+	component: ButtonTsx,
+	decorators: [
+		Story => (
+			<div className="o-brand-core">
+				<Story />
+			</div>
+		),
+	],
+	args: {}
+} as Meta;
 
-const ButtonStory = args => (<div className='o-brand-core'><Button {...args} /></div>);
-
-export const PrimaryButton = ButtonStory.bind({});
-PrimaryButton.args = {
-	label: "Press button",
-	type: "primary",
-};
-
-
-export const SecondaryButton = ButtonStory.bind({});
-SecondaryButton.args = {
-	label: "Press button",
-	type: "secondary",
-};
+export const Button = ButtonStories.Button;
+export const LinkAsButton = ButtonStories.LinkAsButton;
+export const GroupedButtons = ButtonStories.GroupedButtons;
+export const Pagination = PaginationTemplate;

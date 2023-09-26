@@ -1,34 +1,55 @@
-@import '~@financial-times/o3-web-token/icons/_variables.css';
+@import '@financial-times/o3-web-token/icons/_variables.css';
+
+@font-face {
+	src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2')
+		format('woff2');
+	font-family: 'Metric2-VF';
+	font-weight: 450;
+	font-style: normal;
+	font-display: swap;
+}
 
 .o3-button {
-	min-height: 28px;
-	min-width: 60px;
-	padding: 6px 8px;
+	--_o3-button-font-size: var(--o3-font-size-negative-2);
+	--_o3-button-lineheight: var(--o3-font-lineheight-negative-2);
+
+	--_o3-button-block-padding: var(--o3-spacing-3xs);
+	--_o3-button-inline-padding: var(--o3-spacing-2xs);
+
+	--_o3-button-min-height: 28px;
+	--_o3-button-min-width: 60px;
+	--_o3-button-border-size: 1px;
+	--_o3-icon-size: calc(var(--_o3-button-min-height) - (var(--_o3-button-block-padding) * 2));
+
+	min-width: var(--_o3-button-min-width);
+	min-height: var(--_o3-button-min-height);
+	padding: 0 var(--_o3-button-inline-padding);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	box-sizing: border-box;
 	vertical-align: middle;
-	line-height: 14px;
-	font-weight: 600;
-	margin: 0;
-	border: 1px solid transparent;
+	font-size: var(--_o3-button-font-size);
+	line-height: var(--_o3-button-lineheight);
+	font-weight: 450;
+	font-family: 'Metric2-VF', sans-serif;
+	border: var(--_o3-button-border-size) solid transparent;
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
 	transition: 0.3s background-color, 0.15s color ease-out,
 		0.15s border-color ease-out;
-	background-clip: border-box;
-	border-width: 1px;
-	border-radius: 0;
+	appearance: none;
 }
+
 .o3-button[disabled] {
 	pointer-events: none;
 	opacity: 0.4;
 	cursor: default;
 }
 
-/* PRIMARY BUTTON STYLES */
+/* PRIMARY */
+
 .o3-button.o3-button--primary {
 	color: var(--_o3-button-primary-standard-color);
 	background-color: var(--_o3-button-primary-standard-background);
@@ -47,13 +68,73 @@
 	border-color: var(--_o3-button-primary-standard-focus-border);
 }
 
-.o3-button.o3-button--primary:active {
+.o3-button.o3-button--primary:active,
+.o3-button--primary[aria-selected='true'],
+.o3-button--primary[aria-current],
+.o3-button--primary[aria-pressed='true'] {
 	color: var(--_o3-button-primary-standard-active-color);
 	background-color: var(--_o3-button-primary-standard-active-background);
 	border-color: var(--_o3-button-primary-standard-active-border);
 }
 
-/* SECONDARY BUTTON STYLES */
+/* PRIMARY INVERSE BUTTON STYLES */
+.o3-button.o3-button--primary.o3-button--inverse {
+	color: var(--_o3-button-primary-inverse-color);
+	background-color: var(--_o3-button-primary-inverse-background);
+	border-color: var(--_o3-button-primary-inverse-border);
+}
+
+.o3-button.o3-button--primary.o3-button--inverse:hover {
+	color: var(--_o3-button-primary-inverse-hover-color);
+	background-color: var(--_o3-button-primary-inverse-hover-background);
+	border-color: var(--_o3-button-primary-inverse-hover-border);
+}
+
+.o3-button.o3-button--primary.o3-button--inverse:focus {
+	color: var(--_o3-button-primary-inverse-focus-color);
+	background-color: var(--_o3-button-primary-inverse-focus-background);
+	border-color: var(--_o3-button-primary-inverse-focus-border);
+}
+
+.o3-button.o3-button--primary.o3-button--inverse:active,
+.o3-button--primary.o3-button--inverse[aria-selected='true'],
+.o3-button--primary.o3-button--inverse[aria-current],
+.o3-button--primary.o3-button--inverse[aria-pressed='true'] {
+	color: var(--_o3-button-primary-inverse-active-color);
+	background-color: var(--_o3-button-primary-inverse-active-background);
+	border-color: var(--_o3-button-primary-inverse-active-border);
+}
+
+/* PRIMARY MONO STYLES */
+
+.o3-button.o3-button--primary.o3-button--mono {
+	color: var(--_o3-button-primary-mono-color);
+	background-color: var(--_o3-button-primary-mono-background);
+	border-color: var(--_o3-button-primary-mono-border);
+}
+
+.o3-button.o3-button--primary.o3-button--mono:hover {
+	color: var(--_o3-button-primary-mono-hover-color);
+	background-color: var(--_o3-button-primary-mono-hover-background);
+	border-color: var(--_o3-button-primary-mono-hover-border);
+}
+
+.o3-button.o3-button--primary.o3-button--mono:focus {
+	color: var(--_o3-button-primary-mono-focus-color);
+	background-color: var(--_o3-button-primary-mono-focus-background);
+	border-color: var(--_o3-button-primary-mono-focus-border);
+}
+
+.o3-button.o3-button--primary.o3-button--mono:active,
+.o3-button--primary.o3-button--mono[aria-selected='true'],
+.o3-button--primary.o3-button--mono[aria-current],
+.o3-button--primary.o3-button--mono[aria-pressed='true'] {
+	color: var(--_o3-button-primary-mono-active-color);
+	background-color: var(--_o3-button-primary-mono-active-background);
+	border-color: var(--_o3-button-primary-mono-active-border);
+}
+
+/* SECONDARY */
 .o3-button.o3-button--secondary {
 	color: var(--_o3-button-secondary-standard-color);
 	background-color: var(--_o3-button-secondary-standard-background);
@@ -72,84 +153,39 @@
 	border-color: var(--_o3-button-secondary-standard-focus-border);
 }
 
-.o3-button.o3-button--secondary:active {
+.o3-button.o3-button--secondary:active,
+.o3-button--secondary[aria-selected='true'],
+.o3-button--secondary[aria-current],
+.o3-button--secondary[aria-pressed='true'] {
 	color: var(--_o3-button-secondary-standard-active-color);
 	background-color: var(--_o3-button-secondary-standard-active-background);
 	border-color: var(--_o3-button-secondary-standard-active-border);
 }
 
-/* PRIMARY INVERSE BUTTON STYLES */
-.o3-button.o3-button--inverse {
-	color: var(--_o3-button-primary-inverse-color);
-	background-color: var(--_o3-button-primary-inverse-background);
-	border-color: var(--_o3-button-primary-inverse-border);
-}
-
-.o3-button.o3-button--inverse:hover {
-	color: var(--_o3-button-primary-inverse-hover-color);
-	background-color: var(--_o3-button-primary-inverse-hover-background);
-	border-color: var(--_o3-button-primary-inverse-hover-border);
-}
-
-.o3-button.o3-button--inverse:focus {
-	color: var(--_o3-button-primary-inverse-focus-color);
-	background-color: var(--_o3-button-primary-inverse-focus-background);
-	border-color: var(--_o3-button-primary-inverse-focus-border);
-}
-
-.o3-button.o3-button--inverse:active {
-	color: var(--_o3-button-primary-inverse-active-color);
-	background-color: var(--_o3-button-primary-inverse-active-background);
-	border-color: var(--_o3-button-primary-inverse-active-border);
-}
-
-/* PRIMARY MONO STYLES */
-
-.o3-button.o3-button--mono {
-	color: var(--_o3-button-primary-mono-color);
-	background-color: var(--_o3-button-primary-mono-background);
-	border-color: var(--_o3-button-primary-mono-border);
-}
-
-.o3-button.o3-button--mono:hover {
-	color: var(--_o3-button-primary-mono-hover-color);
-	background-color: var(--_o3-button-primary-mono-hover-background);
-	border-color: var(--_o3-button-primary-mono-hover-border);
-}
-
-.o3-button.o3-button--mono:focus {
-	color: var(--_o3-button-primary-mono-focus-color);
-	background-color: var(--_o3-button-primary-mono-focus-background);
-	border-color: var(--_o3-button-primary-mono-focus-border);
-}
-
-.o3-button.o3-button--mono:active {
-	color: var(--_o3-button-primary-mono-active-color);
-	background-color: var(--_o3-button-primary-mono-active-background);
-	border-color: var(--_o3-button-primary-mono-active-border);
-}
-
 /* SECONDARY INVERSE BUTTON STYLES */
 
-.o3-button.o3-button--secondary-inverse {
+.o3-button.o3-button--secondary.o3-button--inverse {
 	color: var(--_o3-button-secondary-inverse-color);
 	background-color: var(--_o3-button-secondary-inverse-background);
 	border-color: var(--_o3-button-secondary-inverse-border);
 }
 
-.o3-button.o3-button--secondary-inverse:hover {
+.o3-button.o3-button--secondary.o3-button--inverse:hover {
 	color: var(--_o3-button-secondary-inverse-hover-color);
 	background-color: var(--_o3-button-secondary-inverse-hover-background);
 	border-color: var(--_o3-button-secondary-inverse-hover-border);
 }
 
-.o3-button.o3-button--secondary-inverse:focus {
+.o3-button.o3-button--secondary.o3-button--inverse:focus {
 	color: var(--_o3-button-secondary-inverse-focus-color);
 	background-color: var(--_o3-button-secondary-inverse-focus-background);
 	border-color: var(--_o3-button-secondary-inverse-focus-border);
 }
 
-.o3-button.o3-button--secondary-inverse:active {
+.o3-button.o3-button--secondary.o3-button--inverse:active,
+.o3-button--secondary.o3-button--inverse[aria-selected='true'],
+.o3-button--secondary.o3-button--inverse[aria-current],
+.o3-button--secondary.o3-button--inverse[aria-pressed='true'] {
 	color: var(--_o3-button-secondary-inverse-active-color);
 	background-color: var(--_o3-button-secondary-inverse-active-background);
 	border-color: var(--_o3-button-secondary-inverse-active-border);
@@ -157,56 +193,197 @@
 
 /* SECONDARY MONO BUTTON STYLES */
 
-.o3-button.o3-button--secondary-mono {
+.o3-button.o3-button--secondary.o3-button--mono {
 	color: var(--_o3-button-secondary-mono-color);
 	background-color: var(--_o3-button-secondary-mono-background);
 	border-color: var(--_o3-button-secondary-mono-border);
 }
 
-.o3-button.o3-button--secondary-mono:hover {
+.o3-button.o3-button--secondary.o3-button--mono:hover {
 	color: var(--_o3-button-secondary-mono-hover-color);
 	background-color: var(--_o3-button-secondary-mono-hover-background);
 	border-color: var(--_o3-button-secondary-mono-hover-border);
 }
 
-.o3-button.o3-button--secondary-mono:focus {
+.o3-button.o3-button--secondary.o3-button--mono:focus {
 	color: var(--_o3-button-secondary-mono-focus-color);
 	background-color: var(--_o3-button-secondary-mono-focus-background);
 	border-color: var(--_o3-button-secondary-mono-focus-border);
 }
 
-.o3-button.o3-button--secondary-mono:active {
+.o3-button.o3-button--secondary.o3-button--mono:active,
+.o3-button--secondary.o3-button--mono[aria-selected='true'],
+.o3-button--secondary.o3-button--mono[aria-current],
+.o3-button--secondary.o3-button--mono[aria-pressed='true'] {
 	color: var(--_o3-button-secondary-mono-active-color);
 	background-color: var(--_o3-button-secondary-mono-active-background);
 	border-color: var(--_o3-button-secondary-mono-active-border);
 }
 
-/* ICON BUTTON STYLES */
+/* GHOST */
+
+.o3-button.o3-button--ghost {
+	color: var(--_o3-button-ghost-standard-color);
+	background-color: var(--_o3-button-ghost-standard-background);
+	border-color: var(--_o3-button-ghost-standard-border);
+}
+
+.o3-button.o3-button--ghost:hover {
+	color: var(--_o3-button-ghost-standard-hover-color);
+	background-color: var(--_o3-button-ghost-standard-hover-background);
+	border-color: var(--_o3-button-ghost-standard-hover-border);
+}
+
+.o3-button.o3-button--ghost:focus {
+	color: var(--_o3-button-ghost-standard-focus-color);
+	background-color: var(--_o3-button-ghost-standard-focus-background);
+	border-color: var(--_o3-button-ghost-standard-focus-border);
+}
+
+.o3-button.o3-button--ghost:active,
+.o3-button--ghost[aria-selected='true'],
+.o3-button--ghost[aria-current],
+.o3-button--ghost[aria-pressed='true'] {
+	color: var(--_o3-button-ghost-standard-active-color);
+	background-color: var(--_o3-button-ghost-standard-active-background);
+	border-color: var(--_o3-button-ghost-standard-active-border);
+}
+
+/* GHOST INVERSE BUTTON STYLES */
+
+.o3-button.o3-button--ghost.o3-button--inverse {
+	color: var(--_o3-button-ghost-inverse-color);
+	background-color: var(--_o3-button-ghost-inverse-background);
+	border-color: var(--_o3-button-ghost-inverse-border);
+}
+
+.o3-button.o3-button--ghost.o3-button--inverse:hover {
+	color: var(--_o3-button-ghost-inverse-hover-color);
+	background-color: var(--_o3-button-ghost-inverse-hover-background);
+	border-color: var(--_o3-button-ghost-inverse-hover-border);
+}
+
+.o3-button.o3-button--ghost.o3-button--inverse:focus {
+	color: var(--_o3-button-ghost-inverse-focus-color);
+	background-color: var(--_o3-button-ghost-inverse-focus-background);
+	border-color: var(--_o3-button-ghost-inverse-focus-border);
+}
+
+.o3-button.o3-button--ghost.o3-button--inverse:active,
+.o3-button--ghost.o3-button--inverse[aria-selected='true'],
+.o3-button--ghost.o3-button--inverse[aria-current],
+.o3-button--ghost.o3-button--inverse[aria-pressed='true'] {
+	color: var(--_o3-button-ghost-inverse-active-color);
+	background-color: var(--_o3-button-ghost-inverse-active-background);
+	border-color: var(--_o3-button-ghost-inverse-active-border);
+}
+
+/* GHOST MONO BUTTON STYLES */
+
+.o3-button.o3-button--ghost.o3-button--mono {
+	color: var(--_o3-button-ghost-mono-color);
+	background-color: var(--_o3-button-ghost-mono-background);
+	border-color: var(--_o3-button-ghost-mono-border);
+}
+
+.o3-button.o3-button--ghost.o3-button--mono:hover {
+	color: var(--_o3-button-ghost-mono-hover-color);
+	background-color: var(--_o3-button-ghost-mono-hover-background);
+	border-color: var(--_o3-button-ghost-mono-hover-border);
+}
+
+.o3-button.o3-button--ghost.o3-button--mono:focus {
+	color: var(--_o3-button-ghost-mono-focus-color);
+	background-color: var(--_o3-button-ghost-mono-focus-background);
+	border-color: var(--_o3-button-ghost-mono-focus-border);
+}
+
+.o3-button.o3-button--ghost.o3-button--mono:active,
+.o3-button--ghost.o3-button--mono[aria-selected='true'],
+.o3-button--ghost.o3-button--mono[aria-current],
+.o3-button--ghost.o3-button--mono[aria-pressed='true'] {
+	color: var(--_o3-button-ghost-mono-active-color);
+	background-color: var(--_o3-button-ghost-mono-active-background);
+	border-color: var(--_o3-button-ghost-mono-active-border);
+}
+
+/* BIG BUTTON */
+
+.o3-button.o3-button--big {
+	--_o3-button-min-width: 80px;
+	--_o3-button-min-height: 40px;
+
+	--_o3-button-block-padding: var(--o3-spacing-2xs);
+	--_o3-button-inline-padding: var(--o3-spacing-s);
+
+	--_o3-button-font-size: var(--o3-font-size-negative-1);
+	--_o3-button-lineheight: var(--o3-font-lineheight-negative-1);
+}
+
+/* PAGINATION */
+
+.o3-button-pagination {
+	display: flex;
+	gap: var(--o3-spacing-3xs);
+}
+
+.o3-button-pagination,
+.o3-button-pagination > .o3-button,
+.o3-button-pagination > .o3-button.o3-button-icon--icon-only {
+	--_o3-button-min-width: 24px;
+}
+
+.o3-button-pagination--big,
+.o3-button-pagination--big > .o3-button.o3-button--big,
+.o3-button-pagination--big > .o3-button.o3-button-icon--icon-only {
+	--_o3-button-min-width: 36px;
+}
+
+.o3-button-pagination__ellipsis {
+	font-size: var(--o3-font-size-1);
+	text-align: center;
+	min-width: var(--_o3-button-min-width);
+}
+
+.o3-button-pagination--big .o3-button-pagination__ellipsis {
+	font-size: var(--o3-font-size-3);
+}
+
+.o3-button-pagination > .o3-button[disabled] {
+	visibility: hidden;
+}
+
+/* Grouped buttons */
+
+.o3-button-group {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.o3-button-group > .o3-button + .o3-button {
+	margin-left: calc(var(--_o3-button-border-size) * -1);
+}
+
+/* BUTTON ICON  */
 
 .o3-button-icon::before {
 	content: '';
-	width: 21px;
-	height: 21px;
-	-webkit-mask-image: var(--o3-button-icon);
+	width: var(--_o3-icon-size);
+	height: var(--_o3-icon-size);
 	mask-image: var(--o3-button-icon);
-	-webkit-mask-repeat: no-repeat;
-	-webkit-mask-size: contain;
 	mask-repeat: no-repeat;
 	mask-size: contain;
 	display: inline-block;
-	/* padding-left: 24px; */
 	background-color: currentColor;
-	margin: -5.25px; /* to offset icon spacing */
-	padding-right: 6px;
+}
+
+.o3-button-icon:not(.o3-button-icon--icon-only)::before {
+	margin-right: var(--o3-spacing-2xs);
 }
 
 .o3-button-icon.o3-button-icon--icon-only {
-	min-width: 40px;
-}
-
-.o3-button-icon.o3-button-icon--icon-only::before {
-	padding-right: 0;
-	padding-left: 0;
+	--_o3-button-min-width: 40px;
+	--_o3-button-inline-padding: 0;
 }
 
 .o3-button-icon__label {
@@ -223,5 +400,34 @@
 }
 
 .o3-button-icon.o3-button-icon--cross::before {
-	--o3-button-icon: var(--icons-ft-icon-cross);
+	--o3-button-icon: var(--o3-icons-ft-icon-cross);
+}
+
+.o3-button-icon.o3-button-icon--upload::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-upload);
+}
+.o3-button-icon.o3-button-icon--tick::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-tick);
+}
+.o3-button-icon.o3-button-icon--search::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-search);
+}
+.o3-button-icon.o3-button-icon--plus::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-plus);
+}
+
+.o3-button-icon.o3-button-icon--download::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-download);
+}
+.o3-button-icon.o3-button-icon--arrow-up::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-arrow-up);
+}
+.o3-button-icon.o3-button-icon--arrow-down::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-arrow-down);
+}
+.o3-button-icon.o3-button-icon--arrow-right::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-arrow-right);
+}
+.o3-button-icon.o3-button-icon--arrow-left::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-arrow-left);
 }

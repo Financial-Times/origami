@@ -3,7 +3,7 @@ name: 'Chromatic'
 on:
   push:
     branches:
-      - chromatic-setup # change to main once productionised
+      - poc/multi-brand # change to main once productionised
 
 jobs:
   chromatic-deployment:

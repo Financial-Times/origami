@@ -18,17 +18,22 @@
     "@storybook/addon-essentials": "^7.4.0",
     "@storybook/addon-interactions": "^7.4.0",
     "@storybook/addon-links": "^7.4.0",
-    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/addon-styling-webpack": "^0.0.4",
     "@storybook/blocks": "^7.4.0",
     "@storybook/preview-api": "^7.4.0",
     "@storybook/react": "^7.4.0",
     "@storybook/react-webpack5": "^7.4.0",
     "@storybook/testing-library": "^0.2.0",
+    "autoprefixer": "^10.4.15",
     "chromatic": "^7.1.0",
+    "css-loader": "^6.8.1",
+    "postcss": "^8.4.29",
+    "postcss-loader": "^7.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.4.0",
     "storybook-addon-designs": "^6.3.1",
+    "style-loader": "^3.3.3",
     "typescript": "^5.2.2"
   }
 }
