@@ -1,6 +1,6 @@
 {
 	"origamiType": "component",
-	"origamiVersion": "2.0",
+	"origamiVersion": "3.0",
 	"brands": ["core","internal","whitelabel"],
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-buttons-experimental,components",
 	"supportContact": {
@@ -10,8 +10,8 @@
 	"supportStatus": "experimental",
 	"browserFeatures": {},
 	"demosDefaults": {
-		"sass": "demos/src/demo.scss", 
-		"js": "demos/src/demo.js", 
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
 		"template": "demos/src/demo.mustache",
 		"documentClasses": "",
 		"dependencies": []
