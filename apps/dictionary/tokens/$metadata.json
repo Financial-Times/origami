@@ -1,10 +1,10 @@
 {
   "tokenSetOrder": [
-    "core/components/o3-button",
     "core/base/color",
     "core/base/spacing",
     "core/base/typography",
     "core/base/border-radius",
+    "core/components/o3-button",
     "core/use-case/color",
     "core/professional/components/o3-button",
     "core/professional/use-case/color",

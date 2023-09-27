@@ -171,7 +171,6 @@
       "o3.color.palette.claret-100": "678faeb5615e6fbd0cae191cc2de7d36e7e2f47c",
       "o3.color.palette.wheat-100": "edd761380df8459d34cdfb6ff71e6538f219c38b",
       "o3.color.palette.mint": "c131408b834842404227fbf0def4431aed412c3c",
-      "o3.color.link": "c59e4395cb9f3e044376c3790ef76e609a7eccaa",
       "o3.button.primary.standard.color": "a44d622dd4ba0b3ce8852934e6aaaa4c94d64ec2",
       "o3.button.primary.standard.background": "38c5d33ca9b9037c8dc918410aa7ae3732083210",
       "o3.button.primary.standard.border": "822a53550b1e154754e4815a1e5e976821d33124",
@@ -289,7 +288,8 @@
       "o3.spacing.xl": "06d334de459fbd2a65cdf2d4c447c6c98af4b794",
       "o3.spacing.2xl": "c5afd102ee2011ec9cd35ec0e79d501b6ce97a21",
       "o3.spacing.3xl": "68a8bb02c47afe1549d3c32142e39cd334e2422f",
-      "o3.spacing.4xl": "699ad4b6a1311a1f917fba48d4f664ae571d1156"
+      "o3.spacing.4xl": "699ad4b6a1311a1f917fba48d4f664ae571d1156",
+      "o3.color.use-case.link": "c59e4395cb9f3e044376c3790ef76e609a7eccaa"
     },
     "group": "core"
   },
@@ -451,7 +451,6 @@
       "o3.color.palette.claret-100": "678faeb5615e6fbd0cae191cc2de7d36e7e2f47c",
       "o3.color.palette.wheat-100": "edd761380df8459d34cdfb6ff71e6538f219c38b",
       "o3.color.palette.mint": "c131408b834842404227fbf0def4431aed412c3c",
-      "o3.color.link": "c59e4395cb9f3e044376c3790ef76e609a7eccaa",
       "o3.button.primary.standard.color": "a44d622dd4ba0b3ce8852934e6aaaa4c94d64ec2",
       "o3.button.primary.standard.background": "38c5d33ca9b9037c8dc918410aa7ae3732083210",
       "o3.button.primary.standard.border": "822a53550b1e154754e4815a1e5e976821d33124",
@@ -569,7 +568,8 @@
       "o3.spacing.xl": "06d334de459fbd2a65cdf2d4c447c6c98af4b794",
       "o3.spacing.2xl": "c5afd102ee2011ec9cd35ec0e79d501b6ce97a21",
       "o3.spacing.3xl": "68a8bb02c47afe1549d3c32142e39cd334e2422f",
-      "o3.spacing.4xl": "699ad4b6a1311a1f917fba48d4f664ae571d1156"
+      "o3.spacing.4xl": "699ad4b6a1311a1f917fba48d4f664ae571d1156",
+      "o3.color.use-case.link": "c59e4395cb9f3e044376c3790ef76e609a7eccaa"
     },
     "group": "core"
   },
@@ -735,7 +735,6 @@
       "o3.color.palette.teal-80": "065bac95d7ad1eb8f519b6e88f907064d4cca34d",
       "o3.color.palette.teal-90": "4d51a2905cc7374dd1076815d07e0ee589a30dfb",
       "o3.color.palette.teal-100": "fd90722ebc9b677e37c66c171bd9bd24c5ee642b",
-      "o3.color.link": "05922590be4976c7c232eed843e36fe5a6f2175d",
       "o3.spacing.3xs": "dd9ff1136d06a38f70fc7dd76d4d03690e11f54e",
       "o3.spacing.2xs": "869435b3d5402c324174e329470d41e8e55a2b7d",
       "o3.spacing.xs": "50c0504aef0ff8d8fdbfaa86e17796df261507d6",
@@ -745,7 +744,8 @@
       "o3.spacing.xl": "d6f7034986510d99ea6c98eb1316bb61c7163769",
       "o3.spacing.2xl": "4ba391f16a56cc2da5220d3c045e8b7495aa5d48",
       "o3.spacing.3xl": "4154b986c8343f1e3df936c2ba47a858b1cbcd64",
-      "o3.spacing.4xl": "18729e0b379c03fcb0515dc450389bb4e4d3243b"
+      "o3.spacing.4xl": "18729e0b379c03fcb0515dc450389bb4e4d3243b",
+      "o3.color.use-case.link": "05922590be4976c7c232eed843e36fe5a6f2175d"
     },
     "group": "internal"
   },
