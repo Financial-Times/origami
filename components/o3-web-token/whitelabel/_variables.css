@@ -28,4 +28,8 @@
   --o3-spacing-2xl: 4rem;
   --o3-spacing-3xl: 4.5rem;
   --o3-spacing-4xl: 6rem;
+  --o3-box-shadow-focus-ring-inner: 0 0 0 4px #ffffff;
+  --o3-box-shadow-focus-ring-outer: 0 0 0 8px #4d4845;
+  --o3-box-shadow-focus-ring-inverse-inner: 0 0 0 4px #4d4845;
+  --o3-box-shadow-focus-ring-inverse-outer: 0 0 0 8px #ffffff;
 }
