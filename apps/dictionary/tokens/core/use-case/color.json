@@ -4,10 +4,7 @@
       "use-case": {
         "link": {
           "value": "{o3.color.palette.teal}",
-          "type": "color",
-          "$extensions": {
-            "id": "b18d55da-daf7-4b1f-a0a1-048c3c1158a9"
-          }
+          "type": "color"
         }
       }
     }

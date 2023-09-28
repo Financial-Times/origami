@@ -4,96 +4,57 @@
       "ft-icon": {
         "arrow-left": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M16 4L8 12L16 20\" stroke=\"black\" stroke-width=\"2\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "205c6ee3-2745-47f2-8e84-86b47b6e126c"
-          }
+          "type": "asset"
         },
         "arrow-right": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M8 4L16 12L8 20\" stroke=\"black\" stroke-width=\"2\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "ab6d8258-dd96-4d3c-8742-4aff91201b34"
-          }
+          "type": "asset"
         },
         "arrow-down": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M20 8L12 16L4 8\" stroke=\"black\" stroke-width=\"2\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "aaed000c-d09c-4044-ada0-b82ee352f2ba"
-          }
+          "type": "asset"
         },
         "arrow-up": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M20 16L12 8L4 16\" stroke=\"black\" stroke-width=\"2\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "52d82e87-0d7e-4efc-88b4-b856ac49b126"
-          }
+          "type": "asset"
         },
         "cross": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M4.92893 17.6569L6.34315 19.0711L12 13.4142L17.6569 19.0711L19.0711 17.6569L13.4142 12L19.0711 6.34315L17.6569 4.92893L12 10.5858L6.34315 4.92894L4.92893 6.34315L10.5858 12L4.92893 17.6569Z\" fill=\"black\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "7549f101-bfa6-45ea-8f04-44ce9ffa195b"
-          }
+          "type": "asset"
         },
         "download": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11 4V13.4962L8.6585 11.4474L7.3415 12.9526L11.3415 16.4526L12 17.0288L12.6585 16.4526L16.6585 12.9526L15.3415 11.4474L13 13.4962V4H11ZM4 19V21H20V19H4Z\" fill=\"black\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "2e675cbf-3d0e-4f88-83d5-c12bb25ac281"
-          }
+          "type": "asset"
         },
         "grid": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M11 5H5V11H11V5Z\" fill=\"black\"/>\n  <path d=\"M19 5H13V11H19V5Z\" fill=\"black\"/>\n  <path d=\"M5 13H11V19H5V13Z\" fill=\"black\"/>\n  <path d=\"M19 13H13V19H19V13Z\" fill=\"black\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "17d70e22-e22a-42bf-80e5-1fae14b0378f"
-          }
+          "type": "asset"
         },
         "list": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M4 7H6V9H4V7Z\" fill=\"black\"/>\n  <path d=\"M20 7H8V9H20V7Z\" fill=\"black\"/>\n  <path d=\"M6 11H4V13H6V11Z\" fill=\"black\"/>\n  <path d=\"M4 15H6V17H4V15Z\" fill=\"black\"/>\n  <path d=\"M8 11H20V13H8V11Z\" fill=\"black\"/>\n  <path d=\"M20 15H8V17H20V15Z\" fill=\"black\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "970a3be4-b3df-4ed8-819b-47f1551df0a7"
-          }
+          "type": "asset"
         },
         "plus": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M11 13V20H13V13H20V11H13V4H11V11H4V13H11Z\" fill=\"black\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "3463f531-2234-4af3-aafe-1442c0c546ff"
-          }
+          "type": "asset"
         },
         "search": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C11.2958 16 12.4957 15.5892 13.4765 14.8907L18.2929 19.7071L19.7071 18.2929L14.8907 13.4765C15.5892 12.4957 16 11.2958 16 10C16 6.68629 13.3137 4 10 4ZM6 10C6 7.79086 7.79086 6 10 6C12.2091 6 14 7.79086 14 10C14 12.2091 12.2091 14 10 14C7.79086 14 6 12.2091 6 10Z\" fill=\"black\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "10f6d7f3-7593-40e3-ba58-65aedaa74418"
-          }
+          "type": "asset"
         },
         "tick": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M4 13L8 17L19 6\" stroke=\"black\" stroke-width=\"2\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "11937350-dd48-4ce1-9925-8e941f655a81"
-          }
+          "type": "asset"
         },
         "upload": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M13 17V7.50377L15.3415 9.55257L16.6585 8.04742L12.6585 4.54742L12 3.97123L11.3415 4.54742L7.3415 8.04742L8.6585 9.55257L11 7.50377V17H13ZM4 19V21H20V19H4Z\" fill=\"black\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "995f1d22-18f1-4612-9a99-af621e7288a7"
-          }
+          "type": "asset"
         }
       },
       "ft-social": {
         "facebook": {
           "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"41\" height=\"40\" viewBox=\"0 0 41 40\" fill=\"none\">\n  <path d=\"M21.6604 30V20.8768H24.6353L25.0775 17.3233H21.6604V15.0521C21.6604 14.0247 21.9376 13.3217 23.3689 13.3217H25.1974V10.139C24.8826 10.0927 23.796 10 22.5371 10C19.8994 10 18.1009 11.6609 18.1009 14.7045V17.331H15.1184V20.8845H18.1009V30H21.6604Z\" fill=\"black\"/>\n</svg>",
-          "type": "asset",
-          "$extensions": {
-            "id": "8d34809b-0c17-4cb4-b71a-0e766901273b"
-          }
+          "type": "asset"
         }
       }
     }

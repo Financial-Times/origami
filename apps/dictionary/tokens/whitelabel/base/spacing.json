@@ -3,73 +3,43 @@
     "spacing": {
       "3xs": {
         "value": "4px",
-        "type": "spacing",
-        "$extensions": {
-          "id": "218381fd-e475-436e-880e-b09cae714214"
-        }
+        "type": "spacing"
       },
       "2xs": {
         "value": "8",
-        "type": "spacing",
-        "$extensions": {
-          "id": "88750666-0965-4907-b861-39bfa853bd70"
-        }
+        "type": "spacing"
       },
       "xs": {
         "value": "12",
-        "type": "spacing",
-        "$extensions": {
-          "id": "0742cbad-ff68-4f33-b8fb-3670811f107a"
-        }
+        "type": "spacing"
       },
       "s": {
         "value": "16",
-        "type": "spacing",
-        "$extensions": {
-          "id": "3d6e6671-b653-4b9a-a50a-9dc3be2de684"
-        }
+        "type": "spacing"
       },
       "m": {
         "value": "24",
-        "type": "spacing",
-        "$extensions": {
-          "id": "4a7fd0c4-e909-46bc-82d8-ca5343667dba"
-        }
+        "type": "spacing"
       },
       "l": {
         "value": "32",
-        "type": "spacing",
-        "$extensions": {
-          "id": "e9a8cdc1-f63f-45d5-8568-d7ee90219350"
-        }
+        "type": "spacing"
       },
       "xl": {
         "value": "48",
-        "type": "spacing",
-        "$extensions": {
-          "id": "4fb54f84-7d69-4282-a92f-396dc47d9ccd"
-        }
+        "type": "spacing"
       },
       "2xl": {
         "value": "64",
-        "type": "spacing",
-        "$extensions": {
-          "id": "536b05f1-6214-4d40-8d96-e1e665412a96"
-        }
+        "type": "spacing"
       },
       "3xl": {
         "value": "72",
-        "type": "spacing",
-        "$extensions": {
-          "id": "590a9477-5d47-4243-84d9-7a3baba7329a"
-        }
+        "type": "spacing"
       },
       "4xl": {
         "value": "96",
-        "type": "spacing",
-        "$extensions": {
-          "id": "3f21cbbc-eaae-499b-ad29-d0d4de9a9b71"
-        }
+        "type": "spacing"
       }
     }
   }

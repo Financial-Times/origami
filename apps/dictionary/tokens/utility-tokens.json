@@ -1,9 +1,6 @@
 {
   "DO-NOT-USE": {
     "value": "rgba(0,0,0,0)",
-    "type": "color",
-    "$extensions": {
-      "id": "93a0fa0d-cd42-4421-9132-ddae40492748"
-    }
+    "type": "color"
   }
 }

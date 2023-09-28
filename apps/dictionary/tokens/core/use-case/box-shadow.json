@@ -11,10 +11,7 @@
             "color": "#ffffff",
             "type": "dropShadow"
           },
-          "type": "boxShadow",
-          "$extensions": {
-            "id": "25dc3b22-7712-4d56-ae28-7d6cf0dbf754"
-          }
+          "type": "boxShadow"
         },
         "outer": {
           "value": {
@@ -25,10 +22,7 @@
             "color": "#4d4845",
             "type": "dropShadow"
           },
-          "type": "boxShadow",
-          "$extensions": {
-            "id": "3ad6cd0a-29f1-4531-aa28-124e3c319b26"
-          }
+          "type": "boxShadow"
         },
         "inverse": {
           "inner": {
@@ -40,10 +34,7 @@
               "color": "#4d4845",
               "type": "dropShadow"
             },
-            "type": "boxShadow",
-            "$extensions": {
-              "id": "4b368677-c914-4527-afc8-bdc957bef987"
-            }
+            "type": "boxShadow"
           },
           "outer": {
             "value": {
@@ -54,10 +45,7 @@
               "color": "#ffffff",
               "type": "dropShadow"
             },
-            "type": "boxShadow",
-            "$extensions": {
-              "id": "dc166b7f-10ab-4efa-b158-09fb27e6bc7b"
-            }
+            "type": "boxShadow"
           }
         }
       }

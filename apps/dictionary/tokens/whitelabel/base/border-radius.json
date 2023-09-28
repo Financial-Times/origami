@@ -3,45 +3,27 @@
     "border-radius": {
       "m": {
         "value": "16",
-        "type": "borderRadius",
-        "$extensions": {
-          "id": "ef0b05d4-3198-434c-b7dd-07187fe2f7f8"
-        }
+        "type": "borderRadius"
       },
       "2xs": {
         "value": "4",
-        "type": "borderRadius",
-        "$extensions": {
-          "id": "b9e2a0d0-5c98-4718-a3fb-af68d093d2ac"
-        }
+        "type": "borderRadius"
       },
       "xs": {
         "value": "6",
-        "type": "borderRadius",
-        "$extensions": {
-          "id": "17808a42-05e3-42e5-8239-44bf6f2804a0"
-        }
+        "type": "borderRadius"
       },
       "s": {
         "value": "8",
-        "type": "borderRadius",
-        "$extensions": {
-          "id": "01d6ccf1-d883-4596-ad01-edd6400fe3e4"
-        }
+        "type": "borderRadius"
       },
       "l": {
         "value": "24",
-        "type": "borderRadius",
-        "$extensions": {
-          "id": "4b58af90-c7a4-4ffd-9ef6-5d71311fcc7e"
-        }
+        "type": "borderRadius"
       },
       "xl": {
         "value": "48",
-        "type": "borderRadius",
-        "$extensions": {
-          "id": "744fb5b6-6764-40a8-8dae-1a61f0221880"
-        }
+        "type": "borderRadius"
       }
     }
   }

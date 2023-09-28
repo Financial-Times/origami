@@ -4,240 +4,141 @@
       "family": {
         "metric": {
           "value": "1",
-          "type": "fontFamilies",
-          "$extensions": {
-            "id": "bf0faedb-e389-4611-8a30-e58bce6954b0"
-          }
+          "type": "fontFamilies"
         },
         "financier-display": {
           "value": "2",
-          "type": "fontFamilies",
-          "$extensions": {
-            "id": "d73d41c9-4cc7-46ca-83ce-905894d83460"
-          }
+          "type": "fontFamilies"
         }
       },
       "weight": {
         "light": {
           "value": "Light",
-          "type": "fontWeights",
-          "$extensions": {
-            "id": "535be7e2-f100-491f-90fa-a317a2a8f0b0"
-          }
+          "type": "fontWeights"
         },
         "regular": {
           "value": "Regular",
-          "type": "fontWeights",
-          "$extensions": {
-            "id": "f0b66b6c-15d8-4b02-a0f9-94ef5041c06c"
-          }
+          "type": "fontWeights"
         },
         "medium": {
           "value": "Medium",
-          "type": "fontWeights",
-          "$extensions": {
-            "id": "bd2d49b3-87cb-47d8-a91e-5d6c7cd5e63b"
-          }
+          "type": "fontWeights"
         },
         "semibold": {
           "value": "Semibold",
-          "type": "fontWeights",
-          "$extensions": {
-            "id": "0a9f7a72-56fb-4827-b18e-5ad8e420eeb9"
-          }
+          "type": "fontWeights"
         },
         "bold": {
           "value": "Bold",
-          "type": "fontWeights",
-          "$extensions": {
-            "id": "63771086-29c0-4e2b-8ebe-38bc6504bb71"
-          }
+          "type": "fontWeights"
         }
       },
       "lineheight": {
         "0": {
           "value": "20",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "2eb1a773-08f6-4053-b933-b3c602497f4e"
-          }
+          "type": "lineHeights"
         },
         "1": {
           "value": "20",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "34fd1fd4-6559-4ebc-9108-e26f4c98ce0c"
-          }
+          "type": "lineHeights"
         },
         "2": {
           "value": "24",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "cc32009a-2d32-4bd5-bad0-b0748d0204bc"
-          }
+          "type": "lineHeights"
         },
         "3": {
           "value": "28",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "ec06cf41-68c2-4f71-8ee9-7cf8b522f514"
-          }
+          "type": "lineHeights"
         },
         "4": {
           "value": "32",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "0a3bd6ba-cf0f-439d-a599-de9fd61dcaa5"
-          }
+          "type": "lineHeights"
         },
         "5": {
           "value": "32",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "fe6ed0f4-f25c-4b35-95bf-e15eb6d04af3"
-          }
+          "type": "lineHeights"
         },
         "6": {
           "value": "40",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "bc646992-b774-4dee-97c3-fe04a370a7d3"
-          }
+          "type": "lineHeights"
         },
         "7": {
           "value": "48",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "c4e5d568-3272-4111-a38c-8dd2688bc148"
-          }
+          "type": "lineHeights"
         },
         "8": {
           "value": "56",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "b1d381ea-4435-4365-99fa-4eb5dcebaaca"
-          }
+          "type": "lineHeights"
         },
         "9": {
           "value": "72",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "3d09e905-ce51-4765-b04c-c069a3adb52a"
-          }
+          "type": "lineHeights"
         },
         "10": {
           "value": "84",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "5d85d112-00ba-407b-896a-4bc72ad1cb50"
-          }
+          "type": "lineHeights"
         },
         "negative-2": {
           "value": "16",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "ce7a166f-7fc3-42f7-8722-3f6b5bd5c4cc"
-          }
+          "type": "lineHeights"
         },
         "negative-1": {
           "value": "16",
-          "type": "lineHeights",
-          "$extensions": {
-            "id": "c7f09161-e116-48f0-8579-c44dd2cd946e"
-          }
+          "type": "lineHeights"
         }
       },
       "size": {
         "0": {
           "value": "16",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "1eabb294-56c0-41e1-9c19-e44ea2b71b92"
-          }
+          "type": "fontSizes"
         },
         "1": {
           "value": "18",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "ef26163a-7845-412e-9851-bb883590128a"
-          }
+          "type": "fontSizes"
         },
         "2": {
           "value": "20",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "4a7fa497-933f-45ad-b121-29b94e3f36c3"
-          }
+          "type": "fontSizes"
         },
         "3": {
           "value": "24",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "4d7a7790-cc15-4620-9ef3-6bf016efdccf"
-          }
+          "type": "fontSizes"
         },
         "4": {
           "value": "28",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "b2d3b51a-1aad-47e2-b970-c7269558c2bd"
-          }
+          "type": "fontSizes"
         },
         "5": {
           "value": "32",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "4909f892-2ff8-4d68-befc-9e97c7a2801d"
-          }
+          "type": "fontSizes"
         },
         "6": {
           "value": "40",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "5d76b18b-8a66-404a-ae3b-e55b9466acdf"
-          }
+          "type": "fontSizes"
         },
         "7": {
           "value": "48",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "2cdde2a1-b3c2-42a4-b8d1-d92a400d7ae9"
-          }
+          "type": "fontSizes"
         },
         "8": {
           "value": "56",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "f0c1cef3-3734-4278-af2c-401028970643"
-          }
+          "type": "fontSizes"
         },
         "9": {
           "value": "72",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "afc9dcac-d253-4c59-a6c1-73cd7eb27142"
-          }
+          "type": "fontSizes"
         },
         "10": {
           "value": "84",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "69964d3e-7828-47b8-8929-b36560508010"
-          }
+          "type": "fontSizes"
         },
         "negative-2": {
           "value": "12",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "171197c1-0d9f-44d3-8100-0be8f82fbf89"
-          }
+          "type": "fontSizes"
         },
         "negative-1": {
           "value": "14",
-          "type": "fontSizes",
-          "$extensions": {
-            "id": "d9a43ca2-153e-457a-ac4d-d14573a2096a"
-          }
+          "type": "fontSizes"
         }
       }
     }
