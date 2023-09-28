@@ -4,7 +4,7 @@
 
 
 .o-brand-professional {
-  --o3-color-link: var(--o3-color-palette-teal);
+  --o3-color-link: var(--o3-color-palette-mint);
   --o3-color-palette-ft-pink: #FCD0B1;
   --o3-color-palette-ft-grey: #333333ff;
   --o3-color-palette-white: #ffffffff;
@@ -69,6 +69,13 @@
   --o3-color-palette-claret-100: #ff1a66ff;
   --o3-color-palette-wheat-100: #FFEBD9;
   --o3-color-palette-mint: #c0efd8;
+  --o3-color-palette-mint-80: #A4CCB8;
+  --o3-color-palette-mint-70: #8FB3A1;
+  --o3-color-palette-mint-60: #7B998A;
+  --o3-color-palette-mint-50: #668073;
+  --o3-color-palette-mint-40: #52665C;
+  --o3-color-palette-mint-30: #3D4D45;
+  --o3-color-use-case-link: var(--o3-color-palette-teal);
   --o3-spacing-3xs: 0.25rem;
   --o3-spacing-2xs: 0.5rem;
   --o3-spacing-xs: 0.75rem;

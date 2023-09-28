@@ -15,7 +15,9 @@ export default {
 			</div>
 		),
 	],
-	args: {},
+	parameters: {
+		backgrounds: {default: 'white'},
+	},
 } as Meta;
 
 export const Button = ButtonStories.Button;

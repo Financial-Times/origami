@@ -51,11 +51,11 @@
 }
 
 .o3-button:focus {
-	box-shadow: 0 0 0 var(--o3-spacing-3xs) #ffffff, 0 0 0 var(--o3-spacing-2xs) #4d4845;
+	box-shadow: var(--o3-box-shadow-focus-ring-inner), var(--o3-box-shadow-focus-ring-outer);
 	outline: unset;
 }
 .o3-button.o3-button--inverse:focus {
-	box-shadow: 0 0 0 var(--o3-spacing-3xs) #4d4845, 0 0 0 var(--o3-spacing-2xs) #ffffff;
+	box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner), var(--o3-box-shadow-focus-ring-inverse-outer);
 }
 
 @supports selector(:focus-visible) {
@@ -64,10 +64,11 @@
 	}
 
 	.o3-button:focus-visible {
-		box-shadow: 0 0 0 var(--o3-spacing-3xs) #ffffff, 0 0 0 var(--o3-spacing-2xs) #4d4845;
+		box-shadow: var(--o3-box-shadow-focus-ring-inner), var(--o3-box-shadow-focus-ring-outer);
+		outline: unset;
 	}
 	.o3-button.o3-button--inverse:focus-visible {
-		box-shadow: 0 0 0 var(--o3-spacing-3xs) #4d4845, 0 0 0 var(--o3-spacing-2xs) #ffffff;
+		box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner), var(--o3-box-shadow-focus-ring-inverse-outer);
 	}
 }
 
