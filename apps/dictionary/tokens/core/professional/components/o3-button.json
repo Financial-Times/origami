@@ -5,112 +5,184 @@
         "standard": {
           "color": {
             "value": "#ffffff",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "b1ce1ada-4643-45c6-a970-f245506a444e"
+            }
           },
           "background": {
             "value": "#262a33",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "89fc9a30-5c9c-4f7a-a9fe-158234ea72e8"
+            }
           },
           "border": {
             "value": "#ffffff00",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "0c011d9b-5ec2-4526-b765-45b82ee9d1aa"
+            }
           },
           "hover": {
             "background": {
               "value": "#515257",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "02ae3a9b-aff9-46e2-a493-8a58604bcf59"
+              }
             },
             "color": {
               "value": "#ffffff",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "f7e31a01-7d57-493e-9183-c8e3e659d058"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "2414dc9e-a1c8-4dc9-b743-b7dcd4c62b4e"
+              }
             }
           },
           "focus": {
             "background": {
               "value": "#515257",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "34618928-5e1a-4f56-9da3-bc9d237d97b9"
+              }
             },
             "color": {
               "value": "#ffffff",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "ec4d2075-ceac-4b37-8d18-f80bef94c46a"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "80b13489-f850-41b8-b8e1-4c22e821fa98"
+              }
             }
           },
           "active": {
             "background": {
               "value": "#727071",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "f86ad9a9-c02b-4f72-9aed-1a803140b3b2"
+              }
             },
             "color": {
               "value": "#ffffff",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "26af0b04-cf53-4707-9aab-de26a6c8acd4"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "50095353-44b7-4e0f-8784-d72b7b9bca40"
+              }
             }
           }
         },
         "inverse": {
           "color": {
             "value": "#262a33",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "4507a923-3c14-4fc1-b017-9a53c57b2060"
+            }
           },
           "background": {
             "value": "#c0efd8",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "2660565d-2ed5-4cce-94a2-24d8366ff0fb"
+            }
           },
           "border": {
             "value": "#ffffff00",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "f7a2ba64-0bee-439a-9bfc-38d58e4c0c08"
+            }
           },
           "hover": {
             "background": {
               "value": "#9abeaf",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "4ff46e5c-41f1-405b-ab1d-91073bd4abe8"
+              }
             },
             "color": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "169add25-3cc6-4a09-946b-b25cdebc942a"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "6e9e9d75-0e93-479e-a16b-a369fc065b52"
+              }
             }
           },
           "focus": {
             "background": {
               "value": "#9abeaf",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "530db31e-26d6-4123-aba0-b6c6159905bb"
+              }
             },
             "color": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "bcf02afa-3e45-4752-91fe-51d594b9bfc5"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "0b24730a-584c-4030-b917-65e59ee203a1"
+              }
             }
           },
           "active": {
             "background": {
               "value": "#7b968e",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "890209a8-0841-4ade-8e45-de950d70aeb3"
+              }
             },
             "color": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "bceb62eb-a2e2-4610-b969-44af43f475a2"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "8f0c0739-61dd-40ca-a7fc-164c37fe41d3"
+              }
             }
           }
         }
@@ -119,112 +191,184 @@
         "standard": {
           "color": {
             "value": "#262a33",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "4dc34f13-d5d9-4716-869c-133bd97c7822"
+            }
           },
           "background": {
             "value": "#ffffff00",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "3b2fccb6-76a5-4f05-8bf8-686c17a50d0e"
+            }
           },
           "border": {
             "value": "#262a33",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "b9204a50-94e8-49da-ab5a-6cc300f006df"
+            }
           },
           "hover": {
             "background": {
               "value": "rgba(38, 42, 51, 0.15)",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "bddb6ecc-dee5-4fad-b1e6-9727a56cd59b"
+              }
             },
             "color": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "1030cb24-f832-47fc-a91a-25951155b1c3"
+              }
             },
             "border": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "7f2dfee8-1186-4124-a88d-048541622d69"
+              }
             }
           },
           "focus": {
             "background": {
               "value": "rgba(38, 42, 51, 0.15)",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "87619474-95f7-480d-ac89-8e6a82812279"
+              }
             },
             "color": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "a4e50e9a-f2a2-44ec-a416-5766fe6b2d9a"
+              }
             },
             "border": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "9717df9b-4a35-4792-a336-a61fcc25990e"
+              }
             }
           },
           "active": {
             "background": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "c11f558a-4569-493e-ab70-d2ce23e92890"
+              }
             },
             "color": {
               "value": "#ffffff",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "25db152a-1469-4122-931c-d80f6b7701a8"
+              }
             },
             "border": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "3d4afa61-b8f8-40e1-ac92-cb8a6a2b30cf"
+              }
             }
           }
         },
         "inverse": {
           "color": {
             "value": "#c0efd8",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "b9973797-1f91-44bf-a55a-ba031ba4b2b3"
+            }
           },
           "background": {
             "value": "#ffffff00",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "8bfb221b-cd8c-4344-ac88-a817488c8e99"
+            }
           },
           "border": {
             "value": "#c0efd8",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "09585429-d1c2-41de-9e54-5be99144096a"
+            }
           },
           "hover": {
             "background": {
               "value": "rgba(192, 239, 216, 0.15)",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "cdcc4194-7882-4d47-bea8-544ba868685f"
+              }
             },
             "color": {
               "value": "#c0efd8",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "237cf80a-8414-4114-aa65-6d956eb90218"
+              }
             },
             "border": {
               "value": "#c0efd8",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "c13ffc47-99b1-4ff2-8eb2-ce3304f19145"
+              }
             }
           },
           "focus": {
             "background": {
               "value": "rgba(192, 239, 216, 0.15)",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "19a6586a-424a-46d0-84fb-d94def1426e4"
+              }
             },
             "color": {
               "value": "#c0efd8",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "4d1d675d-dff2-41ea-92d8-f8291cb23c6b"
+              }
             },
             "border": {
               "value": "#c0efd8",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "366cf1a2-4687-4f2c-bdb4-ddad7c5e438a"
+              }
             }
           },
           "active": {
             "background": {
               "value": "#c0efd8",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "124205a7-a040-4f97-9926-51b05c885f06"
+              }
             },
             "color": {
               "value": "#000000",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "d80c5502-64bf-438d-800c-a499bfb373d4"
+              }
             },
             "border": {
               "value": "#c0efd8",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "8d788269-4525-4ab7-9686-59c74176bba3"
+              }
             }
           }
         }
@@ -233,112 +377,184 @@
         "standard": {
           "color": {
             "value": "#262a33",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "d5bf8c8d-71ef-4f50-b4da-3ffae9d15225"
+            }
           },
           "background": {
             "value": "#ffffff00",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "41e5f194-6ec3-4884-ab1b-e8c61bfc659e"
+            }
           },
           "border": {
             "value": "#ffffff00",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "7bdc667b-ac8e-42f7-bd54-4470b0182f04"
+            }
           },
           "hover": {
             "background": {
               "value": "rgba(38, 42, 51, 0.15)",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "2db5a9b8-892b-45b6-960d-e36ee087de60"
+              }
             },
             "color": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "63fc6647-3f36-4aae-9a6a-2861dcb9c498"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "0fd50425-71ba-437c-a77f-5e0ee9c66d2d"
+              }
             }
           },
           "focus": {
             "background": {
               "value": "rgba(38, 42, 51, 0.15)",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "9c472c17-e375-403f-ba5b-8b45bf6d872f"
+              }
             },
             "color": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "e6f60e98-19f4-4650-b3c4-e259f44fe855"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "ef671cf4-2fa5-439b-a861-74ab8b042ccb"
+              }
             }
           },
           "active": {
             "background": {
               "value": "#262a33",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "ebcdcaa9-b33a-4a4f-887b-a971f7e1609f"
+              }
             },
             "color": {
               "value": "#ffffff",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "b6fd675d-aa42-403c-88e8-f99862fd8fc8"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "a775cdf5-520d-49a5-9218-25f9b7901120"
+              }
             }
           }
         },
         "inverse": {
           "color": {
             "value": "#c0efd8",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "9fb3c087-97ea-41da-99f9-25d2ecb95298"
+            }
           },
           "background": {
             "value": "#ffffff00",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "ed2ea794-854e-4c0d-b7d1-8cda2893e45d"
+            }
           },
           "border": {
             "value": "#ffffff00",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "id": "9d05518d-817e-4ace-8196-33b5379c6812"
+            }
           },
           "hover": {
             "background": {
               "value": "rgba(192, 239, 216, 0.15)",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "b61de33c-7567-435c-b48e-95253614b2bf"
+              }
             },
             "color": {
               "value": "#c0efd8",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "bd7b95f8-634b-411a-8769-d38e24fa74d4"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "594f1cd5-f4d8-4417-bcb7-81178ceedead"
+              }
             }
           },
           "focus": {
             "background": {
               "value": "rgba(192, 239, 216, 0.15)",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "558e35c9-450b-48e0-a1d5-c47864cb5b9e"
+              }
             },
             "color": {
               "value": "#c0efd8",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "bd73804f-d888-44da-8640-99bd8938d974"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "be60afc9-26c2-4816-af7e-490037ab6708"
+              }
             }
           },
           "active": {
             "background": {
               "value": "#c0efd8",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "c94e1381-6082-416d-8818-da4e8aeb1e4f"
+              }
             },
             "color": {
               "value": "#000000",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "72fe1644-ebc8-41fa-a90b-c27f5a520211"
+              }
             },
             "border": {
               "value": "#ffffff00",
-              "type": "color"
+              "type": "color",
+              "$extensions": {
+                "id": "e1ea8b10-07d4-44a8-8923-2bee1583820e"
+              }
             }
           }
         }

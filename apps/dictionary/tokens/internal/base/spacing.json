@@ -3,43 +3,73 @@
     "spacing": {
       "3xs": {
         "value": "4px",
-        "type": "spacing"
+        "type": "spacing",
+        "$extensions": {
+          "id": "d07e271b-b646-4a1e-90a8-517aaf2ff488"
+        }
       },
       "2xs": {
         "value": "8",
-        "type": "spacing"
+        "type": "spacing",
+        "$extensions": {
+          "id": "0e6976da-e1a3-4c0a-86b4-5cfc51c0806c"
+        }
       },
       "xs": {
         "value": "12",
-        "type": "spacing"
+        "type": "spacing",
+        "$extensions": {
+          "id": "7558260b-b93d-47c4-8d22-fadee4680c5d"
+        }
       },
       "s": {
         "value": "16",
-        "type": "spacing"
+        "type": "spacing",
+        "$extensions": {
+          "id": "2065fb37-16b6-48ab-ba2c-acf3fe5a1937"
+        }
       },
       "m": {
         "value": "24",
-        "type": "spacing"
+        "type": "spacing",
+        "$extensions": {
+          "id": "98084b2e-d890-44e1-a1c1-d3d57564a18a"
+        }
       },
       "l": {
         "value": "32",
-        "type": "spacing"
+        "type": "spacing",
+        "$extensions": {
+          "id": "6ef4f4cc-1f83-40ad-826f-2ebd3393552c"
+        }
       },
       "xl": {
         "value": "48",
-        "type": "spacing"
+        "type": "spacing",
+        "$extensions": {
+          "id": "3abe72f3-ea84-4418-a0d5-a433bd532e4b"
+        }
       },
       "2xl": {
         "value": "64",
-        "type": "spacing"
+        "type": "spacing",
+        "$extensions": {
+          "id": "8ced2315-ba54-482d-8efb-c1a3061fb060"
+        }
       },
       "3xl": {
         "value": "72",
-        "type": "spacing"
+        "type": "spacing",
+        "$extensions": {
+          "id": "3c4082ea-39b0-4768-b099-1986b55c5c21"
+        }
       },
       "4xl": {
         "value": "96",
-        "type": "spacing"
+        "type": "spacing",
+        "$extensions": {
+          "id": "13942bb5-c987-4dca-9b01-277355ca9feb"
+        }
       }
     }
   }

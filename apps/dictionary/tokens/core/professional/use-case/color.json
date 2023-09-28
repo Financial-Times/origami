@@ -3,7 +3,10 @@
     "color": {
       "link": {
         "value": "{o3.color.palette.mint}",
-        "type": "color"
+        "type": "color",
+        "$extensions": {
+          "id": "59d97d64-6f66-49af-98f4-764c0492b64a"
+        }
       }
     }
   }

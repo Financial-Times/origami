@@ -4,61 +4,101 @@
       "palette": {
         "black": {
           "type": "color",
-          "value": "#000"
+          "value": "#000",
+          "$extensions": {
+            "id": "5d6b8617-adc7-465c-872b-f4497cb93ceb"
+          }
         },
         "white": {
           "value": "#fff",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "d57389d0-b60f-4422-9c6d-bc4799543cff"
+          }
         },
         "jade": {
           "value": "#00994d",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "dff06ac7-eedc-496a-9328-efeb29810040"
+          }
         },
         "crimson": {
           "value": "#c00",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "fc706a00-e03b-4acc-b75d-82bb2b873dc1"
+          }
         },
         "black-5": {
           "value": "#F2F2F2",
           "type": "color",
-          "$extensions": {}
+          "$extensions": {
+            "id": "5f7953e8-e5ce-4a8c-8428-13a715980860"
+          }
         },
         "black-10": {
           "value": "#E6E6E6",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "82ec5429-2ea1-4c9b-8035-cb475acc499e"
+          }
         },
         "black-20": {
           "value": "#ccc",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "acadad1e-ad37-4bbc-a5f3-f1ec71668eae"
+          }
         },
         "black-30": {
           "value": "#B3B3B3",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "baa4d38c-f036-4942-9462-7eb31880fbf2"
+          }
         },
         "black-40": {
           "value": "#999",
           "type": "color",
-          "$extensions": {}
+          "$extensions": {
+            "id": "e5b8cf79-b856-4382-bbc3-602539632db4"
+          }
         },
         "black-50": {
           "value": "#808080",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "94d40bd6-bd95-47b7-b377-fc9d84f4b5f8"
+          }
         },
         "black-60": {
           "value": "#666",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "3e957710-1dbe-46ab-bf49-4c208df1d70c"
+          }
         },
         "black-70": {
           "value": "#4d4d4d",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "857e04fa-3405-404b-a545-c9a55cd0d1a7"
+          }
         },
         "black-80": {
           "value": "#333",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "75e14e9c-e0ef-464e-936b-c3a45d0bc1e3"
+          }
         },
         "black-90": {
           "value": "#1a1a1a",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "344d60fc-a07d-412c-a9f3-bb40c01323b9"
+          }
         }
       }
     }

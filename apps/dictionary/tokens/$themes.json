@@ -8,7 +8,8 @@
       "utility-tokens": "enabled",
       "core/components/o3-button": "enabled",
       "core/base/spacing": "enabled",
-      "core/base/typography": "enabled"
+      "core/base/typography": "enabled",
+      "core/use-case/box-shadow": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",

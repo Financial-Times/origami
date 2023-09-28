@@ -4,31 +4,52 @@
       "palette": {
         "mint": {
           "value": "#c0efd8",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "8b0dda40-6bdb-4490-b5ad-bdf6face109e"
+          }
         },
         "mint-80": {
           "value": "#A4CCB8",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "6208a3da-9bcf-4a6e-9eab-d5120c4068b7"
+          }
         },
         "mint-70": {
           "value": "#8FB3A1",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "991d14f8-68ba-4660-b9d5-474db18f2575"
+          }
         },
         "mint-60": {
           "value": "#7B998A",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "0fc6f2df-0cab-4785-b457-5570d1381236"
+          }
         },
         "mint-50": {
           "value": "#668073",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "e3d67e1f-888a-44b7-8c63-68a59bd839e0"
+          }
         },
         "mint-40": {
           "value": "#52665C",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "f8ac41ee-6e77-43bf-8037-7cf0c402055d"
+          }
         },
         "mint-30": {
           "value": "#3D4D45",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "dbd65e39-01c5-433d-9132-fefb2e719a95"
+          }
         }
       }
     }

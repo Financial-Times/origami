@@ -4,155 +4,269 @@
       "palette": {
         "black": {
           "type": "color",
-          "value": "#000"
+          "value": "#000",
+          "$extensions": {
+            "id": "a9cc6794-d072-495e-9ebf-8253f0633042"
+          }
         },
         "white": {
           "value": "#fff",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "06ae7752-7fd9-4122-913e-a0eb433382f2"
+          }
         },
         "oxford": {
           "value": "#0F5499",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "8b668185-d071-4492-8887-bf01bc7acc1a"
+          }
         },
         "teal": {
           "value": "#0D7680",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "af850ffa-d98a-4c0c-873b-1bc00e9d253f"
+          }
         },
         "slate": {
           "value": "#262A33",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "37f6d358-d563-4547-97bf-1349f6f75039"
+          }
         },
         "slate-white-5": {
           "value": "#F4F4F5",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "f8f64bcc-82ce-4619-afa6-efcbb9cd6432"
+          }
         },
         "slate-white-15": {
           "value": "#DEDFE0",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "29cccfb2-f22f-4181-82a1-7b1a3ace00a4"
+          }
         },
         "lemon": {
           "value": "#FFEC1A",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "36a29280-632f-4725-874b-97da355a90bd"
+          }
         },
         "jade": {
           "value": "#00994d",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "5cb3ed3f-2107-4a47-b34c-bfc70ce1c51d"
+          }
         },
         "mandarin": {
           "value": "#F83",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "40cb3998-f023-4dc3-8a94-3bda265318d8"
+          }
         },
         "crimson": {
           "value": "#c00",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "f264f29a-ceca-4edf-a414-7a92dfaffc8a"
+          }
         },
         "black-5": {
           "value": "#F2F2F2",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "201c44cd-435f-4c94-a74f-e4f648674af8"
+          }
         },
         "black-10": {
           "value": "#E6E6E6",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "93a0662c-a723-419b-819c-e9316208caca"
+          }
         },
         "black-20": {
           "value": "#ccc",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "4b5ab72c-96dd-4268-9d23-de1ae10094f4"
+          }
         },
         "black-30": {
           "value": "#B3B3B3",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "a7d0c9e2-1ef8-4533-818f-a386d505daa3"
+          }
         },
         "black-40": {
           "value": "#999",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "e7652373-4100-4bb8-a298-cdcb42256ac3"
+          }
         },
         "black-50": {
           "value": "#808080",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "78a9eb6e-c1f0-4e6b-88bb-5ae49f6836b1"
+          }
         },
         "black-60": {
           "value": "#666",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "cfd6141e-bea0-48fd-8072-301ddffbdc30"
+          }
         },
         "black-70": {
           "value": "#4d4d4d",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "f66df4ea-477e-49af-9675-7901c5e3aec8"
+          }
         },
         "black-80": {
           "value": "#333",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "075b47c1-3121-4c1f-9891-4a7cd411836a"
+          }
         },
         "black-90": {
           "value": "#1a1a1a",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "e50036c1-8f57-40a2-96f9-11627bb5f4de"
+          }
         },
         "oxford-30": {
           "value": "#082A4D",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "f53d0411-f932-4f06-9d37-6bd8f5cbe327"
+          }
         },
         "oxford-40": {
           "value": "#0A3866",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "4096e28a-4643-4163-9e90-2aa35182ccc6"
+          }
         },
         "oxford-50": {
           "value": "#0D4680",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "d323152a-61b4-44a9-a041-f164bd7e986c"
+          }
         },
         "oxford-60": {
           "value": "#0F5499",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "235d0fc1-2810-4563-8410-23a9df44a9ab"
+          }
         },
         "oxford-70": {
           "value": "#1262B3",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "86860233-e414-48aa-9cf6-9fdf91e6880d"
+          }
         },
         "oxford-80": {
           "value": "#1470CC",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "60b3a640-72d0-4327-a3d1-2b86a15004d3"
+          }
         },
         "oxford-90": {
           "value": "#177EE6",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "8f6dc52f-4a2c-4cf3-995c-2fcf0e98dc45"
+          }
         },
         "oxford-100": {
           "value": "#198CFF",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "3dc65575-29b9-41b9-b95a-6bf5fc8af283"
+          }
         },
         "teal-20": {
           "value": "#052F33",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "7d59bd00-5679-434b-a4d5-ffe5940dadfd"
+          }
         },
         "teal-30": {
           "value": "#08474D",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "2ea72b66-218d-476a-97f8-e9290843d7b1"
+          }
         },
         "teal-40": {
           "value": "#0A5E66",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "ab2b9f3e-c99d-436d-8dcf-e9b760a4812f"
+          }
         },
         "teal-50": {
           "value": "#0D7680",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "b39c6e44-fa39-430f-a257-9d4ded1694fe"
+          }
         },
         "teal-60": {
           "value": "#108D99",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "5b21708f-c2b1-46b9-aea8-7d5587e00ad6"
+          }
         },
         "teal-70": {
           "value": "#12A5B3",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "9d6f689b-58c4-47bc-8ae1-ed827722604f"
+          }
         },
         "teal-80": {
           "value": "#15BCCC",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "6be98f6f-402c-4458-8576-9dfca9d18404"
+          }
         },
         "teal-90": {
           "value": "#17D4E6",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "566ae212-d8f5-41c8-9ad8-f58c719d244e"
+          }
         },
         "teal-100": {
           "value": "#1AEBFF",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "9def3b9a-917f-494e-af8e-6f3a654fbb0a"
+          }
         }
       }
     }

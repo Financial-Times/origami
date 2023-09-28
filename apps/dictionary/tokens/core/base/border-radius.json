@@ -3,27 +3,45 @@
     "border-radius": {
       "s": {
         "value": "8",
-        "type": "borderRadius"
+        "type": "borderRadius",
+        "$extensions": {
+          "id": "d4eddd50-a5d9-43f2-a96a-96f33582c252"
+        }
       },
       "2xs": {
         "value": "4",
-        "type": "borderRadius"
+        "type": "borderRadius",
+        "$extensions": {
+          "id": "0c5a5e97-6b72-4891-aac8-34215460a58e"
+        }
       },
       "xs": {
         "value": "6",
-        "type": "borderRadius"
+        "type": "borderRadius",
+        "$extensions": {
+          "id": "7e3a1eac-05db-4d5f-9793-cf27c972803a"
+        }
       },
       "m": {
         "value": "16",
-        "type": "borderRadius"
+        "type": "borderRadius",
+        "$extensions": {
+          "id": "06372a53-85c7-4c66-820a-fb2d3d8ac7b3"
+        }
       },
       "l": {
         "value": "24",
-        "type": "borderRadius"
+        "type": "borderRadius",
+        "$extensions": {
+          "id": "7218501a-00cf-4e8d-97e8-911bdc7a7666"
+        }
       },
       "xl": {
         "value": "48",
-        "type": "borderRadius"
+        "type": "borderRadius",
+        "$extensions": {
+          "id": "3612d7e5-b369-479b-8f81-1b995e293546"
+        }
       }
     }
   }

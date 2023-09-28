@@ -1,0 +1,66 @@
+{
+  "o3": {
+    "box-shadow": {
+      "focus-ring": {
+        "inner": {
+          "value": {
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "4",
+            "color": "#ffffff",
+            "type": "dropShadow"
+          },
+          "type": "boxShadow",
+          "$extensions": {
+            "id": "25dc3b22-7712-4d56-ae28-7d6cf0dbf754"
+          }
+        },
+        "outer": {
+          "value": {
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "8",
+            "color": "#4d4845",
+            "type": "dropShadow"
+          },
+          "type": "boxShadow",
+          "$extensions": {
+            "id": "3ad6cd0a-29f1-4531-aa28-124e3c319b26"
+          }
+        },
+        "inverse": {
+          "inner": {
+            "value": {
+              "x": "0",
+              "y": "0",
+              "blur": "0",
+              "spread": "4",
+              "color": "#4d4845",
+              "type": "dropShadow"
+            },
+            "type": "boxShadow",
+            "$extensions": {
+              "id": "4b368677-c914-4527-afc8-bdc957bef987"
+            }
+          },
+          "outer": {
+            "value": {
+              "x": "0",
+              "y": "0",
+              "blur": "0",
+              "spread": "8",
+              "color": "#ffffff",
+              "type": "dropShadow"
+            },
+            "type": "boxShadow",
+            "$extensions": {
+              "id": "dc166b7f-10ab-4efa-b158-09fb27e6bc7b"
+            }
+          }
+        }
+      }
+    }
+  }
+}

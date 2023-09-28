@@ -4,7 +4,26 @@
       "use-case": {
         "link": {
           "value": "{o3.color.palette.teal}",
-          "type": "color"
+          "type": "color",
+          "$extensions": {
+            "id": "b18d55da-daf7-4b1f-a0a1-048c3c1158a9"
+          }
+        },
+        "focus-ring": {
+          "white": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "$extensions": {
+              "id": "ad17e4ec-ffe2-498a-abf9-f20f0f73aecd"
+            }
+          },
+          "dark": {
+            "value": "#4d4845",
+            "type": "color",
+            "$extensions": {
+              "id": "2aec21e7-92df-4cfa-a873-daf65876a74c"
+            }
+          }
         }
       }
     }
