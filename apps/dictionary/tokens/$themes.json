@@ -583,7 +583,6 @@
       "internal/components/o3-button": "enabled",
       "internal/base/color": "enabled",
       "internal/base/spacing": "enabled",
-      "core/use-case/color": "enabled",
       "internal/base/typography": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:3735:199",
