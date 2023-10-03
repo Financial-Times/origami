@@ -1,11 +1,9 @@
-import parse from 'html-react-parser';
-import DOMPurify from 'dompurify';
+import parse from "html-react-parser"
+import DOMPurify from "dompurify"
 
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {Teaser} from '../src/tsx/teaser';
-import './teaser.scss';
+import {StoryObj, StoryFn, Meta} from "@storybook/react"
+import {Teaser} from "../src/tsx/teaser"
+import "./teaser.scss"
 import {
 	articleArgs,
 	contentPackageArgs,
@@ -15,243 +13,265 @@ import {
 	promotedArgs,
 	topStoryArgs,
 	videoArgs,
-} from './args';
+} from "./args"
 
-import {argTypes} from './arg-types';
+import {argTypes} from "./arg-types"
 
 argTypes.customSlot = {
-	type: 'string',
-};
+	type: "string",
+}
 
 export default {
-	title: 'Components/o-teaser',
+	title: "Components/o-teaser",
 	component: Teaser,
-	decorators: [withDesign, withHtml],
 	parameters: {},
-} as ComponentMeta<typeof Teaser>;
+} as Meta<typeof Teaser>
 
-const Story: ComponentStory<typeof Teaser> = args => {
+const Story: StoryFn<typeof Teaser> = args => {
 	if (args.showCustomSlot) {
-		const parsedElement = parse(DOMPurify.sanitize(args.customSlot));
-		args.customSlot = parsedElement;
+		const parsedElement = parse(DOMPurify.sanitize(args.customSlot))
+		args.customSlot = parsedElement
 	}
-	return <Teaser {...args} />;
-};
+	return <Teaser {...args} />
+}
 
-export const Article: ComponentStory<typeof Teaser> = Story.bind({});
-Article.args = articleArgs;
-Article.argTypes = argTypes;
-Article.parameters = {
-	controls: {
-		exclude: [
-			'relatedLinks',
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
-			'showHeadshot',
-		],
+export const Article: StoryObj<typeof Teaser> = {
+	render: Story,
+	args: articleArgs,
+	argTypes: argTypes,
+
+	parameters: {
+		controls: {
+			exclude: [
+				"relatedLinks",
+				"video",
+				"headshot",
+				"imageLazyLoad",
+				"parentId",
+				"parentLabel",
+				"headlineTesting",
+				"promotedSuffixText",
+				"promotedPrefixText",
+				"relativeUrl",
+				"showCustomSlot",
+				"customSlot",
+				"showRelatedLinks",
+				"showVideo",
+				"showHeadshot",
+			],
+		},
 	},
-};
+}
 
-export const Podcast: ComponentStory<typeof Teaser> = Story.bind({});
-Podcast.args = podcastArgs;
-Podcast.argTypes = argTypes;
-Podcast.parameters = {
-	controls: {
-		exclude: [
-			'relatedLinks',
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
-			'showHeadshot',
-			'metaPrefixText',
-			'altTitle',
-		],
+export const Podcast: StoryObj<typeof Teaser> = {
+	render: Story,
+	args: podcastArgs,
+	argTypes: argTypes,
+
+	parameters: {
+		controls: {
+			exclude: [
+				"relatedLinks",
+				"video",
+				"headshot",
+				"imageLazyLoad",
+				"parentId",
+				"parentLabel",
+				"headlineTesting",
+				"promotedSuffixText",
+				"promotedPrefixText",
+				"relativeUrl",
+				"showCustomSlot",
+				"customSlot",
+				"showRelatedLinks",
+				"showVideo",
+				"showHeadshot",
+				"metaPrefixText",
+				"altTitle",
+			],
+		},
 	},
-};
+}
 
-export const Opinion: ComponentStory<typeof Teaser> = Story.bind({});
-Opinion.args = opinionArgs;
-Opinion.argTypes = argTypes;
+export const Opinion: StoryObj<typeof Teaser> = {
+	render: Story,
+	args: opinionArgs,
+	argTypes: argTypes,
 
-Opinion.parameters = {
-	controls: {
-		exclude: [
-			'relatedLinks',
-			'video',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
-		],
+	parameters: {
+		controls: {
+			exclude: [
+				"relatedLinks",
+				"video",
+				"imageLazyLoad",
+				"parentId",
+				"parentLabel",
+				"headlineTesting",
+				"promotedSuffixText",
+				"promotedPrefixText",
+				"relativeUrl",
+				"showCustomSlot",
+				"customSlot",
+				"showRelatedLinks",
+				"showVideo",
+			],
+		},
 	},
-};
+}
 
-export const ContentPackage: ComponentStory<typeof Teaser> = Story.bind({});
-ContentPackage.storyName = 'ContentPackage';
-ContentPackage.args = contentPackageArgs;
-ContentPackage.argTypes = argTypes;
-ContentPackage.parameters = {
-	controls: {
-		exclude: [
-			'relatedLinks',
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
-			'showHeadshot',
-			'showStandfirst',
-			'indicators',
-		],
-	},
-};
+export const ContentPackage: StoryObj<typeof Teaser> = {
+	render: Story,
+	name: "ContentPackage",
+	args: contentPackageArgs,
+	argTypes: argTypes,
 
-export const PackageItem: ComponentStory<typeof Teaser> = Story.bind({});
-PackageItem.storyName = 'PackageItem';
-PackageItem.args = contentPackageItemArgs;
-PackageItem.argTypes = argTypes;
-PackageItem.parameters = {
-	controls: {
-		exclude: [
-			'relatedLinks',
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
-			'showHeadshot',
-			'showStandfirst',
-			'metaAltLink',
-			'altTitle',
-			'altStandfirst',
-		],
+	parameters: {
+		controls: {
+			exclude: [
+				"relatedLinks",
+				"video",
+				"headshot",
+				"imageLazyLoad",
+				"parentId",
+				"parentLabel",
+				"headlineTesting",
+				"promotedSuffixText",
+				"promotedPrefixText",
+				"relativeUrl",
+				"showCustomSlot",
+				"customSlot",
+				"showRelatedLinks",
+				"showVideo",
+				"showHeadshot",
+				"showStandfirst",
+				"indicators",
+			],
+		},
 	},
-};
+}
 
-export const Promoted: ComponentStory<typeof Teaser> = Story.bind({});
-Promoted.args = promotedArgs;
-Promoted.argTypes = argTypes;
-Promoted.parameters = {
-	controls: {
-		exclude: [
-			'relatedLinks',
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showVideo',
-			'showHeadshot',
-			'indicators',
-			'metaPrefixText',
-			'metaSuffixText',
-			'metaLink',
-			'metaAltLink',
-			'altTitle',
-			'altStandfirst',
-		],
-	},
-};
+export const PackageItem: StoryObj<typeof Teaser> = {
+	render: Story,
+	name: "PackageItem",
+	args: contentPackageItemArgs,
+	argTypes: argTypes,
 
-export const TopStory: ComponentStory<typeof Teaser> = Story.bind({});
-TopStory.storyName = 'TopStory';
-TopStory.args = topStoryArgs;
-TopStory.argTypes = argTypes;
-TopStory.parameters = {
-	controls: {
-		exclude: [
-			'video',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showVideo',
-			'showHeadshot',
-			'indicators',
-		],
+	parameters: {
+		controls: {
+			exclude: [
+				"relatedLinks",
+				"video",
+				"headshot",
+				"imageLazyLoad",
+				"parentId",
+				"parentLabel",
+				"headlineTesting",
+				"promotedSuffixText",
+				"promotedPrefixText",
+				"relativeUrl",
+				"showCustomSlot",
+				"customSlot",
+				"showRelatedLinks",
+				"showVideo",
+				"showHeadshot",
+				"showStandfirst",
+				"metaAltLink",
+				"altTitle",
+				"altStandfirst",
+			],
+		},
 	},
-};
+}
 
-export const Video: ComponentStory<typeof Teaser> = Story.bind({});
-Video.args = videoArgs;
-Video.argTypes = argTypes;
-Video.parameters = {
-	controls: {
-		exclude: [
-			'relatedLinks',
-			'headshot',
-			'imageLazyLoad',
-			'parentId',
-			'parentLabel',
-			'headlineTesting',
-			'promotedSuffixText',
-			'promotedPrefixText',
-			'relativeUrl',
-			'showCustomSlot',
-			'customSlot',
-			'showRelatedLinks',
-			'showHeadshot',
-			'showStandfirst',
-			'showStatus',
-			'showImage',
-			'indicators',
-			'altTitle',
-			'altStandfirst',
-		],
+export const Promoted: StoryObj<typeof Teaser> = {
+	render: Story,
+	args: promotedArgs,
+	argTypes: argTypes,
+
+	parameters: {
+		controls: {
+			exclude: [
+				"relatedLinks",
+				"video",
+				"headshot",
+				"imageLazyLoad",
+				"parentId",
+				"parentLabel",
+				"headlineTesting",
+				"relativeUrl",
+				"showCustomSlot",
+				"customSlot",
+				"showRelatedLinks",
+				"showVideo",
+				"showHeadshot",
+				"indicators",
+				"metaPrefixText",
+				"metaSuffixText",
+				"metaLink",
+				"metaAltLink",
+				"altTitle",
+				"altStandfirst",
+			],
+		},
 	},
-};
+}
+
+export const TopStory: StoryObj<typeof Teaser> = {
+	render: Story,
+	name: "TopStory",
+	args: topStoryArgs,
+	argTypes: argTypes,
+
+	parameters: {
+		controls: {
+			exclude: [
+				"video",
+				"headshot",
+				"imageLazyLoad",
+				"parentId",
+				"parentLabel",
+				"headlineTesting",
+				"promotedSuffixText",
+				"promotedPrefixText",
+				"relativeUrl",
+				"showCustomSlot",
+				"customSlot",
+				"showVideo",
+				"showHeadshot",
+				"indicators",
+			],
+		},
+	},
+}
+
+export const Video: StoryObj<typeof Teaser> = {
+	render: Story,
+	args: videoArgs,
+	argTypes: argTypes,
+
+	parameters: {
+		controls: {
+			exclude: [
+				"relatedLinks",
+				"headshot",
+				"imageLazyLoad",
+				"parentId",
+				"parentLabel",
+				"headlineTesting",
+				"promotedSuffixText",
+				"promotedPrefixText",
+				"relativeUrl",
+				"showCustomSlot",
+				"customSlot",
+				"showRelatedLinks",
+				"showHeadshot",
+				"showStandfirst",
+				"showStatus",
+				"showImage",
+				"indicators",
+				"altTitle",
+				"altStandfirst",
+			],
+		},
+	},
+}

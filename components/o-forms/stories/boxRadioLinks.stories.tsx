@@ -1,37 +1,34 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {useEffect} from 'react';
-import {RadioBoxLink, RadioBoxLinks} from '../src/tsx/o-forms';
-import {demoArgs} from './fixtures/pseudoRadioBoxArgs';
-import './forms.scss';
-import javascript from '../main.js';
+import {StoryFn, Meta} from "@storybook/react"
+import {useEffect} from "react"
+import {RadioBoxLink, RadioBoxLinks} from "../src/tsx/o-forms"
+import {demoArgs} from "./fixtures/pseudoRadioBoxArgs"
+import "./forms.scss"
+import javascript from "../main.js"
 
 const hideArg = {
 	table: {
 		disable: true,
 	},
-};
+}
 
 export default {
-	title: 'Components/o-forms/pseudo-box-radio-links',
+	title: "Components/o-forms/pseudo-box-radio-links",
 	component: RadioBoxLinks,
-	decorators: [withDesign, withHtml],
 	argTypes: {
 		children: hideArg,
-    theme: hideArg,
+		theme: hideArg,
 		...demoArgs,
 	},
-} as ComponentMeta<typeof RadioBoxLinks>;
+} as Meta<typeof RadioBoxLinks>
 
-const Template: ComponentStory<any> = args => {
+const Template: StoryFn<any> = args => {
 	useEffect(() => {
-		let form = javascript.init();
+		let form = javascript.init()
 		return function cleanup() {
-			form = Array.isArray(form) ? form : [form];
-			form.forEach(element => element.destroy());
-		};
-	}, []);
+			form = Array.isArray(form) ? form : [form]
+			form.forEach(element => element.destroy())
+		}
+	}, [])
 	return (
 		<RadioBoxLinks>
 			<RadioBoxLink
@@ -45,7 +42,9 @@ const Template: ComponentStory<any> = args => {
 				isCurrent={args.isCurrentLinkB}
 			/>
 		</RadioBoxLinks>
-	);
-};
+	)
+}
 
-export const PseudoRadioBoxLinks = Template.bind({});
+export const PseudoRadioBoxLinks = {
+	render: Template,
+}

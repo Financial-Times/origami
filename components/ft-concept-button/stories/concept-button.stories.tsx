@@ -1,19 +1,14 @@
-import {withDesign} from 'storybook-addon-designs';
-import {ConceptButton} from '../src/tsx/concept-button';
-import {useArgs} from '@storybook/client-api';
-import './concept-button.scss';
-import withHtml from 'origami-storybook-addon-html';
+import {useArgs} from "@storybook/client-api"
+import type {Meta, StoryObj} from "@storybook/react"
+import {ConceptButton} from "../src/tsx/concept-button"
+import "./concept-button.scss"
 
-export default {
-	title: 'Components/ft-concept-button',
+const meta: Meta<typeof ConceptButton> = {
 	component: ConceptButton,
-	decorators: [withDesign, withHtml],
+	title: "Components/ft-concept-button",
+	decorators: [
+	],
 	// @deprecated The concept pill is a candidate for deprecation.
-	// They were only ever intended as use as links button use a 
-	// `button` element` in the template. The concept pill style
-	// is only used in one place via n-myft-ui, in a dubious way.
-	// We would prefer the teal style of `ft-concept-button_link`
-	// going forward.
 	excludeStories: [
 		'ConceptPill',
 		'OpinionPill',
@@ -22,8 +17,8 @@ export default {
 	],
 	parameters: {
 		design: {
-			type: 'figma',
-			url: 'https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=0%3A915',
+			type: "figma",
+			url: "https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=0%3A915",
 		},
 		html: {},
 	},
@@ -36,111 +31,78 @@ export default {
 			table: {disable: true},
 		},
 	},
-};
+}
+export default meta
+type Story = StoryObj<typeof ConceptButton>
 
-const Pill = args => {
-	const [_, updateArgs] = useArgs();
+const ButtonWithHooks = args => {
+	const [_, updateArgs] = useArgs()
 	return (
 		<ConceptButton
 			extraButtonProps={{
 				onClick() {
-					updateArgs({...args, pressed: !args.pressed});
+					updateArgs({...args, pressed: !args.pressed})
 				},
 			}}
 			{...args}
 		/>
-	);
-};
+	)
+}
 
-export const ConceptPill = Pill.bind({});
+export const ConceptPill: Story = {
+	render: ButtonWithHooks,
+	args: {
+		label: "Movies",
+		theme: "standard",
+	},
+}
 
-ConceptPill.args = {
-	label: 'Movies',
-	theme: 'standard',
-};
+export const OpinionPill: Story = {
+	render: ButtonWithHooks,
+	args: {
+		label: "Movies",
+		theme: "opinion",
+	},
+}
 
-export const OpinionPill = Pill.bind({});
+export const InversePill: Story = {
+	render: ButtonWithHooks,
+	args: {
+		label: "Movies",
+		theme: "inverse",
+	},
+	parameters: {
+		origamiBackground: "slate",
+	},
+}
 
-OpinionPill.args = {
-	label: 'Movies',
-	theme: 'opinion',
-};
+export const MonochromePill: Story = {
+	render: ButtonWithHooks,
+	args: {
+		label: "Movies",
+		theme: "monochrome",
+	},
+	parameters: {
+		origamiBackground: "slate",
+	},
+}
 
-export const InversePill = Pill.bind({});
+export const SignupButton: Story = {
+	render: ButtonWithHooks,
+	args: {
+		label: "Sign up",
+		pressed: false,
+		theme: "standard",
+		type: "follow",
+	},
+}
 
-InversePill.args = {
-	label: 'Movies',
-	theme: 'inverse',
-};
-
-InversePill.parameters = {
-	origamiBackground: 'slate',
-};
-
-export const MonochromePill = Pill.bind({});
-
-MonochromePill.args = {
-	label: 'Movies',
-	theme: 'monochrome',
-};
-
-MonochromePill.parameters = {
-	origamiBackground: 'slate',
-};
-
-export const SignupButton = args => {
-	const [_, updateArgs] = useArgs();
-	return (
-		<ConceptButton
-			extraButtonProps={{
-				onClick() {
-					const pressed = !args.pressed;
-					updateArgs({
-						...args,
-						pressed,
-						label: pressed ? 'Signed up' : 'Sign up',
-					});
-				},
-			}}
-			{...args}
-		/>
-	);
-};
-
-SignupButton.args = {
-	label: 'Sign up',
-	pressed: false,
-	theme: 'standard',
-	type: 'follow',
-};
-
-export const FollowButton = args => {
-	const [_, updateArgs] = useArgs();
-	return (
-		<ConceptButton
-			extraButtonProps={{
-				onClick() {
-					const pressed = !args.pressed;
-					updateArgs({
-						...args,
-						pressed,
-						ariaLiveText: pressed
-							? 'Now following Movies on my FT'
-							: 'No longer following movies on my FT',
-						ariaLabel: pressed
-							? 'Unfollow movies on my FT'
-							: 'Follow movies on my FT',
-					});
-				},
-			}}
-			{...args}
-		/>
-	);
-};
-
-FollowButton.args = {
-	label: 'Movies',
-	ariaLabel: 'Follow movies on my FT',
-	theme: 'standard',
-	type: 'follow',
-};
+export const FollowButton: Story = {
+	render: ButtonWithHooks,
+	args: {
+		label: "Movies",
+		ariaLabel: "Follow movies on my FT",
+		theme: "standard",
+		type: "follow",
+	},
+}

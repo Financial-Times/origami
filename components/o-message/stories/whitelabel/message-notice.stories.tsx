@@ -1,23 +1,20 @@
-import {NoticeMessage} from '../../src/tsx/message';
+import {NoticeMessage} from "../../src/tsx/message"
 import {
 	ComponentDescription,
 	NoticeInform,
-	NoticeInnerInform
-} from '../shared/message-notice';
-import '../message.scss';
+	NoticeInnerInform,
+} from "../shared/message-notice"
+import "../message.scss"
 
 export default {
-	title: 'Components/o-message',
+	title: "Components/o-message",
 	component: NoticeMessage,
 	argTypes: {
 		state: {
-			options: ['inform'],
+			options: ["inform"],
 		},
 	},
-	...ComponentDescription
-};
-
-export {
-	NoticeInform,
-	NoticeInnerInform
+	...ComponentDescription,
 }
+
+export {NoticeInform, NoticeInnerInform}

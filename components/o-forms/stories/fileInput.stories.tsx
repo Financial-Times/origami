@@ -1,62 +1,70 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {useEffect} from 'react';
-import './forms.scss';
-import javascript from '../main.js';
-import {FileInput} from '../src/tsx/o-forms';
+import {StoryFn, Meta} from "@storybook/react"
+import {useEffect} from "react"
+import "./forms.scss"
+import javascript from "../main.js"
+import {FileInput} from "../src/tsx/o-forms"
 
 const hideArg = {
 	table: {
 		disable: true,
 	},
-};
+}
 
 export default {
-	title: 'Components/o-forms/file-input',
+	title: "Components/o-forms/file-input",
 	component: FileInput,
-	decorators: [withDesign, withHtml],
 	argTypes: {
 		value: hideArg,
-		theme: hideArg
+		theme: hideArg,
 	},
-} as ComponentMeta<typeof FileInput>;
+} as Meta<typeof FileInput>
 
-const Template: ComponentStory<typeof FileInput> = args => {
+const Template: StoryFn<typeof FileInput> = args => {
 	useEffect(() => {
-		let form = javascript.init();
+		let form = javascript.init()
 
 		return function cleanup() {
-			form = Array.isArray(form) ? form : [form];
-			form.forEach(element => element.destroy());
-		};
-	}, []);
-	return <FileInput {...args} />;
-};
+			form = Array.isArray(form) ? form : [form]
+			form.forEach(element => element.destroy())
+		}
+	}, [])
+	return <FileInput {...args} />
+}
 
-export const OptionalText = Template.bind({});
-export const ValidEntry = Template.bind({});
-export const InvalidEntry = Template.bind({});
-export const InlineFileInput = Template.bind({});
+export const OptionalText = {
+	render: Template,
 
-OptionalText.args = {
-	title: 'Optional text input',
-	description: 'Optional prompt text',
-	isOptional: true,
-};
+	args: {
+		title: "Optional text input",
+		description: "Optional prompt text",
+		isOptional: true,
+	},
+}
 
-ValidEntry.args = {
-	title: 'Text input with a valid entry',
-	highlightValid: true,
-};
+export const ValidEntry = {
+	render: Template,
 
-InvalidEntry.args = {
-	title: 'Text input with an invalid entry',
-	errorMessage: 'An example error. Try again.',
-};
+	args: {
+		title: "Text input with a valid entry",
+		highlightValid: true,
+	},
+}
 
-InlineFileInput.args = {
-	title: 'Inline file input: ',
-	inlineField: true,
-	isVerticalCenter: true,
-};
+export const InvalidEntry = {
+	render: Template,
+
+	args: {
+		title: "Text input with an invalid entry",
+		errorMessage: "An example error. Try again.",
+	},
+}
+
+export const InlineFileInput = {
+	render: Template,
+
+	args: {
+		title: "Inline file input: ",
+		inlineField: true,
+		isVerticalCenter: true,
+	},
+}

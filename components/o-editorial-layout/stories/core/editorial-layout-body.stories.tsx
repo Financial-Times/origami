@@ -1,19 +1,20 @@
-import {withDesign} from "storybook-addon-designs";
-import withHtml from 'origami-storybook-addon-html';
-import {ComponentMeta} from "@storybook/react";
-import './editorialLayout.scss';
-import {EditorialLayoutBody} from "../../src/tsx/editorial-layout-body";
+import {Meta} from "@storybook/react"
+import "./editorialLayout.scss"
+import {EditorialLayoutBody} from "../../src/tsx/editorial-layout-body"
 
 export default {
-	title: 'Components/o-editorial-layout',
+	title: "Components/o-editorial-layout",
 	component: EditorialLayoutBody,
-	decorators: [withDesign, withHtml],
-} as ComponentMeta<typeof EditorialLayoutBody>;
+} as Meta<typeof EditorialLayoutBody>
 
 const Template = args => {
 	return (
-		<EditorialLayoutBody {...args}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, quaerat!</EditorialLayoutBody>
-	);
-};
+		<EditorialLayoutBody {...args}>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, quaerat!
+		</EditorialLayoutBody>
+	)
+}
 
-export const Body = Template.bind({});
+export const Body = {
+	render: Template,
+}

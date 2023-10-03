@@ -1,9 +1,7 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import "./ft-affiliate-ribbon.scss";
-import { withDesign } from "storybook-addon-designs";
+import {StoryObj, Meta} from "@storybook/react"
+import "./ft-affiliate-ribbon.scss"
 
-import withHtml from "origami-storybook-addon-html";
-import { FtAffiliateRibbon } from "../src/tsx/ft-affiliate-ribbon";
+import {FtAffiliateRibbon} from "../src/tsx/ft-affiliate-ribbon"
 
 export default {
 	title: "Components/o-ft-affiliate-ribbon",
@@ -11,12 +9,12 @@ export default {
 	parameters: {
 		layout: "fullscreen",
 	},
-	decorators: [withDesign, withHtml],
-} as ComponentMeta<typeof FtAffiliateRibbon>;
+} as Meta<typeof FtAffiliateRibbon>
 
-export const FtAffiliateRibbonStory: ComponentStory<
-	typeof FtAffiliateRibbon
-> = () => {
-	return <FtAffiliateRibbon />;
-};
-FtAffiliateRibbonStory.storyName = "Default FT Affiliate Ribbon";
+export const FtAffiliateRibbonStory: StoryObj<typeof FtAffiliateRibbon> = {
+	render: () => {
+		return <FtAffiliateRibbon />
+	},
+
+	name: "Default FT Affiliate Ribbon",
+}

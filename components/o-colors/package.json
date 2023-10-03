@@ -22,8 +22,12 @@
     "email": "origami.support@ft.com"
   },
   "license": "MIT",
-  "engines": {
-    "npm": "^7 || ^8"
+	"engines": {
+		"node": "18.16.0",
+		"npm": "8.x || 9.x"
+	},
+	"volta": {
+    "node": "18.16.0"
   },
   "peerDependencies": {
     "@financial-times/math": "^1.0.0",
@@ -46,10 +50,6 @@
     "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
   },
   "percy": true,
   "private": false

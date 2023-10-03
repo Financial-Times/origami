@@ -1,62 +1,70 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {useEffect} from 'react';
-import './forms.scss';
-import javascript from '../main.js';
-import {DateInput} from '../src/tsx/o-forms';
+import {StoryFn, Meta} from "@storybook/react"
+import {useEffect} from "react"
+import "./forms.scss"
+import javascript from "../main.js"
+import {DateInput} from "../src/tsx/o-forms"
 
 const hideArg = {
 	table: {
 		disable: true,
 	},
-};
+}
 
 export default {
-	title: 'Components/o-forms/date-input',
+	title: "Components/o-forms/date-input",
 	component: DateInput,
-	decorators: [withDesign, withHtml],
 	argTypes: {
 		onChange: hideArg,
 		values: hideArg,
-    theme: hideArg
+		theme: hideArg,
 	},
-} as ComponentMeta<typeof DateInput>;
+} as Meta<typeof DateInput>
 
-const Template: ComponentStory<typeof DateInput> = args => {
+const Template: StoryFn<typeof DateInput> = args => {
 	useEffect(() => {
-		let form = javascript.init();
+		let form = javascript.init()
 
 		return function cleanup() {
-			form = Array.isArray(form) ? form : [form];
-			form.forEach(element => element.destroy());
-		};
-	}, []);
-	return <DateInput {...args} />;
-};
+			form = Array.isArray(form) ? form : [form]
+			form.forEach(element => element.destroy())
+		}
+	}, [])
+	return <DateInput {...args} />
+}
 
-export const OptionalDateInput = Template.bind({});
-export const DisabledDateInput = Template.bind({});
-export const InvalidEntry = Template.bind({});
-export const InlineDateInput = Template.bind({});
+export const OptionalDateInput = {
+	render: Template,
 
-OptionalDateInput.args = {
-	title: 'Optional text input',
-	description: 'Optional prompt text',
-	isOptional: true,
-};
+	args: {
+		title: "Optional text input",
+		description: "Optional prompt text",
+		isOptional: true,
+	},
+}
 
-DisabledDateInput.args = {
-	title: 'Text input with a valid entry',
-	disabled: true,
-};
+export const DisabledDateInput = {
+	render: Template,
 
-InvalidEntry.args = {
-	title: 'Text input with an invalid entry',
-	errorMessage: 'An example error. Try again.',
-};
+	args: {
+		title: "Text input with a valid entry",
+		disabled: true,
+	},
+}
 
-InlineDateInput.args = {
-	title: 'Inline file input: ',
-	inlineField: true,
-};
+export const InvalidEntry = {
+	render: Template,
+
+	args: {
+		title: "Text input with an invalid entry",
+		errorMessage: "An example error. Try again.",
+	},
+}
+
+export const InlineDateInput = {
+	render: Template,
+
+	args: {
+		title: "Inline file input: ",
+		inlineField: true,
+	},
+}

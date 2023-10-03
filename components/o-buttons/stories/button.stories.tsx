@@ -1,12 +1,9 @@
-import { withDesign } from "storybook-addon-designs";
-import { Button, LinkButton } from "../src/tsx/button";
-import "./button.scss";
-import withHtml from "origami-storybook-addon-html";
+import {Button, LinkButton} from "../src/tsx/button"
+import "./button.scss"
 
 export default {
 	title: "Components/o-buttons",
 	component: Button,
-	decorators: [withDesign, withHtml],
 	args: {
 		onClick: {
 			table: {
@@ -46,66 +43,77 @@ export default {
 			],
 		},
 	},
-};
+}
 
-const ButtonStory = args => <Button {...args} />;
-const LinkButtonStory = args => <LinkButton {...args} />;
+const LinkButtonStory = args => <LinkButton {...args} />
 
-export const PrimaryButton = ButtonStory.bind({});
-PrimaryButton.args = {
-	label: "Press button",
-	type: "primary",
-};
+export const PrimaryButton = {
+	args: {
+		label: "Press button",
+		type: "primary",
+	},
+}
 
-export const SecondaryButton = ButtonStory.bind({});
-SecondaryButton.args = {
-	label: "Press button",
-	type: "secondary",
-};
+export const SecondaryButton = {
+	args: {
+		label: "Press button",
+		type: "secondary",
+	},
+}
 
-export const LinkAsButton = LinkButtonStory.bind({});
-LinkAsButton.args = {
-	label: "Link button",
-	type: "secondary",
-	href: "#",
-};
+export const LinkAsButton = {
+	render: LinkButtonStory,
 
-export const BigButton = ButtonStory.bind({});
-BigButton.args = {
-	size: "big",
-	label: "Press button",
-};
+	args: {
+		label: "Link button",
+		type: "secondary",
+		href: "#",
+	},
+}
 
-export const InverseButton = ButtonStory.bind({});
-InverseButton.args = {
-	label: "Press button",
-	theme: "inverse",
-};
-InverseButton.parameters = {
-	origamiBackground: "slate",
-};
+export const BigButton = {
+	args: {
+		size: "big",
+		label: "Press button",
+	},
+}
 
-export const MonoButton = ButtonStory.bind({});
-MonoButton.args = {
-	label: "Press button",
-	theme: "mono",
-};
+export const InverseButton = {
+	args: {
+		label: "Press button",
+		theme: "inverse",
+	},
 
-export const GhostButton = ButtonStory.bind({});
-GhostButton.args = {
-	label: "Press button",
-	type: "ghost",
-};
+	parameters: {
+		origamiBackground: "slate",
+	},
+}
 
-export const ButtonWithIcon = ButtonStory.bind({});
-ButtonWithIcon.args = {
-	label: "Upload",
-	icon: "upload",
-};
+export const MonoButton = {
+	args: {
+		label: "Press button",
+		theme: "mono",
+	},
+}
 
-export const IconOnlyButton = ButtonStory.bind({});
-IconOnlyButton.args = {
-	label: "Next",
-	icon: "arrow-right",
-	iconOnly: true,
-};
+export const GhostButton = {
+	args: {
+		label: "Press button",
+		type: "ghost",
+	},
+}
+
+export const ButtonWithIcon = {
+	args: {
+		label: "Upload",
+		icon: "upload",
+	},
+}
+
+export const IconOnlyButton = {
+	args: {
+		label: "Next",
+		icon: "arrow-right",
+		iconOnly: true,
+	},
+}

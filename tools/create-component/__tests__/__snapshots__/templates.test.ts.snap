@@ -375,8 +375,7 @@ export default TestName;
 `;
 
 exports[`Component template files src and stories ejs files expect <name>.stories.tsx ejsRenderer fn output to match snapshot 1`] = `
-"import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
+"
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {TestName} from '../src/tsx/test-name';
 import './test-name.scss';
@@ -384,7 +383,6 @@ import './test-name.scss';
 export default {
 	title: 'Components/o-test-name',
 	component: TestName,
-	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {},
 } as ComponentMeta<typeof TestName>;

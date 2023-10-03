@@ -1,19 +1,19 @@
-import {withDesign} from 'storybook-addon-designs';
-import './spacing.scss';
-import {SpacingDemo} from './spacing-demo';
-import withHtml from 'origami-storybook-addon-html';
+import "./spacing.scss"
+import {SpacingDemo} from "./spacing-demo"
 
 export default {
-	title: 'Components/o-spacing',
-    component: SpacingDemo,
-	decorators: [withDesign, withHtml],
+	title: "Components/o-spacing",
+	component: SpacingDemo,
 	parameters: {
 		guidelines: {},
 		html: {},
 	},
-};
+}
 
-export const Spacing = SpacingDemo.bind({});
-Spacing.args = {
-    name: 'm12'
-};
+export const Spacing = {
+	render: SpacingDemo,
+
+	args: {
+		name: "m12",
+	},
+}

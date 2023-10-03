@@ -1,25 +1,28 @@
-import {useEffect} from "react";
-import {ResponsiveScrollTable} from "../src/tsx/table";
-import withHtml from 'origami-storybook-addon-html';
-import javascript from '../main';
-import {withDesign} from "storybook-addon-designs";
-import {baseTableContents} from "./baseTableContents";
-import {ComponentMeta} from "@storybook/react";
+import {useEffect} from "react"
+import {ResponsiveScrollTable} from "../src/tsx/table"
+import javascript from "../main"
+import {baseTableContents} from "./baseTableContents"
+import {Meta} from "@storybook/react"
 
 export default {
-	title: 'Components/o-table/Responsive',
+	title: "Components/o-table/Responsive",
 	component: ResponsiveScrollTable,
-	decorators: [withDesign, withHtml],
 	args: {
 		horizontalLines: true,
 		compact: false,
-		stripes: false
-	}
-} as ComponentMeta<typeof ResponsiveScrollTable>;
+		stripes: false,
+	},
+} as Meta<typeof ResponsiveScrollTable>
 
-export const TableWithResponsiveScroll = (args) => {
-	useEffect(() => {
-		javascript.init();
-	})
-	return <ResponsiveScrollTable {...args}>{baseTableContents}</ResponsiveScrollTable>
+export const TableWithResponsiveScroll = {
+	render: args => {
+		useEffect(() => {
+			javascript.init()
+		})
+		return (
+			<ResponsiveScrollTable {...args}>
+				{baseTableContents}
+			</ResponsiveScrollTable>
+		)
+	},
 }

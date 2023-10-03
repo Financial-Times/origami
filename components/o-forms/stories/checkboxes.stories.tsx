@@ -1,18 +1,16 @@
-import withHtml from "origami-storybook-addon-html";
-import { withDesign } from "storybook-addon-designs";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { useEffect } from "react";
-import { Checkbox, Checkboxes } from "../src/tsx/o-forms";
-import "./forms.scss";
-import javascript from "../main.js";
+import {StoryFn, Meta} from "@storybook/react"
+import {useEffect} from "react"
+import {Checkbox, Checkboxes} from "../src/tsx/o-forms"
+import "./forms.scss"
+import javascript from "../main.js"
 
 const hideArg = {
 	table: {
 		disable: true,
 	},
-};
+}
 
-const Brand = process.env.ORIGAMI_STORYBOOK_BRAND;
+const Brand = process.env.ORIGAMI_STORYBOOK_BRAND
 const themeControl =
 	Brand === "core"
 		? {
@@ -21,104 +19,124 @@ const themeControl =
 				},
 				options: [undefined, "professional", "professional-inverse", "ft-live"],
 		  }
-		: hideArg;
-
+		: hideArg
 
 export default {
 	title: "Components/o-forms/checkboxes",
 	component: Checkboxes,
-	decorators: [withDesign, withHtml],
 	argTypes: {
 		children: hideArg,
 		theme: themeControl,
 	},
-} as ComponentMeta<typeof Checkboxes>;
+} as Meta<typeof Checkboxes>
 
-const Template: ComponentStory<typeof Checkboxes> = args => {
+const Template: StoryFn<typeof Checkboxes> = args => {
 	useEffect(() => {
-		let form = javascript.init();
+		let form = javascript.init()
 		return function cleanup() {
-			form = Array.isArray(form) ? form : [form];
-			form.forEach(element => element.destroy());
-		};
-	}, []);
-	return <Checkboxes {...args} />;
-};
+			form = Array.isArray(form) ? form : [form]
+			form.forEach(element => element.destroy())
+		}
+	}, [])
+	return <Checkboxes {...args} />
+}
 
-export const CheckboxesStacked = Template.bind({});
-export const CheckboxesWithDescription = Template.bind({});
-export const DisabledCheckboxes = Template.bind({});
-export const ErrorCheckboxes = Template.bind({});
-export const InlineFieldAndInputs = Template.bind({});
-export const InlineField = Template.bind({});
-export const LabelFirst = Template.bind({});
+export const CheckboxesStacked = {
+	render: Template,
 
-CheckboxesStacked.args = {
-	children: [
-		<Checkbox name="default" value="Daily" checked />,
-		<Checkbox name="default" value="Weekly" />,
-		<Checkbox name="default" value="Monthly" checked />,
-	],
-	title: "Stacked checkboxes",
-	description: "Optional description text",
-	isOptional: true,
-};
-CheckboxesWithDescription.args = {
-	children: [
-		<Checkbox
-			name="default"
-			value="Lorem ipsum dolor sit amet"
-			checked
-			description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad earum magnam vel possimus harum suscipit."
-		/>,
-		<Checkbox
-			name="default"
-			value="Lorem ipsum dolor"
-			description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam numquam aspernatur error voluptas dolorem ab."
-		/>,
-	],
-	title: "Checkbox inputs with description",
-	description: "Optional description text",
-};
+	args: {
+		children: [
+			<Checkbox name="default" value="Daily" checked />,
+			<Checkbox name="default" value="Weekly" />,
+			<Checkbox name="default" value="Monthly" checked />,
+		],
+		title: "Stacked checkboxes",
+		description: "Optional description text",
+		isOptional: true,
+	},
+}
 
-DisabledCheckboxes.args = {
-	children: [
-		<Checkbox name="default" value="Daily" checked disabled />,
-		<Checkbox name="default" value="Weekly" disabled />,
-	],
-	title: "Disabled checkboxes",
-};
-ErrorCheckboxes.args = {
-	children: [
-		<Checkbox name="default" value="Yes" />,
-		<Checkbox name="default" value="No" />,
-	],
-	title: "Error checkboxes",
-	errorMessage: "An example error. Try again.",
-};
+export const CheckboxesWithDescription = {
+	render: Template,
 
-InlineField.args = {
-	children: [
-		<Checkbox name="default" value="Daily" />,
-		<Checkbox name="default" value="Weekly" checked />,
-		<Checkbox name="default" value="Monthly" />,
-	],
-	title: "Inline field: ",
-	inlineField: true,
-	description: "with stacked radio buttons",
-};
+	args: {
+		children: [
+			<Checkbox
+				name="default"
+				value="Lorem ipsum dolor sit amet"
+				checked
+				description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad earum magnam vel possimus harum suscipit."
+			/>,
+			<Checkbox
+				name="default"
+				value="Lorem ipsum dolor"
+				description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam numquam aspernatur error voluptas dolorem ab."
+			/>,
+		],
+		title: "Checkbox inputs with description",
+		description: "Optional description text",
+	},
+}
 
-LabelFirst.args = {
-	children: [<Checkbox name="default" value="Show Password" labelFirst />],
-	title: "Label first checkbox",
-};
+export const DisabledCheckboxes = {
+	render: Template,
 
-InlineFieldAndInputs.args = {
-	children: [
-		<Checkbox name="default" value="Daily" checked />,
-		<Checkbox name="default" value="Weekly" />,
-	],
-	title: "Inline field and checkboxes: ",
-	inlineInputs: true,
-	inlineField: true,
-};
+	args: {
+		children: [
+			<Checkbox name="default" value="Daily" checked disabled />,
+			<Checkbox name="default" value="Weekly" disabled />,
+		],
+		title: "Disabled checkboxes",
+	},
+}
+
+export const ErrorCheckboxes = {
+	render: Template,
+
+	args: {
+		children: [
+			<Checkbox name="default" value="Yes" />,
+			<Checkbox name="default" value="No" />,
+		],
+		title: "Error checkboxes",
+		errorMessage: "An example error. Try again.",
+	},
+}
+
+export const InlineFieldAndInputs = {
+	render: Template,
+
+	args: {
+		children: [
+			<Checkbox name="default" value="Daily" checked />,
+			<Checkbox name="default" value="Weekly" />,
+		],
+		title: "Inline field and checkboxes: ",
+		inlineInputs: true,
+		inlineField: true,
+	},
+}
+
+export const InlineField = {
+	render: Template,
+
+	args: {
+		children: [
+			<Checkbox name="default" value="Daily" />,
+			<Checkbox name="default" value="Weekly" checked />,
+			<Checkbox name="default" value="Monthly" />,
+		],
+		title: "Inline field: ",
+		inlineField: true,
+		description: "with stacked radio buttons",
+	},
+}
+
+export const LabelFirst = {
+	render: Template,
+
+	args: {
+		children: [<Checkbox name="default" value="Show Password" labelFirst />],
+		title: "Label first checkbox",
+	},
+}

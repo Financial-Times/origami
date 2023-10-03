@@ -1,21 +1,19 @@
-import {Expander} from '../src/tsx/expander';
-import javascript from '../main.js';
-import './expander.scss';
-import withHtml from 'origami-storybook-addon-html';
-import {useEffect} from 'react';
+import {Expander} from "../src/tsx/expander"
+import javascript from "../main.js"
+import "./expander.scss"
+import {useEffect} from "react"
 
 export default {
-	title: 'Components/o-expander',
+	title: "Components/o-expander",
 	component: Expander,
-	decorators: [withHtml],
 	parameters: {
 		html: {},
 	},
 	args: {},
-};
+}
 
 const Template = ({children, ...args}) => {
-	useEffect(() => void javascript.init(), []);
+	useEffect(() => void javascript.init(), [])
 	return (
 		<Expander {...args} header={<h3>This content has further details</h3>}>
 			<p>wow bet you didn't expect details like this!!</p>
@@ -26,12 +24,12 @@ const Template = ({children, ...args}) => {
 				<li>four</li>
 			</ul>
 		</Expander>
-	);
-};
+	)
+}
 
-const Example = Template.bind({});
+const Example = Template.bind({})
 Example.args = {
 	expanded: false,
-};
+}
 
-export {Example as Expander};
+export {Example as Expander}

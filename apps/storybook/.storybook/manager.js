@@ -1,5 +1,5 @@
-import {addons} from "@storybook/addons"
-import {create} from "@storybook/theming"
+import { addons } from "@storybook/addons"
+import { create } from "@storybook/theming"
 import "./theme.css"
 
 addons.setConfig({

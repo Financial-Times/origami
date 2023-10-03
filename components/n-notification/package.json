@@ -1,8 +1,12 @@
 {
 	"name": "@financial-times/n-notification",
 	"engines": {
-		"npm": "^7 || ^8"
+		"node": "18.16.0",
+		"npm": "8.x || 9.x"
 	},
+	"volta": {
+    "node": "18.16.0"
+  },
 	"type": "module",
 	"description": "Component for showing notifications to users",
 	"keywords": [

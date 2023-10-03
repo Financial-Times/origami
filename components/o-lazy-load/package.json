@@ -3,8 +3,12 @@
   "description": "Provides lazy loading functionality for images, pictures, iframes, and more. It is powered by the Intersection Observer API to detect when the visibility of elements changes.",
   "browser": "main.js",
   "type": "module",
-  "engines": {
-    "npm": "^7 || ^8"
+	"engines": {
+		"node": "18.16.0",
+		"npm": "8.x || 9.x"
+	},
+	"volta": {
+    "node": "18.16.0"
   },
   "keywords": [
     "lazy",
@@ -21,10 +25,6 @@
     "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
   },
   "version": "3.1.2",
   "homepage": "https://registry.origami.ft.com/components/o-lazy-load",

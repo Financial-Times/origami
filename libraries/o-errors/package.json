@@ -6,16 +6,16 @@
   ],
   "name": "@financial-times/o-errors",
   "type": "module",
-  "engines": {
-    "npm": "^7 || ^8"
+	"engines": {
+		"node": "18.16.0",
+		"npm": "8.x || 9.x"
+	},
+	"volta": {
+    "node": "18.16.0"
   },
   "browser": "main.js",
   "dependencies": {
     "raven-js": "^3.27.2"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
   },
   "version": "5.2.2",
   "homepage": "https://registry.origami.ft.com/components/o-errors",

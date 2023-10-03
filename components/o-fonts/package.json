@@ -25,12 +25,12 @@
   "peerDependencies": {
     "@financial-times/o-brand": "^4.1.0"
   },
-  "engines": {
-    "npm": "^7 || ^8"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
+	"engines": {
+		"node": "18.16.0",
+		"npm": "8.x || 9.x"
+	},
+	"volta": {
+    "node": "18.16.0"
   },
   "percy": true,
   "private": false

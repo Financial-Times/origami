@@ -1,65 +1,65 @@
-import {withDesign} from 'storybook-addon-designs';
-import {CookieMessage} from '../src/tsx/cookie-message';
-import {useEffect} from 'react';
-import javascript from '../main';
-import './cookie-message.scss';
-import withHtml from 'origami-storybook-addon-html';
+import {CookieMessage} from "../src/tsx/cookie-message"
+import {useEffect} from "react"
+import javascript from "../main"
+import "./cookie-message.scss"
 
 export default {
-	title: 'Components/o-cookie-message',
+	title: "Components/o-cookie-message",
 	component: CookieMessage,
-	decorators: [withDesign, withHtml],
 	args: {},
 	parameters: {
 		guidelines: {},
 		html: {},
 	},
-};
+}
 
 const Story = args => {
 	useEffect(() => {
-		let cookieMessages = javascript.init();
+		let cookieMessages = javascript.init()
 		return function cleanup() {
 			cookieMessages = Array.isArray(cookieMessages)
 				? cookieMessages
-				: [cookieMessages];
-			cookieMessages.forEach(banner => banner.destroy());
-		};
-	}, [args]);
+				: [cookieMessages]
+			cookieMessages.forEach(banner => banner.destroy())
+		}
+	}, [args])
 	return (
 		<div>
 			<CookieMessage {...args} />
 		</div>
-	);
-};
-const Default = Story.bind({});
+	)
+}
+const Default = Story.bind({})
 Default.args = {
 	fullMarkupForDefaultContent: false,
-	heading: '',
-	copy: '',
-	redirect: '',
+	heading: "",
+	copy: "",
+	redirect: "",
 	primaryAction: {
-		copy: '',
+		copy: "",
 	},
 	secondaryAction: {
-		copy: '',
+		copy: "",
 	},
-	theme: '',
-};
+	theme: "",
+}
 
-export {Default as CookieMessage};
+export {Default as CookieMessage}
 
-export const AlternativeDesignCookieMessage = Story.bind({});
-AlternativeDesignCookieMessage.args = {
-	fullMarkupForDefaultContent: false,
-	heading: '',
-	copy: '',
-	redirect: '',
-	primaryAction: {
-		copy: '',
+export const AlternativeDesignCookieMessage = {
+	render: Story,
+
+	args: {
+		fullMarkupForDefaultContent: false,
+		heading: "",
+		copy: "",
+		redirect: "",
+		primaryAction: {
+			copy: "",
+		},
+		secondaryAction: {
+			copy: "",
+		},
+		theme: "alternative",
 	},
-	secondaryAction: {
-		copy: '',
-	},
-	theme: 'alternative',
-};
+}

@@ -1,16 +1,13 @@
-import {withDesign} from 'storybook-addon-designs';
-import {ConceptLink as ConceptLinkTemplate} from '../src/tsx/concept-button';
-import './concept-button.scss';
-import withHtml from 'origami-storybook-addon-html';
+import {ConceptLink as ConceptLinkTemplate} from "../src/tsx/concept-button"
+import "./concept-button.scss"
 
 export default {
-	title: 'Components/ft-concept-button',
+	title: "Components/ft-concept-button",
 	component: ConceptLinkTemplate,
-	decorators: [withDesign, withHtml],
 	parameters: {
 		design: {
-			type: 'figma',
-			url: 'https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=0%3A915',
+			type: "figma",
+			url: "https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=0%3A915",
 		},
 		html: {},
 	},
@@ -24,17 +21,17 @@ export default {
 			table: {disable: true},
 		},
 	},
-};
+}
 
 const ConceptLinkStory = args => {
-	return (
-		<ConceptLinkTemplate {...args} />
-	);
-};
+	return <ConceptLinkTemplate {...args} />
+}
 
-export const ConceptPillLink = ConceptLinkStory.bind({});
+export const ConceptPillLink = {
+	render: ConceptLinkStory,
 
-ConceptPillLink.args = {
-	label: 'Movies',
-	href: '#movies',
-};
+	args: {
+		label: "Movies",
+		href: "#movies",
+	},
+}
