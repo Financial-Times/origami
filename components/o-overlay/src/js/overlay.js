@@ -302,9 +302,7 @@ class Overlay {
 				heading.appendChild(button);
 			}
 
-			const title = document.createElement('span');
-			title.setAttribute('role', 'heading');
-			title.setAttribute('aria-level', '1');
+			const title = document.createElement('h2');
 			title.className = 'o-overlay__title';
 			title.innerHTML = this.opts.heading.title;
 			title.setAttribute('id', headingId);
