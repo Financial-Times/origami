@@ -1,4 +1,4 @@
-import type {Meta} from '@storybook/react';
+import type { Meta } from '@storybook/react';
 
 
 export const TemplateSBConfig: Meta = {
@@ -18,11 +18,11 @@ export const TemplateSBConfig: Meta = {
 			control: {
 				type: 'radio',
 				labels: {
-					big: 'Big',
+					small: 'Small',
 					standard: 'Standard',
 				},
 			},
-			options: ['big', 'standard'],
+			options: ['small', 'standard'],
 		},
 		icon: {
 			control: {
@@ -61,6 +61,6 @@ export const TemplateSBConfig: Meta = {
 		},
 	},
 	parameters: {
-		controls: {exclude: ['attributes', 'onClick']},
+		controls: { exclude: ['attributes', 'onClick'] },
 	},
 };
