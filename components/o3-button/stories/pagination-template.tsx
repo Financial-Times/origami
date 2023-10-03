@@ -48,7 +48,7 @@ export const Pagination: PaginationStory = {
 	...ButtonPaginationTemplate,
 	args: {
 		type: 'secondary',
-		size: 'big',
+		size: '',
 		previousPager: {
 			href: '#previous',
 			label: 'previous results',
