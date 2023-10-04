@@ -15,9 +15,11 @@ export default {
 			</div>
 		),
 	],
-	args: {},
 	parameters: {
 		controls: {include: ['label', 'type', 'size', 'icon', 'iconOnly']},
+		backgrounds: {
+			disable: true,
+		},
 	},
 } as Meta;
 

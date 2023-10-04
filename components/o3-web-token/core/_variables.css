@@ -4,7 +4,7 @@
 
 
 .o-brand-core {
-  --o3-color-link: var(--o3-color-palette-teal);
+  --o3-color-use-case-link: var(--o3-color-palette-teal);
   --o3-color-palette-ft-pink: #FCD0B1;
   --o3-color-palette-ft-grey: #333333ff;
   --o3-color-palette-white: #ffffffff;
@@ -111,4 +111,8 @@
   --o3-font-size-10: 5.25rem;
   --o3-font-size-negative-2: 0.75rem;
   --o3-font-size-negative-1: 0.875rem;
+  --o3-box-shadow-focus-ring-inner: 0 0 0 4px #ffffff;
+  --o3-box-shadow-focus-ring-outer: 0 0 0 8px #4d4845;
+  --o3-box-shadow-focus-ring-inverse-inner: 0 0 0 4px #4d4845;
+  --o3-box-shadow-focus-ring-inverse-outer: 0 0 0 8px #ffffff;
 }

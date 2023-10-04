@@ -20,8 +20,7 @@
         },
         "black-5": {
           "value": "#F2F2F2",
-          "type": "color",
-          "$extensions": {}
+          "type": "color"
         },
         "black-10": {
           "value": "#E6E6E6",
@@ -37,8 +36,7 @@
         },
         "black-40": {
           "value": "#999",
-          "type": "color",
-          "$extensions": {}
+          "type": "color"
         },
         "black-50": {
           "value": "#808080",
