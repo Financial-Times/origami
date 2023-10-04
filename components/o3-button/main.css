@@ -14,7 +14,8 @@
 	--_o3-button-lineheight: var(--o3-font-lineheight-negative-2);
 
 	--_o3-button-block-padding: var(--o3-spacing-3xs);
-	--_o3-button-inline-padding: var(--o3-spacing-2xs);
+	--_o3-button-inline-padding-start: var(--o3-spacing-2xs);
+	--_o3-button-inline-padding-end: var(--o3-spacing-2xs);
 
 	--_o3-button-min-height: 28px;
 	--_o3-button-min-width: 60px;
@@ -25,7 +26,7 @@
 
 	min-width: var(--_o3-button-min-width);
 	min-height: var(--_o3-button-min-height);
-	padding: 0 var(--_o3-button-inline-padding);
+	padding: 0 var(--_o3-button-inline-padding-end) 0 var(--_o3-button-inline-padding-start);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -338,7 +339,8 @@
 	--_o3-button-min-height: 40px;
 
 	--_o3-button-block-padding: var(--o3-spacing-2xs);
-	--_o3-button-inline-padding: var(--o3-spacing-s);
+	--_o3-button-inline-padding-start: var(--o3-spacing-s);
+	--_o3-button-inline-padding-end: var(--o3-spacing-s);
 
 	--_o3-button-font-size: var(--o3-font-size-negative-1);
 	--_o3-button-lineheight: var(--o3-font-lineheight-negative-1);
@@ -405,9 +407,18 @@
 	margin-right: var(--o3-spacing-2xs);
 }
 
+.o3-button-icon {
+	--_o3-button-inline-padding-end: var(--o3-spacing-s);
+}
+
+.o3-button--big.o3-button-icon {
+	--_o3-button-inline-padding-end: var(--o3-spacing-m);
+}
+
 .o3-button-icon.o3-button-icon--icon-only {
 	--_o3-button-min-width: 40px;
-	--_o3-button-inline-padding: 0;
+	--_o3-button-inline-padding-start: 0;
+	--_o3-button-inline-padding-end: 0;
 }
 
 .o3-button-icon__label {
