@@ -80,24 +80,43 @@ class Stream {
 				}
 				const customScrollContainer = this.streamEl.closest(this.options.scrollContainer);
 				scriptElement.onload = () => {
-					this.embed = Coral.createStreamEmbed(
-						{
-							id: this.streamEl.id,
-							storyURL: this.options.articleUrl,
-							storyID: this.options.articleId,
-							rootURL: rootUrl,
-							autoRender: true,
-							bodyClassName: 'o-comments-coral-talk-container',
-							containerClassName,
-							customScrollContainer,
-							events: (events) => {
-								events.onAny((name, data) => {
-									this.publishEvent({ name, data });
-								});
+					try{
+						this.embed = Coral.createStreamEmbed(
+							{
+								id: this.streamEl.id,
+								storyURL: this.options.articleUrl,
+								storyID: this.options.articleId,
+								rootURL: rootUrl,
+								autoRender: true,
+								bodyClassName: 'o-comments-coral-talk-container',
+								containerClassName,
+								customScrollContainer,
+								events: (events) => {
+									events.onAny((name, data) => {
+										this.publishEvent({ name, data });
+									});
+								}
 							}
-						}
-					);
-					resolve();
+						);
+						resolve();
+
+					}
+					catch(error){
+						const oTrackingEvent = new CustomEvent('oTracking.event', {
+							bubbles : true,
+							detail : {
+							category: 'comment',
+								action: 'coral.initialisation',
+								coral: false,
+								content : {
+									asset_type: this.options.assetType,
+									uuid: this.options.articleId,
+								},
+								error : error.message
+							}
+						});
+						document.body.dispatchEvent(oTrackingEvent);
+					}
 				};
 				this.streamEl.parentNode.appendChild(scriptElement);
 
