@@ -98,6 +98,7 @@
 		"sass": "^1.68.0",
 		"splitonce": "^0.1.2",
 		"toposort": "^2.0.2",
+		"true-case-path": "^2.2.1",
 		"undici": "^4.5.1",
 		"zx": "^4.1.1"
 	}
