@@ -7,7 +7,6 @@ export default {
 	component: ButtonGroup,
 	args: {},
 	parameters: {
-		design: {},
 		guidelines: {},
 		html: {},
 	},

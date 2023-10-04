@@ -7,7 +7,6 @@ export default {
 	component: ButtonPagination,
 	args: {},
 	parameters: {
-		design: {},
 		guidelines: {},
 		html: {},
 	},

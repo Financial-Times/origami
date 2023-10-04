@@ -7,8 +7,7 @@
     "build-sb:core": "ORIGAMI_STORYBOOK_BRAND=core storybook build -o ../../origami.ft.com/storybook/brands/core",
     "build-sb:internal": "ORIGAMI_STORYBOOK_BRAND=internal storybook build -o ../../origami.ft.com/storybook/brands/internal",
     "build-sb:whitelabel": "ORIGAMI_STORYBOOK_BRAND=whitelabel storybook build -o ../../origami.ft.com/storybook/brands/whitelabel",
-    "build-storybook": "run-p build-sb:*",
-    "watch-storybook": "npm run build-storybook -- -w"
+    "build-storybook": "run-p build-sb:*"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^7.4.5",

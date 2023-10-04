@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDomServer from "react-dom/server"
-import { addons, makeDecorator } from "@storybook/addons"
+import {addons, makeDecorator} from "@storybook/addons"
 
 export const HTML_EVENT = "origami/html/content"
 
@@ -11,7 +11,7 @@ function Html({children}) {
 	return children
 }
 
-const decorator = makeDecorator({
+export default makeDecorator({
 	name: "withHtml",
 	parameterName: "html",
 	skipIfNoParametersOrOptions: false,
@@ -19,10 +19,3 @@ const decorator = makeDecorator({
 		return <Html>{story(context)}</Html>
 	},
 })
-
-
-
-export default () => {
-	console.log('here ****')
-	return decorator
-}

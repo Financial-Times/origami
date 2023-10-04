@@ -8,7 +8,6 @@ export default {
 		iconOnly: false,
 	},
 	parameters: {
-		design: {},
 		guidelines: {},
 		html: {},
 	},

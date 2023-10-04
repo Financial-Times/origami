@@ -80,8 +80,6 @@ const webpackConfig = {
 			const storiesForBrand = brands.includes(brand)
 				? await globby.globby(
 						[
-							// `${componentDirectory}/stories/*.stories.@(mdx|js|jsx|ts|tsx)`,
-							// `${componentDirectory}/stories/${brand}/*.stories.@(mdx|js|jsx|ts|tsx)`,
 							`${componentDirectory}/stories/*.stories.@(js|jsx|ts|tsx)`,
 							`${componentDirectory}/stories/${brand}/*.stories.@(js|jsx|ts|tsx)`,
 						],
@@ -106,7 +104,7 @@ const webpackConfig = {
 		'@storybook/addon-a11y',
 		'@storybook/addon-links',
 		'@storybook/addon-designs',
-		// 'origami-storybook-addon-html/register',
+		'origami-storybook-addon-html/register',
 		// 'origami-storybook-addon-guidelines/register',
 		// 'origami-storybook-addon-markdown-tabs',
 		'origami-storybook-addon-background',
