@@ -22,6 +22,7 @@
 /// @param {Map} $opts [('body': true, 'lists': ('ordered', 'unordered'), 'caption': true, 'headline': true, 'headings': (1, 2, 3, 4, 5), 'author': true, 'standfirst': true, 'topic': true, 'byline': true, 'timestamp': true, 'fonts': true)] - The features of o-editorial-typography to output classes for. See the [README](https://registry.origami.ft.com/components/o-editorial-typography/readme) for more details.
 @mixin oEditorialTypography($opts: (
 	'body': true,
+	'links': true,
 	'lists': ('ordered', 'unordered'),
 	'caption': true,
 	'headline': true,
@@ -33,6 +34,7 @@
 	'timestamp': true
 )) {
 	$body: map-get($opts, 'body');
+	$links-enabled: map-get($opts, 'links');
 	$lists: map-get($opts, 'lists');
 	$lists: if($lists, $lists, ());
 	@if($lists and type-of($lists) != 'list') {
@@ -63,6 +65,20 @@
 	@if $body {
 		.o-editorial-typography-body {
 			@include oEditorialTypographyBody();
+		}
+	}
+
+	// Links
+	@if $links-enabled {
+		.o-editorial-typography-link {
+			@include oTypographyLink;
+		}
+
+		.o-editorial-typography-inverse {
+			--_o-editorial-typography-link-color: #{_oEditorialTypographyGet('base', 'editorial-link-inverse')};
+			--_o-editorial-typography-link-decoration-color: #{_oEditorialTypographyGet('base-decoration', 'editorial-link-inverse')};				
+			--_o-editorial-typography-link-color-hover: #{_oEditorialTypographyGet('hover', 'editorial-link-inverse')};
+			--_o-editorial-typography-link-decoration-color-hover: #{_oEditorialTypographyGet('hover-decoration', 'editorial-link-inverse')};
 		}
 	}
 

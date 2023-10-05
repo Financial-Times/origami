@@ -124,6 +124,12 @@ $_o-typography-font-scale: (
 				'base': oColorsByUsecase('link', 'text'),
 				'hover': oColorsByUsecase('link-hover', 'text'),
 			),
+			'editorial-link-inverse': (
+				'base': oColorsMix('teal', 'white', 55),
+				'base-decoration': oColorsMix('teal', 'slate', 40),
+				'hover': oColorsMix('teal', 'white', 40),
+				'hover-decoration': oColorsMix('teal', 'slate', 80)
+			),
 			'link-inverse': (
 				'base': oColorsByName('white'),
 				'base-decoration': oColorsByName('white'),
