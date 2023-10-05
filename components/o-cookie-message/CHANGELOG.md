@@ -1,4 +1,11 @@
 # Changelog
+## [6.7.0](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.6.1...o-cookie-message-v6.7.0) (2023-10-05)
+
+
+### Features
+
+* CPREL-782 - Stop cookie banner content showing in SERP page description ([081b1f2](https://github.com/Financial-Times/origami/commit/081b1f2e32a0b33b1926054b1005832f5ab22996))
+
 ## [6.6.1](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.6.0...o-cookie-message-v6.6.1) (2023-08-25)
 
 
