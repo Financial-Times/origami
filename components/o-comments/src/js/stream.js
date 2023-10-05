@@ -65,7 +65,7 @@ class Stream {
 	}
 
 	renderComments () {
-		return new Promise((resolve) => {
+		return new Promise((resolve,reject) => {
 			try {
 				/*global Coral*/
 				const cacheBuster = 'cachebust=20210806';
@@ -99,23 +99,20 @@ class Stream {
 							}
 						);
 						resolve();
+						
+						//Test if comments were loaded after 5 seconds of initialisation
+						setTimeout(() => {
+							if(!this.embed || 
+								!document.querySelector("#o-comments-stream div").shadowRoot ||
+								!document.querySelector("#o-comments-stream div").shadowRoot.querySelector("#tabPane-ALL_COMMENTS")) {
+								this.logError(new Error(" comment stream object not created "))
+							}
+						},5000)
 
 					}
 					catch(error){
-						const oTrackingEvent = new CustomEvent('oTracking.event', {
-							bubbles : true,
-							detail : {
-							category: 'comment',
-								action: 'coral.initialisation',
-								coral: false,
-								content : {
-									asset_type: this.options.assetType,
-									uuid: this.options.articleId,
-								},
-								error : error.message
-							}
-						});
-						document.body.dispatchEvent(oTrackingEvent);
+						this.logError(error);
+						reject(error);
 					}
 				};
 				this.streamEl.parentNode.appendChild(scriptElement);
@@ -133,6 +130,7 @@ class Stream {
 
 				document.dispatchEvent(new Event('oCommentsReady'));
 			} catch (error) {
+				this.logError(error);
 				resolve();
 			}
 		});
@@ -264,6 +262,23 @@ class Stream {
 		document.getElementById(editButtonId).onclick = () => {
 			this.displayNamePrompt({purgeCacheAfterCompletion: true});
 		};
+	}
+
+	logError(error){
+		const oTrackingEvent = new CustomEvent('oTracking.event', {
+			bubbles : true,
+			detail : {
+			category: 'comment',
+				action: 'coral.initialisation',
+				coral: false,
+				content : {
+					asset_type: this.options.assetType,
+					uuid: this.options.articleId,
+				},
+				error : error.message
+			}
+		});
+		document.body.dispatchEvent(oTrackingEvent);
 	}
 }
 
