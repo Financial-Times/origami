@@ -10,3 +10,37 @@
 @function _oEditorialTypographySupports($variant) {
 	@return oBrandSupportsVariant($component: 'o-editorial-typography', $variant: $variant);
 }
+
+@if oBrandIs('core') {
+
+	@include oBrandDefine('o-editorial-typography', 'core', (
+		'variables': (
+			'link': (
+				'base': oColorsByUsecase('link', 'text'),
+				'hover': oColorsByUsecase('link-hover', 'text'),
+			),
+			'link-inverse': (
+				'base': oColorsByName('white'),
+				'base-decoration': oColorsByName('white'),
+				'hover': oColorsMix('white', 'slate', 80),
+				'hover-decoration': oColorsMix('white', 'slate', 80)
+			),
+			'link-professional': (
+				'base': oColorsByName('slate'),
+				'base-decoration': oColorsByName('mint-80'),
+				'hover': oColorsByName('slate'),
+				'hover-decoration': oColorsByName('mint-80')
+			),
+			'link-professional-inverse': (
+				'base': oColorsByName('mint'),
+				'base-decoration': oColorsByName('mint'),
+				'hover': oColorsByName('mint-70'),
+				'hover-decoration': oColorsByName('mint-70')
+			),
+		),
+		'supports-variants': (
+			'professional',
+			'ft-live'
+		)
+	));
+}
