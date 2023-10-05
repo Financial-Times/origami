@@ -70,7 +70,7 @@ class CookieMessage {
 
 	createCookieMessage() {
 		const wrapContent = content => `
-<div class="o-cookie-message__outer">
+<div class="o-cookie-message__outer" data-nosnippet="true">
 	<div class="o-cookie-message__inner">
 		<div class="o-cookie-message__content">
 				${content}
