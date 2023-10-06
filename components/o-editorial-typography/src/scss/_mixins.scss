@@ -13,6 +13,7 @@
 	@if(map-get($opts,'margin-reset')) {
 		margin: 0;
 	}
+  	// stylelint-disable-next-line declaration-block-no-duplicate-properties -- to provide a css custom property fallback
 	color: var(--_o-editorial-typography-body-color);
 }
 
