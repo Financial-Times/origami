@@ -24,7 +24,7 @@ export function generateHTML(type) { insert(html[type]); }
 export const html = {
 	standard: `<div role="dialog" data-o-component="o-cookie-message" class='o-cookie-message'></div>`,
 	domAttributes: `<div role="dialog" data-o-component="o-cookie-message" data-o-cookie-message-accept-url="example.com" class='o-cookie-message'></div>`,
-	customCookieMessage: `<div role="dialog" data-o-component="o-cookie-message" data-o-cookie-message-use-custom-html="true" class='o-cookie-message'>
+	customCookieMessage: `<div role="dialog" data-o-component="o-cookie-message" data-o-cookie-message-use-custom-html="true" class='o-cookie-message' data-nosnippet="true">
 		Custom cookie message!
 		<div class="o-cookie-message__close-btn-container">
 			<button class="o-cookie-message__close-btn" data-o-component="o-cookie-message-close">
@@ -33,7 +33,7 @@ export const html = {
 		</div>
 	</div>`,
 	imperativeCookieMessage: `<div role="dialog" data-o-component="o-cookie-message" class="o-cookie-message o-cookie-message--active" aria-labelledby="o-cookie-message-label" aria-describedby="o-cookie-message-description">
-		<div class="o-cookie-message__outer">
+		<div class="o-cookie-message__outer" data-nosnippet="true">
 			<div class="o-cookie-message__inner">
 
 			<div class="o-cookie-message__content">
@@ -62,7 +62,7 @@ export const html = {
 		</div>
 	</div>`,
 	imperativeAltCookieMessage: `<div role="dialog" data-o-component="o-cookie-message" class="o-cookie-message o-cookie-message--active o-cookie-message--alternative" aria-labelledby="o-cookie-message-label" aria-describedby="o-cookie-message-description">
-		<div class="o-cookie-message__outer">
+		<div class="o-cookie-message__outer" data-nosnippet="true">
 			<div class="o-cookie-message__inner">
 
 			<div class="o-cookie-message__content">

@@ -34,7 +34,8 @@ To display custom cookie message content with default buttons, add child HTML al
 	aria-labelledby="demo-label-element-id"
 	aria-describedby="demo-description-element-id"
 	data-o-component="o-cookie-message"
-	class="o-cookie-message">
+	class="o-cookie-message"
+	data-nosnippet>
 	<!-- custom cookie message copy / html here -->
 	<!-- include ids for the aria labelledby and describedby attributes -->
 	<!-- e.g. -->
@@ -53,7 +54,8 @@ To support a core experience without JavaScript, add the full `o-cookie-message`
 	aria-labelledby="o-cookie-message-label"
 	aria-describedby="o-cookie-message-description"
 	data-o-component="o-cookie-message"
-	class="o-cookie-message">
+	class="o-cookie-message"
+	data-nosnippet>
 	<div class="o-cookie-message__outer">
 		<div class="o-cookie-message__inner">
 			<div class="o-cookie-message__content">

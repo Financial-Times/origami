@@ -47,7 +47,8 @@ export function CookieMessage({
 			role="dialog"
 			data-o-component="o-cookie-message"
 			className="o-cookie-message"
-			{...dataAttributes}>
+			{...dataAttributes}
+			data-nosnippet="true">
 			{fullMarkup ? (
 				<div className="o-cookie-message__outer">
 					<div className="o-cookie-message__inner">
