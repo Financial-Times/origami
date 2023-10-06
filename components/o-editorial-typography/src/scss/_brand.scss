@@ -20,10 +20,10 @@
 				'hover': oColorsByUsecase('link-hover', 'text'),
 			),
 			'link-inverse': (
-				'base': oColorsByName('white'),
-				'base-decoration': oColorsByName('white'),
-				'hover': oColorsMix('white', 'slate', 80),
-				'hover-decoration': oColorsMix('white', 'slate', 80)
+				'base': oColorsMix('teal', 'white', 55),
+				'base-decoration': oColorsMix('teal', 'slate', 40),
+				'hover': oColorsMix('teal', 'white', 40),
+				'hover-decoration': oColorsMix('teal', 'slate', 80)
 			),
 			'link-professional': (
 				'base': oColorsByName('slate'),

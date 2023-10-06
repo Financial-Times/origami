@@ -56,7 +56,7 @@
 		{
 			"title": "Links Inverse",
 			"name": "links-inverse",
-			"documentClasses": "o-editorial-typography-body",
+			"documentClasses": "o-editorial-typography-body demo-inverse",
 			"template": "demos/src/links-inverse.mustache"
 		},
 		{

@@ -67,6 +67,9 @@
 		.o-editorial-typography-body {
 			@include oEditorialTypographyBody();
 		}
+		.o-editorial-typography-inverse {
+			--_o-editorial-typography-body-color: #{oColorsByName('white')};
+		}
 	}
 
 	// Links
@@ -76,10 +79,10 @@
 		}
 
 		.o-editorial-typography-inverse {
-			--_o-editorial-typography-link-color: #{_oEditorialTypographyGet('base', 'editorial-link-inverse')};
-			--_o-editorial-typography-link-decoration-color: #{_oEditorialTypographyGet('base-decoration', 'editorial-link-inverse')};				
-			--_o-editorial-typography-link-color-hover: #{_oEditorialTypographyGet('hover', 'editorial-link-inverse')};
-			--_o-editorial-typography-link-decoration-color-hover: #{_oEditorialTypographyGet('hover-decoration', 'editorial-link-inverse')};
+			--_o-typography-link-color: #{_oEditorialTypographyGet('base', 'link-inverse')};
+			--_o-typography-link-decoration-color: #{_oEditorialTypographyGet('base-decoration', 'link-inverse')};				
+			--_o-typography-link-color-hover: #{_oEditorialTypographyGet('hover', 'link-inverse')};
+			--_o-typography-link-decoration-color-hover: #{_oEditorialTypographyGet('hover-decoration', 'link-inverse')};
 		}
 	}
 
