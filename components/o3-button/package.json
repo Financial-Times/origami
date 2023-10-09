@@ -15,7 +15,8 @@
   "type": "module",
   "browser": "main.js",
   "scripts": {
-    "build-tokens": "bash ../../scripts/component/build-tokens.bash o3-button",
+    "build": "bash ../../scripts/component/build-o3.bash o3-button",
+    "build:css": "node build.config.mjs",
     "test": "bash ../../scripts/component/test.bash",
     "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
