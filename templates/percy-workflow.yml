@@ -73,7 +73,7 @@ jobs:
     steps:
       - name: Check Matrix
         id: check-matrix-value
-        run: echo '${{ steps.changes.outputs.components }}'
+        run: echo '${{ needs.changes.outputs.components }}'
   run-percy:
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
