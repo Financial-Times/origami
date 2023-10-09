@@ -75,7 +75,8 @@ jobs:
         id: check-matrix-value
         run: echo '${{ needs.changes.outputs.components }}'
   run-percy:
-    if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
+    if: |
+      ${{ !contains(needs.changes.outputs.components, '"include": []') && needs.changes.outputs.components != '' }}
     needs: changes
     runs-on: ubuntu-latest
     strategy:
