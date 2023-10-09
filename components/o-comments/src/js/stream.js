@@ -2,6 +2,7 @@ import events from './utils/events.js';
 import displayName from './utils/display-name.js';
 import auth from './utils/auth.js';
 import purgeJwtCache from './utils/purge-jwt-cache.js';
+import oErrors from '@financial-times/o-errors';
 
 class Stream {
 	/**
@@ -105,13 +106,13 @@ class Stream {
 							if(!this.embed || 
 								!document.querySelector("#o-comments-stream div").shadowRoot ||
 								!document.querySelector("#o-comments-stream div").shadowRoot.querySelector("#tabPane-ALL_COMMENTS")) {
-								this.logError(new Error(" comment stream object not created "))
+								logError(new Error(" comment stream object not created "))
 							}
 						},5000)
 
 					}
 					catch(error){
-						this.logError(error);
+						logError(error);
 						reject(error);
 					}
 				};
@@ -130,7 +131,7 @@ class Stream {
 
 				document.dispatchEvent(new Event('oCommentsReady'));
 			} catch (error) {
-				this.logError(error);
+				logError(error);
 				resolve();
 			}
 		});
@@ -264,22 +265,10 @@ class Stream {
 		};
 	}
 
-	logError(error){
-		const oTrackingEvent = new CustomEvent('oTracking.event', {
-			bubbles : true,
-			detail : {
-			category: 'comment',
-				action: 'coral.initialisation',
-				coral: false,
-				content : {
-					asset_type: this.options.assetType,
-					uuid: this.options.articleId,
-				},
-				error : error.message
-			}
-		});
-		document.body.dispatchEvent(oTrackingEvent);
-	}
+	
 }
-
 export default Stream;
+
+const logError  = (error) => {
+	oErrors.report(new Error(`Coral error: ${error.message}`));
+}
