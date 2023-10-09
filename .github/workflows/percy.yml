@@ -66,6 +66,12 @@ jobs:
         run: |
           MATRIX=$(echo '${{ steps.percy-changes.outputs.changes }}'  | jq '{include: (map({component: ., token_name: ("PERCY_TOKEN_" + (. | ascii_upcase | sub("(/|-)"; "_"; "g")))}))}' | tr '\n' ' ')
           echo "CHANGES=$(echo "$MATRIX")" >> "$GITHUB_OUTPUT";
+  check-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Matrix
+        id: check-matrix-value
+        run: echo '${{ steps.changes.outputs.components }}'
   run-percy:
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
