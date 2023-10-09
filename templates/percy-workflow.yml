@@ -65,8 +65,13 @@ jobs:
       - name: Set Matrix
         id: set-matrix
         run: |
-          MATRIX=$(echo '${{ steps.percy-changes.outputs.changes }}'  | jq '{include: (map({component: ., token_name: ("PERCY_TOKEN_" + (. | ascii_upcase | sub("(/|-)"; "_"; "g")))}))}' | tr '\n' ' ')
-          echo "CHANGES=$(echo "$MATRIX")" >> "$GITHUB_OUTPUT";
+          $CHANGES_INPUT=$(echo '${{ steps.percy-changes.outputs.changes }}')
+          if [ $CHANGES_INPUT -ne "[]"]; then
+            MATRIX=$(echo $CHANGES_INPUT  | jq '{include: (map({component: ., token_name: ("PERCY_TOKEN_" + (. | ascii_upcase | sub("(/|-)"; "_"; "g")))}))}' | tr '\n' ' ')
+            echo "CHANGES=$(echo "$MATRIX")" >> "$GITHUB_OUTPUT";
+          else
+            echo "CHANGES=$(echo '[]')"  >> "$GITHUB_OUTPUT";
+          fi
   check-matrix:
     runs-on: ubuntu-latest
     needs: changes
