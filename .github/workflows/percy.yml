@@ -68,6 +68,7 @@ jobs:
           echo "CHANGES=$(echo "$MATRIX")" >> "$GITHUB_OUTPUT";
   check-matrix:
     runs-on: ubuntu-latest
+    needs: changes
     steps:
       - name: Check Matrix
         id: check-matrix-value
