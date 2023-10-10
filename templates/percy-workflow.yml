@@ -80,8 +80,7 @@ jobs:
         id: check-matrix-value
         run: echo '${{ needs.changes.outputs.components }}'
   run-percy:
-    if: |
-      ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
+    if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
     runs-on: ubuntu-latest
     strategy:
