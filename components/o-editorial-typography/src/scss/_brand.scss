@@ -15,32 +15,13 @@
 
 	@include oBrandDefine('o-editorial-typography', 'core', (
 		'variables': (
-			'link': (
-				'base': oColorsByUsecase('link', 'text'),
-				'hover': oColorsByUsecase('link-hover', 'text'),
-			),
 			'link-inverse': (
 				'base': oColorsMix('teal', 'white', 55),
 				'base-decoration': oColorsMix('teal', 'slate', 40),
 				'hover': oColorsMix('teal', 'white', 40),
 				'hover-decoration': oColorsMix('teal', 'slate', 80)
 			),
-			'link-professional': (
-				'base': oColorsByName('slate'),
-				'base-decoration': oColorsByName('mint-80'),
-				'hover': oColorsByName('slate'),
-				'hover-decoration': oColorsByName('mint-80')
-			),
-			'link-professional-inverse': (
-				'base': oColorsByName('mint'),
-				'base-decoration': oColorsByName('mint'),
-				'hover': oColorsByName('mint-70'),
-				'hover-decoration': oColorsByName('mint-70')
-			),
 		),
-		'supports-variants': (
-			'professional',
-			'ft-live'
-		)
+		'supports-variants': ()
 	));
 }
