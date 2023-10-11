@@ -1,8 +1,12 @@
 {
   "o3": {
     "spacing": {
+      "4xs": {
+        "value": "4",
+        "type": "spacing"
+      },
       "3xs": {
-        "value": "4px",
+        "value": "8px",
         "type": "spacing"
       },
       "2xs": {
