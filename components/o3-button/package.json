@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o3-button",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Origami buttons with design tokens",
   "keywords": [
     "buttons",
@@ -13,7 +13,20 @@
   },
   "license": "MIT",
   "type": "module",
-  "browser": "main.js",
+	"main": "./build/js/index.js",
+	"files": ["build", "*.d.ts"],
+	"exports": {
+		".": {
+      "types": "./build/js/index.d.ts",
+      "import": "./build/js/index.js"
+    },
+		"./css/*": "./build/css/src/css/css-brands/*",
+		"./jsx": {
+			"types": "./build/jsx/index.d.ts",
+			"import": "./build/jsx/index.js"
+		}
+	},
+	"style": "./build/css/main.css",
   "scripts": {
     "build": "bash ../../scripts/component/build-o3.bash o3-button",
     "build:css": "node build.config.mjs",
