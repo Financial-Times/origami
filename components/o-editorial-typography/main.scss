@@ -78,11 +78,13 @@
 			@include oTypographyLink;
 		}
 
-		.o-editorial-typography-body--inverse {
-			--_o-typography-link-color: #{_oEditorialTypographyGet('base', 'link-inverse')};
-			--_o-typography-link-decoration-color: #{_oEditorialTypographyGet('base-decoration', 'link-inverse')};
-			--_o-typography-link-color-hover: #{_oEditorialTypographyGet('hover', 'link-inverse')};
-			--_o-typography-link-decoration-color-hover: #{_oEditorialTypographyGet('hover-decoration', 'link-inverse')};
+		.o-editorial-typography-link--inverse {
+			@include oTypographyLink($theme: (
+				'base': _oEditorialTypographyGet('base', 'link-inverse'),
+				'base-decoration': _oEditorialTypographyGet('base-decoration', 'link-inverse'),
+		 		'hover': _oEditorialTypographyGet('hover', 'link-inverse'),
+		  		'hover-decoration': _oEditorialTypographyGet('hover-decoration', 'link-inverse'),
+			));
 		}
 	}
 
