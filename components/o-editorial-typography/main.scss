@@ -72,20 +72,21 @@
 		}
 	}
 
-	// Links
 	@if $links-enabled {
 		.o-editorial-typography-link {
 			@include oTypographyLink;
 		}
+	}
 
-		.o-editorial-typography-link--inverse {
-			@include oTypographyLink($theme: (
-				'base': _oEditorialTypographyGet('base', 'link-inverse'),
-				'base-decoration': _oEditorialTypographyGet('base-decoration', 'link-inverse'),
-		 		'hover': _oEditorialTypographyGet('hover', 'link-inverse'),
-		  		'hover-decoration': _oEditorialTypographyGet('hover-decoration', 'link-inverse'),
-			));
-		}
+	@if $body and $links-enabled {
+	  .o-editorial-typography-body--inverse .o-editorial-typography-link {
+		  @include oTypographyLink($theme: (
+				  'base': _oEditorialTypographyGet('base', 'link-inverse'),
+				  'base-decoration': _oEditorialTypographyGet('base-decoration', 'link-inverse'),
+				  'hover': _oEditorialTypographyGet('hover', 'link-inverse'),
+				  'hover-decoration': _oEditorialTypographyGet('hover-decoration', 'link-inverse'),
+		  ));
+	  }
 	}
 
 	@if length($lists) >= 1 {
