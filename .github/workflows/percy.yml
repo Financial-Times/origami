@@ -71,13 +71,6 @@ jobs:
           else
             echo "CHANGES=$(echo '[]')"  >> "$GITHUB_OUTPUT";
           fi
-  check-matrix:
-    runs-on: ubuntu-latest
-    needs: changes
-    steps:
-      - name: Check Matrix
-        id: check-matrix-value
-        run: echo '${{ needs.changes.outputs.components }}'
   run-percy:
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
