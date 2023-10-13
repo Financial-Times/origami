@@ -10,15 +10,16 @@
 }
 
 .o3-button {
-	--_o3-button-font-size: var(--o3-font-size-negative-2);
-	--_o3-button-lineheight: var(--o3-font-lineheight-negative-2);
+	--_o3-button-min-width: 80px;
+	--_o3-button-min-height: 40px;
 
-	--_o3-button-block-padding: var(--o3-spacing-5xs);
+	--_o3-button-block-padding: var(--o3-spacing-4xs);
 	--_o3-button-inline-padding-start: var(--o3-spacing-4xs);
 	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
 
-	--_o3-button-min-height: 28px;
-	--_o3-button-min-width: 60px;
+	--_o3-button-font-size: var(--o3-font-size-negative-1);
+	--_o3-button-lineheight: var(--o3-font-lineheight-negative-1);
+
 	--_o3-button-border-size: 1px;
 	--_o3-icon-size: calc(
 		var(--_o3-button-min-height) - (var(--_o3-button-block-padding) * 2)
@@ -334,16 +335,16 @@
 
 /* BIG BUTTON */
 
-.o3-button.o3-button--big {
-	--_o3-button-min-width: 80px;
-	--_o3-button-min-height: 40px;
+.o3-button.o3-button--small {
+	--_o3-button-min-width: 60px;
+	--_o3-button-min-height: 28px;
 
-	--_o3-button-block-padding: var(--o3-spacing-4xs);
-	--_o3-button-inline-padding-start: var(--o3-spacing-2xs);
-	--_o3-button-inline-padding-end: var(--o3-spacing-2xs);
+	--_o3-button-block-padding: var(--o3-spacing-5xs);
+	--_o3-button-inline-padding-start: var(--o3-spacing-4xs);
+	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
 
-	--_o3-button-font-size: var(--o3-font-size-negative-1);
-	--_o3-button-lineheight: var(--o3-font-lineheight-negative-1);
+	--_o3-button-font-size: var(--o3-font-size-negative-2);
+	--_o3-button-lineheight: var(--o3-font-lineheight-negative-2);
 }
 
 /* PAGINATION */
@@ -356,23 +357,23 @@
 .o3-button-pagination,
 .o3-button-pagination > .o3-button,
 .o3-button-pagination > .o3-button.o3-button-icon--icon-only {
-	--_o3-button-min-width: 24px;
-}
-
-.o3-button-pagination--big,
-.o3-button-pagination--big > .o3-button.o3-button--big,
-.o3-button-pagination--big > .o3-button.o3-button-icon--icon-only {
 	--_o3-button-min-width: 36px;
 }
 
+.o3-button-pagination--small,
+.o3-button-pagination--small > .o3-button.o3-button--small,
+.o3-button-pagination--small > .o3-button.o3-button-icon--icon-only {
+	--_o3-button-min-width: 24px;
+}
+
 .o3-button-pagination__ellipsis {
-	font-size: var(--o3-font-size-1);
+	font-size: var(--o3-font-size-3);
 	text-align: center;
 	min-width: var(--_o3-button-min-width);
 }
 
-.o3-button-pagination--big .o3-button-pagination__ellipsis {
-	font-size: var(--o3-font-size-3);
+.o3-button-pagination--small .o3-button-pagination__ellipsis {
+	font-size: var(--o3-font-size-1);
 }
 
 .o3-button-pagination > .o3-button[disabled] {
@@ -408,11 +409,11 @@
 }
 
 .o3-button-icon {
-	--_o3-button-inline-padding-end: var(--o3-spacing-2xs);
+	--_o3-button-inline-padding-end: var(--o3-spacing-s);
 }
 
-.o3-button--big.o3-button-icon {
-	--_o3-button-inline-padding-end: var(--o3-spacing-s);
+.o3-button--small.o3-button-icon {
+	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
 }
 
 .o3-button-icon.o3-button-icon--icon-only {

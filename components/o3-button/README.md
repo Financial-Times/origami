@@ -62,10 +62,10 @@ A theme may be applied to a button to change its appearance. o3-button provides 
 
 ### Sizes
 
-Any button may be made larger using the `o3-button--big` modifier class.
+Apply the `o3-button--small` modifier class for a smaller button.
 
 ```html
-<button class="o3-button o3-button--primary o3-button--big">Click Me</button>
+<button class="o3-button o3-button--primary o3-button--small">Click Me</button>
 ```
 
 ### Icons
@@ -187,13 +187,13 @@ A theme modifier such as `o3-button--inverse` may be added to the buttons within
 
 #### Pagination Size
 
-Big buttons may also be used in a pagination style. Add the `o3-button--big` modifier to each button and `o3-button-pagination__ellipsis--big` to the ellipsis element.
+Small buttons may also be used in a pagination style. Add the `o3-button-pagination--small` modifier class to the outer pagination element and `o3-button--small` to each button.
 
 ```html
-<div class="o3-button-pagination">
+<div class="o3-button-pagination o3-button-pagination--small">
  <a
   href="#"
-  class="o3-button o3-button--big o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
+  class="o3-button o3-button--small o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
   disabled
  >
   <span class="o3-button-icon__label">Previous results</span>
@@ -201,23 +201,23 @@ Big buttons may also be used in a pagination style. Add the `o3-button--big` mod
 
  <a
   href="#"
-  class="o3-button o3-button--big o3-button--secondary"
+  class="o3-button o3-button--small o3-button--secondary"
   aria-current="page"
   >1</a
  >
- <a href="#" class="o3-button o3-button--big o3-button--secondary">2</a>
- <a href="#" class="o3-button o3-button--big o3-button--secondary">3</a>
+ <a href="#" class="o3-button o3-button--small o3-button--secondary">2</a>
+ <a href="#" class="o3-button o3-button--small o3-button--secondary">3</a>
  <span
-  class="o3-button-pagination__ellipsis o3-button-pagination__ellipsis--big"
+  class="o3-button-pagination__ellipsis"
   >...</span
  >
- <a href="#" class="o3-button o3-button--big o3-button--secondary">18</a>
- <a href="#" class="o3-button o3-button--big o3-button--secondary">19</a>
- <a href="#" class="o3-button o3-button--big o3-button--secondary">20</a>
+ <a href="#" class="o3-button o3-button--small o3-button--secondary">18</a>
+ <a href="#" class="o3-button o3-button--small o3-button--secondary">19</a>
+ <a href="#" class="o3-button o3-button--small o3-button--secondary">20</a>
 
  <a
   href="#"
-  class="o3-button o3-button--big o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
+  class="o3-button o3-button--small o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
  >
   <span class="o3-button-icon__label">Next results</span>
  </a>
