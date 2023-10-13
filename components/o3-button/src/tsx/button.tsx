@@ -14,7 +14,7 @@ export interface ButtonProps {
 		| "arrow-up"
 		| "grid"
 		| "list"
-		| "edit"
+		| "edit-outlined"
 		| "download"
 		| "search"
 		| "refresh"
