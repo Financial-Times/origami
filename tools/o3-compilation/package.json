@@ -8,7 +8,7 @@
   "author": "",
   "license": "MIT",
   "type": "module",
-	"devDependencies": {
+  "devDependencies": {
     "esbuild": "0.19.4"
   },
   "private": true

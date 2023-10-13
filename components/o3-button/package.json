@@ -1,49 +1,50 @@
 {
-  "name": "@financial-times/o3-button",
-  "version": "0.0.1",
-  "description": "Origami buttons with design tokens",
-  "keywords": [
-    "buttons",
-    "design-tokens"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o3-button",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-button,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-	"main": "./build/js/index.js",
-	"files": ["build", "*.d.ts"],
+	"name": "@financial-times/o3-button",
+	"version": "0.0.1",
+	"description": "Origami buttons with design tokens",
+	"keywords": [
+		"buttons",
+		"design-tokens"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o3-button",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-button,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"files": [
+		"*.d.ts",
+		"build",
+		"jsx",
+		"css"
+	],
 	"exports": {
 		".": {
-      "types": "./build/js/index.d.ts",
-      "import": "./build/js/index.js"
-    },
-		"./css/*": "./build/css/src/css/css-brands/*",
-		"./jsx": {
-			"types": "./build/jsx/index.d.ts",
+			"types": "./build/types/index.d.ts",
 			"import": "./build/jsx/index.js"
-		}
+		},
+		"./css/*": "./build/css/src/css/css-brands/*",
+		"./package.json": "./package.json"
 	},
-	"style": "./build/css/main.css",
-  "scripts": {
-    "build": "bash ../../scripts/component/build-o3.bash o3-button",
-    "build:css": "node build.config.mjs",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "engines": {
-    "npm": "^8 || ^9"
-  },
-  "volta": {
-    "node": "18.17.1"
-  },
-  "percy": false,
-  "private": false,
-  "peerDependencies": {
-    "@financial-times/o3-web-token": "file:../o3-web-token"
-  }
+	"types": "./build/types/index.d.ts",
+	"scripts": {
+		"build": "bash ../../scripts/component/build-o3.bash o3-button",
+		"build:css": "node build.config.mjs",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"engines": {
+		"npm": "^8 || ^9"
+	},
+	"volta": {
+		"node": "18.17.1"
+	},
+	"percy": false,
+	"private": false,
+	"peerDependencies": {
+		"@financial-times/o3-web-token": "file:../o3-web-token"
+	}
 }
