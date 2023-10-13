@@ -81,16 +81,22 @@ No font size is set so the tag may be used in different contexts.
 
 #### Links
 
-Links are styled using `o-editorial-typography-link`.
+Links are styled using `o-editorial-typography-link` inside a `o-editorial-typography-body` container.
 
 ```html
-<a href="https://ft.com/" class="o-editorial-typography-link">The Financial Times</a>
+<p class="o-editorial-typography-body">
+	An article by
+	<a href="https://ft.com/" class="o-editorial-typography-link">The Financial Times</a>.
+</p>
 ```
 
-An inverse style is also provided for use on dark backgrounds.
+An inverse style is also provided for use on dark backgrounds. Use `o-editorial-typography-body--inverse` on the container to enable inverse styles.
 
 ```html
-<a href="https://ft.com/" class="o-editorial-typography-link o-editorial-typography-link--inverse">The Financial Times</a>
+<p class="o-editorial-typography-body o-editorial-typography-body--inverse">
+	An article by
+	<a href="https://ft.com/" class="o-editorial-typography-link">The Financial Times</a>.
+</p>
 ```
 
 #### Author Tag
