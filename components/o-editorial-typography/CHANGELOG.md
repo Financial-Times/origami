@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/Financial-Times/origami/compare/o-editorial-typography-v2.3.5...o-editorial-typography-v2.4.0) (2023-10-16)
+
+
+### Features
+
+* add o-editorial-typography links styles ([#1296](https://github.com/Financial-Times/origami/issues/1296)) ([a428e1e](https://github.com/Financial-Times/origami/commit/a428e1eeb9b3db28cefe658c73d93aa0dbb5adf3))
+
 ## [2.3.5](https://github.com/Financial-Times/origami/compare/o-editorial-typography-v2.3.4...o-editorial-typography-v2.3.5) (2023-08-25)
 
 
