@@ -9,7 +9,6 @@ export interface ButtonProps {
 		| "upload"
 		| "tick"
 		| "plus"
-		| "warning"
 		| "arrow-down"
 		| "arrow-up"
 		| "grid"

@@ -471,3 +471,8 @@
 .o3-button-icon.o3-button-icon--edit-outlined::before {
 	--o3-button-icon: var(--o3-icons-ft-icon-edit-outlined);
 }
+
+.o3-button-icon.o3-button-icon--refresh::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-refresh);
+}
+
