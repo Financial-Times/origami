@@ -11,8 +11,6 @@ export interface ButtonProps {
 		| "plus"
 		| "arrow-down"
 		| "arrow-up"
-		| "grid"
-		| "list"
 		| "edit-outlined"
 		| "download"
 		| "search"
