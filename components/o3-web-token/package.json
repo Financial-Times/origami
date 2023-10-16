@@ -14,7 +14,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build-tokens": "node ../../apps/dictionary/scripts/build-config/build.js"
+    "build-tokens": "node ../../apps/dictionary/scripts/build-config/build.js",
+		"lint": "bash ../../scripts/component/lint.bash"
   },
   "engines": {
     "npm": "^8 || ^9"

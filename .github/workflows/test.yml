@@ -204,6 +204,7 @@ jobs:
       - run: npm ci
       - run: npm run -w ${{ matrix.component }} lint --if-present
       - run: npm run -w ${{ matrix.component }} build --if-present
+      - run: npm run -w ${{ matrix.component }} build-tokens --if-present
       - run: npm run -w ${{ matrix.component }} test --if-present
   test-results:
     runs-on: ubuntu-latest
