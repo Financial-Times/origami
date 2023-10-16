@@ -79,6 +79,26 @@ No font size is set so the tag may be used in different contexts.
 <span class="o-editorial-typography-topic">Topic Without Link</span>
 ```
 
+#### Links
+
+Links are styled using `o-editorial-typography-link` inside a `o-editorial-typography-body` container.
+
+```html
+<p class="o-editorial-typography-body">
+	An article by
+	<a href="https://ft.com/" class="o-editorial-typography-link">The Financial Times</a>.
+</p>
+```
+
+An inverse style is also provided for use on dark backgrounds. Use `o-editorial-typography-body--inverse` on the container to enable inverse styles.
+
+```html
+<p class="o-editorial-typography-body o-editorial-typography-body--inverse">
+	An article by
+	<a href="https://ft.com/" class="o-editorial-typography-link">The Financial Times</a>.
+</p>
+```
+
 #### Author Tag
 
 Style an author tag using the class `o-editorial-typography-author`. An author tag is usually an anchor but does not have to be if there is no author page to link to.

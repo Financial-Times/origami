@@ -95,7 +95,7 @@
 			@include oTypographyBody;
 		}
 		.o-typography-inverse {
-			--_o-typography-body-color: #{oColorsByName('white')};
+			--_o-typography-body-color: #{_oTypographyGet('color', 'body-inverse')};;
 		}
 	}
 
