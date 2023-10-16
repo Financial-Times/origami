@@ -3,7 +3,7 @@ import {Button as ButtonTsx} from '../../../src/tsx/button';
 import * as ButtonStories from '../../story-templates';
 import {Pagination as PaginationTemplate} from '../../pagination-template';
 
-import '../../../src/css/css-brands/professional.css';
+import '../../../src/css/brands/professional.css';
 
 export default {
 	title: 'Core/Professional/o3-button',

@@ -53,7 +53,7 @@ function buildComponentTokens() {
 			theme.group != theme.name ? `${theme.group}/${theme.name}` : theme.group
 		includeTokens.push(`tokens/${brandName}/**.json`)
 		const sources = [`tokens/${brandName}/components/${componentName}.json`]
-		const exportPath = `../../components/${componentName}/src/css/css-tokens/${brandName}/${componentName}/_variables.css`
+		const exportPath = `../../components/${componentName}/src/css/tokens/${brandName}/${componentName}/_variables.css`
 		filesConfig[0].destination = exportPath
 		filesConfig[0].options.classNames = [
 			`o-brand-${brandName.split("/").slice(-1)}`,

@@ -14,27 +14,22 @@
 	"license": "MIT",
 	"type": "module",
 	"files": [
-		"*.d.ts",
 		"build",
-		"jsx",
-		"css"
+		"build/jsx",
+		"build/css",
+		"build/*.d.ts"
 	],
 	"exports": {
 		".": {
 			"types": "./build/types/index.d.ts",
 			"import": "./build/jsx/index.js"
 		},
-		"./css/*": "./build/css/src/css/css-brands/*",
+		"./css/*": "./build/css/src/css/brands/*",
 		"./package.json": "./package.json"
 	},
 	"types": "./build/types/index.d.ts",
 	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-button",
-		"build:css": "node build.config.mjs",
-		"test": "bash ../../scripts/component/test.bash",
-		"debug:js": "bash ../../scripts/component/debug-js.bash",
-		"lint": "bash ../../scripts/component/lint.bash",
-		"watch": "bash ../../scripts/component/watch.bash"
+		"build": "bash ../../scripts/component/build-o3.bash o3-button"
 	},
 	"engines": {
 		"npm": "^8 || ^9"
