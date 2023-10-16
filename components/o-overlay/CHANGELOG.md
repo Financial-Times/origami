@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.10](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.9...o-overlay-v4.2.10) (2023-10-16)
+
+
+### Bug Fixes
+
+* o-overlay, which to a h2 header ([#1291](https://github.com/Financial-Times/origami/issues/1291)) ([8513d25](https://github.com/Financial-Times/origami/commit/8513d25bec439a6067e8fd865c706baf55aba1c2))
+
 ## [4.2.9](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.8...o-overlay-v4.2.9) (2023-08-25)
 
 
