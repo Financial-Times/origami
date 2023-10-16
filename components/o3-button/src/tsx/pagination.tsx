@@ -85,7 +85,7 @@ function splitPages(pages, currentPage) {
 
 export function ButtonPagination({
 	type = 'secondary',
-	size = 'big',
+	size = '',
 	theme,
 	previousPager,
 	pages,
@@ -125,8 +125,8 @@ export function ButtonPagination({
 		})
 	);
 	const classNames = ['o3-button-pagination'];
-	if (size === 'big') {
-		classNames.push(' o3-button-pagination--big');
+	if (size === 'small') {
+		classNames.push(' o3-button-pagination--small');
 	}
 
 	return (

@@ -1,25 +1,25 @@
 export interface ButtonProps {
 	label: string;
-	type: 'primary' | 'secondary' | 'ghost';
-	size?: 'big' | '';
-	theme?: 'inverse' | 'mono';
+	type: "primary" | "secondary" | "ghost";
+	size?: "small" | "";
+	theme?: "inverse" | "mono";
 	icon?:
-		| 'arrow-left'
-		| 'arrow-right'
-		| 'upload'
-		| 'tick'
-		| 'plus'
-		| 'warning'
-		| 'arrow-down'
-		| 'arrow-up'
-		| 'grid'
-		| 'list'
-		| 'edit'
-		| 'download'
-		| 'search'
-		| 'refresh'
-		| 'cross'
-		| ''
+		| "arrow-left"
+		| "arrow-right"
+		| "upload"
+		| "tick"
+		| "plus"
+		| "warning"
+		| "arrow-down"
+		| "arrow-up"
+		| "grid"
+		| "list"
+		| "edit-outlined"
+		| "download"
+		| "search"
+		| "refresh"
+		| "cross"
+		| ""
 		| (string & Record<never, never>); // Support IDE autocomplete whilst allowing any string https://github.com/microsoft/TypeScript/issues/29729#issuecomment-1331857805
 	iconOnly?: boolean;
 	attributes?: {
