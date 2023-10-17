@@ -9,6 +9,7 @@
     "build-storybook": "storybook build",
     "chromatic": "chromatic"
   },
+  "private": true,
   "author": "",
   "license": "ISC",
   "devDependencies": {
