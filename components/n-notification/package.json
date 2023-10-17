@@ -34,6 +34,5 @@
 		"lint": "bash ../../scripts/component/lint.bash",
 		"watch": "bash ../../scripts/component/watch.bash"
 	},
-	"percy": true,
 	"private": false
 }
