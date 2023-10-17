@@ -9,8 +9,6 @@
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o3-web-token`.
-
 `o3-web-token` exports brand specific tokens that are used by other components. At the moment `o3-web-token` only supports `core`, `internal`, `professional` and `whitelabel` brands. To import brand specific tokens you can import them directly in your CSS file:
 
 ```css
