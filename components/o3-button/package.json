@@ -40,6 +40,6 @@
 	"percy": false,
 	"private": false,
 	"peerDependencies": {
-		"@financial-times/o3-web-token": "file:../o3-web-token"
+		"@financial-times/o3-web-token": "0.1.0"
 	}
 }
