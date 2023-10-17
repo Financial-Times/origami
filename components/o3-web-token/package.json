@@ -13,14 +13,28 @@
   },
   "license": "MIT",
   "type": "module",
+	"exports": {
+		"./core.css": "./build/core/_variables.css",
+		"./professional.css": "./build/core/professional/_variables.css",
+		"./icons.css": "./build/icons/_variables.css",
+		"./internal.css": "./build/internal/_variables.css",
+		"./whitelabel.css": "./build/whitelabel/_variables.css"
+	},
+	"files": [
+		"build/core",
+		"build/core/professional",
+		"build/icons",
+		"build/internal",
+		"build/whitelabel"
+	],
   "scripts": {
-    "build-tokens": "node ../../apps/dictionary/scripts/build-config/build.js"
+    "build": "node ../../apps/dictionary/scripts/build-config/build.js"
   },
   "engines": {
     "npm": "^8 || ^9"
   },
   "volta": {
-    "node": "20.6.0"
+    "node": "18.17.1"
   },
   "percy": false,
   "private": false

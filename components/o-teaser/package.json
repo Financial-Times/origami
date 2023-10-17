@@ -43,7 +43,6 @@
     "node": "14.16.1",
     "npm": "7.11.1"
   },
-  "percy": true,
   "private": false,
   "dependencies": {
     "date-fns": "^1.29.0",

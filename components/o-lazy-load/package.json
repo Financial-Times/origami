@@ -32,6 +32,5 @@
     "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-lazy-load,components",
     "email": "origami.support@ft.com"
   },
-  "percy": true,
   "private": false
 }
