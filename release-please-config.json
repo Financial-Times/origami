@@ -54,6 +54,7 @@
 		"components/o-viewport": {},
 		"components/o-visual-effects": {},
 		"components/o3-button": {},
+		"components/o3-web-token": {},
 		"libraries/ftdomdelegate": {},
 		"libraries/math": {},
 		"libraries/o-autoinit": {},
@@ -66,6 +67,7 @@
 		"presets/remark-preset-lint-origami-component": {},
 		"presets/stylelint-config-origami-component": {},
 		"tools/origami-bower-safe-version-supervisor": {},
-		"apps/dictionary": {}
+		"apps/dictionary": {},
+		"apps/o3-storybook": {}
 	}
 }

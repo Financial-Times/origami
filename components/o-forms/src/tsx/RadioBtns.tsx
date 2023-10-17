@@ -21,11 +21,11 @@ export interface RadioBtnProps extends InputProps {
 }
 
 export interface RadioBtnsProps extends RadioBtnsWrapperProps, TypeFormField {
-	theme?: 'professional' | 'professional-inverse';
+	theme?: 'professional' | 'professional-inverse' | 'ft-live';
 }
 
 export interface RadioBtnsBoxProps extends RadioBtnsBoxWrapperProps, TypeFormField {
-	theme?: 'professional' | 'professional-inverse';
+	theme?: 'professional' | 'professional-inverse' | 'ft-live';
 }
 
 function RadioBtnsBoxWrapper({

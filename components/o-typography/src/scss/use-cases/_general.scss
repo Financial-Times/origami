@@ -48,9 +48,7 @@
 	@include oTypographySans(1);
 	margin: 0 0 oSpacingByName('s6');
 	$variant: if($theme, 'body-#{$theme}', 'body');
-	color: _oTypographyGet('color', $variant);
-	// stylelint-disable-next-line declaration-block-no-duplicate-properties -- to provide a css custom property fallback
-	color: var(--_o-typography-body-color);
+	color: var(--_o-typography-body-color, #{_oTypographyGet('color', $variant)});
 }
 
 /// Subscript text
@@ -124,6 +122,7 @@
 	$theme: if($theme == 'inverse', 'link-inverse', $theme);
 	$theme: if($theme == 'professional', 'link-professional', $theme);
 	$theme: if($theme == 'professional-inverse', 'link-professional-inverse', $theme);
+	$theme: if($theme == 'ft-live', 'link-ft-live', $theme);
 
 	// Get custom base colour.
 	$theme-base: _oTypographyGet('base', $theme);

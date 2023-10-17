@@ -125,6 +125,8 @@ jobs:
             - 'components/o-visual-effects/**'
           components/o3-button:
             - 'components/o3-button/**'
+          components/o3-web-token:
+            - 'components/o3-web-token/**'
           libraries/ftdomdelegate:
             - 'libraries/ftdomdelegate/**'
           libraries/math:
@@ -153,6 +155,8 @@ jobs:
             - 'tools/create-component/**'
           tools/demo-build:
             - 'tools/demo-build/**'
+          tools/o3-compilation:
+            - 'tools/o3-compilation/**'
           tools/origami-bower-safe-version-supervisor:
             - 'tools/origami-bower-safe-version-supervisor/**'
           tools/origami-tools-helpers:
@@ -181,6 +185,8 @@ jobs:
             - 'apps/astro-website/**'
           apps/dictionary:
             - 'apps/dictionary/**'
+          apps/o3-storybook:
+            - 'apps/o3-storybook/**'
           apps/storybook:
             - 'apps/storybook/**'
   test:

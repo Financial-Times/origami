@@ -9,15 +9,19 @@ const isPullRequest = context.payload.pull_request
 
 export async function shouldPercyRun(dirname, workspace) {
 	const isDefaultBranch = context.ref.endsWith("/main")
-	const isChoreRelease = isPullRequest && context.payload.pull_request.title == 'chore: release main'
-	if (isChoreRelease) {
-		core.notice("This is a chore: release, we don't need to run Percy to update the baseline images.")
+	const isReleaseCommit = context.payload.head_commit.message.includes('chore: release main')
+
+	if (isDefaultBranch && isReleaseCommit) {
+		core.notice("This is a release commit, we do not need to run Percy again, as this should not make any visible changes.")
 		return false;
 	}
-	if (isDefaultBranch) {
-		core.notice('This is a commit on the default branch, we need to run Percy to update the baseline images.')
+
+	if (isDefaultBranch && !isReleaseCommit) {
+		core.notice("This is a commit to main, we need to run Percy to update the baseline images.")
 		return true;
-	} else if (isPullRequest) {
+	}
+
+	if (isPullRequest) {
 		let baseRef = context.payload.pull_request.base.ref;
 		let headRef = context.payload.pull_request.head.ref;
 		$.verbose = false
@@ -86,10 +90,10 @@ export async function shouldPercyRun(dirname, workspace) {
 		}
 		core.notice('No commits in the pull-request are a `fix` or `feat` - which means no user facing changes have been made. This means we do not need to run Percy.')
 		return false;
-	} else {
-		core.notice('We are not running Percy because this is not a pull-request or a commit on the default branch.')
-		return false;
 	}
+
+	core.notice('We are not running Percy because this is not a pull-request or a release commit on the default branch.')
+	return false;
 }
 
 function changedFileEffectsPercy(files) {

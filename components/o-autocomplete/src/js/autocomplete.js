@@ -184,6 +184,7 @@ function initClearButton(instance) {
  * @property {MapOptionToSuggestedValue} [mapOptionToSuggestedValue] - Function which transforms a suggestion before rendering.
  * @property {onConfirm} [onConfirm] - Function which is called when the user selects an option
  * @property {SuggestionTemplate} [suggestionTemplate] - Function to override how a suggestion item is rendered.
+ * @property {boolean} [autoselect] - Boolean to specify whether first option in suggestions list is highlighted.
  */
 
 class Autocomplete {
@@ -210,6 +211,9 @@ class Autocomplete {
 		}
 		if (opts.suggestionTemplate) {
 			this.options.suggestionTemplate = opts.suggestionTemplate;
+		}
+		if (opts.autoselect) {
+			this.options.autoselect = opts.autoselect;
 		}
 
 		const container = document.createElement('div');
@@ -281,6 +285,7 @@ class Autocomplete {
 				displayMenu: 'overlay',
 				defaultValue: this.options.defaultValue || '',
 				showNoOptionsFound: false,
+				autoselect: this.options.autoselect || false,
 				templates: {
 					/**
 					 * Used when rendering suggestions, the return value of this will be used as the innerHTML for a single suggestion.
@@ -360,7 +365,7 @@ class Autocomplete {
 						this.options.onConfirm(option);
 					}
 				},
-				autoselect: false,
+				autoselect: this.options.autoselect || false,
 				// To fallback with JS an enhanced element's default value should
 				// be set using static html.
 				defaultValue: '',

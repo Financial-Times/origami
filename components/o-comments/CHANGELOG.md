@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.3.3](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.2...o-comments-v10.3.3) (2023-09-08)
+
+
+### Bug Fixes
+
+* fix style specific element ([a307e84](https://github.com/Financial-Times/origami/commit/a307e84eed843785e7c6731efb3b05197ef59a0a))
+
 ## [10.3.2](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.1...o-comments-v10.3.2) (2023-08-25)
 
 

@@ -6,7 +6,7 @@ cta: Learn more about component code
 # Navigation config
 nav_display: true
 nav_label: Code
-nav_order: 12
+nav_order: 13
 collection_id: components
 ---
 

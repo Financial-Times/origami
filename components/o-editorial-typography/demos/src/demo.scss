@@ -8,3 +8,7 @@ body {
 	background: oColorsByUsecase('page', 'background');
 	margin: oSpacingByName('s2');
 }
+
+.demo-inverse body {
+	background-color: oColorsByUsecase('page-inverse', 'background');
+}

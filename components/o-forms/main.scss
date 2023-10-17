@@ -45,7 +45,8 @@
 		'inverse',
 		'white',
 		'professional',
-		'professional-inverse'
+		'professional-inverse',
+		'ft-live'
 	)
 )) {
 	$elements: map-get($opts, 'elements');
@@ -69,6 +70,25 @@
 	$file: index($elements, 'file');
 
 	@include _oFormsBase();
+
+	@if $themes {
+		@each $theme in $themes {
+			$default-text-color: _oFormsGet("default-text", $theme);
+			@if $default-text-color and oColorsColorBrightness($default-text-color) > 65% {
+				.o-forms-field--#{$theme} .o-forms-title {
+					.o-forms-title__main:after,
+					.o-forms-title__prompt {
+						color: rgba(_oFormsGet("default-text", $theme), 0.7);
+					}
+				}
+				.o-forms-field--#{$theme} input {
+					@include oNormaliseFocusApply() {
+						@include oNormaliseFocusContentInverse();
+					}
+				}
+			}
+		}
+	}
 
 	@if index($elements, 'pseudo-radio-link') {
 		@include _oFormsPseudoRadioLink();

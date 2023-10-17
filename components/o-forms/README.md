@@ -287,10 +287,11 @@ To create a radio input use a [multiple input](#multiple-input-fields) field str
  </span>
 </div>
 ```
-Round radio inputs support 2 themes.
+Round radio inputs support 3 themes.
 
-- **professional**: For a round radio with professional theme set `o-forms-field--professional` on the field element.
-- **professional-inverse**: For round radio with inverse professional theme Set `o-forms-field--professional-inverse` on the field element.
+- **professional**: For a round radios with the FT Professional theme, set `o-forms-field--professional` on the field element.
+- **professional-inverse**: For round radios with the inverse FT Professional theme, set `o-forms-field--professional-inverse` on the field element.
+- **ft-live**: For round radios with the FT Live theme, add `o-forms-field--ft-live` on the field element.
 
 [_See radio buttons in the registry_](https://registry.origami.ft.com/components/o-forms#demo-round-styled-radio-inputs)
 
@@ -327,10 +328,11 @@ The below example shows a box style radio button with a positive "yes" and negat
 
 To show a state label with no text set the modifier class `o-forms-input__state--icon-only` on the `o-forms-input__state` state element. Or to use custom copy for the saving and saved states add the modifier class `o-forms-input__state--custom` and put your copy within the state element. However, as mentioned previously, we recommend setting a custom label using the [setState JavaScript method](#state) instead of adding this markup manually.
 
-Box radio inputs support 2 themes.
+Box radio inputs support 3 themes.
 
-- **professional**: For a box radio with professional theme set `o-forms-field--professional` on the field element.
-- **professional-inverse**: For box radio with inverse professional theme set `o-forms-field--professional-inverse` on the field element.
+- **professional**: For a box radio with FT Professional theme set `o-forms-field--professional` on the field element.
+- **professional-inverse**: For box radio with inverse FT Professional theme set `o-forms-field--professional-inverse` on the field element.
+- **ft-live**: For box radios with the FT Live theme, set `o-forms-field--professional-inverse` on the field element.
 
 ##### Pseudo box radio inputs
 
@@ -387,9 +389,9 @@ To align the checkbox to the **right** of its `label`, add the `o-forms-input__r
 ```
 Square checkboxes also support an additional theme:
 
-- **professional**: To add the professional theme to a square checkbox, add the `o-forms-field--professional` modifier class to the field element.
-
-- **professional-inverse**: To add the professional inverse theme to a square checkbox, add the `o-forms-field--professional-inverse` modifier class to the field element.
+- **professional**: To add the Professional theme to a square checkbox, add the `o-forms-field--professional` modifier class to the field element.
+- **professional-inverse**: To add the inverse FT Professional theme to a square checkbox, add the `o-forms-field--professional-inverse` modifier class to the field element.
+- **ft-live**: To add the FT Live theme to a square checkbox, add the `o-forms-field--ft-live` modifier class to the field element.
 
 ##### Toggle checkbox inputs
 

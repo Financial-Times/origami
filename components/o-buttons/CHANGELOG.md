@@ -1,5 +1,18 @@
 # Changelog
 
+## [7.9.0](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.4...o-buttons-v7.9.0) (2023-09-12)
+
+
+### Features
+
+* o-buttons, add ft-live subbrand [OR-313] ([#1276](https://github.com/Financial-Times/origami/issues/1276)) ([2e3f6f3](https://github.com/Financial-Times/origami/commit/2e3f6f384fe1a8b9d8f83a2b180740ee9d01c534))
+
+## [7.8.4](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.3...o-buttons-v7.8.4) (2023-09-06)
+
+### Miscellaneous Chores
+
+* use consistent language in o-button accessibility readme. ([592d32b](https://github.com/Financial-Times/origami/commit/592d32b0c638557a248ab6f2fd5a139fb21ddf6e))
+
 ## [7.8.3](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.2...o-buttons-v7.8.3) (2023-08-25)
 
 
