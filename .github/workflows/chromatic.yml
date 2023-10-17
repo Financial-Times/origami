@@ -2,8 +2,13 @@ name: 'Chromatic'
 
 on:
   push:
-    branches:
-      - poc/multi-brand # change to main once productionised
+    branches: [ main ]
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "apps/o3-storybook/**"
+      - "components/o3-*/**"
+      - "components/o3-*/**"
 
 jobs:
   chromatic-deployment:
