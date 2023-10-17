@@ -22,13 +22,8 @@ export interface ButtonPaginationPager {
 
 const Ellipsis = () => {
 	let classNames = 'o3-button-pagination__ellipsis';
-	return (
-	<span
-		className={classNames}>
-		...
-	</span>
-)};
-
+	return <span className={classNames}>...</span>;
+};
 
 function splitPages(pages, currentPage) {
 	const nextPage = currentPage.number + 1;
@@ -135,7 +130,6 @@ export function ButtonPagination({
 	}
 
 	return (
-
 		<div className={classNames.join(' ')}>
 			<PreviousTag
 				attributes={
