@@ -27,7 +27,8 @@
 
 	min-width: var(--_o3-button-min-width);
 	min-height: var(--_o3-button-min-height);
-	padding: 0 var(--_o3-button-inline-padding-end) 0 var(--_o3-button-inline-padding-start);
+	padding: 0 var(--_o3-button-inline-padding-end) 0
+		var(--_o3-button-inline-padding-start);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -53,11 +54,13 @@
 }
 
 .o3-button:focus {
-	box-shadow: var(--o3-box-shadow-focus-ring-inner), var(--o3-box-shadow-focus-ring-outer);
+	box-shadow: var(--o3-box-shadow-focus-ring-inner),
+		var(--o3-box-shadow-focus-ring-outer);
 	outline: unset;
 }
 .o3-button.o3-button--inverse:focus {
-	box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner), var(--o3-box-shadow-focus-ring-inverse-outer);
+	box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner),
+		var(--o3-box-shadow-focus-ring-inverse-outer);
 }
 
 @supports selector(:focus-visible) {
@@ -66,11 +69,13 @@
 	}
 
 	.o3-button:focus-visible {
-		box-shadow: var(--o3-box-shadow-focus-ring-inner), var(--o3-box-shadow-focus-ring-outer);
+		box-shadow: var(--o3-box-shadow-focus-ring-inner),
+			var(--o3-box-shadow-focus-ring-outer);
 		outline: unset;
 	}
 	.o3-button.o3-button--inverse:focus-visible {
-		box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner), var(--o3-box-shadow-focus-ring-inverse-outer);
+		box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner),
+			var(--o3-box-shadow-focus-ring-inverse-outer);
 	}
 }
 

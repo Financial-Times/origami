@@ -29,14 +29,14 @@ export interface LinkButtonProps extends ButtonProps {
 	href: string;
 }
 
-function makeClassNames({ type, size, theme, icon, iconOnly }) {
-	const classNames = ["o3-button", `o3-button--${type}`];
+function makeClassNames({type, size, theme, icon, iconOnly}) {
+	const classNames = ['o3-button', `o3-button--${type}`];
 
-	if (size && size !== "standard") {
+	if (size && size !== 'standard') {
 		classNames.push(`o3-button--${size}`);
 	}
 
-	if (theme && theme !== "standard") {
+	if (theme && theme !== 'standard') {
 		classNames.push(`o3-button--${theme}`);
 	}
 
@@ -45,15 +45,15 @@ function makeClassNames({ type, size, theme, icon, iconOnly }) {
 	}
 
 	if (iconOnly) {
-		classNames.push("o3-button-icon--icon-only");
+		classNames.push('o3-button-icon--icon-only');
 	}
-	return classNames.join(" ");
+	return classNames.join(' ');
 }
 
 export function Button({
 	label,
-	type = "secondary",
-	size = "",
+	type = 'secondary',
+	size = '',
 	theme,
 	icon,
 	iconOnly = false,
@@ -63,9 +63,8 @@ export function Button({
 	return (
 		<button
 			onClick={onClick ? event => onClick(event) : null}
-			className={makeClassNames({ type, size, theme, icon, iconOnly })}
-			{...attributes}
-		>
+			className={makeClassNames({type, size, theme, icon, iconOnly})}
+			{...attributes}>
 			{icon && iconOnly ? (
 				<span className="o3-button-icon__label">{label}</span>
 			) : (
@@ -77,8 +76,8 @@ export function Button({
 
 export function LinkButton({
 	label,
-	type = "secondary",
-	size = "",
+	type = 'secondary',
+	size = '',
 	theme,
 	icon,
 	iconOnly = false,
@@ -90,9 +89,8 @@ export function LinkButton({
 		<a
 			href={href}
 			onClick={onClick ? event => onClick(event) : null}
-			className={makeClassNames({ type, size, theme, icon, iconOnly })}
-			{...attributes}
-		>
+			className={makeClassNames({type, size, theme, icon, iconOnly})}
+			{...attributes}>
 			{icon && iconOnly ? (
 				<span className="o3-button-icon__label">{label}</span>
 			) : (
