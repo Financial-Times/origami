@@ -62,7 +62,7 @@ function buildBrandTokens() {
 		brand.sources = brand.sources.map(source => path.join(basePath, source))
 		new ConfigBuilder(StyleDictionaryPackage)
 			.setSources(brand.sources)
-			.setBuildPath(`${brand.name}/`)
+			.setBuildPath(`build/${brand.name}/`)
 			.setFilesConfig(filesConfig)
 			.buildDictionary()
 	})
@@ -82,7 +82,7 @@ function buildIconTokens() {
 	new ConfigBuilder(StyleDictionaryPackage)
 		.setSources([path.join(basePath, "tokens/icons/icons.json")])
 		.setTransforms(iconTransformers)
-		.setBuildPath("icons/")
+		.setBuildPath("build/icons/")
 		.setFilesConfig(iconsFileConfig)
 		.buildDictionary()
 }
