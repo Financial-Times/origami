@@ -3,11 +3,10 @@
 import path from 'node:path'
 import { setTimeout } from "node:timers/promises";
 import {globby as glob} from "globby"
-import AxeBuilderPlaywright from '@axe-core/playwright'
+import AxeBuilder from '@axe-core/playwright'
 import playwright from 'playwright'
 import { pathToFileURL } from 'url';
 import { prettyPrintAxeReport } from 'axe-result-pretty-print';
-const AxeBuilder = AxeBuilderPlaywright;
 
 const cwd = process.cwd()
 
@@ -44,14 +43,12 @@ for (const file of builtDemoHtmlFiles) {
 	// This is useful specifically for o-tooltip's demos which animate the opacity
 	// of the tooltip and during the animation - the contrast of the text is insufficient.
 	await setTimeout(1000);
-	console.log({typeof: typeof AxeBuilder, AxeBuilder, AxeBuilderPlaywright})
 	const results = await new AxeBuilder({ page }).exclude(elementsToExclude).disableRules(axeRulesToIgnore).analyze();
 	prettyPrintAxeReport({
         violations: results.violations,
         url: file,
     });
 	errors.push(...results.violations);
-	context.close();
 }
 await browser.close();
 
