@@ -51,6 +51,7 @@ for (const file of builtDemoHtmlFiles) {
         url: file,
     });
 	errors.push(...results.violations);
+	context.close();
 }
 await browser.close();
 

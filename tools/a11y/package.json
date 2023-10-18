@@ -14,5 +14,8 @@
     "globby": "^12.0.2",
     "playwright": "^1.3.9"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@playwright/browser-chromium": "^1.39.0"
+  }
 }
