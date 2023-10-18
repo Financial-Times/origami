@@ -2,6 +2,7 @@
 set -e
 test-javascript
 sass-compilation
-xvfb-run a11y
+npx playwright install
+a11y
 validate-component-demo-html
 test-sass
