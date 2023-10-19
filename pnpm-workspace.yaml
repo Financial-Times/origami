@@ -1,0 +1,7 @@
+packages:
+  - "components/*"
+  - "libraries/*"
+  - "presets/*"
+  - "tools/*"
+  - "apps/storybook/addons/*"
+  - "apps/*"

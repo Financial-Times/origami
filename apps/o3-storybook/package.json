@@ -1,0 +1,15 @@
+{
+  "name": "o3-storybook",
+  "version": "0.0.1",
+  "description": "Storybook for o3 components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.4.0"
+  }
+}

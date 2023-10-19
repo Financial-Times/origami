@@ -18,7 +18,7 @@
   "scripts": {
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
+    "test": "node ../../tools/test-javascript/index.js",
     "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"

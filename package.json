@@ -34,16 +34,8 @@
 	},
 	"engines": {
 		"node": "16.13.0",
-		"npm": "8.5.4"
+		"pnpm": ">=8"
 	},
-	"workspaces": [
-		"components/*",
-		"libraries/*",
-		"presets/*",
-		"tools/*",
-		"apps/storybook/addons/*",
-		"apps/*"
-	],
 	"devDependencies": {
 		"@babel/core": "^7.15.5",
 		"@esm-bundle/chai": "^4.3.4-fix.0",
