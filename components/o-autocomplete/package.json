@@ -27,7 +27,7 @@
     "watch": "bash ../../scripts/component/watch.bash"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
   "peerDependencies": {
     "@financial-times/math": "^1.0.0",
