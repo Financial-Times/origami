@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
   "scripts": {
     "start": "npx serve ./demos/local",
@@ -28,10 +28,6 @@
   },
   "dependencies": {
     "@financial-times/ft-date-format": "^3.0.0"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
   },
   "private": false
 }

@@ -4,7 +4,7 @@
   "browser": "main.js",
   "type": "module",
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
   "keywords": [
     "lazy",
@@ -21,10 +21,6 @@
     "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
   },
   "version": "3.1.2",
   "homepage": "https://registry.origami.ft.com/components/o-lazy-load",

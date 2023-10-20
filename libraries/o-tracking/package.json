@@ -18,11 +18,7 @@
   "type": "module",
   "browser": "main.js",
   "engines": {
-    "npm": "^7 || ^8"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
+    "npm": ">7"
   },
   "dependencies": {
     "ftdomdelegate": "^5"

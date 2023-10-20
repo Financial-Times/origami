@@ -58,6 +58,6 @@
   },
   "private": false,
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   }
 }

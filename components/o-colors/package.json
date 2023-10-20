@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
   "peerDependencies": {
     "@financial-times/math": "^1.0.0",
@@ -46,10 +46,6 @@
     "debug:js": "bash ../../scripts/component/debug-js.bash",
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
   },
   "private": false
 }

@@ -30,11 +30,7 @@
     "@financial-times/o-spacing": "^3.2.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
+    "npm": ">7"
   },
   "private": false
 }

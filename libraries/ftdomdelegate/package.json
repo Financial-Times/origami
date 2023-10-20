@@ -42,9 +42,5 @@
   "scripts": {
     "test": "karma start karma.config.cjs"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
   "private": false
 }
