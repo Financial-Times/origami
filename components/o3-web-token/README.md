@@ -22,7 +22,7 @@
 
 |   State   | Major Version | Last Minor Release | Migration guide |
 | :-------: | :-----------: | :----------------: | :-------------: |
-| ✨ active |       0       |        1.0         |       N/A       |
+| ✨ active |       0       |        N/A         |       N/A       |
 
 ## Contact
 
