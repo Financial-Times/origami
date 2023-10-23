@@ -14,10 +14,8 @@
 	"license": "MIT",
 	"type": "module",
 	"files": [
-		"build",
-		"build/jsx",
-		"build/css",
-		"build/*.d.ts"
+		"build/**",
+		"origami.json"
 	],
 	"exports": {
 		".": {
