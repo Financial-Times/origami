@@ -125,7 +125,8 @@
 						"classes": "o-forms-input__day-part",
 						"date": "DD",
 						"value": "01",
-						"id": "error-date"
+						"id": "error-date",
+						"name": "error-date"
 					},
 					{
 						"type": "text",
@@ -133,14 +134,18 @@
 						"pattern": "0?[1-9]|1[012]",
 						"date": "MM",
 						"value": "24",
-						"id": "error-month"
+						"id": "error-month",
+						"name": "error-month"
+
 					},
 					{
 						"type": "text",
 						"pattern": "[0-9]{4}",
 						"date": "YYYY",
 						"value": "2019",
-						"id": "error-year"
+						"id": "error-year",
+						"name": "error-year"
+
 					}
 				]
 			},
