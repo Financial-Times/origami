@@ -95,7 +95,7 @@
 		"remark-cli": "^10.0.0",
 		"splitonce": "^0.1.2",
 		"toposort": "^2.0.2",
-		"undici": "^4.5.1",
+		"undici": "^5.26.2",
 		"zx": "^4.1.1"
 	}
 }
