@@ -21,7 +21,7 @@ jobs:
           node-version: 16
           registry-url: "https://registry.npmjs.org"
         if: ${{ steps.release.outputs.releases_created }}
-      - run: npm i -g npm@7
+      - run: npm i -g npm@8
         if: ${{ steps.release.outputs.releases_created }}
       - run: npm ci
         if: ${{ steps.release.outputs.releases_created }}

@@ -1,0 +1,26 @@
+{
+  "tokenSetOrder": [
+    "core/base/color",
+    "core/base/spacing",
+    "core/base/typography",
+    "core/base/border-radius",
+    "core/components/o3-button",
+    "core/use-case/color",
+    "core/use-case/box-shadow",
+    "core/professional/components/o3-button",
+    "core/professional/base/color",
+    "core/professional/use-case/color",
+    "internal/components/o3-button",
+    "internal/base/typography",
+    "internal/base/spacing",
+    "internal/base/color",
+    "internal/use-case/box-shadow",
+    "whitelabel/use-case/box-shadow",
+    "whitelabel/components/o3-button",
+    "whitelabel/base/spacing",
+    "whitelabel/base/color",
+    "whitelabel/base/border-radius",
+    "utility-tokens",
+    "icons/icons"
+  ]
+}

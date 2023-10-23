@@ -15,6 +15,7 @@ on:
       - "package-lock.json"
       - "components/**"
       - "!components/**/*.md"
+      - "!components/o3-*/**"
   push:
     branches: main
     paths:
@@ -22,6 +23,7 @@ on:
       - "package-lock.json"
       - "components/**"
       - "!components/**/*.md"
+      - "!components/o3-*/**"
 
 jobs:
   changes:

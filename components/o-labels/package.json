@@ -39,6 +39,5 @@
     "node": "14.16.1",
     "npm": "7.11.1"
   },
-  "percy": true,
   "private": false
 }

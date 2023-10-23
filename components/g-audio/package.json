@@ -21,6 +21,5 @@
 	"peerDependencies": {
 		"@financial-times/o-icons": "^7.2.1"
 	},
-	"percy": true,
 	"private": false
 }

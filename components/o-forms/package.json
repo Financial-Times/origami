@@ -52,7 +52,6 @@
     "node": "14.16.1",
     "npm": "7.11.1"
   },
-  "percy": true,
   "private": false,
   "dependencies": {
     "@types/lodash.uniqueid": "^4.0.7",
