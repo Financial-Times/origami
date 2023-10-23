@@ -10,10 +10,10 @@ import {ButtonGroup} from '../src/tsx/group';
 import {TemplateSBConfig} from './sb-story-config';
 
 type ButtonStory = Omit<StoryObj, 'args'> & {
-	args: ButtonProps;
+	args: ButtonProps & {disabled: Boolean}
 };
 type LinkButtonStory = Omit<StoryObj, 'args'> & {
-	args: LinkButtonProps;
+	args: LinkButtonProps & {disabled: Boolean}
 };
 type ButtonGroupStory = Omit<StoryObj, 'args'> & {
 	args: {
@@ -28,14 +28,14 @@ export type TemplateType = StoryObj & {
 const ButtonTemplate: TemplateType = {
 	...TemplateSBConfig,
 	render: args => {
-		return <ButtonTsx {...args} />;
+		return <ButtonTsx {...args} attributes={{disabled: args.disabled}} />;
 	},
 };
 
 const LinkButtonTemplate: TemplateType = {
 	...TemplateSBConfig,
 	render: args => {
-		return <LinkButton {...args} />;
+		return <LinkButton {...args} attributes={{disabled: args.disabled}} />;
 	},
 };
 
@@ -57,6 +57,7 @@ export const Button: ButtonStory = {
 	args: {
 		label: 'Press button',
 		type: 'primary',
+		disabled: false
 	},
 };
 
@@ -66,6 +67,7 @@ export const LinkAsButton: LinkButtonStory = {
 		label: 'Link button',
 		type: 'secondary',
 		href: '#',
+		disabled: false
 	},
 };
 

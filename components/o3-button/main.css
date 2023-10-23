@@ -53,6 +53,10 @@
 	cursor: default;
 }
 
+.o3-button[disabled].o3-button--hide-disabled {
+	visibility: hidden;
+}
+
 .o3-button:focus {
 	box-shadow: var(--o3-box-shadow-focus-ring-inner),
 		var(--o3-box-shadow-focus-ring-outer);
