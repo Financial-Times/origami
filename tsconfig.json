@@ -5,7 +5,8 @@
 		// 👇️ set jsx to react-jsx
 		"jsx": "react-jsx",
 		"esModuleInterop": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"target": "ES2019"
 	},
 	"exclude": ["node_modules"]
 }
