@@ -7,13 +7,13 @@ import Autocomplete from '../../main.js';
 import {assert} from '@open-wc/testing';
 import sinon from 'sinon/pkg/sinon-esm.js';
 
-function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
+// function sleep(ms) {
+// 	return new Promise(resolve => setTimeout(resolve, ms));
+// }
 
-function isHidden(el) {
-	return el.offsetParent === null;
-}
+// function isHidden(el) {
+// 	return el.offsetParent === null;
+// }
 
 describe("Autocomplete", function () {
 	this.timeout(5000);
