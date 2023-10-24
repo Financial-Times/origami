@@ -14,7 +14,7 @@
 	"license": "MIT",
 	"type": "module",
 	"files": [
-		"build/**",
+		"build",
 		"origami.json"
 	],
 	"exports": {
@@ -35,7 +35,6 @@
 	"volta": {
 		"node": "18.17.1"
 	},
-	"percy": false,
 	"private": false,
 	"peerDependencies": {
 		"@financial-times/o3-web-token": "^0.1.0"
