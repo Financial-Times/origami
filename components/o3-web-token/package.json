@@ -21,11 +21,7 @@
 		"./whitelabel.css": "./build/whitelabel/_variables.css"
 	},
 	"files": [
-		"build/core",
-		"build/core/professional",
-		"build/icons",
-		"build/internal",
-		"build/whitelabel",
+		"build",
 		"origami.json"
 	],
 	"scripts": {
@@ -37,6 +33,5 @@
 	"volta": {
 		"node": "18.17.1"
 	},
-	"percy": false,
 	"private": false
 }
