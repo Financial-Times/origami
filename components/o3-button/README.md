@@ -3,7 +3,6 @@
 o3-button provides CSS custom properties and styling to create buttons.
 
 - [o3-button](#o3-button)
-	- [Usage](#usage)
 	- [Markup](#markup)
 		- [Themes](#themes)
 		- [Sizes](#sizes)
@@ -19,10 +18,6 @@ o3-button provides CSS custom properties and styling to create buttons.
 	- [Migration](#migration)
 	- [Contact](#contact)
 	- [Licence](#licence)
-
-## Usage
-
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o3-button`.
 
 ## Markup
 
