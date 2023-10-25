@@ -10,7 +10,7 @@ export default {
 	component: ButtonTsx,
 	decorators: [
 		Story => (
-			<div className="o-brand-whitelabel">
+			<div className="o3-brand-whitelabel">
 				<Story />
 			</div>
 		),

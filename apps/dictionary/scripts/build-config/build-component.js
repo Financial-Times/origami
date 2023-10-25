@@ -56,7 +56,7 @@ function buildComponentTokens() {
 		const exportPath = `../../components/${componentName}/src/css/tokens/${brandName}/${componentName}/_variables.css`
 		filesConfig[0].destination = exportPath
 		filesConfig[0].options.classNames = [
-			`o-brand-${brandName.split("/").slice(-1)}`,
+			`o3-brand-${brandName.split("/").slice(-1)}`,
 			`${componentName}`,
 		]
 

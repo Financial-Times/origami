@@ -55,7 +55,7 @@ function buildBrandTokens() {
 				format: "css/brand/classes",
 				options: {
 					outputReferences: true,
-					classNames: [`o-brand-${brand.name.split("/").slice(-1)}`],
+					classNames: [`o3-brand-${brand.name.split("/").slice(-1)}`],
 				},
 			},
 		]
