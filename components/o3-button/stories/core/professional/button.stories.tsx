@@ -10,7 +10,7 @@ export default {
 	component: ButtonTsx,
 	decorators: [
 		Story => (
-			<div className="o-brand-professional">
+			<div className="o3-brand-professional">
 				<Story />
 			</div>
 		),
