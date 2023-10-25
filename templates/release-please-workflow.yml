@@ -1,3 +1,4 @@
+{{=<% %>=}}
 on:
   push:
     branches:
@@ -7,7 +8,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     env:
-      o3-COMPONENTS: ("components/o3-button" "components/o3-web-token")
+      o3-COMPONENTS: (<%& o3Components %>)
     steps:
       - uses: GoogleCloudPlatform/release-please-action@v3
         id: release

@@ -9,6 +9,7 @@ import del from "del"
 let testTemplate = await readFile("templates/test-workflow.yml", "utf-8")
 let percyTemplate = await readFile("templates/percy-workflow.yml", "utf-8")
 let labelerTemplate = await readFile("templates/labeler.yml", "utf-8")
+let releasePleaseTemplate = await readFile("templates/release-please-workflow.yml", "utf-8")
 
 let workspacePaths = await workspaces.paths()
 
@@ -23,7 +24,7 @@ let labelerFile = Mustache.render(labelerTemplate, {
 
 await writeFile(`.github/labeler.yml`, labelerFile)
 
-await del([".github/workflows/percy-*.yml", ".github/workflows/test-*.yml"])
+await del([".github/workflows/percy-*.yml", ".github/workflows/test-*.yml", ".github/workflows/release-please-*.yml"])
 
 let dotReleasePleaseManifest = {}
 let releasePleaseConfig = {
@@ -66,6 +67,16 @@ let percyFile = Mustache.render(percyTemplate,  {
 await writeFile(
 	`.github/workflows/percy.yml`,
 	percyFile
+)
+
+const o3Components = allProjects.filter(project => project.workspace.includes('components/o3'));
+let releasePleaseFile = Mustache.render(releasePleaseTemplate, {
+	o3Components: `${o3Components.map(c => `"${c.workspace}"`).join(' ')}`
+})
+
+await writeFile(
+	`.github/workflows/release-please.yml`,
+	releasePleaseFile
 )
 
 await writeFile(
