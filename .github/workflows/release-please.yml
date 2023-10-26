@@ -6,8 +6,6 @@ name: release-please
 jobs:
   release-please:
     runs-on: ubuntu-latest
-    env:
-      o3-COMPONENTS: ("components/o3-button" "components/o3-web-token")
     steps:
       - uses: GoogleCloudPlatform/release-please-action@v3
         id: release
@@ -26,8 +24,6 @@ jobs:
       - run: npm i -g npm@8
         if: ${{ steps.release.outputs.releases_created }}
       - run: npm ci
-        if: ${{ steps.release.outputs.releases_created }}
-      - run: for i in "${o3-COMPONENTS[@]}"; do npm run build -w $i --if-present; done
         if: ${{ steps.release.outputs.releases_created }}
       - run: node ./scripts/publish.js '${{toJSON(steps.release.outputs)}}'
         env:
