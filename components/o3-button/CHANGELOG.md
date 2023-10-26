@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.2...o3-button-v0.1.3) (2023-10-26)
+
+
+### Bug Fixes
+
+* update dep version for o3-web-tokn ([9e8e570](https://github.com/Financial-Times/origami/commit/9e8e570f159665ce243c631e887555b5e995e2dd))
+
 ## [0.1.2](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.1...o3-button-v0.1.2) (2023-10-26)
 
 
