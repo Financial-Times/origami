@@ -5,9 +5,7 @@
 
 ### Bug Fixes
 
-* add matrix in release-please workflow ([855f414](https://github.com/Financial-Times/origami/commit/855f41417c0fe51f3c0ca6170a3de7581cc1cfe1))
 * build o3 components before buplishing to npme ([23c7890](https://github.com/Financial-Times/origami/commit/23c7890831ad6fb6b29c652ea0aa9e63f8e733d8))
-* udpate package json ([5f1bd2d](https://github.com/Financial-Times/origami/commit/5f1bd2dab75b45fb26c6bd6f52fae07f604b2260))
 * update release please and origami json for o3-components ([a3a9a38](https://github.com/Financial-Times/origami/commit/a3a9a3868735302ce6b1cc7d55f436e35c6f887a))
 * use o3 label for branding instead of o ([7e121e4](https://github.com/Financial-Times/origami/commit/7e121e48766765653a213e7eaceab05457f5c09e))
 
