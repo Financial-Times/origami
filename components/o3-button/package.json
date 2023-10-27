@@ -30,10 +30,7 @@
 		"build": "bash ../../scripts/component/build-o3.bash o3-button"
 	},
 	"engines": {
-		"npm": "^8 || ^9"
-	},
-	"volta": {
-		"node": "18.17.1"
+		"npm": ">7"
 	},
 	"private": false,
 	"peerDependencies": {
