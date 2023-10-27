@@ -13,7 +13,6 @@ o3-button provides CSS custom properties and styling to create buttons.
 			- [Pagination Theme](#pagination-theme)
 			- [Pagination Size](#pagination-size)
 		- [Disabled](#disabled)
-		- [Custom Themes](#custom-themes)
 	- [References](#references)
 	- [Migration](#migration)
 	- [Contact](#contact)
@@ -232,12 +231,6 @@ To make a button disabled add the `disabled` attribute. To visually hide the dis
 <!-- Visually hidden because of the `disabled` attribute and `o3-button--hide-disabled`.-->
 <button class="o3-button o3-button--hide-disabled" disabled>My Button</button>
 ```
-
-### Custom Themes
-
-<!-- add link for the doc around how to add new themes -->
-
-To create a new button themes follow our guide on [adding new themes to Origami components]().
 
 ## References
 

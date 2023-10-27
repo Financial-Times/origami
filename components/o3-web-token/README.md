@@ -9,13 +9,40 @@
 
 ## Usage
 
-`o3-web-token` exports brand specific tokens that are used by other components. At the moment `o3-web-token` only supports `core`, `internal`, `professional` and `whitelabel` brands. To import brand specific tokens you can import them directly in your CSS file:
+`o3-web-token` provides CSS Custom Properties for design tokens representing colours, typographic scale, spacing, and iconography.
 
+`o3-web-token` supports brands: `core`, `internal`, `professional` and `whitelabel`.
+
+Import your chosen brand to begin using tokens in your CSS:
 ```css
-@import '@financial-times/o3-web-tokens/core.css'; /* core brand tokens */
-@import '@financial-times/o3-web-tokens/internal.css'; /* internal brand tokens */
-@import '@financial-times/o3-web-tokens/professional.css'; /* professional brand tokens */
-@import '@financial-times/o3-web-tokens/whitelabel.css'; /* whitelabel brand tokens */
+@import '@financial-times/o3-web-tokens/core.css';
+
+.example-custom-link {
+	color: var(--o3-color-link);
+	font-size: var(--o3-font-size-3);
+	line-height: var(--o3-lineheight-3);
+}
+```
+
+To add support for another brand, import its tokens too:
+
+```diff
++@import '@financial-times/o3-web-tokens/core.css';
++@import '@financial-times/o3-web-tokens/internal.css';
+
+.example-custom-link {
+	color: var(--o3-color-link);
+	font-size: var(--o3-font-size-3);
+	line-height: var(--o3-lineheight-3);
+}
+```
+
+Then apply the brand class `o3-brand-[BRAND]` on a container element within your HTML.
+
+```html
+<body class="o3-brand-core">
+	<a href="#" class="example-custom-link">Example</a>
+</body>
 ```
 
 ## Migration
