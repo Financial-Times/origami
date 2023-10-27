@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.1](https://github.com/Financial-Times/origami/compare/o-date-v6.0.0...o-date-v6.0.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [6.0.0](https://www.github.com/Financial-Times/origami/compare/o-date-v5.4.0...o-date-v6.0.0) (2023-03-16)
 
 

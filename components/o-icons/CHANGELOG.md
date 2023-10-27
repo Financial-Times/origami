@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.7.1](https://github.com/Financial-Times/origami/compare/o-icons-v7.7.0...o-icons-v7.7.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [7.7.0](https://github.com/Financial-Times/origami/compare/o-icons-v7.6.1...o-icons-v7.7.0) (2023-08-30)
 
 

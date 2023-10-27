@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.8](https://github.com/Financial-Times/origami/compare/o-topper-v6.0.7...o-topper-v6.0.8) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [6.0.7](https://github.com/Financial-Times/origami/compare/o-topper-v6.0.6...o-topper-v6.0.7) (2023-08-25)
 
 

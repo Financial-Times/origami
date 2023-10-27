@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.4](https://github.com/Financial-Times/origami/compare/o-meter-v3.2.3...o-meter-v3.2.4) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [3.2.3](https://github.com/Financial-Times/origami/compare/o-meter-v3.2.2...o-meter-v3.2.3) (2023-08-25)
 
 
