@@ -18,10 +18,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           cache: "npm"
-          node-version: 16
+          node-version: 18
           registry-url: "https://registry.npmjs.org"
-        if: ${{ steps.release.outputs.releases_created }}
-      - run: npm i -g npm@8
         if: ${{ steps.release.outputs.releases_created }}
       - run: npm ci
         if: ${{ steps.release.outputs.releases_created }}

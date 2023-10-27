@@ -16,9 +16,8 @@ jobs:
     - name: use node javascript
       uses: actions/setup-node@v2
       with:
-        node-version: 16.x
+        node-version: 18.x
         cache: 'npm'
-    - run: npm i -g npm@7
     - run: npm ci
     - run: bash ./scripts/build-website.bash
     - run: touch ./origami.ft.com/.nojekyll
