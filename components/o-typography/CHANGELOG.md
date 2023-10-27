@@ -1,22 +1,5 @@
 # Changelog
 
-## [7.7.0](https://github.com/Financial-Times/origami/compare/o-typography-v7.6.1...o-typography-v7.7.0) (2023-10-27)
-
-
-### Features
-
-* add o-editorial-typography links styles ([#1296](https://github.com/Financial-Times/origami/issues/1296)) ([a428e1e](https://github.com/Financial-Times/origami/commit/a428e1eeb9b3db28cefe658c73d93aa0dbb5adf3))
-* o-typography, add ft-live sub-brand support for links ([#1277](https://github.com/Financial-Times/origami/issues/1277)) ([55f6086](https://github.com/Financial-Times/origami/commit/55f60864a31568c8b465287aa75e84aaa053fc2a))
-* o-typography, introduce themes for body and links ([c85f10e](https://github.com/Financial-Times/origami/commit/c85f10ecb9f4ba88ce9b0995802961381eb1ced4))
-
-
-### Bug Fixes
-
-* o-typography, position visually hiddent anchor content relatively [OR-148] ([#1047](https://github.com/Financial-Times/origami/issues/1047)) ([1d4ebc6](https://github.com/Financial-Times/origami/commit/1d4ebc65fb722278ef25f162350d17cdfbc8405a))
-* o-typography, restore default link colour ([d3fe364](https://github.com/Financial-Times/origami/commit/d3fe364750b3207d2afb2a4610c9eb5f8a1e113b))
-* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
-* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
-
 ## [7.6.1](https://github.com/Financial-Times/origami/compare/o-typography-v7.6.0...o-typography-v7.6.1) (2023-10-27)
 
 

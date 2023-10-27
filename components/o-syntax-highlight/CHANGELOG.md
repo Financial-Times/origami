@@ -1,13 +1,5 @@
 # Changelog
 
-## [4.2.6](https://github.com/Financial-Times/origami/compare/o-syntax-highlight-v4.2.5...o-syntax-highlight-v4.2.6) (2023-10-27)
-
-
-### Bug Fixes
-
-* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
-* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
-
 ## [4.2.5](https://github.com/Financial-Times/origami/compare/o-syntax-highlight-v4.2.4...o-syntax-highlight-v4.2.5) (2023-10-27)
 
 

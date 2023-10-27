@@ -1,21 +1,5 @@
 # Changelog
 
-## [6.7.0](https://github.com/Financial-Times/origami/compare/o-colors-v6.6.3...o-colors-v6.7.0) (2023-10-27)
-
-
-### Features
-
-* o-colors, add mint for the FT Professional sub-brand ([ba2f3c4](https://github.com/Financial-Times/origami/commit/ba2f3c4fa7952d7545e24d560dd3a8b3d6d90306))
-* o-colors, add page-inverse and base-inverse colour usecases ([56a92d4](https://github.com/Financial-Times/origami/commit/56a92d4ef9080a146ee592d6a99fddb778de00bf))
-
-
-### Bug Fixes
-
-* o-colors, always mix with FT colours, not web colours ([d656e76](https://github.com/Financial-Times/origami/commit/d656e763d8803ca81ea56d72b17bf695d5376ba4))
-* o-colors, show professional palette seperately from other colours ([310fc89](https://github.com/Financial-Times/origami/commit/310fc89005a4e83185eb35c6bea096abff335630))
-* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
-* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
-
 ## [6.6.3](https://github.com/Financial-Times/origami/compare/o-colors-v6.6.2...o-colors-v6.6.3) (2023-10-27)
 
 

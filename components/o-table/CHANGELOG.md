@@ -1,26 +1,5 @@
 # Changelog
 
-## [10.0.0](https://github.com/Financial-Times/origami/compare/o-table-v9.3.3...o-table-v10.0.0) (2023-10-27)
-
-
-### ⚠ BREAKING CHANGES
-
-* create o-multi-select component
-
-### Features
-
-* create o-multi-select component ([5730a3a](https://github.com/Financial-Times/origami/commit/5730a3a13399b2caec6bf1dffdb9f8d7c2b35ada))
-* introduce o-table typescript templates and Storybook demos ([#1028](https://github.com/Financial-Times/origami/issues/1028)) ([c0107ba](https://github.com/Financial-Times/origami/commit/c0107bacd0d2a06961339d63f25e968f3cbc95f0))
-
-
-### Bug Fixes
-
-* percy and try to triger table fix ([91af46d](https://github.com/Financial-Times/origami/commit/91af46df14af599f386da6d545089c0cc2c7e8e7))
-* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
-* test fix comit in js file will triger percy ([fba7372](https://github.com/Financial-Times/origami/commit/fba7372f4a8cbd1731d0ac80a1a9bff6c7bff24d))
-* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
-* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
-
 ## [9.3.3](https://github.com/Financial-Times/origami/compare/o-table-v9.3.2...o-table-v9.3.3) (2023-10-27)
 
 

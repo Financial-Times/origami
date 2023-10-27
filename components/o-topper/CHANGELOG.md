@@ -1,38 +1,5 @@
 # Changelog
 
-## [7.0.0](https://github.com/Financial-Times/origami/compare/o-topper-v6.0.8...o-topper-v7.0.0) (2023-10-27)
-
-
-### ⚠ BREAKING CHANGES
-
-* create o-multi-select component
-* o-topper, remove JS including `n-map-content-to-topper` dependency. ([#1031](https://github.com/Financial-Times/origami/issues/1031))
-
-### Features
-
-* box shadow support in deep landscape ([452ba8e](https://github.com/Financial-Times/origami/commit/452ba8e77f34750ce39ad909176b755eaa561a81))
-* create o-multi-select component ([5730a3a](https://github.com/Financial-Times/origami/commit/5730a3a13399b2caec6bf1dffdb9f8d7c2b35ada))
-* o-topper, remove JS including `n-map-content-to-topper` dependency. ([#1031](https://github.com/Financial-Times/origami/issues/1031)) ([a7aa280](https://github.com/Financial-Times/origami/commit/a7aa280a363dad91e959903eb36ed7286ffac203))
-* use oSpacing for margin ([5aa1d7f](https://github.com/Financial-Times/origami/commit/5aa1d7f75ea389219197787ae2b4544c591b6740))
-
-
-### Bug Fixes
-
-* add margin on mobile resolution increasing specificity, adapt naming to new field name background box ([b2cd6e7](https://github.com/Financial-Times/origami/commit/b2cd6e78d073a848ba889c3ea4de644acdba8c0a))
-* change demo deep-landscape ([63f722e](https://github.com/Financial-Times/origami/commit/63f722e7e72c0b76960f1b946e1bebe35b416e0e))
-* change opacity background box ([946e6a6](https://github.com/Financial-Times/origami/commit/946e6a6c312a1fcf706ec3c79359699c73597e94))
-* change outline color for focus links under matisse theme ([7e5b1be](https://github.com/Financial-Times/origami/commit/7e5b1be95e1f49be53b511f3478f187dd86121c8))
-* remove demo example ([fe4ffcc](https://github.com/Financial-Times/origami/commit/fe4ffccdab211197eb2ad1b38c60e6a54133b382))
-* remove opacity standfirst ([b1a7bf7](https://github.com/Financial-Times/origami/commit/b1a7bf73f4a7ebd163622f749c847a9daf52e5f9))
-* remove top border on caption deep-portrait ([dfe8598](https://github.com/Financial-Times/origami/commit/dfe8598ec137040efb977050490183ca9c81d3b4))
-* remove unnecesary margin deep-portrait ([aa80b54](https://github.com/Financial-Times/origami/commit/aa80b542cd34d0a33d2e518cf52bf09591587ad4))
-* rename file portrait to deep-portrait ([4fc706a](https://github.com/Financial-Times/origami/commit/4fc706ab7a240cef09b264db52413e328cd38b44))
-* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
-* revert to use single classname and background color for text ([f2b20a0](https://github.com/Financial-Times/origami/commit/f2b20a06ce1ab91e1f13097c226db06a472e6aae))
-* set new margin bottom deep-landscape ([d95bec9](https://github.com/Financial-Times/origami/commit/d95bec9c8e98d769d62dd88bd7a196c598cd6141))
-* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
-* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
-
 ## [6.0.8](https://github.com/Financial-Times/origami/compare/o-topper-v6.0.7...o-topper-v6.0.8) (2023-10-27)
 
 

@@ -1,26 +1,5 @@
 # Changelog
 
-## [2.0.0](https://github.com/Financial-Times/origami/compare/o-top-banner-v1.0.4...o-top-banner-v2.0.0) (2023-10-27)
-
-
-### ⚠ BREAKING CHANGES
-
-* New o-top-banner component [OR-191] ([#1134](https://github.com/Financial-Times/origami/issues/1134))
-
-### Features
-
-* New o-top-banner component [OR-191] ([#1134](https://github.com/Financial-Times/origami/issues/1134)) ([70da0fc](https://github.com/Financial-Times/origami/commit/70da0fc4e87120338ae47ed561fe1651cbc6d820))
-
-
-### Bug Fixes
-
-* correct lint errors ([2958469](https://github.com/Financial-Times/origami/commit/2958469f2c002fb9286d2a4cd6612faf2f9758cd))
-* fix failing test ([30c2620](https://github.com/Financial-Times/origami/commit/30c2620be4ab2b8e54b4413e244420b163748195))
-* o-top-banner, add missing dependencies, correct support status ([#1142](https://github.com/Financial-Times/origami/issues/1142)) ([d72ed38](https://github.com/Financial-Times/origami/commit/d72ed38a296d219b72bcf006455f1417a131303b))
-* remove non-feature-specific release message ([6402c60](https://github.com/Financial-Times/origami/commit/6402c603727b4f2c2166a2c6ca48a4d4647cf0fe))
-* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
-* use correct 'regular' font weight on professional-inverse themed o-top-banner component ([17f5457](https://github.com/Financial-Times/origami/commit/17f54573ff12715f6e34fe0c1606fb7faed95b00))
-
 ## [1.0.4](https://github.com/Financial-Times/origami/compare/o-top-banner-v1.0.3...o-top-banner-v1.0.4) (2023-10-27)
 
 

@@ -1,12 +1,5 @@
 # Changelog
 
-## [5.3.6](https://github.com/Financial-Times/origami/compare/o-fonts-v5.3.5...o-fonts-v5.3.6) (2023-10-27)
-
-
-### Bug Fixes
-
-* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
-
 ## [5.3.5](https://github.com/Financial-Times/origami/compare/o-fonts-v5.3.4...o-fonts-v5.3.5) (2023-10-27)
 
 

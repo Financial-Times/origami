@@ -1,16 +1,5 @@
 # Changelog
 
-## [7.2.12](https://github.com/Financial-Times/origami/compare/o-video-v7.2.11...o-video-v7.2.12) (2023-10-27)
-
-
-### Bug Fixes
-
-* increase range of points to capture video progress at the end of a video ([5c29017](https://github.com/Financial-Times/origami/commit/5c29017633f3cdc3b776fb7d543539814fa8f0c6))
-* Remove deprecated $external parameter from otypographylink call ([dcf61a1](https://github.com/Financial-Times/origami/commit/dcf61a15053618c13f22392bddcef58d71f7aa5e))
-* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
-* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
-* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
-
 ## [7.2.11](https://github.com/Financial-Times/origami/compare/o-video-v7.2.10...o-video-v7.2.11) (2023-10-27)
 
 
