@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.1](https://github.com/Financial-Times/origami/compare/o-share-v10.0.0...o-share-v10.0.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [10.0.0](https://github.com/Financial-Times/origami/compare/o-share-v9.0.2...o-share-v10.0.0) (2023-08-25)
 
 

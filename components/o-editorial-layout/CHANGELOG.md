@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.3](https://github.com/Financial-Times/origami/compare/o-editorial-layout-v2.4.2...o-editorial-layout-v2.4.3) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [2.4.2](https://github.com/Financial-Times/origami/compare/o-editorial-layout-v2.4.1...o-editorial-layout-v2.4.2) (2023-08-25)
 
 
