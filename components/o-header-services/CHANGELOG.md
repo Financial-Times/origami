@@ -1,5 +1,20 @@
 # Changelog
 
+## [5.6.0](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.2...o-header-services-v5.6.0) (2023-10-27)
+
+
+### Features
+
+* o-header-services, allow JSX Elements to be passed in as relatedContent ([#1169](https://github.com/Financial-Times/origami/issues/1169)) ([7fc577d](https://github.com/Financial-Times/origami/commit/7fc577dbd26fa969d2d4264bdf0fbb6c98ccffdf))
+* option to keep related content visible in header-services ([232b529](https://github.com/Financial-Times/origami/commit/232b52910afa6fbcd3f6a68b2cc633178a8ae94f))
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [5.5.2](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.1...o-header-services-v5.5.2) (2023-10-27)
 
 
