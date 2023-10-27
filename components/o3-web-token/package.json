@@ -28,10 +28,7 @@
 		"build": "node ../../apps/dictionary/scripts/build-config/build.js"
 	},
 	"engines": {
-		"npm": "^8 || ^9"
-	},
-	"volta": {
-		"node": "18.17.1"
+		"npm": ">7"
 	},
 	"private": false
 }
