@@ -1,5 +1,18 @@
 # Changelog
 
+## [6.5.9](https://github.com/Financial-Times/origami/compare/o-labels-v6.5.8...o-labels-v6.5.9) (2023-10-27)
+
+
+### Bug Fixes
+
+* correct table syntax ([86ff070](https://github.com/Financial-Times/origami/commit/86ff070848b001751bf36b67b83b5d1c4567a6f8))
+* migrate social links designer docs to readme ([5a743f1](https://github.com/Financial-Times/origami/commit/5a743f101c09d4ec892bc398c82c6834e7cfa1e8))
+* migrate text input designer docs to readme ([d6c0d26](https://github.com/Financial-Times/origami/commit/d6c0d2685bd7f07762deb08f341185140b4cbf74))
+* preserve o-social-follow docs ([1d4c7e6](https://github.com/Financial-Times/origami/commit/1d4c7e66536ca80836a1aae53c7b37c0003e1306))
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [6.5.8](https://github.com/Financial-Times/origami/compare/o-labels-v6.5.7...o-labels-v6.5.8) (2023-10-27)
 
 

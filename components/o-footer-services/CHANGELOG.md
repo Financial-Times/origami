@@ -1,5 +1,14 @@
 # Changelog
 
+## [4.2.9](https://github.com/Financial-Times/origami/compare/o-footer-services-v4.2.8...o-footer-services-v4.2.9) (2023-10-27)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [4.2.8](https://github.com/Financial-Times/origami/compare/o-footer-services-v4.2.7...o-footer-services-v4.2.8) (2023-10-27)
 
 
