@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.3](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.1.2...o3-web-token-v0.1.3) (2023-10-27)
+
+* include icon assets in package
+* update readme
+
+
 ## [0.1.2](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.1.1...o3-web-token-v0.1.2) (2023-10-26)
 
 
