@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-web-token",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Origami web-tokens with design tokens",
 	"keywords": [
 		"web-token",
@@ -28,7 +28,10 @@
 		"build": "node ../../apps/dictionary/scripts/build-config/build.js"
 	},
 	"engines": {
-		"npm": ">7"
+		"npm": "^8 || ^9"
+	},
+	"volta": {
+		"node": "18.17.1"
 	},
 	"private": false
 }

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.1.2...o3-web-token-v0.1.3) (2023-10-27)
+
+
+### Bug Fixes
+
+* Remove "engines.node" from o3 components ([6953dc3](https://github.com/Financial-Times/origami/commit/6953dc3e96a31283a897218c93dc4b1be4741f93))
+
 ## [0.1.2](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.1.1...o3-web-token-v0.1.2) (2023-10-26)
 
 
