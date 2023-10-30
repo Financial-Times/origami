@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.4...o3-button-v0.1.5) (2023-10-27)
+
+
+### Documentation
+
+* o3-web-token, update migration table version ([916cc18](https://github.com/Financial-Times/origami/commit/916cc18963db358d704fabbb1049bd8502736767))
+
 ## [0.1.4](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.3...o3-button-v0.1.4) (2023-10-27)
 
 * Update readme
