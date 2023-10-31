@@ -1,4 +1,19 @@
 # Changelog
+## [6.8.0](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.7.1...o-cookie-message-v6.8.0) (2023-10-31)
+
+
+### Features
+
+* CPREL-782 - Stop cookie banner content showing in SERP page description ([081b1f2](https://github.com/Financial-Times/origami/commit/081b1f2e32a0b33b1926054b1005832f5ab22996))
+* o-cookie-message, publish tsx template ([#1199](https://github.com/Financial-Times/origami/issues/1199)) ([7052fe3](https://github.com/Financial-Times/origami/commit/7052fe34bef7f96ed867dc79409522fb29a22017))
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [6.7.1](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.7.0...o-cookie-message-v6.7.1) (2023-10-27)
 
 

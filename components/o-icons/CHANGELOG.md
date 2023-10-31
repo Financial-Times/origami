@@ -1,5 +1,29 @@
 # Changelog
 
+## [7.6.1](https://github.com/Financial-Times/origami/compare/o-icons-v7.7.1...o-icons-v7.6.1) (2023-10-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* create o-multi-select component
+
+### Features
+
+* create o-multi-select component ([5730a3a](https://github.com/Financial-Times/origami/commit/5730a3a13399b2caec6bf1dffdb9f8d7c2b35ada))
+* o-icons, add icons closed-captions-off, closed-captions-on, and media-description ([#1250](https://github.com/Financial-Times/origami/issues/1250)) ([f857ffe](https://github.com/Financial-Times/origami/commit/f857ffefdadacf26bcfc5ee938e658484437c5cb))
+* update how o-icons generate new icons ([67a09d3](https://github.com/Financial-Times/origami/commit/67a09d35e3b134577b422f686258d15543fa9b54))
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+
+### Miscellaneous Chores
+
+* o-icons, release 7.6.0 not 8.0.0 ([#1240](https://github.com/Financial-Times/origami/issues/1240)) ([cb03604](https://github.com/Financial-Times/origami/commit/cb03604495d6bc34de2d49ceafc5bd46b76d9eae))
+* o-icons, update support matrix ([#1243](https://github.com/Financial-Times/origami/issues/1243)) ([27e32c3](https://github.com/Financial-Times/origami/commit/27e32c393eed4070d21760cbfe9563cae4c94566))
+
 ## [7.7.1](https://github.com/Financial-Times/origami/compare/o-icons-v7.7.0...o-icons-v7.7.1) (2023-10-27)
 
 

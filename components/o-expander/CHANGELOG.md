@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.8](https://github.com/Financial-Times/origami/compare/o-expander-v6.2.7...o-expander-v6.2.8) (2023-10-31)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [6.2.7](https://github.com/Financial-Times/origami/compare/o-expander-v6.2.6...o-expander-v6.2.7) (2023-10-27)
 
 

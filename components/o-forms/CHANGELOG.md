@@ -1,5 +1,46 @@
 # Changelog
 
+## [10.0.0](https://github.com/Financial-Times/origami/compare/o-forms-v9.12.1...o-forms-v10.0.0) (2023-10-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* swap out div tags to span tags since it is not semanticly allowed inside a label tag
+
+### Features
+
+* add professional inverse theme for chekcboxes ([#1091](https://github.com/Financial-Times/origami/issues/1091)) ([4bd9a3e](https://github.com/Financial-Times/origami/commit/4bd9a3ee993577a8a46f861235a208545329c678))
+* add professional theme for checkboxes ([#1089](https://github.com/Financial-Times/origami/issues/1089)) ([2848c27](https://github.com/Financial-Times/origami/commit/2848c27a4fdc9e2f8e624c9938009991192ae9a6))
+* apply invalid input styles to inputs without browser validation ([a81824d](https://github.com/Financial-Times/origami/commit/a81824daa81622ba109b92e888e2e5f7f5ce414a))
+* fake commit to publish tsx templates but also fixes markdown violations for o-forms readme ([551dcc8](https://github.com/Financial-Times/origami/commit/551dcc8d1e98750a343d2a2b320d09f16507afa1))
+* o-forms box style radio, add professional themes ([b205f7e](https://github.com/Financial-Times/origami/commit/b205f7ecfca1e7166d3b04ba54c674f162ea6a70))
+* o-forms, add FT Professional themes for round radio buttons ([a2ec0ec](https://github.com/Financial-Times/origami/commit/a2ec0ecbb21fbe6c8ab788d05cb02e1e54c099fa))
+* o-forms, add ft-live subbrand to o-forms ([f2ae032](https://github.com/Financial-Times/origami/commit/f2ae03292819f738aabc61b52d1a18287da7ea4d))
+* o-forms, fix focus state for professional-inverse ([1446d63](https://github.com/Financial-Times/origami/commit/1446d63d1b8190bc739920c81eb7e04a81a47d5d))
+* swap out div tags to span tags since it is not semanticly allowed inside a label tag ([c83857b](https://github.com/Financial-Times/origami/commit/c83857b2ee38ca75ee004436e09908ec2362fe61))
+
+
+### Bug Fixes
+
+* correct table syntax ([86ff070](https://github.com/Financial-Times/origami/commit/86ff070848b001751bf36b67b83b5d1c4567a6f8))
+* fix how we render storybook select labels. Remove empty string as a key and instead use undefined. ([dc95f8f](https://github.com/Financial-Times/origami/commit/dc95f8f42941463899d7f143c679b01d67ea024b))
+* migrate date input design docs to its Origami readme ([372b435](https://github.com/Financial-Times/origami/commit/372b435f44435b3e0f59de1e023ca0cdab0b10e9))
+* migrate o-checkbox design docs to its Origami readme ([7275af2](https://github.com/Financial-Times/origami/commit/7275af2600430a72e2f61bc6fc8b84792b01e266))
+* migrate radio input designer docs to readme ([2866714](https://github.com/Financial-Times/origami/commit/2866714a4b7e54aac4486f62a9d5e96b8c245cf0))
+* migrate select box designer docs to readme ([47f88ad](https://github.com/Financial-Times/origami/commit/47f88ad9a82966e2d59e44715b336854960d0196))
+* migrate social links designer docs to readme ([5a743f1](https://github.com/Financial-Times/origami/commit/5a743f101c09d4ec892bc398c82c6834e7cfa1e8))
+* migrate text input designer docs to readme ([4c83605](https://github.com/Financial-Times/origami/commit/4c836052a5bd0fb8457252b5ce20cb260b6b9b4c))
+* o-forms, deprecate pseudo-radio-link. ([fa297c4](https://github.com/Financial-Times/origami/commit/fa297c4ca746d397075245f71e36c41c1fdefacf))
+* o-forms, do not error when no themes given to primary mixin ([#1106](https://github.com/Financial-Times/origami/issues/1106)) ([32834fc](https://github.com/Financial-Times/origami/commit/32834fc62776e046d003ce1c66c5745b0417c65e))
+* o-forms, remove valid state ([7ea9884](https://github.com/Financial-Times/origami/commit/7ea9884c0db7ba285b5589d4a2f4adbe509a17fe))
+* preserve o-social-follow docs ([1d4c7e6](https://github.com/Financial-Times/origami/commit/1d4c7e66536ca80836a1aae53c7b37c0003e1306))
+* require correct o-utils version ([5a18f37](https://github.com/Financial-Times/origami/commit/5a18f377ede852ed0b0c35707f69bfdb9537763c))
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+* trigger release to rollback o-forms docs ([258d573](https://github.com/Financial-Times/origami/commit/258d5736452f9802691733175e0d1254cab36409))
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+* use correct link ([a6b5aa2](https://github.com/Financial-Times/origami/commit/a6b5aa2f64889855cc91b2f17338097518b63e5e))
+
 ## [9.12.1](https://github.com/Financial-Times/origami/compare/o-forms-v9.12.0...o-forms-v9.12.1) (2023-10-27)
 
 

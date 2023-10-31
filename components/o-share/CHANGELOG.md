@@ -1,5 +1,23 @@
 # Changelog
 
+## [11.0.0](https://github.com/Financial-Times/origami/compare/o-share-v10.0.1...o-share-v11.0.0) (2023-10-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* Replace Twitter with X [OR-282] ([#1239](https://github.com/Financial-Times/origami/issues/1239))
+
+### Features
+
+* Replace Twitter with X [OR-282] ([#1239](https://github.com/Financial-Times/origami/issues/1239)) ([4561d0d](https://github.com/Financial-Times/origami/commit/4561d0d40dd2ae513f2a1de4eee7456e14d63b40))
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [10.0.1](https://github.com/Financial-Times/origami/compare/o-share-v10.0.0...o-share-v10.0.1) (2023-10-27)
 
 

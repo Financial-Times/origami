@@ -1,5 +1,24 @@
 # Changelog
 
+## [10.4.0](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.4...o-comments-v10.4.0) (2023-10-31)
+
+
+### Features
+
+* o-comments, add an extra content block to record article_id and asset_type for spoor tracking ([d64302f](https://github.com/Financial-Times/origami/commit/d64302f3b0004c09a1dcd7551987ac4ef331e1e9))
+
+
+### Bug Fixes
+
+* change style shadow dom continer ([511a36b](https://github.com/Financial-Times/origami/commit/511a36bfd385e58cc346e9735cfd97fe920ca7d3))
+* display as block so comment box takes all available space without breaking out of the grid ([12684fa](https://github.com/Financial-Times/origami/commit/12684fa90a64de55e394d7457cd795ba3484085d))
+* fix style specific element ([a307e84](https://github.com/Financial-Times/origami/commit/a307e84eed843785e7c6731efb3b05197ef59a0a))
+* make comment box full-width of layout ([070e759](https://github.com/Financial-Times/origami/commit/070e7594284c6060c986b2bd13b2a85b408eaadc))
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+* way obtain scrollContainer element ([69c072a](https://github.com/Financial-Times/origami/commit/69c072aefee3b9a0cda6064f0fac86ec49733177))
+
 ## [10.3.4](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.3...o-comments-v10.3.4) (2023-10-27)
 
 

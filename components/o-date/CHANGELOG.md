@@ -1,5 +1,22 @@
 # Changelog
 
+## [7.0.0](https://github.com/Financial-Times/origami/compare/o-date-v6.0.1...o-date-v7.0.0) (2023-10-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* introduce FT editorial time formatting
+
+### Features
+
+* introduce FT editorial time formatting ([491d132](https://github.com/Financial-Times/origami/commit/491d1326f82395532fcb2ff30fed34196b648565))
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+* update package.json ([75db2db](https://github.com/Financial-Times/origami/commit/75db2db887893aea052de67ffd2ee70796a15128))
+
 ## [6.0.1](https://github.com/Financial-Times/origami/compare/o-date-v6.0.0...o-date-v6.0.1) (2023-10-27)
 
 

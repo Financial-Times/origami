@@ -1,5 +1,20 @@
 # Changelog
 
+## [5.4.0](https://github.com/Financial-Times/origami/compare/o-tooltip-v5.3.2...o-tooltip-v5.4.0) (2023-10-31)
+
+
+### Features
+
+* o-tooltip, add professional theme ([078aed7](https://github.com/Financial-Times/origami/commit/078aed797401b60cd923d9fd508a3dfb6de5016f))
+* o-tooltip, support imperatively set themes (including custom) ([d4026d1](https://github.com/Financial-Times/origami/commit/d4026d1472e44473386129305bc6e0c2c4bafa16))
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [5.3.2](https://github.com/Financial-Times/origami/compare/o-tooltip-v5.3.1...o-tooltip-v5.3.2) (2023-10-27)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.5](https://github.com/Financial-Times/origami/compare/o-audio-v2.1.4...o-audio-v2.1.5) (2023-10-31)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [2.1.4](https://github.com/Financial-Times/origami/compare/o-audio-v2.1.3...o-audio-v2.1.4) (2023-10-27)
 
 

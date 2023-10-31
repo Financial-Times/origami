@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.3.3](https://github.com/Financial-Times/origami/compare/o-normalise-v3.3.2...o-normalise-v3.3.3) (2023-10-31)
+
+
+### Bug Fixes
+
+* Require latest minor version of o-colors, o-buttons, and o-forms ([#1098](https://github.com/Financial-Times/origami/issues/1098)) ([b856ca6](https://github.com/Financial-Times/origami/commit/b856ca66c9ec555f3c70833ffa35cb05cd19841f))
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [3.3.2](https://github.com/Financial-Times/origami/compare/o-normalise-v3.3.1...o-normalise-v3.3.2) (2023-10-27)
 
 
