@@ -72,9 +72,10 @@ function buildIconTokens() {
 	const iconsFileConfig = [
 		{
 			destination: "_variables.css",
-			format: "css/variables",
+			format: "css/brand/classes",
 			options: {
 				outputReferences: true,
+				classNames: ["o3-icons"],
 			},
 		},
 	]
