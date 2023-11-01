@@ -46,7 +46,7 @@
   "percy": true,
   "private": false,
   "dependencies": {
-    "date-fns": "^1.29.0",
+    "date-fns": "^2.30.0",
     "dateformat": "^3.0.3",
     "dompurify": "^2.3.9",
     "html-react-parser": "^3.0.1"
