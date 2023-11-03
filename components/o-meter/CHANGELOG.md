@@ -5,8 +5,8 @@
 
 ### Bug Fixes
 
-* export o-meter's TSX ([#1335](https://github.com/Financial-Times/origami/issues/1335)) ([670034f](https://github.com/Financial-Times/origami/commit/670034f8aff71fe1adbcc1c3df0be22e34993e9e))
-* o-meter, add extra keywords ([e3929ba](https://github.com/Financial-Times/origami/commit/e3929bad1244827e61be656e93b6da0e52717f7a))
+* Export o-meter's TSX ([#1335](https://github.com/Financial-Times/origami/issues/1335)) ([670034f](https://github.com/Financial-Times/origami/commit/670034f8aff71fe1adbcc1c3df0be22e34993e9e))
+* Add keywords, for discovery in the Origami Registry ([e3929ba](https://github.com/Financial-Times/origami/commit/e3929bad1244827e61be656e93b6da0e52717f7a))
 
 ## [3.2.4](https://github.com/Financial-Times/origami/compare/o-meter-v3.2.3...o-meter-v3.2.4) (2023-10-27)
 
