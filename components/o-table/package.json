@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-table",
-  "version": "9.3.2",
+  "version": "9.3.3",
   "description": "Provides styling and behvaiour for tables across FT products.",
   "keywords": [
     "table",
@@ -48,12 +48,7 @@
     "@financial-times/o-typography": "^7"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

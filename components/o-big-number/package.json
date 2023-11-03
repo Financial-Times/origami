@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-big-number",
-	"version": "3.2.2",
+	"version": "3.2.3",
 	"description": "Typographical styles to highlight a big number.",
 	"keywords": [],
 	"homepage": "https://registry.origami.ft.com/components/o-big-number",
@@ -28,12 +28,7 @@
 		"@financial-times/o-normalise": "^3.3.0"
 	},
 	"engines": {
-		"npm": "^7 || ^8"
+		"npm": ">7"
 	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	},
-	"percy": true,
 	"private": false
 }

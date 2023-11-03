@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-teaser-collection",
-  "version": "4.2.4",
+  "version": "4.2.5",
   "description": "Provides styles to layout out multiple teasers in one section.",
   "keywords": [
     "article",
@@ -38,12 +38,7 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

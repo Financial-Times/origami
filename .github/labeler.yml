@@ -120,6 +120,10 @@ o-viewport:
   - components/o-viewport/**/*
 o-visual-effects:
   - components/o-visual-effects/**/*
+o3-button:
+  - components/o3-button/**/*
+o3-web-token:
+  - components/o3-web-token/**/*
 ftdomdelegate:
   - libraries/ftdomdelegate/**/*
 math:
@@ -148,6 +152,8 @@ create-component:
   - tools/create-component/**/*
 demo-build:
   - tools/demo-build/**/*
+o3-compilation:
+  - tools/o3-compilation/**/*
 origami-bower-safe-version-supervisor:
   - tools/origami-bower-safe-version-supervisor/**/*
 origami-tools-helpers:
@@ -174,5 +180,9 @@ markdown-tabs:
   - apps/storybook/addons/markdown-tabs/**/*
 astro-website:
   - apps/astro-website/**/*
+dictionary:
+  - apps/dictionary/**/*
+o3-storybook:
+  - apps/o3-storybook/**/*
 storybook:
   - apps/storybook/**/*

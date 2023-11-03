@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.2.9](https://github.com/Financial-Times/origami/compare/o-footer-v9.2.8...o-footer-v9.2.9) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [9.2.8](https://github.com/Financial-Times/origami/compare/o-footer-v9.2.7...o-footer-v9.2.8) (2023-08-25)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-editorial-typography",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Typography styles for editorial content.",
   "keywords": [],
   "homepage": "https://registry.origami.ft.com/components/o-editorial-typography",
@@ -28,12 +28,7 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

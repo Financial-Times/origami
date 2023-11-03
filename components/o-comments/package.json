@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-comments",
-  "version": "10.3.3",
+  "version": "10.3.4",
   "description": "A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content.",
   "keywords": [
     "comments",
@@ -38,12 +38,7 @@
     "@financial-times/o-overlay": "^4.2.1"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

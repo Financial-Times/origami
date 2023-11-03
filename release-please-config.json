@@ -1,5 +1,5 @@
 {
-	"bootstrap-sha": "fdeb43fa39a78e96b2ae082458e04da5eb618a30",
+	"bootstrap-sha": "4d52a27b6c08755d6c527723c2595ade3e024898",
 	"packages": {
 		"components/ft-concept-button": {},
 		"components/g-audio": {},
@@ -53,6 +53,8 @@
 		"components/o-video": {},
 		"components/o-viewport": {},
 		"components/o-visual-effects": {},
+		"components/o3-button": {},
+		"components/o3-web-token": {},
 		"libraries/ftdomdelegate": {},
 		"libraries/math": {},
 		"libraries/o-autoinit": {},

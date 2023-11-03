@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/Financial-Times/origami/compare/ft-concept-button-v1.2.2...ft-concept-button-v1.2.3) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [1.2.2](https://github.com/Financial-Times/origami/compare/ft-concept-button-v1.2.1...ft-concept-button-v1.2.2) (2023-08-25)
 
 

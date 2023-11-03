@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.6](https://github.com/Financial-Times/origami/compare/o-subs-card-v6.2.5...o-subs-card-v6.2.6) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [6.2.5](https://github.com/Financial-Times/origami/compare/o-subs-card-v6.2.4...o-subs-card-v6.2.5) (2023-08-25)
 
 

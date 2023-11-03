@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-audio",
-	"version": "2.1.3",
+	"version": "2.1.4",
 	"description": "Financial Times audio player",
 	"keywords": [
 		"audio"
@@ -17,7 +17,7 @@
 		"start": "npx serve ./demos/local",
 		"build": "bash ../../scripts/component/build.bash",
 		"test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
 		"lint": "bash ../../scripts/component/lint.bash",
 		"watch": "bash ../../scripts/component/watch.bash"
 	},
@@ -28,12 +28,7 @@
 		"@financial-times/o-utils": "^2.0.0"
 	},
 	"engines": {
-		"npm": "^7 || ^8"
+		"npm": ">7"
 	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	},
-	"percy": true,
 	"private": false
 }

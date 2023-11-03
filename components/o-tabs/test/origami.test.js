@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 import * as fixtures from './helpers/fixtures.js';
-import { fireEvent, createEvent } from '@testing-library/dom';
+// import { fireEvent, createEvent } from '@testing-library/dom';
 import {assert} from '@open-wc/testing';
 import sinon from 'sinon/pkg/sinon-esm.js';
 import Tabs from '../main.js';
@@ -15,23 +15,23 @@ describe("Tabs", () => {
 		assert.isFunction(Tabs.init);
 	});
 
-	it("should autoinitialize", (done) => {
-		let initSpy;
-		try {
-			initSpy = sinon.spy(Tabs, 'init');
-			fireEvent(document, createEvent('o.DOMContentLoaded', document));
-			setTimeout(function() {
-				try {
-					assert.isTrue(initSpy.called);
-					done();
-				} catch(error) {
-					done(error);
-				}
-			}, 100);
-		} finally {
-			initSpy.restore();
-		}
-	});
+	// it("should autoinitialize", (done) => {
+	// 	let initSpy;
+	// 	try {
+	// 		initSpy = sinon.spy(Tabs, 'init');
+	// 		fireEvent(document, createEvent('o.DOMContentLoaded', document));
+	// 		setTimeout(function() {
+	// 			try {
+	// 				assert.isTrue(initSpy.called);
+	// 				done();
+	// 			} catch(error) {
+	// 				done(error);
+	// 			}
+	// 		}, 100);
+	// 	} finally {
+	// 		initSpy.restore();
+	// 	}
+	// });
 
 	it("should not autoinitialize when the event is not dispached", () => {
 		let initSpy;

@@ -1,0 +1,54 @@
+{
+  "o3": {
+    "spacing": {
+      "5xs": {
+        "value": "4px",
+        "type": "spacing"
+      },
+      "4xs": {
+        "value": "8px",
+        "type": "spacing"
+      },
+      "3xs": {
+        "value": "12px",
+        "type": "spacing"
+      },
+      "2xs": {
+        "value": "16px",
+        "type": "spacing"
+      },
+      "xs": {
+        "value": "20px",
+        "type": "spacing"
+      },
+      "s": {
+        "value": "24px",
+        "type": "spacing"
+      },
+      "m": {
+        "value": "32px",
+        "type": "spacing"
+      },
+      "l": {
+        "value": "40px",
+        "type": "spacing"
+      },
+      "xl": {
+        "value": "48px",
+        "type": "spacing"
+      },
+      "2xl": {
+        "value": "64px",
+        "type": "spacing"
+      },
+      "3xl": {
+        "value": "80px",
+        "type": "spacing"
+      },
+      "4xl": {
+        "value": "96px",
+        "type": "spacing"
+      }
+    }
+  }
+}

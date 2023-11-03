@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-topper",
-  "version": "6.0.7",
+  "version": "6.0.8",
   "description": "Article header styling",
   "keywords": [
     "topper",
@@ -35,12 +35,7 @@
     "@financial-times/o-typography": "^7.4.1"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

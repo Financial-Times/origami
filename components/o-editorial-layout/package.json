@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-editorial-layout",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "Layout for editorial content. Including margins for editorial typography.",
   "keywords": [],
   "homepage": "https://registry.origami.ft.com/components/o-editorial-layout",
@@ -31,12 +31,7 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

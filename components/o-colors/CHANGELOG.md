@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.6.3](https://github.com/Financial-Times/origami/compare/o-colors-v6.6.2...o-colors-v6.6.3) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ### [6.6.2](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.6.1...o-colors-v6.6.2) (2023-07-04)
 
 

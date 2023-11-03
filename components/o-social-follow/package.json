@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-social-follow",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Provides styling for social media sharing links",
   "keywords": [
     "follow",
@@ -42,12 +42,7 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

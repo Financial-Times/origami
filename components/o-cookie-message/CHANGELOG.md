@@ -1,4 +1,11 @@
 # Changelog
+## [6.7.1](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.7.0...o-cookie-message-v6.7.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [6.7.0](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.6.1...o-cookie-message-v6.7.0) (2023-10-05)
 
 

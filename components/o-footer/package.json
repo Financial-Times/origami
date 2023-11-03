@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-footer",
-  "version": "9.2.8",
+  "version": "9.2.9",
   "description": "Responsive footer for all FT.com pages. Includes legally approved links.",
   "keywords": [
     "footer",
@@ -42,12 +42,7 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

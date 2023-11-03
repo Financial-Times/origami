@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-toggle",
-  "version": "3.2.5",
+  "version": "3.2.6",
   "description": "Utility that provides toggle (show/hide) behaviour to a <button> or <a> tag and a target.",
   "keywords": [
     "toggle",
@@ -30,12 +30,7 @@
     "@financial-times/o-spacing": "^3.2.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

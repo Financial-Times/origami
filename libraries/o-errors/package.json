@@ -7,17 +7,13 @@
   "name": "@financial-times/o-errors",
   "type": "module",
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
   "browser": "main.js",
   "dependencies": {
     "raven-js": "^3.27.2"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "version": "5.2.2",
+  "version": "5.2.3",
   "homepage": "https://registry.origami.ft.com/components/o-errors",
   "bugs": {
     "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-errors,libraries",

@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.2](https://github.com/Financial-Times/origami/compare/o-brand-v4.2.1...o-brand-v4.2.2) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ### [4.2.1](https://www.github.com/Financial-Times/origami/compare/o-brand-v4.2.0...o-brand-v4.2.1) (2022-01-13)
 
 

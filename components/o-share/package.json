@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-share",
-  "version": "10.0.0",
+  "version": "10.0.1",
   "description": "Provides styling for social media sharing links",
   "keywords": [
     "share",
@@ -44,15 +44,10 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
+    "npm": ">7"
   },
   "dependencies": {
     "ftdomdelegate": "^4.0.6"
   },
-  "percy": true,
   "private": false
 }

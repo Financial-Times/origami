@@ -1,0 +1,13 @@
+{
+  "name": "origami-dictionary",
+  "version": "1.0.0",
+  "description": "",
+	"type": "module",
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "@tokens-studio/sd-transforms": "^0.11.0",
+    "style-dictionary": "^3.7.2"
+  }
+}

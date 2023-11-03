@@ -1,7 +1,7 @@
 {
   "name": "@financial-times/sass-mq",
   "description": "mq() is a Sass mixin that helps manipulating media queries in an elegant way.",
-  "version": "5.2.3",
+  "version": "5.2.4",
   "keywords": [
     "responsive",
     "sass",
@@ -58,6 +58,6 @@
   },
   "private": false,
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   }
 }

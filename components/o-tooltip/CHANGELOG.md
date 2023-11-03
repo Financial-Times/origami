@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.2](https://github.com/Financial-Times/origami/compare/o-tooltip-v5.3.1...o-tooltip-v5.3.2) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [5.3.1](https://github.com/Financial-Times/origami/compare/o-tooltip-v5.3.0...o-tooltip-v5.3.1) (2023-08-25)
 
 

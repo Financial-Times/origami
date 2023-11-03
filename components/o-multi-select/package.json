@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-multi-select",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Multi select component",
   "keywords": [
     "form",
@@ -38,13 +38,8 @@
     "@financial-times/o-utils": "^2.2.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false,
   "devDependencies": {
     "@financial-times/o-forms": "^9.9.0",

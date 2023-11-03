@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-loading",
-  "version": "5.2.2",
+  "version": "5.2.3",
   "description": "A visual loading indicator, available in two colours and four sizes",
   "keywords": [
     "loading",
@@ -29,12 +29,7 @@
     "@financial-times/sass-mq": "^5.0.2"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

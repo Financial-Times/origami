@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-quote",
-  "version": "5.3.3",
+  "version": "5.3.4",
   "description": "Styling for blockquotes, pull-quotes and any other types of quote",
   "keywords": [
     "quotes",
@@ -37,12 +37,7 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

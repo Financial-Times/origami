@@ -238,10 +238,16 @@
 			"path": "apps/astro-website"
 		},
 		{
-			"path": "./components/o-multi-select"
+			"path": "apps/dictionary"
 		},
 		{
-			"path": "./components/o-top-banner"
+			"path": "components/o-multi-select"
+		},
+		{
+			"path": "components/o-top-banner"
+		},
+		{
+			"path": "components/o3-button"
 		}
 	]
 }

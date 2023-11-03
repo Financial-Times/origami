@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-meter",
-  "version": "3.2.3",
+  "version": "3.2.4",
   "description": "Provides customization for meter tag",
   "keywords": [
     "meter",
@@ -36,12 +36,7 @@
     "@financial-times/o-typography": "^7.4.1"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

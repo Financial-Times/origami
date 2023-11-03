@@ -29,12 +29,12 @@
 	},
 	"homepage": "https://github.com/Financial-Times/origami#readme",
 	"volta": {
-		"node": "16.13.0",
-		"npm": "8.5.4"
+		"node": "18.18.2",
+		"npm": "10.2.1"
 	},
 	"engines": {
-		"node": "16.13.0",
-		"npm": "8.5.4"
+		"node": "18.18.2",
+		"npm": "10.2.1"
 	},
 	"workspaces": [
 		"components/*",
@@ -97,5 +97,8 @@
 		"toposort": "^2.0.2",
 		"undici": "^4.5.1",
 		"zx": "^4.1.1"
+	},
+	"peerDependencies": {
+		"esbuild": "^0.16.17"
 	}
 }
