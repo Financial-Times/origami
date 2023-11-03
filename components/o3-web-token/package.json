@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-web-token",
-	"version": "0.1.3",
+	"version": "0.1.5",
 	"description": "Origami web-tokens with design tokens",
 	"keywords": [
 		"web-token",

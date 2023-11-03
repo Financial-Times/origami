@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.5](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.1.4...o3-web-token-v0.1.5) (2023-10-31)
+
+
+### Bug Fixes
+
+* README updates ([0387027](https://github.com/Financial-Times/origami/commit/0387027b9f722e06f78ff9134080b4d71fc16785))
+* Remove "engines.node" from o3 components ([6953dc3](https://github.com/Financial-Times/origami/commit/6953dc3e96a31283a897218c93dc4b1be4741f93))
+
+## [0.1.4](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.1.3...o3-web-token-v0.1.4) (2023-10-27)
+
+### Documentation
+
+* o3-web-token, update migration table version ([916cc18](https://github.com/Financial-Times/origami/commit/916cc18963db358d704fabbb1049bd8502736767))
+
 ## [0.1.3](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.1.2...o3-web-token-v0.1.3) (2023-10-27)
 
 * include icon assets in package
