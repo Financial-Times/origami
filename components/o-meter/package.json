@@ -8,7 +8,9 @@
     "range",
     "fraction",
     "gauge",
-    "data"
+    "data",
+    "chart",
+    "bar"
   ],
   "homepage": "https://registry.origami.ft.com/components/o-meter",
   "bugs": {
