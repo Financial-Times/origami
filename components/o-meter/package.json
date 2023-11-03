@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-meter",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "Provides customization for meter tag",
   "keywords": [
     "meter",
@@ -8,7 +8,9 @@
     "range",
     "fraction",
     "gauge",
-    "data"
+    "data",
+    "chart",
+    "bar"
   ],
   "homepage": "https://registry.origami.ft.com/components/o-meter",
   "bugs": {
