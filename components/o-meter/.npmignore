@@ -8,7 +8,7 @@
 .eslintignore
 .stylelintignore
 stories/
-src/tsx/
+src/
 .github/
 test/
 demos/local/
