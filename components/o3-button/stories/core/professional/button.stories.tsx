@@ -20,7 +20,19 @@ export default {
 	},
 } as Meta;
 
+
+const DesignParams = {
+	type: 'figma',
+	url: 'https://www.figma.com/file/qfi6fTq5V05b0mnXw3F7q5/Professional---Design-System?type=design&node-id=3604%3A103&mode=design&t=MlrSqBrw4e7aDJ00-1',
+}
+
 export const Button = ButtonStories.Button;
+Button.parameters = {
+	design: DesignParams,
+}
 export const LinkAsButton = ButtonStories.LinkAsButton;
+LinkAsButton.parameters = {
+	design: DesignParams,
+}
 export const GroupedButtons = ButtonStories.GroupedButtons;
 export const Pagination = PaginationTemplate;

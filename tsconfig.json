@@ -6,6 +6,7 @@
 		"jsx": "react-jsx",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
+		"moduleResolution": "node",
 		"target": "ES2019"
 	},
 	"exclude": ["node_modules"]
