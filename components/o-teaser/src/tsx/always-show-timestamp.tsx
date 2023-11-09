@@ -1,6 +1,6 @@
 import TimeStamp from './time-stamp';
 import RelativeTime from './relative-time';
-import {differenceInCalendarDays} from 'date-fns';
+import { differenceInCalendarDays, parseISO } from 'date-fns';
 import { Status } from './props';
 
 /**
@@ -9,14 +9,20 @@ import { Status } from './props';
  * If different calendar day, we show full Date time e.g. June 9, 2021
  */
 export default (props: Status) => {
-	const localTodayDate = new Date().toISOString().substr(0, 10); // keep only the date bit
-	const dateToCompare = new Date(props.publishedDate)
-		.toISOString()
-		.substr(0, 10);
+	const {
+		publishedDate,
+	} = props
 
-	if (differenceInCalendarDays(localTodayDate, dateToCompare) >= 1) {
+	const daysAgo = differenceInCalendarDays(
+		new Date(),
+		typeof publishedDate === 'string' ? parseISO(publishedDate) : publishedDate
+	)
+
+	const oneOrMoreDaysAgo = daysAgo >= 1;
+
+	if (oneOrMoreDaysAgo) {
 		return <TimeStamp {...props} />;
-	} else {
-		return <RelativeTime {...props} showAlways={true} />;
 	}
+
+	return <RelativeTime {...props} showAlways={true} />;
 };
