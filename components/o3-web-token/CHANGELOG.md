@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.1.5...o3-web-token-v0.2.0) (2023-11-09)
+
+
+### Features
+
+* add banker icons ([6fa2ff0](https://github.com/Financial-Times/origami/commit/6fa2ff00e966667dcd4b6c8d0e528c7f9fee3018))
+
 ## [0.1.5](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.1.4...o3-web-token-v0.1.5) (2023-10-31)
 
 
