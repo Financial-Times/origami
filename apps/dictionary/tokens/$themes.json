@@ -9,7 +9,11 @@
       "core/components/o3-button": "enabled",
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
-      "core/use-case/box-shadow": "enabled"
+      "core/use-case/box-shadow": "enabled",
+      "specialist/sustainable views/base/spacing": "disabled",
+      "specialist/sustainable views/base/typography": "disabled",
+      "specialist/sustainable views/base/colour": "disabled",
+      "specialist/sustainable views/components/o3-button": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -108,14 +112,12 @@
     "$figmaModeId": "3735:0",
     "$figmaVariableReferences": {
       "DO-NOT-USE": "a2a67e37f808fb170c6d0df4da041cf8f8809f19",
-      "o3.color.palette.ft-pink": "544b9434ace33d1af318728f0c33bc48f58cb10d",
-      "o3.color.palette.ft-grey": "2300dd22d20853de65a9fcce69206d4412258231",
       "o3.color.palette.white": "39795b0d42dfc313c6ecbd56351b07902123f7cb",
       "o3.color.palette.black": "da3ea531da401a81dd99100682c93562867bd43a",
       "o3.color.palette.claret": "91225df754c222a7cdfbcd83c490d88b9c058b2e",
       "o3.color.palette.teal": "0e9f0a22b7007e371c354f4554d77fbf55c39ba4",
       "o3.color.palette.oxford": "549c6fcf6bacc3c25c8ed5ef0203531b5858e8c6",
-      "o3.color.palette.slate": "284142a1d492597393ae5870063238d745513a87",
+      "o3.color.palette.slate": "2300dd22d20853de65a9fcce69206d4412258231",
       "o3.color.palette.paper": "a81d49bc4a3e8de0731076dd3372c38ba41bda55",
       "o3.color.palette.transparrent": "72760bd4704d64bee7d6a400f764b7a872e04491",
       "o3.color.palette.mandarin": "e4408ed86760bd1d346766fc49ca0933d6e1acb0",
@@ -290,7 +292,8 @@
       "o3.spacing.2xl": "c5afd102ee2011ec9cd35ec0e79d501b6ce97a21",
       "o3.spacing.3xl": "68a8bb02c47afe1549d3c32142e39cd334e2422f",
       "o3.spacing.4xl": "699ad4b6a1311a1f917fba48d4f664ae571d1156",
-      "o3.color.use-case.link": "c59e4395cb9f3e044376c3790ef76e609a7eccaa"
+      "o3.color.use-case.link": "c59e4395cb9f3e044376c3790ef76e609a7eccaa",
+      "o3.color.palette.tbd": "544b9434ace33d1af318728f0c33bc48f58cb10d"
     },
     "group": "core"
   },
@@ -306,7 +309,11 @@
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
       "core/use-case/color": "enabled",
-      "core/use-case/box-shadow": "enabled"
+      "core/use-case/box-shadow": "enabled",
+      "specialist/sustainable views/base/spacing": "disabled",
+      "specialist/sustainable views/base/typography": "disabled",
+      "specialist/sustainable views/base/colour": "disabled",
+      "specialist/sustainable views/components/o3-button": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -389,14 +396,12 @@
     "$figmaModeId": "3735:1",
     "$figmaVariableReferences": {
       "DO-NOT-USE": "a2a67e37f808fb170c6d0df4da041cf8f8809f19",
-      "o3.color.palette.ft-pink": "544b9434ace33d1af318728f0c33bc48f58cb10d",
-      "o3.color.palette.ft-grey": "2300dd22d20853de65a9fcce69206d4412258231",
       "o3.color.palette.white": "39795b0d42dfc313c6ecbd56351b07902123f7cb",
       "o3.color.palette.black": "da3ea531da401a81dd99100682c93562867bd43a",
       "o3.color.palette.claret": "91225df754c222a7cdfbcd83c490d88b9c058b2e",
       "o3.color.palette.teal": "0e9f0a22b7007e371c354f4554d77fbf55c39ba4",
       "o3.color.palette.oxford": "549c6fcf6bacc3c25c8ed5ef0203531b5858e8c6",
-      "o3.color.palette.slate": "284142a1d492597393ae5870063238d745513a87",
+      "o3.color.palette.slate": "2300dd22d20853de65a9fcce69206d4412258231",
       "o3.color.palette.paper": "a81d49bc4a3e8de0731076dd3372c38ba41bda55",
       "o3.color.palette.transparrent": "72760bd4704d64bee7d6a400f764b7a872e04491",
       "o3.color.palette.mandarin": "e4408ed86760bd1d346766fc49ca0933d6e1acb0",
@@ -571,7 +576,8 @@
       "o3.spacing.2xl": "c5afd102ee2011ec9cd35ec0e79d501b6ce97a21",
       "o3.spacing.3xl": "68a8bb02c47afe1549d3c32142e39cd334e2422f",
       "o3.spacing.4xl": "699ad4b6a1311a1f917fba48d4f664ae571d1156",
-      "o3.color.use-case.link": "c59e4395cb9f3e044376c3790ef76e609a7eccaa"
+      "o3.color.use-case.link": "c59e4395cb9f3e044376c3790ef76e609a7eccaa",
+      "o3.color.palette.tbd": "544b9434ace33d1af318728f0c33bc48f58cb10d"
     },
     "group": "core"
   },
@@ -585,7 +591,11 @@
       "internal/base/color": "enabled",
       "internal/base/spacing": "enabled",
       "internal/base/typography": "enabled",
-      "internal/use-case/box-shadow": "enabled"
+      "internal/use-case/box-shadow": "enabled",
+      "specialist/sustainable views/base/spacing": "disabled",
+      "specialist/sustainable views/base/typography": "disabled",
+      "specialist/sustainable views/base/colour": "disabled",
+      "specialist/sustainable views/components/o3-button": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:3735:199",
     "$figmaModeId": "3735:2",
@@ -760,7 +770,11 @@
       "whitelabel/base/color": "enabled",
       "whitelabel/components/o3-button": "enabled",
       "whitelabel/base/spacing": "enabled",
-      "whitelabel/use-case/box-shadow": "enabled"
+      "whitelabel/use-case/box-shadow": "enabled",
+      "specialist/sustainable views/base/spacing": "disabled",
+      "specialist/sustainable views/base/typography": "disabled",
+      "specialist/sustainable views/base/colour": "disabled",
+      "specialist/sustainable views/components/o3-button": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:3735:358",
     "$figmaModeId": "3735:3",
@@ -864,5 +878,18 @@
       "o3.spacing.4xl": "27e3c3549e8024fb31ad4e65c7e9542488e93aff"
     },
     "group": "whitelabel"
+  },
+  {
+    "id": "37de6f6538c94fdd5d9474954d21f61d92a7c593",
+    "name": "sustainable views",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "icons/icons": "enabled",
+      "specialist/sustainable views/base/spacing": "disabled",
+      "specialist/sustainable views/base/typography": "disabled",
+      "specialist/sustainable views/base/colour": "disabled",
+      "specialist/sustainable views/components/o3-button": "disabled"
+    },
+    "group": "specialist"
   }
 ]
