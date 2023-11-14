@@ -868,7 +868,11 @@
     "name": "sustainable-views",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
-      "icons/icons": "enabled"
+      "icons/icons": "enabled",
+      "sustainable-views/base/spacing": "enabled",
+      "sustainable-views/base/typography": "enabled",
+      "sustainable-views/base/colour": "enabled",
+      "sustainable-views/components/o3-button": "enabled"
     },
     "group": "sustainable-views"
   }
