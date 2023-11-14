@@ -868,7 +868,6 @@
     "name": "sustainable-views",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
-      "icons/icons": "enabled",
       "sustainable-views/base/spacing": "enabled",
       "sustainable-views/base/typography": "enabled",
       "sustainable-views/base/colour": "enabled",
