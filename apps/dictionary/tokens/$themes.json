@@ -10,10 +10,9 @@
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
       "core/use-case/box-shadow": "enabled",
-      "specialist/sustainable views/base/spacing": "disabled",
-      "specialist/sustainable views/base/typography": "disabled",
-      "specialist/sustainable views/base/colour": "disabled",
-      "specialist/sustainable views/components/o3-button": "disabled"
+      "sustainable-views/base/spacing": "disabled",
+      "sustainable-views/base/typography": "disabled",
+      "sustainable-views/base/colour": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -293,7 +292,7 @@
       "o3.spacing.3xl": "68a8bb02c47afe1549d3c32142e39cd334e2422f",
       "o3.spacing.4xl": "699ad4b6a1311a1f917fba48d4f664ae571d1156",
       "o3.color.use-case.link": "c59e4395cb9f3e044376c3790ef76e609a7eccaa",
-      "o3.color.palette.tbd": "544b9434ace33d1af318728f0c33bc48f58cb10d"
+      "o3.color.palette.oceanwave": "544b9434ace33d1af318728f0c33bc48f58cb10d"
     },
     "group": "core"
   },
@@ -310,10 +309,9 @@
       "core/base/typography": "enabled",
       "core/use-case/color": "enabled",
       "core/use-case/box-shadow": "enabled",
-      "specialist/sustainable views/base/spacing": "disabled",
-      "specialist/sustainable views/base/typography": "disabled",
-      "specialist/sustainable views/base/colour": "disabled",
-      "specialist/sustainable views/components/o3-button": "disabled"
+      "sustainable-views/base/spacing": "disabled",
+      "sustainable-views/base/typography": "disabled",
+      "sustainable-views/base/colour": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -577,7 +575,7 @@
       "o3.spacing.3xl": "68a8bb02c47afe1549d3c32142e39cd334e2422f",
       "o3.spacing.4xl": "699ad4b6a1311a1f917fba48d4f664ae571d1156",
       "o3.color.use-case.link": "c59e4395cb9f3e044376c3790ef76e609a7eccaa",
-      "o3.color.palette.tbd": "544b9434ace33d1af318728f0c33bc48f58cb10d"
+      "o3.color.palette.oceanwave": "544b9434ace33d1af318728f0c33bc48f58cb10d"
     },
     "group": "core"
   },
@@ -592,10 +590,9 @@
       "internal/base/spacing": "enabled",
       "internal/base/typography": "enabled",
       "internal/use-case/box-shadow": "enabled",
-      "specialist/sustainable views/base/spacing": "disabled",
-      "specialist/sustainable views/base/typography": "disabled",
-      "specialist/sustainable views/base/colour": "disabled",
-      "specialist/sustainable views/components/o3-button": "disabled"
+      "sustainable-views/base/spacing": "disabled",
+      "sustainable-views/base/typography": "disabled",
+      "sustainable-views/base/colour": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:3735:199",
     "$figmaModeId": "3735:2",
@@ -771,10 +768,9 @@
       "whitelabel/components/o3-button": "enabled",
       "whitelabel/base/spacing": "enabled",
       "whitelabel/use-case/box-shadow": "enabled",
-      "specialist/sustainable views/base/spacing": "disabled",
-      "specialist/sustainable views/base/typography": "disabled",
-      "specialist/sustainable views/base/colour": "disabled",
-      "specialist/sustainable views/components/o3-button": "disabled"
+      "sustainable-views/base/spacing": "disabled",
+      "sustainable-views/base/typography": "disabled",
+      "sustainable-views/base/colour": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:3735:358",
     "$figmaModeId": "3735:3",
@@ -885,10 +881,9 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "icons/icons": "enabled",
-      "specialist/sustainable views/base/spacing": "disabled",
-      "specialist/sustainable views/base/typography": "disabled",
-      "specialist/sustainable views/base/colour": "disabled",
-      "specialist/sustainable views/components/o3-button": "disabled"
+      "sustainable-views/base/spacing": "disabled",
+      "sustainable-views/base/typography": "disabled",
+      "sustainable-views/base/colour": "disabled"
     },
     "group": "specialist"
   }
