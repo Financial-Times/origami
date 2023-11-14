@@ -6,7 +6,7 @@ import withHtml from "origami-storybook-addon-html";
 export default {
 	title: "Components/o-buttons",
 	component: Button,
-	decorators: [withDesign, withHtml],
+	decorators: [withHtml],
 	args: {
 		onClick: {
 			table: {

@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDomServer from "react-dom/server"
-import {addons, makeDecorator} from "@storybook/addons"
+import {addons, makeDecorator} from "@storybook/preview-api"
 
 export const HTML_EVENT = "origami/html/content"
 
