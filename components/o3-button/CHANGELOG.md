@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.7](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.6...o3-button-v0.1.7) (2023-11-14)
+
+
+### Bug Fixes
+
+* bump o3-button peer dependencies ([179751f](https://github.com/Financial-Times/origami/commit/179751f0baac9e887a38973bf65dd289021007d1))
+
 ## [0.1.6](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.5...o3-button-v0.1.6) (2023-10-31)
 
 
