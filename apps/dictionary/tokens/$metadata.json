@@ -15,16 +15,16 @@
     "internal/base/spacing",
     "internal/base/color",
     "internal/use-case/box-shadow",
+    "sustainable-views/base/spacing",
+    "sustainable-views/base/typography",
+    "sustainable-views/base/colour",
+    "sustainable-views/components/o3-button",
     "whitelabel/use-case/box-shadow",
     "whitelabel/components/o3-button",
     "whitelabel/base/spacing",
     "whitelabel/base/color",
     "whitelabel/base/border-radius",
     "utility-tokens",
-    "icons/icons",
-    "specialist/sustainable views/base/spacing",
-    "specialist/sustainable views/base/typography",
-    "specialist/sustainable views/base/colour",
-    "specialist/sustainable views/components/o3-button"
+    "icons/icons"
   ]
 }
