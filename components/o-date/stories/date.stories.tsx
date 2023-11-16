@@ -56,22 +56,33 @@ Abbreviated.args = {
 };
 
 export const Relative: DateStory = Template.bind({});
-Relative.args = {};
+Relative.args = {
+	dateTime: new Date('2000-06-14T23:00:00.000Z').getTime(),
+};
 
+const dateToday = new Date();
 export const TodayOrYesterday: DateStory = Template.bind({});
 TodayOrYesterday.args = {
+	dateTime: dateToday.getTime(),
 	format: 'today-or-yesterday-or-nothing',
 };
+
+const dateFourHourLimit = new Date();
+dateFourHourLimit.setHours(dateFourHourLimit.getHours() - 2);
 
 export const FourHourLimit: DateStory = Template.bind({});
 FourHourLimit.storyName = '4 Hour Limit';
 FourHourLimit.args = {
 	format: 'time-ago-limit-4-hours',
+	dateTime: dateFourHourLimit.getTime(),
 };
 
+const dateTwentyFourHourLimit = new Date();
+dateTwentyFourHourLimit.setHours(dateTwentyFourHourLimit.getHours() - 6);
 export const TwentyFourHourLimit: DateStory = Template.bind({});
 TwentyFourHourLimit.storyName = '24 Hour Limit';
 TwentyFourHourLimit.args = {
+	dateTime: dateTwentyFourHourLimit.getTime(),
 	format: 'time-ago-limit-24-hours',
 };
 
@@ -81,6 +92,7 @@ CustomFormatting.args = {
 	format: 'h:mm a',
 };
 CustomFormatting.argTypes = {
+	dateTime: new Date('2000-06-14T23:00:00.000Z').getTime(),
 	format: {control: 'text'},
 };
 
