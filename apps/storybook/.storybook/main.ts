@@ -10,8 +10,6 @@ const config: StorybookConfig = {
 		"@storybook/addon-essentials",
 		"@storybook/addon-interactions",
 		"@storybook/addon-docs",
-		"@storybook/addon-designs",
-		// "@whitespace/storybook-addon-html",
 		"@storybook/addon-styling-webpack",
 		({
 			name: "@storybook/addon-styling-webpack",
@@ -58,7 +56,8 @@ const config: StorybookConfig = {
 					],
 				},],
 			}
-		})
+		}),
+		"@whitespace/storybook-addon-html"
 	],
 	framework: {
 		name: "@storybook/react-webpack5",

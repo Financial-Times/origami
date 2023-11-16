@@ -8,6 +8,11 @@ import {
 
 const preview: Preview = {
 	parameters: {
+		html: {
+			highlighter: {
+				showLineNumbers: true
+			}
+		},
 		backgrounds: {
 			values: [
 				{
