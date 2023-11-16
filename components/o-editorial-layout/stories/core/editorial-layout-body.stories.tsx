@@ -1,5 +1,3 @@
-import {withDesign} from "storybook-addon-designs";
-import withHtml from 'origami-storybook-addon-html';
 import {ComponentMeta} from "@storybook/react";
 import './editorialLayout.scss';
 import {EditorialLayoutBody} from "../../src/tsx/editorial-layout-body";
@@ -7,7 +5,6 @@ import {EditorialLayoutBody} from "../../src/tsx/editorial-layout-body";
 export default {
 	title: 'Components/o-editorial-layout',
 	component: EditorialLayoutBody,
-	decorators: [withDesign, withHtml],
 } as ComponentMeta<typeof EditorialLayoutBody>;
 
 const Template = args => {

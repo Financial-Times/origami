@@ -1,15 +1,12 @@
-import {withDesign} from 'storybook-addon-designs';
 import {ConceptButton} from '../src/tsx/concept-button';
 import {useArgs} from '@storybook/client-api';
 import './concept-button.scss';
-import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Components/ft-concept-button',
 	component: ConceptButton,
-	decorators: [withDesign, withHtml],
 	// @deprecated The concept pill is a candidate for deprecation.
-	// They were only ever intended as use as links button use a 
+	// They were only ever intended as use as links button use a
 	// `button` element` in the template. The concept pill style
 	// is only used in one place via n-myft-ui, in a dubious way.
 	// We would prefer the teal style of `ft-concept-button_link`

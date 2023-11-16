@@ -1,12 +1,9 @@
-import {withDesign} from 'storybook-addon-designs';
 import {Quote} from '../src/tsx/quote';
 import './quote.scss';
-import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Components/o-quote',
 	component: Quote,
-	decorators: [withDesign, withHtml],
 	args: {
 		iconOnly: false,
 	},

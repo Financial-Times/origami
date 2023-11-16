@@ -1,5 +1,3 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import {ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
 import {MultiSelect} from '../src/tsx/multi-select';
@@ -10,7 +8,6 @@ import {Form, GenericInput} from '@financial-times/o-forms/src/tsx/Form';
 export default {
 	title: 'Components/o-multi-select',
 	component: MultiSelect,
-	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {},
 } as ComponentMeta<typeof MultiSelect>;

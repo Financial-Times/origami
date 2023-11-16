@@ -1,5 +1,3 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect, useState} from 'react';
 import './forms.scss';
@@ -16,7 +14,6 @@ const hideArg = {
 export default {
 	title: 'Components/o-forms/text-box',
 	component: TextInput,
-	decorators: [withDesign, withHtml],
 	argTypes: {
 		onChange: hideArg,
 		children: hideArg,

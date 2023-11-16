@@ -1,6 +1,4 @@
 import {Table} from "../src/tsx/table";
-import {withDesign} from "storybook-addon-designs";
-import withHtml from 'origami-storybook-addon-html';
 import {baseTableContents} from "./baseTableContents";
 import {useEffect} from "react";
 import javascript from '../main';
@@ -11,7 +9,6 @@ import {ComponentMeta} from "@storybook/react";
 export default {
 	title: 'Components/o-table/Table with Filter',
 	component: Table,
-	decorators: [withDesign, withHtml],
 	args: {
 		horizontalLines: true,
 		compact: false,

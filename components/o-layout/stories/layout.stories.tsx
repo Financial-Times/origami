@@ -1,5 +1,3 @@
-import withHtml from "origami-storybook-addon-html";
-import { withDesign } from "storybook-addon-designs";
 import { ComponentMeta, Story } from "@storybook/react";
 import { useEffect, ComponentProps } from "react";
 
@@ -30,7 +28,6 @@ type DocsLayoutStoryProps = ComponentProps<typeof DocsLayout> &
 export default {
 	title: "Components/o-layout",
 	component: Layout,
-	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {
 		mainContent: <DemoMainContent />,

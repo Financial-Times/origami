@@ -1,6 +1,4 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
+import {ComponentStory} from '@storybook/react';
 import {useEffect} from 'react';
 import {ActionMessage} from '../../src/tsx/message';
 import javascript from '../../main';
@@ -9,7 +7,6 @@ import '../message.scss';
 export default {
 	title: 'Components/o-message',
 	component: ActionMessage,
-	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {
 		showCloseButton: true,

@@ -1,12 +1,9 @@
-import {withDesign} from 'storybook-addon-designs';
 import {Footer as FooterComponent} from '../src/tsx/typography';
 import './typography.scss';
-import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Components/o-typography',
 	component: FooterComponent,
-	decorators: [withDesign, withHtml],
     args: {},
 	parameters: {
 		design: {

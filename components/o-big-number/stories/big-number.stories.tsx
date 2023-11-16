@@ -1,11 +1,9 @@
 import './big-number.scss';
-import withHtml from 'origami-storybook-addon-html';
 import {BigNumber} from '../src/tsx/big-number';
 
 export default {
 	title: 'Components/o-big-number',
 	component: BigNumber,
-	decorators: [withHtml],
 	args: {},
 	parameters: {
 		html: {},

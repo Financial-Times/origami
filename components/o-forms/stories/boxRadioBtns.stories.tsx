@@ -1,5 +1,3 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
 import {RadioBtn, RadioBtnsBox} from '../src/tsx/o-forms';
@@ -26,7 +24,6 @@ const themeControl =
 export default {
 	title: 'Components/o-forms/box-radio-buttons',
 	component: RadioBtnsBox,
-	decorators: [withDesign, withHtml],
 	args: {},
 	argTypes: {
 		children: hideArg,

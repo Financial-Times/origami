@@ -1,5 +1,3 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import {BaseLabel as BaseLabelTsx} from '../src/tsx/label';
 import './labels.scss';
 
@@ -19,8 +17,7 @@ export default {
 			  type: 'text'
 			}
 		  }
-	},
-	decorators: [withDesign, withHtml]
+	}
 };
 
 export const BaseLabel = args => {

@@ -1,7 +1,5 @@
 import type {ComponentMeta, Story} from '@storybook/react';
-import withHtml from 'origami-storybook-addon-html';
 import {ComponentProps, useEffect} from 'react';
-import {withDesign} from 'storybook-addon-designs';
 import javascript from '../main';
 import {Date as ODate, DatePrinter} from '../src/tsx/date';
 
@@ -20,7 +18,6 @@ const defaultDateTime = defaultDateTimeObj.getTime();
 export default {
 	title: 'Components/o-date',
 	component: ODate,
-	decorators: [withDesign, withHtml],
 	argTypes: {
 		dateTime: {control: 'date', defaultValue: defaultDateTime},
 		format: {

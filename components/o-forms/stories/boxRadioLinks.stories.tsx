@@ -1,5 +1,3 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
 import {RadioBoxLink, RadioBoxLinks} from '../src/tsx/o-forms';
@@ -16,7 +14,6 @@ const hideArg = {
 export default {
 	title: 'Components/o-forms/pseudo-box-radio-links',
 	component: RadioBoxLinks,
-	decorators: [withDesign, withHtml],
 	argTypes: {
 		children: hideArg,
     theme: hideArg,

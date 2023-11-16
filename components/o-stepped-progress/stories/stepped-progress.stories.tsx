@@ -1,14 +1,11 @@
-import {withDesign} from 'storybook-addon-designs';
 import {useEffect} from 'react';
 import {SteppedProgress} from '../src/tsx/stepped-progress';
 import './stepped-progress.scss';
 import javascript from '@financial-times/o-stepped-progress';
-import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Components/o-stepped-progress',
 	component: SteppedProgress,
-	decorators: [withDesign, withHtml],
 	parameters: {
 		design: {
 			type: 'figma',
