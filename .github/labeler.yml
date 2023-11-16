@@ -134,6 +134,8 @@ o-brand:
   - libraries/o-brand/**/*
 o-errors:
   - libraries/o-errors/**/*
+o-testing-library:
+  - libraries/o-testing-library/**/*
 o-tracking:
   - libraries/o-tracking/**/*
 o-utils:

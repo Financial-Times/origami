@@ -22,8 +22,6 @@ const dependenciesWhichUseCommonJS = [
 	/@babel\/runtime\/regenerator\/index\.js/,
 	/lz-string\/libs\/lz-string\.js/,
 	/aria-query\/lib\/index\.js/,
-	/@testing-library\/user-event\/dist\/.+\.js/,
-	/@testing-library\/dom\/dist\/.+\.js/,
 	/pretty-format\/build\/.+\.js/,
 	/ansi-styles\/index\.js/,
 	/ansi-regex\/index\.js/,
