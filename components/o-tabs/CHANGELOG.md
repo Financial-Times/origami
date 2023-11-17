@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.2.0](https://github.com/Financial-Times/origami/compare/o-tabs-v8.1.4...o-tabs-v8.2.0) (2023-11-17)
+
+
+### Features
+
+* release o-testing-library ([2230381](https://github.com/Financial-Times/origami/commit/22303811874f601504a56ea79520c06cf1212336))
+
 ## [8.1.4](https://github.com/Financial-Times/origami/compare/o-tabs-v8.1.3...o-tabs-v8.1.4) (2023-10-27)
 
 

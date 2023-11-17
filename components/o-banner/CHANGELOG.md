@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.6.0](https://github.com/Financial-Times/origami/compare/o-banner-v4.5.2...o-banner-v4.6.0) (2023-11-17)
+
+
+### Features
+
+* release o-testing-library ([2230381](https://github.com/Financial-Times/origami/commit/22303811874f601504a56ea79520c06cf1212336))
+
 ## [4.5.2](https://github.com/Financial-Times/origami/compare/o-banner-v4.5.1...o-banner-v4.5.2) (2023-10-27)
 
 

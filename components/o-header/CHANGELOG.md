@@ -1,4 +1,11 @@
 # Changelog
+## [11.2.0](https://github.com/Financial-Times/origami/compare/o-header-v11.1.1...o-header-v11.2.0) (2023-11-17)
+
+
+### Features
+
+* release o-testing-library ([2230381](https://github.com/Financial-Times/origami/commit/22303811874f601504a56ea79520c06cf1212336))
+
 ## [11.1.1](https://github.com/Financial-Times/origami/compare/o-header-v11.1.0...o-header-v11.1.1) (2023-10-27)
 
 
