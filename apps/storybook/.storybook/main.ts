@@ -1,4 +1,5 @@
 import type {StorybookConfig} from "@storybook/react-webpack5"
+import path from "path";
 
 const config: StorybookConfig = {
 	stories: [
@@ -13,7 +14,6 @@ const config: StorybookConfig = {
 		"@storybook/addon-styling-webpack",
 		({
 			name: "@storybook/addon-styling-webpack",
-
 			options: {
 				rules: [{
 					test: /\.css$/,
@@ -23,12 +23,11 @@ const config: StorybookConfig = {
 						{
 							loader: require.resolve("css-loader"),
 							options: {
-
-
 							},
 						},
 					],
-				}, {
+				},
+				{
 					test: /\.scss$/,
 					use: [
 						require.resolve("style-loader"),
@@ -36,8 +35,6 @@ const config: StorybookConfig = {
 						{
 							loader: require.resolve("sass-loader"),
 							options: {
-
-
 								sassOptions: {
 									includePaths: ["../../node_modules"],
 								},
