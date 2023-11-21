@@ -1,0 +1,29 @@
+{
+  "name": "for-everyone-website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+	"engines": {
+		"node": "18.18.2",
+		"npm": "10.2.1"
+	},
+  "dependencies": {
+    "@astrojs/react": "^3.0.5",
+    "@astrojs/starlight": "^0.13.0",
+    "@financial-times/o3-button": "^0.1.7",
+    "@financial-times/o3-web-token": "^0.2.0",
+    "astro": "^3.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sharp": "^0.32.5"
+  },
+  "volta": {
+    "node": "18.18.2"
+  }
+}

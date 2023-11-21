@@ -1,0 +1,38 @@
+---
+import { readFile } from 'fs/promises';
+const file = await readFile(`../dictionary/tokens/${Astro.props.brand}/base/color.json`);
+const ColorTokens = JSON.parse(file);
+---
+
+<ul>
+{
+Object.entries(ColorTokens['o3']['color']['palette']).filter(e => e[0] !== 'transparrent' && e[1].value !== '{DO-NOT-USE}').map(([name, data] = entry) => {
+    return <li style=`--palette-color: ${data.value};`><span>{name}</span></li>;
+})
+}
+</ul>
+
+<style>
+    ul {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        --swatch-size: 10rem;
+        width: var(--swatch-size);
+        border: 1px dotted black;
+        &:before {
+            content: '';
+            display: block;
+            height: var(--swatch-size);
+            background-color: var(--palette-color);
+        }
+        & span {
+            display: block;
+            padding: 0.5rem;
+        }
+    }
+</style>
