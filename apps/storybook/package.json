@@ -30,6 +30,7 @@
     "autoprefixer": "^10.4.15",
     "chromatic": "^7.1.0",
     "css-loader": "^6.8.1",
+    "globby": "^14.0.0",
     "postcss": "^8.4.29",
     "postcss-loader": "^7.3.3",
     "prettier": "^3.1.0",

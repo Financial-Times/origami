@@ -1,10 +1,46 @@
+import { promises, constants } from 'fs';
+const { access, readFile } = promises;
+import {globby} from "globby";
+import path from "path";
 import type {StorybookConfig} from "@storybook/react-webpack5"
 
+const brand = process.env.ORIGAMI_STORYBOOK_BRAND || "core"
+
+
 const config: StorybookConfig = {
-	stories: [
-		"../../../components/o-*/stories/*.stories.mdx",
-		"../../../components/o-*/stories/*.stories.@(js|jsx|ts|tsx)",
-	],
+	stories: (async () => {
+		const storyPaths = []
+
+		let componentDirectories = await globby(
+			["../../components/**", "!../../components/o3-*/**"],
+			{
+				gitignore: false,
+				expandDirectories: false,
+				onlyDirectories: true,
+				deep: 1,
+			}
+		)
+
+		for (const componentDirectory of componentDirectories) {
+			const brands = await getComponentBrands(componentDirectory);
+			const storiesForBrand = brands.includes(brand)
+				? await globby(
+					[
+						`${componentDirectory}/stories/*.stories.@(mdx|js|jsx|ts|tsx)`,
+						`${componentDirectory}/stories/${brand}/*.stories.@(mdx|js|jsx|ts|tsx)`,
+					],
+					{
+						gitignore: false,
+						expandDirectories: false,
+						deep: 1,
+					}
+				)
+				: []
+			storyPaths.push(...storiesForBrand.map(storyPath => `../${storyPath}`))
+		}
+
+		return storyPaths
+	})(),
 	addons: [
 		"@storybook/addon-links",
 		"@storybook/addon-essentials",
@@ -41,7 +77,7 @@ const config: StorybookConfig = {
 									return (
 										`
 												$system-code: origami;
-												$o-brand: core;
+												$o-brand: ${brand};
 												@import "@financial-times/o-colors/main";
 												@include oColors();
 											` + content
@@ -63,4 +99,46 @@ const config: StorybookConfig = {
 		autodocs: "tag",
 	}
 }
+
+
+const getComponentBrands = componentDir => getOrigamiJson(componentDir).then(origamiJson => {
+	const hasBrandsDefined =
+		origamiJson &&
+		origamiJson.brands &&
+		Array.isArray(origamiJson.brands) &&
+		origamiJson.brands.length > 0
+	if (hasBrandsDefined) {
+		return origamiJson.brands
+	}
+	return ["core", "internal", "whitelabel"]
+});
+
+const getOrigamiJson = componentDir => {
+	componentDir = componentDir || process.cwd()
+
+	return requireIfExists(path.join(componentDir, "/origami.json"))
+};
+
+const requireIfExists = filePath => {
+	return readIfExists(filePath).then(file => {
+		return file ? JSON.parse(file) : undefined
+	})
+};
+
+const fileExists = async file => {
+	try {
+		await access(file, constants.R_OK)
+		return true
+	} catch (error) {
+		return false
+	}
+};
+
+const readIfExists = filePath => fileExists(filePath).then(exists => {
+	if (exists) {
+		return readFile(filePath, "utf-8")
+	} else {
+		return undefined
+	}
+});
 export default config

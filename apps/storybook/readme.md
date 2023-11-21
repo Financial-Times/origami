@@ -1,6 +1,31 @@
-# Storybook for O3 Components
+# Origami 2 Storybook
 
-The storybook to host o3 component demos.
+Demos of Origami 2 components.
+
+## Getting started
+
+Ensure you have installed the dependencies for the project, execute the following in the root of the mono repo:
+
+```bash
+npm i
+```
+
+Run storybook:
+
+```bash
+npm run storybook -w apps/o2-storybook
+```
+
+By default, storybook will build demos for the `core` brand, you can change which brand storybook will build for by changing the value of `ORIGAMI_STORYBOOK_BRAND`:
+
+```bash
+ORIGAMI_STORYBOOK_BRAND=internal npm run storybook -w apps/o2-storybook
+```
+
+Origami 2 supports these brands:
+* `core`
+* `internal`
+* `whitelabel`§
 
 ## Creating stories and structure
 
