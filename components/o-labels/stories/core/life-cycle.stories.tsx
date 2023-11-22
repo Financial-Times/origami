@@ -34,3 +34,6 @@ export const LifeCycleLabel = args => {
 	}
 	return <LifeCycleLabelTsx {...args}>{copy}</LifeCycleLabelTsx>;
 }
+LifeCycleLabel.args = {
+	text: 'Beta',
+}
