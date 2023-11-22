@@ -6,6 +6,16 @@ on:
 
 jobs:
   chromatic-deployment:
+    strategy:
+      matrix:
+        brand: [core, internal, whitelabel]
+        include:
+          - brand: core
+            chromatic_secret: O2_CORE_CHROMATIC_PROJECT_TOKEN
+          - brand: internal
+            chromatic_secret: O2_INTERNAL_CHROMATIC_PROJECT_TOKEN
+          - brand: whitelabel
+            chromatic_secret: O2_WHITELABEL_CHROMATIC_PROJECT_TOKEN
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -18,6 +28,8 @@ jobs:
       - name: Publish Origami to Chromatic
         uses: chromaui/action@v1
         with:
-          projectToken: ${{ secrets.O2_CORE_CHROMATIC_PROJECT_TOKEN }}
+          projectToken: ${{ secrets[matrix.chromatic_secret] }}
           workingDir: apps/o2-storybook
           exitOnceUploaded: true
+        env:
+          ORIGAMI_STORYBOOK_BRAND: ${{ matrix.brand }}
