@@ -1,0 +1,28 @@
+name: 'Chromatic'
+
+on:
+  push:
+    branches: [ fix/migrate-o2-storybook-to-latest-version ]
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "apps/o2-storybook/**"
+      - "components/o-*/**"
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history
+      - name: Install dependencies
+        run: npm ci
+        # 👇 Adds Chromatic as a step in the workflow
+      - name: Publish Origami to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.O2_CORE_CHROMATIC_PROJECT_TOKEN }}
+          workingDir: apps/o2-storybook
+          exitOnceUploaded: true
