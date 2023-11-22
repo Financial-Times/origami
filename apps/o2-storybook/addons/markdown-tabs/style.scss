@@ -1,0 +1,21 @@
+$system-code: origami;
+$o-brand: internal;
+@import "@financial-times/o-typography/main";
+@include oTypography();
+@import "@financial-times/o-colors/main";
+@include oColors();
+
+.readme code,
+.readme var {
+	background: var(--o-colors-slate-white-5);
+}
+
+.readme pre code {
+	white-space: pre-wrap;
+}
+
+.readme :not(pre) > code,
+:not(pre) > var {
+	padding: 0.2em 0.3em;
+	font-size: 1rem;
+}

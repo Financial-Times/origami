@@ -3,11 +3,6 @@ name: 'Chromatic'
 on:
   push:
     branches: [ fix/migrate-o2-storybook-to-latest-version ]
-    paths:
-      - "package.json"
-      - "package-lock.json"
-      - "apps/o2-storybook/**"
-      - "components/o-*/**"
 
 jobs:
   chromatic-deployment:
