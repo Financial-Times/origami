@@ -30,3 +30,6 @@ export const ContentLabel = args => {
     }
     return <ContentLabelTsx {...args}>{copy}</ContentLabelTsx>;
 }
+ContentLabel.args = {
+	text: 'Premium'
+}

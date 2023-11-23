@@ -29,3 +29,6 @@ export const SupportStatusLabel = args => {
 	}
 	return <SupportLabel {...args}>{copy}</SupportLabel>;
 }
+SupportStatusLabel.args = {
+	text: 'Active'
+}

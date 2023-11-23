@@ -29,3 +29,6 @@ export const ServiceTierLabel = args => {
 	}
 	return <ServiceLabel {...args}>{copy}</ServiceLabel>;
 }
+ServiceTierLabel.args = {
+	text: 'Bronze'
+}
