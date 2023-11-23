@@ -41,7 +41,7 @@
 		"libraries/*",
 		"presets/*",
 		"tools/*",
-		"apps/storybook/addons/*",
+		"apps/o2-storybook/addons/*",
 		"apps/*"
 	],
 	"devDependencies": {

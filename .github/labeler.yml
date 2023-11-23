@@ -173,18 +173,16 @@ verify-origami-json:
 verify-package-json:
   - tools/verify-package-json/**/*
 background:
-  - apps/storybook/addons/background/**/*
+  - apps/o2-storybook/addons/background/**/*
 guidelines:
-  - apps/storybook/addons/guidelines/**/*
-html:
-  - apps/storybook/addons/html/**/*
+  - apps/o2-storybook/addons/guidelines/**/*
 markdown-tabs:
-  - apps/storybook/addons/markdown-tabs/**/*
+  - apps/o2-storybook/addons/markdown-tabs/**/*
 astro-website:
   - apps/astro-website/**/*
 dictionary:
   - apps/dictionary/**/*
+o2-storybook:
+  - apps/o2-storybook/**/*
 o3-storybook:
   - apps/o3-storybook/**/*
-storybook:
-  - apps/storybook/**/*

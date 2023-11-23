@@ -175,22 +175,20 @@ jobs:
             - 'tools/verify-origami-json/**'
           tools/verify-package-json:
             - 'tools/verify-package-json/**'
-          apps/storybook/addons/background:
-            - 'apps/storybook/addons/background/**'
-          apps/storybook/addons/guidelines:
-            - 'apps/storybook/addons/guidelines/**'
-          apps/storybook/addons/html:
-            - 'apps/storybook/addons/html/**'
-          apps/storybook/addons/markdown-tabs:
-            - 'apps/storybook/addons/markdown-tabs/**'
+          apps/o2-storybook/addons/background:
+            - 'apps/o2-storybook/addons/background/**'
+          apps/o2-storybook/addons/guidelines:
+            - 'apps/o2-storybook/addons/guidelines/**'
+          apps/o2-storybook/addons/markdown-tabs:
+            - 'apps/o2-storybook/addons/markdown-tabs/**'
           apps/astro-website:
             - 'apps/astro-website/**'
           apps/dictionary:
             - 'apps/dictionary/**'
+          apps/o2-storybook:
+            - 'apps/o2-storybook/**'
           apps/o3-storybook:
             - 'apps/o3-storybook/**'
-          apps/storybook:
-            - 'apps/storybook/**'
   test:
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
