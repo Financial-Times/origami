@@ -25,7 +25,7 @@ ORIGAMI_STORYBOOK_BRAND=internal npm run storybook -w apps/o2-storybook
 Origami 2 supports these brands:
 * `core`
 * `internal`
-* `whitelabel`§
+* `whitelabel`
 
 ## Creating stories and structure
 
