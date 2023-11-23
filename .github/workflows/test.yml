@@ -137,6 +137,8 @@ jobs:
             - 'libraries/o-brand/**'
           libraries/o-errors:
             - 'libraries/o-errors/**'
+          libraries/o-testing-library:
+            - 'libraries/o-testing-library/**'
           libraries/o-tracking:
             - 'libraries/o-tracking/**'
           libraries/o-utils:

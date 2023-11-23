@@ -1,0 +1,30 @@
+{
+  "name": "@financial-times/o-testing-library",
+  "main": "index.js",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A library that bundles @testing-library/user-event and @testing-library/dom into a single ESM module.",
+  "keywords": [
+    "testing",
+    "user-event",
+    "dom"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-testing-library",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-testing-library,libraries",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "npm": ">8"
+  },
+	"scripts": {
+		"build": "esbuild main.js --bundle --format=esm --outfile=index.js"
+	},
+  "devDependencies": {
+    "@testing-library/dom": "^8.0.0",
+    "@testing-library/user-event": "^13.1.9",
+    "esbuild": "0.19.5"
+  },
+  "private": true
+}
