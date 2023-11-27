@@ -1,0 +1,12 @@
+<% const componentName = props.camelCase(props.titleCase(props.withoutPrefix(props.name)))  -%>
+import {Meta, Markdown} from "@storybook/blocks";
+import Readme from '../README.md';
+
+<Meta
+        title="components/<%= props.name %>/Readme"
+/>
+
+
+<Markdown>
+    {Readme}
+</Markdown>
