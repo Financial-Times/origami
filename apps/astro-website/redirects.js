@@ -48,4 +48,7 @@ export const redirects = {
 		"/blog/2021/07/01/origami-on-npm-and-how-to-migrate",
 	"/docs/": "/documentation",
 	"/docs/developer-guide/": "/documentation",
+	"/storybook/brands/core/": "https://main--655e0e31554f2044e99ab763.chromatic.com",
+	"/storybook/brands/internal/": "https://main--655e310aa5b077441db35a73.chromatic.com",
+	"/storybook/brands/whitelabel/": "https://main--655e316ac888d527a0be5f2b.chromatic.com",
 }
