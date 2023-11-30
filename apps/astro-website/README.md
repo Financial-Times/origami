@@ -48,7 +48,7 @@ The process:
 
 5. **It is very important to review the email before sending it**. To review you can visit `emails/newsletter-YYYY-MM` locally or on [deployed site](https://origami.ft.com/). If you want to test the newsletter email prior to publishing, you can send email without `EMAIL_RECIPIENTS` variable defined. This will send email to all origami team members. If you are still developing email locally and want to an email received just by you you can use your personal email for `EMAIL_RECIPIENTS` variable (you will need to add `EMAIL_LOCAL=true` variable and you will also need to be running local development server on localhost:3000) and setting `EMAIL_SEND=true` should send a newsletter to your email.
 
-6. Once reviewed, run the following command to send the email: `EMAIL_SOURCE_HTML=YYYY-MM EMAIL_RECIPIENTS=XX@XX EMAIL_API_KEY=XXXXXX EMAIL_SEND=true npm run send-newsletter`, where `YYYY` and `MM` correspond to the year and month of the newsletter, `XX@XX` is the recipient email, and `XXXXXX` is an email platform API key (you can find this in the Origami vault).
+6. Once reviewed, run the following command to send the email: `EMAIL_SOURCE_HTML=YYYY-MM EMAIL_RECIPIENTS=XX@XX EMAIL_API_KEY=XXXXXX EMAIL_SEND=true npm run send-newsletter`, where `YYYY` and `MM` correspond to the year and month of the newsletter, `XX@XX` is the recipient email, and `XXXXXX` is an email platform API key (you can find this in the Origami team Doppler project).
 
 7. The email is sent! Enjoy
 
