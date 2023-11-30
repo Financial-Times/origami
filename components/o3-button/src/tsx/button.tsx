@@ -29,12 +29,11 @@ export interface LinkButtonProps extends ButtonProps {
 }
 
 type ButtonClassProps = Pick<ButtonProps, "visuallyHideDisabled" | "type" | "size" | "theme" | "icon" | "iconOnly"> & {
-	customClasses: string | string[];
+	customClasses: string | boolean;
 };
 
 function makeClassNames({customClasses, visuallyHideDisabled, type, size, theme, icon, iconOnly}: ButtonClassProps) {
-	const userClasses = Array.isArray(customClasses) ? customClasses : [customClasses];
-	const classNames = ['o3-button', `o3-button--${type}`, ...userClasses];
+	const classNames = ['o3-button', `o3-button--${type}`, customClasses];
 
 	if (size) {
 		classNames.push(`o3-button--${size}`);
