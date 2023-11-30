@@ -28,15 +28,19 @@ export interface LinkButtonProps extends ButtonProps {
 	href: string;
 }
 
-function makeClassNames({customClasses, visuallyHideDisabled, type, size, theme, icon, iconOnly}) {
+type ButtonClassProps = Pick<ButtonProps, "visuallyHideDisabled" | "type" | "size" | "theme" | "icon" | "iconOnly"> & {
+	customClasses: string | string[];
+};
+
+function makeClassNames({customClasses, visuallyHideDisabled, type, size, theme, icon, iconOnly}: ButtonClassProps) {
 	const userClasses = Array.isArray(customClasses) ? customClasses : [customClasses];
 	const classNames = ['o3-button', `o3-button--${type}`, ...userClasses];
 
-	if (size && size !== 'standard') {
+	if (size) {
 		classNames.push(`o3-button--${size}`);
 	}
 
-	if (theme && theme !== 'standard') {
+	if (theme) {
 		classNames.push(`o3-button--${theme}`);
 	}
 
@@ -93,7 +97,7 @@ export function LinkButton({
 	iconOnly = false,
 	visuallyHideDisabled = false,
 	attributes = {},
-	href = null,
+	href = "",
 	onClick,
 }: LinkButtonProps) {
 	// Combine custom classes with first party o3-button classes,
