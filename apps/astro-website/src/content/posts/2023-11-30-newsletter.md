@@ -31,3 +31,7 @@ The Origami team was joined by two engineers from Internal Products for two shor
 Behnaz joined us for two weeks in July where they paired with Ako to migrate the Origami website to Astro.
 
 In October, Nigel joined us for two weeks where they paired with Ben contributing on updating typography inverse body colours,
+
+## Special Thanks
+
+Special thanks to all those who attended our User Studies and feedback sessions, Nigel and Behnaz for joining us for bootcamps.
