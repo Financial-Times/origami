@@ -16,8 +16,6 @@ export interface ButtonProps {
 		| "search"
 		| "refresh"
 		| "cross"
-		| ""
-		| (string & Record<never, never>); // Support IDE autocomplete whilst allowing any string https://github.com/microsoft/TypeScript/issues/29729#issuecomment-1331857805
 	iconOnly?: boolean;
 	visuallyHideDisabled?: boolean;
 	attributes?: {
@@ -30,8 +28,9 @@ export interface LinkButtonProps extends ButtonProps {
 	href: string;
 }
 
-function makeClassNames({visuallyHideDisabled, type, size, theme, icon, iconOnly}) {
-	const classNames = ['o3-button', `o3-button--${type}`];
+function makeClassNames({customClasses, visuallyHideDisabled, type, size, theme, icon, iconOnly}) {
+	const userClasses = Array.isArray(customClasses) ? customClasses : [customClasses];
+	const classNames = ['o3-button', `o3-button--${type}`, ...userClasses];
 
 	if (size && size !== 'standard') {
 		classNames.push(`o3-button--${size}`);
@@ -67,10 +66,14 @@ export function Button({
 	attributes = {},
 	onClick,
 }: ButtonProps) {
+	// Combine custom classes with first party o3-button classes,
+	// rather than override them.
+	const customClasses = attributes.className;
+	delete attributes.className;
 	return (
 		<button
 			onClick={onClick ? event => onClick(event) : null}
-			className={makeClassNames({visuallyHideDisabled, type, size, theme, icon, iconOnly})}
+			className={makeClassNames({customClasses, visuallyHideDisabled, type, size, theme, icon, iconOnly})}
 			{...attributes}>
 			{icon && iconOnly ? (
 				<span className="o3-button-icon__label">{label}</span>
@@ -93,11 +96,15 @@ export function LinkButton({
 	href = null,
 	onClick,
 }: LinkButtonProps) {
+	// Combine custom classes with first party o3-button classes,
+	// rather than override them.
+	const customClasses = attributes.className;
+	delete attributes.className;
 	return (
 		<a
 			href={href}
 			onClick={onClick ? event => onClick(event) : null}
-			className={makeClassNames({visuallyHideDisabled, type, size, theme, icon, iconOnly})}
+			className={makeClassNames({customClasses, visuallyHideDisabled, type, size, theme, icon, iconOnly})}
 			{...attributes}>
 			{icon && iconOnly ? (
 				<span className="o3-button-icon__label">{label}</span>
