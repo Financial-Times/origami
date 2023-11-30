@@ -94,7 +94,8 @@
 		"splitonce": "^0.1.2",
 		"toposort": "^2.0.2",
 		"undici": "^4.5.1",
-		"zx": "^4.1.1"
+		"zx": "^4.1.1",
+		"typescript": "^5.2.2"
 	},
 	"peerDependencies": {
 		"esbuild": "^0.16.17"
