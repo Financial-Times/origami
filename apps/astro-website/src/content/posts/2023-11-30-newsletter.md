@@ -12,7 +12,9 @@ It's been a while since our last update, so here's a quick summary of what's bee
 
 One of the biggest updates is our release of o3-buttons, this new package features a new set of buttons with existing designs, but with fundamental changes to how they are built.
 
-The first being that they are built with CSS instead of SASS. This removes the dependency on SASS and opens up their usage to projects that don't use SASS. The buttons have been designed from a clean slate, and along with the absense of SASS, should make O3 components easier to use and maintain.
+The first being that they are built using design tokens. This allows us to keep our designs and implementations in sync with each other across all brands, including FT Professional. This has allowed the Origami team to provide Figma libraries for all brands for the first time!
+
+O3 button components are also built with CSS instead of Sass. This removes the dependency on Sass and opens up their usage to projects that don't use Sass. The buttons have been designed from a clean slate, and along with the absense of Sass, should make O3 components easier to use and maintain.
 
 You can see our catalog of Origami 3 components on our new [Storybook for Origami 3](https://main--64faf6b1815b6c0106f82e74.chromatic.com/). More information to come on Storybook below!
 
@@ -25,7 +27,6 @@ Mary has been conducting usability with Origami users to help us understand how 
 As part of this, we have rolled out Storybook to Chromatic, a platform that, amongst other things, hosts Storybook for us. This has enabled us to display [all Origami 2 brands in one single place](https://main--655f72ec522e424302dc6201.chromatic.com/?path=/docs/origami-2--docs). It is also where Origami 3's Storybook is hosted.
 
 We thank everyone who contributed to the feedback and look to implement more changes off the back of it soon.
-
 
 ## Bootcamps
 
