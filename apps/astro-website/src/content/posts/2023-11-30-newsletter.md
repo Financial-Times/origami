@@ -38,4 +38,9 @@ In October, Nigel joined us for two weeks where they paired with Ben contributin
 
 ## Special Thanks
 
-Special thanks to all those who attended our User Studies and feedback sessions, Nigel and Behnaz for joining us for bootcamps.
+Special thanks to:
+* Nigel Pelvin and Behnaz Pourafshari for joining us for bootcamps,
+* all those who attended our User Studies and feedback sessions,
+* Erika Cellai for her support toward our documentation research,
+* Delyanka Sirakova for presenting Figma Organisation, Structure, & Naming Convention at Origami Design System Guild,
+* Kristo Mikkonen for adding an image overlays api to the Origami Image Service
