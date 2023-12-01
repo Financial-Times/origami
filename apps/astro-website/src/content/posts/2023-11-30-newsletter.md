@@ -8,9 +8,9 @@ tldr: A summary of the past months events.
 
 It's been a while since our last update, so here's a quick summary of what's been going on the past few months.
 
-## O3 Buttons released!
+## O3 Buttons experimental release
 
-One of the biggest updates is our release of o3-buttons, this new package features a new set of buttons with existing designs, but with fundamental changes to how they are built.
+We have released an experimental package to NPM called o3-button, this new package features a new set of buttons with FT branding, but with fundamental changes to how they are built.
 
 The first being that they are built using design tokens. This allows us to keep our designs and implementations in sync with each other across all brands, including FT Professional. This has allowed the Origami team to provide Figma libraries for all brands for the first time!
 
@@ -18,7 +18,7 @@ O3 button components are also built with CSS instead of Sass. This removes the d
 
 You can see our catalog of Origami 3 components on our new [Storybook for Origami 3](https://main--64faf6b1815b6c0106f82e74.chromatic.com/). More information to come on Storybook below!
 
-The release also saw the introduction of another new package: `o3-web-token`, this package contains design tokens defined as CSS custom properties for use in web project. These can be used to style Origami components and other projects at the FT, and supports an improved branding experience out of the box.
+The release also saw the introduction of another new package: `o3-web-token`, this package contains design tokens defined as CSS custom properties for colours, spacing, and typography. Replacing existing o-colours, o-spacing, and o-typography packages. These can be used to style Origami components and other projects at the FT, and supports an improved branding experience out of the box.
 
 ## Improvements to Documentation
 
