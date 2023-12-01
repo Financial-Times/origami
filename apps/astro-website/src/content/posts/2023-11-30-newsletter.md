@@ -22,7 +22,11 @@ The release also saw the introduction of another new package: `o3-web-token`, th
 
 ## Improvements to Documentation
 
-Mary has been conducting usability with Origami users to help us understand how we can improve our documentation. Themes emerged around improvements that can be made to documentation on Figma, Origami Registry, and Storybook. And improvements to the usage of Origami with react was also mentioned.
+Mary has been conducting usability with Origami users to help us understand how we can improve our documentation.
+
+Themes emerged around improvements that can be made to documentation on Figma, Origami Registry, and Storybook. And improvements to the usage of Origami with react was also mentioned. Our usability ratings pushed towards the lower end of the spectrum (a lower value is better), with O2 rated as 3.8 and O3 rated at 2.8.
+
+Mary presented the findings at a recent design system guild, more details can be found in [the recording of the session](https://docs.google.com/document/d/1aKhbRfMnCthZ-6D5eT82lpMmBeCcywNl9HzQakBf6lU/edit#heading=h.c69urzbzbwic).
 
 As part of this, we have rolled out Storybook to Chromatic, a platform that, amongst other things, hosts Storybook for us. This has enabled us to display [all Origami 2 brands in one single place](https://main--655f72ec522e424302dc6201.chromatic.com/?path=/docs/origami-2--docs). It is also where Origami 3's Storybook is hosted.
 
