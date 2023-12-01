@@ -8,7 +8,7 @@ tldr: A summary of the past months events.
 
 It's been a while since our last update, so here's a quick summary of what's been going on the past few months.
 
-## O3 Buttons experimental release
+## O3 Button experimental release
 
 We have released an experimental package to NPM called o3-button, this new package features a new set of buttons with FT branding, but with fundamental changes to how they are built.
 
