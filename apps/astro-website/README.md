@@ -40,8 +40,7 @@ The process:
 
    - `src/content/posts/YYYY-MM-DD-newsletter.md`: for the blog post on the website
 
-2. Write the newsletter. This is best done in the blog post, as this is standard Markdown.
-
+2. Write the newsletter. This is best done in the blog post, as this is standard Markdown. Ensure that you include the `Newsletter` tag, otherwise your blog post will not be published with an adjacent email HTML. See an [existing newsletter](https://github.com/Financial-Times/origami/blob/main/apps/astro-website/src/content/posts/2023-05-31-newsletter.md?plain=1#L6-L7) on what to include.
 3. Open a pull-request on this repo, and get it approved by another member of the team. Once approved, merge into master. This must be done _on_ or _after_ the publish date indicated by the post file name. The blog post is now published, check it on the live site.
 
 4. Now you'll need send the newsletter as an email. This is done from your machines CLI. To avoid copy/paste errors in the HTML we created [email page template](src/pages/emails/[slug].astro) in Astro. The email also has required front-matter: a `title` which becomes the subject of the email.
