@@ -4,6 +4,8 @@ description: Origami releases experimental O3 Button, updates on improvements to
 author: Ben Freshwater
 publishDate: 2023-11-30
 tldr: A summary of the past months events.
+tags:
+	- Newsletter
 ---
 
 It's been a while since our last update, so here's a quick summary of what's been going on the past few months.
