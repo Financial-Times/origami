@@ -1,6 +1,6 @@
 ---
 title: November Newsletter
-description:
+description: Origami releases experimental O3 Button, updates on improvements to documentation and bootcamps.
 author: Ben Freshwater
 publishDate: 2023-11-30
 tldr: A summary of the past months events.
