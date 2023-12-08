@@ -11,7 +11,8 @@
               "styleId": "S:47b573ac7de8e17071c3ecc61c05dc843277efb5,",
               "exportKey": "color"
             }
-          }
+          },
+          "description": "FT Pink is used for the logo and as backgrounds for some UI elements... "
         },
         "ft-grey": {
           "description": "",
@@ -62,7 +63,6 @@
           }
         },
         "teal": {
-          "description": "",
           "type": "color",
           "value": "#0d7680ff",
           "blendMode": "normal",
@@ -71,7 +71,8 @@
               "styleId": "S:a56ec15ce664561d1049dd70ad6f40fee93ef09c,",
               "exportKey": "color"
             }
-          }
+          },
+          "description": "Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases."
         },
         "oxford": {
           "description": "",
