@@ -143,6 +143,8 @@ jobs:
             - 'libraries/o-tracking/**'
           libraries/o-utils:
             - 'libraries/o-utils/**'
+          libraries/o3-tooling-token:
+            - 'libraries/o3-tooling-token/**'
           libraries/sass-mq:
             - 'libraries/sass-mq/**'
           presets/eslint-config-origami-component:
@@ -185,6 +187,8 @@ jobs:
             - 'apps/astro-website/**'
           apps/dictionary:
             - 'apps/dictionary/**'
+          apps/for-everyone-website:
+            - 'apps/for-everyone-website/**'
           apps/o2-storybook:
             - 'apps/o2-storybook/**'
           apps/o2-storybook-composition:
