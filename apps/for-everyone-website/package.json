@@ -18,6 +18,7 @@
     "@astrojs/starlight": "^0.13.0",
     "@financial-times/o3-button": "^0.1.7",
     "@financial-times/o3-web-token": "^0.2.0",
+    "@financial-times/o3-tooling-token": "0.0.0",
     "astro": "^3.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

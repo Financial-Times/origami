@@ -1,38 +1,62 @@
 ---
-import { readFile } from 'fs/promises';
-const file = await readFile(`../dictionary/tokens/${Astro.props.brand}/base/color.json`);
-const ColorTokens = JSON.parse(file);
+const tokens = await import(`@financial-times/o3-tooling-token/${Astro.props.brand}.js`);
+const ColorTokens = Object.entries(tokens.default).filter(([key, value]) => value.type === 'color').map(([key, value]) => {
+    value.name = key;
+    return value
+});
+
+const FilteredColorTokens = ColorTokens.filter(t => t.name.includes(Astro.props.type) && (Astro.props.palette ? t.origamiKeys?.includes(Astro.props.palette) : true) && !t.origamiTint && !t.name.includes('transparent') && t.name.includes !== 'DO-NOT-USE');
 ---
 
-<ul>
-{
-Object.entries(ColorTokens['o3']['color']['palette']).filter(e => e[0] !== 'transparrent' && e[1].value !== '{DO-NOT-USE}').map(([name, data] = entry) => {
-    return <li style=`--palette-color: ${data.value};`><span>{name}</span></li>;
-})
-}
-</ul>
+<table class="color-table">
+    <thead>
+        <tr>
+            <th class="name">name</th>
+            <th>css / figma</th>
+            <th>description</th>
+            <th class="value">value</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {
+            FilteredColorTokens.map(token => {
+                return <tr style=`--palette-color: ${token.value};`><td><span class="table-swatch">{token.shortName}</span></td> <td>{token.css}<br>{token.figma}</td> <td>{token.description || '...'}</td> <td>{token.value}</td></tr>;
+            })
+        }
+    </tbody>
+</table>
 
 <style>
-    ul {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        list-style: none;
-        padding: 0;
+
+    .color-table.color-table {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        overflow-wrap: anywhere;
     }
-    li {
-        --swatch-size: 10rem;
-        width: var(--swatch-size);
+    .color-table.color-table th {
+        text-align: left;
+    }
+    .table-swatch {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .table-swatch:before {
+        content: '';
+        height: 2rem;
+        width: 2rem;
+        background-color: var(--palette-color);
         border: 1px dotted black;
-        &:before {
-            content: '';
-            display: block;
-            height: var(--swatch-size);
-            background-color: var(--palette-color);
-        }
-        & span {
-            display: block;
-            padding: 0.5rem;
-        }
+    }
+
+    th.name {
+        width: 100px;
+    }
+    th.value {
+        width: 120px;
     }
 </style>
