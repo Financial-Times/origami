@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "cd ../../ && npm run build -w components/o3-button && cd - && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
