@@ -67,7 +67,6 @@
 		"presets/eslint-config-origami-component": {},
 		"presets/remark-preset-lint-origami-component": {},
 		"presets/stylelint-config-origami-component": {},
-		"tools/origami-bower-safe-version-supervisor": {},
-		"apps/for-everyone-website": {}
+		"tools/origami-bower-safe-version-supervisor": {}
 	}
 }
