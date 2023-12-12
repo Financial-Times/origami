@@ -145,7 +145,7 @@ $_o-typography-font-scale: (
 			'link-ft-live': (
 				'base': oColorsByName('ft-pink'),
 				'base-decoration': oColorsMix('ft-pink', 'slate', 80),
-				'hover': oColorsByName('ft-pink'),
+				'hover': oColorsMix('ft-pink', 'slate', 80),
 				'hover-decoration': oColorsMix('ft-pink', 'slate', 80)
 			),
 			'heading-level-one': (
