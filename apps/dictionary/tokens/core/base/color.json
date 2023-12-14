@@ -4,7 +4,10 @@
       "palette": {
         "ft-pink": {
           "type": "color",
-          "origamiKeys": ["palette", "primary"],
+          "origamiKeys": [
+            "palette",
+            "primary"
+          ],
           "value": "#FCD0B1",
           "blendMode": "normal",
           "extensions": {
@@ -16,7 +19,10 @@
         },
         "ft-grey": {
           "description": "",
-          "origamiKeys": ["palette", "primary"],
+          "origamiKeys": [
+            "palette",
+            "primary"
+          ],
           "type": "color",
           "value": "#333333ff",
           "blendMode": "normal",
@@ -29,7 +35,10 @@
         },
         "white": {
           "description": "",
-          "origamiKeys": ["palette", "primary"],
+          "origamiKeys": [
+            "palette",
+            "primary"
+          ],
           "type": "color",
           "value": "#ffffffff",
           "blendMode": "normal",
@@ -42,7 +51,10 @@
         },
         "black": {
           "description": "",
-          "origamiKeys": ["palette", "primary"],
+          "origamiKeys": [
+            "palette",
+            "primary"
+          ],
           "type": "color",
           "value": "#000000ff",
           "blendMode": "normal",
@@ -54,7 +66,10 @@
           }
         },
         "claret": {
-          "origamiKeys": ["palette", "secondary"],
+          "origamiKeys": [
+            "palette",
+            "secondary"
+          ],
           "description": "",
           "type": "color",
           "value": "#990f3dff",
@@ -67,7 +82,10 @@
           }
         },
         "teal": {
-          "origamiKeys": ["palette", "secondary"],
+          "origamiKeys": [
+            "palette",
+            "secondary"
+          ],
           "description": "",
           "type": "color",
           "value": "#0d7680ff",
@@ -80,7 +98,10 @@
           }
         },
         "oxford": {
-          "origamiKeys": ["palette", "secondary"],
+          "origamiKeys": [
+            "palette",
+            "secondary"
+          ],
           "description": "",
           "type": "color",
           "value": "#0f5499ff",
@@ -93,7 +114,10 @@
           }
         },
         "slate": {
-          "origamiKeys": ["palette", "secondary"],
+          "origamiKeys": [
+            "palette",
+            "secondary"
+          ],
           "description": "",
           "type": "color",
           "value": "#262a33ff",
@@ -106,7 +130,10 @@
           }
         },
         "paper": {
-          "origamiKeys": ["palette", "secondary"],
+          "origamiKeys": [
+            "palette",
+            "secondary"
+          ],
           "description": "",
           "type": "color",
           "value": "#fff1e5ff",
@@ -123,7 +150,10 @@
           "type": "color"
         },
         "mandarin": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#ff8833ff",
@@ -136,7 +166,10 @@
           }
         },
         "light-blue": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#00a0ddff",
@@ -149,7 +182,10 @@
           }
         },
         "crimson": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#cc0000ff",
@@ -162,7 +198,10 @@
           }
         },
         "graphics-dark-blue": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#006f9bff",
@@ -175,7 +214,10 @@
           }
         },
         "wheat": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#f2dfceff",
@@ -188,7 +230,10 @@
           }
         },
         "candy": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#ff7faaff",
@@ -201,7 +246,10 @@
           }
         },
         "wasabi": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#96cc28ff",
@@ -214,7 +262,10 @@
           }
         },
         "jade": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#00994dff",
@@ -227,7 +278,10 @@
           }
         },
         "velvet": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#593380ff",
@@ -240,7 +294,10 @@
           }
         },
         "lemon": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#ffec1aff",
@@ -253,7 +310,10 @@
           }
         },
         "sky": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#cce6ffff",
@@ -266,7 +326,10 @@
           }
         },
         "matisse-blue": {
-          "origamiKeys": ["palette", "tertiary"],
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ],
           "description": "",
           "type": "color",
           "value": "#355778ff",
