@@ -5,7 +5,10 @@
         "mint": {
           "value": "#c0efd8",
           "type": "color",
-          "origamiKeys": ["palette", "primary"]
+          "origamiKeys": [
+            "palette",
+            "primary"
+          ]
         },
         "mint-80": {
           "value": "#A4CCB8",
