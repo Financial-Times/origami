@@ -18,7 +18,8 @@
 		"./professional.css": "./build/core/professional/_variables.css",
 		"./icons.css": "./build/icons/_variables.css",
 		"./internal.css": "./build/internal/_variables.css",
-		"./whitelabel.css": "./build/whitelabel/_variables.css"
+		"./whitelabel.css": "./build/whitelabel/_variables.css",
+	    "./sustainable-views.css": "./build/sustainable-views/_variables.css"
 	},
 	"files": [
 		"build",
