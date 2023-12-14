@@ -64,7 +64,7 @@
             "type": "color"
           },
           "background": {
-            "value": "#ffffff",
+            "value": "#68cab5",
             "type": "color"
           },
           "border": {
@@ -73,7 +73,7 @@
           },
           "hover": {
             "background": {
-              "value": "#c9cacc",
+              "value": "#68cab5",
               "type": "color"
             },
             "color": {
@@ -87,7 +87,7 @@
           },
           "focus": {
             "background": {
-              "value": "#c9cacc",
+              "value": "#68cab5",
               "type": "color"
             },
             "color": {
@@ -101,7 +101,7 @@
           },
           "active": {
             "background": {
-              "value": "#9d9fa3",
+              "value": "#569f92",
               "type": "color"
             },
             "color": {
@@ -230,7 +230,7 @@
         },
         "inverse": {
           "color": {
-            "value": "#ffffff",
+            "value": "#7EFFE0",
             "type": "color"
           },
           "background": {
@@ -238,48 +238,48 @@
             "type": "color"
           },
           "border": {
-            "value": "#ffffff",
+            "value": "#7EFFE0",
             "type": "color"
           },
           "hover": {
             "background": {
-              "value": "rgba(255, 255, 255, 0.15)",
+              "value": "rrgba(126, 255, 224, 0.15)",
               "type": "color"
             },
             "color": {
-              "value": "#ffffff",
+              "value": "#7effe0",
               "type": "color"
             },
             "border": {
-              "value": "#ffffff",
+              "value": "#7effe0",
               "type": "color"
             }
           },
           "focus": {
             "background": {
-              "value": "rgba(255, 255, 255, 0.15)",
+              "value": "rgba(126, 255, 224, 0.15)",
               "type": "color"
             },
             "color": {
-              "value": "#ffffff",
+              "value": "#7effe0",
               "type": "color"
             },
             "border": {
-              "value": "#ffffff",
+              "value": "#7effe0",
               "type": "color"
             }
           },
           "active": {
             "background": {
-              "value": "#ffffff",
+              "value": "#7EFFE0",
               "type": "color"
             },
             "color": {
-              "value": "#000000",
+              "value": "black",
               "type": "color"
             },
             "border": {
-              "value": "#ffffff",
+              "value": "#7EFFE0",
               "type": "color"
             }
           }
