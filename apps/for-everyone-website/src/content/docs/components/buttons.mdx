@@ -12,6 +12,7 @@ import '@financial-times/o3-button/css/internal.css';
 import '@financial-times/o3-button/css/professional.css';
 import {renderToString} from 'react-dom/server';
 import { Code } from 'astro:components';
+import { default as ButtonAnatomy } from '../../../components/ButtonAnatomy.astro';
 
 
 export function Preview ({component: Component, componentProps } = props) {
@@ -39,7 +40,7 @@ Buttons are triggers that provide users with a call to action. Typically allowin
 
 The button component contains two required elements and one optional element.
 
-![An annotated image of a button. The button text is marked (1, label); the outer box of the button marked to (2, container); the left aligned icon of the button marked (3)](/imgs/button-anatomy.svg)
+<ButtonAnatomy />
 
 1. <strong>Label</strong>: Text that explains the result of selecting the button. Use action verbs or phrases to tell the user what will happen next.
 1. <strong>Container</strong>: has minimum width of 80px for standard buttons and 64px for small buttons.
