@@ -1,5 +1,3 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import './table.scss';
 import {Table} from "../src/tsx/table";
 import {
@@ -20,7 +18,6 @@ import {ComponentMeta} from "@storybook/react";
 export default {
 	title: 'Components/o-table/Basic',
 	component: Table,
-	decorators: [withDesign, withHtml],
 	args: {
 		horizontalLines: true,
 		compact: false,

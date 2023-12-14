@@ -28,7 +28,7 @@ await del([".github/workflows/percy-*.yml", ".github/workflows/test-*.yml"])
 let dotReleasePleaseManifest = {}
 let releasePleaseConfig = {
 	"bootstrap-sha": "4d52a27b6c08755d6c527723c2595ade3e024898",
-	"last-release-sha": "05ebbb9f6dee6cfe63ad2b96bb4b783d8ba2b706",
+	"last-release-sha": "22303811874f601504a56ea79520c06cf1212336",
 	packages: {},
 }
 

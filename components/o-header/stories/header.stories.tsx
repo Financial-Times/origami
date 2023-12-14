@@ -1,5 +1,3 @@
-import withHtml from "origami-storybook-addon-html";
-import { withDesign } from "storybook-addon-designs";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useEffect } from "react";
 import {
@@ -24,7 +22,6 @@ export default {
 		currentPath: "/",
 	},
 	argTypes,
-	decorators: [withDesign, withHtml],
 } as ComponentMeta<typeof MainHeader>;
 
 export const HeaderPrimary: ComponentStory<typeof MainHeader> = args => {

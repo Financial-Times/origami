@@ -1,5 +1,3 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import {SupportLabel} from '../../src/tsx/label';
 import '../labels.scss';
 
@@ -19,8 +17,7 @@ const ComponentDescription = {
 			  type: 'text'
 			}
 		  }
-	},
-	decorators: [withDesign, withHtml]
+	}
 };
 
 export default ComponentDescription;
@@ -31,4 +28,7 @@ export const SupportStatusLabel = args => {
 		delete args.size;
 	}
 	return <SupportLabel {...args}>{copy}</SupportLabel>;
+}
+SupportStatusLabel.args = {
+	text: 'Active'
 }

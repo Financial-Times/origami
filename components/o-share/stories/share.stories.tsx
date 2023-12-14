@@ -1,6 +1,4 @@
 import { Story, ComponentMeta } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
-import withHtml from "origami-storybook-addon-html";
 
 import { Share } from "../src/tsx/share";
 import { ShareIcon, UrlProps } from "../src/tsx/shareIcon";
@@ -11,7 +9,6 @@ import "./share.scss";
 export default {
 	title: "Components/o-share",
 	component: Share,
-	decorators: [withDesign, withHtml],
 	args: {
 		title: "US drugs",
 		url: "http://on.ft.com/1mUdgA2",

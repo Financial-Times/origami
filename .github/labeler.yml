@@ -134,10 +134,14 @@ o-brand:
   - libraries/o-brand/**/*
 o-errors:
   - libraries/o-errors/**/*
+o-testing-library:
+  - libraries/o-testing-library/**/*
 o-tracking:
   - libraries/o-tracking/**/*
 o-utils:
   - libraries/o-utils/**/*
+o3-tooling-token:
+  - libraries/o3-tooling-token/**/*
 sass-mq:
   - libraries/sass-mq/**/*
 eslint-config-origami-component:
@@ -171,18 +175,20 @@ verify-origami-json:
 verify-package-json:
   - tools/verify-package-json/**/*
 background:
-  - apps/storybook/addons/background/**/*
+  - apps/o2-storybook/addons/background/**/*
 guidelines:
-  - apps/storybook/addons/guidelines/**/*
-html:
-  - apps/storybook/addons/html/**/*
+  - apps/o2-storybook/addons/guidelines/**/*
 markdown-tabs:
-  - apps/storybook/addons/markdown-tabs/**/*
+  - apps/o2-storybook/addons/markdown-tabs/**/*
 astro-website:
   - apps/astro-website/**/*
 dictionary:
   - apps/dictionary/**/*
+for-everyone-website:
+  - apps/for-everyone-website/**/*
+o2-storybook:
+  - apps/o2-storybook/**/*
+o2-storybook-composition:
+  - apps/o2-storybook-composition/**/*
 o3-storybook:
   - apps/o3-storybook/**/*
-storybook:
-  - apps/storybook/**/*

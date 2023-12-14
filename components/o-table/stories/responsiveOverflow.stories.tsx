@@ -2,15 +2,12 @@ import {useEffect} from "react";
 import {ResponsiveOverflowTable} from "../src/tsx/table";
 import {baseTableContents} from "./baseTableContents";
 import javascript from '../main';
-import withHtml from 'origami-storybook-addon-html';
 import {ComponentMeta} from "@storybook/react";
-import {withDesign} from "storybook-addon-designs";
 import {TableBody, TableData, TableHead, TableHeading, TableRow} from "../src/tsx/components";
 
 export default {
 	title: 'Components/o-table/Responsive',
 	component: ResponsiveOverflowTable,
-	decorators: [withDesign, withHtml],
 	args: {
 		horizontalLines: true,
 		compact: false,

@@ -1,16 +1,13 @@
 import ODate from '@financial-times/o-date/main';
 import {Date as DateTSX} from '@financial-times/o-date/src/tsx/date';
 import type {Meta, Story} from '@storybook/react';
-import withHtml from 'origami-storybook-addon-html';
 import {useEffect} from 'react';
-import {withDesign} from 'storybook-addon-designs';
 import {TimestampLabel as OTimestampLabel, TimestampLabelProps} from '../../src/tsx/label';
 import '../labels.scss';
 
 export default {
 	title: 'Components/o-labels',
 	component: OTimestampLabel,
-	decorators: [withDesign, withHtml],
 	argTypes: {
 		inverse: {control: 'boolean', defaultValue: false},
 		dateTime: {control: 'date'},

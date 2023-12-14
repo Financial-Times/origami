@@ -1,5 +1,5 @@
 import type {Preview} from "@storybook/react"
-import {addons} from "@storybook/addons"
+import {addons} from "@storybook/preview-api"
 import {
 	UPDATE_GLOBALS,
 	STORY_ARGS_UPDATED,

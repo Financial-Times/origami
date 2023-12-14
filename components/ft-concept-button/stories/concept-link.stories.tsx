@@ -1,12 +1,9 @@
-import {withDesign} from 'storybook-addon-designs';
 import {ConceptLink as ConceptLinkTemplate} from '../src/tsx/concept-button';
 import './concept-button.scss';
-import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Components/ft-concept-button',
 	component: ConceptLinkTemplate,
-	decorators: [withDesign, withHtml],
 	parameters: {
 		design: {
 			type: 'figma',

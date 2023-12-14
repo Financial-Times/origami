@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.8](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.7...o3-button-v0.1.8) (2023-11-30)
+
+
+### Bug Fixes
+
+* o3-button, enforce set of allowed icons in tsx [OR-406] ([#1362](https://github.com/Financial-Times/origami/issues/1362)) ([e3879d9](https://github.com/Financial-Times/origami/commit/e3879d9777bf58bd315a642e50b9a7c292661cbb))
+
+## [0.1.7](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.6...o3-button-v0.1.7) (2023-11-14)
+
+
+### Bug Fixes
+
+* bump o3-button peer dependencies ([179751f](https://github.com/Financial-Times/origami/commit/179751f0baac9e887a38973bf65dd289021007d1))
+
 ## [0.1.6](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.5...o3-button-v0.1.6) (2023-10-31)
 
 

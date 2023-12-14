@@ -1,5 +1,3 @@
-import withHtml from "origami-storybook-addon-html";
-import { withDesign } from "storybook-addon-designs";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useEffect } from "react";
 import { Checkbox, Checkboxes } from "../src/tsx/o-forms";
@@ -27,7 +25,6 @@ const themeControl =
 export default {
 	title: "Components/o-forms/checkboxes",
 	component: Checkboxes,
-	decorators: [withDesign, withHtml],
 	argTypes: {
 		children: hideArg,
 		theme: themeControl,

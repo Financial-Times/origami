@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.10](https://github.com/Financial-Times/origami/compare/o-teaser-v6.2.9...o-teaser-v6.2.10) (2023-11-09)
+
+
+### Bug Fixes
+
+* update o-teaser tsx templates to use date-fns version 2 ([#1331](https://github.com/Financial-Times/origami/issues/1331)) ([c53316b](https://github.com/Financial-Times/origami/commit/c53316ba964378d4f9077e2250fc73b40e9d2ab7))
+
 ## [6.2.9](https://github.com/Financial-Times/origami/compare/o-teaser-v6.2.8...o-teaser-v6.2.9) (2023-10-27)
 
 

@@ -1,8 +1,5 @@
 import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
-
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {Teaser} from '../src/tsx/teaser';
 import './teaser.scss';
@@ -26,7 +23,6 @@ argTypes.customSlot = {
 export default {
 	title: 'Components/o-teaser',
 	component: Teaser,
-	decorators: [withDesign, withHtml],
 	parameters: {},
 } as ComponentMeta<typeof Teaser>;
 
