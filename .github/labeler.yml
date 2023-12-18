@@ -140,6 +140,8 @@ o-tracking:
   - libraries/o-tracking/**/*
 o-utils:
   - libraries/o-utils/**/*
+o3-tooling-token:
+  - libraries/o3-tooling-token/**/*
 sass-mq:
   - libraries/sass-mq/**/*
 eslint-config-origami-component:
@@ -182,6 +184,8 @@ astro-website:
   - apps/astro-website/**/*
 dictionary:
   - apps/dictionary/**/*
+for-everyone-website:
+  - apps/for-everyone-website/**/*
 o2-storybook:
   - apps/o2-storybook/**/*
 o2-storybook-composition:

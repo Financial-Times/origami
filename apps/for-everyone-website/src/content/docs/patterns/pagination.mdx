@@ -1,0 +1,42 @@
+---
+title: Pagination
+description: How to paginate
+---
+import { Button, ButtonPagination } from '@financial-times/o3-button';
+import '@financial-times/o3-button/css/whitelabel.css';
+import '@financial-times/o3-button/css/internal.css';
+import '@financial-times/o3-button/css/professional.css';
+import {renderToString} from 'react-dom/server';
+import { Code } from 'astro:components';
+import * as starlightExpressiveCode from '@astrojs/starlight/expressive-code';
+
+
+export function Preview ({component: Component, ...componentProps }) {
+    const ComponentInstance = Component(componentProps);
+    const componentHtml = renderToString(ComponentInstance);
+    const componentJSX = `<${Component.name} ${Object.entries(componentProps).map(p => `${p[0]}=${typeof p[1] === '"string"' ? p[1] : `{${JSON.stringify(p[1])}}`}`).join(' ')} />`;
+    const inverse = componentProps['theme'] === 'inverse';
+    return <>
+        <div style={`padding: var(--o3-spacing-2xs); margin-left: calc(var(--o3-spacing-2xs) * -1); ${inverse ? 'background-color: black' : ''}`}>
+        <Component {...componentProps} />
+        </div>
+        <details>
+            <summary>code</summary>
+            <Code code={componentJSX} lang="jsx" theme="css-variables" />
+            <Code code={componentHtml} lang="html" theme="css-variables" />
+            <a style="display: inline-block; margin: var(--o3-spacing-2xs) 0;" href={`https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/story/core-o3-${Component.name.toLowerCase()}--${Component.name.toLowerCase()}&args=${Object.entries(componentProps).map(p => `${p[0]}:${p[1]};`).join('')}`}>Open in StoryBook</a>
+        </details>
+        <hr />
+    </>
+}
+
+
+Avoid infinite scroll unless you have research to back up your decision. Instead, do this:
+
+## Standard Pagination
+
+<Preview component={ButtonPagination} previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[{href: '#1', current: true, number: 1}, {href: '#2', current: false, number: 2}]} />
+
+## Inverse Pagination
+
+<Preview component={ButtonPagination} previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[{href: '#1', current: true, number: 1}, {href: '#2', current: false, number: 2}]} theme="inverse" />

@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.6.2](https://github.com/Financial-Times/origami/compare/o-typography-v7.6.1...o-typography-v7.6.2) (2023-12-12)
+
+
+### Bug Fixes
+
+* Update ft-live link hover colour ([#1372](https://github.com/Financial-Times/origami/issues/1372)) ([e873bd4](https://github.com/Financial-Times/origami/commit/e873bd48fe21911f1de9702ec3fcdbc7138678bc))
+
 ## [7.6.1](https://github.com/Financial-Times/origami/compare/o-typography-v7.6.0...o-typography-v7.6.1) (2023-10-27)
 
 
