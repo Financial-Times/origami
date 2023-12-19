@@ -16,7 +16,7 @@
         },
         "oceanwave": {
           "type": "color",
-          "value": "#BFE3EB",
+          "value": "#C9F5EA",
           "blendMode": "normal",
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
