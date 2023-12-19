@@ -25,7 +25,7 @@ describe('CLI integration tests', () => {
 		brands: ['core'],
 	};
 
-	it('CLI with all properties', async done => {
+	it('CLI with all properties', async () => {
 		const responds = {
 			...testDefaults,
 			name: 'o Test name',
@@ -41,7 +41,7 @@ describe('CLI integration tests', () => {
 			expect(result.stdout.includes(expectedStdOutJavascript)).toBeTruthy();
 			expect(result.stdout.includes(expectedStdOutScss)).toBeTruthy();
 		});
-		cli.end(done);
+		cli.end();
 		await copyTemplates(
 			{...responds, name: sanitizeName(responds.name)},
 			tempDir.cwd()
@@ -49,7 +49,7 @@ describe('CLI integration tests', () => {
 		checkFiles(tempDir.cwd());
 	});
 
-	it('without javascript', async done => {
+	it('without javascript', async () => {
 		const jsFilesToExclude = [
 			'demos/src/demo.js',
 			'src/js/test-name.js',
@@ -72,14 +72,14 @@ describe('CLI integration tests', () => {
 			expect(result.stdout.includes(expectedStdOutJavascript)).toBeTruthy();
 			expect(result.stdout.includes(expectedStdOutScss)).toBeTruthy();
 		});
-		cli.end(done);
+		cli.end();
 		await copyTemplates(
 			{...responds, name: sanitizeName(responds.name)},
 			tempDir.cwd()
 		);
 		checkFiles(tempDir.cwd(), jsFilesToExclude);
 	});
-	it('without sass', async done => {
+	it('without sass', async () => {
 		const sassFilesToExclude = [
 			'demos/src/demo.scss',
 			'stories/test-name.scss',
@@ -104,7 +104,7 @@ describe('CLI integration tests', () => {
 			expect(result.stdout.includes(expectedStdOutJavascript)).toBeTruthy();
 			expect(result.stdout.includes(expectedStdOutScss)).toBeTruthy();
 		});
-		cli.end(done);
+		cli.end();
 		await copyTemplates(
 			{...responds, name: sanitizeName(responds.name)},
 			tempDir.cwd()
