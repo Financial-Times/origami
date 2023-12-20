@@ -1,11 +1,12 @@
 ---
 title: Spacing
-description: A guide in my new Starlight docs site.
+description: ...
+sidebar:
+    badge:
+        text: In progress
+        variant: note
 ---
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
 
-## Further reading
+We're working on our new spacing guidelines and would appreciate your thoughts and feedback. In the meantime, see [o-spacing](https://registry.origami.ft.com/components/o-spacing).
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
