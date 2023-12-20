@@ -1,0 +1,48 @@
+
+---
+---
+
+<div class={Astro.props.do ? 'not-content example example--do' : `not-content example example--do-not`}>
+    <span class="example__tag">{Astro.props.do ? '✅ Do' : `❌ Don't`}</span>
+    <span class="example__content">
+        <slot />
+    </span>
+</div>
+
+<style>
+    .example {
+        margin: 1rem;
+        border: 3px solid currentColor;
+    }
+
+    .example__tag {
+        display: block;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .example__content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1rem;
+    }
+
+    .example--do {
+        color: green;
+    }
+
+    .example--do .example__tag {
+        background-color: rgba(0, 128, 0, 0.1);
+    }
+    .example--do-not {
+        color: red;
+    }
+
+    .example--do-not .example__tag {
+        background-color: rgba(255, 0, 0, 0.1);
+    }
+
+</style>
