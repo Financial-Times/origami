@@ -144,9 +144,14 @@ export function ButtonPagination({
 				theme={theme}
 				size={size}
 				type={type}></PreviousTag>
-				{pageElementsInGroups[0]}
-				{pageElementsInGroups.length > 1 && <Ellipsis></Ellipsis>}
-				{pageElementsInGroups.length > 1 && pageElementsInGroups[1]}
+				{pageElementsInGroups.flatMap((pageElementGroup, pageGroupIndex) => {
+					const elementGroup = [];
+					if (pageGroupIndex > 0) {
+						elementGroup.push(<Ellipsis key={pageGroupIndex}></Ellipsis>);
+					}
+					elementGroup.push(pageElementGroup);
+					return elementGroup;
+				})}
 			<NextTag
 				attributes={
 					lastPageIsSelected ? {disabled: true} : {onClick: nextPager.onClick}

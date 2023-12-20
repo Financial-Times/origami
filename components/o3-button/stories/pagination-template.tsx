@@ -22,6 +22,7 @@ const ButtonPaginationTemplate: TemplateType = {
 		function updatePages(currentPageSelection) {
 			setCurrentPageSelection(currentPageSelection);
 			args.pages.forEach(p => (p.current = p.number === currentPageSelection));
+			console.log({pages: args.pages});
 		}
 
 		args.pages.forEach(page => {
