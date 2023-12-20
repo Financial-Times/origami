@@ -15,18 +15,14 @@ export default {
 			</div>
 		),
 	],
-	argTypes: {
+	argTypes: Object.assign(ButtonStories.Button.argTypes, {
 		theme: {
 			options: ['inverse', 'mono'],
 			control: { type: 'radio' },
 		},
-		type: {
-			options: ['primary', 'secondary'],
-			control: { type: 'radio' },
-		}
-	},
+	}),
 	parameters: {
-		backgrounds: {default: 'slate'},
+		backgrounds: {default: 'paper'},
 	},
 } as Meta;
 
@@ -36,53 +32,16 @@ const DesignParams = {
 }
 
 export const Button = ButtonStories.Button;
-Button.argTypes = {
-	theme: {
-		options: ['inverse', 'mono'],
-		control: { type: 'radio' },
-	},
-	type: {
-		options: ['primary', 'secondary'],
-		control: { type: 'radio' },
-	}
-}
+
 Button.parameters = {
-	theme: {default: 'inverse'},
 	design: DesignParams,
 }
+
 export const LinkAsButton = ButtonStories.LinkAsButton;
 LinkAsButton.parameters = {
 	design: DesignParams,
 }
-LinkAsButton.argTypes = {
-	theme: {
-		options: ['inverse', 'mono'],
-		control: { type: 'radio' },
-	},
-	type: {
-		options: ['primary', 'secondary'],
-		control: { type: 'radio' },
-	}
-}
+
 export const GroupedButtons = ButtonStories.GroupedButtons;
-GroupedButtons.argTypes = {
-	theme: {
-		options: ['inverse', 'mono'],
-		control: { type: 'radio' },
-	},
-	type: {
-		options: ['primary', 'secondary'],
-		control: { type: 'radio' },
-	}
-}
+
 export const Pagination = PaginationTemplate;
-Pagination.argTypes = {
-	theme: {
-		options: ['inverse', 'mono'],
-		control: { type: 'radio' },
-	},
-	type: {
-		options: ['primary', 'secondary'],
-		control: { type: 'radio' },
-	}
-}
