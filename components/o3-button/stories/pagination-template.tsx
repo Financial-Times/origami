@@ -11,7 +11,7 @@ type PaginationStory = Omit<StoryObj, 'args'> & {
 const ButtonPaginationTemplate: TemplateType = {
 	...TemplateSBConfig,
 	parameters: {
-		controls: {include: ['type', 'size', 'theme']},
+		controls: {include: ['size', 'theme']},
 	},
 	render: args => {
 		const configuredCurrentPage = args.pages.find(page => page.current);
@@ -48,7 +48,6 @@ const ButtonPaginationTemplate: TemplateType = {
 export const Pagination: PaginationStory = {
 	...ButtonPaginationTemplate,
 	args: {
-		type: 'secondary',
 		size: '',
 		previousPager: {
 			href: '#previous',
