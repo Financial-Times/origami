@@ -1,5 +1,6 @@
 type MultiSelectType = {
 	label: string;
+	value?: string;
 	selected: boolean;
 };
 
@@ -21,7 +22,7 @@ export function MultiSelect({
 		<span className="o-multi-select" data-o-component="o-multi-select">
 			<select name={id} id={id} multiple={true} value={selectedOptionsValues} required={required}>
 				{multiSelectOptions.map(option => (
-					<option key={option.label} value={option.label}>
+					<option key={option.value || option.label} value={option.value || option.label}>
 						{option.label}
 					</option>
 				))}
