@@ -51,6 +51,14 @@ const storyArgsListener = args => {
 				backgrounds: {name: "slate", value: "#262a33ff"},
 			},
 		})
+	} else {
+		let colorTheme = args.args.theme
+		channel.emit(UPDATE_GLOBALS, {
+			globals: {
+				theme: colorTheme,
+				backgrounds: {name: "paper", value: "#fff1e5ff"},
+			},
+		})
 	}
 }
 

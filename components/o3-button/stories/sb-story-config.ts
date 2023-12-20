@@ -7,22 +7,19 @@ export const TemplateSBConfig: Meta = {
 			control: {
 				type: 'radio',
 				labels: {
-					inverse: 'Inverse',
-					mono: 'Mono',
-					standard: 'Standard',
+					inverse: 'inverse',
+					mono: 'mono',
+					standard: 'standard',
 				},
 			},
 			options: ['inverse', 'mono', 'standard'],
 		},
 		size: {
-			control: {
-				type: 'radio',
-				labels: {
-					small: 'Small',
-					standard: 'Standard',
-				},
+			options: ['default', 'small'],
+			mapping: {
+				default: '',
+				small: 'small',
 			},
-			options: ['small', 'standard'],
 		},
 	},
 	parameters: {
