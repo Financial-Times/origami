@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.8...o3-button-v0.2.0) (2024-01-03)
+
+
+### Features
+
+* introduce o3-button sustainable views component css custom properties ([b91f637](https://github.com/Financial-Times/origami/commit/b91f637678e92b10403a783166cfa45be22357ce))
+
 ## [0.1.8](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.7...o3-button-v0.1.8) (2023-11-30)
 
 
