@@ -34,6 +34,7 @@ MultiSelectDefault.args = {
 	multiSelectOptions: [
 		{label: 'Apple Pie', selected: false, value: 'apple-pie'},
 		{label: 'Banana', selected: false},
+		{label: 'Banana Split', selected: true, value: 'banana-split'},
 		{label: 'Blueberry', selected: false},
 		{label: 'Boysenberry', selected: true},
 		{label: 'Cherry', selected: false},

@@ -16,7 +16,7 @@ export function MultiSelect({
 }) {
 	const selectedOptionsValues = multiSelectOptions
 		.filter(option => option.selected)
-		.map(option => option.label);
+		.map(option => option.value || option.label);
 
 	return (
 		<span className="o-multi-select" data-o-component="o-multi-select">
