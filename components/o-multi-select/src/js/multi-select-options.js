@@ -107,7 +107,7 @@ function createOptionButton(option, index) {
 	const li = document.createElement('li');
 	const button = document.createElement('button');
 	button.id = `${option.value}-${index}`;
-	button.setAttribute('aria-label', ` remove ${option} `);
+	button.setAttribute('aria-label', ` remove ${option.label} `);
 	button.className = 'o-multi-select__selected-options-button';
 	button.type = 'button';
 	button.innerText = option.label;
