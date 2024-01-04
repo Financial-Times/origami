@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.5](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.4...o-multi-select-v2.2.5) (2024-01-04)
+
+
+### Bug Fixes
+
+* o-multi-select, use textContent rather than innerText ([#1388](https://github.com/Financial-Times/origami/issues/1388)) ([33d32a4](https://github.com/Financial-Times/origami/commit/33d32a405a672b79d7cb3594e5d4c5e4ca98a423))
+
 ## [2.2.4](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.3...o-multi-select-v2.2.4) (2024-01-03)
 
 
