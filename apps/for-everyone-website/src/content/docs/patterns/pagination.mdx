@@ -1,6 +1,10 @@
 ---
 title: Pagination
 description: How to paginate
+sidebar:
+    badge:
+        text: New
+        variant: tip
 ---
 import { Button, ButtonPagination } from '@financial-times/o3-button';
 import '@financial-times/o3-button/css/whitelabel.css';
@@ -9,7 +13,8 @@ import '@financial-times/o3-button/css/professional.css';
 import {renderToString} from 'react-dom/server';
 import { Code } from 'astro:components';
 import * as starlightExpressiveCode from '@astrojs/starlight/expressive-code';
-
+import { default as Example } from '../../../components/Example.astro';
+import { default as Guideline } from '../../../components/Guideline.astro';
 
 export function Preview ({component: Component, ...componentProps }) {
     const ComponentInstance = Component(componentProps);
@@ -20,23 +25,72 @@ export function Preview ({component: Component, ...componentProps }) {
         <div style={`padding: var(--o3-spacing-2xs); margin-left: calc(var(--o3-spacing-2xs) * -1); ${inverse ? 'background-color: black' : ''}`}>
         <Component {...componentProps} />
         </div>
+
+     <a style="display: inline-block; margin: var(--o3-spacing-2xs) 0;" href={`https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/story/core-o3-button--pagination&args=theme:${componentProps.theme}`}>Open in StoryBook</a> | <a style="display: inline-block; margin: var(--o3-spacing-2xs) 0;" href="https://www.figma.com/file/nSD9N3r4MiMpv9pA6F4Dpy/Pagination?type=design&node-id=5463-1742&mode=design">Open in Figma (work in progress)</a>
         <details>
             <summary>code</summary>
             <Code code={componentJSX} lang="jsx" theme="css-variables" />
             <Code code={componentHtml} lang="html" theme="css-variables" />
-            <a style="display: inline-block; margin: var(--o3-spacing-2xs) 0;" href={`https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/story/core-o3-${Component.name.toLowerCase()}--${Component.name.toLowerCase()}&args=${Object.entries(componentProps).map(p => `${p[0]}:${p[1]};`).join('')}`}>Open in StoryBook</a>
         </details>
         <hr />
     </>
 }
 
+## Usage Guidelines
 
-Avoid infinite scroll unless you have research to back up your decision. Instead, do this:
+### Follow our standard pagination rules
 
-## Standard Pagination
+We recommend using Origami components which provide this pagination functionality by default. See [pagination behaviour in action within Storybook](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/story/core-o3-button--pagination&globals=backgrounds:!undefined).
+
+We show no more than 7 pages at a time. When there are more than 7 pages, hide more pages behind the pagination ellipsis in the following way.
+
+<Example do={true}>
+    <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={Array(3,'a').map((p,index) => ({href: `#${(index + 1)}`, current: (index + 1) === 2, number: (index + 1)}))} />
+</Example>
+
+The selected page is below 3 show ellipsis with 3 pages either side.
+
+<Example do={true}>
+    <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 2, number: p}))} />
+</Example>
+
+The selected page is one of the last 2 pages show ellipsis with 3 pages either side.
+
+<Example do={true}>
+    <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 9, number: p}))} />
+</Example>
+
+The 3rd page is selected show 4 pages, the ellipsis, and 2 more pages.
+
+<Example do={true}>
+    <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 3, number: p}))} />
+</Example>
+
+The 3rd from last page is selected show 2 pages, the ellipsis, and 4 more pages.
+
+<Example do={true}>
+    <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 8, number: p}))} />
+</Example>
+
+The selected page is more than 3 from the first and last page show the first page, ellipsis, three pages, ellipsis, and the last page.
+
+<Example do={true}>
+    <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 5, number: p}))} />
+</Example>
+
+### Avoid infinite scrolling
+
+Avoid infinite scrolling unless user research shows they improve your interface.
+Infinite scroll can make it difficult to save, find, and share content for given pages. It also interferes with access to content below, such as our footer.
+
+## Themes
+
+Our pagination pattern supports all button themes. For example:
+
+### Standard Pagination
 
 <Preview component={ButtonPagination} previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[{href: '#1', current: true, number: 1}, {href: '#2', current: false, number: 2}]} />
 
-## Inverse Pagination
+### Inverse Pagination
 
 <Preview component={ButtonPagination} previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[{href: '#1', current: true, number: 1}, {href: '#2', current: false, number: 2}]} theme="inverse" />

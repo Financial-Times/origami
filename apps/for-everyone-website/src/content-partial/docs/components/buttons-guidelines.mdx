@@ -1,0 +1,51 @@
+import { default as Example } from '../../../components/Example.astro';
+import { default as Guideline } from '../../../components/Guideline.astro';
+import { Button } from '@financial-times/o3-button';
+
+<Guideline summary="Keep button labels short" do={true}>
+    <p slot="description">Keep labels short and free of punctuation. They should confirm the action a user is taking. Drop unnecessary articles, such as ‘a’ or ‘the’, for a more concise label.</p>
+    <Example slot="examples" do={true}>
+        <Button label="Share" type="primary" />
+    </Example>
+    <Example slot="examples" do={false}>
+        <Button label="Share on your social media of choice" type="primary" />
+    </Example>
+</Guideline>
+
+<Guideline summary="Use sentence case for button labels" do={true}>
+    <p slot="description">Only capitalize the first letter of the button and any proper nouns. Not title case or Upper case.</p>
+    <Example slot="examples" do={true}>
+        <Button label="Share now" type="primary" />
+    </Example>
+    <Example slot="examples" do={false}>
+        <Button label="Share Now" type="primary" />
+    </Example>
+    <Example slot="examples" do={false}>
+        <Button label="SHARE NOW" type="primary" />
+    </Example>
+</Guideline>
+
+<Guideline summary="Don’t use more than one primary button" do={false}>
+    <p slot="description">Each page or product area (a form, modal, within an article) should not have more than 1 primary button to help guide the user to the primary action. Any remaining CTA's should be displayed as secondary or ghost buttons.</p>
+    <Example slot="examples" do={true}>
+        <Button label="Share" type="primary" />
+        <Button label="Cancel" type="secondary" />
+    </Example>
+    <Example slot="examples" do={false}>
+        <Button label="Share" type="primary" />
+        <Button label="Cancel" type="primary" />
+    </Example>
+</Guideline>
+
+
+<Guideline summary="Avoid disabled buttons without user research" do={false}>
+    <div slot="description">
+        Avoid disabled buttons unless user research shows they improve your interface. Disabled buttons have poor contrast which makes them difficult to read. They also do not give feedback to a user why they are disabled. This has caused issues for FT readers in the past, and has been flagged in previous accessibility audits.
+
+        Hampus Sethfors explains the issues with disabled buttons in more detail in an [axesslab.com article](https://axesslab.com/disabled-buttons-suck/). In the article Hampus suggests alternative design approaches for common uses of disabled buttons.
+    </div>
+
+    <Example slot="examples" do={false}>
+        <Button label="Submit" type="primary" attributes={{disabled: true}} />
+    </Example>
+</Guideline>

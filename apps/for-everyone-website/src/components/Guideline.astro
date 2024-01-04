@@ -1,0 +1,20 @@
+
+---
+---
+
+<div class={Astro.props.do ? 'guideline guideline--do' : `guideline guideline--do-not`}>
+    <details>
+        <summary>{Astro.props.summary}</summary>
+
+        <slot name="description" />
+
+        <slot name="examples" />
+    </details>
+</div>
+
+<style>
+    summary {
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>

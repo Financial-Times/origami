@@ -3,9 +3,4 @@ title: Introduction to foundations
 description: ...
 ---
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
-
-## Further reading
-
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+This is a work in progress. Watch this space! Our main site remains at [origami.ft.com](https://origami.ft.com/). Contact the Origami time at [#design-system-guild](https://financialtimes.enterprise.slack.com/archives/C01481FKWA2) with any questions, feedback, or comments.

@@ -3,9 +3,6 @@ title: Patterns Introduction
 description: Guidelines on component usage within broader user interface patterns.
 ---
 
-Reference pages are ideal for outlining how things work in terse and clear terms.
-Less concerned with telling a story or addressing a specific use case, they should give a comprehensive outline of what your documenting.
+This is a work in progress. Watch this space! Our main site remains at [origami.ft.com](https://origami.ft.com/). Contact the Origami time at [#design-system-guild](https://financialtimes.enterprise.slack.com/archives/C01481FKWA2) with any questions, feedback, or comments.
 
-## Further reading
 
-- Read [about reference](https://diataxis.fr/reference/) in the Diátaxis framework
