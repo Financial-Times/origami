@@ -17,8 +17,11 @@ export default {
 	],
 	argTypes: Object.assign(ButtonStories.Button.argTypes, {
 		theme: {
-			options: ['inverse', 'mono'],
-			control: { type: 'radio' },
+			options: ['default', 'inverse'],
+			mapping: {
+				default: '',
+				inverse: 'inverse',
+			}
 		},
 	}),
 	parameters: {

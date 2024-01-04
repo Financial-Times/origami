@@ -15,6 +15,15 @@ export default {
 			</div>
 		),
 	],
+	argTypes: Object.assign(ButtonStories.Button.argTypes, {
+		theme: {
+			options: ['default', 'inverse'],
+			mapping: {
+				default: '',
+				inverse: 'inverse',
+			}
+		},
+	}),
 	parameters: {
 		backgrounds: {default: 'paper'},
 	},
