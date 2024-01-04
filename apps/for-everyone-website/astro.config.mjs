@@ -7,7 +7,7 @@ import react from '@astrojs/react';
 export default defineConfig({
 	vite: {
 		ssr: {
-			noExternal: ["@financial-times/o3-button"],
+			noExternal: ["unist-util-visit", "@financial-times/o3-button"],
 		}
 	},
 	integrations: [

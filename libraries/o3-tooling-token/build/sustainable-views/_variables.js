@@ -577,6 +577,10 @@ export default {
 		"value": "#0d7680ff",
 		"type": "color",
 		"description": "",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -590,6 +594,10 @@ export default {
 		"shortName": "oceanwave",
 		"value": "#C9F5EA",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -603,6 +611,10 @@ export default {
 		"shortName": "slate",
 		"value": "#262A33",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -617,6 +629,10 @@ export default {
 		"value": "#ffffffff",
 		"type": "color",
 		"description": "",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -631,6 +647,10 @@ export default {
 		"value": "#000000ff",
 		"type": "color",
 		"description": "",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -645,6 +665,10 @@ export default {
 		"value": "#990f3dff",
 		"type": "color",
 		"description": "",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
 		"path": [
 				"o3",
 				"color",
