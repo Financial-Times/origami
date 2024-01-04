@@ -2,7 +2,7 @@ import {ButtonProps, Button, LinkButton} from './button';
 
 export type ButtonPaginationProps = Pick<
 	ButtonProps,
-	'type' | 'size' | 'theme'
+	'size' | 'theme'
 > & {
 	previousPager: ButtonPaginationPager;
 	pages: ButtonPaginationItem[];
@@ -84,7 +84,6 @@ function splitPages(pages, currentPage) {
 }
 
 export function ButtonPagination({
-	type = 'secondary',
 	size = '',
 	theme,
 	previousPager,
@@ -120,7 +119,7 @@ export function ButtonPagination({
 					attributes={pageAttributes}
 					theme={theme}
 					size={size}
-					type={type}></PageTag>
+					type='secondary'></PageTag>
 			);
 		})
 	);
@@ -143,10 +142,15 @@ export function ButtonPagination({
 				iconOnly={true}
 				theme={theme}
 				size={size}
-				type={type}></PreviousTag>
-				{pageElementsInGroups[0]}
-				{pageElementsInGroups.length > 1 && <Ellipsis></Ellipsis>}
-				{pageElementsInGroups.length > 1 && pageElementsInGroups[1]}
+				type='secondary'></PreviousTag>
+				{pageElementsInGroups.flatMap((pageElementGroup, pageGroupIndex) => {
+					const elementGroup = [];
+					if (pageGroupIndex > 0) {
+						elementGroup.push(<Ellipsis key={pageGroupIndex}></Ellipsis>);
+					}
+					elementGroup.push(pageElementGroup);
+					return elementGroup;
+				})}
 			<NextTag
 				attributes={
 					lastPageIsSelected ? {disabled: true} : {onClick: nextPager.onClick}
@@ -157,7 +161,7 @@ export function ButtonPagination({
 				iconOnly={true}
 				theme={theme}
 				size={size}
-				type={type}></NextTag>
+				type='secondary'></NextTag>
 		</div>
 	);
 }

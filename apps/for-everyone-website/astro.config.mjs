@@ -5,6 +5,11 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+	vite: {
+		ssr: {
+			noExternal: ["@financial-times/o3-button"],
+		}
+	},
 	integrations: [
 		react(),
 		starlight({
@@ -17,6 +22,10 @@ export default defineConfig({
 				'professional': {
 				  label: 'professional',
 				  lang: 'en-GB-x-prof',
+				},
+				'sustainable-views': {
+				  label: 'sustainable views',
+				  lang: 'en-GB-x-sv',
 				},
 			},
 			components: {

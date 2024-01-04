@@ -15,6 +15,7 @@ export default {
 		"shortName": "ft-pink",
 		"value": "#FCD0B1",
 		"type": "color",
+		"description": "FT Pink is used for the FT logo",
 		"origamiKeys": [
 				"palette",
 				"primary"
@@ -86,7 +87,7 @@ export default {
 		"shortName": "claret",
 		"value": "#990f3dff",
 		"type": "color",
-		"description": "",
+		"description": "Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.\n\nUsage example: MyFT branding; MyFT CTAs",
 		"origamiKeys": [
 				"palette",
 				"secondary"
@@ -104,7 +105,7 @@ export default {
 		"shortName": "teal",
 		"value": "#0d7680ff",
 		"type": "color",
-		"description": "",
+		"description": "Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases.",
 		"origamiKeys": [
 				"palette",
 				"secondary"
@@ -122,7 +123,7 @@ export default {
 		"shortName": "oxford",
 		"value": "#0f5499ff",
 		"type": "color",
-		"description": "",
+		"description": "Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.\n\nUsage example: opinion branding; opinion topic tags.",
 		"origamiKeys": [
 				"palette",
 				"secondary"
@@ -140,7 +141,7 @@ export default {
 		"shortName": "slate",
 		"value": "#262a33ff",
 		"type": "color",
-		"description": "",
+		"description": "Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons.",
 		"origamiKeys": [
 				"palette",
 				"secondary"
@@ -158,7 +159,7 @@ export default {
 		"shortName": "paper",
 		"value": "#fff1e5ff",
 		"type": "color",
-		"description": "",
+		"description": "Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white.",
 		"origamiKeys": [
 				"palette",
 				"secondary"

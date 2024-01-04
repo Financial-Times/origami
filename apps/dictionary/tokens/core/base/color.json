@@ -15,7 +15,8 @@
               "styleId": "S:47b573ac7de8e17071c3ecc61c05dc843277efb5,",
               "exportKey": "color"
             }
-          }
+          },
+          "description": "FT Pink is used for the FT logo"
         },
         "ft-grey": {
           "description": "",
@@ -70,7 +71,6 @@
             "palette",
             "secondary"
           ],
-          "description": "",
           "type": "color",
           "value": "#990f3dff",
           "blendMode": "normal",
@@ -79,14 +79,14 @@
               "styleId": "S:82431c59eb5d4b565bc74b2b629398b9bfe2cec4,",
               "exportKey": "color"
             }
-          }
+          },
+          "description": "Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.\n\nUsage example: MyFT branding; MyFT CTAs"
         },
         "teal": {
           "origamiKeys": [
             "palette",
             "secondary"
           ],
-          "description": "",
           "type": "color",
           "value": "#0d7680ff",
           "blendMode": "normal",
@@ -95,14 +95,14 @@
               "styleId": "S:a56ec15ce664561d1049dd70ad6f40fee93ef09c,",
               "exportKey": "color"
             }
-          }
+          },
+          "description": "Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases."
         },
         "oxford": {
           "origamiKeys": [
             "palette",
             "secondary"
           ],
-          "description": "",
           "type": "color",
           "value": "#0f5499ff",
           "blendMode": "normal",
@@ -111,14 +111,14 @@
               "styleId": "S:3e6285be16ea3f3656b8e17321063c4d6ae22e33,",
               "exportKey": "color"
             }
-          }
+          },
+          "description": "Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.\n\nUsage example: opinion branding; opinion topic tags."
         },
         "slate": {
           "origamiKeys": [
             "palette",
             "secondary"
           ],
-          "description": "",
           "type": "color",
           "value": "#262a33ff",
           "blendMode": "normal",
@@ -127,14 +127,14 @@
               "styleId": "S:e64a2c357204910e0d1221cbd096d4ea421df703,",
               "exportKey": "color"
             }
-          }
+          },
+          "description": "Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons."
         },
         "paper": {
           "origamiKeys": [
             "palette",
             "secondary"
           ],
-          "description": "",
           "type": "color",
           "value": "#fff1e5ff",
           "blendMode": "normal",
@@ -143,7 +143,8 @@
               "styleId": "S:aa745b0eb03dc5a44e7eb3aecc0926801bed0b9a,",
               "exportKey": "color"
             }
-          }
+          },
+          "description": "Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white."
         },
         "transparrent": {
           "value": "#ffffff00",
