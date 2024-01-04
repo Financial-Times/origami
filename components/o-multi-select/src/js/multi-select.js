@@ -207,7 +207,7 @@ class MultiSelect {
 	_getCoreOptions() {
 		const options = this._coreWrapper.querySelectorAll('option');
 		this._coreOptions = options;
-		return [...options].map((option) => ({ label: option.innerText, value: option.value }));
+		return [...options].map((option) => ({ label: option.textContent, value: option.value }));
 	}
 
 	/**

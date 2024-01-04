@@ -110,7 +110,7 @@ function createOptionButton(option, index) {
 	button.setAttribute('aria-label', ` remove ${option.label} `);
 	button.className = 'o-multi-select__selected-options-button';
 	button.type = 'button';
-	button.innerText = option.label;
+	button.textContent = option.label;
 	const span = document.createElement('span');
 	span.classList = 'o-icons-icon o-icons-icon--cross';
 	button.appendChild(span);
@@ -134,7 +134,7 @@ export function createOption(idBase, option, index, selected) {
 	optionEl.id = `${idBase}-${index}`;
 	optionEl.className = 'o-multi-select-option';
 	optionEl.setAttribute('aria-selected', selected);
-	optionEl.innerText = option.label;
+	optionEl.textContent = option.label;
 	const tickSpan = document.createElement('span');
 	tickSpan.className = 'o-multi-select-option-tick';
 	optionEl.appendChild(tickSpan);
