@@ -17,9 +17,9 @@ export default {
 	],
 	argTypes: Object.assign(ButtonStories.Button.argTypes, {
 		theme: {
-			options: ['default', 'inverse'],
+			options: ['standard', 'inverse'],
 			mapping: {
-				default: '',
+				standard: '',
 				inverse: 'inverse',
 			}
 		},
