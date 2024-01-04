@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/Financial-Times/origami/compare/o3-button-v0.2.0...o3-button-v0.3.0) (2024-01-04)
+
+
+### Features
+
+* add sustainable views brand ([#1383](https://github.com/Financial-Times/origami/issues/1383)) ([fbd1939](https://github.com/Financial-Times/origami/commit/fbd19399bdca392ba6d81118a2ad975bcb827624))
+
 ## [0.2.0](https://github.com/Financial-Times/origami/compare/o3-button-v0.1.8...o3-button-v0.2.0) (2024-01-03)
 
 
