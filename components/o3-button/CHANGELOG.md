@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/Financial-Times/origami/compare/o3-button-v0.3.0...o3-button-v0.3.1) (2024-01-04)
+
+
+### Bug Fixes
+
+* fix themeing issues in storybook and render correct theme version in controls ([#1387](https://github.com/Financial-Times/origami/issues/1387)) ([53083f4](https://github.com/Financial-Times/origami/commit/53083f45309ad377bc2fbd232130f83ddd5ffe2f))
+
 ## [0.3.0](https://github.com/Financial-Times/origami/compare/o3-button-v0.2.0...o3-button-v0.3.0) (2024-01-04)
 
 
