@@ -2,7 +2,7 @@
   "o3": {
     "button": {
       "primary": {
-        "mono": {
+        "standard": {
           "color": {
             "value": "#ffffff",
             "type": "color"
@@ -116,7 +116,7 @@
         }
       },
       "secondary": {
-        "mono": {
+        "standard": {
           "color": {
             "value": "#262a33",
             "type": "color"
@@ -230,7 +230,7 @@
         }
       },
       "ghost": {
-        "mono": {
+        "standard": {
           "color": {
             "value": "#262a33",
             "type": "color"

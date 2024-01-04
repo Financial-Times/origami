@@ -13,7 +13,7 @@
 		"start": "npx serve origami.ft.com # this is for heroku, not people",
 		"watch": "concurrently 'cd apps/website && npm run watch' 'cd apps/o2-storybook && npm run watch-storybook' 'npx serve origami.ft.com'",
 		"create-component": "cd tools/create-component && create-component",
-	  	"precommit": "prettier --write"
+		"precommit": "prettier --write"
 	},
 	"repository": {
 		"type": "git",
