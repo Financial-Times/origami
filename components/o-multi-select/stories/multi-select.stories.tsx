@@ -32,8 +32,9 @@ export const MultiSelectDefault = args => {
 MultiSelectDefault.storyName = 'Multi Select';
 MultiSelectDefault.args = {
 	multiSelectOptions: [
-		{label: 'Apple', selected: false},
+		{label: 'Apple Pie', selected: false, value: 'apple-pie'},
 		{label: 'Banana', selected: false},
+		{label: 'Banana Split', selected: true, value: 'banana-split'},
 		{label: 'Blueberry', selected: false},
 		{label: 'Boysenberry', selected: true},
 		{label: 'Cherry', selected: false},

@@ -23,6 +23,8 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 `o-multi-select` expects options to be provided in the `<select>` tag. This will make the component accessible for users with screen readers and users with JavaScript disabled. The component will automatically enhance the experience for users with JavaScript enabled.
 
+The value must not contain whitespace characters, as it should be valid as an [id attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
+
 ```html
 <div class="o-multi-select" data-o-component="o-multi-select">
   <select name="multiple" id="fruits" multiple>
@@ -106,7 +108,7 @@ const oMultiSelectElement = document.getElementById(
 oMultiSelect.init(oMultiSelectElement);
 ```
 
-### Events 
+### Events
 
 `o-multi-select` dispatches a custom event `oMultiSelect.OptionChange` that bubbles. It is triggered when an option gets selected or removed. The event data has the following interface:
 

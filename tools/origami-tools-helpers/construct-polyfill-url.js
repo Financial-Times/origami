@@ -1,9 +1,8 @@
 'use strict';
 
 import path from 'node:path'
-import {globby} from 'globby'
 import { readFile } from 'node:fs/promises'
-import execa from 'execa'
+import { execa } from 'execa'
 import { dirname, join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 

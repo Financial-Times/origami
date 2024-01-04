@@ -12,6 +12,7 @@
 	"dependencies": {
 		"colors": "^1.4.0",
 		"deglob": "^4.0.1",
+		"execa": "^6.1.0",
 		"globby": "^12.0.2"
 	}
 }

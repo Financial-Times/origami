@@ -19,6 +19,7 @@ Whole page layouts including typography.
 	- [Custom Navigation](#custom-navigation)
 	- [Linking Headings](#linking-headings)
 - [Migration Guide](#migration-guide)
+- [Troubleshooting](#troubleshooting)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -719,6 +720,15 @@ State | Major Version | Last Minor Release | Migration guide |
 ╳ deprecated | 2 | 2.2.5 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 ╳ deprecated | 1 | 1.3.4 | N/A |
 
+## Troubleshooting
+
+### Layout of components breaks inside o-layout
+
+Some other Origami components may appeear broken when used inside the `o-layout-typography` class. This is because the class styles children elements which leads to components appearing broken. Ideally, this class should only be used with copy.
+
+To fix this, remove the `o-layout-typography` class and your components should appear as normal. If typography styiling is needed, please re-arrange your code so that the class can solely target copy that needs the styling.
+
+You can read more about this class in the [typography section](#typography) of this readme.
 
 ## Contact
 

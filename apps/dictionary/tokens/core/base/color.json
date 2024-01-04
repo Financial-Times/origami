@@ -71,6 +71,7 @@
             "palette",
             "secondary"
           ],
+          "description": "",
           "type": "color",
           "value": "#990f3dff",
           "blendMode": "normal",
@@ -87,6 +88,7 @@
             "palette",
             "secondary"
           ],
+          "description": "",
           "type": "color",
           "value": "#0d7680ff",
           "blendMode": "normal",
@@ -103,6 +105,7 @@
             "palette",
             "secondary"
           ],
+          "description": "",
           "type": "color",
           "value": "#0f5499ff",
           "blendMode": "normal",
@@ -119,6 +122,7 @@
             "palette",
             "secondary"
           ],
+          "description": "",
           "type": "color",
           "value": "#262a33ff",
           "blendMode": "normal",
@@ -135,6 +139,7 @@
             "palette",
             "secondary"
           ],
+          "description": "",
           "type": "color",
           "value": "#fff1e5ff",
           "blendMode": "normal",

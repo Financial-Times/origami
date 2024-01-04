@@ -1,21 +1,21 @@
 export interface ButtonProps {
 	label: string;
-	type: "primary" | "secondary" | "ghost";
-	size?: "small" | "";
-	theme?: "inverse" | "mono";
+	type: 'primary' | 'secondary' | 'ghost';
+	size?: 'small' | '';
+	theme?: 'inverse' | 'mono';
 	icon?:
-		| "arrow-left"
-		| "arrow-right"
-		| "upload"
-		| "tick"
-		| "plus"
-		| "arrow-down"
-		| "arrow-up"
-		| "edit-outlined"
-		| "download"
-		| "search"
-		| "refresh"
-		| "cross";
+		| 'arrow-left'
+		| 'arrow-right'
+		| 'upload'
+		| 'tick'
+		| 'plus'
+		| 'arrow-down'
+		| 'arrow-up'
+		| 'edit-outlined'
+		| 'download'
+		| 'search'
+		| 'refresh'
+		| 'cross';
 	iconOnly?: boolean;
 	visuallyHideDisabled?: boolean;
 	attributes?: {
@@ -28,11 +28,22 @@ export interface LinkButtonProps extends ButtonProps {
 	href: string;
 }
 
-type ButtonClassProps = Pick<ButtonProps, "visuallyHideDisabled" | "type" | "size" | "theme" | "icon" | "iconOnly"> & {
+type ButtonClassProps = Pick<
+	ButtonProps,
+	'visuallyHideDisabled' | 'type' | 'size' | 'theme' | 'icon' | 'iconOnly'
+> & {
 	customClasses: string | boolean;
 };
 
-function makeClassNames({customClasses, visuallyHideDisabled, type, size, theme, icon, iconOnly}: ButtonClassProps) {
+function makeClassNames({
+	customClasses,
+	visuallyHideDisabled,
+	type,
+	size,
+	theme,
+	icon,
+	iconOnly,
+}: ButtonClassProps) {
 	const classNames = ['o3-button', `o3-button--${type}`, customClasses];
 
 	if (size) {
@@ -76,7 +87,15 @@ export function Button({
 	return (
 		<button
 			onClick={onClick ? event => onClick(event) : null}
-			className={makeClassNames({customClasses, visuallyHideDisabled, type, size, theme, icon, iconOnly})}
+			className={makeClassNames({
+				customClasses,
+				visuallyHideDisabled,
+				type,
+				size,
+				theme,
+				icon,
+				iconOnly,
+			})}
 			{...attributes}>
 			{icon && iconOnly ? (
 				<span className="o3-button-icon__label">{label}</span>
@@ -96,7 +115,7 @@ export function LinkButton({
 	iconOnly = false,
 	visuallyHideDisabled = false,
 	attributes = {},
-	href = "",
+	href = '',
 	onClick,
 }: LinkButtonProps) {
 	// Combine custom classes with first party o3-button classes,
@@ -107,7 +126,15 @@ export function LinkButton({
 		<a
 			href={href}
 			onClick={onClick ? event => onClick(event) : null}
-			className={makeClassNames({customClasses, visuallyHideDisabled, type, size, theme, icon, iconOnly})}
+			className={makeClassNames({
+				customClasses,
+				visuallyHideDisabled,
+				type,
+				size,
+				theme,
+				icon,
+				iconOnly,
+			})}
 			{...attributes}>
 			{icon && iconOnly ? (
 				<span className="o3-button-icon__label">{label}</span>

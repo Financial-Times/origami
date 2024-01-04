@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.2.4](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.3...o-multi-select-v2.2.4) (2024-01-03)
+
+
+### Bug Fixes
+
+* show pre-selected options in the select box and use option label for aria-label ([7685916](https://github.com/Financial-Times/origami/commit/76859168432af6ac633868a66ae72e50898feedb))
+
+## [2.2.3](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.2...o-multi-select-v2.2.3) (2023-12-20)
+
+
+### Bug Fixes
+
+* allow for multiselect options with whitespace ([940f075](https://github.com/Financial-Times/origami/commit/940f075a4c73c31cbc78ba2079dd6c7293265a3c))
+
 ## [2.2.2](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.1...o-multi-select-v2.2.2) (2023-10-27)
 
 
