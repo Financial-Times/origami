@@ -18,6 +18,10 @@ export default defineConfig({
 				  label: 'professional',
 				  lang: 'en-GB-x-prof',
 				},
+				'sustainable-views': {
+				  label: 'sustainable views',
+				  lang: 'en-GB-x-sv',
+				},
 			},
 			components: {
 				Hero: './src/components/Hero.astro',

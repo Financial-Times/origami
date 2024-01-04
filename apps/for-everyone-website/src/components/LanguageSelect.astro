@@ -41,7 +41,7 @@ function localizedUrl(url: URL, locale: string | undefined): URL {
 	// Temporarily remove base to simplify
 	if (hasBase) url.pathname = url.pathname.replace(base, '');
 	const [_leadingSlash, baseSegment] = url.pathname.split('/');
-	if (baseSegment && ['professional'].includes(baseSegment)) {
+	if (baseSegment && ['professional', 'sustainable-views'].includes(baseSegment)) {
 		// We’re in a localized route, substitute the new locale (or strip for root lang).
 		url.pathname = locale
 			? url.pathname.replace(baseSegment, locale)
@@ -77,6 +77,7 @@ function localizedPathname(locale: string | undefined): string {
 						document.querySelector('.main-pane')?.classList.remove(`o3-brand-professional`);
 						document.querySelector('.main-pane')?.classList.remove(`o3-brand-internal`);
 						document.querySelector('.main-pane')?.classList.remove(`o3-brand-whitelable`);
+						document.querySelector('.main-pane')?.classList.remove(`o3-brand-sustainable-views`);
 						document.querySelector('.main-pane')?.classList.add(`o3-brand-${brand}`);
 
 						if (typeof localStorage !== 'undefined') {

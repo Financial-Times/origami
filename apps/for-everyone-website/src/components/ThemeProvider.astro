@@ -15,6 +15,7 @@ import { Icon } from '@astrojs/starlight/components';
             document.querySelector('.main-pane')?.classList.remove(`o3-brand-professional`);
             document.querySelector('.main-pane')?.classList.remove(`o3-brand-internal`);
             document.querySelector('.main-pane')?.classList.remove(`o3-brand-whitelable`);
+            document.querySelector('.main-pane')?.classList.remove(`o3-brand-sustainable-views`);
             document.querySelector('.main-pane')?.classList.add(`o3-brand-${theme}`);
 
         })
@@ -43,4 +44,5 @@ import { Icon } from '@astrojs/starlight/components';
 	<Icon name="laptop" class="professional" label="Professional" />
 	<Icon name="laptop" class="internal" label="Internal" />
 	<Icon name="laptop" class="whitelable" label="Whitelable" />
+	<Icon name="laptop" class="sustainable-views" label="Sustainable Views" />
 </template>
