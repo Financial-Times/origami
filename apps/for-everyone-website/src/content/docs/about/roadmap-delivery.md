@@ -74,6 +74,6 @@ new, multi-brand components and patterns including end-to-end design guidelines,
   - Publish deprecation notice and comms.
   - Create a static archive of the Origami Registry
   - Replace the registry link with Storybook on origami.ft.com
-  - Decomission origami-registry-ui
-  - Decomission origami-codedocs
-  - Decomission origami-repo-data
+  - Decommission origami-registry-ui
+  - Decommission origami-codedocs
+  - Decommission origami-repo-data
