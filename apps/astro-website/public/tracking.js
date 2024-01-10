@@ -10,7 +10,7 @@ if (window.location.href.startsWith('https://origami.ft.com/') && oktaId) {
 	oTracking.init({
 		context: {
 			product: 'engineering-enablement',
-			app: 'origami-website',
+			app: 'origami-old-website',
 		},
 		user: {
 			okta_id: oktaId,
