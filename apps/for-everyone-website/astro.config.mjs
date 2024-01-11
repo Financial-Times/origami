@@ -40,6 +40,22 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/financial-times/origami/',
 			},
+			head: [
+		    {
+		      tag: 'script',
+		      attrs: {
+		        src: 'https://www.ft.com/__origami/service/build/v3/bundles/js?components=o-tracking@^4.5.0&system_code=origami-website',
+		        defer: true,
+		      },
+		    },
+		    {
+		      tag: 'script',
+		      attrs: {
+		        src: '/js/tracking.js',
+		        defer: true,
+		      }
+		    }
+		  ],
 			sidebar: [
 				{
 					label: 'About',
