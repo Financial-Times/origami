@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
 
-
 // https://astro.build/config
 export default defineConfig({
 	vite: {
@@ -30,9 +29,9 @@ export default defineConfig({
 			},
 			components: {
 				Hero: './src/components/Hero.astro',
-				ThemeProvider: './src/components/ThemeProvider.astro',
 				LanguageSelect: './src/components/LanguageSelect.astro',
-				ThemeSelect: './src/components/ThemeSelect.astro',
+				ContentPanel: './src/components/ContentPanel.astro',
+				ThemeSelect: './src/components/EmptyComponent.astro',
 			},
 			customCss: [
 				'./src/styles/custom.css',

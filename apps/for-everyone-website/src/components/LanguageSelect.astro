@@ -1,18 +1,14 @@
 ---
-import config from 'virtual:starlight/user-config';
-import Select from '@astrojs/starlight/components/Select.astro';
-import type { Props } from '../props';
-
-
-const showLangSelector = config.isMultilingual;
-
+import config from "virtual:starlight/user-config"
+import Select from "@astrojs/starlight/components/Select.astro"
 ---
+
 {
-	showLangSelector && (
+	(
 		<starlight-lang-select>
 			<Select
 				icon="laptop"
-				label='select brand'
+				label="select brand"
 				value={Astro.props.locale}
 				options={Object.entries(config.locales).map(([code, locale]) => ({
 					value: code,
@@ -26,72 +22,57 @@ const showLangSelector = config.isMultilingual;
 }
 
 <script>
+	import config from "virtual:starlight/user-config"
 
-/**
- * Get the equivalent of the passed URL for the passed locale.
- */
-function localizedUrl(url: URL, locale: string | undefined): URL {
-	// Create a new URL object to void mutating the global.
-	url = new URL(url);
+	/**
+	 * Get the equivalent of the passed URL for the passed locale
+	 */
+	function localizePath(location: string, locale?: string): string {
+		const localeCodes = Object.keys(config.locales)
 
-	if (locale === 'root') locale = '';
-	/** Base URL with trailing `/` stripped. */
-	const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-	const hasBase = url.pathname.startsWith(base);
-	// Temporarily remove base to simplify
-	if (hasBase) url.pathname = url.pathname.replace(base, '');
-	const [_leadingSlash, baseSegment] = url.pathname.split('/');
-	if (baseSegment && ['professional', 'sustainable-views'].includes(baseSegment)) {
-		// We’re in a localized route, substitute the new locale (or strip for root lang).
-		url.pathname = locale
-			? url.pathname.replace(baseSegment, locale)
-			: url.pathname.replace('/' + baseSegment, '');
-	} else if (locale) {
-		// We’re in the root language. Inject the new locale if we have one.
-		url.pathname = '/' + locale + url.pathname;
+		let {pathname: currentPath} = new URL(location)
+
+		if (currentPath === "/") {
+			return locale === "root" ? "/" : "/" + locale + "/"
+		}
+
+		// Trim leading and trailing slashes, note this does not mutate workingUrl
+		const trimmedPathname = currentPath.replace(/^\/|\/$/g, "")
+		const [baseSegment, ...restSegments] = trimmedPathname.split("/")
+
+		if (locale === "root") {
+			if (!localeCodes.includes(baseSegment)) {
+				return "/" + currentPath
+			} else {
+				return "/" + restSegments.join("/")
+			}
+		}
+
+		if (!localeCodes.includes(baseSegment)) {
+			return "/" + locale + currentPath
+		} else if (restSegments.length > 0) {
+			return "/" + locale + "/" + restSegments.join("/")
+		} else {
+			return "/" + locale + "/"
+		}
 	}
-	// Restore base
-	if (hasBase) url.pathname = base + url.pathname;
-	return url;
-}
-
-/**
- * Get the equivalent of the current page path for the passed locale.
- */
-function localizedPathname(locale: string | undefined): string {
-	return localizedUrl(location.toString(), locale).pathname;
-}
 
 	class StarlightLanguageSelect extends HTMLElement {
 		constructor() {
-			super();
-			const select = this.querySelector('select');
+			super()
+			const select = this.querySelector("select")
 			if (select) {
-				select.addEventListener('change', (e) => {
+				select.addEventListener("change", e => {
 					if (e.currentTarget instanceof HTMLSelectElement) {
-						const brand = e.currentTarget.value === 'root' ? 'core' :  e.currentTarget.value;
-
-
-
-						document.querySelector('.main-pane')?.classList.remove(`o3-brand-core`);
-						document.querySelector('.main-pane')?.classList.remove(`o3-brand-professional`);
-						document.querySelector('.main-pane')?.classList.remove(`o3-brand-internal`);
-						document.querySelector('.main-pane')?.classList.remove(`o3-brand-whitelable`);
-						document.querySelector('.main-pane')?.classList.remove(`o3-brand-sustainable-views`);
-						document.querySelector('.main-pane')?.classList.add(`o3-brand-${brand}`);
-
-						if (typeof localStorage !== 'undefined') {
-							if (brand) {
-								localStorage.setItem('starlight-theme', brand);
-							} else {
-								localStorage.removeItem('starlight-theme');
-							}
-						}
-						window.location.pathname = localizedPathname(e.currentTarget.value);
+						window.location.pathname = localizePath(
+							location.toString(),
+							e.currentTarget.value
+						)
 					}
-				});
+				})
 			}
 		}
 	}
-	customElements.define('starlight-lang-select', StarlightLanguageSelect);
+
+	customElements.define("starlight-lang-select", StarlightLanguageSelect)
 </script>
