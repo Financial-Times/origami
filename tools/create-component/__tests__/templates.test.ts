@@ -34,10 +34,6 @@ describe('Component template files', () => {
 			const str = await ejsToHTML('.npmignore');
 			expect(str).toMatchSnapshot();
 		});
-		it('expect .prettierrc.toml ejsRenderer fn output to match snapshot', async () => {
-			const str = await ejsToHTML('.prettierrc.toml');
-			expect(str).toMatchSnapshot();
-		});
 		it('expect .remarkrc.cjs ejsRenderer fn output to match snapshot', async () => {
 			const str = await ejsToHTML('.remarkrc.cjs');
 			expect(str).toMatchSnapshot();
