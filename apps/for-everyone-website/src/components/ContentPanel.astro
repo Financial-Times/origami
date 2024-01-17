@@ -1,0 +1,45 @@
+---
+function getBrandClassFromLocale(lang: string) {
+	debugger
+	switch (lang) {
+		case "en-GB-x-prof":
+			return "o3-brand-professional"
+		case "en-GB-x-sv":
+			return "o3-brand-sustainable-views"
+		case "en-GB-x-core":
+		default:
+			return "o3-brand-core"
+	}
+}
+
+// Given the currently-selected brand (communicated as the page's language), choose the
+// class to add to the central content panel container element, determining the brand
+// of all Origami components within
+let brandClass = getBrandClassFromLocale(Astro.props.lang)
+---
+
+<div class={`content-panel ${brandClass}`}>
+	<div class="sl-container"><slot /></div>
+</div>
+
+<style>
+	.content-panel {
+		padding: 1.5rem var(--sl-content-pad-x);
+	}
+	.content-panel + .content-panel {
+		border-top: 1px solid var(--sl-color-hairline);
+	}
+	.sl-container {
+		max-width: var(--sl-content-width);
+	}
+
+	.sl-container > :global(* + *) {
+		margin-top: 1.5rem;
+	}
+
+	@media (min-width: 72rem) {
+		.sl-container {
+			margin-inline: var(--sl-content-margin-inline, auto);
+		}
+	}
+</style>
