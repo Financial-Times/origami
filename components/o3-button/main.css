@@ -413,6 +413,16 @@
 	background-color: currentColor;
 }
 
+/*
+	Ensure iconography is maintained when forced colours is enabled.
+	E.g. Windows High Contrast Mode
+ */
+@media (forced-colors: active) {
+	.o3-button-icon::before {
+		mask-image: var(--o3-button-icon);
+	}
+}
+
 .o3-button-icon:not(.o3-button-icon--icon-only)::before {
 	margin-right: var(--o3-spacing-4xs);
 }
