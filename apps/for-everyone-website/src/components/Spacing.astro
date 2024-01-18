@@ -1,0 +1,69 @@
+---
+const tokens = await import(
+	`@financial-times/o3-tooling-token/${Astro.props.brand}.js`
+);
+const spacingTokens = Object.entries(tokens.default)
+	.filter(([_key, value]) => value.type === 'spacing')
+	.map(([key, value]) => {
+		value.name = key;
+		return value;
+	});
+
+const spacingsHaveDescription = Boolean(
+	spacingTokens.find(
+		token =>
+			typeof token.description === 'string' && token.description.trim() !== ''
+	)
+);
+---
+
+<table class="spacing-table">
+	<thead>
+		<tr>
+			<th class="name">name</th>
+			<th>css / figma</th>
+			{spacingsHaveDescription && <th>description</th>}
+			<th class="value">value</th>
+		</tr>
+	</thead>
+	<tbody>
+		{
+			spacingTokens.map(token => {
+				return (
+					<tr>
+						<td>{token.shortName}</td>
+						<td>
+							{token.css}
+							<br />
+							{token.figma}
+						</td>
+						{spacingsHaveDescription && <td>{token.description}</td>}
+						<td>
+							{token.value} ({token.originalValue})
+						</td>
+					</tr>
+				);
+			})
+		}
+	</tbody>
+</table>
+
+<style>
+	.spacing-table.spacing-table {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+		overflow-wrap: anywhere;
+	}
+	.spacing-table.spacing-table th {
+		text-align: left;
+	}
+
+	th.name {
+		width: 100px;
+	}
+	th.value {
+		width: 14ch;
+		text-align: right;
+	}
+</style>
