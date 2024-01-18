@@ -32,6 +32,7 @@ export default defineConfig({
 				LanguageSelect: './src/components/LanguageSelect.astro',
 				ContentPanel: './src/components/ContentPanel.astro',
 				ThemeSelect: './src/components/EmptyComponent.astro',
+				ThemeProvider: './src/components/ThemeProvider.astro',
 			},
 			customCss: [
 				'./src/styles/custom.css',
