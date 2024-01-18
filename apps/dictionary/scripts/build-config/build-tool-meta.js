@@ -52,6 +52,7 @@ StyleDictionaryPackage.registerFormat({
 			const value = {
 				shortName: token.path[token.path.length - 1],
 				value: token.value,
+				originalValue: token.original.value,
 				type: token.type,
 				description: token.description,
 				origamiKeys: token.origamiKeys,
