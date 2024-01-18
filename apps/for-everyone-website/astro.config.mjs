@@ -26,6 +26,10 @@ export default defineConfig({
 				  label: 'sustainable views',
 				  lang: 'en-GB-x-sv',
 				},
+				'internal': {
+				  label: 'internal',
+				  lang: 'en-GB-x-internal',
+				},
 			},
 			components: {
 				Hero: './src/components/Hero.astro',
