@@ -20,7 +20,7 @@ Guidelines independent of o3 Origami support.
   - Buttons <strong>(done)</strong>
   - Colour tinting
   - Initial colour use cases
-  - Spacing scale
+  - Spacing scale <strong>(in progress)</strong>
   - Typography scale
   - Basic form fields
 	- text input
@@ -40,31 +40,31 @@ new, multi-brand components and patterns including end-to-end design guidelines,
   - Grouped button pattern <strong>(in progress)</strong>
 	- This is in o3-button, but not Figma or the site
   - Add initial Sustainable Views brand support <strong>(done)</strong>
-  - Basic article typography
-	- big-number
-	- blockquote
-	- break
-	- emphasis
-	- headings
-	- link
-	- list-item
-	- list
-	- paragraph
-	- pullquote
-	- strikethrough
-	- strong
+  - Basic article typography <strong>(in progress)</strong>
+    - big-number
+    - blockquote
+    - break
+    - emphasis
+    - headings
+    - link
+    - list-item
+    - list
+    - paragraph
+    - pullquote
+    - strikethrough
+    - strong
   - Labels
-	- badge (live label, ect)
-	- other labels
+	  - badge (live label, ect) <strong>(postponed)</strong>
+	  - other labels
   - Tooltip
 
 ### Adoption and iteration
   - Review & publish o3 Figma libraries
   - Add support matrix to website e.g availablility in Figma, o2, o3
   - Experiment with replacing o3 component JSX with an Origami React library
-  - Refactor the component build step
-  - Refactor this website, especially the flaky brand switcher
-	- Add an initial view for the internal brand. Document the latest process for adding a new brand to the site.
+  - Refactor the component build step <strong>(in progress)</strong>
+  - Refactor this website, especially the flaky brand switcher  <strong>(in progress)</strong>
+	  - Add an initial view for the internal brand. Document the latest process for adding a new brand to the site. <strong>(in progress)</strong>
   - Improve technical documentation for released o3 components, include o2 to o3 migration guide
   - Workshop to (re)introduce o3 to designers and engineers
 
