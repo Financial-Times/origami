@@ -1,0 +1,10 @@
+---
+// Starlight reads this data-theme attribute to show a light or dark theme.
+//
+// Starlight's stock ThemeProvider component will use the 'prefers-color-scheme' media query to set
+// this, but Origami doesn't support a dark mode yet, so we always set it to light.
+---
+
+<script is:inline>
+	document.documentElement.dataset.theme = 'light';
+</script>

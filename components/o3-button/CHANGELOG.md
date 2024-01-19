@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/Financial-Times/origami/compare/o3-button-v0.3.1...o3-button-v0.3.2) (2024-01-18)
+
+
+### Bug Fixes
+
+* o3-button, ensure icons remain with forced colours ([1be00f5](https://github.com/Financial-Times/origami/commit/1be00f5f0fcf4a636db2db2d56d72027efa202f4))
+
 ## [0.3.1](https://github.com/Financial-Times/origami/compare/o3-button-v0.3.0...o3-button-v0.3.1) (2024-01-04)
 
 
