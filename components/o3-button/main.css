@@ -416,10 +416,16 @@
 /*
 	Ensure iconography is maintained when forced colours is enabled.
 	E.g. Windows High Contrast Mode
+	https://drafts.csswg.org/css-color/#valdef-color-buttontext
  */
 @media (forced-colors: active) {
-	.o3-button-icon::before {
-		mask-image: var(--o3-button-icon);
+	/* stylelint-disable-next-line selector-no-qualifying-type */
+	button.o3-button-icon::before {
+		background-color: ButtonText;
+	}
+	/* stylelint-disable-next-line selector-no-qualifying-type */
+	a.o3-button-icon::before {
+		background-color: LinkText;
 	}
 }
 
