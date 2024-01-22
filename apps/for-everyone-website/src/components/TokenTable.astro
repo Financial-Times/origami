@@ -1,0 +1,52 @@
+---
+const allTokens = await import(`@financial-times/o3-tooling-token/${Astro.props.brand}.js`);
+const filteredTokens = Object.entries(allTokens.default).filter(([key, value]) => value.type === Astro.props.type).map(([key, value]) => {
+	value.name = key;
+	return value
+});
+---
+
+<table class="token-table">
+	<thead>
+	<tr>
+		<th class="name">name</th>
+		<th>css / figma</th>
+		<th>description</th>
+		<th class="value">value</th>
+	</tr>
+	</thead>
+	<tbody>
+	{
+		filteredTokens.map((token) => {
+			return <tr>
+				<td><span>{token.shortName}</span></td>
+				<td>{token.css}<br>{token.figma}</td>
+				<td>{token.description || '...'}</td>
+				<td>{token.value}</td>
+			</tr>;
+		})
+	}
+	</tbody>
+</table>
+<style>
+
+	.token-table.token-table {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+		overflow-wrap: anywhere;
+	}
+
+	.token-table.token-table th {
+		text-align: left;
+	}
+
+
+	th.name {
+		width: 100px;
+	}
+
+	th.value {
+		width: 120px;
+	}
+</style>
