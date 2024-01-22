@@ -80,7 +80,7 @@ module.exports = {
 		"selector-class-pattern": "^[a-z0-9_\\-]+$",
 		"selector-list-comma-newline-after": "always",
 		"selector-list-comma-space-after": "always-single-line",
-		"selector-no-qualifying-type": true,
+		"selector-no-qualifying-type": false,
 		"shorthand-property-no-redundant-values": true,
 		"value-list-comma-space-after": "always",
 	},
