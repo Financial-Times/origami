@@ -1,0 +1,30 @@
+---
+const tokenToCssProperty = {
+	fontSizes: 'font-size',
+	lineHeights: 'line-height'
+};
+const allTokens = await import(`@financial-times/o3-tooling-token/${Astro.props.brand}.js`);
+const filteredTokens = Object.entries(allTokens.default).filter(([key, value]) => value.type === Astro.props.type).map(([key, value]) => {
+	value.name = key;
+	return value
+});
+---
+
+<table class="font-display">
+	{
+		filteredTokens.map((token) => {
+			return
+				<tr>
+					<td class="token-display">{token.shortName}</td>
+					<td
+						style=`${tokenToCssProperty[Astro.props.type]}: ${token.value}`>Don't settle for black and white
+					</td>
+				</tr>
+		})
+	}
+</table>
+<style>
+	.token-display {
+		vertical-align: center;
+	}
+</style>
