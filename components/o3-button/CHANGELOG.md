@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.3](https://github.com/Financial-Times/origami/compare/o3-button-v0.3.2...o3-button-v0.3.3) (2024-01-23)
+
+
+### Bug Fixes
+
+* correct o3-button icon style with forced colours ([92e6d70](https://github.com/Financial-Times/origami/commit/92e6d709ef44b3aedff1be4242b2fc3ec8a9b509))
+* remove selector-no-qualifying-type stylelint rule ([0e0a6b9](https://github.com/Financial-Times/origami/commit/0e0a6b91b54ebe89fd308e025449112bc00cc511))
+
 ## [0.3.2](https://github.com/Financial-Times/origami/compare/o3-button-v0.3.1...o3-button-v0.3.2) (2024-01-18)
 
 
