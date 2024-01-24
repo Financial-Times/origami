@@ -8,13 +8,13 @@ const filteredTokens = Object.entries(allTokens.default).filter(([key, value]) =
 	value.name = key;
 	return value
 });
+
 ---
 
 <table class="font-display">
 	{
 		filteredTokens.map((token) => {
-			return
-				<tr>
+			return <tr>
 					<td class="token-display">{token.shortName}</td>
 					<td
 						style=`${tokenToCssProperty[Astro.props.type]}: ${token.value}`>Don't settle for black and white
