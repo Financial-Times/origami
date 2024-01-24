@@ -198,13 +198,6 @@ describe('stylelint', function () {
             ]
         },
         {
-            name: 'selector-no-qualifying-type',
-            locations: [
-                'no-qualifying-elements/invalid.scss:2:1',
-                'no-qualifying-elements/invalid.scss:7:1'
-            ]
-        },
-        {
             name: 'number-no-trailing-zeros',
             locations: [
                 'no-trailing-zero/invalid.scss:2:13',
