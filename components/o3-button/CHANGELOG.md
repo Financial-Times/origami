@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/Financial-Times/origami/compare/o3-button-v0.3.3...o3-button-v0.4.0) (2024-01-26)
+
+
+### Features
+
+* tweak o3-button pagination spacing, add 'narrow' mode ([34130ad](https://github.com/Financial-Times/origami/commit/34130ad7a318284bd87ead3bb5ce3cd2bb871ad7))
+
 ## [0.3.3](https://github.com/Financial-Times/origami/compare/o3-button-v0.3.2...o3-button-v0.3.3) (2024-01-23)
 
 
