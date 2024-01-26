@@ -1,0 +1,54 @@
+---
+const tokens = await import(`@financial-times/o3-tooling-token/icons.js`);
+
+const iconTokens = Object.entries(tokens.default).map(([key, value]) => {
+	value.name = key;
+	return value;
+});
+
+const iconTokensHaveDescription = Boolean(
+	iconTokens.find(
+		token =>
+			typeof token.description === 'string' && token.description.trim() !== ''
+	)
+);
+---
+
+<table class="spacing-table">
+	<thead>
+		<tr>
+			<th class="name">icon</th>
+			<th>css</th>
+			{iconTokensHaveDescription && <th>description</th>}
+		</tr>
+	</thead>
+	<tbody>
+		{
+			iconTokens.map(token => {
+				return (
+					<tr>
+						<td>
+							<span class="icon-preview">
+								<span class="icon-preview__icon">
+									<Fragment set:html={token.originalValue} />
+								</span>
+								{token.shortName}
+							</span>
+						</td>
+						<td>{token.css}</td>
+						{iconTokensHaveDescription && <td>{token.description}</td>}
+					</tr>
+				);
+			})
+		}
+	</tbody>
+</table>
+
+<style>
+	.icon-preview {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		white-space: nowrap;
+	}
+</style>
