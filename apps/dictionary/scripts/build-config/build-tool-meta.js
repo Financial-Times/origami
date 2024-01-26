@@ -87,4 +87,23 @@ function buildToolingMetaTokens() {
 	})
 }
 
+function buildToolingIconTokens() {
+	const iconsFileConfig = [
+		{
+			destination: "_variables.js",
+			format: 'tooling/esm',
+			options: {
+				outputReferences: true,
+			},
+		},
+	]
+
+	new MetaConfigBuilder(StyleDictionaryPackage)
+		.setSources([path.join(basePath,  "tokens/icons/icons.json")])
+		.setBuildPath("build/icons/")
+		.setFilesConfig(iconsFileConfig)
+		.buildDictionary()
+}
+
 buildToolingMetaTokens()
+buildToolingIconTokens()
