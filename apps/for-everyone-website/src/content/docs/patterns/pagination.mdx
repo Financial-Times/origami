@@ -16,6 +16,7 @@ import { Code } from 'astro:components';
 import * as starlightExpressiveCode from '@astrojs/starlight/expressive-code';
 import { default as Example } from '../../../components/Example.astro';
 import { default as Guideline } from '../../../components/Guideline.astro';
+import { default as PaginationAnatomy } from '../../../components/PaginationAnatomy.astro';
 
 export function Preview ({component: Component, ...componentProps }) {
     const ComponentInstance = Component(componentProps);
@@ -39,12 +40,55 @@ export function Preview ({component: Component, ...componentProps }) {
 
 Pagination aids user movement across an ordered collection of items that has been split into pages.
 
-## Overview
-
 Pagination uses our Primary brand colours and follows UI rules of the button...The token name is
 O3_pagination. Currently, [pagination looks like this in o2](https://www.ft.com/financials?page=2), but this will soon be deprecated.
 
 We recommend using Origami components which provide this pagination functionality by default. See pagination behaviour in action within Storybook.
+
+### TODO
+
+For all of these todos, consult the designs!
+
+* Tidy up overview section
+
+* Fix anatomy diagram, the number labels need aligning with the new pagination block width, and the first '4' should be a '3'!
+
+* Add second half of 'Usage - Web and App' section
+
+* Add 'Variations' section
+
+* Add feedback section
+
+
+## Anatomy and Variations
+
+Overview of the structure of the component or pattern, plus the variations.
+
+<PaginationAnatomy />
+
+1. (and 4) **Navigation (previous and next)**: To move backwards and forwards from the currently selected page.
+
+2. **Page**: Numbers that indicate pages.
+
+3. **Truncation**: Indicated by ellipses (…) to replace any skipped pages.
+
+## Usage - Web and App
+
+Here are recommendations on best practices for the Web and App.
+
+### Mobile Web and Desktop pagination
+
+* Should be placed at the bottom of a long list that has been split up into pages.
+* Should navigate to the previous and next set of items in the paged list.
+* Indicate when users are at the first or the last page by disabling the arrows.
+
+### App (iOS and Android) pagination
+
+* Where infinite scrolling is used, start loading items when merchants are close to the bottom, roughly 5 items from the end
+* Show a spinner below the list to indicate that items have been requested.
+* After more results have been fetched, they should load in below
+
+---
 
 ## Usage Guidelines
 
