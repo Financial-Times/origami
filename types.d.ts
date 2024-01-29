@@ -760,6 +760,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
+"2024-01-24-sass-build-times.md": {
+	id: "2024-01-24-sass-build-times.md";
+  slug: "2024-01-24-sass-build-times";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 };
 
 	};

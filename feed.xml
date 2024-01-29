@@ -3869,4 +3869,27 @@ reflect teams current interests a little bit better.&lt;/p&gt;
 &lt;li&gt;Delyanka Sirakova for presenting Figma Organisation, Structure, &amp;amp; Naming Convention at Origami Design System Guild,&lt;/li&gt;
 &lt;li&gt;Kristo Mikkonen for adding an image overlays api to the Origami Image Service&lt;/li&gt;
 &lt;/ul&gt;
-</content:encoded><author>Ben Freshwater</author></item></channel></rss>
+</content:encoded><author>Ben Freshwater</author></item><item><title>Sass Build Times</title><link>https://origami.ft.com/blog/2024/01/24/sass-build-times/</link><guid isPermaLink="true">https://origami.ft.com/blog/2024/01/24/sass-build-times/</guid><description>Sass build times got you down? Let us know.</description><pubDate>Wed, 24 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We&apos;ve heard some teams at the FT are struggling with slow Sass build times. Friction between making a change and seeing the result can be pretty painful, right! It slows down our ability to iterate and deliver, and gives ample opportunities for distraction... and doom scrolling... as we wait.&lt;/p&gt;
+&lt;p&gt;We can&apos;t blame Sass too much, it&apos;s wonderful, but we have a large estate of complex Sass that has become slow. In our view, now is the time to migrate away from Sass.&lt;/p&gt;
+&lt;h2&gt;What Origami is doing&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;We presented a &lt;a href=&quot;https://docs.google.com/document/d/1RuGduWdX0zGsgsp9C7lIhXgqEia6sWK900_3XVwYDIM/edit#heading=h.1f3yolavobef&quot;&gt;Sass to CSS proposal&lt;/a&gt; which is endorsed by our technology governance group (TGG).&lt;/li&gt;
+&lt;li&gt;We&apos;re working on &lt;a href=&quot;https://origami-for-everyone.ft.com/components/buttons/&quot;&gt;a new suite of &quot;o3&quot; Origami components&lt;/a&gt;, so Origami won&apos;t require you to use Sass in the future.&lt;/li&gt;
+&lt;li&gt;We&apos;ve implemented Sass build time monitoring across key Customer Products projects – including local builds. This will help us make a case to invest in migrating away from Sass more quickly.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;How you can help&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Share your experience in &lt;a href=&quot;https://financialtimes.enterprise.slack.com/archives/C06FD4DSBQB&quot;&gt;#sass-to-css&lt;/a&gt;! Feel free to have a good moan. If you&apos;re using a project with Sass monitoring in place, share your total build time and we&apos;ll see who is waiting the longest 😬&lt;/li&gt;
+&lt;li&gt;Become an early adopter of our &lt;a href=&quot;https://origami-for-everyone.ft.com/components/buttons/&quot;&gt;new Origami components&lt;/a&gt;, which don&apos;t use Sass. Let us know you&apos;re interested in &lt;a href=&quot;https://financialtimes.enterprise.slack.com/archives/CSW6B2VAN&quot;&gt;#origami-chat&lt;/a&gt; and we&apos;ll help you get started.&lt;/li&gt;
+&lt;li&gt;Write less Sass yourself and refactor custom variables, functions, or mixins. Our &lt;a href=&quot;https://docs.google.com/document/d/1RuGduWdX0zGsgsp9C7lIhXgqEia6sWK900_3XVwYDIM/edit#heading=h.1f3yolavobef&quot;&gt;Sass to CSS proposal&lt;/a&gt; includes examples of FT Sass and modern CSS alternatives.&lt;/li&gt;
+&lt;li&gt;Praise Ben Holmes and the Developer Automation team (&lt;a href=&quot;https://financialtimes.enterprise.slack.com/archives/C05RVF48VPF&quot;&gt;#developer-automation&lt;/a&gt;). They&apos;re working on automated Origami Sass to CSS migration tools (codemods). Checkout this prototype, how cool! More news to follow.
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Big thanks to&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Joel Carr and the CP Platforms team for supporting us to use PageKit to roll out Sass monitoring to key Customer Products projects.&lt;/li&gt;
+&lt;li&gt;Kiya Gurmesa, Rhys Evans, and Engineering Insights for support using the &lt;a href=&quot;https://github.com/Financial-Times/biz-ops-metrics-api&quot;&gt;Biz-Ops Metrics API&lt;/a&gt;. This is how we plan to aggregate local build times.&lt;/li&gt;
+&lt;li&gt;Ben Holmes and Developer Automation for working on Origami Sass to CSS migration tools (codemods). Watch this space for more information!&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded><author>Lee Moody</author></item></channel></rss>
