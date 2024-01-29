@@ -143,7 +143,7 @@ async function sendNewsletter(options) {
 
 	// Actually send the email
 	const response = await axios.post(
-		"https://ep.ft.com/send-api-mailgun/send-by-address",
+		"https://send-email-api.ft.com/send-by-address",
 		body,
 		{
 			headers: {
