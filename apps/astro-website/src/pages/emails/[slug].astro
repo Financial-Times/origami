@@ -1,101 +1,103 @@
 ---
-import * as cheerio from "cheerio"
-import {getCollection} from "astro:content"
+import * as cheerio from 'cheerio';
+import {getCollection} from 'astro:content';
 
-import {EMAIL, SLACK} from "@/helpers/variables"
+import {EMAIL, SLACK} from '@/helpers/variables';
 
 export async function getStaticPaths() {
-	let postEntries = await getCollection("posts")
-	postEntries = postEntries.filter(post => post.data.tags?.includes('Newsletter'))
+	let postEntries = await getCollection('posts');
+	postEntries = postEntries.filter(post =>
+		post.data.tags?.includes('Newsletter')
+	);
 	return postEntries.map(entry => {
-		const slug = entry.data.custom_email_slug || entry.slug
-		const splitSlug = slug.split("-")
-		const year = splitSlug[0]
-		const date = splitSlug[1]
+		const slug = entry.data.custom_email_slug || entry.slug;
+		const splitSlug = slug.split('-');
+		const year = splitSlug[0];
+		const date = splitSlug[1];
 		const stringName = splitSlug
 			.slice(3, splitSlug.length)
-			.join("-")
-			.toLowerCase()
-		const constructedSlug = `${stringName}-${year}-${date}`
+			.join('-')
+			.toLowerCase();
+		const constructedSlug = `${stringName}-${year}-${date}`;
 		return {
 			params: {slug: constructedSlug},
 			props: {entry},
-		}
-	})
+		};
+	});
 }
 
-const {entry} = Astro.props
-const {title, description} = entry.data
-const tldr = entry.data.tldr ? entry.data.tldr : description
-const splitSlug = entry.slug.split("-")
-const dateSlug = splitSlug.slice(0, 3).join("/")
-const stringName = splitSlug.slice(3, splitSlug.length).join("-").toLowerCase()
-const companionPostUrl = `https://origami.ft.com/blog/${dateSlug}/${stringName}/`
+const {entry} = Astro.props;
+const {title, description} = entry.data;
+const tldr = entry.data.tldr ? entry.data.tldr : description;
+const splitSlug = entry.slug.split('-');
+const dateSlug = splitSlug.slice(0, 3).join('/');
+const stringName = splitSlug.slice(3, splitSlug.length).join('-').toLowerCase();
+const companionPostUrl = `https://origami.ft.com/blog/${dateSlug}/${stringName}/`;
 
-const MarkdownFiles = await Astro.glob("@/content/posts/*.md")
+const MarkdownFiles = await Astro.glob('@/content/posts/*.md');
 const currentMarkdown = MarkdownFiles.filter(md =>
 	md.file?.includes(entry.id)
-)[0]
-const currentMdContent = currentMarkdown?.compiledContent()
-const $ = cheerio.load(currentMdContent)
+)[0];
+const currentMdContent = currentMarkdown?.compiledContent();
+const $ = cheerio.load(currentMdContent);
 
-const $img = $("img")
-$img.prop("style", "max-width: 100%;")
+const $img = $('img');
+$img.prop('style', 'max-width: 100%;');
 
-const $p = $("p")
+const $p = $('p');
 $p.prop(
-	"style",
-	"line-height: 23px; font-size: 14px; font-family: arial, sans-serif; "
-)
+	'style',
+	'line-height: 23px; font-size: 14px; font-family: arial, sans-serif; '
+);
 
-const $h2 = $("h2")
+const $h2 = $('h2');
 $h2
 	.prop(
-		"style",
-		"font-size: 28px; line-height: 32px; font-weight: normal; margin: 40px 0 15px 0; font-weight: bold;"
+		'style',
+		'font-size: 28px; line-height: 32px; font-weight: normal; margin: 40px 0 15px 0; font-weight: bold;'
 	)
-	.wrapInner(`<span class="text-sans-serif headline-3">`)
+	.wrapInner(`<span class="text-sans-serif headline-3">`);
 
-const $h3 = $("h3")
+const $h3 = $('h3');
 $h3
 	.prop(
-		"style",
-		"font-size: 24px; line-height: 30px; font-weight: normal; margin: 0 0 15px 0; font-weight: bold;"
+		'style',
+		'font-size: 24px; line-height: 30px; font-weight: normal; margin: 0 0 15px 0; font-weight: bold;'
 	)
-	.wrapInner(`<span class="text-sans-serif headline-4">`)
+	.wrapInner(`<span class="text-sans-serif headline-4">`);
 
-const $h4 = $("h4")
+const $h4 = $('h4');
 $h4
 	.prop(
-		"style",
-		"font-size: 20px; line-height: 28px; font-weight: normal; margin: 0 0 15px 0; font-weight: bold;"
+		'style',
+		'font-size: 20px; line-height: 28px; font-weight: normal; margin: 0 0 15px 0; font-weight: bold;'
 	)
 	.wrapInner(`<span class="text-sans-serif headline-5">`)
 	.unwrap()
-	.wrap("h3")
+	.wrap('h3');
 
-const $ul = $("ul")
-$ul.prop("style", "padding-left: 30px;")
+const $ul = $('ul');
+$ul.prop('style', 'padding-left: 30px;');
 
-const $ol = $("ol")
-$ol.prop("style", "padding-left: 30px;")
+const $ol = $('ol');
+$ol.prop('style', 'padding-left: 30px;');
 
-const $li = $("li")
+const $li = $('li');
 $li
 	.prop(
-		"style",
-		"line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"
+		'style',
+		'line-height: 23px; font-size: 14px; font-family: arial, sans-serif;'
 	)
-	.wrapInner("<span>")
+	.wrapInner('<span>');
 
-const $a = $("a")
-$a.attr("target", "_blank")
+const $a = $('a');
+$a.attr('target', '_blank');
 
-const $figcaption = $("figcaption")
+const $figcaption = $('figcaption');
 $figcaption.prop(
-	"style",
-	"line-height: 16px; font-size: 12px; font-family: arial, sans-serif; color: #262a33;"
-)
+	'style',
+	'line-height: 16px; font-size: 12px; font-family: arial, sans-serif; color: #262a33;'
+);
 ---
 
 <!-- FT Product and Technology template --><!-- Template created by CRM team --><!-- XHTML 1.0 Transitional doctype. Best for email: https://www.campaignmonitor.com/blog/email-marketing/2010/11/correct-doctype-to-use-in-html-email/--><!DOCTYPE html>
@@ -202,7 +204,7 @@ $figcaption.prop(
 							{
 								companionPostUrl ? (
 									<>
-										To view online{" "}
+										To view online{' '}
 										<a
 											href={companionPostUrl}
 											target="_blank"
@@ -229,9 +231,7 @@ $figcaption.prop(
 		border="0"
 		cellpadding="0"
 		cellspacing="0"
-		background="https://www.ft.com/__origami/service/image/v2/images/raw/https://email-platform-ftcom-meme.s3.amazonaws.com/images/5b20f4533b1f04001b0a900b.jpeg?source=ft-email-manual"
 		align="center"
-		style="background-position: top; background-repeat:repeat-x;"
 		bgcolor="#F4F4F5"
 	>
 		<tr>
