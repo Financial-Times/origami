@@ -4,47 +4,91 @@
       "palette": {
         "black": {
           "type": "color",
-          "value": "#000"
+          "value": "#000",
+          "origamiKeys": [
+            "palette",
+            "primary"
+          ]
         },
         "white": {
           "value": "#fff",
-          "type": "color"
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "primary"
+          ]
         },
         "oxford": {
           "value": "#0F5499",
-          "type": "color"
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "primary"
+          ]
         },
         "teal": {
           "value": "#0D7680",
-          "type": "color"
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "primary"
+          ]
         },
         "slate": {
           "value": "#262A33",
-          "type": "color"
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "secondary"
+          ]
         },
         "slate-white-5": {
           "value": "#F4F4F5",
-          "type": "color"
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "secondary"
+          ]
         },
         "slate-white-15": {
           "value": "#DEDFE0",
-          "type": "color"
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "secondary"
+          ]
         },
         "lemon": {
           "value": "#FFEC1A",
-          "type": "color"
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "secondary"
+          ]
         },
         "jade": {
           "value": "#00994d",
-          "type": "color"
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ]
         },
         "mandarin": {
           "value": "#F83",
-          "type": "color"
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ]
         },
         "crimson": {
           "value": "#c00",
-          "type": "color"
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ]
         },
         "black-5": {
           "value": "#F2F2F2",

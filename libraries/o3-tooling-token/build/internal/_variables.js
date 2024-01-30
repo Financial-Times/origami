@@ -4,6 +4,10 @@ export default {
 		"value": "#000",
 		"originalValue": "#000",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -18,6 +22,10 @@ export default {
 		"value": "#fff",
 		"originalValue": "#fff",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -32,6 +40,10 @@ export default {
 		"value": "#0F5499",
 		"originalValue": "#0F5499",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -46,6 +58,10 @@ export default {
 		"value": "#0D7680",
 		"originalValue": "#0D7680",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -60,6 +76,10 @@ export default {
 		"value": "#262A33",
 		"originalValue": "#262A33",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -74,6 +94,10 @@ export default {
 		"value": "#F4F4F5",
 		"originalValue": "#F4F4F5",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -88,6 +112,10 @@ export default {
 		"value": "#DEDFE0",
 		"originalValue": "#DEDFE0",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -102,6 +130,10 @@ export default {
 		"value": "#FFEC1A",
 		"originalValue": "#FFEC1A",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -116,6 +148,10 @@ export default {
 		"value": "#00994d",
 		"originalValue": "#00994d",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -130,6 +166,10 @@ export default {
 		"value": "#F83",
 		"originalValue": "#F83",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
 		"path": [
 				"o3",
 				"color",
@@ -144,6 +184,10 @@ export default {
 		"value": "#c00",
 		"originalValue": "#c00",
 		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
 		"path": [
 				"o3",
 				"color",
