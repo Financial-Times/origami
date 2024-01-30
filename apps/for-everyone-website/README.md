@@ -37,6 +37,13 @@ We use [Starlight's internationalisation features](https://starlight.astro.build
 
 This also means search is brand specific. Typically, this feature relies on the `lang` html attribute to correctly search only content for the selected language. We have applied that to brands using a [private subtag](https://datatracker.ietf.org/doc/html/rfc4646#section-4.5) e.g. `lang="en-GB-x-prof"`. Note that all subtags have a maximum length of 8 characters and whitespace is not permitted, we must therefore appreciate brands here.
 
+### Add A New Brand
+
+- Add a new 'locale' to `astro.config.mjs` for the new brand
+- Update `src/components/ContentPanel.astro` to map the 'locale' to brand CSS class.
+- Copy content from an existing brand, switching out the brand-specific CSS file import for that component, and updating the Figma and Storybook links.
+- Copy other documentation mdx files that contain brand-specific content or styles, and edit according to your brand.
+
 ## Commands
 
 All commands are run from the root of the project, from a terminal:
