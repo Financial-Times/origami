@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./2019-03-11-site-update.4cc384b1.mjs');
+						return import('./tone-and-language.50b30053.mjs');
 					}
 					const collectedLinks = "@@ASTRO-LINKS@@";
 					const collectedStyles = "@@ASTRO-STYLES@@";

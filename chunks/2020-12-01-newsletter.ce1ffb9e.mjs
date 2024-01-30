@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./2020-12-01-newsletter.89f4da21.mjs');
+						return import('./2020-12-01-newsletter.d7ac104c.mjs');
 					}
 					const collectedLinks = "@@ASTRO-LINKS@@";
 					const collectedStyles = "@@ASTRO-STYLES@@";
