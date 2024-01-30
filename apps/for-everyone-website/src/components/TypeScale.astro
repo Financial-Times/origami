@@ -39,11 +39,12 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 		typeScaleOrdered.map(([scaleKey, scale]) => {
 
 			return (<tr>
-					<td class="token-sample">{scaleKey}</td>
+					<td>{scaleKey}</td>
 					<td class="token-value">{scale.fontSizes.figma} <br> {scale.fontSizes.css} <br> {scale.fontSizes.value} ({scale.fontSizes.originalValue}px)</td>
 					<td class="token-value">{scale.lineHeights.figma} <br> {scale.lineHeights.css} <br> {scale.lineHeights.value} ({scale.lineHeights.originalValue}px)</td>
 					<td
-						style=`white-space: nowrap; line-height: ${scale.lineHeights.value}; font-size: ${scale.fontSizes.value}`>Don't settle for black and white
+						class="token-sample"
+						style=`line-height: ${scale.lineHeights.value}; font-size: ${scale.fontSizes.value}`>Don't settle for black and white
 					</td>
 					</tr>)
 		})
@@ -66,6 +67,7 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 		vertical-align: center;
 		font-weight: 500;
 		font-family: 'Metric2-VF', sans-serif;
+		white-space: nowrap;
 	}
 
 	.token-value {
