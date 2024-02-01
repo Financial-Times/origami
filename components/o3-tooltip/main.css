@@ -1,0 +1,253 @@
+@import '@financial-times/o3-web-token/icons.css';
+/* html:after {
+	content: '{ "layout": "default", "gutter": "10px" }';
+	display: none;
+}
+@media (min-width: 30.625em) {
+	html:after {
+		content: '{ "layout": "S", "gutter": "10px" }';
+	}
+}
+@media (min-width: 46.25em) {
+	html:after {
+		content: '{ "layout": "M", "gutter": "20px" }';
+	}
+}
+@media (min-width: 61.25em) {
+	html:after {
+		content: '{ "layout": "L", "gutter": "20px" }';
+	}
+}
+@media (min-width: 76.25em) {
+	html:after {
+		content: '{ "layout": "XL", "gutter": "20px" }';
+	}
+} */
+.o3-tooltip {
+	box-shadow: 0 1px 4px rgba(77, 72, 69, 0.15), 0 8px 14px rgba(77, 72, 69, 0.2);
+	background: #fff;
+	position: absolute;
+	z-index: 10;
+	box-sizing: border-box;
+	opacity: 0;
+	transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+		transform 0.5s cubic-bezier(1, 0, 0.5, 1.275);
+	border: 0;
+	display: none;
+}
+.o3-tooltip.o3-tooltip--arrow-left:after {
+	border-right-color: #fff;
+}
+.o3-tooltip.o3-tooltip--arrow-right:after {
+	border-left-color: #fff;
+}
+.o3-tooltip.o3-tooltip--arrow-above:after {
+	border-bottom-color: #fff;
+}
+.o3-tooltip.o3-tooltip--arrow-below:after {
+	border-top-color: #fff;
+}
+.o3-tooltip .o3-tooltip-close {
+	width: 20px;
+	height: 20px;
+	mask-image: var(--o3-icons-ft-icon-cross);
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	display: inline-block;
+	background-color: currentColor;
+}
+/* @media screen and (-ms-high-contrast: active) {
+	.o3-tooltip .o3-tooltip-close {
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami&tint=%23ffffff,%23ffffff&format=svg');
+	}
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+	.o3-tooltip .o3-tooltip-close {
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami&tint=%23000000,%23000000&format=svg');
+	}
+} */
+.o3-tooltip.visible {
+	transform: translate(0, 0);
+	opacity: 1;
+}
+.o3-tooltip[data-o3-tooltip-position='left']:not(.visible) {
+	transform: translate(-50px, 0);
+}
+.o3-tooltip[data-o3-tooltip-position='right']:not(.visible) {
+	transform: translate(50px, 0);
+}
+.o3-tooltip[data-o3-tooltip-position='top']:not(.visible) {
+	transform: translate(0, -50px);
+}
+.o3-tooltip[data-o3-tooltip-position='bottom']:not(.visible) {
+	transform: translate(0, 50px);
+}
+.o3-tooltip-content {
+	font-family: MetricWeb, sans-serif;
+	position: relative;
+	box-sizing: border-box;
+	overflow: auto;
+	padding: 15px 35px 15px 20px;
+	float: left;
+	line-height: 1;
+	hyphens: auto;
+}
+.o3-tooltip-content > *:first-child {
+	margin-top: 0;
+}
+.o3-tooltip-content > *:last-child {
+	margin-bottom: 0;
+}
+.o3-tooltip--arrow-above:before,
+.o3-tooltip--arrow-above:after,
+.o3-tooltip--arrow-below:before,
+.o3-tooltip--arrow-below:after,
+.o3-tooltip--arrow-left:before,
+.o3-tooltip--arrow-left:after,
+.o3-tooltip--arrow-right:before,
+.o3-tooltip--arrow-right:after {
+	content: '';
+	position: absolute;
+	border: solid transparent;
+}
+.o3-tooltip--arrow-above:before,
+.o3-tooltip--arrow-below:before,
+.o3-tooltip--arrow-left:before,
+.o3-tooltip--arrow-right:before {
+	border-width: 12px;
+}
+.o3-tooltip--arrow-above:after,
+.o3-tooltip--arrow-below:after,
+.o3-tooltip--arrow-left:after,
+.o3-tooltip--arrow-right:after {
+	border-width: 10px;
+}
+.o3-tooltip--arrow-left.o3-tooltip-arrow--align-top:before,
+.o3-tooltip--arrow-left.o3-tooltip-arrow--align-top:after,
+.o3-tooltip--arrow-right.o3-tooltip-arrow--align-top:before,
+.o3-tooltip--arrow-right.o3-tooltip-arrow--align-top:after {
+	top: 0;
+	margin-top: 0;
+}
+.o3-tooltip--arrow-left.o3-tooltip-arrow--align-bottom:before,
+.o3-tooltip--arrow-left.o3-tooltip-arrow--align-bottom:after,
+.o3-tooltip--arrow-right.o3-tooltip-arrow--align-bottom:before,
+.o3-tooltip--arrow-right.o3-tooltip-arrow--align-bottom:after {
+	top: auto;
+	bottom: 0;
+	margin-top: 0;
+}
+.o3-tooltip--arrow-left:before,
+.o3-tooltip--arrow-left:after,
+.o3-tooltip--arrow-right:before,
+.o3-tooltip--arrow-right:after {
+	top: 50%;
+}
+.o3-tooltip--arrow-left:before,
+.o3-tooltip--arrow-right:before {
+	margin-top: -12px;
+}
+.o3-tooltip--arrow-left:after,
+.o3-tooltip--arrow-right:after {
+	margin-top: -10px;
+}
+.o3-tooltip--arrow-left:before,
+.o3-tooltip--arrow-left:after {
+	right: 100%;
+	border-left-width: 0;
+}
+.o3-tooltip--arrow-left:before {
+	border-right-color: rgba(0, 0, 0, 0.05);
+}
+.o3-tooltip--arrow-right:before,
+.o3-tooltip--arrow-right:after {
+	left: 100%;
+	border-right-width: 0;
+}
+.o3-tooltip--arrow-right:before {
+	border-left-color: rgba(0, 0, 0, 0.05);
+}
+.o3-tooltip--arrow-above.o3-tooltip-arrow--align-left:before,
+.o3-tooltip--arrow-above.o3-tooltip-arrow--align-left:after,
+.o3-tooltip--arrow-below.o3-tooltip-arrow--align-left:before,
+.o3-tooltip--arrow-below.o3-tooltip-arrow--align-left:after {
+	left: 10%;
+}
+.o3-tooltip--arrow-above.o3-tooltip-arrow--align-right:before,
+.o3-tooltip--arrow-above.o3-tooltip-arrow--align-right:after,
+.o3-tooltip--arrow-below.o3-tooltip-arrow--align-right:before,
+.o3-tooltip--arrow-below.o3-tooltip-arrow--align-right:after {
+	left: 90%;
+}
+.o3-tooltip--arrow-above:before,
+.o3-tooltip--arrow-above:after,
+.o3-tooltip--arrow-below:before,
+.o3-tooltip--arrow-below:after {
+	left: 50%;
+}
+.o3-tooltip--arrow-above:before,
+.o3-tooltip--arrow-below:before {
+	margin-left: -12px;
+}
+.o3-tooltip--arrow-above:after,
+.o3-tooltip--arrow-below:after {
+	margin-left: -10px;
+}
+.o3-tooltip--arrow-above:before,
+.o3-tooltip--arrow-above:after {
+	bottom: 100%;
+	border-top-width: 0;
+}
+.o3-tooltip--arrow-above:before {
+	border-bottom-color: rgba(0, 0, 0, 0.05);
+}
+.o3-tooltip--arrow-below:before,
+.o3-tooltip--arrow-below:after {
+	top: 100%;
+	border-bottom-width: 0;
+}
+.o3-tooltip--arrow-below:before {
+	border-top-color: rgba(0, 0, 0, 0.05);
+}
+.o3-tooltip-close {
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50%;
+	background-color: transparent;
+	vertical-align: baseline;
+	width: 20px;
+	height: 20px;
+	appearance: none;
+	border: 0;
+	font: inherit;
+	outline: inherit;
+	box-sizing: content-box;
+	position: absolute;
+	margin: 5px 5px 15px 15px;
+	padding: 0;
+	cursor: pointer;
+	font-size: 8px;
+	line-height: 1;
+	user-select: none;
+	top: 0;
+	right: 0;
+}
+/* @media screen and (-ms-high-contrast: active) {
+	.o3-tooltip-close {
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami&tint=%23ffffff,%23ffffff&format=svg');
+	}
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+	.o3-tooltip-close {
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami&tint=%23000000,%23000000&format=svg');
+	}
+} */
+.o3-tooltip-close:after {
+	position: absolute;
+	content: '';
+	top: -12px;
+	right: -12px;
+	left: -12px;
+	bottom: -12px;
+}

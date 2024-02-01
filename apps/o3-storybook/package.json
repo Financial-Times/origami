@@ -25,6 +25,7 @@
     "@storybook/react": "^7.4.0",
     "@storybook/react-webpack5": "^7.4.0",
     "@storybook/testing-library": "^0.2.0",
+    "@whitespace/storybook-addon-html": "^5.1.6",
     "autoprefixer": "^10.4.15",
     "chromatic": "^7.1.0",
     "css-loader": "^6.8.1",
