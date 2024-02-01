@@ -40,24 +40,10 @@ export function Preview ({component: Component, ...componentProps }) {
 
 Pagination aids user movement across an ordered collection of items that has been split into pages.
 
-Currently, [pagination looks like this in o2](https://www.ft.com/financials?page=2), but this will soon be deprecated.
-
-We recommend using Origami components which provide this pagination functionality by default. See pagination behaviour in action within Storybook.
-
-### TODO
-
-For all of these todos, consult the designs!
-
-* Tidy up overview section
-
-* Fix anatomy diagram, the number labels need aligning with the new pagination block width, and the first '4' should be a '3'!
-
-* Add second half of 'Usage - Web and App' section
-
-* Add 'Variations' section
-
-* Add feedback section
-
+- We provide infinite scrolling guidelines, as an acceptable alternative for some usecases.
+- Our pagination pattern shows a variable number of pages to accommodate mobile and desktop experiences.
+- This pattern is available via [your brands Figma library](https://www.figma.com/files/938480807921629744/team/1237702133754424766) and our [o3-button](https://origami-for-everyone.ft.com/guides/icons/npmjs.com/package/@financial-times/o3-button/) npm package.
+- A similar legacy pagination pattern exists within our [legacy o-buttons component](https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-core_components-o-buttons--pagination). However, this legacy pattern does not support a mobile experience. It also is not represented in our legacy Figma UI Library.
 
 ## Anatomy and Variations
 
@@ -65,11 +51,9 @@ Overview of the structure of the component or pattern, plus the variations.
 
 <PaginationAnatomy />
 
-1. (and 4) **Navigation (previous and next)**: To move backwards and forwards from the currently selected page.
-
-2. **Page**: Numbers that indicate pages.
-
-3. **Truncation**: Indicated by ellipses (…) to replace any skipped pages.
+- **Navigation (1, 5)**: Previous and next buttons to navigate relatively from the currently selected page.
+- **Page (2,3)**: Numbers that indicate pages.
+- **Truncation (4)**: Indicated by ellipses (…) to replace any skipped pages.
 
 ## Usage - Web and App
 
