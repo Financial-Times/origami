@@ -1,47 +1,67 @@
-
 ---
+let icon = '';
+let title = Astro.props.title || 'Example';
+let classModifier;
+switch (Astro.props.do) {
+	case true:
+		icon = '✅';
+		title = Astro.props.title || 'Do';
+		classModifier = 'example--do';
+		break;
+	case false:
+		icon = '❌';
+		title = Astro.props.title || "Don't";
+		classModifier = 'example--do-not';
+		break;
+
+	default:
+		break;
+}
 ---
 
-<div class={Astro.props.do ? 'not-content example example--do' : `not-content example example--do-not`}>
-    <span class="example__tag">{Astro.props.do ? '✅ Do' : `❌ Don't`}</span>
-    <span class="example__content">
-        <slot />
-    </span>
+<div class={`not-content example ${classModifier}`}>
+	<span class="example__tag"
+		>{icon}
+		{title}</span
+	>
+	<span class="example__content">
+		<slot />
+	</span>
 </div>
 
 <style>
-    .example {
-        margin: 1rem;
-        border: 3px solid;
-    }
+	.example {
+		border: 3px solid;
+		border-color: var(--o3-color-palette-slate-white-15);
+	}
 
-    .example--do {
-        border-color: green;
-    }
-    .example--do-not {
-        border-color: red;
-    }
-    .example__tag {
-        display: block;
-        padding: 0.25rem 0.5rem;
-        font-size: 0.75rem;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
+	.example--do {
+		border-color: green;
+	}
+	.example--do-not {
+		border-color: red;
+	}
+	.example__tag {
+		display: block;
+		padding: 0.25rem 0.5rem;
+		font-size: 0.75rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		background-color: var(--o3-color-palette-slate-white-5);
+	}
 
-    .example__content {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin: 1rem;
-    }
-    .example--do .example__tag {
-        color: green;
-        background-color: rgba(0, 128, 0, 0.1);
-    }
-    .example--do-not .example__tag {
-        color: red;
-        background-color: rgba(255, 0, 0, 0.1);
-    }
-
+	.example__content {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 1rem 0.5rem;
+	}
+	.example--do .example__tag {
+		color: green;
+		background-color: rgba(0, 128, 0, 0.1);
+	}
+	.example--do-not .example__tag {
+		color: red;
+		background-color: rgba(255, 0, 0, 0.1);
+	}
 </style>

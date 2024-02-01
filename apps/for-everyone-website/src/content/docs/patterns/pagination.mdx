@@ -45,9 +45,7 @@ Pagination aids user movement across an ordered collection of items that has bee
 - This pattern is available via [your brands Figma library](https://www.figma.com/files/938480807921629744/team/1237702133754424766) and our [o3-button](https://origami-for-everyone.ft.com/guides/icons/npmjs.com/package/@financial-times/o3-button/) npm package.
 - A similar legacy pagination pattern exists within our [legacy o-buttons component](https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-core_components-o-buttons--pagination). However, this legacy pattern does not support a mobile experience. It also is not represented in our legacy Figma UI Library.
 
-## Anatomy and Variations
-
-Overview of the structure of the component or pattern, plus the variations.
+## Anatomy
 
 <PaginationAnatomy />
 
@@ -55,70 +53,88 @@ Overview of the structure of the component or pattern, plus the variations.
 - **Page (2,3)**: Numbers that indicate pages.
 - **Truncation (4)**: Indicated by ellipses (…) to replace any skipped pages.
 
-## Usage - Web and App
+## Usage Guidelines
 
-Here are recommendations on best practices for the Web and App.
+### Standard pagination
 
-### Mobile Web and Desktop pagination
+We recommend using our standard pagination pattern, which is available within [your brands Figma library](https://www.figma.com/files/938480807921629744/team/1237702133754424766) and our [o3-button](https://origami-for-everyone.ft.com/guides/icons/npmjs.com/package/@financial-times/o3-button/) npm package. This:
 
 * Should be placed at the bottom of a long list that has been split up into pages.
 * Should navigate to the previous and next set of items in the paged list.
 * Indicate when users are at the first or the last page by disabling the arrows.
 
-### App (iOS and Android) pagination
-
-* Where infinite scrolling is used, start loading items when merchants are close to the bottom, roughly 5 items from the end
-* Show a spinner below the list to indicate that items have been requested.
-* After more results have been fetched, they should load in below
-
----
-
-## Usage Guidelines
-
-### Follow our standard pagination rules
-
-We recommend using Origami components which provide this pagination functionality by default. See [pagination behaviour in action within Storybook](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/story/core-o3-button--pagination&globals=backgrounds:!undefined).
-
-We show no more than 7 pages at a time. When there are more than 7 pages, hide more pages behind the pagination ellipsis in the following way.
-
-<Example do={true}>
-    <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={Array(3,'a').map((p,index) => ({href: `#${(index + 1)}`, current: (index + 1) === 2, number: (index + 1)}))} />
+<Example title="Choose pagination when" do={true}>
+    - A list has a significant number of items, typically more than 25.
+    - When showing all the content on a single page makes the page take too long to load.
 </Example>
 
-The selected page is below 3 show ellipsis with 3 pages either side.
+#### When all pages can be displayed
 
-<Example do={true}>
+Our pagination pattern supports 4 pages on small viewports, such as mobile devices, and 7 pages on larger desktop viewports. When there are more than 7 pages, we hide pages behind an ellipsis.
+
+<Example>
+    <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7].map(p => ({href: `#${p}`, current: p === 2, number: p}))} />
+</Example>
+
+#### When the selected page is one of the first 2 pages
+
+Show the first 3 pages; ellipsis; and the last 1 or 3 pages, as space allows.
+
+<Example>
     <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 2, number: p}))} />
 </Example>
 
-The selected page is one of the last 2 pages show ellipsis with 3 pages either side.
+#### When the selected page is one of the last 2 pages
 
-<Example do={true}>
+Show the first page, or first 3 where space allows; ellipsis; and the last 3 pages.
+
+<Example>
     <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 9, number: p}))} />
 </Example>
 
-The 3rd page is selected show 4 pages, the ellipsis, and 2 more pages.
+#### When the 3rd page is selected
 
-<Example do={true}>
+Show the first 3 pages, or 4 pages where space allows; the ellipsis; and 1 or 2 more pages, as space allows.
+
+<Example>
     <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 3, number: p}))} />
 </Example>
 
-The 3rd from last page is selected show 2 pages, the ellipsis, and 4 more pages.
+#### When the selected page is the 3rd from the last page
 
-<Example do={true}>
+Show the first page, or first 2 pages where space allows; the ellipsis; and 3 or 4 last pages, as space allows.
+
+<Example>
     <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 8, number: p}))} />
 </Example>
 
-The selected page is more than 3 from the first and last page show the first page, ellipsis, three pages, ellipsis, and the last page.
+#### When the selected page is over 3 from the first and last page
 
-<Example do={true}>
+Show the first page; ellipsis; the selected page, with 1 page either side if space allows; another ellipsis; and the last page.
+
+<Example>
     <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 5, number: p}))} />
 </Example>
 
-### Avoid infinite scrolling
 
-Avoid infinite scrolling unless user research shows they improve your interface.
-Infinite scroll can make it difficult to save, find, and share content for given pages. It also interferes with access to content below, such as our footer.
+### Infinite scroll
+
+There are some cases when infinite scroll is appropriate. This is a common pattern within our iOS and Android apps. Origami does not currently provide a full pattern for this, however we recommend the following:
+
+* Where infinite scrolling is used, start loading items when merchants are close to the bottom, roughly 5 items from the end.
+* Show a spinner below the list to indicate that items have been requested.
+* After more results have been fetched, they should load in below.
+
+<Example title="Choose infinite scroll when" do={true}>
+    - You're working on a native application, with an established pattern.
+</Example>
+
+<Example title="Avoid infinite scroll when" do={false}>
+    - You're working on the web, where it is not an established pattern for us, unless user research shows they improve your interface.
+    - It interferes with access to content below, such as our footer.
+    - Where returning to or sharing a given pages is helpful.
+</Example>
+
 
 ## Themes
 
