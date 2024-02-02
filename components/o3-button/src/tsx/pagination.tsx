@@ -20,15 +20,18 @@ export interface ButtonPaginationPager {
 	onClick?: any;
 }
 
-export interface Ellipsis {
+type Ellipsis = Pick<ButtonProps,'theme'> & {
 	attributes?: {
 		[attribute: string]: string | boolean;
 	};
 }
 
-const Ellipsis = ({attributes}: Ellipsis) => {
-	let classNames = 'o3-button-pagination__ellipsis';
-	return <span {...attributes} className={classNames}>...</span>;
+const Ellipsis = ({attributes, theme}: Ellipsis) => {
+	let classNames = ['o3-button-pagination__ellipsis'];
+	if(theme) {
+		classNames.push('o3-button-pagination__ellipsis--' + theme);
+	}
+	return <span {...attributes} className={classNames.join(' ')}>...</span>;
 };
 
 function getPagesInWideMode(pages, currentPage) {
@@ -165,7 +168,7 @@ export function ButtonPagination({
 			);
 		})
 		if(pagesGroup.length !== index + 1) {
-			pages.push(<Ellipsis attributes={{'data-o3-button-show-when': mode}} key={`ellipsis-${mode}-${index}`}></Ellipsis>);
+			pages.push(<Ellipsis theme={theme} attributes={{'data-o3-button-show-when': mode}} key={`ellipsis-${mode}-${index}`}></Ellipsis>);
 		}
 		return pages;
 	}
@@ -185,8 +188,10 @@ export function ButtonPagination({
 	const NextTag = nextPager.href ? LinkButton : Button;
 	const PreviousTag = previousPager.href ? LinkButton : Button;
 
+	const classNames = ['o3-button-pagination'];
+
 	return (
-		<div className='o3-button-pagination'>
+		<div className={classNames.join(' ')}>
 			<PreviousTag
 				attributes={
 					firstPageIsSelected
