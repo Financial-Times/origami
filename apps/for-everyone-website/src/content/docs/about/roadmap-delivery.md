@@ -5,7 +5,7 @@ description: Where we are going
 
 ## Scheduled work by activity
 
-<strong>Last updated: Jan 2024</strong>
+<strong>Last updated: Feb 2024</strong>
 
 ### Onboard contributors
   - Figma library contribution & Token Studio guide
@@ -19,9 +19,9 @@ Guidelines independent of o3 Origami support.
   - Basic colour palette <strong>(done)</strong>
   - Buttons <strong>(done)</strong>
   - Colour tinting
-  - Initial colour use cases
-  - Spacing scale <strong>(in progress)</strong>
-  - Typography scale
+  - Initial colour use cases <strong>(in progress)</strong>
+  - Spacing scale <strong>(done)</strong>
+  - Typography scale <strong>(done)</strong>
   - Basic form fields
 	- text input
 	- text area
@@ -35,10 +35,11 @@ Guidelines independent of o3 Origami support.
 
 ### Create o3 Origami components and patterns
 new, multi-brand components and patterns including end-to-end design guidelines, Figma, and web implementation.
-  - Pagination pattern <strong>(in progress)</strong>
-	- We need to improve the mobile experience!
+  - Pagination pattern
+	  - We need to improve the mobile experience! <strong>(done)</strong>
+	  - We need to add to our as a component to our Figma Libraries <strong>(in progress)</strong>
   - Grouped button pattern <strong>(in progress)</strong>
-	- This is in o3-button, but not Figma or the site
+    - This is in o3-button, but not Figma or the site
   - Add initial Sustainable Views brand support <strong>(done)</strong>
   - Basic article typography <strong>(in progress)</strong>
     - big-number
@@ -56,20 +57,20 @@ new, multi-brand components and patterns including end-to-end design guidelines,
   - Labels
 	  - badge (live label, ect) <strong>(postponed)</strong>
 	  - other labels
-  - Tooltip
+  - Tooltip <strong>(in progress)</strong>
 
 ### Adoption and iteration
   - Review & publish o3 Figma libraries
-  - Add support matrix to website e.g availablility in Figma, o2, o3
+  - Add support matrix to website e.g availablility in Figma, o2, o3 <strong>(done)</strong>
   - Experiment with replacing o3 component JSX with an Origami React library
-  - Refactor the component build step <strong>(in progress)</strong>
-  - Refactor this website, especially the flaky brand switcher  <strong>(in progress)</strong>
-	  - Add an initial view for the internal brand. Document the latest process for adding a new brand to the site. <strong>(in progress)</strong>
+  - Refactor the component build step <strong>(done)</strong>
+  - Refactor this website, especially the flaky brand switcher  <strong>(done)</strong>
+	  - Add an initial view for the internal brand. Document the latest process for adding a new brand to the site. <strong>(done)</strong>
   - Improve technical documentation for released o3 components, include o2 to o3 migration guide
   - Workshop to (re)introduce o3 to designers and engineers
 
 ### Archive the Origami Registry
-  - Migrate unaccounted for o2 component demos to Storybook
+  - Migrate unaccounted for o2 component demos to Storybook <strong>(in progress)</strong>
   - Move Sassdoc / JSDoc to storybook
   - Publish deprecation notice and comms.
   - Create a static archive of the Origami Registry
