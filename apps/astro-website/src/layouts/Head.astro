@@ -1,35 +1,34 @@
 ---
-const {title, description} = Astro.props
-const namePath = Astro.url.pathname
+const {title, description} = Astro.props;
+const namePath = Astro.url.pathname;
 
 const jsAndCss = [
-	{name: "o-syntax-highlight", version: "@^4.2.4"},
-	{name: "o-layout", version: "@^5.3.2"},
-	{name: "o-typography", version: "@^7.4.1"},
-	{name: "o-normalise", version: "@^3.3.1"},
-	{name: "o-header-services", version: "@^5.3.4"},
-	{name: "o-footer-services", version: "@^4.2.6"},
-	{name: "o-message", version: "@^5.4.2"},
-	{name: "o-table", version: "@^9.3.1"},
-	{name: "o-autoinit", version: "@^3.1.3"},
-	{name: "o-forms", version: "@^9.11.2"},
-	{name: "o-tracking", version: "@^4.5.0"},
-]
+	{name: 'o-layout', version: '@^5.3.2'},
+	{name: 'o-typography', version: '@^7.4.1'},
+	{name: 'o-normalise', version: '@^3.3.1'},
+	{name: 'o-header-services', version: '@^5.3.4'},
+	{name: 'o-footer-services', version: '@^4.2.6'},
+	{name: 'o-message', version: '@^5.4.2'},
+	{name: 'o-table', version: '@^9.3.1'},
+	{name: 'o-autoinit', version: '@^3.1.3'},
+	{name: 'o-forms', version: '@^9.11.2'},
+	{name: 'o-tracking', version: '@^4.5.0'},
+];
 const origamiStyles = [
 	...jsAndCss,
 	{
-		name: "o-colors",
-		version: "@^6.6.2",
+		name: 'o-colors',
+		version: '@^6.6.2',
 	},
 	{
-		name: "o-spacing",
-		version: "@^3.2.3",
+		name: 'o-spacing',
+		version: '@^3.2.3',
 	},
 ]
 	.map(styles => styles.name + styles.version)
-	.join(",")
+	.join(',');
 
-const origamiJs = [...jsAndCss].map(js => js.name + js.version).join(",")
+const origamiJs = [...jsAndCss].map(js => js.name + js.version).join(',');
 ---
 
 <head>
@@ -40,12 +39,12 @@ const origamiJs = [...jsAndCss].map(js => js.name + js.version).join(",")
 	<!-- Cuts the mustard test -->
 	<script>
 		var cutsTheMustard =
-			"querySelector" in document &&
-			"localStorage" in window &&
-			"addEventListener" in window
+			'querySelector' in document &&
+			'localStorage' in window &&
+			'addEventListener' in window;
 		if (cutsTheMustard) {
 			document.documentElement.className =
-				document.documentElement.className.replace(/\bcore\b/g, "enhanced")
+				document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
 		}
 	</script>
 
@@ -105,14 +104,14 @@ const origamiJs = [...jsAndCss].map(js => js.name + js.version).join(",")
 	<!-- Progressive Font Loading -->
 	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
 	<script>
-		var rootElement = document.querySelector("html")
+		var rootElement = document.querySelector('html');
 		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
-			var fontLabels = ["sans", "sans-bold", "display", "display-bold"]
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
 			for (var i = 0; i < fontLabels.length; i++) {
 				rootElement.className = rootElement.className.replace(
-					"o-typography--loading-" + fontLabels[i],
-					""
-				)
+					'o-typography--loading-' + fontLabels[i],
+					''
+				);
 			}
 		}
 	</script>
@@ -147,6 +146,15 @@ const origamiJs = [...jsAndCss].map(js => js.name + js.version).join(",")
 			border-bottom: 1px dotted black;
 		}
 
+		code {
+			font-size: 1rem;
+		}
+
+		:not(pre) > code {
+			background-color: var(--o-colors-slate-white-5);
+			outline: 1px solid var(--o-colors-slate-white-15);
+		}
+
 		.no-wrap {
 			white-space: nowrap;
 		}
@@ -179,7 +187,7 @@ const origamiJs = [...jsAndCss].map(js => js.name + js.version).join(",")
 		}
 
 		.o-layout__hero:before {
-			background-image: url("/assets/images/home-page-hero.jpg");
+			background-image: url('/assets/images/home-page-hero.jpg');
 		}
 
 		.o-layout__hero svg {
@@ -247,8 +255,5 @@ const origamiJs = [...jsAndCss].map(js => js.name + js.version).join(",")
 		defer
 		src=`https://www.ft.com/__origami/service/build/v3/bundles/js?components=${origamiJs}&system_code=origami-website`
 	></script>
-	<script
-		defer
-		src="/assets/tracking.js"
-	></script>
+	<script defer src="/assets/tracking.js"></script>
 </head>
