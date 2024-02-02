@@ -3,6 +3,7 @@
 
 /* Dark mode colors. */
 :root {
+	--sl-content-width: 82ch;
 	--sl-color-accent-low: #131e4f;
 	--sl-color-accent: #3447ff;
 	--sl-color-accent-high: #b3c7ff;
