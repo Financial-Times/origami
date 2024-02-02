@@ -365,6 +365,10 @@
 	gap: var(--o3-spacing-4xs);
 }
 
+.o3-button-pagination__ellipsis--inverse .o3-button-pagination__ellipsis {
+	color: var(--_o3-button-secondary-inverse-color);
+}
+
 .o3-button-pagination,
 .o3-button-pagination>.o3-button,
 .o3-button-pagination>.o3-button.o3-button-icon--icon-only {
@@ -411,6 +415,11 @@
 	font-size: var(--o3-font-size-3);
 	text-align: center;
 	min-width: var(--_o3-button-min-width);
+	color: var(--o3-color-palette-black-60);
+}
+
+.o3-button-pagination__ellipsis.o3-button-pagination__ellipsis--inverse {
+	color: var(--o3-color-palette-white);
 }
 
 /* Grouped buttons */
