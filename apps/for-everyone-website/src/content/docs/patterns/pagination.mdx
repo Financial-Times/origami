@@ -116,13 +116,12 @@ Show the first page; ellipsis; the selected page, with 1 page either side if spa
     <ButtonPagination previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 5, number: p}))} />
 </Example>
 
-
 ### Infinite scroll
 
 There are some cases when infinite scroll is appropriate. This is a common pattern within our iOS and Android apps. Origami does not currently provide a full pattern for this, however we recommend the following:
 
 * Where infinite scrolling is used, start loading items when merchants are close to the bottom, roughly 5 items from the end.
-* Show a spinner below the list to indicate that items have been requested.
+* Show our [legacy loading indicator](https://registry.origami.ft.com/components/o-loading@5.2.2) below the list to indicate that items have been requested.
 * After more results have been fetched, they should load in below.
 
 <Example title="Choose infinite scroll when" do={true}>
@@ -142,8 +141,8 @@ Our pagination pattern supports all button themes. For example:
 
 ### Standard Pagination
 
-<Preview component={ButtonPagination} previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[{href: '#1', current: true, number: 1}, {href: '#2', current: false, number: 2}]} />
+<Preview component={ButtonPagination} previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 5, number: p}))} />
 
 ### Inverse Pagination
 
-<Preview component={ButtonPagination} previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[{href: '#1', current: true, number: 1}, {href: '#2', current: false, number: 2}]} theme="inverse" />
+<Preview component={ButtonPagination} previousPager={{label: 'previous', href: '#previous'}} nextPager={{label: 'next', href: '#next'}} pages={[1,2,3,4,5,6,7,8,9,10].map(p => ({href: `#${p}`, current: p === 5, number: p}))} theme="inverse" />
