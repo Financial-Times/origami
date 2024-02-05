@@ -3869,18 +3869,38 @@ reflect teams current interests a little bit better.&lt;/p&gt;
 &lt;li&gt;Delyanka Sirakova for presenting Figma Organisation, Structure, &amp;amp; Naming Convention at Origami Design System Guild,&lt;/li&gt;
 &lt;li&gt;Kristo Mikkonen for adding an image overlays api to the Origami Image Service&lt;/li&gt;
 &lt;/ul&gt;
-</content:encoded><author>Ben Freshwater</author></item><item><title>Sass Build Times</title><link>https://origami.ft.com/blog/2024/01/24/sass-build-times/</link><guid isPermaLink="true">https://origami.ft.com/blog/2024/01/24/sass-build-times/</guid><description>Sass build times got you down? Let us know.</description><pubDate>Wed, 24 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We&apos;ve heard some teams at the FT are struggling with slow Sass build times. Friction between making a change and seeing the result can be pretty painful, right! It slows down our ability to iterate and deliver, and gives ample opportunities for distraction... and doom scrolling... as we wait.&lt;/p&gt;
-&lt;p&gt;We can&apos;t blame Sass too much, it&apos;s wonderful, but we have a large estate of complex Sass that has become slow. In our view, now is the time to migrate away from Sass.&lt;/p&gt;
-&lt;h2&gt;What Origami is doing&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;We presented a &lt;a href=&quot;https://docs.google.com/document/d/1RuGduWdX0zGsgsp9C7lIhXgqEia6sWK900_3XVwYDIM/edit#heading=h.1f3yolavobef&quot;&gt;Sass to CSS proposal&lt;/a&gt; which is endorsed by our technology governance group (TGG).&lt;/li&gt;
-&lt;li&gt;We&apos;re working on &lt;a href=&quot;https://origami-for-everyone.ft.com/components/buttons/&quot;&gt;a new suite of &quot;o3&quot; Origami components&lt;/a&gt;, so Origami won&apos;t require you to use Sass in the future.&lt;/li&gt;
-&lt;li&gt;We&apos;ve implemented Sass build time monitoring across key Customer Products projects – including local builds. This will help us make a case to invest in migrating away from Sass more quickly.&lt;/li&gt;
-&lt;/ol&gt;
+</content:encoded><author>Ben Freshwater</author></item><item><title>Sass Build Times</title><link>https://origami.ft.com/blog/2024/01/24/sass-build-times/</link><guid isPermaLink="true">https://origami.ft.com/blog/2024/01/24/sass-build-times/</guid><description>Sass build times got you down? Enable Sass monitoring in your project and let us know.</description><pubDate>Wed, 24 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We&apos;ve heard many teams at the FT are struggling with slow Sass build times. Friction between making a change and seeing the result can be pretty painful, right! It slows down our ability to iterate and deliver, and gives ample opportunities for distraction... and doom scrolling... as we wait.&lt;/p&gt;
+&lt;p&gt;We can&apos;t blame Sass too much, it&apos;s wonderful, but we have a large estate of complex Sass that has become slow. In our view, &lt;a href=&quot;https://docs.google.com/document/d/1RuGduWdX0zGsgsp9C7lIhXgqEia6sWK900_3XVwYDIM/edit#heading=h.1f3yolavobef&quot;&gt;now is the time to migrate away from Sass&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Enable Sass Monitoring&lt;/h2&gt;
+&lt;p&gt;If you&apos;re working on a project which builds with Page Kit (&lt;a href=&quot;https://github.com/Financial-Times/dotcom-page-kit&quot;&gt;dotcom-build-sass&lt;/a&gt;), please &lt;a href=&quot;#remote-sass-monitoring&quot;&gt;setup remote Sass monitoring&lt;/a&gt;. This will help us make a case to invest in migrating away from Sass more quickly.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
-&lt;h2&gt;How you can help&lt;/h2&gt;
+&lt;h3&gt;Remote Sass monitoring&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;Share your experience in &lt;a href=&quot;https://financialtimes.enterprise.slack.com/archives/C06FD4DSBQB&quot;&gt;#sass-to-css&lt;/a&gt;! Feel free to have a good moan. If you&apos;re using a project with Sass monitoring in place, share your total build time and we&apos;ll see who is waiting the longest 😬&lt;/li&gt;
+&lt;li&gt;Upgrade your project to &lt;a href=&quot;https://github.com/Financial-Times/dotcom-page-kit/releases/tag/v9.3.2&quot;&gt;dotcom-build-sass@9.3.2&lt;/a&gt; or above.&lt;/li&gt;
+&lt;li&gt;Add the following environment variables to Doppler for &lt;code&gt;dev&lt;/code&gt;, we want these during local development.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;FT_SASS_STATS_MONITOR&lt;/code&gt; – &lt;code&gt;on&lt;/code&gt;, to enable remote logging to &lt;a href=&quot;https://github.com/Financial-Times/biz-ops-metrics-api/blob/main/docs/API_DEFINITION.md#authentication&quot;&gt;biz-ops-metrics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FT_SASS_BIZ_OPS_API_KEY&lt;/code&gt; - Generate a &lt;strong&gt;prod&lt;/strong&gt; &lt;a href=&quot;https://apigateway.in.ft.com/key-form/system&quot;&gt;Biz Ops Metrics API key&lt;/a&gt; for your system.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FT_SASS_BIZ_OPS_SYSTEM_CODE&lt;/code&gt; - The &lt;a href=&quot;https://biz-ops.in.ft.com/&quot;&gt;biz-ops&lt;/a&gt; system code for your project, so we know where to attribute Sass build times.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Prepend your local front-end build script in &lt;code&gt;package.json&lt;/code&gt; to fetch Doppler secrets, &lt;code&gt;doppler run --project [your-project] --config dev --&lt;/code&gt;. This may vary depending on your project. E.g:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;- &quot;build&quot;: &quot;dotcom-tool-kit build:local&quot;,
++ &quot;build&quot;: &quot;doppler run --project [your-project] --config dev -- dotcom-tool-kit build:local&quot;,
+
+- &quot;watch&quot;: &quot;dotcom-tool-kit watch:local&quot;,
++ &quot;watch&quot;: &quot;doppler run --project [your-project] --config dev -- webpack --progress --mode=development --watch&quot;,
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, each time Sass is built, &lt;a href=&quot;https://biz-ops.in.ft.com/api-explorer?query=%7B%0A++teams%28where%3A+%7B+code%3A+%22customer-products-subscriber-growth%22+%7D%29+%7B%0A++++delivers%28where%3A+%7B+code%3A+%22next-newsletter-signup%22+%7D%29+%7B%0A++++++code%0A++++++metric%28name%3A+%22sass-build-time%22%29+%7B%0A++++++++value%0A++++++++timestamp%0A++++++%7D%0A++++%7D%0A++++metricRollup%28path%3A+%22delivers.metric%22%2C+method%3A+sum%29+%7B%0A++++++value%0A++++++timestamp%0A++++%7D%0A++%7D%0A%7D&amp;amp;title=Custom+Biz+Ops+report&quot;&gt;the duration is sent to biz-ops&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Local Sass monitoring&lt;/h3&gt;
+&lt;p&gt;After your project has updated to &lt;a href=&quot;https://github.com/Financial-Times/dotcom-page-kit/releases/tag/v9.3.2&quot;&gt;dotcom-build-sass@9.3.2&lt;/a&gt; or above, you will periodically see a log showing your cumulative Sass build time – shown above.&lt;/p&gt;
+&lt;p&gt;Whilst remote monitoring will prove very useful, this local report is more for fun. Or, motivation. It highlights the total time you have spent waiting for Sass in all – at least since the temporary file it&apos;s stored in was last deleted by your operating system.&lt;/p&gt;
+&lt;p&gt;Set the &lt;code&gt;FT_SASS_STATS_NOTICE&lt;/code&gt; environment variable to configure how often you see the port on on your machine. One of &lt;code&gt;throttle&lt;/code&gt;, &lt;code&gt;never&lt;/code&gt;, or &lt;code&gt;always&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;E.g. to see your cumulative Sass build time after every build &lt;code&gt;FT_SASS_STATS_NOTICE=always npm run build&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;More ways for you to help&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Share your experience in &lt;a href=&quot;https://financialtimes.enterprise.slack.com/archives/C06FD4DSBQB&quot;&gt;#sass-to-css&lt;/a&gt;! If Sass build times have you down, feel free to have a good moan. We&apos;d also love to see your cumulative Sass build time – let&apos;s we&apos;ll see who gets the high score! 😬&lt;/li&gt;
 &lt;li&gt;Become an early adopter of our &lt;a href=&quot;https://origami-for-everyone.ft.com/components/buttons/&quot;&gt;new Origami components&lt;/a&gt;, which don&apos;t use Sass. Let us know you&apos;re interested in &lt;a href=&quot;https://financialtimes.enterprise.slack.com/archives/CSW6B2VAN&quot;&gt;#origami-chat&lt;/a&gt; and we&apos;ll help you get started.&lt;/li&gt;
 &lt;li&gt;Write less Sass yourself and refactor custom variables, functions, or mixins. Our &lt;a href=&quot;https://docs.google.com/document/d/1RuGduWdX0zGsgsp9C7lIhXgqEia6sWK900_3XVwYDIM/edit#heading=h.1f3yolavobef&quot;&gt;Sass to CSS proposal&lt;/a&gt; includes examples of FT Sass and modern CSS alternatives.&lt;/li&gt;
 &lt;li&gt;Praise Ben Holmes and the Developer Automation team (&lt;a href=&quot;https://financialtimes.enterprise.slack.com/archives/C05RVF48VPF&quot;&gt;#developer-automation&lt;/a&gt;). They&apos;re working on automated Origami Sass to CSS migration tools (codemods). Checkout this prototype, how cool! More news to follow.
@@ -3891,5 +3911,6 @@ reflect teams current interests a little bit better.&lt;/p&gt;
 &lt;li&gt;Joel Carr and the CP Platforms team for supporting us to use PageKit to roll out Sass monitoring to key Customer Products projects.&lt;/li&gt;
 &lt;li&gt;Kiya Gurmesa, Rhys Evans, and Engineering Insights for support using the &lt;a href=&quot;https://github.com/Financial-Times/biz-ops-metrics-api&quot;&gt;Biz-Ops Metrics API&lt;/a&gt;. This is how we plan to aggregate local build times.&lt;/li&gt;
 &lt;li&gt;Ben Holmes and Developer Automation for working on Origami Sass to CSS migration tools (codemods). Watch this space for more information!&lt;/li&gt;
+&lt;li&gt;Andy Gout for helping us test this out, and for rolling out so quickly to &lt;a href=&quot;https://github.com/Financial-Times/next-newsletter-signup/pull/685/files&quot;&gt;next-newsletter-signup (PR)&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 </content:encoded><author>Lee Moody</author></item></channel></rss>
