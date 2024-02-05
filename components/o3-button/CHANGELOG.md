@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.1...o3-button-v0.4.2) (2024-02-05)
+
+
+### Bug Fixes
+
+* Allow pagination buttons to shrink if needed. ([#1425](https://github.com/Financial-Times/origami/issues/1425)) ([bbb8908](https://github.com/Financial-Times/origami/commit/bbb89089b7c8963d3439a8a97c05f48870ac86c9))
+
 ## [0.4.1](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.0...o3-button-v0.4.1) (2024-02-02)
 
 
