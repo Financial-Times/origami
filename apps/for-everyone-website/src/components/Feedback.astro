@@ -1,0 +1,11 @@
+---
+const currentPageEncoded = encodeURI(Astro.props.slug);
+const googleForm =
+	'https://docs.google.com/forms/d/e/1FAIpQLSfloWAL9xTZN9jdwDPJZQUcwGUYXZMrIgJ80xpOSTTjepnzjw/viewform';
+const feedBack = googleForm + '?entry.446988371=' + currentPageEncoded;
+---
+
+<a
+	class="o3-button o3-button--ghost o3-button-icon o3-button-icon--edit-outlined o3-button--small"
+	href={feedBack}>feedback</a
+>
