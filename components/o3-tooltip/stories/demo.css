@@ -1,0 +1,8 @@
+.o3-brand-core {
+	margin: 3rem;
+	width: 80%;
+	height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

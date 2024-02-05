@@ -2,15 +2,14 @@ import type {StoryObj} from '@storybook/react';
 import {Tooltip as TooltipTsx} from '../src/tsx/tooltip';
 import type {TooltipProps} from '../src/tsx/tooltip';
 import {TemplateSBConfig} from './sb-story-config';
-import {useEffect} from 'react';
-import javascript from '../main';
 import '../src/ts/tooltip';
+import './demo.css';
 
 // disable HMR(hot module replacement) for web-component file
 import.meta.webpackHot.decline('../src/ts/tooltip');
 
 type TooltipStory = Omit<StoryObj, 'args'> & {
-	args: TooltipProps & {disabled: Boolean};
+	args: TooltipProps;
 };
 
 export type TemplateType = StoryObj & {
@@ -20,21 +19,17 @@ export type TemplateType = StoryObj & {
 const ToolTipTemplate: TemplateType = {
 	...TemplateSBConfig,
 	render: args => {
-		useEffect(() => {
-			let tooltips = javascript.init();
-			return function cleanup() {
-				tooltips = Array.isArray(tooltips) ? tooltips : [tooltips];
-				tooltips.forEach(tooltip => tooltip.destroy());
-			};
-		}, [args]);
 		return (
 			<>
 				<button
-					className="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
-					id="demo-tooltip-target">
+					id="demo-o3-tooltip-id"
+					className="o3-button o3-button--secondary o3-button--big demo-tooltip-target">
 					Share
 				</button>
-				<TooltipTsx {...args} />
+				<TooltipTsx {...args}>
+					<p>Tool tip content that is quite long</p>
+					<p>Tool tip content that is quite long</p>
+				</TooltipTsx>
 			</>
 		);
 	},
@@ -43,6 +38,8 @@ const ToolTipTemplate: TemplateType = {
 export const Tooltip: TooltipStory = {
 	...ToolTipTemplate,
 	args: {
-		target: 'demo-tooltip-target',
+		targetId: 'demo-o3-tooltip-id',
+		tipPosition: 'above',
+		tipAlignment: 'top',
 	},
 };
