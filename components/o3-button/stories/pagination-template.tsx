@@ -53,7 +53,7 @@ export const Pagination: PaginationStory = {
 			href: '#previous',
 			label: 'previous results',
 		},
-		pages: Array(200)
+		pages: Array(10)
 			.fill(null)
 			.map((page, index) => {
 				const number = index + 1;
