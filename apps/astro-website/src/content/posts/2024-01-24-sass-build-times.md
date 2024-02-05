@@ -19,15 +19,16 @@ If you're working on a project which builds with Page Kit ([dotcom-build-sass](h
 
 1. Upgrade your project to [dotcom-build-sass@9.3.2](https://github.com/Financial-Times/dotcom-page-kit/releases/tag/v9.3.2) or above.
 1. Add the following environment variables to Doppler for `dev`, we want these during local development.
-    - `FT_SASS_STATS_MONITOR` – `on`, to enable remote logging to [biz-ops-metrics](https://github.com/Financial-Times/biz-ops-metrics-api/blob/main/docs/API_DEFINITION.md#authentication)
-    - `FT_SASS_BIZ_OPS_API_KEY` - Generate a **prod** [Biz Ops Metrics API key](https://apigateway.in.ft.com/key-form/system) for your system.
-    - `FT_SASS_BIZ_OPS_SYSTEM_CODE` - The [biz-ops](https://biz-ops.in.ft.com/) system code for your project, so we know where to attribute Sass build times.
+   - `FT_SASS_STATS_MONITOR` – `on`, to enable remote logging to [biz-ops-metrics](https://github.com/Financial-Times/biz-ops-metrics-api/blob/main/docs/API_DEFINITION.md#authentication)
+   - `FT_SASS_BIZ_OPS_API_KEY` - Generate a **prod** [Biz Ops Metrics API key](https://apigateway.in.ft.com/key-form/system) for your system.
+   - `FT_SASS_BIZ_OPS_SYSTEM_CODE` - The [biz-ops](https://biz-ops.in.ft.com/) system code for your project, so we know where to attribute Sass build times.
 1. Prepend your local front-end build script in `package.json` to fetch Doppler secrets, `doppler run --project [your-project] --config dev --`. This may vary depending on your project. E.g:
+
 ```diff
 - "build": "dotcom-tool-kit build:local",
 + "build": "doppler run --project [your-project] --config dev -- dotcom-tool-kit build:local",
 
-- "watch": "dotcom-tool-kit watch:local",
+- "watch": "webpack --progress --mode=development --watch",
 + "watch": "doppler run --project [your-project] --config dev -- webpack --progress --mode=development --watch",
 ```
 
@@ -35,7 +36,9 @@ Now, each time Sass is built, [the duration is sent to biz-ops](https://biz-ops.
 
 ### Local Sass monitoring
 
-After your project has updated to [dotcom-build-sass@9.3.2](https://github.com/Financial-Times/dotcom-page-kit/releases/tag/v9.3.2) or above, you will periodically see a log showing your cumulative Sass build time – shown above.
+After your project has updated to [dotcom-build-sass@9.3.2](https://github.com/Financial-Times/dotcom-page-kit/releases/tag/v9.3.2) or above, you will periodically see a log showing your cumulative Sass build time. Like this:
+
+![A console log within a terminal, sharing that the person has in total waited 2.7 hours for Sass to compile.](/assets/images/2024-01-24-sass-build-times/sass-css.png?width=500&source=origami)
 
 Whilst remote monitoring will prove very useful, this local report is more for fun. Or, motivation. It highlights the total time you have spent waiting for Sass in all – at least since the temporary file it's stored in was last deleted by your operating system.
 
@@ -49,8 +52,7 @@ E.g. to see your cumulative Sass build time after every build `FT_SASS_STATS_NOT
 1. Become an early adopter of our [new Origami components](https://origami-for-everyone.ft.com/components/buttons/), which don't use Sass. Let us know you're interested in [#origami-chat](https://financialtimes.enterprise.slack.com/archives/CSW6B2VAN) and we'll help you get started.
 1. Write less Sass yourself and refactor custom variables, functions, or mixins. Our [Sass to CSS proposal](https://docs.google.com/document/d/1RuGduWdX0zGsgsp9C7lIhXgqEia6sWK900_3XVwYDIM/edit#heading=h.1f3yolavobef) includes examples of FT Sass and modern CSS alternatives.
 1. Praise Ben Holmes and the Developer Automation team ([#developer-automation](https://financialtimes.enterprise.slack.com/archives/C05RVF48VPF)). They're working on automated Origami Sass to CSS migration tools (codemods). Checkout this prototype, how cool! More news to follow.
-![Running a codemode to automate swapping a Sass mixin for CSS Custom Properties](/assets/images/2024-01-24-sass-build-times/origami-codemod.gif?width=500&source=origami)
-
+   ![Running a codemode to automate swapping a Sass mixin for CSS Custom Properties](/assets/images/2024-01-24-sass-build-times/origami-codemod.gif?width=500&source=origami)
 
 ## Big thanks to
 
