@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./2024-01-24-sass-build-times.7b8c56a8.mjs');
+						return import('./2024-01-24-sass-build-times.cfac8b7d.mjs');
 					}
 					const collectedLinks = "@@ASTRO-LINKS@@";
 					const collectedStyles = "@@ASTRO-STYLES@@";

@@ -3889,12 +3889,13 @@ reflect teams current interests a little bit better.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;- &quot;build&quot;: &quot;dotcom-tool-kit build:local&quot;,
 + &quot;build&quot;: &quot;doppler run --project [your-project] --config dev -- dotcom-tool-kit build:local&quot;,
 
-- &quot;watch&quot;: &quot;dotcom-tool-kit watch:local&quot;,
+- &quot;watch&quot;: &quot;webpack --progress --mode=development --watch&quot;,
 + &quot;watch&quot;: &quot;doppler run --project [your-project] --config dev -- webpack --progress --mode=development --watch&quot;,
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now, each time Sass is built, &lt;a href=&quot;https://biz-ops.in.ft.com/api-explorer?query=%7B%0A++teams%28where%3A+%7B+code%3A+%22customer-products-subscriber-growth%22+%7D%29+%7B%0A++++delivers%28where%3A+%7B+code%3A+%22next-newsletter-signup%22+%7D%29+%7B%0A++++++code%0A++++++metric%28name%3A+%22sass-build-time%22%29+%7B%0A++++++++value%0A++++++++timestamp%0A++++++%7D%0A++++%7D%0A++++metricRollup%28path%3A+%22delivers.metric%22%2C+method%3A+sum%29+%7B%0A++++++value%0A++++++timestamp%0A++++%7D%0A++%7D%0A%7D&amp;amp;title=Custom+Biz+Ops+report&quot;&gt;the duration is sent to biz-ops&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;Local Sass monitoring&lt;/h3&gt;
-&lt;p&gt;After your project has updated to &lt;a href=&quot;https://github.com/Financial-Times/dotcom-page-kit/releases/tag/v9.3.2&quot;&gt;dotcom-build-sass@9.3.2&lt;/a&gt; or above, you will periodically see a log showing your cumulative Sass build time – shown above.&lt;/p&gt;
+&lt;p&gt;After your project has updated to &lt;a href=&quot;https://github.com/Financial-Times/dotcom-page-kit/releases/tag/v9.3.2&quot;&gt;dotcom-build-sass@9.3.2&lt;/a&gt; or above, you will periodically see a log showing your cumulative Sass build time. Like this:&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 &lt;p&gt;Whilst remote monitoring will prove very useful, this local report is more for fun. Or, motivation. It highlights the total time you have spent waiting for Sass in all – at least since the temporary file it&apos;s stored in was last deleted by your operating system.&lt;/p&gt;
 &lt;p&gt;Set the &lt;code&gt;FT_SASS_STATS_NOTICE&lt;/code&gt; environment variable to configure how often you see the port on on your machine. One of &lt;code&gt;throttle&lt;/code&gt;, &lt;code&gt;never&lt;/code&gt;, or &lt;code&gt;always&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;E.g. to see your cumulative Sass build time after every build &lt;code&gt;FT_SASS_STATS_NOTICE=always npm run build&lt;/code&gt;&lt;/p&gt;
