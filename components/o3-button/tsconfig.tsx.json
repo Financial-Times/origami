@@ -1,0 +1,10 @@
+{
+	"extends": "../../tsconfig.tsx.json",
+	"compilerOptions": {
+		"outDir": "./build/jsx",
+		"declarationDir": "./build/types",
+	},
+	"files": [
+		"./src/tsx/index.ts"
+	]
+}
