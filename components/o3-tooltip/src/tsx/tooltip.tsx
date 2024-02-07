@@ -1,24 +1,38 @@
 export type TooltipProps = {
 	targetId: string;
-	tipPosition?: 'above' | 'below' | 'left' | 'right';
-	tipAlignment?: 'top' | 'bottom' | 'left' | 'right';
-	children?: JSX.Element;
+	content: string;
+	contentId: string;
+	tipPlacement?:
+		| 'top-start'
+		| 'top'
+		| 'top-end'
+		| 'right-start'
+		| 'right'
+		| 'right-end'
+		| 'bottom-start'
+		| 'bottom'
+		| 'bottom-end'
+		| 'left-start'
+		| 'left'
+		| 'left-end';
 };
 
 export function Tooltip({
 	targetId,
-	tipPosition = 'above',
-	tipAlignment = 'top',
-	children,
+	tipPlacement = 'top',
+	content,
+	contentId,
 }: TooltipProps) {
 	return (
 		<o3-tooltip
 			role="tooltip"
-			tip-position={tipPosition}
-			tip-alignment={tipAlignment}
+			tip-placement={tipPlacement}
 			target-id={targetId}
 			className="o3-tooltip">
-			<div className="o3-tooltip-content">{children}</div>
+			<div data-tooltip-arrow></div>
+			<div className="o3-tooltip-content" id={contentId}>
+				{content}
+			</div>
 			<button
 				className="o3-tooltip-close"
 				aria-label="Close tooltip"

@@ -18,17 +18,20 @@
   "license": "MIT",
   "type": "module",
   "browser": "main.js",
-	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-tooltip"
-	},
-	"devDependencies": {
-		"@financial-times/o3-button": "^0.4.0"
-	},
+  "scripts": {
+    "build": "bash ../../scripts/component/build-o3.bash o3-tooltip"
+  },
+  "devDependencies": {
+    "@financial-times/o3-button": "^0.4.0"
+  },
   "peerDependencies": {
-		"@financial-times/o3-web-token": "^0.3.0"
+    "@financial-times/o3-web-token": "^0.3.0"
   },
   "engines": {
     "npm": ">7"
   },
-  "private": false
+  "private": false,
+  "dependencies": {
+    "@popperjs/core": "^2.11.8"
+  }
 }

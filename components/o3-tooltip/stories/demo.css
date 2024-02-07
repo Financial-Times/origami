@@ -1,4 +1,4 @@
-.o3-brand-core {
+div[class^='o3-brand-'] {
 	margin: 3rem;
 	width: 80%;
 	height: 300px;
