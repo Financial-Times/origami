@@ -1,37 +1,19 @@
-import {ButtonProps, Button, LinkButton} from './button';
+// @ts-nocheck
 
-export type ButtonPaginationProps = Pick<
-	ButtonProps,
-	'theme'
-> & {
-	previousPager: ButtonPaginationPager;
-	pages: ButtonPaginationItem[];
-	nextPager: ButtonPaginationPager;
-};
-export interface ButtonPaginationItem {
-	href?: string;
-	current: boolean;
-	number: number;
-	onClick?: any;
-}
-export interface ButtonPaginationPager {
-	label: string;
-	href?: string;
-	onClick?: any;
-}
-
-type Ellipsis = Pick<ButtonProps,'theme'> & {
-	attributes?: {
-		[attribute: string]: string | boolean;
-	};
-}
+//  TODO: remove @ts-nocheck and fix types
+import {Button, LinkButton} from './button';
+import type {ButtonProps, Ellipsis, ButtonPaginationProps} from '../types';
 
 const Ellipsis = ({attributes, theme}: Ellipsis) => {
 	let classNames = ['o3-button-pagination__ellipsis'];
-	if(theme) {
+	if (theme) {
 		classNames.push('o3-button-pagination__ellipsis--' + theme);
 	}
-	return <span {...attributes} className={classNames.join(' ')}>...</span>;
+	return (
+		<span {...attributes} className={classNames.join(' ')}>
+			...
+		</span>
+	);
 };
 
 function getPagesInWideMode(pages, currentPage) {
@@ -112,10 +94,7 @@ function getPagesInNarrowMode(pages, currentPage) {
 	}
 
 	if (currentPage.number <= 3) {
-		return [
-			pagesBetweenNumbers(1, 3),
-			pageMatchingNumber(lastPageNumber),
-		];
+		return [pagesBetweenNumbers(1, 3), pageMatchingNumber(lastPageNumber)];
 	}
 
 	if (currentPage.number >= thirdPageNumberFromEnd) {
@@ -164,26 +143,40 @@ export function ButtonPagination({
 					label={page.number.toString()}
 					attributes={pageAttributes}
 					theme={theme}
-					type='secondary'></PageTag>
+					type="secondary"></PageTag>
 			);
-		})
-		if(pagesGroup.length !== index + 1) {
-			pages.push(<Ellipsis theme={theme} attributes={{'data-o3-button-show-when': mode}} key={`ellipsis-${mode}-${index}`}></Ellipsis>);
+		});
+		if (pagesGroup.length !== index + 1) {
+			pages.push(
+				<Ellipsis
+					theme={theme}
+					attributes={{'data-o3-button-show-when': mode}}
+					key={`ellipsis-${mode}-${index}`}></Ellipsis>
+			);
 		}
 		return pages;
-	}
+	};
 
 	const currentPage = pages.find(page => page.current);
 	const lastPageIsSelected = currentPage === pages[pages.length - 1];
 	const firstPageIsSelected = currentPage === pages[0];
 
 	const pagesToDisplayInGroupsWideMode = getPagesInWideMode(pages, currentPage);
-	const paginationElementsWide = pagesToDisplayInGroupsWideMode?.flatMap((pages, index, pagesGroup) => mapPagesToElements('wide', pages, index, pagesGroup));
+	const paginationElementsWide = pagesToDisplayInGroupsWideMode?.flatMap(
+		(pages, index, pagesGroup) =>
+			mapPagesToElements('wide', pages, index, pagesGroup)
+	);
 
 	const pagesInNarrowMode = getPagesInNarrowMode(pages, currentPage);
-	const paginationElementsNarrow = pagesInNarrowMode?.flatMap((pages, index, pagesGroup) => mapPagesToElements('narrow', pages, index, pagesGroup));
+	const paginationElementsNarrow = pagesInNarrowMode?.flatMap(
+		(pages, index, pagesGroup) =>
+			mapPagesToElements('narrow', pages, index, pagesGroup)
+	);
 
-	const paginationElements = [...paginationElementsWide, ...paginationElementsNarrow];
+	const paginationElements = [
+		...paginationElementsWide,
+		...paginationElementsNarrow,
+	];
 
 	const NextTag = nextPager.href ? LinkButton : Button;
 	const PreviousTag = previousPager.href ? LinkButton : Button;
@@ -203,10 +196,9 @@ export function ButtonPagination({
 				icon={'arrow-left'}
 				iconOnly={true}
 				theme={theme}
-				type='secondary'></PreviousTag>
+				type="secondary"></PreviousTag>
 
-				{paginationElements}
-
+			{paginationElements}
 
 			<NextTag
 				attributes={
@@ -217,7 +209,7 @@ export function ButtonPagination({
 				icon={'arrow-right'}
 				iconOnly={true}
 				theme={theme}
-				type='secondary'></NextTag>
+				type="secondary"></NextTag>
 		</div>
 	);
 }

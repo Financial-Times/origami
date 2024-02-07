@@ -7,6 +7,9 @@
 		"skipLibCheck": true,
 		"target": "ES2019",
 		"moduleResolution": "node",
+		"sourceMap": true,
+		"declaration": true,
+		"declarationMap": true
 	},
 	"exclude": ["node_modules"]
 }
