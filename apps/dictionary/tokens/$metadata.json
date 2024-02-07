@@ -21,6 +21,7 @@
     "sustainable-views/base/typography",
     "sustainable-views/base/colour",
     "sustainable-views/components/o3-button",
+    "sustainable-views/use-case/typography",
     "whitelabel/base/spacing",
     "whitelabel/base/color",
     "whitelabel/base/border-radius",
