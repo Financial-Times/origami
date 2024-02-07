@@ -2,11 +2,11 @@
 	"compilerOptions": {
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		// 👇️ set jsx to react-jsx
 		"jsx": "react-jsx",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"target": "ES2019"
+		"target": "ES2019",
+		"moduleResolution": "node",
 	},
 	"exclude": ["node_modules"]
 }

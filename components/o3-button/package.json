@@ -27,7 +27,8 @@
 	},
 	"types": "./build/types/index.d.ts",
 	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-button"
+		"build": "bash ../../scripts/component/build-o3.bash o3-button && npm run build:tsx",
+		"build:tsx": "tsc --project tsconfig.tsx.json"
 	},
 	"engines": {
 		"npm": ">7"
