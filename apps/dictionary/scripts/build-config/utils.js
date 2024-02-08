@@ -1,335 +1,297 @@
-import fs from "fs"
-import {registerTransforms} from "@tokens-studio/sd-transforms"
+import fs from 'fs';
+import path from 'node:path';
+import {registerTransforms} from '@tokens-studio/sd-transforms';
+import StyleDictionaryPackage from 'style-dictionary';
+import {brandClasses} from '../formatters/css/brand-classes.js';
+import {transformSVG} from '../transforms/transformSVG.js';
+import {fileURLToPath} from 'node:url';
 
-export class ConfigBuilder {
-	constructor(StyleDictionaryPackage) {
-		StyleDictionaryPackage.registerFileHeader(this._setFileHeaderConfig())
-		StyleDictionaryPackage.registerTransform(this._registerPxToRem())
-		this.config = {
-			platforms: {
-				css: {
-					transformGroup: "css",
-					transforms: [
-						"Origami/pxToRem",
-						"ts/size/px",
-						"ts/size/lineheight",
-						"ts/descriptionToComment",
-						"ts/typography/css/shorthand",
-						"ts/border/css/shorthand",
-						"ts/shadow/css/shorthand",
-						"ts/color/css/hexrgba",
-						"ts/color/modifiers",
-						"name/cti/kebab",
-					],
-				},
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const basePath = path.join(__dirname, '../../');
+
+StyleDictionaryPackage.registerTransform({
+	name: 'name/origamiPrivatePrefix',
+	type: 'name',
+	transformer: token => (tokenIsSource(token) ? token.name : `_${token.name}`),
+});
+
+registerTransforms(StyleDictionaryPackage, {
+	expand: {
+		typography: true,
+	},
+});
+
+StyleDictionaryPackage.registerTransform({
+	name: 'Origami/pxToRem',
+	type: 'value',
+	transitive: true,
+	matcher: token => {
+		const types = ['spacing', 'fontSizes', 'borderRadius', 'lineHeights'];
+		return types.includes(token.type);
+	},
+	transformer: token => {
+		const defaultWebFontSize = 16;
+		let tokenValue = token.value;
+		if (tokenValue.includes('px')) {
+			tokenValue = tokenValue.replace('px', '');
+		}
+		tokenValue = `${tokenValue / defaultWebFontSize}rem`;
+		return tokenValue;
+	},
+});
+
+StyleDictionaryPackage.registerFormat({
+	name: 'css/brand/classes',
+	formatter: brandClasses,
+});
+
+StyleDictionaryPackage.registerFormat({
+	name: 'tooling/esm',
+	formatter: ({dictionary}) => {
+		return (
+			'export default ' +
+			'{\n' +
+			dictionary.allTokens
+				.map(function (token) {
+					const value = {
+						shortName: token.path[token.path.length - 1],
+						value: token.value,
+						originalValue: token.original.value,
+						type: token.type,
+						description: token.description,
+						origamiKeys: token.origamiKeys,
+						path: token.path,
+						origamiTint: token.origamiTint,
+						css: `--${token.name}`,
+						figma: token.path.join('/'),
+					};
+					return `\t"${token.name}": ${JSON.stringify(value, null, '\t\t')}`;
+				})
+				.join(',\n') +
+			'\n}' +
+			';\n'
+		);
+	},
+});
+
+StyleDictionaryPackage.registerTransform({
+	name: 'value/transformSVG',
+	type: 'value',
+	transformer: transformSVG,
+	matcher: token => token.type === 'asset',
+	transitive: true,
+});
+
+StyleDictionaryPackage.registerTransform({
+	name: 'Origami/pxToRem',
+	type: 'value',
+	transitive: true,
+	matcher: token => {
+		const types = ['spacing', 'fontSizes', 'borderRadius', 'lineHeights'];
+		return types.includes(token.type);
+	},
+	transformer: token => {
+		const defaultWebFontSize = 16;
+		let tokenValue = token.value;
+		if (tokenValue.includes('px')) {
+			tokenValue = tokenValue.replace('px', '');
+		}
+		tokenValue = `${tokenValue / defaultWebFontSize}rem`;
+		return tokenValue;
+	},
+});
+
+StyleDictionaryPackage.registerFileHeader({
+	name: 'customFileHeader',
+	fileHeader: defaultMessage => {
+		// the fileHeader function should return an array of strings
+		// which will be formatted in the proper comment style for a given format
+		return [defaultMessage[0]]; // This will remove timestamp from file headers but will leave a comment not to edit files directly
+	},
+});
+
+StyleDictionaryPackage.registerTransform({
+	name: 'Origami/tintGroup',
+	type: 'attribute',
+	matcher: token =>
+		token.type === 'color' && /palette-[a-zA-Z]+-[0-9]{1,3}$/.test(token.name),
+	transformer: token => {
+		const tint = token.path[token.path.length - 1].split('-');
+		token.origamiTint = {
+			base: tint[0],
+			value: tint[1],
+		};
+		return token;
+	},
+});
+
+/**
+ * @callback TokenFilter
+ * @param {object} token
+ * @returns {boolean}
+ */
+
+/**
+ * @typedef {Object} CssBuildConfig - Configuration for building CSS from Token Studio design tokens.
+ * @property {string[]} sources - The design token files to include.
+ * @property {string} destination - The output file path.
+ * @property {TokenFilter|undefined} [tokenFilter] - A function to filter tokens to include.
+ * @property {string|undefined} [parentSelector] - A parent CSS selector for generated CSS.
+ */
+
+/**
+ * @param {CssBuildConfig} CssBuildConfig - A string param.
+ * @returns {undefined}
+ */
+export function buildCSS({sources, destination, tokenFilter, parentSelector}) {
+	const config = {
+		source: sources,
+		platforms: {
+			css: {
+				transformGroup: 'css',
+				transforms: [
+					'Origami/pxToRem',
+					'ts/size/px',
+					'ts/size/lineheight',
+					'ts/descriptionToComment',
+					'ts/typography/css/shorthand',
+					'ts/border/css/shorthand',
+					'ts/shadow/css/shorthand',
+					'ts/color/css/hexrgba',
+					'ts/color/modifiers',
+					'name/cti/kebab',
+					'value/transformSVG',
+					'name/origamiPrivatePrefix',
+				],
+				buildPath: path.dirname(destination) + '/',
+				files: [
+					{
+						filter: token => {
+							if (
+								token.original.value === '{DO-NOT-USE}' ||
+								token.path[0] === 'DO-NOT-USE'
+							) {
+								return false;
+							}
+							return tokenFilter ? tokenFilter(token) : true;
+						},
+						destination: path.basename(destination),
+						format: parentSelector ? 'css/brand/classes' : 'css/variables',
+						options: {
+							fileHeader: 'customFileHeader',
+							outputReferences: true,
+							parentSelector,
+						},
+					},
+				],
 			},
-		}
-		this.StyleDictionaryPackage = StyleDictionaryPackage
-	}
+		},
+	};
 
-	/**
-	 *
-	 * @returns {object} - file header config
-	 */
-	_setFileHeaderConfig() {
-		return {
-			name: "customFileHeader",
-			fileHeader: defaultMessage => {
-				// the fileHeader function should return an array of strings
-				// which will be formatted in the proper comment style for a given format
-				return [defaultMessage[0]] // This will remove timestamp from file headers but will leave a comment not to edit files directly
-			},
-		}
-	}
-
-	/**
-	 * register px to rem transform
-	 * @returns {object} - transform config
-	 * */
-	_registerPxToRem() {
-		return {
-			name: "Origami/pxToRem",
-			type: "value",
-			transitive: true,
-			matcher: token => {
-				const types = ["spacing", "fontSizes", "borderRadius", "lineHeights"]
-				return types.includes(token.type)
-			},
-			transformer: token => {
-				const defaultWebFontSize = 16
-				let tokenValue = token.value
-				if (tokenValue.includes("px")) {
-					tokenValue = tokenValue.replace("px", "")
-				}
-				tokenValue = `${tokenValue / defaultWebFontSize}rem`
-				return tokenValue
-			},
-		}
-	}
-
-	/**
-	 * set source files
-	 * @param {string[]} sources - array of source files
-	 *  */
-	setSources(sources) {
-		this.config.source = sources
-		return this
-	}
-
-	/**
-	 * set include files
-	 * @param {string[]} includeFiles - array of include files
-	 * */
-	setIncludeFiles(includeFiles) {
-		this.config.include = includeFiles
-		return this
-	}
-
-	/**
-	 * set transforms
-	 * @param {string[]} [transforms] - array of token transformers
-	 * */
-	setTransforms(transforms) {
-		const additionalTransforms = transforms || []
-		this.config.platforms.css.transforms = [
-			...this.config.platforms.css.transforms,
-			...additionalTransforms,
-		]
-		return this
-	}
-
-	/**
-	 * set build path
-	 * @param {string} buildPath - path to build folder for tokens
-	 * */
-
-	setBuildPath(buildPath) {
-		this.config.platforms.css.buildPath = buildPath
-		return this
-	}
-
-	/**
-	 * set files config
-	 * @param {object[]} config - array of file configs
-	 * @param {string} [config[].filter] - filter name for tokens
-	 * @param {string} config[].destination - destination file name
-	 * @param {string} config[].format - format for token file
-	 * @param {object} config[].options - options for token file
-	 * @param {boolean} config[].options.outputReferences - output references for token file
-	 * @param {string[]} [config[].options.classNames] - class names for token file
-	 * @param {string} [config[].options.fileHeader] - class names for token file
-	 * */
-	setFilesConfig(config) {
-		this.config.platforms.css.files = config.map(item => {
-			if (!item.options.fileHeader) {
-				item.options.fileHeader = "customFileHeader"
-			}
-			return item
-		})
-		return this
-	}
-
-	// check if config has source, transforms, buildPath and files set in config object, otherwise throw error with missing properties
-	validateConfig() {
-		if (!this.config.source) {
-			throw new Error("Source not set in config")
-		}
-		if (!this.config.platforms.css.transforms) {
-			throw new Error("Transforms not set in config")
-		}
-		if (!this.config.platforms.css.buildPath) {
-			throw new Error("Build path not set in config")
-		}
-		if (!this.config.platforms.css.files) {
-			throw new Error("Files not set in config")
-		}
-	}
-
-	// build dictionary
-	buildDictionary() {
-		registerTransforms(this.StyleDictionaryPackage, {
-			expand: {
-				typography: true,
-			},
-		})
-		this.validateConfig()
-		const StyleDictionary = this.StyleDictionaryPackage.extend(this.config)
-		StyleDictionary.buildAllPlatforms(this.config)
-	}
+	const StyleDictionary = StyleDictionaryPackage.extend(config);
+	StyleDictionary.buildAllPlatforms();
 }
 
-export class MetaConfigBuilder {
-	constructor(StyleDictionaryPackage) {
-		StyleDictionaryPackage.registerFileHeader(this._setFileHeaderConfig())
-		StyleDictionaryPackage.registerTransform(this._registerPxToRem())
-		StyleDictionaryPackage.registerTransform({
-			name: "Origami/tintGroup",
-			type: "attribute",
-			transitive: true,
-			matcher: token => token.type === "color" && token.name.match(/palette-[a-zA-Z]+-[0-9]{1,3}$/),
-			transformer: token => {
-				const tint = token.path[token.path.length - 1].split("-");
-				token.origamiTint = {
-					base: tint[0],
-					value: tint[1]
-				};
-				return token;
+/**
+ * @typedef {Object} MetaBuildConfig - Configuration for building Token Studio design tokens to json for tooling.
+ * @property {string[]} sources - The design token files to include.
+ * @property {string} destination - The output file path.
+ */
+
+/**
+ * @param {MetaBuildConfig} CssBuildConfig - A string param.
+ * @returns {undefined}
+ */
+export function buildMeta({sources, destination}) {
+	const config = {
+		source: sources,
+		platforms: {
+			tooling: {
+				transformGroup: 'js',
+				transforms: [
+					'Origami/pxToRem',
+					'ts/size/px',
+					'ts/size/lineheight',
+					'ts/descriptionToComment',
+					'ts/typography/css/shorthand',
+					'ts/border/css/shorthand',
+					'ts/shadow/css/shorthand',
+					'ts/color/css/hexrgba',
+					'ts/color/modifiers',
+					'name/cti/kebab',
+					'Origami/tintGroup',
+				],
+				buildPath: path.dirname(destination) + '/',
+				files: [
+					{
+						filter: token => {
+							if (
+								token.original.value === '{DO-NOT-USE}' ||
+								token.path[0] === 'DO-NOT-USE'
+							) {
+								return false;
+							}
+							return tokenIsSource(token);
+						},
+						destination: path.basename(destination),
+						format: 'tooling/esm',
+						options: {
+							fileHeader: 'customFileHeader',
+						},
+					},
+				],
 			},
-		})
-		this.config = {
-			platforms: {
-				js: {
-					transformGroup: "js",
-					transforms: [
-						"Origami/pxToRem",
-						"ts/size/px",
-						"ts/size/lineheight",
-						"ts/descriptionToComment",
-						"ts/typography/css/shorthand",
-						"ts/border/css/shorthand",
-						"ts/shadow/css/shorthand",
-						"ts/color/css/hexrgba",
-						"ts/color/modifiers",
-						"name/cti/kebab",
-						"Origami/tintGroup"
-					],
-				},
-			},
-		}
-		this.StyleDictionaryPackage = StyleDictionaryPackage
-	}
+		},
+	};
 
-	/**
-	 *
-	 * @returns {object} - file header config
-	 */
-	_setFileHeaderConfig() {
-		return {
-			name: "customFileHeader",
-			fileHeader: defaultMessage => {
-				// the fileHeader function should return an array of strings
-				// which will be formatted in the proper comment style for a given format
-				return [defaultMessage[0]] // This will remove timestamp from file headers but will leave a comment not to edit files directly
-			},
-		}
-	}
-
-	/**
-	 * register px to rem transform
-	 * @returns {object} - transform config
-	 * */
-	_registerPxToRem() {
-		return {
-			name: "Origami/pxToRem",
-			type: "value",
-			transitive: true,
-			matcher: token => {
-				const types = ["spacing", "fontSizes", "borderRadius", "lineHeights"]
-				return types.includes(token.type)
-			},
-			transformer: token => {
-				const defaultWebFontSize = 16
-				let tokenValue = token.value
-				if (tokenValue.includes("px")) {
-					tokenValue = tokenValue.replace("px", "")
-				}
-				tokenValue = `${tokenValue / defaultWebFontSize}rem`
-				return tokenValue
-			},
-		}
-	}
-
-	/**
-	 * set source files
-	 * @param {string[]} sources - array of source files
-	 *  */
-	setSources(sources) {
-		this.config.source = sources
-		return this
-	}
-
-	/**
-	 * set include files
-	 * @param {string[]} includeFiles - array of include files
-	 * */
-	setIncludeFiles(includeFiles) {
-		this.config.include = includeFiles
-		return this
-	}
-
-	/**
-	 * set transforms
-	 * @param {string[]} [transforms] - array of token transformers
-	 * */
-	setTransforms(transforms) {
-		const additionalTransforms = transforms || []
-		this.config.platforms.js.transforms = [
-			...this.config.platforms.js.transforms,
-			...additionalTransforms,
-		]
-		return this
-	}
-
-	/**
-	 * set build path
-	 * @param {string} buildPath - path to build folder for tokens
-	 * */
-
-	setBuildPath(buildPath) {
-		this.config.platforms.js.buildPath = buildPath
-		return this
-	}
-
-	/**
-	 * set files config
-	 * @param {object[]} config - array of file configs
-	 * @param {string} [config[].filter] - filter name for tokens
-	 * @param {string} config[].destination - destination file name
-	 * @param {string} config[].format - format for token file
-	 * @param {object} config[].options - options for token file
-	 * @param {boolean} config[].options.outputReferences - output references for token file
-	 * @param {string[]} [config[].options.classNames] - class names for token file
-	 * @param {string} [config[].options.fileHeader] - class names for token file
-	 * */
-	setFilesConfig(config) {
-		this.config.platforms.js.files = config.map(item => {
-			if (!item.options.fileHeader) {
-				item.options.fileHeader = "customFileHeader"
-			}
-			return item
-		})
-		return this
-	}
-
-	// check if config has source, transforms, buildPath and files set in config object, otherwise throw error with missing properties
-	validateConfig() {
-		if (!this.config.source) {
-			throw new Error("Source not set in config")
-		}
-		if (!this.config.platforms.js.transforms) {
-			throw new Error("Transforms not set in config")
-		}
-		if (!this.config.platforms.js.buildPath) {
-			throw new Error("Build path not set in config")
-		}
-		if (!this.config.platforms.js.files) {
-			throw new Error("Files not set in config")
-		}
-	}
-
-	// build dictionary
-	buildDictionary() {
-		registerTransforms(this.StyleDictionaryPackage, {
-			expand: {
-				typography: true,
-			},
-		})
-		this.validateConfig()
-		const StyleDictionary = this.StyleDictionaryPackage.extend(this.config)
-		StyleDictionary.buildAllPlatforms(this.config)
-	}
+	const StyleDictionary = StyleDictionaryPackage.extend(config);
+	StyleDictionary.buildAllPlatforms();
 }
 
-const loadJSON = path =>
-	JSON.parse(fs.readFileSync(new URL(path, import.meta.url)).toString())
-export const tokenStudioThemes = loadJSON("../../tokens/$themes.json")
+function getTokenStudioThemes() {
+	const loadJSON = path =>
+		JSON.parse(fs.readFileSync(new URL(path, import.meta.url)).toString());
+	return loadJSON('../../tokens/$themes.json');
+}
+
+export function getBrandNames() {
+	return getTokenStudioThemes().map(tokenStudioThemeToBrand);
+}
+
+export function getBasePath() {
+	return basePath;
+}
+
+function tokenStudioThemeToBrand(theme) {
+	if (theme.group != theme.name) {
+		return `${theme.group}/${theme.name}`;
+	}
+	return theme.group;
+}
+
+export function getBrandSources(brand) {
+	return getTokenStudioThemes().flatMap(theme => {
+		const selectedTokenSets = Object.keys(theme.selectedTokenSets);
+		const componentTokenSets = selectedTokenSets.filter(
+			tokenSet =>
+				theme.selectedTokenSets[tokenSet] === 'enabled' &&
+				tokenStudioThemeToBrand(theme) === brand
+		);
+		return componentTokenSets.map(tokenSet =>
+			path.join(basePath, `tokens/${tokenSet}.json`)
+		);
+	});
+}
+
+export function tokenIsSource(token) {
+	// if (!token.isSource) {
+	// 	return false
+	// }
+
+	// @TODO: USE SOURCES PROPERLY
+	if (token.name.startsWith('o3-button')) {
+		return false;
+	}
+	return true;
+}
