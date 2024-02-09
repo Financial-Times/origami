@@ -12,7 +12,7 @@ Team's need to use Origami for benefits of our design system to be realised.
 ### Primary metric
 Our North Star Metric is adoption of Origami by products; We're measuring this by counting the total number of component uses by projects E.g. two projects using 3 components each would add 6 to this metric.
 
-We're able to our adoption metric for both legacy Origami and our latest components, so it will also help us to manage the transition.
+We're able to use our adoption metric for both legacy Origami and our latest components, so it will also help us to manage the transition.
 
 Our baseline figure is 3,100.
 

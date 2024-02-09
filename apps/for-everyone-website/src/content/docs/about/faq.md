@@ -21,6 +21,6 @@ description: Frequently asked questions
     <summary>
         Can I use new guidelines / components / patterns?
     </summary>
-    Absolutely! We'd love you to. Please reach out to to Origami team (<a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>), so we can support you through early adoption. We expect adoption to pick up more freely in Q2, after we have published Origami's <a href="https://www.figma.com/files/938480807921629744/team/1237702133754424766">new figma libraries</a> and improved technical documentation for our new components.
+    Absolutely! We'd love you to. Please reach out to the Origami team (<a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>), so we can support you through early adoption. We expect adoption to pick up more freely in Q2, after we have published Origami's <a href="https://www.figma.com/files/938480807921629744/team/1237702133754424766">new figma libraries</a> and improved technical documentation for our new components.
 </details>
 
