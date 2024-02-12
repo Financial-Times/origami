@@ -58,7 +58,7 @@ Engineers who use VS Code (a popular [IDE](https://en.wikipedia.org/wiki/Integra
 
 ## Goodbye Registry
 
-Whilst we're busy building out what's new for Origami, we're also working to decommission the old. This quarter we plan to turn off the [Origami Registry](https://registry.origami.ft.com/components) along with its two supporting systems [origami-codedocs](https://biz-ops.in.ft.com/System/origami-codedocs) and [origami-repo-data](https://biz-ops.in.ft.com/System/origami-repo-data).
+Whilst we're busy building out what's new for Origami, we're also working to decommission the old. This quarter we plan to turn off the [Origami Registry](https://registry.origami.ft.com/components) along with its two supporting systems [origami-codedocs](https://biz-ops.in.ft.com/System/origami-codedocs) and [origami-repo-data](https://biz-ops.in.ft.com/System/origami-repo-data). This will help us reduce our maintenance burden to focus on what's new, and also consolidate our demos and documentation for easier onboarding to Origami. 
 
 ![](/assets/images/2024-02-12-newsletter/registry-button-demos.png?width=500&source=origami)
 
