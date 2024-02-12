@@ -22,7 +22,7 @@ We released a new website in beta, [origami-for-everyone.ft.com](https://origami
 
 ### Why and when to use a component
 
-So far we've added design guidelines for basic colours, typography, spacing, buttons, and a more complex pagination pattern. Unlike our current documentation this covers they why and where of using a component, as well as the what and how. Knowing why and where to use a component or pattern is crucial to using it as designed, to build a familiar and trusted user experience.
+So far we've added design guidelines for basic colours, typography, spacing, buttons, and a more complex pagination pattern. Unlike our current documentation this covers the why and where of using a component, as well as the what and how. Knowing why and where to use a component or pattern is crucial to using it as designed, to build a familiar and trusted user experience.
 
 ![](/assets/images/2024-02-12-newsletter/for-everyone-button-guidelines.png?width=500&source=origami)
 
