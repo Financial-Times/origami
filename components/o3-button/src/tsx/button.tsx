@@ -1,40 +1,4 @@
-export interface ButtonProps {
-	label: string;
-	type: 'primary' | 'secondary' | 'ghost';
-	size?: 'small' | '';
-	theme?: 'inverse' | 'mono';
-	icon?:
-		| 'arrow-left'
-		| 'arrow-right'
-		| 'upload'
-		| 'tick'
-		| 'plus'
-		| 'arrow-down'
-		| 'arrow-up'
-		| 'edit-outlined'
-		| 'download'
-		| 'search'
-		| 'refresh'
-		| 'cross';
-	iconOnly?: boolean;
-	visuallyHideDisabled?: boolean;
-	attributes?: {
-		[attribute: string]: string | boolean;
-	};
-	onClick?: Function;
-}
-
-export interface LinkButtonProps extends ButtonProps {
-	href: string;
-}
-
-type ButtonClassProps = Pick<
-	ButtonProps,
-	'visuallyHideDisabled' | 'type' | 'size' | 'theme' | 'icon' | 'iconOnly'
-> & {
-	customClasses: string | boolean;
-};
-
+import type { ButtonProps, LinkButtonProps, ButtonClassProps } from '../types';
 function makeClassNames({
 	customClasses,
 	visuallyHideDisabled,
@@ -86,7 +50,7 @@ export function Button({
 	delete attributes.className;
 	return (
 		<button
-			onClick={onClick ? event => onClick(event) : null}
+			onClick={onClick ? event => onClick(event) : undefined}
 			className={makeClassNames({
 				customClasses,
 				visuallyHideDisabled,
@@ -125,7 +89,7 @@ export function LinkButton({
 	return (
 		<a
 			href={href}
-			onClick={onClick ? event => onClick(event) : null}
+			onClick={onClick ? event => onClick(event) : undefined}
 			className={makeClassNames({
 				customClasses,
 				visuallyHideDisabled,
