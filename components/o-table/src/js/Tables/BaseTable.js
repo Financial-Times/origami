@@ -35,13 +35,24 @@ function prepend(tbody, rowBatch) {
 }
 
 class BaseTable {
+	/**
+	 * Sort the given table.
+	 *
+	 * @typedef TableSorter
+	 * @access public
+	 * @param {BaseTable} table - The table instance to sort.
+	 * @param {number} columnIndex - The index of the table column to sort.
+	 * @param {string} sortOrder - How to sort the column, "ascending" or "descending"
+	 * @param {number} batch [100] - Deprecated. No longer used. How many rows to render at once when sorting.
+	 * @returns {void}
+	 */
 
 	/**
 	 * The shared functionality of all `o-table` variants.
 	 *
 	 * @access public
 	 * @param {HTMLElement} rootEl - The `o-table` element.
-	 * @param {import("../Sort/TableSorter")} sorter a TableSorter instance
+	 * @param {TableSorter} sorter a TableSorter instance
 	 * @param {object} opts [{}]
 	 * @param {boolean} opts.sortable [true]
 	 * @returns {BaseTable} the new base table

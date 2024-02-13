@@ -2,10 +2,15 @@ import * as oUtils from '@financial-times/o-utils';
 
 class DropDown {
 	/**
+	 *
+	 * @typedef Drawer
+	 * @param {HTMLElement} [headerEl] - The component element in the D
+	 */
+	/**
 	 * Class constructor
 	 *
 	 * @param {HTMLElement} headerEl - The component element in the DOM
-	 * @param {import("./drawer")|null} drawer - The drawer that this drop down belongs to if any.
+	 * @param {Drawer|null} drawer - The drawer that this drop down belongs to if any.
 	 */
 	constructor(headerEl, drawer = null) {
 		this.primaryNav = headerEl.querySelector('.o-header-services__primary-nav');

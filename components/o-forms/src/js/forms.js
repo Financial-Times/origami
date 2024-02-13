@@ -159,13 +159,22 @@ class Forms {
 			this.form.dispatchEvent(oFormsSubmitEvent);
 		}
 	}
+	/**
+	 * @typedef {object} ErrorSummaryElement
+	 * @property {HTMLInputElement} element - the associated element
+	 * @property {string} id - the input element's id
+	 * @property {boolean} valid - was the user's value valid?
+	 * @property {string=} error - the error message for this element
+	 * @property {HTMLElement=} field - a containing o-forms-field element
+	 * @property {HTMLLabelElement} label - an associated label element
+	 */
 
 	/**
 	 * Form validation
 	 * Validates every element in the form and creates input objects for the error
 	summary
 	 *
-	 * @returns {Array<import("./error-summary.js").ErrorSummaryElement>} - list of elements for the error summary
+	 * @returns {Array<ErrorSummaryElement>} - list of elements for the error summary
 	 */
 	validateFormInputs() {
 		return this.formInputs.map(oFormInput => {
