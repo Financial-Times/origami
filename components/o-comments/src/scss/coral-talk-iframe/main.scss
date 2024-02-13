@@ -238,7 +238,6 @@
 			&:hover {
 				border-color: transparent !important;
 			}
-
 			span,
 			i {
 				color: oColorsByName('teal-50');
@@ -550,6 +549,9 @@
 			color: var(--palette-text-000) !important;
 			background: var(--palette-primary-500) !important;
 			border: 0;
+			& span, & i {
+				color: var(--palette-text-000) !important;
+			}
 		}
 
 		.coral-featuredComment-content {
