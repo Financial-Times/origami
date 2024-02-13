@@ -1,12 +1,23 @@
 import BaseTable from './BaseTable.js';
 
 class OverflowTable extends BaseTable {
+	/**
+	 * Sort the given table.
+	 *
+	 * @typedef TableSorter
+	 * @access public
+	 * @param {BaseTable} table - The table instance to sort.
+	 * @param {number} columnIndex - The index of the table column to sort.
+	 * @param {string} sortOrder - How to sort the column, "ascending" or "descending"
+	 * @param {number} batch [100] - Deprecated. No longer used. How many rows to render at once when sorting.
+	 * @returns {void}
+	 */
 
 	/**
 	 * Initialises an `o-table` component with "overflow" responsive behaviour.
 	 *
 	 * @param {HTMLElement} rootEl - The `o-table` element.
-	 * @param {import("../Sort/TableSorter")} sorter a tablesorter instance
+	 * @param {TableSorter} sorter a tablesorter instance
 	 * @param {object} opts [{}]
 	 * @param {boolean} opts.sortable [true] - is the table sortable
 	 * @param {undefined | boolean} opts.expanded - is the table expanded
