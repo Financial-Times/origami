@@ -54,12 +54,22 @@ class TableSorter {
 	constructor() {
 		this._cellFormatter = new CellFormatter();
 	}
-
+	/**
+	 * The shared functionality of all `o-table` variants.
+	 *
+	 * @typedef BaseTable
+	 * @access public
+	 * @param {HTMLElement} rootEl - The `o-table` element.
+	 * @param {TableSorter} sorter a TableSorter instance
+	 * @param {object} opts [{}]
+	 * @param {boolean} opts.sortable [true]
+	 * @returns {BaseTable} the new base table
+	 */
 	/**
 	 * Sort the given table.
 	 *
 	 * @access public
-	 * @param {import("../Tables/BaseTable")} table - The table instance to sort.
+	 * @param {BaseTable} table - The table instance to sort.
 	 * @param {number} columnIndex - The index of the table column to sort.
 	 * @param {string} sortOrder - How to sort the column, "ascending" or "descending"
 	 * @param {number} batch [100] - Deprecated. No longer used. How many rows to render at once when sorting.
