@@ -4,7 +4,7 @@ import type {TooltipProps} from '../src/tsx/tooltip';
 import {TemplateSBConfig} from './sb-story-config';
 import '../src/ts/tooltip';
 import './demo.css';
-import '@financial-times/o3-button/css/core.css'
+import '@financial-times/o3-button/css/whitelabel.css';
 // disable HMR(hot module replacement) for web-component file
 import.meta.webpackHot.decline('../src/ts/tooltip');
 
@@ -38,7 +38,8 @@ export const Tooltip: TooltipStory = {
 	args: {
 		targetId: 'demo-o3-tooltip-id',
 		content:
-			'Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long,Tool tip content that is quite long ',
+			'Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long',
+		title: 'Title',
 		contentId: 'o3-tooltip-content',
 		tipPlacement: 'top',
 	},

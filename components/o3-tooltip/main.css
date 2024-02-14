@@ -1,115 +1,77 @@
 @import '@financial-times/o3-web-token/icons.css';
-/* html:after {
-	content: '{ "layout": "default", "gutter": "10px" }';
-	display: none;
+
+@font-face {
+	src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2')
+		format('woff2');
+	font-family: 'Metric2-VF';
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
-@media (min-width: 30.625em) {
-	html:after {
-		content: '{ "layout": "S", "gutter": "10px" }';
-	}
-}
-@media (min-width: 46.25em) {
-	html:after {
-		content: '{ "layout": "M", "gutter": "20px" }';
-	}
-}
-@media (min-width: 61.25em) {
-	html:after {
-		content: '{ "layout": "L", "gutter": "20px" }';
-	}
-}
-@media (min-width: 76.25em) {
-	html:after {
-		content: '{ "layout": "XL", "gutter": "20px" }';
-	}
-} */
+
 o3-tooltip {
+	--_o3-tooltip-padding-top: 12px;
+	--_o3-tooltip-padding-right: 16px;
+	--_o3-tooltip-close-button-size: 20px;
+
+	box-sizing: border-box;
 	width: max-content;
+	max-width: 250px;
+	position: absolute;
 	top: 0;
 	left: 0;
-	box-shadow: 0 1px 4px rgba(77, 72, 69, 0.15), 0 8px 14px rgba(77, 72, 69, 0.2);
-	background: #fff;
-	position: absolute;
 	z-index: 10;
-	box-sizing: border-box;
-	/* opacity: 0; */
-	/* transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
-		transform 0.5s cubic-bezier(1, 0, 0.5, 1.275); */
-	border: 0;
-	max-width: 250px;
-	/* display: none; */
+
+	/* TODO: Values are copied from figma but this can be replaced by tokens */
+	box-shadow: 2px 2px 6px 0px rgba(26, 26, 26, 0.1),
+		5px 5px 24px 0px rgba(26, 26, 26, 0.17);
+	background: #fff;
+	font-weight: 400;
+	font-family: 'Metric2-VF', sans-serif;
+	font-size: 14px;
 }
 
-/* o3-tooltip[closed='true'] {
-	opacity: 0;
-	display: none;
-} */
-
 .o3-tooltip-content {
-	font-family: MetricWeb, sans-serif;
+	font-family: inherit;
+	font-weight: inherit;
 	position: relative;
 	box-sizing: border-box;
 	overflow: auto;
-	padding: 15px 35px 15px 20px;
-	float: left;
-	line-height: 1;
+	padding: var(--_o3-tooltip-padding-top) var(--_o3-tooltip-padding-right)
+		var(--_o3-tooltip-padding-right);
+	margin-right: var(--_o3-tooltip-close-button-size);
 	hyphens: auto;
 }
-.o3-tooltip-content > *:first-child {
-	margin-top: 0;
-}
-.o3-tooltip-content > *:last-child {
-	margin-bottom: 0;
-}
 
+.o3-tooltip-content-title {
+	font-family: inherit;
+	font-weight: 700;
+	font-size: 16px;
+	color: inherit;
+	margin-bottom: 8px;
+}
+/* CLOSE BUTTON */
 o3-tooltip .o3-tooltip-close {
-	width: 20px;
-	height: 20px;
+	width: var(--_o3-tooltip-close-button-size);
+	height: var(--_o3-tooltip-close-button-size);
 	mask-image: var(--o3-icons-ft-icon-cross);
 	mask-repeat: no-repeat;
 	mask-size: contain;
 	display: inline-block;
-	background-color: currentColor;
-}
-
-.o3-tooltip-close {
-	display: inline-block;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: 50%;
-	vertical-align: baseline;
-	width: 20px;
-	height: 20px;
-	appearance: none;
-	border: 0;
-	font: inherit;
-	outline: inherit;
-	box-sizing: content-box;
+	background-color: var(--o3-color-palette-black-90);
 	position: absolute;
-	margin: 5px 5px 15px 15px;
-	padding: 0;
+	top: var(--_o3-tooltip-padding-top);
+	right: var(--_o3-tooltip-padding-right);
 	cursor: pointer;
-	font-size: 8px;
-	line-height: 1;
 	user-select: none;
-	top: 0;
-	right: 0;
 }
 
-.o3-tooltip-close:after {
-	position: absolute;
-	content: '';
-	top: -12px;
-	right: -12px;
-	left: -12px;
-	bottom: -12px;
-}
-
+/* ARROW STYLES */
 o3-tooltip > [data-tooltip-arrow],
 o3-tooltip > [data-tooltip-arrow]::before {
 	position: absolute;
-	width: 16px;
-	height: 16px;
+	width: 20px;
+	height: 20px;
 	background: inherit;
 }
 o3-tooltip > [data-tooltip-arrow]::before {
@@ -123,69 +85,69 @@ o3-tooltip > [data-tooltip-arrow] {
 }
 
 o3-tooltip[tip-placement^='top'] > [data-tooltip-arrow] {
-	bottom: -8px;
+	bottom: -10px;
 }
 
 o3-tooltip[tip-placement^='bottom'] > [data-tooltip-arrow] {
-	top: -8px;
+	top: -10px;
 }
 
 o3-tooltip[tip-placement^='left'] > [data-tooltip-arrow] {
-	right: -8px;
+	right: -10px;
 }
 
 o3-tooltip[tip-placement^='right'] > [data-tooltip-arrow] {
-	left: -8px;
+	left: -10px;
 }
 
-o3-tooltip[tip-placement = 'top-start'] > [data-tooltip-arrow] {
-	left: 8px;
+o3-tooltip[tip-placement='top-start'] > [data-tooltip-arrow] {
+	left: 10px;
 }
 
-o3-tooltip[tip-placement = 'top-end'] > [data-tooltip-arrow] {
-	right: 8px;
+o3-tooltip[tip-placement='top-end'] > [data-tooltip-arrow] {
+	right: 10px;
 }
 
-o3-tooltip[tip-placement = 'top'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='top'] > [data-tooltip-arrow] {
 	left: 50%;
 	transform: translateX(-50%);
 }
 
-o3-tooltip[tip-placement = 'bottom-start'] > [data-tooltip-arrow] {
-	left: 8px;
+o3-tooltip[tip-placement='bottom-start'] > [data-tooltip-arrow] {
+	left: 10px;
 }
 
-o3-tooltip[tip-placement = 'bottom-end'] > [data-tooltip-arrow] {
-	right: 8px;
+o3-tooltip[tip-placement='bottom-end'] > [data-tooltip-arrow] {
+	right: 10px;
 }
 
-o3-tooltip[tip-placement = 'bottom'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='bottom'] > [data-tooltip-arrow] {
 	left: 50%;
 	transform: translateX(-50%);
 }
 
-o3-tooltip[tip-placement = 'left-start'] > [data-tooltip-arrow] {
-	top: 8px;
+o3-tooltip[tip-placement='left-start'] > [data-tooltip-arrow] {
+	top: 10px;
 }
 
-o3-tooltip[tip-placement = 'left-end'] > [data-tooltip-arrow] {
-	bottom: 8px;
+o3-tooltip[tip-placement='left-end'] > [data-tooltip-arrow] {
+	bottom: 10px;
 }
 
-o3-tooltip[tip-placement = 'left'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='left'] > [data-tooltip-arrow] {
 	top: 50%;
 	transform: translateY(-50%);
 }
 
-o3-tooltip[tip-placement = 'right-start'] > [data-tooltip-arrow] {
-	top: 8px;
+o3-tooltip[tip-placement='right-start'] > [data-tooltip-arrow] {
+	top: 10px;
 }
 
-o3-tooltip[tip-placement = 'right-end'] > [data-tooltip-arrow] {
-	bottom: 8px;
+o3-tooltip[tip-placement='right-end'] > [data-tooltip-arrow] {
+	bottom: 10px;
 }
 
-o3-tooltip[tip-placement = 'right'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='right'] > [data-tooltip-arrow] {
 	top: 50%;
 	transform: translateY(-50%);
 }
