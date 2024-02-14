@@ -1,22 +1,31 @@
 # o-forms Sass Documentation
+
+- [o-forms Sass Documentation](#o-forms-sass-documentation)
+	- [Mixins](#mixins)
+		- [oForms](#oforms)
+		- [oFormsAddCustom](#oformsaddcustom)
+
 ## Mixins
+
 ### oForms
 
 Styles for form elements.
-
 | Parameter | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | opts | Map | ('elements': ('checkbox', 'date', 'password', 'radio-round', 'radio-box', 'select', 'textarea', 'text', 'toggle'), 'features': ('disabled', 'inline', 'inverse', 'error-summary', 'right', 'small', 'state', 'suffix')) |The o-form features to include styles for (see the README for a full list). |
+
 #### Examples
+
 ##### Example 1
+
 ```scss
 @include oForms($opts: (
 	'elements': ('text', 'checkbox'),
 	'features': ('inline')
 ));
 ```
-### oFormsAddCustom
 
+### oFormsAddCustom
 
 | Parameter | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
