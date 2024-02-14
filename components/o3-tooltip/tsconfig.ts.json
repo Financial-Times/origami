@@ -1,0 +1,14 @@
+{
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"outDir": "./build/js",
+		"declarationDir": "./build/types",
+		"target": "es2021",
+		"module": "es2015",
+		"moduleResolution": "node",
+		"lib": ["es2021", "dom"],
+		"declaration": true,
+		"declarationMap": true
+	},
+	"files": ["./src/ts/index.ts"]
+}
