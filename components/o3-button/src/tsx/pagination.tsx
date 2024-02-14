@@ -1,31 +1,22 @@
-import {ButtonProps, Button, LinkButton} from './button';
+// @ts-nocheck
 
-export type ButtonPaginationProps = Pick<
-	ButtonProps,
-	'size' | 'theme'
-> & {
-	previousPager: ButtonPaginationPager;
-	pages: ButtonPaginationItem[];
-	nextPager: ButtonPaginationPager;
-};
-export interface ButtonPaginationItem {
-	href?: string;
-	current: boolean;
-	number: number;
-	onClick?: any;
-}
-export interface ButtonPaginationPager {
-	label: string;
-	href?: string;
-	onClick?: any;
-}
+//  TODO: remove @ts-nocheck and fix types
+import {Button, LinkButton} from './button';
+import type {ButtonProps, Ellipsis, ButtonPaginationProps} from '../types';
 
-const Ellipsis = () => {
-	let classNames = 'o3-button-pagination__ellipsis';
-	return <span className={classNames}>...</span>;
+const Ellipsis = ({attributes, theme}: Ellipsis) => {
+	let classNames = ['o3-button-pagination__ellipsis'];
+	if (theme) {
+		classNames.push('o3-button-pagination__ellipsis--' + theme);
+	}
+	return (
+		<span {...attributes} className={classNames.join(' ')}>
+			...
+		</span>
+	);
 };
 
-function splitPages(pages, currentPage) {
+function getPagesInWideMode(pages, currentPage) {
 	const nextPage = currentPage.number + 1;
 	const previousPage = currentPage.number - 1;
 
@@ -103,47 +94,33 @@ function getPagesInNarrowMode(pages, currentPage) {
 	}
 
 	if (currentPage.number <= 3) {
-		return [
-			...pagesBetweenNumbers(1, 3),
-			...pageMatchingNumber(lastPageNumber),
-		];
+		return [pagesBetweenNumbers(1, 3), pageMatchingNumber(lastPageNumber)];
 	}
 
 	if (currentPage.number >= thirdPageNumberFromEnd) {
 		return [
-			...pageMatchingNumber(1),
-			...pagesBetweenNumbers(thirdPageNumberFromEnd, lastPageNumber),
+			pageMatchingNumber(1),
+			pagesBetweenNumbers(thirdPageNumberFromEnd, lastPageNumber),
 		];
 	}
 
 	if (currentPage.number > 3) {
 		return [
-			...pageMatchingNumber(1),
-			...pageMatchingNumber(currentPage.number),
-			...pageMatchingNumber(lastPageNumber),
+			pageMatchingNumber(1),
+			pageMatchingNumber(currentPage.number),
+			pageMatchingNumber(lastPageNumber),
 		];
 	}
 }
 
 export function ButtonPagination({
-	size = '',
 	theme,
 	previousPager,
 	pages,
 	nextPager,
 }: ButtonPaginationProps) {
-	const NextTag = nextPager.href ? LinkButton : Button;
-	const PreviousTag = previousPager.href ? LinkButton : Button;
-	const currentPage = pages.find(page => page.current);
-
-	const pagesToDisplayInGroupsWideMode = splitPages(pages, currentPage);
-	const pagesInNarrowMode = getPagesInNarrowMode(pages, currentPage);
-
-	const lastPageIsSelected = currentPage === pages[pages.length - 1];
-	const firstPageIsSelected = currentPage === pages[0];
-
-	const pageElementsInGroups = pagesToDisplayInGroupsWideMode!.map(pageGroup =>
-		pageGroup.map(page => {
+	const mapPagesToElements = (mode, pages, index, pagesGroup) => {
+		pages = pages.map(page => {
 			const PageTag = page.href ? LinkButton : Button;
 
 			const pageAttributes = {};
@@ -157,26 +134,54 @@ export function ButtonPagination({
 				pageAttributes['onClick'] = page.onClick;
 			}
 
-			if (!pagesInNarrowMode.includes(page)) {
-				pageAttributes['data-hide-when-narrow'] = 'true';
-			}
+			pageAttributes['data-o3-button-show-when'] = mode;
 
 			return (
 				<PageTag
-					key={page.number}
+					key={`page-${mode}-${page.number}`}
 					href={page.href}
 					label={page.number.toString()}
 					attributes={pageAttributes}
 					theme={theme}
-					size={size}
-					type='secondary'></PageTag>
+					type="secondary"></PageTag>
 			);
-		})
+		});
+		if (pagesGroup.length !== index + 1) {
+			pages.push(
+				<Ellipsis
+					theme={theme}
+					attributes={{'data-o3-button-show-when': mode}}
+					key={`ellipsis-${mode}-${index}`}></Ellipsis>
+			);
+		}
+		return pages;
+	};
+
+	const currentPage = pages.find(page => page.current);
+	const lastPageIsSelected = currentPage === pages[pages.length - 1];
+	const firstPageIsSelected = currentPage === pages[0];
+
+	const pagesToDisplayInGroupsWideMode = getPagesInWideMode(pages, currentPage);
+	const paginationElementsWide = pagesToDisplayInGroupsWideMode?.flatMap(
+		(pages, index, pagesGroup) =>
+			mapPagesToElements('wide', pages, index, pagesGroup)
 	);
+
+	const pagesInNarrowMode = getPagesInNarrowMode(pages, currentPage);
+	const paginationElementsNarrow = pagesInNarrowMode?.flatMap(
+		(pages, index, pagesGroup) =>
+			mapPagesToElements('narrow', pages, index, pagesGroup)
+	);
+
+	const paginationElements = [
+		...paginationElementsWide,
+		...paginationElementsNarrow,
+	];
+
+	const NextTag = nextPager.href ? LinkButton : Button;
+	const PreviousTag = previousPager.href ? LinkButton : Button;
+
 	const classNames = ['o3-button-pagination'];
-	if (size === 'small') {
-		classNames.push(' o3-button-pagination--small');
-	}
 
 	return (
 		<div className={classNames.join(' ')}>
@@ -191,16 +196,10 @@ export function ButtonPagination({
 				icon={'arrow-left'}
 				iconOnly={true}
 				theme={theme}
-				size={size}
-				type='secondary'></PreviousTag>
-				{pageElementsInGroups.flatMap((pageElementGroup, pageGroupIndex) => {
-					const elementGroup = [];
-					if (pageGroupIndex > 0) {
-						elementGroup.push(<Ellipsis key={pageGroupIndex}></Ellipsis>);
-					}
-					elementGroup.push(pageElementGroup);
-					return elementGroup;
-				})}
+				type="secondary"></PreviousTag>
+
+			{paginationElements}
+
 			<NextTag
 				attributes={
 					lastPageIsSelected ? {disabled: true} : {onClick: nextPager.onClick}
@@ -210,8 +209,7 @@ export function ButtonPagination({
 				icon={'arrow-right'}
 				iconOnly={true}
 				theme={theme}
-				size={size}
-				type='secondary'></NextTag>
+				type="secondary"></NextTag>
 		</div>
 	);
 }

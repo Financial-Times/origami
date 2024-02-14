@@ -1,8 +1,8 @@
 import type {StoryObj} from '@storybook/react';
 import type {TemplateType} from './story-templates';
 import {useState} from 'react';
-import {ButtonPagination, ButtonPaginationProps} from '../src/tsx/pagination';
-
+import {ButtonPagination} from '../src/tsx/pagination';
+import type {ButtonPaginationProps} from '../src/types';
 import {TemplateSBConfig} from './sb-story-config';
 type PaginationStory = Omit<StoryObj, 'args'> & {
 	args: ButtonPaginationProps;
@@ -11,7 +11,7 @@ type PaginationStory = Omit<StoryObj, 'args'> & {
 const ButtonPaginationTemplate: TemplateType = {
 	...TemplateSBConfig,
 	parameters: {
-		controls: {include: ['size', 'theme']},
+		controls: {include: ['theme']},
 	},
 	render: args => {
 		const configuredCurrentPage = args.pages.find(page => page.current);

@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.4.2](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.1...o3-button-v0.4.2) (2024-02-05)
+
+
+### Bug Fixes
+
+* Allow pagination buttons to shrink if needed. ([#1425](https://github.com/Financial-Times/origami/issues/1425)) ([bbb8908](https://github.com/Financial-Times/origami/commit/bbb89089b7c8963d3439a8a97c05f48870ac86c9))
+
+## [0.4.1](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.0...o3-button-v0.4.1) (2024-02-02)
+
+
+### Bug Fixes
+
+* pagination improvements ([d721844](https://github.com/Financial-Times/origami/commit/d721844e53250b3735e647a53ae167906b8c8c16))
+* pagination inverse theme, show correct ellipsis colour ([71f2b62](https://github.com/Financial-Times/origami/commit/71f2b62a18c3a5676501755daea2ecbb7518ee97))
+
 ## [0.4.0](https://github.com/Financial-Times/origami/compare/o3-button-v0.3.3...o3-button-v0.4.0) (2024-01-26)
 
 

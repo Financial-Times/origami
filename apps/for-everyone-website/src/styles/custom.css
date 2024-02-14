@@ -3,6 +3,7 @@
 
 /* Dark mode colors. */
 :root {
+	--sl-content-width: 82ch;
 	--sl-color-accent-low: #131e4f;
 	--sl-color-accent: #3447ff;
 	--sl-color-accent-high: #b3c7ff;
@@ -21,4 +22,9 @@
 	--sl-color-accent: var(--o3-color-palette-teal);
 	--sl-color-accent-high: var(--o3-color-palette-teal);
 	--sl-color-text-accent: var(--o3-color-palette-teal);
+}
+
+summary {
+	font-weight: bold;
+	cursor: pointer;
 }

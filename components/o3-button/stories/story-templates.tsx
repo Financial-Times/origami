@@ -1,19 +1,15 @@
 import type {StoryObj} from '@storybook/react';
-import {
-	Button as ButtonTsx,
-	LinkButton,
-	ButtonProps,
-	LinkButtonProps,
-} from '../src/tsx/button';
+import {Button as ButtonTsx, LinkButton} from '../src/tsx/button';
+import type {ButtonProps, LinkButtonProps} from '../src/types';
 import {ButtonGroup} from '../src/tsx/group';
 
 import {TemplateSBConfig} from './sb-story-config';
 
 type ButtonStory = Omit<StoryObj, 'args'> & {
-	args: ButtonProps & {disabled: Boolean}
+	args: ButtonProps & {disabled: Boolean};
 };
 type LinkButtonStory = Omit<StoryObj, 'args'> & {
-	args: LinkButtonProps & {disabled: Boolean}
+	args: LinkButtonProps & {disabled: Boolean};
 };
 type ButtonGroupStory = Omit<StoryObj, 'args'> & {
 	args: {
@@ -57,7 +53,7 @@ export const Button: ButtonStory = {
 	args: {
 		label: 'Press button',
 		type: 'primary',
-		disabled: false
+		disabled: false,
 	},
 };
 
@@ -67,7 +63,7 @@ export const LinkAsButton: LinkButtonStory = {
 		label: 'Link button',
 		type: 'secondary',
 		href: '#',
-		disabled: false
+		disabled: false,
 	},
 };
 

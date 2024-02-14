@@ -104,9 +104,9 @@
 }
 
 .o3-button.o3-button--primary:active,
-.o3-button--primary[aria-selected='true'],
-.o3-button--primary[aria-current],
-.o3-button--primary[aria-pressed='true'] {
+.o3-button.o3-button--primary[aria-selected='true'],
+.o3-button.o3-button--primary[aria-current],
+.o3-button.o3-button--primary[aria-pressed='true'] {
 	color: var(--_o3-button-primary-standard-active-color);
 	background-color: var(--_o3-button-primary-standard-active-background);
 	border-color: var(--_o3-button-primary-standard-active-border);
@@ -132,9 +132,9 @@
 }
 
 .o3-button.o3-button--primary.o3-button--inverse:active,
-.o3-button--primary.o3-button--inverse[aria-selected='true'],
-.o3-button--primary.o3-button--inverse[aria-current],
-.o3-button--primary.o3-button--inverse[aria-pressed='true'] {
+.o3-button.o3-button--primary.o3-button--inverse[aria-selected='true'],
+.o3-button.o3-button--primary.o3-button--inverse[aria-current],
+.o3-button.o3-button--primary.o3-button--inverse[aria-pressed='true'] {
 	color: var(--_o3-button-primary-inverse-active-color);
 	background-color: var(--_o3-button-primary-inverse-active-background);
 	border-color: var(--_o3-button-primary-inverse-active-border);
@@ -161,9 +161,9 @@
 }
 
 .o3-button.o3-button--primary.o3-button--mono:active,
-.o3-button--primary.o3-button--mono[aria-selected='true'],
-.o3-button--primary.o3-button--mono[aria-current],
-.o3-button--primary.o3-button--mono[aria-pressed='true'] {
+.o3-button.o3-button--primary.o3-button--mono[aria-selected='true'],
+.o3-button.o3-button--primary.o3-button--mono[aria-current],
+.o3-button.o3-button--primary.o3-button--mono[aria-pressed='true'] {
 	color: var(--_o3-button-primary-mono-active-color);
 	background-color: var(--_o3-button-primary-mono-active-background);
 	border-color: var(--_o3-button-primary-mono-active-border);
@@ -189,9 +189,9 @@
 }
 
 .o3-button.o3-button--secondary:active,
-.o3-button--secondary[aria-selected='true'],
-.o3-button--secondary[aria-current],
-.o3-button--secondary[aria-pressed='true'] {
+.o3-button.o3-button--secondary[aria-selected='true'],
+.o3-button.o3-button--secondary[aria-current],
+.o3-button.o3-button--secondary[aria-pressed='true'] {
 	color: var(--_o3-button-secondary-standard-active-color);
 	background-color: var(--_o3-button-secondary-standard-active-background);
 	border-color: var(--_o3-button-secondary-standard-active-border);
@@ -218,9 +218,9 @@
 }
 
 .o3-button.o3-button--secondary.o3-button--inverse:active,
-.o3-button--secondary.o3-button--inverse[aria-selected='true'],
-.o3-button--secondary.o3-button--inverse[aria-current],
-.o3-button--secondary.o3-button--inverse[aria-pressed='true'] {
+.o3-button.o3-button--secondary.o3-button--inverse[aria-selected='true'],
+.o3-button.o3-button--secondary.o3-button--inverse[aria-current],
+.o3-button.o3-button--secondary.o3-button--inverse[aria-pressed='true'] {
 	color: var(--_o3-button-secondary-inverse-active-color);
 	background-color: var(--_o3-button-secondary-inverse-active-background);
 	border-color: var(--_o3-button-secondary-inverse-active-border);
@@ -247,9 +247,9 @@
 }
 
 .o3-button.o3-button--secondary.o3-button--mono:active,
-.o3-button--secondary.o3-button--mono[aria-selected='true'],
-.o3-button--secondary.o3-button--mono[aria-current],
-.o3-button--secondary.o3-button--mono[aria-pressed='true'] {
+.o3-button.o3-button--secondary.o3-button--mono[aria-selected='true'],
+.o3-button.o3-button--secondary.o3-button--mono[aria-current],
+.o3-button.o3-button--secondary.o3-button--mono[aria-pressed='true'] {
 	color: var(--_o3-button-secondary-mono-active-color);
 	background-color: var(--_o3-button-secondary-mono-active-background);
 	border-color: var(--_o3-button-secondary-mono-active-border);
@@ -276,9 +276,9 @@
 }
 
 .o3-button.o3-button--ghost:active,
-.o3-button--ghost[aria-selected='true'],
-.o3-button--ghost[aria-current],
-.o3-button--ghost[aria-pressed='true'] {
+.o3-button.o3-button--ghost[aria-selected='true'],
+.o3-button.o3-button--ghost[aria-current],
+.o3-button.o3-button--ghost[aria-pressed='true'] {
 	color: var(--_o3-button-ghost-standard-active-color);
 	background-color: var(--_o3-button-ghost-standard-active-background);
 	border-color: var(--_o3-button-ghost-standard-active-border);
@@ -305,9 +305,9 @@
 }
 
 .o3-button.o3-button--ghost.o3-button--inverse:active,
-.o3-button--ghost.o3-button--inverse[aria-selected='true'],
-.o3-button--ghost.o3-button--inverse[aria-current],
-.o3-button--ghost.o3-button--inverse[aria-pressed='true'] {
+.o3-button.o3-button--ghost.o3-button--inverse[aria-selected='true'],
+.o3-button.o3-button--ghost.o3-button--inverse[aria-current],
+.o3-button.o3-button--ghost.o3-button--inverse[aria-pressed='true'] {
 	color: var(--_o3-button-ghost-inverse-active-color);
 	background-color: var(--_o3-button-ghost-inverse-active-background);
 	border-color: var(--_o3-button-ghost-inverse-active-border);
@@ -334,9 +334,9 @@
 }
 
 .o3-button.o3-button--ghost.o3-button--mono:active,
-.o3-button--ghost.o3-button--mono[aria-selected='true'],
-.o3-button--ghost.o3-button--mono[aria-current],
-.o3-button--ghost.o3-button--mono[aria-pressed='true'] {
+.o3-button.o3-button--ghost.o3-button--mono[aria-selected='true'],
+.o3-button.o3-button--ghost.o3-button--mono[aria-current],
+.o3-button.o3-button--ghost.o3-button--mono[aria-pressed='true'] {
 	color: var(--_o3-button-ghost-mono-active-color);
 	background-color: var(--_o3-button-ghost-mono-active-background);
 	border-color: var(--_o3-button-ghost-mono-active-border);
@@ -365,16 +365,17 @@
 	gap: var(--o3-spacing-4xs);
 }
 
-.o3-button-pagination,
-.o3-button-pagination>.o3-button,
-.o3-button-pagination>.o3-button.o3-button-icon--icon-only {
-	--_o3-button-min-width: 38px;
+.o3-button-pagination__ellipsis--inverse .o3-button-pagination__ellipsis {
+	color: var(--_o3-button-secondary-inverse-color);
 }
 
-.o3-button-pagination--small,
-.o3-button-pagination--small>.o3-button.o3-button--small,
-.o3-button-pagination--small>.o3-button.o3-button-icon--icon-only {
-	--_o3-button-min-width: 24px;
+.o3-button-pagination>.o3-button,
+.o3-button-pagination>.o3-button.o3-button-icon--icon-only,
+.o3-button-pagination__ellipsis {
+	--_o3-button-min-width: auto;
+	--_o3-button-min-height: 40px;
+	max-width: 38px;
+	flex: 1 1 38px;
 }
 
 @supports (container-type: inline-size) {
@@ -382,16 +383,15 @@
 	 * If container is less than the width of 9 buttons (2 arrows + 7 total pages/ellipses),
 	 * hide some buttons for a 'narrow' view.
 	 *
-	 * Read as: calc(--_o3-button-min-width * 9 + var(--o3-spacing-4xs) * 8) + 24px padding
+	 * Read as: calc(--_o3-button-min-width * 9 + var(--o3-spacing-4xs) * 8)
 	 */
-	@container (width < calc((38px * 9) + (0.5rem * 8) + 24px)) {
-		.o3-button-pagination:not(.o3-button-pagination--small)>.o3-button[data-hide-when-narrow="true"] {
+	@container (width <= calc((38px * 9) + (0.5rem * 8))) {
+		.o3-button-pagination > [data-o3-button-show-when="wide"] {
 			display: none;
 		}
 	}
-
-	@container (width < calc((24px * 9) + (0.5rem * 8) + 24px)) {
-		.o3-button-pagination--small>.o3-button[data-hide-when-narrow="true"] {
+	@container (width > calc((38px * 9) + (0.5rem * 8))) {
+		.o3-button-pagination > [data-o3-button-show-when="narrow"] {
 			display: none;
 		}
 	}
@@ -399,27 +399,34 @@
 
 @supports not (container-type: inline-size) {
 	/*
-	 * 600px used as 'mobile' breakpoint according to Google's material design guidelines
-	 * (https://m2.material.io/design/layout/responsive-layout-grid.html#breakpoints)
+	 * 740px aligns with our legacy o-grid M layout
+	 * (https://registry.origami.ft.com/components/o-grid@6.1.7/readme?brand=core#Readme)
 	 */
-	@media screen and (max-width:600px) {
-		.o3-button-pagination:not(.o3-button-pagination--small)>.o3-button[data-hide-when-narrow="true"] {
+	 @media screen and (max-width: 740px) {
+		.o3-button-pagination > [data-o3-button-show-when="wide"] {
 			display: none;
 		}
-		.o3-button-pagination--small>.o3-button[data-hide-when-narrow="true"] {
+	}
+	 @media screen and (min-width: 741px) {
+		.o3-button-pagination > [data-o3-button-show-when="narrow"] {
 			display: none;
 		}
 	}
 }
 
 .o3-button-pagination__ellipsis {
+	display: flex;
+	box-sizing: border-box;
+	justify-content: center;
+	align-items: center;
 	font-size: var(--o3-font-size-3);
-	text-align: center;
-	min-width: var(--_o3-button-min-width);
+	line-height: 0;
+	min-height: var(--_o3-button-min-height);
+	color: var(--o3-color-palette-black-60);
 }
 
-.o3-button-pagination--small .o3-button-pagination__ellipsis {
-	font-size: var(--o3-font-size-1);
+.o3-button-pagination__ellipsis.o3-button-pagination__ellipsis--inverse {
+	color: var(--o3-color-palette-white);
 }
 
 /* Grouped buttons */

@@ -2,7 +2,6 @@
 	"compilerOptions": {
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		// 👇️ set jsx to react-jsx
 		"jsx": "react-jsx",
 		"esModuleInterop": true,
 		"skipLibCheck": true,

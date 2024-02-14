@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.3.5](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.4...o-comments-v10.3.5) (2024-02-13)
+
+
+### Bug Fixes
+
+* ci-2030 report button text color change on aria-pressed ([#1436](https://github.com/Financial-Times/origami/issues/1436)) ([0289d21](https://github.com/Financial-Times/origami/commit/0289d217565cb84523adb3bf831666dc620f0bad))
+
 ## [10.3.4](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.3...o-comments-v10.3.4) (2023-10-27)
 
 

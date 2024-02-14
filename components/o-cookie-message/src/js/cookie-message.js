@@ -6,10 +6,16 @@ class CookieMessage {
 		}
 
 		this.cookieMessageElement = cookieMessageElement;
+		/**
+		 * @typedef EventListener
+		 * @type {Function}
+		 * @param {Event} event - The event object
+		 */
 
 		/**
 		 * Keep track of event listeners to remove within the destroy method
-		 * @type {{target: EventTarget, type: string, listener: EventListener}[]}
+		 *
+		 * @type {Array<{target: EventTarget, type: string, listener: EventListener}>}
 		 * @access private
 		 */
 		this._eventListeners = [];

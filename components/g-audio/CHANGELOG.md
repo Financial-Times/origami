@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/Financial-Times/origami/compare/g-audio-v2.0.2...g-audio-v2.0.3) (2024-02-13)
+
+
+### Bug Fixes
+
+* define node engine in package.json for g-audio ([4830199](https://github.com/Financial-Times/origami/commit/4830199ff2f10c3d8cd0232e26318186a93354ad))
+
 ### [2.0.2](https://www.github.com/Financial-Times/origami/compare/g-audio-v2.0.1...g-audio-v2.0.2) (2022-04-21)
 
 
