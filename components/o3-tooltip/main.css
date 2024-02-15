@@ -14,18 +14,19 @@ o3-tooltip {
 	--_o3-tooltip-padding-right: 16px;
 	--_o3-tooltip-close-button-size: 20px;
 
-	box-sizing: border-box;
-	width: max-content;
-	max-width: 250px;
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 10;
-
+}
+o3-tooltip > .o3-tooltip-wrapper {
+	box-sizing: border-box;
+	width: max-content;
+	max-width: 250px;
 	/* TODO: Values are copied from figma but this can be replaced by tokens */
 	box-shadow: 2px 2px 6px 0px rgba(26, 26, 26, 0.1),
 		5px 5px 24px 0px rgba(26, 26, 26, 0.17);
-	background: #fff;
+	background: #ffffff;
 	font-weight: 400;
 	font-family: 'Metric2-VF', sans-serif;
 	font-size: 14px;
@@ -51,7 +52,7 @@ o3-tooltip {
 	margin-bottom: 8px;
 }
 /* CLOSE BUTTON */
-o3-tooltip .o3-tooltip-close {
+.o3-tooltip-wrapper .o3-tooltip-close {
 	width: var(--_o3-tooltip-close-button-size);
 	height: var(--_o3-tooltip-close-button-size);
 	mask-image: var(--o3-icons-ft-icon-cross);
@@ -67,87 +68,172 @@ o3-tooltip .o3-tooltip-close {
 }
 
 /* ARROW STYLES */
-o3-tooltip > [data-tooltip-arrow],
-o3-tooltip > [data-tooltip-arrow]::before {
+o3-tooltip > .o3-tooltip-wrapper > [data-tooltip-arrow],
+o3-tooltip > .o3-tooltip-wrapper > [data-tooltip-arrow]::before {
 	position: absolute;
 	width: 20px;
 	height: 20px;
 	background: inherit;
 }
-o3-tooltip > [data-tooltip-arrow]::before {
+o3-tooltip > .o3-tooltip-wrapper > [data-tooltip-arrow]::before {
 	visibility: visible;
 	content: '';
 	transform: rotate(45deg);
 }
 
-o3-tooltip > [data-tooltip-arrow] {
+o3-tooltip [data-tooltip-arrow] {
 	visibility: hidden;
 }
 
-o3-tooltip[tip-placement^='top'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement^='top'] > .o3-tooltip-wrapper > [data-tooltip-arrow] {
 	bottom: -10px;
 }
 
-o3-tooltip[tip-placement^='bottom'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement^='bottom']
+	> .o3-tooltip-wrapper
+	> [data-tooltip-arrow] {
 	top: -10px;
 }
 
-o3-tooltip[tip-placement^='left'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement^='left'] > .o3-tooltip-wrapper > [data-tooltip-arrow] {
 	right: -10px;
 }
 
-o3-tooltip[tip-placement^='right'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement^='right']
+	> .o3-tooltip-wrapper
+	> [data-tooltip-arrow] {
 	left: -10px;
 }
 
-o3-tooltip[tip-placement='top-start'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='top-start']
+	> .o3-tooltip-wrapper
+	> [data-tooltip-arrow] {
 	left: 10px;
 }
 
-o3-tooltip[tip-placement='top-end'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='top-end']
+	> .o3-tooltip-wrapper
+	> [data-tooltip-arrow] {
 	right: 10px;
 }
 
-o3-tooltip[tip-placement='top'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='top'] > .o3-tooltip-wrapper > [data-tooltip-arrow] {
 	left: 50%;
 	transform: translateX(-50%);
 }
 
-o3-tooltip[tip-placement='bottom-start'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='bottom-start']
+	> .o3-tooltip-wrapper
+	> [data-tooltip-arrow] {
 	left: 10px;
 }
 
-o3-tooltip[tip-placement='bottom-end'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='bottom-end']
+	> .o3-tooltip-wrapper
+	> [data-tooltip-arrow] {
 	right: 10px;
 }
 
-o3-tooltip[tip-placement='bottom'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='bottom']
+	> .o3-tooltip-wrapper
+	> [data-tooltip-arrow] {
 	left: 50%;
 	transform: translateX(-50%);
 }
 
-o3-tooltip[tip-placement='left-start'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='left-start']
+	> .o3-tooltip-wrapper
+	> [data-tooltip-arrow] {
 	top: 10px;
 }
 
-o3-tooltip[tip-placement='left-end'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='left-end']
+	> .o3-tooltip-wrapper
+	> [data-tooltip-arrow] {
 	bottom: 10px;
 }
 
-o3-tooltip[tip-placement='left'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='left'] > .o3-tooltip-wrapper > [data-tooltip-arrow] {
 	top: 50%;
 	transform: translateY(-50%);
 }
 
-o3-tooltip[tip-placement='right-start'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='right-start']
+	> .o3-tooltip-wrapper
+	> [data-tooltip-arrow] {
 	top: 10px;
 }
 
-o3-tooltip[tip-placement='right-end'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='right-end']
+	> .o3-tooltip-wrapper
+	> [data-tooltip-arrow] {
 	bottom: 10px;
 }
 
-o3-tooltip[tip-placement='right'] > [data-tooltip-arrow] {
+o3-tooltip[tip-placement='right'] > .o3-tooltip-wrapper > [data-tooltip-arrow] {
 	top: 50%;
 	transform: translateY(-50%);
+}
+
+
+@keyframes bounce-top {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-30px);
+	}
+	60% {
+		transform: translateY(-15px);
+	}
+}
+@keyframes bounce-bottom {
+	0%,
+	20%,
+	50%,
+	80%,
+	0% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(30px);
+	}
+	60% {
+		transform: translateY(15px);
+	}
+}
+@keyframes bounce-left {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateX(0);
+	}
+	40% {
+		transform: translateX(-30px);
+	}
+	60% {
+		transform: translateX(-15px);
+	}
+}
+
+@keyframes bounce-right {
+	0%,
+	20%,
+	50%,
+	80%,
+	0% {
+		transform: translateX(0%);
+	}
+	40% {
+		transform: translateX(30px);
+	}
+	60% {
+		transform: translateX(15px);
+	}
 }

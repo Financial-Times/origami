@@ -1,8 +1,13 @@
 import {createPopper, Instance} from '@popperjs/core';
+import type {TooltipProps} from '../types';
 // import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow.js';
 // import offset from '@popperjs/core/lib/modifiers/offset.js';
 
-export class ToolTip extends HTMLElement {
+export class ToolTip extends HTMLElement implements TooltipProps {
+	content!: string;
+	contentId!: string;
+	targetId!: string;
+
 	constructor() {
 		super();
 	}
@@ -12,10 +17,7 @@ export class ToolTip extends HTMLElement {
 	}
 
 	get tipPlacement() {
-		return this.getAttribute('tip-placement');
-	}
-	get targetId() {
-		return this.getAttribute('target-id');
+		return this.getAttribute('tip-placement') as TooltipProps['tipPlacement'];
 	}
 
 	set tipPlacement(value) {
@@ -23,15 +25,16 @@ export class ToolTip extends HTMLElement {
 	}
 
 	connectedCallback() {
+		this.targetId = this.getAttribute('target-id') as string;
+
 		const closeButton = this.querySelector('.o3-tooltip-close');
-		closeButton.addEventListener('click', this.closeToolTip.bind(this));
+		closeButton?.addEventListener('click', this.closeToolTip.bind(this));
 		const targetNode = this.getTargetNode();
-		const resizeObserver = new ResizeObserver(entries => {
-			this.render();
-		});
+		// const resizeObserver = new ResizeObserver(entries => {
+		// 	this.render();
+		// });
 
-		resizeObserver.observe(targetNode);
-
+		// resizeObserver.observe(targetNode);
 		this.popperInstance = createPopper(targetNode, this, {
 			placement: this.tipPlacement || 'top',
 			modifiers: [
@@ -42,6 +45,15 @@ export class ToolTip extends HTMLElement {
 					},
 				},
 			],
+			onFirstUpdate: () => {
+				const animationPosition = this.tipPlacement?.includes('-')
+					? this.tipPlacement.split('-')[0]
+					: this.tipPlacement;
+				const contentWrapper = this.querySelector(
+					'.o3-tooltip-wrapper'
+				) as HTMLElement;
+				contentWrapper.style.animation = `bounce-${animationPosition} 2s ease`;
+			},
 		});
 		this.render();
 	}
@@ -54,7 +66,7 @@ export class ToolTip extends HTMLElement {
 	// 	console.log('Custom element moved to new page');
 	// }
 
-	attributeChangedCallback(name, oldValue, newValue) {
+	attributeChangedCallback() {
 		this.render();
 	}
 	popperInstance?: Instance;
@@ -65,25 +77,19 @@ export class ToolTip extends HTMLElement {
 		});
 	}
 
-	getTargetNode() {
-		return document.getElementById(this.targetId);
+	private getTargetNode() {
+		return document.getElementById(this.targetId) as HTMLElement;
 	}
 	closeToolTip() {
 		this.remove();
+		this.popperInstance?.destroy();
 	}
 }
 
 customElements.define('o3-tooltip', ToolTip);
 
-type CustomElement<T> = Partial<T & DOMAttributes<T> & {children: any}>;
-
 declare global {
 	interface HTMLElementTagNameMap {
 		'o3-tooltip': ToolTip;
-	}
-	namespace JSX {
-		interface IntrinsicElements {
-			['o3-tooltip']: CustomElement<ToolTip>;
-		}
 	}
 }

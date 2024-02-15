@@ -3,8 +3,8 @@
 	"compilerOptions": {
 		"outDir": "./build/jsx",
 		"declarationDir": "./build/types",
+		"declaration": true,
+		"declarationMap": true
 	},
-	"files": [
-		"./src/tsx/index.ts"
-	]
+	"files": ["./src/tsx/index.ts"]
 }

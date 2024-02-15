@@ -1,6 +1,6 @@
 import type {StoryObj} from '@storybook/react';
 import {Tooltip as TooltipTsx} from '../src/tsx/tooltip';
-import type {TooltipProps} from '../src/tsx/tooltip';
+import type {TooltipProps} from '../src/types';
 import {TemplateSBConfig} from './sb-story-config';
 import '../src/ts/tooltip';
 import './demo.css';
