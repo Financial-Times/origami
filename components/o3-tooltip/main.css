@@ -67,6 +67,14 @@ o3-tooltip > .o3-tooltip-wrapper {
 	user-select: none;
 }
 
+.o3-tooltip-wrapper .o3-tooltip-close:hover {
+	background-color: var(--o3-color-palette-black-30);
+}
+
+.o3-tooltip-wrapper .o3-tooltip-close:active {
+	background-color: var(--o3-color-palette-black-50);
+}
+
 /* ARROW STYLES */
 o3-tooltip > .o3-tooltip-wrapper > [data-tooltip-arrow],
 o3-tooltip > .o3-tooltip-wrapper > [data-tooltip-arrow]::before {
@@ -196,7 +204,7 @@ o3-tooltip[tip-placement='right'] > .o3-tooltip-wrapper > [data-tooltip-arrow] {
 	20%,
 	50%,
 	80%,
-	0% {
+	100% {
 		transform: translateY(0);
 	}
 	40% {
@@ -227,7 +235,7 @@ o3-tooltip[tip-placement='right'] > .o3-tooltip-wrapper > [data-tooltip-arrow] {
 	20%,
 	50%,
 	80%,
-	0% {
+	100% {
 		transform: translateX(0%);
 	}
 	40% {
