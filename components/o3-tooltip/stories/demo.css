@@ -6,3 +6,12 @@ div[class^='o3-brand-'] {
 	align-items: center;
 	justify-content: center;
 }
+
+.demo-message {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background-color: rgba(255, 255, 255, 0.7);
+	padding: 0px 10px;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}

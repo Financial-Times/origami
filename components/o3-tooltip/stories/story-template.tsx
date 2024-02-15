@@ -21,6 +21,9 @@ const ToolTipTemplate: TemplateType = {
 	render: args => {
 		return (
 			<>
+				<div className="demo-message">
+					<p>Refresh to view bounce animation</p>
+				</div>
 				<button
 					id="demo-o3-tooltip-id"
 					className="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
