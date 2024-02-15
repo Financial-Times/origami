@@ -156,6 +156,7 @@ export function buildCSS({sources, destination, tokenFilter, parentSelector}) {
 					'ts/size/lineheight',
 					'ts/descriptionToComment',
 					'ts/typography/css/shorthand',
+					'ts/typography/css/fontFamily',
 					'ts/border/css/shorthand',
 					'ts/shadow/css/shorthand',
 					'ts/color/css/hexrgba',
