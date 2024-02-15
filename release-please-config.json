@@ -55,6 +55,7 @@
 		"components/o-viewport": {},
 		"components/o-visual-effects": {},
 		"components/o3-button": {},
+		"components/o3-tooltip": {},
 		"components/o3-web-token": {},
 		"libraries/ftdomdelegate": {},
 		"libraries/math": {},
