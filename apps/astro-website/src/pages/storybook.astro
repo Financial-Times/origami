@@ -1,57 +1,29 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import Layout from "@/layouts/DocLayout.astro"
 
 const title = "Origami Storybook"
 const description = "Storybook for Origami components and services"
 ---
 
 <Layout title={title} description={description}>
-	<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
-		<h1>{title}</h1>
-		<p>Interactive component demos and documentation.</p>
-	</div>
 	<div class="o-layout__main o-layout-typography">
-		<div class="o-layout__overview">
-			<div class="o-layout-item">
-				<p>
-					We are aiming to replace the
-					<a href="https://registry.origami.ft.com/components"
-						>Origami Registry</a
-					>, that is used to view Origami component demos and documentation,
-					with a new Storybook interface. The reasoning behind choosing
-					Storybook is that it is a well known and widely used tool for
-					documenting and making highly interactive component demos.
-				</p>
-				<p>
-					Storybook is still work in progress project and not all components
-					have demos. If you don't find the component in storybook, for the
-					moment you will need to reference the
-					<a href="https://registry.origami.ft.com/components"
-						>Origami Registry</a
-					>
-					instead.
-				</p>
-				<p>
-					We wrote more about this in our
-					<a href="/blog/2021/11/05/newsletter/#storybook"
-						>October 2021 newsletter</a
-					>.
-				</p>
-			</div>
-			<div class="o-layout-item">
-				<h2>Supported Brands</h2>
-				<ul>
-					<li>
-						<a href="https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-core_components"> Core</a>
-					</li>
-					<li>
-						<a href="https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-internal_components"> Internal</a>
-					</li>
-					<li>
-						<a href="https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-whitelabel_components"> Whitelabel</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+		<h1>{title}</h1>
+		<p>Interactive front-end component demos and documentation.</p>
+
+		<ul>
+			<li>
+				<a href="https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-core_components">Core brand Storybook</a>: Components for public ft.com sites, apps, and affiliates. Includes FT Professional and FT Live brands.
+			</li>
+			<li>
+				<a href="https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-internal_components">Internal brand Storybook</a>: Styles suitable for tools, documentation, and internal products.
+			</li>
+			<li>
+				<a href="https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-whitelabel_components">Whitelabel Storybook</a>: Base, structural styles only, to build new brands from.
+			</li>
+		</ul>
+
+		<p>We've moved component demos and documentation from the Origami Registry to Storybook. This is a first step toward design-guideline led documentation.</p>
+
+		<p>To learn more about the future of Origami component documentation, see our <a href="https://origami.ft.com/blog/2024/02/12/newsletter/#goodbye-registry">January 2024 newsletter</a>.</p>
 	</div>
 </Layout>
