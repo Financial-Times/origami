@@ -369,10 +369,13 @@
 	color: var(--_o3-button-secondary-inverse-color);
 }
 
-.o3-button-pagination,
 .o3-button-pagination>.o3-button,
-.o3-button-pagination>.o3-button.o3-button-icon--icon-only {
-	--_o3-button-min-width: 38px;
+.o3-button-pagination>.o3-button.o3-button-icon--icon-only,
+.o3-button-pagination__ellipsis {
+	--_o3-button-min-width: auto;
+	--_o3-button-min-height: 40px;
+	max-width: 38px;
+	flex: 1 1 38px;
 }
 
 @supports (container-type: inline-size) {
@@ -380,14 +383,14 @@
 	 * If container is less than the width of 9 buttons (2 arrows + 7 total pages/ellipses),
 	 * hide some buttons for a 'narrow' view.
 	 *
-	 * Read as: calc(--_o3-button-min-width * 9 + var(--o3-spacing-4xs) * 8) + 24px padding
+	 * Read as: calc(--_o3-button-min-width * 9 + var(--o3-spacing-4xs) * 8)
 	 */
-	@container (width <= calc((38px * 9) + (0.5rem * 8) + 24px)) {
+	@container (width <= calc((38px * 9) + (0.5rem * 8))) {
 		.o3-button-pagination > [data-o3-button-show-when="wide"] {
 			display: none;
 		}
 	}
-	@container (width > calc((38px * 9) + (0.5rem * 8) + 24px)) {
+	@container (width > calc((38px * 9) + (0.5rem * 8))) {
 		.o3-button-pagination > [data-o3-button-show-when="narrow"] {
 			display: none;
 		}
@@ -412,9 +415,13 @@
 }
 
 .o3-button-pagination__ellipsis {
+	display: flex;
+	box-sizing: border-box;
+	justify-content: center;
+	align-items: center;
 	font-size: var(--o3-font-size-3);
-	text-align: center;
-	min-width: var(--_o3-button-min-width);
+	line-height: 0;
+	min-height: var(--_o3-button-min-height);
 	color: var(--o3-color-palette-black-60);
 }
 

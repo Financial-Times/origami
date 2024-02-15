@@ -1,8 +1,31 @@
 export default {
 	/**
+	 * An object of options to configure a message instance.
+	 *
+	 * @typedef {object} MessageOptions
+	 * @property {string} type - The o-message type e.g. 'action', 'alert' and 'notice'.
+	 * @property {string} state - The o-message state e.g. `success`, `neutral`, `error`, `inform-inverse`.
+	 * @property {boolean} autoOpen [true] - Whether to show the message automatically.
+	 * @property {string} parentElement [null] - The element to append the message to. If none is declared it will leave any existing message elements in place or append to the body when creating a new message element.
+	 * @property {object} content - Configuration for the message copy.
+	 * @property {string} content.detail - Copy for of the message e.g "Thing saved to the place you requested.".
+	 * @property {string} content.highlight [null] - Highlighted copy to prepend the main message copy "Success!".
+	 * @property {string} content.additionalInfo [null] - More copy with additional information – only applies to a message with an `inner` layout.
+	 * @property {Object} [actions] - Links to display on the message.
+	 * @property {Object} [actions.primary] - Show a link in the style of a primary button within the message.
+	 * @property {string} actions.primary.text - The copy for the link.
+	 * @property {string} actions.primary.url - The url for the link.
+	 * @property {boolean} actions.primary.openInNewWindow [false] - Opens in a new tab/window when set to `true`.
+	 * @property {Object} [actions.secondary] - Show a link with less emphasis that the primary action.
+	 * @property {string} actions.secondary.text - The copy for the link.
+	 * @property {string} actions.secondary.url - The url for the link.
+	 * @property {boolean} actions.secondary.openInNewWindow [false] - Opens in a new tab/window when set to `true`.
+	 * @property {boolean} close [true] -  Whether or not to display a close button.
+	 */
+	/**
 	 * Build a full message element. Used when there is no message element in the DOM.
 	 *
-	 * @param {import("./message").MessageOptions} opts - An options object for configuring the message.
+	 * @param {MessageOptions} opts - An options object for configuring the message.
 	 * @returns {HTMLElement} Returns the new message element
 	 */
 	message: (opts) => {

@@ -23,3 +23,8 @@
 	--sl-color-accent-high: var(--o3-color-palette-teal);
 	--sl-color-text-accent: var(--o3-color-palette-teal);
 }
+
+summary {
+	font-weight: bold;
+	cursor: pointer;
+}
