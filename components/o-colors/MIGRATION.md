@@ -1,5 +1,215 @@
 ## Migration Guide
 
+### Migrating from v6 to o3-web-token
+
+#### Mixins
+
+##### `oColors`
+
+###### Replace `o-colors-*` classes.
+
+`o3-web-token` provides [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) but no utility CSS classes. Instead, author your own CSS to apply the correct colours to either `background` or `color`.
+
+| o-colors class           | o3-web-token CSS                          | @todo - add usecases to o3 |
+| ------------------------ | ----------------------------------------- | -------------------------- |
+| o-colors-page-background | background: var(--o3-color-use-case-page) | @todo                      |
+| o-colors-body-text       | color: var(--o3-color-use-case-body)      | @todo                      |
+| o-colors-muted-text      | color: var(--o3-color-use-case-muted)     | @todo                      |
+
+For example, to set a page background colour:
+
+```scss
+$o-brand: '[your-brand]';
+@import '@financial-times/o-colors/main';
+@include oColors();
+```
+
+```html
+<body class="o-colors-page-background"></body>
+```
+
+Becomes:
+
+```css
+@import '@financial-times/o3-web-token/[your-brand].css';
+body {
+	background-color: var(--o3-color-use-case-page);
+}
+```
+
+###### Replace `--o-colors-*` CSS Custom Properties.
+
+`o3-web-token` provides CSS Custom Properties but no utility classes. Instead, author your own CSS to apply the correct colours to either `background` or `color`.
+
+| o-colors CSS Custom Property | o3-web-token CSS Custom Property | @todo - add usecases to o3 |
+| ---------------------------- | -------------------------------- | -------------------------- |
+| --o-colors-page-background   | --o3-color-use-case-page         | @todo                      |
+| --o-colors-box-background    |                                  | @todo                      |
+| --o-colors-body-text         | --o3-color-use-case-body         | @todo                      |
+| --o-colors-muted-text        | --o3-color-use-case-muted        | @todo                      |
+| --o-colors-link-text         | --o3-color-use-case-link         | @todo                      |
+| --o-colors-link-hover-text   |                                  | @todo                      |
+
+For example, to set a page background colour:
+
+```diff
+body {
+-	background-color: var(--o-colors-page-background)
++	background-color: var(--o3-color-use-case-page)
+}
+```
+
+##### `oColorsSetColor`
+
+There is no direct equivalent. Instead we recommend creating your own [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), prefixed with your project name.
+
+E.g. if working on a project `ft-example-project` to define a custom `pink` colour:
+
+```diff
+-@include oColorsSetColor($color-name: 'ft-example-project/pink', $color-value: #ff69b4);
+-color: oColorsGetByName('ft-example-project/pink');
++--ft-example-project-pink: #ff69b4;
++color: var(--ft-example-project-pink);
+```
+
+##### `oColorsSetUseCase`
+
+There is no direct equivalent. Instead we recommend creating your own [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), prefixed with your project name.
+
+E.g. if working on a project `ft-example-project` to define a custom usecase for a `card` `background` colour:
+
+```diff
+-@include oColorsSetUseCase('ft-example-project-card', (
+-	'background': red,
+-));
+-background: oColorsByUsecase($usecase: 'ft-example-project-card', $property: background);
++--ft-example-project-card-background: red;
++background: var(--ft-example-project-card-background);
+```
+
+#### Functions
+
+##### `oColorsByName`
+
+Use `o3-web-token` CSS Custom Properties instead, `--o3-color-palette-[name]`.
+
+```diff
+-color: oColorsByName('ft-pink');
++color: var(--o3-color-palette-ft-pink);
+```
+
+See our [colour design guidelines](https://origami-for-everyone.ft.com/guides/colours/) for a full list of supported palette colours for your brand. Please contact the Origami team should you find a missing colour.
+
+##### `oColorsByUsecase`
+
+Use `o3-web-token` CSS Custom Properties instead, `--o3-color-use-case-[usecase]`.
+
+E.g:
+
+```diff
+-color: oColorsByUsecase($usecase: 'page', $background: 'property');
++color: var(--o3-color-use-case-page);
+```
+
+```diff
+-outline-color: oColorsByUsecase($usecase: 'focus', $background: 'outline');
++outline-color: var(--o3-use-case-outline);
+```
+
+| o-colors CSS Custom Property                        | o3-web-token CSS Custom Property | @todo - add usecases to o3 |
+| --------------------------------------------------- | -------------------------------- | -------------------------- |
+| oColorsByUsecase('focus', 'outline');               |                                  | @todo                      |
+| oColorsByUsecase('page', 'background');             | --o3-color-use-case-page         | @todo                      |
+| oColorsByUsecase('page-inverse', 'background');     |                                  | @todo                      |
+| oColorsByUsecase('box', 'background');              |                                  | @todo                      |
+| oColorsByUsecase('link', 'text');                   | --o3-color-use-case-link         | @todo                      |
+| oColorsByUsecase('link-hover', 'text');             |                                  | @todo                      |
+| oColorsByUsecase('link-title', 'text');             |                                  | @todo                      |
+| oColorsByUsecase('link-title-hover', 'text');       |                                  | @todo                      |
+| oColorsByUsecase('tag-link', 'text');               |                                  | @todo                      |
+| oColorsByUsecase('tag-link-hover', 'text');         |                                  | @todo                      |
+| oColorsByUsecase('opinion-tag-link', 'text');       |                                  | @todo                      |
+| oColorsByUsecase('opinion-tag-link-hover', 'text'); |                                  | @todo                      |
+| oColorsByUsecase('title', 'text');                  |                                  | @todo                      |
+| oColorsByUsecase('body', 'text');                   | --o3-color-use-case-body         | @todo                      |
+| oColorsByUsecase('body-inverse', 'text');           | --o3-color-use-case-body-inverse | @todo                      |
+| oColorsByUsecase('muted', 'text');                  | --o3-color-use-case-muted        | @todo                      |
+| oColorsByUsecase('opinion', 'background');          |                                  | @todo                      |
+| oColorsByUsecase('hero', 'background');             |                                  | @todo                      |
+| oColorsByUsecase('hero-opinion', 'background');     |                                  | @todo                      |
+| oColorsByUsecase('hero-highlight', 'background');   |                                  | @todo                      |
+
+The following usecases have been deleted and have no direct replacement. If your project still uses one of these, we recommend consulting the design team on an alternative or using a colour from our palette directly (see our [colour design guidelines](https://origami-for-everyone.ft.com/guides/colours/)).
+
+- section-life-arts (text, background, border, outline)
+- section-life-arts-alt (text, background, border, outline)
+- section-magazine (text, background, border, outline)
+- section-magazine-alt (text, background, border, outline)
+- section-house-home (text, background, border, outline)
+- section-house-home-alt (text, background, border, outline)
+- section-money (text, background, border, outline)
+- section-money-alt (text, background, border, outline)
+
+See our [colour design guidelines](https://origami-for-everyone.ft.com/guides/colours/) for a full list of supported colour usecases for your brand. Please contact the Origami team should you find a missing usecase, or would like to propose another.
+
+##### `oColorsGetTone`
+
+use `o3-web-token` CSS Custom Properties for tints (also known as tones), use these instead of `oColorsGetTone`.
+
+E.g:
+
+```diff
+-background-color: oColorsGetTone($color-name: 'teal', $brightness: '100');
++background-color: var(--o3-color-palette-teal-100);
+```
+
+A limited set of tints are now available. See our [colour design guidelines](https://origami-for-everyone.ft.com/guides/colours/) for a full list of supported tints for your brand. If your tint value is no longer supported, please consult with a design team member or the Origami team to pick an alternative. Please reach out to the Origami team for support as needed.
+
+@todo - make all available tints visible on the website
+
+```diff
+-background-color: oColorsGetTone($color-name: 'claret', $brightness: '27');
++background-color: var(--o3-color-palette-claret-30);
+```
+
+##### `oColorsGetToneDetails`
+
+There is no direct replacement for `oColorsGetToneDetails`. Please contact the Origami team for support if your product relies on this function.
+
+##### `oColorsMix`
+
+There is no direct replacement for `oColorsMix`. Please contact the Origami team for support if your product relies on this mixin.
+
+@todo - people do need this. 583 known cases. Mostly creating a shade of grey according to Ben Holmes' research. We need to provide an alternative. See Sass TGG proposal for one approach to solve darken/lighten cases.
+
+##### `oColorsGetTextColor`
+
+There is no direct replacement for `oColorsGetTextColor`. We recommend manually using the `o3-web-token` CSS Custom Property `--o3-color-use-case-body` for light backgrounds and `--o3-color-use-case-body-inverse` for dark backgrounds.
+
+Please contact the Origami team for support if this is not possible or practical.
+
+##### `oColorsColorBrightness`
+
+There is no direct replacement for `oColorsColorBrightness`, we [recommend moving away from Sass logic](https://docs.google.com/document/d/1RuGduWdX0zGsgsp9C7lIhXgqEia6sWK900_3XVwYDIM/edit#heading=h.1f3yolavobef). Please contact the Origami team for support if you still rely on this Sass feature.
+
+##### `oColorsColorLuminance`
+
+There is no direct replacement for `oColorsColorLuminance`, we [recommend moving away from Sass logic](https://docs.google.com/document/d/1RuGduWdX0zGsgsp9C7lIhXgqEia6sWK900_3XVwYDIM/edit#heading=h.1f3yolavobef). Please contact the Origami team for support if you still rely on this Sass feature.
+
+##### `oColorsGetContrastRatio`
+
+There is no direct replacement for `oColorsGetContrastRatio`, we [recommend moving away from Sass logic](https://docs.google.com/document/d/1RuGduWdX0zGsgsp9C7lIhXgqEia6sWK900_3XVwYDIM/edit#heading=h.1f3yolavobef). Please contact the Origami team for support if you still rely on this Sass feature.
+
+##### `oColorsGetPaletteDetails`
+
+There is no direct replacement for `oColorsGetPaletteDetails`. Please contact the Origami team for support if your product relies on this function.
+
+#### Variables
+
+##### `o-colors-is-silent`
+
+Follow the migration steps above to safely delete this variable. If set to `false` ensure you follow the steps outlined in the [oColors](#oColors) mixin guide.
+
 ### Migrating from v5 to v6
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
@@ -68,6 +278,7 @@ The following colours have been removed from the palette:
 - `inherit`. Replace `oColorsGetPaletteColor('inherit');` with `inherit`.
 
 Deprecated internal and whitelabel brand palette colours were removed. Please contact Origami if your product has a usecase for one of the removed colours:
+
 - Internal brand: candy, wasabi, org-b2c, org-b2c-dark, org-b2c-light, paper, wheat, sky, velvet, claret.
 - Whitelabel brand: all colours except black and white have been removed.
 
@@ -82,14 +293,17 @@ The following mixins have changed:
 - [oColorsSetUseCase](#oColorsSetUseCase) has updated arguments.
 
 The following mixins have been removed:
+
 - [oColorsFor](#oColorsFor)
 
 #### Sass Functions
 
 The following functions have changed:
+
 - [oColorsGetTextColor](#oColorsGetTextColor)
 
 The following functions have been removed:
+
 - [oColorsGetTint](#oColorsGetTint)
 - [oColorsGetPaletteColor](#oColorsGetPaletteColor)
 - [oColorsGetUseCase](#oColorsGetUseCase)
@@ -128,17 +342,20 @@ The name of the first argument of `oColorsGetTextColor` has changed. It was `$ba
 ```
 
 `oColorsGetTextColor` now errors if the contrast between the given background and text colour does not pass WCAG 2.1 level AA for [normal text](https://www.w3.org/TR/WCAG21/#contrast-minimum). Previously it would only throw a warning provided the contrast check passed for [large text](https://www.w3.org/TR/WCAG21/#dfn-large-scale). Accordingly, the third `$warnings` argument is now `$minimum-contrast`. This can be set to one of `aa-normal` (default), `aa-large`, `aaa-normal`, `aaa-large`, or `null` to remove the contrast check. To migrate update the third `$warnings` argument of `oColorsGetTextColor` to `$minimum-contrast`:
+
 - **not set**: no changes are needed unless contrast errors are thrown. If an error is thrown set `$minimum-contrast` to `aa-large` if creating a colour for [large text](https://www.w3.org/TR/WCAG21/#dfn-large-scale), or `null` to ignore the contrast of the resulting text colour. Only ignore contrast errors for [incidental or logo text](https://www.w3.org/TR/WCAG21/#contrast-minimum), otherwise your project may be inaccessible.
 - **true**: remove the argument, it's optional and checks contrast for [normal text](https://www.w3.org/TR/WCAG21/#contrast-minimum) by default. If a contrast error is thrown refer to the point "not set" above.
 - **false**: set to `null` instead.
 
 E.g. If generating a colour for [large text](https://www.w3.org/TR/WCAG21/#dfn-large-scale), error if the contrast between the background `paper` is lower than 3:1 (see [WCAG 2.1](https://www.w3.org/TR/WCAG21/#contrast-minimum))
+
 ```diff
 -	color: oColorsGetTextColor('paper', 80, $warnings: false);
 +	color: oColorsGetTextColor('paper', 80, $minimum-contrast: 'aa-large');
 ```
 
 Or set to `null` to never error, e.g. for [incidental or logo text](https://www.w3.org/TR/WCAG21/#contrast-minimum), regardless of the contrast between the given background `paper` and the result:
+
 ```diff
 -	color: oColorsGetTextColor($backgroundd: 'paper', $warnings: false);
 +	color: oColorsGetTextColor($background': paper', $minimum-contrast: null);
@@ -158,12 +375,14 @@ The mixin `oColorsGetUseCase` returns a colour name. It has been removed and the
 `oColorsGetPaletteColor` is now `oColorsByName`. The `$name` argument has been renamed `$color-name`.
 
 To fetch a default `o-colors` colour.
+
 ```diff
 -color: oColorsGetPaletteColor('paper');
 +color: oColorsByName('paper');
 ```
 
 To fetch a colour set by a component or project other that `o-colors` include the namespace followed by a forward slash.
+
 ```diff
 // Fetch the colour 'stormy' from the component 'o-example'.
 -color: oColorsGetPaletteColor('o-example-story');
@@ -171,6 +390,7 @@ To fetch a colour set by a component or project other that `o-colors` include th
 ```
 
 Or with argument names:
+
 ```diff
 // Fetch the colour 'stormy' from the component 'o-example'.
 -color: oColorsGetPaletteColor($name: 'o-example-story');
@@ -183,6 +403,7 @@ Or with argument names:
 - It errors when overriding an existing palette colour which was not set by o-colors.
 
 A namespace, for your project or component, must now be given with a forward slash:
+
 ```diff
 // Setting a custom colour 'pink' within a component 'o-example'.
 - @include oColorsSetColor('o-example-pink', #ff69b4);
@@ -190,6 +411,7 @@ A namespace, for your project or component, must now be given with a forward sla
 ```
 
 The color name argument no longer accepts a list to deprecate colours. Instead use the new `$opts` argument.
+
 ```diff
 // Setting a  custom colour 'pink', which is deprecated.
 - @include oColorsSetColor('o-example-pink', (#ff69b4, _deprecated));
@@ -218,6 +440,7 @@ And properties are given with a map:
 ```
 
 To deprecate a usecase pass a second options argument:
+
 ```diff
 -@include oColorsSetUseCase('o-example-stripe', 'text', 'white');
 -@include oColorsSetUseCase('o-example-stripe', 'background', 'black');
@@ -235,12 +458,14 @@ To deprecate a usecase pass a second options argument:
 `oColorsFor` has been removed and should be replaced with separate calls to `oColorsByUsecase` for each property. By default `oColorsByUsecase` errors if a usecase isn't found, unless a `$fallback` colour has been given (which may be `null`). If the usecase doesn't exist and an error is thrown remove the property.
 
 E.g. setting the page background colour from o-colors. In this example no properties have been given to the second argument of `oColorsFor`, so we replace with calls to `oColorsByUsecase` for all properties the usecase supports.
+
 ```diff
 -@include oColorsFor(page);
 +background: oColorsByUsecase('page', 'background');
 ```
 
 E.g. setting multiple colour properties to match a 'row-stripe' from an example component o-example.
+
 ```diff
 -@include oColorsFor(o-example-row-stripe, background border);
 +background: oColorsByUsecase('o-example/row-stripe', 'background');
@@ -252,18 +477,21 @@ E.g. setting multiple colour properties to match a 'row-stripe' from an example 
 `oColorsGetColorFor` has been removed and should be replaced with a call to `oColorsByUsecase`. By default `oColorsByUsecase` now errors if a usecase isn't found, unless a `$fallback` colour has been given (which may be `null`). If the usecase doesn't exist and an error is thrown remove the property.
 
 E.g. when requesting the page background from o-colors:
+
 ```diff
 -background: oColorsGetColorFor('page', 'background');
 +background: oColorsByUsecase('page', 'background');
 ```
 
 E.g. if no property is requested by `oColorsGetColorFor` explicitly choose one when migrating to `oColorsByUsecase` (one of 'text', 'background', 'border', or 'outline'):
+
 ```diff
 -color: oColorsGetColorFor('section-life-arts');
 +color: oColorsByUsecase('section-life-arts', 'text');
 ```
 
 E.g. set fallback colours using `$fallback`:
+
 ```diff
 -background-color: oColorsGetColorFor('page', 'background', $options: ('default': 'white'));
 +background-color: oColorsByUsecase('page', 'background', $fallback: 'white');
@@ -315,67 +543,67 @@ The `product-brand` use case has been removed.
 
 To migrate from v3.x.x to use v4.x.x you will need to update the palette colors you are requesting using `oColorsFor`, `oColorsSetUseCase`, and `oColorsGetPaletteColor`. To work out which color names you need to update, see the following table:
 
-| Old name              | Switch to                        |
-| --------------------- |----------------------------------|
-| pink                  | paper                            |
-| blue                  | oxford                           |
-| dark-blue             | oxford-60                        |
-| orange                | mandarin                         |
-| grey-tint1            | black-30                         |
-| grey-tint2            | black-40                         |
-| grey-tint3            | black-50                         |
-| grey-tint4            | black-70                         |
-| grey-tint5            | black-80                         |
-| pink-tint1            | black-5                          |
-| pink-tint2            | black-10                         |
-| pink-tint3            | black-20                         |
-| pink-tint4            | black-30                         |
-| pink-tint5            | black-50                         |
-| red                   | crimson                          |
-| green                 | jade                             |
-| orange-tint1          | _consult a designer_             |
-| brown-tint1           | _consult a designer_             |
-| yellow-tint1          | _consult a designer_             |
-| green-tint1           | _consult a designer_             |
-| bluegreen-tint1       | _consult a designer_             |
-| silver-tint1          | _consult a designer_             |
-| purple-tint1          | _consult a designer_             |
-| purple-tint2          | black-50 (_consult a designer_)  |
-| red-tint1             | _consult a designer_             |
-| red-tint2             | _consult a designer_             |
-| red-tint3             | _consult a designer_             |
-| red-tint4             | _consult a designer_             |
-| red-tint5             | _consult a designer_             |
-| blue-tint1            | _consult a designer_             |
-| blue-tint2            | _consult a designer_             |
-| blue-tint3            | _consult a designer_             |
-| blue-tint4            | _consult a designer_             |
-| blue-tint5            | _consult a designer_             |
-| section-purple        | velvet                           |
-| section-light-purple  | _consult a designer_             |
-| section-blue          | blue-80                          |
-| section-light-blue    | sky                              |
-| section-green         | use `oColorsGetTint('jade', 65)` |
-| section-light-green   | _consult a designer_             |
-| section-red           | crimson                          |
-| warm-1                | wheat                            |
-| warm-2                | black-5                          |
-| warm-3                | black-20                         |
-| warm-4                | black-90                         |
-| warm-5                | white-60                         |
-| warm-6                | black-80 (_consult a designer_)  |
-| cold-1                | black-70                         |
-| cold-2                | black-80                         |
-| cold-3                | black-90                         |
-| blue-1                | oxford-30                        |
-| blue-2                | _consult a designer_             |
-| purple-1              | velvet                           |
-| purple-2              | _consult a designer_             |
-| teal-1                | teal-40                          |
-| teal-2                | teal-80                          |
-| claret-1              | claret                           |
-| claret-2              | candy                            |
-| claret-inverse        | claret-30                        |
-| org-b2b               | org-b2c                          |
-| org-b2c-dark          | org-b2c-dark                     |
-| org-b2c-light         | org-b2c-light                    |
+| Old name             | Switch to                        |
+| -------------------- | -------------------------------- |
+| pink                 | paper                            |
+| blue                 | oxford                           |
+| dark-blue            | oxford-60                        |
+| orange               | mandarin                         |
+| grey-tint1           | black-30                         |
+| grey-tint2           | black-40                         |
+| grey-tint3           | black-50                         |
+| grey-tint4           | black-70                         |
+| grey-tint5           | black-80                         |
+| pink-tint1           | black-5                          |
+| pink-tint2           | black-10                         |
+| pink-tint3           | black-20                         |
+| pink-tint4           | black-30                         |
+| pink-tint5           | black-50                         |
+| red                  | crimson                          |
+| green                | jade                             |
+| orange-tint1         | _consult a designer_             |
+| brown-tint1          | _consult a designer_             |
+| yellow-tint1         | _consult a designer_             |
+| green-tint1          | _consult a designer_             |
+| bluegreen-tint1      | _consult a designer_             |
+| silver-tint1         | _consult a designer_             |
+| purple-tint1         | _consult a designer_             |
+| purple-tint2         | black-50 (_consult a designer_)  |
+| red-tint1            | _consult a designer_             |
+| red-tint2            | _consult a designer_             |
+| red-tint3            | _consult a designer_             |
+| red-tint4            | _consult a designer_             |
+| red-tint5            | _consult a designer_             |
+| blue-tint1           | _consult a designer_             |
+| blue-tint2           | _consult a designer_             |
+| blue-tint3           | _consult a designer_             |
+| blue-tint4           | _consult a designer_             |
+| blue-tint5           | _consult a designer_             |
+| section-purple       | velvet                           |
+| section-light-purple | _consult a designer_             |
+| section-blue         | blue-80                          |
+| section-light-blue   | sky                              |
+| section-green        | use `oColorsGetTint('jade', 65)` |
+| section-light-green  | _consult a designer_             |
+| section-red          | crimson                          |
+| warm-1               | wheat                            |
+| warm-2               | black-5                          |
+| warm-3               | black-20                         |
+| warm-4               | black-90                         |
+| warm-5               | white-60                         |
+| warm-6               | black-80 (_consult a designer_)  |
+| cold-1               | black-70                         |
+| cold-2               | black-80                         |
+| cold-3               | black-90                         |
+| blue-1               | oxford-30                        |
+| blue-2               | _consult a designer_             |
+| purple-1             | velvet                           |
+| purple-2             | _consult a designer_             |
+| teal-1               | teal-40                          |
+| teal-2               | teal-80                          |
+| claret-1             | claret                           |
+| claret-2             | candy                            |
+| claret-inverse       | claret-30                        |
+| org-b2b              | org-b2c                          |
+| org-b2c-dark         | org-b2c-dark                     |
+| org-b2c-light        | org-b2c-light                    |
