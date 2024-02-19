@@ -21,9 +21,11 @@ const ToolTipTemplate: TemplateType = {
 	render: args => {
 		return (
 			<>
-				<div className="demo-message">
-					<p>Refresh to view bounce animation</p>
-				</div>
+				{args.renderOnOpen && (
+					<div className="demo-message">
+						<p>Refresh to view bounce animation</p>
+					</div>
+				)}
 				<button
 					id="demo-o3-tooltip-id"
 					className="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
@@ -44,6 +46,19 @@ export const Tooltip: TooltipStory = {
 			'Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long',
 		title: 'Title',
 		contentId: 'o3-tooltip-content',
-		tipPlacement: 'top',
+		placement: 'top',
+		renderOnOpen: true,
+	},
+};
+
+export const HoverToolTip: TooltipStory = {
+	...ToolTipTemplate,
+	args: {
+		targetId: 'demo-o3-tooltip-id',
+		content: 'Hover over the button to see the tooltip',
+		title: 'Title',
+		contentId: 'o3-tooltip-content',
+		placement: 'top',
+		renderOnOpen: false,
 	},
 };

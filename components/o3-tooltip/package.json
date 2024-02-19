@@ -17,7 +17,8 @@
   },
   "license": "MIT",
   "type": "module",
-  "browser": "main.js",
+  "browser": "build/js/index.js",
+	"main": "build/js/index.js",
 	"files": [
 		"build",
 		"origami.json"

@@ -3,7 +3,8 @@ export type TooltipProps = {
 	content: string;
 	contentId: string;
 	title?: string;
-	tipPlacement:
+	renderOnOpen?: boolean;
+	placement:
 		| 'top-start'
 		| 'top'
 		| 'top-end'

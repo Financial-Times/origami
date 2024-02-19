@@ -2,16 +2,18 @@ import type {TooltipProps} from '../types';
 
 export function Tooltip({
 	targetId,
-	tipPlacement = 'top',
+	placement = 'top',
 	content,
 	title,
+	renderOnOpen = false,
 	contentId,
 }: TooltipProps) {
 	return (
 		<o3-tooltip
 			role="tooltip"
-			tip-placement={tipPlacement}
+			placement={placement}
 			target-id={targetId}
+			render-on-open={renderOnOpen ? '' : undefined}
 			className="o3-tooltip">
 			<div className="o3-tooltip-wrapper">
 				<div data-tooltip-arrow></div>
@@ -19,10 +21,10 @@ export function Tooltip({
 					{title && <div className="o3-tooltip-content-title">{title}</div>}
 					<div>{content}</div>
 				</div>
-				<button
+				{renderOnOpen && <button
 					className="o3-tooltip-close"
 					aria-label="Close tooltip"
-					title="Close tooltip"></button>
+					title="Close tooltip"></button>}
 			</div>
 		</o3-tooltip>
 	);

@@ -1,42 +1,71 @@
 import {createPopper, Instance} from '@popperjs/core';
 import type {TooltipProps} from '../types';
-// import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow.js';
-// import offset from '@popperjs/core/lib/modifiers/offset.js';
 
 export class ToolTip extends HTMLElement implements TooltipProps {
 	content!: string;
 	contentId!: string;
 	targetId!: string;
+	renderOnOpen!: boolean;
+
+	private _popperInstance?: Instance;
+	private _closeButton?: HTMLElement | null;
+	private _targetNode!: HTMLElement;
 
 	constructor() {
 		super();
 	}
 
 	static get observedAttributes() {
-		return ['tip-placement'];
+		return ['placement'];
 	}
 
-	get tipPlacement() {
-		return this.getAttribute('tip-placement') as TooltipProps['tipPlacement'];
+	get placement() {
+		return this.getAttribute('placement') as TooltipProps['placement'];
 	}
 
-	set tipPlacement(value) {
-		this.setAttribute('tip-placement', value);
+	set placement(value) {
+		this.setAttribute('placement', value);
 	}
 
 	connectedCallback() {
 		this.targetId = this.getAttribute('target-id') as string;
+		this.renderOnOpen = this.hasAttribute('render-on-open');
+		this._closeButton = this.querySelector('.o3-tooltip-close');
 
-		const closeButton = this.querySelector('.o3-tooltip-close');
-		closeButton?.addEventListener('click', this.closeToolTip.bind(this));
-		const targetNode = this.getTargetNode();
-		// const resizeObserver = new ResizeObserver(entries => {
-		// 	this.render();
-		// });
+		this._targetNode = this.getTargetNode();
+		this._popperInstance = this.initialisePopper(this._targetNode);
+		this.render();
+		this.addEventListeners();
+	}
 
-		// resizeObserver.observe(targetNode);
-		this.popperInstance = createPopper(targetNode, this, {
-			placement: this.tipPlacement || 'top',
+	attributeChangedCallback() {
+		this.render();
+	}
+
+	disconnectedCallback() {
+		this.removeEventListeners();
+		this._popperInstance?.destroy();
+	}
+
+	render() {
+		this._popperInstance?.setOptions({
+			placement: this.placement,
+		});
+	}
+
+	private getTargetNode() {
+		const targetNode = document.getElementById(this.targetId);
+		if (!targetNode) {
+			throw new Error(
+				'Target node not found. o3-tooltip requires a target node id to position itself against the target element.'
+			);
+		}
+		return targetNode as HTMLElement;
+	}
+
+	private initialisePopper(targetNode: HTMLElement) {
+		return createPopper(targetNode, this, {
+			placement: this.placement || 'top',
 			modifiers: [
 				{
 					name: 'offset',
@@ -46,43 +75,87 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 				},
 			],
 			onFirstUpdate: () => {
-				const animationPosition = this.tipPlacement?.includes('-')
-					? this.tipPlacement.split('-')[0]
-					: this.tipPlacement;
-				const contentWrapper = this.querySelector(
-					'.o3-tooltip-wrapper'
-				) as HTMLElement;
-				contentWrapper.style.animation = `bounce-${animationPosition} 2s ease`;
+				if (!this.renderOnOpen) this.style.display = 'none';
 			},
 		});
-		this.render();
 	}
 
-	// disconnectedCallback() {
-	// 	console.log('Custom element removed from page.');
-	// }
+	private _eventListeners = {
+		closeButton: {
+			click: () => {
+				this.remove();
+			},
+		},
+		targetNode: {
+			mouseEnter: () => (this.style.display = 'block'),
+			mouseLeave: () => (this.style.display = 'none'),
+			click: () =>
+				this.style.display === 'none'
+					? (this.style.display = 'block')
+					: (this.style.display = 'none'),
+			focusIn: () => (this.style.display = 'block'),
+			focusOut: () => (this.style.display = 'none'),
+		},
+	};
 
-	// adoptedCallback() {
-	// 	console.log('Custom element moved to new page');
-	// }
-
-	attributeChangedCallback() {
-		this.render();
+	private addEventListeners() {
+		if (this._closeButton) {
+			this._closeButton.addEventListener(
+				'click',
+				this._eventListeners.closeButton.click
+			);
+		} else {
+			this._targetNode.addEventListener(
+				'mouseenter',
+				this._eventListeners.targetNode.mouseEnter
+			);
+			this._targetNode.addEventListener(
+				'mouseleave',
+				this._eventListeners.targetNode.mouseLeave
+			);
+			this._targetNode.addEventListener(
+				'click',
+				this._eventListeners.targetNode.click
+			);
+			this._targetNode.addEventListener(
+				'focusin',
+				this._eventListeners.targetNode.focusIn
+			);
+			this._targetNode.addEventListener(
+				'focusout',
+				this._eventListeners.targetNode.focusOut
+			);
+		}
 	}
-	popperInstance?: Instance;
 
-	render() {
-		this.popperInstance?.setOptions({
-			placement: this.tipPlacement,
-		});
-	}
-
-	private getTargetNode() {
-		return document.getElementById(this.targetId) as HTMLElement;
-	}
-	closeToolTip() {
-		this.remove();
-		this.popperInstance?.destroy();
+	private removeEventListeners() {
+		if (this._closeButton) {
+			this._closeButton.removeEventListener(
+				'click',
+				this._eventListeners.closeButton.click
+			);
+		} else {
+			this._targetNode.removeEventListener(
+				'mouseenter',
+				this._eventListeners.targetNode.mouseEnter
+			);
+			this._targetNode.removeEventListener(
+				'mouseleave',
+				this._eventListeners.targetNode.mouseLeave
+			);
+			this._targetNode.removeEventListener(
+				'click',
+				this._eventListeners.targetNode.click
+			);
+			this._targetNode.removeEventListener(
+				'focusin',
+				this._eventListeners.targetNode.focusIn
+			);
+			this._targetNode.removeEventListener(
+				'focusout',
+				this._eventListeners.targetNode.focusOut
+			);
+		}
 	}
 }
 
