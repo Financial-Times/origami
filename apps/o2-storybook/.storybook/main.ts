@@ -12,7 +12,7 @@ const config: StorybookConfig = {
 		const storyPaths = []
 
 		let componentDirectories = await globby(
-			["../../components/**", "!../../components/o3-*/**"],
+			["../../components/**", "!../../components/o3-*/**", "../../libraries/**"],
 			{
 				gitignore: false,
 				expandDirectories: false,
