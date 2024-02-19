@@ -32,6 +32,10 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 		this.renderOnOpen = this.hasAttribute('render-on-open');
 		this._closeButton = this.querySelector('.o3-tooltip-close');
 
+		if (!this.renderOnOpen && this._closeButton) {
+			this._closeButton.remove();
+		}
+
 		this._targetNode = this.getTargetNode();
 		this._popperInstance = this.initialisePopper(this._targetNode);
 		this.render();
