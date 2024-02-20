@@ -21,7 +21,7 @@ If the attribute `render-on-open` is not present the tooltip will be rendered on
 Bellow is a markup example of how to use `o3-tooltip` with `render-on-open` attribute:
 
 ```html
-<div class="o3-brand-whitelabel">
+<div class="o3-brand-[your brand]">
  <!-- DEMO BUTTON ELEMENT TARGETED BY o3-tooltip -->
  <button id="demo-o3-tooltip-id" aria-describedby="o3-tooltip-content">
   Share
@@ -54,7 +54,7 @@ Bellow is a markup example of how to use `o3-tooltip` with `render-on-open` attr
 and this is example of how to use `o3-tooltip` without `render-on-open` attribute:
 
 ```html
-<div class="o3-brand-whitelabel">
+<div class="o3-brand-[your brand]">
  <!-- DEMO BUTTON ELEMENT TARGETED BY o3-tooltip -->
  <button id="demo-o3-tooltip-id" aria-describedby="o3-tooltip-content">
   Share
@@ -94,7 +94,7 @@ import o3Tooltip from '@financial-times/o3-tooltip';
 To style `o3-tooltip` you can use import brand specific css file from `@financial-times/o3-tooltip` package. You can use the following code:
 
 ```javascript
-import '@financial-times/o3-tooltip/css/whitelabel.css';
+import '@financial-times/o3-tooltip/css/[your brand].css';
 ```
 
 ## JSX
@@ -106,10 +106,10 @@ import {Tooltip} from '@financial-times/o3-tooltip/jsx';
 
 import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom element
 
-import '@financial-times/o3-web-token/whitelabel.css'; // brand styling
-import '@finacial-times/o3-tooltip/css/whitelabel.css'; // tooltip styling
+import '@financial-times/o3-web-token/[your brand].css'; // brand styling
+import '@finacial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
 
-<div clssName="o3-brand-whitelabel">
+<div clssName="o3-brand-[your brand]">
  <Tooltip {...props} />;
 </div>
 ```
