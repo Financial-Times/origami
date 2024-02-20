@@ -20,8 +20,8 @@ const ToolTipTemplate: TemplateType = {
 	...TemplateSBConfig,
 	render: args => {
 		return (
-			<>
-					<div className="demo-message">
+			<div className='o3-tooltip-demo-wrapper'>
+					<div className="o3-tooltip-demo-message">
 						<p>
 							{args.renderOnOpen ? 'Refresh to view bounce animation' :	'Hover over the button to see the tooltip'}
 						</p>
@@ -33,7 +33,7 @@ const ToolTipTemplate: TemplateType = {
 					Share
 				</button>
 				<TooltipTsx {...args} />
-			</>
+			</div>
 		);
 	},
 };

@@ -3,27 +3,27 @@
 @font-face {
 	src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2')
 		format('woff2');
-	font-family: 'Metric2-VF';
+	font-family: 'metric 2 VF';
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
 o3-tooltip {
-	--_o3-tooltip-padding-top: var(--o3-spacing-3xs);
-	--_o3-tooltip-padding-right: var(--o3-spacing-2xs);
-	--_o3-tooltip-close-button-size: var(--o3-spacing-xs);
+	--_padding-top: var(--o3-spacing-3xs);
+	--_padding-right: var(--o3-spacing-2xs);
+	--_close-button-size: var(--o3-spacing-xs);
 
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 10;
 }
+
 o3-tooltip > .o3-tooltip-wrapper {
 	box-sizing: border-box;
 	width: max-content;
 	max-width: 250px;
-	/* TODO: Values are copied from figma but this can be replaced by tokens */
 	box-shadow: 2px 2px 6px 0px rgba(26, 26, 26, 0.1),
 		5px 5px 24px 0px rgba(26, 26, 26, 0.17);
 	background: #ffffff;
@@ -36,9 +36,8 @@ o3-tooltip > .o3-tooltip-wrapper {
 	position: relative;
 	box-sizing: border-box;
 	overflow: auto;
-	padding: var(--_o3-tooltip-padding-top) var(--_o3-tooltip-padding-right)
-		var(--_o3-tooltip-padding-right);
-	margin-right: var(--_o3-tooltip-close-button-size);
+	padding: var(--_padding-top) var(--_padding-right) var(--_padding-right);
+	margin-right: var(--_close-button-size);
 	hyphens: auto;
 }
 
@@ -50,16 +49,16 @@ o3-tooltip > .o3-tooltip-wrapper {
 }
 /* CLOSE BUTTON */
 .o3-tooltip-wrapper .o3-tooltip-close {
-	width: var(--_o3-tooltip-close-button-size);
-	height: var(--_o3-tooltip-close-button-size);
+	width: var(--_close-button-size);
+	height: var(--_close-button-size);
 	mask-image: var(--o3-icons-ft-icon-cross);
 	mask-repeat: no-repeat;
 	mask-size: contain;
 	display: inline-block;
 	background-color: var(--o3-color-palette-black-90);
 	position: absolute;
-	top: var(--_o3-tooltip-padding-top);
-	right: var(--_o3-tooltip-padding-right);
+	top: var(--_padding-top);
+	right: var(--_padding-right);
 	cursor: pointer;
 	user-select: none;
 }
@@ -75,12 +74,13 @@ o3-tooltip > .o3-tooltip-wrapper {
 /* ARROW STYLES */
 o3-tooltip > .o3-tooltip-wrapper > [data-tooltip-arrow],
 o3-tooltip > .o3-tooltip-wrapper > [data-tooltip-arrow]::before {
-	--_o3-tooltip-arrow-size: 20px;
-	--_o3-tooltip-arrow-offset: calc(var(--_o3-tooltip-arrow-size) / 2);
-	--_o3-tooltip-negative-arrow-offset: calc(-1 * var(--_o3-tooltip-arrow-offset));
+	--_arrow-size: 20px;
+	--_arrow-offset: calc(var(--_arrow-size) / 2);
+	--_negative-arrow-offset: calc(-1 * var(--_arrow-offset));
+
 	position: absolute;
-	width: var(--_o3-tooltip-arrow-size);
-	height: var(--_o3-tooltip-arrow-size);
+	width: var(--_arrow-size);
+	height: var(--_arrow-size);
 	background: inherit;
 }
 o3-tooltip > .o3-tooltip-wrapper > [data-tooltip-arrow]::before {
@@ -96,37 +96,37 @@ o3-tooltip [data-tooltip-arrow] {
 o3-tooltip[data-popper-placement^='top']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	bottom: var(--_o3-tooltip-negative-arrow-offset);
+	bottom: var(--_negative-arrow-offset);
 }
 
 o3-tooltip[data-popper-placement^='bottom']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	top: var(--_o3-tooltip-negative-arrow-offset);
+	top: var(--_negative-arrow-offset);
 }
 
 o3-tooltip[data-popper-placement^='left']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	right: var(--_o3-tooltip-negative-arrow-offset);
+	right: var(--_negative-arrow-offset);
 }
 
 o3-tooltip[data-popper-placement^='right']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	left: var(--_o3-tooltip-negative-arrow-offset);
+	left: var(--_negative-arrow-offset);
 }
 
 o3-tooltip[data-popper-placement='top-start']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	left: var(--_o3-tooltip-arrow-offset);
+	left: var(--_arrow-offset);
 }
 
 o3-tooltip[data-popper-placement='top-end']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	right: var(--_o3-tooltip-arrow-offset);
+	right: var(--_arrow-offset);
 }
 
 o3-tooltip[data-popper-placement='top']
@@ -139,13 +139,13 @@ o3-tooltip[data-popper-placement='top']
 o3-tooltip[data-popper-placement='bottom-start']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	left: var(--_o3-tooltip-arrow-offset);
+	left: var(--_arrow-offset);
 }
 
 o3-tooltip[data-popper-placement='bottom-end']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	right: var(--_o3-tooltip-arrow-offset);
+	right: var(--_arrow-offset);
 }
 
 o3-tooltip[data-popper-placement='bottom']
@@ -158,13 +158,13 @@ o3-tooltip[data-popper-placement='bottom']
 o3-tooltip[data-popper-placement='left-start']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	top: var(--_o3-tooltip-arrow-offset);
+	top: var(--_arrow-offset);
 }
 
 o3-tooltip[data-popper-placement='left-end']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	bottom: var(--_o3-tooltip-arrow-offset);
+	bottom: var(--_arrow-offset);
 }
 
 o3-tooltip[data-popper-placement='left']
@@ -177,13 +177,13 @@ o3-tooltip[data-popper-placement='left']
 o3-tooltip[data-popper-placement='right-start']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	top: var(--_o3-tooltip-arrow-offset);
+	top: var(--_arrow-offset);
 }
 
 o3-tooltip[data-popper-placement='right-end']
 	> .o3-tooltip-wrapper
 	> [data-tooltip-arrow] {
-	bottom: var(--_o3-tooltip-arrow-offset);
+	bottom: var(--_arrow-offset);
 }
 
 o3-tooltip[data-popper-placement='right']
@@ -197,19 +197,24 @@ o3-tooltip[data-popper-placement='right']
 
 o3-tooltip[render-on-open] > .o3-tooltip-wrapper {
 	--_first-bounce-offset: var(--o3-spacing-m); /* 32px */
+	--_negative-first-bounce-offset: calc(-1 * var(--_first-bounce-offset));
 	--_second-bounce-offset: calc(var(--_first-bounce-offset) / 2);
+	--_negative-second-bounce-offset: calc(-1 * var(--_second-bounce-offset));
 }
 
-o3-tooltip[placement^='top'][render-on-open] > .o3-tooltip-wrapper {
+o3-tooltip[data-popper-placement^='top'][render-on-open] > .o3-tooltip-wrapper {
 	animation: bounce-top 0.8s ease;
 }
-o3-tooltip[placement^='bottom'][render-on-open] > .o3-tooltip-wrapper {
+o3-tooltip[data-popper-placement^='bottom'][render-on-open]
+	> .o3-tooltip-wrapper {
 	animation: bounce-bottom 0.8s ease;
 }
-o3-tooltip[placement^='left'][render-on-open] > .o3-tooltip-wrapper {
+o3-tooltip[data-popper-placement^='left'][render-on-open]
+	> .o3-tooltip-wrapper {
 	animation: bounce-left 0.8s ease;
 }
-o3-tooltip[placement^='right'][render-on-open] > .o3-tooltip-wrapper {
+o3-tooltip[data-popper-placement^='right'][render-on-open]
+	> .o3-tooltip-wrapper {
 	animation: bounce-right 0.8s ease;
 }
 
@@ -222,10 +227,10 @@ o3-tooltip[placement^='right'][render-on-open] > .o3-tooltip-wrapper {
 		transform: translateY(0);
 	}
 	40% {
-		transform: translateY(calc(-1 * var(--_first-bounce-offset)));
+		transform: translateY(var(--_negative-first-bounce-offset));
 	}
 	60% {
-		transform: translateY(calc(-1 * var(--_second-bounce-offset)));
+		transform: translateY(var(--_negative-second-bounce-offset));
 	}
 }
 @keyframes bounce-bottom {
@@ -252,10 +257,10 @@ o3-tooltip[placement^='right'][render-on-open] > .o3-tooltip-wrapper {
 		transform: translateX(0);
 	}
 	40% {
-		transform: translateX(calc(-1 * var(--_first-bounce-offset)));
+		transform: translateX(var(--_negative-first-bounce-offset));
 	}
 	60% {
-		transform: translateX(calc(-1 * var(--_second-bounce-offset)));
+		transform: translateX(var(--_negative-second-bounce-offset));
 	}
 }
 

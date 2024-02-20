@@ -109,7 +109,7 @@ import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom
 import '@financial-times/o3-web-token/[your brand].css'; // brand styling
 import '@finacial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
 
-<div clssName="o3-brand-[your brand]">
+<div className="o3-brand-[your brand]">
  <Tooltip {...props} />;
 </div>
 ```

@@ -1,4 +1,4 @@
-div[class^='o3-brand-'] {
+.o3-tooltip-demo-wrapper {
 	margin: 3rem;
 	width: 80%;
 	height: 600px;
@@ -7,7 +7,7 @@ div[class^='o3-brand-'] {
 	justify-content: center;
 }
 
-.demo-message {
+.o3-tooltip-demo-message {
 	position: absolute;
 	top: 10px;
 	left: 10px;
