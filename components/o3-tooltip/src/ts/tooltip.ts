@@ -10,6 +10,7 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 	private _popperInstance?: Instance;
 	private _closeButton?: HTMLElement | null;
 	private _targetNode!: HTMLElement;
+	private _arrow!: HTMLElement;
 
 	constructor() {
 		super();
@@ -31,7 +32,7 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 		this.targetId = this.getAttribute('target-id') as string;
 		this.renderOnOpen = this.hasAttribute('render-on-open');
 		this._closeButton = this.querySelector('.o3-tooltip-close');
-
+		this._arrow = this.querySelector('[data-tooltip-arrow]') as HTMLElement;
 		if (!this.renderOnOpen && this._closeButton) {
 			this._closeButton.remove();
 		}
@@ -71,6 +72,24 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 		return createPopper(targetNode, this, {
 			placement: this.placement || 'top',
 			modifiers: [
+				{
+					name: 'preventOverflow',
+					options: {
+						altAxis: true,
+					},
+				},
+				{
+					name: 'flip',
+					options: {
+						fallbackPlacements: ['top', 'bottom', 'left', 'right'],
+					},
+				},
+				{
+					name: 'arrow',
+					options: {
+						element: this._arrow,
+					},
+				},
 				{
 					name: 'offset',
 					options: {
