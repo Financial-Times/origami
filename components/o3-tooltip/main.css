@@ -33,8 +33,6 @@ o3-tooltip > .o3-tooltip-wrapper {
 }
 
 .o3-tooltip-content {
-	font-family: inherit;
-	font-weight: inherit;
 	position: relative;
 	box-sizing: border-box;
 	overflow: auto;
@@ -45,7 +43,6 @@ o3-tooltip > .o3-tooltip-wrapper {
 }
 
 .o3-tooltip-content-title {
-	font-family: inherit;
 	font-weight: 700;
 	font-size: 16px;
 	color: inherit;
