@@ -81,18 +81,6 @@ and this is example of how to use `o3-tooltip` without `render-on-open` attribut
 </div>
 ```
 
-### Branding
-
-To apply a brand theme wrap your tooltip element inside an element that has a class name of `o3-brand-{yourBrand}`. E.g. to output a tooltip for the professional theme:
-
-```html
-<div class="o3-brand-professional">
- <o3-tooltip></o3-tooltip>
-</div>
-```
-
-You will need to install [o3-web-token](https://www.npmjs.com/package/@financial-times/o3-web-token) package to use the branding feature.
-
 ## JavaScript
 
 No code will run automatically unless you import the JavaScript. To import the JavaScript, you can use the following code:
