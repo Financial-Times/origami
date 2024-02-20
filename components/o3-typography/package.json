@@ -1,0 +1,40 @@
+{
+	"name": "@financial-times/o3-typography",
+	"version": "0.0.1",
+	"description": "Origami typography with design tokens",
+	"keywords": [
+		"typography",
+		"design-tokens"
+	],
+	"homepage": "",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-typography,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"files": [
+		"build",
+		"origami.json"
+	],
+	"exports": {
+		".": {
+			"types": "./build/types/index.d.ts",
+			"import": "./build/jsx/index.js"
+		},
+		"./css/*": "./build/css/src/css/brands/*",
+		"./package.json": "./package.json"
+	},
+	"types": "./build/types/index.d.ts",
+	"scripts": {
+		"build": "bash ../../scripts/component/build-o3.bash o3-button && npm run build:tsx",
+		"build:tsx": "tsc --project tsconfig.tsx.json"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false,
+	"peerDependencies": {
+		"@financial-times/o3-web-token": "^0.3.0"
+	}
+}
