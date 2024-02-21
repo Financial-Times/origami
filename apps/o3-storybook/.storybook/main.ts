@@ -45,8 +45,9 @@ const config: StorybookConfig = {
 		options: {},
 	},
 	docs: {
-		autodocs: "tag",
-	},
+		autodocs: 'tag',
+		defaultName: 'JSX Documentation',
+	  },
 }
 
 export default config
