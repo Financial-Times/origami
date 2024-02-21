@@ -3,16 +3,17 @@
 o3-tooltip is a component usually used for annotating or highlighting bits of user interface.
 
 - [o3-tooltip](#o3-tooltip)
-	- [Markup](#markup)
-		- [Branding](#branding)
-	- [JavaScript](#javascript)
-	- [css](#css)
-	- [JSX](#jsx)
-	- [Migration Guide](#migration-guide)
-	- [Contact](#contact)
-	- [Licence](#licence)
+- [Markup](#markup)
+- [JavaScript](#javascript)
+- [css](#css)
+- [JSX](#jsx)
+- [Migration Guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
 
 ## Markup
+
+We provide a custom element `<o3-tooltip>` to be used in your markup but we also provide [JSX component](#jsx) to be used in React.
 
 `o3-tooltip` currently supports two variants, which is determined by `render-on-open` attribute on custom element. If attribute is enable the tooltip will be rendered once the DOM is loaded and will have a close button. Close button remove the tooltip from the DOM and it can re-triggered only reload.
 

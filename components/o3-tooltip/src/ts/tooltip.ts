@@ -5,11 +5,9 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 	content!: string;
 	contentId!: string;
 	targetId!: string;
-	renderOnOpen!: boolean;
 
-	private _popperInstance?: Instance;
-	private _closeButton?: HTMLElement | null;
-	private _targetNode!: HTMLElement;
+	protected _popperInstance?: Instance;
+	protected _targetNode!: HTMLElement;
 
 	constructor() {
 		super();
@@ -28,14 +26,9 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 	}
 
 	connectedCallback() {
-		this.targetId = this.getAttribute('target-id') as string;
-		this.renderOnOpen = this.hasAttribute('render-on-open');
-		this._closeButton = this.querySelector('.o3-tooltip-close');
-
 		this._targetNode = this.getTargetNode();
 		this._popperInstance = this.initialisePopper(this._targetNode);
 		this.render();
-		this.addEventListeners();
 	}
 
 	attributeChangedCallback() {
@@ -43,17 +36,17 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 	}
 
 	disconnectedCallback() {
-		this.removeEventListeners();
 		this._popperInstance?.destroy();
 	}
 
-	private render() {
+	protected render() {
 		this._popperInstance?.setOptions({
 			placement: this.placement,
 		});
 	}
 
-	private getTargetNode() {
+	protected getTargetNode() {
+		this.targetId = this.getAttribute('target-id') as string;
 		const targetNode = document.getElementById(this.targetId);
 		if (!targetNode) {
 			throw new Error(
@@ -63,7 +56,7 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 		return targetNode as HTMLElement;
 	}
 
-	private initialisePopper(targetNode: HTMLElement) {
+	protected initialisePopper(targetNode: HTMLElement) {
 		return createPopper(targetNode, this, {
 			placement: this.placement || 'top',
 			modifiers: [
@@ -86,95 +79,6 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 					},
 				},
 			],
-			onFirstUpdate: () => {
-				if (!this.renderOnOpen) this.style.display = 'none';
-			},
 		});
-	}
-
-	private _eventListeners = {
-		closeButton: {
-			click: () => {
-				this.remove();
-			},
-		},
-		targetNode: {
-			mouseEnter: () => (this.style.display = 'block'),
-			mouseLeave: () => (this.style.display = 'none'),
-			click: () =>
-				this.style.display === 'none'
-					? (this.style.display = 'block')
-					: (this.style.display = 'none'),
-			focusIn: () => (this.style.display = 'block'),
-			focusOut: () => (this.style.display = 'none'),
-		},
-	};
-
-	private addEventListeners() {
-		if (this._closeButton) {
-			this._closeButton.addEventListener(
-				'click',
-				this._eventListeners.closeButton.click
-			);
-		} else {
-			this._targetNode.addEventListener(
-				'mouseenter',
-				this._eventListeners.targetNode.mouseEnter
-			);
-			this._targetNode.addEventListener(
-				'mouseleave',
-				this._eventListeners.targetNode.mouseLeave
-			);
-			this._targetNode.addEventListener(
-				'click',
-				this._eventListeners.targetNode.click
-			);
-			this._targetNode.addEventListener(
-				'focusin',
-				this._eventListeners.targetNode.focusIn
-			);
-			this._targetNode.addEventListener(
-				'focusout',
-				this._eventListeners.targetNode.focusOut
-			);
-		}
-	}
-
-	private removeEventListeners() {
-		if (this._closeButton) {
-			this._closeButton.removeEventListener(
-				'click',
-				this._eventListeners.closeButton.click
-			);
-		} else {
-			this._targetNode.removeEventListener(
-				'mouseenter',
-				this._eventListeners.targetNode.mouseEnter
-			);
-			this._targetNode.removeEventListener(
-				'mouseleave',
-				this._eventListeners.targetNode.mouseLeave
-			);
-			this._targetNode.removeEventListener(
-				'click',
-				this._eventListeners.targetNode.click
-			);
-			this._targetNode.removeEventListener(
-				'focusin',
-				this._eventListeners.targetNode.focusIn
-			);
-			this._targetNode.removeEventListener(
-				'focusout',
-				this._eventListeners.targetNode.focusOut
-			);
-		}
-	}
-}
-
-customElements.define('o3-tooltip', ToolTip);
-
-declare global {
-	interface HTMLElementTagNameMap {
-		'o3-tooltip': ToolTip;
 	}
 }

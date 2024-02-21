@@ -1,14 +1,15 @@
 import type {Meta} from '@storybook/react';
-import {Tooltip as TooltipTsx} from '../../src/tsx/tooltip';
+import {TooltipOnboarding as OnboardingTooltipTsx} from '../../src/tsx/onboardingTooltip';
 import {
-	Tooltip as TooltipStory,
-	HoverToolTip as HoverToolTipStory,
+	OnboardingTooltip as OnboardingTooltipStory,
+	ToggleToolTip as ToggleToolTipStory,
 } from '../story-template';
 import '../../src/css/brands/internal.css';
+import "@financial-times/o3-button/css/internal.css"
 
 export default {
 	title: 'Internal/o3-tooltip',
-	component: TooltipTsx,
+	component: OnboardingTooltipTsx,
 	decorators: [
 		Story => (
 			<div className="o3-brand-internal">
@@ -21,5 +22,5 @@ export default {
 	},
 } as Meta;
 
-export const Tooltip = TooltipStory;
-export const HoverTooltip = HoverToolTipStory;
+export const OnboardingTooltip = OnboardingTooltipStory;
+export const ToggleTooltip = ToggleToolTipStory;

@@ -1,3 +1,4 @@
-import {Tooltip} from './tooltip';
+import {TooltipOnboarding} from './onboardingTooltip';
+import {TooltipToggle} from './toggleTooltip';
 
-export {Tooltip};
+export {TooltipOnboarding, TooltipToggle};

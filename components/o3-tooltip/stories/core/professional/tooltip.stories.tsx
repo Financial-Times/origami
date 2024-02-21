@@ -1,11 +1,15 @@
 import type {Meta} from '@storybook/react';
-import {Tooltip as TooltipTsx} from '../../../src/tsx/tooltip';
-import {Tooltip as TooltipStory, HoverToolTip as HoverToolTipStory} from '../../story-template';
+import {TooltipOnboarding as OnboardingTooltipTsx} from '../../../src/tsx/onboardingTooltip';
+import {
+	OnboardingTooltip as OnboardingTooltipStory,
+	ToggleToolTip as ToggleToolTipStory,
+} from '../../story-template';
 import '../../../src/css/brands/professional.css';
+import "@financial-times/o3-button/css/professional.css"
 
 export default {
 	title: 'Core/Professional/o3-tooltip',
-	component: TooltipTsx,
+	component: OnboardingTooltipTsx,
 	decorators: [
 		Story => (
 			<div className="o3-brand-professional">
@@ -18,5 +22,5 @@ export default {
 	},
 } as Meta;
 
-export const Tooltip = TooltipStory;
-export const HoverTooltip = HoverToolTipStory
+export const OnboardingTooltip = OnboardingTooltipStory;
+export const ToggleTooltip = ToggleToolTipStory;
