@@ -142,6 +142,9 @@
 		}
 
 		// there is a nested div with no static selector that is set to have a height of 24px, which breaks the bar design. this resets it.
+		.coral-tabBar-notifications {
+			padding: 2px 8px;
+		}
 		.coral-tabBar-notifications > div[class^="TabBar-notificationsIcon"] {
 			height: auto;
 		}
