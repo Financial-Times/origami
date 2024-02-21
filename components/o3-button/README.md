@@ -1,32 +1,35 @@
 # o3-button
 
-o3-button provides CSS custom properties and styling to create buttons.
+o3-button includes button, button group, and pagination patterns. See our [design guidelines for usage information and brand support](https://origami-for-everyone.ft.com/components/buttons/).
 
 - [o3-button](#o3-button)
-	- [Markup](#markup)
-		- [Themes](#themes)
-		- [Sizes](#sizes)
-		- [Icons](#icons)
-		- [Groups](#groups)
-		- [Pagination](#pagination)
-			- [Pagination Rules](#pagination-rules)
-			- [Pagination Theme](#pagination-theme)
-			- [Pagination Size](#pagination-size)
-		- [Disabled](#disabled)
-	- [References](#references)
-	- [Migration](#migration)
-	- [Contact](#contact)
-	- [Licence](#licence)
+  - [Markup](#markup)
+    - [Types](#types)
+    - [Themes](#themes)
+    - [Sizes](#sizes)
+    - [Icons](#icons)
+    - [Groups](#groups)
+    - [Pagination](#pagination)
+    - [Disabled](#disabled)
+  - [JSX](#jsx)
+  - [References](#references)
+  - [Migration](#migration)
+  - [Contact](#contact)
+  - [Licence](#licence)
 
 ## Markup
 
-There are three types of buttons, primary, secondary, and ghost.
+o3-button supports [JSX templates for React users](#JSX), or direct HTML. We recommend using JSX where possible.
 
-| Type      | Selector              | Brand Support              | Purpose                                                                                                                                                                                                                                                                                |
-| --------- | --------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| primary   | .o3-button--primary   | core, internal, whitelabel | For principal calls to action on the page. Primary buttons should only appear once per product area (not including the application header, modal dialog, onsite messaging or side panel).                                                                                              |
-| secondary | .o3-button--secondary | core, internal, whitelabel | For secondary actions on each page or used in conjunction with a primary button. As part of a pair, the secondary button’s function is to perform the negative action of the set, such as “Cancel” or “Back”.                                                                          |
-| ghost     | .o3-button--ghost     | core, internal, whitelabel | For the least pronounced actions; often used in conjunction with a primary button. In a situation such as a progress flow, a ghost button may be paired with a primary and secondary button set, where the primary button is for ‘Save and continue’ the ghost button would be ‘Skip’. |
+### Types
+
+There are three types of buttons, primary, secondary, and ghost. When to use which button type is described in our [design guidelines](https://origami-for-everyone.ft.com/components/buttons/).
+
+| Type      | Selector              |
+| --------- | --------------------- |
+| primary   | .o3-button--primary   |
+| secondary | .o3-button--secondary |
+| ghost     | .o3-button--ghost     |
 
 ```html
 <button class="o3-button o3-button--primary">Submit</button>
@@ -34,29 +37,29 @@ There are three types of buttons, primary, secondary, and ghost.
 <button class="o3-button o3-button--ghost">Options</button>
 ```
 
-o3-button CSS will work on `<button>` or `<a>` elements. It is important for accessibility that if you intend to style an `<a>` as a button, you give it the correct [aria role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role).
-
-The copy inside buttons should be concise and confirm the action a user is taking.
+o3-button may be used with either `<button>` or `<a>` elements.
 
 ### Themes
 
-A theme may be applied to a button to change its appearance. o3-button provides some themes by default:
+A theme may be applied to a button to change its appearance. E.g:
 
-| Theme                | Selector                         | Works With Types          | Brand/sub-brand Support  |
-| -------------------- | -------------------------------- | ------------------------- | -------------- |
-| inverse              | .o3-button--inverse              | primary, secondary, ghost | core, professional, internal |
-| mono                 | .o3-button--mono                 | primary, secondary, ghost | core, professional, internal |
+| Theme   | Selector            |
+| ------- | ------------------- |
+| inverse | .o3-button--inverse |
+| mono    | .o3-button--mono    |
 
 ```html
 <button class="o3-button o3-button--primary o3-button--inverse">Submit</button>
 <button class="o3-button o3-button--secondary o3-button--inverse">
- Cancel
+	Cancel
 </button>
 ```
 
+See our [design guidelines](https://origami-for-everyone.ft.com/components/buttons/) for a list of available themes for your brand.
+
 ### Sizes
 
-Apply the `o3-button--small` modifier class for a smaller button.
+Apply the `o3-button--small` modifier class for a smaller button, as appropriate, inline with [design guidelines](https://origami-for-everyone.ft.com/components/buttons/#small).
 
 ```html
 <button class="o3-button o3-button--primary o3-button--small">Click Me</button>
@@ -64,7 +67,9 @@ Apply the `o3-button--small` modifier class for a smaller button.
 
 ### Icons
 
-To add an icon to your button add the class `o3-button-icon` and `o3-button-icon--{icon-name}` to your button.
+#### Icon and label
+
+To add an icon to your button add the class `o3-button-icon` and `o3-button-icon--{icon-name}`.
 
 A limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller, but if you need an icon button that we don't currently support, please contact the Origami team:
 
@@ -84,33 +89,47 @@ A limited number of button icons are available. Limiting the number of icons kee
 
 ```html
 <button
- class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down"
+	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down"
 >
- Down Arrow
+	Down Arrow
 </button>
 <button
- class="o3-button o3-button--secondary o3-button-icon o3-button-icon--download"
+	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--download"
 >
- Download
+	Download
 </button>
 ```
+
+#### Icon only
 
 If you would like your button to display only an icon, add the class `o3-button-icon--icon-only` and provide a visually hidden label for screen-reader users with `o3-button-icon__label`.
 
 ```html
 <button
- class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down o3-button-icon--icon-only"
+	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down o3-button-icon--icon-only"
 >
- <span class="o3-button-icon__label"> Down Arrow </span>
+	<span class="o3-button-icon__label"> Down Arrow </span>
 </button>
 ```
 
-If you want to use icons not in the o3-button supported icons list talk to Origami team and we will direct you to existing icon or help you to adopt the new icon. But if you are sure this icon is not in UI library and just want to use your custom icon you can use the `--o3-button-icon` custom property. An example of using custom icons will be something like this:
+#### Custom icons
+
+If you want to use icons not in the o3-button supported icons list talk to Origami team and we will direct you to existing icon or help you to adopt the new icon. Alternatively, your icon may make a suitable addition to our standard set.
+
+After discussing together, we may decide a custom icon is the most appropriate option. In which case, set the `--o3-button-icon` custom property with a [URL encoded SVG](https://yoksel.github.io/url-encoder/) of your icon:
 
 ```css
-.o3-button..o3-button-icon::before {
- --o3-button-icon: url("data:image/svg+xml,[ENCODED_SVG_STRING]");
+.my-button-modifier-class {
+	--o3-button-icon: url('data:image/svg+xml,[ENCODED_SVG_STRING]');
 }
+```
+
+```html
+<button
+	class="o3-button o3-button--secondary o3-button-icon my-button-modifier-class"
+>
+	My custom icon button
+</button>
 ```
 
 ### Groups
@@ -119,108 +138,95 @@ Wrap buttons in a container with `.o3-button-group` to group them together:
 
 ```html
 <div class="o3-button-group">
- <button class="o3-button o3-button--secondary" aria-selected="true">
-  One
- </button>
- <button class="o3-button o3-button--secondary">Two</button>
- <button class="o3-button o3-button--secondary">Three</button>
+	<button class="o3-button o3-button--secondary" aria-selected="true">
+		One
+	</button>
+	<button class="o3-button o3-button--secondary">Two</button>
+	<button class="o3-button o3-button--secondary">Three</button>
 </div>
 ```
 
 ### Pagination
 
-For a pagination style wrap your buttons in a container with `.o3-button-pagination`. Most pagination usecases use anchor `a` tags for links which look like buttons instead of a `button` tag. When using an anchor tag in pagination, do not use the `aria-selected` data attribute. Instead, use `aria-current="page"` to indicate the current page, this will highlight the button for the current page visually and to screen readers.
+Our pagination pattern varies according to the space available to it, e.g. mobile vs. desktop devices.
 
-The following markup example shows pagination for 20 pages, where the 14th page is the current page. Following the [pagination rules](#pagination-rules) we recommend displaying no more than 7 pages and using the ellipsis element to show hidden results.
+We recommend using our JSX template where possible. Alternatively, you must re-implement pagination logic following our [pagination design guidelines](https://origami-for-everyone.ft.com/patterns/pagination/).
+
+`data-o3-button-show-when` is used to show/hide pagination elements according to the space available. Here is example markup for pagination with 10 pages, where the 5th page is selected.
 
 ```html
 <div class="o3-button-pagination">
- <a
-  href="#"
-  class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
- >
-  <span class="o3-button-icon__label">Previous results</span>
- </a>
-
- <a href="#" class="o3-button o3-button--secondary">1</a>
- <span class="o3-button-pagination__ellipsis">...</span>
- <a href="#" class="o3-button o3-button--secondary">13</a>
- <a href="#" class="o3-button o3-button--secondary" aria-current="page">14</a>
- <a href="#" class="o3-button o3-button--secondary">15</a>
- <span class="o3-button-pagination__ellipsis">...</span>
- <a href="#" class="o3-button o3-button--secondary">20</a>
-
- <a
-  href="#"
-  class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
- >
-  <span class="o3-button-icon__label">Next results</span>
- </a>
+	<a
+		href="#previous"
+		class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
+		><span class="o3-button-icon__label">previous</span></a
+	><a
+		href="#1"
+		class="o3-button o3-button--secondary "
+		data-o3-button-show-when="wide"
+		>1</a
+	><span data-o3-button-show-when="wide" class="o3-button-pagination__ellipsis"
+		>...</span
+	><a
+		href="#4"
+		class="o3-button o3-button--secondary "
+		data-o3-button-show-when="wide"
+		>4</a
+	><a
+		href="#5"
+		class="o3-button o3-button--secondary "
+		aria-current="page"
+		data-o3-button-show-when="wide"
+		>5</a
+	><a
+		href="#6"
+		class="o3-button o3-button--secondary "
+		data-o3-button-show-when="wide"
+		>6</a
+	><span data-o3-button-show-when="wide" class="o3-button-pagination__ellipsis"
+		>...</span
+	><a
+		href="#10"
+		class="o3-button o3-button--secondary "
+		data-o3-button-show-when="wide"
+		>10</a
+	><a
+		href="#1"
+		class="o3-button o3-button--secondary "
+		data-o3-button-show-when="narrow"
+		>1</a
+	><span
+		data-o3-button-show-when="narrow"
+		class="o3-button-pagination__ellipsis"
+		>...</span
+	><a
+		href="#5"
+		class="o3-button o3-button--secondary "
+		aria-current="page"
+		data-o3-button-show-when="narrow"
+		>5</a
+	><span
+		data-o3-button-show-when="narrow"
+		class="o3-button-pagination__ellipsis"
+		>...</span
+	><a
+		href="#10"
+		class="o3-button o3-button--secondary "
+		data-o3-button-show-when="narrow"
+		>10</a
+	><a
+		href="#next"
+		class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
+		><span class="o3-button-icon__label">next</span></a
+	>
 </div>
 ```
 
-#### Pagination Rules
-
-The number of pages to display is not enforced by Origami. However we recommend the following:
-
-- Show no more than 7 pages at a time. When there are more than 7 pages, hide more pages behind the pagination ellipsis in the following way. Given:
-
-| Selected Page                            | Ellipse position |
-| ---------------------------------------- | ---------------- |
-| less than 3                              | 1️⃣2️⃣3️⃣...8️⃣9️⃣🔟  |
-| One of the last two pages                | 1️⃣2️⃣3️⃣...8️⃣9️⃣🔟  |
-| 3rd page                                 | 1️⃣2️⃣3️⃣4️⃣...9️⃣🔟  |
-| 3rd page from last page                  | 1️⃣2️⃣...7️⃣8️⃣9️⃣🔟  |
-| more than 3 from the first and last page | 1️⃣...4️⃣5️⃣6️⃣...🔟 |
-
-For an example see the [pagination demos in the Origami registry](https://registry.origami.ft.com/components/o3-button@6.0.19#demo-pagination-layout).
-
-#### Pagination Theme
-
-A theme modifier such as `o3-button--inverse` may be added to the buttons within a pagination block.
-
-#### Pagination Size
-
-Small buttons may also be used in a pagination style. Add the `o3-button-pagination--small` modifier class to the outer pagination element and `o3-button--small` to each button.
-
-```html
-<div class="o3-button-pagination o3-button-pagination--small">
- <a
-  href="#"
-  class="o3-button o3-button--small o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
-  disabled
- >
-  <span class="o3-button-icon__label">Previous results</span>
- </a>
-
- <a
-  href="#"
-  class="o3-button o3-button--small o3-button--secondary"
-  aria-current="page"
-  >1</a
- >
- <a href="#" class="o3-button o3-button--small o3-button--secondary">2</a>
- <a href="#" class="o3-button o3-button--small o3-button--secondary">3</a>
- <span
-  class="o3-button-pagination__ellipsis"
-  >...</span
- >
- <a href="#" class="o3-button o3-button--small o3-button--secondary">18</a>
- <a href="#" class="o3-button o3-button--small o3-button--secondary">19</a>
- <a href="#" class="o3-button o3-button--small o3-button--secondary">20</a>
-
- <a
-  href="#"
-  class="o3-button o3-button--small o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
- >
-  <span class="o3-button-icon__label">Next results</span>
- </a>
-</div>
-```
+Again, we recommend using our JSX template where possible instead of re-implementing the logic described in our [pagination design guidelines](https://origami-for-everyone.ft.com/patterns/pagination/).
 
 ### Disabled
 
-Avoid disabled buttons unless user research shows they improve your interface. Disabled buttons have [poor contrast which makes them difficult to read](#references). They also [do not give feedback to a user why they are disabled](#references).
+Avoid disabled buttons unless user research shows they improve your interface, see our [buttons usage guidelines](https://origami-for-everyone.ft.com/components/buttons/#usage-guidelines) for more.
 
 To make a button disabled add the `disabled` attribute. To visually hide the disabled button until it is active add the class `o3-button--hide-disabled`.
 
@@ -232,9 +238,50 @@ To make a button disabled add the `disabled` attribute. To visually hide the dis
 <button class="o3-button o3-button--hide-disabled" disabled>My Button</button>
 ```
 
-## References
+## JSX
 
-- Hampus Sethfors explains the issues with disabled buttons in more detail in an [axesslab.com article](https://axesslab.com/disabled-buttons-suck/). In the article Hampus suggests alternative design approaches for common uses of disabled buttons.
+For React users, Origami components now include JSX templates. Import JSX templates from `/jsx` along with component CSS.
+
+See [Storybook for full o3-button JSX documentation](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/docs/core-o3-button--jsx-documentation).
+
+For example, for a primary button:
+
+```jsx
+import {Button} from '@financial-times/o3-button/jsx';
+
+import '@finacial-times/o3-button/css/[your brand].css';
+
+<div className="o3-brand-[your brand]">
+	<Button label="Hello" type="primary" />
+</div>;
+```
+
+For pagination:
+
+```jsx
+import {ButtonPagination} from '@financial-times/o3-button/jsx';
+
+import '@finacial-times/o3-button/css/[your brand].css';
+
+<div className="o3-brand-[your brand]">
+	<ButtonPagination
+		previousPager={{label: 'previous', href: '#previous'}}
+		nextPager={{label: 'next', href: '#next'}}
+		pages={[
+			{href: '#1', current: false, number: 1},
+			{href: '#2', current: false, number: 2},
+			{href: '#3', current: false, number: 3},
+			{href: '#4', current: false, number: 4},
+			{href: '#5', current: true, number: 5},
+			{href: '#6', current: false, number: 6},
+			{href: '#7', current: false, number: 7},
+			{href: '#8', current: false, number: 8},
+			{href: '#9', current: false, number: 9},
+			{href: '#10', current: false, number: 10},
+		]}
+	/>
+</div>;
+```
 
 ## Migration
 
