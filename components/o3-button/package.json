@@ -18,7 +18,7 @@
 		"origami.json"
 	],
 	"exports": {
-		".": {
+		"./jsx": {
 			"types": "./build/types/index.d.ts",
 			"import": "./build/jsx/index.js"
 		},
