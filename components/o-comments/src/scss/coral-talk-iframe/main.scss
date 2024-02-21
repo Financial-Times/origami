@@ -145,6 +145,8 @@
 		.coral-tabBar-notifications {
 			padding: 2px 8px;
 		}
+
+		/* stylelint-disable-next-line selector-no-qualifying-type */
 		.coral-tabBar-notifications > div[class^="TabBar-notificationsIcon"] {
 			height: auto;
 		}
