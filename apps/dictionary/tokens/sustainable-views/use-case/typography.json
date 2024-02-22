@@ -69,8 +69,8 @@
           "value": {
             "fontFamily": "{o3.font.family.metric}",
             "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.negative-2}",
-            "lineHeight": "{o3.font.lineheight.negative-2}"
+            "fontSize": "{o3.font.size-metric2vf.negative-2}",
+            "lineHeight": "{o3.font.lineheight-metric2vf.negative-2}"
           },
           "type": "typography"
         }
