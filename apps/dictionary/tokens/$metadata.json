@@ -29,6 +29,7 @@
     "whitelabel/base/typography",
     "whitelabel/use-case/box-shadow",
     "whitelabel/use-case/typography",
+    "whitelabel/use-case/editorial-typography",
     "whitelabel/components/o3-button",
     "utility-tokens",
     "icons/icons"
