@@ -1,7 +1,7 @@
 export type TooltipProps = {
 	targetId: string;
 	content: string;
-	contentId: string;
+	contentId?: string;
 	title?: string;
 	placement:
 		| 'top-start'

@@ -76,7 +76,7 @@ export const ToggleToolTip: TooltipStory = {
 	...ToggleTemplateStory,
 	args: {
 		targetId: 'demo-o3-tooltip-id',
-		content: 'Hover over the button to see the tooltip',
+		content: 'click the button to see the tooltip',
 		title: 'Title',
 		contentId: 'o3-tooltip-content',
 		placement: 'top',

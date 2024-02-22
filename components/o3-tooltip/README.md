@@ -13,73 +13,24 @@ o3-tooltip is a component usually used for annotating or highlighting bits of us
 
 ## Markup
 
-We provide a custom element `<o3-tooltip>` to be used in your markup but we also provide [JSX component](#jsx) to be used in React.
+We provide custom elements `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>` to be used in your markup but we also equivalent provide [JSX components](#jsx) to be used in React.
 
-`o3-tooltip` currently supports two variants, which is determined by `render-on-open` attribute on custom element. If attribute is enable the tooltip will be rendered once the DOM is loaded and will have a close button. Close button remove the tooltip from the DOM and it can re-triggered only reload.
+`<o3-tooltip-onboarding>` is used to display a tooltip on a HTML target element that can have `aria-describedby` attribute. It is used to provide additional information about the target element and is shown immediately once the page is loaded. It can be only closed by clicking the close button.
 
-If the attribute `render-on-open` is not present the tooltip will be rendered once the target element is hovered, focused or clicked. The tooltip will be removed from the DOM once the target element is no longer hovered, focused or clicked.
+`o3-tooltip-toggle` does not have a close button and is used with info icon. It can be triggered by clicking on the info icon and will be removed from the DOM if user clicks outside of the tooltip, press ESC or click the info icon again.
 
-Bellow is a markup example of how to use `o3-tooltip` with `render-on-open` attribute:
+<!-- TODO: [MORE DETAILS TO COME MOST LIKELY WE WONT'T NEED TARGET ID FOR THIS toggle] -->
+
+Bellow is a markup examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>` attribute:
 
 ```html
-<div class="o3-brand-[your brand]">
- <!-- DEMO BUTTON ELEMENT TARGETED BY o3-tooltip -->
- <button id="demo-o3-tooltip-id" aria-describedby="o3-tooltip-content">
-  Share
- </button>
 
- <!-- TOOLTIP CUSTOM ELEMENT -->
- <o3-tooltip
-  role="tooltip"
-  render-on-open
-  placement="top"
-  target-id="demo-o3-tooltip-id"
-  class="o3-tooltip"
- >
-  <div class="o3-tooltip-wrapper">
-   <div data-tooltip-arrow></div>
-   <div class="o3-tooltip-content" id="o3-tooltip-content">
-    <div class="o3-tooltip-content-title">Title</div>
-    <div>This tooltip renders once DOM is loaded and has close button</div>
-   </div>
-  </div>
-  <button
-   class="o3-tooltip-close"
-   aria-label="Close tooltip"
-   title="Close tooltip"
-  ></button>
- </o3-tooltip>
-</div>
 ```
 
 and this is example of how to use `o3-tooltip` without `render-on-open` attribute:
 
 ```html
-<div class="o3-brand-[your brand]">
- <!-- DEMO BUTTON ELEMENT TARGETED BY o3-tooltip -->
- <button id="demo-o3-tooltip-id" aria-describedby="o3-tooltip-content">
-  Share
- </button>
 
- <!-- TOOLTIP CUSTOM ELEMENT -->
- <o3-tooltip
-  role="tooltip"
-  placement="top"
-  target-id="demo-o3-tooltip-id"
-  class="o3-tooltip"
- >
-  <div class="o3-tooltip-wrapper">
-   <div data-tooltip-arrow></div>
-   <div class="o3-tooltip-content" id="o3-tooltip-content">
-    <div class="o3-tooltip-content-title">Title</div>
-    <div>
-     This tooltip renders only when target element is hovered, clicked or
-     focused
-    </div>
-   </div>
-  </div>
- </o3-tooltip>
-</div>
 ```
 
 ## JavaScript
@@ -100,10 +51,13 @@ import '@financial-times/o3-tooltip/css/[your brand].css';
 
 ## JSX
 
-`o3-tooltip` has a JSX component exported as well. To use it, you can use the following code:
+`o3-tooltip` has a two JSX component exported that implement `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>` under the hood and export `TooltipOnboarding` and `TooltipToggle` respectively. To use it, you can use the following code:
 
 ```jsx
-import {Tooltip} from '@financial-times/o3-tooltip/jsx';
+import {
+ TooltipOnboarding,
+ TooltipToggle,
+} from '@financial-times/o3-tooltip/jsx';
 
 import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom element
 
@@ -111,18 +65,22 @@ import '@financial-times/o3-web-token/[your brand].css'; // brand styling
 import '@finacial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
 
 <div className="o3-brand-[your brand]">
- <Tooltip {...props} />;
-</div>
+ <button id="target" aria-describedby="contentId">
+  Target element
+ </button>
+ <TooltipOnboarding {...props} />;
+ <TooltipToggle {...props} />
+</div>;
 ```
 
-|     Prop     |  type   | required | default |             description             |
-| :----------: | :-----: | :------: | :-----: | :---------------------------------: |
-|   targetId   | string  |   true   |    -    | Target element to attach tooltip to |
-|   content    | string  |   true   |    -    |       Content of the tooltip        |
-|    title     | string  |  false   |    -    |        Title of the tooltip         |
-|  contentId   | string  |   true   |    -    |  id for `aria-describedby` element  |
-|  placement   | string  |  false   |  'top'  |      Placement of the tooltip       |
-| renderOnOpen | boolean |  false   |  false  |       Render tooltip on open        |
+|     Prop     |  type   |                required                | default |             description             |
+| :----------: | :-----: | :------------------------------------: | :-----: | :---------------------------------: |
+|   targetId   | string  |                  true                  |    -    | Target element to attach tooltip to |
+|   content    | string  |                  true                  |    -    |       Content of the tooltip        |
+|    title     | string  |                 false                  |    -    |        Title of the tooltip         |
+|  contentId   | string  | false (required for TooltipOnBoarding) |    -    |  id for `aria-describedby` element  |
+|  placement   | string  |                 false                  |  'top'  |      Placement of the tooltip       |
+
 
 ## Migration Guide
 
