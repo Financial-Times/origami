@@ -103,10 +103,12 @@
 	border-color: var(--_o3-button-primary-standard-focus-border);
 }
 
-.o3-button.o3-button--primary:active,
-.o3-button.o3-button--primary[aria-selected='true'],
-.o3-button.o3-button--primary[aria-current],
-.o3-button.o3-button--primary[aria-pressed='true'] {
+.o3-button.o3-button--primary:is(
+		:active,
+		[aria-selected='true'],
+		[aria-current],
+		[aria-pressed='true']
+	) {
 	color: var(--_o3-button-primary-standard-active-color);
 	background-color: var(--_o3-button-primary-standard-active-background);
 	border-color: var(--_o3-button-primary-standard-active-border);
@@ -131,10 +133,12 @@
 	border-color: var(--_o3-button-primary-inverse-focus-border);
 }
 
-.o3-button.o3-button--primary.o3-button--inverse:active,
-.o3-button.o3-button--primary.o3-button--inverse[aria-selected='true'],
-.o3-button.o3-button--primary.o3-button--inverse[aria-current],
-.o3-button.o3-button--primary.o3-button--inverse[aria-pressed='true'] {
+.o3-button.o3-button--primary.o3-button--inverse:is(
+		:active,
+		[aria-selected='true'],
+		[aria-current],
+		[aria-pressed='true']
+	) {
 	color: var(--_o3-button-primary-inverse-active-color);
 	background-color: var(--_o3-button-primary-inverse-active-background);
 	border-color: var(--_o3-button-primary-inverse-active-border);
@@ -160,10 +164,12 @@
 	border-color: var(--_o3-button-primary-mono-focus-border);
 }
 
-.o3-button.o3-button--primary.o3-button--mono:active,
-.o3-button.o3-button--primary.o3-button--mono[aria-selected='true'],
-.o3-button.o3-button--primary.o3-button--mono[aria-current],
-.o3-button.o3-button--primary.o3-button--mono[aria-pressed='true'] {
+.o3-button.o3-button--primary.o3-button--mono:is(
+		:active,
+		[aria-selected='true'],
+		[aria-current],
+		[aria-pressed='true']
+	) {
 	color: var(--_o3-button-primary-mono-active-color);
 	background-color: var(--_o3-button-primary-mono-active-background);
 	border-color: var(--_o3-button-primary-mono-active-border);
@@ -188,10 +194,12 @@
 	border-color: var(--_o3-button-secondary-standard-focus-border);
 }
 
-.o3-button.o3-button--secondary:active,
-.o3-button.o3-button--secondary[aria-selected='true'],
-.o3-button.o3-button--secondary[aria-current],
-.o3-button.o3-button--secondary[aria-pressed='true'] {
+.o3-button.o3-button--secondary:is(
+		:active,
+		[aria-selected='true'],
+		[aria-current],
+		[aria-pressed='true']
+	) {
 	color: var(--_o3-button-secondary-standard-active-color);
 	background-color: var(--_o3-button-secondary-standard-active-background);
 	border-color: var(--_o3-button-secondary-standard-active-border);
@@ -217,10 +225,12 @@
 	border-color: var(--_o3-button-secondary-inverse-focus-border);
 }
 
-.o3-button.o3-button--secondary.o3-button--inverse:active,
-.o3-button.o3-button--secondary.o3-button--inverse[aria-selected='true'],
-.o3-button.o3-button--secondary.o3-button--inverse[aria-current],
-.o3-button.o3-button--secondary.o3-button--inverse[aria-pressed='true'] {
+.o3-button.o3-button--secondary.o3-button--inverse:is(
+		:active,
+		[aria-selected='true'],
+		[aria-current],
+		[aria-pressed='true']
+	) {
 	color: var(--_o3-button-secondary-inverse-active-color);
 	background-color: var(--_o3-button-secondary-inverse-active-background);
 	border-color: var(--_o3-button-secondary-inverse-active-border);
@@ -246,10 +256,12 @@
 	border-color: var(--_o3-button-secondary-mono-focus-border);
 }
 
-.o3-button.o3-button--secondary.o3-button--mono:active,
-.o3-button.o3-button--secondary.o3-button--mono[aria-selected='true'],
-.o3-button.o3-button--secondary.o3-button--mono[aria-current],
-.o3-button.o3-button--secondary.o3-button--mono[aria-pressed='true'] {
+.o3-button.o3-button--secondary.o3-button--mono:is(
+		:active,
+		[aria-selected='true'],
+		[aria-current],
+		[aria-pressed='true']
+	) {
 	color: var(--_o3-button-secondary-mono-active-color);
 	background-color: var(--_o3-button-secondary-mono-active-background);
 	border-color: var(--_o3-button-secondary-mono-active-border);
@@ -275,10 +287,12 @@
 	border-color: var(--_o3-button-ghost-standard-focus-border);
 }
 
-.o3-button.o3-button--ghost:active,
-.o3-button.o3-button--ghost[aria-selected='true'],
-.o3-button.o3-button--ghost[aria-current],
-.o3-button.o3-button--ghost[aria-pressed='true'] {
+.o3-button.o3-button--ghost:is(
+		:active,
+		[aria-selected='true'],
+		[aria-current],
+		[aria-pressed='true']
+	) {
 	color: var(--_o3-button-ghost-standard-active-color);
 	background-color: var(--_o3-button-ghost-standard-active-background);
 	border-color: var(--_o3-button-ghost-standard-active-border);
@@ -304,10 +318,12 @@
 	border-color: var(--_o3-button-ghost-inverse-focus-border);
 }
 
-.o3-button.o3-button--ghost.o3-button--inverse:active,
-.o3-button.o3-button--ghost.o3-button--inverse[aria-selected='true'],
-.o3-button.o3-button--ghost.o3-button--inverse[aria-current],
-.o3-button.o3-button--ghost.o3-button--inverse[aria-pressed='true'] {
+.o3-button.o3-button--ghost.o3-button--inverse:is(
+		:active,
+		[aria-selected='true'],
+		[aria-current],
+		[aria-pressed='true']
+	) {
 	color: var(--_o3-button-ghost-inverse-active-color);
 	background-color: var(--_o3-button-ghost-inverse-active-background);
 	border-color: var(--_o3-button-ghost-inverse-active-border);
@@ -333,10 +349,12 @@
 	border-color: var(--_o3-button-ghost-mono-focus-border);
 }
 
-.o3-button.o3-button--ghost.o3-button--mono:active,
-.o3-button.o3-button--ghost.o3-button--mono[aria-selected='true'],
-.o3-button.o3-button--ghost.o3-button--mono[aria-current],
-.o3-button.o3-button--ghost.o3-button--mono[aria-pressed='true'] {
+.o3-button.o3-button--primary.o3-button--mono:is(
+		:active,
+		[aria-selected='true'],
+		[aria-current],
+		[aria-pressed='true']
+	) {
 	color: var(--_o3-button-ghost-mono-active-color);
 	background-color: var(--_o3-button-ghost-mono-active-background);
 	border-color: var(--_o3-button-ghost-mono-active-border);
@@ -369,8 +387,8 @@
 	color: var(--_o3-button-secondary-inverse-color);
 }
 
-.o3-button-pagination>.o3-button,
-.o3-button-pagination>.o3-button.o3-button-icon--icon-only,
+.o3-button-pagination > .o3-button,
+.o3-button-pagination > .o3-button.o3-button-icon--icon-only,
 .o3-button-pagination__ellipsis {
 	--_o3-button-min-width: auto;
 	--_o3-button-min-height: 40px;
@@ -386,12 +404,12 @@
 	 * Read as: calc(--_o3-button-min-width * 9 + var(--o3-spacing-4xs) * 8)
 	 */
 	@container (width <= calc((38px * 9) + (0.5rem * 8))) {
-		.o3-button-pagination > [data-o3-button-show-when="wide"] {
+		.o3-button-pagination > [data-o3-button-show-when='wide'] {
 			display: none;
 		}
 	}
 	@container (width > calc((38px * 9) + (0.5rem * 8))) {
-		.o3-button-pagination > [data-o3-button-show-when="narrow"] {
+		.o3-button-pagination > [data-o3-button-show-when='narrow'] {
 			display: none;
 		}
 	}
@@ -402,13 +420,13 @@
 	 * 740px aligns with our legacy o-grid M layout
 	 * (https://registry.origami.ft.com/components/o-grid@6.1.7/readme?brand=core#Readme)
 	 */
-	 @media screen and (max-width: 740px) {
-		.o3-button-pagination > [data-o3-button-show-when="wide"] {
+	@media screen and (max-width: 740px) {
+		.o3-button-pagination > [data-o3-button-show-when='wide'] {
 			display: none;
 		}
 	}
-	 @media screen and (min-width: 741px) {
-		.o3-button-pagination > [data-o3-button-show-when="narrow"] {
+	@media screen and (min-width: 741px) {
+		.o3-button-pagination > [data-o3-button-show-when='narrow'] {
 			display: none;
 		}
 	}
@@ -540,4 +558,3 @@
 .o3-button-icon.o3-button-icon--refresh::before {
 	--o3-button-icon: var(--o3-icons-ft-icon-refresh);
 }
-
