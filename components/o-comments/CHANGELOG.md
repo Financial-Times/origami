@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.3.7](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.6...o-comments-v10.3.7) (2024-02-22)
+
+
+### Bug Fixes
+
+* ci-2084 SASS was outputting styles for & than expected ([5934c4d](https://github.com/Financial-Times/origami/commit/5934c4de35ca2099f6d3d00ac82a6d309de38412))
+
 ## [10.3.6](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.5...o-comments-v10.3.6) (2024-02-22)
 
 
