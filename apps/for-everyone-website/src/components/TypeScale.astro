@@ -2,7 +2,7 @@
 const allTokens = await import(`@financial-times/o3-tooling-token/${Astro.props.brand}.js`);
 
 // Extract type scale tokens
-const typeScaleTokens = Object.entries(allTokens.default).filter(([key, value]) => ['lineHeights', 'fontSizes'].includes(value.type));
+const typeScaleTokens = Object.entries(allTokens.default).filter(([key]) => key.includes('o3-font-lineheight-') || key.includes('o3-font-size-'));
 const typeScaleDetails = typeScaleTokens.map(([_key, value]) => ({
 	scale: parseInt(value.shortName.replace('negative', '').trim()),
 	type: value.type,
@@ -28,10 +28,10 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 <table class="type-scale-table">
 	<thead>
 		<tr>
-			<th>Scale</th>
-			<th>Font Size<br>figma / css / value</th>
-			<th>Line Height<br>figma / css / value</th>
-			<th>Sample</th>
+			<th width="230px">Sample</th>
+			<th width="70px">Scale</th>
+			<th>Font Size</th>
+			<th>Line Height</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -39,13 +39,13 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 		typeScaleOrdered.map(([scaleKey, scale]) => {
 
 			return (<tr>
-					<td>{scaleKey}</td>
-					<td class="token-value">{scale.fontSizes.figma} <br> {scale.fontSizes.css} <br> {scale.fontSizes.value} ({scale.fontSizes.originalValue}px)</td>
-					<td class="token-value">{scale.lineHeights.figma} <br> {scale.lineHeights.css} <br> {scale.lineHeights.value} ({scale.lineHeights.originalValue}px)</td>
 					<td
 						class="token-sample"
 						style=`line-height: ${scale.lineHeights.value}; font-size: ${scale.fontSizes.value}`>Don't settle for black and white
 					</td>
+					<td>{scaleKey}</td>
+					<td class="token-value">{scale.fontSizes.css} <br> ({scale.fontSizes.value} / {scale.fontSizes.originalValue}px)</td>
+					<td class="token-value">{scale.lineHeights.css} <br> ({scale.lineHeights.value} / {scale.lineHeights.originalValue}px)</td>
 					</tr>)
 		})
 	}
@@ -67,12 +67,14 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 		vertical-align: center;
 		font-weight: 500;
 		font-family: 'Metric2-VF', sans-serif;
-		white-space: nowrap;
+		overflow: hidden;
 	}
 
-	.token-value {
-		white-space: nowrap;
-	}
+	.type-scale-table.type-scale-table {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
 
 	.type-scale-table.type-scale-table th {
 		text-align: left;
