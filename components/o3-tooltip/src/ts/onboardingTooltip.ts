@@ -1,7 +1,7 @@
 import {ToolTip} from './tooltip';
-import type {TooltipProps} from '../types';
+import type {OnboardingToolTipProps} from '../types';
 
-export class OnboardingToolTip extends ToolTip implements TooltipProps {
+export class OnboardingToolTip extends ToolTip implements OnboardingToolTipProps {
 	private _closeButton!: HTMLElement;
 
 	connectedCallback() {

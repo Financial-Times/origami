@@ -26,70 +26,58 @@ Bellow is a markup examples of how to use `<o3-tooltip-onboarding>` and `<o3-too
 ```html
 <!-- <o3-tooltip-onboarding> -->
 <div data-o3-brand="[yout brand]">
- <div class="o3-tooltip-demo-wrapper">
-  <div class="o3-tooltip-demo-message">
-   <p>Refresh to view bounce animation</p>
-  </div>
-  <button
-   id="demo-o3-tooltip-id"
-   class="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
-   aria-describedby="o3-tooltip-content"
-  >
-   Share</button
-  ><o3-tooltip-onboarding
-   role="tooltip"
-   placement="top"
-   target-id="demo-o3-tooltip-id"
-   class="o3-tooltip"
-   data-popper-placement="top"
-   style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(501px, -221px);"
-   ><div class="o3-tooltip-wrapper">
-    <div data-tooltip-arrow="true"></div>
-    <div class="o3-tooltip-content" id="o3-tooltip-content">
-     <div class="o3-tooltip-content-title">Title</div>
-     <div>
-      Tool tip content that is quite long, Tool tip content that is quite
-      long, Tool tip content that is quite long
-     </div>
+ <button
+  id="demo-o3-tooltip-id"
+  class="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
+  aria-describedby="o3-tooltip-content"
+ >
+  Share
+ </button>
+ <o3-tooltip-onboarding
+  role="tooltip"
+  placement="top"
+  target-id="demo-o3-tooltip-id"
+  class="o3-tooltip"
+ >
+  <div class="o3-tooltip-wrapper">
+   <div data-tooltip-arrow="true"></div>
+   <div class="o3-tooltip-content" id="o3-tooltip-content">
+    <div class="o3-tooltip-content-title">Title</div>
+    <div>
+     Tool tip content that is quite long, Tool tip content that is quite
+     long, Tool tip content that is quite long
     </div>
-    <button
-     class="o3-tooltip-close"
-     aria-label="Close tooltip"
-     title="Close tooltip"
-    ></button></div
-  ></o3-tooltip-onboarding>
- </div>
+   </div>
+   <button
+    type="button"
+    class="o3-tooltip-close"
+    aria-label="Close tooltip"
+    title="Close tooltip"
+   ></button>
+  </div>
+ </o3-tooltip-onboarding>
 </div>
 ```
 
 ```html
 <!-- <o3-tooltip-toggle> -->
 <div data-o3-brand="[your brand]">
- <div class="o3-tooltip-demo-wrapper">
-  <div class="o3-tooltip-demo-message">
-   <p>Click the button to toggle the tooltip</p>
-  </div>
+ >
+ <o3-tooltip-toggle placement="bottom" class="o3-tooltip">
   <button
-   id="demo-o3-tooltip-id"
-   class="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
-   aria-describedby="o3-tooltip-content"
-  >
-   Share</button
-  ><o3-tooltip-toggle
-   placement="top"
-   target-id="demo-o3-tooltip-id"
-   class="o3-tooltip"
-   data-popper-placement="top"
-   style="position: absolute; inset: auto auto 0px 0px; margin: 0px; display: none; transform: translate(626px, -40px);"
-   ><div class="o3-tooltip-wrapper">
-    <div data-tooltip-arrow="true"></div>
-    <div class="o3-tooltip-content" role="status">
-     <div class="o3-tooltip-content-title">Title</div>
-     <div>click the button to see the tooltip</div>
-    </div>
-   </div></o3-tooltip-toggle
-  >
- </div>
+   type="button"
+   class="o3-tooltip-info"
+   aria-label="Tooltip info"
+   title="Tooltip description"
+  ></button>
+  <div class="o3-tooltip-wrapper">
+   <div data-tooltip-arrow="true"></div>
+   <div class="o3-tooltip-content" role="status">
+    <div class="o3-tooltip-content-title">Title</div>
+    <div>click the button to see the tooltip</div>
+   </div>
+  </div>
+ </o3-tooltip-toggle>
 </div>
 ```
 
@@ -119,7 +107,7 @@ import {
  TooltipToggle,
 } from '@financial-times/o3-tooltip/jsx';
 
-import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom element
+import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom elements
 
 import '@financial-times/o3-web-token/[your brand].css'; // brand styling
 import '@finacial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
@@ -133,13 +121,45 @@ import '@finacial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
 </div>;
 ```
 
-|   Prop    |  type  |                required                | default |             description             |
-| :-------: | :----: | :------------------------------------: | :-----: | :---------------------------------: |
-| targetId  | string |                  true                  |    -    | Target element to attach tooltip to |
-|  content  | string |                  true                  |    -    |       Content of the tooltip        |
-|   title   | string |                 false                  |    -    |        Title of the tooltip         |
-| contentId | string | false (required for TooltipOnBoarding) |    -    |  id for `aria-describedby` element  |
-| placement | string |                 false                  |  'top'  |      Placement of the tooltip       |
+### Props
+
+`TooltipOnboarding` component accept the following props:
+
+```ts
+type Placement =
+ | 'top'
+ | 'bottom'
+ | 'left'
+ | 'right'
+ | 'top-start'
+ | 'top-end'
+ | 'bottom-start'
+ | 'bottom-end'
+ | 'left-start'
+ | 'left-end'
+ | 'right-start'
+ | 'right-end';
+```
+
+|   Prop    |    type     | required | default |             description             |
+| :-------: | :---------: | :------: | :-----: | :---------------------------------: |
+| targetId  |   string    |   true   |    -    | Target element to attach tooltip to |
+|  content  |   string    |   true   |    -    |       Content of the tooltip        |
+|   title   |   string    |  false   |    -    |        Title of the tooltip         |
+| contentId |   string    |   true   |    -    |  id for `aria-describedby` element  |
+| placement | `Placement` |  false   |  'top'  |      Placement of the tooltip       |
+
+`ToggleTooltip` component accept the following props:
+
+```ts
+type Placement = 'top' | 'bottom' | 'left' | 'right';
+```
+
+|   Prop    |    type     | required | default |       description        |
+| :-------: | :---------: | :------: | :-----: | :----------------------: |
+|  content  |   string    |   true   |    -    |  Content of the tooltip  |
+|   title   |   string    |  false   |    -    |   Title of the tooltip   |
+| placement | `Placement` |  false   |  'top'  | Placement of the tooltip |
 
 ## Migration Guide
 

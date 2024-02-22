@@ -8,6 +8,7 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 
 	protected _popperInstance?: Instance;
 	protected _targetNode!: HTMLElement;
+	protected _isToggleTooltip!: boolean;
 
 	constructor() {
 		super();
@@ -47,7 +48,14 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 
 	protected getTargetNode() {
 		this.targetId = this.getAttribute('target-id') as string;
-		const targetNode = document.getElementById(this.targetId);
+		let targetNode = document.getElementById(this.targetId);
+		this._isToggleTooltip = this.tagName === 'O3-TOOLTIP-TOGGLE';
+
+		// if toggle tooltip get target node from the markup
+		if (this._isToggleTooltip) {
+			targetNode = this.querySelector('.o3-tooltip-info');
+		}
+
 		if (!targetNode) {
 			throw new Error(
 				'Target node not found. o3-tooltip requires a target node id to position itself against the target element.'
@@ -56,8 +64,14 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 		return targetNode as HTMLElement;
 	}
 
-	protected initialisePopper(targetNode: HTMLElement) {
-		return createPopper(targetNode, this, {
+	protected initialisePopper(
+		targetNode: HTMLElement,
+		popperElement: HTMLElement = this
+	) {
+		if (this._isToggleTooltip) {
+			popperElement = this.querySelector('.o3-tooltip-wrapper') as HTMLElement;
+		}
+		return createPopper(targetNode, popperElement, {
 			placement: this.placement || 'top',
 			modifiers: [
 				{

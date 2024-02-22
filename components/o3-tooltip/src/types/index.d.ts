@@ -1,8 +1,12 @@
 export type TooltipProps = {
-	targetId: string;
 	content: string;
-	contentId?: string;
 	title?: string;
+	placement: 'top' | 'right' | 'bottom' | 'left';
+};
+
+export interface OnboardingToolTipProps extends TooltipProps {
+	contentId: string;
+	targetId: string;
 	placement:
 		| 'top-start'
 		| 'top'
@@ -16,7 +20,8 @@ export type TooltipProps = {
 		| 'left-start'
 		| 'left'
 		| 'left-end';
-};
+}
+export interface ToggleToolTipProps extends TooltipProps {}
 
 declare global {
 	namespace JSX {

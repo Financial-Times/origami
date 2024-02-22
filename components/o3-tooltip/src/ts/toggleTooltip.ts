@@ -1,11 +1,14 @@
 import {ToolTip} from './tooltip';
-import {TooltipProps} from '../types';
+import {ToggleToolTipProps} from '../types';
 
-export class ToggleToolTip extends ToolTip implements TooltipProps {
+export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
+	private _contentWrapper!: HTMLElement;
+
 	connectedCallback() {
 		super.connectedCallback();
 		this._addEventListeners();
-		this.style.display = 'none';
+		this._contentWrapper = this.querySelector('.o3-tooltip-wrapper') as HTMLElement;
+		this._contentWrapper.style.display= 'none';
 	}
 
 	disconnectedCallback() {
@@ -14,13 +17,12 @@ export class ToggleToolTip extends ToolTip implements TooltipProps {
 	}
 
 	private _clickHandler = () => {
-		console.log('click');
-		if (this.style.display === 'none') {
+		if (this._contentWrapper.style.display=== 'none') {
 			this.render();
-			this.style.display = 'block';
+			this._contentWrapper.style.display= 'block';
 			return;
 		}
-		this.style.display = 'none';
+		this._contentWrapper.style.display= 'none';
 	};
 
 	private _closeOnOutsideClick = (e: Event) => {
@@ -28,13 +30,13 @@ export class ToggleToolTip extends ToolTip implements TooltipProps {
 		const isTarget = target === this._targetNode;
 		const isChild = this.contains(target);
 		if (!isChild && !isTarget) {
-			this.style.display = 'none';
+			this._contentWrapper.style.display= 'none';
 		}
 	};
 
 	private _closeOnEsc = (e: KeyboardEvent) => {
 		if (e.key === 'Escape') {
-			this.style.display = 'none';
+			this._contentWrapper.style.display= 'none';
 		}
 	};
 

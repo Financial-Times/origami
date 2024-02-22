@@ -1,4 +1,4 @@
-import type {TooltipProps} from '../types';
+import type {OnboardingToolTipProps} from '../types';
 
 export function TooltipOnboarding({
 	targetId,
@@ -6,7 +6,7 @@ export function TooltipOnboarding({
 	content,
 	title,
 	contentId,
-}: TooltipProps) {
+}: OnboardingToolTipProps) {
 	return (
 		<o3-tooltip-onboarding
 			role="tooltip"
@@ -20,6 +20,7 @@ export function TooltipOnboarding({
 					<div>{content}</div>
 				</div>
 				<button
+					type='button'
 					className="o3-tooltip-close"
 					aria-label="Close tooltip"
 					title="Close tooltip"></button>
