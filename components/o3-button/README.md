@@ -251,7 +251,7 @@ import {Button} from '@financial-times/o3-button/jsx';
 
 import '@finacial-times/o3-button/css/[your brand].css';
 
-<div className="o3-brand-[your brand]">
+<div data-o3-brand="[your brand]">
 	<Button label="Hello" type="primary" />
 </div>;
 ```
@@ -263,7 +263,7 @@ import {ButtonPagination} from '@financial-times/o3-button/jsx';
 
 import '@finacial-times/o3-button/css/[your brand].css';
 
-<div className="o3-brand-[your brand]">
+<div data-o3-brand="[your brand]">
 	<ButtonPagination
 		previousPager={{label: 'previous', href: '#previous'}}
 		nextPager={{label: 'next', href: '#next'}}

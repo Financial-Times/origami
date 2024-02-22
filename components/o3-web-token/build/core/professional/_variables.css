@@ -3,7 +3,7 @@
  */
 
 
-.o3-brand-professional {
+[data-o3-brand="professional"] {
   --o3-color-link: var(--o3-color-palette-mint);
   --o3-color-palette-ft-pink: #FCD0B1; /* FT Pink is used for the FT logo */
   --o3-color-palette-ft-grey: #333333ff;
