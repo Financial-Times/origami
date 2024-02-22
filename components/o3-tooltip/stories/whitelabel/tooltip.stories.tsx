@@ -12,7 +12,7 @@ export default {
 	component: OnboardingTooltipTsx,
 	decorators: [
 		Story => (
-			<div className="o3-brand-whitelabel">
+			<div data-o3-brand="whitelabel">
 				<Story />
 			</div>
 		),

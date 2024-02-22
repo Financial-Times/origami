@@ -3,6 +3,6 @@
  */
 
 
-.o3-brand-internal .o3-tooltip {
+[data-o3-brand="internal"] .o3-tooltip {
 
 }
