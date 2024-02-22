@@ -41,21 +41,32 @@ o3-button may be used with either `<button>` or `<a>` elements.
 
 ### Themes
 
-A theme may be applied to a button to change its appearance. E.g:
+A theme may be applied to a button to change its appearance using the `data-o3-theme`. See our [design guidelines](https://origami-for-everyone.ft.com/components/buttons/) for a list of available themes for your brand. Examples include:
 
-| Theme   | Selector            |
-| ------- | ------------------- |
-| inverse | .o3-button--inverse |
-| mono    | .o3-button--mono    |
+| Theme   | Data attribute          |
+| ------- | ----------------------- |
+| inverse | data-o3-theme="inverse" |
+| mono    | data-o3-theme="mono"    |
+
+Themes may be applied on a parent element, for all components within to inherit. E.g. for an FT Professional brand button, with inverse theme:
 
 ```html
-<button class="o3-button o3-button--primary o3-button--inverse">Submit</button>
-<button class="o3-button o3-button--secondary o3-button--inverse">
-	Cancel
-</button>
+<body data-o3-brand="professional" data-o3-theme="inverse">
+	<button class="o3-button o3-button--primary">
+		Inverse professional button
+	</button>
+</body>
 ```
 
-See our [design guidelines](https://origami-for-everyone.ft.com/components/buttons/) for a list of available themes for your brand.
+Or, themes may be applied specifically to a single button:
+
+```html
+<body data-o3-brand="professional">
+	<button class="o3-button o3-button--primary" data-o3-theme="inverse">
+		Inverse professional button
+	</button>
+</body>
+```
 
 ### Sizes
 
