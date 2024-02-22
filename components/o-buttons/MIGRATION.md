@@ -8,19 +8,34 @@ The `b2c` theme no longer exists. There is no direct replacement. If your projec
 
 The `ft-live` theme has not yet been implemented in `o3-button` as a brand. If you would like to migrate to `o3-button`, please contact the Origami team for support.
 
-FT Professional is now implemented as a brand, rather than a theme. The theme `professional-inverse` therefore becomes `inverse`. The `inverse` theme is then styled according to the parent brand data attribute `data-o3-brand`.
+FT Professional is now implemented as a brand, rather than a theme. The theme `professional-inverse` therefore becomes `inverse`.
+
+Brands are now applied using a parent data attribute `data-o3-brand`. Likewise, themes are applied using `data-o3-theme` – this may be placed on the on a parent element or the o3-button component directly.
+
+E.g. An FT Professional brand button, brand and theme inherited from a parent element.
 
 ```html
-<body data-o3-brand="professional">
-	<button class="o3-button o3-button--primary o3-button--inverse">
+<body data-o3-brand="professional" data-o3-theme="inverse">
+	<button class="o3-button o3-button--primary">
 		Inverse professional button
 	</button>
 </body>
 ```
 
+E.g. A Core brand button, brand and theme inherited from a parent element.
+
+```html
+<body data-o3-brand="core" data-o3-theme="inverse">
+	<button class="o3-button o3-button--primary">Inverse core button</button>
+	<button class="o3-button o3-button--primary">Inverse core button</button>
+</body>
+```
+
+E.g. A Core brand button, with theme specifically applied only to the button.
+
 ```html
 <body data-o3-brand="core">
-	<button class="o3-button o3-button--primary o3-button--inverse">
+	<button class="o3-button o3-button--primary" data-o3-theme="inverse">
 		Inverse core button
 	</button>
 </body>
@@ -46,7 +61,7 @@ For example, an inverse button for the FT Professional brand becomes:
 
 ```diff
 -<button class="o-buttons o-buttons--primary o-buttons--professional-inverse">Hello</button>
-+<button class="o3-button o3-button--primary o3-button--inverse">Hello</button>
++<button class="o3-button o3-button--primary" data-o3-theme="inverse">Hello</button>
 ```
 
 Grouped buttons become:

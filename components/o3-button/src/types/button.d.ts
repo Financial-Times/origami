@@ -27,10 +27,3 @@ export interface ButtonProps {
 export interface LinkButtonProps extends ButtonProps {
 	href: string;
 }
-
-export type ButtonClassProps = Pick<
-	ButtonProps,
-	'visuallyHideDisabled' | 'type' | 'size' | 'theme' | 'icon' | 'iconOnly'
-> & {
-	customClasses: string | boolean;
-};
