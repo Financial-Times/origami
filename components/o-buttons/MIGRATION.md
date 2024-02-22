@@ -4,14 +4,14 @@
 
 #### Themes
 
-The `b2c` no longer exists. There is no direct replacement. If your project still uses this theme, please contact the Origami team for support.
+The `b2c` theme no longer exists. There is no direct replacement. If your project still uses this theme, please contact the Origami team for support.
 
 The `ft-live` theme has not yet been implemented in `o3-button` as a brand. If you would like to migrate to `o3-button`, please contact the Origami team for support.
 
-FT Professional is now implemented as a brand, rather than a theme. The theme `professional-inverse` therefore becomes `inverse`. The `inverse` theme is then styled according to the parent brand class, standard for all new Origami components. E.g. `o3-brand-professional` or `o3-brand-core`
+FT Professional is now implemented as a brand, rather than a theme. The theme `professional-inverse` therefore becomes `inverse`. The `inverse` theme is then styled according to the parent brand data attribute `data-o3-brand`.
 
 ```html
-<body class="o3-brand-professional">
+<body data-o3-brand="professional">
 	<button class="o3-button o3-button--primary o3-button--inverse">
 		Inverse professional button
 	</button>
@@ -19,7 +19,7 @@ FT Professional is now implemented as a brand, rather than a theme. The theme `p
 ```
 
 ```html
-<body class="o3-brand-core">
+<body data-o3-brand="core">
 	<button class="o3-button o3-button--primary o3-button--inverse">
 		Inverse core button
 	</button>
@@ -40,7 +40,7 @@ See [Storybook for full o3-button JSX documentation](https://main--64faf6b1815b6
 
 Update your markup to use the `o3-button` JSX template ([o3-button JSX documentation](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/docs/core-o3-button--jsx-documentation)). Alternatively, replace `o-buttons` class prefixes with `o3-button` as described below.
 
-If using the FT Professional brand, remove `professional` from modifier classes. FT Professional styles are now using the parent brand class (e.g. `o3-brand-professional`) shared by all new Origami components.
+If using the FT Professional brand, remove `professional` from modifier classes. FT Professional styles are now using the parent brand data attribute (e.g. `data-o3-brand="professional"`) shared by all new Origami components.
 
 For example, an inverse button for the FT Professional brand becomes:
 
