@@ -1,5 +1,15 @@
 # Changelog
 
+## [10.3.6](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.5...o-comments-v10.3.6) (2024-02-22)
+
+
+### Bug Fixes
+
+* ci-2084 coral notifications button at narrower widths must be taller ([fdd4776](https://github.com/Financial-Times/origami/commit/fdd4776347a7c8bc8cda455c9ecac170dd4e3da1))
+* ci-2084 new Coral notifications button needs overrides ([e4c3eb4](https://github.com/Financial-Times/origami/commit/e4c3eb45d63eb30eb8714061933079c56b8c3390))
+* ci-2084 notification button also needs padding change ([2262dbf](https://github.com/Financial-Times/origami/commit/2262dbfc45e4a3e9f0ceb70783e6ccac2bbab06e))
+* ci-2084 stylelint exception ([c57d12d](https://github.com/Financial-Times/origami/commit/c57d12d6f7d264fa10878a27349b36accf5a54bf))
+
 ## [10.3.5](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.4...o-comments-v10.3.5) (2024-02-13)
 
 
