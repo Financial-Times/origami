@@ -13,7 +13,7 @@ function buildBrandCSS() {
 			!source.includes(`${brand}/components/`);
 		const sources = getBrandSources(brand).filter(nonComponentTokenFilter);
 		const destination = `build/${brand}/_variables.css`;
-		const parentSelector = `.o3-brand-${brand.split('/').slice(-1)}`;
+		const parentSelector = `[data-o3-brand="${brand.split('/').slice(-1)}"]`;
 		buildCSS({sources, destination, parentSelector});
 	});
 }

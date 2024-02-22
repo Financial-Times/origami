@@ -3,7 +3,7 @@
  */
 
 
-.o3-brand-internal {
+[data-o3-brand="internal"] {
   --o3-color-palette-black: #000;
   --o3-color-palette-white: #fff;
   --o3-color-palette-oxford: #0F5499;

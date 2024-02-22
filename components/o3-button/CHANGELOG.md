@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.4.3](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.2...o3-button-v0.4.3) (2024-02-22)
+
+
+### Bug Fixes
+
+* Replace o3 brand class with data attribute ([2d16de1](https://github.com/Financial-Times/origami/commit/2d16de10c94c0e4da8240922be7c7955bb79ad8b))
+* Replace o3-button theme class with data attribute ([50f390a](https://github.com/Financial-Times/origami/commit/50f390aac2967450c40e5affbcf651e4cfcbfc76))
+* Update o3-button tsx import and readme ([4a81a89](https://github.com/Financial-Times/origami/commit/4a81a897e6109f5befa6475ceeae947a773d5d29))
+
 ## [0.4.2](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.1...o3-button-v0.4.2) (2024-02-05)
 
 

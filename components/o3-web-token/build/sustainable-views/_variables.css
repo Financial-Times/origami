@@ -3,7 +3,7 @@
  */
 
 
-.o3-brand-sustainable-views {
+[data-o3-brand="sustainable-views"] {
   --o3-spacing-5xs: 0.25rem;
   --o3-spacing-4xs: 0.5rem;
   --o3-spacing-3xs: 0.75rem;

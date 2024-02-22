@@ -1362,8 +1362,8 @@ export default {
 },
 	"o3-font-family-metric": {
 		"shortName": "metric",
-		"value": "1",
-		"originalValue": "1",
+		"value": "metric 2 VF",
+		"originalValue": "metric 2 VF",
 		"type": "fontFamilies",
 		"path": [
 				"o3",
@@ -1376,8 +1376,8 @@ export default {
 },
 	"o3-font-family-financier-display": {
 		"shortName": "financier-display",
-		"value": "2",
-		"originalValue": "2",
+		"value": "financier display VF",
+		"originalValue": "financier display VF",
 		"type": "fontFamilies",
 		"path": [
 				"o3",
@@ -1388,10 +1388,24 @@ export default {
 		"css": "--o3-font-family-financier-display",
 		"figma": "o3/font/family/financier-display"
 },
+	"o3-font-family-georgia": {
+		"shortName": "georgia",
+		"value": "georgia",
+		"originalValue": "georgia",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"georgia"
+		],
+		"css": "--o3-font-family-georgia",
+		"figma": "o3/font/family/georgia"
+},
 	"o3-font-weight-light": {
 		"shortName": "light",
-		"value": "Light",
-		"originalValue": "Light",
+		"value": "300",
+		"originalValue": "300",
 		"type": "fontWeights",
 		"path": [
 				"o3",
@@ -1404,8 +1418,8 @@ export default {
 },
 	"o3-font-weight-regular": {
 		"shortName": "regular",
-		"value": "Regular",
-		"originalValue": "Regular",
+		"value": "400",
+		"originalValue": "400",
 		"type": "fontWeights",
 		"path": [
 				"o3",
@@ -1418,8 +1432,8 @@ export default {
 },
 	"o3-font-weight-medium": {
 		"shortName": "medium",
-		"value": "Medium",
-		"originalValue": "Medium",
+		"value": "500",
+		"originalValue": "500",
 		"type": "fontWeights",
 		"path": [
 				"o3",
@@ -1432,8 +1446,8 @@ export default {
 },
 	"o3-font-weight-semibold": {
 		"shortName": "semibold",
-		"value": "Semibold",
-		"originalValue": "Semibold",
+		"value": "700",
+		"originalValue": "700",
 		"type": "fontWeights",
 		"path": [
 				"o3",
@@ -1446,8 +1460,8 @@ export default {
 },
 	"o3-font-weight-bold": {
 		"shortName": "bold",
-		"value": "Bold",
-		"originalValue": "Bold",
+		"value": "800",
+		"originalValue": "800",
 		"type": "fontWeights",
 		"path": [
 				"o3",
@@ -1907,5 +1921,665 @@ export default {
 		],
 		"css": "--o3-box-shadow-focus-ring-inverse-outer",
 		"figma": "o3/box-shadow/focus-ring/inverse/outer"
+},
+	"o3-typography-use-case-heading1-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading1",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading1-font-family",
+		"figma": "o3/typography/use-case/heading1/fontFamily"
+},
+	"o3-typography-use-case-heading1-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading1",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading1-font-weight",
+		"figma": "o3/typography/use-case/heading1/fontWeight"
+},
+	"o3-typography-use-case-heading1-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size.4}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading1",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading1-font-size",
+		"figma": "o3/typography/use-case/heading1/fontSize"
+},
+	"o3-typography-use-case-heading1-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight.4}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading1",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading1-line-height",
+		"figma": "o3/typography/use-case/heading1/lineHeight"
+},
+	"o3-typography-use-case-heading2-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading2",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading2-font-family",
+		"figma": "o3/typography/use-case/heading2/fontFamily"
+},
+	"o3-typography-use-case-heading2-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading2",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading2-font-weight",
+		"figma": "o3/typography/use-case/heading2/fontWeight"
+},
+	"o3-typography-use-case-heading2-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size.3}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading2",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading2-font-size",
+		"figma": "o3/typography/use-case/heading2/fontSize"
+},
+	"o3-typography-use-case-heading2-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight.2}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading2",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading2-line-height",
+		"figma": "o3/typography/use-case/heading2/lineHeight"
+},
+	"o3-typography-use-case-heading3-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading3",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading3-font-family",
+		"figma": "o3/typography/use-case/heading3/fontFamily"
+},
+	"o3-typography-use-case-heading3-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading3",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading3-font-weight",
+		"figma": "o3/typography/use-case/heading3/fontWeight"
+},
+	"o3-typography-use-case-heading3-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size.2}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading3",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading3-font-size",
+		"figma": "o3/typography/use-case/heading3/fontSize"
+},
+	"o3-typography-use-case-heading3-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight.2}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading3",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading3-line-height",
+		"figma": "o3/typography/use-case/heading3/lineHeight"
+},
+	"o3-typography-use-case-heading4-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading4",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading4-font-family",
+		"figma": "o3/typography/use-case/heading4/fontFamily"
+},
+	"o3-typography-use-case-heading4-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading4",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading4-font-weight",
+		"figma": "o3/typography/use-case/heading4/fontWeight"
+},
+	"o3-typography-use-case-heading4-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size.1}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading4",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading4-font-size",
+		"figma": "o3/typography/use-case/heading4/fontSize"
+},
+	"o3-typography-use-case-heading4-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight.1}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading4",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading4-line-height",
+		"figma": "o3/typography/use-case/heading4/lineHeight"
+},
+	"o3-typography-use-case-heading5-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading5",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading5-font-family",
+		"figma": "o3/typography/use-case/heading5/fontFamily"
+},
+	"o3-typography-use-case-heading5-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading5",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading5-font-weight",
+		"figma": "o3/typography/use-case/heading5/fontWeight"
+},
+	"o3-typography-use-case-heading5-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size.0}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading5",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading5-font-size",
+		"figma": "o3/typography/use-case/heading5/fontSize"
+},
+	"o3-typography-use-case-heading5-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight.0}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading5",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading5-line-height",
+		"figma": "o3/typography/use-case/heading5/lineHeight"
+},
+	"o3-typography-use-case-heading6-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading6",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading6-font-family",
+		"figma": "o3/typography/use-case/heading6/fontFamily"
+},
+	"o3-typography-use-case-heading6-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading6",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading6-font-weight",
+		"figma": "o3/typography/use-case/heading6/fontWeight"
+},
+	"o3-typography-use-case-heading6-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size.negative-1}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading6",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading6-font-size",
+		"figma": "o3/typography/use-case/heading6/fontSize"
+},
+	"o3-typography-use-case-heading6-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight.negative-1}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading6",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading6-line-height",
+		"figma": "o3/typography/use-case/heading6/lineHeight"
+},
+	"o3-typography-use-case-body-l-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-l",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-body-l-font-family",
+		"figma": "o3/typography/use-case/body-l/fontFamily"
+},
+	"o3-typography-use-case-body-l-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-l",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-body-l-font-weight",
+		"figma": "o3/typography/use-case/body-l/fontWeight"
+},
+	"o3-typography-use-case-body-l-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size.1}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-l",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-body-l-font-size",
+		"figma": "o3/typography/use-case/body-l/fontSize"
+},
+	"o3-typography-use-case-body-l-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight.1}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-l",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-body-l-line-height",
+		"figma": "o3/typography/use-case/body-l/lineHeight"
+},
+	"o3-typography-use-case-body-s-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-s",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-body-s-font-family",
+		"figma": "o3/typography/use-case/body-s/fontFamily"
+},
+	"o3-typography-use-case-body-s-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-s",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-body-s-font-weight",
+		"figma": "o3/typography/use-case/body-s/fontWeight"
+},
+	"o3-typography-use-case-body-s-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size.0}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-s",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-body-s-font-size",
+		"figma": "o3/typography/use-case/body-s/fontSize"
+},
+	"o3-typography-use-case-body-s-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight.0}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-s",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-body-s-line-height",
+		"figma": "o3/typography/use-case/body-s/lineHeight"
+},
+	"o3-typography-use-case-link-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"link",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-link-font-family",
+		"figma": "o3/typography/use-case/link/fontFamily"
+},
+	"o3-typography-use-case-link-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"link",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-link-font-weight",
+		"figma": "o3/typography/use-case/link/fontWeight"
+},
+	"o3-typography-use-case-link-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size.0}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"link",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-link-font-size",
+		"figma": "o3/typography/use-case/link/fontSize"
+},
+	"o3-typography-use-case-link-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight.0}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"link",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-link-line-height",
+		"figma": "o3/typography/use-case/link/lineHeight"
+},
+	"o3-typography-use-case-footer-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"footer",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-footer-font-family",
+		"figma": "o3/typography/use-case/footer/fontFamily"
+},
+	"o3-typography-use-case-footer-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"footer",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-footer-font-weight",
+		"figma": "o3/typography/use-case/footer/fontWeight"
+},
+	"o3-typography-use-case-footer-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size.0}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"footer",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-footer-font-size",
+		"figma": "o3/typography/use-case/footer/fontSize"
+},
+	"o3-typography-use-case-footer-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight.0}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"footer",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-footer-line-height",
+		"figma": "o3/typography/use-case/footer/lineHeight"
+},
+	"o3-typography-use-case-caption-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"caption",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-caption-font-family",
+		"figma": "o3/typography/use-case/caption/fontFamily"
+},
+	"o3-typography-use-case-caption-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"caption",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-caption-font-weight",
+		"figma": "o3/typography/use-case/caption/fontWeight"
+},
+	"o3-typography-use-case-caption-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size.negative-2}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"caption",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-caption-font-size",
+		"figma": "o3/typography/use-case/caption/fontSize"
+},
+	"o3-typography-use-case-caption-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight.negative-2}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"caption",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-caption-line-height",
+		"figma": "o3/typography/use-case/caption/lineHeight"
 }
 };
