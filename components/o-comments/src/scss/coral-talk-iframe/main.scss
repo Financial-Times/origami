@@ -146,8 +146,8 @@
 			padding: 2px 8px;
 		}
 		// the other buttons have icons that show up alongside the text at narrower widths, whereas this just has the icon, so the padding needs increased to match them in that situation
-		.coral-width-lt-sm .coral-tabBar-notifications,
-		.coral-width-lte-sm .coral-tabBar-notifications {
+		&.coral-width-lt-sm .coral-tabBar-notifications,
+		&.coral-width-lte-sm .coral-tabBar-notifications {
 			padding: 17px 8px;
 		}
 
