@@ -45,7 +45,7 @@
     "@financial-times/o3-button": "^0.4.0"
   },
   "peerDependencies": {
-    "@financial-times/o3-web-token": "^0.3.0"
+    "@financial-times/o3-web-token": "^0.4.0"
   },
   "engines": {
     "npm": ">7"
