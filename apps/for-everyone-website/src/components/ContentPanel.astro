@@ -1,26 +1,23 @@
 ---
-function getBrandClassFromLocale(lang: string) {
+function getBrandFromLocale(lang: string) {
 	debugger
 	switch (lang) {
 		case "en-GB-x-prof":
-			return "o3-brand-professional"
+			return "professional"
 		case "en-GB-x-sv":
-			return "o3-brand-sustainable-views"
+			return "sustainable-views"
 		case "en-GB-x-internal":
-			return "o3-brand-internal"
+			return "internal"
 		case "en-GB-x-core":
 		default:
-			return "o3-brand-core"
+			return "core"
 	}
 }
 
-// Given the currently-selected brand (communicated as the page's language), choose the
-// class to add to the central content panel container element, determining the brand
-// of all Origami components within
-let brandClass = getBrandClassFromLocale(Astro.props.lang)
+let brand = getBrandFromLocale(Astro.props.lang)
 ---
 
-<div class={`content-panel ${brandClass}`}>
+<div class={`content-panel`} data-o3-brand={brand}>
 	<div class="sl-container"><slot /></div>
 </div>
 
@@ -45,3 +42,10 @@ let brandClass = getBrandClassFromLocale(Astro.props.lang)
 		}
 	}
 </style>
+
+<script>
+	// Set global brand to the internal brand.
+	// How to add a class to the body for all pages,
+    // without a script?
+	window.document.documentElement.setAttribute('data-o3-brand', 'internal');
+</script>

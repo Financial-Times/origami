@@ -1501,8 +1501,8 @@ export default {
 },
 	"o3-font-family-metric": {
 		"shortName": "metric",
-		"value": "1",
-		"originalValue": "1",
+		"value": "metric 2 VF",
+		"originalValue": "metric 2 VF",
 		"type": "fontFamilies",
 		"path": [
 				"o3",
@@ -1515,8 +1515,8 @@ export default {
 },
 	"o3-font-family-financier-display": {
 		"shortName": "financier-display",
-		"value": "2",
-		"originalValue": "2",
+		"value": "financier display VF",
+		"originalValue": "financier display VF",
 		"type": "fontFamilies",
 		"path": [
 				"o3",
@@ -1527,10 +1527,24 @@ export default {
 		"css": "--o3-font-family-financier-display",
 		"figma": "o3/font/family/financier-display"
 },
+	"o3-font-family-georgia": {
+		"shortName": "georgia",
+		"value": "georgia",
+		"originalValue": "georgia",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"georgia"
+		],
+		"css": "--o3-font-family-georgia",
+		"figma": "o3/font/family/georgia"
+},
 	"o3-font-weight-light": {
 		"shortName": "light",
-		"value": "Light",
-		"originalValue": "Light",
+		"value": "300",
+		"originalValue": "300",
 		"type": "fontWeights",
 		"path": [
 				"o3",
@@ -1543,8 +1557,8 @@ export default {
 },
 	"o3-font-weight-regular": {
 		"shortName": "regular",
-		"value": "Regular",
-		"originalValue": "Regular",
+		"value": "400",
+		"originalValue": "400",
 		"type": "fontWeights",
 		"path": [
 				"o3",
@@ -1557,8 +1571,8 @@ export default {
 },
 	"o3-font-weight-medium": {
 		"shortName": "medium",
-		"value": "Medium",
-		"originalValue": "Medium",
+		"value": "500",
+		"originalValue": "500",
 		"type": "fontWeights",
 		"path": [
 				"o3",
@@ -1571,8 +1585,8 @@ export default {
 },
 	"o3-font-weight-semibold": {
 		"shortName": "semibold",
-		"value": "Semibold",
-		"originalValue": "Semibold",
+		"value": "700",
+		"originalValue": "700",
 		"type": "fontWeights",
 		"path": [
 				"o3",
@@ -1585,8 +1599,8 @@ export default {
 },
 	"o3-font-weight-bold": {
 		"shortName": "bold",
-		"value": "Bold",
-		"originalValue": "Bold",
+		"value": "800",
+		"originalValue": "800",
 		"type": "fontWeights",
 		"path": [
 				"o3",
