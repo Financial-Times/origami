@@ -1,0 +1,33 @@
+---
+title: Onboarding Tooltips
+description: Onboarding Tooltips help for a smoother introduction to new features or functionality.
+sidebar:
+    badge:
+        text: New
+        variant: tip
+---
+import { default as OnboardingTooltipAnatomy } from '../../../components/OnboardingTooltipAnatomy.astro';
+
+Onboarding Tooltips help for a smoother introduction to new features or functionality.
+
+- Contain only descriptive unformatted text with an optional title for emphasis.
+- Should provide insights or tips that enhance, but aren't critical to, user understanding.
+- Appear only once; dismissing them removes them permanently.
+
+## Anatomy
+
+<OnboardingTooltipAnatomy />
+
+1. <strong>Heading (optional)</strong>: Generally, it's best to omit the heading to maintain simplicity and accessibility. Employ a heading only when it's imperative for understanding.
+2. <strong>Text</strong>: The main content pro  viding detailed explanation or information.
+3. <strong>Close button (×)</strong>: This button dismisses the tooltip. Once closed, the tooltip will not reappear for the user.
+4. <strong>Arrow</strong>: A directional arrow that can point towards any side, indicating the source of the information or context.
+5. <strong>Container</strong>: The encompassing frame that holds the message text and ensures it's distinct from other UI elements.
+
+## Usage Guidelines
+
+- Ensure they do not obstruct other interface elements.
+- Minimize the use of headings to enhance accessibility; reserve them for when absolutely necessary.
+- Use them to highlight new features or assist with user onboarding.
+
+## Behaviour
