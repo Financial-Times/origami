@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.3.8](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.7...o-comments-v10.3.8) (2024-02-23)
+
+
+### Bug Fixes
+
+* ci-2084 comments notification button nesting fix ([7811fbd](https://github.com/Financial-Times/origami/commit/7811fbd46501575f58a8fb9a10ba384c8e987632))
+
 ## [10.3.7](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.6...o-comments-v10.3.7) (2024-02-22)
 
 
