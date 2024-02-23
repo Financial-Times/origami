@@ -145,7 +145,7 @@
           "type": "fontSizes"
         }
       },
-      "lineheight-metric2vf": {
+      "lineheight-metric2": {
         "0": {
           "value": "20",
           "type": "lineHeights"
@@ -199,7 +199,7 @@
           "type": "lineHeights"
         }
       },
-      "size-metric2vf": {
+      "size-metric2": {
         "0": {
           "value": "14",
           "type": "fontSizes"
