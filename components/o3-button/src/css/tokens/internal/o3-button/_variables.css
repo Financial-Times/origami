@@ -3,7 +3,7 @@
  */
 
 
-.o3-brand-internal .o3-button {
+[data-o3-brand="internal"] .o3-button {
   --_o3-button-primary-standard-color: #ffffff;
   --_o3-button-primary-standard-background: #0d7680;
   --_o3-button-primary-standard-border: #ffffff00;

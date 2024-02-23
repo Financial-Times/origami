@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-button",
-	"version": "0.4.2",
+	"version": "0.4.3",
 	"description": "Origami buttons with design tokens",
 	"keywords": [
 		"buttons",
@@ -18,7 +18,7 @@
 		"origami.json"
 	],
 	"exports": {
-		".": {
+		"./jsx": {
 			"types": "./build/types/index.d.ts",
 			"import": "./build/jsx/index.js"
 		},
@@ -35,6 +35,6 @@
 	},
 	"private": false,
 	"peerDependencies": {
-		"@financial-times/o3-web-token": "^0.3.0"
+		"@financial-times/o3-web-token": "^0.4.0"
 	}
 }

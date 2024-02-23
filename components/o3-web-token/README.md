@@ -1,11 +1,10 @@
 # o3-web-tokens
 
 - [o3-web-tokens](#o3-web-tokens)
-	- [Usage](#usage)
-	- [Migration](#migration)
-	- [Contact](#contact)
-	- [Licence](#licence)
-
+  - [Usage](#usage)
+  - [Migration](#migration)
+  - [Contact](#contact)
+  - [Licence](#licence)
 
 ## Usage
 
@@ -14,6 +13,7 @@
 `o3-web-token` supports brands: `core`, `internal`, `professional` and `whitelabel`.
 
 Import your chosen brand to begin using tokens in your CSS:
+
 ```css
 @import '@financial-times/o3-web-tokens/core.css';
 
@@ -37,10 +37,10 @@ To add support for another brand, import its tokens too:
 }
 ```
 
-Then apply the brand class `o3-brand-[BRAND]` on a container element within your HTML.
+Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container element within your HTML.
 
 ```html
-<body class="o3-brand-core">
+<body data-o3-brand="core">
 	<a href="#" class="example-custom-link">Example</a>
 </body>
 ```

@@ -3,7 +3,7 @@
  */
 
 
-.o3-brand-whitelabel {
+[data-o3-brand="whitelabel"] {
   --o3-color-palette-black: #000;
   --o3-color-palette-white: #fff;
   --o3-color-palette-jade: #00994d;
