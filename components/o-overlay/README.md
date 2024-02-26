@@ -6,10 +6,10 @@ Configurable custom overlay box that can be used to show overlay windows. The ov
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
-	- [Declarative](#declarative)
-	- [Imperative](#imperative)
-	- [Option reference](#option-reference)
-	- [API Overview](#api-overview)
+  - [Declarative](#declarative)
+  - [Imperative](#imperative)
+  - [Option reference](#option-reference)
+  - [API Overview](#api-overview)
 - [Events](#events)
 - [Troubleshooting](#troubleshooting)
 - [Migration Guide](#migration-guide)
@@ -35,13 +35,26 @@ To define a template add the following `script` tag with the content of your ove
 Then add a trigger `button` with the class `o-overlay-trigger`, which will open the overlay on click. Connect the trigger to your overlay by specifying the template `id` in `data-o-overlay-src` with a `#` (in the format of an [id selector](https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors)). Then name your overlay with a unique id using the `data-o-overlay-id` attribute.
 
 ```html
-<button class="o-overlay-trigger" data-o-overlay-src="#overlay1-content" data-o-overlay-id="overlay1">Open!</button>
+<button
+	class="o-overlay-trigger"
+	data-o-overlay-src="#overlay1-content"
+	data-o-overlay-id="overlay1"
+>
+	Open!
+</button>
 ```
 
 Configure [overlay options](#option-reference) by adding them as data attributes to the trigger element, `data-o-overlay-[OPTION]`. For instance add `data-o-overlay-compact="true"` for a compact overlay:
 
 ```html
-<button class="o-overlay-trigger" data-o-overlay-src="#overlay1-content" data-o-overlay-id="overlay1" data-o-overlay-compact="true">Open!</button>
+<button
+	class="o-overlay-trigger"
+	data-o-overlay-src="#overlay1-content"
+	data-o-overlay-id="overlay1"
+	data-o-overlay-compact="true"
+>
+	Open!
+</button>
 ```
 
 ## Sass
@@ -70,9 +83,13 @@ To specify specific variants to output styles for pass options (see [variants](#
 For example, to output only the base styles and the `compact` variant, ignoring other variants:
 
 ```scss
-@include oOverlay($opts: (
-	'variants': ('compact')
-));
+@include oOverlay(
+	$opts: (
+		'variants': (
+			'compact',
+		),
+	)
+);
 ```
 
 ```css
@@ -88,8 +105,8 @@ For example, to output only the base styles and the `compact` variant, ignoring 
 
 This table outlines all of the possible variants you can request in the [`oOverlay` mixin](#mixin-ooverlay):
 
-| Size          | Notes               | Brand support                |
-|---------------|---------------------|------------------------------|
+| Size          | Notes               | Brand support              |
+| ------------- | ------------------- | -------------------------- |
 | compact       | Included by default | core, internal, whitelabel |
 | full-screen   | Included by default | core, internal, whitelabel |
 | header-shaded | Included by default | core, internal, whitelabel |
@@ -101,12 +118,14 @@ This table outlines all of the possible variants you can request in the [`oOverl
 JavaScript is initialised on `o-overlay` elements automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/) users. If your project is using a manual build process, [initialise `o-overlay` manually](https://origami.ft.com/documentation/components/initialising/).
 
 For example call the `init` method to initialise all `o-overlay` instances in the document:
+
 ```js
 import oOverlay from 'o-overlay';
 oOverlay.init();
 ```
 
 Or pass an element to initialise a specific `o-overlay` instance:
+
 ```js
 import oOverlay from 'o-overlay';
 const oOverlayElement = document.getElementById('#my-o-overlay-element');
@@ -123,21 +142,21 @@ You may also construct a new overlay without existing `o-overlay` elements. The 
 ```js
 var myOverlay = new Overlay('myOverlay', {
 	html: 'Hello world',
-	trigger: '.blah'
+	trigger: '.blah',
 });
 ```
 
 ### Option reference
 
 - `heading`: Object. Options for the Overlay header
-	- `.title`: String. Your overlay's title
-	- `.visuallyhidetitle`: Boolean. If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for `aria` labelling) _Default_: false.
-	- `.shaded`: Boolean. Whether to shade the background of the header. Note: for this to work properly, the `heading-shaded` variant must be included with the CSS (it is by default)
+  - `.title`: String. Your overlay's title
+  - `.visuallyhidetitle`: Boolean. If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for `aria` labelling) _Default_: false.
+  - `.shaded`: Boolean. Whether to shade the background of the header. Note: for this to work properly, the `heading-shaded` variant must be included with the CSS (it is by default)
 - `modal`: Boolean. Whether the overlay should have modal behaviour or not. This will add a translucent shadow between the page and the overlay. Modal overlays also disable scroll on the underlying document. _Default_: true.
 - `fullscreen`: Boolean. If set to true, the overlay will display full screen. This overlay disables scroll on the underlying document and is dismissible with the back button. Note: for this to work properly, the `full-screen` variant must be included with the CSS (it is by default)
 - `compact`: Boolean. If true, the `.o-overlay--compact` class will be added to the overlay that reduces heading font-size and paddings in the content. Note: for this to work properly, the `compact` variant must be included with the CSS (it is by default)
 - `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted.
-- `html`: String or HTMLElement.  Raw HTML (cannot be set declaratively)
+- `html`: String or HTMLElement. Raw HTML (cannot be set declaratively)
 - `class`: String. The custom classes to apply to to the overlay e.g. `o-overlay--my-modifier`.
 - `trigger`: String or HTMLElement. querySelector expression or HTMLElement. When there's a trigger set, a click event handler will be added to it that will open or close the overlay accordingly. (cannot be set declaratively)
 - `zindex`: String. Value of the CSS z-index property of the overlay. _Default set via CSS_: '10'
@@ -166,7 +185,7 @@ _o-overlays will throw an error if the options aren't set correctly._
 
 #### Object methods
 
-- `open`: Display the overlay.  Content is loaded every time the overlay is opened.
+- `open`: Display the overlay. Content is loaded every time the overlay is opened.
 - `close`: Close (hide) the overlay.
 - `realign`: Realign the overlay. Useful when overlay content changes whilst the overlay is open.
 
@@ -179,25 +198,24 @@ _o-overlays will throw an error if the options aren't set correctly._
 
 ## Troubleshooting
 
-- IE11-IE8 require the [polyfill service](polyfill.webservices.ft.com).
 - IE8 throws an error when closing the Overlay starting on the second time. It works like expected in spite of the error.
 - Safari and Chrome mobile [don't support](http://caniuse.com/#feat=autofocus) the autofocus attribute. In Chrome mobile, you can use the `.focus()` function on an element when `oOverlay.ready` is dispatched to simulate the behaviour.
 - In Safari mobile on iOS8, autofocus is [buggy](http://stackoverflow.com/questions/26146252/in-ios8-using-focus-will-show-virtual-keyboard-and-scroll-page-after-touch) and is triggered after the overlay has loaded and a _touchdown_ event is dispatched after that. That means that if you click anywhere on the page after the page loads, the keyboard will come up which will most likely produce unexpected behaviours. We recommend not using autofocus in iOS 8. These unexpected behaviours only occur the first time an overlay is rendered, after that, autofocus won't be activated.
 
 ## Migration Guide
 
-| State | Major Version | Last Minor Release | Migration guide |
-| :---: | :---: | :---: | :---: |
-| ✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-| ⚠ maintained | 3 | 3.1 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-| ⚠ maintained | 2 | 2.7 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-| ╳ deprecated | 1 | 1.17.0 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       4       |        N/A         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ⚠ maintained |       3       |        3.1         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ⚠ maintained |       2       |        2.7         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |       1.17.0       |                          N/A                          |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-overlay/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 
