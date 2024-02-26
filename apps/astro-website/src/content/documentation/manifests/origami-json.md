@@ -34,6 +34,7 @@ The <a href="https://origami.ft.com/blog/2021/06/01/newsletter/#the-origami-spec
 </table>
 
 A concise description of the purpose of the project.
+
 <pre><code class="o-syntax-highlight--json">{
 	"description": "Branded tables"
 }</code></pre>
@@ -81,6 +82,7 @@ Defines the type of Origami project that the manifest belongs to:
 </table>
 
 The version of the [Origami specification](/specification/) the project follows. Note that the specification is now deprecated as of v1, any value other than `1`, for example `2.0`, indicates the project does not follow a specification:
+
 <pre><code class="o-syntax-highlight--json">{
 	"origamiVersion": 1
 }</code></pre>
@@ -133,9 +135,10 @@ Expects keywords related to the project to help discover it in the registry.
 	</tr>
 </table>
 
-*Applies to `{ "origamiType": "component" }`.
+\*Applies to `{ "origamiType": "component" }`.
 
 Describes the organisational category the component belongs to:
+
 - `"utilities"`: Sass and JavaScript utilities that provide no markup, provide no classes and are used to encapsulate shared logic between components
 - `"primitives"`: Base components that provide minimal markup and are used by other components
 - `"components"`: Components built from primitives and utilities, which provide markup for a complete user interface
@@ -146,6 +149,7 @@ Describes the organisational category the component belongs to:
 }</code></pre>
 
 ### support
+
 <table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
 	<tr>
 		<th scope="row" role="rowheader">Type</th>
@@ -176,6 +180,7 @@ Describes where a user can go for support on this project, e.g. the project's Gi
 </table>
 
 Describes the support status of the project's major version:
+
 - `active`: feature development ongoing, bug reports will be gratefully received and acted upon promptly
 - `maintained`: not actively developed but reproducible bugs will be fixed promptly and work done where necessary to maintain compatibility with platforms and other projects
 - `deprecated`: not actively developed, not recommended for new projects, only the most disabling bugs will be addressed and only when time allows, but existing implementations may still work
@@ -200,6 +205,7 @@ Describes the support status of the project's major version:
 </table>
 
 Describes contact details a user can choose from to find support for this project. The owner(s) identified in the support options commit to:
+
 - reviewing code prior to release
 - signing off on deployments
 - publishing and maintaining up to date releases and documentation
@@ -207,6 +213,7 @@ Describes contact details a user can choose from to find support for this projec
 - provide support to the users of the project
 
 The object requires two properties:
+
 - `email`: type `String`. Is an email address that users can request support from. We recommend a group or role based email, not a named individual
 - `slack`: type `String`. Is a slack channel that users can go to for support in the format: organisation/channel-name
 
@@ -232,8 +239,9 @@ The object requires two properties:
 
 Applies to `{ "origamiType": "component" }`. Outlines the browser features required for the component's functionality.
 The object accepts two properties:
-- `required`: type `Array`. A list of <a href="https://polyfill.io">Polyfill Service</a> features or <a href="https://modernizr.com/docs/">Modernizr</a> tests, which the component assumes exists. If these features do not exist, the component may error.
-- `optional`: type `Array`. A list of <a href="https://polyfill.io">Polyfill Service</a> features or <a href="https://modernizr.com/docs/">Modernizr</a> tests, which the component  will use if they are available in the browser. If not the component may offer different or reduced functionality, but with graceful degradation.
+
+- `required`: type `Array`. A list of features which the component assumes exists. If these features do not exist, the component may error.
+- `optional`: type `Array`. A list of features which the component will use if they are available in the browser. If not the component may offer different or reduced functionality, but with graceful degradation.
 
 <pre><code class="o-syntax-highlight--json">{
 	"origamiType": "component",
@@ -261,7 +269,7 @@ The object accepts two properties:
 	</tr>
 </table>
 
-*Applies to `{ "origamiType": "service" }` only.
+\*Applies to `{ "origamiType": "service" }` only.
 
 Is the URL on which the service is provided.
 
@@ -271,6 +279,7 @@ Is the URL on which the service is provided.
 }</code></pre>
 
 ### demosDefaults
+
 <table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
 	<tr>
 		<th scope="row" role="rowheader">Type</th>
@@ -309,6 +318,7 @@ All of these properties are **optional**.
 }</code></pre>
 
 ### demos
+
 <table class="o-manifest__table o-table o-table--compact o-table--row-headings o-table--vertical-lines o-table--horizontal-lines" data-o-component="o-table">
 	<tr>
 		<th scope="row" role="rowheader">Type</th>
@@ -324,12 +334,14 @@ It accepts an array. Is a list of configuration objects for individual demos.
 Each object in the list accepts the following properties:
 
 **required**:
+
 - `name`: type `String`. Demo name which will be used as the name of the outputted html file
 - `title`: type `String`. A title for the demo which will appear when listed in the Registry
 - `description`: type `String`. An explanation of the purpose of the demo
 - `template`: type `String`. Describes the path to the demo-specific mustache template to render
 
 **optional**:
+
 - `sass`: type `String`. Describes the path to the demo-specific Sass file to compile.
 - `js`: type `String`. Describes the path to the demo-specific JS file to build.
 - `data`: type `Object` or `String`. Describes data to populate to the component-specific mustache template with. If this is a string it must be a path to a JSON file containing the data, relative to the root of the repo.

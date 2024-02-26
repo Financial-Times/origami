@@ -4,8 +4,4 @@ collection_listing_display: false
 collection_id: services
 ---
 
-Polyfill.io is a service which accepts a request for a set of browser features and returns only the polyfills that are needed by the requesting browser.
-
-This service is freely available to anyone, though it's offered without a service-level agreement for users outside of the Financial Times.
-
-To start using the Polyfill Service, please <a href="https://polyfill.io/">refer to the service documentation</a>.
+Polyfill.io is a service which accepts a request for a set of browser features and returns only the polyfills that are needed by the requesting browser. It used to be owned and maintained by the Origami team within the Financial Times. This is no longer the case, and we no longer proactively recommend its use.

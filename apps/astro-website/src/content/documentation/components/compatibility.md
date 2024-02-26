@@ -37,6 +37,7 @@ window.cutsTheMustard = (typeof document.documentElement.dataset === 'object' &&
 The styling we choose to display rely on class names. Keeping with the experiences, we will be using `core` and `enhanced`. Origami components contain fallback styling for the browsers that fail the test. We need to toggle the class names based on the result of the test, and to avoid flashes of content we'll always assume that the experience we will be served is core, until proven otherwise.
 
 Your `<html>` will need the `core` class:
+
 <pre><code class="o-syntax-highlight--html">&lt;html class="core"></code></pre>
 
 And we'll want to add a script to replace that class with `enhanced` if the browser _does_ pass the test:
@@ -46,6 +47,7 @@ And we'll want to add a script to replace that class with `enhanced` if the brow
 }</code></pre>
 
 Finally, we need to add instructions for our styling to handle the html class:
+
 <pre><code class="o-syntax-highlight--css">.core .o--if-js,
 .enhanced .o--if-no-js {
 	display: none !important;
@@ -73,9 +75,3 @@ If there is JavaScript to execute regardless of the experience served to the bro
 ## Browser support
 
 Origami follow the <a href="https://docs.google.com/document/d/1z6kecy_o9qHYIznTmqQ-IJqre72jhfd0nVa4JMsS7Q4/"><abbr title="Financial Times">FT</abbr> Browser Support Policy document</a> available to <abbr title="Financial Times">FT</abbr> staff.
-
-## Polyfill service
-
-In the physical world, 'Polyfilla' is a type of plaster that is used to fill in small holes in walls. In web development, polyfills are snippets of code that implement a feature on browsers that do not natively support that feature. It means that we can write modern JavaScript without having to invest a large amount of time in making it work in older browsers.
-
-What can be time consuming, is identifying the polyfills we need, so for that, we use and maintain the <a href="http://polyfill.io">Polyfill Service</a> which hosts all of its own documentation.
