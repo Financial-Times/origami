@@ -1,0 +1,16 @@
+{
+  "o3": {
+    "typography": {
+      "link": {
+        "bottom-color": {
+          "value": "{o3.color.use-case.link}",
+          "type": "color"
+        },
+        "color": {
+          "value": "{o3.color.use-case.link}",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

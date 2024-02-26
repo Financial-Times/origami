@@ -5,6 +5,7 @@
     "core/base/typography",
     "core/base/border-radius",
     "core/components/o3-button",
+    "core/components/o3-typography",
     "core/use-case/color",
     "core/use-case/box-shadow",
     "core/professional/components/o3-button",
