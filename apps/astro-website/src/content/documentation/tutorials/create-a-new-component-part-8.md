@@ -142,7 +142,7 @@ Similar to SassDoc, JSDoc uses annotations such as `@param` to document paramete
 
 ## Origami Manifest
 
-The `origami.json` manifest file also contributes to the documentation of a component. As we have seen in previous parts of this tutorial `origami.json` includes a component name, description, keywords, demos, demo descriptions, required polyfills, support contacts, maintenance status, and more information which is displayed in the [Origami Registry](https://registry.origami.ft.com/components/).
+The `origami.json` manifest file also contributes to the documentation of a component. As we have seen in previous parts of this tutorial `origami.json` includes a component name, description, keywords, demos, demo descriptions, expected browser features, support contacts, maintenance status, and more information which is displayed in the [Origami Registry](https://registry.origami.ft.com/components/).
 
 It is important to keep `origami.json` up to date throughout the lifecycle of the component.
 
