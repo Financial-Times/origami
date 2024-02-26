@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./compatibility.e215fb81.mjs');
+						return import('./tone-and-language.1265ae98.mjs');
 					}
 					const collectedLinks = "@@ASTRO-LINKS@@";
 					const collectedStyles = "@@ASTRO-STYLES@@";

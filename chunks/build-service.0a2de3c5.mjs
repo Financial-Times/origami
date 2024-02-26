@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./polyfill-service.1f84892d.mjs');
+						return import('./build-service.077bfa95.mjs');
 					}
 					const collectedLinks = "@@ASTRO-LINKS@@";
 					const collectedStyles = "@@ASTRO-STYLES@@";

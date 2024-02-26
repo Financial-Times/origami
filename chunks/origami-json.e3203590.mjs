@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./tone-and-language.50b30053.mjs');
+						return import('./origami-json.296366b4.mjs');
 					}
 					const collectedLinks = "@@ASTRO-LINKS@@";
 					const collectedStyles = "@@ASTRO-STYLES@@";

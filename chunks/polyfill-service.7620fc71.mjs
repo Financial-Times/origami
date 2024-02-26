@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./origami-json.3c2fd858.mjs');
+						return import('./polyfill-service.96e53989.mjs');
 					}
 					const collectedLinks = "@@ASTRO-LINKS@@";
 					const collectedStyles = "@@ASTRO-STYLES@@";

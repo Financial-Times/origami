@@ -193,8 +193,8 @@ Describes where a user can go for support on this project, e.g. the project's Gi
 <p>Applies to <code>{ "origamiType": "component" }</code>. Outlines the browser features required for the component’s functionality.
 The object accepts two properties:</p>
 <ul>
-<li><code>required</code>: type <code>Array</code>. A list of <a href="https://polyfill.io">Polyfill Service</a> features or <a href="https://modernizr.com/docs/">Modernizr</a> tests, which the component assumes exists. If these features do not exist, the component may error.</li>
-<li><code>optional</code>: type <code>Array</code>. A list of <a href="https://polyfill.io">Polyfill Service</a> features or <a href="https://modernizr.com/docs/">Modernizr</a> tests, which the component  will use if they are available in the browser. If not the component may offer different or reduced functionality, but with graceful degradation.</li>
+<li><code>required</code>: type <code>Array</code>. A list of features which the component assumes exists. If these features do not exist, the component may error.</li>
+<li><code>optional</code>: type <code>Array</code>. A list of features which the component will use if they are available in the browser. If not the component may offer different or reduced functionality, but with graceful degradation.</li>
 </ul>
 <pre><code class="o-syntax-highlight--json">{
 	"origamiType": "component",
