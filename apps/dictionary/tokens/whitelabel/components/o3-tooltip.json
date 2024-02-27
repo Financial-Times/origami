@@ -1,0 +1,14 @@
+{
+  "o3": {
+    "tooltip": {
+      "background-color": {
+        "value": "{o3.color.palette.white}",
+        "type": "color"
+      },
+      "text-color": {
+        "value": "{o3.color.palette.black-90}",
+        "type": "color"
+      }
+    }
+  }
+}
