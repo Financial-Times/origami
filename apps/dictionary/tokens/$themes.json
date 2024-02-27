@@ -10,7 +10,8 @@
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
       "core/use-case/box-shadow": "enabled",
-      "core/use-case/typography": "enabled"
+      "core/use-case/typography": "enabled",
+      "core/components/o3-tooltip": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -201,7 +202,8 @@
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
       "core/use-case/color": "enabled",
-      "core/use-case/box-shadow": "enabled"
+      "core/use-case/box-shadow": "enabled",
+      "core/professional/components/o3-tooltip": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -381,7 +383,8 @@
       "internal/base/color": "enabled",
       "internal/base/spacing": "enabled",
       "internal/base/typography": "enabled",
-      "internal/use-case/box-shadow": "enabled"
+      "internal/use-case/box-shadow": "enabled",
+      "internal/components/o3-tooltip": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6279:375",
     "$figmaModeId": "6279:2",
@@ -449,7 +452,8 @@
       "whitelabel/base/color": "enabled",
       "whitelabel/components/o3-button": "source",
       "whitelabel/base/spacing": "enabled",
-      "whitelabel/use-case/box-shadow": "enabled"
+      "whitelabel/use-case/box-shadow": "enabled",
+      "whitelabel/components/o3-tooltip": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6279:427",
     "$figmaModeId": "6279:3",
@@ -493,7 +497,8 @@
       "sustainable-views/base/typography": "enabled",
       "sustainable-views/base/colour": "enabled",
       "sustainable-views/components/o3-button": "source",
-      "sustainable-views/use-case/typography": "enabled"
+      "sustainable-views/use-case/typography": "enabled",
+      "sustainable-views/components/o3-tooltip": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6279:455",
     "$figmaModeId": "6279:4",
