@@ -2,7 +2,7 @@
 import mergeDeep from 'merge-deep';
 import { readFile, writeFile, mkdir } from 'fs/promises';
 import * as path from 'node:path'
-import { files, constructPolyfillUrl } from 'origami-tools-helpers'
+import { files } from 'origami-tools-helpers'
 import { buildSass } from './build-sass.js';
 import buildJs from './build-js.js';
 import mustache from 'mustache';
@@ -168,7 +168,6 @@ async function buildDemoHtml(buildConfig) {
 	const brand = buildConfig.brand;
 	data.oDemoTitle = moduleName + ': ' + buildConfig.demo.name + ' demo';
 	data.oDemoDocumentClasses = buildConfig.demo.documentClasses || buildConfig.demo.bodyClasses;
-	data.oDemoPolyfillUrl = buildConfig.demo.polyfillUrl;
 
 	data.oDemoComponentStylePath = buildConfig.demo.sassDestination ?
 		path.basename(buildConfig.demo.sassDestination) :
@@ -238,7 +237,6 @@ function demoSupportsBrand(demoConfig, brand) {
 }
 
 const brands = await getBrands(origamiConfig);
-const polyfillUrl = await constructPolyfillUrl();
 for (const brand of brands) {
 	const demoDefaultConfiguration = getComponentDefaultDemoConfig(origamiConfig);
 	const demoBuildConfig = [];
@@ -248,8 +246,7 @@ for (const brand of brands) {
 			demoBuildConfig.push(mergeDeep(
 				{
 					documentClasses: '',
-					description: '',
-					polyfillUrl
+					description: ''
 				},
 				demoDefaultConfiguration,
 				demoConfig

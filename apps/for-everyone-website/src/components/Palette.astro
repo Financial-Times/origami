@@ -5,7 +5,20 @@ const ColorTokens = Object.entries(tokens.default).filter(([key, value]) => valu
     return value
 });
 
-const FilteredColorTokens = ColorTokens.filter(t => t.name.includes(Astro.props.type) && (Astro.props.palette ? t.origamiKeys?.includes(Astro.props.palette) : true) && !t.origamiTint && !t.name.includes('transparent') && t.name.includes !== 'DO-NOT-USE');
+let FilteredColorTokens = ColorTokens.filter(t => !t.name.includes('transparent') && t.name.includes !== 'DO-NOT-USE');
+switch (Astro.props.type) {
+    case 'tint':
+        FilteredColorTokens = FilteredColorTokens.filter(t => t.origamiTint);
+        break;
+
+    case 'use-case':
+    FilteredColorTokens = FilteredColorTokens.filter(t => t.name.includes('use-case'));
+        break;
+
+    default:
+        FilteredColorTokens = FilteredColorTokens.filter(t => t.name.includes('palette') && (Astro.props.palette ? t.origamiKeys?.includes(Astro.props.palette) : false));
+        break;
+}
 ---
 
 <table class="color-table">
@@ -53,9 +66,7 @@ const FilteredColorTokens = ColorTokens.filter(t => t.name.includes(Astro.props.
         border: 1px dotted black;
     }
 
-    th.name {
-        width: 100px;
-    }
+    th.name,
     th.value {
         width: 120px;
     }
