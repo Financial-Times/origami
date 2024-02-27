@@ -28,6 +28,7 @@ Optionally add a theme attribute to change the colours of the cookie message `da
 ### Custom Cookie Message
 
 To display custom cookie message content with default buttons, add child HTML along with associated `aria-labelledby` and `aria-describedby` attributes:
+
 ```html
 <div
 	role="dialog"
@@ -35,7 +36,8 @@ To display custom cookie message content with default buttons, add child HTML al
 	aria-describedby="demo-description-element-id"
 	data-o-component="o-cookie-message"
 	class="o-cookie-message"
-	data-nosnippet>
+	data-nosnippet
+>
 	<!-- custom cookie message copy / html here -->
 	<!-- include ids for the aria labelledby and describedby attributes -->
 	<!-- e.g. -->
@@ -55,7 +57,8 @@ To support a core experience without JavaScript, add the full `o-cookie-message`
 	aria-describedby="o-cookie-message-description"
 	data-o-component="o-cookie-message"
 	class="o-cookie-message"
-	data-nosnippet>
+	data-nosnippet
+>
 	<div class="o-cookie-message__outer">
 		<div class="o-cookie-message__inner">
 			<div class="o-cookie-message__content">
@@ -64,21 +67,34 @@ To support a core experience without JavaScript, add the full `o-cookie-message`
 				</div>
 				<p id="o-cookie-message-description">
 					We use
-					<a href="https://help.ft.com/help/legal-privacy/cookies/"
+					<a
+						href="https://help.ft.com/help/legal-privacy/cookies/"
 						class="o-cookie-message__link"
 						target="_blank"
-						rel="noopener">cookies</a>
-					for a number of reasons, such as keeping FT Sites reliable and secure, personalising content and
-					ads, providing social media features and to analyse how our Sites are used.
+						rel="noopener"
+						>cookies</a
+					>
+					for a number of reasons, such as keeping FT Sites reliable and secure,
+					personalising content and ads, providing social media features and to
+					analyse how our Sites are used.
 				</p>
 			</div>
 
 			<div class="o-cookie-message__actions">
-				<div class="o-cookie-message__action o-cookie-message__action--secondary">
-					<a href="https://www.ft.com/preferences/manage-cookies?redirect=#" class="o-cookie-message__link">Manage cookies</a>
+				<div
+					class="o-cookie-message__action o-cookie-message__action--secondary"
+				>
+					<a
+						href="https://www.ft.com/preferences/manage-cookies?redirect=#"
+						class="o-cookie-message__link"
+						>Manage cookies</a
+					>
 				</div>
 				<div class="o-cookie-message__action">
-					<a href="https://consent.ft.com/__consent/consent-record-cookie?redirect=#" class="o-cookie-message__button">
+					<a
+						href="https://consent.ft.com/__consent/consent-record-cookie?redirect=#"
+						class="o-cookie-message__button"
+					>
 						Accept cookies
 					</a>
 				</div>
@@ -101,7 +117,7 @@ There are two available variations of o-cookie-message the default (standard) co
 If you would like to initialise a standard cookie message, you will need to implement the following:
 
 ```js
-import oCookieMessage from '@financial-times/o-cookie-message';
+import oCookieMessage from '@financial-times/o-cookie-message/main';
 
 const cookieMessage = new oCookieMessage();
 ```
@@ -109,25 +125,25 @@ const cookieMessage = new oCookieMessage();
 If you would like to initialise a `alternative` cookie message without declaring the data attribute in the markup, you will need to implement the following:
 
 ```js
-import oCookieMessage from '@financial-times/o-cookie-message';
-const cookieMessage = new oCookieMessage(null, { theme: 'alternative' });
+import oCookieMessage from '@financial-times/o-cookie-message/main';
+const cookieMessage = new oCookieMessage(null, {theme: 'alternative'});
 ```
-
 
 ### Custom Cookie Management path
 
 To use a different cookie management path, use the `manageCookiesPath` option:
 
 ```js
-import oCookieMessage from '@financial-times/o-cookie-message';
-const cookieMessage = new oCookieMessage(null, { manageCookiesPath: 'preferences/manage-cookies' });
+import oCookieMessage from '@financial-times/o-cookie-message/main';
+const cookieMessage = new oCookieMessage(null, {
+	manageCookiesPath: 'preferences/manage-cookies',
+});
 ```
-
 
 ### Firing an oDomContentLoaded event
 
 ```js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
@@ -155,9 +171,11 @@ Include all themes:
 Include only the [default cookie message](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-cookie-banner):
 
 ```scss
-@include oCookieMessage($opts: (
-	'themes': ()
-));
+@include oCookieMessage(
+	$opts: (
+		'themes': (),
+	)
+);
 ```
 
 _Note: "standard" used to be required as a theme option to output the default theme, this is now output by default without any themes set._
@@ -165,27 +183,31 @@ _Note: "standard" used to be required as a theme option to output the default th
 Include the [`alternative` cookie message theme](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-alternative-cookie-banner):
 
 ```scss
-@include oCookieMessage($opts: (
-	'themes': ('alternative')
-));
+@include oCookieMessage(
+	$opts: (
+		'themes': (
+			'alternative',
+		),
+	)
+);
 ```
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | 5.1 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.7 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.3 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.2 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.2 | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       6       |        N/A         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ⚠ maintained |       5       |        5.1         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.7         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.3         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.2         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.2         |                           -                           |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-cookie-message/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 
