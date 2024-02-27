@@ -286,13 +286,5 @@ export function getBrandSources(brand) {
 }
 
 export function tokenIsSource(token) {
-	// if (!token.isSource) {
-	// 	return false
-	// }
-
-	// @TODO: USE SOURCES PROPERLY
-	if (token.name.startsWith('o3-button')) {
-		return false;
-	}
-	return true;
+	return token.isSource ? true : false;
 }
