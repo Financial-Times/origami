@@ -1,6 +1,6 @@
 # o3-tooltip[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-o3-tooltip is a component usually used for annotating or highlighting bits of user interface.
+o3-tooltip is hosting two components: `o3-tooltip-onboarding` and `oe-tooltip-toggle`. Onboarding Tooltips help for a smoother introduction to new features or functionality. Toggletips are compact pieces of information designed to offer additional insights when needed.
 
 - [o3-tooltip](#o3-tooltip)
 - [Markup](#markup)
@@ -19,13 +19,11 @@ We provide custom elements `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>` t
 
 `o3-tooltip-toggle` does not have a close button and is used with info icon. It can be triggered by clicking on the info icon and will be removed from the DOM if user clicks outside of the tooltip, press ESC or click the info icon again.
 
-<!-- TODO: [MORE DETAILS TO COME MOST LIKELY WE WONT'T NEED TARGET ID FOR THIS toggle] -->
-
-Bellow is a markup examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>` attribute:
+Bellow is a markup examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>` custom elements:
 
 ```html
 <!-- <o3-tooltip-onboarding> -->
-<div data-o3-brand="[yout brand]">
+<div data-o3-brand="[your brand]">
  <button
   id="demo-o3-tooltip-id"
   class="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
@@ -38,45 +36,24 @@ Bellow is a markup examples of how to use `<o3-tooltip-onboarding>` and `<o3-too
   placement="top"
   target-id="demo-o3-tooltip-id"
   class="o3-tooltip"
+  content="Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long"
+  title="Title"
+  content-id="o3-tooltip-content"
  >
-  <div class="o3-tooltip-wrapper">
-   <div data-tooltip-arrow="true"></div>
-   <div class="o3-tooltip-content" id="o3-tooltip-content">
-    <div class="o3-tooltip-content-title">Title</div>
-    <div>
-     Tool tip content that is quite long, Tool tip content that is quite
-     long, Tool tip content that is quite long
-    </div>
-   </div>
-   <button
-    type="button"
-    class="o3-tooltip-close"
-    aria-label="Close tooltip"
-    title="Close tooltip"
-   ></button>
-  </div>
  </o3-tooltip-onboarding>
 </div>
 ```
 
+`content-id` is used to link the tooltip to the target element. It is used to provide additional information about the target element.
+
 ```html
 <!-- <o3-tooltip-toggle> -->
 <div data-o3-brand="[your brand]">
- >
- <o3-tooltip-toggle placement="bottom" class="o3-tooltip">
-  <button
-   type="button"
-   class="o3-tooltip-info"
-   aria-label="Tooltip info"
-   title="Tooltip description"
-  ></button>
-  <div class="o3-tooltip-wrapper">
-   <div data-tooltip-arrow="true"></div>
-   <div class="o3-tooltip-content" role="status">
-    <div class="o3-tooltip-content-title">Title</div>
-    <div>click the button to see the tooltip</div>
-   </div>
-  </div>
+ <o3-tooltip-toggle
+  placement="bottom"
+  class="o3-tooltip"
+  content="click the button to see the tooltip"
+  title="Title">
  </o3-tooltip-toggle>
 </div>
 ```

@@ -6,9 +6,19 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 
 	connectedCallback() {
 		super.connectedCallback();
+		this.innerHTML = this.generateMarkup(this.title, this.content);
+		this._contentWrapper = this.querySelector(
+			'.o3-tooltip-wrapper'
+		) as HTMLElement;
+		this._contentWrapper.style.display = 'none';
+		this._targetNode = this.querySelector('.o3-tooltip-info') as HTMLElement;
+
+		this._popperInstance = this.initialisePopper(
+			this._targetNode,
+			this._contentWrapper
+		);
+		this.render();
 		this._addEventListeners();
-		this._contentWrapper = this.querySelector('.o3-tooltip-wrapper') as HTMLElement;
-		this._contentWrapper.style.display= 'none';
 	}
 
 	disconnectedCallback() {
@@ -17,12 +27,14 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 	}
 
 	private _clickHandler = () => {
-		if (this._contentWrapper.style.display=== 'none') {
+		if (this._contentWrapper.style.display === 'none') {
 			this.render();
-			this._contentWrapper.style.display= 'block';
+			this._contentWrapper.style.display = 'block';
+			this.setAttribute('open', '');
 			return;
 		}
-		this._contentWrapper.style.display= 'none';
+		this._contentWrapper.style.display = 'none';
+		this.removeAttribute('open');
 	};
 
 	private _closeOnOutsideClick = (e: Event) => {
@@ -30,13 +42,15 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 		const isTarget = target === this._targetNode;
 		const isChild = this.contains(target);
 		if (!isChild && !isTarget) {
-			this._contentWrapper.style.display= 'none';
+			this._contentWrapper.style.display = 'none';
+			this.removeAttribute('open');
 		}
 	};
 
 	private _closeOnEsc = (e: KeyboardEvent) => {
 		if (e.key === 'Escape') {
-			this._contentWrapper.style.display= 'none';
+			this._contentWrapper.style.display = 'none';
+			this.removeAttribute('open');
 		}
 	};
 
@@ -52,6 +66,20 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 		this._targetNode.removeEventListener('click', this._clickHandler);
 		document.removeEventListener('click', this._closeOnOutsideClick);
 		this.removeEventListener('keydown', this._closeOnEsc);
+	}
+
+	private generateMarkup(title: string, content: string) {
+		const infoButtonMarkup = `<span><button	type="button" class="o3-tooltip-info"></button></span>`;
+
+		return `
+		${infoButtonMarkup}
+		<div class="o3-tooltip-wrapper">
+			<div data-tooltip-arrow></div>
+			<div class="o3-tooltip-content" role="status">
+				${title && `<div class="o3-tooltip-content-title">${title}</div>`}
+				<div>${content}</div>
+			</div>
+		</div>`;
 	}
 }
 

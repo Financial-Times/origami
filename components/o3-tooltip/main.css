@@ -162,6 +162,17 @@ o3-tooltip-toggle .o3-tooltip-info {
 	position: relative;
 }
 
+o3-tooltip-toggle[open] > span {
+	display: inline-block;
+	background-color: white;
+	border-radius: 50%;
+	filter: invert(1);
+}
+
+o3-tooltip-toggle[open] .o3-tooltip-info {
+	--_button-icon: var(--o3-icons-ft-icon-cross);
+}
+
 /* CLOSE BUTTON */
 .o3-tooltip-wrapper .o3-tooltip-close {
 	--_button-size: var(--o3-spacing-xs);
