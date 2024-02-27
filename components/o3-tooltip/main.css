@@ -142,7 +142,7 @@ o3-tooltip-toggle.o3-tooltip {
 }
 
 /* Button styles */
-o3-tooltip-toggle .o3-tooltip-info,
+o3-tooltip-toggle .o3-tooltip-tooltip,
 .o3-tooltip-wrapper .o3-tooltip-close {
 	width: var(--_button-size);
 	height: var(--_button-size);
@@ -155,21 +155,24 @@ o3-tooltip-toggle .o3-tooltip-info,
 	user-select: none;
 }
 
-/* Info button */
-o3-tooltip-toggle .o3-tooltip-info {
-	--_button-size: var(--o3-spacing-xs);
-	--_button-icon: var(--o3-icons-ft-icon-info);
+/* Info tooltip button */
+o3-tooltip-toggle > span {
+	display: flex;
+}
+
+o3-tooltip-toggle .o3-tooltip-tooltip {
+	--_button-size: var(--o3-spacing-2xs);
+	--_button-icon: var(--o3-icons-ft-icon-tooltip);
 	position: relative;
 }
 
 o3-tooltip-toggle[open] > span {
-	display: inline-block;
 	background-color: white;
 	border-radius: 50%;
 	filter: invert(1);
 }
 
-o3-tooltip-toggle[open] .o3-tooltip-info {
+o3-tooltip-toggle[open] .o3-tooltip-tooltip {
 	--_button-icon: var(--o3-icons-ft-icon-cross);
 }
 

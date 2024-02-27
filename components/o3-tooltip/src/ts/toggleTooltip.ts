@@ -11,7 +11,7 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 			'.o3-tooltip-wrapper'
 		) as HTMLElement;
 		this._contentWrapper.style.display = 'none';
-		this._targetNode = this.querySelector('.o3-tooltip-info') as HTMLElement;
+		this._targetNode = this.querySelector('.o3-tooltip-tooltip') as HTMLElement;
 
 		this._popperInstance = this.initialisePopper(
 			this._targetNode,
@@ -69,10 +69,10 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 	}
 
 	private generateMarkup(title: string, content: string) {
-		const infoButtonMarkup = `<span><button	type="button" class="o3-tooltip-info"></button></span>`;
+		const tooltipButtonMarkup = `<span><button	type="button" class="o3-tooltip-tooltip"></button></span>`;
 
 		return `
-		${infoButtonMarkup}
+		${tooltipButtonMarkup}
 		<div class="o3-tooltip-wrapper">
 			<div data-tooltip-arrow></div>
 			<div class="o3-tooltip-content" role="status">
