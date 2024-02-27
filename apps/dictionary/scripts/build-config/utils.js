@@ -291,7 +291,10 @@ export function tokenIsSource(token) {
 	// }
 
 	// @TODO: USE SOURCES PROPERLY
-	if (token.name.startsWith('o3-button')) {
+	if (
+		token.name.startsWith('o3-button') ||
+		token.name.startsWith('o3-typography')
+	) {
 		return false;
 	}
 	return true;

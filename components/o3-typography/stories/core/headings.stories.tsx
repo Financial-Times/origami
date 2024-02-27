@@ -1,5 +1,5 @@
 import type {Meta} from '@storybook/react';
-import {Heading} from '../../src/tsx/heading';
+import {Heading} from '../../src/tsx';
 
 import '../../main.css';
 
@@ -22,12 +22,16 @@ export default {
 		level: {
 			options: ['1', '2', '3', '4', '5', '6'],
 		},
+		text: {
+			control: 'text',
+		},
 	},
 } as Meta;
 
 export const HeadingsStory = {
 	args: {
 		level: '1',
+		text: "Don't settle for black and white",
 	},
-	render: args => <Heading level={args.level}>Don't settle for</Heading>,
+	render: args => <Heading level={args.level}>{args.text}</Heading>,
 };

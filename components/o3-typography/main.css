@@ -1,4 +1,5 @@
 
+
 .o3-typography-heading-level-1 {
 	--o3-typography-heading-font-size: 32px;
 	--o3-typography-heading-font-color: #33302e;
@@ -48,4 +49,10 @@
 	font-size: var(--o3-typography-heading-font-size);
 	line-height: var(--o3-typography-heading-line-height);
 	font-weight: var(--o3-typography-heading-font-weight);
+}
+
+.o3-typography-link {
+	color: var(--_o3-typography-link-color);
+	border-bottom-color: var(--_o3-typography-link-bottom-color);
+	text-decoration-color: var(--_o3-typography-link-bottom-color);
 }
