@@ -3,7 +3,7 @@ import type {OnboardingToolTipProps, ToggleToolTipProps} from '../src/types';
 
 import {TooltipOnboarding as OnboardingTooltipTsx} from '../src/tsx';
 import {TooltipToggle as ToggleTooltipTsx} from '../src/tsx';
-import {TemplateSBConfig} from './sb-story-config';
+import {TemplateSBConfig, transformToggleCode} from './sb-story-config';
 
 import '../src/ts/index';
 
@@ -84,5 +84,8 @@ export const ToggleToolTip: ToggleTooltipStory = {
 	},
 	parameters: {
 		controls: {exclude: ['targetId', 'contentId']},
+		html: {
+			transform: (code: string) => transformToggleCode(code),
+		},
 	},
 };

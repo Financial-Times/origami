@@ -10,10 +10,10 @@ const preview: Preview = {
 	parameters: {
 		html: {
 			prettier: {
-				tabWidth: 4,
+				tabWidth: 2,
 				useTabs: false,
 				htmlWhitespaceSensitivity: 'strict',
-			}
+			},
 		},
 		backgrounds: {
 			values: [
