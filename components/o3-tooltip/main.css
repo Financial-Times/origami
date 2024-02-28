@@ -29,7 +29,8 @@ o3-tooltip-toggle.o3-tooltip {
 	max-width: 250px;
 	box-shadow: 2px 2px 6px 0px rgba(26, 26, 26, 0.1),
 		5px 5px 24px 0px rgba(26, 26, 26, 0.17);
-	background: #ffffff;
+	background: var(--o3-tooltip-background-color);
+	color: var(--o3-tooltip-text-color);
 	font-weight: var(--o3-font-weight-regular);
 	font-family: var(--o3-font-family-metric), sans-serif;
 	font-size: var(--o3-font-size-negative-1);
@@ -158,6 +159,7 @@ o3-tooltip-toggle .o3-tooltip-tooltip,
 /* Info tooltip button */
 o3-tooltip-toggle > span {
 	display: flex;
+	border-radius: 50%;
 }
 
 o3-tooltip-toggle .o3-tooltip-tooltip {
@@ -166,17 +168,36 @@ o3-tooltip-toggle .o3-tooltip-tooltip {
 	position: relative;
 }
 
-o3-tooltip-toggle[open] > span {
-	background-color: white;
-	border-radius: 50%;
-	filter: invert(1);
+o3-tooltip-toggle .o3-tooltip-tooltip:hover {
+	background-color: var(--o3-color-palette-black-50);
+}
+
+o3-tooltip-toggle .o3-tooltip-tooltip:focus {
+	background-color: var(--o3-color-palette-black-30);
 }
 
 o3-tooltip-toggle[open] .o3-tooltip-tooltip {
+	background-color: var(--o3-color-palette-white);
 	--_button-icon: var(--o3-icons-ft-icon-cross);
 }
 
+o3-tooltip-toggle[open] > span {
+	background-color: var(--o3-color-palette-black-90);
+}
+
+o3-tooltip-toggle[open] > span:hover {
+	background-color: var(--o3-color-palette-black-50);
+}
+
+o3-tooltip-toggle[open] > span:focus {
+	background-color: var(--o3-color-palette-black-30);
+}
+
 /* CLOSE BUTTON */
+[data-o3-brand='professional'] .o3-tooltip-wrapper .o3-tooltip-close {
+	background-color: var(--o3-tooltip-text-color);
+}
+
 .o3-tooltip-wrapper .o3-tooltip-close {
 	--_button-size: var(--o3-spacing-xs);
 	--_button-icon: var(--o3-icons-ft-icon-cross);

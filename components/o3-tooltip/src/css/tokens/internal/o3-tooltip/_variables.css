@@ -4,5 +4,6 @@
 
 
 [data-o3-brand="internal"] .o3-tooltip {
-
+  --o3-tooltip-background-color: var(--o3-color-palette-white);
+  --o3-tooltip-text-color: var(--o3-color-palette-black-90);
 }
