@@ -2,43 +2,18 @@
   "o3": {
     "color": {
       "use-case": {
-        "link": {
-          "text": {
-            "@": {
+        "text": {
+          "link": {
+            "standard": {
               "value": "{o3.color.palette.teal}",
-              "type": "color",
-              "description": "@ represents standard"
+              "type": "color"
             },
             "hover": {
               "value": "{o3.color.palette.teal-30}",
               "type": "color"
             }
           },
-          "underline": {
-            "@": {
-              "value": "#CFD8D1",
-              "type": "color"
-            },
-            "hover": {
-              "value": "#9EC0BD",
-              "type": "color"
-            }
-          }
-        },
-        "page": {
-          "background": {
-            "value": "{o3.color.palette.paper}",
-            "type": "color"
-          }
-        },
-        "page-inverse": {
-          "background": {
-            "value": "{o3.color.palette.slate}",
-            "type": "color"
-          }
-        },
-        "link-inverse": {
-          "text": {
+          "link-inverse": {
             "standard": {
               "value": "#",
               "type": "color"
@@ -47,10 +22,33 @@
               "value": "{o3.color.palette.ft-grey}",
               "type": "color"
             }
+          },
+          "body": {
+            "value": "{o3.color.palette.black-80}",
+            "type": "color"
+          },
+          "body-inverse": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          },
+          "muted": {
+            "value": "{o3.color.palette.black-50}",
+            "type": "color",
+            "description": "Not sure of value (to be updated)"
           }
         },
-        "focus": {
-          "outline": {
+        "background": {
+          "page": {
+            "value": "{o3.color.palette.paper}",
+            "type": "color"
+          },
+          "page-inverse": {
+            "value": "{o3.color.palette.slate}",
+            "type": "color"
+          }
+        },
+        "outline": {
+          "focus": {
             "standard": {
               "value": "{o3.color.palette.black-50}",
               "type": "color"
@@ -64,18 +62,12 @@
               "value": "{o3.color.palette.black-70}",
               "type": "color"
             }
-          }
-        },
-        "title": {
-          "text": {
-            "value": "{o3.color.palette.black}",
-            "type": "color"
-          }
-        },
-        "title-inverse": {
-          "text": {
-            "value": "{o3.color.palette.black}",
-            "type": "color"
+          },
+          "link": {
+            "underline": {
+              "value": "{o3.color.palette.teal}",
+              "type": "color"
+            }
           }
         }
       }
