@@ -57,13 +57,20 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 				{
 					name: 'preventOverflow',
 					options: {
-						altAxis: true,
+						rootBoundary: document.body,
+					},
+				},
+				{
+					name: 'eventListeners',
+					options: {
+						scroll: false
 					},
 				},
 				{
 					name: 'flip',
 					options: {
 						fallbackPlacements: ['top', 'bottom', 'left', 'right'],
+						rootBoundary: document.body,
 					},
 				},
 				{

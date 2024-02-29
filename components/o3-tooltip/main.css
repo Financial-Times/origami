@@ -10,8 +10,9 @@
 }
 
 .o3-tooltip {
-	--_padding-top: var(--o3-spacing-3xs);
-	--_padding-right: var(--o3-spacing-2xs);
+	--padding-top: var(--o3-spacing-3xs);
+	--padding-right: var(--o3-spacing-2xs);
+	--icon-button-size: 24px;
 
 	position: absolute;
 	top: 0;
@@ -40,9 +41,12 @@ o3-tooltip-toggle.o3-tooltip {
 	position: relative;
 	box-sizing: border-box;
 	overflow: auto;
-	padding: var(--_padding-top) var(--_padding-right) var(--_padding-right);
-	margin-right: var(--_close-button-size);
+	padding: var(--padding-top) var(--padding-right) var(--padding-right) var(--padding-right);
 	hyphens: auto;
+}
+
+o3-tooltip-onboarding[no-title] .o3-tooltip-content {
+	margin-right: var(--icon-button-size);
 }
 
 .o3-tooltip-content-title {
@@ -145,8 +149,8 @@ o3-tooltip-toggle.o3-tooltip {
 /* Button styles */
 o3-tooltip-toggle .o3-tooltip-tooltip,
 .o3-tooltip-wrapper .o3-tooltip-close {
-	width: var(--_button-size);
-	height: var(--_button-size);
+	width: var(--icon-button-size);
+	height: var(--icon-button-size);
 	mask-image: var(--_button-icon);
 	background-color: var(--o3-color-palette-black-90);
 	mask-repeat: no-repeat;
@@ -157,14 +161,8 @@ o3-tooltip-toggle .o3-tooltip-tooltip,
 }
 
 /* Info tooltip button */
-o3-tooltip-toggle > span {
-	display: flex;
-	border-radius: 50%;
-}
-
 o3-tooltip-toggle .o3-tooltip-tooltip {
-	--_button-size: var(--o3-spacing-2xs);
-	--_button-icon: var(--o3-icons-ft-icon-tooltip);
+	--_button-icon: var(--o3-tooltip-icon-info);
 	position: relative;
 }
 
@@ -177,21 +175,9 @@ o3-tooltip-toggle .o3-tooltip-tooltip:focus {
 }
 
 o3-tooltip-toggle[open] .o3-tooltip-tooltip {
-	background-color: var(--o3-color-palette-white);
-	--_button-icon: var(--o3-icons-ft-icon-cross);
+	--_button-icon: var(--o3-tooltip-icon-cross);
 }
 
-o3-tooltip-toggle[open] > span {
-	background-color: var(--o3-color-palette-black-90);
-}
-
-o3-tooltip-toggle[open] > span:hover {
-	background-color: var(--o3-color-palette-black-50);
-}
-
-o3-tooltip-toggle[open] > span:focus {
-	background-color: var(--o3-color-palette-black-30);
-}
 
 /* CLOSE BUTTON */
 [data-o3-brand='professional'] .o3-tooltip-wrapper .o3-tooltip-close {
@@ -199,12 +185,11 @@ o3-tooltip-toggle[open] > span:focus {
 }
 
 .o3-tooltip-wrapper .o3-tooltip-close {
-	--_button-size: var(--o3-spacing-xs);
 	--_button-icon: var(--o3-icons-ft-icon-cross);
 
 	position: absolute;
-	top: var(--_padding-top);
-	right: var(--_padding-right);
+	top: var(--padding-top);
+	right: var(--padding-right);
 }
 
 .o3-tooltip-wrapper .o3-tooltip-close:hover {

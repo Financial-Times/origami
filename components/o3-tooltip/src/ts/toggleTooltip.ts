@@ -69,7 +69,7 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 	}
 
 	private generateMarkup(title: string, content: string) {
-		const tooltipButtonMarkup = `<span><button	type="button" class="o3-tooltip-tooltip"></button></span>`;
+		const tooltipButtonMarkup = `<button type="button" class="o3-tooltip-tooltip"></button>`;
 
 		return `
 		${tooltipButtonMarkup}

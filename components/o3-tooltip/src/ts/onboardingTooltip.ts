@@ -14,6 +14,9 @@ export class OnboardingToolTip
 			this.content,
 			this.contentId
 		);
+		if (!this.title) {
+			this.setAttribute('no-title', '');
+		}
 		this._targetNode = this.getTargetNode();
 		this._popperInstance = this.initialisePopper(this._targetNode, this);
 		this.render();
