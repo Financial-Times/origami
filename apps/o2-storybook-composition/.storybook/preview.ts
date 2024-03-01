@@ -1,39 +1,40 @@
-import type {Preview} from "@storybook/react"
-import {addons} from "@storybook/preview-api"
+import type {Preview} from '@storybook/react';
+import {addons} from '@storybook/preview-api';
+import '../addons/html/src/preset/preview.js';
 import {
 	UPDATE_GLOBALS,
 	STORY_ARGS_UPDATED,
 	STORY_CHANGED,
-} from "@storybook/core-events"
+} from '@storybook/core-events';
 
 const preview: Preview = {
 	parameters: {
 		html: {
 			highlighter: {
-				showLineNumbers: true
-			}
+				showLineNumbers: true,
+			},
 		},
 		backgrounds: {
 			values: [
 				{
-					name: "paper",
-					value: "#fff1e5ff",
+					name: 'paper',
+					value: '#fff1e5ff',
 				},
 				{
-					name: "slate",
-					value: "#262a33ff",
+					name: 'slate',
+					value: '#262a33ff',
 				},
 				{
-					name: "wheat",
-					value: "#f2dfceff",
+					name: 'wheat',
+					value: '#f2dfceff',
 				},
 				{
-					name: "white",
-					value: "#ffffff",
+					name: 'white',
+					value: '#ffffff',
 				},
 			],
 		},
-		actions: {argTypesRegex: "^on[A-Z].*"},
+		actions: {argTypesRegex: '^on[A-Z].*'},
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
@@ -41,37 +42,37 @@ const preview: Preview = {
 			},
 		},
 	},
-}
+};
 
-export default preview
+export default preview;
 
-let channel = addons.getChannel()
+let channel = addons.getChannel();
 
 const storyArgsListener = args => {
-	if (args.args.theme === "inverse") {
-		let colorTheme = args.args.theme
+	if (args.args.theme === 'inverse') {
+		let colorTheme = args.args.theme;
 		channel.emit(UPDATE_GLOBALS, {
 			globals: {
 				theme: colorTheme,
-				backgrounds: {name: "slate", value: "#262a33ff"},
+				backgrounds: {name: 'slate', value: '#262a33ff'},
 			},
-		})
+		});
 	}
-}
+};
 
 const storyChangedListener = () => {
 	channel.emit(UPDATE_GLOBALS, {
 		globals: {
 			backgrounds: undefined,
 		},
-	})
-}
+	});
+};
 
 function setupBackgroundListener() {
-	channel.removeListener(STORY_ARGS_UPDATED, storyArgsListener)
-	channel.removeListener(STORY_CHANGED, storyChangedListener)
-	channel.addListener(STORY_ARGS_UPDATED, storyArgsListener)
-	channel.addListener(STORY_CHANGED, storyChangedListener)
+	channel.removeListener(STORY_ARGS_UPDATED, storyArgsListener);
+	channel.removeListener(STORY_CHANGED, storyChangedListener);
+	channel.addListener(STORY_ARGS_UPDATED, storyArgsListener);
+	channel.addListener(STORY_CHANGED, storyChangedListener);
 }
 
-setupBackgroundListener()
+setupBackgroundListener();
