@@ -25,6 +25,18 @@
             }
           }
         },
+        "link-inverse": {
+          "text": {
+            "@": {
+              "value": "#",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{o3.color.palette.ft-grey}",
+              "type": "color"
+            }
+          }
+        },
         "page": {
           "background": {
             "value": "{o3.color.palette.paper}",
@@ -35,18 +47,6 @@
           "background": {
             "value": "{o3.color.palette.slate}",
             "type": "color"
-          }
-        },
-        "link-inverse": {
-          "text": {
-            "standard": {
-              "value": "#",
-              "type": "color"
-            },
-            "hover": {
-              "value": "{o3.color.palette.ft-grey}",
-              "type": "color"
-            }
           }
         },
         "focus": {
@@ -66,15 +66,15 @@
             }
           }
         },
-        "title": {
+        "body": {
           "text": {
-            "value": "{o3.color.palette.black}",
+            "value": "{o3.color.palette.black-80}",
             "type": "color"
           }
         },
-        "title-inverse": {
+        "body-inverse": {
           "text": {
-            "value": "{o3.color.palette.black}",
+            "value": "{o3.color.palette.white}",
             "type": "color"
           }
         }
