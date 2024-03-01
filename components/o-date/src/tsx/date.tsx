@@ -13,7 +13,6 @@ export type DateFormat =
 
 export type DateTextCase =
 	| 'sentence'
-	| 'upper'
 
 export interface DateProps {
 	dateTime: string;

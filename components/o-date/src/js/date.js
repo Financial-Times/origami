@@ -190,8 +190,6 @@ class ODate {
 
 		if (textCase === 'sentence') {
 			formattedDate = `${formattedDate.charAt(0).toUpperCase()}${formattedDate.substring(1)}`;
-		} else if (textCase === 'upper') {
-			formattedDate = formattedDate.toUpperCase();
 		}
 
 		// To avoid triggering a parent live region unnecessarily

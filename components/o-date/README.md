@@ -51,9 +51,7 @@ Note: There used to be `time-ago-abbreviated` and `time-ago-abbreviated-limit-4-
 
 The formatted date defaults to all lower case (https://github.com/Financial-Times/ft-date-format/blob/master/index.js), e.g. `'an hour ago`.
 
-Set the `data-o-date-text-case` attribute to customise the case of the `time` element text:
-- `sentence`: capitalise only the first letter (e.g. `'An hour ago'`).
-- `upper`: capitalise all the letters (e.g. `'AN HOUR AGO'`).
+Set `data-o-date-text-case=sentence` attribute on the `time` element to capitalise only the first letter of the text (e.g. `'An hour ago'`).
 
 ### Copy Options
 

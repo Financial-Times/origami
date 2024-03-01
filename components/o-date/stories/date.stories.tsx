@@ -35,15 +35,13 @@ export default {
 		textCase: {
 			options: [
 				null,
-				'sentence',
-				'upper'
+				'sentence'
 			],
 			control: {
 				type: 'select',
 				labels: {
 					'null': 'Default',
-					'sentence': 'Sentence',
-					'upper': 'Upper'
+					'sentence': 'Sentence'
 				},
 			}
 		}
