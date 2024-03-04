@@ -10,7 +10,7 @@
               "description": "@ represents standard"
             },
             "hover": {
-              "value": "{o3.color.palette.mint}",
+              "value": "{o3.color.palette.slate}",
               "type": "color"
             }
           },
@@ -20,7 +20,7 @@
               "type": "color"
             },
             "hover": {
-              "value": "#9EC0BD",
+              "value": "{o3.color.palette.mint-80}",
               "type": "color"
             }
           }
@@ -28,40 +28,21 @@
         "link-inverse": {
           "text": {
             "@": {
-              "value": "#",
+              "value": "{o3.color.palette.mint}",
               "type": "color"
             },
             "hover": {
-              "value": "{o3.color.palette.ft-grey}",
+              "value": "{o3.color.palette.mint-70}",
               "type": "color"
             }
-          }
-        },
-        "page": {
-          "background": {
-            "value": "{o3.color.palette.paper}",
-            "type": "color"
-          }
-        },
-        "page-inverse": {
-          "background": {
-            "value": "{o3.color.palette.slate}",
-            "type": "color"
-          }
-        },
-        "focus": {
-          "outline": {
-            "standard": {
-              "value": "{o3.color.palette.black-50}",
+          },
+          "underline": {
+            "@": {
+              "value": "{o3.color.palette.mint}",
               "type": "color"
             },
-            "interactive-inner": {
-              "value": "{o3.color.palette.white}",
-              "type": "color",
-              "description": "For inner rings of an interactive focus state"
-            },
-            "interactive-outer": {
-              "value": "{o3.color.palette.black-70}",
+            "hover": {
+              "value": "{o3.color.palette.mint-70}",
               "type": "color"
             }
           }
