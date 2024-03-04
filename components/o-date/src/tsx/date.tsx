@@ -11,14 +11,19 @@ export type DateFormat =
 	// from https://github.com/microsoft/TypeScript/issues/29729#issuecomment-505826972
 	| (string & {});
 
+export type DateTextCase =
+	| 'sentence'
+
 export interface DateProps {
 	dateTime: string;
 	format?: DateFormat;
+	textCase?: DateTextCase;
 }
 
 export function Date({
 	dateTime,
 	format,
+	textCase,
 	children,
 }: React.PropsWithChildren<DateProps>): JSX.Element {
 	return (
@@ -26,7 +31,8 @@ export function Date({
 			data-o-component="o-date"
 			className="o-date"
 			dateTime={dateTime}
-			data-o-date-format={format}>
+			data-o-date-format={format}
+			data-o-date-text-case={textCase}>
 			{children}
 		</time>
 	);
@@ -34,14 +40,16 @@ export function Date({
 
 export interface DatePrinterProps {
 	format?: DateFormat;
+	textCase?: DateTextCase;
 }
 
 export function DatePrinter({
 	format,
+	textCase,
 	children,
 }: React.PropsWithChildren<DatePrinterProps>): JSX.Element {
 	return (
-		<span data-o-date-printer data-o-date-format={format}>
+		<span data-o-date-printer data-o-date-format={format} data-o-date-text-case={textCase}>
 			{children}
 		</span>
 	);
