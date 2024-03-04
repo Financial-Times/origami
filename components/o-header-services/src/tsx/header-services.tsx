@@ -48,7 +48,7 @@ export function HeaderServices({
 				primaryNavData={primaryNavData}
 				relatedContentAlwaysVisible={relatedContentAlwaysVisible}
 			/>
-			{/*{primaryNavData && <PrimaryNav navItems={primaryNavData} />}*/}
+			{primaryNavData && <PrimaryNav navItems={primaryNavData} />}
 			{secondaryNavData && <SecondaryNav {...secondaryNavData} />}
 		</header>
 	);

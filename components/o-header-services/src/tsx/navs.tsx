@@ -109,7 +109,7 @@ function DropDown({
 				className="o-header-services__drop-down-button"
 				type="button"
 				name="button"
-				aria-label={`Toggle ${parent} dropdown menu`}></button>
+				aria-label={`Toggle ${parentName} dropdown menu`}></button>
 			<ul data-o-header-services-level="2" aria-hidden="true">
 				{dropdownItems.map((item, i) => {
 					const attr = item.current ? 'page' : undefined;
