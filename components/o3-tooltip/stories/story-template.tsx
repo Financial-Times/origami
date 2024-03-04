@@ -3,7 +3,7 @@ import type {OnboardingToolTipProps, ToggleToolTipProps} from '../src/types';
 
 import {TooltipOnboarding as OnboardingTooltipTsx} from '../src/tsx';
 import {TooltipToggle as ToggleTooltipTsx} from '../src/tsx';
-import {TemplateSBConfig, transformToggleCode} from './sb-story-config';
+import {TemplateSBConfig} from './sb-story-config';
 
 import '../src/ts/index';
 
@@ -32,13 +32,15 @@ const OnboardingTemplateStory: TemplateType = {
 				<div className="o3-tooltip-demo-message">
 					<p>Refresh to view bounce animation</p>
 				</div>
-				<button
-					id="demo-o3-tooltip-id"
-					className="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
-					aria-describedby="o3-tooltip-content">
-					Share
-				</button>
-				<OnboardingTooltipTsx {...args} />
+				<div id='component-wrapper'>
+					<button
+						id="demo-o3-tooltip-id"
+						className="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
+						aria-describedby="o3-tooltip-content">
+						Share
+					</button>
+					<OnboardingTooltipTsx {...args} />
+				</div>
 			</div>
 		);
 	},
@@ -52,7 +54,9 @@ const ToggleTemplateStory: TemplateType = {
 				<div className="o3-tooltip-demo-message">
 					<p>Click the info button to toggle the tooltip</p>
 				</div>
-				<ToggleTooltipTsx {...args} />
+				<div id='component-wrapper'>
+					<ToggleTooltipTsx {...args} />
+				</div>
 			</div>
 		);
 	},
@@ -82,10 +86,7 @@ export const ToggleToolTip: ToggleTooltipStory = {
 			options: ['top', 'right', 'bottom', 'left'],
 		},
 	},
-	parameters: {
-		controls: {exclude: ['targetId', 'contentId']},
-		html: {
-			transform: (code: string) => transformToggleCode(code),
-		},
-	},
+	parameters: Object.assign({}, ToggleTemplateStory.parameters, {
+		controls: { exclude: ['targetId', 'contentId'] },
+	}),
 };

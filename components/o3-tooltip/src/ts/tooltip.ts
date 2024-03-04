@@ -2,8 +2,6 @@ import {createPopper, Instance} from '@popperjs/core';
 import type {TooltipProps} from '../types';
 
 export class ToolTip extends HTMLElement implements TooltipProps {
-	content!: string;
-	title!: string;
 	contentId!: string;
 	targetId!: string;
 
@@ -16,7 +14,7 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 	}
 
 	static get observedAttributes() {
-		return ['placement'];
+		return ['placement', 'title', 'content'];
 	}
 
 	get placement() {
@@ -27,24 +25,51 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 		this.setAttribute('placement', value);
 	}
 
+	get title() {
+		return this.getAttribute('title') as string;
+	}
+
+	set title(value) {
+		this.setAttribute('title', value);
+	}
+
+	get content() {
+		return this.getAttribute('content') as string;
+	}
+
+	set content(value) {
+		this.setAttribute('content', value);
+	}
+
 	connectedCallback() {
 		this.content = this.getAttribute('content') as string;
 		this.title = this.getAttribute('title') as string;
 		this.contentId = this.getAttribute('content-id') as string;
 	}
 
-	attributeChangedCallback() {
-		this.render();
+	attributeChangedCallback(name: string) {
+		this.render(name);
 	}
 
 	disconnectedCallback() {
 		this._popperInstance?.destroy();
 	}
 
-	protected render() {
+	protected render(name?: string) {
 		this._popperInstance?.setOptions({
 			placement: this.placement,
 		});
+
+		if (name === 'title' || name === 'content') {
+			const titleEl = this.querySelector('.o3-tooltip-content-title');
+			const contentEl = this.querySelector(
+				'.o3-tooltip-content-body'
+			) as HTMLElement;
+			if (titleEl) {
+				titleEl.textContent = this.title;
+			}
+			contentEl.textContent = this.content;
+		}
 	}
 
 	protected initialisePopper(
@@ -63,7 +88,7 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 				{
 					name: 'eventListeners',
 					options: {
-						scroll: false
+						scroll: false,
 					},
 				},
 				{

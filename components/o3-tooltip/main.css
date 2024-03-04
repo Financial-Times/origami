@@ -13,7 +13,6 @@
 	--padding-top: var(--o3-spacing-3xs);
 	--padding-right: var(--o3-spacing-2xs);
 	--icon-button-size: 24px;
-
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -22,6 +21,7 @@
 
 o3-tooltip-toggle.o3-tooltip {
 	position: relative;
+	display: block;
 }
 
 .o3-tooltip > .o3-tooltip-wrapper {
@@ -41,7 +41,8 @@ o3-tooltip-toggle.o3-tooltip {
 	position: relative;
 	box-sizing: border-box;
 	overflow: auto;
-	padding: var(--padding-top) var(--padding-right) var(--padding-right) var(--padding-right);
+	padding: var(--padding-top) var(--padding-right) var(--padding-right)
+		var(--padding-right);
 	hyphens: auto;
 }
 
@@ -147,12 +148,20 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 }
 
 /* Button styles */
-o3-tooltip-toggle .o3-tooltip-tooltip,
+o3-tooltip-toggle .o3-toggletip-target,
 .o3-tooltip-wrapper .o3-tooltip-close {
+	all: unset; /* remove all default browser styles for buttons */
 	width: var(--icon-button-size);
 	height: var(--icon-button-size);
+}
+
+o3-tooltip-toggle .o3-toggletip-target::before,
+.o3-tooltip-wrapper .o3-tooltip-close::before {
+	width: var(--icon-button-size);
+	height: var(--icon-button-size);
+	content: '';
 	mask-image: var(--_button-icon);
-	background-color: var(--o3-color-palette-black-90);
+	background-color: var(--o3-tooltip-text-color);
 	mask-repeat: no-repeat;
 	mask-size: contain;
 	display: inline-block;
@@ -160,44 +169,61 @@ o3-tooltip-toggle .o3-tooltip-tooltip,
 	user-select: none;
 }
 
+/* Focus rings for buttons */
+.o3-tooltip button:focus {
+	box-shadow: var(--o3-box-shadow-focus-ring-inner),
+		var(--o3-box-shadow-focus-ring-outer);
+	outline: unset;
+	&::before {
+		background-color: var(--o3-color-palette-black-50);
+	}
+}
+
+@supports selector(:focus-visible) {
+	.o3-tooltip button:focus {
+		box-shadow: unset;
+		&::before {
+			background-color: var(--o3-color-palette-black-50);
+		}
+	}
+	.o3-tooltip button:focus-visible {
+		box-shadow: var(--o3-box-shadow-focus-ring-inner),
+			var(--o3-box-shadow-focus-ring-outer);
+		outline: unset;
+		&::before {
+			background-color: var(--o3-color-palette-black-50);
+		}
+	}
+}
+
 /* Info tooltip button */
-o3-tooltip-toggle .o3-tooltip-tooltip {
+o3-tooltip-toggle .o3-toggletip-target::before {
 	--_button-icon: var(--o3-tooltip-icon-info);
+	background-color: var(--o3-color-palette-black-90);
 	position: relative;
 }
 
-o3-tooltip-toggle .o3-tooltip-tooltip:hover {
-	background-color: var(--o3-color-palette-black-50);
-}
-
-o3-tooltip-toggle .o3-tooltip-tooltip:focus {
+o3-tooltip-toggle .o3-toggletip-target:hover::before {
 	background-color: var(--o3-color-palette-black-30);
 }
 
-o3-tooltip-toggle[open] .o3-tooltip-tooltip {
+o3-tooltip-toggle[open] .o3-toggletip-target::before {
 	--_button-icon: var(--o3-tooltip-icon-cross);
 }
 
-
 /* CLOSE BUTTON */
-[data-o3-brand='professional'] .o3-tooltip-wrapper .o3-tooltip-close {
-	background-color: var(--o3-tooltip-text-color);
-}
-
 .o3-tooltip-wrapper .o3-tooltip-close {
-	--_button-icon: var(--o3-icons-ft-icon-cross);
-
 	position: absolute;
 	top: var(--padding-top);
 	right: var(--padding-right);
 }
 
-.o3-tooltip-wrapper .o3-tooltip-close:hover {
-	background-color: var(--o3-color-palette-black-30);
+.o3-tooltip-wrapper .o3-tooltip-close::before {
+	--_button-icon: var(--o3-icons-ft-icon-cross);
 }
 
-.o3-tooltip-wrapper .o3-tooltip-close:active {
-	background-color: var(--o3-color-palette-black-50);
+.o3-tooltip-wrapper .o3-tooltip-close:hover::before {
+	background-color: var(--o3-color-palette-black-30);
 }
 
 /* ANIMATION */

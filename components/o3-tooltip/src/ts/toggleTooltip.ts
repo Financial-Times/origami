@@ -6,12 +6,14 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 
 	connectedCallback() {
 		super.connectedCallback();
-		this.innerHTML = this.generateMarkup(this.title, this.content);
+		this.innerHTML = this._generateMarkup(this.title, this.content);
 		this._contentWrapper = this.querySelector(
 			'.o3-tooltip-wrapper'
 		) as HTMLElement;
 		this._contentWrapper.style.display = 'none';
-		this._targetNode = this.querySelector('.o3-tooltip-tooltip') as HTMLElement;
+		this._targetNode = this.querySelector(
+			'.o3-toggletip-target'
+		) as HTMLElement;
 
 		this._popperInstance = this.initialisePopper(
 			this._targetNode,
@@ -68,8 +70,9 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 		this.removeEventListener('keydown', this._closeOnEsc);
 	}
 
-	private generateMarkup(title: string, content: string) {
-		const tooltipButtonMarkup = `<button type="button" class="o3-tooltip-tooltip"></button>`;
+	_generateMarkup(title: string, content: string) {
+		// add type="button" to prevent form submission
+		const tooltipButtonMarkup = `<button type="button" class="o3-toggletip-target"></button>`;
 
 		return `
 		${tooltipButtonMarkup}
@@ -77,7 +80,7 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 			<div data-tooltip-arrow></div>
 			<div class="o3-tooltip-content" role="status">
 				${title && `<div class="o3-tooltip-content-title">${title}</div>`}
-				<div>${content}</div>
+				<div class="o3-tooltip-content-body">${content}</div>
 			</div>
 		</div>`;
 	}

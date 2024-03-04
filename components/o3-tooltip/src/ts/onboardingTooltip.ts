@@ -1,6 +1,5 @@
 import {ToolTip} from './tooltip';
 import type {OnboardingToolTipProps} from '../types';
-
 export class OnboardingToolTip
 	extends ToolTip
 	implements OnboardingToolTipProps
@@ -9,7 +8,7 @@ export class OnboardingToolTip
 
 	connectedCallback() {
 		super.connectedCallback();
-		this.innerHTML = this.generateMarkup(
+		this.innerHTML = this._generateMarkup(
 			this.title,
 			this.content,
 			this.contentId
@@ -19,7 +18,6 @@ export class OnboardingToolTip
 		}
 		this._targetNode = this.getTargetNode();
 		this._popperInstance = this.initialisePopper(this._targetNode, this);
-		this.render();
 		this._closeButton = this.querySelector('.o3-tooltip-close') as HTMLElement;
 		this._addEventListeners();
 	}
@@ -53,13 +51,13 @@ export class OnboardingToolTip
 		return targetNode as HTMLElement;
 	}
 
-	private generateMarkup(title: string, content: string, contentId: string) {
+	_generateMarkup(title: string, content: string, contentId: string) {
 		return `
 		<div class="o3-tooltip-wrapper">
 				<div data-tooltip-arrow></div>
 				<div class="o3-tooltip-content" id=${contentId}>
 					${title && `<div class="o3-tooltip-content-title">${title}</div>`}
-					<div>${content}</div>
+					<div class="o3-tooltip-content-body">${content}</div>
 				</div>
 				<button
 					type="button"
