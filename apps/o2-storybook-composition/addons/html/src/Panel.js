@@ -6,6 +6,7 @@ import {PanelContent} from './components/PanelContent';
 import {format as prettierFormat} from 'prettier/standalone';
 import prettierHtml from 'prettier/parser-html';
 
+const demoUrl = '__origami/service/build/v3/demo';
 export const Panel = props => {
 	// https://storybook.js.org/docs/react/addons/addons-api#useaddonstate
 	const [{code}, setState] = useAddonState(ADDON_ID, {
@@ -20,7 +21,10 @@ export const Panel = props => {
 
 			const foundIframe = codeDoc.getElementsByTagName('iframe');
 
-			if (foundIframe.length === 1) {
+			if (
+				foundIframe.length === 1 &&
+				foundIframe.item(0).src.includes(demoUrl)
+			) {
 				console.log(foundIframe.item(0).src);
 				const demoEndpoint = parser.parseFromString(
 					foundIframe.item(0).src,
