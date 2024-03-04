@@ -38,7 +38,11 @@ export const Panel = props => {
 					const json = await html.text();
 					code = json;
 				} catch (e) {
-					console.log('Failed to load load Iframe story from source: \n' + e);
+					const msg = `Failed to load load Iframe story from source:\n${e}\n\n
+															Please contact the team for support:\n\norigami.support@ft.com\n#origami-support`;
+
+					console.error(msg);
+					code = msg;
 				}
 			}
 			setState(state => ({...state, code}));
