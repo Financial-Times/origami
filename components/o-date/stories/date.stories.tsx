@@ -32,6 +32,19 @@ export default {
 				'time-ago-no-seconds',
 			],
 		},
+		textCase: {
+			options: [
+				null,
+				'sentence'
+			],
+			control: {
+				type: 'select',
+				labels: {
+					'null': 'Default',
+					'sentence': 'Sentence'
+				},
+			}
+		}
 	},
 	parameters: {controls: {sort: 'requiredFirst'}},
 } as ComponentMeta<typeof ODate>;

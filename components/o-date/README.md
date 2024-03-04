@@ -47,6 +47,12 @@ Set the `data-o-date-format` attribute to customise how the `time` element is pr
 
 Note: There used to be `time-ago-abbreviated` and `time-ago-abbreviated-limit-4-hours` options which are now both deprecated. These options still work but no longer show an abbreviated date. They will be removed in a future major version.
 
+#### Text case
+
+The formatted date defaults to all lower case (https://github.com/Financial-Times/ft-date-format/blob/master/index.js), e.g. `'an hour ago`.
+
+Set `data-o-date-text-case=sentence` attribute on the `time` element to capitalise only the first letter of the text (e.g. `'An hour ago'`).
+
 ### Copy Options
 
 By default `o-date` will replace the contents of the `time` element with the formatted date. To include extra content alongside the formatted date add an element with the `data-o-date-printer` attribute. `o-date` will output the formatted date within the `data-o-date-printer` element and will not change other child elements.

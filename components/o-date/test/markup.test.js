@@ -139,6 +139,22 @@ describe('o-date DOM', () => {
 			});
 		});
 
+		describe('today-or-yesterday-or-nothing with sentence text case', () => {
+			beforeEach(() => {
+				mockDateElement.dataset.oDateFormat = 'today-or-yesterday-or-nothing';
+				mockDateElement.dataset.oDateTextCase = 'sentence';
+				new ODate(mockDateElement);
+			});
+
+			it('renders the date in the element', () => {
+				proclaim.equal(mockDateElement.innerHTML, 'Today');
+			});
+
+			it('adds a title attribute containing the full date', () => {
+				proclaim.equal(mockDateElement.getAttribute('title'), elevenMinutesAgoDateTime);
+			});
+		});
+
 		describe('date-only', () => {
 			beforeEach(() => {
 				mockDateElement.dataset.odateformat = 'date-only';
