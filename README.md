@@ -100,7 +100,7 @@ brew install rg
    npm install
    ```
 
-3. Run the storybook. This will server storybook on <http://localhost:6969>, and open your web browser :)
+3. Run the storybook. This will server storybook on <http://localhost:6006>, and open your web browser :)
 
    ```shell
    npm run storybook

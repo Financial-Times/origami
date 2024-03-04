@@ -159,6 +159,9 @@ class ODate {
 		const format = printer.getAttribute('data-o-date-format') ||
 			this.el.getAttribute('data-o-date-format');
 
+		const textCase =  printer.getAttribute('data-o-date-text-case') ||
+		this.el.getAttribute('data-o-date-text-case');
+
 		let formattedDate;
 
 		if (format === 'today-or-yesterday-or-nothing') {
@@ -183,6 +186,10 @@ class ODate {
 			formattedDate = ftDateFormat.format(date, format);
 		} else {
 			formattedDate = ftDateFormat.ftTime(date);
+		}
+
+		if (textCase === 'sentence') {
+			formattedDate = `${formattedDate.charAt(0).toUpperCase()}${formattedDate.substring(1)}`;
 		}
 
 		// To avoid triggering a parent live region unnecessarily
