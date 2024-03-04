@@ -68,7 +68,9 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 			if (titleEl) {
 				titleEl.textContent = this.title;
 			}
-			contentEl.textContent = this.content;
+			if (contentEl) {
+				contentEl.textContent = this.content;
+			}
 		}
 	}
 
