@@ -13,9 +13,6 @@ export class OnboardingToolTip
 			this.content,
 			this.contentId
 		);
-		if (!this.title) {
-			this.setAttribute('no-title', '');
-		}
 		this._targetNode = this.getTargetNode();
 		this._popperInstance = this.initialisePopper(this._targetNode, this);
 		this._closeButton = this.querySelector('.o3-tooltip-close') as HTMLElement;
@@ -56,7 +53,7 @@ export class OnboardingToolTip
 		<div class="o3-tooltip-wrapper">
 				<div data-tooltip-arrow></div>
 				<div class="o3-tooltip-content" id=${contentId}>
-					${title && `<div class="o3-tooltip-content-title">${title}</div>`}
+					<div class="o3-tooltip-content-title">${title}</div>
 					<div class="o3-tooltip-content-body">${content}</div>
 				</div>
 				<button

@@ -7,6 +7,8 @@ o3-tooltip is hosting two components: `o3-tooltip-onboarding` and `o3-tooltip-to
 - [JavaScript](#javascript)
 - [css](#css)
 - [JSX](#jsx)
+  - [TooltipOnboarding](#tooltiponboarding)
+  - [TooltipToggle](#tooltiptoggle)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -27,7 +29,7 @@ Below are examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-togg
  <button
   id="demo-o3-tooltip-id"
   class="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
-  aria-describedby="o3-tooltip-content"
+  aria-describedby="demo-o3-tooltip-content"
  >
   Share
  </button>
@@ -38,7 +40,7 @@ Below are examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-togg
   class="o3-tooltip"
   content="Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long"
   title="Title"
-  content-id="o3-tooltip-content"
+  content-id="demo-o3-tooltip-content"
  >
  </o3-tooltip-onboarding>
 </div>
@@ -72,6 +74,7 @@ To style `o3-tooltip` import brand specific css, this varies depending on your p
 
 ```scss
 @import '@financial-times/o3-tooltip/css/[your brand].css';
+```
 
 ## JSX
 
@@ -97,7 +100,7 @@ import '@finacial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
 </div>;
 ```
 
-### Props
+### TooltipOnboarding
 
 The `TooltipOnboarding` JSX element accepts the following `props`:
 
@@ -124,6 +127,8 @@ type Placement =
 |   title   |   string    |  false   |    -    |        Title of the tooltip         |
 | contentId |   string    |   true   |    -    |  id for `aria-describedby` element  |
 | placement | `Placement` |  false   |  'top'  |      Placement of the tooltip       |
+
+### TooltipToggle
 
 The `ToggleTooltip` JSX element accepts the following `props`:
 

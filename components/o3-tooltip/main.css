@@ -41,7 +41,7 @@ o3-tooltip-toggle.o3-tooltip {
 	position: relative;
 	box-sizing: border-box;
 	overflow: auto;
-	padding: var(--padding-top) var(--padding-right) var(--padding-right);
+	padding: var(--padding-top) var(--padding-right) var(--o3-spacing-2xs);
 	hyphens: auto;
 }
 

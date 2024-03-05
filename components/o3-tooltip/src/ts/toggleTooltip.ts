@@ -79,7 +79,7 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 		<div class="o3-tooltip-wrapper">
 			<div data-tooltip-arrow></div>
 			<div class="o3-tooltip-content" role="status">
-				${title && `<div class="o3-tooltip-content-title">${title}</div>`}
+				<div class="o3-tooltip-content-title">${title}</div>
 				<div class="o3-tooltip-content-body">${content}</div>
 			</div>
 		</div>`;
