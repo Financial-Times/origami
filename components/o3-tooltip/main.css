@@ -41,9 +41,12 @@ o3-tooltip-toggle.o3-tooltip {
 	position: relative;
 	box-sizing: border-box;
 	overflow: auto;
-	padding: var(--padding-top) var(--padding-right) var(--padding-right)
-		var(--padding-right);
+	padding: var(--padding-top) var(--padding-right) var(--padding-right);
 	hyphens: auto;
+}
+
+o3-tooltip-onboarding .o3-tooltip-content {
+	padding-bottom: var(--padding-top);
 }
 
 o3-tooltip-onboarding[no-title] .o3-tooltip-content {
@@ -148,13 +151,13 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 }
 
 /* Button styles */
-o3-tooltip-toggle button {
+.o3-tooltip button {
 	all: unset; /* remove all default browser styles for buttons */
 	width: var(--icon-button-size);
 	height: var(--icon-button-size);
 }
 
-o3-tooltip-toggle button::before {
+.o3-tooltip button::before {
 	width: var(--icon-button-size);
 	height: var(--icon-button-size);
 	content: '';
