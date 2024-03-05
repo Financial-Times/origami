@@ -1,6 +1,6 @@
 # o3-tooltip[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-o3-tooltip is hosting two components: `o3-tooltip-onboarding` and `oe-tooltip-toggle`. Onboarding Tooltips help for a smoother introduction to new features or functionality. Toggletips are compact pieces of information designed to offer additional insights when needed.
+o3-tooltip is hosting two components: `o3-tooltip-onboarding` and `o3-tooltip-toggle`. Onboarding Tooltips help for a smoother introduction to new features or functionality. Toggletips are compact pieces of information designed to offer additional insights when needed. See our [design guidelines for usage information and brand support](https://origami-for-everyone.ft.com).
 
 - [o3-tooltip](#o3-tooltip)
 - [Markup](#markup)
@@ -13,13 +13,13 @@ o3-tooltip is hosting two components: `o3-tooltip-onboarding` and `oe-tooltip-to
 
 ## Markup
 
-We provide custom elements `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>` to be used in your markup but we also equivalent provide [JSX components](#jsx) to be used in React.
+We provide custom elements `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>`. React users may include these using our [JSX template](#jsx).
 
-`<o3-tooltip-onboarding>` is used to display a tooltip on a HTML target element that can have `aria-describedby` attribute. It is used to provide additional information about the target element and is shown immediately once the page is loaded. It can be only closed by clicking the close button.
+`<o3-tooltip-onboarding>` is used to display a tooltip on a HTML target element that can have an `aria-describedby` attribute. It is used to provide additional information about the target element and is shown immediately once the page is loaded. It can be only closed by clicking the close button.
 
-`o3-tooltip-toggle` does not have a close button and is used with info icon. It can be triggered by clicking on the info icon and will be removed from the DOM if user clicks outside of the tooltip, press ESC or click the info icon again.
+`o3-tooltip-toggle` does not have a close button and is used with an information icon. It can be triggered by clicking on the information icon and will be removed from the DOM if the user clicks outside of the tooltip, presses ESC, or clicks the info icon again.
 
-Bellow is a markup examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>` custom elements:
+Below are examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>` custom elements:
 
 ```html
 <!-- <o3-tooltip-onboarding> -->
@@ -68,15 +68,14 @@ import o3Tooltip from '@financial-times/o3-tooltip';
 
 ## css
 
-To style `o3-tooltip` you can use import brand specific css file from `@financial-times/o3-tooltip` package. You can use the following code:
+To style `o3-tooltip` import brand specific css, this varies depending on your project. For example:
 
-```javascript
-import '@financial-times/o3-tooltip/css/[your brand].css';
-```
+```scss
+@import '@financial-times/o3-tooltip/css/[your brand].css';
 
 ## JSX
 
-`o3-tooltip` has a two JSX component exported that implement `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>` under the hood and export `TooltipOnboarding` and `TooltipToggle` respectively. To use it, you can use the following code:
+`o3-tooltip` exports two JSX templates, `TooltipOnboarding` and `TooltipToggle` for each tooltip component. This means copy-pasting html can be avoided. For example:
 
 ```jsx
 import {
@@ -100,7 +99,7 @@ import '@finacial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
 
 ### Props
 
-`TooltipOnboarding` component accept the following props:
+The `TooltipOnboarding` JSX element accepts the following `props`:
 
 ```ts
 type Placement =
@@ -126,7 +125,7 @@ type Placement =
 | contentId |   string    |   true   |    -    |  id for `aria-describedby` element  |
 | placement | `Placement` |  false   |  'top'  |      Placement of the tooltip       |
 
-`ToggleTooltip` component accept the following props:
+The `ToggleTooltip` JSX element accepts the following `props`:
 
 ```ts
 type Placement = 'top' | 'bottom' | 'left' | 'right';

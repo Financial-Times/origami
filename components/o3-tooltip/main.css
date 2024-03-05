@@ -148,15 +148,13 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 }
 
 /* Button styles */
-o3-tooltip-toggle .o3-toggletip-target,
-.o3-tooltip-wrapper .o3-tooltip-close {
+o3-tooltip-toggle button {
 	all: unset; /* remove all default browser styles for buttons */
 	width: var(--icon-button-size);
 	height: var(--icon-button-size);
 }
 
-o3-tooltip-toggle .o3-toggletip-target::before,
-.o3-tooltip-wrapper .o3-tooltip-close::before {
+o3-tooltip-toggle button::before {
 	width: var(--icon-button-size);
 	height: var(--icon-button-size);
 	content: '';
