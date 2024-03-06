@@ -2,13 +2,155 @@
   "o3": {
     "typography": {
       "link": {
-        "bottom-color": {
-          "value": "{o3.color.use-case.link}",
-          "type": "color"
+        "standard": {
+          "bottom-color": {
+            "value": "{o3.color.use-case.link}",
+            "type": "color"
+          },
+          "color": {
+            "value": "{o3.color.use-case.link}",
+            "type": "color"
+          },
+          "hover": {
+            "color": {
+              "value": "#9ec0bd",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#9ec0bd",
+              "type": "color"
+            }
+          },
+          "focus": {
+            "color": {
+              "value": "#08474d",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          }
         },
-        "color": {
-          "value": "{o3.color.use-case.link}",
-          "type": "color"
+        "inverse": {
+          "bottom-color": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          },
+          "color": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          },
+          "hover": {
+            "color": {
+              "value": "#d4d4d6",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#d4d4d6",
+              "type": "color"
+            }
+          },
+          "focus": {
+            "color": {
+              "value": "#d4d4d6",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          }
+        },
+        "professional": {
+          "bottom-color": {
+            "value": "#a4ccb8",
+            "type": "color"
+          },
+          "color": {
+            "value": "#262a33",
+            "type": "color"
+          },
+          "hover": {
+            "color": {
+              "value": "#262a33",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#a4ccb8",
+              "type": "color"
+            }
+          },
+          "focus": {
+            "color": {
+              "value": "#262a33",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          }
+        },
+        "professional-inverse": {
+          "bottom-color": {
+            "value": "#c0efd8",
+            "type": "color"
+          },
+          "color": {
+            "value": "#c0efd8",
+            "type": "color"
+          },
+          "hover": {
+            "color": {
+              "value": "#8fb3a1",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#8fb3a1",
+              "type": "color"
+            }
+          },
+          "focus": {
+            "color": {
+              "value": "#8fb3a1",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          }
+        },
+        "live": {
+          "color": {
+            "value": "#fcd0b1",
+            "type": "color"
+          },
+          "bottom-color": {
+            "value": "#d1af98",
+            "type": "color"
+          },
+          "hover": {
+            "color": {
+              "value": "#d1af98",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#d1af98",
+              "type": "color"
+            }
+          },
+          "focus": {
+            "color": {
+              "value": "#d1af98",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          }
         }
       },
       "heading": {
