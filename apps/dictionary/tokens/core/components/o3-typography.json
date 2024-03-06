@@ -100,6 +100,20 @@
             "type": "other"
           }
         }
+      },
+      "body": {
+        "font-size": {
+          "value": "{o3.font.size.3}",
+          "type": "font-size"
+        },
+        "line-height": {
+          "value": "{o3.font.lineheight.1}",
+          "type": "font-size"
+        },
+        "color": {
+          "value": "{o3.color.palette.black}",
+          "type": "color"
+        }
       }
     }
   }
