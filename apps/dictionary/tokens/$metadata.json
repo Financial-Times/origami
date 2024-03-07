@@ -26,7 +26,6 @@
     "sustainable-views/base/color",
     "sustainable-views/use-case/typography",
     "sustainable-views/components/o3-tooltip",
-    "sustainable-views/components/o3-toggle",
     "sustainable-views/components/o3-button",
     "whitelabel/base/spacing",
     "whitelabel/base/color",
@@ -40,7 +39,6 @@
     "whitelabel/components/o3-tooltip1",
     "utility-tokens",
     "icons/icons",
-    "whitelabel/component/toggle",
-    "sustainable-views/component/o3-toggle"
+    "whitelabel/component/toggle"
   ]
 }
