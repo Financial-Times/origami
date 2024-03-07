@@ -1,0 +1,59 @@
+/**
+ * Do not edit directly
+ */
+
+
+.o3-brand-core .o3-typography {
+  --_o3-typography-link-standard-bottom-color: var(--o3-color-use-case-link);
+  --_o3-typography-link-standard-color: var(--o3-color-use-case-link);
+  --_o3-typography-link-standard-hover-color: #9ec0bd;
+  --_o3-typography-link-standard-hover-bottom-color: #9ec0bd;
+  --_o3-typography-link-standard-focus-color: #08474d;
+  --_o3-typography-link-standard-focus-bottom-color: #ffffff00;
+  --_o3-typography-link-inverse-bottom-color: var(--o3-color-palette-white);
+  --_o3-typography-link-inverse-color: var(--o3-color-palette-white);
+  --_o3-typography-link-inverse-hover-color: #d4d4d6;
+  --_o3-typography-link-inverse-hover-bottom-color: #d4d4d6;
+  --_o3-typography-link-inverse-focus-color: #d4d4d6;
+  --_o3-typography-link-inverse-focus-bottom-color: #ffffff00;
+  --_o3-typography-link-professional-bottom-color: #a4ccb8;
+  --_o3-typography-link-professional-color: #262a33;
+  --_o3-typography-link-professional-hover-color: #262a33;
+  --_o3-typography-link-professional-hover-bottom-color: #a4ccb8;
+  --_o3-typography-link-professional-focus-color: #262a33;
+  --_o3-typography-link-professional-focus-bottom-color: #ffffff00;
+  --_o3-typography-link-professional-inverse-bottom-color: #c0efd8;
+  --_o3-typography-link-professional-inverse-color: #c0efd8;
+  --_o3-typography-link-professional-inverse-hover-color: #8fb3a1;
+  --_o3-typography-link-professional-inverse-hover-bottom-color: #8fb3a1;
+  --_o3-typography-link-professional-inverse-focus-color: #8fb3a1;
+  --_o3-typography-link-professional-inverse-focus-bottom-color: #ffffff00;
+  --_o3-typography-link-live-color: #fcd0b1;
+  --_o3-typography-link-live-bottom-color: #d1af98;
+  --_o3-typography-link-live-hover-color: #d1af98;
+  --_o3-typography-link-live-hover-bottom-color: #d1af98;
+  --_o3-typography-link-live-focus-color: #d1af98;
+  --_o3-typography-link-live-focus-bottom-color: #ffffff00;
+  --_o3-typography-heading-level-1-font-size: var(--o3-font-size-5);
+  --_o3-typography-heading-level-1-font-color: var(--o3-color-palette-black-80);
+  --_o3-typography-heading-level-1-line-height: var(--o3-font-lineheight-4);
+  --_o3-typography-heading-level-1-font-weight: 600;
+  --_o3-typography-heading-level-2-font-size: var(--o3-font-size-4);
+  --_o3-typography-heading-level-2-font-weight: 600;
+  --_o3-typography-heading-level-2-line-height: var(--o3-font-lineheight-4);
+  --_o3-typography-heading-level-3-font-size: var(--o3-font-size-3);
+  --_o3-typography-heading-level-3-font-weight: 400;
+  --_o3-typography-heading-level-3-line-height: var(--o3-font-lineheight-3);
+  --_o3-typography-heading-level-4-font-size: var(--o3-font-size-2);
+  --_o3-typography-heading-level-4-font-weight: 600;
+  --_o3-typography-heading-level-4-line-height: var(--o3-font-lineheight-2);
+  --_o3-typography-heading-level-5-font-size: var(--o3-font-size-1);
+  --_o3-typography-heading-level-5-font-weight: 600;
+  --_o3-typography-heading-level-5-line-height: var(--o3-font-lineheight-1);
+  --_o3-typography-heading-level-6-font-size: var(--o3-font-size-0);
+  --_o3-typography-heading-level-6-font-weight: 600;
+  --_o3-typography-heading-level-6-line-height: var(--o3-font-lineheight-1);
+  --_o3-typography-body-font-size: var(--o3-font-size-3);
+  --_o3-typography-body-line-height: var(--o3-font-lineheight-1);
+  --_o3-typography-body-color: var(--o3-color-palette-black);
+}

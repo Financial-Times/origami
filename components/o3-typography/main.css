@@ -1,5 +1,4 @@
-
-
+/*Heading*/
 .o3-typography-heading-level-1 {
 	--o3-typography-heading-font-size: 32px;
 	--o3-typography-heading-font-color: #33302e;
@@ -51,8 +50,48 @@
 	font-weight: var(--o3-typography-heading-font-weight);
 }
 
+[data-o3-brand='professional'] .o3-typography {
+	--o3-typography-link-color: var(--_o3-typography-link-professional-color);
+	--o3-typography-border-bottom-color: var(--_o3-typography-link-professional-bottom-color);
+	--o3-typography-text-decoration-color: var(--_o3-typography-link-professional-bottom-color);
+}
+[data-o3-brand='professional'][data-o3-theme='inverse'] .o3-typography {
+	--o3-typography-link-color: var(--_o3-typography-link-professional-inverse-color);
+	--o3-typography-border-bottom-color: var(--_o3-typography-link-professional-inverse-bottom-color);
+	--o3-typography-text-decoration-color: var(--_o3-typography-link-professional-inverse-bottom-color);
+
+}
+
+[data-o3-theme='inverse'] .o3-typography {
+	--o3-typography-link-color: var(--_o3-typography-link-inverse-color);
+	--o3-typography-border-bottom-color: var(--_o3-typography-link-inverse-bottom-color);
+	--o3-typography-text-decoration-color: var(--_o3-typography-link-inverse-bottom-color);
+}
+
+[data-o3-theme='live'] .o3-typography {
+	--o3-typography-link-color: var(--_o3-typography-link-live-color);
+	--o3-typography-border-bottom-color: var(--_o3-typography-link-live-bottom-color);
+	--o3-typography-text-decoration-color: var(--_o3-typography-link-live-bottom-color);
+}
+
+/*Link*/
 .o3-typography-link {
-	color: var(--_o3-typography-link-color);
-	border-bottom-color: var(--_o3-typography-link-bottom-color);
-	text-decoration-color: var(--_o3-typography-link-bottom-color);
+	--o3-typography-link-color: var(--_o3-typography-link-standard-color);
+	--o3-typography-border-bottom-color: var(--_o3-typography-link-standard-bottom-color);
+	--o3-typography-text-decoration-color: var(--_o3-typography-link-standard-bottom-color);
+}
+
+.o3-typography-link {
+	color: var(--o3-typography-link-color);
+	border-bottom-color: var(--o3-typography-border-bottom-color);
+	text-decoration-color: var(--o3-typography-text-decoration-color);
+}
+
+/*Body*/
+.o3-typography-body {
+	font-family: MetricWeb, sans-serif;
+	font-size: 18px; /*--o3-typography-heading-font-size*/
+	line-height: 20px; /*--o3-typography-heading-line-height: 20px;*/
+	margin: 0 0 24px;
+	color: black;
 }

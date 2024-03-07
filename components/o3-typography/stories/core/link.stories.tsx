@@ -18,12 +18,23 @@ export default {
 	parameters: {
 		backgrounds: {default: 'paper'},
 	},
+	argTypes: {
+		theme: {
+			options: ['standard', 'inverse', 'professional'],
+			control: {
+				type: 'radio',
+			},
+		},
+	},
 } as Meta;
 
 export const Links = props => {
 	return (
 		<p>
-			This page links back <Link href="https://origami.ft.com">to origami</Link>
+			This page links back{' '}
+			<Link href="https://origami.ft.com" theme={props.theme}>
+				to Origami
+			</Link>
 			.
 		</p>
 	);
