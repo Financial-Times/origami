@@ -191,7 +191,11 @@ export function buildCSS({sources, destination, tokenFilter, parentSelector}) {
 	};
 
 	const StyleDictionary = StyleDictionaryPackage.extend(config);
-	StyleDictionary.buildAllPlatforms();
+	try {
+		StyleDictionary.buildAllPlatforms();
+	} catch (e) {
+		console.warn(e);
+	}
 }
 
 /**

@@ -49,12 +49,6 @@
   --o3-font-size-10: 5.25rem;
   --o3-font-size-negative-2: 0.75rem;
   --o3-font-size-negative-1: 0.875rem;
-  --o3-color-palette-teal: #0d7680ff;
-  --o3-color-palette-oceanwave: #C9F5EA;
-  --o3-color-palette-slate: #262A33;
-  --o3-color-palette-white: #ffffffff;
-  --o3-color-palette-black: #000000ff;
-  --o3-color-palette-claret: #990f3dff;
   --o3-typography-use-case-heading1-font-family: var(--o3-font-family-metric);
   --o3-typography-use-case-heading1-font-weight: var(--o3-font-weight-medium);
   --o3-typography-use-case-heading1-font-size: var(--o3-font-size-4);
@@ -87,4 +81,12 @@
   --o3-typography-use-case-caption-font-weight: var(--o3-font-weight-regular);
   --o3-typography-use-case-caption-font-size: var(--o3-font-size-negative-2);
   --o3-typography-use-case-caption-line-height: var(--o3-font-lineheight-negative-2);
+  --o3-color-palette-teal: #0d7680ff;
+  --o3-color-palette-oceanwave: #C9F5EA;
+  --o3-color-palette-slate: #262A33;
+  --o3-color-palette-white: #ffffffff;
+  --o3-color-palette-black: #000000ff;
+  --o3-color-palette-claret: #990f3dff;
+  --o3-color-palette-black-90: #1a1817ff;
+  --o3-color-palette-black-50: #807973ff;
 }

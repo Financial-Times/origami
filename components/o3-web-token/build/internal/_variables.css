@@ -42,6 +42,21 @@
   --o3-color-palette-teal-80: #15BCCC;
   --o3-color-palette-teal-90: #17D4E6;
   --o3-color-palette-teal-100: #1AEBFF;
+  --o3-color-use-case-link-text: var(--o3-color-palette-teal);
+  --o3-color-use-case-link-text-hover: var(--o3-color-palette-teal-30);
+  --o3-color-use-case-link-underline: #CFD8D1;
+  --o3-color-use-case-link-underline-hover: #9EC0BD;
+  --o3-color-use-case-link-inverse-text: #;
+  --o3-color-use-case-link-inverse-text-hover: var(--o3-color-palette-black-20);
+  --o3-color-use-case-link-inverse-underline: #;
+  --o3-color-use-case-link-inverse-underline-hover: var(--o3-color-palette-black-20);
+  --o3-color-use-case-page-background: var(--o3-color-palette-white);
+  --o3-color-use-case-page-inverse-background: var(--o3-color-palette-slate);
+  --o3-color-use-case-focus-outline-standard: var(--o3-color-palette-oxford-80);
+  --o3-color-use-case-focus-outline-interactive-inner: var(--o3-color-palette-white); /* For inner rings of an interactive focus state */
+  --o3-color-use-case-focus-outline-interactive-outer: var(--o3-color-palette-black-70);
+  --o3-color-use-case-body-text: var(--o3-color-palette-black-80);
+  --o3-color-use-case-body-inverse-text: var(--o3-color-palette-white);
   --o3-spacing-5xs: 0.25rem;
   --o3-spacing-4xs: 0.5rem;
   --o3-spacing-3xs: 0.75rem;

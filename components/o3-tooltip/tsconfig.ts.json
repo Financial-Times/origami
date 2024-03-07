@@ -1,0 +1,8 @@
+{
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"outDir": "./build/js",
+		"lib": ["es2021", "dom"],
+	},
+	"files": ["./src/ts/index.ts"]
+}

@@ -1,12 +1,84 @@
 {
-  "o3": {
-    "color": {
-      "use-case": {
-        "link": {
-          "value": "{o3.color.palette.teal}",
-          "type": "color"
-        }
-      }
-    }
-  }
+	"o3": {
+		"color": {
+			"use-case": {
+				"link": {
+					"text": {
+						"@": {
+							"value": "{o3.color.palette.teal}",
+							"type": "color",
+							"description": ""
+						},
+						"hover": {
+							"value": "{o3.color.palette.teal-30}",
+							"type": "color"
+						}
+					},
+					"underline": {
+						"@": {
+							"value": "#CFD8D1",
+							"type": "color"
+						},
+						"hover": {
+							"value": "#9EC0BD",
+							"type": "color"
+						}
+					}
+				},
+				"link-inverse": {
+					"text": {
+						"@": {
+							"value": "#",
+							"type": "color"
+						},
+						"hover": {
+							"value": "CCCCC",
+							"type": "color"
+						}
+					}
+				},
+				"page": {
+					"background": {
+						"value": "{o3.color.palette.paper}",
+						"type": "color"
+					}
+				},
+				"page-inverse": {
+					"background": {
+						"value": "{o3.color.palette.slate}",
+						"type": "color"
+					}
+				},
+				"focus": {
+					"outline": {
+						"standard": {
+							"value": "{o3.color.palette.black-50}",
+							"type": "color"
+						},
+						"interactive-inner": {
+							"value": "{o3.color.palette.white}",
+							"type": "color",
+							"description": "For inner rings of an interactive focus state"
+						},
+						"interactive-outer": {
+							"value": "{o3.color.palette.black-70}",
+							"type": "color"
+						}
+					}
+				},
+				"body": {
+					"text": {
+						"value": "{o3.color.palette.black-80}",
+						"type": "color"
+					}
+				},
+				"body-inverse": {
+					"text": {
+						"value": "{o3.color.palette.white}",
+						"type": "color"
+					}
+				}
+			}
+		}
+	}
 }
