@@ -17,10 +17,10 @@ Import your chosen brand to begin using tokens in your CSS:
 ```css
 @import '@financial-times/o3-web-tokens/core.css';
 
-.example-custom-link {
-	color: var(--o3-color-link);
-	font-size: var(--o3-font-size-3);
-	line-height: var(--o3-lineheight-3);
+body {
+	background-color: var(--o3-color-use-case-page-background);
+	font-size: var(--o3-font-size-1);
+	line-height: var(--o3-font-lineheight-1);
 }
 ```
 
