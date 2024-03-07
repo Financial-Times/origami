@@ -25,7 +25,7 @@ switch (Astro.props.type) {
     <thead>
         <tr>
             <th class="name">name</th>
-            <th>css / figma</th>
+            <th>css</th>
             <th>description</th>
             <th class="value">value</th>
         </tr>
@@ -34,7 +34,7 @@ switch (Astro.props.type) {
 
         {
             FilteredColorTokens.map(token => {
-                return <tr style=`--palette-color: ${token.value};`><td><span class="table-swatch">{token.shortName}</span></td> <td>{token.css}<br>{token.figma}</td> <td>{token.description || '...'}</td> <td>{token.value}</td></tr>;
+                return <tr style=`--palette-color: ${token.value};`><td><span class="table-swatch">{Astro.props.type === 'use-case' ? token.name.replace('o3-color-use-case-', '')  : token.shortName}</span></td> <td>{token.css}</td> <td>{token.description || '...'}</td> <td>{token.value}</td></tr>;
             })
         }
     </tbody>
