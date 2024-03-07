@@ -10,11 +10,11 @@
 
 `o3-web-token` provides [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) but no utility CSS classes. Instead, author your own CSS to apply the correct colours to either `background` or `color`.
 
-| o-colors class           | o3-web-token CSS                          | @todo - add usecases to o3 |
-| ------------------------ | ----------------------------------------- | -------------------------- |
-| o-colors-page-background | background: var(--o3-color-use-case-page) | @todo                      |
-| o-colors-body-text       | color: var(--o3-color-use-case-body)      | @todo                      |
-| o-colors-muted-text      | color: var(--o3-color-use-case-muted)     | @todo                      |
+| o-colors class           | o3-web-token CSS                                     |
+| ------------------------ | ---------------------------------------------------- |
+| o-colors-page-background | background: var(--o3-color-use-case-page-background) |
+| o-colors-body-text       | color: var(--o3-color-use-case-body-text)            |
+| o-colors-muted-text      | @todo                                                |
 
 For example, to set a page background colour:
 
@@ -33,7 +33,7 @@ Becomes:
 ```css
 @import '@financial-times/o3-web-token/[your-brand].css';
 body {
-	background-color: var(--o3-color-use-case-page);
+	background-color: var(--o3-color-use-case-page-background);
 }
 ```
 
@@ -41,21 +41,21 @@ body {
 
 `o3-web-token` provides CSS Custom Properties but no utility classes. Instead, author your own CSS to apply the correct colours to either `background` or `color`.
 
-| o-colors CSS Custom Property | o3-web-token CSS Custom Property | @todo - add usecases to o3 |
-| ---------------------------- | -------------------------------- | -------------------------- |
-| --o-colors-page-background   | --o3-color-use-case-page         | @todo                      |
-| --o-colors-box-background    |                                  | @todo                      |
-| --o-colors-body-text         | --o3-color-use-case-body         | @todo                      |
-| --o-colors-muted-text        | --o3-color-use-case-muted        | @todo                      |
-| --o-colors-link-text         | --o3-color-use-case-link         | @todo                      |
-| --o-colors-link-hover-text   |                                  | @todo                      |
+| o-colors CSS Custom Property | o3-web-token CSS Custom Property    |
+| ---------------------------- | ----------------------------------- |
+| --o-colors-page-background   | --o3-color-use-case-page-background |
+| --o-colors-box-background    | @todo                               |
+| --o-colors-body-text         | --o3-color-use-case-body-text       |
+| --o-colors-muted-text        | @todo                               |
+| --o-colors-link-text         | --o3-color-use-case-link-text       |
+| --o-colors-link-hover-text   | --o3-color-use-case-link-text-hover |
 
 For example, to set a page background colour:
 
 ```diff
 body {
 -	background-color: var(--o-colors-page-background)
-+	background-color: var(--o3-color-use-case-page)
++	background-color: var(--o3-color-use-case-page-background)
 }
 ```
 
@@ -108,36 +108,36 @@ E.g:
 
 ```diff
 -color: oColorsByUsecase($usecase: 'page', $background: 'property');
-+color: var(--o3-color-use-case-page);
++color: var(--o3-color-use-case-page-background);
 ```
 
 ```diff
 -outline-color: oColorsByUsecase($usecase: 'focus', $background: 'outline');
-+outline-color: var(--o3-use-case-outline);
++outline-color: var(--o3-color-use-case-focus-outline-standard);
 ```
 
-| o-colors CSS Custom Property                        | o3-web-token CSS Custom Property | @todo - add usecases to o3 |
-| --------------------------------------------------- | -------------------------------- | -------------------------- |
-| oColorsByUsecase('focus', 'outline');               |                                  | @todo                      |
-| oColorsByUsecase('page', 'background');             | --o3-color-use-case-page         | @todo                      |
-| oColorsByUsecase('page-inverse', 'background');     |                                  | @todo                      |
-| oColorsByUsecase('box', 'background');              |                                  | @todo                      |
-| oColorsByUsecase('link', 'text');                   | --o3-color-use-case-link         | @todo                      |
-| oColorsByUsecase('link-hover', 'text');             |                                  | @todo                      |
-| oColorsByUsecase('link-title', 'text');             |                                  | @todo                      |
-| oColorsByUsecase('link-title-hover', 'text');       |                                  | @todo                      |
-| oColorsByUsecase('tag-link', 'text');               |                                  | @todo                      |
-| oColorsByUsecase('tag-link-hover', 'text');         |                                  | @todo                      |
-| oColorsByUsecase('opinion-tag-link', 'text');       |                                  | @todo                      |
-| oColorsByUsecase('opinion-tag-link-hover', 'text'); |                                  | @todo                      |
-| oColorsByUsecase('title', 'text');                  |                                  | @todo                      |
-| oColorsByUsecase('body', 'text');                   | --o3-color-use-case-body         | @todo                      |
-| oColorsByUsecase('body-inverse', 'text');           | --o3-color-use-case-body-inverse | @todo                      |
-| oColorsByUsecase('muted', 'text');                  | --o3-color-use-case-muted        | @todo                      |
-| oColorsByUsecase('opinion', 'background');          |                                  | @todo                      |
-| oColorsByUsecase('hero', 'background');             |                                  | @todo                      |
-| oColorsByUsecase('hero-opinion', 'background');     |                                  | @todo                      |
-| oColorsByUsecase('hero-highlight', 'background');   |                                  | @todo                      |
+| o-colors CSS Custom Property                        | o3-web-token CSS Custom Property            |
+| --------------------------------------------------- | ------------------------------------------- |
+| oColorsByUsecase('focus', 'outline');               | --o3-color-use-case-focus-outline-standard  |
+| oColorsByUsecase('page', 'background');             | --o3-color-use-case-page-background         |
+| oColorsByUsecase('page-inverse', 'background');     | --o3-color-use-case-page-inverse-background |
+| oColorsByUsecase('box', 'background');              | @todo                                       |
+| oColorsByUsecase('link', 'text');                   | --o3-color-use-case-link-text               |
+| oColorsByUsecase('link-hover', 'text');             | --o3-color-use-case-link-text-hover         |
+| oColorsByUsecase('link-title', 'text');             | @todo                                       |
+| oColorsByUsecase('link-title-hover', 'text');       | @todo                                       |
+| oColorsByUsecase('tag-link', 'text');               | @todo                                       |
+| oColorsByUsecase('tag-link-hover', 'text');         | @todo                                       |
+| oColorsByUsecase('opinion-tag-link', 'text');       | @todo                                       |
+| oColorsByUsecase('opinion-tag-link-hover', 'text'); | @todo                                       |
+| oColorsByUsecase('title', 'text');                  | @todo                                       |
+| oColorsByUsecase('body', 'text');                   | --o3-color-use-case-body-text               |
+| oColorsByUsecase('body-inverse', 'text');           | --o3-color-use-case-body-inverse-text       |
+| oColorsByUsecase('muted', 'text');                  | @todo                                       |
+| oColorsByUsecase('opinion', 'background');          | @todo                                       |
+| oColorsByUsecase('hero', 'background');             | @todo                                       |
+| oColorsByUsecase('hero-opinion', 'background');     | @todo                                       |
+| oColorsByUsecase('hero-highlight', 'background');   | @todo                                       |
 
 The following usecases have been deleted and have no direct replacement. If your project still uses one of these, we recommend consulting the design team on an alternative or using a colour from our palette directly (see our [colour design guidelines](https://origami-for-everyone.ft.com/guides/colours/)).
 
@@ -165,8 +165,6 @@ E.g:
 
 A limited set of tints are now available. See our [colour design guidelines](https://origami-for-everyone.ft.com/guides/colours/) for a full list of supported tints for your brand. If your tint value is no longer supported, please consult with a design team member or the Origami team to pick an alternative. Please reach out to the Origami team for support as needed.
 
-@todo - make all available tints visible on the website
-
 ```diff
 -background-color: oColorsGetTone($color-name: 'claret', $brightness: '27');
 +background-color: var(--o3-color-palette-claret-30);
@@ -178,9 +176,21 @@ There is no direct replacement for `oColorsGetToneDetails`. Please contact the O
 
 ##### `oColorsMix`
 
-There is no direct replacement for `oColorsMix`. Please contact the Origami team for support if your product relies on this mixin.
+There is no direct replacement for `oColorsMix`. We recommend using the compiled value directly, with a CSS comment.
 
-@todo - people do need this. 583 known cases. Mostly creating a shade of grey according to Ben Holmes' research. We need to provide an alternative. See Sass TGG proposal for one approach to solve darken/lighten cases.
+For example instead of this Sass:
+
+```scss
+color: oColorsMix('slate', 'white', 60);
+```
+
+Write instead the generated value `#7d7f85` and a comment to explain `/* mix: slate, white, 60 */`:
+
+```css
+color: #7d7f85; /* mix: slate, white, 60 */
+```
+
+We recommend this path as [we found there is little consistency in how these mixes are used](https://docs.google.com/document/d/1jbb33VDeSN1qG-oF3AyUhn3oBEgNOIldkkp0qe18Fto/edit). In the future we intend to review these mixes as we audit components and patterns. We are also open to introducing CSS based functionality to lighten or darken our palette colours (i.e. mix with black or white) or enable our colour palette to have transparency (i.e mix with `transparent`). Please contact the Origami team if you would like to request this feature.
 
 ##### `oColorsGetTextColor`
 
