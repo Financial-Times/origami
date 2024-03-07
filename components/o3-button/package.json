@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-button",
-	"version": "0.4.3",
+	"version": "0.4.4",
 	"description": "Origami buttons with design tokens",
 	"keywords": [
 		"buttons",
@@ -35,6 +35,6 @@
 	},
 	"private": false,
 	"peerDependencies": {
-		"@financial-times/o3-web-token": "^0.4.0"
+		"@financial-times/o3-web-token": "^0.5.0"
 	}
 }
