@@ -251,14 +251,14 @@ To make a button disabled add the `disabled` attribute. To visually hide the dis
 
 ## JSX
 
-For React users, Origami components now include JSX templates. Import JSX templates from `/jsx` along with component CSS.
+For React users, Origami components now include JSX templates. Import JSX templates along with component CSS.
 
 See [Storybook for full o3-button JSX documentation](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/docs/core-o3-button--jsx-documentation).
 
 For example, for a primary button:
 
 ```jsx
-import {Button} from '@financial-times/o3-button/jsx';
+import {Button} from '@financial-times/o3-button';
 
 import '@finacial-times/o3-button/css/[your brand].css';
 
@@ -270,7 +270,7 @@ import '@finacial-times/o3-button/css/[your brand].css';
 For pagination:
 
 ```jsx
-import {ButtonPagination} from '@financial-times/o3-button/jsx';
+import {ButtonPagination} from '@financial-times/o3-button';
 
 import '@finacial-times/o3-button/css/[your brand].css';
 
