@@ -16,26 +16,22 @@ const sharedConfig = {
 	target: 'es2019',
 	format: ['cjs', 'esm'],
 	splitting: false,
-	// sourcemap: true,
 	bundle: false,
+	dts: true,
 }
 
 if (existsSync('src/tsx')) {
 	await build({
 		...sharedConfig,
 		outDir: 'build/jsx',
-		entry: ['src/tsx/*.ts(x)?'],
+		entry: ['./src/tsx/*.ts(x)?'],
 	})
-
-	// TODO: create [subpath].d.ts file for subpathing based on package.json
-	writeFileSync('jsx.d.ts', 'import "./src/types/index.js"')
 }
 
 if (existsSync('src/ts')) {
 	await build({
 		...sharedConfig,
 		outDir: 'build/js',
-		entry: ['src/ts/*.ts'],
+		entry: ['./src/ts/*.ts'],
 	})
 }
-
