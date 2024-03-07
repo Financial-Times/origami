@@ -38,3 +38,7 @@ Icon?
 .log/
 .nova/
 storybook-static/
+
+#Ignore code editor specific files
+.idea
+.vscode
