@@ -9,7 +9,7 @@
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
       "core/use-case/box-shadow": "enabled",
-      "core/components/o3-typography": "enabled",
+      "core/components/o3-typography": "source",
       "core/use-case/typography": "enabled",
       "core/components/o3-tooltip": "source",
       "core/use-case/color": "enabled"

@@ -4,20 +4,20 @@
       "link": {
         "standard": {
           "bottom-color": {
-            "value": "{o3.color.use-case.link}",
+            "value": "{o3.color.use-case.link.text.@}",
             "type": "color"
           },
           "color": {
-            "value": "{o3.color.use-case.link}",
+            "value": "{o3.color.use-case.link.underline.@}",
             "type": "color"
           },
           "hover": {
             "color": {
-              "value": "#9ec0bd",
+              "value": "{o3.color.use-case.link.text.hover}",
               "type": "color"
             },
             "bottom-color": {
-              "value": "#9ec0bd",
+              "value": "{o3.color.use-case.link.underline.hover}",
               "type": "color"
             }
           },
@@ -34,11 +34,11 @@
         },
         "inverse": {
           "bottom-color": {
-            "value": "{o3.color.palette.white}",
+            "value": "{o3.color.use-case.link-inverse.text.@}",
             "type": "color"
           },
           "color": {
-            "value": "{o3.color.palette.white}",
+            "value": "{o3.color.use-case.link-inverse.text.@}",
             "type": "color"
           },
           "hover": {
