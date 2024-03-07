@@ -1,57 +1,57 @@
 {
-  "name": "@financial-times/o3-tooltip",
-  "version": "0.1.0",
-  "description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
-  "keywords": [
-    "tooltip",
-    "tool",
-    "tip",
-    "annotate",
-    "highlight",
-    "hover"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o3-tooltip",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-tooltip,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "browser": "build/js/index.js",
-  "main": "build/js/index.js",
-  "files": [
-    "build",
-    "origami.json"
-  ],
-  "exports": {
-    ".": {
-      "types": "./build/types/index.d.ts",
-      "import": "./build/js/index.js"
-    },
-    "./jsx": {
-      "types": "./build/types/index.d.ts",
-      "import": "./build/jsx/index.js"
-    },
-    "./css/*": "./build/css/src/css/brands/*",
-    "./package.json": "./package.json"
-  },
-  "types": "./build/types/index.d.ts",
-  "scripts": {
-    "build": "bash ../../scripts/component/build-o3.bash o3-tooltip && npm run build:ts && npm run build:tsx",
-    "build:tsx": "tsc --project tsconfig.tsx.json",
-    "build:ts": "tsc --project tsconfig.ts.json"
-  },
-  "devDependencies": {
-    "@financial-times/o3-button": "^0.4.0"
-  },
-  "peerDependencies": {
-    "@financial-times/o3-web-token": "^0.4.0"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false,
-  "dependencies": {
-    "@popperjs/core": "^2.11.8"
-  }
+	"name": "@financial-times/o3-tooltip",
+	"version": "0.1.0",
+	"description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
+	"keywords": [
+		"tooltip",
+		"tool",
+		"tip",
+		"annotate",
+		"highlight",
+		"hover"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o3-tooltip",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-tooltip,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "build/js/index.js",
+	"main": "build/js/index.js",
+	"files": [
+		"build",
+		"origami.json"
+	],
+	"exports": {
+		".": {
+			"types": "./build/types/index.d.ts",
+			"import": "./build/js/index.js"
+		},
+		"./jsx": {
+			"types": "./build/types/index.d.ts",
+			"import": "./build/jsx/index.js"
+		},
+		"./css/*": "./build/css/src/css/brands/*",
+		"./package.json": "./package.json"
+	},
+	"types": "./build/types/index.d.ts",
+	"scripts": {
+		"build": "bash ../../scripts/component/build-o3.bash o3-tooltip && npm run build:ts && npm run build:tsx",
+		"build:tsx": "tsc --project tsconfig.tsx.json",
+		"build:ts": "tsc --project tsconfig.ts.json"
+	},
+	"devDependencies": {
+		"@financial-times/o3-button": "^0.4.4"
+	},
+	"peerDependencies": {
+		"@financial-times/o3-web-token": "^0.5.0"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false,
+	"dependencies": {
+		"@popperjs/core": "^2.11.8"
+	}
 }
