@@ -1,8 +1,6 @@
 import type {Meta} from '@storybook/react';
 import {Body, Link} from '../../src/tsx';
 
-import '../../main.css';
-
 import '../../src/css/brands/core.css';
 
 export default {
@@ -10,7 +8,7 @@ export default {
 	component: Body,
 	decorators: [
 		Story => (
-			<div className="o3-brand-core">
+			<div data-o3-brand="core">
 				<Story />
 			</div>
 		),

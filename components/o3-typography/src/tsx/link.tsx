@@ -1,17 +1,18 @@
 import React from 'react';
+import {getStyleAttributes, StyleArguments} from './getStyleAttributes';
 
 enum Theme {
 	standard = 'standard',
 	inverse = 'inverse',
 }
 
-export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-	theme?: Theme;
-	children?: React.ReactNode;
-};
+export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
+	StyleArguments & {
+		children?: React.ReactNode;
+	};
 
 const makeClasses = (theme: Theme): string => {
-	const classes: string[] = ['o3-typography', 'o3-typography-link'];
+	const classes: string[] = [];
 
 	if (theme !== Theme.standard) {
 		classes.push(`o3-typography-link--${theme}`);
@@ -22,11 +23,15 @@ const makeClasses = (theme: Theme): string => {
 
 export const Link: React.FC<LinkProps> = ({
 	theme = Theme.standard,
+	brand,
 	children,
 	...anchorProps
 }) => {
 	return (
-		<a className={makeClasses(theme)} {...anchorProps}>
+		<a
+			className="o3-typography o3-typography-link"
+			{...getStyleAttributes({theme, brand})}
+			{...anchorProps}>
 			{children}
 		</a>
 	);

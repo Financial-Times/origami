@@ -1,16 +1,14 @@
 import type {Meta} from '@storybook/react';
 
-import '../../main.css';
-
+import {Link, Body} from '../../src/tsx';
 import '../../src/css/brands/core.css';
-import {Link} from '../../src/tsx';
 
 export default {
 	title: 'Core/o3-typography',
 	component: Link,
 	decorators: [
 		Story => (
-			<div className="o3-brand-core">
+			<div data-o3-brand="core">
 				<Story />
 			</div>
 		),
@@ -30,12 +28,12 @@ export default {
 
 export const Links = props => {
 	return (
-		<p>
+		<Body theme={props.theme} brand="core">
 			This page links back{' '}
-			<Link href="https://origami.ft.com" theme={props.theme}>
+			<Link href="https://origami.ft.com" theme={props.theme} brand="core">
 				to Origami
 			</Link>
 			.
-		</p>
+		</Body>
 	);
 };

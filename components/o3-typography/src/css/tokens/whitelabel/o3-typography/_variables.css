@@ -1,0 +1,51 @@
+/**
+ * Do not edit directly
+ */
+
+
+[data-o3-brand="whitelabel"] .o3-typography {
+  --_o3-typography-use-case-heading1-font-family: var(--_o3-font-family-metric);
+  --_o3-typography-use-case-heading1-font-weight: var(--_o3-font-weight-medium);
+  --_o3-typography-use-case-heading1-font-size: var(--_o3-font-size-4);
+  --_o3-typography-use-case-heading1-line-height: var(--_o3-font-lineheight-4);
+  --_o3-typography-use-case-heading2-font-family: var(--_o3-font-family-metric);
+  --_o3-typography-use-case-heading2-font-weight: var(--_o3-font-weight-medium);
+  --_o3-typography-use-case-heading2-font-size: var(--_o3-font-size-3);
+  --_o3-typography-use-case-heading2-line-height: var(--_o3-font-lineheight-2);
+  --_o3-typography-use-case-heading3-font-family: var(--_o3-font-family-metric);
+  --_o3-typography-use-case-heading3-font-weight: var(--_o3-font-weight-medium);
+  --_o3-typography-use-case-heading3-font-size: var(--_o3-font-size-2);
+  --_o3-typography-use-case-heading3-line-height: var(--_o3-font-lineheight-2);
+  --_o3-typography-use-case-heading4-font-family: var(--_o3-font-family-metric);
+  --_o3-typography-use-case-heading4-font-weight: var(--_o3-font-weight-semibold);
+  --_o3-typography-use-case-heading4-font-size: var(--_o3-font-size-1);
+  --_o3-typography-use-case-heading4-line-height: var(--_o3-font-lineheight-1);
+  --_o3-typography-use-case-heading5-font-family: var(--_o3-font-family-metric);
+  --_o3-typography-use-case-heading5-font-weight: var(--_o3-font-weight-semibold);
+  --_o3-typography-use-case-heading5-font-size: var(--_o3-font-size-0);
+  --_o3-typography-use-case-heading5-line-height: var(--_o3-font-lineheight-0);
+  --_o3-typography-use-case-heading6-font-family: var(--_o3-font-family-metric);
+  --_o3-typography-use-case-heading6-font-weight: var(--_o3-font-weight-semibold);
+  --_o3-typography-use-case-heading6-font-size: var(--_o3-font-size-negative-1);
+  --_o3-typography-use-case-heading6-line-height: var(--_o3-font-lineheight-negative-1);
+  --_o3-typography-use-case-body-l-font-family: var(--_o3-font-family-metric);
+  --_o3-typography-use-case-body-l-font-weight: var(--_o3-font-weight-regular);
+  --_o3-typography-use-case-body-l-font-size: var(--_o3-font-size-1);
+  --_o3-typography-use-case-body-l-line-height: var(--_o3-font-lineheight-1);
+  --_o3-typography-use-case-body-s-font-family: var(--_o3-font-family-metric);
+  --_o3-typography-use-case-body-s-font-weight: var(--_o3-font-weight-regular);
+  --_o3-typography-use-case-body-s-font-size: var(--_o3-font-size-0);
+  --_o3-typography-use-case-body-s-line-height: var(--_o3-font-lineheight-0);
+  --_o3-typography-use-case-link-font-family: var(--_o3-font-family-metric);
+  --_o3-typography-use-case-link-font-weight: var(--_o3-font-weight-regular);
+  --_o3-typography-use-case-link-font-size: var(--_o3-font-size-0);
+  --_o3-typography-use-case-link-line-height: var(--_o3-font-lineheight-0);
+  --_o3-typography-use-case-footer-font-family: var(--_o3-font-family-metric);
+  --_o3-typography-use-case-footer-font-weight: var(--_o3-font-weight-regular);
+  --_o3-typography-use-case-footer-font-size: var(--_o3-font-size-0);
+  --_o3-typography-use-case-footer-line-height: var(--_o3-font-lineheight-0);
+  --_o3-typography-use-case-caption-font-family: var(--_o3-font-family-metric);
+  --_o3-typography-use-case-caption-font-weight: var(--_o3-font-weight-regular);
+  --_o3-typography-use-case-caption-font-size: var(--_o3-font-size-negative-2);
+  --_o3-typography-use-case-caption-line-height: var(--_o3-font-lineheight-negative-2);
+}
