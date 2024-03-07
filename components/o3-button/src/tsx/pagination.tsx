@@ -2,7 +2,7 @@
 
 //  TODO: remove @ts-nocheck and fix types
 import {Button, LinkButton} from './button';
-import type {ButtonProps, Ellipsis, ButtonPaginationProps} from '../types';
+import type {ButtonProps, Ellipsis, ButtonPaginationProps} from '../types/index.d.ts';
 
 const Ellipsis = ({attributes, theme}: Ellipsis) => {
 	let classNames = ['o3-button-pagination__ellipsis'];

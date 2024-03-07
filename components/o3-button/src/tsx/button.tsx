@@ -1,4 +1,4 @@
-import type {ButtonProps, LinkButtonProps} from '../types';
+import type {ButtonProps, LinkButtonProps} from '../types/index.d.ts';
 
 type ButtonClassProps = Pick<
 	ButtonProps,

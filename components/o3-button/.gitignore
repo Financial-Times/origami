@@ -7,3 +7,6 @@
 .idea/
 /demos/local
 /coverage
+
+
+/jsx.d.ts
