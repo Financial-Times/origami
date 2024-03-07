@@ -111,11 +111,11 @@
 			@include oTypographyLink($theme: ('base': 'teal-40', 'hover': 'teal-30'));
 		}
 
-
 		// top tab bar buttons
 		.coral-tabBar-comments,
 		.coral-tabBar-myProfile,
-		.coral-tabBar-configure {
+		.coral-tabBar-configure,
+		.coral-tabBar-notifications {
 			@include oButtonsContent($opts: (
 				'type': 'secondary'
 			));
@@ -139,6 +139,21 @@
 				border-top: 1px !important;
 				border-bottom: 1px solid oButtonsGetColor($state: 'default', $property: 'background', $type: 'primary') !important;
 			}
+		}
+
+		// there is a nested div with no static selector that is set to have a height of 24px, which breaks the bar design. this resets it.
+		.coral-tabBar-notifications {
+			padding: 2px 8px;
+		}
+		// the other buttons have icons that show up alongside the text at narrower widths, whereas this just has the icon, so the padding needs increased to match them in that situation
+		&.coral-width-lt-sm .coral-tabBar-notifications,
+		&.coral-width-lte-sm .coral-tabBar-notifications {
+			padding: 17px 8px;
+		}
+
+		/* stylelint-disable-next-line selector-no-qualifying-type */
+		.coral-tabBar-notifications > div[class^="TabBar-notificationsIcon"] {
+			height: auto;
 		}
 
 		.coral-tabBar-comments div i,

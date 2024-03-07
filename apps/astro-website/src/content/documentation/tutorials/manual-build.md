@@ -316,6 +316,5 @@ new oTable(myTableElement);</code></pre>
 We've given you an overview of how to build components manually. There is more information about each component, its variations, its individual behaviour and configuration in the <a href="https://registry.origami.ft.com/components">Origami Registry</a>. Here we've covered the fundamentals, but there are a few more aspects to the development of a product with Origami components that are important for compatibility and consistency, and we encourage you to read more about them:
 
 - Origami components have been developed to provide a 'core' experience for older browsers, and an 'enhanced' experience for newer ones, and we check for this using a ['cuts the mustard'](/documentation/components/compatibility/#cuts-the-mustard) test, which can determine which experience to serve to which browser.
-- Another service we provide is the <a href="https://polyfill.io">Polyfill Service</a>, which makes newer APIs available to older browsers, allowing us to write code to modern standards.
 - Learn more about Origami supported ['brands'](/documentation/components/branding/), which can change the appearance of components and provide unique features for different projects.
 - [Component versioning](/documentation/components/versioning) is also important when building and maintaining products that use Origami components.

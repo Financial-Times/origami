@@ -95,6 +95,14 @@
               "exportKey": "color"
             }
           }
+        },
+        "black-90": {
+          "value": "#1a1817ff",
+          "type": "color"
+        },
+        "black-50": {
+          "value": "#807973ff",
+          "type": "color"
         }
       }
     }

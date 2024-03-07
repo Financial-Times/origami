@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.5.0](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.4.0...o3-web-token-v0.5.0) (2024-03-07)
+
+
+### Features
+
+* Add colour use case tokens ([#1468](https://github.com/Financial-Times/origami/issues/1468)) ([e3708bd](https://github.com/Financial-Times/origami/commit/e3708bd273d0f5bf91a2ee264ef07cc3c9a4ecf7))
+
+## [0.4.0](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.3.0...o3-web-token-v0.4.0) (2024-02-22)
+
+
+### Features
+
+* introduce typography tokens to o3-web-token ([4be1971](https://github.com/Financial-Times/origami/commit/4be197170e6e287f1af0cbd97af45e552426556a))
+
+
+### Bug Fixes
+
+* Replace o3 brand class with data attribute ([2d16de1](https://github.com/Financial-Times/origami/commit/2d16de10c94c0e4da8240922be7c7955bb79ad8b))
+* Replace o3-button theme class with data attribute ([50f390a](https://github.com/Financial-Times/origami/commit/50f390aac2967450c40e5affbcf651e4cfcbfc76))
+
 ## [0.3.0](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.2.0...o3-web-token-v0.3.0) (2024-01-04)
 
 

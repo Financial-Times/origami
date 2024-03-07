@@ -191,7 +191,11 @@ export function buildCSS({sources, destination, tokenFilter, parentSelector}) {
 	};
 
 	const StyleDictionary = StyleDictionaryPackage.extend(config);
-	StyleDictionary.buildAllPlatforms();
+	try {
+		StyleDictionary.buildAllPlatforms();
+	} catch (e) {
+		console.warn(e);
+	}
 }
 
 /**
@@ -286,16 +290,5 @@ export function getBrandSources(brand) {
 }
 
 export function tokenIsSource(token) {
-	// if (!token.isSource) {
-	// 	return false
-	// }
-
-	// @TODO: USE SOURCES PROPERLY
-	if (
-		token.name.startsWith('o3-button') ||
-		token.name.startsWith('o3-typography')
-	) {
-		return false;
-	}
-	return true;
+	return token.isSource ? true : false;
 }

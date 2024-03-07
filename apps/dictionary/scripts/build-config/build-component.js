@@ -7,7 +7,7 @@ function buildComponentTokens(componentName) {
 		const sources = getBrandSources(brand);
 		const destination = `../../components/${componentName}/src/css/tokens/${brand}/${componentName}/_variables.css`;
 
-		const brandSelector = `.o3-brand-${brand.split('/').slice(-1)}`;
+		const brandSelector = `[data-o3-brand="${brand.split('/').slice(-1)}"]`;
 		const componentSelector = `.${componentName}`;
 		const parentSelector = `${brandSelector} ${componentSelector}`;
 

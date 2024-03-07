@@ -3,7 +3,7 @@
  */
 
 
-.o3-brand-sustainable-views {
+[data-o3-brand="sustainable-views"] {
   --o3-spacing-5xs: 0.25rem;
   --o3-spacing-4xs: 0.5rem;
   --o3-spacing-3xs: 0.75rem;
@@ -16,13 +16,13 @@
   --o3-spacing-2xl: 4rem;
   --o3-spacing-3xl: 5rem;
   --o3-spacing-4xl: 6rem;
-  --o3-font-family-metric: 1;
-  --o3-font-family-financier-display: 2;
-  --o3-font-weight-light: Light;
-  --o3-font-weight-regular: Regular;
-  --o3-font-weight-medium: Medium;
-  --o3-font-weight-semibold: Semibold;
-  --o3-font-weight-bold: Bold;
+  --o3-font-family-metric: 'metric 2 VF';
+  --o3-font-family-financier-display: 'financier display VF';
+  --o3-font-weight-light: 300;
+  --o3-font-weight-regular: 400;
+  --o3-font-weight-medium: 500;
+  --o3-font-weight-semibold: 700;
+  --o3-font-weight-bold: 800;
   --o3-font-lineheight-0: 1.25rem;
   --o3-font-lineheight-1: 1.25rem;
   --o3-font-lineheight-2: 1.5rem;
@@ -49,10 +49,44 @@
   --o3-font-size-10: 5.25rem;
   --o3-font-size-negative-2: 0.75rem;
   --o3-font-size-negative-1: 0.875rem;
+  --o3-typography-use-case-heading1-font-family: var(--o3-font-family-metric);
+  --o3-typography-use-case-heading1-font-weight: var(--o3-font-weight-medium);
+  --o3-typography-use-case-heading1-font-size: var(--o3-font-size-4);
+  --o3-typography-use-case-heading1-line-height: var(--o3-font-lineheight-4);
+  --o3-typography-use-case-heading2-font-family: var(--o3-font-family-metric);
+  --o3-typography-use-case-heading2-font-weight: var(--o3-font-weight-medium);
+  --o3-typography-use-case-heading2-font-size: var(--o3-font-size-3);
+  --o3-typography-use-case-heading2-line-height: var(--o3-font-lineheight-2);
+  --o3-typography-use-case-heading3-font-family: var(--o3-font-family-metric);
+  --o3-typography-use-case-heading3-font-weight: var(--o3-font-weight-medium);
+  --o3-typography-use-case-heading3-font-size: var(--o3-font-size-2);
+  --o3-typography-use-case-heading3-line-height: var(--o3-font-lineheight-2);
+  --o3-typography-use-case-body-l-font-family: var(--o3-font-family-metric);
+  --o3-typography-use-case-body-l-font-weight: var(--o3-font-weight-regular);
+  --o3-typography-use-case-body-l-font-size: var(--o3-font-size-1);
+  --o3-typography-use-case-body-l-line-height: var(--o3-font-lineheight-1);
+  --o3-typography-use-case-link-font-family: var(--o3-font-family-metric);
+  --o3-typography-use-case-link-font-weight: var(--o3-font-weight-regular);
+  --o3-typography-use-case-link-font-size: var(--o3-font-size-0);
+  --o3-typography-use-case-link-line-height: var(--o3-font-lineheight-0);
+  --o3-typography-use-case-body-s-font-family: var(--o3-font-family-metric);
+  --o3-typography-use-case-body-s-font-weight: var(--o3-font-weight-regular);
+  --o3-typography-use-case-body-s-font-size: var(--o3-font-size-0);
+  --o3-typography-use-case-body-s-line-height: var(--o3-font-lineheight-0);
+  --o3-typography-use-case-footer-font-family: var(--o3-font-family-metric);
+  --o3-typography-use-case-footer-font-weight: var(--o3-font-weight-regular);
+  --o3-typography-use-case-footer-font-size: var(--o3-font-size-0);
+  --o3-typography-use-case-footer-line-height: var(--o3-font-lineheight-0);
+  --o3-typography-use-case-caption-font-family: var(--o3-font-family-metric);
+  --o3-typography-use-case-caption-font-weight: var(--o3-font-weight-regular);
+  --o3-typography-use-case-caption-font-size: var(--o3-font-size-negative-2);
+  --o3-typography-use-case-caption-line-height: var(--o3-font-lineheight-negative-2);
   --o3-color-palette-teal: #0d7680ff;
   --o3-color-palette-oceanwave: #C9F5EA;
   --o3-color-palette-slate: #262A33;
   --o3-color-palette-white: #ffffffff;
   --o3-color-palette-black: #000000ff;
   --o3-color-palette-claret: #990f3dff;
+  --o3-color-palette-black-90: #1a1817ff;
+  --o3-color-palette-black-50: #807973ff;
 }

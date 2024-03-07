@@ -10,13 +10,12 @@ const config: StorybookConfig = {
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
 		'@storybook/addon-docs',
-		'@whitespace/storybook-addon-html',
+		'../addons/html/src/preset/',
 	],
 	refs: {
 		'o2-core': {
 			title: 'Core',
-			// url: "https://main--655e0e31554f2044e99ab763.chromatic.com",
-			url: 'https://localhost:6006',
+			url: 'https://main--655e0e31554f2044e99ab763.chromatic.com',
 			expanded: false,
 		},
 		'o2-internal': {
