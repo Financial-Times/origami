@@ -495,10 +495,10 @@
     "selectedTokenSets": {
       "sustainable-views/base/spacing": "enabled",
       "sustainable-views/base/typography": "enabled",
-      "sustainable-views/base/colour": "enabled",
       "sustainable-views/components/o3-button": "source",
       "sustainable-views/use-case/typography": "enabled",
-      "sustainable-views/components/o3-tooltip": "enabled"
+      "sustainable-views/components/o3-tooltip": "enabled",
+      "sustainable-views/base/color": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6279:455",
     "$figmaModeId": "6279:4",
