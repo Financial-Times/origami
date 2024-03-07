@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.4](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.3...o3-button-v0.4.4) (2024-03-07)
+
+
+### Bug Fixes
+
+* fix o3-button tsc build ([d6e223e](https://github.com/Financial-Times/origami/commit/d6e223e1430e09e4b68939d3ee5691ce8b5a9dac))
+
 ## [0.4.3](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.2...o3-button-v0.4.3) (2024-02-22)
 
 

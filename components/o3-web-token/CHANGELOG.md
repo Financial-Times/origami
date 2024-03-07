@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.4.0...o3-web-token-v0.5.0) (2024-03-07)
+
+
+### Features
+
+* Add colour use case tokens ([#1468](https://github.com/Financial-Times/origami/issues/1468)) ([e3708bd](https://github.com/Financial-Times/origami/commit/e3708bd273d0f5bf91a2ee264ef07cc3c9a4ecf7))
+
 ## [0.4.0](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.3.0...o3-web-token-v0.4.0) (2024-02-22)
 
 
