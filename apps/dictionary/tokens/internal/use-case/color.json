@@ -32,14 +32,24 @@
 							"type": "color"
 						},
 						"hover": {
-							"value": "CCCCC",
+							"value": "{o3.color.palette.black-20}",
+							"type": "color"
+						}
+					},
+					"underline": {
+						"@": {
+							"value": "#",
+							"type": "color"
+						},
+						"hover": {
+							"value": "{o3.color.palette.black-20}",
 							"type": "color"
 						}
 					}
 				},
 				"page": {
 					"background": {
-						"value": "{o3.color.palette.paper}",
+						"value": "{o3.color.palette.white}",
 						"type": "color"
 					}
 				},
@@ -52,7 +62,7 @@
 				"focus": {
 					"outline": {
 						"standard": {
-							"value": "{o3.color.palette.black-50}",
+							"value": "{o3.color.palette.oxford-80}",
 							"type": "color"
 						},
 						"interactive-inner": {

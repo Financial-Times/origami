@@ -683,6 +683,244 @@ export default {
 		"css": "--o3-color-palette-teal-100",
 		"figma": "o3/color/palette/teal-100"
 },
+	"o3-color-use-case-link-text": {
+		"shortName": "@",
+		"value": "#0D7680",
+		"originalValue": "{o3.color.palette.teal}",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"text",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-text",
+		"figma": "o3/color/use-case/link/text/@"
+},
+	"o3-color-use-case-link-text-hover": {
+		"shortName": "hover",
+		"value": "#08474D",
+		"originalValue": "{o3.color.palette.teal-30}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"text",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-text-hover",
+		"figma": "o3/color/use-case/link/text/hover"
+},
+	"o3-color-use-case-link-underline": {
+		"shortName": "@",
+		"value": "#CFD8D1",
+		"originalValue": "#CFD8D1",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"underline",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-underline",
+		"figma": "o3/color/use-case/link/underline/@"
+},
+	"o3-color-use-case-link-underline-hover": {
+		"shortName": "hover",
+		"value": "#9EC0BD",
+		"originalValue": "#9EC0BD",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"underline",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-underline-hover",
+		"figma": "o3/color/use-case/link/underline/hover"
+},
+	"o3-color-use-case-link-inverse-text": {
+		"shortName": "@",
+		"value": "#",
+		"originalValue": "#",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"text",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-inverse-text",
+		"figma": "o3/color/use-case/link-inverse/text/@"
+},
+	"o3-color-use-case-link-inverse-text-hover": {
+		"shortName": "hover",
+		"value": "#ccc",
+		"originalValue": "{o3.color.palette.black-20}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"text",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-inverse-text-hover",
+		"figma": "o3/color/use-case/link-inverse/text/hover"
+},
+	"o3-color-use-case-link-inverse-underline": {
+		"shortName": "@",
+		"value": "#",
+		"originalValue": "#",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"underline",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-inverse-underline",
+		"figma": "o3/color/use-case/link-inverse/underline/@"
+},
+	"o3-color-use-case-link-inverse-underline-hover": {
+		"shortName": "hover",
+		"value": "#ccc",
+		"originalValue": "{o3.color.palette.black-20}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"underline",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-inverse-underline-hover",
+		"figma": "o3/color/use-case/link-inverse/underline/hover"
+},
+	"o3-color-use-case-page-background": {
+		"shortName": "background",
+		"value": "#fff",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"page",
+				"background"
+		],
+		"css": "--o3-color-use-case-page-background",
+		"figma": "o3/color/use-case/page/background"
+},
+	"o3-color-use-case-page-inverse-background": {
+		"shortName": "background",
+		"value": "#262A33",
+		"originalValue": "{o3.color.palette.slate}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"page-inverse",
+				"background"
+		],
+		"css": "--o3-color-use-case-page-inverse-background",
+		"figma": "o3/color/use-case/page-inverse/background"
+},
+	"o3-color-use-case-focus-outline-standard": {
+		"shortName": "standard",
+		"value": "#1470CC",
+		"originalValue": "{o3.color.palette.oxford-80}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"focus",
+				"outline",
+				"standard"
+		],
+		"css": "--o3-color-use-case-focus-outline-standard",
+		"figma": "o3/color/use-case/focus/outline/standard"
+},
+	"o3-color-use-case-focus-outline-interactive-inner": {
+		"shortName": "interactive-inner",
+		"value": "#fff",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"description": "For inner rings of an interactive focus state",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"focus",
+				"outline",
+				"interactive-inner"
+		],
+		"css": "--o3-color-use-case-focus-outline-interactive-inner",
+		"figma": "o3/color/use-case/focus/outline/interactive-inner"
+},
+	"o3-color-use-case-focus-outline-interactive-outer": {
+		"shortName": "interactive-outer",
+		"value": "#4d4d4d",
+		"originalValue": "{o3.color.palette.black-70}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"focus",
+				"outline",
+				"interactive-outer"
+		],
+		"css": "--o3-color-use-case-focus-outline-interactive-outer",
+		"figma": "o3/color/use-case/focus/outline/interactive-outer"
+},
+	"o3-color-use-case-body-text": {
+		"shortName": "text",
+		"value": "#333",
+		"originalValue": "{o3.color.palette.black-80}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"body",
+				"text"
+		],
+		"css": "--o3-color-use-case-body-text",
+		"figma": "o3/color/use-case/body/text"
+},
+	"o3-color-use-case-body-inverse-text": {
+		"shortName": "text",
+		"value": "#fff",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"body-inverse",
+				"text"
+		],
+		"css": "--o3-color-use-case-body-inverse-text",
+		"figma": "o3/color/use-case/body-inverse/text"
+},
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
 		"value": "0.25rem",

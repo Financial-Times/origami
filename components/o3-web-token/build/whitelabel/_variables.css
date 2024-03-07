@@ -18,6 +18,21 @@
   --o3-color-palette-black-70: #4d4d4d;
   --o3-color-palette-black-80: #333;
   --o3-color-palette-black-90: #1a1a1a;
+  --o3-color-use-case-link-text: var(--o3-color-palette-black-50);
+  --o3-color-use-case-link-text-hover: var(--o3-color-palette-black-60);
+  --o3-color-use-case-link-underline: var(--o3-color-palette-black-30);
+  --o3-color-use-case-link-underline-hover: var(--o3-color-palette-black-70);
+  --o3-color-use-case-link-inverse-text: #;
+  --o3-color-use-case-link-inverse-text-hover: var(--o3-color-palette-black-20);
+  --o3-color-use-case-link-inverse-underline: var(--o3-color-palette-white);
+  --o3-color-use-case-link-inverse-underline-hover: var(--o3-color-palette-black-20);
+  --o3-color-use-case-page-background: var(--o3-color-palette-white);
+  --o3-color-use-case-page-inverse-background: var(--o3-color-palette-black-80);
+  --o3-color-use-case-focus-outline-standard: var(--o3-color-palette-black);
+  --o3-color-use-case-focus-outline-interactive-inner: var(--o3-color-palette-white); /* For inner rings of an interactive focus state */
+  --o3-color-use-case-focus-outline-interactive-outer: var(--o3-color-palette-black-70);
+  --o3-color-use-case-body-text: var(--o3-color-palette-black-80);
+  --o3-color-use-case-body-inverse-text: var(--o3-color-palette-white);
   --o3-spacing-5xs: 0.25rem;
   --o3-spacing-4xs: 0.5rem;
   --o3-spacing-3xs: 0.75rem;
