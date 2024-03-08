@@ -14,7 +14,7 @@
 | ------------------------ | ---------------------------------------------------- |
 | o-colors-page-background | background: var(--o3-color-use-case-page-background) |
 | o-colors-body-text       | color: var(--o3-color-use-case-body-text)            |
-| o-colors-muted-text      | @todo                                                |
+| o-colors-muted-text      | color: var(--o3-color-use-case-muted-text)           |
 
 For example, to set a page background colour:
 
@@ -46,7 +46,7 @@ Instead, use `o3-web-token` [CSS Custom Properties](https://developer.mozilla.or
 | --o-colors-page-background | --o3-color-use-case-page-background                                                                                               |
 | --o-colors-box-background  | Removed. Use the palette directly (core brand: --o3-color-palette-wheat; --o3-color-palette-slate-white-5 for the internal brand) |
 | --o-colors-body-text       | --o3-color-use-case-body-text                                                                                                     |
-| --o-colors-muted-text      | @todo                                                                                                                             |
+| --o-colors-muted-text      | --o3-color-use-case-body-text                                                                                                     |
 | --o-colors-link-text       | --o3-color-use-case-link-text                                                                                                     |
 | --o-colors-link-hover-text | --o3-color-use-case-link-text-hover                                                                                               |
 
@@ -119,7 +119,7 @@ Use `o3-web-token` CSS Custom Properties instead, `--o3-color-use-case-[usecase]
 | oColorsByUsecase('link-hover', 'text');         | var(--o3-color-use-case-link-text-hover)         |
 | oColorsByUsecase('body', 'text');               | var(--o3-color-use-case-body-text)               |
 | oColorsByUsecase('body-inverse', 'text');       | var(--o3-color-use-case-body-inverse-text)       |
-| oColorsByUsecase('muted', 'text');              | @todo                                            |
+| oColorsByUsecase('muted', 'text');              | var(--o3-color-use-case-muted-text)              |
 
 Some colour use-cases have no direct replacement. Instead use the colour palette directly, according to your brand.
 
