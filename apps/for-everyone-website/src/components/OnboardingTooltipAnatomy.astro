@@ -1,10 +1,22 @@
+---
+import { TooltipOnboarding } from '@financial-times/o3-tooltip/jsx';
+import { Button } from '@financial-times/o3-button/jsx';
 
-
-
-<svg aria-describedby="An annotated image of an onboarding tooltip." style="display: block; margin: 0 auto" width="361" height="220" viewBox="0 0 361 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="260" height="112" y="54" x="50">
-        <div>
-
+import '@financial-times/o3-tooltip/css/whitelabel.css';
+import '@financial-times/o3-tooltip/css/internal.css';
+import '@financial-times/o3-tooltip/css/core.css';
+import '@financial-times/o3-tooltip/css/professional.css';
+import '@financial-times/o3-tooltip/css/sustainable-views.css';
+---
+<svg class="not-content" aria-describedby="An annotated image of an onboarding tooltip." width="700" height="220" viewBox="0 0 700 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="700" height="220" >
+        <div style="position: relative; width: 500px; height: 300px;">
+            <Button attributes={{id: 'demo-onboarding-tooltip', style: {
+                position: 'absolute',
+                right: '60px',
+                top: '100px'
+            }}} label="Tooltip target" type="secondary" />
+            <TooltipOnboarding targetId="demo-onboarding-tooltip" content="Lorem ipsum muta est. Scribere possum quicquid hic volo, et nihil potes de illo." title="Heading" contentId="demo-onboarding-tooltip-contnent" placement="left" />
         </div>
     </foreignObject>
     <path d="M86.0723 10.5C86.0723 4.97715 90.5494 0.5 96.0723 0.5V0.5C101.595 0.5 106.072 4.97715 106.072 10.5V10.5C106.072 16.0228 101.595 20.5 96.0723 20.5V20.5C90.5494 20.5 86.0723 16.0228 86.0723 10.5V10.5Z" fill="#990F3D"/>
@@ -19,13 +31,12 @@
     <path d="M265.072 10.5C265.072 4.97715 269.549 0.5 275.072 0.5V0.5C280.595 0.5 285.072 4.97715 285.072 10.5V10.5C285.072 16.0228 280.595 20.5 275.072 20.5V20.5C269.549 20.5 265.072 16.0228 265.072 10.5V10.5Z" fill="#990F3D"/>
     <path d="M272.482 8.156V6.884H277.618L275.722 10.376C276.114 10.464 276.454 10.62 276.742 10.844C277.038 11.068 277.266 11.348 277.426 11.684C277.586 12.02 277.666 12.404 277.666 12.836C277.666 13.412 277.53 13.912 277.258 14.336C276.994 14.752 276.642 15.076 276.202 15.308C275.762 15.532 275.282 15.644 274.762 15.644C274.202 15.644 273.734 15.576 273.358 15.44C272.99 15.296 272.67 15.12 272.398 14.912V13.424C272.702 13.72 273.05 13.952 273.442 14.12C273.842 14.288 274.25 14.372 274.666 14.372C275.01 14.372 275.306 14.32 275.554 14.216C275.802 14.104 275.994 13.936 276.13 13.712C276.274 13.488 276.346 13.2 276.346 12.848C276.346 12.472 276.238 12.164 276.022 11.924C275.806 11.676 275.51 11.496 275.134 11.384C274.766 11.264 274.35 11.204 273.886 11.204L275.53 8.156H272.482Z" fill="white"/>
     <path d="M274.072 20.5H276.072V64.5C276.072 65.0523 275.625 65.5 275.072 65.5V65.5C274.52 65.5 274.072 65.0523 274.072 64.5V20.5Z" fill="#990F3D"/>
-    <path d="M310.072 109.5C310.072 108.948 310.52 108.5 311.072 108.5H340.072V110.5H311.072C310.52 110.5 310.072 110.052 310.072 109.5V109.5Z" fill="#990F3D"/>
-    <path d="M340.072 109.5C340.072 103.977 344.549 99.5 350.072 99.5V99.5C355.595 99.5 360.072 103.977 360.072 109.5V109.5C360.072 115.023 355.595 119.5 350.072 119.5V119.5C344.549 119.5 340.072 115.023 340.072 109.5V109.5Z" fill="#990F3D"/>
-    <path d="M351.263 105.884L348.731 111.296H350.831V109.472H352.151V111.296H353.375V112.532H352.151V114.5H350.831V112.532H346.679L349.787 105.884H351.263Z" fill="white"/>
+    <path transform="translate(123 -5)" d="M203.072 157.5C203.072 156.948 203.52 156.5 204.072 156.5V156.5C204.625 156.5 205.072 156.948 205.072 157.5V199.5H203.072V157.5Z" fill="#990F3D"/>
+    <path transform="translate(123 -5)" d="M194.072 209.5C194.072 203.977 198.549 199.5 204.072 199.5V199.5C209.595 199.5 214.072 203.977 214.072 209.5V209.5C214.072 215.023 209.595 219.5 204.072 219.5V219.5C198.549 219.5 194.072 215.023 194.072 209.5V209.5Z" fill="#990F3D"/>
+    <path transform="translate(-23 94)" d="M351.263 105.884L348.731 111.296H350.831V109.472H352.151V111.296H353.375V112.532H352.151V114.5H350.831V112.532H346.679L349.787 105.884H351.263Z" fill="#ffffff"/>
 </svg>
 
 
-
-
-
-
+<script>
+    import '@financial-times/o3-tooltip';
+</script>
