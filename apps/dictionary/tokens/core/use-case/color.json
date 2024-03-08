@@ -86,17 +86,9 @@
           }
         },
         "muted-inverse": {
-          "value": "{o3.color.palette.white}",
+          "value": "#a8aaad",
           "type": "color",
-          "$extensions": {
-            "studio.tokens": {
-              "modify": {
-                "type": "alpha",
-                "value": "0.6",
-                "space": "srgb"
-              }
-            }
-          }
+          "$extensions": {}
         }
       }
     }
