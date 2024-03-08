@@ -11,10 +11,7 @@
       "core/use-case/box-shadow": "enabled",
       "core/use-case/typography": "enabled",
       "core/components/o3-tooltip": "enabled",
-      "core/use-case/color": "enabled",
-      "whitelabel/component/toggle": "disabled",
-      "whitelabel/components/o3-tooltip1": "disabled",
-      "whitelabel/components/o3-toggle": "disabled"
+      "core/use-case/color": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -220,10 +217,7 @@
       "core/base/typography": "enabled",
       "core/use-case/color": "enabled",
       "core/use-case/box-shadow": "enabled",
-      "core/professional/components/o3-tooltip": "enabled",
-      "whitelabel/component/toggle": "disabled",
-      "whitelabel/components/o3-tooltip1": "disabled",
-      "whitelabel/components/o3-toggle": "disabled"
+      "core/professional/components/o3-tooltip": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -417,10 +411,7 @@
       "internal/use-case/box-shadow": "enabled",
       "internal/components/o3-tooltip": "enabled",
       "internal/use-case/color": "enabled",
-      "internal/use-case/typography": "enabled",
-      "whitelabel/component/toggle": "disabled",
-      "whitelabel/components/o3-tooltip1": "disabled",
-      "whitelabel/components/o3-toggle": "disabled"
+      "internal/use-case/typography": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1487",
     "$figmaModeId": "4618:2",
@@ -492,10 +483,8 @@
       "whitelabel/base/spacing": "enabled",
       "whitelabel/use-case/box-shadow": "enabled",
       "core/use-case/color": "enabled",
-      "whitelabel/use-case/colour": "enabled",
-      "whitelabel/component/toggle": "disabled",
-      "whitelabel/components/o3-tooltip1": "disabled",
-      "whitelabel/components/o3-toggle": "enabled"
+      "whitelabel/components/o3-toggle": "enabled",
+      "whitelabel/use-case/color": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1701",
     "$figmaModeId": "4618:6",
@@ -552,10 +541,7 @@
       "sustainable-views/components/o3-button": "source",
       "sustainable-views/use-case/typography": "enabled",
       "sustainable-views/components/o3-tooltip": "enabled",
-      "sustainable-views/base/color": "enabled",
-      "whitelabel/component/toggle": "disabled",
-      "whitelabel/components/o3-tooltip1": "disabled",
-      "whitelabel/components/o3-toggle": "disabled"
+      "sustainable-views/base/color": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1555",
     "$figmaModeId": "4618:3",
