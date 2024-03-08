@@ -39,16 +39,22 @@ body {
 
 ###### Replace `--o-colors-*` CSS Custom Properties.
 
-`o3-web-token` provides CSS Custom Properties but no utility classes. Instead, author your own CSS to apply the correct colours to either `background` or `color`.
+Instead, use `o3-web-token` [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
-| o-colors CSS Custom Property | o3-web-token CSS Custom Property    |
-| ---------------------------- | ----------------------------------- |
-| --o-colors-page-background   | --o3-color-use-case-page-background |
-| --o-colors-box-background    | @todo                               |
-| --o-colors-body-text         | --o3-color-use-case-body-text       |
-| --o-colors-muted-text        | @todo                               |
-| --o-colors-link-text         | --o3-color-use-case-link-text       |
-| --o-colors-link-hover-text   | --o3-color-use-case-link-text-hover |
+| o-colors                   | o3-web-token                                                                                                                      |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| --o-colors-page-background | --o3-color-use-case-page-background                                                                                               |
+| --o-colors-box-background  | Removed. Use the palette directly (core brand: --o3-color-palette-wheat; --o3-color-palette-slate-white-5 for the internal brand) |
+| --o-colors-body-text       | --o3-color-use-case-body-text                                                                                                     |
+| --o-colors-muted-text      | @todo                                                                                                                             |
+| --o-colors-link-text       | --o3-color-use-case-link-text                                                                                                     |
+| --o-colors-link-hover-text | --o3-color-use-case-link-text-hover                                                                                               |
+
+Some colour use-case CSS Custom Properties have no direct replacement. Instead use the colour palette directly, according to your brand.
+
+| o-colors                  | o3-web-token (core)      | o3-web-token (internal)          |
+| ------------------------- | ------------------------ | -------------------------------- |
+| --o-colors-box-background | --o3-color-palette-wheat | --o3-color-palette-slate-white-5 |
 
 For example, to set a page background colour:
 
@@ -104,6 +110,44 @@ See our [colour design guidelines](https://origami-for-everyone.ft.com/guides/co
 
 Use `o3-web-token` CSS Custom Properties instead, `--o3-color-use-case-[usecase]`.
 
+| o-colors                                        | o3-web-token                                     |
+| ----------------------------------------------- | ------------------------------------------------ |
+| oColorsByUsecase('focus', 'outline');           | var(--o3-color-use-case-focus-outline-standard)  |
+| oColorsByUsecase('page', 'background');         | var(--o3-color-use-case-page-background)         |
+| oColorsByUsecase('page-inverse', 'background'); | var(--o3-color-use-case-page-inverse-background) |
+| oColorsByUsecase('link', 'text');               | var(--o3-color-use-case-link-text)               |
+| oColorsByUsecase('link-hover', 'text');         | var(--o3-color-use-case-link-text-hover)         |
+| oColorsByUsecase('body', 'text');               | var(--o3-color-use-case-body-text)               |
+| oColorsByUsecase('body-inverse', 'text');       | var(--o3-color-use-case-body-inverse-text)       |
+| oColorsByUsecase('muted', 'text');              | @todo                                            |
+
+Some colour use-cases have no direct replacement. Instead use the colour palette directly, according to your brand.
+
+| o-colors                                                      | o3-web-token (core)               | o3-web-token (internal)                |
+| ------------------------------------------------------------- | --------------------------------- | -------------------------------------- |
+| oColorsByUsecase('box', 'background');                        | var(--o3-color-palette-wheat)     | var(--o3-color-palette-slate-white-5)  |
+| oColorsByUsecase('link-title', 'text');                       | var(--o3-color-palette-black-80)  | var(--o3-color-palette-slate-white-15) |
+| oColorsByUsecase('link-title-hover', 'text');                 | var(--o3-color-palette-black-70)  | var(--o3-color-palette-slate-white-15) |
+| oColorsByUsecase('title', 'text');                            | var(--o3-color-palette-black)     | var(--o3-color-palette-slate)          |
+| oColorsByUsecase('tag-link', 'text');                         | var(--o3-color-palette-claret)    | n/a                                    |
+| oColorsByUsecase('tag-link-hover', 'text');                   | var(--o3-color-palette-claret-30) | n/a                                    |
+| oColorsByUsecase('opinion-tag-link', 'text');                 | var(--o3-color-palette-oxford)    | n/a                                    |
+| oColorsByUsecase('opinion-tag-link-hover', 'text');           | var(--o3-color-palette-oxford-30) | n/a                                    |
+| oColorsByUsecase('opinion', 'background');                    | var(--o3-color-palette-sky)       | n/a                                    |
+| oColorsByUsecase('hero', 'background');                       | var(--o3-color-palette-wheat)     | n/a                                    |
+| oColorsByUsecase('hero-opinion', 'background');               | var(--o3-color-palette-oxford)    | n/a                                    |
+| oColorsByUsecase('hero-highlight', 'background');             | var(--o3-color-palette-claret)    | n/a                                    |
+| oColorsByUsecase('section-life-arts', \[any-property\]);      | var(--o3-color-palette-velvet)    | n/a                                    |
+| oColorsByUsecase('section-life-arts-alt', \[any-property\]);  | var(--o3-color-palette-candy)     | n/a                                    |
+| oColorsByUsecase('section-magazine', \[any-property\]);       | var(--o3-color-palette-oxford)    | n/a                                    |
+| oColorsByUsecase('section-magazine-alt', \[any-property\]);   | var(--o3-color-palette-sky)       | n/a                                    |
+| oColorsByUsecase('section-house-home', \[any-property\]);     | var(--o3-color-palette-jade)      | n/a                                    |
+| oColorsByUsecase('section-house-home-alt', \[any-property\]); | var(--o3-color-palette-wasabi)    | n/a                                    |
+| oColorsByUsecase('section-money', \[any-property\]);          | var(--o3-color-palette-crimson)   | n/a                                    |
+| oColorsByUsecase('section-money-alt', \[any-property\]);      | var(--o3-color-palette-white)     | n/a                                    |
+
+See our [colour design guidelines](https://origami-for-everyone.ft.com/guides/colours/) for a full list of supported colour usecases for your brand. Please contact the Origami team should you find a missing use-case, or would like to propose another.
+
 E.g:
 
 ```diff
@@ -115,42 +159,6 @@ E.g:
 -outline-color: oColorsByUsecase($usecase: 'focus', $background: 'outline');
 +outline-color: var(--o3-color-use-case-focus-outline-standard);
 ```
-
-| o-colors CSS Custom Property                        | o3-web-token CSS Custom Property            |
-| --------------------------------------------------- | ------------------------------------------- |
-| oColorsByUsecase('focus', 'outline');               | --o3-color-use-case-focus-outline-standard  |
-| oColorsByUsecase('page', 'background');             | --o3-color-use-case-page-background         |
-| oColorsByUsecase('page-inverse', 'background');     | --o3-color-use-case-page-inverse-background |
-| oColorsByUsecase('box', 'background');              | @todo                                       |
-| oColorsByUsecase('link', 'text');                   | --o3-color-use-case-link-text               |
-| oColorsByUsecase('link-hover', 'text');             | --o3-color-use-case-link-text-hover         |
-| oColorsByUsecase('link-title', 'text');             | @todo                                       |
-| oColorsByUsecase('link-title-hover', 'text');       | @todo                                       |
-| oColorsByUsecase('tag-link', 'text');               | @todo                                       |
-| oColorsByUsecase('tag-link-hover', 'text');         | @todo                                       |
-| oColorsByUsecase('opinion-tag-link', 'text');       | @todo                                       |
-| oColorsByUsecase('opinion-tag-link-hover', 'text'); | @todo                                       |
-| oColorsByUsecase('title', 'text');                  | @todo                                       |
-| oColorsByUsecase('body', 'text');                   | --o3-color-use-case-body-text               |
-| oColorsByUsecase('body-inverse', 'text');           | --o3-color-use-case-body-inverse-text       |
-| oColorsByUsecase('muted', 'text');                  | @todo                                       |
-| oColorsByUsecase('opinion', 'background');          | @todo                                       |
-| oColorsByUsecase('hero', 'background');             | @todo                                       |
-| oColorsByUsecase('hero-opinion', 'background');     | @todo                                       |
-| oColorsByUsecase('hero-highlight', 'background');   | @todo                                       |
-
-The following usecases have been deleted and have no direct replacement. If your project still uses one of these, we recommend consulting the design team on an alternative or using a colour from our palette directly (see our [colour design guidelines](https://origami-for-everyone.ft.com/guides/colours/)).
-
-- section-life-arts (text, background, border, outline)
-- section-life-arts-alt (text, background, border, outline)
-- section-magazine (text, background, border, outline)
-- section-magazine-alt (text, background, border, outline)
-- section-house-home (text, background, border, outline)
-- section-house-home-alt (text, background, border, outline)
-- section-money (text, background, border, outline)
-- section-money-alt (text, background, border, outline)
-
-See our [colour design guidelines](https://origami-for-everyone.ft.com/guides/colours/) for a full list of supported colour usecases for your brand. Please contact the Origami team should you find a missing usecase, or would like to propose another.
 
 ##### `oColorsGetTone`
 
