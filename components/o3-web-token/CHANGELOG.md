@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.5.0...o3-web-token-v0.5.1) (2024-03-08)
+
+
+### Bug Fixes
+
+* Add colour usecases for muted text. ([7ac6e57](https://github.com/Financial-Times/origami/commit/7ac6e57e5e5f7be4fb78ffc99726872a765a0eac))
+
 ## [0.5.0](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.4.0...o3-web-token-v0.5.0) (2024-03-07)
 
 
