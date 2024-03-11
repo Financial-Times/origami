@@ -276,34 +276,45 @@ export function getBasePath() {
 	return basePath;
 }
 
+function isSetBelongsToSubBrand(theme, tokenSet) {
+	return (
+		isSubBrand(theme) && tokenSet.startsWith(tokenStudioThemeToBrand(theme))
+	);
+}
+
+export function isSubBrand(theme) {
+	return theme.group !== theme.name;
+}
+
 function tokenStudioThemeToBrand(theme) {
-	if (theme.group != theme.name) {
-		return `${theme.group}/${theme.name}`;
-	}
-	return theme.group;
+	return isSubBrand(theme) ? `${theme.group}/${theme.name}` : theme.group;
 }
 
 export function getBrandSources(brand) {
+	return getTokenStudioThemes()
+		.filter(theme => tokenStudioThemeToBrand(theme) === brand)
+		.flatMap(theme => {
+			const selectedTokenSets = Object.keys(theme.selectedTokenSets);
+			const componentTokenSets = selectedTokenSets.filter(tokenSet => {
+				return (
+					theme.selectedTokenSets[tokenSet] === 'enabled' &&
+					isSetBelongsToSubBrand(theme, tokenSet)
+				);
+			});
+
+			return componentTokenSets.map(tokenSet =>
+				path.join(basePath, `tokens/${tokenSet}.json`)
+			);
+		});
+}
+
+export const getBrandIncludes = brand => {
 	return getTokenStudioThemes().flatMap(theme => {
 		const selectedTokenSets = Object.keys(theme.selectedTokenSets);
 		const componentTokenSets = selectedTokenSets.filter(
 			tokenSet =>
 				theme.selectedTokenSets[tokenSet] === 'enabled' &&
-				tokenStudioThemeToBrand(theme) === brand
-		);
-		return componentTokenSets.map(tokenSet =>
-			path.join(basePath, `tokens/${tokenSet}.json`)
-		);
-	});
-}
-
-export const getComponentTokens = brand => {
-	return getTokenStudioThemes().flatMap(theme => {
-		const selectedTokenSets = Object.keys(theme.selectedTokenSets);
-		const componentTokenSets = selectedTokenSets.filter(
-			tokenSet =>
-				theme.selectedTokenSets[tokenSet] === 'source' &&
-				tokenStudioThemeToBrand(theme) === brand
+				!isSetBelongsToSubBrand(theme, tokenSet)
 		);
 
 		return componentTokenSets.map(tokenSet =>
