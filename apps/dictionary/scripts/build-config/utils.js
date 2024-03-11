@@ -135,6 +135,7 @@ StyleDictionaryPackage.registerTransform({
 /**
  * @typedef {Object} CssBuildConfig - Configuration for building CSS from Token Studio design tokens.
  * @property {string[]} sources - The design token files to include.
+ * @property {string[]|undefined} includes - The component design token files to include.
  * @property {string} destination - The output file path.
  * @property {TokenFilter|undefined} [tokenFilter] - A function to filter tokens to include.
  * @property {string|undefined} [parentSelector] - A parent CSS selector for generated CSS.
@@ -144,9 +145,16 @@ StyleDictionaryPackage.registerTransform({
  * @param {CssBuildConfig} CssBuildConfig - A string param.
  * @returns {undefined}
  */
-export function buildCSS({sources, destination, tokenFilter, parentSelector}) {
+export function buildCSS({
+	sources,
+	includes,
+	destination,
+	tokenFilter,
+	parentSelector,
+}) {
 	const config = {
 		source: sources,
+		include: includes,
 		platforms: {
 			css: {
 				transformGroup: 'css',
@@ -288,6 +296,21 @@ export function getBrandSources(brand) {
 		);
 	});
 }
+
+export const getComponentTokens = brand => {
+	return getTokenStudioThemes().flatMap(theme => {
+		const selectedTokenSets = Object.keys(theme.selectedTokenSets);
+		const componentTokenSets = selectedTokenSets.filter(
+			tokenSet =>
+				theme.selectedTokenSets[tokenSet] === 'source' &&
+				tokenStudioThemeToBrand(theme) === brand
+		);
+
+		return componentTokenSets.map(tokenSet =>
+			path.join(basePath, `tokens/${tokenSet}.json`)
+		);
+	});
+};
 
 export function tokenIsSource(token) {
 	return token.isSource ? true : false;
