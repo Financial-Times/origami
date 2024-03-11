@@ -13,7 +13,8 @@ const basePath = path.join(__dirname, '../../');
 StyleDictionaryPackage.registerTransform({
 	name: 'name/origamiPrivatePrefix',
 	type: 'name',
-	transformer: token => (tokenIsSource(token) ? token.name : `_${token.name}`),
+	transformer: (token, options) =>
+		isTokenStudioSource(token) ? `_${token.name}` : token.name,
 });
 
 registerTransforms(StyleDictionaryPackage, {
@@ -245,7 +246,7 @@ export function buildMeta({sources, destination}) {
 							) {
 								return false;
 							}
-							return tokenIsSource(token);
+							return isTokenStudioSource(token);
 						},
 						destination: path.basename(destination),
 						format: 'tooling/esm',
@@ -262,10 +263,16 @@ export function buildMeta({sources, destination}) {
 	StyleDictionary.buildAllPlatforms();
 }
 
+let tokenStudioThemes;
+
 function getTokenStudioThemes() {
+	if (tokenStudioThemes) {
+		return tokenStudioThemes;
+	}
 	const loadJSON = path =>
 		JSON.parse(fs.readFileSync(new URL(path, import.meta.url)).toString());
-	return loadJSON('../../tokens/$themes.json');
+	tokenStudioThemes = loadJSON('../../tokens/$themes.json');
+	return tokenStudioThemes;
 }
 
 export function getBrandNames() {
@@ -290,6 +297,13 @@ function tokenStudioThemeToBrand(theme) {
 	return isSubBrand(theme) ? `${theme.group}/${theme.name}` : theme.group;
 }
 
+function isEnabledTokenStudioSet(theme, tokenSet) {
+	return (
+		theme.selectedTokenSets[tokenSet] === 'enabled' ||
+		theme.selectedTokenSets[tokenSet] === 'source'
+	);
+}
+
 export function getBrandSources(brand) {
 	return getTokenStudioThemes()
 		.filter(theme => tokenStudioThemeToBrand(theme) === brand)
@@ -297,7 +311,7 @@ export function getBrandSources(brand) {
 			const selectedTokenSets = Object.keys(theme.selectedTokenSets);
 			const componentTokenSets = selectedTokenSets.filter(tokenSet => {
 				return (
-					theme.selectedTokenSets[tokenSet] === 'enabled' &&
+					isEnabledTokenStudioSet(theme, tokenSet) &&
 					isSetBelongsToSubBrand(theme, tokenSet)
 				);
 			});
@@ -309,20 +323,50 @@ export function getBrandSources(brand) {
 }
 
 export const getBrandIncludes = brand => {
-	return getTokenStudioThemes().flatMap(theme => {
-		const selectedTokenSets = Object.keys(theme.selectedTokenSets);
-		const componentTokenSets = selectedTokenSets.filter(
-			tokenSet =>
-				theme.selectedTokenSets[tokenSet] === 'enabled' &&
-				!isSetBelongsToSubBrand(theme, tokenSet)
-		);
+	return getTokenStudioThemes()
+		.filter(theme => tokenStudioThemeToBrand(theme) === brand)
+		.flatMap(theme => {
+			const selectedTokenSets = Object.keys(theme.selectedTokenSets);
+			const componentTokenSets = selectedTokenSets.filter(
+				tokenSet =>
+					isEnabledTokenStudioSet(theme, tokenSet) &&
+					!isSetBelongsToSubBrand(theme, tokenSet)
+			);
 
-		return componentTokenSets.map(tokenSet =>
-			path.join(basePath, `tokens/${tokenSet}.json`)
-		);
-	});
+			return componentTokenSets.map(tokenSet =>
+				path.join(basePath, `tokens/${tokenSet}.json`)
+			);
+		});
 };
 
-export function tokenIsSource(token) {
-	return token.isSource ? true : false;
+/*Get token theme from brand in token set file path.*/
+function getTokensStudioThemeFromBrand(tokenSet) {
+	const tokenSetPaths = tokenSet.split('/').slice(0, 2);
+	const subBrandKey = tokenSetPaths.join('/');
+	const brandKey = tokenSetPaths[0];
+
+	//Use sub brand key to find if it exists in tokens studios' theme object.
+	const subTheme = tokenStudioThemes.find(
+		theme => tokenStudioThemeToBrand(theme) === subBrandKey
+	);
+
+	if (!subTheme) {
+		//If there is no sub brand, then search for brand instead
+		return tokenStudioThemes.find(
+			theme => tokenStudioThemeToBrand(theme) === brandKey
+		);
+	}
+	return subTheme;
+}
+
+export function isTokenStudioSource(token) {
+	const {filePath} = token;
+	const tokenSet = filePath
+		.replace(`${process.cwd()}/tokens`, '')
+		.replace(/^\//, '')
+		.replace('.json', '');
+
+	const theme = getTokensStudioThemeFromBrand(tokenSet);
+
+	return theme.selectedTokenSets[tokenSet] === 'source';
 }
