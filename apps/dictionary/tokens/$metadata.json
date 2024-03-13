@@ -9,6 +9,8 @@
     "core/use-case/typography",
     "core/components/o3-button",
     "core/components/o3-tooltip",
+    "whitelabel/components/o3-tooltip",
+    "whitelabel/components/o3-button",
     "core/professional/base/color",
     "core/professional/use-case/color",
     "core/professional/components/o3-button",
@@ -34,11 +36,7 @@
     "whitelabel/use-case/box-shadow",
     "whitelabel/use-case/color",
     "whitelabel/use-case/typography",
-    "whitelabel/components/o3-button",
-    "whitelabel/components/o3-toggle",
-    "whitelabel/components/o3-tooltip1",
     "utility-tokens",
-    "icons/icons",
-    "whitelabel/component/toggle"
+    "icons/icons"
   ]
 }

@@ -473,6 +473,36 @@ export default {
 		"css": "--o3-color-use-case-body-inverse-text",
 		"figma": "o3/color/use-case/body-inverse/text"
 },
+	"o3-color-use-case-muted-text": {
+		"shortName": "text",
+		"value": "#ccc",
+		"originalValue": "{o3.color.palette.black-20}",
+		"type": "color",
+		"description": "\"Muted\" text is less prominent, for example credits and captions.",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"muted",
+				"text"
+		],
+		"css": "--o3-color-use-case-muted-text",
+		"figma": "o3/color/use-case/muted/text"
+},
+	"o3-color-use-case-muted-inverse": {
+		"shortName": "muted-inverse",
+		"value": "#808080",
+		"originalValue": "#808080",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"muted-inverse"
+		],
+		"css": "--o3-color-use-case-muted-inverse",
+		"figma": "o3/color/use-case/muted-inverse"
+},
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
 		"value": "0.25rem",
@@ -714,16 +744,5 @@ export default {
 		],
 		"css": "--o3-box-shadow-focus-ring-inverse-outer",
 		"figma": "o3/box-shadow/focus-ring/inverse/outer"
-},
-	"o3-toggle-primary-standard-background-color": {
-		"shortName": "o3-toggle-primary-standard-background-color",
-		"value": "#4d4d4d",
-		"originalValue": "{o3.color.palette.black-70}",
-		"type": "color",
-		"path": [
-				"o3-toggle-primary-standard-background-color"
-		],
-		"css": "--o3-toggle-primary-standard-background-color",
-		"figma": "o3-toggle-primary-standard-background-color"
 }
 };
