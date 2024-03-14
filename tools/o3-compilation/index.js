@@ -13,7 +13,7 @@ esbuild.build({
 })
 
 const sharedConfig = {
-	target: 'es2019',
+	target: 'es2021',
 	splitting: false,
 	bundle: false,
 	clean: true,

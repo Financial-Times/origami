@@ -5,7 +5,7 @@
 		"jsx": "react-jsx",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"target": "ES2019",
+		"target": "ES2021",
 		"module": "ES2020",
 		"moduleResolution": "Bundler",
 	},
