@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/Financial-Times/origami/compare/o3-tooltip-v0.1.0...o3-tooltip-v0.1.1) (2024-03-14)
+
+
+### Bug Fixes
+
+* Support JSX for commonjs and node10 module resolution ([1d06f85](https://github.com/Financial-Times/origami/commit/1d06f858528bd8d6eac83dd294251a1573b7188d))
+
 ## [0.1.0](https://github.com/Financial-Times/origami/compare/o3-tooltip-v0.0.1...o3-tooltip-v0.1.0) (2024-03-07)
 
 
