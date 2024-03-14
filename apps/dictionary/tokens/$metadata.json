@@ -32,7 +32,7 @@
     "whitelabel/base/border-radius",
     "whitelabel/base/typography",
     "whitelabel/use-case/box-shadow",
-    "whitelabel/use-case/colour",
+    "whitelabel/use-case/color",
     "whitelabel/use-case/typography",
     "whitelabel/components/o3-button",
     "whitelabel/components/o3-toggle",

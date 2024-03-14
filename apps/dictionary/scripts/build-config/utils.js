@@ -13,7 +13,8 @@ const basePath = path.join(__dirname, '../../');
 StyleDictionaryPackage.registerTransform({
 	name: 'name/origamiPrivatePrefix',
 	type: 'name',
-	transformer: token => (tokenIsSource(token) ? token.name : `_${token.name}`),
+	transformer: (token, options) =>
+		isTokenStudioSource(token) ? `_${token.name}` : token.name,
 });
 
 registerTransforms(StyleDictionaryPackage, {
@@ -135,6 +136,7 @@ StyleDictionaryPackage.registerTransform({
 /**
  * @typedef {Object} CssBuildConfig - Configuration for building CSS from Token Studio design tokens.
  * @property {string[]} sources - The design token files to include.
+ * @property {string[]|undefined} includes - The component design token files to include.
  * @property {string} destination - The output file path.
  * @property {TokenFilter|undefined} [tokenFilter] - A function to filter tokens to include.
  * @property {string|undefined} [parentSelector] - A parent CSS selector for generated CSS.
@@ -144,9 +146,16 @@ StyleDictionaryPackage.registerTransform({
  * @param {CssBuildConfig} CssBuildConfig - A string param.
  * @returns {undefined}
  */
-export function buildCSS({sources, destination, tokenFilter, parentSelector}) {
+export function buildCSS({
+	sources,
+	includes,
+	destination,
+	tokenFilter,
+	parentSelector,
+}) {
 	const config = {
 		source: sources,
+		include: includes,
 		platforms: {
 			css: {
 				transformGroup: 'css',
@@ -237,7 +246,7 @@ export function buildMeta({sources, destination}) {
 							) {
 								return false;
 							}
-							return tokenIsSource(token);
+							return isTokenStudioSource(token);
 						},
 						destination: path.basename(destination),
 						format: 'tooling/esm',
@@ -254,10 +263,16 @@ export function buildMeta({sources, destination}) {
 	StyleDictionary.buildAllPlatforms();
 }
 
+let tokenStudioThemes;
+
 function getTokenStudioThemes() {
+	if (tokenStudioThemes) {
+		return tokenStudioThemes;
+	}
 	const loadJSON = path =>
 		JSON.parse(fs.readFileSync(new URL(path, import.meta.url)).toString());
-	return loadJSON('../../tokens/$themes.json');
+	tokenStudioThemes = loadJSON('../../tokens/$themes.json');
+	return tokenStudioThemes;
 }
 
 export function getBrandNames() {
@@ -268,27 +283,90 @@ export function getBasePath() {
 	return basePath;
 }
 
+function isSetBelongsToSubBrand(theme, tokenSet) {
+	return (
+		isSubBrand(theme) && tokenSet.startsWith(tokenStudioThemeToBrand(theme))
+	);
+}
+
+export function isSubBrand(theme) {
+	return theme.group !== theme.name;
+}
+
 function tokenStudioThemeToBrand(theme) {
-	if (theme.group != theme.name) {
-		return `${theme.group}/${theme.name}`;
-	}
-	return theme.group;
+	return isSubBrand(theme) ? `${theme.group}/${theme.name}` : theme.group;
+}
+
+function isEnabledTokenStudioSet(theme, tokenSet) {
+	return (
+		theme.selectedTokenSets[tokenSet] === 'enabled' ||
+		theme.selectedTokenSets[tokenSet] === 'source'
+	);
 }
 
 export function getBrandSources(brand) {
-	return getTokenStudioThemes().flatMap(theme => {
-		const selectedTokenSets = Object.keys(theme.selectedTokenSets);
-		const componentTokenSets = selectedTokenSets.filter(
-			tokenSet =>
-				theme.selectedTokenSets[tokenSet] === 'enabled' &&
-				tokenStudioThemeToBrand(theme) === brand
-		);
-		return componentTokenSets.map(tokenSet =>
-			path.join(basePath, `tokens/${tokenSet}.json`)
-		);
-	});
+	return getTokenStudioThemes()
+		.filter(theme => tokenStudioThemeToBrand(theme) === brand)
+		.flatMap(theme => {
+			const selectedTokenSets = Object.keys(theme.selectedTokenSets);
+			const componentTokenSets = selectedTokenSets.filter(tokenSet => {
+				return (
+					isEnabledTokenStudioSet(theme, tokenSet) &&
+					isSetBelongsToSubBrand(theme, tokenSet)
+				);
+			});
+
+			return componentTokenSets.map(tokenSet =>
+				path.join(basePath, `tokens/${tokenSet}.json`)
+			);
+		});
 }
 
-export function tokenIsSource(token) {
-	return token.isSource ? true : false;
+export const getBrandIncludes = brand => {
+	return getTokenStudioThemes()
+		.filter(theme => tokenStudioThemeToBrand(theme) === brand)
+		.flatMap(theme => {
+			const selectedTokenSets = Object.keys(theme.selectedTokenSets);
+			const componentTokenSets = selectedTokenSets.filter(
+				tokenSet =>
+					isEnabledTokenStudioSet(theme, tokenSet) &&
+					!isSetBelongsToSubBrand(theme, tokenSet)
+			);
+
+			return componentTokenSets.map(tokenSet =>
+				path.join(basePath, `tokens/${tokenSet}.json`)
+			);
+		});
+};
+
+/*Get token theme from brand in token set file path.*/
+function getTokensStudioThemeFromBrand(tokenSet) {
+	const tokenSetPaths = tokenSet.split('/').slice(0, 2);
+	const subBrandKey = tokenSetPaths.join('/');
+	const brandKey = tokenSetPaths[0];
+
+	//Use sub brand key to find if it exists in tokens studios' theme object.
+	const subTheme = tokenStudioThemes.find(
+		theme => tokenStudioThemeToBrand(theme) === subBrandKey
+	);
+
+	if (!subTheme) {
+		//If there is no sub brand, then search for brand instead
+		return tokenStudioThemes.find(
+			theme => tokenStudioThemeToBrand(theme) === brandKey
+		);
+	}
+	return subTheme;
+}
+
+export function isTokenStudioSource(token) {
+	const {filePath} = token;
+	const tokenSet = filePath
+		.replace(`${process.cwd()}/tokens`, '')
+		.replace(/^\//, '')
+		.replace('.json', '');
+
+	const theme = getTokensStudioThemeFromBrand(tokenSet);
+
+	return theme.selectedTokenSets[tokenSet] === 'source';
 }

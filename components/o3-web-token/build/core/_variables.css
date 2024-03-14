@@ -80,6 +80,8 @@
   --o3-color-use-case-focus-outline-interactive-outer: var(--o3-color-palette-black-70);
   --o3-color-use-case-body-text: var(--o3-color-palette-black-80);
   --o3-color-use-case-body-inverse-text: var(--o3-color-palette-white);
+  --o3-color-use-case-muted-text: var(--o3-color-palette-black-20); /* "Muted" text is less prominent, for example credits and captions. */
+  --o3-color-use-case-muted-inverse: #a8aaad;
   --o3-spacing-5xs: 0.25rem;
   --o3-spacing-4xs: 0.5rem;
   --o3-spacing-3xs: 0.75rem;

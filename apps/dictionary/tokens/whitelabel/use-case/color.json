@@ -5,22 +5,22 @@
         "link": {
           "text": {
             "@": {
-              "value": "{o3.color.palette.teal}",
+              "value": "{o3.color.palette.black-50}",
               "type": "color",
               "description": ""
             },
             "hover": {
-              "value": "{o3.color.palette.teal-30}",
+              "value": "{o3.color.palette.black-60}",
               "type": "color"
             }
           },
           "underline": {
             "@": {
-              "value": "#CFD8D1",
+              "value": "{o3.color.palette.black-30}",
               "type": "color"
             },
             "hover": {
-              "value": "#9EC0BD",
+              "value": "{o3.color.palette.black-70}",
               "type": "color"
             }
           }
@@ -32,27 +32,37 @@
               "type": "color"
             },
             "hover": {
-              "value": "CCCCC",
+              "value": "{o3.color.palette.black-20}",
+              "type": "color"
+            }
+          },
+          "underline": {
+            "@": {
+              "value": "{o3.color.palette.white}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{o3.color.palette.black-20}",
               "type": "color"
             }
           }
         },
         "page": {
           "background": {
-            "value": "{o3.color.palette.paper}",
+            "value": "{o3.color.palette.white}",
             "type": "color"
           }
         },
         "page-inverse": {
           "background": {
-            "value": "{o3.color.palette.slate}",
+            "value": "{o3.color.palette.black-80}",
             "type": "color"
           }
         },
         "focus": {
           "outline": {
             "standard": {
-              "value": "{o3.color.palette.black-50}",
+              "value": "{o3.color.palette.black}",
               "type": "color"
             },
             "interactive-inner": {
@@ -86,7 +96,7 @@
           }
         },
         "muted-inverse": {
-          "value": "#a8aaad",
+          "value": "#808080",
           "type": "color",
           "$extensions": {}
         }
