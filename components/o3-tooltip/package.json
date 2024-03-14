@@ -38,9 +38,6 @@
 	"scripts": {
 		"build": "bash ../../scripts/component/build-o3.bash o3-tooltip"
 	},
-	"devDependencies": {
-		"@financial-times/o3-button": "^0.4.4"
-	},
 	"peerDependencies": {
 		"@financial-times/o3-web-token": "^0.5.0"
 	},

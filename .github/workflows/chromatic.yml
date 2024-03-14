@@ -2,7 +2,7 @@ name: 'Chromatic'
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, OR-595-fix-sb-deployement ]
     paths:
       - "package.json"
       - "package-lock.json"

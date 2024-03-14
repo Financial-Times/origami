@@ -5,7 +5,7 @@ import {
 	ToggleToolTip as ToggleToolTipStory,
 } from '../story-template';
 import '../../src/css/brands/sustainable-views.css';
-import "@financial-times/o3-button/css/sustainable-views.css"
+import "../../../o3-button/src/css/brands/sustainable-views.css"
 
 export default {
 	title: 'Sustainable Views/o3-tooltip',
