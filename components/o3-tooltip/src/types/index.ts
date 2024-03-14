@@ -4,7 +4,7 @@ export type TooltipProps = {
 	placement: 'top' | 'right' | 'bottom' | 'left';
 };
 
-export interface OnboardingToolTipProps extends TooltipProps {
+export interface OnboardingToolTipProps extends Omit<TooltipProps, 'placement'> {
 	contentId: string;
 	targetId: string;
 	placement:

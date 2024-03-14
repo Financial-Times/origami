@@ -14,15 +14,16 @@ esbuild.build({
 
 const sharedConfig = {
 	target: 'es2019',
-	format: ['cjs', 'esm'],
 	splitting: false,
 	bundle: false,
+	clean: true,
 	dts: true,
 }
 
 if (existsSync('src/tsx')) {
 	await build({
 		...sharedConfig,
+		format: ['cjs', 'esm'],
 		outDir: 'build/jsx',
 		entry: ['./src/tsx/*.ts(x)?'],
 	})
@@ -31,7 +32,9 @@ if (existsSync('src/tsx')) {
 if (existsSync('src/ts')) {
 	await build({
 		...sharedConfig,
+		format: ['esm'],
 		outDir: 'build/js',
-		entry: ['./src/ts/*.ts'],
+		entry: ['./src/ts/index.ts'],
+		bundle: true,
 	})
 }
