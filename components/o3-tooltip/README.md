@@ -62,10 +62,10 @@ Below are examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-togg
 
 ## JavaScript
 
-No code will run automatically unless you import the JavaScript. To import the JavaScript, you can use the following code:
+No code will run automatically unless you import the JavaScript on client side. To import the JavaScript, you can use the following code:
 
 ```javascript
-import o3Tooltip from '@financial-times/o3-tooltip';
+import '@financial-times/o3-tooltip';
 ```
 
 ## css
@@ -84,11 +84,10 @@ To style `o3-tooltip` import brand specific css, this varies depending on your p
 import {
  TooltipOnboarding,
  TooltipToggle,
-} from '@financial-times/o3-tooltip/jsx';
+} from '@financial-times/o3-tooltip';
 
-import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom elements
+import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom elements on client side
 
-import '@financial-times/o3-web-token/[your brand].css'; // brand styling
 import '@finacial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
 
 <div className="o3-brand-[your brand]">

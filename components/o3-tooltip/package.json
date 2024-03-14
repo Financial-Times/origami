@@ -16,30 +16,27 @@
 		"email": "origami.support@ft.com"
 	},
 	"license": "MIT",
-	"type": "module",
-	"browser": "build/js/index.js",
-	"main": "build/js/index.js",
+	"types": "./build/jsx/index.d.ts",
+	"browser": "./build/js/index.mjs",
+	"main": "./build/jsx/index.js",
+	"module": "./build/jsx/index.mjs",
 	"files": [
 		"build",
 		"origami.json"
 	],
 	"exports": {
 		".": {
-			"types": "./build/types/index.d.ts",
-			"import": "./build/js/index.js"
+			"types": "./build/jsx/index.d.ts",
+			"browser": "./build/js/index.mjs",
+			"import": "./build/jsx/index.mjs",
+			"require": "./build/jsx/index.js",
+			"default": "./build/jsx/index.js"
 		},
-		"./jsx": {
-			"types": "./build/types/index.d.ts",
-			"import": "./build/jsx/index.js"
-		},
-		"./css/*": "./build/css/src/css/brands/*",
+		"./css/*.css": "./build/css/src/css/brands/*.css",
 		"./package.json": "./package.json"
 	},
-	"types": "./build/types/index.d.ts",
 	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-tooltip && npm run build:ts && npm run build:tsx",
-		"build:tsx": "tsc --project tsconfig.tsx.json",
-		"build:ts": "tsc --project tsconfig.ts.json"
+		"build": "bash ../../scripts/component/build-o3.bash o3-tooltip"
 	},
 	"devDependencies": {
 		"@financial-times/o3-button": "^0.4.4"
