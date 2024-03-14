@@ -26,6 +26,7 @@
 	],
 	"exports": {
 		".": {
+			"browser": "./build/js/index.mjs",
 			"types": "./build/jsx/index.d.ts",
 			"import": "./build/jsx/index.mjs",
 			"require": "./build/jsx/index.js",
