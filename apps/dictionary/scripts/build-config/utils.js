@@ -368,5 +368,5 @@ export function isTokenStudioSource(token) {
 
 	const theme = getTokensStudioThemeFromBrand(tokenSet);
 
-	return theme.selectedTokenSets[tokenSet] === 'source';
+	return theme ? theme.selectedTokenSets[tokenSet] === 'source' : false;
 }
