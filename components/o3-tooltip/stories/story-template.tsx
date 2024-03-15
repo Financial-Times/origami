@@ -4,14 +4,16 @@ import type {OnboardingToolTipProps, ToggleToolTipProps} from '../src/types';
 import {TooltipOnboarding as OnboardingTooltipTsx} from '../src/tsx';
 import {TooltipToggle as ToggleTooltipTsx} from '../src/tsx';
 import {TemplateSBConfig} from './sb-story-config';
-// import {Button} from '../../o3-button/src/tsx/button';
+import {Button} from '../../o3-button/src/tsx/button';
 
 import '../src/ts/index';
 
 import './demo.css';
 
 // disable HMR(hot module replacement) for web-component file
-import.meta.webpackHot.decline('../src/ts/index');
+if (import.meta.webpackHot) {
+	import.meta.webpackHot.decline('../src/ts/index');
+}
 
 type OnBoardingTooltipStory = Omit<StoryObj, 'args'> & {
 	args: OnboardingToolTipProps;
@@ -34,20 +36,14 @@ const OnboardingTemplateStory: TemplateType = {
 					<p>Refresh to view bounce animation</p>
 				</div>
 				<div id="component-wrapper">
-					{/* <Button
+					<Button
 						label="Share"
 						type="secondary"
 						attributes={{
 							id: 'demo-o3-tooltip-id',
 							'aria-describedby': 'o3-tooltip-content',
 						}}
-					/> */}
-					<button
-						id="demo-o3-tooltip-id"
-						className="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
-						aria-describedby="o3-tooltip-content">
-						Share
-					</button>
+					/>
 					<OnboardingTooltipTsx {...args} />
 				</div>
 			</div>
