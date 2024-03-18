@@ -14,6 +14,7 @@
 			// height *needs* setting so we can hide scrollbars.
 			// This is the content height of .o-header__subnav-content
 			height: $_o-header-subnav-height-base;
+
 			@include oGridRespondTo('M') {
 				height: $_o-header-subnav-height-medium;
 			}
@@ -52,17 +53,21 @@
 		// to avoid positioning subnavs relative. This is so absolute children of the subnav are
 		// positioned relative to their closest positioned ancestor `o-header__container`.
 		// An example benefit is o-tooltip support against sub nav items.
-		& + &:not(.o-header__subnav-list--right) .o-header__subnav-item {
+		&+&:not(.o-header__subnav-list--right) .o-header__subnav-item {
 			&:first-child {
 				@include _oHeaderItemSeparatorContent();
-				&:before {
-					top: 50%;
-					margin-top: - $_o-header-subnav-height-base * div($_o-header-item-separator-percentage-height, 2);
-					height: $_o-header-subnav-height-base * $_o-header-item-separator-percentage-height;
-					@include oGridRespondTo('M') { // stylelint-disable-line max-nesting-depth
-						margin-top: - $_o-header-subnav-height-medium * div($_o-header-item-separator-percentage-height, 2);
-						height: $_o-header-subnav-height-medium * $_o-header-item-separator-percentage-height;
-					}
+
+			}
+
+			&:first-child:before {
+				top: 50%;
+				margin-top: - $_o-header-subnav-height-base * div($_o-header-item-separator-percentage-height, 2);
+				height: $_o-header-subnav-height-base * $_o-header-item-separator-percentage-height;
+
+				@include oGridRespondTo('M') {
+					// stylelint-disable-line max-nesting-depth
+					margin-top: - $_o-header-subnav-height-medium * div($_o-header-item-separator-percentage-height, 2);
+					height: $_o-header-subnav-height-medium * $_o-header-item-separator-percentage-height;
 				}
 			}
 		}
@@ -72,6 +77,10 @@
 		position: relative;
 		display: inline-block;
 		padding-left: 8px;
+
+		&:first-child {
+			padding-left: 0;
+		}
 
 		.o-header__subnav-list--children & {
 			padding-left: 16px;
@@ -109,6 +118,7 @@
 		color: _oHeaderGet('subnav-link');
 		display: inline-block;
 		padding: 12px 0;
+
 		@include oGridRespondTo('M') {
 			padding: 8px 0;
 		}
@@ -123,6 +133,7 @@
 	.o-header__subnav-link--right {
 		float: right;
 		display: none;
+
 		@include oGridRespondTo('M') {
 			display: block;
 		}

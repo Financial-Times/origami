@@ -192,7 +192,7 @@ To create a select input use a [single input](#single-input-fields) field struct
 
 #### Other single inputs
 
-For text-like input types where `o-forms` does not provide a specific modifier class the `o-forms-input--text` modifier may be used. [_See more example in the Origami Registry._](https://registry.origami.ft.com/components/o-forms#text-input)
+For text-like input types where `o-forms` does not provide a specific modifier class the `o-forms-input--text` modifier may be used. [_See more examples in the Origami Storybook._](https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-core_components-o-forms-text-box--optional-text&globals=backgrounds:!undefined)
 
 E.g. to create an email input use a [single input](#single-input-fields) field structure, with an `o-forms-input--text` modifier class on the `o-forms-input` element and an input type of `type="email"`.
 
@@ -293,7 +293,7 @@ Round radio inputs support 3 themes.
 - **professional-inverse**: For round radios with the inverse FT Professional theme, set `o-forms-field--professional-inverse` on the field element.
 - **ft-live**: For round radios with the FT Live theme, add `o-forms-field--ft-live` on the field element.
 
-[_See radio buttons in the registry_](https://registry.origami.ft.com/components/o-forms#demo-round-styled-radio-inputs)
+[_See radio buttons in Storybook_](https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-core_components-o-forms-radio-buttons--radio-button&globals=backgrounds:!undefined)
 
 ##### Box radio inputs
 
@@ -544,7 +544,7 @@ Add the `o-forms-field--optional` class to indicate that a field is optional. Fo
 
 ### Suffix
 
-To inline an element, such as a button, after an input add the class `o-forms-input--suffix` on the `o-forms-input` element. For example to inline a button with a text input using [o-buttons](https://registry.origami.ft.com/components/o-buttons):
+To inline an element, such as a button, after an input add the class `o-forms-input--suffix` on the `o-forms-input` element. For example to inline a button with a text input using [o-buttons](https://main--655f72ec522e424302dc6201.chromatic.com/?path=/docs/o2-core_components-o-buttons-readme--docs&globals=backgrounds:!undefined):
 
 ```diff
 <label for="text-example" class="o-forms-field">

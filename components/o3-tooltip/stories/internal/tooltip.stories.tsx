@@ -5,7 +5,7 @@ import {
 	ToggleToolTip as ToggleToolTipStory,
 } from '../story-template';
 import '../../src/css/brands/internal.css';
-import "@financial-times/o3-button/css/internal.css"
+import "../../../o3-button/src/css/brands/internal.css"
 
 export default {
 	title: 'Internal/o3-tooltip',
