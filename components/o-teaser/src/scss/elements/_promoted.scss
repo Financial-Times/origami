@@ -4,7 +4,7 @@
 	.o-teaser__meta {
 		@include oTypographySans($scale: -1, $weight: 'semibold');
 		color: $_o-teaser-muted;
-		margin-bottom: oSpacingByName('s2');
+		margin-bottom: oSpacingByName('s3');
 	}
 
 	.o-teaser__promoted-prefix {
