@@ -1,6 +1,6 @@
 import type {StoryObj} from '@storybook/react';
 import {Button as ButtonTsx, LinkButton} from '../src/tsx/button';
-import type {ButtonProps, LinkButtonProps} from '../src/types';
+import type {ButtonProps, LinkButtonProps} from '../src/types/index';
 import {ButtonGroup} from '../src/tsx/group';
 
 import {TemplateSBConfig} from './sb-story-config';

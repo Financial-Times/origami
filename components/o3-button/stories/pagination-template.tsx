@@ -2,7 +2,7 @@ import type {StoryObj} from '@storybook/react';
 import type {TemplateType} from './story-templates';
 import {useState} from 'react';
 import {ButtonPagination} from '../src/tsx/pagination';
-import type {ButtonPaginationProps} from '../src/types';
+import type {ButtonPaginationProps} from '../src/types/index';
 import {TemplateSBConfig} from './sb-story-config';
 type PaginationStory = Omit<StoryObj, 'args'> & {
 	args: ButtonPaginationProps;
@@ -48,7 +48,6 @@ const ButtonPaginationTemplate: TemplateType = {
 export const Pagination: PaginationStory = {
 	...ButtonPaginationTemplate,
 	args: {
-		size: '',
 		previousPager: {
 			href: '#previous',
 			label: 'previous results',
