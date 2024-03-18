@@ -127,7 +127,7 @@
 		@if $input == 'pseudo-radio-link' {
 			// We can provide a notice here that pseudo-radio-links are deprecated,
 			// as we know that the user is explicitly requesting and using it.
-			@warn 'o-forms: Pseudo Radio Links are deprecated and will be removed in the next major release. This is due to accessibility issues, see the README for more information. Please use standard box-styled radio inputs instead. https://registry.origami.ft.com/components/o-forms/readme?brand=core#pseudo-box-radio-inputs';
+			@warn 'o-forms: Pseudo Radio Links are deprecated and will be removed in the next major release. This is due to accessibility issues, see the README for more information. Please use standard box-styled radio inputs instead. https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-core_components-o-forms-pseudo-box-radio-links--pseudo-radio-box-links&globals=backgrounds:!undefined';
 			@include _oFormsPseudoRadioLinkStyles($theme);
 		} @else if $input == 'radio' {
 			@include _oFormsRadioBoxInputStyles($theme);

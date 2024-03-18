@@ -5,7 +5,7 @@ import {
 	ToggleToolTip as ToggleToolTipStory,
 } from '../story-template';
 import '../../src/css/brands/whitelabel.css';
-import "@financial-times/o3-button/css/whitelabel.css"
+import "../../../o3-button/src/css/brands/whitelabel.css";
 
 export default {
 	title: 'Whitelabel/o3-tooltip',
