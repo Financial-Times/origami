@@ -1,4 +1,11 @@
 # Changelog
+## [11.2.0](https://github.com/Financial-Times/origami/compare/o-header-v11.1.1...o-header-v11.2.0) (2024-03-18)
+
+
+### Features
+
+* removing spacing of first subnav button ([74ebf9c](https://github.com/Financial-Times/origami/commit/74ebf9c2d015711c2e42a9cdf3f61177627c9569))
+
 ## [11.1.1](https://github.com/Financial-Times/origami/compare/o-header-v11.1.0...o-header-v11.1.1) (2023-10-27)
 
 
