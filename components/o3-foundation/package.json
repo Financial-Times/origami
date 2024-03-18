@@ -12,21 +12,20 @@
 		"email": "origami.support@ft.com"
 	},
 	"license": "MIT",
-	"type": "module",
 	"exports": {
-		"./core.css": "./build/core/_variables.css",
-		"./professional.css": "./build/core/professional/_variables.css",
-		"./icons.css": "./build/icons/_variables.css",
-		"./internal.css": "./build/internal/_variables.css",
-		"./whitelabel.css": "./build/whitelabel/_variables.css",
-		"./sustainable-views.css": "./build/sustainable-views/_variables.css"
+		"./core.css": "./build/css/src/css/brands/core.css",
+		"./professional.css": "./build/css/src/css/brands/professional.css",
+		"./internal.css": "./build/css/src/css/brands/internal.css",
+		"./sustainable-views.css": "./build/css/src/css/brands/sustainable-views.css",
+		"./whitelabel.css": "./build/css/src/css/brands/whitelabel.css",
+		"./icons.css": "./build/icons.css"
 	},
 	"files": [
 		"build",
 		"origami.json"
 	],
 	"scripts": {
-		"build": "node ../../apps/dictionary/scripts/build-config/build.js"
+		"build": "node ../../apps/dictionary/scripts/build-config/build.js && bash ../../scripts/component/build-o3.bash o3-foundation"
 	},
 	"engines": {
 		"npm": ">7"
