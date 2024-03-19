@@ -98,7 +98,7 @@ Or pass an element to initialise a specific `o-autocomplete` instance:
 
 ```js
 import oAutocomplete from 'o-autocomplete';
-const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
+const oAutocompleteElement = document.getElementById('my-o-autocomplete-element');
 new oAutocomplete(oAutocompleteElement);
 ```
 ### dynamic suggestions function
@@ -123,7 +123,7 @@ async function customSuggestions(query, populateOptions) {
 	populateOptions(suggestions);
 }
 
-const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
+const oAutocompleteElement = document.getElementById('my-o-autocomplete-element');
 new oAutocomplete(oAutocompleteElement, {
     source: customSuggestions
 });
@@ -176,7 +176,7 @@ function mapOptionToSuggestedValue(option) {
 	return option.suggestionText;
 }
 
-const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
+const oAutocompleteElement = document.getElementById('my-o-autocomplete-element');
 new oAutocomplete(oAutocompleteElement, {
     mapOptionToSuggestedValue,
     source: customSuggestions,
@@ -221,7 +221,7 @@ function onConfirm(option) {
     console.log('You selected option: ', option);
 }
 
-const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
+const oAutocompleteElement = document.getElementById('my-o-autocomplete-element');
 new oAutocomplete(oAutocompleteElement, {
     onConfirm
     mapOptionToSuggestedValue,
@@ -260,7 +260,7 @@ function suggestionTemplate(option) {
 	`;
 }
 
-const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
+const oAutocompleteElement = document.getElementById('my-o-autocomplete-element');
 new oAutocomplete(oAutocompleteElement, {
     suggestionTemplate,
     source: customSuggestions,
@@ -305,7 +305,7 @@ function onConfirm(option) {
     console.log('You selected option: ', option);
 }
 
-const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
+const oAutocompleteElement = document.getElementById('my-o-autocomplete-element');
 new oAutocomplete(oAutocompleteElement, {
     onConfirm
     mapOptionToSuggestedValue,
