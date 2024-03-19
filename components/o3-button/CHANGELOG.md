@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.5](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.4...o3-button-v0.4.5) (2024-03-18)
+
+
+### Bug Fixes
+
+* remove unused types and fix type paths ([#1496](https://github.com/Financial-Times/origami/issues/1496)) ([d7d37ac](https://github.com/Financial-Times/origami/commit/d7d37ac67ea9c60f4000e846b4263bdea7ce959c))
+
 ## [0.4.4](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.3...o3-button-v0.4.4) (2024-03-07)
 
 
