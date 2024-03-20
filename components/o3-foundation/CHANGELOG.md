@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v0.6.0...o3-foundation-v0.6.1) (2024-03-20)
+
+
+### Bug Fixes
+
+* fixing publishing to npm ([#1504](https://github.com/Financial-Times/origami/issues/1504)) ([bec1bf8](https://github.com/Financial-Times/origami/commit/bec1bf84bb8df3c7ccdb97d10a4ba1cb229bc9df))
+
 ## [0.6.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v0.5.1...o3-foundation-v0.6.0) (2024-03-20)
 
 
