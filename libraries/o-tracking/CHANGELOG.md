@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.5.2](https://github.com/Financial-Times/origami/compare/o-tracking-v4.5.1...o-tracking-v4.5.2) (2024-02-26)
+
+
+### Bug Fixes
+
+* Remove polyfill from component readme. ([78f9e1d](https://github.com/Financial-Times/origami/commit/78f9e1d49c1cdddeedb2cf6739a530cb4fe4f35c))
+
 ## [4.5.1](https://github.com/Financial-Times/origami/compare/o-tracking-v4.5.0...o-tracking-v4.5.1) (2023-10-27)
 
 

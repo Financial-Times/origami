@@ -3,32 +3,31 @@
 Styling for tables.
 
 - [o-table](#o-table)
-	- [Usage](#usage)
-	- [Markup](#markup)
-		- [Basic table](#basic-table)
-		- [Sort Order](#sort-order)
-		- [Disable sort](#disable-sort)
-		- [Responsive options](#responsive-options)
-		- [Expander](#expander)
-		- [Additional markup](#additional-markup)
-	- [Sass](#sass)
-	- [JavaScript](#javascript)
-		- [Filtering](#filtering)
-			- [Filter (declarative)](#filter-declarative)
-			- [Filter (imperative)](#filter-imperative)
-		- [Sorting](#sorting)
-			- [Custom sort (declarative)](#custom-sort-declarative)
-			- [Custom sort (imperative)](#custom-sort-imperative)
-		- [Dynamic Rows](#dynamic-rows)
-		- [Events](#events)
-			- [oTable.ready](#otableready)
-			- [oTable.sorted](#otablesorted)
-			- [oTable.sorting](#otablesorting)
-			- [Get The Sorted Column Heading From A Sort Event](#get-the-sorted-column-heading-from-a-sort-event)
-	- [Troubleshooting](#troubleshooting)
-	- [Migration](#migration)
-	- [Contact](#contact)
-	- [Licence](#licence)
+  - [Usage](#usage)
+  - [Markup](#markup)
+    - [Basic table](#basic-table)
+    - [Sort Order](#sort-order)
+    - [Disable sort](#disable-sort)
+    - [Responsive options](#responsive-options)
+    - [Expander](#expander)
+    - [Additional markup](#additional-markup)
+  - [Sass](#sass)
+  - [JavaScript](#javascript)
+    - [Filtering](#filtering)
+      - [Filter (declarative)](#filter-declarative)
+      - [Filter (imperative)](#filter-imperative)
+    - [Sorting](#sorting)
+      - [Custom sort (declarative)](#custom-sort-declarative)
+      - [Custom sort (imperative)](#custom-sort-imperative)
+    - [Dynamic Rows](#dynamic-rows)
+    - [Events](#events)
+      - [oTable.ready](#otableready)
+      - [oTable.sorted](#otablesorted)
+      - [oTable.sorting](#otablesorting)
+      - [Get The Sorted Column Heading From A Sort Event](#get-the-sorted-column-heading-from-a-sort-event)
+  - [Migration](#migration)
+  - [Contact](#contact)
+  - [Licence](#licence)
 
 ## Usage
 
@@ -95,9 +94,7 @@ The table's footer `tfoot` element may use the helper class `o-table-footnote` t
 	</tbody>
 	<tfoot>
 		<tr>
-			<td colspan=2 class="o-table-footnote">
-				Source: The Origami team.
-			</td>
+			<td colspan="2" class="o-table-footnote">Source: The Origami team.</td>
 		</tr>
 	</tfoot>
 </table>
@@ -108,19 +105,27 @@ The table's footer `tfoot` element may use the helper class `o-table-footnote` t
 When a sortable table column is clicked an ascending sort is applied by default. If clicked again the sort order is toggled to a descending sort. Set the preferred sort order attribute `data-o-table-preferred-sort-order="descending"` to inverse this, so a descending sort is applied on the first click.
 
 ```html
-<table class="o-table" data-o-component="o-table" data-o-table-preferred-sort-order="descending">
-</table>
+<table
+	class="o-table"
+	data-o-component="o-table"
+	data-o-table-preferred-sort-order="descending"
+></table>
 ```
 
 ### Disable sort
 
 Table columns are sortable by default but may be disabled by adding `data-o-table-sortable="false"` to the table.
+
 ```html
-<table class="o-table" data-o-component="o-table" data-o-table-sortable="false">
-</table>
+<table
+	class="o-table"
+	data-o-component="o-table"
+	data-o-table-sortable="false"
+></table>
 ```
 
 Or to disable sort per table column, add `data-o-table-heading-disable-sort` to the column's `th` element.
+
 ```html
 <table class="o-table" data-o-component="o-table">
 	<thead>
@@ -153,9 +158,11 @@ To enable these set `data-o-table-responsive` to the type of responsive table de
 <div class="o-table-container">
 	<div class="o-table-overlay-wrapper">
 		<div class="o-table-scroll-wrapper">
-			<table class="o-table o-table--horizontal-lines o-table--responsive-overflow"
-			data-o-component="o-table"
-			data-o-table-responsive="overflow">
+			<table
+				class="o-table o-table--horizontal-lines o-table--responsive-overflow"
+				data-o-component="o-table"
+				data-o-table-responsive="overflow"
+			>
 				...
 			</table>
 		</div>
@@ -174,11 +181,13 @@ The "overflow" style of responsive table ([see above](#responsive-options)) supp
 <div class="o-table-container">
 	<div class="o-table-overlay-wrapper">
 		<div class="o-table-scroll--wrapper">
-			<table class="o-table o-table--horizontal-lines o-table--responsive-overflow"
-			data-o-component="o-table"
-			data-o-table-responsive="overflow"
-			data-o-table-expanded="false"
-			data-o-table-minimum-row-count="10">
+			<table
+				class="o-table o-table--horizontal-lines o-table--responsive-overflow"
+				data-o-component="o-table"
+				data-o-table-responsive="overflow"
+				data-o-table-expanded="false"
+				data-o-table-minimum-row-count="10"
+			>
 				...
 			</table>
 		</div>
@@ -187,6 +196,7 @@ The "overflow" style of responsive table ([see above](#responsive-options)) supp
 ```
 
 To add a footnote to an expandable table, for example with disclaimers or sources, add the footnote within the container and link to the table with an id and the `aria-describedby` attribute. If not working on an expandable table, [use the `tfoot` element instead](#basic-table).
+
 ```diff
 <div class="o-table-container">
 	<div class="o-table-overlay-wrapper">
@@ -203,6 +213,7 @@ To add a footnote to an expandable table, for example with disclaimers or source
 ```
 
 ### Additional markup
+
 - `o-table--compact` - Apply to the table for smaller typography and padding.
 - `o-table--row-stripes` - Apply to the table for alternating stripes on the table rows.
 - `o-table-footnote` - Style a `tfoot` element subtily for sources, disclaimers, etc.
@@ -216,38 +227,44 @@ See more in the registry: [o-table demos](https://registry.origami.ft.com/compon
 Use `@include oTable()` to include styles for all table features. Alternatively styles may be included granularly with an `$opts` map.
 
 Include all table features:
+
 ```scss
 @include oTable();
 ```
 
 Alternatively include base styles with only selected optional features. E.g. to include only the "overflow" responsive table and styles for table lines:
+
 ```scss
-@include oTable($opts: (
-	'responsive-overflow',
-	'lines'
-));
+@include oTable(
+	$opts: (
+		'responsive-overflow',
+		'lines',
+	)
+);
 ```
 
-| Feature             | Description                                             | Brand support                |
-|---------------------|---------------------------------------------------------|------------------------------|
+| Feature             | Description                                             | Brand support              |
+| ------------------- | ------------------------------------------------------- | -------------------------- |
 | responsive-overflow | See [responsive options](#responsive-options).          | core, internal, whitelabel |
 | responsive-flat     | See [responsive options](#responsive-options).          | core, internal, whitelabel |
 | responsive-scroll   | See [responsive options](#responsive-options).          | core, internal, whitelabel |
 | lines               | Styles for horizontal and vertical lines, plus borders. | core, internal, whitelabel |
 | compact             | A table with smaller typography and padding.            | core, internal, whitelabel |
 | stripes             | Alternating row stripe styles.                          | core, internal             |
-| row-headings        | Row heading styles.                                     | internal                     |
+| row-headings        | Row heading styles.                                     | internal                   |
 
 ## JavaScript
 
 To manually instantiate `o-table`:
 
-``` js
+```js
 import OTable from '@financial-times/o-table';
 OTable.init();
 ```
+
 or
-``` js
+
+```js
 import OTable from '@financial-times/o-table';
 oTable = new OTable(document.body);
 ```
@@ -256,7 +273,7 @@ This will return an instance of `BasicTable` (default), `OverflowTable`, `FlatTa
 
 Instantiation will add column sorting to all tables. It will also add scroll controls and, if configured, an [expander](#expander) to any `OverflowTable`. These can be configured with [data attributes](#disable-sort) or imperatively with an options object:
 
-``` js
+```js
 import OTable from '@financial-times/o-table';
 OTable.init(document.body, {
 	sortable: true,
@@ -279,38 +296,44 @@ Declarative filters are case insensitive and perform partial matches, e.g. a fil
 To enable declarative table filtering add the `data-o-table-filter-id` and `data-o-table-filter-column` to a form input. Where `data-o-table-filter-id` matches the `id` of the table to filter and `data-o-table-filter-column` is the numerical index of the column to filter (starting at 0).
 
 For example, to filter a table based on a users selected option:
-```html
-	<label>Filter the table by country:</label>
-	<!-- the filter input specifies the table id in "data-o-table-filter-id" -->
-	<select data-o-table-filter-id="example-table" data-o-table-filter-column="0">
-		<option value="" selected>All</option>
-		<option value="​Austria">​Austria</option>
-		<option value="​Belgium">​Belgium</option>
-		<!-- more options  -->
-	</select>
 
-	<!-- the table markup, this may be a responsive table -->
-	<div class="o-table-container">
-		<!-- the table element with an id -->
-		<table id="example-table">
-			<!-- ... -->
-		</table>
-	</div>
+```html
+<label>Filter the table by country:</label>
+<!-- the filter input specifies the table id in "data-o-table-filter-id" -->
+<select data-o-table-filter-id="example-table" data-o-table-filter-column="0">
+	<option value="" selected>All</option>
+	<option value="​Austria">​Austria</option>
+	<option value="​Belgium">​Belgium</option>
+	<!-- more options  -->
+</select>
+
+<!-- the table markup, this may be a responsive table -->
+<div class="o-table-container">
+	<!-- the table element with an id -->
+	<table id="example-table">
+		<!-- ... -->
+	</table>
+</div>
 ```
 
 Or to filter a table based on a users selected option:
-```html
-	<label>Filter the table by country:</label>
-	<!-- the filter input specifies the table id in "data-o-table-filter-id" -->
-	<input type="text" data-o-table-filter-id="example-table" data-o-table-filter-column="0"/>
 
-	<!-- the table markup, this may be a responsive table -->
-	<div class="o-table-container">
-		<!-- the table element with an id -->
-		<table id="example-table">
-			<!-- ... -->
-		</table>
-	</div>
+```html
+<label>Filter the table by country:</label>
+<!-- the filter input specifies the table id in "data-o-table-filter-id" -->
+<input
+	type="text"
+	data-o-table-filter-id="example-table"
+	data-o-table-filter-column="0"
+/>
+
+<!-- the table markup, this may be a responsive table -->
+<div class="o-table-container">
+	<!-- the table element with an id -->
+	<table id="example-table">
+		<!-- ... -->
+	</table>
+</div>
 ```
 
 #### Filter (imperative)
@@ -318,17 +341,17 @@ Or to filter a table based on a users selected option:
 The table's `filter` method may also be used to filter the table. Call it with the column index to filter and the filter to apply. The filter may be a string, which acts like a declarative filter (i.e. is case insensitive and performs a partial match):
 
 ```js
-	const table = new OTable(tableElement);
-	table.filter(0, 'United Kingdom'); // Filter the first table column by "United Kingdom".
+const table = new OTable(tableElement);
+table.filter(0, 'United Kingdom'); // Filter the first table column by "United Kingdom".
 ```
 
 Alternatively a callback function may be given. The callback should accept a table cell element and return a boolean value:
 
 ```js
-	const table = new OTable(tableElement);
-	table.filter(0, (cell) => {
-		return parseInt(cell.textContent, 10) > 3;
-	}); // Filter the first table column. Keep rows with a value more than 3.
+const table = new OTable(tableElement);
+table.filter(0, cell => {
+	return parseInt(cell.textContent, 10) > 3;
+}); // Filter the first table column. Keep rows with a value more than 3.
 ```
 
 ### Sorting
@@ -339,7 +362,7 @@ All `o-table` instances support sorting. Sorting on non-string values such as nu
 Other data types for `data-o-table-data-type` include:
 
 | type     | description                                                                                   | examples                                   |
-|----------|-----------------------------------------------------------------------------------------------|--------------------------------------------|
+| -------- | --------------------------------------------------------------------------------------------- | ------------------------------------------ |
 | text     | The default, content is sorted as a string.                                                   | "Jane Doe", "John Smith"                   |
 | date     | Supports the FT style of date and time, including abbreviation.                               | "Aug 17", "1.30am", "April 20 2014 1.30pm" |
 | number   | Any number which may include number formatting and abbreviation.                              | "1,200", "100", "3.2", "1bn", "2tn"        |
@@ -356,7 +379,7 @@ If you are wanting to sort by a custom pattern, you can apply the sorting values
 
 For example to support a custom date format set `data-o-table-sort-value` to its UNIX Epoch.
 
-``` html
+```html
 <table class="o-table" data-o-component="o-table">
 	<thead>
 		<tr>
@@ -378,7 +401,8 @@ For example to support a custom date format set `data-o-table-sort-value` to its
 ```
 
 Or to provide an arbitrary sort order:
-``` html
+
+```html
 <table class="o-table" data-o-component="o-table">
 	<thead>
 		<tr>
@@ -387,13 +411,13 @@ Or to provide an arbitrary sort order:
 	</thead>
 	<tbody>
 		<tr>
-			<td data-o-table-sort-value=2>snowman</td>
+			<td data-o-table-sort-value="2">snowman</td>
 		</tr>
 		<tr>
-			<td data-o-table-sort-value=3>42</td>
+			<td data-o-table-sort-value="3">42</td>
 		</tr>
 		<tr>
-			<td data-o-table-sort-value=1>pangea</td>
+			<td data-o-table-sort-value="1">pangea</td>
 		</tr>
 	</tbody>
 </table>
@@ -405,7 +429,7 @@ Rather than specify `data-o-table-sort-value` [declaratively](#custom-sort-decla
 
 For example we could add support for a custom data type `emoji-time`.
 
-``` html
+```html
 <table class="o-table" data-o-component="o-table">
 	<thead>
 		<tr>
@@ -433,11 +457,11 @@ To do that call `setSortFormatterForType` with the custom data type and a format
 The formatter accepts the table cell (HTMLElement) and returns a sort value (Number or String) for that cell.
 In this case we add support for our custom type `emoji-time` by assigning the emoji a numerical sort value. This will effect all tables instantiated by `OTable`.
 
-``` js
+```js
 import OTable from '@financial-times/o-table';
 // Set a filter for custom data type "emoji-time".
 // The return value may be a string or number.
-OTable.setSortFormatterForType('emoji-time', (cell) => {
+OTable.setSortFormatterForType('emoji-time', cell => {
 	const text = cell.textContent.trim();
 	if (text === '🌑') {
 		return 1;
@@ -456,21 +480,23 @@ Which for an ascending sort, will result in:
 <table class="o-table" data-o-component="o-table">
 	<thead>
 		<tr>
-			<th data-o-table-data-type="emoji-time" aria-sort="ascending">Emoji Time</th>
+			<th data-o-table-data-type="emoji-time" aria-sort="ascending">
+				Emoji Time
+			</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td data-o-table-sort-value=1>🌑</td>
+			<td data-o-table-sort-value="1">🌑</td>
 		</tr>
 		<tr>
-			<td data-o-table-sort-value=1>🌑</td>
+			<td data-o-table-sort-value="1">🌑</td>
 		</tr>
 		<tr>
-			<td data-o-table-sort-value=2>🌤️️</td>
+			<td data-o-table-sort-value="2">🌤️️</td>
 		</tr>
 		<tr>
-			<td data-o-table-sort-value=2>🌤️️</td>
+			<td data-o-table-sort-value="2">🌤️️</td>
 		</tr>
 	</tbody>
 </table>
@@ -493,6 +519,7 @@ The following events are fired by `o-table`.
 `oTable.ready` fires when the table has been initialised.
 
 The event provides the following properties:
+
 - `detail.instance` - The initialised `o-table` instance _(FlatTable | ScrollTable | OverflowTable | BasicTable)_.
 
 #### oTable.sorted
@@ -500,13 +527,16 @@ The event provides the following properties:
 `oTable.sorted` indicates a table has finished sorting. It includes details of the current sort status of the table.
 
 The event provides the following properties:
+
 - `detail.sortOrder` - The sort order e.g. "ascending" _(String)_.
 - `detail.columnIndex` - The index of the sorted column heading _(Number)_.
 - `detail.instance` - The effected `o-table` instance _(FlatTable | ScrollTable | OverflowTable | BasicTable)_.
 
 ```js
-document.addEventListener('oTable.sorted', (event) => {
-	console.log(`The target table was just sorted by column "${event.detail.columnIndex}" in an "${event.detail.sortOrder}" order.`);
+document.addEventListener('oTable.sorted', event => {
+	console.log(
+		`The target table was just sorted by column "${event.detail.columnIndex}" in an "${event.detail.sortOrder}" order.`
+	);
 });
 ```
 
@@ -515,6 +545,7 @@ document.addEventListener('oTable.sorted', (event) => {
 This event is fired just before a table sorts based on user interaction. It may be prevented to implement custom sort functionality. This may be useful to sort a paginated table server-side.
 
 The event provides the following properties:
+
 - `detail.sort` - The sort requested e.g. "ascending" _(String)_.
 - `detail.columnIndex` - The index of the column heading which will be sorted _(Number)_.
 - `detail.instance` - The effected `o-table` instance _(FlatTable | ScrollTable | OverflowTable | BasicTable)_.
@@ -522,7 +553,7 @@ The event provides the following properties:
 When intercepting the default sort the `sorted` method must be called with relevant parameters when the custom sort is completed.
 
 ```js
-document.addEventListener('oTable.sorting', (event) => {
+document.addEventListener('oTable.sorting', event => {
 	// Prevent default sorting.
 	event.preventDefault();
 	// Update the table with a custom sort.
@@ -530,7 +561,7 @@ document.addEventListener('oTable.sorting', (event) => {
 	// Fire the sorted event, passing along the column index and sort.
 	event.detail.instance.sorted({
 		columnIndex: event.detail.columnIndex,
-		sortOrder: event.detail.sort
+		sortOrder: event.detail.sort,
 	});
 });
 ```
@@ -540,7 +571,7 @@ document.addEventListener('oTable.sorting', (event) => {
 `o-table` sort events provide a `columnIndex`. This index maps to a column heading. To retrieve the column heading use `getTableHeader`.
 
 ```js
-document.addEventListener('oTable.sorting', (event) => {
+document.addEventListener('oTable.sorting', event => {
 	const table = event.detail.instance;
 	const columnIndex = event.detail.columnIndex;
 	// Get the table header from the column index.
@@ -548,24 +579,19 @@ document.addEventListener('oTable.sorting', (event) => {
 });
 ```
 
-## Troubleshooting
-
-Known issues:
-- IE11 and below need the [polyfill service](https://polyfill.io/)
-
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-✨ active | 8 | 8.1 | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-⚠ maintained | 7 | 7.4 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-╳ deprecated | 6 | 6.9 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.2 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.1 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.0 | N/A |
-╳ deprecated | 2 | 2.0 | N/A |
-╳ deprecated | 1 | 1.7 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       9       |        N/A         | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
+|  ✨ active   |       8       |        8.1         | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+| ⚠ maintained |       7       |        7.4         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ╳ deprecated |       6       |        6.9         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated |       5       |        5.2         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.1         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.0         |                          N/A                          |
+| ╳ deprecated |       2       |        2.0         |                          N/A                          |
+| ╳ deprecated |       1       |        1.7         |                          N/A                          |
 
 ## Contact
 

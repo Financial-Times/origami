@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.12](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.11...o-overlay-v4.2.12) (2024-02-26)
+
+
+### Bug Fixes
+
+* Remove polyfill from component readme. ([78f9e1d](https://github.com/Financial-Times/origami/commit/78f9e1d49c1cdddeedb2cf6739a530cb4fe4f35c))
+
 ## [4.2.11](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.10...o-overlay-v4.2.11) (2023-10-27)
 
 

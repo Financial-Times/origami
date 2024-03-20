@@ -1,0 +1,51 @@
+{
+	"name": "@financial-times/o3-tooltip",
+	"version": "0.1.1",
+	"description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
+	"keywords": [
+		"tooltip",
+		"tool",
+		"tip",
+		"annotate",
+		"highlight",
+		"hover"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o3-tooltip",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-tooltip,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"types": "./build/jsx/index.d.ts",
+	"browser": "./build/js/index.mjs",
+	"main": "./build/jsx/index.js",
+	"module": "./build/jsx/index.mjs",
+	"files": [
+		"build",
+		"origami.json"
+	],
+	"exports": {
+		".": {
+			"types": "./build/jsx/index.d.ts",
+			"browser": "./build/js/index.mjs",
+			"import": "./build/jsx/index.mjs",
+			"require": "./build/jsx/index.js",
+			"default": "./build/jsx/index.js"
+		},
+		"./css/*.css": "./build/css/src/css/brands/*.css",
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"build": "bash ../../scripts/component/build-o3.bash o3-tooltip"
+	},
+	"peerDependencies": {
+		"@financial-times/o3-web-token": "^0.5.0"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false,
+	"dependencies": {
+		"@popperjs/core": "^2.11.8"
+	}
+}

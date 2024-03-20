@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.5.3](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.2...o-header-services-v5.5.3) (2024-03-05)
+
+
+### Bug Fixes
+
+* consolidate typing of hasHamburger menu in o-header-services ([e562c92](https://github.com/Financial-Times/origami/commit/e562c9272d5b3af9bcacecce1f9bc5f69c9492dd))
+* reference parentName in aria-label in o-header-services ([0be1c38](https://github.com/Financial-Times/origami/commit/0be1c3877e544afa7c7902136395fe46b0f71bcf))
+
 ## [5.5.2](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.1...o-header-services-v5.5.2) (2023-10-27)
 
 

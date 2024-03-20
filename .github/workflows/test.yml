@@ -125,8 +125,10 @@ jobs:
             - 'components/o-visual-effects/**'
           components/o3-button:
             - 'components/o3-button/**'
-          components/o3-web-token:
-            - 'components/o3-web-token/**'
+          components/o3-foundation:
+            - 'components/o3-foundation/**'
+          components/o3-tooltip:
+            - 'components/o3-tooltip/**'
           libraries/ftdomdelegate:
             - 'libraries/ftdomdelegate/**'
           libraries/math:

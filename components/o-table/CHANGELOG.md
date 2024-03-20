@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.3.4](https://github.com/Financial-Times/origami/compare/o-table-v9.3.3...o-table-v9.3.4) (2024-02-26)
+
+
+### Bug Fixes
+
+* Remove polyfill from component readme. ([78f9e1d](https://github.com/Financial-Times/origami/commit/78f9e1d49c1cdddeedb2cf6739a530cb4fe4f35c))
+
 ## [9.3.3](https://github.com/Financial-Times/origami/compare/o-table-v9.3.2...o-table-v9.3.3) (2023-10-27)
 
 

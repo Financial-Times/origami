@@ -5,11 +5,9 @@
 		"jsx": "react-jsx",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"target": "ES2019",
-		"moduleResolution": "node",
-		"sourceMap": true,
-		"declaration": true,
-		"declarationMap": true
+		"target": "ES2021",
+		"module": "ES2020",
+		"moduleResolution": "Bundler",
 	},
 	"exclude": ["node_modules"]
 }

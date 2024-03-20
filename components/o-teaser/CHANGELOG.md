@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.0](https://github.com/Financial-Times/origami/compare/o-teaser-v6.2.10...o-teaser-v6.3.0) (2024-03-18)
+
+
+### Features
+
+* increase teaser margin size for improved tapability ([c67c01d](https://github.com/Financial-Times/origami/commit/c67c01d55bd426ead426e2acc64cd97c15ef782c))
+
 ## [6.2.10](https://github.com/Financial-Times/origami/compare/o-teaser-v6.2.9...o-teaser-v6.2.10) (2023-11-09)
 
 

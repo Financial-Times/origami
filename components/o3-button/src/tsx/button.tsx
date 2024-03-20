@@ -1,10 +1,17 @@
-import type { ButtonProps, LinkButtonProps, ButtonClassProps } from '../types';
+import type {ButtonProps, LinkButtonProps} from '../types/index';
+
+type ButtonClassProps = Pick<
+	ButtonProps,
+	'visuallyHideDisabled' | 'type' | 'size' | 'icon' | 'iconOnly'
+> & {
+	customClasses: string | boolean;
+};
+
 function makeClassNames({
 	customClasses,
 	visuallyHideDisabled,
 	type,
 	size,
-	theme,
 	icon,
 	iconOnly,
 }: ButtonClassProps) {
@@ -12,10 +19,6 @@ function makeClassNames({
 
 	if (size) {
 		classNames.push(`o3-button--${size}`);
-	}
-
-	if (theme) {
-		classNames.push(`o3-button--${theme}`);
 	}
 
 	if (icon) {
@@ -48,6 +51,9 @@ export function Button({
 	// rather than override them.
 	const customClasses = attributes.className;
 	delete attributes.className;
+	if (theme) {
+		attributes['data-o3-theme'] = theme;
+	}
 	return (
 		<button
 			onClick={onClick ? event => onClick(event) : undefined}
@@ -56,7 +62,6 @@ export function Button({
 				visuallyHideDisabled,
 				type,
 				size,
-				theme,
 				icon,
 				iconOnly,
 			})}
@@ -86,6 +91,9 @@ export function LinkButton({
 	// rather than override them.
 	const customClasses = attributes.className;
 	delete attributes.className;
+	if (theme) {
+		attributes['data-o3-theme'] = theme;
+	}
 	return (
 		<a
 			href={href}
@@ -95,7 +103,6 @@ export function LinkButton({
 				visuallyHideDisabled,
 				type,
 				size,
-				theme,
 				icon,
 				iconOnly,
 			})}

@@ -2,33 +2,52 @@
 title: Buttons
 description: Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
 ---
-import { Button } from '@financial-times/o3-button';
+
+import {Button} from '@financial-times/o3-button';
 import '@financial-times/o3-button/css/whitelabel.css';
 import '@financial-times/o3-button/css/internal.css';
 import '@financial-times/o3-button/css/professional.css';
 import {renderToString} from 'react-dom/server';
-import { Code } from 'astro:components';
-import { default as ButtonAnatomy } from '../../../components/ButtonAnatomy.astro';
+import {Code} from 'astro:components';
+import {default as ButtonAnatomy} from '../../../components/ButtonAnatomy.astro';
 import {Content as ButtonGuidelines} from '../../../content-partial/docs/components/buttons-guidelines.mdx';
 
-
-export function Preview ({component: Component, componentProps } = props) {
-    const ComponentInstance = Component(componentProps);
-    const componentHtml = renderToString(ComponentInstance);
-    const componentJSX = `<${Component.name} ${Object.entries(componentProps).map(p => `${p[0]}="${p[1]}"`).join(' ')} />`;
-    const inverse = componentProps['theme'] === 'inverse';
-    return <>
-        <div style={`padding: var(--o3-spacing-2xs); margin-left: calc(var(--o3-spacing-2xs) * -1); ${inverse ? 'background-color: black' : ''}`}>
-        <Component {...componentProps} />
-        </div>
-        <a style="display: inline-block; margin: var(--o3-spacing-2xs) 0;" href={`https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/story/core-o3-${Component.name.toLowerCase()}--${Component.name.toLowerCase()}&args=${Object.entries(componentProps).map(p => `${p[0]}:${p[1]};`).join('')}`}>Open in StoryBook</a> | <a style="display: inline-block; margin: var(--o3-spacing-2xs) 0;" href="https://www.figma.com/file/VVM0PixrY3IRZq2ZUTdWfU/Core---Design-System?type=design&node-id=2819-133&mode=design">Open in Figma</a>
-        <details>
-            <summary>code</summary>
-            <Code code={componentJSX} lang="jsx" theme="css-variables" />
-            <Code code={componentHtml} lang="html" theme="css-variables" />
-        </details>
-        <hr />
-    </>
+export function Preview({component: Component, componentProps} = props) {
+	const ComponentInstance = Component(componentProps);
+	const componentHtml = renderToString(ComponentInstance);
+	const componentJSX = `<${Component.name} ${Object.entries(componentProps)
+		.map(p => `${p[0]}="${p[1]}"`)
+		.join(' ')} />`;
+	const inverse = componentProps['theme'] === 'inverse';
+	return (
+		<>
+			<div
+				style={`padding: var(--o3-spacing-2xs); margin-left: calc(var(--o3-spacing-2xs) * -1); ${
+					inverse ? 'background-color: black' : ''
+				}`}>
+				<Component {...componentProps} />
+			</div>
+			<a
+				style="display: inline-block; margin: var(--o3-spacing-2xs) 0;"
+				href={`https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/story/core-o3-${Component.name.toLowerCase()}--${Component.name.toLowerCase()}&args=${Object.entries(
+					componentProps
+				)
+					.map(p => `${p[0]}:${p[1]};`)
+					.join('')}`}>
+				Open in StoryBook
+			</a> | <a
+				style="display: inline-block; margin: var(--o3-spacing-2xs) 0;"
+				href="https://www.figma.com/file/VVM0PixrY3IRZq2ZUTdWfU/Core---Design-System?type=design&node-id=2819-133&mode=design">
+				Open in Figma
+			</a>
+			<details>
+				<summary>code</summary>
+				<Code code={componentJSX} lang="jsx" theme="css-variables" />
+				<Code code={componentHtml} lang="html" theme="css-variables" />
+			</details>
+			<hr />
+		</>
+	);
 }
 
 Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
@@ -39,9 +58,13 @@ The button component contains two required elements and one optional element.
 
 <ButtonAnatomy />
 
-1. <strong>Icon (optional)</strong>: Most buttons don't need an icon. Use an icon to add additional affordance where the icon has a clear and well-established meaning.
-1. <strong>Label</strong>: Text that explains the result of selecting the button. Use action verbs or phrases to tell the user what will happen next.
-1. <strong>Container</strong>: has minimum width of 80px for standard buttons and 64px for small buttons.
+1. <strong>Icon (optional)</strong>: Most buttons don't need an icon. Use an
+   icon to add additional affordance where the icon has a clear and
+   well-established meaning.
+1. <strong>Label</strong>: Text that explains the result of selecting the
+   button. Use action verbs or phrases to tell the user what will happen next.
+1. <strong>Container</strong>: has minimum width of 80px for standard buttons
+   and 64px for small buttons.
 
 ## Usage Guidelines
 
@@ -53,17 +76,31 @@ Buttons may be used with icons, without icons, or only icons.
 
 ### Without icon
 
-<Preview component={Button} componentProps={{label: "Hello", type: "primary" }} />
+<Preview
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary'}}
+/>
 
 ### With icon
 
 When icons are used, these are always left aligned.
 
-<Preview component={Button} componentProps={{label: "Hello", type: "primary", icon: "search"}} />
+<Preview
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary', icon: 'search'}}
+/>
 
 ### Only icon
 
-<Preview component={Button} componentProps={{label: "Hello", type: "primary", icon: "search", iconOnly: true }} />
+<Preview
+	component={Button}
+	componentProps={{
+		label: 'Hello',
+		type: 'primary',
+		icon: 'search',
+		iconOnly: true,
+	}}
+/>
 
 ## Sizes
 
@@ -71,11 +108,17 @@ The button comes in two sizes: standard and small.
 
 ### Standard
 
-<Preview component={Button} componentProps={{label: "Hello", type: "primary" }} />
+<Preview
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary'}}
+/>
 
 ### Small
 
-<Preview component={Button} componentProps={{label: "Hello", type: "primary", size: "small" }} />
+<Preview
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary', size: 'small'}}
+/>
 
 ## Types
 
@@ -85,35 +128,51 @@ There are three types of buttons to support different contexts.
 
 The primary button is used for the most important calls to action on a page. Primary buttons should only appear once per product area (not including the application header, modal dialogue, on-site messaging, or side panel).
 
-<Preview component={Button} componentProps={{label: "Hello", type: "primary" }} />
+<Preview
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary'}}
+/>
 
 ### Secondary
 
 For secondary actions on each page or used in conjunction with a primary button. As part of a pair, the secondary button’s function is to perform the negative action of the set, such as “Cancel” or “Back”.
 
-<Preview component={Button} componentProps={{label: "Hello", type: "secondary" }} />
+<Preview
+	component={Button}
+	componentProps={{label: 'Hello', type: 'secondary'}}
+/>
 
 ### Ghost
 
 For the least pronounced actions; often used in conjunction with a primary button. In a situation such as a progress flow, a ghost button may be paired with a primary and secondary button set, where the primary button is for ‘Save and continue’ the ghost button would be ‘Skip’.
 
-<Preview component={Button} componentProps={{label: "Hello", type: "ghost" }} />
+<Preview component={Button} componentProps={{label: 'Hello', type: 'ghost'}} />
 
 ## Themes
 
 Each button type supports the following themes.
 
 ### Standard
-<Preview component={Button} componentProps={{label: "Hello", type: "primary" }} />
+
+<Preview
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary'}}
+/>
 
 ### Inverse
 
 An alternative theme for use on dark backgrounds.
 
-<Preview component={Button} componentProps={{label: "Hello", type: "primary", theme: "inverse" }} />
+<Preview
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
+/>
 
 ### Mono
 
 Mono can be helpful where the standard theme distracts from other colour used, for example when placed near data visualisations.
 
-<Preview component={Button} componentProps={{label: "Hello", type: "primary", theme: "mono" }} />
+<Preview
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary', theme: 'mono'}}
+/>

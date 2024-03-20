@@ -1,31 +1,32 @@
 {
-  "name": "for-everyone-website",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "./scripts/build-o3-deps.sh && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "engines": {
-    "node": "18.18.2",
-    "npm": "10.2.1"
-  },
-  "private": true,
-  "dependencies": {
-    "@astrojs/react": "^3.0.9",
-    "@astrojs/starlight": "^0.15.2",
-    "@financial-times/o3-button": "^0.4.0",
-    "@financial-times/o3-tooling-token": "^0.0.0",
-    "@financial-times/o3-web-token": "^0.3.0",
-    "astro": "^4.0.9",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sharp": "^0.32.5"
-  },
-  "volta": {
-    "node": "18.18.2"
-  }
+	"name": "for-everyone-website",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "./scripts/build-o3-deps.sh && astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"engines": {
+		"node": "18.18.2",
+		"npm": "10.2.1"
+	},
+	"private": true,
+	"dependencies": {
+		"@astrojs/react": "^3.0.9",
+		"@astrojs/starlight": "^0.15.2",
+		"@financial-times/o3-button": "^0.4.4",
+		"@financial-times/o3-tooltip": "^0.1.0",
+		"@financial-times/o3-tooling-token": "^0.0.0",
+		"@financial-times/o3-web-token": "^0.5.0",
+		"astro": "^4.0.9",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"sharp": "^0.32.5"
+	},
+	"volta": {
+		"node": "18.18.2"
+	}
 }

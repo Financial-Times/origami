@@ -83,8 +83,8 @@ At the <abbr title="Financial Times">FT</abbr>, most people are familiar with th
 Our components are named in lower case and are available to use from package managers in the same way.
 We reserve capitalisation for component code, when we need to write syntax and need to conform to syntax convention.
 
-- **do**: the Polyfill Service, the Build Service
-- **don't**: the polyfill service, the build service
+- **do**: the Build Service
+- **don't**: the build service
 
 Similarly to capitalising "Origami", we capitalise the services we maintain because they are distinguished products that have user-facing interfaces of their own.
 
