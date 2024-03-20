@@ -1,4 +1,4 @@
-@import '@financial-times/o3-web-token/icons.css';
+@import '@financial-times/o3-foundation/icons.css';
 
 @font-face {
 	src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2')
@@ -30,8 +30,8 @@ o3-tooltip-toggle.o3-tooltip {
 	max-width: 250px;
 	box-shadow: 2px 2px 6px 0px rgba(26, 26, 26, 0.1),
 		5px 5px 24px 0px rgba(26, 26, 26, 0.17);
-	background: var(--o3-tooltip-background-color);
-	color: var(--o3-tooltip-text-color);
+	background: var(--_o3-tooltip-background-color);
+	color: var(--_o3-tooltip-text-color);
 	font-weight: var(--o3-font-weight-regular);
 	font-family: var(--o3-font-family-metric), sans-serif;
 	font-size: var(--o3-font-size-negative-1);
@@ -162,7 +162,7 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 	height: var(--icon-button-size);
 	content: '';
 	mask-image: var(--_button-icon);
-	background-color: var(--o3-tooltip-text-color);
+	background-color: var(--_o3-tooltip-text-color);
 	mask-repeat: no-repeat;
 	mask-size: contain;
 	display: inline-block;
@@ -199,7 +199,7 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 
 /* Info tooltip button */
 o3-tooltip-toggle .o3-toggletip-target::before {
-	--_button-icon: var(--o3-tooltip-icon-info);
+	--_button-icon: var(--_o3-tooltip-icon-info);
 	background-color: var(--o3-color-palette-black-90);
 	position: relative;
 }
@@ -209,7 +209,7 @@ o3-tooltip-toggle .o3-toggletip-target:hover::before {
 }
 
 o3-tooltip-toggle[open] .o3-toggletip-target::before {
-	--_button-icon: var(--o3-tooltip-icon-cross);
+	--_button-icon: var(--_o3-tooltip-icon-cross);
 }
 
 /* CLOSE BUTTON */
