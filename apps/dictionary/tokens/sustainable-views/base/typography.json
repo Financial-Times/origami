@@ -9,6 +9,10 @@
         "financier-display": {
           "value": "financier display VF",
           "type": "fontFamilies"
+        },
+        "georgia": {
+          "value": "georgia",
+          "type": "fontFamilies"
         }
       },
       "weight": {
