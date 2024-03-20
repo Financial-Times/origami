@@ -413,7 +413,7 @@
       "internal/use-case/box-shadow": "enabled",
       "internal/use-case/typography": "enabled",
       "internal/components/o3-tooltip": "enabled",
-      "internal/use-case/color": "enabled",
+      "internal/use-case/color": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1487",
     "$figmaModeId": "4618:2",
@@ -542,11 +542,9 @@
     "selectedTokenSets": {
       "sustainable-views/base/spacing": "enabled",
       "sustainable-views/base/typography": "enabled",
-
       "sustainable-views/use-case/typography": "enabled",
-      "sustainable-views/use-case/typography-editorial": "enabled"
+      "sustainable-views/use-case/typography-editorial": "enabled",
       "sustainable-views/components/o3-button": "source",
-      "sustainable-views/use-case/typography": "enabled",
       "sustainable-views/components/o3-tooltip": "enabled",
       "sustainable-views/base/color": "enabled"
     },
