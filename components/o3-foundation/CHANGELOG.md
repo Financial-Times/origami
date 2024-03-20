@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v0.5.1...o3-foundation-v0.6.0) (2024-03-20)
+
+
+### Features
+
+* create o3-foundation package instead of o3-web-token ([53bbc76](https://github.com/Financial-Times/origami/commit/53bbc763af2feb0afd8641b7408b8cba3654b83c))
+* publish o3-foundation ([#1503](https://github.com/Financial-Times/origami/issues/1503)) ([b234a63](https://github.com/Financial-Times/origami/commit/b234a635c4ff5d7010bf17c588c936774cc4e155))
+
 ## [0.5.1](https://github.com/Financial-Times/origami/compare/o3-web-token-v0.5.0...o3-web-token-v0.5.1) (2024-03-08)
 
 
