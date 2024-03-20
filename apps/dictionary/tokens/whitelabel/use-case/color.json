@@ -97,8 +97,7 @@
         },
         "muted-inverse": {
           "value": "#808080",
-          "type": "color",
-          "$extensions": {}
+          "type": "color"
         }
       }
     }
