@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/Financial-Times/origami/compare/o3-button-v0.5.0...o3-button-v0.5.1) (2024-03-21)
+
+
+### Bug Fixes
+
+* enable typography and editorial-typography for professional brand ([#1506](https://github.com/Financial-Times/origami/issues/1506)) ([2289423](https://github.com/Financial-Times/origami/commit/2289423450a6ab7b281435af90e7b492273a20cf))
+
 ## [0.5.0](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.5...o3-button-v0.5.0) (2024-03-20)
 
 
