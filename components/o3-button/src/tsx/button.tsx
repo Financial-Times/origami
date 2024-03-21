@@ -1,4 +1,4 @@
-import type {ButtonProps, LinkButtonProps} from '../types';
+import type {ButtonProps, LinkButtonProps} from '../types/index';
 
 type ButtonClassProps = Pick<
 	ButtonProps,

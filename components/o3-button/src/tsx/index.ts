@@ -1,5 +1,5 @@
-import {Button, LinkButton} from './button.js';
-import {ButtonPagination} from './pagination.js';
-import {ButtonGroup} from './group.js';
+import {Button, LinkButton} from './button';
+import {ButtonPagination} from './pagination';
+import {ButtonGroup} from './group';
 
 export {Button, LinkButton, ButtonPagination, ButtonGroup};

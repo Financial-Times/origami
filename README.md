@@ -114,10 +114,28 @@ Follow the [quick start guide](#quick-start) to get started developing component
 
 #### Preview demos
 
-##### Registry
+##### Storybook
 
-Components that have not yet been migrated to Storybook still have their old demos as shown in the registry.
-You can view these using the build and start commands.
+Storybook can be run locally with the `storybook` command.
+
+
+```shell
+npm run storybook
+```
+
+To view components in other brands in Storybook, set the `ORIGAMI_STORYBOOK_BRAND` environment variable with the brand.
+
+```shell
+ORIGAMI_STORYBOOK_BRAND=internal npm run storybook
+```
+
+Some demos in Storybook are embedded through the Build Service, meaning that local changes will not appear on Storybook. This can be verified by inspecting the `*.story.ts` file for a component and seeing if the root element is an `iframe`. Local development for these components can still be achieved by using [legacy](#legacy) demos instead.
+
+##### Legacy
+
+Component demos formerly on the Origami Registry have now been migrated to Storybook.
+
+The legacy demos may be useful for development purposes where a demo in Storybook is sourced from Build Service as mentioned in the previous section. You can view these using the build and start commands:
 
 ```shell
 npm run build -w components/o-example
@@ -134,27 +152,9 @@ To serve the demos, and have them automatically rebuild when the code changes yo
 npm run watch -w components/o-example
 ```
 
-##### Storybook
-
-Storybook can be run locally with the `storybook` command.
-
-```shell
-npm run storybook
-```
-
-To view components in other brands in Storybook, set the `ORIGAMI_STORYBOOK_BRAND` environment variable with the brand.
-
-```shell
-ORIGAMI_STORYBOOK_BRAND=internal npm run storybook
-```
-
 #### Setting brands
 
 Some components you create may only be part of one brand. We recommend you follow these guidelines when contributing branded components:
-
-##### Registry
-
-Origami Registry component demos are branded through the `origami.json` manifest in the component's root directory. You can find how to use this file in the [Origami documentation](https://origami.ft.com/documentation/manifests/origami-json/#brands).
 
 ##### Storybook
 
@@ -175,6 +175,10 @@ o-labels/
 ```
 
 [o-labels](https://github.com/Financial-Times/origami/tree/main/components/o-labels/stories) provides a good example of this.
+
+##### Legacy
+
+Legacy Origami Registry component demos are branded through the `origami.json` manifest in the component's root directory. You can find how to use this file in the [Origami documentation](https://origami.ft.com/documentation/manifests/origami-json/#brands).
 
 #### Test
 

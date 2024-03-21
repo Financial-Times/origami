@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.5.1](https://github.com/Financial-Times/origami/compare/o3-button-v0.5.0...o3-button-v0.5.1) (2024-03-21)
+
+
+### Bug Fixes
+
+* enable typography and editorial-typography for professional brand ([#1506](https://github.com/Financial-Times/origami/issues/1506)) ([2289423](https://github.com/Financial-Times/origami/commit/2289423450a6ab7b281435af90e7b492273a20cf))
+
+## [0.5.0](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.5...o3-button-v0.5.0) (2024-03-20)
+
+
+### Features
+
+* create o3-foundation package instead of o3-web-token ([53bbc76](https://github.com/Financial-Times/origami/commit/53bbc763af2feb0afd8641b7408b8cba3654b83c))
+
+
+### Bug Fixes
+
+* fix style import ([#1502](https://github.com/Financial-Times/origami/issues/1502)) ([bc89d51](https://github.com/Financial-Times/origami/commit/bc89d5183fb5b45782365cdcf1ac089fa3b9f10f))
+
+## [0.4.5](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.4...o3-button-v0.4.5) (2024-03-18)
+
+
+### Bug Fixes
+
+* remove unused types and fix type paths ([#1496](https://github.com/Financial-Times/origami/issues/1496)) ([d7d37ac](https://github.com/Financial-Times/origami/commit/d7d37ac67ea9c60f4000e846b4263bdea7ce959c))
+
 ## [0.4.4](https://github.com/Financial-Times/origami/compare/o3-button-v0.4.3...o3-button-v0.4.4) (2024-03-07)
 
 

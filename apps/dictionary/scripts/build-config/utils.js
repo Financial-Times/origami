@@ -309,9 +309,10 @@ export function getBrandSources(brand) {
 		.filter(theme => tokenStudioThemeToBrand(theme) === brand)
 		.flatMap(theme => {
 			const selectedTokenSets = Object.keys(theme.selectedTokenSets);
+
 			const componentTokenSets = selectedTokenSets.filter(tokenSet => {
 				return (
-					isEnabledTokenStudioSet(theme, tokenSet) &&
+					isEnabledTokenStudioSet(theme, tokenSet) ||
 					isSetBelongsToSubBrand(theme, tokenSet)
 				);
 			});
@@ -368,5 +369,5 @@ export function isTokenStudioSource(token) {
 
 	const theme = getTokensStudioThemeFromBrand(tokenSet);
 
-	return theme.selectedTokenSets[tokenSet] === 'source';
+	return theme ? theme.selectedTokenSets[tokenSet] === 'source' : false;
 }

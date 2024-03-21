@@ -1,0 +1,210 @@
+/* Default Font styles */
+
+@font-face {
+	src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2')
+		format('woff2');
+	font-family: var(--o3-font-family-metric);
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/*
+* Adds normalising styles to general html elements
+* effects: <html>, <body>,
+*/
+html,
+body {
+	margin: 0;
+	text-rendering: optimizeLegibility;
+}
+
+/* Adds font smoothing */
+.o3-font-smoothing {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*:before,
+	*:after {
+		animation-duration: 0.001s !important; /* stylelint-disable-line declaration-no-important */
+		transition-duration: 0.001s !important; /* stylelint-disable-line declaration-no-important */
+		animation-iteration-count: 1 !important; /* stylelint-disable-line declaration-no-important */
+	}
+}
+
+/* add normalising to links */
+a:active,
+a:hover {
+	outline-width: 0;
+}
+
+/* add normalising to text related elements */
+/* 1. Remove the bottom border in Firefox 39-. */
+/* 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari. */
+/* stylelint-disable-next-line selector-no-qualifying-type */
+abbr[title] {
+	border-bottom: 0; /* [1] */
+	text-decoration: underline; /*  [2] */
+	/* stylelint-disable-next-line declaration-block-no-duplicate-properties */
+	text-decoration: underline dotted; /* [2] */
+}
+
+/* Prevent the duplicate application of `bolder` by the next rule in Safari 6. */
+b,
+strong {
+	font-weight: inherit;
+}
+
+/* Add the correct font weight in Chrome, Edge, and Safari. */
+b,
+strong {
+	font-weight: bolder;
+}
+
+/* Add the correct font style in Android 4.3-. */
+dfn {
+	font-style: italic;
+}
+
+/*
+* Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+/* add normalising styles to form elements */
+/* Restore the font weight unset by the previous rule. */
+optgroup {
+	font-weight: bold;
+}
+
+/* Remove the margin in Safari. */
+/* 1. Remove the margin in Firefox and Safari. */
+button,
+input,
+select,
+textarea {
+	/* [1] */
+	margin: 0;
+}
+
+/* Change the cursor in all browsers (opinionated). */
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+	cursor: pointer;
+}
+
+/* Restore the default cursor to disabled elements unset by the previous rule. */
+[disabled] {
+	cursor: default;
+}
+
+/* Remove the inner border and padding in Firefox. */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+/*
+* Visually hide an element while still
+*	allowing it to be read by screen readers
+*/
+.o3-visually-hidden {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	clip-path: polygon(0 0, 0 0);
+	margin: -1px;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 2px;
+	height: 2px;
+	white-space: nowrap;
+}
+
+/* Clearfix styles on the current element */
+.o3-clearfix::after {
+	zoom: 1;
+
+	:before,
+	:after {
+		content: '';
+		display: table;
+		/* stylelint-disable-next-line declaration-block-no-duplicate-properties */
+		display: flex;
+	}
+	:after {
+		clear: both;
+	}
+}
+
+/* Adds box sizing to current and all children elements */
+.o3-box-sizing-border-box {
+	box-sizing: border-box;
+	*,
+	*:before,
+	*:after {
+		box-sizing: inherit;
+	}
+}
+
+/* global focus styles */
+:focus {
+	box-shadow: var(--o3-box-shadow-focus-ring-inner),
+		var(--o3-box-shadow-focus-ring-outer);
+	outline: unset;
+}
+
+[data-o3-theme='inverse']:focus,
+:where([data-o3-theme='inverse']) :focus {
+	box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner),
+		var(--o3-box-shadow-focus-ring-inverse-outer);
+}
+
+@supports selector(:focus-visible) {
+	:focus {
+		box-shadow: unset;
+	}
+
+	:focus-visible {
+		box-shadow: var(--o3-box-shadow-focus-ring-inner),
+			var(--o3-box-shadow-focus-ring-outer);
+		outline: unset;
+	}
+	[data-o3-theme='inverse']:focus-visible,
+	:where([data-o3-theme='inverse']) :focus-visible {
+		box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner),
+			var(--o3-box-shadow-focus-ring-inverse-outer);
+	}
+}
+
+/* revert global styles */
+.o3-revert-focus:focus {
+	outline: revert;
+	box-shadow: revert;
+}
+
+.o3-revert-focus:focus-visible {
+	outline: revert;
+	box-shadow: revert;
+}
