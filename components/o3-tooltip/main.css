@@ -1,14 +1,5 @@
 @import '@financial-times/o3-foundation/icons.css';
 
-@font-face {
-	src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2')
-		format('woff2');
-	font-family: 'metric 2 VF';
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
 .o3-tooltip {
 	--padding-top: var(--o3-spacing-3xs);
 	--padding-right: var(--o3-spacing-2xs);
@@ -152,7 +143,12 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 
 /* Button styles */
 .o3-tooltip button {
-	all: unset; /* remove all default browser styles for buttons */
+	/* remove some default browser styles for buttons */
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	margin: 0;
+
 	width: var(--icon-button-size);
 	height: var(--icon-button-size);
 }
@@ -170,32 +166,6 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 	user-select: none;
 }
 
-/* Focus rings for buttons */
-.o3-tooltip button:focus {
-	box-shadow: var(--o3-box-shadow-focus-ring-inner),
-		var(--o3-box-shadow-focus-ring-outer);
-	outline: unset;
-	&::before {
-		background-color: var(--o3-color-palette-black-50);
-	}
-}
-
-@supports selector(:focus-visible) {
-	.o3-tooltip button:focus {
-		box-shadow: unset;
-		&::before {
-			background-color: var(--o3-color-palette-black-50);
-		}
-	}
-	.o3-tooltip button:focus-visible {
-		box-shadow: var(--o3-box-shadow-focus-ring-inner),
-			var(--o3-box-shadow-focus-ring-outer);
-		outline: unset;
-		&::before {
-			background-color: var(--o3-color-palette-black-50);
-		}
-	}
-}
 
 /* Info tooltip button */
 o3-tooltip-toggle .o3-toggletip-target::before {

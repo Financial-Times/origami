@@ -1,14 +1,5 @@
 @import '@financial-times/o3-foundation/icons.css';
 
-@font-face {
-	src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2')
-		format('woff2');
-	font-family: 'Metric2-VF';
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-}
-
 .o3-button {
 	--_o3-button-min-width: 80px;
 	--_o3-button-min-height: 40px;
@@ -37,7 +28,7 @@
 	font-size: var(--_o3-button-font-size);
 	line-height: var(--_o3-button-lineheight);
 	font-weight: 450;
-	font-family: 'Metric2-VF', sans-serif;
+	font-family: var(--o3-font-family-metric), sans-serif;
 	border: var(--_o3-button-border-size) solid transparent;
 	text-align: center;
 	text-decoration: none;
@@ -57,34 +48,6 @@
 	visibility: hidden;
 }
 
-.o3-button:focus {
-	box-shadow: var(--o3-box-shadow-focus-ring-inner),
-		var(--o3-box-shadow-focus-ring-outer);
-	outline: unset;
-}
-
-.o3-button[data-o3-theme='inverse']:focus,
-:where([data-o3-theme='inverse']) .o3-button:focus {
-	box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner),
-		var(--o3-box-shadow-focus-ring-inverse-outer);
-}
-
-@supports selector(:focus-visible) {
-	.o3-button:focus {
-		box-shadow: unset;
-	}
-
-	.o3-button:focus-visible {
-		box-shadow: var(--o3-box-shadow-focus-ring-inner),
-			var(--o3-box-shadow-focus-ring-outer);
-		outline: unset;
-	}
-	.o3-button[data-o3-theme='inverse']:focus-visible,
-	:where([data-o3-theme='inverse']) .o3-button:focus-visible {
-		box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner),
-			var(--o3-box-shadow-focus-ring-inverse-outer);
-	}
-}
 
 /* PRIMARY */
 
