@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.6.4](https://github.com/Financial-Times/origami/compare/o-colors-v6.6.3...o-colors-v6.6.4) (2024-03-21)
+
+
+### Bug Fixes
+
+* enable typography and editorial-typography for professional brand ([#1506](https://github.com/Financial-Times/origami/issues/1506)) ([2289423](https://github.com/Financial-Times/origami/commit/2289423450a6ab7b281435af90e7b492273a20cf))
+
 ## [6.6.3](https://github.com/Financial-Times/origami/compare/o-colors-v6.6.2...o-colors-v6.6.3) (2023-10-27)
 
 
