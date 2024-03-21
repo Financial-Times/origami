@@ -24,8 +24,8 @@
     "internal/components/o3-tooltip",
     "sustainable-views/base/spacing",
     "sustainable-views/base/typography",
-    "sustainable-views/use-case/typography-editorial",
     "sustainable-views/base/color",
+    "sustainable-views/use-case/typography-editorial",
     "sustainable-views/use-case/typography",
     "sustainable-views/components/o3-tooltip",
     "sustainable-views/components/o3-button",
@@ -38,10 +38,8 @@
     "whitelabel/use-case/typography",
     "whitelabel/use-case/typography-editorial",
     "whitelabel/components/o3-button",
-    "whitelabel/components/o3-toggle",
-    "whitelabel/components/o3-tooltip1",
+    "whitelabel/components/o3-tooltip",
     "utility-tokens",
-    "icons/icons",
-    "whitelabel/component/toggle"
+    "icons/icons"
   ]
 }

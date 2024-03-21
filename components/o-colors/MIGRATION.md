@@ -1,6 +1,6 @@
 ## Migration Guide
 
-### Migrating from v6 to o3-web-token
+### Migrating from v6 to o3-foundation
 
 #### Mixins
 
@@ -8,9 +8,9 @@
 
 ###### Replace `o-colors-*` classes.
 
-`o3-web-token` provides [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) but no utility CSS classes. Instead, author your own CSS to apply the correct colours to either `background` or `color`.
+`o3-foundation` provides [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) but no utility CSS classes. Instead, author your own CSS to apply the correct colours to either `background` or `color`.
 
-| o-colors class           | o3-web-token CSS                                     |
+| o-colors class           | o3-foundation CSS                                    |
 | ------------------------ | ---------------------------------------------------- |
 | o-colors-page-background | background: var(--o3-color-use-case-page-background) |
 | o-colors-body-text       | color: var(--o3-color-use-case-body-text)            |
@@ -31,7 +31,7 @@ $o-brand: '[your-brand]';
 Becomes:
 
 ```css
-@import '@financial-times/o3-web-token/[your-brand].css';
+@import '@financial-times/o3-foundation/[your-brand].css';
 body {
 	background-color: var(--o3-color-use-case-page-background);
 }
@@ -39,9 +39,9 @@ body {
 
 ###### Replace `--o-colors-*` CSS Custom Properties.
 
-Instead, use `o3-web-token` [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+Instead, use `o3-foundation` [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
-| o-colors                   | o3-web-token                                                                                                                      |
+| o-colors                   | o3-foundation                                                                                                                     |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | --o-colors-page-background | --o3-color-use-case-page-background                                                                                               |
 | --o-colors-box-background  | Removed. Use the palette directly (core brand: --o3-color-palette-wheat; --o3-color-palette-slate-white-5 for the internal brand) |
@@ -52,7 +52,7 @@ Instead, use `o3-web-token` [CSS Custom Properties](https://developer.mozilla.or
 
 Some colour use-case CSS Custom Properties have no direct replacement. Instead use the colour palette directly, according to your brand.
 
-| o-colors                  | o3-web-token (core)      | o3-web-token (internal)          |
+| o-colors                  | o3-foundation (core)     | o3-foundation (internal)         |
 | ------------------------- | ------------------------ | -------------------------------- |
 | --o-colors-box-background | --o3-color-palette-wheat | --o3-color-palette-slate-white-5 |
 
@@ -97,7 +97,7 @@ E.g. if working on a project `ft-example-project` to define a custom usecase for
 
 ##### `oColorsByName`
 
-Use `o3-web-token` CSS Custom Properties instead, `--o3-color-palette-[name]`.
+Use `o3-foundation` CSS Custom Properties instead, `--o3-color-palette-[name]`.
 
 ```diff
 -color: oColorsByName('ft-pink');
@@ -108,9 +108,9 @@ See our [colour design guidelines](https://origami-for-everyone.ft.com/guides/co
 
 ##### `oColorsByUsecase`
 
-Use `o3-web-token` CSS Custom Properties instead, `--o3-color-use-case-[usecase]`.
+Use `o3-foundation` CSS Custom Properties instead, `--o3-color-use-case-[usecase]`.
 
-| o-colors                                        | o3-web-token                                     |
+| o-colors                                        | o3-foundation                                    |
 | ----------------------------------------------- | ------------------------------------------------ |
 | oColorsByUsecase('focus', 'outline');           | var(--o3-color-use-case-focus-outline-standard)  |
 | oColorsByUsecase('page', 'background');         | var(--o3-color-use-case-page-background)         |
@@ -123,7 +123,7 @@ Use `o3-web-token` CSS Custom Properties instead, `--o3-color-use-case-[usecase]
 
 Some colour use-cases have no direct replacement. Instead use the colour palette directly, according to your brand.
 
-| o-colors                                                      | o3-web-token (core)               | o3-web-token (internal)                |
+| o-colors                                                      | o3-foundation (core)              | o3-foundation (internal)               |
 | ------------------------------------------------------------- | --------------------------------- | -------------------------------------- |
 | oColorsByUsecase('box', 'background');                        | var(--o3-color-palette-wheat)     | var(--o3-color-palette-slate-white-5)  |
 | oColorsByUsecase('link-title', 'text');                       | var(--o3-color-palette-black-80)  | var(--o3-color-palette-slate-white-15) |
@@ -162,7 +162,7 @@ E.g:
 
 ##### `oColorsGetTone`
 
-use `o3-web-token` CSS Custom Properties for tints (also known as tones), use these instead of `oColorsGetTone`.
+use `o3-foundation` CSS Custom Properties for tints (also known as tones), use these instead of `oColorsGetTone`.
 
 E.g:
 
@@ -202,7 +202,7 @@ We recommend this path as [we found there is little consistency in how these mix
 
 ##### `oColorsGetTextColor`
 
-There is no direct replacement for `oColorsGetTextColor`. We recommend manually using the `o3-web-token` CSS Custom Property `--o3-color-use-case-body` for light backgrounds and `--o3-color-use-case-body-inverse` for dark backgrounds.
+There is no direct replacement for `oColorsGetTextColor`. We recommend manually using the `o3-foundation` CSS Custom Property `--o3-color-use-case-body` for light backgrounds and `--o3-color-use-case-body-inverse` for dark backgrounds.
 
 Please contact the Origami team for support if this is not possible or practical.
 

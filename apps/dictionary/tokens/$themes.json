@@ -11,7 +11,7 @@
       "core/use-case/box-shadow": "enabled",
       "core/use-case/typography": "enabled",
       "core/use-case/typography-editorial": "enabled",
-      "core/components/o3-tooltip": "enabled",
+      "core/components/o3-tooltip": "source",
       "core/use-case/color": "enabled"
     },
     "$figmaStyleReferences": {
@@ -218,8 +218,9 @@
       "core/base/typography": "enabled",
       "core/use-case/color": "enabled",
       "core/use-case/box-shadow": "enabled",
-      "core/use-case/typography-editorial": "disabled",
-      "core/professional/components/o3-tooltip": "enabled"
+      "core/professional/components/o3-tooltip": "source",
+      "core/use-case/typography": "enabled",
+      "core/use-case/typography-editorial": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -412,7 +413,7 @@
       "internal/base/typography": "enabled",
       "internal/use-case/box-shadow": "enabled",
       "internal/use-case/typography": "enabled",
-      "internal/components/o3-tooltip": "enabled",
+      "internal/components/o3-tooltip": "source",
       "internal/use-case/color": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1487",
@@ -487,8 +488,8 @@
       "whitelabel/base/typography": "enabled",
       "whitelabel/use-case/typography": "enabled",
       "whitelabel/use-case/typography-editorial": "enabled",
-      "whitelabel/components/o3-tooltip": "enabled",
-      "whitelabel/use-case/color": "enabled"
+      "whitelabel/use-case/color": "enabled",
+      "whitelabel/components/o3-tooltip": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1701",
     "$figmaModeId": "4618:6",
@@ -545,7 +546,7 @@
       "sustainable-views/use-case/typography": "enabled",
       "sustainable-views/use-case/typography-editorial": "enabled",
       "sustainable-views/components/o3-button": "source",
-      "sustainable-views/components/o3-tooltip": "enabled",
+      "sustainable-views/components/o3-tooltip": "source",
       "sustainable-views/base/color": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1555",
