@@ -28,6 +28,7 @@
     "sustainable-views/use-case/focus",
     "sustainable-views/use-case/typography-editorial",
     "sustainable-views/use-case/typography",
+    "sustainable-views/use-case/color",
     "sustainable-views/components/o3-tooltip",
     "sustainable-views/components/o3-button",
     "whitelabel/base/spacing",

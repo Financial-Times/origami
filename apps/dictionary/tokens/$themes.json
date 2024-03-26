@@ -560,7 +560,7 @@
       "sustainable-views/components/o3-button": "source",
       "sustainable-views/components/o3-tooltip": "source",
       "sustainable-views/base/color": "enabled",
-      "sustainable-views/use-case/focus": "enabled"
+      "sustainable-views/use-case/color": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1555",
     "$figmaModeId": "4618:3",
