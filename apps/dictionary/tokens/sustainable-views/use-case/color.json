@@ -1,0 +1,67 @@
+{
+  "o3": {
+    "color": {
+      "use-case": {
+        "link": {
+          "text": {
+            "@": {
+              "value": "{o3.color.palette.teal}",
+              "type": "color",
+              "description": ""
+            },
+            "hover": {
+              "value": "{o3.color.palette.slate}",
+              "type": "color"
+            }
+          },
+          "underline": {
+            "@": {
+              "value": "{o3.color.palette.teal}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{o3.color.palette.slate}",
+              "type": "color"
+            }
+          }
+        },
+        "page": {
+          "background": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
+        },
+        "focus": {
+          "outline": {
+            "standard": {
+              "value": "{o3.color.palette.black-90}",
+              "type": "color"
+            },
+            "interactive-inner": {
+              "value": "{o3.color.palette.white}",
+              "type": "color",
+              "description": "For inner rings of an interactive focus state"
+            },
+            "interactive-outer": {
+              "value": "{o3.color.palette.black-50}",
+              "type": "color"
+            }
+          }
+        },
+        "body": {
+          "text": {
+            "value": "{o3.color.palette.black-90}",
+            "type": "color"
+          }
+        },
+        "muted": {
+          "text": {
+            "value": "{o3.color.palette.black-50}",
+            "type": "color",
+            "description": "\"Muted\" text is less prominent, for example credits and captions."
+          }
+        }
+      }
+    }
+  }
+}
