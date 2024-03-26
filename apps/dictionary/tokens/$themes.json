@@ -13,9 +13,6 @@
       "core/components/o3-tooltip": "source",
       "core/use-case/color": "enabled",
       "core/use-case/focus": "enabled",
-      "internal/use-case/focus": "disabled",
-      "sustainable-views/use-case/focus": "disabled",
-      "whitelabel/use-case/focus": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -224,9 +221,6 @@
       "core/use-case/typography": "enabled",
       "core/use-case/typography-editorial": "enabled",
       "core/use-case/focus": "enabled",
-      "internal/use-case/focus": "disabled",
-      "sustainable-views/use-case/focus": "disabled",
-      "whitelabel/use-case/focus": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -420,10 +414,7 @@
       "internal/use-case/typography": "enabled",
       "internal/components/o3-tooltip": "source",
       "internal/use-case/color": "enabled",
-      "core/use-case/focus": "disabled",
       "internal/use-case/focus": "enabled",
-      "sustainable-views/use-case/focus": "disabled",
-      "whitelabel/use-case/focus": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1487",
     "$figmaModeId": "4618:2",
@@ -498,9 +489,6 @@
       "whitelabel/use-case/typography-editorial": "enabled",
       "whitelabel/use-case/color": "enabled",
       "whitelabel/components/o3-tooltip": "source",
-      "core/use-case/focus": "disabled",
-      "internal/use-case/focus": "disabled",
-      "sustainable-views/use-case/focus": "disabled",
       "whitelabel/use-case/focus": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1701",
