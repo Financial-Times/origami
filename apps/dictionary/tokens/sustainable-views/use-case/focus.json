@@ -9,7 +9,7 @@
               "y": "0",
               "blur": "0",
               "spread": "4",
-              "color": "#ffffff",
+              "color": "{o3.color.palette.white}",
               "type": "dropShadow"
             },
             "type": "boxShadow"
@@ -20,7 +20,7 @@
               "y": "0",
               "blur": "0",
               "spread": "8",
-              "color": "#4d4845",
+              "color": "{o3.color.palette.black}",
               "type": "dropShadow"
             },
             "type": "boxShadow"
@@ -32,7 +32,7 @@
                 "y": "0",
                 "blur": "0",
                 "spread": "4",
-                "color": "#4d4845",
+                "color": "{o3.color.palette.black}",
                 "type": "dropShadow"
               },
               "type": "boxShadow"
@@ -43,7 +43,7 @@
                 "y": "0",
                 "blur": "0",
                 "spread": "8",
-                "color": "#ffffff",
+                "color": "{o3.color.palette.white}",
                 "type": "dropShadow"
               },
               "type": "boxShadow"
@@ -57,7 +57,7 @@
               "y": "0",
               "blur": "0",
               "spread": "2",
-              "color": "{o3.color.palette.black-50}",
+              "color": "{o3.color.palette.black}",
               "type": "dropShadow"
             },
             "type": "boxShadow"

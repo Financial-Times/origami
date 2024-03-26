@@ -63,7 +63,13 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 
 ### Focus rings
 
-`o3-foundation` provides a focus rings that is visually consistent across all brands. The focus rings consist two rings that are black and white. By default the outer ring is black and the inner ring is white. If you are using inverse theme the rings will revert to white and black respectively. To revert the focus rings, use the `o3-revert-focus` class on the element.
+`o3-foundation` provides visually consistent focus rings across all brands. The focus rings consist of two rings: an outer black ring and an inner white ring. By default, the outer ring is black and the inner ring is white. However, if you are using an inverse theme, the colors will be inverted. Focus rings are automatically applied to `buttons`, `inputs`, `selects`, and `textareas`.
+
+If you need to apply a focus ring to a different element than the ones mentioned above, you can use the `o3-apply-focus-ring` class on that element.
+
+Users can also revert the focus rings by using the `o3-revert-focu`s class on the element.
+
+For other elements, such as links, text, and multiline text, we use focus as an outline.
 
 ### Fonts
 
