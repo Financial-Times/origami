@@ -59,23 +59,6 @@
             "type": "color"
           }
         },
-        "focus": {
-          "outline": {
-            "standard": {
-              "value": "{o3.color.palette.black}",
-              "type": "color"
-            },
-            "interactive-inner": {
-              "value": "{o3.color.palette.white}",
-              "type": "color",
-              "description": "For inner rings of an interactive focus state"
-            },
-            "interactive-outer": {
-              "value": "{o3.color.palette.black-70}",
-              "type": "color"
-            }
-          }
-        },
         "body": {
           "text": {
             "value": "{o3.color.palette.black-80}",
