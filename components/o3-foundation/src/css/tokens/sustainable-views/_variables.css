@@ -192,4 +192,14 @@
   --o3-color-palette-claret: #990f3dff;
   --o3-color-palette-black-90: #1a1817ff;
   --o3-color-palette-black-50: #807973ff;
+  --o3-color-use-case-link-text: var(--o3-color-palette-teal);
+  --o3-color-use-case-link-text-hover: var(--o3-color-palette-slate);
+  --o3-color-use-case-link-underline: var(--o3-color-palette-teal);
+  --o3-color-use-case-link-underline-hover: var(--o3-color-palette-slate);
+  --o3-color-use-case-page-background: var(--o3-color-palette-white);
+  --o3-color-use-case-focus-outline-standard: var(--o3-color-palette-black-90);
+  --o3-color-use-case-focus-outline-interactive-inner: var(--o3-color-palette-white); /* For inner rings of an interactive focus state */
+  --o3-color-use-case-focus-outline-interactive-outer: var(--o3-color-palette-black-50);
+  --o3-color-use-case-body-text: var(--o3-color-palette-black-90);
+  --o3-color-use-case-muted-text: var(--o3-color-palette-black-50); /* "Muted" text is less prominent, for example credits and captions. */
 }
