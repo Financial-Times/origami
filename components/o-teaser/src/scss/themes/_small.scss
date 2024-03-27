@@ -118,8 +118,8 @@
 
 	.o-teaser__heading,
 	.o-teaser__heading a {
-		color: oColorsByName('black');
 		@include oTypographyDisplay($scale: 2, $weight: 'medium');
+		color: oColorsByName('black');
 	}
 
 	@include oGridRespondTo($until: S) {
