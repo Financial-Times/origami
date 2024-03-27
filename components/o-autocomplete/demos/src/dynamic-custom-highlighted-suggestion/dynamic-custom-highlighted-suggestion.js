@@ -27,18 +27,61 @@ function mapOptionToSuggestedValue(option) {
 
 	return option.Country_Name;
 }
+
+/**
+ * @typedef CharacterHighlight - The character and whether it should be highlighted
+ * @type {Array}
+ * @property {string} 0 - the character in the suggestion
+ * @property {boolean} 1 - should it be highlighted?
+ */
+
+/**
+ * @param {string} suggestion - Text which is going to be suggested to the user
+ * @param {string} query - Text which was typed into the autocomplete text input field by the user
+ * @returns {CharacterHighlight[]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
+ */
+function highlightSuggestion(suggestion, query) {
+	const result = suggestion.split('');
+
+	const matchIndex = suggestion.toLocaleLowerCase().indexOf(query.toLocaleLowerCase());
+	return result.map(function(character, index) {
+		let shouldHighlight = true;
+		const hasMatched = matchIndex > -1;
+		const characterIsWithinMatch = index >= matchIndex && index <= matchIndex + query.length - 1;
+		if (hasMatched && characterIsWithinMatch) {
+			shouldHighlight = false;
+		}
+		return [character, shouldHighlight];
+	});
+}
+
 /**
  * @param {CustomOption} option - The option to transform into a suggestion string
  * @param {string} [query] - Text which was typed into the autocomplete text input field by the user
  * @returns {string} The string to display in the suggestions dropdown for this option
  */
-function suggestionTemplate(option, query) { //eslint-disable-line no-unused-vars
+function suggestionTemplate(option, query) {
 	if(typeof option === 'string') return option;
-	return `<div>
-		<strong>${option.Country_Name}</strong>
-		<span> </span>
-		<em>${option.Continent_Name}</em>
-	</div>`
+
+	/**
+	 * @type {CharacterHighlight[]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
+	 */
+	const characters = highlightSuggestion(option.name, query || option.name);
+
+	let output = '';
+	for (const [character, shoudHighlight] of characters) {
+		if (shoudHighlight) {
+			output += `<span class="o-autocomplete__option--highlight">${character}</span>`;
+		} else {
+			output += `${character}`;
+		}
+	}
+	output += ` <span>(${option.Continent_Name})</span>`;
+
+	const span = document.createElement('span');
+	span.setAttribute('aria-label', option.Country_Name);
+	span.innerHTML = output;
+	return span.outerHTML;
 }
 
 /**
