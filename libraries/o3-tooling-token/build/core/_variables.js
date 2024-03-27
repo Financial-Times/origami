@@ -1396,6 +1396,36 @@ export default {
 		"css": "--o3-color-use-case-body-inverse-text",
 		"figma": "o3/color/use-case/body-inverse/text"
 },
+	"o3-color-use-case-muted-text": {
+		"shortName": "text",
+		"value": "#ccc1b7ff",
+		"originalValue": "{o3.color.palette.black-20}",
+		"type": "color",
+		"description": "\"Muted\" text is less prominent, for example credits and captions.",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"muted",
+				"text"
+		],
+		"css": "--o3-color-use-case-muted-text",
+		"figma": "o3/color/use-case/muted/text"
+},
+	"o3-color-use-case-muted-inverse": {
+		"shortName": "muted-inverse",
+		"value": "#a8aaad",
+		"originalValue": "#a8aaad",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"muted-inverse"
+		],
+		"css": "--o3-color-use-case-muted-inverse",
+		"figma": "o3/color/use-case/muted-inverse"
+},
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
 		"value": "0.25rem",
@@ -2773,59 +2803,5 @@ export default {
 		],
 		"css": "--o3-typography-use-case-caption-line-height",
 		"figma": "o3/typography/use-case/caption/lineHeight"
-},
-	"o3-tooltip-background-color": {
-		"shortName": "background-color",
-		"value": "#ffffffff",
-		"originalValue": "{o3.color.palette.white}",
-		"type": "color",
-		"path": [
-				"o3",
-				"tooltip",
-				"background-color"
-		],
-		"css": "--o3-tooltip-background-color",
-		"figma": "o3/tooltip/background-color"
-},
-	"o3-tooltip-text-color": {
-		"shortName": "text-color",
-		"value": "#1a1817ff",
-		"originalValue": "{o3.color.palette.black-90}",
-		"type": "color",
-		"path": [
-				"o3",
-				"tooltip",
-				"text-color"
-		],
-		"css": "--o3-tooltip-text-color",
-		"figma": "o3/tooltip/text-color"
-},
-	"o3-tooltip-icon-info": {
-		"shortName": "info",
-		"value": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z\" fill=\"black\"/>\n<path d=\"M13.2948 10.012V17.376H10.7188V10.012H13.2948ZM10.5508 7.99602C10.5508 7.58536 10.6908 7.25402 10.9708 7.00202C11.2601 6.75002 11.6008 6.62402 11.9928 6.62402C12.3941 6.62402 12.7348 6.75002 13.0148 7.00202C13.3041 7.25402 13.4488 7.58536 13.4488 7.99602C13.4488 8.40669 13.3041 8.74269 13.0148 9.00402C12.7348 9.25602 12.3941 9.38202 11.9928 9.38202C11.6008 9.38202 11.2601 9.25602 10.9708 9.00402C10.6908 8.74269 10.5508 8.40669 10.5508 7.99602Z\" fill=\"black\"/>\n</svg>",
-		"originalValue": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z\" fill=\"black\"/>\n<path d=\"M13.2948 10.012V17.376H10.7188V10.012H13.2948ZM10.5508 7.99602C10.5508 7.58536 10.6908 7.25402 10.9708 7.00202C11.2601 6.75002 11.6008 6.62402 11.9928 6.62402C12.3941 6.62402 12.7348 6.75002 13.0148 7.00202C13.3041 7.25402 13.4488 7.58536 13.4488 7.99602C13.4488 8.40669 13.3041 8.74269 13.0148 9.00402C12.7348 9.25602 12.3941 9.38202 11.9928 9.38202C11.6008 9.38202 11.2601 9.25602 10.9708 9.00402C10.6908 8.74269 10.5508 8.40669 10.5508 7.99602Z\" fill=\"black\"/>\n</svg>",
-		"type": "asset",
-		"path": [
-				"o3",
-				"tooltip",
-				"icon",
-				"info"
-		],
-		"css": "--o3-tooltip-icon-info",
-		"figma": "o3/tooltip/icon/info"
-},
-	"o3-tooltip-icon-cross": {
-		"shortName": "cross",
-		"value": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z\" fill=\"black\"/>\n<path d=\"M10.146 11.796L7 8.694L8.694 7L11.818 10.102L14.92 7L16.614 8.694L13.512 11.796L16.614 14.92L14.92 16.614L11.818 13.512L8.694 16.614L7 14.92L10.146 11.796Z\" fill=\"black\"/>\n</svg>",
-		"originalValue": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z\" fill=\"black\"/>\n<path d=\"M10.146 11.796L7 8.694L8.694 7L11.818 10.102L14.92 7L16.614 8.694L13.512 11.796L16.614 14.92L14.92 16.614L11.818 13.512L8.694 16.614L7 14.92L10.146 11.796Z\" fill=\"black\"/>\n</svg>",
-		"type": "asset",
-		"path": [
-				"o3",
-				"tooltip",
-				"icon",
-				"cross"
-		],
-		"css": "--o3-tooltip-icon-cross",
-		"figma": "o3/tooltip/icon/cross"
 }
 };
