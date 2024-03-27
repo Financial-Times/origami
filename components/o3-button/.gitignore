@@ -7,3 +7,7 @@
 .idea/
 /demos/local
 /coverage
+css
+!src/css
+cjs
+esm

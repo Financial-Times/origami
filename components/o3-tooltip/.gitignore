@@ -6,3 +6,8 @@
 /build/
 .idea/
 /coverage
+css
+!src/css
+cjs
+esm
+browser

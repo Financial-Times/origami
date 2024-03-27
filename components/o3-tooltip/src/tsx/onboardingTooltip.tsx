@@ -1,4 +1,4 @@
-import type {OnboardingToolTipProps} from '../types';
+import type {OnboardingToolTipProps} from '../types/index';
 
 export function TooltipOnboarding({
 	targetId,
