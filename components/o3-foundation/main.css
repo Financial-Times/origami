@@ -168,37 +168,47 @@ input::-moz-focus-inner {
 	}
 }
 
-/* global focus styles */
+/* focus styles */
 :focus {
-	box-shadow: var(--o3-box-shadow-focus-ring-inner),
-		var(--o3-box-shadow-focus-ring-outer);
-	outline: unset;
+	outline: 2px solid var(--o3-focus-use-case-outline-color);
 }
 
 [data-o3-theme='inverse']:focus,
 :where([data-o3-theme='inverse']) :focus {
-	box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner),
-		var(--o3-box-shadow-focus-ring-inverse-outer);
+	outline: 2px solid var(--o3-focus-use-case-outline-inverse-color);
 }
 
-@supports selector(:focus-visible) {
+input,
+button,
+select,
+textarea {
 	:focus {
-		box-shadow: unset;
-	}
-
-	:focus-visible {
-		box-shadow: var(--o3-box-shadow-focus-ring-inner),
-			var(--o3-box-shadow-focus-ring-outer);
+		box-shadow: var(--o3-focus-use-case-ring-inner), var(--o3-focus-use-case-ring-outer);
 		outline: unset;
 	}
-	[data-o3-theme='inverse']:focus-visible,
-	:where([data-o3-theme='inverse']) :focus-visible {
-		box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner),
-			var(--o3-box-shadow-focus-ring-inverse-outer);
+
+	[data-o3-theme='inverse']:focus,
+	:where([data-o3-theme='inverse']) :focus {
+		box-shadow: var(--o3-focus-use-case-ring-inverse-inner), var(--o3-focus-use-case-ring-inverse-outer);
+	}
+
+	@supports selector(:focus-visible) {
+		:focus {
+			box-shadow: unset;
+		}
+
+		:focus-visible {
+			box-shadow: var(--o3-focus-use-case-ring-inner), var(--o3-focus-use-case-ring-outer);
+			outline: unset;
+		}
+		[data-o3-theme='inverse']:focus-visible,
+		:where([data-o3-theme='inverse']) :focus-visible {
+			box-shadow: var(--o3-focus-use-case-ring-inverse-inner), var(--o3-focus-use-case-ring-inverse-outer);
+		}
 	}
 }
 
-/* revert global styles */
+/* revert focus styles */
 .o3-revert-focus:focus {
 	outline: revert;
 	box-shadow: revert;
@@ -207,4 +217,32 @@ input::-moz-focus-inner {
 .o3-revert-focus:focus-visible {
 	outline: revert;
 	box-shadow: revert;
+}
+
+/* add focus rings on specific element */
+.o3-apply-focus-rings {
+	:focus {
+		box-shadow: var(--o3-focus-use-case-ring-inner), var(--o3-focus-use-case-ring-outer);
+		outline: unset;
+	}
+
+	[data-o3-theme='inverse']:focus,
+	:where([data-o3-theme='inverse']) :focus {
+		box-shadow: var(--o3-focus-use-case-ring-inverse-inner), var(--o3-focus-use-case-ring-inverse-outer);
+	}
+
+	@supports selector(:focus-visible) {
+		:focus {
+			box-shadow: unset;
+		}
+
+		:focus-visible {
+			box-shadow: var(--o3-focus-use-case-ring-inner), var(--o3-focus-use-case-ring-outer);
+			outline: unset;
+		}
+		[data-o3-theme='inverse']:focus-visible,
+		:where([data-o3-theme='inverse']) :focus-visible {
+			box-shadow: var(--o3-focus-use-case-ring-inverse-inner), var(--o3-focus-use-case-ring-inverse-outer);
+		}
+	}
 }

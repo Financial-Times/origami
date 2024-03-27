@@ -14,9 +14,6 @@
   --o3-color-use-case-link-inverse-underline-hover: var(--o3-color-palette-mint-70);
   --o3-color-use-case-page-background: var(--o3-color-palette-paper);
   --o3-color-use-case-page-inverse-background: var(--o3-color-palette-slate);
-  --o3-color-use-case-focus-outline-standard: var(--o3-color-palette-black-50);
-  --o3-color-use-case-focus-outline-interactive-inner: var(--o3-color-palette-white); /* For inner rings of an interactive focus state */
-  --o3-color-use-case-focus-outline-interactive-outer: var(--o3-color-palette-black-70);
   --o3-color-use-case-body-text: var(--o3-color-palette-black-80);
   --o3-color-use-case-body-inverse-text: var(--o3-color-palette-white);
   --o3-color-use-case-muted-text: var(--o3-color-palette-black-20); /* "Muted" text is less prominent, for example credits and captions. */
@@ -163,10 +160,6 @@
   --o3-font-size-metric2-10: 4.5rem;
   --o3-font-size-metric2-negative-2: 0.625rem;
   --o3-font-size-metric2-negative-1: 0.75rem;
-  --o3-box-shadow-focus-ring-inner: 0 0 0 4px #ffffff;
-  --o3-box-shadow-focus-ring-outer: 0 0 0 8px #4d4845;
-  --o3-box-shadow-focus-ring-inverse-inner: 0 0 0 4px #4d4845;
-  --o3-box-shadow-focus-ring-inverse-outer: 0 0 0 8px #ffffff;
   --o3-typography-use-case-heading1-font-family: var(--o3-font-family-metric);
   --o3-typography-use-case-heading1-font-weight: var(--o3-font-weight-semibold);
   --o3-typography-use-case-heading1-font-size: var(--o3-font-size-metric2-5);
@@ -287,4 +280,10 @@
   --o3-editorial-typography-use-case-quote-author-font-weight: var(--o3-font-weight-semibold);
   --o3-editorial-typography-use-case-quote-author-font-size: var(--o3-font-size-metric2-negative-1);
   --o3-editorial-typography-use-case-quote-author-line-height: var(--o3-font-lineheight-metric2-negative-1);
+  --o3-focus-use-case-ring-inner: 0 0 0 4px var(--o3-color-palette-white);
+  --o3-focus-use-case-ring-outer: 0 0 0 8px var(--o3-color-palette-black-70);
+  --o3-focus-use-case-ring-inverse-inner: 0 0 0 4px var(--o3-color-palette-black-70);
+  --o3-focus-use-case-ring-inverse-outer: 0 0 0 8px var(--o3-color-palette-white);
+  --o3-focus-use-case-outline-color: 0 0 0 2px var(--o3-color-palette-black-50);
+  --o3-focus-use-case-outline-inverse-color: 0 0 0 2px var(--o3-color-palette-white);
 }
