@@ -67,7 +67,7 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 
 If you need to apply a focus ring to a different element than the ones mentioned above, you can use the `o3-apply-focus-ring` class on that element.
 
-Users can also revert the focus rings by using the `o3-revert-focu`s class on the element.
+Users can also revert the focus rings by using the `o3-revert-focus` class on the element.
 
 For other elements, such as links, text, and multiline text, we use focus as an outline.
 
