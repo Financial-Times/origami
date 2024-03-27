@@ -1,2 +1,2 @@
-import './onboardingTooltip'
-import './toggleTooltip'
+import './onboardingTooltip';
+import './toggleTooltip';

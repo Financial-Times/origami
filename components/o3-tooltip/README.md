@@ -26,23 +26,23 @@ Below are examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-togg
 ```html
 <!-- <o3-tooltip-onboarding> -->
 <div data-o3-brand="[your brand]">
- <button
-  id="demo-o3-tooltip-id"
-  class="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
-  aria-describedby="demo-o3-tooltip-content"
- >
-  Share
- </button>
- <o3-tooltip-onboarding
-  role="tooltip"
-  placement="top"
-  target-id="demo-o3-tooltip-id"
-  class="o3-tooltip"
-  content="Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long"
-  title="Title"
-  content-id="demo-o3-tooltip-content"
- >
- </o3-tooltip-onboarding>
+	<button
+		id="demo-o3-tooltip-id"
+		class="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
+		aria-describedby="demo-o3-tooltip-content"
+	>
+		Share
+	</button>
+	<o3-tooltip-onboarding
+		role="tooltip"
+		placement="top"
+		target-id="demo-o3-tooltip-id"
+		class="o3-tooltip"
+		content="Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long"
+		title="Title"
+		content-id="demo-o3-tooltip-content"
+	>
+	</o3-tooltip-onboarding>
 </div>
 ```
 
@@ -51,21 +51,22 @@ Below are examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-togg
 ```html
 <!-- <o3-tooltip-toggle> -->
 <div data-o3-brand="[your brand]">
- <o3-tooltip-toggle
-  placement="bottom"
-  class="o3-tooltip"
-  content="click the button to see the tooltip"
-  title="Title">
- </o3-tooltip-toggle>
+	<o3-tooltip-toggle
+		placement="bottom"
+		class="o3-tooltip"
+		content="click the button to see the tooltip"
+		title="Title"
+	>
+	</o3-tooltip-toggle>
 </div>
 ```
 
 ## JavaScript
 
-No code will run automatically unless you import the JavaScript. To import the JavaScript, you can use the following code:
+No code will run automatically unless you import the client side JavaScript. To import the JavaScript, you can use the following code:
 
 ```javascript
-import o3Tooltip from '@financial-times/o3-tooltip';
+import '@financial-times/o3-tooltip';
 ```
 
 ## css
@@ -81,22 +82,18 @@ To style `o3-tooltip` import brand specific css, this varies depending on your p
 `o3-tooltip` exports two JSX templates, `TooltipOnboarding` and `TooltipToggle` for each tooltip component. This means copy-pasting html can be avoided. For example:
 
 ```jsx
-import {
- TooltipOnboarding,
- TooltipToggle,
-} from '@financial-times/o3-tooltip/jsx';
+import {TooltipOnboarding, TooltipToggle} from '@financial-times/o3-tooltip';
 
-import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom elements
+import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom elements on client side
 
-import '@financial-times/o3-web-token/[your brand].css'; // brand styling
 import '@finacial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
 
 <div className="o3-brand-[your brand]">
- <button id="target" aria-describedby="contentId">
-  Target element
- </button>
- <TooltipOnboarding {...props} />;
- <TooltipToggle {...props} />
+	<button id="target" aria-describedby="contentId">
+		Target element
+	</button>
+	<TooltipOnboarding {...props} />;
+	<TooltipToggle {...props} />
 </div>;
 ```
 
@@ -106,18 +103,18 @@ The `TooltipOnboarding` JSX element accepts the following `props`:
 
 ```ts
 type Placement =
- | 'top'
- | 'bottom'
- | 'left'
- | 'right'
- | 'top-start'
- | 'top-end'
- | 'bottom-start'
- | 'bottom-end'
- | 'left-start'
- | 'left-end'
- | 'right-start'
- | 'right-end';
+	| 'top'
+	| 'bottom'
+	| 'left'
+	| 'right'
+	| 'top-start'
+	| 'top-end'
+	| 'bottom-start'
+	| 'bottom-end'
+	| 'left-start'
+	| 'left-end'
+	| 'right-start'
+	| 'right-end';
 ```
 
 |   Prop    |    type     | required | default |             description             |

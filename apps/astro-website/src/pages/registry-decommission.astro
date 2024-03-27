@@ -1,0 +1,36 @@
+---
+import Layout from '@/layouts/DocLayout.astro';
+
+const title = 'Origami Registry has been decomissioned';
+const description =
+	'The Origami Registry has been decomissioned and replaced with Storybook.';
+---
+
+<Layout title={title} description={description}>
+	<div class="o-layout__main o-layout-typography">
+		<h2>The Origami Registry has been decomissioned</h2>
+		<p>
+			The Origami Registry is being replaced by <a
+				href="https://origami.ft.com/storybook/">Storybook</a
+			> and is no longer available. Please refer to Storybook for Origami component
+			demos. You can read more about the decomission on <a href="">our blog</a>.
+		</p>
+		<h3>What do I do next?</h3>
+		<ul>
+			<li>
+				You may have found this page through a link in documentation. Please
+				ensure your documentation is updated to point to the equivalent demo in
+				Storybook.
+			</li>
+			<li>
+				Visit our <a href="https://origami.ft.com/storybook/">Storybook</a> website
+				for all Origami demos.
+			</li>
+			<li>
+				Is there something missing? Please let us know in #origami-support if
+				there is something missing that was previously available in the
+				registry.
+			</li>
+		</ul>
+	</div>
+</Layout>

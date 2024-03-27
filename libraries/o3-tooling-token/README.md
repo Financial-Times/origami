@@ -11,10 +11,11 @@
 
 ## Usage
 
-`o3-web-token` provides an object with design token information for the following supported brands:
+`o3-foundation` provides an object with design token information for the following supported brands:
 - `core`
 - `internal`
 - `professional`
+- `sustainable views`
 - `whitelabel`
 
 ``

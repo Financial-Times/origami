@@ -1,13 +1,4 @@
-@import '@financial-times/o3-web-token/icons.css';
-
-@font-face {
-	src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2')
-		format('woff2');
-	font-family: 'metric 2 VF';
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
+@import '@financial-times/o3-foundation/icons.css';
 
 .o3-tooltip {
 	--padding-top: var(--o3-spacing-3xs);
@@ -30,8 +21,8 @@ o3-tooltip-toggle.o3-tooltip {
 	max-width: 250px;
 	box-shadow: 2px 2px 6px 0px rgba(26, 26, 26, 0.1),
 		5px 5px 24px 0px rgba(26, 26, 26, 0.17);
-	background: var(--o3-tooltip-background-color);
-	color: var(--o3-tooltip-text-color);
+	background: var(--_o3-tooltip-background-color);
+	color: var(--_o3-tooltip-text-color);
 	font-weight: var(--o3-font-weight-regular);
 	font-family: var(--o3-font-family-metric), sans-serif;
 	font-size: var(--o3-font-size-negative-1);
@@ -152,7 +143,12 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 
 /* Button styles */
 .o3-tooltip button {
-	all: unset; /* remove all default browser styles for buttons */
+	/* remove some default browser styles for buttons */
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	margin: 0;
+
 	width: var(--icon-button-size);
 	height: var(--icon-button-size);
 }
@@ -162,7 +158,7 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 	height: var(--icon-button-size);
 	content: '';
 	mask-image: var(--_button-icon);
-	background-color: var(--o3-tooltip-text-color);
+	background-color: var(--_o3-tooltip-text-color);
 	mask-repeat: no-repeat;
 	mask-size: contain;
 	display: inline-block;
@@ -170,36 +166,10 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 	user-select: none;
 }
 
-/* Focus rings for buttons */
-.o3-tooltip button:focus {
-	box-shadow: var(--o3-box-shadow-focus-ring-inner),
-		var(--o3-box-shadow-focus-ring-outer);
-	outline: unset;
-	&::before {
-		background-color: var(--o3-color-palette-black-50);
-	}
-}
-
-@supports selector(:focus-visible) {
-	.o3-tooltip button:focus {
-		box-shadow: unset;
-		&::before {
-			background-color: var(--o3-color-palette-black-50);
-		}
-	}
-	.o3-tooltip button:focus-visible {
-		box-shadow: var(--o3-box-shadow-focus-ring-inner),
-			var(--o3-box-shadow-focus-ring-outer);
-		outline: unset;
-		&::before {
-			background-color: var(--o3-color-palette-black-50);
-		}
-	}
-}
 
 /* Info tooltip button */
 o3-tooltip-toggle .o3-toggletip-target::before {
-	--_button-icon: var(--o3-tooltip-icon-info);
+	--_button-icon: var(--_o3-tooltip-icon-info);
 	background-color: var(--o3-color-palette-black-90);
 	position: relative;
 }
@@ -209,7 +179,7 @@ o3-tooltip-toggle .o3-toggletip-target:hover::before {
 }
 
 o3-tooltip-toggle[open] .o3-toggletip-target::before {
-	--_button-icon: var(--o3-tooltip-icon-cross);
+	--_button-icon: var(--_o3-tooltip-icon-cross);
 }
 
 /* CLOSE BUTTON */

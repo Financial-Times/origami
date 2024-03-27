@@ -59,23 +59,6 @@
             "type": "color"
           }
         },
-        "focus": {
-          "outline": {
-            "standard": {
-              "value": "{o3.color.palette.oxford-80}",
-              "type": "color"
-            },
-            "interactive-inner": {
-              "value": "{o3.color.palette.white}",
-              "type": "color",
-              "description": "For inner rings of an interactive focus state"
-            },
-            "interactive-outer": {
-              "value": "{o3.color.palette.black-70}",
-              "type": "color"
-            }
-          }
-        },
         "body": {
           "text": {
             "value": "{o3.color.palette.black-80}",
@@ -87,6 +70,17 @@
             "value": "{o3.color.palette.white}",
             "type": "color"
           }
+        },
+        "muted": {
+          "text": {
+            "value": "{o3.color.palette.black-20}",
+            "type": "color",
+            "description": "\"Muted\" text is less prominent, for example credits and captions."
+          }
+        },
+        "muted-inverse": {
+          "value": "#a8aaad",
+          "type": "color"
         }
       }
     }

@@ -9,7 +9,8 @@
   "license": "MIT",
   "type": "module",
   "devDependencies": {
-    "esbuild": "0.19.4"
+    "esbuild": "0.19.4",
+    "tsup": "^8.0.2"
   },
   "private": true
 }
