@@ -11,8 +11,6 @@
     "core/use-case/focus",
     "core/use-case/typography",
     "core/use-case/typography-editorial",
-    "core/components/o3-button",
-    "core/components/o3-tooltip",
     "core/professional/base/color",
     "core/professional/use-case/color",
     "core/professional/components/o3-button",
