@@ -17,10 +17,10 @@
 
 `o3-foundation` supports brands: `core`, `internal`, `professional`, `sustainable-views` and `whitelabel`.
 
-Import your chosen brand to begin using tokens in your CSS:
+Import your chosen brand to begin using tokens in your CSS/SCSS:
 
 ```css
-@import '@financial-times/o3-foundation/core.css';
+@import '@financial-times/o3-foundation/css/core.css';
 
 body {
  background-color: var(--o3-color-use-case-page-background);
@@ -32,8 +32,8 @@ body {
 To add support for another brand, import its tokens too:
 
 ```diff
-+@import '@financial-times/o3-foundation/core.css';
-+@import '@financial-times/o3-foundation/internal.css';
++@import '@financial-times/o3-foundation/css/core.css';
++@import '@financial-times/o3-foundation/css/internal.css';
 
 .example-custom-link {
  color: var(--o3-color-link);
