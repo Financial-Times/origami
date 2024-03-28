@@ -79,10 +79,10 @@ To style `o3-tooltip` import brand specific css, this varies depending on your p
 
 ## JSX
 
-`o3-tooltip` exports two JSX templates, `TooltipOnboarding` and `TooltipToggle` for each tooltip component. This means copy-pasting html can be avoided. For example:
+`o3-tooltip` exports two JSX templates, `TooltipOnboarding` and `TooltipToggle` for each tooltip component. JSX templates are exported as `cjs` (common JS) and `esm` (ECMAScript) modules, so depending on your system configuration, you may need to import the correct module type. TSX templates can help to avoid copy-pasting html. For example:
 
 ```jsx
-import {TooltipOnboarding, TooltipToggle} from '@financial-times/o3-tooltip';
+import {TooltipOnboarding, TooltipToggle} from '@financial-times/o3-tooltip/cjs';
 
 import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom elements on client side
 

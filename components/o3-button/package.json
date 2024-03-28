@@ -12,23 +12,16 @@
 		"email": "origami.support@ft.com"
 	},
 	"license": "MIT",
-	"types": "./build/jsx/index.d.ts",
+	"main": "./cjs/index.js",
+	"module": "./esm/index.js",
 	"files": [
-		"build",
-		"package.json"
+		"cjs",
+		"esm",
+		"css",
+		"origami.json",
+		"package.json",
+		"README.md"
 	],
-	"module": "./build/jsx/index.mjs",
-	"main": "./build/jsx/index.js",
-	"exports": {
-		".": {
-			"types": "./build/jsx/index.d.ts",
-			"import": "./build/jsx/index.mjs",
-			"require": "./build/jsx/index.js",
-			"default": "./build/jsx/index.js"
-		},
-		"./css/*.css": "./build/css/src/css/brands/*.css",
-		"./package.json": "./package.json"
-	},
 	"scripts": {
 		"build": "bash ../../scripts/component/build-o3.bash o3-button"
 	},

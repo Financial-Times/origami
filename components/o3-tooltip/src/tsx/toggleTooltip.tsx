@@ -1,4 +1,4 @@
-import type {ToggleToolTipProps} from '../types';
+import type {ToggleToolTipProps} from '../types/index';
 
 export function TooltipToggle({
 	placement = 'top',
