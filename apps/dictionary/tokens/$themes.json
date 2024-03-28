@@ -8,7 +8,6 @@
       "core/components/o3-button": "source",
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
-      "core/use-case/box-shadow": "enabled",
       "core/components/o3-typography": "source",
       "core/use-case/typography": "enabled",
       "core/use-case/typography-editorial": "enabled",
