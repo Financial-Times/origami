@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.0](https://github.com/Financial-Times/origami/compare/o3-button-v0.5.1...o3-button-v1.0.0) (2024-03-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* release v1 of o3-button ([#1520](https://github.com/Financial-Times/origami/issues/1520))
+
+### Features
+
+* release v1 of o3-button ([#1520](https://github.com/Financial-Times/origami/issues/1520)) ([660547c](https://github.com/Financial-Times/origami/commit/660547c1346189be64a51f6af84fa806d1839d19))
+
 ## [0.5.1](https://github.com/Financial-Times/origami/compare/o3-button-v0.5.0...o3-button-v0.5.1) (2024-03-21)
 
 
