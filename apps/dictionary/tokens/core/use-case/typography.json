@@ -74,6 +74,15 @@
           },
           "type": "typography"
         },
+        "body-s-bold": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "600",
+            "fontSize": "{o3.font.size-metric2.0}",
+            "lineHeight": "{o3.font.lineheight-metric2.0}"
+          },
+          "type": "typography"
+        },
         "link": {
           "value": {
             "fontFamily": "{o3.font.family.metric}",
