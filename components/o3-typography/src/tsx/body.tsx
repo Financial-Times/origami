@@ -6,6 +6,23 @@ export const Body: React.FC<{children: React.ReactNode} & StyleArguments> = ({
 	brand,
 }) => {
 	return (
+		<p
+			className="o3-typography o3-typography-body"
+			{...getStyleAttributes({
+				theme,
+				brand,
+			})}>
+			{children}
+		</p>
+	);
+};
+
+export const Strong: React.FC<{children: React.ReactNode} & StyleArguments> = ({
+	children,
+	theme,
+	brand,
+}) => {
+	return (
 		<strong
 			className="o3-typography o3-typography-body o3-typography-body--bold"
 			{...getStyleAttributes({
