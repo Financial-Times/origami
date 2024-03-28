@@ -2,6 +2,7 @@ import events from './utils/events.js';
 import displayName from './utils/display-name.js';
 import auth from './utils/auth.js';
 import purgeJwtCache from './utils/purge-jwt-cache.js';
+import oErrors from '@financial-times/o-errors';
 
 class Stream {
 	/**
@@ -65,7 +66,7 @@ class Stream {
 	}
 
 	renderComments () {
-		return new Promise((resolve) => {
+		return new Promise((resolve,reject) => {
 			try {
 				/*global Coral*/
 				const cacheBuster = 'cachebust=20210806';
@@ -80,24 +81,40 @@ class Stream {
 				}
 				const customScrollContainer = this.streamEl.closest(this.options.scrollContainer);
 				scriptElement.onload = () => {
-					this.embed = Coral.createStreamEmbed(
-						{
-							id: this.streamEl.id,
-							storyURL: this.options.articleUrl,
-							storyID: this.options.articleId,
-							rootURL: rootUrl,
-							autoRender: true,
-							bodyClassName: 'o-comments-coral-talk-container',
-							containerClassName,
-							customScrollContainer,
-							events: (events) => {
-								events.onAny((name, data) => {
-									this.publishEvent({ name, data });
-								});
+					try{
+						this.embed = Coral.createStreamEmbed(
+							{
+								id: this.streamEl.id,
+								storyURL: this.options.articleUrl,
+								storyID: this.options.articleId,
+								rootURL: rootUrl,
+								autoRender: true,
+								bodyClassName: 'o-comments-coral-talk-container',
+								containerClassName,
+								customScrollContainer,
+								events: (events) => {
+									events.onAny((name, data) => {
+										this.publishEvent({ name, data });
+									});
+								}
 							}
-						}
-					);
-					resolve();
+						);
+						resolve();
+						
+						//Test if comments were loaded after 5 seconds of initialisation
+						setTimeout(() => {
+							if(!this.embed || 
+								!document.querySelector("#o-comments-stream div").shadowRoot ||
+								!document.querySelector("#o-comments-stream div").shadowRoot.querySelector("#tabPane-ALL_COMMENTS")) {
+								logError(new Error(" comment stream object not created "))
+							}
+						},5000)
+
+					}
+					catch(error){
+						logError(error);
+						reject(error);
+					}
 				};
 				this.streamEl.parentNode.appendChild(scriptElement);
 
@@ -114,6 +131,7 @@ class Stream {
 
 				document.dispatchEvent(new Event('oCommentsReady'));
 			} catch (error) {
+				logError(error);
 				resolve();
 			}
 		});
@@ -246,6 +264,11 @@ class Stream {
 			this.displayNamePrompt({purgeCacheAfterCompletion: true});
 		};
 	}
-}
 
+	
+}
 export default Stream;
+
+const logError  = (error) => {
+	oErrors.report(new Error(`Coral error: ${error.message}`));
+}
