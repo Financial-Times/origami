@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.0](https://github.com/Financial-Times/origami/compare/o3-tooltip-v0.1.2...o3-tooltip-v1.0.0) (2024-03-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Release v1 o3 tooltip ([#1522](https://github.com/Financial-Times/origami/issues/1522))
+
+### Features
+
+* Release v1 o3 tooltip ([#1522](https://github.com/Financial-Times/origami/issues/1522)) ([5fa7c95](https://github.com/Financial-Times/origami/commit/5fa7c95787adfeaeceffafb0d8e8e3d400269a6c))
+
 ## [0.1.2](https://github.com/Financial-Times/origami/compare/o3-tooltip-v0.1.1...o3-tooltip-v0.1.2) (2024-03-21)
 
 
