@@ -23,6 +23,11 @@ export default {
 				type: 'radio',
 			},
 		},
+		openInNewWindow: {
+			control: {
+				type: 'boolean',
+			},
+		},
 	},
 } as Meta;
 

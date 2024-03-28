@@ -9,6 +9,7 @@ enum Theme {
 export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
 	StyleArguments & {
 		children?: React.ReactNode;
+		openInNewWindow?: boolean;
 	};
 
 const makeClasses = (theme: Theme): string => {
@@ -25,8 +26,15 @@ export const Link: React.FC<LinkProps> = ({
 	theme = Theme.standard,
 	brand,
 	children,
+	openInNewWindow = false,
 	...anchorProps
 }) => {
+	if (openInNewWindow) {
+		Object.assign(anchorProps, {
+			rel: 'noreferrer noopener',
+			target: '_blank',
+		});
+	}
 	return (
 		<a
 			className="o3-typography o3-typography-link"
