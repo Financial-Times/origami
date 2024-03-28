@@ -1,54 +1,6 @@
-/*Heading*/
-.o3-typography-heading-level-1 {
-	--o3-typography-heading-font-size: 32px;
-	--o3-typography-heading-font-color: #33302e;
-	--o3-typography-heading-line-height: 32px;
-	--o3-typography-heading-font-weight: 600;
-}
-
-.o3-typography-heading-level-2 {
-	--o3-typography-heading-font-size: 28px;
-	--o3-typography-heading-font-color: #33302e;
-	--o3-typography-heading-line-height: 32px;
-	--o3-typography-heading-font-weight: 600;
-}
-
-.o3-typography-heading-level-3 {
-	--o3-typography-heading-font-size: 24px;
-	--o3-typography-heading-font-color: #33302e;
-	--o3-typography-heading-line-height: 28px;
-	--o3-typography-heading-font-weight: 400;
-}
-
-.o3-typography-heading-level-4 {
-	--o3-typography-heading-font-size: 20px;
-	--o3-typography-heading-font-color: #33302e;
-	--o3-typography-heading-line-height: 24px;
-	--o3-typography-heading-font-weight: 600;
-}
-
-.o3-typography-heading-level-5 {
-	--o3-typography-heading-font-size: 18px;
-	--o3-typography-heading-font-color: #33302e;
-	--o3-typography-heading-line-height: 20px;
-	--o3-typography-heading-font-weight: 600;
-}
-
-.o3-typography-heading-level-6 {
-	--o3-typography-heading-font-size: 16px;
-	--o3-typography-heading-font-color: #33302e;
-	--o3-typography-heading-line-height: 20px;
-	--o3-typography-heading-font-weight: 600;
-}
-
-.o3-typography-heading {
-	margin: 0;
-	color: var(--o3-typography-heading-font-color);
-	font-family: FinancierDisplayWeb, serif;
-	font-size: var(--o3-typography-heading-font-size);
-	line-height: var(--o3-typography-heading-line-height);
-	font-weight: var(--o3-typography-heading-font-weight);
-}
+@import './heading.css';
+@import './link.css';
+@import 'body.css';
 
 .o3-typography {
 	--o3-typography-body-color: var(--_o3-typography-body-color);
@@ -62,6 +14,7 @@
 	--o3-typography-link-border-bottom-color: var(--_o3-typography-link-professional-bottom-color);
 	--o3-typography-link-text-decoration-color: var(--_o3-typography-link-professional-bottom-color);
 }
+
 [data-o3-brand='professional'][data-o3-theme='inverse'].o3-typography {
 	--o3-typography-link-color: var(--_o3-typography-link-professional-inverse-color);
 	--o3-typography-link-border-bottom-color: var(--_o3-typography-link-professional-inverse-bottom-color);
@@ -74,28 +27,4 @@
 	--o3-typography-link-color: var(--_o3-typography-link-inverse-color);
 	--o3-typography-link-border-bottom-color: var(--_o3-typography-link-inverse-bottom-color);
 	--o3-typography-link-text-decoration-color: var(--_o3-typography-link-inverse-bottom-color);
-}
-
-.o3-typography[data-o3-theme='live'] {
-	--o3-typography-link-color: var(--_o3-typography-link-live-color);
-	--o3-typography-link-border-bottom-color: var(--_o3-typography-link-live-bottom-color);
-	--o3-typography-link-text-decoration-color: var(--_o3-typography-link-live-bottom-color);
-}
-
-/*Link*/
-
-.o3-typography-link {
-	color: var(--o3-typography-link-color);
-	border-bottom-color: var(--o3-typography-link-border-bottom-color);
-	text-decoration-color: var(--o3-typography-link-text-decoration-color);
-}
-
-/*Body*/
-.o3-typography-body {
-	font-family: MetricWeb, sans-serif;
-	font-weight: var(--o3-typography-use-case-body-s-font-weight);
-	font-size: var(--o3-typography-use-case-body-s-font-size);
-	line-height: var(--o3-typography-use-case-body-s-line-height);
-	margin: 0 0 var(--o3-spacing-s);
-	color: var(--o3-typography-body-color);
 }

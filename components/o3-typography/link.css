@@ -1,0 +1,5 @@
+.o3-typography-link {
+	color: var(--o3-typography-link-color);
+	border-bottom-color: var(--o3-typography-link-border-bottom-color);
+	text-decoration-color: var(--o3-typography-link-text-decoration-color);
+}

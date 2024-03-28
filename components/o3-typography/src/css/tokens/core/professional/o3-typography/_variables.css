@@ -36,6 +36,10 @@
   --o3-typography-use-case-body-s-font-weight: var(--o3-font-weight-regular);
   --o3-typography-use-case-body-s-font-size: var(--o3-font-size-metric2-0);
   --o3-typography-use-case-body-s-line-height: var(--o3-font-lineheight-metric2-0);
+  --o3-typography-use-case-body-s-bold-font-family: var(--o3-font-family-metric);
+  --o3-typography-use-case-body-s-bold-font-weight: 600;
+  --o3-typography-use-case-body-s-bold-font-size: var(--o3-font-size-metric2-0);
+  --o3-typography-use-case-body-s-bold-line-height: var(--o3-font-lineheight-metric2-0);
   --o3-typography-use-case-link-font-family: var(--o3-font-family-metric);
   --o3-typography-use-case-link-font-weight: var(--o3-font-weight-regular);
   --o3-typography-use-case-link-font-size: var(--o3-font-size-metric2-1);
