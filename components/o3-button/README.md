@@ -18,7 +18,7 @@ o3-button includes button, button group, and pagination patterns. See our [desig
 
 ## Markup
 
-o3-button supports [JSX templates for React users](#JSX), or direct HTML. We recommend using JSX where possible.
+o3-button supports [JSX templates for React users](#jsx), or direct HTML. We recommend using JSX where possible.
 
 ### Types
 
