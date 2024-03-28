@@ -12,8 +12,5 @@
     "esbuild": "0.19.4",
     "tsup": "^8.0.2"
   },
-	"scripts": {
-		"test": "mocha test/index.test.js"
-	},
   "private": true
 }
