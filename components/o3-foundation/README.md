@@ -87,7 +87,7 @@ For other elements, such as links, text, and multiline text, we use focus as an 
 
 |   State   | Major Version | Last Minor Release | Migration guide |
 | :-------: | :-----------: | :----------------: | :-------------: |
-| ✨ active |       0       |        N/A         |       N/A       |
+| ✨ active |       1       |        N/A         |       N/A       |
 
 ## Contact
 
