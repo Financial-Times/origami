@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import * as esbuild from 'esbuild';
 import {build} from 'tsup';
-import {existsSync, readdirSync, readFileSync, writeFileSync, unlinkSync} from 'fs';
+import {existsSync, readdirSync, readFileSync, writeFileSync, unlinkSync, rmSync} from 'fs';
 import path from 'path';
 
 (async () => {
@@ -95,4 +95,16 @@ const renameAndReplaceTypeImports = (folder) => {
 if (existsSync('src/types')) {
 	renameAndReplaceTypeImports('browser');
 	renameAndReplaceTypeImports('esm');
+
+	if (existsSync('browser')) {
+
+		// move browser index.js and index.d.ts to root
+		const browserFiles = readdirSync('browser');
+		for (const file of browserFiles) {
+			const filePath = path.join('browser', file);
+			const newFilePath = path.join('.', file);
+			writeFileSync(newFilePath , readFileSync(filePath));
+		}
+		rmSync('browser', { recursive: true, force: true });
+	}
 }

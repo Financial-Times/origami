@@ -16,13 +16,14 @@
 		"email": "origami.support@ft.com"
 	},
 	"license": "MIT",
-	"browser": "./browser/index.js",
+	"browser": "./index.js",
 	"main": "./cjs/index.js",
 	"module": "./esm/index.js",
 	"files": [
 		"cjs",
 		"esm",
-		"browser",
+		"index.js",
+		"index.d.ts",
 		"css",
 		"origami.json",
 		"package.json",
