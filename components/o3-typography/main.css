@@ -93,9 +93,9 @@
 /*Body*/
 .o3-typography-body {
 	font-family: MetricWeb, sans-serif;
-	font-size: var(--_o3-typography-body-font-size); /*--o3-typography-heading-font-size*/
-	line-height: var(--_o3-typography-body-line-height);
+	font-weight: var(--o3-typography-use-case-body-s-font-weight);
+	font-size: var(--o3-typography-use-case-body-s-font-size);
+	line-height: var(--o3-typography-use-case-body-s-line-height);
 	margin: 0 0 var(--o3-spacing-s);
-	color: var(--o3-typography-body-color);
 	color: var(--o3-typography-body-color);
 }
