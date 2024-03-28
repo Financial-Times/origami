@@ -130,6 +130,7 @@ Additional modifiers:
 - `stacked`: moves the image to the top of the teaser
 - `opinion`: changes the tag colour to blue
 - `live`: change background to red and position of elements to make the teaser stand out
+- `post`: set liveblog post styles
 
 #### Large teasers
 

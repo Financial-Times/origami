@@ -5,11 +5,9 @@ import {Image} from './props';
 
 const aspectRatio = ({width, height}: {width: number; height: number}) => {
 	if (typeof width === 'number' && typeof height === 'number') {
-		const ratio = (100 / width) * height;
-		return ratio.toFixed(4) + '%';
+		return { aspectRatio: `${width}/${height}`} as React.CSSProperties;
 	}
-
-	return 0;
+	return {} as React.CSSProperties;
 };
 
 const NormalImage = ({src}) => (
@@ -68,7 +66,7 @@ export default ({
 				}}>
 				<div
 					className="o-teaser__image-placeholder"
-					style={{paddingBottom: aspectRatio(image)}}>
+					style={{...aspectRatio(image)}}>
 					<ImageComponent src={imageSrc} lazyLoad={imageLazyLoad} />
 				</div>
 			</Link>
