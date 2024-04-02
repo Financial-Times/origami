@@ -1,10 +1,12 @@
 // We use our own fork of accessible-autocomplete because the main package is not being actively maintained and has bugs which we needed to fix
 // There is a changelog for the fixes we've added -- https://github.com/Financial-Times/accessible-autocomplete/blob/master/CHANGELOG.md#210---2021-05-24
 // Below are the pull-requests to accessible-autocomplete which would fix the bugs:
-// https://github.com/alphagov/accessible-autocomplete/pull/497
 // https://github.com/alphagov/accessible-autocomplete/pull/491
-// https://github.com/alphagov/accessible-autocomplete/pull/496
 // If the above pull-requests are merged and published, then we can stop using our fork
+// though switching to alphagov/accessible-autocomplete will require that consumers
+// applying `aria-labelledby` to the `ul` element
+// via the `ariaLabelledBy` option (https://github.com/Financial-Times/accessible-autocomplete/pull/6)
+// instead do so via the `menuAttributes` option (https://github.com/alphagov/accessible-autocomplete/pull/591)
 import accessibleAutocomplete from '@financial-times/accessible-autocomplete';
 
 /**
