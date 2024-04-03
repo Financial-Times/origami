@@ -21,6 +21,7 @@ const ModifierMapping = {
 	'Hero image': 'hero-image',
 	'Top story landscape': 'landscape',
 	'Top story big': 'big-story',
+	'Live blog post': 'post'
 };
 
 export const argTypes = {
