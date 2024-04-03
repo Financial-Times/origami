@@ -1,5 +1,17 @@
 # Changelog
 
+## [6.4.0](https://github.com/Financial-Times/origami/compare/o-teaser-v6.3.0...o-teaser-v6.4.0) (2024-04-03)
+
+
+### Features
+
+* add post modifier to teaser ([f4e0ffe](https://github.com/Financial-Times/origami/commit/f4e0ffe8d9d3f78b974a9cce1d816e0e1e4243c9))
+
+
+### Bug Fixes
+
+* fix lint ([469b08b](https://github.com/Financial-Times/origami/commit/469b08b5338e99af1e3ac6648ff640b08a3096a1))
+
 ## [6.3.0](https://github.com/Financial-Times/origami/compare/o-teaser-v6.2.10...o-teaser-v6.3.0) (2024-03-18)
 
 
