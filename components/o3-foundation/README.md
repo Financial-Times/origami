@@ -80,7 +80,6 @@ For other elements, such as links, text, and multiline text, we use focus as an 
 `o3-foundation` provides a set of helper classes to help with common tasks. The list of helper classes includes:
 
 - `o3-visually-hidden`: Hides an element visually, but leaves it available to screen readers
-- `o3-clearfix`: Clears floats on the current element
 - `o3-box-sizing-border-box`: Applies `box-sizing: border-box` to the current element and all its children
 
 ## Migration
