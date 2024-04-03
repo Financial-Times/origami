@@ -8,7 +8,7 @@ const pathsReleased = JSON.parse(outputs['paths_released']);
 
 const honker = new SlackAnnouncer({
 	authToken: process.env.SLACK_ANNOUNCER_AUTH_TOKEN,
-	channelId: process.env.SLACK_RELEASE_CHANNEL_ID,
+	channelId: process.env.SLACK_ANNOUNCER_CHANNEL_ID,
 	log: console,
 });
 
