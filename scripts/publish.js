@@ -1,19 +1,33 @@
 #!/usr/bin/env node
-import {$} from "zx"
-import {readPackage} from "read-pkg"
-import {request} from "undici"
+import {$} from 'zx';
+import path from 'node:path';
+import SlackAnnouncer from './lib/slack-announcer.js';
 
-let outputs = JSON.parse(process.argv[2])
+const outputs = JSON.parse(process.argv[2]);
+const pathsReleased = JSON.parse(outputs['paths_released']);
 
-let {REPO_DATA_KEY, REPO_DATA_SECRET} = process.env
+const honker = new SlackAnnouncer({
+	authToken: process.env.SLACK_ANNOUNCER_AUTH_TOKEN,
+	channelId: process.env.SLACK_RELEASE_CHANNEL_ID,
+	log: console,
+});
 
-for (let key in outputs) {
-	let value = outputs[key]
-	let match = key.match(/^(.*\/.*)--release_created$/)
-	if (!match || !value) continue
-	let workspace = match[1]
-	if (workspace.startsWith("components/o3-")) {
-		await $`npm run build -w ${workspace} --if-present`
+for (const workspace of pathsReleased) {
+	// Confirm release please created a release.
+	const releaseCreated = outputs[`${workspace}--release_created`];
+	if (!releaseCreated) {
+		continue;
 	}
-	await $`npm publish -w ${workspace} --access public`
+
+	// Publish to NPM
+	if (workspace.startsWith('components/o3-')) {
+		await $`npm run build -w ${workspace} --if-present`;
+	}
+	await $`npm publish -w ${workspace} --access public`;
+
+	// Announce to Slack
+	const name = path.basename(workspace);
+	const versionNumber = outputs[`${workspace}--version`];
+	const url = outputs[`${workspace}--html_url`];
+	honker.announce({url, name, versionNumber});
 }
