@@ -2,14 +2,14 @@ import path from 'path';
 import {
 	buildMeta,
 	getBrandNames,
-	getBrandSources,
+	getBrandSourcesAndIncludes,
 	getBasePath,
 } from './utils.js';
 
 function buildToolingMetaTokens() {
 	const brands = getBrandNames();
 	brands.forEach(brand => {
-		const sources = getBrandSources(brand);
+		const {sources} = getBrandSourcesAndIncludes(brand);
 		const destination = `build/${brand}/_variables.js`;
 		buildMeta({sources, destination});
 	});

@@ -2,7 +2,7 @@ import path from 'node:path';
 import {
 	buildCSS,
 	getBrandNames,
-	getBrandSources,
+	getBrandSourcesAndIncludes,
 	getBasePath,
 } from './utils.js';
 
@@ -11,10 +11,15 @@ function buildBrandCSS() {
 	brands.forEach(brand => {
 		const nonComponentTokenFilter = source =>
 			!source.includes(`${brand}/components/`);
-		const sources = getBrandSources(brand).filter(nonComponentTokenFilter);
+		const {sources, includes} = getBrandSourcesAndIncludes(brand);
 		const destination = `src/css/tokens/${brand}/_variables.css`;
 		const parentSelector = `[data-o3-brand="${brand.split('/').slice(-1)}"]`;
-		buildCSS({sources, destination, parentSelector});
+		buildCSS({
+			sources: sources.filter(nonComponentTokenFilter),
+			includes: includes.filter(nonComponentTokenFilter),
+			destination,
+			parentSelector,
+		});
 	});
 }
 

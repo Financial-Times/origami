@@ -1,3 +1,4 @@
+//@ts-check
 import fs from 'fs';
 import path from 'node:path';
 import {registerTransforms} from '@tokens-studio/sd-transforms';
@@ -20,25 +21,6 @@ StyleDictionaryPackage.registerTransform({
 registerTransforms(StyleDictionaryPackage, {
 	expand: {
 		typography: true,
-	},
-});
-
-StyleDictionaryPackage.registerTransform({
-	name: 'Origami/pxToRem',
-	type: 'value',
-	transitive: true,
-	matcher: token => {
-		const types = ['spacing', 'fontSizes', 'borderRadius', 'lineHeights'];
-		return types.includes(token.type);
-	},
-	transformer: token => {
-		const defaultWebFontSize = 16;
-		let tokenValue = token.value;
-		if (tokenValue.includes('px')) {
-			tokenValue = tokenValue.replace('px', '');
-		}
-		tokenValue = `${tokenValue / defaultWebFontSize}rem`;
-		return tokenValue;
 	},
 });
 
@@ -136,7 +118,7 @@ StyleDictionaryPackage.registerTransform({
 /**
  * @typedef {Object} CssBuildConfig - Configuration for building CSS from Token Studio design tokens.
  * @property {string[]} sources - The design token files to include.
- * @property {string[]|undefined} includes - The component design token files to include.
+ * @property {string[]|undefined} includes - The component design token files to include. Include tokens will be overridden by "source" attribute tokens. This should be used for sub-brands that reference their parent brand.
  * @property {string} destination - The output file path.
  * @property {TokenFilter|undefined} [tokenFilter] - A function to filter tokens to include.
  * @property {string|undefined} [parentSelector] - A parent CSS selector for generated CSS.
@@ -283,12 +265,6 @@ export function getBasePath() {
 	return basePath;
 }
 
-function isSetBelongsToSubBrand(theme, tokenSet) {
-	return (
-		isSubBrand(theme) && tokenSet.startsWith(tokenStudioThemeToBrand(theme))
-	);
-}
-
 export function isSubBrand(theme) {
 	return theme.group !== theme.name;
 }
@@ -297,48 +273,36 @@ function tokenStudioThemeToBrand(theme) {
 	return isSubBrand(theme) ? `${theme.group}/${theme.name}` : theme.group;
 }
 
-function isEnabledTokenStudioSet(theme, tokenSet) {
-	return (
-		theme.selectedTokenSets[tokenSet] === 'enabled' ||
-		theme.selectedTokenSets[tokenSet] === 'source'
-	);
+/**
+ * Find all token sources for a specific brand.
+ * If the brand name a `/` separated string, it is a sub-brand.
+ * Sub-brands will include the parent brand's tokens.
+ * Include tokens will be overridden by "source" attribute tokens.
+ *
+ * @param {string} brand
+ * @returns {{sources: string[], includes: string[]}} - The source tokens and include tokens for the brand.
+ */
+export function getBrandSourcesAndIncludes(brand) {
+	const theme = getTokenStudioThemes().filter(
+		theme => tokenStudioThemeToBrand(theme) === brand
+	)[0];
+	const selectedTokenSets = Object.keys(theme.selectedTokenSets);
+
+	const sourceTokens = selectedTokenSets.filter(tokenSet => {
+		return tokenSet.startsWith(tokenStudioThemeToBrand(theme));
+	});
+	const includeTokens = selectedTokenSets.filter(tokenSet => {
+		return !sourceTokens.includes(tokenSet);
+	});
+
+	const sources = sourceTokens.map(tokenSet => {
+		return path.join(basePath, `tokens/${tokenSet}.json`);
+	});
+	const includes = includeTokens.map(tokenSet => {
+		return path.join(basePath, `tokens/${tokenSet}.json`);
+	});
+	return {sources, includes};
 }
-
-export function getBrandSources(brand) {
-	return getTokenStudioThemes()
-		.filter(theme => tokenStudioThemeToBrand(theme) === brand)
-		.flatMap(theme => {
-			const selectedTokenSets = Object.keys(theme.selectedTokenSets);
-
-			const componentTokenSets = selectedTokenSets.filter(tokenSet => {
-				return (
-					isEnabledTokenStudioSet(theme, tokenSet) ||
-					isSetBelongsToSubBrand(theme, tokenSet)
-				);
-			});
-
-			return componentTokenSets.map(tokenSet =>
-				path.join(basePath, `tokens/${tokenSet}.json`)
-			);
-		});
-}
-
-export const getBrandIncludes = brand => {
-	return getTokenStudioThemes()
-		.filter(theme => tokenStudioThemeToBrand(theme) === brand)
-		.flatMap(theme => {
-			const selectedTokenSets = Object.keys(theme.selectedTokenSets);
-			const componentTokenSets = selectedTokenSets.filter(
-				tokenSet =>
-					isEnabledTokenStudioSet(theme, tokenSet) &&
-					!isSetBelongsToSubBrand(theme, tokenSet)
-			);
-
-			return componentTokenSets.map(tokenSet =>
-				path.join(basePath, `tokens/${tokenSet}.json`)
-			);
-		});
-};
 
 /*Get token theme from brand in token set file path.*/
 function getTokensStudioThemeFromBrand(tokenSet) {

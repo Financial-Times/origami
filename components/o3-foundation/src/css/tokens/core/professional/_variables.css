@@ -4,20 +4,6 @@
 
 
 [data-o3-brand="professional"] {
-  --o3-color-use-case-link-text: var(--o3-color-palette-teal);
-  --o3-color-use-case-link-text-hover: var(--o3-color-palette-teal-30);
-  --o3-color-use-case-link-underline: #CFD8D1;
-  --o3-color-use-case-link-underline-hover: #9EC0BD;
-  --o3-color-use-case-link-inverse-text: #;
-  --o3-color-use-case-link-inverse-text-hover: CCCCC;
-  --o3-color-use-case-link-inverse-underline: var(--o3-color-palette-mint);
-  --o3-color-use-case-link-inverse-underline-hover: var(--o3-color-palette-mint-70);
-  --o3-color-use-case-page-background: var(--o3-color-palette-paper);
-  --o3-color-use-case-page-inverse-background: var(--o3-color-palette-slate);
-  --o3-color-use-case-body-text: var(--o3-color-palette-black-80);
-  --o3-color-use-case-body-inverse-text: var(--o3-color-palette-white);
-  --o3-color-use-case-muted-text: var(--o3-color-palette-black-20); /* "Muted" text is less prominent, for example credits and captions. */
-  --o3-color-use-case-muted-inverse: #a8aaad;
   --o3-color-palette-ft-pink: #FCD0B1; /* FT Pink is used for the FT logo */
   --o3-color-palette-ft-grey: #333333ff;
   --o3-color-palette-white: #ffffffff;
@@ -88,6 +74,20 @@
   --o3-color-palette-mint-50: #668073;
   --o3-color-palette-mint-40: #52665C;
   --o3-color-palette-mint-30: #3D4D45;
+  --o3-color-use-case-link-text: var(--o3-color-palette-slate);
+  --o3-color-use-case-link-text-hover: var(--o3-color-palette-slate);
+  --o3-color-use-case-link-underline: var(--o3-color-palette-mint-80);
+  --o3-color-use-case-link-underline-hover: var(--o3-color-palette-mint-80);
+  --o3-color-use-case-link-inverse-text: var(--o3-color-palette-mint);
+  --o3-color-use-case-link-inverse-text-hover: var(--o3-color-palette-mint-70);
+  --o3-color-use-case-link-inverse-underline: var(--o3-color-palette-mint);
+  --o3-color-use-case-link-inverse-underline-hover: var(--o3-color-palette-mint-70);
+  --o3-color-use-case-page-background: var(--o3-color-palette-paper);
+  --o3-color-use-case-page-inverse-background: var(--o3-color-palette-slate);
+  --o3-color-use-case-body-text: var(--o3-color-palette-black-80);
+  --o3-color-use-case-body-inverse-text: var(--o3-color-palette-white);
+  --o3-color-use-case-muted-text: var(--o3-color-palette-black-20); /* "Muted" text is less prominent, for example credits and captions. */
+  --o3-color-use-case-muted-inverse: #a8aaad;
   --o3-spacing-5xs: 0.25rem;
   --o3-spacing-4xs: 0.5rem;
   --o3-spacing-3xs: 0.75rem;
