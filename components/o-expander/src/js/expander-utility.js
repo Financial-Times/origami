@@ -112,7 +112,10 @@ class ExpanderUtility {
 		// Elements.
 		this.oExpanderElement = oExpanderElement;
 		this.contentElement = this.oExpanderElement.querySelector(this.options.selectors.content);
-		this.toggles = [].slice.apply(this.oExpanderElement.querySelectorAll(this.options.selectors.toggle));
+		this.toggles = [].slice.apply(this.oExpanderElement.querySelectorAll(this.options.selectors.toggle)).filter((item) => 
+			//Do not get nested elements
+			item.closest('[data-o-component="o-expander"]') === this.oExpanderElement
+		);
 		if (!this.toggles.length) {
 			throw new Error(
 				'o-expander needs a toggle link or button. ' +
