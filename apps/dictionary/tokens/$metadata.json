@@ -23,6 +23,7 @@
     "internal/use-case/typography",
     "internal/components/o3-button",
     "internal/components/o3-tooltip",
+    "internal/components/o3-typography",
     "sustainable-views/base/spacing",
     "sustainable-views/base/typography",
     "sustainable-views/base/color",
@@ -42,6 +43,7 @@
     "whitelabel/use-case/typography-editorial",
     "whitelabel/components/o3-button",
     "whitelabel/components/o3-tooltip",
+    "whitelabel/components/o3-typography",
     "utility-tokens",
     "icons/icons"
   ]
