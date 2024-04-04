@@ -1,4 +1,3 @@
-//@ts-check
 import fs from 'fs';
 import path from 'node:path';
 import {registerTransforms} from '@tokens-studio/sd-transforms';
@@ -9,7 +8,11 @@ import {fileURLToPath} from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const basePath = path.join(__dirname, '../../');
+const basePath =
+	process.env.NODE_ENV == 'test'
+		? path.join(__dirname, '../../', '__test__')
+		: path.join(__dirname, '../../');
+let tokenStudioThemes;
 
 StyleDictionaryPackage.registerTransform({
 	name: 'name/origamiPrivatePrefix',
@@ -135,6 +138,7 @@ export function buildCSS({
 	tokenFilter,
 	parentSelector,
 }) {
+	getTokenStudioThemes();
 	const config = {
 		source: sources,
 		include: includes,
@@ -245,15 +249,13 @@ export function buildMeta({sources, destination}) {
 	StyleDictionary.buildAllPlatforms();
 }
 
-let tokenStudioThemes;
-
 function getTokenStudioThemes() {
 	if (tokenStudioThemes) {
 		return tokenStudioThemes;
 	}
 	const loadJSON = path =>
 		JSON.parse(fs.readFileSync(new URL(path, import.meta.url)).toString());
-	tokenStudioThemes = loadJSON('../../tokens/$themes.json');
+	tokenStudioThemes = loadJSON(path.join(basePath, 'tokens/$themes.json'));
 	return tokenStudioThemes;
 }
 
