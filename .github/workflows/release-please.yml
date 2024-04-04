@@ -27,5 +27,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           SLACK_ANNOUNCER_AUTH_TOKEN: ${{secrets.SLACK_ANNOUNCER_AUTH_TOKEN}}
-          SLACK_RELEASE_CHANNEL_ID: ${{secrets.SLACK_RELEASE_CHANNEL_ID}}
+          SLACK_ANNOUNCER_CHANNEL_ID: ${{secrets.SLACK_ANNOUNCER_CHANNEL_ID}}
         if: ${{ steps.release.outputs.releases_created }}
