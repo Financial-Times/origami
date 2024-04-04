@@ -10,4 +10,5 @@ css
 !src/css
 cjs
 esm
-browser
+/index.d.ts
+/index.js

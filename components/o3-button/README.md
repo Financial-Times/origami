@@ -12,14 +12,13 @@ o3-button includes button, button group, and pagination patterns. See our [desig
     - [Pagination](#pagination)
     - [Disabled](#disabled)
   - [JSX](#jsx)
-  - [References](#references)
   - [Migration](#migration)
   - [Contact](#contact)
   - [Licence](#licence)
 
 ## Markup
 
-o3-button supports [JSX templates for React users](#JSX), or direct HTML. We recommend using JSX where possible.
+o3-button supports [JSX templates for React users](#jsx), or direct HTML. We recommend using JSX where possible.
 
 ### Types
 
@@ -52,9 +51,9 @@ Themes may be applied on a parent element, for all components within to inherit.
 
 ```html
 <body data-o3-brand="professional" data-o3-theme="inverse">
-	<button class="o3-button o3-button--primary">
-		Inverse professional button
-	</button>
+ <button class="o3-button o3-button--primary">
+  Inverse professional button
+ </button>
 </body>
 ```
 
@@ -62,9 +61,9 @@ Or, themes may be applied specifically to a single button:
 
 ```html
 <body data-o3-brand="professional">
-	<button class="o3-button o3-button--primary" data-o3-theme="inverse">
-		Inverse professional button
-	</button>
+ <button class="o3-button o3-button--primary" data-o3-theme="inverse">
+  Inverse professional button
+ </button>
 </body>
 ```
 
@@ -100,14 +99,14 @@ A limited number of button icons are available. Limiting the number of icons kee
 
 ```html
 <button
-	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down"
+ class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down"
 >
-	Down Arrow
+ Down Arrow
 </button>
 <button
-	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--download"
+ class="o3-button o3-button--secondary o3-button-icon o3-button-icon--download"
 >
-	Download
+ Download
 </button>
 ```
 
@@ -117,9 +116,9 @@ If you would like your button to display only an icon, add the class `o3-button-
 
 ```html
 <button
-	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down o3-button-icon--icon-only"
+ class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down o3-button-icon--icon-only"
 >
-	<span class="o3-button-icon__label"> Down Arrow </span>
+ <span class="o3-button-icon__label"> Down Arrow </span>
 </button>
 ```
 
@@ -131,15 +130,15 @@ After discussing together, we may decide a custom icon is the most appropriate o
 
 ```css
 .my-button-modifier-class {
-	--o3-button-icon: url('data:image/svg+xml,[ENCODED_SVG_STRING]');
+ --o3-button-icon: url('data:image/svg+xml,[ENCODED_SVG_STRING]');
 }
 ```
 
 ```html
 <button
-	class="o3-button o3-button--secondary o3-button-icon my-button-modifier-class"
+ class="o3-button o3-button--secondary o3-button-icon my-button-modifier-class"
 >
-	My custom icon button
+ My custom icon button
 </button>
 ```
 
@@ -149,11 +148,11 @@ Wrap buttons in a container with `.o3-button-group` to group them together:
 
 ```html
 <div class="o3-button-group">
-	<button class="o3-button o3-button--secondary" aria-selected="true">
-		One
-	</button>
-	<button class="o3-button o3-button--secondary">Two</button>
-	<button class="o3-button o3-button--secondary">Three</button>
+ <button class="o3-button o3-button--secondary" aria-selected="true">
+  One
+ </button>
+ <button class="o3-button o3-button--secondary">Two</button>
+ <button class="o3-button o3-button--secondary">Three</button>
 </div>
 ```
 
@@ -167,69 +166,69 @@ We recommend using our JSX template where possible. Alternatively, you must re-i
 
 ```html
 <div class="o3-button-pagination">
-	<a
-		href="#previous"
-		class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
-		><span class="o3-button-icon__label">previous</span></a
-	><a
-		href="#1"
-		class="o3-button o3-button--secondary "
-		data-o3-button-show-when="wide"
-		>1</a
-	><span data-o3-button-show-when="wide" class="o3-button-pagination__ellipsis"
-		>...</span
-	><a
-		href="#4"
-		class="o3-button o3-button--secondary "
-		data-o3-button-show-when="wide"
-		>4</a
-	><a
-		href="#5"
-		class="o3-button o3-button--secondary "
-		aria-current="page"
-		data-o3-button-show-when="wide"
-		>5</a
-	><a
-		href="#6"
-		class="o3-button o3-button--secondary "
-		data-o3-button-show-when="wide"
-		>6</a
-	><span data-o3-button-show-when="wide" class="o3-button-pagination__ellipsis"
-		>...</span
-	><a
-		href="#10"
-		class="o3-button o3-button--secondary "
-		data-o3-button-show-when="wide"
-		>10</a
-	><a
-		href="#1"
-		class="o3-button o3-button--secondary "
-		data-o3-button-show-when="narrow"
-		>1</a
-	><span
-		data-o3-button-show-when="narrow"
-		class="o3-button-pagination__ellipsis"
-		>...</span
-	><a
-		href="#5"
-		class="o3-button o3-button--secondary "
-		aria-current="page"
-		data-o3-button-show-when="narrow"
-		>5</a
-	><span
-		data-o3-button-show-when="narrow"
-		class="o3-button-pagination__ellipsis"
-		>...</span
-	><a
-		href="#10"
-		class="o3-button o3-button--secondary "
-		data-o3-button-show-when="narrow"
-		>10</a
-	><a
-		href="#next"
-		class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
-		><span class="o3-button-icon__label">next</span></a
-	>
+ <a
+  href="#previous"
+  class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
+  ><span class="o3-button-icon__label">previous</span></a
+ ><a
+  href="#1"
+  class="o3-button o3-button--secondary "
+  data-o3-button-show-when="wide"
+  >1</a
+ ><span data-o3-button-show-when="wide" class="o3-button-pagination__ellipsis"
+  >...</span
+ ><a
+  href="#4"
+  class="o3-button o3-button--secondary "
+  data-o3-button-show-when="wide"
+  >4</a
+ ><a
+  href="#5"
+  class="o3-button o3-button--secondary "
+  aria-current="page"
+  data-o3-button-show-when="wide"
+  >5</a
+ ><a
+  href="#6"
+  class="o3-button o3-button--secondary "
+  data-o3-button-show-when="wide"
+  >6</a
+ ><span data-o3-button-show-when="wide" class="o3-button-pagination__ellipsis"
+  >...</span
+ ><a
+  href="#10"
+  class="o3-button o3-button--secondary "
+  data-o3-button-show-when="wide"
+  >10</a
+ ><a
+  href="#1"
+  class="o3-button o3-button--secondary "
+  data-o3-button-show-when="narrow"
+  >1</a
+ ><span
+  data-o3-button-show-when="narrow"
+  class="o3-button-pagination__ellipsis"
+  >...</span
+ ><a
+  href="#5"
+  class="o3-button o3-button--secondary "
+  aria-current="page"
+  data-o3-button-show-when="narrow"
+  >5</a
+ ><span
+  data-o3-button-show-when="narrow"
+  class="o3-button-pagination__ellipsis"
+  >...</span
+ ><a
+  href="#10"
+  class="o3-button o3-button--secondary "
+  data-o3-button-show-when="narrow"
+  >10</a
+ ><a
+  href="#next"
+  class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
+  ><span class="o3-button-icon__label">next</span></a
+ >
 </div>
 ```
 
@@ -263,7 +262,7 @@ import {Button} from '@financial-times/o3-button/cjs';
 import '@financial-times/o3-button/css/[your brand].css';
 
 <div data-o3-brand="[your brand]">
-	<Button label="Hello" type="primary" />
+ <Button label="Hello" type="primary" />
 </div>;
 ```
 
@@ -275,22 +274,22 @@ import {ButtonPagination} from '@financial-times/o3-button/cjs';
 import '@financial-times/o3-button/css/[your brand].css';
 
 <div data-o3-brand="[your brand]">
-	<ButtonPagination
-		previousPager={{label: 'previous', href: '#previous'}}
-		nextPager={{label: 'next', href: '#next'}}
-		pages={[
-			{href: '#1', current: false, number: 1},
-			{href: '#2', current: false, number: 2},
-			{href: '#3', current: false, number: 3},
-			{href: '#4', current: false, number: 4},
-			{href: '#5', current: true, number: 5},
-			{href: '#6', current: false, number: 6},
-			{href: '#7', current: false, number: 7},
-			{href: '#8', current: false, number: 8},
-			{href: '#9', current: false, number: 9},
-			{href: '#10', current: false, number: 10},
-		]}
-	/>
+ <ButtonPagination
+  previousPager={{label: 'previous', href: '#previous'}}
+  nextPager={{label: 'next', href: '#next'}}
+  pages={[
+   {href: '#1', current: false, number: 1},
+   {href: '#2', current: false, number: 2},
+   {href: '#3', current: false, number: 3},
+   {href: '#4', current: false, number: 4},
+   {href: '#5', current: true, number: 5},
+   {href: '#6', current: false, number: 6},
+   {href: '#7', current: false, number: 7},
+   {href: '#8', current: false, number: 8},
+   {href: '#9', current: false, number: 9},
+   {href: '#10', current: false, number: 10},
+  ]}
+ />
 </div>;
 ```
 
@@ -298,7 +297,7 @@ import '@financial-times/o3-button/css/[your brand].css';
 
 |   State   | Major Version | Last Minor Release | Migration guide |
 | :-------: | :-----------: | :----------------: | :-------------: |
-| ✨ active |       1       |        N/A         |        -        |
+| ✨ active |       1       |        N/A         |       N/A       |
 
 ## Contact
 

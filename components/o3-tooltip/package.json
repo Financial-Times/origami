@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-tooltip",
-	"version": "0.1.2",
+	"version": "1.0.0",
 	"description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
 	"keywords": [
 		"tooltip",
@@ -16,13 +16,14 @@
 		"email": "origami.support@ft.com"
 	},
 	"license": "MIT",
-	"browser": "./browser/index.js",
+	"browser": "./index.js",
 	"main": "./cjs/index.js",
 	"module": "./esm/index.js",
 	"files": [
 		"cjs",
 		"esm",
-		"browser",
+		"index.js",
+		"index.d.ts",
 		"css",
 		"origami.json",
 		"package.json",
@@ -32,7 +33,7 @@
 		"build": "bash ../../scripts/component/build-o3.bash o3-tooltip"
 	},
 	"peerDependencies": {
-		"@financial-times/o3-foundation": "^0.6.0"
+		"@financial-times/o3-foundation": "^1.0.0"
 	},
 	"engines": {
 		"npm": ">7"
