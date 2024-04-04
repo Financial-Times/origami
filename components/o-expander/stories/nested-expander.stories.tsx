@@ -31,7 +31,7 @@ export const NestedExpander = ({children, ...args}) => {
 };
 
 export default {
-	title: 'Components/o-expander/nested',
+	title: 'Components/o-expander',
 	component: NestedExpander,
 	parameters: {
 		html: {},
