@@ -6,3 +6,7 @@
 /build/
 .idea/
 /coverage
+
+css/
+cjs/
+esm/

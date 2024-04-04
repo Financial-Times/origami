@@ -1,13 +1,16 @@
 import {getStyleAttributes, StyleArguments} from './getStyleAttributes';
 
-export const Body: React.FC<{children: React.ReactNode} & StyleArguments> = ({
-	children,
-	theme,
-	brand,
-}) => {
+export const Body: React.FC<
+	{children: React.ReactNode; style?: 'italic'} & StyleArguments
+> = ({children, theme, brand, style}) => {
+	const classes = ['o3-typography', 'o3-typography-body'];
+
+	if (style === 'italic') {
+		classes.push('o3-typography-body--italic');
+	}
 	return (
 		<p
-			className="o3-typography o3-typography-body"
+			className={classes.join(' ')}
 			{...getStyleAttributes({
 				theme,
 				brand,

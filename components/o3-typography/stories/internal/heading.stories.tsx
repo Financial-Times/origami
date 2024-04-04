@@ -3,25 +3,20 @@ import {Heading as HeadingTsx} from '../../src/tsx';
 import * as TypographyStories from '../story-templates';
 import '../../main.css';
 
-import '../../src/css/brands/core.css';
+import '../../src/css/brands/internal.css';
 
 export default {
-	title: 'Core/o3-typography',
+	title: 'Internal/o3-typography',
 	component: HeadingTsx,
 	decorators: [
 		Story => (
-			<div className="o3-brand-core">
+			<div className="o3-brand-internal">
 				<Story />
 			</div>
 		),
 	],
 	parameters: {
-		backgrounds: {default: 'paper'},
-	},
-	argTypes: {
-		text: {
-			control: 'text',
-		},
+		backgrounds: {default: 'white'},
 	},
 } as Meta;
 
