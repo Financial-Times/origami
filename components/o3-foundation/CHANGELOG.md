@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.0...o3-foundation-v1.0.1) (2024-04-04)
+
+
+### Bug Fixes
+
+* remove o3-clearfix due to it causing the build to output broken css ([f5a6b01](https://github.com/Financial-Times/origami/commit/f5a6b01503c8d543a6a7a8b149d4567fc476c464))
+
 ## [1.0.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v0.6.2...o3-foundation-v1.0.0) (2024-03-28)
 
 
