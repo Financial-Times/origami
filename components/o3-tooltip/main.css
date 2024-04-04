@@ -175,7 +175,7 @@ o3-tooltip-toggle .o3-toggletip-target::before {
 }
 
 o3-tooltip-toggle .o3-toggletip-target:hover::before {
-	background-color: var(--o3-color-palette-black-30);
+	background-color: var(--o3-color-palette-black-50);
 }
 
 o3-tooltip-toggle[open] .o3-toggletip-target::before {
@@ -194,7 +194,7 @@ o3-tooltip-toggle[open] .o3-toggletip-target::before {
 }
 
 .o3-tooltip-wrapper .o3-tooltip-close:hover::before {
-	background-color: var(--o3-color-palette-black-30);
+	background-color: var(--o3-color-palette-black-50);
 }
 
 /* ANIMATION */
