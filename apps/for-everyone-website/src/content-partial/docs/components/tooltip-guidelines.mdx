@@ -1,62 +1,44 @@
 import {default as Example} from '../../../components/Example.astro';
 import {default as Guideline} from '../../../components/Guideline.astro';
-import {Button} from '@financial-times/o3-button';
+import {Button} from '@financial-times/o3-tooltip';
 
-<Guideline summary="Keep button labels short" do={true}>
+<Guideline summary="Do not obstruct other elements" do={true}>
 	<p slot="description">
-		Keep labels short and free of punctuation. They should confirm the action a
-		user is taking. Drop unnecessary articles, such as ‘a’ or ‘the’, for a more
-		concise label.
+		Ensure onboarding tooltips do not obstruct other interface elements.
 	</p>
 	<Example slot="examples" do={true}>
-		<Button label="Share" type="primary" />
+	/* example of a tooltip that behaves normally */
 	</Example>
 	<Example slot="examples" do={false}>
-		<Button label="Share on your social media of choice" type="primary" />
+	/* example of a tooltip that covers a button upon loading opened */
 	</Example>
 </Guideline>
 
-<Guideline summary="Use sentence case for button labels" do={true}>
+<Guideline summary="Refrain from using headings" do={true}>
 	<p slot="description">
-		Only capitalize the first letter of the button and any proper nouns. Not
-		title case or Upper case.
+		Use headings only for presentational reasons, provided emphasis is not required for understanding, as emphasis is not provided for screen reader users.
 	</p>
 	<Example slot="examples" do={true}>
-		<Button label="Share now" type="primary" />
+	/* example of a tooltip:
+	Introducing Enhanced Search: Now you can use natural language to find exactly what you're looking for, faster.
+	*/
 	</Example>
 	<Example slot="examples" do={false}>
-		<Button label="Share Now" type="primary" />
-	</Example>
-	<Example slot="examples" do={false}>
-		<Button label="SHARE NOW" type="primary" />
+	/* example of a tooltip with the first line as a heading:
+	Introducing Enhanced Search
+	Now you can use natural language to find exactly what you're looking for, faster.
+	*/
 	</Example>
 </Guideline>
 
-<Guideline summary="Don’t use more than one primary button" do={false}>
+<Guideline summary="Use to highlight new features" do={false}>
 	<p slot="description">
-		Each page or product area (a form, modal, within an article) should not have
-		more than 1 primary button to help guide the user to the primary action. Any
-		remaining CTA's should be displayed as secondary or ghost buttons.
+		Use them to highlight new features or assist with user onboarding.
 	</p>
 	<Example slot="examples" do={true}>
-		<Button label="Share" type="primary" />
-		<Button label="Cancel" type="secondary" />
+	/* Tooltip saying Try our new AI-powered search */
 	</Example>
 	<Example slot="examples" do={false}>
-		<Button label="Share" type="primary" />
-		<Button label="Cancel" type="primary" />
+	/* Tooltip saying Please use a longer password */
 	</Example>
-</Guideline>
-
-<Guideline summary="Avoid disabled buttons without user research" do={false}>
-    <div slot="description">
-        Avoid disabled buttons unless user research shows they improve your interface. Disabled buttons have poor contrast which makes them difficult to read. They also do not give feedback to a user why they are disabled. This has caused issues for FT readers in the past, and has been flagged in previous accessibility audits.
-
-        Hampus Sethfors explains the issues with disabled buttons in more detail in an [axesslab.com article](https://axesslab.com/disabled-buttons-suck/). In the article Hampus suggests alternative design approaches for common uses of disabled buttons.
-    </div>
-
-    <Example slot="examples" do={false}>
-        <Button label="Submit" type="primary" attributes={{disabled: true}} />
-    </Example>
-
 </Guideline>
