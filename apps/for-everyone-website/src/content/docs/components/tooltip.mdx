@@ -9,6 +9,8 @@ sidebar:
 
 import {default as ToggletipAnatomy} from '../../../components/ToggletipAnatomy.astro';
 import {default as OnboardingTooltipAnatomy} from '../../../components/OnboardingTooltipAnatomy.astro';
+import {Content as TooltipGuidelines} from '../../../content-partial/docs/components/tooltip-guidelines.mdx';
+import {Content as ToggletipGuidelines} from '../../../content-partial/docs/components/toggletip-guidelines.mdx';
 
 There are two kinds of tooltips available:
 
@@ -42,9 +44,7 @@ Onboarding Tooltips help for a smoother introduction to new features or function
 
 ### Usage Guidelines
 
-- Ensure onboarding tooltips do not obstruct other interface elements.
-- Use headings only for presentational reasons, provided emphasis is not required for understanding, as emphasis is not provided for screen reader users.
-- Use them to highlight new features or assist with user onboarding.
+<TooltipGuidelines />
 
 ## Toggle Tooltips
 
@@ -70,5 +70,4 @@ Toggle Tooltips ("Toggletips") are compact pieces of information designed to off
 
 ### Usage Guidelines
 
-- Ensure toggletips do not obstruct other interface elements.
-- Use toggletips to provide additional context, provided it is not essential.
+<ToggletipGuidelines />
