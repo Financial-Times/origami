@@ -28,7 +28,7 @@
 	"types": "./build/types/index.d.ts",
 	"scripts": {
 		"build": "bash ../../scripts/component/build-o3.bash o3-typography && npm run build:tsx",
-		"build:tsx": "tsc --project tsconfig.tsx.json"
+		"build:tsx": "tsc --project tsconfig.json"
 	},
 	"engines": {
 		"npm": ">7"
