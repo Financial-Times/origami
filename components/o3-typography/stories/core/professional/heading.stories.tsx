@@ -1,16 +1,16 @@
 import type {Meta} from '@storybook/react';
-import {Heading as HeadingTsx} from '../../src/tsx';
-import * as TypographyStories from '../story-templates';
-import '../../main.css';
+import {Heading as HeadingTsx} from '../../../src/tsx';
+import * as TypographyStories from '../../story-templates';
+import '../../../main.css';
 
-import '../../src/css/brands/core.css';
+import '../../../src/css/brands/professional.css';
 
 export default {
-	title: 'Core/o3-typography',
+	title: 'Core/Professional/o3-typography',
 	component: HeadingTsx,
 	decorators: [
 		Story => (
-			<div data-o3-brand="core">
+			<div data-o3-brand="professional">
 				<Story />
 			</div>
 		),
