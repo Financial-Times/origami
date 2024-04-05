@@ -39,8 +39,7 @@ StyleDictionaryPackage.registerFormat({
 			'export default ' +
 			'{\n' +
 			dictionary.allTokens
-			.map(function (token) {
-					console.log(`🚀 ~ dictionary:`, token);
+				.map(function (token) {
 					const value = {
 						shortName: token.path[token.path.length - 1],
 						value: token.value,
@@ -101,8 +100,11 @@ StyleDictionaryPackage.registerFileHeader({
 StyleDictionaryPackage.registerTransform({
 	name: 'Origami/tintGroup',
 	type: 'attribute',
-	matcher: token =>{
-		return token.type === 'color' && /palette-[a-zA-Z]+-[0-9]{1,3}$/.test(token.name)},
+	matcher: token => {
+		return (
+			token.type === 'color' && /palette-[a-zA-Z]+-[0-9]{1,3}$/.test(token.name)
+		);
+	},
 	transformer: token => {
 		const tint = token.path[token.path.length - 1].split('-');
 		token.origamiTint = {
@@ -197,6 +199,7 @@ export function buildCSS({
 /**
  * @typedef {Object} MetaBuildConfig - Configuration for building Token Studio design tokens to json for tooling.
  * @property {string[]} sources - The design token files to include.
+ * @property {string[]|undefined} [includes] - The component design token files to include. Include tokens will be overridden by "source" attribute tokens. This should be used for sub-brands that reference their parent brand.
  * @property {string} destination - The output file path.
  */
 
@@ -205,6 +208,7 @@ export function buildCSS({
  * @returns {undefined}
  */
 export function buildMeta({sources, includes, destination}) {
+	getTokenStudioThemes();
 	const config = {
 		source: sources,
 		include: includes,
@@ -234,7 +238,7 @@ export function buildMeta({sources, includes, destination}) {
 							) {
 								return false;
 							}
-							return isTokenStudioSource(token);
+							return true;
 						},
 						destination: path.basename(destination),
 						format: 'tooling/esm',
@@ -269,7 +273,7 @@ export function getBasePath() {
 	return basePath;
 }
 
-export function isSubBrand(theme) {
+function isSubBrand(theme) {
 	return theme.group !== theme.name;
 }
 
@@ -328,7 +332,7 @@ function getTokensStudioThemeFromBrand(tokenSet) {
 	return subTheme;
 }
 
-export function isTokenStudioSource(token) {
+function isTokenStudioSource(token) {
 	const {filePath} = token;
 	const tokenSet = filePath
 		.replace(`${process.cwd()}/tokens`, '')

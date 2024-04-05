@@ -85,9 +85,14 @@ export function buildToolingMetaTokens(getDestination) {
 	const brands = getBrandNames();
 	brands.forEach(brand => {
 		const {sources, includes} = getBrandSourcesAndIncludes(brand);
-		// console.log(`🚀 ~ sources, includes:`, sources, includes);
 		const destination = getDestination(brand);
-		buildMeta({sources, includes, destination});
+		buildMeta({
+			sources: sources.filter(source => nonComponentTokenFilter(source, brand)),
+			includes: includes.filter(include =>
+				nonComponentTokenFilter(include, brand)
+			),
+			destination,
+		});
 	});
 }
 

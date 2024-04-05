@@ -1,5 +1,6459 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`buildCss() > for Astro build > should build CSS foundation variables for Astro > for core brand 1`] = `
+"export default {
+	"o3-color-palette-ft-pink": {
+		"shortName": "ft-pink",
+		"value": "#FCD0B1",
+		"originalValue": "#FCD0B1",
+		"type": "color",
+		"description": "FT Pink is used for the FT logo",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"ft-pink"
+		],
+		"css": "--o3-color-palette-ft-pink",
+		"figma": "o3/color/palette/ft-pink"
+},
+	"o3-color-palette-ft-grey": {
+		"shortName": "ft-grey",
+		"value": "#333333ff",
+		"originalValue": "#333333ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"ft-grey"
+		],
+		"css": "--o3-color-palette-ft-grey",
+		"figma": "o3/color/palette/ft-grey"
+},
+	"o3-color-palette-white": {
+		"shortName": "white",
+		"value": "#ffffffff",
+		"originalValue": "#ffffffff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white"
+		],
+		"css": "--o3-color-palette-white",
+		"figma": "o3/color/palette/white"
+},
+	"o3-color-palette-black": {
+		"shortName": "black",
+		"value": "#000000ff",
+		"originalValue": "#000000ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black"
+		],
+		"css": "--o3-color-palette-black",
+		"figma": "o3/color/palette/black"
+},
+	"o3-color-palette-claret": {
+		"shortName": "claret",
+		"value": "#990f3dff",
+		"originalValue": "#990f3dff",
+		"type": "color",
+		"description": "Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.\\n\\nUsage example: MyFT branding; MyFT CTAs",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret"
+		],
+		"css": "--o3-color-palette-claret",
+		"figma": "o3/color/palette/claret"
+},
+	"o3-color-palette-teal": {
+		"shortName": "teal",
+		"value": "#0d7680ff",
+		"originalValue": "#0d7680ff",
+		"type": "color",
+		"description": "Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases.",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal"
+		],
+		"css": "--o3-color-palette-teal",
+		"figma": "o3/color/palette/teal"
+},
+	"o3-color-palette-oxford": {
+		"shortName": "oxford",
+		"value": "#0f5499ff",
+		"originalValue": "#0f5499ff",
+		"type": "color",
+		"description": "Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.\\n\\nUsage example: opinion branding; opinion topic tags.",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford"
+		],
+		"css": "--o3-color-palette-oxford",
+		"figma": "o3/color/palette/oxford"
+},
+	"o3-color-palette-slate": {
+		"shortName": "slate",
+		"value": "#262a33ff",
+		"originalValue": "#262a33ff",
+		"type": "color",
+		"description": "Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons.",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"slate"
+		],
+		"css": "--o3-color-palette-slate",
+		"figma": "o3/color/palette/slate"
+},
+	"o3-color-palette-paper": {
+		"shortName": "paper",
+		"value": "#fff1e5ff",
+		"originalValue": "#fff1e5ff",
+		"type": "color",
+		"description": "Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white.",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"paper"
+		],
+		"css": "--o3-color-palette-paper",
+		"figma": "o3/color/palette/paper"
+},
+	"o3-color-palette-transparrent": {
+		"shortName": "transparrent",
+		"value": "#ffffff00",
+		"originalValue": "#ffffff00",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"transparrent"
+		],
+		"css": "--o3-color-palette-transparrent",
+		"figma": "o3/color/palette/transparrent"
+},
+	"o3-color-palette-mandarin": {
+		"shortName": "mandarin",
+		"value": "#ff8833ff",
+		"originalValue": "#ff8833ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mandarin"
+		],
+		"css": "--o3-color-palette-mandarin",
+		"figma": "o3/color/palette/mandarin"
+},
+	"o3-color-palette-light-blue": {
+		"shortName": "light-blue",
+		"value": "#00a0ddff",
+		"originalValue": "#00a0ddff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"light-blue"
+		],
+		"css": "--o3-color-palette-light-blue",
+		"figma": "o3/color/palette/light-blue"
+},
+	"o3-color-palette-crimson": {
+		"shortName": "crimson",
+		"value": "#cc0000ff",
+		"originalValue": "#cc0000ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"crimson"
+		],
+		"css": "--o3-color-palette-crimson",
+		"figma": "o3/color/palette/crimson"
+},
+	"o3-color-palette-graphics-dark-blue": {
+		"shortName": "graphics-dark-blue",
+		"value": "#006f9bff",
+		"originalValue": "#006f9bff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"graphics-dark-blue"
+		],
+		"css": "--o3-color-palette-graphics-dark-blue",
+		"figma": "o3/color/palette/graphics-dark-blue"
+},
+	"o3-color-palette-wheat": {
+		"shortName": "wheat",
+		"value": "#f2dfceff",
+		"originalValue": "#f2dfceff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"wheat"
+		],
+		"css": "--o3-color-palette-wheat",
+		"figma": "o3/color/palette/wheat"
+},
+	"o3-color-palette-candy": {
+		"shortName": "candy",
+		"value": "#ff7faaff",
+		"originalValue": "#ff7faaff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"candy"
+		],
+		"css": "--o3-color-palette-candy",
+		"figma": "o3/color/palette/candy"
+},
+	"o3-color-palette-wasabi": {
+		"shortName": "wasabi",
+		"value": "#96cc28ff",
+		"originalValue": "#96cc28ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"wasabi"
+		],
+		"css": "--o3-color-palette-wasabi",
+		"figma": "o3/color/palette/wasabi"
+},
+	"o3-color-palette-jade": {
+		"shortName": "jade",
+		"value": "#00994dff",
+		"originalValue": "#00994dff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"jade"
+		],
+		"css": "--o3-color-palette-jade",
+		"figma": "o3/color/palette/jade"
+},
+	"o3-color-palette-velvet": {
+		"shortName": "velvet",
+		"value": "#593380ff",
+		"originalValue": "#593380ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"velvet"
+		],
+		"css": "--o3-color-palette-velvet",
+		"figma": "o3/color/palette/velvet"
+},
+	"o3-color-palette-lemon": {
+		"shortName": "lemon",
+		"value": "#ffec1aff",
+		"originalValue": "#ffec1aff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"lemon"
+		],
+		"css": "--o3-color-palette-lemon",
+		"figma": "o3/color/palette/lemon"
+},
+	"o3-color-palette-sky": {
+		"shortName": "sky",
+		"value": "#cce6ffff",
+		"originalValue": "#cce6ffff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"sky"
+		],
+		"css": "--o3-color-palette-sky",
+		"figma": "o3/color/palette/sky"
+},
+	"o3-color-palette-matisse-blue": {
+		"shortName": "matisse-blue",
+		"value": "#355778ff",
+		"originalValue": "#355778ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"matisse-blue"
+		],
+		"css": "--o3-color-palette-matisse-blue",
+		"figma": "o3/color/palette/matisse-blue"
+},
+	"o3-color-palette-black-5": {
+		"shortName": "black-5",
+		"value": "#f2e5daff",
+		"originalValue": "#f2e5daff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-5"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "5"
+		},
+		"css": "--o3-color-palette-black-5",
+		"figma": "o3/color/palette/black-5"
+},
+	"o3-color-palette-black-10": {
+		"shortName": "black-10",
+		"value": "#e6d9ceff",
+		"originalValue": "#e6d9ceff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-10"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-black-10",
+		"figma": "o3/color/palette/black-10"
+},
+	"o3-color-palette-black-20": {
+		"shortName": "black-20",
+		"value": "#ccc1b7ff",
+		"originalValue": "#ccc1b7ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-20"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "20"
+		},
+		"css": "--o3-color-palette-black-20",
+		"figma": "o3/color/palette/black-20"
+},
+	"o3-color-palette-black-30": {
+		"shortName": "black-30",
+		"value": "#b3a9a0ff",
+		"originalValue": "#b3a9a0ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-30"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-black-30",
+		"figma": "o3/color/palette/black-30"
+},
+	"o3-color-palette-black-40": {
+		"shortName": "black-40",
+		"value": "#999189ff",
+		"originalValue": "#999189ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-40"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-black-40",
+		"figma": "o3/color/palette/black-40"
+},
+	"o3-color-palette-black-50": {
+		"shortName": "black-50",
+		"value": "#807973ff",
+		"originalValue": "#807973ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-50"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-black-50",
+		"figma": "o3/color/palette/black-50"
+},
+	"o3-color-palette-black-60": {
+		"shortName": "black-60",
+		"value": "#66605cff",
+		"originalValue": "#66605cff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-60"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-black-60",
+		"figma": "o3/color/palette/black-60"
+},
+	"o3-color-palette-black-70": {
+		"shortName": "black-70",
+		"value": "#4d4845ff",
+		"originalValue": "#4d4845ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-70"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-black-70",
+		"figma": "o3/color/palette/black-70"
+},
+	"o3-color-palette-black-80": {
+		"shortName": "black-80",
+		"value": "#33302eff",
+		"originalValue": "#33302eff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-80"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-black-80",
+		"figma": "o3/color/palette/black-80"
+},
+	"o3-color-palette-black-90": {
+		"shortName": "black-90",
+		"value": "#1a1817ff",
+		"originalValue": "#1a1817ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-90"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-black-90",
+		"figma": "o3/color/palette/black-90"
+},
+	"o3-color-palette-white-10": {
+		"shortName": "white-10",
+		"value": "#fff2e8ff",
+		"originalValue": "#fff2e8ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-10"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-white-10",
+		"figma": "o3/color/palette/white-10"
+},
+	"o3-color-palette-white-20": {
+		"shortName": "white-20",
+		"value": "#fff4eaff",
+		"originalValue": "#fff4eaff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-20"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "20"
+		},
+		"css": "--o3-color-palette-white-20",
+		"figma": "o3/color/palette/white-20"
+},
+	"o3-color-palette-white-40": {
+		"shortName": "white-40",
+		"value": "#fff7efff",
+		"originalValue": "#fff7efff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-40"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-white-40",
+		"figma": "o3/color/palette/white-40"
+},
+	"o3-color-palette-white-60": {
+		"shortName": "white-60",
+		"value": "#fff9f5ff",
+		"originalValue": "#fff9f5ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-60"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-white-60",
+		"figma": "o3/color/palette/white-60"
+},
+	"o3-color-palette-white-80": {
+		"shortName": "white-80",
+		"value": "#fffcfaff",
+		"originalValue": "#fffcfaff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-80"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-white-80",
+		"figma": "o3/color/palette/white-80"
+},
+	"o3-color-palette-oxford-30": {
+		"shortName": "oxford-30",
+		"value": "#082a4dff",
+		"originalValue": "#082a4dff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-30"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-oxford-30",
+		"figma": "o3/color/palette/oxford-30"
+},
+	"o3-color-palette-oxford-40": {
+		"shortName": "oxford-40",
+		"value": "#0a3866ff",
+		"originalValue": "#0a3866ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-40"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-oxford-40",
+		"figma": "o3/color/palette/oxford-40"
+},
+	"o3-color-palette-oxford-50": {
+		"shortName": "oxford-50",
+		"value": "#0d4680ff",
+		"originalValue": "#0d4680ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-50"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-oxford-50",
+		"figma": "o3/color/palette/oxford-50"
+},
+	"o3-color-palette-oxford-60": {
+		"shortName": "oxford-60",
+		"value": "#0f5499ff",
+		"originalValue": "#0f5499ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-60"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-oxford-60",
+		"figma": "o3/color/palette/oxford-60"
+},
+	"o3-color-palette-oxford-70": {
+		"shortName": "oxford-70",
+		"value": "#1262b3ff",
+		"originalValue": "#1262b3ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-70"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-oxford-70",
+		"figma": "o3/color/palette/oxford-70"
+},
+	"o3-color-palette-oxford-80": {
+		"shortName": "oxford-80",
+		"value": "#1470ccff",
+		"originalValue": "#1470ccff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-80"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-oxford-80",
+		"figma": "o3/color/palette/oxford-80"
+},
+	"o3-color-palette-oxford-90": {
+		"shortName": "oxford-90",
+		"value": "#177ee6ff",
+		"originalValue": "#177ee6ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-90"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-oxford-90",
+		"figma": "o3/color/palette/oxford-90"
+},
+	"o3-color-palette-oxford-100": {
+		"shortName": "oxford-100",
+		"value": "#1a8cffff",
+		"originalValue": "#1a8cffff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-100"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-oxford-100",
+		"figma": "o3/color/palette/oxford-100"
+},
+	"o3-color-palette-teal-20": {
+		"shortName": "teal-20",
+		"value": "#052f33ff",
+		"originalValue": "#052f33ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-20"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "20"
+		},
+		"css": "--o3-color-palette-teal-20",
+		"figma": "o3/color/palette/teal-20"
+},
+	"o3-color-palette-teal-30": {
+		"shortName": "teal-30",
+		"value": "#08474dff",
+		"originalValue": "#08474dff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-30"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-teal-30",
+		"figma": "o3/color/palette/teal-30"
+},
+	"o3-color-palette-teal-40": {
+		"shortName": "teal-40",
+		"value": "#0a5e66ff",
+		"originalValue": "#0a5e66ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-40"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-teal-40",
+		"figma": "o3/color/palette/teal-40"
+},
+	"o3-color-palette-teal-50": {
+		"shortName": "teal-50",
+		"value": "#0d7680ff",
+		"originalValue": "#0d7680ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-50"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-teal-50",
+		"figma": "o3/color/palette/teal-50"
+},
+	"o3-color-palette-teal-60": {
+		"shortName": "teal-60",
+		"value": "#0f8e99ff",
+		"originalValue": "#0f8e99ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-60"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-teal-60",
+		"figma": "o3/color/palette/teal-60"
+},
+	"o3-color-palette-teal-70": {
+		"shortName": "teal-70",
+		"value": "#12a5b3ff",
+		"originalValue": "#12a5b3ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-70"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-teal-70",
+		"figma": "o3/color/palette/teal-70"
+},
+	"o3-color-palette-teal-80": {
+		"shortName": "teal-80",
+		"value": "#14bdccff",
+		"originalValue": "#14bdccff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-80"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-teal-80",
+		"figma": "o3/color/palette/teal-80"
+},
+	"o3-color-palette-teal-90": {
+		"shortName": "teal-90",
+		"value": "#17d4e6ff",
+		"originalValue": "#17d4e6ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-90"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-teal-90",
+		"figma": "o3/color/palette/teal-90"
+},
+	"o3-color-palette-teal-100": {
+		"shortName": "teal-100",
+		"value": "#1aecffff",
+		"originalValue": "#1aecffff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-100"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-teal-100",
+		"figma": "o3/color/palette/teal-100"
+},
+	"o3-color-palette-claret-30": {
+		"shortName": "claret-30",
+		"value": "#4d081fff",
+		"originalValue": "#4d081fff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-30"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-claret-30",
+		"figma": "o3/color/palette/claret-30"
+},
+	"o3-color-palette-claret-40": {
+		"shortName": "claret-40",
+		"value": "#660a29ff",
+		"originalValue": "#660a29ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-40"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-claret-40",
+		"figma": "o3/color/palette/claret-40"
+},
+	"o3-color-palette-claret-50": {
+		"shortName": "claret-50",
+		"value": "#800d33ff",
+		"originalValue": "#800d33ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-50"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-claret-50",
+		"figma": "o3/color/palette/claret-50"
+},
+	"o3-color-palette-claret-60": {
+		"shortName": "claret-60",
+		"value": "#990f3dff",
+		"originalValue": "#990f3dff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-60"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-claret-60",
+		"figma": "o3/color/palette/claret-60"
+},
+	"o3-color-palette-claret-70": {
+		"shortName": "claret-70",
+		"value": "#b31247ff",
+		"originalValue": "#b31247ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-70"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-claret-70",
+		"figma": "o3/color/palette/claret-70"
+},
+	"o3-color-palette-claret-80": {
+		"shortName": "claret-80",
+		"value": "#cc1452ff",
+		"originalValue": "#cc1452ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-80"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-claret-80",
+		"figma": "o3/color/palette/claret-80"
+},
+	"o3-color-palette-claret-90": {
+		"shortName": "claret-90",
+		"value": "#e6175cff",
+		"originalValue": "#e6175cff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-90"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-claret-90",
+		"figma": "o3/color/palette/claret-90"
+},
+	"o3-color-palette-claret-100": {
+		"shortName": "claret-100",
+		"value": "#ff1a66ff",
+		"originalValue": "#ff1a66ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-100"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-claret-100",
+		"figma": "o3/color/palette/claret-100"
+},
+	"o3-color-palette-wheat-100": {
+		"shortName": "wheat-100",
+		"value": "#FFEBD9",
+		"originalValue": "#FFEBD9",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"wheat-100"
+		],
+		"origamiTint": {
+				"base": "wheat",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-wheat-100",
+		"figma": "o3/color/palette/wheat-100"
+},
+	"o3-spacing-5xs": {
+		"shortName": "5xs",
+		"value": "0.25rem",
+		"originalValue": "4px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"5xs"
+		],
+		"css": "--o3-spacing-5xs",
+		"figma": "o3/spacing/5xs"
+},
+	"o3-spacing-4xs": {
+		"shortName": "4xs",
+		"value": "0.5rem",
+		"originalValue": "8px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"4xs"
+		],
+		"css": "--o3-spacing-4xs",
+		"figma": "o3/spacing/4xs"
+},
+	"o3-spacing-3xs": {
+		"shortName": "3xs",
+		"value": "0.75rem",
+		"originalValue": "12px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"3xs"
+		],
+		"css": "--o3-spacing-3xs",
+		"figma": "o3/spacing/3xs"
+},
+	"o3-spacing-2xs": {
+		"shortName": "2xs",
+		"value": "1rem",
+		"originalValue": "16px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"2xs"
+		],
+		"css": "--o3-spacing-2xs",
+		"figma": "o3/spacing/2xs"
+},
+	"o3-spacing-xs": {
+		"shortName": "xs",
+		"value": "1.25rem",
+		"originalValue": "20px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"xs"
+		],
+		"css": "--o3-spacing-xs",
+		"figma": "o3/spacing/xs"
+},
+	"o3-spacing-s": {
+		"shortName": "s",
+		"value": "1.5rem",
+		"originalValue": "24px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"s"
+		],
+		"css": "--o3-spacing-s",
+		"figma": "o3/spacing/s"
+},
+	"o3-spacing-m": {
+		"shortName": "m",
+		"value": "2rem",
+		"originalValue": "32px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"m"
+		],
+		"css": "--o3-spacing-m",
+		"figma": "o3/spacing/m"
+},
+	"o3-spacing-l": {
+		"shortName": "l",
+		"value": "2.5rem",
+		"originalValue": "40px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"l"
+		],
+		"css": "--o3-spacing-l",
+		"figma": "o3/spacing/l"
+},
+	"o3-spacing-xl": {
+		"shortName": "xl",
+		"value": "3rem",
+		"originalValue": "48px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"xl"
+		],
+		"css": "--o3-spacing-xl",
+		"figma": "o3/spacing/xl"
+},
+	"o3-spacing-2xl": {
+		"shortName": "2xl",
+		"value": "4rem",
+		"originalValue": "64px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"2xl"
+		],
+		"css": "--o3-spacing-2xl",
+		"figma": "o3/spacing/2xl"
+},
+	"o3-spacing-3xl": {
+		"shortName": "3xl",
+		"value": "5rem",
+		"originalValue": "80px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"3xl"
+		],
+		"css": "--o3-spacing-3xl",
+		"figma": "o3/spacing/3xl"
+},
+	"o3-spacing-4xl": {
+		"shortName": "4xl",
+		"value": "6rem",
+		"originalValue": "96px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"4xl"
+		],
+		"css": "--o3-spacing-4xl",
+		"figma": "o3/spacing/4xl"
+},
+	"o3-font-family-metric": {
+		"shortName": "metric",
+		"value": "metric 2 VF",
+		"originalValue": "metric 2 VF",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"metric"
+		],
+		"css": "--o3-font-family-metric",
+		"figma": "o3/font/family/metric"
+},
+	"o3-font-family-financier-display": {
+		"shortName": "financier-display",
+		"value": "financier display VF",
+		"originalValue": "financier display VF",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"financier-display"
+		],
+		"css": "--o3-font-family-financier-display",
+		"figma": "o3/font/family/financier-display"
+},
+	"o3-font-family-georgia": {
+		"shortName": "georgia",
+		"value": "georgia",
+		"originalValue": "georgia",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"georgia"
+		],
+		"css": "--o3-font-family-georgia",
+		"figma": "o3/font/family/georgia"
+},
+	"o3-font-weight-light": {
+		"shortName": "light",
+		"value": "300",
+		"originalValue": "300",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"light"
+		],
+		"css": "--o3-font-weight-light",
+		"figma": "o3/font/weight/light"
+},
+	"o3-font-weight-regular": {
+		"shortName": "regular",
+		"value": "400",
+		"originalValue": "400",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"regular"
+		],
+		"css": "--o3-font-weight-regular",
+		"figma": "o3/font/weight/regular"
+},
+	"o3-font-weight-medium": {
+		"shortName": "medium",
+		"value": "500",
+		"originalValue": "500",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"medium"
+		],
+		"css": "--o3-font-weight-medium",
+		"figma": "o3/font/weight/medium"
+},
+	"o3-font-weight-semibold": {
+		"shortName": "semibold",
+		"value": "700",
+		"originalValue": "700",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"semibold"
+		],
+		"css": "--o3-font-weight-semibold",
+		"figma": "o3/font/weight/semibold"
+},
+	"o3-font-weight-bold": {
+		"shortName": "bold",
+		"value": "800",
+		"originalValue": "800",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"bold"
+		],
+		"css": "--o3-font-weight-bold",
+		"figma": "o3/font/weight/bold"
+},
+	"o3-font-lineheight-0": {
+		"shortName": "0",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"0"
+		],
+		"css": "--o3-font-lineheight-0",
+		"figma": "o3/font/lineheight/0"
+},
+	"o3-font-lineheight-1": {
+		"shortName": "1",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"1"
+		],
+		"css": "--o3-font-lineheight-1",
+		"figma": "o3/font/lineheight/1"
+},
+	"o3-font-lineheight-2": {
+		"shortName": "2",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"2"
+		],
+		"css": "--o3-font-lineheight-2",
+		"figma": "o3/font/lineheight/2"
+},
+	"o3-font-lineheight-3": {
+		"shortName": "3",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"3"
+		],
+		"css": "--o3-font-lineheight-3",
+		"figma": "o3/font/lineheight/3"
+},
+	"o3-font-lineheight-4": {
+		"shortName": "4",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"4"
+		],
+		"css": "--o3-font-lineheight-4",
+		"figma": "o3/font/lineheight/4"
+},
+	"o3-font-lineheight-5": {
+		"shortName": "5",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"5"
+		],
+		"css": "--o3-font-lineheight-5",
+		"figma": "o3/font/lineheight/5"
+},
+	"o3-font-lineheight-6": {
+		"shortName": "6",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"6"
+		],
+		"css": "--o3-font-lineheight-6",
+		"figma": "o3/font/lineheight/6"
+},
+	"o3-font-lineheight-7": {
+		"shortName": "7",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"7"
+		],
+		"css": "--o3-font-lineheight-7",
+		"figma": "o3/font/lineheight/7"
+},
+	"o3-font-lineheight-8": {
+		"shortName": "8",
+		"value": "3.5rem",
+		"originalValue": "56",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"8"
+		],
+		"css": "--o3-font-lineheight-8",
+		"figma": "o3/font/lineheight/8"
+},
+	"o3-font-lineheight-9": {
+		"shortName": "9",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"9"
+		],
+		"css": "--o3-font-lineheight-9",
+		"figma": "o3/font/lineheight/9"
+},
+	"o3-font-lineheight-10": {
+		"shortName": "10",
+		"value": "5.25rem",
+		"originalValue": "84",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"10"
+		],
+		"css": "--o3-font-lineheight-10",
+		"figma": "o3/font/lineheight/10"
+},
+	"o3-font-lineheight-negative-2": {
+		"shortName": "negative-2",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"negative-2"
+		],
+		"css": "--o3-font-lineheight-negative-2",
+		"figma": "o3/font/lineheight/negative-2"
+},
+	"o3-font-lineheight-negative-1": {
+		"shortName": "negative-1",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"negative-1"
+		],
+		"css": "--o3-font-lineheight-negative-1",
+		"figma": "o3/font/lineheight/negative-1"
+},
+	"o3-font-size-0": {
+		"shortName": "0",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"0"
+		],
+		"css": "--o3-font-size-0",
+		"figma": "o3/font/size/0"
+},
+	"o3-font-size-1": {
+		"shortName": "1",
+		"value": "1.125rem",
+		"originalValue": "18",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"1"
+		],
+		"css": "--o3-font-size-1",
+		"figma": "o3/font/size/1"
+},
+	"o3-font-size-2": {
+		"shortName": "2",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"2"
+		],
+		"css": "--o3-font-size-2",
+		"figma": "o3/font/size/2"
+},
+	"o3-font-size-3": {
+		"shortName": "3",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"3"
+		],
+		"css": "--o3-font-size-3",
+		"figma": "o3/font/size/3"
+},
+	"o3-font-size-4": {
+		"shortName": "4",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"4"
+		],
+		"css": "--o3-font-size-4",
+		"figma": "o3/font/size/4"
+},
+	"o3-font-size-5": {
+		"shortName": "5",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"5"
+		],
+		"css": "--o3-font-size-5",
+		"figma": "o3/font/size/5"
+},
+	"o3-font-size-6": {
+		"shortName": "6",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"6"
+		],
+		"css": "--o3-font-size-6",
+		"figma": "o3/font/size/6"
+},
+	"o3-font-size-7": {
+		"shortName": "7",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"7"
+		],
+		"css": "--o3-font-size-7",
+		"figma": "o3/font/size/7"
+},
+	"o3-font-size-8": {
+		"shortName": "8",
+		"value": "3.5rem",
+		"originalValue": "56",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"8"
+		],
+		"css": "--o3-font-size-8",
+		"figma": "o3/font/size/8"
+},
+	"o3-font-size-9": {
+		"shortName": "9",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"9"
+		],
+		"css": "--o3-font-size-9",
+		"figma": "o3/font/size/9"
+},
+	"o3-font-size-10": {
+		"shortName": "10",
+		"value": "5.25rem",
+		"originalValue": "84",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"10"
+		],
+		"css": "--o3-font-size-10",
+		"figma": "o3/font/size/10"
+},
+	"o3-font-size-negative-2": {
+		"shortName": "negative-2",
+		"value": "0.75rem",
+		"originalValue": "12",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"negative-2"
+		],
+		"css": "--o3-font-size-negative-2",
+		"figma": "o3/font/size/negative-2"
+},
+	"o3-font-size-negative-1": {
+		"shortName": "negative-1",
+		"value": "0.875rem",
+		"originalValue": "14",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"negative-1"
+		],
+		"css": "--o3-font-size-negative-1",
+		"figma": "o3/font/size/negative-1"
+},
+	"o3-font-lineheight-metric2-0": {
+		"shortName": "0",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"0"
+		],
+		"css": "--o3-font-lineheight-metric2-0",
+		"figma": "o3/font/lineheight-metric2/0"
+},
+	"o3-font-lineheight-metric2-1": {
+		"shortName": "1",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"1"
+		],
+		"css": "--o3-font-lineheight-metric2-1",
+		"figma": "o3/font/lineheight-metric2/1"
+},
+	"o3-font-lineheight-metric2-2": {
+		"shortName": "2",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"2"
+		],
+		"css": "--o3-font-lineheight-metric2-2",
+		"figma": "o3/font/lineheight-metric2/2"
+},
+	"o3-font-lineheight-metric2-3": {
+		"shortName": "3",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"3"
+		],
+		"css": "--o3-font-lineheight-metric2-3",
+		"figma": "o3/font/lineheight-metric2/3"
+},
+	"o3-font-lineheight-metric2-4": {
+		"shortName": "4",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"4"
+		],
+		"css": "--o3-font-lineheight-metric2-4",
+		"figma": "o3/font/lineheight-metric2/4"
+},
+	"o3-font-lineheight-metric2-5": {
+		"shortName": "5",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"5"
+		],
+		"css": "--o3-font-lineheight-metric2-5",
+		"figma": "o3/font/lineheight-metric2/5"
+},
+	"o3-font-lineheight-metric2-6": {
+		"shortName": "6",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"6"
+		],
+		"css": "--o3-font-lineheight-metric2-6",
+		"figma": "o3/font/lineheight-metric2/6"
+},
+	"o3-font-lineheight-metric2-7": {
+		"shortName": "7",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"7"
+		],
+		"css": "--o3-font-lineheight-metric2-7",
+		"figma": "o3/font/lineheight-metric2/7"
+},
+	"o3-font-lineheight-metric2-8": {
+		"shortName": "8",
+		"value": "3.5rem",
+		"originalValue": "56",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"8"
+		],
+		"css": "--o3-font-lineheight-metric2-8",
+		"figma": "o3/font/lineheight-metric2/8"
+},
+	"o3-font-lineheight-metric2-9": {
+		"shortName": "9",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"9"
+		],
+		"css": "--o3-font-lineheight-metric2-9",
+		"figma": "o3/font/lineheight-metric2/9"
+},
+	"o3-font-lineheight-metric2-10": {
+		"shortName": "10",
+		"value": "5.25rem",
+		"originalValue": "84",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"10"
+		],
+		"css": "--o3-font-lineheight-metric2-10",
+		"figma": "o3/font/lineheight-metric2/10"
+},
+	"o3-font-lineheight-metric2-negative-2": {
+		"shortName": "negative-2",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"negative-2"
+		],
+		"css": "--o3-font-lineheight-metric2-negative-2",
+		"figma": "o3/font/lineheight-metric2/negative-2"
+},
+	"o3-font-lineheight-metric2-negative-1": {
+		"shortName": "negative-1",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"negative-1"
+		],
+		"css": "--o3-font-lineheight-metric2-negative-1",
+		"figma": "o3/font/lineheight-metric2/negative-1"
+},
+	"o3-font-size-metric2-0": {
+		"shortName": "0",
+		"value": "0.875rem",
+		"originalValue": "14",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"0"
+		],
+		"css": "--o3-font-size-metric2-0",
+		"figma": "o3/font/size-metric2/0"
+},
+	"o3-font-size-metric2-1": {
+		"shortName": "1",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"1"
+		],
+		"css": "--o3-font-size-metric2-1",
+		"figma": "o3/font/size-metric2/1"
+},
+	"o3-font-size-metric2-2": {
+		"shortName": "2",
+		"value": "1.125rem",
+		"originalValue": "18",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"2"
+		],
+		"css": "--o3-font-size-metric2-2",
+		"figma": "o3/font/size-metric2/2"
+},
+	"o3-font-size-metric2-3": {
+		"shortName": "3",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"3"
+		],
+		"css": "--o3-font-size-metric2-3",
+		"figma": "o3/font/size-metric2/3"
+},
+	"o3-font-size-metric2-4": {
+		"shortName": "4",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"4"
+		],
+		"css": "--o3-font-size-metric2-4",
+		"figma": "o3/font/size-metric2/4"
+},
+	"o3-font-size-metric2-5": {
+		"shortName": "5",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"5"
+		],
+		"css": "--o3-font-size-metric2-5",
+		"figma": "o3/font/size-metric2/5"
+},
+	"o3-font-size-metric2-6": {
+		"shortName": "6",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"6"
+		],
+		"css": "--o3-font-size-metric2-6",
+		"figma": "o3/font/size-metric2/6"
+},
+	"o3-font-size-metric2-7": {
+		"shortName": "7",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"7"
+		],
+		"css": "--o3-font-size-metric2-7",
+		"figma": "o3/font/size-metric2/7"
+},
+	"o3-font-size-metric2-8": {
+		"shortName": "8",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"8"
+		],
+		"css": "--o3-font-size-metric2-8",
+		"figma": "o3/font/size-metric2/8"
+},
+	"o3-font-size-metric2-9": {
+		"shortName": "9",
+		"value": "4rem",
+		"originalValue": "64",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"9"
+		],
+		"css": "--o3-font-size-metric2-9",
+		"figma": "o3/font/size-metric2/9"
+},
+	"o3-font-size-metric2-10": {
+		"shortName": "10",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"10"
+		],
+		"css": "--o3-font-size-metric2-10",
+		"figma": "o3/font/size-metric2/10"
+},
+	"o3-font-size-metric2-negative-2": {
+		"shortName": "negative-2",
+		"value": "0.625rem",
+		"originalValue": "10",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"negative-2"
+		],
+		"css": "--o3-font-size-metric2-negative-2",
+		"figma": "o3/font/size-metric2/negative-2"
+},
+	"o3-font-size-metric2-negative-1": {
+		"shortName": "negative-1",
+		"value": "0.75rem",
+		"originalValue": "12",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"negative-1"
+		],
+		"css": "--o3-font-size-metric2-negative-1",
+		"figma": "o3/font/size-metric2/negative-1"
+}
+};
+"
+`;
+
+exports[`buildCss() > for Astro build > should build CSS foundation variables for Astro > for core/professional brand 1`] = `
+"export default {
+	"o3-color-palette-ft-pink": {
+		"shortName": "ft-pink",
+		"value": "#FCD0B1",
+		"originalValue": "#FCD0B1",
+		"type": "color",
+		"description": "FT Pink is used for the FT logo",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"ft-pink"
+		],
+		"css": "--o3-color-palette-ft-pink",
+		"figma": "o3/color/palette/ft-pink"
+},
+	"o3-color-palette-ft-grey": {
+		"shortName": "ft-grey",
+		"value": "#333333ff",
+		"originalValue": "#333333ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"ft-grey"
+		],
+		"css": "--o3-color-palette-ft-grey",
+		"figma": "o3/color/palette/ft-grey"
+},
+	"o3-color-palette-white": {
+		"shortName": "white",
+		"value": "#ffffffff",
+		"originalValue": "#ffffffff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white"
+		],
+		"css": "--o3-color-palette-white",
+		"figma": "o3/color/palette/white"
+},
+	"o3-color-palette-black": {
+		"shortName": "black",
+		"value": "#000000ff",
+		"originalValue": "#000000ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black"
+		],
+		"css": "--o3-color-palette-black",
+		"figma": "o3/color/palette/black"
+},
+	"o3-color-palette-claret": {
+		"shortName": "claret",
+		"value": "#990f3dff",
+		"originalValue": "#990f3dff",
+		"type": "color",
+		"description": "Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.\\n\\nUsage example: MyFT branding; MyFT CTAs",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret"
+		],
+		"css": "--o3-color-palette-claret",
+		"figma": "o3/color/palette/claret"
+},
+	"o3-color-palette-teal": {
+		"shortName": "teal",
+		"value": "#0d7680ff",
+		"originalValue": "#0d7680ff",
+		"type": "color",
+		"description": "Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases.",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal"
+		],
+		"css": "--o3-color-palette-teal",
+		"figma": "o3/color/palette/teal"
+},
+	"o3-color-palette-oxford": {
+		"shortName": "oxford",
+		"value": "#0f5499ff",
+		"originalValue": "#0f5499ff",
+		"type": "color",
+		"description": "Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.\\n\\nUsage example: opinion branding; opinion topic tags.",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford"
+		],
+		"css": "--o3-color-palette-oxford",
+		"figma": "o3/color/palette/oxford"
+},
+	"o3-color-palette-slate": {
+		"shortName": "slate",
+		"value": "#262a33ff",
+		"originalValue": "#262a33ff",
+		"type": "color",
+		"description": "Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons.",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"slate"
+		],
+		"css": "--o3-color-palette-slate",
+		"figma": "o3/color/palette/slate"
+},
+	"o3-color-palette-paper": {
+		"shortName": "paper",
+		"value": "#fff1e5ff",
+		"originalValue": "#fff1e5ff",
+		"type": "color",
+		"description": "Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white.",
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"paper"
+		],
+		"css": "--o3-color-palette-paper",
+		"figma": "o3/color/palette/paper"
+},
+	"o3-color-palette-transparrent": {
+		"shortName": "transparrent",
+		"value": "#ffffff00",
+		"originalValue": "#ffffff00",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"transparrent"
+		],
+		"css": "--o3-color-palette-transparrent",
+		"figma": "o3/color/palette/transparrent"
+},
+	"o3-color-palette-mandarin": {
+		"shortName": "mandarin",
+		"value": "#ff8833ff",
+		"originalValue": "#ff8833ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mandarin"
+		],
+		"css": "--o3-color-palette-mandarin",
+		"figma": "o3/color/palette/mandarin"
+},
+	"o3-color-palette-light-blue": {
+		"shortName": "light-blue",
+		"value": "#00a0ddff",
+		"originalValue": "#00a0ddff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"light-blue"
+		],
+		"css": "--o3-color-palette-light-blue",
+		"figma": "o3/color/palette/light-blue"
+},
+	"o3-color-palette-crimson": {
+		"shortName": "crimson",
+		"value": "#cc0000ff",
+		"originalValue": "#cc0000ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"crimson"
+		],
+		"css": "--o3-color-palette-crimson",
+		"figma": "o3/color/palette/crimson"
+},
+	"o3-color-palette-graphics-dark-blue": {
+		"shortName": "graphics-dark-blue",
+		"value": "#006f9bff",
+		"originalValue": "#006f9bff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"graphics-dark-blue"
+		],
+		"css": "--o3-color-palette-graphics-dark-blue",
+		"figma": "o3/color/palette/graphics-dark-blue"
+},
+	"o3-color-palette-wheat": {
+		"shortName": "wheat",
+		"value": "#f2dfceff",
+		"originalValue": "#f2dfceff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"wheat"
+		],
+		"css": "--o3-color-palette-wheat",
+		"figma": "o3/color/palette/wheat"
+},
+	"o3-color-palette-candy": {
+		"shortName": "candy",
+		"value": "#ff7faaff",
+		"originalValue": "#ff7faaff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"candy"
+		],
+		"css": "--o3-color-palette-candy",
+		"figma": "o3/color/palette/candy"
+},
+	"o3-color-palette-wasabi": {
+		"shortName": "wasabi",
+		"value": "#96cc28ff",
+		"originalValue": "#96cc28ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"wasabi"
+		],
+		"css": "--o3-color-palette-wasabi",
+		"figma": "o3/color/palette/wasabi"
+},
+	"o3-color-palette-jade": {
+		"shortName": "jade",
+		"value": "#00994dff",
+		"originalValue": "#00994dff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"jade"
+		],
+		"css": "--o3-color-palette-jade",
+		"figma": "o3/color/palette/jade"
+},
+	"o3-color-palette-velvet": {
+		"shortName": "velvet",
+		"value": "#593380ff",
+		"originalValue": "#593380ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"velvet"
+		],
+		"css": "--o3-color-palette-velvet",
+		"figma": "o3/color/palette/velvet"
+},
+	"o3-color-palette-lemon": {
+		"shortName": "lemon",
+		"value": "#ffec1aff",
+		"originalValue": "#ffec1aff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"lemon"
+		],
+		"css": "--o3-color-palette-lemon",
+		"figma": "o3/color/palette/lemon"
+},
+	"o3-color-palette-sky": {
+		"shortName": "sky",
+		"value": "#cce6ffff",
+		"originalValue": "#cce6ffff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"sky"
+		],
+		"css": "--o3-color-palette-sky",
+		"figma": "o3/color/palette/sky"
+},
+	"o3-color-palette-matisse-blue": {
+		"shortName": "matisse-blue",
+		"value": "#355778ff",
+		"originalValue": "#355778ff",
+		"type": "color",
+		"description": "",
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"matisse-blue"
+		],
+		"css": "--o3-color-palette-matisse-blue",
+		"figma": "o3/color/palette/matisse-blue"
+},
+	"o3-color-palette-black-5": {
+		"shortName": "black-5",
+		"value": "#f2e5daff",
+		"originalValue": "#f2e5daff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-5"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "5"
+		},
+		"css": "--o3-color-palette-black-5",
+		"figma": "o3/color/palette/black-5"
+},
+	"o3-color-palette-black-10": {
+		"shortName": "black-10",
+		"value": "#e6d9ceff",
+		"originalValue": "#e6d9ceff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-10"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-black-10",
+		"figma": "o3/color/palette/black-10"
+},
+	"o3-color-palette-black-20": {
+		"shortName": "black-20",
+		"value": "#ccc1b7ff",
+		"originalValue": "#ccc1b7ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-20"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "20"
+		},
+		"css": "--o3-color-palette-black-20",
+		"figma": "o3/color/palette/black-20"
+},
+	"o3-color-palette-black-30": {
+		"shortName": "black-30",
+		"value": "#b3a9a0ff",
+		"originalValue": "#b3a9a0ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-30"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-black-30",
+		"figma": "o3/color/palette/black-30"
+},
+	"o3-color-palette-black-40": {
+		"shortName": "black-40",
+		"value": "#999189ff",
+		"originalValue": "#999189ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-40"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-black-40",
+		"figma": "o3/color/palette/black-40"
+},
+	"o3-color-palette-black-50": {
+		"shortName": "black-50",
+		"value": "#807973ff",
+		"originalValue": "#807973ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-50"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-black-50",
+		"figma": "o3/color/palette/black-50"
+},
+	"o3-color-palette-black-60": {
+		"shortName": "black-60",
+		"value": "#66605cff",
+		"originalValue": "#66605cff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-60"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-black-60",
+		"figma": "o3/color/palette/black-60"
+},
+	"o3-color-palette-black-70": {
+		"shortName": "black-70",
+		"value": "#4d4845ff",
+		"originalValue": "#4d4845ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-70"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-black-70",
+		"figma": "o3/color/palette/black-70"
+},
+	"o3-color-palette-black-80": {
+		"shortName": "black-80",
+		"value": "#33302eff",
+		"originalValue": "#33302eff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-80"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-black-80",
+		"figma": "o3/color/palette/black-80"
+},
+	"o3-color-palette-black-90": {
+		"shortName": "black-90",
+		"value": "#1a1817ff",
+		"originalValue": "#1a1817ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-90"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-black-90",
+		"figma": "o3/color/palette/black-90"
+},
+	"o3-color-palette-white-10": {
+		"shortName": "white-10",
+		"value": "#fff2e8ff",
+		"originalValue": "#fff2e8ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-10"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-white-10",
+		"figma": "o3/color/palette/white-10"
+},
+	"o3-color-palette-white-20": {
+		"shortName": "white-20",
+		"value": "#fff4eaff",
+		"originalValue": "#fff4eaff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-20"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "20"
+		},
+		"css": "--o3-color-palette-white-20",
+		"figma": "o3/color/palette/white-20"
+},
+	"o3-color-palette-white-40": {
+		"shortName": "white-40",
+		"value": "#fff7efff",
+		"originalValue": "#fff7efff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-40"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-white-40",
+		"figma": "o3/color/palette/white-40"
+},
+	"o3-color-palette-white-60": {
+		"shortName": "white-60",
+		"value": "#fff9f5ff",
+		"originalValue": "#fff9f5ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-60"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-white-60",
+		"figma": "o3/color/palette/white-60"
+},
+	"o3-color-palette-white-80": {
+		"shortName": "white-80",
+		"value": "#fffcfaff",
+		"originalValue": "#fffcfaff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-80"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-white-80",
+		"figma": "o3/color/palette/white-80"
+},
+	"o3-color-palette-oxford-30": {
+		"shortName": "oxford-30",
+		"value": "#082a4dff",
+		"originalValue": "#082a4dff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-30"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-oxford-30",
+		"figma": "o3/color/palette/oxford-30"
+},
+	"o3-color-palette-oxford-40": {
+		"shortName": "oxford-40",
+		"value": "#0a3866ff",
+		"originalValue": "#0a3866ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-40"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-oxford-40",
+		"figma": "o3/color/palette/oxford-40"
+},
+	"o3-color-palette-oxford-50": {
+		"shortName": "oxford-50",
+		"value": "#0d4680ff",
+		"originalValue": "#0d4680ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-50"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-oxford-50",
+		"figma": "o3/color/palette/oxford-50"
+},
+	"o3-color-palette-oxford-60": {
+		"shortName": "oxford-60",
+		"value": "#0f5499ff",
+		"originalValue": "#0f5499ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-60"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-oxford-60",
+		"figma": "o3/color/palette/oxford-60"
+},
+	"o3-color-palette-oxford-70": {
+		"shortName": "oxford-70",
+		"value": "#1262b3ff",
+		"originalValue": "#1262b3ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-70"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-oxford-70",
+		"figma": "o3/color/palette/oxford-70"
+},
+	"o3-color-palette-oxford-80": {
+		"shortName": "oxford-80",
+		"value": "#1470ccff",
+		"originalValue": "#1470ccff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-80"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-oxford-80",
+		"figma": "o3/color/palette/oxford-80"
+},
+	"o3-color-palette-oxford-90": {
+		"shortName": "oxford-90",
+		"value": "#177ee6ff",
+		"originalValue": "#177ee6ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-90"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-oxford-90",
+		"figma": "o3/color/palette/oxford-90"
+},
+	"o3-color-palette-oxford-100": {
+		"shortName": "oxford-100",
+		"value": "#1a8cffff",
+		"originalValue": "#1a8cffff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-100"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-oxford-100",
+		"figma": "o3/color/palette/oxford-100"
+},
+	"o3-color-palette-teal-20": {
+		"shortName": "teal-20",
+		"value": "#052f33ff",
+		"originalValue": "#052f33ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-20"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "20"
+		},
+		"css": "--o3-color-palette-teal-20",
+		"figma": "o3/color/palette/teal-20"
+},
+	"o3-color-palette-teal-30": {
+		"shortName": "teal-30",
+		"value": "#08474dff",
+		"originalValue": "#08474dff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-30"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-teal-30",
+		"figma": "o3/color/palette/teal-30"
+},
+	"o3-color-palette-teal-40": {
+		"shortName": "teal-40",
+		"value": "#0a5e66ff",
+		"originalValue": "#0a5e66ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-40"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-teal-40",
+		"figma": "o3/color/palette/teal-40"
+},
+	"o3-color-palette-teal-50": {
+		"shortName": "teal-50",
+		"value": "#0d7680ff",
+		"originalValue": "#0d7680ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-50"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-teal-50",
+		"figma": "o3/color/palette/teal-50"
+},
+	"o3-color-palette-teal-60": {
+		"shortName": "teal-60",
+		"value": "#0f8e99ff",
+		"originalValue": "#0f8e99ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-60"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-teal-60",
+		"figma": "o3/color/palette/teal-60"
+},
+	"o3-color-palette-teal-70": {
+		"shortName": "teal-70",
+		"value": "#12a5b3ff",
+		"originalValue": "#12a5b3ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-70"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-teal-70",
+		"figma": "o3/color/palette/teal-70"
+},
+	"o3-color-palette-teal-80": {
+		"shortName": "teal-80",
+		"value": "#14bdccff",
+		"originalValue": "#14bdccff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-80"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-teal-80",
+		"figma": "o3/color/palette/teal-80"
+},
+	"o3-color-palette-teal-90": {
+		"shortName": "teal-90",
+		"value": "#17d4e6ff",
+		"originalValue": "#17d4e6ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-90"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-teal-90",
+		"figma": "o3/color/palette/teal-90"
+},
+	"o3-color-palette-teal-100": {
+		"shortName": "teal-100",
+		"value": "#1aecffff",
+		"originalValue": "#1aecffff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-100"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-teal-100",
+		"figma": "o3/color/palette/teal-100"
+},
+	"o3-color-palette-claret-30": {
+		"shortName": "claret-30",
+		"value": "#4d081fff",
+		"originalValue": "#4d081fff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-30"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-claret-30",
+		"figma": "o3/color/palette/claret-30"
+},
+	"o3-color-palette-claret-40": {
+		"shortName": "claret-40",
+		"value": "#660a29ff",
+		"originalValue": "#660a29ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-40"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-claret-40",
+		"figma": "o3/color/palette/claret-40"
+},
+	"o3-color-palette-claret-50": {
+		"shortName": "claret-50",
+		"value": "#800d33ff",
+		"originalValue": "#800d33ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-50"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-claret-50",
+		"figma": "o3/color/palette/claret-50"
+},
+	"o3-color-palette-claret-60": {
+		"shortName": "claret-60",
+		"value": "#990f3dff",
+		"originalValue": "#990f3dff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-60"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-claret-60",
+		"figma": "o3/color/palette/claret-60"
+},
+	"o3-color-palette-claret-70": {
+		"shortName": "claret-70",
+		"value": "#b31247ff",
+		"originalValue": "#b31247ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-70"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-claret-70",
+		"figma": "o3/color/palette/claret-70"
+},
+	"o3-color-palette-claret-80": {
+		"shortName": "claret-80",
+		"value": "#cc1452ff",
+		"originalValue": "#cc1452ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-80"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-claret-80",
+		"figma": "o3/color/palette/claret-80"
+},
+	"o3-color-palette-claret-90": {
+		"shortName": "claret-90",
+		"value": "#e6175cff",
+		"originalValue": "#e6175cff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-90"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-claret-90",
+		"figma": "o3/color/palette/claret-90"
+},
+	"o3-color-palette-claret-100": {
+		"shortName": "claret-100",
+		"value": "#ff1a66ff",
+		"originalValue": "#ff1a66ff",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-100"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-claret-100",
+		"figma": "o3/color/palette/claret-100"
+},
+	"o3-color-palette-wheat-100": {
+		"shortName": "wheat-100",
+		"value": "#FFEBD9",
+		"originalValue": "#FFEBD9",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"wheat-100"
+		],
+		"origamiTint": {
+				"base": "wheat",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-wheat-100",
+		"figma": "o3/color/palette/wheat-100"
+},
+	"o3-color-palette-mint": {
+		"shortName": "mint",
+		"value": "#c0efd8",
+		"originalValue": "#c0efd8",
+		"type": "color",
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint"
+		],
+		"css": "--o3-color-palette-mint",
+		"figma": "o3/color/palette/mint"
+},
+	"o3-color-palette-mint-80": {
+		"shortName": "mint-80",
+		"value": "#A4CCB8",
+		"originalValue": "#A4CCB8",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-80"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-mint-80",
+		"figma": "o3/color/palette/mint-80"
+},
+	"o3-color-palette-mint-70": {
+		"shortName": "mint-70",
+		"value": "#8FB3A1",
+		"originalValue": "#8FB3A1",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-70"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-mint-70",
+		"figma": "o3/color/palette/mint-70"
+},
+	"o3-color-palette-mint-60": {
+		"shortName": "mint-60",
+		"value": "#7B998A",
+		"originalValue": "#7B998A",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-60"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-mint-60",
+		"figma": "o3/color/palette/mint-60"
+},
+	"o3-color-palette-mint-50": {
+		"shortName": "mint-50",
+		"value": "#668073",
+		"originalValue": "#668073",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-50"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-mint-50",
+		"figma": "o3/color/palette/mint-50"
+},
+	"o3-color-palette-mint-40": {
+		"shortName": "mint-40",
+		"value": "#52665C",
+		"originalValue": "#52665C",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-40"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-mint-40",
+		"figma": "o3/color/palette/mint-40"
+},
+	"o3-color-palette-mint-30": {
+		"shortName": "mint-30",
+		"value": "#3D4D45",
+		"originalValue": "#3D4D45",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-30"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-mint-30",
+		"figma": "o3/color/palette/mint-30"
+},
+	"o3-color-use-case-link-text": {
+		"shortName": "@",
+		"value": "#262a33ff",
+		"originalValue": "{o3.color.palette.slate}",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"text",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-text",
+		"figma": "o3/color/use-case/link/text/@"
+},
+	"o3-color-use-case-link-text-hover": {
+		"shortName": "hover",
+		"value": "#262a33ff",
+		"originalValue": "{o3.color.palette.slate}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"text",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-text-hover",
+		"figma": "o3/color/use-case/link/text/hover"
+},
+	"o3-color-use-case-link-underline": {
+		"shortName": "@",
+		"value": "#A4CCB8",
+		"originalValue": "{o3.color.palette.mint-80}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"underline",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-underline",
+		"figma": "o3/color/use-case/link/underline/@"
+},
+	"o3-color-use-case-link-underline-hover": {
+		"shortName": "hover",
+		"value": "#A4CCB8",
+		"originalValue": "{o3.color.palette.mint-80}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"underline",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-underline-hover",
+		"figma": "o3/color/use-case/link/underline/hover"
+},
+	"o3-color-use-case-link-inverse-text": {
+		"shortName": "@",
+		"value": "#c0efd8",
+		"originalValue": "{o3.color.palette.mint}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"text",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-inverse-text",
+		"figma": "o3/color/use-case/link-inverse/text/@"
+},
+	"o3-color-use-case-link-inverse-text-hover": {
+		"shortName": "hover",
+		"value": "#8FB3A1",
+		"originalValue": "{o3.color.palette.mint-70}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"text",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-inverse-text-hover",
+		"figma": "o3/color/use-case/link-inverse/text/hover"
+},
+	"o3-color-use-case-link-inverse-underline": {
+		"shortName": "@",
+		"value": "#c0efd8",
+		"originalValue": "{o3.color.palette.mint}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"underline",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-inverse-underline",
+		"figma": "o3/color/use-case/link-inverse/underline/@"
+},
+	"o3-color-use-case-link-inverse-underline-hover": {
+		"shortName": "hover",
+		"value": "#8FB3A1",
+		"originalValue": "{o3.color.palette.mint-70}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"underline",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-inverse-underline-hover",
+		"figma": "o3/color/use-case/link-inverse/underline/hover"
+},
+	"o3-spacing-5xs": {
+		"shortName": "5xs",
+		"value": "0.25rem",
+		"originalValue": "4px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"5xs"
+		],
+		"css": "--o3-spacing-5xs",
+		"figma": "o3/spacing/5xs"
+},
+	"o3-spacing-4xs": {
+		"shortName": "4xs",
+		"value": "0.5rem",
+		"originalValue": "8px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"4xs"
+		],
+		"css": "--o3-spacing-4xs",
+		"figma": "o3/spacing/4xs"
+},
+	"o3-spacing-3xs": {
+		"shortName": "3xs",
+		"value": "0.75rem",
+		"originalValue": "12px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"3xs"
+		],
+		"css": "--o3-spacing-3xs",
+		"figma": "o3/spacing/3xs"
+},
+	"o3-spacing-2xs": {
+		"shortName": "2xs",
+		"value": "1rem",
+		"originalValue": "16px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"2xs"
+		],
+		"css": "--o3-spacing-2xs",
+		"figma": "o3/spacing/2xs"
+},
+	"o3-spacing-xs": {
+		"shortName": "xs",
+		"value": "1.25rem",
+		"originalValue": "20px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"xs"
+		],
+		"css": "--o3-spacing-xs",
+		"figma": "o3/spacing/xs"
+},
+	"o3-spacing-s": {
+		"shortName": "s",
+		"value": "1.5rem",
+		"originalValue": "24px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"s"
+		],
+		"css": "--o3-spacing-s",
+		"figma": "o3/spacing/s"
+},
+	"o3-spacing-m": {
+		"shortName": "m",
+		"value": "2rem",
+		"originalValue": "32px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"m"
+		],
+		"css": "--o3-spacing-m",
+		"figma": "o3/spacing/m"
+},
+	"o3-spacing-l": {
+		"shortName": "l",
+		"value": "2.5rem",
+		"originalValue": "40px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"l"
+		],
+		"css": "--o3-spacing-l",
+		"figma": "o3/spacing/l"
+},
+	"o3-spacing-xl": {
+		"shortName": "xl",
+		"value": "3rem",
+		"originalValue": "48px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"xl"
+		],
+		"css": "--o3-spacing-xl",
+		"figma": "o3/spacing/xl"
+},
+	"o3-spacing-2xl": {
+		"shortName": "2xl",
+		"value": "4rem",
+		"originalValue": "64px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"2xl"
+		],
+		"css": "--o3-spacing-2xl",
+		"figma": "o3/spacing/2xl"
+},
+	"o3-spacing-3xl": {
+		"shortName": "3xl",
+		"value": "5rem",
+		"originalValue": "80px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"3xl"
+		],
+		"css": "--o3-spacing-3xl",
+		"figma": "o3/spacing/3xl"
+},
+	"o3-spacing-4xl": {
+		"shortName": "4xl",
+		"value": "6rem",
+		"originalValue": "96px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"4xl"
+		],
+		"css": "--o3-spacing-4xl",
+		"figma": "o3/spacing/4xl"
+},
+	"o3-font-family-metric": {
+		"shortName": "metric",
+		"value": "metric 2 VF",
+		"originalValue": "metric 2 VF",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"metric"
+		],
+		"css": "--o3-font-family-metric",
+		"figma": "o3/font/family/metric"
+},
+	"o3-font-family-financier-display": {
+		"shortName": "financier-display",
+		"value": "financier display VF",
+		"originalValue": "financier display VF",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"financier-display"
+		],
+		"css": "--o3-font-family-financier-display",
+		"figma": "o3/font/family/financier-display"
+},
+	"o3-font-family-georgia": {
+		"shortName": "georgia",
+		"value": "georgia",
+		"originalValue": "georgia",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"georgia"
+		],
+		"css": "--o3-font-family-georgia",
+		"figma": "o3/font/family/georgia"
+},
+	"o3-font-weight-light": {
+		"shortName": "light",
+		"value": "300",
+		"originalValue": "300",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"light"
+		],
+		"css": "--o3-font-weight-light",
+		"figma": "o3/font/weight/light"
+},
+	"o3-font-weight-regular": {
+		"shortName": "regular",
+		"value": "400",
+		"originalValue": "400",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"regular"
+		],
+		"css": "--o3-font-weight-regular",
+		"figma": "o3/font/weight/regular"
+},
+	"o3-font-weight-medium": {
+		"shortName": "medium",
+		"value": "500",
+		"originalValue": "500",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"medium"
+		],
+		"css": "--o3-font-weight-medium",
+		"figma": "o3/font/weight/medium"
+},
+	"o3-font-weight-semibold": {
+		"shortName": "semibold",
+		"value": "700",
+		"originalValue": "700",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"semibold"
+		],
+		"css": "--o3-font-weight-semibold",
+		"figma": "o3/font/weight/semibold"
+},
+	"o3-font-weight-bold": {
+		"shortName": "bold",
+		"value": "800",
+		"originalValue": "800",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"bold"
+		],
+		"css": "--o3-font-weight-bold",
+		"figma": "o3/font/weight/bold"
+},
+	"o3-font-lineheight-0": {
+		"shortName": "0",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"0"
+		],
+		"css": "--o3-font-lineheight-0",
+		"figma": "o3/font/lineheight/0"
+},
+	"o3-font-lineheight-1": {
+		"shortName": "1",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"1"
+		],
+		"css": "--o3-font-lineheight-1",
+		"figma": "o3/font/lineheight/1"
+},
+	"o3-font-lineheight-2": {
+		"shortName": "2",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"2"
+		],
+		"css": "--o3-font-lineheight-2",
+		"figma": "o3/font/lineheight/2"
+},
+	"o3-font-lineheight-3": {
+		"shortName": "3",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"3"
+		],
+		"css": "--o3-font-lineheight-3",
+		"figma": "o3/font/lineheight/3"
+},
+	"o3-font-lineheight-4": {
+		"shortName": "4",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"4"
+		],
+		"css": "--o3-font-lineheight-4",
+		"figma": "o3/font/lineheight/4"
+},
+	"o3-font-lineheight-5": {
+		"shortName": "5",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"5"
+		],
+		"css": "--o3-font-lineheight-5",
+		"figma": "o3/font/lineheight/5"
+},
+	"o3-font-lineheight-6": {
+		"shortName": "6",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"6"
+		],
+		"css": "--o3-font-lineheight-6",
+		"figma": "o3/font/lineheight/6"
+},
+	"o3-font-lineheight-7": {
+		"shortName": "7",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"7"
+		],
+		"css": "--o3-font-lineheight-7",
+		"figma": "o3/font/lineheight/7"
+},
+	"o3-font-lineheight-8": {
+		"shortName": "8",
+		"value": "3.5rem",
+		"originalValue": "56",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"8"
+		],
+		"css": "--o3-font-lineheight-8",
+		"figma": "o3/font/lineheight/8"
+},
+	"o3-font-lineheight-9": {
+		"shortName": "9",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"9"
+		],
+		"css": "--o3-font-lineheight-9",
+		"figma": "o3/font/lineheight/9"
+},
+	"o3-font-lineheight-10": {
+		"shortName": "10",
+		"value": "5.25rem",
+		"originalValue": "84",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"10"
+		],
+		"css": "--o3-font-lineheight-10",
+		"figma": "o3/font/lineheight/10"
+},
+	"o3-font-lineheight-negative-2": {
+		"shortName": "negative-2",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"negative-2"
+		],
+		"css": "--o3-font-lineheight-negative-2",
+		"figma": "o3/font/lineheight/negative-2"
+},
+	"o3-font-lineheight-negative-1": {
+		"shortName": "negative-1",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"negative-1"
+		],
+		"css": "--o3-font-lineheight-negative-1",
+		"figma": "o3/font/lineheight/negative-1"
+},
+	"o3-font-size-0": {
+		"shortName": "0",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"0"
+		],
+		"css": "--o3-font-size-0",
+		"figma": "o3/font/size/0"
+},
+	"o3-font-size-1": {
+		"shortName": "1",
+		"value": "1.125rem",
+		"originalValue": "18",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"1"
+		],
+		"css": "--o3-font-size-1",
+		"figma": "o3/font/size/1"
+},
+	"o3-font-size-2": {
+		"shortName": "2",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"2"
+		],
+		"css": "--o3-font-size-2",
+		"figma": "o3/font/size/2"
+},
+	"o3-font-size-3": {
+		"shortName": "3",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"3"
+		],
+		"css": "--o3-font-size-3",
+		"figma": "o3/font/size/3"
+},
+	"o3-font-size-4": {
+		"shortName": "4",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"4"
+		],
+		"css": "--o3-font-size-4",
+		"figma": "o3/font/size/4"
+},
+	"o3-font-size-5": {
+		"shortName": "5",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"5"
+		],
+		"css": "--o3-font-size-5",
+		"figma": "o3/font/size/5"
+},
+	"o3-font-size-6": {
+		"shortName": "6",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"6"
+		],
+		"css": "--o3-font-size-6",
+		"figma": "o3/font/size/6"
+},
+	"o3-font-size-7": {
+		"shortName": "7",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"7"
+		],
+		"css": "--o3-font-size-7",
+		"figma": "o3/font/size/7"
+},
+	"o3-font-size-8": {
+		"shortName": "8",
+		"value": "3.5rem",
+		"originalValue": "56",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"8"
+		],
+		"css": "--o3-font-size-8",
+		"figma": "o3/font/size/8"
+},
+	"o3-font-size-9": {
+		"shortName": "9",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"9"
+		],
+		"css": "--o3-font-size-9",
+		"figma": "o3/font/size/9"
+},
+	"o3-font-size-10": {
+		"shortName": "10",
+		"value": "5.25rem",
+		"originalValue": "84",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"10"
+		],
+		"css": "--o3-font-size-10",
+		"figma": "o3/font/size/10"
+},
+	"o3-font-size-negative-2": {
+		"shortName": "negative-2",
+		"value": "0.75rem",
+		"originalValue": "12",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"negative-2"
+		],
+		"css": "--o3-font-size-negative-2",
+		"figma": "o3/font/size/negative-2"
+},
+	"o3-font-size-negative-1": {
+		"shortName": "negative-1",
+		"value": "0.875rem",
+		"originalValue": "14",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"negative-1"
+		],
+		"css": "--o3-font-size-negative-1",
+		"figma": "o3/font/size/negative-1"
+},
+	"o3-font-lineheight-metric2-0": {
+		"shortName": "0",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"0"
+		],
+		"css": "--o3-font-lineheight-metric2-0",
+		"figma": "o3/font/lineheight-metric2/0"
+},
+	"o3-font-lineheight-metric2-1": {
+		"shortName": "1",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"1"
+		],
+		"css": "--o3-font-lineheight-metric2-1",
+		"figma": "o3/font/lineheight-metric2/1"
+},
+	"o3-font-lineheight-metric2-2": {
+		"shortName": "2",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"2"
+		],
+		"css": "--o3-font-lineheight-metric2-2",
+		"figma": "o3/font/lineheight-metric2/2"
+},
+	"o3-font-lineheight-metric2-3": {
+		"shortName": "3",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"3"
+		],
+		"css": "--o3-font-lineheight-metric2-3",
+		"figma": "o3/font/lineheight-metric2/3"
+},
+	"o3-font-lineheight-metric2-4": {
+		"shortName": "4",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"4"
+		],
+		"css": "--o3-font-lineheight-metric2-4",
+		"figma": "o3/font/lineheight-metric2/4"
+},
+	"o3-font-lineheight-metric2-5": {
+		"shortName": "5",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"5"
+		],
+		"css": "--o3-font-lineheight-metric2-5",
+		"figma": "o3/font/lineheight-metric2/5"
+},
+	"o3-font-lineheight-metric2-6": {
+		"shortName": "6",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"6"
+		],
+		"css": "--o3-font-lineheight-metric2-6",
+		"figma": "o3/font/lineheight-metric2/6"
+},
+	"o3-font-lineheight-metric2-7": {
+		"shortName": "7",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"7"
+		],
+		"css": "--o3-font-lineheight-metric2-7",
+		"figma": "o3/font/lineheight-metric2/7"
+},
+	"o3-font-lineheight-metric2-8": {
+		"shortName": "8",
+		"value": "3.5rem",
+		"originalValue": "56",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"8"
+		],
+		"css": "--o3-font-lineheight-metric2-8",
+		"figma": "o3/font/lineheight-metric2/8"
+},
+	"o3-font-lineheight-metric2-9": {
+		"shortName": "9",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"9"
+		],
+		"css": "--o3-font-lineheight-metric2-9",
+		"figma": "o3/font/lineheight-metric2/9"
+},
+	"o3-font-lineheight-metric2-10": {
+		"shortName": "10",
+		"value": "5.25rem",
+		"originalValue": "84",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"10"
+		],
+		"css": "--o3-font-lineheight-metric2-10",
+		"figma": "o3/font/lineheight-metric2/10"
+},
+	"o3-font-lineheight-metric2-negative-2": {
+		"shortName": "negative-2",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"negative-2"
+		],
+		"css": "--o3-font-lineheight-metric2-negative-2",
+		"figma": "o3/font/lineheight-metric2/negative-2"
+},
+	"o3-font-lineheight-metric2-negative-1": {
+		"shortName": "negative-1",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"negative-1"
+		],
+		"css": "--o3-font-lineheight-metric2-negative-1",
+		"figma": "o3/font/lineheight-metric2/negative-1"
+},
+	"o3-font-size-metric2-0": {
+		"shortName": "0",
+		"value": "0.875rem",
+		"originalValue": "14",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"0"
+		],
+		"css": "--o3-font-size-metric2-0",
+		"figma": "o3/font/size-metric2/0"
+},
+	"o3-font-size-metric2-1": {
+		"shortName": "1",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"1"
+		],
+		"css": "--o3-font-size-metric2-1",
+		"figma": "o3/font/size-metric2/1"
+},
+	"o3-font-size-metric2-2": {
+		"shortName": "2",
+		"value": "1.125rem",
+		"originalValue": "18",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"2"
+		],
+		"css": "--o3-font-size-metric2-2",
+		"figma": "o3/font/size-metric2/2"
+},
+	"o3-font-size-metric2-3": {
+		"shortName": "3",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"3"
+		],
+		"css": "--o3-font-size-metric2-3",
+		"figma": "o3/font/size-metric2/3"
+},
+	"o3-font-size-metric2-4": {
+		"shortName": "4",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"4"
+		],
+		"css": "--o3-font-size-metric2-4",
+		"figma": "o3/font/size-metric2/4"
+},
+	"o3-font-size-metric2-5": {
+		"shortName": "5",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"5"
+		],
+		"css": "--o3-font-size-metric2-5",
+		"figma": "o3/font/size-metric2/5"
+},
+	"o3-font-size-metric2-6": {
+		"shortName": "6",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"6"
+		],
+		"css": "--o3-font-size-metric2-6",
+		"figma": "o3/font/size-metric2/6"
+},
+	"o3-font-size-metric2-7": {
+		"shortName": "7",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"7"
+		],
+		"css": "--o3-font-size-metric2-7",
+		"figma": "o3/font/size-metric2/7"
+},
+	"o3-font-size-metric2-8": {
+		"shortName": "8",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"8"
+		],
+		"css": "--o3-font-size-metric2-8",
+		"figma": "o3/font/size-metric2/8"
+},
+	"o3-font-size-metric2-9": {
+		"shortName": "9",
+		"value": "4rem",
+		"originalValue": "64",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"9"
+		],
+		"css": "--o3-font-size-metric2-9",
+		"figma": "o3/font/size-metric2/9"
+},
+	"o3-font-size-metric2-10": {
+		"shortName": "10",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"10"
+		],
+		"css": "--o3-font-size-metric2-10",
+		"figma": "o3/font/size-metric2/10"
+},
+	"o3-font-size-metric2-negative-2": {
+		"shortName": "negative-2",
+		"value": "0.625rem",
+		"originalValue": "10",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"negative-2"
+		],
+		"css": "--o3-font-size-metric2-negative-2",
+		"figma": "o3/font/size-metric2/negative-2"
+},
+	"o3-font-size-metric2-negative-1": {
+		"shortName": "negative-1",
+		"value": "0.75rem",
+		"originalValue": "12",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"negative-1"
+		],
+		"css": "--o3-font-size-metric2-negative-1",
+		"figma": "o3/font/size-metric2/negative-1"
+}
+};
+"
+`;
+
+exports[`buildCss() > for Astro build > should build CSS foundation variables for Astro > for whitelabel brand 1`] = `
+"export default {
+	"o3-color-palette-black": {
+		"shortName": "black",
+		"value": "#000",
+		"originalValue": "#000",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black"
+		],
+		"css": "--o3-color-palette-black",
+		"figma": "o3/color/palette/black"
+},
+	"o3-color-palette-white": {
+		"shortName": "white",
+		"value": "#fff",
+		"originalValue": "#fff",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white"
+		],
+		"css": "--o3-color-palette-white",
+		"figma": "o3/color/palette/white"
+},
+	"o3-color-palette-jade": {
+		"shortName": "jade",
+		"value": "#00994d",
+		"originalValue": "#00994d",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"jade"
+		],
+		"css": "--o3-color-palette-jade",
+		"figma": "o3/color/palette/jade"
+},
+	"o3-color-palette-crimson": {
+		"shortName": "crimson",
+		"value": "#c00",
+		"originalValue": "#c00",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"crimson"
+		],
+		"css": "--o3-color-palette-crimson",
+		"figma": "o3/color/palette/crimson"
+},
+	"o3-color-palette-black-5": {
+		"shortName": "black-5",
+		"value": "#F2F2F2",
+		"originalValue": "#F2F2F2",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-5"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "5"
+		},
+		"css": "--o3-color-palette-black-5",
+		"figma": "o3/color/palette/black-5"
+},
+	"o3-color-palette-black-10": {
+		"shortName": "black-10",
+		"value": "#E6E6E6",
+		"originalValue": "#E6E6E6",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-10"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-black-10",
+		"figma": "o3/color/palette/black-10"
+},
+	"o3-color-palette-black-20": {
+		"shortName": "black-20",
+		"value": "#ccc",
+		"originalValue": "#ccc",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-20"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "20"
+		},
+		"css": "--o3-color-palette-black-20",
+		"figma": "o3/color/palette/black-20"
+},
+	"o3-color-palette-black-30": {
+		"shortName": "black-30",
+		"value": "#B3B3B3",
+		"originalValue": "#B3B3B3",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-30"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-black-30",
+		"figma": "o3/color/palette/black-30"
+},
+	"o3-color-palette-black-40": {
+		"shortName": "black-40",
+		"value": "#999",
+		"originalValue": "#999",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-40"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-black-40",
+		"figma": "o3/color/palette/black-40"
+},
+	"o3-color-palette-black-50": {
+		"shortName": "black-50",
+		"value": "#808080",
+		"originalValue": "#808080",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-50"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-black-50",
+		"figma": "o3/color/palette/black-50"
+},
+	"o3-color-palette-black-60": {
+		"shortName": "black-60",
+		"value": "#666",
+		"originalValue": "#666",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-60"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-black-60",
+		"figma": "o3/color/palette/black-60"
+},
+	"o3-color-palette-black-70": {
+		"shortName": "black-70",
+		"value": "#4d4d4d",
+		"originalValue": "#4d4d4d",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-70"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-black-70",
+		"figma": "o3/color/palette/black-70"
+},
+	"o3-color-palette-black-80": {
+		"shortName": "black-80",
+		"value": "#333",
+		"originalValue": "#333",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-80"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-black-80",
+		"figma": "o3/color/palette/black-80"
+},
+	"o3-color-palette-black-90": {
+		"shortName": "black-90",
+		"value": "#1a1a1a",
+		"originalValue": "#1a1a1a",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-90"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-black-90",
+		"figma": "o3/color/palette/black-90"
+},
+	"o3-color-use-case-link-text": {
+		"shortName": "@",
+		"value": "#808080",
+		"originalValue": "{o3.color.palette.black-50}",
+		"type": "color",
+		"description": "",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"text",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-text",
+		"figma": "o3/color/use-case/link/text/@"
+},
+	"o3-color-use-case-link-text-hover": {
+		"shortName": "hover",
+		"value": "#666",
+		"originalValue": "{o3.color.palette.black-60}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"text",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-text-hover",
+		"figma": "o3/color/use-case/link/text/hover"
+},
+	"o3-color-use-case-link-underline": {
+		"shortName": "@",
+		"value": "#B3B3B3",
+		"originalValue": "{o3.color.palette.black-30}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"underline",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-underline",
+		"figma": "o3/color/use-case/link/underline/@"
+},
+	"o3-color-use-case-link-underline-hover": {
+		"shortName": "hover",
+		"value": "#4d4d4d",
+		"originalValue": "{o3.color.palette.black-70}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link",
+				"underline",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-underline-hover",
+		"figma": "o3/color/use-case/link/underline/hover"
+},
+	"o3-color-use-case-link-inverse-text": {
+		"shortName": "@",
+		"value": "#",
+		"originalValue": "#",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"text",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-inverse-text",
+		"figma": "o3/color/use-case/link-inverse/text/@"
+},
+	"o3-color-use-case-link-inverse-text-hover": {
+		"shortName": "hover",
+		"value": "#ccc",
+		"originalValue": "{o3.color.palette.black-20}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"text",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-inverse-text-hover",
+		"figma": "o3/color/use-case/link-inverse/text/hover"
+},
+	"o3-color-use-case-link-inverse-underline": {
+		"shortName": "@",
+		"value": "#fff",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"underline",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-inverse-underline",
+		"figma": "o3/color/use-case/link-inverse/underline/@"
+},
+	"o3-color-use-case-link-inverse-underline-hover": {
+		"shortName": "hover",
+		"value": "#ccc",
+		"originalValue": "{o3.color.palette.black-20}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"underline",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-inverse-underline-hover",
+		"figma": "o3/color/use-case/link-inverse/underline/hover"
+},
+	"o3-color-use-case-page-background": {
+		"shortName": "background",
+		"value": "#fff",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"page",
+				"background"
+		],
+		"css": "--o3-color-use-case-page-background",
+		"figma": "o3/color/use-case/page/background"
+},
+	"o3-color-use-case-page-inverse-background": {
+		"shortName": "background",
+		"value": "#333",
+		"originalValue": "{o3.color.palette.black-80}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"page-inverse",
+				"background"
+		],
+		"css": "--o3-color-use-case-page-inverse-background",
+		"figma": "o3/color/use-case/page-inverse/background"
+},
+	"o3-color-use-case-body-text": {
+		"shortName": "text",
+		"value": "#333",
+		"originalValue": "{o3.color.palette.black-80}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"body",
+				"text"
+		],
+		"css": "--o3-color-use-case-body-text",
+		"figma": "o3/color/use-case/body/text"
+},
+	"o3-color-use-case-body-inverse-text": {
+		"shortName": "text",
+		"value": "#fff",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"body-inverse",
+				"text"
+		],
+		"css": "--o3-color-use-case-body-inverse-text",
+		"figma": "o3/color/use-case/body-inverse/text"
+},
+	"o3-color-use-case-muted-text": {
+		"shortName": "text",
+		"value": "#ccc",
+		"originalValue": "{o3.color.palette.black-20}",
+		"type": "color",
+		"description": "\\"Muted\\" text is less prominent, for example credits and captions.",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"muted",
+				"text"
+		],
+		"css": "--o3-color-use-case-muted-text",
+		"figma": "o3/color/use-case/muted/text"
+},
+	"o3-color-use-case-muted-inverse": {
+		"shortName": "muted-inverse",
+		"value": "#808080",
+		"originalValue": "#808080",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"muted-inverse"
+		],
+		"css": "--o3-color-use-case-muted-inverse",
+		"figma": "o3/color/use-case/muted-inverse"
+},
+	"o3-spacing-5xs": {
+		"shortName": "5xs",
+		"value": "0.25rem",
+		"originalValue": "4px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"5xs"
+		],
+		"css": "--o3-spacing-5xs",
+		"figma": "o3/spacing/5xs"
+},
+	"o3-spacing-4xs": {
+		"shortName": "4xs",
+		"value": "0.5rem",
+		"originalValue": "8px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"4xs"
+		],
+		"css": "--o3-spacing-4xs",
+		"figma": "o3/spacing/4xs"
+},
+	"o3-spacing-3xs": {
+		"shortName": "3xs",
+		"value": "0.75rem",
+		"originalValue": "12px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"3xs"
+		],
+		"css": "--o3-spacing-3xs",
+		"figma": "o3/spacing/3xs"
+},
+	"o3-spacing-2xs": {
+		"shortName": "2xs",
+		"value": "1rem",
+		"originalValue": "16px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"2xs"
+		],
+		"css": "--o3-spacing-2xs",
+		"figma": "o3/spacing/2xs"
+},
+	"o3-spacing-xs": {
+		"shortName": "xs",
+		"value": "1.25rem",
+		"originalValue": "20px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"xs"
+		],
+		"css": "--o3-spacing-xs",
+		"figma": "o3/spacing/xs"
+},
+	"o3-spacing-s": {
+		"shortName": "s",
+		"value": "1.5rem",
+		"originalValue": "24px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"s"
+		],
+		"css": "--o3-spacing-s",
+		"figma": "o3/spacing/s"
+},
+	"o3-spacing-m": {
+		"shortName": "m",
+		"value": "2rem",
+		"originalValue": "32px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"m"
+		],
+		"css": "--o3-spacing-m",
+		"figma": "o3/spacing/m"
+},
+	"o3-spacing-l": {
+		"shortName": "l",
+		"value": "2.5rem",
+		"originalValue": "40px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"l"
+		],
+		"css": "--o3-spacing-l",
+		"figma": "o3/spacing/l"
+},
+	"o3-spacing-xl": {
+		"shortName": "xl",
+		"value": "3rem",
+		"originalValue": "48px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"xl"
+		],
+		"css": "--o3-spacing-xl",
+		"figma": "o3/spacing/xl"
+},
+	"o3-spacing-2xl": {
+		"shortName": "2xl",
+		"value": "4rem",
+		"originalValue": "64px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"2xl"
+		],
+		"css": "--o3-spacing-2xl",
+		"figma": "o3/spacing/2xl"
+},
+	"o3-spacing-3xl": {
+		"shortName": "3xl",
+		"value": "5rem",
+		"originalValue": "80px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"3xl"
+		],
+		"css": "--o3-spacing-3xl",
+		"figma": "o3/spacing/3xl"
+},
+	"o3-spacing-4xl": {
+		"shortName": "4xl",
+		"value": "6rem",
+		"originalValue": "96px",
+		"type": "spacing",
+		"path": [
+				"o3",
+				"spacing",
+				"4xl"
+		],
+		"css": "--o3-spacing-4xl",
+		"figma": "o3/spacing/4xl"
+},
+	"o3-font-family-metric": {
+		"shortName": "metric",
+		"value": "metric 2 VF",
+		"originalValue": "metric 2 VF",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"metric"
+		],
+		"css": "--o3-font-family-metric",
+		"figma": "o3/font/family/metric"
+},
+	"o3-font-family-financier-display": {
+		"shortName": "financier-display",
+		"value": "financier display VF",
+		"originalValue": "financier display VF",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"financier-display"
+		],
+		"css": "--o3-font-family-financier-display",
+		"figma": "o3/font/family/financier-display"
+},
+	"o3-font-family-georgia": {
+		"shortName": "georgia",
+		"value": "georgia",
+		"originalValue": "georgia",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"georgia"
+		],
+		"css": "--o3-font-family-georgia",
+		"figma": "o3/font/family/georgia"
+},
+	"o3-font-weight-light": {
+		"shortName": "light",
+		"value": "300",
+		"originalValue": "300",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"light"
+		],
+		"css": "--o3-font-weight-light",
+		"figma": "o3/font/weight/light"
+},
+	"o3-font-weight-regular": {
+		"shortName": "regular",
+		"value": "400",
+		"originalValue": "400",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"regular"
+		],
+		"css": "--o3-font-weight-regular",
+		"figma": "o3/font/weight/regular"
+},
+	"o3-font-weight-medium": {
+		"shortName": "medium",
+		"value": "500",
+		"originalValue": "500",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"medium"
+		],
+		"css": "--o3-font-weight-medium",
+		"figma": "o3/font/weight/medium"
+},
+	"o3-font-weight-semibold": {
+		"shortName": "semibold",
+		"value": "700",
+		"originalValue": "700",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"semibold"
+		],
+		"css": "--o3-font-weight-semibold",
+		"figma": "o3/font/weight/semibold"
+},
+	"o3-font-weight-bold": {
+		"shortName": "bold",
+		"value": "800",
+		"originalValue": "800",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"font",
+				"weight",
+				"bold"
+		],
+		"css": "--o3-font-weight-bold",
+		"figma": "o3/font/weight/bold"
+},
+	"o3-font-lineheight-0": {
+		"shortName": "0",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"0"
+		],
+		"css": "--o3-font-lineheight-0",
+		"figma": "o3/font/lineheight/0"
+},
+	"o3-font-lineheight-1": {
+		"shortName": "1",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"1"
+		],
+		"css": "--o3-font-lineheight-1",
+		"figma": "o3/font/lineheight/1"
+},
+	"o3-font-lineheight-2": {
+		"shortName": "2",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"2"
+		],
+		"css": "--o3-font-lineheight-2",
+		"figma": "o3/font/lineheight/2"
+},
+	"o3-font-lineheight-3": {
+		"shortName": "3",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"3"
+		],
+		"css": "--o3-font-lineheight-3",
+		"figma": "o3/font/lineheight/3"
+},
+	"o3-font-lineheight-4": {
+		"shortName": "4",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"4"
+		],
+		"css": "--o3-font-lineheight-4",
+		"figma": "o3/font/lineheight/4"
+},
+	"o3-font-lineheight-5": {
+		"shortName": "5",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"5"
+		],
+		"css": "--o3-font-lineheight-5",
+		"figma": "o3/font/lineheight/5"
+},
+	"o3-font-lineheight-6": {
+		"shortName": "6",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"6"
+		],
+		"css": "--o3-font-lineheight-6",
+		"figma": "o3/font/lineheight/6"
+},
+	"o3-font-lineheight-7": {
+		"shortName": "7",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"7"
+		],
+		"css": "--o3-font-lineheight-7",
+		"figma": "o3/font/lineheight/7"
+},
+	"o3-font-lineheight-8": {
+		"shortName": "8",
+		"value": "3.5rem",
+		"originalValue": "56",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"8"
+		],
+		"css": "--o3-font-lineheight-8",
+		"figma": "o3/font/lineheight/8"
+},
+	"o3-font-lineheight-9": {
+		"shortName": "9",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"9"
+		],
+		"css": "--o3-font-lineheight-9",
+		"figma": "o3/font/lineheight/9"
+},
+	"o3-font-lineheight-10": {
+		"shortName": "10",
+		"value": "5.25rem",
+		"originalValue": "84",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"10"
+		],
+		"css": "--o3-font-lineheight-10",
+		"figma": "o3/font/lineheight/10"
+},
+	"o3-font-lineheight-negative-2": {
+		"shortName": "negative-2",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"negative-2"
+		],
+		"css": "--o3-font-lineheight-negative-2",
+		"figma": "o3/font/lineheight/negative-2"
+},
+	"o3-font-lineheight-negative-1": {
+		"shortName": "negative-1",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight",
+				"negative-1"
+		],
+		"css": "--o3-font-lineheight-negative-1",
+		"figma": "o3/font/lineheight/negative-1"
+},
+	"o3-font-size-0": {
+		"shortName": "0",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"0"
+		],
+		"css": "--o3-font-size-0",
+		"figma": "o3/font/size/0"
+},
+	"o3-font-size-1": {
+		"shortName": "1",
+		"value": "1.125rem",
+		"originalValue": "18",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"1"
+		],
+		"css": "--o3-font-size-1",
+		"figma": "o3/font/size/1"
+},
+	"o3-font-size-2": {
+		"shortName": "2",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"2"
+		],
+		"css": "--o3-font-size-2",
+		"figma": "o3/font/size/2"
+},
+	"o3-font-size-3": {
+		"shortName": "3",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"3"
+		],
+		"css": "--o3-font-size-3",
+		"figma": "o3/font/size/3"
+},
+	"o3-font-size-4": {
+		"shortName": "4",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"4"
+		],
+		"css": "--o3-font-size-4",
+		"figma": "o3/font/size/4"
+},
+	"o3-font-size-5": {
+		"shortName": "5",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"5"
+		],
+		"css": "--o3-font-size-5",
+		"figma": "o3/font/size/5"
+},
+	"o3-font-size-6": {
+		"shortName": "6",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"6"
+		],
+		"css": "--o3-font-size-6",
+		"figma": "o3/font/size/6"
+},
+	"o3-font-size-7": {
+		"shortName": "7",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"7"
+		],
+		"css": "--o3-font-size-7",
+		"figma": "o3/font/size/7"
+},
+	"o3-font-size-8": {
+		"shortName": "8",
+		"value": "3.5rem",
+		"originalValue": "56",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"8"
+		],
+		"css": "--o3-font-size-8",
+		"figma": "o3/font/size/8"
+},
+	"o3-font-size-9": {
+		"shortName": "9",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"9"
+		],
+		"css": "--o3-font-size-9",
+		"figma": "o3/font/size/9"
+},
+	"o3-font-size-10": {
+		"shortName": "10",
+		"value": "5.25rem",
+		"originalValue": "84",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"10"
+		],
+		"css": "--o3-font-size-10",
+		"figma": "o3/font/size/10"
+},
+	"o3-font-size-negative-2": {
+		"shortName": "negative-2",
+		"value": "0.75rem",
+		"originalValue": "12",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"negative-2"
+		],
+		"css": "--o3-font-size-negative-2",
+		"figma": "o3/font/size/negative-2"
+},
+	"o3-font-size-negative-1": {
+		"shortName": "negative-1",
+		"value": "0.875rem",
+		"originalValue": "14",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size",
+				"negative-1"
+		],
+		"css": "--o3-font-size-negative-1",
+		"figma": "o3/font/size/negative-1"
+},
+	"o3-font-lineheight-metric2-0": {
+		"shortName": "0",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"0"
+		],
+		"css": "--o3-font-lineheight-metric2-0",
+		"figma": "o3/font/lineheight-metric2/0"
+},
+	"o3-font-lineheight-metric2-1": {
+		"shortName": "1",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"1"
+		],
+		"css": "--o3-font-lineheight-metric2-1",
+		"figma": "o3/font/lineheight-metric2/1"
+},
+	"o3-font-lineheight-metric2-2": {
+		"shortName": "2",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"2"
+		],
+		"css": "--o3-font-lineheight-metric2-2",
+		"figma": "o3/font/lineheight-metric2/2"
+},
+	"o3-font-lineheight-metric2-3": {
+		"shortName": "3",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"3"
+		],
+		"css": "--o3-font-lineheight-metric2-3",
+		"figma": "o3/font/lineheight-metric2/3"
+},
+	"o3-font-lineheight-metric2-4": {
+		"shortName": "4",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"4"
+		],
+		"css": "--o3-font-lineheight-metric2-4",
+		"figma": "o3/font/lineheight-metric2/4"
+},
+	"o3-font-lineheight-metric2-5": {
+		"shortName": "5",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"5"
+		],
+		"css": "--o3-font-lineheight-metric2-5",
+		"figma": "o3/font/lineheight-metric2/5"
+},
+	"o3-font-lineheight-metric2-6": {
+		"shortName": "6",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"6"
+		],
+		"css": "--o3-font-lineheight-metric2-6",
+		"figma": "o3/font/lineheight-metric2/6"
+},
+	"o3-font-lineheight-metric2-7": {
+		"shortName": "7",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"7"
+		],
+		"css": "--o3-font-lineheight-metric2-7",
+		"figma": "o3/font/lineheight-metric2/7"
+},
+	"o3-font-lineheight-metric2-8": {
+		"shortName": "8",
+		"value": "3.5rem",
+		"originalValue": "56",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"8"
+		],
+		"css": "--o3-font-lineheight-metric2-8",
+		"figma": "o3/font/lineheight-metric2/8"
+},
+	"o3-font-lineheight-metric2-9": {
+		"shortName": "9",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"9"
+		],
+		"css": "--o3-font-lineheight-metric2-9",
+		"figma": "o3/font/lineheight-metric2/9"
+},
+	"o3-font-lineheight-metric2-10": {
+		"shortName": "10",
+		"value": "5.25rem",
+		"originalValue": "84",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"10"
+		],
+		"css": "--o3-font-lineheight-metric2-10",
+		"figma": "o3/font/lineheight-metric2/10"
+},
+	"o3-font-lineheight-metric2-negative-2": {
+		"shortName": "negative-2",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"negative-2"
+		],
+		"css": "--o3-font-lineheight-metric2-negative-2",
+		"figma": "o3/font/lineheight-metric2/negative-2"
+},
+	"o3-font-lineheight-metric2-negative-1": {
+		"shortName": "negative-1",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"negative-1"
+		],
+		"css": "--o3-font-lineheight-metric2-negative-1",
+		"figma": "o3/font/lineheight-metric2/negative-1"
+},
+	"o3-font-size-metric2-0": {
+		"shortName": "0",
+		"value": "0.875rem",
+		"originalValue": "14",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"0"
+		],
+		"css": "--o3-font-size-metric2-0",
+		"figma": "o3/font/size-metric2/0"
+},
+	"o3-font-size-metric2-1": {
+		"shortName": "1",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"1"
+		],
+		"css": "--o3-font-size-metric2-1",
+		"figma": "o3/font/size-metric2/1"
+},
+	"o3-font-size-metric2-2": {
+		"shortName": "2",
+		"value": "1.125rem",
+		"originalValue": "18",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"2"
+		],
+		"css": "--o3-font-size-metric2-2",
+		"figma": "o3/font/size-metric2/2"
+},
+	"o3-font-size-metric2-3": {
+		"shortName": "3",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"3"
+		],
+		"css": "--o3-font-size-metric2-3",
+		"figma": "o3/font/size-metric2/3"
+},
+	"o3-font-size-metric2-4": {
+		"shortName": "4",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"4"
+		],
+		"css": "--o3-font-size-metric2-4",
+		"figma": "o3/font/size-metric2/4"
+},
+	"o3-font-size-metric2-5": {
+		"shortName": "5",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"5"
+		],
+		"css": "--o3-font-size-metric2-5",
+		"figma": "o3/font/size-metric2/5"
+},
+	"o3-font-size-metric2-6": {
+		"shortName": "6",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"6"
+		],
+		"css": "--o3-font-size-metric2-6",
+		"figma": "o3/font/size-metric2/6"
+},
+	"o3-font-size-metric2-7": {
+		"shortName": "7",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"7"
+		],
+		"css": "--o3-font-size-metric2-7",
+		"figma": "o3/font/size-metric2/7"
+},
+	"o3-font-size-metric2-8": {
+		"shortName": "8",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"8"
+		],
+		"css": "--o3-font-size-metric2-8",
+		"figma": "o3/font/size-metric2/8"
+},
+	"o3-font-size-metric2-9": {
+		"shortName": "9",
+		"value": "4rem",
+		"originalValue": "64",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"9"
+		],
+		"css": "--o3-font-size-metric2-9",
+		"figma": "o3/font/size-metric2/9"
+},
+	"o3-font-size-metric2-10": {
+		"shortName": "10",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"10"
+		],
+		"css": "--o3-font-size-metric2-10",
+		"figma": "o3/font/size-metric2/10"
+},
+	"o3-font-size-metric2-negative-2": {
+		"shortName": "negative-2",
+		"value": "0.625rem",
+		"originalValue": "10",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"negative-2"
+		],
+		"css": "--o3-font-size-metric2-negative-2",
+		"figma": "o3/font/size-metric2/negative-2"
+},
+	"o3-font-size-metric2-negative-1": {
+		"shortName": "negative-1",
+		"value": "0.75rem",
+		"originalValue": "12",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"negative-1"
+		],
+		"css": "--o3-font-size-metric2-negative-1",
+		"figma": "o3/font/size-metric2/negative-1"
+}
+};
+"
+`;
+
+exports[`buildCss() > for Astro build > should build CSS foundation variables for Astro > should build icons CSS variables for Astro 1`] = `
+"export default {
+	"o3-icons-ft-icon-arrow-left": {
+		"shortName": "arrow-left",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M16 4L8 12L16 20\\" stroke=\\"black\\" stroke-width=\\"2\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M16 4L8 12L16 20\\" stroke=\\"black\\" stroke-width=\\"2\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"arrow-left"
+		],
+		"css": "--o3-icons-ft-icon-arrow-left",
+		"figma": "o3/icons/ft-icon/arrow-left"
+},
+	"o3-icons-ft-icon-arrow-right": {
+		"shortName": "arrow-right",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M8 4L16 12L8 20\\" stroke=\\"black\\" stroke-width=\\"2\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M8 4L16 12L8 20\\" stroke=\\"black\\" stroke-width=\\"2\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"arrow-right"
+		],
+		"css": "--o3-icons-ft-icon-arrow-right",
+		"figma": "o3/icons/ft-icon/arrow-right"
+},
+	"o3-icons-ft-icon-arrow-down": {
+		"shortName": "arrow-down",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M20 8L12 16L4 8\\" stroke=\\"black\\" stroke-width=\\"2\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M20 8L12 16L4 8\\" stroke=\\"black\\" stroke-width=\\"2\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"arrow-down"
+		],
+		"css": "--o3-icons-ft-icon-arrow-down",
+		"figma": "o3/icons/ft-icon/arrow-down"
+},
+	"o3-icons-ft-icon-arrow-up": {
+		"shortName": "arrow-up",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M20 16L12 8L4 16\\" stroke=\\"black\\" stroke-width=\\"2\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M20 16L12 8L4 16\\" stroke=\\"black\\" stroke-width=\\"2\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"arrow-up"
+		],
+		"css": "--o3-icons-ft-icon-arrow-up",
+		"figma": "o3/icons/ft-icon/arrow-up"
+},
+	"o3-icons-ft-icon-cross": {
+		"shortName": "cross",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M4.92893 17.6569L6.34315 19.0711L12 13.4142L17.6569 19.0711L19.0711 17.6569L13.4142 12L19.0711 6.34315L17.6569 4.92893L12 10.5858L6.34315 4.92894L4.92893 6.34315L10.5858 12L4.92893 17.6569Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M4.92893 17.6569L6.34315 19.0711L12 13.4142L17.6569 19.0711L19.0711 17.6569L13.4142 12L19.0711 6.34315L17.6569 4.92893L12 10.5858L6.34315 4.92894L4.92893 6.34315L10.5858 12L4.92893 17.6569Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"cross"
+		],
+		"css": "--o3-icons-ft-icon-cross",
+		"figma": "o3/icons/ft-icon/cross"
+},
+	"o3-icons-ft-icon-download": {
+		"shortName": "download",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M11 4V13.4962L8.6585 11.4474L7.3415 12.9526L11.3415 16.4526L12 17.0288L12.6585 16.4526L16.6585 12.9526L15.3415 11.4474L13 13.4962V4H11ZM4 19V21H20V19H4Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M11 4V13.4962L8.6585 11.4474L7.3415 12.9526L11.3415 16.4526L12 17.0288L12.6585 16.4526L16.6585 12.9526L15.3415 11.4474L13 13.4962V4H11ZM4 19V21H20V19H4Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"download"
+		],
+		"css": "--o3-icons-ft-icon-download",
+		"figma": "o3/icons/ft-icon/download"
+},
+	"o3-icons-ft-icon-edit-filled": {
+		"shortName": "edit-filled",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M4 18V13.7716L15.1 2.67157L19.3284 6.9L8.22843 18H4ZM21 19H3V21H21V19Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M4 18V13.7716L15.1 2.67157L19.3284 6.9L8.22843 18H4ZM21 19H3V21H21V19Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"edit-filled"
+		],
+		"css": "--o3-icons-ft-icon-edit-filled",
+		"figma": "o3/icons/ft-icon/edit-filled"
+},
+	"o3-icons-ft-icon-edit-outlined": {
+		"shortName": "edit-outlined",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M4 16V18H6H7.46667H8.29509L8.88088 17.4142L18.4142 7.88088L19.8284 6.46667L18.4142 5.05245L16.9475 3.58579L15.5333 2.17157L14.1191 3.58579L4.58579 13.1191L4 13.7049V14.5333V16ZM7.46667 16L8 15.4667L15.5858 7.88088L17 6.46667L16.9475 6.41421L15.5858 5.05245L15.5333 5L14.1191 6.41421L6.53333 14L6 14.5333V16H7.46667ZM21 19H3V21H21V19Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M4 16V18H6H7.46667H8.29509L8.88088 17.4142L18.4142 7.88088L19.8284 6.46667L18.4142 5.05245L16.9475 3.58579L15.5333 2.17157L14.1191 3.58579L4.58579 13.1191L4 13.7049V14.5333V16ZM7.46667 16L8 15.4667L15.5858 7.88088L17 6.46667L16.9475 6.41421L15.5858 5.05245L15.5333 5L14.1191 6.41421L6.53333 14L6 14.5333V16H7.46667ZM21 19H3V21H21V19Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"edit-outlined"
+		],
+		"css": "--o3-icons-ft-icon-edit-outlined",
+		"figma": "o3/icons/ft-icon/edit-outlined"
+},
+	"o3-icons-ft-icon-grid": {
+		"shortName": "grid",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M11 5H5V11H11V5Z\\" fill=\\"black\\"/>\\n  <path d=\\"M19 5H13V11H19V5Z\\" fill=\\"black\\"/>\\n  <path d=\\"M5 13H11V19H5V13Z\\" fill=\\"black\\"/>\\n  <path d=\\"M19 13H13V19H19V13Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M11 5H5V11H11V5Z\\" fill=\\"black\\"/>\\n  <path d=\\"M19 5H13V11H19V5Z\\" fill=\\"black\\"/>\\n  <path d=\\"M5 13H11V19H5V13Z\\" fill=\\"black\\"/>\\n  <path d=\\"M19 13H13V19H19V13Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"grid"
+		],
+		"css": "--o3-icons-ft-icon-grid",
+		"figma": "o3/icons/ft-icon/grid"
+},
+	"o3-icons-ft-icon-list": {
+		"shortName": "list",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M4 7H6V9H4V7Z\\" fill=\\"black\\"/>\\n  <path d=\\"M20 7H8V9H20V7Z\\" fill=\\"black\\"/>\\n  <path d=\\"M6 11H4V13H6V11Z\\" fill=\\"black\\"/>\\n  <path d=\\"M4 15H6V17H4V15Z\\" fill=\\"black\\"/>\\n  <path d=\\"M8 11H20V13H8V11Z\\" fill=\\"black\\"/>\\n  <path d=\\"M20 15H8V17H20V15Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M4 7H6V9H4V7Z\\" fill=\\"black\\"/>\\n  <path d=\\"M20 7H8V9H20V7Z\\" fill=\\"black\\"/>\\n  <path d=\\"M6 11H4V13H6V11Z\\" fill=\\"black\\"/>\\n  <path d=\\"M4 15H6V17H4V15Z\\" fill=\\"black\\"/>\\n  <path d=\\"M8 11H20V13H8V11Z\\" fill=\\"black\\"/>\\n  <path d=\\"M20 15H8V17H20V15Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"list"
+		],
+		"css": "--o3-icons-ft-icon-list",
+		"figma": "o3/icons/ft-icon/list"
+},
+	"o3-icons-ft-icon-plus": {
+		"shortName": "plus",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M11 13V20H13V13H20V11H13V4H11V11H4V13H11Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M11 13V20H13V13H20V11H13V4H11V11H4V13H11Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"plus"
+		],
+		"css": "--o3-icons-ft-icon-plus",
+		"figma": "o3/icons/ft-icon/plus"
+},
+	"o3-icons-ft-icon-search": {
+		"shortName": "search",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C11.2958 16 12.4957 15.5892 13.4765 14.8907L18.2929 19.7071L19.7071 18.2929L14.8907 13.4765C15.5892 12.4957 16 11.2958 16 10C16 6.68629 13.3137 4 10 4ZM6 10C6 7.79086 7.79086 6 10 6C12.2091 6 14 7.79086 14 10C14 12.2091 12.2091 14 10 14C7.79086 14 6 12.2091 6 10Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C11.2958 16 12.4957 15.5892 13.4765 14.8907L18.2929 19.7071L19.7071 18.2929L14.8907 13.4765C15.5892 12.4957 16 11.2958 16 10C16 6.68629 13.3137 4 10 4ZM6 10C6 7.79086 7.79086 6 10 6C12.2091 6 14 7.79086 14 10C14 12.2091 12.2091 14 10 14C7.79086 14 6 12.2091 6 10Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"search"
+		],
+		"css": "--o3-icons-ft-icon-search",
+		"figma": "o3/icons/ft-icon/search"
+},
+	"o3-icons-ft-icon-tick": {
+		"shortName": "tick",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M4 13L8 17L19 6\\" stroke=\\"black\\" stroke-width=\\"2\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M4 13L8 17L19 6\\" stroke=\\"black\\" stroke-width=\\"2\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"tick"
+		],
+		"css": "--o3-icons-ft-icon-tick",
+		"figma": "o3/icons/ft-icon/tick"
+},
+	"o3-icons-ft-icon-upload": {
+		"shortName": "upload",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M13 17V7.50377L15.3415 9.55257L16.6585 8.04742L12.6585 4.54742L12 3.97123L11.3415 4.54742L7.3415 8.04742L8.6585 9.55257L11 7.50377V17H13ZM4 19V21H20V19H4Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M13 17V7.50377L15.3415 9.55257L16.6585 8.04742L12.6585 4.54742L12 3.97123L11.3415 4.54742L7.3415 8.04742L8.6585 9.55257L11 7.50377V17H13ZM4 19V21H20V19H4Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"upload"
+		],
+		"css": "--o3-icons-ft-icon-upload",
+		"figma": "o3/icons/ft-icon/upload"
+},
+	"o3-icons-ft-icon-refresh": {
+		"shortName": "refresh",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M16.1905 6.39291C14.9278 5.44922 13.3836 4.95935 11.8078 5.00264C10.232 5.04593 8.71695 5.61983 7.50796 6.63143C6.29897 7.64302 5.46682 9.03308 5.14626 10.5765C4.82569 12.12 5.03548 13.7264 5.74165 15.1358C6.44782 16.5451 7.60903 17.6749 9.03725 18.3421C10.4655 19.0093 12.0771 19.1749 13.6111 18.8121C15.1452 18.4492 16.5119 17.5792 17.4899 16.3429C18.4679 15.1066 19 13.5764 19 12V11L21 11V12C21 14.0268 20.3159 15.9942 19.0584 17.5838C17.801 19.1733 16.0438 20.2919 14.0715 20.7584C12.0991 21.2249 10.027 21.012 8.19075 20.1541C6.35447 19.2963 4.86149 17.8438 3.95355 16.0317C3.04562 14.2197 2.7759 12.1542 3.18805 10.1698C3.6002 8.18539 4.67011 6.39817 6.22452 5.09755C7.77893 3.79693 9.72685 3.05905 11.7529 3.0034C13.7144 2.94951 15.638 3.53819 17.2318 4.67688L17.911 3.50457L20.5022 8.00854L15.3061 8.00059L16.2233 6.41744L16.1905 6.39291Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M16.1905 6.39291C14.9278 5.44922 13.3836 4.95935 11.8078 5.00264C10.232 5.04593 8.71695 5.61983 7.50796 6.63143C6.29897 7.64302 5.46682 9.03308 5.14626 10.5765C4.82569 12.12 5.03548 13.7264 5.74165 15.1358C6.44782 16.5451 7.60903 17.6749 9.03725 18.3421C10.4655 19.0093 12.0771 19.1749 13.6111 18.8121C15.1452 18.4492 16.5119 17.5792 17.4899 16.3429C18.4679 15.1066 19 13.5764 19 12V11L21 11V12C21 14.0268 20.3159 15.9942 19.0584 17.5838C17.801 19.1733 16.0438 20.2919 14.0715 20.7584C12.0991 21.2249 10.027 21.012 8.19075 20.1541C6.35447 19.2963 4.86149 17.8438 3.95355 16.0317C3.04562 14.2197 2.7759 12.1542 3.18805 10.1698C3.6002 8.18539 4.67011 6.39817 6.22452 5.09755C7.77893 3.79693 9.72685 3.05905 11.7529 3.0034C13.7144 2.94951 15.638 3.53819 17.2318 4.67688L17.911 3.50457L20.5022 8.00854L15.3061 8.00059L16.2233 6.41744L16.1905 6.39291Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"refresh"
+		],
+		"css": "--o3-icons-ft-icon-refresh",
+		"figma": "o3/icons/ft-icon/refresh"
+},
+	"o3-icons-ft-icon-calendar": {
+		"shortName": "calendar",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M9 14V12H7V14H9Z\\" fill=\\"black\\"/>\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M8 5V3H6V5H3V21H21V5H18V3H16V5H8ZM5 10H19V19H5V10Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M9 14V12H7V14H9Z\\" fill=\\"black\\"/>\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M8 5V3H6V5H3V21H21V5H18V3H16V5H8ZM5 10H19V19H5V10Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"calendar"
+		],
+		"css": "--o3-icons-ft-icon-calendar",
+		"figma": "o3/icons/ft-icon/calendar"
+},
+	"o3-icons-ft-icon-play": {
+		"shortName": "play",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M6 20V4L20 12L6 20Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M6 20V4L20 12L6 20Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"play"
+		],
+		"css": "--o3-icons-ft-icon-play",
+		"figma": "o3/icons/ft-icon/play"
+},
+	"o3-icons-ft-icon-print": {
+		"shortName": "print",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M5 3L5 9C3.34315 9 2 10.3431 2 12V17H5V21H19V17H22V12C22 10.3431 20.6569 9 19 9V3H5ZM17 5H7V8H17V5ZM17 14H7V19H17V14ZM19 12V11H18V12H19Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M5 3L5 9C3.34315 9 2 10.3431 2 12V17H5V21H19V17H22V12C22 10.3431 20.6569 9 19 9V3H5ZM17 5H7V8H17V5ZM17 14H7V19H17V14ZM19 12V11H18V12H19Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"print"
+		],
+		"css": "--o3-icons-ft-icon-print",
+		"figma": "o3/icons/ft-icon/print"
+},
+	"o3-icons-ft-icon-signout": {
+		"shortName": "signout",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M14 4H3V20H14V18H5V6H14V4Z\\" fill=\\"black\\"/>\\n  <path d=\\"M22.4142 12L17.2071 6.79289L15.7929 8.20711L18.5858 11H9V13H18.5858L15.7929 15.7929L17.2071 17.2071L22.4142 12Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M14 4H3V20H14V18H5V6H14V4Z\\" fill=\\"black\\"/>\\n  <path d=\\"M22.4142 12L17.2071 6.79289L15.7929 8.20711L18.5858 11H9V13H18.5858L15.7929 15.7929L17.2071 17.2071L22.4142 12Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"signout"
+		],
+		"css": "--o3-icons-ft-icon-signout",
+		"figma": "o3/icons/ft-icon/signout"
+},
+	"o3-icons-ft-icon-speaker": {
+		"shortName": "speaker",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M3 15V9H7L14 4V20L7 15H3Z\\" fill=\\"black\\"/>\\n  <path d=\\"M19.853 8.74719C19.4258 7.71592 18.7997 6.77889 18.0104 5.98959L19.0711 4.92893C19.9997 5.85752 20.7362 6.95991 21.2388 8.17317C21.7413 9.38642 22 10.6868 22 12C22 13.3132 21.7413 14.6136 21.2388 15.8268C20.7362 17.0401 19.9997 18.1425 19.0711 19.0711L18.0104 18.0104C18.7997 17.2211 19.4258 16.2841 19.853 15.2528C20.2801 14.2215 20.5 13.1162 20.5 12C20.5 10.8838 20.2801 9.77846 19.853 8.74719Z\\" fill=\\"black\\"/>\\n  <path d=\\"M15.8891 8.11091C16.3998 8.62163 16.8049 9.22795 17.0813 9.89524C17.3577 10.5625 17.5 11.2777 17.5 12C17.5 12.7223 17.3577 13.4375 17.0813 14.1048C16.8049 14.772 16.3998 15.3784 15.8891 15.8891L16.9498 16.9497C17.5998 16.2997 18.1154 15.5281 18.4672 14.6788C18.819 13.8295 19 12.9193 19 12C19 11.0807 18.819 10.1705 18.4672 9.32122C18.1154 8.47194 17.5998 7.70026 16.9498 7.05025L15.8891 8.11091Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M3 15V9H7L14 4V20L7 15H3Z\\" fill=\\"black\\"/>\\n  <path d=\\"M19.853 8.74719C19.4258 7.71592 18.7997 6.77889 18.0104 5.98959L19.0711 4.92893C19.9997 5.85752 20.7362 6.95991 21.2388 8.17317C21.7413 9.38642 22 10.6868 22 12C22 13.3132 21.7413 14.6136 21.2388 15.8268C20.7362 17.0401 19.9997 18.1425 19.0711 19.0711L18.0104 18.0104C18.7997 17.2211 19.4258 16.2841 19.853 15.2528C20.2801 14.2215 20.5 13.1162 20.5 12C20.5 10.8838 20.2801 9.77846 19.853 8.74719Z\\" fill=\\"black\\"/>\\n  <path d=\\"M15.8891 8.11091C16.3998 8.62163 16.8049 9.22795 17.0813 9.89524C17.3577 10.5625 17.5 11.2777 17.5 12C17.5 12.7223 17.3577 13.4375 17.0813 14.1048C16.8049 14.772 16.3998 15.3784 15.8891 15.8891L16.9498 16.9497C17.5998 16.2997 18.1154 15.5281 18.4672 14.6788C18.819 13.8295 19 12.9193 19 12C19 11.0807 18.819 10.1705 18.4672 9.32122C18.1154 8.47194 17.5998 7.70026 16.9498 7.05025L15.8891 8.11091Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"speaker"
+		],
+		"css": "--o3-icons-ft-icon-speaker",
+		"figma": "o3/icons/ft-icon/speaker"
+},
+	"o3-icons-ft-icon-user-filled": {
+		"shortName": "user-filled",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z\\" fill=\\"black\\"/>\\n  <path d=\\"M5 18C5 16.1194 7 13 12 13C17 13 19 16.1194 19 18V21H5V18Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z\\" fill=\\"black\\"/>\\n  <path d=\\"M5 18C5 16.1194 7 13 12 13C17 13 19 16.1194 19 18V21H5V18Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"user-filled"
+		],
+		"css": "--o3-icons-ft-icon-user-filled",
+		"figma": "o3/icons/ft-icon/user-filled"
+},
+	"o3-icons-ft-icon-user-outlined": {
+		"shortName": "user-outlined",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M16 8C16 10.2091 14.2091 12 12 12C9.79086 12 8 10.2091 8 8C8 5.79086 9.79086 4 12 4C14.2091 4 16 5.79086 16 8ZM14 8C14 9.10457 13.1046 10 12 10C10.8954 10 10 9.10457 10 8C10 6.89543 10.8954 6 12 6C13.1046 6 14 6.89543 14 8Z\\" fill=\\"black\\"/>\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M12 13C17 13 19 16.1194 19 18V21H5V18C5 16.1194 7 13 12 13ZM7 18C7 17.4127 7.90585 15 12 15C16.0941 15 17 17.4127 17 18V19H7V18Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M16 8C16 10.2091 14.2091 12 12 12C9.79086 12 8 10.2091 8 8C8 5.79086 9.79086 4 12 4C14.2091 4 16 5.79086 16 8ZM14 8C14 9.10457 13.1046 10 12 10C10.8954 10 10 9.10457 10 8C10 6.89543 10.8954 6 12 6C13.1046 6 14 6.89543 14 8Z\\" fill=\\"black\\"/>\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M12 13C17 13 19 16.1194 19 18V21H5V18C5 16.1194 7 13 12 13ZM7 18C7 17.4127 7.90585 15 12 15C16.0941 15 17 17.4127 17 18V19H7V18Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"user-outlined"
+		],
+		"css": "--o3-icons-ft-icon-user-outlined",
+		"figma": "o3/icons/ft-icon/user-outlined"
+},
+	"o3-icons-ft-social-facebook": {
+		"shortName": "facebook",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M13.5419 22V12.8768H16.5169L16.959 9.32329H13.5419V7.05214C13.5419 6.02472 13.8192 5.32175 15.2505 5.32175H17.0789V2.13905C16.7642 2.0927 15.6776 2 14.4187 2C11.7809 2 9.98247 3.66087 9.98247 6.70452V9.33102H7V12.8845H9.98247V22H13.5419V22Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M13.5419 22V12.8768H16.5169L16.959 9.32329H13.5419V7.05214C13.5419 6.02472 13.8192 5.32175 15.2505 5.32175H17.0789V2.13905C16.7642 2.0927 15.6776 2 14.4187 2C11.7809 2 9.98247 3.66087 9.98247 6.70452V9.33102H7V12.8845H9.98247V22H13.5419V22Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-social",
+				"facebook"
+		],
+		"css": "--o3-icons-ft-social-facebook",
+		"figma": "o3/icons/ft-social/facebook"
+},
+	"o3-icons-ft-social-linkedin": {
+		"shortName": "linkedin",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M5.06474 7.93165C6.41941 7.93165 7.26418 7.04798 7.26418 5.94422C7.23925 4.81651 6.41998 3.95847 5.0908 3.95847C3.76161 3.95847 2.89192 4.81595 2.89192 5.94422C2.89192 7.04798 3.73555 7.93165 5.04037 7.93165H5.06474ZM21.0221 20.9995V14.407C21.0221 10.8746 19.1048 9.23091 16.5484 9.23091C14.4855 9.23091 13.5609 10.3469 13.0459 11.1303V9.50114H9.15917C9.21072 10.5804 9.15917 20.9995 9.15917 20.9995H13.0459V14.5781C13.0459 14.2354 13.0708 13.8916 13.1739 13.6465C13.4544 12.9595 14.094 12.2485 15.1671 12.2485C16.5739 12.2485 17.136 13.3027 17.136 14.8483V21L21.0221 20.9995ZM7.00836 9.50123V20.9996H3.12222V9.50123H7.00836Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path fill-rule=\\"evenodd\\" clip-rule=\\"evenodd\\" d=\\"M5.06474 7.93165C6.41941 7.93165 7.26418 7.04798 7.26418 5.94422C7.23925 4.81651 6.41998 3.95847 5.0908 3.95847C3.76161 3.95847 2.89192 4.81595 2.89192 5.94422C2.89192 7.04798 3.73555 7.93165 5.04037 7.93165H5.06474ZM21.0221 20.9995V14.407C21.0221 10.8746 19.1048 9.23091 16.5484 9.23091C14.4855 9.23091 13.5609 10.3469 13.0459 11.1303V9.50114H9.15917C9.21072 10.5804 9.15917 20.9995 9.15917 20.9995H13.0459V14.5781C13.0459 14.2354 13.0708 13.8916 13.1739 13.6465C13.4544 12.9595 14.094 12.2485 15.1671 12.2485C16.5739 12.2485 17.136 13.3027 17.136 14.8483V21L21.0221 20.9995ZM7.00836 9.50123V20.9996H3.12222V9.50123H7.00836Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-social",
+				"linkedin"
+		],
+		"css": "--o3-icons-ft-social-linkedin",
+		"figma": "o3/icons/ft-social/linkedin"
+},
+	"o3-icons-ft-social-x": {
+		"shortName": "x",
+		"value": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M13.443 10.7118L19.3644 3.97656H17.9612L12.8196 9.82466L8.71303 3.97656H3.97657L10.1865 12.8199L3.97657 19.8828H5.37985L10.8095 13.707L15.1464 19.8828H19.8828L13.4426 10.7118H13.443ZM11.521 12.8978L10.8918 12.0172L5.88547 5.01021H8.04082L12.081 10.6651L12.7102 11.5457L17.9619 18.8962H15.8065L11.521 12.8982V12.8978Z\\" fill=\\"black\\"/>\\n</svg>",
+		"originalValue": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\">\\n  <path d=\\"M13.443 10.7118L19.3644 3.97656H17.9612L12.8196 9.82466L8.71303 3.97656H3.97657L10.1865 12.8199L3.97657 19.8828H5.37985L10.8095 13.707L15.1464 19.8828H19.8828L13.4426 10.7118H13.443ZM11.521 12.8978L10.8918 12.0172L5.88547 5.01021H8.04082L12.081 10.6651L12.7102 11.5457L17.9619 18.8962H15.8065L11.521 12.8982V12.8978Z\\" fill=\\"black\\"/>\\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-social",
+				"x"
+		],
+		"css": "--o3-icons-ft-social-x",
+		"figma": "o3/icons/ft-social/x"
+}
+};
+"
+`;
+
 exports[`buildCss() > for brand foundation tokens > should build CSS variables for foundation tokens > for core brand 1`] = `
 "/**
  * Do not edit directly

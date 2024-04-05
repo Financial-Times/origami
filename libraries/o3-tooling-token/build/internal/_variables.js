@@ -842,55 +842,6 @@ export default {
 		"css": "--o3-color-use-case-page-inverse-background",
 		"figma": "o3/color/use-case/page-inverse/background"
 },
-	"o3-color-use-case-focus-outline-standard": {
-		"shortName": "standard",
-		"value": "#1470CC",
-		"originalValue": "{o3.color.palette.oxford-80}",
-		"type": "color",
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"focus",
-				"outline",
-				"standard"
-		],
-		"css": "--o3-color-use-case-focus-outline-standard",
-		"figma": "o3/color/use-case/focus/outline/standard"
-},
-	"o3-color-use-case-focus-outline-interactive-inner": {
-		"shortName": "interactive-inner",
-		"value": "#fff",
-		"originalValue": "{o3.color.palette.white}",
-		"type": "color",
-		"description": "For inner rings of an interactive focus state",
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"focus",
-				"outline",
-				"interactive-inner"
-		],
-		"css": "--o3-color-use-case-focus-outline-interactive-inner",
-		"figma": "o3/color/use-case/focus/outline/interactive-inner"
-},
-	"o3-color-use-case-focus-outline-interactive-outer": {
-		"shortName": "interactive-outer",
-		"value": "#4d4d4d",
-		"originalValue": "{o3.color.palette.black-70}",
-		"type": "color",
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"focus",
-				"outline",
-				"interactive-outer"
-		],
-		"css": "--o3-color-use-case-focus-outline-interactive-outer",
-		"figma": "o3/color/use-case/focus/outline/interactive-outer"
-},
 	"o3-color-use-case-body-text": {
 		"shortName": "text",
 		"value": "#333",
@@ -920,6 +871,36 @@ export default {
 		],
 		"css": "--o3-color-use-case-body-inverse-text",
 		"figma": "o3/color/use-case/body-inverse/text"
+},
+	"o3-color-use-case-muted-text": {
+		"shortName": "text",
+		"value": "#ccc",
+		"originalValue": "{o3.color.palette.black-20}",
+		"type": "color",
+		"description": "\"Muted\" text is less prominent, for example credits and captions.",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"muted",
+				"text"
+		],
+		"css": "--o3-color-use-case-muted-text",
+		"figma": "o3/color/use-case/muted/text"
+},
+	"o3-color-use-case-muted-inverse": {
+		"shortName": "muted-inverse",
+		"value": "#a8aaad",
+		"originalValue": "#a8aaad",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"muted-inverse"
+		],
+		"css": "--o3-color-use-case-muted-inverse",
+		"figma": "o3/color/use-case/muted-inverse"
 },
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
@@ -1553,144 +1534,1163 @@ export default {
 		"css": "--o3-font-size-negative-1",
 		"figma": "o3/font/size/negative-1"
 },
-	"o3-box-shadow-focus-ring-inner": {
+	"o3-font-lineheight-metric2-0": {
+		"shortName": "0",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"0"
+		],
+		"css": "--o3-font-lineheight-metric2-0",
+		"figma": "o3/font/lineheight-metric2/0"
+},
+	"o3-font-lineheight-metric2-1": {
+		"shortName": "1",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"1"
+		],
+		"css": "--o3-font-lineheight-metric2-1",
+		"figma": "o3/font/lineheight-metric2/1"
+},
+	"o3-font-lineheight-metric2-2": {
+		"shortName": "2",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"2"
+		],
+		"css": "--o3-font-lineheight-metric2-2",
+		"figma": "o3/font/lineheight-metric2/2"
+},
+	"o3-font-lineheight-metric2-3": {
+		"shortName": "3",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"3"
+		],
+		"css": "--o3-font-lineheight-metric2-3",
+		"figma": "o3/font/lineheight-metric2/3"
+},
+	"o3-font-lineheight-metric2-4": {
+		"shortName": "4",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"4"
+		],
+		"css": "--o3-font-lineheight-metric2-4",
+		"figma": "o3/font/lineheight-metric2/4"
+},
+	"o3-font-lineheight-metric2-5": {
+		"shortName": "5",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"5"
+		],
+		"css": "--o3-font-lineheight-metric2-5",
+		"figma": "o3/font/lineheight-metric2/5"
+},
+	"o3-font-lineheight-metric2-6": {
+		"shortName": "6",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"6"
+		],
+		"css": "--o3-font-lineheight-metric2-6",
+		"figma": "o3/font/lineheight-metric2/6"
+},
+	"o3-font-lineheight-metric2-7": {
+		"shortName": "7",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"7"
+		],
+		"css": "--o3-font-lineheight-metric2-7",
+		"figma": "o3/font/lineheight-metric2/7"
+},
+	"o3-font-lineheight-metric2-8": {
+		"shortName": "8",
+		"value": "3.5rem",
+		"originalValue": "56",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"8"
+		],
+		"css": "--o3-font-lineheight-metric2-8",
+		"figma": "o3/font/lineheight-metric2/8"
+},
+	"o3-font-lineheight-metric2-9": {
+		"shortName": "9",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"9"
+		],
+		"css": "--o3-font-lineheight-metric2-9",
+		"figma": "o3/font/lineheight-metric2/9"
+},
+	"o3-font-lineheight-metric2-10": {
+		"shortName": "10",
+		"value": "5.25rem",
+		"originalValue": "84",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"10"
+		],
+		"css": "--o3-font-lineheight-metric2-10",
+		"figma": "o3/font/lineheight-metric2/10"
+},
+	"o3-font-lineheight-metric2-negative-2": {
+		"shortName": "negative-2",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"negative-2"
+		],
+		"css": "--o3-font-lineheight-metric2-negative-2",
+		"figma": "o3/font/lineheight-metric2/negative-2"
+},
+	"o3-font-lineheight-metric2-negative-1": {
+		"shortName": "negative-1",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"font",
+				"lineheight-metric2",
+				"negative-1"
+		],
+		"css": "--o3-font-lineheight-metric2-negative-1",
+		"figma": "o3/font/lineheight-metric2/negative-1"
+},
+	"o3-font-size-metric2-0": {
+		"shortName": "0",
+		"value": "0.875rem",
+		"originalValue": "14",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"0"
+		],
+		"css": "--o3-font-size-metric2-0",
+		"figma": "o3/font/size-metric2/0"
+},
+	"o3-font-size-metric2-1": {
+		"shortName": "1",
+		"value": "1rem",
+		"originalValue": "16",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"1"
+		],
+		"css": "--o3-font-size-metric2-1",
+		"figma": "o3/font/size-metric2/1"
+},
+	"o3-font-size-metric2-2": {
+		"shortName": "2",
+		"value": "1.125rem",
+		"originalValue": "18",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"2"
+		],
+		"css": "--o3-font-size-metric2-2",
+		"figma": "o3/font/size-metric2/2"
+},
+	"o3-font-size-metric2-3": {
+		"shortName": "3",
+		"value": "1.25rem",
+		"originalValue": "20",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"3"
+		],
+		"css": "--o3-font-size-metric2-3",
+		"figma": "o3/font/size-metric2/3"
+},
+	"o3-font-size-metric2-4": {
+		"shortName": "4",
+		"value": "1.5rem",
+		"originalValue": "24",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"4"
+		],
+		"css": "--o3-font-size-metric2-4",
+		"figma": "o3/font/size-metric2/4"
+},
+	"o3-font-size-metric2-5": {
+		"shortName": "5",
+		"value": "1.75rem",
+		"originalValue": "28",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"5"
+		],
+		"css": "--o3-font-size-metric2-5",
+		"figma": "o3/font/size-metric2/5"
+},
+	"o3-font-size-metric2-6": {
+		"shortName": "6",
+		"value": "2rem",
+		"originalValue": "32",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"6"
+		],
+		"css": "--o3-font-size-metric2-6",
+		"figma": "o3/font/size-metric2/6"
+},
+	"o3-font-size-metric2-7": {
+		"shortName": "7",
+		"value": "2.5rem",
+		"originalValue": "40",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"7"
+		],
+		"css": "--o3-font-size-metric2-7",
+		"figma": "o3/font/size-metric2/7"
+},
+	"o3-font-size-metric2-8": {
+		"shortName": "8",
+		"value": "3rem",
+		"originalValue": "48",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"8"
+		],
+		"css": "--o3-font-size-metric2-8",
+		"figma": "o3/font/size-metric2/8"
+},
+	"o3-font-size-metric2-9": {
+		"shortName": "9",
+		"value": "4rem",
+		"originalValue": "64",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"9"
+		],
+		"css": "--o3-font-size-metric2-9",
+		"figma": "o3/font/size-metric2/9"
+},
+	"o3-font-size-metric2-10": {
+		"shortName": "10",
+		"value": "4.5rem",
+		"originalValue": "72",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"10"
+		],
+		"css": "--o3-font-size-metric2-10",
+		"figma": "o3/font/size-metric2/10"
+},
+	"o3-font-size-metric2-negative-2": {
+		"shortName": "negative-2",
+		"value": "0.625rem",
+		"originalValue": "10",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"negative-2"
+		],
+		"css": "--o3-font-size-metric2-negative-2",
+		"figma": "o3/font/size-metric2/negative-2"
+},
+	"o3-font-size-metric2-negative-1": {
+		"shortName": "negative-1",
+		"value": "0.75rem",
+		"originalValue": "12",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"font",
+				"size-metric2",
+				"negative-1"
+		],
+		"css": "--o3-font-size-metric2-negative-1",
+		"figma": "o3/font/size-metric2/negative-1"
+},
+	"o3-typography-use-case-heading1-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading1",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading1-font-family",
+		"figma": "o3/typography/use-case/heading1/fontFamily"
+},
+	"o3-typography-use-case-heading1-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading1",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading1-font-weight",
+		"figma": "o3/typography/use-case/heading1/fontWeight"
+},
+	"o3-typography-use-case-heading1-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size-metric2.5}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading1",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading1-font-size",
+		"figma": "o3/typography/use-case/heading1/fontSize"
+},
+	"o3-typography-use-case-heading1-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight-metric2.5}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading1",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading1-line-height",
+		"figma": "o3/typography/use-case/heading1/lineHeight"
+},
+	"o3-typography-use-case-heading2-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading2",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading2-font-family",
+		"figma": "o3/typography/use-case/heading2/fontFamily"
+},
+	"o3-typography-use-case-heading2-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading2",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading2-font-weight",
+		"figma": "o3/typography/use-case/heading2/fontWeight"
+},
+	"o3-typography-use-case-heading2-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size-metric2.4}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading2",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading2-font-size",
+		"figma": "o3/typography/use-case/heading2/fontSize"
+},
+	"o3-typography-use-case-heading2-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight-metric2.4}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading2",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading2-line-height",
+		"figma": "o3/typography/use-case/heading2/lineHeight"
+},
+	"o3-typography-use-case-heading3-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading3",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading3-font-family",
+		"figma": "o3/typography/use-case/heading3/fontFamily"
+},
+	"o3-typography-use-case-heading3-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading3",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading3-font-weight",
+		"figma": "o3/typography/use-case/heading3/fontWeight"
+},
+	"o3-typography-use-case-heading3-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size-metric2.3}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading3",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading3-font-size",
+		"figma": "o3/typography/use-case/heading3/fontSize"
+},
+	"o3-typography-use-case-heading3-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight-metric2.3}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading3",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading3-line-height",
+		"figma": "o3/typography/use-case/heading3/lineHeight"
+},
+	"o3-typography-use-case-heading4-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading4",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading4-font-family",
+		"figma": "o3/typography/use-case/heading4/fontFamily"
+},
+	"o3-typography-use-case-heading4-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading4",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading4-font-weight",
+		"figma": "o3/typography/use-case/heading4/fontWeight"
+},
+	"o3-typography-use-case-heading4-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size-metric2.2}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading4",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading4-font-size",
+		"figma": "o3/typography/use-case/heading4/fontSize"
+},
+	"o3-typography-use-case-heading4-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight-metric2.2}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading4",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading4-line-height",
+		"figma": "o3/typography/use-case/heading4/lineHeight"
+},
+	"o3-typography-use-case-heading5-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading5",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading5-font-family",
+		"figma": "o3/typography/use-case/heading5/fontFamily"
+},
+	"o3-typography-use-case-heading5-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading5",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading5-font-weight",
+		"figma": "o3/typography/use-case/heading5/fontWeight"
+},
+	"o3-typography-use-case-heading5-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size-metric2.1}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading5",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading5-font-size",
+		"figma": "o3/typography/use-case/heading5/fontSize"
+},
+	"o3-typography-use-case-heading5-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight-metric2.1}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading5",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading5-line-height",
+		"figma": "o3/typography/use-case/heading5/lineHeight"
+},
+	"o3-typography-use-case-heading6-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading6",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-heading6-font-family",
+		"figma": "o3/typography/use-case/heading6/fontFamily"
+},
+	"o3-typography-use-case-heading6-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading6",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-heading6-font-weight",
+		"figma": "o3/typography/use-case/heading6/fontWeight"
+},
+	"o3-typography-use-case-heading6-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size-metric2.0}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading6",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-heading6-font-size",
+		"figma": "o3/typography/use-case/heading6/fontSize"
+},
+	"o3-typography-use-case-heading6-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight-metric2.0}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading6",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-heading6-line-height",
+		"figma": "o3/typography/use-case/heading6/lineHeight"
+},
+	"o3-typography-use-case-body-l-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-l",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-body-l-font-family",
+		"figma": "o3/typography/use-case/body-l/fontFamily"
+},
+	"o3-typography-use-case-body-l-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-l",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-body-l-font-weight",
+		"figma": "o3/typography/use-case/body-l/fontWeight"
+},
+	"o3-typography-use-case-body-l-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size-metric2.1}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-l",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-body-l-font-size",
+		"figma": "o3/typography/use-case/body-l/fontSize"
+},
+	"o3-typography-use-case-body-l-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight-metric2.1}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-l",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-body-l-line-height",
+		"figma": "o3/typography/use-case/body-l/lineHeight"
+},
+	"o3-typography-use-case-body-s-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-s",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-body-s-font-family",
+		"figma": "o3/typography/use-case/body-s/fontFamily"
+},
+	"o3-typography-use-case-body-s-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-s",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-body-s-font-weight",
+		"figma": "o3/typography/use-case/body-s/fontWeight"
+},
+	"o3-typography-use-case-body-s-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size-metric2.0}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-s",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-body-s-font-size",
+		"figma": "o3/typography/use-case/body-s/fontSize"
+},
+	"o3-typography-use-case-body-s-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight-metric2.0}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-s",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-body-s-line-height",
+		"figma": "o3/typography/use-case/body-s/lineHeight"
+},
+	"o3-typography-use-case-link-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"link",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-link-font-family",
+		"figma": "o3/typography/use-case/link/fontFamily"
+},
+	"o3-typography-use-case-link-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"link",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-link-font-weight",
+		"figma": "o3/typography/use-case/link/fontWeight"
+},
+	"o3-typography-use-case-link-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size-metric2.1}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"link",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-link-font-size",
+		"figma": "o3/typography/use-case/link/fontSize"
+},
+	"o3-typography-use-case-link-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight-metric2.1}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"link",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-link-line-height",
+		"figma": "o3/typography/use-case/link/lineHeight"
+},
+	"o3-typography-use-case-footer-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"footer",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-footer-font-family",
+		"figma": "o3/typography/use-case/footer/fontFamily"
+},
+	"o3-typography-use-case-footer-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"footer",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-footer-font-weight",
+		"figma": "o3/typography/use-case/footer/fontWeight"
+},
+	"o3-typography-use-case-footer-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size-metric2.1}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"footer",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-footer-font-size",
+		"figma": "o3/typography/use-case/footer/fontSize"
+},
+	"o3-typography-use-case-footer-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight-metric2.1}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"footer",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-footer-line-height",
+		"figma": "o3/typography/use-case/footer/lineHeight"
+},
+	"o3-typography-use-case-caption-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"caption",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-caption-font-family",
+		"figma": "o3/typography/use-case/caption/fontFamily"
+},
+	"o3-typography-use-case-caption-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"caption",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-caption-font-weight",
+		"figma": "o3/typography/use-case/caption/fontWeight"
+},
+	"o3-typography-use-case-caption-font-size": {
+		"shortName": "fontSize",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.size-metric2.negative-1}",
+		"type": "fontSizes",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"caption",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-caption-font-size",
+		"figma": "o3/typography/use-case/caption/fontSize"
+},
+	"o3-typography-use-case-caption-line-height": {
+		"shortName": "lineHeight",
+		"value": "NaNrem",
+		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
+		"type": "lineHeights",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"caption",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-caption-line-height",
+		"figma": "o3/typography/use-case/caption/lineHeight"
+},
+	"o3-focus-use-case-ring-inner": {
 		"shortName": "inner",
-		"value": "0 0 0 4px #ffffff",
+		"value": "0 0 0 4px #fff",
 		"originalValue": {
 				"x": "0",
 				"y": "0",
 				"blur": "0",
 				"spread": "4",
-				"color": "#ffffff",
+				"color": "{o3.color.palette.white}",
 				"type": "dropShadow"
 		},
 		"type": "boxShadow",
 		"path": [
 				"o3",
-				"box-shadow",
-				"focus-ring",
+				"focus",
+				"use-case",
+				"ring",
 				"inner"
 		],
-		"css": "--o3-box-shadow-focus-ring-inner",
-		"figma": "o3/box-shadow/focus-ring/inner"
+		"css": "--o3-focus-use-case-ring-inner",
+		"figma": "o3/focus/use-case/ring/inner"
 },
-	"o3-box-shadow-focus-ring-outer": {
+	"o3-focus-use-case-ring-outer": {
 		"shortName": "outer",
-		"value": "0 0 0 8px #4d4845",
+		"value": "0 0 0 8px #4d4d4d",
 		"originalValue": {
 				"x": "0",
 				"y": "0",
 				"blur": "0",
 				"spread": "8",
-				"color": "#4d4845",
+				"color": "{o3.color.palette.black-70}",
 				"type": "dropShadow"
 		},
 		"type": "boxShadow",
 		"path": [
 				"o3",
-				"box-shadow",
-				"focus-ring",
+				"focus",
+				"use-case",
+				"ring",
 				"outer"
 		],
-		"css": "--o3-box-shadow-focus-ring-outer",
-		"figma": "o3/box-shadow/focus-ring/outer"
+		"css": "--o3-focus-use-case-ring-outer",
+		"figma": "o3/focus/use-case/ring/outer"
 },
-	"o3-box-shadow-focus-ring-inverse-inner": {
+	"o3-focus-use-case-ring-inverse-inner": {
 		"shortName": "inner",
-		"value": "0 0 0 4px #4d4845",
+		"value": "0 0 0 4px #4d4d4d",
 		"originalValue": {
 				"x": "0",
 				"y": "0",
 				"blur": "0",
 				"spread": "4",
-				"color": "#4d4845",
+				"color": "{o3.color.palette.black-70}",
 				"type": "dropShadow"
 		},
 		"type": "boxShadow",
 		"path": [
 				"o3",
-				"box-shadow",
-				"focus-ring",
+				"focus",
+				"use-case",
+				"ring",
 				"inverse",
 				"inner"
 		],
-		"css": "--o3-box-shadow-focus-ring-inverse-inner",
-		"figma": "o3/box-shadow/focus-ring/inverse/inner"
+		"css": "--o3-focus-use-case-ring-inverse-inner",
+		"figma": "o3/focus/use-case/ring/inverse/inner"
 },
-	"o3-box-shadow-focus-ring-inverse-outer": {
+	"o3-focus-use-case-ring-inverse-outer": {
 		"shortName": "outer",
-		"value": "0 0 0 8px #ffffff",
+		"value": "0 0 0 8px #fff",
 		"originalValue": {
 				"x": "0",
 				"y": "0",
 				"blur": "0",
 				"spread": "8",
-				"color": "#ffffff",
+				"color": "{o3.color.palette.white}",
 				"type": "dropShadow"
 		},
 		"type": "boxShadow",
 		"path": [
 				"o3",
-				"box-shadow",
-				"focus-ring",
+				"focus",
+				"use-case",
+				"ring",
 				"inverse",
 				"outer"
 		],
-		"css": "--o3-box-shadow-focus-ring-inverse-outer",
-		"figma": "o3/box-shadow/focus-ring/inverse/outer"
+		"css": "--o3-focus-use-case-ring-inverse-outer",
+		"figma": "o3/focus/use-case/ring/inverse/outer"
 },
-	"o3-tooltip-background-color": {
-		"shortName": "background-color",
-		"value": "#fff",
-		"originalValue": "{o3.color.palette.white}",
-		"type": "color",
+	"o3-focus-use-case-outline-color": {
+		"shortName": "color",
+		"value": "0 0 0 2px #808080",
+		"originalValue": {
+				"x": "0",
+				"y": "0",
+				"blur": "0",
+				"spread": "2",
+				"color": "{o3.color.palette.black-50}",
+				"type": "dropShadow"
+		},
+		"type": "boxShadow",
 		"path": [
 				"o3",
-				"tooltip",
-				"background-color"
+				"focus",
+				"use-case",
+				"outline",
+				"color"
 		],
-		"css": "--o3-tooltip-background-color",
-		"figma": "o3/tooltip/background-color"
+		"css": "--o3-focus-use-case-outline-color",
+		"figma": "o3/focus/use-case/outline/color"
 },
-	"o3-tooltip-text-color": {
-		"shortName": "text-color",
-		"value": "#1a1a1a",
-		"originalValue": "{o3.color.palette.black-90}",
-		"type": "color",
+	"o3-focus-use-case-outline-inverse-color": {
+		"shortName": "color",
+		"value": "0 0 0 2px #fff",
+		"originalValue": {
+				"x": "0",
+				"y": "0",
+				"blur": "0",
+				"spread": "2",
+				"color": "{o3.color.palette.white}",
+				"type": "dropShadow"
+		},
+		"type": "boxShadow",
 		"path": [
 				"o3",
-				"tooltip",
-				"text-color"
+				"focus",
+				"use-case",
+				"outline",
+				"inverse",
+				"color"
 		],
-		"css": "--o3-tooltip-text-color",
-		"figma": "o3/tooltip/text-color"
-},
-	"o3-tooltip-icon-info": {
-		"shortName": "info",
-		"value": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z\" fill=\"black\"/>\n<path d=\"M13.2948 10.012V17.376H10.7188V10.012H13.2948ZM10.5508 7.99602C10.5508 7.58536 10.6908 7.25402 10.9708 7.00202C11.2601 6.75002 11.6008 6.62402 11.9928 6.62402C12.3941 6.62402 12.7348 6.75002 13.0148 7.00202C13.3041 7.25402 13.4488 7.58536 13.4488 7.99602C13.4488 8.40669 13.3041 8.74269 13.0148 9.00402C12.7348 9.25602 12.3941 9.38202 11.9928 9.38202C11.6008 9.38202 11.2601 9.25602 10.9708 9.00402C10.6908 8.74269 10.5508 8.40669 10.5508 7.99602Z\" fill=\"black\"/>\n</svg>",
-		"originalValue": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z\" fill=\"black\"/>\n<path d=\"M13.2948 10.012V17.376H10.7188V10.012H13.2948ZM10.5508 7.99602C10.5508 7.58536 10.6908 7.25402 10.9708 7.00202C11.2601 6.75002 11.6008 6.62402 11.9928 6.62402C12.3941 6.62402 12.7348 6.75002 13.0148 7.00202C13.3041 7.25402 13.4488 7.58536 13.4488 7.99602C13.4488 8.40669 13.3041 8.74269 13.0148 9.00402C12.7348 9.25602 12.3941 9.38202 11.9928 9.38202C11.6008 9.38202 11.2601 9.25602 10.9708 9.00402C10.6908 8.74269 10.5508 8.40669 10.5508 7.99602Z\" fill=\"black\"/>\n</svg>",
-		"type": "asset",
-		"path": [
-				"o3",
-				"tooltip",
-				"icon",
-				"info"
-		],
-		"css": "--o3-tooltip-icon-info",
-		"figma": "o3/tooltip/icon/info"
-},
-	"o3-tooltip-icon-cross": {
-		"shortName": "cross",
-		"value": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z\" fill=\"black\"/>\n<path d=\"M10.146 11.796L7 8.694L8.694 7L11.818 10.102L14.92 7L16.614 8.694L13.512 11.796L16.614 14.92L14.92 16.614L11.818 13.512L8.694 16.614L7 14.92L10.146 11.796Z\" fill=\"black\"/>\n</svg>",
-		"originalValue": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z\" fill=\"black\"/>\n<path d=\"M10.146 11.796L7 8.694L8.694 7L11.818 10.102L14.92 7L16.614 8.694L13.512 11.796L16.614 14.92L14.92 16.614L11.818 13.512L8.694 16.614L7 14.92L10.146 11.796Z\" fill=\"black\"/>\n</svg>",
-		"type": "asset",
-		"path": [
-				"o3",
-				"tooltip",
-				"icon",
-				"cross"
-		],
-		"css": "--o3-tooltip-icon-cross",
-		"figma": "o3/tooltip/icon/cross"
+		"css": "--o3-focus-use-case-outline-inverse-color",
+		"figma": "o3/focus/use-case/outline/inverse/color"
 }
 };

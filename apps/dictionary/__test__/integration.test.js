@@ -89,27 +89,27 @@ describe('buildCss()', () => {
 	});
 
 	// Meta for astro
-	describe.only('for Astro build', () => {
+	describe('for Astro build', () => {
 		describe('should build CSS foundation variables for Astro', () => {
-			// buildToolingMetaTokens(
-			// 	vi.fn(
-			// 		brand => `${destinationPrefix}/astro/tokens/${brand}/_variables.js`
-			// 	)
-			// );
-			// it.each(brands)('for %s brand', brand => {
-			// 	const brandOutput = readFileSync(
-			// 		pathJoin(
-			// 			__dirname,
-			// 			buildPath,
-			// 			'astro',
-			// 			'tokens',
-			// 			brand,
-			// 			'_variables.js'
-			// 		),
-			// 		{encoding: 'utf-8'}
-			// 	);
-			// 	expect(brandOutput).toMatchSnapshot();
-			// });
+			buildToolingMetaTokens(
+				vi.fn(
+					brand => `${destinationPrefix}/astro/tokens/${brand}/_variables.js`
+				)
+			);
+			it.each(brands)('for %s brand', brand => {
+				const brandOutput = readFileSync(
+					pathJoin(
+						__dirname,
+						buildPath,
+						'astro',
+						'tokens',
+						brand,
+						'_variables.js'
+					),
+					{encoding: 'utf-8'}
+				);
+				expect(brandOutput).toMatchSnapshot();
+			});
 
 			it('should build icons CSS variables for Astro', () => {
 				buildToolingIconTokens(
