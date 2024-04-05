@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "./scripts/build-o3-deps.sh && astro build",
+		"build": "../../scripts/build-o3-deps.sh && astro build",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
