@@ -131,22 +131,6 @@ input::-moz-focus-inner {
 	white-space: nowrap;
 }
 
-/* Clearfix styles on the current element */
-.o3-clearfix::after {
-	zoom: 1;
-
-	:before,
-	:after {
-		content: '';
-		display: table;
-		/* stylelint-disable-next-line declaration-block-no-duplicate-properties */
-		display: flex;
-	}
-	:after {
-		clear: both;
-	}
-}
-
 /* Adds box sizing to current and all children elements */
 .o3-box-sizing-border-box {
 	box-sizing: border-box;
