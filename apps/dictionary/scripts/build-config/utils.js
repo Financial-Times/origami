@@ -100,8 +100,11 @@ StyleDictionaryPackage.registerFileHeader({
 StyleDictionaryPackage.registerTransform({
 	name: 'Origami/tintGroup',
 	type: 'attribute',
-	matcher: token =>
-		token.type === 'color' && /palette-[a-zA-Z]+-[0-9]{1,3}$/.test(token.name),
+	matcher: token => {
+		return (
+			token.type === 'color' && /palette-[a-zA-Z]+-[0-9]{1,3}$/.test(token.name)
+		);
+	},
 	transformer: token => {
 		const tint = token.path[token.path.length - 1].split('-');
 		token.origamiTint = {
@@ -121,7 +124,7 @@ StyleDictionaryPackage.registerTransform({
 /**
  * @typedef {Object} CssBuildConfig - Configuration for building CSS from Token Studio design tokens.
  * @property {string[]} sources - The design token files to include.
- * @property {string[]|undefined} includes - The component design token files to include. Include tokens will be overridden by "source" attribute tokens. This should be used for sub-brands that reference their parent brand.
+ * @property {string[]|undefined} [includes] - The component design token files to include. Include tokens will be overridden by "source" attribute tokens. This should be used for sub-brands that reference their parent brand.
  * @property {string} destination - The output file path.
  * @property {TokenFilter|undefined} [tokenFilter] - A function to filter tokens to include.
  * @property {string|undefined} [parentSelector] - A parent CSS selector for generated CSS.
@@ -196,6 +199,7 @@ export function buildCSS({
 /**
  * @typedef {Object} MetaBuildConfig - Configuration for building Token Studio design tokens to json for tooling.
  * @property {string[]} sources - The design token files to include.
+ * @property {string[]|undefined} [includes] - The component design token files to include. Include tokens will be overridden by "source" attribute tokens. This should be used for sub-brands that reference their parent brand.
  * @property {string} destination - The output file path.
  */
 
@@ -204,6 +208,7 @@ export function buildCSS({
  * @returns {undefined}
  */
 export function buildMeta({sources, includes, destination}) {
+	getTokenStudioThemes();
 	const config = {
 		source: sources,
 		include: includes,
@@ -233,7 +238,7 @@ export function buildMeta({sources, includes, destination}) {
 							) {
 								return false;
 							}
-							return isTokenStudioSource(token);
+							return true;
 						},
 						destination: path.basename(destination),
 						format: 'tooling/esm',
@@ -268,7 +273,7 @@ export function getBasePath() {
 	return basePath;
 }
 
-export function isSubBrand(theme) {
+function isSubBrand(theme) {
 	return theme.group !== theme.name;
 }
 
@@ -327,7 +332,7 @@ function getTokensStudioThemeFromBrand(tokenSet) {
 	return subTheme;
 }
 
-export function isTokenStudioSource(token) {
+function isTokenStudioSource(token) {
 	const {filePath} = token;
 	const tokenSet = filePath
 		.replace(`${process.cwd()}/tokens`, '')
@@ -337,4 +342,19 @@ export function isTokenStudioSource(token) {
 	const theme = getTokensStudioThemeFromBrand(tokenSet);
 
 	return theme ? theme.selectedTokenSets[tokenSet] === 'source' : false;
+}
+
+export const nonComponentTokenFilter = (source, brand) =>
+	!source.includes(`${brand}/components/`);
+
+if (import.meta.vitest) {
+	const {describe, it, expect} = import.meta.vitest;
+
+	describe('filters non component tokens', () => {
+		const source = 'core/components/brand/brand.json';
+		const brand = 'core';
+		it('should return false for component tokens', () => {
+			expect(nonComponentTokenFilter(source, brand)).toBe(false);
+		});
+	});
 }
