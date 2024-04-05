@@ -39,7 +39,8 @@ StyleDictionaryPackage.registerFormat({
 			'export default ' +
 			'{\n' +
 			dictionary.allTokens
-				.map(function (token) {
+			.map(function (token) {
+					console.log(`🚀 ~ dictionary:`, token);
 					const value = {
 						shortName: token.path[token.path.length - 1],
 						value: token.value,
@@ -100,8 +101,8 @@ StyleDictionaryPackage.registerFileHeader({
 StyleDictionaryPackage.registerTransform({
 	name: 'Origami/tintGroup',
 	type: 'attribute',
-	matcher: token =>
-		token.type === 'color' && /palette-[a-zA-Z]+-[0-9]{1,3}$/.test(token.name),
+	matcher: token =>{
+		return token.type === 'color' && /palette-[a-zA-Z]+-[0-9]{1,3}$/.test(token.name)},
 	transformer: token => {
 		const tint = token.path[token.path.length - 1].split('-');
 		token.origamiTint = {
@@ -121,7 +122,7 @@ StyleDictionaryPackage.registerTransform({
 /**
  * @typedef {Object} CssBuildConfig - Configuration for building CSS from Token Studio design tokens.
  * @property {string[]} sources - The design token files to include.
- * @property {string[]|undefined} includes - The component design token files to include. Include tokens will be overridden by "source" attribute tokens. This should be used for sub-brands that reference their parent brand.
+ * @property {string[]|undefined} [includes] - The component design token files to include. Include tokens will be overridden by "source" attribute tokens. This should be used for sub-brands that reference their parent brand.
  * @property {string} destination - The output file path.
  * @property {TokenFilter|undefined} [tokenFilter] - A function to filter tokens to include.
  * @property {string|undefined} [parentSelector] - A parent CSS selector for generated CSS.
@@ -203,9 +204,10 @@ export function buildCSS({
  * @param {MetaBuildConfig} CssBuildConfig - A string param.
  * @returns {undefined}
  */
-export function buildMeta({sources, destination}) {
+export function buildMeta({sources, includes, destination}) {
 	const config = {
 		source: sources,
+		include: includes,
 		platforms: {
 			tooling: {
 				transformGroup: 'js',
@@ -336,4 +338,19 @@ export function isTokenStudioSource(token) {
 	const theme = getTokensStudioThemeFromBrand(tokenSet);
 
 	return theme ? theme.selectedTokenSets[tokenSet] === 'source' : false;
+}
+
+export const nonComponentTokenFilter = (source, brand) =>
+	!source.includes(`${brand}/components/`);
+
+if (import.meta.vitest) {
+	const {describe, it, expect} = import.meta.vitest;
+
+	describe('filters non component tokens', () => {
+		const source = 'core/components/brand/brand.json';
+		const brand = 'core';
+		it('should return false for component tokens', () => {
+			expect(nonComponentTokenFilter(source, brand)).toBe(false);
+		});
+	});
 }

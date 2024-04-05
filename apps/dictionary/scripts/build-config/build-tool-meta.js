@@ -1,25 +1,10 @@
-import path from 'path';
 import {
-	buildMeta,
-	getBrandNames,
-	getBrandSourcesAndIncludes,
-	getBasePath,
-} from './utils.js';
+	buildToolingMetaTokens,
+	buildToolingIconTokens,
+} from './buildFunctions.js';
 
-function buildToolingMetaTokens() {
-	const brands = getBrandNames();
-	brands.forEach(brand => {
-		const {sources} = getBrandSourcesAndIncludes(brand);
-		const destination = `build/${brand}/_variables.js`;
-		buildMeta({sources, destination});
-	});
+function getDestination(brand) {
+	return `build/${brand}/_variables.js`;
 }
-
-function buildToolingIconTokens() {
-	const sources = [path.join(getBasePath(), 'tokens/icons/icons.json')];
-	const destination = `build/icons/_variables.js`;
-	buildMeta({sources, destination});
-}
-
-buildToolingMetaTokens();
-buildToolingIconTokens();
+buildToolingMetaTokens(getDestination);
+buildToolingIconTokens('build/icons/_variables.js');
