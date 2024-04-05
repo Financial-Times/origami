@@ -203,9 +203,10 @@ export function buildCSS({
  * @param {MetaBuildConfig} CssBuildConfig - A string param.
  * @returns {undefined}
  */
-export function buildMeta({sources, destination}) {
+export function buildMeta({sources, includes, destination}) {
 	const config = {
 		source: sources,
+		include: includes,
 		platforms: {
 			tooling: {
 				transformGroup: 'js',

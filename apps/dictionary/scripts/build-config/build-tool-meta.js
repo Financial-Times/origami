@@ -9,9 +9,9 @@ import {
 function buildToolingMetaTokens() {
 	const brands = getBrandNames();
 	brands.forEach(brand => {
-		const {sources} = getBrandSourcesAndIncludes(brand);
+		const {sources, includes} = getBrandSourcesAndIncludes(brand);
 		const destination = `build/${brand}/_variables.js`;
-		buildMeta({sources, destination});
+		buildMeta({sources, includes, destination});
 	});
 }
 
