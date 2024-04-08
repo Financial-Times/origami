@@ -24,7 +24,6 @@ const makeClasses = (theme: Theme): string => {
 
 export const Link: React.FC<LinkProps> = ({
 	theme = Theme.standard,
-	brand,
 	children,
 	openInNewWindow = false,
 	...anchorProps
@@ -38,7 +37,7 @@ export const Link: React.FC<LinkProps> = ({
 	return (
 		<a
 			className="o3-typography o3-typography-link"
-			{...getStyleAttributes({theme, brand})}
+			{...getStyleAttributes({theme})}
 			{...anchorProps}>
 			{children}
 		</a>

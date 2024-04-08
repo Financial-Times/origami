@@ -18,7 +18,7 @@ export default {
 	},
 	argTypes: {
 		theme: {
-			options: ['standard', 'inverse', 'professional'],
+			options: ['standard', 'inverse'],
 			control: {
 				type: 'radio',
 			},

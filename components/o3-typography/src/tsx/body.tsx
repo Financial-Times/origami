@@ -2,7 +2,7 @@ import {getStyleAttributes, StyleArguments} from './getStyleAttributes';
 
 export const Body: React.FC<
 	{children: React.ReactNode; style?: 'italic'} & StyleArguments
-> = ({children, theme, brand, style}) => {
+> = ({children, theme, style}) => {
 	const classes = ['o3-typography', 'o3-typography-body'];
 
 	if (style === 'italic') {
@@ -13,7 +13,6 @@ export const Body: React.FC<
 			className={classes.join(' ')}
 			{...getStyleAttributes({
 				theme,
-				brand,
 			})}>
 			{children}
 		</p>
@@ -23,14 +22,12 @@ export const Body: React.FC<
 export const Strong: React.FC<{children: React.ReactNode} & StyleArguments> = ({
 	children,
 	theme,
-	brand,
 }) => {
 	return (
 		<strong
 			className="o3-typography o3-typography-body o3-typography-body--bold"
 			{...getStyleAttributes({
 				theme,
-				brand,
 			})}>
 			{children}
 		</strong>
@@ -39,11 +36,11 @@ export const Strong: React.FC<{children: React.ReactNode} & StyleArguments> = ({
 
 export const Emphasis: React.FC<
 	{children: React.ReactNode} & StyleArguments
-> = ({children, theme, brand}) => {
+> = ({children, theme}) => {
 	return (
 		<em
 			className="o3-typography o3-typography-body o3-typography-body--italic"
-			{...getStyleAttributes({theme, brand})}>
+			{...getStyleAttributes({theme})}>
 			{children}
 		</em>
 	);
@@ -51,11 +48,11 @@ export const Emphasis: React.FC<
 
 export const Subscript: React.FC<
 	{children: React.ReactNode} & StyleArguments
-> = ({children, theme, brand}) => {
+> = ({children, theme}) => {
 	return (
 		<sub
 			className="o3-typography o3-typography-body o3-typography-body--sub"
-			{...getStyleAttributes({theme, brand})}>
+			{...getStyleAttributes({theme})}>
 			{children}
 		</sub>
 	);
@@ -63,11 +60,11 @@ export const Subscript: React.FC<
 
 export const Superscript: React.FC<
 	{children: React.ReactNode} & StyleArguments
-> = ({children, theme, brand}) => {
+> = ({children, theme}) => {
 	return (
 		<sup
 			className="o3-typography o3-typography-body o3-typography-body--sup"
-			{...getStyleAttributes({theme, brand})}>
+			{...getStyleAttributes({theme})}>
 			{children}
 		</sup>
 	);

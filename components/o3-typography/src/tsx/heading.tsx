@@ -5,12 +5,12 @@ type HeadingProps = StyleArguments & {
 	children?: string | React.JSX.Element;
 };
 
-export const Heading = ({level, children, theme, brand}: HeadingProps) => {
+export const Heading = ({level, children, theme}: HeadingProps) => {
 	const HTMLElement = `h${level}` as keyof React.JSX.IntrinsicElements;
 	return (
 		<HTMLElement
 			className={`o3-typography-heading o3-typography-heading--level-${level}`}
-			{...getStyleAttributes({theme, brand})}>
+			{...getStyleAttributes({theme})}>
 			{children}
 		</HTMLElement>
 	);
