@@ -62,6 +62,15 @@ const BodyStory = {
 
 const HeadingStory = {
 	...TemplateSBConfig,
+	argTypes: {
+		...TemplateSBConfig.argTypes,
+		level: {
+			options: ['1', '2', '3', '4', '5', '6'],
+			control: {
+				type: 'select',
+			},
+		},
+	},
 	args: {
 		level: '1',
 		text: "Don't settle for black and white",
