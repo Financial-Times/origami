@@ -21,10 +21,7 @@ const ButtonPaginationTemplate: TemplateType = {
 		controls: {include: ['theme']},
 	},
 	render: args => {
-		// const configuredCurrentPage = args.pages.find(page => page.current);
-		// const [currentPageSelection, setCurrentPageSelection] = useState(
-		// 	configuredCurrentPage ? configuredCurrentPage.number : 0
-		// );
+
 		const [{pages}, updateArgs] = useArgs();
 		const currentPageSelection = pages.find(
 			(page: PageType) => page.current
