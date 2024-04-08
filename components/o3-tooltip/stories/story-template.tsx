@@ -5,7 +5,6 @@ import {TooltipOnboarding as OnboardingTooltipTsx} from '../src/tsx';
 import {TooltipToggle as ToggleTooltipTsx} from '../src/tsx';
 import {TemplateSBConfig} from './sb-story-config';
 import {Button} from '../../o3-button/src/tsx/button';
-
 import '../src/ts/index';
 
 import './demo.css';
