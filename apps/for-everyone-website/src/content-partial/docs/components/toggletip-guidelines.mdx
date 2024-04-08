@@ -1,0 +1,27 @@
+import {default as Example} from '../../../components/Example.astro';
+import {default as Guideline} from '../../../components/Guideline.astro';
+import {Button} from '@financial-times/o3-tooltip';
+
+<Guideline summary="Do not obstruct other elements" do={true}>
+	<p slot="description">
+		Ensure toggletips do not obstruct other interface elements.
+	</p>
+	<Example slot="examples" do={true}>
+	/* example of a toggletip that behaves normally */
+	</Example>
+	<Example slot="examples" do={false}>
+	/* example of a toggletip that covers a button when opened */
+	</Example>
+</Guideline>
+
+<Guideline summary="Use only for additional context" do={true}>
+	<p slot="description">
+		Use toggletips to provide additional context, provided it is not essential.
+	</p>
+	<Example slot="examples" do={true}>
+	/* example of a toggletip that says "To maximise security, we suggest you use unique passwords each time"  */
+	</Example>
+	<Example slot="examples" do={false}>
+	/* example of a toggletip that says "Your password must contain at least one special character"  */
+	</Example>
+</Guideline>

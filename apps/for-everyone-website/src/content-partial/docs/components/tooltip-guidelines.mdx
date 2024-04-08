@@ -1,0 +1,44 @@
+import {default as Example} from '../../../components/Example.astro';
+import {default as Guideline} from '../../../components/Guideline.astro';
+import {Button} from '@financial-times/o3-tooltip';
+
+<Guideline summary="Do not obstruct other elements" do={true}>
+	<p slot="description">
+		Ensure onboarding tooltips do not obstruct other interface elements.
+	</p>
+	<Example slot="examples" do={true}>
+	/* example of a tooltip that behaves normally */
+	</Example>
+	<Example slot="examples" do={false}>
+	/* example of a tooltip that covers a button upon loading opened */
+	</Example>
+</Guideline>
+
+<Guideline summary="Refrain from using headings" do={true}>
+	<p slot="description">
+		Use headings only for presentational reasons, provided emphasis is not required for understanding, as emphasis is not provided for screen reader users.
+	</p>
+	<Example slot="examples" do={true}>
+	/* example of a tooltip:
+	Introducing Enhanced Search: Now you can use natural language to find exactly what you're looking for, faster.
+	*/
+	</Example>
+	<Example slot="examples" do={false}>
+	/* example of a tooltip with the first line as a heading:
+	Introducing Enhanced Search
+	Now you can use natural language to find exactly what you're looking for, faster.
+	*/
+	</Example>
+</Guideline>
+
+<Guideline summary="Use to highlight new features" do={false}>
+	<p slot="description">
+		Use them to highlight new features or assist with user onboarding.
+	</p>
+	<Example slot="examples" do={true}>
+	/* Tooltip saying Try our new AI-powered search */
+	</Example>
+	<Example slot="examples" do={false}>
+	/* Tooltip saying Please use a longer password */
+	</Example>
+</Guideline>
