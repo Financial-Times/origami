@@ -24,3 +24,4 @@ export const Button = ButtonStories.Button;
 export const LinkAsButton = ButtonStories.LinkAsButton;
 export const GroupedButtons = ButtonStories.GroupedButtons;
 export const Pagination = PaginationTemplate;
+export const SmallButton = ButtonStories.SmallButton;

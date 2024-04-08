@@ -57,6 +57,17 @@ export const Button: ButtonStory = {
 	},
 };
 
+
+export const SmallButton: ButtonStory = {
+	...ButtonTemplate,
+	args: {
+		label: 'Small button',
+		type: 'primary',
+		disabled: false,
+		size: 'small',
+	},
+};
+
 export const LinkAsButton: LinkButtonStory = {
 	...LinkButtonTemplate,
 	args: {
