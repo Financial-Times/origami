@@ -130,6 +130,21 @@ StyleDictionaryPackage.registerTransform({
  * @property {string|undefined} [parentSelector] - A parent CSS selector for generated CSS.
  */
 
+const transformers = [
+	'Origami/pxToRem',
+	'ts/size/px',
+	'ts/size/lineheight',
+	'ts/descriptionToComment',
+	'ts/typography/css/shorthand',
+	'ts/typography/css/fontFamily',
+	'ts/border/css/shorthand',
+	'ts/shadow/css/shorthand',
+	'ts/color/css/hexrgba',
+	'ts/color/modifiers',
+	'name/cti/kebab',
+	'name/origamiPrivatePrefix',
+];
+
 /**
  * @param {CssBuildConfig} CssBuildConfig - A string param.
  * @returns {undefined}
@@ -148,21 +163,7 @@ export function buildCSS({
 		platforms: {
 			css: {
 				transformGroup: 'css',
-				transforms: [
-					'Origami/pxToRem',
-					'ts/size/px',
-					'ts/size/lineheight',
-					'ts/descriptionToComment',
-					'ts/typography/css/shorthand',
-					'ts/typography/css/fontFamily',
-					'ts/border/css/shorthand',
-					'ts/shadow/css/shorthand',
-					'ts/color/css/hexrgba',
-					'ts/color/modifiers',
-					'name/cti/kebab',
-					'value/transformSVG',
-					'name/origamiPrivatePrefix',
-				],
+				transforms: [...transformers, 'value/transformSVG'],
 				buildPath: path.dirname(destination) + '/',
 				files: [
 					{
@@ -215,19 +216,7 @@ export function buildMeta({sources, includes, destination}) {
 		platforms: {
 			tooling: {
 				transformGroup: 'js',
-				transforms: [
-					'Origami/pxToRem',
-					'ts/size/px',
-					'ts/size/lineheight',
-					'ts/descriptionToComment',
-					'ts/typography/css/shorthand',
-					'ts/border/css/shorthand',
-					'ts/shadow/css/shorthand',
-					'ts/color/css/hexrgba',
-					'ts/color/modifiers',
-					'name/cti/kebab',
-					'Origami/tintGroup',
-				],
+				transforms: [...transformers, 'Origami/tintGroup'],
 				buildPath: path.dirname(destination) + '/',
 				files: [
 					{

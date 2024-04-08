@@ -1351,7 +1351,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-family-metric": {
 		"shortName": "metric",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "metric 2 VF",
 		"type": "fontFamilies",
 		"path": [
@@ -1365,7 +1365,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-family-financier-display": {
 		"shortName": "financier-display",
-		"value": "financier display VF",
+		"value": "'financier display VF'",
 		"originalValue": "financier display VF",
 		"type": "fontFamilies",
 		"path": [
@@ -3799,7 +3799,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-family-metric": {
 		"shortName": "metric",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "metric 2 VF",
 		"type": "fontFamilies",
 		"path": [
@@ -3813,7 +3813,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-family-financier-display": {
 		"shortName": "financier-display",
-		"value": "financier display VF",
+		"value": "'financier display VF'",
 		"originalValue": "financier display VF",
 		"type": "fontFamilies",
 		"path": [
@@ -5256,7 +5256,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-family-metric": {
 		"shortName": "metric",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "metric 2 VF",
 		"type": "fontFamilies",
 		"path": [
@@ -5270,7 +5270,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-family-financier-display": {
 		"shortName": "financier-display",
-		"value": "financier display VF",
+		"value": "'financier display VF'",
 		"originalValue": "financier display VF",
 		"type": "fontFamilies",
 		"path": [
