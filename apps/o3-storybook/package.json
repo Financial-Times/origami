@@ -6,8 +6,7 @@
 	"scripts": {
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "../../scripts/build-o3-deps.sh && storybook build",
-		"chromatic": "chromatic",
-		"test": "test-storybook"
+		"chromatic": "chromatic"
 	},
 	"private": true,
 	"author": "",
