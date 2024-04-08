@@ -7,7 +7,8 @@
 	"license": "ISC",
 	"private": true,
 	"scripts": {
-		"test": "NODE_ENV=test vitest"
+		"test": "vitest",
+		"test:watch": "NODE_ENV=test vitest --watch"
 	},
 	"devDependencies": {
 		"@tokens-studio/sd-transforms": "^0.11.0",

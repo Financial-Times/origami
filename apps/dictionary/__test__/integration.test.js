@@ -1,4 +1,4 @@
-import {readFileSync} from 'node:fs';
+import {readFileSync, rmSync} from 'node:fs';
 import {join as pathJoin} from 'node:path';
 import {describe, it, expect, vi} from 'vitest';
 
@@ -16,6 +16,8 @@ describe('buildCss()', () => {
 	const destinationPrefix = '__test__/build/css';
 	const buildPath = 'build/css';
 	const brands = getBrandNames();
+
+	rmSync(pathJoin(__dirname, buildPath), {recursive: true, force: true});
 
 	// icons
 	describe('for icon tokens', () => {
@@ -48,7 +50,7 @@ describe('buildCss()', () => {
 	// components
 	describe('should build CSS variables for', () => {
 		const getDestination = vi.fn(
-			 (brand, component) =>
+			(brand, component) =>
 				`${destinationPrefix}/tokens/${brand}/${component}/_variables.css`
 		);
 		describe('o3-button component tokens', () => {
