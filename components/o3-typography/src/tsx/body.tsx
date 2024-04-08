@@ -3,7 +3,7 @@ import {getStyleAttributes, StyleArguments} from './getStyleAttributes';
 export const Body: React.FC<
 	{children: React.ReactNode; style?: 'italic'} & StyleArguments
 > = ({children, theme, style}) => {
-	const classes = ['o3-typography', 'o3-typography-body'];
+	const classes = ['o3-typography-body'];
 
 	if (style === 'italic') {
 		classes.push('o3-typography-body--italic');
@@ -25,7 +25,7 @@ export const Strong: React.FC<{children: React.ReactNode} & StyleArguments> = ({
 }) => {
 	return (
 		<strong
-			className="o3-typography o3-typography-body o3-typography-body--bold"
+			className="o3-typography-body o3-typography-body--bold"
 			{...getStyleAttributes({
 				theme,
 			})}>
@@ -39,7 +39,7 @@ export const Emphasis: React.FC<
 > = ({children, theme}) => {
 	return (
 		<em
-			className="o3-typography o3-typography-body o3-typography-body--italic"
+			className="o3-typography-body o3-typography-body--italic"
 			{...getStyleAttributes({theme})}>
 			{children}
 		</em>
@@ -51,7 +51,7 @@ export const Subscript: React.FC<
 > = ({children, theme}) => {
 	return (
 		<sub
-			className="o3-typography o3-typography-body o3-typography-body--sub"
+			className="o3-typography-body o3-typography-body--sub"
 			{...getStyleAttributes({theme})}>
 			{children}
 		</sub>
@@ -63,7 +63,7 @@ export const Superscript: React.FC<
 > = ({children, theme}) => {
 	return (
 		<sup
-			className="o3-typography o3-typography-body o3-typography-body--sup"
+			className="o3-typography-body o3-typography-body--sup"
 			{...getStyleAttributes({theme})}>
 			{children}
 		</sup>
