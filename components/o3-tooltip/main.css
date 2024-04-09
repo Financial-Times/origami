@@ -1,5 +1,3 @@
-@import '@financial-times/o3-foundation/css/icons.css';
-
 .o3-tooltip {
 	--padding-top: var(--o3-spacing-3xs);
 	--padding-right: var(--o3-spacing-2xs);
@@ -165,7 +163,6 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 	cursor: pointer;
 	user-select: none;
 }
-
 
 /* Info tooltip button */
 o3-tooltip-toggle .o3-toggletip-target::before {
