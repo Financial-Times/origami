@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/Financial-Times/origami/compare/o3-button-v1.0.1...o3-button-v1.0.2) (2024-04-09)
+
+
+### Bug Fixes
+
+* restore button font size ([f89ba81](https://github.com/Financial-Times/origami/commit/f89ba81dc344667af0fa9ded594472ec60172d40))
+
 ## [1.0.1](https://github.com/Financial-Times/origami/compare/o3-button-v1.0.0...o3-button-v1.0.1) (2024-04-09)
 
 
