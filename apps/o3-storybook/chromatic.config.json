@@ -1,6 +1,5 @@
 {
-  "projectId": "Project:64faf6b1815b6c0106f82e74",
+	"projectId": "Project:64faf6b1815b6c0106f82e74",
 	"storybookBaseDir": "apps/o3-storybook",
-	"debug": true,
-  "zip": true
+	"zip": true
 }
