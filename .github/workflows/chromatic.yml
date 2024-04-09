@@ -2,15 +2,21 @@ name: 'Chromatic'
 
 on:
   pull_request:
-    branches: [ main ]
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - labeled
     paths:
-      - "package.json"
-      - "package-lock.json"
-      - "apps/o3-storybook/**"
-      - "components/o3-*/**"
+      - 'package.json'
+      - 'package-lock.json'
+      - 'apps/o3-storybook/**'
+      - '!components/o3-*/*.md'
+      - 'components/o3-*/**'
 
 jobs:
   chromatic-deployment:
+    if: ${{ github.event.label.name == 'chromatic' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -25,6 +31,7 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: apps/o3-storybook
+          storybookBaseDir: apps/o3-storybook
           exitOnceUploaded: true
           onlyChanged: true
           exitZeroOnChanges: true
