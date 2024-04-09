@@ -36,3 +36,4 @@ LinkAsButton.parameters = {
 };
 export const GroupedButtons = ButtonStories.GroupedButtons;
 export const Pagination = PaginationTemplate;
+export const SmallButton = ButtonStories.SmallButton;
