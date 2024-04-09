@@ -7,15 +7,15 @@
 	color: var(--o3-typography-body-color);
 }
 
-.o3-typography-body--bold {
+.o3-typography-bold {
 	font-weight: var(--o3-typography-use-case-body-s-bold-font-weight);
 }
 
-.o3-typography-body--italic {
+.o3-typography-italic {
 	font-style: italic;
 }
 
-.o3-typography-body--sub {
+.o3-typography-sub {
 	font-family: MetricWeb, sans-serif;
 	font-size: 0.666em;
 	position: static;
@@ -25,7 +25,7 @@
 	margin-bottom: -1em;
 }
 
-.o3-typography-body--sup {
+.o3-typography-sup {
 	font-family: MetricWeb, sans-serif;
 	font-size: 0.666em;
 	position: static;
