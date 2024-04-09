@@ -8,7 +8,7 @@
 	--_o3-button-inline-padding-start: var(--o3-spacing-4xs);
 	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
 
-	--_o3-button-font-size: var(--o3-font-size-0);
+	--_o3-button-font-size: var(--o3-font-size-negative-1);
 	--_o3-button-lineheight: var(--o3-font-lineheight-negative-1);
 
 	--_o3-button-border-size: 1px;
@@ -20,7 +20,8 @@
 
 	min-width: var(--_o3-button-min-width);
 	min-height: var(--_o3-button-min-height);
-	padding: 0 var(--_o3-button-inline-padding-end) 0 var(--_o3-button-inline-padding-start);
+	padding: 0 var(--_o3-button-inline-padding-end) 0
+		var(--_o3-button-inline-padding-start);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
