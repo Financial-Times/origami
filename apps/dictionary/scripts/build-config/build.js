@@ -20,7 +20,7 @@ function buildBrandCSS() {
 
 function buildIconCSS() {
 	const sources = [path.join(getBasePath(), 'tokens/icons/icons.json')];
-	const destination = 'css/icons.css';
+	const destination = 'src/css/tokens/_icons.css';
 	buildCSS({sources, destination});
 }
 
