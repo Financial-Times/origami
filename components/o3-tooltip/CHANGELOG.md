@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/Financial-Times/origami/compare/o3-tooltip-v1.0.0...o3-tooltip-v1.0.1) (2024-04-05)
+
+
+### Bug Fixes
+
+* Update o3-tooltip close icon alignment ([#1534](https://github.com/Financial-Times/origami/issues/1534)) ([5f8b61a](https://github.com/Financial-Times/origami/commit/5f8b61a9180633d7b734d69181b434bd420474d1))
+
 ## [1.0.0](https://github.com/Financial-Times/origami/compare/o3-tooltip-v0.1.2...o3-tooltip-v1.0.0) (2024-03-28)
 
 

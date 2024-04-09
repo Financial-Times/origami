@@ -1,35 +1,3 @@
 @import '@financial-times/o3-foundation/css/professional.css';
 @import '../tokens/core/professional/o3-tooltip/_variables.css';
 @import '../../../main.css';
-
-[data-o3-brand='professional'] o3-tooltip-onboarding button:focus {
-	box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner),
-		var(--o3-box-shadow-focus-ring-inverse-outer);
-	outline: unset;
-	&::before {
-		background-color: var(--o3-color-palette-white-60);
-	}
-}
-
-@supports selector(:focus-visible) {
-	[data-o3-brand='professional'] o3-tooltip-onboarding button:focus {
-		box-shadow: unset;
-		&::before {
-			background-color: var(--o3-color-palette-white-60);
-		}
-	}
-	[data-o3-brand='professional'] o3-tooltip-onboarding button:focus-visible {
-		box-shadow: var(--o3-box-shadow-focus-ring-inverse-inner),
-			var(--o3-box-shadow-focus-ring-inverse-outer);
-		outline: unset;
-		&::before {
-			background-color: var(--o3-color-palette-white-60);
-		}
-	}
-}
-
-[data-o3-brand='professional']
-	.o3-tooltip-wrapper
-	.o3-tooltip-close:hover::before {
-	background-color: var(--o3-color-palette-white-20);
-}

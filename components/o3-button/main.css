@@ -16,6 +16,8 @@
 		var(--_o3-button-min-height) - (var(--_o3-button-block-padding) * 2)
 	);
 
+	--_o3-button-font-weight: var(--o3-font-weight-semibold);
+
 	min-width: var(--_o3-button-min-width);
 	min-height: var(--_o3-button-min-height);
 	padding: 0 var(--_o3-button-inline-padding-end) 0
@@ -27,7 +29,7 @@
 	vertical-align: middle;
 	font-size: var(--_o3-button-font-size);
 	line-height: var(--_o3-button-lineheight);
-	font-weight: 450;
+	font-weight: var(--_o3-button-font-weight);
 	font-family: var(--o3-font-family-metric), sans-serif;
 	border: var(--_o3-button-border-size) solid transparent;
 	text-align: center;
@@ -47,7 +49,6 @@
 .o3-button[disabled].o3-button--hide-disabled {
 	visibility: hidden;
 }
-
 
 /* PRIMARY */
 
@@ -289,13 +290,12 @@
 	}
 }
 
-/* BIG BUTTON */
+/* SMALL BUTTON */
 
 .o3-button.o3-button--small {
 	--_o3-button-min-width: 60px;
 	--_o3-button-min-height: 28px;
 
-	--_o3-button-block-padding: var(--o3-spacing-5xs);
 	--_o3-button-inline-padding-start: var(--o3-spacing-4xs);
 	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
 

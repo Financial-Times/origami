@@ -6,10 +6,6 @@ html,
 body {
 	margin: 0;
 	text-rendering: optimizeLegibility;
-}
-
-/* Adds font smoothing */
-.o3-font-smoothing {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
