@@ -112,6 +112,8 @@ class ExpanderUtility {
 		// Elements.
 		this.oExpanderElement = oExpanderElement;
 		this.contentElement = this.oExpanderElement.querySelector(this.options.selectors.content);
+		//Add data-o-component=o-expander in case it doesn't have it 
+		this.oExpanderElement.setAttribute('data-o-component','o-expander')
 		this.toggles = [].slice.apply(this.oExpanderElement.querySelectorAll(this.options.selectors.toggle)).filter((item) => 
 			//Do not get nested elements
 			item.closest('[data-o-component="o-expander"]') === this.oExpanderElement
