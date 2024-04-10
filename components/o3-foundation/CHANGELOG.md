@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.2...o3-foundation-v1.0.3) (2024-04-10)
+
+
+### Bug Fixes
+
+* Include icons in branded CSS files. ([b63dcdf](https://github.com/Financial-Times/origami/commit/b63dcdf38cd02d3153501ed91a394096c54f062a))
+
 ## [1.0.2](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.1...o3-foundation-v1.0.2) (2024-04-09)
 
 
