@@ -31,6 +31,11 @@ class ExpanderUtility {
 			throw new Error('Expected an expander Element.');
 		}
 
+		//Do not initialised if it was already initiated
+		if(oExpanderElement?.oExpander?.initialized){
+			return;
+		}
+
 		// Error if no options are given.
 		if (typeof opts !== 'object') {
 			throw new Error(`Expected an \`opts\` object, found type of "${typeof opts}".`);
@@ -149,11 +154,16 @@ class ExpanderUtility {
 			document.body.addEventListener('oViewport.resize', () => this.apply());
 		}
 
+		
 		// Add a class to indicate the expander is initialised, which
 		// may be styled against for progressive enhancement (we shouldn't hide
 		// content when the expander fails to load).
 		this.oExpanderElement.classList.add(this.options.classnames.initialized);
-
+		this.initialized = true;
+		
+		//Add property oExpander to the main element referencing this object
+		oExpanderElement.oExpander = this;
+		
 		// Apply the configured expander.
 		this.apply(true);
 
