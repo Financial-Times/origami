@@ -1,0 +1,38 @@
+name: Wait for Chromatic Checks
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  wait_for_chromatic_checks:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.label.name == 'chromatic' }}
+    steps:
+      - name: Wait for all chromatic checks to pass
+        id: wait
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const { data: checks } = await github.rest.checks.listForRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: context.payload.pull_request.head.sha
+            });
+
+            const allChecksPassed = checks.check_runs.every(check => check.conclusion === 'success');
+            console.log(`All checks passed: ${allChecksPassed}`);
+
+            if (!allChecksPassed) {
+              console.log(`Not all checks have passed yet. Waiting...`);
+              return { wait: true };
+            }
+
+            console.log(`All checks have passed. Continuing...`);
+            return { wait: false };
+
+      - name: Wait for checks to complete
+        if: steps.wait.outputs.wait == 'true'
+        run: sleep 10s
