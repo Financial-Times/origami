@@ -86,4 +86,13 @@ describe("Expander", () => {
 			done();
 		}, 100);
 	});
+
+	it("should not initialise more than once a component and return first instance always", () => {
+		fixtures.simple();
+		const expanders = Expander.init();
+		const expanders2 = Expander.init();
+		expanders.forEach((expander, index) => {
+			proclaim.equal(expander,expanders2[index])
+		});
+	});
 });
