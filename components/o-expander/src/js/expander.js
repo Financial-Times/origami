@@ -62,10 +62,11 @@ class Expander extends ExpanderUtility {
 		if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-expander]')) {
-			return new Expander(rootEl, opts);
+		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-expander]') && !rootEl?.oExpander?.initialized) {
+			//if the element has a oExpander initiated already return that instance instead of creating a new one
+			return rootEl?.oExpander || new Expander(rootEl, opts);
 		}
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-expander"]'), rootEl => new Expander(rootEl, opts));
+		return Array.from(rootEl.querySelectorAll('[data-o-component="o-expander"]'), rootEl =>  rootEl?.oExpander || new Expander(rootEl, opts));
 	}
 
 	/**
