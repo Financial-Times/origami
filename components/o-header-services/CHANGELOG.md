@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.5.4](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.3...o-header-services-v5.5.4) (2024-04-11)
+
+
+### Bug Fixes
+
+* tweak the `$system-code` error message to include a simple link ([cd41d7f](https://github.com/Financial-Times/origami/commit/cd41d7fb4d5044e031d006ae6e608d658bf93f17))
+
 ## [5.5.3](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.2...o-header-services-v5.5.3) (2024-03-05)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.7.2](https://github.com/Financial-Times/origami/compare/o-icons-v7.7.1...o-icons-v7.7.2) (2024-04-11)
+
+
+### Bug Fixes
+
+* tweak the `$system-code` error message to include a simple link ([cd41d7f](https://github.com/Financial-Times/origami/commit/cd41d7fb4d5044e031d006ae6e608d658bf93f17))
+
 ## [7.7.1](https://github.com/Financial-Times/origami/compare/o-icons-v7.7.0...o-icons-v7.7.1) (2023-10-27)
 
 
