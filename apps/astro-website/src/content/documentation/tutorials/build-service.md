@@ -55,7 +55,7 @@ For now, let's finish putting together the content of our page.
 
 With the exception of JavaScript-only components, all of Origami's components rely on markup. This markup, combined with the styling and the functionality, is what determines how a component will look and behave on a page.
 
-<aside>A single component can have many variations, and all the variations for all components can be found in the <a href="https://registry.origami.ft.com/components">Origami Registry</a>.</aside>
+<aside>A single component can have many variations, and all the variations for all components can be found in <a href="https://origami.ft.com/storybook/">Storybook</a>.</aside>
 
 First, we're going to add some content for our article, so lets add a heading and some great information about fruit in our `o-grid-row`:
 
@@ -71,7 +71,7 @@ First, we're going to add some content for our article, so lets add a heading an
 
 Finally, we want to showcase the popularity of each fruit in a sortable table. To do that, we're going to use the `o-table` component.
 
-All of the markup that comes with an Origami component is available on the components' page in the Origami registry.
+All of the markup that comes with an Origami component is available on the components' page in [Storybook](https://origami.ft.com/storybook/).
 
 We can find the markup for the <a href="https://registry.origami.ft.com/components/o-table#demo-row-stripes">striped variation of o-table in the registry</a>, and copy that <abbr title="Hypertext Markup Language">HTML</abbr> into our work from there.
 

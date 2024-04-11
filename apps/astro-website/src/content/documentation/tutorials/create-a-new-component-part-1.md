@@ -23,7 +23,7 @@ The "Create A New Origami Component" tutorial is split into nine parts and is in
 
 Usually the Origami team will own an Origami component which is used by multiple teams or groups, but anybody can create and share an Origami component.
 
-In this tutorial we'll build an Origami component. Our example component will display a "hello world" message and include a button which will count the number of times it was clicked. Visually the component will include multiple variations to suit reader facing (core brand) and internal (internal brand) projects. We'll also discuss how to document and publish an Origami component so it is visible in the [Origami Registry](https://registry.origami.ft.com/components).
+In this tutorial we'll build an Origami component. Our example component will display a "hello world" message and include a button which will count the number of times it was clicked. Visually the component will include multiple variations to suit reader facing (core brand) and internal (internal brand) projects. We'll also discuss how to document and publish an Origami component so it is visible in [Storybook](https://origami.ft.com/storybook/).
 
 ## Prerequisites
 
@@ -200,7 +200,7 @@ Clicking the <abbr title="Hyper Text Markup Language">HTML</abbr> file `core-dem
 
 Origami components are not built to work with any particular framework in mind. This is because product developers may choose to use any technology stack to build their application, and it’s important that they not be forced to choose a particular one in order to use Origami components. With that in mind Origami components are not written in a templating language or a framework but in plain <abbr title="Hyper Text Markup Language">HTML</abbr>. However some Origami components do provide complimentary TSX templates, which may be used optionally.
 
-Therefore to include component HTML Origami users copy and paste component HTML from the readme `README.md`, interactive component demos which are presented in the [Origami registry](https://registry.origami.ft.com/components/) or from [Storybook page](https://origami.ft.com/storybook/).
+Therefore to include component HTML Origami users copy and paste component HTML from the readme `README.md`, interactive component demos which are presented in [Storybook](https://origami.ft.com/storybook/).
 
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/example-demo-registry.png" />
@@ -209,7 +209,7 @@ Therefore to include component HTML Origami users copy and paste component HTML 
 	</figcaption>
 </figure>
 
-We will use the demos as previews for local development as well as presenting to users in the [Origami registry](https://registry.origami.ft.com/components/).
+We will use the demos as previews for local development as well as presenting to users in [Storybook](https://origami.ft.com/storybook/), where Stories don't exist for the component.
 
 The templates for demos are in the `demos` directory and written in [mustache](https://mustache.github.io/). In the demos directory, you should see an example demo `demos/src/demo.mustache` (we'll revisit the other files later). Open `demos/src/demo.mustache` in your editor and you should see something which looks like this (assuming a component name of `o-example`):
 
