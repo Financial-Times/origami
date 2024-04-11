@@ -581,4 +581,4 @@ In summary, in part three we learnt:
 - Origami components may be themed within a brand.
 - Some components allow custom themes to be created by the user.
 
-Now our component has multiple variants in the way of themes, we need multiple demos to present them to potential users in the [Origami registry](https://registry.origami.ft.com/components). In the next part we will add multiple demos and also look at other demo options in more detail. [Continue to part four](/documentation/tutorials/create-a-new-component-part-4).
+Now our component has multiple variants in the way of themes, we need multiple demos to present them to potential users in [Storybook](https://origami.ft.com/storybook/). In the next part we will add multiple demos and also look at other demo options in more detail. [Continue to part four](/documentation/tutorials/create-a-new-component-part-4).

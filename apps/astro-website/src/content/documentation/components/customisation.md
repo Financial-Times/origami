@@ -22,7 +22,6 @@ TL;DR:
 </strong>
 </abbr>
 
-
 - Double check customisation is appropriate. Reusing an existing pattern or updating a component to support and share your usecase is preferable.
 - Specify a brand which suits your type of project.
 - Customise component's using their Sass API.
@@ -31,7 +30,8 @@ TL;DR:
 ## Check Customisation Is Appropriate
 
 The first step before customising an Origami component is to ask:
-1. Is there an existing style which could work already? After searching the [Origami Registry](https://registry.origami.ft.com/components) it's worth double checking in the <a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a> Slack channel, to reduce duplicated effort and to help maintain a consistent user interface across FT Group projects.
+
+1. Is there an existing style which could work already? After searching the [Storybook](https://origami.ft.com/storybook/) it's worth double checking in the <a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a> Slack channel, to reduce duplicated effort and to help maintain a consistent user interface across FT Group projects.
 2. Would your customisation be useful for other teams/projects? Maybe a component should be updated for your usecase, so other teams benefit from your work. A new component might be more appropriate if your design diverges significantly.
 
 A good place to start is to ask for feedback in the <a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a> Slack channel. The core Origami team, along with the design team, can help identify similar existing styles or help make any relevant component updates to support your usecase without customisation.
@@ -43,11 +43,13 @@ Most Origami components are branded to provide a distinct appearance within diff
 ### Supported brands
 
 Origami maintained brands include:
+
 - core: FT branding for public ft.com sites and affiliates.
 - internal: Style suitable for tools, documentation, and internal products.
 - whitelabel: Base, structural styles only to build on and customise.
 
 Taking `o-table` as an example, the "core" brand version offers a "row stripes" feature, which uses "core" brand colours such as "paper" and "wheat":
+
 <iframe
     title="The 'row-stripes' o-table demo for the core brand."
 	src="https://www.ft.com/__origami/service/build/v3/demo?component=o-table@^9.1.1&demo=row-stripes&brand=core&system_code=origami"
@@ -55,6 +57,7 @@ Taking `o-table` as an example, the "core" brand version offers a "row stripes" 
 ></iframe>
 
 The "internal" brand version also supports "row stripes" but uses a different colour palette:
+
 <iframe
     title="The 'row-stripes' o-table demo for the core brand."
 	src="https://www.ft.com/__origami/service/build/v3/demo?component=o-table@^9.1.1&demo=row-stripes&brand=internal&system_code=origami"
@@ -62,6 +65,7 @@ The "internal" brand version also supports "row stripes" but uses a different co
 ></iframe>
 
 The "whitelabel" brand does not support "row stripes" and therefore outputs no styles to support that feature:
+
 <iframe
     title="The 'basic' o-table demo for the core brand."
 	src="https://www.ft.com/__origami/service/build/v3/demo?component=o-table@^9.1.1&demo=basic&brand=whitelabel&system_code=origami"
@@ -149,6 +153,7 @@ The Origami team are available to support you in removing CSS overrides, and red
 </aside>
 
 For instance, given a component `o-example-component` with the following code:
+
 <pre><code class="o-syntax-highlight--html">&lt;!-- Component HTML (o-example-component) -->
 &lt;div class="o-example-component">
     &lt;div class="o-example-component__content">
@@ -162,6 +167,7 @@ For instance, given a component `o-example-component` with the following code:
 }</code></pre>
 
 You could include the component CSS in your project and customise the link colour by adding your own CSS afterward:
+
 <pre><code class="o-syntax-highlight--scss">// Your Project CSS:
 // Override "o-example-component" links
 // to be hotpink in colour:
