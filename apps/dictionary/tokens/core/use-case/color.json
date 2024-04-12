@@ -32,7 +32,17 @@
               "type": "color"
             },
             "hover": {
-              "value": "CCCCC",
+              "value": "#d4d4d6",
+              "type": "color"
+            }
+          },
+          "underline": {
+            "@": {
+              "value": "#ffffffff",
+              "type": "color"
+            },
+            "hover": {
+              "value": "#d4d4d6",
               "type": "color"
             }
           }
