@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./create-a-new-component-part-4.12d3a159.mjs');
+						return import('./build-service.d70c80c5.mjs');
 					}
 					const collectedLinks = "@@ASTRO-LINKS@@";
 					const collectedStyles = "@@ASTRO-STYLES@@";
