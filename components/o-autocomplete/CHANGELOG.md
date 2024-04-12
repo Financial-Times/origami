@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.2](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.9.1...o-autocomplete-v1.9.2) (2024-04-12)
+
+
+### Bug Fixes
+
+* Update financial-times/accessible-autocomplete ([#1524](https://github.com/Financial-Times/origami/issues/1524)) ([8bcd024](https://github.com/Financial-Times/origami/commit/8bcd02402f3fa50e35756d3eb2a22b10435d634b))
+
 ## [1.9.1](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.9.0...o-autocomplete-v1.9.1) (2023-10-27)
 
 
