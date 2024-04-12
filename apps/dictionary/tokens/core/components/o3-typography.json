@@ -4,11 +4,11 @@
       "link": {
         "standard": {
           "bottom-color": {
-            "value": "{o3.color.use-case.link.text.@}",
+            "value": "{o3.color.use-case.link.underline.@}",
             "type": "color"
           },
           "color": {
-            "value": "{o3.color.use-case.link.underline.@}",
+            "value": "{o3.color.use-case.link.text.@}",
             "type": "color"
           },
           "hover": {
