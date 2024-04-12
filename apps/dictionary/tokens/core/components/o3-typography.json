@@ -154,14 +154,14 @@
         }
       },
       "heading": {
+        "color": {
+          "value": "{o3.color.palette.black-80}",
+          "type": "color"
+        },
         "level-1": {
           "font-size": {
             "value": "{o3.font.size.5}",
             "type": "font-size"
-          },
-          "font-color": {
-            "value": "{o3.color.palette.black-80}",
-            "type": "color"
           },
           "line-height": {
             "value": "{o3.font.lineheight.4}",
@@ -241,6 +241,12 @@
             "value": "{o3.font.lineheight.1}",
             "type": "other"
           }
+        },
+        "inverse": {
+          "color": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
         }
       },
       "body": {
@@ -255,6 +261,12 @@
         "color": {
           "value": "{o3.color.palette.black}",
           "type": "color"
+        },
+        "inverse": {
+          "color": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
         }
       }
     }
