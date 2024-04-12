@@ -4,7 +4,11 @@
 	font-size: var(--o3-typography-use-case-body-s-font-size);
 	line-height: var(--o3-typography-use-case-body-s-line-height);
 	margin: 0 0 var(--o3-spacing-s);
-	color: var(--o3-typography-body-color);
+	color: var(--_o3-typography-body-color);
+}
+
+.o3-typography-body[data-o3-theme="inverse"] {
+	color: var(--_o3-typography-body-inverse-color);
 }
 
 .o3-typography-bold {

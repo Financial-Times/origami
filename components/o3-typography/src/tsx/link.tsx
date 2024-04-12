@@ -36,7 +36,7 @@ export const Link: React.FC<LinkProps> = ({
 	}
 	return (
 		<a
-			className="o3-typography-link"
+			className="o3-typography o3-typography-link"
 			{...getStyleAttributes({theme})}
 			{...anchorProps}>
 			{children}

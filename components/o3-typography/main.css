@@ -2,29 +2,5 @@
 @import './link.css';
 @import 'body.css';
 
-[data-o3-brand='core'] {
-	--o3-typography-body-color: var(--_o3-typography-body-color);
-	--o3-typography-link-color: var(--_o3-typography-link-standard-color);
-	--o3-typography-link-border-bottom-color: var(--_o3-typography-link-standard-bottom-color);
-	--o3-typography-link-text-decoration-color: var(--_o3-typography-link-standard-bottom-color);
-}
 
-[data-o3-brand='professional'] {
-	--o3-typography-link-color: var(--_o3-typography-link-professional-color);
-	--o3-typography-link-border-bottom-color: var(--_o3-typography-link-professional-bottom-color);
-	--o3-typography-link-text-decoration-color: var(--_o3-typography-link-professional-bottom-color);
-}
 
-[data-o3-brand='professional'][data-o3-theme='inverse'] {
-	--o3-typography-link-color: var(--_o3-typography-link-professional-inverse-color);
-	--o3-typography-link-border-bottom-color: var(--_o3-typography-link-professional-inverse-bottom-color);
-	--o3-typography-link-text-decoration-color: var(--_o3-typography-link-professional-inverse-bottom-color);
-
-}
-
-.o3-typography[data-o3-theme='inverse'] {
-	--o3-typography-body-color: white;
-	--o3-typography-link-color: var(--_o3-typography-link-inverse-color);
-	--o3-typography-link-border-bottom-color: var(--_o3-typography-link-inverse-bottom-color);
-	--o3-typography-link-text-decoration-color: var(--_o3-typography-link-inverse-bottom-color);
-}

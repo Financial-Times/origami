@@ -4,8 +4,8 @@
 
 
 [data-o3-brand="core"] .o3-typography {
-  --_o3-typography-link-standard-bottom-color: var(--o3-color-use-case-link-text);
-  --_o3-typography-link-standard-color: var(--o3-color-use-case-link-underline);
+  --_o3-typography-link-standard-bottom-color: var(--o3-color-use-case-link-underline);
+  --_o3-typography-link-standard-color: var(--o3-color-use-case-link-text);
   --_o3-typography-link-standard-hover-color: var(--o3-color-use-case-link-text-hover);
   --_o3-typography-link-standard-hover-bottom-color: var(--o3-color-use-case-link-underline-hover);
   --_o3-typography-link-standard-focus-color: #08474d;
@@ -34,8 +34,8 @@
   --_o3-typography-link-live-hover-bottom-color: #d1af98;
   --_o3-typography-link-live-focus-color: #d1af98;
   --_o3-typography-link-live-focus-bottom-color: #ffffff00;
+  --_o3-typography-heading-color: var(--o3-color-palette-black-80);
   --_o3-typography-heading-level-1-font-size: var(--o3-font-size-5);
-  --_o3-typography-heading-level-1-font-color: var(--o3-color-palette-black-80);
   --_o3-typography-heading-level-1-line-height: var(--o3-font-lineheight-4);
   --_o3-typography-heading-level-1-font-weight: 600;
   --_o3-typography-heading-level-2-font-size: var(--o3-font-size-4);
@@ -53,9 +53,11 @@
   --_o3-typography-heading-level-6-font-size: var(--o3-font-size-0);
   --_o3-typography-heading-level-6-font-weight: 600;
   --_o3-typography-heading-level-6-line-height: var(--o3-font-lineheight-1);
+  --_o3-typography-heading-inverse-color: var(--o3-color-palette-white);
   --_o3-typography-body-font-size: var(--o3-font-size-3);
   --_o3-typography-body-line-height: var(--o3-font-lineheight-1);
   --_o3-typography-body-color: var(--o3-color-palette-black);
+  --_o3-typography-body-inverse-color: var(--o3-color-palette-white);
   --o3-typography-use-case-heading1-font-family: var(--o3-font-family-metric);
   --o3-typography-use-case-heading1-font-weight: var(--o3-font-weight-semibold);
   --o3-typography-use-case-heading1-font-size: var(--o3-font-size-metric2-5);
