@@ -71,7 +71,7 @@
   --o3-color-use-case-link-text-hover: var(--o3-color-palette-teal-30);
   --o3-color-use-case-link-underline: #CFD8D1;
   --o3-color-use-case-link-underline-hover: #9EC0BD;
-  --o3-color-use-case-link-inverse-text: #;
+  --o3-color-use-case-link-inverse-text: #ffffffff;
   --o3-color-use-case-link-inverse-text-hover: CCCCC;
   --o3-color-use-case-page-background: var(--o3-color-palette-paper);
   --o3-color-use-case-page-inverse-background: var(--o3-color-palette-slate);
