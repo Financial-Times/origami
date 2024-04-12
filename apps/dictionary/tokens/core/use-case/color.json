@@ -28,7 +28,7 @@
         "link-inverse": {
           "text": {
             "@": {
-              "value": "#FFFFFF",
+              "value": "#ffffffff",
               "type": "color"
             },
             "hover": {
