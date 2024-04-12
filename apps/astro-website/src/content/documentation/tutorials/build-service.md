@@ -73,7 +73,7 @@ Finally, we want to showcase the popularity of each fruit in a sortable table. T
 
 All of the markup that comes with an Origami component is available on the components' page in [Storybook](https://origami.ft.com/storybook/).
 
-We can find the markup for the <a href="https://registry.origami.ft.com/components/o-table#demo-row-stripes">striped variation of o-table in the registry</a>, and copy that <abbr title="Hypertext Markup Language">HTML</abbr> into our work from there.
+We can find the markup for the <a href="https://main--655f72ec522e424302dc6201.chromatic.com/?path=/story/o2-core_components-o-table-basic--basic-table-with-caption-and-footnote&args=stripes:!true&globals=backgrounds:!undefined">striped variation of o-table in the registry</a>, and copy that <abbr title="Hypertext Markup Language">HTML</abbr> into our work from there.
 
 <aside><a href="https://codepen.io/ft-origami/pen/wxEBda" rel="noreferrer noopener" target="_blank" class="o-typography-link">Show me the CodePen</a></aside>
 
