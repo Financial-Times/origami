@@ -415,7 +415,8 @@
       "internal/use-case/typography": "enabled",
       "internal/components/o3-tooltip": "source",
       "internal/use-case/color": "enabled",
-      "internal/use-case/focus": "enabled"
+      "internal/use-case/focus": "enabled",
+      "internal/components/o3-typography": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1487",
     "$figmaModeId": "4618:2",
@@ -490,7 +491,8 @@
       "whitelabel/use-case/typography-editorial": "enabled",
       "whitelabel/use-case/color": "enabled",
       "whitelabel/components/o3-tooltip": "source",
-      "whitelabel/use-case/focus": "enabled"
+      "whitelabel/use-case/focus": "enabled",
+      "whitelabel/components/o3-typography": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1701",
     "$figmaModeId": "4618:6",
