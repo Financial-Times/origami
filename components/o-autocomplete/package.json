@@ -47,7 +47,7 @@
     "@financial-times/o-utils": "^2.1.0"
   },
   "dependencies": {
-    "@financial-times/accessible-autocomplete": "^2.1.2"
+    "@financial-times/accessible-autocomplete": "^3.0.0"
   },
   "private": false
 }
