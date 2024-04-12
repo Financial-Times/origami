@@ -1,5 +1,18 @@
 # Changelog
 
+## [6.3.0](https://github.com/Financial-Times/origami/compare/o-expander-v6.2.7...o-expander-v6.3.0) (2024-04-12)
+
+
+### Features
+
+* only init once and return same instance on init method ([fbcf0db](https://github.com/Financial-Times/origami/commit/fbcf0dbc399f243e246d7aa00e55e335839ec525))
+
+
+### Bug Fixes
+
+* add data-o-component=o-expander attribute in case doesn't have it ([3947a88](https://github.com/Financial-Times/origami/commit/3947a8841b884611c0a7d79372678fbdbeca4458))
+* do not affect nested expander elements ([36de782](https://github.com/Financial-Times/origami/commit/36de7828b671239e39b544b16512f7b63a0d2d62))
+
 ## [6.2.7](https://github.com/Financial-Times/origami/compare/o-expander-v6.2.6...o-expander-v6.2.7) (2023-10-27)
 
 
