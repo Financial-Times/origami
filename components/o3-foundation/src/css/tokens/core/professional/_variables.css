@@ -9,9 +9,9 @@
   --o3-color-use-case-link-underline: #CFD8D1;
   --o3-color-use-case-link-underline-hover: #9EC0BD;
   --o3-color-use-case-link-inverse-text: #ffffffff;
-  --o3-color-use-case-link-inverse-text-hover: CCCCC;
-  --o3-color-use-case-link-inverse-underline: var(--o3-color-palette-mint);
-  --o3-color-use-case-link-inverse-underline-hover: var(--o3-color-palette-mint-70);
+  --o3-color-use-case-link-inverse-text-hover: #d4d4d6;
+  --o3-color-use-case-link-inverse-underline: #ffffffff;
+  --o3-color-use-case-link-inverse-underline-hover: #d4d4d6;
   --o3-color-use-case-page-background: var(--o3-color-palette-paper);
   --o3-color-use-case-page-inverse-background: var(--o3-color-palette-slate);
   --o3-color-use-case-body-text: var(--o3-color-palette-black-80);
