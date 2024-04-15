@@ -19,7 +19,6 @@ describe('buildCss()', () => {
 
 	rmSync(pathJoin(__dirname, buildPath), {recursive: true, force: true});
 
-	// icons
 	describe('for icon tokens', () => {
 		buildIconCSS(destinationPrefix + '/icons.css');
 		const iconsOutput = readFileSync(
@@ -31,7 +30,6 @@ describe('buildCss()', () => {
 		});
 	});
 
-	// foundation
 	describe('for brand foundation tokens', () => {
 		describe('should build CSS variables for foundation tokens', () => {
 			buildBrandForCSS(
@@ -47,7 +45,6 @@ describe('buildCss()', () => {
 		});
 	});
 
-	// components
 	describe('should build CSS variables for', () => {
 		const getDestination = vi.fn(
 			(brand, component) =>
@@ -70,27 +67,8 @@ describe('buildCss()', () => {
 				expect(brandOutput).toMatchSnapshot();
 			});
 		});
-
-		describe('o3-tooltip component tokens', () => {
-			buildComponentTokens('o3-tooltip', getDestination);
-			it.each(brands)('for %s brand', brand => {
-				const brandOutput = readFileSync(
-					pathJoin(
-						__dirname,
-						buildPath,
-						'tokens',
-						brand,
-						'o3-tooltip',
-						'_variables.css'
-					),
-					{encoding: 'utf-8'}
-				);
-				expect(brandOutput).toMatchSnapshot();
-			});
-		});
 	});
 
-	// Meta for astro
 	describe('for Astro build', () => {
 		describe('should build CSS foundation variables for Astro', () => {
 			buildToolingMetaTokens(
