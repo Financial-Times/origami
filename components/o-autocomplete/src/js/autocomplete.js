@@ -3,10 +3,6 @@
 // Below are the pull-requests to accessible-autocomplete which would fix the bugs:
 // https://github.com/alphagov/accessible-autocomplete/pull/491
 // If the above pull-requests are merged and published, then we can stop using our fork
-// though switching to alphagov/accessible-autocomplete will require that consumers
-// applying `aria-labelledby` to the `ul` element
-// via the `ariaLabelledBy` option (https://github.com/Financial-Times/accessible-autocomplete/pull/6)
-// instead do so via the `menuAttributes` option (https://github.com/alphagov/accessible-autocomplete/pull/591)
 import accessibleAutocomplete from '@financial-times/accessible-autocomplete';
 
 /**
