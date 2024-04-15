@@ -165,6 +165,12 @@
         "color": {
           "value": "{o3.color.palette.black}",
           "type": "color"
+        },
+        "inverse": {
+          "color": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
         }
       }
     }
