@@ -35,4 +35,3 @@ jobs:
           exitOnceUploaded: true
           onlyChanged: true
           autoAcceptChanges: "main" # 👈 Option to accept all changes on main
-          # exitZeroOnChanges: true
