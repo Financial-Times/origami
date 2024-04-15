@@ -19,11 +19,12 @@ import { default as Example } from '../../../components/Example.astro';
 import { default as Guideline } from '../../../components/Guideline.astro';
 import { default as PaginationAnatomy } from '../../../components/PaginationAnatomy.astro';
 
-export function Preview ({component: Component, ...componentProps }) {
+export function Preview ({component: Component, componentProps} = props) {
+	const inverse = componentProps['theme'] === 'inverse';
+
     const ComponentInstance = Component(componentProps);
     const componentHtml = renderToString(ComponentInstance);
     const componentJSX = `<${Component.name} ${Object.entries(componentProps).map(p => `${p[0]}=${typeof p[1] === '"string"' ? p[1] : `{${JSON.stringify(p[1])}}`}`).join(' ')} />`;
-    const inverse = componentProps['theme'] === 'inverse';
     return <>
         <div style={`padding: var(--o3-spacing-2xs); margin-left: calc(var(--o3-spacing-2xs) * -1); ${inverse ? 'background-color: black' : ''}`}>
         <Component {...componentProps} />
@@ -193,25 +194,28 @@ Our pagination pattern supports all button themes. For example:
 
 <Preview
 	component={ButtonPagination}
-	previousPager={{label: 'previous', href: '#previous'}}
-	nextPager={{label: 'next', href: '#next'}}
-	pages={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(p => ({
-		href: `#${p}`,
-		current: p === 5,
-		number: p,
-	}))}
+	componentProps={{
+		previousPager: {label: 'previous', href: '#previous'},
+		nextPager: {label: 'next', href: '#next'},
+		pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(p => ({
+			href: `#${p}`,
+			current: p === 5,
+			number: p,
+		})),
+	}}
 />
-
 ### Inverse Pagination
 
 <Preview
 	component={ButtonPagination}
-	previousPager={{label: 'previous', href: '#previous'}}
-	nextPager={{label: 'next', href: '#next'}}
-	pages={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(p => ({
-		href: `#${p}`,
-		current: p === 5,
-		number: p,
-	}))}
-	theme="inverse"
+	componentProps={{
+		previousPager: {label: 'previous', href: '#previous'},
+		nextPager: {label: 'next', href: '#next'},
+		pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(p => ({
+			href: `#${p}`,
+			current: p === 5,
+			number: p,
+		})),
+		theme: 'inverse',
+	}}
 />

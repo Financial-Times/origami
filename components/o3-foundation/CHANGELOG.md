@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.0.4](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.3...o3-foundation-v1.0.4) (2024-04-12)
+
+
+### Bug Fixes
+
+* set use case link inverse token value ([e7bf21b](https://github.com/Financial-Times/origami/commit/e7bf21b3361227951cbc6b1370b7f85daef144bc))
+
+## [1.0.3](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.2...o3-foundation-v1.0.3) (2024-04-10)
+
+
+### Bug Fixes
+
+* Include icons in branded CSS files. ([b63dcdf](https://github.com/Financial-Times/origami/commit/b63dcdf38cd02d3153501ed91a394096c54f062a))
+
+## [1.0.2](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.1...o3-foundation-v1.0.2) (2024-04-09)
+
+
+### Bug Fixes
+
+* always force font anti-aliasing ([4c5377b](https://github.com/Financial-Times/origami/commit/4c5377bf866441ef918beffc31fcc6a0272bb3dc))
+* restore button font size ([f89ba81](https://github.com/Financial-Times/origami/commit/f89ba81dc344667af0fa9ded594472ec60172d40))
+
 ## [1.0.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.0...o3-foundation-v1.0.1) (2024-04-04)
 
 

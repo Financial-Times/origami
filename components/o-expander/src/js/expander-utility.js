@@ -31,6 +31,11 @@ class ExpanderUtility {
 			throw new Error('Expected an expander Element.');
 		}
 
+		//Do not initialised if it was already initiated
+		if(oExpanderElement?.oExpander?.initialized){
+			return;
+		}
+
 		// Error if no options are given.
 		if (typeof opts !== 'object') {
 			throw new Error(`Expected an \`opts\` object, found type of "${typeof opts}".`);
@@ -112,7 +117,12 @@ class ExpanderUtility {
 		// Elements.
 		this.oExpanderElement = oExpanderElement;
 		this.contentElement = this.oExpanderElement.querySelector(this.options.selectors.content);
-		this.toggles = [].slice.apply(this.oExpanderElement.querySelectorAll(this.options.selectors.toggle));
+		//Add data-o-component=o-expander in case it doesn't have it 
+		this.oExpanderElement.setAttribute('data-o-component','o-expander')
+		this.toggles = [].slice.apply(this.oExpanderElement.querySelectorAll(this.options.selectors.toggle)).filter((item) => 
+			//Do not get nested elements
+			item.closest('[data-o-component="o-expander"]') === this.oExpanderElement
+		);
 		if (!this.toggles.length) {
 			throw new Error(
 				'o-expander needs a toggle link or button. ' +
@@ -144,11 +154,16 @@ class ExpanderUtility {
 			document.body.addEventListener('oViewport.resize', () => this.apply());
 		}
 
+		
 		// Add a class to indicate the expander is initialised, which
 		// may be styled against for progressive enhancement (we shouldn't hide
 		// content when the expander fails to load).
 		this.oExpanderElement.classList.add(this.options.classnames.initialized);
-
+		this.initialized = true;
+		
+		//Add property oExpander to the main element referencing this object
+		oExpanderElement.oExpander = this;
+		
 		// Apply the configured expander.
 		this.apply(true);
 
