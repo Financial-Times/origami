@@ -48,3 +48,8 @@
 	line-height: var(--o3-typography-heading-line-height);
 	font-weight: var(--o3-typography-heading-font-weight);
 }
+
+.o3-typography-heading[data-o3-theme="inverse"],
+:where([data-o3-theme='inverse']) {
+	color: white;
+}
