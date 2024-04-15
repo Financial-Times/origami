@@ -12,6 +12,7 @@ export default {
 	decorators: [
 		Story => (
 			<div data-o3-brand="core">
+				test
 				<Story />
 			</div>
 		),
