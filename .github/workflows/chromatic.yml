@@ -34,4 +34,5 @@ jobs:
           storybookBaseDir: apps/o3-storybook
           exitOnceUploaded: true
           onlyChanged: true
-          exitZeroOnChanges: true
+          autoAcceptChanges: "main" # 👈 Option to accept all changes on maine
+          # exitZeroOnChanges: true
