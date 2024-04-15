@@ -12,7 +12,6 @@
 	}
 }
 
-
 .o3-typography-link[data-o3-theme='inverse'],
 :where([data-o3-theme='inverse']) {
 	color: var(--_o3-typography-link-inverse-color);
@@ -27,6 +26,3 @@
 		text-decoration-thickness: 2px;
 	}
 }
-
-
-

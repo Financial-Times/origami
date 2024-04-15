@@ -52,8 +52,12 @@
   --_o3-typography-link-standard-color: var(--o3-color-use-case-link-underline);
   --_o3-typography-link-standard-hover-color: var(--o3-color-use-case-link-text-hover);
   --_o3-typography-link-standard-hover-bottom-color: var(--o3-color-use-case-link-underline-hover);
-  --_o3-typography-link-standard-focus-color: #08474d;
+  --_o3-typography-link-standard-focus-color: #d4d4d6;
   --_o3-typography-link-standard-focus-bottom-color: #ffffff00;
+  --_o3-typography-link-standard-inverse-bottom-color: var(--o3-color-use-case-link-inverse-text);
+  --_o3-typography-link-standard-inverse-color: var(--o3-color-use-case-link-inverse-text);
+  --_o3-typography-link-standard-inverse-hover-color: #d4d4d6;
+  --_o3-typography-link-standard-inverse-hover-bottom-color: #d4d4d6;
   --_o3-typography-heading-color: var(--o3-color-palette-black-80);
   --_o3-typography-heading-inverse-color: var(--o3-color-palette-white);
   --_o3-typography-heading-level-1-font-size: var(--o3-font-size-5);
