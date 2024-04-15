@@ -3,11 +3,11 @@
     "typography": {
       "link": {
         "standard": {
-          "bottom-color": {
+          "color": {
             "value": "{o3.color.use-case.link.text.@}",
             "type": "color"
           },
-          "color": {
+          "bottom-color": {
             "value": "{o3.color.use-case.link.underline.@}",
             "type": "color"
           },
