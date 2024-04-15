@@ -34,6 +34,16 @@
         }
       },
       "heading": {
+        "color": {
+          "value": "{o3.color.palette.black-80}",
+          "type": "color"
+        },
+        "inverse": {
+          "color": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
+        },
         "level-1": {
           "font-size": {
             "value": "{o3.font.size.5}",
