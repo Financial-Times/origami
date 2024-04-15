@@ -134,9 +134,7 @@
 
 @mixin _oTeaserPostOpinion {
 	@include _oTeaserPost;
-	.o-teaser__content {
-		background: oColorsByName('sky');
-	}
+	
 	.o-teaser__heading:before {
 		@include oIconsContent(
 			'speech-left',
