@@ -23,12 +23,32 @@
           },
           "focus": {
             "color": {
-              "value": "#08474d",
+              "value": "#d4d4d6",
               "type": "color"
             },
             "bottom-color": {
               "value": "#ffffff00",
               "type": "color"
+            }
+          },
+          "inverse": {
+            "bottom-color": {
+              "value": "{o3.color.use-case.link-inverse.text.@}",
+              "type": "color"
+            },
+            "color": {
+              "value": "{o3.color.use-case.link-inverse.text.@}",
+              "type": "color"
+            },
+            "hover": {
+              "color": {
+                "value": "#d4d4d6",
+                "type": "color"
+              },
+              "bottom-color": {
+                "value": "#d4d4d6",
+                "type": "color"
+              }
             }
           }
         }
