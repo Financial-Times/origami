@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.4.1](https://github.com/Financial-Times/origami/compare/o-teaser-v6.4.0...o-teaser-v6.4.1) (2024-04-15)
+
+
+### Bug Fixes
+
+* remove background color sky when opinoion on teaser with post modifier ([6cc7cd8](https://github.com/Financial-Times/origami/commit/6cc7cd8769cde60a66a6f8676121996524039076))
+
 ## [6.4.0](https://github.com/Financial-Times/origami/compare/o-teaser-v6.3.0...o-teaser-v6.4.0) (2024-04-03)
 
 
