@@ -117,7 +117,7 @@ See our documentation website for a [full list of colours and where to use them]
 
 o3-foundation provides CSS Custom Properties for standard spacing values in the format: `--o3-spacing-[spacing size]`. These follow t-shirt sizes from `5xs` to `4xl`.
 
-E.g.
+Example:
 
 ```css
 .example-spacing {

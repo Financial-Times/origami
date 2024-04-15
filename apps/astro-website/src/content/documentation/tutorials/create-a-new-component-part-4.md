@@ -76,7 +76,7 @@ Now if you refresh your browser you should be able to find `demo-inverse.html` g
 	</figcaption>
 </figure>
 
-We also need to create a demo for the `b2c` theme. However the `b2c` theme we created only supports the `core` brand. It should not be displayed in the [Origami registry](https://registry.origami.ft.com/components) for the `internal` or `whitelabel` brands. To avoid that, we will set the [`brands` demo property](/specification/v1/manifest/#demos).
+We also need to create a demo for the `b2c` theme. However the `b2c` theme we created only supports the `core` brand. It should not be displayed in [Storybook](https://origami.ft.com/storybook/) for the `internal` or `whitelabel` brands. To avoid that, we will set the [`brands` demo property](/specification/v1/manifest/#demos).
 
 <pre><code class="o-syntax-highlight--diff">// origami.json
 

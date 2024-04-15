@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.11](https://github.com/Financial-Times/origami/compare/o-social-follow-v1.0.10...o-social-follow-v1.0.11) (2024-04-11)
+
+
+### Bug Fixes
+
+* tweak the `$system-code` error message to include a simple link ([cd41d7f](https://github.com/Financial-Times/origami/commit/cd41d7fb4d5044e031d006ae6e608d658bf93f17))
+
 ## [1.0.10](https://github.com/Financial-Times/origami/compare/o-social-follow-v1.0.9...o-social-follow-v1.0.10) (2023-10-27)
 
 

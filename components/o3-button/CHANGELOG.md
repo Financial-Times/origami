@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/Financial-Times/origami/compare/o3-button-v1.0.2...o3-button-v1.0.3) (2024-04-10)
+
+
+### Bug Fixes
+
+* Include foundation icons in new, standard way. ([b94904d](https://github.com/Financial-Times/origami/commit/b94904d59ed4853223e82c8b52e9b74691b936b1))
+
 ## [1.0.2](https://github.com/Financial-Times/origami/compare/o3-button-v1.0.1...o3-button-v1.0.2) (2024-04-09)
 
 

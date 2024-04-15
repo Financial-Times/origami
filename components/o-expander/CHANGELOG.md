@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.0](https://github.com/Financial-Times/origami/compare/o-expander-v6.2.7...o-expander-v6.3.0) (2024-04-12)
+
+
+### Features
+
+* Do not initialise expanders twice, to support nested expanders ([pr](https://github.com/Financial-Times/origami/pull/1528))
+
 ## [6.2.7](https://github.com/Financial-Times/origami/compare/o-expander-v6.2.6...o-expander-v6.2.7) (2023-10-27)
 
 
