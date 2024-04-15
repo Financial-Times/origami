@@ -54,6 +54,8 @@
   --_o3-typography-link-standard-hover-bottom-color: var(--o3-color-use-case-link-underline-hover);
   --_o3-typography-link-standard-focus-color: #08474d;
   --_o3-typography-link-standard-focus-bottom-color: #ffffff00;
+  --_o3-typography-heading-color: var(--o3-color-palette-black-80);
+  --_o3-typography-heading-inverse-color: var(--o3-color-palette-white);
   --_o3-typography-heading-level-1-font-size: var(--o3-font-size-5);
   --_o3-typography-heading-level-1-font-color: var(--o3-color-palette-black-80);
   --_o3-typography-heading-level-1-line-height: var(--o3-font-lineheight-4);
