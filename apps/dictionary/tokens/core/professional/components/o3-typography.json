@@ -1,0 +1,178 @@
+{
+  "o3": {
+    "typography": {
+      "link": {
+        "standard": {
+          "bottom-color": {
+            "value": "#a4ccb8",
+            "type": "color"
+          },
+          "color": {
+            "value": "#262a33",
+            "type": "color"
+          },
+          "hover": {
+            "color": {
+              "value": "#262a33",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#a4ccb8",
+              "type": "color"
+            }
+          },
+          "focus": {
+            "color": {
+              "value": "#262a33",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          }
+        },
+        "inverse": {
+          "bottom-color": {
+            "value": "#c0efd8",
+            "type": "color"
+          },
+          "color": {
+            "value": "#c0efd8",
+            "type": "color"
+          },
+          "hover": {
+            "color": {
+              "value": "#8fb3a1",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#8fb3a1",
+              "type": "color"
+            }
+          },
+          "focus": {
+            "color": {
+              "value": "#8fb3a1",
+              "type": "color"
+            },
+            "bottom-color": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          }
+        }
+      },
+      "heading": {
+        "color": {
+          "value": "{o3.color.palette.black-80}",
+          "type": "color"
+        },
+        "level-1": {
+          "font-size": {
+            "value": "{o3.font.size.5}",
+            "type": "font-size"
+          },
+          "line-height": {
+            "value": "{o3.font.lineheight.4}",
+            "type": "other"
+          },
+          "font-weight": {
+            "value": "600",
+            "type": "font-weight"
+          }
+        },
+        "level-2": {
+          "font-size": {
+            "value": "{o3.font.size.4}",
+            "type": "font-size"
+          },
+          "font-weight": {
+            "value": "600",
+            "type": "font-weight"
+          },
+          "line-height": {
+            "value": "{o3.font.lineheight.4}",
+            "type": "other"
+          }
+        },
+        "level-3": {
+          "font-size": {
+            "value": "{o3.font.size.3}",
+            "type": "font-size"
+          },
+          "font-weight": {
+            "value": "400",
+            "type": "font-weight"
+          },
+          "line-height": {
+            "value": "{o3.font.lineheight.3}",
+            "type": "other"
+          }
+        },
+        "level-4": {
+          "font-size": {
+            "value": "{o3.font.size.2}",
+            "type": "font-size"
+          },
+          "font-weight": {
+            "value": "600",
+            "type": "font-weight"
+          },
+          "line-height": {
+            "value": "{o3.font.lineheight.2}",
+            "type": "other"
+          }
+        },
+        "level-5": {
+          "font-size": {
+            "value": "{o3.font.size.1}",
+            "type": "font-size"
+          },
+          "font-weight": {
+            "value": "600",
+            "type": "font-weight"
+          },
+          "line-height": {
+            "value": "{o3.font.lineheight.1}",
+            "type": "other"
+          }
+        },
+        "level-6": {
+          "font-size": {
+            "value": "{o3.font.size.0}",
+            "type": "font-size"
+          },
+          "font-weight": {
+            "value": "600",
+            "type": "font-weight"
+          },
+          "line-height": {
+            "value": "{o3.font.lineheight.1}",
+            "type": "other"
+          }
+        }
+      },
+      "body": {
+        "font-size": {
+          "value": "{o3.font.size.3}",
+          "type": "font-size"
+        },
+        "line-height": {
+          "value": "{o3.font.lineheight.1}",
+          "type": "font-size"
+        },
+        "color": {
+          "value": "{o3.color.palette.black}",
+          "type": "color"
+        },
+        "inverse": {
+          "color": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
+        }
+      }
+    }
+  }
+}
