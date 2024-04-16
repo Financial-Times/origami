@@ -269,7 +269,8 @@ class Overlay {
 		}
 
 		wrapperEl.setAttribute('role', 'dialog');
-		wrapperEl.setAttribute('aria-modal', 'true');
+		wrapperEl.setAttribute('aria-modal', this.opts.modal ? 'true' : 'false');
+
 		if (this.opts.zindex) {
 			wrapperEl.style.zIndex = this.opts.zindex;
 		}
