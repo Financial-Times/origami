@@ -52,4 +52,16 @@
   --o3-typography-use-case-caption-font-weight: var(--o3-font-weight-regular);
   --o3-typography-use-case-caption-font-size: var(--o3-font-size-metric2-negative-1);
   --o3-typography-use-case-caption-line-height: var(--o3-font-lineheight-metric2-negative-1);
+  --_o3-typography-link-standard-bottom-color: #a4ccb8;
+  --_o3-typography-link-standard-color: #262a33;
+  --_o3-typography-link-standard-hover-color: #262a33;
+  --_o3-typography-link-standard-hover-bottom-color: #a4ccb8;
+  --_o3-typography-link-standard-focus-color: #262a33;
+  --_o3-typography-link-standard-focus-bottom-color: #ffffff00;
+  --_o3-typography-link-inverse-bottom-color: #c0efd8;
+  --_o3-typography-link-inverse-color: #c0efd8;
+  --_o3-typography-link-inverse-hover-color: #8fb3a1;
+  --_o3-typography-link-inverse-hover-bottom-color: #8fb3a1;
+  --_o3-typography-link-inverse-focus-color: #8fb3a1;
+  --_o3-typography-link-inverse-focus-bottom-color: #ffffff00;
 }
