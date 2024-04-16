@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.13](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.12...o-overlay-v4.2.13) (2024-04-16)
+
+
+### Bug Fixes
+
+* set aria-modal according to opts.modal (o-overlay) ([#1564](https://github.com/Financial-Times/origami/issues/1564)) ([8afb206](https://github.com/Financial-Times/origami/commit/8afb206544d8caa7d6cb5144cccd74307f8a8419))
+
 ## [4.2.12](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.11...o-overlay-v4.2.12) (2024-02-26)
 
 
