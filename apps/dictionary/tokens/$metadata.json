@@ -15,6 +15,7 @@
     "core/professional/use-case/color",
     "core/professional/components/o3-button",
     "core/professional/components/o3-tooltip",
+    "core/professional/components/o3-typography",
     "internal/base/color",
     "internal/base/typography",
     "internal/base/spacing",

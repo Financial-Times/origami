@@ -62,66 +62,6 @@
             }
           }
         },
-        "professional": {
-          "bottom-color": {
-            "value": "#a4ccb8",
-            "type": "color"
-          },
-          "color": {
-            "value": "#262a33",
-            "type": "color"
-          },
-          "hover": {
-            "color": {
-              "value": "#262a33",
-              "type": "color"
-            },
-            "bottom-color": {
-              "value": "#a4ccb8",
-              "type": "color"
-            }
-          },
-          "focus": {
-            "color": {
-              "value": "#262a33",
-              "type": "color"
-            },
-            "bottom-color": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          }
-        },
-        "professional-inverse": {
-          "bottom-color": {
-            "value": "#c0efd8",
-            "type": "color"
-          },
-          "color": {
-            "value": "#c0efd8",
-            "type": "color"
-          },
-          "hover": {
-            "color": {
-              "value": "#8fb3a1",
-              "type": "color"
-            },
-            "bottom-color": {
-              "value": "#8fb3a1",
-              "type": "color"
-            }
-          },
-          "focus": {
-            "color": {
-              "value": "#8fb3a1",
-              "type": "color"
-            },
-            "bottom-color": {
-              "value": "#ffffff00",
-              "type": "color"
-            }
-          }
-        },
         "live": {
           "color": {
             "value": "#fcd0b1",

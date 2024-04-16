@@ -28,7 +28,7 @@
         "link-inverse": {
           "text": {
             "@": {
-              "value": "{o3.color.palette.white}",
+              "value": "#",
               "type": "color"
             },
             "hover": {
@@ -38,7 +38,7 @@
           },
           "underline": {
             "@": {
-              "value": "{o3.color.palette.white}",
+              "value": "#",
               "type": "color"
             },
             "hover": {
