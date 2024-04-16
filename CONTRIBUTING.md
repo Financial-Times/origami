@@ -36,3 +36,14 @@ feat!: add large mouse
 
 this is breaking because it may distract large cats in user code
 ```
+
+## Pull requests and visual regression tests
+
+Visual regression tests are very important to detect visual bugs in Origami components. When you submit a pull request, the CI doesn't automatically run visual regression checks. You can add a `chromatic` label on pull requests to trigger visual regression tests.
+
+This will trigger chromatic deployment and after deployment there will be two additional checks on the pull request: [UI Tests and UI Review](https://www.chromatic.com/docs/in-pull-request/).
+![alt text](https://www.chromatic.com/docs/_astro/chromatic-during-pull-request.W6fp0tS2_1v1ld.webp)
+
+We will need to approve UI Review and UI Tests from Chromatic app. Once both checks are approved, the pull request can be merged.
+
+> NOTE: `chromatic` label only works on o3-[component]. If you are working on o-[component], you can add a `percy` label instead on the pull request.
