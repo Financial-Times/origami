@@ -43,10 +43,10 @@ Origami implements visual regression tests for o3 components to make it sure tha
 
 > **Chromatic** is a visual testing & review tool that scans every possible UI state across browsers to catch visual and functional bugs. It helps us to assign reviewers and resolve discussions to streamline team sign-off.
 
-To trigger visual testing & review tool you can add a `chromatic` label. This label should be added just before requesting a review to avoid retriggers on subsequent commits.
+To trigger visual testing & review tool you can add a `chromatic` github label. This label should be added just before requesting a review to avoid retriggers on subsequent commits.
 
-This will trigger chromatic deployment and after deployment there will be two additional checks on the pull request: [UI Tests and UI Review](https://www.chromatic.com/docs/in-pull-request/).
+This will trigger chromatic deployment and after deployment there will be two additional checks on the pull "request": [UI Tests and UI Review](https://www.chromatic.com/docs/in-pull-request/).
 
 ![alt text](https://www.chromatic.com/docs/_astro/chromatic-during-pull-request.W6fp0tS2_1v1ld.webp)
 
-To pass additional check on the PR we will need to approve UI Review and UI Tests from Chromatic app. Once both checks are approved, the pull request can be merged.
+To pass additional check on the PR we will need to approve UI Review and UI Tests from [Chromatic app](https://www.chromatic.com/reviews?appId=64faf6b1815b6c0106f82e74). Once both checks are approved, the pull request can be merged.
