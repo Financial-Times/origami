@@ -1,0 +1,40 @@
+.o3-typography-body {
+	font-family: MetricWeb, sans-serif;
+	font-weight: var(--o3-typography-use-case-body-s-font-weight);
+	font-size: var(--o3-typography-use-case-body-s-font-size);
+	line-height: var(--o3-typography-use-case-body-s-line-height);
+	margin: 0 0 var(--o3-spacing-s);
+	color: var(--_o3-typography-body-color);
+}
+
+.o3-typography-body[data-o3-theme="inverse"] {
+	color: var(--_o3-typography-body-inverse-color);
+}
+
+.o3-typography-bold {
+	font-weight: var(--o3-typography-use-case-body-s-bold-font-weight);
+}
+
+.o3-typography-italic {
+	font-style: italic;
+}
+
+.o3-typography-sub {
+	font-family: MetricWeb, sans-serif;
+	font-size: 0.666em;
+	position: static;
+	vertical-align: sub;
+	line-height: 0;
+	display: inline-block;
+	margin-bottom: -1em;
+}
+
+.o3-typography-sup {
+	font-family: MetricWeb, sans-serif;
+	font-size: 0.666em;
+	position: static;
+	vertical-align: super;
+	line-height: 0;
+	display: inline-block;
+	margin-top: -1em;
+}
