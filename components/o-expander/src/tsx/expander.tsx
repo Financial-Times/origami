@@ -24,7 +24,7 @@ export interface ExpanderProps {
 	expandedText?: string;
 }
 
-export function Expander({header = null, children, expanded}: ExpanderProps) {
+export function Expander({header = undefined, children, expanded}: ExpanderProps) {
 	return (
 		<div
 			data-o-component="o-expander"
@@ -32,10 +32,12 @@ export function Expander({header = null, children, expanded}: ExpanderProps) {
 			data-o-expander-shrink-to="hidden">
 			{header}
 			<button className="o-expander__toggle">
-				{expanded ?
-					'hide' :
-					`show ${<span className="o-expander__visually-hidden">(content will be added above button)</span>}`
-				}
+				{expanded ? 'hide' : 'show'}
+				{!expanded && (
+					<span className="o-expander__visually-hidden">
+						(content will be added above button)
+					</span>
+				)}
 			</button>
 			<div
 				className="o-expander__content"
