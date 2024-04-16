@@ -28,7 +28,7 @@
         "link-inverse": {
           "text": {
             "@": {
-              "value": "#",
+              "value": "{o3.color.palette.white}",
               "type": "color"
             },
             "hover": {
