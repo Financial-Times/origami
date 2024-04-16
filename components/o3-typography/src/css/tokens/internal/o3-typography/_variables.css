@@ -84,4 +84,5 @@
   --_o3-typography-body-font-size: var(--o3-font-size-3);
   --_o3-typography-body-line-height: var(--o3-font-lineheight-1);
   --_o3-typography-body-color: var(--o3-color-palette-black);
+  --_o3-typography-body-inverse-color: var(--o3-color-palette-white);
 }
