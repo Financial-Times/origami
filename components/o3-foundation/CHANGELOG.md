@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.4...o3-foundation-v1.0.5) (2024-04-15)
+
+
+### Bug Fixes
+
+* set values for internal and whitelabel link-inverse use case tokens ([#1561](https://github.com/Financial-Times/origami/issues/1561)) ([b4061cf](https://github.com/Financial-Times/origami/commit/b4061cf86a276b865ec9ae737ac7922b4912dd6c))
+
 ## [1.0.4](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.3...o3-foundation-v1.0.4) (2024-04-12)
 
 
