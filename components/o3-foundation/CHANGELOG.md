@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 
-* fix token collision error ([#1526](https://github.com/Financial-Times/origami/issues/1526)) ([6346702](https://github.com/Financial-Times/origami/commit/63467024f237f9f2771caae28b5fa6cdda78e7b4))
+* fix token collision errors and generating new tokens ([#1526](https://github.com/Financial-Times/origami/issues/1526)) ([6346702](https://github.com/Financial-Times/origami/commit/63467024f237f9f2771caae28b5fa6cdda78e7b4))
 
 ## [1.0.5](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.4...o3-foundation-v1.0.5) (2024-04-15)
 
