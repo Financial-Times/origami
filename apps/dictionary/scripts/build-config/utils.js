@@ -115,21 +115,6 @@ StyleDictionaryPackage.registerTransform({
 	},
 });
 
-/**
- * @callback TokenFilter
- * @param {object} token
- * @returns {boolean}
- */
-
-/**
- * @typedef {Object} CssBuildConfig - Configuration for building CSS from Token Studio design tokens.
- * @property {string[]} sources - The design token files to include.
- * @property {string[]|undefined} [includes] - The component design token files to include. Include tokens will be overridden by "source" attribute tokens. This should be used for sub-brands that reference their parent brand.
- * @property {string} destination - The output file path.
- * @property {TokenFilter|undefined} [tokenFilter] - A function to filter tokens to include.
- * @property {string|undefined} [parentSelector] - A parent CSS selector for generated CSS.
- */
-
 const transformers = [
 	'Origami/pxToRem',
 	'ts/size/px',
@@ -144,6 +129,20 @@ const transformers = [
 	'name/cti/kebab',
 	'name/origamiPrivatePrefix',
 ];
+
+/**
+ * @callback TokenFilter
+ * @param {object} token
+ * @returns {boolean}
+ */
+/**
+ * @typedef {Object} CssBuildConfig - Configuration for building CSS from Token Studio design tokens.
+ * @property {string[]} sources - The design token files to include.
+ * @property {string[]|undefined} [includes] - The component design token files to include. Include tokens will be overridden by "source" attribute tokens. This should be used for sub-brands that reference their parent brand.
+ * @property {string} destination - The output file path.
+ * @property {TokenFilter|undefined} [tokenFilter] - A function to filter tokens to include.
+ * @property {string|undefined} [parentSelector] - A parent CSS selector for generated CSS.
+ */
 
 /**
  * @param {CssBuildConfig} CssBuildConfig - A string param.
@@ -280,9 +279,9 @@ function tokenStudioThemeToBrand(theme) {
  * @returns {{sources: string[], includes: string[]}} - The source tokens and include tokens for the brand.
  */
 export function getBrandSourcesAndIncludes(brand) {
-	const theme = getTokenStudioThemes().filter(
+	const theme = getTokenStudioThemes().find(
 		theme => tokenStudioThemeToBrand(theme) === brand
-	)[0];
+	);
 	const selectedTokenSets = Object.keys(theme.selectedTokenSets);
 
 	const sourceTokens = selectedTokenSets.filter(tokenSet => {
