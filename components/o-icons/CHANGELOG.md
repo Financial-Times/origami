@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.8.0](https://github.com/Financial-Times/origami/compare/o-icons-v7.7.2...o-icons-v7.8.0) (2024-04-17)
+
+
+### Features
+
+* o-icons, add sparkles icon ([#1570](https://github.com/Financial-Times/origami/issues/1570)) ([7a3bc84](https://github.com/Financial-Times/origami/commit/7a3bc84abfe4fea272ffe7284188547568dcd4f6))
+
 ## [7.7.2](https://github.com/Financial-Times/origami/compare/o-icons-v7.7.1...o-icons-v7.7.2) (2024-04-11)
 
 
