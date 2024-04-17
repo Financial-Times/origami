@@ -157,7 +157,7 @@ export default {
 },
 	"o3-font-family-metric": {
 		"shortName": "metric",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "metric 2 VF",
 		"type": "fontFamilies",
 		"path": [
@@ -171,7 +171,7 @@ export default {
 },
 	"o3-font-family-financier-display": {
 		"shortName": "financier-display",
-		"value": "financier display VF",
+		"value": "'financier display VF'",
 		"originalValue": "financier display VF",
 		"type": "fontFamilies",
 		"path": [
@@ -997,7 +997,7 @@ export default {
 },
 	"o3-typography-use-case-heading1-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -1057,7 +1057,7 @@ export default {
 },
 	"o3-typography-use-case-heading2-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -1117,7 +1117,7 @@ export default {
 },
 	"o3-typography-use-case-heading3-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -1177,7 +1177,7 @@ export default {
 },
 	"o3-typography-use-case-body-l-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -1237,7 +1237,7 @@ export default {
 },
 	"o3-typography-use-case-body-s-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -1297,7 +1297,7 @@ export default {
 },
 	"o3-typography-use-case-link-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -1357,7 +1357,7 @@ export default {
 },
 	"o3-typography-use-case-footer-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -1417,7 +1417,7 @@ export default {
 },
 	"o3-typography-use-case-caption-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -1477,7 +1477,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-headline-large-l-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "'financier display VF'",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamilies",
 		"path": [
@@ -1537,7 +1537,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-headline-large-m-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "'financier display VF'",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamilies",
 		"path": [
@@ -1597,7 +1597,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-headine-large-s-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "'financier display VF'",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamilies",
 		"path": [
@@ -1657,7 +1657,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-headine-l-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "'financier display VF'",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamilies",
 		"path": [
@@ -1717,7 +1717,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-headine-m-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "'financier display VF'",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamilies",
 		"path": [
@@ -1777,7 +1777,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-headine-s-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "'financier display VF'",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamilies",
 		"path": [
@@ -1837,7 +1837,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-chapter-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -1897,7 +1897,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-subheading-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -1957,7 +1957,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-label-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -2137,7 +2137,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-topic-tag-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -2197,7 +2197,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-standfirst-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -2257,7 +2257,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-caption-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -2317,7 +2317,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-byline-author-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -2377,7 +2377,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-byline-location-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -2437,7 +2437,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-byline-timestamp-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -2497,7 +2497,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-quote-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
@@ -2557,7 +2557,7 @@ export default {
 },
 	"o3-editorial-typography-use-case-quote-author-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "'metric 2 VF'",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamilies",
 		"path": [
