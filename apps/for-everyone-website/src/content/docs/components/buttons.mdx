@@ -7,48 +7,10 @@ import {Button} from '@financial-times/o3-button';
 import '@financial-times/o3-button/css/whitelabel.css';
 import '@financial-times/o3-button/css/internal.css';
 import '@financial-times/o3-button/css/professional.css';
-import {renderToString} from 'react-dom/server';
-import {Code} from 'astro:components';
 import {default as ButtonAnatomy} from '../../../components/ButtonAnatomy.astro';
+import {default as Preview} from '../../../components/ButtonPreview.astro';
 import {Content as ButtonGuidelines} from '../../../content-partial/docs/components/buttons-guidelines.mdx';
-
-export function Preview({component: Component, componentProps} = props) {
-	const ComponentInstance = Component(componentProps);
-	const componentHtml = renderToString(ComponentInstance);
-	const componentJSX = `<${Component.name} ${Object.entries(componentProps)
-		.map(p => `${p[0]}="${p[1]}"`)
-		.join(' ')} />`;
-	const inverse = componentProps['theme'] === 'inverse';
-	return (
-		<>
-			<div
-				style={`padding: var(--o3-spacing-2xs); margin-left: calc(var(--o3-spacing-2xs) * -1); ${
-					inverse ? 'background-color: black' : ''
-				}`}>
-				<Component {...componentProps} />
-			</div>
-			<a
-				style="display: inline-block; margin: var(--o3-spacing-2xs) 0;"
-				href={`https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/story/core-o3-${Component.name.toLowerCase()}--${Component.name.toLowerCase()}&args=${Object.entries(
-					componentProps
-				)
-					.map(p => `${p[0]}:${p[1]};`)
-					.join('')}`}>
-				Open in StoryBook
-			</a> | <a
-				style="display: inline-block; margin: var(--o3-spacing-2xs) 0;"
-				href="https://www.figma.com/file/VVM0PixrY3IRZq2ZUTdWfU/Core---Design-System?type=design&node-id=2819-133&mode=design">
-				Open in Figma
-			</a>
-			<details>
-				<summary>code</summary>
-				<Code code={componentJSX} lang="jsx" theme="css-variables" />
-				<Code code={componentHtml} lang="html" theme="css-variables" />
-			</details>
-			<hr />
-		</>
-	);
-}
+import {Content as ButtonBehaviour} from '../../../content-partial/docs/components/buttons-behaviour.mdx';
 
 Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
 
@@ -70,6 +32,10 @@ The button component contains two required elements and one optional element.
 
 <ButtonGuidelines />
 
+## Behaviour
+
+<ButtonBehaviour />
+
 ## Icons
 
 Buttons may be used with icons, without icons, or only icons.
@@ -77,6 +43,7 @@ Buttons may be used with icons, without icons, or only icons.
 ### Without icon
 
 <Preview
+	brand="core"
 	component={Button}
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
@@ -86,6 +53,7 @@ Buttons may be used with icons, without icons, or only icons.
 When icons are used, these are always left aligned.
 
 <Preview
+	brand="core"
 	component={Button}
 	componentProps={{label: 'Hello', type: 'primary', icon: 'search'}}
 />
@@ -93,6 +61,7 @@ When icons are used, these are always left aligned.
 ### Only icon
 
 <Preview
+	brand="core"
 	component={Button}
 	componentProps={{
 		label: 'Hello',
@@ -109,6 +78,7 @@ The button comes in two sizes: standard and small.
 ### Standard
 
 <Preview
+	brand="core"
 	component={Button}
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
@@ -116,6 +86,7 @@ The button comes in two sizes: standard and small.
 ### Small
 
 <Preview
+	brand="core"
 	component={Button}
 	componentProps={{label: 'Hello', type: 'primary', size: 'small'}}
 />
@@ -129,6 +100,7 @@ There are three types of buttons to support different contexts.
 The primary button is used for the most important calls to action on a page. Primary buttons should only appear once per product area (not including the application header, modal dialogue, on-site messaging, or side panel).
 
 <Preview
+	brand="core"
 	component={Button}
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
@@ -138,6 +110,7 @@ The primary button is used for the most important calls to action on a page. Pri
 For secondary actions on each page or used in conjunction with a primary button. As part of a pair, the secondary button’s function is to perform the negative action of the set, such as “Cancel” or “Back”.
 
 <Preview
+	brand="core"
 	component={Button}
 	componentProps={{label: 'Hello', type: 'secondary'}}
 />
@@ -146,7 +119,11 @@ For secondary actions on each page or used in conjunction with a primary button.
 
 For the least pronounced actions; often used in conjunction with a primary button. In a situation such as a progress flow, a ghost button may be paired with a primary and secondary button set, where the primary button is for ‘Save and continue’ the ghost button would be ‘Skip’.
 
-<Preview component={Button} componentProps={{label: 'Hello', type: 'ghost'}} />
+<Preview
+	brand="core"
+	component={Button}
+	componentProps={{label: 'Hello', type: 'ghost'}}
+/>
 
 ## Themes
 
@@ -155,6 +132,7 @@ Each button type supports the following themes.
 ### Standard
 
 <Preview
+	brand="core"
 	component={Button}
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
@@ -164,6 +142,7 @@ Each button type supports the following themes.
 An alternative theme for use on dark backgrounds.
 
 <Preview
+	brand="core"
 	component={Button}
 	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
 />
@@ -173,6 +152,7 @@ An alternative theme for use on dark backgrounds.
 Mono can be helpful where the standard theme distracts from other colour used, for example when placed near data visualisations.
 
 <Preview
+	brand="core"
 	component={Button}
 	componentProps={{label: 'Hello', type: 'primary', theme: 'mono'}}
 />
