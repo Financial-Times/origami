@@ -6,6 +6,8 @@ import {
 	STORY_CHANGED,
 } from '@storybook/core-events';
 
+import {allModes} from '../modes';
+
 const preview: Preview = {
 	parameters: {
 		viewport: {
@@ -13,6 +15,12 @@ const preview: Preview = {
 		        "360px": { name: "Small", styles: { width: "360px", height: "900px" } },
 		        "1200px": { name: "XLarge", styles: { width: "1200px", height: "900px" } },
 		      },
+		},
+		chromatic: {
+			modes: {
+				mobile: allModes["360px"],
+				desktop: allModes["1200px"],
+			},
 		},
 		html: {
 			prettier: {
