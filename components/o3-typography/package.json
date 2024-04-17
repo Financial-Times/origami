@@ -14,8 +14,12 @@
 	"license": "MIT",
 	"type": "module",
 	"files": [
-		"build",
-		"origami.json"
+		"cjs",
+		"esm",
+		"css",
+		"origami.json",
+		"package.json",
+		"README.md"
 	],
 	"exports": {
 		".": {
