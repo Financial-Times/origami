@@ -8,6 +8,12 @@ import {
 
 const preview: Preview = {
 	parameters: {
+		viewport: {
+      viewports: {
+        s: { name: "Small", styles: { width: "360px", height: "900px" } },
+        xl: { name: "XLarge", styles: { width: "1200px", height: "900px" } },
+      },
+    },
 		html: {
 			prettier: {
 				tabWidth: 2,
