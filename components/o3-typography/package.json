@@ -17,14 +17,8 @@
 		"build",
 		"origami.json"
 	],
-	"exports": {
-		".": {
-			"types": "./build/types/index.d.ts",
-			"import": "./build/jsx/index.js"
-		},
-		"./css/*": "./build/css/src/css/brands/*",
-		"./package.json": "./package.json"
-	},
+	"main": "./cjs/index.js",
+	"module": "./esm/index.js",
 	"types": "./build/types/index.d.ts",
 	"scripts": {
 		"build": "bash ../../scripts/component/build-o3.bash o3-typography"
