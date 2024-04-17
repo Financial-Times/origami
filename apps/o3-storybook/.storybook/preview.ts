@@ -12,8 +12,11 @@ const preview: Preview = {
 	parameters: {
 		viewport: {
 		      viewports: {
-		        "360px": { name: "Small", styles: { width: "360px", height: "900px" } },
-		        "1200px": { name: "XLarge", styles: { width: "1200px", height: "900px" } },
+			"default": { name: "Default", styles: { width: "240px", height: "900px" } },
+		        "s": { name: "Small", styles: { width: "490px", height: "900px" } },
+		        "m": { name: "Medium", styles: { width: "740px", height: "900px" } },
+			"l": { name: "Large", styles: { width: "980px", height: "900px" } },
+		      	"xl": { name: "XLarge", styles: { width: "1220px", height: "900px" } },
 		      },
 		},
 		chromatic: {
