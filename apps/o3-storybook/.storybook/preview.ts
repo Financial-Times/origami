@@ -22,7 +22,7 @@ const preview: Preview = {
 		chromatic: {
 			modes: {
 				mobile: allModes["360px"],
-				desktop: allModes["1200px"],
+				desktop: allModes["1220px"],
 			},
 		},
 		html: {
