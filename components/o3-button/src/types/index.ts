@@ -3,6 +3,7 @@ export interface ButtonProps {
 	label: string;
 	type: 'primary' | 'secondary' | 'ghost';
 	size?: 'small' | '';
+	fluid?: boolean;
 	theme?: 'inverse' | 'mono';
 	icon?:
 		| 'arrow-left'

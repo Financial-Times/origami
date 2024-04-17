@@ -40,6 +40,7 @@ export function Button({
 	label,
 	type = 'secondary',
 	size = '',
+	fluid = false,
 	theme,
 	icon,
 	iconOnly = false,
@@ -53,6 +54,9 @@ export function Button({
 	delete attributes.className;
 	if (theme) {
 		attributes['data-o3-theme'] = theme;
+	}
+	if (fluid) {
+		attributes['data-o3-fluid'] = '';
 	}
 	return (
 		<button
@@ -79,6 +83,7 @@ export function LinkButton({
 	label,
 	type = 'secondary',
 	size = '',
+	fluid = false,
 	theme,
 	icon,
 	iconOnly = false,
@@ -93,6 +98,9 @@ export function LinkButton({
 	delete attributes.className;
 	if (theme) {
 		attributes['data-o3-theme'] = theme;
+	}
+	if (fluid) {
+		attributes['data-o3-fluid'] = '';
 	}
 	return (
 		<a
