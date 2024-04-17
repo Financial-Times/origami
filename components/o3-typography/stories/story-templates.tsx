@@ -1,4 +1,4 @@
-import {Body, Heading, Link} from '../src/tsx';
+import {Body, Heading, Link, UnorderedList, OrderedList} from '../src/tsx';
 import {Emphasis, Strong, Subscript, Superscript} from '../src/tsx/body';
 import type {StoryObj} from '@storybook/react';
 import {BodyProps} from '@financial-times/o-typography/src/tsx/typography';
@@ -86,16 +86,51 @@ const LinkStory = {
 	...TemplateSBConfig,
 	render: args => {
 		return (
-			<Body theme={args.theme} brand={args.brand}>
+			<Body theme={args.theme}>
 				This page links back{' '}
-				<Link
-					href="https://origami.ft.com"
-					theme={args.theme}
-					brand={args.brand}>
+				<Link href="https://origami.ft.com" theme={args.theme}>
 					to Origami
 				</Link>
 				.
 			</Body>
+		);
+	},
+};
+
+const UnorderedListStory = {
+	...TemplateSBConfig,
+	render: args => {
+		return (
+			<>
+				<Heading level="1" theme={args.theme}>
+					Fun Origami Facts
+				</Heading>
+
+				<UnorderedList>
+					<li>Origami means "Folding Paper"</li>
+					<li>Origami involves folding paper</li>
+					<li>You need paper to do Origami</li>
+				</UnorderedList>
+			</>
+		);
+	},
+};
+
+const OrderedListStory = {
+	...TemplateSBConfig,
+	render: args => {
+		return (
+			<>
+				<Heading level="1" theme={args.theme}>
+					How to Origami
+				</Heading>
+
+				<OrderedList>
+					<li>Fold</li>
+					<li>Fold again</li>
+					<li>Crane</li>
+				</OrderedList>
+			</>
 		);
 	},
 };
@@ -110,4 +145,12 @@ export const HeadingTemplate: TemplateType = {
 
 export const LinkTemplate: TemplateType = {
 	...LinkStory,
+};
+
+export const UnorderedListTemplate: TemplateType = {
+	...UnorderedListStory,
+};
+
+export const OrderedListTemplate: TemplateType = {
+	...OrderedListStory,
 };

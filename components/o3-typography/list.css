@@ -1,0 +1,43 @@
+.o3-typography-list {
+	margin: 0 0 var(--o3-spacing-3xs);
+	padding: 0;
+	list-style: none;
+	> li {
+		position: relative;
+		padding-left: calc(2ch + 4px);
+
+		&:before {
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			transform-origin: center left;
+
+		}
+	}
+}
+
+.o3-typography-list--unordered {
+	> li {
+		&:before {
+			content: "\2022";
+			color: inherit;
+			transform: scale(1.5555555556);
+			margin-top: -0.2488888889ch;
+		}
+	}
+
+}
+
+.o3-typography-list--ordered {
+	counter-reset: item;
+	> li {
+		&:before {
+			font-weight: var(--o3-font-weight-semibold);
+			content: counter(item);
+			counter-increment: item;
+			font-feature-settings: "tnum";
+			transform: scale(0.8888888889);
+			margin-left: -0.1422222222ch;
+		}
+	}
+}
