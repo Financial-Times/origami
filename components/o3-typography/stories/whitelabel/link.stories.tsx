@@ -1,7 +1,7 @@
 import * as TypographyStories from '../story-templates';
 import {Link as LinkTsx} from '../../src/tsx';
 
-import '../../src/css/brands/internal.css';
+import '../../src/css/brands/whitelabel.css';
 import {Meta} from '@storybook/react';
 
 export default {
