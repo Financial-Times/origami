@@ -5,23 +5,18 @@ on:
     branches:
       - main
     paths:
-      - 'components/o3-*/package.json'
       - 'apps/o3-storybook/**'
       - '!apps/o3-storybook/**/*.md'
       - 'components/o3-*/**'
       - '!components/o3-*/*.md'
   pull_request:
     types:
-      - opened
-      - reopened
-      - synchronize
       - labeled
     paths:
-      - 'package.json'
-      - 'package-lock.json'
       - 'apps/o3-storybook/**'
-      - '!components/o3-*/*.md'
+      - '!apps/o3-storybook/**/*.md'
       - 'components/o3-*/**'
+      - '!components/o3-*/*.md'
 
 jobs:
   chromatic-deployment:
