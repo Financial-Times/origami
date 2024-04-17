@@ -3,7 +3,7 @@ import {getStyleAttributes, StyleArguments} from './getStyleAttributes';
 export const Body: React.FC<
 	{children: React.ReactNode; style?: 'italic'} & StyleArguments
 > = ({children, theme, style}) => {
-	const classes = ['o3-typography', 'o3-typography-body', 'o4'];
+	const classes = ['o3-typography', 'o3-typography-body'];
 
 	if (style === 'italic') {
 		classes.push('o3-typography-italic');
