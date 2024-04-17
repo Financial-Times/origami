@@ -1,8 +1,11 @@
 export const allModes = {
   "360px": {
-    viewport: "360px",
+    viewport: {
+      width: "360px",
+      height: "900px",
+    },
   },
-  "1200px": {
-    viewport: "1200px",
+  "1220px": {
+    viewport: "xl",
   },
 };
