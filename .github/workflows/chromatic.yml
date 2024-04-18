@@ -39,3 +39,4 @@ jobs:
           exitOnceUploaded: true
           onlyChanged: true
           autoAcceptChanges: "main" # 👈 Option to accept all changes on main
+          skip: "release-please--branches--main" # 👈 Option to skip Chromatic for certain branches
