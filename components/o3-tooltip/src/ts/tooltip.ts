@@ -43,7 +43,9 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 
 	connectedCallback() {
 		this.content = this.getAttribute('content') as string;
-		this.title = this.getAttribute('title') as string;
+		if (this.hasAttribute('title')) {
+			this.title = this.getAttribute('title') as string;
+		}
 		this.contentId = this.getAttribute('content-id') as string;
 	}
 
