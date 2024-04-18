@@ -1,4 +1,4 @@
-name: 'Chromatic'
+name: 'Chromatic deployment – O3'
 
 on:
   push:
@@ -19,7 +19,7 @@ on:
       - '!components/o3-*/*.md'
 
 jobs:
-  chromatic-deployment:
+  chromatic-deployment-o3:
     if: ${{ github.event.label.name == 'chromatic' || github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
@@ -38,5 +38,5 @@ jobs:
           storybookBaseDir: apps/o3-storybook
           exitOnceUploaded: true
           onlyChanged: true
-          autoAcceptChanges: "main" # 👈 Option to accept all changes on main
-          skip: "release-please--branches--main" # 👈 Option to skip Chromatic for certain branches
+          autoAcceptChanges: 'main' # 👈 Option to accept all changes on main
+          skip: 'release-please--branches--main' # 👈 Option to skip Chromatic for certain branches
