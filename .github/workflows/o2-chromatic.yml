@@ -1,17 +1,17 @@
-name: 'Chromatic'
+name: 'Chromatic deployment – O2'
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - "package.json"
-      - "package-lock.json"
-      - "apps/o2-storybook/**"
-      - "components/**"
-      - "!components/o3-*/**"
+      - 'package.json'
+      - 'package-lock.json'
+      - 'apps/o2-storybook/**'
+      - 'components/**'
+      - '!components/o3-*/**'
 
 jobs:
-  chromatic-deployment:
+  chromatic-deployment-o2:
     strategy:
       matrix:
         brand: [core, internal, whitelabel]
