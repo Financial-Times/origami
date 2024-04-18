@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/Financial-Times/origami/compare/o3-tooltip-v1.0.2...o3-tooltip-v1.0.3) (2024-04-18)
+
+
+### Bug Fixes
+
+* fix overlapping header on the cross icon ([#1583](https://github.com/Financial-Times/origami/issues/1583)) ([4fdd7ec](https://github.com/Financial-Times/origami/commit/4fdd7eccd23f1625592e2298c4149d853136c5df))
+
 ## [1.0.2](https://github.com/Financial-Times/origami/compare/o3-tooltip-v1.0.1...o3-tooltip-v1.0.2) (2024-04-10)
 
 
