@@ -47,6 +47,7 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 	font-size: var(--o3-font-size-0);
 	color: inherit;
 	margin-bottom: var(--o3-spacing-4xs);
+	padding-right: calc(var(--padding-right) + 5px); /* add extra 5px padding to create space between close button */
 }
 
 /* ARROW STYLES */
