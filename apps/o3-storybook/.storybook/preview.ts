@@ -6,7 +6,7 @@ import {
 	STORY_CHANGED,
 } from '@storybook/core-events';
 
-import {allModes} from '../modes';
+import {allModes} from './modes';
 
 const preview: Preview = {
 	parameters: {
