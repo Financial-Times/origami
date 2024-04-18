@@ -42,6 +42,10 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 	margin-right: var(--icon-button-size);
 }
 
+o3-tooltip-onboarding[no-title]  .o3-tooltip-content-title, o3-tooltip-toggle[no-title]  .o3-tooltip-content-title {
+	display: none;
+}
+
 .o3-tooltip-content-title {
 	font-weight: var(--o3-font-weight-semibold);
 	font-size: var(--o3-font-size-0);
