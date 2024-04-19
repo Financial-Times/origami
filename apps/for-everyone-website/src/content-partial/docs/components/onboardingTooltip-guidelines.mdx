@@ -60,15 +60,15 @@ import {Button} from '@financial-times/o3-button';
 
 <Guideline summary="Refrain from using headings" do={true}>
 	<p slot="description">
-		Use headings only for presentational reasons, provided emphasis is not
-		required for understanding, as emphasis is not provided for screen reader
-		users.
+		Use headings only for presentational reasons, as emphasis is not provided for screen reader
+		users. When a heading is used ensure: The extra visual emphasis is not
+		required for understanding; and heading copy flows into body copy without duplication.
 	</p>
-	<Example slot="examples" do={true}>
+	<Example slot="examples" do={false}>
 		<div style="position: relative; width: 400px; height: 200px;">
 			<Button
 				attributes={{
-					id: 'demo-onboarding-tooltip-do-3',
+					id: 'demo-onboarding-tooltip-4',
 					style: {
 						position: 'absolute',
 						right: '60px',
@@ -79,9 +79,9 @@ import {Button} from '@financial-times/o3-button';
 				type="secondary"
 			/>
 			<TooltipOnboarding
-				targetId="demo-onboarding-tooltip-do-3"
-				content="Introducing Enhanced Search: Now you can use natural language to find exactly what you're looking for, faster."
-				title=""
+				targetId="demo-onboarding-tooltip-4"
+				content="Now you can use natural language to find exactly what you're looking for, faster."
+				title="Introducing Enhanced Search"
 				contentId="demo-onboarding-tooltip-contnent"
 				placement="right"
 			/>
@@ -103,8 +103,8 @@ import {Button} from '@financial-times/o3-button';
 			/>
 			<TooltipOnboarding
 				targetId="demo-onboarding-tooltip-4"
-				content="Now you can use natural language to find exactly what you're looking for, faster."
-				title="Introducing Enhanced Search"
+				content="Enhanced Search means you can use natural language to find exactly what you're looking for, faster."
+				title="Enhanced Search"
 				contentId="demo-onboarding-tooltip-contnent"
 				placement="right"
 			/>
