@@ -74,6 +74,18 @@ import { Link, Body } from '@financial-times/o3-typography';
 <Body>Styling and usage guides can be seen on the <Link href="#">Origami</Link> homepage.</Body>
 ```
 
+### Footer
+
+```html
+<footer class="o3-typography-footer">Copyright notice</footer>
+```
+
+```tsx
+import { Footer } from '@financial-times/o3-typography';
+
+<Footer>Copyright notice</Footer>
+```
+
 ### Modifiers
 
 O3 Typography comes with 4 modifier classes:

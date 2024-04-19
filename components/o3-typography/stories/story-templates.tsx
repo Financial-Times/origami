@@ -1,4 +1,4 @@
-import {Body, Heading, Link} from '../src/tsx';
+import {Body, Footer, Heading, Link} from '../src/tsx';
 import {Emphasis, Strong, Subscript, Superscript} from '../src/tsx/body';
 import type {StoryObj} from '@storybook/react';
 import {BodyProps} from '@financial-times/o-typography/src/tsx/typography';
@@ -98,6 +98,12 @@ const LinkStory = {
 			</Body>
 		);
 	},
+};
+
+export const FooterTemplate = {
+	render: props => (
+		<Footer weight={props.weight}>Footer such as copyright notice.</Footer>
+	),
 };
 
 export const BodyTemplate: TemplateType = {

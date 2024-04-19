@@ -11,14 +11,6 @@
 	color: var(--_o3-typography-body-inverse-color);
 }
 
-.o3-typography-bold {
-	font-weight: var(--o3-typography-use-case-body-s-bold-font-weight);
-}
-
-.o3-typography-italic {
-	font-style: italic;
-}
-
 .o3-typography-sub {
 	font-family: MetricWeb, sans-serif;
 	font-size: 0.666em;
