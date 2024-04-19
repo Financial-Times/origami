@@ -1,15 +1,15 @@
-name: 'Chromatic Origami 2 Composition'
+name: 'Chromatic deployment – O2 composition'
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - "package.json"
-      - "package-lock.json"
-      - "apps/o2-storybook-composition/**"
+      - 'package.json'
+      - 'package-lock.json'
+      - 'apps/o2-storybook-composition/**'
 
 jobs:
-  chromatic-deployment:
+  chromatic-deployment-o2-composition:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
