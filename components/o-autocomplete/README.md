@@ -236,9 +236,13 @@ This function is used to override the default rendering of suggestion items, wit
 
 It is typically used when wanting to provide additional context or styling for each suggestion item.
 
+The `query` value (text which was typed into the autocomplete text input field by the user) is provided so that it can be used as a basis for highlighting the `option` value (or one of its values if it is an object).
+
 :warning: **Caution:** because this function allows you to output arbitrary HTML, you should [make sure it's trusted](https://en.wikipedia.org/wiki/Cross-site_scripting), and accessible. The HTML will be output within listbox options, so [ensure all descendants are presentational](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/option_role#all_descendants_are_presentational).
 
 #### Example
+
+Providing additional context by displaying multiple `option` properties:
 
 ```js
 import oAutocomplete from 'o-autocomplete';
@@ -250,6 +254,7 @@ async function customSuggestions(query, populateOptions) {
 
 /**
  * @param {{"name": string, "role": string}} option - The option to transform into a suggestion
+ * @param {string} [query] - Text which was typed into the autocomplete text input field by the user
  * @returns {string} The HTML to render in the suggestion list*/
 function suggestionTemplate(option) {
 	return `
@@ -267,6 +272,60 @@ new oAutocomplete(oAutocompleteElement, {
 });
 ```
 
+Using the `query` value to apply highlighting to one of the `option` properties:
+
+```js
+import oAutocomplete from 'o-autocomplete';
+
+async function customSuggestions(query, populateOptions) {
+    const suggestions = await getSuggestions(query);
+    populateOptions(suggestions);
+}
+
+function highlightSuggestion(suggestion, query) {
+    const result = suggestion.split('');
+
+    const matchIndex = suggestion.toLocaleLowerCase().indexOf(query.toLocaleLowerCase());
+    return result.map(function(character, index) {
+        let shouldHighlight = true;
+        const hasMatched = matchIndex > -1;
+        const characterIsWithinMatch = index >= matchIndex && index <= matchIndex + query.length - 1;
+        if (hasMatched && characterIsWithinMatch) {
+            shouldHighlight = false;
+        }
+        return [character, shouldHighlight];
+    });
+}
+
+/**
+ * @param {{"name": string, "role": string}} option - The option to transform into a suggestion
+ * @param {string} [query] - Text which was typed into the autocomplete text input field by the user
+ * @returns {string} The HTML to render in the suggestion list*/
+function suggestionTemplate(option, query) {
+    const characters = highlightSuggestion(option.name, query || option.name);
+
+    let output = '';
+    for (const [character, shoudHighlight] of characters) {
+        if (shoudHighlight) {
+            output += `<span class="o-autocomplete__option--highlight">${character}</span>`;
+        } else {
+            output += `${character}`;
+        }
+    }
+    output += ` (${option.role})`;
+    const span = document.createElement('span');
+    span.setAttribute('aria-label', option.name);
+    span.innerHTML = output;
+    return span.outerHTML;
+}
+
+const oAutocompleteElement = document.getElementById('my-o-autocomplete-element');
+new oAutocomplete(oAutocompleteElement, {
+    suggestionTemplate,
+    source: customSuggestions,
+});
+```
+
 <a name="SuggestionTemplate"></a>
 
 #### SuggestionTemplate ⇒ <code>string</code>
@@ -274,7 +333,8 @@ new oAutocomplete(oAutocompleteElement, {
 
 | Param | Type | Description |
 | --- | --- | --- |
-| option | <code>\*</code> | The option to transform into a suggestio  |
+| option | <code>\*</code> | The option to transform into a suggestion  |
+| query | <code>string</code> | Text which was typed into the autocomplete text input field by the user  |
 
 ### onConfirm
 
