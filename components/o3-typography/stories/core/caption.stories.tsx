@@ -16,7 +16,7 @@ export default {
 		),
 	],
 	parameters: {
-		backgrounds: {default: 'white'},
+		backgrounds: {default: 'paper'},
 	},
 } as Meta;
 
