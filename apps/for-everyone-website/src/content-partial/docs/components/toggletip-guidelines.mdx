@@ -1,0 +1,66 @@
+import {default as Example} from '../../../components/Example.astro';
+import {default as Guideline} from '../../../components/Guideline.astro';
+import {TooltipToggle} from '@financial-times/o3-tooltip';
+import {Button} from '@financial-times/o3-button';
+
+<Guideline summary="Do not obstruct other elements" do={true}>
+	<p slot="description">
+		Ensure toggletips do not obstruct other interface elements.
+	</p>
+	<Example slot="examples" do={true}>
+		<div style="position: relative; width: 400px; height: 200px; left: 100px; top: 100px;">
+			<div style="display: flex; gap: var(--o3-spacing-s);">
+					<Button
+						label="Important button"
+						type="secondary"
+					/>
+					<TooltipToggle
+						content="Example of a toggletip that behaves normally and doesn't cover other UI elements."
+						placement="right"
+						title=''
+					/>
+				</div>
+    </div>
+  </Example>
+	<Example slot="examples" do={false}>
+		<div style="position: relative; width: 400px; height: 200px; left: 100px; top: 100px;">
+			<div style="display: flex; gap: var(--o3-spacing-s);">
+					<Button
+						label="Important button"
+						type="secondary"
+					/>
+					<TooltipToggle
+						content="Example of a toggletip that covers other UI elements."
+						placement="left"
+						title=''
+					/>
+				</div>
+		</div>
+	</Example>
+
+</Guideline>
+
+<Guideline summary="Use only for additional context" do={true}>
+	<p slot="description">
+		Use toggletips to provide additional context, provided it is not essential.
+	</p>
+
+	<Example slot="examples" do={false}>
+		<div style="position: relative; width: 400px; height: 200px; left: 100px; top: 100px;">
+			<div style="display: flex">
+				  <label>
+						<div style="display: flex">
+							<span style="margin-right: 5px">Password</span>
+							<TooltipToggle
+								placement="right"
+								content="Your password must contain at least one special character."
+								title=''
+							/>
+						</div>
+						<input type='password' />
+					</label>
+				</div>
+		</div>
+	</Example>
+
+</Guideline>

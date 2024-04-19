@@ -60,3 +60,40 @@ import {Button} from '@financial-times/o3-button';
     </Example>
 
 </Guideline>
+
+<Guideline summary="Don’t use full width buttons in wide containers" do={false}>
+    <div slot="description">
+		Instead use <a href="#width">fluid buttons</a>, which are full-width for small devices or containers up to around 400px width. Otherwise, button width should default to its content length.
+    </div>
+
+    <Example slot="examples" do={true}>
+    	<svg role="presentation" width="217" height="128" viewBox="0 0 217 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+    		<rect width="64.1379" height="127.741" rx="4" fill="#D9D9D9"/>
+    		<rect x="70.0172" width="146.983" height="88.7241" fill="#D9D9D9"/>
+    		<rect x="4.27588" y="112.242" width="55.5862" height="9.08621" fill="#0D7680"/>
+    		<rect x="76.431" y="71.0859" width="53.4483" height="11.2241" fill="#0D7680"/>
+    	</svg>
+    </Example>
+
+    <Example slot="examples" do={false}>
+    	<svg
+    		role="presentation"
+    		width="217"
+    		height="128"
+    		viewBox="0 0 217 128"
+    		fill="none"
+    		xmlns="http://www.w3.org/2000/svg">
+    		<rect width="64.1379" height="127.741" rx="4" fill="#D9D9D9" />
+    		<rect x="70.0172" width="146.983" height="88.7241" fill="#D9D9D9" />
+    		<rect
+    			x="4.27588"
+    			y="112.242"
+    			width="55.5862"
+    			height="9.08621"
+    			fill="#0D7680"
+    		/>
+    		<rect x="76" y="71" width="135" height="11" fill="#0D7680" />
+    	</svg>
+    </Example>
+
+</Guideline>

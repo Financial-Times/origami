@@ -58,6 +58,7 @@ export const icons = [
 	'share',
 	'skip-backward-30',
 	'skip-forward-30',
+	'sparkles',
 	'speech-left',
 	'speech-right',
 	'speech',

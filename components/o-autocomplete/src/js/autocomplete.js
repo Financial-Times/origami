@@ -15,7 +15,7 @@ import accessibleAutocomplete from '@financial-times/accessible-autocomplete';
 
 /**
  * @param {string} suggestion - Text which is going to be suggested to the user
- * @param {string} query - Text which was typed into the autocomplete by the user
+ * @param {string} query - Text which was typed into the autocomplete text input field by the user
  * @returns {CharacterHighlight[]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
  */
 function highlightSuggestion(suggestion, query) {
@@ -289,13 +289,14 @@ class Autocomplete {
 					 * Used when rendering suggestions, the return value of this will be used as the innerHTML for a single suggestion.
 					 *
 					 * @param {*} option The suggestion to apply the template with.
+					 * @param {string} query Text which was typed into the autocomplete text input field by the user.
 					 * @returns {string|undefined} HTML string to represent a single suggestion.
 					 */
-					suggestion: (option) => {
+					suggestion: (option, query) => {
 						// If the suggestionTemplate override option is provided,
 						// use that to render the suggestion.
 						if(typeof this.options.suggestionTemplate === 'function') {
-							return this.options.suggestionTemplate(option);
+							return this.options.suggestionTemplate(option, query);
 						}
 						if (typeof option === 'object') {
 							// If the `mapOptionToSuggestedValue` function is defined

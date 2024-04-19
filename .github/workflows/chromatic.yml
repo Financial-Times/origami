@@ -1,22 +1,26 @@
-name: 'Chromatic'
+name: 'Chromatic deployment – O3'
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/o3-storybook/**'
+      - '!apps/o3-storybook/**/*.md'
+      - 'components/o3-*/**'
+      - '!components/o3-*/*.md'
   pull_request:
     types:
-      - opened
-      - reopened
-      - synchronize
       - labeled
     paths:
-      - 'package.json'
-      - 'package-lock.json'
       - 'apps/o3-storybook/**'
-      - '!components/o3-*/*.md'
+      - '!apps/o3-storybook/**/*.md'
       - 'components/o3-*/**'
+      - '!components/o3-*/*.md'
 
 jobs:
-  chromatic-deployment:
-    if: ${{ github.event.label.name == 'chromatic' }}
+  chromatic-deployment-o3:
+    if: ${{ github.event.label.name == 'chromatic' || github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -27,11 +31,11 @@ jobs:
         run: npm ci
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@v11
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: apps/o3-storybook
-          storybookBaseDir: apps/o3-storybook
+          storybookBaseDir: ./apps/o3-storybook
           exitOnceUploaded: true
           onlyChanged: true
-          autoAcceptChanges: "main" # 👈 Option to accept all changes on main
+          autoAcceptChanges: 'main' # 👈 Option to accept all changes on main
+          skip: 'release-please--branches--main' # 👈 Option to skip Chromatic for certain branches

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Financial-Times/origami/compare/o3-button-v1.0.3...o3-button-v1.1.0) (2024-04-17)
+
+
+### Features
+
+* Add support for fluid buttons [OR-629] ([#1566](https://github.com/Financial-Times/origami/issues/1566)) ([eabb3e8](https://github.com/Financial-Times/origami/commit/eabb3e80ca616603f42d45220008afdf7844fb37))
+
 ## [1.0.3](https://github.com/Financial-Times/origami/compare/o3-button-v1.0.2...o3-button-v1.0.3) (2024-04-10)
 
 

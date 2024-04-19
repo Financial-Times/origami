@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-autocomplete",
-  "version": "1.9.2",
+  "version": "1.10.0",
   "description": "An origami component for autocomplete inputs",
   "keywords": [
     "autocomplete",
@@ -47,7 +47,7 @@
     "@financial-times/o-utils": "^2.1.0"
   },
   "dependencies": {
-    "@financial-times/accessible-autocomplete": "^3.0.0"
+    "@financial-times/accessible-autocomplete": "^3.1.0"
   },
   "private": false
 }

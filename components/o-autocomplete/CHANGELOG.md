@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.9.2...o-autocomplete-v1.10.0) (2024-04-19)
+
+
+### Features
+
+* Enable highlighting of custom suggestions ([#1516](https://github.com/Financial-Times/origami/issues/1516)) ([c326099](https://github.com/Financial-Times/origami/commit/c3260998c4a8926f875e7ba95134b230ca517669))
+
 ## [1.9.2](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.9.1...o-autocomplete-v1.9.2) (2024-04-12)
 
 
