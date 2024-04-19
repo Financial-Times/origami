@@ -1,8 +1,45 @@
 ---
 const allTokens = await import(`@financial-times/o3-tooling-token/${Astro.props.brand}.js`);
 
+function isTypeScaleToken(token) {
+	if(token.type !== 'fontSizes' && token.type !== 'lineHeights') {
+		return false;
+	}
+	const scale = token.path[token.path.length - 1];
+	if(isNaN(scale) && !scale.includes('negative')) {
+		return false;
+	}
+	return true;
+};
+
+function isDefaultTypeScaleToken(token) {
+	if(!isTypeScaleToken(token)) {
+		return false;
+	}
+	const familyPathLocation = token.path.length - 2;
+	const familyInPath = token.path[familyPathLocation] !== 'lineheight' && token.path[familyPathLocation] !== 'size';
+	if(familyInPath) {
+		return false;
+	}
+	return true;
+};
+
+function isFamilyTypeScaleToken(token, family) {
+	if(!isTypeScaleToken(token)) {
+		return false;
+	}
+	const familyPathLocation = token.path.length - 2;
+	if(!token.path[familyPathLocation].includes(family)) {
+		return false;
+	}
+	return true;
+};
+
 // Extract type scale tokens
-const typeScaleTokens = Object.entries(allTokens.default).filter(([key]) => key.includes('o3-font-lineheight-') || key.includes('o3-font-size-'));
+const typeScaleTokensForFamily = Object.entries(allTokens.default).filter(([,token]) => isFamilyTypeScaleToken(token, Astro.props.scaleFamily));
+const defaultTypeScaleTokens = Object.entries(allTokens.default).filter(([,token]) => isDefaultTypeScaleToken(token));
+const typeScaleTokens = typeScaleTokensForFamily.length ? typeScaleTokensForFamily : defaultTypeScaleTokens;
+
 const typeScaleDetails = typeScaleTokens.map(([_key, value]) => ({
 	scale: parseInt(value.shortName.replace('negative', '').trim()),
 	type: value.type,
@@ -21,17 +58,17 @@ typeScaleDetails.forEach(token => {
 
 // Order iterable type scale.
 const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
-	return parseInt(a[0]) > parseInt(b[0]) ? 1 : -1
+	return parseInt(a[0]) > parseInt(b[0]) ? -1 : 1
 });
 ---
 
 <table class="type-scale-table">
 	<thead>
 		<tr>
-			<th width="230px">Sample</th>
-			<th width="70px">Scale</th>
-			<th>Font Size</th>
-			<th>Line Height</th>
+			<th width="32%">Sample</th>
+			<th width="9%">Scale</th>
+			<th width="27%">Font Size</th>
+			<th width="32%">Line Height</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -40,12 +77,11 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 
 			return (<tr>
 					<td
-						class="token-sample"
-						style=`line-height: ${scale.lineHeights.value}; font-size: ${scale.fontSizes.value}`>Don't settle for black and white
-					</td>
+						class={`token-sample ${Astro.props.scaleFamily ? `token-sample--${Astro.props.scaleFamily}` : ''}`}
+						style=`line-height: ${scale.lineHeights.value}; font-size: ${scale.fontSizes.value}`>Make sense of it all</td>
 					<td>{scaleKey}</td>
-					<td class="token-value">{scale.fontSizes.css} <br> ({scale.fontSizes.value} / {scale.fontSizes.originalValue}px)</td>
-					<td class="token-value">{scale.lineHeights.css} <br> ({scale.lineHeights.value} / {scale.lineHeights.originalValue}px)</td>
+					<td class="token-value">{scale.fontSizes.originalValue}px<br>{scale.fontSizes.css}</td>
+					<td class="token-value">{scale.lineHeights.originalValue}px<br>{scale.lineHeights.css}</td>
 					</tr>)
 		})
 	}
@@ -53,21 +89,29 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 </table>
 
 <style>
-
 	@font-face {
-		src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2')
+		src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=FinancierDisplay-VF&system_code=origami&font_format=woff2')
 			format('woff2');
-		font-family: 'Metric2-VF';
-		font-weight: 500;
+		font-family: 'financier display VF';
+		font-weight: 300 400 500 700 800;
 		font-style: normal;
-		type-scale-table: swap;
 	}
-
 	.token-sample {
 		vertical-align: center;
-		font-weight: 500;
-		font-family: 'Metric2-VF', sans-serif;
+		font-weight: var(--o3-font-weight-medium);
 		overflow: hidden;
+	}
+
+	.token-sample--metric2 {
+		font-family: var(--o3-font-family-metric);
+	}
+
+	.token-sample--financier-display {
+		font-family: var(--o3-font-family-financier-display);
+	}
+
+	.token-sample--georgia {
+		font-family: var(--o3-font-family-georgia);
 	}
 
 	.type-scale-table.type-scale-table {
