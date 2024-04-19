@@ -77,7 +77,7 @@ import { Link, Body } from '@financial-times/o3-typography';
 ### Footer
 
 ```html
-<footer class="o3-typography-footer">Copyright notice</footer>
+<footer class="o3-typography o3-typography-footer">Copyright notice</footer>
 ```
 
 ```tsx

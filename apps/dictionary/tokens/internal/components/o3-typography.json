@@ -182,6 +182,12 @@
             "type": "color"
           }
         }
+      },
+      "footer": {
+        "color": {
+          "value": "#262a33",
+          "type": "color"
+        }
       }
     }
   }

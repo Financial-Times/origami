@@ -172,6 +172,12 @@
             "type": "color"
           }
         }
+      },
+      "footer": {
+        "color": {
+          "value": "#000000",
+          "type": "color"
+        }
       }
     }
   }

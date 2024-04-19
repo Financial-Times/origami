@@ -5,7 +5,7 @@ type FooterProps = {
 	weight: 'normal' | 'bold';
 };
 export const Footer = ({children, weight = 'normal'}: FooterProps) => {
-	const classList = ['o3-typography-footer'];
+	const classList = ['o3-typography', 'o3-typography-footer'];
 
 	if (weight === 'bold') {
 		classList.push('o3-typography-bold');
