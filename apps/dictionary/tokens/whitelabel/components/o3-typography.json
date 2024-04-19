@@ -172,6 +172,12 @@
             "type": "color"
           }
         }
+      },
+      "caption": {
+        "color": {
+          "value": "{o3.color.palette.black}",
+          "type": "color"
+        }
       }
     }
   }

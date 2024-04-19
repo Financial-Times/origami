@@ -182,6 +182,12 @@
             "type": "color"
           }
         }
+      },
+      "caption": {
+        "color": {
+          "value": "#262a33",
+          "type": "color"
+        }
       }
     }
   }
