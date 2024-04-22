@@ -101,17 +101,11 @@ const UnorderedListStory = {
 	...TemplateSBConfig,
 	render: args => {
 		return (
-			<>
-				<Heading level="1" theme={args.theme}>
-					Fun Origami Facts
-				</Heading>
-
-				<UnorderedList>
-					<li>Origami means "Folding Paper"</li>
-					<li>Origami involves folding paper</li>
-					<li>You need paper to do Origami</li>
-				</UnorderedList>
-			</>
+			<UnorderedList>
+				<li>Origami means "Folding Paper"</li>
+				<li>Origami involves folding paper</li>
+				<li>You need paper to do Origami</li>
+			</UnorderedList>
 		);
 	},
 };
@@ -120,17 +114,11 @@ const OrderedListStory = {
 	...TemplateSBConfig,
 	render: args => {
 		return (
-			<>
-				<Heading level="1" theme={args.theme}>
-					How to Origami
-				</Heading>
-
-				<OrderedList>
-					<li>Fold</li>
-					<li>Fold again</li>
-					<li>Crane</li>
-				</OrderedList>
-			</>
+			<OrderedList>
+				<li>Fold</li>
+				<li>Fold again</li>
+				<li>Crane</li>
+			</OrderedList>
 		);
 	},
 };
