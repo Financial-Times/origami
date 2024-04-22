@@ -8,6 +8,7 @@ Typographical styles for FT branded sites.
   - [Headings](#headings)
   - [Body/Paragraphs](#bodyparagraphs)
   - [Links](#links)
+  - [List](#list)
   - [Modifiers](#modifiers)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -74,6 +75,41 @@ import { Link, Body } from '@financial-times/o3-typography';
 <Body>Styling and usage guides can be seen on the <Link href="#">Origami</Link> homepage.</Body>
 ```
 
+### List
+
+O3 Tygraphy provides styling for both ordered and unordered lists:
+
+#### HTML
+```html
+<ul class="o3-typography-list o3-typography-list--unordered">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+
+<ol class="o3-typography-list o3-typography-list--ordered">
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+</ol>
+```
+
+#### JSX
+```jsx
+import { List } from '@financial-times/o3-typography';
+
+<UnorderedList>
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+</UnorderedList>
+
+<OrderedList>
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+</OrderedList>
+```
 ### Modifiers
 
 O3 Typography comes with 4 modifier classes:
