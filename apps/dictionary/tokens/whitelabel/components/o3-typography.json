@@ -175,7 +175,7 @@
       },
       "footer": {
         "color": {
-          "value": "#000000",
+          "value": "{o3.color.palette.black}",
           "type": "color"
         }
       }
