@@ -34,7 +34,7 @@ jobs:
         uses: chromaui/action@v11
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: ./apps/o3-storybook
+          workingDir: apps/o3-storybook
           storybookBaseDir: ./
           exitOnceUploaded: true
           onlyChanged: true
