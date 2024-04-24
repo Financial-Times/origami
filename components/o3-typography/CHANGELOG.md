@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.2.0](https://github.com/Financial-Times/origami/compare/o3-typography-v0.1.1...o3-typography-v0.2.0) (2024-04-24)
+
+
+### Features
+
+* introduce Caption component and styles ([#1588](https://github.com/Financial-Times/origami/issues/1588)) ([76e55ba](https://github.com/Financial-Times/origami/commit/76e55baba9b8353c54387796698b54fe15df2fb5))
+* introduce Footer component and styles ([fdfd4ba](https://github.com/Financial-Times/origami/commit/fdfd4bae96e8c977033d9c83926027aceef084b4))
+* introduce o3 typography footer tokens ([4900a95](https://github.com/Financial-Times/origami/commit/4900a95d63d8817899937905dc8beea71ea48a3d))
+
 ## [0.1.1](https://github.com/Financial-Times/origami/compare/o3-typography-v0.1.0...o3-typography-v0.1.1) (2024-04-17)
 
 
