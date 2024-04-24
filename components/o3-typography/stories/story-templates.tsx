@@ -1,4 +1,4 @@
-import {Body, Heading, Link} from '../src/tsx';
+import {Body, Heading, Link, Caption} from '../src/tsx';
 import {Emphasis, Strong, Subscript, Superscript} from '../src/tsx/body';
 import type {StoryObj} from '@storybook/react';
 import {BodyProps} from '@financial-times/o-typography/src/tsx/typography';
@@ -103,6 +103,12 @@ const LinkStory = {
 				.
 			</Body>
 		);
+	},
+};
+
+export const CaptionStory = {
+	render: args => {
+		return <Caption>Image Source: FT Asset Library</Caption>;
 	},
 };
 

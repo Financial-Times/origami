@@ -74,6 +74,20 @@ import { Link, Body } from '@financial-times/o3-typography';
 <Body>Styling and usage guides can be seen on the <Link href="#">Origami</Link> homepage.</Body>
 ```
 
+### Captions
+
+Used with figures to provide a caption:
+
+```html
+<figcaption class="o3-typography o3-typography-caption">This is a caption.</figcaption>
+```
+
+```tsx
+import { Caption } from '@financial-times/o3-typography';
+
+<Caption>This is a caption.</Caption>
+```
+
 ### Modifiers
 
 O3 Typography comes with 4 modifier classes:
