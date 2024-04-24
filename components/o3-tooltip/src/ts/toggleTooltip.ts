@@ -3,12 +3,26 @@ import {ToggleToolTipProps} from '../types';
 
 export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 	private _contentWrapper!: HTMLElement;
+	private _liveRegionEl!: HTMLElement;
+	infoLabel: string;
+
+	constructor() {
+		super();
+		this.infoLabel = 'information button';
+	}
 
 	connectedCallback() {
 		super.connectedCallback();
-		this.innerHTML = this._generateMarkup(this.title, this.content);
+		if (this.getAttribute('info-label')) {
+			this.infoLabel = this.getAttribute('info-label') as string;
+		}
+		console.log('connectedCallback', this.infoLabel);
+		this.innerHTML = this._generateMarkup(this.infoLabel);
 		this._contentWrapper = this.querySelector(
 			'.o3-tooltip-wrapper'
+		) as HTMLElement;
+		this._liveRegionEl = this.querySelector(
+			'.o3-tooltip-content'
 		) as HTMLElement;
 		this._contentWrapper.style.display = 'none';
 		this._targetNode = this.querySelector(
@@ -33,10 +47,12 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 			this.render();
 			this._contentWrapper.style.display = 'block';
 			this.setAttribute('open', '');
+			this._addContentInLiveRegion();
 			return;
 		}
 		this._contentWrapper.style.display = 'none';
 		this.removeAttribute('open');
+		this._removeContentInLiveRegion();
 	};
 
 	private _closeOnOutsideClick = (e: Event) => {
@@ -46,6 +62,7 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 		if (!isChild && !isTarget) {
 			this._contentWrapper.style.display = 'none';
 			this.removeAttribute('open');
+			this._removeContentInLiveRegion();
 		}
 	};
 
@@ -53,9 +70,26 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 		if (e.key === 'Escape') {
 			this._contentWrapper.style.display = 'none';
 			this.removeAttribute('open');
+			this._removeContentInLiveRegion();
 		}
 	};
 
+	private _addContentInLiveRegion() {
+		// filling with empty divs is important to prevent popper from mispositioning the tooltip
+		this._liveRegionEl.innerHTML = `
+			<div class="o3-tooltip-content-title">""</div>
+			<div class="o3-tooltip-content-body">""</div>	
+		`;
+		window.setTimeout(() => {
+			this._liveRegionEl.innerHTML = `
+			<div class="o3-tooltip-content-title">${this.title}</div>
+			<div class="o3-tooltip-content-body">${this.content}</div>
+			`;
+		}, 10);
+	}
+	private _removeContentInLiveRegion() {
+		this._liveRegionEl.innerHTML = '';
+	}
 	private _addEventListeners() {
 		this._targetNode.addEventListener('click', this._clickHandler);
 		// Close on outside click
@@ -70,18 +104,15 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 		this.removeEventListener('keydown', this._closeOnEsc);
 	}
 
-	_generateMarkup(title: string, content: string) {
+	_generateMarkup(infoLabel: string) {
 		// add type="button" to prevent form submission
-		const tooltipButtonMarkup = `<button type="button" class="o3-toggletip-target"></button>`;
+		const tooltipButtonMarkup = `<button type="button" aria-label="${infoLabel}" class="o3-toggletip-target"></button>`;
 
 		return `
 		${tooltipButtonMarkup}
 		<div class="o3-tooltip-wrapper">
 			<div data-tooltip-arrow></div>
-			<div class="o3-tooltip-content" role="status">
-				<div class="o3-tooltip-content-title">${title}</div>
-				<div class="o3-tooltip-content-body">${content}</div>
-			</div>
+			<div class="o3-tooltip-content" role="status"></div>
 		</div>`;
 	}
 }

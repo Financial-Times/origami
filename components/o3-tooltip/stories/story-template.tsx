@@ -84,6 +84,7 @@ export const ToggleToolTip: ToggleTooltipStory = {
 		content: 'click the button to see the tooltip',
 		title: 'Title',
 		placement: 'right',
+		infoLabel: "information button"
 	},
 	argTypes: {
 		placement: {

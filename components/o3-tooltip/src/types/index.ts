@@ -21,7 +21,9 @@ export interface OnboardingToolTipProps extends Omit<TooltipProps, 'placement'> 
 		| 'left'
 		| 'left-end';
 }
-export interface ToggleToolTipProps extends TooltipProps {}
+export interface ToggleToolTipProps extends TooltipProps {
+	infoLabel: string;
+}
 
 declare global {
 	namespace JSX {
