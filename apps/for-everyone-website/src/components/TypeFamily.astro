@@ -1,0 +1,36 @@
+<ul>
+	{Astro.props.families.map(({name, token}) => {
+		return (<li>
+			<span class="preview" role="presentation" style={`font-family: var(${token})`}>Aa</span>
+			<span>{name}</span>
+			<span>{token}</span>
+		</li>)
+	})}
+</ul>
+
+<style>
+
+	.preview {
+		font-size: var(--o3-font-size-7);
+	}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--o3-spacing-2xs);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		flex-grow: 1;
+		background-color: var(--o3-color-palette-slate-white-5);
+		border-radius: 0.75rem;
+		padding-bottom: var(--o3-spacing-2xs);
+	}
+
+</style>

@@ -1,22 +1,18 @@
 .o3-typography-body {
-	font-family: MetricWeb, sans-serif;
 	font-weight: var(--o3-typography-use-case-body-s-font-weight);
-	font-size: var(--o3-typography-use-case-body-s-font-size);
-	line-height: var(--o3-typography-use-case-body-s-line-height);
+	font-size: var(--o3-font-size-0);
+	line-height: var(--o3-font-lineheight-0);
 	margin: 0 0 var(--o3-spacing-s);
 	color: var(--_o3-typography-body-color);
 }
 
+.o3-typography-body--small {
+		font-size: var(--o3-font-size-negative-1);
+		line-height: var(--o3-font-lineheight-negative-1);
+}
+
 .o3-typography-body[data-o3-theme="inverse"] {
 	color: var(--_o3-typography-body-inverse-color);
-}
-
-.o3-typography-bold {
-	font-weight: var(--o3-typography-use-case-body-s-bold-font-weight);
-}
-
-.o3-typography-italic {
-	font-style: italic;
 }
 
 .o3-typography-sub {

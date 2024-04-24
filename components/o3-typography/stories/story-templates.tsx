@@ -1,4 +1,4 @@
-import {Body, Heading, Link} from '../src/tsx';
+import {Body, Footer, Heading, Link, Caption} from '../src/tsx';
 import {Emphasis, Strong, Subscript, Superscript} from '../src/tsx/body';
 import type {StoryObj} from '@storybook/react';
 import {BodyProps} from '@financial-times/o-typography/src/tsx/typography';
@@ -32,11 +32,17 @@ const BodyStory = {
 				type: 'radio',
 			},
 		},
+		size: {
+			options: ['regular', 'small'],
+			control: {
+				type: 'radio',
+			},
+		},
 	},
 	render: args => {
 		return (
 			<>
-				<Body theme={args.theme} style={args.style}>
+				<Body theme={args.theme} style={args.style} size={args.size}>
 					Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.{' '}
 					<Link href="#" theme={args.theme}>
 						Link
@@ -98,6 +104,18 @@ const LinkStory = {
 			</Body>
 		);
 	},
+};
+
+export const CaptionStory = {
+	render: args => {
+		return <Caption>Image Source: FT Asset Library</Caption>;
+	},
+};
+
+export const FooterTemplate = {
+	render: props => (
+		<Footer weight={props.weight}>Footer such as copyright notice.</Footer>
+	),
 };
 
 export const BodyTemplate: TemplateType = {
