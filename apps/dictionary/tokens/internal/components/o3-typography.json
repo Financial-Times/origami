@@ -185,7 +185,7 @@
       },
       "footer": {
         "color": {
-          "value": "#262a33",
+          "value": "{o3.color.palette.slate}",
           "type": "color"
         }
       }
