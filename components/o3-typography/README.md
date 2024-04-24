@@ -29,12 +29,14 @@ o3-typography supports [JSX templates for React users](#jsx), or direct HTML. We
 
 O3 headings come in 6 levels, `<h1>` to `<h6>`, and styling can be applied to each through class modifiers:
 
+#### HTML
 ```html
 
 <h1 class="o3-heading o3-heading--level-1">Welcome to Origami</h1>
 <h2 class="o3-heading o3-heading--level-2">Who are we?</h2>
 ```
 
+#### JSX
 Properties on the typescript components can be used to apply the same styles:
 
 ```tsx
@@ -48,10 +50,12 @@ import { Heading } from '@financial-times/o3-typography';
 
 O3 paragraphs are styled with the `o3-typography-body` class:
 
+#### HTML
 ```html
 <p class="o3-typography-body">This is a paragraph of text.</p>
 ```
 
+#### JSX
 Using the Typescript component applies this styling:
 
 ```tsx
@@ -64,10 +68,11 @@ import { Body } from '@financial-times/o3-typography';
 
 Link styles can be used to give consistent styling to anchor tags:
 
+#### HTML
 ```html
 <p class="o3-typography-body">Styling and usage guides can be seen on the <a href="#" class="o3-typography-link">Origami</a> homepage.</p>
 ```
-
+#### JSX
 ```tsx
 import { Link, Body } from '@financial-times/o3-typography';
 
@@ -76,10 +81,11 @@ import { Link, Body } from '@financial-times/o3-typography';
 
 ### Footer
 
+#### HTML
 ```html
 <footer class="o3-typography o3-typography-footer">Copyright notice</footer>
 ```
-
+#### JSX
 ```tsx
 import { Footer } from '@financial-times/o3-typography';
 
@@ -96,12 +102,14 @@ O3 Typography comes with 4 modifier classes:
 
 These can be used on whole paragraphs or individual words:
 
+#### HTML
 ```html
 <p class="o3-typography-body o3-typography-bold">This is a paragraph of bold text.</p>
 <p class="o3-typography-body">This body contains an <em class="o3-typography-italic">emphasised</em> word.</p>
 <p class="o3-typography-body">This body contains a <sup class="o3-typography-superscript">superscript</sup> and a <strong class="o3-typography-bold">strong</strong> word.</p>
 ```
 
+#### JSX
 ```tsx
 import { Body, Emphasis, Strong, Superscript } from '@financial-times/o3-typography';
 
