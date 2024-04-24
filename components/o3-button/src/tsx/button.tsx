@@ -102,18 +102,19 @@ export function LinkButton({
 	if (fluid) {
 		attributes['data-o3-fluid'] = '';
 	}
+	const classNames = makeClassNames({
+		customClasses,
+		visuallyHideDisabled,
+		type,
+		size,
+		icon,
+		iconOnly,
+	}) + ' o3-apply-focus-rings';
 	return (
 		<a
 			href={href}
 			onClick={onClick ? event => onClick(event) : undefined}
-			className={makeClassNames({
-				customClasses,
-				visuallyHideDisabled,
-				type,
-				size,
-				icon,
-				iconOnly,
-			})}
+			className={classNames}
 			{...attributes}>
 			{icon && iconOnly ? (
 				<span className="o3-button-icon__label">{label}</span>
