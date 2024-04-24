@@ -1,11 +1,13 @@
 import type {Meta} from '@storybook/react';
+import {Caption} from '../../../src/tsx';
 import * as TypographyStories from '../../story-templates';
-import {Body} from '../../../src/tsx';
+import '../../../main.css';
+
 import '../../../src/css/brands/professional.css';
 
 export default {
 	title: 'Core/Professional/o3-typography',
-	component: Body,
+	component: Caption,
 	decorators: [
 		Story => (
 			<div data-o3-brand="professional">
@@ -18,4 +20,4 @@ export default {
 	},
 } as Meta;
 
-export const BodyStory = TypographyStories.BodyTemplate;
+export const CaptionStory = TypographyStories.CaptionStory;

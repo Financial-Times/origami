@@ -2,6 +2,7 @@
 @import './link.css';
 @import './body.css';
 @import './footer.css';
+@import './caption.css';
 
 .o3-typography-bold {
 	font-weight: var(--o3-font-weight-bold);
@@ -10,3 +11,4 @@
 .o3-typography-italic {
 	font-style: italic;
 }
+

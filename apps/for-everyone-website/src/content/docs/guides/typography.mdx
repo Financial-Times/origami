@@ -8,6 +8,7 @@ sidebar:
 ---
 
 import TypeScale from '../../../components/TypeScale.astro';
+import TypeFamily from '../../../components/TypeFamily.astro';
 
 We use a single typographic scale for all fonts. Our scale ranges from -2 to 10. Consider scale 0 the baseline, with ascending and descending values in each direction.
 
@@ -15,10 +16,57 @@ We use a single typographic scale for all fonts. Our scale ranges from -2 to 10.
 - Modern Origami introduces the Metric2 font family as a variable font, replacing legacy Metric font files. Metric2 renders larger than Metric for the same font size, therefore you may need to use a smaller scale to align with legacy Metric typography.
 - Figma Variables are available for each scale in [your brand's Figma library](https://www.figma.com/files/938480807921629744/team/1237702133754424766).
 
-## Metric2 Typographic Scale
+## Font Families
+
+Metric, Financier Display, and Georgia are used across FT Group brands to convey information to our users in different aspects of digital products.
+
+<TypeFamily
+	families={[
+		{name: 'Metric 2 VF', token: '--o3-font-family-metric'},
+		{name: 'Financier Display', token: '--o3-font-family-financier-display'},
+		{name: 'Georgia', token: '--o3-font-family-georgia'},
+	]}
+/>
+
+### Metric
+
+Metric is our primary typeface. Clear, contemporary and rational, Metric communicates with clarity best used for CTAs, body copy to headings across all sub-brands.
+
+Modern Origami introduces the Metric2 font family, replacing legacy Metric font files. Metric2 renders larger than Metric for the same font size. For brevity, we refer to Metric2 as "Metric" going forward.
+
+[Learn more about Metric](https://brand.ft.com/document/24#/branding-elements/fonts).
+
+### Financier Display
+
+Financier is a secondary typeface. Elegant, authoritative and has a distinct voice.
+Primarily used for large article titles and headings in editorial pages only.
+
+[Learn more about Financier Display](https://brand.ft.com/document/24#/branding-elements/fonts).
+
+### Georgia
+
+Georgia is solely used for editorial article body copy. This is an alternate to Financier Text, as a [system font](https://en.wikipedia.org/wiki/Web_typography) it avoids the performance implications of users downloading additional custom fonts.
+
+## Typographic Scale
+
+### Metric Scale
 
 <TypeScale brand="core" scaleFamily="metric2" />
 
-## Financier Display & Georgia Typographic Scale
+### Financier Display / Georgia Scale
 
 <TypeScale brand="core" scaleFamily="financier-display" />
+
+## Font Weight
+
+Font weight can be used to express hierarchy or urgency of information.
+
+We recommend using our standard UI typography styles or Editorial typography styles where possible. For custom typography, align to these standard styles where possible. For example when using Metric2 for UI use `medium` over other bold weights.
+
+| Preview                                                                                                               | Value | Token                     |
+| --------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------- |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-light)">light</span>       | 300   | --o3-font-weight-light    |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-regular)">regular</span>   | 400   | --o3-font-weight-regular  |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-medium)">medium</span>     | 500   | --o3-font-weight-medium   |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-semibold)">semibold</span> | 700   | --o3-font-weight-semibold |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-bold)">bold</span>         | 800   | --o3-font-weight-bold     |

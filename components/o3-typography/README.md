@@ -92,6 +92,20 @@ import { Footer } from '@financial-times/o3-typography';
 <Footer>Copyright notice</Footer>
 ```
 
+### Captions
+
+Used with figures to provide a caption:
+
+```html
+<figcaption class="o3-typography o3-typography-caption">This is a caption.</figcaption>
+```
+
+```tsx
+import { Caption } from '@financial-times/o3-typography';
+
+<Caption>This is a caption.</Caption>
+```
+
 ### Modifiers
 
 O3 Typography comes with 4 modifier classes:

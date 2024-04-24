@@ -188,6 +188,12 @@
           "value": "{o3.color.palette.slate}",
           "type": "color"
         }
+      },
+      "caption": {
+        "color": {
+          "value": "{o3.color.palette.slate}",
+          "type": "color"
+        }
       }
     }
   }
