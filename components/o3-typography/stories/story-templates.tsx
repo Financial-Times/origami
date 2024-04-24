@@ -32,11 +32,17 @@ const BodyStory = {
 				type: 'radio',
 			},
 		},
+		size: {
+			options: ['regular', 'small'],
+			control: {
+				type: 'radio',
+			},
+		},
 	},
 	render: args => {
 		return (
 			<>
-				<Body theme={args.theme} style={args.style}>
+				<Body theme={args.theme} style={args.style} size={args.size}>
 					Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.{' '}
 					<Link href="#" theme={args.theme}>
 						Link
