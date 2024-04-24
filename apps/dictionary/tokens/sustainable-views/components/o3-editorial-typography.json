@@ -1,0 +1,18 @@
+{
+  "o3": {
+    "editorial-typography": {
+      "heading": {
+        "color": {
+          "value": "{o3.color.palette.black-80}",
+          "type": "color"
+        },
+        "inverse": {
+          "color": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
+        }
+      }
+    }
+  }
+}

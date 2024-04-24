@@ -13,7 +13,8 @@
       "core/use-case/typography-editorial": "enabled",
       "core/components/o3-tooltip": "source",
       "core/use-case/color": "enabled",
-      "core/use-case/focus": "enabled"
+      "core/use-case/focus": "enabled",
+      "core/components/o3-editorial-typography": "source"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -552,7 +553,9 @@
       "sustainable-views/components/o3-button": "source",
       "sustainable-views/components/o3-tooltip": "source",
       "sustainable-views/base/color": "enabled",
-      "sustainable-views/use-case/color": "enabled"
+      "sustainable-views/use-case/color": "enabled",
+      "sustainable-views/components/o3-editorial-typography": "source",
+      "sustainable-views/use-case/focus": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1555",
     "$figmaModeId": "4618:3",
