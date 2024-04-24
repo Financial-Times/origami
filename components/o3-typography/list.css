@@ -1,4 +1,5 @@
-.o3-typography-list {
+.o3-typography-ul,
+.o3-typography-ol {
 	margin: 0 0 var(--o3-spacing-3xs);
 	padding: 0;
 	list-style: none;
@@ -16,19 +17,19 @@
 	}
 }
 
-.o3-typography-list--unordered {
+.o3-typography-ul {
 	> li {
 		&:before {
 			content: "\2022";
 			color: inherit;
-			transform: scale(1.5555555556);
-			margin-top: -0.2488888889ch;
+			transform: scale(calc(28 / 18));
+			margin-top: calc(28 / 18 * -0.16ch);
 		}
 	}
 
 }
 
-.o3-typography-list--ordered {
+.o3-typography-ol {
 	counter-reset: item;
 	> li {
 		&:before {
@@ -36,8 +37,8 @@
 			content: counter(item);
 			counter-increment: item;
 			font-feature-settings: "tnum";
-			transform: scale(0.8888888889);
-			margin-left: -0.1422222222ch;
+			transform: scale(calc(16/18));
+			margin-left: calc(16 / 18 * -0.16ch);
 		}
 	}
 }
