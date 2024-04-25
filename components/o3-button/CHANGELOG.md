@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.0...o3-button-v1.1.1) (2024-04-24)
+
+
+### Bug Fixes
+
+* add focus ring around link buttons ([#1592](https://github.com/Financial-Times/origami/issues/1592)) ([860edc3](https://github.com/Financial-Times/origami/commit/860edc34b4f86c4a281a7d1132decafa75659379))
+
 ## [1.1.0](https://github.com/Financial-Times/origami/compare/o3-button-v1.0.3...o3-button-v1.1.0) (2024-04-17)
 
 

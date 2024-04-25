@@ -16,12 +16,6 @@ export default {
 	parameters: {
 		backgrounds: {default: 'paper'},
 	},
-	style: {
-		options: ['regular', 'italic'],
-		control: {
-			type: 'radio',
-		},
-	},
 } as Meta;
 
 export const BodyStory = TypographyStories.BodyTemplate;

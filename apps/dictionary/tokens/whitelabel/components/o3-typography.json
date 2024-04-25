@@ -172,6 +172,18 @@
             "type": "color"
           }
         }
+      },
+      "footer": {
+        "color": {
+          "value": "{o3.color.palette.black}",
+          "type": "color"
+        }
+      },
+      "caption": {
+        "color": {
+          "value": "{o3.color.palette.black}",
+          "type": "color"
+        }
       }
     }
   }
