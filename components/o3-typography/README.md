@@ -87,13 +87,13 @@ O3 Tygraphy provides styling for both ordered and unordered lists:
 
 #### HTML
 ```html
-<ul class="o3-typography o3-typography-ul">
+<ul class="o3-typography-ul">
   <li>Item 1</li>
   <li>Item 2</li>
   <li>Item 3</li>
 </ul>
 
-<ol class="o3-typography o3-typography-ol">
+<ol class="o3-typography-ol">
 	<li>Item 1</li>
 	<li>Item 2</li>
 	<li>Item 3</li>
