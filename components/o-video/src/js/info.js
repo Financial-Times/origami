@@ -49,7 +49,9 @@ class VideoInfo {
 	}
 
 	teardown () {
-		this.video.placeholderEl.removeChild(this.infoEl);
+		if (this.infoEl) {
+			this.infoEl.remove();
+		}
 
 		delete this.infoEl;
 		delete this.brandEl;
