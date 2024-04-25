@@ -50,7 +50,7 @@ describe('buildCss()', () => {
 			(brand, component) =>
 				`${destinationPrefix}/tokens/${brand}/${component}/_variables.css`
 		);
-		describe('o3-button component tokens', () => {
+		describe('component tokens, scoped', () => {
 			buildComponentTokens('o3-button', getDestination);
 			it.each(brands)('for %s brand', brand => {
 				const brandOutput = readFileSync(
@@ -60,6 +60,23 @@ describe('buildCss()', () => {
 						'tokens',
 						brand,
 						'o3-button',
+						'_variables.css'
+					),
+					{encoding: 'utf-8'}
+				);
+				expect(brandOutput).toMatchSnapshot();
+			});
+		});
+		describe('component tokens, at root', () => {
+			buildComponentTokens('o3-typography', getDestination);
+			it.each(brands)('for %s brand', brand => {
+				const brandOutput = readFileSync(
+					pathJoin(
+						__dirname,
+						buildPath,
+						'tokens',
+						brand,
+						'o3-typography',
 						'_variables.css'
 					),
 					{encoding: 'utf-8'}
