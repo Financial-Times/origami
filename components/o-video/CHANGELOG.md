@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 
-* remove elements directly in o-video rather than el.removeChild(childEl) ([1a2c522](https://github.com/Financial-Times/origami/commit/1a2c522c4c633070d028405097367191db99794a))
+* Fix an error when showing ads. Remove elements directly rather than use `el.removeChild(childEl)` ([1a2c522](https://github.com/Financial-Times/origami/commit/1a2c522c4c633070d028405097367191db99794a))
 
 ## [7.2.11](https://github.com/Financial-Times/origami/compare/o-video-v7.2.10...o-video-v7.2.11) (2023-10-27)
 
