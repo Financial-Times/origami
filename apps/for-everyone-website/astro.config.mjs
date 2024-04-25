@@ -12,7 +12,7 @@ export default defineConfig({
 	integrations: [
 		react(),
 		starlight({
-			title: 'Origami For Everyone',
+			title: 'Origami Design System',
 			locales: {
 				root: {
 					label: 'core',
