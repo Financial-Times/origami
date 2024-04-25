@@ -1,3 +1,8 @@
+@import '@financial-times/o-fonts/main';
+@import '@financial-times/o-normalise/main';
+@include oFonts();
+@include oNormalise();
+
 @import "../../../../node_modules/@financial-times/o-editorial-layout/main";
 
 @include oEditorialLayout();
