@@ -1,7 +1,7 @@
 {
   "o3": {
     "editorial-typography": {
-      "heading": {
+      "headline": {
         "color": {
           "value": "{o3.color.palette.black}",
           "type": "color"
