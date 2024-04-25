@@ -1,0 +1,14 @@
+{
+	"o3": {
+		"typography": {
+			"example": {
+				"standard": {
+					"color": {
+						"value": "#ffffff",
+						"type": "color"
+					}
+				}
+			}
+		}
+	}
+}
