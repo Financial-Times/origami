@@ -3,7 +3,7 @@
     "editorial-typography": {
       "heading": {
         "color": {
-          "value": "{o3.color.palette.black-80}",
+          "value": "{o3.color.palette.black}",
           "type": "color"
         },
         "inverse": {
