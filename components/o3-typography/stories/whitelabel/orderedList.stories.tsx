@@ -1,13 +1,11 @@
+import type {Meta} from '@storybook/react';
 import * as TypographyStories from '../story-templates';
-import {Link as LinkTsx} from '../../src/tsx';
-
+import {OrderedList} from '../../src/tsx';
 import '../../src/css/brands/whitelabel.css';
-import {Meta} from '@storybook/react';
 
 export default {
 	title: 'Whitelabel/o3-typography',
-	component: LinkTsx,
-	tags: ['autodocs'],
+	component: OrderedList,
 	decorators: [
 		Story => (
 			<div data-o3-brand="whitelabel">
@@ -20,4 +18,4 @@ export default {
 	},
 } as Meta;
 
-export const Link = TypographyStories.LinkTemplate;
+export const OrderedListStory = TypographyStories.OrderedListTemplate;
