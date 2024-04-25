@@ -16,7 +16,6 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 		if (this.getAttribute('info-label')) {
 			this.infoLabel = this.getAttribute('info-label') as string;
 		}
-		console.log('connectedCallback', this.infoLabel);
 		this.innerHTML = this._generateMarkup(this.infoLabel);
 		this._contentWrapper = this.querySelector(
 			'.o3-tooltip-wrapper'
