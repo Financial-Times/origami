@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/Financial-Times/origami/compare/o3-typography-v0.2.0...o3-typography-v0.3.0) (2024-04-25)
+
+
+### Features
+
+* introduce List component  ([9927f14](https://github.com/Financial-Times/origami/commit/9927f1412d4c284b1da3c5de95e37facab85d966))
+
 ## [0.2.0](https://github.com/Financial-Times/origami/compare/o3-typography-v0.1.1...o3-typography-v0.2.0) (2024-04-24)
 
 
