@@ -221,7 +221,6 @@
       "core/use-case/color": "enabled",
       "core/professional/components/o3-tooltip": "source",
       "core/use-case/typography": "enabled",
-      "core/use-case/typography-editorial": "enabled",
       "core/use-case/focus": "enabled",
       "core/professional/components/o3-typography": "source"
     },
@@ -490,7 +489,6 @@
       "whitelabel/base/spacing": "enabled",
       "whitelabel/base/typography": "enabled",
       "whitelabel/use-case/typography": "enabled",
-      "whitelabel/use-case/typography-editorial": "enabled",
       "whitelabel/use-case/color": "enabled",
       "whitelabel/components/o3-tooltip": "source",
       "whitelabel/use-case/focus": "enabled",
