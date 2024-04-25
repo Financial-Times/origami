@@ -41,3 +41,19 @@ npm ci
 cd apps/dictionary
 npm run build
 ```
+
+#### Testing
+
+Run the following command to run tests and listen for changes.
+
+```bash
+npm run test
+```
+
+To update tests see the following files:
+
+- `apps/dictionary/__test__/integration.test.js`: Test file and expectations.
+- `apps/dictionary/__test__/tokens`: Mock design tokens used for testing purposes.
+- `apps/dictionary/__test__/build`: Temporary build assets created by running tests. This is the output we test against.
+
+Run `npm run test -- --update` to update snapshots.
