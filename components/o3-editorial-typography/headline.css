@@ -1,0 +1,94 @@
+.o3-editorial-typography {
+	margin: 0;
+	color: var(--_o3-editorial-typography-headline-color);
+}
+
+.o3-editorial-typography--headline {
+	font-family: var(--o3-editorial-typography-use-case-headline-s-font-family),
+		serif;
+	font-size: var(--o3-editorial-typography-use-case-headline-s-font-size);
+	font-weight: var(--o3-editorial-typography-use-case-headline-s-font-weight);
+	line-height: var(--o3-editorial-typography-use-case-headline-s-line-height);
+}
+
+.o3-editorial-typography--headline-large {
+	font-family: var(
+			--o3-editorial-typography-use-case-headline-large-l-font-family
+		),
+		serif;
+	font-size: var(--o3-editorial-typography-use-case-headline-large-s-font-size);
+	font-weight: var(
+		--o3-editorial-typography-use-case-headline-large-s-font-weight
+	);
+	line-height: var(
+		--o3-editorial-typography-use-case-headline-large-s-line-height
+	);
+}
+
+.o3-editorial-typography--chapter {
+	font-family: var(--o3-editorial-typography-use-case-chapter-font-family),
+		sans-serif;
+	font-size: var(--o3-editorial-typography-use-case-chapter-font-size);
+	font-weight: var(--o3-editorial-typography-use-case-chapter-font-weight);
+	line-height: var(--o3-editorial-typography-use-case-chapter-line-height);
+}
+.o3-editorial-typography--subheading {
+	font-family: var(--o3-editorial-typography-use-case-subheading-font-family),
+		sans-serif;
+	font-size: var(--o3-editorial-typography-use-case-subheading-font-size);
+	font-weight: var(--o3-editorial-typography-use-case-subheading-font-weight);
+	line-height: var(--o3-editorial-typography-use-case-subheading-line-height);
+}
+.o3-editorial-typography--label {
+	font-family: var(--o3-editorial-typography-use-case-label-font-family),
+		sans-serif;
+	font-size: var(--o3-editorial-typography-use-case-label-font-size);
+	font-weight: var(--o3-editorial-typography-use-case-label-font-weight);
+	line-height: var(--o3-editorial-typography-use-case-label-line-height);
+}
+
+@media (min-width: 740px) {
+	.o3-editorial-typography--headline {
+		font-size: var(--o3-editorial-typography-use-case-headline-m-font-size);
+		font-weight: var(--o3-editorial-typography-use-case-headline-m-font-weight);
+		line-height: var(--o3-editorial-typography-use-case-headline-m-line-height);
+	}
+
+	.o3-editorial-typography--headline-large {
+		font-size: var(
+			--o3-editorial-typography-use-case-headline-large-m-font-size
+		);
+		font-weight: var(
+			--o3-editorial-typography-use-case-headline-large-m-font-weight
+		);
+		line-height: var(
+			--o3-editorial-typography-use-case-headline-large-m-line-height
+		);
+	}
+}
+
+@media (min-width: 980px) {
+	.o3-editorial-typography--headline {
+		font-size: var(--o3-editorial-typography-use-case-headline-l-font-size);
+		font-weight: var(--o3-editorial-typography-use-case-headline-l-font-weight);
+		line-height: var(--o3-editorial-typography-use-case-headline-l-line-height);
+	}
+
+	.o3-editorial-typography--headline-large {
+		font-size: var(
+			--o3-editorial-typography-use-case-headline-large-l-font-size
+		);
+		font-weight: var(
+			--o3-editorial-typography-use-case-headline-large-l-font-weight
+		);
+		line-height: var(
+			--o3-editorial-typography-use-case-headline-large-l-line-height
+		);
+	}
+}
+
+
+.o3-editorial-typography[data-o3-theme='inverse'],
+:where([data-o3-theme='inverse']) {
+	color: var(--_o3-editorial-typography-headline-inverse-color);
+}
