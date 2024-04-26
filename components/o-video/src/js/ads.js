@@ -191,7 +191,7 @@ class VideoAds {
 
 		// Remove the preloading spinner
 		if (this.loadingStateEl) {
-			this.loadingStateEl.parentNode.removeChild(this.loadingStateEl);
+			this.loadingStateEl.remove()
 			this.loadingStateEl = null;
 		}
 
@@ -243,7 +243,7 @@ class VideoAds {
 
 		if (this.overlayEl) {
 			this.overlayEl.removeEventListener('click', this.playAdEventHandler);
-			this.video.containerEl.removeChild(this.overlayEl);
+			this.overlayEl.remove();
 		}
 		delete this.overlayEl;
 	}
@@ -354,10 +354,12 @@ class VideoAds {
 		if (this.adsManager) {
 			this.adsManager.destroy();
 		}
-		this.video.containerEl.removeChild(this.adContainerEl);
+		if (this.adContainerEl) {
+			this.adContainerEl.remove();
+		}
 		if (this.overlayEl) {
 			this.overlayEl.removeEventListener('click', this.playAdEventHandler);
-			this.video.containerEl.removeChild(this.overlayEl);
+			this.overlayEl.remove();
 			delete this.overlayEl;
 		}
 		if (this.video.placeholderEl) {
@@ -373,7 +375,9 @@ class VideoAds {
 	}
 
 	contentResumeRequestHandler() {
-		this.video.containerEl.removeChild(this.adContainerEl);
+		if (this.adContainerEl) {
+			this.adContainerEl.remove();
+		}
 		this.adsCompleted = true;
 		this.playUserVideo();
 	}
