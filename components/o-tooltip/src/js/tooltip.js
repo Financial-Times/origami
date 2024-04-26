@@ -123,7 +123,7 @@ class Tooltip {
 			Tooltip.throwError("tooltip.target is not set. An target for the tooltip to point at must be provided");
 		}
 
-		if (!typeof opts.target === 'string' || !opts.target instanceof HTMLElement) {
+		if (!(typeof opts.target === 'string') && !(opts.target instanceof HTMLElement)) {
 			Tooltip.throwError("tooltip.target is invalid, it must be either an ID selector string or HTMLElement");
 		}
 
