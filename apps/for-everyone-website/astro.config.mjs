@@ -62,18 +62,34 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'About',
+					collapsed: true,
 					autogenerate: {directory: 'about'},
 				},
 				{
-					label: 'Foundations',
+					label: 'Getting Started',
+					collapsed: true,
+					autogenerate: {directory: 'getting-started'},
+				},
+				{
+					label: 'Contribution',
+					collapsed: true,
+					autogenerate: {directory: 'contribution'},
+				},
+				{
+					label: 'Components (o2)',
+					collapsed: true,
+					autogenerate: {directory: 'o2-components'},
+				},
+				{
+					label: 'Foundations (o3)',
 					autogenerate: {directory: 'guides'},
 				},
 				{
-					label: 'Components',
+					label: 'Components (o3)',
 					autogenerate: {directory: 'components'},
 				},
 				{
-					label: 'Patterns',
+					label: 'Patterns (o3)',
 					autogenerate: {directory: 'patterns'},
 				},
 			],
