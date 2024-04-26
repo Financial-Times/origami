@@ -47,6 +47,23 @@ To trigger visual testing & review tool you can add a `chromatic` github label. 
 
 This will trigger chromatic deployment and after deployment there will be two additional checks on the pull "request": [UI Tests and UI Review](https://www.chromatic.com/docs/in-pull-request/).
 
-![alt text](https://www.chromatic.com/docs/_astro/chromatic-during-pull-request.W6fp0tS2_1v1ld.webp)
+![Chromatic UI Tests: Developer checks for bugs. Chromatic UI Review: Stakeholders sign off.](https://www.chromatic.com/compare/chromatic-during-pull-request.png)
 
 To pass additional check on the PR we will need to approve UI Review and UI Tests from [Chromatic app](https://www.chromatic.com/reviews?appId=64faf6b1815b6c0106f82e74). Once both checks are approved, the pull request can be merged.
+
+## Releasing
+
+When your component is reviewed by the component's code owners, usually the Origami team, it is ready for release:
+
+1. Wait for required Github checks to pass.
+2. Merge into the `main` branch.
+3. A `release-please` Github Action will trigger. This will open a release PR.
+4. Review the release PR. Ensuring that:
+   - It's only releasing the component(s) you expect.
+   - The new component versions are appropriate for the changes you made, we follow [semantic versioning](https://semver.org/).
+   - The generated `CHANGELOG.md` is descriptive and [meets our tone & language](https://origami.ft.com/documentation/principles/tone-and-language/) guidelines. If not, update on the release PR.
+5. Merge the release PR. This will again trigger the `release-please` Github Action which this time will:
+   - Build assets, if required.
+   - Publish to the npm package manager.
+   - Trigger a notification the [#origami-support](https://financialtimes.enterprise.slack.com/archives/C02FU5ARJ) Slack channel.
+6. Confirm your release is successful by waiting for the [#origami-support](https://financialtimes.enterprise.slack.com/archives/C02FU5ARJ) Slack announcement or by checking the npm package manager.
