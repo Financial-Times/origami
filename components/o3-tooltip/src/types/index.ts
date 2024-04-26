@@ -22,7 +22,7 @@ export interface OnboardingToolTipProps extends Omit<TooltipProps, 'placement'> 
 		| 'left-end';
 }
 export interface ToggleToolTipProps extends TooltipProps {
-	infoLabel: string;
+	infoLabel?: string;
 }
 
 declare global {

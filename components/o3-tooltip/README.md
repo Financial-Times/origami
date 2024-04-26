@@ -56,13 +56,13 @@ Below are examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-togg
   class="o3-tooltip"
   content="click the button to see the tooltip"
   title="Title"
-  info-label="information button"
+  info-label="more information"
  >
  </o3-tooltip-toggle> 
 </div>
 ```
 
-`info-label` attribute is used to provide a label for info icon to have better screen reader experience. By default, it is set to "information button".
+`info-label` attribute is used to provide a label for info icon to have better screen reader experience. By default, it is set to "more information".
 
 ## JavaScript
 
@@ -144,7 +144,7 @@ type Placement = 'top' | 'bottom' | 'left' | 'right';
 |  content  |   string    |   true   |         -          |  Content of the tooltip  |
 |   title   |   string    |  false   |         -          |   Title of the tooltip   |
 | placement | `Placement` |  false   |       'top'        | Placement of the tooltip |
-| infoLabel |   string    |   true   | information button | Label for screen readers |
+| infoLabel |   string    |   false   | more information | Label for screen readers |
 
 ## Migration Guide
 

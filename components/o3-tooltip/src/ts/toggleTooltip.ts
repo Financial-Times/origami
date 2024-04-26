@@ -8,7 +8,7 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 
 	constructor() {
 		super();
-		this.infoLabel = 'information button';
+		this.infoLabel = 'more information';
 	}
 
 	connectedCallback() {
@@ -32,7 +32,6 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 			this._targetNode,
 			this._contentWrapper
 		);
-		this.render();
 		this._addEventListeners();
 	}
 
@@ -43,15 +42,10 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 
 	private _clickHandler = () => {
 		if (this._contentWrapper.style.display === 'none') {
-			this.render();
-			this._contentWrapper.style.display = 'block';
-			this.setAttribute('open', '');
 			this._addContentInLiveRegion();
 			return;
 		}
-		this._contentWrapper.style.display = 'none';
-		this.removeAttribute('open');
-		this._removeContentInLiveRegion();
+		this._cleanUp();
 	};
 
 	private _closeOnOutsideClick = (e: Event) => {
@@ -59,32 +53,36 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 		const isTarget = target === this._targetNode;
 		const isChild = this.contains(target);
 		if (!isChild && !isTarget) {
-			this._contentWrapper.style.display = 'none';
-			this.removeAttribute('open');
-			this._removeContentInLiveRegion();
+			this._cleanUp();
 		}
 	};
 
 	private _closeOnEsc = (e: KeyboardEvent) => {
 		if (e.key === 'Escape') {
-			this._contentWrapper.style.display = 'none';
-			this.removeAttribute('open');
-			this._removeContentInLiveRegion();
+			this._cleanUp();
 		}
 	};
-
+	private _cleanUp() {
+		this._contentWrapper.style.display = 'none';
+		this.removeAttribute('open');
+		this._removeContentInLiveRegion();
+	}
 	private _addContentInLiveRegion() {
-		// filling with empty divs is important to prevent popper from mispositioning the tooltip
-		this._liveRegionEl.innerHTML = `
-			<div class="o3-tooltip-content-title">""</div>
-			<div class="o3-tooltip-content-body">""</div>	
-		`;
-		window.setTimeout(() => {
+		// we are setting the content to empty and then update to trigger the screen reader announcement
+		// we are setting opacity to 0 to prevent the flashing of empty content
+		// 100 is needed for safari to announce the content correctly
+		this._liveRegionEl.innerHTML = '';
+		this._contentWrapper.style.display = 'block';
+		this._contentWrapper.style.opacity = '0';
+		this.setAttribute('open', '');
+		setTimeout(() => {
+			this.render();
 			this._liveRegionEl.innerHTML = `
-			<div class="o3-tooltip-content-title">${this.title}</div>
-			<div class="o3-tooltip-content-body">${this.content}</div>
+				<div class="o3-tooltip-content-title">${this.title}</div>
+				<div class="o3-tooltip-content-body">${this.content}</div>
 			`;
-		}, 10);
+			this._contentWrapper.style.opacity = '1';
+		}, 100);
 	}
 	private _removeContentInLiveRegion() {
 		this._liveRegionEl.innerHTML = '';
