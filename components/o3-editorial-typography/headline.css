@@ -4,7 +4,7 @@
 .o3-editorial-typography--subheading,
 .o3-editorial-typography--label {
 	margin: 0;
-	color: var(--_o3-editorial-typography-headline-color);
+	color: var(--_o3-editorial-typography-text-color);
 }
 
 .o3-editorial-typography--headline {
@@ -91,7 +91,10 @@
 	}
 }
 
-.o3-editorial-typography[data-o3-theme='inverse'],
-:where([data-o3-theme='inverse']) {
-	color: var(--_o3-editorial-typography-headline-inverse-color);
+.o3-editorial-typography--headline[data-o3-theme='inverse'],
+.o3-editorial-typography--headline-large[data-o3-theme='inverse'],
+.o3-editorial-typography--chapter[data-o3-theme='inverse'],
+.o3-editorial-typography--subheading[data-o3-theme='inverse'],
+.o3-editorial-typography--label[data-o3-theme='inverse'] {
+	color: var(--_o3-editorial-typography-text-inverse-color);
 }

@@ -104,6 +104,6 @@
   --o3-editorial-typography-use-case-quote-author-font-weight: var(--o3-font-weight-semibold);
   --o3-editorial-typography-use-case-quote-author-font-size: var(--o3-font-size-metric2-negative-1);
   --o3-editorial-typography-use-case-quote-author-line-height: var(--o3-font-lineheight-metric2-negative-1);
-  --_o3-editorial-typography-headline-color: var(--o3-color-palette-black);
-  --_o3-editorial-typography-headline-inverse-color: var(--o3-color-palette-white);
+  --_o3-editorial-typography-text-color: var(--o3-color-palette-black);
+  --_o3-editorial-typography-text-inverse-color: var(--o3-color-palette-white);
 }
