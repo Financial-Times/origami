@@ -68,7 +68,7 @@ await writeFile(`.github/workflows/percy.yml`, percyFile);
 
 await writeFile(
 	'.release-please-manifest.json',
-	JSON.stringify(dotReleasePleaseManifest)
+	JSON.stringify(dotReleasePleaseManifest, null, '\t')
 );
 await writeFile(
 	'release-please-config.json',
