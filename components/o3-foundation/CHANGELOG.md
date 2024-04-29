@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.7...o3-foundation-v1.0.8) (2024-04-29)
+
+
+### Bug Fixes
+
+* Use the FinancierDisplay variable font ([dd021ec](https://github.com/Financial-Times/origami/commit/dd021ec38ea7896656f924e97e34e88854fb6877))
+
 ## [1.0.7](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.6...o3-foundation-v1.0.7) (2024-04-29)
 
 
