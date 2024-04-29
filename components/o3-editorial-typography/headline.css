@@ -95,6 +95,7 @@
 .o3-editorial-typography--headline-large[data-o3-theme='inverse'],
 .o3-editorial-typography--chapter[data-o3-theme='inverse'],
 .o3-editorial-typography--subheading[data-o3-theme='inverse'],
-.o3-editorial-typography--label[data-o3-theme='inverse'] {
+.o3-editorial-typography--label[data-o3-theme='inverse'],
+:where([data-o3-theme='inverse']) {
 	color: var(--_o3-editorial-typography-text-inverse-color);
 }

@@ -8,6 +8,10 @@ Typographic styles for editorial content.
     - [Heading styles](#heading-styles)
       - [HTML](#html)
       - [JSX](#jsx)
+    - [Body/Paragraph styles](#bodyparagraph-styles)
+      - [HTML](#html-1)
+      - [JSX](#jsx-1)
+  - [Theme modifiers](#theme-modifiers)
   - [Migration](#migration)
   - [Contact](#contact)
   - [Licence](#licence)
@@ -75,17 +79,45 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 | type | `headline-large` \| `headline` \| `chapter` \| `subheading` \| `label` | `headline` | Type of the headline.|
 | theme | `standard` \| `inverse` | '' | Theme of the headline. |
 
+### Body/Paragraph styles
+
+O3 editorial paragraphs are styled with the `o3-editorial-typography-body--[type]` class. Where `type` can be either `large` or `small`.
+
+| Type  | Selector                             |
+| ----- | ------------------------------------ |
+| Large | .o3-editorial-typography-body--large |
+| Small | .o3-editorial-typography-body--small |
+
+#### HTML
+
+```html
+<p class="o3-editorial-typography-body--small">
+ This is a small paragraph of text.
+</p>
+```
+
+#### JSX
+
+Using the Typescript component applies this styling:
+
+```tsx
+import {Body} from '@financial-times/o3-typography';
+
+<Body type="small">This is a paragraph of text.</Body>;
+```
+
+`<Body>` props:
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| type | `small` \| `large` | `small` | Type of the body. |
+| theme | `standard` \| `inverse` | `standard` | Theme of the body. |
+
 ## Theme modifiers
 
 `o3-editorial-typography` also supports `inverse` theme. Adding `data-o3-theme="inverse"` to the wrapper element or at the element itself will change the color of the text to white.
 
 ```html
-<h3
- class="o3-editorial-typography o3-editorial-typography--label"
- data-o3-theme="inverse"
->
- Label
-</h3>
+<h3 class="o3-editorial-typography--label" data-o3-theme="inverse">Label</h3>
 ```
 
 or if you are using JSX templates, theme can be passed as theme prop:

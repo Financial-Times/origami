@@ -1,6 +1,6 @@
 import {BodyProps, InverseAttribute} from '../types/index';
 
-export const Body = ({type, theme, children}: BodyProps) => {
+export const Body = ({type = 'small', theme, children}: BodyProps) => {
 	const attributes: InverseAttribute = {};
 	if (theme == 'inverse') {
 		attributes['data-o3-theme'] = theme;

@@ -1,7 +1,5 @@
 import {HeadlineProps, InverseAttribute} from '../types/index';
 
-
-
 export const Headline = ({
 	type = 'headline',
 	theme,
