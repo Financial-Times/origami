@@ -1,19 +1,7 @@
 {
   "o3": {
     "editorial-typography": {
-      "headline": {
-        "color": {
-          "value": "{o3.color.palette.black}",
-          "type": "color"
-        },
-        "inverse": {
-          "color": {
-            "value": "{o3.color.palette.white}",
-            "type": "color"
-          }
-        }
-      },
-      "body": {
+      "text": {
         "color": {
           "value": "{o3.color.palette.black}",
           "type": "color"
