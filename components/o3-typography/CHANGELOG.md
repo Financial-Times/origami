@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/Financial-Times/origami/compare/o3-typography-v0.3.0...o3-typography-v0.3.1) (2024-04-29)
+
+
+### Bug Fixes
+
+* remove type: module from o3-typography package ([#1608](https://github.com/Financial-Times/origami/issues/1608)) ([6e87813](https://github.com/Financial-Times/origami/commit/6e87813a4321faf04dfff319d9949a8011901f61))
+
 ## [0.3.0](https://github.com/Financial-Times/origami/compare/o3-typography-v0.2.0...o3-typography-v0.3.0) (2024-04-25)
 
 
