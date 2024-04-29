@@ -303,7 +303,7 @@ class Video {
 
 		const existingTrackEl = this.videoEl.querySelector('track');
 		if (existingTrackEl) {
-			this.videoEl.removeChild(existingTrackEl);
+			existingTrackEl.remove();
 		}
 
 		if (this.videoData.captionsUrl) {
@@ -393,7 +393,7 @@ class Video {
 			this.addVideo();
 			this.videoEl.focus();
 
-			this.containerEl.removeChild(this.placeholderEl);
+			this.placeholderEl.remove();
 			if (this.infoPanel) {
 				this.infoPanel.teardown();
 			}
