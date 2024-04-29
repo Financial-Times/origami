@@ -1,12 +1,11 @@
 @import '../tokens/core/_variables.css';
 @import '../../../main.css';
 
-
 @font-face {
 	src: url('https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=FinancierDisplayWeb-Medium&system_code=origami&version=1.12')
-		format('woff2');
-	font-family: var(--o3-font-family-financier-display);
-	font-weight: 400;
+		format('woff2-variations');
+	font-family: 'financier display VF';
+	font-weight: 300 800;
 	font-style: normal;
 	font-display: swap;
 }

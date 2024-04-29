@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.2.12](https://github.com/Financial-Times/origami/compare/o-video-v7.2.11...o-video-v7.2.12) (2024-04-25)
+
+
+### Bug Fixes
+
+* Fix an error when showing ads. Remove elements directly rather than use `el.removeChild(childEl)` ([1a2c522](https://github.com/Financial-Times/origami/commit/1a2c522c4c633070d028405097367191db99794a))
+
 ## [7.2.11](https://github.com/Financial-Times/origami/compare/o-video-v7.2.10...o-video-v7.2.11) (2023-10-27)
 
 
