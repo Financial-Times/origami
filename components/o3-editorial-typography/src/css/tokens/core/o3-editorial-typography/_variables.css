@@ -3,7 +3,7 @@
  */
 
 
-[data-o3-brand="core"] .o3-editorial-typography {
+[data-o3-brand="core"] {
   --_o3-editorial-typography-link-standard-bottom-color: var(--o3-color-use-case-link-underline);
   --_o3-editorial-typography-link-standard-color: var(--o3-color-use-case-link-text);
   --_o3-editorial-typography-link-standard-hover-color: var(--o3-color-use-case-link-text-hover);

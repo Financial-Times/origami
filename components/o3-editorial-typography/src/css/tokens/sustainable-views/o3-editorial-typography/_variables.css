@@ -3,7 +3,7 @@
  */
 
 
-[data-o3-brand="sustainable-views"] .o3-editorial-typography {
+[data-o3-brand="sustainable-views"] {
   --o3-editorial-typography-use-case-headline-large-l-font-family: var(--o3-font-family-financier-display);
   --o3-editorial-typography-use-case-headline-large-l-font-weight: var(--o3-font-weight-bold);
   --o3-editorial-typography-use-case-headline-large-l-font-size: var(--o3-font-size-7);
@@ -82,4 +82,6 @@
   --o3-editorial-typography-use-case-quote-author-line-height: var(--o3-font-lineheight-metric2-negative-1);
   --_o3-editorial-typography-headline-color: var(--o3-color-palette-black);
   --_o3-editorial-typography-headline-inverse-color: var(--o3-color-palette-white);
+  --_o3-editorial-typography-body-color: var(--o3-color-palette-black);
+  --_o3-editorial-typography-body-inverse-color: var(--o3-color-palette-white);
 }
