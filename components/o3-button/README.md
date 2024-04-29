@@ -287,7 +287,7 @@ To make a button disabled add the `disabled` attribute. To visually hide the dis
 
 For React users, Origami components now include JSX templates. Import JSX templates along with component CSS. JSX templates are exported as `cjs` (common JS) and `esm` (ECMAScript) modules, so depending on your system configuration, you may need to import the correct module type.
 
-See [Storybook for full o3-button JSX documentation](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/docs/core-o3-button--jsx-documentation).
+See [Storybook for full o3-button JSX documentation](https://o3.origami.ft.com?path=/docs/core-o3-button--jsx-documentation).
 
 For example, for a primary button:
 
