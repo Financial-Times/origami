@@ -15,17 +15,17 @@ const config: StorybookConfig = {
 	refs: {
 		'o2-core': {
 			title: 'Core',
-			url: 'https://main--655e0e31554f2044e99ab763.chromatic.com',
+			url: 'https://o2-core.origami.ft.com',
 			expanded: false,
 		},
 		'o2-internal': {
 			title: 'Internal',
-			url: 'https://main--655e310aa5b077441db35a73.chromatic.com',
+			url: 'https://o2-internal.origami.ft.com',
 			expanded: false,
 		},
 		'o2-whitelabel': {
 			title: 'Whitelabel',
-			url: 'https://main--655e316ac888d527a0be5f2b.chromatic.com',
+			url: 'https://o2-whitelabel.origami.ft.com',
 			expanded: false,
 		},
 	},
