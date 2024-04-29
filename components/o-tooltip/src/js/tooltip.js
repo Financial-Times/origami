@@ -31,7 +31,7 @@ class Tooltip {
 
 		Tooltip._tooltips.set(this.tooltipEl, this);
 
-		this.targetNode = document.getElementById(this.opts.target);
+		this.targetNode = typeof this.opts.target === 'string' ? document.getElementById(this.opts.target) : this.opts.target;
 		this.target = new Tooltip.Target(this.targetNode);
 		this.tooltipPosition = this._getConfiguredTooltipPosition();
 		this.tooltipAlignment = null;
@@ -121,6 +121,10 @@ class Tooltip {
 
 		if (!opts.target) {
 			Tooltip.throwError("tooltip.target is not set. An target for the tooltip to point at must be provided");
+		}
+
+		if (!(typeof opts.target === 'string') && !(opts.target instanceof HTMLElement)) {
+			Tooltip.throwError("tooltip.target is invalid, it must be either an ID selector string or HTMLElement");
 		}
 
 		// Check that the value of tooltip position is valid. Default to below.
