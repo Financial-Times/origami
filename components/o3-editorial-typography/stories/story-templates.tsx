@@ -5,7 +5,7 @@ import type {StoryObj} from '@storybook/react';
 import type {HeadlineProps} from "../src/types/index";
 
 type HeadlineStory = Omit<StoryObj, 'args'> & {
-	args: HeadlineProps
+	args: Omit<HeadlineProps, 'children'>;
 }
 
 
@@ -16,7 +16,7 @@ const HeadlineTemplate: StoryObj = {
 	},
 };
 
-export const Headline: HeadlineStory = {
+export const Heading: HeadlineStory = {
 	...HeadlineTemplate,
 	args: {
 		theme: 'standard',

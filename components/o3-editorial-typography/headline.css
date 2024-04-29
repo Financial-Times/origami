@@ -1,4 +1,8 @@
-.o3-editorial-typography {
+.o3-editorial-typography--headline,
+.o3-editorial-typography--headline-large,
+.o3-editorial-typography--chapter,
+.o3-editorial-typography--subheading,
+.o3-editorial-typography--label {
 	margin: 0;
 	color: var(--_o3-editorial-typography-headline-color);
 }
@@ -86,7 +90,6 @@
 		);
 	}
 }
-
 
 .o3-editorial-typography[data-o3-theme='inverse'],
 :where([data-o3-theme='inverse']) {
