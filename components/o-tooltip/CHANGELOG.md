@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.4.0](https://github.com/Financial-Times/origami/compare/o-tooltip-v5.3.2...o-tooltip-v5.4.0) (2024-04-29)
+
+
+### Features
+
+* o-tooltip opts.target can be HTMLElement ([#1611](https://github.com/Financial-Times/origami/issues/1611)) ([b6ca462](https://github.com/Financial-Times/origami/commit/b6ca46240d5be9bed441a5232225a66dcf2da9a1))
+
 ## [5.3.2](https://github.com/Financial-Times/origami/compare/o-tooltip-v5.3.1...o-tooltip-v5.3.2) (2023-10-27)
 
 
