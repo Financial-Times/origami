@@ -1,4 +1,4 @@
-# Origami For Everyone
+# Origami
 
 A new, in progress Origami website. It will:
 
@@ -8,7 +8,7 @@ A new, in progress Origami website. It will:
 
 ## Project Structure
 
-The Origami For Everyone website is [![built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build). The project structure looks like the following:
+The Origami website is [![built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build). The project structure looks like the following:
 
 ```
 .
@@ -25,7 +25,7 @@ The Origami For Everyone website is [![built with Starlight](https://astro.badg.
 └── tsconfig.json
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name. We use [Starlight's internationalisation features](https://starlight.astro.build/guides/i18n/) to present tailored content dependent on the selected brand. Brand specific content e.g. `src/content/docs/professional` takes precedence over  content at `src/content/docs/`.
+Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name. We use [Starlight's internationalisation features](https://starlight.astro.build/guides/i18n/) to present tailored content dependent on the selected brand. Brand specific content e.g. `src/content/docs/professional` takes precedence over content at `src/content/docs/`.
 
 Images can be added to `src/assets/` and embedded in Markdown with a relative link.
 

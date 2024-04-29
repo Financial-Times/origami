@@ -13,9 +13,9 @@ Origami is the FT's design system. This includes design guidelines, components, 
 
 Today, Origami is used to create ft.com, our apps, as well as internal tools, and increasingly other FT Group brands.
 
-## Origami For Everyone
+## Origami "o3"
 
-Origami For Everyone reimagines Origami with a renewed focus on:
+Origami "o3" delivers a reimagined Origami with a renewed focus on:
 
 1. Design guidelines, to support designers to prototype new products or features consistently, building on tried and tested approaches.
 2. Aligned designer and engineering tooling, for improved efficiency and alignment during handover from prototype to build.
