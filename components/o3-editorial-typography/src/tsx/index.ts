@@ -1,4 +1,5 @@
-import { Headline } from "./headline";
-import { Body } from "./body";
+import {Headline} from './headline';
+import {Body} from './body';
+export * from './detail';
 
-export { Headline, Body };
+export {Headline, Body};

@@ -10,7 +10,35 @@ export type BodyProps = {
 	children: string;
 };
 
+export type DetailProps = {
+	type:
+		| 'topic-tag'
+		| 'standfirst'
+		| 'caption'
+		| 'byline-author'
+		| 'byline-location'
+		| 'byline-timestamp'
+		| 'quote'
+		| 'quote-author';
+	theme: 'standard' | 'inverse';
+	children: string;
+};
 
-export type InverseAttribute = {
+export type QuoteProps = {
+	theme: 'standard' | 'inverse';
+	quoteAuthor: string;
+	quoteSource: string;
+	quoteIcon?: boolean;
+	children: string;
+};
+
+export type BigNumberProps = {
+	theme: 'standard' | 'inverse';
+	title: string;
+	children: string;
+};
+
+export type Attributes = {
 	'data-o3-theme'?: 'inverse';
+	'data-o3-editorial-quote-icon'?: boolean;
 };

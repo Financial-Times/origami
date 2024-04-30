@@ -1,7 +1,19 @@
-import {Headline as HeadlineTsx, Body as BodyTsx} from '../src/tsx/index';
+import {
+	Headline as HeadlineTsx,
+	Body as BodyTsx,
+	Detail as DetailTsx,
+	Quote as QuoteTsx,
+	BigNumber as BigNumberTsx,
+} from '../src/tsx/index';
 
 import type {StoryObj} from '@storybook/react';
-import type {HeadlineProps, BodyProps} from '../src/types/index';
+import type {
+	HeadlineProps,
+	BodyProps,
+	DetailProps,
+	QuoteProps,
+	BigNumberProps,
+} from '../src/types/index';
 
 type HeadlineStory = Omit<StoryObj, 'args'> & {
 	args: Omit<HeadlineProps, 'children'> & {content: string};
@@ -9,6 +21,18 @@ type HeadlineStory = Omit<StoryObj, 'args'> & {
 
 type BodyStory = Omit<StoryObj, 'args'> & {
 	args: Omit<BodyProps, 'children'> & {content: string};
+};
+
+type DetailStory = Omit<StoryObj, 'args'> & {
+	args: Omit<DetailProps, 'children'> & {content: string};
+};
+
+type QuoteStory = Omit<StoryObj, 'args'> & {
+	args: Omit<QuoteProps, 'children'> & {content: string};
+};
+
+type BigNumberStory = Omit<StoryObj, 'args'> & {
+	args: Omit<BigNumberProps, 'children'> & {content: string};
 };
 
 const TemplateSBConfig = {
@@ -59,6 +83,58 @@ const BodyTemplate: StoryObj = {
 	},
 };
 
+const DetailTemplate: StoryObj = {
+	argTypes: {
+		...TemplateSBConfig.argTypes,
+		type: {
+			options: [
+				'topic tag',
+				'standfirst',
+				'caption',
+				'byline author',
+				'byline location',
+				'byline timestamp',
+				'quote',
+				'quote author',
+			],
+			mapping: {
+				'topic tag': 'topic-tag',
+				standfirst: 'standfirst',
+				caption: 'caption',
+				'byline author': 'byline-author',
+				'byline location': 'byline-location',
+				'byline timestamp': 'byline-timestamp',
+				quote: 'quote',
+				'quote author': 'quote-author',
+			},
+			control: {
+				type: 'radio',
+			},
+		},
+	},
+	render: args => {
+		return <DetailTsx {...args}>{args.content}</DetailTsx>;
+	},
+};
+
+const QuoteTemplate: StoryObj = {
+	argTypes: {
+		...TemplateSBConfig.argTypes,
+	},
+	render: args => {
+		return <QuoteTsx {...args}>{args.content}</QuoteTsx>;
+	},
+};
+
+const BigNumberTemplate: StoryObj = {
+	argTypes: {
+		...TemplateSBConfig.argTypes,
+	},
+	render: args => {
+		return <BigNumberTsx {...args}>{args.content}</BigNumberTsx>;
+	},
+};
+
 export const Heading: HeadlineStory = {
 	...HeadlineTemplate,
 	args: {
@@ -74,5 +150,35 @@ export const Body: BodyStory = {
 		content: 'Body',
 		theme: 'standard',
 		type: 'small',
+	},
+};
+
+export const Detail: DetailStory = {
+	...DetailTemplate,
+	args: {
+		content: 'Detail',
+		theme: 'standard',
+		type: 'topic-tag',
+	},
+};
+
+export const Quote: QuoteStory = {
+	...QuoteTemplate,
+	args: {
+		content:
+			'Origami is about empowering developers of all levels to build robust, on-brand products ranging from simple static sites through to rich, dynamic web applications, to do it faster, to do it cheaper, and leave them more supportable and more maintainable.',
+		theme: 'standard',
+		quoteAuthor: 'Quote Author',
+		quoteSource: 'Quote Source',
+		quoteIcon: true,
+	},
+};
+
+export const BigNumber: BigNumberStory = {
+	...BigNumberTemplate,
+	args: {
+		content: 'Cost expected to increase by £13.7m a year.',
+		theme: 'standard',
+		title: '£27,5m',
 	},
 };
