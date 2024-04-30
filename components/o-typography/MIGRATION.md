@@ -1,5 +1,119 @@
 ## Migration guide
 
+### Migrating from v7 to o3-typography
+
+#### Fonts
+
+Fonts are now part of [o3-foundation](https://github.com/Financial-Times/origami/blob/main/components/o3-foundation/README.md). Please refer to the o3-foundation documentation for more information.
+
+### Themes
+
+Brands are now applied using a parent data attribute data-o3-brand. Likewise, themes are applied using data-o3-theme – this may be placed on the on a parent element or the o3-typography component directly.
+
+E.g. An FT Professional brand Link, brand inherited from a parent element.
+```html
+<body data-o3-brand="professional">
+	<a href="#" class="o3-typography o3-typography-link">To somewhere.</a>
+</body>
+```
+
+E.g. An FT Core brand Link with inverse theming, brand and theme inherited from a parent element.
+```html
+<body data-o3-brand="professional" data-o3-theme="inverse">
+	<a href="#" class="o3-typography o3-typography-link">To somewhere.</a>
+</body>
+```
+
+### Mixins
+
+#### oTypography
+
+Update your markup to use the `o3-typography` JSX template ([o3-button JSX documentation](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/docs/core-o3-typography)). Alternatively, replace `o-typography` class prefixes with `o3-button` as described below.
+
+##### Body elements
+
+
+```html
+<p class="o-typography-body">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	<a href="#" class="o-typography-link">Link</a>
+	a rem <strong class="o-typography-bold">excepturi</strong>
+	consequuntur commodi dolores ad <em class="o-typography-italic">laboriosam</em> qui odit
+</p>
+
+<figcaption class="o-typography-caption">
+	John Doe
+</figcaption>
+
+<footer class="o-typography-footer">Footer such as copyright notice.</footer>
+
+```
+
+Replace with:
+
+```html
+<p class="o3-typography o3-typography-body">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	<a href="#" class="o3-typography o3-typography-link">Link</a>
+	a rem <strong class="o3-typography o3-typography-bold">excepturi</strong>
+	consequuntur commodi dolores ad <em class="o3-typography o3-typography-italic">laboriosam</em> qui odit </p>
+
+<figcaption class="o3-typography o3-typography-caption">
+	John Doe
+</figcaption>
+
+<footer class="o3-typography o3-typography-footer">Footer such as copyright notice.</footer>
+```
+
+##### Headings
+
+Headings use a BEM modifier to style the heading level:
+
+```html
+<h1 class="o-typography-heading-level-1">Heading 1</h1>
+<h2 class="o-typography-heading-level-2">Heading 2</h2>
+<h3 class="o-typography-heading-level-3">Heading 3</h3>
+<h4 class="o-typography-heading-level-4">Heading 4</h4>
+<h5 class="o-typography-heading-level-5">Heading 5</h5>
+<h6 class="o-typography-heading-level-6">Heading 6</h6>
+```
+
+Replace with:
+
+```html
+<h1 class="o3-typography o3-typography-heading o3-typography-heading--level-1">Heading 1</h1>
+<h2 class="o3-typography o3-typography-heading o3-typography-heading--level-2">Heading 2</h2>
+<h3 class="o3-typography o3-typography-heading o3-typography-heading--level-3">Heading 3</h3>
+<h4 class="o3-typography o3-typography-heading o3-typography-heading--level-4">Heading 4</h4>
+<h5 class="o3-typography o3-typography-heading o3-typography-heading--level-5">Heading 5</h5>
+<h6 class="o3-typography o3-typography-heading o3-typography-heading--level-6">Heading 6</h6>
+```
+
+#### Lists
+
+```html
+	<ul class="o-typography-list o-typography-list--unordered">
+		<li>List</li>
+		<li>List</li>
+	</ul>
+
+	<ol class="o-typography-list o-typography-list--ordered">
+		<li>List ordered</li>
+		<li>List ordered</li>
+	</ol>
+```
+
+Replace with:
+
+```html
+<ul class="o3-typography-ul">
+		<li>List</li>
+		<li>List</li>
+	</ul>
+
+	<ol class="o3-typography-ol">
+		<li>List ordered</li>
+		<li>List ordered</li>
+	</ol>
+```
 ### Migrating from v6 to v7
 
 V7 drops support for Bower and version 2 of Origami Build Service.
