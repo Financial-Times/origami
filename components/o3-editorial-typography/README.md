@@ -35,23 +35,23 @@ Heading styles are available in 5 different types.
 #### HTML
 
 ```html
-<h1 class="o3-editorial-typography o3-editorial-typography--headline-large">
+<h1 class="o3-editorial-typography--headline-large">
  Large headline
 </h1>
 
-<h1 class="o3-editorial-typography o3-editorial-typography--headline">
+<h1 class="o3-editorial-typography--headline">
  Headline
 </h1>
 
-<h2 class="o3-editorial-typography o3-editorial-typography--chapter">
+<h2 class="o3-editorial-typography--chapter">
  Chapter
 </h2>
 
-<h3 class="o3-editorial-typography o3-editorial-typography--subheading">
+<h3 class="o3-editorial-typography--subheading">
  Subheading
 </h3>
 
-<h3 class="o3-editorial-typography o3-editorial-typography--label">Label</h3>
+<h3 class="o3-editorial-typography--label">Label</h3>
 ```
 
 #### JSX
