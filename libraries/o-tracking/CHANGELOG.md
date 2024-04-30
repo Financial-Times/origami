@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.5.3](https://github.com/Financial-Times/origami/compare/o-tracking-v4.5.2...o-tracking-v4.5.3) (2024-04-30)
+
+
+### Bug Fixes
+
+* fix new session behavior for o-tracking ([16a798c](https://github.com/Financial-Times/origami/commit/16a798c8095329d94d46a180ad7076f109bfceaa))
+
 ## [4.5.2](https://github.com/Financial-Times/origami/compare/o-tracking-v4.5.1...o-tracking-v4.5.2) (2024-02-26)
 
 
