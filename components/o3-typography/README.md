@@ -169,6 +169,20 @@ import { Body, Emphasis, Strong, Superscript } from '@financial-times/o3-typogra
 <Body>This body contains a <Superscript>superscript</Superscript> and a <Strong>strong</Strong> word.</Body>
 ```
 
+### Custom Properties
+
+#### Max Line Width
+
+O3 Typography uses a custom property to set the maximum line width for text. This can be overridden by setting the `--o3-typography-optimal-chars-per-line` custom property in the selector where you wish to apply this rule.
+
+##### CSS
+```css
+.my-selector {
+	--o3-typography-optimal-chars-per-line: 60;
+	max-width: var(--o3-typography-max-line-width);
+}
+```
+
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o3-typography/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
