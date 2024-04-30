@@ -254,6 +254,12 @@ describe("Tooltip", () => {
 			const opts = Tooltip.checkOptions({"target": "#el"});
 			proclaim.isObject(opts);
 		});
+
+		it("does not error if HTMLElement is passed as opts.target", () => {
+			const targetEl = document.createElement('div');
+			Tooltip.checkOptions({target: targetEl});
+			proclaim.isFalse(throwStub.called);
+		})
 	});
 
 	describe('constructElement', () => {

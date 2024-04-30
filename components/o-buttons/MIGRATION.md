@@ -45,7 +45,7 @@ E.g. A Core brand button, with theme specifically applied only to the button.
 
 `o3-button` includes a JSX template for React users. We recommend using JSX templates instead of copy-pasting HTML markup where possible, though both approaches are supported.
 
-See [Storybook for full o3-button JSX documentation](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/docs/core-o3-button--jsx-documentation). If you choose not to use the `o3-button` JSX template, ensure you update your HTML following the [oButtons mixin guide](#oButtons).
+See [Storybook for full o3-button JSX documentation](https://o3.origami.ft.com?path=/docs/core-o3-button--jsx-documentation). If you choose not to use the `o3-button` JSX template, ensure you update your HTML following the [oButtons mixin guide](#oButtons).
 
 #### Mixins
 
@@ -53,7 +53,7 @@ See [Storybook for full o3-button JSX documentation](https://main--64faf6b1815b6
 
 ###### Replace `o-buttons-*` classes.
 
-Update your markup to use the `o3-button` JSX template ([o3-button JSX documentation](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/docs/core-o3-button--jsx-documentation)). Alternatively, replace `o-buttons` class prefixes with `o3-button` as described below.
+Update your markup to use the `o3-button` JSX template ([o3-button JSX documentation](https://o3.origami.ft.com?path=/docs/core-o3-button--jsx-documentation)). Alternatively, replace `o-buttons` class prefixes with `o3-button` as described below.
 
 If using the FT Professional brand, remove `professional` from modifier classes. FT Professional styles are now using the parent brand data attribute (e.g. `data-o3-brand="professional"`) shared by all new Origami components.
 
@@ -79,7 +79,7 @@ Grouped buttons become:
 +</div>
 ```
 
-Pagination has changed more significantly. To upgrade we recommend using the JSX template provided by `o3-buttons` ([JSX documentation](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/docs/core-o3-button--jsx-documentation)). E.g:
+Pagination has changed more significantly. To upgrade we recommend using the JSX template provided by `o3-buttons` ([JSX documentation](https://o3.origami.ft.com?path=/docs/core-o3-button--jsx-documentation)). E.g:
 
 ```jsx
 <ButtonPagination

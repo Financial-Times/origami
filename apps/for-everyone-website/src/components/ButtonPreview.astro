@@ -30,12 +30,12 @@ switch (brand) {
         break;
 }
 
-let storybook = 'https://main--64faf6b1815b6c0106f82e74.chromatic.com/';
+let storybook = 'https://o3.origami.ft.com';
 if(brand) {
     const storybookArgs = `${Component.name.toLowerCase()}&args=${Object.entries(
             componentProps
         ).map(p => `${p[0]}:${p[1]};`).join('')}`;
-    const storybookbase = 'https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/story';
+    const storybookbase = 'https://o3.origami.ft.com?path=/story';
     storybook = `${storybookbase}/${brand}-o3-${Component.name.toLowerCase()}--${storybookArgs}`
 
     if(brand === 'professional') {

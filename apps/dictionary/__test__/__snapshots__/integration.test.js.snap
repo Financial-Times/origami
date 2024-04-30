@@ -5339,7 +5339,31 @@ exports[`buildCss() > for icon tokens > should build CSS variables for icon toke
 "
 `;
 
-exports[`buildCss() > should build CSS variables for > o3-button component tokens > for core brand 1`] = `
+exports[`buildCss() > should build CSS variables for > component tokens, at root > for core brand 1`] = `
+"/**
+ * Do not edit directly
+ */
+
+
+[data-o3-brand="core"] {
+  --o3-typography-example-standard-color: #000000;
+}
+"
+`;
+
+exports[`buildCss() > should build CSS variables for > component tokens, at root > for core/professional brand 1`] = `
+"/**
+ * Do not edit directly
+ */
+
+
+[data-o3-brand="professional"] {
+  --o3-typography-example-standard-color: #ffffff;
+}
+"
+`;
+
+exports[`buildCss() > should build CSS variables for > component tokens, scoped > for core brand 1`] = `
 "/**
  * Do not edit directly
  */
@@ -5458,7 +5482,7 @@ exports[`buildCss() > should build CSS variables for > o3-button component token
 "
 `;
 
-exports[`buildCss() > should build CSS variables for > o3-button component tokens > for core/professional brand 1`] = `
+exports[`buildCss() > should build CSS variables for > component tokens, scoped > for core/professional brand 1`] = `
 "/**
  * Do not edit directly
  */

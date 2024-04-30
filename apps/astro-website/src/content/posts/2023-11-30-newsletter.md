@@ -18,7 +18,7 @@ Part of this involves using [design tokens](https://spectrum.adobe.com/page/desi
 
 O3 button components are also built with CSS instead of Sass. This removes the dependency on Sass and opens up their usage to projects that don't use Sass. The buttons have been designed from a clean slate, and along with the absense of Sass, should make O3 components easier to use and maintain.
 
-You can see our catalog of Origami 3 components on our new [Storybook for Origami 3](https://main--64faf6b1815b6c0106f82e74.chromatic.com/). More information to come on Storybook below!
+You can see our catalog of Origami 3 components on our new [Storybook for Origami 3](https://o3.origami.ft.com). More information to come on Storybook below!
 
 The release also saw the introduction of another new package: `o3-web-token`, this package contains design tokens defined as CSS custom properties for colours, spacing, and typography. Replacing existing o-colours, o-spacing, and o-typography packages. These can be used to style Origami components and other projects at the FT, and supports an improved branding experience out of the box.
 
@@ -32,7 +32,7 @@ Themes emerged around improvements that can be made to documentation on Figma, O
 
 Mary presented the findings at a recent design system guild, more details can be found in [the recording of the session](https://docs.google.com/document/d/1aKhbRfMnCthZ-6D5eT82lpMmBeCcywNl9HzQakBf6lU/edit#heading=h.c69urzbzbwic).
 
-As part of this, we have rolled out Storybook to Chromatic, a platform that, amongst other things, hosts Storybook for us. This has enabled us to display [all Origami 2 brands in one single place](https://main--655f72ec522e424302dc6201.chromatic.com/?path=/docs/origami-2--docs). It is also where Origami 3's Storybook is hosted.
+As part of this, we have rolled out Storybook to Chromatic, a platform that, amongst other things, hosts Storybook for us. This has enabled us to display [all Origami 2 brands in one single place](https://o2.origami.ft.com/?path=/docs/origami-2--docs). It is also where Origami 3's Storybook is hosted.
 
 We thank everyone who contributed to the feedback and look to implement more changes off the back of it soon.
 
@@ -47,8 +47,9 @@ In October, Nigel joined us for two weeks where they paired with Ben contributin
 ## Special Thanks
 
 Special thanks to:
-* Nigel Pelvin and Behnaz Pourafshari for joining us for bootcamps,
-* all those who attended our User Studies and feedback sessions,
-* Erika Cellai for her support toward our documentation research,
-* Delyanka Sirakova for presenting Figma Organisation, Structure, & Naming Convention at Origami Design System Guild,
-* Kristo Mikkonen for adding an image overlays api to the Origami Image Service
+
+- Nigel Pelvin and Behnaz Pourafshari for joining us for bootcamps,
+- all those who attended our User Studies and feedback sessions,
+- Erika Cellai for her support toward our documentation research,
+- Delyanka Sirakova for presenting Figma Organisation, Structure, & Naming Convention at Origami Design System Guild,
+- Kristo Mikkonen for adding an image overlays api to the Origami Image Service

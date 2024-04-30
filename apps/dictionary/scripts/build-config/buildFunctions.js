@@ -45,6 +45,17 @@ export function buildBrandForCSS(getDestination) {
  * @returns {void}
  */
 export function buildComponentTokens(componentName, getDestination) {
+	// Components that should have their tokens at the root of the brand.
+	// E.g. [data-o3-brand="core"] vs.
+	// E.g. [data-o3-brand="core"] .o3-component vs.
+	// This is useful for components with many utility classes, where we
+	// do not want to repeat a class name for that component.
+	// Generally, we prefer to scope tokens to the component element so:
+	// 1. In-browser Dev Tools are easier to use.
+	// 2. Enforce they are used by the component only, especially where private.
+	const tokensAtRootForComponents = ['o3-typography'];
+	const placeTokensAtRoot = tokensAtRootForComponents.includes(componentName);
+
 	const brands = getBrandNames();
 
 	brands.forEach(brand => {
@@ -52,7 +63,9 @@ export function buildComponentTokens(componentName, getDestination) {
 		const destination = getDestination(brand, componentName);
 		const brandSelector = `[data-o3-brand="${brand.split('/').slice(-1)}"]`;
 		const componentSelector = `.${componentName}`;
-		const parentSelector = `${brandSelector} ${componentSelector}`;
+		const parentSelector = placeTokensAtRoot
+			? `${brandSelector}`
+			: `${brandSelector} ${componentSelector}`;
 
 		buildCSS({
 			includes,
