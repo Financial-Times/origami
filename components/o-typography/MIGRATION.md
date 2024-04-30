@@ -8,7 +8,7 @@ Fonts are now part of [o3-foundation](https://github.com/Financial-Times/origami
 
 ### Themes
 
-Brands are now applied using a parent data attribute data-o3-brand. Likewise, themes are applied using data-o3-theme – this may be placed on the on a parent element or the o3-typography component directly.
+Brands are now applied using a parent data attribute `data-o3-brand`. Likewise, themes are applied using `data-o3-theme` – this may be placed on the on a parent element or the `o3-typography` component directly.
 
 E.g. An FT Professional brand Link, brand inherited from a parent element.
 ```html
