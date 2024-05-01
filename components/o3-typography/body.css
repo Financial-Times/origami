@@ -7,16 +7,17 @@
 }
 
 .o3-typography-body--small {
-		font-size: var(--o3-font-size-negative-1);
-		line-height: var(--o3-font-lineheight-negative-1);
+	font-size: var(--o3-font-size-negative-1);
+	line-height: var(--o3-font-lineheight-negative-1);
 }
 
-.o3-typography-body[data-o3-theme="inverse"] {
+.o3-typography-body[data-o3-theme="inverse"],
+.o3-typography-wrapper:where([data-o3-theme="inverse"]) p {
 	color: var(--_o3-typography-body-inverse-color);
 }
 
-.o3-typography-sub {
-	font-family: MetricWeb, sans-serif;
+.o3-typography-sub,
+.o3-typography-wrapper sub {
 	font-size: 0.666em;
 	position: static;
 	vertical-align: sub;
@@ -25,8 +26,8 @@
 	margin-bottom: -1em;
 }
 
-.o3-typography-sup {
-	font-family: MetricWeb, sans-serif;
+.o3-typography-sup,
+.o3-typography-wrapper sup {
 	font-size: 0.666em;
 	position: static;
 	vertical-align: super;
