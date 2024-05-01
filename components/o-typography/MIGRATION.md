@@ -6,7 +6,7 @@
 
 Fonts are now part of [o3-foundation](https://github.com/Financial-Times/origami/blob/main/components/o3-foundation/README.md). Please refer to the o3-foundation documentation for more information.
 
-### Themes
+#### Themes
 
 Brands are now applied using a parent data attribute `data-o3-brand`. Likewise, themes are applied using `data-o3-theme` – this may be placed on the on a parent element or the `o3-typography` component directly.
 
@@ -24,13 +24,18 @@ E.g. An FT Core brand Link with inverse theming, brand and theme inherited from 
 </body>
 ```
 
-### Mixins
+#### Mixins
 
-#### oTypography
+##### oTypography
 
-Update your markup to use the `o3-typography` JSX template ([o3-button JSX documentation](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/docs/core-o3-typography)). Alternatively, replace `o-typography` class prefixes with `o3-button` as described below.
+Update your markup to use the `o3-typography` JSX template ([o3-button JSX documentation](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/docs/core-o3-typography)) if your web application uses it.
 
-##### Body elements
+Alternatively, replace the classes in your HTML code with the new ones.
+
+
+###### Body elements
+
+This covers `oTypographyBody`, `oTypographySub`, `oTypographySuper`, `oTypographyLink`, `oTypographyFooter`, and `oTypographyCaption`.
 
 
 ```html
@@ -45,10 +50,11 @@ Update your markup to use the `o3-typography` JSX template ([o3-button JSX docum
 </figcaption>
 
 <footer class="o-typography-footer">Footer such as copyright notice.</footer>
-
 ```
 
 Replace with:
+
+**HTML**
 
 ```html
 <p class="o3-typography o3-typography-body">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -63,7 +69,23 @@ Replace with:
 <footer class="o3-typography o3-typography-footer">Footer such as copyright notice.</footer>
 ```
 
-##### Headings
+**JSX**
+
+```jsx
+import {Body, Link, Strong, Emphasis, Caption, Footer} from '@financial-times/o3-typography';
+
+<Body>Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	<Link>Link</Link>
+	a rem <Strong>excepturi</Strong>
+	consequuntur commodi dolores ad <Emphasis>laboriosam</Emphasis> qui odit
+</Body>
+
+<Caption>John Doe</Caption>
+
+<Footer>Footer such as copyright notice.</Footer>
+```
+
+###### oTypographyHeading
 
 Headings use a BEM modifier to style the heading level:
 
@@ -78,6 +100,7 @@ Headings use a BEM modifier to style the heading level:
 
 Replace with:
 
+**HTML**
 ```html
 <h1 class="o3-typography o3-typography-heading o3-typography-heading--level-1">Heading 1</h1>
 <h2 class="o3-typography o3-typography-heading o3-typography-heading--level-2">Heading 2</h2>
@@ -87,7 +110,20 @@ Replace with:
 <h6 class="o3-typography o3-typography-heading o3-typography-heading--level-6">Heading 6</h6>
 ```
 
-#### Lists
+**JSX**
+
+```jsx
+import {Heading} from '@financial-times/o3-typography';
+
+<Heading level={1}>Heading 1</Heading>
+<Heading level={2}>Heading 2</Heading>
+<Heading level={3}>Heading 3</Heading>
+<Heading level={4}>Heading 4</Heading>
+<Heading level={5}>Heading 5</Heading>
+<Heading level={6}>Heading 6</Heading>
+```
+
+###### oTypographyList
 
 ```html
 	<ul class="o-typography-list o-typography-list--unordered">
@@ -103,17 +139,95 @@ Replace with:
 
 Replace with:
 
+**HTML**
+
 ```html
 <ul class="o3-typography-ul">
-		<li>List</li>
-		<li>List</li>
-	</ul>
+	<li>List item</li>
+	<li>List item</li>
+</ul>
 
-	<ol class="o3-typography-ol">
-		<li>List ordered</li>
-		<li>List ordered</li>
-	</ol>
+<ol class="o3-typography-ol">
+	<li>List ordered</li>
+	<li>List ordered</li>
+</ol>
 ```
+
+**JSX**
+
+```jsx
+import {UnorderedList, OrderedList } from '@financial-times/o3-typography';
+
+<UnorderedList>
+	<li>List item</li>
+	<li>List item</li>
+</UnorderedList>
+
+<OrderedList>
+	<li>List ordered</li>
+	<li>List ordered</li>
+</OrderedList>
+```
+
+###### Wrapper
+
+The wrapper class is exported by the oTypography mixin. And the previous CSS classes can be replaced with the new classes.
+
+```html
+<div class="o-typography-wrapper">
+	<h1>Heading</h1>
+	<p>Content</p>
+</div>
+```
+
+Replace with:
+
+###### HTML
+```html
+<div class="o3-typography-wrapper">
+	<h1>Heading</h1>
+	<p>Content</p>
+</div>
+```
+
+###### JSX
+
+```jsx
+import {Wrapper} from '@financial-times/o3-typography';
+
+<Wrapper>
+	<h1>Heading</h1>
+	<p>Content</p>
+</Wrapper>
+```
+
+
+#### Functions
+
+##### oTypographyGetScale
+
+Scale is now part of [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation).
+
+CSS Custom Properties can be used to define scale values. For example:
+
+**SASS**
+```scss
+.my-class {
+	font-size: oTypographyGetScale(1);
+}
+```
+
+Can be replaced with:
+**CSS**
+```css
+@import "@financial-times/o3-foundation/css/core.css";
+
+.my-class {
+	font-size: var(--o3-font-size-1);
+}
+```
+
+
 ### Migrating from v6 to v7
 
 V7 drops support for Bower and version 2 of Origami Build Service.
