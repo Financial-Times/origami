@@ -186,13 +186,13 @@ class Video {
 		}
 
 		const defaultTargeting = {
-            site: '/5887/ft.com',
-            position: 'video',
-            sizes: '592x333|400x225',
-            videoId: this.opts.id
-        };
+			site: '/5887/ft.com',
+			position: 'video',
+			sizes: '592x333|400x225',
+			videoId: this.opts.id
+		};
 
-        this.targeting = Object.assign({}, defaultTargeting, this.opts.targeting);
+		this.targeting = Object.assign({}, defaultTargeting, this.opts.targeting);
 
 		if (this.opts.advertising) {
 			this.videoAds = new VideoAds(this);
