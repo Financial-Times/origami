@@ -6,8 +6,8 @@
 @import './caption.css';
 
 
-.o3-typography {
-	--o3-typography-max-line-width: calc(var(--o3-typography-optimal-chars-per-line, 65) * 0.75 * 1ch)
+:root {
+	--o3-typography-max-line-width: 65ch;
 }
 
 .o3-typography-bold {
