@@ -2,10 +2,6 @@
 
 ### Migrating from v7 to o3-typography
 
-#### Fonts
-
-Fonts are now part of [o3-foundation](https://github.com/Financial-Times/origami/blob/main/components/o3-foundation/README.md). Please refer to the o3-foundation documentation for more information.
-
 #### Themes
 
 Brands are now applied using a parent data attribute `data-o3-brand`. Likewise, themes are applied using `data-o3-theme` – this may be placed on the on a parent element or the `o3-typography` component directly.
@@ -57,16 +53,16 @@ Replace with:
 **HTML**
 
 ```html
-<p class="o3-typography o3-typography-body">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-	<a href="#" class="o3-typography o3-typography-link">Link</a>
-	a rem <strong class="o3-typography o3-typography-bold">excepturi</strong>
-	consequuntur commodi dolores ad <em class="o3-typography o3-typography-italic">laboriosam</em> qui odit </p>
+<p class="o3-typography-body">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	<a href="#" class="o3-typography-link">Link</a>
+	a rem <strong class="o3-typography-bold">excepturi</strong>
+	consequuntur commodi dolores ad <em class="o3-typography-italic">laboriosam</em> qui odit </p>
 
-<figcaption class="o3-typography o3-typography-caption">
+<figcaption class="o3-typography-caption">
 	John Doe
 </figcaption>
 
-<footer class="o3-typography o3-typography-footer">Footer such as copyright notice.</footer>
+<footer class="o3-typography-footer">Footer such as copyright notice.</footer>
 ```
 
 **JSX**
@@ -85,7 +81,39 @@ import {Body, Link, Strong, Emphasis, Caption, Footer} from '@financial-times/o3
 <Footer>Footer such as copyright notice.</Footer>
 ```
 
-###### oTypographyHeading
+###### Wrapper
+
+The wrapper class is exported by the oTypography mixin. And the previous CSS classes can be replaced with the new classes.
+
+```html
+<div class="o-typography-wrapper">
+	<h1>Heading</h1>
+	<p>Content</p>
+</div>
+```
+
+Replace with:
+
+**HTML**
+```html
+<div class="o3-typography-wrapper">
+	<h1>Heading</h1>
+	<p>Content</p>
+</div>
+```
+
+**JSX**
+
+```jsx
+import {Wrapper} from '@financial-times/o3-typography';
+
+<Wrapper>
+	<h1>Heading</h1>
+	<p>Content</p>
+</Wrapper>
+```
+
+##### oTypographyHeading
 
 Headings use a BEM modifier to style the heading level:
 
@@ -102,12 +130,12 @@ Replace with:
 
 **HTML**
 ```html
-<h1 class="o3-typography o3-typography-heading o3-typography-heading--level-1">Heading 1</h1>
-<h2 class="o3-typography o3-typography-heading o3-typography-heading--level-2">Heading 2</h2>
-<h3 class="o3-typography o3-typography-heading o3-typography-heading--level-3">Heading 3</h3>
-<h4 class="o3-typography o3-typography-heading o3-typography-heading--level-4">Heading 4</h4>
-<h5 class="o3-typography o3-typography-heading o3-typography-heading--level-5">Heading 5</h5>
-<h6 class="o3-typography o3-typography-heading o3-typography-heading--level-6">Heading 6</h6>
+<h1 class="o3-typography-h1">Heading 1</h1>
+<h2 class="o3-typography-h2">Heading 2</h2>
+<h3 class="o3-typography-h3">Heading 3</h3>
+<h4 class="o3-typography-h4">Heading 4</h4>
+<h5 class="o3-typography-h5">Heading 5</h5>
+<h6 class="o3-typography-h6">Heading 6</h6>
 ```
 
 **JSX**
@@ -123,7 +151,7 @@ import {Heading} from '@financial-times/o3-typography';
 <Heading level={6}>Heading 6</Heading>
 ```
 
-###### oTypographyList
+##### oTypographyList
 
 ```html
 	<ul class="o-typography-list o-typography-list--unordered">
@@ -169,38 +197,92 @@ import {UnorderedList, OrderedList } from '@financial-times/o3-typography';
 </OrderedList>
 ```
 
-###### Wrapper
+##### Fonts
 
-The wrapper class is exported by the oTypography mixin. And the previous CSS classes can be replaced with the new classes.
+Fonts are now provided by [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation). Use CSS from this library to include fonts previously provided by o-typography.
 
-```html
-<div class="o-typography-wrapper">
-	<h1>Heading</h1>
-	<p>Content</p>
-</div>
+##### oTypographySerif
+
+```scss
+p {
+	@include oTypographySerif();
+}
 ```
 
 Replace with:
 
-###### HTML
-```html
-<div class="o3-typography-wrapper">
-	<h1>Heading</h1>
-	<p>Content</p>
-</div>
+```css
+@import "@financial-times/o3-foundation/css/core.css";
+
+p {
+	font-family: var(--o3-font-family-metric);
+}
 ```
 
-###### JSX
 
-```jsx
-import {Wrapper} from '@financial-times/o3-typography';
+###### oTypographyDisplay
 
-<Wrapper>
-	<h1>Heading</h1>
-	<p>Content</p>
-</Wrapper>
+```scss
+p {
+	@include oTypographyDisplay();
+}
 ```
 
+Replace with:
+
+```css
+@import "@financial-times/o3-foundation/css/core.css";
+
+p {
+	font-family: var(--o3-font-family-georgia);
+}
+```
+###### oTypographySans
+
+```scss
+p {
+	@include oTypographySans();
+}
+```
+
+Replace with:
+
+```css
+@import "@financial-times/o3-foundation/css/core.css";
+
+p {
+	font-family: var(--o3-font-family-financier-display);
+}
+```
+
+###### oTypographySetFont
+
+This can now be set by defining your own font family in CSS.
+
+
+```scss
+@include oTypographySetFont('my-font', 'sans');
+```
+
+Replace with:
+
+```css
+@font-face {
+	font-family: 'my-font';
+	src: url('my-font.woff2') format('woff2');
+	font-weight: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+p {
+	font-family: 'my-font';
+}
+```
+
+##### oTypographyDefineFontScale
+
+There is no direct replacement for this mixin. Instead, use the CSS Custom Properties provided by [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation), or define your own font scale in your code.
 
 #### Functions
 
@@ -218,6 +300,7 @@ CSS Custom Properties can be used to define scale values. For example:
 ```
 
 Can be replaced with:
+
 **CSS**
 ```css
 @import "@financial-times/o3-foundation/css/core.css";
@@ -227,6 +310,38 @@ Can be replaced with:
 }
 ```
 
+##### oTypographyMaxLineWidth
+
+This has been replaced with a CSS Custom Property with one static value:
+
+**SASS**
+
+```scss
+.my-class {
+	max-width: oTypographyMaxLineWidth(65);
+}
+```
+
+Our CSS Custom Property can be used instead where a value of `65ch` is required:
+
+**CSS**
+
+```css
+.my-class {
+	max-width: var(--o3-typography-max-line-width);
+}
+```
+
+##### oTypographyGetFontFamily
+
+#### Variables
+
+##### o-typography-is-silent
+##### o-typography-relative-units
+##### o-typography-load-fonts
+##### o-typography-error-for-missing-fonts
+##### o-typography-progressive-font-loading
+##### o-typography-baseline-unit
 
 ### Migrating from v6 to v7
 
