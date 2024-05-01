@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/Financial-Times/origami/compare/o3-tooltip-v1.0.3...o3-tooltip-v1.0.4) (2024-05-01)
+
+
+### Bug Fixes
+
+* announce toggletip content to screen readers ([#1596](https://github.com/Financial-Times/origami/issues/1596)) ([8e4a7c3](https://github.com/Financial-Times/origami/commit/8e4a7c316fd1a009caa2de49b9acf8408db24ab9))
+
 ## [1.0.3](https://github.com/Financial-Times/origami/compare/o3-tooltip-v1.0.2...o3-tooltip-v1.0.3) (2024-04-18)
 
 
