@@ -1,3 +1,8 @@
 .o3-typography-footer {
 	color: var(--_o3-typography-footer-color);
 }
+
+.o3-typography-footer[data-o3-theme='inverse'],
+.o3-typography-wrapper:where([data-o3-theme='inverse']) footer {
+	color: var(--_o3-typography-body-inverse-color);
+}
