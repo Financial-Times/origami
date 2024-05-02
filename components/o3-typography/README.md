@@ -176,7 +176,7 @@ The wrapper can be used to style blocks of body without needing to apply the cla
 
 #### HTML
 ```html
-<div class="o3-typography o3-typography-wrapper">
+<div class="o3-typography-wrapper">
 	<h1>This heading gets styled.</h1>
 	<p>And so does this paragraphy of text.</p>
 	<h2>This gets styled also</h2>
