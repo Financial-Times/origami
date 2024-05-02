@@ -81,9 +81,10 @@ export const OnboardingTooltip: OnBoardingTooltipStory = {
 export const ToggleToolTip: ToggleTooltipStory = {
 	...ToggleTemplateStory,
 	args: {
-		content: 'click the button to see the tooltip',
+		content: 'tooltip content that is quite long and has some information about the target',
 		title: 'Title',
 		placement: 'right',
+		infoLabel: "more information"
 	},
 	argTypes: {
 		placement: {

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/Financial-Times/origami/compare/o3-typography-v0.3.1...o3-typography-v0.4.0) (2024-05-01)
+
+
+### Features
+
+* introduce o3-typography-wrapper ([#1618](https://github.com/Financial-Times/origami/issues/1618)) ([5558dcf](https://github.com/Financial-Times/origami/commit/5558dcff7f78ba112f8e38b3400e1aa9b296a32e))
+
 ## [0.3.1](https://github.com/Financial-Times/origami/compare/o3-typography-v0.3.0...o3-typography-v0.3.1) (2024-04-29)
 
 
