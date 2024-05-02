@@ -135,7 +135,7 @@ import { Footer } from '@financial-times/o3-typography';
 Used with figures to provide a caption:
 
 ```html
-<figcaption class="o3-typography o3-typography-caption">This is a caption.</figcaption>
+<figcaption class="o3-typography-caption">This is a caption.</figcaption>
 ```
 
 ```tsx
