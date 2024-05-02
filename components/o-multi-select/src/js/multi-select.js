@@ -207,9 +207,13 @@ class MultiSelect {
 	_getCoreOptions() {
 		const options = this._coreWrapper.querySelectorAll('option');
 		this._coreOptions = options;
-		return [...options].map((option) => ({ label: option.textContent, value: option.value }));
+		return [...options].map((option) => ({ 
+			depth: option.dataset.oMultiSelectDepth,
+			label: option.textContent, 
+			value: option.value 
+		}));
 	}
-
+	
 	/**
 	 * Remove window event listeners.
 	 *

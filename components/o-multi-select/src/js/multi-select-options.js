@@ -134,7 +134,7 @@ export function createOption(idBase, option, index, selected) {
 	optionEl.id = `${idBase}-${index}`;
 	optionEl.className = 'o-multi-select-option';
 	optionEl.setAttribute('aria-selected', selected);
-	optionEl.textContent = option.label;
+	optionEl.textContent = "- ".repeat(option.depth || 0) + option.label;
 	const tickSpan = document.createElement('span');
 	tickSpan.className = 'o-multi-select-option-tick';
 	optionEl.appendChild(tickSpan);
