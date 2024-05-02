@@ -121,7 +121,7 @@ import { List } from '@financial-times/o3-typography';
 
 #### HTML
 ```html
-<footer class="o3-typography o3-typography-footer">Copyright notice</footer>
+<footer class="o3-typography-footer">Copyright notice</footer>
 ```
 #### JSX
 ```tsx
