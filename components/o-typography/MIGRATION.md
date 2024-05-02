@@ -199,7 +199,9 @@ import {UnorderedList, OrderedList } from '@financial-times/o3-typography';
 
 ##### Fonts
 
-Fonts are now provided by [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation). Use CSS from this library to include fonts previously provided by o-typography.
+Fonts are now provided by [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation). Use CSS Custom Properties from this library to include fonts previously provided by o-typography.
+
+These new properties will also set the fallback font.
 
 ##### oTypographySerif
 
@@ -215,7 +217,7 @@ Replace with:
 @import "@financial-times/o3-foundation/css/core.css";
 
 p {
-	font-family: var(--o3-font-family-metric);
+	font-family: var(--o3-font-family-metric); // outputs: 'Metric VF', sans
 }
 ```
 
@@ -336,12 +338,14 @@ Our CSS Custom Property can be used instead where a value of `65ch` is required:
 
 #### Variables
 
-##### o-typography-is-silent
-##### o-typography-relative-units
-##### o-typography-load-fonts
-##### o-typography-error-for-missing-fonts
-##### o-typography-progressive-font-loading
-##### o-typography-baseline-unit
+The following variables are no longer necessary:
+
+* o-typography-is-silent
+* o-typography-relative-units
+* o-typography-error-for-missing-fonts
+* o-typography-load-fonts
+* o-typography-progressive-font-loading - fallbacks are now provided through our font-face design tokens. See [Fonts](#fonts).
+* o-typography-baseline-unit
 
 ### Migrating from v6 to v7
 
