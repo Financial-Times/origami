@@ -2,5 +2,5 @@
 title: An Introduction
 description: Start using Origami
 sidebar:
-  order: 1
+  order: 2
 ---
