@@ -3,11 +3,15 @@ import {
 	toggleDropdown,
 	updateCurrentElement,
 	_removeCurrentClass,
-	checkForDuplicates
+	checkForDuplicates,
 } from './utils.js';
 import {updateState} from './state.js';
-import {handleOptionSelect, createOption, addSelectedOption} from './multi-select-options.js';
-import {uidBuilder} from "@financial-times/o-utils";
+import {
+	handleOptionSelect,
+	createOption,
+	addSelectedOption,
+} from './multi-select-options.js';
+import {uidBuilder} from '@financial-times/o-utils';
 
 const uniqueId = uidBuilder('o-multi-select');
 
@@ -107,7 +111,9 @@ class MultiSelect {
 		const selectName = this._coreWrapper.attributes.getNamedItem('name').value;
 		const selectId = this._coreWrapper.attributes.getNamedItem('id').value;
 		if (!selectName || !selectId) {
-			throw new Error('Select element must have attributes name and id defined.');
+			throw new Error(
+				'Select element must have attributes name and id defined.'
+			);
 		}
 
 		// change ID of native select element so enhanced select element does not have same ID
@@ -118,7 +124,9 @@ class MultiSelect {
 		const label = document.querySelector(`[for=${selectId}]`);
 		label.id = labelId;
 
-		this.multiSelectEl.insertAdjacentHTML('beforeend', `<div class="o-multi-select__enhanced">
+		this.multiSelectEl.insertAdjacentHTML(
+			'beforeend',
+			`<div class="o-multi-select__enhanced">
     <ul
             class="o-multi-select__selected-options"
             id=${selectedWrapperId}
@@ -148,7 +156,8 @@ class MultiSelect {
             tabindex="-1"
     ></div>
 </div>
-`);
+`
+		);
 		this._coreWrapper.style.display = 'none';
 	}
 
@@ -159,12 +168,12 @@ class MultiSelect {
 	 * @returns {HTMLElement} The core wrapper HTML Element.
 	 */
 	_getCoreWrapper() {
-		const coreWrapper = this.multiSelectEl.querySelectorAll(
-			"select"
-		);
+		const coreWrapper = this.multiSelectEl.querySelectorAll('select');
 
 		if (coreWrapper.length > 1) {
-			throw new Error('Only one select element must be provided for o-multi-select');
+			throw new Error(
+				'Only one select element must be provided for o-multi-select'
+			);
 		}
 		if (coreWrapper.length === 0) {
 			throw new Error('A select element must be provided in o-multi-select');
@@ -207,11 +216,12 @@ class MultiSelect {
 	_getCoreOptions() {
 		const options = this._coreWrapper.querySelectorAll('option');
 		this._coreOptions = options;
-		return [...options].map((option) => ({
+		return [...options].map(option => ({
 			depth: option.dataset.oMultiSelectDepth,
 			label: option.textContent,
-			value: option.value}));
-		}
+			value: option.value,
+		}));
+	}
 	/**
 	 * Remove window event listeners.
 	 *
