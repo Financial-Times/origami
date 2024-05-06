@@ -31,11 +31,11 @@ So, what's new with o3?
 - Trust: always an on brand experience.
 - Product: features delivered more quickly with fewer bugs.
 
-How does o3 features help achieve these exactly? Let's look in more detail.
+How do o3 features help achieve these exactly? Let's look in more detail.
 
 ## Design guidelines
 
-We've always heard pretty good feedback about our technical documentation. For the most part engineering teams know how to use Origami. They don't always no where or why, and designers are left guessing too. This leads to user interface being reused in ways never intended. Forced into place for unsuitable purposes, causing confusing, inconsistency of experience, and inaccessible products.
+We've always heard pretty good feedback about our technical documentation. For the most part engineering teams know how to use Origami. They don't always no where or why, and designers are left guessing too. This leads to user interface being reused in ways never intended. Forced into place for unsuitable purposes which can lead to a confusing, inconsistent, or inaccessible product experience.
 
 All Origami components now include thorough design guidelines. These capture our design thinking, along with justifying user research, and provide clear does and don'ts for reuse in new products or features.
 
@@ -68,7 +68,7 @@ The following screenshot shows the VSCode [IDE](https://en.wikipedia.org/wiki/In
 
 o3 is built using [design tokens](https://www.designtokens.org/glossary/) which allow us to synchronise design decisions across platforms and support multiple brands.
 
-We're adding support for our first Specialist brand, Sustainable Views, with the support or Deyan from the Specialist team.
+We're adding support for our first Specialist brand, Sustainable Views, with the help of Deyan from the Specialist team.
 
 The work of Deyan and other contributors from FT Specialist goes into building reusable components that also benefit ft.com. Using Origami we're able to distribute effort and benefit from each other's expertise and successes.
 
