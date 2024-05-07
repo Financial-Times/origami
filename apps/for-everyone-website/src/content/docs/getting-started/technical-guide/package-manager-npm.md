@@ -191,13 +191,13 @@ The following screenshot shows Figma For VSCode suggesting the `--o3-spacing-m` 
 
 ![Origami CSS autocompletion for colours, showing name and hex value](/assets/images/new/vs-code-3.png)
 
-By default CSS Variable Autocomplete does not look up `node_modules` and exceptions are made per file. To autocomplete CSS for any installed Origami component we recommend [setting configuration](https://code.visualstudio.com/docs/getstarted/settings) for CSS Variable Autocomplete to not exclude `node_modules` by default, and instead only look up files we're interested in. This will vary per project E.g:
+By default [CSS Variable Autocomplete](https://marketplace.visualstudio.com/items?itemName=vunguyentuan.vscode-css-variables) does not look for CSS in `node_modules`. We recommend setting its [configuration](https://code.visualstudio.com/docs/getstarted/settings) to specify which CSS to use for autocompletion. This will vary per project. E.g:
 
 ```json
 {
 	"cssVariables.lookupFiles": [
-		"css/**/*.css",
-		"css/**/*.scss",
+		"src/css/**/*.css",
+		"src/scss/**/*.scss",
 		"node_modules/@financial-times/o3-*/css/[your-project-brand].css"
 	],
 	"cssVariables.blacklistFolders": []
