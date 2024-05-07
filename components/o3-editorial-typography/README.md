@@ -77,7 +77,7 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 
 ## Theme modifiers
 
-`o3-editorial-typography` also supports `inverse` theme. Adding `data-o3-theme="inverse"` to the wrapper element or at the element itself will change the color of the text to white.
+`o3-editorial-typography` also supports the `inverse` theme. Adding `data-o3-theme="inverse"` to the wrapper element or at the element itself will change the colour of the text to white.
 
 ```html
 <h3
