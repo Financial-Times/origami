@@ -14,7 +14,11 @@ Typographic styles for editorial content.
 
 ## Overview
 
-O3 editorial typography is keeping typography consistent and sticking to logical hierarchies ensures that page elements are clear and easily recognisable when scanning the page. Lead with Mobile-First (also applies to FT Apps. For example; FT Apps, FT Edit). `o3-editorial-typography` only supports `core` and `sustainable-view` brands.
+`o3-editorial-typography` provides typographic styles for editorial content. It supports the following brands:
+- `core`
+-`sustainable-view`
+
+For UI typography see `o3-typography`.
 
 ## Markup
 
