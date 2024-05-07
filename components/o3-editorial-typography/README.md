@@ -85,7 +85,7 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 
 ```html
 <h3
- class="o3-editorial-typography o3-editorial-typography--label"
+ class="o3-editorial-typography--label"
  data-o3-theme="inverse"
 >
  Label
