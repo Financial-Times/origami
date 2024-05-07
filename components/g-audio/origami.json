@@ -1,38 +1,39 @@
 {
-  "description": "IG audio player component",
-  "origamiType": "component",
-  "origamiVersion": "2.0",
-  "keywords": ["audio"],
-  "origamiCategory": "components",
-  "support": "https://github.com/Financial-Times/g-audio/issues",
-  "supportStatus": "experimental",
-  "supportContact": {
-    "email": "data.journalism.development@ft.com",
-    "slack": "financialtimes/djd-comms"
-  },
-  "demosDefaults": {
-    "sass": "demos/src/demo.scss",
-    "js": "demos/src/demo.js"
-  },
-  "demos": [
-    {
-      "name": "inline",
-      "title": "Inline",
-      "template": "demos/src/inline.mustache",
-      "description": "Demo of inline audio player"
-    },
-    {
-      "name": "block",
-      "title": "Block",
-      "template": "demos/src/block.mustache",
-      "description": "Demo of block audio player"
-    },
-    {
-      "name": "pa11y",
+	"description": "IG audio player component",
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"keywords": ["audio"],
+	"brands": ["core"],
+	"origamiCategory": "components",
+	"support": "https://github.com/Financial-Times/g-audio/issues",
+	"supportStatus": "experimental",
+	"supportContact": {
+		"email": "data.journalism.development@ft.com",
+		"slack": "financialtimes/djd-comms"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js"
+	},
+	"demos": [
+		{
+			"name": "inline",
+			"title": "Inline",
+			"template": "demos/src/inline.mustache",
+			"description": "Demo of inline audio player"
+		},
+		{
+			"name": "block",
+			"title": "Block",
+			"template": "demos/src/block.mustache",
+			"description": "Demo of block audio player"
+		},
+		{
+			"name": "pa11y",
 			"title": "Pa11y",
 			"template": "demos/src/pa11y.mustache",
 			"description": "Accessibility test will be run against this demo",
 			"hidden": true
 		}
-  ]
+	]
 }

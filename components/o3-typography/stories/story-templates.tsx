@@ -1,4 +1,13 @@
-import {Body, Footer, Heading, Link, UnorderedList, OrderedList, Caption} from '../src/tsx';
+import {
+	Body,
+	Footer,
+	Heading,
+	Link,
+	UnorderedList,
+	OrderedList,
+	Caption,
+	Wrapper,
+} from '../src/tsx';
 import {Emphasis, Strong, Subscript, Superscript} from '../src/tsx/body';
 import type {StoryObj} from '@storybook/react';
 import {BodyProps} from '@financial-times/o-typography/src/tsx/typography';
@@ -107,7 +116,7 @@ const UnorderedListStory = {
 	...TemplateSBConfig,
 	render: args => {
 		return (
-			<UnorderedList>
+			<UnorderedList theme={args.theme}>
 				<li>Origami means "Folding Paper"</li>
 				<li>Origami involves folding paper</li>
 				<li>You need paper to do Origami</li>
@@ -120,7 +129,7 @@ const OrderedListStory = {
 	...TemplateSBConfig,
 	render: args => {
 		return (
-			<OrderedList>
+			<OrderedList theme={args.theme}>
 				<li>Fold</li>
 				<li>Fold again</li>
 				<li>Crane</li>
@@ -135,9 +144,59 @@ export const CaptionStory = {
 	},
 };
 
+export const WrapperStory = {
+	...TemplateSBConfig,
+	render: args => {
+		return (
+			<Wrapper theme={args.theme}>
+				<h1>Heading level 1</h1>
+				<h2>Heading level 2</h2>
+				<h3>Heading level 3</h3>
+				<h4>Heading level 4</h4>
+				<h5>Heading level 5</h5>
+				<h6>Heading level 6</h6>
+
+				<p>
+					Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.{' '}
+					<a href="#">Link</a> a rem <strong>excepturi</strong> consequuntur
+					commodi dolores ad <em>laboriosam</em> qui odit ipsum distinctio quos
+					laborum dolore magnam iure rerum, enim deleniti saepe sunt.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet<sup>Sup</sup>, consectetur adipisicing elit
+					<sub>Sub</sub> reiciendis neque et facilis quidem quasi autem tenetur
+					adipisci eum aut magni atque cupiditate laboriosam.{' '}
+					<a href="#">Link Necessitatibus asperiores</a>
+				</p>
+
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+					aspernatur aut corporis eius. Neque consequuntur commodi consectetur
+					ullam laudantium saepe.
+				</p>
+
+				<ul>
+					<li>List</li>
+					<li>List</li>
+				</ul>
+
+				<ol>
+					<li>List ordered</li>
+					<li>List ordered</li>
+				</ol>
+
+				<footer>Footer such as copyright notice.</footer>
+			</Wrapper>
+		);
+	},
+};
+
 export const FooterTemplate = {
+	...TemplateSBConfig,
 	render: props => (
-		<Footer weight={props.weight}>Footer such as copyright notice.</Footer>
+		<Footer theme={props.theme} weight={props.weight}>
+			Footer such as copyright notice.
+		</Footer>
 	),
 };
 
@@ -159,4 +218,8 @@ export const UnorderedListTemplate: TemplateType = {
 
 export const OrderedListTemplate: TemplateType = {
 	...OrderedListStory,
+};
+
+export const WrapperTemplate: TemplateType = {
+	...WrapperStory,
 };

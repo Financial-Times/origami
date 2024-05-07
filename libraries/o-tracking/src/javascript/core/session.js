@@ -43,10 +43,14 @@ function getSession() {
 	if (s) {
 		const d = new Date().valueOf();
 		const exp = parseInt(s.expiry, 10);
-
+		
 		// If current session is active.
 		if (exp >= d) {
 			session = s.value;
+		} else {
+			// session has expired, generate a new one
+			session = guid();
+			isNew = true;
 		}
 	}
 
