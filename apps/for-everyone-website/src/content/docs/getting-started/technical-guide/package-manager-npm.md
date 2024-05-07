@@ -124,7 +124,7 @@ import '@financial-times/o3-tooltip';
 
 ### Figma For VSCode
 
-[Figma for VSCode](https://marketplace.visualstudio.com/items?itemName=figma.figma-vscode-extension) allows you to navigate and inspect design files within your text editor. You can see at a glance which components and other design tokens have been used, and even benefit from code auto completion based on the selected design component.
+[Figma for VSCode](https://marketplace.visualstudio.com/items?itemName=figma.figma-vscode-extension) allows you to navigate and inspect design files within your text editor. You can see at a glance which components a designer has used, what component properties (variants) they have selected, and what design tokens have been used e.g. for colours, spacing, and typography. These benefit from code auto completion based on the selected design.
 
 The following screenshot shows Figma For VSCode suggesting the `--o3-spacing-m` CSS Custom Property based on the selected Figma design.
 ![Origami code autocompletion from Figma](/assets/images/new/vs-code-1.png)
