@@ -1,9 +1,15 @@
 ---
-title: Figma Guide (o2)
+title: Design Guide (o2)
 description: A reference of components
 sidebar:
-  label: Figma Guide
+  label: Design Guide
   order: 2
 ---
 
-This is a work in progress. Watch this space! Our main site remains at [origami.ft.com](https://origami.ft.com/). Contact the Origami time at [#design-system-guild](https://financialtimes.enterprise.slack.com/archives/C01481FKWA2) with any questions, feedback, or comments.
+"o2" Origami includes limited Figma libraries. Unlike our latest Figma libraries these support the "core" brand only; are incomplete; and sometimes misleading.
+
+- [Figma: Ft.com Foundations](<https://www.figma.com/file/NtRRxJdOxBO4mM0B3Fxv7M/%F0%9F%92%A0-Ft.com-Foundations---Origami-(o2)?type=design&node-id=0-1&mode=design>): Includes colour palettes and basic typographic styles. This does not include other foundations such as icons and grids.
+- [Figma: FT UI Library](<https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/%F0%9F%92%A0-FT-UI-Library---Origami-(o2)?type=design&node-id=0-2169&mode=design>): The main "o2" Figma library. It includes a number of foundations, components, and patterns.
+- [Figma: FT.com Grid](<https://www.figma.com/file/Lqva9v140ngCrFG4BbgAjp/%F0%9F%92%A0-FT.com-Grid---Origami-(o2)?type=design>): Includes a grid which aligns with the [o-grid](/o2-components/component-list/#o-grid) component. This grid system is used inconsistently and is not adhered to by key pages such as the ft.com homepage or article page.
+
+Due to the major limitations outlined above, we recommend upgrading to ["o3" Origami](/getting-started/design-guide/) where audited components and patterns exist to meet your product needs.

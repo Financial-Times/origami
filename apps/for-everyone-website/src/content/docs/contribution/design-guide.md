@@ -1,5 +1,5 @@
 ---
-title: Figma guide
+title: Design Guide
 description: Contributing to Origami
 sidebar:
   order: 10
