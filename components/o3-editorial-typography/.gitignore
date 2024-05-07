@@ -7,6 +7,6 @@
 .idea/
 /coverage
 
-css/
+/css
 cjs/
 esm/

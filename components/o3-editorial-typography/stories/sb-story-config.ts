@@ -1,25 +1,25 @@
-import type { Meta } from '@storybook/react';
-
+import type {Meta} from '@storybook/react';
 
 export const TemplateSBConfig: Meta = {
 	argTypes: {
 		theme: {
-			options: ['standard', 'inverse', 'mono'],
-			mapping: {
-				standard: '',
-				inverse: 'inverse',
-				mono: 'mono',
-			}
-		},
-		size: {
-			options: ['default', 'small'],
-			mapping: {
-				default: '',
-				small: 'small',
+			options: ['standard', 'inverse'],
+			control: {
+				type: 'radio',
 			},
 		},
-	},
-	parameters: {
-		controls: { exclude: ['attributes', 'onClick'] },
-	},
+		type: {
+			options: ['headline large', 'headline', 'subheading', 'chapter', 'label'],
+			mapping: {
+				'headline large': 'headline-large',
+				'headline': 'headline',
+				'subheading': 'subheading',
+				'chapter': 'chapter',
+				'label': 'label',
+			},
+			control: {
+				type: 'radio',
+			},
+		}
+	}
 };
