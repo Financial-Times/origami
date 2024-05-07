@@ -90,6 +90,10 @@
   --_o3-editorial-typography-use-case-big-number-content-font-weight: var(--o3-font-weight-regular);
   --_o3-editorial-typography-use-case-big-number-content-font-size: var(--o3-font-size-metric2-2);
   --_o3-editorial-typography-use-case-big-number-content-line-height: var(--o3-font-lineheight-metric2-2);
+  --_o3-editorial-typography-use-case-quote-caption-font-family: var(--o3-font-family-metric);
+  --_o3-editorial-typography-use-case-quote-caption-font-weight: var(--o3-font-weight-regular);
+  --_o3-editorial-typography-use-case-quote-caption-line-height: var(--o3-font-lineheight-negative-2);
+  --_o3-editorial-typography-use-case-quote-caption-font-size: var(--o3-font-size-negative-2);
   --_o3-editorial-typography-byline-timestamp: var(--o3-color-palette-black-50);
   --_o3-editorial-typography-byline-timestamp-inverse: var(--o3-color-palette-white);
 }

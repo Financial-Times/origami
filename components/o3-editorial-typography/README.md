@@ -33,18 +33,18 @@ o3-editorial-typography supports [JSX templates for React users](#jsx), or direc
 
 Heading styles are available in 5 different types.
 
-| Type           | Selector                                |
-| -------------- | --------------------------------------- |
-| Headline Large | .o3-editorial-typography-headline-large |
-| Headline       | .o3-editorial-typography-headline       |
-| Chapter        | .o3-editorial-typography-chapter        |
-| Subheading     | .o3-editorial-typography-subheading     |
-| Label          | .o3-editorial-typography-label          |
+| Type           | Selector                                | Notes                                                                                |
+| -------------- | --------------------------------------- | ------------------------------------------------------------------------------------ |
+| Headline Large | .o3-editorial-typography-headline-large | Large headline can take `data-o3-editorial-underline` attribute to add an underline. |
+| Headline       | .o3-editorial-typography-headline       |                                                                                      |
+| Chapter        | .o3-editorial-typography-chapter        |                                                                                      |
+| Subheading     | .o3-editorial-typography-subheading     |                                                                                      |
+| Label          | .o3-editorial-typography-label          |                                                                                      |
 
 #### HTML
 
 ```html
-<h1 class="o3-editorial-typography-headline-large">Large headline</h1>
+<h1 class="o3-editorial-typography-headline-large" data-o3-editorial-underline>Large headline</h1>
 
 <h1 class="o3-editorial-typography-headline">Headline</h1>
 
@@ -62,7 +62,7 @@ The same heading styles can be used in JSX environments as well by importing `<H
 ```tsx
 import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 
-<Headline type="headline-large">Large headline</Headline>
+<Headline type="headline-large" underline={true}>Large headline</Headline>
 <Headline type="headline">Headline</Headline>
 <Headline type="chapter">Chapter</Headline>
 <Headline type="subheading">Subheading</Headline>
@@ -74,7 +74,8 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | type | `headline-large` \| `headline` \| `chapter` \| `subheading` \| `label` | `headline` | Type of the headline.|
-| theme | `standard` \| `inverse` | '' | Theme of the headline. |
+| theme | `standard` \| `inverse` | - | Theme of the headline. |
+| underline | `boolean` | `false` | Adds an underline to the headline. Valid only for `headline-large`. |
 
 ### Body/Paragraph styles
 
@@ -82,14 +83,14 @@ O3 editorial paragraphs are styled with the `o3-editorial-typography-body--[type
 
 | Type  | Selector                             |
 | ----- | ------------------------------------ |
-| Large | .o3-editorial-typography-body--large |
-| Small | .o3-editorial-typography-body--small |
+| Large | .o3-editorial-typography-body-large |
+| Small | .o3-editorial-typography-body-small |
 
 #### HTML
 
 ```html
-<p class="o3-editorial-typography-body--small">
- This is a small paragraph of text.
+<p class="o3-editorial-typography-body-small">
+	This is a small paragraph of text.
 </p>
 ```
 
@@ -123,7 +124,7 @@ or if you are using JSX templates, theme can be passed as theme prop:
 import {Headline} from '@financial-times/o3-editorial-typography/cjs';
 
 <Headline type="headline" theme="inverse">
- Headline
+	Headline
 </Headline>;
 ```
 
