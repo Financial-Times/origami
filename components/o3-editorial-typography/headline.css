@@ -1,12 +1,3 @@
-.o3-editorial-typography--headline,
-.o3-editorial-typography--headline-large,
-.o3-editorial-typography--chapter,
-.o3-editorial-typography--subheading,
-.o3-editorial-typography--label {
-	margin: 0;
-	color: var(--_o3-editorial-typography-text-color);
-}
-
 .o3-editorial-typography--headline {
 	font-family: var(--o3-editorial-typography-use-case-headline-s-font-family),
 		serif;
@@ -29,6 +20,15 @@
 	);
 }
 
+.o3-editorial-typography--headline-large[data-o3-editorial-underline]::after {
+	content: '';
+	display: block;
+	width: 182px;
+	max-width: 100%;
+	padding-top: var(--o3-spacing-xs);
+	border-bottom: var(--o3-spacing-4xs) solid;
+}
+
 .o3-editorial-typography--chapter {
 	font-family: var(--o3-editorial-typography-use-case-chapter-font-family),
 		sans-serif;
@@ -36,6 +36,7 @@
 	font-weight: var(--o3-editorial-typography-use-case-chapter-font-weight);
 	line-height: var(--o3-editorial-typography-use-case-chapter-line-height);
 }
+
 .o3-editorial-typography--subheading {
 	font-family: var(--o3-editorial-typography-use-case-subheading-font-family),
 		sans-serif;
@@ -43,6 +44,7 @@
 	font-weight: var(--o3-editorial-typography-use-case-subheading-font-weight);
 	line-height: var(--o3-editorial-typography-use-case-subheading-line-height);
 }
+
 .o3-editorial-typography--label {
 	font-family: var(--o3-editorial-typography-use-case-label-font-family),
 		sans-serif;
@@ -89,13 +91,4 @@
 			--o3-editorial-typography-use-case-headline-large-l-line-height
 		);
 	}
-}
-
-.o3-editorial-typography--headline[data-o3-theme='inverse'],
-.o3-editorial-typography--headline-large[data-o3-theme='inverse'],
-.o3-editorial-typography--chapter[data-o3-theme='inverse'],
-.o3-editorial-typography--subheading[data-o3-theme='inverse'],
-.o3-editorial-typography--label[data-o3-theme='inverse'],
-:where([data-o3-theme='inverse']) {
-	color: var(--_o3-editorial-typography-text-inverse-color);
 }

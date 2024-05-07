@@ -4,15 +4,17 @@ import {
 	Detail as DetailTsx,
 	Quote as QuoteTsx,
 	BigNumber as BigNumberTsx,
+	Byline as BylineTsx,
 } from '../src/tsx/index';
 
-import type {StoryObj} from '@storybook/react';
+import type {StoryObj, Meta} from '@storybook/react';
 import type {
 	HeadlineProps,
 	BodyProps,
 	DetailProps,
 	QuoteProps,
 	BigNumberProps,
+	BylineProps,
 } from '../src/types/index';
 
 type HeadlineStory = Omit<StoryObj, 'args'> & {
@@ -35,7 +37,11 @@ type BigNumberStory = Omit<StoryObj, 'args'> & {
 	args: Omit<BigNumberProps, 'children'> & {content: string};
 };
 
-const TemplateSBConfig = {
+type BylineStory = Omit<StoryObj, 'args'> & {
+	args: Omit<BylineProps, 'children'>;
+};
+
+const TemplateSBConfig: Meta = {
 	argTypes: {
 		theme: {
 			options: ['standard', 'inverse'],
@@ -50,17 +56,16 @@ const HeadlineTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 		type: {
-			options: ['headline large', 'headline', 'subheading', 'chapter', 'label'],
-			mapping: {
-				'headline large': 'headline-large',
-				headline: 'headline',
-				subheading: 'subheading',
-				chapter: 'chapter',
-				label: 'label',
-			},
+			options: ['headline-large', 'headline', 'subheading', 'chapter', 'label'],
 			control: {
 				type: 'radio',
 			},
+		},
+		underline: {
+			control: {
+				type: 'boolean',
+			},
+			if: {arg: 'type', eq: 'headline-large'},
 		},
 	},
 	render: args => {
@@ -121,6 +126,9 @@ const QuoteTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 	},
+	parameters: {
+		controls: {exclude: ['type', 'children']},
+	},
 	render: args => {
 		return <QuoteTsx {...args}>{args.content}</QuoteTsx>;
 	},
@@ -130,17 +138,48 @@ const BigNumberTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 	},
+	parameters: {
+		controls: {exclude: ['type', 'children']},
+	},
 	render: args => {
 		return <BigNumberTsx {...args}>{args.content}</BigNumberTsx>;
+	},
+};
+
+const BylineTemplate: StoryObj = {
+	argTypes: {
+		...TemplateSBConfig.argTypes,
+	},
+	parameters: {
+		controls: {exclude: ['type', 'children']},
+	},
+	render: args => {
+		return (
+			<BylineTsx {...args}>
+				<a className="o3-editorial-typography--byline-author" href="#">
+					Joe Doe
+				</a>
+				&nbsp;
+				<span className="o3-editorial-typography--location">in London</span>
+				&nbsp;
+				<time
+					className="o3-editorial-typography--byline-timestamp"
+					dateTime="2019-10-11T20:51:54Z"
+					title="October 11 2019 9:51 pm">
+					October 11 2019
+				</time>
+			</BylineTsx>
+		);
 	},
 };
 
 export const Heading: HeadlineStory = {
 	...HeadlineTemplate,
 	args: {
-		content: 'Headline',
+		content: 'Don’t settle for black and white',
 		theme: 'standard',
 		type: 'headline-large',
+		underline: true,
 	},
 };
 
@@ -180,5 +219,12 @@ export const BigNumber: BigNumberStory = {
 		content: 'Cost expected to increase by £13.7m a year.',
 		theme: 'standard',
 		title: '£27,5m',
+	},
+};
+
+export const Byline: BylineStory = {
+	...BylineTemplate,
+	args: {
+		theme: 'standard',
 	},
 };

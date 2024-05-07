@@ -9,7 +9,7 @@ export default {
 	component: DetailTsx,
 	decorators: [
 		Story => (
-			<div data-o3-brand="core" data-o3-theme="inverse">
+			<div data-o3-brand="core">
 				<Story />
 			</div>
 		),
@@ -28,3 +28,4 @@ export default {
 export const Detail = StoryTemplates.Detail;
 export const Quote = StoryTemplates.Quote;
 export const BigNumber = StoryTemplates.BigNumber;
+export const Byline = StoryTemplates.Byline;

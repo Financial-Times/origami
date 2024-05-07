@@ -1,14 +1,18 @@
-import {HeadlineProps, InverseAttribute} from '../types/index';
+import {HeadlineProps, Attributes} from '../types/index';
 
 export const Headline = ({
 	type = 'headline',
 	theme,
+	underline,
 	children,
 }: HeadlineProps) => {
 	const classNames = `o3-editorial-typography--${type}`;
-	const attributes: InverseAttribute = {};
+	const attributes: Attributes = {};
 	if (theme == 'inverse') {
 		attributes['data-o3-theme'] = theme;
+	}
+	if (underline) {
+		attributes['data-o3-editorial-underline'] = underline;
 	}
 
 	if (type === 'chapter') {
@@ -26,7 +30,7 @@ export const Headline = ({
 	} else {
 		return (
 			<h1 className={classNames} {...attributes}>
-				{children}
+				<span>{children}</span>
 			</h1>
 		);
 	}

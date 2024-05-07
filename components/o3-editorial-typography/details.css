@@ -1,12 +1,7 @@
-.o3-editorial-typography--topic-tag,
-.o3-editorial-typography--standfirst,
-.o3-editorial-typography--caption,
-.o3-editorial-typography--byline-author,
-.o3-editorial-typography--location,
-.o3-editorial-typography--byline-timestamp,
-.o3-editorial-typography--quote,
-.o3-editorial-typography--quote-author {
-	color: var(--_o3-editorial-typography-text-color);
+
+.o3-editorial-typography--byline-timestamp {
+	text-transform: uppercase;
+	color: #66605c;
 }
 
 .o3-editorial-typography--topic-tag {
@@ -90,8 +85,8 @@
 }
 
 blockquote.o3-editorial-typography--quote {
-	border-left: 4px solid black;
-	padding-left: 16px;
+	border-left: var(--o3-spacing-5xs) solid;
+	padding-left: var(--o3-spacing-2xs);
 }
 
 blockquote.o3-editorial-typography--quote[data-o3-editorial-quote-icon='true']::before {
@@ -113,11 +108,11 @@ blockquote.o3-editorial-typography--quote[data-o3-editorial-quote-icon='true']::
 
 blockquote.o3-editorial-typography--quote > p {
 	margin-top: 0;
-	margin-bottom: 20px;
+	margin-bottom: var(--o3-spacing-xs);
 }
 
-blockquote .o3-editorial-typography--quote-author,
-blockquote .o3-editorial-typography--caption {
+.o3-editorial-typography--quote-author,
+.o3-editorial-typography--quote-caption {
 	display: block;
 	font-style: normal;
 }
@@ -134,16 +129,4 @@ blockquote .o3-editorial-typography--caption {
 	line-height: 56px;
 	font-weight: 600;
 	margin: 0 0 4px;
-}
-
-.o3-editorial-typography--topic-tag[data-o3-theme='inverse'],
-.o3-editorial-typography--standfirst[data-o3-theme='inverse'],
-.o3-editorial-typography--caption[data-o3-theme='inverse'],
-.o3-editorial-typography--byline-author[data-o3-theme='inverse'],
-.o3-editorial-typography--byline-location[data-o3-theme='inverse'],
-.o3-editorial-typography--byline-timestamp[data-o3-theme='inverse'],
-.o3-editorial-typography--quote[data-o3-theme='inverse'],
-.o3-editorial-typography--quote-author[data-o3-theme='inverse'],
-:where([data-o3-theme='inverse']) {
-	color: var(--_o3-editorial-typography-text-inverse-color);
 }
