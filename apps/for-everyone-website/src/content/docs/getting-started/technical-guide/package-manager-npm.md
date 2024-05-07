@@ -6,6 +6,12 @@ sidebar:
   order: 3
 ---
 
+Origami components are published to npm as [Custom Elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements), and other standards based web component technologies.
+
+This guide aims to take you through the key steps to install and use Origami components. Familiarity with npm, CSS, and JavaScript is assumed. We also assume your project includes a build step e.g. [webpack](https://webpack.js.org/), [vite](https://vitejs.dev/), [postcss](https://postcss.org/).
+
+If you are having difficulty getting Origami working for your setup, please [reach out to the team](/getting-started/support/). We can help you get setup and update our documentation as needed.
+
 ## Install
 
 To begin install `@financial-times/o3-foundation` as a peer dependency, along with any other Origami packages you need.
@@ -20,7 +26,7 @@ For example purposes we'll include:
 npm install --save-peer @financial-times/o3-foundation @financial-times/o3-button @financial-times/o3-tooltip
 ```
 
-## Provide markup
+## Provide HTML
 
 Origami supports multiple brands and themes. First set your brand using the data attribute `data-o3-brand` on a parent element. Optionally, apply a theme using the `data-o3-theme` data attribute. Supported themes are documented in a component's [Storybook](https://o3.origami.ft.com).
 
@@ -35,7 +41,7 @@ Next we need to include the HTML for our components. We can do this in one of tw
 1. Copy-paste markup from [Storybook](https://o3.origami.ft.com). Or;
 2. Import a JSX template from the component.
 
-We recommend using JSX template for React users. This will reduce the number of markup changes required when upgrading to future versions of Origami; and provide markup autocompletion through type definitions.
+We recommend JSX templates for React projects. This will reduce the number of markup changes required when upgrading to future versions of Origami; and provide markup autocompletion through type definitions.
 
 ### HTML from Storybook
 
@@ -88,7 +94,7 @@ import {TooltipOnboarding} from '@financial-times/o3-tooltip';
 </body>;
 ```
 
-## Import styles
+## Import CSS
 
 Origami packages include component CSS for each supported brand `/css/[brand].css`. Import these to your CSS globally. For example, for the `core` brand:
 
@@ -96,9 +102,13 @@ Origami packages include component CSS for each supported brand `/css/[brand].cs
 @import '@financial-times/o3-foundation/css/core.css';
 @import '@financial-times/o3-button/css/core.css';
 @import '@financial-times/o3-tooltip/css/core.css';
+
+body {
+	background-color: var(--o3-color-use-case-page-background);
+}
 ```
 
-## Import behaviour
+## Import client side JavaScript
 
 Client-side JavaScript for Origami packages if referenced in the `browser` field of their `package.json` where relevant. These are Custom Elements (web components), which are defined automatically on import.
 
@@ -108,9 +118,55 @@ In our example, only `o3-tooltip` has client side JavaScript.
 import '@financial-times/o3-tooltip';
 ```
 
-## Web components and React
+## React compatibility
 
-... @TODO
+React users need to take extra steps to initialise component JavaScript using `useEffect`, and may need to ensure the correct resolution of JSX with a more explicit import. Here's the same example for a default [Next.js](nextjs.org/) project:
+
+```js
+'use client';
+
+import styles from './page.module.css';
+import {useEffect} from 'react';
+// Import JSX templates.
+// Origami package.json specifies fields:
+// - `main`: JSX template as commonjs (cjs)
+// - `module`: JSX template as esm (esm)
+// - `browser`: client side javascript
+// When resolution based on these fields fails, we can specify "esm"
+// explicitly in our import to ensure Next.js resolves the correct JSX.
+// This is not required for every setup.
+import {TooltipOnboarding} from '@financial-times/o3-tooltip/esm';
+import {Button} from '@financial-times/o3-button/esm';
+
+export default function Home() {
+	useEffect(() => {
+		// Run client side JS: define web components.
+		import('@financial-times/o3-tooltip');
+	}, []);
+
+	return (
+		<main className={styles.main}>
+			<Button
+				label="Example"
+				type="primary"
+				attributes={{
+					id: 'demo-o3-tooltip-id',
+					'aria-describedby': 'o3-tooltip-content',
+				}}
+			/>
+			<TooltipOnboarding
+				targetId="demo-o3-tooltip-id"
+				contentId="o3-tooltip-content"
+				title="Origami Example"
+				content="This is for demo purposes only."
+				placement="top"
+			/>
+		</main>
+	);
+}
+```
+
+Although out of scope for this introduction, care must also be taken when working with [objects as properties and events](https://custom-elements-everywhere.com/). This will be [resolved in React 19](https://github.com/facebook/react/issues/11347#issuecomment-2027508811).
 
 ## Using Figma as a reference
 
