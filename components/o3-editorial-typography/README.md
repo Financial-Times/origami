@@ -30,32 +30,32 @@ Heading styles are available in 5 different types.
 
 | Type           | Selector                                 |
 | -------------- | ---------------------------------------- |
-| Headline Large | .o3-editorial-typography--headline-large |
-| Headline       | .o3-editorial-typography--headline       |
-| Chapter        | .o3-editorial-typography--chapter        |
-| Subheading     | .o3-editorial-typography--subheading     |
-| Label          | .o3-editorial-typography--label          |
+| Headline Large | .o3-editorial-typography-headline-large |
+| Headline       | .o3-editorial-typography-headline       |
+| Chapter        | .o3-editorial-typography-chapter        |
+| Subheading     | .o3-editorial-typography-subheading     |
+| Label          | .o3-editorial-typography-label          |
 
 #### HTML
 
 ```html
-<h1 class="o3-editorial-typography--headline-large">
+<h1 class="o3-editorial-typography-headline-large">
  Large headline
 </h1>
 
-<h1 class="o3-editorial-typography--headline">
+<h1 class="o3-editorial-typography-headline">
  Headline
 </h1>
 
-<h2 class="o3-editorial-typography--chapter">
+<h2 class="o3-editorial-typography-chapter">
  Chapter
 </h2>
 
-<h3 class="o3-editorial-typography--subheading">
+<h3 class="o3-editorial-typography-subheading">
  Subheading
 </h3>
 
-<h3 class="o3-editorial-typography--label">Label</h3>
+<h3 class="o3-editorial-typography-label">Label</h3>
 ```
 
 #### JSX
@@ -85,7 +85,7 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 
 ```html
 <h3
- class="o3-editorial-typography--label"
+ class="o3-editorial-typography-label"
  data-o3-theme="inverse"
 >
  Label
