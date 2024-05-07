@@ -68,9 +68,11 @@ The following screenshot shows the VSCode [IDE](https://en.wikipedia.org/wiki/In
 
 o3 is built using [design tokens](https://www.designtokens.org/glossary/) which allow us to synchronise design decisions across platforms and support multiple brands.
 
-We're adding support for our first Specialist brand, Sustainable Views, with the help of Deyan from the Specialist team.
+We're adding support for our first Specialist brand, Sustainable Views, with the help of the Specialist team.
 
-The work of Deyan and other contributors from FT Specialist goes into building reusable components that also benefit ft.com. Using Origami we're able to distribute effort and benefit from each other's expertise and successes.
+The work of the Specialist team goes into building reusable components that also benefit ft.com and vice versa. Using Origami we're able to distribute effort and benefit from each other's expertise and successes.
+
+We focus on building a single high quality, tried and tested user interface with brand customisations.
 
 ![A Figma library for every brand.](/assets/images/new/figma-1.png)
 
@@ -104,6 +106,6 @@ As of 2022, 109 FT Github projects included custom JSX templates for Origami com
 
 Origami v3 (o3) marks a big step forward in how we approach design and development. It introduces design guidelines and Figma libraries that ensure all components are used correctly and consistently, which helps improve the usability of our websites and apps.
 
-These tools boost the efficiency of designer and developer workflows. It does this by reducing frustrating barriers; freeing time to focus on key product differentiators rather than reinventing the wheel; and by allowing both to communicate intent whilst collaborating. Best of all, we can scale these to new tools to further brands.
+These tools boost the efficiency of designer and developer workflows. It does this by reducing frustrating barriers; freeing time to focus on key product differentiators rather than reinventing the wheel; and by allowing both to communicate intent whilst collaborating. Best of all, we can scale these to further brands.
 
 This means we can roll out new products and features more swiftly, more thoughtfully, and with fewer errors. Together, o3 enhancements aim to significantly improve the experience for our readers.
