@@ -20,7 +20,8 @@ export type DetailProps = {
 		| 'byline-location'
 		| 'byline-timestamp'
 		| 'quote'
-		| 'quote-author';
+		| 'quote-author'
+		| 'quote-caption';
 	theme: 'standard' | 'inverse';
 	children: string;
 };

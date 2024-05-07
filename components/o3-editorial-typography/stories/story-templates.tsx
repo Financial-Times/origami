@@ -101,6 +101,7 @@ const DetailTemplate: StoryObj = {
 				'byline timestamp',
 				'quote',
 				'quote author',
+				'quote caption',
 			],
 			mapping: {
 				'topic tag': 'topic-tag',
@@ -111,6 +112,7 @@ const DetailTemplate: StoryObj = {
 				'byline timestamp': 'byline-timestamp',
 				quote: 'quote',
 				'quote author': 'quote-author',
+				'quote caption': 'quote-caption'
 			},
 			control: {
 				type: 'radio',
