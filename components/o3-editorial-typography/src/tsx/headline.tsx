@@ -6,7 +6,7 @@ export const Headline = ({
 	underline,
 	children,
 }: HeadlineProps) => {
-	const classNames = `o3-editorial-typography--${type}`;
+	const classNames = `o3-editorial-typography-${type}`;
 	const attributes: Attributes = {};
 	if (theme == 'inverse') {
 		attributes['data-o3-theme'] = theme;

@@ -18,7 +18,12 @@ Typographic styles for editorial content.
 
 ## Overview
 
-O3 editorial typography is keeping typography consistent and sticking to logical hierarchies ensures that page elements are clear and easily recognisable when scanning the page. Lead with Mobile-First (also applies to FT Apps. For example; FT Apps, FT Edit). `o3-editorial-typography` only supports `core` and `sustainable-view` brands.
+`o3-editorial-typography` provides typographic styles for editorial content. It supports the following brands:
+
+- `core`
+- `sustainable-view`
+
+For UI typography see `o3-typography`.
 
 ## Markup
 
@@ -28,39 +33,31 @@ o3-editorial-typography supports [JSX templates for React users](#jsx), or direc
 
 Heading styles are available in 5 different types.
 
-| Type           | Selector                                 |
-| -------------- | ---------------------------------------- |
-| Headline Large | .o3-editorial-typography--headline-large |
-| Headline       | .o3-editorial-typography--headline       |
-| Chapter        | .o3-editorial-typography--chapter        |
-| Subheading     | .o3-editorial-typography--subheading     |
-| Label          | .o3-editorial-typography--label          |
+| Type           | Selector                                |
+| -------------- | --------------------------------------- |
+| Headline Large | .o3-editorial-typography-headline-large |
+| Headline       | .o3-editorial-typography-headline       |
+| Chapter        | .o3-editorial-typography-chapter        |
+| Subheading     | .o3-editorial-typography-subheading     |
+| Label          | .o3-editorial-typography-label          |
 
 #### HTML
 
 ```html
-<h1 class="o3-editorial-typography--headline-large">
- Large headline
-</h1>
+<h1 class="o3-editorial-typography-headline-large">Large headline</h1>
 
-<h1 class="o3-editorial-typography--headline">
- Headline
-</h1>
+<h1 class="o3-editorial-typography-headline">Headline</h1>
 
-<h2 class="o3-editorial-typography--chapter">
- Chapter
-</h2>
+<h2 class="o3-editorial-typography-chapter">Chapter</h2>
 
-<h3 class="o3-editorial-typography--subheading">
- Subheading
-</h3>
+<h3 class="o3-editorial-typography-subheading">Subheading</h3>
 
-<h3 class="o3-editorial-typography--label">Label</h3>
+<h3 class="o3-editorial-typography-label">Label</h3>
 ```
 
 #### JSX
 
-Same heading styles can be used in JSX environments as well by importing `<Headline>` component and applying `type` modifier. The component is exported as commonjs module as well as es module. Depending your project setup, you can import the component from `/cjs` or `/esm` directory.
+The same heading styles can be used in JSX environments as well by importing `<Headline>` component and applying the `type` modifier. The component is exported as a commonjs module as well as an es module. Depending your project setup, you can import the component from `/cjs` or `/esm` directory.
 
 ```tsx
 import { Headline } from '@financial-times/o3-editorial-typography/cjs';
@@ -114,10 +111,10 @@ import {Body} from '@financial-times/o3-typography';
 
 ## Theme modifiers
 
-`o3-editorial-typography` also supports `inverse` theme. Adding `data-o3-theme="inverse"` to the wrapper element or at the element itself will change the color of the text to white.
+`o3-editorial-typography` also supports the `inverse` theme. Adding `data-o3-theme="inverse"` to the wrapper element or at the element itself will change the colour of the text to white.
 
 ```html
-<h3 class="o3-editorial-typography--label" data-o3-theme="inverse">Label</h3>
+<h3 class="o3-editorial-typography-label" data-o3-theme="inverse">Label</h3>
 ```
 
 or if you are using JSX templates, theme can be passed as theme prop:
