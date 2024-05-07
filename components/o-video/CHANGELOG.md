@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.2.13](https://github.com/Financial-Times/origami/compare/o-video-v7.2.12...o-video-v7.2.13) (2024-05-02)
+
+
+### Bug Fixes
+
+* Refactor o-video targeting logic to allow targeting to be passed as an option ([44207d8](https://github.com/Financial-Times/origami/commit/44207d8ef431d51c3b96bfc64915e5ae9435f206))
+
 ## [7.2.12](https://github.com/Financial-Times/origami/compare/o-video-v7.2.11...o-video-v7.2.12) (2024-04-25)
 
 
