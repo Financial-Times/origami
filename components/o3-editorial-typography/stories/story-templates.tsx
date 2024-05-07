@@ -156,14 +156,14 @@ const BylineTemplate: StoryObj = {
 	render: args => {
 		return (
 			<BylineTsx {...args}>
-				<a className="o3-editorial-typography--byline-author" href="#">
+				<a className="o3-editorial-typography-byline-author" href="#">
 					Joe Doe
 				</a>
 				&nbsp;
-				<span className="o3-editorial-typography--location">in London</span>
+				<span className="o3-editorial-typography-byline-location">in London</span>
 				&nbsp;
 				<time
-					className="o3-editorial-typography--byline-timestamp"
+					className="o3-editorial-typography-byline-timestamp"
 					dateTime="2019-10-11T20:51:54Z"
 					title="October 11 2019 9:51 pm">
 					October 11 2019
@@ -208,7 +208,7 @@ export const Quote: QuoteStory = {
 			'Origami is about empowering developers of all levels to build robust, on-brand products ranging from simple static sites through to rich, dynamic web applications, to do it faster, to do it cheaper, and leave them more supportable and more maintainable.',
 		theme: 'standard',
 		quoteAuthor: 'Quote Author',
-		quoteSource: 'Quote Source',
+		quoteCaption: 'Quote Source',
 		quoteIcon: true,
 	},
 };

@@ -28,7 +28,7 @@ export type DetailProps = {
 export type QuoteProps = {
 	theme: 'standard' | 'inverse';
 	quoteAuthor: string;
-	quoteSource: string;
+	quoteCaption?: string;
 	quoteIcon?: boolean;
 	children: string;
 };

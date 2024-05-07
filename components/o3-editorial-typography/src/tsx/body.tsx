@@ -5,7 +5,7 @@ export const Body = ({type = 'small', theme, children}: BodyProps) => {
 	if (theme == 'inverse') {
 		attributes['data-o3-theme'] = theme;
 	}
-	const classNames = `o3-editorial-typography--body-${type}`;
+	const classNames = `o3-editorial-typography-body-${type}`;
 	return (
 		<p className={classNames} {...attributes}>
 			{children}

@@ -7,7 +7,7 @@ import {
 } from '../types';
 
 export const Detail = ({type, theme, children}: DetailProps) => {
-	const classNames = `o3-editorial-typography--${type}`;
+	const classNames = `o3-editorial-typography-${type}`;
 	const attributes: Attributes = {};
 	if (theme === 'inverse') {
 		attributes['data-o3-theme'] = theme;
@@ -23,7 +23,7 @@ export const Detail = ({type, theme, children}: DetailProps) => {
 export const Quote = ({
 	theme,
 	quoteAuthor,
-	quoteSource,
+	quoteCaption,
 	quoteIcon = true,
 	children,
 }: QuoteProps) => {
@@ -34,13 +34,13 @@ export const Quote = ({
 	attributes['data-o3-editorial-quote-icon'] = quoteIcon;
 
 	return (
-		<blockquote className="o3-editorial-typography--quote" {...attributes}>
+		<blockquote className="o3-editorial-typography-quote" {...attributes}>
 			<p>{children}</p>
 			<cite>
-				<span className="o3-editorial-typography--quote-author">
+				<span className="o3-editorial-typography-quote-author">
 					{quoteAuthor}
 				</span>
-				<span className="o3-editorial-typography--quote-caption">{quoteSource}</span>
+				<span className="o3-editorial-typography-quote-caption">{quoteCaption}</span>
 			</cite>
 		</blockquote>
 	);
@@ -53,9 +53,9 @@ export const BigNumber = ({theme, title, children}: BigNumberProps) => {
 	}
 
 	return (
-		<div className="o3-editorial-typography--big-number" {...attributes}>
-			<div className="o3-editorial-typography--big-number-title">{title}</div>
-			<div className="o3-editorial-typography--body-small">{children}</div>
+		<div className="o3-editorial-typography-big-number" {...attributes}>
+			<div className="o3-editorial-typography-big-number-title">{title}</div>
+			<div className="o3-editorial-typography-big-number-content">{children}</div>
 		</div>
 	);
 };
@@ -67,7 +67,7 @@ export const Byline = ({theme, children}: BylineProps) => {
 	}
 
 	return (
-		<div className="o3-editorial-typography--byline" {...attributes}>
+		<div className="o3-editorial-typography-byline" {...attributes}>
 			{children}
 		</div>
 	);
