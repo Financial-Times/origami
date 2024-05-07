@@ -1,4 +1,5 @@
-.o3-typography-body {
+.o3-typography-body,
+.o3-typography-wrapper > p {
 	font-weight: var(--o3-typography-use-case-body-s-font-weight);
 	font-size: var(--o3-font-size-0);
 	line-height: var(--o3-font-lineheight-0);
