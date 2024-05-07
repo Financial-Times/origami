@@ -56,7 +56,7 @@ Heading styles are available in 5 different types.
 
 #### JSX
 
-Same heading styles can be used in JSX environments as well by importing `<Headline>` component and applying `type` modifier. The component is exported as commonjs module as well as es module. Depending your project setup, you can import the component from `/cjs` or `/esm` directory.
+The same heading styles can be used in JSX environments as well by importing `<Headline>` component and applying the `type` modifier. The component is exported as a commonjs module as well as an es module. Depending your project setup, you can import the component from `/cjs` or `/esm` directory.
 
 ```tsx
 import { Headline } from '@financial-times/o3-editorial-typography/cjs';
