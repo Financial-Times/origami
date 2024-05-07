@@ -15,8 +15,9 @@ Typographic styles for editorial content.
 ## Overview
 
 `o3-editorial-typography` provides typographic styles for editorial content. It supports the following brands:
+
 - `core`
--`sustainable-view`
+- `sustainable-view`
 
 For UI typography see `o3-typography`.
 
@@ -28,8 +29,8 @@ o3-editorial-typography supports [JSX templates for React users](#jsx), or direc
 
 Heading styles are available in 5 different types.
 
-| Type           | Selector                                 |
-| -------------- | ---------------------------------------- |
+| Type           | Selector                                |
+| -------------- | --------------------------------------- |
 | Headline Large | .o3-editorial-typography-headline-large |
 | Headline       | .o3-editorial-typography-headline       |
 | Chapter        | .o3-editorial-typography-chapter        |
@@ -39,21 +40,13 @@ Heading styles are available in 5 different types.
 #### HTML
 
 ```html
-<h1 class="o3-editorial-typography-headline-large">
- Large headline
-</h1>
+<h1 class="o3-editorial-typography-headline-large">Large headline</h1>
 
-<h1 class="o3-editorial-typography-headline">
- Headline
-</h1>
+<h1 class="o3-editorial-typography-headline">Headline</h1>
 
-<h2 class="o3-editorial-typography-chapter">
- Chapter
-</h2>
+<h2 class="o3-editorial-typography-chapter">Chapter</h2>
 
-<h3 class="o3-editorial-typography-subheading">
- Subheading
-</h3>
+<h3 class="o3-editorial-typography-subheading">Subheading</h3>
 
 <h3 class="o3-editorial-typography-label">Label</h3>
 ```
@@ -84,12 +77,7 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 `o3-editorial-typography` also supports the `inverse` theme. Adding `data-o3-theme="inverse"` to the wrapper element or at the element itself will change the colour of the text to white.
 
 ```html
-<h3
- class="o3-editorial-typography-label"
- data-o3-theme="inverse"
->
- Label
-</h3>
+<h3 class="o3-editorial-typography-label" data-o3-theme="inverse">Label</h3>
 ```
 
 or if you are using JSX templates, theme can be passed as theme prop:
