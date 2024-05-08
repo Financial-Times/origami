@@ -1,17 +1,9 @@
-import {
-	DetailProps,
-	QuoteProps,
-	BigNumberProps,
-	BylineProps,
-	Attributes,
-} from '../types';
+import {DetailProps, QuoteProps, BigNumberProps, BylineProps} from '../types';
+import {getAttributes} from './utils';
 
 export const Detail = ({type, theme, children}: DetailProps) => {
 	const classNames = `o3-editorial-typography-${type}`;
-	const attributes: Attributes = {};
-	if (theme === 'inverse') {
-		attributes['data-o3-theme'] = theme;
-	}
+	const attributes = getAttributes(theme);
 
 	return (
 		<div className={classNames} {...attributes}>
@@ -27,11 +19,7 @@ export const Quote = ({
 	quoteIcon = true,
 	children,
 }: QuoteProps) => {
-	const attributes: Attributes = {};
-	if (theme === 'inverse') {
-		attributes['data-o3-theme'] = theme;
-	}
-	attributes['data-o3-editorial-quote-icon'] = quoteIcon;
+	const attributes = getAttributes(theme, false, quoteIcon);
 
 	return (
 		<blockquote className="o3-editorial-typography-quote" {...attributes}>
@@ -40,31 +28,29 @@ export const Quote = ({
 				<span className="o3-editorial-typography-quote-author">
 					{quoteAuthor}
 				</span>
-				<span className="o3-editorial-typography-quote-caption">{quoteCaption}</span>
+				<span className="o3-editorial-typography-quote-caption">
+					{quoteCaption}
+				</span>
 			</cite>
 		</blockquote>
 	);
 };
 
 export const BigNumber = ({theme, title, children}: BigNumberProps) => {
-	const attributes: Attributes = {};
-	if (theme === 'inverse') {
-		attributes['data-o3-theme'] = theme;
-	}
+	const attributes = getAttributes(theme);
 
 	return (
 		<div className="o3-editorial-typography-big-number" {...attributes}>
 			<div className="o3-editorial-typography-big-number-title">{title}</div>
-			<div className="o3-editorial-typography-big-number-content">{children}</div>
+			<div className="o3-editorial-typography-big-number-content">
+				{children}
+			</div>
 		</div>
 	);
 };
 
 export const Byline = ({theme, children}: BylineProps) => {
-	const attributes: Attributes = {};
-	if (theme === 'inverse') {
-		attributes['data-o3-theme'] = theme;
-	}
+	const attributes = getAttributes(theme);
 
 	return (
 		<div className="o3-editorial-typography-byline" {...attributes}>

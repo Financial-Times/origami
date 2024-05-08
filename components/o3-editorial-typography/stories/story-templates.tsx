@@ -17,27 +17,29 @@ import type {
 	BylineProps,
 } from '../src/types/index';
 
-type HeadlineStory = Omit<StoryObj, 'args'> & {
+type StoryObjNoArgs = Omit<StoryObj, 'args'>;
+
+type HeadlineStory = StoryObjNoArgs & {
 	args: Omit<HeadlineProps, 'children'> & {content: string};
 };
 
-type BodyStory = Omit<StoryObj, 'args'> & {
+type BodyStory = StoryObjNoArgs & {
 	args: Omit<BodyProps, 'children'> & {content: string};
 };
 
-type DetailStory = Omit<StoryObj, 'args'> & {
+type DetailStory = StoryObjNoArgs & {
 	args: Omit<DetailProps, 'children'> & {content: string};
 };
 
-type QuoteStory = Omit<StoryObj, 'args'> & {
+type QuoteStory = StoryObjNoArgs & {
 	args: Omit<QuoteProps, 'children'> & {content: string};
 };
 
-type BigNumberStory = Omit<StoryObj, 'args'> & {
+type BigNumberStory = StoryObjNoArgs & {
 	args: Omit<BigNumberProps, 'children'> & {content: string};
 };
 
-type BylineStory = Omit<StoryObj, 'args'> & {
+type BylineStory = StoryObjNoArgs & {
 	args: Omit<BylineProps, 'children'>;
 };
 
@@ -112,7 +114,7 @@ const DetailTemplate: StoryObj = {
 				'byline timestamp': 'byline-timestamp',
 				quote: 'quote',
 				'quote author': 'quote-author',
-				'quote caption': 'quote-caption'
+				'quote caption': 'quote-caption',
 			},
 			control: {
 				type: 'radio',
@@ -162,7 +164,9 @@ const BylineTemplate: StoryObj = {
 					Joe Doe
 				</a>
 				&nbsp;
-				<span className="o3-editorial-typography-byline-location">in London</span>
+				<span className="o3-editorial-typography-byline-location">
+					in London
+				</span>
 				&nbsp;
 				<time
 					className="o3-editorial-typography-byline-timestamp"
