@@ -1,6 +1,6 @@
 {
 	"bootstrap-sha": "4d52a27b6c08755d6c527723c2595ade3e024898",
-	"last-release-sha": "1b53b3b1e49955108622b839cfad0fa7d24c2a7b",
+	"last-release-sha": "6941f6a832d6e35f099a679659c3acbc49e54999",
 	"packages": {
 		"components/ft-concept-button": {},
 		"components/g-audio": {},
