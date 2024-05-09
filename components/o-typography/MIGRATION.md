@@ -278,8 +278,25 @@ p {
 
 ##### oTypographyDefineFontScale
 
-There is no direct replacement for this mixin. Instead, use the CSS Custom Properties provided by [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation), or define your own font scale in your code.
+There is no direct replacement for this mixin. Instead, a default scale is provided as part of [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation), or define your own font scale in your code:
 
+```css
+
+:root {
+	--my-custom-font-size-0: 1.1rem;
+	--my-custom-font-font-size-1: 1.125rem;
+	--my-custom-font-font-size-2: 1.28rem;
+	--my-custom-font-font-size-3: 1.6rem;
+}
+
+.my-font-class {
+	font-size: var(--my-custom-font-size-1);
+}
+
+.my-font-class--large  {
+	font-size: var(--my-custom-font-size-3);
+}
+```
 #### Functions
 
 ##### oTypographyGetScale
