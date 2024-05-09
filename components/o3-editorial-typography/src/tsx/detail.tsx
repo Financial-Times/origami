@@ -25,10 +25,10 @@ export const Quote = ({
 		<blockquote className="o3-editorial-typography-quote" {...attributes}>
 			<p>{children}</p>
 			<cite>
-				<span className="o3-editorial-typography-quote-author">
+				<span className="o3-editorial-typography-quote__author">
 					{quoteAuthor}
 				</span>
-				<span className="o3-editorial-typography-quote-caption">
+				<span className="o3-editorial-typography-quote__caption">
 					{quoteCaption}
 				</span>
 			</cite>
@@ -41,8 +41,8 @@ export const BigNumber = ({theme, title, children}: BigNumberProps) => {
 
 	return (
 		<div className="o3-editorial-typography-big-number" {...attributes}>
-			<div className="o3-editorial-typography-big-number-title">{title}</div>
-			<div className="o3-editorial-typography-big-number-content">
+			<div className="o3-editorial-typography-big-number__title">{title}</div>
+			<div className="o3-editorial-typography-big-number__content">
 				{children}
 			</div>
 		</div>

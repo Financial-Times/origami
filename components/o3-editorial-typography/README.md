@@ -87,17 +87,17 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 
 ### Body/Paragraph styles
 
-O3 editorial paragraphs are styled with the `o3-editorial-typography-body--[type]` class. Where `type` can be either `large` or `small`.
+O3 editorial paragraphs are styled with the `o3-editorial-typography-body__-[type]` class. Where `type` can be either `large` or `small`.
 
 | Type  | Selector                            |
 | ----- | ----------------------------------- |
-| Large | .o3-editorial-typography-body-large |
-| Small | .o3-editorial-typography-body-small |
+| Large | .o3-editorial-typography-body__large |
+| Small | .o3-editorial-typography-body__small |
 
 #### HTML
 
 ```html
-<p class="o3-editorial-typography-body-small">
+<p class="o3-editorial-typography-body__small">
  This is a small paragraph of text.
 </p>
 ```
@@ -131,7 +131,7 @@ o3 editorial component export a `Detail` component that can be used to style add
 | byline-location  | .o3-editorial-typography-byline-location  | Shows Author location as part of a page author details in the byline component.                                               |
 | byline-timestamp | .o3-editorial-typography-byline-timestamp | Shows the timestamp of the article in the byline component.                                                                   |
 | quote            | .o3-editorial-typography-quote            | For excerpt of direct words said by a person.                                                                                 |
-| quote-author     | .o3-editorial-typography-quote-author     | For the author of the quote.                                                                                                  |
+| quote-author     | .o3-editorial-typography-quote__author     | For the author of the quote.                                                                                                  |
 | quote-caption    | .o3-editorial-typography-caption          | For additional information about a piece or image that should be less prominent.                                              |
 
 #### HTML
@@ -144,8 +144,8 @@ o3 editorial component export a `Detail` component that can be used to style add
 <div class="o3-editorial-typography-byline-location">Detail</div>
 <div class="o3-editorial-typography-byline-timestamp">Detail</div>
 <div class="o3-editorial-typography-quote">Detail</div>
-<div class="o3-editorial-typography-quote-author">Detail</div>
-<div class="o3-editorial-typography-quote-caption">Detail</div>
+<div class="o3-editorial-typography-quote__author">Detail</div>
+<div class="o3-editorial-typography-quote__caption">Detail</div>
 ```
 
 #### JSX
@@ -231,8 +231,8 @@ Quote is a composite component that includes quote text, author and caption. It 
   supportable and more maintainable.
  </p>
  <cite>
-  <span class="o3-editorial-typography-quote-author">Quote Author</span>
-  <span class="o3-editorial-typography-quote-caption">Quote Source</span>
+  <span class="o3-editorial-typography-quote__author">Quote Author</span>
+  <span class="o3-editorial-typography-quote__caption">Quote Source</span>
  </cite>
 </blockquote>
 ```
@@ -262,8 +262,8 @@ Big Number is a composite component that includes a large number and a label. It
 
 ```html
 <div class="o3-editorial-typography-big-number">
- <div class="o3-editorial-typography-big-number-title">£27,5m</div>
- <div class="o3-editorial-typography-big-number-content">
+ <div class="o3-editorial-typography-big-number__title">£27,5m</div>
+ <div class="o3-editorial-typography-big-number__content">
   Cost expected to increase by £13.7m a year.
  </div>
 </div>
