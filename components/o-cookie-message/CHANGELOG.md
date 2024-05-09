@@ -1,4 +1,11 @@
 # Changelog
+## [2.2.6](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.7.1...o-cookie-message-v2.2.6) (2024-05-09)
+
+
+### Miscellaneous Chores
+
+* release o-multi-select ([#1636](https://github.com/Financial-Times/origami/issues/1636)) ([6941f6a](https://github.com/Financial-Times/origami/commit/6941f6a832d6e35f099a679659c3acbc49e54999))
+
 ## [6.7.1](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.7.0...o-cookie-message-v6.7.1) (2023-10-27)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-ft-affiliate-ribbon",
-  "version": "5.2.2",
+  "version": "2.2.6",
   "description": "A ribbon denoting affiliation with the FT. This ribbon should be used in products that are owned by the Financial Times but have a separate brand identity to the company.",
   "keywords": [
     "footer",

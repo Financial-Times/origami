@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-icons",
-  "version": "7.8.0",
+  "version": "2.2.6",
   "description": "Helper SCSS tool for using the FT's icons. For a full list of available icons please see the fticons image set",
   "keywords": [
     "icons",

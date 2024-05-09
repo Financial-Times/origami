@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.6](https://github.com/Financial-Times/origami/compare/o-social-follow-v1.0.11...o-social-follow-v2.2.6) (2024-05-09)
+
+
+### Miscellaneous Chores
+
+* release o-multi-select ([#1636](https://github.com/Financial-Times/origami/issues/1636)) ([6941f6a](https://github.com/Financial-Times/origami/commit/6941f6a832d6e35f099a679659c3acbc49e54999))
+
 ## [1.0.11](https://github.com/Financial-Times/origami/compare/o-social-follow-v1.0.10...o-social-follow-v1.0.11) (2024-04-11)
 
 

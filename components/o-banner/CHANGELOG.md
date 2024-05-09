@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.6](https://github.com/Financial-Times/origami/compare/o-banner-v4.5.2...o-banner-v2.2.6) (2024-05-09)
+
+
+### Miscellaneous Chores
+
+* release o-multi-select ([#1636](https://github.com/Financial-Times/origami/issues/1636)) ([6941f6a](https://github.com/Financial-Times/origami/commit/6941f6a832d6e35f099a679659c3acbc49e54999))
+
 ## [4.5.2](https://github.com/Financial-Times/origami/compare/o-banner-v4.5.1...o-banner-v4.5.2) (2023-10-27)
 
 
