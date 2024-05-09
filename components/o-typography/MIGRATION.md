@@ -301,7 +301,7 @@ There is no direct replacement for this mixin. Instead, a default scale is provi
 
 ##### oTypographyGetScale
 
-Scale is now part of [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation).
+Scale is now part of [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation). Two font scales exist, one for Financier and Georgia, and another for Metric. Please refer to [Origami Design System documentation](https://origami-beta.ft.com/guides/typography/#metric-scale) for details on these scales.
 
 CSS Custom Properties can be used to apply scale values. For example:
 
