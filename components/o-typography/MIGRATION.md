@@ -24,9 +24,9 @@ E.g. An FT Core brand Link with inverse theming, brand and theme inherited from 
 
 ##### oTypography
 
-Update your markup to use the `o3-typography` JSX template ([o3-button JSX documentation](https://main--64faf6b1815b6c0106f82e74.chromatic.com/?path=/docs/core-o3-typography)) if your web application uses it.
+Update your markup to use the `o3-typography` JSX template ([o3-typography JSX documentation](https://o3.origami.ft.com/?path=/docs/core-o3-typography--jsx-documentation)) if your web application uses it.
 
-Alternatively, replace the classes in your HTML code with the new ones.
+Alternatively, replace `o-typography` classes in your HTML code with the `o3-typography` alternative described below.
 
 
 ###### Body elements

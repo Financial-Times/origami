@@ -8,6 +8,7 @@ import '../../src/css/brands/core.css';
 export default {
 	title: 'Core/o3-typography',
 	component: Caption,
+	tags: ['autodocs'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="core">
