@@ -303,9 +303,9 @@ There is no direct replacement for this mixin. Instead, a default scale is provi
 
 Scale is now part of [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation).
 
-CSS Custom Properties can be used to define scale values. For example:
+CSS Custom Properties can be used to apply scale values. For example:
 
-**SASS**
+**Sass**
 ```scss
 .my-class {
 	font-size: oTypographyGetScale(1);
@@ -325,7 +325,7 @@ Can be replaced with:
 
 This has been replaced with a CSS Custom Property with one static value:
 
-**SASS**
+**Sass**
 
 ```scss
 .my-class {
