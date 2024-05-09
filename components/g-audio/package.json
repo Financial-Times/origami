@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/g-audio",
-  "version": "2.0.3",
+  "version": "2.2.6",
   "description": "IG audio player component",
   "keywords": [
     "audio"

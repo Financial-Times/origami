@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.6](https://github.com/Financial-Times/origami/compare/o-video-v7.2.13...o-video-v2.2.6) (2024-05-09)
+
+
+### Miscellaneous Chores
+
+* release o-multi-select ([#1636](https://github.com/Financial-Times/origami/issues/1636)) ([6941f6a](https://github.com/Financial-Times/origami/commit/6941f6a832d6e35f099a679659c3acbc49e54999))
+
 ## [7.2.13](https://github.com/Financial-Times/origami/compare/o-video-v7.2.12...o-video-v7.2.13) (2024-05-02)
 
 

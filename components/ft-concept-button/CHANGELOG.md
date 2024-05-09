@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.6](https://github.com/Financial-Times/origami/compare/ft-concept-button-v1.2.3...ft-concept-button-v2.2.6) (2024-05-09)
+
+
+### Miscellaneous Chores
+
+* release o-multi-select ([#1636](https://github.com/Financial-Times/origami/issues/1636)) ([6941f6a](https://github.com/Financial-Times/origami/commit/6941f6a832d6e35f099a679659c3acbc49e54999))
+
 ## [1.2.3](https://github.com/Financial-Times/origami/compare/ft-concept-button-v1.2.2...ft-concept-button-v1.2.3) (2023-10-27)
 
 
