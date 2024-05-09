@@ -214,8 +214,6 @@ p {
 Replace with:
 
 ```css
-@import "@financial-times/o3-foundation/css/core.css";
-
 p {
 	font-family: var(--o3-font-family-metric); // outputs: 'Metric VF', sans
 }
@@ -233,8 +231,6 @@ p {
 Replace with:
 
 ```css
-@import "@financial-times/o3-foundation/css/core.css";
-
 p {
 	font-family: var(--o3-font-family-georgia);
 }
@@ -250,8 +246,6 @@ p {
 Replace with:
 
 ```css
-@import "@financial-times/o3-foundation/css/core.css";
-
 p {
 	font-family: var(--o3-font-family-financier-display);
 }
@@ -305,8 +299,6 @@ Can be replaced with:
 
 **CSS**
 ```css
-@import "@financial-times/o3-foundation/css/core.css";
-
 .my-class {
 	font-size: var(--o3-font-size-1);
 }
