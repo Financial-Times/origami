@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.2.6](https://github.com/Financial-Times/origami/compare/o3-typography-v0.4.0...o3-typography-v2.2.6) (2024-05-09)
+
+
+### Bug Fixes
+
+* target p tags with typography wrapper ([6fe681d](https://github.com/Financial-Times/origami/commit/6fe681defa63748b7eb2e096bda2cdddd9001bb7))
+* use direct child selector on wrapper selectors ([48318fb](https://github.com/Financial-Times/origami/commit/48318fbe0f99b82dbf86ec3b17cbfc2014e84995))
+
+
+### Miscellaneous Chores
+
+* release o-multi-select ([#1636](https://github.com/Financial-Times/origami/issues/1636)) ([6941f6a](https://github.com/Financial-Times/origami/commit/6941f6a832d6e35f099a679659c3acbc49e54999))
+
 ## [0.4.0](https://github.com/Financial-Times/origami/compare/o3-typography-v0.3.1...o3-typography-v0.4.0) (2024-05-01)
 
 
