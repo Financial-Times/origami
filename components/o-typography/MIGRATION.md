@@ -197,60 +197,6 @@ import {UnorderedList, OrderedList } from '@financial-times/o3-typography';
 </OrderedList>
 ```
 
-##### Fonts
-
-Fonts are now provided by [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation). Use CSS Custom Properties from this library to include fonts previously provided by o-typography.
-
-These new properties will also set the fallback font.
-
-##### oTypographySerif
-
-```scss
-p {
-	@include oTypographySerif();
-}
-```
-
-Replace with:
-
-```css
-p {
-	font-family: var(--o3-font-family-metric); // outputs: 'Metric VF', sans
-}
-```
-
-
-###### oTypographyDisplay
-
-```scss
-p {
-	@include oTypographyDisplay();
-}
-```
-
-Replace with:
-
-```css
-p {
-	font-family: var(--o3-font-family-georgia);
-}
-```
-###### oTypographySans
-
-```scss
-p {
-	@include oTypographySans();
-}
-```
-
-Replace with:
-
-```css
-p {
-	font-family: var(--o3-font-family-financier-display);
-}
-```
-
 ###### oTypographySetFont
 
 This can now be set by defining your own font family in CSS.
