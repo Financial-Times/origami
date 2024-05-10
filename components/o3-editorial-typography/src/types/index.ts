@@ -1,6 +1,6 @@
 export type HeadlineProps = {
 	type: 'headline-large' | 'headline' | 'chapter' | 'subheading' | 'label';
-	theme: 'standard' | 'inverse';
+	theme?: 'standard' | 'inverse';
 	underline?: boolean;
 	children: string;
 };
@@ -8,40 +8,35 @@ export type HeadlineProps = {
 export type BodyProps = {
 	type: 'small' | 'large';
 	theme: 'standard' | 'inverse';
-	children: string;
+	children: JSX.Element[] | JSX.Element | string;
 };
 
 export type DetailProps = {
-	type:
-		| 'topic-tag'
-		| 'standfirst'
-		| 'caption'
-		| 'byline-author'
-		| 'byline-location'
-		| 'byline-timestamp'
-		| 'quote'
-		| 'quote-author'
-		| 'quote-caption';
-	theme: 'standard' | 'inverse';
-	children: string;
+	theme?: 'standard' | 'inverse';
+	children: JSX.Element[] | JSX.Element | string;
+};
+
+export type TopicTagProps = DetailProps & {
+	href?: string;
 };
 
 export type QuoteProps = {
-	theme: 'standard' | 'inverse';
-	quoteAuthor: string;
+	theme?: 'standard' | 'inverse';
+	type: 'block' | 'pull';
+	quoteAuthor?: string;
 	quoteCaption?: string;
 	quoteIcon?: boolean;
 	children: string;
 };
 
 export type BigNumberProps = {
-	theme: 'standard' | 'inverse';
+	theme?: 'standard' | 'inverse';
 	title: string;
 	children: string;
 };
 
 export type BylineProps ={
-	theme: 'standard' | 'inverse',
+	theme?: 'standard' | 'inverse',
 	children: JSX.Element[] | JSX.Element | string;
 }
 

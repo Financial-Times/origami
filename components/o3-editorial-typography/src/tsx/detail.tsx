@@ -1,28 +1,50 @@
-import {DetailProps, QuoteProps, BigNumberProps, BylineProps} from '../types';
+import {DetailProps, TopicTagProps, QuoteProps, BigNumberProps, BylineProps} from '../types';
 import {getAttributes} from './utils';
 
-export const Detail = ({type, theme, children}: DetailProps) => {
-	const classNames = `o3-editorial-typography-${type}`;
+export const TopicTag = ({href, theme, children}: TopicTagProps) => {
+	const attributes = getAttributes(theme);
+	const HtmlElement = href ? 'a' : 'span';
+	return (
+		<HtmlElement className="o3-editorial-typography-topic-tag" {...attributes}>
+			{children}
+		</HtmlElement>
+	);
+};
+
+export const StandFirst = ({theme, children}: DetailProps) => {
 	const attributes = getAttributes(theme);
 
 	return (
-		<div className={classNames} {...attributes}>
+		<p
+			className="o3-editorjson-editorial-typography-stand-first"
+			{...attributes}>
 			{children}
-		</div>
+		</p>
+	);
+};
+
+export const Caption = ({theme, children}: DetailProps) => {
+	const attributes = getAttributes(theme);
+
+	return (
+		<figcaption className="o3-editorial-typography-caption" {...attributes}>
+			{children}
+		</figcaption>
 	);
 };
 
 export const Quote = ({
 	theme,
+	type = "block",
 	quoteAuthor,
 	quoteCaption,
 	quoteIcon = true,
 	children,
 }: QuoteProps) => {
 	const attributes = getAttributes(theme, false, quoteIcon);
-
+	const classNames = `o3-editorial-typography-quote__${type}`;
 	return (
-		<blockquote className="o3-editorial-typography-quote" {...attributes}>
+		<blockquote className={classNames} {...attributes}>
 			<p>{children}</p>
 			<cite>
 				<span className="o3-editorial-typography-quote__author">

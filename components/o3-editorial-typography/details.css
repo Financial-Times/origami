@@ -73,12 +73,44 @@
 	color: var(--_o3-editorial-typography-byline-timestamp-inverse);
 }
 
-.o3-editorial-typography-quote {
+.o3-editorial-typography-quote__pull {
 	font-family: var(--_o3-editorial-typography-use-case-quote-font-family),
 		sans-serif;
 	font-size: var(--_o3-editorial-typography-use-case-quote-font-size);
 	font-weight: var(--_o3-editorial-typography-use-case-quote-font-weight);
 	line-height: var(--_o3-editorial-typography-use-case-quote-line-height);
+}
+
+.o3-editorial-typography-quote__block {
+	border-left: var(--o3-spacing-5xs) solid;
+	padding-left: var(--o3-spacing-2xs);
+	font-family: var(--o3-font-family-metric), serif;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+[class^='o3-editorial-typography-quote__'][data-o3-editorial-quote-icon='true']::before {
+	--_o3-editorial-typography-quote-icon-size: 36px;
+	content: '';
+	width: var(--_o3-editorial-typography-quote-icon-size);
+	height: var(--_o3-editorial-typography-quote-icon-size);
+	mask-image: var(--o3-icons-ft-icon-speech-left);
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	display: inline-block;
+	background-color: currentColor;
+}
+
+.o3-editorial-typography-quote__pull > p {
+	margin-top: 0;
+	margin: var(--o3-spacing-2xs) 0;
+}
+
+.o3-editorial-typography-quote__author,
+.o3-editorial-typography-quote__caption {
+	display: block;
+	font-style: normal;
 }
 
 .o3-editorial-typography-quote__author {
@@ -105,34 +137,6 @@
 	line-height: var(
 		--_o3-editorial-typography-use-case-quote-caption-line-height
 	);
-}
-
-.o3-editorial-typography-quote {
-	border-left: var(--o3-spacing-5xs) solid;
-	padding-left: var(--o3-spacing-2xs);
-}
-
-.o3-editorial-typography-quote[data-o3-editorial-quote-icon='true']::before {
-	--_o3-editorial-typography-quote-icon-size: 36px;
-	content: '';
-	width: var(--_o3-editorial-typography-quote-icon-size);
-	height: var(--_o3-editorial-typography-quote-icon-size);
-	mask-image: var(--o3-icons-ft-icon-speech-left);
-	mask-repeat: no-repeat;
-	mask-size: contain;
-	display: inline-block;
-	background-color: currentColor;
-}
-
-.o3-editorial-typography-quote > p {
-	margin-top: 0;
-	margin: var(--o3-spacing-2xs) 0;
-}
-
-.o3-editorial-typography-quote__author,
-.o3-editorial-typography-quote__caption {
-	display: block;
-	font-style: normal;
 }
 
 .o3-editorial-typography-big-number,

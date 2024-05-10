@@ -12,7 +12,6 @@
 		"email": "origami.support@ft.com"
 	},
 	"license": "MIT",
-	"type": "module",
 	"files": [
 		"cjs",
 		"esm",

@@ -1,7 +1,9 @@
 import {
 	Headline as HeadlineTsx,
 	Body as BodyTsx,
-	Detail as DetailTsx,
+	Caption as CaptionTsx,
+	StandFirst as StandFirstTsx,
+	TopicTag as TopicTagTsx,
 	Quote as QuoteTsx,
 	BigNumber as BigNumberTsx,
 	Byline as BylineTsx,
@@ -11,10 +13,11 @@ import type {StoryObj, Meta} from '@storybook/react';
 import type {
 	HeadlineProps,
 	BodyProps,
-	DetailProps,
 	QuoteProps,
 	BigNumberProps,
 	BylineProps,
+	DetailProps,
+	TopicTagProps,
 } from '../src/types/index';
 
 type StoryObjNoArgs = Omit<StoryObj, 'args'>;
@@ -29,6 +32,10 @@ type BodyStory = StoryObjNoArgs & {
 
 type DetailStory = StoryObjNoArgs & {
 	args: Omit<DetailProps, 'children'> & {content: string};
+};
+
+type TopicTagStory = StoryObjNoArgs & {
+	args: Omit<TopicTagProps, 'children'> & {content: string};
 };
 
 type QuoteStory = StoryObjNoArgs & {
@@ -90,45 +97,50 @@ const BodyTemplate: StoryObj = {
 	},
 };
 
-const DetailTemplate: StoryObj = {
+const StandFirstTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
-		type: {
-			options: [
-				'topic tag',
-				'standfirst',
-				'caption',
-				'byline author',
-				'byline location',
-				'byline timestamp',
-				'quote',
-				'quote author',
-				'quote caption',
-			],
-			mapping: {
-				'topic tag': 'topic-tag',
-				standfirst: 'standfirst',
-				caption: 'caption',
-				'byline author': 'byline-author',
-				'byline location': 'byline-location',
-				'byline timestamp': 'byline-timestamp',
-				quote: 'quote',
-				'quote author': 'quote-author',
-				'quote caption': 'quote-caption',
-			},
-			control: {
-				type: 'radio',
-			},
-		},
 	},
 	render: args => {
-		return <DetailTsx {...args}>{args.content}</DetailTsx>;
+		return <StandFirstTsx {...args}>{args.content}</StandFirstTsx>;
+	},
+};
+
+const CaptionTemplate: StoryObj = {
+	argTypes: {
+		...TemplateSBConfig.argTypes,
+	},
+	render: args => {
+		return (
+			<figure>
+				<img
+					alt="Image caption demo"
+					src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=250&amp;source=origami-build-tools"
+				/>
+				<CaptionTsx {...args}>{args.content}</CaptionTsx>
+			</figure>
+		);
+	},
+};
+
+const TopicTagTemplate: StoryObj = {
+	argTypes: {
+		...TemplateSBConfig.argTypes,
+	},
+	render: args => {
+		return <TopicTagTsx {...args}>{args.content}</TopicTagTsx>;
 	},
 };
 
 const QuoteTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
+		type: {
+			options: ['block', 'pull'],
+			control: {
+				type: 'radio',
+			},
+		},
 	},
 	parameters: {
 		controls: {exclude: ['type', 'children']},
@@ -198,12 +210,28 @@ export const Body: BodyStory = {
 	},
 };
 
-export const Detail: DetailStory = {
-	...DetailTemplate,
+export const StandFirst: DetailStory = {
+	...StandFirstTemplate,
 	args: {
-		content: 'Detail',
+		content: 'StandFirst',
 		theme: 'standard',
-		type: 'topic-tag',
+	},
+};
+
+export const Caption: DetailStory = {
+	...CaptionTemplate,
+	args: {
+		content: '© Lorem John Doe',
+		theme: 'standard',
+	},
+};
+
+export const TopicTag: TopicTagStory = {
+	...TopicTagTemplate,
+	args: {
+		content: 'Topic Tag',
+		theme: 'standard',
+		href: '#',
 	},
 };
 
@@ -212,6 +240,7 @@ export const Quote: QuoteStory = {
 	args: {
 		content:
 			'Origami is about empowering developers of all levels to build robust, on-brand products ranging from simple static sites through to rich, dynamic web applications, to do it faster, to do it cheaper, and leave them more supportable and more maintainable.',
+		type: 'block',
 		theme: 'standard',
 		quoteAuthor: 'Quote Author',
 		quoteCaption: 'Quote Source',
