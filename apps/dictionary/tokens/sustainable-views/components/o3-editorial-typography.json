@@ -231,6 +231,26 @@
           "value": "{o3.color.palette.white}",
           "type": "color"
         }
+      },
+      "topic-tag": {
+        "@": {
+          "value": "{o3.color.palette.claret}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "{o3.color.palette.claret-30}",
+          "type": "color"
+        }
+      },
+      "byline-author": {
+        "@": {
+          "value": "{o3.color.palette.claret}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "{o3.color.palette.claret-30}",
+          "type": "color"
+        }
       }
     }
   }
