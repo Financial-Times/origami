@@ -292,6 +292,9 @@ Use `--o3-typography-max-line-width` or set a [custom length using a "ch" value]
 
 ##### oTypographyGetFontFamily
 
+This can be removed and replaced with fonts from [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation).
+
+
 #### Variables
 
 The following variables are no longer necessary:
