@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.6](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.5...o-multi-select-v2.2.6) (2024-05-09)
+
+
+### Bug Fixes
+
+* Trim option whitespace ([#1638](https://github.com/Financial-Times/origami/issues/1638)) ([e352cd4](https://github.com/Financial-Times/origami/commit/e352cd4bcda6fb52dfb0da3ea3b2a0649d0a96b5))
+
 ## [2.2.5](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.4...o-multi-select-v2.2.5) (2024-01-04)
 
 

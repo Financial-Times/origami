@@ -1,5 +1,5 @@
 .o3-typography-heading--level-1,
-.o3-typography-wrapper h1 {
+.o3-typography-wrapper > h1 {
 	--o3-typography-heading-font-size: var(--_o3-typography-heading-level-1-font-size);
 	--o3-typography-heading-font-color: var(--_o3-typography-heading-color);
 	--o3-typography-heading-line-height: var(--_o3-typography-heading-level-1-line-height);
@@ -7,7 +7,7 @@
 	--o3-typography-heading-font-family: var(--o3-typography-use-case-heading1-font-family);
 }
 .o3-typography-heading--level-2,
-.o3-typography-wrapper h2 {
+.o3-typography-wrapper > h2 {
 	--o3-typography-heading-font-size: var(--_o3-typography-heading-level-2-font-size);
 	--o3-typography-heading-font-color: var(--_o3-typography-heading-color);
 	--o3-typography-heading-line-height: var(--_o3-typography-heading-level-2-line-height);
@@ -15,7 +15,7 @@
 	--o3-typography-heading-font-family: var(--o3-typography-use-case-heading1-font-family);
 }
 .o3-typography-heading--level-3,
-.o3-typography-wrapper h3 {
+.o3-typography-wrapper > h3 {
 	--o3-typography-heading-font-size: var(--_o3-typography-heading-level-3-font-size);
 	--o3-typography-heading-font-color: var(--_o3-typography-heading-color);
 	--o3-typography-heading-line-height: var(--_o3-typography-heading-level-3-line-height);
@@ -23,7 +23,7 @@
 	--o3-typography-heading-font-family: var(--o3-typography-use-case-heading1-font-family);
 }
 .o3-typography-heading--level-4,
-.o3-typography-wrapper h4 {
+.o3-typography-wrapper > h4 {
 	--o3-typography-heading-font-size: var(--_o3-typography-heading-level-4-font-size);
 	--o3-typography-heading-font-color: var(--_o3-typography-heading-color);
 	--o3-typography-heading-line-height: var(--_o3-typography-heading-level-4-line-height);
@@ -31,7 +31,7 @@
 	--o3-typography-heading-font-family: var(--o3-typography-use-case-heading1-font-family);
 }
 .o3-typography-heading--level-5,
-.o3-typography-wrapper h5 {
+.o3-typography-wrapper > h5 {
 	--o3-typography-heading-font-size: var(--_o3-typography-heading-level-5-font-size);
 	--o3-typography-heading-font-color: var(--_o3-typography-heading-color);
 	--o3-typography-heading-line-height: var(--_o3-typography-heading-level-5-line-height);
@@ -39,7 +39,7 @@
 	--o3-typography-heading-font-family: var(--o3-typography-use-case-heading1-font-family);
 }
 .o3-typography-heading--level-6,
-.o3-typography-wrapper h6 {
+.o3-typography-wrapper > h6 {
 	--o3-typography-heading-font-size: var(--_o3-typography-heading-level-6-font-size);
 	--o3-typography-heading-font-color: var(--_o3-typography-heading-color);
 	--o3-typography-heading-line-height: var(--_o3-typography-heading-level-6-line-height);
@@ -49,7 +49,7 @@
 
 
 .o3-typography-heading,
-.o3-typography-wrapper:is(h1, h2, h3, h4, h5, h6) {
+.o3-typography-wrapper > :is(h1, h2, h3, h4, h5, h6) {
 	margin: 0;
 	color: var(--o3-typography-heading-font-color);
 	font-family: FinancierDisplayWeb, serif;
@@ -59,6 +59,6 @@
 }
 
 .o3-typography-heading[data-o3-theme="inverse"],
-:where([data-o3-theme='inverse']) :is(h1, h2, h3, h4, h5, h6) {
+:where([data-o3-theme='inverse']).o3-typography-wrapper > :is(h1, h2, h3, h4, h5, h6) {
 	color: var(--_o3-typography-heading-inverse-color);
 }
