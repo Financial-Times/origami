@@ -279,7 +279,7 @@ This has been replaced with a CSS Custom Property with one static value:
 }
 ```
 
-Our CSS Custom Property can be used instead where a value of `65ch` is required:
+Use `--o3-typography-max-line-width` or set a [custom length using a "ch" value](https://developer.mozilla.org/en-US/docs/Web/CSS/length).
 
 **CSS**
 
