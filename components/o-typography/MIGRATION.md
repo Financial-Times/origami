@@ -19,20 +19,13 @@ E.g. An FT Core brand Link with inverse theming, brand and theme inherited from 
 	<a href="#" class="o3-typography o3-typography-link">To somewhere.</a>
 </body>
 ```
-
-#### Mixins
-
-##### oTypography
+#### Markup
 
 Update your markup to use the `o3-typography` JSX template ([o3-typography JSX documentation](https://o3.origami.ft.com/?path=/docs/core-o3-typography--jsx-documentation)) if your web application uses it.
 
 Alternatively, replace `o-typography` classes in your HTML code with the `o3-typography` alternative described below.
 
-
 ###### Body elements
-
-This covers `oTypographyBody`, `oTypographySub`, `oTypographySuper`, `oTypographyLink`, `oTypographyFooter`, and `oTypographyCaption`.
-
 
 ```html
 <p class="o-typography-body">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -113,7 +106,7 @@ import {Wrapper} from '@financial-times/o3-typography';
 </Wrapper>
 ```
 
-##### oTypographyHeading
+##### Headings
 
 Headings use a BEM modifier to style the heading level:
 
@@ -151,7 +144,7 @@ import {Heading} from '@financial-times/o3-typography';
 <Heading level={6}>Heading 6</Heading>
 ```
 
-##### oTypographyList
+##### List
 
 ```html
 	<ul class="o-typography-list o-typography-list--unordered">
@@ -196,6 +189,14 @@ import {UnorderedList, OrderedList } from '@financial-times/o3-typography';
 	<li>List ordered</li>
 </OrderedList>
 ```
+
+#### Mixins
+
+##### oTypography
+
+This includes `oTypographyBody`, `oTypographySub`, `oTypographySuper`, `oTypographyLink`, `oTypographyFooter`, and `oTypographyCaption`.
+
+There are no direct replacements for these mixins. Instead, use the css classes in the [markup](#markup) section above.
 
 ###### oTypographySetFont
 
