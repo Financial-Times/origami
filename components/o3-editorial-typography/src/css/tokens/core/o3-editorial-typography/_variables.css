@@ -106,6 +106,10 @@
   --_o3-editorial-typography-use-case-quote-author-font-weight: var(--o3-font-weight-semibold);
   --_o3-editorial-typography-use-case-quote-author-font-size: var(--o3-font-size-metric2-negative-1);
   --_o3-editorial-typography-use-case-quote-author-line-height: var(--o3-font-lineheight-metric2-negative-1);
+  --_o3-editorial-typography-use-case-quote-caption-font-family: var(--o3-font-family-metric);
+  --_o3-editorial-typography-use-case-quote-caption-font-weight: var(--o3-font-weight-regular);
+  --_o3-editorial-typography-use-case-quote-caption-line-height: var(--o3-font-lineheight-negative-2);
+  --_o3-editorial-typography-use-case-quote-caption-font-size: var(--o3-font-size-negative-2);
   --_o3-editorial-typography-use-case-big-number-title-font-family: var(--o3-font-family-metric);
   --_o3-editorial-typography-use-case-big-number-title-font-weight: var(--o3-font-weight-semibold);
   --_o3-editorial-typography-use-case-big-number-title-font-size: var(--o3-font-size-metric2-8);
@@ -114,10 +118,10 @@
   --_o3-editorial-typography-use-case-big-number-content-font-weight: var(--o3-font-weight-regular);
   --_o3-editorial-typography-use-case-big-number-content-font-size: var(--o3-font-size-metric2-2);
   --_o3-editorial-typography-use-case-big-number-content-line-height: var(--o3-font-lineheight-metric2-2);
-  --_o3-editorial-typography-use-case-quote-caption-font-family: var(--o3-font-family-metric);
-  --_o3-editorial-typography-use-case-quote-caption-font-weight: var(--o3-font-weight-regular);
-  --_o3-editorial-typography-use-case-quote-caption-line-height: var(--o3-font-lineheight-negative-2);
-  --_o3-editorial-typography-use-case-quote-caption-font-size: var(--o3-font-size-negative-2);
   --_o3-editorial-typography-byline-timestamp: var(--o3-color-palette-black-60);
   --_o3-editorial-typography-byline-timestamp-inverse: var(--o3-color-palette-black-20);
+  --_o3-editorial-typography-topic-tag: var(--o3-color-palette-claret);
+  --_o3-editorial-typography-topic-tag-hover: var(--o3-color-palette-claret-30);
+  --_o3-editorial-typography-byline-author: var(--o3-color-palette-claret);
+  --_o3-editorial-typography-byline-author-hover: var(--o3-color-palette-claret-30);
 }

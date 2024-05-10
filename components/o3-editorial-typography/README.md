@@ -2,21 +2,22 @@
 
 Typographic styles for editorial content.
 
+- [o3-editorial-typography](#o3-editorial-typography)
 - [Overview](#overview)
 - [Markup](#markup)
-  - [Heading styles](#heading-styles)
-    - [HTML](#html)
-    - [JSX](#jsx)
-  - [Body/Paragraph styles](#bodyparagraph-styles)
-    - [HTML](#html-1)
-    - [JSX](#jsx-1)
-  - [Editorial detail styles](#editorial-detail-styles)
-    - [HTML](#html-2)
-    - [JSX](#jsx-2)
-  - [Composite components of editorial details](#composite-components-of-editorial-details)
-    - [Byline](#byline)
-    - [Quote](#quote)
-    - [Big Number](#big-number)
+- [Heading styles](#heading-styles)
+  - [HTML](#html)
+  - [JSX](#jsx)
+- [Body/Paragraph styles](#bodyparagraph-styles)
+  - [HTML](#html-1)
+  - [JSX](#jsx-1)
+- [Editorial detail styles](#editorial-detail-styles)
+  - [Topic Tag](#topic-tag)
+  - [Standfirst](#standfirst)
+  - [Caption](#caption)
+  - [Byline](#byline)
+  - [Quote](#quote)
+  - [Big Number](#big-number)
 - [Theme modifiers](#theme-modifiers)
 - [Migration](#migration)
 - [Contact](#contact)
@@ -89,10 +90,10 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 
 O3 editorial paragraphs are styled with the `o3-editorial-typography-body__-[type]` class. Where `type` can be either `large` or `small`.
 
-| Type  | Selector                            |
-| ----- | ----------------------------------- |
-| Large | .o3-editorial-typography-body__large |
-| Small | .o3-editorial-typography-body__small |
+| Type  | Selector                               |
+| ----- | -------------------------------------- |
+| Large | .o3-editorial-typography-body\_\_large |
+| Small | .o3-editorial-typography-body\_\_small |
 
 #### HTML
 
@@ -104,7 +105,7 @@ O3 editorial paragraphs are styled with the `o3-editorial-typography-body__-[typ
 
 #### JSX
 
-Using the Typescript component applies this styling:
+While using JSX, you can import the `<Body>` component and apply the `type` prop.
 
 ```jsx
 import {Body} from '@financial-times/o3-typography/cjs'; // or /esm
@@ -120,7 +121,7 @@ import {Body} from '@financial-times/o3-typography/cjs'; // or /esm
 
 ### Editorial detail styles
 
-o3 editorial component export a `Detail` component that can be used to style additional information in the editorial content.
+o3 editorial component exports components that can be used to style additional information in the editorial content.
 
 | Type             | Selector                                  | Description                                                                                                                   |
 | ---------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -131,50 +132,81 @@ o3 editorial component export a `Detail` component that can be used to style add
 | byline-location  | .o3-editorial-typography-byline-location  | Shows Author location as part of a page author details in the byline component.                                               |
 | byline-timestamp | .o3-editorial-typography-byline-timestamp | Shows the timestamp of the article in the byline component.                                                                   |
 | quote            | .o3-editorial-typography-quote            | For excerpt of direct words said by a person.                                                                                 |
-| quote-author     | .o3-editorial-typography-quote__author     | For the author of the quote.                                                                                                  |
+| quote-author     | .o3-editorial-typography-quote\_\_author  | For the author of the quote.                                                                                                  |
 | quote-caption    | .o3-editorial-typography-caption          | For additional information about a piece or image that should be less prominent.                                              |
 
-#### HTML
+#### Topic Tag
+
+Reference categories of content with topic tags. A topic tag is usually an anchor but does not have to be if there is no page to link to. Pure HTML markup is as follows:
 
 ```html
-<div class="o3-editorial-typography-topic-tag">Detail</div>
-<div class="o3-editorial-typography-standfirst">Detail</div>
-<div class="o3-editorial-typography-caption">Detail</div>
-<div class="o3-editorial-typography-byline-author">Detail</div>
-<div class="o3-editorial-typography-byline-location">Detail</div>
-<div class="o3-editorial-typography-byline-timestamp">Detail</div>
-<div class="o3-editorial-typography-quote">Detail</div>
-<div class="o3-editorial-typography-quote__author">Detail</div>
-<div class="o3-editorial-typography-quote__caption">Detail</div>
+<a class="o3-editorial-typography-topic-tag" href="#">Topic Link</a>
+<span class="o-editorial-typography-topic-tag">Topic Without Link</span>
 ```
 
-#### JSX
+or with JSX import:
 
 ```jsx
-import {Detail} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
+import {TopicTag} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
-<Detail type="topic-tag">Content</Detail>
-<Detail type="standfirst">Content</Detail>
-<Detail type="caption">Content</Detail>
-<Detail type="byline-author">Content</Detail>
-<Detail type="byline-location">Content</Detail>
-<Detail type="byline-timestamp">Content</Detail>
-<Detail type="quote">Content</Detail>
-<Detail type="quote-author">Content</Detail>
-<Detail type="quote-caption">Content</Detail>
+<TopicTag href="#">Topic Link</TopicTag>
+<TopicTag>Topic Without Link</TopicTag>
 ```
 
-`<Detail>` props:
+`<TopicTag>` props:
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| type | `topic-tag` \| `standfirst` \| `caption` \| `byline-author` \| `byline-location` \| `byline-timestamp` \| `quote` \| `quote-author` \| `quote-caption` | - | Type of the detail. |
-| theme | `standard` \| `inverse` | `standard` | Theme of the detail. |
+| href | `string` | - | URL to link the topic tag. The presence of `href` prop will determine rendered element tag |
+| theme | `standard` \| `inverse` | `standard` | Theme of the topic tag. |
 
-### Composite components of editorial details
+#### Standfirst
+
+Short intro below the headline that provides context about a post. Used in combination with a header in the topper component. Pure HTML markup is as follows:
+
+```html
+<p class="o3-editorial-typography-standfirst">Standfirst</p>
+```
+
+or with JSX import:
+
+```jsx
+import {Standfirst} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
+
+<Standfirst>Standfirst</Standfirst>;
+```
+
+`<Standfirst>` props:
+
+| Prop  | Type                    | Default    | Description              |
+| ----- | ----------------------- | ---------- | ------------------------ |
+| theme | `standard` \| `inverse` | `standard` | Theme of the standfirst. |
+
+#### Caption
+
+For additional information about a piece or image that should be less prominent. Pure HTML markup is as follows:
+
+```html
+<figcaption class="o3-editorial-typography-caption">Caption</figcaption>
+```
+
+or with JSX import:
+
+```jsx
+import {Caption} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
+
+<Caption>Caption</Caption>;
+```
+
+`<Caption>` props:
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| theme | `standard` \| `inverse` | `standard` | Theme of the caption. |
 
 #### Byline
 
 Byline is a composite component that includes author name, location and timestamp. It is used to display author details in the editorial content.
+
+Author name is usually an anchor but does not have to be if there is no page to link to. Pure HTML markup is as follows:
 
 ```html
 <div class="o3-editorial-typography-byline">
@@ -190,6 +222,8 @@ Byline is a composite component that includes author name, location and timestam
  >
 </div>
 ```
+
+or with JSX import:
 
 ```jsx
 import {Byline} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
@@ -217,11 +251,11 @@ import {Byline} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
 #### Quote
 
-Quote is a composite component that includes quote text, author and caption. It is used to display direct words said by a person. It can also include an icon to indicate the speech marks by adding `data-o3-editorial-quote-icon="true"` attribute.
+Quote is a composite component that includes quote text, author and caption. It is used to display direct words said by a person. It can also include an icon to indicate the speech marks by adding `data-o3-editorial-quote-icon="true"` attribute. It comes in two types: `block` and `pull`. The difference between the two is that `block` quote has vertical line on the left side of the quote, while `pull` quote has none. Pure HTML markup is as follows:
 
 ```html
 <blockquote
- class="o3-editorial-typography-quote"
+ class="o3-editorial-typography-quote__block"
  data-o3-editorial-quote-icon="true"
 >
  <p>
@@ -237,10 +271,12 @@ Quote is a composite component that includes quote text, author and caption. It 
 </blockquote>
 ```
 
+or with JSX import:
+
 ```jsx
 import {Quote} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
-<Quote quoteAuthor="Quote Author" quoteCaption="Quote Source" quoteIcon={true}>
+<Quote type="pull" quoteAuthor="Quote Author" quoteCaption="Quote Source" quoteIcon={true}>
  Origami is about empowering developers of all levels to build robust, on-brand
  products ranging from simple static sites through to rich, dynamic web
  applications, to do it faster, to do it cheaper, and leave them more
@@ -251,6 +287,7 @@ import {Quote} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 `<Quote>` props:
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
+| type | `block` \| `pull` | `block` | Quote text. |
 | quoteAuthor | `string` | - | Author of the quote. |
 | quoteCaption | `string` | - | Source of the quote. |
 | quoteIcon | `boolean` | `true` | Adds an icon to the quote. |
@@ -258,7 +295,7 @@ import {Quote} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
 #### Big Number
 
-Big Number is a composite component that includes a large number and a label. It is used to describe a big number in the editorial content.
+Big Number is a composite component that includes a large number and a label. It is used to describe a big number in the editorial content. Pure HTML markup is as follows:
 
 ```html
 <div class="o3-editorial-typography-big-number">
@@ -285,7 +322,7 @@ import {BigNumber} from '@financial-times/o3-editorial-typography/cjs'; // or /e
 
 ## Theme modifiers
 
-`o3-editorial-typography` also supports the `inverse` theme. Adding `data-o3-theme="inverse"` to the wrapper element or at the element itself will change the colour of the text to white. Inverse theme is supported by all exported components.
+`o3-editorial-typography` also supports the `inverse` theme. Adding `data-o3-theme="inverse"` to the wrapper element or at the element itself will change the colour of the text to white. Inverse theme is supported by all exported components. Pure HTML markup is as follows:
 
 ```html
 <h3 class="o3-editorial-typography-label" data-o3-theme="inverse">Label</h3>

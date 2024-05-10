@@ -6,6 +6,18 @@
 	line-height: var(--_o3-editorial-typography-use-case-topic-tag-line-height);
 }
 
+a.o3-editorial-typography-topic-tag {
+	--o3-editorial-typography-topic-tag-color: var(--_o3-editorial-typography-topic-tag);
+	--o3-editorial-typography-topic-tag-hover-color: var(--_o3-editorial-typography-topic-tag-hover);
+	color: var(--o3-editorial-typography-topic-tag-color);
+	text-decoration: none;
+}
+
+a.o3-editorial-typography-topic-tag:hover {
+	color: var(--o3-editorial-typography-topic-tag-hover-color);
+}
+
+
 .o3-editorial-typography-standfirst {
 	font-family: var(--_o3-editorial-typography-use-case-standfirst-font-family),
 		sans-serif;
@@ -34,6 +46,17 @@
 	line-height: var(
 		--_o3-editorial-typography-use-case-byline-author-line-height
 	);
+}
+
+a.o3-editorial-typography-byline-author {
+	--o3-editorial-typography-byline-author-color: var(--_o3-editorial-typography-byline-author);
+	--o3-editorial-typography-byline-author-hover-color: var(--_o3-editorial-typography-byline-author-hover);
+	color: var(--o3-editorial-typography-byline-author-color);
+	text-decoration: none;
+}
+
+a.o3-editorial-typography-byline-author:hover {
+	color: var(--o3-editorial-typography-byline-author-hover-color);
 }
 
 .o3-editorial-typography-byline-location {

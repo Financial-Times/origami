@@ -5,7 +5,7 @@ export const TopicTag = ({href, theme, children}: TopicTagProps) => {
 	const attributes = getAttributes(theme);
 	const HtmlElement = href ? 'a' : 'span';
 	return (
-		<HtmlElement className="o3-editorial-typography-topic-tag" {...attributes}>
+		<HtmlElement href={href} className="o3-editorial-typography-topic-tag" {...attributes}>
 			{children}
 		</HtmlElement>
 	);
@@ -16,7 +16,7 @@ export const StandFirst = ({theme, children}: DetailProps) => {
 
 	return (
 		<p
-			className="o3-editorjson-editorial-typography-stand-first"
+			className="o3-editorial-typography-standfirst"
 			{...attributes}>
 			{children}
 		</p>

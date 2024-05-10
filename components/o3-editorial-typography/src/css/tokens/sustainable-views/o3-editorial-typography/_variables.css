@@ -96,4 +96,6 @@
   --_o3-editorial-typography-use-case-quote-caption-font-size: var(--o3-font-size-negative-2);
   --_o3-editorial-typography-byline-timestamp: var(--o3-color-palette-black-50);
   --_o3-editorial-typography-byline-timestamp-inverse: var(--o3-color-palette-white);
+  --_o3-editorial-typography-topic-tag: var(--o3-color-palette-claret);
+  --_o3-editorial-typography-byline-author: var(--o3-color-palette-claret);
 }
