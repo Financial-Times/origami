@@ -1,0 +1,14 @@
+.o3-editorial-typography-link {
+	color: var(--o3-color-use-case-link-text);
+	&:hover {
+		color: var(--o3-color-use-case-link-text-hover);
+	}
+}
+
+[data-o3-theme='inverse'] .o3-editorial-typography-link,
+.o3-editorial-typography-link[data-o3-theme='inverse'] {
+	color: var(--o3-color-use-case-inverse-link-text);
+	&:hover {
+		color: var(--o3-color-use-case-inverse-link-text-hover);
+	}
+}

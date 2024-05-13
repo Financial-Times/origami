@@ -3,25 +3,27 @@
 Typographic styles for editorial content.
 
 - [o3-editorial-typography](#o3-editorial-typography)
-- [Overview](#overview)
-- [Markup](#markup)
-- [Heading styles](#heading-styles)
-  - [HTML](#html)
-  - [JSX](#jsx)
-- [Body/Paragraph styles](#bodyparagraph-styles)
-  - [HTML](#html-1)
-  - [JSX](#jsx-1)
-- [Editorial detail styles](#editorial-detail-styles)
-  - [Topic Tag](#topic-tag)
-  - [Standfirst](#standfirst)
-  - [Caption](#caption)
-  - [Byline](#byline)
-  - [Quote](#quote)
-  - [Big Number](#big-number)
-- [Theme modifiers](#theme-modifiers)
-- [Migration](#migration)
-- [Contact](#contact)
-- [Licence](#licence)
+  - [Overview](#overview)
+  - [Markup](#markup)
+    - [Heading styles](#heading-styles)
+      - [HTML](#html)
+      - [JSX](#jsx)
+    - [Body/Paragraph styles](#bodyparagraph-styles)
+      - [HTML](#html-1)
+      - [JSX](#jsx-1)
+    - [Editorial detail styles](#editorial-detail-styles)
+      - [Topic Tag](#topic-tag)
+      - [Standfirst](#standfirst)
+      - [Caption](#caption)
+      - [Byline](#byline)
+      - [Quote](#quote)
+      - [Big Number](#big-number)
+    - [Lists](#lists)
+    - [Links](#links)
+  - [Theme modifiers](#theme-modifiers)
+  - [Migration](#migration)
+  - [Contact](#contact)
+  - [Licence](#licence)
 
 ## Overview
 
@@ -88,7 +90,7 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 
 ### Body/Paragraph styles
 
-O3 editorial paragraphs are styled with the `o3-editorial-typography-body__-[type]` class. Where `type` can be either `large` or `small`.
+O3 editorial paragraphs are styled with the `o3-editorial-typography-body__[type]` class. Where `type` can be either `large` or `small`.
 
 | Type  | Selector                               |
 | ----- | -------------------------------------- |
@@ -276,7 +278,11 @@ or with JSX import:
 ```jsx
 import {Quote} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
-<Quote type="pull" quoteAuthor="Quote Author" quoteCaption="Quote Source" quoteIcon={true}>
+<Quote
+ type="pull"
+ quoteAuthor="Quote Author"
+ quoteCaption="Quote Source"
+ quoteIcon={true}>
  Origami is about empowering developers of all levels to build robust, on-brand
  products ranging from simple static sites through to rich, dynamic web
  applications, to do it faster, to do it cheaper, and leave them more
@@ -320,9 +326,76 @@ import {BigNumber} from '@financial-times/o3-editorial-typography/cjs'; // or /e
 | title | `string` | - | Title of the big number. |
 | theme | `standard` \| `inverse` | `standard` | Theme of the big number. |
 
+### Lists
+
+`o3-editorial-typography` supports ordered and unordered lists. Use the classes `o3-editorial-typography-list--ordered` or `o3-editorial-typography-list--unordered`.
+
+Lists may be used in different contexts they inherit font properties such as size and family. It's therefore required to apply font styles to a parent element. E.g. this could be done with `o3-editorial-typography-body__large`:
+
+```html
+<div class="o3-editorial-typography-body__large">
+ <ol class="o3-editorial-typography-list--ordered">
+  <li>Lorem ipsum adipiscing elit.</li>
+  <li>Sed feugiat turpis at massa tristique.</li>
+  <li>Curabitu r accumsan elit luctus.</li>
+ </ol>
+</div>
+```
+
+```jsx
+import {Body, List} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
+
+<Body type="large">
+ <List
+  type="ordered"
+  listItems={[
+   'Lorem ipsum adipiscing elit.',
+   'Sed feugiat turpis at massa tristique.',
+   'Curabitu r accumsan elit luctus.',
+  ]}
+ />
+</Body>;
+```
+
+`<List>` props:
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| type | `ordered` \| `unordered` | - | Type of the list. |
+| theme | `standard` \| `inverse` | `standard` | Theme of the list. |
+| listItems | `Array<string>` | - | List items. |
+
+### Links
+
+Links are styled using o-editorial-typography-link inside a o-editorial-typography-body container.
+
+```html
+<p class="o-editorial-typography-body">
+ An article by
+ <a href="https://ft.com/" class="o-editorial-typography-link"
+  >The Financial Times</a
+ >.
+</p>
+```
+
+```jsx
+import {Body, Link} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
+
+<Body>
+ An article by
+ <Link href="https://ft.com/">The Financial Times</Link>.
+</Body>;
+```
+
+`<Link>` props:
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| href | `string` | - | URL to link the text. |
+| theme | `standard` \| `inverse` | `standard` | Theme of the link. |
+| anchorTarget | `_blank` | - | Text to be linked. |
+
 ## Theme modifiers
 
-`o3-editorial-typography` also supports the `inverse` theme. Adding `data-o3-theme="inverse"` to the wrapper element or at the element itself will change the colour of the text to white. Inverse theme is supported by all exported components. Pure HTML markup is as follows:
+All component can have theme modifiers. By default, the theme is `standard` and is not required. `o3-editorial-typography` also supports the `inverse` theme. Adding `data-o3-theme="inverse"` to the wrapper element or at the element itself will change the colour of the text to white. Inverse theme is supported by all exported components. Pure HTML markup is as follows:
 
 ```html
 <h3 class="o3-editorial-typography-label" data-o3-theme="inverse">Label</h3>

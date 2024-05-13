@@ -1,8 +1,8 @@
 import {DetailProps, TopicTagProps, QuoteProps, BigNumberProps, BylineProps} from '../types';
-import {getAttributes} from './utils';
+import {getDataAttributes} from './utils';
 
 export const TopicTag = ({href, theme, children}: TopicTagProps) => {
-	const attributes = getAttributes(theme);
+	const attributes = getDataAttributes(theme);
 	const HtmlElement = href ? 'a' : 'span';
 	return (
 		<HtmlElement href={href} className="o3-editorial-typography-topic-tag" {...attributes}>
@@ -12,7 +12,7 @@ export const TopicTag = ({href, theme, children}: TopicTagProps) => {
 };
 
 export const StandFirst = ({theme, children}: DetailProps) => {
-	const attributes = getAttributes(theme);
+	const attributes = getDataAttributes(theme);
 
 	return (
 		<p
@@ -24,7 +24,7 @@ export const StandFirst = ({theme, children}: DetailProps) => {
 };
 
 export const Caption = ({theme, children}: DetailProps) => {
-	const attributes = getAttributes(theme);
+	const attributes = getDataAttributes(theme);
 
 	return (
 		<figcaption className="o3-editorial-typography-caption" {...attributes}>
@@ -41,7 +41,7 @@ export const Quote = ({
 	quoteIcon = true,
 	children,
 }: QuoteProps) => {
-	const attributes = getAttributes(theme, false, quoteIcon);
+	const attributes = getDataAttributes(theme, false, quoteIcon);
 	const classNames = `o3-editorial-typography-quote__${type}`;
 	return (
 		<blockquote className={classNames} {...attributes}>
@@ -59,7 +59,7 @@ export const Quote = ({
 };
 
 export const BigNumber = ({theme, title, children}: BigNumberProps) => {
-	const attributes = getAttributes(theme);
+	const attributes = getDataAttributes(theme);
 
 	return (
 		<div className="o3-editorial-typography-big-number" {...attributes}>
@@ -72,7 +72,7 @@ export const BigNumber = ({theme, title, children}: BigNumberProps) => {
 };
 
 export const Byline = ({theme, children}: BylineProps) => {
-	const attributes = getAttributes(theme);
+	const attributes = getDataAttributes(theme);
 
 	return (
 		<div className="o3-editorial-typography-byline" {...attributes}>

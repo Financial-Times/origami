@@ -7,7 +7,7 @@ export type HeadlineProps = {
 
 export type BodyProps = {
 	type: 'small' | 'large';
-	theme: 'standard' | 'inverse';
+	theme?: 'standard' | 'inverse';
 	children: JSX.Element[] | JSX.Element | string;
 };
 
@@ -39,6 +39,19 @@ export type BylineProps ={
 	theme?: 'standard' | 'inverse',
 	children: JSX.Element[] | JSX.Element | string;
 }
+
+export type ListProps = {
+	type: 'ordered' | 'unordered';
+	theme?: 'standard' | 'inverse';
+	listItems: string[];
+};
+
+export type LinkProps = {
+	theme?: 'standard' | 'inverse';
+	children: string;
+	href: string;
+	anchorTarget: '_blank';
+};
 
 export type Attributes = {
 	'data-o3-theme'?: 'inverse';

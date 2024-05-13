@@ -1,5 +1,5 @@
 import {HeadlineProps} from '../types/index';
-import {getAttributes} from './utils';
+import {getDataAttributes} from './utils';
 
 export const Headline = ({
 	type = 'headline',
@@ -8,7 +8,7 @@ export const Headline = ({
 	children,
 }: HeadlineProps) => {
 	const classNames = `o3-editorial-typography-${type}`;
-	const attributes = getAttributes(theme, underline);
+	const attributes = getDataAttributes(theme, underline);
 
 	if (type === 'chapter') {
 		return (

@@ -1,6 +1,6 @@
 import {Attributes} from '../types/index';
 
-export const getAttributes = (
+export const getDataAttributes = (
 	theme?: 'standard' | 'inverse',
 	underline?: boolean,
 	quoteIcon?: boolean

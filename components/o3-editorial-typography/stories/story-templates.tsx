@@ -7,6 +7,8 @@ import {
 	Quote as QuoteTsx,
 	BigNumber as BigNumberTsx,
 	Byline as BylineTsx,
+	List as ListTsx,
+	Link as LinkTsx,
 } from '../src/tsx/index';
 
 import type {StoryObj, Meta} from '@storybook/react';
@@ -18,6 +20,7 @@ import type {
 	BylineProps,
 	DetailProps,
 	TopicTagProps,
+	LinkProps,
 } from '../src/types/index';
 
 type StoryObjNoArgs = Omit<StoryObj, 'args'>;
@@ -48,6 +51,13 @@ type BigNumberStory = StoryObjNoArgs & {
 
 type BylineStory = StoryObjNoArgs & {
 	args: Omit<BylineProps, 'children'>;
+};
+
+type LinkStory = StoryObjNoArgs & {
+	args: Omit<LinkProps, 'children' | 'anchorAttributes'> & {
+		content: string;
+		openInNewTab: boolean;
+	};
 };
 
 const TemplateSBConfig: Meta = {
@@ -191,6 +201,55 @@ const BylineTemplate: StoryObj = {
 	},
 };
 
+const ListTemplate: StoryObj = {
+	argTypes: {
+		...TemplateSBConfig.argTypes,
+		type: {
+			options: ['ordered', 'unordered'],
+			control: {
+				type: 'radio',
+			},
+		},
+	},
+	render: args => {
+		return (
+			<div id="component-wrapper" style={{padding: '20px'}}>
+				<BodyTsx type="large">
+					<ListTsx {...args} />
+				</BodyTsx>
+			</div>
+		);
+	},
+};
+
+const LinkTemplate: StoryObj = {
+	argTypes: {
+		...TemplateSBConfig.argTypes,
+		openInNewTab: {
+			control: {
+				type: 'boolean',
+			},
+		},
+	},
+	render: args => {
+		if (args.openInNewTab) {
+			args.anchorTarget = '_blank'
+		}
+		return (
+			<BodyTsx type="small">
+				<div>
+					We have a &nbsp;
+					<LinkTsx {...args}>{args.content}</LinkTsx>
+					&nbsp; style. Links may open in a new window/tab but we &nbsp;
+					<LinkTsx {...args} anchorTarget="_blank">
+						recommend against it
+					</LinkTsx>
+					&nbsp; in most cases.
+				</div>
+			</BodyTsx>
+		);
+	},
+};
 export const Heading: HeadlineStory = {
 	...HeadlineTemplate,
 	args: {
@@ -261,5 +320,28 @@ export const Byline: BylineStory = {
 	...BylineTemplate,
 	args: {
 		theme: 'standard',
+	},
+};
+
+export const List: StoryObj = {
+	...ListTemplate,
+	args: {
+		theme: 'standard',
+		type: 'ordered',
+		listItems: [
+			'Lorem ipsum adipiscing elit.',
+			'Sed feugiat turpis at massa tristique.',
+			'Curabitu r accumsan elit luctus.',
+		],
+	},
+};
+
+export const Link: LinkStory = {
+	...LinkTemplate,
+	args: {
+		content: 'standard link',
+		theme: 'standard',
+		openInNewTab: false,
+		href: 'https://origami.ft.com',
 	},
 };
