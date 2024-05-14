@@ -9,14 +9,14 @@ Brands are now applied using a parent data attribute `data-o3-brand`. Likewise, 
 E.g. An FT Professional brand Link, brand inherited from a parent element.
 ```html
 <body data-o3-brand="professional">
-	<a href="#" class="o3-typography o3-typography-link">To somewhere.</a>
+	<a href="#" class="o3-typography-link">To somewhere.</a>
 </body>
 ```
 
 E.g. An FT Core brand Link with inverse theming, brand and theme inherited from a parent element.
 ```html
 <body data-o3-brand="professional" data-o3-theme="inverse">
-	<a href="#" class="o3-typography o3-typography-link">To somewhere.</a>
+	<a href="#" class="o3-typography-link">To somewhere.</a>
 </body>
 ```
 #### Markup
