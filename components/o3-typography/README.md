@@ -198,13 +198,20 @@ import { Wrapper, Heading, Body } from '@financial-times/o3-typography';
 
 #### Max Line Width
 
-O3 Typography uses a custom property to set the maximum line width for text. This can be overridden by setting the `--o3-typography-optimal-chars-per-line` custom property in the selector where you wish to apply this rule.
-
-##### CSS
+`o3-typography` includes a CSS Custom Property `--o3-typography-max-line-width` to limit typography line length for readability.
+E.g.
 ```css
 .my-selector {
-	--o3-typography-optimal-chars-per-line: 60;
 	max-width: var(--o3-typography-max-line-width);
+}
+```
+You may want to slightly decrease or increase this limit inline with our [design guidelines](https://origami-for-everyone.ft.com/guides/typography/). To do so we recommend using the [ch relative unit](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#distance_units).
+
+E.g.
+
+```css
+.my-selector {
+	max-width: 70ch;
 }
 ```
 
