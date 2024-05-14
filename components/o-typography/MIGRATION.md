@@ -198,7 +198,123 @@ This includes `oTypographyBody`, `oTypographySub`, `oTypographySuper`, `oTypogra
 
 There are no direct replacements for these mixins. Instead, use the css classes in the [markup](#markup) section above.
 
-###### oTypographySetFont
+##### oTypographySerif
+
+```scss
+p {
+	@include oTypographySerif();
+}
+```
+
+Replace with:
+
+```css
+p {
+	font-family: var(--o3-font-family-georgia);
+}
+```
+
+For uses of `oTypographySerif` with options, use the equivalent css rules directly:
+
+**Sass**
+```scss
+p {
+	@include oTypographySerif($scale: 1,
+	$weight: 400,
+	$style: 'italic');
+}
+```
+
+Replace with:
+
+**CSS**
+```css
+p {
+	font-family: var(--o3-font-family-georgia);
+	font-size: var(--o3-font-size-1);
+	line-height: var(--o3-font-lineheight-1);
+	font-style: italic;
+}
+```
+
+##### oTypographyDisplay
+
+```scss
+p {
+	@include oTypographyDisplay();
+}
+```
+
+Replace with:
+
+```css
+p {
+	font-family: var(--o3-font-family-financier-display);
+}
+```
+
+For uses of `oTypographyDisplay` with options, use the equivalent css rules directly:
+
+**Sass**
+```scss
+p {
+	@include oTypographyDisplay($scale: 1,
+	$weight: 400,
+	$style: 'italic');
+}
+```
+
+Replace with:
+
+**CSS**
+```css
+p {
+	font-family: var(--o3-font-family-financier-display);
+	font-size: var(--o3-font-size-1);
+	line-height: var(--o3-font-lineheight-1);
+	font-style: italic;
+}
+```
+##### oTypographySans
+
+```scss
+p {
+	@include oTypographySans();
+}
+```
+
+Replace with:
+
+```css
+p {
+	font-family: var(--o3-font-family-metric);
+}
+```
+
+For uses of `oTypographySans` with options, use the equivalent css rules directly:
+
+**Sass**
+```scss
+p {
+	@include oTypographySans($scale: 1,
+	$weight: 400,
+	$style: 'italic');
+}
+```
+
+Replace with:
+
+**CSS**
+```css
+p {
+	font-family: var(--o3-font-family-metric); // outputs: 'Metric VF', sans
+	font-size: var(--o3-font-size-1);
+	line-height: var(--o3-font-lineheight-metric2-1);
+	font-style: italic;
+}
+```
+
+##### oTypographySetFont
 
 This can now be set by defining your own font family in CSS.
 
