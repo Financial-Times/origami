@@ -13,3 +13,6 @@
 	font-style: italic;
 }
 
+[class^='o3-typography'] {
+	font-family: var(--o3-font-family-metric);
+}
