@@ -64,7 +64,9 @@ function removeOption(optionEl, option, index) {
 	optionEl.classList.remove('o-multi-select-option__selected');
 	optionEl.setAttribute('aria-selected', 'false');
 	this._numberOfSelectedOptions--;
-	const button = this._selectedOptions.querySelector(`#${option.value}-${index}`);
+	const button = this._selectedOptions.querySelector(
+		`#${option.value}-${index}`
+	);
 	button.parentElement.remove();
 	this._updateState();
 }
@@ -110,7 +112,7 @@ function createOptionButton(option, index) {
 	button.setAttribute('aria-label', ` remove ${option.label} `);
 	button.className = 'o-multi-select__selected-options-button';
 	button.type = 'button';
-	button.textContent = option.label;
+	button.textContent = option.label.trim();
 	const span = document.createElement('span');
 	span.classList = 'o-icons-icon o-icons-icon--cross';
 	button.appendChild(span);
@@ -134,7 +136,7 @@ export function createOption(idBase, option, index, selected) {
 	optionEl.id = `${idBase}-${index}`;
 	optionEl.className = 'o-multi-select-option';
 	optionEl.setAttribute('aria-selected', selected);
-	optionEl.textContent = option.label.trim();
+	optionEl.textContent = option.label;
 	const tickSpan = document.createElement('span');
 	tickSpan.className = 'o-multi-select-option-tick';
 	optionEl.appendChild(tickSpan);

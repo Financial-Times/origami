@@ -1,5 +1,430 @@
 ## Migration guide
 
+### Migrating from v7 to o3-typography
+
+#### Themes
+
+Brands are now applied using a parent data attribute `data-o3-brand`. Likewise, themes are applied using `data-o3-theme` – this may be placed on the on a parent element or the `o3-typography` component directly.
+
+E.g. An FT Professional brand Link, brand inherited from a parent element.
+```html
+<body data-o3-brand="professional">
+	<a href="#" class="o3-typography-link">To somewhere.</a>
+</body>
+```
+
+E.g. An FT Core brand Link with inverse theming, brand and theme inherited from a parent element.
+```html
+<body data-o3-brand="professional" data-o3-theme="inverse">
+	<a href="#" class="o3-typography-link">To somewhere.</a>
+</body>
+```
+#### Markup
+
+Update your markup to use the `o3-typography` JSX template ([o3-typography JSX documentation](https://o3.origami.ft.com/?path=/docs/core-o3-typography--jsx-documentation)) if your web application uses it.
+
+Alternatively, replace `o-typography` classes in your HTML code with the `o3-typography` alternative described below.
+
+###### Body elements
+
+```html
+<p class="o-typography-body">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	<a href="#" class="o-typography-link">Link</a>
+	a rem <strong class="o-typography-bold">excepturi</strong>
+	consequuntur commodi dolores ad <em class="o-typography-italic">laboriosam</em> qui odit
+</p>
+
+<figcaption class="o-typography-caption">
+	John Doe
+</figcaption>
+
+<footer class="o-typography-footer">Footer such as copyright notice.</footer>
+```
+
+Replace with:
+
+**HTML**
+
+```html
+<p class="o3-typography-body">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	<a href="#" class="o3-typography-link">Link</a>
+	a rem <strong class="o3-typography-bold">excepturi</strong>
+	consequuntur commodi dolores ad <em class="o3-typography-italic">laboriosam</em> qui odit </p>
+
+<figcaption class="o3-typography-caption">
+	John Doe
+</figcaption>
+
+<footer class="o3-typography-footer">Footer such as copyright notice.</footer>
+```
+
+**JSX**
+
+```jsx
+import {Body, Link, Strong, Emphasis, Caption, Footer} from '@financial-times/o3-typography';
+
+<Body>Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	<Link>Link</Link>
+	a rem <Strong>excepturi</Strong>
+	consequuntur commodi dolores ad <Emphasis>laboriosam</Emphasis> qui odit
+</Body>
+
+<Caption>John Doe</Caption>
+
+<Footer>Footer such as copyright notice.</Footer>
+```
+
+###### Wrapper
+
+The wrapper class is exported by the oTypography mixin. And the previous CSS classes can be replaced with the new classes.
+
+```html
+<div class="o-typography-wrapper">
+	<h1>Heading</h1>
+	<p>Content</p>
+</div>
+```
+
+Replace with:
+
+**HTML**
+```html
+<div class="o3-typography-wrapper">
+	<h1>Heading</h1>
+	<p>Content</p>
+</div>
+```
+
+**JSX**
+
+```jsx
+import {Wrapper} from '@financial-times/o3-typography';
+
+<Wrapper>
+	<h1>Heading</h1>
+	<p>Content</p>
+</Wrapper>
+```
+
+##### Headings
+
+Headings use a BEM modifier to style the heading level:
+
+```html
+<h1 class="o-typography-heading-level-1">Heading 1</h1>
+<h2 class="o-typography-heading-level-2">Heading 2</h2>
+<h3 class="o-typography-heading-level-3">Heading 3</h3>
+<h4 class="o-typography-heading-level-4">Heading 4</h4>
+<h5 class="o-typography-heading-level-5">Heading 5</h5>
+<h6 class="o-typography-heading-level-6">Heading 6</h6>
+```
+
+Replace with:
+
+**HTML**
+```html
+<h1 class="o3-typography-h1">Heading 1</h1>
+<h2 class="o3-typography-h2">Heading 2</h2>
+<h3 class="o3-typography-h3">Heading 3</h3>
+<h4 class="o3-typography-h4">Heading 4</h4>
+<h5 class="o3-typography-h5">Heading 5</h5>
+<h6 class="o3-typography-h6">Heading 6</h6>
+```
+
+**JSX**
+
+```jsx
+import {Heading} from '@financial-times/o3-typography';
+
+<Heading level={1}>Heading 1</Heading>
+<Heading level={2}>Heading 2</Heading>
+<Heading level={3}>Heading 3</Heading>
+<Heading level={4}>Heading 4</Heading>
+<Heading level={5}>Heading 5</Heading>
+<Heading level={6}>Heading 6</Heading>
+```
+
+##### List
+
+```html
+	<ul class="o-typography-list o-typography-list--unordered">
+		<li>List</li>
+		<li>List</li>
+	</ul>
+
+	<ol class="o-typography-list o-typography-list--ordered">
+		<li>List ordered</li>
+		<li>List ordered</li>
+	</ol>
+```
+
+Replace with:
+
+**HTML**
+
+```html
+<ul class="o3-typography-ul">
+	<li>List item</li>
+	<li>List item</li>
+</ul>
+
+<ol class="o3-typography-ol">
+	<li>List ordered</li>
+	<li>List ordered</li>
+</ol>
+```
+
+**JSX**
+
+```jsx
+import {UnorderedList, OrderedList } from '@financial-times/o3-typography';
+
+<UnorderedList>
+	<li>List item</li>
+	<li>List item</li>
+</UnorderedList>
+
+<OrderedList>
+	<li>List ordered</li>
+	<li>List ordered</li>
+</OrderedList>
+```
+
+#### Mixins
+
+##### oTypography
+
+This includes `oTypographyBody`, `oTypographySub`, `oTypographySuper`, `oTypographyLink`, `oTypographyFooter`, and `oTypographyCaption`.
+
+There are no direct replacements for these mixins. Instead, use the css classes in the [markup](#markup) section above.
+
+##### oTypographySerif
+
+```scss
+p {
+	@include oTypographySerif();
+}
+```
+
+Replace with:
+
+```css
+p {
+	font-family: var(--o3-font-family-georgia);
+}
+```
+
+For uses of `oTypographySerif` with options, use the equivalent css rules directly:
+
+**Sass**
+```scss
+p {
+	@include oTypographySerif($scale: 1,
+	$weight: 'semibold',
+	$style: 'italic');
+}
+```
+
+Replace with:
+
+**CSS**
+```css
+p {
+	font-family: var(--o3-font-family-georgia);
+	font-size: var(--o3-font-size-1);
+	font-weight: var(--o3-font-weight-semibold);
+	line-height: var(--o3-font-lineheight-1);
+	font-style: italic;
+}
+```
+
+##### oTypographyDisplay
+
+```scss
+p {
+	@include oTypographyDisplay();
+}
+```
+
+Replace with:
+
+```css
+p {
+	font-family: var(--o3-font-family-financier-display);
+}
+```
+
+For uses of `oTypographyDisplay` with options, use the equivalent css rules directly:
+
+**Sass**
+```scss
+p {
+	@include oTypographyDisplay($scale: 1,
+	$weight: 'semibold',
+	$style: 'italic');
+}
+```
+
+Replace with:
+
+**CSS**
+```css
+p {
+	font-family: var(--o3-font-family-financier-display);
+	font-size: var(--o3-font-size-1);
+	font-weight: var(--o3-font-weight-semibold);
+	line-height: var(--o3-font-lineheight-1);
+	font-style: italic;
+}
+```
+##### oTypographySans
+
+```scss
+p {
+	@include oTypographySans();
+}
+```
+
+Replace with:
+
+```css
+p {
+	font-family: var(--o3-font-family-metric);
+}
+```
+
+For uses of `oTypographySans` with options, use the equivalent css rules directly. Note that there are multiple font scales in o3. Use the Metric font scale `--o3-font-size-metric2-[scale]` where the font family is set to `--o3-font-family-metric`. E.g:
+
+**Sass**
+```scss
+p {
+	@include oTypographySans($scale: 1,
+	$weight: 'semibold',
+	$style: 'italic');
+}
+```
+
+Replace with:
+
+**CSS**
+```css
+p {
+	font-family: var(--o3-font-family-metric); // outputs: 'Metric VF', sans
+	font-size: var(--o3-font-size-metric2-1);
+	line-height: var(--o3-font-lineheight-metric2-1);
+	font-weight: var(--o3-font-weight-semibold);
+	font-style: italic;
+}
+```
+
+##### oTypographySetFont
+
+This can now be set by defining your own font family in CSS.
+
+
+```scss
+@include oTypographySetFont('my-font', 'sans');
+```
+
+Replace with:
+
+```css
+@font-face {
+	font-family: 'my-font';
+	src: url('my-font.woff2') format('woff2');
+	font-weight: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+p {
+	font-family: 'my-font';
+}
+```
+
+##### oTypographyDefineFontScale
+
+There is no direct replacement for this mixin. Instead, a default scale is provided as part of [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation), or define your own font scale in your code:
+
+```css
+
+:root {
+	--my-custom-font-size-0: 1.1rem;
+	--my-custom-font-font-size-1: 1.125rem;
+	--my-custom-font-font-size-2: 1.28rem;
+	--my-custom-font-font-size-3: 1.6rem;
+}
+
+.my-font-class {
+	font-size: var(--my-custom-font-size-1);
+}
+
+.my-font-class--large  {
+	font-size: var(--my-custom-font-size-3);
+}
+```
+#### Functions
+
+##### oTypographyGetScale
+
+Scale is now part of [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation). Two font scales exist, one for Financier and Georgia, and another for Metric. Please refer to [Origami Design System documentation](https://origami-beta.ft.com/guides/typography/#metric-scale) for details on these scales.
+
+CSS Custom Properties can be used to apply scale values. For example:
+
+**Sass**
+```scss
+.my-class {
+	font-size: oTypographyGetScale(1);
+}
+```
+
+Can be replaced with:
+
+**CSS**
+```css
+.my-class {
+	font-size: var(--o3-font-size-1);
+}
+```
+
+##### oTypographyMaxLineWidth
+
+This has been replaced with a CSS Custom Property with one static value:
+
+**Sass**
+
+```scss
+.my-class {
+	max-width: oTypographyMaxLineWidth(65);
+}
+```
+
+Use `--o3-typography-max-line-width` or set a [custom length using a "ch" value](https://developer.mozilla.org/en-US/docs/Web/CSS/length).
+
+**CSS**
+
+```css
+.my-class {
+	max-width: var(--o3-typography-max-line-width);
+}
+```
+
+##### oTypographyGetFontFamily
+
+This can be removed and replaced with fonts from [o3-foundation](https://github.com/Financial-Times/origami/tree/main/components/o3-foundation).
+
+
+#### Variables
+
+The following variables are no longer necessary:
+
+* o-typography-is-silent
+* o-typography-relative-units
+* o-typography-error-for-missing-fonts
+* o-typography-load-fonts
+* o-typography-progressive-font-loading - fallbacks are now provided through our font-face design tokens. See [Fonts](#fonts).
+* o-typography-baseline-unit
+
 ### Migrating from v6 to v7
 
 V7 drops support for Bower and version 2 of Origami Build Service.
