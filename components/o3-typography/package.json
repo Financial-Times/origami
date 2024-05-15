@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-typography",
-	"version": "0.2.0",
+	"version": "0.4.0",
 	"description": "Origami typography with design tokens",
 	"keywords": [
 		"typography",
@@ -12,7 +12,8 @@
 		"email": "origami.support@ft.com"
 	},
 	"license": "MIT",
-	"type": "module",
+	"main": "./cjs/index.js",
+	"module": "./esm/index.js",
 	"files": [
 		"cjs",
 		"esm",
@@ -21,9 +22,6 @@
 		"package.json",
 		"README.md"
 	],
-	"main": "./cjs/index.js",
-	"module": "./esm/index.js",
-	"types": "./build/types/index.d.ts",
 	"scripts": {
 		"build": "bash ../../scripts/component/build-o3.bash o3-typography"
 	},

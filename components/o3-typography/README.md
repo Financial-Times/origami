@@ -8,7 +8,10 @@ Typographical styles for FT branded sites.
   - [Headings](#headings)
   - [Body/Paragraphs](#bodyparagraphs)
   - [Links](#links)
+  - [List](#list)
+  - [Footer](#footer)
   - [Modifiers](#modifiers)
+  - [Wrapper](#wrapper)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -32,8 +35,8 @@ O3 headings come in 6 levels, `<h1>` to `<h6>`, and styling can be applied to ea
 #### HTML
 ```html
 
-<h1 class="o3-heading o3-heading--level-1">Welcome to Origami</h1>
-<h2 class="o3-heading o3-heading--level-2">Who are we?</h2>
+<h1 class="o3-typography-h1">Welcome to Origami</h1>
+<h2 class="o3-typography-h2">Who are we?</h2>
 ```
 
 #### JSX
@@ -79,11 +82,46 @@ import { Link, Body } from '@financial-times/o3-typography';
 <Body>Styling and usage guides can be seen on the <Link href="#">Origami</Link> homepage.</Body>
 ```
 
+### List
+
+O3 Tygraphy provides styling for both ordered and unordered lists:
+
+#### HTML
+```html
+<ul class="o3-typography-ul">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+
+<ol class="o3-typography-ol">
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+</ol>
+```
+
+#### JSX
+```jsx
+import { List } from '@financial-times/o3-typography';
+
+<UnorderedList>
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+</UnorderedList>
+
+<OrderedList>
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+</OrderedList>
+```
 ### Footer
 
 #### HTML
 ```html
-<footer class="o3-typography o3-typography-footer">Copyright notice</footer>
+<footer class="o3-typography-footer">Copyright notice</footer>
 ```
 #### JSX
 ```tsx
@@ -97,7 +135,7 @@ import { Footer } from '@financial-times/o3-typography';
 Used with figures to provide a caption:
 
 ```html
-<figcaption class="o3-typography o3-typography-caption">This is a caption.</figcaption>
+<figcaption class="o3-typography-caption">This is a caption.</figcaption>
 ```
 
 ```tsx
@@ -130,6 +168,29 @@ import { Body, Emphasis, Strong, Superscript } from '@financial-times/o3-typogra
 <Body><Strong>This is a paragraph of bold text.</Strong></Body>
 <Body>This body contains an <Emphasis>emphasised</Emphasis> word.</Body>
 <Body>This body contains a <Superscript>superscript</Superscript> and a <Strong>strong</Strong> word.</Body>
+```
+
+### Wrapper
+
+The wrapper can be used to style blocks of body without needing to apply the class to each element. This can be useful when large bodies of many components need styling:
+
+#### HTML
+```html
+<div class="o3-typography-wrapper">
+	<h1>This heading gets styled.</h1>
+	<p>And so does this paragraphy of text.</p>
+	<h2>This gets styled also</h2>
+</div>
+```
+
+```jsx
+import { Wrapper, Heading, Body } from '@financial-times/o3-typography';
+
+<Wrapper>
+	<Heading level={1}>This heading gets styled.</Heading>
+	<Body>And so does this paragraphy of text.</Body>
+	<Heading level={2}>This gets styled also</Heading>
+</Wrapper>
 ```
 
 ## Contact

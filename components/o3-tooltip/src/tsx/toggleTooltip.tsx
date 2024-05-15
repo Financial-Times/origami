@@ -4,6 +4,7 @@ export function TooltipToggle({
 	placement = 'top',
 	content,
 	title,
+	infoLabel,
 }: ToggleToolTipProps) {
 	return (
 		<o3-tooltip-toggle
@@ -11,6 +12,7 @@ export function TooltipToggle({
 			class="o3-tooltip"
 			content={content}
 			title={title}
+			info-label={infoLabel}
 		/>
 	);
 }

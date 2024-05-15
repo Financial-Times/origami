@@ -6,7 +6,7 @@ import '../../main.css';
 import '../../src/css/brands/internal.css';
 
 export default {
-	title: 'Internal/o3-typography',
+	title: 'Internal/o3-typography/Caption',
 	component: Caption,
 	decorators: [
 		Story => (

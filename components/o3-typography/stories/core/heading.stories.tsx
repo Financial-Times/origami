@@ -6,7 +6,7 @@ import '../../main.css';
 import '../../src/css/brands/core.css';
 
 export default {
-	title: 'Core/o3-typography',
+	title: 'Core/o3-typography/Heading',
 	component: HeadingTsx,
 	decorators: [
 		Story => (
