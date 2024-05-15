@@ -9,7 +9,7 @@ export const Heading = ({level, children, theme}: HeadingProps) => {
 	const HTMLElement = `h${level}` as keyof React.JSX.IntrinsicElements;
 	return (
 		<HTMLElement
-			className={`o3-typography o3-typography-heading o3-typography-heading--level-${level}`}
+			className={`o3-typography-h${level}`}
 			{...getStyleAttributes({theme})}>
 			{children}
 		</HTMLElement>

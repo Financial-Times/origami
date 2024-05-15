@@ -4,7 +4,7 @@ import {OrderedList} from '../../src/tsx';
 import '../../src/css/brands/internal.css';
 
 export default {
-	title: 'Internal/o3-typography',
+	title: 'Internal/o3-typography/OrderedList',
 	component: OrderedList,
 	decorators: [
 		Story => (

@@ -5,9 +5,8 @@ import '../../src/css/brands/whitelabel.css';
 import {Meta} from '@storybook/react';
 
 export default {
-	title: 'Whitelabel/o3-typography',
+	title: 'Whitelabel/o3-typography/Body',
 	component: BodyTsx,
-	tags: ['autodocs'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="whitelabel">
