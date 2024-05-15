@@ -1,5 +1,56 @@
 # Migration Guide
 
+## Migrating from v11 to v12
+
+o-header v12 includes markup changes in the top right menu, which are included in the top.tsx template within this component. Update your markup as described below or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx).
+
+### Removal of the myFT link
+
+The myFT logo link is no longer required in the top right of the header as the myFT link is now part of the navigation in the row below.
+
+The following markup can be removed all together from all header types.
+
+```html
+<a
+	className="o-header__top-icon-link o-header__top-icon-link--myft"
+	id="o-header-top-link-myft"
+	href="/myft"
+	aria-label="My F T"
+>
+	<span className="o-header__visually-hidden">myFT</span>
+</a>
+```
+
+### Add the My Account & Sign in link
+
+In the same location of where the myFT logo link was removed we need to add a new link for accessing the users My Account or prompting them to Sign in.
+
+```html
+<a
+	className="o-header__top-myaccount"
+	href="/myaccount"
+>
+	<span>My Account</span>
+</a>
+```
+
+> [!NOTE]
+> This same markup is used for both the My Account and Sign in links. Your templates will need to be responsible for swapping the anchor text within the `<span>` and the `href` value
+
+
+When this is being used in the sticky header a `tabIndex` attribute should be added with a value of `-1`. This ensures that the link is not included in keyboard navigation.
+
+```html
+<a
+	className="o-header__top-myaccount"
+	href="/myaccount"
+	tabIndex="-1"
+>
+	<span>My Account</span>
+</a>
+```
+
+
 ## Migrating from v10 to v11
 
 o-header v11 includes markup changes in the drawer menu. Update your markup as described below or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx).

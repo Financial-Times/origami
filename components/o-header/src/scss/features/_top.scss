@@ -131,20 +131,35 @@
 		}
 	}
 
-	.o-header__top-icon-link--myft {
+	.o-header__top-myaccount {
+		@include _oHeaderLink;
+		@include oTypographySans(0);
+		display: flex;
+		align-items: center;
+		position: relative;
+		padding: $_o-header-padding-y 0;
+
 		&:before {
-			@include _oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon'), 52);
-			// this is not a very square icon
-			width: 35px;
-			// Remove the negative margin added for new icons which have additional padding
-			margin-top: 0;
+			@include oIconsContent('user', _oHeaderGet('header-icon'), $size: 32, $include-base-styles: false);
+			content: ' ';
+		}
 
-			@include oGridRespondTo('M') {
-				width: 44px;
-			}
+		&:after {
+			content: '';
+			position: absolute;
+			height: 4px;
+			width: calc(100% - 32px);
+			right: 0;
+			bottom: 8px;
+		}
 
-			@include oGridRespondTo('oHeaderL') {
-				width: 52px;
+		&:hover:after {
+			background-color: _oHeaderGet('link-hover-text');
+		}
+
+		span {
+			@include oGridRespondTo($until: 'M') {
+				@include oNormaliseVisuallyHidden;
 			}
 		}
 	}
