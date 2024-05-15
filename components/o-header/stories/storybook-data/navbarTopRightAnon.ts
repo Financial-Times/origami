@@ -4,13 +4,13 @@ const data: TNavMenu = {
 	label: 'Navigation',
 	items: [
 		{
-			label: 'Portfolio',
-			url: 'https://markets.ft.com/data/portfolio/dashboard',
+			label: 'Sign In',
+			url: '/login?location=#',
 			submenu: null,
 		},
 		{
-			label: 'myFT Feed',
-			url: 'https://www.ft.com/myft',
+			label: 'Subscribe',
+			url: '/products?segmentId=#',
 			submenu: null,
 		},
 	],

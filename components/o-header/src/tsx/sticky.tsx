@@ -4,6 +4,7 @@ import {
 	TopWrapper,
 	SubscribeButton,
 	TopColumnRightAnon,
+	TopColumnRight
 } from './top';
 
 export function StickyHeader({
@@ -12,8 +13,8 @@ export function StickyHeader({
 	userIsSubscribed,
 	data,
 }: THeaderProps) {
-	const includeUserActionsNav = showUserNavigation && !userIsLoggedIn;
-	const userNavItems = includeUserActionsNav && data['navbar-right-anon'].items;
+	const userNavData = userIsLoggedIn ? data['navbar-top-right'] : data['navbar-top-right-anon'];
+	const userNavItems = userNavData.items;
 	const navBarItems = data.navbar.items;
 	return (
 		<header
@@ -25,11 +26,11 @@ export function StickyHeader({
 			<TopWrapper>
 				<TopColumnLeft isSticky={true} />
 				<StickyTopColumnCenter navBarItems={navBarItems} />
-				<TopRightSTicky
-					userIsLoggedIn={userIsLoggedIn}
-					showUserNavigation={showUserNavigation}
-					userIsSubscribed={userIsSubscribed}
+				<TopColumnRight
+					variant="sticky"
 					userNavItems={userNavItems}
+					userIsLoggedIn={userIsLoggedIn}
+					userIsSubscribed={userIsSubscribed}
 				/>
 			</TopWrapper>
 			<StickySearch />
@@ -70,49 +71,6 @@ const Navigation = ({navBarItems}: {navBarItems: TNavMenuItem[]}) => (
 	</div>
 );
 
-function TopRightSTicky({
-	userIsLoggedIn,
-	showUserNavigation,
-	userIsSubscribed,
-	userNavItems,
-}: {
-	userIsLoggedIn: boolean;
-	showUserNavigation: boolean;
-	userIsSubscribed: boolean;
-	userNavItems: TNavMenuItem[];
-}) {
-	const subscribeAction = userNavItems?.[1];
-	let children;
-	if (userIsLoggedIn) {
-		return (
-			<div className="o-header__top-column o-header__top-column--right">
-				{userIsSubscribed && subscribeAction && (
-					<SubscribeButton variant="sticky" item={subscribeAction} />
-				)}
-				<MyFtSticky />
-			</div>
-		);
-	} else if (showUserNavigation) {
-		children = <TopColumnRightAnon items={userNavItems} variant="sticky" />;
-	}
-
-	return (
-		<div className="o-header__top-column o-header__top-column--right">
-			{children}
-		</div>
-	);
-}
-function MyFtSticky() {
-	return (
-		<a
-			className="o-header__top-icon-link o-header__top-icon-link--hide-s o-header__top-icon-link--myft"
-			href="/myft"
-			aria-label="My F T"
-			tabIndex={-1}>
-			<span className="o-header__visually-hidden">myFT</span>
-		</a>
-	);
-}
 const StickySearch = () => {
 	return (
 		<div

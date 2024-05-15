@@ -8,6 +8,8 @@ export type TNavMenuKeys =
 	| 'navbar-uk'
 	| 'navbar-right'
 	| 'navbar-right-anon'
+	| 'navbar-top-right'
+	| 'navbar-top-right-anon'
 	| 'navbar-simple'
 	| 'user';
 
@@ -19,6 +21,8 @@ export type TNavMenuKeysForEdition =
 	| 'navbar'
 	| 'navbar-right'
 	| 'navbar-right-anon'
+	| 'navbar-top-right'
+	| 'navbar-top-right-anon'
 	| 'navbar-simple'
 	| 'user';
 
