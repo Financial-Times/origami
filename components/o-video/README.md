@@ -96,6 +96,11 @@ Where `opts` is an optional object with properties
 - `showCaptions` `[Boolean]` whether or not to add captions to the video. Defaults to `true`.
 - `data` `[Object]` JSON object representing a [response from next-media-api](https://next-media-api.ft.com/v1/eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526). If used, the component will not make a call to the API and use this data instead.
 - `systemcode` `[String]` a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems) for the project using `o-video`.
+- `targeting` `[Object]` object containing the targeting data used to configure, serve and track video ads. If targeting is passed as an option but is missing properties, it will use the properties set in the `defaultTargeting` object instead. here is what each property on the targeting object affects:
+	- `site:` refers to the ad unit that contains the line items for video creatives (part of the ad request).
+	- `position:` sets the `pos` param on the ad request which is used to target video ads similar to how `pos: native` is used to target partner content.
+	- `sizes:` also added to ad request to specify video ad sizes to be returned.
+	- `videoId:` added to targeting as a param for targeting ads at a specific video.
 
 The config options can also be set as data attribute to instantiate the module declaratively:
 

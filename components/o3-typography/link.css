@@ -1,4 +1,6 @@
-.o3-typography-link {
+.o3-typography-link,
+.o3-typography-wrapper > a,
+.o3-typography-wrapper > p > a {
 	color: var(--_o3-typography-link-standard-color);
 	border-bottom-color: var(--_o3-typography-link-standard-bottom-color);
 	text-decoration-color: var(--_o3-typography-link-standard-bottom-color);
@@ -12,7 +14,9 @@
 	}
 }
 
-.o3-typography-link[data-o3-theme='inverse'] {
+.o3-typography-link[data-o3-theme='inverse'],
+.o3-typography-wrapper:where([data-o3-theme='inverse']) > a,
+.o3-typography-wrapper:where([data-o3-theme='inverse']) > p > a {
 	color: var(--_o3-typography-link-inverse-color);
 	border-bottom-color: var(--_o3-typography-link-inverse-bottom-color);
 	text-decoration-color: var(--_o3-typography-link-inverse-bottom-color);
