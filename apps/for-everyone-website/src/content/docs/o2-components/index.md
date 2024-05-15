@@ -63,7 +63,7 @@ o-icons provides an FT icon set and tools to apply them to digital products.
 Foundation styles and basic utility CSS, e.g. for cross browser consistency; to visually hide content.
 
 - **Status: Deprecated**
-- [Replacement: o3-foundation](https://www.npmjs.com/package/@financial-times/o3-foundation) @TODO migration guide
+- Replacement: o3-foundation (migration guide pending, contact the Origami team for support)
 - [Storybook: o-normalise](https://o2.origami.ft.com/?path=/story/o2-core_components-o-normalise)
 - Figma: n/a
 
@@ -72,7 +72,7 @@ Foundation styles and basic utility CSS, e.g. for cross browser consistency; to 
 o-tooltip is a component usually used for annotating or highlighting areas of user interface. It's a flexible component which leaves open many design decisions. This is often misused to create inconsistent and inaccessible experiences. We recommend using our new ["o3" tooltip components](../../components/tooltip/) where possible, which are designed with specific usecases in mind.
 
 - **Status: Maintained**
-- [Replacement: o3-tooltip](https://www.npmjs.com/package/@financial-times/o3-tooltip)
+- Replacement: o3-tooltip (migration guide pending, contact the Origami team for support)
 - [Storybook: o-tooltip](https://o2.origami.ft.com/?path=/story/o2-core_components-o-tooltip)
 - [Figma: FT-UI-Library / Tooltip](<https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/%F0%9F%92%A0-FT-UI-Library---Origami-(o2)?type=design&node-id=130-0&mode=design>) (incomplete)
 
