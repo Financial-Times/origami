@@ -6,7 +6,7 @@ import {
 	UnorderedList,
 	OrderedList,
 	Caption,
-	Wrapper,
+	Wrapper
 } from '../src/tsx';
 import {Emphasis, Strong, Subscript, Superscript} from '../src/tsx/body';
 import type {StoryObj} from '@storybook/react';
@@ -139,6 +139,7 @@ const OrderedListStory = {
 };
 
 export const CaptionStory = {
+	...TemplateSBConfig,
 	render: args => {
 		return <Caption>Image Source: FT Asset Library</Caption>;
 	},

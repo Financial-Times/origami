@@ -6,7 +6,7 @@ import '../../../main.css';
 import '../../../src/css/brands/professional.css';
 
 export default {
-	title: 'Core/Professional/o3-typography',
+	title: 'Core/Professional/o3-typography/Caption',
 	component: Caption,
 	decorators: [
 		Story => (
