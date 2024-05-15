@@ -6,9 +6,8 @@ import '../../main.css';
 import '../../src/css/brands/core.css';
 
 export default {
-	title: 'Core/o3-typography',
+	title: 'Core/o3-typography/Heading',
 	component: HeadingTsx,
-	tags: ['autodocs'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="core">

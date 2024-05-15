@@ -4,9 +4,8 @@ import {Body} from '../../src/tsx';
 import '../../src/css/brands/core.css';
 
 export default {
-	title: 'Core/o3-typography',
+	title: 'Core/o3-typography/Body',
 	component: Body,
-	tags: ['autodocs'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="core">

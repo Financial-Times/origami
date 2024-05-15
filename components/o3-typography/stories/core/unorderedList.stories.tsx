@@ -4,9 +4,8 @@ import {UnorderedList} from '../../src/tsx';
 import '../../src/css/brands/core.css';
 
 export default {
-	title: 'Core/o3-typography',
+	title: 'Core/o3-typography/UnorderedList',
 	component: UnorderedList,
-	tags: ['autodocs'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="core">

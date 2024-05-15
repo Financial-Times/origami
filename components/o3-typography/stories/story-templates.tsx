@@ -1,4 +1,12 @@
-import {Body, Footer, Heading, Link, UnorderedList, OrderedList, Caption} from '../src/tsx';
+import {
+	Body,
+	Footer,
+	Heading,
+	Link,
+	UnorderedList,
+	OrderedList,
+	Caption,
+} from '../src/tsx';
 import {Emphasis, Strong, Subscript, Superscript} from '../src/tsx/body';
 import type {StoryObj} from '@storybook/react';
 import {BodyProps} from '@financial-times/o-typography/src/tsx/typography';
@@ -130,6 +138,7 @@ const OrderedListStory = {
 };
 
 export const CaptionStory = {
+	...TemplateSBConfig,
 	render: args => {
 		return <Caption>Image Source: FT Asset Library</Caption>;
 	},
