@@ -168,19 +168,49 @@ export default function Home() {
 
 Although out of scope for this introduction, care must also be taken when working with [objects as properties and events](https://custom-elements-everywhere.com/). This will be [resolved in React 19](https://github.com/facebook/react/issues/11347#issuecomment-2027508811).
 
-## Using Figma as a reference
+## Figma Dev Mode
 
-- Figma to Custom Properties
-- Figma component props to JSX
-- Figma / Storybook
+Origami v3 (o3) aims to align Figma and our web implementation as much as possible. That means you can see at a glance which components a designer has used, what component properties (variants) they have selected, and what design tokens they have used e.g. for colours, spacing, and typography.
 
-... @TODO
+We recommend reading [Figma's documentation](https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode) to get the most out of Dev Mode. However we'll highlight a few key benefits here.
+
+### Figma Access
+
+First ensure you have access to [Figma's Dev Mode](https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode). If not, request access from the [Collaboration Tooling team](https://financialtimes.enterprise.slack.com/archives/C028Y806JE8).
+
+### Figma to CSS
+
+Where a design uses a Figma Style or Figma Variable from Origami, you can copy this straight from Dev Mode.
+
+The screenshot below shows an example design with Dev Mode enabled. By selecting the design we can see a CSS snippet which includes a real Origami CSS Custom Property `--o3-spacing-m`:
+
+```
+display: flex;
+align-items: flex-start;
+gap: var(--o3-spacing-m, 2rem);
+```
+
+[![](/assets/images/new/dev-mode-1.png)](/assets/images/new/dev-mode-1.png)
+
+### Figma to JSX
+
+Where possible we align Figma Variants to our JSX properties. After selecting an Origami component in a design, you can reference these values when setting JSX properties.
+
+In the following screenshot we have selected a button and can see we need to include a button with `type='primary'` set.
+
+[![](/assets/images/new/dev-mode-3.png)](/assets/images/new/dev-mode-3.png)
+
+### Figma to Storybook
+
+After selecting an Origami component within a design we can also use Dev Mode to jump to design guidelines, Storybook, and any other developer resources.
+
+[![](/assets/images/new/dev-mode-2.png)](/assets/images/new/dev-mode-2.png)
 
 ## VSCode extension recommendations
 
 ### Figma For VSCode
 
-[Figma for VSCode](https://marketplace.visualstudio.com/items?itemName=figma.figma-vscode-extension) allows you to navigate and inspect design files within your text editor. You can see at a glance which components a designer has used, what component properties (variants) they have selected, and what design tokens have been used e.g. for colours, spacing, and typography. These benefit from code auto completion based on the selected design.
+Similar to Dev Mode, [Figma for VSCode](https://marketplace.visualstudio.com/items?itemName=figma.figma-vscode-extension) allows you to navigate and inspect design files within your text editor. These benefit from code auto completion based on the selected design.
 
 The following screenshot shows Figma For VSCode suggesting the `--o3-spacing-m` CSS Custom Property based on the selected Figma design.
 ![Origami code autocompletion from Figma](/assets/images/new/vs-code-1.png)
@@ -203,7 +233,3 @@ By default [CSS Variable Autocomplete](https://marketplace.visualstudio.com/item
 	"cssVariables.blacklistFolders": []
 }
 ```
-
-## Customisation
-
-... @TODO
