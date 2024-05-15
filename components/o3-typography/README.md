@@ -35,8 +35,8 @@ O3 headings come in 6 levels, `<h1>` to `<h6>`, and styling can be applied to ea
 #### HTML
 ```html
 
-<h1 class="o3-heading o3-heading--level-1">Welcome to Origami</h1>
-<h2 class="o3-heading o3-heading--level-2">Who are we?</h2>
+<h1 class="o3-typography-h1">Welcome to Origami</h1>
+<h2 class="o3-typography-h2">Who are we?</h2>
 ```
 
 #### JSX

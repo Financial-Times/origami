@@ -1,5 +1,5 @@
 :is(.o3-typography-ul, .o3-typography-ol),
-.o3-typography-wrapper :is(ul, ol) {
+.o3-typography-wrapper > :is(ul, ol) {
 	color: var(--_o3-typography-body-color);
 	margin: 0 0 var(--o3-spacing-3xs);
 	padding: 0;
@@ -20,7 +20,7 @@
 }
 
 .o3-typography-ul,
-.o3-typography-wrapper ul {
+.o3-typography-wrapper > ul {
 	> li {
 		&:before {
 			content: "\2022";
@@ -32,7 +32,7 @@
 }
 
 .o3-typography-ol,
-.o3-typography-wrapper ol {
+.o3-typography-wrapper > ol {
 	counter-reset: item;
 	> li {
 		&:before {
@@ -47,6 +47,6 @@
 }
 
 :is(.o3-typography-ul, .o3-typography-ol)[data-o3-theme='inverse'],
-.o3-typography-wrapper:where([data-o3-theme='inverse']) :is(ul, ol) {
+.o3-typography-wrapper:where([data-o3-theme='inverse']) > :is(ul, ol) {
 	color: var(--_o3-typography-body-inverse-color);
 }

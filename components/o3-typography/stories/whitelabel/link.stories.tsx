@@ -5,7 +5,7 @@ import '../../src/css/brands/whitelabel.css';
 import {Meta} from '@storybook/react';
 
 export default {
-	title: 'Whitelabel/o3-typography',
+	title: 'Whitelabel/o3-typography/Link',
 	component: LinkTsx,
 	tags: ['autodocs'],
 	decorators: [
