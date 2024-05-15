@@ -1,4 +1,4 @@
-[class^='o3-editorial-typography-list--'] {
+[class^='o3-editorial-typography-list__'] {
 	display: flex;
 	flex-direction: column;
 	gap: var(--o3-spacing-4xs);
@@ -7,19 +7,19 @@
 	list-style: none;
 }
 
-[class^="o3-editorial-typography-list--"] li::before {
+[class^="o3-editorial-typography-list__"] li::before {
 	margin-right: var(--o3-spacing-xs);
 }
 
-.o3-editorial-typography-list--unordered li::before {
+.o3-editorial-typography-list__unordered li::before {
 	content: '\2022'; /* dot character */
 }
 
-.o3-editorial-typography-list--ordered {
+.o3-editorial-typography-list__ordered {
 	counter-reset: item;
 }
 
-.o3-editorial-typography-list--ordered li::before {
+.o3-editorial-typography-list__ordered li::before {
 	content: counter(item);
 	counter-increment: item;
 	font-feature-settings: 'tnum';

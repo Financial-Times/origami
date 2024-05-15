@@ -1,3 +1,4 @@
+import { Default } from './../../../o-banner/stories/banner.stories';
 export type HeadlineProps = {
 	type: 'headline-large' | 'headline' | 'chapter' | 'subheading' | 'label';
 	theme?: 'standard' | 'inverse';
@@ -6,7 +7,6 @@ export type HeadlineProps = {
 };
 
 export type BodyProps = {
-	type: 'small' | 'large';
 	theme?: 'standard' | 'inverse';
 	children: JSX.Element[] | JSX.Element | string;
 };

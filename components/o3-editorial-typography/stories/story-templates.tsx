@@ -94,13 +94,7 @@ const HeadlineTemplate: StoryObj = {
 
 const BodyTemplate: StoryObj = {
 	argTypes: {
-		...TemplateSBConfig.argTypes,
-		type: {
-			options: ['small', 'large'],
-			control: {
-				type: 'radio',
-			},
-		},
+		...TemplateSBConfig.argTypes
 	},
 	render: args => {
 		return <BodyTsx {...args}>{args.content}</BodyTsx>;
@@ -214,7 +208,7 @@ const ListTemplate: StoryObj = {
 	render: args => {
 		return (
 			<div id="component-wrapper" style={{padding: '20px'}}>
-				<BodyTsx type="large">
+				<BodyTsx>
 					<ListTsx {...args} />
 				</BodyTsx>
 			</div>
@@ -236,8 +230,8 @@ const LinkTemplate: StoryObj = {
 			args.anchorTarget = '_blank'
 		}
 		return (
-			<BodyTsx type="small">
-				<div>
+			<BodyTsx>
+				<span>
 					We have a &nbsp;
 					<LinkTsx {...args}>{args.content}</LinkTsx>
 					&nbsp; style. Links may open in a new window/tab but we &nbsp;
@@ -245,7 +239,7 @@ const LinkTemplate: StoryObj = {
 						recommend against it
 					</LinkTsx>
 					&nbsp; in most cases.
-				</div>
+				</span>
 			</BodyTsx>
 		);
 	},
@@ -265,7 +259,6 @@ export const Body: BodyStory = {
 	args: {
 		content: 'Body',
 		theme: 'standard',
-		type: 'small',
 	},
 };
 

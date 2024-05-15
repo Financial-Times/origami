@@ -328,13 +328,13 @@ import {BigNumber} from '@financial-times/o3-editorial-typography/cjs'; // or /e
 
 ### Lists
 
-`o3-editorial-typography` supports ordered and unordered lists. Use the classes `o3-editorial-typography-list--ordered` or `o3-editorial-typography-list--unordered`.
+`o3-editorial-typography` supports ordered and unordered lists. Use the classes `o3-editorial-typography-list__ordered` or `o3-editorial-typography-list__unordered`.
 
 Lists may be used in different contexts they inherit font properties such as size and family. It's therefore required to apply font styles to a parent element. E.g. this could be done with `o3-editorial-typography-body__large`:
 
 ```html
 <div class="o3-editorial-typography-body__large">
- <ol class="o3-editorial-typography-list--ordered">
+ <ol class="o3-editorial-typography-list__ordered">
   <li>Lorem ipsum adipiscing elit.</li>
   <li>Sed feugiat turpis at massa tristique.</li>
   <li>Curabitu r accumsan elit luctus.</li>
