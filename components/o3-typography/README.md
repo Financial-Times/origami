@@ -121,7 +121,7 @@ import { List } from '@financial-times/o3-typography';
 
 #### HTML
 ```html
-<footer class="o3-typography o3-typography-footer">Copyright notice</footer>
+<footer class="o3-typography-footer">Copyright notice</footer>
 ```
 #### JSX
 ```tsx
@@ -135,7 +135,7 @@ import { Footer } from '@financial-times/o3-typography';
 Used with figures to provide a caption:
 
 ```html
-<figcaption class="o3-typography o3-typography-caption">This is a caption.</figcaption>
+<figcaption class="o3-typography-caption">This is a caption.</figcaption>
 ```
 
 ```tsx
@@ -176,7 +176,7 @@ The wrapper can be used to style blocks of body without needing to apply the cla
 
 #### HTML
 ```html
-<div class="o3-typography o3-typography-wrapper">
+<div class="o3-typography-wrapper">
 	<h1>This heading gets styled.</h1>
 	<p>And so does this paragraphy of text.</p>
 	<h2>This gets styled also</h2>
