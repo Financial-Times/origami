@@ -5,9 +5,8 @@ import '../../src/css/brands/internal.css';
 import {Meta} from '@storybook/react';
 
 export default {
-	title: 'Internal/o3-typography',
+	title: 'Internal/o3-typography/Body',
 	component: BodyTsx,
-	tags: ['autodocs'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="internal">

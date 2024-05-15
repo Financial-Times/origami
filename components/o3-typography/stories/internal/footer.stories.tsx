@@ -5,7 +5,7 @@ import {Footer} from '../../src/tsx';
 import '../../src/css/brands/internal.css';
 
 export default {
-	title: 'Internal/o3-typography',
+	title: 'Internal/o3-typography/Footer',
 	component: Footer,
 	decorators: [
 		Story => (

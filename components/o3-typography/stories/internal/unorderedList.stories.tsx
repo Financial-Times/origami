@@ -4,7 +4,7 @@ import {UnorderedList} from '../../src/tsx';
 import '../../src/css/brands/internal.css';
 
 export default {
-	title: 'Internal/o3-typography',
+	title: 'Internal/o3-typography/UnorderedList',
 	component: UnorderedList,
 	decorators: [
 		Story => (

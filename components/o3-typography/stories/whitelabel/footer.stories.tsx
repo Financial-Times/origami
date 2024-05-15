@@ -5,7 +5,7 @@ import {Footer} from '../../src/tsx';
 import '../../src/css/brands/whitelabel.css';
 
 export default {
-	title: 'Whitelabel/o3-typography',
+	title: 'Whitelabel/o3-typography/Footer',
 	component: Footer,
 	decorators: [
 		Story => (
