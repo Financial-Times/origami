@@ -220,7 +220,7 @@ For uses of `oTypographySerif` with options, use the equivalent css rules direct
 ```scss
 p {
 	@include oTypographySerif($scale: 1,
-	$weight: 400,
+	$weight: 'semibold',
 	$style: 'italic');
 }
 ```
@@ -232,6 +232,7 @@ Replace with:
 p {
 	font-family: var(--o3-font-family-georgia);
 	font-size: var(--o3-font-size-1);
+	font-weight: var(--o3-font-weight-semibold);
 	line-height: var(--o3-font-lineheight-1);
 	font-style: italic;
 }
@@ -259,7 +260,7 @@ For uses of `oTypographyDisplay` with options, use the equivalent css rules dire
 ```scss
 p {
 	@include oTypographyDisplay($scale: 1,
-	$weight: 400,
+	$weight: 'semibold',
 	$style: 'italic');
 }
 ```
@@ -271,6 +272,7 @@ Replace with:
 p {
 	font-family: var(--o3-font-family-financier-display);
 	font-size: var(--o3-font-size-1);
+	font-weight: var(--o3-font-weight-semibold);
 	line-height: var(--o3-font-lineheight-1);
 	font-style: italic;
 }
@@ -291,13 +293,13 @@ p {
 }
 ```
 
-For uses of `oTypographySans` with options, use the equivalent css rules directly:
+For uses of `oTypographySans` with options, use the equivalent css rules directly. Note that there are multiple font scales in o3. Use the Metric font scale `--o3-font-size-metric2-[scale]` where the font family is set to `--o3-font-family-metric`. E.g:
 
 **Sass**
 ```scss
 p {
 	@include oTypographySans($scale: 1,
-	$weight: 400,
+	$weight: 'semibold',
 	$style: 'italic');
 }
 ```
@@ -308,8 +310,9 @@ Replace with:
 ```css
 p {
 	font-family: var(--o3-font-family-metric); // outputs: 'Metric VF', sans
-	font-size: var(--o3-font-size-1);
+	font-size: var(--o3-font-size-metric2-1);
 	line-height: var(--o3-font-lineheight-metric2-1);
+	font-weight: var(--o3-font-weight-semibold);
 	font-style: italic;
 }
 ```
