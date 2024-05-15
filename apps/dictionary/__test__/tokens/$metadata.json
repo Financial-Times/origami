@@ -1,0 +1,15 @@
+{
+	"tokenSetOrder": [
+		"core/base/color",
+		"core/base/spacing",
+		"core/base/typography",
+		"core/components/o3-button",
+		"core/components/o3-typography",
+		"core/professional/base/color",
+		"core/professional/use-case/color",
+		"core/professional/components/o3-button",
+		"core/professional/components/o3-typography",
+		"utility-tokens",
+		"icons/icons"
+	]
+}

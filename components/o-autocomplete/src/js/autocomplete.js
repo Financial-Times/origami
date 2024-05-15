@@ -1,9 +1,7 @@
 // We use our own fork of accessible-autocomplete because the main package is not being actively maintained and has bugs which we needed to fix
 // There is a changelog for the fixes we've added -- https://github.com/Financial-Times/accessible-autocomplete/blob/master/CHANGELOG.md#210---2021-05-24
 // Below are the pull-requests to accessible-autocomplete which would fix the bugs:
-// https://github.com/alphagov/accessible-autocomplete/pull/497
 // https://github.com/alphagov/accessible-autocomplete/pull/491
-// https://github.com/alphagov/accessible-autocomplete/pull/496
 // If the above pull-requests are merged and published, then we can stop using our fork
 import accessibleAutocomplete from '@financial-times/accessible-autocomplete';
 
@@ -17,7 +15,7 @@ import accessibleAutocomplete from '@financial-times/accessible-autocomplete';
 
 /**
  * @param {string} suggestion - Text which is going to be suggested to the user
- * @param {string} query - Text which was typed into the autocomplete by the user
+ * @param {string} query - Text which was typed into the autocomplete text input field by the user
  * @returns {CharacterHighlight[]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
  */
 function highlightSuggestion(suggestion, query) {
@@ -184,6 +182,7 @@ function initClearButton(instance) {
  * @property {MapOptionToSuggestedValue} [mapOptionToSuggestedValue] - Function which transforms a suggestion before rendering.
  * @property {onConfirm} [onConfirm] - Function which is called when the user selects an option
  * @property {SuggestionTemplate} [suggestionTemplate] - Function to override how a suggestion item is rendered.
+ * @property {boolean} [autoselect] - Boolean to specify whether first option in suggestions list is highlighted.
  */
 
 class Autocomplete {
@@ -210,6 +209,9 @@ class Autocomplete {
 		}
 		if (opts.suggestionTemplate) {
 			this.options.suggestionTemplate = opts.suggestionTemplate;
+		}
+		if (opts.autoselect) {
+			this.options.autoselect = opts.autoselect;
 		}
 
 		const container = document.createElement('div');
@@ -281,18 +283,20 @@ class Autocomplete {
 				displayMenu: 'overlay',
 				defaultValue: this.options.defaultValue || '',
 				showNoOptionsFound: false,
+				autoselect: this.options.autoselect || false,
 				templates: {
 					/**
 					 * Used when rendering suggestions, the return value of this will be used as the innerHTML for a single suggestion.
 					 *
 					 * @param {*} option The suggestion to apply the template with.
+					 * @param {string} query Text which was typed into the autocomplete text input field by the user.
 					 * @returns {string|undefined} HTML string to represent a single suggestion.
 					 */
-					suggestion: (option) => {
+					suggestion: (option, query) => {
 						// If the suggestionTemplate override option is provided,
 						// use that to render the suggestion.
 						if(typeof this.options.suggestionTemplate === 'function') {
-							return this.options.suggestionTemplate(option);
+							return this.options.suggestionTemplate(option, query);
 						}
 						if (typeof option === 'object') {
 							// If the `mapOptionToSuggestedValue` function is defined
@@ -360,7 +364,7 @@ class Autocomplete {
 						this.options.onConfirm(option);
 					}
 				},
-				autoselect: false,
+				autoselect: this.options.autoselect || false,
 				// To fallback with JS an enhanced element's default value should
 				// be set using static html.
 				defaultValue: '',

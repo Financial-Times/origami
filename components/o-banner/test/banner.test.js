@@ -1,7 +1,5 @@
 /* eslint-env mocha */
 
-// import { screen, getByRole } from '@testing-library/dom';
-// import userEvent from '@testing-library/user-event';
 import {assert} from '@open-wc/testing';
 import sinon from 'sinon/pkg/sinon-esm.js';
 

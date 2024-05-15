@@ -1,0 +1,15 @@
+import {default as Preview} from '../../../components/ButtonPreview.astro';
+import {Button} from '@financial-times/o3-button';
+
+### Width
+
+A button's width is dependant on the length of its content by default. Alternatively buttons may be "fluid", and stretch to fill the full width of their container.
+
+We recommend buttons are fluid until around 400px, after which the button should be determined by the length of its content.
+
+_(Resize your browser to preview the fluid button's responsive width)_
+
+<Preview
+	component={Button}
+	componentProps={{label: 'Fluid button', type: 'primary', fluid: true}}
+/>

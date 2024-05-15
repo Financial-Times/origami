@@ -1,5 +1,33 @@
 # Changelog
 
+## [4.5.4](https://github.com/Financial-Times/origami/compare/o-tracking-v4.5.3...o-tracking-v4.5.4) (2024-05-01)
+
+
+### Bug Fixes
+
+* report correct o-tracking version ([#1623](https://github.com/Financial-Times/origami/issues/1623)) ([916da0f](https://github.com/Financial-Times/origami/commit/916da0fa262ed4ee5a05950a8b2a8facb8ee287d))
+
+## [4.5.3](https://github.com/Financial-Times/origami/compare/o-tracking-v4.5.2...o-tracking-v4.5.3) (2024-04-30)
+
+
+### Bug Fixes
+
+* fix new session behavior for o-tracking ([16a798c](https://github.com/Financial-Times/origami/commit/16a798c8095329d94d46a180ad7076f109bfceaa))
+
+## [4.5.2](https://github.com/Financial-Times/origami/compare/o-tracking-v4.5.1...o-tracking-v4.5.2) (2024-02-26)
+
+
+### Bug Fixes
+
+* Remove polyfill from component readme. ([78f9e1d](https://github.com/Financial-Times/origami/commit/78f9e1d49c1cdddeedb2cf6739a530cb4fe4f35c))
+
+## [4.5.1](https://github.com/Financial-Times/origami/compare/o-tracking-v4.5.0...o-tracking-v4.5.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [4.5.0](https://www.github.com/Financial-Times/origami/compare/o-tracking-v4.4.0...o-tracking-v4.5.0) (2022-11-14)
 
 

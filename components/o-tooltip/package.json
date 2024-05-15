@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-tooltip",
-  "version": "5.3.0",
+  "version": "5.4.0",
   "description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
   "keywords": [
     "tooltip",
@@ -35,7 +35,7 @@
     "@financial-times/o-icons": "^7.0.1",
     "@financial-times/o-normalise": "^3.0.0",
     "@financial-times/o-overlay": "^4.0.0",
-    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-typography": "^7.4.1",
     "@financial-times/o-viewport": "^5.0.0",
     "@financial-times/o-visual-effects": "^4.0.1"
   },
@@ -46,12 +46,7 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

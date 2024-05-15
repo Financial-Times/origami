@@ -101,19 +101,7 @@
 		}
 	}
 
-	@if $theme == "professional-inverse" {
-		.o-forms-title {
-			.o-forms-title__main:after,
-			.o-forms-title__prompt {
-				color: rgba(_oFormsGet("default-text", $theme), 0.7);
-			}
-		}
-		input {
-			@include oNormaliseFocusApply() {
-				@include oNormaliseFocusContentInverse();
-			}
-		}
-
+	@if $theme and oColorsColorBrightness(_oFormsGet("default-text", $theme)) > 65% {
 		input[type="radio"] {// stylelint-disable-line selector-no-qualifying-type
 			&:focus {
 				@include oNormaliseFocusUnsetContent();

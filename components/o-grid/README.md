@@ -7,6 +7,7 @@ A 12 column responsive, flexbox-based grid system for laying out documents, temp
 -   [Grid dimensions](#grid-dimensions)
     -   [General settings](#general-settings)
     -   [Layout sizes](#layout-sizes)
+    [Handover notes](#handover-notes)
 -   [Markup](#markup)
     -   [Utility classes](#utility-classes)
     -   [Responsive columns](#responsive-columns)
@@ -22,6 +23,13 @@ A 12 column responsive, flexbox-based grid system for laying out documents, temp
 -   [Licence](#licence)
 
 This component is a collection of Sass styles to build a 12 column grid system, with a few JavaScript helpers.
+
+Our grid consists of:
+-    12 columns, of equal size.
+-    5 layouts (breakpoints) to support devices of various sizes.
+-    Gutters of variable width, that adjust according to the current layout.
+-    A maximum page width of 1220px, by default.
+
 
 [![Grid system](https://raw.githubusercontent.com/Financial-Times/origami/main/components/o-grid/img/grid-system.png)](https://raw.githubusercontent.com/Financial-Times/origami/main/components/o-grid/img/grid-system.png)
 
@@ -70,6 +78,11 @@ console.log(currentGutter);
 -   **Large (L)** 980px to 1219px
 -   **Extra large (XL)** 1220px
 
+## Handover notes
+
+Engineers may choose to use the o-grid Origami component to build a web based project to our grid, and respond to layout changes, but this may not be technically appropriate in every scenario particularly where it is appropriate to fallback to a simpler layout for older browsers.
+
+It is important not to make assumptions about the devices our users are using or the most common screen-size, as these change. It is better to focus on the content of your design and adapt as needed when the space available to the design changes, rather than waiting to hit a specific breakpoint.
 ## Markup
 
 ### Utility classes
@@ -698,14 +711,14 @@ CSS must be included so JavaScript can retrieve layout information. If using [Sa
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 6 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.5  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.2 | - |
-╳ deprecated | 2 | 2.4 | - |
-╳ deprecated | 1 | 1.4 | - |
+|     State     | Major Version | Last Minor Release | Migration guide |
+|:-------------:| :---: | :---: | :---: |
+|   ✨ active    | 6 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v5-to-v6) |
+| ⚠ maintained  | 5 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated  | 4 | 4.5  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated  | 3 | 3.2 | - |
+| ╳ deprecated  | 2 | 2.4 | - |
+|  ╳ deprecated | 1 | 1.4 | - |
 
 ## Contact
 

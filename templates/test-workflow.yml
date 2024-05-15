@@ -9,21 +9,51 @@ on:
     branches: [ main ]
 
 jobs:
-  <%#projects%>
-  test-<%& workspaceFilename %>:
+  changes:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      components: ${{ steps.filter.outputs.changes }}
     steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
+    - uses: dorny/paths-filter@v2
+      id: filter
       with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w <%& workspace %> lint --if-present
-    - run: npm run -w <%& workspace %> build --if-present
-    - run: npm run -w <%& workspace %> test --if-present
-  <%/projects%>
+        filters: |
+        <%#projects%>
+          <%& workspace %>:
+            - '<%& workspace %>/**'
+        <%/projects%>
+  test:
+    if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
+    needs: changes
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        component: ${{ fromJson(needs.changes.outputs.components) }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: volta-cli/action@v4
+      - uses: actions/cache@v2
+        with:
+          volta-version: "1.0.8"
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      - run: npm run -w ${{ matrix.component }} lint --if-present
+      - run: npm run -w ${{ matrix.component }} build --if-present
+      - run: npm run -w ${{ matrix.component }} test --if-present
+  test-results:
+    runs-on: ubuntu-latest
+    needs: test
+    if: always()
+    steps:
+      - name: All tests passing
+        if: ${{ needs.test.result == 'success' }}
+        run: exit 0
+      - name: Some tests failing
+        if: ${{ needs.test.result == 'failure' }}
+        run: exit 1

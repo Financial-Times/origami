@@ -1,6 +1,4 @@
 import {useEffect} from 'react';
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {
 	SyntaxHighlightBlock,
@@ -25,7 +23,6 @@ const LanguageMapping = {
 export default {
 	title: 'Components/o-syntax-highlight',
 	component: SyntaxHighlightBlock,
-	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {},
 	argTypes: {

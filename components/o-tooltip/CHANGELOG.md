@@ -1,5 +1,26 @@
 # Changelog
 
+## [5.4.0](https://github.com/Financial-Times/origami/compare/o-tooltip-v5.3.2...o-tooltip-v5.4.0) (2024-04-29)
+
+
+### Features
+
+* o-tooltip opts.target can be HTMLElement ([#1611](https://github.com/Financial-Times/origami/issues/1611)) ([b6ca462](https://github.com/Financial-Times/origami/commit/b6ca46240d5be9bed441a5232225a66dcf2da9a1))
+
+## [5.3.2](https://github.com/Financial-Times/origami/compare/o-tooltip-v5.3.1...o-tooltip-v5.3.2) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [5.3.1](https://github.com/Financial-Times/origami/compare/o-tooltip-v5.3.0...o-tooltip-v5.3.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [5.3.0](https://www.github.com/Financial-Times/origami/compare/o-tooltip-v5.2.6...o-tooltip-v5.3.0) (2023-05-18)
 
 

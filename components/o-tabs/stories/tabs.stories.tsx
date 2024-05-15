@@ -1,14 +1,11 @@
-import {withDesign} from 'storybook-addon-designs';
 import {Tabs} from '../src/tsx/tabs';
 import {useEffect} from 'react';
 import javascript from '../main';
 import './tabs.scss';
-import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Components/o-tabs',
 	component: Tabs,
-	decorators: [withDesign, withHtml],
 	args: {
 	},
 	parameters: {

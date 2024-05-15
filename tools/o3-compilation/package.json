@@ -1,0 +1,16 @@
+{
+  "name": "o3-compilation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "esbuild": "0.19.4",
+    "tsup": "^8.0.2"
+  },
+  "private": true
+}

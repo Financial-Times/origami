@@ -2,10 +2,11 @@
 
 import * as fixtures from './helpers/fixtures.js';
 import Autocomplete from '../../main.js';
-import { screen, getByRole } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
+import userEvent, {dom} from '@financial-times/o-testing-library';
 import {assert} from '@open-wc/testing';
 import sinon from 'sinon/pkg/sinon-esm.js';
+
+const {screen, getByRole} = dom;
 
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));

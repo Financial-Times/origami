@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.3](https://github.com/Financial-Times/origami/compare/o-lazy-load-v3.1.2...o-lazy-load-v3.1.3) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ### [3.1.2](https://www.github.com/Financial-Times/origami/compare/o-lazy-load-v3.1.1...o-lazy-load-v3.1.2) (2022-04-21)
 
 

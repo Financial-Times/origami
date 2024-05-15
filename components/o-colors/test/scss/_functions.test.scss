@@ -38,6 +38,10 @@
 			@include assert-equal(oColorsMix('claret', 'wheat', 50), (#c67786));
 			@include assert-equal(oColorsMix('black', 'transparent', 50), rgba(0, 0, 0, 0.5));
 		}
+
+		@include it('mixes FT colours, not web colours, when a string is not explicitly passed') {
+			@include assert-equal(oColorsMix(paper, wheat, 30), (#f6e4d5));
+		}
 	}
 
 	@include describe('oColorsByUsecase') {
@@ -79,9 +83,9 @@
 
 	@include describe('oColorsGetTone') {
 		@include it('returns a tone for default palette colours that allow tones') {
-			@include assert-equal(oColorsGetTone('claret', 30), #4d081f, $inspect: true);
-			@include assert-equal(oColorsGetTone('claret', 30), #4d081f, $inspect: true);
-			@include assert-equal(oColorsGetTone('wheat', 100), #ffebd9, $inspect: true);
+			@include assert-equal(oColorsGetTone('claret', 30), hsl(340, 82.1428571429%, 16.4705882353%), $inspect: true);
+			@include assert-equal(oColorsGetTone('claret', 30), hsl(340, 82.1428571429%, 16.4705882353%), $inspect: true);
+			@include assert-equal(oColorsGetTone('wheat', 100), hsl(28.3333333333, 100%, 92.5619834711%), $inspect: true);
 		}
 
 		@include it('returns a tone for custom palette colours that allow tones') {
@@ -92,7 +96,7 @@
 			);
 			@include assert-equal(
 				oColorsGetTone('o-example/olive-with-tones-allowed', 100),
-				yellow,
+				hsl(60, 100%, 50%),
 				$inspect: true
 			);
 		}
@@ -123,7 +127,7 @@
 	@include describe('oColorsGetToneDetails') {
 		@include it('returns tone details for a palette colour name which is a tone') {
 			@include assert-equal(oColorsGetToneDetails('claret-80'), ('color-name': 'claret', 'brightness': 80));
-			@include assert-equal(oColorsGetToneDetails('claret'), ('color-name': 'claret', 'brightness': 60));
+			@include assert-equal(oColorsGetToneDetails('claret-60'), ('color-name': 'claret', 'brightness': 60));
 		}
 
 		@include it('returns null for a palette colour name which is not a tone') {

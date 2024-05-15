@@ -23,8 +23,6 @@
         document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
         }
     </script>
-    <!-- Add Polyfil service -->
-    <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
     <!-- INIT and make a page request -->
     <script>
         function otrackinginit() {

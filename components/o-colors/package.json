@@ -1,7 +1,7 @@
 {
   "name": "@financial-times/o-colors",
   "type": "module",
-  "version": "6.6.1",
+  "version": "6.6.4",
   "description": "The default colour palette for all FT products. The palette supports colour contrast checking, colour mixing and toneing.",
   "keywords": [
     "o-colours",
@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
   "peerDependencies": {
     "@financial-times/math": "^1.0.0",
@@ -47,10 +47,5 @@
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-subs-card",
-  "version": "6.2.4",
+  "version": "6.2.6",
   "description": "A card for showing different subscription packages offered by the Financial Times",
   "keywords": [
     "card",
@@ -33,7 +33,7 @@
     "@financial-times/o-grid": "^6.1.1",
     "@financial-times/o-normalise": "^3.1.0",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "devDependencies": {
     "@financial-times/o-colors": "^6.5.0",
@@ -42,12 +42,7 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

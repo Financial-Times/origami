@@ -1,5 +1,35 @@
 # Changelog
 
+## [10.0.2](https://github.com/Financial-Times/origami/compare/o-share-v10.0.1...o-share-v10.0.2) (2024-04-11)
+
+
+### Bug Fixes
+
+* tweak the `$system-code` error message to include a simple link ([cd41d7f](https://github.com/Financial-Times/origami/commit/cd41d7fb4d5044e031d006ae6e608d658bf93f17))
+
+## [10.0.1](https://github.com/Financial-Times/origami/compare/o-share-v10.0.0...o-share-v10.0.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [10.0.0](https://github.com/Financial-Times/origami/compare/o-share-v9.0.2...o-share-v10.0.0) (2023-08-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Replace Twitter with X [OR-282] ([#1239](https://github.com/Financial-Times/origami/issues/1239))
+
+### Features
+
+* Replace Twitter with X [OR-282] ([#1239](https://github.com/Financial-Times/origami/issues/1239)) ([4561d0d](https://github.com/Financial-Times/origami/commit/4561d0d40dd2ae513f2a1de4eee7456e14d63b40))
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [9.0.2](https://www.github.com/Financial-Times/origami/compare/o-share-v9.0.1...o-share-v9.0.2) (2023-04-28)
 
 

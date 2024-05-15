@@ -1,5 +1,47 @@
 # Changelog
 
+## [7.9.2](https://github.com/Financial-Times/origami/compare/o-buttons-v7.9.1...o-buttons-v7.9.2) (2024-02-22)
+
+
+### Bug Fixes
+
+* Replace o3 brand class with data attribute ([2d16de1](https://github.com/Financial-Times/origami/commit/2d16de10c94c0e4da8240922be7c7955bb79ad8b))
+* Replace o3-button theme class with data attribute ([50f390a](https://github.com/Financial-Times/origami/commit/50f390aac2967450c40e5affbcf651e4cfcbfc76))
+
+## [7.9.1](https://github.com/Financial-Times/origami/compare/o-buttons-v7.9.0...o-buttons-v7.9.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [7.9.0](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.4...o-buttons-v7.9.0) (2023-09-12)
+
+
+### Features
+
+* o-buttons, add ft-live subbrand [OR-313] ([#1276](https://github.com/Financial-Times/origami/issues/1276)) ([2e3f6f3](https://github.com/Financial-Times/origami/commit/2e3f6f384fe1a8b9d8f83a2b180740ee9d01c534))
+
+## [7.8.4](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.3...o-buttons-v7.8.4) (2023-09-06)
+
+### Miscellaneous Chores
+
+* use consistent language in o-button accessibility readme. ([592d32b](https://github.com/Financial-Times/origami/commit/592d32b0c638557a248ab6f2fd5a139fb21ddf6e))
+
+## [7.8.3](https://github.com/Financial-Times/origami/compare/o-buttons-v7.8.2...o-buttons-v7.8.3) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+### [7.8.2](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.8.1...o-buttons-v7.8.2) (2023-07-13)
+
+
+### Bug Fixes
+
+* introduce designer guidelines to o-buttons readme ([276dc0d](https://www.github.com/Financial-Times/origami/commit/276dc0d41b2774ed3a4e1dd071d6d6b1fac042bc))
+
 ### [7.8.1](https://www.github.com/Financial-Times/origami/compare/o-buttons-v7.8.0...o-buttons-v7.8.1) (2023-04-28)
 
 

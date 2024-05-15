@@ -1,5 +1,27 @@
 # Changelog
 
+## [3.2.5](https://github.com/Financial-Times/origami/compare/o-meter-v3.2.4...o-meter-v3.2.5) (2023-11-03)
+
+
+### Bug Fixes
+
+* Export o-meter's TSX ([#1335](https://github.com/Financial-Times/origami/issues/1335)) ([670034f](https://github.com/Financial-Times/origami/commit/670034f8aff71fe1adbcc1c3df0be22e34993e9e))
+* Add keywords, for discovery in the Origami Registry ([e3929ba](https://github.com/Financial-Times/origami/commit/e3929bad1244827e61be656e93b6da0e52717f7a))
+
+## [3.2.4](https://github.com/Financial-Times/origami/compare/o-meter-v3.2.3...o-meter-v3.2.4) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [3.2.3](https://github.com/Financial-Times/origami/compare/o-meter-v3.2.2...o-meter-v3.2.3) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [3.2.2](https://www.github.com/Financial-Times/origami/compare/o-meter-v3.2.1...o-meter-v3.2.2) (2023-04-28)
 
 

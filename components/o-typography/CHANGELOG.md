@@ -1,5 +1,33 @@
 # Changelog
 
+## [7.6.2](https://github.com/Financial-Times/origami/compare/o-typography-v7.6.1...o-typography-v7.6.2) (2023-12-12)
+
+
+### Bug Fixes
+
+* Update ft-live link hover colour ([#1372](https://github.com/Financial-Times/origami/issues/1372)) ([e873bd4](https://github.com/Financial-Times/origami/commit/e873bd48fe21911f1de9702ec3fcdbc7138678bc))
+
+## [7.6.1](https://github.com/Financial-Times/origami/compare/o-typography-v7.6.0...o-typography-v7.6.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [7.6.0](https://github.com/Financial-Times/origami/compare/o-typography-v7.5.0...o-typography-v7.6.0) (2023-10-16)
+
+
+### Features
+
+* use body-inverse use-case colour ([#1296](https://github.com/Financial-Times/origami/issues/1296)) ([a428e1e](https://github.com/Financial-Times/origami/commit/a428e1eeb9b3db28cefe658c73d93aa0dbb5adf3))
+
+## [7.5.0](https://github.com/Financial-Times/origami/compare/o-typography-v7.4.1...o-typography-v7.5.0) (2023-09-12)
+
+
+### Features
+
+* o-typography, add ft-live sub-brand support for links ([#1277](https://github.com/Financial-Times/origami/issues/1277)) ([55f6086](https://github.com/Financial-Times/origami/commit/55f60864a31568c8b465287aa75e84aaa053fc2a))
+
 ### [7.4.1](https://www.github.com/Financial-Times/origami/compare/o-typography-v7.4.0...o-typography-v7.4.1) (2023-05-24)
 
 

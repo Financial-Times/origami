@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.4.1](https://github.com/Financial-Times/origami/compare/o-editorial-typography-v2.4.0...o-editorial-typography-v2.4.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [2.4.0](https://github.com/Financial-Times/origami/compare/o-editorial-typography-v2.3.5...o-editorial-typography-v2.4.0) (2023-10-16)
+
+
+### Features
+
+* add o-editorial-typography links styles ([#1296](https://github.com/Financial-Times/origami/issues/1296)) ([a428e1e](https://github.com/Financial-Times/origami/commit/a428e1eeb9b3db28cefe658c73d93aa0dbb5adf3))
+
+## [2.3.5](https://github.com/Financial-Times/origami/compare/o-editorial-typography-v2.3.4...o-editorial-typography-v2.3.5) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [2.3.4](https://www.github.com/Financial-Times/origami/compare/o-editorial-typography-v2.3.3...o-editorial-typography-v2.3.4) (2023-04-28)
 
 

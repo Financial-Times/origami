@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-icons",
-  "version": "7.6.0",
+  "version": "7.8.0",
   "description": "Helper SCSS tool for using the FT's icons. For a full list of available icons please see the fticons image set",
   "keywords": [
     "icons",
@@ -22,12 +22,7 @@
     "watch": "bash ../../scripts/component/watch.bash"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

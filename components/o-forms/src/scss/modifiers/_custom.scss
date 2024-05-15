@@ -15,11 +15,19 @@
 
 	// Get given checked base colour.
 	$checked-base: map-get($theme, 'controls-checked-base');
-	$checked-base: if(type-of($checked-base) == 'string', oColorsByName($checked-base), $checked-base);
+	$checked-base: if(
+		type-of($checked-base) == 'string',
+		oColorsByName($checked-base),
+		$checked-base
+	);
 
 	// Get given negative checked colour.
 	$negative-background: map-get($theme, 'controls-negative-checked-background');
-	$negative-background: if(type-of($negative-background) == 'string', oColorsByName($negative-background), $negative-background);
+	$negative-background: if(
+		type-of($negative-background) == 'string',
+		oColorsByName($negative-background),
+		$negative-background
+	);
 
 	// Error if no base colour.
 	@if not $base {
@@ -30,7 +38,8 @@
 	@return (
 		'controls-base': $base,
 		'controls-checked-base': $checked-base,
-		'controls-negative-checked-background': if($negative-background, $negative-background, $base),
+		'controls-negative-checked-background':
+			if($negative-background, $negative-background, $base),
 		'default-border': $border
 	);
 }
@@ -42,13 +51,14 @@
 		min-width: unset;
 	}
 
-	// stylelint-disable-next-line selector-no-qualifying-type
+	// stylelint-disable selector-no-qualifying-type
 	a.o-forms-input__link.o-forms-input__link--current,
-	input[type=radio]:checked + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+	input[type='radio']:checked + .o-forms-input__label {
 		&:after {
 			display: block;
 		}
 	}
+	// stylelint-enable selector-no-qualifying-type
 }
 
 /// @access public
@@ -101,24 +111,17 @@
 	}
 }
 
-
 /// @access public
 /// @param {String} $input Type of input to customise, one of 'anchor' or 'radio'
 /// @param {List} $icons A list of icons to render
 /// @param {Map|null} $theme Custom theme map
-@mixin oFormsAddCustom(
-	$input: null,
-	$class: null,
-	$icons: null,
-	$theme: null
-) {
-
+@mixin oFormsAddCustom($input: null, $class: null, $icons: null, $theme: null) {
 	@if not $input {
-		@error('Please specify whether you would like to customise radio inputs or anchors');
+		@error ('Please specify whether you would like to customise radio inputs or anchors');
 	}
 
 	@if not $class {
-		@error('Please specify a name for the custom modifier (e.g. o-forms-input--{custom-modifier}).');
+		@error ('Please specify a name for the custom modifier (e.g. o-forms-input--{custom-modifier}).');
 	}
 
 	$theme: _oFormsThemeToBrandVariants($theme);
@@ -127,13 +130,13 @@
 		@if $input == 'pseudo-radio-link' {
 			// We can provide a notice here that pseudo-radio-links are deprecated,
 			// as we know that the user is explicitly requesting and using it.
-			@warn 'o-forms: Pseudo Radio Links are deprecated and will be removed in the next major release. This is due to accessibility issues, see the README for more information. Please use standard box-styled radio inputs instead. https://registry.origami.ft.com/components/o-forms/readme?brand=core#pseudo-box-radio-inputs';
+			@warn 'o-forms: Pseudo Radio Links are deprecated and will be removed in the next major release. This is due to accessibility issues, see the README for more information. Please use standard box-styled radio inputs instead. https://o2.origami.ft.com/?path=/story/o2-core_components-o-forms-pseudo-box-radio-links--pseudo-radio-box-links&globals=backgrounds:!undefined';
 			@include _oFormsPseudoRadioLinkStyles($theme);
 		} @else if $input == 'radio' {
 			@include _oFormsRadioBoxInputStyles($theme);
 		} @else {
-			@error('#{$input} inputs do not accept customisation. If you need to customise this type of input, please contact the Origami team.');
-		};
+			@error ('#{$input} inputs do not accept customisation. If you need to customise this type of input, please contact the Origami team.');
+		}
 	}
 
 	@if $icons {

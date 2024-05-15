@@ -1,0 +1,9 @@
+---
+const {nav} = Astro.props
+---
+
+<li>
+	<a aria-current={nav["aria-current"]} href={nav.url}>
+		{nav.label}
+	</a>
+</li>

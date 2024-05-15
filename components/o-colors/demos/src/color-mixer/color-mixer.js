@@ -58,5 +58,5 @@ const fillSwatches = (hexes, mixer, base) => {
 
 const fillCodeSnippets = (hex, mixer, base, index) => {
 	document.getElementById('hex-value').innerText = hex.trim();
-	document.getElementById('code-snippet').innerText = `oColorsMix(${mixer}, ${base}, ${index})`;
+	document.getElementById('code-snippet').innerText = `oColorsMix('${mixer}', '${base}', ${index})`;
 };

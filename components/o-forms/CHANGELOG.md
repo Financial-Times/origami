@@ -1,5 +1,46 @@
 # Changelog
 
+## [9.12.1](https://github.com/Financial-Times/origami/compare/o-forms-v9.12.0...o-forms-v9.12.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [9.12.0](https://github.com/Financial-Times/origami/compare/o-forms-v9.11.3...o-forms-v9.12.0) (2023-09-12)
+
+
+### Features
+
+* o-forms, add ft-live subbrand to o-forms ([f2ae032](https://github.com/Financial-Times/origami/commit/f2ae03292819f738aabc61b52d1a18287da7ea4d))
+* o-forms, fix focus state for professional-inverse ([1446d63](https://github.com/Financial-Times/origami/commit/1446d63d1b8190bc739920c81eb7e04a81a47d5d))
+
+## [9.11.3](https://github.com/Financial-Times/origami/compare/o-forms-v9.11.2...o-forms-v9.11.3) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+### [9.11.2](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.11.1...o-forms-v9.11.2) (2023-07-20)
+
+
+### Bug Fixes
+
+* trigger release to rollback o-forms docs ([258d573](https://www.github.com/Financial-Times/origami/commit/258d5736452f9802691733175e0d1254cab36409))
+
+### [9.11.1](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.11.0...o-forms-v9.11.1) (2023-07-14)
+
+
+### Bug Fixes
+
+* migrate date input design docs to its Origami readme ([372b435](https://www.github.com/Financial-Times/origami/commit/372b435f44435b3e0f59de1e023ca0cdab0b10e9))
+* migrate o-checkbox design docs to its Origami readme ([7275af2](https://www.github.com/Financial-Times/origami/commit/7275af2600430a72e2f61bc6fc8b84792b01e266))
+* migrate radio input designer docs to readme ([2866714](https://www.github.com/Financial-Times/origami/commit/2866714a4b7e54aac4486f62a9d5e96b8c245cf0))
+* migrate select box designer docs to readme ([47f88ad](https://www.github.com/Financial-Times/origami/commit/47f88ad9a82966e2d59e44715b336854960d0196))
+* migrate text input designer docs to readme ([4c83605](https://www.github.com/Financial-Times/origami/commit/4c836052a5bd0fb8457252b5ce20cb260b6b9b4c))
+* use correct link ([a6b5aa2](https://www.github.com/Financial-Times/origami/commit/a6b5aa2f64889855cc91b2f17338097518b63e5e))
+
 ## [9.11.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.10.0...o-forms-v9.11.0) (2023-05-30)
 
 

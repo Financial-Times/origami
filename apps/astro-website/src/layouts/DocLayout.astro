@@ -1,0 +1,30 @@
+---
+import Header from '@/components/header/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Head from './Head.astro';
+const {title, description, secondaryNav} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html
+	lang="en-GB"
+	class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold"
+	data-o-component="o-typography"
+>
+	<Head title={title} description={description} />
+	<body>
+		<div class="o-layout o-layout--docs" data-o-component="o-layout">
+			<div class="o-layout__header">
+				<Header secondaryNav={secondaryNav} />
+			</div>
+
+			<div class="o-layout__sidebar"></div>
+			<div class="o-layout__main o-layout-typography">
+				<slot />
+			</div>
+			<div class="o-layout__footer">
+				<Footer />
+			</div>
+		</div>
+	</body>
+</html>

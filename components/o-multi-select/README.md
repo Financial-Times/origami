@@ -3,17 +3,17 @@
 An Origami component for selecting multiple options.
 
 - [o-multi-select](#o-multi-select)
-	- [Usage](#usage)
-	- [Markup](#markup)
-		- [Using TSX templates](#using-tsx-templates)
-	- [Sass](#sass)
-	- [JavaScript](#javascript)
-	- [Keyboard Support](#keyboard-support)
-		- [When focus is within the combobox input and the suggestions menu is closed](#when-focus-is-within-the-combobox-input-and-the-suggestions-menu-is-closed)
-		- [When focus is within the suggestions menu](#when-focus-is-within-the-suggestions-menu)
-	- [Migration](#migration)
-	- [Contact](#contact)
-	- [Licence](#licence)
+  - [Usage](#usage)
+  - [Markup](#markup)
+    - [Using TSX templates](#using-tsx-templates)
+  - [Sass](#sass)
+  - [JavaScript](#javascript)
+  - [Keyboard Support](#keyboard-support)
+    - [When focus is within the combobox input and the suggestions menu is closed](#when-focus-is-within-the-combobox-input-and-the-suggestions-menu-is-closed)
+    - [When focus is within the suggestions menu](#when-focus-is-within-the-suggestions-menu)
+  - [Migration](#migration)
+  - [Contact](#contact)
+  - [Licence](#licence)
 
 ## Usage
 
@@ -21,15 +21,17 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ## Markup
 
-`o-multi-select` expects options to be provided in the `<select>` tag. This will make the component accessible for users with screen readers and users with JavaScript disabled. The component will automatically enhance the experience for users with JavaScript enabled.
+`o-multi-select` expects options to be provided in a `<select>` tag. The component will automatically enhance the experience for users with JavaScript enabled.
+
+The value must not contain whitespace characters, as it should be valid as an [id attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
 
 ```html
 <div class="o-multi-select" data-o-component="o-multi-select">
-  <select name="multiple" id="fruits" multiple>
-    <option value="Apple">Apple</option>
-    <option value="Banana">Banana</option>
-    <!--More options -->
-  </select>
+	<select name="multiple" id="fruits" multiple>
+		<option value="Apple">Apple</option>
+		<option value="Banana">Banana</option>
+		<!--More options -->
+	</select>
 </div>
 ```
 
@@ -39,20 +41,20 @@ Below is an example of how to combine o-forms and o-multi-select components toge
 
 ```html
 <form data-o-component="o-forms">
-  <label for="fruits" class="o-forms-field">
-    <span class="o-forms-title">
-      <span class="o-forms-title__main">Select multiple options</span>
-    </span>
-  </label>
-  <div class="o-forms-input">
-    <div class="o-multi-select" data-o-component="o-multi-select">
-      <select name="multiple" id="fruits" multiple>
-        <option value="Apple">Apple</option>
-        <option value="Banana">Banana</option>
-        <!--More options -->
-      </select>
-    </div>
-  </div>
+	<label for="fruits" class="o-forms-field">
+		<span class="o-forms-title">
+			<span class="o-forms-title__main">Select multiple options</span>
+		</span>
+	</label>
+	<div class="o-forms-input">
+		<div class="o-multi-select" data-o-component="o-multi-select">
+			<select name="multiple" id="fruits" multiple>
+				<option value="Apple">Apple</option>
+				<option value="Banana">Banana</option>
+				<!--More options -->
+			</select>
+		</div>
+	</div>
 </form>
 ```
 
@@ -65,13 +67,13 @@ import {Form, GenericInput} from '@financial-times/o-forms/src/tsx/Form';
 import {MultiSelect} from '@financial-times/o-multi-select/src/tsx/multi-select';
 
 export const MultiSelectDefault = args => {
- return (
-  <Form>
-    <GenericInput id={args.id} title={args.title}>
-      <MultiSelect {...args} />
-    </GenericInput>
-  </Form>
- );
+	return (
+		<Form>
+			<GenericInput id={args.id} title={args.title}>
+				<MultiSelect {...args} />
+			</GenericInput>
+		</Form>
+	);
 };
 ```
 
@@ -101,12 +103,12 @@ Or pass an element to initialise a specific `o-multi-select` instance:
 ```js
 import oMultiSelect from 'o-multi-select';
 const oMultiSelectElement = document.getElementById(
- '#my-o-multi-select-element'
+	'#my-o-multi-select-element'
 );
 oMultiSelect.init(oMultiSelectElement);
 ```
 
-### Events 
+### Events
 
 `o-multi-select` dispatches a custom event `oMultiSelect.OptionChange` that bubbles. It is triggered when an option gets selected or removed. The event data has the following interface:
 
@@ -144,10 +146,10 @@ detail: {
 
 ## Migration
 
-|   State   | Major Version | Last Minor Release | Migration guide |
-| :-------: | :-----------: | :----------------: | :-------------: |
-|✨ active | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-| ⚠ maintained |       1       |        1.0         |       N/A       |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       2       |        2.0         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ⚠ maintained |       1       |        1.0         |                          N/A                          |
 
 ## Contact
 

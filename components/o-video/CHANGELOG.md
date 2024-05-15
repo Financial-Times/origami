@@ -1,5 +1,40 @@
 # Changelog
 
+## [7.2.13](https://github.com/Financial-Times/origami/compare/o-video-v7.2.12...o-video-v7.2.13) (2024-05-02)
+
+
+### Bug Fixes
+
+* Refactor o-video targeting logic to allow targeting to be passed as an option ([44207d8](https://github.com/Financial-Times/origami/commit/44207d8ef431d51c3b96bfc64915e5ae9435f206))
+
+## [7.2.12](https://github.com/Financial-Times/origami/compare/o-video-v7.2.11...o-video-v7.2.12) (2024-04-25)
+
+
+### Bug Fixes
+
+* Fix an error when showing ads. Remove elements directly rather than use `el.removeChild(childEl)` ([1a2c522](https://github.com/Financial-Times/origami/commit/1a2c522c4c633070d028405097367191db99794a))
+
+## [7.2.11](https://github.com/Financial-Times/origami/compare/o-video-v7.2.10...o-video-v7.2.11) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [7.2.10](https://github.com/Financial-Times/origami/compare/o-video-v7.2.9...o-video-v7.2.10) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+### [7.2.9](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.8...o-video-v7.2.9) (2023-07-06)
+
+
+### Bug Fixes
+
+* Remove deprecated $external parameter from otypographylink call ([dcf61a1](https://www.github.com/Financial-Times/origami/commit/dcf61a15053618c13f22392bddcef58d71f7aa5e))
+
 ### [7.2.8](https://www.github.com/Financial-Times/origami/compare/o-video-v7.2.7...o-video-v7.2.8) (2023-04-28)
 
 

@@ -1,26 +1,26 @@
 {
-	"name": "@financial-times/g-audio",
-	"version": "2.0.2",
-	"description": "IG audio player component",
-	"keywords": [
-		"audio"
-	],
-	"browser": "main.js",
-	"type": "module",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "bash ../../scripts/component/build.bash",
-		"test": "bash ../../scripts/component/test.bash",
+  "name": "@financial-times/g-audio",
+  "version": "2.0.3",
+  "description": "IG audio player component",
+  "keywords": [
+    "audio"
+  ],
+  "browser": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
     "debug:js": "bash ../../scripts/component/debug-js.bash",
-		"lint": "bash ../../scripts/component/lint.bash",
-		"watch": "bash ../../scripts/component/watch.bash"
-	},
-	"engines": {
-		"npm": ">=7"
-	},
-	"peerDependencies": {
-		"@financial-times/o-icons": "^7.2.1"
-	},
-	"percy": true,
-	"private": false
+    "lint": "bash ../../scripts/component/lint.bash",
+    "watch": "bash ../../scripts/component/watch.bash"
+  },
+  "engines": {
+    "node": "18.18.2",
+    "npm": ">7"
+  },
+  "peerDependencies": {
+    "@financial-times/o-icons": "^7.2.1"
+  },
+  "private": false
 }

@@ -96,6 +96,16 @@
 			"description": "Inverse Professional themed buttons."
 		},
 		{
+			"name": "ft-live",
+			"title": "FT Live theme",
+			"brands": [
+				"core"
+			],
+			"bodyClasses": "demo-inverse",
+			"template": "/demos/src/ft-live.mustache",
+			"description": "FT Live themed buttons."
+		},
+		{
 			"name": "B2C",
 			"title": "B2C theme",
 			"brands": [

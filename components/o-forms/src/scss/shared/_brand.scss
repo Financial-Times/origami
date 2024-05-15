@@ -61,10 +61,17 @@ $_o-forms-shared-brand-config: (
 				default-border: oColorsByName('mint'),
 				controls-checked-base: oColorsByName('slate'),
 			),
+			'ft-live': (
+				default-text: oColorsByName('white'),
+				controls-base: oColorsByName('ft-pink'),
+				default-border: oColorsByName('ft-pink'),
+				controls-checked-base: oColorsByName('slate')
+			),
 		)),
 		'supports-variants': (
 			'professional',
-			'professional-inverse'
+			'professional-inverse',
+			'ft-live'
 		)
 	));
 }

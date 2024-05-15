@@ -29,8 +29,12 @@
 		opacity: 1;
 		transition: opacity 0.3s ease-in-out;
 	}
+	.o-overlay__heading,
+	.o-overlay__title {
+		@include oTypographySans($scale: 2, $weight: 'regular');
+	}
+
 	.o-overlay__heading {
-		@include oTypographySans($scale: 2, $include-font-family: false);
 		margin: 0;
 		overflow: hidden;
 		background: _oOverlayGet('heading-background');

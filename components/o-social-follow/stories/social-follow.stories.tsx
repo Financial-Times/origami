@@ -1,12 +1,9 @@
-import {withDesign} from 'storybook-addon-designs';
 import {SocialFollow} from '../src/tsx/social-follow';
 import './social-follow.scss';
-import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Components/o-social-follow',
 	component: SocialFollow,
-	decorators: [withDesign, withHtml],
 	args: {
 		icons: ['twitter', 'facebook', 'linkedin', 'youtube', 'instagram'],
 		standalone: false,

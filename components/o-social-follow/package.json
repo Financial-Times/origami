@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-social-follow",
-  "version": "1.0.4",
+  "version": "1.0.11",
   "description": "Provides styling for social media sharing links",
   "keywords": [
     "follow",
@@ -8,6 +8,7 @@
     "social",
     "facebook",
     "twitter",
+    "x",
     "linkedin",
     "whatsapp",
     "instagram"
@@ -34,19 +35,14 @@
     "@financial-times/o-grid": "^6.0.0",
     "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "devDependencies": {
     "@financial-times/o-fonts": "^5.2.0",
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

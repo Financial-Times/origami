@@ -112,11 +112,14 @@ class Drawer {
 			this.nav.removeEventListener('click', this);
 		}
 
+		const shouldShiftRelatedContent = this.relatedContent && 
+			!this.relatedContent.classList.contains('o-header-services__related-content--always-visible');
+
 		// Shift related content (sign in, etc) between drawer and header title section
-		if (this.relatedContent && this.enabled) {
+		if (shouldShiftRelatedContent && this.enabled) {
 			this.navList.appendChild(this.relatedContent);
 		}
-		if (this.relatedContent && !this.enabled) {
+		if (shouldShiftRelatedContent && !this.enabled) {
 			const headerTop = this.headerEl.querySelector('.o-header-services__top');
 			headerTop.appendChild(this.relatedContent);
 		}

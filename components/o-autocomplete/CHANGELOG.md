@@ -1,5 +1,40 @@
 # Changelog
 
+## [1.10.0](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.9.2...o-autocomplete-v1.10.0) (2024-04-19)
+
+
+### Features
+
+* Enable highlighting of custom suggestions ([#1516](https://github.com/Financial-Times/origami/issues/1516)) ([c326099](https://github.com/Financial-Times/origami/commit/c3260998c4a8926f875e7ba95134b230ca517669))
+
+## [1.9.2](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.9.1...o-autocomplete-v1.9.2) (2024-04-12)
+
+
+### Bug Fixes
+
+* Update financial-times/accessible-autocomplete ([#1524](https://github.com/Financial-Times/origami/issues/1524)) ([8bcd024](https://github.com/Financial-Times/origami/commit/8bcd02402f3fa50e35756d3eb2a22b10435d634b))
+
+## [1.9.1](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.9.0...o-autocomplete-v1.9.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [1.9.0](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.8.1...o-autocomplete-v1.9.0) (2023-09-08)
+
+
+### Features
+
+* Add an `autoselect` option ([c414db4](https://github.com/Financial-Times/origami/commit/c414db4780e8f74bffb25e9a04004c4d450077f4))
+
+## [1.8.1](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.8.0...o-autocomplete-v1.8.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [1.8.0](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.7.4...o-autocomplete-v1.8.0) (2023-05-30)
 
 

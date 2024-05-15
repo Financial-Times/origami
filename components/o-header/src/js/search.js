@@ -1,6 +1,12 @@
 import Toggle from '@financial-times/o-toggle';
 
-function init (headerEl) {
+/**
+ *
+ * @param {HTMLElement} headerEl - The header element.
+ * @param {Object} [options] - Options to configure the search bar.
+ * @param {string} [options.searchState] - The initial state of the search UI, 'open' or 'close'.
+ */
+function init (headerEl, {searchState = undefined} = {}) {
 	const target = headerEl.querySelector('[data-o-header-search]');
 	const controls = target && headerEl.querySelectorAll(`[aria-controls="${target.id}"]`);
 
@@ -23,8 +29,14 @@ function init (headerEl) {
 		}
 	};
 
+	const toggles = [];
 	for (let i = 0, len = controls.length; i < len; i++) {
-		new Toggle(controls[i], { target, callback });
+		toggles.push(new Toggle(controls[i], { target, callback }));
+	}
+
+	if (searchState === 'open' || searchState === 'close') {
+		// toggles are guaranteed, as we check for controls
+		toggles[0].target[searchState]();
 	}
 }
 

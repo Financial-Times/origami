@@ -14,7 +14,7 @@ export interface TypeFormField {
 	isOptional?: boolean;
 	inlineField?: boolean;
 	isVerticalCenter?: boolean;
-	theme?: 'inverse' | 'white' | 'professional' | 'professional-inverse';
+	theme?: 'inverse' | 'white' | 'professional' | 'professional-inverse' | 'ft-live';
 }
 
 export interface FormFieldProps extends TypeFormField {

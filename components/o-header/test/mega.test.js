@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 import proclaim from 'proclaim';
-import userEvent from '@testing-library/user-event';
+import userEvent from "@financial-times/o-testing-library";
 import mega from '../src/js/mega.js';
 
 function dispatch (target, type) {

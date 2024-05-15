@@ -1,0 +1,28 @@
+{
+	"name": "@financial-times/o3-foundation",
+	"version": "1.0.8",
+	"description": "Origami foundations with design tokens",
+	"keywords": [
+		"foundation",
+		"design-tokens"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o3-foundation",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-foundation,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"files": [
+		"css",
+		"origami.json",
+		"package.json",
+		"README.md"
+	],
+	"scripts": {
+		"build": "node ../../apps/dictionary/scripts/build-config/build.js && bash ../../scripts/component/build-o3.bash o3-foundation"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
+}

@@ -8,1283 +8,227 @@ on:
     branches: [ main ]
 
 jobs:
-  test-components-ft-concept-button:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/ft-concept-button lint --if-present
-    - run: npm run -w components/ft-concept-button build --if-present
-    - run: npm run -w components/ft-concept-button test --if-present
-  test-components-g-audio:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/g-audio lint --if-present
-    - run: npm run -w components/g-audio build --if-present
-    - run: npm run -w components/g-audio test --if-present
-  test-components-n-notification:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/n-notification lint --if-present
-    - run: npm run -w components/n-notification build --if-present
-    - run: npm run -w components/n-notification test --if-present
-  test-components-o-audio:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-audio lint --if-present
-    - run: npm run -w components/o-audio build --if-present
-    - run: npm run -w components/o-audio test --if-present
-  test-components-o-autocomplete:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-autocomplete lint --if-present
-    - run: npm run -w components/o-autocomplete build --if-present
-    - run: npm run -w components/o-autocomplete test --if-present
-  test-components-o-banner:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-banner lint --if-present
-    - run: npm run -w components/o-banner build --if-present
-    - run: npm run -w components/o-banner test --if-present
-  test-components-o-big-number:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-big-number lint --if-present
-    - run: npm run -w components/o-big-number build --if-present
-    - run: npm run -w components/o-big-number test --if-present
-  test-components-o-buttons:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-buttons lint --if-present
-    - run: npm run -w components/o-buttons build --if-present
-    - run: npm run -w components/o-buttons test --if-present
-  test-components-o-colors:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-colors lint --if-present
-    - run: npm run -w components/o-colors build --if-present
-    - run: npm run -w components/o-colors test --if-present
-  test-components-o-comments:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-comments lint --if-present
-    - run: npm run -w components/o-comments build --if-present
-    - run: npm run -w components/o-comments test --if-present
-  test-components-o-cookie-message:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-cookie-message lint --if-present
-    - run: npm run -w components/o-cookie-message build --if-present
-    - run: npm run -w components/o-cookie-message test --if-present
-  test-components-o-date:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-date lint --if-present
-    - run: npm run -w components/o-date build --if-present
-    - run: npm run -w components/o-date test --if-present
-  test-components-o-editorial-layout:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-editorial-layout lint --if-present
-    - run: npm run -w components/o-editorial-layout build --if-present
-    - run: npm run -w components/o-editorial-layout test --if-present
-  test-components-o-editorial-typography:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-editorial-typography lint --if-present
-    - run: npm run -w components/o-editorial-typography build --if-present
-    - run: npm run -w components/o-editorial-typography test --if-present
-  test-components-o-expander:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-expander lint --if-present
-    - run: npm run -w components/o-expander build --if-present
-    - run: npm run -w components/o-expander test --if-present
-  test-components-o-fonts:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-fonts lint --if-present
-    - run: npm run -w components/o-fonts build --if-present
-    - run: npm run -w components/o-fonts test --if-present
-  test-components-o-footer:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-footer lint --if-present
-    - run: npm run -w components/o-footer build --if-present
-    - run: npm run -w components/o-footer test --if-present
-  test-components-o-footer-services:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-footer-services lint --if-present
-    - run: npm run -w components/o-footer-services build --if-present
-    - run: npm run -w components/o-footer-services test --if-present
-  test-components-o-forms:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-forms lint --if-present
-    - run: npm run -w components/o-forms build --if-present
-    - run: npm run -w components/o-forms test --if-present
-  test-components-o-ft-affiliate-ribbon:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-ft-affiliate-ribbon lint --if-present
-    - run: npm run -w components/o-ft-affiliate-ribbon build --if-present
-    - run: npm run -w components/o-ft-affiliate-ribbon test --if-present
-  test-components-o-grid:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-grid lint --if-present
-    - run: npm run -w components/o-grid build --if-present
-    - run: npm run -w components/o-grid test --if-present
-  test-components-o-header:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-header lint --if-present
-    - run: npm run -w components/o-header build --if-present
-    - run: npm run -w components/o-header test --if-present
-  test-components-o-header-services:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-header-services lint --if-present
-    - run: npm run -w components/o-header-services build --if-present
-    - run: npm run -w components/o-header-services test --if-present
-  test-components-o-icons:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-icons lint --if-present
-    - run: npm run -w components/o-icons build --if-present
-    - run: npm run -w components/o-icons test --if-present
-  test-components-o-labels:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-labels lint --if-present
-    - run: npm run -w components/o-labels build --if-present
-    - run: npm run -w components/o-labels test --if-present
-  test-components-o-layout:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-layout lint --if-present
-    - run: npm run -w components/o-layout build --if-present
-    - run: npm run -w components/o-layout test --if-present
-  test-components-o-lazy-load:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-lazy-load lint --if-present
-    - run: npm run -w components/o-lazy-load build --if-present
-    - run: npm run -w components/o-lazy-load test --if-present
-  test-components-o-loading:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-loading lint --if-present
-    - run: npm run -w components/o-loading build --if-present
-    - run: npm run -w components/o-loading test --if-present
-  test-components-o-message:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-message lint --if-present
-    - run: npm run -w components/o-message build --if-present
-    - run: npm run -w components/o-message test --if-present
-  test-components-o-meter:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-meter lint --if-present
-    - run: npm run -w components/o-meter build --if-present
-    - run: npm run -w components/o-meter test --if-present
-  test-components-o-multi-select:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-multi-select lint --if-present
-    - run: npm run -w components/o-multi-select build --if-present
-    - run: npm run -w components/o-multi-select test --if-present
-  test-components-o-normalise:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-normalise lint --if-present
-    - run: npm run -w components/o-normalise build --if-present
-    - run: npm run -w components/o-normalise test --if-present
-  test-components-o-overlay:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-overlay lint --if-present
-    - run: npm run -w components/o-overlay build --if-present
-    - run: npm run -w components/o-overlay test --if-present
-  test-components-o-quote:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-quote lint --if-present
-    - run: npm run -w components/o-quote build --if-present
-    - run: npm run -w components/o-quote test --if-present
-  test-components-o-share:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-share lint --if-present
-    - run: npm run -w components/o-share build --if-present
-    - run: npm run -w components/o-share test --if-present
-  test-components-o-social-follow:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-social-follow lint --if-present
-    - run: npm run -w components/o-social-follow build --if-present
-    - run: npm run -w components/o-social-follow test --if-present
-  test-components-o-spacing:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-spacing lint --if-present
-    - run: npm run -w components/o-spacing build --if-present
-    - run: npm run -w components/o-spacing test --if-present
-  test-components-o-stepped-progress:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-stepped-progress lint --if-present
-    - run: npm run -w components/o-stepped-progress build --if-present
-    - run: npm run -w components/o-stepped-progress test --if-present
-  test-components-o-subs-card:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-subs-card lint --if-present
-    - run: npm run -w components/o-subs-card build --if-present
-    - run: npm run -w components/o-subs-card test --if-present
-  test-components-o-syntax-highlight:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-syntax-highlight lint --if-present
-    - run: npm run -w components/o-syntax-highlight build --if-present
-    - run: npm run -w components/o-syntax-highlight test --if-present
-  test-components-o-table:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-table lint --if-present
-    - run: npm run -w components/o-table build --if-present
-    - run: npm run -w components/o-table test --if-present
-  test-components-o-tabs:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-tabs lint --if-present
-    - run: npm run -w components/o-tabs build --if-present
-    - run: npm run -w components/o-tabs test --if-present
-  test-components-o-teaser:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-teaser lint --if-present
-    - run: npm run -w components/o-teaser build --if-present
-    - run: npm run -w components/o-teaser test --if-present
-  test-components-o-teaser-collection:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-teaser-collection lint --if-present
-    - run: npm run -w components/o-teaser-collection build --if-present
-    - run: npm run -w components/o-teaser-collection test --if-present
-  test-components-o-toggle:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-toggle lint --if-present
-    - run: npm run -w components/o-toggle build --if-present
-    - run: npm run -w components/o-toggle test --if-present
-  test-components-o-tooltip:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-tooltip lint --if-present
-    - run: npm run -w components/o-tooltip build --if-present
-    - run: npm run -w components/o-tooltip test --if-present
-  test-components-o-top-banner:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-top-banner lint --if-present
-    - run: npm run -w components/o-top-banner build --if-present
-    - run: npm run -w components/o-top-banner test --if-present
-  test-components-o-topper:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-topper lint --if-present
-    - run: npm run -w components/o-topper build --if-present
-    - run: npm run -w components/o-topper test --if-present
-  test-components-o-typography:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-typography lint --if-present
-    - run: npm run -w components/o-typography build --if-present
-    - run: npm run -w components/o-typography test --if-present
-  test-components-o-video:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-video lint --if-present
-    - run: npm run -w components/o-video build --if-present
-    - run: npm run -w components/o-video test --if-present
-  test-components-o-viewport:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-viewport lint --if-present
-    - run: npm run -w components/o-viewport build --if-present
-    - run: npm run -w components/o-viewport test --if-present
-  test-components-o-visual-effects:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w components/o-visual-effects lint --if-present
-    - run: npm run -w components/o-visual-effects build --if-present
-    - run: npm run -w components/o-visual-effects test --if-present
-  test-libraries-ftdomdelegate:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w libraries/ftdomdelegate lint --if-present
-    - run: npm run -w libraries/ftdomdelegate build --if-present
-    - run: npm run -w libraries/ftdomdelegate test --if-present
-  test-libraries-math:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w libraries/math lint --if-present
-    - run: npm run -w libraries/math build --if-present
-    - run: npm run -w libraries/math test --if-present
-  test-libraries-o-autoinit:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w libraries/o-autoinit lint --if-present
-    - run: npm run -w libraries/o-autoinit build --if-present
-    - run: npm run -w libraries/o-autoinit test --if-present
-  test-libraries-o-brand:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w libraries/o-brand lint --if-present
-    - run: npm run -w libraries/o-brand build --if-present
-    - run: npm run -w libraries/o-brand test --if-present
-  test-libraries-o-errors:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w libraries/o-errors lint --if-present
-    - run: npm run -w libraries/o-errors build --if-present
-    - run: npm run -w libraries/o-errors test --if-present
-  test-libraries-o-tracking:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w libraries/o-tracking lint --if-present
-    - run: npm run -w libraries/o-tracking build --if-present
-    - run: npm run -w libraries/o-tracking test --if-present
-  test-libraries-o-utils:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w libraries/o-utils lint --if-present
-    - run: npm run -w libraries/o-utils build --if-present
-    - run: npm run -w libraries/o-utils test --if-present
-  test-libraries-sass-mq:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w libraries/sass-mq lint --if-present
-    - run: npm run -w libraries/sass-mq build --if-present
-    - run: npm run -w libraries/sass-mq test --if-present
-  test-presets-eslint-config-origami-component:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w presets/eslint-config-origami-component lint --if-present
-    - run: npm run -w presets/eslint-config-origami-component build --if-present
-    - run: npm run -w presets/eslint-config-origami-component test --if-present
-  test-presets-remark-preset-lint-origami-component:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w presets/remark-preset-lint-origami-component lint --if-present
-    - run: npm run -w presets/remark-preset-lint-origami-component build --if-present
-    - run: npm run -w presets/remark-preset-lint-origami-component test --if-present
-  test-presets-stylelint-config-origami-component:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w presets/stylelint-config-origami-component lint --if-present
-    - run: npm run -w presets/stylelint-config-origami-component build --if-present
-    - run: npm run -w presets/stylelint-config-origami-component test --if-present
-  test-tools-a11y:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w tools/a11y lint --if-present
-    - run: npm run -w tools/a11y build --if-present
-    - run: npm run -w tools/a11y test --if-present
-  test-tools-create-component:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w tools/create-component lint --if-present
-    - run: npm run -w tools/create-component build --if-present
-    - run: npm run -w tools/create-component test --if-present
-  test-tools-demo-build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w tools/demo-build lint --if-present
-    - run: npm run -w tools/demo-build build --if-present
-    - run: npm run -w tools/demo-build test --if-present
-  test-tools-origami-bower-safe-version-supervisor:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w tools/origami-bower-safe-version-supervisor lint --if-present
-    - run: npm run -w tools/origami-bower-safe-version-supervisor build --if-present
-    - run: npm run -w tools/origami-bower-safe-version-supervisor test --if-present
-  test-tools-origami-tools-helpers:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w tools/origami-tools-helpers lint --if-present
-    - run: npm run -w tools/origami-tools-helpers build --if-present
-    - run: npm run -w tools/origami-tools-helpers test --if-present
-  test-tools-sass-compilation:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w tools/sass-compilation lint --if-present
-    - run: npm run -w tools/sass-compilation build --if-present
-    - run: npm run -w tools/sass-compilation test --if-present
-  test-tools-test-javascript:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w tools/test-javascript lint --if-present
-    - run: npm run -w tools/test-javascript build --if-present
-    - run: npm run -w tools/test-javascript test --if-present
-  test-tools-test-sass:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w tools/test-sass lint --if-present
-    - run: npm run -w tools/test-sass build --if-present
-    - run: npm run -w tools/test-sass test --if-present
-  test-tools-validate-component-demo-html:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w tools/validate-component-demo-html lint --if-present
-    - run: npm run -w tools/validate-component-demo-html build --if-present
-    - run: npm run -w tools/validate-component-demo-html test --if-present
-  test-tools-verify-origami-json:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w tools/verify-origami-json lint --if-present
-    - run: npm run -w tools/verify-origami-json build --if-present
-    - run: npm run -w tools/verify-origami-json test --if-present
-  test-tools-verify-package-json:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w tools/verify-package-json lint --if-present
-    - run: npm run -w tools/verify-package-json build --if-present
-    - run: npm run -w tools/verify-package-json test --if-present
-  test-apps-storybook-addons-background:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w apps/storybook/addons/background lint --if-present
-    - run: npm run -w apps/storybook/addons/background build --if-present
-    - run: npm run -w apps/storybook/addons/background test --if-present
-  test-apps-storybook-addons-guidelines:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w apps/storybook/addons/guidelines lint --if-present
-    - run: npm run -w apps/storybook/addons/guidelines build --if-present
-    - run: npm run -w apps/storybook/addons/guidelines test --if-present
-  test-apps-storybook-addons-html:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w apps/storybook/addons/html lint --if-present
-    - run: npm run -w apps/storybook/addons/html build --if-present
-    - run: npm run -w apps/storybook/addons/html test --if-present
-  test-apps-storybook-addons-markdown-tabs:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w apps/storybook/addons/markdown-tabs lint --if-present
-    - run: npm run -w apps/storybook/addons/markdown-tabs build --if-present
-    - run: npm run -w apps/storybook/addons/markdown-tabs test --if-present
-  test-apps-storybook:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w apps/storybook lint --if-present
-    - run: npm run -w apps/storybook build --if-present
-    - run: npm run -w apps/storybook test --if-present
-  test-apps-website:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: volta-cli/action@v4
-    - uses: actions/cache@v2
-      with:
-        volta-version: "1.0.8"
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm ci
-    - run: npm run -w apps/website lint --if-present
-    - run: npm run -w apps/website build --if-present
-    - run: npm run -w apps/website test --if-present
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      components: ${{ steps.filter.outputs.changes }}
+    steps:
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          components/ft-concept-button:
+            - 'components/ft-concept-button/**'
+          components/g-audio:
+            - 'components/g-audio/**'
+          components/n-notification:
+            - 'components/n-notification/**'
+          components/o-audio:
+            - 'components/o-audio/**'
+          components/o-autocomplete:
+            - 'components/o-autocomplete/**'
+          components/o-banner:
+            - 'components/o-banner/**'
+          components/o-big-number:
+            - 'components/o-big-number/**'
+          components/o-buttons:
+            - 'components/o-buttons/**'
+          components/o-colors:
+            - 'components/o-colors/**'
+          components/o-comments:
+            - 'components/o-comments/**'
+          components/o-cookie-message:
+            - 'components/o-cookie-message/**'
+          components/o-date:
+            - 'components/o-date/**'
+          components/o-editorial-layout:
+            - 'components/o-editorial-layout/**'
+          components/o-editorial-typography:
+            - 'components/o-editorial-typography/**'
+          components/o-expander:
+            - 'components/o-expander/**'
+          components/o-fonts:
+            - 'components/o-fonts/**'
+          components/o-footer:
+            - 'components/o-footer/**'
+          components/o-footer-services:
+            - 'components/o-footer-services/**'
+          components/o-forms:
+            - 'components/o-forms/**'
+          components/o-ft-affiliate-ribbon:
+            - 'components/o-ft-affiliate-ribbon/**'
+          components/o-grid:
+            - 'components/o-grid/**'
+          components/o-header:
+            - 'components/o-header/**'
+          components/o-header-services:
+            - 'components/o-header-services/**'
+          components/o-icons:
+            - 'components/o-icons/**'
+          components/o-labels:
+            - 'components/o-labels/**'
+          components/o-layout:
+            - 'components/o-layout/**'
+          components/o-lazy-load:
+            - 'components/o-lazy-load/**'
+          components/o-loading:
+            - 'components/o-loading/**'
+          components/o-message:
+            - 'components/o-message/**'
+          components/o-meter:
+            - 'components/o-meter/**'
+          components/o-multi-select:
+            - 'components/o-multi-select/**'
+          components/o-normalise:
+            - 'components/o-normalise/**'
+          components/o-overlay:
+            - 'components/o-overlay/**'
+          components/o-quote:
+            - 'components/o-quote/**'
+          components/o-share:
+            - 'components/o-share/**'
+          components/o-social-follow:
+            - 'components/o-social-follow/**'
+          components/o-spacing:
+            - 'components/o-spacing/**'
+          components/o-stepped-progress:
+            - 'components/o-stepped-progress/**'
+          components/o-subs-card:
+            - 'components/o-subs-card/**'
+          components/o-syntax-highlight:
+            - 'components/o-syntax-highlight/**'
+          components/o-table:
+            - 'components/o-table/**'
+          components/o-tabs:
+            - 'components/o-tabs/**'
+          components/o-teaser:
+            - 'components/o-teaser/**'
+          components/o-teaser-collection:
+            - 'components/o-teaser-collection/**'
+          components/o-toggle:
+            - 'components/o-toggle/**'
+          components/o-tooltip:
+            - 'components/o-tooltip/**'
+          components/o-top-banner:
+            - 'components/o-top-banner/**'
+          components/o-topper:
+            - 'components/o-topper/**'
+          components/o-typography:
+            - 'components/o-typography/**'
+          components/o-video:
+            - 'components/o-video/**'
+          components/o-viewport:
+            - 'components/o-viewport/**'
+          components/o-visual-effects:
+            - 'components/o-visual-effects/**'
+          components/o3-button:
+            - 'components/o3-button/**'
+          components/o3-foundation:
+            - 'components/o3-foundation/**'
+          components/o3-tooltip:
+            - 'components/o3-tooltip/**'
+          components/o3-typography:
+            - 'components/o3-typography/**'
+          libraries/ftdomdelegate:
+            - 'libraries/ftdomdelegate/**'
+          libraries/math:
+            - 'libraries/math/**'
+          libraries/o-autoinit:
+            - 'libraries/o-autoinit/**'
+          libraries/o-brand:
+            - 'libraries/o-brand/**'
+          libraries/o-errors:
+            - 'libraries/o-errors/**'
+          libraries/o-testing-library:
+            - 'libraries/o-testing-library/**'
+          libraries/o-tracking:
+            - 'libraries/o-tracking/**'
+          libraries/o-utils:
+            - 'libraries/o-utils/**'
+          libraries/o3-tooling-token:
+            - 'libraries/o3-tooling-token/**'
+          libraries/sass-mq:
+            - 'libraries/sass-mq/**'
+          presets/eslint-config-origami-component:
+            - 'presets/eslint-config-origami-component/**'
+          presets/remark-preset-lint-origami-component:
+            - 'presets/remark-preset-lint-origami-component/**'
+          presets/stylelint-config-origami-component:
+            - 'presets/stylelint-config-origami-component/**'
+          tools/a11y:
+            - 'tools/a11y/**'
+          tools/create-component:
+            - 'tools/create-component/**'
+          tools/demo-build:
+            - 'tools/demo-build/**'
+          tools/o3-compilation:
+            - 'tools/o3-compilation/**'
+          tools/origami-bower-safe-version-supervisor:
+            - 'tools/origami-bower-safe-version-supervisor/**'
+          tools/origami-tools-helpers:
+            - 'tools/origami-tools-helpers/**'
+          tools/sass-compilation:
+            - 'tools/sass-compilation/**'
+          tools/test-javascript:
+            - 'tools/test-javascript/**'
+          tools/test-sass:
+            - 'tools/test-sass/**'
+          tools/validate-component-demo-html:
+            - 'tools/validate-component-demo-html/**'
+          tools/verify-origami-json:
+            - 'tools/verify-origami-json/**'
+          tools/verify-package-json:
+            - 'tools/verify-package-json/**'
+          apps/o2-storybook/addons/background:
+            - 'apps/o2-storybook/addons/background/**'
+          apps/o2-storybook/addons/guidelines:
+            - 'apps/o2-storybook/addons/guidelines/**'
+          apps/o2-storybook/addons/markdown-tabs:
+            - 'apps/o2-storybook/addons/markdown-tabs/**'
+          apps/astro-website:
+            - 'apps/astro-website/**'
+          apps/dictionary:
+            - 'apps/dictionary/**'
+          apps/for-everyone-website:
+            - 'apps/for-everyone-website/**'
+          apps/o2-storybook:
+            - 'apps/o2-storybook/**'
+          apps/o2-storybook-composition:
+            - 'apps/o2-storybook-composition/**'
+          apps/o3-storybook:
+            - 'apps/o3-storybook/**'
+  test:
+    if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
+    needs: changes
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        component: ${{ fromJson(needs.changes.outputs.components) }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: volta-cli/action@v4
+      - uses: actions/cache@v2
+        with:
+          volta-version: "1.0.8"
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      - run: npm run -w ${{ matrix.component }} lint --if-present
+      - run: npm run -w ${{ matrix.component }} build --if-present
+      - run: npm run -w ${{ matrix.component }} test --if-present
+  test-results:
+    runs-on: ubuntu-latest
+    needs: test
+    if: always()
+    steps:
+      - name: All tests passing
+        if: ${{ needs.test.result == 'success' }}
+        run: exit 0
+      - name: Some tests failing
+        if: ${{ needs.test.result == 'failure' }}
+        run: exit 1

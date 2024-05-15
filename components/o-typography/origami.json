@@ -73,6 +73,14 @@
 			"brands": ["core"]
 		},
 		{
+			"name": "ft-live-links",
+			"title": "FT Live Links",
+			"template": "demos/src/ft-live-links.mustache",
+			"description": "Link styles for the FT Live sub-brand.",
+			"documentClasses": "o-grid-container o-typography--loading-display o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display-bold demo-inverse",
+			"brands": ["core"]
+		},
+		{
 			"name": "body",
 			"title": "Body",
 			"template": "demos/src/body.mustache",

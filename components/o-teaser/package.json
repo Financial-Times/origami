@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-teaser",
-  "version": "6.2.7",
+  "version": "6.4.1",
   "description": "Provides styling for teaser elements, which contain information about an article and link through to it",
   "keywords": [
     "article",
@@ -30,23 +30,18 @@
     "@financial-times/o-labels": "^6.0.0",
     "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "devDependencies": {
     "@financial-times/o-date": "^6.0.0",
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false,
   "dependencies": {
-    "date-fns": "^1.29.0",
+    "date-fns": "^2.30.0",
     "dateformat": "^3.0.3",
     "dompurify": "^2.3.9",
     "html-react-parser": "^3.0.1"

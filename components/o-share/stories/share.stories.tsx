@@ -1,6 +1,4 @@
 import { Story, ComponentMeta } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
-import withHtml from "origami-storybook-addon-html";
 
 import { Share } from "../src/tsx/share";
 import { ShareIcon, UrlProps } from "../src/tsx/shareIcon";
@@ -11,13 +9,12 @@ import "./share.scss";
 export default {
 	title: "Components/o-share",
 	component: Share,
-	decorators: [withDesign, withHtml],
 	args: {
 		title: "US drugs",
 		url: "http://on.ft.com/1mUdgA2",
 		titleExtra: "FT.com | Pharmaceuticals",
 		summary: "US drugs group vows to maintain big British presence",
-		relatedTwitterAccounts: "ftcompanies",
+		relatedXAccounts: "ftcompanies",
 		small: false,
 		inverse: false,
 		vertical: false,
@@ -38,11 +35,11 @@ const StoryTemplate: Story<ShareProps> = args => {
 		title: args.title,
 		titleExtra: args.titleExtra,
 		summary: args.summary,
-		relatedTwitterAccounts: args.relatedTwitterAccounts,
+		relatedXAccounts: args.relatedXAccounts,
 	};
 	return (
 		<Share {...shareProps}>
-			<ShareIcon icon="twitter" urlProps={shareIconProps} />
+			<ShareIcon icon="x" urlProps={shareIconProps} />
 			<ShareIcon icon="facebook" urlProps={shareIconProps} />
 			<ShareIcon icon="linkedin" urlProps={shareIconProps} />
 			<ShareIcon icon="whatsapp" urlProps={shareIconProps} />

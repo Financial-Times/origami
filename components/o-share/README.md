@@ -41,13 +41,13 @@ Include the [complete markup, available in the Origami registry](https://registr
 <!-- see the registry demos for full markup -->
 <div data-o-component="o-share" class="o-share">
  <ul>
-  <!-- a share to twitter action example -->
+  <!-- a share to X action example -->
   <!-- href tag is not shown, see the registry demos for full markup  -->
   <li class="o-share__action">
-   <a class="o-share__icon o-share__icon--twitter"
-    href="#twitter-link-here"
+   <a class="o-share__icon o-share__icon--x"
+    href="#x-link-here"
     rel="noopener">
-    <span class="o-share__text">Twitter</span>
+    <span class="o-share__text">X</span>
    </a>
   </li>
   <!-- more o-share actions -->
@@ -80,23 +80,11 @@ Social share actions open in the same frame, but you may add `target="_blank"` t
 
 #### Text Labels
 
-Add the `o-share__action--labelled` class to any share action to display the action text alongside the icon. This example uses the twitter action, but we recommend this only for [custom actions](#custom-actions) which are less recognisable compared with big social media brands.
+Add the `o-share__action--labelled` class to any share action to display the action text alongside the icon. We recommend this for [custom actions](#custom-actions) which are less recognisable compared with big social media brands, as shown below.
 
 ```diff
-<!-- see the registry demos for a full markup example -->
-<div data-o-component="o-share" class="o-share">
- <ul>
--  <li class="o-share__action">
-+  <li class="o-share__action o-share__action--labelled">
-   <a class="o-share__icon o-share__icon--twitter"
-    href="#twitter-link-here"
-    rel="noopener">
-    <span class="o-share__text">Twitter</span>
-   </a>
-  </li>
-  <!-- more o-share actions -->
- </ul>
-</div>
+-<li class="o-share__action">
++<li class="o-share__action o-share__action--labelled">
 ```
 
 #### Custom Actions
@@ -105,20 +93,17 @@ Form markup is allowed within the `o-share__action` label to to handle custom sh
 
 ```html
 <!-- see the registry demos for full markup -->
-<div data-o-component="o-share" class="o-share">
- <ul>
-  <!-- a custom share action example which includes a text label -->
-  <li class="o-share__action o-share__action--labelled">
-   <!-- form markup is allowed to handle custom share actions -->
-   <form method="post" action="#">
-    <button type="submit" class="o-share__icon o-share__icon--share">
-     <span class="o-share__text">Save</span>
+<li class="o-share__action o-share__action--labelled">
+  <!-- demo only: forms with a submit button may be used for custom actions -->
+  <form method="post" action="#">
+    <button type="submit" class="o-share__icon o-share__icon--share" title="[Describe your custom action]" aria-label="[Describe your custom action]">
+      <span class="o-share__icon__image">
+        <!-- custom svg icon -->
+      </span>
+      <span class="o-share__text" data-variant-label="">Custom Action</span>
     </button>
-   </form>
-  </li>
-  <!-- more o-share actions -->
- </ul>
-</div>
+  </form>
+</li>
 ```
 
 The `share` icon is made available by default for custom share features as shown in the [Origami registry demos](https://registry.origami.ft.com/components/o-share).
@@ -143,14 +128,14 @@ For example:
 @include oShare($opts: (
  'sizes': ('small'), // output styles for a small variation of o-share i.e. o-share--small
  'vertical': true, // output styles for a vertical o-share i.e. o-share--vertical
- 'icons': ('twitter', 'facebook', 'whatsapp') // output styles for select share icons
+ 'icons': ('x', 'facebook', 'whatsapp') // output styles for select share icons
 ));
 ```
 
 All `$opts` options include:
 
 - `icons` (list) a list of social share icons to output. One or more of the following, or any [o-icon name](https://registry.origami.ft.com/components/o-icons):
-  - `twitter`
+  - `x`
   - `facebook`
   - `linkedin`
   - `link`
@@ -171,7 +156,7 @@ All `$opts` options include:
 |-----------------------------------|--------------------------|--------------------------------------------------------------------------------------------------------|
 | `o-share/default-icon`            | background, border, text | Default colours, used by icons without a state (e.g. before hover).                                    |
 | `o-share/ft-icon`                 | background, border, text | Colours to highlight FT icon social buttons like email (e.g. on hover).                                |
-| `o-share/[social-icon-name]-icon` | background, border, text | Colours to highlight social buttons with a brand, like Twitter (e.g. `o-share/twitter-icon` on hover). |
+| `o-share/[social-icon-name]-icon` | background, border, text | Colours to highlight social buttons with a brand, like Twitter (e.g. `o-share/x-icon` on hover). |
 
 Use the [oColorsByUsecase mixin from o-colors](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=core#function-ocolorsbyusecase) to retrieve custom colour usecases set by o-share.
 
@@ -253,13 +238,13 @@ interface ShareProps {
 }
 
 interface ShareIconProps {
- icon: "twitter" | "facebook" | "linkedin" | "whatsapp";
+ icon: "x" | "facebook" | "linkedin" | "whatsapp";
  urlProps: {
   url: string;
   title: string;
   titleExtra: string;
   summary: string;
-  relatedTwitterAccounts: string;
+  relatedXAccounts: string;
  };
  showLabel?: boolean;
  label?: string;
@@ -272,9 +257,10 @@ TSX template doesn't import styles and doesn't initialise javaScript by itself. 
 
 |    State     | Major Version | Last Minor Release |                    Migration guide                    |
 |:------------:|:-------------:|:------------------:|:-----------------------------------------------------:|
-|   ✨ active   |       9       |        N/A         | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-| ⚠ maintained |       8       |        N/A         | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-| X maintained |       7       |        7.6         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ✨ active    |       9       |        N/A         | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
+| ⚠ maintained |       9       |        9.0         | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
+| ╳ deprecated |       8       |        8.3         | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+| ╳ deprecated |       7       |        7.6         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
 | ╳ deprecated |       6       |        6.5         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
 | ╳ deprecated |       5       |        5.0         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
 | ╳ deprecated |       4       |        4.0         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |

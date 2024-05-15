@@ -1,6 +1,3 @@
-
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import {ContentLabel as ContentLabelTsx} from '../../src/tsx/label';
 import '../labels.scss';
 
@@ -21,8 +18,7 @@ const ComponentDescription = {
                 type: 'text'
             }
         }
-    },
-    decorators: [withDesign, withHtml]
+    }
 };
 
 export default ComponentDescription;
@@ -33,4 +29,7 @@ export const ContentLabel = args => {
         delete args.size;
     }
     return <ContentLabelTsx {...args}>{copy}</ContentLabelTsx>;
+}
+ContentLabel.args = {
+	text: 'Premium'
 }

@@ -1,5 +1,40 @@
 # Changelog
 
+## [7.8.0](https://github.com/Financial-Times/origami/compare/o-icons-v7.7.2...o-icons-v7.8.0) (2024-04-17)
+
+
+### Features
+
+* o-icons, add sparkles icon ([#1570](https://github.com/Financial-Times/origami/issues/1570)) ([7a3bc84](https://github.com/Financial-Times/origami/commit/7a3bc84abfe4fea272ffe7284188547568dcd4f6))
+
+## [7.7.2](https://github.com/Financial-Times/origami/compare/o-icons-v7.7.1...o-icons-v7.7.2) (2024-04-11)
+
+
+### Bug Fixes
+
+* tweak the `$system-code` error message to include a simple link ([cd41d7f](https://github.com/Financial-Times/origami/commit/cd41d7fb4d5044e031d006ae6e608d658bf93f17))
+
+## [7.7.1](https://github.com/Financial-Times/origami/compare/o-icons-v7.7.0...o-icons-v7.7.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [7.7.0](https://github.com/Financial-Times/origami/compare/o-icons-v7.6.1...o-icons-v7.7.0) (2023-08-30)
+
+
+### Features
+
+* o-icons, add icons closed-captions-off, closed-captions-on, and media-description ([#1250](https://github.com/Financial-Times/origami/issues/1250)) ([f857ffe](https://github.com/Financial-Times/origami/commit/f857ffefdadacf26bcfc5ee938e658484437c5cb))
+
+## [7.6.1](https://github.com/Financial-Times/origami/compare/o-icons-v7.6.0...o-icons-v7.6.1) (2023-08-25)
+
+
+### Miscellaneous Chores
+
+* o-icons, update support matrix ([#1243](https://github.com/Financial-Times/origami/issues/1243)) ([27e32c3](https://github.com/Financial-Times/origami/commit/27e32c393eed4070d21760cbfe9563cae4c94566))
+
 ## [7.6.0](https://www.github.com/Financial-Times/origami/compare/o-icons-v7.5.0...o-icons-v7.6.0) (2023-03-27)
 
 

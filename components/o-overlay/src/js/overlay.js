@@ -269,7 +269,8 @@ class Overlay {
 		}
 
 		wrapperEl.setAttribute('role', 'dialog');
-		wrapperEl.setAttribute('aria-modal', 'true');
+		wrapperEl.setAttribute('aria-modal', this.opts.modal ? 'true' : 'false');
+
 		if (this.opts.zindex) {
 			wrapperEl.style.zIndex = this.opts.zindex;
 		}
@@ -302,9 +303,7 @@ class Overlay {
 				heading.appendChild(button);
 			}
 
-			const title = document.createElement('span');
-			title.setAttribute('role', 'heading');
-			title.setAttribute('aria-level', '1');
+			const title = document.createElement('h2');
 			title.className = 'o-overlay__title';
 			title.innerHTML = this.opts.heading.title;
 			title.setAttribute('id', headingId);

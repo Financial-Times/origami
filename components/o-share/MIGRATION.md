@@ -1,5 +1,65 @@
 # Migration guide
 
+## Migrating from v9 to v10
+
+o-share v10 replaces the "Twitter" brand for "X". As this is a major change due to inlined SVG markup, we have also decided to update the o-share API to remove references to "Twitter". To migrate make the following changes.
+
+### Update your Sass
+
+If your project is using Sass and the `oShare` mixin to selectively include social share icons, replace "twitter" with "x". For example:
+
+```diff
+@include oShare($opts: (
++    'icons': ('x', 'facebook'),
+-    'icons': ('twitter', 'facebook'),
+    'sizes': ('small'),
+    'vertical': true,
+    'inverse': true
+));
+```
+### Update your markup
+
+Update your markup according to whether your project is using o-share TSX templates or copying HTML directly.
+#### Copying HTML
+
+If copying component HTML, update:
+1. The share icon class name.
+2. The icon SVG.
+3. The share text description.
+
+To do this, obtain the full markup required from [the o-share demos](https://registry.origami.ft.com/components/o-share@10.0.0). Here is a simplified example:
+
+```diff
++<a class="o-share__icon o-share__icon--x" href="#" rel="noopener">
+-<a class="o-share__icon o-share__icon--twitter" href="#" rel="noopener">
+  <div class="o-share__icon__image">
++    <!-- twitter icon svg -->
+-    <!-- x icon svg, see component demos -->
+  </div>
+	<span class="o-share__text">
++    Share [title] on X (opens a new window)
+-    Share [title] on Twitter (opens a new window)
+  </span>
+</a>
+```
+#### TSX templates
+
+If using TSX templates:
+1. Replace any "twitter" icon for "x".
+2. Update your `urlProps` to remove Twitter references.
+  - The key `relatedTwitterAccounts` becomes `relatedXAccounts`
+  - We recommend referring to "X, formally known as Twitter" in title and summary text descriptions for now.
+
+```diff
+<Share {...shareProps}>
++  <ShareIcon icon="twitter" urlProps={shareIconProps} />
+-  <ShareIcon icon="x" urlProps={shareIconProps} />
+  <ShareIcon icon="facebook" urlProps={shareIconProps} />
+  <ShareIcon icon="linkedin" urlProps={shareIconProps} />
+  <ShareIcon icon="whatsapp" urlProps={shareIconProps} />
+</Share>
+```
+
 ## Migrating from v8 to v9
 
 o-share v9 incudes a number of changes to improve accessibility. To migrate follow these steps and see below for more details:
@@ -39,7 +99,6 @@ Usage of `o-share` with client side Javascript initialisation is now deprecated.
  data-o-share-title="{{title}}"
  data-o-share-titleExtra="{{titleExtra}}"
  data-o-share-summary="{{summary}}"
- data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}"
  data-o-share-location="{{locationOfShareComponent}}">
 </div>
 ```

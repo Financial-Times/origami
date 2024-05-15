@@ -237,7 +237,7 @@
 
 			@include contains($selector: false) {
 				.o-buttons--primary.o-buttons--test-named-theme-colors {
-					background-color: #17d4e6;
+					background-color: hsl(185.2173913043, 81.5602836879%, 49.5703125%);
 					color: #262a33;
 					border-color: transparent;
 				}
@@ -285,7 +285,7 @@
 
 			@include contains($selector: false) {
 				.o-buttons--primary.o-buttons--test-hex-theme-colors {
-					background-color: #17d4e6;
+					background-color: hsl(185.2173913043, 81.5602836879%, 49.5703125%);
 					color: #262a33;
 					border-color: transparent;
 				}

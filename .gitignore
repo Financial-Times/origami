@@ -19,7 +19,6 @@ tramp
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon?
 ._*
 .DocumentRevisions-V100
 .fseventsd
@@ -37,3 +36,8 @@ Icon?
 .lsp/
 .log/
 .nova/
+storybook-static/
+
+#Ignore code editor specific files
+.idea
+.vscode

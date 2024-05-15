@@ -14,23 +14,45 @@ o-buttons provides Sass mixins and variables to create buttons.
 
 Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-buttons`.
 
+Buttons allow users to interact with the page or product. Each page or product area (a form, modal, within an article) should not have more than 1 primary button, any remaining CTA's should be displayed as secondary or ghost buttons.
+
+Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:
+
+- Dialogs
+- Modal windows
+- Forms
+- Cards
+- Toolbars
+
+### When not to use
+
+If an action a user takes is navigational, e.g. going back, a button should not be used.
+
+### Accessibility
+
+- **It is advisable to use colour combinations provided by the implementation.** These combinations are ensured to comply with WCAG AA requirements. When customising colours, refer to [colour guidelines](https://www.w3.org/TR/WCAG21/#non-text-contrast) to ensure accessibility.
+- In most cases, prefer using default size buttons over small buttons. Default sized buttons are easier for users to notice and press.
+
 ## Markup
 
-There are two types of buttons, primary buttons and secondary buttons.
+There are three types of buttons, primary, secondary, and ghost.
 
-| Type      | Selector              | Brand Support                |
-|-----------|-----------------------|------------------------------|
-| primary   | .o-buttons--primary      | core, internal, whitelabel |
-| secondary | .o-buttons--secondary | core, internal, whitelabel |
-| ghost | .o-buttons--ghost | core, internal, whitelabel |
+| Type      | Selector              | Brand Support                | Purpose  |
+|-----------|-----------------------|------------------------------|----------|
+| primary   | .o-buttons--primary      | core, internal, whitelabel |For principal calls to action on the page. Primary buttons should only appear once per product area (not including the application header, modal dialog, onsite messaging or side panel).|
+| secondary | .o-buttons--secondary | core, internal, whitelabel |For secondary actions on each page or used in conjunction with a primary button. As part of a pair, the secondary button’s function is to perform the negative action of the set, such as “Cancel” or “Back”. |
+| ghost | .o-buttons--ghost | core, internal, whitelabel |For the least pronounced actions; often used in conjunction with a primary button. In a situation such as a progress flow, a ghost button may be paired with a primary and secondary button set, where the primary button is for ‘Save and continue’ the ghost button would be ‘Skip’.|
 
 
 ```html
 <button class="o-buttons o-buttons--primary">Submit</button>
 <button class="o-buttons o-buttons--secondary">Cancel</button>
+<button class="o-buttons o-buttons--ghost">Options</button>
 ```
 
 o-buttons CSS will work on `<button>` or `<a>` elements. It is important for accessibility that if you intend to style an `<a>` as a button, you give it the correct [aria role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role).
+
+The copy inside buttons should be concise and confirm the action a user is taking.
 
 ### Themes
 
@@ -43,6 +65,7 @@ A theme may be applied to a button to change its appearance. o-buttons provides 
 | b2c     | .o-buttons--b2c     | primary            | core           |
 | professional     | .o-buttons--professional     | primary, secondary, ghost            | core           |
 | professional-inverse     | .o-buttons--professional-inverse     | primary, secondary, ghost            | core           |
+| ft-live     | .o-buttons--ft-live     | primary, secondary, ghost            | core           |
 
 ```html
 <button class="o-buttons o-buttons--primary o-buttons--inverse">Submit</button>
@@ -195,7 +218,7 @@ To output default o-buttons CSS make a single call to the primary mixin `oButton
 @include oButtons($opts: (
 	'sizes': ('big'), // e.g .o-buttons--big
 	'types': ('primary', 'secondary', 'ghost'), // e.g .o-buttons--primary
-	'themes': ('mono', 'inverse', 'b2c', 'professional', 'professional-inverse'), // e.g .o-buttons--inverse
+	'themes': ('mono', 'inverse', 'b2c', 'professional', 'professional-inverse', 'ft-live'), // e.g .o-buttons--inverse
 	'icons': ('arrow-left', 'arrow-right', 'search'), // any fticons, e.g .o-buttons-icons.o-buttons-icons--search
 	'pagination': true, // .o-buttons-pagination
 	'groups': true // .o-buttons-group

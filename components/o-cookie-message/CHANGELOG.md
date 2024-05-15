@@ -1,4 +1,32 @@
 # Changelog
+## [6.7.1](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.7.0...o-cookie-message-v6.7.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [6.7.0](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.6.1...o-cookie-message-v6.7.0) (2023-10-05)
+
+
+### Features
+
+* Prevent cookie message copy displaying on Search Engine Results Pages (SERPS). This only applies to imperative use of o-cookie-message. If your project copy-pastes markup to support an experience without JavaScript, set the `data-nosnippet` on the root cookie message element.  ([081b1f2](https://github.com/Financial-Times/origami/commit/081b1f2e32a0b33b1926054b1005832f5ab22996))
+
+## [6.6.1](https://github.com/Financial-Times/origami/compare/o-cookie-message-v6.6.0...o-cookie-message-v6.6.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+## [6.6.0](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.5.2...o-cookie-message-v6.6.0) (2023-07-20)
+
+
+### Features
+
+* o-cookie-message, publish tsx template ([#1199](https://www.github.com/Financial-Times/origami/issues/1199)) ([7052fe3](https://www.github.com/Financial-Times/origami/commit/7052fe34bef7f96ed867dc79409522fb29a22017))
+
 ### [6.5.2](https://www.github.com/Financial-Times/origami/compare/o-cookie-message-v6.5.1...o-cookie-message-v6.5.2) (2023-04-28)
 
 

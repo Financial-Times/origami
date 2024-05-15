@@ -1,11 +1,12 @@
 /* eslint-env mocha */
 
 import * as fixtures from './helpers/fixtures.js';
-import { screen } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
+import userEvent, {dom} from '@financial-times/o-testing-library';
 import {assert} from '@open-wc/testing';
 import sinon from 'sinon/pkg/sinon-esm.js';
 import Tabs from '../main.js';
+
+const screen = dom.screen;
 
 /**
  * @type {Tabs}

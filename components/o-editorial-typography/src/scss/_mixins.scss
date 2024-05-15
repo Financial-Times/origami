@@ -8,7 +8,7 @@
 	'margin-reset': true
 )) {
 	@include oTypographySerif($scale: (default: 1, XL: 2), $line-height: 1.6);
-	color: oColorsByUsecase('body', 'text');
+	color: var(--_o-editorial-typography-body-color, #{oColorsByUsecase('body', 'text')}); 
 	// undo browser defaults
 	@if(map-get($opts,'margin-reset')) {
 		margin: 0;

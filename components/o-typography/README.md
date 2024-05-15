@@ -91,6 +91,7 @@ See the [demos](http://registry.origami.ft.com/components/o-typography) for a fu
 - `o-typography-inverse` - Make body copy and links white, for use on a dark background.
 - `o-typography-professional` - Change link colours for the FT Professional sub-brand (core brand only)
 - `o-typography-professional o-typography-inverse` - A version of the inverse theme for use with the FT Professional sub-brand (core brand only)
+- `o-typography-ft-live o-typography-inverse` - A version of the inverse theme for use with the FT Live sub-brand (core brand only)
 
 E.g:
 ```html
@@ -270,6 +271,7 @@ You may also output link styles for a given theme:
 - `inverse`
 - `professional` (core brand only)
 - `professional-inverse` (core brand only)
+- `ft-live` (core brand only)
 
 ```scss
 a {

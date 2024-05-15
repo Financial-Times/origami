@@ -3,11 +3,8 @@
 # this script is used by the build-website workflow and heroku review apps
 
 set -e
-cd apps/website/
-bundle
-bundle exec jekyll build -d ../../origami.ft.com --incremental
-cd ../storybook/
-npm run build-storybook
+cd apps/astro-website/
+NODE_OPTIONS=--max-old-space-size=10248 npm run astro build
 cd ../../
 
 if ! [ -z "$SHOULD_DELETE_ALL_YOUR_FILES" ]; then

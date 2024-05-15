@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-quote",
-  "version": "5.3.2",
+  "version": "5.3.4",
   "description": "Styling for blockquotes, pull-quotes and any other types of quote",
   "keywords": [
     "quotes",
@@ -30,19 +30,14 @@
     "@financial-times/o-editorial-typography": "^2.0.1",
     "@financial-times/o-icons": "^7.0.0",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "devDependencies": {
     "@financial-times/o-fonts": "^5.2.0",
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

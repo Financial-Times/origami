@@ -29,9 +29,10 @@ function mapOptionToSuggestedValue(option) {
 }
 /**
  * @param {CustomOption} option - The option to transform into a suggestion string
+ * @param {string} [query] - Text which was typed into the autocomplete text input field by the user
  * @returns {string} The string to display in the suggestions dropdown for this option
  */
-function suggestionTemplate(option) {
+function suggestionTemplate(option, query) { //eslint-disable-line no-unused-vars
 	if(typeof option === 'string') return option;
 	return `<div>
 		<strong>${option.Country_Name}</strong>

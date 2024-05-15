@@ -29,7 +29,7 @@ function insertShareLinks() {
 					</button>
 				</li>
 				<li class="o-share__action">
-					<a class="o-share__icon o-share__icon--twitter" href="https://twitter.com/intent/tweet?url=http:&#x2F;&#x2F;on.ft.com&#x2F;1mUdgA2&text=Pfizer+says+its+AstraZeneca+vow+over+big+UK+presence+is+binding&related=ftcompanies&via=FT">
+					<a class="o-share__icon o-share__icon--x" href="https://x.com/intent/tweet?url=http:&#x2F;&#x2F;on.ft.com&#x2F;1mUdgA2&text=Pfizer+says+its+AstraZeneca+vow+over+big+UK+presence+is+binding&related=ftcompanies&via=FT">
 						<span class="o-share__text">Twitter</span>
 					</a>
 				</li>
@@ -45,12 +45,12 @@ function insertShareComponent() {
 		url: "https://www.ft.com/content/test",
 		titleExtra: "Extra",
 		summary: "Testing...",
-		relatedTwitterAccounts: "ftcompanies",
+		relatedXAccounts: "ftcompanies",
 		socialNetworks: [
 			{
 				name: "Twitter",
-				className: "twitter",
-				link: "https://twitter.com/intent/tweet?url=http%3A%2F%2Fon.ft.com%2F1mUdgA2&text=US%20drugs&related=ftcompanies&via=FT",
+				className: "x",
+				link: "https://x.com/intent/tweet?url=http%3A%2F%2Fon.ft.com%2F1mUdgA2&text=US%20drugs&related=ftcompanies&via=FT",
 			},
 			{
 				name: "Facebook",

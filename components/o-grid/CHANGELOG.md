@@ -1,5 +1,28 @@
 # Changelog
 
+## [6.1.8](https://github.com/Financial-Times/origami/compare/o-grid-v6.1.7...o-grid-v6.1.8) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+### [6.1.7](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.6...o-grid-v6.1.7) (2023-07-13)
+
+
+### Bug Fixes
+
+* fix indentation issues ([662a2f2](https://www.github.com/Financial-Times/origami/commit/662a2f281116781a1a2c1b8e83f2beb684889921))
+* move paragraph above list ([09f60a8](https://www.github.com/Financial-Times/origami/commit/09f60a8fb1f86cfb6eacbdc9fd979e4afb2891ec))
+* re order lists so that the contents are correctly removed when displayed on the registry ([c51e82a](https://www.github.com/Financial-Times/origami/commit/c51e82a7bb1874020456c049d6d332b9fe6c4f49))
+
+### [6.1.6](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.5...o-grid-v6.1.6) (2023-07-13)
+
+
+### Bug Fixes
+
+* o-grid, introduce designer-specific notes from archived designer docs ([#1165](https://www.github.com/Financial-Times/origami/issues/1165)) ([6c19b7c](https://www.github.com/Financial-Times/origami/commit/6c19b7c21055f7fc39a53d58b2b7af29515f1f94))
+
 ### [6.1.5](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.1.4...o-grid-v6.1.5) (2022-01-24)
 
 

@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-buttons",
-	"version": "7.8.1",
+	"version": "7.9.2",
 	"description": "FT buttons styles. Provides customisation options with the FT colour palette.",
 	"keywords": [
 		"pagination"
@@ -25,19 +25,14 @@
 		"@financial-times/o-colors": "^6.5.0",
 		"@financial-times/o-icons": "^7.0.0",
 		"@financial-times/o-normalise": "^3.3.0",
-		"@financial-times/o-typography": "^7.0.1"
+		"@financial-times/o-typography": "^7.4.1"
 	},
 	"devDependencies": {
 		"@financial-times/o-fonts": "^5.2.0",
 		"@financial-times/o-normalise": "^3.3.0"
 	},
 	"engines": {
-		"npm": "^7 || ^8"
+		"npm": ">7"
 	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	},
-	"percy": true,
 	"private": false
 }

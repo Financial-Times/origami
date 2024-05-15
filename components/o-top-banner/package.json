@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-top-banner",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "On site messaging for marketing and enhancement messages.",
   "keywords": [
     "banner",
@@ -31,12 +31,7 @@
     "@financial-times/o-typography": "^7.4.1"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

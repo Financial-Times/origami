@@ -38,13 +38,20 @@ const stateClassNames = [
  * Represents a step in a stepped progress component.
  */
 class SteppedProgressStep {
-
+	/**
+	 * Represents a stepped progress component.
+	 *
+	 * @typedef SteppedProgress
+	 * @access public
+	 * @param {HTMLElement} steppedProgressElement - The component element in the DOM.
+	 * @param {object} [options={}] - An options object for configuring the component.
+	 */
 	/**
 	 * Class constructor.
 	 *
 	 * @access public
 	 * @param {HTMLElement} stepElement - The step element in the DOM
-	 * @param {import("./stepped-progress")} parent - The parent stepped progress instance
+	 * @param {SteppedProgress} parent - The parent stepped progress instance
 	 */
 	constructor (stepElement, parent) {
 		this.stepElement = stepElement;

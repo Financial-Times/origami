@@ -1,0 +1,73 @@
+---
+title: Tooltips
+description: Use tooltips for onboarding and providing extra, non-essential information.
+sidebar:
+  badge:
+    text: New
+    variant: tip
+---
+
+import {default as ToggletipAnatomy} from '../../../components/ToggletipAnatomy.astro';
+import {default as OnboardingTooltipAnatomy} from '../../../components/OnboardingTooltipAnatomy.astro';
+import {Content as TooltipGuidelines} from '../../../content-partial/docs/components/onboardingTooltip-guidelines.mdx';
+import {Content as ToggletipGuidelines} from '../../../content-partial/docs/components/toggletip-guidelines.mdx';
+
+There are two kinds of tooltips available:
+
+- [Onboarding Tooltips](#onboarding-tooltips), to facilitate an introduction to new features or functionality.
+- [Toggle Tooltips](#toggle-tooltips), to provide additional contextual information.
+
+## Onboarding Tooltips
+
+Onboarding Tooltips help for a smoother introduction to new features or functionality.
+
+- Contain only descriptive unformatted text with an optional title for emphasis.
+- Should provide insights or tips that enhance, but aren't critical to, user understanding.
+- Appear only once; dismissing them removes them permanently.
+
+### Anatomy
+
+<OnboardingTooltipAnatomy />
+
+1. <strong>Heading (optional)</strong>: It's best to omit the tooltip heading as
+   emphasis cannot be portrayed to screen reader users. Employ a heading only
+   for presentational reasons, provided emphasis is not required for
+   understanding.
+2. <strong>Text</strong>: The main content providing detailed explanation or
+   information.
+3. <strong>Close button (×)</strong>: This button dismisses the tooltip. Once
+   closed, the tooltip should not reappear for the user.
+4. <strong>Arrow</strong>: A directional arrow that can point towards any side,
+   indicating the source of the information or context.
+5. <strong>Container</strong>: The encompassing frame that holds the message
+   text and ensures it's distinct from other UI elements.
+
+### Usage Guidelines
+
+<TooltipGuidelines />
+
+## Toggle Tooltips
+
+Toggle Tooltips ("Toggletips") are compact pieces of information designed to offer additional insights when needed.
+
+- Contain only descriptive text without any formatting.
+- Should provide relevant information that may be helpful, but is not required.
+- Hidden by default.
+- Toggle visibility through user interaction with the information icon.
+
+### Anatomy
+
+<ToggletipAnatomy />
+
+1. <strong>Trigger</strong>: A compact, circular icon marked with an information
+   symbol that activates the toggletip's visibility.
+2. <strong>Text</strong>: The main content providing detailed explanation or
+   information.
+3. <strong>Arrow</strong>: A directional arrow that can point towards any side,
+   indicating the source of the information or context.
+4. <strong>Container</strong>: The encompassing frame that holds the message
+   text and ensures it's distinct from other UI elements.
+
+### Usage Guidelines
+
+<ToggletipGuidelines />

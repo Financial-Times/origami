@@ -1,0 +1,41 @@
+name: 'Chromatic deployment – O2'
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'apps/o2-storybook/**'
+      - 'components/**'
+      - '!components/o3-*/**'
+
+jobs:
+  chromatic-deployment-o2:
+    strategy:
+      matrix:
+        brand: [core, internal, whitelabel]
+        include:
+          - brand: core
+            chromatic_secret: O2_CORE_CHROMATIC_PROJECT_TOKEN
+          - brand: internal
+            chromatic_secret: O2_INTERNAL_CHROMATIC_PROJECT_TOKEN
+          - brand: whitelabel
+            chromatic_secret: O2_WHITELABEL_CHROMATIC_PROJECT_TOKEN
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history
+      - name: Install dependencies
+        run: npm ci
+        # 👇 Adds Chromatic as a step in the workflow
+      - name: Publish Origami to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets[matrix.chromatic_secret] }}
+          workingDir: apps/o2-storybook
+          exitOnceUploaded: true
+        env:
+          ORIGAMI_STORYBOOK_BRAND: ${{ matrix.brand }}

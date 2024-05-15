@@ -1,0 +1,157 @@
+---
+title: Buttons
+description: Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
+---
+
+import {Button} from '@financial-times/o3-button';
+import '@financial-times/o3-button/css/professional.css';
+import {default as ButtonAnatomy} from '../../../../components/ButtonAnatomy.astro';
+import {default as Preview} from '../../../../components/ButtonPreview.astro';
+import {Content as ButtonGuidelines} from '../../../../content-partial/docs/components/buttons-guidelines.mdx';
+import {Content as ButtonBehaviour} from '../../../../content-partial/docs/components/buttons-behaviour.mdx';
+
+Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
+
+## Anatomy
+
+The button component contains two required elements and one optional element.
+
+<ButtonAnatomy />
+
+1. <strong>Icon (optional)</strong>: Most buttons don't need an icon. Use an
+   icon to add additional affordance where the icon has a clear and
+   well-established meaning.
+1. <strong>Label</strong>: Text that explains the result of selecting the
+   button. Use action verbs or phrases to tell the user what will happen next.
+1. <strong>Container</strong>: has minimum width of 80px for standard buttons
+   and 64px for small buttons.
+
+## Usage Guidelines
+
+<ButtonGuidelines />
+
+## Behaviour
+
+<ButtonBehaviour />
+
+## Icons
+
+Buttons may be used with icons, without icons, or only icons.
+
+### Without icon
+
+<Preview
+	brand="professional"
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
+/>
+
+### With icon
+
+When icons are used, these are always left aligned.
+
+<Preview
+	brand="professional"
+	component={Button}
+	componentProps={{
+		label: 'Hello',
+		type: 'primary',
+		theme: 'inverse',
+		icon: 'search',
+	}}
+/>
+
+### Only icon
+
+<Preview
+	brand="professional"
+	component={Button}
+	componentProps={{
+		label: 'Hello',
+		type: 'primary',
+		theme: 'inverse',
+		icon: 'search',
+		iconOnly: true,
+	}}
+/>
+
+## Sizes
+
+The button comes in two sizes: standard and small.
+
+### Standard
+
+<Preview
+	brand="professional"
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
+/>
+
+### Small
+
+<Preview
+	brand="professional"
+	component={Button}
+	componentProps={{
+		label: 'Hello',
+		type: 'primary',
+		theme: 'inverse',
+		size: 'small',
+	}}
+/>
+
+## Types
+
+There are three types of buttons to support different contexts.
+
+### Primary
+
+The primary button is used for the most important calls to action on a page. Primary buttons should only appear once per product area (not including the application header, modal dialogue, on-site messaging, or side panel).
+
+<Preview
+	brand="professional"
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
+/>
+
+### Secondary
+
+For secondary actions on each page or used in conjunction with a primary button. As part of a pair, the secondary button’s function is to perform the negative action of the set, such as “Cancel” or “Back”.
+
+<Preview
+	brand="professional"
+	component={Button}
+	componentProps={{label: 'Hello', type: 'secondary', theme: 'inverse'}}
+/>
+
+### Ghost
+
+For the least pronounced actions; often used in conjunction with a primary button. In a situation such as a progress flow, a ghost button may be paired with a primary and secondary button set, where the primary button is for ‘Save and continue’ the ghost button would be ‘Skip’.
+
+<Preview
+	brand="professional"
+	component={Button}
+	componentProps={{label: 'Hello', type: 'ghost', theme: 'inverse'}}
+/>
+
+## Themes
+
+Each button type supports the following themes.
+
+### Standard
+
+<Preview
+	brand="professional"
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary'}}
+/>
+
+### Inverse
+
+An alternative theme for use on dark backgrounds.
+
+<Preview
+	brand="professional"
+	component={Button}
+	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
+/>

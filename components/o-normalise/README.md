@@ -2,13 +2,15 @@
 
 Foundation styles and standardised utilities
 
-- [Usage](#usage)
-- [Sass](#sass)
-- [Focus States](#focus-states)
-- [Contributing](#contributing)
-- [Migration guide](#migration-guide)
-- [Contact](#contact)
-- [Licence](#licence)
+- [o-normalise ](#o-normalise-)
+	- [Usage](#usage)
+	- [Sass](#sass)
+		- [Other Mixins](#other-mixins)
+	- [Focus States](#focus-states)
+	- [Contributing](#contributing)
+	- [Migration guide](#migration-guide)
+	- [Contact](#contact)
+	- [Licence](#licence)
 
 ## Usage
 

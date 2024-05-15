@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-topper",
-  "version": "6.0.6",
+  "version": "6.0.8",
   "description": "Article header styling",
   "keywords": [
     "topper",
@@ -27,20 +27,15 @@
     "@financial-times/o-grid": "^6.0.0",
     "@financial-times/o-icons": "^7.0.1",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "devDependencies": {
     "@financial-times/o-fonts": "^5.2.0",
     "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-typography": "^7.2.0"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

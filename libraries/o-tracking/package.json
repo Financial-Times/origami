@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-tracking",
-  "version": "4.5.0",
+  "version": "4.5.4",
   "description": "Provides tracking for a product. Tracking requests are sent to the Spoor API.",
   "keywords": [
     "tracking",
@@ -18,11 +18,7 @@
   "type": "module",
   "browser": "main.js",
   "engines": {
-    "npm": "^7 || ^8"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
+    "npm": ">7"
   },
   "dependencies": {
     "ftdomdelegate": "^5"

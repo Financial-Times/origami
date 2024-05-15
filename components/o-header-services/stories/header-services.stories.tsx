@@ -1,5 +1,3 @@
-import withHtml from "origami-storybook-addon-html";
-import { withDesign } from "storybook-addon-designs";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { HeaderServices } from "../src/tsx/header-services";
 import "./header-services.scss";
@@ -28,12 +26,13 @@ const DummyTextDecorator = Story => (
 export default {
 	title: "Components/o-header-services",
 	component: HeaderServices,
-	decorators: [withDesign, withHtml, DummyTextDecorator],
+	decorators: [DummyTextDecorator],
 	parameters: {
 		layout: "fullscreen",
 	},
 	args: {
 		bleeedHeader: false,
+		relatedContentAlwaysVisible: false
 	},
 	argTypes: {
 		theme: {

@@ -1,5 +1,3 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import {LifeCycleLabel as LifeCycleLabelTsx} from '../../src/tsx/label';
 import '../labels.scss';
 
@@ -24,8 +22,7 @@ const ComponentDescription = {
 			  type: 'text'
 			}
 		  }
-	},
-	decorators: [withDesign, withHtml]
+	}
 };
 
 export default ComponentDescription;
@@ -36,4 +33,7 @@ export const LifeCycleLabel = args => {
 		delete args.size;
 	}
 	return <LifeCycleLabelTsx {...args}>{copy}</LifeCycleLabelTsx>;
+}
+LifeCycleLabel.args = {
+	text: 'Beta',
 }

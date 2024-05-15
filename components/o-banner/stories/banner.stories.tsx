@@ -1,14 +1,11 @@
-import {withDesign} from 'storybook-addon-designs';
 import {Banner} from '../src/tsx/banner';
 import {useEffect} from 'react';
 import javascript from '../main';
 import './banner.scss';
-import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Components/o-banner',
 	component: Banner,
-	decorators: [withDesign, withHtml],
 	args: {},
 	parameters: {
 		design: {

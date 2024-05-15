@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-message",
-  "version": "5.4.2",
+  "version": "5.4.4",
   "description": "Provides message elements for alerting, informing or making calls to action.",
   "keywords": [
     "message",
@@ -33,19 +33,14 @@
     "@financial-times/o-grid": "^6.0.0",
     "@financial-times/o-icons": "^7.0.1",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "devDependencies": {
     "@financial-times/o-fonts": "^5",
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

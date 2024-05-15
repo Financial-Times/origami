@@ -1,7 +1,7 @@
 import {iconMap} from "./svgComponents";
 
 type IconType =
-	| "twitter"
+	| "x"
 	| "facebook"
 	| "linkedin"
 	| "whatsapp"
@@ -11,7 +11,7 @@ export type UrlProps = {
 	title: string;
 	titleExtra: string;
 	summary: string;
-	relatedTwitterAccounts: string;
+	relatedXAccounts: string;
 }
 type ShareIconProps = {
 	icon: IconType;
@@ -44,7 +44,7 @@ type SocialIconProps = {
 	title: string;
 	titleExtra: string;
 	summary: string;
-	relatedTwitterAccounts: string;
+	relatedXAccounts: string;
 };
 
 function SocialIcon({
@@ -53,7 +53,7 @@ function SocialIcon({
 						title,
 						titleExtra,
 						summary,
-						relatedTwitterAccounts,
+						relatedXAccounts,
 					}: SocialIconProps) {
 	return (
 		<a
@@ -64,7 +64,7 @@ function SocialIcon({
 					title,
 					titleExtra,
 					summary,
-					relatedTwitterAccounts,
+					relatedXAccounts,
 				},
 				icon
 			)}
@@ -81,7 +81,7 @@ function SocialIcon({
 function generateDescriptiveLinkText(title: string, socialNetwork: IconType) {
 	// It seems like next article is not using pinterest and not sure how link or enterprise sharing is used and we might want to add something for the save button
 	const descriptiveLinkText = {
-		twitter: `Share ${title} on Twitter (opens a new window)`,
+		x: `Share ${title} on X, formerly known as Twitter (opens a new window)`,
 		facebook: `Share ${title} on Facebook (opens a new window)`,
 		linkedin: `Share ${title} on LinkedIn (opens a new window)`,
 		pinterest: `Share ${title} on Pinterest (opens a new window)`,
@@ -97,7 +97,7 @@ interface GenerateSocialUrlConfig {
 	title: string,
 	titleExtra: string
 	summary: string,
-	relatedTwitterAccounts: string
+	relatedXAccounts: string
 
 }
 
@@ -109,13 +109,13 @@ function generateSocialUrl(
 	const title = encodeURIComponent(config.title);
 	const titleExtra = encodeURIComponent(config.titleExtra);
 	const summary = encodeURIComponent(config.summary);
-	const relatedTwitterAccounts = encodeURIComponent(
-		config.relatedTwitterAccounts
+	const relatedXAccounts = encodeURIComponent(
+		config.relatedXAccounts
 	);
 
 	// It seems like next article is not using pinterest and not sure how link or enterprise sharing is used and we might want to add something for the save button
 	const socialUrls = {
-		twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}&related=${relatedTwitterAccounts}&via=FT`,
+		x: `https://x.com/intent/tweet?url=${url}&text=${title}&related=${relatedXAccounts}&via=FT`,
 		facebook: `http://www.facebook.com/sharer.php?u=${url}`,
 		linkedin: `http://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}+%7C+${titleExtra}&summary=${summary}&source=Financial+Times`,
 		pinterest: `http://www.pinterest.com/pin/create/button/?url=${url}&description=${title}`,

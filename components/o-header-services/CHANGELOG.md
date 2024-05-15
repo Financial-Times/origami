@@ -1,5 +1,48 @@
 # Changelog
 
+## [5.5.4](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.3...o-header-services-v5.5.4) (2024-04-11)
+
+
+### Bug Fixes
+
+* tweak the `$system-code` error message to include a simple link ([cd41d7f](https://github.com/Financial-Times/origami/commit/cd41d7fb4d5044e031d006ae6e608d658bf93f17))
+
+## [5.5.3](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.2...o-header-services-v5.5.3) (2024-03-05)
+
+
+### Bug Fixes
+
+* consolidate typing of hasHamburger menu in o-header-services ([e562c92](https://github.com/Financial-Times/origami/commit/e562c9272d5b3af9bcacecce1f9bc5f69c9492dd))
+* reference parentName in aria-label in o-header-services ([0be1c38](https://github.com/Financial-Times/origami/commit/0be1c3877e544afa7c7902136395fe46b0f71bcf))
+
+## [5.5.2](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.1...o-header-services-v5.5.2) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [5.5.1](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.0...o-header-services-v5.5.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
+## [5.5.0](https://github.com/Financial-Times/origami/compare/o-header-services-v5.4.0...o-header-services-v5.5.0) (2023-08-07)
+
+
+### Features
+
+* option to keep related content visible in header-services ([232b529](https://github.com/Financial-Times/origami/commit/232b52910afa6fbcd3f6a68b2cc633178a8ae94f))
+
+## [5.4.0](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.4...o-header-services-v5.4.0) (2023-07-12)
+
+
+### Features
+
+* o-header-services, allow JSX Elements to be passed in as relatedContent ([#1169](https://www.github.com/Financial-Times/origami/issues/1169)) ([7fc577d](https://www.github.com/Financial-Times/origami/commit/7fc577dbd26fa969d2d4264bdf0fbb6c98ccffdf))
+
 ### [5.3.4](https://www.github.com/Financial-Times/origami/compare/o-header-services-v5.3.3...o-header-services-v5.3.4) (2023-04-28)
 
 

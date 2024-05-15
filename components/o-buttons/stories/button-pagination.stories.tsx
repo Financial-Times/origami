@@ -1,14 +1,10 @@
-import {withDesign} from 'storybook-addon-designs';
-import {Button} from '../src/tsx/button';
 import {ButtonPagination} from '../src/tsx/pagination';
 import './button.scss';
-import withHtml from 'origami-storybook-addon-html';
 import { useState } from 'react';
 
 export default {
 	title: 'Components/o-buttons',
 	component: ButtonPagination,
-	decorators: [withDesign, withHtml],
 	args: {},
 	parameters: {
 		design: {},

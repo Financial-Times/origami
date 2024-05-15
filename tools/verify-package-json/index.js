@@ -50,7 +50,7 @@ function validEngines(engines) {
 			if (validSemver) {
 				// npm 7 or newer is required for automated peer dependency install
 				const minSupportedNpm = semver.minVersion(engines.npm);
-				return semver.satisfies(minSupportedNpm, '^7');
+				return semver.satisfies(minSupportedNpm, '>7');
 			}
 		} catch (error) {
 			return false;

@@ -1,5 +1,54 @@
 # Changelog
 
+## [2.2.7](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.6...o-multi-select-v2.2.7) (2024-05-15)
+
+
+### Bug Fixes
+
+* moved trim from textContext label and onto the button ([#1643](https://github.com/Financial-Times/origami/issues/1643)) ([29778ef](https://github.com/Financial-Times/origami/commit/29778efab444bbb8f631d7c8b126749ae0d3a072))
+
+## [2.2.6](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.5...o-multi-select-v2.2.6) (2024-05-09)
+
+
+### Bug Fixes
+
+* Trim option whitespace ([#1638](https://github.com/Financial-Times/origami/issues/1638)) ([e352cd4](https://github.com/Financial-Times/origami/commit/e352cd4bcda6fb52dfb0da3ea3b2a0649d0a96b5))
+
+## [2.2.5](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.4...o-multi-select-v2.2.5) (2024-01-04)
+
+
+### Bug Fixes
+
+* o-multi-select, use textContent rather than innerText ([#1388](https://github.com/Financial-Times/origami/issues/1388)) ([33d32a4](https://github.com/Financial-Times/origami/commit/33d32a405a672b79d7cb3594e5d4c5e4ca98a423))
+
+## [2.2.4](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.3...o-multi-select-v2.2.4) (2024-01-03)
+
+
+### Bug Fixes
+
+* show pre-selected options in the select box and use option label for aria-label ([7685916](https://github.com/Financial-Times/origami/commit/76859168432af6ac633868a66ae72e50898feedb))
+
+## [2.2.3](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.2...o-multi-select-v2.2.3) (2023-12-20)
+
+
+### Bug Fixes
+
+* allow for multiselect options with whitespace ([940f075](https://github.com/Financial-Times/origami/commit/940f075a4c73c31cbc78ba2079dd6c7293265a3c))
+
+## [2.2.2](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.1...o-multi-select-v2.2.2) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [2.2.1](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.0...o-multi-select-v2.2.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [2.2.0](https://www.github.com/Financial-Times/origami/compare/o-multi-select-v2.1.0...o-multi-select-v2.2.0) (2023-06-01)
 
 

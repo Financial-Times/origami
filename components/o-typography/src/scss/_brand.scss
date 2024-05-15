@@ -142,6 +142,12 @@ $_o-typography-font-scale: (
 				'hover': oColorsByName('mint-70'),
 				'hover-decoration': oColorsByName('mint-70')
 			),
+			'link-ft-live': (
+				'base': oColorsByName('ft-pink'),
+				'base-decoration': oColorsMix('ft-pink', 'slate', 80),
+				'hover': oColorsMix('ft-pink', 'slate', 80),
+				'hover-decoration': oColorsMix('ft-pink', 'slate', 80)
+			),
 			'heading-level-one': (
 				'scale': 5,
 				'weight': 'semibold'
@@ -168,7 +174,8 @@ $_o-typography-font-scale: (
 			)
 		),
 		'supports-variants': (
-			'professional'
+			'professional',
+			'ft-live'
 		)
 	));
 }

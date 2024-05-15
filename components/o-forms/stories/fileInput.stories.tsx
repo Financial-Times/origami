@@ -1,5 +1,3 @@
-import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {useEffect} from 'react';
 import './forms.scss';
@@ -15,7 +13,6 @@ const hideArg = {
 export default {
 	title: 'Components/o-forms/file-input',
 	component: FileInput,
-	decorators: [withDesign, withHtml],
 	argTypes: {
 		value: hideArg,
 		theme: hideArg

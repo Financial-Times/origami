@@ -185,12 +185,14 @@ class Video {
 			this.opts.classes.push('o-video__video');
 		}
 
-		this.targeting = {
+		const defaultTargeting = {
 			site: '/5887/ft.com',
 			position: 'video',
 			sizes: '592x333|400x225',
 			videoId: this.opts.id
 		};
+
+		this.targeting = Object.assign({}, defaultTargeting, this.opts.targeting);
 
 		if (this.opts.advertising) {
 			this.videoAds = new VideoAds(this);
@@ -303,7 +305,7 @@ class Video {
 
 		const existingTrackEl = this.videoEl.querySelector('track');
 		if (existingTrackEl) {
-			this.videoEl.removeChild(existingTrackEl);
+			existingTrackEl.remove();
 		}
 
 		if (this.videoData.captionsUrl) {
@@ -393,7 +395,7 @@ class Video {
 			this.addVideo();
 			this.videoEl.focus();
 
-			this.containerEl.removeChild(this.placeholderEl);
+			this.placeholderEl.remove();
 			if (this.infoPanel) {
 				this.infoPanel.teardown();
 			}

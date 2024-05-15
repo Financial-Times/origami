@@ -1,5 +1,52 @@
 # Changelog
 
+## [6.4.1](https://github.com/Financial-Times/origami/compare/o-teaser-v6.4.0...o-teaser-v6.4.1) (2024-04-15)
+
+
+### Bug Fixes
+
+* remove background color sky when opinoion on teaser with post modifier ([6cc7cd8](https://github.com/Financial-Times/origami/commit/6cc7cd8769cde60a66a6f8676121996524039076))
+
+## [6.4.0](https://github.com/Financial-Times/origami/compare/o-teaser-v6.3.0...o-teaser-v6.4.0) (2024-04-03)
+
+
+### Features
+
+* add post modifier to teaser ([f4e0ffe](https://github.com/Financial-Times/origami/commit/f4e0ffe8d9d3f78b974a9cce1d816e0e1e4243c9))
+
+
+### Bug Fixes
+
+* fix lint ([469b08b](https://github.com/Financial-Times/origami/commit/469b08b5338e99af1e3ac6648ff640b08a3096a1))
+
+## [6.3.0](https://github.com/Financial-Times/origami/compare/o-teaser-v6.2.10...o-teaser-v6.3.0) (2024-03-18)
+
+
+### Features
+
+* increase teaser margin size for improved tapability ([c67c01d](https://github.com/Financial-Times/origami/commit/c67c01d55bd426ead426e2acc64cd97c15ef782c))
+
+## [6.2.10](https://github.com/Financial-Times/origami/compare/o-teaser-v6.2.9...o-teaser-v6.2.10) (2023-11-09)
+
+
+### Bug Fixes
+
+* update o-teaser tsx templates to use date-fns version 2 ([#1331](https://github.com/Financial-Times/origami/issues/1331)) ([c53316b](https://github.com/Financial-Times/origami/commit/c53316ba964378d4f9077e2250fc73b40e9d2ab7))
+
+## [6.2.9](https://github.com/Financial-Times/origami/compare/o-teaser-v6.2.8...o-teaser-v6.2.9) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [6.2.8](https://github.com/Financial-Times/origami/compare/o-teaser-v6.2.7...o-teaser-v6.2.8) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [6.2.7](https://www.github.com/Financial-Times/origami/compare/o-teaser-v6.2.6...o-teaser-v6.2.7) (2023-04-28)
 
 

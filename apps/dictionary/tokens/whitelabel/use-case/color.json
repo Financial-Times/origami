@@ -1,0 +1,88 @@
+{
+  "o3": {
+    "color": {
+      "use-case": {
+        "link": {
+          "text": {
+            "@": {
+              "value": "{o3.color.palette.black-50}",
+              "type": "color",
+              "description": ""
+            },
+            "hover": {
+              "value": "{o3.color.palette.black-60}",
+              "type": "color"
+            }
+          },
+          "underline": {
+            "@": {
+              "value": "{o3.color.palette.black-30}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{o3.color.palette.black-70}",
+              "type": "color"
+            }
+          }
+        },
+        "link-inverse": {
+          "text": {
+            "@": {
+              "value": "{o3.color.palette.white}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{o3.color.palette.black-20}",
+              "type": "color"
+            }
+          },
+          "underline": {
+            "@": {
+              "value": "{o3.color.palette.white}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{o3.color.palette.black-20}",
+              "type": "color"
+            }
+          }
+        },
+        "page": {
+          "background": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
+        },
+        "page-inverse": {
+          "background": {
+            "value": "{o3.color.palette.black-80}",
+            "type": "color"
+          }
+        },
+        "body": {
+          "text": {
+            "value": "{o3.color.palette.black-80}",
+            "type": "color"
+          }
+        },
+        "body-inverse": {
+          "text": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
+        },
+        "muted": {
+          "text": {
+            "value": "{o3.color.palette.black-20}",
+            "type": "color",
+            "description": "\"Muted\" text is less prominent, for example credits and captions."
+          }
+        },
+        "muted-inverse": {
+          "value": "#808080",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

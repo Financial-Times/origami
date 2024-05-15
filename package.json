@@ -7,12 +7,13 @@
 	"scripts": {
 		"regenerate": "node ./scripts/regenerate-ci-config-files.js",
 		"install": "./scripts/install.bash",
-		"storybook": "cd apps/storybook && npm run storybook",
-		"build-storybook": "cd apps/storybook && npm run build-storybook",
+		"storybook": "cd apps/o2-storybook && npm run storybook",
+		"build-storybook": "cd apps/o2-storybook && npm run build-storybook",
 		"build": "./scripts/build-website.bash # this is for heroku, not people",
 		"start": "npx serve origami.ft.com # this is for heroku, not people",
-		"watch": "concurrently 'cd apps/website && npm run watch' 'cd apps/storybook && npm run watch-storybook' 'npx serve origami.ft.com'",
-		"create-component": "cd tools/create-component && create-component"
+		"watch": "concurrently 'cd apps/website && npm run watch' 'cd apps/o2-storybook && npm run watch-storybook' 'npx serve origami.ft.com'",
+		"create-component": "cd tools/create-component && create-component",
+		"precommit": "prettier --write"
 	},
 	"repository": {
 		"type": "git",
@@ -29,29 +30,27 @@
 	},
 	"homepage": "https://github.com/Financial-Times/origami#readme",
 	"volta": {
-		"node": "16.13.0",
-		"npm": "8.5.4"
+		"node": "18.18.2",
+		"npm": "10.2.1"
 	},
 	"engines": {
-		"node": "16.13.0",
-		"npm": "8.5.4"
+		"node": "18.18.2",
+		"npm": "10.2.1"
 	},
 	"workspaces": [
 		"components/*",
 		"libraries/*",
 		"presets/*",
 		"tools/*",
-		"apps/storybook/addons/*",
+		"apps/o2-storybook/addons/*",
 		"apps/*"
 	],
 	"devDependencies": {
 		"@babel/core": "^7.15.5",
 		"@esm-bundle/chai": "^4.3.4-fix.0",
 		"@lwc/eslint-plugin-lwc": "^1.1.1",
-		"@mdx-js/react": "^1.6.22",
 		"@open-wc/testing": "^3.0.3",
-		"@storybook/addon-docs": "^6.4.0-beta.22",
-		"@storybook/addon-essentials": "^6.4.0-beta.22",
+		"@storybook/addon-docs": "^7.4.0",
 		"@testing-library/dom": "^8.0.0",
 		"@testing-library/user-event": "^13.1.9",
 		"chai": "^4.3.4",
@@ -63,6 +62,7 @@
 		"eslint-plugin-import": "^2.25.3",
 		"eslint-plugin-jsdoc": "^37.0.3",
 		"fetch-mock": "^9.11.0",
+		"husky": "^8.0.3",
 		"mocha": "^8.3.2",
 		"prettier": "^2.3.2",
 		"proclaim": "^3.6.0",
@@ -84,6 +84,7 @@
 		"@actions/github": "^4.0.0",
 		"@actions/io": "^1.0.2",
 		"@percy/cli": "^1.0.5",
+		"@slack/web-api": "^7.0.2",
 		"autoprefixer": "^10.4.2",
 		"del": "^6.0.0",
 		"fast-glob": "^3.2.7",
@@ -95,7 +96,11 @@
 		"remark-cli": "^10.0.0",
 		"splitonce": "^0.1.2",
 		"toposort": "^2.0.2",
+		"typescript": "^5.2.2",
 		"undici": "^4.5.1",
 		"zx": "^4.1.1"
+	},
+	"peerDependencies": {
+		"esbuild": "^0.16.17"
 	}
 }

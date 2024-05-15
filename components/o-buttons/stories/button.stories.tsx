@@ -1,12 +1,9 @@
-import { withDesign } from "storybook-addon-designs";
 import { Button, LinkButton } from "../src/tsx/button";
 import "./button.scss";
-import withHtml from "origami-storybook-addon-html";
 
 export default {
 	title: "Components/o-buttons",
 	component: Button,
-	decorators: [withDesign, withHtml],
 	args: {
 		onClick: {
 			table: {

@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-header-services",
-  "version": "5.3.4",
+  "version": "5.5.4",
   "description": "Responsive page header for sites with minimal or customised branding, including internal products, customer facing tools, and specialist titles.",
   "keywords": [
     "header",
@@ -32,7 +32,7 @@
     "@financial-times/o-icons": "^7.0.0",
     "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-typography": "^7.4.1",
     "@financial-times/o-utils": "^2.0.0",
     "@financial-times/o-visual-effects": "^4.0.0"
   },
@@ -41,12 +41,7 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

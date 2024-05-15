@@ -1,5 +1,40 @@
 # Changelog
 
+## [4.2.13](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.12...o-overlay-v4.2.13) (2024-04-16)
+
+
+### Bug Fixes
+
+* set aria-modal according to opts.modal (o-overlay) ([#1564](https://github.com/Financial-Times/origami/issues/1564)) ([8afb206](https://github.com/Financial-Times/origami/commit/8afb206544d8caa7d6cb5144cccd74307f8a8419))
+
+## [4.2.12](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.11...o-overlay-v4.2.12) (2024-02-26)
+
+
+### Bug Fixes
+
+* Remove polyfill from component readme. ([78f9e1d](https://github.com/Financial-Times/origami/commit/78f9e1d49c1cdddeedb2cf6739a530cb4fe4f35c))
+
+## [4.2.11](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.10...o-overlay-v4.2.11) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [4.2.10](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.9...o-overlay-v4.2.10) (2023-10-16)
+
+
+### Bug Fixes
+
+* o-overlay, which to a h2 header ([#1291](https://github.com/Financial-Times/origami/issues/1291)) ([8513d25](https://github.com/Financial-Times/origami/commit/8513d25bec439a6067e8fd865c706baf55aba1c2))
+
+## [4.2.9](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.8...o-overlay-v4.2.9) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [4.2.8](https://www.github.com/Financial-Times/origami/compare/o-overlay-v4.2.7...o-overlay-v4.2.8) (2023-04-28)
 
 

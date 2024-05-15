@@ -1,5 +1,19 @@
 # Changelog
 
+## [6.1.0](https://github.com/Financial-Times/origami/compare/o-date-v6.0.1...o-date-v6.1.0) (2024-03-04)
+
+
+### Features
+
+* ci-2129 o-date allow users to set text case ([#1469](https://github.com/Financial-Times/origami/issues/1469)) ([0f88827](https://github.com/Financial-Times/origami/commit/0f88827e82eea1f179c5ce2edc6970c97ba15a1e))
+
+## [6.0.1](https://github.com/Financial-Times/origami/compare/o-date-v6.0.0...o-date-v6.0.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ## [6.0.0](https://www.github.com/Financial-Times/origami/compare/o-date-v5.4.0...o-date-v6.0.0) (2023-03-16)
 
 

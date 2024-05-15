@@ -1,0 +1,51 @@
+---
+function getBrandFromLocale(lang: string) {
+	debugger
+	switch (lang) {
+		case "en-GB-x-prof":
+			return "professional"
+		case "en-GB-x-sv":
+			return "sustainable-views"
+		case "en-GB-x-internal":
+			return "internal"
+		case "en-GB-x-core":
+		default:
+			return "core"
+	}
+}
+
+let brand = getBrandFromLocale(Astro.props.lang)
+---
+
+<div class={`content-panel`} data-o3-brand={brand}>
+	<div class="sl-container"><slot /></div>
+</div>
+
+<style>
+	.content-panel {
+		padding: 1.5rem var(--sl-content-pad-x);
+	}
+	.content-panel + .content-panel {
+		border-top: 1px solid var(--sl-color-hairline);
+	}
+	.sl-container {
+		max-width: var(--sl-content-width);
+	}
+
+	.sl-container > :global(* + *) {
+		margin-top: 1.5rem;
+	}
+
+	@media (min-width: 72rem) {
+		.sl-container {
+			margin-inline: var(--sl-content-margin-inline, auto);
+		}
+	}
+</style>
+
+<script>
+	// Set global brand to the internal brand.
+	// How to add a class to the body for all pages,
+    // without a script?
+	window.document.documentElement.setAttribute('data-o3-brand', 'internal');
+</script>

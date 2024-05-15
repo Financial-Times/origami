@@ -1,7 +1,5 @@
 import {Fragment} from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {withDesign} from 'storybook-addon-designs';
-import withHtml from 'origami-storybook-addon-html';
 
 import {Meter} from '../src/tsx/meter';
 import './meter.scss';
@@ -10,7 +8,6 @@ import {higherIsBetterDemoData, lowerIsBetterDemoData} from './meterData';
 export default {
 	title: 'Components/o-meter',
 	component: Meter,
-	decorators: [withDesign, withHtml],
 	args: {
 		min: 0,
 		max: 100,

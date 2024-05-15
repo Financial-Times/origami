@@ -1,7 +1,13 @@
 {
 	"compilerOptions": {
-		// 👇️ set jsx to react-jsx
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
 		"jsx": "react-jsx",
-		"esModuleInterop": true
-	}
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"target": "ES2021",
+		"module": "ES2020",
+		"moduleResolution": "Bundler",
+	},
+	"exclude": ["node_modules"]
 }

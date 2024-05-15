@@ -1,5 +1,3 @@
-import withHtml from "origami-storybook-addon-html";
-import { withDesign } from "storybook-addon-designs";
 import { ComponentMeta, Story } from "@storybook/react";
 import {
 	DefaultLayout as Layout,
@@ -32,7 +30,6 @@ type QueryStoryProps = ComponentProps<typeof QueryLayout> & AdditionalSbProps;
 export default {
 	title: "Components/o-layout",
 	component: Layout,
-	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {
 		footer: <DemoFooter />,

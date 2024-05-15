@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-expander",
-  "version": "6.2.6",
+  "version": "6.3.1",
   "description": "Content-aware helper for expanding and collapsing content or lists.",
   "keywords": [
     "accordion",
@@ -36,12 +36,7 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

@@ -10,3 +10,18 @@
 @function _oEditorialTypographySupports($variant) {
 	@return oBrandSupportsVariant($component: 'o-editorial-typography', $variant: $variant);
 }
+
+@if oBrandIs('core') {
+
+	@include oBrandDefine('o-editorial-typography', 'core', (
+		'variables': (
+			'link-inverse': (
+				'base': oColorsMix('teal', 'white', 55),
+				'base-decoration': oColorsMix('teal', 'slate', 40),
+				'hover': oColorsMix('teal', 'white', 40),
+				'hover-decoration': oColorsMix('teal', 'slate', 80)
+			),
+		),
+		'supports-variants': ()
+	));
+}

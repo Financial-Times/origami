@@ -38,4 +38,27 @@ describe('Core.Session', function () {
 		});
 	});
 
+	describe('getSession()', function() {
+		it('should generate new session if current has expired', function(done) {
+			const session = initSession({expires: 1});
+			// force a session write
+			getSession();
+			setTimeout(function() {
+				const newSession = getSession();
+				proclaim.notEqual(session.id, newSession.id);
+				done();
+			}, 2)
+		});
+
+		it('should mark session as new when generating new session due to expiration', function(done) {
+			initSession({expires: 1});
+			// force a session write
+			getSession();
+			setTimeout(function() {
+				const newSession = getSession();
+				proclaim.isTrue(newSession.isNew);
+				done();
+			}, 2)
+		})
+	})
 });

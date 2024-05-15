@@ -1,0 +1,259 @@
+---
+const {title, description} = Astro.props;
+const namePath = Astro.url.pathname;
+
+const jsAndCss = [
+	{name: 'o-layout', version: '@^5.3.2'},
+	{name: 'o-typography', version: '@^7.4.1'},
+	{name: 'o-normalise', version: '@^3.3.1'},
+	{name: 'o-header-services', version: '@^5.3.4'},
+	{name: 'o-footer-services', version: '@^4.2.6'},
+	{name: 'o-message', version: '@^5.4.2'},
+	{name: 'o-table', version: '@^9.3.1'},
+	{name: 'o-autoinit', version: '@^3.1.3'},
+	{name: 'o-forms', version: '@^9.11.2'},
+	{name: 'o-tracking', version: '@^4.5.0'},
+];
+const origamiStyles = [
+	...jsAndCss,
+	{
+		name: 'o-colors',
+		version: '@^6.6.2',
+	},
+	{
+		name: 'o-spacing',
+		version: '@^3.2.3',
+	},
+]
+	.map(styles => styles.name + styles.version)
+	.join(',');
+
+const origamiJs = [...jsAndCss].map(js => js.name + js.version).join(',');
+---
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard =
+			'querySelector' in document &&
+			'localStorage' in window &&
+			'addEventListener' in window;
+		if (cutsTheMustard) {
+			document.documentElement.className =
+				document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link
+		rel="icon"
+		type="image/svg+xml"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg"
+		sizes="any"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png"
+		sizes="16x16"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png"
+		sizes="32x32"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png"
+		sizes="96x96"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png"
+		sizes="128x128"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png"
+		sizes="196x196"
+	/>
+	<link
+		rel="alternate icon"
+		type="image/png"
+		href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png"
+		sizes="310x310"
+	/>
+
+	<!-- Site links -->
+	<link
+		rel="sitemap"
+		type="application/xml"
+		href="/sitemap-index.xml"
+		title="Sitemap"
+	/>
+	<link rel="canonical" href={`https://origami.ft.com${namePath}`} />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html');
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace(
+					'o-typography--loading-' + fontLabels[i],
+					''
+				);
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link
+		rel="stylesheet"
+		href=`https://www.ft.com/__origami/service/build/v3/bundles/css?components=${origamiStyles}&brand=internal&system_code=origami-website`
+	/>
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+
+	<style lang="scss" is:global>
+		// NOTE
+		// Some temporary styles just to make this look less awful while
+		// we work on it. Remove these as soon as styling work begins
+
+		html,
+		body {
+			margin: 0;
+			height: 100%;
+		}
+
+		abbr {
+			text-decoration: none;
+			border-bottom: 1px dotted black;
+		}
+
+		code {
+			font-size: 1rem;
+		}
+
+		:not(pre) > code {
+			background-color: var(--o-colors-slate-white-5);
+			outline: 1px solid var(--o-colors-slate-white-15);
+		}
+
+		.no-wrap {
+			white-space: nowrap;
+		}
+
+		aside.no-padding {
+			padding-left: 0;
+			grid-row: span 7;
+
+			p {
+				padding-left: 1em;
+			}
+			pre {
+				margin: 0;
+			}
+		}
+
+		iframe {
+			border: none;
+			margin-bottom: 1em;
+			width: 100%;
+		}
+
+		img {
+			display: inline-block;
+			max-width: 100%;
+		}
+
+		table.o-manifest__table {
+			width: auto;
+		}
+
+		.o-layout__hero:before {
+			background-image: url('/assets/images/home-page-hero.jpg');
+		}
+
+		.o-layout__hero svg {
+			display: none;
+		}
+
+		@media (prefers-reduced-motion: no-preference) and (min-width: 490px) {
+			.o-website__hero--home {
+				padding: 0;
+
+				&.o-layout__hero:before {
+					content: none;
+				}
+
+				svg {
+					position: absolute;
+					display: block;
+					width: 100vw;
+					height: 100%;
+				}
+			}
+
+			.o-website__hero--text {
+				position: absolute;
+				pointer-events: none;
+			}
+		}
+
+		.o-header-services__logo {
+			background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:origami?format=svg&source=origami&width=55);
+		}
+
+		dl {
+			margin: 0 0 var(--o-spacing-s6) 0;
+		}
+
+		dd {
+			margin: var(--o-spacing-s2);
+			margin-bottom: var(--o-spacing-s4);
+		}
+
+		dt,
+		strong {
+			font-weight: 600;
+		}
+
+		// Charts
+
+		.chart {
+			width: 100%;
+			margin-bottom: 1em;
+		}
+
+		.chart-grid {
+			display: flex;
+			flex-wrap: wrap;
+			.chart {
+				width: 50%;
+			}
+		}
+	</style>
+
+	<!-- JS -->
+	<script
+		defer
+		src=`https://www.ft.com/__origami/service/build/v3/bundles/js?components=${origamiJs}&system_code=origami-website`
+	></script>
+	<script defer src="/assets/tracking.js"></script>
+</head>

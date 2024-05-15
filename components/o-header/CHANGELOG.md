@@ -1,4 +1,32 @@
 # Changelog
+## [11.2.0](https://github.com/Financial-Times/origami/compare/o-header-v11.1.1...o-header-v11.2.0) (2024-03-18)
+
+
+### Features
+
+* removing spacing of first subnav button ([74ebf9c](https://github.com/Financial-Times/origami/commit/74ebf9c2d015711c2e42a9cdf3f61177627c9569))
+
+## [11.1.1](https://github.com/Financial-Times/origami/compare/o-header-v11.1.0...o-header-v11.1.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [11.1.0](https://github.com/Financial-Times/origami/compare/o-header-v11.0.7...o-header-v11.1.0) (2023-09-07)
+
+
+### Features
+
+* o-header, add option to reveal the search bar by default. ([#1265](https://github.com/Financial-Times/origami/issues/1265)) ([0f44111](https://github.com/Financial-Times/origami/commit/0f44111a9091a1d3f1b5e999b2394b81b89bf895))
+
+## [11.0.7](https://github.com/Financial-Times/origami/compare/o-header-v11.0.6...o-header-v11.0.7) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [11.0.6](https://www.github.com/Financial-Times/origami/compare/o-header-v11.0.5...o-header-v11.0.6) (2023-04-28)
 
 

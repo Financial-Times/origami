@@ -120,6 +120,14 @@ o-viewport:
   - components/o-viewport/**/*
 o-visual-effects:
   - components/o-visual-effects/**/*
+o3-button:
+  - components/o3-button/**/*
+o3-foundation:
+  - components/o3-foundation/**/*
+o3-tooltip:
+  - components/o3-tooltip/**/*
+o3-typography:
+  - components/o3-typography/**/*
 ftdomdelegate:
   - libraries/ftdomdelegate/**/*
 math:
@@ -130,10 +138,14 @@ o-brand:
   - libraries/o-brand/**/*
 o-errors:
   - libraries/o-errors/**/*
+o-testing-library:
+  - libraries/o-testing-library/**/*
 o-tracking:
   - libraries/o-tracking/**/*
 o-utils:
   - libraries/o-utils/**/*
+o3-tooling-token:
+  - libraries/o3-tooling-token/**/*
 sass-mq:
   - libraries/sass-mq/**/*
 eslint-config-origami-component:
@@ -148,6 +160,8 @@ create-component:
   - tools/create-component/**/*
 demo-build:
   - tools/demo-build/**/*
+o3-compilation:
+  - tools/o3-compilation/**/*
 origami-bower-safe-version-supervisor:
   - tools/origami-bower-safe-version-supervisor/**/*
 origami-tools-helpers:
@@ -165,14 +179,20 @@ verify-origami-json:
 verify-package-json:
   - tools/verify-package-json/**/*
 background:
-  - apps/storybook/addons/background/**/*
+  - apps/o2-storybook/addons/background/**/*
 guidelines:
-  - apps/storybook/addons/guidelines/**/*
-html:
-  - apps/storybook/addons/html/**/*
+  - apps/o2-storybook/addons/guidelines/**/*
 markdown-tabs:
-  - apps/storybook/addons/markdown-tabs/**/*
-storybook:
-  - apps/storybook/**/*
-website:
-  - apps/website/**/*
+  - apps/o2-storybook/addons/markdown-tabs/**/*
+astro-website:
+  - apps/astro-website/**/*
+dictionary:
+  - apps/dictionary/**/*
+for-everyone-website:
+  - apps/for-everyone-website/**/*
+o2-storybook:
+  - apps/o2-storybook/**/*
+o2-storybook-composition:
+  - apps/o2-storybook-composition/**/*
+o3-storybook:
+  - apps/o3-storybook/**/*

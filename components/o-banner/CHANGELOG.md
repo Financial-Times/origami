@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.5.2](https://github.com/Financial-Times/origami/compare/o-banner-v4.5.1...o-banner-v4.5.2) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [4.5.1](https://github.com/Financial-Times/origami/compare/o-banner-v4.5.0...o-banner-v4.5.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ## [4.5.0](https://www.github.com/Financial-Times/origami/compare/o-banner-v4.4.9...o-banner-v4.5.0) (2023-05-30)
 
 

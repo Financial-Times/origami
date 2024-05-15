@@ -1,14 +1,14 @@
 {
   "name": "ftdomdelegate",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "FT's dom delegate library is a library for creating and binding to events on all target elements matching the given selector.",
   "browser": "main.js",
   "type": "module",
   "author": "FT Labs <enquiries@labs.ft.com> (http://labs.ft.com/)",
-	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues/new?labels=ftdomdelegate,libraries",
-		"email": "origami.support@ft.com"
-	},
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=ftdomdelegate,libraries",
+    "email": "origami.support@ft.com"
+  },
   "contributors": [
     "Matthew Caruana Galizia",
     "Sam Giles",
@@ -41,10 +41,6 @@
   },
   "scripts": {
     "test": "karma start karma.config.cjs"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
   },
   "private": false
 }

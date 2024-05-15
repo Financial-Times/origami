@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/DocLayout.astro"
+
+const title = "Origami Storybook"
+const description = "Storybook for Origami components and services"
+---
+
+<Layout title={title} description={description}>
+	<div class="o-layout__main o-layout-typography">
+		<h1>{title}</h1>
+		<p>Interactive front-end component demos and documentation.</p>
+
+		<ul>
+			<li>
+				<a href="https://o2-core.origami.ft.com">Core brand Storybook</a>: Components for public ft.com sites, apps, and affiliates. Includes FT Professional and FT Live brands.
+			</li>
+			<li>
+				<a href="https://o2-internal.origami.ft.com">Internal brand Storybook</a>: Styles suitable for tools, documentation, and internal products.
+			</li>
+			<li>
+				<a href="https://o2-whitelabel.origami.ft.com">Whitelabel Storybook</a>: Base, structural styles only, to build new brands from.
+			</li>
+		</ul>
+
+		<p>We've moved component demos and documentation from the Origami Registry to Storybook. This is a first step toward design-guideline led documentation.</p>
+
+		<p>To learn more about the future of Origami component documentation, see our <a href="https://origami.ft.com/blog/2024/02/12/newsletter/#goodbye-registry">January 2024 newsletter</a>.</p>
+	</div>
+</Layout>

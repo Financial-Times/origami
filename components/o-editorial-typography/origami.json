@@ -48,6 +48,18 @@
 			"template": "demos/src/ordered-list.mustache"
 		},
 		{
+			"title": "Links",
+			"name": "links",
+			"documentClasses": "o-editorial-typography-body",
+			"template": "demos/src/links.mustache"
+		},
+		{
+			"title": "Links Inverse",
+			"name": "links-inverse",
+			"documentClasses": "o-editorial-typography-body demo-inverse",
+			"template": "demos/src/links-inverse.mustache"
+		},
+		{
 			"title": "Standfirst",
 			"name": "standfirst",
 			"template": "demos/src/standfirst.mustache"

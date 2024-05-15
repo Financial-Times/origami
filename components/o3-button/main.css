@@ -1,0 +1,494 @@
+.o3-button {
+	--_o3-button-min-width: 80px;
+	--_o3-button-min-height: 40px;
+
+	--_o3-button-block-padding: var(--o3-spacing-4xs);
+	--_o3-button-inline-padding-start: var(--o3-spacing-4xs);
+	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
+
+	--_o3-button-font-size: var(--o3-font-size-negative-1);
+	--_o3-button-lineheight: var(--o3-font-lineheight-negative-1);
+
+	--_o3-button-border-size: 1px;
+	--_o3-icon-size: calc(
+		var(--_o3-button-min-height) - (var(--_o3-button-block-padding) * 2)
+	);
+
+	--_o3-button-font-weight: var(--o3-font-weight-semibold);
+
+	min-width: var(--_o3-button-min-width);
+	/* Width based on content by default, until set to `inital` */
+	--o3-button-fluid: ;
+	width: var(--o3-button-fluid, 100%);
+	min-height: var(--_o3-button-min-height);
+	padding: 0 var(--_o3-button-inline-padding-end) 0
+		var(--_o3-button-inline-padding-start);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	vertical-align: middle;
+	font-size: var(--_o3-button-font-size);
+	line-height: var(--_o3-button-lineheight);
+	font-weight: var(--_o3-button-font-weight);
+	font-family: var(--o3-font-family-metric), sans-serif;
+	border: var(--_o3-button-border-size) solid transparent;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition: 0.3s background-color, 0.15s color ease-out,
+		0.15s border-color ease-out;
+	appearance: none;
+}
+
+.o3-button[disabled] {
+	pointer-events: none;
+	opacity: 0.4;
+	cursor: default;
+}
+
+.o3-button[disabled].o3-button--hide-disabled {
+	visibility: hidden;
+}
+
+/* PRIMARY */
+
+.o3-button.o3-button--primary {
+	color: var(--_o3-button-primary-standard-color);
+	background-color: var(--_o3-button-primary-standard-background);
+	border-color: var(--_o3-button-primary-standard-border);
+
+	&:hover {
+		color: var(--_o3-button-primary-standard-hover-color);
+		background-color: var(--_o3-button-primary-standard-hover-background);
+		border-color: var(--_o3-button-primary-standard-hover-border);
+	}
+
+	&:focus {
+		color: var(--_o3-button-primary-standard-focus-color);
+		background-color: var(--_o3-button-primary-standard-focus-background);
+		border-color: var(--_o3-button-primary-standard-focus-border);
+	}
+
+	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
+		color: var(--_o3-button-primary-standard-active-color);
+		background-color: var(--_o3-button-primary-standard-active-background);
+		border-color: var(--_o3-button-primary-standard-active-border);
+	}
+}
+
+/* PRIMARY INVERSE */
+
+.o3-button.o3-button--primary[data-o3-theme='inverse'],
+:where([data-o3-theme='inverse']) .o3-button.o3-button--primary {
+	color: var(--_o3-button-primary-inverse-color);
+	background-color: var(--_o3-button-primary-inverse-background);
+	border-color: var(--_o3-button-primary-inverse-border);
+
+	&:hover {
+		color: var(--_o3-button-primary-inverse-hover-color);
+		background-color: var(--_o3-button-primary-inverse-hover-background);
+		border-color: var(--_o3-button-primary-inverse-hover-border);
+	}
+
+	&:focus {
+		color: var(--_o3-button-primary-inverse-focus-color);
+		background-color: var(--_o3-button-primary-inverse-focus-background);
+		border-color: var(--_o3-button-primary-inverse-focus-border);
+	}
+
+	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
+		color: var(--_o3-button-primary-inverse-active-color);
+		background-color: var(--_o3-button-primary-inverse-active-background);
+		border-color: var(--_o3-button-primary-inverse-active-border);
+	}
+}
+
+/* PRIMARY MONO */
+
+.o3-button.o3-button--primary[data-o3-theme='mono'],
+:where([data-o3-theme='mono']) .o3-button.o3-button--primary {
+	color: var(--_o3-button-primary-mono-color);
+	background-color: var(--_o3-button-primary-mono-background);
+	border-color: var(--_o3-button-primary-mono-border);
+
+	&:hover {
+		color: var(--_o3-button-primary-mono-hover-color);
+		background-color: var(--_o3-button-primary-mono-hover-background);
+		border-color: var(--_o3-button-primary-mono-hover-border);
+	}
+
+	&:focus {
+		color: var(--_o3-button-primary-mono-focus-color);
+		background-color: var(--_o3-button-primary-mono-focus-background);
+		border-color: var(--_o3-button-primary-mono-focus-border);
+	}
+
+	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
+		color: var(--_o3-button-primary-mono-active-color);
+		background-color: var(--_o3-button-primary-mono-active-background);
+		border-color: var(--_o3-button-primary-mono-active-border);
+	}
+}
+
+/* SECONDARY */
+
+.o3-button.o3-button--secondary {
+	color: var(--_o3-button-secondary-standard-color);
+	background-color: var(--_o3-button-secondary-standard-background);
+	border-color: var(--_o3-button-secondary-standard-border);
+
+	&:hover {
+		color: var(--_o3-button-secondary-standard-hover-color);
+		background-color: var(--_o3-button-secondary-standard-hover-background);
+		border-color: var(--_o3-button-secondary-standard-hover-border);
+	}
+
+	&:focus {
+		color: var(--_o3-button-secondary-standard-focus-color);
+		background-color: var(--_o3-button-secondary-standard-focus-background);
+		border-color: var(--_o3-button-secondary-standard-focus-border);
+	}
+
+	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
+		color: var(--_o3-button-secondary-standard-active-color);
+		background-color: var(--_o3-button-secondary-standard-active-background);
+		border-color: var(--_o3-button-secondary-standard-active-border);
+	}
+}
+
+/* SECONDARY INVERSE */
+
+.o3-button.o3-button--secondary[data-o3-theme='inverse'],
+:where([data-o3-theme='inverse']) .o3-button.o3-button--secondary {
+	color: var(--_o3-button-secondary-inverse-color);
+	background-color: var(--_o3-button-secondary-inverse-background);
+	border-color: var(--_o3-button-secondary-inverse-border);
+
+	&:hover {
+		color: var(--_o3-button-secondary-inverse-hover-color);
+		background-color: var(--_o3-button-secondary-inverse-hover-background);
+		border-color: var(--_o3-button-secondary-inverse-hover-border);
+	}
+
+	&:focus {
+		color: var(--_o3-button-secondary-inverse-focus-color);
+		background-color: var(--_o3-button-secondary-inverse-focus-background);
+		border-color: var(--_o3-button-secondary-inverse-focus-border);
+	}
+
+	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
+		color: var(--_o3-button-secondary-inverse-active-color);
+		background-color: var(--_o3-button-secondary-inverse-active-background);
+		border-color: var(--_o3-button-secondary-inverse-active-border);
+	}
+}
+
+/* SECONDARY MONO */
+
+.o3-button.o3-button--secondary[data-o3-theme='mono'],
+:where([data-o3-theme='mono']) .o3-button.o3-button--secondary {
+	color: var(--_o3-button-secondary-mono-color);
+	background-color: var(--_o3-button-secondary-mono-background);
+	border-color: var(--_o3-button-secondary-mono-border);
+
+	&:hover {
+		color: var(--_o3-button-secondary-mono-hover-color);
+		background-color: var(--_o3-button-secondary-mono-hover-background);
+		border-color: var(--_o3-button-secondary-mono-hover-border);
+	}
+
+	&:focus {
+		color: var(--_o3-button-secondary-mono-focus-color);
+		background-color: var(--_o3-button-secondary-mono-focus-background);
+		border-color: var(--_o3-button-secondary-mono-focus-border);
+	}
+
+	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
+		color: var(--_o3-button-secondary-mono-active-color);
+		background-color: var(--_o3-button-secondary-mono-active-background);
+		border-color: var(--_o3-button-secondary-mono-active-border);
+	}
+}
+
+/* GHOST */
+
+.o3-button.o3-button--ghost {
+	color: var(--_o3-button-ghost-standard-color);
+	background-color: var(--_o3-button-ghost-standard-background);
+	border-color: var(--_o3-button-ghost-standard-border);
+
+	&:hover {
+		color: var(--_o3-button-ghost-standard-hover-color);
+		background-color: var(--_o3-button-ghost-standard-hover-background);
+		border-color: var(--_o3-button-ghost-standard-hover-border);
+	}
+
+	&:focus {
+		color: var(--_o3-button-ghost-standard-focus-color);
+		background-color: var(--_o3-button-ghost-standard-focus-background);
+		border-color: var(--_o3-button-ghost-standard-focus-border);
+	}
+
+	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
+		color: var(--_o3-button-ghost-standard-active-color);
+		background-color: var(--_o3-button-ghost-standard-active-background);
+		border-color: var(--_o3-button-ghost-standard-active-border);
+	}
+}
+
+/* GHOST INVERSE */
+
+.o3-button.o3-button--ghost[data-o3-theme='inverse'],
+:where([data-o3-theme='inverse']) .o3-button.o3-button--ghost {
+	color: var(--_o3-button-ghost-inverse-color);
+	background-color: var(--_o3-button-ghost-inverse-background);
+	border-color: var(--_o3-button-ghost-inverse-border);
+
+	&:hover {
+		color: var(--_o3-button-ghost-inverse-hover-color);
+		background-color: var(--_o3-button-ghost-inverse-hover-background);
+		border-color: var(--_o3-button-ghost-inverse-hover-border);
+	}
+
+	&:focus {
+		color: var(--_o3-button-ghost-inverse-focus-color);
+		background-color: var(--_o3-button-ghost-inverse-focus-background);
+		border-color: var(--_o3-button-ghost-inverse-focus-border);
+	}
+
+	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
+		color: var(--_o3-button-ghost-inverse-active-color);
+		background-color: var(--_o3-button-ghost-inverse-active-background);
+		border-color: var(--_o3-button-ghost-inverse-active-border);
+	}
+}
+
+/* GHOST MONO */
+
+.o3-button.o3-button--ghost[data-o3-theme='mono'],
+:where([data-o3-theme='mono']) .o3-button.o3-button--ghost {
+	color: var(--_o3-button-ghost-mono-color);
+	background-color: var(--_o3-button-ghost-mono-background);
+	border-color: var(--_o3-button-ghost-mono-border);
+
+	&:hover {
+		color: var(--_o3-button-ghost-mono-hover-color);
+		background-color: var(--_o3-button-ghost-mono-hover-background);
+		border-color: var(--_o3-button-ghost-mono-hover-border);
+	}
+
+	&:focus {
+		color: var(--_o3-button-ghost-mono-focus-color);
+		background-color: var(--_o3-button-ghost-mono-focus-background);
+		border-color: var(--_o3-button-ghost-mono-focus-border);
+	}
+
+	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
+		color: var(--_o3-button-ghost-mono-active-color);
+		background-color: var(--_o3-button-ghost-mono-active-background);
+		border-color: var(--_o3-button-ghost-mono-active-border);
+	}
+}
+
+/* FLUID BUTTON */
+
+.o3-button[data-o3-fluid] {
+	@media screen and (max-width: 490px) {
+		--o3-button-fluid: initial;
+	}
+}
+/* SMALL BUTTON */
+
+.o3-button.o3-button--small {
+	--_o3-button-min-width: 60px;
+	--_o3-button-min-height: 28px;
+
+	--_o3-button-inline-padding-start: var(--o3-spacing-4xs);
+	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
+
+	--_o3-button-font-size: var(--o3-font-size-negative-2);
+	--_o3-button-lineheight: var(--o3-font-lineheight-negative-2);
+}
+
+/* PAGINATION */
+
+.o3-button-pagination {
+	width: 100%;
+	display: flex;
+	container-type: inline-size;
+	gap: var(--o3-spacing-4xs);
+}
+
+.o3-button-pagination > .o3-button,
+.o3-button-pagination > .o3-button.o3-button-icon--icon-only,
+.o3-button-pagination__ellipsis {
+	--_o3-button-min-width: auto;
+	--_o3-button-min-height: 40px;
+	max-width: 38px;
+	flex: 1 1 38px;
+}
+
+@supports (container-type: inline-size) {
+	/*
+	 * If container is less than the width of 9 buttons (2 arrows + 7 total pages/ellipses),
+	 * hide some buttons for a 'narrow' view.
+	 *
+	 * Read as: calc(--_o3-button-min-width * 9 + var(--o3-spacing-4xs) * 8)
+	 */
+	@container (width <= calc((38px * 9) + (0.5rem * 8))) {
+		.o3-button-pagination > [data-o3-button-show-when='wide'] {
+			display: none;
+		}
+	}
+	@container (width > calc((38px * 9) + (0.5rem * 8))) {
+		.o3-button-pagination > [data-o3-button-show-when='narrow'] {
+			display: none;
+		}
+	}
+}
+
+@supports not (container-type: inline-size) {
+	/*
+	 * 740px aligns with our legacy o-grid M layout
+	 * (https://registry.origami.ft.com/components/o-grid@6.1.7/readme?brand=core#Readme)
+	 */
+	@media screen and (max-width: 740px) {
+		.o3-button-pagination > [data-o3-button-show-when='wide'] {
+			display: none;
+		}
+	}
+	@media screen and (min-width: 741px) {
+		.o3-button-pagination > [data-o3-button-show-when='narrow'] {
+			display: none;
+		}
+	}
+}
+
+.o3-button-pagination__ellipsis {
+	display: flex;
+	box-sizing: border-box;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--o3-font-size-3);
+	line-height: 0;
+	min-height: var(--_o3-button-min-height);
+	color: var(--o3-color-palette-black-60);
+}
+
+.o3-button-pagination__ellipsis[data-o3-theme='inverse'],
+:where([data-o3-theme='inverse']) .o3-button-pagination__ellipsis {
+	color: var(--o3-color-palette-white);
+}
+
+/* Grouped buttons */
+
+.o3-button-group {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.o3-button-group > .o3-button + .o3-button {
+	margin-left: calc(var(--_o3-button-border-size) * -1);
+}
+
+/* BUTTON ICON  */
+
+.o3-button-icon::before {
+	content: '';
+	width: var(--_o3-icon-size);
+	height: var(--_o3-icon-size);
+	mask-image: var(--o3-button-icon);
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	display: inline-block;
+	background-color: currentColor;
+}
+
+/*
+	Ensure iconography is maintained when forced colours is enabled.
+	E.g. Windows High Contrast Mode
+	https://drafts.csswg.org/css-color/#valdef-color-buttontext
+ */
+@media (forced-colors: active) {
+	/* stylelint-disable-next-line selector-no-qualifying-type */
+	button.o3-button-icon::before {
+		background-color: ButtonText;
+	}
+	/* stylelint-disable-next-line selector-no-qualifying-type */
+	a.o3-button-icon::before {
+		background-color: LinkText;
+	}
+}
+
+.o3-button-icon:not(.o3-button-icon--icon-only)::before {
+	margin-right: var(--o3-spacing-4xs);
+}
+
+.o3-button-icon {
+	--_o3-button-inline-padding-end: var(--o3-spacing-s);
+}
+
+.o3-button--small.o3-button-icon {
+	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
+}
+
+.o3-button-icon.o3-button-icon--icon-only {
+	--_o3-button-min-width: 40px;
+	--_o3-button-inline-padding-start: 0;
+	--_o3-button-inline-padding-end: 0;
+}
+
+.o3-button-icon__label {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	clip-path: polygon(0 0, 0 0);
+	margin: -1px;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 2px;
+	height: 2px;
+	white-space: nowrap;
+}
+
+.o3-button-icon.o3-button-icon--cross::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-cross);
+}
+
+.o3-button-icon.o3-button-icon--upload::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-upload);
+}
+.o3-button-icon.o3-button-icon--tick::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-tick);
+}
+.o3-button-icon.o3-button-icon--search::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-search);
+}
+.o3-button-icon.o3-button-icon--plus::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-plus);
+}
+
+.o3-button-icon.o3-button-icon--download::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-download);
+}
+.o3-button-icon.o3-button-icon--arrow-up::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-arrow-up);
+}
+.o3-button-icon.o3-button-icon--arrow-down::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-arrow-down);
+}
+.o3-button-icon.o3-button-icon--arrow-right::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-arrow-right);
+}
+.o3-button-icon.o3-button-icon--arrow-left::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-arrow-left);
+}
+
+.o3-button-icon.o3-button-icon--edit-outlined::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-edit-outlined);
+}
+
+.o3-button-icon.o3-button-icon--refresh::before {
+	--o3-button-icon: var(--o3-icons-ft-icon-refresh);
+}

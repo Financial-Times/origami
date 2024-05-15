@@ -1,14 +1,11 @@
-import {withDesign} from 'storybook-addon-designs';
 import {CookieMessage} from '../src/tsx/cookie-message';
 import {useEffect} from 'react';
 import javascript from '../main';
 import './cookie-message.scss';
-import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Components/o-cookie-message',
 	component: CookieMessage,
-	decorators: [withDesign, withHtml],
 	args: {},
 	parameters: {
 		guidelines: {},

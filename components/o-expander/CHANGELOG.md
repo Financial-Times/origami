@@ -1,5 +1,26 @@
 # Changelog
 
+## [6.3.1](https://github.com/Financial-Times/origami/compare/o-expander-v6.3.0...o-expander-v6.3.1) (2024-04-16)
+
+
+### Bug Fixes
+
+* fix bug in expander tsx template ([#1563](https://github.com/Financial-Times/origami/issues/1563)) ([f3d2821](https://github.com/Financial-Times/origami/commit/f3d28213ec5cb0e25eedf162578d06d26b3c0949))
+
+## [6.3.0](https://github.com/Financial-Times/origami/compare/o-expander-v6.2.7...o-expander-v6.3.0) (2024-04-12)
+
+
+### Features
+
+* Do not initialise expanders twice, to support nested expanders ([pr](https://github.com/Financial-Times/origami/pull/1528))
+
+## [6.2.7](https://github.com/Financial-Times/origami/compare/o-expander-v6.2.6...o-expander-v6.2.7) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ### [6.2.6](https://www.github.com/Financial-Times/origami/compare/o-expander-v6.2.5...o-expander-v6.2.6) (2023-01-20)
 
 

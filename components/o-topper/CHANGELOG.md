@@ -1,5 +1,19 @@
 # Changelog
 
+## [6.0.8](https://github.com/Financial-Times/origami/compare/o-topper-v6.0.7...o-topper-v6.0.8) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
+## [6.0.7](https://github.com/Financial-Times/origami/compare/o-topper-v6.0.6...o-topper-v6.0.7) (2023-08-25)
+
+
+### Bug Fixes
+
+* update o-typography dependency  ([fb45b47](https://github.com/Financial-Times/origami/commit/fb45b47274241ea828f7dd50233441a76a215a51))
+
 ### [6.0.6](https://www.github.com/Financial-Times/origami/compare/o-topper-v6.0.5...o-topper-v6.0.6) (2023-04-28)
 
 

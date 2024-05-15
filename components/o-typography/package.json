@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-typography",
-  "version": "7.4.1",
+  "version": "7.6.2",
   "description": "Typographical styles for FT branded sites. Including typographical fundamentals such as font scales, vertical rhythm, and font fallbacks; plus styles for UI including links, headings, and titles. Other components build on o-typography to provide for more specific usecases.",
   "keywords": [
     "font",
@@ -50,12 +50,7 @@
     "@financial-times/o-colors": "^6.6.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

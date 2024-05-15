@@ -1,0 +1,42 @@
+{
+	"name": "o3-storybook",
+	"version": "0.0.1",
+	"description": "Storybook for o3 components",
+	"main": "index.js",
+	"scripts": {
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "../../scripts/build-o3-deps.sh && storybook build",
+		"chromatic": "chromatic"
+	},
+	"private": true,
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@chromatic-com/storybook": "^1.3.1",
+		"@storybook/addon-a11y": "^8.0.6",
+		"@storybook/addon-designs": "^8.0.0",
+		"@storybook/addon-essentials": "^8.0.6",
+		"@storybook/addon-interactions": "^8.0.6",
+		"@storybook/addon-links": "^8.0.6",
+		"@storybook/addon-styling-webpack": "^1.0.0",
+		"@storybook/addon-webpack5-compiler-swc": "^1.0.2",
+		"@storybook/blocks": "^8.0.6",
+		"@storybook/preview-api": "^8.0.6",
+		"@storybook/react": "^8.0.6",
+		"@storybook/react-webpack5": "^8.0.6",
+		"@storybook/test": "^8.0.6",
+		"@storybook/test-runner": "^0.17.0",
+		"@storybook/testing-library": "^0.2.0",
+		"@whitespace/storybook-addon-html": "^6.0.4",
+		"autoprefixer": "^10.4.15",
+		"chromatic": "^11.3.0",
+		"css-loader": "^7.0.0",
+		"postcss": "^8.4.29",
+		"postcss-loader": "^8.1.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"storybook": "^8.0.6",
+		"style-loader": "^3.3.3",
+		"typescript": "^5.2.2"
+	}
+}

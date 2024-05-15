@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-meter",
-  "version": "3.2.2",
+  "version": "3.2.5",
   "description": "Provides customization for meter tag",
   "keywords": [
     "meter",
@@ -8,7 +8,9 @@
     "range",
     "fraction",
     "gauge",
-    "data"
+    "data",
+    "chart",
+    "bar"
   ],
   "homepage": "https://registry.origami.ft.com/components/o-meter",
   "bugs": {
@@ -28,20 +30,15 @@
   "peerDependencies": {
     "@financial-times/o-colors": "^6.5.0",
     "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "devDependencies": {
     "@financial-times/o-fonts": "^5.2.0",
     "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-typography": "^7.2.0"
+    "@financial-times/o-typography": "^7.4.1"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

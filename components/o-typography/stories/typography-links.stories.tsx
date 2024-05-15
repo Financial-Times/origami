@@ -1,12 +1,9 @@
-import {withDesign} from 'storybook-addon-designs';
 import {Link} from '../src/tsx/typography';
 import './typography.scss';
-import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Components/o-typography',
 	component: Link,
-	decorators: [withDesign, withHtml],
     args: {},
 	parameters: {
 		design: {

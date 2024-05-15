@@ -262,18 +262,6 @@ demos/local/
 "
 `;
 
-exports[`Component template files Root non ejs files expect .prettierrc.toml ejsRenderer fn output to match snapshot 1`] = `
-"printWidth = 80
-trailingComma = \\"es5\\"
-semi = true
-singleQuote = true
-useTabs = true
-bracketSpacing = false
-jsxBracketSameLine = true
-arrowParens = \\"avoid\\"
-"
-`;
-
 exports[`Component template files Root non ejs files expect .remarkrc.cjs ejsRenderer fn output to match snapshot 1`] = `
 "module.exports.plugins = [require(\\"remark-preset-lint-origami-component\\")]
 "
@@ -375,16 +363,13 @@ export default TestName;
 `;
 
 exports[`Component template files src and stories ejs files expect <name>.stories.tsx ejsRenderer fn output to match snapshot 1`] = `
-"import withHtml from 'origami-storybook-addon-html';
-import {withDesign} from 'storybook-addon-designs';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
+"import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {TestName} from '../src/tsx/test-name';
 import './test-name.scss';
 
 export default {
 	title: 'Components/o-test-name',
 	component: TestName,
-	decorators: [withDesign, withHtml],
 	parameters: {},
 	args: {},
 } as ComponentMeta<typeof TestName>;

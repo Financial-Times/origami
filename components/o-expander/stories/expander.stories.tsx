@@ -1,13 +1,11 @@
 import {Expander} from '../src/tsx/expander';
 import javascript from '../main.js';
 import './expander.scss';
-import withHtml from 'origami-storybook-addon-html';
 import {useEffect} from 'react';
 
 export default {
 	title: 'Components/o-expander',
 	component: Expander,
-	decorators: [withHtml],
 	parameters: {
 		html: {},
 	},

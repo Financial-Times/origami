@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-video",
-  "version": "7.2.8",
+  "version": "7.2.13",
   "description": "Creates a video player and attaches analytics. Also supports pre roll ads.",
   "keywords": [
     "videos",
@@ -28,7 +28,7 @@
     "@financial-times/o-icons": "^7.0.0",
     "@financial-times/o-loading": "^5.0.0",
     "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-typography": "^7.4.1",
     "@financial-times/o-viewport": "^5.0.0"
   },
   "devDependencies": {
@@ -36,12 +36,7 @@
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {
-    "npm": "^7 || ^8"
+    "npm": ">7"
   },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "percy": true,
   "private": false
 }

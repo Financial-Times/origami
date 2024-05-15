@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.2](https://github.com/Financial-Times/origami/compare/o-ft-affiliate-ribbon-v5.2.1...o-ft-affiliate-ribbon-v5.2.2) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update node and npm ([c371fc3](https://github.com/Financial-Times/origami/commit/c371fc3f7f2d66266dbca95862ecef3ddeb1f339))
+
 ### [5.2.1](https://www.github.com/Financial-Times/origami/compare/o-ft-affiliate-ribbon-v5.2.0...o-ft-affiliate-ribbon-v5.2.1) (2023-04-28)
 
 
