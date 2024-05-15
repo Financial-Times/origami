@@ -9,17 +9,17 @@ $g-audio-horz-padding-block: 15px;
 $g-audio-vert-padding-block: 10px;
 
 // Teal theme
-$g-audio-teal-button-background: #0D7680;
-$g-audio-teal-button-background-hover: #08474D;
-$g-audio-teal-button-color: #FFFFFF;
+$g-audio-teal-button-background: oColorsByName('teal');
+$g-audio-teal-button-background-hover: oColorsByName('teal-30');
+$g-audio-teal-button-color: oColorsByName('white');
 
-$g-audio-teal-content-background: rgba(13, 118, 128, 0.10);
-$g-audio-teal-content-color: #08474D;
+$g-audio-teal-content-background: oColorsMix('teal', 'paper', 10);
+$g-audio-teal-content-color: oColorsByName('teal-30');
 
 // Pink theme
-$g-audio-pink-button-background: #E6175C;
-$g-audio-pink-button-background-hover: #990F3D;
-$g-audio-pink-button-color: #FFFFFF;
+$g-audio-pink-button-background: oColorsByName('claret-90');
+$g-audio-pink-button-background-hover: oColorsByName('claret');
+$g-audio-pink-button-color: oColorsByName('white');
 
-$g-audio-pink-content-background: rgba(230, 23, 92, 0.10);
-$g-audio-pink-content-color: #33302E;
+$g-audio-pink-content-background: oColorsMix('claret-90', 'paper', 10);
+$g-audio-pink-content-color: oColorsByName('black-90');
