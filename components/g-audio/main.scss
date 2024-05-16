@@ -1,124 +1,51 @@
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-colors/main';
 @import 'src/scss/variables';
+@import 'src/scss/mixins';
 
-// Teal theme mixin
-@mixin teal-theme {
-  $g-audio-button-background: $g-audio-teal-button-background !global;
-  $g-audio-button-background-hover: $g-audio-teal-button-background-hover !global;
-  $g-audio-button-color: $g-audio-teal-button-color !global;
-
-  $g-audio-content-background: $g-audio-teal-content-background !global;
-  $g-audio-content-color: $g-audio-teal-content-color !global;
-}
-
-// Pink theme mixin
-@mixin pink-theme {
-  $g-audio-button-background: $g-audio-pink-button-background !global;
-  $g-audio-button-background-hover: $g-audio-pink-button-background-hover !global;
-  $g-audio-button-color: $g-audio-pink-button-color !global;
-
-  $g-audio-content-background: $g-audio-pink-content-background !global;
-  $g-audio-content-color: $g-audio-pink-content-color !global;
-}
-
-/// Output all gAudio features
-/// @param {Map} $opts [()] - A map of options to configure the output
+/// Output g-audio
+///
+/// @example All default g-audio styles.
+///     @include gAudio();
+///
+/// @example Include teal theme.
+///    @include oButtons($opts: (
+///        'themes': ('teal')
+///    ));
+///
+/// @example Include teal theme with a block player
+///    @include oButtons($opts: (
+///        'themes': ('teal'),
+///        'variants': ('block')
+///    ));
+///
+/// @param {List} $opts
 /// @access public
-@mixin gAudio($opts: (
-  'theme': 'pink',
-)) {
-  $theme: map-get($opts, 'theme');
-  @if $theme == 'pink' {
-    @include pink-theme;
-  } @else if $theme == 'teal' {
-    @include teal-theme;
-  }
+@mixin gAudio(
+	$opts: (
+		'themes': $_g-audio-themes,
+		'variants': $_g-audio-variants,
+	)
+) {
+	$themes: map-get($opts, 'themes');
+	$themes: if($themes, $themes, ());
+	$variants: map-get($opts, 'variants');
+	$variants: if($variants, $variants, ());
 
-	// content of primary mixin
-	.g-audio.g-audio--initialized {
-		cursor: pointer;
-		margin: 0 $g-audio-horz-margin;
-		vertical-align: top;
-	
-		// inline player
-	
-		.g-audio--playbutton {
-			background: $g-audio-button-background;
-			color: $g-audio-button-color;
-			padding: $g-audio-vert-padding-inline 0;
-
-			&:hover {
-				background: $g-audio-button-background-hover;
-			}
+	// Include theme variables
+	@each $theme in $themes {
+		@if index($_g-audio-themes, $theme) {
+			@include _gAudioThemeContent($theme);
 		}
-	
-		.g-audio--playbutton:before {
-			@include oIconsContent('play', $g-audio-button-color, 28);
-			content: '';
-			font-size: 1em;
-			vertical-align: bottom;
-		}
-	
-		&.g-audio-pause .g-audio--playbutton:before {
-			@include oIconsContent('pause', $g-audio-button-color, 28);
-			content: '';
-			font-size: 1em;
-			vertical-align: bottom;
-		}
-	
-		.g-audio-content {
-			background: $g-audio-content-background;
-			color: $g-audio-content-color;
-			display: inline;
-			padding: $g-audio-vert-padding-inline $g-audio-horz-padding-inline;
-			position: relative;
-	
-			.g-audio-content-progressbar {
-				background: $g-audio-button-background;
-				height: 1px;
-				left: 0;
-				pointer-events: none;
-				position: absolute;
-				bottom: 0;
-				transition: width 0.1s ease;
-			}
-
-			&:hover .g-audio-content-progressbar {
-				background: $g-audio-button-background-hover;
-
-				&:after {
-					content: "•";
-					color: $g-audio-button-background-hover;
-					position: absolute;
-					right: -1px;
-					line-height: 0;
-				}
-			}
-		}
-	
-	
-		// block player
-	
-		&.g-audio--block {
-			display: block;
-			margin: 1em 0;
-			padding: $g-audio-vert-padding-block 0;
-			width: 100%;
-	
-			.g-audio--playbutton {
-				background: $g-audio-button-background;
-				color: $g-audio-button-color;
-				padding: $g-audio-vert-padding-block $g-audio-horz-padding-inline;
-			}
-	
-			.g-audio-content {
-				padding: $g-audio-vert-padding-block $g-audio-horz-padding-block;
-			}
-		}
-	
 	}
-	
+
+	// Always include base styles
+	@include _gAudioBaseContent();
+
+	// Additional styles if we're including the block variant
+	@if index($variants, 'block') {
+		@include _gAudioBlockVariant();
+	}
 }
 
 @if ($g-audio-is-silent == false) {

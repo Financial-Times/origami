@@ -1,5 +1,15 @@
 $g-audio-is-silent: true !default;
 
+/// A list of all available g-audio themes
+/// @type List
+/// @access private
+$_g-audio-themes: (teal, claret) !default;
+
+/// A list of all available g-audio variants
+/// @type List
+/// @access private
+$_g-audio-variants: (inline, block) !default;
+
 $g-audio-horz-margin: 5px;
 
 $g-audio-horz-padding-inline: 6px;

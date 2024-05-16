@@ -1,0 +1,114 @@
+// Teal theme mixin
+@mixin gAudioTealTheme {
+	$g-audio-button-background: $g-audio-teal-button-background !global;
+	$g-audio-button-background-hover: $g-audio-teal-button-background-hover !global;
+	$g-audio-button-color: $g-audio-teal-button-color !global;
+
+	$g-audio-content-background: $g-audio-teal-content-background !global;
+	$g-audio-content-color: $g-audio-teal-content-color !global;
+}
+
+// Pink theme mixin
+@mixin gAudioClaretTheme {
+	$g-audio-button-background: $g-audio-pink-button-background !global;
+	$g-audio-button-background-hover: $g-audio-pink-button-background-hover !global;
+	$g-audio-button-color: $g-audio-pink-button-color !global;
+
+	$g-audio-content-background: $g-audio-pink-content-background !global;
+	$g-audio-content-color: $g-audio-pink-content-color !global;
+}
+
+@mixin _gAudioThemeContent($theme) {
+	@if $theme == 'teal' {
+		@include gAudioTealTheme;
+	} @else if $theme == 'claret' {
+		@include gAudioClaretTheme;
+	}
+}
+
+@mixin _gAudioBaseContent() {
+	// content of primary mixin
+	.g-audio.g-audio--initialized {
+		cursor: pointer;
+		margin: 0 $g-audio-horz-margin;
+		vertical-align: top;
+
+		// inline player
+
+		.g-audio--playbutton {
+			background: $g-audio-button-background;
+			color: $g-audio-button-color;
+			padding: $g-audio-vert-padding-inline 0;
+
+			&:hover {
+				background: $g-audio-button-background-hover;
+			}
+		}
+
+		.g-audio--playbutton:before {
+			@include oIconsContent('play', $g-audio-button-color, 28);
+			content: '';
+			font-size: 1em;
+			vertical-align: bottom;
+		}
+
+		&.g-audio-pause .g-audio--playbutton:before {
+			@include oIconsContent('pause', $g-audio-button-color, 28);
+			content: '';
+			font-size: 1em;
+			vertical-align: bottom;
+		}
+
+		.g-audio-content {
+			background: $g-audio-content-background;
+			color: $g-audio-content-color;
+			display: inline;
+			padding: $g-audio-vert-padding-inline $g-audio-horz-padding-inline;
+			position: relative;
+
+			.g-audio-content-progressbar {
+				background: $g-audio-button-background;
+				height: 1px;
+				left: 0;
+				pointer-events: none;
+				position: absolute;
+				bottom: 0;
+				transition: width 0.1s ease;
+			}
+
+			&:hover .g-audio-content-progressbar {
+				background: $g-audio-button-background-hover;
+
+				&:after {
+					content: '•';
+					color: $g-audio-button-background-hover;
+					position: absolute;
+					right: -1px;
+					line-height: 0;
+				}
+			}
+		}
+	}
+}
+
+@mixin _gAudioBlockVariant() {
+	.g-audio.g-audio--initialized {
+		// block player
+		&.g-audio--block {
+			display: block;
+			margin: 1em 0;
+			padding: $g-audio-vert-padding-block 0;
+			width: 100%;
+
+			.g-audio--playbutton {
+				background: $g-audio-button-background;
+				color: $g-audio-button-color;
+				padding: $g-audio-vert-padding-block $g-audio-horz-padding-inline;
+			}
+
+			.g-audio-content {
+				padding: $g-audio-vert-padding-block $g-audio-horz-padding-block;
+			}
+		}
+	}
+}
