@@ -257,7 +257,7 @@ Quote is a composite component that includes quote text, author and caption. It 
 
 ```html
 <blockquote
- class="o3-editorial-typography-quote__block"
+ class="o3-editorial-typography-blockquote"
  data-o3-editorial-quote-icon="true"
 >
  <p>
@@ -328,13 +328,13 @@ import {BigNumber} from '@financial-times/o3-editorial-typography/cjs'; // or /e
 
 ### Lists
 
-`o3-editorial-typography` supports ordered and unordered lists. Use the classes `o3-editorial-typography-list__ordered` or `o3-editorial-typography-list__unordered`.
+`o3-editorial-typography` supports ordered and unordered lists. Use the classes `o3-editorial-typography-list-ordered` or `o3-editorial-typography-list-unordered`.
 
-Lists may be used in different contexts they inherit font properties such as size and family. It's therefore required to apply font styles to a parent element. E.g. this could be done with `o3-editorial-typography-body__large`:
+Lists may be used in different contexts they inherit font properties such as size and family. It's therefore required to apply font styles to a parent element. E.g. this could be done with `o3-editorial-typography-body`:
 
 ```html
-<div class="o3-editorial-typography-body__large">
- <ol class="o3-editorial-typography-list__ordered">
+<div class="o3-editorial-typography-body">
+ <ol class="o3-editorial-typography-list-ordered">
   <li>Lorem ipsum adipiscing elit.</li>
   <li>Sed feugiat turpis at massa tristique.</li>
   <li>Curabitu r accumsan elit luctus.</li>

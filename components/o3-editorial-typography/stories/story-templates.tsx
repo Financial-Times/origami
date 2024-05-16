@@ -231,7 +231,6 @@ const LinkTemplate: StoryObj = {
 		}
 		return (
 			<BodyTsx>
-				<span>
 					We have a &nbsp;
 					<LinkTsx {...args}>{args.content}</LinkTsx>
 					&nbsp; style. Links may open in a new window/tab but we &nbsp;
@@ -239,7 +238,6 @@ const LinkTemplate: StoryObj = {
 						recommend against it
 					</LinkTsx>
 					&nbsp; in most cases.
-				</span>
 			</BodyTsx>
 		);
 	},
@@ -257,7 +255,7 @@ export const Heading: HeadlineStory = {
 export const Body: BodyStory = {
 	...BodyTemplate,
 	args: {
-		content: 'Body',
+		content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum illum facere totam architecto eum porro exercitationem, ea, accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?',
 		theme: 'standard',
 	},
 };

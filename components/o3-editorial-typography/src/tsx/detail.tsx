@@ -42,15 +42,15 @@ export const Quote = ({
 	children,
 }: QuoteProps) => {
 	const attributes = getDataAttributes(theme, false, quoteIcon);
-	const classNames = `o3-editorial-typography-quote__${type}`;
+	const classNames = `o3-editorial-typography-${type}quote`;
 	return (
 		<blockquote className={classNames} {...attributes}>
 			<p>{children}</p>
 			<cite>
-				<span className="o3-editorial-typography-quote__author">
+				<span className={`o3-editorial-typography-${type}quote__author`}>
 					{quoteAuthor}
 				</span>
-				<span className="o3-editorial-typography-quote__caption">
+				<span className={`o3-editorial-typography-${type}quote__source`}>
 					{quoteCaption}
 				</span>
 			</cite>
