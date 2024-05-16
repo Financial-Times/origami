@@ -230,7 +230,7 @@ const LinkTemplate: StoryObj = {
 			args.anchorTarget = '_blank'
 		}
 		return (
-			<BodyTsx>
+			<BodyTsx theme={args.theme}>
 					We have a &nbsp;
 					<LinkTsx {...args}>{args.content}</LinkTsx>
 					&nbsp; style. Links may open in a new window/tab but we &nbsp;

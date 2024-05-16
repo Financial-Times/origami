@@ -161,6 +161,13 @@ import {TopicTag} from '@financial-times/o3-editorial-typography/cjs'; // or /es
 | href | `string` | - | URL to link the topic tag. The presence of `href` prop will determine rendered element tag |
 | theme | `standard` \| `inverse` | `standard` | Theme of the topic tag. |
 
+Color and hover colour of the topic tag can be customized by using the following CSS variables:
+
+| Variable                                          | Description                  | Default                |
+| ------------------------------------------------- | ---------------------------- | ---------------------- |
+| `--o3-editorial-typography-topic-tag-color`       | Colour of the topic tag       | `claret` - for core    |
+| `--o3-editorial-typography-topic-tag-hover-color` | Hover colour of the topic tag | `claret-30` - for core |
+
 #### Standfirst
 
 Short intro below the headline that provides context about a post. Used in combination with a header in the topper component. Pure HTML markup is as follows:
@@ -251,6 +258,13 @@ import {Byline} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 | --- | --- | --- | --- |
 | theme | `standard` \| `inverse` | `standard` | Theme of the byline. |
 
+Byline author colour and hover color can be customized by using the following CSS variables:
+
+| Variable                                              | Description                      | Default                |
+| ----------------------------------------------------- | -------------------------------- | ---------------------- |
+| `--o3-editorial-typography-byline-author-color`       | Colour of the byline author       | `claret` - for core    |
+| `--o3-editorial-typography-byline-author-hover-color` | Hover colour of the byline author | `claret-30` - for core |
+
 #### Quote
 
 Quote is a composite component that includes quote text, author and caption. It is used to display direct words said by a person. It can also include an icon to indicate the speech marks by adding `data-o3-editorial-quote-icon="true"` attribute. It comes in two types: `block` and `pull`. The difference between the two is that `block` quote has vertical line on the left side of the quote, while `pull` quote has none. Pure HTML markup is as follows:
@@ -267,8 +281,10 @@ Quote is a composite component that includes quote text, author and caption. It 
   supportable and more maintainable.
  </p>
  <cite>
-  <span class="o3-editorial-typography-quote__author">Quote Author</span>
-  <span class="o3-editorial-typography-quote__caption">Quote Source</span>
+  <span class="o3-editorial-typography-blockquote__author">Quote Author</span>
+  <span class="o3-editorial-typography-blockquote__caption"
+   >Quote Source</span
+  >
  </cite>
 </blockquote>
 ```
