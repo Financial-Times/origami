@@ -6,11 +6,9 @@
           "value": "{o3.color.palette.black}",
           "type": "color"
         },
-        "inverse": {
-          "color": {
-            "value": "{o3.color.palette.white}",
-            "type": "color"
-          }
+        "inverse-color": {
+          "value": "{o3.color.palette.white}",
+          "type": "color"
         }
       },
       "use-case": {
@@ -176,7 +174,7 @@
           },
           "type": "typography"
         },
-        "quote": {
+        "pullquote-content": {
           "value": {
             "fontFamily": "{o3.font.family.metric}",
             "fontWeight": "{o3.font.weight.semibold}",
@@ -185,21 +183,48 @@
           },
           "type": "typography"
         },
-        "quote-author": {
+        "blockquote-content": {
           "value": {
-            "fontFamily": "{o3.font.family.metric}",
+            "fontFamily": "{o3.font.family.georgia}",
             "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.negative-1}",
-            "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
+            "fontSize": "{o3.font.size.2}",
+            "lineHeight": "{o3.font.lineheight.4}"
           },
           "type": "typography"
         },
-        "quote-caption": {
+        "blockquote-author": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.semibold}",
+            "fontSize": "{o3.font.size-metric2.0}",
+            "lineHeight": "{o3.font.lineheight-metric2.0}"
+          },
+          "type": "typography"
+        },
+        "pullquote-author": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.semibold}",
+            "fontSize": "{o3.font.size.negative-2}",
+            "lineHeight": "{o3.font.lineheight.negative-2}"
+          },
+          "type": "typography"
+        },
+        "blockquote-source": {
           "value": {
             "fontFamily": "{o3.font.family.metric}",
             "fontWeight": "{o3.font.weight.regular}",
-            "lineHeight": "{o3.font.lineheight.negative-2}",
-            "fontSize": "{o3.font.size.negative-2}"
+            "lineHeight": "{o3.font.lineheight-metric2.1}",
+            "fontSize": "{o3.font.size-metric2.1}"
+          },
+          "type": "typography"
+        },
+        "pullquote-source": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.regular}",
+            "lineHeight": "{o3.font.lineheight-metric2.1}",
+            "fontSize": "{o3.font.size-metric2.1}"
           },
           "type": "typography"
         },
@@ -223,32 +248,62 @@
         }
       },
       "byline-timestamp": {
-        "@": {
+        "color": {
           "value": "{o3.color.palette.black-60}",
           "type": "color"
         },
-        "inverse": {
+        "inverse-color": {
           "value": "{o3.color.palette.black-20}",
           "type": "color"
         }
       },
       "topic-tag": {
-        "@": {
+        "color": {
           "value": "{o3.color.palette.claret}",
           "type": "color"
         },
-        "hover": {
-          "value": "{o3.color.palette.claret-30}",
+        "inverse-color": {
+          "value": "{o3.color.palette.white}",
           "type": "color"
+        },
+        "hover": {
+          "color": {
+            "value": "{o3.color.palette.claret-30}",
+            "type": "color"
+          },
+          "inverse-color": {
+            "value": "{o3.color.palette.black-20}",
+            "type": "color"
+          }
         }
       },
       "byline-author": {
-        "@": {
+        "color": {
           "value": "{o3.color.palette.claret}",
           "type": "color"
         },
+        "inverse-color": {
+          "value": "{o3.color.palette.white}",
+          "type": "color"
+        },
         "hover": {
-          "value": "{o3.color.palette.claret-30}",
+          "color": {
+            "value": "{o3.color.palette.claret-30}",
+            "type": "color"
+          },
+          "inverse-color": {
+            "value": "{o3.color.palette.black-20}",
+            "type": "color"
+          }
+        }
+      },
+      "caption": {
+        "color": {
+          "value": "{o3.color.palette.black-70}",
+          "type": "color"
+        },
+        "inverse-color": {
+          "value": "{o3.color.palette.black-20}",
           "type": "color"
         }
       }
