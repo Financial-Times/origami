@@ -12,6 +12,7 @@ Typographical styles for FT branded sites.
   - [Footer](#footer)
   - [Modifiers](#modifiers)
   - [Wrapper](#wrapper)
+  - [Custom Properties](#custom-properties)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -191,6 +192,27 @@ import { Wrapper, Heading, Body } from '@financial-times/o3-typography';
 	<Body>And so does this paragraphy of text.</Body>
 	<Heading level={2}>This gets styled also</Heading>
 </Wrapper>
+```
+
+### Custom Properties
+
+#### Max Line Width
+
+`o3-typography` includes a CSS Custom Property `--o3-typography-max-line-width` to limit typography line length for readability.
+E.g.
+```css
+.my-selector {
+	max-width: var(--o3-typography-max-line-width);
+}
+```
+You may want to slightly decrease or increase this limit inline with our [design guidelines](https://origami-for-everyone.ft.com/guides/typography/). To do so we recommend using the [ch relative unit](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#distance_units).
+
+E.g.
+
+```css
+.my-selector {
+	max-width: 70ch;
+}
 ```
 
 ## Contact
