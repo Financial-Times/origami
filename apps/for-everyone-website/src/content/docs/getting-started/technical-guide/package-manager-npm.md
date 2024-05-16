@@ -45,7 +45,7 @@ We recommend JSX templates for React projects. This will reduce the number of ma
 
 ### HTML from Storybook
 
-This example shows including a button which is described by an "[onboarding tooltip](/components/tooltip/#onboarding-tooltips)" using HTML copied from [Storybook](https://o3.origami.ft.com):
+This example shows including a button which is described by an "[onboarding tooltip](/components/tooltip/#onboarding-tooltips)". It includes HTML copied from the [HTML tab in Storybook](https://o3.origami.ft.com/?path=/story/core-o3-tooltip--onboarding-tooltip):
 
 ```html
 <body data-o3-brand="core">

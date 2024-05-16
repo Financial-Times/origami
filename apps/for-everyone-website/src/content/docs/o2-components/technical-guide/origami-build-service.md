@@ -31,7 +31,9 @@ E.g. To include [o-footer](https://o2-core.origami.ft.com/?path=/docs/components
 ></script>
 ```
 
-Then copy HTML for your component from [Storybook](https://o2.origami.ft.com/):
+Then copy HTML for your component from [Storybook](https://o2.origami.ft.com/?path=/story/o2-core_components-o-footer-dark-theme--darktheme&globals=backgrounds:!undefined). To do so, find a component in the sidebar that meets your needs and then select the "HTML" tab.
+
+Components also include a markup section in their [README file](https://o2.origami.ft.com/?path=/docs/o2-core_components-o-footer-readme--docs#markup) which describes their HTML structure and possible modifications. This is also available for each component from the [Storybook](https://o2.origami.ft.com/?path=/story/o2-core_components-o-footer-dark-theme--darktheme&globals=backgrounds:!undefined) sidebar.
 
 ```html
 <footer
@@ -42,3 +44,5 @@ Then copy HTML for your component from [Storybook](https://o2.origami.ft.com/):
 	<!-- footer markup taken from Storybook -->
 </footer>
 ```
+
+If you have questions or need help please [reach out to the Origami team](/getting-started/support/) at any time.

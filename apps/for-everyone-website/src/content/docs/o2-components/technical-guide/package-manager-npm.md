@@ -12,7 +12,7 @@ This guide shows an example of including "o2" Origami components in a project vi
 
 Knowledge about these and other technologies is assumed. We also assume you're already setup to bundle assets, e.g. transpile Sass to CSS.
 
-If you have questions or need further help please [reach out to the Origami team](/getting-started/proposal-process/).
+If you have questions or need further help please [reach out to the Origami team](/getting-started/support/).
 
 ## Install npm peer dependencies
 
@@ -87,3 +87,7 @@ oTable.init(HTMLElement);
 // Initialise a specific o-table element
 const myTable = oTable(myTableHTMLElement);
 ```
+
+## Wrap-up
+
+We've briefly covered how to include the HTML, CSS (via Sass), and JavaScript for an "o2" Origami component. If you have questions or need help please [reach out to the Origami team](/getting-started/support/) at any time.
