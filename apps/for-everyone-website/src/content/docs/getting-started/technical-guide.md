@@ -55,8 +55,7 @@ As well as following the
 - `"type"` should not be set.
 - `"license"` property set to the SPDX license identifier for the
   license of the component, e.g. "MIT".
-- List any production Sass or Origami component dependencies under
-  `"peerDependencies"`, to avoid using multiple versions of the same dependency.
+- `"peerDependencies"` should include any production Origami dependencies with styles, to ensure only one version is installed at once.
 - `"bugs"` field as described in the [package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json) specification.
 
 ### Documentation
