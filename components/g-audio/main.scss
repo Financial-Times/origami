@@ -1,86 +1,55 @@
 @import '@financial-times/o-icons/main';
+@import '@financial-times/o-colors/main';
 @import 'src/scss/variables';
+@import 'src/scss/mixins';
 
-/// Output all gAudio features
-/// @param {Map} $opts [()] - A map of options to configure the output
+/// Output g-audio
+///
+/// @example All default g-audio styles.
+///     @include gAudio();
+///
+/// @example Include teal theme.
+///    @include oButtons($opts: (
+///        'themes': ('teal')
+///    ));
+///
+/// @example Include teal theme with a block player
+///    @include oButtons($opts: (
+///        'themes': ('teal'),
+///        'variants': ('block')
+///    ));
+///
+/// @param {List} $opts
 /// @access public
-@mixin gAudio ($opts: ()) {
-	// content of primary mixin
-	.g-audio.g-audio--initialized {
-		border-radius: 6px;
-		cursor: pointer;
-		margin: 0 5px;
-		padding: 0 $g-audio-horz-padding-inline 0 0;
-		vertical-align: top;
-	
-		// inline player
-	
-		.g-audio--playbutton {
-			background: $g-audio-button-background;
-			border-radius: 6px 0 0 6px;
-			color: $g-audio-button-color;
-			margin-right: 2px;
-			padding-left: $g-audio-horz-padding-inline;
-			padding-right: calc($g-audio-horz-padding-inline / 2);
+@mixin gAudio(
+	$opts: (
+		'themes': $_g-audio-themes,
+		'variants': $_g-audio-variants,
+	)
+) {
+	$themes: map-get($opts, 'themes');
+	$themes: if($themes, $themes, ());
+	$variants: map-get($opts, 'variants');
+	$variants: if($variants, $variants, ());
+
+	// Include theme variables
+	@each $theme in $themes {
+		@if index($_g-audio-themes, $theme) {
+			@include _gAudioThemeContent($theme);
 		}
-	
-		.g-audio--playbutton:before {
-			@include oIconsContent('play', $g-audio-button-color, 25);
-			content: '';
-			font-size: 0.8em;
-			margin: -3px $g-audio-horz-padding-inline;
-			vertical-align: bottom;
-		}
-	
-		&.g-audio-pause .g-audio--playbutton:before {
-			@include oIconsContent('pause', $g-audio-button-color, 25);
-			content: '';
-			font-size: 0.8em;
-			margin: -3px $g-audio-horz-padding-inline;
-			vertical-align: bottom;
-		}
-	
-		.g-audio-content {
-			background: rgba(175, 81, 108, 0.15);
-			display: inline;
-			padding: 0 $g-audio-horz-padding-inline;
-			position: relative;
-	
-			.g-audio-content-progressbar {
-				background: $g-audio-button-background;
-				height: 100%;
-				left: 0;
-				opacity: 0.3;
-				pointer-events: none;
-				position: absolute;
-				top: 0;
-			}
-		}
-	
-	
-		// block player
-	
-		&.g-audio--block {
-			border-radius: 0;
-			display: block;
-			margin: 1em 0;
-			padding: $g-audio-vert-padding-block 0;
-			width: 100%;
-	
-			.g-audio--playbutton {
-				background: $g-audio-button-background;
-				border-radius: 0;
-				color: $g-audio-button-color;
-				padding: $g-audio-vert-padding-block $g-audio-horz-padding-inline;
-			}
-	
-			.g-audio-content {
-				padding: $g-audio-vert-padding-block $g-audio-horz-padding-block;
-			}
-		}
-	
 	}
-	
+
+	// Always include base styles
+	.g-audio.g-audio--initialized {
+		@include _gAudioBaseContent();
+	}
+
+	// Additional styles if we're including the block variant
+	@if index($variants, 'block') {
+		.g-audio.g-audio--initialized.g-audio--block {
+			@include _gAudioBlockVariant();
+		}
+	}
 }
 
 @if ($g-audio-is-silent == false) {
