@@ -11,3 +11,17 @@ body {
 	width: 100%;
 	font-family: Georgia, serif;
 }
+
+// Include o-buttons.
+@include gAudio(
+	$opts: (
+		'themes': (
+			'teal',
+			'claret',
+		),
+		'variants': (
+			'inline',
+			'block',
+		),
+	)
+);
