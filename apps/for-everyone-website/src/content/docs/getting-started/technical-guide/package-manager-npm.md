@@ -108,7 +108,7 @@ body {
 }
 ```
 
-## Import client side JavaScript
+## Import client-side JavaScript
 
 Client-side JavaScript for Origami packages if referenced in the `browser` field of their `package.json` where relevant. These are Custom Elements (web components), which are defined automatically on import.
 

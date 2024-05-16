@@ -35,9 +35,9 @@ How do o3 features help achieve these exactly? Let's look in more detail.
 
 ## Design guidelines
 
-We've always heard pretty good feedback about our technical documentation. For the most part engineering teams know how to use Origami. They don't always no where or why, and designers are left guessing too. This leads to user interface being reused in ways never intended. Forced into place for unsuitable purposes which can lead to a confusing, inconsistent, or inaccessible product experience.
+We've always heard pretty good feedback about our technical documentation. For the most part engineering teams know how to use Origami. They don't always know where or why, and designers are left guessing too. This leads to user interface being reused in ways never intended. Forced into place for unsuitable purposes which can lead to a confusing, inconsistent, or inaccessible product experience.
 
-All Origami components now include thorough design guidelines. These capture our design thinking, along with justifying user research, and provide clear does and don'ts for reuse in new products or features.
+All Origami components now include thorough design guidelines. These capture our design thinking, along with justifying user research, and provide clear do's and don'ts for reuse in new products or features.
 
 ![A screenshot of this website, showing buttons guidelines and live examples or correct use.](/assets/images/new/design-guidelines.jpeg)
 
@@ -100,12 +100,12 @@ No more Sass, web component technology, and dedicated JSX templates with types f
 
 ![JSX template autocompletion](/assets/images/new/vs-code-2.png)
 
-As of 2022, 109 FT Github projects included custom JSX templates for Origami components. Likely this has grown with React use at the FT. Now we have a central source for templates we can stop repeating that work going forward.
+As of 2022, 109 FT GitHub projects included custom JSX templates for Origami components. Likely this has grown with React use at the FT. Now we have a central source for templates we can stop repeating that work going forward.
 
 ## Wrap-up
 
 Origami v3 (o3) marks a big step forward in how we approach design and development. It introduces design guidelines and Figma libraries that ensure all components are used correctly and consistently, which helps improve the usability of our websites and apps.
 
-These tools boost the efficiency of designer and developer workflows. It does this by reducing frustrating barriers; freeing time to focus on key product differentiators rather than reinventing the wheel; and by allowing both to communicate intent whilst collaborating. Best of all, we can scale these to further brands.
+These tools boost the efficiency of designer and developer workflows. It does this by reducing frustrating barriers: freeing time to focus on key product differentiators rather than reinventing the wheel, and by allowing both to communicate intent whilst collaborating. Best of all, we can scale these to further brands.
 
 This means we can roll out new products and features more swiftly, more thoughtfully, and with fewer errors. Together, o3 enhancements aim to significantly improve the experience for our readers.
