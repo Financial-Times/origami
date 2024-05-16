@@ -183,15 +183,6 @@
           },
           "type": "typography"
         },
-        "blockquote-content": {
-          "value": {
-            "fontFamily": "{o3.font.family.georgia}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size.2}",
-            "lineHeight": "{o3.font.lineheight.4}"
-          },
-          "type": "typography"
-        },
         "blockquote-author": {
           "value": {
             "fontFamily": "{o3.font.family.metric}",
