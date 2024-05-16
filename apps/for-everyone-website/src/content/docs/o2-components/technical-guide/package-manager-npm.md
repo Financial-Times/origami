@@ -36,13 +36,15 @@ Whilst some "o2" packages include TSX templates, most people copy [HTML from Sto
 
 ## Include Sass
 
-1. Set a brand (core, internal, whitelabel).
+1. Set a `$o-brand` Sass variable for your project (one of `core`, `internal`, or `whitelabel`).
+1. Set a `$system-code` Sass variable to the [BizOps System Code](https://biz-ops.in.ft.com/list/Systems) for your project, or `$$$-no-bizops-system-code-$$$` if your project does not relate to a System.
 1. Import the `main` Sass file of your installed packages.
 
 E.g.
 
 ```scss
-$o-brand: 'internal';
+$o-brand: 'core';
+$system-code: '$$$-no-bizops-system-code-$$$';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-table/main';
 ```
