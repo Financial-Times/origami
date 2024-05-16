@@ -8,29 +8,36 @@ hero:
     file: ../../assets/origami-logo.svg
   actions:
     - text: Components
-      link: ./components/buttons
+      link: ./components/buttons/
       icon: right-arrow
       variant: primary
-    - text: Learn more
-      link: ./about/
+    - text: What's new
+      link: ./about/what-is-new/
       icon: external
 ---
 
 import {Card, CardGrid} from '@astrojs/starlight/components';
 
 <CardGrid>
-	<Card title="Mission" icon="rocket">
-		Unify and document the style and experience across the digital
-		products of every FT brand, leveraging the web platform to provide an
-		implementation of brand guidelines.
-	</Card>
-	<Card title="Contact" icon="slack">
-		Origami is a shared project, built by teams across the FT. The core Origami team and our community of collaborators are here to help if you have questions or feedback:
+<Card title="Get started" icon="document">
+	We have a [practical introduction to Origami](/getting-started/) for designers and developers to get up and running.
+</Card>
+<Card title="Mission" icon="rocket">
+	Unify and document the style and experience across the digital products of
+	every FT brand, leveraging the web platform to provide an implementation of
+	brand guidelines.
+</Card>
+<Card title="Contribute" icon="star">
+	Origami is a collaborative project, with teams from across the FT Group contributing. We're working on new contribution guides. In the meantime see [what's new](/about/what-is-new/) and feel free to [contact the team](/getting-started/support/) with any questions, feedback, or requests.
+</Card>
 
-    	<ul>
-    		<li>Slack: <a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a></li>
-    		<li>Email:  <a href="mailto:origami.support@ft.com">origami.support@ft.com</a></li>
-    	</ul>
-    </Card>
+<Card title="Contact" icon="slack">
+  Origami is a shared project, built by teams across the FT. The core Origami team and our community of collaborators are here to help if you have questions or feedback:
+
+  <ul>
+    <li>Slack: <a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a></li>
+    <li>Email:  <a href="mailto:origami.support@ft.com">origami.support@ft.com</a></li>
+  </ul>
+</Card>
 
 </CardGrid>
