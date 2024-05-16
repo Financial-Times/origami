@@ -110,7 +110,7 @@ body {
 
 ## Import client-side JavaScript
 
-Client-side JavaScript for Origami packages if referenced in the `browser` field of their `package.json` where relevant. These are Custom Elements (web components), which are defined automatically on import.
+Client-side JavaScript for Origami packages if referenced in the `browser` field of their `package.json` where relevant. These are [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_Components/Using_custom_elements) (web components), which are defined automatically on import.
 
 In our example, only `o3-tooltip` has client side JavaScript.
 
