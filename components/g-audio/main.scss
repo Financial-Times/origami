@@ -40,11 +40,15 @@
 	}
 
 	// Always include base styles
-	@include _gAudioBaseContent();
+	.g-audio.g-audio--initialized {
+		@include _gAudioBaseContent();
+	}
 
 	// Additional styles if we're including the block variant
 	@if index($variants, 'block') {
-		@include _gAudioBlockVariant();
+		.g-audio.g-audio--initialized.g-audio--block {
+			@include _gAudioBlockVariant();
+		}
 	}
 }
 
