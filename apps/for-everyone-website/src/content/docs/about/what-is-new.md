@@ -90,7 +90,7 @@ In March 2024, engineers working on the ft.com article page spent over 5 wasted 
 
 Slow build times inhibit our ability to iterate and deliver, and gives ample opportunities for distraction… and doom scrolling… as we wait.
 
-We can’t blame Sass too much, it’s wonderful, but we have a large estate of complex Sass that has become slow. [In our view, now is the time to migrate away from Sass](https://docs.google.com/document/d/1RuGduWdX0zGsgsp9C7lIhXgqEia6sWK900_3XVwYDIM/edit?tab=t.0#heading=h.1f3yolavobef). With o3 Origami there's no more waiting for Sass to compile, just fast visual feedback and quick iterations.
+We can’t blame Sass too much, it’s wonderful, but we have a large estate of complex Sass that has become slow. There's [work we can do to reduce this time (Slack)](https://financialtimes.slack.com/archives/C02FU5ARJ/p1715337643043699), but [in our view, now is the time to migrate away from Sass](https://docs.google.com/document/d/1RuGduWdX0zGsgsp9C7lIhXgqEia6sWK900_3XVwYDIM/edit?tab=t.0#heading=h.1f3yolavobef). With o3 Origami there's no more waiting for Sass to compile, just fast visual feedback and quick iterations.
 
 ![Sass build time monitoring log: you have wasted hours of your life](/assets/images/new/sass-css.png)
 
