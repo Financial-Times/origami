@@ -1,5 +1,5 @@
 ---
-title: Using Components (o2) via npm
+title: Using components (o2) via npm
 description: A reference of components
 sidebar:
   label: Technical Guide
