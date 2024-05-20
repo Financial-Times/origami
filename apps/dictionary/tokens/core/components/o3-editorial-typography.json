@@ -244,7 +244,7 @@
           "type": "color"
         },
         "inverse-color": {
-          "value": "{o3.color.palette.black-20}",
+          "value": "{o3.color.use-case.muted-inverse}",
           "type": "color"
         }
       },
@@ -263,7 +263,7 @@
             "type": "color"
           },
           "inverse-color": {
-            "value": "{o3.color.palette.black-20}",
+            "value": "{o3.color.use-case.link-inverse.text.hover}",
             "type": "color"
           }
         }
@@ -283,7 +283,7 @@
             "type": "color"
           },
           "inverse-color": {
-            "value": "{o3.color.palette.black-20}",
+            "value": "{o3.color.use-case.link-inverse.text.hover}",
             "type": "color"
           }
         }
@@ -294,7 +294,7 @@
           "type": "color"
         },
         "inverse-color": {
-          "value": "{o3.color.palette.black-20}",
+          "value": "{o3.color.use-case.muted-inverse}",
           "type": "color"
         }
       }
