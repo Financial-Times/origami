@@ -3,8 +3,8 @@
 	--_o3-button-min-height: 40px;
 
 	--_o3-button-block-padding: var(--o3-spacing-4xs);
-	--_o3-button-inline-padding-start: var(--o3-spacing-4xs);
-	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
+	--_o3-button-inline-padding-start: var(--o3-spacing-2xs);
+	--_o3-button-inline-padding-end: var(--o3-spacing-2xs);
 
 	--_o3-button-font-size: var(--o3-font-size-negative-1);
 	--_o3-button-lineheight: var(--o3-font-lineheight-negative-1);
