@@ -1,5 +1,5 @@
 // Teal theme mixin
-@mixin gAudioTealTheme {
+@mixin _gAudioTealTheme {
 	$g-audio-button-background: $g-audio-teal-button-background !global;
 	$g-audio-button-background-hover: $g-audio-teal-button-background-hover !global;
 	$g-audio-button-color: $g-audio-teal-button-color !global;
@@ -9,7 +9,7 @@
 }
 
 // Pink theme mixin
-@mixin gAudioClaretTheme {
+@mixin _gAudioClaretTheme {
 	$g-audio-button-background: $g-audio-pink-button-background !global;
 	$g-audio-button-background-hover: $g-audio-pink-button-background-hover !global;
 	$g-audio-button-color: $g-audio-pink-button-color !global;
@@ -18,23 +18,34 @@
 	$g-audio-content-color: $g-audio-pink-content-color !global;
 }
 
-@mixin _gAudioThemeContent($theme) {
+// @mixin _gAudioThemeContent($theme) {
+// 	@if $theme == 'teal' {
+// 		@include gAudioTealTheme;
+// 	} @else if $theme == 'claret' {
+// 		@include gAudioClaretTheme;
+// 	}
+// }
+
+@mixin _gAudioAddTheme($theme) {
+	// .g-audio--#{theme} {
 	@if $theme == 'teal' {
-		@include gAudioTealTheme;
+		.g-audio--teal {
+			@include _gAudioTealTheme;
+		}
 	} @else if $theme == 'claret' {
-		@include gAudioClaretTheme;
+		.g-audio--claret {
+			@include _gAudioClaretTheme;
+		}
 	}
+	// }
 }
 
 @mixin _gAudioBaseContent() {
-	// content of primary mixin
-
 	cursor: pointer;
 	margin: 0 $g-audio-horz-margin;
 	vertical-align: top;
 
 	// inline player
-
 	.g-audio--playbutton {
 		background: $g-audio-button-background;
 		color: $g-audio-button-color;
@@ -47,13 +58,6 @@
 
 	.g-audio--playbutton:before {
 		@include oIconsContent('play', $g-audio-button-color, 28);
-		content: '';
-		font-size: 1em;
-		vertical-align: bottom;
-	}
-
-	&.g-audio-pause .g-audio--playbutton:before {
-		@include oIconsContent('pause', $g-audio-button-color, 28);
 		content: '';
 		font-size: 1em;
 		vertical-align: bottom;
@@ -75,8 +79,18 @@
 			bottom: 0;
 			transition: width 0.1s ease;
 		}
+	}
 
-		&:hover .g-audio-content-progressbar {
+	// currently playing
+	&.g-audio-pause {
+		.g-audio--playbutton:before {
+			@include oIconsContent('pause', $g-audio-button-color, 28);
+			content: '';
+			font-size: 1em;
+			vertical-align: bottom;
+		}
+
+		.g-audio-content:hover .g-audio-content-progressbar {
 			background: $g-audio-button-background-hover;
 
 			&:after {
