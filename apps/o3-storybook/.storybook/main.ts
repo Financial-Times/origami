@@ -51,16 +51,16 @@ const config: StorybookConfig = {
 	},
 	// Configures SWC compiler to import React automatically in story files
 	swc: () => ({
-    jsc: {
-      transform: {
-        react: {
-          runtime: 'automatic'
-        }
-      }
-    }
-  }),
+		jsc: {
+			transform: {
+				react: {
+					runtime: 'automatic',
+				},
+			},
+		},
+	}),
 	docs: {
-		autodocs: 'tag',
+		autodocs: true,
 		defaultName: 'JSX Documentation',
 	},
 };
