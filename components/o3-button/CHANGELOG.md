@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.1...o3-button-v1.1.2) (2024-05-20)
+
+
+### Bug Fixes
+
+* correct default button left/right margin ([5bbbac1](https://github.com/Financial-Times/origami/commit/5bbbac1dafd4daca8595a91455df38f828dceb98))
+* small button icon size and icon-only ratio (square) ([c6419f3](https://github.com/Financial-Times/origami/commit/c6419f38ec108f27a6849d0f603806d9e8ca510b))
+
 ## [1.1.1](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.0...o3-button-v1.1.1) (2024-04-24)
 
 
