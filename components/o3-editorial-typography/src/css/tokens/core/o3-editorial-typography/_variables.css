@@ -28,7 +28,7 @@
   --_o3-editorial-typography-body-inverse-color: var(--o3-color-palette-white);
   --_o3-editorial-typography-footer-color: var(--o3-color-palette-black-80);
   --_o3-editorial-typography-caption-color: var(--o3-color-palette-black-70);
-  --_o3-editorial-typography-caption-inverse-color: var(--o3-color-palette-black-20);
+  --_o3-editorial-typography-caption-inverse-color: var(--o3-color-use-case-muted-inverse);
   --_o3-editorial-typography-text-color: var(--o3-color-palette-black);
   --_o3-editorial-typography-text-inverse-color: var(--o3-color-palette-white);
   --_o3-editorial-typography-use-case-headline-large-l-font-family: var(--o3-font-family-financier-display);
@@ -103,10 +103,6 @@
   --_o3-editorial-typography-use-case-pullquote-content-font-weight: var(--o3-font-weight-semibold);
   --_o3-editorial-typography-use-case-pullquote-content-font-size: var(--o3-font-size-metric2-3);
   --_o3-editorial-typography-use-case-pullquote-content-line-height: var(--o3-font-lineheight-metric2-3);
-  --_o3-editorial-typography-use-case-blockquote-content-font-family: var(--o3-font-family-georgia);
-  --_o3-editorial-typography-use-case-blockquote-content-font-weight: var(--o3-font-weight-semibold);
-  --_o3-editorial-typography-use-case-blockquote-content-font-size: var(--o3-font-size-2);
-  --_o3-editorial-typography-use-case-blockquote-content-line-height: var(--o3-font-lineheight-4);
   --_o3-editorial-typography-use-case-blockquote-author-font-family: var(--o3-font-family-metric);
   --_o3-editorial-typography-use-case-blockquote-author-font-weight: var(--o3-font-weight-semibold);
   --_o3-editorial-typography-use-case-blockquote-author-font-size: var(--o3-font-size-metric2-0);
@@ -132,13 +128,13 @@
   --_o3-editorial-typography-use-case-big-number-content-font-size: var(--o3-font-size-metric2-2);
   --_o3-editorial-typography-use-case-big-number-content-line-height: var(--o3-font-lineheight-metric2-2);
   --_o3-editorial-typography-byline-timestamp-color: var(--o3-color-palette-black-60);
-  --_o3-editorial-typography-byline-timestamp-inverse-color: var(--o3-color-palette-black-20);
+  --_o3-editorial-typography-byline-timestamp-inverse-color: var(--o3-color-use-case-muted-inverse);
   --_o3-editorial-typography-topic-tag-color: var(--o3-color-palette-claret);
   --_o3-editorial-typography-topic-tag-inverse-color: var(--o3-color-palette-white);
   --_o3-editorial-typography-topic-tag-hover-color: var(--o3-color-palette-claret-30);
-  --_o3-editorial-typography-topic-tag-hover-inverse-color: var(--o3-color-palette-black-20);
+  --_o3-editorial-typography-topic-tag-hover-inverse-color: var(--o3-color-use-case-link-inverse-text-hover);
   --_o3-editorial-typography-byline-author-color: var(--o3-color-palette-claret);
   --_o3-editorial-typography-byline-author-inverse-color: var(--o3-color-palette-white);
   --_o3-editorial-typography-byline-author-hover-color: var(--o3-color-palette-claret-30);
-  --_o3-editorial-typography-byline-author-hover-inverse-color: var(--o3-color-palette-black-20);
+  --_o3-editorial-typography-byline-author-hover-inverse-color: var(--o3-color-use-case-link-inverse-text-hover);
 }

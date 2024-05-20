@@ -7,12 +7,16 @@
 	list-style: none;
 }
 
-[class^="o3-editorial-typography-list-"] li::before {
+[class^='o3-editorial-typography-list-'] li::before {
 	margin-right: var(--o3-spacing-xs);
+	font-family: var(--o3-font-family-metric);
 }
 
 .o3-editorial-typography-list-unordered li::before {
 	content: '\2022'; /* dot character */
+	transform: scale(1.5);
+	transform-origin: center left;
+	display: inline-block;
 }
 
 .o3-editorial-typography-list-ordered {
@@ -23,4 +27,6 @@
 	content: counter(item);
 	counter-increment: item;
 	font-feature-settings: 'tnum';
+	font-weight: var(--o3-font-weight-semibold);
+	font-size: var(--o3-font-size-metric2-2);
 }
