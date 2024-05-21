@@ -1,4 +1,15 @@
 # Changelog
+## [12.0.0](https://github.com/Financial-Times/origami/compare/o-header-v11.2.0...o-header-v12.0.0) (2024-05-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* Change the My Account & myFT header link locations
+
+### Features
+
+* Change the My Account & myFT header link locations ([7e9d2c8](https://github.com/Financial-Times/origami/commit/7e9d2c8a156b95270aeca49cae9c02df95a67350))
+
 ## [11.2.0](https://github.com/Financial-Times/origami/compare/o-header-v11.1.1...o-header-v11.2.0) (2024-03-18)
 
 
