@@ -4,7 +4,7 @@ The storybook to host o3 component demos.
 
 ## Creating stories and structure
 
-The storybook is organized by component. Each component has its own folder in components directory. Each component folder has a `stories` folder, where we put all files related to the component. The rought strucutre of the folder will look like this:
+The storybook is organized by component. Each component has its own folder in components directory. Each component folder has a `stories` folder, where we put all files related to the component. The rough structure of the folder looks like this:
 
 ```.
 └── stories/

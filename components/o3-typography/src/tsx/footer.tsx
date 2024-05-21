@@ -10,7 +10,7 @@ export const Footer: React.FC<FooterProps> = ({
 	weight = 'normal',
 	theme,
 }: FooterProps) => {
-	const classList = ['o3-typography', 'o3-typography-footer'];
+	const classList = ['o3-typography-footer'];
 
 	if (weight === 'bold') {
 		classList.push('o3-typography-bold');

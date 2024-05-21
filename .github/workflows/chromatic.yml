@@ -5,6 +5,8 @@ on:
     branches:
       - main
     paths:
+      - 'package.json'
+      - 'package-lock.json'
       - 'apps/o3-storybook/**'
       - '!apps/o3-storybook/**/*.md'
       - 'components/o3-*/**'
@@ -13,6 +15,8 @@ on:
     types:
       - labeled
     paths:
+      - 'package.json'
+      - 'package-lock.json'
       - 'apps/o3-storybook/**'
       - '!apps/o3-storybook/**/*.md'
       - 'components/o3-*/**'
