@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.7](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.6...o-multi-select-v2.2.7) (2024-05-15)
+
+
+### Bug Fixes
+
+* moved trim from textContext label and onto the button ([#1643](https://github.com/Financial-Times/origami/issues/1643)) ([29778ef](https://github.com/Financial-Times/origami/commit/29778efab444bbb8f631d7c8b126749ae0d3a072))
+
 ## [2.2.6](https://github.com/Financial-Times/origami/compare/o-multi-select-v2.2.5...o-multi-select-v2.2.6) (2024-05-09)
 
 

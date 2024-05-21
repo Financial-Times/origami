@@ -5,7 +5,7 @@ import * as TypographyStories from '../story-templates';
 import '../../src/css/brands/internal.css';
 
 export default {
-	title: 'Internal/o3-typography',
+	title: 'Internal/o3-typography/Heading',
 	component: HeadingTsx,
 	decorators: [
 		Story => (

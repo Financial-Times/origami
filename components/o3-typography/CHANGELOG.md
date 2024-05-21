@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.0.0](https://github.com/Financial-Times/origami/compare/o3-typography-v0.4.0...o3-typography-v1.0.0) (2024-05-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove verbose classes
+* reduce classes used in typography headings
+
+### Features
+
+* change max line width variable to 60ch ([f9a22d3](https://github.com/Financial-Times/origami/commit/f9a22d3e34dad511a0f66809c8b8073233789916))
+* reduce classes used in typography headings ([396631e](https://github.com/Financial-Times/origami/commit/396631e73442dc6e984ba441f27de68b7e7084cd))
+* remove verbose classes ([709fdc3](https://github.com/Financial-Times/origami/commit/709fdc31cbafa7e8e3d30d2d033b477815ba85f8))
+
+
+### Bug Fixes
+
+* remove unecessary font declarations on headings ([0e6d8ad](https://github.com/Financial-Times/origami/commit/0e6d8adcf8b4b8e890ac77d71d8e4c1f4ea7bffc))
+* set font family to metric on o3-typography components ([4fc3ad4](https://github.com/Financial-Times/origami/commit/4fc3ad434adde3d48b47aaab319d46ddf6045270))
+
 ## [0.4.0](https://github.com/Financial-Times/origami/compare/o3-typography-v0.3.1...o3-typography-v0.4.0) (2024-05-01)
 
 
