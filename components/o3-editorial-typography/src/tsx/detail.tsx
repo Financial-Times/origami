@@ -37,11 +37,11 @@ export const Quote = ({
 	theme,
 	type = "block",
 	quoteAuthor,
-	quoteCaption,
-	quoteIcon = true,
+	quoteSource,
 	children,
 }: QuoteProps) => {
-	const attributes = getDataAttributes(theme, false, quoteIcon);
+	const attributes = getDataAttributes(theme, false);
+
 	const classNames = `o3-editorial-typography-${type}quote`;
 	return (
 		<blockquote className={classNames} {...attributes}>
@@ -51,7 +51,7 @@ export const Quote = ({
 					{quoteAuthor}
 				</span>
 				<span className={`o3-editorial-typography-${type}quote__source`}>
-					{quoteCaption}
+					{quoteSource}
 				</span>
 			</cite>
 		</blockquote>

@@ -90,17 +90,12 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 
 ### Body/Paragraph styles
 
-O3 editorial paragraphs are styled with the `o3-editorial-typography-body__[type]` class. Where `type` can be either `large` or `small`.
-
-| Type  | Selector                               |
-| ----- | -------------------------------------- |
-| Large | .o3-editorial-typography-body\_\_large |
-| Small | .o3-editorial-typography-body\_\_small |
+O3 editorial paragraphs are styled with the `o3-editorial-typography-body` class.
 
 #### HTML
 
 ```html
-<p class="o3-editorial-typography-body__small">
+<p class="o3-editorial-typography-body">
  This is a small paragraph of text.
 </p>
 ```
@@ -112,34 +107,23 @@ While using JSX, you can import the `<Body>` component and apply the `type` prop
 ```jsx
 import {Body} from '@financial-times/o3-typography/cjs'; // or /esm
 
-<Body type="small">This is a paragraph of text.</Body>;
+<Body>This is a paragraph of text.</Body>;
 ```
 
 `<Body>` props:
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| type | `small` \| `large` | `small` | Type of the body. |
 | theme | `standard` \| `inverse` | `standard` | Theme of the body. |
+
+**Note:** if the children of the `<Body>` component are not text, the wrapper element with be a `<div>` element. If the children are just string, the wrapper element will be a `<p>` element.
 
 ### Editorial detail styles
 
 o3 editorial component exports components that can be used to style additional information in the editorial content.
 
-| Type             | Selector                                  | Description                                                                                                                   |
-| ---------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| topic-tag        | .o3-editorial-typography-topic-tag        | Also called display tag, are category labels in the FT. Used in teasers (article cards) to indicate the category of a post.   |
-| standfirst       | .o3-editorial-typography-standfirst       | Short intro below the headline that provides context about a post. Used in combination with a header in the topper component. |
-| caption          | .o3-editorial-typography-caption          | For additional information about a piece or image that should be less prominent.                                              |
-| byline-author    | .o3-editorial-typography-byline-author    | Shows Author name as part of a page author details in the byline component.                                                   |
-| byline-location  | .o3-editorial-typography-byline-location  | Shows Author location as part of a page author details in the byline component.                                               |
-| byline-timestamp | .o3-editorial-typography-byline-timestamp | Shows the timestamp of the article in the byline component.                                                                   |
-| quote            | .o3-editorial-typography-quote            | For excerpt of direct words said by a person.                                                                                 |
-| quote-author     | .o3-editorial-typography-quote\_\_author  | For the author of the quote.                                                                                                  |
-| quote-caption    | .o3-editorial-typography-caption          | For additional information about a piece or image that should be less prominent.                                              |
-
 #### Topic Tag
 
-Reference categories of content with topic tags. A topic tag is usually an anchor but does not have to be if there is no page to link to. Pure HTML markup is as follows:
+Also called display tag, are category labels in the FT. Used in teasers (article cards) to indicate the category of a post. A topic tag is usually an anchor but does not have to be if there is no page to link to. Pure HTML markup is as follows:
 
 ```html
 <a class="o3-editorial-typography-topic-tag" href="#">Topic Link</a>
@@ -267,13 +251,10 @@ Byline author colour and hover color can be customized by using the following CS
 
 #### Quote
 
-Quote is a composite component that includes quote text, author and caption. It is used to display direct words said by a person. It can also include an icon to indicate the speech marks by adding `data-o3-editorial-quote-icon="true"` attribute. It comes in two types: `block` and `pull`. The difference between the two is that `block` quote has vertical line on the left side of the quote, while `pull` quote has none. Pure HTML markup is as follows:
+Quote is a composite component that includes quote text, author and caption. It is used to display direct words said by a person. It comes in two types: `block` and `pull`. The difference between the two is that `block` quote has vertical line on the left side of the quote, while `pull` quote has none. Pure HTML markup is as follows:
 
 ```html
-<blockquote
- class="o3-editorial-typography-blockquote"
- data-o3-editorial-quote-icon="true"
->
+<blockquote class="o3-editorial-typography-blockquote">
  <p>
   Origami is about empowering developers of all levels to build robust,
   on-brand products ranging from simple static sites through to rich, dynamic
@@ -297,7 +278,7 @@ import {Quote} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 <Quote
  type="pull"
  quoteAuthor="Quote Author"
- quoteCaption="Quote Source"
+ quoteSource="Quote Source"
  quoteIcon={true}>
  Origami is about empowering developers of all levels to build robust, on-brand
  products ranging from simple static sites through to rich, dynamic web
@@ -311,7 +292,7 @@ import {Quote} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 | --- | --- | --- | --- |
 | type | `block` \| `pull` | `block` | Quote text. |
 | quoteAuthor | `string` | - | Author of the quote. |
-| quoteCaption | `string` | - | Source of the quote. |
+| quoteSource | `string` | - | Source of the quote. |
 | quoteIcon | `boolean` | `true` | Adds an icon to the quote. |
 | theme | `standard` \| `inverse` | `standard` | Theme of the quote. |
 
@@ -361,7 +342,7 @@ Lists may be used in different contexts they inherit font properties such as siz
 ```jsx
 import {Body, List} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
-<Body type="large">
+<Body>
  <List
   type="ordered"
   listItems={[
@@ -382,7 +363,7 @@ import {Body, List} from '@financial-times/o3-editorial-typography/cjs'; // or /
 
 ### Links
 
-Links are styled using o-editorial-typography-link inside a o-editorial-typography-body container.
+Links are styled using `o-editorial-typography-link` inside a `o-editorial-typography-body` container.
 
 ```html
 <p class="o-editorial-typography-body">

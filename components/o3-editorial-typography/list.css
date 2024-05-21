@@ -10,13 +10,22 @@
 [class^='o3-editorial-typography-list-'] li::before {
 	margin-right: var(--o3-spacing-xs);
 	font-family: var(--o3-font-family-metric);
+	min-width: 0.7rem;
+}
+
+[class^='o3-editorial-typography-list-'] li {
+	display: inline-flex;
 }
 
 .o3-editorial-typography-list-unordered li::before {
-	content: '\2022'; /* dot character */
-	transform: scale(1.5);
-	transform-origin: center left;
+	content: '';
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='10' /%3E%3C/svg%3E");
+	background-size: 0.7ch;
+	background-repeat: no-repeat;
+	background-position: left center;
+	height: var(--_o3-body-line-height);
 	display: inline-block;
+	flex-shrink: 0;
 }
 
 .o3-editorial-typography-list-ordered {

@@ -156,7 +156,7 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 
 .o3-editorial-typography-pullquote,
 .o3-editorial-typography-blockquote {
-	&[data-o3-editorial-quote-icon='true']::before {
+	&::before {
 		--_o3-editorial-typography-quote-icon-size: 36px;
 		content: '';
 		width: var(--_o3-editorial-typography-quote-icon-size);

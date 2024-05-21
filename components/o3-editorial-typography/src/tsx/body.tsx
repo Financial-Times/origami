@@ -3,9 +3,10 @@ import {getDataAttributes} from './utils';
 
 export const Body = ({theme, children}: BodyProps) => {
 	const attributes = getDataAttributes(theme);
+	const HtmlElement = typeof children === 'string' ? 'p' : 'div';
 	return (
-		<p className="o3-editorial-typography-body" {...attributes}>
+		<HtmlElement className="o3-editorial-typography-body" {...attributes}>
 			{children}
-		</p>
+		</HtmlElement>
 	);
 };

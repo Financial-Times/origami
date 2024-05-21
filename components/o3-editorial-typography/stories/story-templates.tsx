@@ -94,7 +94,7 @@ const HeadlineTemplate: StoryObj = {
 
 const BodyTemplate: StoryObj = {
 	argTypes: {
-		...TemplateSBConfig.argTypes
+		...TemplateSBConfig.argTypes,
 	},
 	render: args => {
 		return <BodyTsx {...args}>{args.content}</BodyTsx>;
@@ -227,17 +227,17 @@ const LinkTemplate: StoryObj = {
 	},
 	render: args => {
 		if (args.openInNewTab) {
-			args.anchorTarget = '_blank'
+			args.anchorTarget = '_blank';
 		}
 		return (
 			<BodyTsx theme={args.theme}>
-					We have a &nbsp;
-					<LinkTsx {...args}>{args.content}</LinkTsx>
-					&nbsp; style. Links may open in a new window/tab but we &nbsp;
-					<LinkTsx {...args} anchorTarget="_blank">
-						recommend against it
-					</LinkTsx>
-					&nbsp; in most cases.
+				We have a &nbsp;
+				<LinkTsx {...args}>{args.content}</LinkTsx>
+				&nbsp; style. Links may open in a new window/tab but we &nbsp;
+				<LinkTsx {...args} anchorTarget="_blank">
+					recommend against it
+				</LinkTsx>
+				&nbsp; in most cases.
 			</BodyTsx>
 		);
 	},
@@ -255,7 +255,8 @@ export const Heading: HeadlineStory = {
 export const Body: BodyStory = {
 	...BodyTemplate,
 	args: {
-		content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum illum facere totam architecto eum porro exercitationem, ea, accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?',
+		content:
+			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum illum facere totam architecto eum porro exercitationem, ea, accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?',
 		theme: 'standard',
 	},
 };
@@ -293,8 +294,7 @@ export const Quote: QuoteStory = {
 		type: 'block',
 		theme: 'standard',
 		quoteAuthor: 'Quote Author',
-		quoteCaption: 'Quote Source',
-		quoteIcon: true,
+		quoteSource: 'Quote Source',
 	},
 };
 

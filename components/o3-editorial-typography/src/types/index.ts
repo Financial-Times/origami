@@ -23,8 +23,7 @@ export type QuoteProps = {
 	theme?: 'standard' | 'inverse';
 	type: 'block' | 'pull';
 	quoteAuthor?: string;
-	quoteCaption?: string;
-	quoteIcon?: boolean;
+	quoteSource?: string;
 	children: string;
 };
 
@@ -54,6 +53,5 @@ export type LinkProps = {
 
 export type Attributes = {
 	'data-o3-theme'?: 'inverse';
-	'data-o3-editorial-quote-icon'?: boolean;
 	'data-o3-editorial-underline'?: boolean;
 };
