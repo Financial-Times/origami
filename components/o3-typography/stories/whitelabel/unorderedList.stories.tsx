@@ -4,7 +4,7 @@ import {UnorderedList} from '../../src/tsx';
 import '../../src/css/brands/whitelabel.css';
 
 export default {
-	title: 'Whitelabel/o3-typography',
+	title: 'Whitelabel/o3-typography/UnorderedList',
 	component: UnorderedList,
 	decorators: [
 		Story => (

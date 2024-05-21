@@ -5,7 +5,7 @@ import '../../src/css/brands/internal.css';
 import {Meta} from '@storybook/react';
 
 export default {
-	title: 'Internal/o3-typography',
+	title: 'Internal/o3-typography/Link',
 	component: LinkTsx,
 	tags: ['autodocs'],
 	decorators: [

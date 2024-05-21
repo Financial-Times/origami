@@ -6,7 +6,7 @@ import react from '@astrojs/react';
 export default defineConfig({
 	vite: {
 		ssr: {
-			noExternal: ['unist-util-visit', '@financial-times/o3-button'],
+			noExternal: ['unist-util-visit'],
 		},
 	},
 	integrations: [
@@ -62,19 +62,30 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'About',
+					collapsed: true,
 					autogenerate: {directory: 'about'},
 				},
 				{
-					label: 'Foundations',
+					label: 'Getting Started',
+					collapsed: true,
+					autogenerate: {directory: 'getting-started'},
+				},
+				{
+					label: 'Foundations (o3)',
 					autogenerate: {directory: 'guides'},
 				},
 				{
-					label: 'Components',
+					label: 'Components (o3)',
 					autogenerate: {directory: 'components'},
 				},
 				{
-					label: 'Patterns',
+					label: 'Patterns (o3)',
 					autogenerate: {directory: 'patterns'},
+				},
+				{
+					label: 'Components (o2)',
+					collapsed: true,
+					autogenerate: {directory: 'o2-components'},
 				},
 			],
 		}),

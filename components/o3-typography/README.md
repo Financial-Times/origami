@@ -12,6 +12,7 @@ Typographical styles for FT branded sites.
   - [Footer](#footer)
   - [Modifiers](#modifiers)
   - [Wrapper](#wrapper)
+  - [Custom Properties](#custom-properties)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -35,8 +36,8 @@ O3 headings come in 6 levels, `<h1>` to `<h6>`, and styling can be applied to ea
 #### HTML
 ```html
 
-<h1 class="o3-heading o3-heading--level-1">Welcome to Origami</h1>
-<h2 class="o3-heading o3-heading--level-2">Who are we?</h2>
+<h1 class="o3-typography-h1">Welcome to Origami</h1>
+<h2 class="o3-typography-h2">Who are we?</h2>
 ```
 
 #### JSX
@@ -121,7 +122,7 @@ import { List } from '@financial-times/o3-typography';
 
 #### HTML
 ```html
-<footer class="o3-typography o3-typography-footer">Copyright notice</footer>
+<footer class="o3-typography-footer">Copyright notice</footer>
 ```
 #### JSX
 ```tsx
@@ -135,7 +136,7 @@ import { Footer } from '@financial-times/o3-typography';
 Used with figures to provide a caption:
 
 ```html
-<figcaption class="o3-typography o3-typography-caption">This is a caption.</figcaption>
+<figcaption class="o3-typography-caption">This is a caption.</figcaption>
 ```
 
 ```tsx
@@ -176,7 +177,7 @@ The wrapper can be used to style blocks of body without needing to apply the cla
 
 #### HTML
 ```html
-<div class="o3-typography o3-typography-wrapper">
+<div class="o3-typography-wrapper">
 	<h1>This heading gets styled.</h1>
 	<p>And so does this paragraphy of text.</p>
 	<h2>This gets styled also</h2>
@@ -191,6 +192,27 @@ import { Wrapper, Heading, Body } from '@financial-times/o3-typography';
 	<Body>And so does this paragraphy of text.</Body>
 	<Heading level={2}>This gets styled also</Heading>
 </Wrapper>
+```
+
+### Custom Properties
+
+#### Max Line Width
+
+`o3-typography` includes a CSS Custom Property `--o3-typography-max-line-width` to limit typography line length for readability.
+E.g.
+```css
+.my-selector {
+	max-width: var(--o3-typography-max-line-width);
+}
+```
+You may want to slightly decrease or increase this limit inline with our [design guidelines](https://origami-for-everyone.ft.com/guides/typography/). To do so we recommend using the [ch relative unit](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#distance_units).
+
+E.g.
+
+```css
+.my-selector {
+	max-width: 70ch;
+}
 ```
 
 ## Contact

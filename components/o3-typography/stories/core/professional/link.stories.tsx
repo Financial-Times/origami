@@ -4,7 +4,7 @@ import {Link, Body} from '../../../src/tsx';
 import '../../../src/css/brands/professional.css';
 
 export default {
-	title: 'Core/Professional/o3-typography',
+	title: 'Core/Professional/o3-typography/Link',
 	component: Link,
 	decorators: [
 		Story => (

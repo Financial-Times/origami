@@ -5,6 +5,11 @@
 @import './footer.css';
 @import './caption.css';
 
+
+:root {
+	--o3-typography-max-line-width: 60ch;
+}
+
 .o3-typography-bold {
 	font-weight: var(--o3-font-weight-bold);
 }
@@ -13,3 +18,6 @@
 	font-style: italic;
 }
 
+[class^='o3-typography'] {
+	font-family: var(--o3-font-family-metric);
+}
