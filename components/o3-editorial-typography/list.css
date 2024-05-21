@@ -1,7 +1,6 @@
 [class^='o3-editorial-typography-list-'] {
 	display: flex;
 	flex-direction: column;
-	gap: var(--o3-spacing-4xs);
 	padding: 0px;
 	color: var(--_o3-editorial-typography-text-color);
 	list-style: none;

@@ -175,6 +175,11 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-pullquote__author,
+.o3-editorial-typography-blockquote__author {
+	margin-bottom: var(--o3-spacing-5xs);
+}
+
+.o3-editorial-typography-pullquote__author,
 .o3-editorial-typography-pullquote__source,
 .o3-editorial-typography-blockquote__author,
 .o3-editorial-typography-blockquote__source {
