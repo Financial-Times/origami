@@ -1,0 +1,12 @@
+.DS_Store
+.env
+/.sass-cache/
+/bower_components/
+/node_modules/
+/build/
+.idea/
+/coverage
+
+/css
+cjs/
+esm/
