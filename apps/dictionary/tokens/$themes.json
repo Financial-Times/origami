@@ -10,10 +10,10 @@
       "core/base/typography": "enabled",
       "core/components/o3-typography": "source",
       "core/use-case/typography": "enabled",
-      "core/use-case/typography-editorial": "enabled",
       "core/components/o3-tooltip": "source",
       "core/use-case/color": "enabled",
-      "core/use-case/focus": "enabled"
+      "core/use-case/focus": "enabled",
+      "core/components/o3-editorial-typography": "source"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -220,7 +220,6 @@
       "core/use-case/color": "enabled",
       "core/professional/components/o3-tooltip": "source",
       "core/use-case/typography": "enabled",
-      "core/use-case/typography-editorial": "enabled",
       "core/use-case/focus": "enabled",
       "core/professional/components/o3-typography": "source"
     },
@@ -489,7 +488,6 @@
       "whitelabel/base/spacing": "enabled",
       "whitelabel/base/typography": "enabled",
       "whitelabel/use-case/typography": "enabled",
-      "whitelabel/use-case/typography-editorial": "enabled",
       "whitelabel/use-case/color": "enabled",
       "whitelabel/components/o3-tooltip": "source",
       "whitelabel/use-case/focus": "enabled",
@@ -548,11 +546,12 @@
       "sustainable-views/base/spacing": "enabled",
       "sustainable-views/base/typography": "enabled",
       "sustainable-views/use-case/typography": "enabled",
-      "sustainable-views/use-case/typography-editorial": "enabled",
       "sustainable-views/components/o3-button": "source",
       "sustainable-views/components/o3-tooltip": "source",
       "sustainable-views/base/color": "enabled",
-      "sustainable-views/use-case/color": "enabled"
+      "sustainable-views/use-case/color": "enabled",
+      "sustainable-views/components/o3-editorial-typography": "source",
+      "sustainable-views/use-case/focus": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4618:1555",
     "$figmaModeId": "4618:3",
