@@ -5,7 +5,11 @@ type HeadingProps = StyleArguments & {
 	children?: string | React.JSX.Element;
 };
 
-export const Heading = ({level, children, theme}: HeadingProps) => {
+export const Heading: React.FC<HeadingProps> = ({
+	level,
+	children,
+	theme,
+}: HeadingProps) => {
 	const HTMLElement = `h${level}` as keyof React.JSX.IntrinsicElements;
 	return (
 		<HTMLElement

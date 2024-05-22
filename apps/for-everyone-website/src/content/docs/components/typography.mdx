@@ -1,0 +1,201 @@
+---
+title: Typography
+description: Components for creating text-based content.
+sidebar:
+  badge:
+    text: New
+    variant: tip
+---
+
+import {Preview} from '../patterns/pagination.mdx';
+import {Body, Link, Footer, Caption, Heading, OrderedList, UnorderedList} from '@financial-times/o3-typography';
+import {default as ListPreview} from '../../../components/ListPreview.astro';
+import '@financial-times/o3-typography/css/whitelabel.css';
+import '@financial-times/o3-typography/css/internal.css';
+import '@financial-times/o3-typography/css/professional.css';
+import '@financial-times/o3-typography/css/professional.css';
+
+UI typography is intended for UI design purposes, meaning, all designs except articles and pages handled by Editorial. We exclusively use Metric font for UI designs, we do not use Financier display for non-editorial designs.
+
+## Usage
+
+### Body
+
+For body texts with higher hierarchy in non-editorial pages such as sub-titles, main paragraphs, or bigger texts.
+
+<Preview
+	brand="core"
+	component={Body}
+	componentProps={{children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suscipit, est eget dictum placerat, magna dui mollis ligula, dignissim varius magna lorem sed nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer eget gravida.'}}
+/>
+
+### Body Small
+
+For body texts of lesser importance; such as sub-section body, and paragraphs.
+
+<Preview
+	brand="core"
+	component={Body}
+	componentProps={{
+		size: 'small',
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suscipit, est eget dictum placerat, magna dui mollis ligula, dignissim varius magna lorem sed nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer eget gravida.'
+	}}
+/>
+
+### Links
+
+For general links in UI pages. Links inherit the properties of their parent body.
+
+
+<Preview
+	brand="core"
+	component={Link}
+	componentProps={{
+		href: '#',
+		children: 'Link',
+	}}
+/>
+
+### Footer
+
+For footer text content in the footer such as copyright notice.
+
+<Preview
+	brand="core"
+	component={Footer}
+	componentProps={{}}
+>
+	Article by the Financial Times.
+</Preview>
+
+### Caption
+
+For details about a piece or image that should be less prominent.
+
+<Preview
+	brand="core"
+	component={Caption}
+	componentProps={{}}
+>
+	Image by the Financial Times.
+</Preview>
+
+### Headings
+
+Headings are used to title content and break pages down into sections.
+
+#### Levels
+
+Headings have six levels.
+
+##### Level 1
+
+Use for the main title of a UI page.
+
+<Preview
+	brand="core"
+	component={Heading}
+	componentProps={{level: 1}}
+>
+Level 1
+</Preview>
+
+##### Level 2
+
+Use for section headings.
+
+<Preview
+	brand="core"
+	component={Heading}
+	componentProps={{level: 2}}
+>
+	Level 2
+</Preview>
+
+##### Level 3
+
+Use for sub-section headings.
+
+<Preview
+	brand="core"
+	component={Heading}
+	componentProps={{level: 3}}
+>
+Level 3
+</Preview>
+
+##### Level 4
+
+For smaller titles inside a component. For example, a card.
+
+<Preview
+	brand="core"
+	component={Heading}
+	componentProps={{level: 4}}
+>
+Level 4
+</Preview>
+
+##### Level 5
+
+Also used for smaller titles inside a component.
+
+<Preview
+	brand="core"
+	component={Heading}
+	componentProps={{level: 5}}
+>
+	Level 5
+</Preview>
+
+##### Level 6
+
+Use for lowest level headings.
+
+<Preview
+	brand="core"
+	component={Heading}
+	componentProps={{level: 6}}
+>
+	Level 6
+</Preview>
+
+#### Usage Guidelines
+
+* Use only one level 1 heading per page.
+* Don't skip heading levels, always use the highest level available and work down the hierarchy as different levels of content are used.
+
+### Lists
+
+Lists are used to display a group of related items in either a bulleted or numbered list.
+
+## Types
+
+### Ordered List
+
+Used to display a structured order of items such as instruction steps.
+
+<ListPreview
+	brand="core"
+	listComponent={OrderedList}
+	componentProps={{listItems: [
+			'Gather Ingredients',
+			'Combine',
+			'Bake'
+		]}}
+/>
+
+### Unrdered List
+
+Used to display bullet lists on information.
+
+<ListPreview
+	brand="core"
+	listComponent={UnorderedList}
+	componentProps={{listItems: [
+	'Improves performance',
+	'Reduces build times',
+	'Faster feedback'
+]}}
+/>
+
