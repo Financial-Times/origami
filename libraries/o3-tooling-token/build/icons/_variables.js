@@ -307,6 +307,20 @@ export default {
 		"css": "--o3-icons-ft-icon-user-outlined",
 		"figma": "o3/icons/ft-icon/user-outlined"
 },
+	"o3-icons-ft-icon-speech-left": {
+		"shortName": "speech-left",
+		"value": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.324 18C9.46 18 11.5 16.2617 11.5 13.9727C11.5 10.9995 8.857 9.48929 6.304 9.94533C6.304 7.97608 8.068 6.37403 11.314 5.87062L11.176 5C6.025 5.3672 2.5 8.84374 2.5 12.9185C2.5 16.3979 4.774 18 7.324 18ZM17.324 18C19.46 18 21.5 16.2617 21.5 13.9727C21.5 10.9995 18.857 9.48929 16.304 9.94533C16.304 7.97608 18.068 6.37403 21.314 5.87062L21.176 5C16.025 5.3672 12.5 8.84374 12.5 12.9185C12.5 16.3979 14.774 18 17.324 18Z\" fill=\"black\"/>\n</svg>",
+		"originalValue": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.324 18C9.46 18 11.5 16.2617 11.5 13.9727C11.5 10.9995 8.857 9.48929 6.304 9.94533C6.304 7.97608 8.068 6.37403 11.314 5.87062L11.176 5C6.025 5.3672 2.5 8.84374 2.5 12.9185C2.5 16.3979 4.774 18 7.324 18ZM17.324 18C19.46 18 21.5 16.2617 21.5 13.9727C21.5 10.9995 18.857 9.48929 16.304 9.94533C16.304 7.97608 18.068 6.37403 21.314 5.87062L21.176 5C16.025 5.3672 12.5 8.84374 12.5 12.9185C12.5 16.3979 14.774 18 17.324 18Z\" fill=\"black\"/>\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"speech-left"
+		],
+		"css": "--o3-icons-ft-icon-speech-left",
+		"figma": "o3/icons/ft-icon/speech-left"
+},
 	"o3-icons-ft-social-facebook": {
 		"shortName": "facebook",
 		"value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M13.5419 22V12.8768H16.5169L16.959 9.32329H13.5419V7.05214C13.5419 6.02472 13.8192 5.32175 15.2505 5.32175H17.0789V2.13905C16.7642 2.0927 15.6776 2 14.4187 2C11.7809 2 9.98247 3.66087 9.98247 6.70452V9.33102H7V12.8845H9.98247V22H13.5419V22Z\" fill=\"black\"/>\n</svg>",
