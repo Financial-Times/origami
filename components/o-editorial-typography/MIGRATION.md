@@ -36,14 +36,11 @@ See [Storybook for full o3-editorial-typography JSX documentation](https://o3.or
 
 #### Mixins
 
-migrating for each mixin remove the mixin from your Sass files. and import `o3-editorial-typography` css instead. For example, replace:
+To migrate each mixin first import `o3-editorial-typography` css. For example:
 
 ```diff
 -@import '@financial-times/o3-editorial-typography/main';
--@include oEditorialTypographyHeadline;
-
 +@import '@financial-times/o3-editorial-typography/css/[YOUR BRAND].css';
-```
 
 #### oEditorialTypography
 
