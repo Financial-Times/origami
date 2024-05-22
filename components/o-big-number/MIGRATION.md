@@ -40,7 +40,7 @@ e.g Sustainable Views brand with inverse theme specifically applied on the eleme
 
 `o3-editorial-typography` includes a JSX template for big number for React users. We recommend using JSX templates instead of copy-pasting HTML markup where possible, though both approaches are supported.
 
-See [Storybook for full o3-editorial-typography JSX documentation](https://o3.origami.ft.com?path=/docs/core-o3-editorial-typography--jsx-documentation). If you choose not to use the `o3-editorial-typography` JSX template, ensure you update your HTML following the [oBigNumber mixin guide](#oBigNumber).
+See [Storybook for full o3-editorial-typography JSX documentation](https://o3.origami.ft.com?path=/docs/core-o3-editorial-typography--jsx-documentation). If you choose not to use the `o3-editorial-typography` JSX template, ensure you update your HTML following the [oBigNumber mixin guide](#obignumber-obignumbertitle-obignumbercontent).
 
 #### Mixins
 
