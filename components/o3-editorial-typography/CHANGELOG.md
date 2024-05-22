@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.0](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v1.0.0...o3-editorial-typography-v2.0.0) (2024-05-22)
+## [1.0.0](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v1.0.0...o3-editorial-typography-v1.0.0) (2024-05-22)
 
 
 ### ⚠ BREAKING CHANGES
