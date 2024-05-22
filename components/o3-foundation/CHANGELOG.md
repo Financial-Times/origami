@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.8...o3-foundation-v1.1.0) (2024-05-22)
+
+
+### Features
+
+* add speech icon and remove o3-editrial-typography use-case tokens ([320d168](https://github.com/Financial-Times/origami/commit/320d16835a84d07b6a9a1bbd4d40c525de2a84f0))
+
 ## [1.0.8](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.7...o3-foundation-v1.0.8) (2024-04-29)
 
 
