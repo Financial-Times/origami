@@ -12,7 +12,7 @@ e.g. Core brand with inverse theme will have following markup:
 
 ```html
 <div data-o3-brand="core" data-o3-theme="inverse">
-	<h1 class="o3-editorial-typography__headline">Heading</h1>
+ <h1 class="o3-editorial-typography__headline">Heading</h1>
 </div>
 ```
 
@@ -20,11 +20,11 @@ e.g Sustainable Views brand with inverse theme specifically applied on the eleme
 
 ```html
 <div data-o3-brand="sustainable-views">
-	<!-- OTHER HTML -->
-	<h1 class="o3-editorial-typography__headline" data-o3-theme="inverse">
-		Heading
-	</h1>
-	<!-- OTHER HTML -->
+ <!-- OTHER HTML -->
+ <h1 class="o3-editorial-typography__headline" data-o3-theme="inverse">
+  Heading
+ </h1>
+ <!-- OTHER HTML -->
 </div>
 ```
 
@@ -41,20 +41,51 @@ To migrate each mixin first import `o3-editorial-typography` css. For example:
 ```diff
 -@import '@financial-times/o3-editorial-typography/main';
 +@import '@financial-times/o3-editorial-typography/css/[YOUR BRAND].css';
+```
 
 #### oEditorialTypography
 
 `oEditorialTypography` mixin was used to include all o-editorial-typography CSS. `o3-editorial-typography` includes all o-editorial-typography CSS by default and can be used by applying correct class names.
 
-There is no need to include `oEditorialTypography` mixin in your Sass files any more but few things changed in class names.
+There is no need to include `oEditorialTypography` mixin in your Sass files any more. Using new class names replaced mixins that output css.
+
+class name replacements are as follows:
+
+| oEditorialTypography                                               | o3-editorial-typography class            |
+| ------------------------------------------------------------------ | ---------------------------------------- |
+| o-editorial-typography-heading-level-1                             | o3-editorial-typography-headline         |
+| o-editorial-typography-heading-level-2                             | o3-editorial-typography-chapter          |
+| o-editorial-typography-heading-level-3                             | o3-editorial-typography-subheading       |
+| o-editorial-typography-heading-level-4                             | No direct replacement                    |
+| o-editorial-typography-heading-level-5                             | o3-editorial-typography-label            |
+| o-editorial-typography-body                                        | o3-editorial-typography-body             |
+| o-editorial-typography-list o-editorial-typography-list--unordered | o3-editorial-typography-list--unordered  |
+| o-editorial-typography-list o-editorial-typography-list--ordered   | o3-editorial-typography-list--ordered    |
+| o-editorial-typography-caption                                     | o3-editorial-typography-caption          |
+| o-editorial-typography-standfirst                                  | o3-editorial-typography-standfirst       |
+| o-editorial-typography-byline                                      | o3-editorial-typography-byline           |
+| o-editorial-typography-timestamp                                   | o3-editorial-typography-byline-timestamp |
+| o-editorial-typography-author                                      | o3-editorial-typography-byline-author    |
+| o-editorial-typography-topic                                       | o3-editorial-typography-topic-tag        |
+| o-editorial-typography-link                                        | o3-editorial-typography-link             |
 
 #### oEditorialTypographyHeadline
 
-This mixin outputs large headline text. This style has high visual prominence. This was replaced by a class name `o3-editorial-typography-headline-large`. so:
+This mixin outputs large headline text. This style has high visual prominence. To replace the usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+
+First, remove the mixin and custom class from your Sass file:
+
+```diff
+-.my-headline {
+- @include oEditorialTypographyHeadline();
+-}
+```
+
+Then, replace the custom class with the `o3-editorial-typography-headline-large` class:
 
 ```html
-<h1 class="o-editorial-typography-headline">
-	Don't settle for black and white
+<h1 class="my-headline">
+ Don't settle for black and white
 </h1>
 ```
 
@@ -62,30 +93,39 @@ becomes:
 
 ```html
 <h1 class="o3-editorial-typography-headline-large">
-	Don't settle for black and white
+ Don't settle for black and white
 </h1>
 ```
 
 #### oEditorialTypographyHeading
 
-This mixin outputs header elements from level 1 to 5. Headings are replaced and renamed to more specific names:
+This mixin outputs header elements from level 1 to 5. This mixin has been replaced by a set of classes that are more semantic and have better visual hierarchy. To remove the mixin, replace custom class names with exported class from `o3-editorial-typography`.
 
-| oEditorialTypographyHeading    | o3-editorial-typography class      |
-| ------------------------------ | ---------------------------------- |
-| oEditorialTypographyHeading(1) | o3-editorial-typography-headline   |
-| oEditorialTypographyHeading(2) | o3-editorial-typography-chapter    |
-| oEditorialTypographyHeading(3) | o3-editorial-typography-subheading |
-| oEditorialTypographyHeading(4) | No direct replacement              |
-| oEditorialTypographyHeading(5) | o3-editorial-typography-label      |
+First remove the mixin and custom class from your Sass file:
 
-So:
+```diff
+-.my-heading-1 {
+- @include oEditorialTypographyHeading(1);
+-}
+-.my-heading-2 {
+- @include oEditorialTypographyHeading(2);
+-}
+-.my-heading-3 {
+- @include oEditorialTypographyHeading(3);
+-}
+-.my-heading-5 {
+- @include oEditorialTypographyHeading(5);
+-}
+```
+
+Then, replace the custom class with the `o3-editorial-typography-headline`, `o3-editorial-typography-chapter`, `o3-editorial-typography-subheading`, or `o3-editorial-typography-label` class:
 
 ```html
-<h1 class="o-editorial-typography-heading-level-1">Heading level 1</h1>
-<h2 class="o-editorial-typography-heading-level-2">Heading level 2</h2>
-<h3 class="o-editorial-typography-heading-level-3">Heading level 3</h3>
-<h4 class="o-editorial-typography-heading-level-4">Heading level 4</h4>
-<h5 class="o-editorial-typography-heading-level-5">Heading level 5</h5>
+<h1 class="my-heading-1">Heading level 1</h1>
+<h2 class="my-heading-2">Heading level 2</h2>
+<h3 class="my-heading-3">Heading level 3</h3>
+<h4 class="my-heading-4">Heading level 4</h4>
+<h5 class="my-heading-5">Heading level 5</h5>
 ```
 
 becomes:
@@ -101,25 +141,48 @@ o3-editorial-typography also improves semantic html markup by using the correct 
 
 #### oEditorialTypographyBody
 
-This mixin outputs body text. To replace this mixin, use the class name `o3-editorial-typography-body` on the content element.
+This mixin outputs body text styles. To replace the usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+
+First, remove the mixin and custom class from your Sass file:
 
 ```diff
--<p class="o-editorial-typography-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+-.my-body-text {
+- @include oEditorialTypographyBody();
+-}
+```
+
+Then, replace the custom class with the `o3-editorial-typography-body` class:
+
+```diff
+-<p class="my-body-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 +<p class="o3-editorial-typography-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 ```
 
 #### oEditorialTypographyList
 
-This mixin outputs list styles. Mixin can be removed once markup is updated with the correct class names.
+This mixin outputs list styles. Mixin can be removed once markup is updated with the correct class names. Users used this mixin to output ordered and unordered list styles in their custom classes.
 
-| oEditorialTypographyList              | o3-editorial-typography class           |
-| ------------------------------------- | --------------------------------------- |
-| oEditorialTypographyList('ordered')   | o3-editorial-typography-list--ordered   |
-| oEditorialTypographyList('unordered') | o3-editorial-typography-list--unordered |
+First, remove the mixin from your Sass file:
+
+```diff
+-.my-list {
+- @include oEditorialTypographyList();
+-}
+-
+-.my-list--ordered {
+- @include oEditorialTypographyList('ordered', $include-base-styles: false);
+-}
+-
+-.my-list--unordered {
+- @include oEditorialTypographyList('unordered', $include-base-styles: false);
+-}
+```
+
+Then, replace the custom class with the `o3-editorial-typography-list--ordered` or `o3-editorial-typography-list--unordered` class:
 
 ```diff
 -<div class="o-editorial-typography-body">
--    <ul class="o-editorial-typography-list o-editorial-typography-list--unordered">
+-    <ul class="my-list my-list--unordered">
 -        <li>Lorem ipsum&nbsp;adipiscing elit.</li>
 -        <li>Sed feugiat turpis at massa tristique.</li>
 -        <li>Curabitu r accumsan elit luctus.</li>
@@ -136,12 +199,22 @@ This mixin outputs list styles. Mixin can be removed once markup is updated with
 
 #### oEditorialTypographyCaption
 
-This mixin outputs caption text. To replace this mixin, use the class name `o3-editorial-typography-caption` on the content element.
+This mixin outputs caption text styles. To replace the usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+
+first, remove the mixin and custom class from your Sass file:
+
+```diff
+-.my-caption-text {
+- @include oEditorialTypographyCaption();
+-}
+```
+
+Then, replace the custom class with the `o3-editorial-typography-caption` class:
 
 ```diff
 -<figure>
 -    <img alt="" src="#">
--    <figcaption class="o-editorial-typography-caption">
+-    <figcaption class="my-caption-text">
 -        ©Lorem John Doe
 -    </figcaption>
 -</figure>
@@ -155,55 +228,94 @@ This mixin outputs caption text. To replace this mixin, use the class name `o3-e
 
 #### oEditorialTypographyStandFirst
 
-This mixin outputs standfirst text. To replace this mixin, use the class name `o3-editorial-typography-standfirst` on the content element.
+This mixin outputs standfirst text. To replace the usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+
+First, remove the mixin and custom class from your Sass file:
 
 ```diff
--<p class="o-editorial-typography-standfirst">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+-.my-standfirst-text {
+- @include oEditorialTypographyStandFirst();
+-}
+```
+
+Then, replace the custom class with the `o3-editorial-typography-standfirst` class:
+
+```diff
+-<p class="my-standfirst-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 +<p class="o3-editorial-typography-standfirst">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 ```
 
 #### oEditorialTypographyByline
 
-This mixin outputs byline text styles. To replace this mixin, use `o3-editorial-typography-byline-*` classnames on the content element.
+This mixin outputs byline text styles. To replace usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+
+First, remove the mixin and custom class from your Sass file:
 
 ```diff
--<div class="o-editorial-typography-byline">
--    <a class="o-editorial-typography-author" href="#">Joe Doe</a>
--    in London
--    <time class="o-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm">October 11 2019</time>
+-.my-byline-wrapper {
+- @include oEditorialTypographyByline();
+-}
+
+```
+
+Then, replace the custom class with the `o3-editorial-typography-byline` class:
+
+```diff
+-<div class="my-byline-wrapper">
+-  # byline content
 -</div>
 +<div class="o3-editorial-typography-byline">
-+    <a class="o3-editorial-typography-author" href="#">Joe Doe</a>
-+    <span class="o3-editorial-byline-location">
-+				in London
-+			</span>
-+    <time class="o3-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm">October 11 2019</time>
++  # byline content
 +</div>
 ```
 
 #### oEditorialTypographyTimestamp
 
-This mixin outputs timestamp text styles. To replace this mixin, use the class name `o3-editorial-typography-timestamp` on the content element.
+This mixin outputs timestamp text styles. To replace the usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+
+First, remove the mixin and custom class from your Sass file:
 
 ```diff
--<time class="o-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm">October 11 2019</time>
+-.my-timestamp {
+- @include oEditorialTypographyTimestamp();
+-}
+```
+
+Then, replace the custom class with the `o3-editorial-typography-byline-timestamp` class:
+
+```diff
+-<time class="my-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm">October 11 2019</time>
 +<time class="o3-editorial-typography-byline-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm">October 11 2019</time>
 ```
 
 #### oEditorialTypographyTag
 
-This mixin outputs tag text styles. To replace this mixin, use one of the following classes on the content element:
+This mixin outputs tag text styles. To replace usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
 
-| oEditorialTypographyTag  |  o3-editorial-typography class  |
-| ---------------------------------- | ------------------------------------ |
-| oEditorialTypographyTag('author') | o3-editorial-typography-byline-author |
-| oEditorialTypographyTag('topic') | o3-editorial-typography-topic-tag |
+First, remove the mixin and custom class from your Sass file:
 
 ```diff
--<a class="o-editorial-typography-author" href="#">Joe Doe</a>
--<span class="o-editorial-typography-author">Joe Doe</span>
-+<a class="o3-editorial-typography-byline-author" href="#">Joe Doe</a>
-+<span class="o3-editorial-typography-topic-tag">Joe Doe</span>
+-.my-topic-tag {
+- @include oEditorialTypographyTag('topic');
+-}
+
+-.my-author-tag {
+- @include oEditorialTypographyTag('author');
+-}
+```
+
+Then, replace the custom class with the `o3-editorial-typography-topic-tag` class:
+
+```diff
+-<span class="my-topic-tag">Topic</span>
++<span class="o3-editorial-typography-topic-tag">Topic</span>
+```
+
+Or replace the custom class with the `o3-editorial-typography-byline-author` class:
+
+```diff
+-<span class="my-author-tag">Author</span>
++<span class="o3-editorial-typography-byline-author">Author</span>
 ```
 
 #### oEditorialTypographyDecorated
