@@ -19,10 +19,12 @@ export function Header({
 	variant,
 	data,
 }: THeaderProps) {
-	const includeUserActionsNav = showUserNavigation && !userIsLoggedIn;
 	const includeSubNavigation =
 		showSubNavigation && (data.breadcrumb || data.subsections);
-	const userNavItems = includeUserActionsNav && data['navbar-right-anon'].items;
+
+	const userNavData = userIsLoggedIn ? data['navbar-top-right'] : data['navbar-top-right-anon'];
+	const userNavItems = userNavData.items;
+
 	const breadcrumb = data.breadcrumb;
 	const subsections = data.subsections;
 	const rightSubSection = data['subsections-right'];
@@ -31,7 +33,7 @@ export function Header({
 	const rightNavItems = data['navbar-right'].items;
 	return (
 		<>
-			{includeUserActionsNav && <UserActionsNav userNavItems={userNavItems} />}
+			{showUserNavigation && <UserActionsNav userNavItems={userNavItems} />}
 			<TopWrapper>
 				<TopColumnLeft />
 				<TopColumnCenter showLogoLink={showLogoLink} />

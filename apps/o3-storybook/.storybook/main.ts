@@ -1,16 +1,15 @@
+import { dirname, join } from "path";
 import type {StorybookConfig} from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
-	stories: [
-		'../../../components/o3-*/stories/**/*.stories.@(js|jsx|mjs|ts|tsx|mdx)',
-	],
+	stories: ['../../../components/o3-*/stories/**/*.@(mdx|stories.@(js|jsx|mjs|ts|tsx))'],
 	addons: [
-		'@storybook/addon-links',
-		'@storybook/addon-essentials',
-		'@storybook/addon-interactions',
-		'@whitespace/storybook-addon-html',
-		'@storybook/addon-a11y',
-		'@storybook/addon-designs',
+		getAbsolutePath("@storybook/addon-links"),
+		getAbsolutePath("@storybook/addon-essentials"),
+		getAbsolutePath("@storybook/addon-interactions"),
+		"@whitespace/storybook-addon-html",
+		getAbsolutePath("@storybook/addon-a11y"),
+		getAbsolutePath("@storybook/addon-designs"),
 		{
 			name: '@storybook/addon-styling-webpack',
 			options: {
@@ -40,11 +39,11 @@ const config: StorybookConfig = {
 				],
 			},
 		},
-		'@chromatic-com/storybook', // https://storybook.js.org/docs/writing-tests/visual-testing
-		'@storybook/addon-webpack5-compiler-swc', // SWC compiler
+		getAbsolutePath("@chromatic-com/storybook"),
+		getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
 	],
 	framework: {
-		name: '@storybook/react-webpack5',
+		name: getAbsolutePath("@storybook/react-webpack5"),
 		options: {
 			builder: {useSWC: true},
 		},
@@ -60,9 +59,12 @@ const config: StorybookConfig = {
 		},
 	}),
 	docs: {
-		autodocs: true,
-		defaultName: 'JSX Documentation',
-	},
+        defaultName: 'JSX Documentation'
+    },
 };
 
 export default config;
+
+function getAbsolutePath(value: string): any {
+    return dirname(require.resolve(join(value, "package.json")));
+}

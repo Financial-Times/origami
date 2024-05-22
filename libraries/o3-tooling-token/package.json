@@ -16,7 +16,6 @@
 	"exports": {
 		"./core.js": "./build/core/_variables.js",
 		"./professional.js": "./build/core/professional/_variables.js",
-		"./icons.js": "./build/icons/_variables.js",
 		"./internal.js": "./build/internal/_variables.js",
 		"./whitelabel.js": "./build/whitelabel/_variables.js",
 		"./sustainable-views.js": "./build/sustainable-views/_variables.js",

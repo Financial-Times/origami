@@ -121,6 +121,7 @@ const TopColumnRightLoggedIn = ({
 	userIsSubscribed: boolean;
 	variant: THeaderVariant;
 }) => {
+	const myAccountAction = items?.[0];
 	const subscribeAction = items?.[1];
 	return (
 		<div className="o-header__top-column o-header__top-column--right">
@@ -131,28 +132,33 @@ const TopColumnRightLoggedIn = ({
 					className="o-header__top-button--hide-m"
 				/>
 			)}
-			<MyFt className="" />
+
+			{myAccountAction && (
+				<MyAccountOrSignInLink
+					item={myAccountAction}
+					variant={variant}
+				/>
+			)}
 		</div>
 	);
 };
 
-const SignInLink = ({
+const MyAccountOrSignInLink = ({
 	item,
 	variant,
-	className,
 }: {
 	item: TNavMenuItem;
 	variant?: string;
-	className?: string;
 }) => {
 	const setTabIndex = variant === "sticky" ? { tabIndex: -1 } : null;
+
 	return (
 		<a
-			className={`o-header__top-link ${className}`}
+			className={`o-header__top-myaccount`}
 			href={item.url || undefined}
 			{...setTabIndex}
 		>
-			{item.label}
+			<span>{item.label}</span>
 		</a>
 	);
 };
@@ -199,24 +205,11 @@ export const TopColumnRightAnon = ({
 				/>
 			)}
 			{signInAction && (
-				<SignInLink
+				<MyAccountOrSignInLink
 					item={signInAction}
 					variant={variant}
-					className="o-header__top-link--hide-m"
 				/>
 			)}
-			<MyFt className="o-header__top-icon-link--show-m" />
 		</div>
 	);
 };
-
-const MyFt = ({ className }: { className?: string }) => (
-	<a
-		className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
-		id="o-header-top-link-myft"
-		href="/myft"
-		aria-label="My F T"
-	>
-		<span className="o-header__visually-hidden">myFT</span>
-	</a>
-);

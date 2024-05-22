@@ -1,0 +1,292 @@
+.o3-editorial-typography-topic-tag {
+	font-family: var(--_o3-editorial-typography-use-case-topic-tag-font-family),
+		sans-serif;
+	font-size: var(--_o3-editorial-typography-use-case-topic-tag-font-size);
+	font-weight: var(--_o3-editorial-typography-use-case-topic-tag-font-weight);
+	line-height: var(--_o3-editorial-typography-use-case-topic-tag-line-height);
+}
+
+a.o3-editorial-typography-topic-tag {
+	color: var(
+		--o3-editorial-typography-topic-tag-color,
+		var(--_o3-editorial-typography-topic-tag-color)
+	);
+	text-decoration: none;
+
+	&:hover {
+		color: var(
+			--o3-editorial-typography-topic-tag-hover-color,
+			var(--_o3-editorial-typography-topic-tag-hover-color)
+		);
+	}
+}
+
+[data-o3-theme='inverse'] a.o3-editorial-typography-topic-tag,
+a.o3-editorial-typography-topic-tag[data-o3-theme='inverse'] {
+	--o3-editorial-typography-topic-tag-color: var(
+		--_o3-editorial-typography-topic-tag-inverse-color
+	);
+	--o3-editorial-typography-topic-tag-hover-color: var(
+		--_o3-editorial-typography-topic-tag-hover-inverse-color
+	);
+}
+
+.o3-editorial-typography-standfirst {
+	font-family: var(--_o3-editorial-typography-use-case-standfirst-font-family),
+		sans-serif;
+	font-size: var(--_o3-editorial-typography-use-case-standfirst-font-size);
+	font-weight: var(--_o3-editorial-typography-use-case-standfirst-font-weight);
+	line-height: var(--_o3-editorial-typography-use-case-standfirst-line-height);
+}
+
+.o3-editorial-typography-caption {
+	font-family: var(--_o3-editorial-typography-use-case-caption-font-family),
+		sans-serif;
+	font-size: var(--_o3-editorial-typography-use-case-caption-font-size);
+	font-weight: var(--_o3-editorial-typography-use-case-caption-font-weight);
+	line-height: var(--_o3-editorial-typography-use-case-caption-line-height);
+	color: var(--_o3-editorial-typography-caption-color);
+}
+
+[data-o3-theme='inverse'] .o3-editorial-typography-caption,
+.o3-editorial-typography-caption[data-o3-theme='inverse'] {
+	color: var(--_o3-editorial-typography-caption-inverse-color);
+}
+
+.o3-editorial-typography-byline-author {
+	font-family: var(
+			--_o3-editorial-typography-use-case-byline-author-font-family
+		),
+		sans-serif;
+	font-size: var(--_o3-editorial-typography-use-case-byline-author-font-size);
+	font-weight: var(
+		--_o3-editorial-typography-use-case-byline-author-font-weight
+	);
+	line-height: var(
+		--_o3-editorial-typography-use-case-byline-author-line-height
+	);
+}
+
+a.o3-editorial-typography-byline-author {
+	color: var(
+		--o3-editorial-typography-byline-author-color,
+		var(--_o3-editorial-typography-byline-author-color)
+	);
+	text-decoration: none;
+
+	&:hover {
+		color: var(
+			--o3-editorial-typography-byline-author-hover-color,
+			var(--_o3-editorial-typography-byline-author-hover-color)
+		);
+	}
+}
+
+[data-o3-theme='inverse'] a.o3-editorial-typography-byline-author,
+a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
+	--o3-editorial-typography-byline-author-color: var(
+		--_o3-editorial-typography-byline-author-inverse-color
+	);
+	--o3-editorial-typography-byline-author-hover-color: var(
+		--_o3-editorial-typography-byline-author-hover-inverse-color
+	);
+}
+
+.o3-editorial-typography-byline-location {
+	font-family: var(
+			--_o3-editorial-typography-use-case-byline-location-font-family
+		),
+		sans-serif;
+	font-size: var(--_o3-editorial-typography-use-case-byline-location-font-size);
+	font-weight: var(
+		--_o3-editorial-typography-use-case-byline-location-font-weight
+	);
+	line-height: var(
+		--_o3-editorial-typography-use-case-byline-location-line-height
+	);
+}
+
+.o3-editorial-typography-byline-timestamp {
+	font-family: var(
+			--_o3-editorial-typography-use-case-byline-timestamp-font-family
+		),
+		sans-serif;
+	font-size: var(
+		--_o3-editorial-typography-use-case-byline-timestamp-font-size
+	);
+	font-weight: var(
+		--_o3-editorial-typography-use-case-byline-timestamp-font-weight
+	);
+	line-height: var(
+		--_o3-editorial-typography-use-case-byline-timestamp-line-height
+	);
+	text-transform: uppercase;
+	color: var(--_o3-editorial-typography-byline-timestamp);
+}
+
+[data-o3-theme='inverse'] .o3-editorial-typography-byline-timestamp,
+.o3-editorial-typography-byline-timestamp[data-o3-theme='inverse'] {
+	color: var(--_o3-editorial-typography-byline-timestamp-inverse);
+}
+
+.o3-editorial-typography-pullquote {
+	font-family: var(
+			--_o3-editorial-typography-use-case-pullquote-content-font-family
+		),
+		sans-serif;
+	font-size: var(
+		--_o3-editorial-typography-use-case-pullquote-content-font-size
+	);
+	font-weight: var(
+		--_o3-editorial-typography-use-case-pullquote-content-font-weight
+	);
+	line-height: var(
+		--_o3-editorial-typography-use-case-pullquote-content-line-height
+	);
+}
+
+.o3-editorial-typography-blockquote {
+	border-left: var(--o3-spacing-5xs) solid;
+	padding-left: var(--o3-spacing-2xs);
+	font-family: var(--_o3-body-font-family);
+	font-weight: var(--_o3-body-font-weight);
+	font-size: var(--_o3-body-font-size);
+	line-height: var(--_o3-body-line-height);
+}
+
+.o3-editorial-typography-pullquote,
+.o3-editorial-typography-blockquote {
+	&::before {
+		--_o3-editorial-typography-quote-icon-size: 36px;
+		content: '';
+		width: var(--_o3-editorial-typography-quote-icon-size);
+		height: var(--_o3-editorial-typography-quote-icon-size);
+		mask-image: var(--o3-icons-ft-icon-speech-left);
+		mask-repeat: no-repeat;
+		mask-size: contain;
+		display: inline-block;
+		background-color: currentColor;
+	}
+}
+
+.o3-editorial-typography-pullquote > p {
+	margin-top: 0;
+	margin: var(--o3-spacing-2xs) 0;
+}
+
+.o3-editorial-typography-pullquote__author,
+.o3-editorial-typography-blockquote__author {
+	margin-bottom: var(--o3-spacing-5xs);
+}
+
+.o3-editorial-typography-pullquote__author,
+.o3-editorial-typography-pullquote__source,
+.o3-editorial-typography-blockquote__author,
+.o3-editorial-typography-blockquote__source {
+	display: block;
+	font-style: normal;
+}
+
+.o3-editorial-typography-pullquote__author {
+	font-family: var(
+			--_o3-editorial-typography-use-case-pullquote-author-font-family
+		),
+		sans-serif;
+	font-size: var(
+		--_o3-editorial-typography-use-case-pullquote-author-font-size
+	);
+	font-weight: var(
+		--_o3-editorial-typography-use-case-pullquote-author-font-weight
+	);
+	line-height: var(
+		--_o3-editorial-typography-use-case-pullquote-author-line-height
+	);
+}
+
+.o3-editorial-typography-pullquote__source {
+	font-family: var(
+			--_o3-editorial-typography-use-case-pullquote-source-font-family
+		),
+		sans-serif;
+	font-size: var(
+		--_o3-editorial-typography-use-case-pullquote-source-font-size
+	);
+	font-weight: var(
+		--_o3-editorial-typography-use-case-pullquote-source-font-weight
+	);
+	line-height: var(
+		--_o3-editorial-typography-use-case-pullquote-source-line-height
+	);
+}
+
+.o3-editorial-typography-blockquote__author {
+	font-family: var(
+			--_o3-editorial-typography-use-case-blockquote-author-font-family
+		),
+		sans-serif;
+	font-size: var(
+		--_o3-editorial-typography-use-case-blockquote-author-font-size
+	);
+	font-weight: var(
+		--_o3-editorial-typography-use-case-blockquote-author-font-weight
+	);
+	line-height: var(
+		--_o3-editorial-typography-use-case-blockquote-author-line-height
+	);
+	text-transform: uppercase;
+}
+
+.o3-editorial-typography-blockquote__source {
+	font-family: var(
+			--_o3-editorial-typography-use-case-blockquote-source-font-family
+		),
+		sans-serif;
+	font-size: var(
+		--_o3-editorial-typography-use-case-blockquote-source-font-size
+	);
+	font-weight: var(
+		--_o3-editorial-typography-use-case-blockquote-source-font-weight
+	);
+	line-height: var(
+		--_o3-editorial-typography-use-case-blockquote-source-line-height
+	);
+}
+
+.o3-editorial-typography-big-number,
+.o3-editorial-typography-big-number > div {
+	display: block;
+	unicode-bidi: isolate;
+}
+
+.o3-editorial-typography-big-number__title {
+	font-family: var(
+			--_o3-editorial-typography-use-case-big-number-title-font-family
+		),
+		sans-serif;
+	font-size: var(
+		--_o3-editorial-typography-use-case-big-number-title-font-size
+	);
+	font-weight: var(
+		--_o3-editorial-typography-use-case-big-number-title-font-weight
+	);
+	line-height: var(
+		--_o3-editorial-typography-use-case-big-number-title-line-height
+	);
+	margin: 0 0 var(--o3-spacing-5xs);
+}
+
+.o3-editorial-typography-big-number__content {
+	font-family: var(
+			--_o3-editorial-typography-use-case-big-number-content-font-family
+		),
+		sans-serif;
+	font-size: var(
+		--_o3-editorial-typography-use-case-big-number-content-font-size
+	);
+	font-weight: var(
+		--_o3-editorial-typography-use-case-big-number-content-font-weight
+	);
+	line-height: var(
+		--_o3-editorial-typography-use-case-big-number-content-line-height
+	);
+}
