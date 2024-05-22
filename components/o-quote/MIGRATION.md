@@ -8,21 +8,21 @@
 
 New quote also supports inverse theme that can be placed on the parent element or on the element itself with `data-o3-theme="inverse"`.
 
-`o-quite` exported styling for two types of quote: `standard` and `editorial`. They were replaced by `block` and `pull` types in `o3-editorial-typography`.
+`o-quite` exported styling for two types of quote: `standard` and `editorial`. `standard` type has no direct replacement and if you need help with it reach out to the team. `editorial` type has been replaced with `block` type quote in `o3-editorial-typography`.
 
 | o-quote type | replacement type |
 | ------------ | ---------------- |
-| standard     | blockquote       |
-| editorial    | pullquote        |
+| standard     | No direct replacement       |
+| editorial    | blockquote        |
 
-e.g. Core brand with inverse theme using `pull` type quote will have following markup:
+e.g. Core brand with inverse theme using `block` type quote will have following markup:
 
 ```html
 <div data-o3-brand="core" data-o3-theme="inverse">
- <blockquote class="o3-editorial-typography-pullquote">
+ <blockquote class="o3-editorial-typography-blockquote">
   <p>“The future is already here — it's just not very evenly distributed.”</p>
   <cite>
-   <span class="o3-editorial-typography-pullquote__author">
+   <span class="o3-editorial-typography-blockquote__author">
     William Gibson
    </span>
   </cite>
@@ -57,7 +57,7 @@ e.g Sustainable Views brand with inverse theme specifically applied on the eleme
 
 `o3-editorial-typography` includes a JSX template for quote for React users. We recommend using JSX templates instead of copy-pasting HTML markup where possible, though both approaches are supported.
 
-See [Storybook for full o3-editorial-typography JSX documentation](https://o3.origami.ft.com?path=/docs/core-o3-editorial-typography--jsx-documentation). If you choose not to use the `o3-editorial-typography` JSX template, ensure you update your HTML following the [oQuote mixin guide](#oQuote).
+See [Storybook for full o3-editorial-typography JSX documentation](https://o3.origami.ft.com?path=/docs/core-o3-editorial-typography--jsx-documentation). If you choose not to use the `o3-editorial-typography` JSX template, ensure you update your HTML following the [oQuote mixin guide](#oquote ).
 
 #### Mixins
 
@@ -65,7 +65,7 @@ See [Storybook for full o3-editorial-typography JSX documentation](https://o3.or
 
 `oQuote` mixin was used to include all o-quote CSS. `o3-editorial-typography` includes all o-quote CSS by default and can be used by applying correct class names on a markup.
 
-Replace `o-quote` class with `o3-editorial-typography-blockquote` for `standard` type quote and `o3-editorial-typography-pullquote` for `editorial` type quote.
+Replace `o-quote` class with `o3-editorial-typography-blockquote` for `editorial` type quote.
 
 You will also need to import the `o3-editorial-typography` css file in your project instead of `o-quote` mixins.
 
@@ -112,48 +112,48 @@ and `Editorial` quote becomes:
 -    </cite>
 -</blockquote>
 
-+<blockquote class="o3-editorial-typography-pullquote" >
++<blockquote class="o3-editorial-typography-blockquote" >
 +    <p>
 +        The prize for this century’s worst technology product probably belongs to Google Glass, a pair of spectacles with an inbuilt camera and a tiny lens on which you could browse the internet. Suddenly you could film everybody you met, or silently ignore them and read Wikipedia.
 +    </p>
 +    <cite>
-+        <span class="o3-editorial-typography-pullquote__author">Henry Mance</span>
-+        <span class="o3-editorial-typography-pullquote__source">Financial Times</span>
++        <span class="o3-editorial-typography-blockquote__author">Henry Mance</span>
++        <span class="o3-editorial-typography-blockquote__source">Financial Times</span>
 +    </cite>
 +</blockquote>
 ```
 
 ##### oQuoteEditorial
 
-This mixin was used to include all o-quote editorial CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use `o3-editorial-typography-pullquote` class to achieve the same effect on your markup.
+This mixin was used to include all o-quote editorial CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use `o3-editorial-typography-blockquote` class to achieve the same effect on your markup.
 
 ##### oQuoteEditorialCite
 
-This mixin was used to include all o-quote editorial cite CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use combination of `o3-editorial-typography-pullquote__source` and `o3-editorial-typography-pullquote__author` class to achieve the same effect on your markup.
+This mixin was used to include all o-quote editorial cite CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use combination of `o3-editorial-typography-blockquote__source` and `o3-editorial-typography-blockquote__author` class to achieve the same effect on your markup.
 
 ##### oQuoteEditorialCiteSource
 
-This mixin was used to include all o-quote editorial cite source CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use `o3-editorial-typography-pullquote__source` class to achieve the same effect on your markup.
+This mixin was used to include all o-quote editorial cite source CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use `o3-editorial-typography-blockquote__source` class to achieve the same effect on your markup.
 
 ##### oQuoteEditorialCiteAuthor
 
-This mixin was used to include all o-quote editorial cite author CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use `o3-editorial-typography-pullquote__author` class to achieve the same effect on your markup.
+This mixin was used to include all o-quote editorial cite author CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use `o3-editorial-typography-blockquote__author` class to achieve the same effect on your markup.
 
 ##### oQuoteStandard
 
-This mixin was used to include all o-quote standard CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use `o3-editorial-typography-blockquote` class to achieve the same effect on your markup.
+This mixin was used to include all o-quote standard CSS under custom css classes. There is no direct replacement for this mixin and get in touch with our team if you need help with it.
 
 ##### oQuoteStandardCite
 
-This mixin was used to include all o-quote standard cite CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use combination of `o3-editorial-typography-blockquote__source` and `o3-editorial-typography-blockquote__author` class to achieve the same effect on your markup.
+This mixin was used to include all o-quote standard cite CSS under custom css classes. There is no direct replacement for this mixin and get in touch with our team if you need help with it.
 
 ##### oQuoteStandardCiteSource
 
-This mixin was used to include all o-quote standard cite source CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use `o3-editorial-typography-blockquote__source` class to achieve the same effect on your markup.
+This mixin was used to include all o-quote standard cite source CSS under custom css classes. There is no direct replacement for this mixin and get in touch with our team if you need help with it.
 
 ##### oQuoteStandardCiteAuthor
 
-This mixin was used to include all o-quote standard cite author CSS under custom css classes. There is no direct replacement for this mixin in `o3-editorial-typography`. You can use `o3-editorial-typography-blockquote__author` class to achieve the same effect on your markup.
+This mixin was used to include all o-quote standard cite author CSS under custom css classes. There is no direct replacement for this mixin and get in touch with our team if you need help with it.
 
 #### Variables
 
