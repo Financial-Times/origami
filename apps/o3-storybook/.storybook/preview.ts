@@ -9,7 +9,7 @@ import {
 import {allModes} from './modes';
 
 const preview: Preview = {
-	parameters: {
+    parameters: {
 		viewport: {
 		      viewports: {
 			"default": { name: "Default", styles: { width: "240px", height: "900px" } },
@@ -59,6 +59,8 @@ const preview: Preview = {
 			},
 		},
 	},
+
+    tags: ['autodocs']
 };
 
 export default preview;
