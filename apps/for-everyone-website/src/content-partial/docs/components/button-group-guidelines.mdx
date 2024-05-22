@@ -1,0 +1,50 @@
+import {default as Example} from '../../../components/Example.astro';
+import {default as Guideline} from '../../../components/Guideline.astro';
+
+<Guideline summary="Use grouped buttons for related actions" do={true}>
+	<p slot="description">
+		Group related actions or options closely together to improve usability and
+		decision-making efficiency. For example, use for switching views or modes
+		within the same context, such as changing calendar views from day, week, to
+		month
+	</p>
+	<Example slot="examples" do={true}>
+		![A labelled group of buttons. The label reads "view", it is annotated for
+		demonstration purposes as the "action". The two buttons read "topic" and
+		"timeline". The "topic" button is
+		pressed.](/assets/images/components/buttons/group-guideline-1.svg)
+
+    	![A labelled group of buttons. The label reads "view". The two buttons read
+    	"topic" and "timeline". The buttons are annotated as "mode" for
+    	demonstration purposes. The "topic" button is
+    	pressed.](/assets/images/components/buttons/group-guideline-2.svg)
+    </Example>
+
+</Guideline>
+
+<Guideline summary="Don't use grouped buttons for navigation" do={false}>
+	<p slot="description">
+		Use tabs instead to imply navigation between different content areas or
+		contexts within the same workspace.
+	</p>
+	<Example slot="examples" do={false}>
+    		![](/assets/images/components/buttons/group-guideline-3.svg)
+    </Example>
+
+</Guideline>
+
+<Guideline summary="Limit the number of buttons in a group" do={false}>
+	<p slot="description">
+		Never use groups of more than six buttons, as too many calls to action can
+		cause users to be unsure of what to do next. Also be thoughtful about how
+		multiple buttons will look and work on small screens, this may vary
+		according the the length of the button's label.
+	</p>
+    <Example slot="examples" do={true}>
+    	![](/assets/images/components/buttons/group-guideline-5.svg)
+    </Example>
+    <Example slot="examples" do={false}>
+    	![](/assets/images/components/buttons/group-guideline-4.svg)
+    </Example>
+
+</Guideline>
