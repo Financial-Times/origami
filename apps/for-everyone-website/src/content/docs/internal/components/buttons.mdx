@@ -9,6 +9,9 @@ import {default as ButtonAnatomy} from '../../../../components/ButtonAnatomy.ast
 import {default as Preview} from '../../../../components/ButtonPreview.astro';
 import {Content as ButtonGuidelines} from '../../../../content-partial/docs/components/buttons-guidelines.mdx';
 import {Content as ButtonBehaviour} from '../../../../content-partial/docs/components/buttons-behaviour.mdx';
+import {default as GroupPreview} from '../../../../components/ButtonGroupPreview.astro';
+import {Content as ButtonGroupGuidelines} from '../../../../content-partial/docs/components/button-group-guidelines.mdx';
+import {Content as ButtonGroupIntro} from '../../../../content-partial/docs/components/button-group-intro.mdx';
 
 Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
 
@@ -148,6 +151,25 @@ Each button type supports the following themes.
 An alternative theme for use on dark backgrounds.
 
 <Preview
+	brand="internal"
 	component={Button}
 	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
 />
+
+## Button Groups
+
+<ButtonGroupIntro />
+
+<GroupPreview
+	brand="internal"
+	componentProps={{
+		buttons: [
+			{label: 'Relevance', attributes: {'aria-selected': true}},
+			{label: 'Date'},
+		],
+	}}
+/>
+
+### Usage Guidelines
+
+<ButtonGroupGuidelines />
