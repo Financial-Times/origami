@@ -1734,6 +1734,114 @@ export default {
 		"css": "--o3-color-use-case-muted-text",
 		"figma": "o3/color/use-case/muted/text"
 },
+	"o3-color-use-case-link-inverse-text": {
+		"shortName": "@",
+		"value": "#ffffffff",
+		"originalValue": "#ffffffff",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"text",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-inverse-text",
+		"figma": "o3/color/use-case/link-inverse/text/@"
+},
+	"o3-color-use-case-link-inverse-text-hover": {
+		"shortName": "hover",
+		"value": "#d4d4d6",
+		"originalValue": "#d4d4d6",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"text",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-inverse-text-hover",
+		"figma": "o3/color/use-case/link-inverse/text/hover"
+},
+	"o3-color-use-case-link-inverse-underline": {
+		"shortName": "@",
+		"value": "#ffffffff",
+		"originalValue": "#ffffffff",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"underline",
+				"@"
+		],
+		"css": "--o3-color-use-case-link-inverse-underline",
+		"figma": "o3/color/use-case/link-inverse/underline/@"
+},
+	"o3-color-use-case-link-inverse-underline-hover": {
+		"shortName": "hover",
+		"value": "#d4d4d6",
+		"originalValue": "#d4d4d6",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"link-inverse",
+				"underline",
+				"hover"
+		],
+		"css": "--o3-color-use-case-link-inverse-underline-hover",
+		"figma": "o3/color/use-case/link-inverse/underline/hover"
+},
+	"o3-color-use-case-page-inverse-background": {
+		"shortName": "background",
+		"value": "#262A33",
+		"originalValue": "{o3.color.palette.slate}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"page-inverse",
+				"background"
+		],
+		"css": "--o3-color-use-case-page-inverse-background",
+		"figma": "o3/color/use-case/page-inverse/background"
+},
+	"o3-color-use-case-body-inverse-text": {
+		"shortName": "text",
+		"value": "#ffffffff",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"body-inverse",
+				"text"
+		],
+		"css": "--o3-color-use-case-body-inverse-text",
+		"figma": "o3/color/use-case/body-inverse/text"
+},
+	"o3-color-use-case-muted-inverse": {
+		"shortName": "muted-inverse",
+		"value": "#a8aaad",
+		"originalValue": "#a8aaad",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"muted-inverse"
+		],
+		"css": "--o3-color-use-case-muted-inverse",
+		"figma": "o3/color/use-case/muted-inverse"
+},
 	"o3-focus-use-case-ring-inner": {
 		"shortName": "inner",
 		"value": "0 0 0 4px #ffffffff",
@@ -1826,13 +1934,13 @@ export default {
 },
 	"o3-focus-use-case-outline-color": {
 		"shortName": "color",
-		"value": "0 0 0 2px #000000ff",
+		"value": "0 0 0 2px #807973ff",
 		"originalValue": {
 				"x": "0",
 				"y": "0",
 				"blur": "0",
 				"spread": "2",
-				"color": "{o3.color.palette.black}",
+				"color": "{o3.color.palette.black-50}",
 				"type": "dropShadow"
 		},
 		"type": "boxShadow",
