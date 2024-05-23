@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.1.0...o3-foundation-v1.1.1) (2024-05-23)
+
+
+### Bug Fixes
+
+* Add missing SV usecase tokens. ([30ff647](https://github.com/Financial-Times/origami/commit/30ff647d29141e79b7c9745643f70b05463510c7))
+
 ## [1.1.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.0.8...o3-foundation-v1.1.0) (2024-05-22)
 
 
