@@ -43,6 +43,44 @@
             "type": "color",
             "description": "\"Muted\" text is less prominent, for example credits and captions."
           }
+        },
+        "link-inverse": {
+          "text": {
+            "@": {
+              "value": "#ffffffff",
+              "type": "color"
+            },
+            "hover": {
+              "value": "#d4d4d6",
+              "type": "color"
+            }
+          },
+          "underline": {
+            "@": {
+              "value": "#ffffffff",
+              "type": "color"
+            },
+            "hover": {
+              "value": "#d4d4d6",
+              "type": "color"
+            }
+          }
+        },
+        "page-inverse": {
+          "background": {
+            "value": "{o3.color.palette.slate}",
+            "type": "color"
+          }
+        },
+        "body-inverse": {
+          "text": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
+        },
+        "muted-inverse": {
+          "value": "#a8aaad",
+          "type": "color"
         }
       }
     }
