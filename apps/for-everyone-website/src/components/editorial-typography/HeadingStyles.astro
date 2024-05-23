@@ -1,0 +1,236 @@
+---
+import {Headline} from '@financial-times/o3-editorial-typography';
+import FigmaSbLinks from './FigmaSbLinks.astro';
+let storybook =
+	'https://o3.origami.ft.com/?path=/story/core-o3-editorial-typography--heading';
+let figma =
+	'https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?node-id=4717-652&t=JoNufjYjDEE8n0FL-4';
+---
+
+<h4>Headline Large<span> (prev. Heading Large)</span></h4>
+
+<p>
+	Use for titles and headlines of Main news pages and articles. Usually in the
+	full-bleed topper component. Use in moderation.
+</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Viewport</th>
+			<th>Style Preview</th>
+			<th>Links</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>S</td>
+			<td class="headline-large-s">Headline large</td>
+			<td>
+				<FigmaSbLinks {figma} {storybook} />
+			</td>
+		</tr>
+		<tr>
+			<td>M</td>
+			<td class="headline-large-m">Headline large</td>
+			<td>
+				<FigmaSbLinks {figma} {storybook} />
+			</td>
+		</tr>
+		<tr>
+			<td>L</td>
+			<td class="headline-large-l">Headline large</td>
+			<td>
+				<FigmaSbLinks {figma} {storybook} />
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Headline<span> (prev. H1)</span></h4>
+<p>For titles and introductions of Feature posts and other new stories.</p>
+<table>
+	<thead>
+		<tr>
+			<th>Viewport</th>
+			<th>Style Preview</th>
+			<th>Links</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>S</td>
+			<td class="headline-s">Headline</td>
+			<td>
+				<FigmaSbLinks {figma} {storybook} />
+			</td>
+		</tr>
+		<tr>
+			<td>M</td>
+			<td class="headline-m">Headline</td>
+			<td>
+				<FigmaSbLinks {figma} {storybook} />
+			</td>
+		</tr>
+		<tr>
+			<td>L</td>
+			<td class="headline-l">Headline</td>
+			<td>
+				<FigmaSbLinks {figma} {storybook} />
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Lower Headings</h4>
+<p>
+	The following headlines have the same values across all screen sizes, mobile,
+	tablet, desktop.
+</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Style Preview</th>
+			<th>Usage</th>
+			<th>Links</th>
+		</tr>
+	</thead>
+	<tbody class="subheadings">
+		<tr>
+			<td class="chapter">
+				<Headline type="chapter">Chapter</Headline>
+				<span> Prev. name: Heading level 2 (H2)</span>
+			</td>
+			<td>For in-page titles / chapters</td>
+			<td>
+				<FigmaSbLinks {figma} {storybook} />
+			</td>
+		</tr>
+		<tr>
+			<td class="subheading">
+				<Headline type="subheading">Subheading</Headline>
+				<span> Prev. name: Heading level 3 (H3)</span>
+			</td>
+			<td>For in-page sub-titles / sub-headings</td>
+			<td>
+				<FigmaSbLinks {figma} {storybook} />
+			</td>
+		</tr>
+		<tr>
+			<td class="label">
+				<Headline type="label">LABEL</Headline>
+				<span>Prev. name: Heading level 5 (H5)</span>
+			</td>
+			<td
+				>To provide short details about a chapter, kickers (additional headline)
+				just above a chapter.
+			</td>
+			<td>
+				<FigmaSbLinks {figma} {storybook} />
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<style>
+	h4 > span {
+		font-size: 16px;
+		opacity: 0.7;
+	}
+
+	tr > td:first-child {
+		text-align: center;
+	}
+
+	.subheadings {
+		td {
+			h2,
+			h3,
+			h4 {
+			}
+		}
+	}
+
+	.headline-large-s {
+		font-family: var(
+			--_o3-editorial-typography-use-case-headline-large-s-font-family
+		);
+		font-weight: var(
+			--_o3-editorial-typography-use-case-headline-large-s-font-weight
+		);
+		font-size: var(
+			--_o3-editorial-typography-use-case-headline-large-s-font-size
+		);
+		line-height: var(
+			--_o3-editorial-typography-use-case-headline-large-s-line-height
+		);
+	}
+
+	.headline-large-m {
+		font-family: var(
+			--_o3-editorial-typography-use-case-headline-large-m-font-family
+		);
+		font-weight: var(
+			--_o3-editorial-typography-use-case-headline-large-m-font-weight
+		);
+		font-size: var(
+			--_o3-editorial-typography-use-case-headline-large-m-font-size
+		);
+		line-height: var(
+			--_o3-editorial-typography-use-case-headline-large-m-line-height
+		);
+	}
+	.headline-large-l {
+		font-family: var(
+			--_o3-editorial-typography-use-case-headline-large-l-font-family
+		);
+		font-weight: var(
+			--_o3-editorial-typography-use-case-headline-large-l-font-weight
+		);
+		font-size: var(
+			--_o3-editorial-typography-use-case-headline-large-l-font-size
+		);
+		line-height: var(
+			--_o3-editorial-typography-use-case-headline-large-l-line-height
+		);
+	}
+
+	.headline-s {
+		font-family: var(
+			--_o3-editorial-typography-use-case-headline-s-font-family
+		);
+		font-weight: var(
+			--_o3-editorial-typography-use-case-headline-s-font-weight
+		);
+		font-size: var(--_o3-editorial-typography-use-case-headline-s-font-size);
+		line-height: var(
+			--_o3-editorial-typography-use-case-headline-s-line-height
+		);
+	}
+
+	.headline-m {
+		font-family: var(
+			--_o3-editorial-typography-use-case-headline-m-font-family
+		);
+		font-weight: var(
+			--_o3-editorial-typography-use-case-headline-m-font-weight
+		);
+		font-size: var(--_o3-editorial-typography-use-case-headline-m-font-size);
+		line-height: var(
+			--_o3-editorial-typography-use-case-headline-m-line-height
+		);
+	}
+	.headline-l {
+		font-family: var(
+			--_o3-editorial-typography-use-case-headline-l-font-family
+		);
+		font-weight: var(
+			--_o3-editorial-typography-use-case-headline-l-font-weight
+		);
+		font-size: var(--_o3-editorial-typography-use-case-headline-l-font-size);
+		line-height: var(
+			--_o3-editorial-typography-use-case-headline-l-line-height
+		);
+	}
+</style>
