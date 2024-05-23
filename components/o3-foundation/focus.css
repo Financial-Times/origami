@@ -1,11 +1,12 @@
 /* focus styles */
 :focus {
-	outline: 2px solid var(--o3-focus-use-case-outline-color);
+	box-shadow: var(--o3-focus-use-case-outline-color);
+	outline: 0;
 }
 
 [data-o3-theme='inverse']:focus,
 :where([data-o3-theme='inverse']) :focus {
-	outline: 2px solid var(--o3-focus-use-case-outline-inverse-color);
+	box-shadow: var(--o3-focus-use-case-outline-inverse-color);
 }
 
 input:focus,
@@ -14,7 +15,7 @@ select:focus,
 textarea:focus {
 	box-shadow: var(--o3-focus-use-case-ring-inner),
 		var(--o3-focus-use-case-ring-outer);
-	outline: unset;
+	outline: 0;
 }
 
 [data-o3-theme='inverse'] input:focus,
@@ -37,17 +38,17 @@ textarea:focus {
 	select:focus,
 	textarea:focus,
 	:focus {
-		outline: unset;
 		box-shadow: unset;
 	}
 
 	:focus-visible {
-		outline: 2px solid var(--o3-focus-use-case-outline-color);
+		box-shadow: var(--o3-focus-use-case-outline-color);
+		outline: 0;
 	}
 
 	[data-o3-theme='inverse']:focus-visible,
 	:where([data-o3-theme='inverse']) :focus-visible {
-		outline: 2px solid var(--o3-focus-use-case-outline-inverse-color);
+		box-shadow: var(--o3-focus-use-case-outline-inverse-color);
 	}
 
 	input:focus-visible,
@@ -56,7 +57,7 @@ textarea:focus {
 	textarea:focus-visible {
 		box-shadow: var(--o3-focus-use-case-ring-inner),
 			var(--o3-focus-use-case-ring-outer);
-		outline: unset;
+		outline: 0;
 	}
 
 	[data-o3-theme='inverse'] input:focus-visible,
@@ -88,7 +89,7 @@ textarea:focus {
 .o3-apply-focus-rings:focus {
 	box-shadow: var(--o3-focus-use-case-ring-inner),
 		var(--o3-focus-use-case-ring-outer);
-	outline: unset;
+	outline: 0;
 }
 
 [data-o3-theme='inverse'].o3-apply-focus-rings:focus,
@@ -105,7 +106,7 @@ textarea:focus {
 	.o3-apply-focus-rings:focus-visible {
 		box-shadow: var(--o3-focus-use-case-ring-inner),
 			var(--o3-focus-use-case-ring-outer);
-		outline: unset;
+		outline: 0;
 	}
 
 	[data-o3-theme='inverse'].o3-apply-focus-rings:focus-visible,
