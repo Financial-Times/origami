@@ -1,8 +1,9 @@
 ---
 import {Headline} from '@financial-times/o3-editorial-typography';
 import FigmaSbLinks from './FigmaSbLinks.astro';
+const {brand} = Astro.props
 let storybook =
-	'https://o3.origami.ft.com/?path=/story/core-o3-editorial-typography--heading';
+	`https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--heading`;
 let figma =
 	'https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?node-id=4717-652&t=JoNufjYjDEE8n0FL-4';
 ---
@@ -96,9 +97,9 @@ let figma =
 			<th>Links</th>
 		</tr>
 	</thead>
-	<tbody class="subheadings">
+	<tbody>
 		<tr>
-			<td class="chapter">
+			<td class="chapter not-content">
 				<Headline type="chapter">Chapter</Headline>
 				<span> Prev. name: Heading level 2 (H2)</span>
 			</td>
@@ -108,7 +109,7 @@ let figma =
 			</td>
 		</tr>
 		<tr>
-			<td class="subheading">
+			<td class="subheading not-content">
 				<Headline type="subheading">Subheading</Headline>
 				<span> Prev. name: Heading level 3 (H3)</span>
 			</td>
@@ -118,7 +119,7 @@ let figma =
 			</td>
 		</tr>
 		<tr>
-			<td class="label">
+			<td class="label not-content">
 				<Headline type="label">LABEL</Headline>
 				<span>Prev. name: Heading level 5 (H5)</span>
 			</td>
@@ -143,13 +144,8 @@ let figma =
 		text-align: center;
 	}
 
-	.subheadings {
-		td {
-			h2,
-			h3,
-			h4 {
-			}
-		}
+	.not-content span {
+		font-size: 12px;
 	}
 
 	.headline-large-s {
