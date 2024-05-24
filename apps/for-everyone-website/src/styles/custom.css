@@ -42,7 +42,7 @@ img {
 	background-repeat: repeat;
 	background-size: 1.5rem;
 	border-radius: 0.33rem;
-	border: 1px solid var(--sl-color-gray-1);
+	border: 1px solid var(--o3-color-palette-black-40);
 	margin: 0.5rem;
 	resize: both;
 }
