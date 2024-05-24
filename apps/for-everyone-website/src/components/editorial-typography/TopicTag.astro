@@ -1,0 +1,21 @@
+---
+import {TopicTag as TopicTagTsx} from '@financial-times/o3-editorial-typography/esm';
+import FigmaSbLinks from './FigmaSbLinks.astro';
+
+const {brand} = Astro.props;
+const figma =
+	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=1301-1096&t=kyDVEfsg2tRJspyY-4';
+
+const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--topic-tag`;
+---
+
+<p>
+	Topic tag is used to indicate the category of a post. It’s default colour is claret on light background however, you
+	can customise to suit your product need.
+</p>
+
+<div class="component-preview not-content">
+	<TopicTagTsx href="#">Topic Link</TopicTagTsx>
+</div>
+
+<FigmaSbLinks {figma} {storybook} />
