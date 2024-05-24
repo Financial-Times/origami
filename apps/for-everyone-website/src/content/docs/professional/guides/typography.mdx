@@ -7,27 +7,22 @@ sidebar:
     variant: note
 ---
 
-import '@financial-times/o3-typography/css/whitelabel.css';
-
-import '@financial-times/o3-typography/css/internal.css';
 import '@financial-times/o3-typography/css/professional.css';
-import '@financial-times/o3-typography/css/core.css';
 
-import '@financial-times/o3-editorial-typography/css/core.css';
-import '@financial-times/o3-editorial-typography/css/sustainable-views.css';
+import '@financial-times/o3-editorial-typography/css/professional.css';
 
-import Overview from '../../../components/editorial-typography/Overview.astro';
-import HeadingStyles from '../../../components/editorial-typography/HeadingStyles.astro';
-import BodyStyles from '../../../components/editorial-typography/BodyStyles.astro';
-import Quotes from '../../../components/editorial-typography/Quotes.astro';
-import Lists from '../../../components/editorial-typography/Lists.astro';
-import Links from '../../../components/editorial-typography/Links.astro';
-import BigNumber from '../../../components/editorial-typography/BigNumber.astro';
-import Byline from '../../../components/editorial-typography/Byline.astro';
-import TopicTag from '../../../components/editorial-typography/TopicTag.astro';
+import Overview from '../../../../components/editorial-typography/Overview.astro';
+import HeadingStyles from '../../../../components/editorial-typography/HeadingStyles.astro';
+import BodyStyles from '../../../../components/editorial-typography/BodyStyles.astro';
+import Quotes from '../../../../components/editorial-typography/Quotes.astro';
+import Lists from '../../../../components/editorial-typography/Lists.astro';
+import Links from '../../../../components/editorial-typography/Links.astro';
+import BigNumber from '../../../../components/editorial-typography/BigNumber.astro';
+import Byline from '../../../../components/editorial-typography/Byline.astro';
+import TopicTag from '../../../../components/editorial-typography/TopicTag.astro';
 
-import TypeScale from '../../../components/TypeScale.astro';
-import TypeFamily from '../../../components/TypeFamily.astro';
+import TypeScale from '../../../../components/TypeScale.astro';
+import TypeFamily from '../../../../components/TypeFamily.astro';
 
 We use a single typographic scale for all fonts. Our scale ranges from -2 to 10. Consider scale 0 the baseline, with ascending and descending values in each direction.
 
@@ -70,11 +65,11 @@ Georgia is solely used for editorial article body copy. This is an alternate to 
 
 ### Metric Scale
 
-<TypeScale brand="core" scaleFamily="metric2" />
+<TypeScale brand="professional" scaleFamily="metric2" />
 
 ### Financier Display / Georgia Scale
 
-<TypeScale brand="core" scaleFamily="financier-display" />
+<TypeScale brand="professional" scaleFamily="financier-display" />
 
 ## Font Weight
 
@@ -129,11 +124,11 @@ Editorial typography is intended for editorial and article content e.g homepage 
 
 Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use heading styles as needed. H1 to H5 should be set during development.
 
-<HeadingStyles brand="core" />
+<HeadingStyles brand="professional" />
 
 ### Body and Details styles
 
-<BodyStyles brand="core" />
+<BodyStyles brand="professional" />
 
 ## Editorial Text Formats
 
@@ -143,26 +138,26 @@ An overview description of the component or pattern variations. How this is best
 
 For content direct snippet of an author's words. Optional elements: caption, the vertical bar.
 
-<Quotes brand="core" />
+<Quotes brand="professional" />
 
 ### Lists
 
 For content direct snippet of an author's words. Optional elements: caption, the vertical bar.
 
-<Lists brand="core" />
+<Lists brand="professional" />
 
 ### Links
 
-<Links brand="core" />
+<Links brand="professional" />
 
 ### Big-number
 
-<BigNumber brand="core" />
+<BigNumber brand="professional" />
 
 ### Byline
 
-<Byline brand="core" />
+<Byline brand="professional" />
 
 ### Topic Tag
 
-<TopicTag brand="core" />
+<TopicTag brand="professional" />
