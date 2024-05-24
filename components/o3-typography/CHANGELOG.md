@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/Financial-Times/origami/compare/o3-typography-v1.0.0...o3-typography-v1.0.1) (2024-05-24)
+
+
+### Bug Fixes
+
+* Support theme attibute on parent selector in ui typography ([237e6e8](https://github.com/Financial-Times/origami/commit/237e6e88b42e16e151ce41121718f2d2e6f4fafa))
+
 ## [1.0.0](https://github.com/Financial-Times/origami/compare/o3-typography-v0.4.0...o3-typography-v1.0.0) (2024-05-16)
 
 
