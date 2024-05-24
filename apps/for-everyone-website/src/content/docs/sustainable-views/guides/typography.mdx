@@ -12,6 +12,9 @@ import '@financial-times/o3-typography/css/sustainable-views.css';
 import TypeScale from '../../../../components/TypeScale.astro';
 import TypeFamily from '../../../../components/TypeFamily.astro';
 
+import {default as Example} from '../../../../components/Example.astro';
+import {default as Guideline} from '../../../../components/Guideline.astro';
+
 ## Font Families
 
 Metric is the FT Group's primary font for user interface.
@@ -84,3 +87,32 @@ User interface (UI) typography is intended for all design elements except those 
 Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers.
 
 This is a work in progress for Sustainable Views.
+
+## Usage Guidelines
+
+<Guideline summary="Use semantic heading levels" do={true}>
+	<p slot="description">
+		In a web context, HTML heading levels must [follow in
+		order](https://www.w3.org/WAI/tutorials/page-structure/headings/) to
+		represent content structure. However these may be styled to look like a
+		different heading visually, if required by a design. E.g. a h2 heading may
+		be styled as h3.
+	</p>
+	<Example slot="examples" do={true}>
+		![A h1 heading follows a h2
+		heading.](/assets/images/components/typography/type-guideline-1.svg)
+	</Example>
+</Guideline>
+
+<Guideline summary="Avoid negative font scales" do={false}>
+	<p slot="description">
+		Scales less than zero (-1, -2) are edge cases. Avoid these as they can be
+		hard to read especially on large screens. Negative scales may be used to
+		present short, secondary information such as a caption. However we recommend
+		using predefined [ui typography](#ui-typography) styles where possible.
+	</p>
+	<Example slot="examples" do={false}>
+		![A small, negative font scale is incorrectly used for a large body of
+		copy.](/assets/images/components/typography/type-guideline-3.svg)
+	</Example>
+</Guideline>
