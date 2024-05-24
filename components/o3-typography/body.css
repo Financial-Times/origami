@@ -12,9 +12,12 @@
 	line-height: var(--o3-font-lineheight-negative-1);
 }
 
-.o3-typography-body[data-o3-theme="inverse"],
-.o3-typography-wrapper:where([data-o3-theme="inverse"]) > p {
-	color: var(--_o3-typography-body-inverse-color);
+.o3-typography-body,
+.o3-typography-wrapper > p {
+	[data-o3-theme='inverse']&,
+	:where([data-o3-theme='inverse']) & {
+		color: var(--_o3-typography-body-inverse-color);
+	}
 }
 
 .o3-typography-sub,
