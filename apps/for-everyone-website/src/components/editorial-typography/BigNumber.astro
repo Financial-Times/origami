@@ -1,0 +1,19 @@
+---
+import {BigNumber as BigNumberTsx} from '@financial-times/o3-editorial-typography/esm';
+import FigmaSbLinks from './FigmaSbLinks.astro';
+
+const {brand} = Astro.props;
+const figma =
+	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4443&t=kyDVEfsg2tRJspyY-4';
+
+const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--big-number`;
+---
+
+<p>Big Number is a composite component that includes a large number and a label. It is used to describe a big number in the editorial content.</p>
+
+<div class="component-preview not-content">
+	<BigNumberTsx title="£27.5">Cost expected to increase by £13.7m a year.</BigNumberTsx>
+</div>
+
+<FigmaSbLinks {figma} {storybook} />
+
