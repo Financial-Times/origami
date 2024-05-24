@@ -6,7 +6,7 @@ import path from 'path';
 
 (async () => {
 	const sharedConfig = {
-		target: ['es6', 'chrome58', 'firefox57', 'safari11'],
+		target: ['es2021', 'safari14'],
 		external: ['@financial-times/*', '*/main.css'],
 		resolveExtensions: ['.css'],
 		outdir: 'css',
