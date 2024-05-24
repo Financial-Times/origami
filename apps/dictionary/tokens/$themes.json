@@ -9,7 +9,6 @@
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
       "core/components/o3-typography": "source",
-      "core/use-case/typography": "enabled",
       "core/components/o3-tooltip": "source",
       "core/use-case/color": "enabled",
       "core/use-case/focus": "enabled",
@@ -219,7 +218,6 @@
       "core/base/typography": "enabled",
       "core/use-case/color": "enabled",
       "core/professional/components/o3-tooltip": "source",
-      "core/use-case/typography": "enabled",
       "core/use-case/focus": "enabled",
       "core/professional/components/o3-typography": "source"
     },
