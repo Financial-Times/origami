@@ -12,22 +12,12 @@ import '@financial-times/o3-typography/css/sustainable-views.css';
 import TypeScale from '../../../../components/TypeScale.astro';
 import TypeFamily from '../../../../components/TypeFamily.astro';
 
-We use a single typographic scale for all fonts. Our scale ranges from -2 to 10. Consider scale 0 the baseline, with ascending and descending values in each direction.
-
-- Our legacy typographic scale uses the same values as our latest scale. See our [legacy Foundations library](https://www.figma.com/file/NtRRxJdOxBO4mM0B3Fxv7M/Ft.com-Foundations?type=design&node-id=3-2&mode=design&t=80a9be0kgkHJdIOa-0) and [legacy o-typography component in Storybook](https://o2.origami.ft.com/).
-- Modern Origami introduces the Metric2 font family as a variable font, replacing legacy Metric font files. Metric2 renders larger than Metric for the same font size, therefore you may need to use a smaller scale to align with legacy Metric typography.
-- Figma Variables are available for each scale in [your brand's Figma library](https://www.figma.com/files/938480807921629744/team/1237702133754424766).
-
 ## Font Families
 
-Metric, Financier Display, and Georgia are used across FT Group brands to convey information to our users in different aspects of digital products.
+Metric is the FT Group's primary font for user interface.
 
 <TypeFamily
-	families={[
-		{name: 'Metric 2 VF', token: '--o3-font-family-metric'},
-		{name: 'Financier Display', token: '--o3-font-family-financier-display'},
-		{name: 'Georgia', token: '--o3-font-family-georgia'},
-	]}
+	families={[{name: 'Metric 2 VF', token: '--o3-font-family-metric'}]}
 />
 
 ### Metric
@@ -38,32 +28,19 @@ Modern Origami introduces the Metric2 font family, replacing legacy Metric font 
 
 [Learn more about Metric](https://brand.ft.com/document/24#/branding-elements/fonts).
 
-### Financier Display
-
-Financier is a secondary typeface. Elegant, authoritative and has a distinct voice.
-Primarily used for large article titles and headings in editorial pages only.
-
-[Learn more about Financier Display](https://brand.ft.com/document/24#/branding-elements/fonts).
-
-### Georgia
-
-Georgia is solely used for editorial article body copy. This is an alternate to Financier Text, as a [system font](https://en.wikipedia.org/wiki/Web_typography) it avoids the performance implications of users downloading additional custom fonts.
-
 ## Typographic Scale
+
+Figma Variables are available for each scale in [your brand's Figma library](https://www.figma.com/files/938480807921629744/team/1237702133754424766).
 
 ### Metric Scale
 
 <TypeScale brand="sustainable-views" scaleFamily="metric2" />
 
-### Financier Display / Georgia Scale
-
-<TypeScale brand="sustainable-views" scaleFamily="financier-display" />
-
 ## Font Weight
 
 Font weight can be used to express hierarchy or urgency of information.
 
-We recommend using our standard UI typography styles or Editorial typography styles where possible. For custom typography, align to these standard styles where possible. For example when using Metric2 for UI use `semibold` over other bold weights.
+We recommend using our standard [UI typography](#ui-typography) styles or [Editorial typography](#editorial-typography) styles where possible. For custom typography, align to these standard styles where possible. For example when using Metric2 for UI use `semibold` over other bold weights.
 
 | Preview                                                                                                               | Value | Token                     |
 | --------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------- |
@@ -75,7 +52,7 @@ We recommend using our standard UI typography styles or Editorial typography sty
 
 ## UI Typography
 
-User interface (UI) typography is intended for all design elements except those with an editorial voice, such as article page content (see [editorial typography](#editorial-typography)). We exclusively use the Metric font family for UI designs, rather than Financier or Georgia. The following styles apply across desktop and mobile viewports.
+User interface (UI) typography is intended for all design elements except those with an editorial voice, such as article page content (see [editorial typography](#editorial-typography)). The following styles apply across desktop and mobile viewports.
 
 ### UI Headings
 
@@ -104,6 +81,6 @@ User interface (UI) typography is intended for all design elements except those 
 
 ## Editorial Typography
 
-Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers.. The following font families are used when designing for editorial.
+Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers. The following font families are used when designing for editorial.
 
 This is a work in progress for Sustainable Views.
