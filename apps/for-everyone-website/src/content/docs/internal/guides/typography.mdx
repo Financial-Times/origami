@@ -12,6 +12,9 @@ import '@financial-times/o3-typography/css/internal.css';
 import TypeScale from '../../../../components/TypeScale.astro';
 import TypeFamily from '../../../../components/TypeFamily.astro';
 
+import {default as Example} from '../../../../components/Example.astro';
+import {default as Guideline} from '../../../../components/Guideline.astro';
+
 We use a single typographic scale for all fonts. Our scale ranges from -2 to 10. Consider scale 0 the baseline, with ascending and descending values in each direction.
 
 - Our legacy typographic scale uses the same values as our latest scale. See our [legacy Foundations library](https://www.figma.com/file/NtRRxJdOxBO4mM0B3Fxv7M/Ft.com-Foundations?type=design&node-id=3-2&mode=design&t=80a9be0kgkHJdIOa-0) and [legacy o-typography component in Storybook](https://o2.origami.ft.com/).
@@ -64,3 +67,32 @@ Modern Origami introduces the Metric2 font family, replacing legacy Metric font 
 | <div class="not-content"><p class="o3-typography-body"><a href="#" class="o3-typography-link">UI links</a></p></div>                                        | For general links in UI pages. Links inherit the properties of their parent body.                                 |
 | <span class="not-content"><span class="o3-typography-footer">Footer</span></span>                                                                           | For footer text content in the footer such as copyright notice.                                                   |
 | <span class="not-content"><span class="o3-typography-caption">Caption</span></span>                                                                         | For details about a piece or image that should be less prominent.                                                 |
+
+## Usage Guidelines
+
+<Guideline summary="Use semantic heading levels" do={true}>
+	<p slot="description">
+		In a web context, HTML heading levels must [follow in
+		order](https://www.w3.org/WAI/tutorials/page-structure/headings/) to
+		represent content structure. However these may be styled to look like a
+		different heading visually, if required by a design. E.g. a h2 heading may
+		be styled as h3.
+	</p>
+	<Example slot="examples" do={true}>
+		![A h1 heading follows a h2
+		heading.](/assets/images/components/typography/type-guideline-1.svg)
+	</Example>
+</Guideline>
+
+<Guideline summary="Avoid negative font scales" do={false}>
+	<p slot="description">
+		Scales less than zero (-1, -2) are edge cases. Avoid these as they can be
+		hard to read especially on large screens. Negative scales may be used to
+		present short, secondary information such as a caption. However we recommend
+		using predefined [ui typography](#ui-typography) styles where possible.
+	</p>
+	<Example slot="examples" do={false}>
+		![A small, negative font scale is incorrectly used for a large body of
+		copy.](/assets/images/components/typography/type-guideline-3.svg)
+	</Example>
+</Guideline>
