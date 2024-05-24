@@ -363,12 +363,12 @@ import {Body, List} from '@financial-times/o3-editorial-typography/cjs'; // or /
 
 ### Links
 
-Links are styled using `o-editorial-typography-link` inside a `o-editorial-typography-body` container.
+Links are styled using `o3-editorial-typography-link` inside a `o3-editorial-typography-body` container.
 
 ```html
-<p class="o-editorial-typography-body">
+<p class="o3-editorial-typography-body">
  An article by
- <a href="https://ft.com/" class="o-editorial-typography-link"
+ <a href="https://ft.com/" class="o3-editorial-typography-link"
   >The Financial Times</a
  >.
 </p>
