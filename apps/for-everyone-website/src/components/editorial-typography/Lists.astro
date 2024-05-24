@@ -1,0 +1,42 @@
+---
+import {List} from '@financial-times/o3-editorial-typography/esm';
+import FigmaSbLinks from './FigmaSbLinks.astro';
+
+const {brand} = Astro.props;
+const figma =
+	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4386&t=kyDVEfsg2tRJspyY-4';
+const quoteSbLinkGenerator = (type: string) => {
+	return `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--list&args=type:${type}`;
+};
+const sbOrdered = quoteSbLinkGenerator('ordered');
+const sbUnordered = quoteSbLinkGenerator('unordered');
+
+const listItems = [
+"Lorem ipsum adipiscing elit.",
+  "Sed feugiat turpis at massa tristique.",
+  "Curabitu r accumsan elit luctus."
+]
+---
+
+<h4>Ordered List</h4>
+
+<div class="component-preview not-content">
+	<List type='ordered' listItems={listItems} />
+</div>
+
+<FigmaSbLinks {figma} storybook={sbOrdered} />
+
+<h4>Unordered List</h4>
+
+
+<div class="component-preview not-content">
+	<List type="ordered" listItems={listItems} />
+</div>
+
+<FigmaSbLinks {figma} storybook={sbUnordered} />
+
+<style>
+	.o3-editorial-typography-blockquote > p {
+		margin: revert;
+	}
+</style>
