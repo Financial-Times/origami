@@ -1,16 +1,6 @@
 {
   "o3": {
     "editorial-typography": {
-      "text": {
-        "color": {
-          "value": "{o3.color.palette.black}",
-          "type": "color"
-        },
-        "inverse-color": {
-          "value": "{o3.color.palette.white}",
-          "type": "color"
-        }
-      },
       "headline-large-l": {
         "value": {
           "fontFamily": "{o3.font.family.financier-display}",
@@ -168,7 +158,7 @@
           "type": "color"
         },
         "inverse-color": {
-          "value": "{o3.color.use-case.muted-inverse}",
+          "value": "{o3.color.use-case.muted-inverse.text}",
           "type": "color"
         }
       },
@@ -221,7 +211,7 @@
           "type": "color"
         },
         "inverse-color": {
-          "value": "{o3.color.use-case.muted-inverse}",
+          "value": "{o3.color.use-case.muted-inverse.text}",
           "type": "color"
         }
       },

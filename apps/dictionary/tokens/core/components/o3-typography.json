@@ -10,30 +10,6 @@
         },
         "type": "typography"
       },
-      "heading": {
-        "color": {
-          "value": "{o3.color.palette.black-80}",
-          "type": "color"
-        },
-        "inverse": {
-          "color": {
-            "value": "{o3.color.palette.white}",
-            "type": "color"
-          }
-        }
-      },
-      "body": {
-        "color": {
-          "value": "{o3.color.palette.black}",
-          "type": "color"
-        },
-        "inverse": {
-          "color": {
-            "value": "{o3.color.palette.white}",
-            "type": "color"
-          }
-        }
-      },
       "footer": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
@@ -119,15 +95,6 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
-        },
-        "type": "typography"
-      },
-      "body-s-bold": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "600",
           "fontSize": "{o3.font.size-metric2.0}",
           "lineHeight": "{o3.font.lineheight-metric2.0}"
         },

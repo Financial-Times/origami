@@ -73,18 +73,20 @@
         },
         "muted": {
           "text": {
-            "value": "{o3.color.palette.black-20}",
+            "value": "{o3.color.palette.black-50}",
             "type": "color",
             "description": "\"Muted\" text is less prominent, for example credits and captions."
           }
         },
         "muted-inverse": {
-          "value": "#808080",
-          "type": "color"
+          "text": {
+            "value": "{o3.color.palette.black-20}",
+            "type": "color"
+          }
         },
         "heading": {
           "text": {
-            "value": "{o3.color.palette.black}",
+            "value": "{o3.color.palette.black-90}",
             "type": "color"
           }
         },
