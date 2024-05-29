@@ -81,6 +81,18 @@
         "muted-inverse": {
           "value": "#808080",
           "type": "color"
+        },
+        "heading": {
+          "text": {
+            "value": "{o3.color.palette.black}",
+            "type": "color"
+          }
+        },
+        "heading-inverse": {
+          "text": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
         }
       }
     }
