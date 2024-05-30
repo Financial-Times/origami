@@ -1,7 +1,6 @@
 ---
 import {getCollection} from 'astro:content';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
-import Header from 'virtual:starlight/components/Header';
 
 import {
 	convertToSlug,
@@ -11,17 +10,18 @@ import {
 
 export async function getStaticPaths() {
 	const postEntries = await getCollection('posts');
-	return postEntries.map(entry => ({
-		params: {
-			slug: generateBlogPostURL(entry.slug),
-		},
-		props: {entry},
-	}));
+	return postEntries.map(entry => {
+		return {
+			params: {
+				slug: generateBlogPostURL(entry.slug),
+			},
+			props: {entry},
+		};
+	});
 }
 
 const {entry} = Astro.props;
-const {Content} = await entry.render();
-const slugifiedName = convertToSlug(entry.data.title);
+const {Content, headings} = await entry.render();
 const formatedDateString = formatDateString(entry.data.publishDate);
 const tags = entry.data.tags?.length > 0 && entry.data.tags.join(',');
 const {title, description} = entry.data;
@@ -37,6 +37,7 @@ const {title, description} = entry.data;
 		title: entry.data.title,
 	}}
 	hasSidebar={false}
+	headings={headings}
 >
 	<div class="blog-post">
 		<p class="blog-meta">
