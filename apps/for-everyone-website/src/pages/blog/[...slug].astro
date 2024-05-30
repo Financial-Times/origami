@@ -1,6 +1,7 @@
 ---
 import {getCollection} from 'astro:content';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import Header from 'virtual:starlight/components/Header';
 
 import {
 	convertToSlug,
@@ -37,25 +38,27 @@ const {title, description} = entry.data;
 	}}
 	hasSidebar={false}
 >
-	<p class="blog-meta">
-		Posted on <time datetime={entry.data.datePublished}
-			>{formatedDateString}</time
-		>
-		by {entry.data.author}.
-		{
-			tags && (
-				<>
-					<br />
-					Tagged with <span>{tags}</span>
-				</>
-			)
-		}
-	</p>
-	{}
-	<p>
-		<abbr title="Too long; didn't read">
-			<strong>TL;DR:</strong>
-		</abbr>{entry.data.tldr || entry.data.description}
-	</p>
-	<Content />
+	<div class="blog-post">
+		<p class="blog-meta">
+			Posted on <time datetime={entry.data.datePublished}
+				>{formatedDateString}</time
+			>
+			by {entry.data.author}.
+			{
+				tags && (
+					<>
+						<br />
+						Tagged with <span>{tags}</span>
+					</>
+				)
+			}
+		</p>
+		{}
+		<p>
+			<abbr title="Too long; didn't read">
+				<strong>TL;DR:</strong>
+			</abbr>{entry.data.tldr || entry.data.description}
+		</p>
+		<Content />
+	</div>
 </StarlightPage>
