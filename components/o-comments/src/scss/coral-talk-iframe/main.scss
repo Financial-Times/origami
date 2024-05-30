@@ -19,6 +19,31 @@
             		line-height: 1.45rem;
         	}
 	}
+	#coral[data-not-sign-in="true"]{
+		.coral-guidelines,.coral-createComment,.coral-comment-reactButton, .coral-comment-replyButton{
+			display: none;
+		}
+		.coral-featuredComment-reactButton{
+			pointer-events: none;
+		}
+		.coral-custom-message-content{
+			font-family: var(--font-family-primary);
+			font-size: var(--font-size-3);
+			font-weight: var(--font-weight-primary-regular);
+			background-color: #f2dfce;
+			padding: var(--spacing-4);
+			
+			h3 {
+				margin-bottom: -14px;
+				line-height: 1.375;
+				font-weight: var( --font-weight-primary-semiBold);
+			}
+
+			a {
+				@include oTypographyLink($theme: ('base': 'teal-40', 'hover': 'teal-30'));
+			}
+		}
+	}
 	#coral {
 		--ft-magnify: 1.31282;
                  // See https://financialtimes.atlassian.net/jira/software/c/projects/CI/boards/1653?view=detail&selectedIssue=CI-1725
@@ -36,7 +61,7 @@
             		line-height: 1.45rem;
         	}
 	}
-	.o-comments-coral-talk-container, #coral {
+	#coral {
 		--font-family-primary: #{inspect(oTypographyGetFontFamily('sans'))};
 		--font-family-secondary: #{inspect(oTypographyGetFontFamily('sans'))};
 		--font-weight-primary-bold: 600;

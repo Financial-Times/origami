@@ -15,6 +15,9 @@ class Stream {
 		this.options = opts;
 		this.eventSeenTimes = {};
 		this.useStagingEnvironment = Boolean(opts.useStagingEnvironment);
+		this.isSubscribed = false;
+		this.isTrial = false;
+		this.onlySubscribers = opts.onlySubscribers;
 	}
 
 	init () {
@@ -38,6 +41,9 @@ class Stream {
 				this.renderSignedInMessage();
 			}
 		}
+		else if(this.onlySubscribers){
+			this.renderNotSingedInMessage();
+		}
 	}
 
 	authenticateUser (displayName) {
@@ -47,6 +53,9 @@ class Stream {
 
 		if (displayName) {
 			fetchOptions.displayName = displayName;
+		}
+		if(this.onlySubscribers){
+			fetchOptions.onlySubscribers = this.onlySubscribers;
 		}
 
 		return auth.fetchJsonWebToken(fetchOptions)
@@ -58,6 +67,9 @@ class Stream {
 				} else {
 					this.userHasValidSession = response.userHasValidSession;
 				}
+				this.isSubscribed = response?.isSubscribed;
+				this.isTrial = response?.isTrial;
+				this.isRegistered = response?.isRegistered;
 			})
 			.catch(() => {
 				return false;
@@ -97,7 +109,9 @@ class Stream {
 							}
 						}
 					);
-					resolve();
+					this.embed.on('ready', () => {
+						resolve();
+					});
 				};
 				this.streamEl.parentNode.appendChild(scriptElement);
 
@@ -246,6 +260,42 @@ class Stream {
 			this.displayNamePrompt({purgeCacheAfterCompletion: true});
 		};
 	}
+
+	renderNotSingedInMessage () {
+			const shadowRoot = this.streamEl.querySelector("#coral-shadow-container").shadowRoot;
+			const coralContainer = shadowRoot.querySelector("#coral");
+			coralContainer.setAttribute('data-not-sign-in' , true);
+	
+			const customMessageContainer = document.createElement("section");
+			customMessageContainer.classList.add('coral-custom-message-content','coral');
+			
+			const messageRegistered = `
+			<h3>Commenting is only available to readers with FT subscription</h3>
+				<p class="warning">
+					<a href='https://subs.ft.com/products'>Subscribe</a> to join the conversation.
+				</p>
+			`;
+
+			const messageForAnonymous = `
+			<h3>Commenting is only available to readers with FT subscription</h3>
+				<p class="warning">
+					Please <a href='./'>login</a> or <a href='https://subs.ft.com/products'>subscribe</a> to join the conversation.
+				</p>
+			`;
+			const messageForTrial = `
+			<h3>You are still in a trial period</h3>
+				<p class="warning">
+					View our full <a href='https://subs.ft.com/products'>subscription packages</a> to join the conversation.
+				</p>
+			`;
+			customMessageContainer.innerHTML = this.isTrial ? messageForTrial : this.isRegistered ? messageRegistered : messageForAnonymous ;
+			
+			if(!this.isSubscribed){
+				coralContainer.prepend(customMessageContainer);
+			}
+	}
+
+
 }
 
 export default Stream;

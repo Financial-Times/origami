@@ -10,6 +10,10 @@ export default {
 			url.searchParams.append('staging', '1');
 		}
 
+		if (options.onlySubscribers) {
+			url.searchParams.append('onlySubscribers', '1');
+		}
+
 		return fetch(url, { credentials: 'include' }).then(response => {
 		// user is signed in and has a pseudonym
 			if (response.ok) {
@@ -22,7 +26,7 @@ export default {
 
 				// user is not signed in or session token is invalid
 				// or error in comments api
-				return { userHasValidSession: false };
+				return { userHasValidSession: false, isSubscribed: false, isTrial: false};
 			}
 		});
 	}
