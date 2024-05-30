@@ -7,30 +7,13 @@ sidebar:
     variant: note
 ---
 
-import '@financial-times/o3-typography/css/whitelabel.css';
-
 import '@financial-times/o3-typography/css/internal.css';
-import '@financial-times/o3-typography/css/professional.css';
-import '@financial-times/o3-typography/css/core.css';
 
-import '@financial-times/o3-editorial-typography/css/core.css';
-import '@financial-times/o3-editorial-typography/css/sustainable-views.css';
+import TypeScale from '../../../../components/TypeScale.astro';
+import TypeFamily from '../../../../components/TypeFamily.astro';
 
-import Overview from '../../../components/editorial-typography/Overview.astro';
-import HeadingStyles from '../../../components/editorial-typography/HeadingStyles.astro';
-import BodyStyles from '../../../components/editorial-typography/BodyStyles.astro';
-import Quotes from '../../../components/editorial-typography/Quotes.astro';
-import Lists from '../../../components/editorial-typography/Lists.astro';
-import Links from '../../../components/editorial-typography/Links.astro';
-import BigNumber from '../../../components/editorial-typography/BigNumber.astro';
-import Byline from '../../../components/editorial-typography/Byline.astro';
-import TopicTag from '../../../components/editorial-typography/TopicTag.astro';
-
-import TypeScale from '../../../components/TypeScale.astro';
-import TypeFamily from '../../../components/TypeFamily.astro';
-
-import {default as Example} from '../../../components/Example.astro';
-import {default as Guideline} from '../../../components/Guideline.astro';
+import {default as Example} from '../../../../components/Example.astro';
+import {default as Guideline} from '../../../../components/Guideline.astro';
 
 We use a single typographic scale for all fonts. Our scale ranges from -2 to 10. Consider scale 0 the baseline, with ascending and descending values in each direction.
 
@@ -40,14 +23,10 @@ We use a single typographic scale for all fonts. Our scale ranges from -2 to 10.
 
 ## Font Families
 
-Metric, Financier Display, and Georgia are used across FT Group brands to convey information to our users in different aspects of digital products.
+Metric is the FT Group's primary font for user interface.
 
 <TypeFamily
-	families={[
-		{name: 'Metric 2 VF', token: '--o3-font-family-metric'},
-		{name: 'Financier Display', token: '--o3-font-family-financier-display'},
-		{name: 'Georgia', token: '--o3-font-family-georgia'},
-	]}
+	families={[{name: 'Metric 2 VF', token: '--o3-font-family-metric'}]}
 />
 
 ### Metric
@@ -58,44 +37,11 @@ Modern Origami introduces the Metric2 font family, replacing legacy Metric font 
 
 [Learn more about Metric](https://brand.ft.com/document/24#/branding-elements/fonts).
 
-### Financier Display
-
-Financier is a secondary typeface. Elegant, authoritative and has a distinct voice.
-Primarily used for large article titles and headings in editorial pages only.
-
-[Learn more about Financier Display](https://brand.ft.com/document/24#/branding-elements/fonts).
-
-### Georgia
-
-Georgia is solely used for editorial article body copy. This is an alternate to Financier Text, as a [system font](https://en.wikipedia.org/wiki/Web_typography) it avoids the performance implications of users downloading additional custom fonts.
-
-## Typographic Scale
-
 ### Metric Scale
 
-<TypeScale brand="core" scaleFamily="metric2" />
-
-### Financier Display / Georgia Scale
-
-<TypeScale brand="core" scaleFamily="financier-display" />
-
-## Font Weight
-
-Font weight can be used to express hierarchy or urgency of information.
-
-We recommend using our standard [UI typography](#ui-typography) styles or [Editorial typography](#editorial-typography) styles where possible. For custom typography, align to these standard styles where possible. For example when using Metric2 for UI use `semibold` over other bold weights.
-
-| Preview                                                                                                               | Value | Token                     |
-| --------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------- |
-| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-light)">light</span>       | 300   | --o3-font-weight-light    |
-| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-regular)">regular</span>   | 400   | --o3-font-weight-regular  |
-| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-medium)">medium</span>     | 500   | --o3-font-weight-medium   |
-| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-semibold)">semibold</span> | 700   | --o3-font-weight-semibold |
-| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-bold)">bold</span>         | 800   | --o3-font-weight-bold     |
+<TypeScale brand="sustainable-views" scaleFamily="metric2" />
 
 ## UI Typography
-
-User interface (UI) typography is intended for all design elements except those with an editorial voice, such as article page content (see [editorial typography](#editorial-typography)). We exclusively use the Metric font family for UI designs, rather than Financier or Georgia. The following styles apply across desktop and mobile viewports.
 
 ### UI Headings
 
@@ -122,50 +68,6 @@ User interface (UI) typography is intended for all design elements except those 
 | <span class="not-content"><span class="o3-typography-footer">Footer</span></span>                                                                           | For footer text content in the footer such as copyright notice.                                                   |
 | <span class="not-content"><span class="o3-typography-caption">Caption</span></span>                                                                         | For details about a piece or image that should be less prominent.                                                 |
 
-## Editorial Typography
-
-Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers. The following font families are used when designing for editorial.
-
-<Overview />
-
-### Heading styles
-
-Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use heading styles as needed. H1 to H5 should be set during development.
-
-<HeadingStyles brand="core" />
-
-### Body and Details styles
-
-<BodyStyles brand="core" />
-
-### Quotes
-
-For content direct snippet of an author's words. Optional elements: caption, the vertical bar.
-
-<Quotes brand="core" />
-
-### Lists
-
-For content direct snippet of an author's words. Optional elements: caption, the vertical bar.
-
-<Lists brand="core" />
-
-### Links
-
-<Links brand="core" />
-
-### Big-number
-
-<BigNumber brand="core" />
-
-### Byline
-
-<Byline brand="core" />
-
-### Topic Tag
-
-<TopicTag brand="core" />
-
 ## Usage Guidelines
 
 <Guideline summary="Use semantic heading levels" do={true}>
@@ -179,17 +81,6 @@ For content direct snippet of an author's words. Optional elements: caption, the
 	<Example slot="examples" do={true}>
 		![A h1 heading follows a h2
 		heading.](/assets/images/components/typography/type-guideline-1.svg)
-	</Example>
-</Guideline>
-
-<Guideline summary="Don’t use Financier fonts for UI" do={false}>
-	<p slot="description">
-		Use Metric for UI, Financier and Georgia should be reserved for editorial
-		content.
-	</p>
-	<Example slot="examples" do={false}>
-		![The cost of an annual subscription in a signup flow incorrectly uses
-		Financier.](/assets/images/components/typography/type-guideline-2.svg)
 	</Example>
 </Guideline>
 

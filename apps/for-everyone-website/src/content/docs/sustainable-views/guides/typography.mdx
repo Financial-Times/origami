@@ -7,47 +7,20 @@ sidebar:
     variant: note
 ---
 
-import '@financial-times/o3-typography/css/whitelabel.css';
+import '@financial-times/o3-typography/css/sustainable-views.css';
 
-import '@financial-times/o3-typography/css/internal.css';
-import '@financial-times/o3-typography/css/professional.css';
-import '@financial-times/o3-typography/css/core.css';
+import TypeScale from '../../../../components/TypeScale.astro';
+import TypeFamily from '../../../../components/TypeFamily.astro';
 
-import '@financial-times/o3-editorial-typography/css/core.css';
-import '@financial-times/o3-editorial-typography/css/sustainable-views.css';
-
-import Overview from '../../../components/editorial-typography/Overview.astro';
-import HeadingStyles from '../../../components/editorial-typography/HeadingStyles.astro';
-import BodyStyles from '../../../components/editorial-typography/BodyStyles.astro';
-import Quotes from '../../../components/editorial-typography/Quotes.astro';
-import Lists from '../../../components/editorial-typography/Lists.astro';
-import Links from '../../../components/editorial-typography/Links.astro';
-import BigNumber from '../../../components/editorial-typography/BigNumber.astro';
-import Byline from '../../../components/editorial-typography/Byline.astro';
-import TopicTag from '../../../components/editorial-typography/TopicTag.astro';
-
-import TypeScale from '../../../components/TypeScale.astro';
-import TypeFamily from '../../../components/TypeFamily.astro';
-
-import {default as Example} from '../../../components/Example.astro';
-import {default as Guideline} from '../../../components/Guideline.astro';
-
-We use a single typographic scale for all fonts. Our scale ranges from -2 to 10. Consider scale 0 the baseline, with ascending and descending values in each direction.
-
-- Our legacy typographic scale uses the same values as our latest scale. See our [legacy Foundations library](https://www.figma.com/file/NtRRxJdOxBO4mM0B3Fxv7M/Ft.com-Foundations?type=design&node-id=3-2&mode=design&t=80a9be0kgkHJdIOa-0) and [legacy o-typography component in Storybook](https://o2.origami.ft.com/).
-- Modern Origami introduces the Metric2 font family as a variable font, replacing legacy Metric font files. Metric2 renders larger than Metric for the same font size, therefore you may need to use a smaller scale to align with legacy Metric typography.
-- Figma Variables are available for each scale in [your brand's Figma library](https://www.figma.com/files/938480807921629744/team/1237702133754424766).
+import {default as Example} from '../../../../components/Example.astro';
+import {default as Guideline} from '../../../../components/Guideline.astro';
 
 ## Font Families
 
-Metric, Financier Display, and Georgia are used across FT Group brands to convey information to our users in different aspects of digital products.
+Metric is the FT Group's primary font for user interface.
 
 <TypeFamily
-	families={[
-		{name: 'Metric 2 VF', token: '--o3-font-family-metric'},
-		{name: 'Financier Display', token: '--o3-font-family-financier-display'},
-		{name: 'Georgia', token: '--o3-font-family-georgia'},
-	]}
+	families={[{name: 'Metric 2 VF', token: '--o3-font-family-metric'}]}
 />
 
 ### Metric
@@ -58,26 +31,13 @@ Modern Origami introduces the Metric2 font family, replacing legacy Metric font 
 
 [Learn more about Metric](https://brand.ft.com/document/24#/branding-elements/fonts).
 
-### Financier Display
-
-Financier is a secondary typeface. Elegant, authoritative and has a distinct voice.
-Primarily used for large article titles and headings in editorial pages only.
-
-[Learn more about Financier Display](https://brand.ft.com/document/24#/branding-elements/fonts).
-
-### Georgia
-
-Georgia is solely used for editorial article body copy. This is an alternate to Financier Text, as a [system font](https://en.wikipedia.org/wiki/Web_typography) it avoids the performance implications of users downloading additional custom fonts.
-
 ## Typographic Scale
+
+Figma Variables are available for each scale in [your brand's Figma library](https://www.figma.com/files/938480807921629744/team/1237702133754424766).
 
 ### Metric Scale
 
-<TypeScale brand="core" scaleFamily="metric2" />
-
-### Financier Display / Georgia Scale
-
-<TypeScale brand="core" scaleFamily="financier-display" />
+<TypeScale brand="sustainable-views" scaleFamily="metric2" />
 
 ## Font Weight
 
@@ -95,7 +55,7 @@ We recommend using our standard [UI typography](#ui-typography) styles or [Edito
 
 ## UI Typography
 
-User interface (UI) typography is intended for all design elements except those with an editorial voice, such as article page content (see [editorial typography](#editorial-typography)). We exclusively use the Metric font family for UI designs, rather than Financier or Georgia. The following styles apply across desktop and mobile viewports.
+User interface (UI) typography is intended for all design elements except those with an editorial voice, such as article page content (see [editorial typography](#editorial-typography)). The following styles apply across desktop and mobile viewports.
 
 ### UI Headings
 
@@ -124,47 +84,9 @@ User interface (UI) typography is intended for all design elements except those 
 
 ## Editorial Typography
 
-Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers. The following font families are used when designing for editorial.
+Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers.
 
-<Overview />
-
-### Heading styles
-
-Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use heading styles as needed. H1 to H5 should be set during development.
-
-<HeadingStyles brand="core" />
-
-### Body and Details styles
-
-<BodyStyles brand="core" />
-
-### Quotes
-
-For content direct snippet of an author's words. Optional elements: caption, the vertical bar.
-
-<Quotes brand="core" />
-
-### Lists
-
-For content direct snippet of an author's words. Optional elements: caption, the vertical bar.
-
-<Lists brand="core" />
-
-### Links
-
-<Links brand="core" />
-
-### Big-number
-
-<BigNumber brand="core" />
-
-### Byline
-
-<Byline brand="core" />
-
-### Topic Tag
-
-<TopicTag brand="core" />
+This is a work in progress for Sustainable Views.
 
 ## Usage Guidelines
 
@@ -179,17 +101,6 @@ For content direct snippet of an author's words. Optional elements: caption, the
 	<Example slot="examples" do={true}>
 		![A h1 heading follows a h2
 		heading.](/assets/images/components/typography/type-guideline-1.svg)
-	</Example>
-</Guideline>
-
-<Guideline summary="Don’t use Financier fonts for UI" do={false}>
-	<p slot="description">
-		Use Metric for UI, Financier and Georgia should be reserved for editorial
-		content.
-	</p>
-	<Example slot="examples" do={false}>
-		![The cost of an annual subscription in a signup flow incorrectly uses
-		Financier.](/assets/images/components/typography/type-guideline-2.svg)
 	</Example>
 </Guideline>
 

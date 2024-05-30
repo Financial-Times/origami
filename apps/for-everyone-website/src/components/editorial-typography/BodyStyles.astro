@@ -1,0 +1,166 @@
+---
+import {
+	TopicTag,
+	StandFirst,
+	Caption,
+} from '@financial-times/o3-editorial-typography/esm';
+import FigmaSbLinks from './FigmaSbLinks.astro';
+const {brand} = Astro.props;
+const figmaBody =
+	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4084&t=kyDVEfsg2tRJspyY-4';
+const figmaDetails =
+	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4178&t=kyDVEfsg2tRJspyY-4';
+const sbDomain = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography`;
+const sbBody = sbDomain + '--body';
+const sbTopicTag = sbDomain + '--topic-tag';
+const sbStandfirst = sbDomain + '--standfirst';
+const sbCaption = sbDomain + '--caption';
+---
+
+<h4>Body</h4>
+<p>Use for body text, paragraphs and lists</p>
+<table>
+	<thead>
+		<tr>
+			<th>Viewport</th>
+			<th>Style Preview</th>
+			<th>Links</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>S</td>
+			<td class="body-s">body</td>
+			<td>
+				<FigmaSbLinks figma={figmaBody} storybook={sbBody} />
+			</td>
+		</tr>
+		<tr>
+			<td>M</td>
+			<td class="body-m">body</td>
+			<td>
+				<FigmaSbLinks figma={figmaBody} storybook={sbBody} />
+			</td>
+		</tr>
+		<tr>
+			<td>L</td>
+			<td class="body-l">body</td>
+			<td>
+				<FigmaSbLinks figma={figmaBody} storybook={sbBody} />
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Details</h4>
+<p>
+	The following styles have the same values across all screen sizes, mobile,
+	tablet, desktop.
+</p>
+<table>
+	<thead>
+		<tr>
+			<th>Style Preview</th>
+			<th>Usage</th>
+			<th>Links</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="not-content">
+				<TopicTag>Topic Tag</TopicTag>
+			</td>
+			<td
+				>Also called display tag, are category labels in the FT. Used in teasers
+				(article cards) to indicate the category of a post.</td
+			>
+			<td>
+				<FigmaSbLinks figma={figmaDetails} storybook={sbTopicTag} />
+			</td>
+		</tr>
+		<tr>
+			<td class="not-content">
+				<StandFirst>Standfirst</StandFirst>
+			</td>
+			<td
+				>Short intro below the headline that provides context about a post. Used
+				in combination with a header in the topper component.</td
+			>
+			<td>
+				<FigmaSbLinks figma={figmaDetails} storybook={sbStandfirst} />
+			</td>
+		</tr>
+		<tr>
+			<td class="not-content">
+				<Caption>Caption</Caption>
+			</td>
+			<td
+				>For additional information about a piece or image that should be less
+				prominent.</td
+			>
+			<td><FigmaSbLinks figma={figmaDetails} storybook={sbCaption} /></td>
+		</tr>
+		<tr>
+			<td class="o3-editorial-typography-byline-author not-content">
+				Byline Author</td
+			>
+			<td>
+				Shows Author name as part of a page author details in the byline
+				component
+			</td>
+			<td>
+				<FigmaSbLinks figma={figmaDetails} />
+			</td>
+		</tr>
+		<tr>
+			<td class="o3-editorial-typography-byline-location not-content"
+				>Byline Location</td
+			>
+			<td
+				>Shows Author location as part of a page author details in the byline
+				component</td
+			>
+			<td>
+				<FigmaSbLinks figma={figmaDetails} />
+			</td>
+		</tr>
+		<tr>
+			<td class="o3-editorial-typography-byline-timestamp not-content"
+				>Byline Timestamp</td
+			>
+			<td
+				>Shows article timestamp as part of a page author details the byline
+				component</td
+			>
+			<td>
+				<FigmaSbLinks figma={figmaDetails} />
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<style>
+	tr > td:first-child {
+		text-align: center;
+	}
+	[class^='body-'] {
+		font-family: var(--_o3-editorial-typography-use-case-body-l-font-family);
+		font-weight: var(--_o3-editorial-typography-use-case-body-l-font-weight);
+	}
+
+	.body-s,
+	.body-m {
+		font-size: var(--_o3-editorial-typography-use-case-body-s-font-size);
+		line-height: var(--_o3-editorial-typography-use-case-body-s-line-height);
+	}
+
+	.body-l {
+		font-size: var(--_o3-editorial-typography-use-case-body-l-font-size);
+		line-height: var(--_o3-editorial-typography-use-case-body-l-line-height);
+	}
+
+	.not-content.o3-editorial-typography-blockquote__source,
+	.not-content.o3-editorial-typography-blockquote__author {
+		display: revert
+	}
+</style>

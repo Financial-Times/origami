@@ -48,7 +48,7 @@ export type LinkProps = {
 	theme?: 'standard' | 'inverse';
 	children: string;
 	href: string;
-	anchorTarget: '_blank';
+	anchorTarget?: '_blank';
 };
 
 export type Attributes = {

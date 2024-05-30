@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.1.1...o3-foundation-v1.1.2) (2024-05-24)
+
+
+### Bug Fixes
+
+* Fix link focus rings ([bfda43b](https://github.com/Financial-Times/origami/commit/bfda43ba736b796639a0c21b20fb1c7d88710cbb))
+
 ## [1.1.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.1.0...o3-foundation-v1.1.1) (2024-05-23)
 
 

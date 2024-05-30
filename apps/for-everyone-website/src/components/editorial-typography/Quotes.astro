@@ -1,0 +1,47 @@
+---
+import {Quote} from '@financial-times/o3-editorial-typography/esm';
+import FigmaSbLinks from './FigmaSbLinks.astro';
+
+const {brand} = Astro.props;
+const figma =
+	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4370&t=kyDVEfsg2tRJspyY-4';
+const quoteSbLinkGenerator = (type: string) => {
+	return `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--quote&args=type:${type}`;
+};
+const sbBlock = quoteSbLinkGenerator('block');
+const sbPull = quoteSbLinkGenerator('pull');
+---
+
+<h4>Block quote</h4>
+<p>
+	For content direct snippet of an author's words. Optional elements: caption,
+	the vertical bar.
+</p>
+
+<div class="component-preview not-content">
+	<Quote type="block" quoteAuthor="Jao Doe" quoteSource="source">
+		This paragraph is for snippet of contents from an author’s speech to be
+		quote. The following elements in the quote components are optional to
+		provide flexibility appropriate for your use case: caption that tells more
+		information about the author and the vertical bar on the side.
+	</Quote>
+</div>
+
+<FigmaSbLinks {figma} storybook={sbBlock} />
+
+<h4>Pull quote</h4>
+<p>
+	For content direct snippet of an author's words. Optional elements: caption,
+	the vertical bar.
+</p>
+
+<div class="component-preview not-content">
+	<Quote type="pull" quoteAuthor="Jao Doe">
+		This paragraph is for snippet of contents from an author’s speech to be
+		quote. The following elements in the quote components are optional to
+		provide flexibility appropriate for your use case: caption that tells more
+		information about the author and the vertical bar on the side.
+	</Quote>
+</div>
+
+<FigmaSbLinks {figma} storybook={sbPull} />
