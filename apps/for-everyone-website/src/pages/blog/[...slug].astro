@@ -1,0 +1,61 @@
+---
+import {getCollection} from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import {
+	convertToSlug,
+	formatDateString,
+	generateBlogPostURL,
+} from '@/helpers/utils';
+
+export async function getStaticPaths() {
+	const postEntries = await getCollection('posts');
+	return postEntries.map(entry => ({
+		params: {
+			slug: generateBlogPostURL(entry.slug),
+		},
+		props: {entry},
+	}));
+}
+
+const {entry} = Astro.props;
+const {Content} = await entry.render();
+const slugifiedName = convertToSlug(entry.data.title);
+const formatedDateString = formatDateString(entry.data.publishDate);
+const tags = entry.data.tags?.length > 0 && entry.data.tags.join(',');
+const {title, description} = entry.data;
+---
+
+<style>
+	.blog-meta {
+		font-size: var(--sl-text-xs);
+	}
+</style>
+<StarlightPage
+	frontmatter={{
+		title: entry.data.title,
+		sidebar: {hidden: true},
+	}}
+>
+	<p class="blog-meta">
+		Posted on <time datetime={entry.data.datePublished}
+			>{formatedDateString}</time
+		>
+		by {entry.data.author}.
+		{
+			tags && (
+				<>
+					<br />
+					Tagged with <span>{tags}</span>
+				</>
+			)
+		}
+	</p>
+	{}
+	<p>
+		<abbr title="Too long; didn't read">
+			<strong>TL;DR:</strong>
+		</abbr>{entry.data.tldr || entry.data.description}
+	</p>
+	<Content />
+</StarlightPage>

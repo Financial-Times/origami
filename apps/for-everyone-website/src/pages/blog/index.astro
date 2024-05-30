@@ -1,0 +1,58 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import {getCollection} from 'astro:content';
+import {formatDateString, generateBlogPostURL} from '@/helpers/utils';
+
+const title = 'Origami Blog';
+const description =
+	'A blog for announcements relating to the Origami team, components, and services.';
+const template = 'splash';
+
+const allPosts = await getCollection('posts');
+const sortedPosts = allPosts.sort(
+	(a, b) => b.data.publishDate - a.data.publishDate
+);
+---
+
+<style>
+	li {
+		list-style-type: none;
+	}
+</style>
+
+<StarlightPage
+	frontmatter={{
+		title: 'Origami Blog',
+		hasSidebar: false,
+	}}
+>
+	<p>
+		A blog for announcements relating to the Origami team, components, and
+		services.
+		<a href="/feed.xml">Subscribe to our feed for updates</a>.
+	</p>
+
+	<ul>
+		{
+			sortedPosts.map(post => {
+				return (
+					<li>
+						<h2 class="blog-post-link">
+							<a href={'/blog/' + generateBlogPostURL(post.slug)}>
+								{post.data.title}
+							</a>
+						</h2>
+						{post.data.description.length !== 0 && (
+							<p>{post.data.description}</p>
+						)}
+						<p>
+							Posted {formatDateString(post.data.publishDate)} by{' '}
+							{post.data.author}.
+							{post.data.tags && <span> Tagged {post.data.tags}.</span>}
+						</p>
+					</li>
+				);
+			})
+		}
+	</ul>
+</StarlightPage>

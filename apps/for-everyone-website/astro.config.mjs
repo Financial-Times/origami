@@ -1,12 +1,22 @@
 import {defineConfig} from 'astro/config';
 import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
+import path, {dirname} from 'path';
+import {fileURLToPath} from 'url';
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 // https://astro.build/config
 export default defineConfig({
 	vite: {
 		ssr: {
 			noExternal: ['unist-util-visit'],
+		},
+		resolve: {
+			alias: {
+				"@": `${path.resolve(__dirname, "src")}/`,
+			},
 		},
 	},
 	integrations: [
