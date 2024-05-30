@@ -47,7 +47,7 @@ export default defineConfig({
 				ContentPanel: './src/components/ContentPanel.astro',
 				ThemeSelect: './src/components/EmptyComponent.astro',
 				ThemeProvider: './src/components/ThemeProvider.astro',
-				SocialIcons: './src/components/Feedback.astro',
+				SocialIcons: './src/components/NavLinks.astro',
 			},
 			customCss: ['./src/styles/custom.css'],
 			social: {
