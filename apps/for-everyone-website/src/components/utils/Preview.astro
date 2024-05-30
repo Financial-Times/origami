@@ -1,0 +1,217 @@
+---
+import {resolve as pathReoslve} from 'path';
+import {readFile} from 'node:fs/promises';
+import {format} from 'prettier';
+import {renderToString} from 'react-dom/server';
+import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
+
+const {metaData} = Astro.props;
+
+const pathToMetadata = pathReoslve(metaData);
+const Component = await import(pathToMetadata);
+
+const fileContent = await readFile(pathToMetadata, {
+	encoding: 'utf8',
+});
+
+const regex = /\/\/\s*<preview>([\s\S]*?)\/\/\s*<\/preview>/;
+const match = fileContent.match(regex)!; // ! tels ts that match is not null
+const JSXString = match[1];
+
+const componentJSX = await format(JSXString, {
+	parser: 'babel',
+});
+
+const componentHTMLString = renderToString(Component.preview());
+const componentFormatedHTML = await format(componentHTMLString, {
+	parser: 'html',
+	htmlWhitespaceSensitivity: "ignore"
+});
+const componentHTML = componentFormatedHTML;
+
+const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
+---
+
+<div class="not-content">
+	<div class="slide-switch">
+		<label class="switch-label" for={uniqueID}>Show code</label>
+		<label class="switch">
+			<input class="sliding-switch" id={uniqueID} type="checkbox" />
+			<span class="slider round"></span>
+		</label>
+	</div>
+
+	<div class="component-preview-wrapper">
+		<div class={`not-content component-preview visible ${uniqueID}`}>
+			<Component.preview />
+		</div>
+	</div>
+
+	<div class={`code-preview ${uniqueID}`}>
+		<div>
+			<Tabs syncKey="code">
+				{
+					componentJSX && (
+						<TabItem label="JSX">
+							<Code code={componentJSX} lang="jsx" wrap={true} />
+						</TabItem>
+					)
+				}
+				{
+					componentHTML && (
+						<TabItem label="HTML">
+							<Code code={componentHTML} lang="html" wrap={true} />
+						</TabItem>
+					)
+				}
+			</Tabs>
+		</div>
+	</div>
+</div>
+
+<script>
+	const checkBoxElelements = document.querySelectorAll('.sliding-switch');
+	checkBoxElelements.forEach(el => {
+		el.addEventListener('change', () => {
+			const elId = el.id;
+			const componentPreveiw = document.querySelector(
+				`.component-preview.${elId}`
+			);
+			const codePreview = document.querySelector(`.code-preview.${elId}`);
+			if ((el as HTMLInputElement).checked) {
+				componentPreveiw?.classList.remove('visible');
+				codePreview?.classList.add('visible');
+			} else {
+				codePreview?.classList.remove('visible');
+				componentPreveiw?.classList.add('visible');
+			}
+		});
+	});
+</script>
+
+<style>
+	/* The switch - the box around the slider */
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 36px;
+		height: 20px;
+	}
+
+	/* Hide default HTML checkbox BUT KEEP OUTLINE WHEN SELECTED WITH TAB KEY! */
+	.switch input {
+		width: 36px;
+		height: 22px;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		vertical-align: text-bottom;
+	}
+
+	/* HIDE THE CHECKBOX COMPLETELY ON IOS */
+	@supports (-webkit-touch-callout: none) {
+		.switch input {
+			opacity: 0;
+		}
+	}
+
+	/* The slider */
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 36px;
+		background-color: #ccc;
+		-webkit-transition: 0.4s;
+		transition: 0.4s;
+	}
+
+	.slider:before {
+		position: absolute;
+		content: '';
+		height: 16px;
+		width: 16px;
+		left: 2px;
+		bottom: 2px;
+		background-color: white;
+		-webkit-transition: 0.4s;
+		transition: 0.4s;
+	}
+
+	input:checked + .slider {
+		background-color: var(--o3-color-palette-teal);
+	}
+
+	input:focus + .slider {
+		box-shadow: 0 0 1px var(--o3-color-palette-teal);
+	}
+
+	input:checked + .slider:before {
+		-webkit-transform: translateX(16px);
+		-ms-transform: translateX(16px);
+		transform: translateX(16px);
+	}
+
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 16px;
+	}
+
+	.slider.round:before {
+		border-radius: 50%;
+	}
+
+	/* LABEL ADDED BY BRIAN */
+	.switch-label {
+		display: inline;
+		font-size: 14px;
+		font-weight: 500;
+		padding-right: 8px;
+		vertical-align: top;
+	}
+	.slide-switch {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		white-space: nowrap;
+		margin-right: 40px;
+	}
+
+	.code-preview,
+	.component-preview {
+		display: none;
+	}
+
+	.code-preview {
+		padding: 0.5rem;
+		width: 100%;
+	}
+
+	.code-preview > div {
+		flex-grow: 1;
+	}
+
+	.component-preview-wrapper {
+	}
+
+	.component-preview {
+		padding: 4rem;
+		gap: 1rem;
+		justify-content: center;
+		align-items: center;
+		background-image: url('/assets/images/utils/dot.svg');
+		background-repeat: repeat;
+		background-size: 1.5rem;
+		margin: 0.5rem;
+		resize: both;
+		border-radius: 0.33rem;
+		border: 1px solid var(--o3-color-palette-black-40);
+	}
+
+	.visible {
+		display: flex;
+	}
+</style>

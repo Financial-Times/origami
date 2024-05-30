@@ -1,6 +1,6 @@
 ---
-import {List} from '@financial-times/o3-editorial-typography/esm';
 import FigmaSbLinks from './FigmaSbLinks.astro';
+import Preview from '../utils/Preview.astro';
 
 const {brand} = Astro.props;
 const figma =
@@ -11,26 +11,20 @@ const quoteSbLinkGenerator = (type: string) => {
 const sbOrdered = quoteSbLinkGenerator('ordered');
 const sbUnordered = quoteSbLinkGenerator('unordered');
 
-const listItems = [
-"Lorem ipsum adipiscing elit.",
-  "Sed feugiat turpis at massa tristique.",
-  "Curabitu r accumsan elit luctus."
-]
+const metaDataPathOrdered =
+	'src/components/editorial-typography/preview/List-Ordered.tsx';
+const metaDataPathUnordered =
+	'src/components/editorial-typography/preview/List-Unordered.tsx';
 ---
 
 <h4>Ordered List</h4>
 
-<div class="component-preview not-content">
-	<List type='ordered' listItems={listItems} />
-</div>
+<Preview metaData={metaDataPathOrdered} />
 
 <FigmaSbLinks {figma} storybook={sbOrdered} />
 
 <h4>Unordered List</h4>
 
-
-<div class="component-preview not-content">
-	<List type="ordered" listItems={listItems} />
-</div>
+<Preview metaData={metaDataPathUnordered} />
 
 <FigmaSbLinks {figma} storybook={sbUnordered} />

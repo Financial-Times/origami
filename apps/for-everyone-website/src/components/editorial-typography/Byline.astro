@@ -1,12 +1,14 @@
 ---
-import {Byline as BylineTsx} from '@financial-times/o3-editorial-typography/esm';
 import FigmaSbLinks from './FigmaSbLinks.astro';
+import Preview from '../utils/Preview.astro';
 
 const {brand} = Astro.props;
 const figma =
 	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4457&t=kyDVEfsg2tRJspyY-4';
 
 const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--byline`;
+
+const metaDataPath = 'src/components/editorial-typography/preview/Byline.tsx';
 ---
 
 <p>
@@ -14,20 +16,6 @@ const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-
 	that constitute a byline include, author name, location and timestamp.
 </p>
 
-<div class="component-preview not-content">
-	<BylineTsx>
-		<a class="o3-editorial-typography-byline-author" href="#"> Joe Doe</a>
-		&nbsp;
-		<span class="o3-editorial-typography-byline-location">in London</span>
-		&nbsp;
-		<time
-			class="o3-editorial-typography-byline-timestamp"
-			datetime="2019-10-11T20:51:54Z"
-			title="October 11 2019 9:51 pm"
-		>
-			October 11 2019
-		</time>
-	</BylineTsx>
-</div>
+<Preview metaData={metaDataPath} />
 
 <FigmaSbLinks {figma} {storybook} />

@@ -1,6 +1,6 @@
 ---
-import {Quote} from '@financial-times/o3-editorial-typography/esm';
 import FigmaSbLinks from './FigmaSbLinks.astro';
+import Preview from '../utils/Preview.astro';
 
 const {brand} = Astro.props;
 const figma =
@@ -10,6 +10,11 @@ const quoteSbLinkGenerator = (type: string) => {
 };
 const sbBlock = quoteSbLinkGenerator('block');
 const sbPull = quoteSbLinkGenerator('pull');
+
+const metaDataPathBlock =
+	'src/components/editorial-typography/preview/Quote-Block.tsx';
+const metaDataPathPull =
+	'src/components/editorial-typography/preview/Quote-Pull.tsx';
 ---
 
 <h4>Block quote</h4>
@@ -18,14 +23,7 @@ const sbPull = quoteSbLinkGenerator('pull');
 	the vertical bar.
 </p>
 
-<div class="component-preview not-content">
-	<Quote type="block" quoteAuthor="Jao Doe" quoteSource="source">
-		This paragraph is for snippet of contents from an author’s speech to be
-		quote. The following elements in the quote components are optional to
-		provide flexibility appropriate for your use case: caption that tells more
-		information about the author and the vertical bar on the side.
-	</Quote>
-</div>
+<Preview metaData={metaDataPathBlock} />
 
 <FigmaSbLinks {figma} storybook={sbBlock} />
 
@@ -35,13 +33,6 @@ const sbPull = quoteSbLinkGenerator('pull');
 	the vertical bar.
 </p>
 
-<div class="component-preview not-content">
-	<Quote type="pull" quoteAuthor="Jao Doe">
-		This paragraph is for snippet of contents from an author’s speech to be
-		quote. The following elements in the quote components are optional to
-		provide flexibility appropriate for your use case: caption that tells more
-		information about the author and the vertical bar on the side.
-	</Quote>
-</div>
+<Preview metaData={metaDataPathPull} />
 
 <FigmaSbLinks {figma} storybook={sbPull} />

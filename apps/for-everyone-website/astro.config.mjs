@@ -59,33 +59,48 @@ export default defineConfig({
 					},
 				},
 			],
+			expressiveCode: {
+        themes: ['dracula', 'solarized-light'],
+      },
 			sidebar: [
 				{
 					label: 'About',
 					collapsed: true,
-					autogenerate: {directory: 'about'},
+					autogenerate: {
+						directory: 'about',
+					},
 				},
 				{
 					label: 'Getting Started',
 					collapsed: true,
-					autogenerate: {directory: 'getting-started'},
+					autogenerate: {
+						directory: 'getting-started',
+					},
 				},
 				{
 					label: 'Foundations (o3)',
-					autogenerate: {directory: 'guides'},
+					autogenerate: {
+						directory: 'guides',
+					},
 				},
 				{
 					label: 'Components (o3)',
-					autogenerate: {directory: 'components'},
+					autogenerate: {
+						directory: 'components',
+					},
 				},
 				{
 					label: 'Patterns (o3)',
-					autogenerate: {directory: 'patterns'},
+					autogenerate: {
+						directory: 'patterns',
+					},
 				},
 				{
 					label: 'Components (o2)',
 					collapsed: true,
-					autogenerate: {directory: 'o2-components'},
+					autogenerate: {
+						directory: 'o2-components',
+					},
 				},
 			],
 		}),
