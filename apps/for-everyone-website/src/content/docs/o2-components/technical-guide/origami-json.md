@@ -2,8 +2,8 @@
 title: origami.json (o2)
 description: Responsible for describing various aspects of an Origami project.
 sidebar:
-  label: Technical Guide
   order: 3
+  hidden: true
 ---
 
 `origami.json` is a <a href="https://www.json.org/"><abbr title="JavaScript Object Notation">JSON</abbr></a> format file that is responsible for describing various aspects of an Origami project. It is under active development and subject to change, `required` properties indicate those that Origami tools or services may still rely on.

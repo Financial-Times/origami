@@ -12,19 +12,40 @@ const allPosts = await getCollection('posts');
 const sortedPosts = allPosts.sort(
 	(a, b) => b.data.publishDate - a.data.publishDate
 );
+
+const postsByYearMap = Map.groupBy(allPosts, ({data}) => {
+	const date = new Date(data.publishDate);
+	return date.getFullYear();
+});
+
+const postsByYear = Array.from(postsByYearMap);
+
+
 ---
 
 <style>
+
+	ol {
+		padding: 0;
+	}
 	li {
 		list-style-type: none;
 	}
 </style>
 
+
+
 <StarlightPage
 	frontmatter={{
 		title: 'Origami Blog',
 	}}
-	hasSidebar={false}
+	headings={
+		postsByYearMap.keys().map(year => ({
+	depth: 2,
+	text: year,
+	slug: `blog-${year}`
+}))
+	}
 >
 	<p>
 		A blog for announcements relating to the Origami team, components, and
@@ -32,27 +53,32 @@ const sortedPosts = allPosts.sort(
 		<a href="/feed.xml">Subscribe to our feed for updates</a>.
 	</p>
 
-	<ul>
+
 		{
-			sortedPosts.map(post => {
+			postsByYear.map(([year, posts]) => {
 				return (
-					<li>
-						<h2 class="blog-post-link">
-							<a href={'/blog/' + generateBlogPostURL(post.slug)}>
-								{post.data.title}
-							</a>
-						</h2>
-						{post.data.description.length !== 0 && (
-							<p>{post.data.description}</p>
-						)}
-						<p>
-							Posted {formatDateString(post.data.publishDate)} by{' '}
-							{post.data.author}.
-							{post.data.tags && <span> Tagged {post.data.tags}.</span>}
-						</p>
-					</li>
+					<h2 id={`blog-${year}`}>{year}</h2>
+					<ol>
+						{posts.map(post => {
+						return <li>
+							<h3 className="blog-post-link">
+								<a href={'/blog/' + generateBlogPostURL(post.slug)}>
+									{post.data.title}
+								</a>
+							</h3>
+							{post.data.description.length !== 0 && (
+								<p>{post.data.description}</p>
+							)}
+							<p>
+								Posted {formatDateString(post.data.publishDate)} by{' '}
+								{post.data.author}.
+								{post.data.tags && <span> Tagged {post.data.tags}.</span>}
+							</p>
+						</li>
+						})}
+					</ol>
 				);
 			})
 		}
-	</ul>
+
 </StarlightPage>

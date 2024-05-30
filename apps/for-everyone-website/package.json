@@ -16,7 +16,9 @@
 	"private": true,
 	"dependencies": {
 		"@astrojs/react": "^3.0.9",
+		"@astrojs/rss": "^4.0.6",
 		"@astrojs/starlight": "^0.23.2",
+		"@astrojs/svelte": "^5.4.0",
 		"@financial-times/o3-button": "^1.0.0",
 		"@financial-times/o3-editorial-typography": "^1.0.0",
 		"@financial-times/o3-foundation": "^1.0.0",
@@ -26,9 +28,11 @@
 		"astro": "^4.0.9",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"sharp": "^0.32.5"
+		"sharp": "^0.32.5",
+		"svelte": "^4.2.17",
+		"typescript": "^5.4.5"
 	},
 	"volta": {
-		"node": "18.18.2"
+		"node": "22.2.0"
 	}
 }

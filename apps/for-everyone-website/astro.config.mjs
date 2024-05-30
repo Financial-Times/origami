@@ -3,9 +3,9 @@ import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
 import path, {dirname} from 'path';
 import {fileURLToPath} from 'url';
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+import svelte from '@astrojs/svelte';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,10 +15,11 @@ export default defineConfig({
 		},
 		resolve: {
 			alias: {
-				"@": `${path.resolve(__dirname, "src")}/`,
+				'@': `${path.resolve(__dirname, 'src')}/`,
 			},
 		},
 	},
+	site: 'https://origami.ft.com/',
 	integrations: [
 		react(),
 		starlight({
@@ -73,31 +74,48 @@ export default defineConfig({
 				{
 					label: 'About',
 					collapsed: true,
-					autogenerate: {directory: 'about'},
+					autogenerate: {
+						directory: 'about',
+					},
 				},
 				{
 					label: 'Getting Started',
 					collapsed: true,
-					autogenerate: {directory: 'getting-started'},
+					autogenerate: {
+						directory: 'getting-started',
+					},
 				},
 				{
 					label: 'Foundations (o3)',
-					autogenerate: {directory: 'guides'},
+					autogenerate: {
+						directory: 'guides',
+					},
 				},
 				{
 					label: 'Components (o3)',
-					autogenerate: {directory: 'components'},
+					autogenerate: {
+						directory: 'components',
+					},
 				},
 				{
 					label: 'Patterns (o3)',
-					autogenerate: {directory: 'patterns'},
+					autogenerate: {
+						directory: 'patterns',
+					},
 				},
 				{
 					label: 'Components (o2)',
 					collapsed: true,
-					autogenerate: {directory: 'o2-components'},
+					autogenerate: {
+						directory: 'o2-components',
+					},
+				},
+				{
+					label: 'Blog',
+					link: '/blog/',
 				},
 			],
 		}),
+		svelte(),
 	],
 });

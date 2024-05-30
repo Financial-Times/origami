@@ -2,8 +2,8 @@
 title: Using components (o2) via npm
 description: A reference of components
 sidebar:
-  label: Technical Guide
   order: 3
+  hidden: true
 ---
 
 This guide shows an example of including "o2" Origami components in a project via npm.
