@@ -34,8 +34,8 @@ const {title, description} = entry.data;
 <StarlightPage
 	frontmatter={{
 		title: entry.data.title,
-		sidebar: {hidden: true},
 	}}
+	hasSidebar={false}
 >
 	<p class="blog-meta">
 		Posted on <time datetime={entry.data.datePublished}
