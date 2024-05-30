@@ -1,0 +1,33 @@
+digraph {
+    splines=ortho
+    concentrate=true
+
+    "o-colors" [style="dashed", fontcolor="#8c8c8c" color="#8c8c8c"]
+    "o-typography" [style="dashed", fontcolor="#8c8c8c" color="#8c8c8c"]
+    "o-buttons" [style="dashed", fontcolor="#8c8c8c" color="#8c8c8c"]
+
+    "o-colors" -> "o-typography" [style="dashed", color="#8c8c8c"]
+
+    "o-colors" -> "o-buttons" [style="dashed", color="#8c8c8c"]
+    "o-typography" -> "o-buttons" [style="dashed", color="#8c8c8c"]
+
+    "o-colors" -> "o-table" [style="dashed", color="#8c8c8c"]
+    "o-typography" -> "o-table" [style="dashed", color="#8c8c8c"]
+    "o-buttons" -> "o-table" [style="dashed", color="#8c8c8c"]
+
+    "o-colors" -> "ft.com" [style="dashed", color="#8c8c8c"]
+    "o-typography" -> "ft.com" [style="dashed", color="#8c8c8c"]
+    "o-buttons" -> "ft.com" [style="dashed", color="#8c8c8c"]
+    "o-table" -> "ft.com"
+
+    "o-colors" -> "ft app" [style="dashed", color="#8c8c8c"]
+    "o-typography" -> "ft app" [style="dashed", color="#8c8c8c"]
+    "o-buttons" -> "ft app" [style="dashed", color="#8c8c8c"]
+    "o-table" -> "ft app"
+
+    "o-colors" -> "an internal tool" [style="dashed", color="#8c8c8c"]
+    "o-typography" -> "an internal tool" [style="dashed", color="#8c8c8c"]
+    "o-buttons" -> "an internal tool" [style="dashed", color="#8c8c8c"]
+    "o-table" -> "an internal tool"
+
+}

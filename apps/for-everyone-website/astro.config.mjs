@@ -1,6 +1,11 @@
 import {defineConfig} from 'astro/config';
 import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
+import path, {dirname} from 'path';
+import {fileURLToPath} from 'url';
+import svelte from '@astrojs/svelte';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,7 +13,13 @@ export default defineConfig({
 		ssr: {
 			noExternal: ['unist-util-visit'],
 		},
+		resolve: {
+			alias: {
+				'@': `${path.resolve(__dirname, 'src')}/`,
+			},
+		},
 	},
+	site: 'https://origami.ft.com/',
 	integrations: [
 		react(),
 		starlight({
@@ -37,7 +48,7 @@ export default defineConfig({
 				ContentPanel: './src/components/ContentPanel.astro',
 				ThemeSelect: './src/components/EmptyComponent.astro',
 				ThemeProvider: './src/components/ThemeProvider.astro',
-				SocialIcons: './src/components/Feedback.astro',
+				SocialIcons: './src/components/NavLinks.astro',
 			},
 			customCss: ['./src/styles/custom.css'],
 			social: {
@@ -63,31 +74,48 @@ export default defineConfig({
 				{
 					label: 'About',
 					collapsed: true,
-					autogenerate: {directory: 'about'},
+					autogenerate: {
+						directory: 'about',
+					},
 				},
 				{
 					label: 'Getting Started',
 					collapsed: true,
-					autogenerate: {directory: 'getting-started'},
+					autogenerate: {
+						directory: 'getting-started',
+					},
 				},
 				{
 					label: 'Foundations (o3)',
-					autogenerate: {directory: 'guides'},
+					autogenerate: {
+						directory: 'guides',
+					},
 				},
 				{
 					label: 'Components (o3)',
-					autogenerate: {directory: 'components'},
+					autogenerate: {
+						directory: 'components',
+					},
 				},
 				{
 					label: 'Patterns (o3)',
-					autogenerate: {directory: 'patterns'},
+					autogenerate: {
+						directory: 'patterns',
+					},
 				},
 				{
 					label: 'Components (o2)',
 					collapsed: true,
-					autogenerate: {directory: 'o2-components'},
+					autogenerate: {
+						directory: 'o2-components',
+					},
+				},
+				{
+					label: 'Blog',
+					link: '/blog/',
 				},
 			],
 		}),
+		svelte(),
 	],
 });
