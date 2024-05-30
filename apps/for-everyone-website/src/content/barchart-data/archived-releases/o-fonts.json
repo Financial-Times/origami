@@ -1,0 +1,294 @@
+[
+  {
+    "tag_name": "v4.5.0",
+    "published_at": "2021-04-06T11:53:43Z"
+  },
+  {
+    "tag_name": "v4.4.3",
+    "published_at": "2021-04-06T11:43:39Z"
+  },
+  {
+    "tag_name": "v4.4.2",
+    "published_at": "2020-12-15T17:40:08Z"
+  },
+  {
+    "tag_name": "v4.4.1",
+    "published_at": "2020-08-07T12:02:39Z"
+  },
+  {
+    "tag_name": "v4.4.0",
+    "published_at": "2020-05-27T13:51:20Z"
+  },
+  {
+    "tag_name": "v4.4.0-beta.1",
+    "published_at": "2020-05-27T10:58:12Z"
+  },
+  {
+    "tag_name": "v4.3.4",
+    "published_at": "2020-05-18T15:16:45Z"
+  },
+  {
+    "tag_name": "v4.3.3",
+    "published_at": "2020-04-09T14:03:12Z"
+  },
+  {
+    "tag_name": "v4.3.2",
+    "published_at": "2020-03-24T11:36:31Z"
+  },
+  {
+    "tag_name": "v4.3.1",
+    "published_at": "2020-03-05T16:24:29Z"
+  },
+  {
+    "tag_name": "v4.3.0",
+    "published_at": "2020-03-04T14:30:43Z"
+  },
+  {
+    "tag_name": "v4.2.0",
+    "published_at": "2020-03-04T10:59:26Z"
+  },
+  {
+    "tag_name": "v4.1.0",
+    "published_at": "2020-03-03T11:18:32Z"
+  },
+  {
+    "tag_name": "v4.0.2",
+    "published_at": "2019-12-13T14:57:18Z"
+  },
+  {
+    "tag_name": "v4.0.1",
+    "published_at": "2019-12-10T17:28:20Z"
+  },
+  {
+    "tag_name": "v4.0.0",
+    "published_at": "2019-11-21T13:22:23Z"
+  },
+  {
+    "tag_name": "v3.3.2",
+    "published_at": "2019-05-23T10:30:20Z"
+  },
+  {
+    "tag_name": "v3.3.1",
+    "published_at": "2019-05-13T11:57:45Z"
+  },
+  {
+    "tag_name": "v3.3.0",
+    "published_at": "2019-02-12T16:07:28Z"
+  },
+  {
+    "tag_name": "v3.2.1",
+    "published_at": "2019-01-24T15:21:16Z"
+  },
+  {
+    "tag_name": "v3.2.0",
+    "published_at": "2018-12-05T12:48:01Z"
+  },
+  {
+    "tag_name": "v3.1.1",
+    "published_at": "2018-11-01T15:21:48Z"
+  },
+  {
+    "tag_name": "v3.1.0",
+    "published_at": "2018-10-30T16:31:13Z"
+  },
+  {
+    "tag_name": "v3.0.4",
+    "published_at": "2017-11-30T12:04:01Z"
+  },
+  {
+    "tag_name": "v3.0.3",
+    "published_at": "2017-10-17T10:11:44Z"
+  },
+  {
+    "tag_name": "v3.0.2",
+    "published_at": "2017-10-05T09:17:26Z"
+  },
+  {
+    "tag_name": "v3.0.1",
+    "published_at": "2017-07-10T14:01:23Z"
+  },
+  {
+    "tag_name": "v3.0.0",
+    "published_at": "2017-05-22T14:34:11Z"
+  },
+  {
+    "tag_name": "v2.3.0",
+    "published_at": "2017-04-03T16:09:33Z"
+  },
+  {
+    "tag_name": "v3.0.0-beta.1",
+    "published_at": "2017-03-24T12:52:26Z"
+  },
+  {
+    "tag_name": "v3.0.0-beta.2",
+    "published_at": "2017-03-24T14:51:25Z"
+  },
+  {
+    "tag_name": "v2.2.0",
+    "published_at": "2016-11-14T16:55:19Z"
+  },
+  {
+    "tag_name": "v2.1.4",
+    "published_at": "2016-11-14T11:46:43Z"
+  },
+  {
+    "tag_name": "v1.8.7",
+    "published_at": "2016-07-28T16:10:33Z"
+  },
+  {
+    "tag_name": "v1.8.6",
+    "published_at": "2016-07-26T14:55:00Z"
+  },
+  {
+    "tag_name": "v1.8.5",
+    "published_at": "2016-06-22T08:56:59Z"
+  },
+  {
+    "tag_name": "v2.1.3",
+    "published_at": "2016-07-20T09:43:53Z"
+  },
+  {
+    "tag_name": "v2.1.2",
+    "published_at": "2016-03-29T11:19:11Z"
+  },
+  {
+    "tag_name": "v2.1.1",
+    "published_at": "2016-02-25T10:39:54Z"
+  },
+  {
+    "tag_name": "v2.1.0",
+    "published_at": "2015-11-09T12:05:06Z"
+  },
+  {
+    "tag_name": "v2.0.0",
+    "published_at": "2015-10-30T11:03:25Z"
+  },
+  {
+    "tag_name": "v1.8.4",
+    "published_at": "2015-10-28T16:54:20Z"
+  },
+  {
+    "tag_name": "v1.8.3",
+    "published_at": "2015-10-28T14:58:47Z"
+  },
+  {
+    "tag_name": "v2.0.0-beta.4",
+    "published_at": "2015-06-12T15:59:37Z"
+  },
+  {
+    "tag_name": "v2.0.0-beta.3",
+    "published_at": "2015-06-12T14:17:50Z"
+  },
+  {
+    "tag_name": "v1.8.2",
+    "published_at": "2015-06-12T15:59:59Z"
+  },
+  {
+    "tag_name": "v1.8.1",
+    "published_at": "2015-06-12T14:17:25Z"
+  },
+  {
+    "tag_name": "v2.0.0-beta.2",
+    "published_at": "2015-06-02T14:51:39Z"
+  },
+  {
+    "tag_name": "v1.8.0",
+    "published_at": "2015-06-02T10:11:51Z"
+  },
+  {
+    "tag_name": "v2.0.0-beta.1",
+    "published_at": "2015-05-14T13:48:05Z"
+  },
+  {
+    "tag_name": "v1.7.0",
+    "published_at": "2015-05-13T10:06:40Z"
+  },
+  {
+    "tag_name": "v1.7.0-beta.2",
+    "published_at": "2015-05-07T13:41:41Z"
+  },
+  {
+    "tag_name": "v1.7.0-beta.1",
+    "published_at": "2015-05-06T15:12:56Z"
+  },
+  {
+    "tag_name": "v1.6.8",
+    "published_at": "2015-05-06T13:01:07Z"
+  },
+  {
+    "tag_name": "v1.6.7",
+    "published_at": "2015-03-09T19:01:30Z"
+  },
+  {
+    "tag_name": "1.6.6",
+    "published_at": "2015-03-05T13:53:10Z"
+  },
+  {
+    "tag_name": "1.6.5",
+    "published_at": "2015-03-04T16:28:56Z"
+  },
+  {
+    "tag_name": "1.6.4",
+    "published_at": "2015-01-29T12:49:30Z"
+  },
+  {
+    "tag_name": "1.6.3",
+    "published_at": "2015-01-28T16:03:27Z"
+  },
+  {
+    "tag_name": "1.6.2",
+    "published_at": "2015-01-27T12:11:15Z"
+  },
+  {
+    "tag_name": "1.6.1",
+    "published_at": "2015-01-27T11:54:11Z"
+  },
+  {
+    "tag_name": "1.6.0",
+    "published_at": "2015-01-23T13:49:30Z"
+  },
+  {
+    "tag_name": "1.5.0",
+    "published_at": "2014-10-17T08:46:08Z"
+  },
+  {
+    "tag_name": "1.4.1",
+    "published_at": "2014-06-23T10:11:37Z"
+  },
+  {
+    "tag_name": "1.4.0",
+    "published_at": "2014-06-23T10:00:22Z"
+  },
+  {
+    "tag_name": "1.3.0",
+    "published_at": "2014-05-02T10:40:35Z"
+  },
+  {
+    "tag_name": "1.2.1",
+    "published_at": "2014-04-28T08:46:25Z"
+  },
+  {
+    "tag_name": "1.2.0",
+    "published_at": "2014-04-22T16:30:00Z"
+  },
+  {
+    "tag_name": "1.1.0",
+    "published_at": "2014-04-03T08:53:20Z"
+  },
+  {
+    "tag_name": "1.0.0",
+    "published_at": "2014-03-21T16:59:22Z"
+  },
+  {
+    "tag_name": "0.7.2",
+    "published_at": "2014-03-20T11:56:40Z"
+  },
+  {
+    "tag_name": "0.7.1",
+    "published_at": "2014-03-19T10:39:42Z"
+  },
+  {
+    "tag_name": "0.7.0",
+    "published_at": "2014-03-18T09:13:02Z"
+  }
+]
