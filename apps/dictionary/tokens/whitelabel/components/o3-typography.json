@@ -10,30 +10,6 @@
         },
         "type": "typography"
       },
-      "heading": {
-        "color": {
-          "value": "{o3.color.palette.black-90}",
-          "type": "color"
-        },
-        "inverse": {
-          "color": {
-            "value": "{o3.color.palette.white}",
-            "type": "color"
-          }
-        }
-      },
-      "body": {
-        "color": {
-          "value": "{o3.color.palette.black-80}",
-          "type": "color"
-        },
-        "inverse": {
-          "color": {
-            "value": "{o3.color.palette.white}",
-            "type": "color"
-          }
-        }
-      },
       "footer": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
