@@ -6,7 +6,7 @@ sidebar:
   order: 2
 ---
 
-"o2" Origami includes limited Figma libraries. Unlike our latest Figma libraries these support the "core" brand only; are incomplete; and sometimes misleading. Please use with caution and validate against [o2 Storybook demos](https://o2-core.origami.ft.com/) and existing live examples.
+Origami (o2) includes limited Figma libraries. Unlike our latest Figma libraries these support the "core" brand only; are incomplete; and sometimes misleading. Please use with caution and validate against [o2 Storybook demos](https://o2-core.origami.ft.com/) and existing live examples.
 
 - [Figma: Ft.com Foundations](<https://www.figma.com/file/NtRRxJdOxBO4mM0B3Fxv7M/%F0%9F%92%A0-Ft.com-Foundations---Origami-(o2)?type=design&node-id=0-1&mode=design>): Includes colour palettes and basic typographic styles. This does not include other foundations such as icons and grids.
 - [Figma: FT UI Library](<https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/%F0%9F%92%A0-FT-UI-Library---Origami-(o2)?type=design&node-id=0-2169&mode=design>): The main "o2" Figma library. It includes a number of further foundations, components, and patterns.
