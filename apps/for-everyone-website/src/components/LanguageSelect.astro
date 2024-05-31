@@ -1,6 +1,6 @@
 ---
-import config from "virtual:starlight/user-config"
-import Select from "@astrojs/starlight/components/Select.astro"
+import config from 'virtual:starlight/user-config';
+import Select from '@astrojs/starlight/components/Select.astro';
 ---
 
 {
@@ -22,57 +22,60 @@ import Select from "@astrojs/starlight/components/Select.astro"
 }
 
 <script>
-	import config from "virtual:starlight/user-config"
+	import config from 'virtual:starlight/user-config';
 
 	/**
 	 * Get the equivalent of the passed URL for the passed locale
 	 */
 	function localizePath(location: string, locale?: string): string {
-		const localeCodes = Object.keys(config.locales)
+		const localeCodes = Object.keys(config.locales);
 
-		let {pathname: currentPath} = new URL(location)
+		let {pathname: currentPath} = new URL(location);
+		if (currentPath.includes('blog')) {
+			return currentPath;
+		}
 
-		if (currentPath === "/") {
-			return locale === "root" ? "/" : "/" + locale + "/"
+		if (currentPath === '/') {
+			return locale === 'root' ? '/' : '/' + locale + '/';
 		}
 
 		// Trim leading and trailing slashes, note this does not mutate workingUrl
-		const trimmedPathname = currentPath.replace(/^\/|\/$/g, "")
-		const [baseSegment, ...restSegments] = trimmedPathname.split("/")
+		const trimmedPathname = currentPath.replace(/^\/|\/$/g, '');
+		const [baseSegment, ...restSegments] = trimmedPathname.split('/');
 
-		if (locale === "root") {
+		if (locale === 'root') {
 			if (!localeCodes.includes(baseSegment)) {
-				return "/" + currentPath
+				return '/' + currentPath;
 			} else {
-				return "/" + restSegments.join("/")
+				return '/' + restSegments.join('/');
 			}
 		}
 
 		if (!localeCodes.includes(baseSegment)) {
-			return "/" + locale + currentPath
+			return '/' + locale + currentPath;
 		} else if (restSegments.length > 0) {
-			return "/" + locale + "/" + restSegments.join("/")
+			return '/' + locale + '/' + restSegments.join('/');
 		} else {
-			return "/" + locale + "/"
+			return '/' + locale + '/';
 		}
 	}
 
 	class StarlightLanguageSelect extends HTMLElement {
 		constructor() {
-			super()
-			const select = this.querySelector("select")
+			super();
+			const select = this.querySelector('select');
 			if (select) {
-				select.addEventListener("change", e => {
+				select.addEventListener('change', e => {
 					if (e.currentTarget instanceof HTMLSelectElement) {
 						window.location.pathname = localizePath(
 							location.toString(),
 							e.currentTarget.value
-						)
+						);
 					}
-				})
+				});
 			}
 		}
 	}
 
-	customElements.define("starlight-lang-select", StarlightLanguageSelect)
+	customElements.define('starlight-lang-select', StarlightLanguageSelect);
 </script>
