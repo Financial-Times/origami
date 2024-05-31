@@ -7,39 +7,18 @@ sidebar:
     variant: tip
 ---
 
-import { Button, ButtonPagination } from '@financial-times/o3-button';
+import {Button, ButtonPagination} from '@financial-times/o3-button';
 import '@financial-times/o3-button/css/whitelabel.css';
 import '@financial-times/o3-button/css/internal.css';
 import '@financial-times/o3-button/css/professional.css';
 import '@financial-times/o3-button/css/sustainable-views.css';
 import {renderToString} from 'react-dom/server';
-import { Code } from 'astro:components';
+import {Code} from 'astro:components';
 import * as starlightExpressiveCode from '@astrojs/starlight/expressive-code';
-import { default as Example } from '../../../components/Example.astro';
-import { default as Guideline } from '../../../components/Guideline.astro';
-import { default as PaginationAnatomy } from '../../../components/PaginationAnatomy.astro';
-
-export function Preview ({component: Component, componentProps} = props) {
-	const inverse = componentProps['theme'] === 'inverse';
-
-    const ComponentInstance = Component(componentProps);
-    const componentHtml = renderToString(ComponentInstance);
-    const componentJSX = `<${Component.name} ${Object.entries(componentProps).map(p => `${p[0]}=${typeof p[1] === '"string"' ? p[1] : `{${JSON.stringify(p[1])}}`}`).join(' ')} />`;
-    return <>
-        <div style={`padding: var(--o3-spacing-2xs); margin-left: calc(var(--o3-spacing-2xs) * -1); ${inverse ? 'background-color: black' : ''}`}>
-        <Component {...componentProps} />
-        </div>
-
-     <a style="display: inline-block; margin: var(--o3-spacing-2xs) 0;" href={`https://o3.origami.ft.com?path=/story/core-o3-button--pagination&args=theme:${componentProps.theme}`}>Open in StoryBook</a> | <a style="display: inline-block; margin: var(--o3-spacing-2xs) 0;" href="https://www.figma.com/file/nSD9N3r4MiMpv9pA6F4Dpy/Pagination?type=design&node-id=5463-1742&mode=design">Open in Figma</a>
-        <details>
-            <summary>code</summary>
-            <Code code={componentJSX} lang="jsx" theme="css-variables" />
-            <Code code={componentHtml} lang="html" theme="css-variables" />
-        </details>
-        <hr />
-    </>
-
-}
+import {default as Example} from '../../../components/Example.astro';
+import {default as Guideline} from '../../../components/Guideline.astro';
+import {default as PaginationAnatomy} from '../../../components/PaginationAnatomy.astro';
+import {default as Preview} from '../../../components/button/ButtonPaginationPreview.astro';
 
 Pagination aids user movement across an ordered collection of items that has been split into pages.
 
@@ -192,30 +171,9 @@ Our pagination pattern supports all button themes. For example:
 
 ### Standard Pagination
 
-<Preview
-	component={ButtonPagination}
-	componentProps={{
-		previousPager: {label: 'previous', href: '#previous'},
-		nextPager: {label: 'next', href: '#next'},
-		pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(p => ({
-			href: `#${p}`,
-			current: p === 5,
-			number: p,
-		})),
-	}}
-/>
+<Preview theme="standard" />
 ### Inverse Pagination
 
-<Preview
-	component={ButtonPagination}
-	componentProps={{
-		previousPager: {label: 'previous', href: '#previous'},
-		nextPager: {label: 'next', href: '#next'},
-		pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(p => ({
-			href: `#${p}`,
-			current: p === 5,
-			number: p,
-		})),
-		theme: 'inverse',
-	}}
-/>
+<div data-o3-theme="inverse">
+	<Preview theme="inverse" />
+</div>

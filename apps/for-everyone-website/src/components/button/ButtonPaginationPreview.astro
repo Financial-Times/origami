@@ -1,0 +1,17 @@
+---
+import Preview from '../utils/Preview.astro';
+import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
+
+const {theme} = Astro.props;
+
+const figma =
+	'https://www.figma.com/file/nSD9N3r4MiMpv9pA6F4Dpy/Pagination?type=design&node-id=5463-1742&mode=design';
+const storybook = `https://o3.origami.ft.com?path=/story/core-o3-button--pagination&args=theme:${theme}`;
+const metaData = `src/components/button/preview/ButtonPagination-${theme}.tsx`;
+console.log(`🚀 ~ metaData:`, metaData);
+---
+
+<div>
+	{metaData && <Preview {metaData} />}
+	<FigmaSbLinks {figma} {storybook} />
+</div>

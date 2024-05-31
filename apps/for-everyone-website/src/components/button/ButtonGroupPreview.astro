@@ -1,31 +1,8 @@
 ---
-import {renderToString} from 'react-dom/server';
-import {Button, ButtonGroup} from '@financial-times/o3-button';
+import Preview from '../utils/Preview.astro';
+import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 
-const brand = Astro.props.brand;
-const componentProps = Astro.props.componentProps;
-const ComponentInstance = ButtonGroup({
-	children: [
-		...componentProps.buttons.map(buttonProps => {
-			return Button(buttonProps);
-		}),
-	],
-});
-const componentHtml = renderToString(ComponentInstance);
-const componentJSX =
-	`<ButtonGroup>\n` +
-	`${componentProps.buttons
-		.map(buttonProps => {
-			return `\t<Button ${Object.entries(buttonProps)
-				.map(([prop, value]) => {
-					return `${prop}={${JSON.stringify(value)}}`;
-				})
-				.join(' ')} />`;
-		})
-		.join('\n')}` +
-	`\n</ButtonGroup>`;
-const inverse = componentProps['theme'] === 'inverse';
-import {Code} from 'astro:components';
+const {brand} = Astro.props;
 
 let figma =
 	'https://www.figma.com/files/938480807921629744/team/1237702133754424766/Origami-for-Everyone-(NEW)?fuid=840167457508775739';
@@ -61,32 +38,11 @@ if (brand) {
 		storybook = `${storybookbase}/core-${brand}-o3-button--${storybookArgs}`;
 	}
 }
+
+const metaData = `src/components/button/preview/Group-Buttons.tsx`;
 ---
 
 <div>
-	<div
-		style={`padding: var(--o3-spacing-2xs); margin-left: calc(var(--o3-spacing-2xs) * -1); ${
-			inverse ? 'background-color: black' : ''
-		}`}
-	>
-		<div class="not-content">
-			<Fragment set:html={componentHtml} />
-		</div>
-		<a
-			style="display: inline-block; margin: var(--o3-spacing-2xs) 0;"
-			href={storybook}
-		>
-			Open in StoryBook
-		</a> | <a
-			style="display: inline-block; margin: var(--o3-spacing-2xs) 0;"
-			href={figma}
-		>
-			Open in Figma
-		</a>
-		<details>
-			<summary>code</summary>
-			<Code code={componentJSX} lang="jsx" theme="css-variables" />
-			<Code code={componentHtml} lang="html" theme="css-variables" />
-		</details>
-	</div>
+	<Preview {metaData} />
+	<FigmaSbLinks {figma} {storybook} />
 </div>
