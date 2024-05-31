@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.1.2...o3-foundation-v1.1.3) (2024-05-31)
+
+
+### Bug Fixes
+
+* Update typography component tokens ([#1674](https://github.com/Financial-Times/origami/issues/1674)) ([f04ed53](https://github.com/Financial-Times/origami/commit/f04ed535250a84aaf9d0e2ddd09cf4debc4de6ab))
+
 ## [1.1.2](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.1.1...o3-foundation-v1.1.2) (2024-05-24)
 
 
