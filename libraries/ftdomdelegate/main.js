@@ -425,7 +425,7 @@ Delegate.prototype.fire = function (event, target, listener) {
  * @returns boolean
  */
 function matchesTag(tagName, element) {
-	return tagName.toLowerCase() === element.tagName.toLowerCase();
+	return tagName.toLowerCase() === (element.tagName && element.tagName.toLowerCase());
 }
 
 /**
