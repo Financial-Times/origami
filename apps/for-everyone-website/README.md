@@ -58,7 +58,7 @@ This also means search is brand specific. Typically, this feature relies on the 
 
 The preview element is a custom element that allows you to preview a component in the context of a brand. It is used in the documentation to show how a component looks and has switcher to provide `JSX` and `HTML` code. The preview element is defined in `src/components/utils/Preview.astro` and takes only one argument.
 
-The argument is a path to a tsx file that exports a component. The path is relative to the current directory. `tsx` file should include `// <preview>` comments around the code that needs to be used in the code snippet section. `tsx` should export preview as `preview`. The preview element will also take are of visual representation of code.
+The argument is a path to a tsx file that exports a component. The path is relative to the current directory. `tsx` file must include `// <preview>` comments around the code that needs to be used in the code snippet section. `tsx` should export preview as `preview`. The preview element will also take are of visual representation of code.
 
 For example if you create a preview tsx file at `src/components/my-component/preview/MyComponent.tsx` with the following content:
 

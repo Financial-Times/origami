@@ -15,19 +15,18 @@ const fileContent = await readFile(pathToMetadata, {
 });
 
 const regex = /\/\/\s*<preview>([\s\S]*?)\/\/\s*<\/preview>/;
-const match = fileContent.match(regex)!; // ! tels ts that match is not null
-const JSXString = match[1];
+const match = fileContent.match(regex);
+const JSXString = match && match[1];
 
-const componentJSX = await format(JSXString, {
+const componentJSX = JSXString && await format(JSXString, {
 	parser: 'babel',
 });
 
 const componentHTMLString = renderToString(Component.preview());
-const componentFormatedHTML = await format(componentHTMLString, {
+const componentHTML = await format(componentHTMLString, {
 	parser: 'html',
 	htmlWhitespaceSensitivity: "ignore"
 });
-const componentHTML = componentFormatedHTML;
 
 const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 ---
