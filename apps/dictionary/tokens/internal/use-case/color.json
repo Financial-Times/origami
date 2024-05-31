@@ -79,8 +79,23 @@
           }
         },
         "muted-inverse": {
-          "value": "#a8aaad",
-          "type": "color"
+          "text": {
+            "value": "#a8aaad",
+            "type": "color",
+            "description": "\"Muted\" text is less prominent, for example credits and captions."
+          }
+        },
+        "heading": {
+          "text": {
+            "value": "{o3.color.palette.black-90}",
+            "type": "color"
+          }
+        },
+        "heading-inverse": {
+          "text": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
         }
       }
     }

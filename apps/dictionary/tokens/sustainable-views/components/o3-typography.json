@@ -1,0 +1,78 @@
+{
+  "o3": {
+    "typography": {
+      "heading1": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.medium}",
+          "fontSize": "{o3.font.size-metric2.5}",
+          "lineHeight": "{o3.font.lineheight-metric2.5}"
+        },
+        "type": "typography"
+      },
+      "heading2": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.medium}",
+          "fontSize": "{o3.font.size-metric2.4}",
+          "lineHeight": "{o3.font.lineheight-metric2.4}"
+        },
+        "type": "typography"
+      },
+      "heading3": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.medium}",
+          "fontSize": "{o3.font.size-metric2.3}",
+          "lineHeight": "{o3.font.lineheight-metric2.3}"
+        },
+        "type": "typography"
+      },
+      "body-l": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.1}",
+          "lineHeight": "{o3.font.lineheight-metric2.1}"
+        },
+        "type": "typography"
+      },
+      "body-s": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.0}",
+          "lineHeight": "{o3.font.lineheight-metric2.0}"
+        },
+        "type": "typography"
+      },
+      "link": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.1}",
+          "lineHeight": "{o3.font.lineheight-metric2.1}"
+        },
+        "type": "typography"
+      },
+      "footer": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.1}",
+          "lineHeight": "{o3.font.lineheight-metric2.1}"
+        },
+        "type": "typography"
+      },
+      "caption": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.negative-1}",
+          "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
+        },
+        "type": "typography"
+      }
+    }
+  }
+}

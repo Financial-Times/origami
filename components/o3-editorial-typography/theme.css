@@ -1,9 +1,9 @@
 [class^='o3-editorial-typography-'] {
-	color: var(--_o3-editorial-typography-text-color);
+	color: var(--o3-color-use-case-body-text);
 	margin: 0;
 }
 
 [data-o3-theme='inverse'] [class^='o3-editorial-typography-'],
 [class^='o3-editorial-typography-'][data-o3-theme='inverse'] {
-	color: var(--_o3-editorial-typography-text-inverse-color);
+	color: var(--o3-color-use-case-body-inverse-text);
 }

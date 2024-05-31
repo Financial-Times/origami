@@ -44,6 +44,13 @@
             "description": "\"Muted\" text is less prominent, for example credits and captions."
           }
         },
+        "muted-inverse": {
+          "text": {
+            "value": "#a8aaad",
+            "type": "color",
+            "description": "\"Muted\" text is less prominent, for example credits and captions."
+          }
+        },
         "link-inverse": {
           "text": {
             "@": {
@@ -77,10 +84,6 @@
             "value": "{o3.color.palette.white}",
             "type": "color"
           }
-        },
-        "muted-inverse": {
-          "value": "#a8aaad",
-          "type": "color"
         }
       }
     }

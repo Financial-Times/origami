@@ -12,6 +12,10 @@
             "hover": {
               "value": "{o3.color.palette.slate}",
               "type": "color"
+            },
+            "focus": {
+              "value": "{o3.color.palette.slate}",
+              "type": "color"
             }
           },
           "underline": {
@@ -21,6 +25,10 @@
             },
             "hover": {
               "value": "{o3.color.palette.mint-80}",
+              "type": "color"
+            },
+            "focus": {
+              "value": "{o3.color.palette.black}",
               "type": "color"
             }
           }
@@ -34,6 +42,10 @@
             "hover": {
               "value": "{o3.color.palette.mint-70}",
               "type": "color"
+            },
+            "focus": {
+              "value": "#8fb3a1",
+              "type": "color"
             }
           },
           "underline": {
@@ -43,6 +55,10 @@
             },
             "hover": {
               "value": "{o3.color.palette.mint-70}",
+              "type": "color"
+            },
+            "focus": {
+              "value": "{o3.color.palette.black}",
               "type": "color"
             }
           }
