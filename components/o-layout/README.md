@@ -11,13 +11,13 @@ Whole page layouts including typography.
 - [Default and Bleed Layout](#default-and-bleed-layout)
 - [Documentation Layout](#documentation-layout)
 - [Landing Layout](#landing-layout)
-	- [Overview Sections](#overview-sections)
-	- [Article List](#article-list)
+  - [Overview Sections](#overview-sections)
+  - [Article List](#article-list)
 - [Query Layout](#query-layout)
 - [Sass](#sass)
 - [JavaScript](#javascript)
-	- [Custom Navigation](#custom-navigation)
-	- [Linking Headings](#linking-headings)
+  - [Custom Navigation](#custom-navigation)
+  - [Linking Headings](#linking-headings)
 - [Migration Guide](#migration-guide)
 - [Troubleshooting](#troubleshooting)
 - [Contact](#contact)
@@ -27,13 +27,13 @@ Whole page layouts including typography.
 
 `o-layout` provides page layouts and typography as a starting point for new pages. Layouts provided vary per brand and include:
 
-layout | description | core brand | internal brand | whitelabel brand |
---- | --- | :---: | :---: | :---:
-default | An empty layout with contained content well. | ✓ | ✓ | |
-bleed | An empty layout with full-width "bleed" content. | ✓ | ✓ | |
-documentation | A documentation/blog page layout. | ✓ | ✓ | |
-landing | A landing/homepage layout. | | ✓ | |
-query | A search/query page layout. | | ✓ | |
+| layout        | description                                      | core brand | internal brand | whitelabel brand |
+| ------------- | ------------------------------------------------ | :--------: | :------------: | :--------------: |
+| default       | An empty layout with contained content well.     |     ✓      |       ✓        |                  |
+| bleed         | An empty layout with full-width "bleed" content. |     ✓      |       ✓        |                  |
+| documentation | A documentation/blog page layout.                |     ✓      |       ✓        |                  |
+| landing       | A landing/homepage layout.                       |            |       ✓        |                  |
+| query         | A search/query page layout.                      |            |       ✓        |                  |
 
 ## Usage
 
@@ -166,7 +166,6 @@ The documentation layout is intended for text-heavy pages, such as technical doc
 </div>
 ```
 
-
 ### Main Content
 
 On large viewports the main content area (`o-layout__main`) is split into two columns.
@@ -187,7 +186,6 @@ On large viewports the main content area (`o-layout__main`) is split into two co
 Most content is placed into column 1 by default. The exceptions are the `aside` element, which is placed in column 2; and the `table` element, which spans both columns.
 
 Use a containing `div` with class `o-layout__main__single-span` to constrain elements to column 1. Use a `o-layout__main__full-span` container to expand elements to span both columns.
-
 
 ```html
 <!-- Your page content here. -->
@@ -211,6 +209,7 @@ Use a containing `div` with class `o-layout__main__single-span` to constrain ele
 ```
 
 ### Sidebar
+
 By default `o-layout` will generate a sidebar navigation for the documentation layout. This feature is also supported by the query layout but is disabled by default. You will need to include an empty `<div class="o-layout__sidebar>` somewhere before your main content. The sidebar links to any `<h2>` or `<h3>` element within the main content area, providing it has an `id`.
 
 If you wish to display headings other than `<h2>` and `<h3>` in the navigation, you can customise the selector that's used with the `data-o-layout-nav-heading-selector` data attribute. For example, to select only headings which have the class `nav-heading`, use the following:
@@ -223,6 +222,7 @@ If you wish to display headings other than `<h2>` and `<h3>` in the navigation, 
 To customise your sidebar navigation entirely, add the data attribute `data-o-layout-construct-nav="false"` to the root `o-layout` element. Then add your own `nav` element within the sidebar, with the class `o-layout__navigation` and a child list.
 
 Altogether, a customised navigation should look like this:
+
 ```diff
 +<div class="o-layout" data-o-component="o-layout" data-o-layout-construct-nav="false">
 	<div class="o-layout__header">
@@ -313,6 +313,7 @@ Within the main content area the landing layout provides an overview section. Th
 Any number of items are allowed within an overview section, but will wrap onto a new row if there are more than 4.
 
 Overview with 3 items:
+
 ```
 ├———————————————————————————————————————┤
 |  content  |   content   |   content   |
@@ -320,29 +321,33 @@ Overview with 3 items:
 ```
 
 ```html
-	<div class="o-layout__main o-layout-typography">
-		<!-- Your landing page content here. -->
-		<!-- Overview -->
-		<div class="o-layout__overview">
-			<div class="o-layout-item">
-				<h2>Great For This</h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-			</div>
-			<div class="o-layout-item">
-				<h2>Good For That</h2>
-				<p>Blanditiis, dolor. Autem recusandae vero ut labore?</p>
-			</div>
-			<div class="o-layout-item">
-				<h2>And More</h2>
-				<p>Corrupti nemo voluptate aperiam explicabo vitae cupiditate atque fugiat dignissimos.</p>
-			</div>
+<div class="o-layout__main o-layout-typography">
+	<!-- Your landing page content here. -->
+	<!-- Overview -->
+	<div class="o-layout__overview">
+		<div class="o-layout-item">
+			<h2>Great For This</h2>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+		</div>
+		<div class="o-layout-item">
+			<h2>Good For That</h2>
+			<p>Blanditiis, dolor. Autem recusandae vero ut labore?</p>
+		</div>
+		<div class="o-layout-item">
+			<h2>And More</h2>
+			<p>
+				Corrupti nemo voluptate aperiam explicabo vitae cupiditate atque fugiat
+				dignissimos.
+			</p>
 		</div>
 	</div>
+</div>
 ```
 
 There is also an actions overview. These support a footer, which is useful for highlighting calls to action with links or buttons.
 
 Actions overview with 4 items with footer:
+
 ```
 ├———————————————————————————————————————┤
 | content | content | content | content |
@@ -354,65 +359,74 @@ Actions overview with 4 items with footer:
 ```
 
 ```html
-	<!-- Your landing page content here. -->
-	<div class="o-layout__main o-layout-typography">
-		<!-- Actions Overview -->
-		<div class="o-layout__overview o-layout__overview--actions">
-			<div class="o-layout-item">
-				<div class="o-layout-item__content">
-					<h3>Here's A Thing</h3>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-				</div>
-				<div class="o-layout-item__footer">
-					<a href="#">Take An Action</a>
-				</div>
+<!-- Your landing page content here. -->
+<div class="o-layout__main o-layout-typography">
+	<!-- Actions Overview -->
+	<div class="o-layout__overview o-layout__overview--actions">
+		<div class="o-layout-item">
+			<div class="o-layout-item__content">
+				<h3>Here's A Thing</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 			</div>
-			<div class="o-layout-item">
-				<div class="o-layout-item__content">
-					<h2>And Another</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, numquam!</p>
-				</div>
-				<div class="o-layout-item__footer">
-					<a href="#">Do A Thing</a>
-				</div>
+			<div class="o-layout-item__footer">
+				<a href="#">Take An Action</a>
 			</div>
-			<div class="o-layout-item">
-				<div class="o-layout-item__content">
-					<h2>And More Choices</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, voluptatibus?</p>
-				</div>
-				<div class="o-layout-item__footer">
-					<a href="#">Do A Different Thing</a>
-				</div>
+		</div>
+		<div class="o-layout-item">
+			<div class="o-layout-item__content">
+				<h2>And Another</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
+					numquam!
+				</p>
 			</div>
-			<div class="o-layout-item">
-				<div class="o-layout-item__content">
-					<h2>What To Do</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, voluptatibus?</p>
-				</div>
-				<div class="o-layout-item__footer">
-					<a href="#">Learn More</a>
-				</div>
+			<div class="o-layout-item__footer">
+				<a href="#">Do A Thing</a>
+			</div>
+		</div>
+		<div class="o-layout-item">
+			<div class="o-layout-item__content">
+				<h2>And More Choices</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
+					voluptatibus?
+				</p>
+			</div>
+			<div class="o-layout-item__footer">
+				<a href="#">Do A Different Thing</a>
+			</div>
+		</div>
+		<div class="o-layout-item">
+			<div class="o-layout-item__content">
+				<h2>What To Do</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
+					voluptatibus?
+				</p>
+			</div>
+			<div class="o-layout-item__footer">
+				<a href="#">Learn More</a>
 			</div>
 		</div>
 	</div>
+</div>
 ```
 
 Sometimes a page may have multiple overview sections. In this case it can appear odd to have three overview items followed by a separate section with four more narrow items. To enforce that the items in each overview section have the same width apply the `o-layout__overview--consistent-columns` modifier class.
 
 ```html
-	<!-- Your landing page content here. -->
-	<div class="o-layout__main o-layout-typography">
-		<!-- Actions Overview 1 -->
-		<div class="o-layout__overview o-layout__overview--consistent-columns">
-			<!-- 3 o-layout-item items (see above example) -->
-		</div>
-
-		<!-- Actions Overview 2 -->
-		<div class="o-layout__overview o-layout__overview--consistent-columns">
-			<!-- 4 o-layout-item items (see above example) -->
-		</div>
+<!-- Your landing page content here. -->
+<div class="o-layout__main o-layout-typography">
+	<!-- Actions Overview 1 -->
+	<div class="o-layout__overview o-layout__overview--consistent-columns">
+		<!-- 3 o-layout-item items (see above example) -->
 	</div>
+
+	<!-- Actions Overview 2 -->
+	<div class="o-layout__overview o-layout__overview--consistent-columns">
+		<!-- 4 o-layout-item items (see above example) -->
+	</div>
+</div>
 ```
 
 ```
@@ -429,8 +443,6 @@ Sometimes a page may have multiple overview sections. In this case it can appear
 ├———————————————————————————————————————┤
 ```
 
-
-
 [See the registry demos](https://registry.origami.ft.com/components/o-layout#demo-landing-layout) for an example landing page.
 
 ### Article List
@@ -440,31 +452,34 @@ The landing layout can also be used to display a list of articles. This is usefu
 To list articles within the hero layout remove the `o-layout-typography` class from the `o-layout__main` element. Then add a child unordered list element `ul` with class `o-layout__listing` and a number of list items, as shown in the following example:
 
 ```html
- <div class="o-layout o-layout--landing" data-o-component="o-layout">
+<div class="o-layout o-layout--landing" data-o-component="o-layout">
 	<div class="o-layout__header">
 		<!-- Your header, navigation, and full-bleed alert messages here. -->
 	</div>
 	<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
 		<!-- Your hero content here.  -->
 	</div>
-	 <div class="o-layout__main">
+	<div class="o-layout__main">
 		<ul class="o-layout__listing">
 			<li class="o-layout__listing__item">
 				<h2 class="o-layout__listing__item__title">
 					<a href="#">Example Article Title</a>
 				</h2>
-				<p class="o-layout__listing__item__description">Example article description / blurb.</p>
+				<p class="o-layout__listing__item__description">
+					Example article description / blurb.
+				</p>
 				<p class="o-layout__listing__item__meta">
-					Posted <time datetime="2020-10-28T00:00:00Z">20 November 2020</time>
-					by Author Name. Tagged: <span>Newsletter</span>.
+					Posted
+					<time datetime="2020-10-28T00:00:00Z">20 November 2020</time> by
+					Author Name. Tagged: <span>Newsletter</span>.
 				</p>
 			</li>
 		</ul>
-	 </div>
+	</div>
 	<footer class="o-layout__footer">
 		<!-- Your footer & navigation here. -->
 	</footer>
- </div>
+</div>
 ```
 
 ## Query Layout
@@ -502,8 +517,13 @@ The query layout is intended for search, filter, and result pages. It provides f
 ### Query Sidebars
 
 The query sidebar supports a [generated navigation like the documentation layout](#sidebar) but it is disabled by default and must be turned on with `data-o-layout-construct-nav="true"`:
+
 ```html
-<div class="o-layout o-layout--query" data-o-component="o-layout" data-o-layout-construct-nav="true">
+<div
+	class="o-layout o-layout--query"
+	data-o-component="o-layout"
+	data-o-layout-construct-nav="true"
+>
 	<!-- query layout -->
 </div>
 ```
@@ -524,6 +544,7 @@ Alternatively the `.o-layout-sticky-sidebar-container` class may be used as a ch
 ```
 
 ### Large Viewports
+
 ```
 ┌————————————————————————————┐
 |           HEADER           |
@@ -540,6 +561,7 @@ Alternatively the `.o-layout-sticky-sidebar-container` class may be used as a ch
 ```
 
 This layout may be used without a right-hand side bar. To remove it, delete the aside sidebar element `o-layout__aside-sidebar`.
+
 ```
 ┌————————————————————————————┐
 |           HEADER           |
@@ -556,6 +578,7 @@ This layout may be used without a right-hand side bar. To remove it, delete the 
 ```
 
 ### Medium Viewports
+
 ```
 ┌————————————————————————┐
 |          HEADER        |
@@ -575,6 +598,7 @@ This layout may be used without a right-hand side bar. To remove it, delete the 
 ```
 
 ### Small Viewports
+
 ```
 ┌————————————————————┐
 |       HEADER       |
@@ -590,6 +614,7 @@ This layout may be used without a right-hand side bar. To remove it, delete the 
 |       FOOTER       |
 └————————————————————┘
 ```
+
 ### Skip Links
 
 To add a skip link to your project, place a link with the `o-layout-skip-link` class at the top of the page. It is important the link comes before the nav or any other tab-able content.
@@ -609,6 +634,7 @@ To ensure the link navigates to the right place, give the main content an id. Th
 ```
 
 ## Sass
+
 You can include o-layout styles with the `oLayout` mixin.
 
 As `o-layout` only supports the internal brand, your project must also set its brand to internal `$o-brand: 'internal';`.
@@ -623,32 +649,64 @@ $o-brand: 'internal';
 If your project does not use all layouts or other features provided by `o-layout`, include them selectively with an `$opts` argument.
 
 **Layout Options**
+
 - documentation
 - landing
 - query
 - bleed
 
 **Feature Options**
+
 - sidebar-nav (enables the [generated sidebar navigation](#custom-navigation) for the query layout. _Styles for the sidebar navigation are included by default with the documentation layout._)
 - sticky-sidebar-container (A containing element for use within o-layout sidebars. Sticks to the top of the viewport as the user scrolls. See query layout examples.)
 - linked-headings (enables clickable / highlighted anchors on the page)
 - typography (enables body typography applied with the class `o-layout-typography`)
 
+**Fonts Option**
+
+By default fonts are output where the [`typography` feature](#feature-options) is enabled. To avoid outputting fonts set the `fonts` option to `false`. This may helpful in the case that:
+
+1. Your project already outputs standard font faces via `o-fonts`, or;
+2. You are using [custom fonts](https://github.com/Financial-Times/origami/tree/main/components/o-fonts#use-a-custom-font-family).
+
 ```scss
-@include oLayout($opts: (
-	'layouts': ('documentation', 'landing', 'query', 'bleed'),
-	'features': ('sidebar-nav', 'sticky-sidebar-container', 'linked-headings', 'typography')
-));
+@include oLayout(
+	$opts: (
+		'layouts': (
+			'documentation',
+			'landing',
+			'query',
+			'bleed',
+		),
+		'features': (
+			'sidebar-nav',
+			'sticky-sidebar-container',
+			'linked-headings',
+			'typography',
+		),
+		'fonts': false,
+	)
+);
 ```
 
 The landing layout supports an extra option, which sets a background image on the hero area:
 
 ```scss
-@include oLayout($opts: (
-	'layouts': ('documentation', 'landing', 'query', 'bleed'),
-	'features': ('linked-headings', 'typography'),
-	'hero-image': 'https://example.com/image.png',
-));
+@include oLayout(
+	$opts: (
+		'layouts': (
+			'documentation',
+			'landing',
+			'query',
+			'bleed',
+		),
+		'features': (
+			'linked-headings',
+			'typography',
+		),
+		'hero-image': 'https://example.com/image.png',
+	)
+);
 ```
 
 ## JavaScript
@@ -656,6 +714,7 @@ The landing layout supports an extra option, which sets a background image on th
 No code will run automatically unless you are using the Build Service. You must either construct an `o-layout` object manually or fire an o.DOMContentLoaded event, which `o-layout` listens for.
 
 Use the following to initialise your layout manually:
+
 ```js
 import oLayout from '@financial-times/o-layout';
 oLayout.init();
@@ -666,21 +725,32 @@ oLayout.init();
 The [documentation layout](#documentation-layout) uses JavaScript to construct a sidebar navigation out of headings (`h1`, `h2` and `h3`) in the content, and to highlight those items depending on the scroll position. The [query layout](#query-layout) also supports a generated nav but by default it is disabled.
 
 To generate a nav for the query layout, or turn it off for the documentation layout, explicitly set the "construct navigation" option to `true` or `false`. Either declaritively in your html with the `data-o-layout-construct-nav` attribute:
+
 ```html
-<div class="o-layout o-layout--query" data-o-layout-construct-nav="true" data-o-component="o-layout">
+<div
+	class="o-layout o-layout--query"
+	data-o-layout-construct-nav="true"
+	data-o-component="o-layout"
+>
 	<!-- Layout markup. -->
 </div>
 ```
 
 Or imperatively with JavaScript, by setting the `constructNav` option:
+
 ```js
 import oLayout from '@financial-times/o-layout';
-oLayout.init(null, { constructNav: true });
+oLayout.init(null, {constructNav: true});
 ```
 
 If you would like to change what items show in the generated navigation, set the "navigation heading selector" option to any valid CSS selector. Do this declaritively in your html with the `data-o-layout-nav-heading-selector` attribute:
+
 ```html
-<div class="o-layout o-layout--query" data-o-layout-nav-heading-selector="h1, h2, .nav-heading" data-o-component="o-layout">
+<div
+	class="o-layout o-layout--query"
+	data-o-layout-nav-heading-selector="h1, h2, .nav-heading"
+	data-o-component="o-layout"
+>
 	<!-- Layout markup. -->
 </div>
 ```
@@ -689,7 +759,7 @@ Or imperatively with JavaScript, by setting the `navHeadingSelector` option:
 
 ```js
 import oLayout from '@financial-times/o-layout';
-oLayout.init(null, { navHeadingSelector: 'h1, h2, .nav-heading' });
+oLayout.init(null, {navHeadingSelector: 'h1, h2, .nav-heading'});
 ```
 
 ### Linking Headings
@@ -700,25 +770,25 @@ To customise which headings can be clicked and linked to directly, set the `link
 
 ```js
 import oLayout from '@financial-times/o-layout';
-oLayout.init(null, { linkedHeadingSelector: 'h1, h2, .link-heading' });
+oLayout.init(null, {linkedHeadingSelector: 'h1, h2, .link-heading'});
 ```
 
 Turn off linkable headings by setting `linkHeadings` to false:
 
 ```js
 import oLayout from '@financial-times/o-layout';
-oLayout.init(null, { linkHeadings: true });
+oLayout.init(null, {linkHeadings: true});
 ```
 
 ## Migration Guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-⚠ maintained | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.3 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.2.5 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.3.4 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ⚠ maintained |       4       |        N/A         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.3         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |       2.2.5        | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |       1.3.4        |                          N/A                          |
 
 ## Troubleshooting
 
@@ -733,7 +803,6 @@ You can read more about this class in the [typography section](#typography) of t
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-component-boilerplate/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
-
 
 ## Licence
 

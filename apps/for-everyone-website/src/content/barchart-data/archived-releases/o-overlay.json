@@ -1,0 +1,418 @@
+[
+  {
+    "tag_name": "v3.1.0",
+    "published_at": "2020-12-08T11:32:12Z"
+  },
+  {
+    "tag_name": "v3.0.10",
+    "published_at": "2020-12-04T10:45:59Z"
+  },
+  {
+    "tag_name": "v3.0.9",
+    "published_at": "2020-09-04T15:19:30Z"
+  },
+  {
+    "tag_name": "v3.0.8",
+    "published_at": "2020-08-07T15:42:23Z"
+  },
+  {
+    "tag_name": "v3.0.7",
+    "published_at": "2020-08-07T15:12:29Z"
+  },
+  {
+    "tag_name": "v3.0.6",
+    "published_at": "2020-06-03T17:10:06Z"
+  },
+  {
+    "tag_name": "v3.0.5",
+    "published_at": "2020-05-06T12:02:57Z"
+  },
+  {
+    "tag_name": "v3.0.4",
+    "published_at": "2020-04-09T13:35:06Z"
+  },
+  {
+    "tag_name": "v3.0.3",
+    "published_at": "2020-03-24T11:11:35Z"
+  },
+  {
+    "tag_name": "v3.0.2",
+    "published_at": "2020-01-09T16:31:46Z"
+  },
+  {
+    "tag_name": "v3.0.1",
+    "published_at": "2019-12-18T10:56:27Z"
+  },
+  {
+    "tag_name": "v3.0.0",
+    "published_at": "2019-11-22T16:22:54Z"
+  },
+  {
+    "tag_name": "v2.7.11",
+    "published_at": "2019-09-27T12:49:49Z"
+  },
+  {
+    "tag_name": "v2.7.10",
+    "published_at": "2019-08-29T13:05:52Z"
+  },
+  {
+    "tag_name": "v2.7.9",
+    "published_at": "2019-08-08T13:24:11Z"
+  },
+  {
+    "tag_name": "v2.7.8",
+    "published_at": "2019-07-23T12:15:53Z"
+  },
+  {
+    "tag_name": "v2.7.7",
+    "published_at": "2019-06-07T11:21:16Z"
+  },
+  {
+    "tag_name": "v2.7.6",
+    "published_at": "2019-06-04T10:54:19Z"
+  },
+  {
+    "tag_name": "v2.7.5",
+    "published_at": "2019-05-31T14:15:26Z"
+  },
+  {
+    "tag_name": "v2.7.4",
+    "published_at": "2019-05-13T12:04:39Z"
+  },
+  {
+    "tag_name": "v2.7.3",
+    "published_at": "2019-04-09T10:56:04Z"
+  },
+  {
+    "tag_name": "v2.7.2",
+    "published_at": "2019-03-07T13:48:32Z"
+  },
+  {
+    "tag_name": "v2.7.1",
+    "published_at": "2019-03-07T13:47:49Z"
+  },
+  {
+    "tag_name": "v2.7.0",
+    "published_at": "2019-03-06T14:53:56Z"
+  },
+  {
+    "tag_name": "v2.6.2",
+    "published_at": "2019-02-28T10:07:14Z"
+  },
+  {
+    "tag_name": "v2.6.1",
+    "published_at": "2019-02-26T16:05:31Z"
+  },
+  {
+    "tag_name": "v2.6.0",
+    "published_at": "2019-02-18T10:52:17Z"
+  },
+  {
+    "tag_name": "v2.5.0",
+    "published_at": "2019-02-12T16:54:29Z"
+  },
+  {
+    "tag_name": "v2.4.3",
+    "published_at": "2018-06-08T13:24:10Z"
+  },
+  {
+    "tag_name": "v2.4.2",
+    "published_at": "2018-05-09T09:20:28Z"
+  },
+  {
+    "tag_name": "v2.4.1",
+    "published_at": "2018-03-27T13:12:09Z"
+  },
+  {
+    "tag_name": "v2.4.0",
+    "published_at": "2018-03-26T16:14:35Z"
+  },
+  {
+    "tag_name": "v2.3.2",
+    "published_at": "2018-02-26T16:00:48Z"
+  },
+  {
+    "tag_name": "v2.3.1",
+    "published_at": "2018-02-26T11:36:46Z"
+  },
+  {
+    "tag_name": "v2.3.0",
+    "published_at": "2018-02-20T11:11:38Z"
+  },
+  {
+    "tag_name": "v2.2.1",
+    "published_at": "2018-02-15T16:17:46Z"
+  },
+  {
+    "tag_name": "v2.2.0",
+    "published_at": "2018-02-07T13:00:32Z"
+  },
+  {
+    "tag_name": "v2.1.8",
+    "published_at": "2018-02-01T17:42:27Z"
+  },
+  {
+    "tag_name": "v2.1.7",
+    "published_at": "2018-02-01T17:19:08Z"
+  },
+  {
+    "tag_name": "v2.1.6",
+    "published_at": "2018-01-24T15:15:55Z"
+  },
+  {
+    "tag_name": "v2.1.5",
+    "published_at": "2017-12-05T14:13:00Z"
+  },
+  {
+    "tag_name": "v2.1.4",
+    "published_at": "2017-11-14T18:00:23Z"
+  },
+  {
+    "tag_name": "v2.1.3",
+    "published_at": "2017-10-18T09:40:09Z"
+  },
+  {
+    "tag_name": "v2.1.2",
+    "published_at": "2017-10-17T10:03:53Z"
+  },
+  {
+    "tag_name": "v2.1.1",
+    "published_at": "2017-10-05T09:15:04Z"
+  },
+  {
+    "tag_name": "v2.1.0",
+    "published_at": "2017-09-19T09:50:58Z"
+  },
+  {
+    "tag_name": "v2.0.0",
+    "published_at": "2017-06-05T11:31:55Z"
+  },
+  {
+    "tag_name": "v1.17.0",
+    "published_at": "2017-03-30T10:18:47Z"
+  },
+  {
+    "tag_name": "v1.16.1",
+    "published_at": "2017-03-29T10:47:04Z"
+  },
+  {
+    "tag_name": "v1.16.0",
+    "published_at": "2017-03-28T13:25:01Z"
+  },
+  {
+    "tag_name": "v1.15.1",
+    "published_at": "2017-03-14T16:19:14Z"
+  },
+  {
+    "tag_name": "v1.15.0",
+    "published_at": "2017-03-14T16:10:12Z"
+  },
+  {
+    "tag_name": "v1.14.1",
+    "published_at": "2017-03-07T12:16:25Z"
+  },
+  {
+    "tag_name": "v1.14.0",
+    "published_at": "2017-02-24T10:16:28Z"
+  },
+  {
+    "tag_name": "v1.13.0",
+    "published_at": "2017-02-21T11:05:06Z"
+  },
+  {
+    "tag_name": "v1.12.1",
+    "published_at": "2017-02-08T14:25:45Z"
+  },
+  {
+    "tag_name": "v1.12.0",
+    "published_at": "2017-01-30T17:49:38Z"
+  },
+  {
+    "tag_name": "v1.11.0",
+    "published_at": "2017-01-27T13:33:18Z"
+  },
+  {
+    "tag_name": "v1.10.0",
+    "published_at": "2017-01-12T15:08:02Z"
+  },
+  {
+    "tag_name": "v1.9.0",
+    "published_at": "2017-01-12T12:10:14Z"
+  },
+  {
+    "tag_name": "v1.8.8",
+    "published_at": "2016-11-21T17:14:54Z"
+  },
+  {
+    "tag_name": "v1.8.7",
+    "published_at": "2016-11-03T11:22:51Z"
+  },
+  {
+    "tag_name": "v1.8.6",
+    "published_at": "2016-10-07T09:16:11Z"
+  },
+  {
+    "tag_name": "v1.8.5",
+    "published_at": "2016-05-25T10:23:18Z"
+  },
+  {
+    "tag_name": "v1.8.4",
+    "published_at": "2016-05-12T13:51:28Z"
+  },
+  {
+    "tag_name": "v1.8.3",
+    "published_at": "2016-05-04T16:37:51Z"
+  },
+  {
+    "tag_name": "v1.8.2",
+    "published_at": "2016-05-03T14:47:54Z"
+  },
+  {
+    "tag_name": "v1.8.1",
+    "published_at": "2016-04-12T13:04:58Z"
+  },
+  {
+    "tag_name": "v1.8.0",
+    "published_at": "2016-04-04T15:01:24Z"
+  },
+  {
+    "tag_name": "v1.7.0",
+    "published_at": "2016-03-29T15:12:32Z"
+  },
+  {
+    "tag_name": "v1.6.3",
+    "published_at": "2015-10-30T12:26:10Z"
+  },
+  {
+    "tag_name": "v1.6.2",
+    "published_at": "2015-10-14T11:43:29Z"
+  },
+  {
+    "tag_name": "v1.6.1",
+    "published_at": "2015-09-01T14:07:37Z"
+  },
+  {
+    "tag_name": "v1.6.0",
+    "published_at": "2015-08-25T13:21:45Z"
+  },
+  {
+    "tag_name": "v1.5.0",
+    "published_at": "2015-08-04T16:38:07Z"
+  },
+  {
+    "tag_name": "v1.4.9",
+    "published_at": "2015-06-16T10:21:18Z"
+  },
+  {
+    "tag_name": "v1.4.8",
+    "published_at": "2015-06-02T10:27:52Z"
+  },
+  {
+    "tag_name": "v1.4.7",
+    "published_at": "2015-05-05T15:28:50Z"
+  },
+  {
+    "tag_name": "v1.4.6",
+    "published_at": "2015-04-30T10:32:56Z"
+  },
+  {
+    "tag_name": "1.4.5",
+    "published_at": "2015-03-16T15:38:41Z"
+  },
+  {
+    "tag_name": "1.4.4",
+    "published_at": "2015-03-16T13:34:12Z"
+  },
+  {
+    "tag_name": "1.4.3",
+    "published_at": "2015-03-12T15:11:02Z"
+  },
+  {
+    "tag_name": "1.4.2",
+    "published_at": "2015-03-12T12:54:26Z"
+  },
+  {
+    "tag_name": "1.4.1",
+    "published_at": "2015-03-02T16:42:40Z"
+  },
+  {
+    "tag_name": "1.4.0",
+    "published_at": "2015-02-19T11:32:40Z"
+  },
+  {
+    "tag_name": "1.3.4",
+    "published_at": "2015-02-13T15:07:57Z"
+  },
+  {
+    "tag_name": "1.3.3",
+    "published_at": "2015-02-13T14:51:12Z"
+  },
+  {
+    "tag_name": "1.3.2",
+    "published_at": "2015-01-29T14:16:17Z"
+  },
+  {
+    "tag_name": "1.3.1",
+    "published_at": "2015-01-23T15:14:28Z"
+  },
+  {
+    "tag_name": "1.3.0",
+    "published_at": "2015-01-23T13:39:53Z"
+  },
+  {
+    "tag_name": "1.2.2",
+    "published_at": "2015-01-19T12:04:31Z"
+  },
+  {
+    "tag_name": "1.2.1",
+    "published_at": "2015-01-19T09:54:36Z"
+  },
+  {
+    "tag_name": "1.2.0",
+    "published_at": "2015-01-16T16:20:30Z"
+  },
+  {
+    "tag_name": "1.1.3",
+    "published_at": "2014-12-10T16:14:53Z"
+  },
+  {
+    "tag_name": "1.1.2",
+    "published_at": "2014-12-09T12:26:45Z"
+  },
+  {
+    "tag_name": "1.1.1",
+    "published_at": "2014-12-04T15:15:12Z"
+  },
+  {
+    "tag_name": "1.1.0",
+    "published_at": "2014-11-28T14:28:22Z"
+  },
+  {
+    "tag_name": "1.0.3",
+    "published_at": "2014-10-09T14:35:50Z"
+  },
+  {
+    "tag_name": "1.0.1",
+    "published_at": "2014-08-29T14:08:46Z"
+  },
+  {
+    "tag_name": "1.0.0",
+    "published_at": "2014-08-27T14:30:49Z"
+  },
+  {
+    "tag_name": "0.0.24",
+    "published_at": "2014-04-25T16:05:50Z"
+  },
+  {
+    "tag_name": "0.0.23",
+    "published_at": "2014-03-26T16:23:10Z"
+  },
+  {
+    "tag_name": "0.0.19",
+    "published_at": "2014-03-12T09:53:42Z"
+  },
+  {
+    "tag_name": "0.0.12",
+    "published_at": "2014-02-25T16:03:58Z"
+  }
+]

@@ -1,4 +1,5 @@
 @import '@financial-times/o3-foundation/css/internal.css';
+@import '@financial-times/o3-typography/css/internal.css';
 
 /* Dark mode colors. */
 :root {
@@ -30,4 +31,11 @@ summary {
 
 img {
 	max-width: 100%;
+}
+
+.blog-post {
+	max-width: var(--o3-typography-max-line-width);
+}
+.blog-post figcaption {
+	font-size: var(--sl-text-xs);
 }

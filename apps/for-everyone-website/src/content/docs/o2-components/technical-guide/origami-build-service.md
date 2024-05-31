@@ -2,8 +2,8 @@
 title: Using components (o2) with the Origami Build Service
 description: A reference of components
 sidebar:
-  label: Technical Guide
   order: 3
+  hidden: true
 ---
 
 With the [Origami Build Service](https://www.ft.com/__origami/service/build/v3/) you can add "o2" components to your website with a single `link` and `script` tag. This is a good approach for:

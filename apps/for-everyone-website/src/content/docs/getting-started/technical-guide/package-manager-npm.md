@@ -2,8 +2,8 @@
 title: Using Components (o3) via npm
 description: A reference of components
 sidebar:
-  label: Technical Guide
   order: 3
+  hidden: true
 ---
 
 Origami components are published to npm as [Custom Elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements), and other standards based web component technologies.
