@@ -3,6 +3,13 @@
 
 * Add skip link for screen reader users
 
+## [5.4.0](https://github.com/Financial-Times/origami/compare/o-layout-v5.3.4...o-layout-v5.4.0) (2024-05-30)
+
+
+### Features
+
+* Allow font output to be turned off for o-layout ([0e1dc72](https://github.com/Financial-Times/origami/commit/0e1dc721a6e19da9adf17e8e003a20e479b7c4d1))
+
 ## [5.3.4](https://github.com/Financial-Times/origami/compare/o-layout-v5.3.3...o-layout-v5.3.4) (2023-10-27)
 
 
