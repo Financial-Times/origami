@@ -1,7 +1,8 @@
 ---
 import {renderToString} from 'react-dom/server';
-const brand = Astro.props.brand;
 import {Button, ButtonGroup} from '@financial-times/o3-button';
+
+const brand = Astro.props.brand;
 const componentProps = Astro.props.componentProps;
 const ComponentInstance = ButtonGroup({
 	children: [

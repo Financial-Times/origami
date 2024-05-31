@@ -3,13 +3,12 @@ title: Buttons
 description: Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
 ---
 
-import {Button} from '@financial-times/o3-button';
 import '@financial-times/o3-button/css/professional.css';
-import {default as ButtonAnatomy} from '../../../../components/ButtonAnatomy.astro';
-import {default as Preview} from '../../../../components/ButtonPreview.astro';
+import {default as ButtonAnatomy} from '../../../../components/button/ButtonAnatomy.astro';
+import {default as Preview} from '../../../../components/button/ButtonPreview.astro';
 import {Content as ButtonGuidelines} from '../../../../content-partial/docs/components/buttons-guidelines.mdx';
 import {Content as ButtonBehaviour} from '../../../../content-partial/docs/components/buttons-behaviour.mdx';
-import {default as GroupPreview} from '../../../../components/ButtonGroupPreview.astro';
+import {default as GroupPreview} from '../../../../components/button/ButtonGroupPreview.astro';
 import {Content as ButtonGroupGuidelines} from '../../../../content-partial/docs/components/button-group-guidelines.mdx';
 import {Content as ButtonGroupIntro} from '../../../../content-partial/docs/components/button-group-intro.mdx';
 
@@ -44,8 +43,8 @@ Buttons may be used with icons, without icons, or only icons.
 ### Without icon
 
 <Preview
+	previewFile="Types-Primary"
 	brand="professional"
-	component={Button}
 	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
 />
 
@@ -54,8 +53,8 @@ Buttons may be used with icons, without icons, or only icons.
 When icons are used, these are always left aligned.
 
 <Preview
+	previewFile="Icons-WithIcon"
 	brand="professional"
-	component={Button}
 	componentProps={{
 		label: 'Hello',
 		type: 'primary',
@@ -67,8 +66,8 @@ When icons are used, these are always left aligned.
 ### Only icon
 
 <Preview
+	previewFile="Icons-IconOnly"
 	brand="professional"
-	component={Button}
 	componentProps={{
 		label: 'Hello',
 		type: 'primary',
@@ -85,16 +84,16 @@ The button comes in two sizes: standard and small.
 ### Standard
 
 <Preview
+	previewFile="Types-Primary"
 	brand="professional"
-	component={Button}
 	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
 />
 
 ### Small
 
 <Preview
+	previewFile="Sizes-Small"
 	brand="professional"
-	component={Button}
 	componentProps={{
 		label: 'Hello',
 		type: 'primary',
@@ -112,8 +111,8 @@ There are three types of buttons to support different contexts.
 The primary button is used for the most important calls to action on a page. Primary buttons should only appear once per product area (not including the application header, modal dialogue, on-site messaging, or side panel).
 
 <Preview
+	previewFile="Types-Primary"
 	brand="professional"
-	component={Button}
 	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
 />
 
@@ -122,8 +121,8 @@ The primary button is used for the most important calls to action on a page. Pri
 For secondary actions on each page or used in conjunction with a primary button. As part of a pair, the secondary button’s function is to perform the negative action of the set, such as “Cancel” or “Back”.
 
 <Preview
+	previewFile="Types-Secondary"
 	brand="professional"
-	component={Button}
 	componentProps={{label: 'Hello', type: 'secondary', theme: 'inverse'}}
 />
 
@@ -132,8 +131,8 @@ For secondary actions on each page or used in conjunction with a primary button.
 For the least pronounced actions; often used in conjunction with a primary button. In a situation such as a progress flow, a ghost button may be paired with a primary and secondary button set, where the primary button is for ‘Save and continue’ the ghost button would be ‘Skip’.
 
 <Preview
+	previewFile="Types-Ghost"
 	brand="professional"
-	component={Button}
 	componentProps={{label: 'Hello', type: 'ghost', theme: 'inverse'}}
 />
 
@@ -144,8 +143,8 @@ Each button type supports the following themes.
 ### Standard
 
 <Preview
+	previewFile="Types-Primary"
 	brand="professional"
-	component={Button}
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
 
@@ -153,11 +152,13 @@ Each button type supports the following themes.
 
 An alternative theme for use on dark backgrounds.
 
-<Preview
-	brand="professional"
-	component={Button}
-	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
-/>
+<div data-o3-theme="inverse">
+	<Preview
+		previewFile="Themes-Inverse"
+		brand="proffessional"
+		componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
+	/>
+</div>
 
 ## Button Groups
 

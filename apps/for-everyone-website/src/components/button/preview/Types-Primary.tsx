@@ -1,6 +1,6 @@
 import {Button} from '@financial-times/o3-button';
 
-function ButtonWithoutIcon() {
+function ButtonPreview() {
 	return (
 		// <preview>
 		<Button label="Hello" type='primary' />
@@ -8,4 +8,4 @@ function ButtonWithoutIcon() {
 	);
 }
 
-export {ButtonWithoutIcon as preview};
+export {ButtonPreview as preview};

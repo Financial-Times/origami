@@ -39,3 +39,12 @@ img {
 .blog-post figcaption {
 	font-size: var(--sl-text-xs);
 }
+
+
+[data-o3-theme="inverse"] .component-preview {
+	background-color: var(--o3-color-use-case-page-inverse-background);
+}
+
+[data-o3-theme="mono"] .component-preview {
+	background-color: white;
+}

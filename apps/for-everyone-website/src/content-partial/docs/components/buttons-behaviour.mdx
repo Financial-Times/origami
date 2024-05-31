@@ -1,4 +1,4 @@
-import {default as Preview} from '../../../components/ButtonPreview.astro';
+import {default as Preview} from '../../../components/button/ButtonPreview.astro';
 import {Button} from '@financial-times/o3-button';
 
 ### Width
@@ -10,6 +10,7 @@ We recommend buttons are fluid until around 400px, after which the button should
 _(Resize your browser to preview the fluid button's responsive width)_
 
 <Preview
+	previewFile="Fluid"
 	component={Button}
 	componentProps={{label: 'Fluid button', type: 'primary', fluid: true}}
 />
