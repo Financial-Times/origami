@@ -10,4 +10,6 @@ function BigNumberPreview() {
 	);
 }
 
+export const filePath =
+	'src/components/editorial-typography/preview/BigNumber.tsx';
 export {BigNumberPreview as preview};

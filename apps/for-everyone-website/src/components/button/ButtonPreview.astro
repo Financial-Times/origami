@@ -1,4 +1,14 @@
 ---
+import * as Fluid from './preview/Fluid';
+import * as IconOnly from './preview/Icons-IconOnly';
+import * as WithIcon from './preview/Icons-WithIcon';
+import * as Small from './preview/Sizes-Small';
+import * as Inverse from './preview/Themes-Inverse';
+import * as Mono from './preview/Themes-Mono';
+import * as Ghost from './preview/Types-Ghost';
+import * as Primary from './preview/Types-Primary';
+import * as Secondary from './preview/Types-Secondary';
+
 import Preview from '../utils/Preview.astro';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 
@@ -41,11 +51,37 @@ if (brand) {
 	}
 }
 
-const metaData =
-	previewFile && `src/components/button/preview/${previewFile}.tsx`;
+let component = Primary;
+
+switch (previewFile) {
+	case 'Fluid':
+		component = Fluid;
+		break;
+	case 'Icons-IconOnly':
+		component = IconOnly;
+		break;
+	case 'Icons-WithIcon':
+		component = WithIcon;
+		break;
+	case 'Sizes-Small':
+		component = Small;
+		break;
+	case 'Themes-Inverse':
+		component = Inverse;
+		break;
+	case 'Themes-Mono':
+		component = Mono;
+		break;
+	case 'Types-Ghost':
+		component = Ghost;
+		break;
+	case 'Types-Secondary':
+		component = Secondary;
+		break;
+}
 ---
 
 <div>
-	{metaData && <Preview {metaData} />}
+	<Preview {component} />
 	<FigmaSbLinks {figma} {storybook} />
 </div>

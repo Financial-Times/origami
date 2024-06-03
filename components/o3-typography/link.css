@@ -1,36 +1,52 @@
 .o3-typography-link,
 .o3-typography-wrapper > a,
 .o3-typography-wrapper > p > a {
-	color: var(--_o3-typography-link-standard-color);
-	border-bottom-color: var(--_o3-typography-link-standard-bottom-color);
-	text-decoration-color: var(--_o3-typography-link-standard-bottom-color);
+	color: var(--o3-color-use-case-link-text);
+	border-bottom-color: var(--o3-color-use-case-link-underline);
+	text-decoration-color: var(--o3-color-use-case-link-underline);
 	text-decoration-thickness: 2px;
 
+	&:focus-visible {
+		color: var(--o3-color-use-case-link-text-focus);
+		border-bottom-color: var(--o3-color-use-case-link-underline-focus);
+		text-decoration-color: var(--o3-color-use-case-link-underline-focus);
+	}
+
 	&:hover {
-		color: var(--_o3-typography-link-standard-hover-color);
-		border-bottom-color: var(--_o3-typography-link-standard-hover-bottom-color);
-		text-decoration-color: var(
-			--_o3-typography-link-standard-hover-bottom-color
-		);
-		text-decoration-thickness: 2px;
+		color: var(--o3-color-use-case-link-text-hover);
+		border-bottom-color: var(--o3-color-use-case-link-underline-hover);
+		text-decoration-color: var(--o3-color-use-case-link-underline-hover);
+	}
+
+	&:focus-visible {
+		text-decoration: none;
 	}
 
 	[data-o3-theme='inverse']&,
 	:where([data-o3-theme='inverse']) & {
-		color: var(--_o3-typography-link-inverse-color);
-		border-bottom-color: var(--_o3-typography-link-inverse-bottom-color);
-		text-decoration-color: var(--_o3-typography-link-inverse-bottom-color);
+		color: var(--o3-color-use-case-link-inverse-text);
+		border-bottom-color: var(--o3-color-use-case-link-inverse-underline);
+		text-decoration-color: var(--o3-color-use-case-link-inverse-underline);
 		text-decoration-thickness: 2px;
 
-		&:hover {
-			color: var(--_o3-typography-link-inverse-hover-color);
+		&:focus-visible {
+			color: var(--o3-color-use-case-link-inverse-text-focus);
 			border-bottom-color: var(
-				--_o3-typography-link-inverse-hover-bottom-color
+				--o3-color-use-case-link-inverse-underline-focus
 			);
 			text-decoration-color: var(
-				--_o3-typography-link-inverse-hover-bottom-color
+				--o3-color-use-case-link-inverse-underline-focus
 			);
-			text-decoration-thickness: 2px;
+		}
+
+		&:hover {
+			color: var(--o3-color-use-case-link-inverse-text-hover);
+			border-bottom-color: var(
+				--o3-color-use-case-link-inverse-underline-hover
+			);
+			text-decoration-color: var(
+				--o3-color-use-case-link-inverse-underline-hover
+			);
 		}
 	}
 }

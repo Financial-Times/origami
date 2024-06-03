@@ -71,16 +71,43 @@
             "type": "color"
           }
         },
+        "heading": {
+          "text": {
+            "value": "{o3.color.palette.black-80}",
+            "type": "color"
+          }
+        },
+        "heading-inverse": {
+          "text": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          }
+        },
         "muted": {
           "text": {
-            "value": "{o3.color.palette.black-20}",
+            "value": "{o3.color.palette.black-50}",
             "type": "color",
             "description": "\"Muted\" text is less prominent, for example credits and captions."
           }
         },
         "muted-inverse": {
-          "value": "#a8aaad",
-          "type": "color"
+          "text": {
+            "value": "#a8aaad",
+            "type": "color",
+            "description": "\"Muted\" text is less prominent, for example credits and captions."
+          }
+        },
+        "footer": {
+          "text": {
+            "value": "{o3.color.palette.black-80}",
+            "type": "color"
+          }
+        },
+        "caption": {
+          "text": {
+            "value": "{o3.color.palette.black-80}",
+            "type": "color"
+          }
         }
       }
     }

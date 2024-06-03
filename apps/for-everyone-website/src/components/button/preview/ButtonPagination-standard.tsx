@@ -16,4 +16,6 @@ function ButtonPaginationPreview() {
 	);
 }
 
+export const filePath =
+	'src/components/button/preview/ButtonPagination-standard.tsx';
 export {ButtonPaginationPreview as preview};

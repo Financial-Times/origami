@@ -13,4 +13,7 @@ function PullQuote() {
 	);
 }
 
+export const filePath =
+	'src/components/editorial-typography/preview/Quote-Pull.tsx';
+
 export {PullQuote as preview};

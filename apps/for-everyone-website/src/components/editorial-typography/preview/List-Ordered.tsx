@@ -15,4 +15,7 @@ function ListPreview() {
 	);
 }
 
+export const filePath =
+	'src/components/editorial-typography/preview/List-Ordered.tsx';
+
 export {ListPreview as preview};

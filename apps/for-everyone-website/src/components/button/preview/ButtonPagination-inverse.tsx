@@ -17,4 +17,6 @@ function ButtonPaginationPreview() {
 	);
 }
 
+export const filePath =
+	'src/components/button/preview/ButtonPagination-inverse.tsx';
 export {ButtonPaginationPreview as preview};

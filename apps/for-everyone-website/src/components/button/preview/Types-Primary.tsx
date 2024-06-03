@@ -7,5 +7,5 @@ function ButtonPreview() {
 		// </preview>
 	);
 }
-
+export const filePath = 'src/components/button/preview/Types-Primary.tsx';
 export {ButtonPreview as preview};

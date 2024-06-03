@@ -1,4 +1,6 @@
 ---
+import * as BlockComponent from './preview/Quote-Block.tsx'
+import * as PullComponent from './preview/Quote-Pull.tsx'
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 
@@ -11,10 +13,6 @@ const quoteSbLinkGenerator = (type: string) => {
 const sbBlock = quoteSbLinkGenerator('block');
 const sbPull = quoteSbLinkGenerator('pull');
 
-const metaDataPathBlock =
-	'src/components/editorial-typography/preview/Quote-Block.tsx';
-const metaDataPathPull =
-	'src/components/editorial-typography/preview/Quote-Pull.tsx';
 ---
 
 <h4>Block quote</h4>
@@ -23,7 +21,7 @@ const metaDataPathPull =
 	the vertical bar.
 </p>
 
-<Preview metaData={metaDataPathBlock} />
+<Preview component={BlockComponent} />
 
 <FigmaSbLinks {figma} storybook={sbBlock} />
 
@@ -33,6 +31,6 @@ const metaDataPathPull =
 	the vertical bar.
 </p>
 
-<Preview metaData={metaDataPathPull} />
+<Preview component={PullComponent} />
 
 <FigmaSbLinks {figma} storybook={sbPull} />

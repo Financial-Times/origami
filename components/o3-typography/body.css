@@ -4,7 +4,7 @@
 	font-size: var(--o3-font-size-0);
 	line-height: var(--o3-font-lineheight-0);
 	margin: 0 0 var(--o3-spacing-s);
-	color: var(--_o3-typography-body-color);
+	color: var(--o3-color-use-case-body-text);
 }
 
 .o3-typography-body--small {
@@ -16,7 +16,7 @@
 .o3-typography-wrapper > p {
 	[data-o3-theme='inverse']&,
 	:where([data-o3-theme='inverse']) & {
-		color: var(--_o3-typography-body-inverse-color);
+		color: var(--o3-color-use-case-body-inverse-text);
 	}
 }
 

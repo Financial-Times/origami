@@ -1,4 +1,5 @@
 ---
+import * as Component from './preview/Byline.tsx';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 
@@ -8,7 +9,6 @@ const figma =
 
 const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--byline`;
 
-const metaDataPath = 'src/components/editorial-typography/preview/Byline.tsx';
 ---
 
 <p>
@@ -16,6 +16,6 @@ const metaDataPath = 'src/components/editorial-typography/preview/Byline.tsx';
 	that constitute a byline include, author name, location and timestamp.
 </p>
 
-<Preview metaData={metaDataPath} />
+<Preview component={Component} />
 
 <FigmaSbLinks {figma} {storybook} />
