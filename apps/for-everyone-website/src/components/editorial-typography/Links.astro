@@ -1,6 +1,7 @@
 ---
-import {Link} from '@financial-times/o3-editorial-typography/esm';
+import * as Component from './preview/Link.tsx';
 import FigmaSbLinks from './FigmaSbLinks.astro';
+import Preview from '../utils/Preview.astro';
 
 const {brand} = Astro.props;
 const figma =
@@ -9,15 +10,10 @@ const figma =
 const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--link`;
 ---
 
-<p>Link style can be applied</p>
+<p>
+	Link style can be applied and usually they are wrapped inside a body class
+</p>
 
-<div class="component-preview not-content">
-	<p class="o3-editorial-typography-body">
-		An article by
-		<Link href="https://ft.com/">The Financial Times</Link>
-		.
-	</p>
-</div>
+<Preview component={Component} />
 
 <FigmaSbLinks {figma} {storybook} />
-
