@@ -6,7 +6,7 @@ import {renderToString} from 'react-dom/server';
 import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
 const {component} = Astro.props;
-
+const mark = component?.previewMarkers?.mark
 const resolvedPath = pathResolve(component.filePath);
 
 const fileContent = await readFile(resolvedPath, {
@@ -55,14 +55,14 @@ const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 				{
 					componentJSX && (
 						<TabItem label="JSX">
-							<Code code={componentJSX} lang="jsx" wrap={true} />
+							<Code code={componentJSX} lang="jsx" wrap={true} {mark} />
 						</TabItem>
 					)
 				}
 				{
 					componentHTML && (
 						<TabItem label="HTML">
-							<Code code={componentHTML} lang="html" wrap={true} />
+							<Code code={componentHTML} lang="html" wrap={true} {mark} />
 						</TabItem>
 					)
 				}
