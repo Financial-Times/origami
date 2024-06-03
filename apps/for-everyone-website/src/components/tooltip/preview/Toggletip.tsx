@@ -18,5 +18,5 @@ function ToggleTipPreview() {
 	);
 }
 
-export const filePath = 'src/components/tooltip/preview/ToggleTip.tsx';
+export const filePath = 'src/components/tooltip/preview/Toggletip.tsx';
 export {ToggleTipPreview as preview};
