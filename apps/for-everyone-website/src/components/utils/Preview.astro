@@ -1,16 +1,15 @@
 ---
-import {resolve as pathReoslve} from 'path';
+import {resolve as pathResolve} from 'path';
 import {readFile} from 'node:fs/promises';
 import {format} from 'prettier';
 import {renderToString} from 'react-dom/server';
 import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
-const {metaData} = Astro.props;
+const {component} = Astro.props;
 
-const pathToMetadata = pathReoslve(metaData);
-const Component = await import(pathToMetadata);
+const resolvedPath = pathResolve(component.filePath);
 
-const fileContent = await readFile(pathToMetadata, {
+const fileContent = await readFile(resolvedPath, {
 	encoding: 'utf8',
 });
 
@@ -18,15 +17,19 @@ const regex = /\/\/\s*<preview>([\s\S]*?)\/\/\s*<\/preview>/;
 const match = fileContent.match(regex);
 const JSXString = match && match[1];
 
-const componentJSX = JSXString && await format(JSXString, {
-	parser: 'babel',
-});
+const componentJSX =
+	JSXString &&
+	(await format(JSXString, {
+		parser: 'babel',
+	}));
 
-const componentHTMLString = renderToString(Component.preview());
-const componentHTML = await format(componentHTMLString, {
-	parser: 'html',
-	htmlWhitespaceSensitivity: "ignore"
-});
+const componentHTMLString = renderToString(component.preview());
+const componentHTML =
+	componentHTMLString &&
+	(await format(componentHTMLString, {
+		parser: 'html',
+		htmlWhitespaceSensitivity: 'ignore',
+	}));
 
 const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 ---
@@ -42,7 +45,7 @@ const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 
 	<div class="component-preview-wrapper">
 		<div class={`not-content component-preview visible ${uniqueID}`}>
-			<Component.preview />
+			<component.preview />
 		</div>
 	</div>
 

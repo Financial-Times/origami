@@ -8,4 +8,7 @@ function TopicTagPreview() {
 	);
 }
 
+export const filePath =
+	'src/components/editorial-typography/preview/TopicTag.tsx';
+
 export {TopicTagPreview as preview};

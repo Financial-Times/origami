@@ -1,4 +1,5 @@
 ---
+import * as Component from './preview/BigNumber.tsx';
 import FigmaSbLinks from './FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 const {brand} = Astro.props;
@@ -6,9 +7,6 @@ const figma =
 	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4443&t=kyDVEfsg2tRJspyY-4';
 
 const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--big-number`;
-
-const metaDataPath =
-	'src/components/editorial-typography/preview/BigNumber.tsx';
 ---
 
 <p>
@@ -16,6 +14,6 @@ const metaDataPath =
 	It is used to describe a big number in the editorial content.
 </p>
 
-<Preview metaData={metaDataPath} />
+<Preview component={Component} />
 
 <FigmaSbLinks {figma} {storybook} />

@@ -9,5 +9,6 @@ function LinkPreview() {
 		//</preview>
 	);
 }
+export const filePath = 'src/components/editorial-typography/preview/Link.tsx';
 
 export {LinkPreview as preview};
