@@ -24,6 +24,7 @@ export default defineConfig({
 		react(),
 		starlight({
 			title: 'Origami Design System',
+			defaultLocale: 'root',
 			locales: {
 				root: {
 					label: 'core',

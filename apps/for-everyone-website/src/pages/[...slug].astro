@@ -9,14 +9,18 @@ import {
 } from '@/helpers/utils';
 
 export async function getStaticPaths() {
+	const locales = ['root', 'professional', 'internal', 'sustainable-views']; //TODO: pull this from a config?
 	const postEntries = await getCollection('posts');
-	return postEntries.map(entry => {
-		return {
-			params: {
-				slug: generateBlogPostURL(entry.slug),
-			},
-			props: {entry},
-		};
+	return locales.flatMap(locale => {
+		const localePath = locale === 'root' ? '' : locale;
+		return postEntries.map(entry => {
+			return {
+				params: {
+					slug: localePath + '/blog/' + generateBlogPostURL(entry.slug),
+				},
+				props: {entry},
+			};
+		});
 	});
 }
 
