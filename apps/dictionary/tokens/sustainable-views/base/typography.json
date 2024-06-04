@@ -10,12 +10,20 @@
           "value": "financier display VF",
           "type": "fontFamilies"
         },
+        "financier-text": {
+          "value": "financier text VF",
+          "type": "fontFamilies"
+        },
         "georgia": {
           "value": "georgia",
           "type": "fontFamilies"
         }
       },
       "weight": {
+        "thinnest": {
+          "value": "1",
+          "type": "fontWeights"
+        },
         "light": {
           "value": "300",
           "type": "fontWeights"
