@@ -1,6 +1,6 @@
 # o-icons
 
-Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons) image set.
+Helper Sass for the [fticons](https://o2.origami.ft.com/?path=/story/o2-core_components-o-icons--icons&globals=backgrounds:!undefined) image set.
 
 - [o-icons](#o-icons)
 	- [Usage](#usage)
@@ -29,7 +29,7 @@ There are a few ways to get icons from `fticons`:
 
 ## Markup
 
-To add an icon apply the `o-icons-icon` class to a `span`, along with the modifier class for your specific icon e.g. `o-icons-icon--arrow-down`. See the [registry demos](https://registry.origami.ft.com/components/o-icons) for a full list of icons.
+To add an icon apply the `o-icons-icon` class to a `span`, along with the modifier class for your specific icon e.g. `o-icons-icon--arrow-down`. See the [storybook demos](https://o2.origami.ft.com/?path=/story/o2-core_components-o-icons--icons) for a full list of icons.
 
 ```html
 <span class="o-icons-icon o-icons-icon--arrow-down"></span>
@@ -47,7 +47,7 @@ If you would like to use an icon at a different dimension or colour, use `o-icon
 
 Use `oIconsContent` to output the styles for an icon of a given size and colour.
 
-The `$color` argument should be set using an [o-colors](https://registry.origami.ft.com/components/o-colors) Sass function such as `oColorsByName`, but may be set to any hex value.
+The `$color` argument should be set using an [o-colors](https://o2.origami.ft.com/?path=/docs/o2-core_components-o-colors-readme--docs&globals=backgrounds:!undefined) Sass function such as `oColorsByName`, but may be set to any hex value.
 
 ```scss
 // Use o-colors so you can use colors from the Origami palette.
