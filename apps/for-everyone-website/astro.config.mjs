@@ -70,6 +70,9 @@ export default defineConfig({
 					},
 				},
 			],
+			expressiveCode: {
+        themes: ['dracula', 'solarized-light'],
+      },
 			sidebar: [
 				{
 					label: 'About',
