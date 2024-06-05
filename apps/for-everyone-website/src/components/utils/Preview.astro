@@ -6,27 +6,32 @@ import {renderToString} from 'react-dom/server';
 import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
 const {component} = Astro.props;
-const mark = component?.previewMarkers?.mark
+const mark = component?.previewMarkers?.mark;
 const resolvedPath = pathResolve(component.filePath);
 
 const fileContent = await readFile(resolvedPath, {
 	encoding: 'utf8',
 });
 
-const regex = /\/\/\s*<preview>([\s\S]*?)\/\/\s*<\/preview>/;
-const match = fileContent.match(regex);
-const JSXString = match && match[1];
+const regex = /@preview(?:[^\n]+)?\n([\s\S]*?)\n.*@preview/;
+const jsxMatch = fileContent.match(regex);
+let JSXString = jsxMatch && jsxMatch[1];
 
-const componentJSX =
+let componentJSX =
 	JSXString &&
 	(await format(JSXString, {
 		parser: 'babel',
 	}));
 
+const HTMLregex =
+	/<meta itemProp="@preview"\/>(.+)<meta itemProp="@preview"\/>/;
 const componentHTMLString = renderToString(component.preview());
+const htmlMatch = componentHTMLString.match(HTMLregex);
+const htmlString = htmlMatch && htmlMatch[1];
+
 const componentHTML =
-	componentHTMLString &&
-	(await format(componentHTMLString, {
+	htmlString &&
+	(await format(htmlString, {
 		parser: 'html',
 		htmlWhitespaceSensitivity: 'ignore',
 	}));

@@ -61,7 +61,8 @@ The preview element is a custom element that allows you to preview a component i
 - The argument is a Preview component itself that is exported from a tsx file.
 - The preview component tsx file also needs to export a path of itself that is relative to the current directory.
 - `tsx` file must export relative path as `filePath`.
-- `tsx` file must include `// <preview>` comments around the code that needs to be used in the code snippet section.
+- `tsx` file must include `<meta  itemProp="@preview" />` tag around the code that needs to be used in the code snippet section.
+  - if you want to show two components that have no parent element, you can wrap them in a `Fragment` element.
 - `tsx` file should export preview as `preview`.
 
 The preview element will also take are of visual representation of code.
@@ -70,13 +71,18 @@ For example if you create a preview tsx file at `src/components/my-component/pre
 
 ```tsx
 
-import { MyComponent } from '@financial-times/o3-my-component';
+import { MyComponent, AnotherComponent } from '@financial-times/o3-my-component';
 
 const MyPreviewComponent = () => {
  return (
-  // <preview>
-  <MyComponent />
-  // </preview>
+  <>
+    <meta  itemProp="@preview" />
+      <>
+        <MyComponent />
+        <AnotherComponent />
+      </>
+    <meta  itemProp="@preview" />
+  </>
  );
 };
 
