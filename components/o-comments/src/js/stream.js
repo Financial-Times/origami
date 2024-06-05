@@ -268,23 +268,22 @@ class Stream {
 	
 			const customMessageContainer = document.createElement("section");
 			customMessageContainer.classList.add('coral-custom-message-content','coral');
-			
 			const messageRegistered = `
 			<h3>Commenting is only available to readers with FT subscription</h3>
-				<p class="warning">
+				<p>
 					<a href='https://subs.ft.com/products'>Subscribe</a> to join the conversation.
 				</p>
 			`;
 
 			const messageForAnonymous = `
 			<h3>Commenting is only available to readers with FT subscription</h3>
-				<p class="warning">
+				<p>
 					Please <a href='./'>login</a> or <a href='https://subs.ft.com/products'>subscribe</a> to join the conversation.
 				</p>
 			`;
 			const messageForTrial = `
 			<h3>You are still in a trial period</h3>
-				<p class="warning">
+				<p>
 					View our full <a href='https://subs.ft.com/products'>subscription packages</a> to join the conversation.
 				</p>
 			`;

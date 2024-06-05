@@ -10,7 +10,7 @@ import authenticateUser from './methods/stream/authenticate-user.js';
 import publishEvent from './methods/stream/publish-event.js';
 import renderSignedInMessage from './methods/stream/render-signed-in-message.js';
 import displayNamePrompt from './methods/stream/display-name-prompt.js';
-
+import renderNotSignedInMessage from './methods/stream/render-not-signed-in-message.js';
 describe("Stream", () => {
 	it("is defined", () => {
 		proclaim.equal(typeof Stream, 'function');
@@ -23,4 +23,5 @@ describe("Stream", () => {
 	describe('.publishEvent', publishEvent);
 	describe('.renderSignedInMessage', renderSignedInMessage);
 	describe('.displayNamePrompt', displayNamePrompt);
+	describe('.renderNotSignedInMessage',renderNotSignedInMessage);
 });
