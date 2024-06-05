@@ -12,15 +12,21 @@
 // stylelint-disable selector-class-pattern, declaration-no-important, selector-max-id
 @mixin _oCommentsTalkIframe {
 
-	#coral[data-not-sign-in="true"]{
-		.coral-guidelines,.coral-createComment,.coral-comment-reactButton, .coral-comment-replyButton,.coral-featuredComment-reactButton{
+	#coral[data-user-not-signed-in="true"]{
+		.coral-guidelines,
+		.coral-createComment,
+		.coral-comment-reactButton,
+		.coral-comment-replyButton,
+		.coral-featuredComment-reactButton{
 			display: none;
 		}
-		.coral-custom-message-content{
+		.coral__custom-message-content{
 			font-family: var(--font-family-primary);
 			font-size: var(--font-size-3);
 			font-weight: var(--font-weight-primary-regular);
-			background-color: #f2dfce;
+			background-color: oColorsByName('wheat');
+			border-color: oColorsByName('wheat');
+			border-radius: 0;
 			padding: var(--spacing-4);
 			
 			h3 {

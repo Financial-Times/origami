@@ -16,7 +16,7 @@ class Stream {
 		this.eventSeenTimes = {};
 		this.useStagingEnvironment = Boolean(opts.useStagingEnvironment);
 		this.isSubscribed = false;
-		this.isTrial = false;
+		this.isTrialist = false;
 		this.onlySubscribers = opts.onlySubscribers;
 	}
 
@@ -42,7 +42,7 @@ class Stream {
 			}
 		}
 		else if(this.onlySubscribers){
-			this.renderNotSingedInMessage();
+			this.renderNotSignedInMessage();
 		}
 	}
 
@@ -53,9 +53,6 @@ class Stream {
 
 		if (displayName) {
 			fetchOptions.displayName = displayName;
-		}
-		if(this.onlySubscribers){
-			fetchOptions.onlySubscribers = this.onlySubscribers;
 		}
 
 		return auth.fetchJsonWebToken(fetchOptions)
@@ -68,7 +65,7 @@ class Stream {
 					this.userHasValidSession = response.userHasValidSession;
 				}
 				this.isSubscribed = response?.isSubscribed;
-				this.isTrial = response?.isTrial;
+				this.isTrialist = response?.isTrialist;
 				this.isRegistered = response?.isRegistered;
 			})
 			.catch(() => {
@@ -261,24 +258,28 @@ class Stream {
 		};
 	}
 
-	renderNotSingedInMessage () {
+	renderNotSignedInMessage () {
+			if(this.isSubscribed){
+				return;
+			}
+
 			const shadowRoot = this.streamEl.querySelector("#coral-shadow-container").shadowRoot;
 			const coralContainer = shadowRoot.querySelector("#coral");
-			coralContainer.setAttribute('data-not-sign-in' , true);
+			coralContainer.setAttribute('data-user-not-signed-in' , true);
 	
 			const customMessageContainer = document.createElement("section");
-			customMessageContainer.classList.add('coral-custom-message-content','coral');
+			customMessageContainer.classList.add('coral__custom-message-content','coral');
 			const messageRegistered = `
 			<h3>Commenting is only available to readers with FT subscription</h3>
 				<p>
 					<a href='https://subs.ft.com/products'>Subscribe</a> to join the conversation.
 				</p>
 			`;
-
+			const currentUrlEscaped = encodeURIComponent(window.location.href);
 			const messageForAnonymous = `
 			<h3>Commenting is only available to readers with FT subscription</h3>
 				<p>
-					Please <a href='./'>login</a> or <a href='https://subs.ft.com/products'>subscribe</a> to join the conversation.
+					Please <a href='https://ft.com/login?location=${currentUrlEscaped}'>login</a> or <a href='https://subs.ft.com/products'>subscribe</a> to join the conversation.
 				</p>
 			`;
 			const messageForTrial = `
@@ -287,11 +288,9 @@ class Stream {
 					View our full <a href='https://subs.ft.com/products'>subscription packages</a> to join the conversation.
 				</p>
 			`;
-			customMessageContainer.innerHTML = this.isTrial ? messageForTrial : this.isRegistered ? messageRegistered : messageForAnonymous ;
-			
-			if(!this.isSubscribed){
-				coralContainer.prepend(customMessageContainer);
-			}
+			customMessageContainer.innerHTML = this.isTrialist ? messageForTrial : this.isRegistered ? messageRegistered : messageForAnonymous;
+
+			coralContainer.prepend(customMessageContainer);
 	}
 
 

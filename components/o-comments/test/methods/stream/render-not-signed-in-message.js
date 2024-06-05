@@ -17,25 +17,25 @@ export default function renderNotSignedInMessage () {
 		const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
 		const stream = new Stream(mockStreamEl);
 		stream.isRegistered  =true
-		stream.renderNotSingedInMessage();
-		const messageElement = mockStreamEl.querySelector("#coral-shadow-container").shadowRoot.querySelector('.coral-custom-message-content p')
+		stream.renderNotSignedInMessage();
+		const messageElement = mockStreamEl.querySelector("#coral-shadow-container").shadowRoot.querySelector('.coral__custom-message-content p')
 		proclaim.isTrue(messageElement.innerText.indexOf('Subscribe to join the conversation.') === 0);
 	});
 
 	it("shows message for trials users to subscribe", () => {
 		const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
 		const stream = new Stream(mockStreamEl);
-		stream.isTrial  =true
-		stream.renderNotSingedInMessage();
-		const messageElement = mockStreamEl.querySelector("#coral-shadow-container").shadowRoot.querySelector('.coral-custom-message-content p')
+		stream.isTrialist  =true
+		stream.renderNotSignedInMessage();
+		const messageElement = mockStreamEl.querySelector("#coral-shadow-container").shadowRoot.querySelector('.coral__custom-message-content p')
 		proclaim.isTrue(messageElement.innerText.indexOf('View our full subscription packages to join the conversation.') === 0);
 	});
 
 	it("shows message for anonymous users to login subscribe", () => {
 		const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
 		const stream = new Stream(mockStreamEl);
-		stream.renderNotSingedInMessage();
-		const messageElement = mockStreamEl.querySelector("#coral-shadow-container").shadowRoot.querySelector('.coral-custom-message-content p')
+		stream.renderNotSignedInMessage();
+		const messageElement = mockStreamEl.querySelector("#coral-shadow-container").shadowRoot.querySelector('.coral__custom-message-content p')
 		proclaim.isTrue(messageElement.innerText.indexOf('Please login or subscribe to join the conversation.') === 0);
 	});
 }

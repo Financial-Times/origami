@@ -203,15 +203,15 @@ export default function authenticateUser () {
 				});
 		});
 
-		it('sets this.isTrial to true if user is in a trial list', () => {
+		it('sets this.isTrialist to true if user is in a trial list', () => {
 			fetchJWTStub.resolves({
-				isTrial: true
+				isTrialist: true
 			});
 
 			const stream = new Stream();
 			return stream.authenticateUser()
 				.then(() => {
-					proclaim.isTrue(stream.isTrial);
+					proclaim.isTrue(stream.isTrialist);
 				});
 		});
 	});
