@@ -11,6 +11,7 @@ import {Content as ButtonBehaviour} from '../../../content-partial/docs/componen
 import {default as GroupPreview} from '../../../components/button/ButtonGroupPreview.astro';
 import {Content as ButtonGroupGuidelines} from '../../../content-partial/docs/components/button-group-guidelines.mdx';
 import {Content as ButtonGroupIntro} from '../../../content-partial/docs/components/button-group-intro.mdx';
+import BrandedContent from '../../../components/utils/BrandedContent.astro';
 
 Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
 
@@ -148,6 +149,9 @@ An alternative theme for use on dark backgrounds.
 		componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
 	/>
 </div>
+
+<BrandedContent brands={['core']}>
+
 ### Mono
 
 Mono can be helpful where the standard theme distracts from other colour used, for example when placed near data visualisations.
@@ -159,6 +163,7 @@ Mono can be helpful where the standard theme distracts from other colour used, f
 		componentProps={{label: 'Hello', type: 'primary', theme: 'mono'}}
 	/>
 </div>
+</BrandedContent>
 
 ## Button Groups
 

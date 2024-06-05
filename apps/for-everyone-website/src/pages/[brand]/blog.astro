@@ -1,10 +1,10 @@
 ---
-import config from "virtual:starlight/user-config"
+import config from 'virtual:starlight/user-config';
 
 export function getStaticPaths() {
-  return Object.keys(config.locales)
-    .filter(brand => brand !== 'root')
-    .map(brand => ({ params: { brand } }));
+	return Object.keys(config.locales)
+		.filter(brand => brand !== config.defaultLocale.locale)
+		.map(brand => ({params: {brand}}));
 }
 
 import BlogIndex from '../blog/index.astro';

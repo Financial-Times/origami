@@ -23,24 +23,24 @@ import Select from "@astrojs/starlight/components/Select.astro"
 
 <script>
 	import config from "virtual:starlight/user-config"
+	const defaultLocale = config.defaultLocale.locale
 
 	/**
 	 * Get the equivalent of the passed URL for the passed locale
 	 */
 	function localizePath(location: string, locale?: string): string {
 		const localeCodes = Object.keys(config.locales)
-
 		let {pathname: currentPath} = new URL(location)
 
 		if (currentPath === "/") {
-			return locale === "root" ? "/" : "/" + locale + "/"
+			return locale === defaultLocale ? "/" : "/" + locale + "/"
 		}
 
 		// Trim leading and trailing slashes, note this does not mutate workingUrl
 		const trimmedPathname = currentPath.replace(/^\/|\/$/g, "")
 		const [baseSegment, ...restSegments] = trimmedPathname.split("/")
 
-		if (locale === "root") {
+		if (locale === defaultLocale) {
 			if (!localeCodes.includes(baseSegment)) {
 				return "/" + currentPath
 			} else {

@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 	const locales =  Object.keys(config.locales);
 	const postEntries = await getCollection('posts');
 	return locales.flatMap(locale => {
-		const localePath = locale === 'root' ? '' : locale;
+		const localePath = locale ===  config.defaultLocale.locale ? '' : locale;
 		return postEntries.map(entry => {
 			return {
 				params: {

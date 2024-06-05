@@ -1,0 +1,15 @@
+---
+import config from 'virtual:starlight/user-config';
+
+const props = Astro.props;
+const brands = Object.keys(config.locales);
+console.log(await Astro.slots.render('default'))
+// const brands = locales.map(l => config.locales[l].label);
+const brandFromUrl = Astro.url.pathname.split('/')[1];
+const currentBrand = brands.includes(brandFromUrl)
+	? brandFromUrl
+	: config.defaultLocale.locale;
+const render = props.brands.includes(currentBrand);
+---
+
+{render && <slot />}
