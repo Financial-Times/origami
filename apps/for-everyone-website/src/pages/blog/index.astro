@@ -19,8 +19,6 @@ const postsByYearMap = Map.groupBy(allPosts, ({data}) => {
 });
 
 const postsByYear = Array.from(postsByYearMap);
-
-
 ---
 
 <style>
@@ -34,11 +32,18 @@ const postsByYear = Array.from(postsByYearMap);
 </style>
 
 
-
 <StarlightPage
 	frontmatter={{
 		title: 'Origami Blog',
-	}}
+		head: [{
+			tag: 'link',
+			attrs: {
+				rel: 'canonical',
+				href: (new URL('blog', Astro.site)).toString()
+			}
+		}
+		]
+	}},
 	headings={
 		postsByYearMap.keys().map(year => ({
 	depth: 2,
