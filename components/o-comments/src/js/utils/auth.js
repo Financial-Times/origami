@@ -10,10 +10,6 @@ export default {
 			url.searchParams.append('staging', '1');
 		}
 
-		if (options.onlySubscribers) {
-			url.searchParams.append('onlySubscribers', '1');
-		}
-
 		return fetch(url, { credentials: 'include' }).then(response => {
 		// user is signed in and has a pseudonym
 			if (response.ok) {

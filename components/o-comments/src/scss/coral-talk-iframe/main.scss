@@ -12,13 +12,7 @@
 
 // stylelint-disable selector-class-pattern, declaration-no-important, selector-max-id
 @mixin _oCommentsTalkIframe {
-	.o-comments-coral-talk-container {
-		--ft-magnify: 1.0666666667;
-		.coral-comment-content {
-            		font-size: 1rem;
-            		line-height: 1.45rem;
-        	}
-	}
+
 	#coral[data-not-sign-in="true"]{
 		.coral-guidelines,.coral-createComment,.coral-comment-reactButton, .coral-comment-replyButton{
 			display: none;
