@@ -1,0 +1,17 @@
+diff --git a/node_modules/@astrojs/starlight/index.astro b/node_modules/@astrojs/starlight/index.astro
+index 74ba7b1..a565a71 100644
+--- a/node_modules/@astrojs/starlight/index.astro
++++ b/node_modules/@astrojs/starlight/index.astro
+@@ -13,7 +13,11 @@ export async function getStaticPaths() {
+ 
+ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+ const { Content, headings } = await Astro.props.entry.render();
++
+ const route = generateRouteData({ props: { ...Astro.props, headings }, url: Astro.url });
++
++// Get current "brand", and fallback to root brand.
++const brand = Astro.props.locale || 'core';
+ ---
+ 
+-<Page {...route}><Content frontmatter={Astro.props.entry.data} /></Page>
++<Page {...route}><Content brand={brand} entryMeta={Astro.props.entryMeta} frontmatter={Astro.props.entry.data} /></Page>
