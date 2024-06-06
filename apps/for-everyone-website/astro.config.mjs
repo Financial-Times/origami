@@ -4,11 +4,15 @@ import react from '@astrojs/react';
 import path, {dirname} from 'path';
 import {fileURLToPath} from 'url';
 import svelte from '@astrojs/svelte';
+import remarkBrandedContent from './plugins/remark-branded-content.mjs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
+	markdown: {
+		remarkPlugins: [[remarkBrandedContent, {}]],
+	},
 	vite: {
 		ssr: {
 			noExternal: ['unist-util-visit'],
