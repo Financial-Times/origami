@@ -19,6 +19,9 @@ function removeLinksToMissingHeadings(tocComponent, headingIds) {
 	const items = tocComponent.querySelectorAll('li');
 	const extraItems = Array.from(items).filter(item => {
 		const anchor = item.querySelector('a');
+		if (!anchor) {
+			return false;
+		}
 		const anchorId = anchor.href.replace(/^(.+)#/, '');
 		if (anchorId === '_top') {
 			return false;
