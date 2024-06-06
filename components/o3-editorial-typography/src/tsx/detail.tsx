@@ -1,11 +1,20 @@
-import {DetailProps, TopicTagProps, QuoteProps, BigNumberProps, BylineProps} from '../types';
+import {
+	DetailProps,
+	TopicTagProps,
+	QuoteProps,
+	BigNumberProps,
+	BylineProps,
+} from '../types';
 import {getDataAttributes} from './utils';
 
 export const TopicTag = ({href, theme, children}: TopicTagProps) => {
 	const attributes = getDataAttributes(theme);
 	const HtmlElement = href ? 'a' : 'span';
 	return (
-		<HtmlElement href={href} className="o3-editorial-typography-topic-tag" {...attributes}>
+		<HtmlElement
+			href={href}
+			className="o3-editorial-typography-topic-tag"
+			{...attributes}>
 			{children}
 		</HtmlElement>
 	);
@@ -15,9 +24,7 @@ export const StandFirst = ({theme, children}: DetailProps) => {
 	const attributes = getDataAttributes(theme);
 
 	return (
-		<p
-			className="o3-editorial-typography-standfirst"
-			{...attributes}>
+		<p className="o3-editorial-typography-standfirst" {...attributes}>
 			{children}
 		</p>
 	);
@@ -35,7 +42,7 @@ export const Caption = ({theme, children}: DetailProps) => {
 
 export const Quote = ({
 	theme,
-	type = "block",
+	type = 'block',
 	quoteAuthor,
 	quoteSource,
 	children,
@@ -50,9 +57,11 @@ export const Quote = ({
 				<span className={`o3-editorial-typography-${type}quote__author`}>
 					{quoteAuthor}
 				</span>
-				<span className={`o3-editorial-typography-${type}quote__source`}>
-					{quoteSource}
-				</span>
+				{type == 'block' ? (
+					<span className={`o3-editorial-typography-${type}quote__source`}>
+						{quoteSource}
+					</span>
+				) : null}
 			</cite>
 		</blockquote>
 	);

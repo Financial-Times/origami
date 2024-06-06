@@ -18,7 +18,9 @@
   --o3-spacing-4xl: 6rem;
   --o3-font-family-metric: 'metric 2 VF';
   --o3-font-family-financier-display: 'financier display VF';
+  --o3-font-family-financier-text: 'financier text VF';
   --o3-font-family-georgia: georgia;
+  --o3-font-weight-thinnest: 1;
   --o3-font-weight-light: 300;
   --o3-font-weight-regular: 400;
   --o3-font-weight-medium: 500;

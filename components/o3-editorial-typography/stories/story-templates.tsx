@@ -50,7 +50,7 @@ type BigNumberStory = StoryObjNoArgs & {
 };
 
 type BylineStory = StoryObjNoArgs & {
-	args: Omit<BylineProps, 'children'>;
+	args: Omit<BylineProps, 'children'> & {brand?: string};
 };
 
 type LinkStory = StoryObjNoArgs & {
@@ -145,6 +145,13 @@ const QuoteTemplate: StoryObj = {
 				type: 'radio',
 			},
 		},
+		quoteSource: {
+			control: {
+				type: 'text',
+				'placeholder': 'Quote source',
+			},
+			if: {arg: 'type', eq: 'block'},
+		},
 	},
 	parameters: {
 		controls: {exclude: ['type', 'children']},
@@ -171,19 +178,19 @@ const BylineTemplate: StoryObj = {
 		...TemplateSBConfig.argTypes,
 	},
 	parameters: {
-		controls: {exclude: ['type', 'children']},
+		controls: {exclude: ['type', 'children', 'brand']},
 	},
 	render: args => {
 		return (
 			<BylineTsx {...args}>
 				<a className="o3-editorial-typography-byline-author" href="#">
-					Joe Doe
+					Joe Doe&nbsp;
 				</a>
-				&nbsp;
-				<span className="o3-editorial-typography-byline-location">
-					in London
-				</span>
-				&nbsp;
+				{args.brand != 'sustainable-views' ? (
+					<span className="o3-editorial-typography-byline-location">
+						in London&nbsp;
+					</span>
+				) : null}
 				<time
 					className="o3-editorial-typography-byline-timestamp"
 					dateTime="2019-10-11T20:51:54Z"
