@@ -50,6 +50,7 @@ export default defineConfig({
 				ThemeSelect: './src/components/EmptyComponent.astro',
 				ThemeProvider: './src/components/ThemeProvider.astro',
 				SocialIcons: './src/components/NavLinks.astro',
+				FallbackContentNotice: './src/components/FallbackContentNotice.astro',
 			},
 			customCss: ['./src/styles/custom.css'],
 			social: {
