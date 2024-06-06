@@ -109,7 +109,21 @@ class VideoAds {
 			targeting += `&brand=${brand}`;
 		}
 
-		const advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&iu=${this.video.targeting.site}&sz=${this.video.targeting.sizes}&unviewed_position_start=1&scp=${encodeURIComponent(targeting)}`;
+		const paramsObject = {
+			env: "vp",
+			gdfp_req: 1,
+			impl: "s",
+			output: "xml_vast2",
+			iu: this.video.targeting.site,
+			sz: this.video.targeting.sizes,
+			unviewed_position_start: 1,
+			scp: encodeURIComponent(targeting)
+		}
+
+		const searchParams = new URLSearchParams(paramsObject);
+
+
+		const advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?${searchParams.toString()}`;
 
 		adsRequest.adTagUrl = advertisingUrl;
 
