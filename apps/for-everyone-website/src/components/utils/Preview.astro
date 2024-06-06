@@ -6,27 +6,32 @@ import {renderToString} from 'react-dom/server';
 import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
 const {component} = Astro.props;
-
+const mark = component?.previewMarkers?.mark;
 const resolvedPath = pathResolve(component.filePath);
 
 const fileContent = await readFile(resolvedPath, {
 	encoding: 'utf8',
 });
 
-const regex = /\/\/\s*<preview>([\s\S]*?)\/\/\s*<\/preview>/;
-const match = fileContent.match(regex);
-const JSXString = match && match[1];
+const regex = /@preview(?:[^\n]+)?\n([\s\S]*?)\n.*@preview/;
+const jsxMatch = fileContent.match(regex);
+let JSXString = jsxMatch && jsxMatch[1];
 
-const componentJSX =
+let componentJSX =
 	JSXString &&
 	(await format(JSXString, {
 		parser: 'babel',
 	}));
 
+const HTMLregex =
+	/<meta itemProp="@preview"\/>(.+)<meta itemProp="@preview"\/>/;
 const componentHTMLString = renderToString(component.preview());
+const htmlMatch = componentHTMLString.match(HTMLregex);
+const htmlString = htmlMatch && htmlMatch[1];
+
 const componentHTML =
-	componentHTMLString &&
-	(await format(componentHTMLString, {
+	htmlString &&
+	(await format(htmlString, {
 		parser: 'html',
 		htmlWhitespaceSensitivity: 'ignore',
 	}));
@@ -55,14 +60,14 @@ const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 				{
 					componentJSX && (
 						<TabItem label="JSX">
-							<Code code={componentJSX} lang="jsx" wrap={true} />
+							<Code code={componentJSX} lang="jsx" wrap={true} {mark} />
 						</TabItem>
 					)
 				}
 				{
 					componentHTML && (
 						<TabItem label="HTML">
-							<Code code={componentHTML} lang="html" wrap={true} />
+							<Code code={componentHTML} lang="html" wrap={true} {mark} />
 						</TabItem>
 					)
 				}
@@ -207,6 +212,7 @@ const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 		background-image: url('/assets/images/utils/dot.svg');
 		background-repeat: repeat;
 		background-size: 1.5rem;
+		background-color: var(--o3-color-use-case-page-background);
 		margin: 0.5rem;
 		resize: both;
 		border-radius: 0.33rem;

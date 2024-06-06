@@ -24,6 +24,7 @@ export default defineConfig({
 		react(),
 		starlight({
 			title: 'Origami Design System',
+			defaultLocale: 'root',
 			locales: {
 				root: {
 					label: 'core',
@@ -71,8 +72,8 @@ export default defineConfig({
 				},
 			],
 			expressiveCode: {
-        themes: ['dracula', 'solarized-light'],
-      },
+				themes: ['dracula', 'solarized-light'],
+			},
 			sidebar: [
 				{
 					label: 'About',
