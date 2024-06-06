@@ -13,7 +13,8 @@
 		"start": "npx serve origami.ft.com # this is for heroku, not people",
 		"watch": "concurrently 'cd apps/website && npm run watch' 'cd apps/o2-storybook && npm run watch-storybook' 'npx serve origami.ft.com'",
 		"create-component": "cd tools/create-component && create-component",
-		"precommit": "prettier --write"
+		"precommit": "prettier --write",
+		"postinstall": "patch-package"
 	},
 	"repository": {
 		"type": "git",
@@ -76,7 +77,8 @@
 		"sinon": "^10.0.0",
 		"stylelint": "^13.12.0",
 		"stylelint-config-origami-component": "^1.0.4",
-		"stylelint-config-prettier": "^9.0.3"
+		"stylelint-config-prettier": "^9.0.3",
+		"patch-package": "^8.0.0"
 	},
 	"dependencies": {
 		"@actions/core": "^1.2.6",

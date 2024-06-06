@@ -8,8 +8,7 @@
 		"build": "../../scripts/build-o3-deps.sh && NODE_OPTIONS=--max-old-space-size=10248 astro build && node remove-branded-headings.mjs",
 		"preview": "astro preview",
 		"astro": "astro",
-		"send-newsletter": "node src/helpers/email-newsletter.js",
-		"postinstall": "patch-package"
+		"send-newsletter": "node src/helpers/email-newsletter.js"
 	},
 	"engines": {
 		"node": "18.18.2",
@@ -41,7 +40,6 @@
 	"devDependencies": {
 		"globby": "^14.0.1",
 		"html-minifier": "^4.0.0",
-		"jsdom": "^24.1.0",
-		"patch-package": "^8.0.0"
+		"jsdom": "^24.1.0"
 	}
 }
