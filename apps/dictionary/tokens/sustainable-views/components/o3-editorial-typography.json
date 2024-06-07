@@ -80,16 +80,24 @@
         "type": "typography"
       },
       "topic-tag": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight.0}"
-        },
-        "type": "typography",
         "@": {
-          "value": "{o3.color.palette.teal}",
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.semibold}",
+            "fontSize": "{o3.font.size-metric2.0}",
+            "lineHeight": "{o3.font.lineheight.0}"
+          },
+          "type": "typography"
+        },
+        "color": {
+          "value": "{o3.color.use-case.link.text.@}",
           "type": "color"
+        },
+        "hover": {
+          "color": {
+            "value": "{o3.color.use-case.link.text.hover}",
+            "type": "color"
+          }
         }
       },
       "standfirst": {
@@ -111,31 +119,41 @@
         "type": "typography"
       },
       "byline-author": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
-        },
-        "type": "typography",
         "@": {
-          "value": "{o3.color.palette.teal}",
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.semibold}",
+            "fontSize": "{o3.font.size-metric2.0}",
+            "lineHeight": "{o3.font.lineheight-metric2.0}"
+          },
+          "type": "typography"
+        },
+        "color": {
+          "value": "{o3.color.use-case.link.text.@}",
           "type": "color"
+        },
+        "hover": {
+          "color": {
+            "value": "{o3.color.use-case.link.text.hover}",
+            "type": "color"
+          }
         }
       },
       "byline-timestamp": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
-        },
-        "type": "typography",
         "@": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.regular}",
+            "fontSize": "{o3.font.size-metric2.0}",
+            "lineHeight": "{o3.font.lineheight-metric2.0}"
+          },
+          "type": "typography"
+        },
+        "color": {
           "value": "{o3.color.palette.black-50}",
           "type": "color"
         },
-        "inverse": {
+        "inverse-color": {
           "value": "{o3.color.palette.white}",
           "type": "color"
         }

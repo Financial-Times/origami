@@ -40,6 +40,8 @@
   --_o3-editorial-typography-topic-tag-font-weight: var(--o3-font-weight-semibold);
   --_o3-editorial-typography-topic-tag-font-size: var(--o3-font-size-metric2-0);
   --_o3-editorial-typography-topic-tag-line-height: var(--o3-font-lineheight-0);
+  --_o3-editorial-typography-topic-tag-color: var(--o3-color-use-case-link-text);
+  --_o3-editorial-typography-topic-tag-hover-color: var(--o3-color-use-case-link-text-hover);
   --_o3-editorial-typography-standfirst-font-family: var(--o3-font-family-metric);
   --_o3-editorial-typography-standfirst-font-weight: var(--o3-font-weight-regular);
   --_o3-editorial-typography-standfirst-font-size: var(--o3-font-size-metric2-2);
@@ -52,10 +54,14 @@
   --_o3-editorial-typography-byline-author-font-weight: var(--o3-font-weight-semibold);
   --_o3-editorial-typography-byline-author-font-size: var(--o3-font-size-metric2-0);
   --_o3-editorial-typography-byline-author-line-height: var(--o3-font-lineheight-metric2-0);
+  --_o3-editorial-typography-byline-author-color: var(--o3-color-use-case-link-text);
+  --_o3-editorial-typography-byline-author-hover-color: var(--o3-color-use-case-link-text-hover);
   --_o3-editorial-typography-byline-timestamp-font-family: var(--o3-font-family-metric);
   --_o3-editorial-typography-byline-timestamp-font-weight: var(--o3-font-weight-regular);
   --_o3-editorial-typography-byline-timestamp-font-size: var(--o3-font-size-metric2-0);
   --_o3-editorial-typography-byline-timestamp-line-height: var(--o3-font-lineheight-metric2-0);
+  --_o3-editorial-typography-byline-timestamp-color: var(--o3-color-palette-black-50);
+  --_o3-editorial-typography-byline-timestamp-inverse-color: var(--o3-color-palette-white);
   --_o3-editorial-typography-quote-font-family: var(--o3-font-family-metric);
   --_o3-editorial-typography-quote-font-weight: var(--o3-font-weight-semibold);
   --_o3-editorial-typography-quote-font-size: var(--o3-font-size-metric2-3);
