@@ -15,7 +15,7 @@ export default {
 		),
 	],
 	parameters: {
-		backgrounds: {default: 'paper'},
+		backgrounds: {default: 'white'},
 		html: {
 			root: '#component-wrapper',
 		},
