@@ -9,14 +9,17 @@ import {getDataAttributes} from './utils';
 
 export const TopicTag = ({href, theme, children}: TopicTagProps) => {
 	const attributes = getDataAttributes(theme);
-	const HtmlElement = href ? 'a' : 'span';
-	return (
-		<HtmlElement
+	return href ? (
+		<a
 			href={href}
 			className="o3-editorial-typography-topic-tag"
 			{...attributes}>
 			{children}
-		</HtmlElement>
+		</a>
+	) : (
+		<span className="o3-editorial-typography-topic-tag" {...attributes}>
+			{children}
+		</span>
 	);
 };
 
