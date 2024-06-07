@@ -19,6 +19,7 @@ export default {
 		html: {
 			root: '#component-wrapper',
 		},
+		controls: {exclude: ['theme']},
 	},
 } as Meta;
 

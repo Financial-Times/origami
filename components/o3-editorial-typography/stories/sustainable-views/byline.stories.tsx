@@ -16,7 +16,7 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'white'},
-		controls: {exclude: ['children', 'brand']},
+		controls: {exclude: ['children', 'brand', 'theme']},
 	},
 } as Meta;
 

@@ -21,7 +21,7 @@ import type {
 	DetailProps,
 	TopicTagProps,
 	LinkProps,
-} from '../src/types/index';
+} from '../src/types';
 
 type StoryObjNoArgs = Omit<StoryObj, 'args'>;
 
@@ -148,7 +148,7 @@ const QuoteTemplate: StoryObj = {
 		quoteSource: {
 			control: {
 				type: 'text',
-				'placeholder': 'Quote source',
+				placeholder: 'Quote source',
 			},
 			if: {arg: 'type', eq: 'block'},
 		},

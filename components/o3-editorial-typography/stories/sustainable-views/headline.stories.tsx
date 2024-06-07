@@ -16,7 +16,7 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'white'},
-		controls: {exclude: ['children', 'underline']},
+		controls: {exclude: ['children', 'underline', 'theme']},
 	},
 } as Meta;
 
@@ -42,4 +42,4 @@ Heading.argTypes = {
 Heading.args = {
 	...StoryTemplates.Heading.args,
 	type: 'headline',
-}
+};
