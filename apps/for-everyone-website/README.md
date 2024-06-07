@@ -5,11 +5,13 @@ Table of Contents
 - [Project Structure](#project-structure)
 - [Multiple Brand Support](#multiple-brand-support)
   - [Add A New Brand](#add-a-new-brand)
+  - [Branded Content](#branded-content)
 - [Preview element](#preview-element)
 - [Commands](#commands)
 - [Want to learn more?](#want-to-learn-more)
 
 ---
+
 A new, in progress Origami website. It will:
 
 - Put design guidelines front and centre.
@@ -43,7 +45,7 @@ Static assets, like favicons, can be placed in the `public/` directory.
 
 ## Multiple Brand Support
 
-We use [Starlight's internationalisation features](https://starlight.astro.build/guides/i18n/) to support documentation for multiple brands. This allows us to share content. In many cases we can switch CSS Custom Properties when changing brand, be reuse the same design guidelines. In other cases we can "translate" content for brand specific cases. E.g. `src/content/docs/professional/components/example.mdx` is served instead of `src/content/docs/components/example.mdx` when the professional brand is selected.
+We use [Starlight's internationalisation features](https://starlight.astro.build/guides/i18n/) to support documentation for multiple brands. This allows us to share content. In many cases we can switch CSS Custom Properties when changing brand, be reuse the same design guidelines. In other cases we can "translate" content for brand specific cases (see [Branded Content](#branded-content))
 
 This also means search is brand specific. Typically, this feature relies on the `lang` html attribute to correctly search only content for the selected language. We have applied that to brands using a [private subtag](https://datatracker.ietf.org/doc/html/rfc4646#section-4.5) e.g. `lang="en-GB-x-prof"`. Note that all subtags have a maximum length of 8 characters and whitespace is not permitted, we must therefore appreciate brands here.
 
@@ -53,6 +55,29 @@ This also means search is brand specific. Typically, this feature relies on the 
 - Update `src/components/ContentPanel.astro` to map the 'locale' to brand CSS class.
 - Copy content from an existing brand, switching out the brand-specific CSS file import for that component, and updating the Figma and Storybook links.
 - Copy other documentation mdx files that contain brand-specific content or styles, and edit according to your brand.
+
+### Branded Content
+
+As much as possible we aim to share design guidelines across brands. For when variation is required, it is possible to translate content for different brands in two ways:
+
+#### Brand whole pages
+
+Serve an entirely different page per brand. Content under `src/content/docs/[brand]` is served by default for the selected brand. If this does not exist, content for the root brand `src/content/docs/` is served as a fallback. E.g. `src/content/docs/professional/components/example.mdx` is served instead of `src/content/docs/components/example.mdx` when the professional brand is selected.
+
+#### Brand page sections
+
+Use the `BrandedContent` astro component within `.mdx` content to conditionally render content for one or more brands.
+
+```mdx
+<BrandedContent brands="core, sustainable-views">
+### Branded Content
+
+This markdown will only show given the Core or Sustainable Views brand is selected.
+
+</BrandedContent>
+```
+
+Note: `BrandedContent` accepts 2 props, the current brand and a comma separated string of brands to render child elements for. However it is not necessary to import `BrandedContent` or pass the current brand, as this is handled automatically using a remark plugin ([plugins/remark-branded-content.mjs](https://github.com/Financial-Times/origami/blob/main/apps/for-everyone-website/plugins/remark-branded-content.mjs)). Any headings used within the branded content will show within in-page navigation for all brands during local development, but is removed via a post-processing script ([remove-branded-headings.mjs](https://github.com/Financial-Times/origami/blob/main/apps/for-everyone-website/remove-branded-headings.mjs)) for the production build.
 
 ## Preview element
 
@@ -70,38 +95,32 @@ The preview element will also take are of visual representation of code.
 For example if you create a preview tsx file at `src/components/my-component/preview/MyComponent.tsx` with the following content:
 
 ```tsx
-
-import { MyComponent, AnotherComponent } from '@financial-times/o3-my-component';
+import {MyComponent, AnotherComponent} from '@financial-times/o3-my-component';
 
 const MyPreviewComponent = () => {
- return (
-  <>
-    <meta  itemProp="@preview" />
-      <>
-        <MyComponent />
-        <AnotherComponent />
-      </>
-    <meta  itemProp="@preview" />
-  </>
- );
+	return (
+		<>
+			<meta itemProp="@preview" />
+			<>
+				<MyComponent />
+				<AnotherComponent />
+			</>
+			<meta itemProp="@preview" />
+		</>
+	);
 };
 
-export const filePath = "src/components/my-component/preview/MyComponent.tsx";
+export const filePath = 'src/components/my-component/preview/MyComponent.tsx';
 
-export {
- MyPreviewComponent as preview
-};
-
+export {MyPreviewComponent as preview};
 ```
 
 And then use the preview element in `.astro` file like this:
 
 ```jsx
-
 import * as Component from './preview/MyComponent.tsx';
 
-<Preview component={Component} />
-
+<Preview component={Component} />;
 ```
 
 ## Authoring and sending a newsletter
@@ -112,7 +131,7 @@ The process:
 
 1. Branch off `main` and create the required files. The format for the newsletter is strict, and you should probably copy an older newsletter to make sure it's correct. You need a file in this repo, replacing the date as appropriate (set to the expected published date):
 
-	- `src/content/posts/YYYY-MM-DD-newsletter.md`: for the blog post on the website
+   - `src/content/posts/YYYY-MM-DD-newsletter.md`: for the blog post on the website
 
 2. Write the newsletter. This is best done in the blog post, as this is standard Markdown. Ensure that you include a title and the `Newsletter` tag in the page's frontmatter, otherwise your blog post will not be published with an adjacent email HTML. See an [existing newsletter](https://github.com/Financial-Times/origami/blob/main/apps/for-everyone-website/src/content/posts/2023-05-31-newsletter.md?plain=1#L6-L7) on what to include.
 3. Open a pull-request on this repo, and get it approved by another member of the team. Once approved, merge into master. This must be done _on_ or _after_ the publish date indicated by the post file name. The blog post is now published, check it on the live site.
@@ -124,7 +143,6 @@ The process:
 6. Once reviewed, run the following command to send the email: `EMAIL_SOURCE_HTML=YYYY-MM EMAIL_RECIPIENTS=XX@XX EMAIL_API_KEY=XXXXXX EMAIL_SEND=true npm run send-newsletter`, where `YYYY` and `MM` correspond to the year and month of the newsletter, `XX@XX` is the recipient email, and `XXXXXX` is an email platform API key (you can find this in the Origami team Doppler project).
 
 7. The email is sent! Enjoy
-
 
 ## Commands
 
