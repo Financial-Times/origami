@@ -64,7 +64,7 @@
       "body-l": {
         "value": {
           "fontFamily": "{o3.font.family.financier-text}",
-          "fontSize": "{o3.font.size.2}",
+          "fontSize": "{o3.font.size.3}",
           "lineHeight": "{o3.font.lineheight.4}",
           "fontWeight": "1"
         },
@@ -73,7 +73,7 @@
       "body-s": {
         "value": {
           "fontFamily": "{o3.font.family.financier-text}",
-          "fontSize": "{o3.font.size.1}",
+          "fontSize": "{o3.font.size.2}",
           "lineHeight": "{o3.font.lineheight.3}",
           "fontWeight": "1"
         },
