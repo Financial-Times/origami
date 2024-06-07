@@ -64,18 +64,18 @@
       "body-l": {
         "value": {
           "fontFamily": "{o3.font.family.financier-text}",
-          "fontWeight": "{o3.font.weight.thinnest}",
           "fontSize": "{o3.font.size.2}",
-          "lineHeight": "{o3.font.lineheight.4}"
+          "lineHeight": "{o3.font.lineheight.4}",
+          "fontWeight": "1"
         },
         "type": "typography"
       },
       "body-s": {
         "value": {
           "fontFamily": "{o3.font.family.financier-text}",
-          "fontWeight": "{o3.font.weight.thinnest}",
           "fontSize": "{o3.font.size.1}",
-          "lineHeight": "{o3.font.lineheight.3}"
+          "lineHeight": "{o3.font.lineheight.3}",
+          "fontWeight": "1"
         },
         "type": "typography"
       },
