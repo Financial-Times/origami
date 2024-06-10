@@ -4,6 +4,20 @@ import auth from './utils/auth.js';
 import purgeJwtCache from './utils/purge-jwt-cache.js';
 import Delegate from 'ftdomdelegate';
 
+// eslint version is too old to support private methods and we do not want to expose this function as part of the Stream class interface
+function tidyPath(path) {
+	if (!path) {
+		return;
+	}
+	if (!path.startsWith('/')) {
+		path = `/${path}`;
+	}
+	if (!path.endsWith('/')) {
+		path = `${path}/`;
+	}
+	return path;
+}
+
 class Stream {
 	/**
 	 * Class constructor.
@@ -54,22 +68,10 @@ class Stream {
 		however, this causes issues for first-click free users who get redirected to the barrier page
 		this will send the user to a url that isn't behind the paywall instead
 	*/
-	#tidyPath(path) {
-		if (!path) {
-			return;
-		}
-		if (!path.startsWith('/')) {
-			path = `/${path}`;
-		}
-		if (!path.endsWith('/')) {
-			path = `${path}/`;
-		}
-		return path;
-	}
 
 	redirectIllegalCommentReport () {
-		let paywalledReportPath = this.#tidyPath(this.options?.paywalledReportPath) || '/content/';
-		let redirectReportPath = this.#tidyPath(this.options?.redirectReportPath) || '/article/comment-report/';
+		const paywalledReportPath = tidyPath(this.options?.paywalledReportPath) || '/content/';
+		const redirectReportPath = tidyPath(this.options?.redirectReportPath) || '/article/comment-report/';
 		const sendToCommentReport = function (event, elem) {
 			event.preventDefault();
 			const href = elem.getAttribute('href');
