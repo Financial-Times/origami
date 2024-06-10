@@ -103,7 +103,7 @@ class VideoAds {
 		// Request video ads.
 		const adsRequest = new google.ima.AdsRequest();
 
-		let targeting = `pos=${this.video.targeting.position}&ttid=${this.video.targeting.videoId}`;
+		let targeting = `pos=${this.video.advertTargeting.position}&ttid=${this.video.advertTargeting.videoId}`;
 		const brand = this.getVideoBrand();
 		if (brand) {
 			targeting += `&brand=${brand}`;
@@ -114,15 +114,14 @@ class VideoAds {
 			gdfp_req: 1,
 			impl: "s",
 			output: "xml_vast2",
-			iu: this.video.targeting.site,
-			sz: this.video.targeting.sizes,
+			iu: this.video.advertTargeting.site,
+			sz: this.video.advertTargeting.sizes,
 			unviewed_position_start: 1,
 			scp: encodeURIComponent(targeting),
-			...(this.video.advertCustomParams && {cust_params: new URLSearchParams(this.video.advertCustomParams).toString()})
+			...(this.video.advertTargeting.customParams && {cust_params: new URLSearchParams(this.video.advertTargeting.customParams).toString()})
 		}
 
 		const searchParams = new URLSearchParams(paramsObject);
-
 
 		const advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?${searchParams.toString()}`;
 
