@@ -238,8 +238,10 @@ This component contains a sass file (/src/scss/coral-talk-iframe/main.scss) that
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-⚠ maintained | 8 | N/A | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+✨ active | 11 | N/A | [migrate to v11](MIGRATION.md#migrating-from-v10-to-v11) |
+⚠ maintained | 10 | N/A | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
+⚠ maintained | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
+╳ deprecated | 8 | 8.3.3 | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
 ╳ deprecated | 7 | 7.7 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
 ╳ deprecated | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
 ╳ deprecated | 5 | 5.0.1 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
