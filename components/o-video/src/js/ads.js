@@ -117,7 +117,8 @@ class VideoAds {
 			iu: this.video.targeting.site,
 			sz: this.video.targeting.sizes,
 			unviewed_position_start: 1,
-			scp: encodeURIComponent(targeting)
+			scp: encodeURIComponent(targeting),
+			...(this.video.advertCustomParams && {cust_params: new URLSearchParams(this.video.advertCustomParams).toString()})
 		}
 
 		const searchParams = new URLSearchParams(paramsObject);

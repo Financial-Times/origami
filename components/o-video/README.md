@@ -101,6 +101,7 @@ Where `opts` is an optional object with properties
 	- `position:` sets the `pos` param on the ad request which is used to target video ads similar to how `pos: native` is used to target partner content.
 	- `sizes:` also added to ad request to specify video ad sizes to be returned.
 	- `videoId:` added to targeting as a param for targeting ads at a specific video.
+- `advertCustomParams` `[Object]` object containing custom parameters that are used to request video ads. Values include, but are not limited to: user ID, page type, subscription level, resolution.
 
 The config options can also be set as data attribute to instantiate the module declaratively:
 
