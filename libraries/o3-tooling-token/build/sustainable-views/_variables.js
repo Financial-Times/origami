@@ -211,20 +211,6 @@ export default {
 		"css": "--o3-font-family-georgia",
 		"figma": "o3/font/family/georgia"
 },
-	"o3-font-weight-thinnest": {
-		"shortName": "thinnest",
-		"value": "1",
-		"originalValue": "1",
-		"type": "fontWeights",
-		"path": [
-				"o3",
-				"font",
-				"weight",
-				"thinnest"
-		],
-		"css": "--o3-font-weight-thinnest",
-		"figma": "o3/font/weight/thinnest"
-},
 	"o3-font-weight-light": {
 		"shortName": "light",
 		"value": "300",

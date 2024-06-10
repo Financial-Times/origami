@@ -298,7 +298,7 @@ export const Quote: QuoteStory = {
 	args: {
 		content:
 			'Origami is about empowering developers of all levels to build robust, on-brand products ranging from simple static sites through to rich, dynamic web applications, to do it faster, to do it cheaper, and leave them more supportable and more maintainable.',
-		type: 'block',
+		type: 'pull',
 		theme: 'standard',
 		quoteAuthor: 'Quote Author',
 		quoteSource: 'Quote Source',
