@@ -158,7 +158,7 @@
           "type": "color"
         }
       },
-      "quote": {
+      "pullquote-content": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.semibold}",
@@ -167,7 +167,7 @@
         },
         "type": "typography"
       },
-      "quote-author": {
+      "pullquote-author": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.semibold}",
