@@ -82,4 +82,6 @@
   --_o3-editorial-typography-quote-caption-font-weight: var(--o3-font-weight-regular);
   --_o3-editorial-typography-quote-caption-line-height: var(--o3-font-lineheight-negative-2);
   --_o3-editorial-typography-quote-caption-font-size: var(--o3-font-size-negative-2);
+  --_o3-editorial-typography-quote-icon-color: var(--o3-color-palette-teal);
+  --_o3-editorial-typography-pullquote-color: var(--o3-color-palette-teal);
 }

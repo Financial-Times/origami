@@ -202,6 +202,20 @@
           "fontSize": "{o3.font.size.negative-2}"
         },
         "type": "typography"
+      },
+      "quote": {
+        "icon": {
+          "color": {
+            "value": "{o3.color.palette.teal}",
+            "type": "color"
+          }
+        }
+      },
+      "pullquote": {
+        "color": {
+          "value": "{o3.color.palette.teal}",
+          "type": "color"
+        }
       }
     }
   }
