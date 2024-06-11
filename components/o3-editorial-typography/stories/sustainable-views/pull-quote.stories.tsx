@@ -25,12 +25,12 @@ const DesignParams = {
 	url: 'https://www.figma.com/file/5ATknbGociZMlnNXX4sy4f/Whitelabel---Design-System?type=design&node-id=4717-652&mode=design&t=Y50jCZbAtgxH2F3S-4',
 };
 
-export const Quote = StoryTemplates.Quote;
-Quote.parameters = {
+export const PullQuote = StoryTemplates.Quote;
+PullQuote.parameters = {
 	design: DesignParams,
 };
 
-Quote.args = {
+PullQuote.args = {
 	...StoryTemplates.Quote.args,
 	type: 'pull',
 	quoteSource: '',
