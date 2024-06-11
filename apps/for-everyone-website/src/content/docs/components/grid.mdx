@@ -3,13 +3,12 @@ title: Grid
 description: grids
 ---
 import {default as Guideline} from '../../../components/Guideline.astro';
-import {default as GridAnatomy} from '../../../components/grid/GridAnatomy.astro';
 
 The standard FT grid system is designed to be flexible, responsive, and adaptable, catering to a wide range of devices and screen sizes, ensuring consistency and harmony across all digital products.
 
 ## Grid Anatomy
 
-<GridAnatomy />
+![](/assets/images/components/grid/anatomy.svg)
 
 1. Grid Columns
 2. Gutter
@@ -77,7 +76,7 @@ However, you could define custom settings to set specific page size/or view type
 
 ### Columns
 
-![](/assets/images/components/grid/columns.png)
+![](/assets/images/components/grid/columns.svg)
 
 Column widths are fluid and change with the size of the grid.
 
@@ -93,31 +92,31 @@ Our grid uses 100% of the screen’s width until the max width of 1220px is reac
 
 Contained feature keeps the max width of the grid at 1220px. After this, the margins grow to fill the screen. Exceptions can be made for contents, e.g full-bleed banners and graphics, to break out of the contained grid.
 
-![](/assets/images/components/grid/contained-width.png)
+![](/assets/images/components/grid/contained-width.svg)
 
 ### Column Spanning
 
 Layout regions can span any number of columns, separated by the grid gutter. You have the flexibility to set the number to reflect the responsive nature of your design.
 
-![](/assets/images/components/grid/column-spanning.png)
+![](/assets/images/components/grid/column-spanning.svg)
 
 ### Layout Responsiveness
 
 Responsive layout design adapts content layout to various screen types using a fluid layout. This ensures that features built once will display evenly across all screen sizes.
 
-![](/assets/images/components/grid/layout-responsiveness.png)
+![](/assets/images/components/grid/layout-responsiveness.svg)
 
 ### Column Offset
 
 Page content does not always need to span across 12 columns; it can occupy a smaller region of the page.
 
-![](/assets/images/components/grid/column-offset.png)
+![](/assets/images/components/grid/column-offset.svg)
 
 ## Usage Guidelines
 
 <Guideline summary="Content Layout regions" do={true}>
 	<p slot="description">
-		![](/assets/images/components/grid/usage-best-practise.png)
+		![](/assets/images/components/grid/usage-best-practise.svg)
 		Use the gutter width to help determine the space between layout regions. This space can be larger or smaller to help
 		group regions hierarchically on the page.
 	</p>
