@@ -32,7 +32,7 @@ Typographic styles for editorial content.
 - `core`
 - `sustainable-view`
 
-For UI typography see `o3-typography`.
+For UI typography see [o3-typography](https://github.com/Financial-Times/origami/tree/main/components/o3-typography).
 
 ## Markup
 
