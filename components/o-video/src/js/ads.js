@@ -103,13 +103,31 @@ class VideoAds {
 		// Request video ads.
 		const adsRequest = new google.ima.AdsRequest();
 
-		let targeting = `pos=${this.video.targeting.position}&ttid=${this.video.targeting.videoId}`;
+		let targeting = `pos=${this.video.adsTargeting.position}&ttid=${this.video.adsTargeting.videoId}`;
 		const brand = this.getVideoBrand();
 		if (brand) {
 			targeting += `&brand=${brand}`;
 		}
 
-		const advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&iu=${this.video.targeting.site}&sz=${this.video.targeting.sizes}&unviewed_position_start=1&scp=${encodeURIComponent(targeting)}`;
+		const paramsObject = {
+			env: "vp",
+			gdfp_req: 1,
+			impl: "s",
+			output: "xml_vast2",
+			iu: this.video.adsTargeting.site,
+			sz: this.video.adsTargeting.sizes,
+			unviewed_position_start: 1,
+			scp: encodeURIComponent(targeting),
+		}
+
+		const { customParams } = this.video.adsTargeting
+		if(Object.keys(customParams ?? {}).length) {
+			paramsObject.cust_params = new URLSearchParams(customParams).toString()
+		}
+
+		const searchParams = new URLSearchParams(paramsObject);
+
+		const advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?${searchParams.toString()}`;
 
 		adsRequest.adTagUrl = advertisingUrl;
 

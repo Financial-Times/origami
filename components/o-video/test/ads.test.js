@@ -19,7 +19,7 @@ describe('Ads', () => {
 			containerEl,
 			videoEl,
 			opts: {},
-			targeting: {},
+			adsTargeting: {},
 			addCaptions: Function.prototype
 		};
 		ads = new Ads(video);
