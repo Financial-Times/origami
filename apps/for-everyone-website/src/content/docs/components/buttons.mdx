@@ -4,16 +4,19 @@ description: Buttons are triggers that provide users with a call to action. Typi
 ---
 
 import {Button, ButtonGroup} from '@financial-times/o3-button';
+
 import '@financial-times/o3-button/css/whitelabel.css';
 import '@financial-times/o3-button/css/internal.css';
+import '@financial-times/o3-button/css/sustainable-views.css';
+import '@financial-times/o3-button/css/core.css';
 import '@financial-times/o3-button/css/professional.css';
-import {default as ButtonAnatomy} from '../../../components/ButtonAnatomy.astro';
-import {default as Preview} from '../../../components/ButtonPreview.astro';
-import {Content as ButtonGuidelines} from '../../../content-partial/docs/components/buttons-guidelines.mdx';
-import {Content as ButtonBehaviour} from '../../../content-partial/docs/components/buttons-behaviour.mdx';
-import {default as GroupPreview} from '../../../components/ButtonGroupPreview.astro';
-import {Content as ButtonGroupGuidelines} from '../../../content-partial/docs/components/button-group-guidelines.mdx';
-import {Content as ButtonGroupIntro} from '../../../content-partial/docs/components/button-group-intro.mdx';
+
+import {default as Example} from '../../../components/Example.astro';
+import {default as Guideline} from '../../../components/Guideline.astro';
+
+import {default as ButtonAnatomy} from '../../../components/button/ButtonAnatomy.astro';
+import {default as Preview} from '../../../components/button/ButtonPreview.astro';
+import {default as GroupPreview} from '../../../components/button/ButtonGroupPreview.astro';
 
 Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
 
@@ -33,11 +36,118 @@ The button component contains two required elements and one optional element.
 
 ## Usage Guidelines
 
-<ButtonGuidelines />
+<Guideline summary="Keep button labels short" do={true}>
+	<p slot="description">
+		Keep labels short and free of punctuation. They should confirm the action a
+		user is taking. Drop unnecessary articles, such as ‘a’ or ‘the’, for a more
+		concise label.
+	</p>
+	<Example slot="examples" do={true}>
+		<Button label="Share" type="primary" />
+	</Example>
+	<Example slot="examples" do={false}>
+		<Button label="Share on your social media of choice" type="primary" />
+	</Example>
+</Guideline>
+
+<Guideline summary="Use sentence case for button labels" do={true}>
+	<p slot="description">
+		Only capitalize the first letter of the button and any proper nouns. Not
+		title case or Upper case.
+	</p>
+	<Example slot="examples" do={true}>
+		<Button label="Share now" type="primary" />
+	</Example>
+	<Example slot="examples" do={false}>
+		<Button label="Share Now" type="primary" />
+	</Example>
+	<Example slot="examples" do={false}>
+		<Button label="SHARE NOW" type="primary" />
+	</Example>
+</Guideline>
+
+<Guideline summary="Don’t use more than one primary button" do={false}>
+	<p slot="description">
+		Each page or product area (a form, modal, within an article) should not have
+		more than 1 primary button to help guide the user to the primary action. Any
+		remaining CTA's should be displayed as secondary or ghost buttons.
+	</p>
+	<Example slot="examples" do={true}>
+		<Button label="Share" type="primary" />
+		<Button label="Cancel" type="secondary" />
+	</Example>
+	<Example slot="examples" do={false}>
+		<Button label="Share" type="primary" />
+		<Button label="Cancel" type="primary" />
+	</Example>
+</Guideline>
+
+<Guideline summary="Avoid disabled buttons without user research" do={false}>
+    <div slot="description">
+        Avoid disabled buttons unless user research shows they improve your interface. Disabled buttons have poor contrast which makes them difficult to read. They also do not give feedback to a user why they are disabled. This has caused issues for FT readers in the past, and has been flagged in previous accessibility audits.
+
+        Hampus Sethfors explains the issues with disabled buttons in more detail in an [axesslab.com article](https://axesslab.com/disabled-buttons-suck/). In the article Hampus suggests alternative design approaches for common uses of disabled buttons.
+    </div>
+
+    <Example slot="examples" do={false}>
+        <Button label="Submit" type="primary" attributes={{disabled: true}} />
+    </Example>
+
+</Guideline>
+
+<Guideline summary="Don’t use full width buttons in wide containers" do={false}>
+    <div slot="description">
+		Instead use <a href="#width">fluid buttons</a>, which are full-width for small devices or containers up to around 400px width. Otherwise, button width should default to its content length.
+    </div>
+
+    <Example slot="examples" do={true}>
+    	<svg role="presentation" width="217" height="128" viewBox="0 0 217 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+    		<rect width="64.1379" height="127.741" rx="4" fill="#D9D9D9"/>
+    		<rect x="70.0172" width="146.983" height="88.7241" fill="#D9D9D9"/>
+    		<rect x="4.27588" y="112.242" width="55.5862" height="9.08621" fill="#0D7680"/>
+    		<rect x="76.431" y="71.0859" width="53.4483" height="11.2241" fill="#0D7680"/>
+    	</svg>
+    </Example>
+
+    <Example slot="examples" do={false}>
+    	<svg
+    		role="presentation"
+    		width="217"
+    		height="128"
+    		viewBox="0 0 217 128"
+    		fill="none"
+    		xmlns="http://www.w3.org/2000/svg">
+    		<rect width="64.1379" height="127.741" rx="4" fill="#D9D9D9" />
+    		<rect x="70.0172" width="146.983" height="88.7241" fill="#D9D9D9" />
+    		<rect
+    			x="4.27588"
+    			y="112.242"
+    			width="55.5862"
+    			height="9.08621"
+    			fill="#0D7680"
+    		/>
+    		<rect x="76" y="71" width="135" height="11" fill="#0D7680" />
+    	</svg>
+    </Example>
+
+</Guideline>
 
 ## Behaviour
 
-<ButtonBehaviour />
+### Width
+
+A button's width is dependant on the length of its content by default. Alternatively buttons may be "fluid", and stretch to fill the full width of their container.
+
+We recommend buttons are fluid until around 400px, after which the button should be determined by the length of its content.
+
+_(Resize your browser to preview the fluid button's responsive width)_
+
+<Preview
+	brand={props.brand}
+	previewFile="Fluid"
+	component={Button}
+	componentProps={{label: 'Fluid button', type: 'primary', fluid: true}}
+/>
 
 ## Icons
 
@@ -46,8 +156,8 @@ Buttons may be used with icons, without icons, or only icons.
 ### Without icon
 
 <Preview
-	brand="core"
-	component={Button}
+	previewFile="Types-Primary"
+	brand={props.brand}
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
 
@@ -56,16 +166,16 @@ Buttons may be used with icons, without icons, or only icons.
 When icons are used, these are always left aligned.
 
 <Preview
-	brand="core"
-	component={Button}
+	previewFile="Icons-WithIcon"
+	brand={props.brand}
 	componentProps={{label: 'Hello', type: 'primary', icon: 'search'}}
 />
 
 ### Only icon
 
 <Preview
-	brand="core"
-	component={Button}
+	previewFile="Icons-IconOnly"
+	brand={props.brand}
 	componentProps={{
 		label: 'Hello',
 		type: 'primary',
@@ -81,16 +191,16 @@ The button comes in two sizes: standard and small.
 ### Standard
 
 <Preview
-	brand="core"
-	component={Button}
+	previewFile="Types-Primary"
+	brand={props.brand}
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
 
 ### Small
 
 <Preview
-	brand="core"
-	component={Button}
+	previewFile="Sizes-Small"
+	brand={props.brand}
 	componentProps={{label: 'Hello', type: 'primary', size: 'small'}}
 />
 
@@ -103,8 +213,8 @@ There are three types of buttons to support different contexts.
 The primary button is used for the most important calls to action on a page. Primary buttons should only appear once per product area (not including the application header, modal dialogue, on-site messaging, or side panel).
 
 <Preview
-	brand="core"
-	component={Button}
+	previewFile="Types-Primary"
+	brand={props.brand}
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
 
@@ -113,8 +223,8 @@ The primary button is used for the most important calls to action on a page. Pri
 For secondary actions on each page or used in conjunction with a primary button. As part of a pair, the secondary button’s function is to perform the negative action of the set, such as “Cancel” or “Back”.
 
 <Preview
-	brand="core"
-	component={Button}
+	previewFile="Types-Secondary"
+	brand={props.brand}
 	componentProps={{label: 'Hello', type: 'secondary'}}
 />
 
@@ -123,8 +233,8 @@ For secondary actions on each page or used in conjunction with a primary button.
 For the least pronounced actions; often used in conjunction with a primary button. In a situation such as a progress flow, a ghost button may be paired with a primary and secondary button set, where the primary button is for ‘Save and continue’ the ghost button would be ‘Skip’.
 
 <Preview
-	brand="core"
-	component={Button}
+	previewFile="Types-Ghost"
+	brand={props.brand}
 	componentProps={{label: 'Hello', type: 'ghost'}}
 />
 
@@ -135,8 +245,8 @@ Each button type supports the following themes.
 ### Standard
 
 <Preview
-	brand="core"
-	component={Button}
+	previewFile="Types-Primary"
+	brand={props.brand}
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
 
@@ -144,36 +254,82 @@ Each button type supports the following themes.
 
 An alternative theme for use on dark backgrounds.
 
-<Preview
-	brand="core"
-	component={Button}
-	componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
-/>
+<div data-o3-theme="inverse">
+	<Preview
+		previewFile="Themes-Inverse"
+		brand={props.brand}
+		componentProps={{label: 'Hello', type: 'primary', theme: 'inverse'}}
+	/>
+</div>
 
+<BrandedContent brands="core">
 ### Mono
 
 Mono can be helpful where the standard theme distracts from other colour used, for example when placed near data visualisations.
 
-<Preview
-	brand="core"
-	component={Button}
-	componentProps={{label: 'Hello', type: 'primary', theme: 'mono'}}
-/>
+<div data-o3-theme="mono">
+	<Preview
+		previewFile="Themes-Mono"
+		brand={props.brand}
+		componentProps={{label: 'Hello', type: 'primary', theme: 'mono'}}
+	/>
+</div>
+</BrandedContent>
 
 ## Button Groups
 
-<ButtonGroupIntro />
+Buttons may be grouped to combine related buttons together which present users with a set of related, frequently used actions or options in a compact and organized manner.
 
-<GroupPreview
-	brand="core"
-	componentProps={{
-		buttons: [
-			{label: 'Relevance', attributes: {'aria-selected': true}},
-			{label: 'Date'},
-		],
-	}}
-/>
+In terms of user experience, button groups provide a straightforward way for users to perform actions within a single context, emphasizing action over navigation.
+
+<GroupPreview brand={props.brand} />
 
 ### Usage Guidelines
 
-<ButtonGroupGuidelines />
+<Guideline summary="Use grouped buttons for related actions" do={true}>
+	<p slot="description">
+		Group related actions or options closely together to improve usability and
+		decision-making efficiency. For example, use for switching views or modes
+		within the same context, such as changing calendar views from day, week, to
+		month
+	</p>
+	<Example slot="examples" do={true}>
+		![A labelled group of buttons. The label reads "view", it is annotated for
+		demonstration purposes as the "action". The two buttons read "topic" and
+		"timeline". The "topic" button is
+		pressed.](/assets/images/components/buttons/group-guideline-1.svg)
+
+    	![A labelled group of buttons. The label reads "view". The two buttons read
+    	"topic" and "timeline". The buttons are annotated as "mode" for
+    	demonstration purposes. The "topic" button is
+    	pressed.](/assets/images/components/buttons/group-guideline-2.svg)
+    </Example>
+
+</Guideline>
+
+<Guideline summary="Don't use grouped buttons for navigation" do={false}>
+	<p slot="description">
+		Use tabs instead to imply navigation between different content areas or
+		contexts within the same workspace.
+	</p>
+	<Example slot="examples" do={false}>
+    		![](/assets/images/components/buttons/group-guideline-3.svg)
+    </Example>
+
+</Guideline>
+
+<Guideline summary="Limit the number of buttons in a group" do={false}>
+	<p slot="description">
+		Never use groups of more than six buttons, as too many calls to action can
+		cause users to be unsure of what to do next. Also be thoughtful about how
+		multiple buttons will look and work on small screens, this may vary
+		according the the length of the button's label.
+	</p>
+    <Example slot="examples" do={true}>
+    	![](/assets/images/components/buttons/group-guideline-5.svg)
+    </Example>
+    <Example slot="examples" do={false}>
+    	![](/assets/images/components/buttons/group-guideline-4.svg)
+    </Example>
+
+</Guideline>

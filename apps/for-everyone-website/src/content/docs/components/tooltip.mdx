@@ -1,13 +1,13 @@
 ---
 title: Tooltips
 description: Use tooltips for onboarding and providing extra, non-essential information.
-
 ---
 
 import {default as ToggletipAnatomy} from '../../../components/ToggletipAnatomy.astro';
 import {default as OnboardingTooltipAnatomy} from '../../../components/OnboardingTooltipAnatomy.astro';
 import {Content as TooltipGuidelines} from '../../../content-partial/docs/components/onboardingTooltip-guidelines.mdx';
 import {Content as ToggletipGuidelines} from '../../../content-partial/docs/components/toggletip-guidelines.mdx';
+import TooltipPreview from '../../../components/tooltip/TooltipPreview.astro';
 
 There are two kinds of tooltips available:
 
@@ -39,6 +39,8 @@ Onboarding Tooltips help for a smoother introduction to new features or function
 5. <strong>Container</strong>: The encompassing frame that holds the message
    text and ensures it's distinct from other UI elements.
 
+<TooltipPreview component="onboarding" brand={props.brand} />
+
 ### Usage Guidelines
 
 <TooltipGuidelines />
@@ -64,6 +66,8 @@ Toggle Tooltips ("Toggletips") are compact pieces of information designed to off
    indicating the source of the information or context.
 4. <strong>Container</strong>: The encompassing frame that holds the message
    text and ensures it's distinct from other UI elements.
+
+<TooltipPreview component="toggle" brand={props.brand} />
 
 ### Usage Guidelines
 

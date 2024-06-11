@@ -26,10 +26,14 @@ function streamMarkup () {
 				id="o-comments-stream"
 				data-o-component="o-comments"
 				data-o-comments-article-id="id">
+					<div id="coral-shadow-container">
+					</div>
 			</div>
 		</div>
 	`;
 	insert(html);
+	document.getElementById('coral-shadow-container').attachShadow({mode: 'open'});
+	document.getElementById('coral-shadow-container').shadowRoot.innerHTML = `<div id="coral"></div>`;
 }
 
 function countMarkup () {

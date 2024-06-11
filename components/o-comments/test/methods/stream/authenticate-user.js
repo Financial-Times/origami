@@ -167,4 +167,53 @@ export default function authenticateUser () {
 		});
 
 	});
+
+	describe("fetchJsonWebToken returns if user is registered , trial or subscriber", () => { 
+		beforeEach(() => {
+			fixtures.streamMarkup();
+			fetchJWTStub = sinon.stub();
+			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+			sinon.restore();
+		});
+		it('sets this.isSubscribed to true if user is a subscriber', () => {
+			fetchJWTStub.resolves({
+				isSubscribed: true
+			});
+
+			const stream = new Stream();
+			return stream.authenticateUser()
+				.then(() => {
+					proclaim.isTrue(stream.isSubscribed);
+				});
+		});
+
+		it('sets this.isRegistered to true if user is a registered', () => {
+			fetchJWTStub.resolves({
+				isRegistered: true
+			});
+
+			const stream = new Stream();
+			return stream.authenticateUser()
+				.then(() => {
+					proclaim.isTrue(stream.isRegistered);
+				});
+		});
+
+		it('sets this.isTrialist to true if user is in a trial list', () => {
+			fetchJWTStub.resolves({
+				isTrialist: true
+			});
+
+			const stream = new Stream();
+			return stream.authenticateUser()
+				.then(() => {
+					proclaim.isTrue(stream.isTrialist);
+				});
+		});
+	});
+
 }
