@@ -113,6 +113,7 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 	font-size: var(--_o3-editorial-typography-pullquote-content-font-size);
 	font-weight: var(--_o3-editorial-typography-pullquote-content-font-weight);
 	line-height: var(--_o3-editorial-typography-pullquote-content-line-height);
+	color: var(--_o3-editorial-typography-pullquote-color);
 }
 
 .o3-editorial-typography-blockquote {
@@ -136,6 +137,7 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 		mask-size: contain;
 		display: inline-block;
 		background-color: currentColor;
+		color: var(--_o3-editorial-typography-quote-icon-color);
 	}
 }
 
@@ -148,6 +150,7 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 .o3-editorial-typography-pullquote__author,
 .o3-editorial-typography-blockquote__author {
 	margin-bottom: var(--o3-spacing-5xs);
+	color: var(--_o3-editorial-typography-pullquote-color);
 }
 
 .o3-editorial-typography-pullquote__author,

@@ -183,6 +183,20 @@ export default {
 		"css": "--o3-font-family-financier-display",
 		"figma": "o3/font/family/financier-display"
 },
+	"o3-font-family-financier-text": {
+		"shortName": "financier-text",
+		"value": "'financier text VF'",
+		"originalValue": "financier text VF",
+		"type": "fontFamilies",
+		"path": [
+				"o3",
+				"font",
+				"family",
+				"financier-text"
+		],
+		"css": "--o3-font-family-financier-text",
+		"figma": "o3/font/family/financier-text"
+},
 	"o3-font-family-georgia": {
 		"shortName": "georgia",
 		"value": "georgia",

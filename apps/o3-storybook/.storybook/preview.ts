@@ -29,7 +29,7 @@ const preview: Preview = {
 			prettier: {
 				tabWidth: 2,
 				useTabs: false,
-				htmlWhitespaceSensitivity: 'strict',
+				htmlWhitespaceSensitivity: 'ignore',
 			},
 		},
 		backgrounds: {

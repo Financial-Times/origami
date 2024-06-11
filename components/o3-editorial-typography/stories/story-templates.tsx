@@ -21,7 +21,7 @@ import type {
 	DetailProps,
 	TopicTagProps,
 	LinkProps,
-} from '../src/types/index';
+} from '../src/types';
 
 type StoryObjNoArgs = Omit<StoryObj, 'args'>;
 
@@ -50,7 +50,7 @@ type BigNumberStory = StoryObjNoArgs & {
 };
 
 type BylineStory = StoryObjNoArgs & {
-	args: Omit<BylineProps, 'children'>;
+	args: Omit<BylineProps, 'children'> & {brand?: string};
 };
 
 type LinkStory = StoryObjNoArgs & {
@@ -145,6 +145,13 @@ const QuoteTemplate: StoryObj = {
 				type: 'radio',
 			},
 		},
+		quoteSource: {
+			control: {
+				type: 'text',
+				placeholder: 'Quote source',
+			},
+			if: {arg: 'type', eq: 'block'},
+		},
 	},
 	parameters: {
 		controls: {exclude: ['type', 'children']},
@@ -171,19 +178,19 @@ const BylineTemplate: StoryObj = {
 		...TemplateSBConfig.argTypes,
 	},
 	parameters: {
-		controls: {exclude: ['type', 'children']},
+		controls: {exclude: ['type', 'children', 'brand']},
 	},
 	render: args => {
 		return (
 			<BylineTsx {...args}>
 				<a className="o3-editorial-typography-byline-author" href="#">
-					Joe Doe
+					Joe Doe&nbsp;
 				</a>
-				&nbsp;
-				<span className="o3-editorial-typography-byline-location">
-					in London
-				</span>
-				&nbsp;
+				{args.brand != 'sustainable-views' ? (
+					<span className="o3-editorial-typography-byline-location">
+						in London&nbsp;
+					</span>
+				) : null}
 				<time
 					className="o3-editorial-typography-byline-timestamp"
 					dateTime="2019-10-11T20:51:54Z"
@@ -291,7 +298,7 @@ export const Quote: QuoteStory = {
 	args: {
 		content:
 			'Origami is about empowering developers of all levels to build robust, on-brand products ranging from simple static sites through to rich, dynamic web applications, to do it faster, to do it cheaper, and leave them more supportable and more maintainable.',
-		type: 'block',
+		type: 'pull',
 		theme: 'standard',
 		quoteAuthor: 'Quote Author',
 		quoteSource: 'Quote Source',
