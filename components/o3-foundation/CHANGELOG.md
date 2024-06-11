@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.2.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.1.3...o3-foundation-v1.2.0) (2024-06-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Add Sustainable Views support to editorial typography [OR-578]
+
+### Features
+
+* Add Sustainable Views support to editorial typography [OR-578] ([359dfdc](https://github.com/Financial-Times/origami/commit/359dfdca59e54425ff3323c89132a7e8c60ee29b))
+
+
+### Miscellaneous Chores
+
+* release 1.2.0 ([#1708](https://github.com/Financial-Times/origami/issues/1708)) ([67fe8f4](https://github.com/Financial-Times/origami/commit/67fe8f4b7ed421febdf58ddb78550c15a9b7e897))
+
 ## [1.1.3](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.1.2...o3-foundation-v1.1.3) (2024-05-31)
 
 
