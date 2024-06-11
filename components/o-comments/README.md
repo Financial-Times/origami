@@ -47,6 +47,22 @@ Use the following markup to enable a comment stream:
 ```
 Coral needs a parent element id when initialising the comment stream embed script.
 
+### Redirection for illegal comment reporting
+
+Within Coral, when a user clicks on the link to report an illegal comment, Coral's default behaviour is to open a new window with the same url and some added querystring items. However, this causes issues for first-click free users who get redirected to the barrier page instead. In order to stay compliant with the DSA, which requires anonymous users to be able to report illegal comments, the link click is intercepted and the user redirected to a non-paywalled page instead.
+
+The paywall report path defaults to `/content/`, the redirect report path defaults to `/article/comment-report/`. If you need either of these to be different paths, you can add either or both of the following attributes to change them to your paths.
+
+```diff
+<div class="o-comments"
+	id="{element-id}"
+	data-o-component="o-comments"
+	data-o-comments-article-id="{article-id}"
+	data-o-comments-article-url="{optional-article-url}"
++	data-o-comments-paywalled-report-path="{optional-paywall-report-path}"
++	data-o-comments-redirect-report-path="{optional-redirect-report-path}">
+</div>```
+
 ### Count
 
 Add the following attribute to the markup to enable a comment count:
@@ -222,8 +238,10 @@ This component contains a sass file (/src/scss/coral-talk-iframe/main.scss) that
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-⚠ maintained | 8 | N/A | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+✨ active | 11 | N/A | [migrate to v11](MIGRATION.md#migrating-from-v10-to-v11) |
+⚠ maintained | 10 | N/A | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
+⚠ maintained | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
+╳ deprecated | 8 | 8.3.3 | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
 ╳ deprecated | 7 | 7.7 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
 ╳ deprecated | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
 ╳ deprecated | 5 | 5.0.1 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
