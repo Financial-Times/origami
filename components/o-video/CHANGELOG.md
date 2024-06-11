@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.3.0](https://github.com/Financial-Times/origami/compare/o-video-v7.2.13...o-video-v7.3.0) (2024-06-11)
+
+
+### Features
+
+* Add custom params to ad targeting ([#1703](https://github.com/Financial-Times/origami/issues/1703)) ([e20423a](https://github.com/Financial-Times/origami/commit/e20423ae16c4fde0b7f6931f7e7c9134484765c7))
+
 ## [7.2.13](https://github.com/Financial-Times/origami/compare/o-video-v7.2.12...o-video-v7.2.13) (2024-05-02)
 
 
