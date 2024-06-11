@@ -7,9 +7,6 @@
 
 * Support Coral's illegal comments report feature for anonymous users ([#1689](https://github.com/Financial-Times/origami/issues/1689))
 
-### Bug Fixes
-
-* Support Coral's illegal comments report feature for anonymous users ([#1689](https://github.com/Financial-Times/origami/issues/1689)) ([7da999f](https://github.com/Financial-Times/origami/commit/7da999f5956b19551729001dfde98a8f411c0e4f))
 
 ## [10.4.0](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.8...o-comments-v10.4.0) (2024-06-10)
 
