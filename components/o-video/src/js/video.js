@@ -192,7 +192,7 @@ class Video {
 			videoId: this.opts.id
 		};
 
-		this.advertTargeting = Object.assign({}, defaultTargeting, this.opts.advertTargeting ?? this.opts.targeting);
+		this.adsTargeting = Object.assign({}, defaultTargeting, this.opts.adsTargeting ?? this.opts.targeting);
 
 		if (this.opts.advertising) {
 			this.videoAds = new VideoAds(this);
