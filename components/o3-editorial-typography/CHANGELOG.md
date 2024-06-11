@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.0](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v1.0.2...o3-editorial-typography-v1.1.0) (2024-06-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Add Sustainable Views support to editorial typography [OR-578]
+
+### Features
+
+* Add Sustainable Views support to editorial typography [OR-578] ([359dfdc](https://github.com/Financial-Times/origami/commit/359dfdca59e54425ff3323c89132a7e8c60ee29b))
+
 ## [1.0.2](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v1.0.1...o3-editorial-typography-v1.0.2) (2024-05-31)
 
 
