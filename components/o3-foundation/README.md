@@ -55,7 +55,7 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 `o3-foundation` provides a set of CSS Custom Properties for normalising the default browser styles and also applies a set of defaults to elements. This is to ensure a consistent starting point for all projects and respective brands. The list of normalisations includes:
 
 - Normalising styles for `<html>, <body>`
-- Adding font-smoothing to mozilla and webkit browsers
+- Adding font-smoothing to Mozilla and WebKit browsers
 - Reducing motion for users who have requested it
 - Normalising links
 - Normalising text related elements
