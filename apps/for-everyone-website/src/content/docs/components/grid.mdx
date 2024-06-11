@@ -1,0 +1,131 @@
+---
+title: Grid
+description: grids
+---
+import {default as Guideline} from '../../../components/Guideline.astro';
+import {default as GridAnatomy} from '../../../components/grid/GridAnatomy.astro';
+
+The standard FT grid system is designed to be flexible, responsive, and adaptable, catering to a wide range of devices and screen sizes, ensuring consistency and harmony across all digital products.
+
+## Grid Anatomy
+
+<GridAnatomy />
+
+1. Grid Columns
+2. Gutter
+3. Margin
+
+## Dimensions
+
+<table>
+	<thead>
+	<tr>
+		<th>Breakpoint</th>
+		<th>Range (px)</th>
+		<th>columns</th>
+		<th>Margin</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>XS</td>
+		<td>320-489</td>
+		<td>4</td>
+		<td>16px</td>
+	</tr>
+	<tr>
+		<td>S</td>
+		<td>490-739</td>
+		<td>4</td>
+		<td>16px</td>
+	</tr>
+	<tr>
+		<td>M</td>
+		<td>740-979</td>
+		<td>8</td>
+		<td>24px</td>
+	</tr>
+	<tr>
+		<td>L</td>
+		<td>980-1219</td>
+		<td>12</td>
+		<td>24px</td>
+	</tr>
+	<tr>
+		<td>XL</td>
+		<td>1220+</td>
+		<td>12</td>
+		<td>64px</td>
+	</tr>
+	</tbody>
+</table>
+
+### Breakpoints
+
+Breakpoints are defined as min-width attributes. This means that screen sizes in between two defined breakpoint dimensions will inherit all dimensions of the breakpoint of smaller size.
+
+Our grid adapts to the following breakpoints to accommodate various screen sizes:
+
+* **Default (XS)**: 320px-489px. Default/smallest screen.
+* **Small (S)**: 490-739px. For larger mobile & small tablets.
+* **Medium (M)**: 740-979px. For tablets.
+* **Large (L)**: 980-1219px. For large tablets and small desktops.
+* **Extra Large (XL)**: 1220px and above. For desktop screens.
+
+
+However, you could define custom settings to set specific page size/or view type to use a design outside it’s breakpoint. For instance, the landscape width of the iPad pro is 1366px, which falls within the XL breakpoint. You can set this to maintain the X breakpoint design instead by indicating to your engineer.
+
+### Columns
+
+![](/assets/images/components/grid/columns.png)
+
+Column widths are fluid and change with the size of the grid.
+
+### Baseline Grid
+
+The legacy grid uses a 4px baseline. We have not moved this yet because we are deciding between 4px and 8px baseline. This decision affects typography and spacing, so it will be considered during the typography and spacing optimisation.
+
+## Grid Behaviours
+
+Our grid uses 100% of the screen’s width until the max width of 1220px is reached. This allows for maximum use of screen real estate, in complex screens and readability of page content in large and high-definition screens.
+
+### Contained Width
+
+Contained feature keeps the max width of the grid at 1220px. After this, the margins grow to fill the screen. Exceptions can be made for contents, e.g full-bleed banners and graphics, to break out of the contained grid.
+
+![](/assets/images/components/grid/contained-width.png)
+
+### Column Spanning
+
+Layout regions can span any number of columns, separated by the grid gutter. You have the flexibility to set the number to reflect the responsive nature of your design.
+
+![](/assets/images/components/grid/column-spanning.png)
+
+### Layout Responsiveness
+
+Responsive layout design adapts content layout to various screen types using a fluid layout. This ensures that features built once will display evenly across all screen sizes.
+
+![](/assets/images/components/grid/layout-responsiveness.png)
+
+### Column Offset
+
+Page content does not always need to span across 12 columns; it can occupy a smaller region of the page.
+
+![](/assets/images/components/grid/column-offset.png)
+
+## Usage Guidelines
+
+<Guideline summary="Content Layout regions" do={true}>
+	<p slot="description">
+		![](/assets/images/components/grid/usage-best-practise.png)
+		Use the gutter width to help determine the space between layout regions. This space can be larger or smaller to help
+		group regions hierarchically on the page.
+	</p>
+</Guideline>
+
+<Guideline summary="Aligning content to grid" do={true}>
+	<p slot="description">
+		Create a container around the sub-items in a page e.g ads banners to align with the grid columns, avoid having a
+		double grid on top of the core grid.
+	</p>
+</Guideline>
