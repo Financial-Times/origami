@@ -22,7 +22,7 @@ export default {
 
 				// user is not signed in or session token is invalid
 				// or error in comments api
-				return { userHasValidSession: false };
+				return { userHasValidSession: false, isSubscribed: false, isTrialist: false};
 			}
 		});
 	}

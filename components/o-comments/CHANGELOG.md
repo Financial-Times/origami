@@ -1,5 +1,20 @@
 # Changelog
 
+## [11.0.0](https://github.com/Financial-Times/origami/compare/o-comments-v10.4.0...o-comments-v11.0.0) (2024-06-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Support Coral's illegal comments report feature for anonymous users ([#1689](https://github.com/Financial-Times/origami/issues/1689))
+
+
+## [10.4.0](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.8...o-comments-v10.4.0) (2024-06-10)
+
+
+### Features
+
+* add feature onlySubscribers on comments ([6d1da6b](https://github.com/Financial-Times/origami/commit/6d1da6b544efe49c060c255acfbf046ce0083a21))
+
 ## [10.3.8](https://github.com/Financial-Times/origami/compare/o-comments-v10.3.7...o-comments-v10.3.8) (2024-02-23)
 
 

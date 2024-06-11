@@ -33,11 +33,11 @@ describe('Video', () => {
 			proclaim.ok(video.opts);
 			proclaim.equal(video.opts.id, 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 
-			proclaim.ok(video.targeting);
-			proclaim.equal(video.targeting.site, '/5887/ft.com');
-			proclaim.equal(video.targeting.position, 'video');
-			proclaim.equal(video.targeting.sizes, '592x333|400x225');
-			proclaim.equal(video.targeting.videoId, 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
+			proclaim.ok(video.adsTargeting);
+			proclaim.equal(video.adsTargeting.site, '/5887/ft.com');
+			proclaim.equal(video.adsTargeting.position, 'video');
+			proclaim.equal(video.adsTargeting.sizes, '592x333|400x225');
+			proclaim.equal(video.adsTargeting.videoId, 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 
 			proclaim.equal(video.containerEl, containerEl);
 			proclaim.isTrue(video.containerEl.hasAttribute('data-o-video-js'));

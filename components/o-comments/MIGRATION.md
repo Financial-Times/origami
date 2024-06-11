@@ -1,5 +1,8 @@
 ## Migration
 
+### Migrating from v10 to v11
+To migrate you need to have a page that will display the illegal comments report form, existing on an available path e.g. https://github.com/Financial-Times/next-article/commit/3dca12c19ee223f654d11cf74ad8d545e1bad0b7. This defaults to switching `/content/` to `/article/comment-report/` but you can specify your own paths.
+
 ### Migrating from v9 to v10
 To migrate you need to have the coral API in version 7 and change the urls to fetch fonts and styles on coral API admin to fetch styles from this version . See more in (documentation)[https://docs.coralproject.net/migrating-6-to-7#after-coral-has-been-updated-to-v7]
 

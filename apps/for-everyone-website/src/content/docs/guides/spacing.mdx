@@ -5,11 +5,27 @@ sidebar:
   order: 3
 ---
 
-import {Content as SpacingImplementerNotes} from '../../../content-partial/docs/guides/spacing-implementers-note-origami.mdx';
 import Spacing from '../../../components/Spacing.astro';
 
-<SpacingImplementerNotes />
+<BrandedContent brands="core, professional, internal">
+	- Figma Variables are available for spacing, see [your brand's Figma
+	library](https://www.figma.com/files/938480807921629744/team/1237702133754424766).
+	- Our new spacing scale includes additional options and different, t-shirt
+	naming. For comparison, see our [o2 UI
+	library](https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?type=design&node-id=0-2169&mode=design&t=WXTU1v4lXmcRPKaO-0)
+	and [o2 o-spacing component in Storybook](https://o2.origami.ft.com/).
+</BrandedContent>
+
+<BrandedContent brands="sustainable-views">
+	- Our new spacing scale has divergent compared with the legacy Clay design
+	system. All spaces are now a multiple of 4px, our baseline grid. The largest
+	spaces have been removed.
+  - Figma Variables are available for spacing, see
+	[your brand's Figma
+	library](https://www.figma.com/files/938480807921629744/team/1237702133754424766).
+
+</BrandedContent>
 
 ## Spacing Scale
 
-<Spacing brand={'core'} />
+<Spacing brand={props.brand} />

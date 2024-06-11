@@ -2,6 +2,21 @@ import events from './utils/events.js';
 import displayName from './utils/display-name.js';
 import auth from './utils/auth.js';
 import purgeJwtCache from './utils/purge-jwt-cache.js';
+import Delegate from 'ftdomdelegate';
+
+// eslint version is too old to support private methods and we do not want to expose this function as part of the Stream class interface
+function tidyPath(path) {
+	if (!path) {
+		return;
+	}
+	if (!path.startsWith('/')) {
+		path = `/${path}`;
+	}
+	if (!path.endsWith('/')) {
+		path = `${path}/`;
+	}
+	return path;
+}
 
 class Stream {
 	/**
@@ -15,9 +30,14 @@ class Stream {
 		this.options = opts;
 		this.eventSeenTimes = {};
 		this.useStagingEnvironment = Boolean(opts.useStagingEnvironment);
+		this.isSubscribed = false;
+		this.isTrialist = false;
+		this.onlySubscribers = opts.onlySubscribers;
 	}
 
 	init () {
+		this.redirectIllegalCommentReport();
+
 		const renderAndAuthenticate = (displayName) => {
 			return Promise.all([this.renderComments(), this.authenticateUser(displayName)])
 				.then(() => {
@@ -38,6 +58,37 @@ class Stream {
 				this.renderSignedInMessage();
 			}
 		}
+		else if(this.onlySubscribers){
+			this.renderNotSignedInMessage();
+		}
+	}
+
+	/*
+		coral's default behaviour is to reload the page with the comments section in a different view
+		however, this causes issues for first-click free users who get redirected to the barrier page
+		this will send the user to a url that isn't behind the paywall instead
+	*/
+
+	redirectIllegalCommentReport () {
+		const paywalledReportPath = tidyPath(this.options?.paywalledReportPath) || '/content/';
+		const redirectReportPath = tidyPath(this.options?.redirectReportPath) || '/article/comment-report/';
+		const sendToCommentReport = function (event, elem) {
+			event.preventDefault();
+			const href = elem.getAttribute('href');
+			// the below will actually work for comments on vanity urls, as the underlying article url is used in coral
+			const newUrl = href.replace(paywalledReportPath, redirectReportPath);
+			window.open(newUrl);
+		}
+
+		document.addEventListener('oComments.ready', () => {
+			const shadowContainer = this.streamEl.querySelector('#coral-shadow-container');
+			const shadowRoot = shadowContainer?.shadowRoot;
+			const shadowFirstContainer = shadowRoot?.children?.length && shadowRoot.children[0];
+			if (shadowFirstContainer) {
+				const commentReportDelegate = new Delegate(shadowFirstContainer);
+				commentReportDelegate.on('click', 'a[href*=illegalContentReport]', sendToCommentReport);
+			}
+		});
 	}
 
 	authenticateUser (displayName) {
@@ -58,6 +109,9 @@ class Stream {
 				} else {
 					this.userHasValidSession = response.userHasValidSession;
 				}
+				this.isSubscribed = response?.isSubscribed;
+				this.isTrialist = response?.isTrialist;
+				this.isRegistered = response?.isRegistered;
 			})
 			.catch(() => {
 				return false;
@@ -97,7 +151,9 @@ class Stream {
 							}
 						}
 					);
-					resolve();
+					this.embed.on('ready', () => {
+						resolve();
+					});
 				};
 				this.streamEl.parentNode.appendChild(scriptElement);
 
@@ -246,6 +302,43 @@ class Stream {
 			this.displayNamePrompt({purgeCacheAfterCompletion: true});
 		};
 	}
+
+	renderNotSignedInMessage () {
+			if(this.isSubscribed){
+				return;
+			}
+
+			const shadowRoot = this.streamEl.querySelector("#coral-shadow-container").shadowRoot;
+			const coralContainer = shadowRoot.querySelector("#coral");
+			coralContainer.setAttribute('data-user-not-signed-in' , true);
+	
+			const customMessageContainer = document.createElement("section");
+			customMessageContainer.classList.add('coral__custom-message-content','coral');
+			const messageRegistered = `
+			<h3>Commenting is only available to readers with FT subscription</h3>
+				<p>
+					<a href='https://subs.ft.com/products'>Subscribe</a> to join the conversation.
+				</p>
+			`;
+			const currentUrlEscaped = encodeURIComponent(window.location.href);
+			const messageForAnonymous = `
+			<h3>Commenting is only available to readers with FT subscription</h3>
+				<p>
+					Please <a href='https://ft.com/login?location=${currentUrlEscaped}'>login</a> or <a href='https://subs.ft.com/products'>subscribe</a> to join the conversation.
+				</p>
+			`;
+			const messageForTrial = `
+			<h3>You are still in a trial period</h3>
+				<p>
+					View our full <a href='https://subs.ft.com/products'>subscription packages</a> to join the conversation.
+				</p>
+			`;
+			customMessageContainer.innerHTML = this.isTrialist ? messageForTrial : this.isRegistered ? messageRegistered : messageForAnonymous;
+
+			coralContainer.prepend(customMessageContainer);
+	}
+
+
 }
 
 export default Stream;
