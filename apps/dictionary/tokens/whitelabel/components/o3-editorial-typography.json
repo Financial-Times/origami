@@ -285,6 +285,42 @@
           "lineHeight": "{o3.font.lineheight-metric2.2}"
         },
         "type": "typography"
+      },
+      "summary-m": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.1}",
+          "lineHeight": "{o3.font.lineheight-metric2.3}"
+        },
+        "type": "typography"
+      },
+      "summary-l": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.2}",
+          "lineHeight": "{o3.font.lineheight-metric2.4}"
+        },
+        "type": "typography"
+      },
+      "dropcap-l": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.light}",
+          "fontSize": "108",
+          "lineHeight": "108"
+        },
+        "type": "typography"
+      },
+      "dropcap-m": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.light}",
+          "fontSize": "94",
+          "lineHeight": "94"
+        },
+        "type": "typography"
       }
     }
   }
