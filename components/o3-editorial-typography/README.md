@@ -176,7 +176,7 @@ import {Standfirst} from '@financial-times/o3-editorial-typography/cjs'; // or /
 
 #### Summary
 
-Use to provide a brief overview of an article’s content for supported brands.
+Use to provide a concise summary of the article, offering a quick, high-level overview of the key points. It allows readers to grasp the main ideas without reading the entire article.
 
 ```html
 <p class="o3-editorial-typography-summary">Summary</p>
