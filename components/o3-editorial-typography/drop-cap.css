@@ -1,11 +1,12 @@
 /* Currently unsupported by brands,
 We intend to introduce this to future Specialist Titles */
-
 .o3-editorial-typography-body--drop-cap:first-child:first-letter {
 	font-family: var(--_o3-dropcap-font-family);
 	font-weight: var(--_o3-dropcap-font-weight);
 	font-size: var(--_o3-dropcap-font-size);
 	line-height: var(--_o3-dropcap-line-height);
+	float: left;
+	margin: 0 1rem;
 }
 
 .o3-editorial-typography-body--drop-cap {

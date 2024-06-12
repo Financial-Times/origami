@@ -122,10 +122,10 @@
   --_o3-editorial-typography-summary-l-line-height: var(--o3-font-lineheight-metric2-4);
   --_o3-editorial-typography-dropcap-l-font-family: var(--o3-font-family-metric);
   --_o3-editorial-typography-dropcap-l-font-weight: var(--o3-font-weight-light);
-  --_o3-editorial-typography-dropcap-l-font-size: 6.75rem;
-  --_o3-editorial-typography-dropcap-l-line-height: 6.75rem;
+  --_o3-editorial-typography-dropcap-l-font-size: 6.625rem;
+  --_o3-editorial-typography-dropcap-l-line-height: 5.5625rem;
   --_o3-editorial-typography-dropcap-m-font-family: var(--o3-font-family-metric);
   --_o3-editorial-typography-dropcap-m-font-weight: var(--o3-font-weight-light);
   --_o3-editorial-typography-dropcap-m-font-size: 5.875rem;
-  --_o3-editorial-typography-dropcap-m-line-height: 5.875rem;
+  --_o3-editorial-typography-dropcap-m-line-height: 4.8125rem;
 }
