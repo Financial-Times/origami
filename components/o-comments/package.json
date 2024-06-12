@@ -32,7 +32,7 @@
     "@financial-times/o-overlay": "^4.2.1",
     "@financial-times/o-spacing": "^3.0.0",
     "@financial-times/o-typography": "^7.4.1",
-    "ftdomdelegate": "^5.0.1"
+    "ftdomdelegate": "^5.0.0"
   },
   "devDependencies": {
     "@financial-times/o-forms": "^9.9.0",
