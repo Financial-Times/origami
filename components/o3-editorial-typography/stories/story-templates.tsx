@@ -1,6 +1,7 @@
 import {
 	Headline as HeadlineTsx,
 	Body as BodyTsx,
+	Summary as SummaryTsx,
 	Caption as CaptionTsx,
 	StandFirst as StandFirstTsx,
 	TopicTag as TopicTagTsx,
@@ -15,6 +16,7 @@ import type {StoryObj, Meta} from '@storybook/react';
 import type {
 	HeadlineProps,
 	BodyProps,
+	SummaryProps,
 	QuoteProps,
 	BigNumberProps,
 	BylineProps,
@@ -31,6 +33,10 @@ type HeadlineStory = StoryObjNoArgs & {
 
 type BodyStory = StoryObjNoArgs & {
 	args: Omit<BodyProps, 'children'> & {content: string};
+};
+
+type SummaryStory = StoryObjNoArgs & {
+	args: Omit<SummaryProps, 'children'> & {content: string};
 };
 
 type DetailStory = StoryObjNoArgs & {
@@ -98,6 +104,15 @@ const BodyTemplate: StoryObj = {
 	},
 	render: args => {
 		return <BodyTsx {...args}>{args.content}</BodyTsx>;
+	},
+};
+
+const SummaryTemplate: StoryObj = {
+	argTypes: {
+		...TemplateSBConfig.argTypes,
+	},
+	render: args => {
+		return <SummaryTsx {...args}>{args.content}</SummaryTsx>;
 	},
 };
 
@@ -265,6 +280,13 @@ export const Body: BodyStory = {
 		content:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum illum facere totam architecto eum porro exercitationem, ea, accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?',
 		theme: 'standard',
+	},
+};
+
+export const Summary: SummaryStory = {
+	...SummaryTemplate,
+	args: {
+		content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
 	},
 };
 

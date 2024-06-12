@@ -1,0 +1,15 @@
+/* Currently unsupported by brands,
+We intend to introduce this to future Specialist Titles */
+
+.o3-editorial-typography-summary {
+	font-family: var(--_o3-editorial-typography-summary-m-font-family);
+	font-size: var(--_o3-editorial-typography-summary-m-font-size);
+	font-weight: var(--_o3-editorial-typography-summary-m-font-weight);
+	line-height: var(--_o3-editorial-typography-summary-m-line-height);
+	@media screen and (min-width: 980px) {
+		font-family: var(--_o3-editorial-typography-summary-l-font-family);
+		font-size: var(--_o3-editorial-typography-summary-l-font-size);
+		font-weight: var(--_o3-editorial-typography-summary-l-font-weight);
+		line-height: var(--_o3-editorial-typography-summary-l-line-height);
+	}
+}

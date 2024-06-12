@@ -2,21 +2,21 @@ import type {Meta} from '@storybook/react';
 import {Body as BodyTsx} from '../../src/tsx/index';
 import * as StoryTemplates from '../story-templates';
 
-import '../../src/css/brands/sustainable-views.css';
+import '../../src/css/brands/whitelabel.css';
 
 export default {
-	title: 'Sustainable views/o3-editorial-typography',
+	title: 'Whitelabel/o3-editorial-typography',
 	component: BodyTsx,
 	decorators: [
 		Story => (
-			<div data-o3-brand="sustainable-views">
+			<div data-o3-brand="whitelabel">
 				<Story />
 			</div>
 		),
 	],
 	parameters: {
 		backgrounds: {default: 'white'},
-		controls: {exclude: ['children', 'theme', 'dropCap']},
+		controls: {exclude: ['children', 'theme']},
 	},
 } as Meta;
 

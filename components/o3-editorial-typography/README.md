@@ -14,10 +14,11 @@ Typographic styles for editorial content.
     - [Editorial detail styles](#editorial-detail-styles)
       - [Topic Tag](#topic-tag)
       - [Standfirst](#standfirst)
+      - [Summary](#summary)
       - [Caption](#caption)
       - [Byline](#byline)
-      - [Quote](#quote)
-      - [Big Number](#big-number)
+    - [Quote](#quote)
+    - [Big Number](#big-number)
     - [Lists](#lists)
     - [Links](#links)
   - [Theme modifiers](#theme-modifiers)
@@ -54,7 +55,7 @@ Heading styles are available in 5 different types.
 
 ```html
 <h1 class="o3-editorial-typography-headline-large" data-o3-editorial-underline>
- Large headline
+	Large headline
 </h1>
 
 <h1 class="o3-editorial-typography-headline">Headline</h1>
@@ -95,9 +96,7 @@ O3 editorial paragraphs are styled with the `o3-editorial-typography-body` class
 #### HTML
 
 ```html
-<p class="o3-editorial-typography-body">
- This is a small paragraph of text.
-</p>
+<p class="o3-editorial-typography-body">This is a small paragraph of text.</p>
 ```
 
 #### JSX
@@ -114,6 +113,7 @@ import {Body} from '@financial-times/o3-typography/cjs'; // or /esm
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | theme | `standard` \| `inverse` | `standard` | Theme of the body. |
+| dropCap | `boolean` | `false` | Style the first letter as a drop cap, for supported brands. |
 
 **Note:** if the children of the `<Body>` component are not text, the wrapper element with be a `<div>` element. If the children are just string, the wrapper element will be a `<p>` element.
 
@@ -147,8 +147,8 @@ import {TopicTag} from '@financial-times/o3-editorial-typography/cjs'; // or /es
 
 Color and hover colour of the topic tag can be customized by using the following CSS variables:
 
-| Variable                                          | Description                  | Default                |
-| ------------------------------------------------- | ---------------------------- | ---------------------- |
+| Variable                                          | Description                   | Default                |
+| ------------------------------------------------- | ----------------------------- | ---------------------- |
 | `--o3-editorial-typography-topic-tag-color`       | Colour of the topic tag       | `claret` - for core    |
 | `--o3-editorial-typography-topic-tag-hover-color` | Hover colour of the topic tag | `claret-30` - for core |
 
@@ -173,6 +173,22 @@ import {Standfirst} from '@financial-times/o3-editorial-typography/cjs'; // or /
 | Prop  | Type                    | Default    | Description              |
 | ----- | ----------------------- | ---------- | ------------------------ |
 | theme | `standard` \| `inverse` | `standard` | Theme of the standfirst. |
+
+#### Summary
+
+Use to provide a brief overview of an article’s content for supported brands.
+
+```html
+<p class="o3-editorial-typography-summary">Summary</p>
+```
+
+or with JSX import:
+
+```jsx
+import {Summary} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
+
+<Summary>Summary</Summary>;
+```
 
 #### Caption
 
@@ -203,16 +219,16 @@ Author name is usually an anchor but does not have to be if there is no page to 
 
 ```html
 <div class="o3-editorial-typography-byline">
- <a class="o3-editorial-typography-byline-author" href="#">Joe Doe</a>
- &nbsp;
- <span class="o3-editorial-typography-byline-location">in London</span>
- &nbsp;
- <time
-  class="o3-editorial-typography-byline-timestamp"
-  datetime="2019-10-11T20:51:54Z"
-  title="October 11 2019 9:51 pm"
-  >October 11 2019</time
- >
+	<a class="o3-editorial-typography-byline-author" href="#">Joe Doe</a>
+	&nbsp;
+	<span class="o3-editorial-typography-byline-location">in London</span>
+	&nbsp;
+	<time
+		class="o3-editorial-typography-byline-timestamp"
+		datetime="2019-10-11T20:51:54Z"
+		title="October 11 2019 9:51 pm"
+		>October 11 2019</time
+	>
 </div>
 ```
 
@@ -222,18 +238,18 @@ or with JSX import:
 import {Byline} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
 <Byline>
- <a className="o3-editorial-typography-byline-author" href="#">
-  Joe Doe
- </a>
- &nbsp;
- <span className="o3-editorial-typography-byline-location">in London</span>
- &nbsp;
- <time
-  className="o3-editorial-typography-byline-timestamp"
-  dateTime="2019-10-11T20:51:54Z"
-  title="October 11 2019 9:51 pm">
-  October 11 2019
- </time>
+	<a className="o3-editorial-typography-byline-author" href="#">
+		Joe Doe
+	</a>
+	&nbsp;
+	<span className="o3-editorial-typography-byline-location">in London</span>
+	&nbsp;
+	<time
+		className="o3-editorial-typography-byline-timestamp"
+		dateTime="2019-10-11T20:51:54Z"
+		title="October 11 2019 9:51 pm">
+		October 11 2019
+	</time>
 </Byline>;
 ```
 
@@ -244,29 +260,29 @@ import {Byline} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
 Byline author colour and hover color can be customized by using the following CSS variables:
 
-| Variable                                              | Description                      | Default                |
-| ----------------------------------------------------- | -------------------------------- | ---------------------- |
+| Variable                                              | Description                       | Default                |
+| ----------------------------------------------------- | --------------------------------- | ---------------------- |
 | `--o3-editorial-typography-byline-author-color`       | Colour of the byline author       | `claret` - for core    |
 | `--o3-editorial-typography-byline-author-hover-color` | Hover colour of the byline author | `claret-30` - for core |
 
-#### Quote
+### Quote
 
 Quote is a composite component that includes quote text, author and caption. It is used to display direct words said by a person. It comes in two types: `block` and `pull`. The difference between the two is that `block` quote has vertical line on the left side of the quote, while `pull` quote has none. Pure HTML markup is as follows:
 
 ```html
 <blockquote class="o3-editorial-typography-blockquote">
- <p>
-  Origami is about empowering developers of all levels to build robust,
-  on-brand products ranging from simple static sites through to rich, dynamic
-  web applications, to do it faster, to do it cheaper, and leave them more
-  supportable and more maintainable.
- </p>
- <cite>
-  <span class="o3-editorial-typography-blockquote__author">Quote Author</span>
-  <span class="o3-editorial-typography-blockquote__caption"
-   >Quote Source</span
-  >
- </cite>
+	<p>
+		Origami is about empowering developers of all levels to build robust,
+		on-brand products ranging from simple static sites through to rich, dynamic
+		web applications, to do it faster, to do it cheaper, and leave them more
+		supportable and more maintainable.
+	</p>
+	<cite>
+		<span class="o3-editorial-typography-blockquote__author">Quote Author</span>
+		<span class="o3-editorial-typography-blockquote__caption"
+			>Quote Source</span
+		>
+	</cite>
 </blockquote>
 ```
 
@@ -276,14 +292,14 @@ or with JSX import:
 import {Quote} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
 <Quote
- type="pull"
- quoteAuthor="Quote Author"
- quoteSource="Quote Source"
- quoteIcon={true}>
- Origami is about empowering developers of all levels to build robust, on-brand
- products ranging from simple static sites through to rich, dynamic web
- applications, to do it faster, to do it cheaper, and leave them more
- supportable and more maintainable.
+	type="pull"
+	quoteAuthor="Quote Author"
+	quoteSource="Quote Source"
+	quoteIcon={true}>
+	Origami is about empowering developers of all levels to build robust, on-brand
+	products ranging from simple static sites through to rich, dynamic web
+	applications, to do it faster, to do it cheaper, and leave them more
+	supportable and more maintainable.
 </Quote>;
 ```
 
@@ -296,16 +312,16 @@ import {Quote} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 | quoteIcon | `boolean` | `true` | Adds an icon to the quote. |
 | theme | `standard` \| `inverse` | `standard` | Theme of the quote. |
 
-#### Big Number
+### Big Number
 
 Big Number is a composite component that includes a large number and a label. It is used to describe a big number in the editorial content. Pure HTML markup is as follows:
 
 ```html
 <div class="o3-editorial-typography-big-number">
- <div class="o3-editorial-typography-big-number__title">£27,5m</div>
- <div class="o3-editorial-typography-big-number__content">
-  Cost expected to increase by £13.7m a year.
- </div>
+	<div class="o3-editorial-typography-big-number__title">£27,5m</div>
+	<div class="o3-editorial-typography-big-number__content">
+		Cost expected to increase by £13.7m a year.
+	</div>
 </div>
 ```
 
@@ -313,7 +329,7 @@ Big Number is a composite component that includes a large number and a label. It
 import {BigNumber} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
 <BigNumber title="£27,5m">
- Cost expected to increase by £13.7m a year.
+	Cost expected to increase by £13.7m a year.
 </BigNumber>;
 ```
 
@@ -331,11 +347,11 @@ Lists may be used in different contexts they inherit font properties such as siz
 
 ```html
 <div class="o3-editorial-typography-body">
- <ol class="o3-editorial-typography-list-ordered">
-  <li>Lorem ipsum adipiscing elit.</li>
-  <li>Sed feugiat turpis at massa tristique.</li>
-  <li>Curabitu r accumsan elit luctus.</li>
- </ol>
+	<ol class="o3-editorial-typography-list-ordered">
+		<li>Lorem ipsum adipiscing elit.</li>
+		<li>Sed feugiat turpis at massa tristique.</li>
+		<li>Curabitu r accumsan elit luctus.</li>
+	</ol>
 </div>
 ```
 
@@ -343,14 +359,14 @@ Lists may be used in different contexts they inherit font properties such as siz
 import {Body, List} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
 <Body>
- <List
-  type="ordered"
-  listItems={[
-   'Lorem ipsum adipiscing elit.',
-   'Sed feugiat turpis at massa tristique.',
-   'Curabitu r accumsan elit luctus.',
-  ]}
- />
+	<List
+		type="ordered"
+		listItems={[
+			'Lorem ipsum adipiscing elit.',
+			'Sed feugiat turpis at massa tristique.',
+			'Curabitu r accumsan elit luctus.',
+		]}
+	/>
 </Body>;
 ```
 
@@ -367,10 +383,10 @@ Links are styled using `o3-editorial-typography-link` inside a `o3-editorial-typ
 
 ```html
 <p class="o3-editorial-typography-body">
- An article by
- <a href="https://ft.com/" class="o3-editorial-typography-link"
-  >The Financial Times</a
- >.
+	An article by
+	<a href="https://ft.com/" class="o3-editorial-typography-link"
+		>The Financial Times</a
+	>.
 </p>
 ```
 
@@ -378,8 +394,8 @@ Links are styled using `o3-editorial-typography-link` inside a `o3-editorial-typ
 import {Body, Link} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
 <Body>
- An article by
- <Link href="https://ft.com/">The Financial Times</Link>.
+	An article by
+	<Link href="https://ft.com/">The Financial Times</Link>.
 </Body>;
 ```
 
@@ -404,7 +420,7 @@ or if you are using JSX templates, theme can be passed as theme prop:
 import {Headline} from '@financial-times/o3-editorial-typography/cjs';
 
 <Headline type="headline" theme="inverse">
- Headline
+	Headline
 </Headline>;
 ```
 

@@ -7,6 +7,11 @@ export type HeadlineProps = {
 
 export type BodyProps = {
 	theme?: 'standard' | 'inverse';
+	dropCap?: boolean;
+	children: (string | JSX.Element)[] | string | JSX.Element;
+};
+
+export type SummaryProps = {
 	children: (string | JSX.Element)[] | string | JSX.Element;
 };
 
