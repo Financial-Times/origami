@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import {default as Guideline} from '../../../components/Guideline.astro';
+import {default as Example} from '../../../components/Example.astro';
 
 The standard FT grid system is designed to be flexible, responsive, and adaptable. It caters to a wide range of devices and screen sizes, ensuring consistency and harmony across all digital products.
 
@@ -118,18 +119,24 @@ Page content does not always need to span across 12 columns; it can occupy a sma
 
 ## Usage Guidelines
 
-<Guideline summary="Content Layout regions" do={true}>
+<Guideline summary="Use gutter width as a basis for vertical rhythm" do={true}>
 	<p slot="description">
-		![](/assets/images/components/grid/usage-best-practise.svg) Use the gutter
-		width to help determine the space between layout regions. This space can be
+		Use the gutter width to help determine the space between layout regions. This space can be
 		larger or smaller to help group regions hierarchically on the page.
 	</p>
+
+    <Example slot="examples" do={true}>
+    	![](/assets/images/components/grid/usage-best-practise.svg)
+    </Example>
+
 </Guideline>
 
-<Guideline summary="Aligning content to grid" do={true}>
+<Guideline
+	summary="Align irregular or fixed sized content using invisible regions"
+	do={true}>
 	<p slot="description">
 		Sometimes content cannot align to the grid. For example, we do not always
-		control the dimentions of an ad banner. In this scenario, imagine an
+		control the dimensions of an ad banner. In this scenario, imagine an
 		invisible element around the content which does align to the grid. Ensure no
 		other content overlaps this grid area.
 	</p>
