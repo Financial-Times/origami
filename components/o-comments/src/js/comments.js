@@ -32,7 +32,7 @@ class Comments {
 	}
 
 	static getCount (id) {
-		return Count.fetchCount(id);
+		return Count.fetchCount(id,this.options);
 	}
 
 	/**

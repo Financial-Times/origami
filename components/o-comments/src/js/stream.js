@@ -28,7 +28,7 @@ class Stream {
 				});
 		};
 
-		return displayName.validation(this.options.displayName)
+		return displayName.validation(this.options.displayName,this.options)
 			.then(displayName => renderAndAuthenticate(displayName))
 			.catch(() => renderAndAuthenticate());
 	}
@@ -48,7 +48,7 @@ class Stream {
 
 	authenticateUser (displayName) {
 		const fetchOptions = {
-			useStagingEnvironment: this.useStagingEnvironment
+			...this.options,
 		};
 
 		if (displayName) {
@@ -147,7 +147,7 @@ class Stream {
 									this.login();
 								});
 							if (purgeCacheAfterCompletion) {
-								purgeJwtCache();
+								purgeJwtCache(this.options);
 							}
 						});
 				});

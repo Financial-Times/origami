@@ -21,7 +21,9 @@ describe("Count", () => {
 		describe("when element exists", () => {
 			describe("when initialized without staging option", () => {
 				beforeEach(() => {
-					sinon.stub(Count, 'fetchCount').withArgs('id').resolves(10);
+					sinon.stub(Count, 'fetchCount').withArgs('id',{
+						articleId: 'id'
+					}).resolves(10);
 					fixtures.countMarkup();
 				});
 
@@ -36,8 +38,8 @@ describe("Count", () => {
 						articleId: 'id'
 					});
 
-					return count.renderCount()
-						.then(() => proclaim.equal(count.countEl.innerHTML, 10));
+					const prom =  count.renderCount();
+					prom.then(() => proclaim.equal(count.countEl.innerHTML, 10));
 				});
 			});
 
@@ -93,7 +95,10 @@ describe("Count", () => {
 
 			describe("when initialized with staging option", () => {
 				beforeEach(() => {
-					sinon.stub(Count, 'fetchCount').withArgs('id', true).resolves(20);
+					sinon.stub(Count, 'fetchCount').withArgs('id', {
+						articleId: 'id',
+						useStagingEnvironment: true
+					}).resolves(20);
 					fixtures.countMarkup();
 				});
 
@@ -182,7 +187,7 @@ describe("Count", () => {
 
 			it("returns the comment count from staging", () => {
 				const useStaging = true;
-				return Count.fetchCount('article-id', useStaging)
+				return Count.fetchCount('article-id', {useStagingEnvironment : useStaging})
 					.then(count => proclaim.equal(count, 20));
 			});
 		});
