@@ -308,8 +308,8 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.light}",
-          "fontSize": "108",
-          "lineHeight": "108"
+          "fontSize": "106px",
+          "lineHeight": "89px"
         },
         "type": "typography"
       },
@@ -317,8 +317,8 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.light}",
-          "fontSize": "94",
-          "lineHeight": "94"
+          "fontSize": "94px",
+          "lineHeight": "77px"
         },
         "type": "typography"
       }
