@@ -16,6 +16,7 @@ import '@financial-times/o3-typography/css/core.css';
 
 import '@financial-times/o3-editorial-typography/css/core.css';
 import '@financial-times/o3-editorial-typography/css/sustainable-views.css';
+import '@financial-times/o3-editorial-typography/css/whitelabel.css';
 
 import Overview from '../../../components/editorial-typography/Overview.astro';
 import HeadingStyles from '../../../components/editorial-typography/HeadingStyles.astro';
@@ -26,6 +27,7 @@ import Links from '../../../components/editorial-typography/Links.astro';
 import BigNumber from '../../../components/editorial-typography/BigNumber.astro';
 import Byline from '../../../components/editorial-typography/Byline.astro';
 import TopicTag from '../../../components/editorial-typography/TopicTag.astro';
+import DropCap from '../../../components/editorial-typography/DropCap.astro';
 
 import TypeScale from '../../../components/TypeScale.astro';
 import TypeFamily from '../../../components/TypeFamily.astro';
@@ -138,6 +140,14 @@ Names of heading styles in Editorial typography are now aligned with the Editori
 ### Body and Details styles
 
 <BodyStyles brand="core" />
+
+<BrandedContent brands="whitelabel">
+	#### Drop cap
+	Use for stylistic emphasis on the first letter of an article.
+
+    <DropCap brand={props.brand} />
+
+</BrandedContent>
 
 ### Quotes
 
