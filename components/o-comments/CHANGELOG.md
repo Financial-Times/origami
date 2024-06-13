@@ -1,5 +1,17 @@
 # Changelog
 
+## [11.1.0](https://github.com/Financial-Times/origami/compare/o-comments-v11.0.0...o-comments-v11.1.0) (2024-06-13)
+
+
+### Features
+
+* add options commentsAuthUrl and commentsAPIUrl to o-comments ([a52b0ff](https://github.com/Financial-Times/origami/commit/a52b0ff6bac4e8be0ee699d563557a64f16b3b56))
+
+
+### Bug Fixes
+
+* use published ftdomdelegate version ([d60bb2c](https://github.com/Financial-Times/origami/commit/d60bb2c4ba2a9447922fe65b7173bc383bc38d18))
+
 ## [11.0.0](https://github.com/Financial-Times/origami/compare/o-comments-v10.4.0...o-comments-v11.0.0) (2024-06-11)
 
 
