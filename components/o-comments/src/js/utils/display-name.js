@@ -14,8 +14,9 @@ const form = `<form id="o-comments-displayname-form" class="o-forms o-forms o-co
 	</form>
 </form>`;
 
-const isUnique = (displayName) => {
-	const url = `https://comments-api.ft.com/displayname/isavailable/${encodeURIComponent(displayName)}`;
+const isUnique = (displayName,options = {}) => {
+	const commentsAPIUrl = options?.commentsAPIUrl || 'https://comments-api.ft.com';
+	const url = `${commentsAPIUrl}/displayname/isavailable/${encodeURIComponent(displayName)}`;
 
 	return fetch(url, { method: 'GET' })
 		.then(response => response.json())
@@ -63,7 +64,7 @@ const prompt = () => {
 	return overlay;
 };
 
-const validation = (displayName) => {
+const validation = (displayName,options) => {
 	return new Promise((resolve, reject) => {
 		if (!displayName) {
 			return reject(new Error('Empty display name'));
@@ -74,7 +75,7 @@ const validation = (displayName) => {
 		if (invalidCharacters) {
 			return reject(new Error(`The display name contains the following invalid characters: ${invalidCharacters}`));
 		} else {
-			isUnique(displayName)
+			isUnique(displayName,options)
 				.then(isUnique => {
 					if (!isUnique) {
 						return reject(new Error('Unfortunately that display name is already taken'));
@@ -93,7 +94,7 @@ const validation = (displayName) => {
 	});
 };
 
-const promptValidation = (event) => {
+const promptValidation = (event,options = {}) => {
 	event.preventDefault();
 
 	return new Promise(resolve => {
@@ -106,7 +107,7 @@ const promptValidation = (event) => {
 		displayNameForm.classList.remove('o-forms-input--invalid');
 
 
-		return validation(displayName)
+		return validation(displayName,options)
 			.then(displayName => resolve(displayName))
 			.catch(error => {
 				errorMessage.innerText = error.message;

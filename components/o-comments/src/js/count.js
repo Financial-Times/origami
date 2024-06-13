@@ -9,6 +9,7 @@ class Count {
 		this.countEl = countEl;
 		this.articleId = opts.articleId;
 		this.useStagingEnvironment = Boolean(opts.useStagingEnvironment);
+		this.options = opts;
 	}
 
 	/**
@@ -26,7 +27,7 @@ class Count {
 			throw new Error('Element must be a HTMLElement');
 		}
 
-		return Count.fetchCount(this.articleId, this.useStagingEnvironment)
+		return Count.fetchCount(this.articleId, this.options)
 			.then((count) => {
 				this.countEl.textContent = count;
 
@@ -49,8 +50,9 @@ class Count {
 		}
 	}
 
-	static fetchCount (id, useStaging) {
-		const url = `https://comments-api.ft.com/story/count/${id}` + (useStaging ? '?staging=1' : '');
+	static fetchCount (id, options = {}) {
+		const commentsAPIUrl = options?.commentsAPIUrl || 'https://comments-api.ft.com';
+		const url = `${commentsAPIUrl}/story/count/${id}` + (options?.useStagingEnvironment ? '?staging=1' : '');
 
 		return fetch(url)
 			.then(res => res.json())

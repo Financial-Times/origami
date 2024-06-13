@@ -31,8 +31,8 @@ class Comments {
 		}
 	}
 
-	static getCount (id) {
-		return Count.fetchCount(id);
+	static getCount (id,options) {
+		return Count.fetchCount(id,options);
 	}
 
 	/**

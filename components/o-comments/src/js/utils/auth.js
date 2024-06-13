@@ -1,6 +1,7 @@
 export default {
 	fetchJsonWebToken: function fetchJsonWebToken (options = {}) {
-		const url = new URL('https://comments-api.ft.com/user/auth/');
+		const commentsAPIUrl = options?.commentsAPIUrl || 'https://comments-api.ft.com';
+		const url = options?.commentsAuthUrl ? new URL(options.commentsAuthUrl) : new URL(`${commentsAPIUrl}/user/auth/`);
 
 		if (options.displayName) {
 			url.searchParams.append('displayName', options.displayName);

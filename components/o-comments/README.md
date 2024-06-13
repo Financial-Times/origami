@@ -151,6 +151,18 @@ If you want to initialise every comment stream or count element on the page (bas
 import oComments from '@financial-times/o-comments';
 oComments.init();
 ```
+### Options
+These are the available options we can pass to oComments:
+- articleId 
+- articleUrl
+- displayName
+- commentsAuthUrl
+- commentsAPIUrl
+- useStagingEnvironment
+- addClass
+- scrollContainer
+- assetType
+- disableOTracking
 
 ### Firing an oDomContentLoaded event
 
@@ -218,6 +230,8 @@ const comments = new Comments(commentsElement, {
 +	data-o-comments-disable-o-tracking="true">
 </div>
 ```
+
+
 
 ## Sass
 
