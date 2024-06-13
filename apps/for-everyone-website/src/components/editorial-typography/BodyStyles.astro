@@ -36,13 +36,6 @@ const sbCaption = sbDomain + '--caption';
 			</td>
 		</tr>
 		<tr>
-			<td>M</td>
-			<td class="body-m">body</td>
-			<td>
-				<FigmaSbLinks figma={figmaBody} storybook={sbBody} />
-			</td>
-		</tr>
-		<tr>
 			<td>L</td>
 			<td class="body-l">body</td>
 			<td>
@@ -144,19 +137,18 @@ const sbCaption = sbDomain + '--caption';
 		text-align: center;
 	}
 	[class^='body-'] {
-		font-family: var(--_o3-editorial-typography-use-case-body-l-font-family);
-		font-weight: var(--_o3-editorial-typography-use-case-body-l-font-weight);
+		font-family: var(--_o3-editorial-typography-body-l-font-family);
+		font-weight: var(--_o3-editorial-typography-body-l-font-weight);
 	}
 
-	.body-s,
-	.body-m {
-		font-size: var(--_o3-editorial-typography-use-case-body-s-font-size);
-		line-height: var(--_o3-editorial-typography-use-case-body-s-line-height);
+	.body-s {
+		font-size: var(--_o3-editorial-typography-body-s-font-size);
+		line-height: var(--_o3-editorial-typography-body-s-line-height);
 	}
 
 	.body-l {
-		font-size: var(--_o3-editorial-typography-use-case-body-l-font-size);
-		line-height: var(--_o3-editorial-typography-use-case-body-l-line-height);
+		font-size: var(--_o3-editorial-typography-body-l-font-size);
+		line-height: var(--_o3-editorial-typography-body-l-line-height);
 	}
 
 	.not-content.o3-editorial-typography-blockquote__source,
