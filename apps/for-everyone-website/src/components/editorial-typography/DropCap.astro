@@ -1,0 +1,18 @@
+---
+import * as DropCap from './preview/DropCap.tsx'
+import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
+import Preview from '../utils/Preview.astro';
+
+const {brand} = Astro.props;
+const figma =
+	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4370&t=kyDVEfsg2tRJspyY-4';
+const quoteSbLinkGenerator = (type: string) => {
+	return `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--quote&args=type:${type}`;
+};
+const sb = quoteSbLinkGenerator('block');
+
+---
+
+<Preview component={DropCap} />
+
+<FigmaSbLinks {figma} storybook={sb} />

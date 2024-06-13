@@ -46,6 +46,10 @@ export default defineConfig({
 					label: 'internal',
 					lang: 'en-GB-x-internal',
 				},
+				whitelabel: {
+					label: 'whitelabel',
+					lang: 'en-GB-x-wl',
+				},
 			},
 			components: {
 				Hero: './src/components/Hero.astro',
