@@ -1,5 +1,37 @@
+---
+const families = {
+	metric: {name: 'Metric 2 VF', token: '--o3-font-family-metric'},
+	financierDisplay: {name: 'Financier Display', token: '--o3-font-family-financier-display'},
+	financierText: {name: 'Financier Text', token: '--o3-font-family-financier-text'},
+	georgia: {name: 'Georgia', token: '--o3-font-family-georgia'},
+};
+
+let brandedFamilies = [];
+
+switch (Astro.props.brand) {
+	case 'core':
+		brandedFamilies = [families['metric'], families['financierDisplay'], families['georgia']];
+		break;
+	case 'professional':
+		brandedFamilies = [families['metric'], families['financierDisplay'], families['georgia']];
+		break;
+	case 'internal':
+		brandedFamilies = [families['metric']];;
+		break;
+	case 'sustainable-views':
+		brandedFamilies = [families['metric'], families['financierDisplay'], families['financierText']];;
+		break;
+	case 'whitelabel':
+		brandedFamilies = [families['metric'], families['financierDisplay'], families['georgia']];
+		break;
+
+	default:
+		brandedFamilies = [families['metric']];
+		break;
+}
+---
 <ul>
-	{Astro.props.families.map(({name, token}) => {
+	{brandedFamilies.map(({name, token}) => {
 		return (<li>
 			<span class="preview" role="presentation" style={`font-family: var(${token})`}>Aa</span>
 			<span>{name}</span>
@@ -30,7 +62,7 @@
 		flex-grow: 1;
 		background-color: var(--o3-color-palette-slate-white-5);
 		border-radius: 0.75rem;
-		padding-bottom: var(--o3-spacing-2xs);
+		padding: 0 var(--o3-spacing-3xs) var(--o3-spacing-2xs) var(--o3-spacing-3xs);
 	}
 
 </style>

@@ -7,6 +7,7 @@ import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
 const {component} = Astro.props;
 const mark = component?.previewMarkers?.mark;
+const componentCustomisation = component?.customisation;
 const resolvedPath = pathResolve(component.filePath);
 
 const fileContent = await readFile(resolvedPath, {
@@ -68,6 +69,13 @@ const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 					componentHTML && (
 						<TabItem label="HTML">
 							<Code code={componentHTML} lang="html" wrap={true} {mark} />
+						</TabItem>
+					)
+				}
+				{
+					componentCustomisation && (
+						<TabItem label="Customisation (CSS)">
+							<Code code={componentCustomisation} lang="css" wrap={true} />
 						</TabItem>
 					)
 				}
