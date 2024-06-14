@@ -10,6 +10,13 @@ function TopicTagPreview() {
 	);
 }
 
+export const customisation = `
+:root{
+	--o3-editorial-typography-topic-tag-color: hotpink;
+	--o3-editorial-typography-topic-tag-hover-color: deeppink;
+}
+`;
+
 export const filePath =
 	'src/components/editorial-typography/preview/TopicTag.tsx';
 
