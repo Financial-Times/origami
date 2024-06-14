@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/Financial-Times/origami/compare/o3-typography-v1.0.2...o3-typography-v1.0.3) (2024-06-14)
+
+
+### Bug Fixes
+
+* Use correct tokens for UI headings ([260de38](https://github.com/Financial-Times/origami/commit/260de381746739fe2227f625dfb5f3cd60c31f9a))
+
 ## [1.0.2](https://github.com/Financial-Times/origami/compare/o3-typography-v1.0.1...o3-typography-v1.0.2) (2024-05-31)
 
 

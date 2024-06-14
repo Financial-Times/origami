@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v1.1.0...o3-editorial-typography-v1.2.0) (2024-06-14)
+
+
+### Features
+
+* Implement dropcap and summary ([62ec357](https://github.com/Financial-Times/origami/commit/62ec357ed1e40919027f4dcb4b8dcc9ed39714d1))
+
 ## [1.1.0](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v1.0.2...o3-editorial-typography-v1.1.0) (2024-06-11)
 
 
