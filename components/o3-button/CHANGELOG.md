@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.2...o3-button-v1.1.3) (2024-06-14)
+
+
+### Bug Fixes
+
+* Update SV button themes ([c910131](https://github.com/Financial-Times/origami/commit/c9101315961445c172de4ac3bf018cb88d04c148))
+
 ## [1.1.2](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.1...o3-button-v1.1.2) (2024-05-20)
 
 
