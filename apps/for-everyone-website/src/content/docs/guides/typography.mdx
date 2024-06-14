@@ -19,7 +19,7 @@ import '@financial-times/o3-editorial-typography/css/professional.css';
 import '@financial-times/o3-editorial-typography/css/sustainable-views.css';
 import '@financial-times/o3-editorial-typography/css/whitelabel.css';
 
-import {Tabs, TabItem} from '@astrojs/starlight/components';
+import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
 import Overview from '../../../components/editorial-typography/Overview.astro';
 import HeadingStyles from '../../../components/editorial-typography/HeadingStyles.astro';
@@ -200,6 +200,23 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 	<Byline brand={props.brand} />
 
 	### Topic Tag
+
+
+	Topic tag is used to indicate the category of a post. It’s default colour may be customised to suit your product
+	need.
+
+	<details>
+		<summary>Topic tag customisation options</summary>
+
+		| Option                | Description                           |
+		| --------------------- | ------------------------------------- |
+		| Topic tag color       | The colour of the topic tag.          |
+		| Topic tag hover color | The colour of the topic tag on hover. |
+
+		E.g. To make the topic tag pink.
+		<Code lang="css" code={`:root{\n\t--o3-editorial-typography-topic-tag-color: hotpink;\n\t--o3-editorial-typography-topic-tag-hover-color: deeppink;\n}`} />
+	</details>
+
 
 	<TopicTag brand={props.brand} />
 
