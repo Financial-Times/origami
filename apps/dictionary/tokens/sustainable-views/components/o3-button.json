@@ -8,6 +8,62 @@
             "type": "color"
           },
           "background": {
+            "value": "#0d7680",
+            "type": "color"
+          },
+          "border": {
+            "value": "#ffffff00",
+            "type": "color"
+          },
+          "hover": {
+            "background": {
+              "value": "#095259",
+              "type": "color"
+            },
+            "color": {
+              "value": "#ffffff",
+              "type": "color"
+            },
+            "border": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          },
+          "focus": {
+            "background": {
+              "value": "#095259",
+              "type": "color"
+            },
+            "color": {
+              "value": "#ffffff",
+              "type": "color"
+            },
+            "border": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          },
+          "active": {
+            "background": {
+              "value": "#052f33",
+              "type": "color"
+            },
+            "color": {
+              "value": "#ffffff",
+              "type": "color"
+            },
+            "border": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          }
+        },
+        "mono": {
+          "color": {
+            "value": "#ffffff",
+            "type": "color"
+          },
+          "background": {
             "value": "#262a33",
             "type": "color"
           },
@@ -117,6 +173,62 @@
       },
       "secondary": {
         "standard": {
+          "color": {
+            "value": "#0d7680",
+            "type": "color"
+          },
+          "background": {
+            "value": "#ffffff00",
+            "type": "color"
+          },
+          "border": {
+            "value": "#0d7680",
+            "type": "color"
+          },
+          "hover": {
+            "background": {
+              "value": "rgba(13, 118, 128, 0.1)",
+              "type": "color"
+            },
+            "color": {
+              "value": "#0c707a",
+              "type": "color"
+            },
+            "border": {
+              "value": "#0d7680",
+              "type": "color"
+            }
+          },
+          "focus": {
+            "background": {
+              "value": "rgba(13, 118, 128, 0.1)",
+              "type": "color"
+            },
+            "color": {
+              "value": "#0c707a",
+              "type": "color"
+            },
+            "border": {
+              "value": "#0d7680",
+              "type": "color"
+            }
+          },
+          "active": {
+            "background": {
+              "value": "#0d7680",
+              "type": "color"
+            },
+            "color": {
+              "value": "#ffffff",
+              "type": "color"
+            },
+            "border": {
+              "value": "#0d7680",
+              "type": "color"
+            }
+          }
+        },
+        "mono": {
           "color": {
             "value": "#262a33",
             "type": "color"
@@ -231,6 +343,62 @@
       },
       "ghost": {
         "standard": {
+          "color": {
+            "value": "#0d7680",
+            "type": "color"
+          },
+          "background": {
+            "value": "#ffffff00",
+            "type": "color"
+          },
+          "border": {
+            "value": "#ffffff00",
+            "type": "color"
+          },
+          "hover": {
+            "background": {
+              "value": "rgba(13, 118, 128, 0.1)",
+              "type": "color"
+            },
+            "color": {
+              "value": "#0c707a",
+              "type": "color"
+            },
+            "border": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          },
+          "focus": {
+            "background": {
+              "value": "rgba(13, 118, 128, 0.1)",
+              "type": "color"
+            },
+            "color": {
+              "value": "#0c707a",
+              "type": "color"
+            },
+            "border": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          },
+          "active": {
+            "background": {
+              "value": "#0d7680",
+              "type": "color"
+            },
+            "color": {
+              "value": "#ffffff",
+              "type": "color"
+            },
+            "border": {
+              "value": "#ffffff00",
+              "type": "color"
+            }
+          }
+        },
+        "mono": {
           "color": {
             "value": "#262a33",
             "type": "color"

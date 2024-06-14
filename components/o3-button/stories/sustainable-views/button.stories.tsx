@@ -17,7 +17,7 @@ export default {
 	],
 	argTypes: Object.assign(ButtonStories.Button.argTypes, {
 		theme: {
-			options: ['standard', 'inverse'],
+			options: ['standard', 'inverse', 'mono'],
 			mapping: {
 				standard: '',
 				inverse: 'inverse',
@@ -25,7 +25,7 @@ export default {
 		},
 	}),
 	parameters: {
-		backgrounds: {default: 'paper'},
+		backgrounds: {default: 'white'},
 	},
 } as Meta;
 
