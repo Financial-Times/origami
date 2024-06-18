@@ -65,19 +65,23 @@ Metric is our primary typeface. Clear, contemporary and rational, Metric communi
 	Financier is a secondary typeface. Elegant, authoritative, and with a distinct voice.
 	It is primarily used for large article titles and headings in editorial pages only.
 
-	[Learn more about Financier Display](https://brand.ft.com/document/24#/branding-elements/fonts).
+    [Learn more about Financier Display](https://brand.ft.com/document/24#/branding-elements/fonts).
+
 </BrandedContent>
 
 <BrandedContent brands="core, professional, whitelabel">
-	### Georgia
-	Georgia is solely used for editorial article body copy. This is an alternate to Financier Text, as a [system font](https://en.wikipedia.org/wiki/Web_typography) it avoids the performance implications of users downloading additional custom fonts.
+	### Georgia Georgia is solely used for editorial article body copy. This is an
+	alternate to Financier Text, as a [system
+	font](https://en.wikipedia.org/wiki/Web_typography) it avoids the performance
+	implications of users downloading additional custom fonts.
 </BrandedContent>
 
 <BrandedContent brands="sustainable-views">
 	### Financier Text
 	Financier Text is our main editorial typeface and is used predominantly in our journalism. It is elegant and authoritative, has a distinct voice, and works well across long copy formats.
 
-	[Learn more about Financier Text](https://brand.ft.com/document/24#/branding-elements/fonts).
+    [Learn more about Financier Text](https://brand.ft.com/document/24#/branding-elements/fonts).
+
 </BrandedContent>
 
 ## Typographic Scale
@@ -99,9 +103,9 @@ We use multiple typographic scales for different font families. Our scales range
 		</TabItem>
 	</BrandedContent>
 	<BrandedContent brands="core, professional, whitelabel">
-	<TabItem label="Georgia">
-		<TypeScale brand={props.brand} scaleFamily="georgia" />
-	</TabItem>
+		<TabItem label="Georgia">
+			<TypeScale brand={props.brand} scaleFamily="georgia" />
+		</TabItem>
 	</BrandedContent>
 </Tabs>
 
@@ -122,7 +126,10 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 ## UI Typography
 
 <BrandedContent brands="core, professional, sustainable-views, whitelabel">
-	User interface (UI) typography is intended for all design elements except those with an editorial voice, such as article page content (see [editorial typography](#editorial-typography)). We exclusively use the Metric font family for UI designs, rather than Financier.
+	User interface (UI) typography is intended for all design elements except
+	those with an editorial voice, such as article page content (see [editorial
+	typography](#editorial-typography)). We exclusively use the Metric font family
+	for UI designs, rather than Financier.
 </BrandedContent>
 
 ### UI Headings
@@ -150,113 +157,114 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 | <span class="not-content"><span class="o3-typography-footer">Footer</span></span>                                                                           | For footer text content in the footer such as copyright notice.                                                   |
 | <span class="not-content"><span class="o3-typography-caption">Caption</span></span>                                                                         | For details about a piece or image that should be less prominent.                                                 |
 
-<BrandedContent brands="core, professional, sustainable-views">
+<BrandedContent brands="core, professional, sustainable-views, whitelabel">
 	## Editorial Typography
 
-	Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers. The following font families are used when designing for editorial.
+    Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers. The following font families are used when designing for editorial.
 
-	<Overview />
+    <Overview />
 
-	### Heading styles
+    ### Heading styles
 
-	Names of heading styles in editorial typography are aligned with those used by editorial teams.
+    Names of heading styles in editorial typography are aligned with those used by editorial teams.
 
-	<HeadingStyles brand={props.brand} />
+    <HeadingStyles brand={props.brand} />
 
-	### Body and Details styles
+    ### Body and Details styles
 
-	<BodyStyles brand={props.brand} />
+    <BodyStyles brand={props.brand} />
 
-	<BrandedContent brands="whitelabel">
-		#### Drop cap
-		Use for stylistic emphasis on the first letter of an article.
+    <BrandedContent brands="whitelabel">
+    	#### Drop cap
+    	Use for stylistic emphasis on the first letter of an article.
 
-		<DropCap brand={props.brand} />
+    	<DropCap brand={props.brand} />
 
-	</BrandedContent>
+    </BrandedContent>
 
-	### Quotes
+    ### Quotes
 
-	The quote component is used to highlight notable statements, excerpts, or phrases from articles, interviews, and other types of content. It draws attention to key information and enhances the reading experience.
+    The quote component is used to highlight notable statements, excerpts, or phrases from articles, interviews, and other types of content. It draws attention to key information and enhances the reading experience.
 
-	<Quotes brand={props.brand} />
+    <Quotes brand={props.brand} />
 
-	### Lists
+    ### Lists
 
-	Lists allow users to view two or more individual, but related, text items grouped together. We have ordered and unordered lists.
+    Lists allow users to view two or more individual, but related, text items grouped together. We have ordered and unordered lists.
 
-	<Lists brand={props.brand} />
+    <Lists brand={props.brand} />
 
-	### Links
+    ### Links
 
-	<Links brand={props.brand} />
+    <Links brand={props.brand} />
 
-	### Big Number
+    ### Big Number
 
-	<BigNumber brand={props.brand} />
+    <BigNumber brand={props.brand} />
 
-	### Byline
+    ### Byline
 
-	<Byline brand={props.brand} />
+    <Byline brand={props.brand} />
 
-	### Topic Tag
-
-
-	Topic tag is used to indicate the category of a post. Its default colour may be customised to suit your product
-	need.
-
-	<details>
-		<summary>Topic tag customisation options</summary>
-
-		| Option                | Description                           |
-		| --------------------- | ------------------------------------- |
-		| Topic tag color       | The colour of the topic tag.          |
-		| Topic tag hover color | The colour of the topic tag on hover. |
-
-		E.g. To make the topic tag pink.
-		<Code lang="css" code={`:root{\n\t--o3-editorial-typography-topic-tag-color: hotpink;\n\t--o3-editorial-typography-topic-tag-hover-color: deeppink;\n}`} />
-	</details>
+    ### Topic Tag
 
 
-	<TopicTag brand={props.brand} />
+    Topic tag is used to indicate the category of a post. Its default colour may be customised to suit your product
+    need.
 
-	## Usage Guidelines
+    <details>
+    	<summary>Topic tag customisation options</summary>
 
-	<Guideline summary="Use semantic heading levels" do={true}>
-		<p slot="description">
-			In a web context, HTML heading levels must [follow in
-			order](https://www.w3.org/WAI/tutorials/page-structure/headings/) to
-			represent content structure. However these may be styled to look like a
-			different heading visually, if required by a design. E.g. a h2 heading may
-			be styled as h3.
-		</p>
-		<Example slot="examples" do={true}>
-			![A h1 heading follows a h2
-			heading.](/assets/images/components/typography/type-guideline-1.svg)
-		</Example>
-	</Guideline>
+    	| Option                | Description                           |
+    	| --------------------- | ------------------------------------- |
+    	| Topic tag color       | The colour of the topic tag.          |
+    	| Topic tag hover color | The colour of the topic tag on hover. |
 
-	<Guideline summary="Don’t use Financier fonts for UI" do={false}>
-		<p slot="description">
-			Use Metric for UI, Financier and Georgia should be reserved for editorial
-			content.
-		</p>
-		<Example slot="examples" do={false}>
-			![The cost of an annual subscription in a signup flow incorrectly uses
-			Financier.](/assets/images/components/typography/type-guideline-2.svg)
-		</Example>
-	</Guideline>
+    	E.g. To make the topic tag pink.
+    	<Code lang="css" code={`:root{\n\t--o3-editorial-typography-topic-tag-color: hotpink;\n\t--o3-editorial-typography-topic-tag-hover-color: deeppink;\n}`} />
+    </details>
 
-	<Guideline summary="Avoid negative font scales" do={false}>
-		<p slot="description">
-			Scales less than zero (-1, -2) are edge cases. Avoid these as they can be
-			hard to read especially on large screens. Negative scales may be used to
-			present short, secondary information such as a caption. However we recommend
-			using predefined [ui typography](#ui-typography) styles where possible.
-		</p>
-		<Example slot="examples" do={false}>
-			![A small, negative font scale is incorrectly used for a large body of
-			copy.](/assets/images/components/typography/type-guideline-3.svg)
-		</Example>
-	</Guideline>
+
+    <TopicTag brand={props.brand} />
+
+    ## Usage Guidelines
+
+    <Guideline summary="Use semantic heading levels" do={true}>
+    	<p slot="description">
+    		In a web context, HTML heading levels must [follow in
+    		order](https://www.w3.org/WAI/tutorials/page-structure/headings/) to
+    		represent content structure. However these may be styled to look like a
+    		different heading visually, if required by a design. E.g. a h2 heading may
+    		be styled as h3.
+    	</p>
+    	<Example slot="examples" do={true}>
+    		![A h1 heading follows a h2
+    		heading.](/assets/images/components/typography/type-guideline-1.svg)
+    	</Example>
+    </Guideline>
+
+    <Guideline summary="Don’t use Financier fonts for UI" do={false}>
+    	<p slot="description">
+    		Use Metric for UI, Financier and Georgia should be reserved for editorial
+    		content.
+    	</p>
+    	<Example slot="examples" do={false}>
+    		![The cost of an annual subscription in a signup flow incorrectly uses
+    		Financier.](/assets/images/components/typography/type-guideline-2.svg)
+    	</Example>
+    </Guideline>
+
+    <Guideline summary="Avoid negative font scales" do={false}>
+    	<p slot="description">
+    		Scales less than zero (-1, -2) are edge cases. Avoid these as they can be
+    		hard to read especially on large screens. Negative scales may be used to
+    		present short, secondary information such as a caption. However we recommend
+    		using predefined [ui typography](#ui-typography) styles where possible.
+    	</p>
+    	<Example slot="examples" do={false}>
+    		![A small, negative font scale is incorrectly used for a large body of
+    		copy.](/assets/images/components/typography/type-guideline-3.svg)
+    	</Example>
+    </Guideline>
+
 </BrandedContent>
