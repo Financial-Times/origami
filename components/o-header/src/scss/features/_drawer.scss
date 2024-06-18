@@ -74,6 +74,10 @@
 		padding: ($_o-header-drawer-padding-y * 1.5) 0 $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
 		background-color: _oHeaderGet('drawer-tools-background');
 		color: _oHeaderGet('drawer-tools-text');
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.o-header__drawer-tools-logo {
@@ -90,11 +94,13 @@
 		// dividing by 1px removes the unit
 		@include oIconsContent('cross', _oHeaderGet('drawer-tools-close'), $size: $_o-header-icon-size-large);
 		box-sizing: border-box;
-		float: right;
 		border: 0;
 		opacity: 0.75;
 		cursor: pointer;
 		margin-top: -10px;
+		position: absolute;
+		left: 6px;
+		top: 16px;
 		&:hover,
 		&:focus {
 			opacity: 1;
@@ -103,15 +109,6 @@
 		[data-o-header-drawer--no-js] & {
 			display: none;
 		}
-	}
-
-	//
-	// Editions
-	//
-	.o-header__drawer-current-edition {
-		@include oTypographySans($scale: -1);
-		color: oColorsByName('black-60');
-		margin: 0.5em 0;
 	}
 
 	//

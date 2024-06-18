@@ -49,11 +49,6 @@ function DrawerTools({ current }: { current: TNavEdition }) {
 					Close side navigation menu
 				</span>
 			</button>
-			{current && (
-				<p className="o-header__drawer-current-edition">
-					{current.name} Edition
-				</p>
-			)}
 		</div>
 	);
 }
