@@ -64,7 +64,7 @@
 		border-color: var(--_o3-button-primary-standard-hover-border);
 	}
 
-	&:focus {
+	&:focus-visible {
 		color: var(--_o3-button-primary-standard-focus-color);
 		background-color: var(--_o3-button-primary-standard-focus-background);
 		border-color: var(--_o3-button-primary-standard-focus-border);
@@ -91,7 +91,7 @@
 		border-color: var(--_o3-button-primary-inverse-hover-border);
 	}
 
-	&:focus {
+	&:focus-visible {
 		color: var(--_o3-button-primary-inverse-focus-color);
 		background-color: var(--_o3-button-primary-inverse-focus-background);
 		border-color: var(--_o3-button-primary-inverse-focus-border);
@@ -118,7 +118,7 @@
 		border-color: var(--_o3-button-primary-mono-hover-border);
 	}
 
-	&:focus {
+	&:focus-visible {
 		color: var(--_o3-button-primary-mono-focus-color);
 		background-color: var(--_o3-button-primary-mono-focus-background);
 		border-color: var(--_o3-button-primary-mono-focus-border);
@@ -144,7 +144,7 @@
 		border-color: var(--_o3-button-secondary-standard-hover-border);
 	}
 
-	&:focus {
+	&:focus-visible {
 		color: var(--_o3-button-secondary-standard-focus-color);
 		background-color: var(--_o3-button-secondary-standard-focus-background);
 		border-color: var(--_o3-button-secondary-standard-focus-border);
@@ -171,7 +171,7 @@
 		border-color: var(--_o3-button-secondary-inverse-hover-border);
 	}
 
-	&:focus {
+	&:focus-visible {
 		color: var(--_o3-button-secondary-inverse-focus-color);
 		background-color: var(--_o3-button-secondary-inverse-focus-background);
 		border-color: var(--_o3-button-secondary-inverse-focus-border);
@@ -198,7 +198,7 @@
 		border-color: var(--_o3-button-secondary-mono-hover-border);
 	}
 
-	&:focus {
+	&:focus-visible {
 		color: var(--_o3-button-secondary-mono-focus-color);
 		background-color: var(--_o3-button-secondary-mono-focus-background);
 		border-color: var(--_o3-button-secondary-mono-focus-border);
@@ -224,7 +224,7 @@
 		border-color: var(--_o3-button-ghost-standard-hover-border);
 	}
 
-	&:focus {
+	&:focus-visible {
 		color: var(--_o3-button-ghost-standard-focus-color);
 		background-color: var(--_o3-button-ghost-standard-focus-background);
 		border-color: var(--_o3-button-ghost-standard-focus-border);
@@ -251,7 +251,7 @@
 		border-color: var(--_o3-button-ghost-inverse-hover-border);
 	}
 
-	&:focus {
+	&:focus-visible {
 		color: var(--_o3-button-ghost-inverse-focus-color);
 		background-color: var(--_o3-button-ghost-inverse-focus-background);
 		border-color: var(--_o3-button-ghost-inverse-focus-border);
@@ -278,7 +278,7 @@
 		border-color: var(--_o3-button-ghost-mono-hover-border);
 	}
 
-	&:focus {
+	&:focus-visible {
 		color: var(--_o3-button-ghost-mono-focus-color);
 		background-color: var(--_o3-button-ghost-mono-focus-background);
 		border-color: var(--_o3-button-ghost-mono-focus-border);
