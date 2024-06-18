@@ -86,7 +86,7 @@ function DrawerSearch() {
 					autoCorrect="off"
 					autoCapitalize="off"
 					spellCheck={false}
-					placeholder="Search the FT"
+					placeholder="Search for stories, topics or securities"
 				/>
 				<button className="o-header__drawer-search-submit" type="submit">
 					<span className="o-header__visually-hidden">Search</span>
