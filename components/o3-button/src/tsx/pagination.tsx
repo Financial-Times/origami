@@ -2,7 +2,11 @@
 
 //  TODO: remove @ts-nocheck and fix types
 import {Button, LinkButton} from './button';
-import type {ButtonProps, Ellipsis, ButtonPaginationProps} from '../types/index';
+import type {
+	ButtonProps,
+	Ellipsis,
+	ButtonPaginationProps,
+} from '../types/index';
 
 const Ellipsis = ({attributes, theme}: Ellipsis) => {
 	let classNames = ['o3-button-pagination__ellipsis'];
@@ -86,11 +90,11 @@ function getPagesInNarrowMode(pages, currentPage) {
 		pages.filter(page => page.number === pageNumber);
 
 	if (pages.length <= numberOfPagesToShowAtATime) {
-		return [...pages];
+		return [pages];
 	}
 
 	if (!currentPage) {
-		return [...pages.slice(0, numberOfPagesToShowAtATime)];
+		return [pages.slice(0, numberOfPagesToShowAtATime)];
 	}
 
 	if (currentPage.number <= 3) {
