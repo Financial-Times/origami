@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v1.2.0...o3-editorial-typography-v1.2.1) (2024-06-19)
+
+
+### Bug Fixes
+
+* remove excess drop cap spacing ([ab22347](https://github.com/Financial-Times/origami/commit/ab223473963448c4fd8a002d985522bea8cb7f2d))
+
 ## [1.2.0](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v1.1.0...o3-editorial-typography-v1.2.0) (2024-06-14)
 
 

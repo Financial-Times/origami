@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.4...o3-button-v1.1.5) (2024-06-19)
+
+
+### Bug Fixes
+
+* button pagination for pages fewer than 6 ([2fc8391](https://github.com/Financial-Times/origami/commit/2fc8391a85fe0090ba41285ab9334fca7a1304d9))
+
 ## [1.1.4](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.3...o3-button-v1.1.4) (2024-06-18)
 
 
