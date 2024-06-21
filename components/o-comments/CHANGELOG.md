@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.1.1](https://github.com/Financial-Times/origami/compare/o-comments-v11.1.0...o-comments-v11.1.1) (2024-06-21)
+
+
+### Bug Fixes
+
+* fix assign of options in conjunction with data-atributtes ([9c2b6ba](https://github.com/Financial-Times/origami/commit/9c2b6ba01ce0710774d01c40511a66dcd521dd6e))
+
 ## [11.1.0](https://github.com/Financial-Times/origami/compare/o-comments-v11.0.0...o-comments-v11.1.0) (2024-06-13)
 
 
