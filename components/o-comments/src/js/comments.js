@@ -3,7 +3,7 @@ import Count from './count.js';
 
 class Comments {
 	constructor (rootEl, opts) {
-		this.options = Object.assign({}, {}, opts || Comments.getDataAttributes(rootEl));
+		this.options = Object.assign({}, Comments.getDataAttributes(rootEl) , opts );
 		const isCount = rootEl.getAttribute('data-o-comments-count') === 'true';
 		if (!this.options.articleId) {
 			// eslint-disable-next-line no-console
