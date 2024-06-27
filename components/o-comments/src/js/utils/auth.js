@@ -2,7 +2,7 @@ export default {
 	fetchJsonWebToken: function fetchJsonWebToken (options = {}) {
 
 		const commentsAPIUrl = options?.commentsAPIUrl || 'https://comments-api.ft.com';
-		let url = options?.commentsAuthUrl ? new URL(options.commentsAuthUrl) : new URL(`${commentsAPIUrl}/user/auth/`);
+		const url = options?.commentsAuthUrl ? new URL(options.commentsAuthUrl) : new URL(`${commentsAPIUrl}/user/auth/`);
 		//TODO: CI-1493 redirect subscriber only users to another version of auth while the flag is on
 		url.pathname = options?.onlySubscribers ? url.pathname.replace(/\/auth\//,'/auth-subsonly/')  : url.pathname;
 
