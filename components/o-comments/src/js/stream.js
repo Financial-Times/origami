@@ -58,7 +58,7 @@ class Stream {
 				this.renderSignedInMessage();
 			}
 		}
-		else if(this.onlySubscribers){
+		else if(this.onlySubscribers && !this.isSubscribed){
 			this.renderNotSignedInMessage();
 		}
 	}
@@ -224,7 +224,8 @@ class Stream {
 			error
 		} = data;
 
-		if (name === 'loginPrompt' && this.userHasValidSession) {
+		//TODO: CI-1493 userHasValidSession no longer required after subscriber only is not behind a flag
+		if (name === 'loginPrompt' && (this.userHasValidSession || this.isSubscribed)) {
 			return this.displayNamePrompt();
 		}
 
@@ -260,7 +261,6 @@ class Stream {
 				}
 
 				if (mappedEvent.oTracking && !this.options.disableOTracking) {
-					
 
 					if (error) {
 						defaultDetailWithContentAdded.error = error;
@@ -342,7 +342,7 @@ class Stream {
 					}
 				}
 				dispatchTrackingEvent(trackData);
-				window.location.href = event?.target?.href; 
+				window.location.href = event?.target?.href;
 
 			});
 			customMessageContainer.querySelector('.linkLogin')?.addEventListener('click', (event) => {
@@ -359,7 +359,7 @@ class Stream {
 					}
 				}
 				dispatchTrackingEvent(trackData);
-				window.location.href = event?.target?.href; 
+				window.location.href = event?.target?.href;
 			});
 			coralContainer.prepend(customMessageContainer);
 
@@ -374,7 +374,6 @@ class Stream {
 				}
 			}
 			dispatchTrackingEvent(trackData);
-		
 	}
 
 }
