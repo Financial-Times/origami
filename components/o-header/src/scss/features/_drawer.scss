@@ -32,7 +32,6 @@
 			}
 
 
-
 			&.o-header__drawer--open {
 				// use a 2D transform because 3D are unsupported by IE9
 				transform: translateX(0);
@@ -57,6 +56,7 @@
 			&::-webkit-scrollbar {
 				width: 12px;
 			}
+
 			&::-webkit-scrollbar-thumb {
 				background: oColorsByName('black-30');
 				// you can't set the dimensions so use a border as a margin...
@@ -78,6 +78,21 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+
+		.o-header__drawer-edition-switcher {
+			order: 2;
+			display: flex;
+
+			.o-header__drawer-menu-link {
+				padding-left: 12px;
+				text-decoration: underline;
+			}
+
+			.o-header__drawer-current-edition {
+				font-weight: 600;
+				color: var(--Black-Tints-Black-60, #66605C);
+			}
+		}
 	}
 
 	.o-header__drawer-tools-logo {
@@ -101,6 +116,7 @@
 		opacity: 0.75;
 		order: 1;
 		margin-left: -10px;
+
 		&:hover,
 		&:focus {
 			opacity: 1;
@@ -173,6 +189,7 @@
 		background-color: _oHeaderGet('drawer-search-submit-background');
 		border-color: _oHeaderGet('drawer-search-submit-border');
 		padding: 0;
+
 		&:after {
 			@include oIconsContent('search', oColorsByName('white'), $size: $_o-header-icon-size);
 			content: '';
@@ -230,6 +247,16 @@
 
 	.o-header__drawer-menu-item {
 		margin-top: 1px;
+		font-size: 18px;
+		padding-top: 12px;
+		padding-right: 12px;
+	}
+	.o-header__drawer-divider {
+		margin-top: 16px;
+		width: 1px;
+		height: 16px;
+		background-color: #333;
+		display: inline-block;
 	}
 
 
