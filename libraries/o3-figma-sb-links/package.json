@@ -20,7 +20,8 @@
 		"src/links.json"
 	],
 	"scripts": {
-		"build": "node ./src/index.js"
+		"build": "npm run metadata && node ./src/build-links.js",
+		"metadata": "node ./src/create-metadata.js"
 	},
 	"engines": {
 		"npm": ">7"

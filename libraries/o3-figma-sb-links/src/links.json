@@ -1,394 +1,321 @@
 {
   "core-o3-button--button": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-button--button"
-  },
-  "core-o3-button--link-as-button": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-button--link-as-button"
+    "sb": "?path=/story/core-o3-button--button",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D2819-133%26t%3D3nAdE1vRK549Suhi-0"
   },
   "core-o3-button--grouped-buttons": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-button--grouped-buttons"
+    "sb": "?path=/story/core-o3-button--grouped-buttons",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D2819-133%26t%3D3nAdE1vRK549Suhi-0"
+  },
+  "core-o3-button--link-as-button": {
+    "sb": "?path=/story/core-o3-button--link-as-button",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D2819-133%26t%3D3nAdE1vRK549Suhi-0"
   },
   "core-o3-button--pagination": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-button--pagination"
+    "sb": "?path=/story/core-o3-button--pagination",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D5463-1742%26t%3D3nAdE1vRK549Suhi-0"
   },
   "core-o3-button--small-button": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-button--small-button"
+    "sb": "?path=/story/core-o3-button--small-button",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D2819-133%26t%3D3nAdE1vRK549Suhi-0"
+  },
+  "core-o3-editorial-typography--big-number": {
+    "sb": "?path=/story/core-o3-editorial-typography--big-number",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-editorial-typography--body": {
+    "sb": "?path=/story/core-o3-editorial-typography--body",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-editorial-typography--byline": {
+    "sb": "?path=/story/core-o3-editorial-typography--byline",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-editorial-typography--caption": {
+    "sb": "?path=/story/core-o3-editorial-typography--caption",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-editorial-typography--heading": {
+    "sb": "?path=/story/core-o3-editorial-typography--heading",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-editorial-typography--link": {
+    "sb": "?path=/story/core-o3-editorial-typography--link",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-editorial-typography--list": {
+    "sb": "?path=/story/core-o3-editorial-typography--list",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-editorial-typography--quote": {
+    "sb": "?path=/story/core-o3-editorial-typography--quote",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-editorial-typography--stand-first": {
+    "sb": "?path=/story/core-o3-editorial-typography--stand-first",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-editorial-typography--topic-tag": {
+    "sb": "?path=/story/core-o3-editorial-typography--topic-tag",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-tooltip--onboarding-tooltip": {
+    "sb": "?path=/story/core-o3-tooltip--onboarding-tooltip",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D6660-307%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-tooltip--toggle-tooltip": {
+    "sb": "?path=/story/core-o3-tooltip--toggle-tooltip",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D6660-307%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-typography--wrapper-story": {
+    "sb": "?path=/story/core-o3-typography--wrapper-story",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-typography-body--body-story": {
+    "sb": "?path=/story/core-o3-typography-body--body-story",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-typography-caption--caption-story": {
+    "sb": "?path=/story/core-o3-typography-caption--caption-story",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-typography-footer--footer-story": {
+    "sb": "?path=/story/core-o3-typography-footer--footer-story",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-typography-heading--heading-story": {
+    "sb": "?path=/story/core-o3-typography-heading--heading-story",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-typography-link--links": {
+    "sb": "?path=/story/core-o3-typography-link--links",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-typography-orderedlist--ordered-list-story": {
+    "sb": "?path=/story/core-o3-typography-orderedlist--ordered-list-story",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
+  },
+  "core-o3-typography-unorderedlist--unordered-list-story": {
+    "sb": "?path=/story/core-o3-typography-unorderedlist--unordered-list-story",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D3-2%26t%3DLhQp6rOU5w4cq1mu-0"
   },
   "core-professional-o3-button--button": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-button--button"
   },
-  "core-professional-o3-button--link-as-button": {
-    "figma": "",
-    "sb": "?path=/story/core-professional-o3-button--link-as-button"
-  },
   "core-professional-o3-button--grouped-buttons": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-button--grouped-buttons"
   },
+  "core-professional-o3-button--link-as-button": {
+    "sb": "?path=/story/core-professional-o3-button--link-as-button"
+  },
   "core-professional-o3-button--pagination": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-button--pagination"
   },
   "core-professional-o3-button--small-button": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-button--small-button"
   },
-  "internal-o3-button--button": {
-    "figma": "",
-    "sb": "?path=/story/internal-o3-button--button"
-  },
-  "internal-o3-button--link-as-button": {
-    "figma": "",
-    "sb": "?path=/story/internal-o3-button--link-as-button"
-  },
-  "internal-o3-button--grouped-buttons": {
-    "figma": "",
-    "sb": "?path=/story/internal-o3-button--grouped-buttons"
-  },
-  "internal-o3-button--pagination": {
-    "figma": "",
-    "sb": "?path=/story/internal-o3-button--pagination"
-  },
-  "internal-o3-button--small-button": {
-    "figma": "",
-    "sb": "?path=/story/internal-o3-button--small-button"
-  },
-  "sustainable-views-o3-button--button": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-button--button"
-  },
-  "sustainable-views-o3-button--link-as-button": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-button--link-as-button"
-  },
-  "sustainable-views-o3-button--grouped-buttons": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-button--grouped-buttons"
-  },
-  "sustainable-views-o3-button--pagination": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-button--pagination"
-  },
-  "sustainable-views-o3-button--small-button": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-button--small-button"
-  },
-  "whitelabel-o3-button--button": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-button--button"
-  },
-  "whitelabel-o3-button--link-as-button": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-button--link-as-button"
-  },
-  "whitelabel-o3-button--grouped-buttons": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-button--grouped-buttons"
-  },
-  "whitelabel-o3-button--pagination": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-button--pagination"
-  },
-  "whitelabel-o3-button--small-button": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-button--small-button"
-  },
-  "core-o3-editorial-typography--big-number": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-editorial-typography--big-number"
-  },
-  "core-o3-editorial-typography--body": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-editorial-typography--body"
-  },
-  "core-o3-editorial-typography--byline": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-editorial-typography--byline"
-  },
-  "core-o3-editorial-typography--caption": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-editorial-typography--caption"
-  },
-  "core-o3-editorial-typography--heading": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-editorial-typography--heading"
-  },
-  "core-o3-editorial-typography--link": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-editorial-typography--link"
-  },
-  "core-o3-editorial-typography--list": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-editorial-typography--list"
-  },
-  "core-o3-editorial-typography--quote": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-editorial-typography--quote"
-  },
-  "core-o3-editorial-typography--stand-first": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-editorial-typography--stand-first"
-  },
-  "core-o3-editorial-typography--topic-tag": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-editorial-typography--topic-tag"
-  },
-  "sustainable-views-o3-editorial-typography--big-number": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-editorial-typography--big-number"
-  },
-  "sustainable-views-o3-editorial-typography--body": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-editorial-typography--body"
-  },
-  "sustainable-views-o3-editorial-typography--byline": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-editorial-typography--byline"
-  },
-  "sustainable-views-o3-editorial-typography--caption": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-editorial-typography--caption"
-  },
-  "sustainable-views-o3-editorial-typography--heading": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-editorial-typography--heading"
-  },
-  "sustainable-views-o3-editorial-typography--link": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-editorial-typography--link"
-  },
-  "sustainable-views-o3-editorial-typography--list": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-editorial-typography--list"
-  },
-  "sustainable-views-o3-editorial-typography--pull-quote": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-editorial-typography--pull-quote"
-  },
-  "sustainable-views-o3-editorial-typography--stand-first": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-editorial-typography--stand-first"
-  },
-  "sustainable-views-o3-editorial-typography--topic-tag": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-editorial-typography--topic-tag"
-  },
-  "whitelabel-o3-editorial-typography--big-number": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-editorial-typography--big-number"
-  },
-  "whitelabel-o3-editorial-typography--body": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-editorial-typography--body"
-  },
-  "whitelabel-o3-editorial-typography--byline": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-editorial-typography--byline"
-  },
-  "whitelabel-o3-editorial-typography--caption": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-editorial-typography--caption"
-  },
-  "whitelabel-o3-editorial-typography--heading": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-editorial-typography--heading"
-  },
-  "whitelabel-o3-editorial-typography--link": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-editorial-typography--link"
-  },
-  "whitelabel-o3-editorial-typography--list": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-editorial-typography--list"
-  },
-  "whitelabel-o3-editorial-typography--pull-quote": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-editorial-typography--pull-quote"
-  },
-  "whitelabel-o3-editorial-typography--stand-first": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-editorial-typography--stand-first"
-  },
-  "whitelabel-o3-editorial-typography--summary": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-editorial-typography--summary"
-  },
-  "whitelabel-o3-editorial-typography--topic-tag": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-editorial-typography--topic-tag"
-  },
   "core-professional-o3-tooltip--onboarding-tooltip": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-tooltip--onboarding-tooltip"
   },
   "core-professional-o3-tooltip--toggle-tooltip": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-tooltip--toggle-tooltip"
   },
-  "core-o3-tooltip--onboarding-tooltip": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-tooltip--onboarding-tooltip"
-  },
-  "core-o3-tooltip--toggle-tooltip": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-tooltip--toggle-tooltip"
-  },
-  "internal-o3-tooltip--onboarding-tooltip": {
-    "figma": "",
-    "sb": "?path=/story/internal-o3-tooltip--onboarding-tooltip"
-  },
-  "internal-o3-tooltip--toggle-tooltip": {
-    "figma": "",
-    "sb": "?path=/story/internal-o3-tooltip--toggle-tooltip"
-  },
-  "sustainable-views-o3-tooltip--onboarding-tooltip": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-tooltip--onboarding-tooltip"
-  },
-  "sustainable-views-o3-tooltip--toggle-tooltip": {
-    "figma": "",
-    "sb": "?path=/story/sustainable-views-o3-tooltip--toggle-tooltip"
-  },
-  "whitelabel-o3-tooltip--onboarding-tooltip": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-tooltip--onboarding-tooltip"
-  },
-  "whitelabel-o3-tooltip--toggle-tooltip": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-tooltip--toggle-tooltip"
-  },
-  "core-o3-typography-body--body-story": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-typography-body--body-story"
-  },
-  "core-o3-typography-caption--caption-story": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-typography-caption--caption-story"
-  },
-  "core-o3-typography-footer--footer-story": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-typography-footer--footer-story"
-  },
-  "core-o3-typography-heading--heading-story": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-typography-heading--heading-story"
-  },
-  "core-o3-typography-link--links": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-typography-link--links"
-  },
-  "core-o3-typography-orderedlist--ordered-list-story": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-typography-orderedlist--ordered-list-story"
+  "core-professional-o3-typography--wrapper-story": {
+    "sb": "?path=/story/core-professional-o3-typography--wrapper-story"
   },
   "core-professional-o3-typography-body--body-story": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-typography-body--body-story"
   },
   "core-professional-o3-typography-caption--caption-story": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-typography-caption--caption-story"
   },
   "core-professional-o3-typography-footer--footer-story": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-typography-footer--footer-story"
   },
   "core-professional-o3-typography-heading--heading-story": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-typography-heading--heading-story"
   },
   "core-professional-o3-typography-link--links": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-typography-link--links"
   },
   "core-professional-o3-typography-orderedlist--ordered-list-story": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-typography-orderedlist--ordered-list-story"
   },
   "core-professional-o3-typography-unorderedlist--unordered-list-story": {
-    "figma": "",
     "sb": "?path=/story/core-professional-o3-typography-unorderedlist--unordered-list-story"
   },
-  "core-professional-o3-typography--wrapper-story": {
-    "figma": "",
-    "sb": "?path=/story/core-professional-o3-typography--wrapper-story"
+  "internal-o3-button--button": {
+    "sb": "?path=/story/internal-o3-button--button"
   },
-  "core-o3-typography-unorderedlist--unordered-list-story": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-typography-unorderedlist--unordered-list-story"
+  "internal-o3-button--grouped-buttons": {
+    "sb": "?path=/story/internal-o3-button--grouped-buttons"
   },
-  "core-o3-typography--wrapper-story": {
-    "figma": "",
-    "sb": "?path=/story/core-o3-typography--wrapper-story"
+  "internal-o3-button--link-as-button": {
+    "sb": "?path=/story/internal-o3-button--link-as-button"
+  },
+  "internal-o3-button--pagination": {
+    "sb": "?path=/story/internal-o3-button--pagination"
+  },
+  "internal-o3-button--small-button": {
+    "sb": "?path=/story/internal-o3-button--small-button"
+  },
+  "internal-o3-tooltip--onboarding-tooltip": {
+    "sb": "?path=/story/internal-o3-tooltip--onboarding-tooltip"
+  },
+  "internal-o3-tooltip--toggle-tooltip": {
+    "sb": "?path=/story/internal-o3-tooltip--toggle-tooltip"
+  },
+  "internal-o3-typography--wrapper-story": {
+    "sb": "?path=/story/internal-o3-typography--wrapper-story"
   },
   "internal-o3-typography-body--body": {
-    "figma": "",
     "sb": "?path=/story/internal-o3-typography-body--body"
   },
   "internal-o3-typography-caption--caption-story": {
-    "figma": "",
     "sb": "?path=/story/internal-o3-typography-caption--caption-story"
   },
   "internal-o3-typography-footer--footer-story": {
-    "figma": "",
     "sb": "?path=/story/internal-o3-typography-footer--footer-story"
   },
   "internal-o3-typography-heading--heading-story": {
-    "figma": "",
     "sb": "?path=/story/internal-o3-typography-heading--heading-story"
   },
   "internal-o3-typography-link--link": {
-    "figma": "",
     "sb": "?path=/story/internal-o3-typography-link--link"
   },
   "internal-o3-typography-orderedlist--ordered-list-story": {
-    "figma": "",
     "sb": "?path=/story/internal-o3-typography-orderedlist--ordered-list-story"
   },
   "internal-o3-typography-unorderedlist--unordered-list-story": {
-    "figma": "",
     "sb": "?path=/story/internal-o3-typography-unorderedlist--unordered-list-story"
   },
-  "internal-o3-typography--wrapper-story": {
-    "figma": "",
-    "sb": "?path=/story/internal-o3-typography--wrapper-story"
+  "sustainable-views-o3-button--button": {
+    "sb": "?path=/story/sustainable-views-o3-button--button"
+  },
+  "sustainable-views-o3-button--grouped-buttons": {
+    "sb": "?path=/story/sustainable-views-o3-button--grouped-buttons"
+  },
+  "sustainable-views-o3-button--link-as-button": {
+    "sb": "?path=/story/sustainable-views-o3-button--link-as-button"
+  },
+  "sustainable-views-o3-button--pagination": {
+    "sb": "?path=/story/sustainable-views-o3-button--pagination"
+  },
+  "sustainable-views-o3-button--small-button": {
+    "sb": "?path=/story/sustainable-views-o3-button--small-button"
+  },
+  "sustainable-views-o3-editorial-typography--big-number": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--big-number"
+  },
+  "sustainable-views-o3-editorial-typography--body": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--body"
+  },
+  "sustainable-views-o3-editorial-typography--byline": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--byline"
+  },
+  "sustainable-views-o3-editorial-typography--caption": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--caption"
+  },
+  "sustainable-views-o3-editorial-typography--heading": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--heading"
+  },
+  "sustainable-views-o3-editorial-typography--link": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--link"
+  },
+  "sustainable-views-o3-editorial-typography--list": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--list"
+  },
+  "sustainable-views-o3-editorial-typography--pull-quote": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--pull-quote"
+  },
+  "sustainable-views-o3-editorial-typography--stand-first": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--stand-first"
+  },
+  "sustainable-views-o3-editorial-typography--topic-tag": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--topic-tag"
+  },
+  "sustainable-views-o3-tooltip--onboarding-tooltip": {
+    "sb": "?path=/story/sustainable-views-o3-tooltip--onboarding-tooltip"
+  },
+  "sustainable-views-o3-tooltip--toggle-tooltip": {
+    "sb": "?path=/story/sustainable-views-o3-tooltip--toggle-tooltip"
+  },
+  "whitelabel-o3-button--button": {
+    "sb": "?path=/story/whitelabel-o3-button--button"
+  },
+  "whitelabel-o3-button--grouped-buttons": {
+    "sb": "?path=/story/whitelabel-o3-button--grouped-buttons"
+  },
+  "whitelabel-o3-button--link-as-button": {
+    "sb": "?path=/story/whitelabel-o3-button--link-as-button"
+  },
+  "whitelabel-o3-button--pagination": {
+    "sb": "?path=/story/whitelabel-o3-button--pagination"
+  },
+  "whitelabel-o3-button--small-button": {
+    "sb": "?path=/story/whitelabel-o3-button--small-button"
+  },
+  "whitelabel-o3-editorial-typography--big-number": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--big-number"
+  },
+  "whitelabel-o3-editorial-typography--body": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--body"
+  },
+  "whitelabel-o3-editorial-typography--byline": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--byline"
+  },
+  "whitelabel-o3-editorial-typography--caption": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--caption"
+  },
+  "whitelabel-o3-editorial-typography--heading": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--heading"
+  },
+  "whitelabel-o3-editorial-typography--link": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--link"
+  },
+  "whitelabel-o3-editorial-typography--list": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--list"
+  },
+  "whitelabel-o3-editorial-typography--pull-quote": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--pull-quote"
+  },
+  "whitelabel-o3-editorial-typography--stand-first": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--stand-first"
+  },
+  "whitelabel-o3-editorial-typography--summary": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--summary"
+  },
+  "whitelabel-o3-editorial-typography--topic-tag": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--topic-tag"
+  },
+  "whitelabel-o3-tooltip--onboarding-tooltip": {
+    "sb": "?path=/story/whitelabel-o3-tooltip--onboarding-tooltip"
+  },
+  "whitelabel-o3-tooltip--toggle-tooltip": {
+    "sb": "?path=/story/whitelabel-o3-tooltip--toggle-tooltip"
+  },
+  "whitelabel-o3-typography--wrapper-story": {
+    "sb": "?path=/story/whitelabel-o3-typography--wrapper-story"
   },
   "whitelabel-o3-typography-body--body": {
-    "figma": "",
     "sb": "?path=/story/whitelabel-o3-typography-body--body"
   },
   "whitelabel-o3-typography-caption--caption-story": {
-    "figma": "",
     "sb": "?path=/story/whitelabel-o3-typography-caption--caption-story"
   },
   "whitelabel-o3-typography-footer--footer-story": {
-    "figma": "",
     "sb": "?path=/story/whitelabel-o3-typography-footer--footer-story"
   },
   "whitelabel-o3-typography-heading--heading-story": {
-    "figma": "",
     "sb": "?path=/story/whitelabel-o3-typography-heading--heading-story"
   },
   "whitelabel-o3-typography-link--link": {
-    "figma": "",
     "sb": "?path=/story/whitelabel-o3-typography-link--link"
   },
   "whitelabel-o3-typography-orderedlist--ordered-list-story": {
-    "figma": "",
     "sb": "?path=/story/whitelabel-o3-typography-orderedlist--ordered-list-story"
   },
   "whitelabel-o3-typography-unorderedlist--unordered-list-story": {
-    "figma": "",
     "sb": "?path=/story/whitelabel-o3-typography-unorderedlist--unordered-list-story"
-  },
-  "whitelabel-o3-typography--wrapper-story": {
-    "figma": "",
-    "sb": "?path=/story/whitelabel-o3-typography--wrapper-story"
   }
 }

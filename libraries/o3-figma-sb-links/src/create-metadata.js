@@ -6,6 +6,11 @@ import {loadCsf} from '@storybook/csf-tools';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const figmaLinks = JSON.parse(fs.readFileSync(__dirname + '/figma-links.json'));
+const sbLinks = JSON.parse(fs.readFileSync(__dirname + '/sb-links.json'));
+const figmaLinkIds = Object.keys(figmaLinks);
+const sbLinkIds = Object.keys(sbLinks);
+
 function generateSbMetadata() {
 	const componentsDir = path.join(__dirname, '..', '..', '..', 'components');
 
@@ -20,25 +25,41 @@ function generateSbMetadata() {
 			storyFiles.push(...storiesFiles);
 		}
 	});
-	const linksJson = JSON.parse(fs.readFileSync(__dirname + '/links.json'));
+
 	storyFiles.forEach(file => {
 		const {_stories} = extractStoryFileMetaData(file);
 		const ids = getStoryIds(_stories);
 
-		const linkIds = Object.keys(linksJson);
-		const missingLinks = ids.filter(id => !linkIds.includes(id));
-		if (missingLinks.length) {
-			missingLinks.forEach(id => {
-				linksJson[id] = {
-					figma: '',
-					sb: `?path=/story/${id}`,
-				};
+		const missingFigmaLinks = ids.filter(id => !figmaLinkIds.includes(id));
+		const missingSbLinks = ids.filter(id => !sbLinkIds.includes(id));
+
+		if (missingFigmaLinks.length) {
+			missingFigmaLinks.forEach(id => {
+				figmaLinks[id] = '';
+			});
+		}
+
+		if (missingSbLinks.length) {
+			missingSbLinks.forEach(id => {
+				sbLinks[id] = `?path=/story/${id}`;
 			});
 		}
 	});
+	// order the links by id
+	const orderedFigmaLinks = {};
+	Object.keys(figmaLinks)
+		.sort()
+		.forEach(key => {
+			orderedFigmaLinks[key] = figmaLinks[key];
+		});
+
 	fs.writeFileSync(
-		__dirname + '/links.json',
-		JSON.stringify(linksJson, null, 2)
+		__dirname + '/figma-links.json',
+		JSON.stringify(orderedFigmaLinks, null, 2)
+	);
+	fs.writeFileSync(
+		__dirname + '/sb-links.json',
+		JSON.stringify(sbLinks, null, 2)
 	);
 }
 
@@ -74,6 +95,3 @@ function getStoryIds(stories) {
 }
 
 generateSbMetadata();
-
-
-export const links = JSON.parse(fs.readFileSync(__dirname + '/links.json'));
