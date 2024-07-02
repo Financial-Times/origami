@@ -3,25 +3,29 @@ import links from '@financial-times/o3-figma-sb-links';
 const {storybook, figma} = getLinks(Astro.props);
 
 function getLinks(props) {
-	const {sbId, sbPathParams} = props;
-	const sbPath = links[sbId]?.sb;
-	let sbLink = `https://o3.origami.ft.com/${sbPath}`;
-
-	if (sbPathParams) {
-		const storybookArgs = `&args=${Object.entries(sbPathParams)
-			.map(p => `${p[0]}:${p[1]};`)
-			.join('')}`;
-		sbLink += storybookArgs;
+	let {sbId, sbPathParams, storybook, figma} = props;
+	if (!storybook && sbId) {
+		const brandedSbId = sbId?.startsWith('professional')
+			? `core-${sbId}`
+			: sbId;
+		const sbPath = links[brandedSbId]?.sb;
+		storybook = `https://o3.origami.ft.com/${sbPath}`;
+		if (sbPathParams) {
+			const storybookArgs = `&args=${Object.entries(sbPathParams)
+				.map(p => `${p[0]}:${p[1]};`)
+				.join('')}`;
+			storybook += storybookArgs;
+		}
 	}
-
-	const figmaEmbedUrl = links[sbId]?.figma;
-	let figmaUrl;
-	if (figmaEmbedUrl) {
-		const urlObj = new URL(figmaEmbedUrl);
-		const params = new URLSearchParams(urlObj.search);
-		figmaUrl = params.get('url');
+	if (!figma && sbId) {
+		const figmaEmbedUrl = links[sbId]?.figma;
+		if (figmaEmbedUrl) {
+			const urlObj = new URL(figmaEmbedUrl);
+			const params = new URLSearchParams(urlObj.search);
+			figma = params.get('url');
+		}
 	}
-	return {storybook: sbLink, figma: figmaUrl};
+	return {storybook, figma};
 }
 ---
 

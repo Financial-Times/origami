@@ -4,24 +4,8 @@ import Preview from '../utils/Preview.astro';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 
 const {brand} = Astro.props;
-let sbId = '';
-switch (brand) {
-	case 'core':
-		sbId = 'core-o3-button--grouped-buttons';
-		break;
-	case 'professional':
-		sbId = 'core-professional-o3-button--grouped-buttons';
-		break;
-	case 'internal':
-		sbId = 'internal-o3-button--grouped-buttons';
-		break;
-	case 'sustainable-views':
-		sbId = 'sustainable-views-o3-button--grouped-buttons';
-		break;
-	default:
-		'core-o3-button--grouped-buttons';
-		break;
-}
+
+const sbId = `${brand}-o3-button--grouped-buttons`;
 ---
 
 <div>
