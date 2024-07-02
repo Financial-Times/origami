@@ -4,6 +4,9 @@ import {
 	OnboardingTooltip as OnboardingTooltipStory,
 	ToggleToolTip as ToggleToolTipStory,
 } from '../story-template';
+
+import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
+
 import '../../src/css/brands/core.css';
 import '../../../o3-button/src/css/brands/core.css';
 
@@ -23,4 +26,6 @@ export default {
 } as Meta;
 
 export const OnboardingTooltip = OnboardingTooltipStory;
+OnboardingTooltip.parameters.design.url = links['core-o3-tooltip--onboarding-tooltip'].figma;
 export const ToggleTooltip = ToggleToolTipStory;
+ToggleTooltip.parameters.design.url = links['core-o3-tooltip--toggle-tooltip'].figma;

@@ -3,6 +3,7 @@ import {List as ListTsx} from '../../src/tsx/index';
 import * as StoryTemplates from '../story-templates';
 
 import '../../src/css/brands/core.css';
+import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
 
 export default {
 	title: 'Core/o3-editorial-typography',
@@ -22,12 +23,10 @@ export default {
 	},
 } as Meta;
 
-const DesignParams = {
-	type: 'figma',
-	url: 'https://www.figma.com/file/5ATknbGociZMlnNXX4sy4f/Whitelabel---Design-System?type=design&node-id=4717-652&mode=design&t=Y50jCZbAtgxH2F3S-4',
-};
-
 export const List = StoryTemplates.List;
 List.parameters = {
-	design: DesignParams,
+	design: {
+		type: 'figma',
+		url: links['core-o3-editorial-typography--list'].figma,
+	},
 };
