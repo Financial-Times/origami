@@ -1,6 +1,28 @@
 ---
-import links from "@financial-times/o3-figma-sb-links";
-const {storybook, figma} = Astro.props;
+import links from '@financial-times/o3-figma-sb-links';
+const {storybook, figma} = getLinks(Astro.props);
+
+function getLinks(props) {
+	const {sbId, sbPathParams} = props;
+	const sbPath = links[sbId]?.sb;
+	let sbLink = `https://o3.origami.ft.com/${sbPath}`;
+
+	if (sbPathParams) {
+		const storybookArgs = `&args=${Object.entries(sbPathParams)
+			.map(p => `${p[0]}:${p[1]};`)
+			.join('')}`;
+		sbLink += storybookArgs;
+	}
+
+	const figmaEmbedUrl = links[sbId]?.figma;
+	let figmaUrl;
+	if (figmaEmbedUrl) {
+		const urlObj = new URL(figmaEmbedUrl);
+		const params = new URLSearchParams(urlObj.search);
+		figmaUrl = params.get('url');
+	}
+	return {storybook: sbLink, figma: figmaUrl};
+}
 ---
 
 {
