@@ -58,7 +58,7 @@ class Stream {
 				this.renderSignedInMessage();
 			}
 		}
-		else if(this.onlySubscribers){
+		else if(this.onlySubscribers && !this.isSubscribed){
 			this.renderNotSignedInMessage();
 		}
 	}
@@ -224,7 +224,8 @@ class Stream {
 			error
 		} = data;
 
-		if (name === 'loginPrompt' && this.userHasValidSession) {
+		//TODO: CI-1493 userHasValidSession no longer required after subscriber only is not behind a flag
+		if (name === 'loginPrompt' && (this.userHasValidSession || this.isSubscribed)) {
 			return this.displayNamePrompt();
 		}
 
@@ -260,19 +261,12 @@ class Stream {
 				}
 
 				if (mappedEvent.oTracking && !this.options.disableOTracking) {
-					const oTrackingEventOptions = {
-						bubbles: true,
-						detail: {
-							...defaultDetailWithContentAdded
-						}
-					};
 
 					if (error) {
-						oTrackingEventOptions.detail.error = error;
+						defaultDetailWithContentAdded.error = error;
 					}
 
-					const oTrackingEvent = new CustomEvent('oTracking.event', oTrackingEventOptions);
-					document.body.dispatchEvent(oTrackingEvent);
+					dispatchTrackingEvent(defaultDetailWithContentAdded);
 				}
 			}
 		}
@@ -317,28 +311,83 @@ class Stream {
 			const messageRegistered = `
 			<h3>Commenting is only available to readers with FT subscription</h3>
 				<p>
-					<a href='https://subs.ft.com/products'>Subscribe</a> to join the conversation.
+				${this.options.linkSubscribe ? `<a class="linkSubscribe" href='${this.options.linkSubscribe}'>Subscribe</a>` : `Subscribe`} to join the conversation.
 				</p>
 			`;
-			const currentUrlEscaped = encodeURIComponent(window.location.href);
 			const messageForAnonymous = `
 			<h3>Commenting is only available to readers with FT subscription</h3>
 				<p>
-					Please <a href='https://ft.com/login?location=${currentUrlEscaped}'>login</a> or <a href='https://subs.ft.com/products'>subscribe</a> to join the conversation.
+					Please ${this.options.linkLogin ? ` <a class="linkLogin" href='${this.options.linkLogin}'>login</a>` : `login`} or ${this.options.linkSubscribe ? `<a href='${this.options.linkSubscribe}' class="linkSubscribe" >subscribe</a>` : `subscribe`} to join the conversation.
 				</p>
 			`;
 			const messageForTrial = `
 			<h3>You are still in a trial period</h3>
 				<p>
-					View our full <a href='https://subs.ft.com/products'>subscription packages</a> to join the conversation.
+					View our full ${this.options.linkSubscribe ? `<a class="linkSubscribe" href='${this.options.linkSubscribe}'>subscription packages</a>` : `subscription packages` } to join the conversation.
 				</p>
 			`;
 			customMessageContainer.innerHTML = this.isTrialist ? messageForTrial : this.isRegistered ? messageRegistered : messageForAnonymous;
+			// this content is attached after oTracking.init is called therefore set data-trackable to the links doesn't work, therefore we raise an event when click on it
+			customMessageContainer.querySelector('.linkSubscribe')?.addEventListener('click', (event) => {
+				event.preventDefault();
+				const trackData = {
+					category: 'comment',
+					action: 'linkMessage',
+					coral: false,
+					content : {
+						asset_type: this.options.assetType,
+						uuid: this.options.articleId,
+						linkType: 'subscribe',
+						user_type: this.isTrialist ? 'trialist' : this.isRegistered ? 'registered' : 'anonymous'
+					}
+				}
+				dispatchTrackingEvent(trackData);
+				window.location.href = event?.target?.href;
 
+			});
+			customMessageContainer.querySelector('.linkLogin')?.addEventListener('click', (event) => {
+				event.preventDefault();
+				const trackData = {
+					category: 'comment',
+					action: 'linkMessage',
+					coral: false,
+					content : {
+						asset_type: this.options.assetType,
+						uuid: this.options.articleId,
+						linkType: 'login',
+						user_type: this.isTrialist ? 'trialist' : this.isRegistered ? 'registered' : 'anonymous'
+					}
+				}
+				dispatchTrackingEvent(trackData);
+				window.location.href = event?.target?.href;
+			});
 			coralContainer.prepend(customMessageContainer);
-	}
 
+			const trackData = {
+				category: 'comment',
+				action: 'show-not-signed-in-message',
+				coral: false,
+				content : {
+					asset_type: this.options.assetType,
+					uuid: this.options.articleId,
+					user_type: this.isTrialist ? 'trialist' : this.isRegistered ? 'registered' : 'anonymous'
+				}
+			}
+			dispatchTrackingEvent(trackData);
+	}
 
 }
 
 export default Stream;
+
+
+function dispatchTrackingEvent (trackData = {}) {
+	const oTrackingEventOptions = {
+		bubbles: true,
+		detail: {
+			...trackData
+		}
+	};
+	const oTrackingEvent = new CustomEvent('oTracking.event', oTrackingEventOptions);
+	document.body.dispatchEvent(oTrackingEvent);
+}
