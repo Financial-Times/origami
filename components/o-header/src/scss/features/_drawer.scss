@@ -191,14 +191,12 @@
 	}
 
 	.o-header__drawer-search-submit {
-		background-color: _oHeaderGet('drawer-search-submit-background');
-		border-color: _oHeaderGet('drawer-search-submit-border');
-		padding: 0;
-
-		&:after {
-			@include oIconsContent('search', oColorsByName('white'), $size: 40);
-			content: '';
-		}
+		@include oButtonsContent($opts: (
+			'type': 'primary',
+			'icon-only': true,
+			'icon': 'search'
+		));
+		background-size: contain;
 	}
 
 	//
