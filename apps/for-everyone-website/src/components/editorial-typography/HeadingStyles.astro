@@ -2,10 +2,7 @@
 import {Headline} from '@financial-times/o3-editorial-typography';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 const {brand} = Astro.props
-let storybook =
-	`https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--heading`;
-let figma =
-	'https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?node-id=4717-652&t=JoNufjYjDEE8n0FL-4';
+const sbId = `${brand}-o3-editorial-typography--heading`
 ---
 
 {brand === 'core' || brand === 'professional' && <>
@@ -29,21 +26,21 @@ let figma =
 			<td>S</td>
 			<td class="headline-large-s">Headline large</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				<FigmaSbLinks {sbId} />
 			</td>
 		</tr>
 		<tr>
 			<td>M</td>
 			<td class="headline-large-m">Headline large</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				<FigmaSbLinks {sbId} />
 			</td>
 		</tr>
 		<tr>
 			<td>L</td>
 			<td class="headline-large-l">Headline large</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				<FigmaSbLinks {sbId} />
 			</td>
 		</tr>
 	</tbody>
@@ -64,21 +61,21 @@ let figma =
 			<td>S</td>
 			<td class="headline-s">Headline</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				<FigmaSbLinks {sbId} />
 			</td>
 		</tr>
 		<tr>
 			<td>M</td>
 			<td class="headline-m">Headline</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				<FigmaSbLinks {sbId} />
 			</td>
 		</tr>
 		<tr>
 			<td>L</td>
 			<td class="headline-l">Headline</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				<FigmaSbLinks {sbId} />
 			</td>
 		</tr>
 	</tbody>
@@ -105,7 +102,7 @@ let figma =
 			</td>
 			<td>For in-page titles / chapters</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				<FigmaSbLinks {sbId} />
 			</td>
 		</tr>
 		<tr>
@@ -114,7 +111,7 @@ let figma =
 			</td>
 			<td>For in-page sub-titles / sub-headings</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				<FigmaSbLinks {sbId} />
 			</td>
 		</tr>
 		<tr>
@@ -126,7 +123,7 @@ let figma =
 				just above a chapter.
 			</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				<FigmaSbLinks {sbId} />
 			</td>
 		</tr>
 	</tbody>

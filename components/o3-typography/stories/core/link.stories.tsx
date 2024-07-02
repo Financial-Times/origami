@@ -2,6 +2,7 @@ import type {Meta} from '@storybook/react';
 
 import {Link, Body} from '../../src/tsx';
 import '../../src/css/brands/core.css';
+import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
 
 export default {
 	title: 'Core/o3-typography/Link',
@@ -15,6 +16,10 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'paper'},
+		design: {
+			type: 'figma',
+			url: links['core-o3-typography-link--links'].figma,
+		},
 	},
 	argTypes: {
 		theme: {

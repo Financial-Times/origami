@@ -1,18 +1,15 @@
 ---
-import * as DropCap from './preview/DropCap.tsx'
+import * as DropCap from './preview/DropCap.tsx';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 
 const {brand} = Astro.props;
-const figma =
-	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4370&t=kyDVEfsg2tRJspyY-4';
-const quoteSbLinkGenerator = () => {
-	return `/?path=/story/${brand}-o3-editorial-typography--body&args=dropCap:!true&globals=backgrounds.name:paper;backgrounds.value:!hex(ffffff)`;
+const sbId = `${brand}-o3-editorial-typography--body`;
+const sbPathParams = {
+	dropCap: '!true',
 };
-const sb = quoteSbLinkGenerator();
-
 ---
 
 <Preview component={DropCap} />
 
-<FigmaSbLinks {figma} storybook={sb} />
+<FigmaSbLinks {sbId} {sbPathParams} />

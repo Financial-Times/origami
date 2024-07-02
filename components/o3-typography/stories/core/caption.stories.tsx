@@ -4,6 +4,7 @@ import * as TypographyStories from '../story-templates';
 import '../../main.css';
 
 import '../../src/css/brands/core.css';
+import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
 
 export default {
 	title: 'Core/o3-typography/Caption',
@@ -17,6 +18,11 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'paper'},
+		design: {
+			type: 'figma',
+			url: links['core-o3-typography-caption--caption-story'].figma,
+
+		}
 	},
 } as Meta;
 

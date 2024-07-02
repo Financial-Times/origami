@@ -3,10 +3,7 @@ import * as Component from './preview/BigNumber.tsx';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 const {brand} = Astro.props;
-const figma =
-	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4443&t=kyDVEfsg2tRJspyY-4';
-
-const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--big-number`;
+const sbId = `${brand}-o3-editorial-typography--big-number`
 ---
 
 <p>
@@ -16,4 +13,4 @@ const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-
 
 <Preview component={Component} />
 
-<FigmaSbLinks {figma} {storybook} />
+<FigmaSbLinks {sbId} />

@@ -4,12 +4,9 @@ import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 
 const {brand} = Astro.props;
-const figma =
-	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=1301-1096&t=kyDVEfsg2tRJspyY-4';
-
-const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--topic-tag`;
+const sbId = `${brand}-o3-editorial-typography--topic-tag`
 ---
 
 <Preview component={Component} />
 
-<FigmaSbLinks {figma} {storybook} />
+<FigmaSbLinks {sbId} />

@@ -5,13 +5,7 @@ import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 
 const {brand} = Astro.props;
-const figma =
-	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4386&t=kyDVEfsg2tRJspyY-4';
-const quoteSbLinkGenerator = (type: string) => {
-	return `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--list&args=type:${type}`;
-};
-const sbOrdered = quoteSbLinkGenerator('ordered');
-const sbUnordered = quoteSbLinkGenerator('unordered');
+const sbId = `${brand}-o3-editorial-typography--list`
 
 ---
 
@@ -19,10 +13,10 @@ const sbUnordered = quoteSbLinkGenerator('unordered');
 
 <Preview component={OrdredComponent} />
 
-<FigmaSbLinks {figma} storybook={sbOrdered} />
+<FigmaSbLinks {sbId} />
 
 <h4>Unordered List</h4>
 
 <Preview component={UnordredComponent} />
 
-<FigmaSbLinks {figma} storybook={sbUnordered} />
+<FigmaSbLinks {sbId} />

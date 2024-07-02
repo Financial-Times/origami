@@ -149,6 +149,8 @@ jobs:
             - 'libraries/o-tracking/**'
           libraries/o-utils:
             - 'libraries/o-utils/**'
+          libraries/o3-figma-sb-links:
+            - 'libraries/o3-figma-sb-links/**'
           libraries/o3-tooling-token:
             - 'libraries/o3-tooling-token/**'
           libraries/sass-mq:

@@ -6,6 +6,9 @@ export const TemplateSBConfig: Meta = {
 			root: '#component-wrapper',
 			transform: (code: string) => transformCode(code),
 		},
+		design: {
+			type: 'figma',
+		},
 	},
 };
 

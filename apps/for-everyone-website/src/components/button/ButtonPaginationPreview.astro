@@ -4,15 +4,13 @@ import * as InverseComponent from './preview/ButtonPagination-inverse';
 import Preview from '../utils/Preview.astro';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 
-const {theme} = Astro.props;
+const {theme, brand} = Astro.props;
 
 const Component = theme === 'inverse' ? InverseComponent : StandardComponent;
-const figma =
-	'https://www.figma.com/file/nSD9N3r4MiMpv9pA6F4Dpy/Pagination?type=design&node-id=5463-1742&mode=design';
-const storybook = `https://o3.origami.ft.com?path=/story/core-o3-button--pagination&args=theme:${theme}`;
+const sbId = `${brand}-o3-button--pagination`;
 ---
 
 <div>
 	<Preview component={Component} />
-	<FigmaSbLinks {figma} {storybook} />
+	<FigmaSbLinks {sbId} />
 </div>
