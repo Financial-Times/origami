@@ -94,7 +94,7 @@ const StickySearch = () => {
 						id="o-header-search-term-js"
 						name="q"
 						type="text"
-						placeholder="Search the FT"
+						placeholder="Search for stories, topics or securities"
 					/>
 					<button className="o-header__search-submit" type="submit">
 						Search

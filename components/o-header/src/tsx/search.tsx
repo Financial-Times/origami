@@ -57,7 +57,7 @@ function SearchForm(props) {
 				autoCorrect="off"
 				autoCapitalize="off"
 				spellCheck={false}
-				placeholder="Search the FT"
+				placeholder="Search for stories, topics or securities"
 			/>
 			<button className="o-header__search-submit" type="submit">
 				Search
