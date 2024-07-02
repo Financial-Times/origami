@@ -147,7 +147,6 @@
 	// Search
 	//
 	.o-header__drawer-search {
-		border-top: 2px solid oColorsByName('black-10');
 		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
 
 		@include oGridRespondTo('oHeaderL') {
