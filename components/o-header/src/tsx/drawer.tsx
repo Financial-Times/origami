@@ -19,10 +19,10 @@ export function Drawer({data, userIsLoggedIn, userIsSubscribed}: THeaderProps) {
 					current={editions.current}
 					otherEditions={editions.others}
 				/>
+				<DrawerSearch />
 				{!userIsSubscribed && subscribeAction && (
 					<DrawerAction action={subscribeAction} />
 				)}
-				<DrawerSearch />
 				<DrawerMenu navItems={navItems} />
 				<DrawerUser {...userData} />
 			</div>

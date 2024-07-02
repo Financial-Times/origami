@@ -71,7 +71,7 @@
 	//
 	.o-header__drawer-tools {
 		overflow: hidden;
-		padding: ($_o-header-drawer-padding-y * 1.5) 0 $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+		padding: ($_o-header-drawer-padding-y * 2.5) 0 $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
 		background-color: _oHeaderGet('drawer-tools-background');
 		color: _oHeaderGet('drawer-tools-text');
 		display: flex;
