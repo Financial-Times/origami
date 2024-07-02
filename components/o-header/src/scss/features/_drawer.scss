@@ -92,6 +92,10 @@
 				font-weight: 600;
 				color: var(--Black-Tints-Black-60, #66605C);
 			}
+			.o-header__drawer-menu-item {
+				padding-top: 12px;
+				padding-right: 12px;
+			}
 		}
 	}
 
@@ -248,8 +252,6 @@
 	.o-header__drawer-menu-item {
 		margin-top: 1px;
 		font-size: 18px;
-		padding-top: 12px;
-		padding-right: 12px;
 	}
 	.o-header__drawer-divider {
 		margin-top: 16px;
