@@ -1,4 +1,6 @@
 ---
+import {Code} from '@astrojs/starlight/components';
+
 const allTokens = await import(`@financial-times/o3-tooling-token/${Astro.props.brand}.js`);
 
 function isTypeScaleToken(token) {
@@ -67,8 +69,7 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 		<tr>
 			<th width="32%">Sample</th>
 			<th width="9%">Scale</th>
-			<th width="27%">Font Size</th>
-			<th width="32%">Line Height</th>
+			<th width="27%">Font size / line height</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -80,8 +81,10 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 						class={`token-sample ${Astro.props.scaleFamily ? `token-sample--${Astro.props.scaleFamily}` : ''}`}
 						style=`line-height: ${scale.lineHeights.value}; font-size: ${scale.fontSizes.value}`>Make sense of it all</td>
 					<td>{scaleKey}</td>
-					<td class="token-value">{scale.fontSizes.originalValue}px<br>{scale.fontSizes.css}</td>
-					<td class="token-value">{scale.lineHeights.originalValue}px<br>{scale.lineHeights.css}</td>
+					<td class="token-value">
+							{scale.fontSizes.originalValue}px / {scale.lineHeights.originalValue}px <br>
+							<Code code={`font-size: var(${scale.fontSizes.css});\nline-height: var(${scale.lineHeights.css});`} lang="css" wrap={true}/>
+					</td>
 					</tr>)
 		})
 	}
@@ -107,6 +110,12 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 
 	.token-sample--financier-display {
 		font-family: var(--o3-font-family-financier-display);
+	}
+
+	.token-sample--financier-text {
+		font-family: var(--o3-font-family-financier-text);
+		/* We have an issue with the weight scale in the Financier Text variable font */
+		font-weight: 1;
 	}
 
 	.token-sample--georgia {
