@@ -55,8 +55,24 @@ As well as following the
 - `"type"` should not be set.
 - `"license"` property set to the SPDX license identifier for the
   license of the component, e.g. "MIT".
-- `"peerDependencies"` should include any production Origami dependencies with styles, to ensure only one version is installed at once.
+- `"peerDependencies"` should include any production Origami dependencies with styles ([see versioning](#versioning)).
 - `"bugs"` field as described in the [package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json) specification.
+
+### Versioning
+
+Origami components:
+
+- Must follow [Semantic Versioning (semver)](https://semver.org/) conventions, as outlined below.
+- Should be installed as `peerDependencies`, to ensure only one version of a component is installed at once. This reduces the CSS/JS bundle size for users and ensures no code conflicts.
+- Should be installed with a [caret `^` version range](https://docs.npmjs.com/cli/v6/using-npm/semver#caret-ranges-123-025-004), to avoid peer dependency conflicts when the component is required by more than one package. E.g. `^1.2.0` allows any version of the component at `>=1.2.0 <2.0.0`.
+
+[Semantic Versioning (semver)](https://semver.org/) conventions mean a version such as `2.1.1` indicates `MAJOR.MINOR.PATCH` releases.
+
+- `MAJOR` changes indicate incompatible API changes, where a user may need to make changes to use the new version. For Origami components this includes HTML changes.
+- `MINOR` changes new functionality, added in a backward compatible manner.
+- `PATCH` changes include backward compatible bug fixes.
+
+See the [semver documentation](https://semver.org/) for further examples, including versioning for pre-release (beta) components.
 
 ### Documentation
 
