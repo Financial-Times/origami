@@ -72,23 +72,28 @@ function DrawerSearch() {
 				role="search"
 				aria-label="Site search">
 				<label
-					className="o-header__visually-hidden"
-					htmlFor="o-header-drawer-search-term">
-					Search the <abbr title="Financial Times">FT</abbr>
+					htmlFor="o-header-drawer-search-term"
+					className="o-forms-field o-forms-field--optional">
+					<span className="o-forms-title o-header__visually-hidden">
+						<span className="o-forms-title__main">
+							Search the <abbr title="Financial Times">FT</abbr>
+						</span>
+					</span>
+					<span className="o-forms-input o-forms-input--text o-forms-input--suffix">
+						<input
+							id="o-header-drawer-search-term"
+							type="text"
+							autoComplete="off"
+							autoCorrect="off"
+							autoCapitalize="off"
+							spellCheck={false}
+							placeholder="Search for stories, topics or securities"
+						/>
+						<button className="o-header__drawer-search-submit" type="submit">
+							<span className="o-header__visually-hidden">Search</span>
+						</button>
+					</span>
 				</label>
-				<input
-					className="o-header__drawer-search-term"
-					id="o-header-drawer-search-term"
-					type="text"
-					autoComplete="off"
-					autoCorrect="off"
-					autoCapitalize="off"
-					spellCheck={false}
-					placeholder="Search for stories, topics or securities"
-				/>
-				<button className="o-header__drawer-search-submit" type="submit">
-					<span className="o-header__visually-hidden">Search</span>
-				</button>
 			</form>
 		</div>
 	);
