@@ -26,6 +26,16 @@ export default {
 } as Meta;
 
 export const OnboardingTooltip = OnboardingTooltipStory;
-OnboardingTooltip.parameters.design.url = links['core-o3-tooltip--onboarding-tooltip'].figma;
+OnboardingTooltip.parameters = {
+	design: {
+		type: 'figma',
+		url: links['core-o3-tooltip--onboarding-tooltip'].figma,
+	},
+};
 export const ToggleTooltip = ToggleToolTipStory;
-ToggleTooltip.parameters.design.url = links['core-o3-tooltip--toggle-tooltip'].figma;
+ToggleTooltip.parameters = {
+	design: {
+		type: 'figma',
+		url: links['core-o3-tooltip--toggle-tooltip'].figma,
+	},
+};

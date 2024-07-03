@@ -23,6 +23,8 @@ function buildLinks() {
 			} else if (linksJson[id].figma !== convertedFigmaLink) {
 				linksJson[id].figma = convertedFigmaLink;
 			}
+		} else if (linksJson[id].figma && !figmaLinks[id]) {
+			linksJson[id].figma = '';
 		}
 	});
 
