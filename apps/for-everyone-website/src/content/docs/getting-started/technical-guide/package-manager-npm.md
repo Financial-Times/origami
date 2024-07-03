@@ -18,13 +18,15 @@ To begin install `@financial-times/o3-foundation` as a peer dependency, along wi
 
 For example purposes we'll include:
 
-- ` @financial-times/o3-foundation`
-- ` @financial-times/o3-tooltip`
-- ` @financial-times/o3-button`
+- `@financial-times/o3-foundation`
+- `@financial-times/o3-tooltip`
+- `@financial-times/o3-button`
 
 ```bash
 npm install --save-peer @financial-times/o3-foundation @financial-times/o3-button @financial-times/o3-tooltip
 ```
+
+If you're working on a component or similar project, which other projects will depend on, we recommend using a [caret `^` version range](https://docs.npmjs.com/cli/v6/using-npm/semver#caret-ranges-123-025-004) when installing Origami components. This will help to avoid peer dependency conflicts. E.g. `@financial-times/o3-foundation^1.2.0` would allow any version at `>=1.2.0 <2.0.0`.
 
 ## Provide HTML
 
