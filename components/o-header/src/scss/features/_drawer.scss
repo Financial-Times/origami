@@ -80,7 +80,6 @@
 		align-items: center;
 
 		.o-header__drawer-edition-switcher {
-			order: 2;
 			display: flex;
 
 			.o-header__drawer-menu-link {
@@ -101,26 +100,12 @@
 		}
 	}
 
-	.o-header__drawer-tools-logo {
-		@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 210);
-		display: inline-block;
-		background-repeat: no-repeat;
-		background-size: contain;
-		width: 100%;
-		height: 18px;
-		border-bottom: 0;
-		order: 2;
-		background-position: center;
-		margin-left: -40px;
-	}
-
 	.o-header__drawer-tools-close {
 		// dividing by 1px removes the unit
 		@include oIconsContent('cross', _oHeaderGet('drawer-tools-close'), $size: $_o-header-icon-size-large);
 		box-sizing: border-box;
 		border: 0;
 		opacity: 0.75;
-		order: 1;
 		margin-left: -10px;
 
 		&:hover,

@@ -39,7 +39,6 @@ function DrawerTools({
 }) {
 	return (
 		<div className="o-header__drawer-tools">
-			<DrawerEditionSwitcher current={current} otherEditions={otherEditions} />
 			<button
 				type="button"
 				className="o-header__drawer-tools-close"
@@ -49,6 +48,7 @@ function DrawerTools({
 					Close side navigation menu
 				</span>
 			</button>
+			<DrawerEditionSwitcher current={current} otherEditions={otherEditions} />
 		</div>
 	);
 }
