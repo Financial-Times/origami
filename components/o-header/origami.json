@@ -1,9 +1,7 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands": [
-		"core"
-	],
+	"brands": ["core"],
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-header,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
@@ -21,85 +19,5 @@
 			"Array.prototype.filter",
 			"requestAnimationFrame"
 		]
-	},
-	"demosDefaults": {
-		"sass": "demos/src/main.scss",
-		"js": "demos/src/main.js",
-		"documentClasses": "core"
-	},
-	"demos": [
-		{
-			"name": "header",
-			"title": "Header",
-			"data": "demos/src/header.json",
-			"template": "demos/src/header.mustache",
-			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
-		},
-		{
-			"name": "mega-menu",
-			"title": "Mega menu",
-			"data": "demos/src/mega-menu.json",
-			"template": "demos/src/mega-menu.mustache",
-			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
-		},
-		{
-			"name": "subnav",
-			"title": "Header with subnav",
-			"data": "demos/src/subnav.json",
-			"template": "demos/src/subnav.mustache",
-			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
-		},
-		{
-			"name": "subnav-right-aligned",
-			"title": "Header with subnav and right aligned items",
-			"data": "demos/src/subnav-right-align.json",
-			"template": "demos/src/subnav.mustache",
-			"description": "The subnav may have right aligned actions, for example to sign out of an admin area. Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
-		},
-		{
-			"name": "header-logo-only",
-			"title": "Logo only header",
-			"data": "demos/src/header.json",
-			"template": "demos/src/header-logo-only.mustache",
-			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
-		},
-		{
-			"name": "simple-header",
-			"title": "Simple header",
-			"data": "demos/src/header.json",
-			"template": "demos/src/simple-header.mustache",
-			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
-		},
-		{
-			"name": "transparent-header",
-			"title": "Simple transparent (inverse) header",
-			"data": "demos/src/transparent-header.json",
-			"template": "demos/src/header.mustache",
-			"description": "The \"transparent\" header is useful for use on dark backgrounds. This variant doesn't support the drawer. Please speak to Origami if you would like to add drawer support to this variant. Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details.",
-			"documentClasses": "demo-transparent"
-		},
-		{
-			"name": "sticky-header",
-			"title": "Sticky header",
-			"data": "demos/src/header.json",
-			"template": "demos/src/sticky-header.mustache",
-			"description": "Sticky variation of the simple header. Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
-		},
-		{
-			"name": "grid-demo",
-			"title": "Grid demo",
-			"template": "demos/src/grid-demo.mustache",
-			"data": "demos/src/header.json",
-			"hidden": true,
-			"description": "A bug we keep having is things (eg the hamburger) not lining up with the grid padding. This demo adds a grid demo below the header to make it easy to quickly check alignment"
-		},
-		{
-			"title": "Pa11y",
-			"name": "pa11y",
-			"data": "demos/src/header.json",
-			"template": "demos/src/pa11y.mustache",
-			"hidden": true,
-			"description": "Highlight accessibility issues"
-		}
-	]
+	}
 }
