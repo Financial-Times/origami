@@ -90,7 +90,7 @@
 
 			.o-header__drawer-current-edition {
 				font-weight: 600;
-				color: var(--Black-Tints-Black-60, #66605C);
+				color: oColorsByName('black-60');
 			}
 
 			.o-header__drawer-menu-item {
