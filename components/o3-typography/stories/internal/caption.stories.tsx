@@ -4,7 +4,7 @@ import * as TypographyStories from '../story-templates';
 import '../../main.css';
 
 import '../../src/css/brands/internal.css';
-
+import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
 export default {
 	title: 'Internal/o3-typography/Caption',
 	component: Caption,
@@ -17,6 +17,10 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'white'},
+		design: {
+			type: 'figma',
+			url: links['internal-o3-typography-caption--caption-story'].figma,
+		},
 	},
 } as Meta;
 

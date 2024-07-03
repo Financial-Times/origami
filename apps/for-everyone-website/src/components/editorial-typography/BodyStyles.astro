@@ -6,12 +6,11 @@ import {
 } from '@financial-times/o3-editorial-typography/esm';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 const {brand} = Astro.props;
-const figmaDetails =
-	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4178&t=kyDVEfsg2tRJspyY-4';
-const sbIdBody = `${brand}-o3-editorial-typography--body`
-const sbIdTopicTag = `${brand}-o3-editorial-typography--topic-tag`
-const sbIdStandFirst = `${brand}-o3-editorial-typography--standfirst`
-const sbIdCaption = `${brand}-o3-editorial-typography--caption`
+const sbIdBody = `${brand}-o3-editorial-typography--body`;
+const sbIdTopicTag = `${brand}-o3-editorial-typography--topic-tag`;
+const sbIdStandFirst = `${brand}-o3-editorial-typography--standfirst`;
+const sbIdCaption = `${brand}-o3-editorial-typography--caption`;
+const sbIdByline = `${brand}-o3-editorial-typography--byline`;
 ---
 
 <h4>Body</h4>
@@ -99,7 +98,7 @@ const sbIdCaption = `${brand}-o3-editorial-typography--caption`
 				component
 			</td>
 			<td>
-				<FigmaSbLinks figma={figmaDetails} />
+				<FigmaSbLinks sbId={sbIdByline} />
 			</td>
 		</tr>
 		<tr>
@@ -111,7 +110,7 @@ const sbIdCaption = `${brand}-o3-editorial-typography--caption`
 				component</td
 			>
 			<td>
-				<FigmaSbLinks figma={figmaDetails} />
+				<FigmaSbLinks sbId={sbIdByline} />
 			</td>
 		</tr>
 		<tr>
@@ -123,7 +122,7 @@ const sbIdCaption = `${brand}-o3-editorial-typography--caption`
 				component</td
 			>
 			<td>
-				<FigmaSbLinks figma={figmaDetails} />
+				<FigmaSbLinks sbId={sbIdByline} />
 			</td>
 		</tr>
 	</tbody>
@@ -150,6 +149,6 @@ const sbIdCaption = `${brand}-o3-editorial-typography--caption`
 
 	.not-content.o3-editorial-typography-blockquote__source,
 	.not-content.o3-editorial-typography-blockquote__author {
-		display: revert
+		display: revert;
 	}
 </style>
