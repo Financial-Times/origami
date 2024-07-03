@@ -4,11 +4,13 @@ const {storybook, figma} = getLinks(Astro.props);
 
 function getLinks(props) {
 	let {sbId, sbPathParams, storybook, figma} = props;
+	const brandedSbId = sbId?.startsWith('professional')
+	? `core-${sbId}`
+	: sbId;
 	if (!storybook && sbId) {
-		const brandedSbId = sbId?.startsWith('professional')
-			? `core-${sbId}`
-			: sbId;
+		console.log(`🚀 ~ brandedSbId:`, brandedSbId);
 		const sbPath = links[brandedSbId]?.sb;
+		console.log(`🚀 ~ sbPath:`, sbPath);
 		storybook = `https://o3.origami.ft.com/${sbPath}`;
 		if (sbPathParams) {
 			const storybookArgs = `&args=${Object.entries(sbPathParams)
@@ -18,7 +20,7 @@ function getLinks(props) {
 		}
 	}
 	if (!figma && sbId) {
-		const figmaEmbedUrl = links[sbId]?.figma;
+		const figmaEmbedUrl = links[brandedSbId]?.figma;
 		if (figmaEmbedUrl) {
 			const urlObj = new URL(figmaEmbedUrl);
 			const params = new URLSearchParams(urlObj.search);

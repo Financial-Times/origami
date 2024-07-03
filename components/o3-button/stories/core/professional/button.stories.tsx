@@ -4,6 +4,7 @@ import * as ButtonStories from '../../story-templates';
 import {Pagination as PaginationTemplate} from '../../pagination-template';
 
 import '../../../src/css/brands/professional.css';
+import links from '../../../../../libraries/o3-figma-sb-links/src/links.json';
 
 export default {
 	title: 'Core/Professional/o3-button',
@@ -26,22 +27,23 @@ export default {
 	}),
 	parameters: {
 		backgrounds: {default: 'paper'},
+		design: {
+			type: 'figma',
+			url: links['core-professional-o3-button--button'].figma,
+
+		}
 	},
 } as Meta;
 
-const DesignParams = {
-	type: 'figma',
-	url: 'https://www.figma.com/file/qfi6fTq5V05b0mnXw3F7q5/Professional---Design-System?type=design&node-id=3604%3A103&mode=design&t=MlrSqBrw4e7aDJ00-1',
-};
 
 export const Button = ButtonStories.Button;
-Button.parameters = {
-	design: DesignParams,
-};
 export const LinkAsButton = ButtonStories.LinkAsButton;
-LinkAsButton.parameters = {
-	design: DesignParams,
-};
 export const GroupedButtons = ButtonStories.GroupedButtons;
 export const Pagination = PaginationTemplate;
+Pagination.parameters = {
+	design:  {
+		type: 'figma',
+		url: links['core-professional-o3-button--pagination'].figma,
+	},
+};
 export const SmallButton = ButtonStories.SmallButton;

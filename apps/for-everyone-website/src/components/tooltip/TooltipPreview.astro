@@ -9,7 +9,7 @@ const componentName = Astro.props.component;
 const isToggle = componentName === 'toggle';
 
 const component = isToggle ? Toggletip : OnboardingTooltip;
-const endOfId = isToggle ? 'onboarding-tooltip' : 'toggle-tooltip';
+const endOfId = isToggle ? 'toggle-tooltip' : 'onboarding-tooltip';
 const sbId = `${brand}-o3-tooltip--${endOfId}`;
 ---
 
