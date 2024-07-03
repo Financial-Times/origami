@@ -127,4 +127,4 @@ See the [semver documentation](https://semver.org/) for further examples, includ
 
 ## Browser support
 
-Origami components support the <a href="https://docs.google.com/document/d/1z6kecy_o9qHYIznTmqQ-IJqre72jhfd0nVa4JMsS7Q4/"><abbr title="Financial Times">FT</abbr> Browser Support Policy (Google Doc)</a>. This included "enhanced" support when JavaScript can run and "core" support for when JavaScript is not available.
+Origami components support the <a href="https://docs.google.com/document/d/1z6kecy_o9qHYIznTmqQ-IJqre72jhfd0nVa4JMsS7Q4/"><abbr title="Financial Times">FT</abbr> Browser Support Policy (Google Doc)</a>. This includes "enhanced" support when JavaScript can run and "core" support for when JavaScript is not available.
