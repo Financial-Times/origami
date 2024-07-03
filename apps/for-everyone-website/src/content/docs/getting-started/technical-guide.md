@@ -58,22 +58,6 @@ As well as following the
 - `"peerDependencies"` should include any production Origami dependencies with styles ([see versioning](#versioning)).
 - `"bugs"` field as described in the [package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json) specification.
 
-### Versioning
-
-Origami components:
-
-- Must follow [Semantic Versioning (semver)](https://semver.org/) conventions, as outlined below.
-- Should be installed as `peerDependencies`, to ensure only one version of a component is installed at once. This reduces the CSS/JS bundle size for users and ensures no code conflicts.
-- Should be installed with a [caret `^` version range](https://docs.npmjs.com/cli/v6/using-npm/semver#caret-ranges-123-025-004), to avoid peer dependency conflicts when the component is required by more than one package. E.g. `^1.2.0` allows any version of the component at `>=1.2.0 <2.0.0`.
-
-[Semantic Versioning (semver)](https://semver.org/) conventions mean a version such as `2.1.1` indicates `MAJOR.MINOR.PATCH` releases.
-
-- `MAJOR` changes indicate incompatible API changes, where a user may need to make changes to use the new version. For Origami components this includes HTML changes.
-- `MINOR` changes new functionality, added in a backward compatible manner.
-- `PATCH` changes include backward compatible bug fixes.
-
-See the [semver documentation](https://semver.org/) for further examples, including versioning for pre-release (beta) components.
-
 ### Documentation
 
 Markdown files at the root of a component's codebase:
@@ -124,3 +108,23 @@ Other documentation sources:
     children
   - Elements with any other data-attribute in the component’s namespace, and
     their children
+
+## Versioning
+
+Origami components:
+
+- Must follow [Semantic Versioning (semver)](https://semver.org/) conventions, as outlined below.
+- Should be installed as `peerDependencies`, to ensure only one version of a component is installed at once. This reduces the CSS/JS bundle size for users and ensures no code conflicts.
+- Should be installed with a [caret `^` version range](https://docs.npmjs.com/cli/v6/using-npm/semver#caret-ranges-123-025-004), to avoid peer dependency conflicts when the component is required by more than one package. E.g. `^1.2.0` allows any version of the component at `>=1.2.0 <2.0.0`.
+
+[Semantic Versioning (semver)](https://semver.org/) conventions mean a version such as `2.1.1` indicates `MAJOR.MINOR.PATCH` releases.
+
+- `MAJOR` changes indicate incompatible API changes, where a user may need to make changes to use the new version. For Origami components this includes HTML changes.
+- `MINOR` changes new functionality, added in a backward compatible manner.
+- `PATCH` changes include backward compatible bug fixes.
+
+See the [semver documentation](https://semver.org/) for further examples, including versioning for pre-release (beta) components.
+
+## Browser support
+
+Origami components support the <a href="https://docs.google.com/document/d/1z6kecy_o9qHYIznTmqQ-IJqre72jhfd0nVa4JMsS7Q4/"><abbr title="Financial Times">FT</abbr> Browser Support Policy (Google Doc)</a>. This included "enhanced" support when JavaScript can run and "core" support for when JavaScript is not available.
