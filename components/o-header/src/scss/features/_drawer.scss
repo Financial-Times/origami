@@ -106,7 +106,7 @@
 		box-sizing: border-box;
 		border: 0;
 		opacity: 0.75;
-		margin-left: -10px;
+		margin-left: -10px; // this is to align icon because icon background image have padding
 
 		&:hover,
 		&:focus {
