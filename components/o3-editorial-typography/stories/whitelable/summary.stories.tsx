@@ -3,7 +3,7 @@ import {Summary as SummaryTsx} from '../../src/tsx/index';
 import * as StoryTemplates from '../story-templates';
 
 import '../../src/css/brands/whitelabel.css';
-
+import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
 export default {
 	title: 'Whitelabel/o3-editorial-typography',
 	component: SummaryTsx,
@@ -17,15 +17,12 @@ export default {
 	parameters: {
 		backgrounds: {default: 'white'},
 		controls: {exclude: ['children']},
+		design: {
+			type: 'figma',
+			url: links['whitelabel-o3-editorial-typography--summary'].figma,
+		}
 	},
 } as Meta;
 
-const DesignParams = {
-	type: 'figma',
-	url: 'https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?node-id=3-2&m=dev',
-};
 
 export const Summary = StoryTemplates.Summary;
-Summary.parameters = {
-	design: DesignParams,
-};

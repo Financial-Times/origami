@@ -3,7 +3,7 @@ import * as TypographyStories from '../story-templates';
 
 import {Footer} from '../../src/tsx';
 import '../../src/css/brands/whitelabel.css';
-
+import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
 export default {
 	title: 'Whitelabel/o3-typography/Footer',
 	component: Footer,
@@ -16,6 +16,10 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'white'},
+		design: {
+			type: 'figma',
+			url: links['whitelabel-o3-typography-footer--footer-story'].figma,
+		}
 	},
 } as Meta;
 

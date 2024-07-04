@@ -3,7 +3,7 @@ import {Quote as QuoteTsx} from '../../src/tsx/index';
 import * as StoryTemplates from '../story-templates';
 
 import '../../src/css/brands/whitelabel.css';
-
+import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
 export default {
 	title: 'Whitelabel/o3-editorial-typography',
 	component: QuoteTsx,
@@ -17,20 +17,17 @@ export default {
 	parameters: {
 		backgrounds: {default: 'white'},
 		controls: {exclude: ['children', 'type', 'quoteSource', 'theme']},
+		design: {
+			type: 'figma',
+			url: links['whitelabel-o3-editorial-typography--quote'].figma,
+		}
 	},
 } as Meta;
 
-const DesignParams = {
-	type: 'figma',
-	url: 'https://www.figma.com/file/5ATknbGociZMlnNXX4sy4f/Whitelabel---Design-System?type=design&node-id=4717-652&mode=design&t=Y50jCZbAtgxH2F3S-4',
-};
+export const Quote = StoryTemplates.Quote;
 
-export const PullQuote = StoryTemplates.Quote;
-PullQuote.parameters = {
-	design: DesignParams,
-};
 
-PullQuote.args = {
+Quote.args = {
 	...StoryTemplates.Quote.args,
 	type: 'pull',
 	quoteSource: '',

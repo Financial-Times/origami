@@ -96,5 +96,7 @@
   "whitelabel-o3-typography-link--link": "?path=/story/whitelabel-o3-typography-link--link",
   "whitelabel-o3-typography-orderedlist--ordered-list-story": "?path=/story/whitelabel-o3-typography-orderedlist--ordered-list-story",
   "whitelabel-o3-typography-unorderedlist--unordered-list-story": "?path=/story/whitelabel-o3-typography-unorderedlist--unordered-list-story",
-  "whitelabel-o3-typography--wrapper-story": "?path=/story/whitelabel-o3-typography--wrapper-story"
+  "whitelabel-o3-typography--wrapper-story": "?path=/story/whitelabel-o3-typography--wrapper-story",
+  "sustainable-views-o3-editorial-typography--quote": "?path=/story/sustainable-views-o3-editorial-typography--quote",
+  "whitelabel-o3-editorial-typography--quote": "?path=/story/whitelabel-o3-editorial-typography--quote"
 }

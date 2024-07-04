@@ -2,7 +2,7 @@ import type {Meta} from '@storybook/react';
 import {Wrapper} from '../../src/tsx';
 import * as TypographyStories from '../story-templates';
 import '../../src/css/brands/whitelabel.css';
-
+import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
 export default {
 	title: 'Whitelabel/o3-typography',
 	component: Wrapper,
@@ -15,6 +15,10 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'white'},
+		design: {
+			type: 'figma',
+			url: links['whitelabel-o3-typography--wrapper-story'].figma,
+		}
 	},
 	argTypes: {
 		theme: {

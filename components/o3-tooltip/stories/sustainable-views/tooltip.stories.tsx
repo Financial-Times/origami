@@ -6,7 +6,7 @@ import {
 } from '../story-template';
 import '../../src/css/brands/sustainable-views.css';
 import "../../../o3-button/src/css/brands/sustainable-views.css"
-
+import links from '../../../../libraries/o3-figma-sb-links/src/links.json'
 export default {
 	title: 'Sustainable Views/o3-tooltip',
 	component: OnboardingTooltipTsx,
@@ -23,4 +23,16 @@ export default {
 } as Meta;
 
 export const OnboardingTooltip = OnboardingTooltipStory;
+OnboardingTooltip.parameters = {
+	design: {
+		type: 'figma',
+		url: links['sustainable-views-o3-tooltip--onboarding-tooltip'].figma,
+	}
+}
 export const ToggleTooltip = ToggleToolTipStory;
+ToggleTooltip.parameters = {
+	design: {
+		type: 'figma',
+		url: links['sustainable-views-o3-tooltip--toggle-tooltip'].figma,
+	}
+}
