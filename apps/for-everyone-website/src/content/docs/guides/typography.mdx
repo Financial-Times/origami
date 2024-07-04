@@ -23,6 +23,7 @@ import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
 import Overview from '../../../components/editorial-typography/Overview.astro';
 import HeadingStyles from '../../../components/editorial-typography/HeadingStyles.astro';
+import HeadlineLarge from '../../../components/editorial-typography/HeadlineLarge.astro';
 import BodyStyles from '../../../components/editorial-typography/BodyStyles.astro';
 import Quotes from '../../../components/editorial-typography/Quotes.astro';
 import Lists from '../../../components/editorial-typography/Lists.astro';
@@ -176,7 +177,12 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 
 		Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use heading styles as needed. H1 to H5 should be set during  development.
 
-    <HeadingStyles brand={props.brand} />
+		<BrandedContent brands="core,professional,internal,whitelabel,sustainable-views">
+			<BrandedContent brands="core,professional">
+				<HeadlineLarge />
+			</BrandedContent>
+			<HeadingStyles />
+		</BrandedContent>
 
     ### Body and Details styles
 

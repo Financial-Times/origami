@@ -1,57 +1,8 @@
 ---
 import {Headline} from '@financial-times/o3-editorial-typography';
-import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
-const {brand} = Astro.props;
-let storybook =
-	`https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--heading`;
-let figma =
-	'https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?node-id=4717-652&t=JoNufjYjDEE8n0FL-4';
 ---
 
-{(brand === 'core' || brand === 'professional') &&
-<>
-	<h4>Headline Large</h4>
 
-	<p>
-		Use for titles and headlines of Main news pages and articles. Usually in the full-bleed topper component. Use in
-		moderation. Usage example: <a
-		href="https://www.ft.com/content/5381cdf8-b0ca-44ac-8194-c413820ecb89#:~:text=Add%20to%20myFT-,Canary%20Wharf%E2%80%99s%20George%20Iacobescu%3A%20%E2%80%98We%20didn%E2%80%99t%20build%20buildings.%20We%20built%20a%20city%E2%80%99,-The%20property%20developer">Life
-		& Arts</a>
-	</p>
-
-	<table>
-		<thead>
-		<tr>
-			<th>Viewport</th>
-			<th>Style Preview</th>
-			<th>Value</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-			<td>S</td>
-			<td class="headline-large-s">Headline large</td>
-			<td>
-				Financier Display / 800 / scale 4
-			</td>
-		</tr>
-		<tr>
-			<td>M</td>
-			<td class="headline-large-m">Headline large</td>
-			<td>
-				Financier Display / 800 / scale 5
-			</td>
-		</tr>
-		<tr>
-			<td>L</td>
-			<td class="headline-large-l">Headline large</td>
-			<td>
-				Financier Display / 800 / scale 6
-			</td>
-		</tr>
-		</tbody>
-	</table>
-</>}
 
 <h4>Headline</h4>
 <p>For titles and introductions of Feature posts and other new stories. Usage example: <a
