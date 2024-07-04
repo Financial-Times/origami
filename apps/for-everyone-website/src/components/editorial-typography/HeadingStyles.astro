@@ -1,86 +1,94 @@
 ---
 import {Headline} from '@financial-times/o3-editorial-typography';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
-const {brand} = Astro.props
+const {brand} = Astro.props;
 let storybook =
 	`https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--heading`;
 let figma =
 	'https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?node-id=4717-652&t=JoNufjYjDEE8n0FL-4';
 ---
 
-{brand === 'core' || brand === 'professional' && <>
-<h4>Headline Large</h4>
+{(brand === 'core' || brand === 'professional') &&
+<>
+	<h4>Headline Large</h4>
 
-<p>
-	Use for titles and headlines of Main news pages and articles. Usually in the
-	full-bleed topper component. Use in moderation.
-</p>
+	<p>
+		Use for titles and headlines of Main news pages and articles. Usually in the full-bleed topper component. Use in
+		moderation. Usage example: <a
+		href="https://www.ft.com/content/5381cdf8-b0ca-44ac-8194-c413820ecb89#:~:text=Add%20to%20myFT-,Canary%20Wharf%E2%80%99s%20George%20Iacobescu%3A%20%E2%80%98We%20didn%E2%80%99t%20build%20buildings.%20We%20built%20a%20city%E2%80%99,-The%20property%20developer">Life
+		& Arts</a>
+	</p>
 
-<table>
-	<thead>
+	<table>
+		<thead>
 		<tr>
 			<th>Viewport</th>
 			<th>Style Preview</th>
-			<th>Links</th>
+			<th>Value</th>
 		</tr>
-	</thead>
-	<tbody>
+		</thead>
+		<tbody>
 		<tr>
 			<td>S</td>
 			<td class="headline-large-s">Headline large</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				Financier Display / 800 / scale 4
 			</td>
 		</tr>
 		<tr>
 			<td>M</td>
 			<td class="headline-large-m">Headline large</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				Financier Display / 800 / scale 5
 			</td>
 		</tr>
 		<tr>
 			<td>L</td>
 			<td class="headline-large-l">Headline large</td>
 			<td>
-				<FigmaSbLinks {figma} {storybook} />
+				Financier Display / 800 / scale 6
 			</td>
 		</tr>
-	</tbody>
-</table></>}
+		</tbody>
+	</table>
+</>}
 
 <h4>Headline</h4>
-<p>For titles and introductions of Feature posts and other new stories.</p>
+<p>For titles and introductions of Feature posts and other new stories. Usage example: <a
+	href="https://www.ft.com/content/0d1326b7-8c83-46bc-a9c2-56ce7bb1a109#:~:text=Add%20to%20myFT-,Keir%20Starmer%20defends%20green%20spending%20U%2Dturn%20as%20Sunak%20claims%20Labour%20policy%20is%20in%20%E2%80%98tatters%E2%80%99,-Opposition%20leader%20wants">Top
+	Stories</a>, <a
+	href="https://www.ft.com/content/65593173-7f85-47f6-a253-29cc374fd3ca#:~:text=Opinion%20Corporate%20governance-,Sunak%20take%20note%3A%20diluting%20corporate%20governance%20has%20consequences,-Proposed%20reforms%20to">Opinion</a>
+</p>
 <table>
 	<thead>
-		<tr>
-			<th>Viewport</th>
-			<th>Style Preview</th>
-			<th>Links</th>
-		</tr>
+	<tr>
+		<th>Viewport</th>
+		<th>Style Preview</th>
+		<th>Value</th>
+	</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>S</td>
-			<td class="headline-s">Headline</td>
-			<td>
-				<FigmaSbLinks {figma} {storybook} />
-			</td>
-		</tr>
-		<tr>
-			<td>M</td>
-			<td class="headline-m">Headline</td>
-			<td>
-				<FigmaSbLinks {figma} {storybook} />
-			</td>
-		</tr>
-		<tr>
-			<td>L</td>
-			<td class="headline-l">Headline</td>
-			<td>
-				<FigmaSbLinks {figma} {storybook} />
-			</td>
-		</tr>
+	<tr>
+		<td>S</td>
+		<td class="headline-s">Headline</td>
+		<td>
+			Financier Display / 300 / scale 4
+		</td>
+	</tr>
+	<tr>
+		<td>M</td>
+		<td class="headline-m">Headline</td>
+		<td>
+			Financier Display / 300 / scale 5
+		</td>
+	</tr>
+	<tr>
+		<td>L</td>
+		<td class="headline-l">Headline</td>
+		<td>
+			Financier Display / 300 / scale 6
+		</td>
+	</tr>
 	</tbody>
 </table>
 
@@ -92,43 +100,57 @@ let figma =
 
 <table>
 	<thead>
-		<tr>
-			<th>Style Preview</th>
-			<th>Usage</th>
-			<th>Links</th>
-		</tr>
+	<tr>
+		<th>Style Preview</th>
+		<th>Links</th>
+		<th>Usage</th>
+	</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td class="chapter not-content">
-				<Headline type="chapter">Chapter</Headline>
-			</td>
-			<td>For in-page titles / chapters</td>
-			<td>
-				<FigmaSbLinks {figma} {storybook} />
-			</td>
-		</tr>
-		<tr>
-			<td class="subheading not-content">
-				<Headline type="subheading">Subheading</Headline>
-			</td>
-			<td>For in-page sub-titles / sub-headings</td>
-			<td>
-				<FigmaSbLinks {figma} {storybook} />
-			</td>
-		</tr>
-		<tr>
-			<td class="label not-content">
-				<Headline type="label">LABEL</Headline>
-			</td>
-			<td
-				>To provide short details about a chapter, kickers (additional headline)
-				just above a chapter.
-			</td>
-			<td>
-				<FigmaSbLinks {figma} {storybook} />
-			</td>
-		</tr>
+	<tr>
+		<td class="chapter not-content">
+			<Headline type="chapter">Chapter</Headline>
+		</td>
+		<td>
+			Metric2 / semi-bold / scale 4
+		</td>
+		<td>
+			<p>For in-page titles / chapters</p>
+			<p>Usage Examples: <a
+				href="https://www.ft.com/content/844ed28c-8074-4856-bde0-20f3bf4cd8f0#:~:text=gaming.%20Tom%20Braithwaite-,1.%20Amazon,-SECTOR%3A%20ECOMMERCE%20/%20HQ">FT
+				Series</a>, <a
+				href="https://www.ft.com/content/40413894-3612-4228-8435-fb6af2659eb2#:~:text=AGO07%3A50-,Labour%20blames%20government%20finances%20for%20ditching%20%C2%A328bn%20green%20investment%20plan,-Donato%20Paolo%20Mancini">Live
+				News</a></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="subheading not-content">
+			<Headline type="subheading">Subheading</Headline>
+		</td>
+		<td>
+			Metric2 / regular / scale 4
+		</td>
+		<td>
+			<p>For in-page sub-titles / sub-headings</p>
+			<p>Usage Example: <a
+				href="https://www.ft.com/content/2489a831-7a4b-4bcb-96ec-2c9c1d4ebe8e#:~:text=for%20all%20palates.-,The%20Salad%20Project,-1%20OLD%20BROAD">FT
+				Globetrotter</a></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="label not-content">
+			<Headline type="label">LABEL</Headline>
+		</td>
+		<td>
+			Metric2 / regular / scale 0
+		</td>
+		<td
+		><p>To provide short details about a chapter, kickers (additional headline)
+			just above a chapter.</p>
+
+			<p>Usage Examples: <a href="https://www.ft.com/content/844ed28c-8074-4856-bde0-20f3bf4cd8f0#:~:text=SECTOR%3A%20ECOMMERCE%20/%20HQ%3A%20SEATTLE%2C%20US">FT Series</a>, <a href="https://www.ft.com/content/82574e3d-1633-48ad-8afb-71ebb3fe3dee#:~:text=promised%20the%20world.-,EARLY%20WARNINGS,-The%20virus%20arrives">kickers</a></p>
+		</td>
+	</tr>
 	</tbody>
 </table>
 
@@ -166,6 +188,7 @@ let figma =
 			--_o3-editorial-typography-headline-large-m-line-height
 		);
 	}
+
 	.headline-large-l {
 		font-family: var(
 			--_o3-editorial-typography-headline-large-l-font-family
@@ -206,6 +229,7 @@ let figma =
 			--_o3-editorial-typography-headline-m-line-height
 		);
 	}
+
 	.headline-l {
 		font-family: var(
 			--_o3-editorial-typography-headline-l-font-family

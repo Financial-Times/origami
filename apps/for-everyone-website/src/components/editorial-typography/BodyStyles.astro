@@ -21,121 +21,99 @@ const sbCaption = sbDomain + '--caption';
 <p>Use for body text, paragraphs and lists</p>
 <table>
 	<thead>
-		<tr>
-			<th>Viewport</th>
-			<th>Style Preview</th>
-			<th>Links</th>
-		</tr>
+	<tr>
+		<th>Viewport</th>
+		<th>Style Preview</th>
+		<th>Value</th>
+	</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>S</td>
-			<td class="body-s">body</td>
-			<td>
-				<FigmaSbLinks figma={figmaBody} storybook={sbBody} />
-			</td>
-		</tr>
-		<tr>
-			<td>L</td>
-			<td class="body-l">body</td>
-			<td>
-				<FigmaSbLinks figma={figmaBody} storybook={sbBody} />
-			</td>
-		</tr>
+	<tr>
+		<td>S</td>
+		<td class="body-s">body</td>
+		<td>
+			Georgia / regular / scale 1
+		</td>
+	</tr>
+	<tr>
+		<td>M</td>
+		<td class="body-m">body</td>
+		<td>
+			Georgia / regular / scale 1
+		</td>
+	</tr>
+	<tr>
+		<td>L</td>
+		<td class="body-l">body</td>
+		<td>
+			Georgia / regular / scale 2
+		</td>
+	</tr>
 	</tbody>
 </table>
 
 <h4>Details</h4>
 <p>
-	The following styles have the same values across all screen sizes, mobile,
-	tablet, desktop.
+	The following styles have the same values across all screen sizes: mobile,
+	tablet, and esktop.
 </p>
 <table>
 	<thead>
-		<tr>
-			<th>Style Preview</th>
-			<th>Usage</th>
-			<th>Links</th>
-		</tr>
+	<tr>
+		<th>Style Preview</th>
+		<th>Value</th>
+		<th>Usage</th>
+	</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td class="not-content">
-				<TopicTag>Topic Tag</TopicTag>
-			</td>
-			<td
-				>Also called display tag, are category labels in the FT. Used in teasers
-				(article cards) to indicate the category of a post.</td
-			>
-			<td>
-				<FigmaSbLinks figma={figmaDetails} storybook={sbTopicTag} />
-			</td>
-		</tr>
-		<tr>
-			<td class="not-content">
-				<StandFirst>Standfirst</StandFirst>
-			</td>
-			<td
-				>Short intro below the headline that provides context about a post. Used
-				in combination with a header in the topper component.</td
-			>
-			<td>
-				<FigmaSbLinks figma={figmaDetails} storybook={sbStandfirst} />
-			</td>
-		</tr>
-		<tr>
-			<td class="not-content">
-				<Caption>Caption</Caption>
-			</td>
-			<td
-				>For additional information about a piece or image that should be less
-				prominent.</td
-			>
-			<td><FigmaSbLinks figma={figmaDetails} storybook={sbCaption} /></td>
-		</tr>
-		<tr>
-			<td class="o3-editorial-typography-byline-author not-content">
-				Byline Author</td
-			>
-			<td>
-				Shows Author name as part of a page author details in the byline
-				component
-			</td>
-			<td>
-				<FigmaSbLinks figma={figmaDetails} />
-			</td>
-		</tr>
-		<tr>
-			<td class="o3-editorial-typography-byline-location not-content"
-				>Byline Location</td
-			>
-			<td
-				>Shows Author location as part of a page author details in the byline
-				component</td
-			>
-			<td>
-				<FigmaSbLinks figma={figmaDetails} />
-			</td>
-		</tr>
-		<tr>
-			<td class="o3-editorial-typography-byline-timestamp not-content"
-				>Byline Timestamp</td
-			>
-			<td
-				>Shows article timestamp as part of a page author details the byline
-				component</td
-			>
-			<td>
-				<FigmaSbLinks figma={figmaDetails} />
-			</td>
-		</tr>
+	<tr>
+		<td class="not-content">
+			<TopicTag>Topic Tag</TopicTag>
+		</td>
+		<td>
+			Metric2 / semi-bold / scale 0
+		</td>
+		<td><p>Also called display tag, are category labels in the FT. Used in teasers
+			(article cards) to indicate the category of a post.</p>
+			<p>Usage example: <a href="https://www.ft.com/">Homepage</a></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="not-content">
+			<StandFirst>Standfirst</StandFirst>
+		</td>
+		<td>
+			Metric2 / semi-bold / scale 2
+		</td>
+		<td><p>Short intro below the headline that provides context about a post. Used
+			in combination with a header in the topper component.</p>
+			<p>Usage examples: <a href="https://www.ft.com/">Homepage</a>, <a href="https://www.ft.com/content/a54a8de2-0319-4dc0-863b-66b94c5a78f7#:~:text=Carmaker%E2%80%99s%20board%20under%20pressure%20after%20Delaware%20judge%20rules%20billionaire%20CEO%20has%20to%20forfeit%20largest%20ever%20incentive%20package">Top Stories</a></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="not-content">
+			<Caption>Caption</Caption>
+		</td>
+		<td>
+			Metric2 / regular / scale -1
+		</td>
+		<td
+		><p>For additional information about a piece or image that should be less
+			prominent.</p>
+
+			<p>Usage example: <a href="https://www.ft.com/content/65593173-7f85-47f6-a253-29cc374fd3ca#:~:text=Th%20offices%20of%20the%20London%20Stock%20Exchange.%20UK%20authorities%20risk%20undermining%20a%20corporate%20governance%20regime%20regarded%20as%20the%20gold%20standard%20in%20their%20pursuit%20of%20global%20competitiveness%20%C2%A9%20Hollie%20Adams/Bloomberg">caption</a></p>
+		</td
+		>
+	</tr>
 	</tbody>
+
 </table>
 
 <style>
 	tr > td:first-child {
 		text-align: center;
 	}
+
 	[class^='body-'] {
 		font-family: var(--_o3-editorial-typography-body-l-font-family);
 		font-weight: var(--_o3-editorial-typography-body-l-font-weight);

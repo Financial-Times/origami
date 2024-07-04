@@ -160,13 +160,21 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 <BrandedContent brands="core, professional, sustainable-views, whitelabel">
 	## Editorial Typography
 
-    Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers. The following font families are used when designing for editorial.
+    Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers.
 
-    <Overview />
+		### Overview
+
+		The following font families are used when designing for editorial.
+
+		<Overview />
+
+		### Editorial Typography components
+
+		Keeping typography consistent and sticking to logical hierarchies ensures that page elements are clear and easily recognisable when scanning the page. Lead with Mobile-First (also applies to FT Apps. For example; FT Apps, FT Edit)
 
     ### Heading styles
 
-    Names of heading styles in editorial typography are aligned with those used by editorial teams.
+		Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use heading styles as needed. H1 to H5 should be set during  development.
 
     <HeadingStyles brand={props.brand} />
 
@@ -182,9 +190,15 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 
     </BrandedContent>
 
+	  ### Editorial Text Formats
+
+		An overview description of the component or pattern variations. How this is best formatted is discussed in formatting.
+
     ### Quotes
 
     The quote component is used to highlight notable statements, excerpts, or phrases from articles, interviews, and other types of content. It draws attention to key information and enhances the reading experience.
+
+		We have two variants:
 
     <Quotes brand={props.brand} />
 
@@ -193,6 +207,11 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
     Lists allow users to view two or more individual, but related, text items grouped together. We have ordered and unordered lists.
 
     <Lists brand={props.brand} />
+
+		#### Accessibility Notes
+
+		* ARIA Roles: Ensure lists are properly identified by screen readers using appropriate HTML tags (`<ol>` for ordered lists and `<ul>` for unordered lists).
+		* Keyboard Navigation: Lists should be navigable via keyboard.
 
     ### Links
 
