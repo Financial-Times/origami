@@ -69,9 +69,14 @@
 	//
 	// Tools
 	//
+	.o-header:has(.o-header__anon) ~ .o-header__drawer .o-header__drawer-tools {
+		@include oGridRespondTo($until: 'M') {
+			padding: ($_o-header-drawer-padding-y * 2.5) 0 0 $_o-header-drawer-padding-x;
+		}
+	}
 	.o-header__drawer-tools {
 		overflow: hidden;
-		padding: ($_o-header-drawer-padding-y * 2.5) 0 0 $_o-header-drawer-padding-x;
+		padding: $_o-header-drawer-padding-y 0 0 $_o-header-drawer-padding-x;
 		background-color: _oHeaderGet('drawer-tools-background');
 		color: _oHeaderGet('drawer-tools-text');
 		display: flex;
