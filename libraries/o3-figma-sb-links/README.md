@@ -20,7 +20,7 @@ export const Button = ButtonStories.Button;
 export const ButtonSmall = ButtonStories.ButtonSmall;
 ```
 
-The story IDs are composite of title and exported component name. In our case title is combination of `BRAND` and `COMPONENT` and component name is `VARIANT`. The story ID is then:
+The story IDs are a composite of the Component's title and exported name. In our case, title is combination of `BRAND` and `COMPONENT` and component name is `VARIANT`. The story ID is then:
 
 ```txt
 core-o3-button--button
