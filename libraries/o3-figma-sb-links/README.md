@@ -1,6 +1,6 @@
 # o3-figma-sb-links
 
-`o3-figma-sb-links` provides links for Storybook and Figma that are related to the O3 components. This package can be used by other components to provide Figma files and is source of truth for the Figma and Storybook links. Main purpose of this package is to provide a links to Figma files for the O3 components and also to origami-for-everyone site.
+`o3-figma-sb-links` provides links for Storybook and Figma that are related to the O3 components. This package can be used by other components to provide Figma files and is source of truth for the Figma and Storybook links. Main purpose of this package is to provide links to Figma files for the O3 components and also to origami-for-everyone site.
 
 - [o3-figma-sb-links](#o3-figma-sb-links)
   - [Usage](#usage)
