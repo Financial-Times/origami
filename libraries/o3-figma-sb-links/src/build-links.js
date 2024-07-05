@@ -37,7 +37,7 @@ function buildLinks() {
 		}
 	});
 
-	// oder the links by id
+	// order the links by id
 
 	const orderedLinks = {};
 
