@@ -1,4 +1,15 @@
 # Changelog
+## [13.0.0](https://github.com/Financial-Times/origami/compare/o-header-v12.0.0...o-header-v13.0.0) (2024-07-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Drawer, search, and edition switcher updates ([#1725](https://github.com/Financial-Times/origami/issues/1725))
+
+### Features
+
+* Drawer, search, and edition switcher updates ([#1725](https://github.com/Financial-Times/origami/issues/1725)) ([090d384](https://github.com/Financial-Times/origami/commit/090d38439b2af9475757f3c70ced26e4b08e37dd))
+
 ## [12.0.0](https://github.com/Financial-Times/origami/compare/o-header-v11.2.0...o-header-v12.0.0) (2024-05-21)
 
 
