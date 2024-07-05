@@ -1,10 +1,6 @@
-import { TNavEdition, TNavAction, TNavMenuItem, THeaderProps } from "./Props";
+import {TNavEdition, TNavAction, TNavMenuItem, THeaderProps} from './Props';
 
-export function Drawer({
-	data,
-	userIsLoggedIn,
-	userIsSubscribed,
-}: THeaderProps) {
+export function Drawer({data, userIsLoggedIn, userIsSubscribed}: THeaderProps) {
 	const editions = data.editions;
 	const subscribeAction = data.subscribeAction;
 	const navItems = data.drawer.items;
@@ -17,15 +13,16 @@ export function Drawer({
 			aria-modal="true"
 			aria-label="Drawer menu"
 			data-o-header-drawer
-			data-o-header-drawer--no-js
-		>
+			data-o-header-drawer--no-js>
 			<div className="o-header__drawer-inner">
-				<DrawerTools current={editions.current} />
+				<DrawerTools
+					current={editions.current}
+					otherEditions={editions.others}
+				/>
+				<DrawerSearch />
 				{!userIsSubscribed && subscribeAction && (
 					<DrawerAction action={subscribeAction} />
 				)}
-				<DrawerSearch />
-				<DrawerEditionSwitcher otherEditions={editions.others} />
 				<DrawerMenu navItems={navItems} />
 				<DrawerUser {...userData} />
 			</div>
@@ -33,32 +30,30 @@ export function Drawer({
 	);
 }
 
-function DrawerTools({ current }: { current: TNavEdition }) {
+function DrawerTools({
+	current,
+	otherEditions,
+}: {
+	current: TNavEdition;
+	otherEditions: TNavEdition[];
+}) {
 	return (
 		<div className="o-header__drawer-tools">
-			<a className="o-header__drawer-tools-logo" href="/">
-				<span className="o-header__visually-hidden">Financial Times</span>
-			</a>
 			<button
 				type="button"
 				className="o-header__drawer-tools-close"
 				aria-controls="o-header-drawer"
-				title="Close side navigation menu"
-			>
+				title="Close side navigation menu">
 				<span className="o-header__visually-hidden">
 					Close side navigation menu
 				</span>
 			</button>
-			{current && (
-				<p className="o-header__drawer-current-edition">
-					{current.name} Edition
-				</p>
-			)}
+			<DrawerEditionSwitcher current={current} otherEditions={otherEditions} />
 		</div>
 	);
 }
 
-function DrawerAction({ action }: { action: TNavAction }) {
+function DrawerAction({action}: {action: TNavAction}) {
 	return (
 		<div className="o-header__drawer-actions">
 			<a className="o-header__drawer-button" role="button" href={action.url}>
@@ -75,62 +70,67 @@ function DrawerSearch() {
 				className="o-header__drawer-search-form"
 				action="/search"
 				role="search"
-				aria-label="Site search"
-			>
+				aria-label="Site search">
 				<label
-					className="o-header__visually-hidden"
 					htmlFor="o-header-drawer-search-term"
-				>
-					Search the <abbr title="Financial Times">FT</abbr>
+					className="o-forms-field o-forms-field--optional">
+					<span className="o-forms-title o-header__visually-hidden">
+						<span className="o-forms-title__main">
+							Search the <abbr title="Financial Times">FT</abbr>
+						</span>
+					</span>
+					<span className="o-forms-input o-forms-input--text o-forms-input--suffix">
+						<input
+							id="o-header-drawer-search-term"
+							type="text"
+							autoComplete="off"
+							autoCorrect="off"
+							autoCapitalize="off"
+							spellCheck={false}
+							placeholder="Search for stories, topics or securities"
+						/>
+						<button className="o-header__drawer-search-submit" type="submit">
+							<span className="o-header__visually-hidden">Search</span>
+						</button>
+					</span>
 				</label>
-				<input
-					className="o-header__drawer-search-term"
-					id="o-header-drawer-search-term"
-					type="text"
-					autoComplete="off"
-					autoCorrect="off"
-					autoCapitalize="off"
-					spellCheck={false}
-					placeholder="Search the FT"
-				/>
-				<button className="o-header__drawer-search-submit" type="submit">
-					<span className="o-header__visually-hidden">Search</span>
-				</button>
 			</form>
 		</div>
 	);
 }
 
 function DrawerEditionSwitcher({
+	current,
 	otherEditions,
 }: {
+	current: TNavEdition;
 	otherEditions: TNavEdition[];
 }) {
 	return (
-		<nav className="o-header__drawer-menu" aria-label="Edition switcher">
-			<ul className="o-header__drawer-menu-list">
-				{otherEditions.map(({ name, id, url }) => (
-					<li className="o-header__drawer-menu-item" key={id}>
-						<a
-							className="o-header__drawer-menu-link"
-							href={`${url}?edition=${id}`}
-						>
-							Switch to {name} Edition
-						</a>
-					</li>
-				))}
-			</ul>
+		<nav
+			className="o-header__drawer-menu o-header__drawer-edition-switcher"
+			aria-label="Edition switcher">
+			<span className="o-header__drawer-menu-item">Edition:</span>
+			<span className="o-header__drawer-menu-item o-header__drawer-current-edition">
+				{current?.name}
+			</span>
+			<div className="o-header__drawer-divider"></div>
+			{otherEditions.map(({name, id, url}) => (
+				<a className="o-header__drawer-menu-link" href={`${url}?edition=${id}`}>
+					{name}
+				</a>
+			))}
 		</nav>
 	);
 }
 
-function DrawerMenu({ navItems }: { navItems: TNavMenuItem[] }) {
+function DrawerMenu({navItems}: {navItems: TNavMenuItem[]}) {
 	return (
 		<nav className="o-header__drawer-menu o-header__drawer-menu--primary">
-			{navItems.map(({ label, submenu }, i) => {
+			{navItems.map(({label, submenu}, i) => {
 				const hasDivider = !label;
 				const labelId = label
-					? label.replace(" ", "-").toLowerCase()
+					? label.replace(' ', '-').toLowerCase()
 					: undefined;
 				const navigationItems = submenu?.items.map((item, j) => {
 					return (
@@ -142,23 +142,21 @@ function DrawerMenu({ navItems }: { navItems: TNavMenuItem[] }) {
 						/>
 					);
 				});
-				const classNames = ["o-header__drawer-menu-list"];
-				hasDivider && classNames.push("o-header__drawer-menu-list--divide");
+				const classNames = ['o-header__drawer-menu-list'];
+				hasDivider && classNames.push('o-header__drawer-menu-list--divide');
 				const menuItem = [
 					label && (
 						<h2
 							className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
 							id={labelId}
-							key={`heading-${i}`}
-						>
+							key={`heading-${i}`}>
 							{label}
 						</h2>
 					),
 					<ul
-						className={classNames.join(" ")}
+						className={classNames.join(' ')}
 						aria-labelledby={labelId}
-						key={`drawer-list-${i}`}
-					>
+						key={`drawer-list-${i}`}>
 						{navigationItems}
 					</ul>,
 				];
@@ -177,7 +175,7 @@ function DrawerNavItem({
 	index: string;
 	hasHeading?: boolean;
 }) {
-	const { label, url, submenu, selected } = navItem;
+	const {label, url, submenu, selected} = navItem;
 	if (submenu) {
 		return (
 			<DrawerSubMenu
@@ -196,7 +194,7 @@ function DrawerNavItem({
 				label={label}
 				selected={selected}
 				additionalClasses={
-					!hasHeading && "o-header__drawer-menu-link--secondary"
+					!hasHeading && 'o-header__drawer-menu-link--secondary'
 				}
 			/>
 		</li>
@@ -216,14 +214,14 @@ function AnchorElement({
 	additionalClasses?: string;
 	variation?: string;
 }) {
-	const ariaLabel = selected ? label + ", current page" : undefined;
-	const ariaCurrent = selected ? "page" : undefined;
+	const ariaLabel = selected ? label + ', current page' : undefined;
+	const ariaCurrent = selected ? 'page' : undefined;
 	let anchorClass = selected
-		? " o-header__drawer-menu-link--selected"
-		: " o-header__drawer-menu-link--unselected";
+		? ' o-header__drawer-menu-link--selected'
+		: ' o-header__drawer-menu-link--unselected';
 
 	if (additionalClasses) {
-		anchorClass += " " + additionalClasses;
+		anchorClass += ' ' + additionalClasses;
 	}
 	if (variation) {
 		anchorClass += ` o-header__drawer-menu-link--${variation}`;
@@ -233,8 +231,7 @@ function AnchorElement({
 			className={`o-header__drawer-menu-link${anchorClass}`}
 			href={url}
 			aria-label={ariaLabel}
-			aria-current={ariaCurrent}
-		>
+			aria-current={ariaCurrent}>
 			{label}
 		</a>
 	);
@@ -253,8 +250,8 @@ function DrawerSubMenu({
 	selected?: boolean;
 	submenu: TNavMenuItem[] | TNavMenuItem[][];
 }) {
-	const additionalClasses = "  o-header__drawer-menu-link--parent";
-	const childAnchorClass = " o-header__drawer-menu-link--child";
+	const additionalClasses = '  o-header__drawer-menu-link--parent';
+	const childAnchorClass = ' o-header__drawer-menu-link--child';
 
 	return (
 		<li className="o-header__drawer-menu-item">
@@ -267,15 +264,13 @@ function DrawerSubMenu({
 				/>
 				<button
 					className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
-					aria-controls={`o-header-drawer-child-${idSuffix}`}
-				>
+					aria-controls={`o-header-drawer-child-${idSuffix}`}>
 					{`Show more ${label}`}
 				</button>
 			</div>
 			<ul
 				className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
-				id={`o-header-drawer-child-${idSuffix}`}
-			>
+				id={`o-header-drawer-child-${idSuffix}`}>
 				{submenu &&
 					submenu.map((item, i) => (
 						<li className="o-header__drawer-menu-item" key={item.url + i}>
@@ -292,7 +287,7 @@ function DrawerSubMenu({
 	);
 }
 
-function DrawerUser({ items }: { items: TNavMenuItem[] }) {
+function DrawerUser({items}: {items: TNavMenuItem[]}) {
 	return (
 		<nav className="o-header__drawer-menu o-header__drawer-menu--user">
 			<ul className="o-header__drawer-menu-list">

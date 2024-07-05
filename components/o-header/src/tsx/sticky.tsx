@@ -4,7 +4,7 @@ import {
 	TopWrapper,
 	SubscribeButton,
 	TopColumnRightAnon,
-	TopColumnRight
+	TopColumnRight,
 } from './top';
 
 export function StickyHeader({
@@ -13,7 +13,9 @@ export function StickyHeader({
 	userIsSubscribed,
 	data,
 }: THeaderProps) {
-	const userNavData = userIsLoggedIn ? data['navbar-top-right'] : data['navbar-top-right-anon'];
+	const userNavData = userIsLoggedIn
+		? data['navbar-top-right']
+		: data['navbar-top-right-anon'];
 	const userNavItems = userNavData.items;
 	const navBarItems = data.navbar.items;
 	return (
@@ -38,7 +40,11 @@ export function StickyHeader({
 	);
 }
 
-const StickyTopColumnCenter = ({navBarItems}: {navBarItems: TNavMenuItem[]}) => {
+const StickyTopColumnCenter = ({
+	navBarItems,
+}: {
+	navBarItems: TNavMenuItem[];
+}) => {
 	return (
 		<div className="o-header__top-column o-header__top-column--center">
 			<Navigation navBarItems={navBarItems} />
@@ -85,27 +91,34 @@ const StickySearch = () => {
 					role="search"
 					aria-label="Site search">
 					<label
-						className="o-header__visually-hidden"
-						htmlFor="o-header-search-term-js">
-						Search the <abbr title="Financial Times">FT</abbr>
+						htmlFor="o-header-search-term-js"
+						className="o-header__search-term o-forms-field o-forms-field--optional">
+						<span className="o-forms-title o-header__visually-hidden">
+							<span className="o-forms-title__main">
+								Search the <abbr title="Financial Times">FT</abbr>
+							</span>
+						</span>
+						<span className="o-forms-input o-forms-input--text o-forms-input--suffix">
+							<input
+								id="o-header-search-term-js"
+								name="q"
+								type="text"
+								placeholder="Search for stories, topics or securities"
+							/>
+							<button className="o-header__search-submit" type="submit">
+								Search
+							</button>
+							<button
+								className="o-header__search-close"
+								type="button"
+								aria-controls="o-header-search-sticky"
+								title="Close search bar">
+								<span className="o-header__visually-hidden">
+									Close search bar
+								</span>
+							</button>
+						</span>
 					</label>
-					<input
-						className="o-header__search-term"
-						id="o-header-search-term-js"
-						name="q"
-						type="text"
-						placeholder="Search the FT"
-					/>
-					<button className="o-header__search-submit" type="submit">
-						Search
-					</button>
-					<button
-						className="o-header__search-close"
-						type="button"
-						aria-controls="o-header-search-sticky"
-						title="Close search bar">
-						<span className="o-header__visually-hidden">Close search bar</span>
-					</button>
 				</form>
 			</div>
 		</div>

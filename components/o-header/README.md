@@ -17,7 +17,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ## Markup
 
-As there are variations on the header, and the markup for each is specific and somewhat extensive, we recommend visiting the [component page](http://registry.origami.ft.com/components/o-header) in the registry to find the markup that is most suited to your product. The demo on the component page does not use real navigation data as it may become out of date. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-header` markup with real navigation data. The Origami Navigation Service is a JSON API which provides navigation structures for use across FT websites.
+As there are variations on the header, and the markup for each is specific and somewhat extensive, we recommend visiting the [component page](https://o2-core.origami.ft.com/?path=/story/components-o-header--header-primary&globals=backgrounds:!undefined) in Storybook to find the markup that is most suited to your product. The demo on the component page does not use real navigation data as it may become out of date. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-header` markup with real navigation data. The Origami Navigation Service is a JSON API which provides navigation structures for use across FT websites.
 
 _There are intentionally no classes to switch between logged in and out as we don't want to do that in the client side. This is left up to the product._
 
@@ -31,7 +31,6 @@ Some elements inside the header require specific data attributes so the JavaScri
 - data-o-header-subnav: Applied to the root `div` of the subnav menu
 - data-o-header-subnav-wrapper: Applied to the inner wrapper `div` of the subnav menu so the JS can handle the scrolling
 - data-o-header-search-state: Optional, may be "open" or "close" to indicate the default visibility of the search bar.
-
 
 ## JavaScript
 
@@ -50,14 +49,14 @@ The o-header constructor accepts an optional options object, used to control cer
 ```js
 import oHeader from '@financial-times/o-header';
 const headerEl = document.querySelector('.o-header');
-const header = new oHeader(headerEl, { searchBarOpen: true });
+const header = new oHeader(headerEl, {searchBarOpen: true});
 ```
 
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the document to auto-construct an o-header object for each element with a `data-o-component="o-header"` attribute:
 
 ```js
 import '@financial-times/o-header';
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function () {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
@@ -69,7 +68,6 @@ o-header fires the following events:
 - `oHeader.MegaMenuShow`: When a mega menu is shown. The target of the event is the menu itself.
 - `oHeader.MegaMenuClose`: When a mega menu is closed. The target of the event is the menu itself.
 - `oHeader.Sticky`: When the header changes to or from sticky. The event detail will contain an `isActive` boolean indicated sticky or not. The target of the event is the menu itself.
-
 
 ## Sass
 
@@ -101,19 +99,21 @@ To use `o-header` setup a [core and enhanced experience](https://origami.ft.com/
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 11 | N/A | [migrate to v11](MIGRATION.md#migrating-from-v10-to-v11) |
-⚠ maintained | 10 | N/A | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
-╳ deprecated | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-╳ deprecated | 8 | 8.6 | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-╳ deprecated | 7 | 7.8 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-╳ deprecated | 6 | 6.14 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.0 | - |
-╳ deprecated | 4 | 4.0 | - |
-╳ deprecated | 3 | 3.0 | - |
-╳ deprecated | 2 | 2.5 | - |
-╳ deprecated | 1 | 1.1 | - |
+|    State     | Major Version | Last Minor Release |                     Migration guide                      |
+| :----------: | :-----------: | :----------------: | :------------------------------------------------------: |
+|  ✨ active   |      13       |        N/A         | [migrate to v13](MIGRATION.md#migrating-from-v12-to-v13) |
+| ⚠ maintained |      12       |        N/A         | [migrate to v12](MIGRATION.md#migrating-from-v11-to-v12) |
+| ⚠ maintained |      11       |        N/A         | [migrate to v11](MIGRATION.md#migrating-from-v10-to-v11) |
+| ╳ deprecated |      10       |        N/A         | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10)  |
+| ╳ deprecated |       9       |        N/A         |  [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9)   |
+| ╳ deprecated |       8       |        8.6         |  [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8)   |
+| ╳ deprecated |       7       |        7.8         |  [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7)   |
+| ╳ deprecated |       6       |        6.14        |  [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6)   |
+| ╳ deprecated |       5       |        5.0         |                            -                             |
+| ╳ deprecated |       4       |        4.0         |                            -                             |
+| ╳ deprecated |       3       |        3.0         |                            -                             |
+| ╳ deprecated |       2       |        2.5         |                            -                             |
+| ╳ deprecated |       1       |        1.1         |                            -                             |
 
 ## Contact
 

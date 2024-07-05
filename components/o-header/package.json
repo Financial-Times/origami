@@ -1,49 +1,50 @@
 {
-  "name": "@financial-times/o-header",
-  "version": "12.0.0",
-  "description": "Responsive Financial Times page header with primary and secondary navigation, a drop down mega menu, and a collapsible drawer",
-  "keywords": [
-    "header",
-    "page",
-    "top"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-header",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-header,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "browser": "main.js",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "peerDependencies": {
-    "@financial-times/math": "^1.0.0",
-    "@financial-times/o-brand": "^4.1.0",
-    "@financial-times/o-buttons": "^7.8.0",
-    "@financial-times/o-colors": "^6.5.0",
-    "@financial-times/o-grid": "^6.1.1",
-    "@financial-times/o-icons": "^7.0.1",
-    "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-toggle": "^3.0.0",
-    "@financial-times/o-typography": "^7.4.1",
-    "@financial-times/o-utils": "^2.0.0",
-    "@financial-times/o-viewport": "^5.1.1",
-    "@financial-times/o-visual-effects": "^4.0.1"
-  },
-  "devDependencies": {
-    "@financial-times/o-fonts": "^5.2.0",
-    "@financial-times/o-grid": "^6.1.1",
-    "@financial-times/o-normalise": "^3.3.0"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false
+	"name": "@financial-times/o-header",
+	"version": "12.0.0",
+	"description": "Responsive Financial Times page header with primary and secondary navigation, a drop down mega menu, and a collapsible drawer",
+	"keywords": [
+		"header",
+		"page",
+		"top"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-header",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-header,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"peerDependencies": {
+		"@financial-times/math": "^1.0.0",
+		"@financial-times/o-brand": "^4.1.0",
+		"@financial-times/o-buttons": "^7.8.0",
+		"@financial-times/o-colors": "^6.5.0",
+		"@financial-times/o-grid": "^6.1.1",
+		"@financial-times/o-icons": "^7.0.1",
+		"@financial-times/o-normalise": "^3.3.0",
+		"@financial-times/o-toggle": "^3.0.0",
+		"@financial-times/o-typography": "^7.4.1",
+		"@financial-times/o-utils": "^2.0.0",
+		"@financial-times/o-viewport": "^5.1.1",
+		"@financial-times/o-visual-effects": "^4.0.1",
+		"@financial-times/o-forms": "^9.12.1"
+	},
+	"devDependencies": {
+		"@financial-times/o-fonts": "^5.2.0",
+		"@financial-times/o-grid": "^6.1.1",
+		"@financial-times/o-normalise": "^3.3.0"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
 }
