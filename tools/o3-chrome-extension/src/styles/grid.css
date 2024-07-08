@@ -1,0 +1,85 @@
+/* Settings */
+:root {
+  --margin: 16px;
+  --max-width: 100%;
+	--columns: 4;
+	--gutter: 16px;
+  --color: hsla(204, 80%, 72%, 0.25);
+	--color-gutter: rgba(255, 0, 0, 0.25);
+	--color-margin: rgba(0, 255, 47, 0.25);
+	--color-text: hsla(204, 80%, 72%, 1);
+	--help-text: 'XS'
+}
+
+@media (min-width: 490px) {
+	:root {
+		--help-text: "S";
+	}
+}
+
+@media (min-width: 740px) {
+
+	:root {
+		--margin: 24px;
+		--columns: 8;
+		--help-text: "M";
+	}
+}
+
+@media (min-width: 980px) {
+	:root {
+		--margin: 24px;
+		--columns: 12;
+		--gutter: 24px;
+		--help-text: "L";
+	}
+}
+
+@media (min-width: 1220px) {
+	:root {
+		--margin: 24px;
+		--max-width: 1220px;
+		--columns: 12;
+		--gutter: 24px;
+		--help-text: "XL";
+	}
+}
+
+/* Helper variables */
+:root {
+  --repeating-width: calc(var(--max-width) / var(--columns));
+  --column-width: calc((var(--max-width) / var(--columns)) - var(--gutter));
+  --background-width: calc(var(--max-width) + var(--gutter));
+  --background-columns: repeating-linear-gradient(
+    to right,
+    var(--color),
+    var(--color) var(--column-width),
+    var(--color-gutter) var(--column-width),
+    var(--color-gutter) var(--repeating-width)
+  );
+}
+
+html::before {
+	--width: calc(var(--max-width) - (2 * var(--margin)));
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: var(--width);
+  max-width: var(--max-width);
+  min-height: 100vh;
+  content: '';
+  background-image: var(--background-columns);
+  background-size: var(--background-width) 100%;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+body::after {
+  content: var(--help-text);
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  font-family: sans-serif;
+  color: var(--color-text);
+}
