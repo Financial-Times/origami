@@ -6,7 +6,7 @@ import {
 } from '../story-template';
 import '../../src/css/brands/internal.css';
 import "../../../o3-button/src/css/brands/internal.css"
-import links from '../../../../libraries/o3-figma-sb-links/src/links.json'
+import links from '@financial-times/o3-figma-sb-links';
 
 export default {
 	title: 'Internal/o3-tooltip',

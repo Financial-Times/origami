@@ -6,7 +6,7 @@ import {
 } from '../story-template';
 import '../../src/css/brands/sustainable-views.css';
 import "../../../o3-button/src/css/brands/sustainable-views.css"
-import links from '../../../../libraries/o3-figma-sb-links/src/links.json'
+import links from '@financial-times/o3-figma-sb-links';
 export default {
 	title: 'Sustainable Views/o3-tooltip',
 	component: OnboardingTooltipTsx,

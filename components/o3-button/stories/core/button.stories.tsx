@@ -2,7 +2,7 @@ import type {Meta} from '@storybook/react';
 import {Button as ButtonTsx} from '../../src/tsx/button';
 import * as ButtonStories from '../story-templates';
 import {Pagination as PaginationTemplate} from '../pagination-template';
-import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
+import links from '@financial-times/o3-figma-sb-links';
 import '../../src/css/brands/core.css';
 
 export default {

@@ -4,7 +4,7 @@ import * as ButtonStories from '../../story-templates';
 import {Pagination as PaginationTemplate} from '../../pagination-template';
 
 import '../../../src/css/brands/professional.css';
-import links from '../../../../../libraries/o3-figma-sb-links/src/links.json';
+import links from '@financial-times/o3-figma-sb-links';
 
 export default {
 	title: 'Core/Professional/o3-button',

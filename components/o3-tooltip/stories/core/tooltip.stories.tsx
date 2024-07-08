@@ -5,7 +5,7 @@ import {
 	ToggleToolTip as ToggleToolTipStory,
 } from '../story-template';
 
-import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
+import links from '@financial-times/o3-figma-sb-links';
 
 import '../../src/css/brands/core.css';
 import '../../../o3-button/src/css/brands/core.css';

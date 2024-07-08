@@ -3,7 +3,7 @@ import {Link as LinkTsx} from '../../src/tsx';
 
 import '../../src/css/brands/whitelabel.css';
 import {Meta} from '@storybook/react';
-import links from '../../../../libraries/o3-figma-sb-links/src/links.json';
+import links from '@financial-times/o3-figma-sb-links';
 export default {
 	title: 'Whitelabel/o3-typography/Link',
 	component: LinkTsx,

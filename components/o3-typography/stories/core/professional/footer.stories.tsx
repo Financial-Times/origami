@@ -3,7 +3,7 @@ import * as TypographyStories from '../../story-templates';
 
 import {Footer} from '../../../src/tsx';
 import '../../../src/css/brands/professional.css';
-import links from '../../../../../libraries/o3-figma-sb-links/src/links.json';
+import links from '@financial-times/o3-figma-sb-links';
 
 export default {
 	title: 'Core/Professional/o3-typography/Footer',

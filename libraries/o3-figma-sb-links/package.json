@@ -6,9 +6,9 @@
 		"figma-links",
 		"storybook links"
 	],
-	"homepage": "https://registry.origami.ft.com/components/o3-figma-sb-links",
+	"homepage": "https://github.com/Financial-Times/origami/tree/main/libraries/o3-figma-sb-links",
 	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-figma-sb-links,components",
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-figma-sb-links,libraries",
 		"email": "origami.support@ft.com"
 	},
 	"license": "MIT",
