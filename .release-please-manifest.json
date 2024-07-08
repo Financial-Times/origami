@@ -1,5 +1,5 @@
 {
-	"components/ft-concept-button": "1.2.3",
+	"components/ft-concept-button": "1.3.0",
 	"components/g-audio": "2.0.3",
 	"components/n-notification": "8.2.6",
 	"components/o-audio": "2.1.4",
@@ -20,7 +20,7 @@
 	"components/o-forms": "9.12.1",
 	"components/o-ft-affiliate-ribbon": "5.2.2",
 	"components/o-grid": "6.1.8",
-	"components/o-header": "12.0.0",
+	"components/o-header": "13.0.0",
 	"components/o-header-services": "5.5.4",
 	"components/o-icons": "7.8.0",
 	"components/o-labels": "6.5.8",
