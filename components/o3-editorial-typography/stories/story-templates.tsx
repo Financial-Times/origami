@@ -75,6 +75,11 @@ const TemplateSBConfig: Meta = {
 			},
 		},
 	},
+	parameters: {
+		design: {
+			type: 'figma'
+		}
+	}
 };
 
 const HeadlineTemplate: StoryObj = {

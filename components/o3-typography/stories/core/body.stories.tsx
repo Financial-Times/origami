@@ -3,6 +3,8 @@ import * as TypographyStories from '../story-templates';
 import {Body} from '../../src/tsx';
 import '../../src/css/brands/core.css';
 
+import links from '@financial-times/o3-figma-sb-links';
+
 export default {
 	title: 'Core/o3-typography/Body',
 	component: Body,
@@ -15,6 +17,10 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'paper'},
+		design: {
+			type: 'figma',
+			url: links['core-o3-typography-body--body-story'].figma,
+		},
 	},
 } as Meta;
 

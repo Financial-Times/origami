@@ -5,44 +5,10 @@ import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 
 const {brand} = Astro.props;
 
-let figma =
-	'https://www.figma.com/files/938480807921629744/team/1237702133754424766/Origami-for-Everyone-(NEW)?fuid=840167457508775739';
-switch (brand) {
-	case 'core':
-		figma =
-			'https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami-(o3)?node-id=6605-826&t=mPp0f1R2Bgyi54UE-4';
-		break;
-	case 'professional':
-		figma =
-			'https://www.figma.com/design/qfi6fTq5V05b0mnXw3F7q5/%F0%9F%92%A0-Professional---Origami-(o3)?node-id=4173-834&t=mPp0f1R2Bgyi54UE-4';
-		break;
-	case 'internal':
-		figma =
-			'https://www.figma.com/design/H9vTWZgEzqzTtX689nwq4R/%F0%9F%92%A0-Internal---Origami-(o3)?node-id=5545-1833&t=mPp0f1R2Bgyi54UE-4';
-		break;
-	case 'sustainable-views':
-		figma =
-			'https://www.figma.com/design/Y7u0SwIJ1mCNDE0dpzgHCJ/%F0%9F%92%A0-Sustainable-Views---Origami-(o3)?node-id=6294-955&t=mPp0f1R2Bgyi54UE-4';
-		break;
-
-	default:
-		break;
-}
-
-let storybook = 'https://o3.origami.ft.com';
-if (brand) {
-	const storybookArgs = `grouped-buttons`;
-	const storybookbase = 'https://o3.origami.ft.com?path=/story';
-	storybook = `${storybookbase}/${brand}-o3-button--${storybookArgs}`;
-
-	if (brand === 'professional') {
-		storybook = `${storybookbase}/core-${brand}-o3-button--${storybookArgs}`;
-	}
-}
-
+const storybookId = `${brand}-o3-button--grouped-buttons`;
 ---
 
 <div>
 	<Preview component={Component} />
-	<FigmaSbLinks {figma} {storybook} />
+	<FigmaSbLinks {storybookId} />
 </div>

@@ -65,6 +65,7 @@
 		"fetch-mock": "^9.11.0",
 		"husky": "^8.0.3",
 		"mocha": "^8.3.2",
+		"patch-package": "^8.0.0",
 		"prettier": "^2.3.2",
 		"proclaim": "^3.6.0",
 		"react": "^16.14.0",
@@ -77,8 +78,7 @@
 		"sinon": "^10.0.0",
 		"stylelint": "^13.12.0",
 		"stylelint-config-origami-component": "^1.0.4",
-		"stylelint-config-prettier": "^9.0.3",
-		"patch-package": "^8.0.0"
+		"stylelint-config-prettier": "^9.0.3"
 	},
 	"dependencies": {
 		"@actions/core": "^1.2.6",

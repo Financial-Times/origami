@@ -1,5 +1,32 @@
 ---
-const {storybook, figma} = Astro.props;
+import links from '@financial-times/o3-figma-sb-links';
+const {storybook, figma} = getLinks(Astro.props);
+
+function getLinks(props) {
+	let {storybookId, sbPathParams, storybook, figma} = props;
+	const brandedstorybookId = storybookId?.startsWith('professional')
+	? `core-${storybookId}`
+	: storybookId;
+	if (!storybook && storybookId) {
+		const sbPath = links[brandedstorybookId]?.sb;
+		storybook = `https://o3.origami.ft.com/${sbPath}`;
+		if (sbPathParams) {
+			const storybookArgs = `&args=${Object.entries(sbPathParams)
+				.map(p => `${p[0]}:${p[1]};`)
+				.join('')}`;
+			storybook += storybookArgs;
+		}
+	}
+	if (!figma && storybookId) {
+		const figmaEmbedUrl = links[brandedstorybookId]?.figma;
+		if (figmaEmbedUrl) {
+			const urlObj = new URL(figmaEmbedUrl);
+			const params = new URLSearchParams(urlObj.search);
+			figma = params.get('url');
+		}
+	}
+	return {storybook, figma};
+}
 ---
 
 {

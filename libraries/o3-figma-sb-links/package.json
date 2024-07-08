@@ -1,0 +1,33 @@
+{
+	"name": "@financial-times/o3-figma-sb-links",
+	"version": "0.0.0",
+	"description": "package to keep links consistent for figma and storybook",
+	"keywords": [
+		"figma-links",
+		"storybook links"
+	],
+	"homepage": "https://github.com/Financial-Times/origami/tree/main/libraries/o3-figma-sb-links",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-figma-sb-links,libraries",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"exports": {
+		".": "./src/links.json"
+	},
+	"files": [
+		"src/links.json"
+	],
+	"scripts": {
+		"build": "npm run metadata && node ./src/build-links.js",
+		"metadata": "node ./src/create-metadata.js"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": true,
+	"dependencies": {
+		"@storybook/csf-tools": "^8.1.10"
+	}
+}
