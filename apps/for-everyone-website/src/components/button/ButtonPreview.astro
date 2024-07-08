@@ -14,7 +14,7 @@ import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 
 const {previewFile, componentProps, brand} = Astro.props;
 
-const sbId = `${brand}-o3-button--button`
+const storybookId = `${brand}-o3-button--button`
 
 let component = Primary;
 
@@ -48,5 +48,5 @@ switch (previewFile) {
 
 <div>
 	<Preview {component} />
-	<FigmaSbLinks {sbId} sbPathParams={componentProps} />
+	<FigmaSbLinks {storybookId} sbPathParams={componentProps} />
 </div>

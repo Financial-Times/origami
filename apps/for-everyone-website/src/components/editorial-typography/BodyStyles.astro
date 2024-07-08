@@ -6,11 +6,11 @@ import {
 } from '@financial-times/o3-editorial-typography/esm';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 const {brand} = Astro.props;
-const sbIdBody = `${brand}-o3-editorial-typography--body`;
-const sbIdTopicTag = `${brand}-o3-editorial-typography--topic-tag`;
-const sbIdStandFirst = `${brand}-o3-editorial-typography--standfirst`;
-const sbIdCaption = `${brand}-o3-editorial-typography--caption`;
-const sbIdByline = `${brand}-o3-editorial-typography--byline`;
+const storybookIdBody = `${brand}-o3-editorial-typography--body`;
+const storybookIdTopicTag = `${brand}-o3-editorial-typography--topic-tag`;
+const storybookIdStandFirst = `${brand}-o3-editorial-typography--standfirst`;
+const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
+const storybookIdByline = `${brand}-o3-editorial-typography--byline`;
 ---
 
 <h4>Body</h4>
@@ -28,14 +28,14 @@ const sbIdByline = `${brand}-o3-editorial-typography--byline`;
 			<td>S</td>
 			<td class="body-s">body</td>
 			<td>
-				<FigmaSbLinks sbId={sbIdBody} />
+				<FigmaSbLinks storybookId={storybookIdBody} />
 			</td>
 		</tr>
 		<tr>
 			<td>L</td>
 			<td class="body-l">body</td>
 			<td>
-				<FigmaSbLinks sbId={sbIdBody} />
+				<FigmaSbLinks storybookId={storybookIdBody} />
 			</td>
 		</tr>
 	</tbody>
@@ -64,7 +64,7 @@ const sbIdByline = `${brand}-o3-editorial-typography--byline`;
 				(article cards) to indicate the category of a post.</td
 			>
 			<td>
-				<FigmaSbLinks sbId={sbIdTopicTag} />
+				<FigmaSbLinks storybookId={storybookIdTopicTag} />
 			</td>
 		</tr>
 		<tr>
@@ -76,7 +76,7 @@ const sbIdByline = `${brand}-o3-editorial-typography--byline`;
 				in combination with a header in the topper component.</td
 			>
 			<td>
-				<FigmaSbLinks sbId={sbIdStandFirst} />
+				<FigmaSbLinks storybookId={storybookIdStandFirst} />
 			</td>
 		</tr>
 		<tr>
@@ -87,7 +87,7 @@ const sbIdByline = `${brand}-o3-editorial-typography--byline`;
 				>For additional information about a piece or image that should be less
 				prominent.</td
 			>
-			<td><FigmaSbLinks sbId={sbIdCaption} /></td>
+			<td><FigmaSbLinks storybookId={storybookIdCaption} /></td>
 		</tr>
 		<tr>
 			<td class="o3-editorial-typography-byline-author not-content">
@@ -98,7 +98,7 @@ const sbIdByline = `${brand}-o3-editorial-typography--byline`;
 				component
 			</td>
 			<td>
-				<FigmaSbLinks sbId={sbIdByline} />
+				<FigmaSbLinks storybookId={storybookIdByline} />
 			</td>
 		</tr>
 		<tr>
@@ -110,7 +110,7 @@ const sbIdByline = `${brand}-o3-editorial-typography--byline`;
 				component</td
 			>
 			<td>
-				<FigmaSbLinks sbId={sbIdByline} />
+				<FigmaSbLinks storybookId={storybookIdByline} />
 			</td>
 		</tr>
 		<tr>
@@ -122,7 +122,7 @@ const sbIdByline = `${brand}-o3-editorial-typography--byline`;
 				component</td
 			>
 			<td>
-				<FigmaSbLinks sbId={sbIdByline} />
+				<FigmaSbLinks storybookId={storybookIdByline} />
 			</td>
 		</tr>
 	</tbody>

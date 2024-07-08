@@ -4,7 +4,7 @@ import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 
 const {brand} = Astro.props;
-const sbId = `${brand}-o3-editorial-typography--body`;
+const storybookId = `${brand}-o3-editorial-typography--body`;
 const sbPathParams = {
 	dropCap: '!true',
 };
@@ -12,4 +12,4 @@ const sbPathParams = {
 
 <Preview component={DropCap} />
 
-<FigmaSbLinks {sbId} {sbPathParams} />
+<FigmaSbLinks {storybookId} {sbPathParams} />

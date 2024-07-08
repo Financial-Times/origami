@@ -10,8 +10,8 @@ const isToggle = componentName === 'toggle';
 
 const component = isToggle ? Toggletip : OnboardingTooltip;
 const endOfId = isToggle ? 'toggle-tooltip' : 'onboarding-tooltip';
-const sbId = `${brand}-o3-tooltip--${endOfId}`;
+const storybookId = `${brand}-o3-tooltip--${endOfId}`;
 ---
 
 <Preview {component} />
-<FigmaSbLinks {sbId} />
+<FigmaSbLinks {storybookId} />

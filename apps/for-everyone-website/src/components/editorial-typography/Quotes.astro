@@ -5,7 +5,7 @@ import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 
 const {brand} = Astro.props;
-const sbId = `${brand}-o3-editorial-typography--quote`;
+const storybookId = `${brand}-o3-editorial-typography--quote`;
 ---
 
 {
@@ -19,7 +19,7 @@ const sbId = `${brand}-o3-editorial-typography--quote`;
 
 			<Preview component={BlockComponent} />
 
-			<FigmaSbLinks {sbId} />
+			<FigmaSbLinks {storybookId} />
 		</>
 	)
 }
@@ -33,4 +33,4 @@ const sbId = `${brand}-o3-editorial-typography--quote`;
 
 <Preview component={PullComponent} />
 
-<FigmaSbLinks {sbId} />
+<FigmaSbLinks {storybookId} />

@@ -5,7 +5,7 @@ import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 
 const {brand} = Astro.props;
-const sbId = `${brand}-o3-editorial-typography--list`
+const storybookId = `${brand}-o3-editorial-typography--list`
 
 ---
 
@@ -13,10 +13,10 @@ const sbId = `${brand}-o3-editorial-typography--list`
 
 <Preview component={OrdredComponent} />
 
-<FigmaSbLinks {sbId} />
+<FigmaSbLinks {storybookId} />
 
 <h4>Unordered List</h4>
 
 <Preview component={UnordredComponent} />
 
-<FigmaSbLinks {sbId} />
+<FigmaSbLinks {storybookId} />

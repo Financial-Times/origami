@@ -7,10 +7,10 @@ import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 const {theme, brand} = Astro.props;
 
 const Component = theme === 'inverse' ? InverseComponent : StandardComponent;
-const sbId = `${brand}-o3-button--pagination`;
+const storybookId = `${brand}-o3-button--pagination`;
 ---
 
 <div>
 	<Preview component={Component} />
-	<FigmaSbLinks {sbId} />
+	<FigmaSbLinks {storybookId} />
 </div>

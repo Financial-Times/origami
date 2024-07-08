@@ -3,14 +3,12 @@ import links from '@financial-times/o3-figma-sb-links';
 const {storybook, figma} = getLinks(Astro.props);
 
 function getLinks(props) {
-	let {sbId, sbPathParams, storybook, figma} = props;
-	const brandedSbId = sbId?.startsWith('professional')
-	? `core-${sbId}`
-	: sbId;
-	if (!storybook && sbId) {
-		console.log(`🚀 ~ brandedSbId:`, brandedSbId);
-		const sbPath = links[brandedSbId]?.sb;
-		console.log(`🚀 ~ sbPath:`, sbPath);
+	let {storybookId, sbPathParams, storybook, figma} = props;
+	const brandedstorybookId = storybookId?.startsWith('professional')
+	? `core-${storybookId}`
+	: storybookId;
+	if (!storybook && storybookId) {
+		const sbPath = links[brandedstorybookId]?.sb;
 		storybook = `https://o3.origami.ft.com/${sbPath}`;
 		if (sbPathParams) {
 			const storybookArgs = `&args=${Object.entries(sbPathParams)
@@ -19,8 +17,8 @@ function getLinks(props) {
 			storybook += storybookArgs;
 		}
 	}
-	if (!figma && sbId) {
-		const figmaEmbedUrl = links[brandedSbId]?.figma;
+	if (!figma && storybookId) {
+		const figmaEmbedUrl = links[brandedstorybookId]?.figma;
 		if (figmaEmbedUrl) {
 			const urlObj = new URL(figmaEmbedUrl);
 			const params = new URLSearchParams(urlObj.search);
