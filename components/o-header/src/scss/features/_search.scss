@@ -39,7 +39,8 @@
 		align-items: center;
 
 		.o-forms-input--text.o-forms-input--suffix {
-			width: 90%;
+			width: 100%;
+			max-width: 640px;
 			margin-top: 10px;
 		}
 	}
