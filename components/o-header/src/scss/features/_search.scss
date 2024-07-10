@@ -37,10 +37,11 @@
 		min-width: 50%;
 		flex-grow: 1;
 		align-items: center;
+		max-width: 640px;
+		position: relative;
 
 		.o-forms-input--text.o-forms-input--suffix {
 			width: 100%;
-			max-width: 640px;
 			margin-top: 10px;
 		}
 	}
