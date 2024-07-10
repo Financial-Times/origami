@@ -1,4 +1,11 @@
 # Changelog
+## [13.0.2](https://github.com/Financial-Times/origami/compare/o-header-v13.0.1...o-header-v13.0.2) (2024-07-10)
+
+
+### Bug Fixes
+
+* fix search term wide ([#1742](https://github.com/Financial-Times/origami/issues/1742)) ([b0ee3bb](https://github.com/Financial-Times/origami/commit/b0ee3bb317c39694f1ee4b591f0b20ecfd31ec8a))
+
 ## [13.0.1](https://github.com/Financial-Times/origami/compare/o-header-v13.0.0...o-header-v13.0.1) (2024-07-09)
 
 
