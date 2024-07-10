@@ -1,4 +1,11 @@
 # Changelog
+## [13.0.3](https://github.com/Financial-Times/origami/compare/o-header-v13.0.2...o-header-v13.0.3) (2024-07-10)
+
+
+### Bug Fixes
+
+* fix search term width (again!) ([#1744](https://github.com/Financial-Times/origami/issues/1744)) ([34ff48f](https://github.com/Financial-Times/origami/commit/34ff48fcc95499d52d87516bbdb5baf5927d02a9))
+
 ## [13.0.2](https://github.com/Financial-Times/origami/compare/o-header-v13.0.1...o-header-v13.0.2) (2024-07-10)
 
 
