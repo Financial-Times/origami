@@ -1,85 +1,88 @@
 /* Settings */
-:root {
-  --margin: 16px;
-  --max-width: 100%;
+.o3-grid-extension {
+	--margin: 16px;
+	--max-width: 100%;
 	--columns: 4;
 	--gutter: 16px;
-  --color: hsla(204, 80%, 72%, 0.25);
+	--color: hsla(204, 80%, 72%, 0.25);
 	--color-gutter: rgba(255, 0, 0, 0.25);
-	--color-margin: rgba(0, 255, 47, 0.25);
+	--color-margin: rgba(255, 200, 0, 0.25);
 	--color-text: hsla(204, 80%, 72%, 1);
-	--help-text: 'XS'
+	--help-text: 'XS';
+}
+
+.o3-grid-extension-overlay {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	min-width: 100vw;
+	min-height: 100vh;
+	z-index: 1000;
+	pointer-events: none;
+}
+
+.o3-grid-extension {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	margin: 0 auto;
+	max-width: var(--max-width);
+	box-sizing: content-box;
+	border-left: var(--margin) solid var(--color-margin);
+	border-right: var(--margin) solid var(--color-margin);
+}
+
+.o3-grid-extension > * {
+	background-color: var(--color);
+	box-sizing: content-box;
+	height: 100%;
+	border-right: var(--gutter) solid var(--color-gutter);
+	width: calc(var(--max-width) / var(--columns));
+}
+
+.o3-grid-extension .grid-item:last-child {
+	border-right: 0;
 }
 
 @media (min-width: 490px) {
-	:root {
-		--help-text: "S";
+	.o3-grid-extension {
+		--help-text: 'S';
 	}
 }
 
 @media (min-width: 740px) {
-
-	:root {
+	.o3-grid-extension {
 		--margin: 24px;
 		--columns: 8;
-		--help-text: "M";
+		--help-text: 'M';
 	}
 }
 
 @media (min-width: 980px) {
-	:root {
-		--margin: 24px;
+	.o3-grid-extension {
 		--columns: 12;
 		--gutter: 24px;
-		--help-text: "L";
+		--help-text: 'L';
 	}
 }
 
 @media (min-width: 1220px) {
-	:root {
-		--margin: 24px;
-		--max-width: 1220px;
-		--columns: 12;
-		--gutter: 24px;
-		--help-text: "XL";
+	.o3-grid-extension {
+		--help-text: 'XL';
 	}
 }
 
-/* Helper variables */
-:root {
-  --repeating-width: calc(var(--max-width) / var(--columns));
-  --column-width: calc((var(--max-width) / var(--columns)) - var(--gutter));
-  --background-width: calc(var(--max-width) + var(--gutter));
-  --background-columns: repeating-linear-gradient(
-    to right,
-    var(--color),
-    var(--color) var(--column-width),
-    var(--color-gutter) var(--column-width),
-    var(--color-gutter) var(--repeating-width)
-  );
-}
-
-html::before {
-	--width: calc(var(--max-width) - (2 * var(--margin)));
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: var(--width);
-  max-width: var(--max-width);
-  min-height: 100vh;
-  content: '';
-  background-image: var(--background-columns);
-  background-size: var(--background-width) 100%;
-  z-index: 1000;
-  pointer-events: none;
-}
-
-body::after {
-  content: var(--help-text);
-  position: fixed;
-  top: 50px;
-  left: 50px;
-  font-family: sans-serif;
-  color: var(--color-text);
+/* this value is XL(1220px) + 2 * margin(24px) */
+@media (min-width: 1268px) {
+	.o3-grid-extension {
+		--max-width: 1220px;
+		/* on bigger screen switch to box-shadow for margin colouring */
+		border-left: 0;
+		border-right: 0;
+		box-shadow: 0 0 0 50vw var(--color-margin);
+	}
 }

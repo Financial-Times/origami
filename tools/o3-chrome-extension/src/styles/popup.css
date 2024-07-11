@@ -1,0 +1,13 @@
+main {
+	width: 400px;
+}
+
+.o3-extension-title {
+	text-align: center;
+}
+
+
+.o3-grid-options {
+	display: flex;
+	padding: 16px 20px;
+}
