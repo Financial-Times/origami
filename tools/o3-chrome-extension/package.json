@@ -1,10 +1,13 @@
 {
-  "name": "o3-chrome-extension",
-  "version": "0.0.1",
-  "description": "Chrome extension for O3 components",
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "type": "module",
-  "private": true
+	"name": "o3-chrome-extension",
+	"version": "0.0.1",
+	"description": "Chrome extension for O3 components",
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"type": "module",
+	"private": true,
+	"devDependencies": {
+		"@types/chrome": "^0.0.268"
+	}
 }
