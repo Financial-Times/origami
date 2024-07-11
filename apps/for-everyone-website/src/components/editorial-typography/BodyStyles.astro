@@ -6,15 +6,11 @@ import {
 } from '@financial-times/o3-editorial-typography/esm';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 const {brand} = Astro.props;
-const figmaBody =
-	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4084&t=kyDVEfsg2tRJspyY-4';
-const figmaDetails =
-	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4178&t=kyDVEfsg2tRJspyY-4';
-const sbDomain = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography`;
-const sbBody = sbDomain + '--body';
-const sbTopicTag = sbDomain + '--topic-tag';
-const sbStandfirst = sbDomain + '--standfirst';
-const sbCaption = sbDomain + '--caption';
+const storybookIdBody = `${brand}-o3-editorial-typography--body`;
+const storybookIdTopicTag = `${brand}-o3-editorial-typography--topic-tag`;
+const storybookIdStandFirst = `${brand}-o3-editorial-typography--standfirst`;
+const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
+const storybookIdByline = `${brand}-o3-editorial-typography--byline`;
 ---
 
 <h4>Body</h4>
@@ -32,14 +28,14 @@ const sbCaption = sbDomain + '--caption';
 			<td>S</td>
 			<td class="body-s">body</td>
 			<td>
-				<FigmaSbLinks figma={figmaBody} storybook={sbBody} />
+				<FigmaSbLinks storybookId={storybookIdBody} />
 			</td>
 		</tr>
 		<tr>
 			<td>L</td>
 			<td class="body-l">body</td>
 			<td>
-				<FigmaSbLinks figma={figmaBody} storybook={sbBody} />
+				<FigmaSbLinks storybookId={storybookIdBody} />
 			</td>
 		</tr>
 	</tbody>
@@ -68,7 +64,7 @@ const sbCaption = sbDomain + '--caption';
 				(article cards) to indicate the category of a post.</td
 			>
 			<td>
-				<FigmaSbLinks figma={figmaDetails} storybook={sbTopicTag} />
+				<FigmaSbLinks storybookId={storybookIdTopicTag} />
 			</td>
 		</tr>
 		<tr>
@@ -80,7 +76,7 @@ const sbCaption = sbDomain + '--caption';
 				in combination with a header in the topper component.</td
 			>
 			<td>
-				<FigmaSbLinks figma={figmaDetails} storybook={sbStandfirst} />
+				<FigmaSbLinks storybookId={storybookIdStandFirst} />
 			</td>
 		</tr>
 		<tr>
@@ -91,7 +87,7 @@ const sbCaption = sbDomain + '--caption';
 				>For additional information about a piece or image that should be less
 				prominent.</td
 			>
-			<td><FigmaSbLinks figma={figmaDetails} storybook={sbCaption} /></td>
+			<td><FigmaSbLinks storybookId={storybookIdCaption} /></td>
 		</tr>
 		<tr>
 			<td class="o3-editorial-typography-byline-author not-content">
@@ -102,7 +98,7 @@ const sbCaption = sbDomain + '--caption';
 				component
 			</td>
 			<td>
-				<FigmaSbLinks figma={figmaDetails} />
+				<FigmaSbLinks storybookId={storybookIdByline} />
 			</td>
 		</tr>
 		<tr>
@@ -114,7 +110,7 @@ const sbCaption = sbDomain + '--caption';
 				component</td
 			>
 			<td>
-				<FigmaSbLinks figma={figmaDetails} />
+				<FigmaSbLinks storybookId={storybookIdByline} />
 			</td>
 		</tr>
 		<tr>
@@ -126,7 +122,7 @@ const sbCaption = sbDomain + '--caption';
 				component</td
 			>
 			<td>
-				<FigmaSbLinks figma={figmaDetails} />
+				<FigmaSbLinks storybookId={storybookIdByline} />
 			</td>
 		</tr>
 	</tbody>
@@ -153,6 +149,6 @@ const sbCaption = sbDomain + '--caption';
 
 	.not-content.o3-editorial-typography-blockquote__source,
 	.not-content.o3-editorial-typography-blockquote__author {
-		display: revert
+		display: revert;
 	}
 </style>

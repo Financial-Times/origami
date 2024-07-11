@@ -6,7 +6,13 @@ export interface ConceptButtonProps {
 	// descriptive label for button
 	ariaLabel?: string;
 	// button theme
-	theme?: 'standard' | 'inverse' | 'opinion' | 'monochrome' | 'inverse-monochrome';
+	theme?:
+		| 'standard'
+		| 'inverse'
+		| 'opinion'
+		| 'monochrome'
+		| 'inverse-monochrome'
+		| 'professional-inverse';
 	// button type
 	type?: 'concept' | 'follow';
 	// whether the button is currently pressed

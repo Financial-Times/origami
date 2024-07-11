@@ -1,4 +1,36 @@
 # Changelog
+## [13.0.3](https://github.com/Financial-Times/origami/compare/o-header-v13.0.2...o-header-v13.0.3) (2024-07-10)
+
+
+### Bug Fixes
+
+* fix search term width (again!) ([#1744](https://github.com/Financial-Times/origami/issues/1744)) ([34ff48f](https://github.com/Financial-Times/origami/commit/34ff48fcc95499d52d87516bbdb5baf5927d02a9))
+
+## [13.0.2](https://github.com/Financial-Times/origami/compare/o-header-v13.0.1...o-header-v13.0.2) (2024-07-10)
+
+
+### Bug Fixes
+
+* fix search term wide ([#1742](https://github.com/Financial-Times/origami/issues/1742)) ([b0ee3bb](https://github.com/Financial-Times/origami/commit/b0ee3bb317c39694f1ee4b591f0b20ecfd31ec8a))
+
+## [13.0.1](https://github.com/Financial-Times/origami/compare/o-header-v13.0.0...o-header-v13.0.1) (2024-07-09)
+
+
+### Bug Fixes
+
+* adjust search bar width according to the designs ([#1740](https://github.com/Financial-Times/origami/issues/1740)) ([bd7ba46](https://github.com/Financial-Times/origami/commit/bd7ba4605ae79dc03f3314bfd884c099c4cdc956))
+
+## [13.0.0](https://github.com/Financial-Times/origami/compare/o-header-v12.0.0...o-header-v13.0.0) (2024-07-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Drawer, search, and edition switcher updates ([#1725](https://github.com/Financial-Times/origami/issues/1725))
+
+### Features
+
+* Drawer, search, and edition switcher updates ([#1725](https://github.com/Financial-Times/origami/issues/1725)) ([090d384](https://github.com/Financial-Times/origami/commit/090d38439b2af9475757f3c70ced26e4b08e37dd))
+
 ## [12.0.0](https://github.com/Financial-Times/origami/compare/o-header-v11.2.0...o-header-v12.0.0) (2024-05-21)
 
 

@@ -7,6 +7,7 @@
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-visual-effects/main';
+@import '@financial-times/o-forms/main';
 
 @import 'src/scss/brand';
 @import 'src/scss/variables';
@@ -36,6 +37,17 @@
 		$layout-name: 'oHeaderL',
 		$layout-width: 1080px,
 		$gutter-width: map-get($o-grid-gutters, 'M')
+	);
+
+	@include oForms(
+		$opts: (
+			'elements': (
+				'text'
+			),
+			'features': (
+				'suffix',
+			),
+		)
 	);
 
 	@if $include-base-styles == true {

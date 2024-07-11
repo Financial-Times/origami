@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Financial-Times/origami/compare/ft-concept-button-v1.2.3...ft-concept-button-v1.3.0) (2024-07-05)
+
+
+### Features
+
+* add professional-inverse theme to ft-concept-button ([#1738](https://github.com/Financial-Times/origami/issues/1738)) ([1282927](https://github.com/Financial-Times/origami/commit/1282927e40353a55dd08fd1c1f4c30bbe661a925))
+
 ## [1.2.3](https://github.com/Financial-Times/origami/compare/ft-concept-button-v1.2.2...ft-concept-button-v1.2.3) (2023-10-27)
 
 

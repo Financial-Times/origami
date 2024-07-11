@@ -45,7 +45,7 @@ describe('Header with search', () => {
 					<div class="o-header__container">
 						<form class="o-header__search-form" action="/search" role="search" aria-label="Site search">
 							<label class="o-header__visually-hidden" for="o-header-search-term-js">Search the <abbr title="Financial Times">FT</abbr></label>
-							<input class="o-header__search-term" id="o-header-search-term-js" name="q" type="text" placeholder="Search the FT">
+							<input class="o-header__search-term" id="o-header-search-term-js" name="q" type="text" placeholder="Search for stories, topics or securities">
 							<button class="o-header__search-submit" type="submit">
 								Search
 							</button>

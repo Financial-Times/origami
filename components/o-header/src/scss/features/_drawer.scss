@@ -32,7 +32,6 @@
 			}
 
 
-
 			&.o-header__drawer--open {
 				// use a 2D transform because 3D are unsupported by IE9
 				transform: translateX(0);
@@ -57,6 +56,7 @@
 			&::-webkit-scrollbar {
 				width: 12px;
 			}
+
 			&::-webkit-scrollbar-thumb {
 				background: oColorsByName('black-30');
 				// you can't set the dimensions so use a border as a margin...
@@ -69,32 +69,50 @@
 	//
 	// Tools
 	//
+	.o-header:has(.o-header__anon) ~ .o-header__drawer .o-header__drawer-tools {
+		@include oGridRespondTo($until: 'M') {
+			padding: ($_o-header-drawer-padding-y * 2.5) 0 0 $_o-header-drawer-padding-x;
+		}
+	}
 	.o-header__drawer-tools {
 		overflow: hidden;
-		padding: ($_o-header-drawer-padding-y * 1.5) 0 $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+		padding: $_o-header-drawer-padding-y 0 0 $_o-header-drawer-padding-x;
 		background-color: _oHeaderGet('drawer-tools-background');
 		color: _oHeaderGet('drawer-tools-text');
-	}
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
 
-	.o-header__drawer-tools-logo {
-		@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 210);
-		display: inline-block;
-		background-repeat: no-repeat;
-		background-size: contain;
-		width: 210px;
-		height: 18px;
-		border-bottom: 0;
+		.o-header__drawer-edition-switcher {
+			display: flex;
+
+			.o-header__drawer-menu-link {
+				padding-left: 12px;
+				text-decoration: underline;
+			}
+
+			.o-header__drawer-current-edition {
+				font-weight: 600;
+				color: oColorsByName('black-60');
+			}
+
+			.o-header__drawer-menu-item {
+				padding-top: 12px;
+				padding-right: 12px;
+				font-size: 18px;
+			}
+		}
 	}
 
 	.o-header__drawer-tools-close {
 		// dividing by 1px removes the unit
 		@include oIconsContent('cross', _oHeaderGet('drawer-tools-close'), $size: $_o-header-icon-size-large);
 		box-sizing: border-box;
-		float: right;
 		border: 0;
 		opacity: 0.75;
-		cursor: pointer;
-		margin-top: -10px;
+		margin-left: -10px; // this is to align icon because icon background image have padding
+
 		&:hover,
 		&:focus {
 			opacity: 1;
@@ -103,15 +121,6 @@
 		[data-o-header-drawer--no-js] & {
 			display: none;
 		}
-	}
-
-	//
-	// Editions
-	//
-	.o-header__drawer-current-edition {
-		@include oTypographySans($scale: -1);
-		color: oColorsByName('black-60');
-		margin: 0.5em 0;
 	}
 
 	//
@@ -129,26 +138,25 @@
 	// Search
 	//
 	.o-header__drawer-search {
-		border-top: 2px solid oColorsByName('black-10');
-		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+		padding: 0px $_o-header-drawer-padding-x;
 
 		@include oGridRespondTo('oHeaderL') {
 			display: none;
 		}
+
+		.o-forms-field {
+			margin-bottom: 0px;
+		}
 	}
 
-	.o-header__drawer-search-form {
-		display: flex;
-	}
-
-	.o-header__drawer-search-term,
-	.o-header__drawer-search-submit {
+	.o-header__drawer-search-term {
 		box-sizing: border-box;
-		height: 32px;
+		height: 40px;
 		padding: 8px (div($_o-header-drawer-padding-x, 2));
 		border: 1px solid;
 		// prevent zoom on focus
 		font-size: 100%;
+		line-height: 40px;
 	}
 
 	.o-header__drawer-search-term {
@@ -164,6 +172,7 @@
 		// margin copied from o-forms since introducing a new dependency would
 		// be a breaking change, this colour could go in o-colors as a usecase
 		border: 1px solid oColorsByName('black-50');
+		margin-right: oSpacingByName('s2');
 
 		&:focus { //currently overriden by o-normalise
 			border-color: _oHeaderGet('drawer-search-term-highlight-border');
@@ -171,14 +180,12 @@
 	}
 
 	.o-header__drawer-search-submit {
-		background-color: _oHeaderGet('drawer-search-submit-background');
-		border-color: _oHeaderGet('drawer-search-submit-border');
-
-		&:after {
-			@include oIconsContent('search', oColorsByName('white'), $size: $_o-header-icon-size);
-			content: '';
-			margin-top: -(div($_o-header-drawer-padding-y, 2));
-		}
+		@include oButtonsContent($opts: (
+			'type': 'primary',
+			'icon-only': true,
+			'icon': 'search',
+			'size': 'big'
+		));
 	}
 
 	//
@@ -232,6 +239,13 @@
 
 	.o-header__drawer-menu-item {
 		margin-top: 1px;
+	}
+	.o-header__drawer-divider {
+		margin-top: 16px;
+		width: 1px;
+		height: 16px;
+		background-color: oColorsMix('black', 'paper', 60);
+		display: inline-block;
 	}
 
 
