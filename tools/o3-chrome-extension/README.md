@@ -39,8 +39,8 @@ In the project folder structure, each component has the main entry point for eac
 ## Setting up dev environment and run locally
 
 1. Clone repo
-2. `npm install` to install chrome types
-3. (Optional) install [Extensions Reloader](https://chrome.google.com/webstore/detail/extensions-reloader/fimgfedafeadlieiabdeeaodndnlbhid) for automatic reloading of chrome extensions in dev mode
+2. `npm install`
+3. (Optional) install [Extensions Reloader](https://chrome.google.com/webstore/detail/extensions-reloader/fimgfedafeadlieiabdeeaodndnlbhid) for automatic reloading of Chrome extensions in dev mode
 4. Open Chrome and navigate to extensions (chrome://extensions/)
 5. Select 'Load unpacked extension...' and select the dist folder
 
