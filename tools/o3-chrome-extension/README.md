@@ -26,7 +26,7 @@ Each top folder includes the a folder for each component of the chrome extension
 
 The Chrome extension is made up of four components:
 
-- `background` - _code that runs in chrome browser process_
+- `background` - _code that runs in Chrome browser process_
 - `content` - _code that runs on your page content_
 - `popup` - _a extension popup frame_
 
