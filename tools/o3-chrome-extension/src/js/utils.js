@@ -1,18 +1,18 @@
 async function getCurrentTab() {
 	const queryOptions = {active: true, currentWindow: true};
-	let [tab] = await chrome.tabs.query(queryOptions);
+	const [tab] = await chrome.tabs.query(queryOptions);
 	return tab;
 }
 
 export async function injectScripts() {
 	const activeTab = await getCurrentTab();
-	await chrome.scripting.executeScript({
-		target: {tabId: activeTab.id},
-		files: ['js/grid/grid.js'],
-	});
 	await chrome.scripting.insertCSS({
 		target: {tabId: activeTab.id},
 		files: ['styles/grid.css'],
+	});
+	await chrome.scripting.executeScript({
+		target: {tabId: activeTab.id},
+		files: ['js/grid/grid.js'],
 	});
 	await chrome.storage.local.set({origamiGridEnabled: true});
 }

@@ -44,7 +44,7 @@
 	width: calc(var(--max-width) / var(--columns));
 }
 
-.o3-grid-extension .grid-item:last-child {
+.o3-grid-extension .o3-grid-extension-grid-item:last-child {
 	border-right: 0;
 }
 

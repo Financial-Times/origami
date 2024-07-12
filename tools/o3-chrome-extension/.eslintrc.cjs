@@ -1,6 +1,9 @@
 module.exports = {
-	"extends": "origami-component",
+	extends: 'origami-component',
 	env: {
-		webextensions: true
-	}
+		webextensions: true,
+	},
+	rules: {
+		'@lwc/lwc/no-async-await': 'off',
+	},
 };

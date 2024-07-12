@@ -1,7 +1,5 @@
-createGridOverlay();
-window.addEventListener('resize', updateGridOverlay);
+let resizeObserver;
 
-// Create the grid overlay
 function createGridOverlay() {
 	if (document.querySelector('.o3-grid-extension-overlay')) {
 		return;
@@ -43,12 +41,28 @@ function updateGridOverlay() {
 }
 
 function getColumnCount() {
-	const windowWidth = window.innerWidth;
-	if (windowWidth >= 980) {
-		return 12;
-	} else if (windowWidth >= 740) {
-		return 8;
-	} else {
-		return 4;
+	const gridExtension = document.querySelector('.o3-grid-extension');
+	if (gridExtension) {
+		const columns =
+			getComputedStyle(gridExtension).getPropertyValue('--columns');
+		return parseInt(columns, 10);
 	}
+	return 4;
 }
+
+function initObserver() {
+	if (resizeObserver) {
+		resizeObserver.disconnect();
+	}
+
+	resizeObserver = new ResizeObserver(() => {
+		updateGridOverlay();
+	});
+
+	resizeObserver.observe(document.body);
+}
+
+window.addEventListener('load', () => {
+	createGridOverlay();
+	initObserver();
+});
