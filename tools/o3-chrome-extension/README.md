@@ -26,15 +26,17 @@ Each top folder includes the a folder for each component of the chrome extension
 
 The Chrome extension is made up of four components:
 
-- `background` - _code that runs in Chrome browser process_
+- `background` - _code that runs in Chrome browser process as a service worker_
 - `content` - _code that runs on your page content_
 - `popup` - _a extension popup frame_
 
 In the project folder structure, each component has the main entry point for each file type as its name. For example, the `popup` component has these entry point files for each file type:
 
 - popup.html
-- popup./css
+- popup.css
 - popup.js
+
+For quick intro to Chrome extension components, see [Chrome Extension Tutorials](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world)
 
 ## Setting up dev environment and run locally
 
@@ -42,8 +44,8 @@ In the project folder structure, each component has the main entry point for eac
 2. `npm install`
 3. (Optional) install [Extensions Reloader](https://chrome.google.com/webstore/detail/extensions-reloader/fimgfedafeadlieiabdeeaodndnlbhid) for automatic reloading of Chrome extensions in dev mode
 4. Open Chrome and navigate to extensions (chrome://extensions/)
-5. Select 'Load unpacked extension...' and select the dist folder
+5. Select 'Load unpacked extension...' and select the src folder inside o3-chrome-extension folder
 
 ## Further information
 
-See the wiki.
+- [Chrome Extension Documentation](https://developer.chrome.com/docs/extensions/get-started)

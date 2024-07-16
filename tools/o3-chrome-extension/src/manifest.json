@@ -31,6 +31,6 @@
 			}
 		}
 	},
-	"permissions": ["tabs", "activeTab", "scripting", "storage"],
+	"permissions": ["activeTab", "scripting", "storage"],
 	"host_permissions": ["http://*/*", "https://*/*"]
 }
