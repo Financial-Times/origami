@@ -12,9 +12,9 @@ tags:
 
 Some of the bigger Origami news since our last update:
 
-## New design guidelines
+### New design guidelines
 
-### Grid
+#### Grid
 
 In conjunction with product design team, we have published [new grid guidelines for Origami 3 (o3)](https://origami-beta.ft.com/guides/grid/).
 
@@ -28,9 +28,9 @@ Our [updated grid guidelines](https://origami-beta.ft.com/guides/grid/) are more
 
 We're continuing to gather real world feedback from designers and are working toward a co-ordinated rollout across existing ft.com pages for early 2025.
 
-### Editorial Typography
+#### Editorial Typography
 
-We've also released new [editorial typography guidelines for o3](https://origami-beta.ft.com/guides/grid/).
+We've also released new [editorial typography guidelines for o3](https://origami-beta.ft.com/guides/typography/).
 
 ![Guidelines for a quote component. Switching the current brand shows different guidelines, with a different visual style.](/assets/images/2024-07-15-newsletter/quotes-sv.gif)
 
@@ -38,13 +38,13 @@ As well as adding missing guidelines and quote styles along the way, we've imple
 
 This work took us much longer than expected given the complexity and sensitivity of editorial typography. We had lots of food for thought after our retrospective on how to improve our process. We've begun creating a step-by-step guide to component creation with checkpoints along the way.
 
-## Website Launch Plan
+### Website Launch Plan
 
 As discussed during our [previous update](/blog/2024/05/29/newsletter/), our new beta website is coming along nicely and is almost ready to become the main Origami website. We've chosen to pause its rollout whilst we increase our confidence that it won't cause disruption to existing users of Origami. Particularly as it shifts from Origami 2 to Origami 3 as the default view (see [what's new](https://origami-beta.ft.com/about/what-is-new/)). We'll be running some user testing, preparing workshops, and writing extra guidance for specific teams. We'll appreciate your teams participation.
 
 In the meantime, please reach out to the Origami team ([#origami-support](https://financialtimes.slack.com/messages/origami-support)) if you're getting started with Origami 3 (o3), so we can support you through early adoption.
 
-## Dashboards
+### Dashboards
 
 Last but not least, we have new dashboards for our services (image, build, navigation) which give us insights into how they're performing.
 
