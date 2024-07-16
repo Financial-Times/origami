@@ -24,7 +24,7 @@ For over 11 years, the FT have had guidelines for a systematised grid. However o
 
 Our [updated grid guidelines](https://origami-beta.ft.com/guides/grid/) are more comprehensive and, with a smaller number of columns for smaller viewports, more orientated to mobile design than before. We also have an [accurate representation within Figma](<https://www.figma.com/design/xf2Hi9dzeNOAEQdaoqelRy/%F0%9F%92%A0-Grid---Origami-(o3)?node-id=3-108&t=QeTAtPVjhEbhDwC9-0>) design tooling.
 
-![A graphic showing our new grid has 4 columns on mobile and 12 on larger devices.](/assets/images/2024-07-15-newsletter/column-spanning.svg)
+![A graphic showing our new grid has 4 columns on mobile and 12 on larger devices.](/assets/images/2024-07-15-newsletter/column-spanning.png)
 
 We're continuing to gather real world feedback from designers and are working toward a co-ordinated rollout across existing ft.com pages for early 2025.
 
