@@ -11,3 +11,7 @@ main {
 	display: flex;
 	padding: 16px 20px;
 }
+
+#o3-grid-extension-reset {
+	margin-top: 16px;
+}
