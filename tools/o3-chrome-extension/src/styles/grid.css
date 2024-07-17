@@ -93,4 +93,6 @@
 	top: 1rem;
 	left: 1rem;
 	color: var(--color-text-description);
+	font-size: 24px;
+	font-weight: bold;
 }

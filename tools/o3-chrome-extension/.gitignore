@@ -6,4 +6,5 @@
 .idea/
 /demos/local
 /coverage
+dist/
 !icons/

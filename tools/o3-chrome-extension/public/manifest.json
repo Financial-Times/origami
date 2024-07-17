@@ -5,7 +5,7 @@
 	"version": "1.0",
 	"action": {
 		"default_icon": "images/origami-logo.png",
-		"default_popup": "html/index.html"
+		"default_popup": "popup.html"
 	},
 	"icons": {
 		"16": "images/origami-logo.png",

@@ -1,3 +1,5 @@
+import gridStyles from '../styles/grid.css?raw';
+
 export async function getCurrentTab() {
 	const queryOptions = {active: true, currentWindow: true};
 	const [tab] = await chrome.tabs.query(queryOptions);
@@ -6,10 +8,21 @@ export async function getCurrentTab() {
 
 export async function injectStyles() {
 	const activeTab = await getCurrentTab();
-	await chrome.scripting.insertCSS({
+
+	await chrome.scripting.executeScript({
 		target: {tabId: activeTab.id},
-		files: ['styles/grid.css'],
+		func: css => {
+			let styleTag = document.getElementById('o3-extension-grid-styles');
+			if (!styleTag) {
+				styleTag = document.createElement('style');
+				styleTag.id = 'o3-extension-grid-styles';
+				document.head.appendChild(styleTag);
+			}
+			styleTag.textContent = css;
+		},
+		args: [gridStyles],
 	});
+
 	await chrome.tabs.sendMessage(activeTab.id, {
 		message: 'creteGridOverlay',
 	});
@@ -18,9 +31,14 @@ export async function injectStyles() {
 
 export async function removeStyles() {
 	const activeTab = await getCurrentTab();
-	await chrome.scripting.removeCSS({
-		files: ['styles/grid.css'],
+	await chrome.scripting.executeScript({
 		target: {tabId: activeTab.id},
+		func: () => {
+			const styleTag = document.getElementById('o3-extension-grid-styles');
+			if (styleTag) {
+				styleTag.remove();
+			}
+		},
 	});
 	await chrome.tabs.sendMessage(activeTab.id, {
 		message: 'removeGridOverlay',

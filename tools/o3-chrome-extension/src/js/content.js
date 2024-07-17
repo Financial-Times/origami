@@ -34,10 +34,11 @@ function removeObserver() {
 }
 
 function createGridOverlay() {
-	if (document.querySelector('.o3-grid-extension-overlay')) {
+	let gridOverlayContainer = document.querySelector('.o3-grid-extension-overlay');
+	if (gridOverlayContainer) {
 		return;
 	}
-	const gridOverlayContainer = document.createElement('div');
+	gridOverlayContainer = document.createElement('div');
 	gridOverlayContainer.classList.add('o3-grid-extension-overlay');
 	const gridExtension = document.createElement('div');
 	gridExtension.classList.add('o3-grid-extension');
