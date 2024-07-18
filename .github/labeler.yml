@@ -164,6 +164,8 @@ create-component:
   - tools/create-component/**/*
 demo-build:
   - tools/demo-build/**/*
+o3-chrome-extension:
+  - tools/o3-chrome-extension/**/*
 o3-compilation:
   - tools/o3-compilation/**/*
 origami-bower-safe-version-supervisor:

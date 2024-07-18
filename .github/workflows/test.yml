@@ -167,6 +167,8 @@ jobs:
             - 'tools/create-component/**'
           tools/demo-build:
             - 'tools/demo-build/**'
+          tools/o3-chrome-extension:
+            - 'tools/o3-chrome-extension/**'
           tools/o3-compilation:
             - 'tools/o3-compilation/**'
           tools/origami-bower-safe-version-supervisor:

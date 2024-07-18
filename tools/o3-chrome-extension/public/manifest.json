@@ -1,0 +1,36 @@
+{
+	"manifest_version": 3,
+	"name": "Origami",
+	"description": "o3 component extension",
+	"version": "1.0",
+	"action": {
+		"default_icon": "images/origami-logo.png",
+		"default_popup": "popup.html"
+	},
+	"icons": {
+		"16": "images/origami-logo.png",
+		"32": "images/origami-logo.png",
+		"48": "images/origami-logo.png",
+		"128": "images/origami-logo.png"
+	},
+	"background": {
+		"service_worker": "js/background.js",
+		"type": "module"
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["js/content.js"]
+		}
+	],
+	"commands": {
+		"_execute_action": {
+			"suggested_key": {
+				"default": "Ctrl+O",
+				"mac": "Command+O"
+			}
+		}
+	},
+	"permissions": ["activeTab", "scripting", "storage"],
+	"host_permissions": ["http://*/*", "https://*/*"]
+}

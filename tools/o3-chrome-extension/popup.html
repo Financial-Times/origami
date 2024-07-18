@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="src/styles/popup.css" />
+		<title>Origami chrome extension</title>
+	</head>
+	<body>
+		<main data-o3-brand="internal" class="o3-typography-wrapper">
+			<h1 class="o3-extension-title">O3 Origami</h1>
+
+			<div class="o3-extension-option">
+				<div class="o3-grid-checkbox-wrapper">
+					<input type="checkbox" id="o3-grid-checkbox" />
+					<label for="o3-grid-checkbox">Enable grid</label>
+				</div>
+				<div class="o3-grid-options">
+					<p>Choose your grid's colors:</p>
+
+					<div class="o3-grid-extension-color-picker">
+						<input
+							type="color"
+							id="o3-grid-extension-column-color"
+							name="o3-grid-extension-column-color"
+						/>
+						<label for="o3-grid-extension-column-color">Column colors</label>
+					</div>
+					<div class="o3-grid-extension-color-picker">
+						<input
+							type="color"
+							id="o3-grid-extension-gutter-color"
+							name="o3-grid-extension-gutter-color"
+						/>
+						<label for="o3-grid-extension-gutter-color">Gutter colors</label>
+					</div>
+
+					<div class="o3-grid-extension-color-picker">
+						<input
+							type="color"
+							id="o3-grid-extension-margin-color"
+							name="o3-grid-extension-margin-color"
+						/>
+						<label for="o3-grid-extension-margin-color">Margin colors</label>
+					</div>
+
+					<div class="o3-grid-extension-color-picker">
+						<input
+							type="number"
+							min="0"
+							max="100"
+							id="o3-grid-extension-color-opacity"
+							name="o3-grid-extension-color-opacity"
+							value="25"
+						/>
+						<label for="o3-grid-extension-color-opacity"
+							>Color opacity (0 to 100)</label
+						>
+					</div>
+					<div>
+						<button type="button" id="o3-grid-extension-reset" class="o3-button o3-button--secondary o3-grid-extension-reset">Reset</button>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<script src="src/js/popup.js" type="module"></script>
+	</body>
+</html>

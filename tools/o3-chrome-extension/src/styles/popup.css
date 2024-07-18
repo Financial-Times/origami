@@ -1,0 +1,73 @@
+/* stylelint-disable selector-no-qualifying-type */
+@import '@financial-times/o3-foundation/css/internal.css';
+@import '@financial-times/o3-button/css/internal.css';
+@import '@financial-times/o3-typography/css/internal.css';
+
+main {
+	padding: var(--o3-spacing-xs);
+	border-radius: var(--o3-spacing-4xs);
+	min-width: 300px;
+	width: 100%;
+}
+
+.o3-extension-title {
+	padding-bottom: var(--o3-spacing-xs);
+	color: var(--o3-color-palette-slate);
+}
+
+.o3-grid-options {
+	padding: 0 var(--o3-spacing-xs);
+}
+
+.o3-grid-checkbox-wrapper {
+	display: flex;
+	align-items: center;
+	margin-bottom: var(--o3-spacing-xs);
+}
+
+.o3-grid-checkbox-wrapper input[type='checkbox'] {
+	margin-right: var(--o3-spacing-3xs);
+}
+
+.o3-grid-options {
+	display: none;
+	flex-direction: column;
+}
+
+.o3-grid-checkbox-wrapper input[type='checkbox']:checked ~ .o3-grid-options {
+	display: flex;
+}
+
+.o3-grid-extension-color-picker {
+	display: flex;
+	align-items: center;
+	margin-bottom: var(--o3-spacing-3xs);
+}
+
+.o3-grid-extension-color-picker > input[type='color'] {
+	margin-right: var(--o3-spacing-3xs);
+	width: 40px;
+	height: 40px;
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	&::-webkit-color-swatch {
+		border-radius: var(--o3-spacing-5xs);
+		border: 1px solid var(--o3-color-palette-slate);
+	}
+}
+
+.o3-grid-extension-color-picker label {
+	font-size: var(--o3-font-size-negative-1);
+	color: var(--o3-color-palette-slate);
+}
+
+/* Opacity input */
+.o3-grid-extension-color-picker input[type='number'] {
+	margin-right: var(--o3-spacing-3xs);
+	width: 60px;
+}
+
+.o3-grid-extension-reset {
+	margin-top: var(--o3-spacing-3xs);
+}
