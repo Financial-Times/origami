@@ -4,10 +4,10 @@
 	--max-width: 100%;
 	--columns: 4;
 	--gutter: 16px;
-	--color: hsla(204, 80%, 72%, 0.25);
+	--color-column: rgba(126, 195, 241, 0.25);
 	--color-gutter: rgba(255, 0, 0, 0.25);
 	--color-margin: rgba(255, 200, 0, 0.25);
-	--color-text: hsla(204, 80%, 72%, 1);
+	--color-text-description: rgba(126, 195, 241, 1);
 	--help-text: 'XS';
 }
 
@@ -37,7 +37,7 @@
 }
 
 .o3-grid-extension > * {
-	background-color: var(--color);
+	background-color: var(--color-column);
 	box-sizing: content-box;
 	height: 100%;
 	border-right: var(--gutter) solid var(--color-gutter);
@@ -85,4 +85,14 @@
 		border-right: 0;
 		box-shadow: 0 0 0 50vw var(--color-margin);
 	}
+}
+
+.o3-grid-extension::after {
+	content: var(--help-text);
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	color: var(--color-text-description);
+	font-size: 24px;
+	font-weight: bold;
 }
