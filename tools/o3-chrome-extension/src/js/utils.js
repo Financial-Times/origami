@@ -24,7 +24,7 @@ export async function injectStyles() {
 	});
 
 	await chrome.tabs.sendMessage(activeTab.id, {
-		message: 'creteGridOverlay',
+		message: 'createGridOverlay',
 	});
 	await chrome.storage.local.set({[activeTab.id.toString()]: true});
 }

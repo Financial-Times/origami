@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener(request => {
-	if (request.message === 'creteGridOverlay') {
+	if (request.message === 'createGridOverlay') {
 		initObserver();
 		createGridOverlay();
 	} else if (request.message === 'removeGridOverlay') {
