@@ -266,8 +266,8 @@ class Tooltip {
 		}
 		if (this.tooltipEl && this.tooltipEl.parentElement && this.opts && this.opts.content) {
 			this.tooltipEl.parentElement.removeChild(this.tooltipEl);
-		} //test change
-
+		} //test chang
+		console.log("run pls");
 		Tooltip._tooltips.delete(this.tooltipEl);
 		if (Tooltip._tooltips.size === 0) {
 			Viewport.stopListeningTo('resize');
