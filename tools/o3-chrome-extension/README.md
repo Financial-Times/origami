@@ -57,7 +57,7 @@ For quick intro to Chrome extension components, see [Chrome Extension Tutorials]
 
 1. Clone repo
 2. `npm install`
-3. run `npm run dev` to start the dev server that constantly watches for changes and build files in build folder. For one time build run `npm run build`. Both of these commands will build the extension in the dist folder.
+3. run `npm run dev` to start the dev server that constantly watches for changes and build files in build folder. For one time build run `npm run build-once`. Both of these commands will build the extension in the dist folder.
 4. (Optional) install [Extensions Reloader](https://chrome.google.com/webstore/detail/extensions-reloader/fimgfedafeadlieiabdeeaodndnlbhid) for automatic reloading of Chrome extensions in dev mode
 5. Open Chrome and navigate to extensions (chrome://extensions/)
 6. Select 'Load unpacked extension...' and select the dist folder from o3-chrome-extension folder
