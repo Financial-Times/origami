@@ -1,23 +1,59 @@
 {
   "o3": {
     "input": {
-      "title": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.medium}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
+      "text": {
+        "title": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.medium}",
+            "fontSize": "{o3.font.size-metric2.0}",
+            "lineHeight": "{o3.font.lineheight-metric2.0}"
+          },
+          "type": "typography"
         },
-        "type": "typography"
+        "helper": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.regular}",
+            "fontSize": "{o3.font.size-metric2.0}",
+            "lineHeight": "{o3.font.lineheight-metric2.0}"
+          },
+          "type": "typography"
+        }
       },
-      "helpertext": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
+      "color": {
+        "text": {
+          "primary": {
+            "value": "{o3.color.use-case.body.text}",
+            "type": "color"
+          },
+          "muted": {
+            "value": "{o3.color.use-case.muted.text}",
+            "type": "color"
+          },
+          "alert": {
+            "value": "{o3.color.use-case.alert.text}",
+            "type": "color"
+          }
         },
-        "type": "typography"
+        "body": {
+          "stroke": {
+            "value": "{o3.color.palette.black-30}",
+            "type": "color"
+          },
+          "background": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          },
+          "error": {
+            "value": "{o3.color.use-case.alert.text}",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "{o3.color.palette.black-5}",
+            "type": "color"
+          }
+        }
       }
     }
   }
