@@ -9,13 +9,14 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite build --watch",
-		"build-once": "vite build"
+		"build-prod": "vite build && npm run zip",
+		"zip": "cd dist && zip -r o3-chrome-extension.zip ."
 	},
 	"devDependencies": {
-		"@types/chrome": "^0.0.268",
-		"vite": "^5.3.4",
-		"@financial-times/o3-foundation": "^1.2.0",
 		"@financial-times/o3-button": "^1.1.5",
-		"@financial-times/o3-typography": "^1.0.3"
+		"@financial-times/o3-foundation": "^1.2.0",
+		"@financial-times/o3-typography": "^1.0.3",
+		"@types/chrome": "^0.0.268",
+		"vite": "^5.3.4"
 	}
 }

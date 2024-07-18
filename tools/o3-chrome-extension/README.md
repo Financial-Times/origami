@@ -57,11 +57,20 @@ For quick intro to Chrome extension components, see [Chrome Extension Tutorials]
 
 1. Clone repo
 2. `npm install`
-3. run `npm run dev` to start the dev server that constantly watches for changes and build files in build folder. For one time build run `npm run build-once`. Both of these commands will build the extension in the dist folder.
+3. run `npm run dev` to start the dev server that constantly watches for changes and build files in build folder. For production build run `npm run build-prod`. Both of these commands will build the extension in the dist folder.
 4. (Optional) install [Extensions Reloader](https://chrome.google.com/webstore/detail/extensions-reloader/fimgfedafeadlieiabdeeaodndnlbhid) for automatic reloading of Chrome extensions in dev mode
 5. Open Chrome and navigate to extensions (chrome://extensions/)
 6. Select 'Load unpacked extension...' and select the dist folder from o3-chrome-extension folder
 7. Any file changes made in src should update the extension. File changes in public folder will require a manual reload of the extension in Chrome.
+
+## Publishing extension
+
+You need to use origami shared email address to upload new extension. For more information about shared Email ask origami team.
+
+Follow the instructions above to build for production which should create a zip file (`o3-chrome-extension.zip`) that can then be uploaded by clicking Add new item. Complete the form and publish the extension with private permissions for FT users only. If needed, IT Service Desk can add the new extension to the FT catalog, using the extension ID. To find out more about updating the extension visit [update](https://developer.chrome.com/docs/webstore/update) section on chrome developer documentation.
+
+> [!NOTE]
+> Zip is generated in the dist folder after running `npm run build-prod` and uses mac native zip command. If you are using windows, you may need to install a zip command line tool.
 
 ## Troubleshooting
 
