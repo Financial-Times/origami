@@ -19,7 +19,7 @@
 /// 			font-style: normal;
 /// 		}
 /// 	};
-///
+/// a change to be removed eventually
 /// @param {String} $font-family The custom font family with fallback e.g. 'ComicSans, sans'
 /// @param {Map} $variants The variants (weight and style combinations) which are allowed in a nested map e.g. ((weight: bold, style: normal), (weight: regular, style: normal))
 /// @content If the font family is not a system font, output the font-face for the custom font in the mixin content.
