@@ -117,6 +117,8 @@ let inputBuffer = '';
 
 document.addEventListener('keydown', async event => {
 	inputBuffer += event.key.toLowerCase();
+	inputBuffer = inputBuffer.slice(-11);
+
 	// Check if the last 11 characters match the secret code
 	if (inputBuffer.endsWith('secretparty')) {
 		const activeTab = await getCurrentTab();
