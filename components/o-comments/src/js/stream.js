@@ -315,7 +315,7 @@ class Stream {
 				</p>
 			`;
 			const messageForAnonymous = `
-			<h3>Commenting is only available to readers with FT subscription</h3>
+			<h3>Commenting is only available to readers with a FT subscription</h3>
 				<p>
 					Please ${this.options.linkLogin ? ` <a class="linkLogin" href='${this.options.linkLogin}'>login</a>` : `login`} or ${this.options.linkSubscribe ? `<a href='${this.options.linkSubscribe}' class="linkSubscribe" >subscribe</a>` : `subscribe`} to join the conversation.
 				</p>
