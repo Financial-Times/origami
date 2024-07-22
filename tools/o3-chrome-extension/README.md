@@ -65,7 +65,7 @@ For quick intro to Chrome extension components, see [Chrome Extension Tutorials]
 
 ## Publishing extension
 
-You need to use origami shared email address to upload new extension. For more information about shared Email ask origami team.
+You need to use origami shared email address to upload new extension. For more information about shared Email ask the Origami team.
 
 Follow the instructions above to build for production which should create a zip file (`o3-chrome-extension.zip`) that can then be uploaded by clicking Add new item. Complete the form and publish the extension with private permissions for FT users only. If needed, IT Service Desk can add the new extension to the FT catalog, using the extension ID. To find out more about updating the extension visit [update](https://developer.chrome.com/docs/webstore/update) section on chrome developer documentation.
 
