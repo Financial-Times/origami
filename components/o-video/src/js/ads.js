@@ -4,8 +4,8 @@ let sdkScriptLoaded = false;
 let sdkScriptError = null;
 
 function createVideoOverlayElement() {
-	const overlayEl = document.createElement('div');
-	overlayEl.classList.add('o-video__overlay');
+	const overlayEl = document.createElement("div");
+	overlayEl.classList.add("o-video__overlay");
 	return overlayEl;
 }
 
@@ -24,28 +24,33 @@ class VideoAds {
 
 	static loadAdsLibrary() {
 		return new Promise((resolve, reject) => {
-			let googleSdkScript = document.querySelector('[src="//imasdk.googleapis.com/js/sdkloader/ima3.js"]');
+			let googleSdkScript = document.querySelector(
+				'[src="//imasdk.googleapis.com/js/sdkloader/ima3.js"]'
+			);
 
 			if (!googleSdkScript) {
-				googleSdkScript = document.createElement('script');
-				googleSdkScript.setAttribute('type', 'text/javascript');
-				googleSdkScript.setAttribute('src', `//imasdk.googleapis.com/js/sdkloader/ima3.js`);
-				googleSdkScript.setAttribute('async', true);
-				googleSdkScript.setAttribute('defer', true);
+				googleSdkScript = document.createElement("script");
+				googleSdkScript.setAttribute("type", "text/javascript");
+				googleSdkScript.setAttribute(
+					"src",
+					`//imasdk.googleapis.com/js/sdkloader/ima3.js`
+				);
+				googleSdkScript.setAttribute("async", true);
+				googleSdkScript.setAttribute("defer", true);
 				document.getElementsByTagName("head")[0].appendChild(googleSdkScript);
 			}
 
-			if (sdkScriptLoaded || window.google && window.google.ima) {
+			if (sdkScriptLoaded || (window.google && window.google.ima)) {
 				resolve();
 			} else if (sdkScriptError) {
 				reject(sdkScriptError);
 			} else {
-				googleSdkScript.addEventListener('load', () => {
+				googleSdkScript.addEventListener("load", () => {
 					sdkScriptLoaded = true;
 					resolve();
 				});
 
-				googleSdkScript.addEventListener('error', (e) => {
+				googleSdkScript.addEventListener("error", e => {
 					sdkScriptError = e;
 					reject(e);
 				});
@@ -54,7 +59,11 @@ class VideoAds {
 	}
 
 	getVideoBrand() {
-		if (!this.video.videoData || !this.video.videoData.brand || !this.video.videoData.brand.name) {
+		if (
+			!this.video.videoData ||
+			!this.video.videoData.brand ||
+			!this.video.videoData.brand.name
+		) {
 			return false;
 		} else {
 			return this.video.videoData.brand.name;
@@ -62,9 +71,12 @@ class VideoAds {
 	}
 
 	setUpAds() {
-		this.adContainerEl = document.createElement('div');
+		this.adContainerEl = document.createElement("div");
 		this.video.containerEl.appendChild(this.adContainerEl);
-		this.adDisplayContainer = new google.ima.AdDisplayContainer(this.adContainerEl, this.video.videoEl);
+		this.adDisplayContainer = new google.ima.AdDisplayContainer(
+			this.adContainerEl,
+			this.video.videoEl
+		);
 
 		// Create ads loader.
 		this.adsLoader = new google.ima.AdsLoader(this.adDisplayContainer);
@@ -73,19 +85,23 @@ class VideoAds {
 		this.adsManagerLoadedHandler = this.adsManagerLoadedHandler.bind(this);
 		this.adErrorHandler = this.adErrorHandler.bind(this);
 		this.adEventHandler = this.adEventHandler.bind(this);
-		this.contentPauseRequestHandler = this.contentPauseRequestHandler.bind(this);
-		this.contentResumeRequestHandler = this.contentResumeRequestHandler.bind(this);
+		this.contentPauseRequestHandler =
+			this.contentPauseRequestHandler.bind(this);
+		this.contentResumeRequestHandler =
+			this.contentResumeRequestHandler.bind(this);
 		this.getAdProgress = this.getAdProgress.bind(this);
 
 		// Listen and respond to ads loaded and error events.
 		this.adsLoader.addEventListener(
 			google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED,
 			this.adsManagerLoadedHandler,
-			false);
+			false
+		);
 		this.adsLoader.addEventListener(
 			google.ima.AdErrorEvent.Type.AD_ERROR,
 			this.adErrorHandler,
-			false);
+			false
+		);
 
 		this.requestAds();
 
@@ -95,7 +111,7 @@ class VideoAds {
 		} else {
 			this.overlayEl = createVideoOverlayElement();
 			this.video.containerEl.appendChild(this.overlayEl);
-			this.overlayEl.addEventListener('click', this.playAdEventHandler);
+			this.overlayEl.addEventListener("click", this.playAdEventHandler);
 		}
 	}
 
@@ -109,6 +125,8 @@ class VideoAds {
 			targeting += `&brand=${brand}`;
 		}
 
+		console.log("<<<<< TEST! >>>>>");
+
 		const paramsObject = {
 			env: "vp",
 			gdfp_req: 1,
@@ -117,12 +135,12 @@ class VideoAds {
 			iu: this.video.adsTargeting.site,
 			sz: this.video.adsTargeting.sizes,
 			unviewed_position_start: 1,
-			scp: encodeURIComponent(targeting),
-		}
+			scp: new URLSearchParams(targeting).toString(),
+		};
 
-		const { customParams } = this.video.adsTargeting
-		if(Object.keys(customParams ?? {}).length) {
-			paramsObject.cust_params = new URLSearchParams(customParams).toString()
+		const { customParams } = this.video.adsTargeting;
+		if (Object.keys(customParams ?? {}).length) {
+			paramsObject.cust_params = new URLSearchParams(customParams).toString();
 		}
 
 		const searchParams = new URLSearchParams(paramsObject);
@@ -142,13 +160,13 @@ class VideoAds {
 		// Temporary fix to verify DFP behaviour
 		const options = {
 			detail: {
-				category: 'video',
-				action: 'adRequested',
-				contentId: this.video.opts.id
+				category: "video",
+				action: "adRequested",
+				contentId: this.video.opts.id,
 			},
-			bubbles: true
+			bubbles: true,
 		};
-		const requestedEvent = new CustomEvent('oTracking.event', options);
+		const requestedEvent = new CustomEvent("oTracking.event", options);
 		document.body.dispatchEvent(requestedEvent);
 
 		this.adsLoader.requestAds(adsRequest);
@@ -158,33 +176,62 @@ class VideoAds {
 		// Get the ads manager.
 		const adsRenderingSettings = new google.ima.AdsRenderingSettings();
 		adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
-		this.adsManager = adsManagerLoadedEvent.getAdsManager(this.video.videoEl, adsRenderingSettings);
+		this.adsManager = adsManagerLoadedEvent.getAdsManager(
+			this.video.videoEl,
+			adsRenderingSettings
+		);
 
 		// Add listeners to the required events.
-		this.adsManager.addEventListener(google.ima.AdErrorEvent.Type.AD_ERROR, this.adErrorHandler);
+		this.adsManager.addEventListener(
+			google.ima.AdErrorEvent.Type.AD_ERROR,
+			this.adErrorHandler
+		);
 
 		// "Fired when content should be paused. This usually happens right before an ad is about to cover the content"
-		this.adsManager.addEventListener(google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED, this.contentPauseRequestHandler);
+		this.adsManager.addEventListener(
+			google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED,
+			this.contentPauseRequestHandler
+		);
 
 		// "Fired when content should be resumed. This usually happens when an ad finishes or collapses"
-		this.adsManager.addEventListener(google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED, this.contentResumeRequestHandler);
+		this.adsManager.addEventListener(
+			google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED,
+			this.contentResumeRequestHandler
+		);
 
 		// "Fired when the ads manager is done playing all the ads"
-		this.adsManager.addEventListener(google.ima.AdEvent.Type.ALL_ADS_COMPLETED, this.adEventHandler);
+		this.adsManager.addEventListener(
+			google.ima.AdEvent.Type.ALL_ADS_COMPLETED,
+			this.adEventHandler
+		);
 
 		// Listen to any additional events, if necessary.
-		this.adsManager.addEventListener(google.ima.AdEvent.Type.LOADED, this.adEventHandler);
-		this.adsManager.addEventListener(google.ima.AdEvent.Type.STARTED, this.adEventHandler);
-		this.adsManager.addEventListener(google.ima.AdEvent.Type.COMPLETE, this.adEventHandler);
-		this.adsManager.addEventListener(google.ima.AdEvent.Type.SKIPPED, this.adEventHandler);
-		this.adsManager.addEventListener(google.ima.AdEvent.Type.SKIPPABLE_STATE_CHANGED, this.adEventHandler);
+		this.adsManager.addEventListener(
+			google.ima.AdEvent.Type.LOADED,
+			this.adEventHandler
+		);
+		this.adsManager.addEventListener(
+			google.ima.AdEvent.Type.STARTED,
+			this.adEventHandler
+		);
+		this.adsManager.addEventListener(
+			google.ima.AdEvent.Type.COMPLETE,
+			this.adEventHandler
+		);
+		this.adsManager.addEventListener(
+			google.ima.AdEvent.Type.SKIPPED,
+			this.adEventHandler
+		);
+		this.adsManager.addEventListener(
+			google.ima.AdEvent.Type.SKIPPABLE_STATE_CHANGED,
+			this.adEventHandler
+		);
 
 		this.adsLoaded = true;
 		this.startAds();
 	}
 
 	startAds() {
-
 		// For ads to play correctly both the video and the advert video need to be ready to
 		// play; this function needs to be called after the two flags in adsManagerLoadedHandler()
 		// and playAdEventHandler() have been set.
@@ -209,13 +256,17 @@ class VideoAds {
 
 		// Remove the preloading spinner
 		if (this.loadingStateEl) {
-			this.loadingStateEl.remove()
+			this.loadingStateEl.remove();
 			this.loadingStateEl = null;
 		}
 
 		try {
 			// Initialize the ads manager. Ad rules playlist will start at this time.
-			this.adsManager.init(this.video.videoEl.clientWidth, this.video.videoEl.clientHeight, google.ima.ViewMode.NORMAL);
+			this.adsManager.init(
+				this.video.videoEl.clientWidth,
+				this.video.videoEl.clientHeight,
+				google.ima.ViewMode.NORMAL
+			);
 			// Call play to start showing the ad. Single video and overlay ads will
 			// start at this time; the call will be ignored for ad rules.
 			this.adsManager.start();
@@ -228,7 +279,7 @@ class VideoAds {
 
 	playAdEventHandler() {
 		// Sets the styling now so the ad occupies the space of the video
-		this.adContainerEl.classList.add('o-video__ad');
+		this.adContainerEl.classList.add("o-video__ad");
 
 		// "Call this method as a direct result of a user action before starting the ad playback..."
 		// <https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.AdDisplayContainer.initialize>
@@ -236,10 +287,10 @@ class VideoAds {
 
 		// We want to display a loading state - otherwise it can look
 		// like we're not responding to their action when we're actually fetching an ad
-		this.loadingStateEl = document.createElement('span');
-		this.loadingStateEl.setAttribute('role', 'progressbar');
-		this.loadingStateEl.setAttribute('aria-valuetext', 'Loading');
-		this.loadingStateEl.className = 'o-video__loading-state';
+		this.loadingStateEl = document.createElement("span");
+		this.loadingStateEl.setAttribute("role", "progressbar");
+		this.loadingStateEl.setAttribute("aria-valuetext", "Loading");
+		this.loadingStateEl.className = "o-video__loading-state";
 		this.adContainerEl.appendChild(this.loadingStateEl);
 
 		// display the loading state for a minimum of 2 seconds to avoid flickering
@@ -251,16 +302,22 @@ class VideoAds {
 		const loadedmetadataHandler = () => {
 			this.videoLoaded = true;
 			this.startAds();
-			this.video.videoEl.removeEventListener('loadedmetadata', loadedmetadataHandler);
+			this.video.videoEl.removeEventListener(
+				"loadedmetadata",
+				loadedmetadataHandler
+			);
 		};
 
-		this.video.videoEl.addEventListener('loadedmetadata', loadedmetadataHandler);
+		this.video.videoEl.addEventListener(
+			"loadedmetadata",
+			loadedmetadataHandler
+		);
 
 		// Initialize the video. Must be done via a user action on mobile devices.
 		this.video.videoEl.load();
 
 		if (this.overlayEl) {
-			this.overlayEl.removeEventListener('click', this.playAdEventHandler);
+			this.overlayEl.removeEventListener("click", this.playAdEventHandler);
 			this.overlayEl.remove();
 		}
 		delete this.overlayEl;
@@ -274,15 +331,15 @@ class VideoAds {
 		const options = {
 			detail: {
 				advertising: true,
-				category: 'video',
+				category: "video",
 				contentId: this.video.opts.id,
 				progress: 0,
 				adDuration: ad.getDuration(),
 				adMinDuration: ad.getMinSuggestedDuration(),
 				adTitle: ad.getTitle(),
-				adProgress: this.getAdProgress()
+				adProgress: this.getAdProgress(),
 			},
-			bubbles: true
+			bubbles: true,
 		};
 
 		switch (adEvent.type) {
@@ -300,8 +357,8 @@ class VideoAds {
 				// This event indicates the ad has started - the video player
 				// can adjust the UI, for example display a pause button and
 				// remaining time.
-				options.detail.action = 'adStart';
-				const startEvent = new CustomEvent('oTracking.event', options);
+				options.detail.action = "adStart";
+				const startEvent = new CustomEvent("oTracking.event", options);
 				document.body.dispatchEvent(startEvent);
 
 				if (ad.isLinear()) {
@@ -314,56 +371,71 @@ class VideoAds {
 
 				// Users with screen readers will lose control of video while advert is playing,
 				// so we explain why and encourage them to wait with this message.
-				this.video.liveRegionEl.innerHTML=`Video will play after ad in ${options.detail.adDuration} seconds`;
+				this.video.liveRegionEl.innerHTML = `Video will play after ad in ${options.detail.adDuration} seconds`;
 
 				break;
 			}
 			case google.ima.AdEvent.Type.COMPLETE: {
-
-				options.detail.action = 'adComplete';
-				const endEvent = new CustomEvent('oTracking.event', options);
+				options.detail.action = "adComplete";
+				const endEvent = new CustomEvent("oTracking.event", options);
 				document.body.dispatchEvent(endEvent);
 
 				if (ad.isLinear()) {
 					// Would be used to clear the interval
 				}
 
-				this.video.liveRegionEl.innerHTML='';
+				this.video.liveRegionEl.innerHTML = "";
 				break;
 			}
 
 			// Add tracking for when an advert becomes skippable, and whether it's skipped
 			case google.ima.AdEvent.Type.SKIPPABLE_STATE_CHANGED: {
-				options.detail.action = 'adSkippable';
-				const skippableEvent = new CustomEvent('oTracking.event', options);
+				options.detail.action = "adSkippable";
+				const skippableEvent = new CustomEvent("oTracking.event", options);
 				document.body.dispatchEvent(skippableEvent);
 				break;
 			}
 			case google.ima.AdEvent.Type.SKIPPED: {
-				options.detail.action = 'adSkip';
-				const skipEvent = new CustomEvent('oTracking.event', options);
+				options.detail.action = "adSkip";
+				const skipEvent = new CustomEvent("oTracking.event", options);
 				document.body.dispatchEvent(skipEvent);
 				break;
 			}
 			case google.ima.AdEvent.Type.ALL_ADS_COMPLETED: {
-				options.detail.action = 'allAdsCompleted';
-				const allAdsCompletedEvent = new CustomEvent('oTracking.event', options);
+				options.detail.action = "allAdsCompleted";
+				const allAdsCompletedEvent = new CustomEvent(
+					"oTracking.event",
+					options
+				);
 				document.body.dispatchEvent(allAdsCompletedEvent);
 				break;
 			}
 			default: {
-				throw new Error('adEvent has type ' + adEvent.type + ', which is not handled by adEventHandler');
+				throw new Error(
+					"adEvent has type " +
+						adEvent.type +
+						", which is not handled by adEventHandler"
+				);
 			}
 		}
 	}
 
-	reportError(error) { // eslint-disable-line class-methods-use-this
-		document.body.dispatchEvent(new CustomEvent('oErrors.log', { bubbles: true, detail: { error: error } }));
+	// eslint-disable-next-line class-methods-use-this
+	reportError(error) {
+		document.body.dispatchEvent(
+			new CustomEvent("oErrors.log", {
+				bubbles: true,
+				detail: { error: error },
+			})
+		);
 	}
 
 	adErrorHandler(adError) {
 		// NOTE: has the API changed? now need to call `getError` method to get the ad error
-		const actualError = 'getError' in adError && typeof adError.getError === 'function' ? adError.getError() : adError;
+		const actualError =
+			"getError" in adError && typeof adError.getError === "function"
+				? adError.getError()
+				: adError;
 
 		// convert the Google Ad error to a JS one
 		const message = `${actualError.getErrorCode()}, ${actualError.getType()}, ${actualError.getMessage()}, ${actualError.getVastErrorCode()}`;
@@ -376,12 +448,15 @@ class VideoAds {
 			this.adContainerEl.remove();
 		}
 		if (this.overlayEl) {
-			this.overlayEl.removeEventListener('click', this.playAdEventHandler);
+			this.overlayEl.removeEventListener("click", this.playAdEventHandler);
 			this.overlayEl.remove();
 			delete this.overlayEl;
 		}
 		if (this.video.placeholderEl) {
-			this.video.placeholderEl.removeEventListener('click', this.playAdEventHandler);
+			this.video.placeholderEl.removeEventListener(
+				"click",
+				this.playAdEventHandler
+			);
 		}
 		this.video.opts.advertising = false;
 		this.startAds();
@@ -414,7 +489,7 @@ class VideoAds {
 		}
 		const duration = this.adsManager.getCurrentAd().getDuration();
 		const remainingTime = this.adsManager.getRemainingTime();
-		return parseInt(100 * (duration - remainingTime) / duration, 10);
+		return parseInt((100 * (duration - remainingTime)) / duration, 10);
 	}
 }
 
