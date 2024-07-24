@@ -1,6 +1,10 @@
 ---
+import * as HeadlineLarge from './preview/Headline-Large';
+import Preview from '../utils/Preview.astro';
+import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
+const {brand} = Astro.props;
+const storybookIdHeadlineLarge = `${brand}-o3-editorial-typography--headline-large`;
 ---
-
 <>
 	<h4>Headline Large</h4>
 
@@ -11,36 +15,6 @@
 		& Arts</a>
 	</p>
 
-	<table>
-		<thead>
-		<tr>
-			<th>Viewport</th>
-			<th>Style Preview</th>
-			<th>Value</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-			<td>S</td>
-			<td class="headline-large-s">Headline large</td>
-			<td>
-				Financier Display / 800 / scale 4
-			</td>
-		</tr>
-		<tr>
-			<td>M</td>
-			<td class="headline-large-m">Headline large</td>
-			<td>
-				Financier Display / 800 / scale 5
-			</td>
-		</tr>
-		<tr>
-			<td>L</td>
-			<td class="headline-large-l">Headline large</td>
-			<td>
-				Financier Display / 800 / scale 6
-			</td>
-		</tr>
-		</tbody>
-	</table>
+	<Preview component={HeadlineLarge} />
+	<FigmaSbLinks storybookId={storybookIdHeadlineLarge} />
 </>

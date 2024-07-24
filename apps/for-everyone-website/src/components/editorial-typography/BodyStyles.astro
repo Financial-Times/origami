@@ -1,136 +1,54 @@
 ---
-import {
-	TopicTag,
-	StandFirst,
-	Caption,
-} from '@financial-times/o3-editorial-typography/esm';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
+import Preview from '../utils/Preview.astro';
+import * as Body from './preview/Body';
+import * as TopicTag from './preview/TopicTag'
+import * as Caption from './preview/Caption'
+import * as StandFirst from './preview/StandFirst'
 const {brand} = Astro.props;
-const figmaBody =
-	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4084&t=kyDVEfsg2tRJspyY-4';
-const figmaDetails =
-	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4178&t=kyDVEfsg2tRJspyY-4';
-const sbDomain = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography`;
-const sbBody = sbDomain + '--body';
-const sbTopicTag = sbDomain + '--topic-tag';
-const sbStandfirst = sbDomain + '--standfirst';
-const sbCaption = sbDomain + '--caption';
+const storybookIdBody = `${brand}-o3-editorial-typography--body`;
+const storybookIdTopicTag = `${brand}-o3-editorial-typography--topic-tag`;
+const storybookIdStandFirst = `${brand}-o3-editorial-typography--standfirst`;
+const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
 ---
 
 <h4>Body</h4>
 <p>Use for body text, paragraphs and lists</p>
-<table>
-	<thead>
-	<tr>
-		<th>Viewport</th>
-		<th>Style Preview</th>
-		<th>Value</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td>S</td>
-		<td class="body-s">body</td>
-		<td>
-			Georgia / regular / scale 1
-		</td>
-	</tr>
-	<tr>
-		<td>M</td>
-		<td class="body-m">body</td>
-		<td>
-			Georgia / regular / scale 1
-		</td>
-	</tr>
-	<tr>
-		<td>L</td>
-		<td class="body-l">body</td>
-		<td>
-			Georgia / regular / scale 2
-		</td>
-	</tr>
-	</tbody>
-</table>
+
+<Preview component={Body}/>
+<FigmaSbLinks storybookId={storybookIdBody} />
 
 <h4>Details</h4>
 <p>
 	The following styles have the same values across all screen sizes: mobile,
 	tablet, and desktop.
 </p>
-<table>
-	<thead>
-	<tr>
-		<th>Style Preview</th>
-		<th>Value</th>
-		<th>Usage</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td class="not-content">
-			<TopicTag>Topic Tag</TopicTag>
-		</td>
-		<td>
-			Metric2 / semi-bold / scale 0
-		</td>
-		<td><p>Also called display tag, are category labels in the FT. Used in teasers
-			(article cards) to indicate the category of a post.</p>
-			<p>Usage example: <a href="https://www.ft.com/">Homepage</a></p>
-		</td>
-	</tr>
-	<tr>
-		<td class="not-content">
-			<StandFirst>Standfirst</StandFirst>
-		</td>
-		<td>
-			Metric2 / semi-bold / scale 2
-		</td>
-		<td><p>Short intro below the headline that provides context about a post. Used
-			in combination with a header in the topper component.</p>
-			<p>Usage examples: <a href="https://www.ft.com/">Homepage</a>, <a href="https://www.ft.com/content/a54a8de2-0319-4dc0-863b-66b94c5a78f7#:~:text=Carmaker%E2%80%99s%20board%20under%20pressure%20after%20Delaware%20judge%20rules%20billionaire%20CEO%20has%20to%20forfeit%20largest%20ever%20incentive%20package">Top Stories</a></p>
-		</td>
-	</tr>
-	<tr>
-		<td class="not-content">
-			<Caption>Caption</Caption>
-		</td>
-		<td>
-			Metric2 / regular / scale -1
-		</td>
-		<td
-		><p>For additional information about a piece or image that should be less
-			prominent.</p>
+<h5>Topic Tag</h5>
 
-			<p>Usage example: <a href="https://www.ft.com/content/65593173-7f85-47f6-a253-29cc374fd3ca#:~:text=Th%20offices%20of%20the%20London%20Stock%20Exchange.%20UK%20authorities%20risk%20undermining%20a%20corporate%20governance%20regime%20regarded%20as%20the%20gold%20standard%20in%20their%20pursuit%20of%20global%20competitiveness%20%C2%A9%20Hollie%20Adams/Bloomberg">caption</a></p>
-		</td
-		>
-	</tr>
-	</tbody>
+<p>Also called display tag, are category labels in the FT. Used in teasers
+	(article cards) to indicate the category of a post.</p>
 
-</table>
+<Preview component={TopicTag}/>
+<FigmaSbLinks storybookId={storybookIdTopicTag} />
 
-<style>
-	tr > td:first-child {
-		text-align: center;
-	}
+<p>Usage example: <a href="https://www.ft.com/">Homepage</a></p>
 
-	[class^='body-'] {
-		font-family: var(--_o3-editorial-typography-body-l-font-family);
-		font-weight: var(--_o3-editorial-typography-body-l-font-weight);
-	}
+<h5>Standfirst</h5>
 
-	.body-s {
-		font-size: var(--_o3-editorial-typography-body-s-font-size);
-		line-height: var(--_o3-editorial-typography-body-s-line-height);
-	}
+<p>Short intro below the headline that provides context about a post. Used
+	in combination with a header in the topper component.</p>
 
-	.body-l {
-		font-size: var(--_o3-editorial-typography-body-l-font-size);
-		line-height: var(--_o3-editorial-typography-body-l-line-height);
-	}
+<Preview component={StandFirst}/>
+<FigmaSbLinks storybookId={storybookIdStandFirst} />
 
-	.not-content.o3-editorial-typography-blockquote__source,
-	.not-content.o3-editorial-typography-blockquote__author {
-		display: revert
-	}
-</style>
+<p>Usage examples: <a href="https://www.ft.com/">Homepage</a>, <a href="https://www.ft.com/content/a54a8de2-0319-4dc0-863b-66b94c5a78f7#:~:text=Carmaker%E2%80%99s%20board%20under%20pressure%20after%20Delaware%20judge%20rules%20billionaire%20CEO%20has%20to%20forfeit%20largest%20ever%20incentive%20package">Top Stories</a></p>
+
+<h5>Caption</h5>
+
+<p>For additional information about a piece or image that should be less
+	prominent.</p>
+
+<Preview component={Caption}/>
+<FigmaSbLinks storybookId={storybookIdCaption} />
+
+<p>Usage example: <a href="https://www.ft.com/content/65593173-7f85-47f6-a253-29cc374fd3ca#:~:text=Th%20offices%20of%20the%20London%20Stock%20Exchange.%20UK%20authorities%20risk%20undermining%20a%20corporate%20governance%20regime%20regarded%20as%20the%20gold%20standard%20in%20their%20pursuit%20of%20global%20competitiveness%20%C2%A9%20Hollie%20Adams/Bloomberg">caption</a></p>

@@ -1,5 +1,16 @@
 ---
 import {Headline} from '@financial-times/o3-editorial-typography';
+import Preview from '../utils/Preview.astro';
+import * as HeadlinePreview from './preview/Headline';
+import * as Chapter from './preview/Chapter';
+import * as Subheading from './preview/Subheading';
+import * as Label from './preview/Label';
+import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
+const {brand} = Astro.props;
+const storybookIdHeadline = `${brand}-o3-editorial-typography--headline`;
+const storybookIdChapter = `${brand}-o3-editorial-typography--chapter`;
+const storybookIdSubheading = `${brand}-o3-editorial-typography--Subheading`;
+const storybookIdLabel = `${brand}-o3-editorial-typography--Label`;
 ---
 
 
@@ -10,38 +21,9 @@ import {Headline} from '@financial-times/o3-editorial-typography';
 	Stories</a>, <a
 	href="https://www.ft.com/content/65593173-7f85-47f6-a253-29cc374fd3ca#:~:text=Opinion%20Corporate%20governance-,Sunak%20take%20note%3A%20diluting%20corporate%20governance%20has%20consequences,-Proposed%20reforms%20to">Opinion</a>
 </p>
-<table>
-	<thead>
-	<tr>
-		<th>Viewport</th>
-		<th>Style Preview</th>
-		<th>Value</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td>S</td>
-		<td class="headline-s">Headline</td>
-		<td>
-			Financier Display / 300 / scale 4
-		</td>
-	</tr>
-	<tr>
-		<td>M</td>
-		<td class="headline-m">Headline</td>
-		<td>
-			Financier Display / 300 / scale 5
-		</td>
-	</tr>
-	<tr>
-		<td>L</td>
-		<td class="headline-l">Headline</td>
-		<td>
-			Financier Display / 300 / scale 6
-		</td>
-	</tr>
-	</tbody>
-</table>
+
+<Preview component={HeadlinePreview}/>
+<FigmaSbLinks storybookId={storybookIdHeadline} />
 
 <h4>Lower Headings</h4>
 <p>
@@ -49,148 +31,36 @@ import {Headline} from '@financial-times/o3-editorial-typography';
 	tablet, desktop.
 </p>
 
-<table>
-	<thead>
-	<tr>
-		<th>Style Preview</th>
-		<th>Links</th>
-		<th>Usage</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td class="chapter not-content">
-			<Headline type="chapter">Chapter</Headline>
-		</td>
-		<td>
-			Metric2 / semi-bold / scale 4
-		</td>
-		<td>
-			<p>For in-page titles / chapters</p>
-			<p>Usage Examples: <a
-				href="https://www.ft.com/content/844ed28c-8074-4856-bde0-20f3bf4cd8f0#:~:text=gaming.%20Tom%20Braithwaite-,1.%20Amazon,-SECTOR%3A%20ECOMMERCE%20/%20HQ">FT
-				Series</a>, <a
-				href="https://www.ft.com/content/40413894-3612-4228-8435-fb6af2659eb2#:~:text=AGO07%3A50-,Labour%20blames%20government%20finances%20for%20ditching%20%C2%A328bn%20green%20investment%20plan,-Donato%20Paolo%20Mancini">Live
-				News</a></p>
-		</td>
-	</tr>
-	<tr>
-		<td class="subheading not-content">
-			<Headline type="subheading">Subheading</Headline>
-		</td>
-		<td>
-			Metric2 / regular / scale 4
-		</td>
-		<td>
-			<p>For in-page sub-titles / sub-headings</p>
-			<p>Usage Example: <a
-				href="https://www.ft.com/content/2489a831-7a4b-4bcb-96ec-2c9c1d4ebe8e#:~:text=for%20all%20palates.-,The%20Salad%20Project,-1%20OLD%20BROAD">FT
-				Globetrotter</a></p>
-		</td>
-	</tr>
-	<tr>
-		<td class="label not-content">
-			<Headline type="label">LABEL</Headline>
-		</td>
-		<td>
-			Metric2 / regular / scale 0
-		</td>
-		<td
-		><p>To provide short details about a chapter, kickers (additional headline)
-			just above a chapter.</p>
+<h5>Chapter</h5>
 
-			<p>Usage Examples: <a href="https://www.ft.com/content/844ed28c-8074-4856-bde0-20f3bf4cd8f0#:~:text=SECTOR%3A%20ECOMMERCE%20/%20HQ%3A%20SEATTLE%2C%20US">FT Series</a>, <a href="https://www.ft.com/content/82574e3d-1633-48ad-8afb-71ebb3fe3dee#:~:text=promised%20the%20world.-,EARLY%20WARNINGS,-The%20virus%20arrives">kickers</a></p>
-		</td>
-	</tr>
-	</tbody>
-</table>
+For in-page titles and chapters.
+<Preview component={Chapter} />
+<FigmaSbLinks storybookId={storybookIdChapter} />
 
-<style>
-	tr > td:first-child {
-		text-align: center;
-	}
+<p>Usage Examples: <a
+	href="https://www.ft.com/content/844ed28c-8074-4856-bde0-20f3bf4cd8f0#:~:text=gaming.%20Tom%20Braithwaite-,1.%20Amazon,-SECTOR%3A%20ECOMMERCE%20/%20HQ">FT
+	Series</a>, <a
+	href="https://www.ft.com/content/40413894-3612-4228-8435-fb6af2659eb2#:~:text=AGO07%3A50-,Labour%20blames%20government%20finances%20for%20ditching%20%C2%A328bn%20green%20investment%20plan,-Donato%20Paolo%20Mancini">Live
+	News</a></p>
 
-	.headline-large-s {
-		font-family: var(
-			--_o3-editorial-typography-headline-large-s-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-large-s-font-weight
-		);
-		font-size: var(
-			--_o3-editorial-typography-headline-large-s-font-size
-		);
-		line-height: var(
-			--_o3-editorial-typography-headline-large-s-line-height
-		);
-	}
+<h5>Subheading</h5>
 
-	.headline-large-m {
-		font-family: var(
-			--_o3-editorial-typography-headline-large-m-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-large-m-font-weight
-		);
-		font-size: var(
-			--_o3-editorial-typography-headline-large-m-font-size
-		);
-		line-height: var(
-			--_o3-editorial-typography-headline-large-m-line-height
-		);
-	}
+For in-page sub-titles and sub-headings.
 
-	.headline-large-l {
-		font-family: var(
-			--_o3-editorial-typography-headline-large-l-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-large-l-font-weight
-		);
-		font-size: var(
-			--_o3-editorial-typography-headline-large-l-font-size
-		);
-		line-height: var(
-			--_o3-editorial-typography-headline-large-l-line-height
-		);
-	}
+<Preview component={Subheading} />
+<FigmaSbLinks storybookId={storybookIdSubheading} />
 
-	.headline-s {
-		font-family: var(
-			--_o3-editorial-typography-headline-s-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-s-font-weight
-		);
-		font-size: var(--_o3-editorial-typography-headline-s-font-size);
-		line-height: var(
-			--_o3-editorial-typography-headline-s-line-height
-		);
-	}
+<p>For in-page sub-titles / sub-headings</p>
+<p>Usage Example: <a
+	href="https://www.ft.com/content/2489a831-7a4b-4bcb-96ec-2c9c1d4ebe8e#:~:text=for%20all%20palates.-,The%20Salad%20Project,-1%20OLD%20BROAD">FT
+	Globetrotter</a></p>
 
-	.headline-m {
-		font-family: var(
-			--_o3-editorial-typography-headline-m-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-m-font-weight
-		);
-		font-size: var(--_o3-editorial-typography-headline-m-font-size);
-		line-height: var(
-			--_o3-editorial-typography-headline-m-line-height
-		);
-	}
+<h5>Label</h5>
 
-	.headline-l {
-		font-family: var(
-			--_o3-editorial-typography-headline-l-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-l-font-weight
-		);
-		font-size: var(--_o3-editorial-typography-headline-l-font-size);
-		line-height: var(
-			--_o3-editorial-typography-headline-l-line-height
-		);
-	}
-</style>
+To provide short details about a chapter, kickers (additional headline)
+just above a chapter.
+
+<Preview component={Label} />
+<FigmaSbLinks storybookId={storybookIdLabel} />
+
+<p>Usage Examples: <a href="https://www.ft.com/content/844ed28c-8074-4856-bde0-20f3bf4cd8f0#:~:text=SECTOR%3A%20ECOMMERCE%20/%20HQ%3A%20SEATTLE%2C%20US">FT Series</a>, <a href="https://www.ft.com/content/82574e3d-1633-48ad-8afb-71ebb3fe3dee#:~:text=promised%20the%20world.-,EARLY%20WARNINGS,-The%20virus%20arrives">kickers</a></p>
