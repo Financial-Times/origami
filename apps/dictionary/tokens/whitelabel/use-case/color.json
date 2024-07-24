@@ -73,7 +73,7 @@
         },
         "muted": {
           "text": {
-            "value": "{o3.color.palette.black-50}",
+            "value": "{o3.color.palette.black-60}",
             "type": "color",
             "description": "\"Muted\" text is less prominent, for example credits and captions."
           }
