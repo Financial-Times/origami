@@ -2,21 +2,25 @@
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 import * as Body from './preview/Body';
-import * as TopicTag from './preview/TopicTag'
-import * as Caption from './preview/Caption'
-import * as StandFirst from './preview/StandFirst'
-const {brand} = Astro.props;
+import * as TopicTag from './preview/TopicTag';
+import * as Caption from './preview/Caption';
+import * as StandFirst from './preview/StandFirst';
+const brand = Astro.props.brand || 'core';
+
+const figma =
+	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4443&t=kyDVEfsg2tRJspyY-4';
+const storybook = 'https://o3.origami.ft.com/?path=/story/';
 const storybookIdBody = `${brand}-o3-editorial-typography--body`;
 const storybookIdTopicTag = `${brand}-o3-editorial-typography--topic-tag`;
-const storybookIdStandFirst = `${brand}-o3-editorial-typography--standfirst`;
+const storybookIdStandFirst = `${brand}-o3-editorial-typography--stand-first`;
 const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
 ---
 
 <h4>Body</h4>
 <p>Use for body text, paragraphs and lists</p>
 
-<Preview component={Body}/>
-<FigmaSbLinks storybookId={storybookIdBody} />
+<Preview component={Body} />
+<FigmaSbLinks {figma} storybook={storybook + storybookIdBody} />
 
 <h4>Details</h4>
 <p>
@@ -28,8 +32,8 @@ const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
 <p>Also called display tag, are category labels in the FT. Used in teasers
 	(article cards) to indicate the category of a post.</p>
 
-<Preview component={TopicTag}/>
-<FigmaSbLinks storybookId={storybookIdTopicTag} />
+<Preview component={TopicTag} />
+<FigmaSbLinks {figma} storybook={storybook + storybookIdTopicTag} />
 
 <p>Usage example: <a href="https://www.ft.com/">Homepage</a></p>
 
@@ -38,17 +42,21 @@ const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
 <p>Short intro below the headline that provides context about a post. Used
 	in combination with a header in the topper component.</p>
 
-<Preview component={StandFirst}/>
-<FigmaSbLinks storybookId={storybookIdStandFirst} />
+<Preview component={StandFirst} />
+<FigmaSbLinks {figma} storybook={storybook + storybookIdStandFirst} />
 
-<p>Usage examples: <a href="https://www.ft.com/">Homepage</a>, <a href="https://www.ft.com/content/a54a8de2-0319-4dc0-863b-66b94c5a78f7#:~:text=Carmaker%E2%80%99s%20board%20under%20pressure%20after%20Delaware%20judge%20rules%20billionaire%20CEO%20has%20to%20forfeit%20largest%20ever%20incentive%20package">Top Stories</a></p>
+<p>Usage examples: <a href="https://www.ft.com/">Homepage</a>, <a
+	href="https://www.ft.com/content/a54a8de2-0319-4dc0-863b-66b94c5a78f7#:~:text=Carmaker%E2%80%99s%20board%20under%20pressure%20after%20Delaware%20judge%20rules%20billionaire%20CEO%20has%20to%20forfeit%20largest%20ever%20incentive%20package">Top
+	Stories</a></p>
 
 <h5>Caption</h5>
 
 <p>For additional information about a piece or image that should be less
 	prominent.</p>
 
-<Preview component={Caption}/>
-<FigmaSbLinks storybookId={storybookIdCaption} />
+<Preview component={Caption} />
+<FigmaSbLinks {figma} storybook={storybook + storybookIdCaption} />
 
-<p>Usage example: <a href="https://www.ft.com/content/65593173-7f85-47f6-a253-29cc374fd3ca#:~:text=Th%20offices%20of%20the%20London%20Stock%20Exchange.%20UK%20authorities%20risk%20undermining%20a%20corporate%20governance%20regime%20regarded%20as%20the%20gold%20standard%20in%20their%20pursuit%20of%20global%20competitiveness%20%C2%A9%20Hollie%20Adams/Bloomberg">caption</a></p>
+<p>Usage example: <a
+	href="https://www.ft.com/content/65593173-7f85-47f6-a253-29cc374fd3ca#:~:text=Th%20offices%20of%20the%20London%20Stock%20Exchange.%20UK%20authorities%20risk%20undermining%20a%20corporate%20governance%20regime%20regarded%20as%20the%20gold%20standard%20in%20their%20pursuit%20of%20global%20competitiveness%20%C2%A9%20Hollie%20Adams/Bloomberg">caption</a>
+</p>

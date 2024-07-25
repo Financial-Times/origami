@@ -3,7 +3,10 @@ import * as HeadlineLarge from './preview/Headline-Large';
 import Preview from '../utils/Preview.astro';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 const {brand} = Astro.props;
-const storybookIdHeadlineLarge = `${brand}-o3-editorial-typography--headline-large`;
+
+const figma =
+	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4443&t=kyDVEfsg2tRJspyY-4';
+const storybook = `https://o3.origami.ft.com?path=/story/${brand}-o3-editorial-typography--headline-large`;
 ---
 <>
 	<h4>Headline Large</h4>
@@ -16,5 +19,5 @@ const storybookIdHeadlineLarge = `${brand}-o3-editorial-typography--headline-lar
 	</p>
 
 	<Preview component={HeadlineLarge} />
-	<FigmaSbLinks storybookId={storybookIdHeadlineLarge} />
+	<FigmaSbLinks {figma} {storybook} />
 </>
