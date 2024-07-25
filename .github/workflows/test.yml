@@ -149,6 +149,8 @@ jobs:
             - 'libraries/o-tracking/**'
           libraries/o-utils:
             - 'libraries/o-utils/**'
+          libraries/o3-figma-sb-links:
+            - 'libraries/o3-figma-sb-links/**'
           libraries/o3-tooling-token:
             - 'libraries/o3-tooling-token/**'
           libraries/sass-mq:
@@ -165,6 +167,8 @@ jobs:
             - 'tools/create-component/**'
           tools/demo-build:
             - 'tools/demo-build/**'
+          tools/o3-chrome-extension:
+            - 'tools/o3-chrome-extension/**'
           tools/o3-compilation:
             - 'tools/o3-compilation/**'
           tools/origami-bower-safe-version-supervisor:
@@ -219,7 +223,14 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm ci
+      - name: Configure Cloudsmith
+        env:
+          CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_API_KEY }}
+        run: |
+          npm config set registry=https://npm.packages.ft.com/financial-times-internal-releases/
+          npm config set //npm.packages.ft.com/financial-times-internal-releases/:_authToken=${CLOUDSMITH_API_KEY}
+      - name: Install node modules
+        run: npm ci
       - run: npm run -w ${{ matrix.component }} lint --if-present
       - run: npm run -w ${{ matrix.component }} build --if-present
       - run: npm run -w ${{ matrix.component }} test --if-present

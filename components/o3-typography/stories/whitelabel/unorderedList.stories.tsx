@@ -2,7 +2,7 @@ import type {Meta} from '@storybook/react';
 import * as TypographyStories from '../story-templates';
 import {UnorderedList} from '../../src/tsx';
 import '../../src/css/brands/whitelabel.css';
-
+import links from '@financial-times/o3-figma-sb-links';
 export default {
 	title: 'Whitelabel/o3-typography/UnorderedList',
 	component: UnorderedList,
@@ -15,6 +15,10 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'white'},
+		design: {
+			type: 'figma',
+			url: links['whitelabel-o3-typography-unorderedlist--unordered-list-story'].figma,
+		}
 	},
 } as Meta;
 

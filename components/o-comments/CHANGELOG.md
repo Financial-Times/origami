@@ -1,5 +1,13 @@
 # Changelog
 
+## [11.2.1](https://github.com/Financial-Times/origami/compare/o-comments-v11.2.0...o-comments-v11.2.1) (2024-07-23)
+
+
+### Bug Fixes
+
+* fix typos ([f4031cb](https://github.com/Financial-Times/origami/commit/f4031cb15efe7330fbfdcef59eac7dacf0ce54cc))
+* fix typos on comments barrier message ([4b72689](https://github.com/Financial-Times/origami/commit/4b72689cd32acf10c462a1cb9e19ec815743ad8b))
+
 ## [11.2.0](https://github.com/Financial-Times/origami/compare/o-comments-v11.1.1...o-comments-v11.2.0) (2024-06-28)
 
 

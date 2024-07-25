@@ -45,7 +45,14 @@ $_ftConceptButtonThemes: (
 		highlight: oColorsByName('black-80'),
 		pressed-highlight: rgba(oColorsByName('black'), 0.2),
 		disabled: rgba(oColorsByName('black'), 0.5)
-	)
+	),
+	professional-inverse: (
+		background: oColorsByName('mint'),
+		text: oColorsByName('black'),
+		highlight: oColorsByName('mint'),
+		pressed-highlight: rgba(oColorsByName('mint'), 0.15),
+		disabled: rgba(oColorsByName('black'), 0.5)
+	),
 );
 
 @function _ftConceptButtonGetThemeColor($key) {
@@ -126,7 +133,7 @@ $_ftConceptButtonThemes: (
 			@include oNormaliseFocusContentForElementColour(
 				_ftConceptButtonGetThemeColor(background)
 			);
-		};
+		}
 
 		background-color: transparent;
 		border: 1px solid _ftConceptButtonGetThemeColor(background);
@@ -182,6 +189,7 @@ $_ftConceptButtonThemes: (
 		'opinion',
 		'inverse',
 		'monochrome',
+		'professional-inverse',
 	)
 ) {
 	.ft-concept-button__link,

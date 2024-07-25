@@ -3,7 +3,7 @@ import {Link as LinkTsx} from '../../src/tsx';
 
 import '../../src/css/brands/internal.css';
 import {Meta} from '@storybook/react';
-
+import links from '@financial-times/o3-figma-sb-links';
 export default {
 	title: 'Internal/o3-typography/Link',
 	component: LinkTsx,
@@ -17,6 +17,10 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'white'},
+		design: {
+			type: 'figma',
+			url: links['internal-o3-typography-link--link'].figma,
+		},
 	},
 } as Meta;
 

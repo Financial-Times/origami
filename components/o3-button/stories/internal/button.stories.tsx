@@ -4,6 +4,7 @@ import * as ButtonStories from '../story-templates';
 import {Pagination as PaginationTemplate} from '../pagination-template';
 
 import '../../src/css/brands/internal.css';
+import links from '@financial-times/o3-figma-sb-links';
 
 export default {
 	title: 'Internal/o3-button',
@@ -17,6 +18,10 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'white'},
+		design: {
+			type: 'figma',
+			url: links['internal-o3-button--button'].figma,
+		},
 	},
 } as Meta;
 
@@ -24,4 +29,10 @@ export const Button = ButtonStories.Button;
 export const LinkAsButton = ButtonStories.LinkAsButton;
 export const GroupedButtons = ButtonStories.GroupedButtons;
 export const Pagination = PaginationTemplate;
+Pagination.parameters = {
+	design:  {
+		type: 'figma',
+		url: links['internal-o3-button--pagination'].figma,
+	},
+};
 export const SmallButton = ButtonStories.SmallButton;

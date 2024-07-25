@@ -14,42 +14,7 @@ import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 
 const {previewFile, componentProps, brand} = Astro.props;
 
-let figma =
-	'https://www.figma.com/files/938480807921629744/team/1237702133754424766/Origami-for-Everyone-(NEW)?fuid=840167457508775739';
-switch (brand) {
-	case 'core':
-		figma =
-			'https://www.figma.com/file/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Design-System?type=design&node-id=4059-1949&mode=design&t=Coj8qOkQwGndrOew-4';
-		break;
-	case 'professional':
-		figma =
-			'https://www.figma.com/file/qfi6fTq5V05b0mnXw3F7q5/%F0%9F%92%A0-Professional---Design-System?type=design&node-id=3786-2499&mode=design&t=3k5iL1exswqY1yJz-4';
-		break;
-	case 'internal':
-		figma =
-			'https://www.figma.com/file/H9vTWZgEzqzTtX689nwq4R/Internal---Design-System?type=design&node-id=4316-309&mode=design&t=3k5iL1exswqY1yJz-4';
-		break;
-	case 'sustainable-views':
-		figma =
-			'https://www.figma.com/file/Y7u0SwIJ1mCNDE0dpzgHCJ/Sustainable-Views---Design-System?type=design&node-id=4039-410&mode=design&t=3k5iL1exswqY1yJz-4';
-		break;
-
-	default:
-		break;
-}
-
-let storybook = 'https://o3.origami.ft.com';
-if (brand) {
-	const storybookArgs = `button&args=${Object.entries(componentProps)
-		.map(p => `${p[0]}:${p[1]};`)
-		.join('')}`;
-	const storybookbase = 'https://o3.origami.ft.com?path=/story';
-	storybook = `${storybookbase}/${brand}-o3-button--${storybookArgs}`;
-
-	if (brand === 'professional') {
-		storybook = `${storybookbase}/core-${brand}-o3-button--${storybookArgs}`;
-	}
-}
+const storybookId = `${brand}-o3-button--button`
 
 let component = Primary;
 
@@ -83,5 +48,5 @@ switch (previewFile) {
 
 <div>
 	<Preview {component} />
-	<FigmaSbLinks {figma} {storybook} />
+	<FigmaSbLinks {storybookId} sbPathParams={componentProps} />
 </div>

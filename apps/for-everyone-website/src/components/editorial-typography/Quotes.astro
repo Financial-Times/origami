@@ -1,29 +1,28 @@
 ---
-import * as BlockComponent from './preview/Quote-Block.tsx'
-import * as PullComponent from './preview/Quote-Pull.tsx'
+import * as BlockComponent from './preview/Quote-Block.tsx';
+import * as PullComponent from './preview/Quote-Pull.tsx';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 
 const {brand} = Astro.props;
-const figma =
-	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4370&t=kyDVEfsg2tRJspyY-4';
-const quoteSbLinkGenerator = (type: string) => {
-	return `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--quote&args=type:${type}`;
-};
-const sbBlock = quoteSbLinkGenerator('block');
-const sbPull = quoteSbLinkGenerator('pull');
-
+const storybookId = `${brand}-o3-editorial-typography--quote`;
 ---
-{brand === 'core' || brand === 'professional' && <>
-<h4>Block quote</h4>
-<p>
-	For direct quotations of an author's words from other sources. It’s usually indented from the main body of text.
-</p>
 
-<Preview component={BlockComponent} />
+{
+	(brand === 'core' || brand === 'professional') && (
+		<>
+			<h4>Block quote</h4>
+			<p>
+				For direct quotations of an author's words from other sources. It's
+				placed within the main flow of article body content.
+			</p>
 
-<FigmaSbLinks {figma} storybook={sbBlock} />
-</>}
+			<Preview component={BlockComponent} />
+
+			<FigmaSbLinks {storybookId} />
+		</>
+	)
+}
 
 <h4>Pull quote</h4>
 <p>
@@ -32,5 +31,4 @@ const sbPull = quoteSbLinkGenerator('pull');
 
 <Preview component={PullComponent} />
 
-<FigmaSbLinks {figma} storybook={sbPull} />
-
+<FigmaSbLinks {storybookId} />

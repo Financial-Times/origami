@@ -146,6 +146,8 @@ o-tracking:
   - libraries/o-tracking/**/*
 o-utils:
   - libraries/o-utils/**/*
+o3-figma-sb-links:
+  - libraries/o3-figma-sb-links/**/*
 o3-tooling-token:
   - libraries/o3-tooling-token/**/*
 sass-mq:
@@ -162,6 +164,8 @@ create-component:
   - tools/create-component/**/*
 demo-build:
   - tools/demo-build/**/*
+o3-chrome-extension:
+  - tools/o3-chrome-extension/**/*
 o3-compilation:
   - tools/o3-compilation/**/*
 origami-bower-safe-version-supervisor:

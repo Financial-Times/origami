@@ -309,19 +309,19 @@ class Stream {
 			const customMessageContainer = document.createElement("section");
 			customMessageContainer.classList.add('coral__custom-message-content','coral');
 			const messageRegistered = `
-			<h3>Commenting is only available to readers with FT subscription</h3>
+			<h3>Commenting is only available to readers with an FT subscription</h3>
 				<p>
 				${this.options.linkSubscribe ? `<a class="linkSubscribe" href='${this.options.linkSubscribe}'>Subscribe</a>` : `Subscribe`} to join the conversation.
 				</p>
 			`;
 			const messageForAnonymous = `
-			<h3>Commenting is only available to readers with FT subscription</h3>
+			<h3>Commenting is only available to readers with an FT subscription</h3>
 				<p>
 					Please ${this.options.linkLogin ? ` <a class="linkLogin" href='${this.options.linkLogin}'>login</a>` : `login`} or ${this.options.linkSubscribe ? `<a href='${this.options.linkSubscribe}' class="linkSubscribe" >subscribe</a>` : `subscribe`} to join the conversation.
 				</p>
 			`;
 			const messageForTrial = `
-			<h3>You are still in a trial period</h3>
+			<h3>You are still on a trial period</h3>
 				<p>
 					View our full ${this.options.linkSubscribe ? `<a class="linkSubscribe" href='${this.options.linkSubscribe}'>subscription packages</a>` : `subscription packages` } to join the conversation.
 				</p>

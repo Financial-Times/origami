@@ -4,7 +4,7 @@ import * as TypographyStories from '../story-templates';
 import '../../main.css';
 
 import '../../src/css/brands/whitelabel.css';
-
+import links from '@financial-times/o3-figma-sb-links';
 export default {
 	title: 'Whitelabel/o3-typography/Heading',
 	component: HeadingTsx,
@@ -17,6 +17,10 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'white'},
+		design: {
+			type: 'figma',
+			url: links['whitelabel-o3-typography-heading--heading-story'].figma,
+		}
 	},
 } as Meta;
 

@@ -1,8 +1,15 @@
 # Migration Guide
 
+## Migrating from v12 to v13
+
+o-header v13 includes markup changes to the drawer. This updates the edition switcher; moves the close button to align with where the hamburger icon would be when closed; and updates the search bar both in the drawer and on desktop. To migrate:
+
+1. Update your markup according to the [Storybook demo](https://o2-core.origami.ft.com/?path=/story/components-o-header--header-primary&globals=backgrounds:!undefined) or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx).
+2. Ensure your project uses a compatible version of o-forms. Please upgrade o-forms if you see a dependency conflict upon install.
+
 ## Migrating from v11 to v12
 
-o-header v12 includes markup changes in the top right menu, which are included in the top.tsx template within this component. Update your markup as described below or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx).
+o-header v12 includes markup changes in the top right menu, which are included in the top.tsx template within this component. Update your markup according to the [Storybook demo](https://o2-core.origami.ft.com/?path=/story/components-o-header--header-primary&globals=backgrounds:!undefined) or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx).
 
 ### Removal of the myFT link
 
@@ -26,10 +33,7 @@ The following markup can be removed all together from all header types.
 In the same location of where the myFT logo link was removed we need to add a new link for accessing the users My Account or prompting them to Sign in.
 
 ```html
-<a
-	className="o-header__top-myaccount"
-	href="/myaccount"
->
+<a className="o-header__top-myaccount" href="/myaccount">
 	<span>My Account</span>
 </a>
 ```
@@ -37,28 +41,24 @@ In the same location of where the myFT logo link was removed we need to add a ne
 > [!NOTE]
 > This same markup is used for both the My Account and Sign in links. Your templates will need to be responsible for swapping the anchor text within the `<span>` and the `href` value
 
-
 When this is being used in the sticky header a `tabIndex` attribute should be added with a value of `-1`. This ensures that the link is not included in keyboard navigation.
 
 ```html
-<a
-	className="o-header__top-myaccount"
-	href="/myaccount"
-	tabIndex="-1"
->
+<a className="o-header__top-myaccount" href="/myaccount" tabindex="-1">
 	<span>My Account</span>
 </a>
 ```
-
 
 ## Migrating from v10 to v11
 
 o-header v11 includes markup changes in the drawer menu. Update your markup as described below or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx).
 
 In addition the `subbrand` variant has been removed, as it appears to no longer be used. Ensure there is no use of the `subbrand` variant in your project:
+
 - Check there is no `o-header__subbrand` class reference in your markup.
 - Check that the `subbrand` feature is not specifically included with the `oHeader` Sass mixin.
-Remove the `subbrand` variant from your project if possible, else contact the Origami team if you still need this feature.
+  Remove the `subbrand` variant from your project if possible, else contact the Origami team if you still need this feature.
+
 ### Markup visual drawer headings
 
 Update your drawer markup to semantically represent visually grouped navigation items. This approach improves the experience for users of assistive technologies.
@@ -68,28 +68,30 @@ Update your drawer markup to semantically represent visually grouped navigation 
 3. Associate both elements with the `aria-labelledby` attribute.
 
 Before:
+
 ```html
 <nav>
 	<ul>
-	<!-- more list items without heading -->
+		<!-- more list items without heading -->
 	</ul>
 </nav>
 ```
 
 After:
+
 ```html
 <nav>
-	<h2 id="o-header-drawer-top-sections" id='top-sections'>Top sections</h2>
+	<h2 id="o-header-drawer-top-sections" id="top-sections">Top sections</h2>
 	<ul aria-labelledby="top-sections">
-	    <!-- list items -->
+		<!-- list items -->
 	</ul>
-	<h2 id="o-header-drawer-top-sections" id='ft-recommends'>FT recommends</h2>
+	<h2 id="o-header-drawer-top-sections" id="ft-recommends">FT recommends</h2>
 	<ul aria-labelledby="ft-recommends">
-	    <!-- list items -->
+		<!-- list items -->
 	</ul>
 	<!-- more list items without heading -->
 	<ul>
-	<!-- more list items without heading -->
+		<!-- more list items without heading -->
 	</ul>
 </nav>
 ```
@@ -120,15 +122,16 @@ Update the `.o-header__drawer` element for improved accessibility:
 ## Migrating from v9 to v10
 
 o-header v10 includes markup changes. Use demo markup to update your project. Changes to be aware of include:
+
 - Deprecated markup for the old style of edition switcher has changed. The following classes no longer exist `.o-header__drawer-editions` and `.o-header__drawer-editions-link`. Check the markup of the header drawer is correct.
 - Add "icon" to classes `o-header__top-link o-header__top-link--[icon]`, where `[icon]` is "menu", "search", or "myft". E.g. `o-header__top-link o-header__top-link--menu` becomes `o-header__top-icon-link o-header__top-icon-link--[icon]`.
 - Add signup and subscribe links to `o-header__top-column--right`.
+
 ## Migrating from v8 to v9
 
 v9 drops support for Bower and version 2 of the Origami Build Service.
 
 Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 
 ## Migrating from v7 to v8
 
@@ -149,6 +152,7 @@ its dependencies. See [the Bower config for these](./bower.json).
 Origami components now require a `$system-code` Sass variable is set by the project, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).
 
 The following Sass variables have been removed:
+
 - `$o-header-image-service-version`
 - `$o-header-image-base-url`
 
@@ -175,6 +179,7 @@ The following Sass mixins have been removed and should be replaced with a single
 - `oHeaderTransparent`: 'transparent' feature
 
 E.g. to output the header with select features:
+
 ```diff
 -@include oHeaderBase;
 -@include oHeaderTop;
@@ -184,6 +189,7 @@ E.g. to output the header with select features:
 ```
 
 Or to output only base styles:
+
 ```diff
 -@include oHeaderBase;
 -@include oHeaderTop;
@@ -191,6 +197,7 @@ Or to output only base styles:
 ```
 
 Or to output only extra features without the base styles required by all features:
+
 ```diff
 -@include _oHeaderDrawer;
 -@include _oHeaderSticky;
@@ -198,6 +205,7 @@ Or to output only extra features without the base styles required by all feature
 ```
 
 There is no direct replacement for the following mixins. Please contact the Origami team if you have a usecase for these:
+
 - `oHeaderLink`
 - `oHeaderFancyLink`
 - `oHeaderItemSeparator`
