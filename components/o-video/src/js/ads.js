@@ -125,8 +125,6 @@ class VideoAds {
 			targeting += `&brand=${brand}`;
 		}
 
-		console.log("<<<<< TEST! >>>>>");
-
 		const paramsObject = {
 			env: "vp",
 			gdfp_req: 1,
