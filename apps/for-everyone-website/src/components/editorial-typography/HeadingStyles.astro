@@ -8,13 +8,10 @@ import * as Label from './preview/Label';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 const brand = Astro.props.brand || 'core';
 
-const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--heading`;
-const figma = 'https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami-(o3)?node-id=6420-4977&t=j74LBeAnENqXFvKw-4';
-
-const storybookIdHeadline = `&args=type:headline&globals=backgrounds.name:paper;backgrounds.value:!hex(fff1e5ff)`;
-const storybookIdChapter = `&args=type:chapter&globals=backgrounds.name:paper;backgrounds.value:!hex(fff1e5ff)`;
-const storybookIdSubheading = `&args=type:subheading&globals=backgrounds.name:paper;backgrounds.value:!hex(fff1e5ff)`;
-const storybookIdLabel = `&args=type:label&globals=backgrounds.name:paper;backgrounds.value:!hex(fff1e5ff)`;
+const storybookIdHeadline = `${brand}-o3-editorial-typography--heading`;
+const storybookIdChapter = `${brand}-o3-editorial-typography--chapter`;
+const storybookIdSubheading = `${brand}-o3-editorial-typography--subheading`;
+const storybookIdLabel = `${brand}-o3-editorial-typography--label`;
 ---
 
 
@@ -22,7 +19,7 @@ const storybookIdLabel = `&args=type:label&globals=backgrounds.name:paper;backgr
 <p>For titles and introductions of Feature posts and other new stories. This is responsive.
 
 <Preview component={HeadlinePreview} />
-<FigmaSbLinks {figma} storybook={storybook + storybookIdHeadline} />
+<FigmaSbLinks storybookId={storybookIdHeadline} />
 
 <h4>Lower Headings</h4>
 <p>
@@ -35,7 +32,7 @@ const storybookIdLabel = `&args=type:label&globals=backgrounds.name:paper;backgr
 <p>For in-page titles and chapters.</p>
 
 <Preview component={Chapter} />
-<FigmaSbLinks {figma} storybook={storybook + storybookIdChapter} />
+<FigmaSbLinks storybookId={storybookIdChapter} />
 
 
 <h5>Subheading</h5>
@@ -43,7 +40,7 @@ const storybookIdLabel = `&args=type:label&globals=backgrounds.name:paper;backgr
 <p>For in-page sub-titles / sub-headings.</p>
 
 <Preview component={Subheading} />
-<FigmaSbLinks {figma} storybook={storybook + storybookIdSubheading} />
+<FigmaSbLinks storybookId={storybookIdSubheading} />
 
 
 <h5>Label</h5>
@@ -53,4 +50,4 @@ just above a chapter.
 </p>
 
 <Preview component={Label} />
-<FigmaSbLinks {figma} storybook={storybook + storybookIdLabel} />
+<FigmaSbLinks storybookId={storybookIdLabel} />

@@ -7,9 +7,6 @@ import * as Caption from './preview/Caption';
 import * as StandFirst from './preview/StandFirst';
 const brand = Astro.props.brand || 'core';
 
-const figma =
-	'https://www.figma.com/design/y25ZjT1MqqHbNXNXsm8DET/Documentation-Content-Template?node-id=754-4443&t=kyDVEfsg2tRJspyY-4';
-const storybook = 'https://o3.origami.ft.com/?path=/story/';
 const storybookIdBody = `${brand}-o3-editorial-typography--body`;
 const storybookIdTopicTag = `${brand}-o3-editorial-typography--topic-tag`;
 const storybookIdStandFirst = `${brand}-o3-editorial-typography--stand-first`;
@@ -20,7 +17,7 @@ const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
 <p>Use for body text, paragraphs and lists. This is responsive.</p>
 
 <Preview component={Body} />
-<FigmaSbLinks {figma} storybook={storybook + storybookIdBody} />
+<FigmaSbLinks storybookId={storybookIdBody} />
 
 <h3>Topic Tag</h3>
 
@@ -28,7 +25,7 @@ const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
 	(article cards) to indicate the category of a post.</p>
 
 <Preview component={TopicTag} />
-<FigmaSbLinks {figma} storybook={storybook + storybookIdTopicTag} />
+<FigmaSbLinks storybookId={storybookIdTopicTag} />
 
 <h3>Standfirst</h3>
 
@@ -36,7 +33,7 @@ const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
 	in combination with a header in the topper component.</p>
 
 <Preview component={StandFirst} />
-<FigmaSbLinks {figma} storybook={storybook + storybookIdStandFirst} />
+<FigmaSbLinks storybookId={storybookIdStandFirst} />
 
 <h3>Caption</h3>
 
@@ -45,5 +42,5 @@ const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
 </p>
 
 <Preview component={Caption} />
-<FigmaSbLinks {figma} storybook={storybook + storybookIdCaption} />
+<FigmaSbLinks storybookId={storybookIdCaption} />
 
