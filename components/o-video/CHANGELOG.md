@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.3.1](https://github.com/Financial-Times/origami/compare/o-video-v7.3.0...o-video-v7.3.1) (2024-07-26)
+
+
+### Bug Fixes
+
+* correct scp attribute on search params for video ads requests ([#1760](https://github.com/Financial-Times/origami/issues/1760)) ([1e745c0](https://github.com/Financial-Times/origami/commit/1e745c0485479b2e6c6290a0e0e4bb1168f3d23b))
+
 ## [7.3.0](https://github.com/Financial-Times/origami/compare/o-video-v7.2.13...o-video-v7.3.0) (2024-06-11)
 
 
