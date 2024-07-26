@@ -21,7 +21,6 @@ import '@financial-times/o3-editorial-typography/css/whitelabel.css';
 
 import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
-import Overview from '../../../components/editorial-typography/Overview.astro';
 import HeadingStyles from '../../../components/editorial-typography/HeadingStyles.astro';
 import HeadlineLarge from '../../../components/editorial-typography/HeadlineLarge.astro';
 import BodyStyles from '../../../components/editorial-typography/BodyStyles.astro';
@@ -71,7 +70,7 @@ Metric is our primary typeface. Clear, contemporary and rational, Metric communi
 </BrandedContent>
 
 <BrandedContent brands="core, professional, whitelabel">
-	### Georgia Georgia is solely used for editorial article body copy. This is an
+	### Georgia is solely used for editorial article body copy. This is an
 	alternate to Financier Text, as a [system
 	font](https://en.wikipedia.org/wiki/Web_typography) it avoids the performance
 	implications of users downloading additional custom fonts.
@@ -163,17 +162,7 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 
     Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers.
 
-		### Overview
-
-		The following font families are used when designing for editorial.
-
-		<Overview />
-
-		### Editorial Typography components
-
-		Keeping typography consistent and sticking to logical hierarchies ensures that page elements are clear and easily recognisable when scanning the page. Lead with Mobile-First (also applies to FT Apps. For example; FT Apps, FT Edit)
-
-    ### Heading styles
+    ### Headings
 
 		Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use heading styles as needed. H1 to H5 should be set during  development.
 
@@ -184,21 +173,16 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 			<HeadingStyles />
 		</BrandedContent>
 
-    ### Body and Details styles
 
     <BodyStyles brand={props.brand} />
 
     <BrandedContent brands="whitelabel">
-    	#### Drop cap
+    	### Drop cap
     	Use for stylistic emphasis on the first letter of an article.
 
     	<DropCap brand={props.brand} />
 
     </BrandedContent>
-
-	  ### Editorial Text Formats
-
-		An overview description of the component or pattern variations. How this is best formatted is discussed in formatting.
 
     ### Quotes
 

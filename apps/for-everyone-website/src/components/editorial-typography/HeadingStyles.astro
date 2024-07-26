@@ -9,7 +9,7 @@ import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 const brand = Astro.props.brand || 'core';
 
 const storybook = `https://o3.origami.ft.com/?path=/story/${brand}-o3-editorial-typography--heading`;
-const figma = 'https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami-(o3)?node-id=6420-4977&t=j74LBeAnENqXFvKw-4'
+const figma = 'https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami-(o3)?node-id=6420-4977&t=j74LBeAnENqXFvKw-4';
 
 const storybookIdHeadline = `&args=type:headline&globals=backgrounds.name:paper;backgrounds.value:!hex(fff1e5ff)`;
 const storybookIdChapter = `&args=type:chapter&globals=backgrounds.name:paper;backgrounds.value:!hex(fff1e5ff)`;
@@ -18,15 +18,10 @@ const storybookIdLabel = `&args=type:label&globals=backgrounds.name:paper;backgr
 ---
 
 
-
 <h4>Headline</h4>
-<p>For titles and introductions of Feature posts and other new stories. Usage example: <a
-	href="https://www.ft.com/content/0d1326b7-8c83-46bc-a9c2-56ce7bb1a109#:~:text=Add%20to%20myFT-,Keir%20Starmer%20defends%20green%20spending%20U%2Dturn%20as%20Sunak%20claims%20Labour%20policy%20is%20in%20%E2%80%98tatters%E2%80%99,-Opposition%20leader%20wants">Top
-	Stories</a>, <a
-	href="https://www.ft.com/content/65593173-7f85-47f6-a253-29cc374fd3ca#:~:text=Opinion%20Corporate%20governance-,Sunak%20take%20note%3A%20diluting%20corporate%20governance%20has%20consequences,-Proposed%20reforms%20to">Opinion</a>
-</p>
+<p>For titles and introductions of Feature posts and other new stories. This is responsive.
 
-<Preview component={HeadlinePreview}/>
+<Preview component={HeadlinePreview} />
 <FigmaSbLinks {figma} storybook={storybook + storybookIdHeadline} />
 
 <h4>Lower Headings</h4>
@@ -37,34 +32,25 @@ const storybookIdLabel = `&args=type:label&globals=backgrounds.name:paper;backgr
 
 <h5>Chapter</h5>
 
-For in-page titles and chapters.
+<p>For in-page titles and chapters.</p>
+
 <Preview component={Chapter} />
 <FigmaSbLinks {figma} storybook={storybook + storybookIdChapter} />
 
-<p>Usage Examples: <a
-	href="https://www.ft.com/content/844ed28c-8074-4856-bde0-20f3bf4cd8f0#:~:text=gaming.%20Tom%20Braithwaite-,1.%20Amazon,-SECTOR%3A%20ECOMMERCE%20/%20HQ">FT
-	Series</a>, <a
-	href="https://www.ft.com/content/40413894-3612-4228-8435-fb6af2659eb2#:~:text=AGO07%3A50-,Labour%20blames%20government%20finances%20for%20ditching%20%C2%A328bn%20green%20investment%20plan,-Donato%20Paolo%20Mancini">Live
-	News</a></p>
 
 <h5>Subheading</h5>
 
-For in-page sub-titles and sub-headings.
+<p>For in-page sub-titles / sub-headings.</p>
 
 <Preview component={Subheading} />
 <FigmaSbLinks {figma} storybook={storybook + storybookIdSubheading} />
 
-<p>For in-page sub-titles / sub-headings</p>
-<p>Usage Example: <a
-	href="https://www.ft.com/content/2489a831-7a4b-4bcb-96ec-2c9c1d4ebe8e#:~:text=for%20all%20palates.-,The%20Salad%20Project,-1%20OLD%20BROAD">FT
-	Globetrotter</a></p>
 
 <h5>Label</h5>
 
-To provide short details about a chapter, kickers (additional headline)
+<p>To provide short details about a chapter, kickers (additional headline)
 just above a chapter.
+</p>
 
 <Preview component={Label} />
 <FigmaSbLinks {figma} storybook={storybook + storybookIdLabel} />
-
-<p>Usage Examples: <a href="https://www.ft.com/content/844ed28c-8074-4856-bde0-20f3bf4cd8f0#:~:text=SECTOR%3A%20ECOMMERCE%20/%20HQ%3A%20SEATTLE%2C%20US">FT Series</a>, <a href="https://www.ft.com/content/82574e3d-1633-48ad-8afb-71ebb3fe3dee#:~:text=promised%20the%20world.-,EARLY%20WARNINGS,-The%20virus%20arrives">kickers</a></p>
