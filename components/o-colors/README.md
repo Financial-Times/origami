@@ -19,6 +19,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 ### Colour Usecase Classes
 
 A limited number of colour [usecases](#usecases) are available as CSS classes, including:
+
 - `.o-colors-page-background`
 - `.o-colors-box-background`
 - `.o-colors-body-text`
@@ -51,6 +52,7 @@ See [all palette colours available](https://registry.origami.ft.com/components/o
 ### Colour Usecase Custom Properties
 
 A limited number of colour [usecases](#usecases) are also available as CSS Custom Properties (CSS Variables), including:
+
 - `--o-colors-page-background`
 - `--o-colors-box-background`
 - `--o-colors-body-text`
@@ -70,43 +72,47 @@ o-colors has a number of mixins and functions for you to access the color palett
 
 ```scss
 @import '@financial-times/o-colors/main';
-@include oColors($opts: (
-	'palette-custom-properties': true, // e.g. --o-colors-paper
-	'usecase-custom-properties': true, // e.g. --o-colors-page-background
-	'usecase-classes': true // e.g. .o-colors-page-background
-));
+@include oColors(
+	$opts: (
+		'palette-custom-properties': true,
+		// e.g. --o-colors-paper
+		'usecase-custom-properties': true,
+		// e.g. --o-colors-page-background
+		'usecase-classes': true // e.g. .o-colors-page-background,
+	)
+);
 ```
 
 ### Palette Colours
 
 o-colors defines a colour palette (a set of named colours) which may be [previewed in the registry](https://registry.origami.ft.com/components/o-colors). Custom palette colours may be added to the palette to share them with dependencies.
 
-Color Name | Brand Support |
----|---
-black | core, internal, whitelabel
-white | core, internal, whitelabel
-oxford | core, internal
-teal | core, internal
-slate | core, internal,
-lemon | core, internal,
-jade | core, internal
-mandarin | core, internal
-crimson | core, internal
-paper | core
-claret | core
-wheat | core
-sky | core
-velvet | core
-candy | core
-wasabi | core
-light-blue | core
-graphics-dark-blue | core
-ft-pink (previously brand-ft-pink) | core
-ft-grey | core
-org-b2c | core
-org-b2c-dark | core
-org-b2c-light | core
-mint | core
+| Color Name                         | Brand Support              |
+| ---------------------------------- | -------------------------- |
+| black                              | core, internal, whitelabel |
+| white                              | core, internal, whitelabel |
+| oxford                             | core, internal             |
+| teal                               | core, internal             |
+| slate                              | core, internal,            |
+| lemon                              | core, internal,            |
+| jade                               | core, internal             |
+| mandarin                           | core, internal             |
+| crimson                            | core, internal             |
+| paper                              | core                       |
+| claret                             | core                       |
+| wheat                              | core                       |
+| sky                                | core                       |
+| velvet                             | core                       |
+| candy                              | core                       |
+| wasabi                             | core                       |
+| light-blue                         | core                       |
+| graphics-dark-blue                 | core                       |
+| ft-pink (previously brand-ft-pink) | core                       |
+| ft-grey                            | core                       |
+| org-b2c                            | core                       |
+| org-b2c-dark                       | core                       |
+| org-b2c-light                      | core                       |
+| mint                               | core                       |
 
 There are additional colours in the palette by default including tones and mixes. [See the registry demos](https://registry.origami.ft.com/components/o-colors) for a full list.
 
@@ -149,7 +155,9 @@ By default custom colours do not allow [tones](#tone-palette-colors) to reduce t
 @include oColorsSetColor(
 	$color-name: 'o-example/myhotpink',
 	$color-value: #ff69b4,
-	$opts: ('allow-tones': true)
+	$opts: (
+		'allow-tones': true,
+	)
 );
 
 .example {
@@ -165,7 +173,9 @@ Removing a colour is considered a breaking change and requires a major release. 
 @include oColorsSetColor(
 	$color-name: 'o-example/myhotpink',
 	$color-value #ff69b4,
-	$opts: ('deprecated': 'Use the default colour claret instead.')
+	$opts: (
+		'deprecated': 'Use the default colour claret instead.',
+	)
 );
 ```
 
@@ -175,90 +185,113 @@ See [o-colors SassDoc](https://registry.origami.ft.com/components/o-colors/sassd
 
 A [colour palette](#palette-colours) helps products use the same set of colours, but does not help them use the colours consistently. Therefore o-colors provides tools to return colours based on usecases. E.g. a colour for the page background or body text.
 
-Usecase | Property | Brand Support |
----|---|---
-page |                  background | core, internal, whitelabel
-focus |                 outline | core, internal
-box |                   background | core, internal
-link |                  text | core, internal
-link-hover |            text | core, internal
-link-title |            text | core, internal
-link-title-hover |      text | core, internal
-title |                 text | core, internal
-body |                  text | core, internal
-muted |                 text | core, internal
-tag-link |              text | core
-tag-link-hover |        text | core
-opinion-tag-link |      text | core
-opinion-tag-link-hover |text | core
-opinion |               background | core
-hero |                  background | core
-hero-opinion |          background | core
-hero-highlight |        background | core
-**Section colors** |
-section-life-arts |     all | core
-section-life-arts-alt | all | core
-section-magazine |      all | core
-section-magazine-alt |  all | core
-section-house-home |    all | core
-section-house-home-alt |all | core
-section-money |         all | core
-section-money-alt |     all | core
+| Usecase                | Property   | Brand Support              |
+| ---------------------- | ---------- | -------------------------- |
+| page                   | background | core, internal, whitelabel |
+| focus                  | outline    | core, internal             |
+| box                    | background | core, internal             |
+| link                   | text       | core, internal             |
+| link-hover             | text       | core, internal             |
+| link-title             | text       | core, internal             |
+| link-title-hover       | text       | core, internal             |
+| title                  | text       | core, internal             |
+| body                   | text       | core, internal             |
+| muted                  | text       | core, internal             |
+| tag-link               | text       | core                       |
+| tag-link-hover         | text       | core                       |
+| opinion-tag-link       | text       | core                       |
+| opinion-tag-link-hover | text       | core                       |
+| opinion                | background | core                       |
+| hero                   | background | core                       |
+| hero-opinion           | background | core                       |
+| hero-highlight         | background | core                       |
+| ads                    | background | core                       |
+| **Section colors**     |
+| section-life-arts      | all        | core                       |
+| section-life-arts-alt  | all        | core                       |
+| section-magazine       | all        | core                       |
+| section-magazine-alt   | all        | core                       |
+| section-house-home     | all        | core                       |
+| section-house-home-alt | all        | core                       |
+| section-money          | all        | core                       |
+| section-money-alt      | all        | core                       |
 
 #### Default Usecases
 
 To get a colour for a default usecase call `oColorsByUsecase`.
 
 ```scss
-	html {
-		// get the background colour for the page usecase
-		background: oColorsByUsecase('page', 'background');
-	}
+html {
+	// get the background colour for the page usecase
+	background: oColorsByUsecase('page', 'background');
+}
 
-	.paragraph {
-		// get the text colour for the body usecase
-		color: oColorsByUsecase('body', 'text');
-	}
+.paragraph {
+	// get the text colour for the body usecase
+	color: oColorsByUsecase('body', 'text');
+}
 ```
 
 ### Custom Usecase
 
 To create a new usecase call `oColorsSetUseCase`.
 
-- `$usecase`:  The name of the usecase, e.g. 'page'. This must include a namespace for your component or project followed by a forward slash.
-- `$colors`:  A map of properties ('text', 'background', 'border', or 'outline') to a palette color name.
+- `$usecase`: The name of the usecase, e.g. 'page'. This must include a namespace for your component or project followed by a forward slash.
+- `$colors`: A map of properties ('text', 'background', 'border', or 'outline') to a palette color name.
 - `$opts` (optional):
-	- `deprecated`: A deprecation message for the usecase.
+  - `deprecated`: A deprecation message for the usecase.
 
 ```scss
-	// set colours for a "stripes" in o-example.
-	@include oColorsSetUseCase('o-example/stripes', (
+// set colours for a "stripes" in o-example.
+@include oColorsSetUseCase(
+	'o-example/stripes',
+	(
 		'text': 'white',
 		'background': 'black',
-		'border': 'black-50'
-	));
+		'border': 'black-50',
+	)
+);
 ```
 
 Removing a usecase is a breaking change and requires a major release. To inform users a usecase should not be used it should be deprecated. Deprecate a usecase by passing an `$opts` argument with a deprecation message.
 
 Deprecate all usecase properties:
+
 ```scss
-	// deprecate all usecase properties for the o-example custom usecase "stripes".
-	@include oColorsSetUseCase('o-example', 'stripes', (
+// deprecate all usecase properties for the o-example custom usecase "stripes".
+@include oColorsSetUseCase(
+	'o-example',
+	'stripes',
+	(
 		'text': 'white',
 		'background': 'black',
-		'border': 'black-50'
-	), ('deprecated': 'o-example has no stripes anymore, use a different colour'));
+		'border': 'black-50',
+	),
+	(
+		'deprecated': 'o-example has no stripes anymore, use a different colour',
+	)
+);
 ```
 
 Deprecate individual usecase properties:
+
 ```scss
-	// deprecate only the background property for the o-example custom usecase "stripes".
-	@include oColorsSetUseCase('o-example', 'stripes', (
+// deprecate only the background property for the o-example custom usecase "stripes".
+@include oColorsSetUseCase(
+	'o-example',
+	'stripes',
+	(
 		'text': 'white',
 		'background': 'black',
-		'border': 'black-50'
-	), ('deprecated': ('background': 'o-example stripes has no background anymore, use a different colour')));
+		'border': 'black-50',
+	),
+	(
+		'deprecated': (
+			'background':
+				'o-example stripes has no background anymore, use a different colour',
+		),
+	)
+);
 ```
 
 ### Generated Text Colors
@@ -300,13 +333,22 @@ Set `$minimum-contrast` to `null` to remove contrast checking. Only ignore contr
 `oColorsMix` will mix two colors based on a percentage. This gives the impression of the base color appearing at the percentage opacity over the background color. `oColorsMix` will accept either a color value or the name of an o-colors palette color as arguments.
 
 By default `oColorsMix` mixes with the page background colour usecase:
+
 ```scss
-$color: oColorsMix($color: 'black', $percentage: 30); // same as black-30
+$color: oColorsMix(
+	$color: 'black',
+	$percentage: 30,
+); // same as black-30
 ```
 
 But two colours may be given. For example to mix claret over slate at 20%:
+
 ```scss
-$color: oColorsMix($color: 'claret', $background: 'slate', $percentage: 20);
+$color: oColorsMix(
+	$color: 'claret',
+	$background: 'slate',
+	$percentage: 20,
+);
 ```
 
 ### Tone Palette Colors
@@ -335,22 +377,21 @@ See [o-colors SassDoc](https://registry.origami.ft.com/components/o-colors/sassd
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.10 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.6 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.5 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.1 | [migrate to v1](MIGRATION.md#migrating-from-v0-to-v1) |
-╳ deprecated | 0 | 0.2 | N/A |
-
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       6       |        N/A         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ⚠ maintained |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.10        | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.6         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.5         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.1         | [migrate to v1](MIGRATION.md#migrating-from-v0-to-v1) |
+| ╳ deprecated |       0       |        0.2         |                          N/A                          |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-colors/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 
