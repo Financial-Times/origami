@@ -20,9 +20,8 @@ export default {
 
 export const GridStories = {
 	render: (args) => {
-		return <div className="grid-overflow-wrapper">
-			<div className="grid-wrapper">
-				<div>Item 1</div>
+			return <div className="grid-wrapper">
+				<div className='item-1'>Item 1</div>
 				<div>Item 2</div>
 				<div>Item 3</div>
 				<div>Item 4</div>
@@ -35,6 +34,5 @@ export const GridStories = {
 				<div>Item 4</div>
 				<div>Item 4</div>
 			</div>
-		</div>;
 	},
 };

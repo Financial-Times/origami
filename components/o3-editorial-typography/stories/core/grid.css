@@ -7,21 +7,18 @@ body {
 	background-color: rgba(0,0,200,0.4)
 }
 
-.grid-overflow-wrapper {
-	display: grid;
-	grid-template-columns: 1fr minmax(auto, 1220px) 1fr;
-	width: 100%;
-}
-
 
 .grid-wrapper {
 	display: grid;
-	grid-template-columns: repeat(var(--o3-foundation-grid-columns), 1fr);
-	grid-column: 2 / 3;
-	max-width: 1220px;
+	grid-template-columns: var(--o3-foundation-grid-template);
+	grid-template-areas: var(--o3-foundation-grid-area);
 	gap: var(--o3-foundation-grid-gap);
 	background-color: rgba(0,140, 30, 0.6);
 	margin: var(--o3-foundation-grid-margin);
+}
+
+.item-1 {
+	grid-column: content-start / 4;
 }
 
 .grid-wrapper div {

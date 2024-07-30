@@ -1,6 +1,6 @@
 :root {
-	--o3-foundation-grid-template: repeat(var(--o3-foundation-grid-columns) , 1fr);
-
+	--o3-foundation-grid-template: repeat(var(--o3-foundation-grid-columns), 1fr);
+	--o3-foundation-grid-area: 'content-start . . . . content-end';
 	--o3-foundation-grid-columns: 4;
 	--o3-foundation-grid-gap: var(--o3-spacing-l);
 	--o3-foundation-grid-margin: var(--o3-spacing-l);
@@ -12,17 +12,22 @@
 
 	@media screen and (min-width: 740px) {
 		--o3-foundation-grid-columns: 8;
+		--o3-foundation-grid-area: 'content-start . . . . . . content-end';
 		--o3-foundation-grid-gap: var(--o3-spacing-l);
 		--o3-foundation-grid-margin: var(--o3-spacing-2xl);
 	}
 
 	@media screen and (min-width: 980px) {
 		--o3-foundation-grid-columns: 12;
+		--o3-foundation-grid-area: 'content-start . . . . . . . . . . content-end';
 		--o3-foundation-grid-gap: var(--o3-spacing-2xl);
 		--o3-foundation-grid-margin: var(--o3-spacing-2xl);
 	}
 
 	@media screen and (min-width: 1220px) {
+		--o3-foundation-grid-template: minmax(0, 1fr) repeat(var(--o3-foundation-grid-columns), 1fr) [outer-r] minmax(0, 1fr);
+		--o3-foundation-grid-area: 'outer-l content-start . . . . . . . . . . content-end outer-r';
+
 		--o3-foundation-grid-columns: 12;
 		--o3-foundation-grid-gap: var(--o3-spacing-2xl);
 		--o3-foundation-grid-margin: var(--o3-spacing-2xl);
