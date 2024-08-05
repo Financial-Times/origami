@@ -10,7 +10,7 @@
 
 o3-tooltip-toggle.o3-tooltip {
 	position: relative;
-	display: block;
+	display: inline-flex;
 }
 
 .o3-tooltip > .o3-tooltip-wrapper {
@@ -42,7 +42,8 @@ o3-tooltip-onboarding[no-title] .o3-tooltip-content {
 	margin-right: var(--icon-button-size);
 }
 
-o3-tooltip-onboarding[no-title]  .o3-tooltip-content-title, o3-tooltip-toggle[no-title]  .o3-tooltip-content-title {
+o3-tooltip-onboarding[no-title] .o3-tooltip-content-title,
+o3-tooltip-toggle[no-title] .o3-tooltip-content-title {
 	display: none;
 }
 
@@ -51,7 +52,9 @@ o3-tooltip-onboarding[no-title]  .o3-tooltip-content-title, o3-tooltip-toggle[no
 	font-size: var(--o3-font-size-0);
 	color: inherit;
 	margin-bottom: var(--o3-spacing-4xs);
-	padding-right: calc(var(--padding-right) + var(--o3-spacing-5xs)); /* add extra 4px padding to create space between close button and heading title */
+	padding-right: calc(
+		var(--padding-right) + var(--o3-spacing-5xs)
+	); /* add extra 4px padding to create space between close button and heading title */
 }
 
 /* ARROW STYLES */
