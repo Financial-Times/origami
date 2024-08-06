@@ -54,7 +54,7 @@
 	"components/o3-button": "1.1.5",
 	"components/o3-editorial-typography": "1.2.1",
 	"components/o3-foundation": "1.2.0",
-	"components/o3-tooltip": "1.0.4",
+	"components/o3-tooltip": "1.0.5",
 	"components/o3-typography": "1.0.3",
 	"libraries/ftdomdelegate": "5.0.1",
 	"libraries/math": "1.1.1",
