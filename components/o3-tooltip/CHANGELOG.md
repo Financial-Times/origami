@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/Financial-Times/origami/compare/o3-tooltip-v1.0.4...o3-tooltip-v1.0.5) (2024-08-06)
+
+
+### Bug Fixes
+
+* Make the toggle tip component inline. ([#1762](https://github.com/Financial-Times/origami/issues/1762)) ([802f7cc](https://github.com/Financial-Times/origami/commit/802f7cc1dd370913d965453ed6f78bfd4bfb1ed9))
+
 ## [1.0.4](https://github.com/Financial-Times/origami/compare/o3-tooltip-v1.0.3...o3-tooltip-v1.0.4) (2024-05-01)
 
 
