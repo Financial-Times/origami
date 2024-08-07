@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.7.0](https://github.com/Financial-Times/origami/compare/o-colors-v6.6.4...o-colors-v6.7.0) (2024-07-31)
+
+
+### Features
+
+* Add new colour usecase for ad slots ([#1763](https://github.com/Financial-Times/origami/issues/1763)) ([f338463](https://github.com/Financial-Times/origami/commit/f3384632108c6d998c6da2fddb6cda5b15d9d484))
+
 ## [6.6.4](https://github.com/Financial-Times/origami/compare/o-colors-v6.6.3...o-colors-v6.6.4) (2024-03-27)
 
 
