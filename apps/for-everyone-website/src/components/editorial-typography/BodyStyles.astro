@@ -2,45 +2,11 @@
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 import Preview from '../utils/Preview.astro';
 import * as Body from './preview/Body';
-import * as TopicTag from './preview/TopicTag';
-import * as Caption from './preview/Caption';
-import * as StandFirst from './preview/StandFirst';
+
 const brand = Astro.props.brand || 'core';
 
 const storybookIdBody = `${brand}-o3-editorial-typography--body`;
-const storybookIdTopicTag = `${brand}-o3-editorial-typography--topic-tag`;
-const storybookIdStandFirst = `${brand}-o3-editorial-typography--stand-first`;
-const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
 ---
-
-<h4>Body</h4>
-<p>Use for body text, paragraphs and lists. This is responsive.</p>
 
 <Preview component={Body} />
 <FigmaSbLinks storybookId={storybookIdBody} />
-
-<h3>Topic Tag</h3>
-
-<p>Also called display tag, are category labels in the FT. Used in teasers
-	(article cards) to indicate the category of a post.</p>
-
-<Preview component={TopicTag} />
-<FigmaSbLinks storybookId={storybookIdTopicTag} />
-
-<h3>Standfirst</h3>
-
-<p>Short intro below the headline that provides context about a post. Used
-	in combination with a header in the topper component.</p>
-
-<Preview component={StandFirst} />
-<FigmaSbLinks storybookId={storybookIdStandFirst} />
-
-<h3>Caption</h3>
-
-<p>For additional information about a piece or image that should be less
-	prominent.
-</p>
-
-<Preview component={Caption} />
-<FigmaSbLinks storybookId={storybookIdCaption} />
-

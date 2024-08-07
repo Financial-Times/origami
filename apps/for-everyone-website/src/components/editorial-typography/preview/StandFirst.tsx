@@ -1,10 +1,10 @@
-import {StandFirst as StandFirstTsx} from '@financial-times/o3-editorial-typography/esm';
+import {StandFirst} from '@financial-times/o3-editorial-typography/esm';
 
-function StandFirst() {
+function StandFirstPreview() {
 	return (
 		<>
 			<meta itemProp="@preview" />
-			<StandFirstTsx>StandFirst</StandFirstTsx>
+			<StandFirst>StandFirst</StandFirst>
 			<meta itemProp="@preview" />
 		</>
 	);
@@ -13,4 +13,4 @@ function StandFirst() {
 export const filePath =
 	'src/components/editorial-typography/preview/Standfirst.tsx';
 
-export {StandFirst as preview};
+export {StandFirstPreview as preview};

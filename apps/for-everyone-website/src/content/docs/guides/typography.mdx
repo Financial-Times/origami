@@ -31,6 +31,8 @@ import BigNumber from '../../../components/editorial-typography/BigNumber.astro'
 import Byline from '../../../components/editorial-typography/Byline.astro';
 import TopicTag from '../../../components/editorial-typography/TopicTag.astro';
 import DropCap from '../../../components/editorial-typography/DropCap.astro';
+import Standfirst from '../../../components/editorial-typography/Standfirst.astro';
+import Caption from '../../../components/editorial-typography/Caption.astro';
 
 import TypeScale from '../../../components/TypeScale.astro';
 import TypeFamily from '../../../components/TypeFamily.astro';
@@ -164,16 +166,17 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 
     ### Headings
 
-		Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use heading styles as needed. H1 to H5 should be set during  development.
+    	Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use heading styles as needed. H1 to H5 should be set during  development.
 
-		<BrandedContent brands="core,professional,internal,whitelabel,sustainable-views">
-			<BrandedContent brands="core,professional">
-				<HeadlineLarge />
-			</BrandedContent>
-			<HeadingStyles />
-		</BrandedContent>
+    	<BrandedContent brands="core,professional,internal,whitelabel,sustainable-views">
+    		<BrandedContent brands="core,professional">
+    			<HeadlineLarge />
+    		</BrandedContent>
+    		<HeadingStyles />
+    	</BrandedContent>
 
-
+    	### Body
+    	Use for body text, paragraphs and lists. This is responsive.
     <BodyStyles brand={props.brand} />
 
     <BrandedContent brands="whitelabel">
@@ -188,7 +191,7 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 
     The quote component is used to highlight notable statements, excerpts, or phrases from articles, interviews, and other types of content. It draws attention to key information and enhances the reading experience.
 
-		We have two variants:
+    	We have two variants:
 
     <Quotes brand={props.brand} />
 
@@ -230,6 +233,16 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 
 
     <TopicTag brand={props.brand} />
+
+    	### Standfirst
+    Short intro below the headline that provides context about a post. Used in
+    combination with a header in the topper component.
+    	<Standfirst brand={props.brand} />
+
+    	### Caption
+    	For additional information about a piece or image that should be less
+    prominent.
+    	<Caption brand={props.brand} />
 
     ## Usage Guidelines
 

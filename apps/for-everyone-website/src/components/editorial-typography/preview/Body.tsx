@@ -1,14 +1,14 @@
-import {Body as BodyTsx} from '@financial-times/o3-editorial-typography/esm';
+import {Body} from '@financial-times/o3-editorial-typography/esm';
 
-function Body() {
+function BodyPreview() {
 	return (
 		<>
 			<meta itemProp="@preview" />
-					<BodyTsx>
+					<Body>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum illum facere totam
 						architecto eum porro exercitationem, ea, accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam
 						quae?
-					</BodyTsx>
+					</Body>
 			<meta itemProp="@preview" />
 		</>
 	);
@@ -17,4 +17,4 @@ function Body() {
 export const filePath =
 	'src/components/editorial-typography/preview/Body.tsx';
 
-export {Body as preview};
+export {BodyPreview as preview};
