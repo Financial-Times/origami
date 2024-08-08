@@ -11,6 +11,6 @@ function StandFirstPreview() {
 }
 
 export const filePath =
-	'src/components/editorial-typography/preview/Standfirst.tsx';
+	'src/components/editorial-typography/preview/StandFirst.tsx';
 
 export {StandFirstPreview as preview};
