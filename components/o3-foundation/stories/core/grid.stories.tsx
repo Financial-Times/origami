@@ -4,7 +4,8 @@ import '../../src/css/brands/core.css';
 
 export default {
 	title: 'Core/o3-grid',
-	...GridMetaGenerator('core'),
+	tags: ['!autodocs'],
+	...GridMetaGenerator('core')
 } as Meta;
 
 export const Grid: StoryObj = {};

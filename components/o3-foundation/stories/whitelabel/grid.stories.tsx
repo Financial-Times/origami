@@ -4,6 +4,7 @@ import '../../src/css/brands/whitelabel.css';
 
 export default {
 	title: 'Whitelabel/o3-grid',
+	tags: ['!autodocs'],
 	...GridMetaGenerator('whitelabel'),
 } as Meta;
 

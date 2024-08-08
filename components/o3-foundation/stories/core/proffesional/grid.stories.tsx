@@ -4,6 +4,7 @@ import '../../../src/css/brands/professional.css';
 
 export default {
 	title: 'Core/Professional/o3-grid',
+	tags: ['!autodocs'],
 	...GridMetaGenerator('professional'),
 } as Meta;
 

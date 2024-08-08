@@ -4,6 +4,7 @@ import '../../src/css/brands/internal.css';
 
 export default {
 	title: 'Internal/o3-grid',
+	tags: ['!autodocs'],
 	...GridMetaGenerator('internal'),
 } as Meta;
 
