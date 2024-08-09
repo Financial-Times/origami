@@ -1,85 +1,25 @@
 ---
 import {Headline} from '@financial-times/o3-editorial-typography';
+import Preview from '../utils/Preview.astro';
+import * as HeadlinePreview from './preview/Headline';
+import * as Chapter from './preview/Chapter';
+import * as Subheading from './preview/Subheading';
+import * as Label from './preview/Label';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
-const {brand} = Astro.props
-const storybookId = `${brand}-o3-editorial-typography--heading`
+const brand = Astro.props.brand || 'core';
+
+const storybookIdHeadline = `${brand}-o3-editorial-typography--heading`;
+const storybookIdChapter = `${brand}-o3-editorial-typography--chapter`;
+const storybookIdSubheading = `${brand}-o3-editorial-typography--subheading`;
+const storybookIdLabel = `${brand}-o3-editorial-typography--label`;
 ---
 
-{brand === 'core' || brand === 'professional' && <>
-<h4>Headline Large</h4>
-
-<p>
-	Use for titles and headlines of Main news pages and articles. Usually in the
-	full-bleed topper component. Use in moderation.
-</p>
-
-<table>
-	<thead>
-		<tr>
-			<th>Viewport</th>
-			<th>Style Preview</th>
-			<th>Links</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>S</td>
-			<td class="headline-large-s">Headline large</td>
-			<td>
-				<FigmaSbLinks {storybookId} />
-			</td>
-		</tr>
-		<tr>
-			<td>M</td>
-			<td class="headline-large-m">Headline large</td>
-			<td>
-				<FigmaSbLinks {storybookId} />
-			</td>
-		</tr>
-		<tr>
-			<td>L</td>
-			<td class="headline-large-l">Headline large</td>
-			<td>
-				<FigmaSbLinks {storybookId} />
-			</td>
-		</tr>
-	</tbody>
-</table></>}
 
 <h4>Headline</h4>
-<p>For titles and introductions of Feature posts and other new stories.</p>
-<table>
-	<thead>
-		<tr>
-			<th>Viewport</th>
-			<th>Style Preview</th>
-			<th>Links</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>S</td>
-			<td class="headline-s">Headline</td>
-			<td>
-				<FigmaSbLinks {storybookId} />
-			</td>
-		</tr>
-		<tr>
-			<td>M</td>
-			<td class="headline-m">Headline</td>
-			<td>
-				<FigmaSbLinks {storybookId} />
-			</td>
-		</tr>
-		<tr>
-			<td>L</td>
-			<td class="headline-l">Headline</td>
-			<td>
-				<FigmaSbLinks {storybookId} />
-			</td>
-		</tr>
-	</tbody>
-</table>
+<p>For titles and introductions of Feature posts and other new stories. This is responsive.
+
+<Preview component={HeadlinePreview} />
+<FigmaSbLinks storybookId={storybookIdHeadline} />
 
 <h4>Lower Headings</h4>
 <p>
@@ -87,132 +27,27 @@ const storybookId = `${brand}-o3-editorial-typography--heading`
 	tablet, desktop.
 </p>
 
-<table>
-	<thead>
-		<tr>
-			<th>Style Preview</th>
-			<th>Usage</th>
-			<th>Links</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td class="chapter not-content">
-				<Headline type="chapter">Chapter</Headline>
-			</td>
-			<td>For in-page titles / chapters</td>
-			<td>
-				<FigmaSbLinks {storybookId} />
-			</td>
-		</tr>
-		<tr>
-			<td class="subheading not-content">
-				<Headline type="subheading">Subheading</Headline>
-			</td>
-			<td>For in-page sub-titles / sub-headings</td>
-			<td>
-				<FigmaSbLinks {storybookId} />
-			</td>
-		</tr>
-		<tr>
-			<td class="label not-content">
-				<Headline type="label">LABEL</Headline>
-			</td>
-			<td
-				>To provide short details about a chapter, kickers (additional headline)
-				just above a chapter.
-			</td>
-			<td>
-				<FigmaSbLinks {storybookId} />
-			</td>
-		</tr>
-	</tbody>
-</table>
+<h5>Chapter</h5>
 
-<style>
-	tr > td:first-child {
-		text-align: center;
-	}
+<p>For in-page titles and chapters.</p>
 
-	.headline-large-s {
-		font-family: var(
-			--_o3-editorial-typography-headline-large-s-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-large-s-font-weight
-		);
-		font-size: var(
-			--_o3-editorial-typography-headline-large-s-font-size
-		);
-		line-height: var(
-			--_o3-editorial-typography-headline-large-s-line-height
-		);
-	}
+<Preview component={Chapter} />
+<FigmaSbLinks storybookId={storybookIdChapter} />
 
-	.headline-large-m {
-		font-family: var(
-			--_o3-editorial-typography-headline-large-m-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-large-m-font-weight
-		);
-		font-size: var(
-			--_o3-editorial-typography-headline-large-m-font-size
-		);
-		line-height: var(
-			--_o3-editorial-typography-headline-large-m-line-height
-		);
-	}
-	.headline-large-l {
-		font-family: var(
-			--_o3-editorial-typography-headline-large-l-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-large-l-font-weight
-		);
-		font-size: var(
-			--_o3-editorial-typography-headline-large-l-font-size
-		);
-		line-height: var(
-			--_o3-editorial-typography-headline-large-l-line-height
-		);
-	}
 
-	.headline-s {
-		font-family: var(
-			--_o3-editorial-typography-headline-s-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-s-font-weight
-		);
-		font-size: var(--_o3-editorial-typography-headline-s-font-size);
-		line-height: var(
-			--_o3-editorial-typography-headline-s-line-height
-		);
-	}
+<h5>Subheading</h5>
 
-	.headline-m {
-		font-family: var(
-			--_o3-editorial-typography-headline-m-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-m-font-weight
-		);
-		font-size: var(--_o3-editorial-typography-headline-m-font-size);
-		line-height: var(
-			--_o3-editorial-typography-headline-m-line-height
-		);
-	}
-	.headline-l {
-		font-family: var(
-			--_o3-editorial-typography-headline-l-font-family
-		);
-		font-weight: var(
-			--_o3-editorial-typography-headline-l-font-weight
-		);
-		font-size: var(--_o3-editorial-typography-headline-l-font-size);
-		line-height: var(
-			--_o3-editorial-typography-headline-l-line-height
-		);
-	}
-</style>
+<p>For in-page sub-titles / sub-headings.</p>
+
+<Preview component={Subheading} />
+<FigmaSbLinks storybookId={storybookIdSubheading} />
+
+
+<h5>Label</h5>
+
+<p>To provide short details about a chapter, kickers (additional headline)
+just above a chapter.
+</p>
+
+<Preview component={Label} />
+<FigmaSbLinks storybookId={storybookIdLabel} />

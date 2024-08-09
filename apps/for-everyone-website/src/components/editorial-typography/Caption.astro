@@ -1,0 +1,11 @@
+---
+import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
+import Preview from '../utils/Preview.astro';
+import * as CaptionPreview from './preview/Caption';
+const brand = Astro.props.brand || 'core';
+
+const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
+---
+
+<Preview component={CaptionPreview} />
+<FigmaSbLinks storybookId={storybookIdCaption} />

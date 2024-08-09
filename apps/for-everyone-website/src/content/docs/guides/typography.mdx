@@ -21,8 +21,8 @@ import '@financial-times/o3-editorial-typography/css/whitelabel.css';
 
 import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
-import Overview from '../../../components/editorial-typography/Overview.astro';
 import HeadingStyles from '../../../components/editorial-typography/HeadingStyles.astro';
+import HeadlineLarge from '../../../components/editorial-typography/HeadlineLarge.astro';
 import BodyStyles from '../../../components/editorial-typography/BodyStyles.astro';
 import Quotes from '../../../components/editorial-typography/Quotes.astro';
 import Lists from '../../../components/editorial-typography/Lists.astro';
@@ -31,6 +31,8 @@ import BigNumber from '../../../components/editorial-typography/BigNumber.astro'
 import Byline from '../../../components/editorial-typography/Byline.astro';
 import TopicTag from '../../../components/editorial-typography/TopicTag.astro';
 import DropCap from '../../../components/editorial-typography/DropCap.astro';
+import StandFirst from '../../../components/editorial-typography/StandFirst.astro';
+import Caption from '../../../components/editorial-typography/Caption.astro';
 
 import TypeScale from '../../../components/TypeScale.astro';
 import TypeFamily from '../../../components/TypeFamily.astro';
@@ -70,8 +72,10 @@ Metric is our primary typeface. Clear, contemporary and rational, Metric communi
 </BrandedContent>
 
 <BrandedContent brands="core, professional, whitelabel">
+  
 	### Georgia
 	Georgia is solely used for editorial article body copy. This is an alternate to Financier Text, as a [system font](https://en.wikipedia.org/wiki/Web_typography) it avoids the performance implications of users downloading additional custom fonts.
+
 </BrandedContent>
 
 <BrandedContent brands="sustainable-views">
@@ -158,22 +162,25 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 <BrandedContent brands="core, professional, sustainable-views, whitelabel">
 	## Editorial Typography
 
-    Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers. The following font families are used when designing for editorial.
+    Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers.
 
-    <Overview />
+    ### Headings
 
-    ### Heading styles
+    	Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use heading styles as needed. H1 to H5 should be set during  development.
 
-    Names of heading styles in editorial typography are aligned with those used by editorial teams.
+    	<BrandedContent brands="core,professional,internal,whitelabel,sustainable-views">
+    		<BrandedContent brands="core,professional">
+    			<HeadlineLarge />
+    		</BrandedContent>
+    		<HeadingStyles />
+    	</BrandedContent>
 
-    <HeadingStyles brand={props.brand} />
-
-    ### Body and Details styles
-
+    	### Body
+    	Use for body text, paragraphs and lists. This is responsive.
     <BodyStyles brand={props.brand} />
 
     <BrandedContent brands="whitelabel">
-    	#### Drop cap
+    	### Drop cap
     	Use for stylistic emphasis on the first letter of an article.
 
     	<DropCap brand={props.brand} />
@@ -183,6 +190,8 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
     ### Quotes
 
     The quote component is used to highlight notable statements, excerpts, or phrases from articles, interviews, and other types of content. It draws attention to key information and enhances the reading experience.
+
+    	We have two variants:
 
     <Quotes brand={props.brand} />
 
@@ -224,6 +233,16 @@ We recommend using our standard [UI typography](#ui-typography) <BrandedContent 
 
 
     <TopicTag brand={props.brand} />
+
+    	### Standfirst
+    Short intro below the headline that provides context about a post. Used in
+    combination with a header in the topper component.
+    	<StandFirst brand={props.brand} />
+
+    	### Caption
+    	For additional information about a piece or image that should be less
+    prominent.
+    	<Caption brand={props.brand} />
 
     ## Usage Guidelines
 
