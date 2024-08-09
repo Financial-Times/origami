@@ -3,9 +3,7 @@ export type FormFieldProps = {
 	labelId: string;
 	description?: string;
 	feedback?: FeedBackProps;
-	// children: React.ReactElement<any, 'input'>;
-	// children: JSX.Element & JSX.IntrinsicElements['input'];
-	inputAttributes: JSX.IntrinsicElements['input'];
+	children: JSX.Element & JSX.IntrinsicElements['input'];
 };
 
 export type FeedBackProps = {
@@ -18,6 +16,7 @@ export type CheckBoxProps = {
 	label: string;
 	checked: boolean;
 	error: boolean;
+	feedBack: FeedBackProps;
 };
 
 export type PasswordInputProps = Omit<FormFieldProps, 'children'>;

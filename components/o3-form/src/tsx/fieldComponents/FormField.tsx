@@ -3,18 +3,20 @@ import type {FormFieldProps} from '../../types';
 import {Feedback} from './Feedback';
 
 export const FormField = ({
-														label,
-														description,
-														feedback,
-														inputAttributes,
-														labelId,
-													}: FormFieldProps) => {
+	label,
+	description,
+	feedback,
+	labelId,
+	children,
+}: FormFieldProps) => {
 	return (
 		<div>
 			<label htmlFor={labelId}>{label}</label>
 			{description && <span>{description}</span>}
-			<input {...inputAttributes} />
+			{children}
 			{feedback && <Feedback {...feedback} />}
 		</div>
 	);
 };
+
+
