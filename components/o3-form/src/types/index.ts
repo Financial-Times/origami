@@ -5,7 +5,7 @@ export type FormFieldProps = {
 	feedback?: FeedBackProps;
 	// children: React.ReactElement<any, 'input'>;
 	// children: JSX.Element & JSX.IntrinsicElements['input'];
-	inputAttributes:
+	inputAttributes: JSX.IntrinsicElements['input'];
 };
 
 export type FeedBackProps = {
