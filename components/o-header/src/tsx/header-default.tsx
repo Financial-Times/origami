@@ -16,6 +16,7 @@ export function Header({
 	showUserNavigation,
 	userIsSubscribed,
 	userIsLoggedIn,
+	showAskButton,
 	variant,
 	data,
 }: THeaderProps) {
@@ -35,7 +36,7 @@ export function Header({
 		<>
 			{showUserNavigation && <UserActionsNav userNavItems={userNavItems} />}
 			<TopWrapper>
-				<TopColumnLeft />
+				<TopColumnLeft showAskButton={showAskButton} />
 				<TopColumnCenter showLogoLink={showLogoLink} />
 				<TopColumnRight
 					userIsLoggedIn={userIsLoggedIn}

@@ -51,6 +51,7 @@ HeaderPrimary.args = {
 	userIsSubscribed: false,
 	showLogoLink: true,
 	showStickyHeader: true,
+	showAskButton: true,
 };
 HeaderPrimary.parameters = {
 	controls: {
@@ -82,6 +83,7 @@ DefaultHeaderWithRightAlignedSubnav.args = {
 	showUserNavigation: true,
 	userIsLoggedIn: true,
 	showLogoLink: false,
+	showAskButton: true,
 };
 DefaultHeaderWithRightAlignedSubnav.parameters = {
 	controls: {
