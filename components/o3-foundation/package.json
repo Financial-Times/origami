@@ -4,7 +4,12 @@
 	"description": "Origami foundations with design tokens",
 	"keywords": [
 		"foundation",
-		"design-tokens"
+		"design-tokens",
+		"colour",
+		"typography",
+		"spacing",
+		"icon",
+		"grid"
 	],
 	"homepage": "https://registry.origami.ft.com/components/o3-foundation",
 	"bugs": {
