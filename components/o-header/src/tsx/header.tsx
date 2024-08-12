@@ -10,6 +10,7 @@ import {InverseSimpleHeader} from './inverse-header';
 export function MainHeader(props: THeaderProps) {
 	const {
 		data,
+		showAskButton,
 		showLogoLink,
 		showMegaNav,
 		showStickyHeader,
@@ -27,6 +28,7 @@ export function MainHeader(props: THeaderProps) {
 	const defaultHeaderProps = {
 		includeUserActionsNav,
 		includeSubNavigation,
+		showAskButton,
 		showLogoLink,
 		showSubNavigation,
 		showUserNavigation,

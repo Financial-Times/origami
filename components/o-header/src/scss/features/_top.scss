@@ -196,4 +196,11 @@
 		}
 	}
 
+	.o-header__ask-ft-button--top {
+		margin-left: 12px;
+		@include oGridRespondTo($until: 'L') {
+			display: none;
+		}
+		@include _oHeaderAskFtButton();
+	}
 }
