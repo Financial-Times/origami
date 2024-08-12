@@ -132,21 +132,9 @@ See our documentation website for a [full list of spacing tokens](https://origam
 
 ### Grid
 
-o3-foundation provides CSS Custom Properties for grid that you can set on your class:
+The `o3-grid` system, provided by `o3-foundation`, standardises usage of grid across ft. The `o3-grid` is responsive on different screen sizes and differs from [`o-grid`](https://o2.origami.ft.com/?path=/docs/o2-core_components-o-grid-readme--docs) component. For more detailed guidelines on grid system check our documentation for [`o3-grid`](https://origami-beta.ft.com/guides/grid/).
 
-```css
-.example-class {
- display: grid;
- /* Controls the column structure of your grid. */
- grid-template-columns: var(--o3-grid-template);
- /* Defines named areas for grid item placement. */
- grid-template-areas: var(--o3-grid-area);
- /* Manages the spacing between grid columns. */
- column-gap: var(--o3-grid-gap);
-}
-```
-
-To make it more convenient use class `o3-grid` on your elements to apply the default o3 grid styling.
+For a convenient and standardized grid layout, apply the `o3-grid` class to your element:
 
 ```html
 <div class="o3-grid">
@@ -154,13 +142,15 @@ To make it more convenient use class `o3-grid` on your elements to apply the def
 </div>
 ```
 
-The `o3-grid` template follows a specific structure:
+The `o3-grid` layout template follows a specific structure:
 
 ```txt
 `bleed-start content-start [REST_OF_THE_COLUMNS] content-end bleed-end`,
 ```
 
-- The 12-Column Grid Structure: The `o3-grid` system is built on a 12-column grid structure. These 12 columns are utilized within the `content-start` and `content-end` boundaries.
+The o3-grid system adapts to different screen sizes, the number of columns is variable according to viewport size, see design guidelines for [details](https://origami-beta.ft.com/guides/grid/).
+
+- Content-area: The grid's main content area is defined by `content-start` and `content-end` boundaries.
 - Bleed Columns for Extended Layouts: `bleed-start` & `bleed-end`: These special columns extend beyond the 12-column grid, reaching the edges of the viewport. This allows you to create "full-bleed" layouts where content extends off the screen. These columns are used as margin areas, providing visual breathing room around your central content.
 - `[REST_OF_THE_COLUMNS]`: This represents any additional columns you might need in your grid.
 
@@ -189,6 +179,22 @@ You can precisely control the positioning of grid items using the `grid-column` 
   Starts at the left edge, ends at `content-end`
  </div>
 </div>
+```
+
+#### Advanced usage of grid
+
+For advanced usage `o3-foundation` provides CSS Custom Properties for grid that you can set on your class:
+
+```css
+.example-class {
+ display: grid;
+ /* Controls the column structure of your grid. */
+ grid-template-columns: var(--o3-grid-template);
+ /* Defines named areas for grid item placement. */
+ grid-template-areas: var(--o3-grid-area);
+ /* Manages the spacing between grid columns. */
+ column-gap: var(--o3-grid-gap);
+}
 ```
 
 ### Helper classes
