@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.2.0...o3-foundation-v1.3.0) (2024-08-12)
+
+
+### Features
+
+* introduce o3 grid CSS custom properties ([#1764](https://github.com/Financial-Times/origami/issues/1764)) ([19759d8](https://github.com/Financial-Times/origami/commit/19759d8a82db4cf84db02c77cf9936b60a212593))
+
 ## [1.2.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.1.3...o3-foundation-v1.2.0) (2024-06-11)
 
 
