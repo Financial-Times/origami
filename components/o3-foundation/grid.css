@@ -31,5 +31,5 @@
 	display: grid;
 	grid-template-columns: var(--o3-grid-template);
 	grid-template-areas: var(--o3-grid-area);
-	gap: var(--o3-grid-gap);
+	column-gap: var(--o3-grid-gap);
 }
