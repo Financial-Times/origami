@@ -1,3 +1,7 @@
+.o3-grid {
+	row-gap: 4px;
+}
+
 .o3-grid-item {
 	height: 100px;
 	background-color: tomato;

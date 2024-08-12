@@ -1,21 +1,21 @@
-.o3-grid {
+:root {
 	--o3-grid-template: 0px
 		repeat(var(--o3-grid-columns), 1fr) 0px;
-	--o3-grid-area: 'spread-left content-start . . content-end spread-right';
+	--o3-grid-area: 'bleed-left content-start . . content-end bleed-right';
 	--o3-grid-columns: 4;
 	--o3-grid-gap: 16px;
 
 	@media screen and (min-width: 740px) {
 		--o3-grid-template: 8px
 			repeat(var(--o3-grid-columns), 1fr) 8px;
-		--o3-grid-area: 'spread-left content-start . . . . . . content-end spread-right';
+		--o3-grid-area: 'bleed-left content-start . . . . . . content-end bleed-right';
 		--o3-grid-columns: 8;
 	}
 
 	@media screen and (min-width: 980px) {
 		--o3-grid-template: 0px
 			repeat(var(--o3-grid-columns), 1fr) 0px;
-		--o3-grid-area: 'spread-left content-start . . . . . . . . . . content-end spread-right';
+		--o3-grid-area: 'bleed-left content-start . . . . . . . . . . content-end bleed-right';
 		--o3-grid-columns: 12;
 		--o3-grid-gap: 24px;
 	}

@@ -2,10 +2,13 @@
 
 - [o3-foundation](#o3-foundation)
   - [Usage](#usage)
-  - [Normalisation](#normalisation)
     - [Normalisation](#normalisation)
     - [Focus rings](#focus-rings)
     - [Fonts](#fonts)
+    - [Icons](#icons)
+    - [Colours](#colours)
+    - [Spacing](#spacing)
+    - [Grid](#grid)
     - [Helper classes](#helper-classes)
   - [Migration](#migration)
   - [Contact](#contact)
@@ -13,7 +16,7 @@
 
 ## Usage
 
-`o3-foundation` provides CSS Custom Properties for design tokens representing colours, typographic scale, spacing, and iconography.
+`o3-foundation` provides CSS Custom Properties for design tokens representing colours, typographic scale, spacing, iconography and grid.
 
 `o3-foundation` supports brands: `core`, `internal`, `professional`, `sustainable-views` and `whitelabel`.
 
@@ -23,9 +26,9 @@ Import your chosen brand to begin using tokens in your CSS/SCSS:
 @import '@financial-times/o3-foundation/css/core.css';
 
 body {
-	background-color: var(--o3-color-use-case-page-background);
-	font-size: var(--o3-font-size-1);
-	line-height: var(--o3-font-lineheight-1);
+ background-color: var(--o3-color-use-case-page-background);
+ font-size: var(--o3-font-size-1);
+ line-height: var(--o3-font-lineheight-1);
 }
 ```
 
@@ -46,7 +49,7 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 
 ```html
 <body data-o3-brand="core">
-	<a href="#" class="example-custom-link">Example</a>
+ <a href="#" class="example-custom-link">Example</a>
 </body>
 ```
 
@@ -85,17 +88,17 @@ For example, to create a `1rem` sized icon which inherits its colour from the cu
 
 ```css
 .example-icon-use {
-	/* Create a square the size we want an icon */
-	display: inline-block;
-	width: 1rem;
-	height: 1rem;
-	/* Set the icon colour, In this case match the
+ /* Create a square the size we want an icon */
+ display: inline-block;
+ width: 1rem;
+ height: 1rem;
+ /* Set the icon colour, In this case match the
      current foreground text colour. */
-	background-color: currentColor;
-	/* Mask the square with an Origami icon. */
-	mask-image: var(--o3-icons-ft-icon-plus);
-	mask-repeat: no-repeat;
-	mask-size: contain;
+ background-color: currentColor;
+ /* Mask the square with an Origami icon. */
+ mask-image: var(--o3-icons-ft-icon-plus);
+ mask-repeat: no-repeat;
+ mask-size: contain;
 }
 ```
 
@@ -121,11 +124,72 @@ Example:
 
 ```css
 .example-spacing {
-	margin: var(--o3-spacing-2xs);
+ margin: var(--o3-spacing-2xs);
 }
 ```
 
 See our documentation website for a [full list of spacing tokens](https://origami-for-everyone.ft.com/guides/spacing/).
+
+### Grid
+
+o3-foundation provides CSS Custom Properties for grid that you can set on your class:
+
+```css
+.example-class {
+ display: grid;
+ /* Controls the column structure of your grid. */
+ grid-template-columns: var(--o3-grid-template);
+ /* Defines named areas for grid item placement. */
+ grid-template-areas: var(--o3-grid-area);
+ /* Manages the spacing between grid columns. */
+ column-gap: var(--o3-grid-gap);
+}
+```
+
+To make it more convenient use class `o3-grid` on your elements to apply the default o3 grid styling.
+
+```html
+<div class="o3-grid">
+ <!-- Grid Items -->
+</div>
+```
+
+The `o3-grid` template follows a specific structure:
+
+```txt
+`bleed-start content-start [REST_OF_THE_COLUMNS] content-end bleed-end`,
+```
+
+- The 12-Column Grid Structure: The `o3-grid` system is built on a 12-column grid structure. These 12 columns are utilized within the `content-start` and `content-end` boundaries.
+- Bleed Columns for Extended Layouts: `bleed-start` & `bleed-end`: These special columns extend beyond the 12-column grid, reaching the edges of the viewport. This allows you to create "full-bleed" layouts where content extends off the screen. These columns are used as margin areas, providing visual breathing room around your central content.
+- `[REST_OF_THE_COLUMNS]`: This represents any additional columns you might need in your grid.
+
+#### Positioning grid items
+
+You can precisely control the positioning of grid items using the `grid-column` style or css property:
+
+```html
+<div class="o3-grid">
+ <div style="grid-column: content-start / content-end;">
+  Spans the entire content area
+ </div>
+ <div style="grid-column: content-start / span 4;">
+  Starts at `content-start`, spans 4 columns
+ </div>
+ <div style="grid-column: content-start / span 2;">
+  Starts at `content-start`, spans 2 columns
+ </div>
+ <div style="grid-column: span 1 / content-end;">
+  Ends at `content-end`, spans 1 column back
+ </div>
+ <div style="grid-column: bleed-left / bleed-right;">
+  Spans the entire viewport (full bleed)
+ </div>
+ <div style="grid-column: bleed-left / content-end;">
+  Starts at the left edge, ends at `content-end`
+ </div>
+</div>
+```
 
 ### Helper classes
 

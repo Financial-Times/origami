@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import "../grid.css";
 
 const itemDetails = [
 	{
@@ -23,12 +24,12 @@ const itemDetails = [
 	},
 	{
 		id: 5,
-		span: `spread-left / spread-right`,
+		span: `bleed-left / bleed-right`,
 		text: 'Full bleed',
 	},
 	{
 		id: 6,
-		span: `spread-left / content-end`,
+		span: `bleed-left / content-end`,
 		text: 'Bleed only left',
 	},
 ];
