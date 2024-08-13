@@ -6,7 +6,7 @@
 		padding-bottom: $_o-header-padding-y;
 		text-align: center;
 
-		&[aria-hidden="false"] {
+		&[aria-hidden='false'] {
 			display: block;
 		}
 	}
@@ -47,19 +47,25 @@
 	}
 
 	.o-header__search-submit {
-		@include oButtonsContent($opts: (
-			'type': 'primary',
-			'icon-only': true,
-			'icon': 'search',
-			'size': 'big'
-		));
+		@include oButtonsContent(
+			$opts: (
+				'type': 'primary',
+				'icon-only': true,
+				'icon': 'search',
+				'size': 'big',
+			)
+		);
 		margin-left: $_o-header-padding-x;
 		padding-left: 40px;
 		background-position: inherit;
 	}
 
 	.o-header__search-close {
-		@include oIconsContent('cross', _oHeaderGet('search-close'), $size: $_o-header-icon-size-large);
+		@include oIconsContent(
+			'cross',
+			_oHeaderGet('search-close'),
+			$size: $_o-header-icon-size-large
+		);
 		border: 0;
 		margin-left: $_o-header-padding-x;
 		vertical-align: middle;
