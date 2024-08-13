@@ -6,17 +6,29 @@ export const FormField = ({
 	label,
 	description,
 	feedback,
-	labelId,
+	id: inputId,
 	children,
+	optional = false,
+	type = undefined,
 }: FormFieldProps) => {
 	return (
-		<div>
-			<label htmlFor={labelId}>{label}</label>
-			{description && <span>{description}</span>}
+		<div className="o3-form-field">
+			{type === 'checkbox' || type === 'radio-button' ? (
+				<span className="o3-form-title">
+					{label}
+					{optional && <span className="o3-form-optional-label">optional</span>}
+				</span>
+			) : (
+				<label htmlFor={inputId}>
+					{label}
+					{optional && <span className="o3-form-optional-label">optional</span>}
+				</label>
+			)}
+			{description && (
+				<span className="o3-form-input-description">{description}</span>
+			)}
 			{children}
 			{feedback && <Feedback {...feedback} />}
 		</div>
 	);
 };
-
-

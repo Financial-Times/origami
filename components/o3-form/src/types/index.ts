@@ -1,8 +1,13 @@
-export type FormFieldProps = {
+type FormField = {
+	id: string;
 	label: string;
-	labelId: string;
+	optional: boolean;
 	description?: string;
 	feedback?: FeedBackProps;
+	type?: 'checkbox' | 'radio-button';
+};
+
+export type FormFieldProps = FormField & {
 	children: JSX.Element & JSX.IntrinsicElements['input'];
 };
 
@@ -11,12 +16,10 @@ export type FeedBackProps = {
 	type: 'error';
 };
 
-export type CheckBoxProps = {
-	id: string;
-	label: string;
-	checked: boolean;
+export type CheckBoxProps = FormField & {
 	error: boolean;
-	feedBack: FeedBackProps;
+	checkBoxLabel: string;
+	attributes?: JSX.IntrinsicElements['input']
 };
 
-export type PasswordInputProps = Omit<FormFieldProps, 'children'>;
+export type PasswordInputProps = FormField;
