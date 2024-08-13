@@ -10,14 +10,14 @@ export const CheckBoxItem = ({
 	...props
 }: CheckBoxItemProps) => {
 	const {id, attributes, error} = props;
-	const classNames = ['o3-form-input__checkbox'];
+	const classNames = ['o3-form-input__checkbox-input'];
 
 	if (error || props?.feedback?.type == 'error') {
 		classNames.push('o3-form-input-error');
 	}
 
 	return (
-		<div>
+		<div className="o3-form-input__checkbox">
 			<input
 				{...attributes}
 				type="checkbox"
@@ -26,7 +26,9 @@ export const CheckBoxItem = ({
 				required={!optional}
 				aria-required={!optional}
 			/>
-			<label htmlFor={id}>{props.checkBoxLabel}</label>
+			<label htmlFor={id} className="o3-form-input__checkbox-label">
+				{props.checkBoxLabel}
+			</label>
 		</div>
 	);
 };
@@ -45,7 +47,12 @@ export const CheckBoxGroup = ({
 }: CheckBoxGroupProps) => {
 	return (
 		<FormField {...props} optional={optional} type="checkbox">
-			<div>{props.children}</div>
+			<div
+				role="group"
+				aria-labelledby={props.labelId}
+				aria-describedby={props.descriptionId}>
+				{props.children}
+			</div>
 		</FormField>
 	);
 };

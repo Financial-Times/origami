@@ -4,7 +4,9 @@ import {Feedback} from './Feedback';
 
 export const FormField = ({
 	label,
+	labelId,
 	description,
+	descriptionId,
 	feedback,
 	id: inputId,
 	children,
@@ -14,7 +16,7 @@ export const FormField = ({
 	return (
 		<div className="o3-form-field">
 			{type === 'checkbox' || type === 'radio-button' ? (
-				<span className="o3-form-title">
+				<span className="o3-form-title" id={labelId}>
 					{label}
 					{optional && <span className="o3-form-optional-label">optional</span>}
 				</span>
@@ -25,7 +27,9 @@ export const FormField = ({
 				</label>
 			)}
 			{description && (
-				<span className="o3-form-input-description">{description}</span>
+				<span className="o3-form-input-description" id={descriptionId}>
+					{description}
+				</span>
 			)}
 			{children}
 			{feedback && <Feedback {...feedback} />}

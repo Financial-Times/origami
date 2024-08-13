@@ -1,8 +1,10 @@
 type FormField = {
 	id: string;
 	label: string;
+	labelId: string;
 	optional: boolean;
 	description?: string;
+	descriptionId?: string;
 	feedback?: FeedBackProps;
 	type?: 'checkbox' | 'radio-button';
 };

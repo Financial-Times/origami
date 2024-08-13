@@ -20,6 +20,9 @@ export const CheckBoxStory: CheckBoxStory = {
 	args: {
 		id: 'checkbox-demo',
 		label: 'Check this box',
+		labelId: 'checkbox-demo-label',
+		description: 'Please check the box to continue',
+		descriptionId: 'checkbox-demo-description',
 		checkBoxLabel: 'I agree to the terms and conditions',
 		optional: false,
 		attributes: {
@@ -39,6 +42,9 @@ export const CheckBoxGroupStory: CheckBoxGroupStory = {
 	args: {
 		id: 'checkbox-group-demo',
 		label: 'Check all that apply',
+		labelId: 'checkbox-group-demo-label',
+		description: 'Please check all that apply',
+		descriptionId: 'checkbox-group-demo-description',
 		optional: false,
 		children: [
 			<CheckBoxItem key="1" id="checkbox1" checkBoxLabel="Option 1" />,
