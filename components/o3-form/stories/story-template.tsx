@@ -1,10 +1,17 @@
 import type {StoryObj} from '@storybook/react';
-import {CheckBox as CheckBoxTsx} from '../src/tsx/index';
+import {CheckBoxGroup, CheckBoxItem, CheckBox} from '../src/tsx/index';
 
-type CheckBoxStory = StoryObj<typeof CheckBoxTsx>
+type CheckBoxStory = StoryObj<typeof CheckBox>
 const CheckBoxTemplate: CheckBoxStory = {
 	render: args => {
-		return <CheckBoxTsx {...args} />;
+		return <CheckBox {...args} />;
+	},
+};
+
+type CheckBoxGroupStory = StoryObj<typeof CheckBoxGroup>
+const CheckBoxGroupTemplate: CheckBoxGroupStory = {
+	render: args => {
+		return <CheckBoxGroup {...args} />;
 	},
 };
 
@@ -24,5 +31,19 @@ export const CheckBoxStory: CheckBoxStory = {
 			message: 'Error message',
 			type: 'error',
 		},
+	},
+};
+
+export const CheckBoxGroupStory: CheckBoxGroupStory = {
+	...CheckBoxGroupTemplate,
+	args: {
+		id: 'checkbox-group-demo',
+		label: 'Check all that apply',
+		optional: false,
+		children: [
+			<CheckBoxItem key="1" id="checkbox1" checkBoxLabel="Option 1" />,
+			<CheckBoxItem key="2" id="checkbox2" checkBoxLabel="Option 2" />,
+			<CheckBoxItem key="3" id="checkbox3" checkBoxLabel="Option 3" />,
+		],
 	},
 };

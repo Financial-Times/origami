@@ -1,6 +1,5 @@
 import {Feedback} from './fieldComponents/Feedback';
 import {FormField} from './fieldComponents/FormField';
-import {CheckBox} from './CheckBox';
+import {CheckBoxItem, CheckBox, CheckBoxGroup} from './CheckBox';
 
-
-export {Feedback, FormField, CheckBox};
+export {Feedback, FormField, CheckBox, CheckBoxGroup, CheckBoxItem};

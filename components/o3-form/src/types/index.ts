@@ -16,10 +16,19 @@ export type FeedBackProps = {
 	type: 'error';
 };
 
-export type CheckBoxProps = FormField & {
-	error: boolean;
+export type CheckBoxItemProps = {
+	id: string;
+	attributes?: JSX.IntrinsicElements['input'];
+	error?: boolean;
 	checkBoxLabel: string;
-	attributes?: JSX.IntrinsicElements['input']
+	feedback?: FeedBackProps;
+	optional?: boolean;
+};
+
+export type CheckBoxProps = FormField & CheckBoxItemProps;
+
+export type CheckBoxGroupProps = FormField & {
+	children: JSX.Element | JSX.Element[]
 };
 
 export type PasswordInputProps = FormField;
