@@ -46,36 +46,31 @@
 		}
 	}
 
+	.o-header__search-icon {
+		@include oIconsContent($icon-name: 'search', $size: 40, $color: white);
+	}
+
 	.o-header__search-submit {
 		@include oButtonsContent(
 			$opts: (
 				'type': 'primary',
-				'icon-only': true,
-				'icon': 'search',
 				'size': 'big',
 			)
 		);
+		display: flex;
+		gap: 10px;
+		align-items: center;
 		margin-left: $_o-header-padding-x;
-		padding-left: 40px;
+		padding: 0px oSpacingByName('s6') 0px oSpacingByName('s4');
 		background-position: inherit;
 	}
 
 	.o-header__search-close {
-		@include oIconsContent(
-			'cross',
-			_oHeaderGet('search-close'),
-			$size: $_o-header-icon-size-large
-		);
+		@include oTypographySans($scale: 1);
+		text-decoration: underline;
+		background: none;
+		padding: 0;
 		border: 0;
 		margin-left: $_o-header-padding-x;
-		vertical-align: middle;
-		// Match the search button's hover/focus state.
-		&:hover {
-			opacity: 0.75;
-		}
-
-		@include oGridRespondTo($until: 'M') {
-			display: none;
-		}
 	}
 }

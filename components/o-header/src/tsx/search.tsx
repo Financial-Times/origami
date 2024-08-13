@@ -16,6 +16,7 @@ export function Search() {
 						aria-controls="o-header-search-js"
 						title="Close search bar">
 						<span className="o-header__visually-hidden">Close search bar</span>
+						<span>Close</span>
 					</button>
 				</SearchForm>
 			</div>
@@ -53,9 +54,9 @@ function SearchForm(props) {
 				</span>
 				<span className="o-forms-input o-forms-input--text o-forms-input--suffix">
 					<input
-						id={`o-header-search-term`}
+						id="o-header-search-term"
 						name="q"
-						type="text"
+						type="search"
 						autoComplete="off"
 						autoCorrect="off"
 						autoCapitalize="off"
@@ -63,7 +64,8 @@ function SearchForm(props) {
 						placeholder="Search for stories, topics or securities"
 					/>
 					<button className="o-header__search-submit" type="submit">
-						Search
+						<span aria-hidden="true" className="o-header__search-icon"></span>
+						<span>Search</span>
 					</button>
 					{props.children}
 				</span>
