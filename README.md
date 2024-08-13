@@ -104,11 +104,26 @@ brew install rg
    npm install
    ```
 
-3. Run the storybook. This will server storybook on <http://localhost:6006>, and open your web browser :)
+3. Choose the appropriate command based on the project:
 
-   ```shell
-   npm run storybook
-   ```
+   - For Origami's o2 components storybook, run the following command:
+
+     ```shell
+     npm run storybook
+     ```
+
+   - For Origami's o3 components storybook, run the following commands:
+
+     ```shell
+     npm run build-storybook -w apps/o3-storybook/
+     npm run storybook -w apps/o3-storybook/ 
+     ```
+
+   - For Origami Design System website, run the following command:
+
+     ```shell
+     npm run dev -w apps/for-everyone-website/
+     ```
 
 ### Developing components
 
