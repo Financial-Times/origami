@@ -1,18 +1,25 @@
+import {uidBuilder} from '@financial-times/o-utils';
+
+import {FormField, FormFieldset} from './fieldComponents/FormField';
+
 import type {
-	CheckBoxItemProps,
+	// CheckBoxP,
 	CheckBoxProps,
-	CheckBoxGroupProps,
+	FormFieldsetProps,
 } from '../types';
-import {FormField} from './fieldComponents/FormField';
 
-export const CheckBoxItem = ({
-	optional = false,
-	...props
-}: CheckBoxItemProps) => {
-	const {id, attributes, error} = props;
-	const classNames = ['o3-form-input__checkbox-input'];
+const uniqueId = uidBuilder('o3-form');
 
-	if (error || props?.feedback?.type == 'error') {
+export const CheckBoxItem = (props: CheckBoxProps) => {
+	let {inputId, attributes, error, optional} = props;
+
+	if (!inputId) {
+		inputId = uniqueId('checkbox-input_');
+	}
+
+	const classNames = ['o3-form-input__checkbox-input', 'o3-visually-hidden'];
+
+	if (error) {
 		classNames.push('o3-form-input-error');
 	}
 
@@ -21,38 +28,32 @@ export const CheckBoxItem = ({
 			<input
 				{...attributes}
 				type="checkbox"
-				id={id}
+				id={inputId}
 				className={classNames.join(' ')}
 				required={!optional}
 				aria-required={!optional}
 			/>
-			<label htmlFor={id} className="o3-form-input__checkbox-label">
-				{props.checkBoxLabel}
+			<label htmlFor={inputId} className="o3-form-input__checkbox-label">
+				{props.checkboxLabel}
 			</label>
 		</div>
 	);
 };
 
-export const CheckBox = ({optional = false, ...props}: CheckBoxProps) => {
+export const CheckBox = (props: CheckBoxProps) => {
+	const newProps = {
+		...props,
+		labelId: uniqueId('checkbox_'),
+		descriptionId: uniqueId('checkbox_'),
+		inputId: uniqueId('checkbox_'),
+	};
 	return (
-		<FormField {...props} optional={optional} type="checkbox">
-			<CheckBoxItem {...props}> </CheckBoxItem>
+		<FormField {...newProps} type="checkbox">
+			<CheckBoxItem {...newProps}> </CheckBoxItem>
 		</FormField>
 	);
 };
 
-export const CheckBoxGroup = ({
-	optional = false,
-	...props
-}: CheckBoxGroupProps) => {
-	return (
-		<FormField {...props} optional={optional} type="checkbox">
-			<div
-				role="group"
-				aria-labelledby={props.labelId}
-				aria-describedby={props.descriptionId}>
-				{props.children}
-			</div>
-		</FormField>
-	);
+export const CheckBoxGroup = (props: FormFieldsetProps) => {
+	return <FormFieldset {...props}>{props.children}</FormFieldset>;
 };

@@ -1,36 +1,42 @@
-type FormField = {
-	id: string;
-	label: string;
-	labelId: string;
-	optional: boolean;
+
+// Base Input Props
+export type BaseInputProps = {
+	inputId?: string;
+	label?: string;
 	description?: string;
-	descriptionId?: string;
-	feedback?: FeedBackProps;
-	type?: 'checkbox' | 'radio-button';
+	optional?: boolean;
+	error?: string;
+	attributes?: JSX.IntrinsicElements['input'];
 };
 
-export type FormFieldProps = FormField & {
+// CheckBox specific props
+export interface CheckBoxProps extends BaseInputProps {
+	checkboxLabel: string; // Label specifically for the checkbox
+}
+
+// FieldSet props
+export interface FormFieldsetProps {
+	label: string;
+	description?: string;
+	error?: string;
+	children: JSX.Element | JSX.Element[];
+	feedback?: FeedBackProps;
+}
+
+export interface FormFieldProps extends BaseInputProps {
+	feedback?: FeedBackProps;
 	children: JSX.Element & JSX.IntrinsicElements['input'];
-};
+	type?: 'checkbox' | 'radio-button';
+}
+
+export interface FormFieldsetProps {
+	label: string;
+	description?: string;
+	error?: string;
+	children: JSX.Element | JSX.Element[];
+}
 
 export type FeedBackProps = {
 	message: string;
 	type: 'error';
 };
-
-export type CheckBoxItemProps = {
-	id: string;
-	attributes?: JSX.IntrinsicElements['input'];
-	error?: boolean;
-	checkBoxLabel: string;
-	feedback?: FeedBackProps;
-	optional?: boolean;
-};
-
-export type CheckBoxProps = FormField & CheckBoxItemProps;
-
-export type CheckBoxGroupProps = FormField & {
-	children: JSX.Element | JSX.Element[]
-};
-
-export type PasswordInputProps = FormField;
