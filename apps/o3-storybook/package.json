@@ -40,5 +40,8 @@
   },
   "volta": {
     "node": "18.20.3"
+  },
+  "peerDependencies": {
+    "@financial-times/o3-figma-sb-links": "^0.0.0"
   }
 }
