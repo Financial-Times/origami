@@ -42,6 +42,7 @@
     "whitelabel/components/o3-tooltip",
     "whitelabel/components/o3-typography",
     "whitelabel/components/o3-editorial-typography",
+    "whitelabel/whitelabel",
     "utility-tokens",
     "icons/icons"
   ]

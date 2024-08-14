@@ -12,7 +12,8 @@
       "core/components/o3-tooltip": "source",
       "core/use-case/color": "enabled",
       "core/use-case/focus": "enabled",
-      "core/components/o3-editorial-typography": "source"
+      "core/components/o3-editorial-typography": "source",
+      "whitelabel/whitelabel": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -222,7 +223,8 @@
       "core/use-case/color": "enabled",
       "core/professional/components/o3-tooltip": "source",
       "core/use-case/focus": "enabled",
-      "core/professional/components/o3-typography": "source"
+      "core/professional/components/o3-typography": "source",
+      "whitelabel/whitelabel": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -425,7 +427,8 @@
       "internal/components/o3-tooltip": "source",
       "internal/use-case/color": "enabled",
       "internal/use-case/focus": "enabled",
-      "internal/components/o3-typography": "source"
+      "internal/components/o3-typography": "source",
+      "whitelabel/whitelabel": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6510:3502",
     "$figmaModeId": "6510:2",
@@ -514,7 +517,8 @@
       "whitelabel/components/o3-tooltip": "source",
       "whitelabel/use-case/focus": "enabled",
       "whitelabel/components/o3-typography": "source",
-      "whitelabel/components/o3-editorial-typography": "source"
+      "whitelabel/components/o3-editorial-typography": "source",
+      "whitelabel/whitelabel": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6510:3570",
     "$figmaModeId": "6510:3",
@@ -578,7 +582,8 @@
       "sustainable-views/use-case/color": "enabled",
       "sustainable-views/components/o3-editorial-typography": "source",
       "sustainable-views/use-case/focus": "enabled",
-      "sustainable-views/components/o3-typography": "enabled"
+      "sustainable-views/components/o3-typography": "enabled",
+      "whitelabel/whitelabel": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6169:227",
     "$figmaModeId": "6169:4",

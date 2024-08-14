@@ -65,6 +65,14 @@
             "type": "color"
           }
         },
+        "error": {
+          "value": "#cc0000",
+          "type": "color"
+        },
+        "error-background": {
+          "value": "rgba(204,0,0,0.06)",
+          "type": "color"
+        },
         "body-inverse": {
           "text": {
             "value": "{o3.color.palette.white}",
