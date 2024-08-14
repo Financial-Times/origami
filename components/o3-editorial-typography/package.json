@@ -33,5 +33,8 @@
 	"peerDependencies": {
 		"@financial-times/o3-figma-sb-links": "^0.0.0",
 		"@financial-times/o3-foundation": "^1.0.0"
+	},
+	"devDependencies": {
+		"@financial-times/o3-figma-sb-links": "^0.0.0"
 	}
 }
