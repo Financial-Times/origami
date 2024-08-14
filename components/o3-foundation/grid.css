@@ -6,7 +6,7 @@
 	--o3-grid-columns: 4;
 	--o3-grid-gap: 16px;
 	--_o3-grid-column-width: calc((100vw - var(--_o3-grid-gutters) * var(--o3-grid-gap)) / var(--o3-grid-columns));
-	--o3-grid-span-columns: calc(((var(--_o3-grid-column-width) + var(--o3-grid-gap)) * var(--o3-grid-span-columns-count)) - var(--o3-grid-gap));
+	--o3-grid-columns-to-span-width: calc(((var(--_o3-grid-column-width) + var(--o3-grid-gap)) * var(--o3-grid-columns-to-span-count)) - var(--o3-grid-gap));
 
 	@media screen and (min-width: 740px) {
 		--o3-grid-template: 8px
