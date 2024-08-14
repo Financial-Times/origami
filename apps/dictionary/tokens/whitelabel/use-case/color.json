@@ -97,7 +97,7 @@
           }
         },
         "alert-text": {
-          "value": "$ {o3.color.palette.crimson}",
+          "value": "{o3.color.palette.crimson}",
           "type": "color"
         }
       }

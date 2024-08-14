@@ -29,6 +29,10 @@
             "value": "rgba(204, 0, 0, 0.06)",
             "type": "color"
           }
+        },
+        "border-radius": {
+          "value": "6px",
+          "type": "borderRadius"
         }
       }
     }
