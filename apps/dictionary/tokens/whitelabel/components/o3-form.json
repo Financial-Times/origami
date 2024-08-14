@@ -1,0 +1,36 @@
+{
+  "o3": {
+    "form": {
+      "text-input": {
+        "border": {
+          "@": {
+            "value": {
+              "color": "{o3.color.palette.black-30}",
+              "width": "2px",
+              "style": "solid"
+            },
+            "type": "border"
+          },
+          "error": {
+            "value": {
+              "color": "{o3.color.use-case.alert-text}",
+              "width": "2px",
+              "style": "solid"
+            },
+            "type": "border"
+          }
+        },
+        "background-color": {
+          "@": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          },
+          "error": {
+            "value": "rgba(204, 0, 0, 0.06)",
+            "type": "color"
+          }
+        }
+      }
+    }
+  }
+}
