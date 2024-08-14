@@ -1,5 +1,5 @@
 import type {Meta} from '@storybook/react';
-import {CheckBox as CheckBoxTsx} from '../../src/tsx/checkBox';
+import {CheckBox as CheckBoxTsx} from '../../src/tsx/CheckBox';
 import '../../src/css/brands/whitelabel.css';
 import links from '@financial-times/o3-figma-sb-links';
 

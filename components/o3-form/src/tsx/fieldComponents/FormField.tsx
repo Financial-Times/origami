@@ -10,8 +10,8 @@ export const FormField = ({
 	children,
 }: FormFieldProps) => {
 	return (
-		<div>
-			<label htmlFor={labelId}>{label}</label>
+		<div className='o3-form-field'>
+			<label className='o3-form-field__label' htmlFor={labelId}>{label}</label>
 			{description && <span>{description}</span>}
 			{children}
 			{feedback && <Feedback {...feedback} />}

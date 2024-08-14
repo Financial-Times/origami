@@ -3,7 +3,7 @@ export type FormFieldProps = {
 	labelId: string;
 	description?: string;
 	feedback?: FeedBackProps;
-	children: JSX.Element & JSX.IntrinsicElements['input'];
+	children?: JSX.Element & JSX.IntrinsicElements['input'];
 };
 
 export type FeedBackProps = {

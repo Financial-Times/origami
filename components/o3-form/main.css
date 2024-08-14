@@ -1,3 +1,16 @@
-.o3-form {
-	background-color: red;
+.o3-form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.o3-form-text-input {
+	border: var(--_o3-form-text-input-border);
+	padding: var(--o3-spacing-3xs) var(--o3-spacing-2xs);
+	background-color: var(--_o3-form-text-input-background-color);
+	border-radius: var(--_o3-form-text-input-border-radius);
+}
+.o3-form-text-input--error {
+	border: var(--_o3-form-text-input-border-error);
+	background-color: var(--_o3-form-text-input-background-color-error);
 }
