@@ -1,0 +1,91 @@
+---
+title: Form/Checkbox
+description: Checkboxes are used to select one or more items from a list, or turn an item on or off. With checkboxes, we could have multiple options selected at the same time; with toggles that’s not possible. Checkboxes usually don’t take effect right away but the user needs to perform another action to commit the changes using a CTA, like click a submit/Apply button.
+---
+
+import '@financial-times/o3-form/css/whitelabel.css';
+import CheckboxAnatomy from '../../../../components/form/anatomy/Checkbox.astro';
+import Checkbox from '../../../../components/form/Checkbox.astro';
+
+Checkboxes are used to select one or more items from a list, or turn an item on or off. With checkboxes, we could have multiple options selected at the same time; with toggles that’s not possible. Checkboxes usually don’t take effect right away but the user needs to perform another action to commit the changes using a CTA, like click a submit/Apply button.
+
+## Anatomy
+
+<CheckboxAnatomy asset="anatomy" />
+
+**1. Checkbox container:** The checkbox selection control.
+
+**2. Checkbox icon:** Text that explains the result of selecting the button. Use action verbs or phrases to tell the user what will happen next.
+
+**3. Label:** Text that provide users context. Labels are always presented to the left of the checkbox.
+
+## States
+
+Checkboxes could have various states, based on different parameters such as selection, presence/absence of a label, focus state, error or requirement.
+
+Checkbox have selection states - “Unselected”, “Selected” and “Indeterminate”.
+
+<Checkbox
+	props={{
+		checkboxLabel: 'Unselected',
+	}}
+/>
+
+<Checkbox
+	props={{
+		checkboxLabel: 'Selected',
+		attributes: {
+			checked: true,
+			onChange: () => {},
+		},
+	}}
+/>
+
+<Checkbox
+	props={{
+		checkboxLabel: 'Indeterminate',
+		attributes: {
+			indeterminate: true,
+		},
+	}}
+/>
+
+The component can be enabled or disabled. It is not recommended to show disabled components unless user research shows otherwise.
+
+<Checkbox
+	props={{
+		checkboxLabel: 'Enabled',
+	}}
+/>
+
+<Checkbox
+	props={{
+		checkboxLabel: 'Disabled',
+		attributes: {
+			disabled: true,
+		},
+	}}
+/>
+## Behavior
+
+### Touch Area
+
+The minimum clickable/touch area for the checkbox input is at least 44px in order to ensure usability and accessibility on touch devices.
+
+<CheckboxAnatomy asset="touch-area" />
+
+## Usage guidelines
+
+### Best practices
+
+- Checkboxes should be used when we want to indicate a status or a choice.
+- We should list them instead of having them side by side in columns.
+- Phrase the labels clearly so that no helper text is needed to clarify what will happen when you select the respective checkbox.
+- Use checkboxes for up to 7 options.
+- Introduce a CTA to finish/commit the changes
+
+### Labels
+
+Provide clear and descriptive labels to aid users in understanding the purpose of each checkbox.
+Use positive, active rather than negative statements, i.e.
+when the user needs to check the checkbox for something NOT to happen, say:
