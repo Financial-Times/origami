@@ -82,7 +82,7 @@ function DrawerSearch() {
 					<span className="o-forms-input o-forms-input--text o-forms-input--suffix">
 						<input
 							id="o-header-drawer-search-term"
-							type="text"
+							type="search"
 							autoComplete="off"
 							autoCorrect="off"
 							autoCapitalize="off"
