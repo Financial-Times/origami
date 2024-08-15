@@ -1,0 +1,35 @@
+:root {
+	--o3-grid-template: 0px
+		repeat(var(--o3-grid-columns), 1fr) 0px;
+	--o3-grid-area: 'bleed-left content-start . . content-end bleed-right';
+	--o3-grid-columns: 4;
+	--o3-grid-gap: 16px;
+
+	@media screen and (min-width: 740px) {
+		--o3-grid-template: 8px
+			repeat(var(--o3-grid-columns), 1fr) 8px;
+		--o3-grid-area: 'bleed-left content-start . . . . . . content-end bleed-right';
+		--o3-grid-columns: 8;
+	}
+
+	@media screen and (min-width: 980px) {
+		--o3-grid-template: 0px
+			repeat(var(--o3-grid-columns), 1fr) 0px;
+		--o3-grid-area: 'bleed-left content-start . . . . . . . . . . content-end bleed-right';
+		--o3-grid-columns: 12;
+		--o3-grid-gap: 24px;
+	}
+
+	@media screen and (min-width: 1268px) {
+		--column-width: calc((1220px - 11 * var(--o3-grid-gap)) / 12);
+		--o3-grid-template: 1fr
+			repeat(var(--o3-grid-columns), var(--column-width)) 1fr;
+	}
+}
+
+.o3-grid {
+	display: grid;
+	grid-template-columns: var(--o3-grid-template);
+	grid-template-areas: var(--o3-grid-area);
+	column-gap: var(--o3-grid-gap);
+}

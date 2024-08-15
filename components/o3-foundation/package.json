@@ -1,10 +1,15 @@
 {
 	"name": "@financial-times/o3-foundation",
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"description": "Origami foundations with design tokens",
 	"keywords": [
 		"foundation",
-		"design-tokens"
+		"design-tokens",
+		"colour",
+		"typography",
+		"spacing",
+		"icon",
+		"grid"
 	],
 	"homepage": "https://registry.origami.ft.com/components/o3-foundation",
 	"bugs": {

@@ -1,0 +1,19 @@
+---
+import * as HeadlineLarge from './preview/Headline-Large';
+import Preview from '../utils/Preview.astro';
+import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
+const {brand} = Astro.props;
+
+const storybookId = `${brand}-o3-editorial-typography--headline-large`;
+---
+<>
+	<h4>Headline Large</h4>
+
+	<p>
+		Responsive headlines used for titles and headlines of Main news pages and articles. Usually in the full-bleed topper component. Use in
+		moderation.
+	</p>
+
+	<Preview component={HeadlineLarge} />
+	<FigmaSbLinks {storybookId} />
+</>
