@@ -10,7 +10,7 @@ import type {
 const uniqueId = uidBuilder('o3-form');
 
 export const CheckBoxItem = (props: CheckBoxProps) => {
-	let {inputId, attributes, error, optional} = props;
+	let {inputId, attributes, error, optional, disabled, checked} = props;
 
 	if (!inputId) {
 		inputId = uniqueId('checkbox-input_');
@@ -31,6 +31,8 @@ export const CheckBoxItem = (props: CheckBoxProps) => {
 				className={classNames.join(' ')}
 				required={!optional}
 				aria-required={!optional}
+				disabled={disabled}
+				defaultChecked={checked}
 			/>
 			<label htmlFor={inputId} className="o3-form-input__checkbox-label">
 				{props.checkboxLabel}

@@ -46,10 +46,37 @@ export const CheckBoxGroupStory: CheckBoxGroupStory = {
 	args: {
 		label: 'Check all that apply',
 		description: 'This is a description of the checkbox group',
+		feedback: {
+			message: 'Error message',
+			type: 'error',
+		},
 		children: [
-			<CheckBoxItem key="1" optional={true} checkboxLabel="Option 1" />,
-			<CheckBoxItem key="2" optional={true} checkboxLabel="Option 2" />,
-			<CheckBoxItem key="3" optional={true} checkboxLabel="Option 3" />,
+			<CheckBoxItem key="1" optional={true} checkboxLabel="Normal" />,
+			<CheckBoxItem
+				key="2"
+				optional={true}
+				checkboxLabel="Default checked"
+				checked={true}
+			/>,
+			<CheckBoxItem
+				key="3"
+				optional={true}
+				checkboxLabel="Disabled"
+				disabled={true}
+			/>,
+			<CheckBoxItem
+				key="4"
+				optional={true}
+				checkboxLabel="Disabled and checked"
+				checked={true}
+				disabled={true}
+			/>,
+			<CheckBoxItem
+				key="5"
+				optional={true}
+				checkboxLabel="Error"
+				error={'error'}
+			/>,
 		],
 	},
 };

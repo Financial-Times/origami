@@ -15,8 +15,8 @@ export const FormField = ({
 	type = undefined,
 }: FormFieldProps) => {
 	const id = inputId || uniqueId('input_');
-  const descriptionId = description ? uniqueId('description_') : undefined;
-  const labelId = uniqueId('label_');
+	const descriptionId = description ? uniqueId('description_') : undefined;
+	const labelId = uniqueId('label_');
 	return (
 		<div className="o3-form-field">
 			{type === 'checkbox' || type === 'radio-button' ? (
@@ -50,8 +50,12 @@ export const FormFieldset = ({
 	const labelId = uniqueId('checkbox_');
 	const descriptionId = uniqueId('checkbox_');
 	return (
-		<fieldset className='o3-form-field' aria-labelledby={`${labelId} ${descriptionId}`}>
-			<legend id={labelId}>{label}</legend>
+		<fieldset
+			className="o3-form-field"
+			aria-labelledby={`${labelId} ${descriptionId}`}>
+			<legend id={labelId} className="o3-form-input-legend">
+				{label}
+			</legend>
 			{description && (
 				<span className="o3-form-input-description" id={descriptionId}>
 					{description}
