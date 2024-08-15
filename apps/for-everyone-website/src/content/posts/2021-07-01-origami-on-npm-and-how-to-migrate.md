@@ -14,7 +14,7 @@ Moving Origami from Bower to NPM provides many benefits, such as:
 - Aligning our front-end practices with those now most commonly used across the company and the wider industry, which should help the onboarding of new software engineering hires.
 - Origami components can now make use of the 1.6 million packages which are on the NPM registry.
 - Origami components will be able to use modern tooling instead of the Origami team having to build bespoke tooling ourselves.
-- Services such as Dependabot, and Renovate will be able to work for the Origami dependencies a project has.
+- Services such as Snyk, Dependabot, and Renovate will be able to work for the Origami dependencies a project has.
 
 We're already seeing the benefits with our work on a new autocomplete Origami component, which has been requested by several different FT products. By making this an npm-only component, we've been able to benefit from autocomplete packages which already exist on NPM, such as the one made by Gov UK named [accessible-autocomplete](https://github.com/alphagov/accessible-autocomplete). This has greatly reduced the amount of code we would have had to write ourselves and meant we could create a prototype for products to trial in a shorter turnaround then previously possible.
 
