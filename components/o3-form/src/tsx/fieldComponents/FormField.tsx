@@ -22,12 +22,10 @@ export const FormField = ({
 			{type === 'checkbox' || type === 'radio-button' ? (
 				<span className="o3-form-title" id={labelId}>
 					{label}
-					{optional && <span className="o3-form-optional-label">optional</span>}
 				</span>
 			) : (
-				<label htmlFor={id}>
+				<label className="o3-form-title" htmlFor={id}>
 					{label}
-					{optional && <span className="o3-form-optional-label">optional</span>}
 				</label>
 			)}
 			{description && (
