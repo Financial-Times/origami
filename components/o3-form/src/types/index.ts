@@ -7,13 +7,11 @@ export type BaseInputProps = {
 	optional?: boolean;
 	error?: string;
 	attributes?: JSX.IntrinsicElements['input'];
-	disabled?: boolean;
 };
 
 // CheckBox specific props
 export interface CheckBoxProps extends BaseInputProps {
 	checkboxLabel: string; // Label specifically for the checkbox
-	checked?: boolean;
 }
 
 // FieldSet props

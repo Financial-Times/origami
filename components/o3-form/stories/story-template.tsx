@@ -56,20 +56,19 @@ export const CheckBoxGroupStory: CheckBoxGroupStory = {
 				key="2"
 				optional={true}
 				checkboxLabel="Default checked"
-				checked={true}
+				attributes={{defaultChecked: true}}
 			/>,
 			<CheckBoxItem
 				key="3"
 				optional={true}
 				checkboxLabel="Disabled"
-				disabled={true}
+				attributes={{disabled: true}}
 			/>,
 			<CheckBoxItem
 				key="4"
 				optional={true}
 				checkboxLabel="Disabled and checked"
-				checked={true}
-				disabled={true}
+				attributes={{disabled: true, defaultChecked: true}}
 			/>,
 			<CheckBoxItem
 				key="5"
