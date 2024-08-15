@@ -76,6 +76,13 @@ export const CheckBoxGroupStory: CheckBoxGroupStory = {
 				checkboxLabel="Error"
 				error={'error'}
 			/>,
+			<CheckBoxItem
+				key="6"
+				optional={true}
+				checkboxLabel="Error checked"
+				attributes={{defaultChecked: true}}
+				error={'error'}
+			/>,
 		],
 	},
 };

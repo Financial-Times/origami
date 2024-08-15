@@ -67,3 +67,11 @@
 	mask-size: contain;
 }
 
+.o3-form-input__checkbox-input.o3-form-input-error:checked + label::before {
+  border-color: var(--o3-color-palette-crimson);
+  background-color: rgba(204, 0, 0, 0.06)
+}
+
+.o3-form-input__checkbox-input.o3-form-input-error:checked + label::after {
+  background-color:  var(--o3-color-palette-crimson);
+}
