@@ -21,7 +21,7 @@ Moving Origami from Bower to NPM provides many benefits, such as:
 - Aligning our front-end practices with those now most commonly used across the company and the wider industry, which should help the on-boarding of new software engineering hires.
 - Origami components can now make use of the 1.6 million packages which are on the NPM registry.
 - Origami components will be able to use modern tooling instead of the Origami team having to build bespoke tooling ourselves.
-- Services such as Snyk, Dependabot, and Renovate will be able to work for the Origami dependencies a project has.
+- Services such as Dependabot, and Renovate will be able to work for the Origami dependencies a project has.
 
 We have completed this piece of work and now are ready for teams to migrate their products to the new implementation of Origami. Components on Bower are now deprecated and we recommend all products migrate to the new implementation to keep up-to-date with future releases to Origami.
 
