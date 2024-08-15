@@ -9,10 +9,6 @@ export type BaseInputProps = {
 	attributes?: JSX.IntrinsicElements['input'];
 };
 
-// CheckBox specific props
-export interface CheckBoxProps extends BaseInputProps {
-	checkboxLabel: string; // Label specifically for the checkbox
-}
 
 // FieldSet props
 export interface FormFieldsetProps {
