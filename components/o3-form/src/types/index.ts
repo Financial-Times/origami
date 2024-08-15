@@ -7,36 +7,30 @@ export type BaseInputProps = {
 	optional?: boolean;
 	error?: string;
 	attributes?: JSX.IntrinsicElements['input'];
+	disabled?: boolean;
 };
 
 // CheckBox specific props
 export interface CheckBoxProps extends BaseInputProps {
 	checkboxLabel: string; // Label specifically for the checkbox
+	checked?: boolean;
 }
 
 // FieldSet props
 export interface FormFieldsetProps {
 	label: string;
 	description?: string;
-	error?: string;
 	children: JSX.Element | JSX.Element[];
-	feedback?: FeedBackProps;
+	feedback?: FeedbackProps;
 }
 
 export interface FormFieldProps extends BaseInputProps {
-	feedback?: FeedBackProps;
+	feedback?: FeedbackProps;
 	children: JSX.Element & JSX.IntrinsicElements['input'];
 	type?: 'checkbox' | 'radio-button';
 }
 
-export interface FormFieldsetProps {
-	label: string;
-	description?: string;
-	error?: string;
-	children: JSX.Element | JSX.Element[];
-}
-
-export type FeedBackProps = {
+export type FeedbackProps = {
 	message: string;
 	type: 'error';
 };

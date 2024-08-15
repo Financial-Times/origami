@@ -1,15 +1,26 @@
 .o3-form-field {
 	display: flex;
 	flex-direction: column;
-}
 
-fieldset.o3-form-field {
-	margin: 0;
-	padding: 0;
-	border: 0;
-
-	legend {
+	&:where(fieldset) {
 		margin: 0;
 		padding: 0;
+		border: 0;
+	}
+
+	& .o3-form-input-legend {
+		margin: 0;
+		padding: 0;
+		font-size: var(--o3-font-size-metric2-0);
+		line-height: var(--o3-font-lineheight-metric2-0);
+		font-weight: var(--o3-font-weight-medium);
+		color: var(--o3-color-use-case-body-text);
+	}
+
+	& .o3-form-input-description {
+		font-size: var(--o3-font-size-metric2-0);
+		line-height: var(--o3-font-lineheight-metric2-0);
+		font-weight: var(--o3-font-weight-regular);
+		color: var(--o3-color-palette-black-60);
 	}
 }

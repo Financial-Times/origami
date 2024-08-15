@@ -1,7 +1,15 @@
-[class^='o3-form-feedback__'] {
+.o3-form-feedback {
 	margin-top: var(--o3-spacing-3xs);
 }
 
 .o3-form-feedback__error {
+	display: flex;
+	align-items: center;
+	font-size: var(--o3-font-size-metric2-0);
+	line-height: var(--o3-font-lineheight-metric2-0);
 	color: var(--o3-color-palette-crimson);
+}
+
+.o3-form-feedback__error-message {
+	margin-left: var(--o3-spacing-5xs);
 }
