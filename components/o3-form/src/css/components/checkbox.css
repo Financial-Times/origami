@@ -18,7 +18,7 @@
 }
 
 .o3-form-input__checkbox-input:disabled + label::before {
-  border-color: var(--o3-color-palette-black-30); 
+  border-color: var(--o3-color-palette-black-30);
 }
 
 .o3-form-input__checkbox-input:disabled + label {
@@ -27,7 +27,7 @@
 
 .o3-form-input__checkbox-input.o3-form-input-error + label::before {
   border-color: var(--o3-color-palette-crimson);
-  background-color: rgba(204, 0, 0, 0.06)
+  background-color: rgba(204, 0, 0, 0.06) /* TOKEN NEEDED */
 }
 
 .o3-form-input__checkbox-label {
@@ -67,16 +67,3 @@
 	mask-size: contain;
 }
 
-.o3-form-input-legend {
-  font-size: var(--o3-font-size-metric2-0);
-  line-height: var(--o3-font-lineheight-metric2-0);
-  font-weight: var(--o3-font-weight-medium);
-  color: var(--o3-color-use-case-body-text)
-}
-
-.o3-form-input-description {
-  font-size: var(--o3-font-size-metric2-0);
-  line-height: var(--o3-font-lineheight-metric2-0);
-  font-weight: var(--o3-font-weight-regular);
-  color: var(--o3-color-palette-black-60)
-}
