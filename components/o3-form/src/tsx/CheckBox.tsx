@@ -2,15 +2,12 @@ import {uidBuilder} from '@financial-times/o-utils';
 
 import {FormField, FormFieldset} from './fieldComponents/FormField';
 
-import type {
-	CheckBoxProps,
-	FormFieldsetProps,
-} from '../types';
+import type {CheckBoxProps, FormFieldsetProps} from '../types';
 
 const uniqueId = uidBuilder('o3-form');
 
 export const CheckBoxItem = (props: CheckBoxProps) => {
-	let {inputId, attributes, error, optional, disabled, checked} = props;
+	let {inputId, attributes, error, optional} = props;
 
 	if (!inputId) {
 		inputId = uniqueId('checkbox-input_');
@@ -31,8 +28,6 @@ export const CheckBoxItem = (props: CheckBoxProps) => {
 				className={classNames.join(' ')}
 				required={!optional}
 				aria-required={!optional}
-				disabled={disabled}
-				defaultChecked={checked}
 			/>
 			<label htmlFor={inputId} className="o3-form-input__checkbox-label">
 				{props.checkboxLabel}
