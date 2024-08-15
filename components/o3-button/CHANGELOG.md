@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.5...o3-button-v1.1.6) (2024-08-14)
+
+
+### Bug Fixes
+
+* Move figma-sb-links to a devDependency ([#1779](https://github.com/Financial-Times/origami/issues/1779)) ([2375a2f](https://github.com/Financial-Times/origami/commit/2375a2f2dd1fec0cab9b75f65a9947011f8bc913))
+
 ## [1.1.5](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.4...o3-button-v1.1.5) (2024-06-19)
 
 
