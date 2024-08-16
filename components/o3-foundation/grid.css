@@ -32,7 +32,7 @@
 }
 
 .o3-grid * {
-	--o3-grid-columns-to-span-width: calc(((var(--_o3-grid-column-width) + var(--o3-grid-gap)) * var(--o3-grid-span-columns-count)) - var(--o3-grid-gap));
+	--o3-grid-columns-to-span-width: calc(((var(--_o3-grid-column-width) + var(--o3-grid-gap)) * var(--o3-grid-columns-to-span-count)) - var(--o3-grid-gap));
 }
 
 .o3-grid {
