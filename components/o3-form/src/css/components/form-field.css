@@ -1,0 +1,15 @@
+.o3-form-field {
+	display: flex;
+	flex-direction: column;
+}
+
+fieldset.o3-form-field {
+	margin: 0;
+	padding: 0;
+	border: 0;
+
+	legend {
+		margin: 0;
+		padding: 0;
+	}
+}

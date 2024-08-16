@@ -1,8 +1,7 @@
-.o3-form-field {
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-}
+@import './src/css/components/form.css';
+@import './src/css/components/form-field.css';
+@import './src/css/components/feedback.css';
+@import './src/css/components/checkbox.css';
 
 .o3-form-text-input {
 	border: var(--_o3-form-text-input-border);

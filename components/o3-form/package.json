@@ -4,12 +4,12 @@
 	"description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
 	"keywords": [
 		"form",
-    "input",
-    "field",
-    "fieldset",
-    "submit",
-    "file",
-    "upload"
+		"input",
+		"field",
+		"fieldset",
+		"submit",
+		"file",
+		"upload"
 	],
 	"homepage": "https://registry.origami.ft.com/components/o3-form",
 	"bugs": {
@@ -34,8 +34,9 @@
 		"build": "bash ../../scripts/component/build-o3.bash o3-form"
 	},
 	"peerDependencies": {
+		"@financial-times/o-utils": "^2.2.1",
 		"@financial-times/o3-figma-sb-links": "^0.0.0",
-		"@financial-times/o3-foundation": "^1.0.0"
+		"@financial-times/o3-foundation": "^1.2.0"
 	},
 	"engines": {
 		"npm": ">7"

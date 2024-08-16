@@ -1,4 +1,2 @@
-// disable HMR(hot module replacement) for web-component file
-// if (import.meta.webpackHot) {
-// 	import.meta.webpackHot.decline('../src/ts/index');
-// }
+import type {StoryObj} from '@storybook/react';
+import {Form} from '../src/tsx/index';
