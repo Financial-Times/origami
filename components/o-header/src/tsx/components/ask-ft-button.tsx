@@ -1,6 +1,6 @@
 export interface AskFtButtonProps {
 	id: string
-	variant: 'top'
+	variant: 'top' | 'drawer'
 	dataTrackable: string
 }
 

@@ -11,6 +11,7 @@ export function StickyHeader({
 	userIsLoggedIn,
 	showUserNavigation,
 	userIsSubscribed,
+	showAskButton,
 	data,
 }: THeaderProps) {
 	const userNavData = userIsLoggedIn
@@ -26,7 +27,7 @@ export function StickyHeader({
 			aria-hidden="true"
 			role="presentation">
 			<TopWrapper>
-				<TopColumnLeft isSticky={true} />
+				<TopColumnLeft isSticky={true} showAskButton={showAskButton} />
 				<StickyTopColumnCenter navBarItems={navBarItems} />
 				<TopColumnRight
 					variant="sticky"
