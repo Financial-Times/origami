@@ -5,7 +5,7 @@ import type {FormFieldProps, FormFieldsetProps} from '../../types';
 
 const uniqueId = uidBuilder('o3-form');
 
-export const FormField = ({
+export const LabeledFormField = ({
 	inputId,
 	label,
 	description,
@@ -33,7 +33,7 @@ export const FormField = ({
 	);
 };
 
-export const FormFieldCheckboxRadioButton = ({
+export const TitledFormField = ({
 	label,
 	description,
 	feedback,
@@ -44,17 +44,11 @@ export const FormFieldCheckboxRadioButton = ({
 	const labelId = uniqueId('label_');
 	return (
 		<div className="o3-form-field">
-			{type === 'checkbox' || type === 'radio-button' ? (
-				<span className="o3-form-field__title" id={labelId}>
-					{label}
-					{optional && <span className="o3-form-optional-label">optional</span>}
-				</span>
-			) : (
-				<label htmlFor={id} className="o3-form-field__title">
-					{label}
-					{optional && <span className="o3-form-optional-label">optional</span>}
-				</label>
-			)}
+			<span className="o3-form-field__title" id={labelId}>
+				{label}
+				{optional && <span className="o3-form-optional-label">optional</span>}
+			</span>
+
 			{description && (
 				<span className="o3-form-input-description" id={descriptionId}>
 					{description}
@@ -72,13 +66,10 @@ export const FormFieldset = ({
 	feedback,
 	children,
 }: FormFieldsetProps) => {
-	const labelId = uniqueId('checkbox_');
 	const descriptionId = uniqueId('checkbox_');
 	return (
-		<fieldset
-			className="o3-form-field"
-			aria-labelledby={`${labelId} ${descriptionId}`}>
-			<legend id={labelId}>{label}</legend>
+		<fieldset className="o3-form-field" aria-describedby={`${descriptionId}`}>
+			<legend>{label}</legend>
 			{description && (
 				<span className="o3-form-input-description" id={descriptionId}>
 					{description}
