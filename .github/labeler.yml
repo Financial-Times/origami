@@ -124,6 +124,8 @@ o3-button:
   - components/o3-button/**/*
 o3-editorial-typography:
   - components/o3-editorial-typography/**/*
+o3-form:
+  - components/o3-form/**/*
 o3-foundation:
   - components/o3-foundation/**/*
 o3-tooltip:
