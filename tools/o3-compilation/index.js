@@ -59,7 +59,7 @@ if (existsSync('src/tsx')) {
 			...sharedConfig,
 			format,
 			outDir: `${format}/`,
-			entry: ['./src/tsx/*.ts(x)?'],
+			entry: ['./src/tsx/**/*.ts(x)?'],
 		});
 	}))
 }
