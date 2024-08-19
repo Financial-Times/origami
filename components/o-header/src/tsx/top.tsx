@@ -66,8 +66,8 @@ export function TopColumnLeft({ isSticky, showAskButton }: { isSticky?: boolean,
 			{showAskButton && 
 				<AskFtButton
 					variant="top"
-					dataTrackable="ask-ft-button-header"
-					id="ask-ft-button-header"
+					dataTrackable={isSticky ? "ask-ft-button-sticky" : "ask-ft-button-header"}
+					id={isSticky ? "ask-ft-button-sticky" : "ask-ft-button-header"}
 				/>
 			}
 		</div>
