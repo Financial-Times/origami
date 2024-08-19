@@ -41,6 +41,7 @@ export function MainHeader(props: THeaderProps) {
 
 	const stickyHeaderProps = {
 		userIsLoggedIn,
+		showAskButton,
 		showUserNavigation,
 		userIsSubscribed,
 		includeUserActionsNav,

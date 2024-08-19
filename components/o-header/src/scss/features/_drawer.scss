@@ -375,4 +375,14 @@
 		margin-top: 0.25em;
 		font-size: 14px;
 	}
+
+	.o-header__ask-ft-button--drawer {
+		@include _oHeaderAskFtButton();
+		margin: $_o-header-drawer-padding-y $_o-header-drawer-padding-x 0 $_o-header-drawer-padding-x;
+		justify-content: center;
+	}
+
+	.o-header__ask-ft-button--drawer + .o-header__drawer-menu {
+		margin-top: $_o-header-drawer-padding-y
+	}
 }
