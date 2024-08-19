@@ -1,13 +1,12 @@
 import {FormField, FormFieldset} from './fieldComponents/FormField';
 import type {CheckBoxProps, FormFieldsetProps} from '../types';
-import React from 'react';
 
 export const CheckBoxItem = (props: CheckBoxProps) => {
-	let {inputId, attributes, optional, feedback} = props;
+	let {inputId, attributes, optional, error} = props;
 
 	const classNames = ['o3-form-input__checkbox-input', 'o3-visually-hidden'];
 
-	if (feedback?.type === 'error' && feedback.checkboxIds?.includes(inputId)) {
+	if (error) {
 		classNames.push('o3-form-input-error');
 	}
 
@@ -46,10 +45,13 @@ export const CheckBoxGroup = (props: FormFieldsetProps) => {
 
 	return (
 		<FormFieldset {...restProps}>
-			{React.Children.map(children, child =>
-				// Makes restProps available to all children
-				React.cloneElement(child, restProps)
-			)}
+			{(children as JSX.Element[]).map(child => {
+				const hasError = props.feedback?.errorElementIds?.includes(
+					child.props.inputId
+				);
+
+				return CheckBoxItem({...child.props, error: hasError});
+			})}
 		</FormFieldset>
 	);
 };

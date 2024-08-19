@@ -12,7 +12,6 @@ export type BaseInputProps = {
 export interface CheckBoxProps extends BaseInputProps {
 	inputId: string;
 	checkboxLabel: string; // Label specifically for the checkbox
-	feedback?: FeedbackProps;
 }
 
 // FieldSet props
@@ -30,7 +29,7 @@ export interface FormFieldProps extends BaseInputProps {
 }
 
 export type FeedbackProps = {
-	checkboxIds?: string[];
+	errorElementIds?: string[];
 	message: string;
 	type: 'error';
 };
