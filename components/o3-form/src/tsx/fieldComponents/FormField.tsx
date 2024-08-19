@@ -44,10 +44,17 @@ export const FormFieldCheckboxRadioButton = ({
 	const labelId = uniqueId('label_');
 	return (
 		<div className="o3-form-field">
-			<span className="o3-form-title" id={labelId}>
-				{label}
-				{optional && <span className="o3-form-optional-label">optional</span>}
-			</span>
+			{type === 'checkbox' || type === 'radio-button' ? (
+				<span className="o3-form-field__title" id={labelId}>
+					{label}
+					{optional && <span className="o3-form-optional-label">optional</span>}
+				</span>
+			) : (
+				<label htmlFor={id} className="o3-form-field__title">
+					{label}
+					{optional && <span className="o3-form-optional-label">optional</span>}
+				</label>
+			)}
 			{description && (
 				<span className="o3-form-input-description" id={descriptionId}>
 					{description}
