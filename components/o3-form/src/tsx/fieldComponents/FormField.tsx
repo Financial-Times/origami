@@ -5,7 +5,7 @@ import type {FormFieldProps, FormFieldsetProps} from '../../types';
 
 const uniqueId = uidBuilder('o3-form');
 
-export const FormField = ({
+export const LabeledFormField = ({
 	inputId,
 	label,
 	description,
@@ -33,7 +33,7 @@ export const FormField = ({
 	);
 };
 
-export const FormFieldCheckboxRadioButton = ({
+export const TitledFormField = ({
 	label,
 	description,
 	feedback,
