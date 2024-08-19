@@ -1,4 +1,3 @@
-
 // Base Input Props
 export type BaseInputProps = {
 	inputId?: string;
@@ -11,7 +10,9 @@ export type BaseInputProps = {
 
 // CheckBox specific props
 export interface CheckBoxProps extends BaseInputProps {
+	inputId: string;
 	checkboxLabel: string; // Label specifically for the checkbox
+	feedback?: FeedbackProps;
 }
 
 // FieldSet props
@@ -29,6 +30,7 @@ export interface FormFieldProps extends BaseInputProps {
 }
 
 export type FeedbackProps = {
+	checkboxIds?: string[];
 	message: string;
 	type: 'error';
 };

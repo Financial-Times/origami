@@ -1,21 +1,13 @@
-import {uidBuilder} from '@financial-times/o-utils';
-
 import {FormField, FormFieldset} from './fieldComponents/FormField';
-
 import type {CheckBoxProps, FormFieldsetProps} from '../types';
-
-const uniqueId = uidBuilder('o3-form');
+import React from 'react';
 
 export const CheckBoxItem = (props: CheckBoxProps) => {
-	let {inputId, attributes, error, optional} = props;
-
-	if (!inputId) {
-		inputId = uniqueId('checkbox-input_');
-	}
+	let {inputId, attributes, optional, feedback} = props;
 
 	const classNames = ['o3-form-input__checkbox-input', 'o3-visually-hidden'];
 
-	if (error) {
+	if (feedback?.type === 'error' && feedback.checkboxIds?.includes(inputId)) {
 		classNames.push('o3-form-input-error');
 	}
 
@@ -39,9 +31,8 @@ export const CheckBoxItem = (props: CheckBoxProps) => {
 export const CheckBox = (props: CheckBoxProps) => {
 	const newProps = {
 		...props,
-		labelId: uniqueId('checkbox_'),
-		descriptionId: uniqueId('checkbox_'),
-		inputId: uniqueId('checkbox_'),
+		labelId: props.inputId,
+		descriptionId: props.inputId,
 	};
 	return (
 		<FormField {...newProps} type="checkbox">
@@ -51,5 +42,14 @@ export const CheckBox = (props: CheckBoxProps) => {
 };
 
 export const CheckBoxGroup = (props: FormFieldsetProps) => {
-	return <FormFieldset {...props}>{props.children}</FormFieldset>;
+	const {children, ...restProps} = props;
+
+	return (
+		<FormFieldset {...restProps}>
+			{React.Children.map(children, child =>
+				// Makes restProps available to all children
+				React.cloneElement(child, restProps)
+			)}
+		</FormFieldset>
+	);
 };
