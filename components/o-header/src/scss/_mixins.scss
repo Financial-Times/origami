@@ -106,26 +106,27 @@
 	// sass-lint:enable no-vendor-prefixes
 }
 
+/// Base styles for Ask FT button
 @mixin _oHeaderAskFtButton() {
+	@include oTypographySans(-1, $weight: 'semibold');
 	display: flex;
 	align-items: center;
 	gap: 4px;
 	padding: 6px 8px;
 	color: _oHeaderGet('header-button-text');
 	background-color: _oHeaderGet('header-button-background');
-	@include oTypographySans(-1, $weight: 'semibold');
 	border-radius: 4px;
 	text-transform: uppercase;
 	text-decoration: none;
 	white-space: nowrap;
 
 	&::before {
-		content: '';
 		@include oIconsContent(
 			$icon-name: 'sparkles',
 			$color: _oHeaderGet('header-button-icon'),
 			$size: 40,
 		);
+		content: '';
 		margin: -10px; // Undo in-built icon whitespace.
 	}
 }
