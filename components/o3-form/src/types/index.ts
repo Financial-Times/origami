@@ -4,7 +4,7 @@ export type BaseInputProps = {
 	label?: string;
 	description?: string;
 	optional?: boolean;
-	error?: string;
+	error?: boolean;
 	attributes?: JSX.IntrinsicElements['input'];
 };
 

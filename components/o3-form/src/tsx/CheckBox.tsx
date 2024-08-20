@@ -1,4 +1,4 @@
-import {FormField, FormFieldset} from './fieldComponents/FormField';
+import {LabeledFormField, FormFieldset} from './fieldComponents/FormField';
 import type {CheckBoxProps, FormFieldsetProps} from '../types';
 
 export const CheckBoxItem = (props: CheckBoxProps) => {
@@ -34,9 +34,9 @@ export const CheckBox = (props: CheckBoxProps) => {
 		descriptionId: props.inputId,
 	};
 	return (
-		<FormField {...newProps} type="checkbox">
+		<LabeledFormField {...newProps}>
 			<CheckBoxItem {...newProps}> </CheckBoxItem>
-		</FormField>
+		</LabeledFormField>
 	);
 };
 
@@ -50,7 +50,13 @@ export const CheckBoxGroup = (props: FormFieldsetProps) => {
 					child.props.inputId
 				);
 
-				return CheckBoxItem({...child.props, error: hasError});
+				return (
+					<CheckBoxItem
+						{...child.props}
+						error={hasError}
+						key={child.props.inputId}
+					/>
+				);
 			})}
 		</FormFieldset>
 	);

@@ -10,8 +10,8 @@
 		border: 0;
 	}
 
-	& .o3-form-input-legend,
-	& .o3-form-title {
+	.o3-form-field__label,
+	.o3-form-field__title {
 		font-size: var(--o3-font-size-metric2-0);
 		line-height: var(--o3-font-lineheight-metric2-0);
 		font-weight: var(--o3-font-weight-medium);
@@ -26,7 +26,7 @@
 		}
 	}
 
-	& .o3-form-input-description {
+	.o3-form-input__description {
 		font-size: var(--o3-font-size-metric2-0);
 		line-height: var(--o3-font-lineheight-metric2-0);
 		font-weight: var(--o3-font-weight-regular);
@@ -37,9 +37,4 @@
 .o3-form-field__feedback--error {
 	color: var(--o3-color-use-case-error);
 	font-size: var(--o3-font-size-metric2-0);
-}
-
-.o3-form-field__title {
-	font-size: var(--o3-font-size-metric2-0);
-	font-weight: 500;
 }

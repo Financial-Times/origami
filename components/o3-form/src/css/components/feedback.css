@@ -1,7 +1,3 @@
-.o3-form-feedback {
-	margin-top: var(--o3-spacing-3xs);
-}
-
 .o3-form-feedback__error {
 	display: flex;
 	align-items: center;
