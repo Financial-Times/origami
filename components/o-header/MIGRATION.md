@@ -1,5 +1,23 @@
 # Migration Guide
 
+## Migrating from v13 to v14
+
+`o-header v14` includes important markup changes to the search bar. Please review the changelog carefully:
+
+1. **Search Input Field Updates**:
+
+   - As of this writing, the search input field appears in three places:
+     1. `<drawer />` (o-header/src/tsx/drawer.tsx)
+     2. `<sticky />` (o-header/src/tsx/sticky.tsx)
+     3. `<search />` (o-header/src/tsx/search.tsx)
+   - All input tags have had their `type` attributes changed from `type="text"` to `type="search"`. This update benefits screen reader users and ensures the input field has the correct semantic type.
+   - This may be a breaking change if you are migrating to `v14`, especially if you use the `type` attribute to query the input field element. Please check that your selectors work as intended.
+
+2. **UI Changes**:
+   - The `X` button has been replaced with a text button labeled `Close`.
+   - The wrapper containing the search bar now overlays the content underneath it.
+   - There are minor changes to the UI, such as adjustments to the form width and bar height, but these should not affect functionality.
+
 ## Migrating from v12 to v13
 
 o-header v13 includes markup changes to the drawer. This updates the edition switcher; moves the close button to align with where the hamburger icon would be when closed; and updates the search bar both in the drawer and on desktop. To migrate:
