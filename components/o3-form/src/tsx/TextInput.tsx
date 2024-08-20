@@ -1,11 +1,12 @@
-import type {FormFieldProps} from '../types';
+import {BaseInputProps, FeedBackProps, FormFieldProps} from '../types';
 import '../../main.css';
 import {FormField} from './fieldComponents/FormField';
 
 export type TextInputProps = {
 	disabled?: boolean,
-	length?: 2 | 3 | 4 | 5
-} & FormFieldProps
+	length?: 2 | 3 | 4 | 5,
+	feedback?: FeedBackProps
+} & BaseInputProps
 export const TextInput = ({label, feedback, description, disabled, length}: TextInputProps) => {
 	const inputClasses = ['o3-form', 'o3-form-text-input'];
 

@@ -38,22 +38,31 @@ export const TextInputErrorState = {
 	},
 	render: (args) => {
 		return (
-			<TextInputTsx label={args.label} disabled={args.disabled} description={args.description} length={args.length} feedback={args.feedback}
-										labelId="label" />);
+			<TextInputTsx label={args.label} disabled={args.disabled} description={args.description} length={args.length}
+										feedback={args.feedback}
+										 />);
 	},
 };
 
-export const ShortTextInput = {
-	args: {
-		label: 'Security code',
-		description:
-			'3 digit security code as printed on the back of your credit card.',
-		length:
-			3,
-	},
-	render: (args) => {
-		return (<TextInputTsx label={args.label} disabled={args.disabled} description={args.description} feedback={args.feedback} length={args.length} labelId="label"/>)
-	}
+export const ShortTextInput = (args) => {
+		return (
+			<>
+				<TextInputTsx label="Day" description="Two digit day of the month" feedback={args.feedback} length={2}
+				/>
+				<TextInputTsx label="Security code"
+											description="3 digit security code as printed on the back of your credit card."
+											feedback={args.feedback} length={3} />
+				<TextInputTsx label="Date of Bith" description="The year you were born" feedback={args.feedback} length={4}
+				/>
+				<TextInputTsx label="Passcode" description="A 5-digin code to authenticate you on login"
+											feedback={args.feedback} length={5} />
+			</>
+		);
 };
+ShortTextInput.parameters = {
+	controls: {
+		disable: true
+	}
+}
 
 export default meta;
