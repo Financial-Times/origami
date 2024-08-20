@@ -1,0 +1,7 @@
+[class^='o3-form-feedback__'] {
+	margin-top: var(--o3-spacing-3xs);
+}
+
+.o3-form-feedback__error {
+	color: var(--o3-color-palette-crimson);
+}
