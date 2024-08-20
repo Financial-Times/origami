@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.3.0...o3-foundation-v1.4.0) (2024-08-20)
+
+
+### Features
+
+* Add error colour token ([#1783](https://github.com/Financial-Times/origami/issues/1783)) ([679bae5](https://github.com/Financial-Times/origami/commit/679bae531519aad357401851c0a4ea179b657c58))
+
 ## [1.3.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.2.0...o3-foundation-v1.3.0) (2024-08-12)
 
 
