@@ -1,6 +1,8 @@
 .o3-form-field {
 	display: flex;
 	flex-direction: column;
+	font-family: var(--o3-font-family-metric);
+	gap: var(--o3-spacing-3xs);
 
 	&:where(fieldset) {
 		margin: 0;
@@ -30,4 +32,14 @@
 		font-weight: var(--o3-font-weight-regular);
 		color: var(--o3-color-palette-black-60);
 	}
+}
+
+.o3-form-field__feedback--error {
+	color: var(--o3-color-use-case-error);
+	font-size: var(--o3-font-size-metric2-0);
+}
+
+.o3-form-field__title {
+	font-size: var(--o3-font-size-metric2-0);
+	font-weight: 500;
 }

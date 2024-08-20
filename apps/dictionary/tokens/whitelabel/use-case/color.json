@@ -65,6 +65,14 @@
             "type": "color"
           }
         },
+        "error": {
+          "value": "{o3.color.palette.crimson}",
+          "type": "color"
+        },
+        "error-background": {
+          "value": "rgba(204,0,0,0.06)",
+          "type": "color"
+        },
         "body-inverse": {
           "text": {
             "value": "{o3.color.palette.white}",
@@ -95,6 +103,10 @@
             "value": "{o3.color.palette.white}",
             "type": "color"
           }
+        },
+        "error": {
+          "value": "{o3.color.palette.crimson}",
+          "type": "color"
         }
       }
     }
