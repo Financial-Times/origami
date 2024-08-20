@@ -66,9 +66,9 @@ export const FormFieldset = ({
 	const descriptionId = uniqueId('checkbox_');
 	return (
 		<fieldset className="o3-form-field" aria-describedby={`${descriptionId}`}>
-			<legend>{label}</legend>
+			<legend className="o3-form-field__legend ">{label}</legend>
 			{description && (
-				<span className="o3-form-input-description" id={descriptionId}>
+				<span className="o3-form-input__description" id={descriptionId}>
 					{description}
 				</span>
 			)}
