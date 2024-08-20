@@ -47,7 +47,7 @@
 	}
 
 	.o-header__search-icon {
-		@include oIconsContent($icon-name: 'search', $size: 40, $color: white);
+		@include oIconsContent($icon-name: 'search', $size: 38, $color: white);
 
 		@include oGridRespondTo($until: 'S') {
 			display: none;
