@@ -1,4 +1,5 @@
-import { TNavMenuItem, THeaderVariant } from "./Props";
+import { AskFtButton } from "./components/ask-ft-button";
+import { THeaderVariant, TNavMenuItem } from "./Props";
 
 export function HeaderWrapper({
 	variant,
@@ -37,7 +38,7 @@ export const TopWrapper = ({
 	</div>
 );
 
-export function TopColumnLeft({ isSticky }: { isSticky?: boolean }) {
+export function TopColumnLeft({ isSticky, showAskButton }: { isSticky?: boolean, showAskButton?: boolean }) {
 	const drawerLabel = isSticky ? "Menu" : "Open side navigation menu";
 	const searchProps = {
 		href: isSticky ? "#o-header-search-sticky" : "#o-header-search",
@@ -62,6 +63,13 @@ export function TopColumnLeft({ isSticky }: { isSticky?: boolean }) {
 			>
 				<span className="o-header__top-link-label">Open search bar</span>
 			</a>
+			{showAskButton && 
+				<AskFtButton
+					variant="top"
+					dataTrackable={isSticky ? "ask-ft-button-sticky" : "ask-ft-button-header"}
+					id={isSticky ? "ask-ft-button-sticky" : "ask-ft-button-header"}
+				/>
+			}
 		</div>
 	);
 }

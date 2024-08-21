@@ -70,6 +70,13 @@ export const argTypes = {
 			defaultValue: {summary: 'true'},
 		},
 	},
+	showAskButton: {
+		description:
+			'Show Ask FT button',
+		table: {
+			defaultValue: {summary: 'true'},
+		},
+	},
 	data: {
 		description:
 			'Navigation data for rendering the header links fetched from the navigation API',

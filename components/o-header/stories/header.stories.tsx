@@ -31,6 +31,7 @@ export const HeaderPrimary: ComponentStory<typeof MainHeader> = args => {
 			<MainHeader {...args} />
 			<Drawer
 				data={args.data}
+				showAskButton={args.showAskButton}
 				userIsLoggedIn={args.userIsLoggedIn}
 				userIsSubscribed={args.userIsSubscribed}
 			/>
@@ -51,6 +52,7 @@ HeaderPrimary.args = {
 	userIsSubscribed: false,
 	showLogoLink: true,
 	showStickyHeader: true,
+	showAskButton: true,
 };
 HeaderPrimary.parameters = {
 	controls: {
@@ -67,6 +69,7 @@ export const DefaultHeaderWithRightAlignedSubnav: ComponentStory<
 			<MainHeader {...args} />;
 			<Drawer
 				data={args.data}
+				showAskButton={args.showAskButton}
 				userIsLoggedIn={args.userIsLoggedIn}
 				userIsSubscribed={args.userIsSubscribed}
 			/>
@@ -82,6 +85,7 @@ DefaultHeaderWithRightAlignedSubnav.args = {
 	showUserNavigation: true,
 	userIsLoggedIn: true,
 	showLogoLink: false,
+	showAskButton: true,
 };
 DefaultHeaderWithRightAlignedSubnav.parameters = {
 	controls: {
@@ -117,6 +121,7 @@ LogoOnlyHeader.parameters = {
 			"data",
 			"currentPath",
 			"userIsLoggedIn",
+			"showAskButton",
 			"showSubNavigation",
 			"showUserNavigation",
 			"showMegaNav",
@@ -151,6 +156,7 @@ NoOutboundLinks.parameters = {
 			"data",
 			"currentPath",
 			"variant",
+			"showAskButton",
 			"showMegaNav",
 			"userIsSubscribed",
 			"showStickyHeader",
@@ -180,6 +186,7 @@ InverseSimpleHeader.parameters = {
 			"data",
 			"currentPath",
 			"variant",
+			"showAskButton",
 			"showMegaNav",
 			"showSubNavigation",
 			"showLogoLink",
