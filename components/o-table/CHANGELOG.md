@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.3.5](https://github.com/Financial-Times/origami/compare/o-table-v9.3.4...o-table-v9.3.5) (2024-08-21)
+
+
+### Bug Fixes
+
+* upgrade ftdomdelegate to v5 in o-table ([#1759](https://github.com/Financial-Times/origami/issues/1759)) ([b6a9912](https://github.com/Financial-Times/origami/commit/b6a99129db28ac2a808fd945f25e806ce8228fee))
+
 ## [9.3.4](https://github.com/Financial-Times/origami/compare/o-table-v9.3.3...o-table-v9.3.4) (2024-02-26)
 
 
