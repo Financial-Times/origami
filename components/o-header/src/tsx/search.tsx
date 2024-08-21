@@ -2,9 +2,11 @@
 // 	<!-- Pick only one of the two <div> if you don't need to support both core and enhanced -->
 
 export function Search() {
+	const searchDivId = 'o-header-search';
+
 	return (
 		<div
-			id="o-header-search"
+			id={searchDivId}
 			className="o-header__row o-header__search"
 			role="search"
 			data-o-header-search>
@@ -13,9 +15,10 @@ export function Search() {
 					<button
 						className="o-header__search-close o--if-js"
 						type="button"
-						aria-controls="o-header-search-js"
+						aria-controls={searchDivId}
 						title="Close search bar">
 						<span className="o-header__visually-hidden">Close search bar</span>
+						<span>Close</span>
 					</button>
 				</SearchForm>
 			</div>
@@ -37,6 +40,8 @@ export function CoreSearch() {
 }
 
 function SearchForm(props) {
+	const searchFieldId = 'o-header-search-term';
+
 	return (
 		<form
 			className="o-header__search-form"
@@ -44,7 +49,7 @@ function SearchForm(props) {
 			role="search"
 			aria-label="Site search">
 			<label
-				htmlFor="o-header-search-term-js"
+				htmlFor={searchFieldId}
 				className="o-header__search-term o-forms-field o-forms-field--optional">
 				<span className="o-forms-title o-header__visually-hidden">
 					<span className="o-forms-title__main">
@@ -53,9 +58,9 @@ function SearchForm(props) {
 				</span>
 				<span className="o-forms-input o-forms-input--text o-forms-input--suffix">
 					<input
-						id={`o-header-search-term`}
+						id={searchFieldId}
 						name="q"
-						type="text"
+						type="search"
 						autoComplete="off"
 						autoCorrect="off"
 						autoCapitalize="off"
@@ -63,7 +68,8 @@ function SearchForm(props) {
 						placeholder="Search for stories, topics or securities"
 					/>
 					<button className="o-header__search-submit" type="submit">
-						Search
+						<span aria-hidden="true" className="o-header__search-icon"></span>
+						<span>Search</span>
 					</button>
 					{props.children}
 				</span>

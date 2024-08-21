@@ -140,7 +140,7 @@
 	.o-header__drawer-search {
 		padding: 0px $_o-header-drawer-padding-x;
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oGridRespondTo('M') {
 			display: none;
 		}
 
