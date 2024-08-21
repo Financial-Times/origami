@@ -380,7 +380,7 @@
 		@include _oHeaderAskFtButton();
 
 		// Same as .o-header__drawer-search
-		@include oGridRespondTo('oHeaderL') {
+		@include oGridRespondTo('M') {
 			display: none;
 		}
 
