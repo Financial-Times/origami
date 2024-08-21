@@ -19,7 +19,7 @@
    - The wrapper containing the search bar now overlays the content underneath it.
    - There are minor changes to the UI, such as adjustments to the form width and bar height, but these should not affect functionality.
 
-### 3. Markup Changes
+3. Markup Changes
 
 - **Search Button:**
 
