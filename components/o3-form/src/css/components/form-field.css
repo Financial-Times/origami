@@ -1,7 +1,6 @@
 .o3-form-field {
 	display: flex;
 	flex-direction: column;
-	font-family: var(--o3-font-family-metric);
 	gap: var(--o3-spacing-3xs);
 }
 

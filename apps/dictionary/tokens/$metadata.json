@@ -43,6 +43,7 @@
     "whitelabel/components/o3-typography",
     "whitelabel/components/o3-form",
     "whitelabel/components/o3-editorial-typography",
+    "whitelabel/whitelabel",
     "utility-tokens",
     "icons/icons"
   ]

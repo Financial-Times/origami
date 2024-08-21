@@ -5,31 +5,50 @@ import type {FormFieldProps, FormFieldsetProps} from '../../types';
 
 const uniqueId = uidBuilder('o3-form');
 
-export const FormField = ({
+export const LabeledFormField = ({
 	inputId,
 	label,
 	description,
 	feedback,
 	children,
 	optional = false,
-	type = undefined,
 }: FormFieldProps) => {
 	const id = inputId || uniqueId('input_');
-  const descriptionId = description ? uniqueId('description_') : undefined;
-  const labelId = uniqueId('label_');
+	const descriptionId = description ? uniqueId('description_') : undefined;
 	return (
 		<div className="o3-form-field">
-			{type === 'checkbox' || type === 'radio-button' ? (
-				<span className="o3-form-field__title" id={labelId}>
-					{label}
-					{optional && <span className="o3-form-optional-label">optional</span>}
+			<label htmlFor={id}>
+				{label}
+				{optional && <span className="o3-form-optional-label">optional</span>}
+			</label>
+
+			{description && (
+				<span className="o3-form-input-description" id={descriptionId}>
+					{description}
 				</span>
-			) : (
-				<label htmlFor={id} className="o3-form-field__title">
-					{label}
-					{optional && <span className="o3-form-optional-label">optional</span>}
-				</label>
 			)}
+			{children}
+			{feedback && <Feedback {...feedback} />}
+		</div>
+	);
+};
+
+export const TitledFormField = ({
+	label,
+	description,
+	feedback,
+	children,
+	optional = false,
+}: FormFieldProps) => {
+	const descriptionId = description ? uniqueId('description_') : undefined;
+	const labelId = uniqueId('label_');
+	return (
+		<div className="o3-form-field">
+			<span className="o3-form-field__title" id={labelId}>
+				{label}
+				{optional && <span className="o3-form-optional-label">optional</span>}
+			</span>
+
 			{description && (
 				<span className="o3-form-input-description" id={descriptionId}>
 					{description}
@@ -47,11 +66,10 @@ export const FormFieldset = ({
 	feedback,
 	children,
 }: FormFieldsetProps) => {
-	const labelId = uniqueId('checkbox_');
 	const descriptionId = uniqueId('checkbox_');
 	return (
-		<fieldset className='o3-form-field' aria-labelledby={`${labelId} ${descriptionId}`}>
-			<legend id={labelId}>{label}</legend>
+		<fieldset className="o3-form-field" aria-describedby={`${descriptionId}`}>
+			<legend>{label}</legend>
 			{description && (
 				<span className="o3-form-input-description" id={descriptionId}>
 					{description}

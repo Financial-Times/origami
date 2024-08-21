@@ -26,7 +26,7 @@ export const TextInput = {
 	render: (args) => {
 		return (
 			<TextInputTsx label={args.label} disabled={args.disabled} description={args.description} feedback={args.feedback}
-										labelId="label" />);
+										/>);
 	},
 };
 

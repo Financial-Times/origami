@@ -21,8 +21,7 @@ export interface FormFieldsetProps {
 
 export interface FormFieldProps extends BaseInputProps {
 	feedback?: FeedBackProps;
-	children?: JSX.Element & JSX.IntrinsicElements['input'];
-	type?: 'checkbox' | 'radio-button';
+	children: JSX.Element & JSX.IntrinsicElements['input'];
 }
 
 export interface FormFieldsetProps {
