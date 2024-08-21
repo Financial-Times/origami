@@ -113,8 +113,8 @@
 	align-items: center;
 	gap: 4px;
 	padding: 6px 8px;
-	color: _oHeaderGet('header-button-text');
-	background-color: _oHeaderGet('header-button-background');
+	color: _oHeaderGet('header-ask-ft-button-text');
+	background-color: _oHeaderGet('header-ask-ft-button-background');
 	border-radius: 4px;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -123,7 +123,7 @@
 	&::before {
 		@include oIconsContent(
 			$icon-name: 'sparkles',
-			$color: _oHeaderGet('header-button-icon'),
+			$color: _oHeaderGet('header-ask-ft-button-icon'),
 			$size: 40,
 		);
 		content: '';
