@@ -2,6 +2,8 @@
 
 ## Migrating from v13 to v14
 
+### Search bar
+
 `o-header v14` includes important markup changes to the search bar. Please review the changelog carefully:
 
 1. **Search Input Field Updates**:
@@ -86,6 +88,15 @@
   +   placeholder="Search for stories, topics, or securities"
   + />
   ```
+
+### Ask FT button
+
+`o-header v14` adds optional Ask FT button markup in the following places:
+  - top left menu of the header (o-header/src/tsx/drawer.tsx)
+  - top left menu of the sticky (o-header/src/tsx/sticky.tsx)
+  - as the top, under the search in the drawer menu (o-header/src/tsx/drawer.tsx)
+
+Update your markup according to the [Storybook demo](https://o2-core.origami.ft.com/?path=/story/components-o-header--header-primary&globals=backgrounds:!undefined) or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx) with `showAskButton=true` if you need to include Ask FT button.
 
 ## Migrating from v12 to v13
 
