@@ -1,4 +1,34 @@
 # Changelog
+## [14.0.0](https://github.com/Financial-Times/origami/compare/o-header-v13.0.3...o-header-v14.0.0) (2024-08-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update drawer button responsive
+* (o-header) Add `type="search" to the input field inside the drawer
+* (o-header) Rework search & close buttons
+
+### Features
+
+* (o-header) Add `type="search" to the input field inside the drawer ([d020919](https://github.com/Financial-Times/origami/commit/d02091960c0f03f29b7ee1bc525ef1f9f3c33e78))
+* (o-header) Align the search bar width and color according to the new look ([96f377f](https://github.com/Financial-Times/origami/commit/96f377f1e0a15957e466492ad37e6e4eceb21e07))
+* (o-header) Hide drawer search for tables & display search icon ([89f50cf](https://github.com/Financial-Times/origami/commit/89f50cf24a330d8aa7a0858de612a551f35b45a8))
+* (o-header) Rework search & close buttons ([2411230](https://github.com/Financial-Times/origami/commit/241123062b7558452dd4437882237799fe2f1801))
+* add Ask FT button in the drawer ([a6b115b](https://github.com/Financial-Times/origami/commit/a6b115b1e90666c70bd88a523bb59c19d35d64a9))
+* add Ask FT button to the top header ([9784f02](https://github.com/Financial-Times/origami/commit/9784f029a0d3bd9845ed20ba1bac301e911353c6))
+* rename color variables ([9880a9e](https://github.com/Financial-Times/origami/commit/9880a9e8d13dd7aadaf3785693cc5227e175b279))
+* update Ask FT button responsive visibility ([fcf388e](https://github.com/Financial-Times/origami/commit/fcf388ec20896a3962a549fe9e095566902c522b))
+* Update drawer button responsive ([6b546a4](https://github.com/Financial-Times/origami/commit/6b546a4bca9bbda962bcad2ef63fbffcc194eb4e))
+* update migration guide ([e2fe5c3](https://github.com/Financial-Times/origami/commit/e2fe5c3a18b734e752f4037ca000903c145706bc))
+
+
+### Bug Fixes
+
+* (o-header) Fix a11ty issues where `aria-controls` atrributes were referencing incorect IDs ([b555f03](https://github.com/Financial-Times/origami/commit/b555f03e446357d4cb4cee61e8ea18a0958c9803))
+* (o-header) tweak the icon size to make sure the container is `40px` tall ([f9cecb7](https://github.com/Financial-Times/origami/commit/f9cecb7bbde2d8ba5508226f7f065abf7f202533))
+* Fix Ask Ft sticky header props ([a25e3e5](https://github.com/Financial-Times/origami/commit/a25e3e52392bd1a48b27529b92d41a28be232c90))
+* linting errors ([6a930b6](https://github.com/Financial-Times/origami/commit/6a930b6cb64c324d01b451d963f8d670502ec2cf))
+
 ## [13.0.3](https://github.com/Financial-Times/origami/compare/o-header-v13.0.2...o-header-v13.0.3) (2024-07-10)
 
 
