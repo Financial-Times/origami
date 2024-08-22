@@ -125,7 +125,7 @@
 
 		// when used in tandem with the menu toggle, hide this on smaller screen sizes
 		.o-header__top-icon-link--menu + & {
-			@include oGridRespondTo($until: 'L') {
+			@include oGridRespondTo($until: 'M') {
 				display: none;
 			}
 		}
@@ -196,4 +196,11 @@
 		}
 	}
 
+	.o-header__ask-ft-button--top {
+		@include _oHeaderAskFtButton();
+		@include oGridRespondTo($until: 'M') {
+			display: none;
+		}
+		margin: 0 10px;
+	}
 }

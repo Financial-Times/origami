@@ -11,6 +11,7 @@ export function StickyHeader({
 	userIsLoggedIn,
 	showUserNavigation,
 	userIsSubscribed,
+	showAskButton,
 	data,
 }: THeaderProps) {
 	const userNavData = userIsLoggedIn
@@ -26,7 +27,7 @@ export function StickyHeader({
 			aria-hidden="true"
 			role="presentation">
 			<TopWrapper>
-				<TopColumnLeft isSticky={true} />
+				<TopColumnLeft isSticky={true} showAskButton={showAskButton} />
 				<StickyTopColumnCenter navBarItems={navBarItems} />
 				<TopColumnRight
 					variant="sticky"
@@ -78,9 +79,12 @@ const Navigation = ({navBarItems}: {navBarItems: TNavMenuItem[]}) => (
 );
 
 const StickySearch = () => {
+	const stickySearchDivId = 'o-header-search-sticky';
+	const inputFieldId = 'o-header-search-term-js';
+
 	return (
 		<div
-			id="o-header-search-sticky"
+			id={stickySearchDivId}
 			className="o-header__row o-header__search o--if-js"
 			role="search"
 			data-o-header-search>
@@ -91,7 +95,7 @@ const StickySearch = () => {
 					role="search"
 					aria-label="Site search">
 					<label
-						htmlFor="o-header-search-term-js"
+						htmlFor={inputFieldId}
 						className="o-header__search-term o-forms-field o-forms-field--optional">
 						<span className="o-forms-title o-header__visually-hidden">
 							<span className="o-forms-title__main">
@@ -100,22 +104,26 @@ const StickySearch = () => {
 						</span>
 						<span className="o-forms-input o-forms-input--text o-forms-input--suffix">
 							<input
-								id="o-header-search-term-js"
+								id={inputFieldId}
 								name="q"
-								type="text"
+								type="search"
 								placeholder="Search for stories, topics or securities"
 							/>
 							<button className="o-header__search-submit" type="submit">
-								Search
+								<span
+									aria-hidden="true"
+									className="o-header__search-icon"></span>
+								<span>Search</span>
 							</button>
 							<button
-								className="o-header__search-close"
+								className="o-header__search-close o--if-js"
 								type="button"
-								aria-controls="o-header-search-sticky"
+								aria-controls={stickySearchDivId}
 								title="Close search bar">
 								<span className="o-header__visually-hidden">
 									Close search bar
 								</span>
+								<span>Close</span>
 							</button>
 						</span>
 					</label>

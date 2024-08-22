@@ -1,54 +1,54 @@
 {
-  "name": "@financial-times/o-table",
-  "version": "9.3.4",
-  "description": "Provides styling and behvaiour for tables across FT products.",
-  "keywords": [
-    "table",
-    "data",
-    "columns",
-    "rows",
-    "filter",
-    "sort"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-table",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-table,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "browser": "main.js",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "dependencies": {
-    "ftdomdelegate": "^4.0.6"
-  },
-  "peerDependencies": {
-    "@financial-times/math": "^1.0.0",
-    "@financial-times/o-brand": "^4.1.0",
-    "@financial-times/o-buttons": "^7.0.0",
-    "@financial-times/o-colors": "^6.5.0",
-    "@financial-times/o-grid": "^6.0.0",
-    "@financial-times/o-icons": "^7.0.1",
-    "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.4.1",
-    "@financial-times/o-visual-effects": "^4.0.1"
-  },
-  "devDependencies": {
-    "@financial-times/o-buttons": "^7.8.0",
-    "@financial-times/o-fonts": "^5",
-    "@financial-times/o-forms": "^9.9.0",
-    "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-typography": "^7"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false
+	"name": "@financial-times/o-table",
+	"version": "9.3.5",
+	"description": "Provides styling and behvaiour for tables across FT products.",
+	"keywords": [
+		"table",
+		"data",
+		"columns",
+		"rows",
+		"filter",
+		"sort"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-table",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-table,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"dependencies": {
+		"ftdomdelegate": "^5.0.0"
+	},
+	"peerDependencies": {
+		"@financial-times/math": "^1.0.0",
+		"@financial-times/o-brand": "^4.1.0",
+		"@financial-times/o-buttons": "^7.0.0",
+		"@financial-times/o-colors": "^6.5.0",
+		"@financial-times/o-grid": "^6.0.0",
+		"@financial-times/o-icons": "^7.0.1",
+		"@financial-times/o-spacing": "^3.0.0",
+		"@financial-times/o-typography": "^7.4.1",
+		"@financial-times/o-visual-effects": "^4.0.1"
+	},
+	"devDependencies": {
+		"@financial-times/o-buttons": "^7.8.0",
+		"@financial-times/o-fonts": "^5",
+		"@financial-times/o-forms": "^9.9.0",
+		"@financial-times/o-normalise": "^3.3.0",
+		"@financial-times/o-typography": "^7"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
 }

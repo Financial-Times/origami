@@ -140,7 +140,7 @@
 	.o-header__drawer-search {
 		padding: 0px $_o-header-drawer-padding-x;
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oGridRespondTo('M') {
 			display: none;
 		}
 
@@ -374,5 +374,21 @@
 		display: block;
 		margin-top: 0.25em;
 		font-size: 14px;
+	}
+
+	.o-header__ask-ft-button--drawer {
+		@include _oHeaderAskFtButton();
+
+		// Same as .o-header__drawer-search
+		@include oGridRespondTo('M') {
+			display: none;
+		}
+
+		margin: $_o-header-drawer-padding-y $_o-header-drawer-padding-x 0 $_o-header-drawer-padding-x;
+		justify-content: center;
+	}
+
+	.o-header__ask-ft-button--drawer + .o-header__drawer-menu {
+		margin-top: $_o-header-drawer-padding-y
 	}
 }

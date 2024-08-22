@@ -11,7 +11,7 @@
 	}
 
 	.o3-form-field__label,
-	.o3-form-field__title, 
+	.o3-form-field__title,
 	.o3-form-field__legend {
 		font-size: var(--o3-font-size-metric2-0);
 		line-height: var(--o3-font-lineheight-metric2-0);
