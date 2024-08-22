@@ -5,11 +5,15 @@ export type BaseInputProps = {
 	label?: string;
 	description?: string;
 	optional?: boolean;
-	error?: string;
+	error?: boolean;
 	attributes?: JSX.IntrinsicElements['input'];
 };
 
-
+export interface TextInputProps extends FormFieldProps{
+	disabled?: boolean,
+	length?: 2 | 3 | 4 | 5,
+	feedback?: FeedBackProps
+};
 // FieldSet props
 export interface FormFieldsetProps {
 	label: string;

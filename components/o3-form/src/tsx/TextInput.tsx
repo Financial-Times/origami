@@ -1,13 +1,8 @@
-import {BaseInputProps, FeedBackProps, FormFieldProps} from '../types';
+import {BaseInputProps, FeedBackProps, FormFieldProps, TextInputProps} from '../types';
 import '../../main.css';
 import {LabeledFormField} from './fieldComponents/FormField';
 
-export type TextInputProps = {
-	disabled?: boolean,
-	length?: 2 | 3 | 4 | 5,
-	feedback?: FeedBackProps
-} & BaseInputProps
-export const TextInput = ({label, feedback, description, disabled, length}: TextInputProps) => {
+export const TextInput = ({label, feedback, description, disabled, length, attributes, inputId, optional}: TextInputProps) => {
 	const inputClasses = ['o3-form', 'o3-form-text-input'];
 
 	if (feedback && feedback.type === 'error') {
@@ -16,9 +11,10 @@ export const TextInput = ({label, feedback, description, disabled, length}: Text
 	if(length) {
 		inputClasses.push(`o3-form-text-input--short-${length}`)
 	}
+
 	return (
 		<LabeledFormField label={label} feedback={feedback} description={description}>
-			<input disabled={disabled} className={inputClasses.join(' ')} maxLength={length}
+			<input {...attributes} id={inputId} disabled={disabled} className={inputClasses.join(' ')} required={optional} aria-required={optional} maxLength={length}
 						 type="text"
 			/>
 		</LabeledFormField>
