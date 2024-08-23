@@ -14,28 +14,25 @@ export interface TextInputProps extends FormFieldProps{
 	length?: 2 | 3 | 4 | 5,
 	feedback?: FeedBackProps
 };
-// FieldSet props
+
+export interface CheckBoxProps extends BaseInputProps {
+	inputId: string;
+	checkboxLabel: string; // Label specifically for the checkbox
+}
 export interface FormFieldsetProps {
 	label: string;
 	description?: string;
-	error?: string;
 	children: JSX.Element | JSX.Element[];
-	feedback?: FeedBackProps;
+	feedback?: FeedbackProps;
 }
 
 export interface FormFieldProps extends BaseInputProps {
-	feedback?: FeedBackProps;
+	feedback?: FeedbackProps;
 	children: JSX.Element & JSX.IntrinsicElements['input'];
 }
 
-export interface FormFieldsetProps {
-	label: string;
-	description?: string;
-	error?: string;
-	children: JSX.Element | JSX.Element[];
-}
-
-export type FeedBackProps = {
+export type FeedbackProps = {
+	errorElementIds?: string[];
 	message: string;
 	type: 'error';
 };
