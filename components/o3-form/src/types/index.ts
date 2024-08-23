@@ -5,33 +5,29 @@ export type BaseInputProps = {
 	label?: string;
 	description?: string;
 	optional?: boolean;
-	error?: string;
+	error?: boolean;
 	attributes?: JSX.IntrinsicElements['input'];
 };
 
+export interface CheckBoxProps extends BaseInputProps {
+	inputId: string;
+	checkboxLabel: string; // Label specifically for the checkbox
+}
 
-// FieldSet props
 export interface FormFieldsetProps {
 	label: string;
 	description?: string;
-	error?: string;
 	children: JSX.Element | JSX.Element[];
-	feedback?: FeedBackProps;
+	feedback?: FeedbackProps;
 }
 
 export interface FormFieldProps extends BaseInputProps {
-	feedback?: FeedBackProps;
+	feedback?: FeedbackProps;
 	children: JSX.Element & JSX.IntrinsicElements['input'];
 }
 
-export interface FormFieldsetProps {
-	label: string;
-	description?: string;
-	error?: string;
-	children: JSX.Element | JSX.Element[];
-}
-
-export type FeedBackProps = {
+export type FeedbackProps = {
+	errorElementIds?: string[];
 	message: string;
 	type: 'error';
 };
