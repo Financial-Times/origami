@@ -3,7 +3,7 @@ import {GridMetaGenerator} from '../storyTemplates'
 
 export default {
 	title: 'Whitelabel/o3-grid',
-	tags: ['!autodocs'],
+	tags: ['autodocs'],
 	...GridMetaGenerator('whitelabel'),
 } as Meta;
 

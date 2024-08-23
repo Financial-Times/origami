@@ -3,7 +3,7 @@ import {GridMetaGenerator} from '../storyTemplates'
 
 export default {
 	title: 'Sustainable-views/o3-grid',
-	tags: ['!autodocs'],
+	tags: ['autodocs'],
 	...GridMetaGenerator('sustainable-views'),
 } as Meta;
 

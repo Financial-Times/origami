@@ -3,7 +3,7 @@ import {GridMetaGenerator} from '../storyTemplates'
 
 export default {
 	title: 'Internal/o3-grid',
-	tags: ['!autodocs'],
+	tags: ['autodocs'],
 	...GridMetaGenerator('internal'),
 } as Meta;
 
