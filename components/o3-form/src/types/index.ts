@@ -12,7 +12,7 @@ export type BaseInputProps = {
 export interface TextInputProps extends FormFieldProps{
 	disabled?: boolean,
 	length?: 2 | 3 | 4 | 5,
-	feedback?: FeedBackProps
+	feedback?: FeedbackProps
 };
 
 export interface CheckBoxProps extends BaseInputProps {

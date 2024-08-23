@@ -118,5 +118,7 @@
   "core-professional-o3-grid--grid": "?path=/story/core-professional-o3-grid--grid",
   "internal-o3-grid--grid": "?path=/story/internal-o3-grid--grid",
   "sustainable-views-o3-grid--grid": "?path=/story/sustainable-views-o3-grid--grid",
-  "whitelabel-o3-grid--grid": "?path=/story/whitelabel-o3-grid--grid"
+  "whitelabel-o3-grid--grid": "?path=/story/whitelabel-o3-grid--grid",
+  "whitelabel-o3-form--check-box-group": "?path=/story/whitelabel-o3-form--check-box-group",
+  "whitelabel-o3-form--check-box": "?path=/story/whitelabel-o3-form--check-box"
 }
