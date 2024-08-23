@@ -1,4 +1,6 @@
 import type {Meta} from '@storybook/react';
+import links from '@financial-times/o3-figma-sb-links';
+
 import {TextInput as TextInputTsx} from '../../src/tsx/TextInput';
 import '../../src/css/brands/whitelabel.css';
 
@@ -23,6 +25,12 @@ export const TextInput = {
 		description: 'Your full name as printed on your driving license',
 		feedback: {},
 	},
+	parameters: {
+		design: {
+			type: 'figma',
+			url: links['whitelabel-o3-form--text-input'].figma,
+		},
+	},
 	render: (args) => {
 		return (
 			<TextInputTsx label={args.label} disabled={args.disabled} description={args.description} feedback={args.feedback}
@@ -35,6 +43,12 @@ export const TextInputErrorState = {
 		label: 'Full name',
 		description: 'Your full name as printed on your driving license',
 		feedback: {message: 'Something went wrong', type: 'error'},
+	},
+	parameters: {
+		design: {
+			type: 'figma',
+			url: links['whitelabel-o3-form--text-input-error-state'].figma,
+		},
 	},
 	render: (args) => {
 		return (
@@ -62,7 +76,11 @@ export const ShortTextInput = (args) => {
 ShortTextInput.parameters = {
 	controls: {
 		disable: true
-	}
+	},
+	design: {
+		type: 'figma',
+		url: links['whitelabel-o3-form--text-input'].figma,
+	},
 }
 
 export default meta;
