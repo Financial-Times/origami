@@ -1,11 +1,21 @@
 .o3-form-feedback__error {
-	display: flex;
-	align-items: center;
 	font-size: var(--o3-font-size-metric2-0);
 	line-height: var(--o3-font-lineheight-metric2-0);
 	color: var(--o3-color-palette-crimson);
 }
 
 .o3-form-feedback__error-message {
-	margin-left: var(--o3-spacing-5xs);
+	display: flex;
+	&::before {
+		content: '';
+		display: inline-block;
+		align-self: center;
+		margin-right: var(--o3-spacing-5xs);
+		background-color: var(--o3-color-use-case-error);
+		width: var(--o3-font-size-metric2-0);
+		height: var(--o3-font-size-metric2-0);
+		mask-image: var(--o3-icons-ft-icon-error);
+		mask-repeat: no-repeat;
+		mask-size: contain;
+	}
 }
