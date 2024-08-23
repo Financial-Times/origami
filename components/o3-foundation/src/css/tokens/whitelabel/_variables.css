@@ -29,13 +29,14 @@
   --o3-color-use-case-page-background: var(--o3-color-palette-white);
   --o3-color-use-case-page-inverse-background: var(--o3-color-palette-black-80);
   --o3-color-use-case-body-text: var(--o3-color-palette-black-80);
+  --o3-color-use-case-error: var(--o3-color-palette-crimson);
+  --o3-color-use-case-error-background: rgba(204,0,0,0.06);
   --o3-color-use-case-body-inverse-text: var(--o3-color-palette-white);
   --o3-color-use-case-muted-text: var(--o3-color-palette-black-50); /* "Muted" text is less prominent, for example credits and captions. */
   --o3-color-use-case-muted-inverse-text: var(--o3-color-palette-black-20);
   --o3-color-use-case-heading-text: var(--o3-color-palette-black-90);
   --o3-color-use-case-heading-inverse-text: var(--o3-color-palette-white);
   --o3-color-use-case-alert-text: var(--o3-color-palette-crimson);
-  --o3-color-use-case-error: var(--o3-color-palette-crimson);
   --o3-spacing-5xs: 0.25rem;
   --o3-spacing-4xs: 0.5rem;
   --o3-spacing-3xs: 0.75rem;
