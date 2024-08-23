@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.4.0...o3-foundation-v1.5.0) (2024-08-23)
+
+
+### Features
+
+* added error icon, success icon and minus sign icon ([#1794](https://github.com/Financial-Times/origami/issues/1794)) ([ba24f9e](https://github.com/Financial-Times/origami/commit/ba24f9e7f5c7d07b6bf0882199b3287621dfdd74))
+
 ## [1.4.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.3.0...o3-foundation-v1.4.0) (2024-08-20)
 
 
