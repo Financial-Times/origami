@@ -1,5 +1,103 @@
 # Migration Guide
 
+## Migrating from v13 to v14
+
+### Search bar
+
+`o-header v14` includes important markup changes to the search bar. Please review the changelog carefully:
+
+1. **Search Input Field Updates**:
+
+   - As of this writing, the search input field appears in three places:
+     1. `<drawer />` (o-header/src/tsx/drawer.tsx)
+     2. `<sticky />` (o-header/src/tsx/sticky.tsx)
+     3. `<search />` (o-header/src/tsx/search.tsx)
+   - All input tags have had their `type` attributes changed from `type="text"` to `type="search"`. This update benefits screen reader users and ensures the input field has the correct semantic type.
+   - This may be a breaking change if you are migrating to `v14`, especially if you use the `type` attribute to query the input field element. Please check that your selectors work as intended.
+
+2. **UI Changes**:
+
+   - The `X` button has been replaced with a text button labeled `Close`.
+   - The wrapper containing the search bar now overlays the content underneath it.
+   - There are minor changes to the UI, such as adjustments to the form width and bar height, but these should not affect functionality.
+
+3. Markup Changes
+
+- **Search Button:**
+
+  - The search icon is now its own `span` tag rather than being added in SCSS through `@include oButtonsContent`.
+
+  ```diff
+  - <button class="o-header__search-submit" type="submit">Search</button>
+  + <button class="o-header__search-submit" type="submit">
+  +   <span aria-hidden="true" class="o-header__search-icon"></span>
+  +   <span>Search</span>
+  + </button>
+  ```
+
+- **Close Button:**
+
+  - The Close button is no longer an icon and has a text `<span>` label "Close".
+
+  ```diff
+  - <button
+  -   class="o-header__search-close o--if-js"
+  -   type="button"
+  -   aria-controls="o-header-search-js"
+  -   title="Close search bar"
+  - >
+  -   <span class="o-header__visually-hidden">Close search bar</span>
+  - </button>
+  + <button
+  +   class="o-header__search-close o--if-js"
+  +   type="button"
+  +   aria-controls="o-header-search"
+  +   title="Close search bar"
+  +   data-o-toggle--js="true"
+  +   aria-expanded="true"
+  + >
+  +   <span class="o-header__visually-hidden">Close search bar</span>
+  +   <span>Close</span>
+  + </button>
+  ```
+
+- **Input Fields:**
+
+  - All input fields have had their `type` attributes changed from `text` to `search`. The difference
+    between the three input fields (sticky, drawer, and search containers) is in their `id` attributes. _Check if `id` is correct before copying._
+
+  ```diff
+  - <input
+  -   id="o-header-search-term"
+  -   name="q"
+  -   type="text"
+  -   autocomplete="off"
+  -   autocorrect="off"
+  -   autocapitalize="none"
+  -   spellcheck="false"
+  -   placeholder="Search for stories, topics or securities"
+  - />
+  + <input
+  +   id="o-header-search-term"
+  +   name="q"
+  +   type="search"
+  +   autocomplete="off"
+  +   autocorrect="off"
+  +   autocapitalize="none"
+  +   spellcheck="false"
+  +   placeholder="Search for stories, topics, or securities"
+  + />
+  ```
+
+### Ask FT button
+
+`o-header v14` adds optional Ask FT button markup in the following places:
+  - top left menu of the header (o-header/src/tsx/drawer.tsx)
+  - top left menu of the sticky (o-header/src/tsx/sticky.tsx)
+  - as the top, under the search in the drawer menu (o-header/src/tsx/drawer.tsx)
+
+Update your markup according to the [Storybook demo](https://o2-core.origami.ft.com/?path=/story/components-o-header--header-primary&globals=backgrounds:!undefined) or [use o-header's tsx template](https://github.com/Financial-Times/origami/tree/main/components/o-header/src/tsx) with `showAskButton=true` if you need to include Ask FT button.
+
 ## Migrating from v12 to v13
 
 o-header v13 includes markup changes to the drawer. This updates the edition switcher; moves the close button to align with where the hamburger icon would be when closed; and updates the search bar both in the drawer and on desktop. To migrate:

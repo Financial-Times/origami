@@ -1,6 +1,7 @@
+import { AskFtButton } from './components/ask-ft-button';
 import {TNavEdition, TNavAction, TNavMenuItem, THeaderProps} from './Props';
 
-export function Drawer({data, userIsLoggedIn, userIsSubscribed}: THeaderProps) {
+export function Drawer({data, showAskButton, userIsLoggedIn, userIsSubscribed }: THeaderProps) {
 	const editions = data.editions;
 	const subscribeAction = data.subscribeAction;
 	const navItems = data.drawer.items;
@@ -20,6 +21,13 @@ export function Drawer({data, userIsLoggedIn, userIsSubscribed}: THeaderProps) {
 					otherEditions={editions.others}
 				/>
 				<DrawerSearch />
+				{showAskButton && 
+					<AskFtButton
+						variant="drawer"
+						dataTrackable="ask-ft-button-drawer"
+						id="ask-ft-button-drawer"
+					/>
+				}
 				{!userIsSubscribed && subscribeAction && (
 					<DrawerAction action={subscribeAction} />
 				)}
@@ -82,7 +90,7 @@ function DrawerSearch() {
 					<span className="o-forms-input o-forms-input--text o-forms-input--suffix">
 						<input
 							id="o-header-drawer-search-term"
-							type="text"
+							type="search"
 							autoComplete="off"
 							autoCorrect="off"
 							autoCapitalize="off"
