@@ -111,12 +111,7 @@
       },
       "topic-tag": {
         "@": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight.0}"
-          },
+          "value": "{o3.typography.body-small-bold}",
           "type": "typography"
         },
         "color": {
@@ -139,12 +134,7 @@
         }
       },
       "standfirst": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.2}",
-          "lineHeight": "{o3.font.lineheight.2}"
-        },
+        "value": "{o3.typography.body-big}",
         "type": "typography"
       },
       "caption": {
@@ -166,16 +156,21 @@
           "type": "color"
         }
       },
-      "byline-author": {
-        "@": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
+      "byline": {
+        "author": {
+          "value": "{o3.typography.body-small-bold}",
           "type": "typography"
         },
+        "location": {
+          "value": "{o3.typography.body-small}",
+          "type": "typography"
+        },
+        "timestamp": {
+          "value": "{o3.typography.body-small-caps}",
+          "type": "typography"
+        }
+      },
+      "byline-author": {
         "color": {
           "value": "{o3.color.palette.black-80}",
           "type": "color"
@@ -195,25 +190,7 @@
           }
         }
       },
-      "byline-location": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
-        },
-        "type": "typography"
-      },
       "byline-timestamp": {
-        "@": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography"
-        },
         "color": {
           "value": "{o3.color.palette.black-60}",
           "type": "color"
@@ -233,39 +210,16 @@
         "type": "typography"
       },
       "blockquote-author": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
-        },
-        "type": "typography"
+        "value": "{o3.typography.body-small-bold}",
+        "type": "typography",
+        "description": "This token is in CAPs"
       },
       "pullquote-author": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size.negative-2}",
-          "lineHeight": "{o3.font.lineheight.negative-2}"
-        },
+        "value": "{o3.typography.body-small-bold}",
         "type": "typography"
       },
       "blockquote-source": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "lineHeight": "{o3.font.lineheight-metric2.1}",
-          "fontSize": "{o3.font.size-metric2.1}"
-        },
-        "type": "typography"
-      },
-      "pullquote-source": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}",
-          "fontSize": "{o3.font.size-metric2.0}"
-        },
+        "value": "{o3.typography.body-standard}",
         "type": "typography"
       },
       "big-number-title": {
@@ -278,30 +232,7 @@
         "type": "typography"
       },
       "big-number-content": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.2}",
-          "lineHeight": "{o3.font.lineheight-metric2.2}"
-        },
-        "type": "typography"
-      },
-      "summary-m": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.1}",
-          "lineHeight": "{o3.font.lineheight-metric2.3}"
-        },
-        "type": "typography"
-      },
-      "summary-l": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.2}",
-          "lineHeight": "{o3.font.lineheight-metric2.4}"
-        },
+        "value": "{o3.typography.body-standard}",
         "type": "typography"
       },
       "dropcap-l": {
