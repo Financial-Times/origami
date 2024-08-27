@@ -73,16 +73,7 @@
         },
         "type": "typography"
       },
-      "heading6": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
-        },
-        "type": "typography"
-      },
-      "body-standard-copy": {
+      "body-standard": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
@@ -91,7 +82,7 @@
         },
         "type": "typography"
       },
-      "body-big-copy": {
+      "body-big": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
@@ -100,7 +91,7 @@
         },
         "type": "typography"
       },
-      "body-small-copy": {
+      "body-small": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
@@ -109,7 +100,7 @@
         },
         "type": "typography"
       },
-      "body-small-caps-copy": {
+      "body-small-caps": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
@@ -118,7 +109,7 @@
         },
         "type": "typography"
       },
-      "body-small-bold-copy": {
+      "body-small-bold": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.semibold}",
