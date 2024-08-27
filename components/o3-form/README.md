@@ -123,7 +123,7 @@ Form Field and Form Fieldset components have same props:
 | `children`    | The form elements to be rendered                                                                   | true     | any    | -       |
 | `feedback`    | The feedback object for the form fieldset that contains `message` and `type` of message properties | false    | string | -       |
 
-Form Fieldset is used to group related form elements together. They can be used as plain HTML:
+Form Fieldset is used to group related form elements together such as checkboxes. They can be used as plain HTML:
 
 ```html
 <form class="o3-form">
