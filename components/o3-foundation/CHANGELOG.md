@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.6.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.5.0...o3-foundation-v1.6.0) (2024-08-27)
+
+
+### Features
+
+* add text-input component ([#1786](https://github.com/Financial-Times/origami/issues/1786)) ([fdbadfe](https://github.com/Financial-Times/origami/commit/fdbadfea1f65ed24b554c042f1cb899bc6301e5b))
+* introduce `o3-grid-column-width` CSS Custom Property ([#1776](https://github.com/Financial-Times/origami/issues/1776)) ([9ff37f4](https://github.com/Financial-Times/origami/commit/9ff37f46d969161f117aefb13ea44d58becfbb97))
+
+
+### Bug Fixes
+
+* Remove prefers-reduced-motion from normalise.css ([#1801](https://github.com/Financial-Times/origami/issues/1801)) ([d5d39f1](https://github.com/Financial-Times/origami/commit/d5d39f1a88eb0e02d9d7eec895ee9260092b680a))
+
 ## [1.5.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.4.0...o3-foundation-v1.5.0) (2024-08-23)
 
 
