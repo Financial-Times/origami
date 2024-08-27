@@ -1,0 +1,28 @@
+
+.o3-form-text-input {
+	border: var(--_o3-form-text-input-border);
+	padding: var(--o3-spacing-3xs) var(--o3-spacing-2xs);
+	background-color: var(--_o3-form-text-input-background-color);
+	border-radius: var(--_o3-form-text-input-border-radius);
+	max-width: var(--_o3-form-text-input-max-width);
+}
+
+.o3-form-text-input--short-2 {
+	--_o3-form-text-input-max-width: 1.5em;
+}
+
+.o3-form-text-input--short-3 {
+	--_o3-form-text-input-max-width: 2.5em;
+}
+
+.o3-form-text-input--short-4 {
+	--_o3-form-text-input-max-width: 3.5em;
+}
+
+.o3-form-text-input--short-5  {
+	--_o3-form-text-input-max-width: 4.5em;
+}
+.o3-form-text-input--error {
+	border: var(--_o3-form-text-input-border-error);
+	background-color: var(--_o3-form-text-input-background-color-error);
+}

@@ -1,5 +1,5 @@
 import {LabeledFormField, FormFieldset} from './fieldComponents/FormField';
-import type {CheckBoxProps, FormFieldsetProps} from '../types';
+import type {CheckBoxProps, FormFieldsetProps} from '../types/index';
 
 export const CheckBoxItem = (props: CheckBoxProps) => {
 	let {inputId, attributes, optional, error} = props;

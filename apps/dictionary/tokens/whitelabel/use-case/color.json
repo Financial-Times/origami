@@ -104,6 +104,10 @@
             "type": "color"
           }
         },
+        "alert-text": {
+          "value": "{o3.color.palette.crimson}",
+          "type": "color"
+        },
         "error": {
           "value": "{o3.color.palette.crimson}",
           "type": "color"

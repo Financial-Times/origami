@@ -409,6 +409,34 @@ export default {
 		"css": "--o3-color-use-case-body-text",
 		"figma": "o3/color/use-case/body/text"
 },
+	"o3-color-use-case-error": {
+		"shortName": "error",
+		"value": "#c00",
+		"originalValue": "{o3.color.palette.crimson}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"error"
+		],
+		"css": "--o3-color-use-case-error",
+		"figma": "o3/color/use-case/error"
+},
+	"o3-color-use-case-error-background": {
+		"shortName": "error-background",
+		"value": "rgba(204,0,0,0.06)",
+		"originalValue": "rgba(204,0,0,0.06)",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"error-background"
+		],
+		"css": "--o3-color-use-case-error-background",
+		"figma": "o3/color/use-case/error-background"
+},
 	"o3-color-use-case-body-inverse-text": {
 		"shortName": "text",
 		"value": "#fff",
@@ -484,6 +512,20 @@ export default {
 		],
 		"css": "--o3-color-use-case-heading-inverse-text",
 		"figma": "o3/color/use-case/heading-inverse/text"
+},
+	"o3-color-use-case-alert-text": {
+		"shortName": "alert-text",
+		"value": "#c00",
+		"originalValue": "{o3.color.palette.crimson}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"alert-text"
+		],
+		"css": "--o3-color-use-case-alert-text",
+		"figma": "o3/color/use-case/alert-text"
 },
 	"o3-spacing-5xs": {
 		"shortName": "5xs",

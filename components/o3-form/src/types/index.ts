@@ -9,11 +9,16 @@ export type BaseInputProps = {
 	attributes?: JSX.IntrinsicElements['input'];
 };
 
+export interface TextInputProps extends FormFieldProps{
+	disabled?: boolean,
+	length?: 2 | 3 | 4 | 5,
+	feedback?: FeedbackProps
+};
+
 export interface CheckBoxProps extends BaseInputProps {
 	inputId: string;
 	checkboxLabel: string; // Label specifically for the checkbox
 }
-
 export interface FormFieldsetProps {
 	label: string;
 	description?: string;
