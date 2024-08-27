@@ -1,6 +1,33 @@
 {
   "o3": {
     "editorial-typography": {
+      "headline-large-l": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.medium}",
+          "fontSize": "{o3.font.size-metric2.8}",
+          "lineHeight": "{o3.font.lineheight-metric2.7}"
+        },
+        "type": "typography"
+      },
+      "headline-large-m": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.medium}",
+          "fontSize": "{o3.font.size-metric2.7}",
+          "lineHeight": "{o3.font.lineheight-metric2.6}"
+        },
+        "type": "typography"
+      },
+      "headline-large-s": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.medium}",
+          "fontSize": "{o3.font.size-metric2.6}",
+          "lineHeight": "{o3.font.lineheight-metric2.4}"
+        },
+        "type": "typography"
+      },
       "headline-l": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
