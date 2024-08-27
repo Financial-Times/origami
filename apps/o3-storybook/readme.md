@@ -4,7 +4,9 @@ The storybook to host o3 component demos.
 
 ## Creating stories and structure
 
-The storybook is organized by component. Each component has its own folder in components directory. Each component folder has a `stories` folder, where we put all files related to the component. The rough structure of the folder looks like this:
+Stories are stored in the component's project space in a directory called `stories`. For example, `o3-button`'s stories are stored in `./components/o3-button/stories`.
+
+The rough structure of the folder looks like this:
 
 ```.
 └── stories/
@@ -24,3 +26,11 @@ The storybook is organized by component. Each component has its own folder in co
 - The `component.stories.tsx` is the story file for the component for a given brand or a sub-brand.
 
 This setup is giving us flexibility over what controls to display when and even have custom controls for each story if needed
+
+## Story requirements
+
+Each component should have:
+* Stories demonstrating the core behaviours.
+* Stories for each brand the component currently supports.
+* Links to the designs in Figma.
+
