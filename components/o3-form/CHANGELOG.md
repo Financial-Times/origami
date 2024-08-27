@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.2.0...o3-form-v0.3.0) (2024-08-27)
+
+
+### Features
+
+* add text-input component ([#1786](https://github.com/Financial-Times/origami/issues/1786)) ([fdbadfe](https://github.com/Financial-Times/origami/commit/fdbadfea1f65ed24b554c042f1cb899bc6301e5b))
+
 ## [0.2.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.1.0...o3-form-v0.2.0) (2024-08-23)
 
 
