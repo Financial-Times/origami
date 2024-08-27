@@ -260,7 +260,9 @@ import {TextInput} from '@financial-times/o3-form/cjs'; // or esm
 
 ### Checkbox
 
-A customizable and accessible checkbox input for selecting one or more items from a list, or turning an item on or off. It can be used as plain HTML:
+A customizable and accessible checkbox input for selecting one or more items from a list, or turning an item on or off. Checkbox can also have a state of `indeterminate` and `o3-form` provides styling, for `indeterminate` state but this state can only be set using javaScript. Read more about [indeterminate state](https://css-tricks.com/indeterminate-checkboxes/).
+
+Checkboxes can be used as plain HTML:
 
 ```html
 <form class="o3-form">
