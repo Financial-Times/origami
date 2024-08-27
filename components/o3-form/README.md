@@ -166,17 +166,9 @@ A standard text input for collecting text values.
 label: 'Full name',
 description: 'Your full name as printed on your driving license',
 
-```tsx
-<TextInput
- label="Full name"
- disabled="{false}"
- description="Your full name as printed on your driving license"
-/>
-```
-
 **HTML**
 
-```
+```html
 <div data-o3-brand="whitelabel">
   <div class="o3-form-field">
     <label for="my-input-field">Full name</label>
@@ -190,17 +182,19 @@ description: 'Your full name as printed on your driving license',
 </div>
 ```
 
+```tsx
+import {TextInput} from '@financial-times/o3-form/cjs'; // or esm
+
+<TextInput
+ label="Full name"
+ disabled="{false}"
+ description="Your full name as printed on your driving license"
+/>
+```
+
 #### Short text input
 
 The size and max length of the text input can be limited with the `length` property.
-
-```html
-<TextInput
- label="Security code"
- description="3 digit security code as printed on the back of your credit card."
- length="{3}"
-/>;
-```
 
 **HTML**
 
@@ -219,20 +213,20 @@ The size and max length of the text input can be limited with the `length` prope
 </div>
 ```
 
+```tsx
+import {TextInput} from '@financial-times/o3-form/cjs'; // or esm
+
+<TextInput
+ label="Security code"
+ description="3 digit security code as printed on the back of your credit card."
+ length="{3}"
+/>;
+```
+
 This will provide a text box 3 characters wide and only allow 3 characters to be typed.
 
 If you prefer to limit the length without styling, use the `maxLength` attribute instead.
 
-```tsx
-<TextInput
- label="Security code"
- description="3 digit security code as printed on the back of your credit card."
- feedback={args.feedback}
- attributes={{
-  maxLength: 3,
- }}
-/>
-```
 
 **HTML**
 
@@ -249,6 +243,19 @@ If you prefer to limit the length without styling, use the `maxLength` attribute
   type="text"
  />
 </div>
+```
+
+```tsx
+import {TextInput} from '@financial-times/o3-form/cjs'; // or esm
+
+<TextInput
+ label="Security code"
+ description="3 digit security code as printed on the back of your credit card."
+ feedback={args.feedback}
+ attributes={{
+  maxLength: 3,
+ }}
+/>
 ```
 
 ### Checkbox
