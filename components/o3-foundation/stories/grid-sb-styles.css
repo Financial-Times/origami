@@ -7,9 +7,3 @@
 	background-color: tomato;
 	cursor: pointer;
 }
-
-.nested-element {
-	--o3-grid-columns-to-span-count: 2;
-	width: var(--o3-grid-columns-to-span-width);
-	background-color: green;
-}
