@@ -5,6 +5,14 @@ function init (headerEl) {
 		return;
 	}
 
+	function hideStickyHeaderContainer ({stickyHeaderContainer, searchIcon, isActive, isHeaderExpanded}) {
+		if (!isActive && isHeaderExpanded) {
+			stickyHeaderContainer?.setAttribute('aria-hidden', !isActive);
+			stickyHeaderContainer.classList.remove('o-toggle--active')
+			searchIcon?.setAttribute('aria-expanded', isActive);
+		}
+	}
+
 	let viewportOffset;
 	let lastScrollDepth;
 	let lastAnimationFrame;
@@ -13,8 +21,12 @@ function init (headerEl) {
 	function handleFrame () {
 		// sticky el will appear when scrolled down from page top to
 		// (arbitrarily) > half the viewport height
+		const stickyHeaderId = '#o-header-search-sticky';
 		const scrollDepth = window.pageYOffset || window.scrollY;
 		const isActive = scrollDepth > viewportOffset;
+		const stickyHeaderContainer = headerEl.querySelector(stickyHeaderId);
+		const searchIcon = headerEl.querySelector(`[aria-controls="${stickyHeaderId.slice(1)}"]`)
+		const isHeaderExpanded = stickyHeaderContainer.getAttribute('aria-hidden');
 
 		headerEl.classList.toggle('o-header--sticky-active', isActive);
 
@@ -28,6 +40,7 @@ function init (headerEl) {
 			const isScrollingDown = lastScrollDepth < scrollDepth;
 			headerEl.classList.toggle('o-header--sticky-scroll-down', isActive && isScrollingDown);
 			headerEl.classList.toggle('o-header--sticky-scroll-up', isActive && !isScrollingDown);
+			hideStickyHeaderContainer({ stickyHeaderContainer, searchIcon, isActive, isHeaderExpanded });
 		}
 
 		lastScrollDepth = scrollDepth;

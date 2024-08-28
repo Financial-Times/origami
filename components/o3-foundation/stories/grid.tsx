@@ -74,6 +74,13 @@ export function O3Grid() {
 					{item.text}
 				</div>
 			))}
+			<div className="o3-grid-item" style={{gridColumn: `content-start / span 6`, backgroundColor: 'tomato'}}>
+				Span 6
+				<div style={{'--o3-grid-columns-to-span-count': 2,
+					width: 'var(--o3-grid-columns-to-span-width)',
+					backgroundColor: 'lightblue'
+				}}>Nested Element span 2</div>
+			</div>
 		</div>
 	);
 }
