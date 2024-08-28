@@ -109,6 +109,24 @@
         },
         "type": "typography"
       },
+      "dropcap-l": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.light}",
+          "fontSize": "108",
+          "lineHeight": "108"
+        },
+        "type": "typography"
+      },
+      "dropcap-s": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.light}",
+          "fontSize": "94",
+          "lineHeight": "94"
+        },
+        "type": "typography"
+      },
       "topic-tag": {
         "@": {
           "value": "{o3.typography.body-small-bold}",
