@@ -417,10 +417,12 @@
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F5ATknbGociZMlnNXX4sy4f%2FWhitelabel---Origami-(o3)%3Fnode-id%3D4717-1299%26t%3DuSXzpLGDcxFzfDex-4"
   },
   "whitelabel-o3-form--check-box": {
-    "sb": "?path=/story/whitelabel-o3-form--check-box"
+    "sb": "?path=/story/whitelabel-o3-form--check-box",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FiPTwPXBVyBX57GLtfFWuY3%2Fo3-input-checkbox%3Fnode-id%3D6753-429%26t%3D8ztgwLe3KFu3H8NJ-4"
   },
   "whitelabel-o3-form--check-box-group": {
-    "sb": "?path=/story/whitelabel-o3-form--check-box-group"
+    "sb": "?path=/story/whitelabel-o3-form--check-box-group",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FiPTwPXBVyBX57GLtfFWuY3%2Fo3-input-checkbox%3Fnode-id%3D7300-387%26t%3D8ztgwLe3KFu3H8NJ-4"
   },
   "whitelabel-o3-form--short-text-input": {
     "sb": "?path=/story/whitelabel-o3-form--short-text-input"
