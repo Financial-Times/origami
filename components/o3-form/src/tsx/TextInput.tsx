@@ -25,7 +25,8 @@ export const TextInput = ({
 		<LabeledFormField
 			label={label}
 			feedback={feedback}
-			description={description}>
+			description={description}
+			inputId={inputId}>
 			<input
 				{...attributes}
 				id={inputId}

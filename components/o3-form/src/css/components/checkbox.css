@@ -78,8 +78,7 @@
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
 		background-color: var(--o3-color-palette-white);
-		/* TOKEN NEEDED FOR MINUS SIGN*/
-		mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='5' y='10' width='14' height='4' rx='2' fill='%23CC0000'/%3E%3C/svg%3E%0A");
+		mask-image: var(--o3-icons-ft-icon-minus);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 	}
