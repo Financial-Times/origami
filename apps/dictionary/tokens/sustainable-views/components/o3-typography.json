@@ -31,7 +31,7 @@
       "heading4": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.medium}",
+          "fontWeight": "{o3.font.weight.regular}",
           "fontSize": "{o3.font.size-metric2.2}",
           "lineHeight": "{o3.font.lineheight-metric2.2}"
         },
@@ -40,9 +40,18 @@
       "heading5": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.medium}",
+          "fontWeight": "{o3.font.weight.semibold}",
           "fontSize": "{o3.font.size-metric2.1}",
           "lineHeight": "{o3.font.lineheight-metric2.1}"
+        },
+        "type": "typography"
+      },
+      "body-big": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.2}",
+          "lineHeight": "{o3.font.lineheight-metric2.2}"
         },
         "type": "typography"
       },
@@ -56,6 +65,24 @@
         "type": "typography"
       },
       "body-small": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.0}",
+          "lineHeight": "{o3.font.lineheight-metric2.0}"
+        },
+        "type": "typography"
+      },
+      "body-small-bold": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.semibold}",
+          "fontSize": "{o3.font.size-metric2.0}",
+          "lineHeight": "{o3.font.lineheight-metric2.0}"
+        },
+        "type": "typography"
+      },
+      "body-small-caps": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
@@ -88,33 +115,6 @@
           "fontWeight": "{o3.font.weight.regular}",
           "fontSize": "{o3.font.size-metric2.negative-1}",
           "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
-        },
-        "type": "typography"
-      },
-      "body-big": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.2}",
-          "lineHeight": "{o3.font.lineheight-metric2.2}"
-        },
-        "type": "typography"
-      },
-      "body-small-caps": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
-        },
-        "type": "typography"
-      },
-      "body-small-bold": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
         },
         "type": "typography"
       }
