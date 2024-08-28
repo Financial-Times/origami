@@ -28,7 +28,7 @@ Import your chosen brand to begin using tokens in your CSS/SCSS:
 body {
  background-color: var(--o3-color-use-case-page-background);
  font-size: var(--o3-font-size-1);
- line-height: var(--o3-font-lineheight-1);
+ line-height: var(--o3-font-lineheight-0);
 }
 ```
 

@@ -108,8 +108,8 @@
 .o3-form-input__checkbox-label {
 	display: flex;
 	align-items: center;
-	font-size: var(--o3-font-size-metric2-0);
-	line-height: var(--o3-font-lineheight-metric2-0);
+	font-size: var(--o3-font-size-metric2-negative-1);
+	line-height: var(--o3-font-lineheight-metric2-negative-1);
 	font-weight: var(--o3-font-weight-regular);
 	color: var(--o3-color-use-case-body-text);
 
