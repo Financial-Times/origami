@@ -6,7 +6,7 @@ type BodyProps = {
 	size?: 'small';
 } & StyleArguments;
 export const Body: React.FC<BodyProps> = ({children, theme, style, size}) => {
-	const classes = ['o3-typography-body'];
+	const classes = ['o3-typography-body-standard'];
 
 	if (style === 'italic') {
 		classes.push('o3-typography-italic');

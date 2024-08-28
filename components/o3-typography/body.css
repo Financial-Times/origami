@@ -1,15 +1,32 @@
-.o3-typography-body,
+.o3-typography-body-standard,
 .o3-typography-wrapper > p {
-	font-weight: var(--o3-typography-use-case-body-s-font-weight);
-	font-size: var(--o3-font-size-0);
-	line-height: var(--o3-font-lineheight-0);
+	font-family: var(--_o3-typography-body-standard-font-family);
+	font-weight: var(--_o3-typography-body-standard-font-weight);
+	font-size: var(--_o3-typography-body-standard-font-size);
+	line-height: var(--_o3-typography-body-standard-line-height);
 	margin: 0 0 var(--o3-spacing-s);
 	color: var(--o3-color-use-case-body-text);
 }
 
 .o3-typography-body--small {
-	font-size: var(--o3-font-size-negative-1);
-	line-height: var(--o3-font-lineheight-negative-1);
+	font-family: var(--_o3-typography-body-small-font-family);
+	font-weight: var(--_o3-typography-body-small-font-weight);
+	font-size: var(--_o3-typography-body-small-font-size);
+	line-height: var(--_o3-typography-body-small-line-height);
+}
+
+.o3-typography-body--small-caps {
+	font-family: var(--_o3-typography-body-small-caps-font-family);
+	font-weight: var(--_o3-typography-body-small-caps-font-weight);
+	font-size: var(--_o3-typography-body-small-caps-font-size);
+	line-height: var(--_o3-typography-body-small-caps-line-height);
+}
+
+.o3-typography-body--small-bold {
+	font-family: var(--_o3-typography-body-small-bold-font-family);
+	font-weight: var(--_o3-typography-body-small-bold-font-weight);
+	font-size: var(--_o3-typography-body-small-bold-font-size);
+	line-height: var(--_o3-typography-body-small-bold-line-height);
 }
 
 .o3-typography-body,
