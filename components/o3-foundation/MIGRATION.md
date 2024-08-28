@@ -9,11 +9,8 @@ v2 introduces changes to the scale for Metric2:
   now scale `--o3-font-size-metric2-0` and so on.
 * Introduced `--o3-font-size-metric2-negative-3` scale.
 
-This version will not break unless you have used scale `--o3-font-lineheight-metric2-10`
-or `--o3-font-font-size-metric2-10`. Usages of this will need to be updated to use
-
-If you wish to retain the same font size and line height from v1, you will need to update your use of CSS Custom
-Properties as seen in the tables below:
+Usages of `--o3-font-lineheight-metric2-10`
+or `--o3-font-font-size-metric2-10` will break. Usages of any other token will visually break and require changes. The below table shows what CSS Custom Properties to replace when migrating to v2. 
 
 **Lineheight**
 
