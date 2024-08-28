@@ -182,6 +182,8 @@ description: 'Your full name as printed on your driving license',
 </div>
 ```
 
+**JSX**
+
 ```tsx
 import {TextInput} from '@financial-times/o3-form/cjs'; // or esm
 
@@ -213,6 +215,8 @@ The size and max length of the text input can be limited with the `length` prope
 </div>
 ```
 
+**JSX**
+
 ```tsx
 import {TextInput} from '@financial-times/o3-form/cjs'; // or esm
 
@@ -226,7 +230,6 @@ import {TextInput} from '@financial-times/o3-form/cjs'; // or esm
 This will provide a text box 3 characters wide and only allow 3 characters to be typed.
 
 If you prefer to limit the length without styling, use the `maxLength` attribute instead.
-
 
 **HTML**
 
@@ -244,6 +247,8 @@ If you prefer to limit the length without styling, use the `maxLength` attribute
  />
 </div>
 ```
+
+**JSX**
 
 ```tsx
 import {TextInput} from '@financial-times/o3-form/cjs'; // or esm
