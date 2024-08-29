@@ -1,5 +1,10 @@
 .o3-typography-footer,
 .o3-typography-wrapper > footer {
+	font-family: var(--_o3-typography-footer-font-family);
+	font-size: var(--_o3-typography-footer-font-size);
+	font-weight: var(--_o3-typography-footer-font-weight);
+	line-height: var(--_o3-typography-footer-line-height);
+
 	color: var(--_o3-typography-footer-color);
 
 	[data-o3-theme='inverse']&,

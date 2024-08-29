@@ -167,51 +167,51 @@
     },
     "spacing": {
       "s": {
-        "value": 24,
+        "value": "24",
         "type": "number"
       },
       "l": {
-        "value": 40,
+        "value": "40",
         "type": "number"
       },
       "xl": {
-        "value": 48,
+        "value": "48",
         "type": "number"
       },
       "3xl": {
-        "value": 80,
+        "value": "80",
         "type": "number"
       },
       "4xl": {
-        "value": 96,
+        "value": "96",
         "type": "number"
       },
       "5xs": {
-        "value": 4,
+        "value": "4",
         "type": "number"
       },
       "4xs": {
-        "value": 8,
+        "value": "8",
         "type": "number"
       },
       "3xs": {
-        "value": 12,
+        "value": "12",
         "type": "number"
       },
       "2xs": {
-        "value": 16,
+        "value": "16",
         "type": "number"
       },
       "xs": {
-        "value": 20,
+        "value": "20",
         "type": "number"
       },
       "m": {
-        "value": 32,
+        "value": "32",
         "type": "number"
       },
       "2xl": {
-        "value": 64,
+        "value": "64",
         "type": "number"
       }
     }
