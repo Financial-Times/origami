@@ -48,6 +48,14 @@
   --_o3-editorial-typography-article-body-s-font-weight: var(--o3-font-weight-regular);
   --_o3-editorial-typography-article-body-s-font-size: var(--o3-font-size-1);
   --_o3-editorial-typography-article-body-s-line-height: var(--o3-font-lineheight-3);
+  --_o3-editorial-typography-dropcap-l-font-family: var(--o3-font-family-metric);
+  --_o3-editorial-typography-dropcap-l-font-weight: var(--o3-font-weight-light);
+  --_o3-editorial-typography-dropcap-l-font-size: 6.75rem;
+  --_o3-editorial-typography-dropcap-l-line-height: 6.75rem;
+  --_o3-editorial-typography-dropcap-s-font-family: var(--o3-font-family-metric);
+  --_o3-editorial-typography-dropcap-s-font-weight: var(--o3-font-weight-light);
+  --_o3-editorial-typography-dropcap-s-font-size: 5.875rem;
+  --_o3-editorial-typography-dropcap-s-line-height: 5.875rem;
   --_o3-editorial-typography-topic-tag-color: var(--o3-color-palette-black-80);
   --_o3-editorial-typography-topic-tag-inverse-color: var(--o3-color-palette-white);
   --_o3-editorial-typography-topic-tag-hover-color: var(--o3-color-palette-black);
