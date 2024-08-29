@@ -10,17 +10,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-	*,
-	*:before,
-	*:after {
-		animation-duration: 0.001s !important; /* stylelint-disable-line declaration-no-important */
-		transition-duration: 0.001s !important; /* stylelint-disable-line declaration-no-important */
-		animation-iteration-count: 1 !important; /* stylelint-disable-line declaration-no-important */
-	}
-}
-
 /* add normalising to links */
 a:active,
 a:hover {

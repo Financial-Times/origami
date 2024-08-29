@@ -181,6 +181,19 @@ You can precisely control the positioning of grid items using the `grid-column` 
 </div>
 ```
 
+#### Using grid with nested children
+
+In some cases, an element may be nested deeply and not have access to the grid. o3-foundation provides CSS Custom Properties to help align elements to grid in these cases:
+
+```css
+.my-nested-class {
+	--o3-grid-columns-to-span-count: 6;
+	width: var(--o3-grid-columns-to-span-width)
+}
+```
+
+Use `--o3-grid-columns-to-span-count` to control how many columns you want your element to span. In this example, the width of `my-nested-class` will be equivalent to 6 columns. `--o3-grid-columns-to-span-count` must be defined for `.o3-grid-columns-to-span-width` to work.
+
 #### Advanced usage of grid
 
 For advanced usage `o3-foundation` provides CSS Custom Properties for grid that you can set on your class:

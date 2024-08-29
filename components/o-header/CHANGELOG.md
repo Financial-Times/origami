@@ -1,4 +1,13 @@
 # Changelog
+## [14.0.1](https://github.com/Financial-Times/origami/compare/o-header-v14.0.0...o-header-v14.0.1) (2024-08-27)
+
+
+### Bug Fixes
+
+* (o-header) hide sticky header container when sticky header disappears ([027b716](https://github.com/Financial-Times/origami/commit/027b7167f3a49a2b637f33e25d302da44320d039))
+* (o-header) increase the value of `o-header` container to `10` ([3d74d56](https://github.com/Financial-Times/origami/commit/3d74d56db277e44ffc06c00ea081611ca6de3f68))
+* (o-header) remove `padding` from the form label ([bd1f0af](https://github.com/Financial-Times/origami/commit/bd1f0af0534b9c68fb49c8730d3fc2a8614f3733))
+
 ## [14.0.0](https://github.com/Financial-Times/origami/compare/o-header-v13.0.3...o-header-v14.0.0) (2024-08-22)
 
 

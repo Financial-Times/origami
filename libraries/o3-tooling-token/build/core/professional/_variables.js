@@ -2309,8 +2309,8 @@ export default {
 },
 	"o3-font-lineheight-metric2-1": {
 		"shortName": "1",
-		"value": "1.25rem",
-		"originalValue": "20",
+		"value": "1.5rem",
+		"originalValue": "24",
 		"type": "lineHeights",
 		"path": [
 				"o3",
@@ -2323,8 +2323,8 @@ export default {
 },
 	"o3-font-lineheight-metric2-2": {
 		"shortName": "2",
-		"value": "1.5rem",
-		"originalValue": "24",
+		"value": "1.75rem",
+		"originalValue": "28",
 		"type": "lineHeights",
 		"path": [
 				"o3",
@@ -2337,8 +2337,8 @@ export default {
 },
 	"o3-font-lineheight-metric2-3": {
 		"shortName": "3",
-		"value": "1.75rem",
-		"originalValue": "28",
+		"value": "2rem",
+		"originalValue": "32",
 		"type": "lineHeights",
 		"path": [
 				"o3",
@@ -2365,8 +2365,8 @@ export default {
 },
 	"o3-font-lineheight-metric2-5": {
 		"shortName": "5",
-		"value": "2rem",
-		"originalValue": "32",
+		"value": "2.5rem",
+		"originalValue": "40",
 		"type": "lineHeights",
 		"path": [
 				"o3",
@@ -2379,8 +2379,8 @@ export default {
 },
 	"o3-font-lineheight-metric2-6": {
 		"shortName": "6",
-		"value": "2.5rem",
-		"originalValue": "40",
+		"value": "3rem",
+		"originalValue": "48",
 		"type": "lineHeights",
 		"path": [
 				"o3",
@@ -2393,8 +2393,8 @@ export default {
 },
 	"o3-font-lineheight-metric2-7": {
 		"shortName": "7",
-		"value": "3rem",
-		"originalValue": "48",
+		"value": "3.5rem",
+		"originalValue": "56",
 		"type": "lineHeights",
 		"path": [
 				"o3",
@@ -2407,8 +2407,8 @@ export default {
 },
 	"o3-font-lineheight-metric2-8": {
 		"shortName": "8",
-		"value": "3.5rem",
-		"originalValue": "56",
+		"value": "4.5rem",
+		"originalValue": "72",
 		"type": "lineHeights",
 		"path": [
 				"o3",
@@ -2421,8 +2421,8 @@ export default {
 },
 	"o3-font-lineheight-metric2-9": {
 		"shortName": "9",
-		"value": "4.5rem",
-		"originalValue": "72",
+		"value": "5.25rem",
+		"originalValue": "84",
 		"type": "lineHeights",
 		"path": [
 				"o3",
@@ -2433,19 +2433,19 @@ export default {
 		"css": "--o3-font-lineheight-metric2-9",
 		"figma": "o3/font/lineheight-metric2/9"
 },
-	"o3-font-lineheight-metric2-10": {
-		"shortName": "10",
-		"value": "5.25rem",
-		"originalValue": "84",
+	"o3-font-lineheight-metric2-negative-3": {
+		"shortName": "negative-3",
+		"value": "1rem",
+		"originalValue": "16",
 		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
 				"lineheight-metric2",
-				"10"
+				"negative-3"
 		],
-		"css": "--o3-font-lineheight-metric2-10",
-		"figma": "o3/font/lineheight-metric2/10"
+		"css": "--o3-font-lineheight-metric2-negative-3",
+		"figma": "o3/font/lineheight-metric2/negative-3"
 },
 	"o3-font-lineheight-metric2-negative-2": {
 		"shortName": "negative-2",
@@ -2463,8 +2463,8 @@ export default {
 },
 	"o3-font-lineheight-metric2-negative-1": {
 		"shortName": "negative-1",
-		"value": "1rem",
-		"originalValue": "16",
+		"value": "1.25rem",
+		"originalValue": "20",
 		"type": "lineHeights",
 		"path": [
 				"o3",
@@ -2477,8 +2477,8 @@ export default {
 },
 	"o3-font-size-metric2-0": {
 		"shortName": "0",
-		"value": "0.875rem",
-		"originalValue": "14",
+		"value": "1rem",
+		"originalValue": "16",
 		"type": "fontSizes",
 		"path": [
 				"o3",
@@ -2491,8 +2491,8 @@ export default {
 },
 	"o3-font-size-metric2-1": {
 		"shortName": "1",
-		"value": "1rem",
-		"originalValue": "16",
+		"value": "1.125rem",
+		"originalValue": "18",
 		"type": "fontSizes",
 		"path": [
 				"o3",
@@ -2505,8 +2505,8 @@ export default {
 },
 	"o3-font-size-metric2-2": {
 		"shortName": "2",
-		"value": "1.125rem",
-		"originalValue": "18",
+		"value": "1.25rem",
+		"originalValue": "20",
 		"type": "fontSizes",
 		"path": [
 				"o3",
@@ -2519,8 +2519,8 @@ export default {
 },
 	"o3-font-size-metric2-3": {
 		"shortName": "3",
-		"value": "1.25rem",
-		"originalValue": "20",
+		"value": "1.5rem",
+		"originalValue": "24",
 		"type": "fontSizes",
 		"path": [
 				"o3",
@@ -2533,8 +2533,8 @@ export default {
 },
 	"o3-font-size-metric2-4": {
 		"shortName": "4",
-		"value": "1.5rem",
-		"originalValue": "24",
+		"value": "1.75rem",
+		"originalValue": "28",
 		"type": "fontSizes",
 		"path": [
 				"o3",
@@ -2547,8 +2547,8 @@ export default {
 },
 	"o3-font-size-metric2-5": {
 		"shortName": "5",
-		"value": "1.75rem",
-		"originalValue": "28",
+		"value": "2rem",
+		"originalValue": "32",
 		"type": "fontSizes",
 		"path": [
 				"o3",
@@ -2561,8 +2561,8 @@ export default {
 },
 	"o3-font-size-metric2-6": {
 		"shortName": "6",
-		"value": "2rem",
-		"originalValue": "32",
+		"value": "2.5rem",
+		"originalValue": "40",
 		"type": "fontSizes",
 		"path": [
 				"o3",
@@ -2575,8 +2575,8 @@ export default {
 },
 	"o3-font-size-metric2-7": {
 		"shortName": "7",
-		"value": "2.5rem",
-		"originalValue": "40",
+		"value": "3rem",
+		"originalValue": "48",
 		"type": "fontSizes",
 		"path": [
 				"o3",
@@ -2589,8 +2589,8 @@ export default {
 },
 	"o3-font-size-metric2-8": {
 		"shortName": "8",
-		"value": "3rem",
-		"originalValue": "48",
+		"value": "4rem",
+		"originalValue": "64",
 		"type": "fontSizes",
 		"path": [
 				"o3",
@@ -2603,8 +2603,8 @@ export default {
 },
 	"o3-font-size-metric2-9": {
 		"shortName": "9",
-		"value": "4rem",
-		"originalValue": "64",
+		"value": "4.5rem",
+		"originalValue": "72",
 		"type": "fontSizes",
 		"path": [
 				"o3",
@@ -2615,24 +2615,24 @@ export default {
 		"css": "--o3-font-size-metric2-9",
 		"figma": "o3/font/size-metric2/9"
 },
-	"o3-font-size-metric2-10": {
-		"shortName": "10",
-		"value": "4.5rem",
-		"originalValue": "72",
+	"o3-font-size-metric2-negative-3": {
+		"shortName": "negative-3",
+		"value": "0.625rem",
+		"originalValue": "10",
 		"type": "fontSizes",
 		"path": [
 				"o3",
 				"font",
 				"size-metric2",
-				"10"
+				"negative-3"
 		],
-		"css": "--o3-font-size-metric2-10",
-		"figma": "o3/font/size-metric2/10"
+		"css": "--o3-font-size-metric2-negative-3",
+		"figma": "o3/font/size-metric2/negative-3"
 },
 	"o3-font-size-metric2-negative-2": {
 		"shortName": "negative-2",
-		"value": "0.625rem",
-		"originalValue": "10",
+		"value": "0.75rem",
+		"originalValue": "12",
 		"type": "fontSizes",
 		"path": [
 				"o3",
@@ -2645,8 +2645,8 @@ export default {
 },
 	"o3-font-size-metric2-negative-1": {
 		"shortName": "negative-1",
-		"value": "0.75rem",
-		"originalValue": "12",
+		"value": "0.875rem",
+		"originalValue": "14",
 		"type": "fontSizes",
 		"path": [
 				"o3",

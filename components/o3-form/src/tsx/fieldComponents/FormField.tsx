@@ -11,7 +11,6 @@ export const LabeledFormField = ({
 	description,
 	feedback,
 	children,
-	optional = false,
 }: FormFieldProps) => {
 	const id = inputId || uniqueId('input_');
 	const descriptionId = description ? uniqueId('description_') : undefined;
@@ -37,7 +36,6 @@ export const TitledFormField = ({
 	description,
 	feedback,
 	children,
-	optional = false,
 }: FormFieldProps) => {
 	const descriptionId = description ? uniqueId('description_') : undefined;
 	const labelId = uniqueId('label_');
