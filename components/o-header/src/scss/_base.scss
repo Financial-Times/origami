@@ -1,5 +1,6 @@
 @mixin _oHeaderBase() {
 	.o-header {
+		position: relative;
 		color: _oHeaderGet('header-text');
 		background-color: _oHeaderGet('header-background');
 	}
@@ -7,7 +8,6 @@
 	.o-header__row {
 		border-bottom: 1px solid _oHeaderGet('header-border');
 	}
-
 
 	.o-header__container {
 		@include oGridContainer();
