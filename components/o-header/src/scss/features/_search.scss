@@ -1,4 +1,3 @@
-
 @mixin _oHeaderSearch() {
 	.o-header__search {
 		background-color: oColorsByName('white-60');
@@ -42,6 +41,7 @@
 		min-width: 50%;
 		flex-grow: 1;
 		align-items: center;
+
 		.o-forms-input--text.o-forms-input--suffix {
 			width: 100%;
 			margin-top: 10px;
