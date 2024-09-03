@@ -18,8 +18,10 @@
 			display: block;
 		}
 	}
-	.o-header__drawer-search .o-forms-input--text input::placeholder {
-		color: oColorsByName('black-60');;
+	.o-header__drawer-search, .o-header__search-form {
+		.o-forms-input--text input::placeholder {
+			color: oColorsByName('black-60');;
+		}
 	}
 
 	[data-o-header-search] {
