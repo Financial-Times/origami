@@ -13,7 +13,7 @@ export function Drawer({
 	const userData = userIsLoggedIn ? data.user : data.anon;
 	const showSubscribeButton = !userIsSubscribed && subscribeAction;
 	const showDrawerActions =
-		showAskFtButton || showSubscribeButton;
+		showAskButton || showSubscribeButton;
 	return (
 		<div
 			className="o-header__drawer"
@@ -31,7 +31,7 @@ export function Drawer({
 				<DrawerSearch />
 				{showDrawerActions && (
 					<div className="o-header__drawer-actions">
-						{showAskFtButton && (
+						{showAskButton && (
 							<AskFtButton
 								variant="drawer"
 								dataTrackable="ask-ft-button-drawer"
