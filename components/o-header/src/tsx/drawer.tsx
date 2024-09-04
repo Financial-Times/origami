@@ -11,10 +11,10 @@ export function Drawer({
 	const subscribeAction = data.subscribeAction;
 	const navItems = data.drawer.items;
 	const userData = userIsLoggedIn ? data.user : data.anon;
-	const shouldShowAskFtButton = showAskButton;
-	const shouldShowSubscribeButton = !userIsSubscribed && subscribeAction;
-	const shouldShowDrawerActions =
-		shouldShowAskFtButton || shouldShowSubscribeButton;
+	const showAskFtButton = showAskButton;
+	const showSubscribeButton = !userIsSubscribed && subscribeAction;
+	const showDrawerActions =
+		showAskFtButton || showSubscribeButton;
 	return (
 		<div
 			className="o-header__drawer"
@@ -30,16 +30,16 @@ export function Drawer({
 					otherEditions={editions.others}
 				/>
 				<DrawerSearch />
-				{shouldShowDrawerActions && (
+				{showDrawerActions && (
 					<div className="o-header__drawer-actions">
-						{shouldShowAskFtButton && (
+						{showAskFtButton && (
 							<AskFtButton
 								variant="drawer"
 								dataTrackable="ask-ft-button-drawer"
 								id="ask-ft-button-drawer"
 							/>
 						)}
-						{shouldShowSubscribeButton && (
+						{showSubscribeButton && (
 							<ActionButton action={subscribeAction} />
 						)}
 					</div>
