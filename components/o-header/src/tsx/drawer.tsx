@@ -21,15 +21,8 @@ export function Drawer({data, showAskButton, userIsLoggedIn, userIsSubscribed }:
 					otherEditions={editions.others}
 				/>
 				<DrawerSearch />
-				{showAskButton && 
-					<AskFtButton
-						variant="drawer"
-						dataTrackable="ask-ft-button-drawer"
-						id="ask-ft-button-drawer"
-					/>
-				}
 				{!userIsSubscribed && subscribeAction && (
-					<DrawerAction action={subscribeAction} />
+					<DrawerAction action={subscribeAction} showAskButton={showAskButton} />
 				)}
 				<DrawerMenu navItems={navItems} />
 				<DrawerUser {...userData} />
@@ -61,9 +54,16 @@ function DrawerTools({
 	);
 }
 
-function DrawerAction({action}: {action: TNavAction}) {
+function DrawerAction({action, showAskButton}: {action: TNavAction, showAskButton: boolean}) {
 	return (
 		<div className="o-header__drawer-actions">
+			{showAskButton &&
+				<AskFtButton
+					variant="drawer"
+					dataTrackable="ask-ft-button-drawer"
+					id="ask-ft-button-drawer"
+				/>
+			}
 			<a className="o-header__drawer-button" role="button" href={action.url}>
 				{action.name}
 			</a>
