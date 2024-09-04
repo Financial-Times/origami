@@ -11,7 +11,6 @@ export function Drawer({
 	const subscribeAction = data.subscribeAction;
 	const navItems = data.drawer.items;
 	const userData = userIsLoggedIn ? data.user : data.anon;
-	const showAskFtButton = showAskButton;
 	const showSubscribeButton = !userIsSubscribed && subscribeAction;
 	const showDrawerActions =
 		showAskFtButton || showSubscribeButton;
