@@ -25,6 +25,7 @@ export function buildBrandForCSS(getDestination) {
 	const brands = getBrandNames();
 	brands.forEach(brand => {
 		const {sources, includes} = getBrandSourcesAndIncludes(brand);
+		console.log(`🚀 ~ sources, includes:`, sources, includes);
 		const destination = getDestination(brand);
 		const parentSelector = `[data-o3-brand="${brand.split('/').slice(-1)}"]`;
 		buildCSS({
@@ -72,6 +73,8 @@ export function buildComponentTokens(componentName, getDestination) {
 			sources,
 			destination,
 			tokenFilter: token => {
+				if (token.name == '@') {}
+				// console.log(`🚀 ~ token:`, token);
 				return token.name.match(`^_?(${componentName})`);
 			},
 			parentSelector,

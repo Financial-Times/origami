@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'node:path';
-import {registerTransforms} from '@tokens-studio/sd-transforms';
+import {register} from '@tokens-studio/sd-transforms';
+
 import StyleDictionaryPackage from 'style-dictionary';
 import {brandClasses} from '../formatters/css/brand-classes.js';
 import {transformSVG} from '../transforms/transformSVG.js';
@@ -14,27 +15,24 @@ const basePath =
 		: path.join(__dirname, '../../');
 let tokenStudioThemes;
 
+register(StyleDictionaryPackage);
 StyleDictionaryPackage.registerTransform({
 	name: 'name/origamiPrivatePrefix',
 	type: 'name',
-	transformer: (token, options) =>
-		isTokenStudioSource(token) ? `_${token.name}` : token.name,
-});
-
-registerTransforms(StyleDictionaryPackage, {
-	expand: {
-		typography: true,
+	transform: (token) => {
+		// console.log(`🚀 ~ token:`, token);
+		return isTokenStudioSource(token) ? `_${token.name}` : token.name;
 	},
 });
 
 StyleDictionaryPackage.registerFormat({
 	name: 'css/brand/classes',
-	formatter: brandClasses,
+	format: brandClasses,
 });
 
 StyleDictionaryPackage.registerFormat({
 	name: 'tooling/esm',
-	formatter: ({dictionary}) => {
+	format: ({dictionary}) => {
 		return (
 			'export default ' +
 			'{\n' +
@@ -64,48 +62,37 @@ StyleDictionaryPackage.registerFormat({
 StyleDictionaryPackage.registerTransform({
 	name: 'value/transformSVG',
 	type: 'value',
-	transformer: transformSVG,
-	matcher: token => token.type === 'asset',
+	transform: transformSVG,
+	filter: token => token.type === 'asset',
 	transitive: true,
 });
 
 StyleDictionaryPackage.registerTransform({
-	name: 'Origami/pxToRem',
+	name: 'value/lineHeight',
 	type: 'value',
 	transitive: true,
-	matcher: token => {
-		const types = ['spacing', 'fontSizes', 'borderRadius', 'lineHeights'];
-		return types.includes(token.type);
+	filter: token => {
+		return token.type === 'number' && token.name.includes('line-height');
 	},
-	transformer: token => {
+	transform: token => {
 		const defaultWebFontSize = 16;
 		let tokenValue = token.value;
-		if (tokenValue.includes('px')) {
-			tokenValue = tokenValue.replace('px', '');
-		}
-		tokenValue = `${tokenValue / defaultWebFontSize}rem`;
-		return tokenValue;
-	},
-});
 
-StyleDictionaryPackage.registerFileHeader({
-	name: 'customFileHeader',
-	fileHeader: defaultMessage => {
-		// the fileHeader function should return an array of strings
-		// which will be formatted in the proper comment style for a given format
-		return [defaultMessage[0]]; // This will remove timestamp from file headers but will leave a comment not to edit files directly
+		tokenValue = `${tokenValue / defaultWebFontSize}rem`;
+		console.log(`🚀 ~ tokenValue:`, tokenValue);
+		return tokenValue;
 	},
 });
 
 StyleDictionaryPackage.registerTransform({
 	name: 'Origami/tintGroup',
 	type: 'attribute',
-	matcher: token => {
+	filter: token => {
 		return (
 			token.type === 'color' && /palette-[a-zA-Z]+-[0-9]{1,3}$/.test(token.name)
 		);
 	},
-	transformer: token => {
+	transform: token => {
 		const tint = token.path[token.path.length - 1].split('-');
 		token.origamiTint = {
 			base: tint[0],
@@ -116,17 +103,14 @@ StyleDictionaryPackage.registerTransform({
 });
 
 const transformers = [
-	'Origami/pxToRem',
-	'ts/size/px',
-	'ts/size/lineheight',
+	'value/lineHeight',
+	// 'size/px',
+	'size/pxToRem',
+	// 'ts/size/lineheight',
 	'ts/descriptionToComment',
-	'ts/typography/css/shorthand',
-	'ts/typography/css/fontFamily',
-	'ts/border/css/shorthand',
-	'ts/shadow/css/shorthand',
-	'ts/color/css/hexrgba',
+	'color/hex8',
 	'ts/color/modifiers',
-	'name/cti/kebab',
+	'name/kebab',
 	'name/origamiPrivatePrefix',
 ];
 
@@ -146,9 +130,9 @@ const transformers = [
 
 /**
  * @param {CssBuildConfig} CssBuildConfig - A string param.
- * @returns {undefined}
+ * @returns {Promise<undefined>}
  */
-export function buildCSS({
+export async function buildCSS({
 	sources,
 	includes,
 	destination,
@@ -159,10 +143,16 @@ export function buildCSS({
 	const config = {
 		source: sources,
 		include: includes,
+		preprocessors: ['tokens-studio'],
+		expand: {
+			include: ['typography'],
+			// expandTypes: expandTypesMap,
+		},
 		platforms: {
 			css: {
 				transformGroup: 'css',
 				transforms: [...transformers, 'value/transformSVG'],
+				basePxFontSize: 16,
 				buildPath: path.dirname(destination) + '/',
 				files: [
 					{
@@ -178,7 +168,6 @@ export function buildCSS({
 						destination: path.basename(destination),
 						format: parentSelector ? 'css/brand/classes' : 'css/variables',
 						options: {
-							fileHeader: 'customFileHeader',
 							outputReferences: true,
 							parentSelector,
 						},
@@ -187,8 +176,9 @@ export function buildCSS({
 			},
 		},
 	};
-
-	const StyleDictionary = StyleDictionaryPackage.extend(config);
+	const StyleDictionary = new StyleDictionaryPackage(config);
+	await StyleDictionary.cleanAllPlatforms();
+	await StyleDictionary.buildAllPlatforms();
 	try {
 		StyleDictionary.buildAllPlatforms();
 	} catch (e) {
@@ -205,9 +195,9 @@ export function buildCSS({
 
 /**
  * @param {MetaBuildConfig} CssBuildConfig - A string param.
- * @returns {undefined}
+ * @returns {Promise<undefined>}
  */
-export function buildMeta({sources, includes, destination}) {
+export async function buildMeta({sources, includes, destination}) {
 	getTokenStudioThemes();
 	const config = {
 		source: sources,
@@ -230,17 +220,15 @@ export function buildMeta({sources, includes, destination}) {
 						},
 						destination: path.basename(destination),
 						format: 'tooling/esm',
-						options: {
-							fileHeader: 'customFileHeader',
-						},
 					},
 				],
 			},
 		},
 	};
 
-	const StyleDictionary = StyleDictionaryPackage.extend(config);
-	StyleDictionary.buildAllPlatforms();
+	const StyleDictionary = new StyleDictionaryPackage(config);
+	await StyleDictionary.cleanAllPlatforms();
+	await StyleDictionary.buildAllPlatforms();
 }
 
 function getTokenStudioThemes() {

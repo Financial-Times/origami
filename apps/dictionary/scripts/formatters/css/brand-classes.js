@@ -1,20 +1,21 @@
-import StyleDictionary from 'style-dictionary';
-const {fileHeader, createPropertyFormatter} = StyleDictionary.formatHelpers;
+// import StyleDictionary from 'style-dictionary';
+import { fileHeader, createPropertyFormatter, formattedVariables } from 'style-dictionary/utils';
 
-export function brandClasses({dictionary, file, options}) {
+export async function brandClasses({dictionary, file, options}) {
 	const {outputReferences, parentSelector} = options;
+	const header = await fileHeader({file});
 
-	const formatProperty = createPropertyFormatter({
-		outputReferences,
-		dictionary,
-		format: 'css',
-	});
+	// const formatProperty = createPropertyFormatter({
+	// 	outputReferences,
+	// 	dictionary,
+	// 	format: 'css',
+	// });
 
-	const cssCustomProperties = dictionary.allTokens.map(formatProperty);
+	// const cssCustomProperties = dictionary.allTokens.map(formatProperty);
 
 	return (
-		`${fileHeader({file})}\n` +
+		`${header}\n` +
 		`${parentSelector} {\n` +
-		`${cssCustomProperties.join('\n')}\n}\n`
+		`${formattedVariables({ format: 'css', dictionary, outputReferences })}\n}\n`
 	);
 }
