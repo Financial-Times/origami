@@ -103,10 +103,8 @@ StyleDictionaryPackage.registerTransform({
 });
 
 const transformers = [
-	'value/lineHeight',
-	// 'size/px',
+	'size/px',
 	'size/pxToRem',
-	// 'ts/size/lineheight',
 	'ts/descriptionToComment',
 	'color/hex8',
 	'ts/color/modifiers',
@@ -146,7 +144,6 @@ export async function buildCSS({
 		preprocessors: ['tokens-studio'],
 		expand: {
 			include: ['typography'],
-			// expandTypes: expandTypesMap,
 		},
 		platforms: {
 			css: {
