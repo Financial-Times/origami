@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'node:path';
 import {register} from '@tokens-studio/sd-transforms';
-
 import StyleDictionaryPackage from 'style-dictionary';
 import {brandClasses} from '../formatters/css/brand-classes.js';
 import {transformSVG} from '../transforms/transformSVG.js';
@@ -19,8 +18,7 @@ register(StyleDictionaryPackage);
 StyleDictionaryPackage.registerTransform({
 	name: 'name/origamiPrivatePrefix',
 	type: 'name',
-	transform: (token) => {
-		// console.log(`🚀 ~ token:`, token);
+	transform: token => {
 		return isTokenStudioSource(token) ? `_${token.name}` : token.name;
 	},
 });
@@ -65,23 +63,6 @@ StyleDictionaryPackage.registerTransform({
 	transform: transformSVG,
 	filter: token => token.type === 'asset',
 	transitive: true,
-});
-
-StyleDictionaryPackage.registerTransform({
-	name: 'value/lineHeight',
-	type: 'value',
-	transitive: true,
-	filter: token => {
-		return token.type === 'number' && token.name.includes('line-height');
-	},
-	transform: token => {
-		const defaultWebFontSize = 16;
-		let tokenValue = token.value;
-
-		tokenValue = `${tokenValue / defaultWebFontSize}rem`;
-		console.log(`🚀 ~ tokenValue:`, tokenValue);
-		return tokenValue;
-	},
 });
 
 StyleDictionaryPackage.registerTransform({

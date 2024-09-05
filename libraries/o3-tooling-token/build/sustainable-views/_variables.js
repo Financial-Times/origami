@@ -283,9 +283,9 @@ export default {
 },
 	"o3-font-lineheight-0": {
 		"shortName": "0",
-		"value": "20",
+		"value": "1.25rem",
 		"originalValue": "20",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -297,9 +297,9 @@ export default {
 },
 	"o3-font-lineheight-1": {
 		"shortName": "1",
-		"value": "20",
+		"value": "1.25rem",
 		"originalValue": "20",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -311,9 +311,9 @@ export default {
 },
 	"o3-font-lineheight-2": {
 		"shortName": "2",
-		"value": "24",
+		"value": "1.5rem",
 		"originalValue": "24",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -325,9 +325,9 @@ export default {
 },
 	"o3-font-lineheight-3": {
 		"shortName": "3",
-		"value": "28",
+		"value": "1.75rem",
 		"originalValue": "28",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -339,9 +339,9 @@ export default {
 },
 	"o3-font-lineheight-4": {
 		"shortName": "4",
-		"value": "32",
+		"value": "2rem",
 		"originalValue": "32",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -353,9 +353,9 @@ export default {
 },
 	"o3-font-lineheight-5": {
 		"shortName": "5",
-		"value": "32",
+		"value": "2rem",
 		"originalValue": "32",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -367,9 +367,9 @@ export default {
 },
 	"o3-font-lineheight-6": {
 		"shortName": "6",
-		"value": "40",
+		"value": "2.5rem",
 		"originalValue": "40",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -381,9 +381,9 @@ export default {
 },
 	"o3-font-lineheight-7": {
 		"shortName": "7",
-		"value": "48",
+		"value": "3rem",
 		"originalValue": "48",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -395,9 +395,9 @@ export default {
 },
 	"o3-font-lineheight-8": {
 		"shortName": "8",
-		"value": "56",
+		"value": "3.5rem",
 		"originalValue": "56",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -409,9 +409,9 @@ export default {
 },
 	"o3-font-lineheight-9": {
 		"shortName": "9",
-		"value": "72",
+		"value": "4.5rem",
 		"originalValue": "72",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -423,9 +423,9 @@ export default {
 },
 	"o3-font-lineheight-10": {
 		"shortName": "10",
-		"value": "84",
+		"value": "5.25rem",
 		"originalValue": "84",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -437,9 +437,9 @@ export default {
 },
 	"o3-font-lineheight-negative-2": {
 		"shortName": "negative-2",
-		"value": "16",
+		"value": "1rem",
 		"originalValue": "16",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -451,9 +451,9 @@ export default {
 },
 	"o3-font-lineheight-negative-1": {
 		"shortName": "negative-1",
-		"value": "16",
+		"value": "1rem",
 		"originalValue": "16",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -647,9 +647,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-0": {
 		"shortName": "0",
-		"value": "20",
+		"value": "1.25rem",
 		"originalValue": "20",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -661,9 +661,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-1": {
 		"shortName": "1",
-		"value": "24",
+		"value": "1.5rem",
 		"originalValue": "24",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -675,9 +675,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-2": {
 		"shortName": "2",
-		"value": "28",
+		"value": "1.75rem",
 		"originalValue": "28",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -689,9 +689,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-3": {
 		"shortName": "3",
-		"value": "32",
+		"value": "2rem",
 		"originalValue": "32",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -703,9 +703,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-4": {
 		"shortName": "4",
-		"value": "32",
+		"value": "2rem",
 		"originalValue": "32",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -717,9 +717,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-5": {
 		"shortName": "5",
-		"value": "40",
+		"value": "2.5rem",
 		"originalValue": "40",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -731,9 +731,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-6": {
 		"shortName": "6",
-		"value": "48",
+		"value": "3rem",
 		"originalValue": "48",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -745,9 +745,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-7": {
 		"shortName": "7",
-		"value": "56",
+		"value": "3.5rem",
 		"originalValue": "56",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -759,9 +759,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-8": {
 		"shortName": "8",
-		"value": "72",
+		"value": "4.5rem",
 		"originalValue": "72",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -773,9 +773,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-9": {
 		"shortName": "9",
-		"value": "84",
+		"value": "5.25rem",
 		"originalValue": "84",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -787,9 +787,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-negative-3": {
 		"shortName": "negative-3",
-		"value": "16",
+		"value": "1rem",
 		"originalValue": "16",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -801,9 +801,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-negative-2": {
 		"shortName": "negative-2",
-		"value": "16",
+		"value": "1rem",
 		"originalValue": "16",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -815,9 +815,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-negative-1": {
 		"shortName": "negative-1",
-		"value": "20",
+		"value": "1.25rem",
 		"originalValue": "20",
-		"type": "lineHeights",
+		"type": "dimension",
 		"path": [
 				"o3",
 				"font",
@@ -1011,7 +1011,7 @@ export default {
 },
 	"o3-color-palette-teal": {
 		"shortName": "teal",
-		"value": "#0d7680",
+		"value": "#0d7680ff",
 		"originalValue": "#0d7680ff",
 		"type": "color",
 		"description": "",
@@ -1030,7 +1030,7 @@ export default {
 },
 	"o3-color-palette-oceanwave": {
 		"shortName": "oceanwave",
-		"value": "#c9f5ea",
+		"value": "#c9f5eaff",
 		"originalValue": "#C9F5EA",
 		"type": "color",
 		"origamiKeys": [
@@ -1048,7 +1048,7 @@ export default {
 },
 	"o3-color-palette-slate": {
 		"shortName": "slate",
-		"value": "#262a33",
+		"value": "#262a33ff",
 		"originalValue": "#262A33",
 		"type": "color",
 		"origamiKeys": [
@@ -1066,7 +1066,7 @@ export default {
 },
 	"o3-color-palette-white": {
 		"shortName": "white",
-		"value": "#ffffff",
+		"value": "#ffffffff",
 		"originalValue": "#ffffffff",
 		"type": "color",
 		"description": "",
@@ -1085,7 +1085,7 @@ export default {
 },
 	"o3-color-palette-black": {
 		"shortName": "black",
-		"value": "#000000",
+		"value": "#000000ff",
 		"originalValue": "#000000ff",
 		"type": "color",
 		"description": "",
@@ -1104,7 +1104,7 @@ export default {
 },
 	"o3-color-palette-claret": {
 		"shortName": "claret",
-		"value": "#990f3d",
+		"value": "#990f3dff",
 		"originalValue": "#990f3dff",
 		"type": "color",
 		"description": "",
@@ -1123,7 +1123,7 @@ export default {
 },
 	"o3-color-palette-black-90": {
 		"shortName": "black-90",
-		"value": "#1a1817",
+		"value": "#1a1817ff",
 		"originalValue": "#1a1817ff",
 		"type": "color",
 		"path": [
@@ -1141,7 +1141,7 @@ export default {
 },
 	"o3-color-palette-black-50": {
 		"shortName": "black-50",
-		"value": "#807973",
+		"value": "#807973ff",
 		"originalValue": "#807973ff",
 		"type": "color",
 		"path": [
@@ -1159,7 +1159,7 @@ export default {
 },
 	"o3-color-use-case-link-text": {
 		"shortName": "@",
-		"value": "#0d7680",
+		"value": "#0d7680ff",
 		"originalValue": "{o3.color.palette.teal}",
 		"type": "color",
 		"description": "",
@@ -1176,7 +1176,7 @@ export default {
 },
 	"o3-color-use-case-link-text-hover": {
 		"shortName": "hover",
-		"value": "#262a33",
+		"value": "#262a33ff",
 		"originalValue": "{o3.color.palette.slate}",
 		"type": "color",
 		"path": [
@@ -1192,7 +1192,7 @@ export default {
 },
 	"o3-color-use-case-link-underline": {
 		"shortName": "@",
-		"value": "#0d7680",
+		"value": "#0d7680ff",
 		"originalValue": "{o3.color.palette.teal}",
 		"type": "color",
 		"path": [
@@ -1208,7 +1208,7 @@ export default {
 },
 	"o3-color-use-case-link-underline-hover": {
 		"shortName": "hover",
-		"value": "#262a33",
+		"value": "#262a33ff",
 		"originalValue": "{o3.color.palette.slate}",
 		"type": "color",
 		"path": [
@@ -1224,7 +1224,7 @@ export default {
 },
 	"o3-color-use-case-page-background": {
 		"shortName": "background",
-		"value": "#ffffff",
+		"value": "#ffffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
 		"path": [
@@ -1239,7 +1239,7 @@ export default {
 },
 	"o3-color-use-case-body-text": {
 		"shortName": "text",
-		"value": "#1a1817",
+		"value": "#1a1817ff",
 		"originalValue": "{o3.color.palette.black-90}",
 		"type": "color",
 		"path": [
@@ -1254,7 +1254,7 @@ export default {
 },
 	"o3-color-use-case-muted-text": {
 		"shortName": "text",
-		"value": "#807973",
+		"value": "#807973ff",
 		"originalValue": "{o3.color.palette.black-50}",
 		"type": "color",
 		"description": "\"Muted\" text is less prominent, for example credits and captions.",
@@ -1270,7 +1270,7 @@ export default {
 },
 	"o3-color-use-case-muted-inverse-text": {
 		"shortName": "text",
-		"value": "#a8aaad",
+		"value": "#a8aaadff",
 		"originalValue": "#a8aaad",
 		"type": "color",
 		"description": "\"Muted\" text is less prominent, for example credits and captions.",
@@ -1286,7 +1286,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-text": {
 		"shortName": "@",
-		"value": "#ffffff",
+		"value": "#ffffffff",
 		"originalValue": "#ffffffff",
 		"type": "color",
 		"path": [
@@ -1302,7 +1302,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-text-hover": {
 		"shortName": "hover",
-		"value": "#d4d4d6",
+		"value": "#d4d4d6ff",
 		"originalValue": "#d4d4d6",
 		"type": "color",
 		"path": [
@@ -1318,7 +1318,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-underline": {
 		"shortName": "@",
-		"value": "#ffffff",
+		"value": "#ffffffff",
 		"originalValue": "#ffffffff",
 		"type": "color",
 		"path": [
@@ -1334,7 +1334,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-underline-hover": {
 		"shortName": "hover",
-		"value": "#d4d4d6",
+		"value": "#d4d4d6ff",
 		"originalValue": "#d4d4d6",
 		"type": "color",
 		"path": [
@@ -1350,7 +1350,7 @@ export default {
 },
 	"o3-color-use-case-page-inverse-background": {
 		"shortName": "background",
-		"value": "#262a33",
+		"value": "#262a33ff",
 		"originalValue": "{o3.color.palette.slate}",
 		"type": "color",
 		"path": [
@@ -1365,7 +1365,7 @@ export default {
 },
 	"o3-color-use-case-body-inverse-text": {
 		"shortName": "text",
-		"value": "#ffffff",
+		"value": "#ffffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
 		"path": [
@@ -1384,7 +1384,7 @@ export default {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
 				"fontSize": "16",
-				"lineHeight": "20"
+				"lineHeight": "1.25rem"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
@@ -1408,7 +1408,7 @@ export default {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
 				"fontSize": "18",
-				"lineHeight": "24"
+				"lineHeight": "1.5rem"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
@@ -1432,7 +1432,7 @@ export default {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
 				"fontSize": "14",
-				"lineHeight": "20"
+				"lineHeight": "1.25rem"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
@@ -1456,7 +1456,7 @@ export default {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
 				"fontSize": "14",
-				"lineHeight": "20"
+				"lineHeight": "1.25rem"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
@@ -1480,7 +1480,7 @@ export default {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "700",
 				"fontSize": "14",
-				"lineHeight": "20"
+				"lineHeight": "1.25rem"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
@@ -1505,7 +1505,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "4",
-				"color": "#ffffff",
+				"color": "#ffffffff",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -1534,7 +1534,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "8",
-				"color": "#000000",
+				"color": "#000000ff",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -1563,7 +1563,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "4",
-				"color": "#000000",
+				"color": "#000000ff",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -1593,7 +1593,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "8",
-				"color": "#ffffff",
+				"color": "#ffffffff",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -1623,7 +1623,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "2",
-				"color": "#807973",
+				"color": "#807973ff",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -1652,7 +1652,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "2",
-				"color": "#ffffff",
+				"color": "#ffffffff",
 				"type": "dropShadow"
 		},
 		"originalValue": {

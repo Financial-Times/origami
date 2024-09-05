@@ -25,7 +25,6 @@ export function buildBrandForCSS(getDestination) {
 	const brands = getBrandNames();
 	brands.forEach(brand => {
 		const {sources, includes} = getBrandSourcesAndIncludes(brand);
-		console.log(`🚀 ~ sources, includes:`, sources, includes);
 		const destination = getDestination(brand);
 		const parentSelector = `[data-o3-brand="${brand.split('/').slice(-1)}"]`;
 		buildCSS({
@@ -54,7 +53,10 @@ export function buildComponentTokens(componentName, getDestination) {
 	// Generally, we prefer to scope tokens to the component element so:
 	// 1. In-browser Dev Tools are easier to use.
 	// 2. Enforce they are used by the component only, especially where private.
-	const tokensAtRootForComponents = ['o3-typography', 'o3-editorial-typography'];
+	const tokensAtRootForComponents = [
+		'o3-typography',
+		'o3-editorial-typography',
+	];
 	const placeTokensAtRoot = tokensAtRootForComponents.includes(componentName);
 
 	const brands = getBrandNames();
@@ -73,8 +75,6 @@ export function buildComponentTokens(componentName, getDestination) {
 			sources,
 			destination,
 			tokenFilter: token => {
-				if (token.name == '@') {}
-				// console.log(`🚀 ~ token:`, token);
 				return token.name.match(`^_?(${componentName})`);
 			},
 			parentSelector,
