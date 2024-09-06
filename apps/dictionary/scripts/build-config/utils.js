@@ -102,7 +102,6 @@ StyleDictionaryPackage.registerTransform({
 const transformers = [
 	'value/figma-shadow-shorthand',
 	'size/px',
-	// 'size/pxToRem',
 	'ts/descriptionToComment',
 	'color/hex8',
 	'ts/color/modifiers',
