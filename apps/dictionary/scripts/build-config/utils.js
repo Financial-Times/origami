@@ -83,7 +83,20 @@ StyleDictionaryPackage.registerTransform({
 	},
 });
 
+StyleDictionaryPackage.registerTransform({
+	name: 'value/figma-shadow-shorthand',
+	type: 'value',
+	transitive: true,
+	filter: token => token.type === 'shadow',
+	transform: token => {
+		const value = token.value;
+		const [type, x, y, blur, spread, color] = value.split(' ');
+		return `${x}px ${y}px ${blur}px ${spread}px ${color}`;
+	},
+});
+
 const transformers = [
+	'value/figma-shadow-shorthand',
 	'size/px',
 	'size/pxToRem',
 	'ts/descriptionToComment',

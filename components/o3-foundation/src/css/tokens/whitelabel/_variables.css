@@ -91,12 +91,12 @@
   --o3-color-palette-jade: #00994dff;
   --o3-color-palette-white: #ffffffff;
   --o3-color-palette-black: #000000ff;
-  --o3-focus-use-case-outline-inverse-color: dropShadow 0 0 0 2 var(--o3-color-palette-white);
-  --o3-focus-use-case-outline-color: dropShadow 0 0 0 2 var(--o3-color-palette-black);
-  --o3-focus-use-case-ring-inverse-outer: dropShadow 0 0 0 8 var(--o3-color-palette-white);
-  --o3-focus-use-case-ring-inverse-inner: dropShadow 0 0 0 4 var(--o3-color-palette-black);
-  --o3-focus-use-case-ring-outer: dropShadow 0 0 0 8 var(--o3-color-palette-black);
-  --o3-focus-use-case-ring-inner: dropShadow 0 0 0 4 var(--o3-color-palette-white);
+  --o3-focus-use-case-outline-inverse-color: 0 0 0 2px var(--o3-color-palette-white);
+  --o3-focus-use-case-outline-color: 0 0 0 2px var(--o3-color-palette-black);
+  --o3-focus-use-case-ring-inverse-outer: 0 0 0 8px var(--o3-color-palette-white);
+  --o3-focus-use-case-ring-inverse-inner: 0 0 0 4px var(--o3-color-palette-black);
+  --o3-focus-use-case-ring-outer: 0 0 0 8px var(--o3-color-palette-black);
+  --o3-focus-use-case-ring-inner: 0 0 0 4px var(--o3-color-palette-white);
   --o3-typography-use-case-body-small-bold-line-height: var(--o3-font-lineheight-metric2-0);
   --o3-typography-use-case-body-small-bold-font-size: var(--o3-font-size-metric2-0);
   --o3-typography-use-case-body-small-bold-font-weight: var(--o3-font-weight-semibold);
