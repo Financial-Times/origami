@@ -36,7 +36,10 @@ StyleDictionaryPackage.registerFormat({
 			'{\n' +
 			dictionary.allTokens
 				.map(function (token) {
-					const type = token.type === 'dimension' && token.name.includes('lineheight') ? 'lineHeights' : token.type;
+					const type =
+						token.type === 'dimension' && token.name.includes('lineheight')
+							? 'lineHeights'
+							: token.type;
 					const value = {
 						shortName: token.path[token.path.length - 1],
 						value: token.value,
@@ -144,7 +147,6 @@ export async function buildCSS({
 			css: {
 				transformGroup: 'css',
 				transforms: [...transformers, 'value/transformSVG'],
-				basePxFontSize: 16,
 				buildPath: path.dirname(destination) + '/',
 				files: [
 					{
