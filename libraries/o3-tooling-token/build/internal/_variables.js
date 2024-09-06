@@ -1204,9 +1204,9 @@ export default {
 },
 	"o3-font-lineheight-0": {
 		"shortName": "0",
-		"value": "1.25rem",
+		"value": "20px",
 		"originalValue": "20",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1218,9 +1218,9 @@ export default {
 },
 	"o3-font-lineheight-1": {
 		"shortName": "1",
-		"value": "1.25rem",
+		"value": "20px",
 		"originalValue": "20",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1232,9 +1232,9 @@ export default {
 },
 	"o3-font-lineheight-2": {
 		"shortName": "2",
-		"value": "1.5rem",
+		"value": "24px",
 		"originalValue": "24",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1246,9 +1246,9 @@ export default {
 },
 	"o3-font-lineheight-3": {
 		"shortName": "3",
-		"value": "1.75rem",
+		"value": "28px",
 		"originalValue": "28",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1260,9 +1260,9 @@ export default {
 },
 	"o3-font-lineheight-4": {
 		"shortName": "4",
-		"value": "2rem",
+		"value": "32px",
 		"originalValue": "32",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1274,9 +1274,9 @@ export default {
 },
 	"o3-font-lineheight-5": {
 		"shortName": "5",
-		"value": "2rem",
+		"value": "32px",
 		"originalValue": "32",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1288,9 +1288,9 @@ export default {
 },
 	"o3-font-lineheight-6": {
 		"shortName": "6",
-		"value": "2.5rem",
+		"value": "40px",
 		"originalValue": "40",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1302,9 +1302,9 @@ export default {
 },
 	"o3-font-lineheight-7": {
 		"shortName": "7",
-		"value": "3rem",
+		"value": "48px",
 		"originalValue": "48",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1316,9 +1316,9 @@ export default {
 },
 	"o3-font-lineheight-8": {
 		"shortName": "8",
-		"value": "3.5rem",
+		"value": "56px",
 		"originalValue": "56",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1330,9 +1330,9 @@ export default {
 },
 	"o3-font-lineheight-9": {
 		"shortName": "9",
-		"value": "4.5rem",
+		"value": "72px",
 		"originalValue": "72",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1344,9 +1344,9 @@ export default {
 },
 	"o3-font-lineheight-10": {
 		"shortName": "10",
-		"value": "5.25rem",
+		"value": "84px",
 		"originalValue": "84",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1358,9 +1358,9 @@ export default {
 },
 	"o3-font-lineheight-negative-2": {
 		"shortName": "negative-2",
-		"value": "1rem",
+		"value": "16px",
 		"originalValue": "16",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1372,9 +1372,9 @@ export default {
 },
 	"o3-font-lineheight-negative-1": {
 		"shortName": "negative-1",
-		"value": "1rem",
+		"value": "16px",
 		"originalValue": "16",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1568,9 +1568,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-0": {
 		"shortName": "0",
-		"value": "1.25rem",
+		"value": "20px",
 		"originalValue": "20",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1582,9 +1582,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-1": {
 		"shortName": "1",
-		"value": "1.5rem",
+		"value": "24px",
 		"originalValue": "24",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1596,9 +1596,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-2": {
 		"shortName": "2",
-		"value": "1.75rem",
+		"value": "28px",
 		"originalValue": "28",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1610,9 +1610,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-3": {
 		"shortName": "3",
-		"value": "2rem",
+		"value": "32px",
 		"originalValue": "32",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1624,9 +1624,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-4": {
 		"shortName": "4",
-		"value": "2rem",
+		"value": "32px",
 		"originalValue": "32",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1638,9 +1638,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-5": {
 		"shortName": "5",
-		"value": "2.5rem",
+		"value": "40px",
 		"originalValue": "40",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1652,9 +1652,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-6": {
 		"shortName": "6",
-		"value": "3rem",
+		"value": "48px",
 		"originalValue": "48",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1666,9 +1666,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-7": {
 		"shortName": "7",
-		"value": "3.5rem",
+		"value": "56px",
 		"originalValue": "56",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1680,9 +1680,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-8": {
 		"shortName": "8",
-		"value": "4.5rem",
+		"value": "72px",
 		"originalValue": "72",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1694,9 +1694,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-9": {
 		"shortName": "9",
-		"value": "5.25rem",
+		"value": "84px",
 		"originalValue": "84",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1708,9 +1708,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-negative-3": {
 		"shortName": "negative-3",
-		"value": "1rem",
+		"value": "16px",
 		"originalValue": "16",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1722,9 +1722,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-negative-2": {
 		"shortName": "negative-2",
-		"value": "1rem",
+		"value": "16px",
 		"originalValue": "16",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1736,9 +1736,9 @@ export default {
 },
 	"o3-font-lineheight-metric2-negative-1": {
 		"shortName": "negative-1",
-		"value": "1.25rem",
+		"value": "20px",
 		"originalValue": "20",
-		"type": "dimension",
+		"type": "lineHeights",
 		"path": [
 				"o3",
 				"font",
@@ -1936,7 +1936,7 @@ export default {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
 				"fontSize": "18",
-				"lineHeight": "1.5rem"
+				"lineHeight": "24px"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
@@ -1960,7 +1960,7 @@ export default {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
 				"fontSize": "20",
-				"lineHeight": "1.75rem"
+				"lineHeight": "28px"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
@@ -1984,7 +1984,7 @@ export default {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
 				"fontSize": "16",
-				"lineHeight": "1.25rem"
+				"lineHeight": "20px"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
@@ -2008,7 +2008,7 @@ export default {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
 				"fontSize": "16",
-				"lineHeight": "1.25rem"
+				"lineHeight": "20px"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
@@ -2032,7 +2032,7 @@ export default {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "700",
 				"fontSize": "16",
-				"lineHeight": "1.25rem"
+				"lineHeight": "20px"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",

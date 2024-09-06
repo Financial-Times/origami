@@ -36,11 +36,12 @@ StyleDictionaryPackage.registerFormat({
 			'{\n' +
 			dictionary.allTokens
 				.map(function (token) {
+					const type = token.type === 'dimension' && token.name.includes('lineheight') ? 'lineHeights' : token.type;
 					const value = {
 						shortName: token.path[token.path.length - 1],
 						value: token.value,
 						originalValue: token.original.value,
-						type: token.type,
+						type,
 						description: token.description,
 						origamiKeys: token.origamiKeys,
 						path: token.path,
@@ -98,7 +99,7 @@ StyleDictionaryPackage.registerTransform({
 const transformers = [
 	'value/figma-shadow-shorthand',
 	'size/px',
-	'size/pxToRem',
+	// 'size/pxToRem',
 	'ts/descriptionToComment',
 	'color/hex8',
 	'ts/color/modifiers',

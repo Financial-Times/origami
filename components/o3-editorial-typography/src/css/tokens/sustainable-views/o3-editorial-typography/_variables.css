@@ -5,9 +5,9 @@
 
 [data-o3-brand="sustainable-views"] {
   --_o3-editorial-typography-dropcap-s-line-height: 94;
-  --_o3-editorial-typography-dropcap-s-font-size: 5.875rem;
+  --_o3-editorial-typography-dropcap-s-font-size: 94px;
   --_o3-editorial-typography-dropcap-l-line-height: 108;
-  --_o3-editorial-typography-dropcap-l-font-size: 6.75rem;
+  --_o3-editorial-typography-dropcap-l-font-size: 108px;
   --_o3-editorial-typography-article-body-s-font-weight: 1;
   --_o3-editorial-typography-article-body-l-font-weight: 1;
   --_o3-editorial-typography-byline-timestamp-line-height: var(--o3-font-lineheight-metric2-negative-1);
