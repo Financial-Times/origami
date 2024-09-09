@@ -136,7 +136,6 @@
   --o3-color-palette-crimson: #cc0000;
   --o3-color-palette-light-blue: #00a0dd;
   --o3-color-palette-mandarin: #ff8833;
-  --o3-color-palette-transparrent: rgba(255, 255, 255, 0);
   --o3-color-palette-paper: #fff1e5; /* Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white. */
   --o3-color-palette-slate: #262a33; /* Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons. */
   /**

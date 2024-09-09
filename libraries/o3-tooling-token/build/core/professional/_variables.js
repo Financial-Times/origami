@@ -170,20 +170,6 @@ export default {
 		"css": "--o3-color-palette-paper",
 		"figma": "o3/color/palette/paper"
 },
-	"o3-color-palette-transparrent": {
-		"shortName": "transparrent",
-		"value": "#ffffff",
-		"originalValue": "#ffffff00",
-		"type": "color",
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"transparrent"
-		],
-		"css": "--o3-color-palette-transparrent",
-		"figma": "o3/color/palette/transparrent"
-},
 	"o3-color-palette-mandarin": {
 		"shortName": "mandarin",
 		"value": "#ff8833",
