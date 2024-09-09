@@ -1,7 +1,7 @@
 export default {
 	"o3-color-palette-ft-pink": {
 		"shortName": "ft-pink",
-		"value": "#fcd0b1ff",
+		"value": "#fcd0b1",
 		"originalValue": "#FCD0B1",
 		"type": "color",
 		"description": "FT Pink is used for the FT logo",
@@ -20,7 +20,7 @@ export default {
 },
 	"o3-color-palette-ft-grey": {
 		"shortName": "ft-grey",
-		"value": "#333333ff",
+		"value": "#333333",
 		"originalValue": "#333333ff",
 		"type": "color",
 		"description": "",
@@ -39,7 +39,7 @@ export default {
 },
 	"o3-color-palette-white": {
 		"shortName": "white",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "#ffffffff",
 		"type": "color",
 		"description": "",
@@ -58,7 +58,7 @@ export default {
 },
 	"o3-color-palette-black": {
 		"shortName": "black",
-		"value": "#000000ff",
+		"value": "#000000",
 		"originalValue": "#000000ff",
 		"type": "color",
 		"description": "",
@@ -77,7 +77,7 @@ export default {
 },
 	"o3-color-palette-claret": {
 		"shortName": "claret",
-		"value": "#990f3dff",
+		"value": "#990f3d",
 		"originalValue": "#990f3dff",
 		"type": "color",
 		"description": "Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.\n\nUsage example: MyFT branding; MyFT CTAs",
@@ -96,7 +96,7 @@ export default {
 },
 	"o3-color-palette-teal": {
 		"shortName": "teal",
-		"value": "#0d7680ff",
+		"value": "#0d7680",
 		"originalValue": "#0d7680ff",
 		"type": "color",
 		"description": "Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases.",
@@ -115,7 +115,7 @@ export default {
 },
 	"o3-color-palette-oxford": {
 		"shortName": "oxford",
-		"value": "#0f5499ff",
+		"value": "#0f5499",
 		"originalValue": "#0f5499ff",
 		"type": "color",
 		"description": "Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.\n\nUsage example: opinion branding; opinion topic tags.",
@@ -134,7 +134,7 @@ export default {
 },
 	"o3-color-palette-slate": {
 		"shortName": "slate",
-		"value": "#262a33ff",
+		"value": "#262a33",
 		"originalValue": "#262a33ff",
 		"type": "color",
 		"description": "Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons.",
@@ -153,7 +153,7 @@ export default {
 },
 	"o3-color-palette-paper": {
 		"shortName": "paper",
-		"value": "#fff1e5ff",
+		"value": "#fff1e5",
 		"originalValue": "#fff1e5ff",
 		"type": "color",
 		"description": "Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white.",
@@ -172,7 +172,7 @@ export default {
 },
 	"o3-color-palette-transparrent": {
 		"shortName": "transparrent",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "#ffffff00",
 		"type": "color",
 		"path": [
@@ -186,7 +186,7 @@ export default {
 },
 	"o3-color-palette-mandarin": {
 		"shortName": "mandarin",
-		"value": "#ff8833ff",
+		"value": "#ff8833",
 		"originalValue": "#ff8833ff",
 		"type": "color",
 		"description": "",
@@ -205,7 +205,7 @@ export default {
 },
 	"o3-color-palette-light-blue": {
 		"shortName": "light-blue",
-		"value": "#00a0ddff",
+		"value": "#00a0dd",
 		"originalValue": "#00a0ddff",
 		"type": "color",
 		"description": "",
@@ -224,7 +224,7 @@ export default {
 },
 	"o3-color-palette-crimson": {
 		"shortName": "crimson",
-		"value": "#cc0000ff",
+		"value": "#cc0000",
 		"originalValue": "#cc0000ff",
 		"type": "color",
 		"description": "",
@@ -243,7 +243,7 @@ export default {
 },
 	"o3-color-palette-graphics-dark-blue": {
 		"shortName": "graphics-dark-blue",
-		"value": "#006f9bff",
+		"value": "#006f9b",
 		"originalValue": "#006f9bff",
 		"type": "color",
 		"description": "",
@@ -262,7 +262,7 @@ export default {
 },
 	"o3-color-palette-wheat": {
 		"shortName": "wheat",
-		"value": "#f2dfceff",
+		"value": "#f2dfce",
 		"originalValue": "#f2dfceff",
 		"type": "color",
 		"description": "",
@@ -281,7 +281,7 @@ export default {
 },
 	"o3-color-palette-candy": {
 		"shortName": "candy",
-		"value": "#ff7faaff",
+		"value": "#ff7faa",
 		"originalValue": "#ff7faaff",
 		"type": "color",
 		"description": "",
@@ -300,7 +300,7 @@ export default {
 },
 	"o3-color-palette-wasabi": {
 		"shortName": "wasabi",
-		"value": "#96cc28ff",
+		"value": "#96cc28",
 		"originalValue": "#96cc28ff",
 		"type": "color",
 		"description": "",
@@ -319,7 +319,7 @@ export default {
 },
 	"o3-color-palette-jade": {
 		"shortName": "jade",
-		"value": "#00994dff",
+		"value": "#00994d",
 		"originalValue": "#00994dff",
 		"type": "color",
 		"description": "",
@@ -338,7 +338,7 @@ export default {
 },
 	"o3-color-palette-velvet": {
 		"shortName": "velvet",
-		"value": "#593380ff",
+		"value": "#593380",
 		"originalValue": "#593380ff",
 		"type": "color",
 		"description": "",
@@ -357,7 +357,7 @@ export default {
 },
 	"o3-color-palette-lemon": {
 		"shortName": "lemon",
-		"value": "#ffec1aff",
+		"value": "#ffec1a",
 		"originalValue": "#ffec1aff",
 		"type": "color",
 		"description": "",
@@ -376,7 +376,7 @@ export default {
 },
 	"o3-color-palette-sky": {
 		"shortName": "sky",
-		"value": "#cce6ffff",
+		"value": "#cce6ff",
 		"originalValue": "#cce6ffff",
 		"type": "color",
 		"description": "",
@@ -395,7 +395,7 @@ export default {
 },
 	"o3-color-palette-matisse-blue": {
 		"shortName": "matisse-blue",
-		"value": "#355778ff",
+		"value": "#355778",
 		"originalValue": "#355778ff",
 		"type": "color",
 		"description": "",
@@ -414,7 +414,7 @@ export default {
 },
 	"o3-color-palette-black-5": {
 		"shortName": "black-5",
-		"value": "#f2e5daff",
+		"value": "#f2e5da",
 		"originalValue": "#f2e5daff",
 		"type": "color",
 		"description": "",
@@ -433,7 +433,7 @@ export default {
 },
 	"o3-color-palette-black-10": {
 		"shortName": "black-10",
-		"value": "#e6d9ceff",
+		"value": "#e6d9ce",
 		"originalValue": "#e6d9ceff",
 		"type": "color",
 		"description": "",
@@ -452,7 +452,7 @@ export default {
 },
 	"o3-color-palette-black-20": {
 		"shortName": "black-20",
-		"value": "#ccc1b7ff",
+		"value": "#ccc1b7",
 		"originalValue": "#ccc1b7ff",
 		"type": "color",
 		"description": "",
@@ -471,7 +471,7 @@ export default {
 },
 	"o3-color-palette-black-30": {
 		"shortName": "black-30",
-		"value": "#b3a9a0ff",
+		"value": "#b3a9a0",
 		"originalValue": "#b3a9a0ff",
 		"type": "color",
 		"description": "",
@@ -490,7 +490,7 @@ export default {
 },
 	"o3-color-palette-black-40": {
 		"shortName": "black-40",
-		"value": "#999189ff",
+		"value": "#999189",
 		"originalValue": "#999189ff",
 		"type": "color",
 		"description": "",
@@ -509,7 +509,7 @@ export default {
 },
 	"o3-color-palette-black-50": {
 		"shortName": "black-50",
-		"value": "#807973ff",
+		"value": "#807973",
 		"originalValue": "#807973ff",
 		"type": "color",
 		"description": "",
@@ -528,7 +528,7 @@ export default {
 },
 	"o3-color-palette-black-60": {
 		"shortName": "black-60",
-		"value": "#66605cff",
+		"value": "#66605c",
 		"originalValue": "#66605cff",
 		"type": "color",
 		"description": "",
@@ -547,7 +547,7 @@ export default {
 },
 	"o3-color-palette-black-70": {
 		"shortName": "black-70",
-		"value": "#4d4845ff",
+		"value": "#4d4845",
 		"originalValue": "#4d4845ff",
 		"type": "color",
 		"description": "",
@@ -566,7 +566,7 @@ export default {
 },
 	"o3-color-palette-black-80": {
 		"shortName": "black-80",
-		"value": "#33302eff",
+		"value": "#33302e",
 		"originalValue": "#33302eff",
 		"type": "color",
 		"description": "",
@@ -585,7 +585,7 @@ export default {
 },
 	"o3-color-palette-black-90": {
 		"shortName": "black-90",
-		"value": "#1a1817ff",
+		"value": "#1a1817",
 		"originalValue": "#1a1817ff",
 		"type": "color",
 		"description": "",
@@ -604,7 +604,7 @@ export default {
 },
 	"o3-color-palette-white-10": {
 		"shortName": "white-10",
-		"value": "#fff2e8ff",
+		"value": "#fff2e8",
 		"originalValue": "#fff2e8ff",
 		"type": "color",
 		"description": "",
@@ -623,7 +623,7 @@ export default {
 },
 	"o3-color-palette-white-20": {
 		"shortName": "white-20",
-		"value": "#fff4eaff",
+		"value": "#fff4ea",
 		"originalValue": "#fff4eaff",
 		"type": "color",
 		"description": "",
@@ -642,7 +642,7 @@ export default {
 },
 	"o3-color-palette-white-40": {
 		"shortName": "white-40",
-		"value": "#fff7efff",
+		"value": "#fff7ef",
 		"originalValue": "#fff7efff",
 		"type": "color",
 		"description": "",
@@ -661,7 +661,7 @@ export default {
 },
 	"o3-color-palette-white-60": {
 		"shortName": "white-60",
-		"value": "#fff9f5ff",
+		"value": "#fff9f5",
 		"originalValue": "#fff9f5ff",
 		"type": "color",
 		"description": "",
@@ -680,7 +680,7 @@ export default {
 },
 	"o3-color-palette-white-80": {
 		"shortName": "white-80",
-		"value": "#fffcfaff",
+		"value": "#fffcfa",
 		"originalValue": "#fffcfaff",
 		"type": "color",
 		"description": "",
@@ -699,7 +699,7 @@ export default {
 },
 	"o3-color-palette-oxford-30": {
 		"shortName": "oxford-30",
-		"value": "#082a4dff",
+		"value": "#082a4d",
 		"originalValue": "#082a4dff",
 		"type": "color",
 		"description": "",
@@ -718,7 +718,7 @@ export default {
 },
 	"o3-color-palette-oxford-40": {
 		"shortName": "oxford-40",
-		"value": "#0a3866ff",
+		"value": "#0a3866",
 		"originalValue": "#0a3866ff",
 		"type": "color",
 		"description": "",
@@ -737,7 +737,7 @@ export default {
 },
 	"o3-color-palette-oxford-50": {
 		"shortName": "oxford-50",
-		"value": "#0d4680ff",
+		"value": "#0d4680",
 		"originalValue": "#0d4680ff",
 		"type": "color",
 		"description": "",
@@ -756,7 +756,7 @@ export default {
 },
 	"o3-color-palette-oxford-60": {
 		"shortName": "oxford-60",
-		"value": "#0f5499ff",
+		"value": "#0f5499",
 		"originalValue": "#0f5499ff",
 		"type": "color",
 		"description": "",
@@ -775,7 +775,7 @@ export default {
 },
 	"o3-color-palette-oxford-70": {
 		"shortName": "oxford-70",
-		"value": "#1262b3ff",
+		"value": "#1262b3",
 		"originalValue": "#1262b3ff",
 		"type": "color",
 		"description": "",
@@ -794,7 +794,7 @@ export default {
 },
 	"o3-color-palette-oxford-80": {
 		"shortName": "oxford-80",
-		"value": "#1470ccff",
+		"value": "#1470cc",
 		"originalValue": "#1470ccff",
 		"type": "color",
 		"description": "",
@@ -813,7 +813,7 @@ export default {
 },
 	"o3-color-palette-oxford-90": {
 		"shortName": "oxford-90",
-		"value": "#177ee6ff",
+		"value": "#177ee6",
 		"originalValue": "#177ee6ff",
 		"type": "color",
 		"description": "",
@@ -832,7 +832,7 @@ export default {
 },
 	"o3-color-palette-oxford-100": {
 		"shortName": "oxford-100",
-		"value": "#1a8cffff",
+		"value": "#1a8cff",
 		"originalValue": "#1a8cffff",
 		"type": "color",
 		"description": "",
@@ -851,7 +851,7 @@ export default {
 },
 	"o3-color-palette-teal-20": {
 		"shortName": "teal-20",
-		"value": "#052f33ff",
+		"value": "#052f33",
 		"originalValue": "#052f33ff",
 		"type": "color",
 		"description": "",
@@ -870,7 +870,7 @@ export default {
 },
 	"o3-color-palette-teal-30": {
 		"shortName": "teal-30",
-		"value": "#08474dff",
+		"value": "#08474d",
 		"originalValue": "#08474dff",
 		"type": "color",
 		"description": "",
@@ -889,7 +889,7 @@ export default {
 },
 	"o3-color-palette-teal-40": {
 		"shortName": "teal-40",
-		"value": "#0a5e66ff",
+		"value": "#0a5e66",
 		"originalValue": "#0a5e66ff",
 		"type": "color",
 		"description": "",
@@ -908,7 +908,7 @@ export default {
 },
 	"o3-color-palette-teal-50": {
 		"shortName": "teal-50",
-		"value": "#0d7680ff",
+		"value": "#0d7680",
 		"originalValue": "#0d7680ff",
 		"type": "color",
 		"description": "",
@@ -927,7 +927,7 @@ export default {
 },
 	"o3-color-palette-teal-60": {
 		"shortName": "teal-60",
-		"value": "#0f8e99ff",
+		"value": "#0f8e99",
 		"originalValue": "#0f8e99ff",
 		"type": "color",
 		"description": "",
@@ -946,7 +946,7 @@ export default {
 },
 	"o3-color-palette-teal-70": {
 		"shortName": "teal-70",
-		"value": "#12a5b3ff",
+		"value": "#12a5b3",
 		"originalValue": "#12a5b3ff",
 		"type": "color",
 		"description": "",
@@ -965,7 +965,7 @@ export default {
 },
 	"o3-color-palette-teal-80": {
 		"shortName": "teal-80",
-		"value": "#14bdccff",
+		"value": "#14bdcc",
 		"originalValue": "#14bdccff",
 		"type": "color",
 		"description": "",
@@ -984,7 +984,7 @@ export default {
 },
 	"o3-color-palette-teal-90": {
 		"shortName": "teal-90",
-		"value": "#17d4e6ff",
+		"value": "#17d4e6",
 		"originalValue": "#17d4e6ff",
 		"type": "color",
 		"description": "",
@@ -1003,7 +1003,7 @@ export default {
 },
 	"o3-color-palette-teal-100": {
 		"shortName": "teal-100",
-		"value": "#1aecffff",
+		"value": "#1aecff",
 		"originalValue": "#1aecffff",
 		"type": "color",
 		"description": "",
@@ -1022,7 +1022,7 @@ export default {
 },
 	"o3-color-palette-claret-30": {
 		"shortName": "claret-30",
-		"value": "#4d081fff",
+		"value": "#4d081f",
 		"originalValue": "#4d081fff",
 		"type": "color",
 		"description": "",
@@ -1041,7 +1041,7 @@ export default {
 },
 	"o3-color-palette-claret-40": {
 		"shortName": "claret-40",
-		"value": "#660a29ff",
+		"value": "#660a29",
 		"originalValue": "#660a29ff",
 		"type": "color",
 		"description": "",
@@ -1060,7 +1060,7 @@ export default {
 },
 	"o3-color-palette-claret-50": {
 		"shortName": "claret-50",
-		"value": "#800d33ff",
+		"value": "#800d33",
 		"originalValue": "#800d33ff",
 		"type": "color",
 		"description": "",
@@ -1079,7 +1079,7 @@ export default {
 },
 	"o3-color-palette-claret-60": {
 		"shortName": "claret-60",
-		"value": "#990f3dff",
+		"value": "#990f3d",
 		"originalValue": "#990f3dff",
 		"type": "color",
 		"description": "",
@@ -1098,7 +1098,7 @@ export default {
 },
 	"o3-color-palette-claret-70": {
 		"shortName": "claret-70",
-		"value": "#b31247ff",
+		"value": "#b31247",
 		"originalValue": "#b31247ff",
 		"type": "color",
 		"description": "",
@@ -1117,7 +1117,7 @@ export default {
 },
 	"o3-color-palette-claret-80": {
 		"shortName": "claret-80",
-		"value": "#cc1452ff",
+		"value": "#cc1452",
 		"originalValue": "#cc1452ff",
 		"type": "color",
 		"description": "",
@@ -1136,7 +1136,7 @@ export default {
 },
 	"o3-color-palette-claret-90": {
 		"shortName": "claret-90",
-		"value": "#e6175cff",
+		"value": "#e6175c",
 		"originalValue": "#e6175cff",
 		"type": "color",
 		"description": "",
@@ -1155,7 +1155,7 @@ export default {
 },
 	"o3-color-palette-claret-100": {
 		"shortName": "claret-100",
-		"value": "#ff1a66ff",
+		"value": "#ff1a66",
 		"originalValue": "#ff1a66ff",
 		"type": "color",
 		"description": "",
@@ -1174,7 +1174,7 @@ export default {
 },
 	"o3-color-palette-wheat-100": {
 		"shortName": "wheat-100",
-		"value": "#ffebd9ff",
+		"value": "#ffebd9",
 		"originalValue": "#FFEBD9",
 		"type": "color",
 		"path": [
@@ -1192,7 +1192,7 @@ export default {
 },
 	"o3-color-use-case-link-text": {
 		"shortName": "@",
-		"value": "#0d7680ff",
+		"value": "#0d7680",
 		"originalValue": "{o3.color.palette.teal}",
 		"type": "color",
 		"description": "",
@@ -1209,7 +1209,7 @@ export default {
 },
 	"o3-color-use-case-link-text-hover": {
 		"shortName": "hover",
-		"value": "#08474dff",
+		"value": "#08474d",
 		"originalValue": "{o3.color.palette.teal-30}",
 		"type": "color",
 		"path": [
@@ -1225,7 +1225,7 @@ export default {
 },
 	"o3-color-use-case-link-underline": {
 		"shortName": "@",
-		"value": "#cfd8d1ff",
+		"value": "#cfd8d1",
 		"originalValue": "#CFD8D1",
 		"type": "color",
 		"path": [
@@ -1241,7 +1241,7 @@ export default {
 },
 	"o3-color-use-case-link-underline-hover": {
 		"shortName": "hover",
-		"value": "#9ec0bdff",
+		"value": "#9ec0bd",
 		"originalValue": "#9EC0BD",
 		"type": "color",
 		"path": [
@@ -1257,7 +1257,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-text": {
 		"shortName": "@",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "#ffffffff",
 		"type": "color",
 		"path": [
@@ -1273,7 +1273,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-text-hover": {
 		"shortName": "hover",
-		"value": "#d4d4d6ff",
+		"value": "#d4d4d6",
 		"originalValue": "#d4d4d6",
 		"type": "color",
 		"path": [
@@ -1289,7 +1289,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-underline": {
 		"shortName": "@",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "#ffffffff",
 		"type": "color",
 		"path": [
@@ -1305,7 +1305,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-underline-hover": {
 		"shortName": "hover",
-		"value": "#d4d4d6ff",
+		"value": "#d4d4d6",
 		"originalValue": "#d4d4d6",
 		"type": "color",
 		"path": [
@@ -1321,7 +1321,7 @@ export default {
 },
 	"o3-color-use-case-page-background": {
 		"shortName": "background",
-		"value": "#fff1e5ff",
+		"value": "#fff1e5",
 		"originalValue": "{o3.color.palette.paper}",
 		"type": "color",
 		"path": [
@@ -1336,7 +1336,7 @@ export default {
 },
 	"o3-color-use-case-page-inverse-background": {
 		"shortName": "background",
-		"value": "#262a33ff",
+		"value": "#262a33",
 		"originalValue": "{o3.color.palette.slate}",
 		"type": "color",
 		"path": [
@@ -1351,7 +1351,7 @@ export default {
 },
 	"o3-color-use-case-body-text": {
 		"shortName": "text",
-		"value": "#33302eff",
+		"value": "#33302e",
 		"originalValue": "{o3.color.palette.black-80}",
 		"type": "color",
 		"path": [
@@ -1366,7 +1366,7 @@ export default {
 },
 	"o3-color-use-case-body-inverse-text": {
 		"shortName": "text",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
 		"path": [
@@ -1381,7 +1381,7 @@ export default {
 },
 	"o3-color-use-case-heading-text": {
 		"shortName": "text",
-		"value": "#33302eff",
+		"value": "#33302e",
 		"originalValue": "{o3.color.palette.black-80}",
 		"type": "color",
 		"path": [
@@ -1396,7 +1396,7 @@ export default {
 },
 	"o3-color-use-case-heading-inverse-text": {
 		"shortName": "text",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
 		"path": [
@@ -1411,7 +1411,7 @@ export default {
 },
 	"o3-color-use-case-muted-text": {
 		"shortName": "text",
-		"value": "#807973ff",
+		"value": "#807973",
 		"originalValue": "{o3.color.palette.black-50}",
 		"type": "color",
 		"description": "\"Muted\" text is less prominent, for example credits and captions.",
@@ -1427,7 +1427,7 @@ export default {
 },
 	"o3-color-use-case-muted-inverse-text": {
 		"shortName": "text",
-		"value": "#a8aaadff",
+		"value": "#a8aaad",
 		"originalValue": "#a8aaad",
 		"type": "color",
 		"description": "\"Muted\" text is less prominent, for example credits and captions.",
@@ -1443,7 +1443,7 @@ export default {
 },
 	"o3-color-use-case-footer-text": {
 		"shortName": "text",
-		"value": "#33302eff",
+		"value": "#33302e",
 		"originalValue": "{o3.color.palette.black-80}",
 		"type": "color",
 		"path": [
@@ -1458,7 +1458,7 @@ export default {
 },
 	"o3-color-use-case-caption-text": {
 		"shortName": "text",
-		"value": "#33302eff",
+		"value": "#33302e",
 		"originalValue": "{o3.color.palette.black-80}",
 		"type": "color",
 		"path": [
@@ -2594,7 +2594,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "4",
-				"color": "#ffffffff",
+				"color": "#ffffff",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -2623,7 +2623,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "8",
-				"color": "#4d4845ff",
+				"color": "#4d4845",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -2652,7 +2652,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "4",
-				"color": "#4d4845ff",
+				"color": "#4d4845",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -2682,7 +2682,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "8",
-				"color": "#ffffffff",
+				"color": "#ffffff",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -2712,7 +2712,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "2",
-				"color": "#807973ff",
+				"color": "#807973",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -2741,7 +2741,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "2",
-				"color": "#ffffffff",
+				"color": "#ffffff",
 				"type": "dropShadow"
 		},
 		"originalValue": {

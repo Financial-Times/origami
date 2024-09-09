@@ -103,7 +103,7 @@ const transformers = [
 	'value/figma-shadow-shorthand',
 	'size/px',
 	'ts/descriptionToComment',
-	'color/hex8',
+	'color/css',
 	'ts/color/modifiers',
 	'name/kebab',
 	'name/origamiPrivatePrefix',

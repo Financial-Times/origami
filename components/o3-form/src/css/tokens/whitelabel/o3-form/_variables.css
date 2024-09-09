@@ -5,7 +5,7 @@
 
 [data-o3-brand="whitelabel"] .o3-form {
   --_o3-form-text-input-border-radius: 6px;
-  --_o3-form-text-input-background-color-error: #cc00000f;
+  --_o3-form-text-input-background-color-error: rgba(204, 0, 0, 0.06);
   --_o3-form-text-input-background-color: var(--o3-color-palette-white);
   --_o3-form-text-input-border: 2px solid var(--o3-color-palette-black-30);
   --_o3-form-text-input-border-error: 2px solid var(--o3-color-use-case-alert-text);

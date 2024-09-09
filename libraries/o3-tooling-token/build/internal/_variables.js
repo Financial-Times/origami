@@ -1,7 +1,7 @@
 export default {
 	"o3-color-palette-black": {
 		"shortName": "black",
-		"value": "#000000ff",
+		"value": "#000000",
 		"originalValue": "#000",
 		"type": "color",
 		"origamiKeys": [
@@ -19,7 +19,7 @@ export default {
 },
 	"o3-color-palette-white": {
 		"shortName": "white",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "#fff",
 		"type": "color",
 		"origamiKeys": [
@@ -37,7 +37,7 @@ export default {
 },
 	"o3-color-palette-oxford": {
 		"shortName": "oxford",
-		"value": "#0f5499ff",
+		"value": "#0f5499",
 		"originalValue": "#0F5499",
 		"type": "color",
 		"origamiKeys": [
@@ -55,7 +55,7 @@ export default {
 },
 	"o3-color-palette-teal": {
 		"shortName": "teal",
-		"value": "#0d7680ff",
+		"value": "#0d7680",
 		"originalValue": "#0D7680",
 		"type": "color",
 		"origamiKeys": [
@@ -73,7 +73,7 @@ export default {
 },
 	"o3-color-palette-slate": {
 		"shortName": "slate",
-		"value": "#262a33ff",
+		"value": "#262a33",
 		"originalValue": "#262A33",
 		"type": "color",
 		"origamiKeys": [
@@ -91,7 +91,7 @@ export default {
 },
 	"o3-color-palette-slate-white-5": {
 		"shortName": "slate-white-5",
-		"value": "#f4f4f5ff",
+		"value": "#f4f4f5",
 		"originalValue": "#F4F4F5",
 		"type": "color",
 		"origamiKeys": [
@@ -109,7 +109,7 @@ export default {
 },
 	"o3-color-palette-slate-white-15": {
 		"shortName": "slate-white-15",
-		"value": "#dedfe0ff",
+		"value": "#dedfe0",
 		"originalValue": "#DEDFE0",
 		"type": "color",
 		"origamiKeys": [
@@ -127,7 +127,7 @@ export default {
 },
 	"o3-color-palette-lemon": {
 		"shortName": "lemon",
-		"value": "#ffec1aff",
+		"value": "#ffec1a",
 		"originalValue": "#FFEC1A",
 		"type": "color",
 		"origamiKeys": [
@@ -145,7 +145,7 @@ export default {
 },
 	"o3-color-palette-jade": {
 		"shortName": "jade",
-		"value": "#00994dff",
+		"value": "#00994d",
 		"originalValue": "#00994d",
 		"type": "color",
 		"origamiKeys": [
@@ -163,7 +163,7 @@ export default {
 },
 	"o3-color-palette-mandarin": {
 		"shortName": "mandarin",
-		"value": "#ff8833ff",
+		"value": "#ff8833",
 		"originalValue": "#F83",
 		"type": "color",
 		"origamiKeys": [
@@ -181,7 +181,7 @@ export default {
 },
 	"o3-color-palette-crimson": {
 		"shortName": "crimson",
-		"value": "#cc0000ff",
+		"value": "#cc0000",
 		"originalValue": "#c00",
 		"type": "color",
 		"origamiKeys": [
@@ -199,7 +199,7 @@ export default {
 },
 	"o3-color-palette-black-5": {
 		"shortName": "black-5",
-		"value": "#f2f2f2ff",
+		"value": "#f2f2f2",
 		"originalValue": "#F2F2F2",
 		"type": "color",
 		"path": [
@@ -217,7 +217,7 @@ export default {
 },
 	"o3-color-palette-black-10": {
 		"shortName": "black-10",
-		"value": "#e6e6e6ff",
+		"value": "#e6e6e6",
 		"originalValue": "#E6E6E6",
 		"type": "color",
 		"path": [
@@ -235,7 +235,7 @@ export default {
 },
 	"o3-color-palette-black-20": {
 		"shortName": "black-20",
-		"value": "#ccccccff",
+		"value": "#cccccc",
 		"originalValue": "#ccc",
 		"type": "color",
 		"path": [
@@ -253,7 +253,7 @@ export default {
 },
 	"o3-color-palette-black-30": {
 		"shortName": "black-30",
-		"value": "#b3b3b3ff",
+		"value": "#b3b3b3",
 		"originalValue": "#B3B3B3",
 		"type": "color",
 		"path": [
@@ -271,7 +271,7 @@ export default {
 },
 	"o3-color-palette-black-40": {
 		"shortName": "black-40",
-		"value": "#999999ff",
+		"value": "#999999",
 		"originalValue": "#999",
 		"type": "color",
 		"path": [
@@ -289,7 +289,7 @@ export default {
 },
 	"o3-color-palette-black-50": {
 		"shortName": "black-50",
-		"value": "#808080ff",
+		"value": "#808080",
 		"originalValue": "#808080",
 		"type": "color",
 		"path": [
@@ -307,7 +307,7 @@ export default {
 },
 	"o3-color-palette-black-60": {
 		"shortName": "black-60",
-		"value": "#666666ff",
+		"value": "#666666",
 		"originalValue": "#666",
 		"type": "color",
 		"path": [
@@ -325,7 +325,7 @@ export default {
 },
 	"o3-color-palette-black-70": {
 		"shortName": "black-70",
-		"value": "#4d4d4dff",
+		"value": "#4d4d4d",
 		"originalValue": "#4d4d4d",
 		"type": "color",
 		"path": [
@@ -343,7 +343,7 @@ export default {
 },
 	"o3-color-palette-black-80": {
 		"shortName": "black-80",
-		"value": "#333333ff",
+		"value": "#333333",
 		"originalValue": "#333",
 		"type": "color",
 		"path": [
@@ -361,7 +361,7 @@ export default {
 },
 	"o3-color-palette-black-90": {
 		"shortName": "black-90",
-		"value": "#1a1a1aff",
+		"value": "#1a1a1a",
 		"originalValue": "#1a1a1a",
 		"type": "color",
 		"path": [
@@ -379,7 +379,7 @@ export default {
 },
 	"o3-color-palette-oxford-30": {
 		"shortName": "oxford-30",
-		"value": "#082a4dff",
+		"value": "#082a4d",
 		"originalValue": "#082A4D",
 		"type": "color",
 		"path": [
@@ -397,7 +397,7 @@ export default {
 },
 	"o3-color-palette-oxford-40": {
 		"shortName": "oxford-40",
-		"value": "#0a3866ff",
+		"value": "#0a3866",
 		"originalValue": "#0A3866",
 		"type": "color",
 		"path": [
@@ -415,7 +415,7 @@ export default {
 },
 	"o3-color-palette-oxford-50": {
 		"shortName": "oxford-50",
-		"value": "#0d4680ff",
+		"value": "#0d4680",
 		"originalValue": "#0D4680",
 		"type": "color",
 		"path": [
@@ -433,7 +433,7 @@ export default {
 },
 	"o3-color-palette-oxford-60": {
 		"shortName": "oxford-60",
-		"value": "#0f5499ff",
+		"value": "#0f5499",
 		"originalValue": "#0F5499",
 		"type": "color",
 		"path": [
@@ -451,7 +451,7 @@ export default {
 },
 	"o3-color-palette-oxford-70": {
 		"shortName": "oxford-70",
-		"value": "#1262b3ff",
+		"value": "#1262b3",
 		"originalValue": "#1262B3",
 		"type": "color",
 		"path": [
@@ -469,7 +469,7 @@ export default {
 },
 	"o3-color-palette-oxford-80": {
 		"shortName": "oxford-80",
-		"value": "#1470ccff",
+		"value": "#1470cc",
 		"originalValue": "#1470CC",
 		"type": "color",
 		"path": [
@@ -487,7 +487,7 @@ export default {
 },
 	"o3-color-palette-oxford-90": {
 		"shortName": "oxford-90",
-		"value": "#177ee6ff",
+		"value": "#177ee6",
 		"originalValue": "#177EE6",
 		"type": "color",
 		"path": [
@@ -505,7 +505,7 @@ export default {
 },
 	"o3-color-palette-oxford-100": {
 		"shortName": "oxford-100",
-		"value": "#198cffff",
+		"value": "#198cff",
 		"originalValue": "#198CFF",
 		"type": "color",
 		"path": [
@@ -523,7 +523,7 @@ export default {
 },
 	"o3-color-palette-teal-20": {
 		"shortName": "teal-20",
-		"value": "#052f33ff",
+		"value": "#052f33",
 		"originalValue": "#052F33",
 		"type": "color",
 		"path": [
@@ -541,7 +541,7 @@ export default {
 },
 	"o3-color-palette-teal-30": {
 		"shortName": "teal-30",
-		"value": "#08474dff",
+		"value": "#08474d",
 		"originalValue": "#08474D",
 		"type": "color",
 		"path": [
@@ -559,7 +559,7 @@ export default {
 },
 	"o3-color-palette-teal-40": {
 		"shortName": "teal-40",
-		"value": "#0a5e66ff",
+		"value": "#0a5e66",
 		"originalValue": "#0A5E66",
 		"type": "color",
 		"path": [
@@ -577,7 +577,7 @@ export default {
 },
 	"o3-color-palette-teal-50": {
 		"shortName": "teal-50",
-		"value": "#0d7680ff",
+		"value": "#0d7680",
 		"originalValue": "#0D7680",
 		"type": "color",
 		"path": [
@@ -595,7 +595,7 @@ export default {
 },
 	"o3-color-palette-teal-60": {
 		"shortName": "teal-60",
-		"value": "#108d99ff",
+		"value": "#108d99",
 		"originalValue": "#108D99",
 		"type": "color",
 		"path": [
@@ -613,7 +613,7 @@ export default {
 },
 	"o3-color-palette-teal-70": {
 		"shortName": "teal-70",
-		"value": "#12a5b3ff",
+		"value": "#12a5b3",
 		"originalValue": "#12A5B3",
 		"type": "color",
 		"path": [
@@ -631,7 +631,7 @@ export default {
 },
 	"o3-color-palette-teal-80": {
 		"shortName": "teal-80",
-		"value": "#15bcccff",
+		"value": "#15bccc",
 		"originalValue": "#15BCCC",
 		"type": "color",
 		"path": [
@@ -649,7 +649,7 @@ export default {
 },
 	"o3-color-palette-teal-90": {
 		"shortName": "teal-90",
-		"value": "#17d4e6ff",
+		"value": "#17d4e6",
 		"originalValue": "#17D4E6",
 		"type": "color",
 		"path": [
@@ -667,7 +667,7 @@ export default {
 },
 	"o3-color-palette-teal-100": {
 		"shortName": "teal-100",
-		"value": "#1aebffff",
+		"value": "#1aebff",
 		"originalValue": "#1AEBFF",
 		"type": "color",
 		"path": [
@@ -685,7 +685,7 @@ export default {
 },
 	"o3-color-use-case-link-text": {
 		"shortName": "@",
-		"value": "#0d7680ff",
+		"value": "#0d7680",
 		"originalValue": "{o3.color.palette.teal}",
 		"type": "color",
 		"description": "",
@@ -702,7 +702,7 @@ export default {
 },
 	"o3-color-use-case-link-text-hover": {
 		"shortName": "hover",
-		"value": "#08474dff",
+		"value": "#08474d",
 		"originalValue": "{o3.color.palette.teal-30}",
 		"type": "color",
 		"path": [
@@ -718,7 +718,7 @@ export default {
 },
 	"o3-color-use-case-link-underline": {
 		"shortName": "@",
-		"value": "#cfd8d1ff",
+		"value": "#cfd8d1",
 		"originalValue": "#CFD8D1",
 		"type": "color",
 		"path": [
@@ -734,7 +734,7 @@ export default {
 },
 	"o3-color-use-case-link-underline-hover": {
 		"shortName": "hover",
-		"value": "#9ec0bdff",
+		"value": "#9ec0bd",
 		"originalValue": "#9EC0BD",
 		"type": "color",
 		"path": [
@@ -750,7 +750,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-text": {
 		"shortName": "@",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
 		"path": [
@@ -766,7 +766,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-text-hover": {
 		"shortName": "hover",
-		"value": "#ccccccff",
+		"value": "#cccccc",
 		"originalValue": "{o3.color.palette.black-20}",
 		"type": "color",
 		"path": [
@@ -782,7 +782,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-underline": {
 		"shortName": "@",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
 		"path": [
@@ -798,7 +798,7 @@ export default {
 },
 	"o3-color-use-case-link-inverse-underline-hover": {
 		"shortName": "hover",
-		"value": "#ccccccff",
+		"value": "#cccccc",
 		"originalValue": "{o3.color.palette.black-20}",
 		"type": "color",
 		"path": [
@@ -814,7 +814,7 @@ export default {
 },
 	"o3-color-use-case-page-background": {
 		"shortName": "background",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
 		"path": [
@@ -829,7 +829,7 @@ export default {
 },
 	"o3-color-use-case-page-inverse-background": {
 		"shortName": "background",
-		"value": "#262a33ff",
+		"value": "#262a33",
 		"originalValue": "{o3.color.palette.slate}",
 		"type": "color",
 		"path": [
@@ -844,7 +844,7 @@ export default {
 },
 	"o3-color-use-case-body-text": {
 		"shortName": "text",
-		"value": "#333333ff",
+		"value": "#333333",
 		"originalValue": "{o3.color.palette.black-80}",
 		"type": "color",
 		"path": [
@@ -859,7 +859,7 @@ export default {
 },
 	"o3-color-use-case-body-inverse-text": {
 		"shortName": "text",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
 		"path": [
@@ -874,7 +874,7 @@ export default {
 },
 	"o3-color-use-case-muted-text": {
 		"shortName": "text",
-		"value": "#ccccccff",
+		"value": "#cccccc",
 		"originalValue": "{o3.color.palette.black-20}",
 		"type": "color",
 		"description": "\"Muted\" text is less prominent, for example credits and captions.",
@@ -890,7 +890,7 @@ export default {
 },
 	"o3-color-use-case-muted-inverse-text": {
 		"shortName": "text",
-		"value": "#a8aaadff",
+		"value": "#a8aaad",
 		"originalValue": "#a8aaad",
 		"type": "color",
 		"description": "\"Muted\" text is less prominent, for example credits and captions.",
@@ -906,7 +906,7 @@ export default {
 },
 	"o3-color-use-case-heading-text": {
 		"shortName": "text",
-		"value": "#1a1a1aff",
+		"value": "#1a1a1a",
 		"originalValue": "{o3.color.palette.black-90}",
 		"type": "color",
 		"path": [
@@ -921,7 +921,7 @@ export default {
 },
 	"o3-color-use-case-heading-inverse-text": {
 		"shortName": "text",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
 		"path": [
@@ -2057,7 +2057,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "4",
-				"color": "#ffffffff",
+				"color": "#ffffff",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -2086,7 +2086,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "8",
-				"color": "#4d4d4dff",
+				"color": "#4d4d4d",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -2115,7 +2115,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "4",
-				"color": "#4d4d4dff",
+				"color": "#4d4d4d",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -2145,7 +2145,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "8",
-				"color": "#ffffffff",
+				"color": "#ffffff",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -2175,7 +2175,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "2",
-				"color": "#808080ff",
+				"color": "#808080",
 				"type": "dropShadow"
 		},
 		"originalValue": {
@@ -2204,7 +2204,7 @@ export default {
 				"y": "0",
 				"blur": "0",
 				"spread": "2",
-				"color": "#ffffffff",
+				"color": "#ffffff",
 				"type": "dropShadow"
 		},
 		"originalValue": {
