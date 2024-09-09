@@ -53,7 +53,10 @@ export function buildComponentTokens(componentName, getDestination) {
 	// Generally, we prefer to scope tokens to the component element so:
 	// 1. In-browser Dev Tools are easier to use.
 	// 2. Enforce they are used by the component only, especially where private.
-	const tokensAtRootForComponents = ['o3-typography', 'o3-editorial-typography'];
+	const tokensAtRootForComponents = [
+		'o3-typography',
+		'o3-editorial-typography',
+	];
 	const placeTokensAtRoot = tokensAtRootForComponents.includes(componentName);
 
 	const brands = getBrandNames();
