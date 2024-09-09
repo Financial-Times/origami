@@ -28,7 +28,7 @@
 			border-color: oColorsByName('wheat');
 			border-radius: 0;
 			padding: var(--spacing-4);
-			
+
 			h3 {
 				margin-bottom: -14px;
 				line-height: 1.375;
@@ -42,20 +42,20 @@
 	}
 	#coral {
 		--ft-magnify: 1.31282;
-                 // See https://financialtimes.atlassian.net/jira/software/c/projects/CI/boards/1653?view=detail&selectedIssue=CI-1725
+		// See https://financialtimes.atlassian.net/jira/software/c/projects/CI/boards/1653?view=detail&selectedIssue=CI-1725
 		display: inline-block !important;
 		width:100%;
 		.coral-comment-content {
-            		font-size: 1.23077rem;
+			font-size: 1.23077rem;
 			line-height: 1.784rem;
-        	}
+		}
 	}
 	#coral.o-comments-root-font-size-1 {
 		--ft-magnify: 1.0666666667;
 		.coral-comment-content {
-            		font-size: 1rem;
-            		line-height: 1.45rem;
-        	}
+			font-size: 1rem;
+			line-height: 1.45rem;
+		}
 	}
 	#coral {
 		--font-family-primary: #{inspect(oTypographyGetFontFamily('sans'))};
