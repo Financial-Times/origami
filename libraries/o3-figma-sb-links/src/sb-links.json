@@ -121,5 +121,13 @@
   "whitelabel-o3-grid--grid": "?path=/story/whitelabel-o3-grid--grid",
   "whitelabel-o3-form--check-box-group": "?path=/story/whitelabel-o3-form--check-box-group",
   "whitelabel-o3-form--check-box": "?path=/story/whitelabel-o3-form--check-box",
-  "sustainable-views-o3-editorial-typography--summary": "?path=/story/sustainable-views-o3-editorial-typography--summary"
+  "sustainable-views-o3-editorial-typography--summary": "?path=/story/sustainable-views-o3-editorial-typography--summary",
+  "sustainable-views-o3-typography-body--body": "?path=/story/sustainable-views-o3-typography-body--body",
+  "sustainable-views-o3-typography-caption--caption-story": "?path=/story/sustainable-views-o3-typography-caption--caption-story",
+  "sustainable-views-o3-typography-footer--footer-story": "?path=/story/sustainable-views-o3-typography-footer--footer-story",
+  "sustainable-views-o3-typography-heading--heading-story": "?path=/story/sustainable-views-o3-typography-heading--heading-story",
+  "sustainable-views-o3-typography-link--link": "?path=/story/sustainable-views-o3-typography-link--link",
+  "sustainable-views-o3-typography-orderedlist--ordered-list-story": "?path=/story/sustainable-views-o3-typography-orderedlist--ordered-list-story",
+  "sustainable-views-o3-typography-unorderedlist--unordered-list-story": "?path=/story/sustainable-views-o3-typography-unorderedlist--unordered-list-story",
+  "sustainable-views-o3-typography--wrapper-story": "?path=/story/sustainable-views-o3-typography--wrapper-story"
 }
