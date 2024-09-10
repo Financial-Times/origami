@@ -233,6 +233,14 @@
           "value": "{o3.typography.use-case.body-small-caps}",
           "type": "typography"
         }
+      },
+      "summary-m": {
+        "value": "{o3.typography.use-case.body-standard}",
+        "type": "typography"
+      },
+      "summary-l": {
+        "value": "{o3.typography.use-case.body-big}",
+        "type": "typography"
       }
     }
   }
