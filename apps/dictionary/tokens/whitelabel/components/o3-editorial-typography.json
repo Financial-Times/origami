@@ -65,8 +65,8 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.4}",
-          "lineHeight": "{o3.font.lineheight.4}"
+          "fontSize": "{o3.font.size-metric2.3}",
+          "lineHeight": "{o3.font.lineheight.3}"
         },
         "type": "typography",
         "description": "Previous name - H2"
@@ -75,8 +75,8 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.4}",
-          "lineHeight": "{o3.font.lineheight.4}"
+          "fontSize": "{o3.font.size-metric2.3}",
+          "lineHeight": "{o3.font.lineheight.3}"
         },
         "type": "typography",
         "description": "Previous name - H3"
@@ -85,8 +85,8 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight.0}"
+          "fontSize": "{o3.font.size-metric2.negative-1}",
+          "lineHeight": "{o3.font.lineheight.negative-1}"
         },
         "type": "typography",
         "description": "Previous name - H5"
@@ -160,8 +160,8 @@
           "value": {
             "fontFamily": "{o3.font.family.metric}",
             "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.negative-1}",
-            "lineHeight": "{o3.font.lineheight.negative-1}"
+            "fontSize": "{o3.font.size.negative-2}",
+            "lineHeight": "{o3.font.lineheight.negative-2}"
           },
           "type": "typography"
         },
@@ -222,8 +222,8 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.3}",
-          "lineHeight": "{o3.font.lineheight-metric2.3}"
+          "fontSize": "{o3.font.size-metric2.2}",
+          "lineHeight": "{o3.font.lineheight-metric2.2}"
         },
         "type": "typography"
       },
@@ -244,13 +244,13 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.8}",
-          "lineHeight": "{o3.font.lineheight-metric2.8}"
+          "fontSize": "{o3.font.size-metric2.7}",
+          "lineHeight": "{o3.font.lineheight-metric2.7}"
         },
         "type": "typography"
       },
       "big-number-content": {
-        "value": "{o3.typography.use-case.body-standard}",
+        "value": "{o3.typography.use-case.body-big}",
         "type": "typography"
       }
     }

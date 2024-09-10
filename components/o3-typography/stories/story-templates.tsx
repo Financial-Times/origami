@@ -80,7 +80,7 @@ const HeadingStory = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 		level: {
-			options: ['1', '2', '3', '4', '5', '6'],
+			options: ['1', '2', '3', '4', '5'],
 			control: {
 				type: 'select',
 			},
@@ -155,7 +155,6 @@ export const WrapperStory = {
 				<h3>Heading level 3</h3>
 				<h4>Heading level 4</h4>
 				<h5>Heading level 5</h5>
-				<h6>Heading level 6</h6>
 
 				<p>
 					Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.{' '}

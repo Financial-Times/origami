@@ -2648,14 +2648,14 @@ export default {
 		"value": {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
-				"fontSize": "18",
-				"lineHeight": "24px"
+				"fontSize": "16",
+				"lineHeight": "20px"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
 				"fontWeight": "{o3.font.weight.regular}",
-				"fontSize": "{o3.font.size-metric2.1}",
-				"lineHeight": "{o3.font.lineheight-metric2.1}"
+				"fontSize": "{o3.font.size-metric2.0}",
+				"lineHeight": "{o3.font.lineheight-metric2.0}"
 		},
 		"type": "typography",
 		"path": [
@@ -2672,14 +2672,14 @@ export default {
 		"value": {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
-				"fontSize": "20",
-				"lineHeight": "28px"
+				"fontSize": "18",
+				"lineHeight": "24px"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
 				"fontWeight": "{o3.font.weight.regular}",
-				"fontSize": "{o3.font.size-metric2.2}",
-				"lineHeight": "{o3.font.lineheight-metric2.2}"
+				"fontSize": "{o3.font.size-metric2.1}",
+				"lineHeight": "{o3.font.lineheight-metric2.1}"
 		},
 		"type": "typography",
 		"path": [
@@ -2696,14 +2696,14 @@ export default {
 		"value": {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
-				"fontSize": "16",
+				"fontSize": "14",
 				"lineHeight": "20px"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
 				"fontWeight": "{o3.font.weight.regular}",
-				"fontSize": "{o3.font.size-metric2.0}",
-				"lineHeight": "{o3.font.lineheight-metric2.0}"
+				"fontSize": "{o3.font.size-metric2.negative-1}",
+				"lineHeight": "{o3.font.lineheight-metric2.negative-1}"
 		},
 		"type": "typography",
 		"path": [
@@ -2720,14 +2720,14 @@ export default {
 		"value": {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "400",
-				"fontSize": "16",
+				"fontSize": "14",
 				"lineHeight": "20px"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
 				"fontWeight": "{o3.font.weight.regular}",
-				"fontSize": "{o3.font.size-metric2.0}",
-				"lineHeight": "{o3.font.lineheight-metric2.0}"
+				"fontSize": "{o3.font.size-metric2.negative-1}",
+				"lineHeight": "{o3.font.lineheight-metric2.negative-1}"
 		},
 		"type": "typography",
 		"path": [
@@ -2744,14 +2744,14 @@ export default {
 		"value": {
 				"fontFamily": "metric 2 VF",
 				"fontWeight": "700",
-				"fontSize": "16",
+				"fontSize": "14",
 				"lineHeight": "20px"
 		},
 		"originalValue": {
 				"fontFamily": "{o3.font.family.metric}",
 				"fontWeight": "{o3.font.weight.semibold}",
-				"fontSize": "{o3.font.size-metric2.0}",
-				"lineHeight": "{o3.font.lineheight-metric2.0}"
+				"fontSize": "{o3.font.size-metric2.negative-1}",
+				"lineHeight": "{o3.font.lineheight-metric2.negative-1}"
 		},
 		"type": "typography",
 		"path": [

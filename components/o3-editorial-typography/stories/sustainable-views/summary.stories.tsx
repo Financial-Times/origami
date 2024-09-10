@@ -2,14 +2,14 @@ import type {Meta} from '@storybook/react';
 import {Summary as SummaryTsx} from '../../src/tsx/index';
 import * as StoryTemplates from '../story-templates';
 
-import '../../src/css/brands/whitelabel.css';
+import '../../src/css/brands/sustainable-views.css';
 import links from '@financial-times/o3-figma-sb-links';
 export default {
-	title: 'whitelabel/o3-editorial-typography',
+	title: 'Sustainable views/o3-editorial-typography',
 	component: SummaryTsx,
 	decorators: [
 		Story => (
-			<div data-o3-brand="whitelabel">
+			<div data-o3-brand="sustainable-views">
 				<Story />
 			</div>
 		),
@@ -19,7 +19,7 @@ export default {
 		controls: {exclude: ['children']},
 		design: {
 			type: 'figma',
-			url: links['whitelabel-o3-editorial-typography--summary'].figma,
+			url: links['sustainable-views-o3-editorial-typography--summary'].figma,
 		}
 	},
 } as Meta;

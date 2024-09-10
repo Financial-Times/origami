@@ -6,8 +6,8 @@
           "value": {
             "fontFamily": "{o3.font.family.metric}",
             "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.1}",
-            "lineHeight": "{o3.font.lineheight-metric2.1}"
+            "fontSize": "{o3.font.size-metric2.0}",
+            "lineHeight": "{o3.font.lineheight-metric2.0}"
           },
           "type": "typography"
         },
@@ -15,8 +15,8 @@
           "value": {
             "fontFamily": "{o3.font.family.metric}",
             "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.2}",
-            "lineHeight": "{o3.font.lineheight-metric2.2}"
+            "fontSize": "{o3.font.size-metric2.1}",
+            "lineHeight": "{o3.font.lineheight-metric2.1}"
           },
           "type": "typography"
         },
@@ -24,8 +24,8 @@
           "value": {
             "fontFamily": "{o3.font.family.metric}",
             "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
+            "fontSize": "{o3.font.size-metric2.negative-1}",
+            "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
           },
           "type": "typography"
         },
@@ -33,8 +33,8 @@
           "value": {
             "fontFamily": "{o3.font.family.metric}",
             "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
+            "fontSize": "{o3.font.size-metric2.negative-1}",
+            "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
           },
           "type": "typography"
         },
@@ -42,8 +42,8 @@
           "value": {
             "fontFamily": "{o3.font.family.metric}",
             "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
+            "fontSize": "{o3.font.size-metric2.negative-1}",
+            "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
           },
           "type": "typography"
         }
