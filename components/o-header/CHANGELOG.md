@@ -1,4 +1,13 @@
 # Changelog
+## [14.0.2](https://github.com/Financial-Times/origami/compare/o-header-v14.0.1...o-header-v14.0.2) (2024-09-05)
+
+
+### Bug Fixes
+
+* (o-header) add `relative` position to `o-header` to align absolutely positioned typeahead ([59cef6c](https://github.com/Financial-Times/origami/commit/59cef6c8c34a96d05f21a3a998cef174af82f549))
+* (o-header) prevent overscrolling behaviour ([3b77307](https://github.com/Financial-Times/origami/commit/3b773074d0d997f58db15668aaf57ac9b4846fae))
+* align padding in drawer ([#1809](https://github.com/Financial-Times/origami/issues/1809)) ([3c222a8](https://github.com/Financial-Times/origami/commit/3c222a8de2e0232fe0e2252a5b6480ec7aece255))
+
 ## [14.0.1](https://github.com/Financial-Times/origami/compare/o-header-v14.0.0...o-header-v14.0.1) (2024-08-27)
 
 
