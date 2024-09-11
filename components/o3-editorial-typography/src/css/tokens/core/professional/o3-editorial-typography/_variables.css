@@ -3,7 +3,7 @@
  */
 
 
-[data-o3-brand="core"] {
+[data-o3-brand="professional"] {
   --_o3-editorial-typography-big-number-title-line-height: var(--o3-font-lineheight-metric2-7);
   --_o3-editorial-typography-big-number-title-font-size: var(--o3-font-size-metric2-7);
   --_o3-editorial-typography-big-number-title-font-weight: var(--o3-font-weight-semibold);
@@ -14,7 +14,6 @@
   --_o3-editorial-typography-pullquote-content-font-family: var(--o3-font-family-metric);
   --_o3-editorial-typography-byline-timestamp-inverse-color: var(--o3-color-use-case-muted-inverse-text);
   --_o3-editorial-typography-byline-timestamp-color: var(--o3-color-palette-black-60);
-  --_o3-editorial-typography-byline-author-hover-inverse-color: var(--o3-color-use-case-link-inverse-text-hover);
   --_o3-editorial-typography-byline-author-hover-color: var(--o3-color-palette-claret-30);
   --_o3-editorial-typography-byline-author-inverse-color: var(--o3-color-palette-white);
   --_o3-editorial-typography-byline-author-color: var(--o3-color-palette-claret);
@@ -24,7 +23,6 @@
   --_o3-editorial-typography-caption-font-size: var(--o3-font-size-negative-2);
   --_o3-editorial-typography-caption-font-weight: var(--o3-font-weight-regular);
   --_o3-editorial-typography-caption-font-family: var(--o3-font-family-metric);
-  --_o3-editorial-typography-topic-tag-hover-inverse-color: var(--o3-color-use-case-link-inverse-text-hover);
   --_o3-editorial-typography-topic-tag-hover-color: var(--o3-color-palette-claret-30);
   --_o3-editorial-typography-topic-tag-inverse-color: var(--o3-color-palette-white);
   --_o3-editorial-typography-topic-tag-color: var(--o3-color-palette-claret);
@@ -72,4 +70,6 @@
   --_o3-editorial-typography-headline-large-l-font-size: var(--o3-font-size-7); /* Previous name - Heading large */
   --_o3-editorial-typography-headline-large-l-font-weight: var(--o3-font-weight-bold); /* Previous name - Heading large */
   --_o3-editorial-typography-headline-large-l-font-family: var(--o3-font-family-financier-display); /* Previous name - Heading large */
+  --_o3-editorial-typography-byline-author-hover-inverse-color: var(--o3-color-use-case-link-inverse-text-hover);
+  --_o3-editorial-typography-topic-tag-hover-inverse-color: var(--o3-color-use-case-link-inverse-text-hover);
 }

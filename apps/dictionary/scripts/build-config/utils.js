@@ -313,8 +313,9 @@ function isTokenStudioSource(token) {
 	return theme ? theme.selectedTokenSets[tokenSet] === 'source' : false;
 }
 
-export const nonComponentTokenFilter = (source, brand) =>
-	!source.includes(`${brand}/components/`);
+export const nonComponentTokenFilter = (source, brand) => {
+	return !source.includes(`/components/`);
+};
 
 if (import.meta.vitest) {
 	const {describe, it, expect} = import.meta.vitest;
