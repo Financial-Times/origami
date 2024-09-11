@@ -5,7 +5,7 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.bold}",
-          "fontSize": "{o3.font.size-metric2.5}",
+          "fontSize": "{o3.font.size-metric2.6}",
           "lineHeight": "{o3.font.lineheight-metric2.5}"
         },
         "type": "typography"
@@ -14,7 +14,7 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.bold}",
-          "fontSize": "{o3.font.size-metric2.4}",
+          "fontSize": "{o3.font.size-metric2.5}",
           "lineHeight": "{o3.font.lineheight-metric2.4}"
         },
         "type": "typography"
@@ -23,8 +23,8 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.bold}",
-          "fontSize": "{o3.font.size-metric2.3}",
-          "lineHeight": "{o3.font.lineheight-metric2.3}"
+          "fontSize": "{o3.font.size-metric2.4}",
+          "lineHeight": "{o3.font.lineheight-metric2.2}"
         },
         "type": "typography"
       },
@@ -32,7 +32,7 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.6}",
+          "fontSize": "{o3.font.size-metric2.5}",
           "lineHeight": "{o3.font.lineheight-metric2.3}"
         },
         "type": "typography",
@@ -82,7 +82,7 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.0}",
+          "fontSize": "{o3.font.size-metric2.negative-1}",
           "lineHeight": "{o3.font.lineheight.0}"
         },
         "type": "typography",
