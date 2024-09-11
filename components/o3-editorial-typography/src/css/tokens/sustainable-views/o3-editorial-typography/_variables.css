@@ -69,7 +69,7 @@
   --_o3-editorial-typography-article-body-l-font-size: var(--o3-font-size-3);
   --_o3-editorial-typography-article-body-l-font-family: var(--o3-font-family-financier-text);
   --_o3-editorial-typography-label-line-height: var(--o3-font-lineheight-0); /* Previous name - H5 */
-  --_o3-editorial-typography-label-font-size: var(--o3-font-size-metric2-0); /* Previous name - H5 */
+  --_o3-editorial-typography-label-font-size: var(--o3-font-size-metric2-negative-1); /* Previous name - H5 */
   --_o3-editorial-typography-label-font-weight: var(--o3-font-weight-regular); /* Previous name - H5 */
   --_o3-editorial-typography-label-font-family: var(--o3-font-family-metric); /* Previous name - H5 */
   --_o3-editorial-typography-subheading-line-height: var(--o3-font-lineheight-4); /* Previous name - H3 */
@@ -89,19 +89,19 @@
   --_o3-editorial-typography-headline-m-font-weight: var(--o3-font-weight-semibold); /* Previous name - H1 */
   --_o3-editorial-typography-headline-m-font-family: var(--o3-font-family-metric); /* Previous name - H1 */
   --_o3-editorial-typography-headline-l-line-height: var(--o3-font-lineheight-metric2-3); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-l-font-size: var(--o3-font-size-metric2-6); /* Previous name - H1 */
+  --_o3-editorial-typography-headline-l-font-size: var(--o3-font-size-metric2-5); /* Previous name - H1 */
   --_o3-editorial-typography-headline-l-font-weight: var(--o3-font-weight-semibold); /* Previous name - H1 */
   --_o3-editorial-typography-headline-l-font-family: var(--o3-font-family-metric); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-large-s-line-height: var(--o3-font-lineheight-metric2-3);
-  --_o3-editorial-typography-headline-large-s-font-size: var(--o3-font-size-metric2-3);
+  --_o3-editorial-typography-headline-large-s-line-height: var(--o3-font-lineheight-metric2-2);
+  --_o3-editorial-typography-headline-large-s-font-size: var(--o3-font-size-metric2-4);
   --_o3-editorial-typography-headline-large-s-font-weight: var(--o3-font-weight-bold);
   --_o3-editorial-typography-headline-large-s-font-family: var(--o3-font-family-metric);
   --_o3-editorial-typography-headline-large-m-line-height: var(--o3-font-lineheight-metric2-4);
-  --_o3-editorial-typography-headline-large-m-font-size: var(--o3-font-size-metric2-4);
+  --_o3-editorial-typography-headline-large-m-font-size: var(--o3-font-size-metric2-5);
   --_o3-editorial-typography-headline-large-m-font-weight: var(--o3-font-weight-bold);
   --_o3-editorial-typography-headline-large-m-font-family: var(--o3-font-family-metric);
   --_o3-editorial-typography-headline-large-l-line-height: var(--o3-font-lineheight-metric2-5);
-  --_o3-editorial-typography-headline-large-l-font-size: var(--o3-font-size-metric2-5);
+  --_o3-editorial-typography-headline-large-l-font-size: var(--o3-font-size-metric2-6);
   --_o3-editorial-typography-headline-large-l-font-weight: var(--o3-font-weight-bold);
   --_o3-editorial-typography-headline-large-l-font-family: var(--o3-font-family-metric);
   --_o3-editorial-typography-byline-author-hover-color: var(--o3-color-use-case-link-text-hover);
