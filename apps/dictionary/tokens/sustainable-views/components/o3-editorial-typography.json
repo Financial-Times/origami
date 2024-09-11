@@ -152,10 +152,6 @@
             "value": "{o3.color.use-case.link.text.hover}",
             "type": "color"
           }
-        },
-        "@": {
-          "value": "{o3.typography.use-case.body-small-bold}",
-          "type": "typography"
         }
       },
       "byline-author": {
@@ -189,10 +185,6 @@
         },
         "type": "typography"
       },
-      "pullquote-author": {
-        "value": "{o3.typography.use-case.body-small-bold}",
-        "type": "typography"
-      },
       "quote-caption": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
@@ -215,32 +207,6 @@
           "value": "{o3.color.palette.teal}",
           "type": "color"
         }
-      },
-      "standfirst": {
-        "value": "{o3.typography.use-case.body-big}",
-        "type": "typography"
-      },
-      "byline": {
-        "author": {
-          "value": "{o3.typography.use-case.body-small-bold}",
-          "type": "typography"
-        },
-        "location": {
-          "value": "{o3.typography.use-case.body-small}",
-          "type": "typography"
-        },
-        "timestamp": {
-          "value": "{o3.typography.use-case.body-small-caps}",
-          "type": "typography"
-        }
-      },
-      "summary-m": {
-        "value": "{o3.typography.use-case.body-standard}",
-        "type": "typography"
-      },
-      "summary-l": {
-        "value": "{o3.typography.use-case.body-big}",
-        "type": "typography"
       }
     }
   }

@@ -223,7 +223,8 @@
       "core/professional/components/o3-tooltip": "source",
       "core/use-case/typography": "enabled",
       "core/use-case/focus": "enabled",
-      "core/professional/components/o3-typography": "source"
+      "core/professional/components/o3-typography": "source",
+      "core/components/o3-editorial-typography": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",

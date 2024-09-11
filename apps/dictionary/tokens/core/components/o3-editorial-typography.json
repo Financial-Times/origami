@@ -127,10 +127,6 @@
             "value": "{o3.color.use-case.link-inverse.text.hover}",
             "type": "color"
           }
-        },
-        "@": {
-          "value": "{o3.typography.use-case.body-small-bold}",
-          "type": "typography"
         }
       },
       "caption": {
@@ -191,19 +187,6 @@
         },
         "type": "typography"
       },
-      "blockquote-author": {
-        "value": "{o3.typography.use-case.body-small-bold}",
-        "type": "typography",
-        "description": "This token is all CAPs"
-      },
-      "pullquote-author": {
-        "value": "{o3.typography.use-case.body-small-bold}",
-        "type": "typography"
-      },
-      "blockquote-source": {
-        "value": "{o3.typography.use-case.body-standard}",
-        "type": "typography"
-      },
       "big-number-title": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
@@ -212,28 +195,6 @@
           "lineHeight": "{o3.font.lineheight-metric2.7}"
         },
         "type": "typography"
-      },
-      "big-number-content": {
-        "value": "{o3.typography.use-case.body-big}",
-        "type": "typography"
-      },
-      "standfirst": {
-        "value": "{o3.typography.use-case.body-big}",
-        "type": "typography"
-      },
-      "byline": {
-        "author": {
-          "value": "{o3.typography.use-case.body-small-bold}",
-          "type": "typography"
-        },
-        "location": {
-          "value": "{o3.typography.use-case.body-small}",
-          "type": "typography"
-        },
-        "timestamp": {
-          "value": "{o3.typography.use-case.body-small-caps}",
-          "type": "typography"
-        }
       }
     }
   }

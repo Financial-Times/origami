@@ -118,6 +118,24 @@
         },
         "type": "typography"
       },
+      "big-number-title": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.semibold}",
+          "fontSize": "{o3.font.size-metric2.7}",
+          "lineHeight": "{o3.font.lineheight-metric2.7}"
+        },
+        "type": "typography"
+      },
+      "pullquote-content": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.semibold}",
+          "fontSize": "{o3.font.size-metric2.2}",
+          "lineHeight": "{o3.font.lineheight-metric2.2}"
+        },
+        "type": "typography"
+      },
       "dropcap-s": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
@@ -128,10 +146,6 @@
         "type": "typography"
       },
       "topic-tag": {
-        "@": {
-          "value": "{o3.typography.use-case.body-small-bold}",
-          "type": "typography"
-        },
         "color": {
           "value": "{o3.color.palette.black-80}",
           "type": "color"
@@ -174,20 +188,6 @@
           "type": "color"
         }
       },
-      "byline": {
-        "author": {
-          "value": "{o3.typography.use-case.body-small-bold}",
-          "type": "typography"
-        },
-        "location": {
-          "value": "{o3.typography.use-case.body-small}",
-          "type": "typography"
-        },
-        "timestamp": {
-          "value": "{o3.typography.use-case.body-small-caps}",
-          "type": "typography"
-        }
-      },
       "byline-author": {
         "color": {
           "value": "{o3.color.palette.black-80}",
@@ -217,41 +217,6 @@
           "value": "{o3.color.use-case.muted-inverse.text}",
           "type": "color"
         }
-      },
-      "pullquote-content": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.2}",
-          "lineHeight": "{o3.font.lineheight-metric2.2}"
-        },
-        "type": "typography"
-      },
-      "blockquote-author": {
-        "value": "{o3.typography.use-case.body-small-bold}",
-        "type": "typography",
-        "description": "This token is in CAPs"
-      },
-      "pullquote-author": {
-        "value": "{o3.typography.use-case.body-small-bold}",
-        "type": "typography"
-      },
-      "blockquote-source": {
-        "value": "{o3.typography.use-case.body-standard}",
-        "type": "typography"
-      },
-      "big-number-title": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.7}",
-          "lineHeight": "{o3.font.lineheight-metric2.7}"
-        },
-        "type": "typography"
-      },
-      "big-number-content": {
-        "value": "{o3.typography.use-case.body-big}",
-        "type": "typography"
       }
     }
   }
