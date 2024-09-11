@@ -129,5 +129,15 @@
   "sustainable-views-o3-typography-link--link": "?path=/story/sustainable-views-o3-typography-link--link",
   "sustainable-views-o3-typography-orderedlist--ordered-list-story": "?path=/story/sustainable-views-o3-typography-orderedlist--ordered-list-story",
   "sustainable-views-o3-typography-unorderedlist--unordered-list-story": "?path=/story/sustainable-views-o3-typography-unorderedlist--unordered-list-story",
-  "sustainable-views-o3-typography--wrapper-story": "?path=/story/sustainable-views-o3-typography--wrapper-story"
+  "sustainable-views-o3-typography--wrapper-story": "?path=/story/sustainable-views-o3-typography--wrapper-story",
+  "core-professional-o3-editorial-typography--big-number": "?path=/story/core-professional-o3-editorial-typography--big-number",
+  "core-professional-o3-editorial-typography--body": "?path=/story/core-professional-o3-editorial-typography--body",
+  "core-professional-o3-editorial-typography--byline": "?path=/story/core-professional-o3-editorial-typography--byline",
+  "core-professional-o3-editorial-typography--caption": "?path=/story/core-professional-o3-editorial-typography--caption",
+  "core-professional-o3-editorial-typography--heading": "?path=/story/core-professional-o3-editorial-typography--heading",
+  "core-professional-o3-editorial-typography--link": "?path=/story/core-professional-o3-editorial-typography--link",
+  "core-professional-o3-editorial-typography--list": "?path=/story/core-professional-o3-editorial-typography--list",
+  "core-professional-o3-editorial-typography--quote": "?path=/story/core-professional-o3-editorial-typography--quote",
+  "core-professional-o3-editorial-typography--stand-first": "?path=/story/core-professional-o3-editorial-typography--stand-first",
+  "core-professional-o3-editorial-typography--topic-tag": "?path=/story/core-professional-o3-editorial-typography--topic-tag"
 }
