@@ -165,10 +165,6 @@
           }
         }
       },
-      "standfirst": {
-        "value": "{o3.typography.use-case.body-big}",
-        "type": "typography"
-      },
       "caption": {
         "@": {
           "value": {
