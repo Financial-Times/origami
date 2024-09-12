@@ -8,7 +8,6 @@
       "core/components/o3-button": "source",
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
-      "core/components/o3-typography": "source",
       "core/components/o3-tooltip": "source",
       "core/use-case/color": "enabled",
       "core/use-case/typography": "enabled",
@@ -223,7 +222,6 @@
       "core/professional/components/o3-tooltip": "source",
       "core/use-case/typography": "enabled",
       "core/use-case/focus": "enabled",
-      "core/professional/components/o3-typography": "source",
       "core/components/o3-editorial-typography": "source"
     },
     "$figmaStyleReferences": {
@@ -426,8 +424,7 @@
       "internal/components/o3-tooltip": "source",
       "internal/use-case/color": "enabled",
       "internal/use-case/typography": "enabled",
-      "internal/use-case/focus": "enabled",
-      "internal/components/o3-typography": "source"
+      "internal/use-case/focus": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6510:3502",
     "$figmaModeId": "6510:2",
@@ -523,7 +520,6 @@
       "whitelabel/components/o3-tooltip": "source",
       "whitelabel/use-case/typography": "enabled",
       "whitelabel/use-case/focus": "enabled",
-      "whitelabel/components/o3-typography": "source",
       "whitelabel/components/o3-editorial-typography": "source",
       "whitelabel/components/o3-form": "source"
     },
@@ -651,8 +647,7 @@
       "sustainable-views/use-case/color": "enabled",
       "sustainable-views/components/o3-editorial-typography": "source",
       "sustainable-views/use-case/typography": "enabled",
-      "sustainable-views/use-case/focus": "enabled",
-      "sustainable-views/components/o3-typography": "enabled"
+      "sustainable-views/use-case/focus": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6169:227",
     "$figmaModeId": "6169:4",

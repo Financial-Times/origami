@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {GridMetaGenerator} from '../storyTemplates'
+import {GridMetaGenerator} from '../story-templates'
 
 export default {
-	title: 'Sustainable-views/o3-grid',
+	title: 'Sustainable views/o3-foundation/o3-grid',
 	tags: ['!autodocs'],
 	...GridMetaGenerator('sustainable-views'),
 } as Meta;
