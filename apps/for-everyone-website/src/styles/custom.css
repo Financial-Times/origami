@@ -3,44 +3,67 @@
 
 /* Dark mode colors. */
 :root {
-	--sl-content-width: 82ch;
-	--sl-color-accent-low: #131e4f;
-	--sl-color-accent: #3447ff;
-	--sl-color-accent-high: #b3c7ff;
-	--sl-color-white: #ffffff;
-	--sl-color-gray-1: #eceef2;
-	--sl-color-gray-2: #c0c2c7;
-	--sl-color-gray-3: #888b96;
-	--sl-color-gray-4: #545861;
-	--sl-color-gray-5: #353841;
-	--sl-color-gray-6: #24272f;
-	--sl-color-black: #17181c;
+    --sl-content-width: 82ch;
+    --sl-color-accent-low: #131e4f;
+    --sl-color-accent: #3447ff;
+    --sl-color-accent-high: #b3c7ff;
+    --sl-color-white: #ffffff;
+    --sl-color-gray-1: #eceef2;
+    --sl-color-gray-2: #c0c2c7;
+    --sl-color-gray-3: #888b96;
+    --sl-color-gray-4: #545861;
+    --sl-color-gray-5: #353841;
+    --sl-color-gray-6: #24272f;
+    --sl-color-black: #17181c;
 }
+
 /* Light mode colors. */
 :root[data-theme='light'] {
-	--sl-color-accent-low: var(--o3-color-palette-teal);
-	--sl-color-accent: var(--o3-color-palette-teal);
-	--sl-color-accent-high: var(--o3-color-palette-teal);
-	--sl-color-text-accent: var(--o3-color-palette-teal);
+    --sl-color-accent-low: var(--o3-color-palette-teal);
+    --sl-color-accent: var(--o3-color-palette-teal);
+    --sl-color-accent-high: var(--o3-color-palette-teal);
+    --sl-color-text-accent: var(--o3-color-palette-teal);
 }
 
 summary {
-	font-weight: bold;
-	cursor: pointer;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 img {
-	max-width: 100%;
+    max-width: 100%;
 }
 
 .blog-post {
-	max-width: var(--o3-typography-max-line-width);
+    max-width: var(--o3-typography-max-line-width);
 }
+
 .blog-post figcaption {
-	font-size: var(--sl-text-xs);
+    font-size: var(--sl-text-xs);
 }
 
 [data-o3-theme='inverse'] .component-preview {
-	background-color: var(--o3-color-use-case-page-inverse-background);
-	background-image: url(/assets/images/utils/dot-inverse.svg);
+    background-color: var(--o3-color-use-case-page-inverse-background);
+    background-image: url(/assets/images/utils/dot-inverse.svg);
+}
+
+.font-weight-showcase {
+    display: grid;
+    gap: var(--o3-spacing-3xs);
+    grid-template-columns: [content-l] 1fr [content-r] 1fr;
+}
+
+.font-weight-showcase__item--left {
+    grid-column: content-l / content-l;
+}
+.font-weight-showcase__item--right {
+    grid-column: content-r / content-r;
+}
+
+.font-weight-showcase__description {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--sl-text-xl);
+    font-weight: bold;
+    justify-content: center;
 }
