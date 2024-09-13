@@ -25,7 +25,7 @@
 
 ## Usage
 
-`o3-foundation` provides CSS Custom Properties for design tokens representing colours, typographic scale, spacing, iconography, grid and typography components such as Headings, body, link and etc.
+`o3-foundation` provides CSS Custom Properties for design tokens representing colours, typographic scale, spacing, iconography, grid and typography components such as headings, body, link and etc.
 
 `o3-foundation` supports brands: `core`, `internal`, `professional`, `sustainable-views` and `whitelabel`.
 
