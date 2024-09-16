@@ -138,6 +138,46 @@
     "sb": "?path=/story/core-professional-o3-button--small-button",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D3604-103%26t%3DuSXzpLGDcxFzfDex-0"
   },
+  "core-professional-o3-editorial-typography--big-number": {
+    "sb": "?path=/story/core-professional-o3-editorial-typography--big-number",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-1255%26t%3DxcH8QRZUayrRLl8o-4"
+  },
+  "core-professional-o3-editorial-typography--body": {
+    "sb": "?path=/story/core-professional-o3-editorial-typography--body",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-882%26t%3DxcH8QRZUayrRLl8o-4"
+  },
+  "core-professional-o3-editorial-typography--byline": {
+    "sb": "?path=/story/core-professional-o3-editorial-typography--byline",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-1264%26t%3DxcH8QRZUayrRLl8o-4"
+  },
+  "core-professional-o3-editorial-typography--caption": {
+    "sb": "?path=/story/core-professional-o3-editorial-typography--caption",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-1122%26t%3DxcH8QRZUayrRLl8o-4"
+  },
+  "core-professional-o3-editorial-typography--heading": {
+    "sb": "?path=/story/core-professional-o3-editorial-typography--heading",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-342%26t%3DxcH8QRZUayrRLl8o-4"
+  },
+  "core-professional-o3-editorial-typography--link": {
+    "sb": "?path=/story/core-professional-o3-editorial-typography--link",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-1204%26t%3DxcH8QRZUayrRLl8o-4"
+  },
+  "core-professional-o3-editorial-typography--list": {
+    "sb": "?path=/story/core-professional-o3-editorial-typography--list",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-1279%26t%3DxcH8QRZUayrRLl8o-4"
+  },
+  "core-professional-o3-editorial-typography--quote": {
+    "sb": "?path=/story/core-professional-o3-editorial-typography--quote",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-1218%26t%3DxcH8QRZUayrRLl8o-4"
+  },
+  "core-professional-o3-editorial-typography--stand-first": {
+    "sb": "?path=/story/core-professional-o3-editorial-typography--stand-first",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-1050%26t%3DxcH8QRZUayrRLl8o-4"
+  },
+  "core-professional-o3-editorial-typography--topic-tag": {
+    "sb": "?path=/story/core-professional-o3-editorial-typography--topic-tag",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-1027%26t%3DxcH8QRZUayrRLl8o-4"
+  },
   "core-professional-o3-grid--grid": {
     "sb": "?path=/story/core-professional-o3-grid--grid"
   },
@@ -318,6 +358,9 @@
     "sb": "?path=/story/sustainable-views-o3-editorial-typography--heading&args=type:subheading",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6418-178%26t%3Df6FGZ2XYbvorQQMT-4"
   },
+  "sustainable-views-o3-editorial-typography--summary": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--summary"
+  },
   "sustainable-views-o3-editorial-typography--topic-tag": {
     "sb": "?path=/story/sustainable-views-o3-editorial-typography--topic-tag",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6418-178%26t%3Df6FGZ2XYbvorQQMT-4"
@@ -332,6 +375,36 @@
   "sustainable-views-o3-tooltip--toggle-tooltip": {
     "sb": "?path=/story/sustainable-views-o3-tooltip--toggle-tooltip",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6318-473%26t%3DjZcQ882g8fhmd6uu-4"
+  },
+  "sustainable-views-o3-typography--wrapper-story": {
+    "sb": "?path=/story/sustainable-views-o3-typography--wrapper-story",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6648-1111%26t%3DT6WBB5s5ODUcvHqu-4"
+  },
+  "sustainable-views-o3-typography-body--body": {
+    "sb": "?path=/story/sustainable-views-o3-typography-body--body",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6648-1111%26t%3DT6WBB5s5ODUcvHqu-4"
+  },
+  "sustainable-views-o3-typography-caption--caption-story": {
+    "sb": "?path=/story/sustainable-views-o3-typography-caption--caption-story",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6648-349%26t%3DT6WBB5s5ODUcvHqu-4"
+  },
+  "sustainable-views-o3-typography-footer--footer-story": {
+    "sb": "?path=/story/sustainable-views-o3-typography-footer--footer-story",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6648-339%26t%3DT6WBB5s5ODUcvHqu-4"
+  },
+  "sustainable-views-o3-typography-heading--heading-story": {
+    "sb": "?path=/story/sustainable-views-o3-typography-heading--heading-story",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6648-1111%26t%3DT6WBB5s5ODUcvHqu-4"
+  },
+  "sustainable-views-o3-typography-link--link": {
+    "sb": "?path=/story/sustainable-views-o3-typography-link--link",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6648-329%26t%3DT6WBB5s5ODUcvHqu-4"
+  },
+  "sustainable-views-o3-typography-orderedlist--ordered-list-story": {
+    "sb": "?path=/story/sustainable-views-o3-typography-orderedlist--ordered-list-story"
+  },
+  "sustainable-views-o3-typography-unorderedlist--unordered-list-story": {
+    "sb": "?path=/story/sustainable-views-o3-typography-unorderedlist--unordered-list-story"
   },
   "whitelabel-o3-button--button": {
     "sb": "?path=/story/whitelabel-o3-button--button",

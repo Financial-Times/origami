@@ -1,12 +1,39 @@
 {
   "o3": {
     "editorial-typography": {
+      "headline-large-l": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.bold}",
+          "fontSize": "{o3.font.size-metric2.6}",
+          "lineHeight": "{o3.font.lineheight-metric2.5}"
+        },
+        "type": "typography"
+      },
+      "headline-large-m": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.bold}",
+          "fontSize": "{o3.font.size-metric2.5}",
+          "lineHeight": "{o3.font.lineheight-metric2.4}"
+        },
+        "type": "typography"
+      },
+      "headline-large-s": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.bold}",
+          "fontSize": "{o3.font.size-metric2.4}",
+          "lineHeight": "{o3.font.lineheight-metric2.2}"
+        },
+        "type": "typography"
+      },
       "headline-l": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.medium}",
-          "fontSize": "{o3.font.size.6}",
-          "lineHeight": "{o3.font.lineheight.6}"
+          "fontWeight": "{o3.font.weight.semibold}",
+          "fontSize": "{o3.font.size-metric2.5}",
+          "lineHeight": "{o3.font.lineheight-metric2.3}"
         },
         "type": "typography",
         "description": "Previous name - H1"
@@ -14,9 +41,9 @@
       "headline-m": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.medium}",
-          "fontSize": "{o3.font.size.5}",
-          "lineHeight": "{o3.font.lineheight.5}"
+          "fontWeight": "{o3.font.weight.semibold}",
+          "fontSize": "{o3.font.size-metric2.4}",
+          "lineHeight": "{o3.font.lineheight-metric2.2}"
         },
         "type": "typography",
         "description": "Previous name - H1"
@@ -24,9 +51,9 @@
       "headline-s": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.medium}",
-          "fontSize": "{o3.font.size.4}",
-          "lineHeight": "{o3.font.lineheight.4}"
+          "fontWeight": "{o3.font.weight.semibold}",
+          "fontSize": "{o3.font.size-metric2.3}",
+          "lineHeight": "{o3.font.lineheight-metric2.1}"
         },
         "type": "typography",
         "description": "Previous name - H1"
@@ -35,7 +62,7 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.4}",
+          "fontSize": "{o3.font.size-metric2.3}",
           "lineHeight": "{o3.font.lineheight.4}"
         },
         "type": "typography",
@@ -45,7 +72,7 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.4}",
+          "fontSize": "{o3.font.size-metric2.3}",
           "lineHeight": "{o3.font.lineheight.4}"
         },
         "type": "typography",
@@ -55,13 +82,13 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.0}",
+          "fontSize": "{o3.font.size-metric2.negative-1}",
           "lineHeight": "{o3.font.lineheight.0}"
         },
         "type": "typography",
         "description": "Previous name - H5"
       },
-      "body-l": {
+      "article-body-l": {
         "value": {
           "fontFamily": "{o3.font.family.financier-text}",
           "fontSize": "{o3.font.size.3}",
@@ -70,7 +97,7 @@
         },
         "type": "typography"
       },
-      "body-s": {
+      "article-body-s": {
         "value": {
           "fontFamily": "{o3.font.family.financier-text}",
           "fontSize": "{o3.font.size.2}",
@@ -79,16 +106,43 @@
         },
         "type": "typography"
       },
-      "topic-tag": {
+      "caption": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size.negative-2}",
+          "lineHeight": "{o3.font.lineheight-metric2.negative-2}"
+        },
+        "type": "typography",
         "@": {
           "value": {
             "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight.0}"
+            "fontWeight": "{o3.font.weight.regular}",
+            "fontSize": "{o3.font.size.negative-1}",
+            "lineHeight": "{o3.font.lineheight.negative-1}"
           },
           "type": "typography"
+        }
+      },
+      "dropcap-l": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.light}",
+          "fontSize": "108px",
+          "lineHeight": "108px"
         },
+        "type": "typography"
+      },
+      "dropcap-s": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.light}",
+          "fontSize": "94px",
+          "lineHeight": "94px"
+        },
+        "type": "typography"
+      },
+      "topic-tag": {
         "color": {
           "value": "{o3.color.use-case.link.text.@}",
           "type": "color"
@@ -100,34 +154,7 @@
           }
         }
       },
-      "standfirst": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.2}",
-          "lineHeight": "{o3.font.lineheight.2}"
-        },
-        "type": "typography"
-      },
-      "caption": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size.negative-1}",
-          "lineHeight": "{o3.font.lineheight.negative-1}"
-        },
-        "type": "typography"
-      },
       "byline-author": {
-        "@": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography"
-        },
         "color": {
           "value": "{o3.color.use-case.link.text.@}",
           "type": "color"
@@ -140,15 +167,6 @@
         }
       },
       "byline-timestamp": {
-        "@": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography"
-        },
         "color": {
           "value": "{o3.color.palette.black-50}",
           "type": "color"
@@ -162,33 +180,6 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.3}",
-          "lineHeight": "{o3.font.lineheight-metric2.3}"
-        },
-        "type": "typography"
-      },
-      "pullquote-author": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.negative-1}",
-          "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
-        },
-        "type": "typography"
-      },
-      "big-number-title": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.8}",
-          "lineHeight": "{o3.font.lineheight-metric2.8}"
-        },
-        "type": "typography"
-      },
-      "big-number-content": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
           "fontSize": "{o3.font.size-metric2.2}",
           "lineHeight": "{o3.font.lineheight-metric2.2}"
         },

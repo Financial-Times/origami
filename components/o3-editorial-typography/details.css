@@ -1,8 +1,9 @@
 .o3-editorial-typography-topic-tag {
-	font-family: var(--_o3-editorial-typography-topic-tag-font-family), sans-serif;
-	font-size: var(--_o3-editorial-typography-topic-tag-font-size);
-	font-weight: var(--_o3-editorial-typography-topic-tag-font-weight);
-	line-height: var(--_o3-editorial-typography-topic-tag-line-height);
+	font-family: var(--o3-typography-use-case-body-small-bold-font-family),
+		sans-serif;
+	font-size: var(--o3-typography-use-case-body-small-bold-font-size);
+	font-weight: var(--o3-typography-use-case-body-small-bold-font-weight);
+	line-height: var(--o3-typography-use-case-body-small-bold-line-height);
 }
 
 a.o3-editorial-typography-topic-tag {
@@ -31,11 +32,10 @@ a.o3-editorial-typography-topic-tag[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-standfirst {
-	font-family: var(--_o3-editorial-typography-standfirst-font-family),
-		sans-serif;
-	font-size: var(--_o3-editorial-typography-standfirst-font-size);
-	font-weight: var(--_o3-editorial-typography-standfirst-font-weight);
-	line-height: var(--_o3-editorial-typography-standfirst-line-height);
+	font-family: var(--o3-typography-use-case-body-big-font-family), sans-serif;
+	font-size: var(--o3-typography-use-case-body-big-font-size);
+	font-weight: var(--o3-typography-use-case-body-big-font-weight);
+	line-height: var(--o3-typography-use-case-body-big-line-height);
 }
 
 .o3-editorial-typography-caption {
@@ -52,11 +52,11 @@ a.o3-editorial-typography-topic-tag[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-byline-author {
-	font-family: var(--_o3-editorial-typography-byline-author-font-family),
+	font-family: var(---o3-typography-use-case-body-small-bold-font-family),
 		sans-serif;
-	font-size: var(--_o3-editorial-typography-byline-author-font-size);
-	font-weight: var(--_o3-editorial-typography-byline-author-font-weight);
-	line-height: var(--_o3-editorial-typography-byline-author-line-height);
+	font-size: var(---o3-typography-use-case-body-small-bold-font-size);
+	font-weight: var(---o3-typography-use-case-body-small-bold-font-weight);
+	line-height: var(---o3-typography-use-case-body-small-bold-line-height);
 }
 
 a.o3-editorial-typography-byline-author {
@@ -85,19 +85,19 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-byline-location {
-	font-family: var(--_o3-editorial-typography-byline-location-font-family),
+	font-family: var(---o3-typography-use-case-body-small-font-family),
 		sans-serif;
-	font-size: var(--_o3-editorial-typography-byline-location-font-size);
-	font-weight: var(--_o3-editorial-typography-byline-location-font-weight);
-	line-height: var(--_o3-editorial-typography-byline-location-line-height);
+	font-size: var(---o3-typography-use-case-body-small-font-size);
+	font-weight: var(---o3-typography-use-case-body-small-font-weight);
+	line-height: var(---o3-typography-use-case-body-small-line-height);
 }
 
 .o3-editorial-typography-byline-timestamp {
-	font-family: var(--_o3-editorial-typography-byline-timestamp-font-family),
+	font-family: var(---o3-typography-use-case-body-small-caps-font-family),
 		sans-serif;
-	font-size: var(--_o3-editorial-typography-byline-timestamp-font-size);
-	font-weight: var(--_o3-editorial-typography-byline-timestamp-font-weight);
-	line-height: var(--_o3-editorial-typography-byline-timestamp-line-height);
+	font-size: var(---o3-typography-use-case-body-small-caps-font-size);
+	font-weight: var(---o3-typography-use-case-body-small-caps-font-weight);
+	line-height: var(---o3-typography-use-case-body-small-caps-line-height);
 	text-transform: uppercase;
 	color: var(--_o3-editorial-typography-byline-timestamp);
 }
@@ -162,11 +162,11 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-pullquote__author {
-	font-family: var(--_o3-editorial-typography-pullquote-author-font-family),
+	font-family: var(--o3-typography-use-case-body-small-bold-font-family),
 		sans-serif;
-	font-size: var(--_o3-editorial-typography-pullquote-author-font-size);
-	font-weight: var(--_o3-editorial-typography-pullquote-author-font-weight);
-	line-height: var(--_o3-editorial-typography-pullquote-author-line-height);
+	font-size: var(--o3-typography-use-case-body-small-bold-font-size);
+	font-weight: var(--o3-typography-use-case-body-small-bold-font-weight);
+	line-height: var(--o3-typography-use-case-body-small-bold-line-height);
 }
 
 .o3-editorial-typography-pullquote__source {
@@ -178,20 +178,20 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-blockquote__author {
-	font-family: var(--_o3-editorial-typography-blockquote-author-font-family),
+	font-family: var(--o3-typography-use-case-body-small-bold-font-family),
 		sans-serif;
-	font-size: var(--_o3-editorial-typography-blockquote-author-font-size);
-	font-weight: var(--_o3-editorial-typography-blockquote-author-font-weight);
-	line-height: var(--_o3-editorial-typography-blockquote-author-line-height);
+	font-size: var(--o3-typography-use-case-body-small-bold-font-size);
+	font-weight: var(--o3-typography-use-case-body-small-bold-font-weight);
+	line-height: var(--o3-typography-use-case-body-small-bold-line-height);
 	text-transform: uppercase;
 }
 
 .o3-editorial-typography-blockquote__source {
-	font-family: var(--_o3-editorial-typography-blockquote-source-font-family),
+	font-family: var(--o3-typography-use-case-body-standard-font-family),
 		sans-serif;
-	font-size: var(--_o3-editorial-typography-blockquote-source-font-size);
-	font-weight: var(--_o3-editorial-typography-blockquote-source-font-weight);
-	line-height: var(--_o3-editorial-typography-blockquote-source-line-height);
+	font-size: var(--o3-typography-use-case-body-standard-font-size);
+	font-weight: var(--o3-typography-use-case-body-standard-font-weight);
+	line-height: var(--o3-typography-use-case-body-standard-line-height);
 }
 
 .o3-editorial-typography-big-number,
@@ -210,9 +210,8 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-big-number__content {
-	font-family: var(--_o3-editorial-typography-big-number-content-font-family),
-		sans-serif;
-	font-size: var(--_o3-editorial-typography-big-number-content-font-size);
-	font-weight: var(--_o3-editorial-typography-big-number-content-font-weight);
-	line-height: var(--_o3-editorial-typography-big-number-content-line-height);
+	font-family: var(--o3-typography-use-case-body-big-font-family), sans-serif;
+	font-size: var(--o3-typography-use-case-body-big-font-size);
+	font-weight: var(--o3-typography-use-case-body-big-font-weight);
+	line-height: var(--o3-typography-use-case-body-big-line-height);
 }

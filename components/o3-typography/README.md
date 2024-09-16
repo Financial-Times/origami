@@ -52,11 +52,11 @@ import { Heading } from '@financial-times/o3-typography';
 
 ### Body/Paragraphs
 
-O3 paragraphs are styled with the `o3-typography-body` class:
+O3 paragraphs are styled with the `o3-typography-body-standard` class:
 
 #### HTML
 ```html
-<p class="o3-typography-body">This is a paragraph of text.</p>
+<p class="o3-typography-body-standard">This is a paragraph of text.</p>
 ```
 
 #### JSX
@@ -74,7 +74,7 @@ Link styles can be used to give consistent styling to anchor tags:
 
 #### HTML
 ```html
-<p class="o3-typography-body">Styling and usage guides can be seen on the <a href="#" class="o3-typography-link">Origami</a> homepage.</p>
+<p class="o3-typography-body-standard">Styling and usage guides can be seen on the <a href="#" class="o3-typography-link">Origami</a> homepage.</p>
 ```
 #### JSX
 ```tsx
@@ -157,9 +157,9 @@ These can be used on whole paragraphs or individual words:
 
 #### HTML
 ```html
-<p class="o3-typography-body o3-typography-bold">This is a paragraph of bold text.</p>
-<p class="o3-typography-body">This body contains an <em class="o3-typography-italic">emphasised</em> word.</p>
-<p class="o3-typography-body">This body contains a <sup class="o3-typography-superscript">superscript</sup> and a <strong class="o3-typography-bold">strong</strong> word.</p>
+<p class="o3-typography-body-standard o3-typography-bold">This is a paragraph of bold text.</p>
+<p class="o3-typography-body-standard">This body contains an <em class="o3-typography-italic">emphasised</em> word.</p>
+<p class="o3-typography-body-standard">This body contains a <sup class="o3-typography-superscript">superscript</sup> and a <strong class="o3-typography-bold">strong</strong> word.</p>
 ```
 
 #### JSX

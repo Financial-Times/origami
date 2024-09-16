@@ -1,6 +1,8 @@
 .o3-typography-caption,
 .o3-typography-wrapper > figcaption {
 	color: var(--_o3-typography-caption-color);
-	font-size: var(--o3-font-size-negative-1);
-	line-height: var(--o3-font-lineheight-negative-1);
+	font-family: var(--_o3-typography-caption-font-family);
+	font-size: var(--_o3-typography-caption-font-size);
+	font-weight: var(--_o3-typography-caption-font-weight);
+	line-height: var(--_o3-typography-caption-line-height);
 }
