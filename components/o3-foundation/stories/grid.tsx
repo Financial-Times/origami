@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import "../grid.css";
+import "../src/css/components/grid.css";
 
 const itemDetails = [
 	{

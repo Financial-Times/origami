@@ -17,7 +17,11 @@
 		"email": "origami.support@ft.com"
 	},
 	"license": "MIT",
+	"main": "./cjs/index.js",
+	"module": "./esm/index.js",
 	"files": [
+		"cjs",
+		"esm",
 		"css",
 		"origami.json",
 		"package.json",
@@ -28,6 +32,9 @@
 	},
 	"engines": {
 		"npm": ">7"
+	},
+	"devDependencies": {
+		"@financial-times/o3-figma-sb-links": "^0.0.0"
 	},
 	"private": false
 }

@@ -1,3 +1,5 @@
+> :warning: **o3-typography has been deprecated**: Please refer to the [migration guide](MIGRATION.md) to continue using typography.
+
 # o3-typography
 
 Typographical styles for FT branded sites.
