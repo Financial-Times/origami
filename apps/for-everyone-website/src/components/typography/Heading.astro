@@ -1,0 +1,12 @@
+---
+import * as HeadingPreview from './preview/Heading';
+import Preview from '../utils/Preview.astro';
+import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
+const {brand} = Astro.props;
+
+const storybookId = `${brand}-o3-foundation-o3-typography-heading--heading-story`
+---
+<>
+	<Preview component={HeadingPreview} />
+	<FigmaSbLinks {storybookId} />
+</>

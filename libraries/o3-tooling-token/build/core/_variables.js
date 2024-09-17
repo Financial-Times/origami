@@ -2573,6 +2573,198 @@ export default {
 		"css": "--o3-typography-use-case-body-small-bold",
 		"figma": "o3/typography/use-case/body-small-bold"
 },
+	"o3-typography-use-case-link": {
+		"shortName": "link",
+		"value": {
+				"fontFamily": "metric 2 VF",
+				"fontWeight": "400",
+				"fontSize": "16",
+				"lineHeight": "20px"
+		},
+		"originalValue": {
+				"fontFamily": "{o3.font.family.metric}",
+				"fontWeight": "{o3.font.weight.regular}",
+				"fontSize": "{o3.font.size-metric2.0}",
+				"lineHeight": "{o3.font.lineheight-metric2.0}"
+		},
+		"type": "typography",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"link"
+		],
+		"css": "--o3-typography-use-case-link",
+		"figma": "o3/typography/use-case/link"
+},
+	"o3-typography-use-case-footer": {
+		"shortName": "footer",
+		"value": {
+				"fontFamily": "metric 2 VF",
+				"fontWeight": "400",
+				"fontSize": "16",
+				"lineHeight": "20px"
+		},
+		"originalValue": {
+				"fontFamily": "{o3.font.family.metric}",
+				"fontWeight": "{o3.font.weight.regular}",
+				"fontSize": "{o3.font.size-metric2.0}",
+				"lineHeight": "{o3.font.lineheight-metric2.0}"
+		},
+		"type": "typography",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"footer"
+		],
+		"css": "--o3-typography-use-case-footer",
+		"figma": "o3/typography/use-case/footer"
+},
+	"o3-typography-use-case-caption": {
+		"shortName": "caption",
+		"value": {
+				"fontFamily": "metric 2 VF",
+				"fontWeight": "400",
+				"fontSize": "12",
+				"lineHeight": "16px"
+		},
+		"originalValue": {
+				"fontFamily": "{o3.font.family.metric}",
+				"fontWeight": "{o3.font.weight.regular}",
+				"fontSize": "{o3.font.size-metric2.negative-2}",
+				"lineHeight": "{o3.font.lineheight-metric2.negative-2}"
+		},
+		"type": "typography",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"caption"
+		],
+		"css": "--o3-typography-use-case-caption",
+		"figma": "o3/typography/use-case/caption"
+},
+	"o3-typography-use-case-heading1": {
+		"shortName": "heading1",
+		"value": {
+				"fontFamily": "metric 2 VF",
+				"fontWeight": "700",
+				"fontSize": "28",
+				"lineHeight": "32px"
+		},
+		"originalValue": {
+				"fontFamily": "{o3.font.family.metric}",
+				"fontWeight": "{o3.font.weight.semibold}",
+				"fontSize": "{o3.font.size-metric2.4}",
+				"lineHeight": "{o3.font.lineheight-metric2.4}"
+		},
+		"type": "typography",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading1"
+		],
+		"css": "--o3-typography-use-case-heading1",
+		"figma": "o3/typography/use-case/heading1"
+},
+	"o3-typography-use-case-heading2": {
+		"shortName": "heading2",
+		"value": {
+				"fontFamily": "metric 2 VF",
+				"fontWeight": "700",
+				"fontSize": "24",
+				"lineHeight": "32px"
+		},
+		"originalValue": {
+				"fontFamily": "{o3.font.family.metric}",
+				"fontWeight": "{o3.font.weight.semibold}",
+				"fontSize": "{o3.font.size-metric2.3}",
+				"lineHeight": "{o3.font.lineheight-metric2.3}"
+		},
+		"type": "typography",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading2"
+		],
+		"css": "--o3-typography-use-case-heading2",
+		"figma": "o3/typography/use-case/heading2"
+},
+	"o3-typography-use-case-heading3": {
+		"shortName": "heading3",
+		"value": {
+				"fontFamily": "metric 2 VF",
+				"fontWeight": "700",
+				"fontSize": "20",
+				"lineHeight": "28px"
+		},
+		"originalValue": {
+				"fontFamily": "{o3.font.family.metric}",
+				"fontWeight": "{o3.font.weight.semibold}",
+				"fontSize": "{o3.font.size-metric2.2}",
+				"lineHeight": "{o3.font.lineheight-metric2.2}"
+		},
+		"type": "typography",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading3"
+		],
+		"css": "--o3-typography-use-case-heading3",
+		"figma": "o3/typography/use-case/heading3"
+},
+	"o3-typography-use-case-heading4": {
+		"shortName": "heading4",
+		"value": {
+				"fontFamily": "metric 2 VF",
+				"fontWeight": "700",
+				"fontSize": "18",
+				"lineHeight": "24px"
+		},
+		"originalValue": {
+				"fontFamily": "{o3.font.family.metric}",
+				"fontWeight": "{o3.font.weight.semibold}",
+				"fontSize": "{o3.font.size-metric2.1}",
+				"lineHeight": "{o3.font.lineheight-metric2.1}"
+		},
+		"type": "typography",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading4"
+		],
+		"css": "--o3-typography-use-case-heading4",
+		"figma": "o3/typography/use-case/heading4"
+},
+	"o3-typography-use-case-heading5": {
+		"shortName": "heading5",
+		"value": {
+				"fontFamily": "metric 2 VF",
+				"fontWeight": "700",
+				"fontSize": "16",
+				"lineHeight": "20px"
+		},
+		"originalValue": {
+				"fontFamily": "{o3.font.family.metric}",
+				"fontWeight": "{o3.font.weight.semibold}",
+				"fontSize": "{o3.font.size-metric2.0}",
+				"lineHeight": "{o3.font.lineheight-metric2.0}"
+		},
+		"type": "typography",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"heading5"
+		],
+		"css": "--o3-typography-use-case-heading5",
+		"figma": "o3/typography/use-case/heading5"
+},
 	"o3-focus-use-case-ring-inner": {
 		"shortName": "inner",
 		"value": {
