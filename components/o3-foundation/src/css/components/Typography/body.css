@@ -29,7 +29,10 @@
 	line-height: var(--o3-typography-use-case-body-small-bold-line-height);
 }
 
-.o3-typography-body,
+.o3-typography-body--small,
+.o3-typography-body--small-caps,
+.o3-typography-body--small-bold,
+.o3-typography-body-standard,
 .o3-typography-wrapper > p {
 	[data-o3-theme='inverse']&,
 	:where([data-o3-theme='inverse']) & {
