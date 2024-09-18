@@ -170,10 +170,9 @@ export async function buildCSS({
 		},
 	};
 	const StyleDictionary = new StyleDictionaryPackage(config);
-	await StyleDictionary.cleanAllPlatforms();
-	await StyleDictionary.buildAllPlatforms();
 	try {
-		StyleDictionary.buildAllPlatforms();
+		await StyleDictionary.cleanAllPlatforms();
+		await StyleDictionary.buildAllPlatforms();
 	} catch (e) {
 		console.warn(e);
 	}
@@ -220,8 +219,12 @@ export async function buildMeta({sources, includes, destination}) {
 	};
 
 	const StyleDictionary = new StyleDictionaryPackage(config);
-	await StyleDictionary.cleanAllPlatforms();
-	await StyleDictionary.buildAllPlatforms();
+	try {
+		await StyleDictionary.cleanAllPlatforms();
+		await StyleDictionary.buildAllPlatforms();
+	} catch (e) {
+		console.warn(e);
+	}
 }
 
 function getTokenStudioThemes() {

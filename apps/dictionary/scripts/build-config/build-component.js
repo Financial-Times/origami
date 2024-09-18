@@ -6,4 +6,4 @@ function getDestination(brand, component) {
 	return `../../components/${component}/src/css/tokens/${brand}/${component}/_variables.css`;
 }
 
-buildComponentTokens(componentName, getDestination);
+await buildComponentTokens(componentName, getDestination);
