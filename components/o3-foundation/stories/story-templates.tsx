@@ -67,7 +67,7 @@ const BodyStory = {
 			},
 		},
 		size: {
-			options: ['regular', 'small'],
+			options: ['standard', 'small', 'big', 'small-caps', 'small-bold'],
 			control: {
 				type: 'radio',
 			},

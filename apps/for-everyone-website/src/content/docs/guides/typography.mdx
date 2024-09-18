@@ -12,6 +12,7 @@ import '@financial-times/o3-foundation/css/whitelabel.css';
 import '@financial-times/o3-foundation/css/internal.css';
 import '@financial-times/o3-foundation/css/professional.css';
 import '@financial-times/o3-foundation/css/core.css';
+import '@financial-times/o3-foundation/css/sustainable-views.css';
 
 import '@financial-times/o3-editorial-typography/css/core.css';
 import '@financial-times/o3-editorial-typography/css/professional.css';
@@ -21,6 +22,11 @@ import '@financial-times/o3-editorial-typography/css/whitelabel.css';
 import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
 import HeadingTypography from '../../../components/typography/Heading.astro';
+import BodyTypography from '../../../components/typography/Body.astro';
+import LinkTypography from '../../../components/typography/Link.astro';
+import FooterTypography from '../../../components/typography/Footer.astro';
+import CaptionTypography from '../../../components/typography/Caption.astro';
+import ListTypography from '../../../components/typography/Lists.astro';
 
 import HeadingStyles from '../../../components/editorial-typography/HeadingStyles.astro';
 import HeadlineLarge from '../../../components/editorial-typography/HeadlineLarge.astro';
@@ -177,30 +183,59 @@ The following headlines have the same values across all screen sizes, mobile, ta
 
 <HeadingTypography brand={props.brand} />
 
-### UI Body & Details
+### UI Body
 
-[Open in StoryBook](https://o3.origami.ft.com/?path=/story/core-o3-typography-body--body-story&args=size:small&globals=backgrounds:!undefined) | [Open in Figma](<https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami-(o3)?node-id=6439-9847&t=A4DgTgKayLdTdfbX-4>)
+| Preview                                                                                                                                                   | Usage                                                                                                                                          |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| <div class="not-content"><p class="o3-typography-body-big">Body Big - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>                 | Body big is primarily used to create a comfortable reading experience on long-form content such as main sub-titles, standfirst and paragraphs. |
+| <div class="not-content"><p class="o3-typography-body-standard">Body Standard - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>       | Body standard is the default text size. Used for detailed or descriptive content, in components, or where space is limited.                    |
+| <div class="not-content"><p class="o3-typography-body-small">Body Small - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>             | Body standard is the default text size. Used for detailed or descriptive content, in components, or where space is limited.                    |
+| <div class="not-content"><p class="o3-typography-body-small-bold">Body Small (bold) - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div> | Body standard is the default text size. Used for detailed or descriptive content, in components, or where space is limited.                    |
+| <div class="not-content"><p class="o3-typography-body-small-caps">Body small (caps) - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div> | Body standard is the default text size. Used for detailed or descriptive content, in components, or where space is limited.                    |
 
-| Preview                                                                                                                                                     | Usage                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| <div class="not-content"><p class="o3-typography-body">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>                           | For body texts with higher hierarchy in a non-editorial page such as sub-titles, main paragraphs or bigger texts. |
-| <div class="not-content"><p class="o3-typography-body o3-typography-body--small">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div> | For body texts of lesser importance such as sub-section body, paragraphs.                                         |
-| <div class="not-content"><p class="o3-typography-body"><a href="#" class="o3-typography-link">UI links</a></p></div>                                        | For general links in UI pages. Links inherit the properties of their parent body.                                 |
-| <span class="not-content"><span class="o3-typography-footer">Footer</span></span>                                                                           | For footer text content in the footer such as copyright notice.                                                   |
-| <span class="not-content"><span class="o3-typography-caption">Caption</span></span>                                                                         | For details about a piece or image that should be less prominent.                                                 |
+<BodyTypography brand={props.brand} />
+
+### Links
+
+For general links in UI pages. Link style can be applied inline (within a paragraph or body text) or standalone. The inline links inherits the text properties of the body it is in.
+
+Link focus style follows the global Origami focus for single ring element.
+
+<LinkTypography brand={props.brand} />
+
+**Use descriptive words to describe links**
+
+Link text should be clear, concise, and descriptive enough to make sense out of context. Avoid vague phrases like "click here" or "read more." for example: use "Read our accessibility guidelines" Instead.
+
+### Footer
+
+<FooterTypography brand={props.brand} />
+
+### Caption
+
+A caption is a brief text description or explanation that provides context to visual elements such as images, illustrations, charts, or infographics. Captions should be kept brief.
+
+<CaptionTypography brand={props.brand} />
+
+### List
+
+For lists in UI pages. Lists allow users to view two or more individual, but related, text items grouped together. We have ordered and unordered lists.
+
+<ListTypography brand={props.brand} />
 
 <BrandedContent brands="core, professional, sustainable-views, whitelabel">
 	## Editorial Typography
 
-    Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers.
+    Editorial typography is intended for editorial and article content e.g homepage and Content pages. For typography to use for UI, visit here.The following font families are used when designing for editorial.
+
+Keeping typography consistent and sticking to logical hierarchies ensures that page elements are clear and easily recognisable when scanning the page. Lead with Mobile-First (also applies to FT Apps. For example; FT Apps, FT Edit)
 
     ### Headings
 
-    Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use
-    heading styles as needed. H1 to H5 should be set during development.
+    Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use heading styles as needed. H1 to H5 should be set during  development.
 
     <BrandedContent brands="core,professional,internal,whitelabel,sustainable-views">
-    	<BrandedContent brands="core,professional">
+    	<BrandedContent brands="core,professiona,sustainable-views">
     		<HeadlineLarge />
     	</BrandedContent>
     	<HeadingStyles />
@@ -223,20 +258,19 @@ The following headlines have the same values across all screen sizes, mobile, ta
     The quote component is used to highlight notable statements, excerpts, or phrases from articles, interviews, and other
     types of content. It draws attention to key information and enhances the reading experience.
 
-    We have two variants:
-
     <Quotes brand={props.brand} />
 
     ### Lists
 
-    Lists allow users to view two or more individual, but related, text items grouped together. We have ordered and
-    unordered lists.
+    For lists in article content. Refer to guidelines under [UI lists above](#list).
 
     <Lists brand={props.brand} />
 
     ### Links
 
-    <Links brand={props.brand} />
+For links in article content. Refer to guidelines under [UI links above](#links).
+
+<Links brand={props.brand} />
 
     ### Big Number
 
@@ -280,24 +314,22 @@ The following headlines have the same values across all screen sizes, mobile, ta
 
     ## Usage Guidelines
 
-    <Guideline summary="Use semantic heading levels" do={true}>
-    	<p slot="description">
-    		In a web context, HTML heading levels must [follow in
-    		order](https://www.w3.org/WAI/tutorials/page-structure/headings/) to
-    		represent content structure. However these may be styled to look like a
-    		different heading visually, if required by a design. E.g. a h2 heading may
-    		be styled as h3.
-    	</p>
-    	<Example slot="examples" do={true}>
-    		![A h1 heading follows a h2
-    		heading.](/assets/images/components/typography/type-guideline-1.svg)
-    	</Example>
-    </Guideline>
+Keeping typography consistent and sticking to logical hierarchies ensures that elements in the UI are clear and easily recognisable when scanning the page.
+
+<Guideline summary="Define heading levels" do={true}>
+	<p slot="description">
+		Styles can be assigned a heading level that is independent of style name,
+		size, weight, or other properties.
+	</p>
+	<Example slot="examples" do={true}>
+		![A h1 heading follows a h2
+		heading.](/assets/images/components/typography/type-guideline-1.svg)
+	</Example>
+</Guideline>
 
     <Guideline summary="Don’t use Financier fonts for UI" do={false}>
     	<p slot="description">
-    		Use Metric for UI, Financier and Georgia should be reserved for editorial
-    		content.
+    		Financier display font should be used for Editorial article content only, use metric font instead for UI.
     	</p>
     	<Example slot="examples" do={false}>
     		![The cost of an annual subscription in a signup flow incorrectly uses
@@ -307,10 +339,7 @@ The following headlines have the same values across all screen sizes, mobile, ta
 
     <Guideline summary="Avoid negative font scales" do={false}>
     	<p slot="description">
-    		Scales less than zero (-1, -2) are edge cases. Avoid these as they can be
-    		hard to read especially on large screens. Negative scales may be used to
-    		present short, secondary information such as a caption. However we recommend
-    		using predefined [ui typography](#ui-typography) styles where possible.
+    		Scales less than zero,  `o3-font-size--1`(14px) and `o3-font-size--2`(12px), are edge cases. Avoid use as they can be hard to read especially on large screens. Use to show less important information such as [Captions](#caption) etc
     	</p>
     	<Example slot="examples" do={false}>
     		![A small, negative font scale is incorrectly used for a large body of
@@ -319,3 +348,8 @@ The following headlines have the same values across all screen sizes, mobile, ta
     </Guideline>
 
 </BrandedContent>
+
+## Accessibility notes
+
+- ARIA Roles: Ensure lists are properly identified by screen readers using appropriate HTML tags (`<ol>` for ordered lists and `<ul>` for unordered lists).
+- Keyboard Navigation: Lists should be navigable via keyboard.

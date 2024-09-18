@@ -21,13 +21,13 @@ import {
  * @param {GetDestination} getDestination - A function that returns the destination path
  * @returns {void}
  */
-export function buildBrandForCSS(getDestination) {
+export async function buildBrandForCSS(getDestination) {
 	const brands = getBrandNames();
-	brands.forEach(brand => {
+	brands.forEach(async brand => {
 		const {sources, includes} = getBrandSourcesAndIncludes(brand);
 		const destination = getDestination(brand);
 		const parentSelector = `[data-o3-brand="${brand.split('/').slice(-1)}"]`;
-		buildCSS({
+		await buildCSS({
 			sources: sources.filter(source => nonComponentTokenFilter(source, brand)),
 			includes: includes.filter(include =>
 				nonComponentTokenFilter(include, brand)
@@ -87,9 +87,9 @@ export function buildComponentTokens(componentName, getDestination) {
  * @param {string} destination - The destination path
  * @returns {void}
  */
-export function buildIconCSS(destination) {
+export async function buildIconCSS(destination) {
 	const sources = [path.join(getBasePath(), 'tokens/icons/icons.json')];
-	buildCSS({sources, destination});
+	await buildCSS({sources, destination});
 }
 /**
  * Build CSS foundation variables for Astro
