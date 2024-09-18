@@ -7,7 +7,8 @@
 	"license": "ISC",
 	"private": true,
 	"scripts": {
-		"test": "NODE_ENV=test vitest"
+		"test": "NODE_ENV=test vitest",
+		"regenerate-snapshot": "vitest -u"
 	},
 	"devDependencies": {
 		"@tokens-studio/sd-transforms": "^1.2.3",
