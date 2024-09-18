@@ -90,17 +90,7 @@ Metric is our primary typeface. Clear, contemporary and rational, Metric communi
 
 ## Typographic Scale
 
-We use a single typographic scale for all fonts. Our scale ranges from -2 to 12. Consider scale 0 the baseline, with ascending and descending values in each direction. Avoid using styles below zero for blocks of text premium user experience.
-
-- Our legacy typographic scale uses the same values as our latest scale. See our legacy Foundations library and legacy o-typography component in Storybook.
-
-### Metric 2 (Variable Font, VF)
-
-Modern Origami introduces the Metric2 font family as a variable font (a incremental font weights). We use a single typographic scale for all fonts.
-
-Metric2 replaces legacy Metric font files. Metric2 renders larger than Metric for the same font size, therefore you may need to use a smaller scale to align with legacy Metric typography.
-
-![A comparison of fonts Metric and Metric 2. Font size on Metric 2 is 8 pixels less than its former. And its line height stays the same](/assets/images/components/typography/metric-metric2-diff.svg)
+We use multiple typographic scales for different font families. Our scale ranges from -3 to 10, depending on the font family. Consider scale 0 the baseline, with ascending and descending values in each direction. Avoid using styles below zero for long form content.
 
 <Tabs syncKey="code">
 	<TabItem label="Metric2">
@@ -125,14 +115,9 @@ Metric2 replaces legacy Metric font files. Metric2 renders larger than Metric fo
 
 ## Font Weight
 
-Font weight can be either be used to express hierarchy or urgency of information.
+Font weight can be used to express hierarchy or urgency of information.
 
-For instance:
-
-- In editorial, Lighter font weights. e.g regular is used to depict a post that is more of a feature and less of a main news while semi-bold and bold are used for a post like live news that is a main news.
-
-- In UI design, all heading levels use semi-bold weights while regular is usually used for sub-titles and body copy.
-
+We recommend using our standard [UI typography](#ui-typography) <BrandedContent currentBrand={props.brand} brands="core, professional, sustainable-views, whitelabel">or [Editorial typography](#editorial-typography)</BrandedContent> styles where possible. For custom typography, align to these standard styles where possible. For example when using Metric2 for UI use `semibold` over other bold weights.
 | Preview                                                                                                               | Value | Token                     |
 | --------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------- |
 | <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-light)">light</span>       | 300   | --o3-font-weight-light    |
@@ -185,29 +170,27 @@ The following headlines have the same values across all screen sizes, mobile, ta
 
 ### UI Body
 
-| Preview                                                                                                                                                   | Usage                                                                                                                                          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| <div class="not-content"><p class="o3-typography-body-big">Body Big - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>                 | Body big is primarily used to create a comfortable reading experience on long-form content such as main sub-titles, standfirst and paragraphs. |
-| <div class="not-content"><p class="o3-typography-body-standard">Body Standard - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>       | Body standard is the default text size. Used for detailed or descriptive content, in components, or where space is limited.                    |
-| <div class="not-content"><p class="o3-typography-body-small">Body Small - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>             | Body standard is the default text size. Used for detailed or descriptive content, in components, or where space is limited.                    |
-| <div class="not-content"><p class="o3-typography-body-small-bold">Body Small (bold) - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div> | Body standard is the default text size. Used for detailed or descriptive content, in components, or where space is limited.                    |
-| <div class="not-content"><p class="o3-typography-body-small-caps">Body small (caps) - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div> | Body standard is the default text size. Used for detailed or descriptive content, in components, or where space is limited.                    |
+| Preview                                                                                                                                                   | Usage                                                                                                                                                                                |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <div class="not-content"><p class="o3-typography-body-big">Body Big - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>                 | Body big is primarily used to create a comfortable reading experience on long-form content such as main sub-titles, standfirst and paragraphs.                                       |
+| <div class="not-content"><p class="o3-typography-body-standard">Body Standard - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>       | Body standard is the default text size. Used for detailed or descriptive content, in components, or where space is limited.                                                          |
+| <div class="not-content"><p class="o3-typography-body-small">Body Small - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>             | Body small serves secondary level content such as small details in tags, locations, teasers and cards. Avoid using this for long-form text for good readability and user experience. |
+| <div class="not-content"><p class="o3-typography-body-small-bold">Body Small (bold) - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div> | Use to emphasise secondary text such as author name or topic tags.                                                                                                                   |
+| <div class="not-content"><p class="o3-typography-body-small-caps">Body small (caps) - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div> | Use to emphasise secondary text such as author name or topic tags.                                                                                                                   |
 
 <BodyTypography brand={props.brand} />
 
 ### Links
 
-For general links in UI pages. Link style can be applied inline (within a paragraph or body text) or standalone. The inline links inherits the text properties of the body it is in.
+For general links in UI pages. The link style can be applied inline (within a paragraph or body text) or standalone. The inline links inherits the text properties of the body it is in.
 
 Link focus style follows the global Origami focus for single ring element.
 
 <LinkTypography brand={props.brand} />
 
-**Use descriptive words to describe links**
-
-Link text should be clear, concise, and descriptive enough to make sense out of context. Avoid vague phrases like "click here" or "read more." for example: use "Read our accessibility guidelines" Instead.
-
 ### Footer
+
+For footers and copyright notices.
 
 <FooterTypography brand={props.brand} />
 
@@ -226,9 +209,7 @@ For lists in UI pages. Lists allow users to view two or more individual, but rel
 <BrandedContent brands="core, professional, sustainable-views, whitelabel">
 	## Editorial Typography
 
-    Editorial typography is intended for editorial and article content e.g homepage and Content pages. For typography to use for UI, visit here.The following font families are used when designing for editorial.
-
-Keeping typography consistent and sticking to logical hierarchies ensures that page elements are clear and easily recognisable when scanning the page. Lead with Mobile-First (also applies to FT Apps. For example; FT Apps, FT Edit)
+    Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers.
 
     ### Headings
 
@@ -316,6 +297,13 @@ For links in article content. Refer to guidelines under [UI links above](#links)
 
 Keeping typography consistent and sticking to logical hierarchies ensures that elements in the UI are clear and easily recognisable when scanning the page.
 
+<Guideline summary="Use descriptive words to describe links" do={true}>
+	<p slot="description">
+		Link text should be clear, concise, and descriptive enough to make sense out
+		of context. Avoid vague phrases like "click here" or "read more." for
+		example: use "Read our accessibility guidelines" Instead.
+	</p>
+</Guideline>
 <Guideline summary="Define heading levels" do={true}>
 	<p slot="description">
 		Styles can be assigned a heading level that is independent of style name,
@@ -329,7 +317,8 @@ Keeping typography consistent and sticking to logical hierarchies ensures that e
 
     <Guideline summary="Don’t use Financier fonts for UI" do={false}>
     	<p slot="description">
-    		Financier display font should be used for Editorial article content only, use metric font instead for UI.
+    		            The Financier Display font must be used for Editorial article content only, use Metric for UI.
+.
     	</p>
     	<Example slot="examples" do={false}>
     		![The cost of an annual subscription in a signup flow incorrectly uses
@@ -339,7 +328,7 @@ Keeping typography consistent and sticking to logical hierarchies ensures that e
 
     <Guideline summary="Avoid negative font scales" do={false}>
     	<p slot="description">
-    		Scales less than zero,  `o3-font-size--1`(14px) and `o3-font-size--2`(12px), are edge cases. Avoid use as they can be hard to read especially on large screens. Use to show less important information such as [Captions](#caption) etc
+    		Scales less than zero,  `o3-font-size--1`(14px) and `o3-font-size--2`(12px), are edge cases. Avoid these as they can be hard to read especially on large screens. Negative scales may be used to present short, secondary information where needed to align to existing designs. However we recommend using predefined [ui typography](#ui-typography) styles where possible.
     	</p>
     	<Example slot="examples" do={false}>
     		![A small, negative font scale is incorrectly used for a large body of
@@ -348,8 +337,3 @@ Keeping typography consistent and sticking to logical hierarchies ensures that e
     </Guideline>
 
 </BrandedContent>
-
-## Accessibility notes
-
-- ARIA Roles: Ensure lists are properly identified by screen readers using appropriate HTML tags (`<ol>` for ordered lists and `<ul>` for unordered lists).
-- Keyboard Navigation: Lists should be navigable via keyboard.
