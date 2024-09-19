@@ -6,7 +6,7 @@
 ### Bug Fixes
 
 * update metric2 scales ([60d6f00](https://github.com/Financial-Times/origami/commit/60d6f003617849c56ddc6d3167d8bc8d98405724))
-* update metric2 scales ([#1804](https://github.com/Financial-Times/origami/issues/1804)) ([60d6f00](https://github.com/Financial-Times/origami/commit/60d6f003617849c56ddc6d3167d8bc8d98405724))
+
 
 ## [1.0.6](https://github.com/Financial-Times/origami/compare/o3-tooltip-v1.0.5...o3-tooltip-v1.0.6) (2024-08-14)
 
