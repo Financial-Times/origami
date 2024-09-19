@@ -1,4 +1,11 @@
 # Changelog
+## [14.0.3](https://github.com/Financial-Times/origami/compare/o-header-v14.0.2...o-header-v14.0.3) (2024-09-19)
+
+
+### Bug Fixes
+
+* (o-header) increase the value of o-header-mega to 5 ([#1817](https://github.com/Financial-Times/origami/issues/1817)) ([c9944df](https://github.com/Financial-Times/origami/commit/c9944df765ccc063bc5d9e6bca79535fe614df78))
+
 ## [14.0.2](https://github.com/Financial-Times/origami/compare/o-header-v14.0.1...o-header-v14.0.2) (2024-09-05)
 
 
