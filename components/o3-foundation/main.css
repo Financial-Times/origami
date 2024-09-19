@@ -3,4 +3,4 @@
 @import './src/css/components/normalise.css';
 @import './src/css/components/focus.css';
 @import './src/css/components/grid.css';
-@import './src/css/components/Typography/main.css';
+@import './src/css/components/Typography/index.css';

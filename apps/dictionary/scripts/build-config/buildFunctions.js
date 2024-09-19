@@ -23,6 +23,7 @@ import {
  */
 export async function buildBrandForCSS(getDestination) {
 	const brands = getBrandNames();
+
 	await Promise.all(
 		brands.map(async brand => {
 			const {sources, includes} = getBrandSourcesAndIncludes(brand);

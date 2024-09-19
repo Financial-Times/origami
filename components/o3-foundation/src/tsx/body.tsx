@@ -3,16 +3,13 @@ import {getStyleAttributes, StyleArguments} from './getStyleAttributes';
 type BodyProps = {
 	children: React.ReactNode;
 	style?: 'italic';
-	size?: 'small';
+	size: 'standard' | 'small' | 'big' | 'small-caps' | 'small-bold';
 } & StyleArguments;
-export const Body: React.FC<BodyProps> = ({children, theme, style, size}) => {
-	const classes = ['o3-typography-body-standard'];
+export const Body: React.FC<BodyProps> = ({children, theme, style, size = 'standard'}) => {
+	const classes = [`o3-typography-body-${size}`];
 
 	if (style === 'italic') {
 		classes.push('o3-typography-italic');
-	}
-	if (size === 'small') {
-		classes.push('o3-typography-body--small');
 	}
 
 	return (
