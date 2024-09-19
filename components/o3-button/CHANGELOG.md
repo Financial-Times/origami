@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.7](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.6...o3-button-v1.1.7) (2024-09-19)
+
+
+### Bug Fixes
+
+* update metric2 scales ([60d6f00](https://github.com/Financial-Times/origami/commit/60d6f003617849c56ddc6d3167d8bc8d98405724))
+
 ## [1.1.6](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.5...o3-button-v1.1.6) (2024-08-14)
 
 

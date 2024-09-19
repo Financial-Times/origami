@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v1.2.2...o3-editorial-typography-v1.2.3) (2024-09-19)
+
+
+### Bug Fixes
+
+* update metric2 scales ([60d6f00](https://github.com/Financial-Times/origami/commit/60d6f003617849c56ddc6d3167d8bc8d98405724))
+
 ## [1.2.2](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v1.2.1...o3-editorial-typography-v1.2.2) (2024-08-14)
 
 
