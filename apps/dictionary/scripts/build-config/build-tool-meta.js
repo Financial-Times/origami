@@ -6,5 +6,5 @@ import {
 function getDestination(brand) {
 	return `build/${brand}/_variables.js`;
 }
-buildToolingMetaTokens(getDestination);
-buildToolingIconTokens('build/icons/_variables.js');
+await buildToolingMetaTokens(getDestination);
+await buildToolingIconTokens('build/icons/_variables.js');

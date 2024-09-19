@@ -4,7 +4,7 @@ function HeadlineLarge() {
 	return (
 		<>
 			<meta itemProp="@preview" />
-					<Headline type='headline-large'>
+					<Headline underline={true} type='headline-large'>
 						Don’t settle for black and white
 					</Headline>
 			<meta itemProp="@preview" />

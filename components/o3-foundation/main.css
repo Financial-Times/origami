@@ -1,5 +1,6 @@
 @import './src/css/tokens/_icons.css';
-@import './fonts.css';
-@import './normalise.css';
-@import './focus.css';
-@import './grid.css';
+@import './src/css/components/fonts.css';
+@import './src/css/components/normalise.css';
+@import './src/css/components/focus.css';
+@import './src/css/components/grid.css';
+@import './src/css/components/Typography/index.css';

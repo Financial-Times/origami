@@ -104,7 +104,7 @@ O3 editorial paragraphs are styled with the `o3-editorial-typography-body` class
 While using JSX, you can import the `<Body>` component and apply the `type` prop.
 
 ```jsx
-import {Body} from '@financial-times/o3-typography/cjs'; // or /esm
+import {Body} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
 <Body>This is a paragraph of text.</Body>;
 ```

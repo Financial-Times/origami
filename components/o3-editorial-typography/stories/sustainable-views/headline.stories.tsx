@@ -30,16 +30,3 @@ Heading.parameters = {
 	design: DesignParams,
 };
 
-Heading.argTypes = {
-	type: {
-		options: ['headline', 'subheading', 'chapter', 'label'],
-		control: {
-			type: 'radio',
-		},
-	},
-};
-
-Heading.args = {
-	...StoryTemplates.Heading.args,
-	type: 'headline',
-};
