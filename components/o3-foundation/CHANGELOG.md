@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.6.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.6.0...o3-foundation-v1.6.1) (2024-09-19)
+## [2.0.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.6.0...o3-foundation-v1.6.1) (2024-09-19)
 
 ### ⚠ BREAKING CHANGES
 
