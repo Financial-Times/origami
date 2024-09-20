@@ -6,8 +6,8 @@
 	--_o3-button-inline-padding-start: var(--o3-spacing-2xs);
 	--_o3-button-inline-padding-end: var(--o3-spacing-2xs);
 
-	--_o3-button-font-size: var(--o3-font-size-negative-1);
-	--_o3-button-lineheight: var(--o3-font-lineheight-negative-1);
+	--_o3-button-font-size: var(--o3-font-size-metric2-negative-1);
+	--_o3-button-lineheight: var(--o3-font-lineheight-metric2-negative-1);
 
 	--_o3-button-border-size: 1px;
 	--_o3-icon-size: calc(
