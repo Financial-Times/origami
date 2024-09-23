@@ -1,0 +1,25 @@
+{
+  "name": "@financial-times/o3-social-sign-in",
+  "version": "0.0.0",
+  "description": "Social sign-in buttons for third party-authentication flows.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/origami.git"
+  },
+  "keywords": [
+    "financial-times",
+    "origami",
+    "buttons",
+    "social-sign-in"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/origami#readme"
+}
