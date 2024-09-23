@@ -121,7 +121,7 @@ import {Body} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 
 ### Editorial detail styles
 
-o3 editorial component exports components that can be used to style additional information in the editorial content.
+The package exports components that can be used to style additional information in the editorial content.
 
 #### Topic Tag
 

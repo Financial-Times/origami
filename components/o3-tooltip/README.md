@@ -19,7 +19,7 @@ We provide custom elements `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>`. 
 
 `<o3-tooltip-onboarding>` is used to display a tooltip on a HTML target element that can have an `aria-describedby` attribute. It is used to provide additional information about the target element and is shown immediately once the page is loaded. It can be only closed by clicking the close button.
 
-`<o3-tooltip-toggle>` does not have a close button and is used with an information icon. It can be triggered by clicking on the information icon and will be removed from the DOM if the user clicks outside of the tooltip, presses ESC, or clicks the info icon again.
+`<o3-tooltip-toggle>` does not have a close button and is used with an information icon. It can be triggered by clicking on the information icon and will be removed from the DOM if the user clicks outside the tooltip, presses ESC, or clicks the info icon again.
 
 Below are examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-toggle>` custom elements:
 
