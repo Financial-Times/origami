@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Financial-Times/origami.git"
   },
+  "private": false,
   "keywords": [
     "financial-times",
     "origami",

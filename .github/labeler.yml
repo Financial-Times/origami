@@ -128,6 +128,8 @@ o3-form:
   - components/o3-form/**/*
 o3-foundation:
   - components/o3-foundation/**/*
+o3-social-sign-in:
+  - components/o3-social-sign-in/**/*
 o3-tooltip:
   - components/o3-tooltip/**/*
 o3-typography:
