@@ -11,5 +11,6 @@ export interface SocialSignInProps {
 }
 
 export const SocialSignIn = (props: SocialSignInProps) => {
-	return (<a className={`o3-social-sign-in-button o3-social-sign-in-button--${props.provider}`}>Sign up with {providerToTitle[props.provider]}</a>)
+	const providerId = props.provider === 'apple' ? 'appleid-signin' : 'gSignInWrapper';
+	return (<a id={providerId} className={`o3-social-sign-in-button o3-social-sign-in-button--${props.provider}`}>Sign up with {providerToTitle[props.provider]}</a>)
 }
