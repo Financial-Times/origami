@@ -1,4 +1,11 @@
 # Changelog
+## [14.0.4](https://github.com/Financial-Times/origami/compare/o-header-v14.0.3...o-header-v14.0.4) (2024-09-24)
+
+
+### Bug Fixes
+
+* (o-header) subnav scroll behaviour ([#1825](https://github.com/Financial-Times/origami/issues/1825)) ([a4329e1](https://github.com/Financial-Times/origami/commit/a4329e13818d85a3b8cea10496646ac0a52bf597))
+
 ## [14.0.3](https://github.com/Financial-Times/origami/compare/o-header-v14.0.2...o-header-v14.0.3) (2024-09-19)
 
 
