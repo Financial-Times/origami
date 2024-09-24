@@ -8,9 +8,9 @@
       "core/components/o3-button": "source",
       "core/base/spacing": "enabled",
       "core/base/typography": "enabled",
-      "core/components/o3-typography": "source",
       "core/components/o3-tooltip": "source",
       "core/use-case/color": "enabled",
+      "core/use-case/typography": "enabled",
       "core/use-case/focus": "enabled",
       "core/components/o3-editorial-typography": "source"
     },
@@ -150,7 +150,6 @@
       "o3.color.palette.oxford": "80fd4d85c10d711adb04fb0182dcfa84f3a12949",
       "o3.color.palette.slate": "ca99fdeb299231b1fdb0d0d18009d49f0ce920ed",
       "o3.color.palette.paper": "899ea33a9c2673f9ad6cb212e949bc99bf147e26",
-      "o3.color.palette.transparrent": "28f1f65b738e08c9d29634649a3a71a3af00f0e6",
       "o3.color.palette.mandarin": "e18b67936324b485367541256754d3878ade7c9b",
       "o3.color.palette.light-blue": "7afbc63861180897935456ec5be71a68049d569c",
       "o3.color.palette.crimson": "6d5325c850cd378dc81f7c8b8967ff777e20e464",
@@ -221,8 +220,9 @@
       "core/base/typography": "enabled",
       "core/use-case/color": "enabled",
       "core/professional/components/o3-tooltip": "source",
+      "core/use-case/typography": "enabled",
       "core/use-case/focus": "enabled",
-      "core/professional/components/o3-typography": "source"
+      "core/components/o3-editorial-typography": "source"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -355,7 +355,6 @@
       "o3.color.palette.oxford": "80fd4d85c10d711adb04fb0182dcfa84f3a12949",
       "o3.color.palette.slate": "ca99fdeb299231b1fdb0d0d18009d49f0ce920ed",
       "o3.color.palette.paper": "899ea33a9c2673f9ad6cb212e949bc99bf147e26",
-      "o3.color.palette.transparrent": "28f1f65b738e08c9d29634649a3a71a3af00f0e6",
       "o3.color.palette.mandarin": "e18b67936324b485367541256754d3878ade7c9b",
       "o3.color.palette.light-blue": "7afbc63861180897935456ec5be71a68049d569c",
       "o3.color.palette.crimson": "6d5325c850cd378dc81f7c8b8967ff777e20e464",
@@ -424,8 +423,8 @@
       "internal/base/typography": "enabled",
       "internal/components/o3-tooltip": "source",
       "internal/use-case/color": "enabled",
-      "internal/use-case/focus": "enabled",
-      "internal/components/o3-typography": "source"
+      "internal/use-case/typography": "enabled",
+      "internal/use-case/focus": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6510:3502",
     "$figmaModeId": "6510:2",
@@ -519,8 +518,8 @@
       "whitelabel/base/typography": "enabled",
       "whitelabel/use-case/color": "enabled",
       "whitelabel/components/o3-tooltip": "source",
+      "whitelabel/use-case/typography": "enabled",
       "whitelabel/use-case/focus": "enabled",
-      "whitelabel/components/o3-typography": "source",
       "whitelabel/components/o3-editorial-typography": "source",
       "whitelabel/components/o3-form": "source"
     },
@@ -647,8 +646,8 @@
       "sustainable-views/base/color": "enabled",
       "sustainable-views/use-case/color": "enabled",
       "sustainable-views/components/o3-editorial-typography": "source",
-      "sustainable-views/use-case/focus": "enabled",
-      "sustainable-views/components/o3-typography": "enabled"
+      "sustainable-views/use-case/typography": "enabled",
+      "sustainable-views/use-case/focus": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6169:227",
     "$figmaModeId": "6169:4",

@@ -10,3 +10,7 @@
 /build/
 css
 !src/css
+
+/css/
+/cjs/
+/esm/

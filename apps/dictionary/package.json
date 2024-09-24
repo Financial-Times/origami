@@ -7,11 +7,12 @@
 	"license": "ISC",
 	"private": true,
 	"scripts": {
-		"test": "NODE_ENV=test vitest"
+		"test": "NODE_ENV=test vitest",
+		"regenerate-snapshot": "vitest -u"
 	},
 	"devDependencies": {
-		"@tokens-studio/sd-transforms": "^0.11.0",
-		"style-dictionary": "^3.7.2",
+		"@tokens-studio/sd-transforms": "^1.2.3",
+		"style-dictionary": "^4.1.0",
 		"vitest": "^1.4.0"
 	}
 }

@@ -1,0 +1,30 @@
+---
+import * as OrdredComponent from './preview/List-Ordered.tsx';
+import * as UnordredComponent from './preview/List-Unordered.tsx';
+import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
+import Preview from '../utils/Preview.astro';
+
+const {brand} = Astro.props;
+const storybookOrderedListId = `${brand}-o3-foundation-o3-typography-orderedlist`;
+const storybookUorderedListId = `${brand}-o3-foundation-o3-typography-unorderedlist`;
+---
+
+<p>
+	Ordered list contains items in a sequential order or priority. List items
+	follow an alphanumeric sequence.
+</p>
+
+<Preview component={OrdredComponent} />
+
+<FigmaSbLinks {storybookOrderedListId} />
+
+<h4>Unordered List</h4>
+
+<p>
+	Unordered lists make blocks of related text easier to read. Use for
+	non-sequential lists.
+</p>
+
+<Preview component={UnordredComponent} />
+
+<FigmaSbLinks {storybookUorderedListId} />

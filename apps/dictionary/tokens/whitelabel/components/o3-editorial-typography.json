@@ -65,8 +65,8 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.4}",
-          "lineHeight": "{o3.font.lineheight.4}"
+          "fontSize": "{o3.font.size-metric2.3}",
+          "lineHeight": "{o3.font.lineheight.3}"
         },
         "type": "typography",
         "description": "Previous name - H2"
@@ -75,8 +75,8 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.4}",
-          "lineHeight": "{o3.font.lineheight.4}"
+          "fontSize": "{o3.font.size-metric2.3}",
+          "lineHeight": "{o3.font.lineheight.3}"
         },
         "type": "typography",
         "description": "Previous name - H3"
@@ -85,13 +85,13 @@
         "value": {
           "fontFamily": "{o3.font.family.metric}",
           "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight.0}"
+          "fontSize": "{o3.font.size-metric2.negative-1}",
+          "lineHeight": "{o3.font.lineheight.negative-1}"
         },
         "type": "typography",
         "description": "Previous name - H5"
       },
-      "body-l": {
+      "article-body-l": {
         "value": {
           "fontFamily": "{o3.font.family.georgia}",
           "fontWeight": "{o3.font.weight.regular}",
@@ -100,7 +100,7 @@
         },
         "type": "typography"
       },
-      "body-s": {
+      "article-body-s": {
         "value": {
           "fontFamily": "{o3.font.family.georgia}",
           "fontWeight": "{o3.font.weight.regular}",
@@ -109,16 +109,43 @@
         },
         "type": "typography"
       },
-      "topic-tag": {
-        "@": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight.0}"
-          },
-          "type": "typography"
+      "dropcap-l": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.light}",
+          "fontSize": "108px",
+          "lineHeight": "108px"
         },
+        "type": "typography"
+      },
+      "big-number-title": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.semibold}",
+          "fontSize": "{o3.font.size-metric2.7}",
+          "lineHeight": "{o3.font.lineheight-metric2.7}"
+        },
+        "type": "typography"
+      },
+      "pullquote-content": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.semibold}",
+          "fontSize": "{o3.font.size-metric2.2}",
+          "lineHeight": "{o3.font.lineheight-metric2.2}"
+        },
+        "type": "typography"
+      },
+      "dropcap-s": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.light}",
+          "fontSize": "94px",
+          "lineHeight": "94px"
+        },
+        "type": "typography"
+      },
+      "topic-tag": {
         "color": {
           "value": "{o3.color.palette.black-80}",
           "type": "color"
@@ -138,22 +165,13 @@
           }
         }
       },
-      "standfirst": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.2}",
-          "lineHeight": "{o3.font.lineheight.2}"
-        },
-        "type": "typography"
-      },
       "caption": {
         "@": {
           "value": {
             "fontFamily": "{o3.font.family.metric}",
             "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.negative-1}",
-            "lineHeight": "{o3.font.lineheight.negative-1}"
+            "fontSize": "{o3.font.size.negative-2}",
+            "lineHeight": "{o3.font.lineheight.negative-2}"
           },
           "type": "typography"
         },
@@ -167,15 +185,6 @@
         }
       },
       "byline-author": {
-        "@": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography"
-        },
         "color": {
           "value": "{o3.color.palette.black-80}",
           "type": "color"
@@ -195,25 +204,7 @@
           }
         }
       },
-      "byline-location": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
-        },
-        "type": "typography"
-      },
       "byline-timestamp": {
-        "@": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography"
-        },
         "color": {
           "value": "{o3.color.palette.black-60}",
           "type": "color"
@@ -222,105 +213,6 @@
           "value": "{o3.color.use-case.muted-inverse.text}",
           "type": "color"
         }
-      },
-      "pullquote-content": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.3}",
-          "lineHeight": "{o3.font.lineheight-metric2.3}"
-        },
-        "type": "typography"
-      },
-      "blockquote-author": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.0}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}"
-        },
-        "type": "typography"
-      },
-      "pullquote-author": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size.negative-2}",
-          "lineHeight": "{o3.font.lineheight.negative-2}"
-        },
-        "type": "typography"
-      },
-      "blockquote-source": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "lineHeight": "{o3.font.lineheight-metric2.1}",
-          "fontSize": "{o3.font.size-metric2.1}"
-        },
-        "type": "typography"
-      },
-      "pullquote-source": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "lineHeight": "{o3.font.lineheight-metric2.0}",
-          "fontSize": "{o3.font.size-metric2.0}"
-        },
-        "type": "typography"
-      },
-      "big-number-title": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.8}",
-          "lineHeight": "{o3.font.lineheight-metric2.8}"
-        },
-        "type": "typography"
-      },
-      "big-number-content": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.2}",
-          "lineHeight": "{o3.font.lineheight-metric2.2}"
-        },
-        "type": "typography"
-      },
-      "summary-m": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.1}",
-          "lineHeight": "{o3.font.lineheight-metric2.3}"
-        },
-        "type": "typography"
-      },
-      "summary-l": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.regular}",
-          "fontSize": "{o3.font.size-metric2.2}",
-          "lineHeight": "{o3.font.lineheight-metric2.4}"
-        },
-        "type": "typography"
-      },
-      "dropcap-l": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.light}",
-          "fontSize": "106px",
-          "lineHeight": "89px"
-        },
-        "type": "typography"
-      },
-      "dropcap-m": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.light}",
-          "fontSize": "94px",
-          "lineHeight": "77px"
-        },
-        "type": "typography"
       }
     }
   }

@@ -1,0 +1,57 @@
+.o3-typography-link,
+.o3-typography-wrapper > a,
+.o3-typography-wrapper > p > a {
+	font-family: var(--o3-typography-use-case-link-font-family);
+	font-size: var(--o3-typography-use-case-link-font-size);
+	font-weight: var(--o3-typography-use-case-link-font-weight);
+	line-height: var(--o3-typography-use-case-link-line-height);
+
+	color: var(--o3-color-use-case-link-text);
+	border-bottom-color: var(--o3-color-use-case-link-underline);
+	text-decoration-color: var(--o3-color-use-case-link-underline);
+	text-decoration-thickness: 2px;
+
+	&:focus-visible {
+		color: var(--o3-color-use-case-link-text-focus);
+		border-bottom-color: var(--o3-color-use-case-link-underline-focus);
+		text-decoration-color: var(--o3-color-use-case-link-underline-focus);
+	}
+
+	&:hover {
+		color: var(--o3-color-use-case-link-text-hover);
+		border-bottom-color: var(--o3-color-use-case-link-underline-hover);
+		text-decoration-color: var(--o3-color-use-case-link-underline-hover);
+	}
+
+	&:focus-visible {
+		text-decoration: none;
+	}
+
+	[data-o3-theme='inverse']&,
+	:where([data-o3-theme='inverse']) & {
+		color: var(--o3-color-use-case-link-inverse-text);
+		border-bottom-color: var(--o3-color-use-case-link-inverse-underline);
+		text-decoration-color: var(--o3-color-use-case-link-inverse-underline);
+		text-decoration-thickness: 2px;
+
+		&:focus-visible {
+			color: var(--o3-color-use-case-link-inverse-text-focus);
+			border-bottom-color: var(
+				--o3-color-use-case-link-inverse-underline-focus
+			);
+			text-decoration-color: var(
+				--o3-color-use-case-link-inverse-underline-focus
+			);
+		}
+
+		&:hover {
+			color: var(--o3-color-use-case-link-inverse-text-hover);
+			border-bottom-color: var(
+				--o3-color-use-case-link-inverse-underline-hover
+			);
+			text-decoration-color: var(
+				--o3-color-use-case-link-inverse-underline-hover
+			);
+		}
+	}
+}

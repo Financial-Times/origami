@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.2](https://github.com/Financial-Times/origami/compare/o3-form-v0.3.1...o3-form-v0.3.2) (2024-09-19)
+
+
+### Bug Fixes
+
+* update metric2 scales ([60d6f00](https://github.com/Financial-Times/origami/commit/60d6f003617849c56ddc6d3167d8bc8d98405724))
+
+
 ## [0.3.1](https://github.com/Financial-Times/origami/compare/o3-form-v0.3.0...o3-form-v0.3.1) (2024-08-27)
 
 

@@ -11,14 +11,12 @@ const storybookId = `${brand}-o3-editorial-typography--quote`;
 {
 	(brand === 'core' || brand === 'professional') && (
 		<>
+			<p>We have two variants:</p>
 			<h4>Block quote</h4>
 			<p>
-				For direct quotations of an author's words from other sources. It's
-				placed within the main flow of article body content. The body text of the quote is responsive.
+				For direct quotations of an author's words from other sources. It’s usually indented from the main body of text.
 			</p>
-
 			<Preview component={BlockComponent} />
-
 			<FigmaSbLinks {storybookId} />
 		</>
 	)

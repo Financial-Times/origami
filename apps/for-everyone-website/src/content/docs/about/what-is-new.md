@@ -33,6 +33,14 @@ So, what's new with o3?
 
 How do o3 features help achieve these exactly? Let's look in more detail.
 
+## Metric 2 (Variable Font, VF)
+
+Modern Origami introduces the Metric2 font family as a variable font (a incremental font weights). We use a single typographic scale for all fonts.
+
+Metric2 replaces legacy Metric font files. Metric2 renders larger than Metric for the same font size, therefore you may need to use a smaller scale to align with legacy Metric typography.
+
+![A comparison of fonts Metric and Metric 2. Font size on Metric 2 is 8 pixels less than its former. And its line height stays the same](/assets/images/components/typography/metric-metric2-diff.svg)
+
 ## Design guidelines
 
 We've always heard pretty good feedback about our technical documentation. For the most part engineering teams know how to use Origami. They don't always know where or why, and designers are left guessing too. This leads to user interface being reused in ways never intended. Forced into place for unsuitable purposes which can lead to a confusing, inconsistent, or inaccessible product experience.

@@ -4,7 +4,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 "export default {
 	"o3-color-palette-ft-pink": {
 		"shortName": "ft-pink",
-		"value": "#FCD0B1",
+		"value": "#fcd0b1",
 		"originalValue": "#FCD0B1",
 		"type": "color",
 		"description": "FT Pink is used for the FT logo",
@@ -23,7 +23,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-ft-grey": {
 		"shortName": "ft-grey",
-		"value": "#333333ff",
+		"value": "#333333",
 		"originalValue": "#333333ff",
 		"type": "color",
 		"description": "",
@@ -42,7 +42,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white": {
 		"shortName": "white",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "#ffffffff",
 		"type": "color",
 		"description": "",
@@ -61,7 +61,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black": {
 		"shortName": "black",
-		"value": "#000000ff",
+		"value": "#000000",
 		"originalValue": "#000000ff",
 		"type": "color",
 		"description": "",
@@ -80,7 +80,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret": {
 		"shortName": "claret",
-		"value": "#990f3dff",
+		"value": "#990f3d",
 		"originalValue": "#990f3dff",
 		"type": "color",
 		"description": "Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.\\n\\nUsage example: MyFT branding; MyFT CTAs",
@@ -99,7 +99,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal": {
 		"shortName": "teal",
-		"value": "#0d7680ff",
+		"value": "#0d7680",
 		"originalValue": "#0d7680ff",
 		"type": "color",
 		"description": "Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases.",
@@ -118,7 +118,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford": {
 		"shortName": "oxford",
-		"value": "#0f5499ff",
+		"value": "#0f5499",
 		"originalValue": "#0f5499ff",
 		"type": "color",
 		"description": "Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.\\n\\nUsage example: opinion branding; opinion topic tags.",
@@ -137,7 +137,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-slate": {
 		"shortName": "slate",
-		"value": "#262a33ff",
+		"value": "#262a33",
 		"originalValue": "#262a33ff",
 		"type": "color",
 		"description": "Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons.",
@@ -156,7 +156,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-paper": {
 		"shortName": "paper",
-		"value": "#fff1e5ff",
+		"value": "#fff1e5",
 		"originalValue": "#fff1e5ff",
 		"type": "color",
 		"description": "Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white.",
@@ -175,7 +175,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-transparrent": {
 		"shortName": "transparrent",
-		"value": "#ffffff00",
+		"value": "#ffffff",
 		"originalValue": "#ffffff00",
 		"type": "color",
 		"path": [
@@ -189,7 +189,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-mandarin": {
 		"shortName": "mandarin",
-		"value": "#ff8833ff",
+		"value": "#ff8833",
 		"originalValue": "#ff8833ff",
 		"type": "color",
 		"description": "",
@@ -208,7 +208,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-light-blue": {
 		"shortName": "light-blue",
-		"value": "#00a0ddff",
+		"value": "#00a0dd",
 		"originalValue": "#00a0ddff",
 		"type": "color",
 		"description": "",
@@ -227,7 +227,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-crimson": {
 		"shortName": "crimson",
-		"value": "#cc0000ff",
+		"value": "#cc0000",
 		"originalValue": "#cc0000ff",
 		"type": "color",
 		"description": "",
@@ -246,7 +246,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-graphics-dark-blue": {
 		"shortName": "graphics-dark-blue",
-		"value": "#006f9bff",
+		"value": "#006f9b",
 		"originalValue": "#006f9bff",
 		"type": "color",
 		"description": "",
@@ -265,7 +265,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-wheat": {
 		"shortName": "wheat",
-		"value": "#f2dfceff",
+		"value": "#f2dfce",
 		"originalValue": "#f2dfceff",
 		"type": "color",
 		"description": "",
@@ -284,7 +284,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-candy": {
 		"shortName": "candy",
-		"value": "#ff7faaff",
+		"value": "#ff7faa",
 		"originalValue": "#ff7faaff",
 		"type": "color",
 		"description": "",
@@ -303,7 +303,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-wasabi": {
 		"shortName": "wasabi",
-		"value": "#96cc28ff",
+		"value": "#96cc28",
 		"originalValue": "#96cc28ff",
 		"type": "color",
 		"description": "",
@@ -322,7 +322,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-jade": {
 		"shortName": "jade",
-		"value": "#00994dff",
+		"value": "#00994d",
 		"originalValue": "#00994dff",
 		"type": "color",
 		"description": "",
@@ -341,7 +341,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-velvet": {
 		"shortName": "velvet",
-		"value": "#593380ff",
+		"value": "#593380",
 		"originalValue": "#593380ff",
 		"type": "color",
 		"description": "",
@@ -360,7 +360,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-lemon": {
 		"shortName": "lemon",
-		"value": "#ffec1aff",
+		"value": "#ffec1a",
 		"originalValue": "#ffec1aff",
 		"type": "color",
 		"description": "",
@@ -379,7 +379,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-sky": {
 		"shortName": "sky",
-		"value": "#cce6ffff",
+		"value": "#cce6ff",
 		"originalValue": "#cce6ffff",
 		"type": "color",
 		"description": "",
@@ -398,7 +398,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-matisse-blue": {
 		"shortName": "matisse-blue",
-		"value": "#355778ff",
+		"value": "#355778",
 		"originalValue": "#355778ff",
 		"type": "color",
 		"description": "",
@@ -417,7 +417,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-5": {
 		"shortName": "black-5",
-		"value": "#f2e5daff",
+		"value": "#f2e5da",
 		"originalValue": "#f2e5daff",
 		"type": "color",
 		"description": "",
@@ -436,7 +436,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-10": {
 		"shortName": "black-10",
-		"value": "#e6d9ceff",
+		"value": "#e6d9ce",
 		"originalValue": "#e6d9ceff",
 		"type": "color",
 		"description": "",
@@ -455,7 +455,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-20": {
 		"shortName": "black-20",
-		"value": "#ccc1b7ff",
+		"value": "#ccc1b7",
 		"originalValue": "#ccc1b7ff",
 		"type": "color",
 		"description": "",
@@ -474,7 +474,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-30": {
 		"shortName": "black-30",
-		"value": "#b3a9a0ff",
+		"value": "#b3a9a0",
 		"originalValue": "#b3a9a0ff",
 		"type": "color",
 		"description": "",
@@ -493,7 +493,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-40": {
 		"shortName": "black-40",
-		"value": "#999189ff",
+		"value": "#999189",
 		"originalValue": "#999189ff",
 		"type": "color",
 		"description": "",
@@ -512,7 +512,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-50": {
 		"shortName": "black-50",
-		"value": "#807973ff",
+		"value": "#807973",
 		"originalValue": "#807973ff",
 		"type": "color",
 		"description": "",
@@ -531,7 +531,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-60": {
 		"shortName": "black-60",
-		"value": "#66605cff",
+		"value": "#66605c",
 		"originalValue": "#66605cff",
 		"type": "color",
 		"description": "",
@@ -550,7 +550,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-70": {
 		"shortName": "black-70",
-		"value": "#4d4845ff",
+		"value": "#4d4845",
 		"originalValue": "#4d4845ff",
 		"type": "color",
 		"description": "",
@@ -569,7 +569,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-80": {
 		"shortName": "black-80",
-		"value": "#33302eff",
+		"value": "#33302e",
 		"originalValue": "#33302eff",
 		"type": "color",
 		"description": "",
@@ -588,7 +588,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-90": {
 		"shortName": "black-90",
-		"value": "#1a1817ff",
+		"value": "#1a1817",
 		"originalValue": "#1a1817ff",
 		"type": "color",
 		"description": "",
@@ -607,7 +607,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white-10": {
 		"shortName": "white-10",
-		"value": "#fff2e8ff",
+		"value": "#fff2e8",
 		"originalValue": "#fff2e8ff",
 		"type": "color",
 		"description": "",
@@ -626,7 +626,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white-20": {
 		"shortName": "white-20",
-		"value": "#fff4eaff",
+		"value": "#fff4ea",
 		"originalValue": "#fff4eaff",
 		"type": "color",
 		"description": "",
@@ -645,7 +645,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white-40": {
 		"shortName": "white-40",
-		"value": "#fff7efff",
+		"value": "#fff7ef",
 		"originalValue": "#fff7efff",
 		"type": "color",
 		"description": "",
@@ -664,7 +664,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white-60": {
 		"shortName": "white-60",
-		"value": "#fff9f5ff",
+		"value": "#fff9f5",
 		"originalValue": "#fff9f5ff",
 		"type": "color",
 		"description": "",
@@ -683,7 +683,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white-80": {
 		"shortName": "white-80",
-		"value": "#fffcfaff",
+		"value": "#fffcfa",
 		"originalValue": "#fffcfaff",
 		"type": "color",
 		"description": "",
@@ -702,7 +702,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-30": {
 		"shortName": "oxford-30",
-		"value": "#082a4dff",
+		"value": "#082a4d",
 		"originalValue": "#082a4dff",
 		"type": "color",
 		"description": "",
@@ -721,7 +721,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-40": {
 		"shortName": "oxford-40",
-		"value": "#0a3866ff",
+		"value": "#0a3866",
 		"originalValue": "#0a3866ff",
 		"type": "color",
 		"description": "",
@@ -740,7 +740,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-50": {
 		"shortName": "oxford-50",
-		"value": "#0d4680ff",
+		"value": "#0d4680",
 		"originalValue": "#0d4680ff",
 		"type": "color",
 		"description": "",
@@ -759,7 +759,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-60": {
 		"shortName": "oxford-60",
-		"value": "#0f5499ff",
+		"value": "#0f5499",
 		"originalValue": "#0f5499ff",
 		"type": "color",
 		"description": "",
@@ -778,7 +778,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-70": {
 		"shortName": "oxford-70",
-		"value": "#1262b3ff",
+		"value": "#1262b3",
 		"originalValue": "#1262b3ff",
 		"type": "color",
 		"description": "",
@@ -797,7 +797,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-80": {
 		"shortName": "oxford-80",
-		"value": "#1470ccff",
+		"value": "#1470cc",
 		"originalValue": "#1470ccff",
 		"type": "color",
 		"description": "",
@@ -816,7 +816,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-90": {
 		"shortName": "oxford-90",
-		"value": "#177ee6ff",
+		"value": "#177ee6",
 		"originalValue": "#177ee6ff",
 		"type": "color",
 		"description": "",
@@ -835,7 +835,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-100": {
 		"shortName": "oxford-100",
-		"value": "#1a8cffff",
+		"value": "#1a8cff",
 		"originalValue": "#1a8cffff",
 		"type": "color",
 		"description": "",
@@ -854,7 +854,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-20": {
 		"shortName": "teal-20",
-		"value": "#052f33ff",
+		"value": "#052f33",
 		"originalValue": "#052f33ff",
 		"type": "color",
 		"description": "",
@@ -873,7 +873,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-30": {
 		"shortName": "teal-30",
-		"value": "#08474dff",
+		"value": "#08474d",
 		"originalValue": "#08474dff",
 		"type": "color",
 		"description": "",
@@ -892,7 +892,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-40": {
 		"shortName": "teal-40",
-		"value": "#0a5e66ff",
+		"value": "#0a5e66",
 		"originalValue": "#0a5e66ff",
 		"type": "color",
 		"description": "",
@@ -911,7 +911,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-50": {
 		"shortName": "teal-50",
-		"value": "#0d7680ff",
+		"value": "#0d7680",
 		"originalValue": "#0d7680ff",
 		"type": "color",
 		"description": "",
@@ -930,7 +930,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-60": {
 		"shortName": "teal-60",
-		"value": "#0f8e99ff",
+		"value": "#0f8e99",
 		"originalValue": "#0f8e99ff",
 		"type": "color",
 		"description": "",
@@ -949,7 +949,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-70": {
 		"shortName": "teal-70",
-		"value": "#12a5b3ff",
+		"value": "#12a5b3",
 		"originalValue": "#12a5b3ff",
 		"type": "color",
 		"description": "",
@@ -968,7 +968,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-80": {
 		"shortName": "teal-80",
-		"value": "#14bdccff",
+		"value": "#14bdcc",
 		"originalValue": "#14bdccff",
 		"type": "color",
 		"description": "",
@@ -987,7 +987,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-90": {
 		"shortName": "teal-90",
-		"value": "#17d4e6ff",
+		"value": "#17d4e6",
 		"originalValue": "#17d4e6ff",
 		"type": "color",
 		"description": "",
@@ -1006,7 +1006,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-100": {
 		"shortName": "teal-100",
-		"value": "#1aecffff",
+		"value": "#1aecff",
 		"originalValue": "#1aecffff",
 		"type": "color",
 		"description": "",
@@ -1025,7 +1025,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-30": {
 		"shortName": "claret-30",
-		"value": "#4d081fff",
+		"value": "#4d081f",
 		"originalValue": "#4d081fff",
 		"type": "color",
 		"description": "",
@@ -1044,7 +1044,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-40": {
 		"shortName": "claret-40",
-		"value": "#660a29ff",
+		"value": "#660a29",
 		"originalValue": "#660a29ff",
 		"type": "color",
 		"description": "",
@@ -1063,7 +1063,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-50": {
 		"shortName": "claret-50",
-		"value": "#800d33ff",
+		"value": "#800d33",
 		"originalValue": "#800d33ff",
 		"type": "color",
 		"description": "",
@@ -1082,7 +1082,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-60": {
 		"shortName": "claret-60",
-		"value": "#990f3dff",
+		"value": "#990f3d",
 		"originalValue": "#990f3dff",
 		"type": "color",
 		"description": "",
@@ -1101,7 +1101,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-70": {
 		"shortName": "claret-70",
-		"value": "#b31247ff",
+		"value": "#b31247",
 		"originalValue": "#b31247ff",
 		"type": "color",
 		"description": "",
@@ -1120,7 +1120,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-80": {
 		"shortName": "claret-80",
-		"value": "#cc1452ff",
+		"value": "#cc1452",
 		"originalValue": "#cc1452ff",
 		"type": "color",
 		"description": "",
@@ -1139,7 +1139,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-90": {
 		"shortName": "claret-90",
-		"value": "#e6175cff",
+		"value": "#e6175c",
 		"originalValue": "#e6175cff",
 		"type": "color",
 		"description": "",
@@ -1158,7 +1158,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-100": {
 		"shortName": "claret-100",
-		"value": "#ff1a66ff",
+		"value": "#ff1a66",
 		"originalValue": "#ff1a66ff",
 		"type": "color",
 		"description": "",
@@ -1177,7 +1177,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-wheat-100": {
 		"shortName": "wheat-100",
-		"value": "#FFEBD9",
+		"value": "#ffebd9",
 		"originalValue": "#FFEBD9",
 		"type": "color",
 		"path": [
@@ -1195,7 +1195,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
-		"value": "0.25rem",
+		"value": "4px",
 		"originalValue": "4px",
 		"type": "spacing",
 		"path": [
@@ -1208,7 +1208,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-4xs": {
 		"shortName": "4xs",
-		"value": "0.5rem",
+		"value": "8px",
 		"originalValue": "8px",
 		"type": "spacing",
 		"path": [
@@ -1221,7 +1221,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-3xs": {
 		"shortName": "3xs",
-		"value": "0.75rem",
+		"value": "12px",
 		"originalValue": "12px",
 		"type": "spacing",
 		"path": [
@@ -1234,7 +1234,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-2xs": {
 		"shortName": "2xs",
-		"value": "1rem",
+		"value": "16px",
 		"originalValue": "16px",
 		"type": "spacing",
 		"path": [
@@ -1247,7 +1247,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-xs": {
 		"shortName": "xs",
-		"value": "1.25rem",
+		"value": "20px",
 		"originalValue": "20px",
 		"type": "spacing",
 		"path": [
@@ -1260,7 +1260,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-s": {
 		"shortName": "s",
-		"value": "1.5rem",
+		"value": "24px",
 		"originalValue": "24px",
 		"type": "spacing",
 		"path": [
@@ -1273,7 +1273,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-m": {
 		"shortName": "m",
-		"value": "2rem",
+		"value": "32px",
 		"originalValue": "32px",
 		"type": "spacing",
 		"path": [
@@ -1286,7 +1286,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-l": {
 		"shortName": "l",
-		"value": "2.5rem",
+		"value": "40px",
 		"originalValue": "40px",
 		"type": "spacing",
 		"path": [
@@ -1299,7 +1299,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-xl": {
 		"shortName": "xl",
-		"value": "3rem",
+		"value": "48px",
 		"originalValue": "48px",
 		"type": "spacing",
 		"path": [
@@ -1312,7 +1312,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-2xl": {
 		"shortName": "2xl",
-		"value": "4rem",
+		"value": "64px",
 		"originalValue": "64px",
 		"type": "spacing",
 		"path": [
@@ -1325,7 +1325,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-3xl": {
 		"shortName": "3xl",
-		"value": "5rem",
+		"value": "80px",
 		"originalValue": "80px",
 		"type": "spacing",
 		"path": [
@@ -1338,7 +1338,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-4xl": {
 		"shortName": "4xl",
-		"value": "6rem",
+		"value": "96px",
 		"originalValue": "96px",
 		"type": "spacing",
 		"path": [
@@ -1351,7 +1351,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-family-metric": {
 		"shortName": "metric",
-		"value": "'metric 2 VF'",
+		"value": "metric 2 VF",
 		"originalValue": "metric 2 VF",
 		"type": "fontFamilies",
 		"path": [
@@ -1365,7 +1365,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-family-financier-display": {
 		"shortName": "financier-display",
-		"value": "'financier display VF'",
+		"value": "financier display VF",
 		"originalValue": "financier display VF",
 		"type": "fontFamilies",
 		"path": [
@@ -1463,7 +1463,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-0": {
 		"shortName": "0",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "lineHeights",
 		"path": [
@@ -1477,7 +1477,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-1": {
 		"shortName": "1",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "lineHeights",
 		"path": [
@@ -1491,7 +1491,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-2": {
 		"shortName": "2",
-		"value": "1.5rem",
+		"value": "24",
 		"originalValue": "24",
 		"type": "lineHeights",
 		"path": [
@@ -1505,7 +1505,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-3": {
 		"shortName": "3",
-		"value": "1.75rem",
+		"value": "28",
 		"originalValue": "28",
 		"type": "lineHeights",
 		"path": [
@@ -1519,7 +1519,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-4": {
 		"shortName": "4",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"path": [
@@ -1533,7 +1533,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-5": {
 		"shortName": "5",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"path": [
@@ -1547,7 +1547,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-6": {
 		"shortName": "6",
-		"value": "2.5rem",
+		"value": "40",
 		"originalValue": "40",
 		"type": "lineHeights",
 		"path": [
@@ -1561,7 +1561,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-7": {
 		"shortName": "7",
-		"value": "3rem",
+		"value": "48",
 		"originalValue": "48",
 		"type": "lineHeights",
 		"path": [
@@ -1575,7 +1575,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-8": {
 		"shortName": "8",
-		"value": "3.5rem",
+		"value": "56",
 		"originalValue": "56",
 		"type": "lineHeights",
 		"path": [
@@ -1589,7 +1589,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-9": {
 		"shortName": "9",
-		"value": "4.5rem",
+		"value": "72",
 		"originalValue": "72",
 		"type": "lineHeights",
 		"path": [
@@ -1603,7 +1603,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-10": {
 		"shortName": "10",
-		"value": "5.25rem",
+		"value": "84",
 		"originalValue": "84",
 		"type": "lineHeights",
 		"path": [
@@ -1617,7 +1617,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-negative-2": {
 		"shortName": "negative-2",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "lineHeights",
 		"path": [
@@ -1631,7 +1631,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-negative-1": {
 		"shortName": "negative-1",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "lineHeights",
 		"path": [
@@ -1645,7 +1645,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-0": {
 		"shortName": "0",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "fontSizes",
 		"path": [
@@ -1659,7 +1659,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-1": {
 		"shortName": "1",
-		"value": "1.125rem",
+		"value": "18",
 		"originalValue": "18",
 		"type": "fontSizes",
 		"path": [
@@ -1673,7 +1673,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-2": {
 		"shortName": "2",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "fontSizes",
 		"path": [
@@ -1687,7 +1687,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-3": {
 		"shortName": "3",
-		"value": "1.5rem",
+		"value": "24",
 		"originalValue": "24",
 		"type": "fontSizes",
 		"path": [
@@ -1701,7 +1701,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-4": {
 		"shortName": "4",
-		"value": "1.75rem",
+		"value": "28",
 		"originalValue": "28",
 		"type": "fontSizes",
 		"path": [
@@ -1715,7 +1715,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-5": {
 		"shortName": "5",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "fontSizes",
 		"path": [
@@ -1729,7 +1729,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-6": {
 		"shortName": "6",
-		"value": "2.5rem",
+		"value": "40",
 		"originalValue": "40",
 		"type": "fontSizes",
 		"path": [
@@ -1743,7 +1743,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-7": {
 		"shortName": "7",
-		"value": "3rem",
+		"value": "48",
 		"originalValue": "48",
 		"type": "fontSizes",
 		"path": [
@@ -1757,7 +1757,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-8": {
 		"shortName": "8",
-		"value": "3.5rem",
+		"value": "56",
 		"originalValue": "56",
 		"type": "fontSizes",
 		"path": [
@@ -1771,7 +1771,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-9": {
 		"shortName": "9",
-		"value": "4.5rem",
+		"value": "72",
 		"originalValue": "72",
 		"type": "fontSizes",
 		"path": [
@@ -1785,7 +1785,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-10": {
 		"shortName": "10",
-		"value": "5.25rem",
+		"value": "84",
 		"originalValue": "84",
 		"type": "fontSizes",
 		"path": [
@@ -1799,7 +1799,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-negative-2": {
 		"shortName": "negative-2",
-		"value": "0.75rem",
+		"value": "12",
 		"originalValue": "12",
 		"type": "fontSizes",
 		"path": [
@@ -1813,7 +1813,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-negative-1": {
 		"shortName": "negative-1",
-		"value": "0.875rem",
+		"value": "14",
 		"originalValue": "14",
 		"type": "fontSizes",
 		"path": [
@@ -1827,7 +1827,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-0": {
 		"shortName": "0",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "lineHeights",
 		"path": [
@@ -1841,7 +1841,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-1": {
 		"shortName": "1",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "lineHeights",
 		"path": [
@@ -1855,7 +1855,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-2": {
 		"shortName": "2",
-		"value": "1.5rem",
+		"value": "24",
 		"originalValue": "24",
 		"type": "lineHeights",
 		"path": [
@@ -1869,7 +1869,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-3": {
 		"shortName": "3",
-		"value": "1.75rem",
+		"value": "28",
 		"originalValue": "28",
 		"type": "lineHeights",
 		"path": [
@@ -1883,7 +1883,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-4": {
 		"shortName": "4",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"path": [
@@ -1897,7 +1897,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-5": {
 		"shortName": "5",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"path": [
@@ -1911,7 +1911,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-6": {
 		"shortName": "6",
-		"value": "2.5rem",
+		"value": "40",
 		"originalValue": "40",
 		"type": "lineHeights",
 		"path": [
@@ -1925,7 +1925,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-7": {
 		"shortName": "7",
-		"value": "3rem",
+		"value": "48",
 		"originalValue": "48",
 		"type": "lineHeights",
 		"path": [
@@ -1939,7 +1939,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-8": {
 		"shortName": "8",
-		"value": "3.5rem",
+		"value": "56",
 		"originalValue": "56",
 		"type": "lineHeights",
 		"path": [
@@ -1953,7 +1953,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-9": {
 		"shortName": "9",
-		"value": "4.5rem",
+		"value": "72",
 		"originalValue": "72",
 		"type": "lineHeights",
 		"path": [
@@ -1967,7 +1967,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-10": {
 		"shortName": "10",
-		"value": "5.25rem",
+		"value": "84",
 		"originalValue": "84",
 		"type": "lineHeights",
 		"path": [
@@ -1981,7 +1981,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-negative-2": {
 		"shortName": "negative-2",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "lineHeights",
 		"path": [
@@ -1995,7 +1995,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-negative-1": {
 		"shortName": "negative-1",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "lineHeights",
 		"path": [
@@ -2009,7 +2009,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-0": {
 		"shortName": "0",
-		"value": "0.875rem",
+		"value": "14",
 		"originalValue": "14",
 		"type": "fontSizes",
 		"path": [
@@ -2023,7 +2023,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-1": {
 		"shortName": "1",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "fontSizes",
 		"path": [
@@ -2037,7 +2037,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-2": {
 		"shortName": "2",
-		"value": "1.125rem",
+		"value": "18",
 		"originalValue": "18",
 		"type": "fontSizes",
 		"path": [
@@ -2051,7 +2051,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-3": {
 		"shortName": "3",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "fontSizes",
 		"path": [
@@ -2065,7 +2065,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-4": {
 		"shortName": "4",
-		"value": "1.5rem",
+		"value": "24",
 		"originalValue": "24",
 		"type": "fontSizes",
 		"path": [
@@ -2079,7 +2079,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-5": {
 		"shortName": "5",
-		"value": "1.75rem",
+		"value": "28",
 		"originalValue": "28",
 		"type": "fontSizes",
 		"path": [
@@ -2093,7 +2093,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-6": {
 		"shortName": "6",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "fontSizes",
 		"path": [
@@ -2107,7 +2107,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-7": {
 		"shortName": "7",
-		"value": "2.5rem",
+		"value": "40",
 		"originalValue": "40",
 		"type": "fontSizes",
 		"path": [
@@ -2121,7 +2121,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-8": {
 		"shortName": "8",
-		"value": "3rem",
+		"value": "48",
 		"originalValue": "48",
 		"type": "fontSizes",
 		"path": [
@@ -2135,7 +2135,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-9": {
 		"shortName": "9",
-		"value": "4rem",
+		"value": "64",
 		"originalValue": "64",
 		"type": "fontSizes",
 		"path": [
@@ -2149,7 +2149,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-10": {
 		"shortName": "10",
-		"value": "4.5rem",
+		"value": "72",
 		"originalValue": "72",
 		"type": "fontSizes",
 		"path": [
@@ -2163,7 +2163,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-negative-2": {
 		"shortName": "negative-2",
-		"value": "0.625rem",
+		"value": "10",
 		"originalValue": "10",
 		"type": "fontSizes",
 		"path": [
@@ -2177,7 +2177,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-negative-1": {
 		"shortName": "negative-1",
-		"value": "0.75rem",
+		"value": "12",
 		"originalValue": "12",
 		"type": "fontSizes",
 		"path": [
@@ -2197,7 +2197,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 "export default {
 	"o3-color-palette-ft-pink": {
 		"shortName": "ft-pink",
-		"value": "#FCD0B1",
+		"value": "#fcd0b1",
 		"originalValue": "#FCD0B1",
 		"type": "color",
 		"description": "FT Pink is used for the FT logo",
@@ -2216,7 +2216,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-ft-grey": {
 		"shortName": "ft-grey",
-		"value": "#333333ff",
+		"value": "#333333",
 		"originalValue": "#333333ff",
 		"type": "color",
 		"description": "",
@@ -2235,7 +2235,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white": {
 		"shortName": "white",
-		"value": "#ffffffff",
+		"value": "#ffffff",
 		"originalValue": "#ffffffff",
 		"type": "color",
 		"description": "",
@@ -2254,7 +2254,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black": {
 		"shortName": "black",
-		"value": "#000000ff",
+		"value": "#000000",
 		"originalValue": "#000000ff",
 		"type": "color",
 		"description": "",
@@ -2273,7 +2273,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret": {
 		"shortName": "claret",
-		"value": "#990f3dff",
+		"value": "#990f3d",
 		"originalValue": "#990f3dff",
 		"type": "color",
 		"description": "Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.\\n\\nUsage example: MyFT branding; MyFT CTAs",
@@ -2292,7 +2292,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal": {
 		"shortName": "teal",
-		"value": "#0d7680ff",
+		"value": "#0d7680",
 		"originalValue": "#0d7680ff",
 		"type": "color",
 		"description": "Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases.",
@@ -2311,7 +2311,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford": {
 		"shortName": "oxford",
-		"value": "#0f5499ff",
+		"value": "#0f5499",
 		"originalValue": "#0f5499ff",
 		"type": "color",
 		"description": "Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.\\n\\nUsage example: opinion branding; opinion topic tags.",
@@ -2330,7 +2330,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-slate": {
 		"shortName": "slate",
-		"value": "#262a33ff",
+		"value": "#262a33",
 		"originalValue": "#262a33ff",
 		"type": "color",
 		"description": "Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons.",
@@ -2349,7 +2349,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-paper": {
 		"shortName": "paper",
-		"value": "#fff1e5ff",
+		"value": "#fff1e5",
 		"originalValue": "#fff1e5ff",
 		"type": "color",
 		"description": "Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white.",
@@ -2368,7 +2368,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-transparrent": {
 		"shortName": "transparrent",
-		"value": "#ffffff00",
+		"value": "#ffffff",
 		"originalValue": "#ffffff00",
 		"type": "color",
 		"path": [
@@ -2382,7 +2382,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-mandarin": {
 		"shortName": "mandarin",
-		"value": "#ff8833ff",
+		"value": "#ff8833",
 		"originalValue": "#ff8833ff",
 		"type": "color",
 		"description": "",
@@ -2401,7 +2401,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-light-blue": {
 		"shortName": "light-blue",
-		"value": "#00a0ddff",
+		"value": "#00a0dd",
 		"originalValue": "#00a0ddff",
 		"type": "color",
 		"description": "",
@@ -2420,7 +2420,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-crimson": {
 		"shortName": "crimson",
-		"value": "#cc0000ff",
+		"value": "#cc0000",
 		"originalValue": "#cc0000ff",
 		"type": "color",
 		"description": "",
@@ -2439,7 +2439,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-graphics-dark-blue": {
 		"shortName": "graphics-dark-blue",
-		"value": "#006f9bff",
+		"value": "#006f9b",
 		"originalValue": "#006f9bff",
 		"type": "color",
 		"description": "",
@@ -2458,7 +2458,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-wheat": {
 		"shortName": "wheat",
-		"value": "#f2dfceff",
+		"value": "#f2dfce",
 		"originalValue": "#f2dfceff",
 		"type": "color",
 		"description": "",
@@ -2477,7 +2477,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-candy": {
 		"shortName": "candy",
-		"value": "#ff7faaff",
+		"value": "#ff7faa",
 		"originalValue": "#ff7faaff",
 		"type": "color",
 		"description": "",
@@ -2496,7 +2496,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-wasabi": {
 		"shortName": "wasabi",
-		"value": "#96cc28ff",
+		"value": "#96cc28",
 		"originalValue": "#96cc28ff",
 		"type": "color",
 		"description": "",
@@ -2515,7 +2515,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-jade": {
 		"shortName": "jade",
-		"value": "#00994dff",
+		"value": "#00994d",
 		"originalValue": "#00994dff",
 		"type": "color",
 		"description": "",
@@ -2534,7 +2534,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-velvet": {
 		"shortName": "velvet",
-		"value": "#593380ff",
+		"value": "#593380",
 		"originalValue": "#593380ff",
 		"type": "color",
 		"description": "",
@@ -2553,7 +2553,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-lemon": {
 		"shortName": "lemon",
-		"value": "#ffec1aff",
+		"value": "#ffec1a",
 		"originalValue": "#ffec1aff",
 		"type": "color",
 		"description": "",
@@ -2572,7 +2572,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-sky": {
 		"shortName": "sky",
-		"value": "#cce6ffff",
+		"value": "#cce6ff",
 		"originalValue": "#cce6ffff",
 		"type": "color",
 		"description": "",
@@ -2591,7 +2591,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-matisse-blue": {
 		"shortName": "matisse-blue",
-		"value": "#355778ff",
+		"value": "#355778",
 		"originalValue": "#355778ff",
 		"type": "color",
 		"description": "",
@@ -2610,7 +2610,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-5": {
 		"shortName": "black-5",
-		"value": "#f2e5daff",
+		"value": "#f2e5da",
 		"originalValue": "#f2e5daff",
 		"type": "color",
 		"description": "",
@@ -2629,7 +2629,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-10": {
 		"shortName": "black-10",
-		"value": "#e6d9ceff",
+		"value": "#e6d9ce",
 		"originalValue": "#e6d9ceff",
 		"type": "color",
 		"description": "",
@@ -2648,7 +2648,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-20": {
 		"shortName": "black-20",
-		"value": "#ccc1b7ff",
+		"value": "#ccc1b7",
 		"originalValue": "#ccc1b7ff",
 		"type": "color",
 		"description": "",
@@ -2667,7 +2667,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-30": {
 		"shortName": "black-30",
-		"value": "#b3a9a0ff",
+		"value": "#b3a9a0",
 		"originalValue": "#b3a9a0ff",
 		"type": "color",
 		"description": "",
@@ -2686,7 +2686,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-40": {
 		"shortName": "black-40",
-		"value": "#999189ff",
+		"value": "#999189",
 		"originalValue": "#999189ff",
 		"type": "color",
 		"description": "",
@@ -2705,7 +2705,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-50": {
 		"shortName": "black-50",
-		"value": "#807973ff",
+		"value": "#807973",
 		"originalValue": "#807973ff",
 		"type": "color",
 		"description": "",
@@ -2724,7 +2724,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-60": {
 		"shortName": "black-60",
-		"value": "#66605cff",
+		"value": "#66605c",
 		"originalValue": "#66605cff",
 		"type": "color",
 		"description": "",
@@ -2743,7 +2743,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-70": {
 		"shortName": "black-70",
-		"value": "#4d4845ff",
+		"value": "#4d4845",
 		"originalValue": "#4d4845ff",
 		"type": "color",
 		"description": "",
@@ -2762,7 +2762,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-80": {
 		"shortName": "black-80",
-		"value": "#33302eff",
+		"value": "#33302e",
 		"originalValue": "#33302eff",
 		"type": "color",
 		"description": "",
@@ -2781,7 +2781,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-black-90": {
 		"shortName": "black-90",
-		"value": "#1a1817ff",
+		"value": "#1a1817",
 		"originalValue": "#1a1817ff",
 		"type": "color",
 		"description": "",
@@ -2800,7 +2800,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white-10": {
 		"shortName": "white-10",
-		"value": "#fff2e8ff",
+		"value": "#fff2e8",
 		"originalValue": "#fff2e8ff",
 		"type": "color",
 		"description": "",
@@ -2819,7 +2819,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white-20": {
 		"shortName": "white-20",
-		"value": "#fff4eaff",
+		"value": "#fff4ea",
 		"originalValue": "#fff4eaff",
 		"type": "color",
 		"description": "",
@@ -2838,7 +2838,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white-40": {
 		"shortName": "white-40",
-		"value": "#fff7efff",
+		"value": "#fff7ef",
 		"originalValue": "#fff7efff",
 		"type": "color",
 		"description": "",
@@ -2857,7 +2857,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white-60": {
 		"shortName": "white-60",
-		"value": "#fff9f5ff",
+		"value": "#fff9f5",
 		"originalValue": "#fff9f5ff",
 		"type": "color",
 		"description": "",
@@ -2876,7 +2876,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-white-80": {
 		"shortName": "white-80",
-		"value": "#fffcfaff",
+		"value": "#fffcfa",
 		"originalValue": "#fffcfaff",
 		"type": "color",
 		"description": "",
@@ -2895,7 +2895,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-30": {
 		"shortName": "oxford-30",
-		"value": "#082a4dff",
+		"value": "#082a4d",
 		"originalValue": "#082a4dff",
 		"type": "color",
 		"description": "",
@@ -2914,7 +2914,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-40": {
 		"shortName": "oxford-40",
-		"value": "#0a3866ff",
+		"value": "#0a3866",
 		"originalValue": "#0a3866ff",
 		"type": "color",
 		"description": "",
@@ -2933,7 +2933,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-50": {
 		"shortName": "oxford-50",
-		"value": "#0d4680ff",
+		"value": "#0d4680",
 		"originalValue": "#0d4680ff",
 		"type": "color",
 		"description": "",
@@ -2952,7 +2952,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-60": {
 		"shortName": "oxford-60",
-		"value": "#0f5499ff",
+		"value": "#0f5499",
 		"originalValue": "#0f5499ff",
 		"type": "color",
 		"description": "",
@@ -2971,7 +2971,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-70": {
 		"shortName": "oxford-70",
-		"value": "#1262b3ff",
+		"value": "#1262b3",
 		"originalValue": "#1262b3ff",
 		"type": "color",
 		"description": "",
@@ -2990,7 +2990,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-80": {
 		"shortName": "oxford-80",
-		"value": "#1470ccff",
+		"value": "#1470cc",
 		"originalValue": "#1470ccff",
 		"type": "color",
 		"description": "",
@@ -3009,7 +3009,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-90": {
 		"shortName": "oxford-90",
-		"value": "#177ee6ff",
+		"value": "#177ee6",
 		"originalValue": "#177ee6ff",
 		"type": "color",
 		"description": "",
@@ -3028,7 +3028,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-oxford-100": {
 		"shortName": "oxford-100",
-		"value": "#1a8cffff",
+		"value": "#1a8cff",
 		"originalValue": "#1a8cffff",
 		"type": "color",
 		"description": "",
@@ -3047,7 +3047,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-20": {
 		"shortName": "teal-20",
-		"value": "#052f33ff",
+		"value": "#052f33",
 		"originalValue": "#052f33ff",
 		"type": "color",
 		"description": "",
@@ -3066,7 +3066,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-30": {
 		"shortName": "teal-30",
-		"value": "#08474dff",
+		"value": "#08474d",
 		"originalValue": "#08474dff",
 		"type": "color",
 		"description": "",
@@ -3085,7 +3085,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-40": {
 		"shortName": "teal-40",
-		"value": "#0a5e66ff",
+		"value": "#0a5e66",
 		"originalValue": "#0a5e66ff",
 		"type": "color",
 		"description": "",
@@ -3104,7 +3104,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-50": {
 		"shortName": "teal-50",
-		"value": "#0d7680ff",
+		"value": "#0d7680",
 		"originalValue": "#0d7680ff",
 		"type": "color",
 		"description": "",
@@ -3123,7 +3123,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-60": {
 		"shortName": "teal-60",
-		"value": "#0f8e99ff",
+		"value": "#0f8e99",
 		"originalValue": "#0f8e99ff",
 		"type": "color",
 		"description": "",
@@ -3142,7 +3142,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-70": {
 		"shortName": "teal-70",
-		"value": "#12a5b3ff",
+		"value": "#12a5b3",
 		"originalValue": "#12a5b3ff",
 		"type": "color",
 		"description": "",
@@ -3161,7 +3161,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-80": {
 		"shortName": "teal-80",
-		"value": "#14bdccff",
+		"value": "#14bdcc",
 		"originalValue": "#14bdccff",
 		"type": "color",
 		"description": "",
@@ -3180,7 +3180,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-90": {
 		"shortName": "teal-90",
-		"value": "#17d4e6ff",
+		"value": "#17d4e6",
 		"originalValue": "#17d4e6ff",
 		"type": "color",
 		"description": "",
@@ -3199,7 +3199,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-teal-100": {
 		"shortName": "teal-100",
-		"value": "#1aecffff",
+		"value": "#1aecff",
 		"originalValue": "#1aecffff",
 		"type": "color",
 		"description": "",
@@ -3218,7 +3218,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-30": {
 		"shortName": "claret-30",
-		"value": "#4d081fff",
+		"value": "#4d081f",
 		"originalValue": "#4d081fff",
 		"type": "color",
 		"description": "",
@@ -3237,7 +3237,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-40": {
 		"shortName": "claret-40",
-		"value": "#660a29ff",
+		"value": "#660a29",
 		"originalValue": "#660a29ff",
 		"type": "color",
 		"description": "",
@@ -3256,7 +3256,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-50": {
 		"shortName": "claret-50",
-		"value": "#800d33ff",
+		"value": "#800d33",
 		"originalValue": "#800d33ff",
 		"type": "color",
 		"description": "",
@@ -3275,7 +3275,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-60": {
 		"shortName": "claret-60",
-		"value": "#990f3dff",
+		"value": "#990f3d",
 		"originalValue": "#990f3dff",
 		"type": "color",
 		"description": "",
@@ -3294,7 +3294,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-70": {
 		"shortName": "claret-70",
-		"value": "#b31247ff",
+		"value": "#b31247",
 		"originalValue": "#b31247ff",
 		"type": "color",
 		"description": "",
@@ -3313,7 +3313,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-80": {
 		"shortName": "claret-80",
-		"value": "#cc1452ff",
+		"value": "#cc1452",
 		"originalValue": "#cc1452ff",
 		"type": "color",
 		"description": "",
@@ -3332,7 +3332,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-90": {
 		"shortName": "claret-90",
-		"value": "#e6175cff",
+		"value": "#e6175c",
 		"originalValue": "#e6175cff",
 		"type": "color",
 		"description": "",
@@ -3351,7 +3351,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-claret-100": {
 		"shortName": "claret-100",
-		"value": "#ff1a66ff",
+		"value": "#ff1a66",
 		"originalValue": "#ff1a66ff",
 		"type": "color",
 		"description": "",
@@ -3370,7 +3370,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-wheat-100": {
 		"shortName": "wheat-100",
-		"value": "#FFEBD9",
+		"value": "#ffebd9",
 		"originalValue": "#FFEBD9",
 		"type": "color",
 		"path": [
@@ -3406,7 +3406,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-mint-80": {
 		"shortName": "mint-80",
-		"value": "#A4CCB8",
+		"value": "#a4ccb8",
 		"originalValue": "#A4CCB8",
 		"type": "color",
 		"path": [
@@ -3424,7 +3424,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-mint-70": {
 		"shortName": "mint-70",
-		"value": "#8FB3A1",
+		"value": "#8fb3a1",
 		"originalValue": "#8FB3A1",
 		"type": "color",
 		"path": [
@@ -3442,7 +3442,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-mint-60": {
 		"shortName": "mint-60",
-		"value": "#7B998A",
+		"value": "#7b998a",
 		"originalValue": "#7B998A",
 		"type": "color",
 		"path": [
@@ -3478,7 +3478,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-mint-40": {
 		"shortName": "mint-40",
-		"value": "#52665C",
+		"value": "#52665c",
 		"originalValue": "#52665C",
 		"type": "color",
 		"path": [
@@ -3496,7 +3496,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-palette-mint-30": {
 		"shortName": "mint-30",
-		"value": "#3D4D45",
+		"value": "#3d4d45",
 		"originalValue": "#3D4D45",
 		"type": "color",
 		"path": [
@@ -3514,7 +3514,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-use-case-link-text": {
 		"shortName": "@",
-		"value": "#262a33ff",
+		"value": "#262a33",
 		"originalValue": "{o3.color.palette.slate}",
 		"type": "color",
 		"description": "",
@@ -3531,7 +3531,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-use-case-link-text-hover": {
 		"shortName": "hover",
-		"value": "#262a33ff",
+		"value": "#262a33",
 		"originalValue": "{o3.color.palette.slate}",
 		"type": "color",
 		"path": [
@@ -3547,7 +3547,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-use-case-link-underline": {
 		"shortName": "@",
-		"value": "#A4CCB8",
+		"value": "#a4ccb8",
 		"originalValue": "{o3.color.palette.mint-80}",
 		"type": "color",
 		"path": [
@@ -3563,7 +3563,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-use-case-link-underline-hover": {
 		"shortName": "hover",
-		"value": "#A4CCB8",
+		"value": "#a4ccb8",
 		"originalValue": "{o3.color.palette.mint-80}",
 		"type": "color",
 		"path": [
@@ -3595,7 +3595,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-use-case-link-inverse-text-hover": {
 		"shortName": "hover",
-		"value": "#8FB3A1",
+		"value": "#8fb3a1",
 		"originalValue": "{o3.color.palette.mint-70}",
 		"type": "color",
 		"path": [
@@ -3627,7 +3627,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-color-use-case-link-inverse-underline-hover": {
 		"shortName": "hover",
-		"value": "#8FB3A1",
+		"value": "#8fb3a1",
 		"originalValue": "{o3.color.palette.mint-70}",
 		"type": "color",
 		"path": [
@@ -3643,7 +3643,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
-		"value": "0.25rem",
+		"value": "4px",
 		"originalValue": "4px",
 		"type": "spacing",
 		"path": [
@@ -3656,7 +3656,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-4xs": {
 		"shortName": "4xs",
-		"value": "0.5rem",
+		"value": "8px",
 		"originalValue": "8px",
 		"type": "spacing",
 		"path": [
@@ -3669,7 +3669,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-3xs": {
 		"shortName": "3xs",
-		"value": "0.75rem",
+		"value": "12px",
 		"originalValue": "12px",
 		"type": "spacing",
 		"path": [
@@ -3682,7 +3682,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-2xs": {
 		"shortName": "2xs",
-		"value": "1rem",
+		"value": "16px",
 		"originalValue": "16px",
 		"type": "spacing",
 		"path": [
@@ -3695,7 +3695,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-xs": {
 		"shortName": "xs",
-		"value": "1.25rem",
+		"value": "20px",
 		"originalValue": "20px",
 		"type": "spacing",
 		"path": [
@@ -3708,7 +3708,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-s": {
 		"shortName": "s",
-		"value": "1.5rem",
+		"value": "24px",
 		"originalValue": "24px",
 		"type": "spacing",
 		"path": [
@@ -3721,7 +3721,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-m": {
 		"shortName": "m",
-		"value": "2rem",
+		"value": "32px",
 		"originalValue": "32px",
 		"type": "spacing",
 		"path": [
@@ -3734,7 +3734,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-l": {
 		"shortName": "l",
-		"value": "2.5rem",
+		"value": "40px",
 		"originalValue": "40px",
 		"type": "spacing",
 		"path": [
@@ -3747,7 +3747,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-xl": {
 		"shortName": "xl",
-		"value": "3rem",
+		"value": "48px",
 		"originalValue": "48px",
 		"type": "spacing",
 		"path": [
@@ -3760,7 +3760,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-2xl": {
 		"shortName": "2xl",
-		"value": "4rem",
+		"value": "64px",
 		"originalValue": "64px",
 		"type": "spacing",
 		"path": [
@@ -3773,7 +3773,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-3xl": {
 		"shortName": "3xl",
-		"value": "5rem",
+		"value": "80px",
 		"originalValue": "80px",
 		"type": "spacing",
 		"path": [
@@ -3786,7 +3786,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-spacing-4xl": {
 		"shortName": "4xl",
-		"value": "6rem",
+		"value": "96px",
 		"originalValue": "96px",
 		"type": "spacing",
 		"path": [
@@ -3799,7 +3799,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-family-metric": {
 		"shortName": "metric",
-		"value": "'metric 2 VF'",
+		"value": "metric 2 VF",
 		"originalValue": "metric 2 VF",
 		"type": "fontFamilies",
 		"path": [
@@ -3813,7 +3813,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-family-financier-display": {
 		"shortName": "financier-display",
-		"value": "'financier display VF'",
+		"value": "financier display VF",
 		"originalValue": "financier display VF",
 		"type": "fontFamilies",
 		"path": [
@@ -3911,7 +3911,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-0": {
 		"shortName": "0",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "lineHeights",
 		"path": [
@@ -3925,7 +3925,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-1": {
 		"shortName": "1",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "lineHeights",
 		"path": [
@@ -3939,7 +3939,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-2": {
 		"shortName": "2",
-		"value": "1.5rem",
+		"value": "24",
 		"originalValue": "24",
 		"type": "lineHeights",
 		"path": [
@@ -3953,7 +3953,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-3": {
 		"shortName": "3",
-		"value": "1.75rem",
+		"value": "28",
 		"originalValue": "28",
 		"type": "lineHeights",
 		"path": [
@@ -3967,7 +3967,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-4": {
 		"shortName": "4",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"path": [
@@ -3981,7 +3981,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-5": {
 		"shortName": "5",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"path": [
@@ -3995,7 +3995,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-6": {
 		"shortName": "6",
-		"value": "2.5rem",
+		"value": "40",
 		"originalValue": "40",
 		"type": "lineHeights",
 		"path": [
@@ -4009,7 +4009,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-7": {
 		"shortName": "7",
-		"value": "3rem",
+		"value": "48",
 		"originalValue": "48",
 		"type": "lineHeights",
 		"path": [
@@ -4023,7 +4023,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-8": {
 		"shortName": "8",
-		"value": "3.5rem",
+		"value": "56",
 		"originalValue": "56",
 		"type": "lineHeights",
 		"path": [
@@ -4037,7 +4037,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-9": {
 		"shortName": "9",
-		"value": "4.5rem",
+		"value": "72",
 		"originalValue": "72",
 		"type": "lineHeights",
 		"path": [
@@ -4051,7 +4051,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-10": {
 		"shortName": "10",
-		"value": "5.25rem",
+		"value": "84",
 		"originalValue": "84",
 		"type": "lineHeights",
 		"path": [
@@ -4065,7 +4065,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-negative-2": {
 		"shortName": "negative-2",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "lineHeights",
 		"path": [
@@ -4079,7 +4079,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-negative-1": {
 		"shortName": "negative-1",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "lineHeights",
 		"path": [
@@ -4093,7 +4093,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-0": {
 		"shortName": "0",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "fontSizes",
 		"path": [
@@ -4107,7 +4107,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-1": {
 		"shortName": "1",
-		"value": "1.125rem",
+		"value": "18",
 		"originalValue": "18",
 		"type": "fontSizes",
 		"path": [
@@ -4121,7 +4121,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-2": {
 		"shortName": "2",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "fontSizes",
 		"path": [
@@ -4135,7 +4135,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-3": {
 		"shortName": "3",
-		"value": "1.5rem",
+		"value": "24",
 		"originalValue": "24",
 		"type": "fontSizes",
 		"path": [
@@ -4149,7 +4149,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-4": {
 		"shortName": "4",
-		"value": "1.75rem",
+		"value": "28",
 		"originalValue": "28",
 		"type": "fontSizes",
 		"path": [
@@ -4163,7 +4163,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-5": {
 		"shortName": "5",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "fontSizes",
 		"path": [
@@ -4177,7 +4177,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-6": {
 		"shortName": "6",
-		"value": "2.5rem",
+		"value": "40",
 		"originalValue": "40",
 		"type": "fontSizes",
 		"path": [
@@ -4191,7 +4191,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-7": {
 		"shortName": "7",
-		"value": "3rem",
+		"value": "48",
 		"originalValue": "48",
 		"type": "fontSizes",
 		"path": [
@@ -4205,7 +4205,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-8": {
 		"shortName": "8",
-		"value": "3.5rem",
+		"value": "56",
 		"originalValue": "56",
 		"type": "fontSizes",
 		"path": [
@@ -4219,7 +4219,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-9": {
 		"shortName": "9",
-		"value": "4.5rem",
+		"value": "72",
 		"originalValue": "72",
 		"type": "fontSizes",
 		"path": [
@@ -4233,7 +4233,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-10": {
 		"shortName": "10",
-		"value": "5.25rem",
+		"value": "84",
 		"originalValue": "84",
 		"type": "fontSizes",
 		"path": [
@@ -4247,7 +4247,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-negative-2": {
 		"shortName": "negative-2",
-		"value": "0.75rem",
+		"value": "12",
 		"originalValue": "12",
 		"type": "fontSizes",
 		"path": [
@@ -4261,7 +4261,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-negative-1": {
 		"shortName": "negative-1",
-		"value": "0.875rem",
+		"value": "14",
 		"originalValue": "14",
 		"type": "fontSizes",
 		"path": [
@@ -4275,7 +4275,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-0": {
 		"shortName": "0",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "lineHeights",
 		"path": [
@@ -4289,7 +4289,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-1": {
 		"shortName": "1",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "lineHeights",
 		"path": [
@@ -4303,7 +4303,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-2": {
 		"shortName": "2",
-		"value": "1.5rem",
+		"value": "24",
 		"originalValue": "24",
 		"type": "lineHeights",
 		"path": [
@@ -4317,7 +4317,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-3": {
 		"shortName": "3",
-		"value": "1.75rem",
+		"value": "28",
 		"originalValue": "28",
 		"type": "lineHeights",
 		"path": [
@@ -4331,7 +4331,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-4": {
 		"shortName": "4",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"path": [
@@ -4345,7 +4345,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-5": {
 		"shortName": "5",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"path": [
@@ -4359,7 +4359,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-6": {
 		"shortName": "6",
-		"value": "2.5rem",
+		"value": "40",
 		"originalValue": "40",
 		"type": "lineHeights",
 		"path": [
@@ -4373,7 +4373,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-7": {
 		"shortName": "7",
-		"value": "3rem",
+		"value": "48",
 		"originalValue": "48",
 		"type": "lineHeights",
 		"path": [
@@ -4387,7 +4387,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-8": {
 		"shortName": "8",
-		"value": "3.5rem",
+		"value": "56",
 		"originalValue": "56",
 		"type": "lineHeights",
 		"path": [
@@ -4401,7 +4401,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-9": {
 		"shortName": "9",
-		"value": "4.5rem",
+		"value": "72",
 		"originalValue": "72",
 		"type": "lineHeights",
 		"path": [
@@ -4415,7 +4415,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-10": {
 		"shortName": "10",
-		"value": "5.25rem",
+		"value": "84",
 		"originalValue": "84",
 		"type": "lineHeights",
 		"path": [
@@ -4429,7 +4429,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-negative-2": {
 		"shortName": "negative-2",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "lineHeights",
 		"path": [
@@ -4443,7 +4443,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-lineheight-metric2-negative-1": {
 		"shortName": "negative-1",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "lineHeights",
 		"path": [
@@ -4457,7 +4457,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-0": {
 		"shortName": "0",
-		"value": "0.875rem",
+		"value": "14",
 		"originalValue": "14",
 		"type": "fontSizes",
 		"path": [
@@ -4471,7 +4471,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-1": {
 		"shortName": "1",
-		"value": "1rem",
+		"value": "16",
 		"originalValue": "16",
 		"type": "fontSizes",
 		"path": [
@@ -4485,7 +4485,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-2": {
 		"shortName": "2",
-		"value": "1.125rem",
+		"value": "18",
 		"originalValue": "18",
 		"type": "fontSizes",
 		"path": [
@@ -4499,7 +4499,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-3": {
 		"shortName": "3",
-		"value": "1.25rem",
+		"value": "20",
 		"originalValue": "20",
 		"type": "fontSizes",
 		"path": [
@@ -4513,7 +4513,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-4": {
 		"shortName": "4",
-		"value": "1.5rem",
+		"value": "24",
 		"originalValue": "24",
 		"type": "fontSizes",
 		"path": [
@@ -4527,7 +4527,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-5": {
 		"shortName": "5",
-		"value": "1.75rem",
+		"value": "28",
 		"originalValue": "28",
 		"type": "fontSizes",
 		"path": [
@@ -4541,7 +4541,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-6": {
 		"shortName": "6",
-		"value": "2rem",
+		"value": "32",
 		"originalValue": "32",
 		"type": "fontSizes",
 		"path": [
@@ -4555,7 +4555,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-7": {
 		"shortName": "7",
-		"value": "2.5rem",
+		"value": "40",
 		"originalValue": "40",
 		"type": "fontSizes",
 		"path": [
@@ -4569,7 +4569,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-8": {
 		"shortName": "8",
-		"value": "3rem",
+		"value": "48",
 		"originalValue": "48",
 		"type": "fontSizes",
 		"path": [
@@ -4583,7 +4583,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-9": {
 		"shortName": "9",
-		"value": "4rem",
+		"value": "64",
 		"originalValue": "64",
 		"type": "fontSizes",
 		"path": [
@@ -4597,7 +4597,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-10": {
 		"shortName": "10",
-		"value": "4.5rem",
+		"value": "72",
 		"originalValue": "72",
 		"type": "fontSizes",
 		"path": [
@@ -4611,7 +4611,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-negative-2": {
 		"shortName": "negative-2",
-		"value": "0.625rem",
+		"value": "10",
 		"originalValue": "10",
 		"type": "fontSizes",
 		"path": [
@@ -4625,7 +4625,7 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 },
 	"o3-font-size-metric2-negative-1": {
 		"shortName": "negative-1",
-		"value": "0.75rem",
+		"value": "12",
 		"originalValue": "12",
 		"type": "fontSizes",
 		"path": [
@@ -4999,314 +4999,334 @@ exports[`buildCss() > for Astro build > should build CSS foundation variables fo
 
 exports[`buildCss() > for brand foundation tokens > should build CSS variables for foundation tokens > for core brand 1`] = `
 "/**
- * Do not edit directly
+ * Do not edit directly, this file was auto-generated.
  */
 
 
 [data-o3-brand="core"] {
-  --o3-color-palette-ft-pink: #FCD0B1; /* FT Pink is used for the FT logo */
-  --o3-color-palette-ft-grey: #333333ff;
-  --o3-color-palette-white: #ffffffff;
-  --o3-color-palette-black: #000000ff;
-  --o3-color-palette-claret: #990f3dff; /* Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.  Usage example: MyFT branding; MyFT CTAs */
-  --o3-color-palette-teal: #0d7680ff; /* Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases. */
-  --o3-color-palette-oxford: #0f5499ff; /* Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.  Usage example: opinion branding; opinion topic tags. */
-  --o3-color-palette-slate: #262a33ff; /* Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons. */
-  --o3-color-palette-paper: #fff1e5ff; /* Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white. */
-  --o3-color-palette-transparrent: #ffffff00;
-  --o3-color-palette-mandarin: #ff8833ff;
-  --o3-color-palette-light-blue: #00a0ddff;
-  --o3-color-palette-crimson: #cc0000ff;
-  --o3-color-palette-graphics-dark-blue: #006f9bff;
-  --o3-color-palette-wheat: #f2dfceff;
-  --o3-color-palette-candy: #ff7faaff;
-  --o3-color-palette-wasabi: #96cc28ff;
-  --o3-color-palette-jade: #00994dff;
-  --o3-color-palette-velvet: #593380ff;
-  --o3-color-palette-lemon: #ffec1aff;
-  --o3-color-palette-sky: #cce6ffff;
-  --o3-color-palette-matisse-blue: #355778ff;
-  --o3-color-palette-black-5: #f2e5daff;
-  --o3-color-palette-black-10: #e6d9ceff;
-  --o3-color-palette-black-20: #ccc1b7ff;
-  --o3-color-palette-black-30: #b3a9a0ff;
-  --o3-color-palette-black-40: #999189ff;
-  --o3-color-palette-black-50: #807973ff;
-  --o3-color-palette-black-60: #66605cff;
-  --o3-color-palette-black-70: #4d4845ff;
-  --o3-color-palette-black-80: #33302eff;
-  --o3-color-palette-black-90: #1a1817ff;
-  --o3-color-palette-white-10: #fff2e8ff;
-  --o3-color-palette-white-20: #fff4eaff;
-  --o3-color-palette-white-40: #fff7efff;
-  --o3-color-palette-white-60: #fff9f5ff;
-  --o3-color-palette-white-80: #fffcfaff;
-  --o3-color-palette-oxford-30: #082a4dff;
-  --o3-color-palette-oxford-40: #0a3866ff;
-  --o3-color-palette-oxford-50: #0d4680ff;
-  --o3-color-palette-oxford-60: #0f5499ff;
-  --o3-color-palette-oxford-70: #1262b3ff;
-  --o3-color-palette-oxford-80: #1470ccff;
-  --o3-color-palette-oxford-90: #177ee6ff;
-  --o3-color-palette-oxford-100: #1a8cffff;
-  --o3-color-palette-teal-20: #052f33ff;
-  --o3-color-palette-teal-30: #08474dff;
-  --o3-color-palette-teal-40: #0a5e66ff;
-  --o3-color-palette-teal-50: #0d7680ff;
-  --o3-color-palette-teal-60: #0f8e99ff;
-  --o3-color-palette-teal-70: #12a5b3ff;
-  --o3-color-palette-teal-80: #14bdccff;
-  --o3-color-palette-teal-90: #17d4e6ff;
-  --o3-color-palette-teal-100: #1aecffff;
-  --o3-color-palette-claret-30: #4d081fff;
-  --o3-color-palette-claret-40: #660a29ff;
-  --o3-color-palette-claret-50: #800d33ff;
-  --o3-color-palette-claret-60: #990f3dff;
-  --o3-color-palette-claret-70: #b31247ff;
-  --o3-color-palette-claret-80: #cc1452ff;
-  --o3-color-palette-claret-90: #e6175cff;
-  --o3-color-palette-claret-100: #ff1a66ff;
-  --o3-color-palette-wheat-100: #FFEBD9;
-  --o3-spacing-5xs: 0.25rem;
-  --o3-spacing-4xs: 0.5rem;
-  --o3-spacing-3xs: 0.75rem;
-  --o3-spacing-2xs: 1rem;
-  --o3-spacing-xs: 1.25rem;
-  --o3-spacing-s: 1.5rem;
-  --o3-spacing-m: 2rem;
-  --o3-spacing-l: 2.5rem;
-  --o3-spacing-xl: 3rem;
-  --o3-spacing-2xl: 4rem;
-  --o3-spacing-3xl: 5rem;
-  --o3-spacing-4xl: 6rem;
-  --o3-font-family-metric: 'metric 2 VF';
-  --o3-font-family-financier-display: 'financier display VF';
-  --o3-font-family-georgia: georgia;
-  --o3-font-weight-light: 300;
-  --o3-font-weight-regular: 400;
-  --o3-font-weight-medium: 500;
-  --o3-font-weight-semibold: 700;
+  --o3-font-size-metric2-negative-1: 12px;
+  --o3-font-size-metric2-negative-2: 10px;
+  --o3-font-size-metric2-10: 72px;
+  --o3-font-size-metric2-9: 64px;
+  --o3-font-size-metric2-8: 48px;
+  --o3-font-size-metric2-7: 40px;
+  --o3-font-size-metric2-6: 32px;
+  --o3-font-size-metric2-5: 28px;
+  --o3-font-size-metric2-4: 24px;
+  --o3-font-size-metric2-3: 20px;
+  --o3-font-size-metric2-2: 18px;
+  --o3-font-size-metric2-1: 16px;
+  --o3-font-size-metric2-0: 14px;
+  --o3-font-lineheight-metric2-negative-1: 16;
+  --o3-font-lineheight-metric2-negative-2: 16;
+  --o3-font-lineheight-metric2-10: 84;
+  --o3-font-lineheight-metric2-9: 72;
+  --o3-font-lineheight-metric2-8: 56;
+  --o3-font-lineheight-metric2-7: 48;
+  --o3-font-lineheight-metric2-6: 40;
+  --o3-font-lineheight-metric2-5: 32;
+  --o3-font-lineheight-metric2-4: 32;
+  --o3-font-lineheight-metric2-3: 28;
+  --o3-font-lineheight-metric2-2: 24;
+  --o3-font-lineheight-metric2-1: 20;
+  --o3-font-lineheight-metric2-0: 20;
+  --o3-font-size-negative-1: 14px;
+  --o3-font-size-negative-2: 12px;
+  --o3-font-size-10: 84px;
+  --o3-font-size-9: 72px;
+  --o3-font-size-8: 56px;
+  --o3-font-size-7: 48px;
+  --o3-font-size-6: 40px;
+  --o3-font-size-5: 32px;
+  --o3-font-size-4: 28px;
+  --o3-font-size-3: 24px;
+  --o3-font-size-2: 20px;
+  --o3-font-size-1: 18px;
+  --o3-font-size-0: 16px;
+  --o3-font-lineheight-negative-1: 16;
+  --o3-font-lineheight-negative-2: 16;
+  --o3-font-lineheight-10: 84;
+  --o3-font-lineheight-9: 72;
+  --o3-font-lineheight-8: 56;
+  --o3-font-lineheight-7: 48;
+  --o3-font-lineheight-6: 40;
+  --o3-font-lineheight-5: 32;
+  --o3-font-lineheight-4: 32;
+  --o3-font-lineheight-3: 28;
+  --o3-font-lineheight-2: 24;
+  --o3-font-lineheight-1: 20;
+  --o3-font-lineheight-0: 20;
   --o3-font-weight-bold: 800;
-  --o3-font-lineheight-0: 1.25rem;
-  --o3-font-lineheight-1: 1.25rem;
-  --o3-font-lineheight-2: 1.5rem;
-  --o3-font-lineheight-3: 1.75rem;
-  --o3-font-lineheight-4: 2rem;
-  --o3-font-lineheight-5: 2rem;
-  --o3-font-lineheight-6: 2.5rem;
-  --o3-font-lineheight-7: 3rem;
-  --o3-font-lineheight-8: 3.5rem;
-  --o3-font-lineheight-9: 4.5rem;
-  --o3-font-lineheight-10: 5.25rem;
-  --o3-font-lineheight-negative-2: 1rem;
-  --o3-font-lineheight-negative-1: 1rem;
-  --o3-font-size-0: 1rem;
-  --o3-font-size-1: 1.125rem;
-  --o3-font-size-2: 1.25rem;
-  --o3-font-size-3: 1.5rem;
-  --o3-font-size-4: 1.75rem;
-  --o3-font-size-5: 2rem;
-  --o3-font-size-6: 2.5rem;
-  --o3-font-size-7: 3rem;
-  --o3-font-size-8: 3.5rem;
-  --o3-font-size-9: 4.5rem;
-  --o3-font-size-10: 5.25rem;
-  --o3-font-size-negative-2: 0.75rem;
-  --o3-font-size-negative-1: 0.875rem;
-  --o3-font-lineheight-metric2-0: 1.25rem;
-  --o3-font-lineheight-metric2-1: 1.25rem;
-  --o3-font-lineheight-metric2-2: 1.5rem;
-  --o3-font-lineheight-metric2-3: 1.75rem;
-  --o3-font-lineheight-metric2-4: 2rem;
-  --o3-font-lineheight-metric2-5: 2rem;
-  --o3-font-lineheight-metric2-6: 2.5rem;
-  --o3-font-lineheight-metric2-7: 3rem;
-  --o3-font-lineheight-metric2-8: 3.5rem;
-  --o3-font-lineheight-metric2-9: 4.5rem;
-  --o3-font-lineheight-metric2-10: 5.25rem;
-  --o3-font-lineheight-metric2-negative-2: 1rem;
-  --o3-font-lineheight-metric2-negative-1: 1rem;
-  --o3-font-size-metric2-0: 0.875rem;
-  --o3-font-size-metric2-1: 1rem;
-  --o3-font-size-metric2-2: 1.125rem;
-  --o3-font-size-metric2-3: 1.25rem;
-  --o3-font-size-metric2-4: 1.5rem;
-  --o3-font-size-metric2-5: 1.75rem;
-  --o3-font-size-metric2-6: 2rem;
-  --o3-font-size-metric2-7: 2.5rem;
-  --o3-font-size-metric2-8: 3rem;
-  --o3-font-size-metric2-9: 4rem;
-  --o3-font-size-metric2-10: 4.5rem;
-  --o3-font-size-metric2-negative-2: 0.625rem;
-  --o3-font-size-metric2-negative-1: 0.75rem;
+  --o3-font-weight-semibold: 700;
+  --o3-font-weight-medium: 500;
+  --o3-font-weight-regular: 400;
+  --o3-font-weight-light: 300;
+  --o3-font-family-georgia: georgia;
+  --o3-font-family-financier-display: 'financier display VF';
+  --o3-font-family-metric: 'metric 2 VF';
+  --o3-spacing-4xl: 96px;
+  --o3-spacing-3xl: 80px;
+  --o3-spacing-2xl: 64px;
+  --o3-spacing-xl: 48px;
+  --o3-spacing-l: 40px;
+  --o3-spacing-m: 32px;
+  --o3-spacing-s: 24px;
+  --o3-spacing-xs: 20px;
+  --o3-spacing-2xs: 16px;
+  --o3-spacing-3xs: 12px;
+  --o3-spacing-4xs: 8px;
+  --o3-spacing-5xs: 4px;
+  --o3-color-palette-wheat-100: #ffebd9;
+  --o3-color-palette-claret-100: #ff1a66;
+  --o3-color-palette-claret-90: #e6175c;
+  --o3-color-palette-claret-80: #cc1452;
+  --o3-color-palette-claret-70: #b31247;
+  --o3-color-palette-claret-60: #990f3d;
+  --o3-color-palette-claret-50: #800d33;
+  --o3-color-palette-claret-40: #660a29;
+  --o3-color-palette-claret-30: #4d081f;
+  --o3-color-palette-teal-100: #1aecff;
+  --o3-color-palette-teal-90: #17d4e6;
+  --o3-color-palette-teal-80: #14bdcc;
+  --o3-color-palette-teal-70: #12a5b3;
+  --o3-color-palette-teal-60: #0f8e99;
+  --o3-color-palette-teal-50: #0d7680;
+  --o3-color-palette-teal-40: #0a5e66;
+  --o3-color-palette-teal-30: #08474d;
+  --o3-color-palette-teal-20: #052f33;
+  --o3-color-palette-oxford-100: #1a8cff;
+  --o3-color-palette-oxford-90: #177ee6;
+  --o3-color-palette-oxford-80: #1470cc;
+  --o3-color-palette-oxford-70: #1262b3;
+  --o3-color-palette-oxford-60: #0f5499;
+  --o3-color-palette-oxford-50: #0d4680;
+  --o3-color-palette-oxford-40: #0a3866;
+  --o3-color-palette-oxford-30: #082a4d;
+  --o3-color-palette-white-80: #fffcfa;
+  --o3-color-palette-white-60: #fff9f5;
+  --o3-color-palette-white-40: #fff7ef;
+  --o3-color-palette-white-20: #fff4ea;
+  --o3-color-palette-white-10: #fff2e8;
+  --o3-color-palette-black-90: #1a1817;
+  --o3-color-palette-black-80: #33302e;
+  --o3-color-palette-black-70: #4d4845;
+  --o3-color-palette-black-60: #66605c;
+  --o3-color-palette-black-50: #807973;
+  --o3-color-palette-black-40: #999189;
+  --o3-color-palette-black-30: #b3a9a0;
+  --o3-color-palette-black-20: #ccc1b7;
+  --o3-color-palette-black-10: #e6d9ce;
+  --o3-color-palette-black-5: #f2e5da;
+  --o3-color-palette-matisse-blue: #355778;
+  --o3-color-palette-sky: #cce6ff;
+  --o3-color-palette-lemon: #ffec1a;
+  --o3-color-palette-velvet: #593380;
+  --o3-color-palette-jade: #00994d;
+  --o3-color-palette-wasabi: #96cc28;
+  --o3-color-palette-candy: #ff7faa;
+  --o3-color-palette-wheat: #f2dfce;
+  --o3-color-palette-graphics-dark-blue: #006f9b;
+  --o3-color-palette-crimson: #cc0000;
+  --o3-color-palette-light-blue: #00a0dd;
+  --o3-color-palette-mandarin: #ff8833;
+  --o3-color-palette-transparrent: rgba(255, 255, 255, 0);
+  --o3-color-palette-paper: #fff1e5; /* Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white. */
+  --o3-color-palette-slate: #262a33; /* Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons. */
+  /**
+   * Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.
+   * 
+   * Usage example: opinion branding; opinion topic tags.
+   */
+  --o3-color-palette-oxford: #0f5499;
+  --o3-color-palette-teal: #0d7680; /* Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases. */
+  /**
+   * Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.
+   * 
+   * Usage example: MyFT branding; MyFT CTAs
+   */
+  --o3-color-palette-claret: #990f3d;
+  --o3-color-palette-black: #000000;
+  --o3-color-palette-white: #ffffff;
+  --o3-color-palette-ft-grey: #333333;
+  --o3-color-palette-ft-pink: #fcd0b1; /* FT Pink is used for the FT logo */
 }
 "
 `;
 
 exports[`buildCss() > for brand foundation tokens > should build CSS variables for foundation tokens > for core/professional brand 1`] = `
 "/**
- * Do not edit directly
+ * Do not edit directly, this file was auto-generated.
  */
 
 
 [data-o3-brand="professional"] {
-  --o3-color-palette-ft-pink: #FCD0B1; /* FT Pink is used for the FT logo */
-  --o3-color-palette-ft-grey: #333333ff;
-  --o3-color-palette-white: #ffffffff;
-  --o3-color-palette-black: #000000ff;
-  --o3-color-palette-claret: #990f3dff; /* Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.  Usage example: MyFT branding; MyFT CTAs */
-  --o3-color-palette-teal: #0d7680ff; /* Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases. */
-  --o3-color-palette-oxford: #0f5499ff; /* Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.  Usage example: opinion branding; opinion topic tags. */
-  --o3-color-palette-slate: #262a33ff; /* Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons. */
-  --o3-color-palette-paper: #fff1e5ff; /* Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white. */
-  --o3-color-palette-transparrent: #ffffff00;
-  --o3-color-palette-mandarin: #ff8833ff;
-  --o3-color-palette-light-blue: #00a0ddff;
-  --o3-color-palette-crimson: #cc0000ff;
-  --o3-color-palette-graphics-dark-blue: #006f9bff;
-  --o3-color-palette-wheat: #f2dfceff;
-  --o3-color-palette-candy: #ff7faaff;
-  --o3-color-palette-wasabi: #96cc28ff;
-  --o3-color-palette-jade: #00994dff;
-  --o3-color-palette-velvet: #593380ff;
-  --o3-color-palette-lemon: #ffec1aff;
-  --o3-color-palette-sky: #cce6ffff;
-  --o3-color-palette-matisse-blue: #355778ff;
-  --o3-color-palette-black-5: #f2e5daff;
-  --o3-color-palette-black-10: #e6d9ceff;
-  --o3-color-palette-black-20: #ccc1b7ff;
-  --o3-color-palette-black-30: #b3a9a0ff;
-  --o3-color-palette-black-40: #999189ff;
-  --o3-color-palette-black-50: #807973ff;
-  --o3-color-palette-black-60: #66605cff;
-  --o3-color-palette-black-70: #4d4845ff;
-  --o3-color-palette-black-80: #33302eff;
-  --o3-color-palette-black-90: #1a1817ff;
-  --o3-color-palette-white-10: #fff2e8ff;
-  --o3-color-palette-white-20: #fff4eaff;
-  --o3-color-palette-white-40: #fff7efff;
-  --o3-color-palette-white-60: #fff9f5ff;
-  --o3-color-palette-white-80: #fffcfaff;
-  --o3-color-palette-oxford-30: #082a4dff;
-  --o3-color-palette-oxford-40: #0a3866ff;
-  --o3-color-palette-oxford-50: #0d4680ff;
-  --o3-color-palette-oxford-60: #0f5499ff;
-  --o3-color-palette-oxford-70: #1262b3ff;
-  --o3-color-palette-oxford-80: #1470ccff;
-  --o3-color-palette-oxford-90: #177ee6ff;
-  --o3-color-palette-oxford-100: #1a8cffff;
-  --o3-color-palette-teal-20: #052f33ff;
-  --o3-color-palette-teal-30: #08474dff;
-  --o3-color-palette-teal-40: #0a5e66ff;
-  --o3-color-palette-teal-50: #0d7680ff;
-  --o3-color-palette-teal-60: #0f8e99ff;
-  --o3-color-palette-teal-70: #12a5b3ff;
-  --o3-color-palette-teal-80: #14bdccff;
-  --o3-color-palette-teal-90: #17d4e6ff;
-  --o3-color-palette-teal-100: #1aecffff;
-  --o3-color-palette-claret-30: #4d081fff;
-  --o3-color-palette-claret-40: #660a29ff;
-  --o3-color-palette-claret-50: #800d33ff;
-  --o3-color-palette-claret-60: #990f3dff;
-  --o3-color-palette-claret-70: #b31247ff;
-  --o3-color-palette-claret-80: #cc1452ff;
-  --o3-color-palette-claret-90: #e6175cff;
-  --o3-color-palette-claret-100: #ff1a66ff;
-  --o3-color-palette-wheat-100: #FFEBD9;
-  --o3-color-palette-mint: #c0efd8;
-  --o3-color-palette-mint-80: #A4CCB8;
-  --o3-color-palette-mint-70: #8FB3A1;
-  --o3-color-palette-mint-60: #7B998A;
-  --o3-color-palette-mint-50: #668073;
-  --o3-color-palette-mint-40: #52665C;
-  --o3-color-palette-mint-30: #3D4D45;
-  --o3-color-use-case-link-text: var(--o3-color-palette-slate);
-  --o3-color-use-case-link-text-hover: var(--o3-color-palette-slate);
-  --o3-color-use-case-link-underline: var(--o3-color-palette-mint-80);
-  --o3-color-use-case-link-underline-hover: var(--o3-color-palette-mint-80);
-  --o3-color-use-case-link-inverse-text: var(--o3-color-palette-mint);
-  --o3-color-use-case-link-inverse-text-hover: var(--o3-color-palette-mint-70);
-  --o3-color-use-case-link-inverse-underline: var(--o3-color-palette-mint);
-  --o3-color-use-case-link-inverse-underline-hover: var(--o3-color-palette-mint-70);
-  --o3-spacing-5xs: 0.25rem;
-  --o3-spacing-4xs: 0.5rem;
-  --o3-spacing-3xs: 0.75rem;
-  --o3-spacing-2xs: 1rem;
-  --o3-spacing-xs: 1.25rem;
-  --o3-spacing-s: 1.5rem;
-  --o3-spacing-m: 2rem;
-  --o3-spacing-l: 2.5rem;
-  --o3-spacing-xl: 3rem;
-  --o3-spacing-2xl: 4rem;
-  --o3-spacing-3xl: 5rem;
-  --o3-spacing-4xl: 6rem;
-  --o3-font-family-metric: 'metric 2 VF';
-  --o3-font-family-financier-display: 'financier display VF';
-  --o3-font-family-georgia: georgia;
-  --o3-font-weight-light: 300;
-  --o3-font-weight-regular: 400;
-  --o3-font-weight-medium: 500;
-  --o3-font-weight-semibold: 700;
+  --o3-font-size-metric2-negative-1: 12px;
+  --o3-font-size-metric2-negative-2: 10px;
+  --o3-font-size-metric2-10: 72px;
+  --o3-font-size-metric2-9: 64px;
+  --o3-font-size-metric2-8: 48px;
+  --o3-font-size-metric2-7: 40px;
+  --o3-font-size-metric2-6: 32px;
+  --o3-font-size-metric2-5: 28px;
+  --o3-font-size-metric2-4: 24px;
+  --o3-font-size-metric2-3: 20px;
+  --o3-font-size-metric2-2: 18px;
+  --o3-font-size-metric2-1: 16px;
+  --o3-font-size-metric2-0: 14px;
+  --o3-font-lineheight-metric2-negative-1: 16;
+  --o3-font-lineheight-metric2-negative-2: 16;
+  --o3-font-lineheight-metric2-10: 84;
+  --o3-font-lineheight-metric2-9: 72;
+  --o3-font-lineheight-metric2-8: 56;
+  --o3-font-lineheight-metric2-7: 48;
+  --o3-font-lineheight-metric2-6: 40;
+  --o3-font-lineheight-metric2-5: 32;
+  --o3-font-lineheight-metric2-4: 32;
+  --o3-font-lineheight-metric2-3: 28;
+  --o3-font-lineheight-metric2-2: 24;
+  --o3-font-lineheight-metric2-1: 20;
+  --o3-font-lineheight-metric2-0: 20;
+  --o3-font-size-negative-1: 14px;
+  --o3-font-size-negative-2: 12px;
+  --o3-font-size-10: 84px;
+  --o3-font-size-9: 72px;
+  --o3-font-size-8: 56px;
+  --o3-font-size-7: 48px;
+  --o3-font-size-6: 40px;
+  --o3-font-size-5: 32px;
+  --o3-font-size-4: 28px;
+  --o3-font-size-3: 24px;
+  --o3-font-size-2: 20px;
+  --o3-font-size-1: 18px;
+  --o3-font-size-0: 16px;
+  --o3-font-lineheight-negative-1: 16;
+  --o3-font-lineheight-negative-2: 16;
+  --o3-font-lineheight-10: 84;
+  --o3-font-lineheight-9: 72;
+  --o3-font-lineheight-8: 56;
+  --o3-font-lineheight-7: 48;
+  --o3-font-lineheight-6: 40;
+  --o3-font-lineheight-5: 32;
+  --o3-font-lineheight-4: 32;
+  --o3-font-lineheight-3: 28;
+  --o3-font-lineheight-2: 24;
+  --o3-font-lineheight-1: 20;
+  --o3-font-lineheight-0: 20;
   --o3-font-weight-bold: 800;
-  --o3-font-lineheight-0: 1.25rem;
-  --o3-font-lineheight-1: 1.25rem;
-  --o3-font-lineheight-2: 1.5rem;
-  --o3-font-lineheight-3: 1.75rem;
-  --o3-font-lineheight-4: 2rem;
-  --o3-font-lineheight-5: 2rem;
-  --o3-font-lineheight-6: 2.5rem;
-  --o3-font-lineheight-7: 3rem;
-  --o3-font-lineheight-8: 3.5rem;
-  --o3-font-lineheight-9: 4.5rem;
-  --o3-font-lineheight-10: 5.25rem;
-  --o3-font-lineheight-negative-2: 1rem;
-  --o3-font-lineheight-negative-1: 1rem;
-  --o3-font-size-0: 1rem;
-  --o3-font-size-1: 1.125rem;
-  --o3-font-size-2: 1.25rem;
-  --o3-font-size-3: 1.5rem;
-  --o3-font-size-4: 1.75rem;
-  --o3-font-size-5: 2rem;
-  --o3-font-size-6: 2.5rem;
-  --o3-font-size-7: 3rem;
-  --o3-font-size-8: 3.5rem;
-  --o3-font-size-9: 4.5rem;
-  --o3-font-size-10: 5.25rem;
-  --o3-font-size-negative-2: 0.75rem;
-  --o3-font-size-negative-1: 0.875rem;
-  --o3-font-lineheight-metric2-0: 1.25rem;
-  --o3-font-lineheight-metric2-1: 1.25rem;
-  --o3-font-lineheight-metric2-2: 1.5rem;
-  --o3-font-lineheight-metric2-3: 1.75rem;
-  --o3-font-lineheight-metric2-4: 2rem;
-  --o3-font-lineheight-metric2-5: 2rem;
-  --o3-font-lineheight-metric2-6: 2.5rem;
-  --o3-font-lineheight-metric2-7: 3rem;
-  --o3-font-lineheight-metric2-8: 3.5rem;
-  --o3-font-lineheight-metric2-9: 4.5rem;
-  --o3-font-lineheight-metric2-10: 5.25rem;
-  --o3-font-lineheight-metric2-negative-2: 1rem;
-  --o3-font-lineheight-metric2-negative-1: 1rem;
-  --o3-font-size-metric2-0: 0.875rem;
-  --o3-font-size-metric2-1: 1rem;
-  --o3-font-size-metric2-2: 1.125rem;
-  --o3-font-size-metric2-3: 1.25rem;
-  --o3-font-size-metric2-4: 1.5rem;
-  --o3-font-size-metric2-5: 1.75rem;
-  --o3-font-size-metric2-6: 2rem;
-  --o3-font-size-metric2-7: 2.5rem;
-  --o3-font-size-metric2-8: 3rem;
-  --o3-font-size-metric2-9: 4rem;
-  --o3-font-size-metric2-10: 4.5rem;
-  --o3-font-size-metric2-negative-2: 0.625rem;
-  --o3-font-size-metric2-negative-1: 0.75rem;
+  --o3-font-weight-semibold: 700;
+  --o3-font-weight-medium: 500;
+  --o3-font-weight-regular: 400;
+  --o3-font-weight-light: 300;
+  --o3-font-family-georgia: georgia;
+  --o3-font-family-financier-display: 'financier display VF';
+  --o3-font-family-metric: 'metric 2 VF';
+  --o3-spacing-4xl: 96px;
+  --o3-spacing-3xl: 80px;
+  --o3-spacing-2xl: 64px;
+  --o3-spacing-xl: 48px;
+  --o3-spacing-l: 40px;
+  --o3-spacing-m: 32px;
+  --o3-spacing-s: 24px;
+  --o3-spacing-xs: 20px;
+  --o3-spacing-2xs: 16px;
+  --o3-spacing-3xs: 12px;
+  --o3-spacing-4xs: 8px;
+  --o3-spacing-5xs: 4px;
+  --o3-color-palette-mint-30: #3d4d45;
+  --o3-color-palette-mint-40: #52665c;
+  --o3-color-palette-mint-50: #668073;
+  --o3-color-palette-mint-60: #7b998a;
+  --o3-color-palette-mint-70: #8fb3a1;
+  --o3-color-palette-mint-80: #a4ccb8;
+  --o3-color-palette-mint: #c0efd8;
+  --o3-color-palette-wheat-100: #ffebd9;
+  --o3-color-palette-claret-100: #ff1a66;
+  --o3-color-palette-claret-90: #e6175c;
+  --o3-color-palette-claret-80: #cc1452;
+  --o3-color-palette-claret-70: #b31247;
+  --o3-color-palette-claret-60: #990f3d;
+  --o3-color-palette-claret-50: #800d33;
+  --o3-color-palette-claret-40: #660a29;
+  --o3-color-palette-claret-30: #4d081f;
+  --o3-color-palette-teal-100: #1aecff;
+  --o3-color-palette-teal-90: #17d4e6;
+  --o3-color-palette-teal-80: #14bdcc;
+  --o3-color-palette-teal-70: #12a5b3;
+  --o3-color-palette-teal-60: #0f8e99;
+  --o3-color-palette-teal-50: #0d7680;
+  --o3-color-palette-teal-40: #0a5e66;
+  --o3-color-palette-teal-30: #08474d;
+  --o3-color-palette-teal-20: #052f33;
+  --o3-color-palette-oxford-100: #1a8cff;
+  --o3-color-palette-oxford-90: #177ee6;
+  --o3-color-palette-oxford-80: #1470cc;
+  --o3-color-palette-oxford-70: #1262b3;
+  --o3-color-palette-oxford-60: #0f5499;
+  --o3-color-palette-oxford-50: #0d4680;
+  --o3-color-palette-oxford-40: #0a3866;
+  --o3-color-palette-oxford-30: #082a4d;
+  --o3-color-palette-white-80: #fffcfa;
+  --o3-color-palette-white-60: #fff9f5;
+  --o3-color-palette-white-40: #fff7ef;
+  --o3-color-palette-white-20: #fff4ea;
+  --o3-color-palette-white-10: #fff2e8;
+  --o3-color-palette-black-90: #1a1817;
+  --o3-color-palette-black-80: #33302e;
+  --o3-color-palette-black-70: #4d4845;
+  --o3-color-palette-black-60: #66605c;
+  --o3-color-palette-black-50: #807973;
+  --o3-color-palette-black-40: #999189;
+  --o3-color-palette-black-30: #b3a9a0;
+  --o3-color-palette-black-20: #ccc1b7;
+  --o3-color-palette-black-10: #e6d9ce;
+  --o3-color-palette-black-5: #f2e5da;
+  --o3-color-palette-matisse-blue: #355778;
+  --o3-color-palette-sky: #cce6ff;
+  --o3-color-palette-lemon: #ffec1a;
+  --o3-color-palette-velvet: #593380;
+  --o3-color-palette-jade: #00994d;
+  --o3-color-palette-wasabi: #96cc28;
+  --o3-color-palette-candy: #ff7faa;
+  --o3-color-palette-wheat: #f2dfce;
+  --o3-color-palette-graphics-dark-blue: #006f9b;
+  --o3-color-palette-crimson: #cc0000;
+  --o3-color-palette-light-blue: #00a0dd;
+  --o3-color-palette-mandarin: #ff8833;
+  --o3-color-palette-transparrent: rgba(255, 255, 255, 0);
+  --o3-color-palette-paper: #fff1e5; /* Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white. */
+  --o3-color-palette-slate: #262a33; /* Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons. */
+  /**
+   * Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.
+   * 
+   * Usage example: opinion branding; opinion topic tags.
+   */
+  --o3-color-palette-oxford: #0f5499;
+  --o3-color-palette-teal: #0d7680; /* Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases. */
+  /**
+   * Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.
+   * 
+   * Usage example: MyFT branding; MyFT CTAs
+   */
+  --o3-color-palette-claret: #990f3d;
+  --o3-color-palette-black: #000000;
+  --o3-color-palette-white: #ffffff;
+  --o3-color-palette-ft-grey: #333333;
+  --o3-color-palette-ft-pink: #fcd0b1; /* FT Pink is used for the FT logo */
+  --o3-color-use-case-link-inverse-underline-hover: var(--o3-color-palette-mint-70);
+  --o3-color-use-case-link-inverse-underline: var(--o3-color-palette-mint);
+  --o3-color-use-case-link-inverse-text-hover: var(--o3-color-palette-mint-70);
+  --o3-color-use-case-link-inverse-text: var(--o3-color-palette-mint);
+  --o3-color-use-case-link-underline-hover: var(--o3-color-palette-mint-80);
+  --o3-color-use-case-link-underline: var(--o3-color-palette-mint-80);
+  --o3-color-use-case-link-text-hover: var(--o3-color-palette-slate);
+  --o3-color-use-case-link-text: var(--o3-color-palette-slate);
 }
 "
 `;
 
 exports[`buildCss() > for icon tokens > should build CSS variables for icon tokens 1`] = `
 "/**
- * Do not edit directly
+ * Do not edit directly, this file was auto-generated.
  */
 
 :root {
@@ -5339,228 +5359,204 @@ exports[`buildCss() > for icon tokens > should build CSS variables for icon toke
 "
 `;
 
-exports[`buildCss() > should build CSS variables for > component tokens, at root > for core brand 1`] = `
-"/**
- * Do not edit directly
- */
-
-
-[data-o3-brand="core"] {
-  --o3-typography-example-standard-color: #000000;
-}
-"
-`;
-
-exports[`buildCss() > should build CSS variables for > component tokens, at root > for core/professional brand 1`] = `
-"/**
- * Do not edit directly
- */
-
-
-[data-o3-brand="professional"] {
-  --o3-typography-example-standard-color: #ffffff;
-}
-"
-`;
-
 exports[`buildCss() > should build CSS variables for > component tokens, scoped > for core brand 1`] = `
 "/**
- * Do not edit directly
+ * Do not edit directly, this file was auto-generated.
  */
 
 
 [data-o3-brand="core"] .o3-button {
-  --o3-button-primary-standard-color: #ffffff;
-  --o3-button-primary-standard-background: #0d7680;
-  --o3-button-primary-standard-border: #ffffff00;
-  --o3-button-primary-standard-hover-background: #095259;
-  --o3-button-primary-standard-hover-color: #ffffff;
-  --o3-button-primary-standard-hover-border: #ffffff00;
-  --o3-button-primary-standard-focus-background: #095259;
-  --o3-button-primary-standard-focus-color: #ffffff;
-  --o3-button-primary-standard-focus-border: #ffffff00;
-  --o3-button-primary-standard-active-background: #052f33;
-  --o3-button-primary-standard-active-color: #ffffff;
-  --o3-button-primary-standard-active-border: #ffffff00;
-  --o3-button-primary-inverse-color: #262a33;
-  --o3-button-primary-inverse-background: #ffffff;
-  --o3-button-primary-inverse-border: #ffffff00;
-  --o3-button-primary-inverse-hover-background: #c9cacc;
-  --o3-button-primary-inverse-hover-color: #262a33;
-  --o3-button-primary-inverse-hover-border: #ffffff00;
-  --o3-button-primary-inverse-focus-background: #c9cacc;
-  --o3-button-primary-inverse-focus-color: #262a33;
-  --o3-button-primary-inverse-focus-border: #ffffff00;
-  --o3-button-primary-inverse-active-background: #9d9fa3;
-  --o3-button-primary-inverse-active-color: #262a33;
-  --o3-button-primary-inverse-active-border: #ffffff00;
-  --o3-button-primary-mono-color: #ffffff;
-  --o3-button-primary-mono-background: #262a33;
-  --o3-button-primary-mono-border: #ffffff00;
-  --o3-button-primary-mono-hover-background: #515257;
-  --o3-button-primary-mono-hover-color: #ffffff;
-  --o3-button-primary-mono-hover-border: #ffffff00;
-  --o3-button-primary-mono-focus-background: #515257;
-  --o3-button-primary-mono-focus-color: #ffffff;
-  --o3-button-primary-mono-focus-border: #ffffff00;
-  --o3-button-primary-mono-active-background: #727071;
-  --o3-button-primary-mono-active-color: #ffffff;
-  --o3-button-primary-mono-active-border: #ffffff00;
-  --o3-button-secondary-standard-color: #0d7680;
-  --o3-button-secondary-standard-background: #ffffff00;
-  --o3-button-secondary-standard-border: #0d7680;
-  --o3-button-secondary-standard-hover-background: rgba(13, 118, 128, 0.1);
-  --o3-button-secondary-standard-hover-color: #0c707a;
-  --o3-button-secondary-standard-hover-border: #0d7680;
-  --o3-button-secondary-standard-focus-background: rgba(13, 118, 128, 0.1);
-  --o3-button-secondary-standard-focus-color: #0c707a;
-  --o3-button-secondary-standard-focus-border: #0d7680;
-  --o3-button-secondary-standard-active-background: #0d7680;
-  --o3-button-secondary-standard-active-color: #ffffff;
-  --o3-button-secondary-standard-active-border: #0d7680;
-  --o3-button-secondary-inverse-color: #ffffff;
-  --o3-button-secondary-inverse-background: #ffffff00;
-  --o3-button-secondary-inverse-border: #ffffff;
-  --o3-button-secondary-inverse-hover-background: rgba(255, 255, 255, 0.15);
-  --o3-button-secondary-inverse-hover-color: #ffffff;
-  --o3-button-secondary-inverse-hover-border: #ffffff;
-  --o3-button-secondary-inverse-focus-background: rgba(255, 255, 255, 0.15);
-  --o3-button-secondary-inverse-focus-color: #ffffff;
-  --o3-button-secondary-inverse-focus-border: #ffffff;
-  --o3-button-secondary-inverse-active-background: #ffffff;
-  --o3-button-secondary-inverse-active-color: #000000;
-  --o3-button-secondary-inverse-active-border: #ffffff;
-  --o3-button-secondary-mono-color: #262a33;
-  --o3-button-secondary-mono-background: #ffffff00;
-  --o3-button-secondary-mono-border: #262a33;
-  --o3-button-secondary-mono-hover-background: rgba(38, 42, 51, 0.15);
-  --o3-button-secondary-mono-hover-color: #262a33;
-  --o3-button-secondary-mono-hover-border: #262a33;
-  --o3-button-secondary-mono-focus-background: rgba(38, 42, 51, 0.15);
-  --o3-button-secondary-mono-focus-color: #262a33;
-  --o3-button-secondary-mono-focus-border: #262a33;
-  --o3-button-secondary-mono-active-background: #262a33;
-  --o3-button-secondary-mono-active-color: #ffffff;
-  --o3-button-secondary-mono-active-border: #262a33;
-  --o3-button-ghost-standard-color: #0d7680;
-  --o3-button-ghost-standard-background: #ffffff00;
-  --o3-button-ghost-standard-border: #ffffff00;
-  --o3-button-ghost-standard-hover-background: rgba(13, 118, 128, 0.1);
-  --o3-button-ghost-standard-hover-color: #0c707a;
-  --o3-button-ghost-standard-hover-border: #ffffff00;
-  --o3-button-ghost-standard-focus-background: rgba(13, 118, 128, 0.1);
-  --o3-button-ghost-standard-focus-color: #0c707a;
-  --o3-button-ghost-standard-focus-border: #ffffff00;
-  --o3-button-ghost-standard-active-background: #0d7680;
-  --o3-button-ghost-standard-active-color: #ffffff;
-  --o3-button-ghost-standard-active-border: #ffffff00;
-  --o3-button-ghost-inverse-color: #ffffff;
-  --o3-button-ghost-inverse-background: #ffffff00;
-  --o3-button-ghost-inverse-border: #ffffff00;
-  --o3-button-ghost-inverse-hover-background: rgba(255, 255, 255, 0.15);
-  --o3-button-ghost-inverse-hover-color: #ffffff;
-  --o3-button-ghost-inverse-hover-border: #ffffff00;
-  --o3-button-ghost-inverse-focus-background: rgba(255, 255, 255, 0.15);
-  --o3-button-ghost-inverse-focus-color: #ffffff;
-  --o3-button-ghost-inverse-focus-border: #ffffff00;
-  --o3-button-ghost-inverse-active-background: #ffffff;
-  --o3-button-ghost-inverse-active-color: #000000;
-  --o3-button-ghost-inverse-active-border: #ffffff00;
-  --o3-button-ghost-mono-color: #262a33;
-  --o3-button-ghost-mono-background: #ffffff00;
-  --o3-button-ghost-mono-border: #ffffff00;
-  --o3-button-ghost-mono-hover-background: rgba(38, 42, 51, 0.15);
-  --o3-button-ghost-mono-hover-color: #262a33;
-  --o3-button-ghost-mono-hover-border: #ffffff00;
-  --o3-button-ghost-mono-focus-background: rgba(38, 42, 51, 0.15);
-  --o3-button-ghost-mono-focus-color: #262a33;
-  --o3-button-ghost-mono-focus-border: #ffffff00;
-  --o3-button-ghost-mono-active-background: #262a33;
+  --o3-button-ghost-mono-active-border: rgba(255, 255, 255, 0);
   --o3-button-ghost-mono-active-color: #ffffff;
-  --o3-button-ghost-mono-active-border: #ffffff00;
+  --o3-button-ghost-mono-active-background: #262a33;
+  --o3-button-ghost-mono-focus-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-mono-focus-color: #262a33;
+  --o3-button-ghost-mono-focus-background: rgba(38, 42, 51, 0.15);
+  --o3-button-ghost-mono-hover-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-mono-hover-color: #262a33;
+  --o3-button-ghost-mono-hover-background: rgba(38, 42, 51, 0.15);
+  --o3-button-ghost-mono-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-mono-background: rgba(255, 255, 255, 0);
+  --o3-button-ghost-mono-color: #262a33;
+  --o3-button-ghost-inverse-active-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-inverse-active-color: #000000;
+  --o3-button-ghost-inverse-active-background: #ffffff;
+  --o3-button-ghost-inverse-focus-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-inverse-focus-color: #ffffff;
+  --o3-button-ghost-inverse-focus-background: rgba(255, 255, 255, 0.15);
+  --o3-button-ghost-inverse-hover-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-inverse-hover-color: #ffffff;
+  --o3-button-ghost-inverse-hover-background: rgba(255, 255, 255, 0.15);
+  --o3-button-ghost-inverse-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-inverse-background: rgba(255, 255, 255, 0);
+  --o3-button-ghost-inverse-color: #ffffff;
+  --o3-button-ghost-standard-active-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-standard-active-color: #ffffff;
+  --o3-button-ghost-standard-active-background: #0d7680;
+  --o3-button-ghost-standard-focus-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-standard-focus-color: #0c707a;
+  --o3-button-ghost-standard-focus-background: rgba(13, 118, 128, 0.1);
+  --o3-button-ghost-standard-hover-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-standard-hover-color: #0c707a;
+  --o3-button-ghost-standard-hover-background: rgba(13, 118, 128, 0.1);
+  --o3-button-ghost-standard-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-standard-background: rgba(255, 255, 255, 0);
+  --o3-button-ghost-standard-color: #0d7680;
+  --o3-button-secondary-mono-active-border: #262a33;
+  --o3-button-secondary-mono-active-color: #ffffff;
+  --o3-button-secondary-mono-active-background: #262a33;
+  --o3-button-secondary-mono-focus-border: #262a33;
+  --o3-button-secondary-mono-focus-color: #262a33;
+  --o3-button-secondary-mono-focus-background: rgba(38, 42, 51, 0.15);
+  --o3-button-secondary-mono-hover-border: #262a33;
+  --o3-button-secondary-mono-hover-color: #262a33;
+  --o3-button-secondary-mono-hover-background: rgba(38, 42, 51, 0.15);
+  --o3-button-secondary-mono-border: #262a33;
+  --o3-button-secondary-mono-background: rgba(255, 255, 255, 0);
+  --o3-button-secondary-mono-color: #262a33;
+  --o3-button-secondary-inverse-active-border: #ffffff;
+  --o3-button-secondary-inverse-active-color: #000000;
+  --o3-button-secondary-inverse-active-background: #ffffff;
+  --o3-button-secondary-inverse-focus-border: #ffffff;
+  --o3-button-secondary-inverse-focus-color: #ffffff;
+  --o3-button-secondary-inverse-focus-background: rgba(255, 255, 255, 0.15);
+  --o3-button-secondary-inverse-hover-border: #ffffff;
+  --o3-button-secondary-inverse-hover-color: #ffffff;
+  --o3-button-secondary-inverse-hover-background: rgba(255, 255, 255, 0.15);
+  --o3-button-secondary-inverse-border: #ffffff;
+  --o3-button-secondary-inverse-background: rgba(255, 255, 255, 0);
+  --o3-button-secondary-inverse-color: #ffffff;
+  --o3-button-secondary-standard-active-border: #0d7680;
+  --o3-button-secondary-standard-active-color: #ffffff;
+  --o3-button-secondary-standard-active-background: #0d7680;
+  --o3-button-secondary-standard-focus-border: #0d7680;
+  --o3-button-secondary-standard-focus-color: #0c707a;
+  --o3-button-secondary-standard-focus-background: rgba(13, 118, 128, 0.1);
+  --o3-button-secondary-standard-hover-border: #0d7680;
+  --o3-button-secondary-standard-hover-color: #0c707a;
+  --o3-button-secondary-standard-hover-background: rgba(13, 118, 128, 0.1);
+  --o3-button-secondary-standard-border: #0d7680;
+  --o3-button-secondary-standard-background: rgba(255, 255, 255, 0);
+  --o3-button-secondary-standard-color: #0d7680;
+  --o3-button-primary-mono-active-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-mono-active-color: #ffffff;
+  --o3-button-primary-mono-active-background: #727071;
+  --o3-button-primary-mono-focus-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-mono-focus-color: #ffffff;
+  --o3-button-primary-mono-focus-background: #515257;
+  --o3-button-primary-mono-hover-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-mono-hover-color: #ffffff;
+  --o3-button-primary-mono-hover-background: #515257;
+  --o3-button-primary-mono-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-mono-background: #262a33;
+  --o3-button-primary-mono-color: #ffffff;
+  --o3-button-primary-inverse-active-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-inverse-active-color: #262a33;
+  --o3-button-primary-inverse-active-background: #9d9fa3;
+  --o3-button-primary-inverse-focus-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-inverse-focus-color: #262a33;
+  --o3-button-primary-inverse-focus-background: #c9cacc;
+  --o3-button-primary-inverse-hover-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-inverse-hover-color: #262a33;
+  --o3-button-primary-inverse-hover-background: #c9cacc;
+  --o3-button-primary-inverse-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-inverse-background: #ffffff;
+  --o3-button-primary-inverse-color: #262a33;
+  --o3-button-primary-standard-active-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-standard-active-color: #ffffff;
+  --o3-button-primary-standard-active-background: #052f33;
+  --o3-button-primary-standard-focus-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-standard-focus-color: #ffffff;
+  --o3-button-primary-standard-focus-background: #095259;
+  --o3-button-primary-standard-hover-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-standard-hover-color: #ffffff;
+  --o3-button-primary-standard-hover-background: #095259;
+  --o3-button-primary-standard-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-standard-background: #0d7680;
+  --o3-button-primary-standard-color: #ffffff;
 }
 "
 `;
 
 exports[`buildCss() > should build CSS variables for > component tokens, scoped > for core/professional brand 1`] = `
 "/**
- * Do not edit directly
+ * Do not edit directly, this file was auto-generated.
  */
 
 
 [data-o3-brand="professional"] .o3-button {
-  --o3-button-primary-standard-color: #ffffff;
-  --o3-button-primary-standard-background: #262a33;
-  --o3-button-primary-standard-border: #ffffff00;
-  --o3-button-primary-standard-hover-background: #515257;
-  --o3-button-primary-standard-hover-color: #ffffff;
-  --o3-button-primary-standard-hover-border: #ffffff00;
-  --o3-button-primary-standard-focus-background: #515257;
-  --o3-button-primary-standard-focus-color: #ffffff;
-  --o3-button-primary-standard-focus-border: #ffffff00;
-  --o3-button-primary-standard-active-background: #727071;
-  --o3-button-primary-standard-active-color: #ffffff;
-  --o3-button-primary-standard-active-border: #ffffff00;
-  --o3-button-primary-inverse-color: #262a33;
-  --o3-button-primary-inverse-background: #c0efd8;
-  --o3-button-primary-inverse-border: #ffffff00;
-  --o3-button-primary-inverse-hover-background: #9abeaf;
-  --o3-button-primary-inverse-hover-color: #262a33;
-  --o3-button-primary-inverse-hover-border: #ffffff00;
-  --o3-button-primary-inverse-focus-background: #9abeaf;
-  --o3-button-primary-inverse-focus-color: #262a33;
-  --o3-button-primary-inverse-focus-border: #ffffff00;
-  --o3-button-primary-inverse-active-background: #7b968e;
-  --o3-button-primary-inverse-active-color: #262a33;
-  --o3-button-primary-inverse-active-border: #ffffff00;
-  --o3-button-secondary-standard-color: #262a33;
-  --o3-button-secondary-standard-background: #ffffff00;
-  --o3-button-secondary-standard-border: #262a33;
-  --o3-button-secondary-standard-hover-background: rgba(38, 42, 51, 0.15);
-  --o3-button-secondary-standard-hover-color: #262a33;
-  --o3-button-secondary-standard-hover-border: #262a33;
-  --o3-button-secondary-standard-focus-background: rgba(38, 42, 51, 0.15);
-  --o3-button-secondary-standard-focus-color: #262a33;
-  --o3-button-secondary-standard-focus-border: #262a33;
-  --o3-button-secondary-standard-active-background: #262a33;
-  --o3-button-secondary-standard-active-color: #ffffff;
-  --o3-button-secondary-standard-active-border: #262a33;
-  --o3-button-secondary-inverse-color: #c0efd8;
-  --o3-button-secondary-inverse-background: #ffffff00;
-  --o3-button-secondary-inverse-border: #c0efd8;
-  --o3-button-secondary-inverse-hover-background: rgba(192, 239, 216, 0.15);
-  --o3-button-secondary-inverse-hover-color: #c0efd8;
-  --o3-button-secondary-inverse-hover-border: #c0efd8;
-  --o3-button-secondary-inverse-focus-background: rgba(192, 239, 216, 0.15);
-  --o3-button-secondary-inverse-focus-color: #c0efd8;
-  --o3-button-secondary-inverse-focus-border: #c0efd8;
-  --o3-button-secondary-inverse-active-background: #c0efd8;
-  --o3-button-secondary-inverse-active-color: #000000;
-  --o3-button-secondary-inverse-active-border: #c0efd8;
-  --o3-button-ghost-standard-color: #262a33;
-  --o3-button-ghost-standard-background: #ffffff00;
-  --o3-button-ghost-standard-border: #ffffff00;
-  --o3-button-ghost-standard-hover-background: rgba(38, 42, 51, 0.15);
-  --o3-button-ghost-standard-hover-color: #262a33;
-  --o3-button-ghost-standard-hover-border: #ffffff00;
-  --o3-button-ghost-standard-focus-background: rgba(38, 42, 51, 0.15);
-  --o3-button-ghost-standard-focus-color: #262a33;
-  --o3-button-ghost-standard-focus-border: #ffffff00;
-  --o3-button-ghost-standard-active-background: #262a33;
-  --o3-button-ghost-standard-active-color: #ffffff;
-  --o3-button-ghost-standard-active-border: #ffffff00;
-  --o3-button-ghost-inverse-color: #c0efd8;
-  --o3-button-ghost-inverse-background: #ffffff00;
-  --o3-button-ghost-inverse-border: #ffffff00;
-  --o3-button-ghost-inverse-hover-background: rgba(192, 239, 216, 0.15);
-  --o3-button-ghost-inverse-hover-color: #c0efd8;
-  --o3-button-ghost-inverse-hover-border: #ffffff00;
-  --o3-button-ghost-inverse-focus-background: rgba(192, 239, 216, 0.15);
-  --o3-button-ghost-inverse-focus-color: #c0efd8;
-  --o3-button-ghost-inverse-focus-border: #ffffff00;
-  --o3-button-ghost-inverse-active-background: #c0efd8;
+  --o3-button-ghost-inverse-active-border: rgba(255, 255, 255, 0);
   --o3-button-ghost-inverse-active-color: #000000;
-  --o3-button-ghost-inverse-active-border: #ffffff00;
+  --o3-button-ghost-inverse-active-background: #c0efd8;
+  --o3-button-ghost-inverse-focus-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-inverse-focus-color: #c0efd8;
+  --o3-button-ghost-inverse-focus-background: rgba(192, 239, 216, 0.15);
+  --o3-button-ghost-inverse-hover-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-inverse-hover-color: #c0efd8;
+  --o3-button-ghost-inverse-hover-background: rgba(192, 239, 216, 0.15);
+  --o3-button-ghost-inverse-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-inverse-background: rgba(255, 255, 255, 0);
+  --o3-button-ghost-inverse-color: #c0efd8;
+  --o3-button-ghost-standard-active-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-standard-active-color: #ffffff;
+  --o3-button-ghost-standard-active-background: #262a33;
+  --o3-button-ghost-standard-focus-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-standard-focus-color: #262a33;
+  --o3-button-ghost-standard-focus-background: rgba(38, 42, 51, 0.15);
+  --o3-button-ghost-standard-hover-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-standard-hover-color: #262a33;
+  --o3-button-ghost-standard-hover-background: rgba(38, 42, 51, 0.15);
+  --o3-button-ghost-standard-border: rgba(255, 255, 255, 0);
+  --o3-button-ghost-standard-background: rgba(255, 255, 255, 0);
+  --o3-button-ghost-standard-color: #262a33;
+  --o3-button-secondary-inverse-active-border: #c0efd8;
+  --o3-button-secondary-inverse-active-color: #000000;
+  --o3-button-secondary-inverse-active-background: #c0efd8;
+  --o3-button-secondary-inverse-focus-border: #c0efd8;
+  --o3-button-secondary-inverse-focus-color: #c0efd8;
+  --o3-button-secondary-inverse-focus-background: rgba(192, 239, 216, 0.15);
+  --o3-button-secondary-inverse-hover-border: #c0efd8;
+  --o3-button-secondary-inverse-hover-color: #c0efd8;
+  --o3-button-secondary-inverse-hover-background: rgba(192, 239, 216, 0.15);
+  --o3-button-secondary-inverse-border: #c0efd8;
+  --o3-button-secondary-inverse-background: rgba(255, 255, 255, 0);
+  --o3-button-secondary-inverse-color: #c0efd8;
+  --o3-button-secondary-standard-active-border: #262a33;
+  --o3-button-secondary-standard-active-color: #ffffff;
+  --o3-button-secondary-standard-active-background: #262a33;
+  --o3-button-secondary-standard-focus-border: #262a33;
+  --o3-button-secondary-standard-focus-color: #262a33;
+  --o3-button-secondary-standard-focus-background: rgba(38, 42, 51, 0.15);
+  --o3-button-secondary-standard-hover-border: #262a33;
+  --o3-button-secondary-standard-hover-color: #262a33;
+  --o3-button-secondary-standard-hover-background: rgba(38, 42, 51, 0.15);
+  --o3-button-secondary-standard-border: #262a33;
+  --o3-button-secondary-standard-background: rgba(255, 255, 255, 0);
+  --o3-button-secondary-standard-color: #262a33;
+  --o3-button-primary-inverse-active-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-inverse-active-color: #262a33;
+  --o3-button-primary-inverse-active-background: #7b968e;
+  --o3-button-primary-inverse-focus-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-inverse-focus-color: #262a33;
+  --o3-button-primary-inverse-focus-background: #9abeaf;
+  --o3-button-primary-inverse-hover-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-inverse-hover-color: #262a33;
+  --o3-button-primary-inverse-hover-background: #9abeaf;
+  --o3-button-primary-inverse-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-inverse-background: #c0efd8;
+  --o3-button-primary-inverse-color: #262a33;
+  --o3-button-primary-standard-active-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-standard-active-color: #ffffff;
+  --o3-button-primary-standard-active-background: #727071;
+  --o3-button-primary-standard-focus-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-standard-focus-color: #ffffff;
+  --o3-button-primary-standard-focus-background: #515257;
+  --o3-button-primary-standard-hover-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-standard-hover-color: #ffffff;
+  --o3-button-primary-standard-hover-background: #515257;
+  --o3-button-primary-standard-border: rgba(255, 255, 255, 0);
+  --o3-button-primary-standard-background: #262a33;
+  --o3-button-primary-standard-color: #ffffff;
 }
 "
 `;

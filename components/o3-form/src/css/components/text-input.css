@@ -1,5 +1,3 @@
-@import "@financial-times/o3-foundation/grid.css";
-
 .o3-form-text-input {
 	border: var(--_o3-form-text-input-border);
 	padding: var(--o3-spacing-3xs) var(--o3-spacing-2xs);

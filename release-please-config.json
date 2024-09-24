@@ -59,7 +59,6 @@
 		"components/o3-form": {},
 		"components/o3-foundation": {},
 		"components/o3-tooltip": {},
-		"components/o3-typography": {},
 		"libraries/ftdomdelegate": {},
 		"libraries/math": {},
 		"libraries/o-autoinit": {},

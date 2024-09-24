@@ -40,55 +40,55 @@
       "lineheight": {
         "0": {
           "value": "20",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "1": {
           "value": "20",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "2": {
           "value": "24",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "3": {
           "value": "28",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "4": {
           "value": "32",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "5": {
           "value": "32",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "6": {
           "value": "40",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "7": {
           "value": "48",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "8": {
           "value": "56",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "9": {
           "value": "72",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "10": {
           "value": "84",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "negative-2": {
           "value": "16",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "negative-1": {
           "value": "16",
-          "type": "lineHeights"
+          "type": "dimension"
         }
       },
       "size": {
@@ -148,55 +148,55 @@
       "lineheight-metric2": {
         "0": {
           "value": "20",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "1": {
           "value": "24",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "2": {
           "value": "28",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "3": {
           "value": "32",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "4": {
           "value": "32",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "5": {
           "value": "40",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "6": {
           "value": "48",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "7": {
           "value": "56",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "8": {
           "value": "72",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "9": {
           "value": "84",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "negative-3": {
           "value": "16",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "negative-2": {
           "value": "16",
-          "type": "lineHeights"
+          "type": "dimension"
         },
         "negative-1": {
           "value": "20",
-          "type": "lineHeights"
+          "type": "dimension"
         }
       },
       "size-metric2": {
