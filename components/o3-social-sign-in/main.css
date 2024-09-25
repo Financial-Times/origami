@@ -1,5 +1,5 @@
 .o3-social-sign-in-button {
-    --_o3-social-sign-in-min-width: 80px;
+    --_o3-social-sign-in-min-width: 140px;
     --_o3-social-sign-in-min-height: 40px;
 
     --_o3-social-sign-in-block-padding: var(--o3-spacing-4xs);
@@ -18,8 +18,8 @@
 
     min-width: var(--_o3-social-sign-in-min-width);
     /* Width based on content by default, until set to `inital` */
-    --o3-button-fluid: ;
-    width: var(--o3-button-fluid, 100%);
+    --o3-social-sign-in-fluid: ;
+    width: var(--o3-social-sign-in-fluid, 100%);
     min-height: var(--_o3-social-sign-in-min-height);
     padding: 0 var(--_o3-social-sign-in-inline-padding-end) 0 calc(var(--_o3-social-sign-in-inline-padding-start) + var(--o3-spacing-l));
     display: inline-flex;
