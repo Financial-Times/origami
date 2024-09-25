@@ -21,7 +21,7 @@
     --o3-button-fluid: ;
     width: var(--o3-button-fluid, 100%);
     min-height: var(--_o3-social-sign-in-min-height);
-    padding: 0 var(--_o3-social-sign-in-inline-padding-end) 0 var(--_o3-social-sign-in-inline-padding-start);
+    padding: 0 var(--_o3-social-sign-in-inline-padding-end) 0 calc(var(--_o3-social-sign-in-inline-padding-start) + var(--o3-spacing-l));
     display: inline-flex;
 
     align-items: center;
@@ -51,11 +51,12 @@
     content: var(--_o3-social-sign-in-icon);
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: absolute;
 
     width: var(--_o3-icon-size);
     height: var(--_o3-icon-size);
     margin-right: var(--o3-spacing-4xs);
+    left: var(--o3-spacing-l);
 
     display: inline-flex;
 }
