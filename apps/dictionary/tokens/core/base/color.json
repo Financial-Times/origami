@@ -146,10 +146,6 @@
           },
           "description": "Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white."
         },
-        "transparrent": {
-          "value": "#ffffff00",
-          "type": "color"
-        },
         "mandarin": {
           "origamiKeys": [
             "palette",

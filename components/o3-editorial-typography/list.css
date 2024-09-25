@@ -36,5 +36,5 @@
 	counter-increment: item;
 	font-feature-settings: 'tnum';
 	font-weight: var(--o3-font-weight-semibold);
-	font-size: var(--o3-font-size-metric2-2);
+	font-size: var(--o3-font-size-metric2-1);
 }

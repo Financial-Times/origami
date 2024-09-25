@@ -14,9 +14,19 @@ const storybookIdSubheading = `${brand}-o3-editorial-typography--subheading`;
 const storybookIdLabel = `${brand}-o3-editorial-typography--label`;
 ---
 
-
 <h4>Headline</h4>
-<p>For titles and introductions of Feature posts and other new stories. This is responsive.
+<p>
+	For titles and introductions of Feature posts and other new stories. Usage
+	example: <a
+		href="https://www.ft.com/content/0d1326b7-8c83-46bc-a9c2-56ce7bb1a109#:~:text=Add%20to%20myFT-,Keir%20Starmer%20defends%20green%20spending%20U%2Dturn%20as%20Sunak%20claims%20Labour%20policy%20is%20in%20%E2%80%98tatters%E2%80%99,-Opposition%20leader%20wants"
+	>
+		Top Stories
+	</a>, <a
+		href="https://www.ft.com/content/65593173-7f85-47f6-a253-29cc374fd3ca#:~:text=Opinion%20Corporate%20governance-,Sunak%20take%20note%3A%20diluting%20corporate%20governance%20has%20consequences,-Proposed%20reforms%20to"
+	>
+		Opinion
+	</a>
+</p>
 
 <Preview component={HeadlinePreview} />
 <FigmaSbLinks storybookId={storybookIdHeadline} />
@@ -29,11 +39,10 @@ const storybookIdLabel = `${brand}-o3-editorial-typography--label`;
 
 <h5>Chapter</h5>
 
-<p>For in-page titles and chapters.</p>
+<p>For in-page titles / chapters.</p>
 
 <Preview component={Chapter} />
 <FigmaSbLinks storybookId={storybookIdChapter} />
-
 
 <h5>Subheading</h5>
 
@@ -42,11 +51,11 @@ const storybookIdLabel = `${brand}-o3-editorial-typography--label`;
 <Preview component={Subheading} />
 <FigmaSbLinks storybookId={storybookIdSubheading} />
 
-
 <h5>Label</h5>
 
-<p>To provide short details about a chapter, kickers (additional headline)
-just above a chapter.
+<p>
+	To provide short details about a chapter, kickers (additional headline) just
+	above a chapter.
 </p>
 
 <Preview component={Label} />

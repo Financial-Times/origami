@@ -1,12 +1,29 @@
+import {useEffect} from 'react';
 import type {StoryObj} from '@storybook/react';
 import {Form, CheckBoxGroup, CheckBoxItem, CheckBox} from '../src/tsx/index';
+import type {CheckBoxProps} from '../src/types/index';
 
-type CheckBoxStory = StoryObj<typeof CheckBox>;
+type CheckBoxStoryProps = CheckBoxProps & {
+  enableIndeterminate?: boolean;
+};
+
+type CheckBoxStory = StoryObj<CheckBoxStoryProps>;
+
 const CheckBoxTemplate: CheckBoxStory = {
-	render: args => {
+	render: (args) => {
+		useEffect(() => {
+      const inputEl = document.getElementById(args.inputId) as HTMLInputElement | null;
+      if (inputEl) {
+        inputEl.indeterminate = args.enableIndeterminate || false;
+      }
+    }, [args.inputId, args.enableIndeterminate]);
+
+    // Omit enableIndeterminate when passing props to CheckBox
+    const { enableIndeterminate, ...checkBoxProps } = args;
+
 		return (
 			<Form>
-				<CheckBox {...args} />
+				<CheckBox {...checkBoxProps} />
 			</Form>
 		);
 	},
@@ -76,6 +93,7 @@ export const CheckBoxStory: CheckBoxStory = {
 			disabled: false,
 			onChange: () => {},
 		},
+		enableIndeterminate: false,
 	},
 };
 

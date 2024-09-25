@@ -7,6 +7,6 @@
 		"email": "origami.support@ft.com",
 		"slack": "#origami-support"
 	},
-	"supportStatus": "experimental",
+	"supportStatus": "deprecated",
 	"browserFeatures": {}
 }

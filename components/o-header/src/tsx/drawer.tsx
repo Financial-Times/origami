@@ -1,11 +1,19 @@
-import { AskFtButton } from './components/ask-ft-button';
+import {AskFtButton} from './components/ask-ft-button';
 import {TNavEdition, TNavAction, TNavMenuItem, THeaderProps} from './Props';
 
-export function Drawer({data, showAskButton, userIsLoggedIn, userIsSubscribed }: THeaderProps) {
+export function Drawer({
+	data,
+	showAskButton,
+	userIsLoggedIn,
+	userIsSubscribed,
+}: THeaderProps) {
 	const editions = data.editions;
 	const subscribeAction = data.subscribeAction;
 	const navItems = data.drawer.items;
 	const userData = userIsLoggedIn ? data.user : data.anon;
+	const showSubscribeButton = !userIsSubscribed && subscribeAction;
+	const showDrawerActions =
+		showAskButton || showSubscribeButton;
 	return (
 		<div
 			className="o-header__drawer"
@@ -21,15 +29,19 @@ export function Drawer({data, showAskButton, userIsLoggedIn, userIsSubscribed }:
 					otherEditions={editions.others}
 				/>
 				<DrawerSearch />
-				{showAskButton && 
-					<AskFtButton
-						variant="drawer"
-						dataTrackable="ask-ft-button-drawer"
-						id="ask-ft-button-drawer"
-					/>
-				}
-				{!userIsSubscribed && subscribeAction && (
-					<DrawerAction action={subscribeAction} />
+				{showDrawerActions && (
+					<div className="o-header__drawer-actions">
+						{showAskButton && (
+							<AskFtButton
+								variant="drawer"
+								dataTrackable="ask-ft-button-drawer"
+								id="ask-ft-button-drawer"
+							/>
+						)}
+						{showSubscribeButton && (
+							<ActionButton action={subscribeAction} />
+						)}
+					</div>
 				)}
 				<DrawerMenu navItems={navItems} />
 				<DrawerUser {...userData} />
@@ -61,13 +73,11 @@ function DrawerTools({
 	);
 }
 
-function DrawerAction({action}: {action: TNavAction}) {
+function ActionButton({action}: {action: TNavAction}) {
 	return (
-		<div className="o-header__drawer-actions">
-			<a className="o-header__drawer-button" role="button" href={action.url}>
-				{action.name}
-			</a>
-		</div>
+		<a className="o-header__drawer-button" role="button" href={action.url}>
+			{action.name}
+		</a>
 	);
 }
 

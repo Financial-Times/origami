@@ -12,6 +12,7 @@
 			"core/use-case/typography": "enabled",
 			"core/use-case/typography-editorial": "enabled",
 			"core/use-case/color": "enabled",
+			"core/use-case/typography": "enabled",
 			"core/use-case/focus": "enabled"
 		},
 		"$figmaStyleReferences": {
@@ -218,6 +219,7 @@
 			"core/use-case/color": "enabled",
 			"core/use-case/typography": "enabled",
 			"core/use-case/typography-editorial": "enabled",
+			"core/use-case/typography": "enabled",
 			"core/use-case/focus": "enabled"
 		},
 		"$figmaStyleReferences": {

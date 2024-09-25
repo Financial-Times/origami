@@ -63,6 +63,8 @@
 				background-clip: content-box;
 				border: 4px solid transparent;
 			}
+
+			overscroll-behavior: none;
 		}
 	}
 
@@ -90,6 +92,7 @@
 			.o-header__drawer-menu-link {
 				padding-left: 12px;
 				text-decoration: underline;
+				text-decoration-color: oColorsByName('black-80');
 			}
 
 			.o-header__drawer-current-edition {
@@ -127,7 +130,7 @@
 	// Actions
 	//
 	.o-header__drawer-actions {
-		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+		padding: 0 $_o-header-drawer-padding-x calc($_o-header-drawer-padding-y + 4px) $_o-header-drawer-padding-x;
 	}
 
 	.o-header__drawer-button {
@@ -138,7 +141,7 @@
 	// Search
 	//
 	.o-header__drawer-search {
-		padding: 0px $_o-header-drawer-padding-x;
+		padding: 0 $_o-header-drawer-padding-x calc($_o-header-drawer-padding-y + 4px) $_o-header-drawer-padding-x;
 
 		@include oGridRespondTo('M') {
 			display: none;
@@ -384,7 +387,6 @@
 			display: none;
 		}
 
-		margin: $_o-header-drawer-padding-y $_o-header-drawer-padding-x 0 $_o-header-drawer-padding-x;
 		justify-content: center;
 	}
 

@@ -1,4 +1,5 @@
 import type {Meta} from '@storybook/react';
+import links from "@financial-times/o3-figma-sb-links"
 import {CheckBox as CheckBoxTsx} from '../../src/tsx/index';
 import '../../src/css/brands/whitelabel.css';
 import {CheckBoxStory} from '../story-template';
@@ -15,6 +16,10 @@ export default {
 	],
 	parameters: {
 		backgrounds: {disable: true},
+		design: {
+			type: 'figma',
+			url: links["whitelabel-o3-form--check-box"].figma
+		}
 	},
 } as Meta;
 

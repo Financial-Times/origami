@@ -18,6 +18,7 @@ export interface TextInputProps extends FormFieldProps{
 export interface CheckBoxProps extends BaseInputProps {
 	inputId: string;
 	checkboxLabel: string; // Label specifically for the checkbox
+	feedback?: FeedbackProps;
 }
 export interface FormFieldsetProps {
 	label: string;

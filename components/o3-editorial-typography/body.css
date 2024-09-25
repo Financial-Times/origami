@@ -2,15 +2,15 @@
 	margin: 0 0 var(--o3-spacing-s);
 }
 [class^='o3-editorial-typography-'] {
-	--_o3-body-font-family: var(--_o3-editorial-typography-body-s-font-family);
-	--_o3-body-font-size: var(--_o3-editorial-typography-body-s-font-size);
-	--_o3-body-font-weight: var(--_o3-editorial-typography-body-s-font-weight);
-	--_o3-body-line-height: var(--_o3-editorial-typography-body-s-line-height);
+	--_o3-body-font-family: var(--_o3-editorial-typography-article-body-s-font-family);
+	--_o3-body-font-size: var(--_o3-editorial-typography-article-body-s-font-size);
+	--_o3-body-font-weight: var(--_o3-editorial-typography-article-body-s-font-weight);
+	--_o3-body-line-height: var(--_o3-editorial-typography-article-body-s-line-height);
 	@media screen and (min-width: 980px) {
-		--_o3-body-font-family: var(--_o3-editorial-typography-body-l-font-family);
-		--_o3-body-font-size: var(--_o3-editorial-typography-body-l-font-size);
-		--_o3-body-font-weight: var(--_o3-editorial-typography-body-l-font-weight);
-		--_o3-body-line-height: var(--_o3-editorial-typography-body-l-line-height);
+		--_o3-body-font-family: var(--_o3-editorial-typography-article-body-l-font-family);
+		--_o3-body-font-size: var(--_o3-editorial-typography-article-body-l-font-size);
+		--_o3-body-font-weight: var(--_o3-editorial-typography-article-body-l-font-weight);
+		--_o3-body-line-height: var(--_o3-editorial-typography-article-body-l-line-height);
 	}
 }
 .o3-editorial-typography-body {
