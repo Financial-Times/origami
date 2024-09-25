@@ -3,8 +3,8 @@
     --_o3-social-sign-in-min-height: 40px;
 
     --_o3-social-sign-in-block-padding: var(--o3-spacing-4xs);
-    --_o3-social-sign-in-inline-padding-start: var(--o3-spacing-2xs);
-    --_o3-social-sign-in-inline-padding-end: var(--o3-spacing-2xs);
+    --_o3-social-sign-in-inline-padding-start: var(--o3-spacing-s);
+    --_o3-social-sign-in-inline-padding-end: var(--o3-spacing-m);
 
     --_o3-social-sign-in-font-size: var(--o3-font-size-negative-1);
     --_o3-social-sign-in-lineheight: var(--o3-font-lineheight-negative-1);
@@ -56,7 +56,7 @@
     width: var(--_o3-icon-size);
     height: var(--_o3-icon-size);
     margin-right: var(--o3-spacing-4xs);
-    left: var(--o3-spacing-l);
+    left: var(--_o3-social-sign-in-inline-padding-start);
 
     display: inline-flex;
 }
