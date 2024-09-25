@@ -18,17 +18,21 @@ function init(headerEl) {
 	function checkCurrentPosition() {
 		const wrapperWidth = wrapper.clientWidth;
 		const currentSelection = wrapper.querySelector('[aria-current]');
+
 		if (currentSelection) {
-			const currentSelectionEnd = currentSelection.getBoundingClientRect().right;
+			const wrapperRect = wrapper.getBoundingClientRect();
+			const currentSelectionRect = currentSelection.getBoundingClientRect();
+			const currentSelectionEnd = currentSelectionRect.right - wrapperRect.left;
 
 			//if the current selection is wider than the end of the wrapper
 			if (currentSelectionEnd > wrapperWidth) {
-				// check by how much
-				let diff = currentSelectionEnd - wrapperWidth;
-				// if the difference is greater than half of the wrapper, scroll to the end of the current selection.
-				diff = diff > wrapperWidth / 2 ? currentSelectionEnd : wrapperWidth / 2;
+				const RIGHT_ARROW_BUTTON_OFFSET = 25;
 
-				wrapper.scrollTo(diff, 0);
+				//calculate offscreen distance of the selected item and include buffer for the right arrow button
+				const scrollDistance =
+					currentSelectionEnd - wrapperWidth + RIGHT_ARROW_BUTTON_OFFSET;
+
+				wrapper.scrollTo(scrollDistance, 0);
 			}
 		}
 		scrollable();
