@@ -19,18 +19,19 @@ their sign-in flows:
 * [Building a custom Google Sign-In button](https://developers.google.com/identity/sign-in/web/build-button)
 
 ```html
-  <a
-	id="appleid-signin"
-	class="o3-social-sign-in-button o3-social-sign-in-button--apple"
+
+<button
+        id="appleid-signin"
+        class="o3-social-sign-in-button o3-social-sign-in-button--apple"
 >
-	Sign up with Apple
-</a>
-<a
-	id="gSignInWrapper"
-	class="o3-social-sign-in-button o3-social-sign-in-button--google"
+  Sign up with Apple
+</button>
+<button
+        id="gSignInWrapper"
+        class="o3-social-sign-in-button o3-social-sign-in-button--google"
 >
-	Sign up with Google
-</a>
+  Sign up with Google
+</button>
 ```
 
 ```tsx
