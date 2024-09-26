@@ -60,3 +60,13 @@
 .o3-social-sign-in-button--google > .o3-social-sign-in-button__icon {
     margin-top: 4px;
 }
+
+@media (forced-colors: active) {
+    .o3-social-sign-in-button > .o3-social-sign-in-button__icon {
+        display: none;
+    }
+
+    .o3-social-sign-in-button {
+        padding-right: var(--_o3-social-sign-in-inline-padding-start)
+    }
+}
