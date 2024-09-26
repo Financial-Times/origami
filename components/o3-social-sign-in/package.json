@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Financial-Times/origami/issues"
   },
-  "homepage": "https://github.com/Financial-Times/origami#readme"
+  "homepage": "https://github.com/Financial-Times/origami#readme",
+  "dependencies": {
+    "@financial-times/o3-foundation": "^2.0.0"
+  }
 }
