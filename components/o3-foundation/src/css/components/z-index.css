@@ -2,6 +2,7 @@
 	--o3-z-base: 1; /* The base layer, for most elements. */
 	--o3-z-popover: 10; /* Popovers which overlay content, such as select / autocomplete drop downs, calendar widgets, tooltips. */
 	--o3-z-navigation-popover: 20; /* Navigation which overlays content, such as sticky headers and drawers. */
-	--o3-z-message-popover: 30; /* Non-modal, messaging overlays includes banners and toasts. */
+	--o3-z-message-polite-popover: 30; /* Non-modal, non-critical messaging overlays such as banners. */
+	--o3-z-message-service-popover: 35; /* Non-modal, messaging overlays for important service or status messages such as toasts. */
 	--o3-z-modal-dialog: 40; /* Modal dialogue / overlays which prevent integration with underlying content. */
 }

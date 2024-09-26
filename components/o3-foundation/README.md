@@ -333,7 +333,8 @@ We recommend to avoid setting `z-index`. Where needed, Origami provide some stan
 - `--o3-z-base`: The base layer, for most elements where `z-index` is unavailable.
 - `--o3-z-popover`: Popovers which overlay content, such as select, autocomplete drop downs, calendar widgets, tooltips.
 - `--o3-z-nav-popover`: Navigation which overlays content, such as sticky headers and drawers.
-- `--o3-z-message-popover`: Non-modal messages which overlay content, including banners and toasts.
+- `--o3-z-message-polite-popover`: Non-modal, non-critical messaging overlays such as marketing banners.
+- `--o3-z-message-service-popover`: Non-modal, messaging overlays for important service or status messages such as toasts.
 - `--o3-z-modal-dialog`: Modal dialogue / overlays which prevent integration with underlying content.
 
 Where two elements fall into the same category and overlap, you may increment by one:
