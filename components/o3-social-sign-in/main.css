@@ -1,46 +1,30 @@
 .o3-social-sign-in-button {
-    --_o3-social-sign-in-min-width: 140px;
-    --_o3-social-sign-in-min-height: 40px;
-
     --_o3-social-sign-in-block-padding: var(--o3-spacing-4xs);
-    --_o3-social-sign-in-inline-padding-start: var(--o3-spacing-s);
-    --_o3-social-sign-in-inline-padding-end: var(--o3-spacing-m);
-
-    --_o3-social-sign-in-font-size: var(--o3-font-size-negative-1);
-    --_o3-social-sign-in-lineheight: var(--o3-font-lineheight-negative-1);
-
-    --_o3-social-sign-in-border-size: 1px;
     --_o3-icon-size: calc(
             var(--_o3-social-sign-in-min-height) - (var(--_o3-social-sign-in-block-padding) * 2)
     );
 
-    --_o3-social-sign-in-font-weight: var(--o3-font-weight-semibold);
-
-    min-width: var(--_o3-social-sign-in-min-width);
+    min-width: 140px;
     /* Width based on content by default, until set to `inital` */
     --o3-social-sign-in-fluid: ;
     width: var(--o3-social-sign-in-fluid, 100%);
-    min-height: var(--_o3-social-sign-in-min-height);
-    padding: 0 var(--_o3-social-sign-in-inline-padding-end) 0 var(--_o3-social-sign-in-inline-padding-start);
+    min-height: 40px;
+    padding: 0 var(--o3-spacing-m) 0 var(--o3-spacing-s);
     display: inline-flex;
     gap: var(--o3-spacing-s);
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
 
-    font-size: var(--_o3-social-sign-in-font-size);
-    line-height: var(--_o3-social-sign-in-lineheight);
-    font-weight: var(--_o3-social-sign-in-font-weight);
+    font-size: var(--o3-font-size-negative-1);
+    line-height: var(--o3-font-lineheight-negative-1);
+    font-weight: var(--o3-font-weight-semibold);
     font-family: var(--o3-font-family-metric), sans-serif;
 
-    border: var(--_o3-social-sign-in-border-size) solid var(--_o3-social-sign-in-border-color);
+    border: 1px solid var(--_o3-social-sign-in-border-color);
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-
-    transition: 0.3s background-color, 0.15s color ease-out,
-    0.15s border-color ease-out;
-    appearance: none;
 
     color: var(--_o3-social-sign-in-color);
     background: var(--_o3-social-sign-in-background-color);
