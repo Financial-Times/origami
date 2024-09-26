@@ -1,5 +1,3 @@
-@import '@financial-times/o3-foundation/css/core.css'; /* We sholudn't use core css here, it introduces tokens specific to a brand when they are not necessary */
-
 .o3-social-sign-in-button {
     --_o3-social-sign-in-min-width: 140px;
     --_o3-social-sign-in-min-height: 40px;
@@ -23,13 +21,12 @@
     --o3-social-sign-in-fluid: ;
     width: var(--o3-social-sign-in-fluid, 100%);
     min-height: var(--_o3-social-sign-in-min-height);
-    padding: 0 var(--_o3-social-sign-in-inline-padding-end) 0 calc(var(--_o3-social-sign-in-inline-padding-start) + var(--o3-spacing-l));
+    padding: 0 var(--_o3-social-sign-in-inline-padding-end) 0 var(--_o3-social-sign-in-inline-padding-start);
     display: inline-flex;
-
+    gap: var(--o3-spacing-s);
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     box-sizing: border-box;
-    vertical-align: middle;
 
     font-size: var(--_o3-social-sign-in-font-size);
     line-height: var(--_o3-social-sign-in-lineheight);
@@ -49,29 +46,17 @@
     background: var(--_o3-social-sign-in-background-color);
 }
 
-.o3-social-sign-in-button::before {
-    content: var(--_o3-social-sign-in-icon);
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-
-    width: var(--_o3-icon-size);
-    height: var(--_o3-icon-size);
-    margin-right: var(--o3-spacing-4xs);
-    left: var(--_o3-social-sign-in-inline-padding-start);
-
-    display: inline-flex;
-}
-
 .o3-social-sign-in-button--apple {
-    --_o3-social-sign-in-icon: url(data:image/svg+xml,%3Csvg%20width%3D%2214%22%20height%3D%2216%22%20viewBox%3D%220%200%2014%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M13.2117%205.45401C13.118%205.52694%2011.4406%206.45157%2011.4406%208.50399C11.4406%2010.8794%2013.5738%2011.7181%2013.6389%2011.7389C13.6285%2011.791%2013.2977%2012.8901%2012.5137%2014.0101C11.8105%2014.9972%2011.0786%2015.9792%209.96381%2015.9792C8.85165%2015.9792%208.56515%2015.3489%207.27848%2015.3489C6.02567%2015.3489%205.58029%2016%204.55929%2016C3.54089%2016%202.82984%2015.0884%202.012%2013.9684C1.06653%2012.6531%200.300781%2010.6085%200.300781%208.67068C0.300781%205.5582%202.37143%203.90949%204.41082%203.90949C5.49173%203.90949%206.39552%204.60492%207.07532%204.60492C7.72126%204.60492%208.73184%203.86782%209.96381%203.86782C10.43%203.86782%2012.1074%203.90949%2013.2117%205.45401ZM9.37778%202.54989C9.88828%201.96126%2010.2477%201.14081%2010.2477%200.320365C10.2477%200.208367%2010.2373%200.0937653%2010.2165%200C9.3882%200.0312551%208.40106%200.53915%207.80721%201.21374C7.34099%201.73205%206.90342%202.54989%206.90342%203.38076C6.90342%203.50578%206.92686%203.6308%206.93467%203.66987C6.98937%203.68029%207.07272%203.6907%207.15867%203.6907C7.90358%203.6907%208.83863%203.20625%209.37778%202.54989Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A);
-    --_o3-social-sign-in-background-color: black;
-    --_o3-social-sign-in-color: white;
+    --_o3-social-sign-in-background-color: var(--o3-color-palette-black);
+    --_o3-social-sign-in-color: var(--o3-color-palette-white);
     --_o3-social-sign-in-border-color: transparrent;
 }
 .o3-social-sign-in-button--google {
-    --_o3-social-sign-in-icon: url(data:image/svg+xml,%0A%3Csvg%20width%3D%2216%22%20height%3D%2217%22%20viewBox%3D%220%200%2016%2017%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M15.8524%206.70764H8.16406V9.87887H12.5574C12.3681%2010.9037%2011.793%2011.7719%2010.9284%2012.3532V14.4103H13.5667C15.1103%2012.983%2016.0008%2010.8813%2016.0008%208.38455C16.0008%207.80322%2015.9489%207.24425%2015.8524%206.70764Z%22%20fill%3D%22%234285F4%22%2F%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M8.16413%2016.3964C10.3682%2016.3964%2012.2161%2015.6623%2013.5667%2014.4102L10.9285%2012.3532C10.1975%2012.8451%209.26246%2013.1358%208.16413%2013.1358C6.03797%2013.1358%204.23834%2011.6936%203.59641%209.75586H0.869141V11.8799C2.21237%2014.5593%204.97304%2016.3964%208.16413%2016.3964Z%22%20fill%3D%22%2334A853%22%2F%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M3.59555%209.7559C3.43228%209.26401%203.33952%208.73857%203.33952%208.19824C3.33952%207.6579%203.43228%207.13246%203.59555%206.64057V4.51648H0.868275C0.315399%205.62324%200%206.87534%200%208.19824C0%209.52113%200.315399%2010.7732%200.868275%2011.88L3.59555%209.7559Z%22%20fill%3D%22%23FBBC05%22%2F%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M8.16413%203.26066C9.36265%203.26066%2010.4387%203.6743%2011.2847%204.48667L13.6261%202.13527C12.2124%200.812371%2010.3645%200%208.16413%200C4.97304%200%202.21237%201.83715%200.869141%204.51649L3.59641%206.64058C4.23834%204.70281%206.03797%203.26066%208.16413%203.26066Z%22%20fill%3D%22%23EA4335%22%2F%3E%0A%3C%2Fsvg%3E%0A);
-    --_o3-social-sign-in-background-color: white;
-    --_o3-social-sign-in-color: black;
-    --_o3-social-sign-in-border-color: black;
+    --_o3-social-sign-in-background-color: var(--o3-color-palette-white);
+    --_o3-social-sign-in-color: var(--o3-color-palette-black);
+    --_o3-social-sign-in-border-color: var(--o3-color-palette-black);
+}
+
+.o3-social-sign-in-button--google > .o3-social-sign-in-button__icon {
+    margin-top: 3px;
 }
