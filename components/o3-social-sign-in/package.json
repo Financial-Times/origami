@@ -7,6 +7,14 @@
     "type": "git",
     "url": "git+https://github.com/Financial-Times/origami.git"
   },
+  "files": [
+    "cjs",
+    "esm",
+    "css",
+    "origami.json",
+    "package.json",
+    "README.md"
+  ],
   "private": false,
   "keywords": [
     "financial-times",
@@ -14,6 +22,9 @@
     "buttons",
     "social-sign-in"
   ],
+  "scripts": {
+    "build": "node ../../apps/dictionary/scripts/build-config/build.js && bash ../../scripts/component/build-o3.bash o3-social-sign-in"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
