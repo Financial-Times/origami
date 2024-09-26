@@ -12,6 +12,7 @@
       - [Wrapper](#wrapper)
       - [Custom Properties](#custom-properties)
     - [Normalisation](#normalisation)
+    - [Stacking with z-index](#stacking-with-z-index)
     - [Focus rings](#focus-rings)
     - [Fonts](#fonts)
     - [Icons](#icons)
@@ -132,7 +133,7 @@ or if you are using HTML markup use following classes:
 - `o3-typography-body-small-caps`
 - `o3-typography-body-small-bold`
 
-```tsx
+````tsx
 
 ### Links
 
@@ -145,7 +146,7 @@ Link styles can be used to give consistent styling to anchor tags:
 	Styling and usage guides can be seen on the
 	<a href="#" class="o3-typography-link">Origami</a> homepage.
 </p>
-```
+````
 
 #### JSX
 
@@ -320,6 +321,32 @@ E.g.
 - Normalising links
 - Normalising text related elements
 - Normalising form elements
+
+### Stacking with z-index
+
+We recommend to avoid setting `z-index`. Where needed, Origami provide some standard values as Custom Properties. This prevents conflicts within projects.
+
+1. [Stack without the z-index property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_without_z-index) where possible.
+2. Aim to reduce `z-index` elsewhere, rather than raise your own `z-index` value.
+3. Where `z-index` is required, use a standard value as below.
+
+- `--o3-z-base`: The base layer, for most elements where `z-index` is unavailable.
+- `--o3-z-popover`: Popovers which overlay content, such as select, autocomplete drop downs, calendar widgets, tooltips.
+- `--o3-z-nav-popover`: Navigation which overlays content, such as sticky headers and drawers.
+- `--o3-z-message-popover`: Non-modal messages which overlay content, including banners and toasts.
+- `--o3-z-modal-dialog`: Modal dialogue / overlays which prevent integration with underlying content.
+
+Where two elements fall into the same category and overlap, you may increment by one:
+
+```css
+.navigation-drawer {
+	z-index: calc(var(--o3-z-navigation-popover) + 1);
+}
+
+.navigation-sticky {
+	z-index: var(--o3-z-navigation-popover);
+}
+```
 
 ### Focus rings
 
