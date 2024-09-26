@@ -1,17 +1,9 @@
 ---
-title: Technical Guide
+title: O3 Specification
 description: A technical guide to using "o3" Origami.
 sidebar:
-  order: 11
+  order: 13
 ---
-
-This technical guide covers Origami "o3", the [latest evolution of Origami](/about/what-is-new/). If you are working with older Origami components, which are still most commonly in use today, we have a separate ["o2" technical guide](/o2-components/technical-guide/).
-
-## Using Origami in your project
-
-We publish multiple Origami packages to npm which are independently versioned and contain a collection of reusable components and patterns.
-
-If you would like to get started quickly, continue to our [guide to using Origami via npm](/getting-started/technical-guide/package-manager-npm). Otherwise keep reading for a general technical overview of Origami components.
 
 ## Code Structure & Languages
 
@@ -84,11 +76,11 @@ Other documentation sources:
   [customElement](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element),
   registered against the component’s JavaScript class.
 - We recommend components only modify:
-  - The component’s root element, and its children
-  - Elements passed explicitly to the component via JavaScript, and their
-    children
-  - Elements with any other data attribute in the component’s namespace,
-    and their children
+    - The component’s root element, and its children
+    - Elements passed explicitly to the component via JavaScript, and their
+      children
+    - Elements with any other data attribute in the component’s namespace,
+      and their children
 - Components are configurable using data attributes
 - Events triggered by a component should be namespaced under the
   target component’s name
@@ -99,15 +91,15 @@ Other documentation sources:
 - CSS selectors follow the [BEM naming convention](https://en.bem.info/methodology/naming-convention/).
 - Brand specific CSS must be applied using the presence of a parent `data-o3-brand` data attribute. E.g. `[data-o3-brand="core"] .o3-button`.
 - Theme specific CSS must be applied using the `data-o3-theme` data attribute, whether applied directly to the component or a parent element. E.g. `.o3-button[data-o3-theme=inverse],
-:where([data-o3-theme=inverse]) .o3-button`
+  :where([data-o3-theme=inverse]) .o3-button`
 - CSS Custom properties defined in the global
   namespace are prefixed with the component name
 - We recommend components only style:
-  - The component’s root element and its children
-  - Elements with classes prefixed with the component’s name, and their
-    children
-  - Elements with any other data-attribute in the component’s namespace, and
-    their children
+    - The component’s root element and its children
+    - Elements with classes prefixed with the component’s name, and their
+      children
+    - Elements with any other data-attribute in the component’s namespace, and
+      their children
 
 ## Versioning
 
