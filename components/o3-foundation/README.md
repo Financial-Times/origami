@@ -330,7 +330,7 @@ We recommend to avoid setting `z-index`. Where needed, Origami provide some stan
 2. Aim to reduce `z-index` elsewhere, rather than raise your own `z-index` value.
 3. Where `z-index` is required, use a standard value as below. Remember though, `z-index` is not a global value and only applies within a [Stacking Context (mdn)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context). You might find Josh W Comeau's [What The Heck, z-index??](https://www.joshwcomeau.com/css/stacking-contexts/) a good introduction.
 
-- `--o3-z-base`: The base layer, for most elements where `z-index` is unavailable.
+- `--o3-z-index`: To bump z-index for most elements, if `z-index` is unavoidable.
 - `--o3-z-popover`: Popovers which overlay content, such as select, autocomplete drop downs, calendar widgets, tooltips.
 - `--o3-z-nav-popover`: Navigation which overlays content, such as sticky headers and drawers.
 - `--o3-z-message-polite-popover`: Non-modal, non-critical messaging overlays such as marketing banners.
