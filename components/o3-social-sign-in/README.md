@@ -47,7 +47,7 @@ Google it is `gSignInWrapper`.
 | Property   | Values             | Description                                                                                                               |
 |------------|--------------------|---------------------------------------------------------------------------------------------------------------------------|
 | `provider` | `apple`, `google`  | Styles the button according to the sign in provider's design                                                              |
-| `flow`     | `signin`, `signun` | Adjusts copy to match the button's usage. E.g `signin` will read `Sign in with x` and `signon` will read `Sign up with x` |
+| `flow`     | `signin`, `signup` | Adjusts copy to match the button's usage. E.g `signin` will read `Sign in with x` and `signup` will read `Sign up with x` |
 
 ## Migration
 
