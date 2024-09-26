@@ -9,8 +9,10 @@ export default {
 	tags: ['autodocs'],
 	decorators: [
 		Story => (
-			<div data-o3-brand="core">
-				<Story />
+			<div data-o3-brand="core" className="o3-grid">
+				<div style={{gridColumn: 'content-start / content-end'}}>
+					<Story />
+				</div>
 			</div>
 		),
 	],

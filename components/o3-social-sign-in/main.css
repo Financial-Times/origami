@@ -5,15 +5,15 @@
     );
 
     min-width: 140px;
-    /* Width based on content by default, until set to `inital` */
-    --o3-social-sign-in-fluid: ;
-    width: var(--o3-social-sign-in-fluid, 100%);
+    --o3-grid-columns-to-span-count: 4;
+    max-width: var(--o3-grid-columns-to-span-width);
+    width: 100%;
     min-height: 40px;
     padding: 0 var(--o3-spacing-m) 0 var(--o3-spacing-s);
     display: inline-flex;
     gap: var(--o3-spacing-s);
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     box-sizing: border-box;
 
     font-size: var(--o3-font-size-negative-1);
@@ -28,6 +28,11 @@
 
     color: var(--_o3-social-sign-in-color);
     background: var(--_o3-social-sign-in-background-color);
+}
+
+.o3-social-sign-in-button__copy {
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .o3-social-sign-in-button--apple {
