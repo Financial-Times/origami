@@ -4,5 +4,5 @@
 	--o3-z-navigation-popover: 20; /* Navigation which overlays content, such as sticky headers and drawers. */
 	--o3-z-message-polite-popover: 30; /* Non-modal, non-critical messaging overlays such as banners. */
 	--o3-z-message-service-popover: 35; /* Non-modal, messaging overlays for important service or status messages such as toasts. */
-	--o3-z-modal-dialog: 40; /* Modal dialogue / overlays which prevent integration with underlying content. */
+	--o3-z-modal-dialog: 40; /* Modal dialogue / overlays which prevent interaction with underlying content. */
 }
