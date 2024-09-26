@@ -1,5 +1,3 @@
-import {AppleIcon, GoogleIcon} from './icons';
-
 type Provider = 'apple' | 'google';
 
 const providerToTitle: Record<Provider, string> = {
