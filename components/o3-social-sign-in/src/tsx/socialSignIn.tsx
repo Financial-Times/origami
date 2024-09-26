@@ -24,9 +24,9 @@ export const SocialSignIn = (props: SocialSignInProps) => {
 
 	return (
 		<button id={providerId} className={`o3-social-sign-in-button o3-social-sign-in-button--${props.provider}`}>
-			{/*TODO: Check if this gets read, may need to be aria hidden*/}
 			<span
-				className="o3-social-sign-in-button__icon">{isProviderApple(props.provider) ?
+				className="o3-social-sign-in-button__icon"
+				aria-hidden={true}>{isProviderApple(props.provider) ?
 				<AppleIcon /> :
 				<GoogleIcon />
 			}</span>
