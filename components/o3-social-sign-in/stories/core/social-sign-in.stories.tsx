@@ -1,7 +1,7 @@
 import type {Meta} from '@storybook/react';
 import {SocialSignIn as SocialSignInTsx} from '../../src/tsx/socialSignIn';
 import {SocialSignInStory} from '../story-templates';
-import '../../main.css';
+import '../../src/css/brands/core.css';
 
 export default {
 	title: 'Core/o3-social-sign-in',
