@@ -1,6 +1,7 @@
 import type {Meta} from '@storybook/react';
 import {SocialSignIn as SocialSignInTsx} from '../../src/tsx/socialSignIn';
 import {SocialSignInStory} from '../story-templates';
+import links from '@financial-times/o3-figma-sb-links';
 import '../../src/css/brands/whitelabel.css';
 
 export default {
@@ -20,7 +21,7 @@ export default {
 		backgrounds: {default: 'paper'},
 		design: {
 			type: 'figma',
-			// url: links['o3-social-sign-in'].figma,
+			url: links['whitelabel-o3-social-sign-in--social-sign-in-stories'].figma,
 		},
 	},
 } as Meta;
