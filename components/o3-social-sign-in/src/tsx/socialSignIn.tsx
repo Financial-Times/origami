@@ -5,23 +5,20 @@ const providerToTitle: Record<Provider, string> = {
 	google: 'Google',
 };
 
-type Flow = 'signin' | 'signup';
-
 export interface SocialSignInProps {
+	text: string
 	provider: Provider,
-	flow: Flow
 }
 
 export const SocialSignIn = (props: SocialSignInProps) => {
 	const providerId = props.provider === 'apple' ? 'appleid-signin' : 'gSignInWrapper';
-	const flowCopy = props.flow === 'signin' ? 'in' : 'up';
+	const defaultCopy = `Sign in with ${providerToTitle[props.provider]}`
 
 	return (
 		<button id={providerId} className={`o3-social-sign-in-button o3-social-sign-in-button--${props.provider}`}>
-
 			<span
 				className="o3-social-sign-in-button__copy">
-				Sign {flowCopy} with {providerToTitle[props.provider]}
+				{props.text ? props.text : defaultCopy}
 			</span>
 		</button>);
 };
