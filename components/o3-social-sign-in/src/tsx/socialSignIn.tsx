@@ -18,9 +18,7 @@ export const SocialSignIn = (props: SocialSignInProps) => {
 
 	return (
 		<button id={providerId} className={`o3-social-sign-in-button o3-social-sign-in-button--${props.provider}`}>
-			<span
-				className="o3-social-sign-in-button__icon"
-				aria-hidden={true}></span>
+
 			<span
 				className="o3-social-sign-in-button__copy">
 				Sign {flowCopy} with {providerToTitle[props.provider]}
