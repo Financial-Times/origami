@@ -58,7 +58,7 @@ Google it is `gSignInWrapper`.
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please
-either [raise an issue](https://github.com/Financial-Times/o3-button/issues),
+either [raise an issue](https://github.com/Financial-Times/origami/issues),
 visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or
 email [Origami Support](mailto:origami-support@ft.com).
 
