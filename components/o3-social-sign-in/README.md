@@ -1,6 +1,6 @@
 # o3-social-sign-in
 
-Anchor tag to provide consistent styling of social sign-in providers.
+A button for social sign-in providers.
 
 - [o3-social-sign-in](#o3-social-sign-in)
     - [Markup](#markup)
