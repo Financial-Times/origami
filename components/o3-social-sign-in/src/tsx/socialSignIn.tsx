@@ -6,8 +6,8 @@ const providerToTitle: Record<Provider, string> = {
 };
 
 export interface SocialSignInProps {
-	text: string
 	provider: Provider,
+	text?: string
 }
 
 export const SocialSignIn = (props: SocialSignInProps) => {

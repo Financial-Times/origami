@@ -24,30 +24,36 @@ their sign-in flows:
         id="appleid-signin"
         class="o3-social-sign-in-button o3-social-sign-in-button--apple"
 >
-  Sign up with Apple
+  <span class="o3-social-sign-in-button__copy">Sign in with Apple</span>
 </button>
 <button
         id="gSignInWrapper"
         class="o3-social-sign-in-button o3-social-sign-in-button--google"
 >
-  Sign up with Google
+  <span class="o3-social-sign-in-button__copy">Sign in with Google</span>
 </button>
 ```
 
 ```tsx
-<SocialSignIn provider="apple" flow='signin' />
-<SocialSignIn provider="google" flow='signin' />
+<SocialSignIn provider="apple" />
+<SocialSignIn provider="google" />
 ```
 
 When using the TSX component, ids will automatically be set. For Apple sign in, the id is `appleid-signin` and for
 Google it is `gSignInWrapper`.
 
+By default, the TSX component will display the button with default copy. Use the `text` property to customise it:
+```tsx
+<SocialSignIn provider="apple" text="Register with Apple" />
+<SocialSignIn provider="google" text="Register with Google" />
+```
+
 ### Properties
 
-| Property   | Values             | Description                                                                                                               |
-|------------|--------------------|---------------------------------------------------------------------------------------------------------------------------|
-| `provider` | `apple`, `google`  | Styles the button according to the sign in provider's design                                                              |
-| `flow`     | `signin`, `signup` | Adjusts copy to match the button's usage. E.g `signin` will read `Sign in with x` and `signup` will read `Sign up with x` |
+| Property   | Values             | Description                                                                                                                            |
+|------------|--------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `provider` | `apple`, `google`  | Styles the button according to the sign in provider's design                                                                           |
+| `text`      | Any `string` value | (Optional) Lets users override copy with custom content. If no string is provided then `Sign in with <provider>` will display instead. |
 
 ## Migration
 
