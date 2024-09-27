@@ -12,6 +12,7 @@
       - [Wrapper](#wrapper)
       - [Custom Properties](#custom-properties)
     - [Normalisation](#normalisation)
+    - [Stacking with z-index](#stacking-with-z-index)
     - [Focus rings](#focus-rings)
     - [Fonts](#fonts)
     - [Icons](#icons)
@@ -132,7 +133,7 @@ or if you are using HTML markup use following classes:
 - `o3-typography-body-small-caps`
 - `o3-typography-body-small-bold`
 
-```tsx
+````tsx
 
 ### Links
 
@@ -145,7 +146,7 @@ Link styles can be used to give consistent styling to anchor tags:
 	Styling and usage guides can be seen on the
 	<a href="#" class="o3-typography-link">Origami</a> homepage.
 </p>
-```
+````
 
 #### JSX
 
@@ -320,6 +321,33 @@ E.g.
 - Normalising links
 - Normalising text related elements
 - Normalising form elements
+
+### Stacking with z-index
+
+We recommend to avoid setting `z-index`. Where needed, Origami provide some standard values as Custom Properties. This help prevent conflicts within projects.
+
+1. [Stack without the z-index property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_without_z-index) where possible.
+2. Aim to reduce `z-index` elsewhere, rather than raise your own `z-index` value.
+3. Where `z-index` is required, use a standard value as below. Remember though, `z-index` is not a global value and only applies within a [Stacking Context (mdn)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context). You might find Josh W Comeau's [What The Heck, z-index??](https://www.joshwcomeau.com/css/stacking-contexts/) a good introduction.
+
+- `--o3-z-index`: To bump z-index for most elements, if `z-index` is unavoidable.
+- `--o3-z-popover`: Popovers which overlay content, such as select, autocomplete drop downs, calendar widgets, tooltips.
+- `--o3-z-nav-popover`: Navigation which overlays content, such as sticky headers and drawers.
+- `--o3-z-message-polite-popover`: Non-modal, non-critical messaging overlays such as marketing banners.
+- `--o3-z-message-service-popover`: Non-modal, messaging overlays for important service or status messages such as toasts.
+- `--o3-z-modal-dialog`: Modal dialogue / overlays which prevent interaction with underlying content.
+
+Where two elements fall into the same category and overlap, you may increment by one:
+
+```css
+.navigation-drawer {
+	z-index: calc(var(--o3-z-navigation-popover) + 1);
+}
+
+.navigation-sticky {
+	z-index: var(--o3-z-navigation-popover);
+}
+```
 
 ### Focus rings
 
